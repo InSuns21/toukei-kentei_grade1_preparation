@@ -6,34 +6,34 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: EMAG1
-    path: textbook/volumes/dream_thater/物理系/EMAG1
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG1
     status: completed
     title: 電荷・Coulomb 力・電場
   - id: EMAG2
-    path: textbook/volumes/dream_thater/物理系/EMAG2
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG2
     status: completed
     title: Gauss の法則と静電場
   - id: EMAG3
-    path: textbook/volumes/dream_thater/物理系/EMAG3
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG3
     status: completed
     title: 電位・Poisson 方程式・Coulomb ポテンシャル
   - id: EMAG4
-    path: textbook/volumes/dream_thater/物理系/EMAG4
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG4
     status: completed
     title: 導体・境界値問題・静電エネルギー
   - id: EMAG5
-    path: textbook/volumes/dream_thater/物理系/EMAG5
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG5
     status: completed
     title: 電流・磁場・Ampère の法則
   - id: EMAG6
-    path: textbook/volumes/dream_thater/物理系/EMAG6
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG6
     status: completed
     title: Lorentz 力と荷電粒子
   - id: EMAG7
-    path: textbook/volumes/dream_thater/物理系/EMAG7
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG7
     status: completed
     title: 電磁誘導と Maxwell 方程式
   - id: EMAG8
-    path: textbook/volumes/dream_thater/物理系/EMAG8
+    path: textbook/volumes/dream_thater/物理系/EMAG/EMAG8
     status: completed
     title: 電磁波とエネルギー

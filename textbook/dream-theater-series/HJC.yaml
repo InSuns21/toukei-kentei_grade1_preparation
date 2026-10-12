@@ -6,26 +6,26 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: HJC1
-    path: textbook/volumes/dream_thater/解析系/HJC1
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC1
     status: completed
     title: 決定論的最適制御・動的計画原理・HJB の導出
   - id: HJC2
-    path: textbook/volumes/dream_thater/解析系/HJC2
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC2
     status: completed
     title: 粘性解・比較原理・一意性
   - id: HJC3
-    path: textbook/volumes/dream_thater/解析系/HJC3
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC3
     status: completed
     title: HJB と value function の粘性解特徴付け
   - id: HJC4
-    path: textbook/volumes/dream_thater/解析系/HJC4
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC4
     status: completed
     title: 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs
   - id: HJC5
-    path: textbook/volumes/dream_thater/解析系/HJC5
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC5
     status: completed
     title: 確率制御・二階 HJB
   - id: HJC6
-    path: textbook/volumes/dream_thater/解析系/HJC6
+    path: textbook/volumes/dream_thater/解析系/HJC/HJC6
     status: completed
     title: 確率微分ゲーム・二階 Isaacs 方程式

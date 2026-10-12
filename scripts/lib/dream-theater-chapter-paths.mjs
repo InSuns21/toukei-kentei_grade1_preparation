@@ -16,7 +16,8 @@ export function chapterPathsFromIndex(index) {
     for (const href of section.paths) {
       const dir=path.posix.dirname(href);
       const id=path.posix.basename(dir);
-      const expected='textbook/volumes/dream_thater/'+cat+'/'+id+'/index.md';
+      const course=id.startsWith('F0-')?'F0':(/^[A-Z]+/.exec(id)?.[0]??'');
+      const expected='textbook/volumes/dream_thater/'+cat+'/'+course+'/'+id+'/index.md';
       if (href !== expected || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(id)) {
         throw Error('Invalid canonical chapter path: '+href);
       }

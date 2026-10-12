@@ -1,0 +1,2470 @@
+# STO2 離散時間マルチンゲール・不等式・収束
+
+<!-- definition-example-audit: strict -->
+
+> **既出概念への参照**：STO1 の [フィルトレーション](../STO1/index.md#def-sto1-filtration-usual)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[停止時刻までの σ-代数](../STO1/index.md#def-sto1-stopping-sigma-field) を既知として使います。
+
+STO1 では、時間とともに情報が増えるフィルトレーションと、未来を見ずに停止する停止時刻を作りました。
+
+この章では、その情報構造の上で「現在までの情報を使って次の平均を読む」という考えを定式化します。
+
+中心となる問いは三つです。
+
+1. 過去の情報だけで賭け方や停止規則を変えても、条件付き平均の構造はどう保たれるか。
+2. 終端時刻の情報から、途中の最大偏差や上下往復の回数をどう抑えるか。
+3. その評価から、標本路がほとんど確実に一つの極限へ落ち着くことをどう導くか。
+
+最後には、一様可積分性がある場合に概収束を $L^1$ 収束へ上げ、非有界停止時刻で期待値を極限へ通す条件まで整理します。
+
+特に収束論では、「期待値が有界だから収束する」と飛ばさず、
+
+- 二つの高さの間を無限回往復する標本路を排除する、
+- 拡張実数値の極限を得る、
+- 一様 $L^1$ 評価から極限が無限大へ逃げる可能性を排除する、
+
+という機構を順に追います。
+
+---
+
+## 1. 条件付き平均で公平性を定義する
+
+以後、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ をフィルトレーションとします。
+
+単に $E[X_{n+1}]=E[X_n]$ と平均が一定でも、「現在までに何が分かっているか」を無視しているので公平な時間発展とは限りません。時刻 $n$ の情報を全部知ったうえで、次時刻の平均が現在値に戻ることを要求したいところです。
+
+そのために条件付き期待値 $E[X_{n+1}\mid\mathcal F_n]$ を使います。等号なら平均的な上昇も下降もない過程、不等号なら現在の情報から見て上向き・下向きの傾向を持つ過程として三種類をまとめて定義します。
+
+<a id="def-sto2-martingale"></a>
+
+<!-- formal-statement-start -->
+> **定義（マルチンゲール・劣マルチンゲール・優マルチンゲール）**  
+> 実数値過程 $X=(X_n)_{n\ge0}$ が各 $n$ で $\mathcal F_n$ 可測かつ
+>
+$$
+E|X_n|<\infty
+$$
+>
+> を満たすとする。
+>
+> - 各 $n$ で
+>
+$$
+E[X_{n+1}\mid\mathcal F_n]=X_n
+$$
+>
+> が成り立つとき、$X$ を **マルチンゲール** という。
+>
+> - 各 $n$ で
+>
+$$
+E[X_{n+1}\mid\mathcal F_n]\ge X_n
+$$
+>
+> が成り立つとき、$X$ を **劣マルチンゲール** という。
+>
+> - 各 $n$ で
+>
+$$
+E[X_{n+1}\mid\mathcal F_n]\le X_n
+$$
+>
+> が成り立つとき、$X$ を **優マルチンゲール** という。
+<!-- formal-statement-end -->
+
+適合性と integrability は飾りではありません。条件付き期待値
+$E[X_{n+1}\mid\mathcal F_n]$ を現在値 $X_n$ と比較するために必要です。
+
+マルチンゲールなら [tower property](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower) により、$m\ge n$ に対して
+
+$$
+E[M_m\mid\mathcal F_n]=M_n.
+$$
+
+特に
+
+$$
+E[M_m]=E[M_n]=E[M_0].
+$$
+
+ただし「平均が一定」だけではマルチンゲールとは限りません。現在の情報を条件にした平均が保存されることが本質です。
+
+<!-- definition-example-start: def-sto2-martingale -->
+### 直接例：公平ランダムウォークとその二乗
+
+**定義の確認**
+
+独立な確率変数 $\xi_1,\xi_2,\ldots$ が
+
+$$
+P(\xi_k=1)=P(\xi_k=-1)=\frac12
+$$
+
+を満たすとし、
+
+$$
+S_0=0,
+\qquad
+S_n=\sum_{k=1}^n\xi_k,
+\qquad
+\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)
+$$
+
+と置きます。
+
+**マルチンゲールの確認。**
+
+$S_n$ は $\mathcal F_n$ 可測で $E|S_n|<\infty$ です。また $\xi_{n+1}$ は $\mathcal F_n$ と独立で平均 0 なので
+
+$$
+E[S_{n+1}\mid\mathcal F_n]
+=
+S_n+E[\xi_{n+1}\mid\mathcal F_n]
+=
+S_n.
+$$
+
+従って $(S_n)$ はマルチンゲールです。
+
+**劣マルチンゲールの確認。**
+
+$$
+S_{n+1}^2
+=
+S_n^2+2S_n\xi_{n+1}+\xi_{n+1}^2
+$$
+
+より
+
+$$
+E[S_{n+1}^2\mid\mathcal F_n]
+=
+S_n^2+1
+\ge S_n^2.
+$$
+
+従って $(S_n^2)$ は劣マルチンゲールです。
+
+同じ式から
+
+$$
+S_n^2-n
+$$
+
+はマルチンゲールになります。二乗の平均増加分 $1$ を差し引く発想は、後で扱う「平均増加を予測可能部分として分離する」定理の最小例です。
+
+また $-S_n^2$ は優マルチンゲールです。
+<!-- definition-example-end -->
+
+---
+
+## 2. 「次の増分を見る前に」係数を決める
+
+STO1 では予測可能過程を連続時間も含む形で導入しました。離散時間では意味が非常に具体的です。
+
+増分 $X_k-X_{k-1}$ を見た後で係数を選べるなら、都合のよい結果だけに賭けることができ、マルチンゲールの公平性は壊れます。そこで第 $k$ 回の係数は、一つ前の情報 $\mathcal F_{k-1}$ だけで決めることにします。
+
+この係数を各増分へ掛けて足し合わせると、「未来を見ない戦略が得る累積損益」を一つの過程として表せます。
+
+<a id="def-sto2-predictable-transform"></a>
+
+<!-- formal-statement-start -->
+> **定義（離散時間予測可能過程と予測可能変換）**  
+> 過程 $H=(H_n)_{n\ge1}$ が
+>
+$$
+H_n\text{ は }\mathcal F_{n-1}\text{ 可測}
+$$
+>
+> を全ての $n\ge1$ で満たすとき、$H$ を離散時間の **予測可能過程** という。
+>
+> 過程 $X=(X_n)$ に対し
+>
+$$
+(H\cdot X)_0:=0,
+\qquad
+(H\cdot X)_n
+:=
+\sum_{k=1}^n
+H_k(X_k-X_{k-1})
+$$
+>
+> を **予測可能変換** という。
+<!-- formal-statement-end -->
+
+$H_k$ は $k$ 番目の増分
+
+$$
+\Delta X_k:=X_k-X_{k-1}
+$$
+
+を見る前に決まっています。
+
+<!-- definition-example-start: def-sto2-predictable-transform -->
+### 直接例：前時刻の符号で次の賭け額を決める
+
+**定義の確認**
+
+公平ランダムウォーク $S_n$ に対して
+
+$$
+H_k
+=
+1_{\{S_{k-1}\ge0\}}
+$$
+
+と置きます。
+
+$S_{k-1}$ は $\mathcal F_{k-1}$ 可測なので $H_k$ も $\mathcal F_{k-1}$ 可測です。従って $H$ は予測可能です。
+
+変換
+
+$$
+G_n
+=
+\sum_{k=1}^n
+1_{\{S_{k-1}\ge0\}}(S_k-S_{k-1})
+$$
+
+は、「直前までの情報で参加するかを決め、次のコイントスの結果だけを損益に入れる」戦略です。
+
+もし $H_k=1_{\{S_k\ge0\}}$ とすれば、$k$ 回目の結果を見た後で係数を選んでおり、一般には予測可能ではありません。
+<!-- definition-example-end -->
+
+この定義が効くのは、未来を見ない係数でマルチンゲールの増分を組み替えても、公平性が保たれるからです。劣マルチンゲールでは、係数を非負にすれば上向きの条件付き平均を反転させません。
+
+つまり「予測可能」という情報制約が、変換後の過程へそのままマルチンゲール構造を運ぶための条件になります。
+
+<a id="prop-sto2-predictable-transform"></a>
+
+<!-- formal-statement-start -->
+> **命題（予測可能変換）**  
+> $M$ をマルチンゲール、$H$ を有界予測可能過程とする。このとき $H\cdot M$ はマルチンゲールである。
+>
+> また $X$ を劣マルチンゲール、$H$ を **非負** 有界予測可能過程とする。このとき $H\cdot X$ は劣マルチンゲールである。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+予測可能であるため $H_{n+1}$ を $\mathcal F_n$ 条件付き期待値の外へ出せます。
+
+マルチンゲールでは次増分の条件付き平均が 0、劣マルチンゲールでは 0 以上です。劣マルチンゲールの場合に $H\ge0$ が必要なのは、不等号の向きを保つためです。
+
+<!-- proof-start -->
+### 証明
+
+$G:=H\cdot X$ とします。$H$ が有界なので各有限時刻の $G_n$ は可積分で、適合です。
+
+劣マルチンゲールの場合、
+
+$$
+G_{n+1}-G_n
+=
+H_{n+1}(X_{n+1}-X_n).
+$$
+
+$H_{n+1}$ は $\mathcal F_n$ 可測かつ非負なので
+
+$$
+\begin{aligned}
+E[G_{n+1}-G_n\mid\mathcal F_n]
+&=
+H_{n+1}
+E[X_{n+1}-X_n\mid\mathcal F_n]\\
+&\ge0.
+\end{aligned}
+$$
+
+従って $G$ は劣マルチンゲールです。
+
+$X=M$ がマルチンゲールなら右辺の条件付き平均は 0 なので、$H$ の符号に関係なく
+
+$$
+E[G_{n+1}\mid\mathcal F_n]=G_n.
+$$
+
+よって $H\cdot M$ はマルチンゲールです。
+<!-- proof-end -->
+
+---
+
+## 3. 停止は「増分を途中から 0 にする」予測可能変換
+
+STO1 の [停止時刻](../STO1/index.md#def-sto1-stopping-time) に対し
+
+$$
+X_n^\tau=X_{n\wedge\tau}
+$$
+
+を停止過程と呼びました。
+
+ここで最初に確かめたいのは、過去の情報だけで停止時刻を選んだとき、公平性や劣マルチンゲール性が壊れないかという点です。停止は、停止前の増分だけを採用し、停止後の増分へ係数 0 を掛ける操作と見なせます。
+
+その 0/1 係数が一時刻前の情報で決まることが、停止時刻性の役割です。
+
+<a id="thm-sto2-stopped-martingale"></a>
+
+<!-- formal-statement-start -->
+> **定理（停止マルチンゲール / 劣マルチンゲール）**  
+> $\tau$ を停止時刻とする。
+>
+> - $M$ がマルチンゲールなら $M^\tau=(M_{n\wedge\tau})$ もマルチンゲールである。
+> - $X$ が劣マルチンゲールなら $X^\tau=(X_{n\wedge\tau})$ も劣マルチンゲールである。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+停止後の増分は 0 です。実際
+
+$$
+X_{(n+1)\wedge\tau}-X_{n\wedge\tau}
+=
+1_{\{\tau>n\}}(X_{n+1}-X_n).
+$$
+
+停止時刻性により
+
+$$
+\{\tau>n\}\in\mathcal F_n.
+$$
+
+つまり停止するかどうかは次の増分を見る前に決まっています。
+
+<!-- proof-start -->
+### 証明
+
+まず場合分けから
+
+$$
+X_{(n+1)\wedge\tau}-X_{n\wedge\tau}
+=
+1_{\{\tau>n\}}(X_{n+1}-X_n)
+$$
+
+が成り立ちます。
+
+$\tau\le n$ なら両辺 0、$\tau>n$ なら整数値停止時刻なので両辺とも $X_{n+1}-X_n$ です。
+
+$1_{\{\tau>n\}}$ は $\mathcal F_n$ 可測かつ非負です。従って $X$ が劣マルチンゲールなら
+
+$$
+\begin{aligned}
+&E[X_{(n+1)\wedge\tau}-X_{n\wedge\tau}\mid\mathcal F_n]\\
+&\qquad=
+1_{\{\tau>n\}}
+E[X_{n+1}-X_n\mid\mathcal F_n]
+\ge0.
+\end{aligned}
+$$
+
+マルチンゲールなら等号 0 です。
+
+また $X_{n\wedge\tau}$ は $X_0,\ldots,X_n$ の有限個の値から選ばれるので可積分です。従って結論が従います。
+<!-- proof-end -->
+
+この定理は、停止操作が
+
+$$
+H_{n+1}=1_{\{\tau>n\}}
+$$
+
+という予測可能係数で増分を切る操作だと読むこともできます。
+
+---
+
+## 4. ランダム時刻でも条件付き平均を比較する
+
+決定論的時刻 $m\le n$ なら劣マルチンゲールは
+
+$$
+E[X_n\mid\mathcal F_m]\ge X_m
+$$
+
+を満たします。
+
+任意抽出は $m,n$ を停止時刻に置き換えます。ただしランダム時刻では、比較する情報も $\mathcal F_m$ ではなく $\mathcal F_\sigma$ になります。
+
+まず停止時刻を決定論的な $N$ で有界にします。こうすれば停止過程を有限時刻 $N$ で評価するだけで済み、極限交換を使わずに「ランダムに観測時刻を選んでも条件付き平均の構造が保たれる」ことを証明できます。
+
+<a id="thm-sto2-bounded-optional-sampling"></a>
+
+<!-- formal-statement-start -->
+> **定理（有界任意抽出）**  
+> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を停止時刻とする。ある決定論的 $N<\infty$ が存在して
+>
+$$
+0\le\sigma\le\tau\le N
+$$
+>
+> a.s. とする。このとき
+>
+$$
+\boxed{
+E[X_\tau\mid\mathcal F_\sigma]\ge X_\sigma
+}
+$$
+>
+> a.s. が成り立つ。
+>
+> 特に $M$ がマルチンゲールなら
+>
+$$
+\boxed{
+E[M_\tau\mid\mathcal F_\sigma]=M_\sigma
+}
+$$
+>
+> a.s. であり、
+>
+$$
+E[M_\tau]=E[M_\sigma]=E[M_0].
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+差
+
+$$
+X_\tau-X_\sigma
+$$
+
+を、$\sigma$ から $\tau$ の間だけ増分を足す telescoping sum にします。
+
+次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [停止時刻までの sigma-field](../STO1/index.md#def-sto1-stopping-sigma-field) により
+
+$$
+A\cap\{\sigma\le k\}\in\mathcal F_k.
+$$
+
+ここに $\{\tau>k\}\in\mathcal F_k$ を掛けると、各増分へ掛かる指示関数が $\mathcal F_k$ 可測になります。
+
+<!-- proof-start -->
+### 証明
+
+boundedness から $X_\sigma,X_\tau$ は有限個の $X_0,\ldots,X_N$ の混合なので可積分です。
+
+経路ごとに
+
+$$
+X_\tau-X_\sigma
+=
+\sum_{k=0}^{N-1}
+1_{\{\sigma\le k<\tau\}}
+(X_{k+1}-X_k).
+$$
+
+$A\in\mathcal F_\sigma$ を任意に取ります。
+
+$$
+B_k
+:=
+A\cap\{\sigma\le k<\tau\}
+$$
+
+と置くと、
+
+$$
+A\cap\{\sigma\le k\}\in\mathcal F_k
+$$
+
+かつ
+
+$$
+\{\tau>k\}\in\mathcal F_k
+$$
+
+なので $B_k\in\mathcal F_k$ です。
+
+従って劣マルチンゲール性から
+
+$$
+\begin{aligned}
+E[1_{B_k}(X_{k+1}-X_k)]
+&=
+E\!\left[
+1_{B_k}
+E[X_{k+1}-X_k\mid\mathcal F_k]
+\right]\\
+&\ge0.
+\end{aligned}
+$$
+
+有限和を取って
+
+$$
+E[1_A(X_\tau-X_\sigma)]\ge0.
+$$
+
+これは全ての $A\in\mathcal F_\sigma$ で成り立つので
+
+$$
+E[X_\tau\mid\mathcal F_\sigma]\ge X_\sigma.
+$$
+
+$X=M$ がマルチンゲールなら各増分の条件付き平均が 0 なので、全ての不等号が等号になり
+
+$$
+E[M_\tau\mid\mathcal F_\sigma]=M_\sigma.
+$$
+
+最後に期待値を取れば
+
+$$
+E[M_\tau]=E[M_\sigma]=E[M_0].
+$$
+<!-- proof-end -->
+
+停止時刻が有界であるため、この証明には極限交換がありません。非有界停止時刻で難しくなるのは、この先です。
+
+---
+
+## 5. 劣マルチンゲールの平均増加を分離する
+
+劣マルチンゲールでは、次の増分の条件付き平均が 0 ではなく非負です。そのため「ランダムな揺らぎ」と「現在までの情報から既に予測できる平均増加」が混ざっています。
+
+この二つを分離できれば、劣マルチンゲールをマルチンゲールの道具で調べられます。具体的には、一段ごとの予測可能な平均増分を累積して予測可能な増加部分 $A$ を作り、それを $X$ から引いて公平な部分 $M$ を取り出します。
+
+<a id="thm-sto2-doob-decomposition"></a>
+
+<!-- formal-statement-start -->
+> **定理（離散時間 Doob 分解）**  
+> $X=(X_n)_{n\ge0}$ を可積分劣マルチンゲールとする。このとき
+>
+$$
+X_n=M_n+A_n
+$$
+>
+> と一意に表せる。ここで
+>
+> - $M$ はマルチンゲール、
+> - $A_0=0$、
+> - $A_n$ は可積分、
+> - $A_n$ は $n\ge1$ で $\mathcal F_{n-1}$ 可測、
+> - $A_n$ は a.s. 非減少、
+>
+> である。
+<!-- formal-statement-end -->
+
+### まず何を引けばよいか
+
+劣マルチンゲールの一段平均増加は
+
+$$
+E[X_n-X_{n-1}\mid\mathcal F_{n-1}]
+\ge0
+$$
+
+です。
+
+そこでこの「時刻 $n-1$ で既に予測できる平均増分」を累積します。
+
+### 直接例：$S_n^2$ の補償項
+
+公平ランダムウォークで $S_n=S_{n-1}+\xi_n$、$E[\xi_n\mid\mathcal F_{n-1}]=0$、$\xi_n^2=1$ とします。まず
+
+$$
+S_n^2-S_{n-1}^2
+=
+2S_{n-1}\xi_n+\xi_n^2
+$$
+
+なので、$S_{n-1}$ が $\mathcal F_{n-1}$ 可測であることを使うと
+
+$$
+\begin{aligned}
+E[S_n^2-S_{n-1}^2\mid\mathcal F_{n-1}]
+&=
+2S_{n-1}E[\xi_n\mid\mathcal F_{n-1}]
++
+E[\xi_n^2\mid\mathcal F_{n-1}]\\
+&=0+1
+=1.
+\end{aligned}
+$$
+
+したがって
+
+$$
+A_n=n,
+\qquad
+M_n=S_n^2-n.
+$$
+
+まさに先ほど見たマルチンゲールが現れます。
+
+### 証明の見取り図
+
+候補を
+
+$$
+A_n
+=
+\sum_{k=1}^n
+E[X_k-X_{k-1}\mid\mathcal F_{k-1}]
+$$
+
+と置き、$M_n=X_n-A_n$ とします。
+
+存在は一段ずつ条件付き平均を消せば終わります。一意性では、二つの分解の差が「マルチンゲールかつ一時刻前に既知」になるため、時間方向に変化できないことを使います。
+
+<!-- proof-start -->
+### 証明
+
+$$
+A_0:=0,
+\qquad
+A_n
+:=
+\sum_{k=1}^n
+E[X_k-X_{k-1}\mid\mathcal F_{k-1}]
+$$
+
+と置きます。
+
+各増分
+
+$$
+\Delta A_k
+=
+E[X_k-X_{k-1}\mid\mathcal F_{k-1}]
+$$
+
+は $\mathcal F_{k-1}$ 可測で、劣マルチンゲール性から非負です。従って $A_n$ は $\mathcal F_{n-1}$ 可測で非減少です。
+
+$M_n:=X_n-A_n$ とすると
+
+$$
+\begin{aligned}
+E[M_n-M_{n-1}\mid\mathcal F_{n-1}]
+&=
+E[X_n-X_{n-1}\mid\mathcal F_{n-1}]\\
+&\quad-(A_n-A_{n-1})\\
+&=0.
+\end{aligned}
+$$
+
+よって $M$ はマルチンゲールです。
+
+一意性を示します。別の分解
+
+$$
+X_n=M_n'+A_n'
+$$
+
+が同じ条件を満たすとします。
+
+$$
+D_n:=M_n-M_n'=A_n'-A_n
+$$
+
+と置くと、$D$ はマルチンゲールであり、$n\ge1$ では $\mathcal F_{n-1}$ 可測です。
+
+従って
+
+$$
+D_n
+=
+E[D_n\mid\mathcal F_{n-1}]
+=
+D_{n-1}.
+$$
+
+$D_0=0$ なので帰納的に $D_n=0$。従って $M=M'$、$A=A'$ です。
+<!-- proof-end -->
+
+$A$ は、後の連続時間理論でも「予測可能な平均変動を分離する部分」として発展していく構造の原型です。
+
+---
+
+## 6. 終端分布から途中最大値を抑える
+
+確率過程では「時刻 $n$ の値」だけでなく
+
+$$
+\max_{0\le k\le n}X_k
+$$
+
+のような標本路全体の最大値を制御したくなります。
+
+各時刻について別々に確率を評価して和を取ると、時間依存を無視した粗い評価になりがちです。そこで「初めて水準 $\lambda$ に達した時刻」で過程を止め、最大値の事象を一つの停止時刻の事象へ変換します。前節の任意抽出が、終端値から途中最大値を制御する不等式に変わります。
+
+<a id="thm-sto2-doob-maximal"></a>
+
+<!-- formal-statement-start -->
+> **定理（Doob 最大不等式）**  
+> $X=(X_k)_{k=0}^n$ を劣マルチンゲールとし、$\lambda>0$ とする。このとき
+>
+$$
+\boxed{
+\lambda
+P\!\left(
+\max_{0\le k\le n}X_k\ge\lambda
+\right)
+\le
+E[X_n^+]
+}
+$$
+>
+> が成り立つ。ここで $x^+=\max(x,0)$ である。
+<!-- formal-statement-end -->
+
+### なぜ初到達時刻を入れるのか
+
+最大値の事象を
+
+$$
+A
+=
+\left\{
+\max_{0\le k\le n}X_k\ge\lambda
+\right\}
+$$
+
+とすると、「いつ初めて $\lambda$ に達したか」を停止時刻で切り出せます。
+
+### 証明の見取り図
+
+$$
+\tau
+=
+\inf\{k\ge0:X_k\ge\lambda\}
+$$
+
+とし、$\sigma=\tau\wedge n$ とします。
+
+$A=\{\tau\le n\}$ 上では $X_\sigma\ge\lambda$ です。[有界任意抽出](#thm-sto2-bounded-optional-sampling) を $\sigma\le n$ に使い、$A$ 上で積分します。
+
+<!-- proof-start -->
+### 証明
+
+$$
+A
+=
+\{\tau\le n\}
+=
+\left\{
+\max_{0\le k\le n}X_k\ge\lambda
+\right\}
+$$
+
+とします。
+
+$\sigma=\tau\wedge n$ は有界停止時刻です。また $A\in\mathcal F_\sigma$ です。実際、$k<n$ なら
+
+$$
+A\cap\{\sigma\le k\}
+=
+\{\tau\le k\}\in\mathcal F_k,
+$$
+
+$k\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_k$ です。
+
+[有界任意抽出](#thm-sto2-bounded-optional-sampling) より
+
+$$
+E[X_n\mid\mathcal F_\sigma]\ge X_\sigma.
+$$
+
+両辺へ $1_A$ を掛けて期待値を取ると
+
+$$
+E[1_AX_n]
+\ge
+E[1_AX_\sigma].
+$$
+
+$A$ 上では $X_\sigma=X_\tau\ge\lambda$ なので
+
+$$
+E[1_AX_n]
+\ge
+\lambda P(A).
+$$
+
+一方
+
+$$
+1_AX_n\le X_n^+.
+$$
+
+従って
+
+$$
+\lambda P(A)
+\le
+E[X_n^+].
+$$
+<!-- proof-end -->
+
+この不等式は「途中で一度でも大きくなる確率」を、終端の正部分だけで制御しています。
+
+---
+
+## 7. 無限振動を回数で捉える
+
+a.s.収束を示すには、「値が上下に揺れ続ける可能性」を消す必要があります。
+
+最大値が有界であるだけでは、二つの水準の間を永遠に往復する標本路を排除できません。実数列が収束しない典型的な機構は、$\liminf$ と $\limsup$ の間にある区間を何度も横切ることです。
+
+そこで固定した $a<b$ に対し、「$a$ 以下へ下がってから $b$ 以上へ上がる」という完了した往復の片側を何回作れるか数えます。
+
+<a id="def-sto2-upcrossing"></a>
+
+<!-- formal-statement-start -->
+> **定義（上向き横断回数）**  
+> 実数列 $x_0,\ldots,x_n$ と $a<b$ に対し、区間 $[a,b]$ の **上向き横断** とは、時刻
+>
+$$
+s_1<t_1<s_2<t_2<\cdots<s_m<t_m\le n
+$$
+>
+> を選んで
+>
+$$
+x_{s_j}\le a,
+\qquad
+x_{t_j}\ge b
+$$
+>
+> を各 $j$ で満たす一組の横断をいう。
+>
+> このように完了できる最大個数を
+>
+$$
+U_n[a,b]
+$$
+>
+> と書く。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sto2-upcrossing -->
+### 直接例：一本の標本路で数える
+
+**定義の確認**
+
+標本路
+
+$$
+0,2,1,3,0,2
+$$
+
+を考え、$[a,b]=[1,2]$ とします。
+
+- 時刻 $0$ で $0\le1$、時刻 $1$ で $2\ge2$：1 回目。
+- その後、時刻 $2$ で $1\le1$、時刻 $3$ で $3\ge2$：2 回目。
+- さらに時刻 $4$ で $0\le1$、時刻 $5$ で $2\ge2$：3 回目。
+
+従って
+
+$$
+U_5[1,2]=3.
+$$
+
+上向き横断は単なる符号変化ではなく、「下側水準まで戻った後、上側水準へ到達する」という一往復の片側を数えます。
+<!-- definition-example-end -->
+
+---
+
+## 8. 横断回数を期待値で抑える
+
+上向き横断回数を定義しただけでは、確率過程が何回横断するかはまだ制御できません。劣マルチンゲールの構造を使って、その期待回数を終端値から評価する必要があります。
+
+考え方は「$a$ 以下で買い、$b$ 以上で売る」を未来を見ない予測可能戦略として実装することです。一回の完了横断ごとに少なくとも $b-a$ の上昇を取り出せるため、予測可能変換の期待値評価が横断回数の上界になります。
+
+<a id="thm-sto2-upcrossing"></a>
+
+<!-- formal-statement-start -->
+> **定理（Doob 上向き横断不等式）**  
+> $X=(X_k)_{k\ge0}$ を劣マルチンゲール、$a<b$ とする。このとき任意の $n$ について
+>
+$$
+\boxed{
+(b-a)E[U_n[a,b]]
+\le
+E[(X_n-a)^+]
+-
+E[(X_0-a)^+]
+}
+$$
+>
+> が成り立つ。従って特に
+>
+$$
+(b-a)E[U_n[a,b]]
+\le
+E[X_n^+]+|a|.
+$$
+<!-- formal-statement-end -->
+
+### 何をしている不等式か
+
+区間 $[a,b]$ を一回上向き横断するたび、少なくとも $b-a$ の上昇があります。
+
+ただし劣マルチンゲール自体は負値も取るため、そのまま「買って売る」議論をすると未決済ポジションの損失が邪魔になります。
+
+そこで
+
+$$
+Y_k=(X_k-a)^+
+$$
+
+と切り上げます。$Y$ は非負で、$X$ の $[a,b]$ 上向き横断は $Y$ の $[0,b-a]$ 上向き横断と一致します。
+
+### 証明の見取り図
+
+1. $Y=(X-a)^+$ が劣マルチンゲールであることを示す。
+2. $Y=0$ で買い、$Y\ge b-a$ で売る予測可能 strategy $H$ を作る。
+3. 完了した一回ごとに $b-a$ 以上の利益を得るため
+   $$
+   (H\cdot Y)_n\ge(b-a)U_n[a,b].
+   $$
+4. 補戦略 $1-H$ も非負予測可能なので、その期待利益が非負であることから
+   $$
+   E[(H\cdot Y)_n]\le E[Y_n]-E[Y_0].
+   $$
+
+<!-- proof-start -->
+### 証明
+
+まず
+
+$$
+Y_k:=(X_k-a)^+.
+$$
+
+$Y_k\ge X_k-a$ かつ $Y_k\ge0$ なので
+
+$$
+E[Y_{k+1}\mid\mathcal F_k]
+\ge
+E[X_{k+1}-a\mid\mathcal F_k]
+\ge
+X_k-a,
+$$
+
+かつ左辺は非負です。従って
+
+$$
+E[Y_{k+1}\mid\mathcal F_k]
+\ge
+\max(X_k-a,0)
+=
+Y_k.
+$$
+
+よって $Y$ は非負劣マルチンゲールです。
+
+$Y_k\le |X_k|+|a|$ なので各 $Y_k$ は可積分です。
+
+$c:=b-a>0$ と置きます。
+
+売買時刻を明示します。空集合の infimum は $\infty$ として
+
+$$
+S_1:=\inf\{k\ge0:Y_k=0\},
+\qquad
+T_1:=\inf\{k>S_1:Y_k\ge c\},
+$$
+
+さらに $j\ge1$ に対し
+
+$$
+S_{j+1}:=\inf\{k>T_j:Y_k=0\},
+\qquad
+T_{j+1}:=\inf\{k>S_{j+1}:Y_k\ge c\}
+$$
+
+と定めます。
+
+これらが停止時刻であることも確認します。まず
+
+$$
+\{S_1\le m\}
+=
+\bigcup_{k=0}^{m}\{Y_k=0\}
+\in\mathcal F_m,
+$$
+
+なので $S_1$ は停止時刻です。$S_j$ が停止時刻なら
+
+$$
+\{T_j\le m\}
+=
+\bigcup_{r=0}^{m-1}
+\left(
+\{S_j=r\}
+\cap
+\bigcup_{k=r+1}^{m}\{Y_k\ge c\}
+\right)
+\in\mathcal F_m,
+$$
+
+したがって $T_j$ も停止時刻です。同様に $T_j$ が停止時刻なら
+
+$$
+\{S_{j+1}\le m\}
+=
+\bigcup_{r=0}^{m-1}
+\left(
+\{T_j=r\}
+\cap
+\bigcup_{k=r+1}^{m}\{Y_k=0\}
+\right)
+\in\mathcal F_m.
+$$
+
+よって帰納的に全ての $S_j,T_j$ が停止時刻です。
+
+第 $k$ 増分を保有するかを
+
+$$
+H_k
+=
+\sum_{j\ge1}
+1_{\{S_j<k\le T_j\}}
+$$
+
+で定めます。区間は互いに重ならないので $H_k\in\{0,1\}$ です。
+
+また、上で停止時刻性を確認したので
+
+$$
+\{S_j<k\le T_j\}
+=
+\{S_j\le k-1\}
+\cap
+\{T_j>k-1\}
+\in\mathcal F_{k-1},
+$$
+
+なので $H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負有界予測可能過程です。
+
+$S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従って一回の完了上向き横断ごとに少なくとも $c$ の利益を得ます。
+
+時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって標本路ごとに
+
+$$
+(H\cdot Y)_n
+\ge
+cU_n[a,b].
+$$
+
+次に $K_k:=1-H_k$ と置きます。$K$ も非負有界予測可能です。[予測可能変換の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は劣マルチンゲールで、初期値 0 なので
+
+$$
+E[(K\cdot Y)_n]\ge0.
+$$
+
+一方、各増分を $H_k+K_k=1$ で分割すると
+
+$$
+Y_n-Y_0
+=
+(H\cdot Y)_n+(K\cdot Y)_n.
+$$
+
+従って
+
+$$
+E[(H\cdot Y)_n]
+\le
+E[Y_n]-E[Y_0].
+$$
+
+以上から
+
+$$
+cE[U_n[a,b]]
+\le
+E[(H\cdot Y)_n]
+\le
+E[Y_n]-E[Y_0].
+$$
+
+$Y_k=(X_k-a)^+$、$c=b-a$ を戻せば
+
+$$
+(b-a)E[U_n[a,b]]
+\le
+E[(X_n-a)^+]-E[(X_0-a)^+].
+$$
+
+さらに
+
+$$
+(X_n-a)^+
+\le
+X_n^++|a|
+$$
+
+より第二の評価も従います。
+<!-- proof-end -->
+
+この不等式が、標本路の無限振動を確率 0 へ追い込む主役です。
+
+---
+
+## 9. 劣マルチンゲールの概収束
+
+[Doob 上向き横断不等式](#thm-sto2-upcrossing)により、$E[X_n^+]$ が一様に有界なら、任意の有理区間 $[a,b]$ の上向き横断回数は期待値の意味で一様に抑えられます。したがって標本路が二つの異なる有限水準の間を無限に往復する可能性を消せます。
+
+残る問題は、極限が $+\infty$ や $-\infty$ へ逃げないかです。劣マルチンゲール性と正部分の一様評価から負部分も抑え、最後に Fatou の補題で有限な可積分極限を得ます。
+
+<a id="thm-sto2-submartingale-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定理（劣マルチンゲールの概収束）**  
+> $X=(X_n)_{n\ge0}$ を劣マルチンゲールとし
+>
+$$
+\sup_{n\ge0}E[X_n^+]<\infty
+$$
+>
+> とする。このとき、ある $X_\infty\in L^1$ が存在して
+>
+$$
+\boxed{
+X_n\to X_\infty
+\quad\text{a.s.}
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### なぜ「正部分の期待値有界」でよいのか
+
+劣マルチンゲールでは
+
+$$
+E[X_n]\ge E[X_0].
+$$
+
+したがって
+
+$$
+E[X_n^-]
+=
+E[X_n^+]-E[X_n]
+\le
+\sup_mE[X_m^+]-E[X_0].
+$$
+
+です。
+
+つまり正部分だけを一様に抑えれば負部分も自動的に抑えられ、
+
+$$
+\sup_nE|X_n|<\infty
+$$
+
+になります。
+
+### 証明の見取り図
+
+1. 任意の有理数 $a<b$ に対し、[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
+   $E[U_\infty[a,b]]<\infty$ を得る。
+2. よって $U_\infty[a,b]<\infty$ a.s.
+3. 標本路の十分先での下側境界 $\ell$ と上側境界 $u$ が異なれば、その間に有理数 $a<b$ を選べて無限回上向き横断が起きる。矛盾。
+4. 従って拡張実数値の極限は存在する。
+5. 一様 $L^1$ bound と Fatou により $\pm\infty$ を排除し、極限を $L^1$ に入れる。
+
+<!-- proof-start -->
+### 証明
+
+$$
+C:=\sup_nE[X_n^+]<\infty
+$$
+
+とします。
+
+固定した有理数 $a<b$ に対し、$U_n[a,b]$ は $n$ とともに非減少です。従って
+
+$$
+U_\infty[a,b]
+:=
+\lim_{n\to\infty}U_n[a,b]
+\in\{0,1,2,\ldots,\infty\}
+$$
+
+が存在します。
+
+[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
+
+$$
+(b-a)E[U_n[a,b]]
+\le
+E[X_n^+]+|a|
+\le
+C+|a|.
+$$
+
+単調収束定理を $U_n[a,b]\uparrow U_\infty[a,b]$ に使うと
+
+$$
+E[U_\infty[a,b]]
+\le
+\frac{C+|a|}{b-a}
+<\infty.
+$$
+
+従って
+
+$$
+P(U_\infty[a,b]=\infty)=0.
+$$
+
+有理数対 $(a,b)$ は可算個なので、確率 1 の一つの事象上で全ての有理数 $a<b$ について上向き横断回数が有限です。
+
+その事象上で、標本路を一つ固定し
+
+$$
+\ell
+:=
+\sup_{N\ge0}\inf_{n\ge N}X_n,
+\qquad
+u
+:=
+\inf_{N\ge0}\sup_{n\ge N}X_n
+$$
+
+と置きます。常に $\ell\le u$ です。
+
+もし $\ell<u$ なら、その間に有理数
+
+$$
+\ell<a<b<u
+$$
+
+を選べます。$a>\ell$ なので任意の十分先にも $a$ 以下の項が現れ、$b<u$ なので任意の十分先にも $b$ 以上の項が現れます。従って「$a$ 以下へ戻る → その後 $b$ 以上へ上がる」を何度でも繰り返せて、$[a,b]$ の上向き横断が無限回になります。これは矛盾です。
+
+よって $\ell=u$ であり、拡張実数値で
+
+$$
+X_n\to X_\infty
+$$
+
+が a.s. に存在します。
+
+次に極限が有限であることを示します。劣マルチンゲール性から
+
+$$
+E[X_n]\ge E[X_0].
+$$
+
+ゆえに
+
+$$
+E[X_n^-]
+=
+E[X_n^+]-E[X_n]
+\le
+C-E[X_0].
+$$
+
+従って
+
+$$
+\sup_nE|X_n|
+\le
+2C-E[X_0]
+<\infty.
+$$
+
+Fatou の補題を $|X_n|$ に適用し、上の一様 $L^1$ bound を使うと
+
+$$
+E|X_\infty|
+\le
+\sup_nE|X_n|
+<\infty.
+$$
+
+もし $|X_\infty|=\infty$ が正の確率で起これば左辺は無限大になるため、これは不可能です。
+
+したがって $X_\infty$ は有限 a.s. で $L^1$ に属します。
+<!-- proof-end -->
+
+重要なのは、ここで得たのは **a.s.収束**であり、まだ
+
+$$
+E|X_n-X_\infty|\to0
+$$
+
+は示していないことです。
+
+$L^1$ 収束には tail を一様に制御する一様可積分性が必要になります。
+
+---
+
+## 10. 一様可積分性で a.s.収束を $L^1$ へ上げる
+
+前節の概収束だけでは、まれな事象上で大きな値を取る「尾」が残り、$E|M_n-M_\infty|$ が 0 へ行くとは限りません。期待値や条件付き期待値を極限へ通すには、この尾を時刻 $n$ によらず一様に抑える条件が必要です。
+
+その役割を果たすのが一様可積分性です。一様可積分性と Vitali は [F0-00P4A](../../F0/F0-00P4A/index.md) の標準結果を使います。これにより概収束を $L^1$ 収束へ上げるだけでなく、極限変数 $M_\infty$ から各時刻の $M_n$ を条件付き期待値として復元できます。
+
+<a id="thm-sto2-ui-martingale-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定理（UI マルチンゲール convergence）**  
+> $M=(M_n)_{n\ge0}$ を uniformly integrable マルチンゲールとする。このとき、ある $M_\infty\in L^1$ が存在して
+>
+$$
+M_n\to M_\infty
+\quad\text{a.s. and in }L^1.
+$$
+>
+> さらに各 $n$ について
+>
+$$
+\boxed{
+M_n
+=
+E[M_\infty\mid\mathcal F_n]
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+UI から
+
+$$
+\sup_nE|M_n|<\infty
+$$
+
+が従います。従って前節の概収束定理が使えます。
+
+その後、a.s.収束と UI を Vitali に入れて $L^1$ 収束へ上げます。
+
+最後にマルチンゲールの tower property を極限へ渡し、終端確率変数の条件付き期待値表示を得ます。
+
+<!-- proof-start -->
+### 証明
+
+UI の基本帰結から
+
+$$
+\sup_nE|M_n|<\infty.
+$$
+
+特に
+
+$$
+\sup_nE[M_n^+]<\infty
+$$
+
+なので、劣マルチンゲール概収束定理をマルチンゲール $M$ に適用できます。ある $M_\infty\in L^1$ が存在して
+
+$$
+M_n\to M_\infty
+\quad\text{a.s.}
+$$
+
+です。
+
+a.s.収束は確率収束を含みます。さらに $\{M_n\}$ は UI なので、[Vitali型収束定理](../../F0/F0-00P4A/index.md#thm-f0-00p4a-vitali) から
+
+$$
+E|M_n-M_\infty|\to0.
+$$
+
+よって $L^1$ 収束も得ました。
+
+固定した $n$ と $A\in\mathcal F_n$ を取ります。$m\ge n$ ならマルチンゲール性から
+
+$$
+E[1_AM_m]
+=
+E[1_AM_n].
+$$
+
+$M_m\to M_\infty$ in $L^1$ なので
+
+$$
+|E[1_A(M_m-M_\infty)]|
+\le
+E|M_m-M_\infty|
+\to0.
+$$
+
+従って $m\to\infty$ として
+
+$$
+E[1_AM_\infty]
+=
+E[1_AM_n].
+$$
+
+$M_n$ は $\mathcal F_n$ 可測なので、条件付き期待値の定義より
+
+$$
+M_n
+=
+E[M_\infty\mid\mathcal F_n].
+$$
+<!-- proof-end -->
+
+### 条件付き期待値マルチンゲールはどこへ収束するか
+
+$Z\in L^1$ とし
+
+$$
+M_n:=E[Z\mid\mathcal F_n]
+$$
+
+と置きます。
+
+F0-00P4A で示した「条件付き期待値の族は UI」という結果から $\{M_n\}$ は UI です。
+
+さらに
+
+$$
+\mathcal F_\infty
+=
+\sigma\left(\bigcup_{n\ge0}\mathcal F_n\right)
+$$
+
+とすれば、[Lévy上昇定理](../../F0/F0-00P3C/index.md#thm-f0-00p3c-levy-upward) により
+
+$$
+M_n
+\to
+E[Z\mid\mathcal F_\infty]
+$$
+
+a.s. かつ $L^1$ です。
+
+特に $Z$ が $\mathcal F_\infty$ 可測なら
+
+$$
+M_n\to Z
+$$
+
+a.s. かつ $L^1$ です。
+
+ここで STO2 の一般 UI マルチンゲール convergence と、P3C の「条件付き期待値マルチンゲールの極限」が一致します。
+
+---
+
+## 11. 非有界任意停止：必要なのは極限交換の根拠
+
+有界停止時刻では極限操作がありませんでした。
+
+$\tau$ が非有界なら、まず
+
+$$
+\tau_n:=\tau\wedge n
+$$
+
+へ [有界任意抽出](#thm-sto2-bounded-optional-sampling) を使って
+
+$$
+E[M_{\tau_n}]=E[M_0]
+$$
+
+を得ます。
+
+問題は
+
+$$
+n\to\infty
+$$
+
+で期待値を通してよいかです。
+
+<a id="cor-sto2-ui-optional-stopping"></a>
+
+<!-- formal-statement-start -->
+> **系（UI を仮定した任意停止）**  
+> $M$ をマルチンゲール、$\tau$ を
+>
+$$
+P(\tau<\infty)=1
+$$
+>
+> を満たす停止時刻とする。族
+>
+$$
+\{M_{\tau\wedge n}:n\ge0\}
+$$
+>
+> が uniformly integrable なら $M_\tau\in L^1$ で
+>
+$$
+\boxed{
+E[M_\tau]=E[M_0].
+}
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$M_{\tau\wedge n}$ は有界停止操作により全て同じ期待値を持ちます。
+
+一方 $\tau<\infty$ a.s. なので
+
+$$
+M_{\tau\wedge n}\to M_\tau
+$$
+
+a.s.。ここで UI + Vitali が初めて必要になります。
+
+<!-- proof-start -->
+### 証明
+
+各 $n$ について $\tau\wedge n$ は有界停止時刻なので
+
+$$
+E[M_{\tau\wedge n}]
+=
+E[M_0].
+$$
+
+また $\tau<\infty$ a.s. だから、各標本点で十分大きい $n$ では $\tau\wedge n=\tau$ となり
+
+$$
+M_{\tau\wedge n}\to M_\tau
+\quad\text{a.s.}
+$$
+
+です。
+
+仮定より $\{M_{\tau\wedge n}\}$ は UI なので Vitali により
+
+$$
+E|M_{\tau\wedge n}-M_\tau|\to0.
+$$
+
+従って
+
+$$
+E[M_\tau]
+=
+\lim_{n\to\infty}E[M_{\tau\wedge n}]
+=
+E[M_0].
+$$
+<!-- proof-end -->
+
+### 反例：倍賭けでは停止族 が UI でない
+
+公平コインを
+
+$$
+\xi_k=
+\begin{cases}
+1,&\text{表},\\
+-1,&\text{裏}
+\end{cases}
+$$
+
+とします。
+
+最初の表が出る時刻を
+
+$$
+\tau=\inf\{k\ge1:\xi_k=1\}
+$$
+
+とします。これは停止時刻で
+
+$$
+P(\tau<\infty)=1.
+$$
+
+第 $k$ 回目には、それまで全て裏だった場合だけ
+
+$$
+2^{k-1}
+$$
+
+を賭けるとします。すなわち
+
+$$
+H_k
+=
+2^{k-1}1_{\{\tau\ge k\}}.
+$$
+
+$\{\tau\ge k\}$ は最初の $k-1$ 回の結果だけで決まるので $H_k$ は $\mathcal F_{k-1}$ 可測です。
+
+$$
+G_n
+=
+\sum_{k=1}^nH_k\xi_k
+$$
+
+と置けば、各有限 $n$ では finite 予測可能変換なので $G$ はマルチンゲールです。
+
+最初に表が出た時点までの損益は
+
+$$
+-(1+2+\cdots+2^{\tau-2})+2^{\tau-1}
+=1.
+$$
+
+従って
+
+$$
+G_\tau=1
+\quad\text{a.s.}
+$$
+
+であり
+
+$$
+E[G_\tau]=1\ne0=E[G_0].
+$$
+
+これは任意停止定理の矛盾ではありません。
+
+$n$ 回連続で裏が出る事象を
+
+$$
+A_n=\{\tau>n\}
+$$
+
+とすると
+
+$$
+P(A_n)=2^{-n}.
+$$
+
+この事象上では
+
+$$
+G_{\tau\wedge n}
+=
+G_n
+=
+-(2^n-1).
+$$
+
+従って、任意の固定 $K$ に対して $2^n-1>K$ となる $n$ を取れば
+
+$$
+\begin{aligned}
+E\left[
+|G_{\tau\wedge n}|
+1_{\{|G_{\tau\wedge n}|>K\}}
+\right]
+&\ge
+(2^n-1)2^{-n}\\
+&=
+1-2^{-n}.
+\end{aligned}
+$$
+
+$n$ を大きくすると右辺は 1 に近づきます。したがって
+
+$$
+\sup_n
+E\left[
+|G_{\tau\wedge n}|
+1_{\{|G_{\tau\wedge n}|>K\}}
+\right]
+$$
+
+は $K\to\infty$ でも 0 へ行きません。
+
+つまり停止族 は UI ではありません。
+
+**壊れた証明機構**は
+
+$$
+G_{\tau\wedge n}\to G_\tau
+$$
+
+から
+
+$$
+E[G_{\tau\wedge n}]\to E[G_\tau]
+$$
+
+へ移る極限交換です。まれな長い連敗標本路が巨大な負値を持ち、各有限 $n$ の期待値 0 を支え続けています。
+
+---
+
+# 12. 演習 A
+
+#### STO2-A01 二乗補正マルチンゲール
+- Level: A
+
+独立な確率変数 $\xi_k$ が
+
+$$
+E\xi_k=0,
+\qquad
+E\xi_k^2=\sigma^2<\infty
+$$
+
+を満たし、
+
+$$
+S_n=\sum_{k=1}^n\xi_k,
+\qquad
+\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)
+$$
+
+とする。
+
+$$
+M_n=S_n^2-n\sigma^2
+$$
+
+がマルチンゲールであることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず $M_n$ は $\mathcal F_n$ 可測です。$S_n\in L^2$ なので $M_n\in L^1$ です。
+
+次に
+
+$$
+S_{n+1}^2
+=
+S_n^2+2S_n\xi_{n+1}+\xi_{n+1}^2.
+$$
+
+$S_n$ は $\mathcal F_n$ 可測で、$\xi_{n+1}$ は $\mathcal F_n$ と独立なので
+
+$$
+E[\xi_{n+1}\mid\mathcal F_n]=0,
+\qquad
+E[\xi_{n+1}^2\mid\mathcal F_n]=\sigma^2.
+$$
+
+従って
+
+$$
+E[S_{n+1}^2\mid\mathcal F_n]
+=
+S_n^2+\sigma^2.
+$$
+
+よって
+
+$$
+\begin{aligned}
+E[M_{n+1}\mid\mathcal F_n]
+&=
+E[S_{n+1}^2-(n+1)\sigma^2\mid\mathcal F_n]\\
+&=
+S_n^2+\sigma^2-(n+1)\sigma^2\\
+&=
+S_n^2-n\sigma^2\\
+&=M_n.
+\end{aligned}
+$$
+
+したがって $M$ はマルチンゲールです。
+<!-- solution-end -->
+
+#### STO2-A02 停止マルチンゲールの差分
+- Level: A
+
+$M$ をマルチンゲール、$\tau$ を停止時刻とする。
+
+1. 次を場合分けで示せ。
+   $$
+   M_{(n+1)\wedge\tau}-M_{n\wedge\tau}
+   =
+   1_{\{\tau>n\}}(M_{n+1}-M_n).
+   $$
+2. この恒等式から $M^\tau$ がマルチンゲールであることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$\tau\le n$ なら
+
+$$
+(n+1)\wedge\tau=n\wedge\tau=\tau
+$$
+
+なので左辺は 0 です。右辺も $1_{\{\tau>n\}}=0$ なので 0 です。
+
+$\tau>n$ なら、整数値停止時刻なので $\tau\ge n+1$ です。従って
+
+$$
+(n+1)\wedge\tau=n+1,
+\qquad
+n\wedge\tau=n
+$$
+
+となり、両辺は $M_{n+1}-M_n$ です。
+
+次に $\{\tau>n\}\in\mathcal F_n$ なので
+
+$$
+\begin{aligned}
+&E[M_{(n+1)\wedge\tau}-M_{n\wedge\tau}\mid\mathcal F_n]\\
+&\qquad=
+1_{\{\tau>n\}}
+E[M_{n+1}-M_n\mid\mathcal F_n]
+=0.
+\end{aligned}
+$$
+
+また $M_{n\wedge\tau}$ は $M_0,\ldots,M_n$ の有限混合なので可積分です。
+
+従って $M^\tau$ はマルチンゲールです。
+<!-- solution-end -->
+
+#### STO2-A03 $S_n^2$ の Doob 分解
+- Level: A
+
+公平単純ランダムウォーク $S_n$ に対し
+
+$$
+X_n=S_n^2
+$$
+
+と置く。
+
+Doob 分解
+
+$$
+X_n=M_n+A_n
+$$
+
+を具体的に求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+S_n=S_{n-1}+\xi_n,
+\qquad
+\xi_n\in\{-1,1\},
+\qquad
+E[\xi_n\mid\mathcal F_{n-1}]=0
+$$
+
+なので
+
+$$
+S_n^2-S_{n-1}^2
+=
+2S_{n-1}\xi_n+1.
+$$
+
+従って
+
+$$
+E[S_n^2-S_{n-1}^2\mid\mathcal F_{n-1}]
+=
+1.
+$$
+
+Doob 分解の予測可能 part は
+
+$$
+A_n
+=
+\sum_{k=1}^n1
+=
+n.
+$$
+
+したがってマルチンゲール part は
+
+$$
+M_n
+=
+X_n-A_n
+=
+S_n^2-n.
+$$
+
+実際 A01 の計算から $S_n^2-n$ はマルチンゲールです。
+
+よって
+
+$$
+\boxed{
+S_n^2=(S_n^2-n)+n
+}
+$$
+
+が Doob 分解です。
+<!-- solution-end -->
+
+#### STO2-A04 Doob 最大不等式でランダムウォークの最大偏差を抑える
+- Level: A
+
+公平単純ランダムウォーク $S_n$ について、任意の $r>0$ に対し
+
+$$
+P\left(
+\max_{0\le k\le n}|S_k|\ge r
+\right)
+\le
+\frac{n}{r^2}
+$$
+
+を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$(S_k^2)$ は非負劣マルチンゲールです。
+
+事象
+
+$$
+\left\{
+\max_{0\le k\le n}|S_k|\ge r
+\right\}
+$$
+
+は
+
+$$
+\left\{
+\max_{0\le k\le n}S_k^2\ge r^2
+\right\}
+$$
+
+と同じです。
+
+Doob 最大不等式を $X_k=S_k^2$、$\lambda=r^2$ に適用すると
+
+$$
+r^2
+P\left(
+\max_{0\le k\le n}S_k^2\ge r^2
+\right)
+\le
+E[S_n^2].
+$$
+
+公平単純ランダムウォークでは独立性と分散加法性から
+
+$$
+E[S_n^2]=n.
+$$
+
+したがって
+
+$$
+P\left(
+\max_{0\le k\le n}|S_k|\ge r
+\right)
+\le
+\frac{n}{r^2}.
+$$
+<!-- solution-end -->
+
+---
+
+# 13. 演習 B
+
+#### STO2-B01 破産問題と有界任意抽出
+- Level: B
+
+$S_0=i$、$0<i<a$ とし、$S_n$ を $\pm1$ の公平単純ランダムウォークとする。
+
+$$
+\tau
+=
+\inf\{n\ge0:S_n\in\{0,a\}\}
+$$
+
+とし、$P(\tau<\infty)=1$ を仮定してよい。
+
+$$
+P_i(S_\tau=a)=\frac{i}{a}
+$$
+
+を [有界任意抽出](#thm-sto2-bounded-optional-sampling) から導け。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+\tau_N:=\tau\wedge N
+$$
+
+と置きます。$\tau_N$ は有界停止時刻なのでマルチンゲール $S_n$ へ任意抽出を適用して
+
+$$
+E_i[S_{\tau_N}]
+=
+E_i[S_0]
+=
+i.
+$$
+
+停止時刻 $\tau$ までは $0<S_n<a$、停止時には $S_\tau\in\{0,a\}$ なので
+
+$$
+0\le S_{\tau_N}\le a.
+$$
+
+また $\tau<\infty$ a.s. より
+
+$$
+S_{\tau_N}\to S_\tau
+\quad\text{a.s.}
+$$
+
+です。
+
+一様な bound $a$ があるので[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01) により
+
+$$
+E_i[S_\tau]
+=
+\lim_{N\to\infty}E_i[S_{\tau_N}]
+=
+i.
+$$
+
+一方 $S_\tau$ は $0$ または $a$ だけを取るため
+
+$$
+E_i[S_\tau]
+=
+aP_i(S_\tau=a).
+$$
+
+従って
+
+$$
+\boxed{
+P_i(S_\tau=a)=\frac{i}{a}.
+}
+$$
+
+ここでは非有界 $\tau$ へ直接任意停止を適用したのではなく、$\tau\wedge N$ へ適用した後、$0\le S_{\tau_N}\le a$ という支配で極限交換を正当化しています。
+<!-- solution-end -->
+
+#### STO2-B02 上向き横断から a.s.収束へ
+- Level: B
+
+$X_n$ を劣マルチンゲールとし
+
+$$
+\sup_nE[X_n^+]<\infty
+$$
+
+とする。
+
+次の三段階を示せ。
+
+1. 任意の有理数 $a<b$ について $U_\infty[a,b]<\infty$ a.s.
+2. 各標本路で
+$$
+   \ell=\sup_N\inf_{n\ge N}X_n,
+   \qquad
+   u=\inf_N\sup_{n\ge N}X_n
+$$
+   と置き、$\ell=u$ a.s. を導け。
+3. 極限が有限で $L^1$ に属することを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+C:=\sup_nE[X_n^+]<\infty
+$$
+
+とします。
+
+**1. 上向き横断回数。**
+
+[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
+
+$$
+(b-a)E[U_n[a,b]]
+\le
+C+|a|.
+$$
+
+$U_n[a,b]$ は $n$ に関して非減少なので
+
+$$
+U_n[a,b]\uparrow U_\infty[a,b].
+$$
+
+[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange) より
+
+$$
+E[U_\infty[a,b]]
+\le
+\frac{C+|a|}{b-a}
+<\infty.
+$$
+
+従って $U_\infty[a,b]=\infty$ となる確率は 0 です。
+
+**2. 二つの漸近境界を一致させる。**
+
+有理数対 $(a,b)$ は可算個なので、確率 1 の事象上で全ての有理数 $a<b$ の上向き横断回数が有限です。
+
+その事象上で
+
+$$
+\ell=\sup_N\inf_{n\ge N}X_n,
+\qquad
+u=\inf_N\sup_{n\ge N}X_n
+$$
+
+と置きます。
+
+もし $\ell<u$ なら
+
+$$
+\ell<a<b<u
+$$
+
+となる有理数 $a<b$ を選べます。すると任意の十分先にも $a$ 以下の項と $b$ 以上の項が現れるため、$[a,b]$ を無限回上向き横断できます。矛盾です。
+
+従って $\ell=u$ であり、拡張実数値で極限 $X_\infty$ が存在します。
+
+**3. 有限性と可積分性。**
+
+劣マルチンゲール性から
+
+$$
+E[X_n]\ge E[X_0].
+$$
+
+従って
+
+$$
+E[X_n^-]
+=
+E[X_n^+]-E[X_n]
+\le
+C-E[X_0].
+$$
+
+よって
+
+$$
+\sup_nE|X_n|<\infty.
+$$
+
+Fatou の補題と一様 $L^1$ bound から
+
+$$
+E|X_\infty|
+\le
+\sup_nE|X_n|
+<\infty.
+$$
+
+従って $X_\infty$ は有限 a.s. で $L^1$ に属します。
+<!-- solution-end -->
+
+#### STO2-B03 条件付き期待値マルチンゲールの UI と極限
+- Level: B
+
+$Z\in L^1$、$\mathcal F_0\subseteq\mathcal F_1\subseteq\cdots$ とし
+
+$$
+M_n=E[Z\mid\mathcal F_n]
+$$
+
+と置く。
+
+1. $M$ がマルチンゲールであることを示せ。
+2. $\{M_n\}$ が UI であることを F0-00P4A の結果から説明せよ。
+3. $\mathcal F_\infty=\sigma(\bigcup_n\mathcal F_n)$ としたとき
+   $$
+   M_n\to E[Z\mid\mathcal F_\infty]
+   $$
+   a.s. かつ $L^1$ であることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+**1. マルチンゲール性。**
+
+$M_n$ は定義から $\mathcal F_n$ 可測で、条件付き期待値の $L^1$ 縮小性から
+
+$$
+E|M_n|
+\le
+E|Z|
+<\infty.
+$$
+
+また [tower property](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower) より
+
+$$
+\begin{aligned}
+E[M_{n+1}\mid\mathcal F_n]
+&=
+E[E[Z\mid\mathcal F_{n+1}]\mid\mathcal F_n]\\
+&=
+E[Z\mid\mathcal F_n]\\
+&=M_n.
+\end{aligned}
+$$
+
+従って $M$ はマルチンゲールです。
+
+**2. UI。**
+
+F0-00P4A で、任意の $Z\in L^1$ に対し部分 sigma-field $\mathcal G$ を動かした族
+
+$$
+E[Z\mid\mathcal G]
+$$
+
+が UI になることを証明しました。
+
+ここで $\mathcal G=\mathcal F_n$ とすれば $\{M_n\}$ は UI です。
+
+**3. 極限。**
+
+[Lévy上昇定理](../../F0/F0-00P3C/index.md#thm-f0-00p3c-levy-upward) を増加列 $(\mathcal F_n)$ と $Z$ に適用すると
+
+$$
+E[Z\mid\mathcal F_n]
+\to
+E[Z\mid\mathcal F_\infty]
+$$
+
+a.s. かつ $L^1$ です。
+
+すなわち
+
+$$
+\boxed{
+M_n\to E[Z\mid\mathcal F_\infty]
+\quad\text{a.s. and in }L^1.
+}
+$$
+<!-- solution-end -->
+
+---
+
+# 14. 演習 C
+
+#### STO2-C01 倍賭け反例を最後まで監査する
+- Level: C
+
+公平コイン $\xi_k\in\{-1,1\}$ に対し
+
+$$
+\tau=\inf\{k\ge1:\xi_k=1\}
+$$
+
+とする。
+
+$$
+H_k=2^{k-1}1_{\{\tau\ge k\}},
+\qquad
+G_n=\sum_{k=1}^nH_k\xi_k
+$$
+
+と置く。
+
+次を全て示せ。
+
+1. $H_k$ は $\mathcal F_{k-1}$ 可測であり、各有限時刻で $G_n$ は可積分である。
+2. $G$ はマルチンゲールである。
+3. $P(\tau<\infty)=1$ かつ $G_\tau=1$ a.s.
+4. 各 $n$ で
+   $$
+   E[G_{\tau\wedge n}]=0
+   $$
+   だが
+   $$
+   E[G_\tau]=1
+   $$
+   となることを確認せよ。
+5. $\{G_{\tau\wedge n}\}$ が UI でないことを tail expectation から示し、任意停止のどの極限操作が壊れたか説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+**1. 予測可能性と可積分性。**
+
+事象
+
+$$
+\{\tau\ge k\}
+$$
+
+は「最初の $k-1$ 回が全て裏」という事象です。従って
+
+$$
+\{\tau\ge k\}\in\mathcal F_{k-1}.
+$$
+
+よって $H_k$ は $\mathcal F_{k-1}$ 可測です。
+
+固定した $n$ では
+
+$$
+|G_n|
+\le
+\sum_{k=1}^n2^{k-1}
+=
+2^n-1,
+$$
+
+なので $G_n\in L^1$ です。
+
+**2. マルチンゲール性。**
+
+$$
+G_{n+1}-G_n
+=
+H_{n+1}\xi_{n+1}.
+$$
+
+$H_{n+1}$ は $\mathcal F_n$ 可測で、$\xi_{n+1}$ は過去と独立かつ平均 0 なので
+
+$$
+\begin{aligned}
+E[G_{n+1}-G_n\mid\mathcal F_n]
+&=
+H_{n+1}
+E[\xi_{n+1}\mid\mathcal F_n]\\
+&=0.
+\end{aligned}
+$$
+
+従って $G$ はマルチンゲールです。
+
+**3. $\tau$ の有限性と停止時損益。**
+
+$$
+P(\tau>n)
+=
+P(\xi_1=\cdots=\xi_n=-1)
+=
+2^{-n}\to0.
+$$
+
+従って $P(\tau<\infty)=1$ です。
+
+$\tau=m$ のとき、最初の $m-1$ 回は裏、$m$ 回目が表です。したがって
+
+$$
+\begin{aligned}
+G_\tau
+&=
+-(1+2+\cdots+2^{m-2})+2^{m-1}\\
+&=
+-(2^{m-1}-1)+2^{m-1}\\
+&=1.
+\end{aligned}
+$$
+
+よって $G_\tau=1$ a.s.
+
+**4. 期待値の不一致。**
+
+$\tau\wedge n$ は有界停止時刻なので
+
+$$
+E[G_{\tau\wedge n}]
+=
+E[G_0]
+=
+0.
+$$
+
+一方
+
+$$
+G_\tau=1
+$$
+
+a.s. なので
+
+$$
+E[G_\tau]=1.
+$$
+
+従って
+
+$$
+E[G_{\tau\wedge n}]
+\not\to
+E[G_\tau].
+$$
+
+**5. UI の失敗。**
+
+$$
+A_n:=\{\tau>n\}
+$$
+
+とすると $P(A_n)=2^{-n}$ です。$A_n$ 上では $n$ 回全て負けているので
+
+$$
+G_{\tau\wedge n}=G_n=-(2^n-1).
+$$
+
+固定した $K$ に対し $2^n-1>K$ となる $n$ を選ぶと
+
+$$
+\begin{aligned}
+&E\left[
+|G_{\tau\wedge n}|
+1_{\{|G_{\tau\wedge n}|>K\}}
+\right]\\
+&\qquad\ge
+(2^n-1)P(A_n)\\
+&\qquad=
+(2^n-1)2^{-n}
+=
+1-2^{-n}.
+\end{aligned}
+$$
+
+従って $K$ をどれだけ大きくしても、sup を取れば tail expectation を 0 へ落とせません。
+
+よって $\{G_{\tau\wedge n}\}$ は UI ではありません。
+
+各標本点では
+
+$$
+G_{\tau\wedge n}\to G_\tau
+$$
+
+ですが、UI がないため Vitali を使えず、
+
+$$
+\lim_nE[G_{\tau\wedge n}]
+=
+E[G_\tau]
+$$
+
+という極限交換が正当化できません。
+
+まれな長い連敗の確率は $2^{-n}$ と小さくなりますが、そのときの損失が約 $2^n$ と増えるため、tail expectation の寄与が消えないことが本質です。
+<!-- solution-end -->
+
+---
+
+# 15. 章末チェック
+
+この章を終えた時点で、次を本文だけから再構成できることを目標にします。
+
+- マルチンゲール / 劣マルチンゲール / 優マルチンゲールの三条件を有限例で直接確認できる。
+- 予測可能が「次増分を見る前に係数が決まる」ことを数式で説明できる。
+- 停止過程の差分表示からマルチンゲール性を証明できる。
+- [有界任意抽出](#thm-sto2-bounded-optional-sampling) を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
+- Doob 分解の予測可能な増加部分を条件付き平均増分から構成し、一意性を示せる。
+- Doob 最大不等式で標本路最大値の確率を終端分布から評価できる。
+- 上向き横断回数を標本路上で数え、予測可能 strategy から [Doob 上向き横断不等式](#thm-sto2-upcrossing) を証明できる。
+- 有理数区間の上向き横断が有限であることから、十分先の下側境界と上側境界が一致して標本路の極限が存在することを導ける。
+- 劣マルチンゲール convergence theorem で極限の有限性・可積分性まで閉じられる。
+- UI が a.s.収束を $L^1$ 収束へ上げる役割を Vitali と結びつけられる。
+- 条件付き期待値マルチンゲールの極限を Lévy上昇定理と接続できる。
+- 倍賭け反例で、任意停止の失敗原因を「極限と期待値の交換不能」「UI の欠如」として定量的に説明できる。
+
+次の STO3 では、[有限次元分布と整合性](../STO3/index.md#def-sto3-fdd-consistency)から確率過程そのものを構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続修正を作る問題へ進みます。

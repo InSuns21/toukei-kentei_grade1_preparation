@@ -1,6 +1,6 @@
 # F0-02C7 関数解析VII：RKHS・再生核・Moore--Aronszajn
 
-> **アーカイブ**：この内容の canonical owner は [RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](../../dream_thater/応用系/RKHS1/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](../../dream_thater/応用系/RKHS/RKHS1/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 評価汎関数の連続性からRiesz表現を通じて再生核を得て、逆にPSD kernelからRKHSを構成するところまでを閉じます。学習アルゴリズムは次講C7Aです。
 
@@ -72,7 +72,7 @@ $$
 
 $\delta_x$ は連続線形汎関数です。
 
-したがって[Riesz表現定理](../../dream_thater/解析系/F0-02C2/index.md#ref-riesz-representation)により、各 $x$ に対して一意な
+したがって[Riesz表現定理](../../dream_thater/解析系/F0/F0-02C2/index.md#ref-riesz-representation)により、各 $x$ に対して一意な
 
 $$
 K_x\in\mathcal H

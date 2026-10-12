@@ -373,7 +373,7 @@ $$
 \mu_0((a,b]):=G(b)-G(a)
 $$
 
-を半開区間の有限互いに素和へ加法的に延長するとpremeasureになります。[Caratheodory拡張定理](../../dream_thater/解析系/F0-00D4/index.md#thm-caratheodory-extension)により、これを持つ有限Borel測度 $\mu$ が存在します。
+を半開区間の有限互いに素和へ加法的に延長するとpremeasureになります。[Caratheodory拡張定理](../../dream_thater/解析系/F0/F0-00D4/index.md#thm-caratheodory-extension)により、これを持つ有限Borel測度 $\mu$ が存在します。
 
 最後に連続関数 $g$ を取ります。$G$ の不連続点を避けて、meshが十分細かい分割
 
@@ -652,7 +652,7 @@ $$
 > をspectral densityと呼びます。
 <!-- formal-statement-end -->
 
-[Radon--Nikodym定理](../../dream_thater/解析系/F0-00P2/index.md#thm-f0-00p2-radon-nikodym)から、この密度はLebesgue-a.e. の意味で一意です。
+[Radon--Nikodym定理](../../dream_thater/解析系/F0/F0-00P2/index.md#thm-f0-00p2-radon-nikodym)から、この密度はLebesgue-a.e. の意味で一意です。
 
 ### 5.1 例：white noiseはflat spectrum
 

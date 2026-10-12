@@ -6,34 +6,34 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: CMP1
-    path: textbook/volumes/dream_thater/計算系/CMP1
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP1
     status: completed
     title: Turing機械
   - id: CMP2
-    path: textbook/volumes/dream_thater/計算系/CMP2
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP2
     status: completed
     title: 計算モデルの頑健性
   - id: CMP3
-    path: textbook/volumes/dream_thater/計算系/CMP3
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP3
     status: completed
     title: 万能計算と自己参照
   - id: CMP4
-    path: textbook/volumes/dream_thater/計算系/CMP4
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP4
     status: completed
     title: 決定可能・認識可能・列挙可能
   - id: CMP5
-    path: textbook/volumes/dream_thater/計算系/CMP5
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP5
     status: completed
     title: 停止問題と対角線論法
   - id: CMP6
-    path: textbook/volumes/dream_thater/計算系/CMP6
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP6
     status: completed
     title: 計算可能性の帰着
   - id: CMP7
-    path: textbook/volumes/dream_thater/計算系/CMP7
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP7
     status: completed
     title: Riceの定理
   - id: CMP8
-    path: textbook/volumes/dream_thater/計算系/CMP8
+    path: textbook/volumes/dream_thater/計算系/CMP/CMP8
     status: completed
     title: λ計算・再帰関数・計算可能性の同値像

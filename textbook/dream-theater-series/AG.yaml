@@ -7,154 +7,154 @@ chapter_root: textbook/volumes/dream_thater
 # 第I〜III部を一つの系列として管理。各部の講数は固定ノルマではない。
 chapters:
   - id: AG1-01
-    path: textbook/volumes/dream_thater/代数系/AG1-01
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-01
     status: completed
     title: "多変数多項式とアフィン代数的集合"
   - id: AG1-02
-    path: textbook/volumes/dream_thater/代数系/AG1-02
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-02
     status: planned
     title: "既約集合・素イデアルと既約成分"
   - id: AG1-03
-    path: textbook/volumes/dream_thater/代数系/AG1-03
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-03
     status: planned
     title: "座標環とアフィン代数多様体の正則写像"
   - id: AG1-04
-    path: textbook/volumes/dream_thater/代数系/AG1-04
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-04
     status: planned
     title: "局所化・局所環・点の近傍での関数"
   - id: AG1-05
-    path: textbook/volumes/dream_thater/代数系/AG1-05
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-05
     status: planned
     title: "Noether環とHilbertの基底定理"
   - id: AG1-06
-    path: textbook/volumes/dream_thater/代数系/AG1-06
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-06
     status: planned
     title: "整拡大とNoether正規化"
   - id: AG1-07
-    path: textbook/volumes/dream_thater/代数系/AG1-07
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-07
     status: planned
     title: "弱・強Hilbertの零点定理"
   - id: AG1-08
-    path: textbook/volumes/dream_thater/代数系/AG1-08
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-08
     status: planned
     title: "代数集合と根基イデアルの対応"
   - id: AG1-09
-    path: textbook/volumes/dream_thater/代数系/AG1-09
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-09
     status: planned
     title: "次元・超越次数・イデアルの鎖"
   - id: AG1-10
-    path: textbook/volumes/dream_thater/代数系/AG1-10
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-10
     status: planned
     title: "Zariski接空間とJacobian判定の準備"
   - id: AG1-11
-    path: textbook/volumes/dream_thater/代数系/AG1-11
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-11
     status: planned
     title: "特異点・接錐と平面曲線"
   - id: AG1-12
-    path: textbook/volumes/dream_thater/代数系/AG1-12
+    path: textbook/volumes/dream_thater/代数系/AG/AG1-12
     status: planned
     title: "アフィン曲線の総合演習"
   - id: AG2-01
-    path: textbook/volumes/dream_thater/代数系/AG2-01
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-01
     status: planned
     title: "射影空間と斉次座標"
   - id: AG2-02
-    path: textbook/volumes/dream_thater/代数系/AG2-02
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-02
     status: planned
     title: "斉次イデアルと射影代数的集合"
   - id: AG2-03
-    path: textbook/volumes/dream_thater/代数系/AG2-03
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-03
     status: planned
     title: "射影射・Veronese写像・Segre写像"
   - id: AG2-04
-    path: textbook/volumes/dream_thater/代数系/AG2-04
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-04
     status: planned
     title: "射影曲線と次数・Bézoutの例"
   - id: AG2-05
-    path: textbook/volumes/dream_thater/代数系/AG2-05
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-05
     status: planned
     title: "構造層と貼り合わせ"
   - id: AG2-06
-    path: textbook/volumes/dream_thater/代数系/AG2-06
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-06
     status: planned
     title: "可逆層とO(d)"
   - id: AG2-07
-    path: textbook/volumes/dream_thater/代数系/AG2-07
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-07
     status: planned
     title: "Weil因子・Cartier因子と可逆層"
   - id: AG2-08
-    path: textbook/volumes/dream_thater/代数系/AG2-08
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-08
     status: planned
     title: "局所パラメータ・微分形式・標準束"
   - id: AG2-09
-    path: textbook/volumes/dream_thater/代数系/AG2-09
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-09
     status: planned
     title: "射影空間の標準束とEuler列"
   - id: AG2-10
-    path: textbook/volumes/dream_thater/代数系/AG2-10
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-10
     status: planned
     title: "正規束と随伴公式"
   - id: AG2-11
-    path: textbook/volumes/dream_thater/代数系/AG2-11
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-11
     status: planned
     title: "滑らかな超曲面と正則性"
   - id: AG2-12
-    path: textbook/volumes/dream_thater/代数系/AG2-12
+    path: textbook/volumes/dream_thater/代数系/AG/AG2-12
     status: planned
     title: "射影平面三次曲線とquintic"
   - id: AG3-01
-    path: textbook/volumes/dream_thater/代数系/AG3-01
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-01
     status: planned
     title: "関手的視点とSpec"
   - id: AG3-02
-    path: textbook/volumes/dream_thater/代数系/AG3-02
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-02
     status: planned
     title: "素スペクトルの位相と構造層"
   - id: AG3-03
-    path: textbook/volumes/dream_thater/代数系/AG3-03
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-03
     status: planned
     title: "局所環付き空間とアフィンスキーム"
   - id: AG3-04
-    path: textbook/volumes/dream_thater/代数系/AG3-04
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-04
     status: planned
     title: "スキームの貼り合わせと射"
   - id: AG3-05
-    path: textbook/volumes/dream_thater/代数系/AG3-05
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-05
     status: planned
     title: "ファイバー積と基底変換"
   - id: AG3-06
-    path: textbook/volumes/dream_thater/代数系/AG3-06
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-06
     status: planned
     title: "準連接層・連接層"
   - id: AG3-07
-    path: textbook/volumes/dream_thater/代数系/AG3-07
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-07
     status: planned
     title: "層の射と完全列・Čechコホモロジー"
   - id: AG3-08
-    path: textbook/volumes/dream_thater/代数系/AG3-08
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-08
     status: planned
     title: "層コホモロジーの基本計算"
   - id: AG3-09
-    path: textbook/volumes/dream_thater/代数系/AG3-09
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-09
     status: planned
     title: "射影スキームとProj"
   - id: AG3-10
-    path: textbook/volumes/dream_thater/代数系/AG3-10
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-10
     status: planned
     title: "射影空間のO(d)のコホモロジー"
   - id: AG3-11
-    path: textbook/volumes/dream_thater/代数系/AG3-11
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-11
     status: planned
     title: "曲線の種数とRiemann–Rochへの入口"
   - id: AG3-12
-    path: textbook/volumes/dream_thater/代数系/AG3-12
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-12
     status: planned
     title: "平坦性・滑らかさと特異ファイバー"
   - id: AG3-13
-    path: textbook/volumes/dream_thater/代数系/AG3-13
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-13
     status: planned
     title: "交叉理論・変形障害への橋"
   - id: AG3-14
-    path: textbook/volumes/dream_thater/代数系/AG3-14
+    path: textbook/volumes/dream_thater/代数系/AG/AG3-14
     status: planned
     title: "射影曲線と超曲面の総合演習"

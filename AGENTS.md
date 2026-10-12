@@ -7,7 +7,7 @@
 作業内容に応じて、root の規約を全部読み続けるのではなく、対象に最も近い正本へ移る。
 
 - 通常教材・textbook 共通: `textbook/AGENTS.md`
-- DREAM THEATER / `textbook/volumes/dream_thater/**`: `textbook/volumes/00_foundations/AGENTS.md`
+- DREAM THEATER / `textbook/volumes/dream_thater/**`: `textbook/volumes/dream_thater/AGENTS.md`
 - Anki / `anki/**`: `anki/AGENTS.md`
 - リポジトリ横断インフラ・CI: このファイルと変更対象の workflow / script
 

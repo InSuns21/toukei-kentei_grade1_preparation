@@ -4,7 +4,7 @@ import process from 'node:process';
 import { spawnSync } from 'node:child_process';
 
 const root = process.cwd();
-const strictRoot = /^textbook\/volumes\/(?:00_foundations\/[^/]+|dream_thater\/[^/]+\/[^/]+)\/assets\/.*\.svg$/u;
+const strictRoot = /^textbook\/volumes\/(?:00_foundations\/[^/]+|dream_thater\/[^/]+\/[^/]+\/[^/]+)\/assets\/.*\.svg$/u;
 const errors = [];
 
 function argValue(name) {

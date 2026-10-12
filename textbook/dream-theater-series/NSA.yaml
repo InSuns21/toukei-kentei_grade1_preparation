@@ -6,38 +6,38 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: NSA1
-    path: textbook/volumes/dream_thater/解析系/NSA1
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA1
     status: completed
     title: 超実数はどこから来るか：自由超フィルターと商構成
   - id: NSA2
-    path: textbook/volumes/dream_thater/解析系/NSA2
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA2
     status: completed
     title: 移送のための最小一階論理
   - id: NSA3
-    path: textbook/volumes/dream_thater/解析系/NSA3
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA3
     status: completed
     title: Łoś の定理と移送原理
   - id: NSA4
-    path: textbook/volumes/dream_thater/解析系/NSA4
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA4
     status: completed
     title: 内部集合・外部集合・超自然数・超有限集合
   - id: NSA5
-    path: textbook/volumes/dream_thater/解析系/NSA5
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA5
     status: completed
     title: 無限小・有限超実数・標準部
   - id: NSA6
-    path: textbook/volumes/dream_thater/解析系/NSA6
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA6
     status: completed
     title: 極限・連続・一様連続・コンパクト性
   - id: NSA7
-    path: textbook/volumes/dream_thater/解析系/NSA7
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA7
     status: completed
     title: 微分・Taylor 展開を無限小で読む
   - id: NSA8
-    path: textbook/volumes/dream_thater/解析系/NSA8
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA8
     status: completed
     title: Riemann 積分と超有限和
   - id: NSA9
-    path: textbook/volumes/dream_thater/解析系/NSA9
+    path: textbook/volumes/dream_thater/解析系/NSA/NSA9
     status: completed
     title: 級数・関数列・一様収束を無限添字で読む

@@ -6,62 +6,62 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: DYN1
-    path: textbook/volumes/dream_thater/解析系/DYN1
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN1
     status: completed
     title: 閉区間上の反復・固定点・軌道の収束
   - id: DYN2
-    path: textbook/volumes/dream_thater/解析系/DYN2
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN2
     status: completed
     title: 固定点の安定性と乗数
   - id: DYN3
-    path: textbook/volumes/dream_thater/解析系/DYN3
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN3
     status: completed
     title: Logistic写像の固定点と安定枝
   - id: DYN4
-    path: textbook/volumes/dream_thater/解析系/DYN4
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN4
     status: completed
     title: 二周期の出現と安定性
   - id: DYN5
-    path: textbook/volumes/dream_thater/解析系/DYN5
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN5
     status: completed
     title: Tent写像・分枝・有限語の逆像計数
   - id: DYN6
-    path: textbook/volumes/dream_thater/解析系/DYN6
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN6
     status: completed
     title: 位相共役・半共役・不変集合
   - id: DYN7
-    path: textbook/volumes/dream_thater/解析系/DYN7
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN7
     status: completed
     title: 円周回転・有理回転と無理回転
   - id: DYN8
-    path: textbook/volumes/dream_thater/解析系/DYN8
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN8
     status: completed
     title: 正の極限集合・再帰・軌道閉包
   - id: DYN9
-    path: textbook/volumes/dream_thater/解析系/DYN9
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN9
     status: completed
     title: 拡大写像・初期値鋭敏性
   - id: DYN10
-    path: textbook/volumes/dream_thater/解析系/DYN10
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN10
     status: completed
     title: 区間分割・旅程（itinerary）・記号への読み出し
   - id: DYN11
-    path: textbook/volumes/dream_thater/解析系/DYN11
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN11
     status: completed
     title: 全シフトの位相的推移性・周期点稠密性
   - id: DYN12
-    path: textbook/volumes/dream_thater/解析系/DYN12
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN12
     status: completed
     title: 生成語の個数・位相エントロピー
   - id: DYN13
-    path: textbook/volumes/dream_thater/解析系/DYN13
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN13
     status: completed
     title: 区間のhorseshoe・全シフトへの符号化
   - id: DYN14
-    path: textbook/volumes/dream_thater/解析系/DYN14
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN14
     status: completed
     title: 二次元の双曲線形模型・安定方向と不安定方向
   - id: DYN15
-    path: textbook/volumes/dream_thater/解析系/DYN15
+    path: textbook/volumes/dream_thater/解析系/DYN/DYN15
     status: completed
     title: 離散力学・記号力学・CA比較の総合論証

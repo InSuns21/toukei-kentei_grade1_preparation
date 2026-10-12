@@ -6,62 +6,62 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: CELL1
-    path: textbook/volumes/dream_thater/計算系/CELL1
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL1
     status: completed
     title: 配置・局所規則・大域更新
   - id: CELL2
-    path: textbook/volumes/dream_thater/計算系/CELL2
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL2
     status: completed
     title: Elementary CAと時空間図
   - id: CELL3
-    path: textbook/volumes/dream_thater/計算系/CELL3
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL3
     status: completed
     title: 有限環の軌道・周期・状態遷移グラフ
   - id: CELL4
-    path: textbook/volumes/dream_thater/計算系/CELL4
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL4
     status: completed
     title: 加法的CAと二進代数
   - id: CELL5
-    path: textbook/volumes/dream_thater/計算系/CELL5
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL5
     status: completed
     title: 保存則・粒子輸送・Rule 184
   - id: CELL6
-    path: textbook/volumes/dream_thater/計算系/CELL6
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL6
     status: completed
     title: de Bruijnグラフと前像
   - id: CELL7
-    path: textbook/volumes/dream_thater/計算系/CELL7
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL7
     status: completed
     title: シフト空間・円筒集合・配置の近さ
   - id: CELL8
-    path: textbook/volumes/dream_thater/計算系/CELL8
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL8
     status: completed
     title: Curtis–Hedlund–Lyndon定理
   - id: CELL9
-    path: textbook/volumes/dream_thater/計算系/CELL9
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL9
     status: completed
     title: 可逆CAと逆写像の局所性
   - id: CELL10
-    path: textbook/volumes/dream_thater/計算系/CELL10
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL10
     status: completed
     title: Garden of Eden定理と前単射性
   - id: CELL11
-    path: textbook/volumes/dream_thater/計算系/CELL11
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL11
     status: completed
     title: 二次元CAとConwayのGame of Life
   - id: CELL12
-    path: textbook/volumes/dream_thater/計算系/CELL12
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL12
     status: completed
     title: Turing機械の局所更新による模倣
   - id: CELL13
-    path: textbook/volumes/dream_thater/計算系/CELL13
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL13
     status: completed
     title: 計算普遍性・Rule 110・Life
   - id: CELL14
-    path: textbook/volumes/dream_thater/計算系/CELL14
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL14
     status: completed
     title: 予測計算量・時空間局所整合性
   - id: CELL15
-    path: textbook/volumes/dream_thater/計算系/CELL15
+    path: textbook/volumes/dream_thater/計算系/CELL/CELL15
     status: completed
     title: 確率的CA・モデル化・総合演習

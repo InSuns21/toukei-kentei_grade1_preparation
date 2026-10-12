@@ -1,6 +1,6 @@
 # F0-00G2 Fenchel共役・Fenchel–Young・双対
 
-> **アーカイブ**：この内容の canonical owner は [OPT4 Fenchel 共役・凸双対](../../dream_thater/応用系/OPT4/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [OPT4 Fenchel 共役・凸双対](../../dream_thater/応用系/OPT/OPT4/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 <!-- definition-example-audit: loose -->
 
@@ -173,7 +173,7 @@ $$
 C=\{x:\|x\|_2\le1\}
 $$
 
-なら [Cauchy–Schwarz 不等式](../../dream_thater/基礎科目/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+なら [Cauchy–Schwarz 不等式](../../dream_thater/基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \sigma_C(y)
@@ -799,7 +799,7 @@ $$
 C=\{x\in\mathbb R^n:\|x\|_p\le1\}
 $$
 
-とし、$1/p+1/q=1$ とする。[Hölder 不等式](../../dream_thater/解析系/F0-00D2D/index.md#thm-f0-00d2d-01)を使って
+とし、$1/p+1/q=1$ とする。[Hölder 不等式](../../dream_thater/解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)を使って
 
 $$
 \sigma_C(y)=\|y\|_q
@@ -809,7 +809,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-[Hölder 不等式](../../dream_thater/解析系/F0-00D2D/index.md#thm-f0-00d2d-01)から
+[Hölder 不等式](../../dream_thater/解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)から
 
 $$
 y^{\mathsf T}x

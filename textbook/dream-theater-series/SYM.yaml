@@ -6,34 +6,34 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: SYM1
-    path: textbook/volumes/dream_thater/幾何系/SYM1
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM1
     status: completed
     title: シンプレクティック線形代数
   - id: SYM2
-    path: textbook/volumes/dream_thater/幾何系/SYM2
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM2
     status: completed
     title: シンプレクティック多様体と基本例
   - id: SYM3
-    path: textbook/volumes/dream_thater/幾何系/SYM3
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM3
     status: completed
     title: 余接束の正準シンプレクティック形式
   - id: SYM4
-    path: textbook/volumes/dream_thater/幾何系/SYM4
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM4
     status: completed
     title: Hamiltonベクトル場・Poisson括弧・シンプレクティック流
   - id: SYM5
-    path: textbook/volumes/dream_thater/幾何系/SYM5
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM5
     status: completed
     title: Darbouxの定理
   - id: SYM6
-    path: textbook/volumes/dream_thater/幾何系/SYM6
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM6
     status: completed
     title: Lagrange部分空間・Lagrange部分多様体
   - id: SYM7
-    path: textbook/volumes/dream_thater/幾何系/SYM7
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM7
     status: completed
     title: Moserの方法とシンプレクティック変形
   - id: SYM8
-    path: textbook/volumes/dream_thater/幾何系/SYM8
+    path: textbook/volumes/dream_thater/幾何系/SYM/SYM8
     status: planned
     title: 適合概複素構造と発展境界

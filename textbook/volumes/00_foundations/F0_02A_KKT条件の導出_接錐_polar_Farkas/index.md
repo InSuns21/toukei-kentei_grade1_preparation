@@ -1,6 +1,6 @@
 # F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題
 
-> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../../dream_thater/応用系/OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../../dream_thater/応用系/OPT/OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 <!-- definition-example-audit: loose -->
 

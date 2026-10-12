@@ -151,7 +151,7 @@ $$
 
 これはmartingaleです。
 
-この特別なmartingaleについては [Lévy上昇定理](../../dream_thater/解析系/F0-00P3C/index.md#thm-f0-00p3c-levy-upward) が
+この特別なmartingaleについては [Lévy上昇定理](../../dream_thater/解析系/F0/F0-00P3C/index.md#thm-f0-00p3c-levy-upward) が
 
 $$
 E[X\mid\mathcal F_n]
@@ -422,7 +422,7 @@ M_{\tau\wedge n}\to M_\tau
 \qquad\text{a.s.}
 $$
 
-です。従って確率収束もします。仮定した一様可積分性と [Vitali型収束定理](../../dream_thater/解析系/F0-00P4A/index.md#thm-f0-00p4a-vitali) により
+です。従って確率収束もします。仮定した一様可積分性と [Vitali型収束定理](../../dream_thater/解析系/F0/F0-00P4A/index.md#thm-f0-00p4a-vitali) により
 
 $$
 E|M_{\tau\wedge n}-M_\tau|\to0.

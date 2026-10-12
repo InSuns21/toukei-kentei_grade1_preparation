@@ -8,6 +8,9 @@ on:
       - '.github/workflows/dream-theater-category-migration.yml'
       - 'scripts/migrate-dream-theater-categories.mjs'
       - 'scripts/verify-dream-theater-category-relocation.mjs'
+      - 'scripts/migrate-dream-theater-courses.mjs'
+      - 'scripts/verify-dream-theater-course-relocation.mjs'
+      - 'textbook/migrations/dream-theater-course-layer/**'
   workflow_dispatch:
 
 permissions:
@@ -39,7 +42,7 @@ jobs:
           if grep -q 'textbook/volumes/00_foundations/' textbook/dream-theater-index.json; then
             node scripts/dream-theater-layout-inventory.mjs --strict
           else
-            node scripts/migrate-dream-theater-categories.mjs --check
+            node scripts/migrate-dream-theater-courses.mjs --check
           fi
       - name: Verify content preservation when category migration is proposed
         if: github.event_name == 'pull_request'
@@ -47,6 +50,8 @@ jobs:
           BASE="$(git merge-base origin/main HEAD)"
           if git show "$BASE:textbook/dream-theater-index.json" | grep -q 'textbook/volumes/00_foundations/'; then
             node scripts/verify-dream-theater-category-relocation.mjs --base "$BASE"
+          elif git show "$BASE:textbook/dream-theater-index.json" | grep -q 'textbook/volumes/dream_thater/基礎科目/F0-00A/index.md'; then
+            node scripts/verify-dream-theater-course-relocation.mjs --base "$BASE"
           else
-            echo 'Migration already canonical in base; no bulk-relocation proof needed'
+            echo 'No bulk relocation proposed relative to base'
           fi

@@ -46,11 +46,11 @@ function scan(source) {
   flush();return findings;
 }
 function files() {
-  if(!changedOnly)return readdirSync(prefix,{withFileTypes:true}).filter(x=>x.isDirectory()).flatMap(x=>readdirSync(prefix+x.name,{withFileTypes:true}).filter(y=>y.isDirectory()).map(y=>prefix+x.name+'/'+y.name+'/index.md')).filter(x=>existsSync(x));
+  if(!changedOnly)return readdirSync(prefix,{withFileTypes:true}).filter(x=>x.isDirectory()).flatMap(x=>readdirSync(prefix+x.name,{withFileTypes:true}).filter(y=>y.isDirectory()).flatMap(y=>readdirSync(prefix+x.name+'/'+y.name,{withFileTypes:true}).filter(z=>z.isDirectory()).map(z=>prefix+x.name+'/'+y.name+'/'+z.name+'/index.md'))).filter(x=>existsSync(x));
   if(!base)throw Error('missing --base for changed-only');
   const p=spawnSync('git',['diff','--name-only','--diff-filter=ACMR',base+'...HEAD'],{encoding:'utf8'});
   if(p.status!==0)throw Error(p.stderr||'git diff failed');
-  return p.stdout.split(/\r?\n/u).filter(x=>/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/u.test(x));
+  return p.stdout.split(/\r?\n/u).filter(x=>/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/u.test(x));
 }
 if(process.argv.includes('--self-test')){
   const assert=(ok,m)=>{if(!ok)throw Error(m);};

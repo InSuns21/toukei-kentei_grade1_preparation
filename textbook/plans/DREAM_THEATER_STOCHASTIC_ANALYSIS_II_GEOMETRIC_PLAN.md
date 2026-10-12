@@ -8,7 +8,7 @@
 本計画は、DREAM THEATER の既存「確率解析」STO1--STO14 の後続として、**多様体・Riemann 幾何・Lie 群を既知とする確率解析 II** を独立科目として追加するための設計台帳である。
 
 既存の確率解析ロードマップ
-`textbook/volumes/dream_thater/解析系/F0-00R4/index.md`
+`textbook/volumes/dream_thater/解析系/F0/F0-00R4/index.md`
 は、Euclid 空間上の Stratonovich 解析までを扱い、
 
 ~~~text
@@ -322,7 +322,7 @@ SGA10 多様体上の Wiener 空間
 
 > Brown 経路そのものを変数とみなして微分するとはどういうことか。
 
-この章では Wiener 測度を新しく構成しない。STO4 の [Wiener 測度](../volumes/dream_thater/解析系/STO4/index.md#def-sto4-wiener-measure) と古典 Wiener 空間
+この章では Wiener 測度を新しく構成しない。STO4 の [Wiener 測度](../volumes/dream_thater/解析系/STO/STO4/index.md#def-sto4-wiener-measure) と古典 Wiener 空間
 
 $$
 \bigl(C_0([0,T]),\mathcal B(C_0([0,T])),W_T\bigr)

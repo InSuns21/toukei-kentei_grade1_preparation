@@ -178,7 +178,7 @@ $$
 =\|f\|_1^2\sqrt{\frac\pi\varepsilon}<\infty.
 $$
 
-したがって [Fubiniの定理](../../dream_thater/解析系/F0-00D2C/index.md#thm-f0-00d2c-02) を使えます。$\widehat f(\xi)\overline{\widehat f(\xi)}$ を展開すると
+したがって [Fubiniの定理](../../dream_thater/解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) を使えます。$\widehat f(\xi)\overline{\widehat f(\xi)}$ を展開すると
 
 $$
 \begin{aligned}
@@ -241,7 +241,7 @@ $$
 =|f|^2 1_{\{|x|>N\}\cup\{|f|>N\}}
 $$
 
-であり、右辺は0へ点wise収束し $|f|^2$ に支配されるので[優収束定理](../../dream_thater/解析系/F0-00D2B/index.md#thm-f0-00d2b-01)から
+であり、右辺は0へ点wise収束し $|f|^2$ に支配されるので[優収束定理](../../dream_thater/解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
 
 $$
 \|f_N-f\|_2\to0.
@@ -558,7 +558,7 @@ $$
 =|f|^2 1_{\{|x|>N\}\cup\{|f|>N\}}
 $$
 
-で右辺は0へ点wise収束し、$|f|^2$ に支配されます。従って[優収束定理](../../dream_thater/解析系/F0-00D2B/index.md#thm-f0-00d2b-01)により $\|f_N-f\|_2\to0$ です。
+で右辺は0へ点wise収束し、$|f|^2$ に支配されます。従って[優収束定理](../../dream_thater/解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)により $\|f_N-f\|_2\to0$ です。
 
 ### 本番答案
 
