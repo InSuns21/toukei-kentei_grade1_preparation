@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - SYM4
   - GMECH8
-  - RA8
+  - RA6A
 forward_references: []
 
 concepts:
