@@ -16,7 +16,7 @@ $$
 I_1\subseteq I_2\subseteq I_3\subseteq\cdots
 $$
 
-に対し、ある $N$ から先は $I_N=I_{N+1}=\cdots$ となることを、**昇鎖が停止する**といいます。例えば $(x^3)\subsetneq(x^2)\subsetneq(x)\subsetneq k[x]$ は有限段で止まります。逆に $(x)\supsetneq(x^2)\supsetneq\cdots$ は降鎖なので、これが続いても昇鎖の条件には反しません。
+について、ある $N$ から先は $I_N=I_{N+1}=\cdots$ となる場合を考えます。この性質を環のすべてのイデアル列に要求するのが次の定義です。例えば $(x^3)\subsetneq(x^2)\subsetneq(x)\subsetneq k[x]$ は有限段で止まります。逆に $(x)\supsetneq(x^2)\supsetneq\cdots$ は降鎖なので、これが続いても昇鎖の条件には反しません。
 
 <a id="def-ag1-05-ideal-acc"></a>
 
@@ -286,9 +286,9 @@ $$
 > **系（多項式方程式は有限個へ縮約できる）**  
 > $k$ を体、$n\ge0$、$E\subseteq k[x_1,\dots,x_n]$ を任意の集合とする。このとき $E$ の有限部分集合 $\{f_1,\dots,f_r\}$ が存在し、次が成り立つ。
 
-$
+$$
 V_k(E)=V_k(f_1,\dots,f_r).
-$
+$$
 
 > $E=\varnothing$ の場合は $r=0$ とし、両辺を $k^n$ と解釈する。
 <!-- formal-statement-end -->
