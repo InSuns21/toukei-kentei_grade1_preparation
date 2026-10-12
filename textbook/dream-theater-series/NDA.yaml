@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-12 科目固有の直接依存・章ID・入口監査を完了。NDA1の執筆から開始する。
-# NDA1〜NDA3 本文と演習を完了。未実装のNDA4以降は公開しない。
+# NDA1〜NDA6 本文・演習を完了。NDA7は主定理の核心証明未完のため未公開草稿、status plannedを維持。
 chapters:
   - id: NDA1
     path: textbook/volumes/dream_thater/代数系/NDA/NDA1
