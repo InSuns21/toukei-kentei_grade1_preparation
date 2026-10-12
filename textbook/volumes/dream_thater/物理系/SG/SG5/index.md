@@ -388,7 +388,7 @@ $$
 
 最後は $1-x\le e^{-x}$ と調和級数の発散を用いた。$A_n$ は減少事象であるから、確率1で最初のレプリカには最大overlapを持つ後続レプリカが存在する。
 
-**第3段階：原子性と球面性。** 第1段階とCauchy–Schwarz不等式より
+**第3段階：原子性と球面性。** 第1段階と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \sigma^1\cdot\sigma^j=q_*
@@ -508,8 +508,14 @@ $$
 \end{aligned}
 $$
 
-が得られる。実際、$\mathbf E_Q\psi(Q_{12})
-=\{\mathbf E\psi(R_{12})-p_k\psi(q_k)\}/(1-p_k)$ である。
+が得られる。実際、二つのレプリカが異なる原子に属するという条件付けから
+
+$
+\mathbf E_Q\psi(Q_{12})
+=\frac{\mathbf E\psi(R_{12})-p_k\psi(q_k)}{1-p_k}
+$
+
+となる。
 
 残る問題は、$Q$ の**対角がまだ $q_k$** なのに、非対角の最大値が $q_{k-1}$ へ下がった点である。ここに先ほどのDovbysh–Sudakov表現を適用する。$Q_{ij}=v_i\cdot v_j$（$i\ne j$）の標本表現が得られ、[最大overlapの原子定理の第1段階](#thm-sg5-top-overlap)と同じ開球の議論によって
 
@@ -691,7 +697,7 @@ $$
 **SG5-C1（Gaussian部分積分・GG・ultrametricityの論理）**
 - Level: C
 
-(a) 共分散が $N R(\sigma,\tau)^p$ の独立Gaussian補助場を強さ $a>0$ でGibbs指数に加える。$n$ レプリカの有界関数 $f$ を用いて、Gaussian部分積分から $\mathbb E\langle f g_{N,p}(\sigma^1)/N\rangle$ をoverlapで表せ。
+(a) 共分散が $N R(\sigma,\tau)^p$ の独立Gaussian補助場を強さ $a>0$ でGibbs指数に加える。$n$ レプリカの有界関数 $f$ を用いて、[Gaussian部分積分](../../../解析系/HDP/HDP5/index.md#lem-hdp5-gaussian-ibp)から $\mathbb E\langle f g_{N,p}(\sigma^1)/N\rangle$ をoverlapで表せ。
 
 (b) エネルギー密度の自己平均化が成立するとき、$n=2,p=2$ のGG式を導け。
 
