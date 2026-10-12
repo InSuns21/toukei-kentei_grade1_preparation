@@ -206,7 +206,7 @@ $$
 
 最後から二番目では頂点 $i$ の $g_i^2$ が、接続する全ての辺の重みの合計 $d_i$ だけ現れることを使いました。固有ベクトル $u\ne0$ に対し $u^{\mathsf T}\mathcal Lu=\lambda\lVert u\rVert^2$ だから、両側の評価を $\lVert u\rVert^2$ で割って $0\leq\lambda\leq2$ が出ます。
 
-核について、$\mathcal Lu=0$ なら $u^{\mathsf T}\mathcal Lu=0$ です。各辺の寄与は非負で、その和が零なので、$w_{ij}>0$ の各辺に対し $g_i=g_j$ です。[SGT1の核とグラフの連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)と同じ正重みの道をたどれば、$g$ は各成分で一定です。従って $u_i=c_C\sqrt{d_i}$ と書けます。
+核について、$\mathcal Lu=0$ なら $u^{\mathsf T}\mathcal Lu=0$ です。各辺の寄与は非負で、その和が零なので、$w_{ij}>0$ の各辺に対し $g_i=g_j$ です。[核と連結成分](../SGT1/index.md#thm-sgt1-kernel-components)と同じ正重みの道をたどれば、$g$ は各成分で一定です。従って $u_i=c_C\sqrt{d_i}$ と書けます。
 
 逆にこの形の $u$ では各辺の両端で $g_i=g_j$ なので $L_+g=0$、ゆえに $\mathcal Lu=D_+^{-1/2}L_+g=0$ です。各 $u^{(C)}$ は互いに台が交わらず零でないため一次独立で、任意の核ベクトルはそれらの一次結合です。従って核の次元は $k$ です。実対称行列は対角化可能なので、零固有値の重複度も $k$ です。
 <!-- proof-end -->
@@ -533,7 +533,7 @@ A1の道に孤立頂点4を追加する。全次数行列 $D$ が可逆でない
 <!-- solution-start -->
 **詳細解答**　次数は $(2,3,1,0)$ なので $\det D=2\cdot3\cdot1\cdot0=0$ です。$D^{-1}$ は存在しません。一方 $V_+=\{1,2,3\}$ では $\det D_+=6>0$ なので $D_+^{-1}=\operatorname{diag}(1/2,1/3,1)$ です。
 
-元のグラフには道の成分 $\{1,2,3\}$ と孤立成分 $\{4\}$ の二成分があります。[SGT1の核とグラフの連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)より組合せLaplacianの零固有値は二重です。一方、本章で定義した $\mathcal L$ は三頂点上だけの行列であり、その核は一次元です。別の行列の零固有値重複度を混同してはいけません。
+元のグラフには道の成分 $\{1,2,3\}$ と孤立成分 $\{4\}$ の二成分があります。[核と連結成分](../SGT1/index.md#thm-sgt1-kernel-components)より組合せLaplacianの零固有値は二重です。一方、本章で定義した $\mathcal L$ は三頂点上だけの行列であり、その核は一次元です。別の行列の零固有値重複度を混同してはいけません。
 <!-- solution-end -->
 
 #### A3. 一歩後の分布
@@ -738,7 +738,7 @@ P=\begin{pmatrix}0&1&0\\2/3&0&1/3\\0&1&0\end{pmatrix},
 \end{pmatrix}.
 $$
 
-元のグラフは道と孤立頂点の二成分なので[SGT1の核とグラフの連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)から元の $4\times4$ の組合せLaplacianの零固有値は二重です。一方、正次数頂点上の道は連結なので[正規化スペクトルの定理](#thm-sgt2-spectrum-kernel)から $\mathcal L$ の零固有値は単純です。
+元のグラフは道と孤立頂点の二成分なので[核と連結成分](../SGT1/index.md#thm-sgt1-kernel-components)から元の $4\times4$ の組合せLaplacianの零固有値は二重です。一方、正次数頂点上の道は連結なので[正規化スペクトルの定理](#thm-sgt2-spectrum-kernel)から $\mathcal L$ の零固有値は単純です。
 
 **(2)**　体積は6です。[次数分布の定常性](#thm-sgt2-stationary)から
 $$
