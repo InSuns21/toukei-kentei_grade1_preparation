@@ -11,7 +11,7 @@ chapters:
     title: 平衡状態・状態量・温度
   - id: TH2
     path: textbook/volumes/dream_thater/物理系/TH/TH2
-    status: planned
+    status: completed
     title: 第一法則・内部エネルギー・熱・仕事
   - id: TH3
     path: textbook/volumes/dream_thater/物理系/TH/TH3

@@ -1,0 +1,50 @@
+id: "TH2"
+title: "第一法則・内部エネルギー・熱・仕事"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH1
+  - MECH1
+  - RA3
+official_scope: []
+learning_objectives:
+  - 閉鎖系の内部エネルギーが状態関数である意味を説明し、熱・仕事の正負を一貫して使える
+  - 第一法則を用いて経路ごとの熱・仕事・内部エネルギー変化を分け、閉路の収支を証明できる
+  - 外圧の力学的仕事から準静的な体積仕事の積分を導き、自由膨張へ誤適用しない
+  - 状態方程式だけでは内部エネルギーの形が定まらないことを理解し、物性仮定を区別できる
+  - 定積・定圧熱容量の関係と準静的等温仕事を途中式付きで導出できる
+  - 定数熱容量の断熱曲線と等積・等温・等圧を組み合わせた一巡収支を再現できる
+definitions:
+  - { id: TH2-DEF-01, name: "内部エネルギー" }
+  - { id: TH2-DEF-02, name: "熱と仕事の符号" }
+  - { id: TH2-DEF-03, name: "準静的過程" }
+  - { id: TH2-DEF-04, name: "定積熱容量と定圧熱容量" }
+theorems:
+  - { id: TH2-AXIOM-01, name: "熱力学第一法則" }
+  - { id: TH2-PROP-01, name: "準静的なpV仕事" }
+  - { id: TH2-PROP-02, name: "閉鎖過程のエネルギー収支" }
+  - { id: TH2-PROP-03, name: "理想気体の定圧・定積熱容量の差" }
+  - { id: TH2-PROP-04, name: "理想気体の準静的等温仕事" }
+  - { id: TH2-PROP-05, name: "理想気体の準静的断熱曲線" }
+canonical_examples:
+  - ピストン加熱・圧縮による熱と仕事の符号
+  - 外圧一定の仕事と自由膨張との対比
+  - 理想気体の定積・定圧熱容量差
+  - 等温膨張の熱と仕事の相殺
+  - 断熱膨張と温度低下
+  - 定積・等温・定圧の一巡計算
+problem_patterns:
+  - TH2-SIGN-ACCOUNTING
+  - TH2-CYCLIC-BALANCE
+  - TH2-EXTERNAL-PRESSURE-WORK
+  - TH2-ISOCHORIC-CALORIMETRY
+  - TH2-FREE-EXPANSION
+  - TH2-MULTISTEP-ENERGY
+  - TH2-ISOTHERMAL-INTEGRAL
+  - TH2-MAYER-RELATION
+  - TH2-ADIABATIC-CURVE
+  - TH2-THREE-LEG-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
