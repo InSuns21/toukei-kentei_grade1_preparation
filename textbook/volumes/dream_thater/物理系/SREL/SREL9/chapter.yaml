@@ -1,0 +1,43 @@
+id: "SREL9"
+title: "共変形式の総合演習と適用限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL7
+  - SREL8
+  - TH2
+official_scope: []
+learning_objectives:
+  - 孤立系の総四元運動量を構成しLorentz変換と不変質量を証明し非弾性衝突と光子吸収で検算できる
+  - 真空平面電磁波のMaxwell方程式・不変量・エネルギー流・boost後の振幅を成分から導出できる
+  - 局所連続式を有限領域の収支へ変換し境界流束と場・物質間の交換を区別できる
+  - 低速近似・真空という源の条件・有限時間加速・平坦性について失われた仮定を明示できる
+  - 相対論的衝突と進行波の複数の定理をつなぎLevel Cの総合問題を自力で再計算できる
+definitions:
+  - { id: SREL9-DEF-01, name: 孤立系の総四元運動量と不変質量 }
+theorems:
+  - { id: SREL9-THM-01, name: 総四元運動量と不変質量の慣性系不変性 }
+  - { id: SREL9-PROP-01, name: 真空平面波の方程式と局所エネルギー保存 }
+  - { id: SREL9-PROP-02, name: 局所保存から有限領域の収支 }
+canonical_examples:
+  - 逆方向の二光子系の正の不変質量を直接検算する
+  - 相対論的非弾性衝突後の結合体の静止質量とboost後の運動量を求める
+  - 右向きの真空平面波でMaxwell各成分と局所収支を検算する
+  - 電流が箱を通過する場合の境界流束を左右の法線から計算する
+  - 有限時間で加速を止める世界線によるRindler地平線の適用限界を検査する
+problem_patterns:
+  - SREL9-TWO-PHOTON-MASS
+  - SREL9-BOOSTED-TOTAL-P
+  - SREL9-WAVE-FIELD-FLUX
+  - SREL9-BOUNDARY-CURRENT
+  - SREL9-FINITE-ACCELERATION-CAUSALITY
+  - SREL9-INELASTIC-MASS
+  - SREL9-PHOTON-ABSORPTION
+  - SREL9-WAVE-BOOST
+  - SREL9-CHARGE-BALANCE
+  - SREL9-COLLISION-INTEGRATED
+  - SREL9-WAVEPACKET-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 6 }

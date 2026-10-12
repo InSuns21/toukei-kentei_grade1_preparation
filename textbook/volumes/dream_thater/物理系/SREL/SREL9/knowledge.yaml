@@ -1,0 +1,37 @@
+chapter: SREL9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL7
+  - SREL8
+  - TH2
+forward_references: []
+
+concepts:
+  - id: relativity.system-total-four-momentum
+    name: 孤立系の総四元運動量と不変質量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（孤立系の総四元運動量と不変質量）]
+    requires: [relativity.four-momentum, relativity.mass-shell]
+
+  - id: relativity.composite-mass-invariance
+    name: 総四元運動量と不変質量の慣性系不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（総四元運動量と不変質量の慣性系不変性）]
+    requires: [relativity.system-total-four-momentum, relativity.interval-invariance]
+
+  - id: relativity.integrated-vacuum-plane-wave
+    name: 真空平面波の方程式と局所エネルギー保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空平面波の方程式と局所エネルギー保存）]
+    requires: [relativity.vacuum-maxwell-si, relativity.em-energy-stress-components, relativity.em-energy-momentum-balance]
+
+  - id: relativity.local-to-finite-charge-balance
+    name: 局所保存から有限領域の収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所保存から有限領域の収支）]
+    requires: [relativity.maxwell-charge-continuity]
