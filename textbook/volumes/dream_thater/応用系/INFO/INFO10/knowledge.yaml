@@ -6,6 +6,8 @@ prerequisites:
   - INFO2
   - INFO3
   - INFO9
+  - F0-00P7
+  - F0-00P7A
 forward_references: []
 
 concepts:
