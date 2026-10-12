@@ -946,6 +946,12 @@
 7. [SM7 Ising模型とCurie–Weiss平均場](textbook/volumes/dream_thater/物理系/SM/SM7/index.md)
 8. [SM8 相転移と臨界現象](textbook/volumes/dream_thater/物理系/SM/SM8/index.md)
 
+<a id="dt-subject-spin-glass"></a>
+### スピングラス
+
+1. [SG1 quenched disorder・Random Energy Model・凍結転移](textbook/volumes/dream_thater/物理系/SG/SG1/index.md)
+
+
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
 

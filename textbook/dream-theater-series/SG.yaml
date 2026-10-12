@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: SG1
     path: textbook/volumes/dream_thater/物理系/SG/SG1
-    status: planned
+    status: completed
     title: quenched disorder・Random Energy Model・凍結転移
   - id: SG2
     path: textbook/volumes/dream_thater/物理系/SG/SG2
