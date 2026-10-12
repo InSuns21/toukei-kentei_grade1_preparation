@@ -419,7 +419,7 @@ $$
 \end{aligned}
 $$
 
-ここで第2行は外積の直交性、第3行はスカラー三重積の循環性を使いました。この等式の両辺と $\mu$ の内積を取って $r^2$ で割ればが成り立ちます。両辺と $\mu$ の内積を取って $r^2$ で割れば
+ここで第2行は外積の直交性、第3行はスカラー三重積の循環性を使いました。この等式の両辺と $\mu$ の内積を取って $r^2$ で割れば
 
 $$
 \frac{\mu\cdot(u\times v)}{r^2}
@@ -433,7 +433,7 @@ $$
 \omega_{\mathrm{KKS}}=r\sin\theta\,d\theta\wedge d\phi.
 $$
 
-実際、パラメータ表示の偏微分から $\partial_\theta\mu\times\partial_\phi\mu=r\sin\theta\,\mu$ となり、[KKS形式の球面上の式](#def-gmech6-kks)に代入すると係数が $r\sin\theta$ になります。正の向きで積分すれば
+実際、パラメータ表示の偏微分から $\partial_\theta\mu\times\partial_\phi\mu=r\sin\theta\,\mu$ となり、上で得た球面上のKKS形式の式に代入すると係数が $r\sin\theta$ になります。正の向きで積分すれば
 
 $$
 \int_{S_r^2}\omega_{\mathrm{KKS}}
@@ -641,7 +641,7 @@ $$
 \dot\mu_3=(\alpha-\beta)\mu_1\mu_2.
 $$
 
-$dH/dt=\nabla H\cdot(\nabla H\times\mu)=0$ かつ $d|\mu|^2/dt=2\mu\cdot(\nabla H\times\mu)=0$ です。(2) 従って $|\mu(t)|=r$。非零の$SO(3)$余随伴軌道はこの球面であり、[余随伴軌道のシンプレクティック構造定理](#thm-gmech6-kks)によって二次元シンプレクティック葉です。
+$dH/dt=\nabla H\cdot(\nabla H\times\mu)=0$ かつ $d|\mu|^2/dt=2\mu\cdot(\nabla H\times\mu)=0$ です。(2) 従って $|\mu(t)|=r$。非零の $SO(3)$ 余随伴軌道はこの球面であり、[余随伴軌道のシンプレクティック構造定理](#thm-gmech6-kks)によって二次元シンプレクティック葉です。
 
 (3) $\dot\mu_i=0$ の三式における係数は全て非零です。よって $\mu_1\mu_2=\mu_2\mu_3=\mu_3\mu_1=0$ で、非零になれる成分は高々一つです。球面との共通部分から速度零の点は $(\pm r,0,0)$、$(0,\pm r,0)$、$(0,0,\pm r)$ の六点です。
 
