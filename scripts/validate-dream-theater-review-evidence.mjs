@@ -181,6 +181,8 @@ if (args.includes('--self-test')) {
     }
     const targets = inventory(after);
     const section = sections.get(id);
+    if (before === null && section?.mode === 'local-math')
+      problems.push(id + ': newly added chapter requires substantive (C) review evidence');
     const violations = checkChapter(id, section, targets);
     problems.push(...violations.map(v => id + ': ' + v));
     if (!violations.length) console.log(id + ': ' + section.mode + ' review evidence recorded; ' + targets.anchors.length + ' primary results and ' + targets.exercises.length + ' exercises present');
