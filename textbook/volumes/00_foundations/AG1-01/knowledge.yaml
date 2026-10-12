@@ -5,7 +5,8 @@ prerequisites:
   - RNG4
   - FLD0
   - TOP1
-forward_references: []
+forward_references:
+  - FLD2
 
 concepts:
   - id: algebraic-geometry.multivariate-polynomial-ring
