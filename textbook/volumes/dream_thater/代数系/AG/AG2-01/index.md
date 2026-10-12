@@ -14,7 +14,11 @@
 > **定義（射影空間と斉次座標）**  
 > $k=\mathbb C$、整数 $n\geq1$ に対し、$k^{n+1}\setminus\{0\}$ 上で、$x\sim y$ を「ある $\lambda\in k^\times$ に対して $y=\lambda x$」と定める。商集合を **$n$ 次元射影空間** $\mathbb P^n_k$ と呼ぶ。その点を
 >
-> $[X_0:\cdots:X_n]$
+
+$$
+[X_0:\cdots:X_n]
+$$
+
 >
 > と記し、代表元の成分を **斉次座標** と呼ぶ。少なくとも一つの $X_i$ は非零である。
 <!-- formal-statement-end -->
@@ -37,7 +41,11 @@
 > **定義（標準アフィンチャート）**  
 > $k=\mathbb C$、$n\geq1$、$0\leq i\leq n$ に対し、$\mathbb P^n_k$ の部分集合を
 >
-> $U_i=\{[X_0:\cdots:X_n]\mid X_i\ne0\}$
+
+$$
+U_i=\{[X_0:\cdots:X_n]\mid X_i\ne0\}
+$$
+
 >
 > と定める。$U_i$ におけるアフィン座標は、添字 $i$ を除いた $n$ 個の比 $X_j/X_i$（$j\ne i$）とする。
 <!-- formal-statement-end -->
@@ -52,7 +60,11 @@
 > **命題（標準チャートとアフィン空間の全単射）**  
 > $k=\mathbb C$、$n\geq1$、$0\leq i\leq n$ とする。写像
 >
-> $\phi_i:U_i\longrightarrow \mathbb A^n_k,\qquad [X_0:\cdots:X_n]\longmapsto (X_j/X_i)_{j\ne i}$
+
+$$
+\phi_i:U_i\longrightarrow \mathbb A^n_k,\qquad [X_0:\cdots:X_n]\longmapsto (X_j/X_i)_{j\ne i}
+$$
+
 >
 > は well-defined な全単射である。逆写像は、$i$ 番目へ $1$ を挿入した斉次座標を作る写像である。また $\mathbb P^n_k=\bigcup_{i=0}^n U_i$ が成り立つ。
 <!-- formal-statement-end -->
@@ -162,7 +174,11 @@ $$
 > **命題（斉次式の零点条件の代表元不変性）**  
 > $k=\mathbb C$、$d\ge0$ とし、$F\in k[X_0,\ldots,X_n]$ を次数 $d$ の斉次多項式とする。任意の $x\in k^{n+1}$、$\lambda\in k$ について
 >
-> $F(\lambda x)=\lambda^d F(x)$
+
+$$
+F(\lambda x)=\lambda^d F(x)
+$$
+
 >
 > が成立する。特に $\lambda\ne0$ のとき $F(x)=0$ と $F(\lambda x)=0$ は同値であり、射影点に対する $F=0$ は正しく定義される。
 <!-- formal-statement-end -->
@@ -205,7 +221,11 @@ $\lambda\ne0$ なら $\lambda^d\ne0$ なので、一方が零であることと�
 > **定義（射影零点集合）**  
 > $k=\mathbb C$、$n\ge1$ とし、$S$ を $k[X_0,\ldots,X_n]$ の斉次多項式からなる集合とする。**射影零点集合** を
 >
-> $V_+(S)=\{[X]\in\mathbb P^n_k\mid F(X)=0\ \text{for all }F\in S\}$
+
+$$
+V_+(S)=\{[X]\in\mathbb P^n_k\mid F(X)=0\ \text{for all }F\in S\}
+$$
+
 >
 > と定める。空集合の方程式族の場合は $V_+(\varnothing)=\mathbb P^n_k$ とする。
 <!-- formal-statement-end -->
@@ -282,7 +302,11 @@ $$
 > **命題（可逆線形変換の射影空間への作用）**  
 > $k=\mathbb C$、$n\ge1$、$A\in\mathrm{GL}_{n+1}(k)$ とする。
 >
-> $T_A:\mathbb P^n_k\to\mathbb P^n_k,\qquad [x]\mapsto[Ax]$
+
+$$
+T_A:\mathbb P^n_k\to\mathbb P^n_k,\qquad [x]\mapsto[Ax]
+$$
+
 >
 > は well-defined な全単射であり、逆写像は $T_{A^{-1}}$ である。さらに $T_AT_B=T_{AB}$ が成立する。$A$ の非零スカラー倍は同じ写像を与える。
 <!-- formal-statement-end -->
