@@ -48,7 +48,7 @@ $$
 <!-- definition-example-start: def-srel3-four-velocity -->
 ### 例：速さが $3c/5$ の粒子
 
-粒子の速度を $\boldsymbol v=(3c/5,0,0)$ とします。$|\boldsymbol v|<c$ が成立し、$\gamma=1/\sqrt{1-9/25}=5/4$ です。従って定義へ代入すると
+**定義の確認**：世界線が時間的で固有時微分が定義できることを最初に確かめます。粒子の速度を $\boldsymbol v=(3c/5,0,0)$ とします。$|\boldsymbol v|<c$ が成立し、$\gamma=1/\sqrt{1-9/25}=5/4$ です。従って定義へ代入すると
 
 $$
 U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
@@ -128,7 +128,7 @@ $$
 <!-- definition-example-start: def-srel3-four-acceleration -->
 ### 例：瞬間的に静止する点
 
-ある時点に粒子が $\boldsymbol v=0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では $\gamma=1$、$d\gamma/dt=\gamma^3(\boldsymbol v\cdot d\boldsymbol v/dt)/c^2=0$ です。よって
+**定義の確認**：瞬間静止系でも四元加速度を定義でき、平方が非正になることを成分で確かめます。ある時点に粒子が $\boldsymbol v=0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では $\gamma=1$、$d\gamma/dt=\gamma^3(\boldsymbol v\cdot d\boldsymbol v/dt)/c^2=0$ です。よって
 
 $$
 A=\gamma\frac{d}{dt}(\gamma c,\gamma\boldsymbol v)
@@ -269,7 +269,7 @@ $$
 <!-- definition-example-start: def-srel3-four-momentum -->
 ### 例：静止系と速さ $3c/5$ の系
 
-静止系では $\boldsymbol v=\boldsymbol0$ なので $P=(mc,\boldsymbol0)$、$E=mc^2$ です。速さが $3c/5$ の系では $\gamma=5/4$ で
+**定義の確認**：静止質量 $m>0$ を一定に保ったまま、四元運動量の各成分を計算します。静止系では $\boldsymbol v=\boldsymbol0$ なので $P=(mc,\boldsymbol0)$、$E=mc^2$ です。速さが $3c/5$ の系では $\gamma=5/4$ で
 
 $$
 P=\left(\frac54mc,\frac34mc,0,0\right),
@@ -296,7 +296,7 @@ $$
 <!-- definition-example-start: def-srel3-mass-shell -->
 ### 例：静止質量の正エネルギー枝
 
-静止粒子では $P=(mc,\boldsymbol0)$ なので $g(P,P)=m^2c^2$、かつ $E=mc^2>0$ です。代数方程式だけなら $E=-mc^2$ も可能ですが、未来向きの条件を満たすのは正の枝だけです。質量殻は同じ式でも枝の条件を落としてはいけません。
+**定義の確認**：質量殻の等式と未来向きの正エネルギー条件を両方検査します。静止粒子では $P=(mc,\boldsymbol0)$ なので $g(P,P)=m^2c^2$、かつ $E=mc^2>0$ です。代数方程式だけなら $E=-mc^2$ も可能ですが、未来向きの条件を満たすのは正の枝だけです。質量殻は同じ式でも枝の条件を落としてはいけません。
 <!-- definition-example-end -->
 
 <a id="thm-srel3-mass-shell"></a>
