@@ -20,7 +20,7 @@ chapters:
     title: "幾何学的Noetherの定理"
   - id: GMECH4
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH4
-    status: planned
+    status: completed
     title: "運動量レベル集合・群作用・正則性"
   - id: GMECH5
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH5
