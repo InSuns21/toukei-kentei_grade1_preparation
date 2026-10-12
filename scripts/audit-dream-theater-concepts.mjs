@@ -813,6 +813,34 @@ function runAliasMatcherSelfTest() {
   }
   if (matches.has('missing')) throw new Error('alias matcher が存在しない alias を返しました。');
 
+  // Native-compound aliases must not create unreachable-prerequisite findings.
+  const japaneseAliasCases = [
+    ['偏微分係数が存在する', '微分係数', false],
+    ['高階微分係数を扱う', '微分係数', false],
+    ['微分係数表を作る', '微分係数', false],
+    ['半群を扱う', '群', false],
+    ['強連続半群を扱う', '群', false],
+    ['群作用を考える', '群', false],
+    ['単体法を使う', '単体', false],
+    ['行列式を計算する', '行列', false],
+    ['Banach空間を扱う', '空間', false],
+    ['微分係数を調べる', '微分係数', true],
+    ['その微分係数は存在する', '微分係数', true],
+    ['関数の微分係数と偏微分係数を比較する', '微分係数', true],
+    ['偏微分係数と微分係数を比較する', '微分係数', true],
+    ['半群と群を比較する', '群', true],
+    ['**微分係数**を定義する', '微分係数', true],
+    ['「微分係数」を定義する', '微分係数', true],
+    ['Banach空間', 'Banach', true],
+    ['群Gは', '群', true],
+    ['2次の微分係数は', '微分係数', true],
+  ];
+  for (const [line, alias, expected] of japaneseAliasCases) {
+    if (aliasAppears(line, alias) !== expected) {
+      throw new Error(`Japanese compound alias regression: ${JSON.stringify({ line, alias, expected })}`);
+    }
+  }
+
   const overlap = buildAliasMatcher(['a', 'ab', 'bab', 'bc', 'bca', 'c', 'caa']);
   const overlapMatches = overlap.match('abccab');
   for (const expected of ['a', 'ab', 'bc', 'c']) {
@@ -998,7 +1026,19 @@ function aliasAppears(line, alias) {
   if (/^[A-Za-z][A-Za-z0-9.^+-]*$/u.test(needle)) {
     return new RegExp(`(?<![A-Za-z0-9_])${escapeRegExp(needle)}(?![A-Za-z0-9_])`, 'u').test(line);
   }
-  return line.includes(needle);
+  // Japanese compounds have no spaces between their constituents. Do not treat
+  // a registered alias as a standalone concept when it occurs only inside a
+  // longer Han/Katakana compound (偏微分係数 ≠ 微分係数, 半群 ≠ 群).
+  // Hiragana particles remain valid boundaries: 「その微分係数は」.
+  if (!/[\p{Script=Han}\p{Script=Katakana}]/u.test(needle)) return line.includes(needle);
+  const joinedLeft = /[\p{Script=Han}\p{Script=Katakana}々ーA-Za-z0-9_]/u;
+  const joinedRight = /[\p{Script=Han}\p{Script=Katakana}々ー]/u;
+  for (const { start, end } of literalAliasSpans(line, needle)) {
+    const before = line.slice(0, start).slice(-1);
+    const after = line.slice(end, end + 1);
+    if (!joinedLeft.test(before) && !joinedRight.test(after)) return true;
+  }
+  return false;
 }
 
 function stripNonReaderContent(source) {
