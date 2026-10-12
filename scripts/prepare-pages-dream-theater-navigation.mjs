@@ -88,7 +88,7 @@ for (let i = 0; i < expectedPaths.length; i += 1) {
 
 const publishedFacade = await readFile(publishedFacadePath, 'utf8');
 const synchronizedFacade = publishedFacade.replace(
-  /\[([^\]]+)\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g,
+  /\[([^\]]+)\]\((textbook\/volumes\/(?:00_foundations|dream_thater)\/[^)]+\/index\.md)\)/g,
   (match, _label, target) => {
     if (!expectedSet.has(target)) return match;
     return `[${pageTitles.get(target)}](${target})`;
