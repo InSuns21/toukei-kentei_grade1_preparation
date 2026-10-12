@@ -34,7 +34,7 @@ function stableInventory(source) {
     links: [...source.matchAll(/\[[^\]]+\]\([^\n)]+\)/g)].map(x => x[0]),
     codeBlocks: [...source.matchAll(/(```|~~~)[^\n]*\n[\s\S]*?\n\1/g)].map(x => x[0]),
     inlineCode: [...source.matchAll(/(?<!`)`[^`\n]+`(?!`)/g)].map(x => x[0]),
-    mathematics: [...source.matchAll(/\$\$[\s\S]*?\$\$|(?<!\)\$(?:\.|[^\$\\n])+\$/g)].map(x => x[0]),
+    mathematics: [...source.matchAll(/[$]{2}[\s\S]*?[$]{2}|[$][^$\n]+[$]/g)].map(x => x[0]),
     exercises: inventory(source).exercises
   };
 }
