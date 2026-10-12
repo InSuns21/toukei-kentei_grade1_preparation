@@ -61,7 +61,7 @@ E e^{|X|/s}
 =\frac{1}{1-1/s}=\frac{s}{s-1}.
 $$
 
-この値が $2$ 以下となるのは $s\ge2$ のときです。$s\le1$ では積分が発散するので $\|X\|_{\psi_1}=2$ です。しかも $E[X]=0$ です。
+この値が $2$ 以下となるのは $s\ge2$ のときです。$s\le1$ では積分が発散するので $\|X\|_{\psi_1}=2$ です。さらに、$E|RZ|=E[Z]=1<\infty$ なので積は可積分であり、$R$ と $Z$ の独立性と[期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から $E[RZ]=E[R]E[Z]=0$ です。
 <!-- definition-example-end -->
 
 両者は、同じ確率空間上のほとんど確実に等しい変数を区別しません。また $\|cX\|_{\psi_\alpha}=|c|\|X\|_{\psi_\alpha}$（$\alpha=1,2$）です。これは上の定義で $s=|c|u$ と置換して確認できます。三角不等式についても、$a,b>0$ に対して期待値条件を満たす場合、$\Phi_\alpha(u)=e^{u^\alpha}-1$ の単調増加性と凸性から
@@ -689,7 +689,7 @@ $Z$ は密度 $e^{-z}$（$z\ge0$）、$R$ は独立なRademacher変数とし、$
 - ID: HDP3-A3
 
 <!-- solution-start -->
-**詳細解答**　独立性から $E[X]=E[R]E[Z]=0$ です。$|X|=Z$ なので $s>1$ では
+**詳細解答**　$E|RZ|=E[Z]=1$ で積は可積分です。独立性と[期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から $E[X]=E[R]E[Z]=0$ です。$|X|=Z$ なので $s>1$ では
 
 $$
 E e^{|X|/s}
@@ -805,7 +805,7 @@ $a_i=0$ の項は確率一で零なので除いてから定理を使えます。
 - ID: HDP3-B3
 
 <!-- solution-start -->
-**詳細解答**　各 $E Y_i=0$、$E e^{|Y_i|/2}=E e^{Z_i/2}=2$ です。従って[独立sub-exponential和の定理](#thm-hdp3-subexponential-sum)に $K_i=2$ を選べて
+**詳細解答**　各 $Y_i=R_iZ_i$ は可積分で、$R_i$ と $Z_i$ の独立性および[期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から $E Y_i=E R_i E Z_i=0$ です。また $|Y_i|=Z_i$ なので $E e^{|Y_i|/2}=E e^{Z_i/2}=2$ です。従って[独立sub-exponential和の定理](#thm-hdp3-subexponential-sum)に $K_i=2$ を選べて
 
 $$
 V=\sum_iK_i^2=4n,\qquad L=2.
