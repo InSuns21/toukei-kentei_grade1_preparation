@@ -696,3 +696,67 @@ $$
 これは先ほどの $\log360$ に等しいです。
 <!-- solution-end -->
 
+### Level C：複数の概念をつないで証明する
+
+#### C1. 素数の逆数和の発散
+
+[Euler 積](#thm-nt8-euler-product)を使って、素数上の級数 $\sum_{p\text{ は素数}}1/p$ が発散することを証明せよ。$s>1$ で考えた後、$s\downarrow1$ とすること。
+
+- Level: C
+
+<!-- solution-start -->
+**詳細解答**：まず $0\le t\le1/2$ に対して $-\log(1-t)\le2t$ を示します。関数 $h(t)=-\log(1-t)-2t$ は $h(0)=0$ であり
+$$
+h'(t)=\frac1{1-t}-2\le0
+$$
+なので $h(t)\le0$ です。
+
+背理法で $\sum_p1/p<\infty$ と仮定します。$s>1$ では $0<p^{-s}\le1/2$ なので、任意の有限積について
+$$
+0\le\sum_{p\le P}-\log(1-p^{-s})
+\le2\sum_{p\le P}p^{-s}\le2\sum_p\frac1p.
+$$
+[Euler 積](#thm-nt8-euler-product)は正の有限値 $\zeta(s)$ に収束するので、対数の連続性から
+$$
+\log\zeta(s)\le2\sum_p\frac1p
+$$
+です。従って $\zeta(s)$ はすべての $s>1$ で共通の有限定数により上から抑えられます。
+
+一方、任意の正整数 $N$ と $s>1$ で
+$$
+\zeta(s)\ge\sum_{n=1}^Nn^{-s}.
+$$
+$s\downarrow1$ とすると右辺は $\sum_{n=1}^N1/n$ へ近づきます。調和級数は、$2^{j-1}<n\le2^j$ の項が合計で少なくとも $1/2$ になることから、$N\to\infty$ で発散します。従って $\zeta(s)$ を $s>1$ 全体で一様に上から押さえることは不可能です。矛盾により $\sum_p1/p$ は発散します。
+<!-- solution-end -->
+
+#### C2. 漸近式の同値性を片側から導く
+
+$\theta(x)\sim x$ を仮定する。任意の $0<\varepsilon<1$ に対して $y=x^{1-\varepsilon}$ と置き、$\pi(x)\sim x/\log x$ を示せ。
+
+- Level: C
+
+<!-- solution-start -->
+**詳細解答**：まずすべての $p\le x$ に対し $\log p\le\log x$ なので
+$$
+\theta(x)\le\pi(x)\log x.
+$$
+従って $\pi(x)\log x/x$ の下極限は $1$ 以上です。
+
+$p\le y$ の素数は高々 $y$ 個、$y<p\le x$ の素数は一つにつき $\log p>(1-\varepsilon)\log x$ の重みを持ちます。そこで
+$$
+\pi(x)\le y+\frac{\theta(x)}{(1-\varepsilon)\log x}
+$$
+が従います。両辺に $\log x/x$ を掛けると
+$$
+\frac{\pi(x)\log x}{x}
+\le\frac{\log x}{x^\varepsilon}
++\frac{\theta(x)/x}{1-\varepsilon}.
+$$
+$\log x/x^\varepsilon\to0$、$\theta(x)/x\to1$ より、左辺の上極限は $1/(1-\varepsilon)$ 以下です。$\varepsilon$ は任意なので上極限は $1$ 以下、下極限は先ほどの評価で $1$ 以上です。従って $\pi(x)\log x/x\to1$ となり結論を得ます。
+<!-- solution-end -->
+
+## 9. 次の問い
+
+素数が無限個あることを確認した後、その個数が上下の定数倍を除けば $x/\log x$ と同じ大きさだと証明しました。素数定理は定数倍での評価を「比が $1$ に収束する」という精密な主張へ変えますが、その完全証明はここでは扱っていません。
+
+Dirichlet 級数の Euler 積は、整数上の和と素数ごとの積を直接結びます。この接続は後の解析的整数論の入口です。NT9 以降では対象を変え、整数方程式の可解性と計算可能性を結ぶ問題へ進みます。
