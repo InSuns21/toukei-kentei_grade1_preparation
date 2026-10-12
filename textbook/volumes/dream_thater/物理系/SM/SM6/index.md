@@ -197,7 +197,29 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z=e^{\beta\mu}$ として重みは $z^{N}e^{-\beta H}$ です。各モードの因子は $\beta>0$ とBose型の収束条件の範囲で滑らかなので、対数を微分できます。$\partial_\mu(z^{N}e^{-\beta H})=\beta N z^Ne^{-\beta H}$、他方 $z$ を固定した $\beta$ 微分は $-Hz^Ne^{-\beta H}$ を与えます。規格化のため $\Xi$ で割ると、それぞれ $\beta\mathbb E[N]$ と $-\mathbb E[H]$ です。Bose型の項別微分は $q_j<1$ の幾何級数の微分で正当化されます。
+$z=e^{\beta\mu}$ と書くと配置の重みは $z^N e^{-\beta H}$ です。$\beta$ を固定して $\mu$ で微分する場合、$H$ は $\mu$ に依存せず、$\partial_\mu z=\beta z$ です。したがって各配置について
+
+$$
+\left.\partial_\mu\left(z^Ne^{-\beta H}\right)\right|_\beta
+=\beta N z^Ne^{-\beta H}.
+$$
+
+一方、$z$ を固定して $\beta$ で微分すると $z^N$ は定数であり、
+
+$$
+\left.\partial_\beta\left(z^Ne^{-\beta H}\right)\right|_z
+=-H z^Ne^{-\beta H}.
+$$
+
+Bose型の各モードは $q_j<1$ で、$q_j$ の十分小さい近傍でも幾何級数とその一次微分が一様収束します。$J$ は有限なので和と微分を交換でき、Fermi型では初めから有限和です。全配置の重みを足して $\Xi$ で割れば
+
+$$
+\left.\partial_\mu\log\Xi\right|_\beta=\beta\mathbb E[N],
+\qquad
+-\left.\partial_\beta\log\Xi\right|_z=\mathbb E[H].
+$$
+
+ここで $z$ 固定の微分では $\mu=(\log z)/\beta$ も変化するため、$\mu$ 固定の微分と混同できません。
 <!-- proof-end -->
 
 ## 4. 連続準位を持つ三次元量子理想気体
@@ -504,7 +526,27 @@ $$
 \le\frac{2m}{\beta\hbar^2|k|^2}
 $$
 
-が $e^y-1\ge y$ から従います。波数格子の原点から半径 $\delta$ 以内を、格子間隔 $a=2\pi/L$ の球殻 $ra\le|k|<(r+1)a$ に分割すると、殻内の格子点数は $O((r+1)^2)$。一殻の $L^{-3}$ 倍の寄与は $O(L^{-1})$、殻数は $O(\delta L)$ なので、原点周辺全体の寄与は $O(\delta)$（定数は $m,\beta,\hbar$ のみ）です。原点を除く残りでは通常のRiemann和が通ります。先に $L\to\infty$、次に $\delta\downarrow0$ とすれば
+が $e^y-1\ge y$ から従います。$a=2\pi/L$ とし、原点を除いた波数格子を整数 $r\ge1$ による殻
+
+$$
+ra\le|k|<(r+1)a
+$$
+
+に分けます。格子間隔が $a$ なので、立方体セルで殻を覆って比較すると、殻内の格子点数は $C(r+1)^2$ 以下に抑えられます。ここで定数 $C$ は $r,L$ に依存しません。殻内の各点では $|k|\ge ra$ だから、先ほどの上界を使うと一殻の密度への寄与は
+
+$$
+\begin{aligned}
+\frac1{L^3}\sum_{\text{殻 }r}
+\frac1{e^{\beta\varepsilon_\ell}-1}
+&\le \frac{C(r+1)^2}{L^3}
+\frac{2m}{\beta\hbar^2r^2a^2}\\
+&=\frac{C\,2m}{\beta\hbar^2(2\pi)^2 L}
+\frac{(r+1)^2}{r^2}
+\le\frac{C'}L.
+\end{aligned}
+$$
+
+半径 $\delta$ 内の殻は高々 $\delta/a+1$ 個なので、その励起密度は $C'(\delta/(2\pi)+L^{-1})$ 以下です。$|k|\ge\delta$ では被積分関数が連続で無限遠で急減少するため、[状態密度のRiemann和](#prop-sm6-density-of-states)を適用できます。連続積分側の原点近傍も、$k^2$ の測度と $|k|^{-2}$ の上界を掛けると $O(\delta)$ です。先に $L\to\infty$、次に $\delta\downarrow0$ とすれば
 
 $$
 E_L(1)\longrightarrow\rho_{\mathrm c}.
@@ -512,7 +554,21 @@ $$
 
 したがって任意の $z_L\in(0,1)$ に対して $E_L(z_L)\le E_L(1)$ が成り立ちます。
 
-$\rho>\rho_{\mathrm c}$ とします。もし部分列上で $z_L\le1-\eta$（$\eta>0$）なら、基底密度は $\bar n_{0,L}/L^3\le(1-\eta)/(\eta L^3)\to0$、励起密度は高々 $\lambda_T^{-3}B_{3/2}(1-\eta)<\rho_{\mathrm c}$ となり、$D_L(z_L)=\rho$ に矛盾します。よって $z_L\to1$。固定 $z<1$ に対して十分大きい $L$ で $z_L\ge z$ なので
+$\rho>\rho_{\mathrm c}$ とします。もしある $\eta>0$ と部分列上で $z_L\le1-\eta$ なら、基底密度は
+
+$$
+0\le\frac{\bar n_{0,L}}{L^3}
+\le\frac{1-\eta}{\eta L^3}\longrightarrow0.
+$$
+
+また励起占有数は $z$ とともに増加するので
+
+$$
+E_L(z_L)\le E_L(1-\eta)
+\longrightarrow\lambda_T^{-3}B_{3/2}(1-\eta)<\rho_{\mathrm c}<\rho.
+$$
+
+この二つを $D_L(z_L)=\bar n_{0,L}/L^3+E_L(z_L)=\rho$ へ代入すると矛盾します。従って $z_L\to1$ です。固定した $0<z<1$ に対して、十分大きい $L$ では $z_L\ge z$ なので
 
 $$
 \lambda_T^{-3}B_{3/2}(z)
@@ -522,7 +578,36 @@ $$
 
 $z\uparrow1$ として $E_L(z_L)\to\rho_{\mathrm c}$ を得ます。$\bar n_{0,L}/L^3=\rho-E_L(z_L)$ なので結論です。
 
-$\rho<\rho_{\mathrm c}$ の場合は、$z_*\in(0,1)$ を $\lambda_T^{-3}B_{3/2}(z_*)=\rho$ と一意に定められます（連続性・狭義単調性を使う）。$z_*-\eta$ と $z_*+\eta$ を使い $D_L$ を挟めば $z_L\to z_*<1$、基底密度は0へ向かいます。$\rho=\rho_{\mathrm c}$ では $E_L(z_L)\le E_L(1)\to\rho_{\mathrm c}$ と、任意の固定 $z<1$ について $z_L\ge z$ が最終的に成り立つことから、同様の上下評価で $E_L(z_L)\to\rho_{\mathrm c}$、基底密度は0です。
+$\rho<\rho_{\mathrm c}$ の場合、$B_{3/2}(z)$ は $(0,1)$ で連続かつ狭義増加し、その値域は $(0,B_{3/2}(1))$ です。したがって
+
+$$
+\lambda_T^{-3}B_{3/2}(z_*)=\rho
+$$
+
+を満たす $z_*\in(0,1)$ が一意に存在します。$z_*-\eta>0$、$z_*+\eta<1$ を満たす $\eta>0$ を固定します。基底密度は固定 $z<1$ で $L\to\infty$ の際に消えるので、固定 fugacity での励起密度の極限から、十分大きい $L$ では
+
+$$
+D_L(z_*-\eta)<\rho=D_L(z_L)<D_L(z_*+\eta).
+$$
+
+$D_L$ の狭義単調性より $z_*-\eta<z_L<z_*+\eta$。任意の $\eta$ で挟めるので $z_L\to z_*<1$、従って $\bar n_{0,L}/L^3\to0$ です。
+
+残る $\rho=\rho_{\mathrm c}$ の場合、任意の固定 $0<z<1$ で
+
+$$
+D_L(z)\longrightarrow\lambda_T^{-3}B_{3/2}(z)<\rho_{\mathrm c}=D_L(z_L)
+$$
+
+となるため、十分大きい $L$ で $z_L>z$ です。よって
+
+$$
+\lambda_T^{-3}B_{3/2}(z)
+\le\liminf_{L\to\infty}E_L(z_L)
+\le\limsup_{L\to\infty}E_L(z_L)
+\le\lim_{L\to\infty}E_L(1)=\rho_{\mathrm c}.
+$$
+
+$z\uparrow1$ として両側が $\rho_{\mathrm c}$ に一致するので、基底密度は $\rho-E_L(z_L)\to0$ です。
 <!-- proof-end -->
 
 この定理は大正準模型の**平均占有数**の主張です。単一実現で必ず基底に $\rho-\rho_c$ 個の粒子がいるという断定でも、有限系で真の特異点が生じるという主張でもありません。有限容積の大正準Bose基底占有は幾何分布で、分散は平均の二乗と同程度にもなります。相転移での粒子数揺らぎは、アンサンブルと固定する量を指定せずに比較できません。
@@ -575,7 +660,23 @@ $$
 \frac{d^3k}{\exp[(\hbar^2|k|^2/(2m)-\mu)/(k_{\mathrm B}T)]+1}
 $$
 
-と置きます。各 $T>0$ で $\rho_T(\mu)$ は $\mu$ に関して連続かつ狭義増加し、$\mu\to-\infty$ で0、$\mu\to+\infty$ で無限大へ向かうので、$\rho_T(\mu_T)=\rho$ の解は一意です。任意の固定 $\mu>0$ では、$T\downarrow0$ によって積分の占有因子が球 $|k|<\sqrt{2m\mu}/\hbar$ の指示関数へ収束します。積分は球内の有界領域では有界収束、球外では $T\le T_0$ として十分大きな $k$ に指数減衰の一様上界を取ることで極限と交換できます。この結果、
+と置きます。各 $T>0$ で密度は $\mu$ の連続で狭義増加する関数です。$\mu\to-\infty$ では各占有数がゼロへ減少し、積分もゼロへ向かいます。$\mu\to+\infty$ では任意の有限波数球内で占有数が1へ向かうため、密度は無限大へ向かいます。従って $\rho_T(\mu_T)=\rho$ の解は一意です。
+
+任意の固定 $\mu>0$ を取ります。$T\downarrow0$ で占有因子はほとんど全ての $k$ について $|k|<\sqrt{2m\mu}/\hbar$ の指示関数へ収束します。積分と極限の交換を確かめます。$T_0>0$ を固定し、$\varepsilon_k=\hbar^2|k|^2/(2m)$ と書くと、$T\le T_0$ かつ $\varepsilon_k\ge\mu$ の領域では
+
+$$
+0\le\frac1{e^{(\varepsilon_k-\mu)/(k_{\mathrm B}T)}+1}
+\le e^{-(\varepsilon_k-\mu)/(k_{\mathrm B}T_0)}.
+$$
+
+$\varepsilon_k<\mu$ の球内では占有因子を1で抑えられ、球外の右辺はGaussian積分が有限です。この一つの可積分な上界で優収束を適用でき、
+
+$$
+\lim_{T\downarrow0}\rho_T(\mu)
+=\frac{g}{(2\pi)^3}\int_{|k|<\sqrt{2m\mu}/\hbar}d^3k
+$$
+
+が従います。球の体積 $4\pi R^3/3$ を代入すると、
 
 $$
 \lim_{T\downarrow0}\rho_T(\mu)
@@ -591,7 +692,7 @@ $$
 
 $\rho_T$ の狭義単調性により $\varepsilon_{\mathrm F}-\delta<\mu_T<\varepsilon_{\mathrm F}+\delta$。従って $\mu_T\to\varepsilon_{\mathrm F}$ であり、固定密度の零温度極限が本当にFermi球の充填を与えます。
 
-スピン縮退 $g$ を含め、波数積分から
+[三次元自由粒子の状態密度](#prop-sm6-density-of-states)と同じ波数格子の熱力学極限を用い、スピン縮退 $g$ を含めて球内を積分すると
 
 $$
 \rho=\frac g{(2\pi)^3}\int_{|k|<k_{\mathrm F}}d^3k

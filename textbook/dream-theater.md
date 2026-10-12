@@ -709,6 +709,11 @@
 9. [NT9 Diophantine集合・Hilbert第10問題 over Z](textbook/volumes/dream_thater/代数系/NT/NT9/index.md)
 10. [NT10 Hilbert第10問題 over Q](textbook/volumes/dream_thater/代数系/NT/NT10/index.md)
 
+<a id="dt-subject-analytic-number-theory"></a>
+### 解析的整数論
+
+1. [ANT1 算術関数の平均と部分和](textbook/volumes/dream_thater/代数系/ANT/ANT1/index.md)
+
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
 ### 代数幾何学 I
