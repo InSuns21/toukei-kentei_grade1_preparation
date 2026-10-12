@@ -322,7 +322,7 @@ $P_\mu P^\mu=(2K/c)^2$、$M^2c^2=4K^2/c^2$ なので $M=2K/c^2$ です。各光�
 <!-- solution-start -->
 #### 詳細解答
 
-[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)で $P'^0=\Gamma(P^0-\beta P^1)=\Gamma Mc$、$P'^1=\Gamma(P^1-\beta P^0)=-\Gamma Mw$。[四元運動量の定義](../SREL3/index.md#def-srel3-four-momentum)から $v'=cP'^1/P'^0=-w$ です。不変量は $(P'^0)^2-(P'^1)^2=\Gamma^2M^2(c^2-w^2)=M^2c^2$ と確かめられます。
+[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)で $P'^0=\Gamma(P^0-\beta P^1)=\Gamma Mc$、$P'^1=\Gamma(P^1-\beta P^0)=-\Gamma Mw$。[四元運動量・全エネルギー・三次元運動量](../SREL3/index.md#def-srel3-four-momentum)の成分関係から $v'=cP'^1/P'^0=-w$ です。不変量は $(P'^0)^2-(P'^1)^2=\Gamma^2M^2(c^2-w^2)=M^2c^2$ と確かめられます。
 <!-- solution-end -->
 
 ### A3. 進行波の磁場とエネルギー流
