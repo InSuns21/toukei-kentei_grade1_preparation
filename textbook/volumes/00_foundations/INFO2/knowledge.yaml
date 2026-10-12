@@ -1,0 +1,63 @@
+chapter: INFO2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+forward_references: []
+
+concepts:
+  - id: information.relative-entropy
+    name: 相対エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相対エントロピー）]
+    requires: [information.shannon-entropy]
+
+  - id: information.gibbs-inequality
+    name: Gibbs不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gibbs不等式）]
+    requires: [information.relative-entropy]
+
+  - id: information.log-sum-inequality
+    name: 対数和不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対数和不等式）]
+    requires: [information.gibbs-inequality]
+
+  - id: information.finite-channel
+    name: 有限確率通信路・出力分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限確率通信路・出力分布）]
+    requires: [information.relative-entropy]
+
+  - id: information.kl-data-processing
+    name: 相対エントロピーのデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相対エントロピーのデータ処理不等式）]
+    requires: [information.log-sum-inequality, information.finite-channel]
+
+  - id: information.mutual-as-divergence
+    name: 相互情報量の相対エントロピー表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相互情報量の相対エントロピー表示）]
+    requires: [information.mutual-information, information.gibbs-inequality]
+
+  - id: information.finite-markov-chain
+    name: 有限Markov連鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限Markov連鎖）]
+    requires: [information.finite-channel]
+
+  - id: information.mutual-data-processing
+    name: 相互情報量のデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相互情報量のデータ処理不等式）]
+    requires: [information.finite-markov-chain, information.kl-data-processing, information.mutual-as-divergence]
