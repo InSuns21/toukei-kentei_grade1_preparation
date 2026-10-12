@@ -20,7 +20,7 @@ $\mathbb Z$ から $\mathbb Q$ を作るときは、零でない整数を分母�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-04-multiplicative-set -->
-**定義の確認**：$R=\mathbb C[t]$ で $S=\{1,t,t^2,\ldots\}$ は $t^mt^n=t^{m+n}$ により積で閉じ、$1=t^0$ を含み、零多項式を含みません。一方 $R=\mathbb C[x,y]/(xy)$ で $S=\{1,\overline x,\overline x^2,\ldots\}$ も乗法的です。$\overline x^m\ne0$ は $(1,0)\in V(xy)$ における値が $1$ となることで分かります。零因子を分母に許しても局所化は作れます。
+**定義の確認**：$R=\mathbb C[t]$ で $S=\{1,t,t^2,\ldots\}$ は $t^mt^n=t^{m+n}$ により積で閉じ、$1=t^0$ を含み、零多項式を含みません。一方 $R=\mathbb C[x,y]/(xy)$ で $S=\{1,\overline x,\overline x^2,\ldots\}$ も乗法的です。$\overline x^m\ne0$ は $(1,0)\in V(xy)$ における値が $1$ となることで分かります。零因子を分母として許しても、後で定める分数環を作ることができます。
 <!-- definition-example-end -->
 
 分母をもつ形式的な組 $(a,s)$ に対し、単純な交差積の一致 $at=bs$ ではなく、さらに分母 $u\in S$ を掛けて一致する場合を同一視します。この修正が零因子を持つ環で重要です。
