@@ -95,12 +95,12 @@ function validate(root) {
       }
       const legacyPath = 'textbook/volumes/00_foundations/' + id;
       const categorizedParts = typeof chapter.path === 'string' ? chapter.path.split('/') : [];
-      const categorizedPath = categorizedParts.length === 5 &&
+      const categorizedPath = categorizedParts.length === 6 &&
         categorizedParts.slice(0, 3).join('/') === categorizedRoot &&
-        categorizedParts[3].trim() !== '' && categorizedParts[4] === id;
+        categorizedParts[3].trim() !== '' && categorizedParts[4] === series.id && categorizedParts[5] === id;
       if ((chapterRoot === categorizedRoot && !categorizedPath) ||
           (chapterRoot !== categorizedRoot && chapter.path !== legacyPath && !categorizedPath)) {
-        fail(label + id + ': chapter path does not match legacy or category/ID layout');
+        fail(label + id + ': chapter path does not match legacy or category/course/ID layout');
       }
     }
     const next = firstPlanned >= 0 ? series.chapters[firstPlanned].id : null;
@@ -155,7 +155,7 @@ function selfTest() {
     const nestedA = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-series/A.yaml'), 'utf8'));
     nestedA.chapter_root = 'textbook/volumes/dream_thater';
     for (const ch of nestedA.chapters) {
-      ch.path = 'textbook/volumes/dream_thater/解析系/' + ch.id;
+      ch.path = 'textbook/volumes/dream_thater/解析系/A/' + ch.id;
     }
     fs.mkdirSync(path.join(root, nestedA.chapters[0].path), { recursive: true });
     write('textbook/dream-theater-series/A.yaml', YAML.stringify(nestedA));
