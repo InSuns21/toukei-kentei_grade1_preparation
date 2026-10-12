@@ -21,7 +21,7 @@ chapters:
   - id: NT4
     path: textbook/volumes/dream_thater/代数系/NT/NT4
     status: completed
-    title: 算術関数とDirichlet畳み込み
+    title: 算術関数と Dirichlet 畳み込み
   - id: NT5
     path: textbook/volumes/dream_thater/代数系/NT/NT5
     status: planned
