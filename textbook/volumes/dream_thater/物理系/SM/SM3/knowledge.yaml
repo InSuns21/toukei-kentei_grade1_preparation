@@ -24,6 +24,18 @@ concepts:
     introduction: formal
     introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
     requires: [statistical-mechanics.finite-ensemble, statistical-mechanics.bath-exponential-approximation]
+  - id: statistical-mechanics.partition-function
+    name: 分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
+    requires: [statistical-mechanics.finite-ensemble]
+  - id: statistical-mechanics.gibbs-distribution
+    name: Gibbs分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
+    requires: [statistical-mechanics.partition-function]
   - id: statistical-mechanics.canonical-level-probability
     name: 正準分布の規格化と準位表示
     kind: proposition
