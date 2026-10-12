@@ -28,6 +28,8 @@ $$
 <!-- definition-example-start: def-gmech2-hamiltonian-action -->
 ### 直接例：一次元の平行移動
 
+**定義の確認**：正準2形式の保存を確かめ、任意のLie代数元の基本ベクトル場を求めて、運動量関数の微分と線形性を直接検算します。
+
 $G=(\mathbb R,+)$ が $M=T^*\mathbb R$ に $t\cdot(q,p)=(q+t,p)$ と作用します。これは[GMECH1の余接持ち上げ](../GMECH1/index.md#def-gmech1-cotangent-action)で、正準2形式 $\omega=dq\wedge dp$ を保存します。Lie代数の元 $\xi\in\mathbb R$ の生成子は $\xi_M=\xi\partial_q$ なので、
 
 $$
@@ -249,6 +251,8 @@ $$
 
 <!-- definition-example-start: def-gmech2-coadjoint-equivariance -->
 ### 直接例：可換な回転群では不変性になる
+
+**定義の確認**：余随伴作用が恒等となることを示し、回転後の運動量写像が元と一致することを成分計算で確かめます。
 
 $G=SO(2)$ は可換なので $ghg^{-1}=h$ です。したがって $\operatorname{Ad}_g$ はLie代数上の恒等写像で、余随伴作用も恒等写像です。§3 の角運動量 $L_z=xp_y-yp_x$ について $q'=R_tq$、$p'=R_tp$ とすると
 
