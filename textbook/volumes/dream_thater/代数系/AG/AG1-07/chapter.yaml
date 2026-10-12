@@ -1,0 +1,48 @@
+id: "AG1-07"
+title: "弱・強Hilbertの零点定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-06
+  - AG1-05
+  - AG1-04
+  - AG1-01
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 代数閉体上の有限生成代数が体なら元の体と一致することをNoether正規化と整性から証明できる
+  - 多項式環の極大イデアルが点の評価核に一致することを商体から導出できる
+  - 弱Hilbertの零点定理をNoether環の極大元と極大イデアルの対応から証明できる
+  - イデアルの根基を定義し、具体的な生成イデアルの根基を直接計算できる
+  - Rabinowitschの技巧で新変数を導入し、局所化の分母消去まで含めて強零点定理を証明できる
+  - 代数閉性を失った体で弱・強零点定理が成立しない反例を判定できる
+  - 多項式環の具体例で零点集合、消滅イデアル、根基、極大イデアルを比較できる
+definitions:
+  - { id: AG1-07-DEF-01, name: イデアルの根基 }
+theorems:
+  - { id: AG1-07-LEM-01, name: 有限生成体の補題 }
+  - { id: AG1-07-PROP-01, name: 代数閉体上の多項式環の極大イデアル }
+  - { id: AG1-07-THM-01, name: 弱Hilbertの零点定理 }
+  - { id: AG1-07-THM-02, name: 強Hilbertの零点定理 }
+canonical_examples:
+  - (x-2,y+3)と点(2,-3)の評価核の対応
+  - (x²,y)の根基は(x,y)
+  - (x²,xy)の零点集合はy軸で根基は(x)
+  - R[x]の(x²+1)は真なのに実零点を持たない
+  - F2[x]のx²+xは全点で消える非零多項式
+  - 1=(1+ux)(1-ux)+u²x²というRabinowitschの恒等式
+problem_patterns:
+  - AG1-07-POINT-MAXIMAL
+  - AG1-07-RADICAL-DOUBLE-ZERO
+  - AG1-07-NONALGEBRAICALLY-CLOSED
+  - AG1-07-RADICAL-DIRECT
+  - AG1-07-ZARISKI-LEMMA-APPLICATION
+  - AG1-07-RABINOWITSCH-IDENTITY
+  - AG1-07-MAXIMAL-POINTS-CURVE
+  - AG1-07-FINITE-FIELD-COUNTEREXAMPLE
+  - AG1-07-NILPOTENTS-AND-RADICAL
+  - AG1-07-DENOMINATOR-CLEARING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
