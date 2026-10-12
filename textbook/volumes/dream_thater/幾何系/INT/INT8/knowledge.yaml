@@ -1,0 +1,62 @@
+chapter: INT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA3
+  - INT2
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+forward_references: []
+
+concepts:
+  - id: integrable.kolmogorov-nondegeneracy
+    name: Kolmogorov非退化性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kolmogorov非退化性）"]
+    aliases: []
+    requires: [integrable.action-angle]
+  - id: integrable.kam-diophantine-recall
+    name: KAMで使うDiophantine条件の再掲
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Diophantine振動数）"]
+    aliases: []
+    requires: [integrable.diophantine-frequency]
+  - id: integrable.analytic-kam-theorem
+    name: 解析的Kolmogorov型KAM定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（解析的Kolmogorov型KAM定理：固定振動数版）"]
+    aliases: []
+    requires: [integrable.kolmogorov-nondegeneracy, integrable.kam-diophantine-recall, integrable.near-integrable-hamiltonian]
+  - id: integrable.analytic-cohomology-bound
+    name: 解析的ホモロジー方程式の損失評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（解析的ホモロジー方程式の損失評価）"]
+    aliases: []
+    requires: [integrable.diophantine-frequency]
+  - id: integrable.kam-newton-normalization
+    name: 解析的KAM正規化の一段
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（解析的KAM正規化の一段）"]
+    aliases: []
+    requires: [integrable.analytic-cohomology-bound, integrable.kolmogorov-nondegeneracy]
+  - id: integrable.kam-quadratic-iteration
+    name: 損失を伴う二次反復の収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（損失を伴う二次反復の収束）"]
+    aliases: []
+    requires: [integrable.kam-newton-normalization]
+  - id: integrable.kam-resonance-measure
+    name: 有界振動数領域の共鳴帯評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界振動数領域の共鳴帯評価）"]
+    aliases: []
+    requires: [integrable.diophantine-frequency]
