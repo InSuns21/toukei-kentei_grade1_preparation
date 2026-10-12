@@ -66,7 +66,7 @@ $$
 \sum_j u_je^{Y_j}\ \stackrel d=\ c^{1/m}S.
 $$
 
-$S$ の対数は可積分である。実際、Laplace変換 $\mathbb Ee^{-tS}=\exp(-\Gamma(1-m)t^m)$ から正負の十分小さい冪モーメントが有限となり、$|\log S|$ はそれらで支配できる。従って
+$S$ の対数は可積分である。実際、Poisson過程の指数型期待値 $\mathbb Ee^{-tS}=\exp(-\Gamma(1-m)t^m)$ から正負の十分小さい冪モーメントが有限となり、$|\log S|$ はそれらで支配できる。従って
 
 $$
 \mathbb E\log\frac{\sum_j u_je^{Y_j}}S
@@ -95,7 +95,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限段Ruelle確率カスケード）**  
-> 深さ $k$ の根付き木を考える。深さ $\ell-1$ の各節点から伸びる子に、互いに独立な強度 $m_\ell u^{-1-m_\ell}du$ のPoisson点列を付ける（$\ell=1,\ldots,k$）。葉 $\alpha=(\alpha_1,\ldots,\alpha_k)$ の非正規化重みを、根から葉までの点の積 $w_\alpha$ とし、
+> 深さ $k$ の根付き木を考える。深さ $\ell-1$ の各節点から伸びる子に、互いに独立なPoisson点列を付ける。その強度は
+
+$
+m_\ell u^{-1-m_\ell}\,du,\qquad \ell=1,\ldots,k
+$
+
+> である。葉 $\alpha=(\alpha_1,\ldots,\alpha_k)$ の非正規化重みを、根から葉までの点の積 $w_\alpha$ とし、
 >
 > $$
 > v_\alpha=\frac{w_\alpha}{\sum_{\gamma}w_\gamma}
@@ -141,7 +147,7 @@ $$
 
 三つの葉を取る。最初の枝分かれが起きる深さまで三つの道は共通であり、その後、少なくとも一つの葉が他の葉と離れる。離れた葉と残り二つとの最終共通深さは等しいので、三辺のoverlapの最小値は少なくとも二回現れる。従って[ultrametricの定義](../SG5/index.md#def-sg5-ultrametric)を満たす。
 
-一段Poisson過程の総質量 $S$ について $\mathbb Ee^{-tS}=\exp(-\Gamma(1-m)t^m)$ である。恒等式 $S^{-2}=\int_0^\infty t e^{-tS}dt$ とCampbellの公式により
+一段Poisson過程の総質量 $S$ について $\mathbb Ee^{-tS}=\exp(-\Gamma(1-m)t^m)$ である。また $S^{-2}=\int_0^\infty t e^{-tS}dt$ を用いる。Poisson点を一つ選んだとき、残りの点過程は元の点過程と同じ法則を持つ。この1点挿入による期待値の展開から
 
 $$
 \mathbb E\sum_j\frac{u_j^2}{S^2}
@@ -160,7 +166,7 @@ $$
 多段のRPCでは、下位の正規化された子木の質量を上位の点へ掛けても、Poisson過程の独立標識と指数の順序により、所定の閾値で切った分岐の同値類重みは指数 $m_\ell$ のPoisson–Dirichlet型の法則になる。各段の標識付きPoisson写像を下位から帰納的に適用すれば、この主張が従う。ゆえに
 
 $$
-\mathbb P(Q_{12}\ge q_{\ell+1})=1-m_\ell
+\mathbb P(d(\alpha^1,\alpha^2)\ge\ell)=1-m_\ell
 $$
 
 である。隣り合う累積確率の差を取ると、$q_\ell$ の確率は $m_\ell-m_{\ell-1}$、対角値 $1$ の確率は $1-m_k$ となる。
@@ -279,7 +285,7 @@ $$
 
 右辺のGaussianはサイトごとに独立だから、対数の中の期待値が積に分かれ、右辺は $\sum_i X_1(Z_{i,1})$ となる。根のGaussianも平均すると $NX_0$。先に分離した $2^N$ が $N\log2$ を与える。
 
-一般の $k$ では、最下段で条件付き独立な子のマークに同じ補題を適用する。各子木のランダム総質量による上段のPoisson強度の変化は、独立標識の写像則で吸収される。次の段では $m_{k-1}$ を指数とする対数指数平均になり、順に $X_k,X_{k-1},\ldots,X_1$ が得られる。最後に独立な根のGaussianを平均すれば $NX_0$ となる。
+一般の $k$ では、最下段の子のマークが条件付き独立なので、[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を適用する。各子木のランダム総質量による上段のPoisson強度の変化は、独立標識の写像則で吸収される。次の段では $m_{k-1}$ を指数とする対数指数平均になり、順に $X_k,X_{k-1},\ldots,X_1$ が得られる。最後に独立な根のGaussianを平均すれば $NX_0$ となる。
 <!-- proof-end -->
 
 ## 5. Guerra補間：平方の残差が上界を作る
@@ -334,7 +340,7 @@ $$
 +h\sum_{i=1}^N\sigma_i\right)
 $$
 
-と書く。$t=0$ では $\sigma$ ごとに足すと $\prod_i2\cosh(h+\beta z_i(\alpha))$ を得るので、[RPCのGaussian積分命題](#prop-sg6-rpc-recursion)から
+と書く。$t=0$ では $\sigma$ ごとに足すと $\prod_i2\cosh(h+\beta z_i(\alpha))$ を得るので、[RPCのGaussian積分と再帰式](#prop-sg6-rpc-recursion)から
 
 $$
 \phi_N(0)=\log2+X_0.
@@ -463,7 +469,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\ell=1$ の寄与は $(1/3)((1/2)^2-0)=1/12$、$\ell=2$ の寄与は $(2/3)(1-(1/2)^2)=(2/3)(3/4)=1/2$。和は $1/12+1/2=7/12$ である。したがって汎関数で引く値は $7\beta^2/48$。
+$\ell=1$ の寄与は $(1/3)((1/2)^2-0)=1/12$、$\ell=2$ の寄与は $(2/3)(1-(1/2)^2)=(2/3)(3/4)=1/2$。和は $1/12+1/2=7/12$ である。したがって[有限段Parisi汎関数](#def-sg6-parisi-functional)の補正として引く値は $7\beta^2/48$。
 <!-- solution-end -->
 
 **SG6-A4：平方完成。** 任意の $r,s\in[-1,1]$ について $\frac12r^2+\frac12s^2-rs\ge0$ を示し、$r=s$ の場合の値を述べよ。
@@ -590,7 +596,7 @@ $$
 
 と置けば共分散は異枝で $q^2/2$、同枝で $1/2$ となる。
 
-(b) $t=0$ のスピン和は $\prod_i2\cosh(h+\beta z_i(\alpha))$ である。根の $(A_i)$ を固定し、枝の独立マークに[Poisson傾斜補題](#lem-sg6-poisson-tilt)を使うと
+(b) $t=0$ のスピン和は $\prod_i2\cosh(h+\beta z_i(\alpha))$ である。根の $(A_i)$ を固定し、枝のマークは独立である。そこで[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を使うと
 
 $$
 \phi_N(0)=\log2+\mathbb E_A\left[
