@@ -718,6 +718,7 @@
 8. [AG1-08 代数集合と根基イデアルの対応](textbook/volumes/dream_thater/代数系/AG/AG1-08/index.md)
 9. [AG1-09 次元・超越次数・イデアルの鎖](textbook/volumes/dream_thater/代数系/AG/AG1-09/index.md)
 10. [AG1-10 Zariski接空間とJacobian判定の準備](textbook/volumes/dream_thater/代数系/AG/AG1-10/index.md)
+11. [AG1-11 特異点・接錐と平面曲線](textbook/volumes/dream_thater/代数系/AG/AG1-11/index.md)
 
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
@@ -907,6 +908,7 @@
 2. [SM2 微正準アンサンブルとBoltzmannエントロピー](textbook/volumes/dream_thater/物理系/SM/SM2/index.md)
 3. [SM3 正準アンサンブルと分配関数](textbook/volumes/dream_thater/物理系/SM/SM3/index.md)
 4. [SM4 大正準アンサンブルと粒子数揺らぎ](textbook/volumes/dream_thater/物理系/SM/SM4/index.md)
+5. [SM5 古典理想気体とアンサンブルの同値性](textbook/volumes/dream_thater/物理系/SM/SM5/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学

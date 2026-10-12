@@ -1,0 +1,85 @@
+chapter: AG1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-10
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-04
+  - AG1-03
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.plane-curve-regular
+    name: 平面曲線の正則点
+    kind: definition
+    introduction: formal
+    aliases: ["正則点"]
+    introduction_aliases: ["定義（平面曲線の正則点と特異点）"]
+    requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.ideal-radical]
+
+  - id: algebraic-geometry.plane-curve-singular
+    name: 平面曲線の特異点
+    kind: definition
+    introduction: formal
+    aliases: ["特異点"]
+    introduction_aliases: ["定義（平面曲線の正則点と特異点）"]
+    requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.ideal-radical]
+
+  - id: algebraic-geometry.plane-curve-singular-criterion
+    name: 平面曲線の一次判定と幾何学的次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面曲線の一次判定と幾何学的次元）"]
+    requires: [algebraic-geometry.plane-curve-singular, algebraic-geometry.jacobian-kernel, algebraic-geometry.component-dimension]
+
+  - id: algebraic-geometry.plane-curve-multiplicity
+    name: 平面曲線の点における重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面曲線の点における重複度）"]
+    requires: [algebraic-geometry.coordinate-ring]
+
+  - id: algebraic-geometry.multiplicity-gradient
+    name: 重複度1と非特異性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重複度1と非特異性）"]
+    requires: [algebraic-geometry.plane-curve-multiplicity, algebraic-geometry.plane-curve-singular]
+
+  - id: algebraic-geometry.plane-curve-tangent-cone
+    name: 平面曲線の接錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面曲線の接錐）"]
+    requires: [algebraic-geometry.plane-curve-multiplicity]
+
+  - id: algebraic-geometry.tangent-cone-lines
+    name: 接錐の直線分解と一次の場合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接錐の直線分解と一次の場合）"]
+    requires: [algebraic-geometry.plane-curve-tangent-cone, algebraic-geometry.zariski-tangent]
+
+  - id: algebraic-geometry.product-initial-form
+    name: 枝の積と接錐
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（枝の積と接錐）"]
+    requires: [algebraic-geometry.plane-curve-tangent-cone, algebraic-geometry.plane-curve-multiplicity]
+
+  - id: algebraic-geometry.tangent-cone-coordinate
+    name: 可逆アフィン座標変換での不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可逆アフィン座標変換での不変性）"]
+    requires: [algebraic-geometry.plane-curve-tangent-cone]
+
+  - id: algebraic-geometry.ordinary-double-point
+    name: 通常二重点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（通常二重点）"]
+    requires: [algebraic-geometry.plane-curve-tangent-cone, algebraic-geometry.plane-curve-multiplicity]

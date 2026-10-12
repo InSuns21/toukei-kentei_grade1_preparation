@@ -1,0 +1,52 @@
+id: "SM5"
+title: "古典理想気体とアンサンブルの同値性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM4
+  - AMECH5
+  - F0-00P4
+official_scope: []
+learning_objectives:
+  - 連続相空間・作用セル・同種粒子の1/N!補正を仮定とともに定義し、Gaussian積分から古典理想気体の正準分配関数を導出できる
+  - 正準密度の規格化からMaxwell–Boltzmann速度ベクトル分布・速さ分布・各成分の分散を証明できる
+  - 正準分配関数の微分から理想気体の内部エネルギー・圧力・自由エネルギー・エントロピーを導出できる
+  - Stirlingの漸近式を用いてSackur–Tetrode式を導き、古典希薄条件と補正因子の役割を説明できる
+  - 累積相空間体積を高次元球とGamma関数から計算し、微正準型の温度と圧力を求められる
+  - 正準エネルギーのGamma分布・平均・分散・Chebyshev集中を出発点から証明できる
+  - 微正準と正準の一粒子当たりのエントロピー極限・温度・圧力を比較し、全変動収束とは区別できる
+  - 理想気体の大分配関数を級数から計算し、Poisson粒子数・密度揺らぎの消失を説明できる
+definitions:
+  - { id: SM5-DEF-01, name: "古典理想気体の相空間模型" }
+  - { id: SM5-DEF-02, name: "古典理想気体の累積相空間体積" }
+theorems:
+  - { id: SM5-LEM-01, name: "対数Gamma関数の漸近評価" }
+  - { id: SM5-PROP-01, name: "古典理想気体の正準分配関数" }
+  - { id: SM5-PROP-02, name: "Maxwell–Boltzmann速度分布" }
+  - { id: SM5-THM-01, name: "古典理想気体の正準熱力学" }
+  - { id: SM5-PROP-03, name: "累積相空間体積と微正準型の状態方程式" }
+  - { id: SM5-THM-02, name: "正準エネルギーの分布と集中" }
+  - { id: SM5-THM-03, name: "古典理想気体の熱力学量の同値性" }
+  - { id: SM5-PROP-04, name: "古典理想気体の大分配関数とPoisson粒子数" }
+canonical_examples:
+  - 一粒子と二粒子で1/N!の役割を直接確かめる
+  - 高次元球体積をGaussian積分とGamma積分から導出する
+  - Maxwell–Boltzmannの速度密度から速さ密度への変数変換を行う
+  - 正準エネルギーの相対分散と全変動距離の違いを確認する
+  - 粒子数Poisson分布の階乗モーメントから分散を再計算する
+problem_patterns:
+  - SM5-THERMAL-WAVELENGTH-SCALING
+  - SM5-GAUSSIAN-VARIANCE
+  - SM5-ONE-PARTICLE-EQUATION-OF-STATE
+  - SM5-FACTORIAL-COUNTING
+  - SM5-TWO-PARTICLE-PHASE-VOLUME
+  - SM5-SACKUR-TETRODE-STIRLING
+  - SM5-GAMMA-ENERGY-CHEBYSHEV
+  - SM5-GRAND-POISSON-DENSITY
+  - SM5-PHASE-CELL-CONVENTION
+  - SM5-MOST-PROBABLE-SPEED
+  - SM5-ENSEMBLE-EQUIVALENCE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

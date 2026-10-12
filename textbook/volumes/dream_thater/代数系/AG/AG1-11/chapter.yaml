@@ -1,0 +1,55 @@
+id: "AG1-11"
+title: "特異点・接錐と平面曲線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-10
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-04
+  - AG1-03
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 平方因子を持たない平面曲線について正則点・特異点を定義しJacobianから判定できる
+  - 平面曲線の既約成分が1次元であることと特異点で接空間が2次元となることを証明できる
+  - 点での最低次斉次部分と重複度を求め重複度1と非特異性の同値性を説明できる
+  - 接錐を最低次斉次式で定義し代数閉体上の直線分解を証明できる
+  - 通常二重点を定義し節点・尖点・相接する二枝を接錐と具体的パラメータ表示で比較できる
+  - 枝の積における重複度の加法性と接錐の積を証明し適用できる
+  - 可逆アフィン変換で重複度・接錐が保たれることを証明できる
+  - 接錐が同じでも既約性や枝の数は異なることを反例で示せる
+definitions:
+  - { id: AG1-11-DEF-01, name: 平面曲線の正則点と特異点 }
+  - { id: AG1-11-DEF-02, name: 平面曲線の点における重複度 }
+  - { id: AG1-11-DEF-03, name: 平面曲線の接錐 }
+  - { id: AG1-11-DEF-04, name: 通常二重点 }
+theorems:
+  - { id: AG1-11-PROP-01, name: 平面曲線の一次判定と幾何学的次元 }
+  - { id: AG1-11-PROP-02, name: 重複度1と非特異性 }
+  - { id: AG1-11-PROP-03, name: 接錐の直線分解と一次の場合 }
+  - { id: AG1-11-PROP-04, name: 枝の積と接錐 }
+  - { id: AG1-11-PROP-05, name: 可逆アフィン座標変換での不変性 }
+canonical_examples:
+  - 放物線の正則点と一本の接線
+  - 二軸の交点と二直線の接錐
+  - 尖点y²=x³の二重接線
+  - 節点y²=x²+x³の二つのパラメータ値と接方向
+  - 二枝y(y-x²)=0と尖点の同じ接錐・異なる既約性
+  - 三直線の重複度3と接空間次元2
+problem_patterns:
+  - AG1-11-SMOOTH-PARABOLA
+  - AG1-11-NORMAL-CROSSING
+  - AG1-11-CUSP-TANGENT-CONE
+  - AG1-11-TRANSLATED-CUSP
+  - AG1-11-NODE-PARAMETRIZATION
+  - AG1-11-TANGENT-BRANCHES
+  - AG1-11-TRIPLE-CROSSING
+  - AG1-11-LINEAR-COORDINATE-CHANGE
+  - AG1-11-DETERMINANT-TANGENCY
+  - AG1-11-CONIC-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
