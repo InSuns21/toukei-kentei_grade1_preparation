@@ -1,133 +1,175 @@
+import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
 
-const root = process.cwd();
-const workPath = path.join(root, 'textbook', 'dream-theater-work.yaml');
-const errors = [];
+// The shared router contains configuration only; each series manifest owns progress.
+function validate(root) {
+  const errors = [];
+  const summaries = [];
+  const fail = message => errors.push(message);
+  const workFile = path.join(root, 'textbook/dream-theater-work.yaml');
 
-function fail(message) {
-  errors.push(message);
+  function readYaml(file) {
+    try {
+      return YAML.parse(fs.readFileSync(file, 'utf8'));
+    } catch (error) {
+      fail(path.relative(root, file) + ': YAML parse failed: ' + error.message);
+      return null;
+    }
+  }
+  function localPath(relative, label) {
+    if (typeof relative !== 'string' || !relative.trim()) {
+      fail(label + ' must be a non-empty relative path');
+      return null;
+    }
+    const resolved = path.resolve(root, relative);
+    if (resolved === root || !resolved.startsWith(root + path.sep)) {
+      fail(label + ' must stay within repository root: ' + relative);
+      return null;
+    }
+    return resolved;
+  }
+  if (!fs.existsSync(workFile)) {
+    fail('textbook/dream-theater-work.yaml is missing');
+    return { errors, summaries };
+  }
+  const work = readYaml(workFile);
+  if (!work) return { errors, summaries };
+  if (work.version !== 2) fail('dream-theater-work.yaml: version must be 2');
+  for (const key of ['active_series', 'active_plan', 'series_manifest', 'completed_through', 'next_work', 'after_next', 'review_handoff']) {
+    if (Object.hasOwn(work, key)) fail('dream-theater-work.yaml: legacy singleton field forbidden: ' + key);
+  }
+  const routing = work.routing || {};
+  const seriesDir = localPath(routing.series_directory, 'routing.series_directory');
+  const chapterRoot = routing.chapter_root;
+  if (typeof chapterRoot !== 'string' || !chapterRoot.trim()) fail('routing.chapter_root is required');
+  if (!seriesDir || !fs.existsSync(seriesDir) || !fs.statSync(seriesDir).isDirectory()) {
+    fail('routing.series_directory does not exist');
+    return { errors, summaries };
+  }
+  const names = fs.readdirSync(seriesDir).filter(name => name.endsWith('.yaml')).sort();
+  if (!names.length) fail('no series manifests in routing.series_directory');
+  const globalIds = new Set();
+  for (const name of names) {
+    const series = readYaml(path.join(seriesDir, name));
+    if (!series) continue;
+    const label = name + ': ';
+    if (!/^[A-Z][A-Z0-9_-]*\.yaml$/.test(name)) fail(label + 'invalid filename');
+    if (series.id !== name.slice(0, -5)) fail(label + 'manifest ID must match filename');
+    if (series.chapter_root !== chapterRoot) fail(label + 'chapter_root differs from global routing');
+    const planPath = localPath(series.plan, label + 'plan');
+    if (planPath && !fs.existsSync(planPath)) fail(label + 'plan missing: ' + series.plan);
+    if (!Array.isArray(series.chapters) || !series.chapters.length) {
+      fail(label + 'chapters must be nonempty');
+      continue;
+    }
+    let firstPlanned = -1;
+    let completedThrough = null;
+    const ids = new Set();
+    for (const [i, chapter] of series.chapters.entries()) {
+      const id = chapter?.id;
+      if (typeof id !== 'string' || !id.trim() || ids.has(id)) {
+        fail(label + 'missing or duplicate chapter ID at position ' + i);
+        continue;
+      }
+      ids.add(id);
+      if (globalIds.has(id)) fail(label + 'duplicate chapter ID across series: ' + id);
+      globalIds.add(id);
+      if (!['planned', 'completed'].includes(chapter.status)) {
+        fail(label + id + ': unsupported status ' + chapter.status);
+      } else if (chapter.status === 'planned') {
+        if (firstPlanned < 0) firstPlanned = i;
+      } else {
+        if (firstPlanned >= 0) fail(label + id + ': completed chapter follows a planned chapter');
+        completedThrough = id;
+        const completedPath = localPath(chapter.path, label + id + '.path');
+        if (completedPath && !fs.existsSync(completedPath)) fail(label + id + ': chapter path missing: ' + chapter.path);
+      }
+      if (typeof chapter.path !== 'string' || chapter.path !== chapterRoot + '/' + id) {
+        fail(label + id + ': chapter path does not match ID');
+      }
+    }
+    const next = firstPlanned >= 0 ? series.chapters[firstPlanned].id : null;
+    const afterNext = firstPlanned >= 0 ? series.chapters[firstPlanned + 1]?.id ?? null : null;
+    if (next && series.plan?.startsWith('textbook/plan_done/')) {
+      fail(label + 'unfinished series points to plan_done');
+    }
+    if (next && planPath && fs.existsSync(planPath)) {
+      const plan = fs.readFileSync(planPath, 'utf8');
+      if (!plan.includes(next)) fail(label + 'plan does not mention next chapter ' + next);
+    }
+    summaries.push({ id: series.id || name, completedThrough, next, afterNext });
+  }
+  return { errors, summaries };
 }
 
-function readYaml(file) {
+function selfTest() {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dt-series-router-'));
+  const write = (file, content) => {
+    const full = path.join(root, file);
+    fs.mkdirSync(path.dirname(full), { recursive: true });
+    fs.writeFileSync(full, content);
+  };
+  const manifest = (id, statuses, plan) => YAML.stringify({
+    version: 1, id, title: id, plan,
+    chapter_root: 'textbook/volumes/00_foundations',
+    chapters: statuses.map((status, i) => ({
+      id: id + (i + 1),
+      path: 'textbook/volumes/00_foundations/' + id + (i + 1),
+      status, title: id + (i + 1)
+    }))
+  });
   try {
-    return YAML.parse(fs.readFileSync(file, 'utf8'));
-  } catch (error) {
-    fail(path.relative(root, file) + ': YAML parse failed: ' + error.message);
-    return null;
+    write('textbook/dream-theater-work.yaml', YAML.stringify({
+      version: 2, routing: {
+        series_directory: 'textbook/dream-theater-series',
+        chapter_root: 'textbook/volumes/00_foundations'
+      }
+    }));
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'planned'], 'textbook/plans_progress/A.md'));
+    write('textbook/dream-theater-series/B.yaml', manifest('B', ['completed'], 'textbook/plan_done/B.md'));
+    write('textbook/plans_progress/A.md', '### A2\n');
+    write('textbook/plan_done/B.md', '# B\n');
+    fs.mkdirSync(path.join(root, 'textbook/volumes/00_foundations/A1'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'textbook/volumes/00_foundations/B1'), { recursive: true });
+    const first = validate(root);
+    assert.deepEqual(first.errors, []);
+    assert.deepEqual(first.summaries.map(s => [s.id, s.completedThrough, s.next, s.afterNext]),
+      [['A', 'A1', 'A2', null], ['B', 'B1', null, null]]);
+    // Advance series A; series B and shared routing must remain unchanged.
+    fs.mkdirSync(path.join(root, 'textbook/volumes/00_foundations/A2'), { recursive: true });
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'completed'], 'textbook/plan_done/A.md'));
+    write('textbook/plan_done/A.md', '# A\n');
+    const advanced = validate(root);
+    assert.deepEqual(advanced.errors, []);
+    assert.equal(advanced.summaries.find(s => s.id === 'B').completedThrough, 'B1');
+    assert.equal(advanced.summaries.find(s => s.id === 'A').next, null);
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['planned', 'completed'], 'textbook/plans_progress/A.md'));
+    assert(validate(root).errors.some(e => e.includes('completed chapter follows a planned chapter')));
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'completed'], 'textbook/plan_done/A.md'));
+    const currentWork = fs.readFileSync(path.join(root, 'textbook/dream-theater-work.yaml'), 'utf8');
+    write('textbook/dream-theater-work.yaml', currentWork + 'active_series: A\n');
+    assert(validate(root).errors.some(e => e.includes('legacy singleton field')));
+    console.log('DREAM THEATER multi-series router self-test passed');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
   }
 }
-
-if (!fs.existsSync(workPath)) {
-  console.error('DREAM THEATER work-state validation failed: textbook/dream-theater-work.yaml is missing.');
-  process.exit(1);
-}
-
-const work = readYaml(workPath);
-if (work) {
-  for (const key of ['active_series', 'active_plan', 'series_manifest']) {
-    if (typeof work[key] !== 'string' || !work[key].trim()) {
-      fail('dream-theater-work.yaml: ' + key + ' must be a non-empty string');
-    }
+if (process.argv.includes('--self-test')) {
+  selfTest();
+} else {
+  const { errors, summaries } = validate(process.cwd());
+  if (errors.length) {
+    console.error('DREAM THEATER work-state validation failed with ' + errors.length + ' issue(s):');
+    errors.forEach(e => console.error('- ' + e));
+    process.exit(1);
   }
-  if (work.completed_through != null && (typeof work.completed_through !== 'string' || !work.completed_through.trim())) {
-    fail('dream-theater-work.yaml: completed_through must be null or a non-empty string');
-  }
-  if (work.next_work != null && (typeof work.next_work !== 'string' || !work.next_work.trim())) {
-    fail('dream-theater-work.yaml: next_work must be null or a non-empty string');
-  }
-
-  const planPath = path.join(root, work.active_plan || '');
-  const seriesPath = path.join(root, work.series_manifest || '');
-
-  if (!fs.existsSync(planPath)) fail('dream-theater-work.yaml: active_plan does not exist: ' + work.active_plan);
-  if (!fs.existsSync(seriesPath)) fail('dream-theater-work.yaml: series_manifest does not exist: ' + work.series_manifest);
-
-  const series = fs.existsSync(seriesPath) ? readYaml(seriesPath) : null;
-  if (series) {
-    if (series.id !== work.active_series) {
-      fail('series manifest id ' + (series.id || '<missing>') + ' does not match active_series ' + work.active_series);
-    }
-    if (series.plan !== work.active_plan) {
-      fail('series manifest plan ' + (series.plan || '<missing>') + ' does not match active_plan ' + work.active_plan);
-    }
-
-    if (!Array.isArray(series.chapters) || series.chapters.length === 0) {
-      fail('series manifest chapters must be a non-empty array');
-    } else {
-      const ids = new Map();
-      for (const chapter of series.chapters) {
-        if (!chapter || !chapter.id || ids.has(chapter.id)) {
-          fail('series manifest has missing or duplicate chapter id: ' + ((chapter && chapter.id) || '<missing>'));
-          continue;
-        }
-        ids.set(chapter.id, chapter);
-        if (!['planned', 'completed'].includes(chapter.status)) {
-          fail(chapter.id + ': unsupported status ' + (chapter.status || '<missing>'));
-        }
-        if (chapter.status === 'completed') {
-          const chapterPath = path.join(root, chapter.path || '');
-          if (!chapter.path || !fs.existsSync(chapterPath)) {
-            fail(chapter.id + ': completed chapter path does not exist: ' + (chapter.path || '<missing>'));
-          }
-        }
-      }
-
-      const completedChapters = series.chapters.filter((chapter) => chapter && chapter.status === 'completed');
-      if (work.completed_through == null) {
-        if (completedChapters.length > 0) {
-          fail('completed_through may be null only when the series has no completed chapters');
-        }
-        const first = series.chapters[0];
-        if (work.next_work && first && work.next_work !== first.id) {
-          fail('a series with completed_through null must start at the first chapter: ' + first.id);
-        }
-      } else {
-        const completed = ids.get(work.completed_through);
-        if (!completed) fail('completed_through is not present in series manifest: ' + work.completed_through);
-        else if (completed.status !== 'completed') fail(work.completed_through + ': completed_through must have status completed');
-      }
-
-      if (work.next_work) {
-        const next = ids.get(work.next_work);
-        if (!next) fail('next_work is not present in series manifest: ' + work.next_work);
-        else if (next.status !== 'planned') fail(work.next_work + ': next_work must have status planned');
-
-        if (work.after_next) {
-          const after = ids.get(work.after_next);
-          if (!after) fail('after_next is not present in series manifest: ' + work.after_next);
-          else if (after.status !== 'planned') fail(work.after_next + ': after_next must have status planned');
-        }
-      } else {
-        const planned = series.chapters.filter((chapter) => chapter && chapter.status === 'planned');
-        if (planned.length > 0) {
-          fail('next_work may be null only when the series has no planned chapters');
-        }
-        const last = series.chapters.at(-1);
-        if (last && last.id !== work.completed_through) {
-          fail('terminal series state must set completed_through to the final chapter: ' + last.id);
-        }
-        if (work.after_next) {
-          fail('after_next must be null when next_work is null');
-        }
-      }
-
-      if (fs.existsSync(planPath) && work.next_work) {
-        const plan = fs.readFileSync(planPath, 'utf8');
-        const heading = new RegExp('^###\\s+' + work.next_work + '\\b', 'mu');
-        if (!heading.test(plan)) fail('active plan does not contain a chapter heading for next_work ' + work.next_work);
-      }
-    }
+  console.log('DREAM THEATER series router consistent (' + summaries.length + ' series):');
+  for (const { id, completedThrough, next, afterNext } of summaries) {
+    console.log('- ' + id + ': completed through ' + (completedThrough || '<none>') +
+      ' / next ' + (next || '<series complete>') +
+      (afterNext ? ' / after ' + afterNext : ''));
   }
 }
-
-if (errors.length) {
-  console.error('DREAM THEATER work-state validation failed with ' + errors.length + ' issue(s):');
-  for (const error of errors) console.error('- ' + error);
-  process.exit(1);
-}
-
-const nextLabel = work.next_work || '<series complete>';
-const completedLabel = work.completed_through || '<none>';
-console.log('DREAM THEATER work-state router is consistent: ' + work.active_series + ' / completed through ' + completedLabel + ' / next ' + nextLabel + '.');
