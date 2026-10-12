@@ -1,0 +1,43 @@
+chapter: CM1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-02
+
+concepts:
+  - id: complex-manifolds.underlying-real-manifold
+    name: 基礎となる実多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基礎となる実多様体）"]
+    requires: [complex-manifolds.complex-n-manifold, geometry.tangent-bundle]
+  - id: complex-manifolds.real-smooth-atlas
+    name: 複素アトラスから得られる実滑らかなアトラス
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素アトラスから得られる実滑らかなアトラス）"]
+    requires: [complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.almost-complex-structure
+    name: 概複素構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（概複素構造）"]
+    requires: [geometry.tangent-bundle, complex-manifolds.underlying-real-manifold]
+  - id: complex-manifolds.j0-transition-commutation
+    name: 正則座標遷移と標準複素構造の可換性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正則座標遷移と標準複素構造の可換性）"]
+    requires: [complex-manifolds.several-variables-holomorphic-map, complex-manifolds.almost-complex-structure]
+  - id: complex-manifolds.canonical-almost-complex-structure
+    name: 複素多様体から誘導される標準概複素構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素多様体から誘導される標準概複素構造）"]
+    requires: [complex-manifolds.j0-transition-commutation, complex-manifolds.real-smooth-atlas]
+  - id: complex-manifolds.j-holomorphic-intertwining
+    name: 正則写像と概複素構造の可換条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則写像と概複素構造の可換条件）"]
+    requires: [complex-manifolds.canonical-almost-complex-structure, complex-manifolds.manifold-holomorphic-map]

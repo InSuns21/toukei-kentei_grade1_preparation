@@ -1,0 +1,67 @@
+chapter: AG2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-04
+  - AG2-02
+  - AG2-01
+  - AG1-04
+  - AG1-03
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.projective-structure-sheaf
+    name: 正則関数の構造層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則関数の構造層）"]
+    requires: [algebraic-geometry.homogeneous-chart-equations, algebraic-geometry.principal-open-fractions]
+
+  - id: algebraic-geometry.chart-independent-regularity
+    name: チャートによらない局所表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（チャートによらない局所表示）"]
+    requires: [algebraic-geometry.projective-structure-sheaf, algebraic-geometry.standard-affine-chart]
+
+  - id: algebraic-geometry.structure-restriction-rings
+    name: 正則関数の環と制限写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則関数の環と制限写像）"]
+    requires: [algebraic-geometry.chart-independent-regularity]
+
+  - id: algebraic-geometry.sheaf-of-rings-axioms
+    name: 環の層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（環の層）"]
+    requires: [algebraic-geometry.structure-restriction-rings]
+
+  - id: algebraic-geometry.structure-sheaf-gluing
+    name: 構造層の貼り合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（構造層の貼り合わせ）"]
+    requires: [algebraic-geometry.sheaf-of-rings-axioms, algebraic-geometry.projective-structure-sheaf]
+
+  - id: algebraic-geometry.structure-sheaf-stalk
+    name: 構造層の茎
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（構造層の茎）"]
+    requires: [algebraic-geometry.projective-structure-sheaf, algebraic-geometry.fraction-germ]
+
+  - id: algebraic-geometry.stalk-local-ring-identification
+    name: 茎と点の局所環の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（茎と点の局所環の同型）"]
+    requires: [algebraic-geometry.structure-sheaf-stalk, algebraic-geometry.germ-local-ring-isomorphism]
+
+  - id: algebraic-geometry.projective-global-regular-functions
+    name: 射影空間上の大域正則関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間上の大域正則関数）"]
+    requires: [algebraic-geometry.structure-sheaf-gluing, algebraic-geometry.stalk-local-ring-identification]

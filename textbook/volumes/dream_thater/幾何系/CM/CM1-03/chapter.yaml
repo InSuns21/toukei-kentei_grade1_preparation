@@ -1,0 +1,40 @@
+id: "CM1-03"
+title: "基礎となる実多様体と概複素構造J"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-02
+official_scope: []
+learning_objectives:
+  - 複素座標を実部と虚部に分けて実2n次元滑らかなアトラスを構成できる
+  - 複素座標遷移の滑らかさを一変数Cauchy積分公式から説明できる
+  - 接空間上の概複素構造を定義しJの平方が負の恒等写像となる条件を具体例で判定できる
+  - 正則遷移の微分と標準複素構造J0の可換性を証明できる
+  - 複素アトラスから誘導されるJの座標独立性と滑らかさを証明できる
+  - 正則写像と実微分がJを交換する条件の同値性を示せる
+  - 実座標と複素正則座標の違いを計算し概複素構造と積分可能性を区別できる
+definitions:
+  - { id: CM1-03-DEF-01, name: 基礎となる実多様体 }
+  - { id: CM1-03-DEF-02, name: 概複素構造 }
+theorems:
+  - { id: CM1-03-PROP-01, name: 複素アトラスから得られる実滑らかなアトラス }
+  - { id: CM1-03-LEM-01, name: 正則座標遷移と標準複素構造の可換性 }
+  - { id: CM1-03-THM-01, name: 複素多様体から誘導される標準概複素構造 }
+  - { id: CM1-03-THM-02, name: 正則写像と概複素構造の可換条件 }
+canonical_examples:
+  - 複素Euclid空間の実座標と標準回転J0
+  - 二次写像の実Jacobi行列とJ0の可換性
+  - 点によって変わる概複素構造
+  - 複素共役とJの非可換性
+  - 正則でない実座標でのJの座標表示
+problem_patterns:
+  - CM1-03-REAL-ATLAS
+  - CM1-03-ALMOST-COMPLEX
+  - CM1-03-TRANSITION-COMMUTATION
+  - CM1-03-INDUCED-J
+  - CM1-03-HOLOMORPHIC-INTERTWINING
+  - CM1-03-REAL-COORDINATE-CHANGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
