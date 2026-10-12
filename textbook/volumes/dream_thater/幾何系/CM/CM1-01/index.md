@@ -347,7 +347,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず Hausdorff 性を確かめる。$(p,q)\ne(p',q')$ なら $p\ne p'$ または $q\ne q'$。前者なら $X$ の相異なる点を分離する互いに素な開集合 $U,U'$ を取る。$U\times Y$ と $U'\times Y$ は積空間内で互いに素な開近傍となる。後者も $X\times W$ と $X\times W'$ を使えばよい。
+まず Hausdorff 性を確かめる。$(p,q)\ne(p',q')$ なら $p\ne p'$ または $q\ne q'$。前者なら Hausdorff 性により、$p$ の開近傍 $U$ と $p'$ の開近傍 $U'$ が互いに素になるよう選べる。$U\times Y$ と $U'\times Y$ は積空間内で互いに素な開近傍となる。後者も $X\times W$ と $X\times W'$ を使えばよい。
 
 次に、$X,Y$ の可算基底をそれぞれ $\{B_i\}_{i\in\mathbb N}$、$\{C_j\}_{j\in\mathbb N}$ とする。積位相では $B_i\times C_j$ が基底で、$\mathbb N^2$ は可算であるため第二可算となる。
 
