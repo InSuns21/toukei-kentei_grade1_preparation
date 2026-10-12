@@ -22,12 +22,12 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp6-net -->
-**定義の確認**　 $d=1$ では $S^0=\{-1,1\}$ です。$\mathcal N=\{-1,1\}$ とすれば任意の $x\in S^0$ に対して $v=x$ が選べ、距離は $0\le\eta$ です。$d=2$ なら正整数 $q\ge2$ に対して $v_j=(\cos(2\pi j/q),\sin(2\pi j/q))$（$0\le j<q$）を候補にします。任意の方向角 $\theta$ から角度差が高々 $\pi/q$ の $v_j$ があり、
+**定義の確認**　 $d=1$ では $S^0=\{-1,1\}$ です。$\mathcal N=\{-1,1\}$ とすれば任意の $x\in S^0$ に対して $v=x$ が選べ、距離は $0\le\eta$ です。$d=2$ なら正整数 $q\ge2$ に対して $v_j=(\cos(2\pi j/q),\sin(2\pi j/q))$（$0\le j<q$）を候補にします。任意の方向角 $\theta$ に対して、ある $j\in\{0,\ldots,q-1\}$ と整数 $k$ を選び、円周上の角度差 $\Delta=\theta-2\pi j/q-2\pi k$ が $|\Delta|\le\pi/q$ となるようにできます。半角の正弦の絶対値は $2\pi$ の角度差を加えても変わらないので、
 
 $$
 \|(\cos\theta,\sin\theta)-v_j\|_2
-=2\left|\sin\frac{\theta-2\pi j/q}{2}\right|
-\le\frac{\pi}{q}.
+=2\left|\sin\frac{\Delta}{2}\right|
+\le|\Delta|\le\frac{\pi}{q}.
 $$
 
 したがって $\mathcal N=\{v_0,\ldots,v_{q-1}\}$ は $\pi/q$-netです。$q$ を増やすと誤差が下がりますが、代表点数も増えます。
@@ -99,6 +99,8 @@ $$
 
 $V_d>0$ で割ると $k\le(1+2/\eta)^d$ です。右辺は選び方に依存しない有限数なので無限に点を追加することは不可能であり、有限回後にはnetが完成します。被覆数もその濃度以下です。
 <!-- proof-end -->
+
+この補題で構成した $1/2$-net は、任意の $\eta\ge1/2$ に対しても $\eta$-net です。したがって[被覆数の定義](#def-hdp6-covering-number)に現れる $\eta>0$ のどの場合にも有限netが存在し、最小値は正の整数の整列性によって定まります。
 
 **数の読み方。** $\eta=1/4$ なら高々 $9^d$ 個で覆えます。$d=100$ で $9^{100}$ 個を実際に列挙するという意味ではありません。「全方向の条件を有限個で確かめる」という論証に、候補数の上限を与えたのです。候補数の対数は $d\log9$ となり、次章の確率評価と組み合わせると効いてきます。
 
@@ -395,7 +397,7 @@ $$
 
 ### 証明の見取り図
 
-固定した組 $(i,j)$ については[長さ保存補題](#lem-hdp6-gaussian-fixed-vector)が使えます。組は $\binom N2$ 個しかないため、和事象の確率は各事象の確率の和以下であり、点対ごとの事象には独立性を仮定しません。
+固定した組 $(i,j)$ については[長さ保存補題](#lem-hdp6-gaussian-fixed-vector)が使えます。組は $\binom N2$ 個しかないため、[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)から失敗確率は各事象の確率の和以下であり、点対ごとの事象には独立性を仮定しません。
 
 <!-- proof-start -->
 ### 証明
@@ -411,7 +413,7 @@ $$
 
 とします。$u_{ij}\ne0$ なら[Gaussian射影の固定ベクトル長さ保存](#lem-hdp6-gaussian-fixed-vector)から $P(E_{ij})\le2e^{-m\varepsilon^2/8}$ です。$u_{ij}=0$ なら二乗長さは常に $0$ なので、この組は失敗しません。零ベクトルの組に上の「$\ge$」で定義した $E_{ij}$ をそのまま使うと恒真事象になるため、失敗事象の定義は $u_{ij}\ne0$ の組に限定し、零ベクトルの組では $E_{ij}=\varnothing$ と定めます。
 
-すべての組について成功する確率は、和事象の上界から
+すべての組について成功する確率は、[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)で失敗確率を上から抑えることで求めます。具体的には
 
 $$
 \begin{aligned}
@@ -446,7 +448,7 @@ $$
 
 ## 5. 二つの有限化を混同しない
 
-球面のnetは、**すべての方向**を近似したいときに作ります。半径 $\eta$ のnetで候補数は高々 $(1+2/\eta)^d$ です。したがって全方向の条件を一斉に保証するために各net点での失敗確率を足すと、その対数には少なくとも $d$ に比例する項が入ります。対してJohnson–Lindenstrauss補題では、入力の全方向は調べません。初めから指定された点集合の差だけを検査するので候補数が $\binom N2$ で済むのです。
+球面のnetは、**すべての方向**を近似したいときに作ります。半径 $\eta$ のnetで候補数は高々 $(1+2/\eta)^d$ です。したがってこの体積法のnetを使って各代表点での失敗確率を足すと、得られる上界の対数には $d\log(1+2/\eta)$ が現れます。これは本証明法での上界の形であって、任意の方法に必要な下界を証明したわけではありません。対してJohnson–Lindenstrauss補題では、入力の全方向は調べません。初めから指定された点集合の差だけを検査するので候補数が $\binom N2$ で済むのです。
 
 例えば $d=10000$、$N=100$、$\varepsilon=1/2$、$\delta=0.1$ を代入すると、定理の十分条件は
 
@@ -475,13 +477,13 @@ $S^0=\{-1,1\}$ について $0<\eta<2$ と $\eta\ge2$ の被覆数をそれぞ�
 
 ### A2. 二次元円周の等間隔net
 
-$q=12$ として本文の $v_j$ を用いる。$\eta=\pi/12$ のnetであることを示し、一般の $q$ に対して必要な最小の整数 $q$ の十分条件を $\eta$ で表せ。
+$q=12$ として本文の $v_j$ を用いる。$\eta=\pi/12$ のnetであることを示し、一般の $\eta>0$ に対してこの等間隔構成が $\eta$-netを保証する整数 $q$ の十分条件を求めよ。
 
 - Level: A
 - ID: HDP6-A2
 
 <!-- solution-start -->
-**詳細解答**　円周上では隣り合う候補の角差は $2\pi/q$ です。任意の角度から最も近い候補への角差は高々 $\pi/q$ なので、二つの単位ベクトルの座標差を二乗して足し、半角の公式を使うと
+**詳細解答**　円周上では隣り合う候補の角差は $2\pi/q$ です。任意の方向と最も近い候補の角度差を $2\pi$ の整数倍だけ調整した値 $\Delta\theta$ は $|\Delta\theta|\le\pi/q$ です。二つの単位ベクトルの座標差を二乗して足し、半角の公式を使うと
 
 $$
 \|x-v_j\|_2
@@ -662,15 +664,44 @@ $N\ge2$、$0<\varepsilon,\delta<1$、固定点 $x_1,\ldots,x_N\in\mathbb R^d$ �
 - ID: HDP6-C1
 
 <!-- solution-start -->
-**詳細解答**　非零の固定差 $u=x_i-x_j$ を取ると、$Au$ の各成分は独立な $N(0,\|u\|_2^2/m)$ です。従って $\|Au\|_2^2/\|u\|_2^2$ は独立標準正規二乗和 $S/m$ と同分布です。$Ee^{sS}=(1-2s)^{-m/2}$（$s<1/2$）を用い、[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)で上側 $s=\varepsilon/(2(1+\varepsilon))$、下側に $-s$ を用いて $s=\varepsilon/(2(1-\varepsilon))$ と最適化すれば
+**詳細解答**　非零の固定差 $u=x_i-x_j$ を取ると、$Au$ の各成分は独立な $N(0,\|u\|_2^2/m)$ です。従って $\|Au\|_2^2/\|u\|_2^2$ は独立標準正規二乗和 $S/m$ と同分布です。$Ee^{sS}=(1-2s)^{-m/2}$（$s<1/2$）を用い、[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)を上側に $0<s<1/2$ として適用すると
+
+$$
+P(S\ge m(1+\varepsilon))
+\le\exp\left[-sm(1+\varepsilon)-\frac m2\log(1-2s)\right].
+$$
+
+指数を $s$ で微分して $-m(1+\varepsilon)+m/(1-2s)=0$ を解き、$s_+=\varepsilon/[2(1+\varepsilon)]$ を代入します。$1-2s_+=1/(1+\varepsilon)$ なので、上側は
+
+$$
+P(S\ge m(1+\varepsilon))
+\le\exp\left[-\frac m2\{\varepsilon-\log(1+\varepsilon)\}\right]
+\le e^{-m\varepsilon^2/8}.
+$$
+
+下側は $-S$ に指数Markov法を $s>0$ で適用して
+
+$$
+P(S\le m(1-\varepsilon))
+\le\exp\left[sm(1-\varepsilon)-\frac m2\log(1+2s)\right].
+$$
+
+指数を微分すると $m(1-\varepsilon)-m/(1+2s)$ だから、$s_-=\varepsilon/[2(1-\varepsilon)]$ を選びます。$1+2s_-=1/(1-\varepsilon)$ を代入すると
+
+$$
+P(S\le m(1-\varepsilon))
+\le\exp\left[-\frac m2\{-\varepsilon-\log(1-\varepsilon)\}\right]
+\le e^{-m\varepsilon^2/4}.
+$$
+
+最後の各不等式には、上側で $\varepsilon-\log(1+\varepsilon)\ge\varepsilon^2/4$、下側で $-\varepsilon-\log(1-\varepsilon)\ge\varepsilon^2/2$ を用いました。どちらも本文の[固定ベクトル長さ保存の証明](#lem-hdp6-gaussian-fixed-vector)で微分から確認しています。和事象の劣加法性で二つの尾部を足し、元の差ベクトル $u$ の比へ戻すと
 
 $$
 P\left(\left|\|Au\|_2^2-\|u\|_2^2\right|
 \ge\varepsilon\|u\|_2^2\right)
-\le 2e^{-m\varepsilon^2/8}
+\le e^{-m\varepsilon^2/8}+e^{-m\varepsilon^2/4}
+\le 2e^{-m\varepsilon^2/8}.
 $$
-
-を得ます。ここで上側には $\varepsilon-\log(1+\varepsilon)\ge\varepsilon^2/4$、下側には $-\varepsilon-\log(1-\varepsilon)\ge\varepsilon^2/2$ を用いました（いずれも本文の微分計算で確認できます）。
 
 重複点の組では $u=0$、$Au=0$ なので距離は常に一致し、失敗事象を空集合とします。非重複の組についてのみ失敗確率を加算し、組数は最大 $\binom N2$ なので
 
@@ -694,13 +725,13 @@ $$
 
 ### C2. netと射影の両方を使う場合の限界
 
-$0<\eta<1$、$d\ge2$ とする。$S^{d-1}$ の $\eta$-net $\mathcal N$ を体積法で選び、各 $v\in\mathcal N$ に対し固定ベクトルのGaussian射影長さ保存評価を用いる。(1) 全net点の二乗長さが伸縮率の許容幅 $\varepsilon$ 以内に入る失敗確率の上界を求めよ。(2) これを $\delta$ 以下にする $m$ の十分条件を求めよ。(3) この結果だけで全単位球面の長さが保存されるとは言えない理由を述べよ。
+$d\ge2$、$0<\eta,\varepsilon,\delta<1$、整数 $m\ge1$ とする。$A\in\mathbb R^{m\times d}$ は互いに独立な $N(0,1/m)$ 成分を持つGaussian行列で、$S^{d-1}$ の決定論的な $\eta$-net $\mathcal N$ を $A$ の生成前に体積法で選ぶ。各 $v\in\mathcal N$ に対し固定ベクトルのGaussian射影長さ保存評価を用いる。(1) 全net点の二乗長さが伸縮率の許容幅 $\varepsilon$ 以内に入る失敗確率の上界を求めよ。(2) これを $\delta$ 以下にする $m$ の十分条件を求めよ。(3) この結果だけで全単位球面の長さが保存されるとは言えない理由を述べよ。
 
 - Level: C
 - ID: HDP6-C2
 
 <!-- solution-start -->
-**詳細解答**　まず[球面の体積法による被覆](#lem-hdp6-volumetric-net)から $|\mathcal N|\le(1+2/\eta)^d$ となるnetが存在します。各 $v$ は $\|v\|_2=1$ の決定論的なベクトルなので、[固定ベクトルのGaussian射影評価](#lem-hdp6-gaussian-fixed-vector)により、各方向の失敗確率は $2e^{-m\varepsilon^2/8}$ 以下です。和事象の上界から
+**詳細解答**　まず[球面の体積法による被覆](#lem-hdp6-volumetric-net)から $|\mathcal N|\le(1+2/\eta)^d$ となるnetが存在します。各 $v$ は $\|v\|_2=1$ の決定論的なベクトルなので、[固定ベクトルのGaussian射影評価](#lem-hdp6-gaussian-fixed-vector)により、各方向の失敗確率は $2e^{-m\varepsilon^2/8}$ 以下です。[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)から
 
 $$
 P(\exists v\in\mathcal N:
