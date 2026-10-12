@@ -1,0 +1,51 @@
+chapter: ANT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT4
+  - NT8
+  - CA12
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.mangoldt-mobius-log
+    name: von Mangoldt関数のMöbius反転表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（von Mangoldt関数のMöbius反転表示）]
+    requires: [number-theory.von-mangoldt-function, number-theory.mobius-inversion]
+
+  - id: analytic-number-theory.zeta-logarithmic-derivative
+    name: ζの対数微分とvon Mangoldt級数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ζの対数微分とvon Mangoldt級数）]
+    requires: [analytic-number-theory.dirichlet-holomorphic, complex-analysis.zeta-euler-product, number-theory.von-mangoldt-function]
+
+  - id: analytic-number-theory.prime-power-sqrt-error
+    name: 素数冪による補正は平方根程度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（素数冪による補正は平方根程度）]
+    requires: [number-theory.chebyshev-psi, number-theory.chebyshev-theta]
+
+  - id: analytic-number-theory.prime-summation-identities
+    name: 素数計数関数の部分和恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（素数計数関数の部分和恒等式）]
+    requires: [analytic-number-theory.abel-summation, number-theory.prime-counting-function]
+
+  - id: analytic-number-theory.psi-mellin
+    name: ψのMellin型積分表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ψのMellin型積分表示）]
+    requires: [analytic-number-theory.zeta-logarithmic-derivative, number-theory.chebyshev-psi]
+
+  - id: analytic-number-theory.psi-error-zero-free
+    name: ψの冪誤差から導く零点不存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ψの冪誤差から導く零点不存在）]
+    requires: [analytic-number-theory.psi-mellin, complex-analysis.zeta-meromorphic-continuation]
