@@ -1,0 +1,43 @@
+chapter: CM1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-04
+
+concepts:
+  - id: complex-manifolds.holomorphic-coordinate-derivatives
+    name: 多変数正則写像の複素偏導関数の正則性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（多変数正則写像の複素偏導関数の正則性）"]
+    requires: [complex-manifolds.several-variables-holomorphic-map]
+  - id: complex-manifolds.tangent-transition-matrix
+    name: 複素接枠の遷移行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素接枠の遷移行列）"]
+    requires: [complex-manifolds.higher-holomorphic-atlas, complex-manifolds.type-tangent-bundles]
+  - id: complex-manifolds.tangent-frame-change
+    name: (1,0)接枠と成分列の座標変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（(1,0)接枠と成分列の座標変換則）"]
+    requires: [complex-manifolds.tangent-transition-matrix, complex-manifolds.holomorphic-coordinate-derivatives]
+  - id: complex-manifolds.tangent-transition-cocycle
+    name: 複素接枠の遷移行列の合成条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素接枠の遷移行列の合成条件）"]
+    requires: [complex-manifolds.tangent-frame-change]
+  - id: complex-manifolds.holomorphic-tangent-section
+    name: 正則な(1,0)接ベクトル場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則な(1,0)接ベクトル場）"]
+    requires: [complex-manifolds.type-tangent-bundles, complex-manifolds.tangent-frame-change]
+  - id: complex-manifolds.holomorphic-tangent-section-invariance
+    name: 接ベクトル場の正則性の座標不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接ベクトル場の正則性の座標不変性）"]
+    requires: [complex-manifolds.holomorphic-tangent-section, complex-manifolds.tangent-transition-cocycle]
