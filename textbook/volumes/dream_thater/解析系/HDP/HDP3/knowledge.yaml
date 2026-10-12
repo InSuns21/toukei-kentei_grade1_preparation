@@ -1,0 +1,55 @@
+chapter: HDP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP2
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.psi2-norm
+    name: sub-GaussianのOrliczノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（sub-GaussianのOrliczノルム）]
+    requires: []
+  - id: high-dimensional-probability.psi1-norm
+    name: sub-exponentialのOrliczノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（sub-exponentialのOrliczノルム）]
+    requires: []
+  - id: high-dimensional-probability.subgaussian-equivalence
+    name: sub-Gaussianの三つの同値な評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（sub-Gaussianの三つの同値な評価）]
+    requires: [high-dimensional-probability.psi2-norm, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.subgaussian-mgf
+    name: 中心化sub-Gaussianと全実数の指数モーメント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中心化sub-Gaussianと全実数の指数モーメント）]
+    requires: [high-dimensional-probability.subgaussian-equivalence, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.subgaussian-sum
+    name: 独立sub-Gaussian和の集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（独立sub-Gaussian和の集中）]
+    requires: [high-dimensional-probability.subgaussian-mgf, prob.expectation-factorization, prob.union-bound]
+  - id: high-dimensional-probability.subexponential-equivalence
+    name: sub-exponentialの三つの同値な評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（sub-exponentialの三つの同値な評価）]
+    requires: [high-dimensional-probability.psi1-norm, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.subexponential-local-mgf
+    name: 中心化sub-exponentialの局所指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（中心化sub-exponentialの局所指数モーメント）]
+    requires: [high-dimensional-probability.subexponential-equivalence]
+  - id: high-dimensional-probability.subexponential-sum
+    name: 独立sub-exponential和の二領域集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（独立sub-exponential和の二領域集中）]
+    requires: [high-dimensional-probability.subexponential-local-mgf, high-dimensional-probability.exponential-markov, prob.expectation-factorization, prob.union-bound]
