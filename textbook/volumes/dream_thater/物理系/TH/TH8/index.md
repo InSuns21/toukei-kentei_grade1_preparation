@@ -257,7 +257,7 @@ s=-f'_0(T)+\frac{a^2(T-T_c)}{2b},\qquad
 c_h=-Tf''_0(T)+\frac{Ta^2}{2b}.
 $$
 
-$T>T_c$ では $s=-f'_0(T)$、$c_h=-Tf''_0(T)$。両側の $s$ は $T_c$ で同じ $-f'_0(T_c)$ へ収束するので $L=T_c\Delta s=0$ です。熱容量の差は共通項 $-T_cf_0''(T_c)$ を消して $T_ca^2/(2b)$ となります。臨界点で二階微分を一つの値として定義できるわけではありません。
+$T>T_c$ では $s=-f'_0(T)$、$c_h=-Tf''_0(T)$。両側の $s$ は $T_c$ で同じ $-f'_0(T_c)$ へ収束するので $L=T_c\Delta s=0$ です。熱容量の差は共通項 $-T_cf_0''(T_c)$ を消して $T_ca^2/(2b)$ となります。$T=T_c$ では二階微分を一つの値として定義できるわけではありません。
 <!-- proof-end -->
 
 <a id="thm-th8-susceptibility-critical"></a>
@@ -407,7 +407,7 @@ $$
 <a id="prop-th8-coexistence-slope"></a>
 
 <!-- formal-statement-start -->
-> **命題（外場・温度共存線の傾き）**  
+> **命題（共存線の外場・温度勾配）**  
 > 体積を一定に保った二つの相の局所極小枝が共存点 $(T_*,h_*)$ の近傍でそれぞれ $C^1$ 級の極小値 $g_\alpha(T,h),g_\beta(T,h)$ を持ち、各枝で $dg_j=-s_j\,dT-m_j\,dh$ とする。共存点で $g_\alpha=g_\beta$、$\Delta m=m_\beta-m_\alpha\ne0$ とし、そこを通る $C^1$ 級共存曲線 $h=h(T)$ が存在するなら
 >
 $$
