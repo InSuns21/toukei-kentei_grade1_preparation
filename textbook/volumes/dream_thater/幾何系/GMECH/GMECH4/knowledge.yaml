@@ -88,4 +88,4 @@ concepts:
     requires:
       - mechanics.regular-momentum-level-tangent
       - mechanics.regular-level-action-restriction
-      - lie.stabilizer-orbit-rank
+      - lie.stabilizer-kernel-orbit-rank
