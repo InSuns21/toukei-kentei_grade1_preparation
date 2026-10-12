@@ -78,10 +78,10 @@ $$
 
 よって次の事象包含が成立します。
 
-$
+$$
 \{\lambda_{\max}(S)\ge t\}
 \subseteq \{\operatorname{tr}e^{\theta S}\ge e^{\theta t}\}.
-$
+$$
 
 ここで非負変数 $\operatorname{tr}e^{\theta S}$ にMarkov不等式を適用すると
 
