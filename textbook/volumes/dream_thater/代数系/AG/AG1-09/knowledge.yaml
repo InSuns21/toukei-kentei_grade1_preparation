@@ -2,6 +2,7 @@ chapter: AG1-09
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00A3
   - AG1-08
   - AG1-06
   - AG1-05
@@ -38,7 +39,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（整拡大における素イデアルの持ち上げと非比較性）"]
-    requires: [algebraic-geometry.integral-element, algebra.prime-ideal, algebraic-geometry.integral-tower]
+    requires: [algebraic-geometry.integral-element, algebra.prime-ideal, algebraic-geometry.integral-tower, set.zorn-lemma]
 
   - id: algebraic-geometry.dimension-transcendence
     name: アフィン整域の次元と超越次数

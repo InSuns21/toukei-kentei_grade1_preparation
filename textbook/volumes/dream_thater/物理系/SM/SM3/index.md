@@ -71,7 +71,7 @@ e^{-2\delta}\le \frac{P_S(\omega)}{q_\beta(\omega)}\le e^{2\delta}
 \qquad(\omega\in\Omega)
 $$
 
-> が成り立つ。さらに $\log W_B(v)$ を $U$ の近傍の正値で二回微分可能な滑らかな状態数近似 $\ell(v)$ に置き換え、すべての $U-H(\omega)$ がその近傍にあれば、$\beta=\ell'(U)$ と選べる。$|\ell''(v)|\le M$ がその間で成立すれば、一次Taylor近似の誤差は各配置で $M H(\omega)^2/2$ 以下となる。
+> が成り立つ。さらに $\log W_B(v)$ を $U$ の近傍で二回連続微分可能な滑らかな状態数近似 $\ell(v)$ に置き換え、すべての $U-H(\omega)$ がその近傍にあれば、$\beta=\ell'(U)$ と選べる。$|\ell''(v)|\le M$ がその間で成立すれば、一次Taylor近似の誤差は各配置で $M H(\omega)^2/2$ 以下となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -97,7 +97,7 @@ $$
 
 [有限熱浴の厳密式](#prop-sm3-bath-exact)へ代入し、$e^a$ を約分します。$P_S(\omega)/q_\beta(\omega)$ は $e^{r_\omega}$ を上記の和と $Z$ の比で割ったものなので、下限は $e^{-\delta}/e^\delta$、上限は $e^\delta/e^{-\delta}$ です。
 
-最後の主張は一変数Taylorの定理を $v=U$ から $v=U-H(\omega)$ に適用して、
+最後の主張は、[Taylorの定理（Lagrange剰余）](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を関数 $\ell$、次数 $n=1$、展開点 $a=U$、評価点 $x=U-H(\omega)$ に適用します。$\ell$ は該当区間で $C^2$ 級であり、$H(\omega)=0$ の場合は剰余が0となります。したがって、
 
 $$
 \ell(U-H(\omega))
@@ -654,7 +654,7 @@ $$
 
 #### A4. 非一様分布のエントロピー
 
-二配置 $\{a,b\}$ の分布を $q(a)=1/4$、$q(b)=3/4$ とする。$S_{\mathrm G}(q)$ を求め、$\log2$ より小さいことを示せ。$k_{\mathrm B}>0$ とする。
+二配置 $\{a,b\}$ の分布を $q(a)=1/4$、$q(b)=3/4$ とする。$S_{\mathrm G}(q)$ を求め、無次元量 $S_{\mathrm G}(q)/k_{\mathrm B}$ が $\log2$ より小さいことを示せ。$k_{\mathrm B}>0$ とする。
 
 - Level: A
 - ID: SM3-A4
@@ -677,7 +677,7 @@ $$
 =\frac14\log\frac{27}{16}>0
 $$
 
-です。$27>16$ なので正です。確率が偏ると、同じ二配置でも一様分布よりエントロピーが小さくなります。
+です。$27>16$ なので正です。したがって $S_{\mathrm G}(q)<k_{\mathrm B}\log2$ も成立し、比較する両辺の単位が一致します。確率が偏ると、同じ二配置でも一様分布よりエントロピーが小さくなります。
 <!-- solution-end -->
 
 #### A5. 熱容量の単位と符号
@@ -749,10 +749,26 @@ U_{AB}=\frac{\varepsilon r}{1+r}
 +\frac{2\varepsilon r^2}{1+r^2}.
 $$
 
-各系は二準位Bernoulli型で、$\operatorname{Var}(H)=\varepsilon^2p(1-p)$ の計算を準位幅ごとに適用すると
+分散も各二準位系から求めます。Aの励起確率を $p_A=r/(1+r)$、Bの励起確率を $p_B=r^2/(1+r^2)$ とすると、Aでは $H_A$ は $0$ または $\varepsilon$、Bでは $H_B$ は $0$ または $2\varepsilon$ です。そこで
+
+$$
+\begin{aligned}
+\operatorname{Var}(H_A)
+&=\varepsilon^2p_A-(\varepsilon p_A)^2
+=\varepsilon^2p_A(1-p_A)
+=\frac{\varepsilon^2r}{(1+r)^2},\\
+\operatorname{Var}(H_B)
+&=4\varepsilon^2p_B-(2\varepsilon p_B)^2
+=4\varepsilon^2p_B(1-p_B)
+=\frac{4\varepsilon^2r^2}{(1+r^2)^2}.
+\end{aligned}
+$$
+
+[積分布での分散加法性](#prop-sm3-independent-systems)により
 
 $$
 \operatorname{Var}(H_{AB})
+=\operatorname{Var}(H_A)+\operatorname{Var}(H_B)
 =\frac{\varepsilon^2r}{(1+r)^2}
 +\frac{4\varepsilon^2r^2}{(1+r^2)^2}.
 $$
@@ -901,7 +917,26 @@ $$
 F=-2k_{\mathrm B}T\log(1+r).
 $$
 
-各微視的配置は独立な二単位の積分布を持つので、ある単位の励起確率は $r/(1+r)$、非励起確率は $1/(1+r)$ です。全配置の確率の対数を展開して[エントロピーの定義](#def-sm3-gibbs-entropy)を用いると、一単位の寄与が二回現れ、
+各微視的配置は[独立な二系の積分布](#prop-sm3-independent-systems)を持つので、一単位の励起確率は $p_1(1)=r/(1+r)$、非励起確率は $p_1(0)=1/(1+r)$ です。四配置 $(a,b)\in\{0,1\}^2$ の確率は $p(a,b)=p_1(a)p_1(b)$ であり、
+
+$$
+\log p(a,b)=\log p_1(a)+\log p_1(b).
+$$
+
+[エントロピーの定義](#def-sm3-gibbs-entropy)へ代入し、各変数について $\sum_{a=0}^1p_1(a)=1$ を使うと、
+
+$$
+\begin{aligned}
+S/k_{\mathrm B}
+&=-\sum_{a,b}p_1(a)p_1(b)
+  \bigl(\log p_1(a)+\log p_1(b)\bigr)\\
+&=-\sum_a p_1(a)\log p_1(a)\sum_b p_1(b)
+  -\sum_b p_1(b)\log p_1(b)\sum_a p_1(a)\\
+&=-2\sum_{a=0}^1p_1(a)\log p_1(a).
+\end{aligned}
+$$
+
+したがって一単位の寄与が二回現れ、
 
 $$
 \begin{aligned}
