@@ -145,7 +145,6 @@ $$
 定義に必要な全 $\xi$ で成立したので証明が完了します。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-gmech2-cotangent-momentum -->
 ### 直接計算：一般の局所座標で符号を再確認する
 
 $\xi_Q=\sum_i a^i(q)\partial_{q^i}$ とすると
@@ -169,7 +168,6 @@ $$
 $$
 
 縮約では $\iota_{\partial_{p_i}}(dq^i\wedge dp_i)=-dq^i$ なので、生成子の負号ともう一つの負号が打ち消し合います。この二重の符号が重要です。
-<!-- definition-example-end -->
 
 ## 3. 並進・回転・伸縮の運動量
 
@@ -235,6 +233,15 @@ $$
 >
 > が成り立つなら、$J$ は **同変**であるという。
 <!-- formal-statement-end -->
+
+任意の $g,h\in G$ に対し $\operatorname{Ad}_{(gh)^{-1}}=\operatorname{Ad}_{h^{-1}}\operatorname{Ad}_{g^{-1}}$ です。[随伴表現の準同型性](../../../代数系/LIE/LIE2/index.md#thm-lie2-adjoint-homomorphism)の双対を取れば
+
+$
+\operatorname{Ad}_{(gh)^{-1}}^*
+=\operatorname{Ad}_{g^{-1}}^*\operatorname{Ad}_{h^{-1}}^*.
+$
+
+従って $(gh)\cdot\mu=g\cdot(h\cdot\mu)$ です。逆元を使うのは左作用の積の順序を正しくするためです。
 
 <!-- definition-example-start: def-gmech2-coadjoint-equivariance -->
 ### 直接例：可換な回転群では不変性になる
