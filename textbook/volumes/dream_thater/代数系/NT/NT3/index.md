@@ -373,7 +373,16 @@ $$
 $$
 とすれば従います。
 
-相互法則では $m=\prod_i p_i^{e_i}$、$n=\prod_j q_j^{f_j}$ と書きます。互いに素なので $p_i\neq q_j$ です。各組へ[平方剰余の相互法則](#thm-nt3-quadratic-reciprocity)を使い、積を取ると
+相互法則では $m=\prod_i p_i^{e_i}$、$n=\prod_j q_j^{f_j}$ と書きます。互いに素なので全ての組について $p_i\neq q_j$ です。まず [Jacobi 記号の定義](#def-nt3-jacobi)と[Legendre 記号の乗法性](#prop-nt3-legendre-multiplicative)を順に使い、
+$$
+\begin{aligned}
+\left(\frac mn\right)_{\!J}
+&=\prod_j\left(\frac{m}{q_j}\right)^{f_j}
+=\prod_j\left(\prod_i\left(\frac{p_i}{q_j}\right)^{e_i}\right)^{f_j}\\
+&=\prod_{i,j}\left(\frac{p_i}{q_j}\right)^{e_i f_j}
+\end{aligned}
+$$
+と展開します。$\left(\frac nm\right)_{\!J}$ に対しても分子と分母を交換して同じ操作を行います。各組へ[平方剰余の相互法則](#thm-nt3-quadratic-reciprocity)を適用すると、素数 $p_i,q_j$ が異なるという仮定から次の符号を得ます。
 $$
 \left(\frac mn\right)_{\!J}
 \left(\frac nm\right)_{\!J}
@@ -448,7 +457,7 @@ $$
 
 奇数 $x=2t+1$ の二乗は $x^2=4t(t+1)+1$ です。$t(t+1)$ は偶数なので $x^2\equiv1\pmod8$ であり、必要条件が従います。法 $2$ と法 $4$ については $x=1$ を使えば十分性が分かります。法 $8$ では $1,3,5,7$ がすべて $1$ の平方根で、四解です。
 
-$k\ge3$ で $x^2\equiv a\pmod{2^k}$、$x$ は奇数とします。$x^2-a=2^k c$ と書き、
+$k\ge3$ で $x^2\equiv a\pmod{2^k}$ を満たす奇数 $x$ が見つかったとします。$x^2-a=2^k c$ と書き、
 $$
 y=x+2^{k-1}t,\qquad t\in\{0,1\}
 $$
@@ -456,13 +465,28 @@ $$
 $$
 y^2-a=2^k(c+xt)+2^{2k-2}t^2.
 $$
-$2k-2\ge k+1$ なので最後の項は法 $2^{k+1}$ で $0$ です。$x$ が奇数ゆえ $t\equiv-c\pmod2$ を一意に選べば $y^2\equiv a\pmod{2^{k+1}}$ となります。法 $8$ からの帰納法で $a\equiv1\pmod8$ の十分性を得ます。
+$k\ge3$ から $2k-2\ge k+1$ なので、最後の項は法 $2^{k+1}$ で $0$ です。$x$ が奇数なので $xt\equiv t\pmod2$、従って $t\equiv-c\pmod2$ を一意に選べば $y^2\equiv a\pmod{2^{k+1}}$ となります。この $y$ は $x$ と法 $2^k$ で同じ剰余類とは限りません。それでも $y^2-x^2$ は上の展開から $2^k$ の倍数であり、必要なのは**平方合同式の解が次の法でも少なくとも一つ存在すること**です。法 $8$ の解 $x=1$ を出発点にこの操作を繰り返すと、$a\equiv1\pmod8$ での十分性が従います。
 
-解の個数も確認します。奇数の二解 $x,y$ について $2^k\mid(x-y)(x+y)$ であり、$x-y$ と $x+y$ はどちらも偶数ですが、一方が $4$ の倍数、他方は $2$ の倍数で $4$ の倍数ではありません。したがって $2^{k-1}\mid x-y$ または $2^{k-1}\mid x+y$ です。ゆえに固定した根 $x$ に対して候補は法 $2^k$ で
+次に個数を確認します。法 $2^k$ の任意の奇数の二解 $x,y$ は
 $$
-x,\quad -x,\quad x+2^{k-1},\quad -x+2^{k-1}
+2^k\mid x^2-y^2=(x-y)(x+y)
 $$
-の四つ以下です。この四つは $k\ge3$ で相異なり、二乗の差が $2^k$ の倍数なので実際すべて解です。
+を満たします。$x,y$ が奇数なので $x-y$ と $x+y$ はどちらも偶数で、和が $2x$（$4$ の倍数ではない）であることから、一方は $4$ の倍数、もう一方は $2$ の倍数だが $4$ の倍数ではありません。後者に含まれる因子 $2$ はちょうど一つなので、積が $2^k$ で割れるには、前者が $2^{k-1}$ で割れなければなりません。従って
+$$
+y\equiv x\pmod{2^{k-1}}
+\quad\text{または}\quad
+y\equiv-x\pmod{2^{k-1}}.
+$$
+各合同類は法 $2^k$ では二つに分かれるので、根の候補は
+$$
+x,\quad x+2^{k-1},\quad -x,\quad -x+2^{k-1}
+$$
+の高々四つです。$k\ge3$ かつ $x$ が奇数なので $2x$ は $2^{k-1}$ で割れず、四つは相異なります。さらに
+$$
+(x+2^{k-1})^2-x^2
+=2^k x+2^{2k-2}\equiv0\pmod{2^k}
+$$
+であり、$-x$ と $-x+2^{k-1}$ も同じ計算で根になります。よって根は正確に四つです。
 <!-- proof-end -->
 
 <a id="thm-nt3-crt-solvability"></a>
@@ -586,7 +610,24 @@ $x^2\equiv10\pmod{13^2}$ の解をすべて求め、持ち上げの一次合同�
 - ID: NT3-B3
 
 <!-- solution-start -->
-**詳細解答**　法 $13$ で $6^2=36\equiv10$、もう一つは $-6\equiv7$ です。[奇素数冪への持ち上げ定理](#thm-nt3-odd-prime-power-lift)に従い $x=6+13t$ と置きます。$x^2-10=26+156t+169t^2=13(2+12t)+169t^2$ なので $13^2\mid x^2-10$ の条件は $2+12t\equiv0\pmod{13}$ です。$12\equiv-1$ より $t\equiv2$ となり $x\equiv32\pmod{169}$ です。もう一方は負の根 $-32\equiv137$ です。$32^2=1024=169\cdot6+10$、$137\equiv-32$ なので両方を検算でき、奇素数冪では他に解はありません。
+**詳細解答**　法 $13$ では $6^2=36\equiv10$ であり、もう一つの根は $-6\equiv7$ です。奇素数 $13$ は $10$ を割らないので、[奇素数冪への持ち上げ定理](#thm-nt3-odd-prime-power-lift)の仮定を満たします。根 $6$ を選び、$x=6+13t$（$t\in\mathbb Z$）とおきます。
+
+二乗を展開して $13$ の倍数を取り出すと
+$$
+\begin{aligned}
+x^2-10
+&=(6+13t)^2-10\\
+&=36+156t+169t^2-10\\
+&=13(2+12t)+169t^2.
+\end{aligned}
+$$
+従って $169\mid x^2-10$ は $2+12t\equiv0\pmod{13}$ と同値です。$12\equiv-1\pmod{13}$ を代入すると $2-t\equiv0$、すなわち $t\equiv2\pmod{13}$ です。よって一つの根は $x\equiv6+13\cdot2=32\pmod{169}$ です。
+
+二乗が等しい負の根 $-32\equiv137\pmod{169}$ も解です。実際
+$$
+32^2-10=1024-10=1014=169\cdot6.
+$$
+二つの法 $13$ の根は一意に持ち上がるので、これ以外の解はありません。
 <!-- solution-end -->
 
 #### B4. 相互法則の格子点を数え直す
@@ -610,7 +651,25 @@ $n=65$ について $x^2\equiv-1\pmod{65}$ のすべての解を求め、解が�
 - ID: NT3-C1
 
 <!-- solution-start -->
-**詳細解答**　$65=5\cdot13$ は互いに素な奇素数の積です。[第一補充法則](#thm-nt3-supplement-minus-one)でどちらも $1\bmod4$ なので平方根があります。法 $5$ では $x\equiv2,3$、法 $13$ では $x\equiv5,8$ です。$x=a+5t$（$a=2$ または $3$）とおいて法 $13$ で $5t\equiv b-a$（$b=5$ または $8$）を解きます。$5^{-1}\equiv8\pmod{13}$ なので、$(a,b)=(2,5),(2,8),(3,5),(3,8)$ に対して $t\equiv24\equiv11,\ 48\equiv9,\ 16\equiv3,\ 40\equiv1\pmod{13}$ です。従って対応する $x\bmod65$ は $57,47,18,8$ です。[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)は組と解の一対一対応を与え、二解ずつの積で $2\cdot2=4$ 個です。$8^2\equiv18^2\equiv47^2\equiv57^2\equiv64\equiv-1\pmod{65}$ も確認できます。
+**詳細解答**　$65=5\cdot13$ で $\gcd(5,13)=1$ です。[第一補充法則](#thm-nt3-supplement-minus-one)から、両素数が $1\bmod4$ なので $-1$ はそれぞれ平方剰余です。具体的には
+$$
+\begin{aligned}
+x^2\equiv-1\pmod5 &\iff x\equiv2,3\pmod5,\\
+x^2\equiv-1\pmod{13} &\iff x\equiv5,8\pmod{13}.
+\end{aligned}
+$$
+例えば $2^2=4\equiv-1\pmod5$、$5^2=25\equiv-1\pmod{13}$ であり、負の根がもう一つの根です。
+
+法 $5$ の根を $a$、法 $13$ の根を $b$ として $x=a+5t$ と置きます。このとき $5t\equiv b-a\pmod{13}$ です。$5\cdot8=40\equiv1\pmod{13}$ なので $t\equiv8(b-a)\pmod{13}$ と解けます。四つの組を代入すると
+$$
+\begin{aligned}
+(a,b)=(2,5)&:\ t\equiv8(5-2)=24\equiv11,&x&\equiv2+5\cdot11=57,\\
+(a,b)=(2,8)&:\ t\equiv8(8-2)=48\equiv9,&x&\equiv2+5\cdot9=47,\\
+(a,b)=(3,5)&:\ t\equiv8(5-3)=16\equiv3,&x&\equiv3+5\cdot3=18,\\
+(a,b)=(3,8)&:\ t\equiv8(8-3)=40\equiv1,&x&\equiv3+5\cdot1=8.
+\end{aligned}
+$$
+いずれの $x$ も法 $65$ での代表元として読んでいます。[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)の条件 $\gcd(5,13)=1$ が成り立つので、各組に一つずつ、他には解がなく、合計 $2\cdot2=4$ 個です。検算すると $8^2=64$、$18^2=324=65\cdot5-1$、$47^2=2209=65\cdot34-1$、$57^2=3249=65\cdot50-1$ で、全て $-1\pmod{65}$ と一致します。
 <!-- solution-end -->
 
 #### C2. Jacobi 記号が見逃す局所障害
@@ -621,7 +680,21 @@ $p,q$ を相異なる $3\bmod4$ の奇素数とし、$n=pq$ とする。$\left(\
 - ID: NT3-C2
 
 <!-- solution-start -->
-**詳細解答**　$p\equiv q\equiv3\pmod4$ なので[第一補充法則](#thm-nt3-supplement-minus-one)から $\left(\frac{-1}p\right)=\left(\frac{-1}q\right)=-1$ です。[Jacobi 記号の定義](#def-nt3-jacobi)では二因子を掛けるので $\left(\frac{-1}{pq}\right)_{\!J}=(-1)(-1)=1$ です。一方、仮に $x^2\equiv-1\pmod{pq}$ とすると $x^2\equiv-1\pmod p$ も成り立ちます。しかし Legendre 記号が $-1$ であることはこの合同式が不可解であることを意味し、矛盾します。例えば $p=3,q=7$ なら Jacobi 記号は $1$ でも法 $21$ に解はありません。二素数がともに $3\bmod4$ という仮定を外し、ともに $1\bmod4$ とすれば各素数で解が存在し、[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)から法 $pq$ に解が存在します。問題の障害は各素数法での非剰余を掛け合わせると符号だけが相殺されてしまう点です。
+**詳細解答**　$p\equiv q\equiv3\pmod4$ と仮定します。[第一補充法則](#thm-nt3-supplement-minus-one)をそれぞれの奇素数に適用すると
+$$
+\left(\frac{-1}p\right)=-1,\qquad
+\left(\frac{-1}q\right)=-1
+$$
+です。[Jacobi 記号の定義](#def-nt3-jacobi)により、$n=pq$ の二つの素因数から
+$$
+\left(\frac{-1}{pq}\right)_{\!J}
+=\left(\frac{-1}p\right)\left(\frac{-1}q\right)=(-1)(-1)=1
+$$
+を得ます。
+
+一方、法 $pq$ に根 $x$ があると仮定すると、$pq\mid x^2+1$ より $p\mid x^2+1$、すなわち $x^2\equiv-1\pmod p$ です。しかし [Legendre 記号の定義](#def-nt3-legendre-symbol)によれば $\left(\frac{-1}p\right)=-1$ は法 $p$ で解が存在しないことを意味します。矛盾するので法 $pq$ にも解はありません。具体的に $p=3,q=7$ なら Jacobi 記号は $1$ ですが法 $21$ の解は存在しません。
+
+仮定が重要なのは、各素数法での非剰余が**二つ重なる**ためです。二素数がともに $1\bmod4$ なら各素数法で根が存在し、[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)を適用できます。その条件 $\gcd(p,q)=1$ が満たされるので、法 $pq$ にも根を構成できます。したがって Jacobi 記号が $1$ であることだけでは、個別の素数法で解けないという局所障害は検出できません。
 <!-- solution-end -->
 
 ## 9. まとめと次章への橋
