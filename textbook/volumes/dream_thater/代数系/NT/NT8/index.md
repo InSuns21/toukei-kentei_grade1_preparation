@@ -485,13 +485,13 @@ $$
 
 ## 7. 整数の重み付き無限和から素数の積へ
 
-[Dirichlet 畳み込み](../NT4/index.md#def-nt4-dirichlet)では、整数の約数に沿って二つの関数を組み合わせました。今度は $n^{-s}$ を重みとする無限和を使います。素因数分解の一意性によって、それは素数ごとの無限積にも変えられます。
+[Dirichlet 畳み込み](../NT4/index.md#def-nt4-dirichlet)では、整数の約数に沿って二つの関数を組み合わせました。今度は[級数の収束](../../../基礎科目/RA/RA1/index.md#def-ra1-series)を前提に、$n^{-s}$ を重みとする無限和を使います。素因数分解の一意性によって、それは素数ごとの無限積にも変えられます。
 
 <a id="def-nt8-dirichlet-series"></a>
 
 <!-- formal-statement-start -->
 > **定義（Dirichlet 級数）**  
-> 算術関数 $a:\mathbb N\to\mathbb C$ に対し、収束するとき
+> 算術関数 $a:\mathbb N\to\mathbb C$ と実数 $s$ に対し、以下の和が収束するとき
 >
 $$
 D_a(s)=\sum_{n=1}^{\infty}\frac{a(n)}{n^s}
