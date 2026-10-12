@@ -358,7 +358,7 @@ $$
 
 なので $-\varepsilon-\log(1-\varepsilon)\ge\varepsilon^2/2$ です。従って下側確率は $\exp(-m\varepsilon^2/4)$ 以下で、さらに $\exp(-m\varepsilon^2/8)$ 以下です。
 
-二つの事象の和を評価して、$\left|S/m-1\right|\ge\varepsilon$ の確率を $2e^{-m\varepsilon^2/8}$ 以下に抑えます。最初の分布同一性を戻せば主張を得ます。$x=0$ は $A0=0$ より確率評価なしで成立します。
+二つの事象に[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)を使って、$\left|S/m-1\right|\ge\varepsilon$ の確率を $2e^{-m\varepsilon^2/8}$ 以下に抑えます。最初の分布同一性を戻せば主張を得ます。$x=0$ は $A0=0$ より確率評価なしで成立します。
 <!-- proof-end -->
 
 重要なのは $x$ を**ランダム行列 $A$ の実現前に固定**することです。この証明から直ちに「すべての $x$ に同時に成り立つ」とは言えません。$m<d$ の場合、どの $m\times d$ 行列にも非零の核ベクトルがあるため、全方向の長さを保存することはそもそも不可能です。
@@ -694,7 +694,7 @@ P(S\le m(1-\varepsilon))
 \le e^{-m\varepsilon^2/4}.
 $$
 
-最後の各不等式には、上側で $\varepsilon-\log(1+\varepsilon)\ge\varepsilon^2/4$、下側で $-\varepsilon-\log(1-\varepsilon)\ge\varepsilon^2/2$ を用いました。どちらも本文の[固定ベクトル長さ保存の証明](#lem-hdp6-gaussian-fixed-vector)で微分から確認しています。和事象の劣加法性で二つの尾部を足し、元の差ベクトル $u$ の比へ戻すと
+最後の各不等式には、上側で $\varepsilon-\log(1+\varepsilon)\ge\varepsilon^2/4$、下側で $-\varepsilon-\log(1-\varepsilon)\ge\varepsilon^2/2$ を用いました。どちらも本文の[固定ベクトル長さ保存の証明](#lem-hdp6-gaussian-fixed-vector)で微分から確認しています。[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)で二つの尾部を足し、元の差ベクトル $u$ の比へ戻すと
 
 $$
 P\left(\left|\|Au\|_2^2-\|u\|_2^2\right|
