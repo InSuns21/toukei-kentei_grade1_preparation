@@ -1,0 +1,23 @@
+chapter: HDP2
+terms:
+  - term: 指数関数の二次余剰
+    english: second-order exponential remainder
+    meaning: 指数関数から定数項と一次項を除いた差。中心化後はその期待値を分散によって制御する。
+  - term: 分散依存の指数モーメント
+    english: variance-sensitive exponential moment bound
+    meaning: 片側で有界な中心化確率変数の指数モーメントを分散と上限で抑える評価。
+  - term: Bennettの率関数
+    english: Bennett rate function
+    meaning: 非負のuに対するh(u)=(1+u)log(1+u)-u。分散依存の裾評価の指数に現れる。
+  - term: Bennettの不等式
+    english: Bennett's inequality
+    meaning: 独立な平均零・上方有界の確率変数の和の右裾を分散の和とBennett率関数で抑える不等式。
+  - term: Bernsteinの不等式
+    english: Bernstein's inequality
+    meaning: 独立で上方有界な平均零の変数の和についてt^2/(2(v+bt/3))の指数で右裾を評価する不等式。
+  - term: Bernsteinの両側不等式
+    english: two-sided Bernstein inequality
+    meaning: 中心化変数の絶対値が上から有界なとき、左右の裾に片側の評価を適用して和集合を抑える評価。
+  - term: 分散ゼロの退化例
+    english: zero-variance degenerate case
+    meaning: 中心化変数の二乗平均が零なら確率一で零となり、正の偏差の確率も零になる場合。
