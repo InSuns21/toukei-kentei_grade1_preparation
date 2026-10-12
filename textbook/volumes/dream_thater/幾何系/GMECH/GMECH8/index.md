@@ -613,9 +613,9 @@ $$
 
 運動量写像の微分は
 
-$
+$$
 dJ=d\ell\ne0.
-$
+$$
 
 したがって一次元の値域への全射であり、すべての値が正則値です。また任意の $\mu\ne0$ について、半径 $r>0$、角度 $\theta$、動径運動量 $p_r$ を自由に選び、$\ell=\mu$ とすればレベル集合は非空です。以上により[Marsden–Weinstein簡約](../GMECH5/index.md#thm-gmech5-marsden-weinstein)の仮定が満たされます。
 
