@@ -4,14 +4,13 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SG1
-  - F0-00P3
-  - F0-00P4
+  - HDP5
 official_scope: []
 learning_objectives:
   - 有限Gaussian場の共分散行列を計算し、退化した正規場も含めた定義を確認できる
-  - Gaussian部分積分を密度の微分から証明し、特異な共分散行列にも拡張できる
+  - HDP5のGaussian部分積分から特異な共分散行列に対する部分積分を導出できる
   - Gibbs重みを微分し、対角項と二レプリカ項の由来を説明できる
-  - Gaussian集中不等式を指数モーメント法とGaussian対数Sobolev評価から導出できる
+  - HDP5のGaussian集中定理の適用条件を確かめ、圧力に必要なLipschitz定数を評価できる
   - 正規場の圧力のLipschitz定数と指数的な集中評価を計算できる
   - 二つのGaussian場の平方根補間を微分し、共分散差の公式を再現できる
   - 等分散Gaussian場の圧力比較の向きと等分散仮定の役割を説明できる
@@ -19,14 +18,12 @@ learning_objectives:
 definitions:
   - { id: SG2-DEF-01, name: "有限Gaussian場と共分散" }
   - { id: SG2-DEF-02, name: "二レプリカGibbs平均" }
-  - { id: SG2-DEF-03, name: "Euclid-Lipschitz定数" }
   - { id: SG2-DEF-04, name: "Gaussian平方根補間" }
 propositions:
-  - { id: SG2-LEM-01, name: "Gaussian部分積分" }
+  - { id: SG2-PROP-03, name: "共分散付きGaussian部分積分" }
   - { id: SG2-PROP-01, name: "Gibbs重みの微分" }
   - { id: SG2-PROP-02, name: "共通Gaussian無秩序による圧力低下" }
 theorems:
-  - { id: SG2-THM-01, name: "有限次元Gaussian集中不等式" }
   - { id: SG2-THM-02, name: "Gaussian補間の微分公式" }
   - { id: SG2-COR-01, name: "正規無秩序圧力の集中" }
   - { id: SG2-COR-02, name: "等分散Gaussian場の圧力比較" }
