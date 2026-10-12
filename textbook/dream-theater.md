@@ -687,6 +687,7 @@
 1. [INT1 第一積分とLiouville可積分性](textbook/volumes/dream_thater/幾何系/INT/INT1/index.md)
 2. [INT2 Liouville–Arnoldの定理](textbook/volumes/dream_thater/幾何系/INT/INT2/index.md)
 3. [INT3 作用角変数](textbook/volumes/dream_thater/幾何系/INT/INT3/index.md)
+4. [INT4 近可積分Hamilton系と小分母](textbook/volumes/dream_thater/幾何系/INT/INT4/index.md)
 
 ## 代数系
 
