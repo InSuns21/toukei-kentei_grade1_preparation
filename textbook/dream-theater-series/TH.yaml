@@ -31,7 +31,7 @@ chapters:
     title: 熱力学的安定性・応答・凸性
   - id: TH7
     path: textbook/volumes/dream_thater/物理系/TH/TH7
-    status: planned
+    status: completed
     title: 化学ポテンシャル・多成分系・相平衡
   - id: TH8
     path: textbook/volumes/dream_thater/物理系/TH/TH8
