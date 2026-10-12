@@ -16,7 +16,7 @@ chapters:
     title: "既約集合・素イデアルと既約成分"
   - id: AG1-03
     path: textbook/volumes/dream_thater/代数系/AG/AG1-03
-    status: planned
+    status: completed
     title: "座標環とアフィン代数多様体の正則写像"
   - id: AG1-04
     path: textbook/volumes/dream_thater/代数系/AG/AG1-04
