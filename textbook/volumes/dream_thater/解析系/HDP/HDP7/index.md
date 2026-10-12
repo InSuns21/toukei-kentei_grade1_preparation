@@ -21,10 +21,10 @@ $$
 > **定義（sub-Gaussian確率ベクトル）**  
 > $d\ge1$、$X\in\mathbb R^d$、$EX=\mu$ とする。すべての $u\in S^{d-1}$ について $\langle X-\mu,u\rangle$ がsub-Gaussianであり、
 >
-> $$
-> K_{\mathrm{abs}}(X)
-> =\sup_{\|u\|_2=1}\|\langle X-\mu,u\rangle\|_{\psi_2}<\infty
-> $$
+$$
+K_{\mathrm{abs}}(X)
+=\sup_{\|u\|_2=1}\|\langle X-\mu,u\rangle\|_{\psi_2}<\infty
+$$
 >
 > なら、$X$ をsub-Gaussian確率ベクトルという。特に $K\ge K_{\mathrm{abs}}(X)$ を全方向の一様な尺度として用いる。
 <!-- formal-statement-end -->
@@ -61,9 +61,9 @@ $$
 > **定義（等方的確率ベクトル）**  
 > $d\ge1$ とし、$X\in\mathbb R^d$ の二次モーメントが有限とする。$EX=0$ かつ $E[XX^{\mathsf T}]=I_d$ なら $X$ を等方的（isotropic）という。これは任意の $u\in\mathbb R^d$ について
 >
-> $$
-> E\langle X,u\rangle^2=\|u\|_2^2
-> $$
+$$
+E\langle X,u\rangle^2=\|u\|_2^2
+$$
 >
 > が成り立つことと同値である（ただし平均零を併せて仮定する）。
 <!-- formal-statement-end -->
@@ -92,15 +92,15 @@ $$
 > **補題（sub-Gaussian平方の中心化指数モーメント）**  
 > 実数値確率変数 $Y$ と $K>0$ が
 >
-> $$
-> E\exp(Y^2/K^2)\le2
-> $$
+$$
+E\exp(Y^2/K^2)\le2
+$$
 >
 > を満たすとする。$Z=Y^2-EY^2$ とおくと、任意の $|\lambda|\le1/(4K^2)$ に対して
 >
-> $$
-> E e^{\lambda Z}\le\exp(16\lambda^2K^4)
-> $$
+$$
+E e^{\lambda Z}\le\exp(16\lambda^2K^4)
+$$
 >
 > が成立する。$Y$ 自身の平均零は不要である。
 <!-- formal-statement-end -->
@@ -160,11 +160,11 @@ $$
 > **補題（固定方向の経験二次モーメント集中）**  
 > $Y_1,\ldots,Y_n$ は独立な実数値確率変数で、共通する $K>0$ に対し $Ee^{Y_i^2/K^2}\le2$ を満たすとする。同一分布性は不要である。$Z_i=Y_i^2-EY_i^2$ とおけば、任意の $t>0$ について
 >
-> $$
-> P\left(\left|\frac1n\sum_{i=1}^n Z_i\right|\ge t\right)
-> \le2\exp\left[-n\min\left\{\frac{t^2}{64K^4},
-> \frac{t}{8K^2}\right\}\right].
-> $$
+$$
+P\left(\left|\frac1n\sum_{i=1}^n Z_i\right|\ge t\right)
+\le2\exp\left[-n\min\left\{\frac{t^2}{64K^4},
+\frac{t}{8K^2}\right\}\right].
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -237,24 +237,24 @@ $$
 > **定理（等方的sub-Gaussian標本の共分散作用素ノルム評価）**  
 > $d,n\ge1$、$0<\delta<1$、$K>0$ とする。$X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で $EX_i=0$、$E[X_iX_i^{\mathsf T}]=I_d$、かつ
 >
-> $$
-> \sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
-> $$
+$$
+\sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
+$$
 >
 > とする。$L=d\log9+\log(2/\delta)$ とおけば、確率 $1-\delta$ 以上で
 >
-> $$
-> \|\widehat\Sigma_0-I_d\|_{\mathrm{op}}
-> \le16K^2\max\left\{\sqrt{\frac Ln},\frac Ln\right\}
-> \le16K^2\left(\sqrt{\frac Ln}+\frac Ln\right)
-> $$
+$$
+\|\widehat\Sigma_0-I_d\|_{\mathrm{op}}
+\le16K^2\max\left\{\sqrt{\frac Ln},\frac Ln\right\}
+\le16K^2\left(\sqrt{\frac Ln}+\frac Ln\right)
+$$
 >
 > が成り立つ。特に $0<\varepsilon<1$ に対し
 >
-> $$
-> n\ge\frac{256K^4}{\varepsilon^2}
-> \left(d\log9+\log\frac2\delta\right)
-> $$
+$$
+n\ge\frac{256K^4}{\varepsilon^2}
+\left(d\log9+\log\frac2\delta\right)
+$$
 >
 > なら $P(\|\widehat\Sigma_0-I_d\|_{\mathrm{op}}\le\varepsilon)\ge1-\delta$ である。
 <!-- formal-statement-end -->
@@ -349,9 +349,9 @@ $$
 > **補題（等方的sub-Gaussian標本平均のノルム評価）**  
 > 定理の等方性・独立同分布・全方向 $\psi_2$ 尺度 $K$ を仮定する。$0<\delta<1$、$M=d\log5+\log(2/\delta)$ とすると、確率 $1-\delta$ 以上で
 >
-> $$
-> \|\overline X\|_2^2\le\frac{32K^2M}{n}
-> $$
+$$
+\|\overline X\|_2^2\le\frac{32K^2M}{n}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -391,18 +391,18 @@ $$
 > **系（標本平均で中心化した共分散の評価）**  
 > 定理と同じ等方的sub-Gaussian標本を考え、$0<\delta<1$ とする。
 >
-> $$
-> L_1=d\log9+\log(4/\delta),\qquad
-> L_2=d\log5+\log(4/\delta)
-> $$
+$$
+L_1=d\log9+\log(4/\delta),\qquad
+L_2=d\log5+\log(4/\delta)
+$$
 >
 > と置くと、確率 $1-\delta$ 以上で
 >
-> $$
-> \|\widehat\Sigma_c-I_d\|_{\mathrm{op}}
-> \le16K^2\max\left\{\sqrt{\frac{L_1}{n}},\frac{L_1}{n}\right\}
-> +\frac{32K^2L_2}{n}
-> $$
+$$
+\|\widehat\Sigma_c-I_d\|_{\mathrm{op}}
+\le16K^2\max\left\{\sqrt{\frac{L_1}{n}},\frac{L_1}{n}\right\}
++\frac{32K^2L_2}{n}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -442,10 +442,10 @@ $$
 > **定義（共分散尺度に適合するsub-Gaussian条件）**  
 > $X\in\mathbb R^d$ の平均を $\mu$、共分散を $\Sigma$ とする。$K>0$ に対し、すべての $u\in\mathbb R^d$ で
 >
-> $$
-> \|\langle X-\mu,u\rangle\|_{\psi_2}
-> \le K\sqrt{u^{\mathsf T}\Sigma u}
-> $$
+$$
+\|\langle X-\mu,u\rangle\|_{\psi_2}
+\le K\sqrt{u^{\mathsf T}\Sigma u}
+$$
 >
 > が成り立つとき、$X$ は共分散尺度 $K$ のsub-Gaussian条件を満たすという。$u^{\mathsf T}\Sigma u=0$ なら左辺も $0$ であると解釈する。
 <!-- formal-statement-end -->
@@ -468,11 +468,11 @@ $$
 > **定理（退化を許す一般共分散の評価）**  
 > $X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で平均 $\mu$、有限共分散 $\Sigma$ を持ち、上の共分散尺度 $K$ のsub-Gaussian条件を満たすとする。$r=\operatorname{rank}\Sigma\ge1$、$0<\delta<1$、$L_r=r\log9+\log(2/\delta)$ とする。真の平均を用いた $\widehat\Sigma_\mu$ について、確率 $1-\delta$ 以上で
 >
-> $$
-> \|\widehat\Sigma_\mu-\Sigma\|_{\mathrm{op}}
-> \le16K^2\|\Sigma\|_{\mathrm{op}}
-> \max\left\{\sqrt{\frac{L_r}{n}},\frac{L_r}{n}\right\}.
-> $$
+$$
+\|\widehat\Sigma_\mu-\Sigma\|_{\mathrm{op}}
+\le16K^2\|\Sigma\|_{\mathrm{op}}
+\max\left\{\sqrt{\frac{L_r}{n}},\frac{L_r}{n}\right\}.
+$$
 >
 > 標本平均による $\widehat\Sigma_c$ についても、前節の系の右辺で $d$ を $r$ に置き換え、全体に $\|\Sigma\|_{\mathrm{op}}$ を掛けた上界が確率 $1-\delta$ 以上で成立する。$\Sigma=0$ の場合は両推定行列とも確率一で零行列である。
 <!-- formal-statement-end -->
