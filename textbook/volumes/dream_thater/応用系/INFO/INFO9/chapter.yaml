@@ -1,0 +1,54 @@
+id: "INFO9"
+title: "微分エントロピーと連続変数の情報量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 確率密度の絶対可積分条件を確認して微分エントロピーを定義・計算し負値と離散版との差を説明できる
+  - 可逆アフィン変換の密度とJacobianから微分エントロピーの変換則を証明できる
+  - 等幅量子化の離散エントロピーを補正して微分エントロピーに収束する式を証明できる
+  - 連続相対エントロピーの絶対連続性・零密度を扱いGibbs不等式と等号条件を証明できる
+  - 連続相互情報量の相対エントロピー表示・非負性・独立性の等号条件を説明できる
+  - 有限性条件の下で結合・条件付き微分エントロピーと相互情報量の連鎖律を導出できる
+  - 可逆アフィン座標変換に対する相互情報量の不変性を密度比から証明できる
+  - Gaussian分布の微分エントロピーと分散制約下の最大性・等号条件を導出できる
+  - 結合密度がない場合や有限性条件が破れる場合に適用できない公式を識別できる
+definitions:
+  - { id: INFO9-DEF-01, name: 微分エントロピー }
+  - { id: INFO9-DEF-02, name: 連続分布の相対エントロピー }
+  - { id: INFO9-DEF-03, name: 連続変数の相互情報量 }
+  - { id: INFO9-DEF-04, name: 連続条件付き微分エントロピー }
+theorems:
+  - { id: INFO9-PROP-01, name: 微分エントロピーの可逆アフィン変換則 }
+  - { id: INFO9-THM-01, name: 区間上の連続密度と等幅量子化 }
+  - { id: INFO9-THM-02, name: 連続分布のGibbs不等式 }
+  - { id: INFO9-THM-03, name: 連続相互情報量の非負性とエントロピー表示 }
+  - { id: INFO9-PROP-02, name: 連続結合エントロピーの連鎖律 }
+  - { id: INFO9-PROP-03, name: 可逆アフィン座標変換での相互情報量の不変性 }
+  - { id: INFO9-PROP-04, name: 一次元Gaussian分布の微分エントロピー }
+  - { id: INFO9-THM-04, name: 平均・分散を固定した最大微分エントロピー }
+canonical_examples:
+  - 幅1/4の一様密度による負の微分エントロピー
+  - アフィン単位変換による情報量の変化
+  - 等幅量子化のエントロピー補正
+  - 台の包含が非対称となる連続相対エントロピー
+  - 二つの正方形を用いた1ビットの相互情報量と負の条件付き微分エントロピー
+  - 分散を合わせたGaussianと一様密度の比較
+  - 密度を持たない対角線上の結合分布
+problem_patterns:
+  - INFO9-UNIFORM-NEGATIVE
+  - INFO9-AFFINE-UNIT-CHANGE
+  - INFO9-QUANTIZATION-CORRECTION
+  - INFO9-CONTINUOUS-KL-SUPPORT
+  - INFO9-GAUSSIAN-ENTROPY
+  - INFO9-TWO-SQUARE-JOINT
+  - INFO9-GAUSSIAN-MAX-EQUALITY
+  - INFO9-MUTUAL-INVARIANCE
+  - INFO9-CONTINUOUS-INFORMATION-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 5 }
