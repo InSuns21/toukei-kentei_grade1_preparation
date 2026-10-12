@@ -34,7 +34,7 @@ $$
 <!-- definition-example-start: def-gmech8-relative-equilibrium -->
 ### 直接例：平面回転と円運動
 
-位置 $q=r(\cos\theta,\sin\theta)$、運動量 $p$ に $SO(2)$ が同時回転として作用する場合を考えます。正準座標 $(r,\theta,p_r,\ell)$ では $\ell=xp_y-yp_x$ が運動量写像です。$\theta$ を角度とし、$\xi\in\mathbb R\simeq\mathfrak{so}(2)$ が作る群速度は
+**定義の確認**：位置 $q=r(\cos\theta,\sin\theta)$、運動量 $p$ に $SO(2)$ が同時回転として作用する場合を考えます。正準座標 $(r,\theta,p_r,\ell)$ では $\ell=xp_y-yp_x$ が運動量写像です。$\theta$ を角度とし、$\xi\in\mathbb R\simeq\mathfrak{so}(2)$ が作る群速度は
 
 $$
 \xi_M=\xi\,\frac{\partial}{\partial\theta}
@@ -69,7 +69,7 @@ $$
 <!-- definition-example-start: def-gmech8-augmented-hamiltonian -->
 ### 直接例：回転する座標系のエネルギー
 
-平面の中心力系で $J=\ell$、$\xi=\Omega$ なら $H_\Omega=H-\Omega\ell$ です。$H$ に $\theta$ が現れないとき、$\partial_\ell H=\dot\theta$ です。したがって
+**定義の確認**：平面の中心力系で $J=\ell$、$\xi=\Omega$ なら $H_\Omega=H-\Omega\ell$ です。$H$ に $\theta$ が現れないとき、$\partial_\ell H=\dot\theta$ です。したがって
 
 $$
 \frac{\partial H_\Omega}{\partial\ell}
