@@ -61,7 +61,9 @@ $$
 
 を使います。$1-s$ の実部は $1$ より大きいので $\zeta(1-s)\ne0$、$\Gamma(1-s)$ は有限かつ非零です。従って負の半平面の零点は $\sin(\pi s/2)=0$ に由来する負の偶数だけです。
 
-$\operatorname{Re}s=1$ は[ANT6の零点不存在定理](../ANT6/index.md#thm-ant6-zeta-line-one)で除かれます。$\operatorname{Re}s=0$ の点 $s=it$ で $t\ne0$ なら $1-s$ は実部1の非零点なので、[CA12の完成ζの対称性](../../../解析系/CA/CA12/index.md#def-ca12-completed-zeta)から $\xi(it)=\xi(1-it)\ne0$ です。$s=0$ では $\zeta(0)=-1/2$ が[CA12の特殊値](../../../解析系/CA/CA12/index.md#cor-ca12-special-values)で与えられます。
+$\operatorname{Re}s=1$ は[ANT6の零点不存在定理](../ANT6/index.md#thm-ant6-zeta-line-one)で除かれます。$\operatorname{Re}s=0$ の点 $s=it$、$t\ne0$ なら $1-s$ は実部1の非零点です。
+
+[CA12の完成ζの対称性](../../../解析系/CA/CA12/index.md#def-ca12-completed-zeta)から $\xi(it)=\xi(1-it)\ne0$ を得ます。また $s=0$ は[CA12の特殊値](../../../解析系/CA/CA12/index.md#cor-ca12-special-values) $\zeta(0)=-1/2$ により零点ではありません。
 
 帯の内部では $s(s-1)\ne0$、$\Gamma(s/2)$ は有限かつ非零であり、$\pi^{-s/2}\ne0$ です。従って $\xi$ と $\zeta$ の零点およびその位数が一致します。$s=0,1$ に関しては、それぞれの単純極を相殺した結果 $\xi(0)=\xi(1)=1/2$ なので追加の零点はありません。負の偶数では $\zeta$ の単純零点が $\Gamma(s/2)$ の単純極を相殺し、$\xi$ はそこでも非零です。
 
@@ -187,7 +189,9 @@ n_T\log\frac{7/4}{3/2}
 =O(\log T).
 $$
 
-ゆえに $n_T=O(\log T)$ です。実線分 $[1/2,2]$ は内円板に含まれるため、そこで $\operatorname{Re}\zeta(\sigma+iT)=0$ となる点も高々 $O(\log T)$ 個です。これらの点で分けた各区間では $\zeta(\sigma+iT)$ が右または左半平面に留まり、連続偏角の変化は高々 $\pi$ です。始点 $2+iT$ での偏角は[Euler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)によって一様有界です。従って全変化は $O(\log T)$ になります。
+従って $n_T=O(\log T)$ です。実線分 $[1/2,2]$ は内円板に含まれ、そこで $\operatorname{Re}\zeta(\sigma+iT)=0$ となる点も高々 $O(\log T)$ 個です。
+
+各零点で分けた区間では $\zeta(\sigma+iT)$ は右または左半平面に留まり、連続偏角の変化は高々 $\pi$ です。始点 $2+iT$ の偏角は[Euler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)によって一様有界なので、全変化は $O(\log T)$ となります。
 <!-- proof-end -->
 
 <a id="thm-ant7-riemann-von-mangoldt"></a>
@@ -218,7 +222,11 @@ $\xi$ は極を持たず、その零点は非自明零点だけです。長方�
 <!-- proof-start -->
 ### 証明
 
-**(i) 偏角原理を適用する長方形。** 頂点を $-1,2,2+iT,-1+iT$ とする反時計回りの長方形を取ります。[非自明零点の位置と対称性](#thm-ant7-zero-symmetry)から、左右辺には零点がありません。実軸上にも非自明零点はありません。実際 $0<s<1$ では交代級数 $\eta(s)=\sum_{n\ge1}(-1)^{n-1}n^{-s}>0$ かつ $1-2^{1-s}<0$ なので $\zeta(s)=\eta(s)/(1-2^{1-s})<0$ です。その他の実点ではEuler積、関数等式、$\xi$ の連続性を用いれば $\xi(s)>0$ が分かります。上辺は $T$ の仮定で零点を避けます。
+**(i) 偏角原理を適用する長方形。** 頂点を $-1,2,2+iT,-1+iT$ とする反時計回りの長方形を取ります。[非自明零点の位置と対称性](#thm-ant7-zero-symmetry)から、左右辺には零点がありません。
+
+実軸上にも非自明零点はありません。$0<s<1$ では交代級数 $\eta(s)=\sum_{n\ge1}(-1)^{n-1}n^{-s}>0$、また $1-2^{1-s}<0$ なので $\zeta(s)=\eta(s)/(1-2^{1-s})<0$ です。
+
+実軸のその他の部分ではEuler積と関数等式、$\xi$ の連続性から $\xi(s)>0$ が従います。上辺は $T$ が零点の高さでないという仮定から零点を避けます。
 
 [偏角原理](../../../解析系/CA/CA4/index.md#thm-ca4-argument-principle)により長方形上の $\arg\xi$ の総変化は $2\pi N(T)$ です。対称性
 
@@ -461,7 +469,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(i) 零点の近傍の個数。** $T$ が大きいとき、$\zeta(2+iT+z)$ を $|z|\le R$（固定 $R>c+3$）で考えます。中心で $|\zeta(2+iT)|\ge2-\zeta(2)>0$ です。$\operatorname{Re}s$ が固定した有界範囲にあれば、[CA12の関数等式](../../../解析系/CA/CA12/index.md#thm-ca12-functional-equation)とDirichlet級数の積分比較から $\zeta(s)$ は $T$ の固定冪で抑えられます。中心から距離の異なる二円に[円板の零点数評価](#lem-ant7-jensen-disk)を適用すると、帯 $-1\le\sigma\le c+1$、$T-2\le t\le T+2$ 内の零点数は $O(\log T)$ です。円板内の極 $s=1$ は $T$ が大きいので含まれません。
+**(i) 零点の近傍の個数。** $T$ が大きいとき、$\zeta(2+iT+z)$ を $|z|\le R$（固定 $R>c+3$）で考えます。中心では $|\zeta(2+iT)|\ge2-\zeta(2)>0$ です。
+
+$\operatorname{Re}s$ が固定した有界範囲にあれば、[CA12の関数等式](../../../解析系/CA/CA12/index.md#thm-ca12-functional-equation)とDirichlet級数の積分比較から $\zeta(s)$ は $T$ の固定冪で抑えられます。
+
+中心から距離の異なる二円へ[円板の零点数評価](#lem-ant7-jensen-disk)を適用すると、帯 $-1\le\sigma\le c+1$、$T-2\le t\le T+2$ 内の零点数は $O(\log T)$ です。円板内の極 $s=1$ は $T$ が大きいので含まれません。
 
 **(ii) 零点を避ける。** 各区間 $[j,j+1]$ には虚部を持つ零点が $O(\log j)$ 個しかありません。各虚部を中心に幅 $2\delta_j$ の区間を除き、$\delta_j=c_0/\log(j+2)$、$c_0>0$ を十分小さく取ると除外長の合計は $1/2$ 未満です。残りから $T_j$ を選べばすべての零点から距離 $\delta_j$ 以上離れます。
 
@@ -720,7 +732,9 @@ $f_T(\sigma)=\operatorname{Re}\zeta(\sigma+iT)$ の零点が $[1/2,2]$ に $m$ �
 - ID: ANT7-B4
 
 <!-- solution-start -->
-**詳細解答**：零点位置で $[1/2,2]$ を高々 $m+1$ 個の開区間に分けます。各区間では $\operatorname{Re}\zeta$ は正または負の一定符号なので、$\zeta(\sigma+iT)$ は原点を除く右半平面か左半平面に留まります。そこでは連続偏角を長さ $\pi$ の区間に取れるため、各部分での偏角の総変化は高々 $\pi$ です。接続点では関数が零でないので偏角を連続に接続できます。従って全変化の絶対値は高々 $(m+1)\pi$ です。[Jensenの評価](#lem-ant7-argument-bound)で $m=O(\log T)$ とすれば $S(T)=O(\log T)$ に至ります。
+**詳細解答**：零点位置で $[1/2,2]$ を高々 $m+1$ 個の開区間に分けます。各区間では $\operatorname{Re}\zeta$ の符号が一定なので、$\zeta(\sigma+iT)$ は原点を除いた左右どちらかの半平面に留まります。
+
+従って各区間の連続偏角の変化は高々 $\pi$ です。接続点でζは零でないため偏角を連続に接続でき、全変化は高々 $(m+1)\pi$ です。[円板のJensen零点数評価](#lem-ant7-jensen-disk)から $m=O(\log T)$ とすると、$S(T)=O(\log T)$ です。
 <!-- solution-end -->
 
 ### Level C：反転と零点和を統合する
