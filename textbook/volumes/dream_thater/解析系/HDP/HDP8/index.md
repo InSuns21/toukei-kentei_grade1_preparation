@@ -49,11 +49,11 @@ $\cosh\theta\ge1$ だから $I_2\preceq Ee^{\theta X}$ です。一般の $X$ �
 
 **成分ごとの大小関係とは異なる。** 例えば全成分が正の行列でも、
 
-$
+$$
 B=\begin{pmatrix}1&2\\2&1\end{pmatrix},
 \qquad u=\begin{pmatrix}1\\-1\end{pmatrix},
 \qquad u^{\mathsf T}Bu=-2<0
-$
+$$
 
 となります。従って $0\preceq B$ とはいえません。Loewner順序を判断するときは、成分の符号でなく**すべての二次形式の符号**を確認します。
 
@@ -176,9 +176,9 @@ $$
 
 $t\ge0$ とすると $0\prec A+tI\preceq B+tI$ です。$C=(A+tI)^{-1/2}(B+tI)(A+tI)^{-1/2}\succeq I$ とおきます。$C$ の全固有値は $1$ 以上なので、逆数を取って $C^{-1}\preceq I$ が従います。ここで逆行列の積の順序を反転させると
 
-$
+$$
 C^{-1}=(A+tI)^{1/2}(B+tI)^{-1}(A+tI)^{1/2}\preceq I.
-$
+$$
 
 両辺を $(A+tI)^{-1/2}$ で[合同変換](../../../基礎科目/LA/LA6/index.md#def-la6-congruence)して戻せば
 
@@ -194,13 +194,13 @@ $$
 
 は、$T>0$ までの積分を実行すれば確かめられます。実際、
 
-$
+$$
 \begin{aligned}
 \int_0^T\left(\frac1{1+t}-\frac1{x+t}\right)\,dt
 &=\bigl[\log(1+t)-\log(x+t)\bigr]_0^T\\
 &=\log(1+T)-\log(x+T)+\log x.
 \end{aligned}
-$
+$$
 
 ここで $\log(1+T)-\log(x+T)=\log\{(1+T)/(x+T)\}\to0$ なので、$T\to\infty$ で所望の表示を得ます。この計算をそれぞれの正定値行列の固有値へ適用すると
 
@@ -474,11 +474,11 @@ $$
 <!-- definition-example-start: def-hdp8-dilation -->
 **定義の確認**。$Z=(a,b)^{\mathsf T}\in\mathbb R^{2\times1}$ なら $\mathcal D(Z)$ は $3\times3$ の対称行列で、
 
-$
+$$
 \mathcal D(Z)=\begin{pmatrix}0&0&a\\0&0&b\\a&b&0\end{pmatrix},
 \qquad
 \mathcal D(Z)^2=\operatorname{diag}(ZZ^{\mathsf T},Z^{\mathsf T}Z).
-$
+$$
 
 $r=\sqrt{a^2+b^2}>0$ なら、直接掛け算すると $(a,b,r)^{\mathsf T}$ と $(a,b,-r)^{\mathsf T}$ は、それぞれ固有値 $r$ と $-r$ の固有ベクトルです。また $(-b,a,0)^{\mathsf T}$ は固有値 $0$ の固有ベクトルです。よって固有値は $r,-r,0$、作用素ノルムは $r=\|Z\|_{\mathrm{op}}$ です。$r=0$ なら $\mathcal D(Z)=0$ なので同じノルムの等式が成り立ちます。
 <!-- definition-example-end -->
@@ -517,19 +517,19 @@ $$
 
 ここで $Z=\sum_iZ_i$ に[実行列の特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を適用します。$Z=U\Sigma V^{\mathsf T}$（$U\in\mathbb R^{p\times p}$、$V\in\mathbb R^{q\times q}$ は直交行列）なら、ブロック対角の直交行列 $Q=\operatorname{diag}(U,V)$ により
 
-$
+$$
 Q^{\mathsf T}\mathcal D(Z)Q
 =\begin{pmatrix}0&\Sigma\\\Sigma^{\mathsf T}&0\end{pmatrix}.
-$
+$$
 
 正の特異値 $\sigma_j$ に対応する左右の標準基底ベクトルを $e_j^{(p)},e_j^{(q)}$ と書くと、右辺に $(e_j^{(p)},\pm e_j^{(q)})^{\mathsf T}/\sqrt2$ を掛けた結果は、そのベクトルの $\pm\sigma_j$ 倍です。零特異値に対応する方向と、縦横の次元差によって余る標準基底方向は、いずれも固有値 $0$ に対応します。したがって $\mathcal D(Z)$ の固有値は正負の特異値の組と零であり、
 
-$
+$$
 \lambda_{\max}\left(\sum_iY_i\right)
 =\lambda_{\max}(\mathcal D(Z))
 =\|Z\|_{\mathrm{op}}
 =\left\|\sum_iZ_i\right\|_{\mathrm{op}}.
-$
+$$
 
 $Z=0$ の場合は両辺が $0$ です。よって[行列Bernsteinの片側評価](#thm-hdp8-matrix-bernstein)を次元 $p+q$ の $Y_i$ へ適用すると、**両側の係数 $2(p+q)$ ではなく** $(p+q)$ が得られます。
 <!-- proof-end -->
@@ -615,13 +615,13 @@ $$
 
 $\mathcal D(Z)$ の固有値を直接確認します。$\det(\mathcal D(Z)-\lambda I)$ を第一行に沿って展開すると
 
-$
+$$
 \begin{aligned}
 \det(\mathcal D(Z)-\lambda I)
 &=(-\lambda)(\lambda^2-b^2)+\lambda a^2\\
 &=-\lambda(\lambda^2-a^2-b^2).
 \end{aligned}
-$
+$$
 
 したがって固有値は $0,\pm\sqrt{a^2+b^2}$ であり、最大固有値は $\sqrt{a^2+b^2}=\|Z\|_{\mathrm{op}}$ です。
 <!-- solution-end -->
