@@ -720,6 +720,7 @@
 9. [AG1-09 次元・超越次数・イデアルの鎖](textbook/volumes/dream_thater/代数系/AG/AG1-09/index.md)
 10. [AG1-10 Zariski接空間とJacobian判定の準備](textbook/volumes/dream_thater/代数系/AG/AG1-10/index.md)
 11. [AG1-11 特異点・接錐と平面曲線](textbook/volumes/dream_thater/代数系/AG/AG1-11/index.md)
+12. [AG1-12 アフィン曲線の総合演習](textbook/volumes/dream_thater/代数系/AG/AG1-12/index.md)
 
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
