@@ -1,0 +1,47 @@
+id: "INT3"
+title: "作用角変数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT1
+  - INT2
+  - SYM4
+  - SYM6
+  - GEO8
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 作用積分をサイクルと原始1形式の規約を明示して定義できる
+  - 調和振動子の作用積分と正準Jacobianを実計算できる
+  - 局所作用角座標定理の周期ベクトル場から作用と正準角度を構成できる
+  - 作用のエネルギー微分が周期を与えることを証明できる
+  - 振り子の往復・回転の作用と周期を区別して計算できる
+  - 分離曲線で周期が発散して正則性を失うことを証明できる
+  - 二自由度系の作用角表示と整数周期基底変換を検証できる
+definitions:
+  - { id: INT3-DEF-01, name: 作用積分・作用変数 }
+  - { id: INT3-DEF-02, name: 作用角変数 }
+theorems:
+  - { id: INT3-THM-01, name: 局所作用角座標定理 }
+  - { id: INT3-PROP-01, name: 作用のエネルギー微分と周期 }
+  - { id: INT3-PROP-02, name: 振り子の分離曲線で周期は発散する }
+  - { id: INT3-PROP-03, name: サイクルの整数基底変換 }
+canonical_examples:
+  - 一自由度調和振動子の作用積分・正準性
+  - 二自由度非結合振動子の作用角表示
+  - 振り子の往復と回転の作用積分
+  - 分離曲線の両側における作用の異なる極限
+problem_patterns:
+  - INT3-OSCILLATOR-ACTION
+  - INT3-CANONICAL-JACOBIAN
+  - INT3-PENDULUM-TURNING-POINT
+  - INT3-ROTATION-ACTION
+  - INT3-TWO-OSCILLATORS
+  - INT3-UNIMODULAR-CHANGE
+  - INT3-PERIOD-DERIVATIVE
+  - INT3-SEPARATRIX-CYCLES
+  - INT3-COUPLED-INTEGRABLE-EXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 3 }

@@ -1,0 +1,55 @@
+chapter: INT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT1
+  - INT2
+  - SYM4
+  - SYM6
+  - GEO8
+  - RA6A
+forward_references: []
+
+concepts:
+  - id: integrable.action-integral
+    name: 作用積分・作用変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（作用積分・作用変数）"]
+    aliases: []
+    requires: [integrable.liouville-arnold]
+  - id: integrable.action-angle
+    name: 作用角変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（作用角変数）"]
+    aliases: []
+    requires: [integrable.action-integral, integrable.liouville-arnold]
+  - id: integrable.local-action-angle
+    name: 局所作用角座標定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所作用角座標定理）"]
+    aliases: []
+    requires: [integrable.action-angle, integrable.period-lattice, integrable.regular-fiber-lagrangian]
+  - id: integrable.action-period-derivative
+    name: 作用のエネルギー微分と周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（作用のエネルギー微分と周期）"]
+    aliases: []
+    requires: [integrable.action-integral]
+  - id: integrable.pendulum-separatrix
+    name: 振り子の分離曲線で周期は発散する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（振り子の分離曲線で周期は発散する）"]
+    aliases: []
+    requires: [integrable.action-period-derivative]
+  - id: integrable.unimodular-action-change
+    name: サイクルの整数基底変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（サイクルの整数基底変換）"]
+    aliases: []
+    requires: [integrable.action-angle]
