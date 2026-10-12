@@ -107,14 +107,14 @@ $$
 
 ここで $T=n^{-1}\sum_{i=1}^nZ_i$ とすると、$ET=I_p$、$\operatorname{Var}(T)=V_p/n$ です。見逃し側の事象は $\{T<I_p-\delta\}$ であり、これは $\{|T-ET|\ge\delta\}$ に含まれます。後者の事象上で $(T-ET)^2\ge\delta^2$ なので、
 
-$
+$$
 \begin{aligned}
 P(T<I_p-\delta)
 &\le P(|T-ET|\ge\delta)\\
 &\le\frac{E[(T-ET)^2]}{\delta^2}
 =\frac{V_p}{n\delta^2}.
 \end{aligned}
-$
+$$
 
 二つ目の不等号は非負変数 $(T-ET)^2$ に[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を閾値 $\delta^2$ で適用したものでもあります。$\delta>0$ だから分母は正です。
 <!-- proof-end -->
@@ -253,7 +253,7 @@ $$
 
 ここで $\imath$ は真の組の正確率集合で評価し、$A(y^n)$ は[独立候補の補題](#lem-info7-false-alarm)の集合です。メッセージ $J$ は符号帳から独立で一様なので、各 $x^n,y^n$ について符号帳・メッセージ・出力の結合分布を平均すると、
 
-$
+$$
 \begin{aligned}
 P(C_J=x^n,Y^n=y^n)
 &=\sum_{j=1}^M\frac1M
@@ -262,7 +262,7 @@ P(C_j=x^n,Y^n=y^n\mid J=j)\\
 p^n(x^n)W^n(y^n|x^n)\\
 &=p^n(x^n)W^n(y^n|x^n).
 \end{aligned}
-$
+$$
 
 従って
 
@@ -273,13 +273,13 @@ $$
 
 一方 $J=j$ を固定すると、$C_k$（$k\ne j$）は送信語 $C_j$ と独立に生成されています。実際、任意の $x^n,y^n$ に対して $C_j$ の値で条件付けしてから有限和を取ると、
 
-$
+$$
 \begin{aligned}
 P(C_k=x^n,Y^n=y^n\mid J=j)
 &=p^n(x^n)\sum_{u^n}p^n(u^n)W^n(y^n|u^n)\\
 &=p^n(x^n)q^n(y^n).
 \end{aligned}
-$
+$$
 
 この積表示によって $C_k$ と $Y^n$ の独立性、$C_k\sim p^n$、$Y^n\sim q^n$ がすべて確認できます。従って[独立候補の補題](#lem-info7-false-alarm)から各 $k\ne j$ について
 
@@ -289,7 +289,7 @@ $$
 
 [合併上界](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)を、$k\ne j$ の $M-1$ 個の誤検出事象に適用すると、
 
-$
+$$
 P(E_{\mathrm{false}}\mid J=j)
 \le\sum_{k\ne j}P(C_k\in A(Y^n)\mid J=j)
 \le(M-1)2^{-t}.
@@ -512,11 +512,11 @@ $$
 
 $T=n^{-1}\sum_iZ_i$ と置く。見逃し事象 $\{T<I_p-\delta\}$ は $\{|T-ET|\ge\delta\}$ に含まれる。[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)に $ET=I_p$、$\operatorname{Var}(T)=V_p/n$、閾値 $\delta>0$ を代入すると、
 
-$
+$$
 P(T<I_p-\delta)
 \le P(|T-ET|\ge\delta)
 \le\frac{V_p}{n\delta^2}.
-$
+$$
 
 一方、符号帳を固定した後の各入力座標はもはや $p$ に従う確率変数とは限らず、$EZ_i=I_p$ という前提がない。ここで使う集中はあくまで**符号帳を平均する前の確率構成**についてである。
 <!-- solution-end -->
@@ -650,13 +650,13 @@ $$
 
 **(5)** 消失が全時刻に共通する装置を、例えば $E\sim\operatorname{Bernoulli}(1/3)$ を情報源列とは独立に一つ引き、$E=1$ なら全位置を $?$、$E=0$ なら全位置を正しく出力すると定める。各時刻の周辺通信路だけを見ると消失確率は $1/3$ だが、入力 $X^2=(0,0)$ を固定すると
 
-$
+$$
 \begin{aligned}
 P(Y^2=(?,?)\mid X^2=(0,0))&=P(E=1)=\frac13,\\
 P(Y_1=?\mid X_1=0)P(Y_2=?\mid X_2=0)
 &=\frac13\cdot\frac13=\frac19.
 \end{aligned}
-$
+$$
 
 両者が一致しないため、[無記憶通信路の積条件](../INFO6/index.md#def-info6-dmc-block)は成立しない。したがって $\imath_{p^n}(X^n;Y^n)=\sum_i\imath_p(X_i;Y_i)$ をこの装置へ適用できず、情報密度の独立な和に基づく集中評価も成立する根拠を失う。第2問の $32/n+2^{-n/12}$ は、この非無記憶装置に対しては導かれていない。
 <!-- solution-end -->
