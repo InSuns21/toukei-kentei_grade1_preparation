@@ -159,7 +159,34 @@ $$
 |F(z)|\le M\int_0^\infty e^{-\sigma u}\,du=\frac M\sigma.
 $$
 
-同様に $F_T$ は有限区間の積分だから整関数です。$\sigma>0$ では
+ここで正則性を積分の評価から確認します。$\sigma_0>0$ を固定すると、$\operatorname{Re}z\ge\sigma_0$ で $j=0,1$ について
+
+$$
+|u^j f(u)e^{-zu}|\le Mu^j e^{-\sigma_0u},
+\qquad
+\int_0^\infty u^j e^{-\sigma_0u}\,du
+=\frac{j!}{\sigma_0^{j+1}}<\infty.
+$$
+
+$j=1$ の積分は部分積分で具体的に
+
+$$
+\begin{aligned}
+\int_0^\infty u e^{-\sigma_0u}\,du
+&=\left[-\frac{u}{\sigma_0}e^{-\sigma_0u}\right]_{0}^{\infty}
++\frac1{\sigma_0}\int_0^\infty e^{-\sigma_0u}\,du\\
+&=\frac1{\sigma_0^2}
+\end{aligned}
+$$
+
+と確かめられます。これらの優関数は $z$ に依存しないため、積分の差商に優収束を適用でき、
+
+$$
+F'(z)=-\int_0^\infty uf(u)e^{-zu}\,du
+\qquad(\operatorname{Re}z>0)
+$$
+
+となるので、$F$ は右半平面で正則です。有限区間の $F_T$ では、任意の $B>0$ と $|z|\le B$ に対して $|uf(u)e^{-zu}|\le MT e^{BT}$（$0\le u\le T$）です。同じ差商の議論をすべての $z$ で行えるため、$F_T$ は整関数です。$\sigma>0$ では
 
 $$
 \begin{aligned}
@@ -188,7 +215,18 @@ $$
 C_R^+=\{Re^{i\theta}:-\pi/2\le\theta\le\pi/2\}
 $$
 
-を下端から上端にたどった後、虚軸のわずか左側（端点を除き $\operatorname{Re}z<0$）を上端から下端に戻る曲線 $L_R$ を選べます。$L_R$ は正則延長領域内にあり、全体の閉曲線は原点を一回正方向に囲みます。この領域で $F$ は正則で、[Cauchyの積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)を使えます。
+を下端から上端にたどります。虚軸の閉線分はコンパクトなので、その正則延長領域には線分の十分細い近傍が含まれます。そこで小さい $\varepsilon_R>0$ を取り、
+
+$$
+L_R:\quad z(y)=-\varepsilon_R\left(1-\frac{y^2}{R^2}\right)+iy,
+\qquad y:R\longrightarrow -R
+$$
+
+と選びます。$|y|<R$ では $\operatorname{Re}z(y)<0$ で、端点は $\pm iR$ です。
+
+$\varepsilon_R<R$ と十分小さく取れば、曲線は円板 $|z|\le R$ 内の正則延長領域に収まり、原点からも離れます。従って $C_R^+$ と $L_R$ をつないだ正向きの閉曲線は原点を一回囲み、その内部で $F$ は正則です。
+
+原点を中心とする十分小さい円周へこの曲線を縮めても、$F(z)e^{Tz}(1+z^2/R^2)$ は囲まれた領域で正則です。[積分路のホモトピー不変性](../../../解析系/CA/CA2/index.md#thm-ca2-homotopy-invariance)により積分値は変わらず、その小円周に[Cauchyの積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)を適用できます。
 
 $K_R(z)=(1+z^2/R^2)/z$ と置くと、$z=0$ における留数は $1$ です。ゆえに
 
@@ -206,7 +244,7 @@ F_T(0)=\frac1{2\pi i}\left(
 F_T(z)e^{Tz}K_R(z)\,dz.
 $$
 
-ここで $e^{T\cdot0}=1$ です。また $F_T(z)e^{Tz}K_R(z)$ は $z=0$ 以外で正則なので、$C_R^-$ を $L_R$ へ変形しても積分は変わりません。
+ここで $e^{T\cdot0}=1$ です。また $F_T(z)e^{Tz}K_R(z)$ は $z=0$ 以外で正則です。$C_R^-$ と $L_R$ に挟まれる領域は原点より左にあり、積分の途中で極を横切りません。従って[積分路のホモトピー不変性](../../../解析系/CA/CA2/index.md#thm-ca2-homotopy-invariance)により $C_R^-$ を $L_R$ へ変形しても積分は変わりません。
 
 **(iii) 二つの半円周を評価する。** $z=Re^{i\theta}$ とすると $|dz|=R\,d\theta$、$|z|=R$ であり、
 
