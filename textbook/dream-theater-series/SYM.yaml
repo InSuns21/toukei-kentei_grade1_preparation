@@ -31,7 +31,7 @@ chapters:
     title: Lagrange部分空間・Lagrange部分多様体
   - id: SYM7
     path: textbook/volumes/00_foundations/SYM7
-    status: planned
+    status: completed
     title: Moserの方法とシンプレクティック変形
   - id: SYM8
     path: textbook/volumes/00_foundations/SYM8
