@@ -1,0 +1,47 @@
+id: "ANT8"
+title: "Riemann予想と誤差項・一般L関数への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT7
+official_scope: []
+learning_objectives:
+  - Riemann予想の正確な主張とζ零点の四点対称性だけでは証明にならない理由を述べられる
+  - 一次平滑化和とψの積分表示を証明し単調性差分による誤差の損失を計算できる
+  - RHの仮定から平滑化明示公式を介してψ(x)=x+O(x^(3/4))を厳密に導ける
+  - 既出のψ冪誤差から零点不存在を導く定理を援用してRHの十分条件を証明できる
+  - 対数微分の局所零点表示とEuler積の3-4-1正値性から古典的零点不存在領域を導ける
+  - 零点和を低い高さと高い高さで分割して無条件の素数定理誤差を証明できる
+  - Dirichlet L関数のGRHを定義し文字付き対数微分・誘導文字の有限Euler因子を証明できる
+  - 一般L関数の解析接続・関数等式に別途証明が必要なことを区別できる
+definitions:
+  - { id: ANT8-DEF-01, name: Riemann予想 }
+  - { id: ANT8-DEF-02, name: 対数型零点不存在領域 }
+  - { id: ANT8-DEF-03, name: Dirichlet L関数に対する一般化Riemann予想 }
+theorems:
+  - { id: ANT8-LEM-01, name: 非減少和の差分による平滑化の解除 }
+  - { id: ANT8-PROP-01, name: RHから得られる平滑化誤差と点ごとの誤差 }
+  - { id: ANT8-COR-01, name: 十分鋭い誤差評価はRHを導く }
+  - { id: ANT8-THM-01, name: ζの古典的な対数型零点不存在領域 }
+  - { id: ANT8-THM-02, name: 対数型零点不存在からの素数定理の誤差 }
+  - { id: ANT8-PROP-02, name: 文字付きvon Mangoldt級数 }
+  - { id: ANT8-PROP-03, name: 誘導文字による有限Euler因子 }
+canonical_examples:
+  - 架空の1/2外の零点と四点対称性
+  - 2<x<3での一次平滑化和と積分表示の一致
+  - 差分幅x^(3/4)が必要な理由
+  - 零点の対数型不存在領域と高さによる幅の変化
+  - 高さexp(sqrt(log x))で分割した零点和
+  - 法4の非主文字および法4主文字のL関数
+problem_patterns:
+  - ANT8-RH-LOGICAL-STATEMENT
+  - ANT8-UNSMOOTHING-BALANCE
+  - ANT8-ERROR-ZERO-FREE
+  - ANT8-ZERO-FREE-REGION
+  - ANT8-EXPLICIT-FORMULA-ERROR
+  - ANT8-CHARACTER-LOG-DERIVATIVE
+  - ANT8-IMPRIMITIVE-EULER-FACTORS
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
