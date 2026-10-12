@@ -649,6 +649,11 @@
 9. [GEO18 比較幾何入門](textbook/volumes/dream_thater/幾何系/GEO/GEO18/index.md)
 10. [GEO19 Gauss--Bonnet と二次元大域幾何](textbook/volumes/dream_thater/幾何系/GEO/GEO19/index.md)
 
+<a id="dt-subject-complex-manifolds-i"></a>
+### 複素多様体論 I
+
+1. [CM1-01 複素座標と高次元正則アトラス](textbook/volumes/dream_thater/幾何系/CM/CM1-01/index.md)
+
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
 
@@ -719,6 +724,7 @@
 
 1. [ANT1 算術関数の平均と部分和](textbook/volumes/dream_thater/代数系/ANT/ANT1/index.md)
 2. [ANT2 Dirichlet級数・Euler積の一般論](textbook/volumes/dream_thater/代数系/ANT/ANT2/index.md)
+3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
