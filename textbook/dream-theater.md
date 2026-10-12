@@ -267,6 +267,7 @@
 17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
 18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
 19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
+20. [HDP1 指数Markov法・Hoeffding補題・Hoeffding不等式](textbook/volumes/00_foundations/HDP1/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I

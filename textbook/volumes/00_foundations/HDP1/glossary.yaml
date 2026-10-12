@@ -1,0 +1,17 @@
+chapter: HDP1
+terms:
+  - term: 指数Markov法
+    english: exponential Markov inequality (Chernoff method)
+    meaning: 非負変数e^{λY}にMarkovの不等式を適用し、Yの右裾を指数モーメントで制御する方法。
+  - term: 中心化対数指数モーメント
+    english: centered log moment generating function
+    meaning: 平均を差し引いたXの指数モーメントの対数。有限なsで定義する。
+  - term: 指数傾斜
+    english: exponential tilting
+    meaning: 確率測度の重みをe^{sU}/E[e^{sU}]倍して得る新しい確率測度。
+  - term: Hoeffding補題
+    english: Hoeffding's lemma
+    meaning: 有界な確率変数の中心化指数モーメントを区間幅の二乗によって一様に抑える補題。
+  - term: Hoeffdingの不等式
+    english: Hoeffding's inequality
+    meaning: 独立有界変数の中心化和に対し区間幅の二乗和を使う指数型裾評価。
