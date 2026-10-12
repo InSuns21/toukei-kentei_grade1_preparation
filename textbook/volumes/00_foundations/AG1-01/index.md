@@ -393,7 +393,7 @@ $f=x+2y$、$g=x-y$ とする。$fg$ を展開し、全次数と $(1,1)$ での�
 <!-- solution-start -->
 **詳細解答**　まず $x(x-y)$ と $2y(x-y)$ に分けます。
 
-$
+$$
 \begin{aligned}
 fg&=x(x-y)+2y(x-y)\\
 &=x^2-xy+2xy-2y^2\\
