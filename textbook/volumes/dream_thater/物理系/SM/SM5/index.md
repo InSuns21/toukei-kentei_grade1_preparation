@@ -496,10 +496,10 @@ $$
 
 したがって正規化係数は
 
-$
+$$
 Z_N=C_N\alpha\Gamma(\alpha)\beta^{-\alpha}
 =C_N\Gamma(\alpha+1)\beta^{-\alpha}.
-$
+$$
 
 上の確率密度の係数へ戻すと $\beta^\alpha/\Gamma(\alpha)$ となります。第一・二モーメントも同じ置換から
 
