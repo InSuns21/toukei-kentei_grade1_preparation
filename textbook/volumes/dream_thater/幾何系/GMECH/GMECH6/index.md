@@ -55,7 +55,7 @@ $$
 \rho_\xi(\mu)=\xi\times\mu.
 $$
 
-したがって非零 $\mu$ の速度全体は $\mu^\perp$、軌道は半径 $|\mu|$ の球面です。$\mu=0$ では速度は常に零で、軌道は一点です。この計算は定義の全ての $\eta$ について双対評価を確認しています。
+したがって非零 $\mu$ の速度全体は $\mu^\perp$ です。$SO(3)$ の回転は長さを保ち、同じ長さの任意の二つの非零ベクトルを互いに移せるため、余随伴軌道は半径 $|\mu|$ の球面です。$\mu=0$ では速度は常に零で、軌道は一点です。この計算は定義の全ての $\eta$ について双対評価を確認しています。
 <!-- definition-example-end -->
 
 ## 2. Lie括弧から関数の括弧を作る
@@ -137,7 +137,24 @@ $$
 \end{aligned}
 $$
 
-三つの巡回順序で足したとき、$G_{j\ell}=G_{\ell j}$ を含む項は $j,\ell$ の入れ替えで同じ二階微分に逆符号の交代係数が掛かるため相殺します。$F,H$ の二階微分を含む項も同じ理由で消えます。残りのJacobiatorは
+三つの巡回順序で足したとき、二階微分項は対ごとに消えます。例えば $H$ の二階微分を含む項は、最初の二つの二重括弧から
+
+$$
+\begin{aligned}
+T_1&=\sum_{ijk\ell}\pi^{i\ell}\pi^{jk}F_iG_jH_{k\ell},\\
+T_2&=\sum_{ijk\ell}\pi^{j\ell}\pi^{ki}G_jH_{k\ell}F_i
+\end{aligned}
+$$
+
+と現れます。$T_2$ の和で $k$ と $\ell$ を交換し、$H_{\ell k}=H_{k\ell}$ と $\pi^{\ell i}=-\pi^{i\ell}$ を使うと
+
+$$
+T_2=\sum_{ijk\ell}\pi^{jk}\pi^{\ell i}F_iG_jH_{\ell k}
+=-\sum_{ijk\ell}\pi^{i\ell}\pi^{jk}F_iG_jH_{k\ell}
+=-T_1.
+$$
+
+$F$ または $G$ の二階微分を含む項も三関数を巡回させると同じように相殺します。残りのJacobiatorは
 
 $$
 \sum_{ijk\ell}\bigl(
@@ -258,7 +275,25 @@ $$
 =-\langle\nu,[\zeta,\eta]\rangle.
 $$
 
-従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これは定義が接ベクトルだけで決まることを保証します。逆に $v=\rho_\xi(\nu)$ が全ての $w=\rho_\eta(\nu)$ と零の組合せを持てば、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ となり、同じ式から $\rho_\xi(\nu)=0$、つまり $v=0$ です。局所的には軌道写像の滑らかな切片で $\xi,\eta$ を選べるため係数も滑らかです。
+従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これにより形式の値は接ベクトルだけで決まります。
+
+**非退化性。** 接ベクトル $v=\rho_\xi(\nu)$ に対して、全ての接ベクトルとの形式の評価が零とします。このとき任意の $\eta$ について
+
+$$
+\omega_{\mathrm{KKS}}(v,\rho_\eta(\nu))
+=\langle\nu,[\xi,\eta]\rangle=0.
+$$
+
+無限小余随伴作用の定義へ戻すと $\rho_\xi(\nu)=0$、すなわち $v=0$ です。
+
+**滑らかさ。** [安定化 Lie 環と軌道方向](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)から、軌道写像の階数は一定で、軌道は局所的に滑らかな座標を持ちます。接空間への写像
+
+$$
+\mathfrak g\longrightarrow T_\nu\mathcal O_\mu,
+\qquad \xi\longmapsto\rho_\xi(\nu)
+$$
+
+の核の補空間を選びます。局所座標内で接ベクトルの滑らかな代表を取れ、その代表と点に関するLie括弧の双線形評価も滑らかです。従ってKKS形式の係数は滑らかです。
 
 **閉性。** [LIE4の左作用の基本ベクトル場の交換子](../../../代数系/LIE/LIE4/index.md#thm-lie4-fundamental-flow-antihom)は
 
@@ -285,18 +320,42 @@ $$
 
 二つの巡回和はそれぞれ[Lie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)から零です。軌道の接方向は $\rho_\xi$ で張られるため、$d\omega_{\mathrm{KKS}}=0$ です。
 
-**Poisson括弧の一致。** $dF_\xi(\rho_\eta)=\langle\rho_\eta,\xi\rangle=\langle\nu,[\xi,\eta]\rangle$ なので $\iota_{\rho_\xi}\omega_{\mathrm{KKS}}=dF_\xi$ です。一般の滑らかな $F$ にも点ごとに $\xi=dF_\nu$ を選び、非退化性から $X_F(\nu)=\rho_{dF_\nu}(\nu)$ となります。したがって
+**Poisson括弧の一致。** まず線形関数 $F_\xi(\nu)=\langle\nu,\xi\rangle$ では
+
+$$
+dF_\xi(\rho_\eta(\nu))
+=\langle\rho_\eta(\nu),\xi\rangle
+=\langle\nu,[\xi,\eta]\rangle
+=\omega_{\mathrm{KKS}}(\rho_\xi(\nu),\rho_\eta(\nu)).
+$$
+
+接ベクトルは $\rho_\eta(\nu)$ で張られるため、$\iota_{\rho_\xi}\omega_{\mathrm{KKS}}=dF_\xi$ です。
+
+一般の軌道上の滑らかな関数 $f$ では、点 $\nu$ の近傍で $f$ を $\mathfrak g^*$ 上の滑らかな関数 $\widetilde f$ へ局所延長します。軌道の局所座標を周囲の座標へ延ばせるため、そのような局所延長は存在します。$\xi=d\widetilde f_\nu\in\mathfrak g$ と置くと、任意の軌道接方向 $\rho_\eta(\nu)$ に対して
 
 $$
 \begin{aligned}
-\{F,G\}_{\mathrm{KKS}}(\nu)
-&=dF_\nu(X_G(\nu))\\
-&=\langle\nu,[dF_\nu,dG_\nu]\rangle
-=\{F,G\}_+(\nu).
+df_\nu(\rho_\eta(\nu))
+&=\langle\rho_\eta(\nu),d\widetilde f_\nu\rangle\\
+&=\langle\nu,[d\widetilde f_\nu,\eta]\rangle
+=\omega_{\mathrm{KKS}}(\rho_\xi(\nu),\rho_\eta(\nu)).
 \end{aligned}
 $$
 
-非退化性・閉性と整合が全て確認できました。
+従って $X_f(\nu)=\rho_{d\widetilde f_\nu}(\nu)$ です。別の延長との差の微分 $\zeta$ は全軌道接方向を消すので、全 $\eta$ で $\langle\nu,[\zeta,\eta]\rangle=0$ となり、$\rho_\zeta(\nu)=0$ です。ゆえに $X_f$ は延長の選び方に依存しません。
+
+軌道上の $f,g$ と延長 $\widetilde f,\widetilde g$ について[SYM4のPoisson括弧の定義](../../SYM/SYM4/index.md#def-sym4-poisson-bracket)を使うと
+
+$$
+\begin{aligned}
+\{f,g\}_{\mathrm{KKS}}(\nu)
+&=df_\nu(X_g(\nu))\\
+&=\langle\nu,[d\widetilde f_\nu,d\widetilde g_\nu]\rangle
+=\{\widetilde f,\widetilde g\}_+(\nu).
+\end{aligned}
+$$
+
+したがって軌道上の括弧は、周囲の正のLie–Poisson括弧の制限として、延長の選び方によらず定まります。
 <!-- proof-end -->
 
 ## 5. Casimirとシンプレクティック葉
@@ -366,14 +425,19 @@ $$
 =\frac{\mu\cdot(u\times v)}{r^2}.
 $$
 
-$u=\xi\times\mu$、$v=\eta\times\mu$ と置き、$|\mu|^2=r^2$ を使います。ベクトル三重積の公式を順に適用すると
+$u=\xi\times\mu$、$v=\eta\times\mu$ と置き、$|\mu|^2=r^2$ を使います。ベクトル三重積の公式 $a\times(b\times c)=b(a\cdot c)-c(a\cdot b)$ に $a=\xi\times\mu,b=\eta,c=\mu$ を代入すると
 
 $$
+\begin{aligned}
 (\xi\times\mu)\times(\eta\times\mu)
-=\bigl(\mu\cdot(\xi\times\eta)\bigr)\mu
+&=\eta\bigl((\xi\times\mu)\cdot\mu\bigr)
+-\mu\bigl((\xi\times\mu)\cdot\eta\bigr)\\
+&=-\mu\bigl(\eta\cdot(\xi\times\mu)\bigr)\\
+&=\bigl(\mu\cdot(\xi\times\eta)\bigr)\mu.
+\end{aligned}
 $$
 
-が成り立ちます。両辺と $\mu$ の内積を取って $r^2$ で割れば
+ここで第2行は外積の直交性、第3行はスカラー三重積の循環性を使いました。この等式の両辺と $\mu$ の内積を取って $r^2$ で割れば
 
 $$
 \frac{\mu\cdot(u\times v)}{r^2}
@@ -384,8 +448,15 @@ $$
 となり、KKS形式の定義式と一致します。球面の極座標 $\mu=r(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$ では
 
 $$
-\omega_{\mathrm{KKS}}=r\sin\theta\,d\theta\wedge d\phi,
-\qquad \int_{S_r^2}\omega_{\mathrm{KKS}}=4\pi r.
+\omega_{\mathrm{KKS}}=r\sin\theta\,d\theta\wedge d\phi.
+$$
+
+実際、パラメータ表示の偏微分から $\partial_\theta\mu\times\partial_\phi\mu=r\sin\theta\,\mu$ となり、上で得た球面上のKKS形式の式に代入すると係数が $r\sin\theta$ になります。正の向きで積分すれば
+
+$$
+\int_{S_r^2}\omega_{\mathrm{KKS}}
+=\int_0^{2\pi}\int_0^\pi r\sin\theta\,d\theta\,d\phi
+=4\pi r.
 $$
 
 角運動量空間全体の次元は3ですが、各球面葉は2次元です。$r=0$ の葉は一点であり、**Casimirの等位集合と葉を機械的に同一視してよいとは限りません**。次の演習ではその差が際立つLie代数も扱います。
@@ -400,7 +471,20 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [無限小作用の定義](#def-gmech6-coadjoint-tangent)から $\rho_\xi(\mu)=e_3\times(1,2,3)=(-2,1,0)$ です。$\eta=e_1$ で $\langle\rho_\xi(\mu),e_1\rangle=-2$、一方 $-\langle\mu,[e_3,e_1]\rangle=-\mu\cdot e_2=-2$ です。符号も一致します。
+**詳細解答。** [無限小作用の定義](#def-gmech6-coadjoint-tangent)で $e_3\times e_1=e_2$ と置けば、$\eta=e_1$ に対して
+
+$$
+-\langle\mu,[e_3,e_1]\rangle
+=-(1,2,3)\cdot e_2=-2.
+$$
+
+一方、$\rho_\xi(\mu)=\xi\times\mu$ を全成分で求めると
+
+$$
+\rho_{e_3}(\mu)=e_3\times(1,2,3)=(-2,1,0).
+$$
+
+第一成分の評価も $\langle(-2,1,0),e_1\rangle=-2$ となるため、符号を含めて一致します。
 <!-- solution-end -->
 
 <a id="ex-gmech6-a02"></a>
@@ -464,7 +548,17 @@ $$
 \{z,F\}_+=0
 $$
 
-なので $z$ はCasimirです。$z\ne0$ ではPoisson行列の階数が2であり、$x,y$ の両接方向がHamiltonian速度で張られます。線形Hamiltonianの流れは平面内の平行移動を与えるため、この場合の一枚の葉は固定した $z\ne0$ の平面全体です。
+なので $z$ はCasimirです。$z\ne0$ ではPoisson行列の階数が2です。線形関数 $x,y$ をHamiltonianに選び、$\dot F=\{F,H\}_+$ を各座標に適用すると
+
+$$
+X_x=(\{x,x\}_+,\{y,x\}_+,\{z,x\}_+)=(0,-z,0),
+$$
+
+$$
+X_y=(\{x,y\}_+,\{y,y\}_+,\{z,y\}_+)=(z,0,0).
+$$
+
+$z$ は両流れで一定で、$z\ne0$ なら $X_x$ と $X_y$ の流れを順に使って $x,y$ の任意の変位を実現できます。従って[余随伴シンプレクティック葉の定理](#thm-gmech6-leaves)に従い、固定した $z\ne0$ の平面全体が一枚の連結な葉です。
 
 一方、$z=0$ では行列が零であり、全Hamiltonian速度も零です。従って各点がそれぞれ零次元の葉です。Casimirの等位集合である平面 $z=0$ は、一枚の葉ではありません。
 <!-- solution-end -->
@@ -483,7 +577,17 @@ $$
 =\langle\nu,[\zeta,\eta]\rangle=0.
 $$
 
-第二引数でも交代性で同様です。逆に $v=\rho_\xi(\nu)$ と任意の $\rho_\eta(\nu)$ のKKS値が零なら、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ なので $\rho_\xi(\nu)=0$、よって $v=0$ です。これが非退化性です。
+第二引数の代表を $\eta'=\eta+\vartheta$ に替え、$\rho_\vartheta(\nu)=0$ とすると
+
+$$
+\begin{aligned}
+\langle\nu,[\xi,\eta']\rangle-\langle\nu,[\xi,\eta]\rangle
+&=\langle\nu,[\xi,\vartheta]\rangle\\
+&=-\langle\nu,[\vartheta,\xi]\rangle=0.
+\end{aligned}
+$$
+
+これで両引数の代表独立性を確認できました。逆に $v=\rho_\xi(\nu)$ と任意の $\rho_\eta(\nu)$ のKKS値が零なら、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ なので $\rho_\xi(\nu)=0$、よって $v=0$ です。これが非退化性です。
 <!-- solution-end -->
 
 <a id="ex-gmech6-b03"></a>
@@ -555,11 +659,17 @@ $$
 \dot\mu_3=(\alpha-\beta)\mu_1\mu_2.
 $$
 
-$dH/dt=\nabla H\cdot(\nabla H\times\mu)=0$ かつ $d|\mu|^2/dt=2\mu\cdot(\nabla H\times\mu)=0$ です。(2) 従って $|\mu(t)|=r$。非零の$SO(3)$余随伴軌道はこの球面であり、[余随伴軌道のシンプレクティック構造定理](#thm-gmech6-kks)によって二次元シンプレクティック葉です。
+$dH/dt=\nabla H\cdot(\nabla H\times\mu)=0$ かつ $d|\mu|^2/dt=2\mu\cdot(\nabla H\times\mu)=0$ です。(2) 従って $|\mu(t)|=r$。非零の $SO(3)$ 余随伴軌道はこの球面であり、[余随伴軌道のシンプレクティック構造定理](#thm-gmech6-kks)によって二次元シンプレクティック葉です。
 
 (3) $\dot\mu_i=0$ の三式における係数は全て非零です。よって $\mu_1\mu_2=\mu_2\mu_3=\mu_3\mu_1=0$ で、非零になれる成分は高々一つです。球面との共通部分から速度零の点は $(\pm r,0,0)$、$(0,\pm r,0)$、$(0,0,\pm r)$ の六点です。
 
-(4) $\mu=(r,u,v)+O(u^2+v^2)$ と書けます。球面条件 $\mu_1^2+u^2+v^2=r^2$ の一次項を取ると $\delta\mu_1=0$ です。第二・第三式の一次項を抜き出すと
+(4) $u=\mu_2,v=\mu_3$ を球面上の局所座標に取り、$\mu_1=\sqrt{r^2-u^2-v^2}$ の正の枝を使います。このとき
+
+$$
+\mu_1-r=-\frac{u^2+v^2}{r+\sqrt{r^2-u^2-v^2}}=O(u^2+v^2).
+$$
+
+したがって一次摂動には $\delta\mu_1$ が現れず、第二・第三式の一次項を取り出せば
 
 $$
 \begin{pmatrix}\dot u\\\dot v\end{pmatrix}
@@ -570,7 +680,20 @@ r(\alpha-\beta)&0
 \begin{pmatrix}u\\v\end{pmatrix}.
 $$
 
-特性方程式は $\lambda^2=r^2(\gamma-\alpha)(\alpha-\beta)$ です。右辺は負なので固有値は純虚数、線形系の全解は有界な振動となり球面接方向に線形安定です。これは非線形安定性まで自動的に主張するものではありません。
+この線形化行列を $A$ と置くと、行列積を直接計算して
+
+$$
+A^2=r^2(\gamma-\alpha)(\alpha-\beta)I_2=-\omega^2 I_2,
+\qquad \omega=r\sqrt{(\gamma-\alpha)(\beta-\alpha)}>0
+$$
+
+となります。従って特性方程式は $\lambda^2=-\omega^2$ で固有値は $\pm i\omega$ です。冪級数を偶数項と奇数項に分ければ
+
+$$
+e^{tA}=\cos(\omega t)I_2+\frac{\sin(\omega t)}{\omega}A.
+$$
+
+右辺は全ての実数 $t$ で有界なので、球面接方向の線形系は安定です。これは非線形安定性まで自動的に主張するものではありません。
 
 (5) 負の括弧では速度と線形化行列の符号が逆になります。しかし保存量の外積直交性は変わらず、速度零の点も変わりません。固有値が $\lambda$ から $-\lambda$ へ置き換わるだけなので純虚数性も変わりません。
 <!-- solution-end -->
