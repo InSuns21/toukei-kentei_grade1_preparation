@@ -22,3 +22,11 @@ chapters:
     path: textbook/volumes/dream_thater/応用系/INFO/INFO4
     status: completed
     title: 接頭語符号・Kraft不等式・符号木
+  - id: INFO5
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO5
+    status: completed
+    title: 情報源符号化定理：固定長ブロック符号の限界と達成
+  - id: INFO6
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO6
+    status: planned
+    title: 離散無記憶通信路・通信路容量・Fano不等式
