@@ -1,4 +1,4 @@
-# HDP8 非可換モーメント母関数と行列Bernstein不等式
+# HDP8 非可換モーメント母関数と行列Bernstein
 
 [HDP2のBernstein不等式](../HDP2/index.md#thm-hdp2-bernstein)は独立な実数値変数の和を扱い、[HDP7の標本共分散評価](../HDP7/index.md#thm-hdp7-isotropic-covariance)は球面の有限netを通じて行列の作用素ノルムへ進みました。しかし行列の成分を別々に集中させると、方向をそろえて測る作用素ノルムの構造を失います。行列の固有値そのものへ指数Markov法を適用できないでしょうか。
 
@@ -15,7 +15,7 @@ $$
 
 ## 1. 固有値と半正定値順序を準備する
 
-対象はまず実対称 $d\times d$ 行列です。対称行列 $H$ が半正定値なら $H\succeq0$ と書き、$A\preceq B$ は $B-A\succeq0$ の意味とします。各固有値を $\lambda_j(H)$ とすると、行列指数・トレースは
+対象はまず実対称 $d\times d$ 行列です。対称行列 $H$ が半正定値なら $H\succeq0$ と書き、$A\preceq B$ は $B-A\succeq0$ の意味とします。各固有値を $\lambda_j(H)$ とすると、[行列指数](../../ODE/ODE3/index.md#def-ode3-matrix-exponential)・トレースは
 
 $$
 e^H=U\operatorname{diag}(e^{\lambda_1(H)},\ldots,e^{\lambda_d(H)})U^{\mathsf T},
@@ -76,8 +76,14 @@ e^{\theta\lambda_{\max}(S)}
 =\operatorname{tr}e^{\theta S}.
 $$
 
-よって $\{\lambda_{\max}(S)\ge t\}\subseteq
-\{\operatorname{tr}e^{\theta S}\ge e^{\theta t}\}$ であり、非負変数 $\operatorname{tr}e^{\theta S}$ にMarkov不等式を適用すると
+よって次の事象包含が成立します。
+
+$
+\{\lambda_{\max}(S)\ge t\}
+\subseteq \{\operatorname{tr}e^{\theta S}\ge e^{\theta t}\}.
+$
+
+ここで非負変数 $\operatorname{tr}e^{\theta S}$ にMarkov不等式を適用すると
 
 $$
 P(\lambda_{\max}(S)\ge t)
@@ -100,10 +106,10 @@ $$
 C\longmapsto\operatorname{tr}\exp(H+\log C)
 $$
 >
-> は凹関数である。すなわち正定値 $C_1,C_2$ と $0\le s\le1$ に対して、その値は $sC_1+(1-s)C_2$ で両端の値の凸結合以上になる。
+> は凹関数である。すなわち正定値 $C_1,C_2$ と $0\le s\le1$ に対して、その値は $sC_1+(1-s)C_2$ で両端の値を重み $s$ と $1-s$ で平均した値以上になる。
 <!-- formal-statement-end -->
 
-**証明の扱いと境界**。この凹性は非可換行列解析の深い結果であり、本章では**明示的に外部定理として使用し、その証明自体は主張しません**。この定理を仮定した後の条件付き期待値の取り方、指数モーメント評価、最適化、応用は以下で証明します。スカラーのJensen不等式から凹性を推論しているわけではありません。原証明と非可換Laplace法の典拠は [J. A. Tropp, User-Friendly Tail Bounds for Sums of Random Matrices, §§3, 6](https://doi.org/10.1007/s10208-011-9099-z) を参照してください。ここを独立に証明するには別途Lieb凹性の理論が必要です。
+**証明の扱いと境界**。この凹性は非可換行列解析の深い結果であり、本章では**明示的に外部定理として使用し、その証明自体は主張しません**。この定理を仮定した後の条件付き期待値の取り方、指数モーメント評価、最適化、応用は以下で証明します。スカラーでの凹性だけから非可換行列に対する結論を推論しているわけではありません。原証明と非可換Laplace法の典拠は [J. A. Tropp, User-Friendly Tail Bounds for Sums of Random Matrices, §§3, 6](https://doi.org/10.1007/s10208-011-9099-z) を参照してください。ここを独立に証明するには別途Lieb凹性の理論が必要です。
 
 例えば $d=1$ なら $\exp(H+\log C)=e^H C$ と線形ですが、$d>1$ では可換でない場合に単なる等式へ還元できません。この違いが定理の実質です。
 
@@ -121,12 +127,12 @@ $$
 
 ### 証明の見取り図
 
-まず最後の行列だけを条件付きで平均します。[Liebの凹性定理](#thm-hdp8-lieb-concavity)にJensen不等式を適用すると、ランダムな $\theta X_n$ を決定論的な $\log M_n$ に置換できます。同じ操作を後ろから繰り返します。これは「行列指数が積に分かれる」という誤った操作の代替です。
+まず最後の行列だけを条件付きで平均します。[Liebの凹性定理](#thm-hdp8-lieb-concavity)を凹関数に対する期待値評価として使うと、ランダムな $\theta X_n$ を決定論的な $\log M_n$ に置換できます。同じ操作を後ろから繰り返します。これは「行列指数が積に分かれる」という誤った操作の代替です。
 
 <!-- proof-start -->
 ### 証明
 
-$M_i\succ0$ です。例えば $u\ne0$ なら $u^{\mathsf T}M_i u=E[u^{\mathsf T}e^{\theta X_i}u]>0$ なので対数が定義できます。$H=\theta\sum_{i=1}^{n-1}X_i$ を固定した実現値とします。独立性から $H$ と $X_n$ は独立です。ここで $C=e^{\theta X_n}$ は正定値で $\log C=\theta X_n$ です。[Liebの凹性定理](#thm-hdp8-lieb-concavity)によるJensen不等式から
+$M_i\succ0$ です。例えば $u\ne0$ なら $u^{\mathsf T}M_i u=E[u^{\mathsf T}e^{\theta X_i}u]>0$ なので対数が定義できます。$H=\theta\sum_{i=1}^{n-1}X_i$ を固定した実現値とします。独立性から $H$ と $X_n$ は独立です。ここで $C=e^{\theta X_n}$ は正定値で $\log C=\theta X_n$ です。[Liebの凹性定理](#thm-hdp8-lieb-concavity)の凹性により、期待値を関数の内側へ移すと
 
 $$
 \begin{aligned}
@@ -158,7 +164,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t\ge0$ とし $A+tI\preceq B+tI$ を考えます。$C=(A+tI)^{-1/2}(B+tI)(A+tI)^{-1/2}\succeq I$ だから、固有値を逆数にすると $C^{-1}\preceq I$ です。合同変換で戻せば
+$t\ge0$ とし $A+tI\preceq B+tI$ を考えます。$C=(A+tI)^{-1/2}(B+tI)(A+tI)^{-1/2}\succeq I$ だから、固有値を逆数にすると $C^{-1}\preceq I$ です。[合同変換](../../../基礎科目/LA/LA6/index.md#def-la6-congruence)で戻せば
 
 $$
 (B+tI)^{-1}\preceq(A+tI)^{-1}.
@@ -254,7 +260,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-実数 $x$ について、指数関数を二回積分した恒等式から
+実数 $x$ について $f(s)=e^{s\theta x}$ と置くと、$f'(s)=\theta x e^{s\theta x}$、$f''(s)=\theta^2x^2 e^{s\theta x}$ です。$f(1)=f(0)+f'(0)+\int_0^1(1-s)f''(s)\,ds$ を直接積分して
 
 $$
 e^{\theta x}
@@ -588,7 +594,7 @@ $$
 =\frac{e^{\theta R}-1-\theta R}{R^2}=g_R(\theta).
 $$
 
-$X$ の固有値へこの不等式を適用すると $e^{\theta X}\preceq I+\theta X+g_R(\theta)X^2$ です。$EX=0$ より期待値を取ると要求された式です。指数積分の有限性は $\|X\|_{\mathrm{op}}\le R$ で保証されます。
+$X=U\operatorname{diag}(\lambda_j)U^{\mathsf T}$ の各固有値 $\lambda_j\in[-R,R]$ にスカラーで得た評価を当てはめ、同じ $U$ で戻すと $e^{\theta X}\preceq I+\theta X+g_R(\theta)X^2$ です。$EX=0$ より期待値を取ると要求された式です。指数積分の有限性は $\|X\|_{\mathrm{op}}\le R$ で保証されます。
 <!-- solution-end -->
 
 ### B2. 行列Hoeffdingの二点分布
