@@ -35,5 +35,5 @@ chapters:
     title: dilutedスピングラスとランダム因子グラフ
   - id: SG8
     path: textbook/volumes/dream_thater/物理系/SG/SG8
-    status: planned
+    status: completed
     title: cavity法・Belief Propagation・Mézard–Parisi
