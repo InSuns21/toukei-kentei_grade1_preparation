@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-11-singular-point -->
-**定義の確認。** $f=y-x^2$ なら $f_y=1$ なので特異点はありません。$f=xy$ なら $\nabla f=(y,x)$ で、$xy=0$ と $x=y=0$ を同時に満たす点は原点だけです。従って $\operatorname{Sing}(V(xy))=\{(0,0)\}$ です。
+**定義の確認**： $f=y-x^2$ なら $f_y=1$ なので特異点はありません。$f=xy$ なら $\nabla f=(y,x)$ で、$xy=0$ と $x=y=0$ を同時に満たす点は原点だけです。従って $\operatorname{Sing}(V(xy))=\{(0,0)\}$ です。
 <!-- definition-example-end -->
 
 この定義は任意の多項式の形式的なJacobianに対するものではありません。例えば $V(x^2)=V(x)$ は一本の直線ですが、$x^2$ をそのまま微分するとすべての点で微分が消えます。ここで平方因子を除く必要があります。
@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-11-multiplicity -->
-**定義の確認。** 原点で $f=y^2-x^3$ なら $f_2=v^2$、$f_3=-u^3$ なので $m=2$ です。点 $(1,1)$ に平行移動すると
+**定義の確認**： 原点で $f=y^2-x^3$ なら $f_2=v^2$、$f_3=-u^3$ なので $m=2$ です。点 $(1,1)$ に平行移動すると
 
 $$
 f(1+u,1+v)=2v-3u+v^2-3u^2-u^3
@@ -136,7 +136,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-11-tangent-cone -->
-**定義の確認。** 原点で $f=xy$ なら $f_2=uv$、接錐は $V(u)\cup V(v)$ の二直線です。$f=y^2-x^3$ なら $f_2=v^2$ で接錐の**点集合**は $V(v)$ の一本ですが、斉次式では同じ接線 $v=0$ が二回現れます。どちらも重複度2でZariski接空間は $k^2$ ですが、接錐で区別できます。
+**定義の確認**： 原点で $f=xy$ なら $f_2=uv$、接錐は $V(u)\cup V(v)$ の二直線です。$f=y^2-x^3$ なら $f_2=v^2$ で接錐の**点集合**は $V(v)$ の一本ですが、斉次式では同じ接線 $v=0$ が二回現れます。どちらも重複度2でZariski接空間は $k^2$ ですが、接錐で区別できます。
 <!-- definition-example-end -->
 
 <a id="prop-ag1-11-tangent-cone-lines"></a>
@@ -211,7 +211,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-11-ordinary-node -->
-**定義の確認。** いまの $f=y^2-x^2-x^3$ は $f_2=(v-u)(v+u)$、二因子は比例せず重複度2なので、原点は通常二重点です。二つの枝の速度も各一次因子の直線を満たしました。
+**定義の確認**： いまの $f=y^2-x^2-x^3$ は $f_2=(v-u)(v+u)$、二因子は比例せず重複度2なので、原点は通常二重点です。二つの枝の速度も各一次因子の直線を満たしました。
 <!-- definition-example-end -->
 
 ### 一つの方向が重なって現れる尖点
