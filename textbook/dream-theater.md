@@ -790,6 +790,11 @@
 7. [EMAG7 電磁誘導と Maxwell 方程式](textbook/volumes/00_foundations/EMAG7/index.md)
 8. [EMAG8 電磁波とエネルギー](textbook/volumes/00_foundations/EMAG8/index.md)
 
+<a id="dt-subject-thermodynamics"></a>
+### 熱力学
+
+1. [TH1 平衡状態・状態量・温度](textbook/volumes/00_foundations/TH1/index.md)
+
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
 
