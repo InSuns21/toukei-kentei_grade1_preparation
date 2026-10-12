@@ -132,7 +132,7 @@ $$
 I_k(L)=(x).
 $$
 
-$k[x,y]/(x)$ は $k[y]$ と同型で整域です。ここで[素イデアルと商整域の定理](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)を $R=k[x,y]$, $P=(x)$ に適用すると $(x)$ は素イデアルと分かります。従って上の定理から $L$ は既約です。
+$k[x,y]/(x)$ は $k[y]$ と同型で整域です。ここで[素イデアルと商整域の定理](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)を $R=k[x,y]$, $P=(x)$ に適用すると $(x)$ は素イデアルと分かります。従って[既約集合と消滅イデアルの素性の定理](#thm-ag1-02-irreducible-prime)を $X=L$ に適用でき、$L$ は既約です。
 
 ### 反例：有限体では「素イデアルから既約集合」は言えない
 
@@ -172,7 +172,13 @@ $$
 <!-- definition-example-start: def-ag1-02-component -->
 **定義の確認**：二本の直線
 
-$X=V_{\mathbb C}(xy)$ と置くと、$L_x=V(x)$ と $L_y=V(y)$ は第2節より既約です。どちらも $X$ で閉じています。また $L_x\not\subseteq L_y$ と $L_y\not\subseteq L_x$ です。$L_x\subseteq D\subseteq X$ となる既約閉集合 $D$ を考えます。$D=(D\cap L_x)\cup(D\cap L_y)$ なので、既約性から $D\subseteq L_x$ または $D\subseteq L_y$ です。後者なら $L_x\subseteq L_y$ となり矛盾します。従って $D=L_x$ です。$L_y$ についても同じ包含の議論で最大性が成立し、両者は既約成分です。
+$X=V_{\mathbb C}(xy)$、$L_x=V(x)$、$L_y=V(y)$ とします。$L_x=\{(0,t):t\in\mathbb C\}$ と $L_y=\{(t,0):t\in\mathbb C\}$ の相対閉集合は、それぞれ多項式 $f(0,t)$、$f(t,0)$ の共通零点で記述されます。[無限体上のアフィン直線の閉集合の命題](../AG1-01/index.md#prop-ag1-01-affine-line-closed)と同じ根の個数の議論で有限集合または直線全体に限られるため、両直線は既約です。両者は $X$ で閉集合ですが、$(0,1)\in L_x\setminus L_y$ と $(1,0)\in L_y\setminus L_x$ なので互いに包含されません。
+
+$L_x\subseteq D\subseteq X$ となる既約閉集合 $D$ を取ります。[既約性の定義](#def-ag1-02-irreducible)と
+$
+D=(D\cap L_x)\cup(D\cap L_y)
+$
+から $D\subseteq L_x$ または $D\subseteq L_y$ です。後者では $L_x\subseteq L_y$ となって矛盾します。前者と $L_x\subseteq D$ を合わせると $D=L_x$ です。$L_y\subseteq D\subseteq X$ の場合も、今度は $D\subseteq L_x$ が包含関係に矛盾し、$D=L_y$ です。従って両者は包含最大な既約閉集合、すなわち既約成分です。
 <!-- definition-example-end -->
 
 <a id="lem-ag1-02-finite-cover"></a>
@@ -246,7 +252,7 @@ $$
 <!-- definition-example-start: def-ag1-02-noetherian -->
 **定義の確認**：無限体のアフィン直線
 
-無限体 $k$ 上のアフィン直線の閉集合は有限集合と全体だけです。下降列が一度有限集合 $F_N$ に到達すれば、その後真に減少するたびに要素数が少なくとも $1$ 減るので、真の包含は高々 $|F_N|$ 回です。従って列は定常であり、$k^1$ はNoether的です。定義に「無限個の点があること」と「下降列が無限に真に減ること」は別だと分かります。
+[無限体上のアフィン直線の閉集合の命題](../AG1-01/index.md#prop-ag1-01-affine-line-closed)により、無限体 $k$ 上のアフィン直線の閉集合は有限集合と全体だけです。下降列が一度有限集合 $F_N$ に到達すれば、その後真に減少するたびに要素数が少なくとも $1$ 減るので、真の包含は高々 $|F_N|$ 回です。従って列は定常であり、$k^1$ はNoether的です。定義に「無限個の点があること」と「下降列が無限に真に減ること」は別だと分かります。
 <!-- definition-example-end -->
 
 <a id="thm-ag1-02-noether-components"></a>
@@ -342,11 +348,17 @@ $f\in\mathbb C[x,y]$ がすべての $(0,t)$ で零であることと、$f\in(x)
 - ID: AG1-02-A3
 
 <!-- solution-start -->
-**詳細解答**　$f=a_0(y)+xa_1(y)+\cdots+x^m a_m(y)$ と書きます。すべての $(0,t)$ で零なら、$a_0(t)=f(0,t)=0$ が全 $t\in\mathbb C$ で成立します。もし $a_0\ne0$ なら非零の一変数多項式に無限個の根ができ矛盾するので $a_0=0$ です。そこで
+**詳細解答**　任意の $f\in\mathbb C[x,y]$ は、$x$ の定数項とそれ以外の項に分けて
+$
+f(x,y)=a_0(y)+xg(x,y),\qquad
+a_0\in\mathbb C[y],\quad g\in\mathbb C[x,y]
+$
+と書けます。例えば $f=\sum_{i=0}^{m}x^ia_i(y)$ のとき $g=\sum_{i=1}^{m}x^{i-1}a_i(y)$ と取れます。$m=0$ ならこの和は空和 $g=0$ とするので、定数多項式や零多項式にも使える表示です。
 
-$$
-f=x\bigl(a_1(y)+xa_2(y)+\cdots+x^{m-1}a_m(y)\bigr)\in(x).
-$$
+すべての $(0,t)$ で零なら、$a_0(t)=f(0,t)=0$ が全 $t\in\mathbb C$ で成立します。もし $a_0\ne0$ なら非零の一変数多項式に無限個の根ができ矛盾します。よって $a_0=0$ となり
+$
+f=xg\in(x).
+$
 
 逆に $f=xh$ なら $f(0,t)=0\cdot h(0,t)=0$ です。よって同値であり、$I(V(x))=(x)$ です。
 <!-- solution-end -->
@@ -408,7 +420,7 @@ $$
 
 ### B3. アフィン直線のNoether性と成分
 
-無限体 $k$ にZariski位相を入れる。(1) $k$ がNoether的であることを示せ。(2) 空でない有限集合 $F=\{a_1,\ldots,a_r\}$ の既約成分をすべて求めよ。
+無限体 $k$ にZariski位相を入れる。(1) $k$ がNoether的であることを示せ。(2) 相異なる $a_1,\ldots,a_r\in k$（$r\ge1$）からなる有限集合 $F=\{a_1,\ldots,a_r\}$ の既約成分をすべて求めよ。
 
 - Level: B
 - ID: AG1-02-B3
@@ -434,7 +446,7 @@ $X=V_{\mathbb C}(x(y-x)(y+x))\subset\mathbb C^2$ とする。
 1. $X$ を直線の和集合として表せ。
 2. 三本の直線がそれぞれ既約であることを示し、$X$ の既約成分の全体を求めよ。
 3. 異なる二本の直線の交わりと、三本すべての交わりを求めよ。
-4. $I_{\mathbb C}(X)=(x(y-x)(y+x))$ を示せ。特に $x(y-x)(y+x)$ の冪指数を変えても $X$ は変わらない理由を述べよ。
+4. $I_{\mathbb C}(X)=(x(y-x)(y+x))$ を示せ。特に各因子の冪指数を正の整数に変えても $X$ は変わらない理由を述べよ。
 
 - Level: C
 - ID: AG1-02-C1
