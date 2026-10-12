@@ -749,7 +749,16 @@ $n\to\infty$、続いて $m\to\infty$ とすると $\lambda(I\cap\limsup F_k)\ge
 <!-- solution-start -->
 **詳細解答**
 
-各整数 $m\ge1$ に $\psi_m(q)=q^{-1-1/m}$ を取ると $\sum_q\psi_m(q)<\infty$ なので[第一Borel–Cantelli](#lem-nda8-borel-cantelli)から $\lambda(W(\psi_m))=0$ です。例外集合を有理数と $\bigcup_mW(\psi_m)$ の和に取ります。有理数と添字 $m$ の集合が**可算**なので例外の測度は0です。例外の外では[Dirichletの下界](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)で $\mu\ge2$、もし $\mu>2$ ならある $m$ に対し指数 $2+1/m$ 以上の近似が無限回成立し $W(\psi_m)$ に入るので矛盾します。
+整数 $m\ge1$ ごとに、次の近似関数を取ります。
+
+$$
+\psi_m(q)=q^{-1-1/m},\qquad
+\sum_{q\ge1}\psi_m(q)<\infty.
+$$
+
+[第一Borel–Cantelli](#lem-nda8-borel-cantelli)から、各 $m$ で $\lambda(W(\psi_m))=0$ です。例外集合は、有理数集合とこれらの $W(\psi_m)$ の可算和に取ります。有理数も添字集合も可算なので、例外の測度は0です。
+
+例外の外では[Dirichletの下界](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)によって無理性指数は2以上です。仮に2より大きければ、ある整数 $m$ を選んで指数 $2+1/m$ を超える近似が無限回成立します。その点は $W(\psi_m)$ に入り、例外の外という仮定に矛盾します。
 
 $\tau>2$ を固定すると $A_\tau$ は $\mu>2$ の例外集合に含まれるため零測度です。さらに $2<t<\tau$ に対して $A_\tau\subset V_t$ であり、$s>2/t$ を取れば
 
