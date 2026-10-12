@@ -241,7 +241,7 @@ $$
 
 二行目では[Hamiltonベクトル場の定義](#def-sym4-hamiltonian-vector-field)と、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)、[シンプレクティック形式の閉性](../SYM2/index.md#def-sym2-symplectic-manifold)をそれぞれ使いました。
 
-次に、[Lie微分の流れによる定義](../GEO7/index.md#def-geo7-lie-derivative)を使います。各時刻の流れを共通して定義できる小さな開集合を選び、点 $x$ と接ベクトル $v,w\in T_xM$ に対して
+次に、[微分形式のLie微分](../GEO7/index.md#def-geo7-lie-derivative)の流れによる定義を使います。各時刻の流れを共通して定義できる小さな開集合を選び、点 $x$ と接ベクトル $v,w\in T_xM$ に対して
 
 $$
 (\Phi_t^*\omega)_x(v,w)
@@ -767,7 +767,7 @@ $$
 q(t)=\frac1{1-t}.
 $$
 
-次に、[Hamilton関数の保存命題](#prop-sym4-observable-evolution)より $q(t)^2p(t)=q(0)^2p(0)=2$ です。$q(t)=1/(1-t)$ は $t<1$ で零でないから
+次に、[観測量の時間発展と保存量](#prop-sym4-observable-evolution)より $q(t)^2p(t)=q(0)^2p(0)=2$ です。$q(t)=1/(1-t)$ は $t<1$ で零でないから
 
 $$
 p(t)=\frac{2}{q(t)^2}=2(1-t)^2.
@@ -782,7 +782,7 @@ $$
 \end{aligned}
 $$
 
-を確認します。初期値も満たすので、[Picard–Lindelöfの存在一意性定理](../ODE1/index.md#thm-ode1-picard-lindelof)から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
+を確認します。初期値も満たすので、[Picard–Lindelöfの定理](../ODE1/index.md#thm-ode1-picard-lindelof)から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
 
 $$
 H(q(t),p(t))
