@@ -1,7 +1,7 @@
 # DREAM THEATER 可積分系と摂動論・KAM コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（2026-10-12。前提・証明ownerの着手時監査を実施、INT1本文は未着手）
+状態: completed（2026-10-13。INT1〜INT8の公開実装・INT8追跡監査・系列の終了条件を確認）
 
 ## 0. 目的
 
@@ -37,14 +37,14 @@
 必須:
 
 - 解析力学 I（AMECH1--AMECH8）
-- [シンプレクティック幾何学I](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)のSYM1〜4（シンプレクティック形式、Hamilton流、Poisson構造）。全SYM8講を機械的に必須としない
+- [シンプレクティック幾何学I](./DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)のSYM1〜4（シンプレクティック形式、Hamilton流、Poisson構造）。全SYM8講を機械的に必須としない
 - ODE の流れ・Poincare 写像
 - Fourier 級数の基本
 - 多変数解析
 
 推奨:
 
-- [幾何学的力学I](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH1〜3（Lie群作用と運動量写像）。INTの章ごとに実際の援用を確認する
+- [幾何学的力学I](./DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH1〜3（Lie群作用と運動量写像）。INTの章ごとに実際の援用を確認する
 - Diophantine approximation の初歩
 - 複素解析の Cauchy estimate の基本
 
@@ -174,7 +174,7 @@ KAM の証明で使う解析的評価は必要な範囲を本文で補う。読�
 
 他系列を参照:
 
-- シンプレクティック多様体：[SYM](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
+- シンプレクティック多様体：[SYM](./DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](./DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
 - generic invariant manifold / chaos / symbolic dynamics: 力学系
 - restricted three-body / solar system applications: CELE 系列
 - KdV / Toda / inverse scattering / Lax pair / soliton / discrete integrable systems: 将来の可積分 PDE・離散可積分系列
@@ -241,3 +241,10 @@ KAM により一部トーラスが存続
 - INT2のLiouville–Arnold証明とINT3の作用角変数は本科目が所有し、SYMやGMECHの相対平衡・簡約の証明を重複させない。INT4以降の小分母・共鳴・Birkhoff・KAMも本科目の担当とする。CELE/DYN等は応用・別の機構として必要箇所で参照する。
 - `textbook/dream-theater-series/INT.yaml` を新設してINT1〜8を `planned` とし、先頭のINT1を次の着手章に確定した。未作成の章本文・knowledge metadata・公開索引は先行公開しない。
 - 次作業：INT1のchapter/knowledge/本文を新規執筆し、必要なcanonical stable anchor・A4/B3/C1以上の演習・詳細解答と新規章の区分C査読・CIを完成させる。
+
+## 9. 完了時の実装・境界確認（2026-10-13）
+
+- `INT1`〜`INT8` は全て系列 manifest 上 `completed`。8章とも本文・主要結果のstable anchor・証明ブロック・全演習解答を持ち、各章は Level A 4題以上、Level B 3題以上、Level C 1題以上を満たす。公開索引の登録も確認する。
+- `INT8` の追跡監査ではKAM定理、解析的ホモロジー方程式、一段のNewton正規化、二次反復、共鳴帯評価と A1〜A5/B1〜B3/C1 を通読・再計算。反復で作用半径を減らす場合のCauchy損失と半径管理を補強した。査読の具体的再導出・未確認事項は完了時PRの査読記録を参照。
+- CELEとの接続は、INT1〜INT5の保存量・作用角・共鳴と、INT8のKAM定理をcanonical ownerとして残し、天体力学モデル特有の三体・Lagrange点・Jacobi積分・長期安定性をCELE側で扱う。後続計画は[天体力学・三体問題](../plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
+- INT1〜INT7の過去の数学的査読を本項で独立再実施したとは主張しない。最終的な公開・数式・リンク検証は完了時PRのCIで確認する。

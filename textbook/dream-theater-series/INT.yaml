@@ -1,10 +1,10 @@
 version: 1
 id: INT
 title: "可積分系と摂動論・KAM"
-plan: textbook/plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# INT1〜INT8本文・metadata・公開索引登録済み。系列の章本文は全件実装済み。
+# INT1〜INT8 completed; series close-out confirmed on 2026-10-13.
 chapters:
   - id: INT1
     path: textbook/volumes/dream_thater/幾何系/INT/INT1

@@ -1,7 +1,7 @@
 # DREAM THEATER 天体力学・三体問題・Hamiltonian chaos コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。本文未着手、次章CELE1）
 
 ## 0. 目的
 
@@ -46,7 +46,7 @@
 
 推奨:
 
-- [GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / reduction（使うCELE講だけ直接前提にする）
+- [GMECH](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / reduction（使うCELE講だけ直接前提にする）
 - INT6--INT8 の Birkhoff / KAM
 - 数値解析の ODE integration の基礎
 
@@ -97,7 +97,7 @@ CELE 後半は INT8 と相互参照可能だが、循環依存を避けるため
 - rotating frame
 - stability question
 
-[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / relative equilibrium と接続する。
+[GMECH](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / relative equilibrium と接続する。
 
 ### CELE4 円制限三体問題
 
@@ -138,7 +138,7 @@ CELE 後半は INT8 と相互参照可能だが、循環依存を避けるため
 - horseshoe / symbolic dynamics への接続
 - transport and lobe dynamics の入口
 
-stable manifold theorem や horseshoe の一般証明は DYN 系列を参照し、本章では Hamiltonian / celestial setting での機構を主役にする。
+安定多様体定理や horseshoe の一般証明を使う場合、CELE6の着手時にDYN/ODEのどのcanonical章で証明されているかを確定する。DYN14の線形安定・不安定方向だけで非線形安定多様体定理を既知として扱わない。既存の正本がない結果は、証明担当と直接prerequisiteを先に整える。
 
 ### CELE7 共鳴・KAM・規則運動とカオスの共存
 
@@ -184,23 +184,14 @@ stable manifold theorem や horseshoe の一般証明は DYN 系列を参照し�
 他系列を参照:
 
 - Kepler / 2-body の初等力学: 古典力学 I
-- symplectic geometry：[SYM](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。momentum map / reduction：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。
+- symplectic geometry：[SYM](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。momentum map / reduction：[GMECH](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。
 - Liouville--Arnold / Birkhoff / KAM: INT 系列
 - stable manifold / horseshoe / symbolic dynamics / chaos の一般定理: DYN / ODE 系列
 - high-precision symplectic integrator: 数値解析の将来拡張
 
 ## 5. 力学系系列との責務分担
 
-DYN 系列では、一般の力学系として
-
-- invariant manifold
-- Poincare map
-- local / global bifurcation
-- homoclinic intersection
-- symbolic dynamics
-- chaos の定義と代表的十分条件
-
-を扱う。
+DYN1〜DYN15では、区間写像、記号力学、horseshoeの符号化、線形双曲模型を扱う。非線形のinvariant manifold theorem、一般のPoincare return map、横断homoclinic intersectionからの結論は、既存DYN章が証明を持つと仮定しない。これらをCELE6で使用する前にDYN/ODEの実章・stable anchorと証明ownerを確認し、未整備の一般定理は独立した正本として必要な範囲で補う。
 
 CELE 系列ではそれらを、
 
@@ -261,3 +252,10 @@ Hamiltonian chaos
 6. numerical lab の要否判断
 7. knowledge DAG / public index / series manifest
 8. 数学的完全性・物理モデル・数値図の三系統レビュー
+
+## 9. 着手時の直接前提・正本担当照合（2026-10-13）
+
+- `textbook/dream-theater-series/MECH.yaml` でMECH1〜8、`AMECH.yaml` でAMECH1〜8、`INT.yaml` でINT1〜8、`GMECH.yaml` でGMECH1〜8、`DYN.yaml` でDYN1〜15の `completed` を確認した。MECH6にはKepler・中心力、INT1〜INT5には可積分性・共鳴、INT8には解析的KAM定理が既にある。CELE側でこれらを重複証明しない。
+- **前提の境界**：DYN14は双曲線形模型の安定・不安定方向を証明する章であり、一般の非線形安定多様体定理や横断ホモクリニック定理の完全証明まで所有するとみなさない。CELE6着手時には、直接必要なDYN/ODEのcanonical resultを再確認し、不足する定理の証明先を確保する。後続章の未確認結果をCELE1の暗黙前提にしない。
+- **系列開始**：`textbook/dream-theater-series/CELE.yaml` にCELE1〜CELE8を `planned` として登録する。初めの着手対象はCELE1で、対応する章本文・knowledge metadata・公開索引はまだ作らない。CELE1はMECH6/MECH7、AMECH5/AMECH6、INT1〜INT3の既出結果を確認して執筆する。
+- **INTとの接続**：可積分系の完了PLANは[INT1〜INT8](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)。力学系の一般論は[DYN](../plan_done/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md)を再利用する。天体力学の非可積分性・具体的な三体モデルは本計画を正本とする。
