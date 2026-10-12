@@ -423,7 +423,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（電磁場のエネルギー運動量収支）**  
-> $F\in C^2$ が[非斉次Maxwell方程式](../SREL5/index.md#thm-srel5-inhomogeneous-maxwell)と[斉次Maxwell方程式](../SREL5/index.md#thm-srel5-homogeneous-maxwell)を満たし、$J\in C^1$ を四元電流とする。このとき
+> 平坦なMinkowski時空で電磁場テンソル $F\in C^2$ が[非斉次Maxwell方程式](../SREL5/index.md#thm-srel5-inhomogeneous-maxwell)と[斉次Maxwell方程式](../SREL5/index.md#thm-srel5-homogeneous-maxwell)を満たし、$J^\mu=(c\rho,\boldsymbol j)\in C^1$ を四元電流とする。このとき
 
 $$
 \boxed{\partial_\mu T^{\mu\nu}=-f^\nu,\qquad
