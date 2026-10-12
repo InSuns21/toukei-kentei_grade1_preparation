@@ -710,7 +710,16 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(a) $g=g_{N,p}$ とおき、$n$ レプリカの重みを $w_n=f(R^n)\prod_{\ell=1}^n W(\sigma^\ell)e^{ag(\sigma^\ell)}/Z^n$、一人のGibbs確率を $\pi(\tau)=W(\tau)e^{ag(\tau)}/Z$ とおく。$f$ は配置の関数でGaussian場に直接依存しないので、積と商を微分すると
+(a) $g=g_{N,p}$ とおき、$n$ レプリカの重みと一人のGibbs確率をそれぞれ
+
+$
+\begin{aligned}
+w_n&=f(R^n)\frac{\prod_{\ell=1}^nW(\sigma^\ell)e^{ag(\sigma^\ell)}}{Z^n},\\
+\pi(\tau)&=\frac{W(\tau)e^{ag(\tau)}}{Z}
+\end{aligned}
+$
+
+とおく。$f$ は配置の関数でGaussian場に直接依存しないので、積と商を微分すると
 
 $
 \frac{\partial w_n}{\partial g(\tau)}
