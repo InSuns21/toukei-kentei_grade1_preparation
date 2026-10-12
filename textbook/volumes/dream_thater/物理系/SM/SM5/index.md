@@ -182,9 +182,9 @@ $$
 > **補題（対数Gamma関数の漸近評価）**  
 > 実数 $x\ge1$ に対し、$x\to\infty$ で
 
-$
+$$
 \log\Gamma(x+1)=x\log x-x+O(\log x)
-$
+$$
 
 > が成り立つ。特に整数 $N\to\infty$ では $\log N!=N\log N-N+O(\log N)$ である。
 <!-- formal-statement-end -->
@@ -198,7 +198,7 @@ Gamma積分の変数を $t=xu$ に変え、指数関数の最大が $u=1$ 付近
 
 Gamma積分の定義に $t=xu$ を代入し、$h(u)=u-1-\log u$（$u>0$）とすると
 
-$
+$$
 \begin{aligned}
 \Gamma(x+1)
 &=\int_0^\infty t^xe^{-t}\,dt\\
@@ -206,35 +206,35 @@ $
 \int_0^\infty \exp[-x(u-1-\log u)]\,du\\
 &=x^{x+1}e^{-x}J_x.
 \end{aligned}
-$
+$$
 
 $\log u\le u-1$ なので $h(u)\ge0$。従って $0<u\le2$ の積分は2以下です。$u\ge2$ では $h'(u)=1-1/u\ge1/2$ と $h(2)>0$ より $h(u)\ge(u-2)/2$、従って
 
-$
+$$
 J_x\le2+\int_2^\infty e^{-x(u-2)/2}\,du
 =2+\frac2x\le4.
-$
+$$
 
 一方 $0\le y\le1/x$ に対し、$\log(1+y)\ge y-y^2/2$ は両辺の差を微分すれば確かめられるので、$h(1+y)\le y^2/2$ です。従って $u\in[1,1+1/x]$ で $xh(u)\le1/(2x)\le1/2$ となり、
 
-$
+$$
 J_x\ge\int_1^{1+1/x}e^{-xh(u)}\,du
 \ge\frac{e^{-1/2}}x.
-$
+$$
 
 まとめると
 
-$
+$$
 -\log x-\frac12\le\log J_x\le\log4.
-$
+$$
 
 はじめのGamma積分の等式で対数を取り、
 
-$
+$$
 \log\Gamma(x+1)
 =(x+1)\log x-x+\log J_x
 =x\log x-x+O(\log x)
-$
+$$
 
 を得ます。整数 $N\ge1$ に対して $\Gamma(N+1)=N!$ なので最後の主張も成立します。
 <!-- proof-end -->
@@ -318,7 +318,7 @@ $$
 
 $F=U-TS$ も代入すれば確かめられます。次に[対数Gamma関数の漸近評価](#lem-sm5-log-gamma)により
 
-$
+$$
 \log N!=N\log N-N+O(\log N)
 $$
 
@@ -799,7 +799,7 @@ $$
 -\frac{\log N!}{N}+\frac32.
 $$
 
-Stirling式を明示的に代入すると
+[対数Gamma関数の漸近補題](#lem-sm5-log-gamma)を明示的に代入すると
 
 $$
 \begin{aligned}
@@ -812,7 +812,7 @@ $$
 \end{aligned}
 $$
 
-$N!$ を省くと第二項の $-\log N$ がなくなるため、$\log N/(\rho\lambda_T^3)$ に相当する $\log N$ の発散が残ります。密度一定で一粒子当たりのエントロピーが有限になりません。
+$N!$ を省くと第二項の $-\log N$ がなくなるため、$\log N$ の発散が残ります。密度一定で一粒子当たりのエントロピーが有限になりません。
 <!-- solution-end -->
 
 #### B2. 揺らぎの定量評価
@@ -1001,7 +1001,7 @@ $$
 +O\left(\frac{\log N}{N}\right).
 $$
 
-微正準側は $\log\Phi_N$ に対して、$N!$ と $\Gamma(\alpha+1)$ の両方へStirling式を用います。$\alpha=3N/2$ と $E_N/\alpha=k_{\mathrm B}T$ により
+微正準側は $\log\Phi_N$ に対して、[対数Gamma関数の漸近補題](#lem-sm5-log-gamma)を $N!$ と $\Gamma(\alpha+1)$ の両方へ適用します。$\alpha=3N/2$ と $E_N/\alpha=k_{\mathrm B}T$ により
 
 $$
 \begin{aligned}
