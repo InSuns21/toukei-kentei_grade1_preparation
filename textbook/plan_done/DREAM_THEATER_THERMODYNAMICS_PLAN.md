@@ -51,11 +51,10 @@ first / continuous transition、order parameter、magnetic field / magnetization
 - 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、変更章自身の別観点の再査読を行う。別の完了章の追跡監査は、対象章が明示依頼された場合のみ実施する。
 - 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
 
-
 ## 最終クローズ・科目横断監査（2026-10-12）
 
-- **範囲**：TH1〜TH8 の各 \`chapter.yaml\`、\`knowledge.yaml\`、本文の定義・結果の stable anchor・演習ID・Markdown 参照、TH 系列 manifest、公開索引を照合した。各章の主題は TH1 平衡状態、TH2 第一法則、TH3 Carnot と第二法則、TH4 エントロピー、TH5 熱力学ポテンシャル、TH6 安定性・応答、TH7 化学ポテンシャルと相平衡、TH8 Landau 相転移であり、主要結果の担い手が系列内で重複しない。
-- **章間依存**：TH1←MECH1/RA3、TH2←TH1/MECH3/RA3、TH3←TH2/TH1、TH4←TH3/TH2/TH1、TH5←TH4、TH6←TH5、TH7←TH6、TH8←TH7。各章で \`chapter.yaml\` と \`knowledge.yaml\` の直接 prerequisite が一致する。
+- **範囲**：TH1〜TH8 の各 `chapter.yaml`、`knowledge.yaml`、本文の定義・結果の stable anchor・演習ID・Markdown 参照、TH 系列 manifest、公開索引を照合した。各章の主題は TH1 平衡状態、TH2 第一法則、TH3 Carnot と第二法則、TH4 エントロピー、TH5 熱力学ポテンシャル、TH6 安定性・応答、TH7 化学ポテンシャルと相平衡、TH8 Landau 相転移であり、主要結果の担い手が系列内で重複しない。
+- **章間依存**：TH1←MECH1/RA3、TH2←TH1/MECH3/RA3、TH3←TH2/TH1、TH4←TH3/TH2/TH1、TH5←TH4、TH6←TH5、TH7←TH6、TH8←TH7。各章で `chapter.yaml` と `knowledge.yaml` の直接 prerequisite が一致する。
 - **公開導線・参照**：8章が DREAM THEATER 公開索引に掲載され、本文中の Markdown 結果参照114箇所について、参照先10ページと指定された stable anchor の存在を照合し、解決不能0件。結果が実際に援用される位置からの参照も TH8 の追跡監査で点検した。
 - **演習接続**：本文に TH1〜TH8 の演習ID計79件（Level A 40・B 31・C 8）、詳細解答 marker を確認した。各章に A4/B3/C1 以上が存在する。
 - **数学的重点査読**：TH8 の主要証明6件・演習10題を全件検算し、非退化**局所**極小枝の包絡微分を相共存点へ適用できるよう命題・証明を訂正した。再導出例は四次極小の平方完成、六次共存の因数分解、B3 の障壁判定、C1 の潜熱・共存曲線の傾き。TH1〜TH7 の全証明・全解答をこのクローズ作業で改めて独立再証明したとの主張はしない（当該章の完了時査読と今回の**横断**照合を区別）。
