@@ -77,7 +77,23 @@ $$
 \end{aligned}
 $$
 
-期待値を取り、$a,b$ を各infimumへ近付ければ三角不等式になります。零ノルムなら任意の $s>0$ で積分条件が成立し、$P(|X|>t)=0$（全 $t>0$）なので $X=0$ がほとんど確実です。従って有限ノルムの確率変数を、ほとんど確実な等しさで同一視した空間上で本当にノルムです。
+$a,b$ はそれぞれの指数積分条件を満たす正数として選んでいます。$E\Phi_\alpha(|X|/a)\le1$、$E\Phi_\alpha(|Y|/b)\le1$ なので、上の不等式で期待値を取ると
+
+$$
+E\Phi_\alpha\left(\frac{|X+Y|}{a+b}\right)
+\le\frac{a}{a+b}+\frac{b}{a+b}=1.
+$$
+
+従って $E\exp((|X+Y|/(a+b))^\alpha)\le2$ となり、$\|X+Y\|_{\psi_\alpha}\le a+b$ です。適格な $a,b$ をそれぞれのinfimumへ近付けると三角不等式が従います。
+
+零ノルムの検証では、適格な尺度の集合が上に閉じていることから、$\|X\|_{\psi_\alpha}=0$ なら全ての $s>0$ で積分条件が成立します。任意の $t>0$ について非負変数 $e^{(|X|/s)^\alpha}$ に[Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用して
+
+$$
+P(|X|>t)\le2\exp\left(-\frac{t^\alpha}{s^\alpha}\right)\longrightarrow0
+\qquad(s\downarrow0)
+$$
+
+を得ます。従って $X=0$ がほとんど確実です。以上により、有限ノルムの確率変数をほとんど確実な等しさで同一視した空間上で、本当にノルムになっています。
 
 ## 2. sub-Gaussian：尾部・モーメント・指数積分
 
@@ -210,7 +226,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(a) 小さいパラメータ。** Taylorの積分余剰から、全ての実数 $u$ で $e^u\le1+u+\frac12u^2e^{|u|}$ です。$|\lambda|K\le1$ のとき $|\lambda X|\le\frac12+X^2/(2K^2)$ なので、平均零を使って
+**(a) 小さいパラメータ。** まず任意の $u\in\mathbb R$ に対して $h(v)=e^{vu}$（$0\le v\le1$）と置きます。$h(0)=1$、$h'(0)=u$、$h''(v)=u^2e^{vu}$ なので、微分積分の基本定理を二回適用すると
+
+$$
+\begin{aligned}
+e^u
+&=1+u+u^2\int_0^1(1-v)e^{vu}\,dv\\
+&\le1+u+u^2e^{|u|}\int_0^1(1-v)\,dv\\
+&=1+u+\frac12u^2e^{|u|}.
+\end{aligned}
+$$
+
+ここで $|\lambda|K\le1$ とし、$2ab\le a^2+b^2$ を $a=|\lambda|K$、$b=|X|/K$ に使うと
+
+$$
+|\lambda X|\le\frac{\lambda^2K^2}{2}
++\frac{X^2}{2K^2}
+\le\frac12+\frac{X^2}{2K^2}.
+$$
+
+先ほどの指数関数の上界に $u=\lambda X$ を代入し、$E[X]=0$ で一次項を消すと
 
 $$
 E e^{\lambda X}
@@ -272,7 +307,29 @@ $$
 [前節の三条件の同値定理](#thm-hdp3-subgaussian-equivalence)の (II) $\Rightarrow$ (I) に $K=\sqrt2\,\sigma$ を代入すると $\|X\|_{\psi_2}\le\sqrt3\sqrt2\,\sigma$ です。
 <!-- proof-end -->
 
-正規分布は名前のとおりsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$ なら平方完成を使う通常の正規積分から $E e^{\lambda X}=e^{\sigma^2\lambda^2/2}$ です。この式は[中心化sub-Gaussianと全実数の指数モーメント](#thm-hdp3-subgaussian-mgf) の (b) に、同じ $\sigma$ を代入できる条件を与えます。従って、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
+正規分布はsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$（$\sigma>0$）の密度は $(\sqrt{2\pi}\sigma)^{-1}e^{-x^2/(2\sigma^2)}$ です。指数モーメントの被積分関数について、平方完成すると
+
+$$
+\lambda x-\frac{x^2}{2\sigma^2}
+=-\frac{(x-\sigma^2\lambda)^2}{2\sigma^2}
++\frac{\sigma^2\lambda^2}{2}.
+$$
+
+従って、全ての $\lambda\in\mathbb R$ について
+
+$$
+\begin{aligned}
+E e^{\lambda X}
+&=\frac1{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}
+e^{\lambda x-x^2/(2\sigma^2)}\,dx\\
+&=e^{\sigma^2\lambda^2/2}
+\frac1{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}
+e^{-(x-\sigma^2\lambda)^2/(2\sigma^2)}\,dx\\
+&=e^{\sigma^2\lambda^2/2}.
+\end{aligned}
+$$
+
+最後の積分は $y=(x-\sigma^2\lambda)/\sigma$ への変数変換で標準正規密度の全積分 $1$ に戻ります。この式は[中心化sub-Gaussianと全実数の指数モーメント](#thm-hdp3-subgaussian-mgf)の (b) に同じ $\sigma$ を代入できる条件を与えます。従って、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
 
 ## 4. 独立なsub-Gaussian和
 
@@ -315,7 +372,23 @@ P\left(\sum_iX_i\ge t\right)
 \le e^{-\lambda t+2\lambda^2V}.
 $$
 
-$\lambda=t/(4V)$ は指数を最小にし、その値は $-t^2/(8V)$ です。$-X_i$ も平均零で同じ積分条件を満たすので、左裾に同じ評価が成り立ちます。[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)で足せば結論です。
+指数関数は単調増加なので、指数の二次式 $q(\lambda)=-\lambda t+2\lambda^2V$ を $\lambda>0$ で最小化します。$V>0$ から
+
+$$
+q'(\lambda)=-t+4V\lambda=0
+\quad\Longleftrightarrow\quad
+\lambda_*=\frac{t}{4V}>0
+$$
+
+となり、$q''(\lambda)=4V>0$ です。実際に代入すると
+
+$$
+q(\lambda_*)
+=-\frac{t^2}{4V}+\frac{2Vt^2}{16V^2}
+=-\frac{t^2}{8V}.
+$$
+
+$-X_i$ も平均零で同じ積分条件を満たすので、左裾に同じ評価が成り立ちます。[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)で足せば結論です。
 <!-- proof-end -->
 
 **重み付き和への使い方。** 定義から $\|a_iX_i\|_{\psi_2}=|a_i|\|X_i\|_{\psi_2}$ なので、上の定理の $K_i$ を $|a_i|K_i$ に取り換えれば $\sum_i a_iX_i$ を扱えます。零の重みの項は和から除けばよいです。
@@ -354,7 +427,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(I) $\Rightarrow$ (II)。** $t>0$ に対して
+**(I) $\Rightarrow$ (II)。** $t>0$ に対して、非負確率変数 $e^{|X|/K}$ に[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)を適用すると
 
 $$
 P(|X|\ge t)
@@ -410,7 +483,7 @@ $$
 \frac{|X|}{2K}\le\frac{X^2}{4K^2}+\frac14
 $$
 
-です。さらに $z\ge0$ で指数関数の凸性から $e^{z/4}\le(3+e^z)/4$ が成り立つので
+です。さらに $z\ge0$ で指数関数の凸性から $e^{z/4}\le(3+e^z)/4$ が成り立ちます。これを $z=X^2/K^2$ に適用してから期待値を取ると
 
 $$
 \begin{aligned}
@@ -840,7 +913,15 @@ $$
 
 が十分です。同じ $K$ という表記でも、(1) と (2) は異なる指数積分条件を課している点に注意します。
 
-**(3)** $d=1$ とし、一つのRademacher変数 $R$ を全ての $i$ に複製して $Y_{i1}=R$ とします。$K=2$ なら $E e^{|R|/K}=e^{1/2}<2$ で、各変数は平均零です。しかし $\overline Y_1=R$ なので $0<\varepsilon<1$ では
+**(3)** $d=1$ とし、一つのRademacher変数 $R$ を全ての $i$ に複製して $Y_{i1}=R$ とします。$K=2$ なら
+
+$$
+E e^{|R|/K}=e^{1/2}<2,
+\qquad
+E e^{R^2/K^2}=e^{1/4}<2
+$$
+
+です。各変数は平均零であり、(1) のsub-exponential条件だけでなく、(2) のより強いsub-Gaussian条件も満たします。しかし $\overline Y_1=R$ なので $0<\varepsilon<1$ では
 
 $$
 P(|\overline Y_1|\ge\varepsilon)=1
