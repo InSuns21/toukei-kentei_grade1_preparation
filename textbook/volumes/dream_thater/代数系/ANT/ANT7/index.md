@@ -102,10 +102,10 @@ $$
 > **補題（円板のJensen零点数評価）**  
 > $f$ が閉円板 $|z-z_0|\le R$ の近傍で正則であり、$f(z_0)\ne0$、円周上で零点を持たないとする。$0<r<R$ とし、$n(r)$ を $|z-z_0|\le r$ 内の零点数（位数込み）とすれば、
 
-$
+$$
 n(r)\log(R/r)
 \le\log\frac{\max_{|z-z_0|=R}|f(z)|}{|f(z_0)|}.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -117,18 +117,22 @@ $
 
 円板内の零点を $a_1,\ldots,a_m$（重複度込み）とし、$h(z)=f(z)/\prod_{j=1}^m(z-a_j)$ と置きます。$h$ は閉円板の近傍で正則かつ零点を持たないので $\log|h|$ は調和関数です。[調和関数の平均値性質](../../../解析系/CA/CA6/index.md#thm-ca6-harmonic-mean-value-property)から
 
-$
+$$
 \frac1{2\pi}\int_0^{2\pi}\log|h(z_0+Re^{i\theta})|d\theta
 =\log|h(z_0)|.
-$
+$$
 
-$|a_j-z_0|<R$ に対して、$\log|z_0+Re^{i\theta}-a_j|
-=\log R+\operatorname{Re}\log(1-(a_j-z_0)R^{-1}e^{-i\theta})$ です。括弧の対数は $|a_j-z_0|/R<1$ の冪級数で展開でき、各非定数 Fourier 項の平均が零になるため、左辺を平均すると $\log R$ です。$h=f/\prod(z-a_j)$ を代入し直して
+$|a_j-z_0|<R$ に対して、円周上では次の恒等式が成り立ちます。
 
-$
+$$
+\log|z_0+Re^{i\theta}-a_j|
+=\log R+\operatorname{Re}\log(1-(a_j-z_0)R^{-1}e^{-i\theta}).
+$$括弧の対数は $|a_j-z_0|/R<1$ の冪級数で展開でき、各非定数 Fourier 項の平均が零になるため、左辺を平均すると $\log R$ です。$h=f/\prod(z-a_j)$ を代入し直して
+
+$$
 \frac1{2\pi}\int_0^{2\pi}\log|f(z_0+Re^{i\theta})|d\theta-\log|f(z_0)|
 =\sum_{j=1}^m\log\frac{R}{|a_j-z_0|}.
-$
+$$
 
 左辺は $\log(M_R/|f(z_0)|)$ 以下、右辺の $|a_j-z_0|\le r$ にある各項は $\log(R/r)$ 以上であり、ほかの項も非負です。従って表示した不等式が成立します。
 <!-- proof-end -->
