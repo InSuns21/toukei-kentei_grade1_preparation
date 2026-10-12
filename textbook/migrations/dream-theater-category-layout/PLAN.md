@@ -59,7 +59,7 @@ textbook/volumes/dream_thater/<カテゴリー>/<chapter.yaml の id>/index.md
 - [x] 索引監査を旧直下・新カテゴリー配下の両方を発見する構造へ変更した（移行中のみ両方を許容）
 - [x] シリーズルーター検証を category/ID パスの検証に対応させた（既存状態を変えない）
 
-- [ ] カテゴリー別の多段パスを扱える共通 canonical resolver を設ける（索引・系列の実装は移行済みだが共通関数への集約は将来の保守課題）
+- [x] カテゴリー別の多段パスを扱える共通 canonical resolver を設ける（`scripts/lib/dream-theater-chapter-paths.mjs`。数値実験から利用し、ID重複・カテゴリー不一致を検出）
 - [x] dream-theater-index の発見ロジックを全カテゴリーの再帰走査へ変更し、非索引講義・重複登録を検出する
 - [x] series manifest の chapter_root / chapters[].path を多段パス対応にする。未完成講義も系列のカテゴリーへ割り当てる
 - [x] Pages ビルド、ナビゲーション、前提講義リンク、画像パス、stable anchor 検証、変更章の検出が多段階パスを認識する
