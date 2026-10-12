@@ -23,7 +23,7 @@ $$
 =\{F,H\}(x(t))
 $$
 
-となります。[観測量の時間発展](../../SYM/SYM4/index.md#prop-sym4-observables-evolution)を、今回の関数 $F$ に代入した式です。これが恒等的に零なら $F$ は全ての局所解に沿って一定です。
+となります。[観測量の時間発展](../../SYM/SYM4/index.md#prop-sym4-observable-evolution)を、今回の関数 $F$ に代入した式です。これが恒等的に零なら $F$ は全ての局所解に沿って一定です。
 
 <a id="def-int1-first-integral"></a>
 
@@ -287,7 +287,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x\in N_c$ を固定します。$dF_x$ の階数が $n$ なので、局所座標の $n$ 個の方向を選んだ小行列が可逆です。[逆関数定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-inverse-function)をその $n$ 方向と残りの $n$ 座標を合わせた写像へ適用すれば、近傍で $F_1,\ldots,F_n$ 自身を最初の $n$ 個の局所座標にできます。従って $N_c$ は局所的に最初の $n$ 座標を $c$ に固定した集合であり、滑らかな $n$ 次元部分多様体です。その接空間は
+$x\in N_c$ を固定します。$dF_x$ の階数が $n$ なので、局所座標の $n$ 個の方向を選んだ小行列が可逆です。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)をその $n$ 方向と残りの $n$ 座標を合わせた写像へ適用すれば、近傍で $F_1,\ldots,F_n$ 自身を最初の $n$ 個の局所座標にできます。従って $N_c$ は局所的に最初の $n$ 座標を $c$ に固定した集合であり、滑らかな $n$ 次元部分多様体です。その接空間は
 
 $$
 T_xN_c=\ker dF_x
@@ -497,7 +497,7 @@ $$
 
 $$
 \sum_i dq_i\wedge dp_i
-=\sum_{a,b,c}A_{ai}A_{bi}\,dq'_a\wedge dp'_b
+=\sum_{i,a,b}A_{ai}A_{bi}\,dq'_a\wedge dp'_b
 =\sum_a dq'_a\wedge dp'_a.
 $$
 
