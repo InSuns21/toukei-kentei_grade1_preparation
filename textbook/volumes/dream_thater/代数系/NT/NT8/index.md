@@ -485,7 +485,7 @@ $$
 
 ## 7. Dirichlet 級数から Euler 積へ
 
-[Dirichlet 畳み込み](../NT4/index.md#def-nt4-dirichlet-convolution)では、整数の約数に沿って二つの関数を組み合わせました。今度は $n^{-s}$ を重みとする無限和を使います。素因数分解の一意性によって、それは素数ごとの無限積にも変えられます。
+[Dirichlet 畳み込み](../NT4/index.md#def-nt4-dirichlet)では、整数の約数に沿って二つの関数を組み合わせました。今度は $n^{-s}$ を重みとする無限和を使います。素因数分解の一意性によって、それは素数ごとの無限積にも変えられます。
 
 <a id="def-nt8-dirichlet-series"></a>
 
