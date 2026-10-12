@@ -47,6 +47,9 @@ $$
 $\cosh\theta\ge1$ だから $I_2\preceq Ee^{\theta X}$ です。一般の $X$ でも $e^{\theta X}\succ0$ なので、その期待値は正定値になります。実際、$u\ne0$ なら $E[u^{\mathsf T}e^{\theta X}u]>0$ です。
 <!-- definition-example-end -->
 
+**成分ごとの大小関係とは異なる。** 例えば
+$B=\begin{pmatrix}1&2\\2&1\end{pmatrix}$ は全成分が正ですが、$u=(1,-1)^{\mathsf T}$ とすると $u^{\mathsf T}Bu=-2<0$ です。従って $0\preceq B$ とはいえません。Loewner順序を判断するときは、成分の符号でなく**すべての二次形式の符号**を確認します。
+
 確率のイベントへ接続するには、最大固有値が大きいとトレース指数も大きいことを使います。
 
 <a id="lem-hdp8-trace-laplace"></a>
