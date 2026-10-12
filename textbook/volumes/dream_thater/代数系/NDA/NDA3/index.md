@@ -41,7 +41,7 @@ $$
 <a id="prop-nda3-covolume-independent"></a>
 
 <!-- formal-statement-start -->
-> **命題（共体積の基底不変性と格子点の局所有限性）**  
+> **命題（共体積の基底不変性）**  
 > $A,B\in GL_n(\mathbb R)$ が $A\mathbb Z^n=B\mathbb Z^n$ を満たすなら
 $$
 |\det A|=|\det B|.
@@ -422,7 +422,7 @@ $$
 <!-- solution-end -->
 
 **NDA3-A3（等号と閉性）**  
-$\Lambda=\mathbb Z^2$、$K=[-1,1]^2$ でMinkowskiの定理の体積条件が等号になることを確かめ、対応する開正方形では何が変わるか説明してください。
+$\Lambda=\mathbb Z^2$、$K=[-1,1]^2$ で[Minkowskiの凸体定理](#thm-nda3-minkowski)の体積条件が等号になることを確かめ、対応する開正方形では何が変わるか説明してください。
 
 - Level: A
 
