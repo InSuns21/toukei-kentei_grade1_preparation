@@ -475,7 +475,7 @@ $$
 
 ### 証明の見取り図
 
-$\Phi_N$ を微分したエネルギー殻の密度へBoltzmann因子を掛けて正規化します。Gamma積分の一階・二階の比から平均と分散を再計算し、最後はChebyshev不等式を適用します。
+$\Phi_N$ を微分したエネルギー殻の密度へBoltzmann因子を掛けて正規化します。Gamma積分の一階・二階の比から平均と分散を再計算し、最後は[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -517,7 +517,7 @@ $$
 =\frac{\alpha}{\beta^2}.
 $$
 
-よって $H_N/N$ の分散は $\alpha/(N^2\beta^2)=3(k_{\mathrm B}T)^2/(2N)$ です。Chebyshev不等式を $H_N/N$ に適用すれば表示した上界となります。
+よって $H_N/N$ の分散は $\alpha/(N^2\beta^2)=3(k_{\mathrm B}T)^2/(2N)$ です。[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を $H_N/N$ に適用すれば表示した上界となります。
 <!-- proof-end -->
 
 <a id="thm-sm5-ensemble-equivalence"></a>
@@ -647,7 +647,7 @@ $$
 $N^2=N(N-1)+N$ なので $\operatorname{Var}(N)=a^2+a-a^2=a$。$z=\rho\lambda_T^3$ なら $a=\rho V$ であり、$\mathbb E[N/V]=a/V=\rho$、分散は $a/V^2=\rho/V$ です。最後の式は $\log\Xi=a$ の代入です。
 <!-- proof-end -->
 
-$N/V$ はChebyshev不等式により $\rho$ へ確率収束します。一方、固定 $N$ の正準模型で $V=N/\rho$ としたときと、大正準模型で $z=\rho\lambda_T^3$ としたときの巨視的圧力は、どちらも $\rho k_{\mathrm B}T$ です。ただし粒子数の分布は当然同一ではありません。
+$N/V$ は[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)により $\rho$ へ確率収束します。一方、固定 $N$ の正準模型で $V=N/\rho$ としたときと、大正準模型で $z=\rho\lambda_T^3$ としたときの巨視的圧力は、どちらも $\rho k_{\mathrm B}T$ です。ただし粒子数の分布は当然同一ではありません。
 
 ## 7. 演習：積分から極限まで検算する
 
@@ -856,7 +856,7 @@ $$
 =\frac1\alpha=\frac{2}{3N}.
 $$
 
-Chebyshev不等式は指定した事象の確率を $2/(3N\delta^2)$ 以下と評価します。ただし厳密なエネルギー面は正準分布では確率0、面上の微正準分布では確率1です。集中は測度全体の全変動収束を意味しません。
+[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)は指定した事象の確率を $2/(3N\delta^2)$ 以下と評価します。ただし厳密なエネルギー面は正準分布では確率0、面上の微正準分布では確率1です。集中は測度全体のすべての事象について確率差が一様に消えることを意味しません。
 <!-- solution-end -->
 
 #### B3. 大正準理想気体の粒子数
