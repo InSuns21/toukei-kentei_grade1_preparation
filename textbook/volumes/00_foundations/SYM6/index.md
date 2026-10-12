@@ -224,7 +224,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Lagrange部分多様体）**  
-> $(M,\omega)$ を $2n$ 次元シンプレクティック多様体、$L\subset M$ を滑らかな埋め込み部分多様体とする。$L$ が **Lagrange部分多様体** であるとは、$\dim L=n$ かつ包含写像 $i:L\hookrightarrow M$ について $i^*\omega=0$ が成り立つことをいう。同値に全ての $x\in L$ について
+> $(M,\omega)$ を $2n$ 次元シンプレクティック多様体、$L\subset M$ を滑らかな埋め込み部分多様体とする。
+> 包含写像を $i:L\hookrightarrow M$ とするとき、$L$ が **Lagrange部分多様体** であるとは次の二条件が成立することをいう。
+>
+> $$
+> \dim L=n,\qquad i^*\omega=0.
+> $$
+>
+> 同値に全ての $x\in L$ について
 >
 > $$
 > T_xL=(T_xL)^{\omega_x}
@@ -262,7 +269,15 @@ DF_{(q,p)}=
 \begin{pmatrix}0&I_n\end{pmatrix}.
 $$
 
-どの点でも階数が $n$ なので、$F^{-1}(0)$ は埋め込み $n$ 次元部分多様体です。ここではパラメータ表示も明示できました。これに対し $p_1^2+\cdots+p_n^2=0$ を「一本の方程式だから余次元1」と判断するのは誤りです。零点上でその微分が零になり、正則値定理の階数条件が満たされないからです。
+どの点でも $DF$ の階数は $n$ です。従って $F^{-1}(0)$ は埋め込み $n$ 次元部分多様体となり、先のパラメータ表示とも整合します。
+
+これに対して方程式
+
+$$
+p_1^2+\cdots+p_n^2=0
+$$
+
+を「一本の方程式だから余次元1」と判断するのは誤りです。零点上では左辺の微分が零となるため、正則値定理の階数条件を使えません。
 
 ## 4. 余接束の零切断と1形式のグラフ
 
@@ -345,7 +360,9 @@ s_\alpha^*\omega_{\mathrm{can}}
 \end{aligned}
 $$
 
-$s_\alpha$ は $\Gamma_\alpha$ への微分同相なので、$\Gamma_\alpha$ 上で $\omega_{\mathrm{can}}$ が消える条件は $d\alpha=0$ と同値です。次元はすでに $n$ と確認しているため、[Lagrange部分多様体の定義](#def-sym6-lagrangian-submanifold)から必要十分性を得ます。
+$s_\alpha$ は $\Gamma_\alpha$ への微分同相です。従ってグラフ上で $\omega_{\mathrm{can}}$ が零となることは、引き戻しで $d\alpha=0$ となることと同値です。
+
+グラフの次元はすでに $n$ と確認しました。この二条件を[Lagrange部分多様体の定義](#def-sym6-lagrangian-submanifold)に照合して、必要十分性が得られます。
 
 零切断は $\alpha=0$ の場合です。$\alpha=df$ なら[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)で $d\alpha=d(df)=0$ です。
 <!-- proof-end -->
@@ -390,7 +407,23 @@ s_\alpha^*\omega_{\mathrm{can}}
 \end{aligned}
 $$
 
-従って傾きの行列 $Da=(\partial_j a_i)$ が対称となることが閉性です。閉1形式は[局所Poincaréの補題](../GEO9/index.md#thm-geo9-poincare-lemma)により座標球の上では $\alpha=df$ と書けます。しかし**大域的には閉形式が必ずしも完全形式ではありません**。例えば円周 $S^1$ の局所角度座標 $t$ による1形式 $dt$ は、角度を $2\pi$ 進めても同じ点に戻るため大域的な実数値角度関数の微分ではありません。円周上では1形式は自動的に閉じ、周期を一周する積分が $2\pi$ なので、もし $dt=df$ なら積分は $f(\text{終点})-f(\text{始点})=0$ となって矛盾します。
+従って傾きの行列 $Da=(\partial_j a_i)$ が対称となることが閉性です。[局所Poincaréの補題](../GEO9/index.md#thm-geo9-poincare-lemma)は、座標球上の閉1形式なら $\alpha=df$ と書けることを保証します。
+
+しかし**大域的には閉形式が必ずしも完全形式ではありません**。円周 $S^1$ を $\mathbb R/(2\pi\mathbb Z)$ と表し、局所角度座標を $t$ とします。座標の取り替えは $t\mapsto t+2\pi k$ なので、局所1形式 $dt$ は変わらず大域的な1形式を定めます。円周は一次元なのでこの形式は閉じています。
+
+一周する閉曲線に沿った積分を計算すると
+
+$$
+\oint_{S^1}dt=\int_0^{2\pi}1\,dt=2\pi
+$$
+
+です。もしこの1形式が大域的な滑らかな実数値関数 $f$ の微分であるなら、始点と終点は同じ点なので
+
+$$
+\oint_{S^1}df=f(\text{終点})-f(\text{始点})=0
+$$
+
+となり矛盾します。よって閉1形式のグラフは大域的な関数の微分によるグラフとは限りません。
 
 ## 5. 余法束もLagrangeになる
 
@@ -425,7 +458,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（埋め込み部分多様体の余法束はLagrange）**  
-> $Q$ を $n$ 次元滑らかな多様体、$S\subset Q$ を滑らかな埋め込み $k$ 次元部分多様体（$0\le k\le n$）とする。$N^*S$ は $T^*Q$ の滑らかな埋め込み $n$ 次元部分多様体で、正準シンプレクティック形式 $\omega_{\mathrm{can}}=-d\theta$ に関してLagrangeである。
+> $Q$ を $n$ 次元滑らかな多様体とし、$S\subset Q$ を滑らかな埋め込み部分多様体とする。その次元を $k$（$0\le k\le n$）とする。
+> このとき余法束 $N^*S\subset T^*Q$ は滑らかな埋め込み $n$ 次元部分多様体となる。さらに正準シンプレクティック形式
+>
+> $$
+> \omega_{\mathrm{can}}=-d\theta
+> $$
+>
+> に関してLagrangeである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -456,7 +496,15 @@ v^1=\cdots=v^{n-k}=0,
 p_{u_1}=\cdots=p_{u_k}=0.
 $$
 
-その制約写像のJacobianは $(v,p_u)$ 方向に単位行列を含み、階数が $(n-k)+k=n$ です。また直接パラメータ $(u,p_v)$ を与えられるので、$N^*S$ は局所的に滑らかな埋め込み $n$ 次元部分多様体です。余法束の局所自明化が重なるところで同じ消滅条件を定めるため、この構造は貼り合います。
+その制約写像のJacobianは、$(v,p_u)$ に対応する $n$ 個の変数の列に単位行列を含みます。従ってその階数は
+
+$$
+(n-k)+k=n
+$$
+
+です。また自由変数 $(u,p_v)$ が直接パラメータを与えるため、$N^*S$ は局所的に滑らかな埋め込み $n$ 次元部分多様体です。
+
+余法束の局所自明化は重なりでも同じ消滅条件を定めるため、この局所構造は貼り合います。
 
 [正準1形式の座標表示](../SYM3/index.md#prop-sym3-liouville-coordinate)は
 
@@ -465,7 +513,15 @@ $$
 \sum_{b=1}^{n-k}p_{v_b}\,dv^b
 $$
 
-です。$N^*S$ に沿う接ベクトルでは $p_{u_a}=0$ であり、$v^b$ は常に零なので $dv^b$ も零となります。従って包含 $j:N^*S\hookrightarrow T^*Q$ で $j^*\theta=0$。ここに[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を適用して
+です。これを $N^*S$ へ制限します。各接ベクトルに対して、$p_{u_a}=0$ なので第一の和は消えます。また $v^b$ は余法束の基点上で常に零ですから、その接方向では $dv^b=0$ となり、第二の和も消えます。
+
+従って包含写像 $j:N^*S\hookrightarrow T^*Q$ に対して
+
+$$
+j^*\theta=0.
+$$
+
+ここに[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を適用すると
 
 $$
 j^*\omega_{\mathrm{can}}
@@ -775,7 +831,15 @@ $$
 
 ここで $d\alpha=dq^2\wedge dq^1+dq^1\wedge dq^2=0$ なので保存されます。これは[SYM3の平行移動判定](../SYM3/index.md#thm-sym3-translation-criterion)とも一致します。
 
-**(3)**　零切断 $p=0$ は[SYM3の零切断の命題](../SYM3/index.md#prop-sym3-zero-section-fibers)および[グラフ判定](#thm-sym6-graph-criterion)からLagrangeです。その像は $p_1=q^2,p_2=q^1$ のグラフです。$d\alpha=0$ を使った[グラフ判定](#thm-sym6-graph-criterion)で直接Lagrangeと判定できます。また(2)で $T_\alpha$ がシンプレクティック微分同相となったので、[シンプレクティック微分同相によるLagrange性の保存](#prop-sym6-symplectic-image)からも同じ結論です。
+**(3)**　零切断 $p=0$ は[SYM3の零切断の命題](../SYM3/index.md#prop-sym3-zero-section-fibers)および[グラフ判定](#thm-sym6-graph-criterion)からLagrangeです。その $T_\alpha$ による像は
+
+$$
+p_1=q^2,\qquad p_2=q^1
+$$
+
+で定まるグラフです。$d\alpha=0$ を使った[グラフ判定](#thm-sym6-graph-criterion)により、この像も直接Lagrangeと判定できます。
+
+別の方法として、(2)で $T_\alpha$ はシンプレクティック微分同相と分かりました。[シンプレクティック微分同相によるLagrange性の保存](#prop-sym6-symplectic-image)を零切断に適用しても同じ結論です。
 
 **(4)**　$\beta=q^1dq^2$ なら $d\beta=dq^1\wedge dq^2$ です。従って
 
