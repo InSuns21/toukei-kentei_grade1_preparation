@@ -704,6 +704,28 @@ $$
 二階微分は $G_{TT}=-a$、$G_{Tp}=0$、$G_{pp}=-b/(4p^{3/2})$。先頭の対角成分は負、行列式は $ab/(4p^{3/2})>0$ なのでHessianは負定値です。$V$ が $T$ に依存しないため $\alpha=0$ であり、[熱容量差](#thm-th6-heat-capacity-difference)から $C_V=C_p$ です。
 <!-- solution-end -->
 
+#### B5. 大域凸性を二次形式から証明する
+
+$U(S,V)=aS^2+bV^2+cSV$（$a,b>0$、$c\in\mathbb R$）を凸領域 $\mathbb R^2$ 上の数学的模型とする。$4ab>c^2$ のときHessianが正定値であることを確認し、任意の二状態 $x,y$ に対する支持平面の不等式を具体的に証明せよ。
+
+- Level: B
+- ID: TH6-B5
+
+<!-- solution-start -->
+**詳細解答**　偏微分から $H_U=\begin{pmatrix}2a&c\\c&2b\end{pmatrix}$ です。$2a>0$、$\det H_U=4ab-c^2>0$ により正定値です。$x=(S,V)$、$y=(S+\Delta S,V+\Delta V)$ と置き、二次式を直接展開すると
+
+$$
+\begin{aligned}
+U(y)-U(x)-\nabla U(x)\cdot(y-x)
+&=a(\Delta S)^2+c\Delta S\Delta V+b(\Delta V)^2\\
+&=a\left(\Delta S+\frac c{2a}\Delta V\right)^2
++\left(b-\frac{c^2}{4a}\right)(\Delta V)^2.
+\end{aligned}
+$$
+
+$a>0$、$b-c^2/(4a)>0$ なので右辺は非負、$x\ne y$ なら正です。[大域凸性の命題](#prop-th6-global-convexity)の支持平面不等式をこの模型で直接確かめました。$T>0$ など熱力学上の許容領域を指定していないため、この問題は凸性という数学的構造の検算です。
+<!-- solution-end -->
+
 ### Level C：基本関係・測定量・安定性の統合
 
 #### C1. 体積依存を持つ滑らかな模型
