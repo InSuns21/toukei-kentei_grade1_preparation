@@ -232,3 +232,61 @@ $$
 
 **例**：$m=4$ では $\binom84=70$、$(4,8]$ の素数は $5,7$ です。$35=5\cdot7\mid70$ なので $\theta(8)-\theta(4)=\log35\le\log70$ を確認できます。
 
+<a id="thm-nt8-chebyshev-upper"></a>
+
+<!-- formal-statement-start -->
+> **定理（Chebyshev 型の上界）**  
+> すべての $x\ge2$ に対して
+>
+$$
+\theta(x)\le5x\log2,\qquad
+\pi(x)\le(1+10\log2)\frac{x}{\log x}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+[二項係数の補題](#lem-nt8-binomial-bounds)を、上限を半分にするたびに繰り返します。$\pi$ は $\sqrt x$ 以下の素数とそれより大きい素数を分けて評価します。
+
+<!-- proof-start -->
+### 証明
+
+$m=\lfloor x\rfloor\ge2$ とし、$m_0=m$、$m_{j+1}=\lceil m_j/2\rceil$ と定め、初めて $m_t\le2$ となる $t$ を取ります。$m_j\ge3$ なら真に減少し、$t\le\lceil\log_2m\rceil$ です。
+
+$m_j\le2m_{j+1}$ なので、[補題](#lem-nt8-binomial-bounds)を $m_{j+1}$ に適用して
+$$
+\theta(m_j)-\theta(m_{j+1})
+\le\theta(2m_{j+1})-\theta(m_{j+1})
+\le2m_{j+1}\log2.
+$$
+$m_{j+1}\le(m_j+1)/2$ を繰り返すと、帰納的に $m_j\le(m-1)/2^j+1$ です。よって
+$$
+\sum_{j=1}^t2m_j
+\le2(m-1)\sum_{j=1}^t2^{-j}+2t
+\le2m+2t.
+$$
+$\theta(m_t)\le\theta(2)=\log2$ と $t\le\lceil\log_2m\rceil\le m$ を使い、望遠鏡和で
+$$
+\theta(x)=\theta(m)
+\le(2m+2t+1)\log2
+\le(4m+1)\log2\le5x\log2.
+$$
+
+$p\le\sqrt x$ の素数は高々 $\sqrt x$ 個です。$\sqrt x<p\le x$ なら $\log p>\frac12\log x$ なので、その個数を $R$ として
+$$
+\frac12R\log x
+<\sum_{\sqrt x<p\le x}\log p
+\le\theta(x).
+$$
+従って
+$$
+\pi(x)\le\sqrt x+\frac{2\theta(x)}{\log x}
+\le\sqrt x+10\log2\,\frac{x}{\log x}.
+$$
+$x\ge2$ では $\log x\le\sqrt x$ です。実際 $u=\sqrt x$ とすれば $u-2\log u$ の最小値は $u=2$ における $2-2\log2>0$ です。よって $\sqrt x\le x/\log x$ を代入して結論を得ます。
+<!-- proof-end -->
+
+この定理は $\pi(x)$ が $x/\log x$ の定数倍より大きくならないことを示します。しかし下側の評価も必要です。
+
