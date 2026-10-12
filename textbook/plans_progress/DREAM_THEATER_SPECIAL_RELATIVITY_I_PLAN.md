@@ -6,7 +6,7 @@
 
 ## 中心問い・直接前提
 
-線形代数・微積分・MECH・EMAG・TH1（状態方程式の概念）。
+線形代数・微積分・MECH・EMAG・TH1（状態方程式の概念）・VC4（発散定理）。
 
 **canonical owner：** Minkowski時空・Lorentz変換と相対論的場。
 
