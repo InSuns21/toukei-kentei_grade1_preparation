@@ -447,8 +447,8 @@ $X=V_{\mathbb C}(x(y-x)(y+x))\subset\mathbb C^2$ とする。
 $$
 X=L_0\cup L_+\cup L_-,
 \quad
-L_0=V(x),\
-L_+=V(y-x),\
+L_0=V(x),\qquad
+L_+=V(y-x),\qquad
 L_-=V(y+x).
 $$
 
