@@ -1,0 +1,57 @@
+chapter: NDA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA2
+forward_references: []
+
+concepts:
+  - id: diophantine.irrationality-exponent
+    name: 無理性指数
+    aliases: [irrationality exponent]
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（無理性指数）]
+    requires: []
+
+  - id: diophantine.exponent-quantifiers
+    name: 指数の量化と上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（指数の量化と上下界）]
+    requires: [diophantine.irrationality-exponent]
+
+  - id: diophantine.exponent-dirichlet-bound
+    name: 無理性指数の普遍下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無理性指数の普遍下界）]
+    requires: [diophantine.irrationality-exponent, number-theory.convergent-error]
+
+  - id: diophantine.sqrt2-exponent
+    name: 平方根2の無理性指数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平方根2の無理性指数）]
+    requires: [diophantine.exponent-dirichlet-bound]
+
+  - id: diophantine.badly-approximable-exponent
+    name: 悪近似数の無理性指数
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（悪近似数の無理性指数）]
+    requires: [diophantine.exponent-dirichlet-bound, diophantine.badly-approximable-number, diophantine.bounded-partial-quotients]
+
+  - id: diophantine.convergent-block-error
+    name: 収束分数の誤差と分母区間
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（収束分数の誤差と分母区間）]
+    requires: [diophantine.exact-approximation-constant, number-theory.second-kind-best-approximation]
+
+  - id: diophantine.exponent-denominator-growth
+    name: 無理性指数の連分数表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無理性指数の連分数表示）]
+    requires: [diophantine.irrationality-exponent, diophantine.convergent-block-error]
