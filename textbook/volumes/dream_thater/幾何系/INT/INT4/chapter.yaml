@@ -1,0 +1,51 @@
+id: "INT4"
+title: "近可積分Hamilton系と小分母"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - SYM4
+  - FOU1
+  - FOU2
+official_scope: []
+learning_objectives:
+  - 作用角変数上の近可積分Hamilton系を定義してHamilton方程式を導出できる
+  - Fourier係数と角度平均から一次ホモロジー方程式を作れる
+  - 有限Fourier和の非共鳴解と共鳴による可解性障害を証明できる
+  - 無理数振動数に小分母が存在することを鳩の巣原理で証明できる
+  - Diophantine条件と具体的な二次無理数の評価を説明できる
+  - Fourier減衰と格子点の計数から正則性損失を導ける
+  - 単一共鳴モードの永年項を厳密解から導出できる
+definitions:
+  - { id: INT4-DEF-01, name: 近可積分Hamilton系 }
+  - { id: INT4-DEF-02, name: 角度平均とFourierモード }
+  - { id: INT4-DEF-03, name: 一次ホモロジー方程式 }
+  - { id: INT4-DEF-04, name: 整数共鳴と非共鳴振動数 }
+  - { id: INT4-DEF-05, name: Diophantine振動数 }
+theorems:
+  - { id: INT4-PROP-01, name: 有限Fourier和のホモロジー方程式 }
+  - { id: INT4-THM-01, name: 無理数振動数には任意に小さい分母がある }
+  - { id: INT4-PROP-02, name: 小分母による微分階数の損失 }
+  - { id: INT4-PROP-03, name: 単一Fourierモードの永年項 }
+canonical_examples:
+  - 弱く結合した二振動子
+  - 二周波の有限ホモロジー方程式
+  - 有理比共鳴と厳密な永年項
+  - 二次無理数のDiophantine下界
+  - Fourier係数の微分階数損失評価
+problem_patterns:
+  - INT4-HAMILTON-EQUATIONS
+  - INT4-FOURIER-HOMOLOGICAL
+  - INT4-EXACT-RESONANCE
+  - INT4-DIOPHANTINE-EXAMPLE
+  - INT4-FINITE-MODES
+  - INT4-DIRICHLET-PIGEONHOLE
+  - INT4-FOURIER-SMOOTHNESS-LOSS
+  - INT4-RESONANT-AVERAGING
+  - INT4-SECULAR-EXACT-SOLUTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 3 }

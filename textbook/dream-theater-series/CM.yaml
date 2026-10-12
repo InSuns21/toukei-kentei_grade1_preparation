@@ -21,7 +21,7 @@ chapters:
     title: "基礎となる実多様体と概複素構造J"
   - id: CM1-04
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-04
-    status: planned
+    status: completed
     title: "(1,0)・(0,1)接空間への複素化分解"
   - id: CM1-05
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-05

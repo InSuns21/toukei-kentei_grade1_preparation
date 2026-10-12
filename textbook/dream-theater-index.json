@@ -458,6 +458,7 @@
         "textbook/volumes/dream_thater/幾何系/CM/CM1-01/index.md",
         "textbook/volumes/dream_thater/幾何系/CM/CM1-02/index.md",
         "textbook/volumes/dream_thater/幾何系/CM/CM1-03/index.md",
+        "textbook/volumes/dream_thater/幾何系/CM/CM1-04/index.md",
         "textbook/volumes/dream_thater/幾何系/SYM/SYM1/index.md",
         "textbook/volumes/dream_thater/幾何系/SYM/SYM2/index.md",
         "textbook/volumes/dream_thater/幾何系/SYM/SYM3/index.md",
@@ -476,7 +477,8 @@
         "textbook/volumes/dream_thater/幾何系/GMECH/GMECH8/index.md",
         "textbook/volumes/dream_thater/幾何系/INT/INT1/index.md",
         "textbook/volumes/dream_thater/幾何系/INT/INT2/index.md",
-        "textbook/volumes/dream_thater/幾何系/INT/INT3/index.md"
+        "textbook/volumes/dream_thater/幾何系/INT/INT3/index.md",
+        "textbook/volumes/dream_thater/幾何系/INT/INT4/index.md"
       ]
     },
     {
@@ -510,11 +512,13 @@
         "textbook/volumes/dream_thater/代数系/NT/NT10/index.md",
         "textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md",
         "textbook/volumes/dream_thater/代数系/NDA/NDA2/index.md",
+        "textbook/volumes/dream_thater/代数系/NDA/NDA3/index.md",
         "textbook/volumes/dream_thater/代数系/ANT/ANT1/index.md",
         "textbook/volumes/dream_thater/代数系/ANT/ANT2/index.md",
         "textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md",
         "textbook/volumes/dream_thater/代数系/ANT/ANT4/index.md",
         "textbook/volumes/dream_thater/代数系/ANT/ANT5/index.md",
+        "textbook/volumes/dream_thater/代数系/ANT/ANT6/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-02/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-03/index.md",
@@ -532,6 +536,7 @@
         "textbook/volumes/dream_thater/代数系/AG/AG2-03/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG2-04/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG2-05/index.md",
+        "textbook/volumes/dream_thater/代数系/AG/AG2-06/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE1/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE2/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE3/index.md",

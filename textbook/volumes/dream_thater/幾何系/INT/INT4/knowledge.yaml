@@ -1,0 +1,76 @@
+chapter: INT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - SYM4
+  - FOU1
+  - FOU2
+forward_references: []
+
+concepts:
+  - id: integrable.near-integrable-hamiltonian
+    name: 近可積分Hamilton系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近可積分Hamilton系）"]
+    aliases: []
+    requires: [integrable.action-angle]
+  - id: integrable.angle-fourier-mean
+    name: 角度平均とFourierモード
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（角度平均とFourierモード）"]
+    aliases: []
+    requires: [integrable.near-integrable-hamiltonian]
+  - id: integrable.first-homological-equation
+    name: 一次ホモロジー方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次ホモロジー方程式）"]
+    aliases: []
+    requires: [integrable.angle-fourier-mean]
+  - id: integrable.integer-resonance
+    name: 整数共鳴と非共鳴振動数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数共鳴と非共鳴振動数）"]
+    aliases: []
+    requires: [integrable.first-homological-equation]
+  - id: integrable.finite-homological-solvability
+    name: 有限Fourier和のホモロジー方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限Fourier和のホモロジー方程式）"]
+    aliases: []
+    requires: [integrable.first-homological-equation, integrable.integer-resonance]
+  - id: integrable.irrational-small-divisors
+    name: 無理数振動数には任意に小さい分母がある
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無理数振動数には任意に小さい分母がある）"]
+    aliases: []
+    requires: [integrable.integer-resonance]
+  - id: integrable.diophantine-frequency
+    name: Diophantine振動数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Diophantine振動数）"]
+    aliases: []
+    requires: [integrable.irrational-small-divisors]
+  - id: integrable.fourier-regularity-loss
+    name: 小分母による微分階数の損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（小分母による微分階数の損失）"]
+    aliases: []
+    requires: [integrable.diophantine-frequency, integrable.first-homological-equation]
+  - id: integrable.single-mode-secular-term
+    name: 単一Fourierモードの永年項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単一Fourierモードの永年項）"]
+    aliases: []
+    requires: [integrable.integer-resonance, integrable.near-integrable-hamiltonian]

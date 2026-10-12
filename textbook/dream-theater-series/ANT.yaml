@@ -4,7 +4,7 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1〜ANT5 完了。次章は先頭の planned (ANT6)。
+# ANT1〜ANT6 完了。次章は先頭の planned (ANT7)。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
@@ -29,7 +29,7 @@ chapters:
     title: ζ'/ζとvon Mangoldt関数
   - id: ANT6
     path: textbook/volumes/dream_thater/代数系/ANT/ANT6
-    status: planned
+    status: completed
     title: Re s=1の零点不存在と素数定理
   - id: ANT7
     path: textbook/volumes/dream_thater/代数系/ANT/ANT7

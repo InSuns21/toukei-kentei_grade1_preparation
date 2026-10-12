@@ -655,6 +655,7 @@
 1. [CM1-01 複素座標と高次元正則アトラス](textbook/volumes/dream_thater/幾何系/CM/CM1-01/index.md)
 2. [CM1-02 複素多様体間の正則写像と座標不変性](textbook/volumes/dream_thater/幾何系/CM/CM1-02/index.md)
 3. [CM1-03 基礎となる実多様体と概複素構造J](textbook/volumes/dream_thater/幾何系/CM/CM1-03/index.md)
+4. [CM1-04 (1,0)・(0,1)接空間への複素化分解](textbook/volumes/dream_thater/幾何系/CM/CM1-04/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -686,6 +687,7 @@
 1. [INT1 第一積分とLiouville可積分性](textbook/volumes/dream_thater/幾何系/INT/INT1/index.md)
 2. [INT2 Liouville–Arnoldの定理](textbook/volumes/dream_thater/幾何系/INT/INT2/index.md)
 3. [INT3 作用角変数](textbook/volumes/dream_thater/幾何系/INT/INT3/index.md)
+4. [INT4 近可積分Hamilton系と小分母](textbook/volumes/dream_thater/幾何系/INT/INT4/index.md)
 
 ## 代数系
 
@@ -728,6 +730,7 @@
 
 1. [NDA1 連分数と最良有理近似の精密化](textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md)
 2. [NDA2 Dirichlet・Hurwitz・悪近似数](textbook/volumes/dream_thater/代数系/NDA/NDA2/index.md)
+3. [NDA3 数の幾何と同時Diophantine近似](textbook/volumes/dream_thater/代数系/NDA/NDA3/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
@@ -737,6 +740,7 @@
 3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
 4. [ANT4 算術級数中の素数に関するDirichletの定理](textbook/volumes/dream_thater/代数系/ANT/ANT4/index.md)
 5. [ANT5 ζ'/ζとvon Mangoldt関数](textbook/volumes/dream_thater/代数系/ANT/ANT5/index.md)
+6. [ANT6 Re s=1の零点不存在と素数定理](textbook/volumes/dream_thater/代数系/ANT/ANT6/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
@@ -763,6 +767,7 @@
 3. [AG2-03 射影射・Veronese写像・Segre写像](textbook/volumes/dream_thater/代数系/AG/AG2-03/index.md)
 4. [AG2-04 射影曲線と次数・Bézoutの例](textbook/volumes/dream_thater/代数系/AG/AG2-04/index.md)
 5. [AG2-05 構造層と貼り合わせ](textbook/volumes/dream_thater/代数系/AG/AG2-05/index.md)
+6. [AG2-06 可逆層とO(d)](textbook/volumes/dream_thater/代数系/AG/AG2-06/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
