@@ -35,5 +35,5 @@ chapters:
     title: 電気ネットワークと有効抵抗
   - id: SGT8
     path: textbook/volumes/dream_thater/計算系/SGT/SGT8
-    status: planned
+    status: completed
     title: 点群グラフ・連続極限との境界・総合演習

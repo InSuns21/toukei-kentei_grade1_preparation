@@ -2,7 +2,7 @@
 
 [GMECH2の運動量写像](../GMECH2/index.md#def-gmech2-hamiltonian-action)は、群作用の無限小生成子 $\xi_M$ と関数 $J_\xi=\langle J,\xi\rangle$ を結び付けました。並進に対して線形運動量、回転に対して角運動量が現れます。しかし「運動量写像が存在する」というだけで、これらが**時間発展で保存される**わけではありません。何が追加で必要なのでしょうか。
 
-鍵は、運動を決めるHamiltonian $H$ が、その群作用によって変わらないことです。[SYM4の観測量の時間発展式](../../SYM/SYM4/index.md#prop-sym4-observable-evolution)と運動量写像を組み合わせると、運動方程式を解かずに保存量を読み取れます。ここではこの関係を **幾何学的Noetherの定理** として、符号、時間の定義域、群の連結性を区別しながら証明します。
+鍵は、運動を決めるHamiltonian $H$ が、その群作用によって変わらないことです。[SYM4の観測量の時間発展式](../../SYM/SYM4/index.md#prop-sym4-observable-evolution)と運動量写像を組み合わせると、運動方程式を解かずに保存量を読み取れます。ここでは対称性から保存量が得られる仕組みを、符号、時間の定義域、群の連結性を区別しながら証明します。
 
 ## 1. 対称性をHamiltonianの条件へ翻訳する
 
@@ -62,7 +62,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（無限小不変性と単位連結成分）**  
-> 有限次元実Lie群 $G$ が滑らかな多様体 $M$ に左作用し、$H\in C^\infty(M)$ とする。$H$ が $G$ 不変なら無限小不変である。逆に無限小不変なら、単位元を含む連結成分 $G^\circ$ のすべての $g$ に対して $H(g\cdot m)=H(m)$ が成立する。特に $G$ が連結なら両条件は同値である。
+> 有限次元実Lie群 $G$ が滑らかな多様体 $M$ に左作用し、$H\in C^\infty(M)$ とする。$H$ が $G$ 不変なら無限小不変である。
+>
+> 逆に無限小不変なら、単位元を含む連結成分 $G^\circ$ のすべての $g\in G^\circ$ と $m\in M$ に対して
+
+$$
+H(g\cdot m)=H(m)
+$$
+
+> が成り立つ。特に $G$ が連結なら両条件は同値である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -226,7 +234,7 @@ Noetherの証明に現れた等式は、負号こそありますが**等号**な
 <!-- proof-start -->
 ### 証明
 
-[Noetherの定理](#thm-gmech3-geometric-noether)の証明で得た点ごとの等式を、仮定なしで用いると
+[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)の証明で得た点ごとの等式を、仮定なしで用いると
 
 $$
 \{J_\xi,H\}(m)=-dH_m(\xi_M(m))
@@ -260,7 +268,7 @@ $$
 J(q,p)=p,\qquad J_\xi(q,p)=p^{\mathsf T}\xi.
 $$
 
-自由粒子 $H(q,p)=|p|^2/(2m_0)$ は $q$ に依存しないので全並進に不変です。[Noetherの定理](#thm-gmech3-geometric-noether)によって $p$ のすべての成分が保存します。正準座標でも
+自由粒子 $H(q,p)=|p|^2/(2m_0)$ は $q$ に依存しないので全並進に不変です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)によって $p$ のすべての成分が保存します。正準座標でも
 
 $$
 \dot q^i=\frac{\partial H}{\partial p_i}=\frac{p_i}{m_0},
@@ -302,7 +310,7 @@ $$
 H=\frac{p_x^2+p_y^2}{2m_0}+V(x^2+y^2)
 $$
 
-とします。$R_\theta$ は長さを保つので、$\lvert R_\theta q\rvert^2=\lvert q\rvert^2$ と $\lvert R_\theta p\rvert^2=\lvert p\rvert^2$ が成立し、$H$ は回転不変です。従って [Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存します。
+とします。$R_\theta$ は長さを保つので、$\lvert R_\theta q\rvert^2=\lvert q\rvert^2$ と $\lvert R_\theta p\rvert^2=\lvert p\rvert^2$ が成立し、$H$ は回転不変です。従って [幾何学的Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存します。
 
 正準座標でも符号を検証しましょう。[SYM4の正準座標の括弧公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)へ $f=L,g=H$ を代入します。まず
 
@@ -359,7 +367,7 @@ $$
 
 この例では「同変でなくても保存する」は正しいものの、全位相平面の並進に不変な滑らかな $H$ は**定数しかありません**。任意の2点はある $(u,v)$ で移し合えるので、$H$ が全並進に不変なら二点で値が等しいからです。つまり非同変性はNoetherの論理的障害ではない一方、この例から非自明な全並進不変Hamiltonianを期待してはいけません。
 
-もう一つの注意は **Hamilton作用という仮定** です。例えば $M=T^*S^1$ に座標 $(\theta,p)$ と $\omega=d\theta\wedge dp$ を置き、$\mathbb R$ が $p$ の平行移動で作用すると、生成子 $\partial_p$ に対して
+もう一つの注意は **Hamilton作用という仮定** です。例えば $M=T^*S^1$ で、$\theta$ を局所的な角度座標、$p$ を余接方向の大域座標とします。円周上で $\theta$ は単一の実数値座標になりませんが、1形式 $d\theta$ は局所表示が重なりで一致する大域1形式です。$\omega=d\theta\wedge dp$ とし、$\mathbb R$ が $p$ の平行移動で作用すると、生成子 $\partial_p$ に対して
 
 $$
 \iota_{\partial_p}\omega=-d\theta
@@ -440,7 +448,7 @@ $$
 \end{aligned}
 $$
 
-従って [Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存されます。
+従って [幾何学的Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存されます。
 <!-- solution-end -->
 
 ### Level B
@@ -457,7 +465,7 @@ $$
 J_\xi=ap_1+bp_2,\qquad J=(p_1,p_2).
 $$
 
-$H$ は $q^1,q^2$ を含まず、すべての $(u,v)$ で $H(q^1+u,q^2+v,q^3,p)=H(q,p)$ です。[Noetherの定理](#thm-gmech3-geometric-noether)から $J$ 全体が保存されます。別に[正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)で
+$H$ は $q^1,q^2$ を含まず、すべての $(u,v)$ で $H(q^1+u,q^2+v,q^3,p)=H(q,p)$ です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)から $J$ 全体が保存されます。別に[正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)で
 
 $$
 \{J_\xi,H\}=-aH_{q^1}-bH_{q^2}=0
