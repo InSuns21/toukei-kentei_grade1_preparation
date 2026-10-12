@@ -1,0 +1,49 @@
+id: "INT1"
+title: "第一積分とLiouville可積分性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM4
+  - GMECH8
+  - RA8
+official_scope: []
+learning_objectives:
+  - 第一積分とHamilton流沿いの保存性の同値を局所流だけで証明できる
+  - 第一積分の保存性と関数間のPoisson可換性を別々に検査できる
+  - 関数的独立性を微分の階数で判定し退化点を特定できる
+  - 等方部分空間の次元から独立な可換関数の上限nを証明できる
+  - Liouville可積分性を自由度と一般点での独立性から検査できる
+  - 正則共通レベルの次元・接空間・Lagrange性を証明できる
+  - 非結合振動子・正準モード・中心力の保存量と例外集合を実際に計算できる
+definitions:
+  - { id: INT1-DEF-01, name: 第一積分 }
+  - { id: INT1-DEF-02, name: Poisson可換な関数族 }
+  - { id: INT1-DEF-03, name: 関数的独立性 }
+  - { id: INT1-DEF-04, name: Liouville可積分性 }
+  - { id: INT1-DEF-05, name: 正則共通レベル集合 }
+theorems:
+  - { id: INT1-PROP-01, name: 第一積分の軌道判定 }
+  - { id: INT1-THM-01, name: 独立なPoisson可換関数の個数の上限 }
+  - { id: INT1-THM-02, name: 正則共通レベルの不変性とLagrange性 }
+canonical_examples:
+  - 調和振動子のエネルギー保存と時間微分
+  - 二振動子のPoisson可換性と軸上での階数低下
+  - 自由粒子での非可換な第一積分
+  - HとH二乗の従属性と余次元のずれ
+  - n振動子の開稠密独立領域と正則トーラスの直接表示
+  - 中心力の円軌道での階数低下
+  - 結合振動子の正規モード対角化
+problem_patterns:
+  - INT1-FIRST-INTEGRAL
+  - INT1-NONCOMMUTING-INTEGRALS
+  - INT1-FUNCTIONAL-INDEPENDENCE
+  - INT1-ONE-DEGREE-REGULARITY
+  - INT1-DEPENDENT-INTEGRALS
+  - INT1-CENTRAL-FORCE
+  - INT1-ISOTROPIC-BOUND
+  - INT1-NORMAL-MODES
+  - INT1-REGULAR-FIBER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 2 }
