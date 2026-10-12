@@ -1,0 +1,51 @@
+chapter: HDP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP5
+  - HDP1
+  - F0-00F2
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.sphere-net
+    name: 球面の有限η-net
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面の有限η-net）]
+    requires: []
+  - id: high-dimensional-probability.sphere-covering-number
+    name: 球面の被覆数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面の被覆数）]
+    requires: [high-dimensional-probability.sphere-net]
+  - id: high-dimensional-probability.volumetric-net
+    name: 球面の体積法による被覆
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（球面の体積法による被覆）]
+    requires: [high-dimensional-probability.sphere-net, high-dimensional-probability.sphere-covering-number]
+  - id: high-dimensional-probability.operator-net
+    name: netによる作用素ノルム近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（netによる作用素ノルム近似）]
+    requires: [high-dimensional-probability.sphere-net]
+  - id: high-dimensional-probability.quadratic-net
+    name: 対称行列の二次形式net評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対称行列の二次形式net評価）]
+    requires: [high-dimensional-probability.sphere-net]
+  - id: high-dimensional-probability.gaussian-fixed-vector-jl
+    name: Gaussian射影の固定ベクトル長さ保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gaussian射影の固定ベクトル長さ保存）]
+    requires: [high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.gaussian-jl
+    name: Gaussian型Johnson–Lindenstrauss補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gaussian型Johnson–Lindenstrauss補題）]
+    requires: [high-dimensional-probability.gaussian-fixed-vector-jl]
