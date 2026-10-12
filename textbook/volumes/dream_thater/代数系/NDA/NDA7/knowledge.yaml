@@ -5,7 +5,8 @@ prerequisites:
   - NDA6
   - FLD1
   - LA3C
-forward_references: []
+forward_references:
+  - ode.ode2-wronskian # conventional one-variable Wronskian as a contextual comparison, not a proof dependency
 concepts:
   - id: diophantine.roth-theorem
     name: Thue–Siegel–Rothの定理
