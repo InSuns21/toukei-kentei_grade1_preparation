@@ -307,7 +307,7 @@ $$
 
 二行目では積 $Dv\,(b+Ah)$ と $|h|^2$ がともに二次残差です。$\Theta\mapsto\theta$ への変数変換も、先頭が定数 $e+\omega\cdot q+\langle a\rangle$、一次係数が定数 $\omega$ なので、零次・一次jetに新たな一次誤差を作りません。
 
-Taylorの積分余剰を $h=q+\partial_\theta u$ に適用すると、$G(\theta,h)-\tfrac12h^TAh$ は $D_I^3G$ の上限の定数倍の $|h|^3$ 以下であり、$\partial_I G(\theta,h)-Ah$ は $D_I^3G$ の上限の定数倍の $|h|^2$ 以下です。さらに $b\cdot h$ と $Dv\,(b+Ah)$ は各因子が $O(\delta)$ なので $O(\delta^2)$ です。解析関数の積・合成・逆写像・Taylor余剰は、縮小領域上のCauchy評価で各々有限回の $\sigma^{-1}$ を失います。したがって上で明示した線形項の相殺の後に残る各項は少なくとも二つの $O(\gamma^{-2}\sigma^{-M_0}\delta)$ 型因子を含み、指数を大きくした有限の $M$ と定数 $C$ により述べた $\delta^2$ 評価を得ます。二階作用微分は変換が恒等写像に近いことにより元のものから $O(\gamma^{-2}\sigma^{-M}\delta)$ だけ変化します。$\bar A$ の逆行列ノルムを上から抑えたままにするには、その変化を $1/(2\|\bar A^{-1}\|)$ より小さく選べば十分です。
+Taylorの積分余剰を $h=q+\partial_\theta u$ に適用すると、$G(\theta,h)-\tfrac12h^TAh$ は $D_I^3G$ の上限の定数倍の $|h|^3$ 以下であり、$\partial_I G(\theta,h)-Ah$ は $D_I^3G$ の上限の定数倍の $|h|^2$ 以下です。さらに $b\cdot h$ と $Dv\,(b+Ah)$ は各因子が $O(\delta)$ なので $O(\delta^2)$ です。解析関数の積・合成・逆写像・Taylor余剰は、縮小領域上の[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)で各々有限回の $\sigma^{-1}$ を失います。したがって上で明示した線形項の相殺の後に残る各項は少なくとも二つの $O(\gamma^{-2}\sigma^{-M_0}\delta)$ 型因子を含み、指数を大きくした有限の $M$ と定数 $C$ により述べた $\delta^2$ 評価を得ます。二階作用微分は変換が恒等写像に近いことにより元のものから $O(\gamma^{-2}\sigma^{-M}\delta)$ だけ変化します。$\bar A$ の逆行列ノルムを上から抑えたままにするには、その変化を $1/(2\|\bar A^{-1}\|)$ より小さく選べば十分です。
 <!-- proof-end -->
 
 この補題は「KAMが収束する」と宣言するだけでなく、何を解いて何が二乗されるかを指定しました。残るのは、解析幅を無限回失っても幅が正に残り、誤差がそれより速く減ることです。
@@ -356,7 +356,7 @@ H_\infty(\Theta,J)=e_\infty+\omega_*\cdot J+G_\infty(\Theta,J),
 \qquad G_\infty(\Theta,0)=\partial_JG_\infty(\Theta,0)=0
 $$
 
-なので、$J=0$ で $\dot J=0$、$\dot\Theta=\omega_*$ です。正準変換による流れの共役から
+なので、$J=0$ で $\dot J=0$、$\dot\Theta=\omega_*$ です。[正準変換の正準性](../INT5/index.md#prop-int5-canonical-map)を用いて元の座標へ戻すと
 
 $$
 \mathcal K_\varepsilon(\phi)=\Psi_\infty(\phi,0),\qquad
