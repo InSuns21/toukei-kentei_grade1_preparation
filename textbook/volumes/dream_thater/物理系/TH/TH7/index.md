@@ -200,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[移動座標](#def-th7-transfer-coordinate)を $\mathcal G(\xi)=G^\alpha(T,p,\boldsymbol N^\alpha(\xi))+G^\beta(T,p,\boldsymbol N^\beta(\xi))$ に代入します。[多成分基本関係](#def-th7-component-mu)と $G=U-TS+pV$ を全微分し、共通 $T,p$ を固定すると、各相で $dG^\gamma=\sum_j\mu_j^\gamma\,dN_j^\gamma$ です。従って連鎖律から
+[移動座標](#def-th7-transfer-coordinate)を $\mathcal G(\xi)=G^\alpha(T,p,\boldsymbol N^\alpha(\xi))+G^\beta(T,p,\boldsymbol N^\beta(\xi))$ に代入します。[多成分基本関係](#def-th7-component-mu)と[TH5のGibbsポテンシャルの定義](../TH5/index.md#def-th5-potentials) $G=U-TS+pV$ を全微分し、共通 $T,p$ を固定すると、各相で $dG^\gamma=\sum_j\mu_j^\gamma\,dN_j^\gamma$ です。従って連鎖律から
 
 $$
 \begin{aligned}
