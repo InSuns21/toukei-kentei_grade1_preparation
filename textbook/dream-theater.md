@@ -589,6 +589,7 @@
 
 1. [SGT1 重み付きグラフと組合せLaplacian](textbook/volumes/dream_thater/計算系/SGT/SGT1/index.md)
 2. [SGT2 正規化Laplacianとランダムウォーク](textbook/volumes/dream_thater/計算系/SGT/SGT2/index.md)
+3. [SGT3 スペクトルギャップとCheeger不等式](textbook/volumes/dream_thater/計算系/SGT/SGT3/index.md)
 
 ## 幾何系
 

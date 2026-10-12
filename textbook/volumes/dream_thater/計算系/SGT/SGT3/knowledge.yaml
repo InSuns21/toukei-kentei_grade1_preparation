@@ -1,0 +1,65 @@
+chapter: SGT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: spectral-graph.conductance
+    name: ConductanceとグラフのCheeger定数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ConductanceとグラフのCheeger定数）]
+    requires: [spectral-graph.cut-weight, spectral-graph.weighted-degree]
+
+  - id: spectral-graph.cheeger-upper
+    name: Cheeger不等式の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Cheeger不等式の上界）]
+    requires: [spectral-graph.conductance, spectral-graph.normalized-rayleigh]
+
+  - id: spectral-graph.weighted-median
+    name: 重み付き中央値
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重み付き中央値）]
+    requires: [spectral-graph.weighted-degree]
+
+  - id: spectral-graph.weighted-median-existence
+    name: 重み付き中央値の存在
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（重み付き中央値の存在）]
+    requires: [spectral-graph.weighted-median]
+
+  - id: spectral-graph.sweep-cut
+    name: Sweep cut
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Sweep cut）]
+    requires: [spectral-graph.conductance]
+
+  - id: spectral-graph.sweep-bound
+    name: 非負関数のsweep cut補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（非負関数のsweep cut補題）]
+    requires: [spectral-graph.sweep-cut, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.cheeger-lower
+    name: Cheeger不等式の下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Cheeger不等式の下界）]
+    requires: [spectral-graph.weighted-median-existence, spectral-graph.sweep-bound, spectral-graph.normalized-rayleigh]
+
+  - id: spectral-graph.cheeger-two-sided
+    name: 正規化Cheeger不等式とcut構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正規化Cheeger不等式とcut構成）]
+    requires: [spectral-graph.cheeger-upper, spectral-graph.cheeger-lower]
