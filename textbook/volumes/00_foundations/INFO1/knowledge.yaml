@@ -1,0 +1,64 @@
+chapter: INFO1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P1
+  - F0-00P2A
+  - F0-00P3
+forward_references: []
+
+concepts:
+  - id: information.self-information
+    name: 自己情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自己情報量）]
+
+  - id: information.self-information-additivity
+    name: 独立事象の自己情報量の加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（独立事象の自己情報量の加法性）]
+    requires: [information.self-information]
+
+  - id: information.shannon-entropy
+    name: Shannonエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Shannonエントロピー）]
+    requires: [information.self-information]
+
+  - id: information.discrete-entropy-bounds
+    name: 有限離散エントロピーの上下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限離散エントロピーの上下限）]
+    requires: [information.shannon-entropy]
+
+  - id: information.joint-entropy
+    name: 結合エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（結合エントロピー）]
+    requires: [information.shannon-entropy]
+
+  - id: information.conditional-entropy
+    name: 条件付きエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（条件付きエントロピー）]
+    requires: [information.joint-entropy]
+
+  - id: information.entropy-chain-rule
+    name: 結合エントロピーの連鎖律
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（結合エントロピーの連鎖律）]
+    requires: [information.conditional-entropy, information.joint-entropy]
+
+  - id: information.mutual-information
+    name: 相互情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相互情報量）]
+    requires: [information.entropy-chain-rule]
