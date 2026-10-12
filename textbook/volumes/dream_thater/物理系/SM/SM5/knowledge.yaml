@@ -3,7 +3,6 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SM4
-  - SM2
 forward_references: []
 concepts:
   - id: statistical-mechanics.classical-ideal-gas-phase-space
@@ -24,12 +23,18 @@ concepts:
     introduction: formal
     introduction_aliases: [命題（Maxwell–Boltzmann速度分布）]
     requires: [statistical-mechanics.classical-ideal-gas-partition]
+  - id: statistical-mechanics.log-gamma-asymptotic
+    name: 対数Gamma関数の漸近評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対数Gamma関数の漸近評価）]
+    requires: []
   - id: statistical-mechanics.ideal-gas-canonical-thermodynamics
     name: 古典理想気体の正準熱力学
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（古典理想気体の正準熱力学）]
-    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.canonical-helmholtz-energy]
+    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.canonical-helmholtz-energy, statistical-mechanics.log-gamma-asymptotic]
   - id: statistical-mechanics.classical-cumulative-phase-volume
     name: 古典理想気体の累積相空間体積
     kind: definition
@@ -53,7 +58,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（古典理想気体の熱力学量の同値性）]
-    requires: [statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.ideal-gas-canonical-thermodynamics, statistical-mechanics.ideal-gas-gamma-energy]
+    requires: [statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.ideal-gas-canonical-thermodynamics, statistical-mechanics.ideal-gas-gamma-energy, statistical-mechanics.log-gamma-asymptotic]
   - id: statistical-mechanics.ideal-gas-poisson-number
     name: 古典理想気体の大分配関数とPoisson粒子数
     kind: proposition
