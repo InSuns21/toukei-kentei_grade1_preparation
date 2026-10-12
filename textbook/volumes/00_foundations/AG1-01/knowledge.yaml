@@ -71,9 +71,16 @@ concepts:
     introduction_aliases: ["定義（消滅イデアル）"]
     requires: [algebraic-geometry.affine-algebraic-set, algebra.ring-ideal]
 
+  - id: algebraic-geometry.radical-ideal
+    name: 根基的イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（根基的イデアル）"]
+    requires: [algebra.ring-ideal]
+
   - id: algebraic-geometry.vanishing-ideal-radical
     name: 消滅イデアルは根基的
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（消滅イデアルは根基的）"]
-    requires: [algebraic-geometry.vanishing-ideal, algebra.integral-domain]
+    requires: [algebraic-geometry.vanishing-ideal, algebraic-geometry.radical-ideal, algebra.integral-domain]
