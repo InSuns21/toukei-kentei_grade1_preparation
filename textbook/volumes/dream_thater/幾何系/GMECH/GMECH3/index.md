@@ -234,7 +234,7 @@ Noetherの証明に現れた等式は、負号こそありますが**等号**な
 <!-- proof-start -->
 ### 証明
 
-[Noetherの定理](#thm-gmech3-geometric-noether)の証明で得た点ごとの等式を、仮定なしで用いると
+[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)の証明で得た点ごとの等式を、仮定なしで用いると
 
 $$
 \{J_\xi,H\}(m)=-dH_m(\xi_M(m))
@@ -268,7 +268,7 @@ $$
 J(q,p)=p,\qquad J_\xi(q,p)=p^{\mathsf T}\xi.
 $$
 
-自由粒子 $H(q,p)=|p|^2/(2m_0)$ は $q$ に依存しないので全並進に不変です。[Noetherの定理](#thm-gmech3-geometric-noether)によって $p$ のすべての成分が保存します。正準座標でも
+自由粒子 $H(q,p)=|p|^2/(2m_0)$ は $q$ に依存しないので全並進に不変です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)によって $p$ のすべての成分が保存します。正準座標でも
 
 $$
 \dot q^i=\frac{\partial H}{\partial p_i}=\frac{p_i}{m_0},
@@ -310,7 +310,7 @@ $$
 H=\frac{p_x^2+p_y^2}{2m_0}+V(x^2+y^2)
 $$
 
-とします。$R_\theta$ は長さを保つので、$\lvert R_\theta q\rvert^2=\lvert q\rvert^2$ と $\lvert R_\theta p\rvert^2=\lvert p\rvert^2$ が成立し、$H$ は回転不変です。従って [Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存します。
+とします。$R_\theta$ は長さを保つので、$\lvert R_\theta q\rvert^2=\lvert q\rvert^2$ と $\lvert R_\theta p\rvert^2=\lvert p\rvert^2$ が成立し、$H$ は回転不変です。従って [幾何学的Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存します。
 
 正準座標でも符号を検証しましょう。[SYM4の正準座標の括弧公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)へ $f=L,g=H$ を代入します。まず
 
@@ -448,7 +448,7 @@ $$
 \end{aligned}
 $$
 
-従って [Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存されます。
+従って [幾何学的Noetherの定理](#thm-gmech3-geometric-noether)により $L$ は保存されます。
 <!-- solution-end -->
 
 ### Level B
@@ -465,7 +465,7 @@ $$
 J_\xi=ap_1+bp_2,\qquad J=(p_1,p_2).
 $$
 
-$H$ は $q^1,q^2$ を含まず、すべての $(u,v)$ で $H(q^1+u,q^2+v,q^3,p)=H(q,p)$ です。[Noetherの定理](#thm-gmech3-geometric-noether)から $J$ 全体が保存されます。別に[正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)で
+$H$ は $q^1,q^2$ を含まず、すべての $(u,v)$ で $H(q^1+u,q^2+v,q^3,p)=H(q,p)$ です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)から $J$ 全体が保存されます。別に[正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)で
 
 $$
 \{J_\xi,H\}=-aH_{q^1}-bH_{q^2}=0
