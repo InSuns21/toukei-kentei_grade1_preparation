@@ -167,7 +167,7 @@ $$
 最後の括弧は大域的な滑らかな1形式なので、定義により $[\omega_t]=[\omega_0]$ です。
 <!-- proof-end -->
 
-この命題は**必要条件**です。コホモロジー類が一致するだけで、どんな経路でもMoser型同位変形が存在するという主張ではありません。経路中の非退化性と流れの存在も必要になります。
+この命題は、同位変形の存在には欠かせない条件を示しています。コホモロジー類が一致するだけで、どんな経路でもMoser型同位変形が存在するという主張ではありません。経路中の非退化性と流れの存在も必要になります。
 
 ## 3. 大域的なMoser安定性
 
@@ -486,7 +486,7 @@ $\mathbb R^2$ 上の $\omega_t=(1+t)\,dx\wedge dy$ について、$\dot\omega_t=
 - ID: SYM7-A1
 
 <!-- solution-start -->
-**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の積の法則](../GEO7/index.md#thm-geo7-graded-leibniz)から
+**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)から
 
 $$
 d(x\,dy)=dx\wedge dy+x\,d(dy)=dx\wedge dy
@@ -604,7 +604,7 @@ $$
 
 #### B1. 非線形な時間依存から原始形式を構成する
 
-コンパクトで境界のない $M$ 上のシンプレクティック形式 $\omega_0$ と滑らかな1形式 $\sigma$ について、$\omega_t=\omega_0+t^2d\sigma$ が $0\le t\le1$ の全時刻で非退化と仮定する。Moser定理を適用するための全条件を確かめ、ベクトル場の方程式を求めよ。
+コンパクトで境界のない $M$ 上のシンプレクティック形式 $\omega_0$ と滑らかな1形式 $\sigma$ について、$\omega_t=\omega_0+t^2d\sigma$ が $0\le t\le1$ の全時刻で非退化と仮定する。[Moserの安定性定理](#thm-sym7-moser-stability)を適用するための全条件を確かめ、ベクトル場の方程式を求めよ。
 
 - Level: B
 - ID: SYM7-B1
@@ -691,7 +691,7 @@ d\sigma=(e^{-(x^2+y^2)}-1)\,dx\wedge dy
 =\dot\omega_t.
 $$
 
-(iii) もし全域微分同相が存在すれば、$\omega_0,\omega_1$ は正の面積形式なので変数変換は正の面積測度の総量を保存します。しかし
+(iii) もし全域微分同相が存在すれば、$\omega_0,\omega_1$ は正の面積形式なので変数変換は面積形式を積分して得る全体の面積を保存します。しかし
 
 $$
 \int_{\mathbb R^2}\omega_0=+\infty,\qquad
