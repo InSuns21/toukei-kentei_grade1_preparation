@@ -76,7 +76,7 @@ chapters:
     title: "構造層と貼り合わせ"
   - id: AG2-06
     path: textbook/volumes/dream_thater/代数系/AG/AG2-06
-    status: planned
+    status: completed
     title: "可逆層とO(d)"
   - id: AG2-07
     path: textbook/volumes/dream_thater/代数系/AG/AG2-07
