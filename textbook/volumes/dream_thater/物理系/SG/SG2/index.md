@@ -106,13 +106,26 @@ $$
 可逆行列 $A^{-1}$ を使っていないので、$C$ が特異でも証明は変わりません。以降に用いるGibbs重みは有界で、各一階導関数も有界ですから、この部分積分を適用するための可積分性条件を満たします。
 <!-- proof-end -->
 
-**簡単な検算**：$X\sim N(0,v)$、$F(x)=e^{tx}$ とすると
+**簡単な検算（指数関数への拡張）**：$v>0$、$t\in\mathbb R$、$X\sim N(0,v)$ とします。$F(x)=e^{tx}$ は $t\ne0$ で命題の多項式増大条件を満たさないため、その命題を直接適用したとは言えません。ここでは正規密度
 
 $$
-\mathbb E[Xe^{tX}]
-=v t\,\mathbb Ee^{tX}
-=vt\,e^{vt^2/2}.
+\varphi_v(x)=\frac1{\sqrt{2\pi v}}e^{-x^2/(2v)},
+\qquad
+\varphi_v'(x)=-\frac{x}{v}\varphi_v(x)
 $$
+
+から部分積分を直接確かめます。平方完成により $\mathbb E[|X|e^{tX}]<\infty$ であり、$e^{tx}\varphi_v(x)\to0$ は $x\to\pm\infty$ で成立します。よって境界項は消え、
+
+$$
+\begin{aligned}
+\mathbb E[Xe^{tX}]
+&=-v\int_{\mathbb R}e^{tx}\varphi_v'(x)\,dx\\
+&=vt\int_{\mathbb R}e^{tx}\varphi_v(x)\,dx\\
+&=vt\,e^{vt^2/2}
+\end{aligned}
+$$
+
+を得ます。すなわち指数関数についても、可積分性と境界項を別途確認すれば同じ部分積分恒等式が成立します。
 
 最後の式は[SG1の正規指数モーメントの計算](../SG1/index.md#prop-sg1-annealed-rem)からも得られます。
 
@@ -340,7 +353,19 @@ $\sqrt t$ を微分した $1/(2\sqrt t)$ は一見特異ですが、[Gaussian部
 <!-- proof-start -->
 ### 証明
 
-$0<t<1$ では有限和の微分とGaussianの指数可積分性により期待値と微分を交換できます。$w_t(\sigma)=e^{\beta H_t(\sigma)+h_\sigma}/Z_t$ として連鎖律を使うと
+任意の $0<\delta<1/2$ と $t\in[\delta,1-\delta]$ に対して、Gibbs重みの非負性と総和1から
+
+$$
+\begin{aligned}
+\left|\partial_t\left(\frac1N\log Z_t\right)\right|
+&=\left|\frac{\beta}{2N}\sum_\sigma w_t(\sigma)
+\left(\frac{X_\sigma}{\sqrt t}-\frac{Y_\sigma}{\sqrt{1-t}}\right)\right|\\
+&\le\frac{\beta}{2N\sqrt\delta}
+\left(\max_\sigma|X_\sigma|+\max_\sigma|Y_\sigma|\right)
+\end{aligned}
+$$
+
+です。配置集合は有限でGaussianの一次絶対モーメントは有限なので、右辺は可積分です。この上界による優収束から $0<t<1$ で期待値と微分を交換できます。$w_t(\sigma)=e^{\beta H_t(\sigma)+h_\sigma}/Z_t$ として連鎖律を使うと
 
 $$
 \begin{aligned}
@@ -391,7 +416,33 @@ $$
 \max_{\sigma,\tau}|D_{\sigma\tau}|\right)
 $$
 
-で一様に有界です。よって端点を除いた微積分の基本定理から $\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)dt$ を得ます。
+で一様に有界です。さらに任意の有限個の実数列 $(a_\sigma),(b_\sigma)$ に対して
+
+$$
+\left|\log\sum_\sigma e^{a_\sigma}
+-\log\sum_\sigma e^{b_\sigma}\right|
+\le\max_\sigma|a_\sigma-b_\sigma|
+$$
+
+が成立します。実際、次の値を置きます。
+
+$$
+d=\max_\sigma|a_\sigma-b_\sigma|.
+$$
+
+各 $\sigma$ で $|a_\sigma-b_\sigma|\le d$ だから、
+
+$$
+e^{-d}e^{b_\sigma}\le e^{a_\sigma}\le e^d e^{b_\sigma}
+$$
+
+が成り立ちます。両側で和を取り、対数を使えば上の不等式が従います。
+
+これを $a_\sigma=\beta H_t(\sigma)+h_\sigma$、$b_\sigma=\beta H_{t_0}(\sigma)+h_\sigma$ に適用します。平方根の連続性とGaussian場の有限な一次絶対モーメントから、$\Phi(t)$ は端点を含め連続です。
+
+また各 $w_t(\sigma)$ は $t$ で連続かつ $0\le w_t(\sigma)\le1$ なので、補間公式の右辺に優収束を適用すれば $\Phi'$ も $0<t<1$ で連続です。
+
+従って区間 $[\varepsilon,1-\varepsilon]$ で [微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2) を適用します。導関数の一様有界性と端点連続性により、$\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)\,dt$ を得ます。
 <!-- proof-end -->
 
 <a id="cor-sg2-comparison"></a>
@@ -734,6 +785,35 @@ $$
 a\gamma,&\gamma\ge a.
 \end{cases}
 $$
+
+(b)の補間微分式は、(c)の有限 $N$ の恒等式からも独立に検算できます。$\gamma=\beta\sqrt{1-s}$ と置き、独立な $U_\sigma$ だけを使う圧力を $q_N(\gamma)=p_N(0;\gamma)$、対応するGibbs重みを $v_\gamma(\sigma)$ と書きます。このとき
+
+$$
+\left|\partial_\gamma\log\sum_\sigma e^{\gamma U_\sigma}\right|
+=\left|\sum_\sigma v_\gamma(\sigma)U_\sigma\right|
+\le\max_\sigma|U_\sigma|
+$$
+
+であり、右辺は有限個のGaussian変数の最大値として可積分です。従って期待値と $\gamma$ による微分を交換できます。[共分散付きGaussian部分積分](#prop-sg2-correlated-ibp)と[Gibbs重みの微分](#prop-sg2-gibbs-derivatives)から
+
+$$
+\begin{aligned}
+q_N'(\gamma)
+&=\frac1N\sum_\sigma\mathbb E[U_\sigma v_\gamma(\sigma)]\\
+&=\frac1N\sum_\sigma N\gamma\,
+ \mathbb E[v_\gamma(\sigma)(1-v_\gamma(\sigma))]\\
+&=\gamma\,\mathbb E\left[1-\sum_\sigma v_\gamma(\sigma)^2\right].
+\end{aligned}
+$$
+
+共通因子 $e^{\beta\sqrt s\,G}$ がGibbs重みから消えるため $v_\gamma(\sigma)=w_s(\sigma)$ です。また $d\gamma/ds=-\beta/(2\sqrt{1-s})$ なので、連鎖律から
+
+$$
+p_N'(s)=q_N'(\gamma)\frac{d\gamma}{ds}
+=-\frac{\beta^2}{2}\mathbb E\left[1-\sum_\sigma w_s(\sigma)^2\right].
+$$
+
+これは共分散差を使った(b)の導出と一致します。
 
 (d) (a)により全配置で $C_{\sigma\sigma}=N$ です。[圧力集中の系](#cor-sg2-pressure-concentration)に $v=1$ を代入すると
 
