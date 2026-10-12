@@ -100,7 +100,7 @@ $$
 ここで $d(dy)=0$ には[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を使いました。従って両端点はコホモロジー的に等しく、$\omega_t-\omega_0=d(ta\sin x\,dy)$ も成り立ちます。
 <!-- definition-example-end -->
 
-**閉性と完全性は違います。** 例えばトーラス上の $dx\wedge dy$ は閉形式ですが、$d\sigma=dx\wedge dy$ となる大域的な1形式はありません。実際、境界のないトーラスに[Stokesの定理](../GEO8/index.md#thm-geo8-stokes)を適用すると $\int_{\mathbb T^2}d\sigma=0$ ですが、
+**閉性と完全性は違います。** 例えばトーラス上の $dx\wedge dy$ は閉形式ですが、$d\sigma=dx\wedge dy$ となる大域的な1形式はありません。実際、境界のないトーラスに[Stokesの定理](../GEO8/index.md#thm-geo8-general-stokes)を適用すると $\int_{\mathbb T^2}d\sigma=0$ ですが、
 
 $$
 \int_{\mathbb T^2}dx\wedge dy
@@ -480,7 +480,7 @@ $\mathbb R^2$ 上の $\omega_t=(1+t)\,dx\wedge dy$ について、$\dot\omega_t=
 - ID: SYM7-A1
 
 <!-- solution-start -->
-**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の積の法則](../GEO7/index.md#prop-geo7-leibniz)から
+**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の積の法則](../GEO7/index.md#thm-geo7-graded-leibniz)から
 
 $$
 d(x\,dy)=dx\wedge dy+x\,d(dy)=dx\wedge dy
@@ -518,7 +518,7 @@ $$
 =\int_Md\sigma.
 $$
 
-[Stokesの定理](../GEO8/index.md#thm-geo8-stokes)を $M$ と1形式 $\sigma$ に適用すると $\int_Md\sigma=\int_{\partial M}\sigma$ です。仮定 $\partial M=\varnothing$ から右辺は零となり、従って二つの積分は等しいです。
+[Stokesの定理](../GEO8/index.md#thm-geo8-general-stokes)を $M$ と1形式 $\sigma$ に適用すると $\int_Md\sigma=\int_{\partial M}\sigma$ です。仮定 $\partial M=\varnothing$ から右辺は零となり、従って二つの積分は等しいです。
 <!-- solution-end -->
 
 #### A3. 非退化な両端だけでは不十分
