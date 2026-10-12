@@ -515,3 +515,206 @@ $$
 
 ここまでで証明したのは**RS試行式の上界と高温での等号**であり、ATの式は指定した近似における増幅率、二水準模型はRSBの幾何的イメージを数え上げる例である。三者の証明の強さが異なることを押さえてから演習へ進む。
 
+## 演習問題
+
+### Level A：式の意味を確認する
+
+**SG4-A1（無相互作用のoverlapは一点分布か）**
+- Level: A
+
+$N=2$、$\beta=h=0$ とする。二つの独立な一様配置について $R_{12}$ の取り得る値と確率をすべて求めよ。$\mathbb ER_{12}$ と $\mathbb ER_{12}^2$ を計算し、[overlap分布](#def-sg4-overlap-law)を明記せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+各サイトの積 $U_i=\sigma_i^1\sigma_i^2$ は独立なRademacher変数であり、$R_{12}=(U_1+U_2)/2$。$U_1=U_2=1$ の確率は $1/4$、$U_1=U_2=-1$ も $1/4$、異符号が $1/2$ なので
+
+$$
+\nu_2=\frac14\delta_{-1}+\frac12\delta_0+\frac14\delta_1.
+$$
+
+従って $\mathbb ER_{12}=(-1)/4+1/4=0$、
+
+$$
+\mathbb ER_{12}^2=\frac14\cdot1+\frac12\cdot0+\frac14\cdot1=\frac12.
+$$
+
+有限$N$で多点分布でも、高温極限で二乗平均が0へ収束することと矛盾しない。
+<!-- solution-end -->
+
+**SG4-A2（RS試行圧力の端点と符号）**
+- Level: A
+
+任意の $\beta\ge0,h\in\mathbb R$ について[RS試行圧力](#def-sg4-rs-functional)の $q=0,1$ の値を書け。$h=0$ で両者の差を簡単化せよ。$q=0$ で得る上界がannealed圧力に一致する理由を述べよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+定義に代入すると
+
+$$
+\mathcal P_{\mathrm{RS}}(0)=\log(2\cosh h)+\frac{\beta^2}{4},
+\qquad
+\mathcal P_{\mathrm{RS}}(1)=\log2+\mathbb E_Z\log\cosh(\beta Z+h).
+$$
+
+$h=0$ では $\mathcal P_{\mathrm{RS}}(0)-\mathcal P_{\mathrm{RS}}(1)=\beta^2/4-\mathbb E_Z\log\cosh(\beta Z)$ となる。$\mathcal P_{\mathrm{RS}}(0)$ は $\log\mathbb EZ_N/N$ と同じである。なぜなら $h$ の寄与は $\sum_\sigma e^{h\sum_i\sigma_i}=(2\cosh h)^N$ へ因数分解され、$\operatorname{Var}(X_N(\sigma))=N/2$ より各配置のGaussian指数平均は $e^{\beta^2N/4}$ だからである。
+<!-- solution-end -->
+
+**SG4-A3（共分散差の平方完成）**
+- Level: A
+
+[RS補間](#thm-sg4-rs-bound)で $\partial_tC_t(\sigma,\tau)/N=\beta^2(R^2/2-qR)$ を用いる。対角項と二レプリカ項の差を計算し、$\phi_N'(t)$ を $(R_{12}-q)^2$ で表せ。$q=1$ の場合も符号の結論は変わるか。
+
+<!-- solution-start -->
+**詳細解答**
+
+対角 $R(\sigma,\sigma)=1$ を入れると $\partial_tC_t(\sigma,\sigma)/N=\beta^2(1/2-q)$。二レプリカでは $\partial_tC_t(\sigma^1,\sigma^2)/N=\beta^2(R_{12}^2/2-qR_{12})$。従って[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)の $1/2$ 倍を掛けて
+
+$$
+\begin{aligned}
+\phi_N'(t)
+&=\frac{\beta^2}{4}\left(1-2q-\mathbb E\langle R_{12}^2-2qR_{12}\rangle_t\right)\\
+&=\frac{\beta^2}{4}\left((1-q)^2-\mathbb E\langle(R_{12}-q)^2\rangle_t\right).
+\end{aligned}
+$$
+
+$q=1$ なら第一項は0だから $\phi_N'(t)=-(\beta^2/4)\mathbb E\langle(R_{12}-1)^2\rangle_t\le0$。一般には微分の符号自体は固定されないが、**積分したときのRS上界**は全ての $q$ で成立する。
+<!-- solution-end -->
+
+**SG4-A4（自己整合方程式と境界点）**
+- Level: A
+
+$h=0$ で $T_{\beta,0}(0)$、$\lim_{q\downarrow0}T_{\beta,0}(q)/q$ を計算せよ。$\beta>1$ なら正の固定点がある理由を示し、$\beta=0$ のとき停留方程式から試行式の最小点を一意に決められるか答えよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$\tanh0=0$ から $T_{\beta,0}(0)=0$。$q>0$ では $T(q)/q=\mathbb E_Z[\beta^2Z^2(\tanh(\beta\sqrt q Z)/(\beta\sqrt q Z))^2]$。$\lvert\tanh x\rvert\le\lvert x\rvert$ で抑え、$q\downarrow0$ の極限を取ると $\beta^2\mathbb EZ^2=\beta^2$。$\beta>1$ なら小さい $q>0$ で $T(q)>q$、$T(1)<1$ なので中間値の定理で正の固定点がある。
+
+$\beta=0$ では $\mathcal P_{\mathrm{RS}}(q;0,h)=\log(2\cosh h)$ が全ての $q$ で一定である。微分公式は恒等的に0で、$\beta^2$ で割って固定点条件を導いてはならない。
+<!-- solution-end -->
+
+### Level B：上界・二次モーメント・安定性を接続する
+
+**SG4-B1（full表示の二次モーメント：一サイトで検算）**
+- Level: B
+
+$N=1,h=0$ のfull表示では $X_1(\sigma)=G_{11}/\sqrt2$ が配置に依存しない。$\mathbb EZ_1$ と $\mathbb EZ_1^2$ から比を計算し、第4節の $S_N$ 表示と照合せよ。$0<\beta<1$ における二次モーメント上界とも比較せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$Z_1=2e^{\beta G_{11}/\sqrt2}$ だから標準正規の指数モーメントを用いて
+
+$$
+\mathbb EZ_1=2e^{\beta^2/4},
+\qquad
+\mathbb EZ_1^2=4e^{\beta^2}.
+$$
+
+従って比は $4e^{\beta^2}/(4e^{\beta^2/2})=e^{\beta^2/2}$。一サイトでは $S_1=U_1=\pm1$ なので
+
+$$
+\mathbb E_Ue^{\beta^2S_1^2/2}=e^{\beta^2/2}
+$$
+
+と一致する。$0<\beta<1$ なら第4節の $\cosh x\le e^{x^2/2}$ から $e^{\beta^2/2}\le(1-\beta^2)^{-1/2}$。実際、対数を取れば $\beta^2/2\le-\tfrac12\log(1-\beta^2)$ で、$-\log(1-x)\ge x$ により従う。
+<!-- solution-end -->
+
+**SG4-B2（固定確率の下界からquenched圧力へ）**
+- Level: B
+
+$0<\beta<1$ とし $\mathbb EZ_N^2/(\mathbb EZ_N)^2\le C_\beta$、かつ $\mathbb P(|F_N-p_N|>\varepsilon)\to0$ とする。$\mathbb EZ_N=e^{Na_\beta}$ を使い、$p_N\to a_\beta$ を示せ。なぜ二次モーメント上界だけから直ちに結論できないのか説明せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$W_N=Z_N/\mathbb EZ_N$ と置く。$A_N=\{W_N\ge1/2\}$ に対して
+
+$$
+1\le\sqrt{\mathbb EW_N^2\,\mathbb P(A_N)}+\frac12
+$$
+
+なので $\mathbb P(A_N)\ge1/(4C_\beta)$。$A_N$ 上で $F_N\ge a_\beta-(\log2)/N$ である。Jensenにより $p_N\le a_\beta$。もし部分列で $p_N\le a_\beta-2\varepsilon$ なら、大きな $N$ で $A_N\subset\{F_N-p_N\ge\varepsilon\}$ となり、右辺の確率が0へ行くという集中の仮定と矛盾する。従って $\liminf p_N\ge a_\beta$、上界と合わせて収束が従う。
+
+二次モーメント上界が直接保証するのは「平均と同程度の $Z_N$ が固定の正確率で現れる」ことであり、「典型的な $\log Z_N$ が平均に近い」ことではない。後者を繋ぐ集中の条件が必要である。
+<!-- solution-end -->
+
+**SG4-B3（AT増幅と二水準overlapは違う）**
+- Level: B
+
+AT線形応答近似の分散増幅率 $\lambda_{\mathrm{AT}}$ が $0\le\lambda_{\mathrm{AT}}\le\beta^2$ を満たすことを示せ。$\beta<1$ で近似摂動の分散が減ることを示し、それだけから「任意の外場でSK模型にRSBがない」と結論してよいか述べよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+任意の実数 $u$ に対して $0<\operatorname{sech}^2u\le1$ だから $0<\operatorname{sech}^4u\le1$。正規平均に $\beta^2$ を掛ければ
+
+$$
+0\le\lambda_{\mathrm{AT}}(q;\beta,h)
+=\beta^2\mathbb E_Z\operatorname{sech}^4(\beta\sqrt q\,Z+h)
+\le\beta^2.
+$$
+
+$\beta<1$ なら $\lambda_{\mathrm{AT}}<1$。本文の独立摂動近似に限り $v_{\mathrm{new}}=\lambda_{\mathrm{AT}}v$ なので、繰り返せば $v_k=\lambda_{\mathrm{AT}}^kv_0\to0$。
+
+ただし、摂動独立性・有効場分布・近似の線形化は有限$N$のSK Gibbs測度から証明した条件ではない。この不等式は指定した近似の分散についてのものであり、任意の外場での熱力学的RSBの不存在を単独では保証しない。
+<!-- solution-end -->
+
+### Level C：厳密な結果と物理的な予想の境界
+
+**SG4-C1（RS補間と1RSB描像を分離する）**
+- Level: C
+
+$N\ge1$、$\beta\ge0$、$h=0$ のfull SK模型を考える。(a) $q\in[0,1]$ のRS補間端点と微分を導き、圧力上界を証明せよ。(b) $q=0$ の上界を明示し、$0\le\beta<1$ でこれが極限の真値になる論拠を述べよ。(c) 重み $w_1=a,w_2=1-a$、overlap水準 $q_0<q_1$ の二状態模型について分布と平均二乗overlapを計算せよ。(d) (a)〜(c)だけから $\beta>1$ のSK模型にRSBがあると証明できるか判断せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+(a) [SK Gaussian場の共分散](../SG3/index.md#prop-sg3-covariance)は $NR^2/2$、独立な一体Gaussian場の共分散は $NqR$。補間の共分散を微分して
+
+$$
+\partial_tC_t(\sigma,\tau)
+=\frac{\beta^2N}{2}R(\sigma,\tau)^2-\beta^2NqR(\sigma,\tau).
+$$
+
+[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)を規格化 $1/N$ で適用し、対角 $R(\sigma,\sigma)=1$ を使うと
+
+$$
+\phi_N'(t)=\frac{\beta^2}{4}
+\left((1-q)^2-\mathbb E\langle(R_{12}-q)^2\rangle_t\right).
+$$
+
+$t=0$ では $Z_{N,0}=\prod_i2\cosh(\beta\sqrt q\,z_i)$ より $\phi_N(0)=\log2+\mathbb E_Z\log\cosh(\beta\sqrt q Z)$。$t=1$ では $\phi_N(1)=p_N(\beta,0)$。両端を積分して
+
+$$
+p_N(\beta,0)
+=\log2+\mathbb E_Z\log\cosh(\beta\sqrt qZ)
++\frac{\beta^2}{4}(1-q)^2
+-\frac{\beta^2}{4}\int_0^1\mathbb E\langle(R_{12}-q)^2\rangle_t\,dt.
+$$
+
+最後の項が非正なのでRS試行式が上界である。
+
+(b) $q=0$ で上界は $\log2+\beta^2/4$。full表示では $\mathbb EZ_N=2^Ne^{\beta^2N/4}$、独立一様配置の積 $U_i=\sigma_i\tau_i$ を使うと
+
+$$
+\frac{\mathbb EZ_N^2}{(\mathbb EZ_N)^2}
+=\mathbb E_Ue^{\beta^2(\sum_iU_i)^2/(2N)}
+\le(1-\beta^2)^{-1/2}
+$$
+
+となる。右辺が $\beta<1$ で $N$ に依存しないことからCauchy–Schwarzで $\mathbb P(Z_N\ge\mathbb EZ_N/2)\ge\sqrt{1-\beta^2}/4$。一方[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)により $F_N-p_N\to0$ は確率収束する。従ってこの固定正確率事象が存在するには $p_N\to\log2+\beta^2/4$ が必要である（第4節の背理法）。$\beta=0$ では分配関数を直接計算する。
+
+(c) 同じ状態を二回選ぶ確率は $a^2+(1-a)^2$、異なる状態を選ぶ確率は $2a(1-a)$。従って
+
+$$
+\nu^{(2)}=\{a^2+(1-a)^2\}\delta_{q_1}
++2a(1-a)\delta_{q_0}.
+$$
+
+二乗overlap平均は $\{a^2+(1-a)^2\}q_1^2+2a(1-a)q_0^2$ である。$a\in(0,1),q_0<q_1$ なら二水準が正確率で出現する。
+
+(d) **証明できない**。(a) は上界だけであり、(b) の二次モーメント評価は $\beta>1$ では有限上界を与えない。(c) は別途定義した混合模型の数え上げであり、SK極限のoverlap分布がそれに従うことを示していない。厳密なoverlap恒等式、熱力学極限での構造、正しい変分原理への接続は後続章で扱う。
+<!-- solution-end -->
