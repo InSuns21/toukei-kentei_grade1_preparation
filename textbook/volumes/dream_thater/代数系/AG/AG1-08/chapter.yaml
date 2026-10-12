@@ -1,0 +1,49 @@
+id: "AG1-08"
+title: "代数集合と根基イデアルの対応"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-07
+  - AG1-02
+  - AG1-01
+  - AG1-05
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 零点と消滅イデアルの包含反転・往復の包含関係を両方向から証明できる
+  - 強Hilbertの零点定理を用いZariski閉集合と根基的イデアルの反変全単射を証明できる
+  - 任意の点集合のZariski閉包を消滅イデアルから構成し最小性を証明できる
+  - 和・積・共通部分と零点集合の演算を対応させ根基の公式を証明できる
+  - 代数閉体上で素イデアルと既約閉集合の対応を説明し既約成分を極小素イデアルに翻訳できる
+  - 多項式の生成イデアルの冪・接触・成分の例で根基と消滅イデアルを直接計算できる
+  - 代数閉性が失われた場合に全単射が破れる例と証明で失う仮定を説明できる
+definitions: []
+theorems:
+  - { id: AG1-08-PROP-01, name: 零点・消滅操作の包含反転と往復 }
+  - { id: AG1-08-THM-01, name: アフィン代数的集合と根基イデアルの包含反転全単射 }
+  - { id: AG1-08-PROP-02, name: 任意の集合のZariski閉包 }
+  - { id: AG1-08-PROP-03, name: 消滅イデアルの演算法則 }
+  - { id: AG1-08-COR-01, name: 根基を取った和・積・共通部分 }
+  - { id: AG1-08-THM-02, name: 既約閉集合と素イデアル }
+  - { id: AG1-08-PROP-04, name: 既約成分と極小素イデアル }
+canonical_examples:
+  - (x²)と(x)が同じ零点集合を持ち根基で一致
+  - 無限個の点のZariski閉包が直線になる例
+  - (y,y-x²)から接点の消滅イデアル(x,y)を復元
+  - (xy)の二座標軸と極小素イデアル(x)、(y)
+  - R[x]の(x²+1)が根基的なのに実零点を持たない
+problem_patterns:
+  - AG1-08-RADICAL-OF-POWERED-LINE
+  - AG1-08-AXES-UNION-INTERSECTION
+  - AG1-08-ORDER-REVERSAL
+  - AG1-08-EMPTY-FULL
+  - AG1-08-RADICAL-SUM
+  - AG1-08-PRODUCT-INTERSECTION
+  - AG1-08-MINIMAL-PRIMES-THREE-LINES
+  - AG1-08-REAL-COUNTEREXAMPLE
+  - AG1-08-PARABOLA-UNION
+  - AG1-08-EXPONENT-ARGUMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }

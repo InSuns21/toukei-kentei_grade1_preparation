@@ -689,7 +689,7 @@
 15. [FLD4 有限 Galois 理論](textbook/volumes/dream_thater/代数系/FLD/FLD4/index.md)
 16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/dream_thater/代数系/FLD/FLD5/index.md)
 
-<a id="dt-subject-algebraic-geometry"></a>
+<a id="dt-subject-number-theory"></a>
 ### 整数論 I〜発展
 
 1. [NT1 整数環・合同式・剰余類](textbook/volumes/dream_thater/代数系/NT/NT1/index.md)
@@ -699,7 +699,9 @@
 5. [NT5 Möbius反転・約数和・総和関数](textbook/volumes/dream_thater/代数系/NT/NT5/index.md)
 6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
 
-### 代数幾何学 I〜III
+<a id="dt-subject-algebraic-geometry"></a>
+<a id="dt-subject-algebraic-geometry-i"></a>
+### 代数幾何学 I
 
 1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md)
 2. [AG1-02 既約集合・素イデアルと既約成分](textbook/volumes/dream_thater/代数系/AG/AG1-02/index.md)
@@ -708,6 +710,17 @@
 5. [AG1-05 Noether環とHilbertの基底定理](textbook/volumes/dream_thater/代数系/AG/AG1-05/index.md)
 6. [AG1-06 整拡大とNoether正規化](textbook/volumes/dream_thater/代数系/AG/AG1-06/index.md)
 7. [AG1-07 弱・強Hilbertの零点定理](textbook/volumes/dream_thater/代数系/AG/AG1-07/index.md)
+8. [AG1-08 代数集合と根基イデアルの対応](textbook/volumes/dream_thater/代数系/AG/AG1-08/index.md)
+
+<a id="dt-subject-algebraic-geometry-ii"></a>
+### 代数幾何学 II
+
+公開準備中（AG2-01〜AG2-12）。
+
+<a id="dt-subject-algebraic-geometry-iii"></a>
+### 代数幾何学 III
+
+公開準備中（AG3-01〜AG3-14）。
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

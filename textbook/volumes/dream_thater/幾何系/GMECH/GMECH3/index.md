@@ -278,7 +278,13 @@ $$
 
 と検算できます。
 
-ここで $H=|p|^2/(2m_0)+V(q)$ に変えます。$V$ が $q^1$ のみに依存しないなら、その方向の平行移動だけは残ります。例えば $n=2$ で $V(x,y)=y^2/2$ とすると $x$ 方向の運動量 $p_x$ は保存しますが、$y$ 方向は
+ここで滑らかなポテンシャル $V$ を加えて $H=|p|^2/(2m_0)+V(q)$ とします。**$V$ が $q^1$ に依存しない**とは、任意の $a\in\mathbb R$ と $q\in\mathbb R^n$ について
+
+$$
+V(q^1+a,q^2,\ldots,q^n)=V(q^1,q^2,\ldots,q^n)
+$$
+
+が成り立つことです。この条件の下で $q^1$ 方向の平行移動対称性が残ります。他の方向の対称性は $V$ の形に依存します。例えば $n=2$ で $V(x,y)=y^2/2$ とすると $x$ 方向の運動量 $p_x$ は保存しますが、$y$ 方向は
 
 $$
 \{p_y,H\}=-\frac{\partial H}{\partial y}=-y
@@ -401,7 +407,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gmech3-a02"></a>
-**A2. 部分対称性。** $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。(1) $x$ 方向の平行移動による $J$ を求めよ。(2) $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
+**A2. 部分対称性。** $m_0>0$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。(1) $x$ 方向の平行移動による $J$ を求めよ。(2) $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
 
 - Level: A
 
@@ -429,7 +435,20 @@ $$
 =0\cdot p-1\cdot\kappa=-\kappa.
 $$
 
-時間発展式は $\dot p=-\kappa$ で、時刻 $t_0$ から積分して $p(t)=p(t_0)-\kappa(t-t_0)$ です。$H(q+a,p)-H(q,p)=\kappa a$ なので、$\kappa\ne0$ ではHamiltonianの並進不変性が欠けています。
+時間発展式は $\dot p=-\kappa$ です。任意の時刻 $t_0$ から積分すると
+
+$$
+p(t)-p(t_0)=\int_{t_0}^{t}(-\kappa)\,ds=-\kappa(t-t_0),
+\qquad p(t)=p(t_0)-\kappa(t-t_0).
+$$
+
+一方、位置を $a$ だけ平行移動させると
+
+$$
+H(q+a,p)-H(q,p)=\kappa a.
+$$
+
+従って $\kappa\ne0$ ではHamiltonianの並進不変性が欠けています。
 <!-- solution-end -->
 
 <a id="ex-gmech3-a04"></a>
@@ -454,7 +473,7 @@ $$
 ### Level B
 
 <a id="ex-gmech3-b01"></a>
-**B1. 部分空間への並進。** $T^*\mathbb R^3$ で $H=(p_1^2+p_2^2+p_3^2)/(2m_0)+V(q^3)$ とする。$G=(\mathbb R^2,+)$ が $q^1,q^2$ を並進する作用の運動量写像を求め、全 $\xi$ で保存されることを示せ。また $p_3$ の時間微分を計算せよ。
+**B1. 部分空間への並進。** $m_0>0$、$V\in C^\infty(\mathbb R)$ とする。$T^*\mathbb R^3$ で $H=(p_1^2+p_2^2+p_3^2)/(2m_0)+V(q^3)$ とする。$G=(\mathbb R^2,+)$ が $q^1,q^2$ を並進する作用の運動量写像を求め、全 $\xi$ で保存されることを示せ。また $p_3$ の時間微分を計算せよ。
 
 - Level: B
 
@@ -471,16 +490,32 @@ $$
 \{J_\xi,H\}=-aH_{q^1}-bH_{q^2}=0
 $$
 
-を確かめられます。一方、$\dot p_3=-H_{q^3}=-V'(q^3)$ なので、$V'$ が一般に非零なら $p_3$ は保存しません。
+を確かめられます。一方、$q^3$ 方向には並進不変性を仮定していません。[正準座標のHamilton方程式](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から
+
+$$
+\dot p_3=-\frac{\partial H}{\partial q^3}=-V'(q^3)
+$$
+
+です。$V'$ が零でない点を通る局所軌道では $p_3$ の時間微分が零にならず、全軌道での保存は保証されません。
 <!-- solution-end -->
 
 <a id="ex-gmech3-b02"></a>
-**B2. 非等方振動子の角運動量。** $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。(1) $\{L,H\}$ を導け。(2) $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
+**B2. 非等方振動子の角運動量。** $m_0>0$、$\alpha,\beta\in\mathbb R$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。(1) $\{L,H\}$ を導け。(2) $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
 
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 偏微分は $L_x=p_y,L_y=-p_x,L_{p_x}=-y,L_{p_y}=x$、$H_x=\alpha x,H_y=\beta y,H_{p_x}=p_x/m_0,H_{p_y}=p_y/m_0$ です。[正準括弧の公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)に入れると
+**詳細解答。** 偏微分をそれぞれ計算すると
+
+$$
+\begin{aligned}
+&L_x=p_y,\quad L_y=-p_x,\quad L_{p_x}=-y,\quad L_{p_y}=x,\\
+&H_x=\alpha x,\quad H_y=\beta y,\\
+&H_{p_x}=p_x/m_0,\quad H_{p_y}=p_y/m_0.
+\end{aligned}
+$$
+
+これらを[正準括弧の公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)に入れると
 
 $$
 \begin{aligned}
@@ -513,7 +548,23 @@ $$
 =\omega(\xi_M,X_H)=-dH(\xi_M).
 $$
 
-任意の $\xi$ で $s\mapsto\exp(s\xi)\cdot m$ を微分すると、その速度は $\xi_M(\exp(s\xi)\cdot m)$ だから、$H$ の微分は常に零となり、指数曲線全体で $H$ は一定です。[指数写像の局所微分同相](../../../代数系/LIE/LIE2/index.md#thm-lie2-exponential-local-diffeomorphism)から単位元近傍の元は $H$ を保ちます。そのような元全体は開部分群 $K$ をなし、左剰余類がすべて開なので $K$ の補集合も開です。$G$ が連結で $K$ は空でない開閉部分集合のため $K=G$ です。従って $H$ は全 $G$ で不変です。
+固定した $\xi,m$ に対して $m_s=\exp(s\xi)\cdot m$ とおくと、$\exp((s+h)\xi)=\exp(h\xi)\exp(s\xi)$ なので $\dot m_s=\xi_M(m_s)$ です。従って
+
+$$
+\frac{d}{ds}H(m_s)
+=dH_{m_s}(\xi_M(m_s))
+=-\{J_\xi,H\}(m_s)=0.
+$$
+
+ゆえに任意の $\xi,m,s$ で $H(\exp(s\xi)\cdot m)=H(m)$ です。[指数写像の局所微分同相](../../../代数系/LIE/LIE2/index.md#thm-lie2-exponential-local-diffeomorphism)により単位元のある開近傍 $U$ は指数写像の像に含まれるので、$U$ の元はすべて $H$ を保ちます。
+
+この性質を持つ群元の集合を $K$ とします。$H(e\cdot m)=H(m)$ から $e\in K$ です。$g,h\in K$ なら
+
+$$
+H(gh\cdot m)=H(g\cdot(h\cdot m))=H(h\cdot m)=H(m)
+$$
+
+なので $gh\in K$ です。また $g\in K$ なら $H(g\cdot(g^{-1}\cdot m))=H(g^{-1}\cdot m)$ から $H(m)=H(g^{-1}\cdot m)$ であり、$g^{-1}\in K$ です。従って $K$ は部分群です。$U\subseteq K$ から任意の $k\in K$ で $kU\subset K$ は開近傍となり、$K$ は開です。各左剰余類 $gK$ も開なので、$G\setminus K$ は剰余類の合併として開です。つまり $K$ は閉でもあります。連結な $G$ の空でない開閉集合 $K$ は全体 $G$ に一致し、$H$ は全 $G$ で不変です。
 <!-- solution-end -->
 
 <a id="ex-gmech3-b04"></a>
@@ -603,10 +654,15 @@ $$
 
 従ってこの軌道で $L$ は一定ではありません。
 
-(5) $\alpha=\beta$ なら $H$ は $O(2)$ 全体でも不変です。$O(2)$ のLie代数は $\mathfrak{so}(2)$ なので、[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)の結論として $L$ は各Hamilton軌道に沿って保存します。一方、反射 $R$ は $\det R=-1$ なので
+(5) $\alpha=\beta$ なら $H$ は $O(2)$ 全体でも不変です。$O(2)$ のLie代数は $\mathfrak{so}(2)$ なので、[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)の結論として $L$ は各Hamilton軌道に沿って保存します。一方、2次元の行列式で $L(q,p)=\det[q\ p]=xp_y-yp_x$ と書けます。反射 $R$ は $\det R=-1$ なので、
 
 $$
-L(Rq,Rp)=\det(R)\,L(q,p)=-L(q,p).
+\begin{aligned}
+L(Rq,Rp)
+&=\det[Rq\ Rp]\\
+&=\det(R)\det[q\ p]\\
+&=-L(q,p).
+\end{aligned}
 $$
 
 これは群作用で**別の初期点へ写した場合**の値の変化であり、**一つの初期点から出る時間軌道での保存**と矛盾しません。この区別は運動量写像の余随伴変換とNoether保存の違いそのものです。
