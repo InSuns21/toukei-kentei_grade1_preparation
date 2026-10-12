@@ -12,7 +12,7 @@ chapters:
     title: "Lie群作用と余接束への持ち上げ"
   - id: GMECH2
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH2
-    status: planned
+    status: completed
     title: "Hamilton作用と運動量写像"
   - id: GMECH3
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH3
