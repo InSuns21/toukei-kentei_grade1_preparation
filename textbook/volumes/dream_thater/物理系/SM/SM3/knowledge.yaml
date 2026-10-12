@@ -1,0 +1,86 @@
+chapter: SM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM2
+  - TH5
+forward_references: []
+concepts:
+  - id: statistical-mechanics.finite-bath-marginal
+    name: 有限熱浴の厳密な周辺分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限熱浴の厳密な周辺分布）]
+    requires: [statistical-mechanics.energy-split-probability, statistical-mechanics.microcanonical-ensemble]
+  - id: statistical-mechanics.bath-exponential-approximation
+    name: 熱浴近似と指数重みの誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱浴近似と指数重みの誤差）]
+    requires: [statistical-mechanics.finite-bath-marginal, statistical-mechanics.statistical-temperature]
+  - id: statistical-mechanics.canonical-ensemble
+    name: 有限正準アンサンブルと分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
+    requires: [statistical-mechanics.finite-ensemble, statistical-mechanics.bath-exponential-approximation]
+  - id: statistical-mechanics.partition-function
+    name: 分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
+    requires: [statistical-mechanics.finite-ensemble]
+  - id: statistical-mechanics.gibbs-distribution
+    name: Gibbs分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限正準アンサンブルと分配関数）]
+    requires: [statistical-mechanics.partition-function]
+  - id: statistical-mechanics.canonical-level-probability
+    name: 正準分布の規格化と準位表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準分布の規格化と準位表示）]
+    requires: [statistical-mechanics.canonical-ensemble, statistical-mechanics.discrete-density-of-states]
+  - id: statistical-mechanics.canonical-energy-fluctuation
+    name: 分配関数の微分とエネルギー揺らぎ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（分配関数の微分とエネルギー揺らぎ）]
+    requires: [statistical-mechanics.canonical-level-probability]
+  - id: statistical-mechanics.gibbs-entropy
+    name: 有限確率分布のGibbsエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限確率分布のGibbsエントロピー）]
+    requires: [statistical-mechanics.boltzmann-entropy, statistical-mechanics.canonical-ensemble]
+  - id: statistical-mechanics.canonical-helmholtz-energy
+    name: 正準Helmholtz自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正準Helmholtz自由エネルギー）]
+    requires: [statistical-mechanics.canonical-ensemble]
+  - id: statistical-mechanics.canonical-thermodynamic-identity
+    name: 正準エントロピーと自由エネルギーの恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正準エントロピーと自由エネルギーの恒等式）]
+    requires: [statistical-mechanics.canonical-helmholtz-energy, statistical-mechanics.gibbs-entropy, statistical-mechanics.canonical-energy-fluctuation]
+  - id: statistical-mechanics.canonical-variational-principle
+    name: 有限正準分布の自由エネルギー変分原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限正準分布の自由エネルギー変分原理）]
+    requires: [statistical-mechanics.canonical-thermodynamic-identity]
+  - id: statistical-mechanics.canonical-heat-capacity
+    name: 正準エネルギー揺らぎと熱容量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準エネルギー揺らぎと熱容量）]
+    requires: [statistical-mechanics.canonical-energy-fluctuation]
+  - id: statistical-mechanics.canonical-independent-systems
+    name: 独立な二系の分配関数と自由エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（独立な二系の分配関数と自由エネルギー）]
+    requires: [statistical-mechanics.additive-composite, statistical-mechanics.canonical-helmholtz-energy]
