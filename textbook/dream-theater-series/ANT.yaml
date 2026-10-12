@@ -4,7 +4,7 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1〜ANT7 完了。次章は先頭の planned (ANT8)。
+# ANT1〜ANT8 の各章本文を実装済み。系列横断の最終検証はPLANで管理する。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
@@ -37,5 +37,5 @@ chapters:
     title: 非自明零点・明示公式・零点計数
   - id: ANT8
     path: textbook/volumes/dream_thater/代数系/ANT/ANT8
-    status: planned
+    status: completed
     title: Riemann予想と誤差項・一般L関数への橋

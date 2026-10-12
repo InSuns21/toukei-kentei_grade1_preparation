@@ -1,0 +1,84 @@
+chapter: ANT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT7
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.riemann-hypothesis
+    name: Riemann予想
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Riemann予想）]
+    requires: [analytic-number-theory.nontrivial-zeros]
+
+  - id: analytic-number-theory.unsmoothing
+    name: 非減少和の差分による平滑化の解除
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（非減少和の差分による平滑化の解除）]
+    requires: [number-theory.chebyshev-psi]
+
+  - id: analytic-number-theory.rh-smoothed-error
+    name: RHから得られる平滑化誤差と点ごとの誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（RHから得られる平滑化誤差と点ごとの誤差）]
+    requires: [analytic-number-theory.riemann-hypothesis, analytic-number-theory.smoothed-explicit-formula, analytic-number-theory.unsmoothing]
+
+  - id: analytic-number-theory.error-implies-rh
+    name: 十分鋭い誤差評価はRHを導く
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（十分鋭い誤差評価はRHを導く）]
+    requires: [analytic-number-theory.psi-error-zero-free, analytic-number-theory.zero-symmetry]
+
+  - id: analytic-number-theory.log-zero-free-region
+    name: 対数型零点不存在領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対数型零点不存在領域）]
+    requires: [analytic-number-theory.nontrivial-zeros]
+
+  - id: analytic-number-theory.local-log-derivative
+    name: ζの局所対数微分の零点表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（ζの局所対数微分の零点表示）]
+    requires: [analytic-number-theory.jensen-disk-bound, analytic-number-theory.zero-symmetry]
+
+  - id: analytic-number-theory.classical-zero-free-region
+    name: ζの古典的な対数型零点不存在領域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ζの古典的な対数型零点不存在領域）]
+    requires: [analytic-number-theory.log-zero-free-region, analytic-number-theory.zeta-three-factor-positivity, analytic-number-theory.local-log-derivative]
+
+  - id: analytic-number-theory.classical-error
+    name: 対数型零点不存在からの素数定理の誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（対数型零点不存在からの素数定理の誤差）]
+    requires: [analytic-number-theory.classical-zero-free-region, analytic-number-theory.smoothed-explicit-formula, analytic-number-theory.riemann-von-mangoldt, analytic-number-theory.unsmoothing]
+
+  - id: analytic-number-theory.dirichlet-grh
+    name: Dirichlet L関数に対する一般化Riemann予想
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet L関数に対する一般化Riemann予想）]
+    requires: [analytic-number-theory.dirichlet-l-function, analytic-number-theory.riemann-hypothesis]
+
+  - id: analytic-number-theory.character-log-derivative
+    name: 文字付きvon Mangoldt級数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（文字付きvon Mangoldt級数）]
+    requires: [analytic-number-theory.l-euler, number-theory.von-mangoldt-function]
+
+  - id: analytic-number-theory.induced-l-factor
+    name: 誘導文字による有限Euler因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（誘導文字による有限Euler因子）]
+    requires: [analytic-number-theory.primitive-character, analytic-number-theory.l-euler]
