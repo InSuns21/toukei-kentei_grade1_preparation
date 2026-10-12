@@ -28,7 +28,7 @@ chapters:
     title: "Marsden–Weinstein簡約"
   - id: GMECH6
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH6
-    status: planned
+    status: completed
     title: "Lie–Poisson構造と余随伴軌道"
   - id: GMECH7
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH7
