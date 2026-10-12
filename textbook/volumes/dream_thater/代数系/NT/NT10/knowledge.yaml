@@ -1,0 +1,54 @@
+chapter: NT10
+scope: dream-theater
+coverage: complete
+prerequisites: [NT9, NT1, NT6, RA3]
+forward_references: []
+concepts:
+  - id: number-theory.h10q-problem
+    name: Hilbert第10問題 over Q
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Hilbert第10問題 over Q）]
+    requires: []
+  - id: number-theory.diophantine-set-q
+    name: 有理数上のDiophantine集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有理数上のDiophantine集合）]
+    requires: [number-theory.h10q-problem]
+  - id: number-theory.q-diophantine-closure
+    name: 有理数上の存在的多項式条件の閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有理数上の存在的多項式条件の閉性）]
+    requires: [number-theory.diophantine-set-q]
+  - id: number-theory.q-zero-recognizable
+    name: 有理数解の存在は認識可能
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有理数解の存在は認識可能）]
+    requires: [number-theory.h10q-problem]
+  - id: number-theory.integer-diophantine-in-q
+    name: 整数の有理数上のDiophantine定義
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（整数の有理数上のDiophantine定義）]
+    requires: [number-theory.diophantine-set-q]
+  - id: number-theory.h10q-conditional-transfer
+    name: 整数の存在的定義が与えられた場合の帰着
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数の存在的定義が与えられた場合の帰着）]
+    requires: [number-theory.integer-diophantine-in-q, number-theory.q-diophantine-closure, number-theory.h10z-undecidable]
+  - id: number-theory.q-to-z-reduction
+    name: 有理数可解性から整数可解性への計算可能な変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有理数可解性から整数可解性への計算可能な変換）]
+    requires: [number-theory.dprm-theorem]
+  - id: number-theory.elliptic-tangent-rational-example
+    name: 接線から得る有理点の具体例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（接線から得る有理点の具体例）]
+    requires: []

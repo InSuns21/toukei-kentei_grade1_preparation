@@ -1,0 +1,46 @@
+id: "NT10"
+title: "Hilbert第10問題 over Q"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT9
+  - NT1
+  - NT6
+  - RA3
+official_scope: []
+learning_objectives:
+  - 整数と有理数で多項式可解性が異なる具体例を証明できる
+  - 有理数上のDiophantine集合の定義と論理閉性を両方向から確認できる
+  - 有理数解の認識器を正しい列挙と停止条件から構成できる
+  - 整数の存在的定義を仮定した整数から有理数への帰着を多項式として構成できる
+  - 分母の非零条件を保持し有理数から整数への帰着の方向を説明できる
+  - 楕円曲線上の接線と有理点を具体的に計算できる
+  - 全称的定義と存在的定義および研究上の主張と証明済み結果を区別できる
+definitions:
+  - { id: NT10-DEF-01, name: Hilbert第10問題 over Q }
+  - { id: NT10-DEF-02, name: 有理数上のDiophantine集合 }
+  - { id: NT10-DEF-03, name: 整数の有理数上のDiophantine定義 }
+theorems:
+  - { id: NT10-PROP-01, name: 有理数上の存在的多項式条件の閉性 }
+  - { id: NT10-PROP-02, name: 有理数解の存在は認識可能 }
+  - { id: NT10-THM-01, name: 整数の存在的定義が与えられた場合の帰着 }
+  - { id: NT10-PROP-03, name: 有理数可解性から整数可解性への計算可能な変換 }
+  - { id: NT10-PROP-04, name: 接線から得る有理点の具体例 }
+canonical_examples:
+  - 2X-1の整数・有理数可解性の違い
+  - 有理数の非零性XY-1=0
+  - 整数条件が存在的に定義できると仮定した平方和帰着
+  - 分数の分母を払ったときの偽解
+  - y二乗=x三乗-2の接線計算
+problem_patterns:
+  - NT10-RATIONAL-VS-INTEGER
+  - NT10-RATIONAL-DIOPHANTINE-CLOSURE
+  - NT10-RATIONAL-ENUMERATION
+  - NT10-EXISTENTIAL-INTEGRALITY-TRANSFER
+  - NT10-DENOMINATOR-NONZERO
+  - NT10-ELLIPTIC-TANGENT
+  - NT10-RESEARCH-CLAIM-SCOPE
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
