@@ -779,27 +779,27 @@ $X_1,X_2,\ldots$ は $P(X_i=1)=1/4$、$P(X_i=0)=3/4$ の独立同分布二値情
 
 **(1)** [Shannonエントロピー](../INFO1/index.md#def-info1-entropy)から
 
-$
+$$
 \begin{aligned}
 H(X_1)
 &=-\frac34\log_2\frac34-\frac14\log_2\frac14\\
 &=2-\frac34\log_2 3.
 \end{aligned}
-$
+$$
 
 $3^2=9>8=2^3$ なので $2\log_2 3>3$、すなわち $\log_2 3>3/2$。よって
 
-$
+$$
 H(X_1)<2-\frac34\cdot\frac32=\frac78<\frac9{10}.
-$
+$$
 
 情報源は有限・独立同分布で両文字の確率が正なので、[INFO5の達成可能性](../INFO5/index.md#thm-info5-achievability)を $R=9/10$ に適用できる。長さ $k_n=\lceil9n/10\rceil$ の固定長圧縮・復元器が存在し、そのブロック誤り確率 $\alpha_n$ は0へ収束する。
 
 **(2)** [二元消失通信路の容量公式](../INFO6/index.md#thm-info6-bec-capacity)は $C=1-\varepsilon$ だから
 
-$
+$$
 C=1-\frac1{16}=\frac{15}{16}.
-$
+$$
 
 $9/10=36/40<37/40$ であり、$37/40<15/16$ は $37\cdot16=592<600=15\cdot40$ から従う。従って [INFO7の達成可能性定理](../INFO7/index.md#thm-info7-achievability)を率 $37/40$ で使える。
 
@@ -807,51 +807,51 @@ $9/10=36/40<37/40$ であり、$37/40<15/16$ は $37\cdot16=592<600=15\cdot40$ �
 
 **(3)** INFO7から、長さ $n$ で $M_n=\lceil2^{37n/40}\rceil$ 個のメッセージを持ち、一様メッセージ平均誤りが $\varepsilon_n\to0$ となる決定的符号列を選べる。各メッセージ $j$ の条件付き誤りを $e_{n,j}\in[0,1]$ と置くと
 
-$
+$$
 \frac1{M_n}\sum_{j=1}^{M_n}e_{n,j}=\varepsilon_n.
-$
+$$
 
 $\varepsilon_n>0$ の場合、$e_{n,j}>\sqrt{\varepsilon_n}$ のメッセージ数を $B_n$ とすると、非負性から
 
-$
+$$
 B_n\sqrt{\varepsilon_n}
 <\sum_{j:e_{n,j}>\sqrt{\varepsilon_n}}e_{n,j}
 \le M_n\varepsilon_n.
-$
+$$
 
 従って $B_n<M_n\sqrt{\varepsilon_n}$。$\varepsilon_n=0$ ならすべての $e_{n,j}=0$ である。いずれの場合も、誤りが $\sqrt{\varepsilon_n}$ 以下のメッセージを少なくとも $M_n(1-\sqrt{\varepsilon_n})$ 個残せる。十分大きい $n$ では $\sqrt{\varepsilon_n}\le1/2$ なので、残る数は $M_n/2$ 以上である。
 
 一方 $k_n\le9n/10+1$ である。$n\ge80$ なら
 
-$
+$$
 \frac{M_n}{2}\ge2^{37n/40-1}
 \ge2^{9n/10+1}\ge2^{k_n}.
-$
+$$
 
 このため、残った符号語から $2^{k_n}$ 個を選び、全圧縮ビット列に一対一に割り当てられる。元の復号器が集合外のメッセージを返した場合は、選んだメッセージの一つへ置き換えて全域の復号器とする。この操作は選んだ各メッセージの正復号確率を下げない。よって新しい通信路符号の**最大メッセージ誤り確率**は $\sqrt{\varepsilon_n}$ 以下である。
 
 圧縮復元の誤り事象を $A_n$、通信路が圧縮ビット列を誤って返す事象を $B_n'$ とすると、復元ブロックが違う事象は $A_n\cup B_n'$ に含まれる。どの圧縮ビット列が生じても通信路条件付き誤りは $\sqrt{\varepsilon_n}$ 以下なので
 
-$
+$$
 P(\widehat X^n\ne X^n)
 \le P(A_n)+P(B_n')
 \le\alpha_n+\sqrt{\varepsilon_n}
 \longrightarrow0.
-$
+$$
 
 **(4)** $X_{n+1}$ は $X^n$ と独立であり、通信路雑音も情報源から独立だから、過去の受信ブロックを条件にしても次の文字の真の分布は $p$ のままである。[条件付き対数損失の最適性](#thm-info10-conditional-optimal)から最適予測は $q=p$ で、最小期待損失は
 
-$
+$$
 L_p(p)=H(p)=2-\frac34\log_2 3.
-$
+$$
 
 一様予測では、どちらの文字も損失1ビットなので $L_p(u)=1$。従って[対数損失とKLの恒等式](#thm-info10-log-optimal)から
 
-$
+$$
 D(p\|u)=L_p(u)-H(p)
 =1-\left(2-\frac34\log_2 3\right)
 =\frac34\log_2 3-1>0.
-$
+$$
 
 **(5)** $H(X_1)$ は固定した情報源 $p$ の不確かさで、情報源符号化では情報を十分保存する最小ビット率の境界となる。$C$ は固定した通信路で入力分布を選び、相互情報量を最大化した伝送率の境界である。$D(p\|u)$ は固定した真の分布 $p$ に対して予測分布を $u$ と誤指定したための期待損失の増分であり、符号率や通信路容量ではない。圧縮が成功して過去を完全に復元できても、独立な次の文字を確率1で予測できるとは限らない。
 <!-- solution-end -->
