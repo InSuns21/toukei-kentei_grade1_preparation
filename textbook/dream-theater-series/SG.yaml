@@ -1,0 +1,39 @@
+version: 1
+id: SG
+title: "スピングラス"
+plan: textbook/plans_progress/DREAM_THEATER_SPIN_GLASS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: SG1
+    path: textbook/volumes/dream_thater/物理系/SG/SG1
+    status: drafting
+    title: quenched disorder・Random Energy Model・凍結転移
+  - id: SG2
+    path: textbook/volumes/dream_thater/物理系/SG/SG2
+    status: planned
+    title: Gaussian concentration・Gaussian部分積分・補間法
+  - id: SG3
+    path: textbook/volumes/dream_thater/物理系/SG/SG3
+    status: planned
+    title: Sherrington–Kirkpatrick模型・overlap・自由エネルギー
+  - id: SG4
+    path: textbook/volumes/dream_thater/物理系/SG/SG4
+    status: planned
+    title: replica対称性・対称性の破れ
+  - id: SG5
+    path: textbook/volumes/dream_thater/物理系/SG/SG5
+    status: planned
+    title: Ghirlanda–Guerra恒等式とultrametricity
+  - id: SG6
+    path: textbook/volumes/dream_thater/物理系/SG/SG6
+    status: planned
+    title: Ruelle確率カスケードとParisi変分原理
+  - id: SG7
+    path: textbook/volumes/dream_thater/物理系/SG/SG7
+    status: planned
+    title: dilutedスピングラスとランダムfactor graph
+  - id: SG8
+    path: textbook/volumes/dream_thater/物理系/SG/SG8
+    status: planned
+    title: cavity法・Belief Propagation・Mézard–Parisi
