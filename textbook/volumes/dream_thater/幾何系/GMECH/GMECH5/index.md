@@ -631,13 +631,13 @@ $$
 
 位置ベクトルの長さは $r$ です。$e_r$ と $e_\theta$ は長さ1で互いに直交するため、運動量の内積を成分ごとに展開すると
 
-$
+$$
 |p|^2=p\cdot p
 =p_r^2(e_r\cdot e_r)
 +2\frac{p_r\mu}{r}(e_r\cdot e_\theta)
 +\frac{\mu^2}{r^2}(e_\theta\cdot e_\theta)
 =p_r^2+\frac{\mu^2}{r^2}.
-$
+$$
 
 この式をもとのHamiltonianへ代入すると
 
