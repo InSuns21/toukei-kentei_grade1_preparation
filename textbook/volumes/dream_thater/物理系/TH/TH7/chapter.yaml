@@ -1,0 +1,50 @@
+id: "TH7"
+title: "化学ポテンシャル・多成分系・相平衡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH6
+official_scope: []
+learning_objectives:
+  - 成分別化学ポテンシャルを多成分基本関係の偏微分として定義し、二成分の具体的な基本関係から計算できる
+  - 多成分系の一次同次性からEuler関係式とGibbs–Duhem関係式を全微分まで導ける
+  - 温度・圧力・総物質量の制約を固定して相間物質移動の平衡条件と二階安定判定を導ける
+  - 単相ごとの化学ポテンシャルの全微分からClapeyron式と潜熱の関係を証明し、近似形と区別できる
+  - 理想混合のGibbs自由エネルギーから化学ポテンシャル、混合エントロピー、組成曲率を計算できる
+  - 化学量論係数に沿う方向微分から反応平衡条件とその安定判定を証明できる
+  - 第三法則の完全結晶表示を仮定付きで述べ、熱容量積分と残留エントロピーの適用限界を説明できる
+definitions:
+  - { id: TH7-DEF-01, name: "多成分系の化学ポテンシャル" }
+  - { id: TH7-DEF-02, name: "相間物質移動の座標" }
+  - { id: TH7-DEF-03, name: "理想混合のGibbs自由エネルギー" }
+  - { id: TH7-DEF-04, name: "反応進行度" }
+theorems:
+  - { id: TH7-THM-01, name: "多成分Euler関係式" }
+  - { id: TH7-THM-02, name: "多成分Gibbs–Duhem関係式" }
+  - { id: TH7-THM-03, name: "相間移動の平衡条件" }
+  - { id: TH7-THM-04, name: "Clapeyron式" }
+  - { id: TH7-PROP-01, name: "理想混合の化学ポテンシャルと混合エントロピー" }
+  - { id: TH7-THM-05, name: "化学反応平衡の条件" }
+  - { id: TH7-PRINCIPLE-01, name: "第三法則の完全結晶表示" }
+canonical_examples:
+  - 二成分の一次同次な内部エネルギーから各成分の化学ポテンシャルを直接微分
+  - 成分総量固定の移動座標と端点での片側微分の注意
+  - 気液相共存でClapeyron式の符号とClausius–Clapeyron近似の追加仮定
+  - 等モル理想混合で自由エネルギー低下とエントロピー増大を検算
+  - 理想混合反応AとBの平衡組成比と正の反応曲率
+  - 完全結晶の低温熱容量と零温度まで延長できない一定熱容量模型
+problem_patterns:
+  - TH7-MULTICOMPONENT-DERIVATIVES
+  - TH7-GIBBS-DUHEM-COMPOSITION
+  - TH7-PHASE-TRANSFER-SIGN
+  - TH7-CLAPEYRON-NUMERICS
+  - TH7-IDEAL-MIXING-ENTROPY
+  - TH7-MIXING-CONVEXITY
+  - TH7-BOUNDARY-PHASE-TRANSFER
+  - TH7-REACTION-EQUILIBRIUM-RATIO
+  - TH7-THIRD-LAW-CAPACITY
+  - TH7-INTEGRATED-COEXISTENCE-TRANSFER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }
