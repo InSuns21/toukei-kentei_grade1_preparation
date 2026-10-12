@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SM4
+  - AMECH5
+  - F0-00P4
 official_scope: []
 learning_objectives:
   - 連続相空間・作用セル・同種粒子の1/N!補正を仮定とともに定義し、Gaussian積分から古典理想気体の正準分配関数を導出できる
