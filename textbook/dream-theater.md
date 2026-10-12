@@ -696,6 +696,7 @@
 3. [NT3 平方剰余・平方剰余の相互法則](textbook/volumes/dream_thater/代数系/NT/NT3/index.md)
 4. [NT4 算術関数と Dirichlet 畳み込み](textbook/volumes/dream_thater/代数系/NT/NT4/index.md)
 5. [NT5 Möbius反転・約数和・総和関数](textbook/volumes/dream_thater/代数系/NT/NT5/index.md)
+6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
 
 ### 代数幾何学 I〜III
 
