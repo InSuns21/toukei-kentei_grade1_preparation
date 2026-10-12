@@ -40,7 +40,7 @@ for(const [old,dest] of oldToNew)if(!afterSet.has(dest))throw Error('Missing rel
 for(const dest of afterFiles)if(![...oldToNew.values()].includes(dest)&&!dest.endsWith('/AGENTS.md'))throw Error('Unexpected file in category tree: '+dest);
 
 function normalize(source) {
- let text=source.replace(/(!?\[[^\]\n]*\]\()([^\s)]+)(\))/g,'$1<URL>$3')
+ let text=source.replace(/\]\(([^\s)]+)\)/g,'](<URL>)')
    .replace(/(\b(?:href|src)=["'])([^"'<>]+)(["'])/g,'$1<URL>$3');
  // Normalize moved path strings only; other mathematical content is sacrosanct.
  for(const [old,modern] of ordered){
