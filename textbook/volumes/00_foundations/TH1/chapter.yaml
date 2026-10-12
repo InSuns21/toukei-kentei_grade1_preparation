@@ -1,0 +1,49 @@
+id: "TH1"
+title: "平衡状態・状態量・温度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH1
+  - RA3
+official_scope: []
+learning_objectives:
+  - 系と環境・境界の選び方を示し、閉鎖系・開放系・孤立系を区別できる
+  - 熱力学的平衡と非平衡な定常状態を区別し、状態量の定義を説明できる
+  - 示量量と示強量の複製則を使って体積・物質量・温度・圧力・密度を判定できる
+  - 第0法則と対称性・反射性から熱平衡の同値関係を証明し、経験温度の非一意性を説明できる
+  - 理想気体の状態方程式の適用範囲・単位・独立変数の制限を説明できる
+  - 理想気体の拡大不変性と等温・定積での圧力偏微分を途中式から導出できる
+definitions:
+  - { id: TH1-DEF-01, name: "系・環境・境界" }
+  - { id: TH1-DEF-02, name: "熱力学的平衡状態" }
+  - { id: TH1-DEF-03, name: "巨視的状態量・状態関数" }
+  - { id: TH1-DEF-04, name: "示量量・示強量" }
+  - { id: TH1-DEF-05, name: "熱平衡関係" }
+  - { id: TH1-DEF-06, name: "経験温度" }
+  - { id: TH1-DEF-07, name: "状態方程式" }
+theorems:
+  - { id: TH1-AXIOM-01, name: "熱力学第0法則" }
+  - { id: TH1-PROP-01, name: "熱平衡関係の同値性" }
+  - { id: TH1-PROP-02, name: "理想気体の拡大不変性" }
+  - { id: TH1-PROP-03, name: "理想気体の圧力の偏微分" }
+canonical_examples:
+  - 密閉ピストンの閉鎖系と非孤立系の違い
+  - 二室の温度差と非平衡な定常熱流
+  - 物質量と体積を二倍にする理想的な複製
+  - 温度計を仲立ちにした熱平衡関係
+  - 四つの測定量の拘束としての理想気体の状態方程式
+  - 圧力の温度微分と体積微分の符号の比較
+problem_patterns:
+  - TH1-BOUNDARY-CLASSIFICATION
+  - TH1-SCALING-DENSITY
+  - TH1-ZEROTH-LAW-LOGIC
+  - TH1-STEADY-NONEQUILIBRIUM
+  - TH1-UNIT-CHECK
+  - TH1-IDEAL-GAS-THERMOMETRY
+  - TH1-EQUATION-DERIVATIVES
+  - TH1-TEMPERATURE-NONUNIQUENESS
+  - TH1-TWO-CHAMBER-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
