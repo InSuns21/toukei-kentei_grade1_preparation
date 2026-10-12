@@ -104,10 +104,10 @@ $$
 > **補題（シンプレクティック直交補の次元）**  
 > $(V,\omega)$ が $\dim V=2n$ の有限次元実シンプレクティックベクトル空間で、$W\subseteq V$ が線形部分空間なら
 >
-> $$
-> \dim W^\omega=2n-\dim W,
-> \qquad (W^\omega)^\omega=W.
-> $$
+$$
+\dim W^\omega=2n-\dim W,
+\qquad (W^\omega)^\omega=W.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -227,15 +227,15 @@ $$
 > $(M,\omega)$ を $2n$ 次元シンプレクティック多様体、$L\subset M$ を滑らかな埋め込み部分多様体とする。
 > 包含写像を $i:L\hookrightarrow M$ とするとき、$L$ が **Lagrange部分多様体** であるとは次の二条件が成立することをいう。
 >
-> $$
-> \dim L=n,\qquad i^*\omega=0.
-> $$
+$$
+\dim L=n,\qquad i^*\omega=0.
+$$
 >
 > 同値に全ての $x\in L$ について
 >
-> $$
-> T_xL=(T_xL)^{\omega_x}
-> $$
+$$
+T_xL=(T_xL)^{\omega_x}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -309,9 +309,9 @@ $$
 > **定理（閉1形式のグラフのLagrange判定）**  
 > $Q$ を滑らかな $n$ 次元実多様体、$\alpha\in\Omega^1(Q)$ を滑らかな1形式とする。余接束 $T^*Q$ に $\omega_{\mathrm{can}}=-d\theta$ を入れる。このとき $s_\alpha:Q\to T^*Q$ は滑らかな埋め込みで、グラフ $\Gamma_\alpha$ がLagrange部分多様体であるための必要十分条件は
 >
-> $$
-> d\alpha=0
-> $$
+$$
+d\alpha=0
+$$
 >
 > である。特に零切断と、滑らかな関数 $f$ の微分 $df$ のグラフはLagrangeである。
 <!-- formal-statement-end -->
@@ -435,9 +435,9 @@ $$
 > **定義（余法束）**  
 > $Q$ を $n$ 次元滑らかな多様体、$S\subset Q$ を $k$ 次元の滑らかな埋め込み部分多様体とする。$S$ の **余法束** は
 >
-> $$
-> N^*S=\{\alpha_q\in T^*Q:q\in S,\ \alpha_q(v)=0\quad(\forall v\in T_qS)\}
-> $$
+$$
+N^*S=\{\alpha_q\in T^*Q:q\in S,\ \alpha_q(v)=0\quad(\forall v\in T_qS)\}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -461,9 +461,9 @@ $$
 > $Q$ を $n$ 次元滑らかな多様体とし、$S\subset Q$ を滑らかな埋め込み部分多様体とする。その次元を $k$（$0\le k\le n$）とする。
 > このとき余法束 $N^*S\subset T^*Q$ は滑らかな埋め込み $n$ 次元部分多様体となる。さらに正準シンプレクティック形式
 >
-> $$
-> \omega_{\mathrm{can}}=-d\theta
-> $$
+$$
+\omega_{\mathrm{can}}=-d\theta
+$$
 >
 > に関してLagrangeである。
 <!-- formal-statement-end -->
