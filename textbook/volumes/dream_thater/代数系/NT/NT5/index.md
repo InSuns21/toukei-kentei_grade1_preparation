@@ -455,7 +455,7 @@ $n=12$ の各正の約数 $d$ に対して $\varphi(d)$ を求め、和が $12$ 
 - ID: NT5-A3
 
 <!-- solution-start -->
-**詳細解答**　$12$ の正の約数は $1,2,3,4,6,12$ です。[Euler の $\varphi$ 関数の定義](../NT2/index.md#def-nt2-euler-phi)より、各 $d$ で $1\le a\le d$ かつ $\gcd(a,d)=1$ となる整数を数えます。その結果は順に
+**詳細解答**　$12$ の正の約数は $1,2,3,4,6,12$ です。[Euler の $\varphi$ 関数](../NT2/index.md#def-nt2-euler-phi)より、各 $d$ で $1\le a\le d$ かつ $\gcd(a,d)=1$ となる整数を数えます。その結果は順に
 
 $$
 \begin{aligned}
@@ -591,7 +591,7 @@ $$
 \varphi(12)=\sum_{d\mid12}\mu(d)\frac{12}{d}.
 $$
 
-$\mu(d)$ が非零の約数は $1,2,3,6$ だけなので、$12-6-4+2=4$ です。[Euler の $\varphi$ 関数の定義](../NT2/index.md#def-nt2-euler-phi)でも $1,5,7,11$ の四数が $12$ と互いに素です。
+$\mu(d)$ が非零の約数は $1,2,3,6$ だけなので、$12-6-4+2=4$ です。[Euler の $\varphi$ 関数](../NT2/index.md#def-nt2-euler-phi)でも $1,5,7,11$ の四数が $12$ と互いに素です。
 <!-- solution-end -->
 
 #### B4. 約数和の総和を重み付き床関数へ変える
@@ -642,7 +642,7 @@ $$
 - ID: NT5-C1
 
 <!-- solution-start -->
-**詳細解答**　(1) [約数個数関数の定義](../NT4/index.md#def-nt4-divisor-functions)から、各 $n$ の $\tau(n)$ は正の約数 $d$ の個数です。$d$ を選ぶと $e=n/d$ は正整数として一意で、逆に正整数対 $(d,e)$ を選ぶと $n=de$ が一意です。この対応を $n\le x$ に制限した条件は $de\le x$ なので、二つの数え方は一致します。[畳み込みの総和と二重和](#thm-nt5-summatory-convolution)の $f=g=1$ への代入でも確認できます。
+**詳細解答**　(1) [約数個数関数と約数和関数](../NT4/index.md#def-nt4-divisor-functions)から、各 $n$ の $\tau(n)$ は正の約数 $d$ の個数です。$d$ を選ぶと $e=n/d$ は正整数として一意で、逆に正整数対 $(d,e)$ を選ぶと $n=de$ が一意です。この対応を $n\le x$ に制限した条件は $de\le x$ なので、二つの数え方は一致します。[畳み込みの総和と二重和](#thm-nt5-summatory-convolution)の $f=g=1$ への代入でも確認できます。
 
 (2) $m^2\le x<(m+1)^2$ です。$d,e>m$ なら積は $x$ より大きくなり、数える範囲の外です。従って $d\le m$ または $e\le m$ の少なくとも一方が成立します。前者の組数は $\sum_{d=1}^m\lfloor x/d\rfloor$、後者も対称性で同じ数です。両方を満たす組は $m^2$ 個で、いずれも $de\le m^2\le x$ です。重複分を一度引いて
 
