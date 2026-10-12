@@ -1,7 +1,7 @@
 # DREAM THEATER 熱力学（TH1〜TH8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（TH1〜TH5 完了、TH6〜TH8 未着手。科目横断監査は未実施）
+状態: in_progress（TH1〜TH8 各章完成。科目横断監査は未実施）
 
 ## 中心問い
 

@@ -1,0 +1,47 @@
+id: "TH8"
+title: "相転移・磁性・Landau理論への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH7
+official_scope: []
+learning_objectives:
+  - 温度・外場を制御した自由エネルギーの枝から一次相転移と連続相転移を区別し、非解析性がどの導関数に現れるか説明できる
+  - 秩序変数・磁化と共役外場の符号規約を定義し、極小値の包絡微分から磁化と感受率を求められる
+  - 対称な四次Landau模型のすべての停留点・安定性・平衡自由エネルギーを温度ごとに証明できる
+  - 四次模型の秩序変数・感受率・臨界等温線の臨界指数を導き、比熱の有限な跳びを計算できる
+  - 六次Landau模型で一次転移の共存条件・秩序変数跳躍・潜熱と準安定枝を求められる
+  - 共存点での外場・温度の微小変化を自由エネルギー差で評価し、熱力学的なClapeyron型関係を導ける
+  - Landau理論が現象論的・平均場的近似であることと、有限系・揺らぎ・対称性に関する適用限界を説明できる
+definitions:
+  - { id: TH8-DEF-01, name: "秩序変数と対称性" }
+  - { id: TH8-DEF-02, name: "共役外場と磁化" }
+  - { id: TH8-DEF-03, name: "対称な四次Landau自由エネルギー" }
+  - { id: TH8-DEF-04, name: "六次Landau自由エネルギー" }
+theorems:
+  - { id: TH8-PROP-01, name: "極小枝の包絡微分" }
+  - { id: TH8-THM-01, name: "四次Landau模型の平衡極小" }
+  - { id: TH8-THM-02, name: "連続転移の自由エネルギーと比熱" }
+  - { id: TH8-THM-03, name: "平均場感受率と臨界指数" }
+  - { id: TH8-THM-04, name: "六次模型の一次転移と潜熱" }
+  - { id: TH8-PROP-02, name: "共存線の外場・温度勾配" }
+canonical_examples:
+  - 二次模型で外場微分と感受率の正号を検算
+  - 四次模型の正の温度差・負の温度差・臨界温度での極小比較
+  - 磁場を正負に近づける際の秩序変数跳躍とエントロピー跳躍の区別
+  - 六次模型の共存点と障壁の数値例
+problem_patterns:
+  - TH8-ORDER-PARAMETER-SYMMETRY
+  - TH8-LANDAU-STATIONARY
+  - TH8-MAGNETIC-SUSCEPTIBILITY
+  - TH8-HEAT-CAPACITY-JUMP
+  - TH8-EXTERNAL-FIELD-SIGN
+  - TH8-CRITICAL-EXPONENTS
+  - TH8-SEXTIC-COEXISTENCE
+  - TH8-METASTABLE-BARRIER
+  - TH8-ENVELOPE-ENTROPY
+  - TH8-COEXISTENCE-SLOPE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }

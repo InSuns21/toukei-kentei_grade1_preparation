@@ -35,5 +35,5 @@ chapters:
     title: 化学ポテンシャル・多成分系・相平衡
   - id: TH8
     path: textbook/volumes/dream_thater/物理系/TH/TH8
-    status: planned
+    status: completed
     title: 相転移・磁性・Landau理論への入口

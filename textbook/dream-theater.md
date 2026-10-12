@@ -867,6 +867,7 @@
 5. [TH5 熱力学ポテンシャルとLegendre変換](textbook/volumes/dream_thater/物理系/TH/TH5/index.md)
 6. [TH6 熱力学的安定性・応答・凸性](textbook/volumes/dream_thater/物理系/TH/TH6/index.md)
 7. [TH7 化学ポテンシャル・多成分系・相平衡](textbook/volumes/dream_thater/物理系/TH/TH7/index.md)
+8. [TH8 相転移・磁性・Landau理論への入口](textbook/volumes/dream_thater/物理系/TH/TH8/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
