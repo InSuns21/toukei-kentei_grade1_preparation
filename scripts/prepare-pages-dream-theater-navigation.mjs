@@ -48,9 +48,16 @@ for (const rawLine of facade.split(/\r?\n/)) {
     currentSubsection = {
       title: h3[1].trim(),
       links: [],
+      pending: false,
     };
     currentSection.subsections.push(currentSubsection);
     continue;
+  }
+
+  // A course may appear in the table of contents before its first lecture is published.
+  // Keep only explicitly marked pending subsections; never create broken chapter links.
+  if (currentSubsection && /^公開準備中(?:（[^）]+）)?。?$/.test(line)) {
+    currentSubsection.pending = true;
   }
 
   const links = [...line.matchAll(/\[([^\]]+)\]\((textbook\/volumes\/[^)]+\/index\.md)\)/g)];
@@ -69,7 +76,7 @@ for (const rawLine of facade.split(/\r?\n/)) {
 const filteredSections = sections
   .map((section) => ({
     ...section,
-    subsections: section.subsections.filter((subsection) => subsection.links.length > 0),
+    subsections: section.subsections.filter((subsection) => subsection.links.length > 0 || subsection.pending),
   }))
   .filter((section) => section.links.length > 0 || section.subsections.length > 0);
 
@@ -167,7 +174,11 @@ function renderSidebar(navSections) {
       out.push('<details class="dream-theater-nav-subsection">');
       out.push(`<summary title="${escapeHtml(subsection.title)}">${escapeHtml(subsection.title)}</summary>`);
       out.push('<ul>');
-      for (const item of subsection.links) out.push(renderLink(item));
+      if (subsection.links.length > 0) {
+        for (const item of subsection.links) out.push(renderLink(item));
+      } else {
+        out.push('<li><span>公開準備中</span></li>');
+      }
       out.push('</ul>');
       out.push('</details>');
     }
