@@ -699,6 +699,7 @@
 4. [NT4 算術関数と Dirichlet 畳み込み](textbook/volumes/dream_thater/代数系/NT/NT4/index.md)
 5. [NT5 Möbius反転・約数和・総和関数](textbook/volumes/dream_thater/代数系/NT/NT5/index.md)
 6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
+7. [NT7 連分数・Pell 方程式・Diophantine 近似](textbook/volumes/dream_thater/代数系/NT/NT7/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
