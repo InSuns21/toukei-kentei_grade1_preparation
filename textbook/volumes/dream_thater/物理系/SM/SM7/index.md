@@ -42,15 +42,15 @@ $$
 > **命題（有限零外場の反転対称性）**  
 > [有限強磁性Ising模型](#def-sm7-ising)で $h=0$ とする。全反転 $R\sigma=(-\sigma_i)$ は正準確率を保つ。従って
 
-$
+$$
 \mathbb E_{\beta,0}M=0.
-$
+$$
 
 > また任意の $h\in\mathbb R$ に対し、
 
-$
+$$
 Z_G(\beta,h)=Z_G(\beta,-h).
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
