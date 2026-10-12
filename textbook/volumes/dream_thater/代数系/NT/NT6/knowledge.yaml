@@ -1,0 +1,86 @@
+chapter: NT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT1
+  - NT3
+  - RNG3
+forward_references: []
+
+concepts:
+  - id: number-theory.linear-diophantine-solutions
+    name: 一次不定方程式の全整数解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次不定方程式の全整数解）]
+    requires: [algebra.euclidean-algorithm-bezout]
+
+  - id: number-theory.primitive-pythagorean-triple
+    name: 原始 Pythagoras 三つ組
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（原始 Pythagoras 三つ組）]
+    requires: [algebra.divisibility]
+
+  - id: number-theory.coprime-square-product
+    name: 互いに素な積が平方なら各因子も平方
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（互いに素な積が平方なら各因子も平方）]
+    requires: [algebra.divisibility]
+
+  - id: number-theory.pythagorean-parametrization
+    name: 原始 Pythagoras 三つ組の媒介表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（原始 Pythagoras 三つ組の媒介表示）]
+    requires: [number-theory.primitive-pythagorean-triple, number-theory.coprime-square-product]
+
+  - id: number-theory.modular-obstruction
+    name: 合同式による不存在判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（合同式による不存在判定）]
+    requires: [number-theory.congruence]
+
+  - id: number-theory.three-mod-four-even-exponent
+    name: 3 mod 4の素因数の指数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（3 mod 4 の素因数の指数）]
+    requires: [number-theory.quadratic-minus-one-supplement, number-theory.modular-inverse-criterion]
+
+  - id: number-theory.gaussian-integers-norm
+    name: Gauss 整数とノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Gauss 整数とノルム）]
+    requires: []
+
+  - id: number-theory.gaussian-euclidean-division
+    name: Gauss 整数の除法
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gauss 整数の除法）]
+    requires: [number-theory.gaussian-integers-norm]
+
+  - id: number-theory.gaussian-irreducible-prime
+    name: Gauss 整数の既約元は素元
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gauss 整数の既約元は素元）]
+    requires: [number-theory.gaussian-euclidean-division]
+
+  - id: number-theory.prime-two-square-representation
+    name: 1 mod 4の素数の二平方表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（1 mod 4 の素数の二平方表示）]
+    requires: [number-theory.quadratic-minus-one-supplement, number-theory.gaussian-irreducible-prime]
+
+  - id: number-theory.fermat-two-squares
+    name: Fermat の二平方和定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Fermat の二平方和定理）]
+    requires: [number-theory.three-mod-four-even-exponent, number-theory.prime-two-square-representation, number-theory.gaussian-integers-norm]
