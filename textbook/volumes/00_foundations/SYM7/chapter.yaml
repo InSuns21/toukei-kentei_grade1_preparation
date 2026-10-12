@@ -1,0 +1,50 @@
+id: "SYM7"
+title: "Moserの方法とシンプレクティック変形"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM5
+  - GEO7
+  - GEO8
+  - ODE1
+  - ODE8
+official_scope: []
+learning_objectives:
+  - シンプレクティック形式の滑らかな経路とMoser型同位変形を定義し直接例を検算できる
+  - 二つの閉2形式の差が完全であることとコホモロジー類の一致を対応付け、同位変形の必要条件を証明できる
+  - 時間依存形式のMoser方程式を解き、コンパクト性による時刻1までの流れと引き戻しの相殺を証明できる
+  - コホモロジー的に等しい端点の線形補間へMoser定理を適用する際に、全経路での非退化性を判定できる
+  - トーラス上のシンプレクティック変形からベクトル場・流れ・引き戻し・固定円周・総面積を具体的に計算できる
+  - 非コンパクト空間での大域変形の失敗と原始形式が零になる集合の固定条件を、仮定の役割に即して説明できる
+definitions:
+  - { id: SYM7-DEF-01, name: シンプレクティック形式の滑らかな経路 }
+  - { id: SYM7-DEF-02, name: Moser型の同位変形 }
+  - { id: SYM7-DEF-03, name: コホモロジー的に等しい閉2形式 }
+theorems:
+  - { id: SYM7-PROP-01, name: Moser型同位変形に必要な完全性 }
+  - { id: SYM7-THM-01, name: Moserの安定性定理 }
+  - { id: SYM7-COR-01, name: コホモロジー的に等しい端点の線形経路による変形 }
+  - { id: SYM7-PROP-02, name: 点wiseに零の原始形式が与える固定集合 }
+canonical_examples:
+  - トーラス上の正の係数からなるシンプレクティック形式の族
+  - 平面の一定倍率を打ち消すMoser型同位変形
+  - トーラス上の非自明だが完全な2形式の差
+  - F_tの逆関数で書いた明示的な流れと面積の保存
+  - 非コンパクト平面で総面積が無限から有限になる反例
+problem_patterns:
+  - SYM7-MOSER-SIGN-AND-FLOW
+  - SYM7-STOKES-COHOMOLOGY
+  - SYM7-DEGENERATE-INTERPOLATION
+  - SYM7-TORUS-PRIMITIVE
+  - SYM7-RELATIVE-VANISHING
+  - SYM7-NONLINEAR-PATH
+  - SYM7-FIXED-CIRCLES
+  - SYM7-NONCOMPACT-FAILURE
+  - SYM7-PRODUCT-PATH
+  - SYM7-TORUS-EXPLICIT-MOSER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
