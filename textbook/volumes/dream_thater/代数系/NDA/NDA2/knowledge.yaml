@@ -1,0 +1,71 @@
+chapter: NDA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA1
+  - RA1
+forward_references: []
+
+concepts:
+  - id: diophantine.uniform-approximation-constant
+    name: 近似定数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（近似定数と漸近近似定数）]
+    requires: [diophantine.normalized-approximation-error]
+
+  - id: diophantine.asymptotic-approximation-constant
+    name: 漸近近似定数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（近似定数と漸近近似定数）]
+    requires: [diophantine.uniform-approximation-constant]
+
+  - id: diophantine.asymptotic-constant-convergents
+    name: 漸近近似定数の収束分数表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（漸近近似定数の収束分数表示）]
+    requires: [diophantine.asymptotic-approximation-constant, number-theory.second-kind-best-approximation]
+
+  - id: diophantine.three-convergent-errors
+    name: 隣接する三収束分数の誤差公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（隣接する三収束分数の誤差公式）]
+    requires: [diophantine.exact-approximation-constant, number-theory.convergent-determinant]
+
+  - id: diophantine.hurwitz-three-term-bound
+    name: Hurwitzの三収束分数評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Hurwitzの三収束分数評価）]
+    requires: [diophantine.three-convergent-errors]
+
+  - id: diophantine.hurwitz-theorem
+    name: Hurwitzの近似定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hurwitzの近似定理）]
+    requires: [diophantine.hurwitz-three-term-bound]
+
+  - id: diophantine.golden-ratio-sharpness
+    name: 黄金比におけるHurwitz定数の最適性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（黄金比におけるHurwitz定数の最適性）]
+    requires: [diophantine.asymptotic-constant-convergents, diophantine.hurwitz-theorem]
+
+  - id: diophantine.badly-approximable-number
+    name: 悪近似数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（悪近似数）]
+    requires: [diophantine.uniform-approximation-constant]
+
+  - id: diophantine.bounded-partial-quotients
+    name: 悪近似数と有界部分商の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（悪近似数と有界部分商の同値）]
+    requires: [diophantine.badly-approximable-number, diophantine.exact-approximation-constant, number-theory.second-kind-best-approximation]
