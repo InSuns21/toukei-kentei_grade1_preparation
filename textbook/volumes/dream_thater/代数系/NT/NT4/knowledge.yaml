@@ -15,6 +15,13 @@ concepts:
     introduction_aliases: [定義（算術関数）]
     requires: []
 
+  - id: number-theory.constant-one-function
+    name: 定数1関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定数1関数）]
+    requires: [number-theory.arithmetic-function]
+
   - id: number-theory.multiplicative-arithmetic-function
     name: 乗法的算術関数と完全乗法的算術関数
     kind: definition
@@ -86,7 +93,7 @@ concepts:
     requires: [number-theory.dirichlet-convolution, number-theory.divisor-count-and-sum]
 
   - id: number-theory.dirichlet-inverse
-    name: Dirichlet 逆元の存在と再帰構成
+    name: Dirichlet 逆元の存在条件
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Dirichlet 逆元の存在条件）]
