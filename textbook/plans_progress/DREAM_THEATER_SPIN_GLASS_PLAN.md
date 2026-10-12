@@ -1,7 +1,7 @@
 # DREAM THEATER スピングラス（SG1〜SG8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（SG1〜SG6を執筆。SG7〜SG8と系列横断監査は未完了）
+状態: in_progress（SG1〜SG7を執筆。SG8と系列横断監査は未完了）
 
 ## 中心問い
 
@@ -94,3 +94,9 @@ EOM221 は SG8 の後に置く。
 - SG5のultrametricityと階層を前提に、有限段Ruelle確率カスケード、Poisson重みの指数傾斜、Parisi汎関数とGaussian再帰を追加。
 - Guerra補間の両端点と負の平方誤差を導く和公式を構成し、有限段の上界とTalagrandのParisi等式（研究級の外部定理）の証明境界を分離した。
 - Level A4題・B3題・C1題と詳細解答を実装。SG7〜SG8及び系列横断監査は残課題。
+
+## SG7 執筆・査読記録（2026-10-13）
+
+- SG3のoverlap、SG1のquenched/annealed、SG6の希薄模型への接続を前提に、Poisson化Viana–Bray模型、次数のPoisson薄化、ランダムfactor graphと木上Ising、Poisson辺追加公式、多レプリカ展開、ランダムk-SATの第一モーメント上界を実装。
+- 有限Nの対数圧力の結合密度微分をPoisson差分と符号平均から再導出。自己ループを許すことによる有限Nの厳密性、局所木収束と大域木性の違い、Poisson化と固定節数模型の指数率の相違を区別した。
+- Level A4題・B3題・C1題を全問詳細解答付きで実装。執筆担当者による数学的全件自己検算と読者粒度の別観点再読を行い、第三者独立査読とは区別した。SG8および系列横断監査は残課題。
