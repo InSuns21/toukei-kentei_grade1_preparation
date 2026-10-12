@@ -23,7 +23,7 @@ chapters:
     title: スペクトル分割とクラスタリング
   - id: SGT5
     path: textbook/volumes/dream_thater/計算系/SGT/SGT5
-    status: planned
+    status: completed
     title: 固有空間の摂動と分割の安定性
   - id: SGT6
     path: textbook/volumes/dream_thater/計算系/SGT/SGT6

@@ -1,0 +1,47 @@
+id: "SGT5"
+title: "固有空間の摂動と分割の安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT4
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 対称行列の作用素摂動と固有値のずれを最小最大原理から証明できる
+  - 外側の固有値間隔を仮定して下位固有空間の射影差を固有ベクトル展開から導ける
+  - 単純固有値の両側ギャップから符号を合わせた固有ベクトルを評価できる
+  - 辺重み更新の組合せLaplacianと次数が動く正規化Laplacianの摂動量を導ける
+  - 閾値余裕とベクトル誤差を比較して離散分割の保存条件を証明できる
+  - 三頂点道の例で固有ベクトルが安定でも固定閾値集合が不安定になる機構を説明できる
+definitions:
+  - { id: SGT5-DEF-01, name: 対称行列の摂動量 }
+  - { id: SGT5-DEF-02, name: 下位固有空間と直交射影 }
+  - { id: SGT5-DEF-03, name: 閾値の余裕 }
+theorems:
+  - { id: SGT5-THM-01, name: 対称行列の固有値摂動評価 }
+  - { id: SGT5-THM-02, name: 下位固有空間のDavis–Kahan型摂動評価 }
+  - { id: SGT5-THM-03, name: 単純固有ベクトルの方向の安定性 }
+  - { id: SGT5-PROP-01, name: 組合せLaplacianの一辺更新 }
+  - { id: SGT5-PROP-02, name: 正規化Laplacianの摂動量 }
+  - { id: SGT5-THM-04, name: 固定閾値の分割が変わらない十分条件 }
+canonical_examples:
+  - 対角行列の摂動と固有値評価の等号
+  - 基底回転に対する直交射影の不変性
+  - 二重固有値で一次元固有空間が不安定になる例
+  - 三頂点道の一辺更新で第二固有ベクトルは安定でも閾値集合が反転する例
+problem_patterns:
+  - SGT5-DIAGONAL-WEYL
+  - SGT5-PROJECTION-DISTANCE
+  - SGT5-EDGE-UPDATE
+  - SGT5-THRESHOLD-MARGIN
+  - SGT5-MINMAX-WEYL
+  - SGT5-PROJECTION-IDENTITY
+  - SGT5-NORMALIZED-ERROR
+  - SGT5-EIGENVECTOR-MARGIN
+  - SGT5-WEIGHTED-PATH-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
