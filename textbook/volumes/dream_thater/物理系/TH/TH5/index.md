@@ -274,7 +274,7 @@ $$
 <!-- definition-example-start: def-th5-extensive -->
 ### 例：変数の比を固定した拡大
 
-[TH4の例](../TH4/index.md#def-th4-chemical-potential)に現れた $U=A S^2/N+B N^2/V+CN$ を $A,B>0$、$S,V,N>0$ で使うと、第一項は $(\lambda S)^2/(\lambda N)=\lambda S^2/N$、第二項は $(\lambda N)^2/(\lambda V)=\lambda N^2/V$、第三項も $\lambda CN$ です。三項とも $\lambda$ 倍になるため、条件を直接満たします。
+**定義の確認**：[TH4の例](../TH4/index.md#def-th4-chemical-potential)に現れた $U=A S^2/N+B N^2/V+CN$ を $A,B>0$、$S,V,N>0$ で使うと、第一項は $(\lambda S)^2/(\lambda N)=\lambda S^2/N$、第二項は $(\lambda N)^2/(\lambda V)=\lambda N^2/V$、第三項も $\lambda CN$ です。三項とも $\lambda$ 倍になるため、条件を直接満たします。
 <!-- definition-example-end -->
 
 <a id="thm-th5-euler"></a>
