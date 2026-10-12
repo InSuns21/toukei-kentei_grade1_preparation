@@ -323,7 +323,7 @@ $$
 
 よって $\varepsilon-\log(1+\varepsilon)\ge\varepsilon^2/4$ であり、上側確率は $\exp(-m\varepsilon^2/8)$ 以下です。
 
-**下側。** $s>0$ として $-S$ に同じ指数Markov法を用いれば
+**下側。** $s>0$ として $-S$ に[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)を適用すると
 
 $$
 \begin{aligned}
@@ -375,7 +375,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Gaussian型Johnson–Lindenstrauss補題）**  
-> 整数 $d\ge1$、$N\ge2$、相対誤差 $0<\varepsilon<1$、失敗確率 $0<\delta<1$ を固定する。$x_1,\ldots,x_N\in\mathbb R^d$ は任意の**決定論的**な点とする。整数 $m\ge1$ が
+> 整数 $d\ge1$、$N\ge2$、二乗距離の伸縮率の許容幅 $0<\varepsilon<1$、失敗確率 $0<\delta<1$ を固定する。$x_1,\ldots,x_N\in\mathbb R^d$ は任意の**決定論的**な点とする。整数 $m\ge1$ が
 
 $$
 m\ge\frac8{\varepsilon^2}
