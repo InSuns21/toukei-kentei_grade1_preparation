@@ -519,19 +519,26 @@ $$
 \end{aligned}
 $$
 
-非退化性から $Y=X_f(y)$ です。同じ議論を $g$ にも行い、
+[Hamiltonベクトル場の一意性](#thm-sym4-existence-coordinate)を点 $y$ で使うと、任意の $W$ について $\omega_N(Y,W)=df_y(W)$ を満たす $Y$ は $X_f(y)$ しかありません。従って
+
+$$
+d\Psi_x\bigl(X_{f\circ\Psi}(x)\bigr)=X_f(y)
+$$
+
+です。同じ議論を関数 $g$ にも適用し、両側のベクトルを点ごとに評価すると
 
 $$
 \begin{aligned}
 \{f\circ\Psi,g\circ\Psi\}_M(x)
-&=\omega_M(X_{f\circ\Psi},X_{g\circ\Psi})\\
-&=\omega_N(d\Psi X_{f\circ\Psi},d\Psi X_{g\circ\Psi})\\
-&=\omega_N(X_f(y),X_g(y))
-=\{f,g\}_N(y)
+&=\omega_{M,x}\bigl(X_{f\circ\Psi}(x),X_{g\circ\Psi}(x)\bigr)\\
+&=\omega_{N,y}\bigl(d\Psi_xX_{f\circ\Psi}(x),d\Psi_xX_{g\circ\Psi}(x)\bigr)\\
+&=\omega_{N,y}\bigl(X_f(y),X_g(y)\bigr)\\
+&=\{f,g\}_N(y)
+=\bigl(\{f,g\}_N\circ\Psi\bigr)(x).
 \end{aligned}
 $$
 
-を得ます。
+中段では[シンプレクティック微分同相の引き戻し条件](../SYM2/index.md#def-sym2-symplectomorphism)を点 $x$ で使いました。$x$ が任意なので関数としての等式が成立します。
 <!-- proof-end -->
 
 **座標変換の検算。** $\Psi(q,p)=(Q,P)=(2q,p/2)$ は[SYM3の余接持ち上げ保存定理](../SYM3/index.md#thm-sym3-cotangent-lift-preserves)を満たします。行き先の関数 $f(Q,P)=Q^2$、$g(Q,P)=P$ について
@@ -562,7 +569,40 @@ q(t)=q_0\cos t+p_0\sin t,
 p(t)=p_0\cos t-q_0\sin t.
 $$
 
-微分すると $\dot q=-q_0\sin t+p_0\cos t=p(t)$、$\dot p=-p_0\sin t-q_0\cos t=-q(t)$ です。すべての $t$ で解けるのでこれは大域流であり、行列式は $\cos^2t+\sin^2t=1$、引き戻し $dq(t)\wedge dp(t)=dq_0\wedge dp_0$ も確かめられます。
+微分すると
+
+$$
+\begin{aligned}
+\dot q(t)&=-q_0\sin t+p_0\cos t=p(t),\\
+\dot p(t)&=-p_0\sin t-q_0\cos t=-q(t)
+\end{aligned}
+$$
+
+となり、初期値も満たします。全ての実数 $t$ で定義できるため、これは大域流です。時刻 $t$ の写像を初期値 $(q_0,p_0)$ の関数として微分すると
+
+$$
+D\Phi_t=
+\begin{pmatrix}
+\cos t&\sin t\\
+-\sin t&\cos t
+\end{pmatrix},
+\qquad
+\det D\Phi_t=\cos^2t+\sin^2t=1.
+$$
+
+引き戻しを実際に展開すると
+
+$$
+\begin{aligned}
+d(q(t))\wedge d(p(t))
+&=(\cos t\,dq_0+\sin t\,dp_0)\\
+&\quad\wedge(-\sin t\,dq_0+\cos t\,dp_0)\\
+&=(\cos^2t+\sin^2t)\,dq_0\wedge dp_0\\
+&=dq_0\wedge dp_0.
+\end{aligned}
+$$
+
+従って[Hamilton流の形式保存定理](#thm-sym4-flow-preservation)も、この例では行列計算で確かめられます。
 
 対して $T^*\mathbb R$ 上で $H(q,p)=q^2p$ とすると、[正準座標式](#thm-sym4-existence-coordinate)より
 
@@ -578,13 +618,27 @@ $$
 q(t)=\frac{q_0}{1-q_0t}.
 $$
 
-さらに $\dot p/p=-2q$ の形を使う代わりに、$p(t)=p_0(1-q_0t)^2$ を代入すると
+運動量成分も推測で決めずに導きます。[観測量の時間発展・保存量命題](#prop-sym4-observable-evolution)では $H$ が軌道上で一定です。従って、先に得た $q(t)$ に対して
 
 $$
-\dot p=-2q_0p_0(1-q_0t)=-2q(t)p(t).
+\begin{aligned}
+q(t)^2p(t)&=H(q(t),p(t))=H(q_0,p_0)=q_0^2p_0,\\
+p(t)&=\frac{q_0^2p_0}{q(t)^2}
+=p_0(1-q_0t)^2.
+\end{aligned}
 $$
 
-時刻 $t=1/q_0$ で $q(t)$ が発散します。したがって[形式保存定理](#thm-sym4-flow-preservation)は成立しても、任意の初期点で全実数時刻にわたる流れがあるとは限りません。保存性と完備性は別の条件です。
+ここで $q_0>0$ かつ $t<1/q_0$ なので $q(t)\ne0$ として割れます。さらに元の方程式へ代入すると
+
+$$
+\begin{aligned}
+\dot p(t)&=-2q_0p_0(1-q_0t),\\
+-2q(t)p(t)&=-2\frac{q_0}{1-q_0t}\,p_0(1-q_0t)^2\\
+&=-2q_0p_0(1-q_0t),
+\end{aligned}
+$$
+
+と一致します。時刻 $t=1/q_0$ で $q(t)$ が発散します。したがって[形式保存定理](#thm-sym4-flow-preservation)は成立しても、任意の初期点で全実数時刻にわたる流れがあるとは限りません。保存性と完備性は別の条件です。
 
 ## 7. 演習：符号・保存・交換子・座標不変性
 
@@ -713,14 +767,22 @@ $$
 q(t)=\frac1{1-t}.
 $$
 
-$p(t)=2(1-t)^2$ とおけば
+次に、[Hamilton関数の保存命題](#prop-sym4-observable-evolution)より $q(t)^2p(t)=q(0)^2p(0)=2$ です。$q(t)=1/(1-t)$ は $t<1$ で零でないから
 
 $$
-\dot p=-4(1-t),\qquad
--2qp=-2\frac1{1-t}\,2(1-t)^2=-4(1-t).
+p(t)=\frac{2}{q(t)^2}=2(1-t)^2.
 $$
 
-初期値も満たすので、局所解の一意性から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
+運動方程式に戻して
+
+$$
+\begin{aligned}
+\dot p(t)&=-4(1-t),\\
+-2q(t)p(t)&=-2\frac1{1-t}\,2(1-t)^2=-4(1-t)
+\end{aligned}
+$$
+
+を確認します。初期値も満たすので、[初期値問題の一意性](../ODE8/index.md#def-ode8-maximal-solution)から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
 
 $$
 H(q(t),p(t))
@@ -788,12 +850,24 @@ $f=q^2$、$g=p^2$、$h=qp$ とする。Jacobi恒等式の三項をそれぞれ�
 - ID: SYM4-B4
 
 <!-- solution-start -->
-**詳細解答**　まず[座標式](#prop-sym4-coordinate-bracket)から
+**詳細解答**　[Poisson括弧の正準座標式](#prop-sym4-coordinate-bracket)へ使う偏微分をまず列挙します。
 
 $$
-\{f,g\}=4qp,\quad
-\{g,h\}=-2p^2,\quad
-\{h,f\}=-2q^2.
+\begin{aligned}
+(f_q,f_p)&=(2q,0),&
+(g_q,g_p)&=(0,2p),&
+(h_q,h_p)&=(p,q).
+\end{aligned}
+$$
+
+従って第一段階の括弧は
+
+$$
+\begin{aligned}
+\{f,g\}&=(2q)(2p)-0=4qp,\\
+\{g,h\}&=0\cdot q-(2p)p=-2p^2,\\
+\{h,f\}&=p\cdot0-q(2q)=-2q^2.
+\end{aligned}
 $$
 
 さらに
@@ -847,7 +921,19 @@ $$
 =\frac12\left(\frac{Q^2}{a^2}+a^2P^2\right).
 $$
 
-元の[座標式](#thm-sym4-existence-coordinate)で $X_H=p\partial_q-q\partial_p$ なので、$d\Psi(\partial_q)=a\partial_Q$、$d\Psi(\partial_p)=(1/a)\partial_P$ をそれぞれ代入すれば
+元の[Hamiltonベクトル場の座標式](#thm-sym4-existence-coordinate)で $X_H=p\partial_q-q\partial_p$ です。$\Psi$ のJacobianを位置・運動量の順で書くと
+
+$$
+D\Psi=
+\begin{pmatrix}
+\partial_qQ&\partial_pQ\\
+\partial_qP&\partial_pP
+\end{pmatrix}
+=
+\begin{pmatrix}a&0\\0&1/a\end{pmatrix}.
+$$
+
+従って $d\Psi(\partial_q)=a\partial_Q$、$d\Psi(\partial_p)=(1/a)\partial_P$ です。これらを $X_H$ の二項に代入すると
 
 $$
 \begin{aligned}
