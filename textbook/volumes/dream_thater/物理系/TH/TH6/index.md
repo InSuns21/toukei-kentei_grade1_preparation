@@ -185,7 +185,20 @@ $$
 S=Nc_V\log(T/T_*)+NR\log(V/(Nv_*)),\qquad pV=NRT.
 $$
 
-$S_T|_V=Nc_V/T$ なので $C_V=Nc_V$。$V=NRT/p$ を固定 $p$ で微分すれば $V_T|_p=NR/p=V/T$、従って $\alpha=1/T$。固定 $T$ で $V_p=-NRT/p^2=-V/p$ なので $\kappa_T=1/p$。各定義の分母は $T,p,V>0$ で零になりません。
+固定体積でのエントロピー微分と、状態方程式 $V=NRT/p$ の偏微分を分けて書きます。
+
+$
+\begin{aligned}
+C_V&=T\left(\frac{\partial S}{\partial T}\right)_{V,N}
+=T\frac{Nc_V}{T}=Nc_V,\\
+\alpha&=\frac1V\left(\frac{\partial V}{\partial T}\right)_{p,N}
+=\frac1V\frac{NR}{p}=\frac1T,\\
+\kappa_T&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{T,N}
+=-\frac1V\left(-\frac{NRT}{p^2}\right)=\frac1p.
+\end{aligned}
+$
+
+ここでは $T,p,V>0$ なので分母は零にならず、それぞれに指定した固定条件が保たれています。
 <!-- definition-example-end -->
 
 <a id="thm-th6-stability-response"></a>
@@ -714,7 +727,17 @@ V_p=-\frac b{4p^{3/2}},\qquad
 =\frac{b/(4p^{3/2})}{b/(2\sqrt p)}=\frac1{2p}.
 $$
 
-二階微分は $G_{TT}=-a$、$G_{Tp}=0$、$G_{pp}=-b/(4p^{3/2})$。先頭の対角成分は負、対角積から交差項の二乗を引いた値は $ab/(4p^{3/2})>0$ なのでHessianは負定値です。$V$ が $T$ に依存しないため $\alpha=0$ であり、[熱容量差](#thm-th6-heat-capacity-difference)から $C_V=C_p$ です。
+Hessianの成分と行列式を個別に求めると
+
+$
+H_G=\begin{pmatrix}
+-a&0\\[2pt]0&-\dfrac{b}{4p^{3/2}}
+\end{pmatrix},
+\qquad
+\det H_G=\frac{ab}{4p^{3/2}}>0.
+$
+
+$a,b,p>0$ により左上の成分は負、行列式は正なので、Hessianは負定値です。また $V=b/(2\sqrt p)$ は $T$ に依存しないため $\alpha=(1/V)V_T|_p=0$。正の $\kappa_T$ があるので[熱容量差の定理](#thm-th6-heat-capacity-difference)を適用でき、$C_p-C_V=TV\alpha^2/\kappa_T=0$、すなわち $C_V=C_p=aT$ です。
 <!-- solution-end -->
 
 #### B5. 大域凸性を二次形式から証明する
@@ -797,7 +820,13 @@ $$
 
 ゆえに $C_p=aNT+TN^2R^2V/(NRTV+2bN^2)>0$ です。
 
-$S_T|_V=aN>0$ により $S$ から $T$ への逆関数が局所的に存在します。また $p_V|_T<0$ なので $(T,p)$ も局所座標です。[Hessianと応答の定理](#thm-th6-stability-response)の逆向きを使い、
+$S=aNT+NR\log(V/(Nv_*))$ を $T$ について解くと
+
+$
+T=\frac{S-NR\log(V/(Nv_*))}{aN}.
+$
+
+$aN>0$ なので $(S,V)$ と $(T,V)$ の変数交換が局所的に可能です。また $p_V|_T<0$ より、固定 $T$ の近傍で圧力から体積を一意に解けるため $(T,p)$ も局所座標になります。求めた $C_V>0$、$\kappa_T>0$ と合わせて[Hessianと応答の定理](#thm-th6-stability-response)の逆向きを適用すると、
 
 $$
 U_{SS}=\frac{T}{C_V}=\frac1{aN}>0,\qquad
@@ -805,7 +834,34 @@ U_{SS}=\frac{T}{C_V}=\frac1{aN}>0,\qquad
 =\frac{NRTV+2bN^2}{aNV^3}>0.
 $$
 
-二条件から $H_U$ は正定値です。最後に $b\to0$ を取ると $V^2/(NRTV)=V/(NRT)=1/p$（極限模型では $p=NRT/V$）で、理想気体型の等温圧縮率へ戻ります。
+二条件から $H_U$ は正定値です。別の検算として、[Helmholtz自由エネルギーの定義](../TH5/index.md#def-th5-potentials) $U=F+TS$ に $S=aNT+NR\log(V/(Nv_*))$ を代入すると
+
+$
+U(S,V,N)=\frac{\bigl(S-NR\log(V/(Nv_*))\bigr)^2}{2aN}
++\frac{bN^2}{V}.
+$
+
+$N$ を固定して二回微分すれば
+
+$
+\begin{aligned}
+U_{SS}&=\frac1{aN},\qquad U_{SV}=-\frac R{aV},\\
+U_{VV}&=\frac{NRT}{V^2}+\frac{NR^2}{aV^2}+\frac{2bN^2}{V^3}.
+\end{aligned}
+$
+
+したがって
+
+$
+\begin{aligned}
+U_{SS}U_{VV}-U_{SV}^2
+&=\frac{RT}{aV^2}+\frac{R^2}{a^2V^2}
+ +\frac{2bN}{aV^3}-\frac{R^2}{a^2V^2}\\
+&=\frac{NRTV+2bN^2}{aNV^3}>0,
+\end{aligned}
+$
+
+となり、応答公式から得たHessianの行列式と一致します。最後に $T,V,N$ を固定して $b\to0$ を取ると、$\kappa_T=V^2/(NRTV+2bN^2)$ は $V/(NRT)=1/p$ へ収束します。最後の等号は極限模型の $p=NRT/V$ を用いました。
 <!-- solution-end -->
 
 ## 8. 次に何を問うか
