@@ -32,11 +32,11 @@ DREAM THEATER 系の計画書は、計画の実装状態に応じて次の3デ�
 2. 既存章・既存理論がすでに存在することや、それらへ PLAN が言及することだけでは「着手」としない。PLAN 固有の成果物・検証・監査のいずれかを実際に開始した時点で `plans_progress/` へ移す。
 3. 一部の章や phase が終わっても、PLAN に残タスク、横断監査、検証、公開・routing 更新が残るなら `plan_done/` へ移さない。
 4. 状態遷移はコピーではなく移動で行い、同じ PLAN を複数ディレクトリへ重複配置しない。
-5. PLAN の移動でパスが変わる場合は、その PLAN を直接参照する `textbook/dream-theater-work.yaml`、対応する `textbook/dream-theater-series/*.yaml` の `plan`、その他の機械参照を同じ作業単位で更新する。
-6. `dream-theater-work.yaml` は「次に何をするか」を示す routing の正本であり、3ディレクトリは PLAN 自体のライフサイクル状態を示す。ディレクトリ一覧だけから次の作業や優先順位を推測しない。
-7. `next_work` が残る active series の `active_plan` は原則として `plans_progress/` を指す。系列完了後の終端状態では、履歴保持のため `plan_done/` の PLAN を参照してよい。
+5. PLAN の移動でパスが変わる場合は、対応する `textbook/dream-theater-series/*.yaml` の `plan` とその他の直接参照を同じ作業単位で更新する。`dream-theater-work.yaml` は個別PLANのパスを持たない。
+6. `dream-theater-work.yaml` は系列 manifest の所在等の**共通 routing 設定**のみを持つ。各 `dream-theater-series/<ID>.yaml` は系列別進捗の正本とし、章一覧の先頭から連続する `completed` の末尾を完了位置、最初の `planned` を次章として導出する。異なる系列は並行更新してよい。PLANディレクトリの一覧だけから次作業や優先順位を推測しない。
+7. 未完了章がある系列 manifest の `plan` は原則として `plans_progress/` を指す。全章完了後も科目横断監査等が残れば `plans_progress/` のままにし、PLAN全体の完了後に `plan_done/` へ移す。
 8. `plan_done/` は実装時点の設計・進捗履歴であり、現行の執筆規約や現在地の代替ではない。完了済み PLAN を再び現行規約として扱わない。
-9. 完了済み PLAN と同じスコープの残作業を再開するなら、履歴を黙って書き換えず、同一計画の再開なら `plans_progress/` へ戻し、新しい中心問い・成果物なら新規 PLAN として `plans/` から開始する。
+9. 完了済み PLAN と同じスコープの残作業を再開するなら、履歴を黙って書き換えず、同一計画の再開なら `plans_progress/` へ戻し、新しい中心問い・成果物なら新規 PLAN として `plans/` から開始する。作業の系列は章ID・系列IDから特定し、無指定で未完了系列が複数なら勝手に選ばない。
 
 各ディレクトリの README は上記分類の入口として扱い、競合する場合はこの scoped `AGENTS.md` を優先する。
 

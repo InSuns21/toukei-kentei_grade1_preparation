@@ -31,9 +31,9 @@ DREAM THEATER 系 PLAN のライフサイクルは `textbook/AGENTS.md` と各�
 - `textbook/plans_progress/`: PLAN 固有の実装・検証・監査に着手済みで未完了。
 - `textbook/plan_done/`: 成果物、必要な検証・監査、直接必要な routing / index / manifest 更新まで完了。
 
-状態遷移はコピーではなく移動で行い、同一 PLAN を複数ディレクトリへ置かない。既存章があるだけでは着手扱いにせず、一部の章が完成しただけで done にしない。PLAN の移動でパスが変わる場合は、`dream-theater-work.yaml`、対応する series manifest の `plan`、その他の直接参照を同じ作業単位で更新する。
+状態遷移はコピーではなく移動で行い、同一 PLAN を複数ディレクトリへ置かない。既存章があるだけでは着手扱いにせず、一部の章が完成しただけで done にしない。PLAN の移動でパスが変わる場合は、対応する series manifest の `plan` とその他の直接参照を同じ作業単位で更新する。
 
-`dream-theater-work.yaml` は次作業の routing、3ディレクトリは PLAN の状態を表す。ディレクトリ一覧だけから次の作業や優先順位を推測しない。`plan_done/` は履歴であり、現行規約として復活させない。
+`dream-theater-work.yaml` は全系列に共通する routing 設定、`dream-theater-series/<ID>.yaml` は系列別の進捗を表す。PLANの3ディレクトリは実装状態を表す。ディレクトリ一覧だけから次の作業や優先順位を推測しない。`plan_done/` は履歴であり、現行規約として復活させない。
 
 ### 3. 通常教材
 
@@ -49,24 +49,18 @@ DREAM THEATER 系 PLAN のライフサイクルは `textbook/AGENTS.md` と各�
 
 通常教材は統計検定1級の答案訓練を目的とし、詳細解答と本番答案を分離する。仮定、定義域、分布の台、パラメータ空間、正則性条件、独立同分布性、極限定理の条件、行列の次元等を省略しない。prerequisite 外の高度な概念を暗黙前提にしない。
 
-### 4. DREAM THEATER の現在地
+### 4. DREAM THEATER の現在地と任意の追跡監査
 
-DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes/00_foundations/` 全体を先に探索しない。次の順で現在地を確定する。
+DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes/00_foundations/` 全体を先に探索しない。
 
-1. `textbook/dream-theater-work.yaml`
-2. 参照先の `textbook/dream-theater-series/<series>.yaml`
-3. `active_plan`
-4. 対象章の `chapter.yaml` / `knowledge.yaml`
-5. 直接必要な canonical dependency
+1. `textbook/dream-theater-work.yaml` で共通 routing を確認する。
+2. 指定された章ID・系列IDから、該当する `textbook/dream-theater-series/<ID>.yaml` を確定する（章IDは章一覧と照合）。
+3. 系列 manifest の `plan`、対象章の `chapter.yaml` / `knowledge.yaml`、直接必要な canonical dependency を読む。
+4. 次章は manifest の先頭から連続する `completed` の後に現れる最初の `planned` とする。完了したら**その系列 manifest**を更新する。共通ルーターに単一の `active_series` / `next_work` は置かない。
 
-章を完了して次へ進む作業では、成果物と同じ作業単位で work-state と series manifest を更新する。
+ユーザーの章・系列指定を優先する。指定がない場合、未完了系列が1つだけなら続行できるが、複数なら系列を確認する。別系列の直近作業から「次」を推測しない。
 
-**継続執筆のデフォルトは「新章の執筆・査読 ＋ 直前完了章の追跡監査」**とする。着手時に `dream-theater-work.yaml` の `review_handoff`、`next_work`、`completed_through` と系列 manifest を照合し、直前の完了章を対象として確定する。番号の減算や古い履歴から推測しない。明示指定された別章を執筆するときも、系列内の直前完了章を確認する。
-
-直前章の実本文・全主要証明・全演習解答を改めて読み、仮定・定義域・符号・添字・途中式を再計算する。特に**非自明な2〜4手の行間飛躍、式変形や結論を詰め込んだインライン数式、既出定理・定義・公式を援用する箇所の stable anchor リンク漏れ、参照先の仮定不一致**を重点監査する。 **指摘0件は監査の証拠ではない。** 少なくとも飛躍しやすい主要証明2箇所（該当が少なければ全件）と演習解答1箇所を、結論を見ずに初期条件から再導出し、座標変換・Jacobian・変分写像の相似性・不等式への定数代入などの中間式と照合する。PRには、補強した箇所または飛躍がないと判定した具体式を記録する。手順の正本は同 standard 第10.3節とする。`npm run audit:math-layout` 等は候補抽出であり、人手による検査の代用にしない。欠陥は原則として新章と同じPRで修正し、改稿した前章も変更章として全件査読する。
-
-PRには新章の査読証拠とは別に、直前章の棚卸し・検算・数式配置・リンク確認・修正・未確認事項・実施主体を記録する。重大な欠陥や監査漏れを残したまま次章の完了・routing更新・mergeを済ませない。直前完了章がないなど適用不能な場合は理由を記す。手順は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
-
+**執筆に伴う別の完了章の追跡監査のデフォルトは廃止する。** 新章・変更章自身の第10・10.1節の査読は従来どおり必須。別章の数学・行間・数式配置・既出結果の使用箇所リンク等の追跡監査は、ユーザーが対象章IDを明示して依頼した場合にのみ、第10.3節と `textbook/prompts/dream-theater-followup-audit.md` に従い実施する。直前章かどうかを推測して追加しない。
 
 DREAM THEATER の本文品質・証明粒度・定義例・演習・詳細解答・依存関係・完成条件は、`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本として判定する。必要に応じて `DREAM_THEATER_EXERCISE_POLICY.md`、formal statement / proof presentation guide、knowledge DAG を読む。
 
