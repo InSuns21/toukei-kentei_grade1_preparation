@@ -499,7 +499,7 @@ $$
 \end{aligned}
 $$
 
-右辺は $\alpha$ に関する整数係数の次数高々 $2$ の多項式です。また、[NT7の差積恒等式](../../NT/NT7/index.md#lem-nt7-convergent-matrix)から
+右辺は $\alpha$ に関する整数係数の次数高々 $2$ の多項式です。また、[収束分数の差積恒等式と完全商公式](../../NT/NT7/index.md#lem-nt7-convergent-matrix)から
 
 $$
 p_{N-1}q_{N-2}-p_{N-2}q_{N-1}=(-1)^{N-2}\ne0
