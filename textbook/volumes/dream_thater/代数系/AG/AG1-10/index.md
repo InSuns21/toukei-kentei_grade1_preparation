@@ -98,8 +98,8 @@ Jacobian行列は便利ですが、$X$ を何次元のアフィン空間に埋�
 <a id="def-ag1-10-cotangent"></a>
 
 <!-- formal-statement-start -->
-> **定義（Zariski余Zariski接空間）**  
-> $R=k[X]_{\mathfrak m_a}$、$M=\mathfrak m_aR$ とする。商 $M/M^2$ を $a$ における **Zariski余Zariski接空間** という。$M/M^2$ は $R/M\simeq k$ の作用によって $k$ ベクトル空間になる。
+> **定義（Zariski余接空間）**  
+> $R=k[X]_{\mathfrak m_a}$、$M=\mathfrak m_aR$ とする。商 $M/M^2$ を $a$ における **Zariski余接空間** という。$M/M^2$ は $R/M\simeq k$ の作用によって $k$ ベクトル空間になる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-10-cotangent -->
@@ -113,13 +113,13 @@ $$
 $t\notin M^2$ は、もし $t=t^2 u$ なら整域 $R$ で零でない $t$ を消去して $1=tu$ となり、$t$ が非単元であることに矛盾するためです。従って $M/M^2$ の基底は $[t]$ 一個で、その双対も1次元です。
 <!-- definition-example-end -->
 
-一次情報を数値に読み替えるため、今定義した余Zariski接空間から $k$ への線形写像を集めます。
+一次情報を数値に読み替えるため、今定義した余接空間から $k$ への線形写像を集めます。
 
 <a id="def-ag1-10-intrinsic-tangent"></a>
 
 <!-- formal-statement-start -->
-> **定義（内在的Zariski接空間）**  
-> $X$ の点 $a$ の局所環を $R$、その極大イデアルを $M$ とする。$a$ における**内在的Zariski接空間**は、$M/M^2$ の $k$ 線形双対
+> **定義（内在的接空間）**  
+> $X$ の点 $a$ の局所環を $R$、その極大イデアルを $M$ とする。$a$ における**内在的接空間**は、$M/M^2$ の $k$ 線形双対
 
 $$
 \operatorname{Hom}_k(M/M^2,k)
@@ -251,7 +251,7 @@ $$
 =\sum_{i=1}^m\frac{\partial g}{\partial y_i}(b)w_i.
 $$
 
-従って $w\in T_bY$ です。$G:Y\to Z$ を多項式成分で書くと、各成分について同じ連鎖律から $J_{G\circ F}(a)=J_G(b)J_F(a)$ となります。両辺を $T_aX$ のベクトルに作用させれば合成式が得られます。座標表示を別の多項式に替えても、その差は $I(X)$ に属し、方向微分はZariski接ベクトル上で零ですから $dF_a$ は表示によらず定まります。
+従って $w\in T_bY$ です。$G:Y\to Z$ を多項式成分で書くと、各成分について同じ連鎖律から $J_{G\circ F}(a)=J_G(b)J_F(a)$ となります。両辺を $T_aX$ のベクトルに作用させれば合成式が得られます。座標表示を別の多項式に替えても、その差は $I(X)$ に属し、$D_v$ は $I(X)$ 上で零ですから $dF_a$ は表示によらず定まります。
 <!-- proof-end -->
 
 **例（尖点のパラメータ表示）。** $F:k\to V(y^2-x^3)$ を $F(t)=(t^2,t^3)$ とすると、$t^6-t^6=0$ なので確かに像は曲線に入ります。$t=0$ で $J_F(0)=(0,0)^{\mathsf T}$ です。従って $dF_0$ は零写像です。しかし後で計算するように尖点の $T_{(0,0)}X$ は2次元です。**曲線をパラメータ表示できることと、Zariski接ベクトルをすべてその微分で得られることは別**です。
@@ -472,7 +472,7 @@ $$
 \begin{pmatrix}1&0\\0&1\end{pmatrix}
 $$
 
-ですから集合のZariski接空間は零部分空間で次元0です。$B$ の極大イデアルの余Zariski接空間は冪零元 $\overline x,\overline y$ を保持しますが、点集合の座標環 $k[x,y]/(x,y)\simeq k$ はこれらを殺します。「零点集合に対するJacobian」と「冪零元を含む商環の余Zariski接空間」を取り違えることが誤りの原因です。
+ですから集合のZariski接空間は零部分空間で次元0です。$B$ の極大イデアルの余接空間は冪零元 $\overline x,\overline y$ を保持しますが、点集合の座標環 $k[x,y]/(x,y)\simeq k$ はこれらを殺します。「零点集合に対するJacobian」と「冪零元を含む商環の余接空間」を取り違えることが誤りの原因です。
 <!-- solution-end -->
 
 ### C2. 二つの表示で同じ接方向を計算する
