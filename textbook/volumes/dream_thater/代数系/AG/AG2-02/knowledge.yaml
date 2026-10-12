@@ -1,0 +1,72 @@
+chapter: AG2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-01
+  - AG1-08
+  - AG1-07
+  - AG1-05
+  - AG1-01
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.homogeneous-ideal
+    name: 斉次イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次イデアル）"]
+    requires: [algebraic-geometry.homogeneous-polynomial]
+  - id: algebraic-geometry.homogeneous-generators
+    name: 斉次生成と斉次成分判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（斉次生成と斉次成分判定）"]
+    requires: [algebraic-geometry.homogeneous-ideal]
+  - id: algebraic-geometry.projective-vanishing-ideal
+    name: 射影消滅イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影消滅イデアル）"]
+    requires: [algebraic-geometry.projective-zero-set, algebraic-geometry.homogeneous-ideal]
+  - id: algebraic-geometry.projective-vanishing-radical
+    name: 射影消滅イデアルの斉次性と根基性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影消滅イデアルの斉次性と根基性）"]
+    requires: [algebraic-geometry.projective-vanishing-ideal]
+  - id: algebraic-geometry.irrelevant-ideal
+    name: 無関係イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（無関係イデアル）"]
+    requires: [algebraic-geometry.homogeneous-ideal]
+  - id: algebraic-geometry.saturation-ideal
+    name: 飽和イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（飽和イデアル）"]
+    requires: [algebraic-geometry.irrelevant-ideal]
+  - id: algebraic-geometry.saturation-locus
+    name: 飽和による零点集合の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（飽和による零点集合の不変性）"]
+    requires: [algebraic-geometry.saturation-ideal, algebraic-geometry.projective-zero-set]
+  - id: algebraic-geometry.projective-nullstellensatz
+    name: 射影版Hilbertの零点定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影版Hilbertの零点定理）"]
+    requires: [algebraic-geometry.saturation-locus, algebraic-geometry.projective-vanishing-radical]
+  - id: algebraic-geometry.projective-radical-bijection
+    name: 射影閉集合と根基的飽和斉次イデアルの対応
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（射影閉集合と根基的飽和斉次イデアルの対応）"]
+    requires: [algebraic-geometry.projective-nullstellensatz]
+  - id: algebraic-geometry.homogeneous-chart-equations
+    name: 射影チャートの方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影チャートの方程式）"]
+    requires: [algebraic-geometry.projective-zero-set, algebraic-geometry.standard-affine-chart]

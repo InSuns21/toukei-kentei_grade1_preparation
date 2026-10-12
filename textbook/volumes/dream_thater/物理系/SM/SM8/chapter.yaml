@@ -1,0 +1,50 @@
+id: "SM8"
+title: "相転移と臨界現象"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM7
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 有限系の分配関数が実解析的である理由と有限微分の揺らぎ恒等式を説明・証明できる
+  - 極限圧力の外場微分の左右差を変分最大点から証明できる
+  - 二値エントロピーの四次展開から臨界磁化と圧力の二次非解析性を導ける
+  - Curie–Weiss平均場の秩序変数・感受率・臨界等温線の指数を求められる
+  - 連結相関と一次元開放鎖の相関長を定義し具体計算できる
+  - 全結合模型の共分散恒等式と秩序相の相関・巨大揺らぎを証明できる
+  - 有限系と無限系の微分・極限の交換不可を具体例で説明できる
+  - 臨界スケーリングと普遍性の定義を模型内の証明から区別できる
+definitions:
+  - { id: SM8-DEF-01, name: "自由エネルギーによる相転移の判定" }
+  - { id: SM8-DEF-02, name: "本模型の臨界指数" }
+  - { id: SM8-DEF-03, name: "二点の連結相関と相関長" }
+  - { id: SM8-DEF-04, name: "臨界スケーリングと普遍性の意味" }
+propositions:
+  - { id: SM8-PROP-01, name: "有限Curie–Weiss模型の解析性と応答" }
+  - { id: SM8-PROP-02, name: "全結合模型の共分散恒等式" }
+lemmas:
+  - { id: SM8-LEM-01, name: "二値エントロピーの臨界展開" }
+theorems:
+  - { id: SM8-THM-01, name: "秩序相における圧力の非微分可能性" }
+  - { id: SM8-THM-02, name: "臨界磁化の平方根則と圧力の二次非解析性" }
+  - { id: SM8-THM-03, name: "Curie–Weiss模型の三つの臨界指数" }
+  - { id: SM8-THM-04, name: "Curie–Weiss模型の長距離秩序と巨大揺らぎ" }
+canonical_examples:
+  - 一スピンの分配関数と外場解析性
+  - 二値エントロピー展開の二次項相殺
+  - 一次元開放鎖の相関長
+  - 二スピンの共分散の直接数え上げ
+problem_patterns:
+  - SM8-FINITE-ANALYTICITY
+  - SM8-CRITICAL-QUARTIC
+  - SM8-CORRELATION-LENGTH
+  - SM8-TWO-SPIN-COVARIANCE
+  - SM8-LIMIT-DERIVATIVE
+  - SM8-TEMPERATURE-SINGULARITY
+  - SM8-LONG-RANGE-ORDER
+  - SM8-CRITICAL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
