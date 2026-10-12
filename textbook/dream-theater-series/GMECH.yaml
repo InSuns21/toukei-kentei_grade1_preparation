@@ -24,7 +24,7 @@ chapters:
     title: "運動量レベル集合・群作用・正則性"
   - id: GMECH5
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH5
-    status: planned
+    status: completed
     title: "Marsden–Weinstein簡約"
   - id: GMECH6
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH6
