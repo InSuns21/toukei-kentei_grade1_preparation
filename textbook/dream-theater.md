@@ -738,6 +738,7 @@
 3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
 4. [ANT4 算術級数中の素数に関するDirichletの定理](textbook/volumes/dream_thater/代数系/ANT/ANT4/index.md)
 5. [ANT5 ζ'/ζとvon Mangoldt関数](textbook/volumes/dream_thater/代数系/ANT/ANT5/index.md)
+6. [ANT6 Re s=1の零点不存在と素数定理](textbook/volumes/dream_thater/代数系/ANT/ANT6/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
