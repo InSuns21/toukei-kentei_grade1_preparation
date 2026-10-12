@@ -1,7 +1,7 @@
 # DREAM THEATER 幾何学的力学 I（GMECH1〜GMECH8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（2026-10-12 更新。GMECH1〜8の本文・詳細解答・章別metadataを実装。系列横断査読と最終クローズが残る）
+状態: completed（2026-10-12。GMECH1〜8の実装・GMECH8追跡監査・系列横断確認・公開導線確認を完了）
 
 ## 中心問い
 
@@ -11,7 +11,7 @@ Hamilton力学の対称性を保存量と商空間による自由度削減へど
 
 - **直接前提の独立PLAN：** [シンプレクティック幾何学 I](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。GMECH1にはSYM3、GMECH2〜3にはSYM4、GMECH4〜5にはSYM3・SYM4、GMECH6〜8には先行GMECH講が必要。全SYM8講の一括履修は不要。
 - 既存完成章：AMECH4（Noether）、AMECH6（Poisson）、GEO2/7、LIE1〜LIE4、MECH剛体・保存則。
-- 後続：[可積分系・KAM](../plans/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)、[三体問題](../plans/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
+- 後続：[可積分系・KAM](../plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)、[三体問題](../plans/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
 
 ## 所有範囲
 
@@ -67,3 +67,12 @@ SO(3)、角運動量球面、Euler方程式、エネルギー曲面、Poisson括
 - DREAM THEATER 現行 standard に従い、動機→定義例→仮定つき主要定理→再計算可能な証明→演習と全詳細解答で閉じる。
 - 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。変更章自身の主要証明と全詳細解答を再導出し、別観点の再査読を行う。別の完了章の追跡監査は章IDを指定して明示依頼された場合だけ行う。
 - 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
+
+## 最終クローズ記録（2026-10-12）
+
+- 系列manifestの GMECH1〜GMECH8 はすべて `completed`。8章の実本文・`chapter.yaml`・`knowledge.yaml` と公開目次・公開索引が存在する。
+- 系列横断の棚卸し：formal statement 49件、主要証明ブロック33件、演習・詳細解答72件（各章A4/B4/C1）。章間の結果参照と外部前提を含むMarkdownリンク177使用箇所・参照先19ページの実在とstable anchorを照合し、参照欠落0件。章内リンクの不一致0件。対象8章に新規のSVG・画像はない。
+- GMECH8の明示追跡監査：最新本文を全文再読し、主要証明4件・全演習解答9件の仮定、符号、計算、Hessian、Poisson括弧、非自明な行間、表示配置、使用箇所リンクを点検した。代表再導出は相対平衡の臨界点判定、固定運動量面のenergy–momentum安定判定、Kepler円軌道のB1解答。重大な数学的指摘・本文変更はなし。
+- 代表計算：`d(H-J_ξ)(v)=ω(X_H-ξ_M,v)` から非退化性で臨界点条件を得る。簡約Hessianが正定値なら `H_μ(z)-H_μ(0)≥λ|z|²/4` の保存エネルギー障壁が成立する。Kepler系で `r₀=μ²/k`、`Ω=k²/μ³`、`U''_μ(r₀)=μ²/r₀⁴>0` を再計算した。
+- 相対平衡・運動量写像・簡約・Lie–Poisson・剛体の正本をGMECH1〜8で接続し、Liouville可積分性・Liouville–Arnold・KAMの証明担当は後続INTへ分離している。系列横断監査は章間依存・正本重複・演習連続性・掲載導線を確認したもので、別の全7章の全証明・全解答を再計算したという意味ではない。
+- 実施主体：ChatGPTによる本文再読・計算照合・別観点チェック。同一担当者の再読であり、第三者独立査読ではない。数式はMarkdownソースの区切り・配置とリンク整合を点検した。実ブラウザ描画は未確認、変更対象に図版・教材本文の表示変更はない。
