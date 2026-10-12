@@ -726,6 +726,7 @@
 ### Diophantine近似
 
 1. [NDA1 連分数と最良有理近似の精密化](textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md)
+2. [NDA2 Dirichlet・Hurwitz・悪近似数](textbook/volumes/dream_thater/代数系/NDA/NDA2/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
