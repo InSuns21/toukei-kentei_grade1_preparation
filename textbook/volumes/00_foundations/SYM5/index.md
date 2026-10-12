@@ -68,7 +68,23 @@ $$
 
 ## 2. 一点で標準化し、差を外微分に戻す
 
-点 $m\in M$ を固定します。[SYM1の線形シンプレクティック標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $(T_mM,\omega_m)$ に適用し、標準的な対をなす接ベクトルの基底を選びます。その基底を原点での座標ベクトルに持つ局所座標を選び、$m$ を $0\in\mathbb R^{2n}$ に写します。
+点 $m\in M$ を固定します。[SYM1の線形シンプレクティック標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $(T_mM,\omega_m)$ に適用し、標準的な対をなす基底 $(e_1,\ldots,e_n,f_1,\ldots,f_n)$ を取ります。ただし「この基底を座標ベクトルにする」には、一つ座標変換が必要です。
+
+まず任意の局所座標 $y$ で $y(m)=0$ とします。$dy_m(e_1),\ldots,dy_m(e_n),dy_m(f_1),\ldots,dy_m(f_n)$ を列とする $2n$ 次正方行列を $A$ と置きます。$dy_m$ は線形同型で、選んだ接ベクトルも基底なので $A$ は可逆です。そこで新しい局所座標を
+
+$
+x=A^{-1}y
+$
+
+と定めます。連鎖律から $dx_m=A^{-1}dy_m$ なので、例えば
+
+$
+dx_m(e_i)=A^{-1}dy_m(e_i)=\mathbf e_i,
+\qquad
+dx_m(f_i)=A^{-1}dy_m(f_i)=\mathbf e_{n+i}.
+$
+
+従って原点の座標ベクトルが選んだシンプレクティック基底となり、$m$ は $0\in\mathbb R^{2n}$ に写ります。ここでは微分形式を原点の一点で標準化しただけで、近傍全体で一定にしたわけではありません。
 
 座標を $(x^1,\ldots,x^{2n})=(q^1,\ldots,q^n,p_1,\ldots,p_n)$ と書くと、原点における形式は
 
@@ -164,7 +180,17 @@ $$
 
 最後の極限が零なのは $\beta_{kj}$ が原点付近で有界だからです。これが全ての $j,k$ で成り立ち、$d\sigma=\beta$ が従います。
 
-さらに $\beta(0)=0$ なら平均値の評価により、小球内で $|\beta_{ij}(tx)|\le C_1t|x|$ となります。従って各成分について
+さらに $\beta(0)=0$ の場合、小球の閉包上で係数の一階微分に一様上界 $C_1$ を取れます。$s\mapsto\beta_{ij}(stx)$ に一変数の微積分の基本定理を使うと
+
+$
+\begin{aligned}
+\beta_{ij}(tx)-\beta_{ij}(0)
+&=\int_0^1\frac{d}{ds}\beta_{ij}(stx)\,ds\\
+&=\int_0^1D\beta_{ij}(stx)[tx]\,ds,
+\end{aligned}
+$
+
+よって $|\beta_{ij}(tx)|\le C_1t|x|$ です。ここで $0\le t\le1$ かつ原点中心の球は線分に関して凸なので、積分中の点は球内にあります。従って各成分について
 
 $$
 |\sigma_j(x)|
@@ -222,7 +248,13 @@ $$
 =\omega_0+t\beta,\qquad 0\le t\le1
 $$
 
-で結びます。$d\omega_t=0$ は明らかに保たれますが、**非退化性は線形補間だけからは出ません**。そこで原点に近い範囲に制限します。
+で結びます。[外微分の線形性と二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を使い、$t$ を空間座標とは独立なパラメータとして固定すれば
+
+$
+d\omega_t=(1-t)d\omega_0+t\,d\omega=0
+$
+
+です。ただし**非退化性は線形補間だけからは出ません**。そこで原点に近い範囲に制限します。
 
 <a id="lem-sym5-uniform-nondegeneracy"></a>
 
@@ -280,7 +312,19 @@ $$
 
 で定められます。これは一般にHamiltonベクトル場ではありません。右辺が $dH$ でなく1形式 $-\sigma$ だからです。
 
-具体的には、$\omega_t$ の係数行列を使って連立一次方程式を解くため、$Y_t(x)$ は $(t,x)$ に滑らかに依存します。$\sigma(0)=0$ と非退化性より
+この連立一次方程式を成分で解いて、滑らかさと符号を確認します。$\omega_t=\frac12\sum_{i,j}(\Omega_t)_{ij}\,dx^i\wedge dx^j$、$\sigma=\sum_j\sigma_j\,dx^j$ と書き、$Y_t=\sum_iY_t^i\partial_{x^i}$ とします。内部積の第 $j$ 成分は $\sum_iY_t^i(\Omega_t)_{ij}$ なので、列ベクトル $Y_t=(Y_t^i)_i$ と $s=(\sigma_j)_j$ には
+
+$
+\Omega_t(x)^{\mathsf T}Y_t(x)=-s(x)
+$
+
+が必要です。[共通非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)で $\det\Omega_t(x)\ne0$ を確認済みだから、
+
+$
+Y_t(x)=-\bigl(\Omega_t(x)^{\mathsf T}\bigr)^{-1}s(x).
+$
+
+$\Omega_t$ と $s$ は $(t,x)$ に滑らかで、逆行列は行列式が零でない限り滑らかです。この式によって $Y_t(x)$ は $(t,x)$ に滑らかに依存します。$\sigma(0)=0$ と非退化性より
 
 $$
 Y_t(0)=0\qquad(0\le t\le1)
