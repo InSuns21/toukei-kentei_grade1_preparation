@@ -1,0 +1,48 @@
+id: "NDA8"
+title: "計量的Diophantine近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA5
+  - NDA6
+  - NDA7
+  - MT1
+  - MT8
+official_scope: []
+learning_objectives:
+  - 近似関数の無限回近似集合を定義し分母ごとの区間の測度を評価できる
+  - Borel–Cantelli第一補題を証明し無理性指数2のa.e.結論を量化付きで導ける
+  - 既約分数の倍幅分母帯での個数と間隔を整数格子点計数から証明できる
+  - 二乗平均の集合下界を導き二進分母ブロックの交差を数えられる
+  - Khintchineの収束方向と非増加性を要する発散方向を完全に証明できる
+  - 対数型近似関数の級数判定から零測度と全測度を区別できる
+  - Hausdorff次元の被覆上界と無理性指数の例外集合との関係を説明できる
+definitions:
+  - { id: NDA8-DEF-01, name: 近似関数と無限回近似集合 }
+theorems:
+  - { id: NDA8-LEM-01, name: Borel–Cantelliの第一補題 }
+  - { id: NDA8-PROP-01, name: Khintchineの収束方向 }
+  - { id: NDA8-THM-01, name: ほとんどすべての実数の無理性指数 }
+  - { id: NDA8-LEM-02, name: 分母を倍幅に制限した既約分数の個数 }
+  - { id: NDA8-LEM-03, name: 二乗平均による無限回集合の下界 }
+  - { id: NDA8-LEM-04, name: 分母の二進ブロックの交わり評価 }
+  - { id: NDA8-LEM-05, name: 全区間で正の割合なら全測度 }
+  - { id: NDA8-THM-02, name: Khintchineの定理 }
+  - { id: NDA8-THM-03, name: よい有理近似を受ける集合のHausdorff次元の上界 }
+canonical_examples:
+  - 分母3と半径1/9の近似区間
+  - 指数2と2+epsilonの境界
+  - 対数の一乗と二乗による零測度・全測度の違い
+  - 既約分数の間隔と交差回数
+  - Liouville数のHausdorff次元0
+problem_patterns:
+  - NDA8-BC-FINITE-SUM
+  - NDA8-ALMOST-EVERYWHERE-EXPONENT
+  - NDA8-PRIMITIVE-RATIONAL-COUNT
+  - NDA8-SECOND-MOMENT
+  - NDA8-KHINTCHINE-DIVERGENCE
+  - NDA8-HAUSDORFF-UPPER
+exercise_counts: { level_a: 5, level_b: 5, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
