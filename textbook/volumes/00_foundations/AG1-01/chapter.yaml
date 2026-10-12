@@ -1,0 +1,48 @@
+id: "AG1-01"
+title: "多変数多項式とアフィン代数的集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RNG4
+  - FLD0
+  - TOP1
+official_scope: []
+learning_objectives:
+  - 多変数多項式環の有限和表示と全次数を定義し、係数計算と評価を実行できる
+  - 生成イデアルを定義し、最小性を証明して具体的な式の所属を判定できる
+  - 連立多項式の零点集合を定義し、方程式から曲線と直線の和集合・交わりを計算できる
+  - 零点集合の包含反転・任意の共通部分・有限和集合とイデアル演算の関係を証明できる
+  - Zariski 位相の閉集合公理を証明し、アフィン直線の余有限位相を導出できる
+  - 消滅イデアルがイデアルで根基的であることを証明し、同じ零点集合でもイデアルが異なる反例を説明できる
+  - 放物線と直線の交点を連立式と生成イデアルの線形結合の両面から計算できる
+definitions:
+  - { id: AG1-01-DEF-01, name: 多変数多項式環 }
+  - { id: AG1-01-DEF-02, name: 多項式が生成するイデアル }
+  - { id: AG1-01-DEF-03, name: アフィン代数的集合 }
+  - { id: AG1-01-DEF-04, name: Zariski 位相 }
+  - { id: AG1-01-DEF-05, name: 消滅イデアル }
+theorems:
+  - { id: AG1-01-PROP-01, name: 生成イデアルの最小性 }
+  - { id: AG1-01-PROP-02, name: 零点集合の包含・共通部分・和集合 }
+  - { id: AG1-01-THM-01, name: Zariski 位相の存在 }
+  - { id: AG1-01-PROP-03, name: 無限体上のアフィン直線の閉集合 }
+  - { id: AG1-01-PROP-04, name: 消滅イデアルは根基的 }
+canonical_examples:
+  - (x,y) は定数項が零の多項式全体
+  - 放物線 y=x^2 の複素数パラメータ表示
+  - V(xy) は二本の座標軸の和集合で V(x,y) は原点のみ
+  - Zariski 開集合 D(x) の確認
+  - (x^2) と (x) は同じ零点を持つが異なるイデアル
+problem_patterns:
+  - AG1-01-POLYNOMIAL-EXPANSION
+  - AG1-01-IDEAL-GENERATORS
+  - AG1-01-ZERO-SET-INTERSECTION
+  - AG1-01-CONSTANT-ZERO-SET
+  - AG1-01-UNION-AND-INTERSECTION
+  - AG1-01-IDEAL-NONINJECTIVITY
+  - AG1-01-ZARISKI-OPEN
+  - AG1-01-CURVE-LINE-INTERSECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 4, review: 1 }
