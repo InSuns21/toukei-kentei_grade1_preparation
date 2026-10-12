@@ -35,14 +35,14 @@ $$
 f(Q)=\frac{a(Q)}{b(Q)}\qquad(Q\in N)
 $$
 >
-> と表せる。$W=\varnothing$ のときは唯一の空関数からなる集合とする。$\mathcal O_X(W)$ の元を **正則な関数** と呼び、開集合 $W$ を動かして得られる体系 $\mathcal O_X$ を **構造層** と呼ぶ。
+> と表せる。$W=\varnothing$ のときは唯一の空関数からなる集合とする。$\mathcal O_X(W)$ の元を正則な関数と呼び、開集合 $W$ を動かして得られる体系 $\mathcal O_X$ を **構造層** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-05-structure-sheaf -->
 **定義の確認**：$X=\mathbb P^1$、$W=U_S\setminus\{[1:1]\}$ なら $A_S=k[x]$ で、$a=x$、$b=x-1$ と取れます。$b$ は $W$ 全体で零にならず、$f=x/(x-1)\in\mathcal O_X(W)$ です。一方 $f=x$ を $U_S$ 全体で考えても $[0:1]\notin U_S$ なので問題ありません。「射影直線全体で正則」と主張したわけではない点が重要です。
 <!-- definition-example-end -->
 
-正則関数を $k$ 値の関数として扱うので、異なる分数表示が**同じ各点の値**を与えれば同じ元です。被約性が必要なのは、この点ごとの情報が座標環・局所環の代数的な等式とも一致するようにするためです。
+各元を $k$ 値の関数として扱うので、異なる分数表示が**同じ各点の値**を与えれば同じ元です。被約性が必要なのは、この点ごとの情報が座標環・局所環の代数的な等式とも一致するようにするためです。
 
 チャートを替えたときにも定義が変わらないことを確かめます。たとえば $U_S\cap U_T$ では $y=1/x$ なので $a(x)/b(x)$ を $x=1/y$ と置き換え、分子分母に十分高い $y$ の冪を掛ければ $k[y]$ の多項式の商になります。その分母が対象の点で零にならないことは、元の分母と $y\ne0$ から従います。
 
@@ -133,7 +133,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（構造層の貼り合わせ）**  
-> $X\subseteq\mathbb P^n_{\mathbb C}$ を被約な射影代数的集合とする。[正則関数の構造層](#def-ag2-05-structure-sheaf) $\mathcal O_X$ は [環の層の公理](#def-ag2-05-sheaf-axioms)を満たす。特に任意の開被覆 $W=\bigcup_\alpha W_\alpha$ と、重なりで一致する正則関数の族 $(f_\alpha)$ に対し、ただ一つの $f\in\mathcal O_X(W)$ が存在する。
+> $X\subseteq\mathbb P^n_{\mathbb C}$ を被約な射影代数的集合とする。[正則関数の構造層](#def-ag2-05-structure-sheaf) $\mathcal O_X$ は [環の層の公理](#def-ag2-05-sheaf-axioms)を満たす。特に $W=\bigcup_\alpha W_\alpha$ となる任意の開集合族と、重なりで一致する各 $f_\alpha\in\mathcal O_X(W_\alpha)$ に対し、ただ一つの $f\in\mathcal O_X(W)$ が存在する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -160,7 +160,7 @@ $P\in W_\alpha$ を固定すると、$f_\alpha$ の正則性によって $P$ の
 
 <!-- formal-statement-start -->
 > **定義（構造層の茎）**  
-> $X\subseteq\mathbb P^n_{\mathbb C}$、$P\in X$ とする。$P$ を含む開集合 $W$ 上の正則な関数 $f$ の組 $(W,f)$ を考える。二組 $(W,f)$、$(V,g)$ が同値であるとは、$P$ を含む開集合 $N\subseteq W\cap V$ が存在して $f|_N=g|_N$ となることをいう。この同値類を $P$ における **芽** $[f]_P$ と呼び、すべての芽の環を $\mathcal O_{X,P}$（**茎**）と書く。
+> $X\subseteq\mathbb P^n_{\mathbb C}$、$P\in X$ とする。$P$ を含む開集合 $W$ と $f\in\mathcal O_X(W)$ の組 $(W,f)$ を考える。二組 $(W,f)$、$(V,g)$ が同値であるとは、$P$ を含む開集合 $N\subseteq W\cap V$ が存在して $f|_N=g|_N$ となることをいう。この同値類を $P$ における **芽** $[f]_P$ と呼び、すべての芽の環を $\mathcal O_{X,P}$（**茎**）と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-05-stalk -->
