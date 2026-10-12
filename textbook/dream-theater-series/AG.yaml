@@ -64,7 +64,7 @@ chapters:
     title: "斉次イデアルと射影代数的集合"
   - id: AG2-03
     path: textbook/volumes/dream_thater/代数系/AG/AG2-03
-    status: planned
+    status: completed
     title: "射影射・Veronese写像・Segre写像"
   - id: AG2-04
     path: textbook/volumes/dream_thater/代数系/AG/AG2-04
