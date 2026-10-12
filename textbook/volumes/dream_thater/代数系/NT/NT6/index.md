@@ -120,7 +120,7 @@ $$
 uv=\frac{z^2-x^2}{4}=\left(\frac y2\right)^2.
 $$
 
-$u,v$ の共通約数は $u+v=z$ と $u-v=x$ の両方を割るので、$\gcd(u,v)=1$ です。[互いに素な積が平方なら各因子も平方という補題](#lem-nt6-coprime-square-product)より $u=m^2,v=n^2$ と置けます。$u>v>0$ より $m>n>0$、$\gcd(u,v)=1$ より $\gcd(m,n)=1$ です。さらに
+$u,v$ の共通約数は $u+v=z$ と $u-v=x$ の両方を割るので、$\gcd(u,v)=1$ です。[互いに素な積が平方なら各因子も平方](#lem-nt6-coprime-square-product)より $u=m^2,v=n^2$ と置けます。$u>v>0$ より $m>n>0$、$\gcd(u,v)=1$ より $\gcd(m,n)=1$ です。さらに
 
 $$
 z=u+v=m^2+n^2,\quad
