@@ -14,9 +14,9 @@
 > **定義（固定エントロピー・体積での局所安定性）**  
 > $N>0$ を固定した $C^2$ 級基本関係 $U(S,V,N)$ について、二つの同じ大きさの部分を平衡状態 $(S,V,N)$ に置く。総エントロピー $2S$、総体積 $2V$、各部分の物質量 $N$ を保ち、一方に $(s,v)$、他方に $(-s,-v)$ を与えるとき、全エネルギー
 >
-> $$
-> E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)
-> $$
+$$
+E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)
+$$
 >
 > が $(s,v)=(0,0)$ で局所最小なら、その均一配分をこの交換に関して**局所安定**という。十分小さい非零の交換で常に厳密に大きければ**厳密局所安定**という。
 <!-- formal-statement-end -->
@@ -44,11 +44,11 @@ $$
 > **命題（エネルギーHessianによる判定）**  
 > $N$ 固定で $U(S,V,N)$ が $C^2$ 級なら、上の交換に対するエネルギー差は、$z=(s,v)^{\mathsf T}$ として
 >
-> $$
-> E(s,v)-E(0,0)=z^{\mathsf T}H_Uz+o(s^2+v^2),
-> \qquad
-> H_U=\begin{pmatrix}U_{SS}&U_{SV}\\U_{SV}&U_{VV}\end{pmatrix}
-> $$
+$$
+E(s,v)-E(0,0)=z^{\mathsf T}H_Uz+o(s^2+v^2),
+\qquad
+H_U=\begin{pmatrix}U_{SS}&U_{SV}\\U_{SV}&U_{VV}\end{pmatrix}
+$$
 >
 > となる。局所安定なら $H_U$ は半正定値であり、正定値なら厳密局所安定である。負の方向があれば局所安定ではない。半正定値だけでは厳密局所安定を結論できない。
 <!-- formal-statement-end -->
@@ -82,15 +82,15 @@ $$
 > **命題（大域凸性と支持平面）**  
 > $N>0$ を固定したとき、許容状態の $(S,V)$ 領域 $D$ が各点の近くで微分できる凸な領域で、$U(\cdot,\cdot,N)$ が $D$ 上 $C^2$ 級とする。各点で $H_U$ が半正定値であることと、$U$ が $D$ で凸、すなわち任意の $x,y\in D$、$0\le t\le1$ に対し
 >
-> $$
-> U((1-t)x+ty,N)\le(1-t)U(x,N)+tU(y,N)
-> $$
+$$
+U((1-t)x+ty,N)\le(1-t)U(x,N)+tU(y,N)
+$$
 >
 > が成立することは同値である。さらにこのとき任意の $x,y\in D$ に対し
 >
-> $$
-> U(y,N)\ge U(x,N)+\nabla U(x,N)\cdot(y-x)
-> $$
+$$
+U(y,N)\ge U(x,N)+\nabla U(x,N)\cdot(y-x)
+$$
 >
 > が成り立つ。$H_U$ が全点で正定値なら $x\ne y$ の凸不等式は $0<t<1$ で厳密になる。
 <!-- formal-statement-end -->
@@ -150,15 +150,15 @@ $$
 > **定義（熱容量・圧縮率・熱膨張率）**  
 > 一成分単相系で物質量 $N>0$ を固定し、$T>0,V>0$ の滑らかな局所平衡座標が存在するとする。定積熱容量 $C_V$、定圧熱容量 $C_p$、等温圧縮率 $\kappa_T$、断熱圧縮率 $\kappa_S$、定圧熱膨張率 $\alpha$ を
 >
-> $$
-> \begin{aligned}
-> C_V&=T\left(\frac{\partial S}{\partial T}\right)_{V,N},
-> &C_p&=T\left(\frac{\partial S}{\partial T}\right)_{p,N},\\
-> \kappa_T&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{T,N},
-> &\kappa_S&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{S,N},\\
-> \alpha&=\frac1V\left(\frac{\partial V}{\partial T}\right)_{p,N}
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+C_V&=T\left(\frac{\partial S}{\partial T}\right)_{V,N},
+&C_p&=T\left(\frac{\partial S}{\partial T}\right)_{p,N},\\
+\kappa_T&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{T,N},
+&\kappa_S&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{S,N},\\
+\alpha&=\frac1V\left(\frac{\partial V}{\partial T}\right)_{p,N}
+\end{aligned}
+$$
 >
 > と定義する。それぞれの偏微分は指定した固定条件で局所的に存在するとする。
 <!-- formal-statement-end -->
@@ -181,11 +181,11 @@ $S_T|_V=Nc_V/T$ なので $C_V=Nc_V$。$V=NRT/p$ を固定 $p$ で微分すれ�
 > **定理（厳密な局所安定性と応答の符号）**  
 > 一成分単相系で $N>0$ 固定、$T=U_S>0$、$p=-U_V$、$U$ は $C^3$ 級とし、$H_U$ は正定値とする。局所的に $(T,V)$ および $(S,p)$ が独立座標になるとき、
 >
-> $$
-> U_{SS}=\frac{T}{C_V}>0,\qquad
-> U_{VV}=\frac1{V\kappa_S}>0,\qquad
-> \det H_U=\frac{T}{C_VV\kappa_T}>0.
-> $$
+$$
+U_{SS}=\frac{T}{C_V}>0,\qquad
+U_{VV}=\frac1{V\kappa_S}>0,\qquad
+\det H_U=\frac{T}{C_VV\kappa_T}>0.
+$$
 >
 > 特に $C_V>0$、$\kappa_S>0$、$\kappa_T>0$ である。逆に $T,V>0$、$C_V>0$、$\kappa_T>0$ と上記の滑らかな座標条件があれば $H_U$ は正定値である。
 <!-- formal-statement-end -->
@@ -246,9 +246,9 @@ $$
 > **定理（定圧・定積熱容量の差）**  
 > $N>0$ 固定の一成分単相領域で $(T,V)$ と $(T,p)$ が滑らかな独立座標であり、$T,V>0$、$\kappa_T\ne0$ とする。[Maxwell関係式](../TH5/index.md#thm-th5-maxwell)が成り立つなら
 >
-> $$
-> C_p-C_V=\frac{TV\alpha^2}{\kappa_T}.
-> $$
+$$
+C_p-C_V=\frac{TV\alpha^2}{\kappa_T}.
+$$
 >
 > 特に $\kappa_T>0$ の安定領域では $C_p\ge C_V$ であり、等号は $\alpha=0$ の場合に成立する。
 <!-- formal-statement-end -->
@@ -290,10 +290,10 @@ $$
 > **定理（断熱・等温圧縮率の関係）**  
 > 前定理の領域でさらに $C_V>0$、$\kappa_T>0$ とし、$S,p$ の局所座標が存在するとする。このとき
 >
-> $$
-> \frac{\kappa_T}{\kappa_S}=\frac{C_p}{C_V},
-> \qquad 0<\kappa_S\le\kappa_T.
-> $$
+$$
+\frac{\kappa_T}{\kappa_S}=\frac{C_p}{C_V},
+\qquad 0<\kappa_S\le\kappa_T.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -362,18 +362,18 @@ $$
 > **命題（Helmholtz・Gibbsポテンシャルの曲率）**  
 > 一成分・単相の安定領域で $N>0$ を固定し、$F(T,V)$ と $G(T,p)$ が $C^2$ 級、$T,V>0$、$C_V>0$、$\kappa_T>0$ とする。このとき
 >
-> $$
-> \begin{aligned}
-> F_{TT}&=-\frac{C_V}{T}<0,& F_{VV}&=\frac1{V\kappa_T}>0,\\
-> G_{TT}&=-\frac{C_p}{T}<0,&G_{Tp}&=\alpha V,&G_{pp}&=-\kappa_TV<0.
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+F_{TT}&=-\frac{C_V}{T}<0,& F_{VV}&=\frac1{V\kappa_T}>0,\\
+G_{TT}&=-\frac{C_p}{T}<0,&G_{Tp}&=\alpha V,&G_{pp}&=-\kappa_TV<0.
+\end{aligned}
+$$
 >
 > さらに $G$ の $(T,p)$ Hessian は負定値で、
 >
-> $$
-> \det H_G=\frac{C_VV\kappa_T}{T}>0.
-> $$
+$$
+\det H_G=\frac{C_VV\kappa_T}{T}>0.
+$$
 >
 > したがって $F$ は温度方向に凹・体積方向に凸、$G$ は $(T,p)$ に関して厳密局所凹である。
 <!-- formal-statement-end -->
@@ -424,16 +424,16 @@ $$
 > **定理（自由エネルギーの変分原理）**  
 > 一成分閉鎖系が一定温度 $T_0>0$ の巨大な熱浴と熱交換し、全体は断熱的に孤立しており、系の体積 $V$ と物質量 $N$ が固定され、他の仕事・物質移動がないとする。浴の温度が変化せず、浴のエントロピー変化が $-\Delta U/T_0$ と表せるなら、許された自発過程に対し
 >
-> $$
-> \Delta F_{T_0}\le0,\qquad F_{T_0}=U-T_0S.
-> $$
+$$
+\Delta F_{T_0}\le0,\qquad F_{T_0}=U-T_0S.
+$$
 >
 > また一定圧力 $p_0$ の力学的環境が体積仕事を受け持ち、浴と環境の合計エントロピー変化が $-(\Delta U+p_0\Delta V)/T_0$ と表せるなら
 >
-> $$
-> \Delta G_{T_0,p_0}\le0,\qquad
-> G_{T_0,p_0}=U-T_0S+p_0V.
-> $$
+$$
+\Delta G_{T_0,p_0}\le0,\qquad
+G_{T_0,p_0}=U-T_0S+p_0V.
+$$
 >
 > これらの条件下の安定平衡は、到達可能な試行状態に関して対応する関数の局所最小である。大域最小性は到達可能集合・相の比較を別途要する。
 <!-- formal-statement-end -->
@@ -477,9 +477,9 @@ $$
 > **定義（外場に対する局所感受率）**  
 > 内部変数 $x$ に対する $C^2$ 級ポテンシャル $f_0(x)$ を外場 $h$ と結合して $f_h(x)=f_0(x)-hx$ とする。$f_0'(x(h))=h$ を満たす滑らかな平衡枝 $x(h)$ があるとき、その感受率を
 >
-> $$
-> \chi=\frac{dx}{dh}
-> $$
+$$
+\chi=\frac{dx}{dh}
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -496,9 +496,9 @@ $$
 > **命題（感受率は安定曲率の逆数）**  
 > $f_0$ を $C^2$ 級とし、$f_0'(x(h))=h$ の滑らかな枝上で $f_0''(x(h))>0$ とする。このとき
 >
-> $$
-> \chi=\frac1{f_0''(x(h))}>0.
-> $$
+$$
+\chi=\frac1{f_0''(x(h))}>0.
+$$
 >
 > さらに $\Phi(h)=f_0(x(h))-hx(h)$ は $\Phi'(h)=-x(h)$、$\Phi''(h)=-\chi<0$ を満たす。
 <!-- formal-statement-end -->
