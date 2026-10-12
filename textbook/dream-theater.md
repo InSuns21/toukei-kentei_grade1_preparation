@@ -677,6 +677,7 @@
 ### 整数論 I〜発展
 
 1. [NT1 整数環・合同式・剰余類](textbook/volumes/dream_thater/代数系/NT/NT1/index.md)
+2. [NT2 乗法群・Fermat–Euler・原始根](textbook/volumes/dream_thater/代数系/NT/NT2/index.md)
 
 ### 代数幾何学 I〜III
 

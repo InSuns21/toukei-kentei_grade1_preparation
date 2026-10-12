@@ -1,0 +1,26 @@
+chapter: "NT2"
+terms:
+  - term: 単数群
+    english: group of units
+    meaning: "剰余環で乗法逆元を持つ剰余類を集め、積を演算とした群。"
+  - term: Eulerのφ関数
+    english: Euler totient function
+    meaning: "nと互いに素な1以上n以下の整数の個数を返す算術関数。"
+  - term: 位数
+    english: order of an element
+    meaning: "群の元の正べきが初めて単位元になる指数。"
+  - term: Eulerの定理
+    english: Euler theorem
+    meaning: "gcd(a,n)=1のときaのφ(n)乗は法nで1に合同となる定理。"
+  - term: Fermatの小定理
+    english: Fermat little theorem
+    meaning: "素数pについてpがaを割らなければaのp-1乗が1に合同となる定理。"
+  - term: Wilsonの定理
+    english: Wilson theorem
+    meaning: "素数pについて(p-1)!が法pで-1と合同になる定理。"
+  - term: 原始根
+    english: primitive root modulo n
+    meaning: "法nの単数群を生成する、位数がφ(n)の剰余類の代表元。"
+  - term: 奇素数冪への持ち上げ
+    english: lifting primitive roots
+    meaning: "法pの原始根の代表元を調整し、法pの任意の高次冪でも生成元とする操作。"
