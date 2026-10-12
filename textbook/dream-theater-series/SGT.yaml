@@ -11,7 +11,7 @@ chapters:
     title: 重み付きグラフと組合せLaplacian
   - id: SGT2
     path: textbook/volumes/dream_thater/計算系/SGT/SGT2
-    status: planned
+    status: completed
     title: 正規化Laplacianとランダムウォーク
   - id: SGT3
     path: textbook/volumes/dream_thater/計算系/SGT/SGT3
