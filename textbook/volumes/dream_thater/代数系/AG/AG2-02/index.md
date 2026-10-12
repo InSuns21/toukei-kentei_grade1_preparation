@@ -216,7 +216,11 @@ $I=S$ なら $V_+(I)=\varnothing$、$\sqrt I=S$ で、両辺は $S$ です。以
 
 **準備：$\sqrt I$ も斉次である。** $f=\sum_{d=0}^D f_d\in\sqrt I$ とし、$f^r\in I$ となる $r\ge1$ を取ります。$f^r$ の最高次数成分は $f_D^r$ です。$I$ が斉次なので $f_D^r\in I$、よって $f_D\in\sqrt I$ です。[根基がイデアルであること](../AG1-07/index.md#def-ag1-07-ideal-radical)から $f-f_D\in\sqrt I$ となります。これを最高次数が一つ低い多項式に繰り返し、すべての $f_d\in\sqrt I$ を得ます。
 
-**場合1：$V_+(I)\ne\varnothing$。** $W=V_+(I)$、$C=V_{\mathbb A}(I)$ と書きます。$C\setminus\{0\}$ は $W$ の代表元全体です。$F\in I_+(W)$ の各斉次成分 $F_d$ は $C\setminus\{0\}$ 上で零です。$d>0$ なら $F_d(0)=0$ でもあります。$d=0$ なら $W$ は空でないので定数 $F_0$ は零です。従って $F$ は $C$ の全点で消えます。[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を $k^{n+1}$ とイデアル $I$ に適用して $F\in\sqrt I$ を得ます。
+**場合1：$V_+(I)\ne\varnothing$。** $W=V_+(I)$、$C=V_{\mathbb A}(I)$ と書きます。$C\setminus\{0\}$ は $W$ の代表元全体です。
+
+$F\in I_+(W)$ の各斉次成分 $F_d$ は $C\setminus\{0\}$ 上で零です。$d>0$ なら $F_d(0)=0$ でもあります。$d=0$ なら $W$ は空でないので定数 $F_0$ は零です。従って $F$ は $C$ の全点で消えます。
+
+[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を $k^{n+1}$ とイデアル $I$ に適用して $F\in\sqrt I$ を得ます。
 
 逆に $F\in\sqrt I$ ならある $r$ について $F^r\in I$ です。$F$ の斉次成分 $F_d$ は準備から $\sqrt I$ に入るので、各 $F_d^r$ が $I$ に属するよう $r$ を成分ごとに選べます。$P\in W$ では $F_d(P)^r=0$、よって $F_d(P)=0$ で、$F\in I_+(W)$ です。この二方向から
 
@@ -226,7 +230,21 @@ $$
 
 が従います。
 
-さらに $\sqrt I$ が飽和であることを確かめます。$\mathfrak m^qF\subseteq\sqrt I$ とすると、任意の $p\in C\setminus\{0\}$ に対し非零の座標 $p_i$ を選べるので、$p_i^qF(p)=0$ から $F(p)=0$ です。$W$ が空でないので $p\ne0$ を一つ固定でき、$\lambda p\in C$ がすべての $\lambda\in k$ で成立します。$\lambda\ne0$ について $F(\lambda p)=0$ だから $\lambda$ に関する多項式の恒等性より $F(0)=0$ です。従って $F$ は $C$ 全体で零、[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)から $F\in\sqrt I$ です。ゆえに $(\sqrt I:\mathfrak m^\infty)=\sqrt I$ です。
+さらに $\sqrt I$ が飽和であることを確かめます。$\mathfrak m^qF\subseteq\sqrt I$ とすると、任意の $p\in C\setminus\{0\}$ に対し非零の座標 $p_i$ を選べます。このとき
+
+$$
+0=(X_i^qF)(p)=p_i^qF(p)
+$$
+
+で、$p_i\ne0$ より $F(p)=0$ です。
+
+$W$ が空でないので $p\ne0$ を一つ固定でき、$\lambda p\in C$ がすべての $\lambda\in k$ で成立します。$\lambda\ne0$ では $F(\lambda p)=0$ です。無限体 $k$ 上の $\lambda$ の多項式が無数の根を持つので、$\lambda=0$ でも $F(0)=0$ です。
+
+従って $F$ は $C$ 全体で零です。[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)から $F\in\sqrt I$ となり、次が成立します。
+
+$$
+(\sqrt I:\mathfrak m^\infty)=\sqrt I.
+$$
 
 **場合2：$V_+(I)=\varnothing$。** $C$ の非零点が存在しないので $C=\{0\}$ です。原点は $I\subseteq\mathfrak m$ により確かに含まれます。原点で零になる多項式はちょうど定数項が零の元であり、[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)から
 
@@ -405,7 +423,17 @@ $\mathbb P^1$ の $P=[1:0],Q=[0:1]$ について、$I_+(\{P,Q\})=(XY)$ を示し
 - ID: AG2-02-B3
 
 <!-- solution-start -->
-**詳細解答。** 次数 $d$ の斉次式を $F=\sum_{j=0}^d a_j X^{d-j}Y^j$ と書きます。$P$ で零になるには $a_0=0$、$Q$ で零になるには $a_d=0$ が必要十分です。$d=0$ では定数が零、$d=1$ では $a_0=a_1=0$ なので零式です。$d\ge2$ の場合、残る項は $1\le j\le d-1$ であり $X$ と $Y$ をともに因子に持つので $XY\mid F$ です。各斉次成分について同じことが成り立つため消滅イデアルは $(XY)$ です。また $XY=0$ は $X=0$ または $Y=0$ と同値です。非零代表元を正規化すると前者が $Q$、後者が $P$ です。
+**詳細解答。** 次数 $d$ の斉次式を
+
+$$
+F=\sum_{j=0}^d a_j X^{d-j}Y^j
+$$
+
+と書きます。$P$ で零になるには $a_0=0$、$Q$ で零になるには $a_d=0$ が必要十分です。$d=0$ では定数が零、$d=1$ では $a_0=a_1=0$ なので零式です。
+
+$d\ge2$ の場合、残る項は $1\le j\le d-1$ であり $X$ と $Y$ をともに因子に持つので $XY\mid F$ です。各斉次成分について同じことが成り立つため消滅イデアルは $(XY)$ です。
+
+また $XY=0$ は $X=0$ または $Y=0$ と同値です。非零代表元を正規化すると前者が $Q$、後者が $P$ です。
 <!-- solution-end -->
 
 ### B4. 飽和しても冪は消えない
@@ -435,7 +463,17 @@ $\mathbb P^1$ で $I=(X^2Y,XY^2)\subseteq k[X,Y]$ とする。(1) $V_+(I)$ を�
 
 (2) $\mathfrak m\cdot XY=(X^2Y,XY^2)=I$ なので $(XY)\subseteq I^{\mathrm{sat}}$ です。逆に $f\in I^{\mathrm{sat}}$ ならある $q$ で $X^qf\in I\subseteq(Y)$、$Y^qf\in I\subseteq(X)$ です。$X^q f(X,0)=0$ が $k[X]$ で成立し整域性から $f(X,0)=0$、よって $f\in(Y)$ です。同様に $Y^qf(0,Y)=0$ から $f\in(X)$ です。$X,Y$ は異なる不定元であるため、両方で割り切れる多項式は $XY$ で割り切れます。従って $I^{\mathrm{sat}}\subseteq(XY)$ で、等号です。
 
-(3) $I\subseteq(XY)$ かつ $(XY)$ は根基的です。これは $XY\mid f^r$ なら $X\mid f$ と $Y\mid f$ なので $XY\mid f$ となることから分かります。また $(XY)^2=X^2Y^2=X\cdot (XY^2)\in I$ なので $XY\in\sqrt I$ です。よって $\sqrt I=(XY)$ です。(1) の二点に対する[射影消滅イデアルの直接計算](#def-ag2-02-projective-vanishing-ideal)は $(XY)$、[射影版Hilbertの零点定理](#thm-ag2-02-projective-nullstellensatz)の $(\sqrt I:\mathfrak m^\infty)=(XY)$ と一致します。
+(3) $I\subseteq(XY)$ かつ $(XY)$ は根基的です。これは $XY\mid f^r$ なら $X\mid f$ と $Y\mid f$ なので $XY\mid f$ となることから分かります。
+
+また $(XY)^2=X^2Y^2=X\cdot(XY^2)\in I$ なので $XY\in\sqrt I$ です。よって $\sqrt I=(XY)$ です。
+
+(1) の二点に対する[射影消滅イデアルの定義](#def-ag2-02-projective-vanishing-ideal)から直接計算した $(XY)$ は、[射影版Hilbertの零点定理](#thm-ag2-02-projective-nullstellensatz)の値
+
+$$
+(\sqrt I:\mathfrak m^\infty)=(XY)
+$$
+
+と一致します。
 <!-- solution-end -->
 
 ### C2. 直線と離れた一点
@@ -452,7 +490,21 @@ $\mathbb P^2$ で $I=(XZ,YZ)\subset k[X,Y,Z]$、$W=V_+(I)$ とする。(1) $W$ �
 
 (2) $U_Z$ では $x=X/Z,\ y=Y/Z$ として、方程式 $XZ=YZ=0$ を $Z^2$ で割ると $x=y=0$ です。よって $W\cap U_Z$ は原点一つです。$U_X$ では $u=Y/X,\ v=Z/X$ とし、$XZ/X^2=v$、$YZ/X^2=uv$ を得ます。第一式 $v=0$ が第二式を含意するので $W\cap U_X$ は直線 $v=0$ です。$P$ は $X=0$ なので後者のチャートには含まれません。
 
-(3) 任意の斉次式 $F\in S_d$ が $W$ の全点で零とします。まず $Z=0$ のすべての $[X:Y:0]$ で零なので、二変数斉次式 $F(X,Y,0)$ はすべての非零 $(X,Y)$ で零です。$k$ は無限体だから $F(X,Y,0)$ は零多項式です（$Y=1$ 上の一変数多項式 $F(t,1,0)$ が無数の根を持ち、残る $[1:0:0]$ も消えます）。従って $F=ZG$ と書け、$d\ge1$ なら $G$ は次数 $d-1$ の斉次式です。さらに $P=[0:0:1]$ で $0=F(P)=G(0,0,1)$ となります。従って $G$ の $Z^{d-1}$ 項の係数は零であり、$G$ の各単項式は $X$ または $Y$ を因子に持ちます。すなわち $G\in(X,Y)$、よって $F\in(XZ,YZ)=I$ です。$d=0$ なら $F$ は $W$ 上で消える定数なので零です。非斉次式も成分ごとに同じ議論をすれば $I_+(W)\subseteq I$ です。逆に $I$ の斉次生成元 $XZ,YZ$ はすべての $W$ の点で消えるので、[斉次生成の命題](#prop-ag2-02-homogeneous-generators)により $I\subseteq I_+(W)$ です。よって等号です。
+(3) 任意の斉次式 $F\in S_d$ が $W$ の全点で零とします。
+
+まず $Z=0$ のすべての $[X:Y:0]$ で零なので、二変数斉次式 $F(X,Y,0)$ はすべての非零 $(X,Y)$ で零です。$k$ は無限体です。$Y=1$ 上の一変数多項式 $F(t,1,0)$ は無数の根を持つため零多項式であり、さらに $[1:0:0]$ でも零なので、$F(X,Y,0)$ の各係数は零です。
+
+従って $F=ZG$ と書けます。$d\ge1$ なら $G$ は次数 $d-1$ の斉次式です。さらに $P=[0:0:1]$ で零になる条件は
+
+$$
+0=F(P)=G(0,0,1).
+$$
+
+従って $G$ の $Z^{d-1}$ 項の係数は零であり、$G$ の各単項式は $X$ または $Y$ を因子に持ちます。このため $G\in(X,Y)$ であり、$F\in(XZ,YZ)=I$ です。
+
+$d=0$ なら $F$ は $W$ 上で消える定数なので零です。非斉次式も成分ごとに同じ議論をすれば $I_+(W)\subseteq I$ です。
+
+逆に $I$ の斉次生成元 $XZ,YZ$ はすべての $W$ の点で消えるので、[斉次生成と斉次成分判定](#prop-ag2-02-homogeneous-generators)により $I\subseteq I_+(W)$ です。よって等号です。
 <!-- solution-end -->
 
 ## 7. 根基と飽和を区別して次へ進む
