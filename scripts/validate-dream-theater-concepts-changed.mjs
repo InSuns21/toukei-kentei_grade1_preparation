@@ -131,7 +131,7 @@ function collectChangedMarkdown(baseSha) {
     const output = execFileSync('git', [
       '-c', 'core.quotepath=false',
       'diff', '--name-only', '--diff-filter=ACMR', baseSha, 'HEAD', '--',
-      'textbook/volumes/00_foundations',
+      'textbook/volumes/dream_thater',
     ], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
     return new Set(output.split('\n').map((value) => value.trim()).filter((value) => value.endsWith('.md')));
   } catch (error) {
