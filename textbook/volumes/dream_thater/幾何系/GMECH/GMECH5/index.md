@@ -82,9 +82,9 @@ $$
 
 $\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[正則レベル集合の接空間](../GMECH4/index.md#prop-gmech4-tangent-regular)より
 
-$
+$$
 dJ_m(v)=0.
-$
+$$
 
 [運動量写像の定義](../GMECH2/index.md#def-gmech2-hamiltonian-action)を $\xi$ と $v$ に適用すると、
 
@@ -506,9 +506,9 @@ $$
 <!-- solution-start -->
 **詳細解答。** 商で同じ点を表す $m,m'$ は、ある $h\in G_\mu$ について $m'=hm$ を満たします。$H$ の群不変性から
 
-$
+$$
 H(m')=H(hm)=H(m).
-$
+$$
 
 従って $H_\mu([m])=H(m)$ は代表元によらず定義できます。
 
@@ -516,9 +516,9 @@ $
 
 さらに作用が $\omega$ と $H$ をともに保存するので、[Hamiltonベクトル場の一意性](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から
 
-$
+$$
 dh_m\bigl(X_H(m)\bigr)=X_H(hm).
-$
+$$
 
 従って商の接ベクトル $\bar X_{\pi(m)}=d\pi_m(X_H(m))$ は代表元の取り方によらず定義できます。
 
@@ -607,9 +607,9 @@ $$
 
 レベルの非空性も確認します。位置と運動量を
 
-$
+$$
 q=(1,0),\qquad p=(0,\mu)
-$
+$$
 
 と選べば、$J(q,p)=\mu$ です。
 
