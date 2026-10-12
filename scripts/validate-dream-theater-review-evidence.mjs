@@ -1,9 +1,10 @@
 import {verifiedMassRelocation} from './lib/verified-dream-theater-relocation.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-if(verifiedMassRelocation()) { console.log('Relocation-only PR: 540 chapters are content-equivalent to base; chapter-level mathematical review evidence is unchanged.'); process.exit(0); }
+if(!process.argv.includes('--self-test') && verifiedMassRelocation()) { console.log('Relocation-only PR: 540 chapters are content-equivalent to base; chapter-level mathematical review evidence is unchanged.'); process.exit(0); }
 
 const fields = [
   '本文確認範囲', 'learning objectives 対応', '主要結果アンカー',
@@ -83,9 +84,9 @@ if (args.includes('--self-test')) {
     console.error('Specify base commit SHA using --base or TEXTBOOK_BASE_SHA');
     process.exit(2);
   }
-  const names = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/00_foundations'], { encoding: 'utf8' })
+  const names = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
     .split('\n')
-    .filter(s => /^textbook\/volumes\/00_foundations\/[A-Za-z0-9_-]+\/index\.md$/.test(s));
+    .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/.test(s));
   if (names.length === 0) {
     console.log('No changed DREAM THEATER chapter index.md: review evidence not required');
     process.exit(0);
@@ -93,7 +94,7 @@ if (args.includes('--self-test')) {
   const sections = sectionsFrom(readReviewBody());
   const problems = [];
   for (const name of names) {
-    const id = name.split('/')[3];
+    const id = path.posix.basename(path.posix.dirname(name));
     const targets = inventory(fs.readFileSync(name, 'utf8'));
     const violations = checkChapter(id, sections.get(id), targets);
     problems.push(...violations.map(v => id + ': ' + v));
