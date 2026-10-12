@@ -309,7 +309,25 @@ $$
 
 Taylorの積分余剰を $h=q+\partial_\theta u$ に適用すると、$G(\theta,h)-\tfrac12h^TAh$ は $D_I^3G$ の上限の定数倍の $|h|^3$ 以下であり、$\partial_I G(\theta,h)-Ah$ は $D_I^3G$ の上限の定数倍の $|h|^2$ 以下です。
 
-さらに $b\cdot h$ と $Dv\,(b+Ah)$ は各因子が $O(\delta)$ なので $O(\delta^2)$ です。解析関数の積・合成・逆写像・Taylor余剰には、角度方向だけでなく作用方向の縮小量も必要です。角度では $\sigma$、作用では $\rho$ の余白を確保し、[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を各偏微分に使うと、角度微分は $\sigma^{-1}$、作用微分は $\rho^{-1}$ をそれぞれ一回につき高々一因子失います。特に $|h|+\|Dv\|\le C\gamma^{-2}\sigma^{-M_0}\delta$ が $\rho$ より十分小さければ、作用の移動と逆写像は縮小領域内に収まります。
+さらに、定数jetの $b\cdot h$ と一次jetの $Dv(b+Ah)$ は各因子が誤差に比例するため、二次の大きさです。
+
+解析関数の積・合成・逆写像・Taylor余剰には、角度方向と作用方向の両方で余白が必要です。[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を各変数に適用すると、
+
+$
+\|\partial_{\theta_j}F\|_{s-\sigma,r-\rho}
+\le \sigma^{-1}\|F\|_{s,r},\qquad
+\|\partial_{I_j}F\|_{s-\sigma,r-\rho}
+\le \rho^{-1}\|F\|_{s,r}
+$
+
+となります。正準変換を縮小領域に収めるには、角度変位と作用変位について、それぞれ
+
+$
+\|v\|<\sigma,\qquad
+|q|+\|\partial_\theta u\|+r\|Dv\|<\rho
+$
+
+を十分小さい誤差で確保します。このとき $\|Dv\|<1/2$ も満たすよう選べば、角度の逆写像も存在します。これらの条件は補題に掲げた小ささの仮定から、指数を十分大きくして従います。
 
 したがって相殺後の $a^+,b^+$ は、$b\cdot h$、$h^TAh$、$Dv(b+Ah)$ および上記Taylor余剰からなる二次以上の項です。各々を縮小領域で評価すると、例えば $\|b\cdot h\|\le\|b\|_s\|h\|$、$\|Dv(b+Ah)\|\le\|Dv\|(\|b\|_s+\|A\|\|h\|)$ となり、どちらも $O(\delta^2)$ です。有限回の角度・作用の微分損失を $C(\sigma\rho)^{-M}$ にまとめれば、補題の $\delta^2$ 評価を得ます。ここで $M$ はこれらの微分回数を上から押さえる固定の指数であり、$\sigma,\rho$ を縮めても同じ値を使えます。
 
@@ -353,7 +371,32 @@ $$
 
 ### 定理の完成：反復極限を不変トーラスに戻す
 
-[一段の正規化](#lem-int8-newton-step)を角度損失 $\sigma_j$ と作用損失 $\rho_j=r2^{-j-3}$ で反復します。作用半径を $r_j=r-\sum_{\ell<j}\rho_\ell$ とすれば $r_j=r(3/4+2^{-j-2})$ です。さらに $\rho_j=(2r/s)\sigma_j$ なので、補題の $(\sigma_j\rho_j)^{-M_0}$ は $C_{r,s}\sigma_j^{-2M_0}$ と書けます。以後の反復命題の指数 $M$ は $2M_0$ 以上に固定し直すため、命題の同じ二次漸化式が適用できます。初期Hamilton関数を $I=I_*+J$ の周りに展開し、$e=K(I_*)$、$\omega=\nabla K(I_*)$、$G$ に作用二次以上を入れ、残りを $a,b$ とします。初期の $a,b$ はともに $O(|\varepsilon|)$ です。初期 $\bar A=D^2K(I_*)+O(\varepsilon)$ は可逆であり、これがKolmogorov非退化性を用いる箇所です。
+[一段の正規化](#lem-int8-newton-step)を、各段の角度損失と作用損失を次のように選んで反復します。
+
+$
+\sigma_j=s2^{-j-4},\qquad
+\rho_j=r2^{-j-3}=\frac{2r}{s}\sigma_j,
+\qquad
+r_j=r-\sum_{\ell<j}\rho_\ell
+=r\left(\frac34+2^{-j-2}\right).
+$
+
+このとき、作用方向のCauchy損失は
+
+$
+(\sigma_j\rho_j)^{-M_0}
+=\left(\frac{s}{2r}\right)^{M_0}\sigma_j^{-2M_0}
+$
+
+と書けます。そこで[二次反復命題](#prop-int8-quadratic-convergence)の指数を $M\ge2M_0$ に選び直せば、同じ形式の漸化式が使えます。
+
+初期Hamilton関数を $I=I_*+J$ の周りに展開します。定数項を $e=K(I_*)$、一次項を $\omega=\nabla K(I_*)$ とし、作用二次以上を $G$ に入れ、残りを $a,b$ とします。初期の誤差は $O(|\varepsilon|)$ であり、平均Hessianは
+
+$
+\bar A=D^2K(I_*)+O(\varepsilon).
+$
+
+従って十分小さい摂動では逆Hessianが有界のままです。ここがKolmogorov非退化性を用いる箇所です。
 
 命題により反復変換の大きさの和は有限です。角度幅を $s_j=s-2\sum_{\ell<j}\sigma_\ell$ と選びます。
 
