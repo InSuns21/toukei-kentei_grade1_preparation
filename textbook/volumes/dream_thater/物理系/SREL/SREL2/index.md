@@ -57,10 +57,10 @@ $$
 
 非退化であることも、正定値性とは分けて確認できます。$g(U,V)=0$ がすべての $V\in\mathbb R^4$ に対して成り立つと仮定し、標準基底 $e_0=(1,0,0,0)$、$e_1=(0,1,0,0)$、$e_2=(0,0,1,0)$、$e_3=(0,0,0,1)$ を順に代入すると
 
-$
+$$
 g(U,e_0)=U^0=0,\qquad
 g(U,e_i)=-U^i=0\quad(i=1,2,3)
-$
+$$
 
 となります。従って $U=0$ です。一方、特定の非零 $U$ に対して $g(U,U)=0$ になることは、この非退化性と矛盾しません。
 
@@ -141,10 +141,10 @@ $$
 
 [一次元Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)の時間・進行方向成分を二事象 $A,B$ にそれぞれ適用して引くと
 
-$
+$$
 \Delta x'^0=\gamma(\Delta x^0-\beta\Delta x^1),\qquad
 \Delta x'^1=\gamma(\Delta x^1-\beta\Delta x^0)
-$
+$$
 
 となり、垂直な $\Delta x^2,\Delta x^3$ は変わりません。従って
 
@@ -170,18 +170,18 @@ $$
 
 です。一般の $U,V$ について双線形性と対称性から
 
-$
+$$
 \begin{aligned}
 g(U+V,U+V)&=g(U,U)+2g(U,V)+g(V,V),\\
 g(U-V,U-V)&=g(U,U)-2g(U,V)+g(V,V).
 \end{aligned}
-$
+$$
 
 この二式の差を4で割れば
 
-$
+$$
 g(U,V)=\frac14\left[g(U+V,U+V)-g(U-V,U-V)\right]
-$
+$$
 
 です。既に証明した平方の不変性を $U+V$、$U-V$ に個別に適用すると、右辺は変換前後で一致します。これで任意の二ベクトルについて $g(TU,TV)=g(U,V)$ となり、二つの保存変換を合成しても先ほどの等式が適用できます。
 <!-- proof-end -->
@@ -210,7 +210,7 @@ $
 
 **定義の確認**として、$c\Delta t=5\,\mathrm m$ を固定し、空間差を3通りに変えます。[時空間隔の定義](#def-srel2-interval)にそれぞれ代入すると
 
-$
+$$
 \begin{aligned}
 \Delta\boldsymbol r=(3,0,0)\,\mathrm m
 &:\quad\Delta s^2=(25-9)\,\mathrm m^2=16\,\mathrm m^2>0,\\
@@ -219,7 +219,7 @@ $
 \Delta\boldsymbol r=(6,0,0)\,\mathrm m
 &:\quad\Delta s^2=(25-36)\,\mathrm m^2=-11\,\mathrm m^2<0.
 \end{aligned}
-$
+$$
 
 よって順に時間的、光的、空間的です。
 
@@ -298,17 +298,17 @@ $$
 
 です。実際、$|v_0|<c$ なので正数 $\varepsilon$ を
 
-$
+$$
 0<\varepsilon<\min(c-v_0,c+v_0)
-$
+$$
 
 と取れます。$v_\pm=v_0\pm\varepsilon$ はいずれも $|v_\pm|<c$ であり、
 
-$
+$$
 \Delta t-\frac{v_\pm\Delta x}{c^2}
 =\frac{(v_0-v_\pm)\Delta x}{c^2}
 =\mp\frac{\varepsilon\Delta x}{c^2}
-$
+$$
 
 となります。$\Delta x>0$ と $\gamma(v_\pm)>0$ から、二つのboost後の時間差は逆符号です。従って時刻順序は慣性系によって逆転できます。
 <!-- proof-end -->
@@ -330,7 +330,7 @@ $$
 
 最後の厳密な不等号を確かめます。区分点を $t_A=t_0<t_1<\cdots<t_N=t_B$ と取り、各閉区間で速度が連続で常に $c$ 未満だとします。その区間での速さの最大値を $M_j$ とおくと $M_j<c$ であり、
 
-$
+$$
 \begin{aligned}
 \int_{t_A}^{t_B}|\dot{\boldsymbol r}(t)|\,dt
 &=\sum_{j=1}^N\int_{t_{j-1}}^{t_j}|\dot{\boldsymbol r}(t)|\,dt\\
@@ -338,7 +338,7 @@ $
 &<c\sum_{j=1}^N(t_j-t_{j-1})
 =c(t_B-t_A).
 \end{aligned}
-$
+$$
 
 各区間の長さは正で、区間数は有限なので最終行は厳密です。従って終点は必ず未来の因果円錐の**内部**です。光速そのものの経路なら境界へ達し得ます。この主張は超光速信号が禁止されるモデルに依存し、そのモデルを純粋数学から導いたものではありません。
 
