@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-10-12  
-状態: in_progress（SREL1〜SREL7を実装・査読。SREL8〜SREL9は未着手）
+状態: in_progress（SREL1〜SREL8を実装・査読。SREL9は未着手）
 
 ## 中心問い・直接前提
 
