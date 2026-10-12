@@ -8,6 +8,7 @@ prerequisites:
   - AG2-01
   - AG1-11
   - AG1-04
+  - CA3
   - VC1
 official_scope: []
 learning_objectives:
