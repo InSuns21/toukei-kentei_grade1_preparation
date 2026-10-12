@@ -1,0 +1,84 @@
+chapter: HDP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP7
+  - HDP2
+  - HDP1
+  - F0-00F2
+  - ODE3
+  - LA6
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.loewner-mgf
+    name: Loewner順序と行列指数モーメント
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Loewner順序と行列指数モーメント）]
+    requires: []
+  - id: high-dimensional-probability.trace-laplace
+    name: トレース指数による固有値の指数Markov評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（トレース指数による固有値の指数Markov評価）]
+    requires: [high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.lieb-concavity
+    name: Liebの凹性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Liebの凹性定理：本章で使用する形）]
+    requires: []
+  - id: high-dimensional-probability.noncommutative-mgf
+    name: 独立行列和の非可換指数モーメント評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（独立行列和の非可換指数モーメント評価）]
+    requires: [high-dimensional-probability.lieb-concavity]
+  - id: high-dimensional-probability.log-order
+    name: 行列対数の順序単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（行列対数の順序単調性）]
+    requires: [high-dimensional-probability.loewner-mgf]
+  - id: high-dimensional-probability.master-tail
+    name: 行列Laplace法の基本尾部評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（行列Laplace法の基本尾部評価）]
+    requires: [high-dimensional-probability.trace-laplace, high-dimensional-probability.noncommutative-mgf]
+  - id: high-dimensional-probability.matrix-variance-proxy
+    name: 行列分散代理量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（行列分散代理量）]
+    requires: [high-dimensional-probability.loewner-mgf]
+  - id: high-dimensional-probability.bounded-matrix-mgf
+    name: 有界な平均零対称行列の指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有界な平均零対称行列の指数モーメント）]
+    requires: [high-dimensional-probability.log-order]
+  - id: high-dimensional-probability.matrix-bernstein
+    name: 独立有界対称行列に対する行列Bernstein不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（独立有界対称行列に対する行列Bernstein不等式）]
+    requires: [high-dimensional-probability.master-tail, high-dimensional-probability.bounded-matrix-mgf, high-dimensional-probability.matrix-variance-proxy]
+  - id: high-dimensional-probability.matrix-hoeffding
+    name: 区間有界な独立対称行列の行列Hoeffding不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（区間有界な独立対称行列の行列Hoeffding不等式）]
+    requires: [high-dimensional-probability.master-tail, high-dimensional-probability.log-order, high-dimensional-probability.hoeffding-lemma]
+  - id: high-dimensional-probability.self-adjoint-dilation
+    name: 長方形行列の自己共役拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（長方形行列の自己共役拡張）]
+    requires: []
+  - id: high-dimensional-probability.rectangular-bernstein
+    name: 長方形行列のBernstein不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（長方形行列のBernstein不等式）]
+    requires: [high-dimensional-probability.self-adjoint-dilation, high-dimensional-probability.matrix-bernstein]
