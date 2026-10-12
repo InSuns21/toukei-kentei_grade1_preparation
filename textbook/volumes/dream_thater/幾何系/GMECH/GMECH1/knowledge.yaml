@@ -1,0 +1,78 @@
+chapter: GMECH1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - GEO7
+  - LIE2
+  - LIE4
+  - SYM3
+forward_references: []
+
+concepts:
+  - id: mechanics.cotangent-lifted-lie-action
+    name: 余接持ち上げられたLie群作用
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（余接持ち上げられたLie群作用）"]
+    requires:
+      - lie.smooth-action
+      - symplectic.cotangent-lift
+
+  - id: mechanics.cotangent-lifted-action-law
+    name: 余接持ち上げは滑らかな左作用を定める
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-lifted-lie-action
+      - symplectic.cotangent-lift-composition
+      - geometry.differential
+
+  - id: mechanics.cotangent-lifted-action-preservation
+    name: 余接持ち上げ作用の正準形式保存
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-lifted-lie-action
+      - symplectic.cotangent-lift-preservation
+
+  - id: mechanics.cotangent-lifted-generator
+    name: 余接持ち上げ作用の基本ベクトル場
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（余接持ち上げ作用の基本ベクトル場）"]
+    requires:
+      - mechanics.cotangent-lifted-lie-action
+      - lie.fundamental-vector-field
+
+  - id: mechanics.cotangent-lift-infinitesimal-coordinate
+    name: 余接持ち上げの無限小座標公式
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-lifted-generator
+      - geometry.differential
+
+  - id: mechanics.cotangent-lift-flow-bracket
+    name: 余接持ち上げの流れと括弧
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-lifted-generator
+      - mechanics.cotangent-lifted-action-law
+      - lie.fundamental-flow-antihomomorphism
+
+  - id: mechanics.cotangent-lift-stabilizer
+    name: 余接ベクトルの安定化群
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-lifted-lie-action
+      - lie.smooth-action

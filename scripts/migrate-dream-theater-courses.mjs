@@ -171,7 +171,10 @@ for(const s of final.sections)for(const href of s.paths){
  indexed.add(id);counts.set(s.name,(counts.get(s.name)||0)+1);
 }
 for(const e of extras)if(!indexed.has(e.id))errors.push('Exercise missing from public index: '+e.id);
-if(indexed.size!==542)errors.push('Expected 542 canonical entries; got '+indexed.size);
+// The initial relocation inventoried 542 chapters. Later completed chapters
+// are intentionally added to the published index, so preserve the floor,
+// while the checks above continue to enforce unique IDs and existing files.
+if(indexed.size<542)errors.push('Expected at least 542 canonical entries; got '+indexed.size);
 for(const name of planFiles){
  const spec=YAML.parse(read(SERIES+'/'+name));
  const cat=[...new Set(spec.chapters.map(c=>owners.get(c.id)?.category).filter(Boolean))];
