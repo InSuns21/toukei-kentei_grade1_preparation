@@ -737,7 +737,7 @@
 3. [NDA3 数の幾何と同時Diophantine近似](textbook/volumes/dream_thater/代数系/NDA/NDA3/index.md)
 4. [NDA4 一様分布・Weyl判定・Kronecker近似](textbook/volumes/dream_thater/代数系/NDA/NDA4/index.md)
 5. [NDA5 無理性指数と近似指数](textbook/volumes/dream_thater/代数系/NDA/NDA5/index.md)
-6. [NDA6 Liouvilleの定理・Liouville数・超越性](textbook/volumes/dream_thater/代数系/NDA/NDA6/index.md)
+6. [NDA6 Liouvilleの近似定理・Liouville数・超越性](textbook/volumes/dream_thater/代数系/NDA/NDA6/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論

@@ -30,7 +30,7 @@ chapters:
   - id: NDA6
     path: textbook/volumes/dream_thater/代数系/NDA/NDA6
     status: completed
-    title: Liouvilleの定理・Liouville数・超越性
+    title: Liouvilleの近似定理・Liouville数・超越性
   - id: NDA7
     path: textbook/volumes/dream_thater/代数系/NDA/NDA7
     status: planned
