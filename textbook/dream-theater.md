@@ -916,6 +916,7 @@
 5. [SM5 古典理想気体とアンサンブルの同値性](textbook/volumes/dream_thater/物理系/SM/SM5/index.md)
 6. [SM6 量子統計と量子理想気体](textbook/volumes/dream_thater/物理系/SM/SM6/index.md)
 7. [SM7 Ising模型とCurie–Weiss平均場](textbook/volumes/dream_thater/物理系/SM/SM7/index.md)
+8. [SM8 相転移と臨界現象](textbook/volumes/dream_thater/物理系/SM/SM8/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
