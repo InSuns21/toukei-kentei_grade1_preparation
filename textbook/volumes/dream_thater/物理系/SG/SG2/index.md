@@ -61,52 +61,37 @@ $\log Z_X$ は常に有限で、$X$ の絶対値に高々線形に依存する�
 
 正規変数の平均を含む式に $X_\sigma$ が掛かっていると、直接積分するより関数の導関数に置き換えた方が簡単です。正規密度 $\varphi(x)=(2\pi)^{-1/2}e^{-x^2/2}$ は $\varphi'(x)=-x\varphi(x)$ を満たします。この微分恒等式が出発点です。
 
-<a id="lem-sg2-ibp"></a>
+[HDP5のGaussian部分積分](../../../解析系/HDP/HDP5/index.md#lem-hdp5-gaussian-ibp)は、標準正規入力 $G$ に対して $\mathbb E[G_k f(G)]=\mathbb E[\partial_k f(G)]$ を与え、その証明も正規密度の微分から完成しています。ここでは**配置間に共分散がある場合**へこの公式を移し替えます。
+
+<a id="prop-sg2-correlated-ibp"></a>
 
 <!-- formal-statement-start -->
-> **補題（Gaussian部分積分）**  
-> $G\sim N(0,I_d)$ とし、$f:\mathbb R^d\to\mathbb R$ が連続微分可能で、$f$ と一階導関数が高々多項式増大するとする。このとき、$1\le i\le d$ で
-
-$$
-\mathbb E[G_i f(G)]=\mathbb E[\partial_i f(G)].
-$$
-
-> さらに、平均 $\mu\in\mathbb R^m$、共分散 $C$ の（特異でもよい）正規ベクトル $X$ と同じ増大条件を満たす $F:\mathbb R^m\to\mathbb R$ について
+> **命題（共分散付きGaussian部分積分）**  
+> 平均 $\mu\in\mathbb R^m$、半正定値共分散行列 $C$ を持つGaussianベクトル $X$ を考える。$F:\mathbb R^m\to\mathbb R$ が連続微分可能で、$F$ と一階導関数が高々多項式増大するとき、各 $i=1,\ldots,m$ について
 
 $$
 \mathbb E[(X_i-\mu_i)F(X)]
-=\sum_{j=1}^m C_{ij}\mathbb E[\partial_jF(X)].
+=\sum_{j=1}^m C_{ij}\mathbb E[\partial_jF(X)]
 $$
+
+> が成立する。$C$ は特異でもよい。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-標準正規の場合は密度の微分を使う一変数の部分積分です。一般の場合は $X=\mu+AG$、$AA^\mathsf T=C$ と表し、連鎖律で添字を二回足します。特異な共分散でも $A$ を正方根として取れるので可逆性は不要です。
+相関を取り扱うため、$X=\mu+AG$、$AA^\mathsf T=C$ と置きます。入力 $G$ のどの成分が $X$ のどの成分を動かすかを連鎖律で数え、最後に行列積を共分散へ戻します。
 
 <!-- proof-start -->
 ### 証明
 
-まず他の座標を固定して $G_i$ に関する積分を行います。多項式増大とGaussian密度の減衰から境界項が0となるため
-
-$$
-\begin{aligned}
-\mathbb E[G_if(G)]
-&=\int_{\mathbb R^{d-1}}\int_{\mathbb R}
- x_i f(x)\varphi(x_i)\prod_{k\ne i}\varphi(x_k)\,dx_i\,dx_{-i}\\
-&=-\int_{\mathbb R^{d-1}}\int_{\mathbb R}
- f(x)\varphi'(x_i)\prod_{k\ne i}\varphi(x_k)\,dx_i\,dx_{-i}\\
-&=\int_{\mathbb R^d}\partial_i f(x)\prod_{k=1}^d\varphi(x_k)\,dx.
-\end{aligned}
-$$
-
-一般の半正定値行列 $C$ には実行列 $A$ で $AA^\mathsf T=C$ となるものが存在します。$X=\mu+AG$ として、$\widetilde F(g)=F(\mu+Ag)$ に標準正規の式を使います。連鎖律は
+半正定値な $C$ には実行列 $A$ で $AA^\mathsf T=C$ を満たすものがあり、$G\sim N(0,I_m)$ とすると $X$ は $\mu+AG$ と同じ分布です。$\widetilde F(g)=F(\mu+Ag)$ と置くと、連鎖律より
 
 $$
 \partial_{g_k}\widetilde F(g)
-=\sum_{j=1}^m A_{jk}\,\partial_jF(\mu+Ag)
+=\sum_{j=1}^m A_{jk}\partial_jF(\mu+Ag).
 $$
 
-です。したがって
+[HDP5のGaussian部分積分](../../../解析系/HDP/HDP5/index.md#lem-hdp5-gaussian-ibp)を $G_k$ と $\widetilde F$ に適用します。多項式増大により絶対可積分性と境界項の消失が成立し、
 
 $$
 \begin{aligned}
@@ -118,7 +103,7 @@ $$
 \end{aligned}
 $$
 
-これで両式を得ます。より一般の関数へは打切りと可積分性の確認によって拡張できますが、以降で使用する指数重みの比は有界な導関数を持つため、Gaussianの指数可積分性から必要な部分積分が正当化できます。
+可逆行列 $A^{-1}$ を使っていないので、$C$ が特異でも証明は変わりません。以降に用いるGibbs重みは有界で、各一階導関数も有界ですから、この部分積分を適用するための可積分性条件を満たします。
 <!-- proof-end -->
 
 **簡単な検算**：$X\sim N(0,v)$、$F(x)=e^{tx}$ とすると
@@ -214,133 +199,30 @@ $$
 
 [SG1のquenched圧力](../SG1/index.md#def-sg1-quenched)は期待値ですが、一つの実験試料の圧力が期待値に近いかは別問題です。有限個の正規変数の関数が、入力を大きく変えない限り出力も大きく変わらないなら、正規分布の集中を使えます。その「出力の変化しにくさ」はEuclid距離でのLipschitz定数として測ります。
 
-<a id="def-sg2-lipschitz"></a>
+[HDP5のEuclid距離のLipschitz定義](../../../解析系/HDP/HDP5/index.md#def-hdp5-lipschitz)では、すべての $x,y$ で $|f(x)-f(y)|\le L\|x-y\|_2$ を要求します。微分可能な関数なら、線分上の積分とCauchy–Schwarzから $\|\nabla f\|_2\le L$ が十分条件です。
 
-<!-- formal-statement-start -->
-> **定義（Euclid-Lipschitz定数）**  
-> 関数 $f:\mathbb R^d\to\mathbb R$ が $L\ge0$-Lipschitz であるとは、全ての $x,y\in\mathbb R^d$ に対し
-
-$$
-|f(x)-f(y)|\le L\|x-y\|_2
-$$
-
-> が成り立つことをいう。$f$ が連続微分可能で $\|\nabla f(x)\|_2\le L$ が全点で成立すれば、この条件を満たす。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-sg2-lipschitz -->
-### 二次元で勾配から確認する
-
-**定義の確認**：$f(x_1,x_2)=(x_1+x_2)/2$ は $\nabla f=(1/2,1/2)$ なので勾配ノルムは $1/\sqrt2$。$x,y$ を結ぶ線分に沿って積分し、Cauchy–Schwarzを使えば
+具体的に $f(x_1,x_2)=(x_1+x_2)/2$ は $\nabla f=(1/2,1/2)$ なので最良Lipschitz定数は $1/\sqrt2$。実際、
 
 $$
 |f(x)-f(y)|
-=\left|\int_0^1\nabla f(y+s(x-y))\cdot(x-y)\,ds\right|
+=\left|\int_0^1\nabla f(y+r(x-y))\cdot(x-y)\,dr\right|
 \le\frac{\|x-y\|_2}{\sqrt2}.
 $$
 
-$x-y=(1,1)$ で等号なので、この定数は最良です。
-<!-- definition-example-end -->
+$x-y=(1,1)$ で等号を達成するため、これより小さくできません。
 
-<a id="thm-sg2-concentration"></a>
+### 集中の既知定理をここで使う
 
-<!-- formal-statement-start -->
-> **定理（有限次元Gaussian集中不等式）**  
-> $G\sim N(0,I_d)$、$d\ge1$ とし、$f:\mathbb R^d\to\mathbb R$ は $L$-Lipschitz とする。$L>0$ なら任意の $u>0$ に対して
+[HDP5のGaussian集中定理](../../../解析系/HDP/HDP5/index.md#thm-hdp5-gaussian-concentration)は、$G\sim N(0,I_d)$ と $L$-Lipschitz関数 $f$ に対し、$L>0$、$u>0$ のとき
 
 $$
-\mathbb P\!\left(|f(G)-\mathbb Ef(G)|\ge u\right)
-\le2\exp\!\left(-\frac{u^2}{2L^2}\right).
+\mathbb P(|f(G)-\mathbb Ef(G)|\ge u)
+\le2e^{-u^2/(2L^2)}
 $$
 
-> $L=0$ なら $f(G)$ は定数である。特に不等式の係数は次元 $d$ に依存しない。
-<!-- formal-statement-end -->
+を与えます。HDP5では、Gaussian部分積分からOrnstein–Uhlenbeck半群の生成作用素を導き、対数Sobolev不等式とHerbst法で係数 $1/2$ まで証明しています。この結果をここで再証明する代わりに、**圧力が正規入力のLipschitz関数になること**を直接計算します。
 
-### 証明の見取り図
-
-独立な正規座標を単純な和として表せない $f$ にも対応するため、Gaussian熱流（Ornstein–Uhlenbeck半群）から指数モーメントを評価します。要点は、流れの下で勾配が $e^{-t}$ 倍になり、エントロピーの変化を積分すると $\frac12L^2$ が現れることです。次の証明はこの章で必要な有限次元版を閉じます。
-
-<!-- proof-start -->
-### 証明
-
-まず $f$ が滑らかで有界、勾配が有界とします。独立な標準正規ベクトル $G'$ を用い、正の滑らかな有界関数 $g$ に対して
-
-$$
-P_tg(x)=\mathbb E_{G'}\!\left[
-g(e^{-t}x+\sqrt{1-e^{-2t}}\,G')\right]
-\qquad(t\ge0)
-$$
-
-と置きます。正規分布の線形結合の分散は $e^{-2t}+(1-e^{-2t})=1$ なので $\mathbb EP_tg(G)=\mathbb Eg(G)$ です。連鎖律で
-
-$$
-\nabla P_tg=e^{-t}P_t(\nabla g).
-$$
-
-また正規密度への[Gaussian部分積分](#lem-sg2-ibp)を各座標で使うと、$P_t$ の生成作用素は $\mathcal L=\Delta-x\cdot\nabla$ であり、
-
-$$
-\frac d{dt}P_tg=\mathcal LP_tg,\qquad
-\mathbb E[h(G)\mathcal Lk(G)]
-=-\mathbb E[\nabla h(G)\cdot\nabla k(G)]
-$$
-
-となります。後者は $\mathbb E[h\Delta k]-\sum_i\mathbb E[hG_i\partial_i k]$ を展開し、$\mathbb E[G_i h\partial_i k]=\mathbb E[\partial_i h\,\partial_i k+h\partial_{ii}k]$ を代入すれば確かめられます。
-
-$m=\mathbb Eg(G)$、$H(t)=\mathbb E[P_tg(G)\log P_tg(G)]$ と置きます。$P_tg$ の平均が一定なので
-
-$$
-\begin{aligned}
-H'(t)
-&=\mathbb E[(1+\log P_tg)\mathcal LP_tg]\\
-&=-\mathbb E\left[\frac{\|\nabla P_tg\|_2^2}{P_tg}\right].
-\end{aligned}
-$$
-
-$t\to\infty$ で $P_tg(x)\to m$、有界性により $H(t)\to m\log m$ です。従って
-
-$$
-\operatorname{Ent}(g(G))
-:=\mathbb E[g(G)\log g(G)]-m\log m
-=\int_0^\infty\mathbb E\frac{\|\nabla P_tg\|_2^2}{P_tg}\,dt.
-$$
-
-各 $x$ で重み付きCauchy–Schwarzを用いれば
-
-$$
-\frac{\|P_t(\nabla g)(x)\|_2^2}{P_tg(x)}
-\le P_t\left(\frac{\|\nabla g\|_2^2}{g}\right)(x).
-$$
-
-ここへ $\nabla P_tg=e^{-t}P_t\nabla g$ を代入し、$\mathbb EP_th(G)=\mathbb Eh(G)$ と $\int_0^\infty e^{-2t}dt=1/2$ を使うと
-
-$$
-\operatorname{Ent}(g(G))
-\le\frac12\mathbb E\frac{\|\nabla g(G)\|_2^2}{g(G)}.
-$$
-
-これは必要なGaussian対数Sobolev評価で、その証明も上で得ました。$g=e^{\lambda f}$、$\lambda>0$ とすると $\|\nabla g\|^2/g=\lambda^2 e^{\lambda f}\|\nabla f\|^2\le\lambda^2L^2e^{\lambda f}$。$K(\lambda)=\log\mathbb Ee^{\lambda f(G)}$ に対して、上のエントロピー不等式を $\mathbb Ee^{\lambda f}$ で割ると
-
-$$
-\lambda K'(\lambda)-K(\lambda)
-\le\frac{\lambda^2L^2}{2}.
-$$
-
-したがって $(K(\lambda)/\lambda)'\le L^2/2$。$\lambda\downarrow0$ で $K(\lambda)/\lambda\to\mathbb Ef(G)$ なので積分して
-
-$$
-\log\mathbb Ee^{\lambda(f(G)-\mathbb Ef(G))}
-\le\frac{\lambda^2L^2}{2}.
-$$
-
-[Markov不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を非負な指数変数へ使うと
-
-$$
-\mathbb P(f(G)-\mathbb Ef(G)\ge u)
-\le\exp\!\left(-\lambda u+\frac{\lambda^2L^2}{2}\right).
-$$
-
-$\lambda=u/L^2$ で最小化すると $e^{-u^2/(2L^2)}$。$-f$ にも同じ操作を行い両側を足します。一般のLipschitz関数については、滑らかな畳込みと値の打切りを施してLipschitz定数を増やさずに近似し、$|f(x)|\le|f(0)|+L\|x\|_2$ とGaussian指数可積分性で期待値と確率を極限へ移します。$L=0$ なら定義から $f$ は定数です。
-<!-- proof-end -->
+特に配置エネルギー $X_\sigma$ 同士の独立性は不要です。必要なのは一つの標準正規ベクトル $G$ からの線形表示 $X=AG$ と、圧力関数の勾配上界です。
 
 ここで必要なのは独立な標準正規変数 $G$ であって、**各配置のエネルギー $X_\sigma$ 同士の独立性ではありません**。これがREMから先へ進む際の決定的な利点です。
 
@@ -393,7 +275,7 @@ $$
 =\frac{\beta^2v}{N}.
 $$
 
-線分に沿う積分により $F_X$ は $G$ の関数として $L=\beta\sqrt{v/N}$-Lipschitzです。[Gaussian集中定理](#thm-sg2-concentration)へ代入して結論を得ます。右辺は固定した $u>0$ で $N\to\infty$ のとき0となります。
+線分に沿う積分により $F_X$ は $G$ の関数として $L=\beta\sqrt{v/N}$-Lipschitzです。[Gaussian集中定理](../../../解析系/HDP/HDP5/index.md#thm-hdp5-gaussian-concentration)へ代入して結論を得ます。右辺は固定した $u>0$ で $N\to\infty$ のとき0となります。
 <!-- proof-end -->
 
 この系は各 $N$ のquenched圧力 $\mathbb EF_X$ の**極限の存在を証明しません**。極限値の存在と、そこへの試料ごとの集中は別々に示す必要があります。さらに [quenchedとannealedの比較](../SG1/index.md#prop-sg1-jensen)の差が消えるとも主張していません。
@@ -447,7 +329,7 @@ $$
 
 ### 証明の見取り図
 
-$\sqrt t$ を微分した $1/(2\sqrt t)$ は一見特異ですが、[Gaussian部分積分](#lem-sg2-ibp)で $X_\sigma$ に対する期待値を微分へ変えると、もう一つの $\sqrt t$ が現れ打ち消し合います。Gibbs重みの微分には[対角項と二レプリカ項](#prop-sg2-gibbs-derivatives)があるため、共分散差の二種類の平均が残ります。
+$\sqrt t$ を微分した $1/(2\sqrt t)$ は一見特異ですが、[Gaussian部分積分](#prop-sg2-correlated-ibp)で $X_\sigma$ に対する期待値を微分へ変えると、もう一つの $\sqrt t$ が現れ打ち消し合います。Gibbs重みの微分には[対角項と二レプリカ項](#prop-sg2-gibbs-derivatives)があるため、共分散差の二種類の平均が残ります。
 
 <!-- proof-start -->
 ### 証明
@@ -466,7 +348,7 @@ $$
 \end{aligned}
 $$
 
-$Y$ を固定して $X$ に[Gaussian部分積分](#lem-sg2-ibp)を適用します。連鎖律では $\partial_{X_\tau}H_t(\rho)=\sqrt t\,\mathbf1_{\{\tau=\rho\}}$ です。従って
+$Y$ を固定して $X$ に[Gaussian部分積分](#prop-sg2-correlated-ibp)を適用します。連鎖律では $\partial_{X_\tau}H_t(\rho)=\sqrt t\,\mathbf1_{\{\tau=\rho\}}$ です。従って
 
 $$
 \begin{aligned}
@@ -645,7 +527,7 @@ $$
 
 この式は有限 $N$ の微分を極限と交換して得たものではなく、先に有限 $N$ の恒等式を証明してからSG1の極限定理を適用した結果です。
 
-**SG3への準備**：SK模型では典型的に $C_{\sigma\tau}$ を配置の重なりの関数として書きます。そのとき[二レプリカ平均](#def-sg2-replica)が「二つの配置の重なりを平均する」操作へ変わります。相関のあるエネルギー帯を独立な帯として数える代わりに、この共分散と補間微分公式を使います。
+**SG3への準備**：SK模型では典型的に $C_{\sigma\tau}$ を配置の重なりの関数として書きます。そのとき[二レプリカ平均](#def-sg2-replica)が「二つの配置の重なりを平均する」操作へ変わります。相関のあるエネルギー帯を独立な帯として数える代わりに、[この章で導いたGaussian補間微分公式](#thm-sg2-interpolation)と共分散を使います。
 
 ## 演習問題
 
@@ -672,13 +554,13 @@ $$
 =a^2(u+v)^2+b^2(u^2+v^2)\ge0.
 $$
 
-$b=0$ では $(1,-1)C(1,-1)^\mathsf T=0$ となり、行列は特異です。それでも $X_1=X_2=aG_0$ は正規ベクトルで、[部分積分補題](#lem-sg2-ibp)は特異共分散にも適用できます。
+$b=0$ では $(1,-1)C(1,-1)^\mathsf T=0$ となり、行列は特異です。それでも $X_1=X_2=aG_0$ は正規ベクトルで、[部分積分補題](#prop-sg2-correlated-ibp)は特異共分散にも適用できます。
 <!-- solution-end -->
 
 **SG2-A2（Gaussian部分積分で二次モーメント）**
 - Level: A
 
-$X\sim N(0,v)$（$v>0$）について[部分積分](#lem-sg2-ibp)を $F(x)=x^3$ に適用し、$\mathbb EX^4$ を求めよ。
+$X\sim N(0,v)$（$v>0$）について[部分積分](#prop-sg2-correlated-ibp)を $F(x)=x^3$ に適用し、$\mathbb EX^4$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -720,7 +602,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\nabla f=(1/2,1/2)$ より勾配ノルムは $1/\sqrt2$ です。$(1,1)$ 方向の増分でこの比が実現するため最良値です。$\mathbb Ef(G)=0$ であり、[集中定理](#thm-sg2-concentration)に $L^2=1/2$ を代入すると
+$\nabla f=(1/2,1/2)$ より勾配ノルムは $1/\sqrt2$ です。$(1,1)$ 方向の増分でこの比が実現するため最良値です。$\mathbb Ef(G)=0$ であり、[集中定理](../../../解析系/HDP/HDP5/index.md#thm-hdp5-gaussian-concentration)に $L^2=1/2$ を代入すると
 
 $$
 \mathbb P(|f(G)|\ge u)
