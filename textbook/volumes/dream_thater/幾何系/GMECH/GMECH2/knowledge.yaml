@@ -74,4 +74,4 @@ concepts:
     requires:
       - mechanics.cotangent-momentum-map
       - mechanics.momentum-equivariance
-      - lie.conjugation-exponential
+      - lie.conjugation-exponential-naturality
