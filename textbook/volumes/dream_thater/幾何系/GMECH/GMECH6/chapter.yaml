@@ -1,0 +1,46 @@
+id: "GMECH6"
+title: "Lie–Poisson構造と余随伴軌道"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH5
+  - LIE2
+  - SYM4
+official_scope: []
+learning_objectives:
+  - 左余随伴作用の速度と符号を双対評価から導ける
+  - 構造定数からLie–Poisson座標括弧を計算し正負の違いを説明できる
+  - Lie–Poisson括弧のJacobi恒等式を一般の滑らかな関数で証明できる
+  - Hamilton方程式が余随伴軌道に接することを証明できる
+  - KKS形式のwell-defined性・非退化性・閉性を導ける
+  - Casimirとシンプレクティック葉および連結性条件を説明できる
+  - SO3の球面葉とHeisenberg型Lie代数の葉を計算できる
+definitions:
+  - { id: GMECH6-DEF-01, name: 余随伴軌道と無限小余随伴作用 }
+  - { id: GMECH6-DEF-02, name: 正・負のLie–Poisson括弧 }
+  - { id: GMECH6-DEF-03, name: KKS形式 }
+  - { id: GMECH6-DEF-04, name: Casimir関数 }
+theorems:
+  - { id: GMECH6-THM-01, name: Lie–Poisson括弧のJacobi恒等式 }
+  - { id: GMECH6-THM-02, name: Lie–Poisson運動方程式と軌道保存 }
+  - { id: GMECH6-THM-03, name: 余随伴軌道のシンプレクティック構造 }
+  - { id: GMECH6-THM-04, name: Casimirと余随伴シンプレクティック葉 }
+canonical_examples:
+  - SO3の構造定数と余随伴速度
+  - SO3の球面KKS形式とCasimir
+  - Heisenberg型Lie代数の階数落ちと葉
+  - SO3の二次Hamiltonianの接方向線形化
+problem_patterns:
+  - GMECH6-ADJOINT-SIGN
+  - GMECH6-COORDINATE-POISSON
+  - GMECH6-CASIMIR
+  - GMECH6-ORBIT-RANK
+  - GMECH6-HEISENBERG
+  - GMECH6-KKS
+  - GMECH6-QUADRATIC-FLOW
+  - GMECH6-JACOBI
+  - GMECH6-ENERGY-LEAF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 2 }
