@@ -120,7 +120,11 @@ for (const section of manifest.sections) {
 // F0_00CALC_* is calculation-only reader support. Deprecated compatibility
 // directories remain on disk for old URLs and are intentionally outside the
 // current reader-facing manifest.
-const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
+// During the structural migration, the manifest may contain both the
+// original direct-foundations layout and category/ID chapter paths. Discover
+// both layouts independently so an unindexed moved chapter cannot disappear
+// from the audit. No old-URL redirects or compatibility copies are created.
+const legacyDiscovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .filter((entry) => !entry.name.startsWith(calculationReaderSupportPrefix))
   .filter((entry) => !nonDreamTheaterDirs.has(entry.name))
@@ -128,8 +132,19 @@ const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
   .map((p) => toPosix(path.relative(repoRoot, p)))
-  .filter((p) => !archivedPaths.has(p))
-  .sort();
+  .filter((p) => !archivedPaths.has(p));
+
+const categorizedRoot = path.join(repoRoot, 'textbook', 'volumes', 'dream_thater');
+const categorizedDiscovered = fs.existsSync(categorizedRoot)
+  ? fs.readdirSync(categorizedRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .flatMap((category) => fs.readdirSync(path.join(categorizedRoot, category.name), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => path.join(categorizedRoot, category.name, entry.name, 'index.md')))
+    .filter((p) => fs.existsSync(p))
+    .map((p) => toPosix(path.relative(repoRoot, p)))
+  : [];
+const discovered = [...legacyDiscovered, ...categorizedDiscovered].sort();
 
 const expectedSet = new Set(expected);
 const discoveredSet = new Set(discovered);
@@ -169,14 +184,14 @@ for (const p of expected) {
   if (archivedPaths.has(p)) errors.push(`archived page must not appear in manifest: ${p}`);
 }
 for (const p of discovered) {
-  if (!expectedSet.has(p)) errors.push(`foundation chapter missing from manifest/facade scope: ${p}`);
+  if (!expectedSet.has(p)) errors.push(`DREAM THEATER chapter missing from manifest/facade scope: ${p}`);
 }
 for (const p of expected) {
-  if (!discoveredSet.has(p)) errors.push(`manifest entry is not a direct foundation chapter: ${p}`);
+  if (!discoveredSet.has(p)) errors.push(`manifest entry is not a discovered DREAM THEATER chapter: ${p}`);
 }
 
 const facade = fs.readFileSync(facadePath, 'utf8');
-const chapterLinkPattern = /\[([^\]]+)\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g;
+const chapterLinkPattern = /\[([^\]]+)\]\((textbook\/volumes\/(?:00_foundations|dream_thater)\/[^)]+\/index\.md)\)/g;
 const actualLinks = [...facade.matchAll(chapterLinkPattern)]
   .map((m) => ({ label: m[1], path: m[2] }))
   .filter(({ path: p }) => !p.includes(calculationReaderSupportMarker));

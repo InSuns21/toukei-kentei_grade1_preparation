@@ -58,7 +58,13 @@ function validate(root) {
     const label = name + ': ';
     if (!/^[A-Z][A-Z0-9_-]*\.yaml$/.test(name)) fail(label + 'invalid filename');
     if (series.id !== name.slice(0, -5)) fail(label + 'manifest ID must match filename');
-    if (series.chapter_root !== chapterRoot) fail(label + 'chapter_root differs from global routing');
+    // In the move-only transition, existing series and migrated series may
+    // temporarily use different roots. A categorized path must end at the
+    // stable chapter ID, not a guessed long directory name.
+    const categorizedRoot = 'textbook/volumes/dream_thater';
+    if (series.chapter_root !== chapterRoot && series.chapter_root !== categorizedRoot) {
+      fail(label + 'chapter_root differs from supported DREAM THEATER routing roots');
+    }
     const planPath = localPath(series.plan, label + 'plan');
     if (planPath && !fs.existsSync(planPath)) fail(label + 'plan missing: ' + series.plan);
     if (!Array.isArray(series.chapters) || !series.chapters.length) {
@@ -87,8 +93,13 @@ function validate(root) {
         const completedPath = localPath(chapter.path, label + id + '.path');
         if (completedPath && !fs.existsSync(completedPath)) fail(label + id + ': chapter path missing: ' + chapter.path);
       }
-      if (typeof chapter.path !== 'string' || chapter.path !== chapterRoot + '/' + id) {
-        fail(label + id + ': chapter path does not match ID');
+      const legacyPath = 'textbook/volumes/00_foundations/' + id;
+      const categorizedParts = typeof chapter.path === 'string' ? chapter.path.split('/') : [];
+      const categorizedPath = categorizedParts.length === 5 &&
+        categorizedParts.slice(0, 3).join('/') === categorizedRoot &&
+        categorizedParts[3].trim() !== '' && categorizedParts[4] === id;
+      if (chapter.path !== legacyPath && !categorizedPath) {
+        fail(label + id + ': chapter path does not match legacy or category/ID layout');
       }
     }
     const next = firstPlanned >= 0 ? series.chapters[firstPlanned].id : null;
@@ -138,6 +149,17 @@ function selfTest() {
     assert.deepEqual(first.errors, []);
     assert.deepEqual(first.summaries.map(s => [s.id, s.completedThrough, s.next, s.afterNext]),
       [['A', 'A1', 'A2', null], ['B', 'B1', null, null]]);
+    // During the category migration a series may be moved before the shared
+    // routing is switched. Both completed and planned paths must validate.
+    const nestedA = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-series/A.yaml'), 'utf8'));
+    nestedA.chapter_root = 'textbook/volumes/dream_thater';
+    for (const ch of nestedA.chapters) {
+      ch.path = 'textbook/volumes/dream_thater/解析系/' + ch.id;
+    }
+    fs.mkdirSync(path.join(root, nestedA.chapters[0].path), { recursive: true });
+    write('textbook/dream-theater-series/A.yaml', YAML.stringify(nestedA));
+    assert.deepEqual(validate(root).errors, [], 'categorized chapter paths must validate during migration');
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'planned'], 'textbook/plans_progress/A.md'));
     // Advance series A; series B and shared routing must remain unchanged.
     fs.mkdirSync(path.join(root, 'textbook/volumes/00_foundations/A2'), { recursive: true });
     write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'completed'], 'textbook/plan_done/A.md'));
