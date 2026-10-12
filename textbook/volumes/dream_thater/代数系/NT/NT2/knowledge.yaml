@@ -1,0 +1,93 @@
+chapter: NT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT1
+  - GRP2
+  - FLD1
+forward_references: []
+
+concepts:
+  - id: number-theory.unit-group
+    name: 法nの単数群
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（法nの単数群）]
+    requires: [number-theory.modular-inverse-criterion, algebra.quotient-ring]
+
+  - id: number-theory.euler-totient
+    name: Eulerのφ関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Eulerのφ関数）]
+    requires: [number-theory.unit-group]
+
+  - id: number-theory.totient-product
+    name: φ関数の積公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（φ関数の積公式）]
+    requires: [number-theory.euler-totient, number-theory.constructive-crt]
+
+  - id: number-theory.euler-theorem
+    name: Eulerの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Eulerの定理）]
+    requires: [number-theory.euler-totient]
+
+  - id: number-theory.fermat-little-theorem
+    name: Fermatの小定理
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（Fermatの小定理）]
+    requires: [number-theory.euler-theorem]
+
+  - id: number-theory.wilson-theorem
+    name: Wilsonの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Wilsonの定理）]
+    requires: [number-theory.unit-group]
+
+  - id: number-theory.primitive-root
+    name: 法nの原始根
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（法nの原始根）]
+    requires: [number-theory.euler-totient]
+
+  - id: number-theory.abelian-group-exponent-lemma
+    name: 有限可換群の位数の最小公倍数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限可換群の位数の最小公倍数）]
+    requires: [number-theory.primitive-root]
+
+  - id: number-theory.finite-field-subgroup-cyclic
+    name: 体の乗法群の有限部分群は巡回群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（体の乗法群の有限部分群は巡回群）]
+    requires: [number-theory.abelian-group-exponent-lemma]
+
+  - id: number-theory.odd-prime-lifting-lemma
+    name: 奇素数での位数の持ち上げ
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（奇素数での位数の持ち上げ）]
+    requires: [number-theory.primitive-root]
+
+  - id: number-theory.primitive-root-prime-power
+    name: 奇素数冪の原始根
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（奇素数冪の原始根）]
+    requires: [number-theory.finite-field-subgroup-cyclic, number-theory.odd-prime-lifting-lemma]
+
+  - id: number-theory.primitive-root-classification
+    name: 原始根が存在する法の分類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（原始根が存在する法の分類）]
+    requires: [number-theory.primitive-root-prime-power, number-theory.constructive-crt]
