@@ -8,12 +8,14 @@
 
 ## 1. 算術関数を複素変数の関数へ移す
 
+[NT8の実変数Dirichlet級数](../../NT/NT8/index.md#def-nt8-dirichlet-series)を複素変数へ広げます。収束する実数だけを扱う段階から、半平面上の正則関数を考える段階への拡張です。
+
 [算術関数](../../NT/NT4/index.md#def-nt4-arithmetic-function) $a:\mathbb N\to\mathbb C$ の値を、整数の大きさに応じて弱めて足すことを考えます。固定された $n$ に対して $n^{-s}$ は正則ですが、項別に正則でも無限和が正則になるとは限りません。そこで収束域を定義します。
 
-<a id="def-ant2-dirichlet-series"></a>
+<a id="def-ant2-complex-dirichlet-series"></a>
 
 <!-- formal-statement-start -->
-> **定義（Dirichlet級数）**  
+> **定義（複素変数のDirichlet級数）**  
 > 算術関数 $a:\mathbb N\to\mathbb C$ に対し、複素数 $s$ で級数が収束する場合、
 
 $$
@@ -23,7 +25,7 @@ $$
 > を $a$ のDirichlet級数という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ant2-dirichlet-series -->
+<!-- definition-example-start: def-ant2-complex-dirichlet-series -->
 ### 例：二つの項しかない級数
 
 $a(1)=1$、$a(2)=3$、$n\ge3$ で $a(n)=0$ とします。このとき $F_a(s)=1+3\cdot2^{-s}$ はすべての $s\in\mathbb C$ で定義されます。係数を無限個指定していても、収束の難しさが現れない場合があると分かります。
@@ -219,7 +221,6 @@ $$
 収束は仮定した絶対収束級数の尾部によります。一般の有限集合 $P$ についても、任意の固定した整数の素因数がいずれすべて $P$ に入るよう増やせば、同じ尾部評価で結論を得ます。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-ant2-euler-product -->
 ### 例：有限Euler積を直接展開する
 
 $a(n)=1$ とし、素数集合を $\{2,3\}$ に絞ると
@@ -231,8 +232,6 @@ $$
 $$
 
 $\sigma>1$ なら幾何級数は絶対収束します。右辺は $1,2,3,4,6,8,9,\ldots$ のうち素因数が $2,3$ に限られるものだけを数えます。$5^{-s}$ はまだ入らず、素数集合を広げると初めて現れます。
-<!-- definition-example-end -->
-
 ### Euler積があっても零点はあり得る
 
 $a(1)=1$、$a(2)=-2$、$n\ge3$ では $a(n)=0$ と置きます。この関数は乗法的です。実際、互いに素な $m,n>1$ の両方で非零になることはなく、片方が $1$ なら積の条件は自動的に成立します。級数は有限和で
