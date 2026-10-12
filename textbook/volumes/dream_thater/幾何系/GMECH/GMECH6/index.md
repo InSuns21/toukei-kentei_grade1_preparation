@@ -275,7 +275,25 @@ $$
 =-\langle\nu,[\zeta,\eta]\rangle.
 $$
 
-従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これは定義が接ベクトルだけで決まることを保証します。逆に $v=\rho_\xi(\nu)$ が全ての $w=\rho_\eta(\nu)$ と零の組合せを持てば、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ となり、同じ式から $\rho_\xi(\nu)=0$、つまり $v=0$ です。滑らかさも確認します。[LIE4の軌道写像の階数と接空間の定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)により軌道写像の階数は一定であり、軌道は局所的に滑らかな座標を持ちます。接空間への線形写像 $\xi\mapsto\rho_\xi(\nu)$ の核の補空間を選ぶと、局所座標上で接ベクトルの滑らかな代表 $\xi$ を取れます。$\langle\nu,[\xi,\eta]\rangle$ はこれらと $\nu$ について滑らかなので、$\omega_{\mathrm{KKS}}$ も滑らかです。
+従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これにより形式の値は接ベクトルだけで決まります。
+
+**非退化性。** 接ベクトル $v=\rho_\xi(\nu)$ に対して、全ての接ベクトルとの形式の評価が零とします。このとき任意の $\eta$ について
+
+$$
+\omega_{\mathrm{KKS}}(v,\rho_\eta(\nu))
+=\langle\nu,[\xi,\eta]\rangle=0.
+$$
+
+無限小余随伴作用の定義へ戻すと $\rho_\xi(\nu)=0$、すなわち $v=0$ です。
+
+**滑らかさ。** [LIE4の軌道写像の階数と接空間の定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)から、軌道写像の階数は一定で、軌道は局所的に滑らかな座標を持ちます。接空間への写像
+
+$$
+\mathfrak g\longrightarrow T_\nu\mathcal O_\mu,
+\qquad \xi\longmapsto\rho_\xi(\nu)
+$$
+
+の核の補空間を選びます。局所座標内で接ベクトルの滑らかな代表を取れ、その代表と点に関するLie括弧の双線形評価も滑らかです。従ってKKS形式の係数は滑らかです。
 
 **閉性。** [LIE4の左作用の基本ベクトル場の交換子](../../../代数系/LIE/LIE4/index.md#thm-lie4-fundamental-flow-antihom)は
 
