@@ -19,7 +19,7 @@ chapters:
     title: スペクトルギャップとCheeger不等式
   - id: SGT4
     path: textbook/volumes/dream_thater/計算系/SGT/SGT4
-    status: planned
+    status: completed
     title: スペクトル分割とクラスタリング
   - id: SGT5
     path: textbook/volumes/dream_thater/計算系/SGT/SGT5
