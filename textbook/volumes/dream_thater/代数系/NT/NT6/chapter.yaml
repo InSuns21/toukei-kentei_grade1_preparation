@@ -1,0 +1,48 @@
+id: "NT6"
+title: "不定方程式と平方和"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - NT3
+  - RNG3
+official_scope: []
+learning_objectives:
+  - 一次不定方程式の可解条件をBézout等式から証明し、全整数解と非負整数解を列挙できる
+  - 原始Pythagoras三つ組の媒介表示を偶奇と互いに素な平方積から導出し、逆の原始性まで確認できる
+  - 合同式による解不存在判定と3 mod 4の素数の指数制限を証明できる
+  - Gauss整数のノルムと除法から既約元の素元性を導き、1 mod 4の素数を二平方に表示できる
+  - Fermatの二平方和定理の必要性・十分性を証明し、具体的に表示を構成できる
+  - 四平方定理の主張と二平方の相違、局所条件の役割と限界を説明できる
+definitions:
+  - { id: NT6-DEF-01, name: 原始Pythagoras三つ組 }
+  - { id: NT6-DEF-02, name: Gauss整数とノルム }
+theorems:
+  - { id: NT6-THM-01, name: 一次不定方程式の全整数解 }
+  - { id: NT6-LEM-01, name: 互いに素な積が平方なら各因子も平方 }
+  - { id: NT6-THM-02, name: 原始Pythagoras三つ組の媒介表示 }
+  - { id: NT6-PROP-01, name: 合同式による不存在判定 }
+  - { id: NT6-LEM-02, name: 3 mod 4の素因数の指数 }
+  - { id: NT6-LEM-03, name: Gauss整数の除法 }
+  - { id: NT6-LEM-04, name: Gauss整数の既約元は素元 }
+  - { id: NT6-THM-03, name: 1 mod 4の素数の二平方表示 }
+  - { id: NT6-THM-04, name: Fermatの二平方和定理 }
+canonical_examples:
+  - 84x+30y=18の一般解
+  - 原始三つ組(5,12,13)の媒介表示
+  - 3と11の法4での二平方不存在
+  - Gauss整数(3+2i)(1+i)のノルム乗法性
+  - 素数5と13の二平方表示
+  - 45の二平方構成と75の不存在
+problem_patterns:
+  - NT6-LINEAR-DIOPHANTINE
+  - NT6-PRIMITIVE-PYTHAGOREAN
+  - NT6-MODULAR-OBSTRUCTION
+  - NT6-GAUSSIAN-NORM
+  - NT6-GAUSSIAN-FACTORIZATION
+  - NT6-FERMAT-TWO-SQUARES
+  - NT6-ALL-TRIPLES
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
