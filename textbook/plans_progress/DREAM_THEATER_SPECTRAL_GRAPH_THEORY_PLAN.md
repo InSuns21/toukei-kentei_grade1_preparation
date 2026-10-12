@@ -2,7 +2,7 @@
 
 作成日: 2026-10-10  
 再設計: 2026-10-12  
-状態: in_progress（SGT1〜SGT7 完成、SGT8 未着手）
+状態: in_progress（SGT1〜SGT8 本文完成、系列横断監査・公開導線の最終判定は未完了）
 
 ## 0. 中心問い
 
@@ -62,7 +62,7 @@
 - SGT5（completed）: 固有値ギャップとDavis–Kahan型摂動評価。
 - SGT6（completed）: lazy walk、非周期性、混合時間とスペクトルギャップ。
 - SGT7（completed）: 有効抵抗、擬似逆と電気ネットワーク。
-- SGT8（planned）: 点群グラフ、連続極限への責任境界、橋で結んだグラフなどの科目横断演習。
+- SGT8（completed）: 点群グラフ、連続極限への責任境界、橋で結んだグラフなどの科目横断演習。
 
 各章は主要定理・演習の完備性に応じて分割・統合してよく、上記は15週の時間割ではない。SGT8完了後に全系列の依存・公開導線・数理横断査読を行ってPLANを完了判定する。
 
@@ -79,6 +79,6 @@
 
 path, cycle, complete graph, 二つの clique を1辺でつないだ graph、weighted path を計算し、固有値・conductance・random walk を比較する。少なくとも Cheeger 型評価と graph Laplacian の Dirichlet 表現を証明し、有限 graph と連続 limit の主張を混同しない。
 
-SGT系列の章IDは SGT1〜SGT8 と確定した。SGT1 は F0-00F1 を直接前提とし、2026-10-12 に本文・概念依存・演習を実装した。SGT2は2026-10-12に正規化Laplacian・定常分布・変分表示を実装した。SGT3は2026-10-12にCheeger不等式の両方向・sweep cutと詳細演習を実装した。SGT4は2026-10-12にRatio Cut・Normalized Cut・二値指示ベクトルのRayleigh商・固有値緩和・多群trace表示と演習10題を実装した。SGT5は2026-10-12にWeyl評価、Davis–Kahan型の下位空間・単純固有ベクトル評価、正規化Laplacianの次数摂動、閾値余裕と反例、演習9題を実装した。SGT6は2026-10-12にlazy walk、全変動距離、スペクトル混合時間の上下界、二部性による非収束、三角形の厳密計算、演習9題を実装した。SGT7は電気ネットワーク・擬似逆・二つの最小エネルギー原理・重み付き全域木の証明と演習9題を2026-10-12に実装した。SGT8 は系列manifestの planned に残す。各変更章に初出定義の直接例、主要証明、Level A 4題・B 3題・C 1題以上（理由付き例外を除く）の演習と全詳細解答を備える。主要証明と全演習を再計算し、別観点で再査読する。別の完了章の追跡監査は章ID指定の明示依頼がある場合のみ行う。chapter ID競合、knowledge DAG、参照リンク、学習導線、公開索引とCIを検証し、講数でなく学修目標の充足をもって完成とする。
+SGT系列の章IDは SGT1〜SGT8 と確定した。SGT1 は F0-00F1 を直接前提とし、2026-10-12 に本文・概念依存・演習を実装した。SGT2は2026-10-12に正規化Laplacian・定常分布・変分表示を実装した。SGT3は2026-10-12にCheeger不等式の両方向・sweep cutと詳細演習を実装した。SGT4は2026-10-12にRatio Cut・Normalized Cut・二値指示ベクトルのRayleigh商・固有値緩和・多群trace表示と演習10題を実装した。SGT5は2026-10-12にWeyl評価、Davis–Kahan型の下位空間・単純固有ベクトル評価、正規化Laplacianの次数摂動、閾値余裕と反例、演習9題を実装した。SGT6は2026-10-12にlazy walk、全変動距離、スペクトル混合時間の上下界、二部性による非収束、三角形の厳密計算、演習9題を実装した。SGT7は電気ネットワーク・擬似逆・二つの最小エネルギー原理・重み付き全域木の証明と演習9題を2026-10-12に実装した。SGT8 は2026-10-12に半径・対称化近傍グラフ、閾値の余裕と固有値摂動、一本橋グラフのconductance・正規化スペクトル・lazy混合下界・有効抵抗、演習9題を実装した。系列manifestを completed に更新したが、SGT1〜SGT8の系列横断監査・公開導線の最終完了判定は別途実施する。各変更章に初出定義の直接例、主要証明、Level A 4題・B 3題・C 1題以上（理由付き例外を除く）の演習と全詳細解答を備える。主要証明と全演習を再計算し、別観点で再査読する。別の完了章の追跡監査は章ID指定の明示依頼がある場合のみ行う。chapter ID競合、knowledge DAG、参照リンク、学習導線、公開索引とCIを検証し、講数でなく学修目標の充足をもって完成とする。
 
 参考範囲: Fan Chung, *Spectral Graph Theory*; Daniel Spielman, *Spectral and Algebraic Graph Theory*（公開講義ノート）; Ulrike von Luxburg, “A Tutorial on Spectral Clustering”.
