@@ -72,7 +72,7 @@ $$
 
 ### 証明の見取り図
 
-前半には[時空間隔の不変性](../SREL2/index.md#thm-srel2-interval-invariance)を接ベクトルへ適用します。後半では、パラメータ変更による速度の倍率と積分の微小区間の倍率が相殺します。
+前半には[時空間隔の不変性](../SREL2/index.md#thm-srel2-interval-invariance)を世界線の微分ベクトルへ適用します。後半では、パラメータ変更による速度の倍率と積分の微小区間の倍率が相殺します。
 
 <!-- proof-start -->
 ### 証明
@@ -630,7 +630,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-内積 $\boldsymbol f\cdot\boldsymbol v=0$ です。[仕事とエネルギーの命題](#prop-srel4-work-energy)によれば $dE/dt=0$ です。$\gamma=5/4$ を[四元力の成分公式](#thm-srel4-four-force)に代入すると
+内積 $\boldsymbol f\cdot\boldsymbol v=0$ です。[相対論的な仕事とエネルギー](#prop-srel4-work-energy)によれば $dE/dt=0$ です。$\gamma=5/4$ を[四元力の成分公式](#thm-srel4-four-force)に代入すると
 
 $$
 K=\left(0,0,\frac54F,0\right).
