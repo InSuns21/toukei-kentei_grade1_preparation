@@ -46,7 +46,7 @@ concepts:
     name: 熱力学第0法則
     kind: principle
     introduction: formal
-    introduction_aliases: [第0法則（熱平衡の推移性）]
+    introduction_aliases: [原理（熱力学第0法則：熱平衡の推移性）]
     requires: [thermodynamics.thermal-equilibrium]
 
   - id: thermodynamics.equivalence-classes
