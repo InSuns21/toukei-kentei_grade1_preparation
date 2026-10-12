@@ -1,7 +1,7 @@
 # DREAM THEATER Diophantine近似（NDA1〜NDA8）
 
 分冊: 2026-10-11  
-状態: in progress（2026-10-12 科目固有の依存・ID・入口監査を完了。章本文は未着手、NDA1から着手可能）
+状態: in progress（2026-10-12 NDA1・NDA2執筆完了、NDA3以降は未着手）
 
 ## 中心問いと直接依存
 
@@ -154,10 +154,16 @@ EOM017 は irrationality exponent の初出定義を担当しない。
 
 章間の主要依存は `NDA1 → NDA2 → NDA5 → NDA6 → NDA7`、`NDA2 → NDA3 → NDA4`、`NDA5・NDA4・MT → NDA8` とする。これは概形であり、`chapter.yaml` には証明が**直接使う最小の** prerequisite のみを登録する。NDA3以降がNDA1の着手を妨げないよう、各章の証明経路は着手時に個別確定する。
 
-## 次の作業：NDA1を始めるとき
+## NDA1着手時の手順（実施済み記録）
 
 1. 本PLANは**依存・ID・入口監査に着手済み**のため `textbook/plans_progress/` へ移動済み。章本文・証明・演習の実装と科目横断監査は未実施。NDA1の執筆が次の実装タスクである。
 2. `textbook/dream-theater-series/NDA.yaml` は科目固有の入口監査とともに作成済みで、`plan` は本PLANの `plans_progress` パス、`chapter_root` は既存ルーター、NDA1〜NDA8はすべて `planned`。共通ルーターは変更しない。NDA1執筆に着手しても未完成章の公開索引・knowledge DAGへの先行登録をしない。
 3. 最初の章は `textbook/volumes/dream_thater/代数系/NDA/NDA1/` の `chapter.yaml`・`knowledge.yaml`・`index.md`。NT7のリンク先を個別に利用し、**既出証明の再掲で章数を埋めない**。一般二次無理数の最終周期性、近似型の差、具体例を導入→定義→証明→演習で閉じる。
 4. 理由付き例外がなければ各新章に有意味なLevel A 4題・B 3題・C 1題以上と全詳細解答を置く。区分Cの全主要証明・全演習解答を出発点から再計算し、別観点で再読する。PRには検証根拠と未確認部分を記録する。章本文と検証が完成した章だけ公開索引・目次・knowledge DAGへ追加し、系列manifestの当該章を `completed` に更新する。
 5. 変更に応じて `npm run validate:textbook:changed`、`npm run validate:textbook-knowledge:changed`、`npm run validate:dream-theater-concepts:changed`、`npm run validate:dream-theater-exercise-counts` を実行。manifest・公開索引等に波及する際は現行規約に従い必要な全体検証へ昇格する。後続のRoth・Khintchineの証明経路が未完了なら、その章は `completed` にしない。
+
+## 2026-10-12 NDA2執筆完了・次の章
+
+- 系列 manifest で NDA1・NDA2 を \`completed\` とし、未実装の NDA3〜NDA8 は \`planned\` のままとした。計画全体の科目横断査読・完了判定は残っているため本PLANは \`plans_progress/\` に残す。
+- NDA2でHurwitzの最良定数 \`1/sqrt(5)\` の三項誤差証明・黄金比による鋭さ・悪近似数と部分商有界性の同値を記述。直接依存はNDA1（経由してNT7）。
+- 次はNDA3「数の幾何と同時Diophantine近似」。Blichfeldt補題からMinkowskiの凸体定理を導き、格子の行列式と体積条件を明示して同時Dirichlet近似へ進む。
