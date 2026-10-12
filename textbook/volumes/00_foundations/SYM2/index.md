@@ -538,7 +538,7 @@ $$
 =e^i\wedge f^i\wedge e^i\wedge f^i=0
 $$
 
-です。一方、異なる添字では[外積の次数付き交換則](../GEO7/index.md#prop-geo7-wedge-laws)により
+です。一方、異なる添字では[外積の次数付き交換則](../LA3E/index.md#thm-la3e-wedge-algebra-laws)により
 
 $$
 \beta_i\wedge\beta_j=(-1)^{2\cdot2}\beta_j\wedge\beta_i
