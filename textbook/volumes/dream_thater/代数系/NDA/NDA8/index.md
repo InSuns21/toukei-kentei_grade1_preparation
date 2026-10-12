@@ -645,7 +645,7 @@ $\lambda(A_n)=1/n$ だから調和級数によって $\sum_n\lambda(A_n)=\infty$
 **NDA8-B2　対数級数の収束境界**
 
 - Level: B
-- 問題：$\psi_a(q)=1/\{q(\log q)^a\}$（$q\ge3$、$a>0$）とする。級数の収束条件を積分で証明し、Khintchineの定理からほとんどすべての $x$ に対する近似回数を分類せよ。
+- 問題：$\psi_a(q)=1/\{q(\log q)^a\}$（$q\ge3$、$a>0$）とする。級数の収束条件を積分で証明し、[Khintchineの定理](#thm-nda8-khintchine)からほとんどすべての $x$ に対する近似回数を分類せよ。
 
 <!-- solution-start -->
 **詳細解答**
