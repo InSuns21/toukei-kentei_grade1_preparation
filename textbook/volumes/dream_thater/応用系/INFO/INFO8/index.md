@@ -357,7 +357,7 @@ q^n(A_n(x^n))
 \end{aligned}
 $$
 
-$\alpha(x^n)=Q^n(A_n(x^n)|x^n)$ と書くと、結合分布での平均は $E_{p^n}[\alpha(X^n)]=P_{a^n}(G_n)=1-\eta_n$。$1-\alpha(X^n)\ge0$ に Markov の不等式を使って
+$\alpha(x^n)=Q^n(A_n(x^n)|x^n)$ と書くと、結合分布での平均は $E_{p^n}[\alpha(X^n)]=P_{a^n}(G_n)=1-\eta_n$。$1-\alpha(X^n)\ge0$ に [Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を使って
 
 $$
 P_{p^n}\bigl(\alpha(X^n)<1/2\bigr)
