@@ -149,6 +149,17 @@ function selfTest() {
     assert.deepEqual(first.errors, []);
     assert.deepEqual(first.summaries.map(s => [s.id, s.completedThrough, s.next, s.afterNext]),
       [['A', 'A1', 'A2', null], ['B', 'B1', null, null]]);
+    // During the category migration a series may be moved before the shared
+    // routing is switched. Both completed and planned paths must validate.
+    const nestedA = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-series/A.yaml'), 'utf8'));
+    nestedA.chapter_root = 'textbook/volumes/dream_thater';
+    for (const ch of nestedA.chapters) {
+      ch.path = 'textbook/volumes/dream_thater/解析系/' + ch.id;
+    }
+    fs.mkdirSync(path.join(root, nestedA.chapters[0].path), { recursive: true });
+    write('textbook/dream-theater-series/A.yaml', YAML.stringify(nestedA));
+    assert.deepEqual(validate(root).errors, [], 'categorized chapter paths must validate during migration');
+    write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'planned'], 'textbook/plans_progress/A.md'));
     // Advance series A; series B and shared routing must remain unchanged.
     fs.mkdirSync(path.join(root, 'textbook/volumes/00_foundations/A2'), { recursive: true });
     write('textbook/dream-theater-series/A.yaml', manifest('A', ['completed', 'completed'], 'textbook/plan_done/A.md'));
