@@ -719,6 +719,7 @@
 
 1. [ANT1 算術関数の平均と部分和](textbook/volumes/dream_thater/代数系/ANT/ANT1/index.md)
 2. [ANT2 Dirichlet級数・Euler積の一般論](textbook/volumes/dream_thater/代数系/ANT/ANT2/index.md)
+3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
@@ -742,6 +743,7 @@
 
 1. [AG2-01 射影空間と斉次座標](textbook/volumes/dream_thater/代数系/AG/AG2-01/index.md)
 2. [AG2-02 斉次イデアルと射影代数的集合](textbook/volumes/dream_thater/代数系/AG/AG2-02/index.md)
+3. [AG2-03 射影射・Veronese写像・Segre写像](textbook/volumes/dream_thater/代数系/AG/AG2-03/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
