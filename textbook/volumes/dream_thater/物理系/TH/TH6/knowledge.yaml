@@ -17,6 +17,12 @@ concepts:
     introduction: formal
     introduction_aliases: [命題（エネルギーHessianによる判定）]
     requires: [thermodynamics.local-stability]
+  - id: thermodynamics.global-convexity
+    name: 大域凸性と支持平面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（大域凸性と支持平面）]
+    requires: [thermodynamics.energy-hessian]
   - id: thermodynamics.thermodynamic-response
     name: 熱容量・圧縮率・熱膨張率
     kind: definition
