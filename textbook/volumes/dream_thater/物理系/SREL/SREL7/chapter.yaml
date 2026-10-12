@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - SREL6
   - TH1
+  - VC4
 official_scope: []
 learning_objectives:
   - 粒子数四元流束の定義から局所連続の式と流体に沿う密度変化を再導出できる
