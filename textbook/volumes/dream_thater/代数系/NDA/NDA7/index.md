@@ -691,7 +691,7 @@ $$
 H(U)\le H(W),\qquad H(V)\le H(W).
 $$
 
-**（5）$W$の指数の下界。** $t=\operatorname{ind}(P;\boldsymbol d,\boldsymbol\rho)$と書きます。[指数の微分則](#lem-nda7-index-rules)、$|\boldsymbol\mu_j|\le s\le d_m$および$d_m/d_{m-1}\le\sigma$より
+**（5）$W$の指数の下界。** $t=\operatorname{ind}(P;\boldsymbol d,\boldsymbol\rho)$と書きます。[指数の微分則](#lem-nda7-index-rules)、$|\boldsymbol\mu_j|\le s\le d_m$および$d_m/d_{m-1}\le\sigma$より、恒等的に零でない行列要素について次を得ます。零の要素を含む行列式の置換項は零なので、以下の指数評価では非零要素のみを扱います。
 
 $$
 \operatorname{ind}\bigl(P_{[(\boldsymbol\mu_j,i)]}\bigr)
@@ -699,7 +699,7 @@ $$
 \ge t-\sigma-\frac{i}{d_m}.
 $$
 
-指数は零以上なので、これを
+非零多項式の指数は零以上なので、さらに
 
 $$
 \operatorname{ind}\bigl(P_{[(\boldsymbol\mu_j,i)]}\bigr)
