@@ -84,7 +84,7 @@ chapters:
     title: "Weil因子・Cartier因子と可逆層"
   - id: AG2-08
     path: textbook/volumes/dream_thater/代数系/AG/AG2-08
-    status: planned
+    status: completed
     title: "局所パラメータ・微分形式・標準束"
   - id: AG2-09
     path: textbook/volumes/dream_thater/代数系/AG/AG2-09
