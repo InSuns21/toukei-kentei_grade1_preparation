@@ -343,7 +343,7 @@ $$
 
 ## 4. Hanson–Wright不等式を証明する
 
-ここまでの二つの指数モーメント評価は、それぞれ $D_A$ と $S_A$ を扱いました。しかし $D_A$ と $S_A$ は**互いに独立ではありません**。ここで積に分けるのでなく、Cauchy–Schwarz不等式を使います。
+ここまでの二つの指数モーメント評価は、それぞれ $D_A$ と $S_A$ を扱いました。しかし $D_A$ と $S_A$ は**互いに独立ではありません**。ここで積に分けるのでなく、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使います。
 
 <a id="lem-hdp9-quadratic-mgf"></a>
 
@@ -370,7 +370,7 @@ $Q_A=D_A+S_A$ に対して平方根の積の形で指数モーメントを比較
 <!-- proof-start -->
 ### 証明
 
-Cauchy–Schwarz不等式を $e^{\lambda D_A}$ と $e^{\lambda S_A}$ に適用して
+[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $e^{\lambda D_A}$ と $e^{\lambda S_A}$ に適用して
 
 $$
 Ee^{\lambda(D_A+S_A)}
