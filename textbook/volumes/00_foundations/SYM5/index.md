@@ -68,7 +68,23 @@ $$
 
 ## 2. 一点で標準化し、差を外微分に戻す
 
-点 $m\in M$ を固定します。[SYM1の線形シンプレクティック標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $(T_mM,\omega_m)$ に適用し、標準的な対をなす接ベクトルの基底を選びます。その基底を原点での座標ベクトルに持つ局所座標を選び、$m$ を $0\in\mathbb R^{2n}$ に写します。
+点 $m\in M$ を固定します。[SYM1の線形シンプレクティック標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $(T_mM,\omega_m)$ に適用し、標準的な対をなす基底 $(e_1,\ldots,e_n,f_1,\ldots,f_n)$ を取ります。ただし「この基底を座標ベクトルにする」には、一つ座標変換が必要です。
+
+まず任意の局所座標 $y$ で $y(m)=0$ とします。$dy_m(e_1),\ldots,dy_m(e_n),dy_m(f_1),\ldots,dy_m(f_n)$ を列とする $2n$ 次正方行列を $A$ と置きます。$dy_m$ は線形同型で、選んだ接ベクトルも基底なので $A$ は可逆です。そこで新しい局所座標を
+
+$$
+x=A^{-1}y
+$$
+
+と定めます。連鎖律から $dx_m=A^{-1}dy_m$ なので、例えば
+
+$$
+dx_m(e_i)=A^{-1}dy_m(e_i)=\mathbf e_i,
+\qquad
+dx_m(f_i)=A^{-1}dy_m(f_i)=\mathbf e_{n+i}.
+$$
+
+従って原点の座標ベクトルが選んだシンプレクティック基底となり、$m$ は $0\in\mathbb R^{2n}$ に写ります。ここでは微分形式を原点の一点で標準化しただけで、近傍全体で一定にしたわけではありません。
 
 座標を $(x^1,\ldots,x^{2n})=(q^1,\ldots,q^n,p_1,\ldots,p_n)$ と書くと、原点における形式は
 
@@ -164,7 +180,17 @@ $$
 
 最後の極限が零なのは $\beta_{kj}$ が原点付近で有界だからです。これが全ての $j,k$ で成り立ち、$d\sigma=\beta$ が従います。
 
-さらに $\beta(0)=0$ なら平均値の評価により、小球内で $|\beta_{ij}(tx)|\le C_1t|x|$ となります。従って各成分について
+さらに $\beta(0)=0$ の場合、小球の閉包上で係数の一階微分に一様上界 $C_1$ を取れます。$s\mapsto\beta_{ij}(stx)$ に[微積分の基本定理（FTC II）](../RA4/index.md#thm-ra4-ftc2)を適用すると
+
+$$
+\begin{aligned}
+\beta_{ij}(tx)-\beta_{ij}(0)
+&=\int_0^1\frac{d}{ds}\beta_{ij}(stx)\,ds\\
+&=\int_0^1D\beta_{ij}(stx)[tx]\,ds,
+\end{aligned}
+$$
+
+よって $|\beta_{ij}(tx)|\le C_1t|x|$ です。ここで $0\le t\le1$ かつ原点中心の球は線分に関して凸なので、積分中の点は球内にあります。従って各成分について
 
 $$
 |\sigma_j(x)|
@@ -222,7 +248,13 @@ $$
 =\omega_0+t\beta,\qquad 0\le t\le1
 $$
 
-で結びます。$d\omega_t=0$ は明らかに保たれますが、**非退化性は線形補間だけからは出ません**。そこで原点に近い範囲に制限します。
+で結びます。[外微分の線形性と二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を使い、$t$ を空間座標とは独立なパラメータとして固定すれば
+
+$$
+d\omega_t=(1-t)d\omega_0+t\,d\omega=0
+$$
+
+です。ただし**非退化性は線形補間だけからは出ません**。そこで原点に近い範囲に制限します。
 
 <a id="lem-sym5-uniform-nondegeneracy"></a>
 
@@ -280,7 +312,19 @@ $$
 
 で定められます。これは一般にHamiltonベクトル場ではありません。右辺が $dH$ でなく1形式 $-\sigma$ だからです。
 
-具体的には、$\omega_t$ の係数行列を使って連立一次方程式を解くため、$Y_t(x)$ は $(t,x)$ に滑らかに依存します。$\sigma(0)=0$ と非退化性より
+この連立一次方程式を成分で解いて、滑らかさと符号を確認します。$\omega_t=\frac12\sum_{i,j}(\Omega_t)_{ij}\,dx^i\wedge dx^j$、$\sigma=\sum_j\sigma_j\,dx^j$ と書き、$Y_t=\sum_iY_t^i\partial_{x^i}$ とします。内部積の第 $j$ 成分は $\sum_iY_t^i(\Omega_t)_{ij}$ なので、列ベクトル $Y_t=(Y_t^i)_i$ と $s=(\sigma_j)_j$ には
+
+$$
+\Omega_t(x)^{\mathsf T}Y_t(x)=-s(x)
+$$
+
+が必要です。[共通非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)で $\det\Omega_t(x)\ne0$ を確認済みだから、
+
+$$
+Y_t(x)=-\bigl(\Omega_t(x)^{\mathsf T}\bigr)^{-1}s(x).
+$$
+
+$\Omega_t$ と $s$ は $(t,x)$ に滑らかで、逆行列は行列式が零でない限り滑らかです。この式によって $Y_t(x)$ は $(t,x)$ に滑らかに依存します。$\sigma(0)=0$ と非退化性より
 
 $$
 Y_t(0)=0\qquad(0\le t\le1)
@@ -290,7 +334,15 @@ $$
 
 ### 局所流を時刻1まで確保する
 
-ここが局所定理の存在域に関わる核心です。$B_R$ の閉包を含むように元の座標球を選んでおき、必要ならさらに $R$ を縮めます。滑らかさと $Y_t(0)=0$ により、コンパクト集合 $[0,1]\times\overline{B_R}$ 上で $D_xY_t$ は有界です。原点からの線分上で積分すれば定数 $L>0$ があり、
+ここが局所定理の存在域に関わる核心です。時間を状態変数とみなすため、まず $Y_t$ を $0\le t\le1$ の少し外側でも定義します。行列の補間式 $\Omega_t(x)=\Omega_0+t(\Omega(x)-\Omega_0)$ は全ての実数 $t$ に対して意味を持ち、
+
+$$
+\Omega_t(0)=\Omega_0\qquad(t\in\mathbb R)
+$$
+
+です。[非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)のコンパクト性による証明を、時間区間 $[-1,2]$ に適用します。$R$ を元の座標球より小さく取り直せば、$[-1,2]\times\overline{B_R}$ で全ての $\Omega_t(x)$ を非退化にできます。従って前の逆行列表示から $Y_t(x)$ はこの集合を含む開近傍上で滑らかです。
+
+特にコンパクト集合 $[0,1]\times\overline{B_R}$ 上で $D_xY_t$ は有界です。$Y_t(0)=0$ と、$s\mapsto Y_t(sx)$ に適用する[微積分の基本定理（FTC II）](../RA4/index.md#thm-ra4-ftc2)により、定数 $L>0$ があり、
 
 $$
 Y_t(x)-Y_t(0)
@@ -341,7 +393,21 @@ $$
 \overline{B_{re^L}}\subset B_R
 $$
 
-に留まります。係数行列の行列式が零から一様に離れているため、時間区間も少し広げてベクトル場を滑らかに定義できます。[解の延長定理](../ODE8/index.md#thm-ode8-continuation)を時間変数を含む拡大系に適用すると、有限時刻にコンパクト集合内で解が停止することはありません。
+に留まります。ここで時間変数を加えた自律系を
+
+$$
+\frac{d}{d\tau}(s,z)=\bigl(1,Y_s(z)\bigr),
+\qquad (s(0),z(0))=(0,x)
+$$
+
+と置きます。右辺は開集合 $(-1,2)\times B_R$ で滑らかです。$0\le\tau\le1$ の間、解はコンパクト集合
+
+$$
+K=[0,1]\times\overline{B_{re^L}}
+\subset(-1,2)\times B_R
+$$
+
+から出られません。仮に時刻1より前に最大解が停止すれば、[最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)をこの拡大自律系と $K$ に適用した結論に反します。従って全解は時刻1まで存在します。
 
 ゆえに全ての $x\in B_r$ について
 
@@ -351,13 +417,57 @@ $$
 
 と結論できます。
 
-初期値への滑らかな依存は時間変数を加えた常微分方程式
+初期値への滑らかな依存と逆写像も確認します。上の拡大自律系に対して[流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational)を使うと、$J_t(x)=D_x\varphi_t(x)$ が存在し、
 
 $$
-\frac{d}{dt}(t,x)=(1,Y_t(x))
+\frac{d}{dt}J_t(x)
+=D_xY_t(\varphi_t(x))J_t(x),
+\qquad J_0(x)=I
 $$
 
-の局所流として理解できます。[局所流の微分同相性](../ODE8/index.md#prop-ode8-flow-law)をこの拡大系へ適用すると、$\varphi_t$ は $B_r$ から像への滑らかな微分同相です。逆写像は時間を逆にたどる解によって局所的に定まり、必ずしも元の $B_r$ へ戻るわけではありません。
+となります。$Y_t$ は滑らかなので、さらに初期値で微分した二階微分 $K_t(x)=D_x^2\varphi_t(x)$ は、方向 $u,v$ に対して
+
+$$
+\begin{aligned}
+\frac{d}{dt}K_t(x)[u,v]
+&=D_xY_t(\varphi_t(x))K_t(x)[u,v]\\
+&\quad+D_x^2Y_t(\varphi_t(x))
+[J_t(x)u,J_t(x)v].
+\end{aligned}
+$$
+
+を満たします。ここで二階微分の存在を先に仮定しているのではありません。一次変分方程式の初期点を動かし、解の差を微小変位で割った極限から導きます。
+
+$A_t(x)=D_xY_t(\varphi_t(x))$ と置き、初期点を $x+h$ と $x$ にした二つの一次変分方程式を引きます。その差を $Q_t(h)=J_t(x+h)-J_t(x)$ とすれば、
+
+$$
+\begin{aligned}
+\frac{d}{dt}Q_t(h)
+&=A_t(x)Q_t(h)\\
+&\quad+\bigl(A_t(x+h)-A_t(x)\bigr)J_t(x+h),\\
+Q_0(h)&=0
+\end{aligned}
+$$
+
+です。$Y_t$ が滑らかで $\varphi_t$ は一階連続微分可能なので、係数 $A_t$ の初期点に関する方向微分が連続なので、$h=\varepsilon u$ として $\varepsilon\to0$ とすると、$(A_t(x+\varepsilon u)-A_t(x))/\varepsilon$ は時間のコンパクト区間上一様に収束します。
+
+上式の線形積分方程式に[Grönwallの補題](../ODE8/index.md#lem-ode8-gronwall)を適用すると、$Q_t(\varepsilon u)/\varepsilon$ も一様に収束します。その極限が上に表示した二階変分方程式の解 $K_t(x)[u,\cdot]$ です。同じ手順を滑らかな係数の高階微分へ繰り返すと、任意階の初期値微分が存在して連続となるため、$\varphi_t$ は滑らかです。
+
+次に逆写像を確認します。拡大自律系の流れを $\Psi_\tau$ と書くと、
+
+$$
+\Psi_t(0,x)=(t,\varphi_t(x))
+$$
+
+です。[流れの合成則](../ODE8/index.md#prop-ode8-flow-law)と解の一意性を、上式の時刻 $t$ と $-t$ に適用します。$w=\varphi_t(x)$ に対して
+
+$$
+\Psi_{-t}(t,w)=(0,x),
+\qquad
+\varphi_t^{-1}(w)=\pi_2\Psi_{-t}(t,w)
+$$
+
+を得ます。ここで $\pi_2(s,z)=z$ は第二成分への射影です。逆向きの解も滑らかなベクトル場の局所流であるため、逆写像は像上で滑らかです。従って $\varphi_t$ は $B_r$ からその像への微分同相であり、逆写像の値域を $B_r$ より大きく取る主張はしていません。
 
 ### 変化の微分を直接相殺する
 
@@ -440,7 +550,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-上の第2節で構成した座標を $z$ と書きます。$z(m)=0$ で、$z$ 表示の元の形式を $\omega$、原点値から作る定係数形式を $\omega_0$ とします。[$\beta$ の動径原始形式の補題](#lem-sym5-radial-primitive)を差 $\beta=\omega-\omega_0$ に適用し、$d\sigma=\beta$ を得ます。
+上の第2節で構成した座標写像を $z$ と書きます。$z(m)=0$ です。元の多様体上の形式を $\omega$、座標球上へ移した形式を
+
+$$
+\widehat\omega=(z^{-1})^*\omega
+$$
+
+と区別します。第2〜4節では $\widehat\omega$ を簡単に $\omega$ と記して計算していました。原点値から作る定係数形式を $\omega_0$ とし、[閉2形式の動径原始形式の補題](#lem-sym5-radial-primitive)を
+
+$$
+\beta=\widehat\omega-\omega_0
+$$
+
+に適用します。$\beta(0)=0$ と $d\beta=0$ を第2節で確認しているので、$d\sigma=\beta$ を満たす滑らかな1形式 $\sigma$ を得ます。
 
 [非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)で全ての $t\in[0,1]$ に共通の球を取り、第4節の時間依存ベクトル場
 
@@ -449,10 +571,10 @@ $$
 \omega_t=\omega_0+t\beta
 $$
 
-を作ります。ここで $Y_t(0)=0$ なので、その局所流 $\varphi_t$ は小球 $B_r$ で時刻1まで存在し、微分同相 $\varphi_1:B_r\to\varphi_1(B_r)$ を与えます。前節の直接計算から
+を作ります。ここで $Y_t(0)=0$ なので、その局所流 $\varphi_t$ は小球 $B_r$ で時刻1まで存在し、微分同相 $\varphi_1:B_r\to\varphi_1(B_r)$ を与えます。前節の直接計算を座標球の形式 $\widehat\omega$ に読み替えると
 
 $$
-\varphi_1^*\omega=\omega_0.
+\varphi_1^*\widehat\omega=\omega_0.
 $$
 
 $V=\varphi_1(B_r)$ は原点を含む開集合です。元の多様体での近傍を $U=z^{-1}(V)$ とし、新しい座標写像を
@@ -461,10 +583,23 @@ $$
 \chi=\varphi_1^{-1}\circ z:U\longrightarrow B_r
 $$
 
-とします。これは滑らかな座標写像です。標準2形式を $\omega_{\mathrm{std}}=\sum_i dq^i\wedge dp_i$ と書けば、$\varphi_1^*(z^{-1})^*\omega=\omega_{\mathrm{std}}$ という上の等式から
+とします。これは滑らかな座標写像です。標準2形式を $\omega_{\mathrm{std}}=\sum_i dq^i\wedge dp_i=\omega_0$ と書きます。先ほどの $\varphi_1^*\widehat\omega=\omega_{\mathrm{std}}$ を、微分同相 $\varphi_1:B_r\to V$ の逆写像で引き戻せば
 
 $$
-\omega|_U=\chi^*\omega_{\mathrm{std}}.
+\widehat\omega|_V
+=(\varphi_1^{-1})^*\omega_{\mathrm{std}}.
+$$
+
+さらに $z:U\to V$ によって元の多様体へ戻すと、[引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)から
+
+$$
+\begin{aligned}
+\omega|_U
+&=z^*(\widehat\omega|_V)\\
+&=z^*(\varphi_1^{-1})^*\omega_{\mathrm{std}}\\
+&=(\varphi_1^{-1}\circ z)^*\omega_{\mathrm{std}}\\
+&=\chi^*\omega_{\mathrm{std}}.
+\end{aligned}
 $$
 
 従って $\chi$ の成分 $(q^1,\ldots,q^n,p_1,\ldots,p_n)$ が求めるDarboux座標です。原点が $\varphi_t$ の固定点なので $\chi(m)=0$ も成立します。
@@ -474,7 +609,7 @@ $$
 
 ## 6. 何が座標不変で、何が局所的か
 
-[Darbouxの定理](#thm-sym5-darboux)により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場とPoisson括弧の座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
+[Darbouxの定理](#thm-sym5-darboux)により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場の座標式](../SYM4/index.md#thm-sym4-existence-coordinate)と[Poisson括弧の正準座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
 
 <a id="cor-sym5-local-poisson"></a>
 
@@ -521,7 +656,7 @@ $$
 
 ### なぜ大域座標にはならないか
 
-例えば球面上の面積形式は[SYM2の球面の例](../SYM2/index.md#def-sym2-symplectic-manifold)のようにシンプレクティックですが、球面全体を $\mathbb R^2$ の開集合へ一枚の座標で写せません。実際、もしコンパクトな球面全体を開集合に微分同相で写せれば、その像はコンパクトかつ非空の開集合となり不可能です。ここでの障害は局所的な2形式の係数ではなく、大域的な位相です。
+例えば球面上の面積形式は[SYM2の球面の面積形式の命題](../SYM2/index.md#prop-sym2-sphere-area)で示したようにシンプレクティックですが、球面全体を $\mathbb R^2$ の開集合へ一枚の座標で写せません。実際、もしコンパクトな球面全体を開集合に微分同相で写せれば、その像はコンパクトかつ非空の開集合となり不可能です。ここでの障害は局所的な2形式の係数ではなく、大域的な位相です。
 
 ## 7. 演習：差の原始形式から局所座標の構成まで
 
@@ -535,16 +670,16 @@ $\mathbb R^2$ 上で $\omega=e^x\,dx\wedge dy$ とする。$q=x$、$p=e^xy$ がD
 - ID: SYM5-A1
 
 <!-- solution-start -->
-**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。さらに
+**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。$p=e^x\cdot y$ の微分に[積の微分公式](../RA3/index.md#prop-ra3-product-rule)を適用すると
 
 $$
-dp=e^xy\,dx+e^x\,dy,
+dp=y\,d(e^x)+e^x\,dy=e^x y\,dx+e^x\,dy.
 $$
 
 $$
 \begin{aligned}
 dq\wedge dp
-&=dx\wedge(e^xy\,dx+e^x\,dy)\\
+&=dx\wedge(e^x y\,dx+e^x\,dy)\\
 &=e^x\,dx\wedge dy=\omega.
 \end{aligned}
 $$
@@ -748,16 +883,34 @@ $\omega_0=dx\wedge dy$、$\omega_1=(1+x)dx\wedge dy$ とし、$|x|<1/2$ に制�
 - ID: SYM5-B4
 
 <!-- solution-start -->
-**詳細解答**　A3と同じ偏微分で
+**詳細解答**　まず $\sigma=(x^2\,dy-xy\,dx)/3$ をそれぞれ外微分します。$d(dy)=d(dx)=0$ と $dx\wedge dx=0$ を使えば
 
 $$
-d\sigma=x\,dx\wedge dy=\omega_1-\omega_0.
+\begin{aligned}
+d\sigma
+&=\frac{2x}{3}\,dx\wedge dy
+-\frac13(y\,dx+x\,dy)\wedge dx\\
+&=\left(\frac{2x}{3}+\frac{x}{3}\right)dx\wedge dy\\
+&=x\,dx\wedge dy=\omega_1-\omega_0.
+\end{aligned}
 $$
 
-また $\omega_t=(1+tx)dx\wedge dy$ は2次元の2形式なので $d\omega_t=0$ です。A4より
+また $\omega_t=(1+tx)dx\wedge dy$ は2次元上の2形式なので $d\omega_t=0$ です。A4の成分式をもう一度代入すると
 
 $$
-\iota_{Y_t}\omega_t=-\sigma.
+Y_t=-\frac{x^2}{3(1+tx)}\partial_x
+-\frac{xy}{3(1+tx)}\partial_y,
+$$
+
+$$
+\begin{aligned}
+\iota_{Y_t}\omega_t
+&=(1+tx)\left(
+-\frac{x^2}{3(1+tx)}dy
++\frac{xy}{3(1+tx)}dx
+\right)\\
+&=-\frac{x^2}{3}dy+\frac{xy}{3}dx=-\sigma.
+\end{aligned}
 $$
 
 [Cartanの公式](../GEO7/index.md#thm-geo7-cartan-formula)で計算すると
@@ -833,18 +986,25 @@ $$
 \dot x=\frac{y}{1+x^2},\qquad\dot y=0.
 $$
 
-**(4)**　逆変換を $H$ に代入し、
+**(4)**　逆変換 $x=q$、$y=p/(1+q^2)$ を $H(x,y)=y^2/2$ に代入し、
 
 $$
-\widetilde H(q,p)=\frac{p^2}{2(1+q^2)^2}.
+\widetilde H(q,p)=\frac12p^2(1+q^2)^{-2}
 $$
 
-偏微分は
+と書きます。$p$ と $q$ をそれぞれ独立に微分すると
 
 $$
-\widetilde H_p=\frac{p}{(1+q^2)^2},
-\qquad
-\widetilde H_q=-\frac{2qp^2}{(1+q^2)^3}.
+\begin{aligned}
+\widetilde H_p
+&=\frac12(2p)(1+q^2)^{-2}
+=\frac{p}{(1+q^2)^2},\\
+\frac{\partial}{\partial q}(1+q^2)^{-2}
+&=-2(1+q^2)^{-3}(2q),\\
+\widetilde H_q
+&=\frac{p^2}{2}\bigl(-4q(1+q^2)^{-3}\bigr)
+=-\frac{2qp^2}{(1+q^2)^3}.
+\end{aligned}
 $$
 
 [SYM4の正準Hamilton方程式](../SYM4/index.md#thm-sym4-existence-coordinate)を適用すると
