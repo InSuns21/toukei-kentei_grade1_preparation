@@ -118,7 +118,7 @@ $m=(p-1)/2$ とし、$a,2a,\ldots,ma$ を法 $p$ で $1,\ldots,p-1$ に取り直
 <a id="lem-nt3-gauss"></a>
 
 <!-- formal-statement-start -->
-> **補題（Gauss の補題）**  
+> **補題（平方剰余に関する Gauss の補題）**  
 > 奇素数 $p$、$p\nmid a$、$m=(p-1)/2$ に対し、$ak$（$1\le k\le m$）の最小正剰余のうち $p/2$ より大きいものの個数を $\nu_p(a)$ とすると、
 >
 $$
