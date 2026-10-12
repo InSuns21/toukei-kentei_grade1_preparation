@@ -1,0 +1,55 @@
+chapter: TH5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH4
+forward_references: []
+concepts:
+  - id: thermodynamics.local-legendre-transform
+    name: 局所Legendre変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所Legendre変換）]
+    requires: [thermodynamics.fundamental-relation-fixed-n]
+  - id: thermodynamics.legendre-differential
+    name: Legendre変換の全微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Legendre変換の全微分）]
+    requires: [thermodynamics.local-legendre-transform]
+  - id: thermodynamics.thermodynamic-potentials
+    name: 熱力学ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱力学ポテンシャル）]
+    requires: [thermodynamics.fundamental-relation-fixed-n]
+  - id: thermodynamics.potential-natural-variables
+    name: 四つのポテンシャルの自然変数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四つのポテンシャルの自然変数）]
+    requires: [thermodynamics.legendre-differential, thermodynamics.thermodynamic-potentials, thermodynamics.chemical-potential]
+  - id: thermodynamics.maxwell-relations
+    name: Maxwell関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Maxwell関係式）]
+    requires: [thermodynamics.potential-natural-variables]
+  - id: thermodynamics.extensive-homogeneity
+    name: 基本関係の一次同次性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（基本関係の一次同次性）]
+    requires: [thermodynamics.chemical-potential]
+  - id: thermodynamics.euler-relation
+    name: Euler関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler関係式）]
+    requires: [thermodynamics.extensive-homogeneity, thermodynamics.thermodynamic-potentials]
+  - id: thermodynamics.gibbs-duhem
+    name: Gibbs–Duhem関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gibbs–Duhem関係式）]
+    requires: [thermodynamics.euler-relation, thermodynamics.chemical-potential]
