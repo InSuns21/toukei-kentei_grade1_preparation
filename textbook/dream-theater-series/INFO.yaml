@@ -37,5 +37,9 @@ chapters:
     title: 通信路符号化定理：ランダム符号化による達成可能性
   - id: INFO8
     path: textbook/volumes/dream_thater/応用系/INFO/INFO8
+    status: completed
+    title: 率歪み関数と有限離散情報源の歪み付き符号化
+  - id: INFO9
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO9
     status: planned
-    title: 率歪み関数と有限アルファベットの歪み付き情報源符号化
+    title: 微分エントロピーと連続変数の情報量

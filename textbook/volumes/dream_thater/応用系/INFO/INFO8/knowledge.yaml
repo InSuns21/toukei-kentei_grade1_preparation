@@ -1,0 +1,74 @@
+chapter: INFO8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO5
+  - INFO6
+  - INFO7
+forward_references: []
+
+concepts:
+  - id: information.lossy-block-code
+    name: 歪み尺度・固定長歪み付きブロック符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（歪み尺度・固定長歪み付きブロック符号）]
+    requires: [information.shannon-entropy]
+
+  - id: information.rate-distortion-function
+    name: 有限情報源の率歪み関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限情報源の率歪み関数）]
+    requires: [information.lossy-block-code, information.mutual-information]
+
+  - id: information.rate-distortion-endpoints
+    name: 実現可能な歪みと零率の境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（実現可能な歪みと零率の境界）]
+    requires: [information.rate-distortion-function, information.mutual-as-divergence]
+
+  - id: information.rate-distortion-shape
+    name: 率歪み関数の単調性・凸性・右連続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（率歪み関数の単調性・凸性・右連続性）]
+    requires: [information.rate-distortion-function, information.log-sum-inequality]
+
+  - id: information.binary-rate-distortion
+    name: 公平二値情報源の率歪み関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（公平二値情報源の率歪み関数）]
+    requires: [information.rate-distortion-function, information.conditional-entropy, information.rate-distortion-endpoints]
+
+  - id: information.lossy-source-converse
+    name: 有限歪み付き情報源符号化の有限長逆定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限歪み付き情報源符号化の有限長逆定理）]
+    requires: [information.lossy-block-code, information.rate-distortion-shape, information.mutual-data-processing]
+
+  - id: information.random-covering
+    name: 有限離散模型のランダム被覆評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限離散模型のランダム被覆評価）]
+    requires: [information.rate-distortion-function, information.information-density]
+
+  - id: information.lossy-source-achievability
+    name: 有限歪み付き情報源符号化の達成可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限歪み付き情報源符号化の達成可能性）]
+    requires: [information.random-covering, information.rate-distortion-endpoints, information.rate-distortion-shape]
+
+  - id: information.rate-distortion-theorem
+    name: 有限離散情報源の歪み付き符号化定理
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有限離散情報源の歪み付き符号化定理）]
+    requires: [information.lossy-source-converse, information.lossy-source-achievability]

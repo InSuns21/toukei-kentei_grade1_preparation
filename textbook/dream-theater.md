@@ -718,6 +718,7 @@
 5. [INFO5 情報源符号化定理：固定長ブロック符号の限界と達成](textbook/volumes/dream_thater/応用系/INFO/INFO5/index.md)
 6. [INFO6 離散無記憶通信路・通信路容量・Fano不等式](textbook/volumes/dream_thater/応用系/INFO/INFO6/index.md)
 7. [INFO7 通信路符号化定理：ランダム符号化による達成可能性](textbook/volumes/dream_thater/応用系/INFO/INFO7/index.md)
+8. [INFO8 率歪み関数と有限離散情報源の歪み付き符号化](textbook/volumes/dream_thater/応用系/INFO/INFO8/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
