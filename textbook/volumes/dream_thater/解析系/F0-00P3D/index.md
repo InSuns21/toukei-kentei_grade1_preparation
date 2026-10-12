@@ -474,7 +474,7 @@ E[m(Y)\mathbf1_{\{Y\in B\}}]
 \end{aligned}
 $$
 
-従って [$E[X\mid\sigma(Y)]$ の積分保存条件](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#def-f0-00p3a-conditional-expectation)を満たし、$m(Y)$ は条件付き期待値の版です。$P(Y=y)=0$ の点では $m(y)$ は任意に定めてよく、これは6.1節の $P_Y$-a.e. 自由度そのものです。
+従って [$E[X\mid\sigma(Y)]$ の積分保存条件](../F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)を満たし、$m(Y)$ は条件付き期待値の版です。$P(Y=y)=0$ の点では $m(y)$ は任意に定めてよく、これは6.1節の $P_Y$-a.e. 自由度そのものです。
 
 一方、連続型では通常 $P(Y=y)=0$ です。したがって
 
