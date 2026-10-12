@@ -468,7 +468,7 @@ $$
 $h=0$ を代入すると $m'(0)=\beta/(1-\beta J)$ です。有限系の分散の極限と微分の交換は使っていません。
 <!-- proof-end -->
 
-$\beta J\uparrow1$ で感受率は増大します。臨界点 $a=1$ で $\operatorname{arctanh}m=m+m^3/3+O(m^5)$ を用いると
+$\beta J\uparrow1$ で感受率は増大します。相転移が起こる境界値 $a=1$ で $\operatorname{arctanh}m=m+m^3/3+O(m^5)$ を用いると
 
 $$
 \beta h=\operatorname{arctanh}m-m=\frac{m^3}{3}+O(m^5),
