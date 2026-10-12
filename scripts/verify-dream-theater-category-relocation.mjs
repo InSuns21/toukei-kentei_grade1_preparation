@@ -10,7 +10,7 @@ if (!/^[a-f0-9]{40}$/i.test(base||'')) throw Error('Supply --base SHA');
 const indexPath='textbook/dream-theater-index.json';
 const oldRoot='textbook/volumes/00_foundations/';
 const newRoot='textbook/volumes/dream_thater/';
-function git(...args){return execFileSync('git',args,{maxBuffer:100*1024*1024});}
+function git(...args){return execFileSync('git',['-c','core.quotepath=false',...args],{maxBuffer:100*1024*1024});}
 const oldIndex=JSON.parse(git('show',base+':'+indexPath).toString());
 const newIndex=JSON.parse(fs.readFileSync(indexPath,'utf8'));
 const oldItems=oldIndex.sections.flatMap(s=>s.paths.map(p=>({cat:s.name,p})));
