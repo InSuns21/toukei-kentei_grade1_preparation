@@ -75,9 +75,9 @@
 
 **定義の確認**：体積 $V$、物質量 $n$、圧力 $p$、温度 $T$ の気体標本を二組用意し、境界面の効果を無視できるとします。合計量は $(2V,2n)$ ですが、各組の圧力・温度は $(p,T)$ のままです。したがって $V,n$ は示量量、$p,T$ は示強量の条件を満たします。さらに物質量密度 $c=n/V$ については
 
-$
+$$
 c'=\frac{2n}{2V}=\frac nV=c
-$
+$$
 
 なので $c$ も示強量です。
 <!-- definition-example-end -->
@@ -219,9 +219,9 @@ $$
 
 **定義の確認**：希薄で相互作用を無視できる一成分の平衡気体を理想気体として近似し、物質量を $n>0$ mol、容積を $V>0$、熱力学温度を $T>0$ K とします。物質量基準の気体定数 $R>0$ に対して
 
-$
+$$
 pV=nRT
-$
+$$
 
 を模型の状態方程式として採用します。例えば $F=pV-nRT$ と置けば $F=0$ の形です。圧力は $p=nRT/V>0$ に決まるため、$p,V,T,n$ を任意独立に選ぶことはできません。
 <!-- definition-example-end -->
@@ -282,15 +282,15 @@ $$
 > **命題（理想気体の圧力の偏微分）**  
 > $n,R>0$ を固定し、$V,T>0$ とする。$p(V,T)=nRT/V$ について、
 >
-$
+$$
 \left(\frac{\partial p}{\partial V}\right)_{T,n}
 =-\frac{nRT}{V^2}=-\frac pV<0
-$
+$$
 
-$
+$$
 \left(\frac{\partial p}{\partial T}\right)_{V,n}
 =\frac{nR}{V}=\frac pT>0
-$
+$$
 >
 > が成り立つ。下付き添字は微分の間に固定する状態量を示す。
 <!-- formal-statement-end -->
@@ -304,22 +304,22 @@ $
 
 $T,n,R$ を定数として $p(V,T)=nRT/V$ を $V$ で微分します。[RA3の導関数の定義](../../../基礎科目/RA/RA3/index.md#def-ra3-derivative)に従い、$V+h>0$ となる十分小さい $h\ne0$ について差商を計算すると
 
-$
+$$
 \frac{p(V+h,T)-p(V,T)}{h}
 =\frac{nRT}{h}\left(\frac1{V+h}-\frac1V\right)
-$
+$$
 
-$
+$$
 =\frac{nRT}{h}\frac{-h}{V(V+h)}
 =-\frac{nRT}{V(V+h)}.
-$
+$$
 
 $V>0$ なので $h\to0$ とすれば分母は $V^2>0$ に近づき、
 
-$
+$$
 \left(\frac{\partial p}{\partial V}\right)_{T,n}
 =-\frac{nRT}{V^2}
-$
+$$
 
 を得ます。
 
