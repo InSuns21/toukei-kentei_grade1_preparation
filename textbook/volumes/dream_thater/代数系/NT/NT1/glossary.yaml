@@ -1,0 +1,26 @@
+chapter: "NT1"
+terms:
+  - term: 整除
+    english: divisibility
+    meaning: "dがaを割るとは、a=dkを満たす整数kが存在すること。"
+  - term: 合同
+    english: congruence modulo n
+    meaning: "aとbの差が正整数nの倍数であること。"
+  - term: 剰余類
+    english: residue class
+    meaning: "同じ法nに対して合同な整数をひとまとめにした集合。"
+  - term: 剰余環
+    english: residue class ring
+    meaning: "整数の合同類に和と積を定義した環Z/nZ。"
+  - term: Bézout等式
+    english: Bezout identity
+    meaning: "最大公約数を二つの整数の整数係数線形結合で表す等式。"
+  - term: 線形合同式
+    english: linear congruence
+    meaning: "ax≡b(mod n)という形の整数未知数xについての合同式。"
+  - term: 中国剰余定理
+    english: Chinese remainder theorem
+    meaning: "二つずつ互いに素な法での任意の剰余条件を、積の法で一意の合同類へまとめる定理。"
+  - term: 整合条件
+    english: compatibility condition
+    meaning: "二つの法が互いに素でない場合、余りの差が法の最大公約数で割り切れること。"

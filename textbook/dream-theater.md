@@ -671,6 +671,10 @@
 16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/dream_thater/代数系/FLD/FLD5/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
+### 整数論 I〜発展
+
+1. [NT1 整数環・合同式・剰余類](textbook/volumes/dream_thater/代数系/NT/NT1/index.md)
+
 ### 代数幾何学 I〜III
 
 1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md)
