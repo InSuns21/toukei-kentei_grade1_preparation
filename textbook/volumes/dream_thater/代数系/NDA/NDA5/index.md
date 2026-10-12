@@ -1,10 +1,10 @@
 # NDA5 無理性指数と近似指数
 
-[前章のWeyl判定](../NDA4/index.md#thm-nda4-weyl-criterion)は、整数倍した実数の小数部分が長い時間でどのように分布するかを判定しました。本章では問題を一点への**近づき方の速さ**に戻します。無理数 $\alpha$ に対し、ある有理数 $p/q$ が非常に近くても、それが小さい分母で一度だけ起こったのか、分母をいくらでも大きくして繰り返せるのかは別問題です。
+前章では、整数倍した実数の小数部分が長い時間でどのように分布するかを調べました。本章では問題を一点への**近づき方の速さ**に戻します。無理数 $\alpha$ に対し、ある有理数 $p/q$ が非常に近くても、それが小さい分母で一度だけ起こったのか、分母をいくらでも大きくして繰り返せるのかは別問題です。
 
 [Dirichlet近似](../../NT/NT7/index.md#lem-nt7-dirichlet-approximation)は分母の二乗に反比例する誤差を無限回保証します。一方、[悪近似数](../NDA2/index.md#def-nda2-badly-approximable)は、この二乗よりどこまでも速く近づくことを一様に防ぎます。では、二乗、三乗、四乗と「分母の何乗で近づけるか」を、数ごとに一つの指標で比較できるでしょうか。
 
-本章では「無限に多くの**既約分数**」という量化を含めて無理性指数を定義し、指数の上下界を導きます。さらに連分数の分母の成長から指数を求める公式を証明し、二次無理数、悪近似でないのに指数が2の数、指数3の数、指数が無限大の数を実際に構成します。超越性の判定は次章で扱います。
+本章では「無限に多くの**既約分数**」という量化を含めて近似のべき指数を定義し、指数の上下界を導きます。さらに連分数の分母の成長から指数を求める公式を証明し、二次無理数、悪近似でないのに指数が2の数、指数3の数、指数が無限大の数を実際に構成します。超越性の判定は次章で扱います。
 
 ## 1. 「一度」と「無限回」を区別する
 
@@ -103,7 +103,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\alpha$ の収束分数を $p_n/q_n$ とします。[NT7の差積恒等式](../../NT/NT7/index.md#lem-nt7-convergent-matrix)から $p_n$ と $q_n$ は互いに素です。[収束分数の誤差評価](../../NT/NT7/index.md#thm-nt7-convergent-error)を $n$ 番目の分数へ適用すると
+$\alpha$ の収束分数を $p_n/q_n$ とします。[収束分数の差積恒等式と完全商公式](../../NT/NT7/index.md#lem-nt7-convergent-matrix)から $p_n$ と $q_n$ は互いに素です。[収束分数の誤差評価](../../NT/NT7/index.md#thm-nt7-convergent-error)を $n$ 番目の分数へ適用すると
 $$
 \left|\alpha-\frac{p_n}{q_n}\right|
 <\frac1{q_nq_{n+1}}
@@ -112,7 +112,7 @@ $$
 となります。分母漸化式 $q_{n+1}=a_{n+1}q_n+q_{n-1}$ と $a_{n+1}\ge1$ より $q_n\to\infty$ です。十分大きい $n$ では $q_n\ge2$ かつ $q_{n+1}>q_n$ なので上の右側も厳密な不等式です。従って指数 $2$ の条件を満たす相異なる既約分数が無限個あり、定義から $\mu(\alpha)\ge2$ です。
 <!-- proof-end -->
 
-一様分布の「訪問回数」の議論とは異なり、この結論は単なる密度ではなく**分母と誤差を結ぶ量的評価**に由来します。
+点列の分布についての「訪問回数」の議論とは異なり、この結論は単なる密度ではなく**分母と誤差を結ぶ量的評価**に由来します。
 
 ## 3. 二次無理数で指数はちょうど2
 
@@ -121,7 +121,7 @@ $$
 <a id="prop-nda5-sqrt2-upper-bound"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\sqrt2$ の無理性指数）**  
+> **命題（平方根2の無理性指数）**  
 > $\alpha=\sqrt2$ に対し、任意の $p\in\mathbb Z$、$q\in\mathbb Z_{>0}$ について
 $$
 \left|\sqrt2-\frac pq\right|
@@ -137,7 +137,7 @@ $p^2-2q^2$ は零でない整数なので絶対値が1以上です。近い分�
 <!-- proof-start -->
 ### 証明
 
-$\delta=|\sqrt2-p/q|$ と置きます。まず $\delta\le1$ なら三角不等式から
+$\delta=|\sqrt2-p/q|$ と置きます。まず誤差 $\delta$ が $1$ 以下である場合を考えます。このとき三角不等式から
 $$
 \left|\frac pq+\sqrt2\right|
 \le\left|\frac pq-\sqrt2\right|+2\sqrt2
@@ -344,7 +344,7 @@ $$
 =\frac{\log(n+1)}{\log q_n}
 \le\frac{\log(n+1)}{cn}\longrightarrow0.
 $$
-[連分数表示定理](#thm-nda5-denominator-growth)から $\mu(\gamma)=2$ です。つまり
+[無理性指数の連分数表示](#thm-nda5-denominator-growth)から $\mu(\gamma)=2$ です。つまり
 $$
 \mu(\gamma)=2,\qquad c(\gamma)=0
 $$
@@ -363,7 +363,7 @@ $$
 \sigma\le\frac{\log a_{n+1}}{\log q_n}
 <\sigma+\frac{\log2}{\log q_n}.
 $$
-$ q_n\to\infty $ から誤差項は0に収束し、[連分数表示定理](#thm-nda5-denominator-growth)によって
+$ q_n\to\infty $ から誤差項は0に収束し、[無理性指数の連分数表示](#thm-nda5-denominator-growth)によって
 $$
 \boxed{\mu(\alpha_\sigma)=2+\sigma}.
 $$
@@ -373,7 +373,7 @@ $$
 $$
 \frac{\log a_{n+1}}{\log q_n}=n
 $$
-となり、[連分数表示定理](#thm-nda5-denominator-growth)から $\mu(\alpha)=\infty$ です。指数が無限大でも $\alpha$ は無理数であり、**任意の大きい有限指数の近似が無限回ある**という意味です。このような極端に良い近似と超越性の関係は次章で証明します。
+となり、[無理性指数の連分数表示](#thm-nda5-denominator-growth)から $\mu(\alpha)=\infty$ です。指数が無限大でも $\alpha$ は無理数であり、**任意の大きい有限指数の近似が無限回ある**という意味です。このような極端に良い近似と超越性の関係は次章で証明します。
 
 ## 6. 演習：指数を定義から判定する
 
@@ -448,7 +448,7 @@ $$
 1\le\frac{\log q_{n+1}}{\log q_n}
 \le1+\frac{\log4}{\log q_n}.
 $$
-$q_n\to\infty$ より右端は1へ収束します。従って[連分数表示定理](#thm-nda5-denominator-growth)で $\mu(\alpha)=1+1=2$ を得ます。
+$q_n\to\infty$ より右端は1へ収束します。従って[無理性指数の連分数表示](#thm-nda5-denominator-growth)で $\mu(\alpha)=1+1=2$ を得ます。
 <!-- solution-end -->
 
 ### Level B：上界の論理と反例を自分で作る
@@ -471,7 +471,7 @@ $$
 0\le\frac{\log a_{n+1}}{\log q_n}
 \le\frac{2\log(n+1)}{(n-2)\log2}\longrightarrow0.
 $$
-[連分数表示定理](#thm-nda5-denominator-growth)から $\mu(\gamma)=2$ です。一方 $a_{n+1}$ はいくらでも大きくなり有界でないため、[悪近似数と有界部分商の同値](../NDA2/index.md#thm-nda2-bounded-quotients)により $\gamma$ は悪近似数ではありません。
+[無理性指数の連分数表示](#thm-nda5-denominator-growth)から $\mu(\gamma)=2$ です。一方 $a_{n+1}$ はいくらでも大きくなり有界でないため、[悪近似数と有界部分商の同値](../NDA2/index.md#thm-nda2-bounded-quotients)により $\gamma$ は悪近似数ではありません。
 <!-- solution-end -->
 
 **NDA5-B2（指数4の構成）**  
@@ -487,7 +487,7 @@ $$
 \frac{\log a_{n+1}}{\log q_n}
 =\frac{\log(q_n^2)}{\log q_n}=2.
 $$
-従って[連分数表示定理](#thm-nda5-denominator-growth)へ代入すれば
+従って[無理性指数の連分数表示](#thm-nda5-denominator-growth)へ代入すれば
 $$
 \mu(\alpha)=2+\limsup_{n\to\infty}2=4.
 $$
@@ -568,7 +568,7 @@ $$
 \frac{\log a_{n+1}}{\log q_n}
 =\frac{\log q_n^n}{\log q_n}=n.
 $$
-その上極限は $\infty$ だから[連分数表示定理](#thm-nda5-denominator-growth)で $\mu(\beta)=\infty$ です。最後に無限指数の定義から、任意の $M>0$ を固定して $M+1<\mu(\beta)$ とすると、[指数の量化](#prop-nda5-exponent-quantifiers)により $M+1$ は許容されます。その無限個の既約分数では
+その上極限は $\infty$ だから[無理性指数の連分数表示](#thm-nda5-denominator-growth)で $\mu(\beta)=\infty$ です。最後に任意の $M>0$ を固定して $M+1<\mu(\beta)$ とすると、[指数の量化](#prop-nda5-exponent-quantifiers)により $M+1$ は許容されます。その無限個の既約分数では
 $$
 \left|\beta-\frac pq\right|<q^{-(M+1)}<q^{-M}
 $$
