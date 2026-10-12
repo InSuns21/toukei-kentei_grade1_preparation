@@ -1,0 +1,40 @@
+id: "NT7"
+title: "連分数・Pell 方程式・Diophantine 近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - NT6
+official_scope: []
+learning_objectives:
+  - 有理数・無理数の単純連分数を構成し収束分数の漸化式を計算できる
+  - 収束分数の行列式恒等式・誤差評価・第二種最良近似を証明できる
+  - 平方根の完全商の有限状態から連分数の最終周期性を証明できる
+  - Dirichletの近似補題からPell方程式の正整数解の存在を導ける
+  - Pell方程式の全正整数解を基本解の累乗で生成し近似誤差と結び付けられる
+definitions:
+  - { id: NT7-DEF-01, name: 単純連分数 }
+  - { id: NT7-DEF-02, name: 収束分数 }
+  - { id: NT7-DEF-03, name: Pell 方程式と基本解 }
+theorems:
+  - { id: NT7-LEM-01, name: 収束分数の行列式と完全商公式 }
+  - { id: NT7-THM-01, name: 収束分数の誤差と交互近似 }
+  - { id: NT7-THM-02, name: 第二種最良近似 }
+  - { id: NT7-THM-03, name: 平方根の連分数の周期性 }
+  - { id: NT7-LEM-02, name: 一次元のDirichlet近似 }
+  - { id: NT7-THM-04, name: Pell方程式の正整数解の存在 }
+  - { id: NT7-THM-05, name: Pell方程式の全正整数解 }
+canonical_examples:
+  - "19/7の有限連分数"
+  - "平方根2と平方根3の周期連分数"
+  - "Pell方程式D=2,3の基本解と累乗"
+problem_patterns:
+  - NT7-CONTINUED-FRACTION
+  - NT7-CONVERGENT-RECURRENCE
+  - NT7-APPROXIMATION-ERROR
+  - NT7-QUADRATIC-PERIODICITY
+  - NT7-PELL-PARAMETRIZATION
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
