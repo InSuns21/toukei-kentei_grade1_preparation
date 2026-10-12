@@ -668,6 +668,11 @@
 
 ## 応用系
 
+<a id="dt-subject-information-theory"></a>
+### 情報理論 I
+
+1. [INFO1 自己情報量・Shannonエントロピー・条件付け](textbook/volumes/00_foundations/INFO1/index.md)
+
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
 
