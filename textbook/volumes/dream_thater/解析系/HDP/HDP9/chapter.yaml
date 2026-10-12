@@ -20,7 +20,7 @@ definitions:
   - { id: HDP9-DEF-01, name: 中心化sub-Gaussian座標の共通代理量 }
   - { id: HDP9-DEF-02, name: 二次形式と行列の二つのノルム }
 theorems:
-  - { id: HDP9-LEM-01, name: sub-Gaussian平方の中心化指数モーメント }
+  - { id: HDP9-LEM-01, name: モーメント母関数代理量からの平方評価 }
   - { id: HDP9-LEM-02, name: 独立な対角項の指数モーメント }
   - { id: HDP9-LEM-03, name: 独立sub-Gaussian線形像のGaussian比較 }
   - { id: HDP9-LEM-04, name: 非対角二次形式の指数モーメント }
