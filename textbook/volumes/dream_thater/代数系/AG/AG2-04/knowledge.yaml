@@ -1,0 +1,60 @@
+chapter: AG2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-03
+  - AG2-02
+  - AG2-01
+  - AG1-11
+  - AG1-04
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.projective-plane-curve-degree
+    name: 射影平面曲線と次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影平面曲線と次数）"]
+    requires: [algebraic-geometry.projective-zero-set, algebraic-geometry.homogeneous-polynomial]
+
+  - id: algebraic-geometry.line-intersection-multiplicity
+    name: 直線と曲線の交点重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（直線と曲線の交点重複度）"]
+    requires: [algebraic-geometry.projective-plane-curve-degree, algebraic-geometry.projective-space]
+
+  - id: algebraic-geometry.binary-form-root-count
+    name: 二変数斉次式の根の重複度の総和
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二変数斉次式の根の重複度の総和）"]
+    requires: [algebraic-geometry.homogeneous-polynomial]
+
+  - id: algebraic-geometry.line-bezout
+    name: 直線と射影平面曲線のBézout公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直線と射影平面曲線のBézout公式）"]
+    requires: [algebraic-geometry.line-intersection-multiplicity, algebraic-geometry.binary-form-root-count]
+
+  - id: algebraic-geometry.projective-degree-invariance
+    name: 射影線形変換と次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影線形変換と次数）"]
+    requires: [algebraic-geometry.line-intersection-multiplicity, algebraic-geometry.projective-linear-action]
+
+  - id: algebraic-geometry.tangent-intersection-order
+    name: 滑らかな点の接線と重複度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな点の接線と重複度）"]
+    requires: [algebraic-geometry.line-intersection-multiplicity]
+
+  - id: algebraic-geometry.four-conic-intersections
+    name: 相異なる四交点を持つ二つの二次曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相異なる四交点を持つ二つの二次曲線）"]
+    requires: [algebraic-geometry.projective-plane-curve-degree]

@@ -68,7 +68,7 @@ chapters:
     title: "射影射・Veronese写像・Segre写像"
   - id: AG2-04
     path: textbook/volumes/dream_thater/代数系/AG/AG2-04
-    status: planned
+    status: completed
     title: "射影曲線と次数・Bézoutの例"
   - id: AG2-05
     path: textbook/volumes/dream_thater/代数系/AG/AG2-05
