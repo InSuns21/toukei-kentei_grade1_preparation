@@ -46,6 +46,7 @@ concepts:
 
   - id: number-theory.quadratic-minus-one-supplement
     name: 平方剰余の第一補充法則
+    aliases: [第一補充法則]
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（第一補充法則）]
@@ -53,6 +54,7 @@ concepts:
 
   - id: number-theory.quadratic-two-supplement
     name: 平方剰余の第二補充法則
+    aliases: [第二補充法則]
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（第二補充法則）]
