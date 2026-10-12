@@ -18,6 +18,7 @@ definitions:
   - { id: TH6-DEF-03, name: "外場に対する局所感受率" }
 theorems:
   - { id: TH6-PROP-01, name: "エネルギーHessianによる判定" }
+  - { id: TH6-PROP-04, name: "大域凸性と支持平面" }
   - { id: TH6-THM-01, name: "厳密な局所安定性と応答の符号" }
   - { id: TH6-THM-02, name: "定圧・定積熱容量の差" }
   - { id: TH6-THM-03, name: "断熱・等温圧縮率の関係" }
