@@ -1,0 +1,67 @@
+chapter: INT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+forward_references: []
+
+concepts:
+  - id: integrable.poincare-first-return
+    name: Poincaré第一帰還写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poincaré第一帰還写像）"]
+    aliases: []
+    requires: []
+  - id: integrable.return-area-preservation
+    name: 第一帰還写像の面積保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（第一帰還写像の面積保存）"]
+    aliases: []
+    requires: [integrable.poincare-first-return]
+  - id: integrable.monotone-twist-annulus
+    name: 正の単調twist写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の単調twistと境界twist）"]
+    aliases: []
+    requires: []
+  - id: integrable.boundary-twist-condition
+    name: 境界twist条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の単調twistと境界twist）"]
+    aliases: []
+    requires: []
+  - id: integrable.poincare-frequency-twist
+    name: 可積分帰還写像のtwist係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可積分帰還写像のtwist係数）"]
+    aliases: []
+    requires: [integrable.monotone-twist-annulus, integrable.boundary-twist-condition, integrable.action-angle]
+  - id: integrable.twist-generating-function
+    name: 円環のtwist生成関数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（円環のtwist生成関数）"]
+    aliases: []
+    requires: [integrable.monotone-twist-annulus, integrable.boundary-twist-condition]
+  - id: integrable.poincare-birkhoff-monotone
+    name: Poincaré–Birkhoff固定点定理（単調twist版）
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Poincaré–Birkhoff固定点定理：単調twist版）"]
+    aliases: []
+    requires: [integrable.twist-generating-function]
+  - id: integrable.resonant-iterate-periodic
+    name: 反復twistから得る共鳴周期点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反復twistから得る共鳴周期点）"]
+    aliases: []
+    requires: [integrable.poincare-birkhoff-monotone, integrable.integer-resonance]
