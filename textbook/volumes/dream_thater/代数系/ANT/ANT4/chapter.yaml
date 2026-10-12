@@ -1,0 +1,37 @@
+id: "ANT4"
+title: "算術級数中の素数に関するDirichletの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT3
+official_scope: []
+learning_objectives:
+  - Euler積の対数を素数の一次項と一様有界な高次項に分けられる
+  - 非実文字のL(1,chi)非零性を正値性の三角恒等式から証明できる
+  - 実非主文字のL(1,chi)非零性を畳み込み係数と正則Taylor展開から証明できる
+  - 文字の直交関係と主文字の極を使ってDirichletの定理と逆数和発散を導ける
+  - 互いに素の仮定と素数無限性・素数個数漸近を区別できる
+definitions: []
+theorems:
+  - { id: ANT4-LEM-01, name: Euler積の対数と素数の一次項 }
+  - { id: ANT4-LEM-02, name: 実文字と非負の畳み込み係数 }
+  - { id: ANT4-THM-01, name: 非主Dirichlet L関数の境界非零性 }
+  - { id: ANT4-THM-02, name: 算術級数中の素数に関するDirichletの定理 }
+  - { id: ANT4-COR-01, name: 既約剰余類に属する素数の逆数和の発散 }
+canonical_examples:
+  - 法4の実文字と平方数の畳み込み係数
+  - 法5の非実文字と非負三角恒等式
+  - 法4の既約剰余類に属する素数の和
+  - 法6の非既約剰余類と有限個の素数
+problem_patterns:
+  - ANT4-RESIDUE-COPRIMALITY
+  - ANT4-REAL-COEFF
+  - ANT4-EULER-LOG-BOUND
+  - ANT4-CHARACTER-PROJECTOR
+  - ANT4-COMPLEX-NONVANISH
+  - ANT4-REAL-NONVANISH
+  - ANT4-DIRICHLET-PRIMES
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
