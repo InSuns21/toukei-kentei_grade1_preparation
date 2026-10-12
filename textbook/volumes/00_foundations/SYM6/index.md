@@ -199,7 +199,13 @@ $$
 
 Lagrangeなら $W=W^\omega$ ですから $k=2n-k$、すなわち $k=n$ であり、両方の包含が成立します。逆に、等方で $k=n$ なら $W\subseteq W^\omega$ かつ双方の次元は $n$、従って等号です。余等方で $k=n$ の場合も同じです。
 
-Lagrange空間 $W$ を真に含む等方空間 $U$ があるとすると、$U\subseteq U^\omega\subseteq W^\omega=W$ となり $W\subsetneq U\subseteq W$ と矛盾します。従って極大等方です。
+Lagrange空間 $W$ を真に含む等方空間 $U$ があると仮定します。$U$ が等方だから $U\subseteq U^\omega$ であり、$W\subseteq U$ だから、任意の $v\in U^\omega$ は $W$ の全ての元にも直交して $U^\omega\subseteq W^\omega$ です。従って
+
+$
+W\subsetneq U\subseteq U^\omega\subseteq W^\omega=W
+$
+
+となって矛盾します。よって $W$ は極大等方です。
 
 逆に $W$ が極大等方で $W\ne W^\omega$ と仮定します。$v\in W^\omega\setminus W$ を取り、$U=W+\mathbb Rv$ と置きます。$w,w'\in W$、実数 $a,b$ について
 
@@ -512,7 +518,7 @@ $S$ に沿う適合局所座標を選ぶと、余法束の条件は二群の座�
 <!-- proof-start -->
 ### 証明
 
-$S$ の任意の点の周囲で埋め込み部分多様体の座標を取り、$Q$ の座標を
+$S$ の任意の点で、[埋め込み部分多様体の適合局所座標](../GEO3/index.md#def-geo3-embedded-submanifold)を選びます。$Q$ の座標を
 
 $$
 (u^1,\ldots,u^k,v^1,\ldots,v^{n-k})
@@ -776,7 +782,14 @@ $$
 \omega_0(v,f_2)=a_2.
 $$
 
-従って $W^\omega=\{b_1=a_2=0\}=\operatorname{span}\{e_1,f_2\}=W$。また内部の生成元について $\omega_0(e_1,f_2)=0$、同じベクトルとの組も零ですから等方で、$\dim W=2=n$。従って[線形判定定理](#thm-sym6-lagrangian-criterion)の必要十分条件も満たします。
+二つの直交条件 $b_1=0$、$a_2=0$ を同時に課すので、
+
+$
+W^\omega=\{v:b_1=a_2=0\}
+=\operatorname{span}\{e_1,f_2\}=W.
+$
+
+また $\omega_0(e_1,f_2)=0$ であり、同じ生成元同士の値も交代性により零です。従って $W$ は等方で、$\dim W=2=n$ です。[線形Lagrange判定](#thm-sym6-lagrangian-criterion)によっても $W$ がLagrangeであると分かります。
 <!-- solution-end -->
 
 #### B3. 閉性と完全性を区別する
@@ -878,7 +891,7 @@ $
 dt'=d(t+2\pi k)=dt.
 $
 
-局所表示が重なりで一致するので $\alpha$ は大域的な滑らかな1形式です。また各座標上で
+局所表示が重なりで一致するので $\alpha$ は大域的な滑らかな1形式です。また各座標上で[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を局所関数 $t$ に適用すると
 
 $
 d\alpha=d(dt)=0.
