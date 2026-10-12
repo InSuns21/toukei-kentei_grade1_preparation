@@ -1,0 +1,45 @@
+id: "AG1-06"
+title: "整拡大とNoether正規化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-05
+  - AG1-03
+  - RNG4
+official_scope: []
+learning_objectives:
+  - モニック方程式による整元を定義し、直接例と非整元の反例を判定できる
+  - 整元の有限加群判定を次数降下と行列式を使って証明できる
+  - 有限個の整元の添加と整拡大の推移性を有限加群の塔から示せる
+  - 代数的独立な元を単射性によって判定できる
+  - 重み付き変数変換によるモニック化を再現し、任意の体上でNoether正規化を証明できる
+  - 尖点曲線と二軸の座標環について適切な多項式部分環と有限加群生成元を計算できる
+  - 不適切な座標を選ぶと整性が失敗する理由を商環で検証できる
+definitions:
+  - { id: AG1-06-DEF-01, name: 整元 }
+  - { id: AG1-06-DEF-02, name: 有限A代数 }
+  - { id: AG1-06-DEF-03, name: 代数的独立 }
+theorems:
+  - { id: AG1-06-PROP-01, name: 整元の有限加群判定 }
+  - { id: AG1-06-PROP-02, name: 整元の有限個の添加と推移性 }
+  - { id: AG1-06-THM-01, name: Noether正規化 }
+canonical_examples:
+  - k[u]でuはk[u²]上整、uの逆元はk[u]上非整
+  - 尖点k[s,v]/(v²-s³)の有限加群生成元1とv
+  - 二軸k[x,y]/(xy)におけるt=x+yと不適切な底k[x]の比較
+  - 重み付き変数変換x=z+t⁴とモニック化
+  - 二次関係u²=tu+1の乗法行列と行列式
+problem_patterns:
+  - AG1-06-INTEGRAL-CUSP
+  - AG1-06-NONINTEGRAL-INVERSE
+  - AG1-06-MONIC-MODULE-GENERATORS
+  - AG1-06-ALGEBRAIC-INDEPENDENCE
+  - AG1-06-DETERMINANT-TRICK
+  - AG1-06-INTEGRAL-TRANSITIVITY
+  - AG1-06-FINITE-PROJECTION
+  - AG1-06-WEIGHTED-SHEAR
+  - AG1-06-CURVE-NORMALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
