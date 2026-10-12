@@ -190,11 +190,11 @@ $\zeta'/\zeta$ は零点に近付くほど大きくなります。そこで零�
 > **補題（ζの局所対数微分の零点表示）**  
 > $|t|\ge3$、$1<\sigma\le2$、$s=\sigma+it$ とする。ある絶対定数 $C>0$ が存在して
 
-$
+$$
 \frac{\zeta'(s)}{\zeta(s)}
 =\sum_{\substack{\rho\\|\operatorname{Im}\rho-t|\le1}}
 \frac1{s-\rho}+O(\log(|t|+3))
-$
+$$
 
 > が成立する。和は非自明零点を重複度込みで数え、誤差定数は $\sigma,t$ に一様である。
 <!-- formal-statement-end -->
@@ -207,51 +207,51 @@ $
 ### 証明
 
 まず $|t|\ge10$ とし、$s_0=2+it$ と置きます。円板 $|s-s_0|\le6$ はζの唯一の極 $s=1$ を含みません。この固定幅の領域で、[CA12の関数等式](../../../解析系/CA/CA12/index.md#thm-ca12-functional-equation)と右半平面のDirichlet級数の比較から、ある定数 $B$ について
-$
+$$
 \max_{|s-s_0|\le6}|\zeta(s)|\ll(|t|+3)^B
-$
+$$
 が成り立ちます（[ANT7の局所零点評価の準備](../ANT7/index.md#lem-ant7-contour-height)と同じ固定幅多項式評価です）。一方、絶対収束級数から
-$
+$$
 |\zeta(s_0)|\ge1-\sum_{n\ge2}n^{-2}
 =2-\zeta(2)>0.
-$
+$$
 [Jensenの円板零点数評価](../ANT7/index.md#lem-ant7-jensen-disk)を半径 $5$ と $6$ に適用すると、$|s-s_0|\le5$ にある零点の数 $m$ は重複度込みで $O(\log(|t|+3))$ です。
 
 その零点を $\rho_1,\ldots,\rho_m$ として
-$
+$$
 g(s)=\zeta(s)\prod_{j=1}^m\frac{s_0-\rho_j}{s-\rho_j}
-$
+$$
 と置きます。零点の位数分だけ極を打ち消しているので $g$ は $|s-s_0|<6$ で正則であり、$|s-s_0|<5$ で零になりません。$|s-s_0|=6$ では $|s-\rho_j|\ge1$、$|s_0-\rho_j|\le5$ なので
-$
+$$
 |g(s)|\le|\zeta(s)|\,5^m
 \ll(|t|+3)^{B+C_0\log5}.
-$
+$$
 [最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)により同じ上界が内側の円板にも成り立ちます。また $g(s_0)=\zeta(s_0)$ なので $\log|g(s_0)|\ge\log(2-\zeta(2))$ です。
 
 半径 $5$ の円板で零でない $g$ には正則な対数 $H=\log g$ が存在します。上の最大値評価から、定数 $C_1$ を適切に大きく取って
 
-$
+$$
 \operatorname{Re}H(s)=\log|g(s)|
 \le M,\qquad M=C_1\log(|t|+3)
-$
+$$
 
 とします。中心との差、および実部の上界との差をそれぞれ
 
-$
+$$
 K(s)=H(s)-H(s_0),\qquad
 A=M-\operatorname{Re}H(s_0)\ge0
-$
+$$
 
 と置きます。すると $\operatorname{Re}K(s)\le A$ なので
-$
+$$
 w(s)=\frac{K(s)}{2A-K(s)}
-$
+$$
 を考えます。まず分母と分子の差は
 
-$
+$$
 |2A-K|^2-|K|^2
 =4A(A-\operatorname{Re}K)\ge0
-$
+$$
 
 です。従って $|w(s)|\le1$ です。また $K(s_0)=0$ だから $w(s_0)=0$ となります。
 
@@ -259,22 +259,22 @@ $A=0$ なら実部が最大値に達するため、[最大値原理](../../../�
 
 半径 $4$ の円板に[Schwarzの補題](../../../解析系/CA/CA6/index.md#thm-ca6-schwarz-lemma)を適用します。中心 $s_0$ で $w(s_0)=0$ であり $|w|\le1$ だから、$|s-s_0|\le3$ では
 
-$
+$$
 |w(s)|\le\frac34.
-$
+$$
 
 これを $K=2Aw/(1+w)$ へ代入すると
-$
+$$
 |H(s)-H(s_0)|
 =\left|\frac{2Aw(s)}{1+w(s)}\right|
 \le6A=O(\log(|t|+3)).
-$
+$$
 $H$ のCauchy微分評価を半径 $1$ の小円へ適用すれば、$|s-s_0|\le2$ で $|H'(s)|=O(\log(|t|+3))$ です（小円は $|u-s_0|\le3$ の範囲に収まります）。$g'/g=H'$ だから
-$
+$$
 \frac{\zeta'(s)}{\zeta(s)}
 =\sum_{j=1}^m\frac1{s-\rho_j}+O(\log(|t|+3))
 \qquad(|s-s_0|\le2).
-$
+$$
 目標の $s=\sigma+it$ は $|s-s_0|\le1$ です。この和から $|\operatorname{Im}\rho_j-t|>1$ の項を取り除いても、各分母の絶対値は $1$ より大きく、そのような項は $m=O(\log|t|)$ 個なので、誤差に吸収できます。逆に $|\operatorname{Im}\rho-t|\le1$ の非自明零点は $0<\operatorname{Re}\rho<1$ だから $|\rho-s_0|\le\sqrt5<5$ であり、初めの和に含まれています。
 
 $3\le|t|<10$ では、[ANT6の境界上の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)と[零点の孤立性](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)から、この高さ範囲の $\sigma\in[1,2]$ 上で対数微分は有界です。有限個の零点についても $\beta<1$ なので、上の零点和は有界です。定数を大きくすれば同じ形の評価が成り立ちます。
@@ -476,17 +476,17 @@ $$
 
 [誘導文字の定義](../ANT3/index.md#def-ant3-primitive)から、素数 $p\nmid q$ では
 
-$
+$$
 \chi(p)=\chi^\ast(p)
-$
+$$
 
 が成り立ちます。一方、$p\mid q$ なら $\chi(p)=0$ なので、$L(s,\chi)$ のEuler因子は $1$ です。
 
 右辺の $L(s,\chi^\ast)$ でも $p\mid f$ の素数に対応するEuler因子は $1$ です。残る $p\mid q$、$p\nmid f$ の素数については、余分な因子
 
-$
+$$
 (1-\chi^\ast(p)p^{-s})^{-1}
-$
+$$
 
 が存在します。命題の有限積は、まさにこの余分な因子を打ち消します。
 
