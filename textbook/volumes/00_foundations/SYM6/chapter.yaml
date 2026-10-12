@@ -1,0 +1,52 @@
+id: "SYM6"
+title: "Lagrange部分空間・Lagrange部分多様体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM3
+  - SYM5
+  - GEO2
+  - GEO7
+  - GEO9
+official_scope: []
+learning_objectives:
+  - 等方・余等方・Lagrange部分空間の包含条件を座標例で判定できる
+  - 直交補の次元公式と二重直交補の等式を証明し極大等方性と半次元条件の同値性を示せる
+  - Lagrange部分多様体を埋め込み・接空間・2形式の制限から定義し正則値の条件と区別できる
+  - 余接束の1形式グラフの埋め込み性を証明し閉1形式の必要十分条件を導ける
+  - 局所的な原始関数と大域的な完全性を区別し余法束の局所方程式とLagrange性を証明できる
+  - シンプレクティック微分同相によるLagrange性の保存を示し平行移動の例で確認できる
+definitions:
+  - { id: SYM6-DEF-01, name: 等方・余等方・Lagrange部分空間 }
+  - { id: SYM6-DEF-02, name: Lagrange部分多様体 }
+  - { id: SYM6-DEF-03, name: 余法束 }
+theorems:
+  - { id: SYM6-LEM-01, name: シンプレクティック直交補の次元 }
+  - { id: SYM6-THM-01, name: 等方・余等方の次元とLagrange判定 }
+  - { id: SYM6-THM-02, name: 閉1形式のグラフのLagrange判定 }
+  - { id: SYM6-THM-03, name: 埋め込み部分多様体の余法束はLagrange }
+  - { id: SYM6-PROP-01, name: シンプレクティック微分同相によるLagrange性の保存 }
+canonical_examples:
+  - 四次元の等方平面と余等方超平面
+  - 半次元だが等方でない平面
+  - 余接束の零切断と完全1形式のグラフ
+  - 非閉1形式のグラフと大域的に完全でない閉1形式
+  - 曲線・超平面の余法束
+  - ファイバー平行移動によるグラフの生成
+problem_patterns:
+  - SYM6-ORTHOGONAL-COMPLEMENT
+  - SYM6-HALF-DIMENSION-COUNTEREXAMPLE
+  - SYM6-ONE-DIMENSIONAL-GRAPH
+  - SYM6-NONCLOSED-GRAPH
+  - SYM6-CONORMAL-RANK
+  - SYM6-MAXIMAL-ISOTROPIC
+  - SYM6-MIXED-LAGRANGIAN
+  - SYM6-GRAPH-PRIMITIVE
+  - SYM6-CURVE-CONORMAL
+  - SYM6-FIBER-TRANSLATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
