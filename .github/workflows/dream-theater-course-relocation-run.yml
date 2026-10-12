@@ -4,14 +4,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/dream-theater-course-relocation-run.yml'
-      - 'scripts/migrate-dream-theater-courses.mjs'
 
 permissions:
   contents: write
-
-concurrency:
-  group: dream-theater-course-relocation-998
-  cancel-in-progress: false
 
 jobs:
   relocate:
@@ -27,22 +22,32 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-      - run: npm ci
-      - name: Apply branch-only relocation
+      - name: Create a clean migration branch without an added workflow
         run: |
-          if grep -q 'textbook/volumes/dream_thater/基礎科目/F0-00A/index.md' textbook/dream-theater-index.json; then
-            node scripts/migrate-dream-theater-courses.mjs --apply
-            node scripts/migrate-dream-theater-courses.mjs --check
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add -A
-            git diff --cached --stat | tail -n 22
-            git commit -m 'refactor: add DREAM THEATER course series folder for 542 chapters'
-            git push origin HEAD:refs/heads/fix/dream-theater-course-layer-20261012
-          else
-            node scripts/migrate-dream-theater-courses.mjs --check
-          fi
-      - name: Verify mathematical text and assets unchanged
+          git fetch origin main
+          git worktree add -b fix/dream-theater-course-layer-ready-20261012 /tmp/dt-course-layout origin/main
+          git -c core.quotepath=false diff --name-only --diff-filter=ACMR -z origin/main...HEAD -- ':!.github/workflows/**' |
+            while IFS= read -r -d '' file; do
+              mkdir -p "/tmp/dt-course-layout/$(dirname "$file")"
+              cp -- "$file" "/tmp/dt-course-layout/$file"
+            done
+          git -C /tmp/dt-course-layout status --short | tail -n 22
+      - name: Install dependencies in clean worktree
+        run: cd /tmp/dt-course-layout && npm ci
+      - name: Move course folders and verify all chapter paths
         run: |
-          BASE="$(git merge-base origin/main HEAD)"
-          node scripts/verify-dream-theater-course-relocation.mjs --base "$BASE"
+          cd /tmp/dt-course-layout
+          node scripts/migrate-dream-theater-courses.mjs --apply
+          node scripts/migrate-dream-theater-courses.mjs --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --stat | tail -n 20
+          git commit -m 'refactor: place 542 DREAM THEATER chapters under course series IDs'
+      - name: Verify all mathematical text and binary resources against main
+        run: |
+          cd /tmp/dt-course-layout
+          node scripts/verify-dream-theater-course-relocation.mjs --base "$(git merge-base origin/main HEAD)"
+      - name: Push clean branch with no workflow change
+        run: |
+          git -C /tmp/dt-course-layout push origin HEAD:refs/heads/fix/dream-theater-course-layer-ready-20261012
