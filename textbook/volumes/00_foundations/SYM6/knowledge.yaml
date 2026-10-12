@@ -1,0 +1,69 @@
+chapter: SYM6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM3
+  - SYM5
+  - GEO2
+  - GEO7
+  - GEO9
+forward_references: []
+
+concepts:
+  - id: symplectic.lagrangian-linear-types
+    name: 等方・余等方・Lagrange部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    requires: [symplectic.orthogonal-complement, symplectic.symplectic-vector-space]
+
+  - id: symplectic.orthogonal-dimension
+    name: シンプレクティック直交補の次元
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（シンプレクティック直交補の次元）]
+    requires: [symplectic.orthogonal-complement, symplectic.non-degenerate-form]
+
+  - id: symplectic.lagrangian-linear-criterion
+    name: 等方・余等方の次元とLagrange判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等方・余等方の次元とLagrange判定）]
+    requires: [symplectic.orthogonal-dimension, symplectic.lagrangian-linear-types]
+
+  - id: symplectic.lagrangian-submanifold
+    name: Lagrange部分多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lagrange部分多様体）]
+    requires: [symplectic.lagrangian-linear-criterion, symplectic.symplectic-manifold]
+
+  - id: symplectic.lagrangian-graph-criterion
+    name: 閉1形式のグラフのLagrange判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（閉1形式のグラフのLagrange判定）]
+    requires: [symplectic.lagrangian-submanifold, symplectic.liouville-one-form, geometry.pullback-commutes-exterior-derivative]
+
+  - id: symplectic.conormal-bundle
+    name: 余法束
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（余法束）]
+    requires: [geometry.cotangent-bundle, symplectic.lagrangian-submanifold]
+
+  - id: symplectic.conormal-lagrangian
+    name: 埋め込み部分多様体の余法束はLagrange
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（埋め込み部分多様体の余法束はLagrange）]
+    requires: [symplectic.conormal-bundle, symplectic.liouville-coordinate, geometry.pullback-commutes-exterior-derivative]
+
+  - id: symplectic.lagrangian-image
+    name: シンプレクティック微分同相によるLagrange性の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（シンプレクティック微分同相によるLagrange性の保存）]
+    requires: [symplectic.lagrangian-submanifold, symplectic.symplectomorphism]
