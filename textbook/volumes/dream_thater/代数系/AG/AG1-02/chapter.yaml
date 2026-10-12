@@ -1,0 +1,47 @@
+id: "AG1-02"
+title: "既約集合・素イデアルと既約成分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-01
+  - RNG2
+  - FLD3
+official_scope: []
+learning_objectives:
+  - 既約な位相空間と既約閉集合を定義し、開集合の交わりによる特徴付けを両方向に証明できる
+  - アフィン代数的集合の既約性と消滅イデアルの素性の同値性を、任意の体について証明できる
+  - 任意の素イデアルの零点集合が既約とは限らない反例を構成し、消滅イデアルとの混同を説明できる
+  - 既約成分の包含最大性を定義と直接例で検証できる
+  - 有限閉被覆の補題と、有限既約分解の成分としての一意性を証明できる
+  - Noether位相空間の下降鎖条件から有限既約成分分解の存在を証明できる
+  - 具体的な平面曲線の既約成分と消滅イデアルを計算できる
+definitions:
+  - { id: AG1-02-DEF-01, name: 既約な位相空間・既約閉集合 }
+  - { id: AG1-02-DEF-02, name: 既約成分 }
+  - { id: AG1-02-DEF-03, name: Noether位相空間 }
+theorems:
+  - { id: AG1-02-PROP-01, name: 既約性と開集合の交わり }
+  - { id: AG1-02-THM-01, name: 既約集合と消滅イデアルの素性 }
+  - { id: AG1-02-LEM-01, name: 既約集合は有限閉被覆の一つに入る }
+  - { id: AG1-02-PROP-02, name: 有限既約分解があれば成分は一意 }
+  - { id: AG1-02-THM-02, name: Noether空間の有限既約成分分解 }
+canonical_examples:
+  - 無限体上のアフィン直線は既約でNoether的
+  - V(xy)の二座標軸が既約成分
+  - I(V(x))=(x)であり(x)は素イデアル
+  - F_2[t]の素イデアル(0)の零点集合は既約でない
+  - V(xy(y-x))の三本の直線
+  - V(x(y-x)(y+x))の消滅イデアルを除法で計算する
+problem_patterns:
+  - AG1-02-AFFINE-LINE-IRREDUCIBLE
+  - AG1-02-AXES-REDUCIBLE
+  - AG1-02-VANISHING-IDEAL-LINE
+  - AG1-02-FINITE-SUBSPACE
+  - AG1-02-FINITE-CLOSED-COVER
+  - AG1-02-FINITE-FIELD-COUNTEREXAMPLE
+  - AG1-02-NOETHER-COMPONENTS
+  - AG1-02-THREE-LINES-COMPLETE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }

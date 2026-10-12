@@ -12,7 +12,7 @@ chapters:
     title: "多変数多項式とアフィン代数的集合"
   - id: AG1-02
     path: textbook/volumes/dream_thater/代数系/AG/AG1-02
-    status: planned
+    status: completed
     title: "既約集合・素イデアルと既約成分"
   - id: AG1-03
     path: textbook/volumes/dream_thater/代数系/AG/AG1-03
