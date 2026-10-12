@@ -17,7 +17,7 @@ learning_objectives:
 definitions:
   - { id: AG2-03-DEF-01, name: 斉次式で与える射影写像 }
   - { id: AG2-03-DEF-02, name: 射影代数的集合の正則写像・射影射 }
-  - { id: AG2-03-DEF-03, name: 次数dのVeronese写像 }
+  - { id: AG2-03-DEF-03, name: Veronese写像 }
   - { id: AG2-03-DEF-04, name: Segre写像 }
 theorems:
   - { id: AG2-03-PROP-01, name: 斉次式表示の整合性 }
