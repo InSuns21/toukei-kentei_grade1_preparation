@@ -13,7 +13,7 @@ d\langle J,\xi\rangle=\iota_{\xi_M}\omega
 \qquad(\xi\in\mathfrak g).
 $$
 
-値 $\mu\in\mathfrak g^*$ が正則値で、$L_\mu=J^{-1}(\mu)$ が空でなく、余随伴安定化群 $G_\mu$ が $L_\mu$ に自由かつ固有に作用すると仮定します。包含を $i:L_\mu\hookrightarrow M$、商射影を $\pi:L_\mu\to M_\mu=L_\mu/G_\mu$ と書きます。[GMECH4の商定理](../GMECH4/index.md#thm-gmech4-smooth-quotient)より $\pi$ は全射劣沈写像です。
+値 $\mu\in\mathfrak g^*$ が正則値で、$L_\mu=J^{-1}(\mu)$ が空でなく、余随伴安定化群 $G_\mu$ が $L_\mu$ に自由かつ固有に作用すると仮定します。包含を $i:L_\mu\hookrightarrow M$、商射影を $\pi:L_\mu\to M_\mu=L_\mu/G_\mu$ と書きます。[正則運動量レベルの滑らかな商](../GMECH4/index.md#thm-gmech4-smooth-quotient)より $\pi$ は全射劣沈写像です。
 
 元の形式を $L_\mu$ に制限して得る $i^*\omega$ は、一般には非退化とは限りません。群軌道の方向では値が零になり、その方向を商で取り除いたときに初めて非退化になることを狙います。
 
@@ -175,7 +175,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[基本性の命題](#prop-gmech5-basic-restriction)と[降下命題](#prop-gmech5-descent)により滑らかな2形式 $\omega_\mu$ が唯一存在し、$\pi^*\omega_\mu=i^*\omega$ です。
+[運動量レベル上の制限形式の基本性](#prop-gmech5-basic-restriction)と[基本2形式の一意な降下](#prop-gmech5-descent)により滑らかな2形式 $\omega_\mu$ が唯一存在し、$\pi^*\omega_\mu=i^*\omega$ です。
 
 まず閉性を調べます。外微分は引き戻しと可換であり、もとの $\omega$ が閉じているので、
 
@@ -197,7 +197,7 @@ W=T_mL_\mu=\ker dJ_m,\qquad
 A=T_m(G\cdot m)
 $$
 
-と書きます。[GMECH4の微分とシンプレクティック直交補の命題](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)より $W=A^\omega$ です。非退化な有限次元交代形式では $(A^\omega)^\omega=A$ が成り立ちます。実際、$\omega^\flat:V\to V^*$ は同型で、$A^\omega$ は $A$ を零にする共変ベクトルの逆像なので $\dim A^\omega=\dim V-\dim A$、さらに $A\subseteq(A^\omega)^\omega$ だから次元比較で等号です。従って
+と書きます。[運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)より $W=A^\omega$ です。非退化な有限次元交代形式では $(A^\omega)^\omega=A$ が成り立ちます。実際、$\omega^\flat:V\to V^*$ は同型で、$A^\omega$ は $A$ を零にする共変ベクトルの逆像なので $\dim A^\omega=\dim V-\dim A$、さらに $A\subseteq(A^\omega)^\omega$ だから次元比較で等号です。従って
 
 $$
 W^\omega=A,\qquad
@@ -365,7 +365,7 @@ $$
 H(q,p)=\frac12|p|^2+\frac{\kappa}{2}|q|^2.
 $$
 
-$e_r,e_\theta$ は直交する単位ベクトルなので、$|p|^2=p_r^2+\ell^2/r^2$ です。従って[不変Hamiltonianの簡約定理](#thm-gmech5-reduced-dynamics)から
+$e_r,e_\theta$ は直交する単位ベクトルなので、$|p|^2=p_r^2+\ell^2/r^2$ です。従って[不変Hamiltonianの簡約力学](#thm-gmech5-reduced-dynamics)から
 
 $$
 H_\mu(r,p_r)
@@ -470,7 +470,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [GMECH4の微分・軌道方向の命題](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)から $W=A^\omega$ です。有限次元で $\omega$ は非退化なので $W^\omega=(A^\omega)^\omega=A$ であり、
+**詳細解答。** [運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)から $W=A^\omega$ です。有限次元で $\omega$ は非退化なので $W^\omega=(A^\omega)^\omega=A$ であり、
 
 $$
 \ker(i^*\omega)_m=W\cap W^\omega=W\cap A.
@@ -575,7 +575,7 @@ $$
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** 1. $q\ne0$ は定義域の条件です。任意の $(q,p)$ を固定する回転は $q$ を固定するので恒等元のみであり、作用は自由です。[GMECH4の微分と軌道方向の命題](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)により $dJ$ は全点で全射です。例えば $q=(1,0)$、$p=(0,\mu)$ とすれば $J=\mu$ なのでレベルは非空です。$SO(2)$ はコンパクトなので作用は固有、可換なので $G_\mu=G$ です。
+**詳細解答。** 1. $q\ne0$ は定義域の条件です。任意の $(q,p)$ を固定する回転は $q$ を固定するので恒等元のみであり、作用は自由です。[運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)により $dJ$ は全点で全射です。例えば $q=(1,0)$、$p=(0,\mu)$ とすれば $J=\mu$ なのでレベルは非空です。$SO(2)$ はコンパクトなので作用は固有、可換なので $G_\mu=G$ です。
 
 2. $q=re_r$、$p=p_re_r+(\ell/r)e_\theta$ と置きます。$dq=e_r\,dr+r e_\theta\,d\theta$ から $p\cdot dq=p_r\,dr+\ell\,d\theta$ です。従って
 
@@ -621,7 +621,7 @@ U_\mu''(r)=\frac{3\mu^2}{r^4}-\frac{2k}{r^3},
 U_\mu''(r_0)=\frac{\mu^2}{r_0^4}>0.
 $$
 
-従って変位 $\rho=r-r_0$ は一次近似で $\ddot\rho+(\mu^2/r_0^4)\rho=0$ を満たします。固有値は $\pm i|\mu|/r_0^2$ なので半径方向に線形安定です。元の運動では $\dot\theta=\partial H/\partial\ell=\mu/r^2$ であり、半径一定 $r_0$ の円運動です。商ではその回転方向を同一視したため、円運動が平衡点として見えます。
+従って変位 $\rho=r-r_0$ は一次近似で $\ddot\rho+(\mu^2/r_0^4)\rho=0$ を満たします。固有値は $\pm i|\mu|/r_0^2$ なので半径方向に線形安定です。元の運動では $\dot\theta=\partial H/\partial\ell=\mu/r^2$ であり、半径一定 $r_0$ の円運動です。商ではその回転方向を同一視したため、円運動が時間変化しない点として表されます。
 <!-- solution-end -->
 
 本章では、運動量レベルの制限形式が基本的であること、商の上で非退化性が戻ること、Hamiltonianとその流れが商で再びHamilton力学を定めることを証明しました。次のGMECH6では、対称性を取り除いた運動を別の方法で表現するため、Lie代数の双対空間上のPoisson構造と余随伴軌道を調べます。
