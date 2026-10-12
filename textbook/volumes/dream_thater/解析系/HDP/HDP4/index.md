@@ -6,7 +6,7 @@
 
 ## 1. 入力の入れ替えを測る
 
-$X_1,\ldots,X_n$ は互いに独立で、それぞれ非空集合 $S_i$ に値を取る確率変数とします。$f:S_1\times\cdots\times S_n\to\mathbb R$ は可測とし、$Z=f(X_1,\ldots,X_n)$ を調べます。以下では $n$ は有限、各 $c_i$ は有限の非負実数です。
+$X_1,\ldots,X_n$ は互いに独立で、それぞれ非空の可測空間 $(S_i,\mathcal S_i)$ に値を取る確率変数とします。$f:S_1\times\cdots\times S_n\to\mathbb R$ は積 $\sigma$ 代数に関して可測とし、$Z=f(X_1,\ldots,X_n)$ を調べます。以下では $n\ge1$ は有限、各 $c_i$ は有限の非負実数です。
 
 第 $i$ 座標だけを変えた二つの入力で出力差が高々 $c_i$ なら、その座標の**影響度**を $c_i$ で抑えたことになります。この条件は和の形を仮定しません。
 
@@ -35,7 +35,7 @@ $$
 $|x_i-x_i'|\le1$ より $c_i=1/n$ を選べます。すべての $n$ 座標を同時に変える条件ではなく、**一つずつ入れ替える**条件です。
 <!-- definition-example-end -->
 
-$S_i$ 上で $f$ の基準点 $x^*=(x_1^*,\ldots,x_n^*)$ を一つ固定すると、一座標ずつ基準点へ置き換え、その各差に三角不等式を適用すると
+$S_i$ 上で $f$ の基準点 $x^*=(x_1^*,\ldots,x_n^*)$ を一つ固定すると、一座標ずつ基準点へ置き換え、その各差に[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を適用すると
 
 $$
 |f(x)-f(x^*)|\le\sum_{i=1}^n c_i.
@@ -95,11 +95,14 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Doob差分の条件付き変動幅）**  
-> $X_1,\ldots,X_n$ が相互に独立で、$f$ が [有界差分条件](#def-hdp4-bounded-differences)を定数 $c_i$ で満たすとする。[Doob差分](#def-hdp4-doob-differences) $D_i$ について、$\mathcal F_{i-1}$ が与えられた下で $D_i$ の取り得る値は長さが高々 $c_i$ の区間内にある。また
+> $X_1,\ldots,X_n$ が相互に独立で、$f$ が [有界差分条件](#def-hdp4-bounded-differences)を定数 $c_i$ で満たすとする。[Doob差分](#def-hdp4-doob-differences) $D_i$ について、各 $i$ に $\mathcal F_{i-1}$ 可測な実数値確率変数 $A_i\le B_i$ があり、ほとんど確実に
 
 $$
-E[D_i\mid\mathcal F_{i-1}]=0.
+A_i\le D_i\le B_i,\qquad B_i-A_i\le c_i,
+\qquad E[D_i\mid\mathcal F_{i-1}]=0
 $$
+
+> を満たす。すなわち条件付きの値域幅は $c_i$ 以下である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -139,13 +142,35 @@ $$
 M_{i-1}=E[g_i(X_{<i},X_i)\mid\mathcal F_{i-1}].
 $$
 
-固定した過去について $a_i=\inf_{u\in S_i}g_i(x_{<i},u)$、$b_i=\sup_{u\in S_i}g_i(x_{<i},u)$ とすれば $b_i-a_i\le c_i$ です。$M_{i-1}$ も区間 $[a_i,b_i]$ にあるため、条件付きで
+固定した過去について
 
 $$
-a_i-M_{i-1}\le D_i=g_i(X_{<i},X_i)-M_{i-1}\le b_i-M_{i-1}.
+a_i(x_{<i})=\inf_{u\in S_i}g_i(x_{<i},u),\qquad
+b_i(x_{<i})=\sup_{u\in S_i}g_i(x_{<i},u)
 $$
 
-上下端の差は $(b_i-M_{i-1})-(a_i-M_{i-1})=b_i-a_i\le c_i$ です。中心化すると、一般に $|D_i|\le c_i$ とは言えますが、その粗い絶対値評価から幅を $2c_i$ と見積もる必要はありません。平均零は前節の塔の性質で確認済みです。
+と書けば、先ほどの差分評価から $b_i(x_{<i})-a_i(x_{<i})\le c_i$ です。$g_i$ は全入力上で有界な $f$ の平均なので、この上下端は有限です。ただし一般の可測空間では、全ての $u$ に関する上限・下限が過去の可測関数になるとは限りません。そこで、実際の条件付き区間には次の可測な端点を使います。
+
+$U_i=g_i(X_{<i},X_i)=M_i$ の、$\mathcal F_{i-1}$ を与えた条件付き**実数値分布**を取り、その本質的下限と上限を $A'_i,B'_i$ とします。実数値の条件付き分布は分布関数の有理点での値から構成でき、これらの端点は $\mathcal F_{i-1}$ 可測です。過去を固定すると $U_i$ は上記の幅 $c_i$ 以下の区間に入るので、
+
+$$
+A'_i\le U_i\le B'_i,\qquad B'_i-A'_i\le c_i
+$$
+
+がほとんど確実に成り立ちます。さらに $M_{i-1}=E[U_i\mid\mathcal F_{i-1}]$ です。両端点は過去から分かる量なので、条件付き平均の[単調性と既知量の性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)から
+
+$$
+A'_i\le M_{i-1}\le B'_i.
+$$
+
+よって $A_i=A'_i-M_{i-1}$、$B_i=B'_i-M_{i-1}$ と置けば、これらは $\mathcal F_{i-1}$ 可測で
+
+$$
+A_i\le D_i=U_i-M_{i-1}\le B_i,\qquad
+B_i-A_i=B'_i-A'_i\le c_i
+$$
+
+です。上下端の両方から同じ平均を引いても区間の幅は変わりません。絶対値だけで $|D_i|\le c_i$ と見ると幅を $2c_i$ と粗く見積もりがちですが、その必要はありません。平均零は[条件付き期待値の塔の性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower)で確認済みです。
 <!-- proof-end -->
 
 **二点分布による幅の検算。** 第2節の $D_1=X_1-1/2$ は $[-1/2,1/2]$、$D_2=2(X_2-1/2)$ は $[-1,1]$ を取ります。中心からの最大距離はそれぞれ $1/2$ と $1$、幅は $1$ と $2$ です。もし幅をさらに倍にしてしまうと、指数不等式の定数を余分に悪化させます。
@@ -158,7 +183,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（条件付きHoeffding評価）**  
-> $\mathcal G$ を情報の $\sigma$ 代数とし、可積分確率変数 $Y$ が $E[Y\mid\mathcal G]=0$ を満たすとする。$\mathcal G$ を固定した下で $Y$ が幅高々 $c$ の区間に入るものとする。ただし $c\ge0$ は定数である。このとき任意の $\lambda\in\mathbb R$ に対して
+> $\mathcal G$ を情報の $\sigma$ 代数とし、可積分な実数値確率変数 $Y$ は $E[Y\mid\mathcal G]=0$ を満たすとする。$\mathcal G$ 可測で有限な区間端 $A\le B$ があり、$A\le Y\le B$ と $B-A\le c$ がほとんど確実に成り立つとする。ただし $c\ge0$ は決定的定数である。このとき任意の $\lambda\in\mathbb R$ に対して
 
 $$
 E[e^{\lambda Y}\mid\mathcal G]\le \exp(\lambda^2c^2/8).
@@ -172,17 +197,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal G$ の条件付けで定まる区間端を $a,b$ とし、$b-a\le c$ とします。前節のような有限積独立変数から作る場合には、過去を固定した分布で議論できます。一般の条件付き分布が存在する設定でも同じ議論です。中心化は $E[Y\mid\mathcal G]=0$ であり、$a\le Y\le b$ が条件付きで成立します。
+$\mathcal G$ が与えられたときの実数値変数 $Y$ の条件付き分布を考えます。仮定により、ほとんどすべての条件付け先で分布は $[A,B]$ に集中し、その区間幅は $B-A\le c$ です。この分布の平均は $E[Y\mid\mathcal G]=0$ なので、[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の上下端をその条件付き値 $A,B$、指数係数を $\lambda$ として適用できます。
 
 [Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の入力 $Y$、下端 $a$、上端 $b$、指数係数 $\lambda$ に対して
 
 $$
 E[e^{\lambda(Y-E[Y\mid\mathcal G])}\mid\mathcal G]
-\le e^{\lambda^2(b-a)^2/8}
+\le e^{\lambda^2(B-A)^2/8}
 \le e^{\lambda^2c^2/8}
 $$
 
-となります。左辺では条件付き平均が零です。$\lambda<0$ にもHoeffding補題の両符号版を使います。$c=0$ なら $Y=0$ が条件付きで確率一なので両辺は $1$ です。
+となります。左辺では条件付き平均が零です。$\lambda<0$ にも[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の両符号版を使います。$c=0$ なら区間端が一致し、零平均と合わせて $Y=0$ がほとんど確実に成立するため両辺は $1$ です。
 <!-- proof-end -->
 
 この補題を $Y=D_i$、$\mathcal G=\mathcal F_{i-1}$ に当てると、前節の条件付き幅によって
@@ -214,7 +239,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-マルチンゲールの性質から $E[D_i\mid\mathcal F_{i-1}]=0$ です。$\lambda\ge0$ について、$S_k=\sum_{i=1}^kD_i$ と置くと $S_{k-1}$ は $\mathcal F_{k-1}$ 可測なので
+マルチンゲールの性質から $E[D_i\mid\mathcal F_{i-1}]=0$ です。$\lambda\ge0$ について、$S_k=\sum_{i=1}^kD_i$ と置くと $S_{k-1}$ は $\mathcal F_{k-1}$ 可測であり、[条件付き期待値の既知量の取り出し](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)を適用できるので
 
 $$
 \begin{aligned}
@@ -310,17 +335,18 @@ $$
 
 ### 最大値を取っても影響度は大きくならない
 
-$d$ 個の実数値関数 $f_1,\ldots,f_d$ がそれぞれ第 $i$ 座標で幅 $c_i$ 以下とします。$f(x)=\max_{1\le j\le d}f_j(x)$ と置くと、任意の二入力 $x,x'$ に対して
+$d$ 個の実数値関数 $f_1,\ldots,f_d$ がそれぞれ第 $i$ 座標で幅 $c_i$ 以下とします。$f(x)=\max_{1\le j\le d}f_j(x)$ と置き、**第 $i$ 座標だけが異なる**二入力 $x,x'$ を取ります。各 $j$ について $f_j(x)\le f_j(x')+c_i$ なので、最大値を取ると
 
 $$
 \begin{aligned}
-f(x)-f(x')
-&=\max_j f_j(x)-\max_k f_k(x')\\
-&\le\max_j(f_j(x)-f_j(x'))\le c_i
+f(x)
+&=\max_j f_j(x)\\
+&\le\max_j(f_j(x')+c_i)
+=f(x')+c_i
 \end{aligned}
 $$
 
-です。$x,x'$ を逆にして同じことを適用すれば $|f(x)-f(x')|\le c_i$ です。**最大値という非線形操作でも**入力ごとの変動幅は増えません。個々の $f_j$ が異なる幅 $c_{ij}$ を持つ場合は、$c_i=\max_jc_{ij}$ を使えます。
+です。$x,x'$ を逆にして同じことを適用すれば $|f(x)-f(x')|\le c_i$ です。これを全座標が異なる二入力へ無条件に適用することはできません。ここで確認したのは、あくまで一座標の入れ替え幅です。**最大値という非線形操作でも**入力ごとの変動幅は増えません。個々の $f_j$ が異なる幅 $c_{ij}$ を持つ場合は、$c_i=\max_jc_{ij}$ を使えます。
 
 たとえば $X_1,\ldots,X_n\in[0,1]^d$ が観測番号 $i$ に関して独立なら、各座標平均の最大値
 
@@ -334,7 +360,7 @@ $$
 P(Z-EZ\ge t)\le e^{-2nt^2}
 $$
 
-です。同一ベクトル内の $d$ 成分が独立である必要はありません。この評価は**最大値の期待値の周囲の集中**であり、$\max_j EX_{1j}$ の周囲の集中だと読み替えてはいけません。
+です。同一ベクトル内の $d$ 成分が独立である必要はありません。この評価は**最大値の期待値の周囲の集中**であり、$\max_j n^{-1}\sum_i EX_{ij}$ の周囲の集中だと読み替えてはいけません。$X_i$ が同一分布の場合に限り、この後者の中心は $\max_j EX_{1j}$ と一致します。
 
 ### 経験分布関数の最大偏差
 
@@ -344,13 +370,19 @@ $$
 F_n(x)=\frac1n\sum_{i=1}^n\mathbf1_{\{X_i\le x\}}
 $$
 
-と置きます。$Z=\sup_{x\in\mathbb R}|F_n(x)-F(x)|$ を考えます。一観測を $X_i'$ へ取り替えると、任意の実数 $x$ で指示関数の差の絶対値が高々 $1$ だから
+と置きます。$Z=\sup_{x\in\mathbb R}|F_n(x)-F(x)|$ を考えます。$F$ と $F_n$ はどちらも右連続なので、各実数 $x$ を右から近づく有理数列 $q_k\downarrow x$ で近似できます。よって $|F_n(q_k)-F(q_k)|\to|F_n(x)-F(x)|$ であり、上限は可算集合 $\mathbb Q$ 上で取っても同じです。したがって $Z$ は可測な確率変数です。一観測を $X_i'$ へ取り替えると、任意の実数 $x$ で指示関数の差の絶対値が高々 $1$ だから
 
 $$
 |F_n(x)-F_n'(x)|\le\frac1n.
 $$
 
-三角不等式から $||F_n(x)-F(x)|-|F_n'(x)-F(x)||\le1/n$ であり、上限を取っても
+[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)を $F_n(x)-F(x)$ と $F_n'(x)-F(x)$ に用いれば
+
+$$
+\bigl||F_n(x)-F(x)|-|F_n'(x)-F(x)|\bigr|\le \frac1n
+$$
+
+であり、上限を取っても
 
 $$
 |Z-Z'|\le \frac1n.
@@ -592,7 +624,7 @@ E e^{\lambda U_j}
 \end{aligned}
 $$
 
-各標本値について $e^{\lambda\max_j U_j}\le\sum_j e^{\lambda U_j}$ なので、$\log$ の凹性（またはJensenの不等式）と有限和の線形性から
+各標本値について $e^{\lambda\max_j U_j}\le\sum_j e^{\lambda U_j}$ です。また $W=e^{\lambda\max_jU_j}>0$ として $v=W/EW$ に $\log v\le v-1$ を適用すると、期待値を取って $E\log W\le\log EW$ が分かります。従って有限和の期待値の線形性から
 
 $$
 \begin{aligned}
