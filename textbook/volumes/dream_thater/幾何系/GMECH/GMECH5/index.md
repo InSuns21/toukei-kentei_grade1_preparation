@@ -78,7 +78,15 @@ h_L^*(i^*\omega)
 \end{aligned}
 $$
 
-これで（B1）を得ます。次に $\xi\in\mathfrak g_\mu$、$m\in L_\mu$、$v\in T_mL_\mu$ を固定します。$\xi$ が安定化Lie代数に属するので $\xi_M(m)$ は $T_mL_\mu$ に接します。一方、[正則レベル集合の接空間](../GMECH4/index.md#prop-gmech4-tangent-regular)により $dJ_m(v)=0$ です。[運動量写像の定義](../GMECH2/index.md#def-gmech2-hamiltonian-action)をこの $v$ と $\xi$ に適用すると、
+これで（B1）を得ます。次に水平性（B2）を確認します。任意の点 $m\in L_\mu$、接ベクトル $v\in T_mL_\mu$、Lie代数元 $\xi\in\mathfrak g_\mu$ を固定します。
+
+$\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[正則レベル集合の接空間](../GMECH4/index.md#prop-gmech4-tangent-regular)より
+
+$
+dJ_m(v)=0.
+$
+
+[運動量写像の定義](../GMECH2/index.md#def-gmech2-hamiltonian-action)を $\xi$ と $v$ に適用すると、
 
 $$
 \begin{aligned}
@@ -438,7 +446,11 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $\mu\ne0$ だから $q,p$ は独立で、両方を固定する $SO(3)$ の元は恒等元だけです。[GMECH4の正則性判定](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)により $dJ$ はレベル全点で全射です。$G_\mu$ は $e_3$ 軸を固定する $SO(2)$、次元 $1$ です。作用は自由で、コンパクト群なので固有です。[Marsden–Weinstein簡約定理](#thm-gmech5-marsden-weinstein)に $2n=6$、$r=3$、$\dim G_\mu=1$ を入れると
+**詳細解答。** 角運動量が非零なので、$q$ と $p$ は線形独立です。両者を固定する回転は恒等元だけであり、[運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)によりレベル上の各点で $dJ$ は全射です。
+
+余随伴安定化群 $G_\mu$ は $e_3$ 軸を固定する回転群 $SO(2)$ で、次元は $1$ です。制限作用は自由で、群がコンパクトなので固有です。
+
+よって[Marsden–Weinstein簡約定理](#thm-gmech5-marsden-weinstein)に、もとの多様体の次元 $2n=6$、全群の次元 $r=3$、安定化群の次元 $1$ を代入して
 
 $$
 \dim M_\mu=6-3-1=2.
@@ -492,7 +504,23 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $\pi(m)=\pi(m')$ なら $m'=hm$ となる $h\in G_\mu$ が存在し、$G$ 不変性から $H(m')=H(m)$ なので $H_\mu$ はwell-definedです。[GMECH3のNoetherの定理](../GMECH3/index.md#thm-gmech3-geometric-noether)により $dJ(X_H)=0$、従って $X_H$ はレベルに接します。群作用が $\omega$ と $H$ を保存するので、[SYM4のHamiltonベクトル場の一意性](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から $dh(X_H(m))=X_H(hm)$ であり、$\bar X=d\pi(X_H)$ が定義できます。
+**詳細解答。** 商で同じ点を表す $m,m'$ は、ある $h\in G_\mu$ について $m'=hm$ を満たします。$H$ の群不変性から
+
+$
+H(m')=H(hm)=H(m).
+$
+
+従って $H_\mu([m])=H(m)$ は代表元によらず定義できます。
+
+[GMECH3の幾何学的Noetherの定理](../GMECH3/index.md#thm-gmech3-geometric-noether)を適用すると $dJ(X_H)=0$ です。ゆえに $X_H$ は各運動量レベルに接します。
+
+さらに作用が $\omega$ と $H$ をともに保存するので、[Hamiltonベクトル場の一意性](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から
+
+$
+dh_m\bigl(X_H(m)\bigr)=X_H(hm).
+$
+
+従って商の接ベクトル $\bar X_{\pi(m)}=d\pi_m(X_H(m))$ は代表元の取り方によらず定義できます。
 
 $u=d\pi_m(v)\in T_{\pi(m)}M_\mu$ を任意に選ぶと、
 
@@ -575,7 +603,17 @@ $$
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** 1. $q\ne0$ は定義域の条件です。任意の $(q,p)$ を固定する回転は $q$ を固定するので恒等元のみであり、作用は自由です。[運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)により $dJ$ は全点で全射です。例えば $q=(1,0)$、$p=(0,\mu)$ とすれば $J=\mu$ なのでレベルは非空です。$SO(2)$ はコンパクトなので作用は固有、可換なので $G_\mu=G$ です。
+**詳細解答。** 1. 位置 $q$ は定義域の条件により零ではありません。これを固定する平面回転は恒等元のみなので、作用は自由です。[運動量写像の微分・軌道方向・正則性](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)より、すべての点で $dJ$ は全射です。
+
+レベルの非空性も確認します。位置と運動量を
+
+$
+q=(1,0),\qquad p=(0,\mu)
+$
+
+と選べば、$J(q,p)=\mu$ です。
+
+$SO(2)$ はコンパクトなので作用は固有です。また可換群だから余随伴作用は自明であり、$G_\mu=G$ です。
 
 2. $q=re_r$、$p=p_re_r+(\ell/r)e_\theta$ と置きます。$dq=e_r\,dr+r e_\theta\,d\theta$ から $p\cdot dq=p_r\,dr+\ell\,d\theta$ です。従って
 
