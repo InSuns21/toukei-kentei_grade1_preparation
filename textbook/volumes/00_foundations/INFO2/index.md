@@ -560,7 +560,7 @@ $$
 [INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
 
 $$
-I(X;Y)=1-h_2(1/4)=\frac12\log_2(4/3)>0.
+I(X;Y)=1-h_2(1/4)=\frac12-\frac34\log_2(4/3)>0.
 $$
 
 一方 $Z$ は一定なので $H(Z)=0$、$H(Z|X)=0$、従って $I(X;Z)=0$ です。[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)の具体例になっています。
