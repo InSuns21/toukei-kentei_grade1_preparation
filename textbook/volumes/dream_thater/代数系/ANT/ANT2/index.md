@@ -28,6 +28,8 @@ $$
 <!-- definition-example-start: def-ant2-complex-dirichlet-series -->
 ### 例：二つの項しかない級数
 
+**定義の確認**：収束領域を直接計算し、Dirichlet級数としての条件を検査します。
+
 $a(1)=1$、$a(2)=3$、$n\ge3$ で $a(n)=0$ とします。このとき $F_a(s)=1+3\cdot2^{-s}$ はすべての $s\in\mathbb C$ で定義されます。係数を無限個指定していても、収束の難しさが現れない場合があると分かります。
 <!-- definition-example-end -->
 
@@ -50,6 +52,8 @@ $$
 
 <!-- definition-example-start: def-ant2-absolute-abscissa -->
 ### 例：係数が $n^2$ なら境界は $3$
+
+**定義の確認**：絶対値級数の収束する実部と、その下限を求めます。
 
 $a(n)=n^2$ とすると $A_a(u)=\sum n^{2-u}$ です。積分比較で $\sum n^{-v}$ は $v>1$ のときだけ収束するので、$A_a(u)<\infty$ と $u>3$ は同値です。従って $\sigma_a=3$、境界 $u=3$ では調和級数が発散します。
 <!-- definition-example-end -->
@@ -420,7 +424,7 @@ $$
 (a*b)(12)=\sum_{d\mid12}1\cdot1=1+1+1+1+1+1=6.
 $$
 
-[約数個数関数の定義](../../NT/NT4/index.md#def-nt4-divisor-functions)から $\tau(12)=6$ と一致します。
+[約数個数関数と約数和関数](../../NT/NT4/index.md#def-nt4-divisor-functions)から $\tau(12)=6$ と一致します。
 <!-- solution-end -->
 
 #### A3. 二つの素数だけの局所計算
