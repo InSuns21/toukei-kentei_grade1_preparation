@@ -1,11 +1,11 @@
 version: 1
 id: ANT
 title: "解析的整数論"
-plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1〜ANT8 の各章本文を実装済み。系列横断の最終検証はPLANで管理する。
-# 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
+# ANT1〜ANT8 の各章本文・系列横断監査を完了。PLANは完了履歴として保管。
+# 公開索引・目次・knowledgeメタデータと整合した完了系列。
 chapters:
   - id: ANT1
     path: textbook/volumes/dream_thater/代数系/ANT/ANT1
