@@ -1,0 +1,73 @@
+chapter: SM8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM7
+forward_references: []
+concepts:
+  - id: statistical-mechanics.phase-transition-nonanalyticity
+    name: 自由エネルギーによる相転移の判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自由エネルギーによる相転移の判定）"]
+    requires: [statistical-mechanics.curie-weiss-pressure]
+  - id: statistical-mechanics.finite-pressure-analyticity
+    name: 有限Curie–Weiss模型の解析性と応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限Curie–Weiss模型の解析性と応答）"]
+    requires: [statistical-mechanics.curie-weiss-multiplicity]
+  - id: statistical-mechanics.field-cusp
+    name: 秩序相における圧力の非微分可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（秩序相における圧力の非微分可能性）"]
+    requires: [statistical-mechanics.curie-weiss-spontaneous, statistical-mechanics.curie-weiss-pressure]
+  - id: statistical-mechanics.critical-entropy-expansion
+    name: 二値エントロピーの臨界展開
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二値エントロピーの臨界展開）"]
+    requires: [statistical-mechanics.curie-weiss-critical-point]
+  - id: statistical-mechanics.temperature-nonanalyticity
+    name: 臨界磁化の平方根則と圧力の二次非解析性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（臨界磁化の平方根則と圧力の二次非解析性）"]
+    requires: [statistical-mechanics.critical-entropy-expansion, statistical-mechanics.curie-weiss-critical-point]
+  - id: statistical-mechanics.critical-exponents
+    name: 本模型の臨界指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本模型の臨界指数）"]
+    requires: [statistical-mechanics.temperature-nonanalyticity, statistical-mechanics.curie-weiss-response]
+  - id: statistical-mechanics.mean-field-critical-exponents
+    name: Curie–Weiss模型の三つの臨界指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Curie–Weiss模型の三つの臨界指数）"]
+    requires: [statistical-mechanics.critical-exponents, statistical-mechanics.critical-entropy-expansion]
+  - id: statistical-mechanics.connected-correlation-length
+    name: 二点の連結相関と相関長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二点の連結相関と相関長）"]
+    requires: [statistical-mechanics.ising-chain-correlation]
+  - id: statistical-mechanics.exchangeable-covariance
+    name: 全結合模型の共分散恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全結合模型の共分散恒等式）"]
+    requires: [statistical-mechanics.curie-weiss-model, statistical-mechanics.curie-weiss-response]
+  - id: statistical-mechanics.long-range-order
+    name: Curie–Weiss模型の長距離秩序と巨大揺らぎ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Curie–Weiss模型の長距離秩序と巨大揺らぎ）"]
+    requires: [statistical-mechanics.exchangeable-covariance, statistical-mechanics.curie-weiss-pressure, statistical-mechanics.curie-weiss-critical-point]
+  - id: statistical-mechanics.scaling-universality
+    name: 臨界スケーリングと普遍性の意味
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（臨界スケーリングと普遍性の意味）"]
+    requires: [statistical-mechanics.mean-field-critical-exponents]
