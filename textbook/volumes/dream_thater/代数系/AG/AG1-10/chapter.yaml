@@ -21,7 +21,8 @@ learning_objectives:
   - 非根基的方程式の一次情報と点集合の接空間を区別し反例を与えられる
 definitions:
   - { id: AG1-10-DEF-01, name: Zariski接空間 }
-  - { id: AG1-10-DEF-02, name: 余接空間と内在的接空間 }
+  - { id: AG1-10-DEF-02, name: Zariski余接空間 }
+  - { id: AG1-10-DEF-03, name: 内在的接空間 }
 theorems:
   - { id: AG1-10-PROP-01, name: 生成方程式とJacobian行列 }
   - { id: AG1-10-THM-01, name: Jacobianの核と局所環の双対の一致 }
