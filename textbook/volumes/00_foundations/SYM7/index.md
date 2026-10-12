@@ -18,6 +18,8 @@
 <!-- definition-example-start: def-sym7-symplectic-path -->
 ### 直接例：トーラス上の正の係数
 
+**定義の確認**：全時刻での滑らかさ・閉性・非退化性を、係数の正の下界から順に検証します。
+
 $\mathbb T^2=\mathbb R^2/(2\pi\mathbb Z)^2$ で角度座標 $x,y$ の微分 $dx,dy$ は大域的な1形式です。$|a|<1$ として
 
 $$
@@ -45,6 +47,8 @@ $$
 
 <!-- definition-example-start: def-sym7-moser-isotopy -->
 ### 直接例：平面の一定倍率を打ち消す
+
+**定義の確認**：逆写像を具体的に構成したうえで、初期条件と引き戻しの等式を別々に計算します。
 
 $\mathbb R^2$ 上の $\omega_t=(1+t)\,dx\wedge dy$ に対し、
 
@@ -85,6 +89,8 @@ $$
 
 <!-- definition-example-start: def-sym7-cohomologous-forms -->
 ### 直接例：トーラスで平均は変えず係数だけを変える
+
+**定義の確認**：二つの閉2形式の差が、単に閉じているだけでなく、大域1形式の外微分で書けることを構成的に確かめます。
 
 第1節の族に対し $\sigma= a\sin x\,dy$ とすれば
 
