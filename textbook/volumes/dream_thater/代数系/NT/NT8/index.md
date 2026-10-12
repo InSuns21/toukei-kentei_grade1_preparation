@@ -483,3 +483,72 @@ $$
 下極限は $1$ 以上、上極限は $1/(1-\varepsilon)$ 以下です。$\varepsilon\downarrow0$ により上極限も $1$ 以下となるので、比は $1$ に収束します。
 <!-- proof-end -->
 
+## 7. Dirichlet 級数から Euler 積へ
+
+[Dirichlet 畳み込み](../NT4/index.md#def-nt4-dirichlet-convolution)では、整数の約数に沿って二つの関数を組み合わせました。今度は $n^{-s}$ を重みとする無限和を使います。素因数分解の一意性によって、それは素数ごとの無限積にも変えられます。
+
+<a id="def-nt8-dirichlet-series"></a>
+
+<!-- formal-statement-start -->
+> **定義（Dirichlet 級数）**  
+> 算術関数 $a:\mathbb N\to\mathbb C$ に対し、収束するとき
+>
+$$
+D_a(s)=\sum_{n=1}^{\infty}\frac{a(n)}{n^s}
+$$
+>
+> をその Dirichlet 級数という。実数 $s>1$ で $a(n)=1$ とした級数を $\zeta(s)=\sum_{n=1}^\infty n^{-s}$ と書く。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-nt8-dirichlet-series -->
+**定義の確認**：$s=2$ で $a(n)=1$ とすると $1+1/4+1/9+\cdots$ です。積分比較により
+$$
+1\le\zeta(2)\le1+\int_1^\infty t^{-2}\,dt=2
+$$
+なので有限値へ収束します。$s=1$ では $2^{j-1}<n\le2^j$ の $2^{j-1}$ 個の項の各値が $1/2^j$ 以上なので、区間ごとの和は $1/2$ 以上です。よって調和級数は発散します。
+<!-- definition-example-end -->
+
+<a id="thm-nt8-euler-product"></a>
+
+<!-- formal-statement-start -->
+> **定理（絶対収束域における Euler 積）**  
+> すべての実数 $s>1$ に対して
+>
+$$
+\zeta(s)=\sum_{n=1}^\infty\frac1{n^s}
+=\prod_{p\text{ は素数}}(1-p^{-s})^{-1}
+$$
+>
+> が成り立つ。右辺は素数を小さい順に増やした有限積の極限である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+一つの素数について幾何級数を作り、それらを有限個だけ掛け合わせます。素因数分解の一意性で、得られる整数を重複なく数えます。無限積への極限は正項級数の収束で正当化します。
+
+<!-- proof-start -->
+### 証明
+
+$s>1$ では積分比較により
+$$
+\zeta(s)\le1+\int_1^\infty t^{-s}\,dt
+=1+\frac1{s-1}<\infty.
+$$
+各素数 $p$ に対して $0<p^{-s}<1$ なので幾何級数の和を使えます。素数 $P$ 以下の有限積を展開すると
+$$
+\prod_{p\le P}(1-p^{-s})^{-1}
+=\prod_{p\le P}\sum_{a=0}^\infty p^{-as}
+=\sum_{\substack{n\ge1\\n\text{ の素因数はすべて }P\text{ 以下}}}n^{-s}.
+$$
+有限個の素数に対応する正項級数の積は和の順序を変更でき、素因数分解の一意性により各整数が一度だけ現れます。この有限積は $\zeta(s)$ 以下で、$P$ を増やすと非減少です。極限を $L\le\zeta(s)$ とします。
+
+任意の $N$ について $P\ge N$ なら $1,\ldots,N$ の素因数はすべて $P$ 以下なので
+$$
+\sum_{n=1}^Nn^{-s}
+\le\prod_{p\le P}(1-p^{-s})^{-1}\le L.
+$$
+$N\to\infty$ とすると $\zeta(s)\le L$ が得られ、両側から $L=\zeta(s)$ です。
+<!-- proof-end -->
+
+ここでは $s>1$ のみを証明しました。$s=1$ に直接代入することも、複素平面へ延長することも許されません。Euler 積は整数全体の和と素数ごとの積を結ぶ入口で、解析的整数論でこの関係をさらに発展させます。
+
