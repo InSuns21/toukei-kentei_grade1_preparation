@@ -412,39 +412,48 @@ $$
 
 ### 最初の正の固有値へつなぐ
 
-グラフが連結で $n\geq2$ なら、[核と連結成分の定理](#thm-sgt1-kernel-components)と[半正定値性](#thm-sgt1-psd)により $\lambda_1=0<\lambda_2$ です。[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)による正規直交固有基底を $u_1=\mathbf1/\sqrt n,u_2,\ldots,u_n$ とすれば、$f\perp\mathbf1$ のとき
-
-$$
-f=\sum_{k=2}^n a_ku_k,\qquad
-f^{\mathsf T}Lf=\sum_{k=2}^n\lambda_k a_k^2,
-\qquad
-f^{\mathsf T}f=\sum_{k=2}^n a_k^2.
-$$
-
-従って $f\ne0$ について
-
-$$
-\frac{f^{\mathsf T}Lf}{f^{\mathsf T}f}
-=\frac{\sum_{k=2}^n\lambda_ka_k^2}{\sum_{k=2}^na_k^2}
-\geq\lambda_2,
-$$
-
-等号は $f=u_2$ で実現されます。ゆえに
+次に、連結グラフの零固有値の次に来る固有値を求める方法を考えます。頂点上の値から定数部分を除き、辺のエネルギーをノルムで割った比を最小化します。固有値を全て計算できなくても、適当な試験ベクトルを代入すれば上界を作れます。
 
 <a id="prop-sgt1-gap-variational"></a>
 
 <!-- formal-statement-start -->
 > **命題（非正規化Laplacianの変分表示）**  
 > 頂点数 $n\geq2$ の有限連結無向非負重み付きグラフに対し、
->
+
 $$
 \lambda_2
 =\min_{\substack{f\in\mathbb R^n\setminus\{0\}\\f\perp\mathbf1}}
 \frac{\sum_{i<j}w_{ij}(f_i-f_j)^2}{\sum_i f_i^2}
 $$
->
-> が成立する。この $\lambda_2$ は**組合せLaplacian**の第二固有値であり、後続の正規化Laplacianの第二固有値とは一般に異なる。
+
+> が成立する。$\lambda_2$ は**組合せLaplacian**の第二固有値であり、後続の正規化Laplacianの第二固有値とは一般に異なる。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+連結性から零固有値は単純です。定数方向を除く正規直交固有基底で任意の試験ベクトルを展開し、比を固有値の重み付き平均として書きます。二番目の固有ベクトルで下界を達成します。
+
+<!-- proof-start -->
+### 証明
+
+グラフは連結かつ $n\geq2$ なので、[核と連結成分の定理](#thm-sgt1-kernel-components)と[半正定値性](#thm-sgt1-psd)から $\lambda_1=0<\lambda_2$ です。[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)を実対称行列 $L$ に適用し、正規直交固有基底 $u_1=\mathbf1/\sqrt n,u_2,\ldots,u_n$ を選びます。$f\perp\mathbf1$ なら $u_1^{\mathsf T}f=0$ なので
+
+$$
+f=\sum_{k=2}^n a_ku_k,\qquad
+f^{\mathsf T}Lf=\sum_{k=2}^n\lambda_k a_k^2,\qquad
+f^{\mathsf T}f=\sum_{k=2}^n a_k^2.
+$$
+
+最後の二式は $Lu_k=\lambda_k u_k$ と $u_j^{\mathsf T}u_k=\delta_{jk}$ を二重和に代入したものです。$f\ne0$ のとき $\sum_{k=2}^na_k^2>0$ だから
+
+$$
+\frac{f^{\mathsf T}Lf}{f^{\mathsf T}f}
+=\frac{\sum_{k=2}^n\lambda_ka_k^2}{\sum_{k=2}^na_k^2}
+\geq\lambda_2
+$$
+
+となります。ここで各 $\lambda_k\geq\lambda_2$（$k\geq2$）を使いました。$f=u_2$ は $\mathbf1$ に直交し、ノルム1、かつ $u_2^{\mathsf T}Lu_2=\lambda_2$ なので等号を達成します。分子を[Dirichletエネルギーの辺表示](#thm-sgt1-dirichlet)に置き換えれば結論の式です。
+<!-- proof-end -->
 
 この変分式の分母は普通の Euclid 内積です。正規化版では次数を用いた内積と正規化が問題になり、同じ「第二固有値」という呼び名だけで数値を比較してはいけません。
 
