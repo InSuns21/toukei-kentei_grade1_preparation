@@ -226,13 +226,13 @@ $
 |g(s)|\le|\zeta(s)|\,5^m
 \ll(|t|+3)^{B+C_0\log5}.
 $
-最大値原理により同じ上界が内側の円板にも成り立ちます。また $g(s_0)=\zeta(s_0)$ なので $\log|g(s_0)|\ge\log(2-\zeta(2))$ です。
+[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)により同じ上界が内側の円板にも成り立ちます。また $g(s_0)=\zeta(s_0)$ なので $\log|g(s_0)|\ge\log(2-\zeta(2))$ です。
 
 半径 $5$ の円板で零でない $g$ には正則な対数 $H=\log g$ が存在します。$\operatorname{Re}H=\log|g|\le M=C_1\log(|t|+3)$ として、$K(s)=H(s)-H(s_0)$、$A=M-\operatorname{Re}H(s_0)\ge0$ を考えます。$\operatorname{Re}K\le A$ なので
 $
 w(s)=\frac{K(s)}{2A-K(s)}
 $
-は $|w(s)|\le1$、$w(s_0)=0$ を満たします（$|2A-K|^2-|K|^2=4A(A-\operatorname{Re}K)\ge0$）。$A=0$ の退化時は最大値原理で $H$ は定数として扱えます。半径 $4$ の円板にSchwarzの補題を適用して、$|s-s_0|\le3$ では $|w(s)|\le3/4$、従って
+は $|w(s)|\le1$、$w(s_0)=0$ を満たします（$|2A-K|^2-|K|^2=4A(A-\operatorname{Re}K)\ge0$）。$A=0$ の退化時は[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)で $H$ は定数として扱えます。半径 $4$ の円板に[Schwarzの補題](../../../解析系/CA/CA6/index.md#thm-ca6-schwarz-lemma)を適用して、$|s-s_0|\le3$ では $|w(s)|\le3/4$、従って
 $
 |H(s)-H(s_0)|
 =\left|\frac{2Aw(s)}{1+w(s)}\right|
@@ -246,7 +246,7 @@ $
 $
 目標の $s=\sigma+it$ は $|s-s_0|\le1$ です。この和から $|\operatorname{Im}\rho_j-t|>1$ の項を取り除いても、各分母の絶対値は $1$ より大きく、そのような項は $m=O(\log|t|)$ 個なので、誤差に吸収できます。逆に $|\operatorname{Im}\rho-t|\le1$ の非自明零点は $0<\operatorname{Re}\rho<1$ だから $|\rho-s_0|\le\sqrt5<5$ であり、初めの和に含まれています。
 
-$3\le|t|<10$ では、[ANT6の境界上の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)とζの零点の孤立性から、この高さ範囲の $\sigma\in[1,2]$ 上で対数微分は有界です。有限個の零点についても $\beta<1$ なので、上の零点和は有界です。定数を大きくすれば同じ形の評価が成り立ちます。
+$3\le|t|<10$ では、[ANT6の境界上の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)と[零点の孤立性](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)から、この高さ範囲の $\sigma\in[1,2]$ 上で対数微分は有界です。有限個の零点についても $\beta<1$ なので、上の零点和は有界です。定数を大きくすれば同じ形の評価が成り立ちます。
 <!-- proof-end -->
 
 <a id="thm-ant8-classical-zero-free"></a>
@@ -280,7 +280,7 @@ $$
 $$
 零点の項はすべて非負なので、右側で一部を残し他を捨てると上界が得られます。
 
-いま $\rho_0=\beta+i\gamma$ を零点、$|\gamma|\ge3$ とし、$v=1-\beta>0$、$\delta>0$、$\sigma=1+\delta\le2$ とします。[ζの対数微分とvon Mangoldt級数](../ANT5/index.md#thm-ant5-logarithmic-derivative)のEuler積による証明に非負恒等式 $3+4\cos u+\cos2u=2(1+\cos u)^2$ を適用すると
+いま $\rho_0=\beta+i\gamma$ を零点、$|\gamma|\ge3$ とし、$v=1-\beta>0$、$\delta>0$、$\sigma=1+\delta\le2$ とします。[ζの対数微分とvon Mangoldt級数](../ANT5/index.md#thm-ant5-logarithmic-derivative)のEuler積表示を出発点にします。各素数冪に対し $3+4\cos u+\cos2u=2(1+\cos u)^2\ge0$ であるため、係数の非負性から
 $$
 0\le3A(\sigma)+4\operatorname{Re}A(\sigma+i\gamma)
 +\operatorname{Re}A(\sigma+2i\gamma),\quad
@@ -305,7 +305,7 @@ $$
 $$
 従って (4.2) の右辺は $L(-7/(11d)+C_1)$ 以下です。$d>0$ を $7/(11d)>C_1$ となるよう十分小さく選べば矛盾します。ゆえに $v>d/(10L)$ です。
 
-$|\gamma|<3$ の零点については、[ANT6の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)と $s=1$ の極、$\zeta$ の有理型性・零点の孤立性を使います。$0<\beta<1$ で $|\gamma|\le3$ の零点は有限個なので、それぞれの $1-\beta$ の最小値は正です。この有限個に合わせて $c$ をさらに小さくすれば結論が全零点に及びます。
+$|\gamma|<3$ の零点については、[ANT6の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)と $s=1$ の極、$\zeta$ の有理型性・[零点の孤立性](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を使います。$0<\beta<1$ で $|\gamma|\le3$ の零点は有限個なので、それぞれの $1-\beta$ の最小値は正です。この有限個に合わせて $c$ をさらに小さくすれば結論が全零点に及びます。
 <!-- proof-end -->
 
 ここでは **定数 $c$ の数値的最適化** はしていません。零点の具体的な位置の数値計算とも独立の定理です。
@@ -443,7 +443,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[誘導文字の定義](../ANT3/index.md#def-ant3-primitive)より $p\nmid q$ では $\chi(p)=\chi^\ast(p)$ です。$p\mid q$ では $\chi(p)=0$ なので左辺のEuler因子は $1$ です。右辺の $L(s,\chi^\ast)$ に含まれる $p\mid f$ の因子は既に $1$ であり、$p\mid q$ かつ $p\nmid f$ の因子 $(1-\chi^\ast(p)p^{-s})^{-1}$ だけを有限積で打ち消します。[Euler積の一意性](../ANT3/index.md#thm-ant3-l-euler)から $\sigma>1$ で等式を得ます。解析接続後は恒等定理により同一の有理型関数です。
+[誘導文字の定義](../ANT3/index.md#def-ant3-primitive)より $p\nmid q$ では $\chi(p)=\chi^\ast(p)$ です。$p\mid q$ では $\chi(p)=0$ なので左辺のEuler因子は $1$ です。右辺の $L(s,\chi^\ast)$ に含まれる $p\mid f$ の因子は既に $1$ であり、$p\mid q$ かつ $p\nmid f$ の因子 $(1-\chi^\ast(p)p^{-s})^{-1}$ だけを有限積で打ち消します。[Euler積の一意性](../ANT3/index.md#thm-ant3-l-euler)から $\sigma>1$ で等式を得ます。解析接続後は[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により同一の有理型関数です。
 <!-- proof-end -->
 
 **例**：法 $4$ の主文字は法 $1$ の文字から誘導されるため
