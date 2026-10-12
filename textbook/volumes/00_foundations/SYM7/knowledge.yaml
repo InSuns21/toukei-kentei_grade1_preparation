@@ -1,0 +1,62 @@
+chapter: SYM7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM5
+  - GEO7
+  - GEO8
+  - ODE1
+  - ODE8
+forward_references: []
+
+concepts:
+  - id: symplectic.symplectic-path
+    name: シンプレクティック形式の滑らかな経路
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック形式の滑らかな経路）]
+    requires: [symplectic.symplectic-manifold]
+
+  - id: symplectic.moser-isotopy
+    name: Moser型の同位変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Moser型の同位変形）]
+    requires: [symplectic.symplectic-path, symplectic.symplectomorphism]
+
+  - id: symplectic.cohomologous-two-forms
+    name: コホモロジー的に等しい閉2形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（コホモロジー的に等しい閉2形式）]
+    requires: [geometry.exterior-derivative-square-zero]
+
+  - id: symplectic.moser-cohomology-necessary
+    name: Moser型同位変形に必要な完全性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Moser型同位変形に必要な完全性）]
+    requires: [symplectic.moser-isotopy, symplectic.cohomologous-two-forms, geometry.cartan-formula]
+
+  - id: symplectic.moser-stability
+    name: Moserの安定性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Moserの安定性定理：滑らかな原始形式を明示した形）]
+    requires: [symplectic.symplectic-path, symplectic.cohomologous-two-forms, geometry.cartan-formula, ode.ode8-continuation]
+
+  - id: symplectic.moser-affine-corollary
+    name: コホモロジー的に等しい端点の線形経路による変形
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（コホモロジー的に等しい端点の線形経路による変形）]
+    requires: [symplectic.moser-stability, symplectic.cohomologous-two-forms]
+
+  - id: symplectic.moser-fixed-set
+    name: 点wiseに零の原始形式が与える固定集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（点wiseに零の原始形式が与える固定集合）]
+    requires: [symplectic.moser-stability, symplectic.symplectic-manifold]
