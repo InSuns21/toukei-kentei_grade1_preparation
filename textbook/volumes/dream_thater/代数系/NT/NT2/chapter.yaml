@@ -1,0 +1,52 @@
+id: "NT2"
+title: "乗法群・Fermat–Euler・原始根"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - GRP2
+  - FLD1
+official_scope: []
+learning_objectives:
+  - 法nの単数群とEulerのφ関数を定義し、素因数分解と中国剰余定理からφの積公式を証明できる
+  - 元の位数とLagrangeの定理からEulerの定理およびFermatの小定理を導出し、必要な互いに素条件を説明できる
+  - 逆元対の組と固定点の判定からWilsonの定理を完全に証明できる
+  - 原始根の定義と具体的なべきの列から位数を判定できる
+  - 有限可換群の指数補題と体上の多項式の根数から素数法の乗法群の巡回性を証明できる
+  - 奇素数冪への原始根の持ち上げを二項展開で証明できる
+  - 原始根が存在する法を2、4、奇素数冪とその2倍に分類し、非存在の場合に壊れる条件を説明できる
+definitions:
+  - { id: NT2-DEF-01, name: 法nの単数群 }
+  - { id: NT2-DEF-02, name: Eulerのφ関数 }
+  - { id: NT2-DEF-03, name: 法nの原始根 }
+theorems:
+  - { id: NT2-PROP-01, name: φ関数の積公式 }
+  - { id: NT2-THM-01, name: Eulerの定理 }
+  - { id: NT2-COR-01, name: Fermatの小定理 }
+  - { id: NT2-THM-02, name: Wilsonの定理 }
+  - { id: NT2-LEM-01, name: 有限可換群の位数の最小公倍数 }
+  - { id: NT2-THM-03, name: 体の乗法群の有限部分群は巡回群 }
+  - { id: NT2-LEM-02, name: 奇素数での位数の持ち上げ }
+  - { id: NT2-THM-04, name: 奇素数冪の原始根 }
+  - { id: NT2-THM-05, name: 原始根が存在する法の分類 }
+canonical_examples:
+  - 法10の単数群と3の位数4
+  - 法12のφ関数の直接計数
+  - 法11の2が原始根であること
+  - 法8に原始根がない反例
+  - 法3から法9への原始根の持ち上げ
+  - 法15の単数群の非巡回性
+problem_patterns:
+  - NT2-UNIT-GROUP
+  - NT2-ORDER-EULER
+  - NT2-FERMAT-WILSON
+  - NT2-PRIMITIVE-ROOT-ORDER
+  - NT2-POLYNOMIAL-CYCLICITY
+  - NT2-ODD-PRIME-LIFTING
+  - NT2-CRT-NONCYCLIC
+  - NT2-WILSON-FIXED-POINTS
+  - NT2-ROOT-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
