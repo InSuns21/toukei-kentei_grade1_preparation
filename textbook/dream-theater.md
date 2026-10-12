@@ -269,6 +269,7 @@
 19. [P7B QMD・LAN](textbook/volumes/dream_thater/解析系/F0/F0-00P7B/index.md)
 20. [HDP1 指数Markov法・Hoeffding補題・Hoeffding不等式](textbook/volumes/dream_thater/解析系/HDP/HDP1/index.md)
 21. [HDP2 Bennett・Bernstein不等式と分散依存の集中](textbook/volumes/dream_thater/解析系/HDP/HDP2/index.md)
+22. [HDP3 sub-Gaussianとsub-exponentialの同値評価](textbook/volumes/dream_thater/解析系/HDP/HDP3/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I

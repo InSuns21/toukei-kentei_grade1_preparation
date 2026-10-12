@@ -1,0 +1,47 @@
+id: HDP3
+title: sub-Gaussianとsub-exponentialの同値評価
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP2
+official_scope: []
+learning_objectives:
+  - psi2およびpsi1のOrliczノルムを定義し二点分布と指数分布で直接検算できる
+  - sub-Gaussianの尾部・全次数モーメント・指数積分の同値性を定数付きで証明できる
+  - 中心化sub-Gaussianの全実数の指数モーメント同値性と中心化が必要な理由を説明できる
+  - 独立sub-Gaussian和の集中を指数Markov法と最適化から再導出できる
+  - sub-exponentialの尾部・モーメント・指数積分の同値性とsub-Gaussianからの包含を検証できる
+  - 中心化sub-exponentialの局所指数モーメントと二次・一次尾部の切替を証明できる
+  - 独立性を落とした反例と多座標union boundの標本数を導出できる
+definitions:
+  - { id: HDP3-DEF-01, name: sub-GaussianのOrliczノルム }
+  - { id: HDP3-DEF-02, name: sub-exponentialのOrliczノルム }
+theorems:
+  - { id: HDP3-THM-01, name: sub-Gaussianの三つの同値な評価 }
+  - { id: HDP3-THM-02, name: 中心化sub-Gaussianと全実数の指数モーメント }
+  - { id: HDP3-THM-03, name: 独立sub-Gaussian和の集中 }
+  - { id: HDP3-THM-04, name: sub-exponentialの三つの同値な評価 }
+  - { id: HDP3-LEM-01, name: 中心化sub-exponentialの局所指数モーメント }
+  - { id: HDP3-THM-05, name: 独立sub-exponential和の二領域集中 }
+canonical_examples:
+  - Rademacher変数のpsi2およびpsi1ノルムの定義からの計算
+  - 符号付き指数変数のpsi1有限・psi2無限の反例
+  - 正規分布の全実数の指数モーメント
+  - 非中心化Bernoulli変数の指数モーメント反例
+  - 完全従属Rademacher変数の独立和集中反例
+  - 高次元標本平均の座標ごとの独立性と同時保証
+problem_patterns:
+  - HDP3-RADEMACHER-ORLICZ
+  - HDP3-TAIL-VARIANCE
+  - HDP3-SIGNED-EXPONENTIAL
+  - HDP3-FACTORIAL-MOMENTS
+  - HDP3-CENTERING-NECESSITY
+  - HDP3-MOMENT-TO-ORLICZ
+  - HDP3-WEIGHTED-SUBGAUSSIAN
+  - HDP3-SUBEXPONENTIAL-MEAN
+  - HDP3-DEPENDENCE-COUNTEREXAMPLE
+  - HDP3-MULTIPLE-COORDINATES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

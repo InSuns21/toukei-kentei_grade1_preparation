@@ -16,7 +16,7 @@ chapters:
     title: Bennett・Bernstein不等式と分散依存の集中
   - id: HDP3
     path: textbook/volumes/dream_thater/解析系/HDP/HDP3
-    status: planned
+    status: completed
     title: sub-Gaussianとsub-exponentialの同値評価
   - id: HDP4
     path: textbook/volumes/dream_thater/解析系/HDP/HDP4
