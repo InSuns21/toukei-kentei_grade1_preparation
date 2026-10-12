@@ -33,7 +33,7 @@ $$
 > $I_1$ が正の小区間を動き、$I_2=E-cI_1^2/2>0$ を満たす部分だけで考えているため、作用角座標の端点や再交差不能点を含めていません。
 <!-- definition-example-end -->
 
-帰還時間が変化しても面積を保つことが重要です。断面の面積形式は、周囲の[シンプレクティック形式](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)を断面へ制限したものです。
+帰還時間が変化しても面積を保つことが重要です。断面の面積形式は、周囲の[シンプレクティック形式](../../SYM/SYM2/index.md#def-sym2-symplectic-manifold)を断面へ制限したものです。
 
 <a id="prop-int7-return-area"></a>
 
