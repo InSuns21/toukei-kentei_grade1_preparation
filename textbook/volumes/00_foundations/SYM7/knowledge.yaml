@@ -55,8 +55,8 @@ concepts:
     requires: [symplectic.moser-stability, symplectic.cohomologous-two-forms]
 
   - id: symplectic.moser-fixed-set
-    name: 点wiseに零の原始形式が与える固定集合
+    name: 各点で零となる原始形式が与える固定集合
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（点wiseに零の原始形式が与える固定集合）]
+    introduction_aliases: [命題（各点で零となる原始形式が与える固定集合）]
     requires: [symplectic.moser-stability, symplectic.symplectic-manifold]
