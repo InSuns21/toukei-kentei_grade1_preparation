@@ -71,9 +71,16 @@ concepts:
     introduction_aliases: [命題（理想気体の準静的等温仕事）]
     requires: [thermodynamics.pv-work, thermodynamics.first-law, thermodynamics.equation-of-state]
 
+  - id: thermodynamics.adiabatic-process
+    name: 断熱過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（断熱過程）]
+    requires: [thermodynamics.heat-work]
+
   - id: thermodynamics.adiabatic-curve
     name: 理想気体の準静的断熱曲線
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（理想気体の準静的断熱曲線）]
-    requires: [thermodynamics.first-law, thermodynamics.pv-work, thermodynamics.mayer]
+    requires: [thermodynamics.adiabatic-process, thermodynamics.first-law, thermodynamics.pv-work, thermodynamics.mayer]
