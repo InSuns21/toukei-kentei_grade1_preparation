@@ -24,7 +24,7 @@ $$
 \mathcal L_x f(q,y)=f(x(q,y),y)-q\,x(q,y)
 $$
 
-> と定義する。ここで用いる符号は熱力学での変数交換に合わせたものである。多変数での変換は、交換する各変数について必要な局所可逆性を満たす場合に行う。
+> と定義する。ここで用いる符号は熱力学での変数交換に合わせたものである。複数の変数を同時に交換するときは、変換する変数の組から共役変数の組への写像が**一組として局所可逆**であることを要する。個々の偏微分が非零という条件だけでは、連立した逆写像の存在を保証しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-th5-legendre -->
@@ -69,7 +69,23 @@ $$
 dg=f_x\,dx+f_y\,dy-q\,dx-x\,dq.
 $$
 
-定義から $f_x=q$ なので $f_x\,dx-q\,dx=0$ です。従って $dg=-x\,dq+f_y\,dy$。$q,y$ が局所独立変数であるから、それぞれの微分の係数を比較して結論を得ます。局所的に $x(q,y)$ と解けることは $f_{xx}\ne0$ による逆関数の議論に基づき、解けない点でこの表示を主張していません。
+定義から $f_x=q$ なので、$f_x\,dx-q\,dx=(f_x-q)\,dx=0$ です。この相殺により
+
+$$
+dg=-x\,dq+f_y\,dy.
+$$
+
+局所座標 $(q,y)$ について全微分の係数を比較すれば $g_q=-x$、$g_y=f_y$ です。局所可逆性も確認すると、$(x,y)\mapsto(f_x(x,y),y)$ の微分行列は
+
+$$
+\begin{pmatrix}
+f_{xx}&f_{xy}\\
+0&1
+\end{pmatrix},
+\qquad \det=f_{xx}\ne0.
+$$
+
+したがって考える点の近傍で $(q,y)$ から $(x,y)$ を一意に復元でき、前述の係数比較が正当化されます。$f_{xx}=0$ の点にはこの根拠をそのまま適用できません。
 <!-- proof-end -->
 
 **失敗例**：$f(x,y)=a x+h(y)$ なら $q=f_x=a$ は $x$ によらず、$f_{xx}=0$ です。異なる $x$ が同じ $q$ に潰れ、$x=x(q,y)$ が一意に定まりません。上の証明の係数相殺という計算は形式的に残っても、新しい独立変数を持つ関数としては構成できないのです。
@@ -174,12 +190,55 @@ $G$ についても $S=-G_T$、$V=G_p$、$\mu=G_N$ です。添字は常に**残
 
 ### 局所的に変数交換できる条件
 
-$U$ を $(S,V,N)$ の関数とする場合、$F$ への交換には $(\partial T/\partial S)_{V,N}=U_{SS}\ne0$ が十分です。$H$ には $(\partial p/\partial V)_{S,N}=-U_{VV}\ne0$ が十分です。$G$ で $S,V$ を同時に $T,p$ へ交換するには、$N$ を固定した写像 $(S,V)\mapsto (T,p)$ のJacobianが非零であることを要します。
+$U$ を $(S,V,N)$ の関数とする場合、$F$ への交換には $(\partial T/\partial S)_{V,N}=U_{SS}\ne0$ が十分です。$H$ には $(\partial p/\partial V)_{S,N}=-U_{VV}\ne0$ が十分です。$G$ で $S,V$ を同時に $T,p$ へ交換するときは、$N$ を固定した写像 $(S,V)\mapsto (T,p)$ 全体の可逆性を調べます。[拡張基本関係](../TH4/index.md#def-th4-chemical-potential)による $T=U_S$、$p=-U_V$ から各成分を微分すると
 
 $$
-\det\frac{\partial(T,p)}{\partial(S,V)}
-=-\bigl(U_{SS}U_{VV}-U_{SV}^{\,2}\bigr)\ne0.
+\frac{\partial(T,p)}{\partial(S,V)}
+=
+\begin{pmatrix}
+T_S&T_V\\
+p_S&p_V
+\end{pmatrix}
+=
+\begin{pmatrix}
+U_{SS}&U_{SV}\\
+-U_{VS}&-U_{VV}
+\end{pmatrix}.
 $$
+
+$U$ が $C^2$ 級なので $U_{VS}=U_{SV}$ です。$2\times2$ 行列の対角成分の積から、もう一方の二成分の積を差し引くと
+
+$$
+\begin{aligned}
+\det\frac{\partial(T,p)}{\partial(S,V)}
+&=U_{SS}(-U_{VV})-U_{SV}(-U_{VS})\\
+&=-U_{SS}U_{VV}+U_{SV}^{\,2}\\
+&=-\bigl(U_{SS}U_{VV}-U_{SV}^{\,2}\bigr).
+\end{aligned}
+$$
+
+この値が非零なら、$(T,p)$ を局所独立座標として採用できます。例えば $U_{SS}$ と $U_{VV}$ が個別に非零でも $U_{SS}U_{VV}=U_{SV}^{\,2}$ なら、二変数を同時に交換することはできません。実際、物質量 $N$ を固定し、エネルギーの尺度 $E_*>0$、エントロピーの尺度 $S_*>0$、体積の尺度 $V_*>0$ を定数とする数学的模型を考えます。
+
+$$
+U(S,V,N)=\frac{E_*}{2}
+\left(\frac{S}{S_*}-\frac{V}{V_*}\right)^2,
+\qquad \frac{S}{S_*}>\frac{V}{V_*}>0.
+$$
+
+この形なら括弧内は無次元であり、$U$ はエネルギーの単位を持ちます。$z=S/S_*-V/V_*>0$ と置いて偏微分すると
+
+$$
+T=\frac{E_*}{S_*}z>0,\qquad
+p=\frac{E_*}{V_*}z>0,
+$$
+
+$$
+U_{SS}=\frac{E_*}{S_*^2},\qquad
+U_{VV}=\frac{E_*}{V_*^2},\qquad
+U_{SV}=-\frac{E_*}{S_*V_*}.
+$$
+
+したがって $U_{SS}U_{VV}-U_{SV}^2=0$ で、$p=(S_*/V_*)T$ という拘束が常に残ります。対角成分は正でも $T$ と $p$ を独立に指定できません。これは同時変換の可逆性を調べるための数学的模型であり、安定な物質の構成を意図していません。
 
 この条件は全ての状態で自動的に成り立つものではありません。特に相転移近傍で単一の滑らかな座標表示が破れる場合、形式的な微分式を大域的に使わないことが重要です。凸性や安定性との関連はTH6で検討します。
 
@@ -414,7 +473,35 @@ $$
 G(T,p,N)=-\frac{NT^2}{4A}+2N\sqrt{Bp}+CN.
 $$
 
-$G_T=-NT/(2A)=-S$、$G_p=N\sqrt{B/p}=V$。また $G_N=-T^2/(4A)+2\sqrt{Bp}+C$ は、もとの $\mu=-AS^2/N^2+2BN/V+C$ に $S,V$ の変換式を代入した値と一致します。$G=N G_N$ も成立するため、この模型は[Euler関係式](#thm-th5-euler)の例にもなります。
+[自然変数の命題](#prop-th5-natural-variables)を確認するため、$T,p,N$ をそれぞれ独立変数として微分します。
+
+$$
+\begin{aligned}
+G_T&=-\frac{NT}{2A}=-S,\\
+G_p&=2N\frac{B}{2\sqrt{Bp}}
+=N\sqrt{\frac Bp}=V,\\
+G_N&=-\frac{T^2}{4A}+2\sqrt{Bp}+C.
+\end{aligned}
+$$
+
+一方、元の基本関係を **$S,V$ を固定して** $N$ で微分した化学ポテンシャルは
+
+$$
+\mu=U_N=-\frac{AS^2}{N^2}+\frac{2BN}{V}+C.
+$$
+
+ここへ $S=NT/(2A)$ と $V=N\sqrt{B/p}$ を代入すれば
+
+$$
+\begin{aligned}
+\mu
+&=-\frac{A(NT/(2A))^2}{N^2}
++\frac{2BN}{N\sqrt{B/p}}+C\\
+&=-\frac{T^2}{4A}+2\sqrt{Bp}+C=G_N.
+\end{aligned}
+$$
+
+さらに $G=N[-T^2/(4A)+2\sqrt{Bp}+C]=N\mu$ です。この模型が一次同次であることを確認したうえで、[Euler関係式](#thm-th5-euler)の結論とも一致します。
 
 ## 6. 演習：変数、微分、示量性を行き来する
 
@@ -557,7 +644,7 @@ $$
 
 #### B2. 理想気体のMaxwell関係式と熱容量
 
-$N>0$ 一定、$pV=NRT$、$c_V>0$ 一定の理想気体で
+$N,R,c_V,T_*,v_*>0$ を定数、$T,V,p>0$ とし、$N$ を固定した理想気体の状態方程式を $pV=NRT$ とする。定積モル熱容量 $c_V$ は一定で、エントロピーを
 
 $$
 S=Nc_V\log(T/T_*)+NR\log(V/(Nv_*))
@@ -633,7 +720,7 @@ $$
 
 #### C1. 理想気体のGibbs自由エネルギー
 
-$N>0$、$c_V,R,T_*,v_*>0$ を定数とする一成分理想気体の基本関係が、平衡状態で $U=Nc_VT$、$pV=NRT$ と
+$N>0$ を変化させられる物質量とし、$c_V,R,T_*,v_*>0$ は $N$ に依存しない定数とする。一成分理想気体の基本関係が、$T,V>0$ の平衡状態で $U=Nc_VT$、$pV=NRT$ と
 
 $$
 S=Nc_V\log\frac{T}{T_*}
@@ -662,7 +749,23 @@ c_VT\left(1-\log\frac{T}{T_*}\right)
 \right].
 $$
 
-角括弧は $T,p$ のみの関数なので、$G$ は $N$ の一次式です。まず $T$ で微分します。$T(1-\log(T/T_*))$ の微分は $-\log(T/T_*)$、$T(1-\log(RT/(pv_*)))$ の微分は $-\log(RT/(pv_*))$ なので
+角括弧は $T,p$ のみの関数なので、$G$ は $N$ の一次式です。まず $T$ で微分します。固定 $p,N$ の下では、$T_*,R,p,v_*$ は定数であるため
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial T}
+\left[T\left(1-\log\frac{T}{T_*}\right)\right]
+&=1-\log\frac{T}{T_*}-T\frac1T
+=-\log\frac{T}{T_*},\\
+\frac{\partial}{\partial T}
+\left[T\left(1-\log\frac{RT}{pv_*}\right)\right]
+&=1-\log\frac{RT}{pv_*}
+-T\frac{R/(pv_*)}{RT/(pv_*)}\\
+&=-\log\frac{RT}{pv_*}.
+\end{aligned}
+$$
+
+従って
 
 $$
 -G_T=Nc_V\log\frac{T}{T_*}
@@ -675,7 +778,7 @@ $$
 G_p=-NRT\left(-\frac1p\right)=\frac{NRT}{p}=V.
 $$
 
-$N$ を微分して
+[自然変数の命題](#prop-th5-natural-variables)によれば、$T,p$ 一定での $G_N$ が化学ポテンシャルです。ここでは $G=N g(T,p)$ と書けて $g$ は $N$ に依存しないため、$G_N=g$ となります。具体的に
 
 $$
 \mu=G_N
