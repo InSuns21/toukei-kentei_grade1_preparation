@@ -402,7 +402,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $d\phi_t|_q=1$ なのでその逆も1であり、[余接持ち上げ作用の定義](#def-gmech1-cotangent-action)から
+**詳細解答。** $d\phi_t|_q=1$ なのでその逆も1であり、[余接持ち上げられたLie群作用](#def-gmech1-cotangent-action)から
 
 $$
 \widetilde\Phi_t(q,p)=(q+t,p).
@@ -498,7 +498,7 @@ $Q$ 上の $a=(0,x)$ として [座標公式](#thm-gmech1-infinitesimal-coordina
 <!-- solution-end -->
 
 <a id="ex-gmech1-b02"></a>
-**B2. 無限小と正準2形式。** $Q=\mathbb R^2$ で $\xi_Q=-y\partial_x+x\partial_y$ が回転の生成子とする。[本章の座標公式](#thm-gmech1-infinitesimal-coordinate)から持ち上げを求め、$\iota_{\xi_{T^*Q}}\omega_{\mathrm{can}}$ を計算せよ。
+**B2. 無限小と正準2形式。** $Q=\mathbb R^2$ で $\xi_Q=-y\partial_x+x\partial_y$ が回転の生成子とする。[余接持ち上げの無限小座標公式](#thm-gmech1-infinitesimal-coordinate)から持ち上げを求め、$\iota_{\xi_{T^*Q}}\omega_{\mathrm{can}}$ を計算せよ。
 
 - Level: B
 
