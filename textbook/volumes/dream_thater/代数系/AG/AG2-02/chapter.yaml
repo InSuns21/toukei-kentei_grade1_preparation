@@ -1,0 +1,53 @@
+id: "AG2-02"
+title: "斉次イデアルと射影代数的集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-01
+  - AG1-08
+  - AG1-07
+  - AG1-05
+  - AG1-01
+official_scope: []
+learning_objectives:
+  - 斉次成分分解から斉次イデアルを定義し、生成元との同値性を証明できる
+  - 射影零点集合と射影消滅イデアルを構成し、斉次性・根基性を確認できる
+  - 無関係イデアルの射影零点集合が空になる理由を説明できる
+  - 射影零点集合をアフィン錐の非零点として捉え、射影版零点定理を導出できる
+  - 飽和イデアルの定義と局所的な消去条件を理解し、具体例を計算できる
+  - 根基的飽和斉次イデアルと射影閉集合の対応を使える
+  - 射影方程式を標準チャートに非斉次化し、無限遠点を検査できる
+definitions:
+  - { id: AG2-02-DEF-01, name: 斉次イデアル }
+  - { id: AG2-02-DEF-02, name: 射影消滅イデアル }
+  - { id: AG2-02-DEF-03, name: 無関係イデアル }
+  - { id: AG2-02-DEF-04, name: 飽和イデアル }
+theorems:
+  - { id: AG2-02-PROP-01, name: 斉次生成と斉次成分判定 }
+  - { id: AG2-02-PROP-02, name: 射影消滅イデアルの斉次性と根基性 }
+  - { id: AG2-02-PROP-03, name: 飽和による零点集合の不変性 }
+  - { id: AG2-02-THM-01, name: 射影版Hilbertの零点定理 }
+  - { id: AG2-02-COR-01, name: 射影閉集合と根基的飽和斉次イデアルの対応 }
+  - { id: AG2-02-PROP-04, name: 射影チャートの方程式 }
+canonical_examples:
+  - 二次斉次イデアルの成分判定
+  - 無関係イデアルと空の射影零点集合
+  - 斉次イデアル (X^2,XY) の飽和計算
+  - 二点集合の消滅イデアル (XY)
+  - 円錐曲線の非斉次化と無限遠点
+  - 射影直線と孤立点の和集合
+problem_patterns:
+  - AG2-02-HOMOGENEOUS-COMPONENT
+  - AG2-02-IRRELEVANT-IDEAL
+  - AG2-02-POINT-IDEAL
+  - AG2-02-CHART-EQUATIONS
+  - AG2-02-SATURATION
+  - AG2-02-EMPTY-LOCUS
+  - AG2-02-TWO-POINT-IDEAL
+  - AG2-02-CONE-AND-CHARTS
+  - AG2-02-SATURATED-UNION
+  - AG2-02-PROJECTIVE-NULLSTELLENSATZ
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

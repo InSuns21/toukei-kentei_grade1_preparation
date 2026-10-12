@@ -60,7 +60,7 @@ chapters:
     title: "射影空間と斉次座標"
   - id: AG2-02
     path: textbook/volumes/dream_thater/代数系/AG/AG2-02
-    status: planned
+    status: completed
     title: "斉次イデアルと射影代数的集合"
   - id: AG2-03
     path: textbook/volumes/dream_thater/代数系/AG/AG2-03
