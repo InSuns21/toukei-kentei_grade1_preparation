@@ -1,0 +1,49 @@
+chapter: SREL6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL5
+forward_references: []
+
+concepts:
+  - id: relativity.em-boost-components
+    name: 電磁場のboost成分式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電磁場のboost成分式）]
+    requires: [relativity.em-field-boost]
+
+  - id: relativity.em-field-invariants
+    name: 電磁場の二つのLorentz不変量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電磁場の二つのLorentz不変量）]
+    requires: [relativity.electromagnetic-field-tensor, relativity.em-boost-components]
+
+  - id: relativity.em-energy-momentum-tensor
+    name: 電磁場のエネルギー運動量テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電磁場のエネルギー運動量テンソル）]
+    requires: [relativity.electromagnetic-field-tensor, relativity.minkowski-metric]
+
+  - id: relativity.em-energy-stress-components
+    name: エネルギー密度・Poynting流・Maxwell応力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（エネルギー密度・Poynting流・Maxwell応力）]
+    requires: [relativity.em-energy-momentum-tensor, relativity.em-field-invariants]
+
+  - id: relativity.em-tensor-properties
+    name: エネルギー運動量テンソルの共変性・対称性・零トレース
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（エネルギー運動量テンソルの共変性・対称性・零トレース）]
+    requires: [relativity.em-energy-momentum-tensor, relativity.em-field-invariants]
+
+  - id: relativity.em-energy-momentum-balance
+    name: 電磁場のエネルギー運動量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（電磁場のエネルギー運動量収支）]
+    requires: [relativity.em-energy-momentum-tensor, relativity.inhomogeneous-maxwell-four, relativity.homogeneous-maxwell-four, relativity.four-current]

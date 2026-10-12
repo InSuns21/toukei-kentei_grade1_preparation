@@ -27,7 +27,7 @@ chapters:
     title: 電磁場テンソル・Maxwell方程式の共変形式
   - id: SREL6
     path: textbook/volumes/dream_thater/物理系/SREL/SREL6
-    status: planned
+    status: completed
     title: 電磁場のLorentz変換・エネルギー運動量テンソル
   - id: SREL7
     path: textbook/volumes/dream_thater/物理系/SREL/SREL7
