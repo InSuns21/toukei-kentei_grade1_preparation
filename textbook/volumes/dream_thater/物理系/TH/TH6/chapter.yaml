@@ -7,6 +7,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 固定エントロピー・体積での交換変分を定義し、Taylor展開からHessianの安定判定と零曲率の限界を証明できる
+  - 凸な状態領域全体でのHessian半正定値と大域凸性の同値、および支持平面不等式を証明できる
   - 定積・定圧熱容量、等温・断熱圧縮率、熱膨張率を定義から計算し、厳密安定性の曲率条件と結び付けられる
   - Maxwell関係式から熱容量差と圧縮率比の恒等式を中間式つきで証明できる
   - Helmholtz・Gibbsポテンシャルの自然変数に関する凹凸性と内部状態の最小原理を混同せず説明できる
@@ -42,8 +43,9 @@ problem_patterns:
   - TH6-COUPLED-HESSIAN-COUNTEREXAMPLE
   - TH6-ADIABATIC-COMPRESSIBILITY
   - TH6-GIBBS-CONCAVITY
+  - TH6-GLOBAL-CONVEXITY-SUPPORT
   - TH6-NONIDEAL-FREE-ENERGY
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 10, exercises: 9, review: 4 }
