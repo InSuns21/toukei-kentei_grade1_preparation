@@ -214,7 +214,13 @@ $$
 H(X|\widehat X)=H(E|\widehat X)\le H(E)=h_2(\delta).
 $$
 
-最初の等号は $(X,\widehat X)\leftrightarrow(E,\widehat X)$ の各 $\widehat X$ における全単射、次の不等号は[条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)を外すと増加しない事実（相互情報量の非負性）によります。$0\le\delta\le D\le1/2$ のとき、$h_2$ は $[0,1/2]$ 上単調増加です。実際、内部で $h_2'(t)=\log_2((1-t)/t)\ge0$、端点でも連続です。ゆえに
+最初の等号は、$\widehat X$ を固定すると $E=X\oplus\widehat X$ と $X=E\oplus\widehat X$ が互いに逆の対応になるためです。次の不等号は、[相互情報量の相対エントロピー表示](../INFO2/index.md#thm-info2-mutual-kl)と[Gibbs不等式](../INFO2/index.md#thm-info2-gibbs)を $(E,\widehat X)$ に適用し、
+
+$$
+H(E)-H(E|\widehat X)=I(E;\widehat X)\ge0
+$$
+
+とすることで得られます。すなわち、**条件付けを外すとエントロピーは減少しません**。$0\le\delta\le D\le1/2$ のとき、$h_2$ は $[0,1/2]$ 上単調増加です。実際、内部で $h_2'(t)=\log_2((1-t)/t)\ge0$、端点でも連続です。ゆえに
 
 $$
 I(X;\widehat X)=H(X)-H(X|\widehat X)
@@ -256,17 +262,37 @@ $$
 \log_2M\ge I(X^n;J)\ge I(X^n;\widehat X^n).
 $$
 
-情報源の独立性から $H(X^n)=\sum_{i=1}^nH(X_i)$ です。条件付きエントロピーの[連鎖律](../INFO1/index.md#thm-info1-chain-rule)を条件付け付きで展開し、条件付けを増やすとエントロピーが増えないことを逐次使うと
+情報源の独立性から $H(X^n)=\sum_{i=1}^nH(X_i)$ です。次に、[結合エントロピーの連鎖律](../INFO1/index.md#thm-info1-chain-rule)を、各 $i$ について組 $(X^{i-1},\widehat X^n)$ と変数 $X_i$ に適用します。$X^0$ は空列とし、差を足すと途中の項が消えて
 
 $$
 \begin{aligned}
 H(X^n|\widehat X^n)
-&=\sum_{i=1}^nH(X_i|X^{i-1},\widehat X^n)\\
-&\le\sum_{i=1}^nH(X_i|\widehat X_i).
+&=H(X^n,\widehat X^n)-H(\widehat X^n)\\
+&=\sum_{i=1}^n\bigl[H(X^i,\widehat X^n)
+                  -H(X^{i-1},\widehat X^n)\bigr]\\
+&=\sum_{i=1}^nH(X_i|X^{i-1},\widehat X^n).
 \end{aligned}
 $$
 
-ここで $\widehat X_i$ は $(X^{i-1},\widehat X^n)$ の一部であり、追加の条件付けを外すとエントロピーは減らないため、不等号の向きは表示の通りです。両式を引き算して
+右辺を各座標の条件付きエントロピーで上から抑えます。$B_i=\widehat X_i$、$Z_i=(X^{i-1},\widehat X_1,\ldots,\widehat X_{i-1},\widehat X_{i+1},\ldots,\widehat X_n)$ と置くと、有限分布の定義から
+
+$$
+\begin{aligned}
+&H(X_i|B_i)-H(X_i|B_i,Z_i)\\
+&\quad=\sum_{\substack{b,z:\\P(B_i=b,Z_i=z)>0}}
+P(B_i=b,Z_i=z)
+D\bigl(P_{X_i|B_i=b,Z_i=z}\,\|\,P_{X_i|B_i=b}\bigr)\ge0.
+\end{aligned}
+$$
+
+最後は[相対エントロピーの定義](../INFO2/index.md#def-info2-relative-entropy)と[Gibbs不等式](../INFO2/index.md#thm-info2-gibbs)によります。正確率の $(b,z)$ で条件付き分布が正である記号は $P_{X_i|B_i=b}$ でも正なので、比の分母は零になりません。従って
+
+$$
+H(X^n|\widehat X^n)
+\le\sum_{i=1}^nH(X_i|\widehat X_i).
+$$
+
+ここで独立であると仮定したのは入力列 $X^n$ だけで、復元列の座標に独立性は必要ありません。両式を引き算して
 
 $$
 \begin{aligned}
@@ -288,7 +314,19 @@ $$
 \end{aligned}
 $$
 
-中間の不等号は有限個の点へ凸性を繰り返して適用した Jensen 型評価です。最後の等号は期待値と有限和の交換によります。$\Delta_n\le D$ なら単調非増加性から $R(\Delta_n)\ge R(D)$ です。
+中間の不等号は[率歪み関数の凸性](#prop-info8-shape)を、歪み値 $D_1,\ldots,D_n\ge D_{\min}$ に反復したものです。例えば $n\ge2$ なら
+
+$$
+\begin{aligned}
+R\left(\frac1n\sum_{i=1}^nD_i\right)
+&=R\left(\frac{n-1}{n}\frac{\sum_{i=1}^{n-1}D_i}{n-1}
+          +\frac1nD_n\right)\\
+&\le\frac{n-1}{n}R\left(\frac{\sum_{i=1}^{n-1}D_i}{n-1}\right)
++\frac1nR(D_n).
+\end{aligned}
+$$
+
+この操作を $n-1$ 個の平均にも繰り返すと $\frac1n\sum_iR(D_i)$ が得られます。$n=1$ では等号です。最後の等号は期待値の線形性から $\Delta_n=n^{-1}\sum_iD_i$ としたものです。$\Delta_n\le D$ なら単調非増加性から $R(\Delta_n)\ge R(D)$ です。
 <!-- proof-end -->
 
 情報源座標間の独立性が失われると、$H(X^n)=\sum_iH(X_i)$ という等式が一般に成立しません。この証明を定常だが相関のある情報源へ、そのまま転用することはできません。
