@@ -464,7 +464,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp7-covariance-adapted -->
-**定義の確認**。 $X=(2G,0)$、$G\sim N(0,1)$ とします。標準正規の密度は $(2\pi)^{-1/2}e^{-x^2/2}$ です。$s^2>2$ なら $a=1/2-1/s^2>0$ と置き、正規積分 $\int_{\mathbb R}e^{-ax^2}\,dx=\sqrt{\pi/a}$ を適用して
+**定義の確認**。 $X=(2G,0)$、$G\sim N(0,1)$ とします。標準正規の密度は $(2\pi)^{-1/2}e^{-x^2/2}$ です。$s^2>2$ なら $a=1/2-1/s^2>0$ と置きます。$z=\sqrt{2a}\,x$ と変数変換すると、標準正規密度の積分が $1$ であることから $\int_{\mathbb R}e^{-ax^2}\,dx=(2a)^{-1/2}\int_{\mathbb R}e^{-z^2/2}\,dz=\sqrt{\pi/a}$ です。これを代入すると
 
 $$
 \begin{aligned}
