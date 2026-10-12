@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SREL7
   - SREL8
+  - TH2
 forward_references: []
 
 concepts:
