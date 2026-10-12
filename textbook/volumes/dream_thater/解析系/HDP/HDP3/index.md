@@ -122,7 +122,7 @@ $$
 
 $t=0$ の場合は左辺 $1$、右辺 $2$ なので成立します。
 
-**(I) $\Rightarrow$ (III)。** 任意の $u\ge0$ について、$u^{p/2}e^{-u}$ は $u=p/2$ で最大になります。実際、$u>0$ において対数微分は $p/(2u)-1$ です。従って
+**(I) $\Rightarrow$ (III)。** 任意の $u\ge0$ について、$u^{p/2}e^{-u}$ は $u=p/2$ で最大になります。実際、$u>0$ での導関数は $u^{p/2}e^{-u}(p/(2u)-1)$ なので、増加・減少が切り替わる点は $u=p/2$ です。従って
 
 $$
 u^{p/2}\le\left(\frac p{2e}\right)^{p/2}e^u.
@@ -241,20 +241,20 @@ $$
 \lambda X\le\frac{X^2}{2K^2}+\frac{\lambda^2K^2}2.
 $$
 
-指数を取り、平方根の凹性に対するJensenの不等式を用いれば
+$z\ge0$ では $(e^{z/2}-1)^2\ge0$ から $e^{z/2}\le(1+e^z)/2$ です。指数を取ってこの評価を使うと
 
 $$
 \begin{aligned}
 E e^{\lambda X}
 &\le e^{\lambda^2K^2/2}E e^{X^2/(2K^2)}\\
 &\le e^{\lambda^2K^2/2}
-\left(E e^{X^2/K^2}\right)^{1/2}\\
-&\le e^{\lambda^2K^2/2}\sqrt2
+\frac{1+E e^{X^2/K^2}}2\\
+&\le\frac32 e^{\lambda^2K^2/2}
 \le e^{2\lambda^2K^2}.
 \end{aligned}
 $$
 
-最後は $\lambda^2K^2\ge1$ と $(1+\log2)/2<2$ によります。(a) は全ての実数 $\lambda$ で成立しました。
+最後は $\lambda^2K^2\ge1$ と $\log(3/2)<3/2$ によります。(a) は全ての実数 $\lambda$ で成立しました。
 
 **(b)。** $t>0$、$\lambda>0$ とすると、[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)により
 
@@ -272,7 +272,7 @@ $$
 [前節の三条件の同値定理](#thm-hdp3-subgaussian-equivalence)の (II) $\Rightarrow$ (I) に $K=\sqrt2\,\sigma$ を代入すると $\|X\|_{\psi_2}\le\sqrt3\sqrt2\,\sigma$ です。
 <!-- proof-end -->
 
-正規分布は名前のとおりsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$ なら平方完成を使う通常の正規積分から $E e^{\lambda X}=e^{\sigma^2\lambda^2/2}$ です。この計算と上の定理により、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
+正規分布は名前のとおりsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$ なら平方完成を使う通常の正規積分から $E e^{\lambda X}=e^{\sigma^2\lambda^2/2}$ です。この計算と[中心化sub-Gaussianの指数モーメントの定理](#thm-hdp3-subgaussian-mgf)により、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
 
 ## 4. 独立なsub-Gaussian和
 
@@ -410,14 +410,13 @@ $$
 \frac{|X|}{2K}\le\frac{X^2}{4K^2}+\frac14
 $$
 
-であり、凹関数 $u^{1/4}$ にJensenの不等式を使うと
+です。さらに $z\ge0$ で指数関数の凸性から $e^{z/4}\le(3+e^z)/4$ が成り立つので
 
 $$
 \begin{aligned}
 E e^{|X|/(2K)}
-&\le e^{1/4}E(e^{X^2/K^2})^{1/4}\\
-&\le e^{1/4}(E e^{X^2/K^2})^{1/4}\\
-&\le e^{1/4}2^{1/4}<2.
+&\le e^{1/4}\left(\frac34+\frac14 E e^{X^2/K^2}\right)\\
+&\le\frac54 e^{1/4}<2.
 \end{aligned}
 $$
 
@@ -599,7 +598,7 @@ P(|X|\ge2K)
 \le2e^{-4}.
 $$
 
-さらに $E e^{X^2/K^2}\le2$ から $E X^2<\infty$ であり、指数関数の凸性とJensenの不等式で
+さらに $z\le e^z$（$z\ge0$）なので $E X^2<\infty$ です。$a=E[X^2]/K^2$ と置くと、$e^v\ge1+v$ に $v=z-a$ を代入して $e^z\ge e^a(1+z-a)$ が得られます。ここで $z=X^2/K^2$ として期待値を取れば
 
 $$
 e^{E[X^2]/K^2}
@@ -679,7 +678,7 @@ $$
 - ID: HDP3-B1
 
 <!-- solution-start -->
-**詳細解答**　$p=2m$ とすれば $E|X|^{2m}\le K^{2m}(2m)^m$ です。非負項級数なので期待値と和を入れ替えて
+**詳細解答**　$p=2m$ とすれば $E|X|^{2m}\le K^{2m}(2m)^m$ です。指数級数の部分和は各標本点で増加するので、有限和の期待値を取ってから単調収束で極限を通すと
 
 $$
 \begin{aligned}
