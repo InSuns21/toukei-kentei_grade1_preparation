@@ -1,0 +1,45 @@
+id: "SG3"
+title: "Sherrington–Kirkpatrick模型・overlap・自由エネルギー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG2
+official_scope: []
+learning_objectives:
+  - SKの標準Gaussian結合と対角項付きfull表示を構成し、分配関数の関係を証明できる
+  - 二配置のoverlapを一致数から計算し、二レプリカGibbs平均と区別できる
+  - Gaussian場の共分散をoverlapの二乗で導出し、全スピン反転対称性を説明できる
+  - Gaussian部分積分から有限Nのquenched圧力微分を導き上下界を得られる
+  - ブロック補間の共分散差を平方完成し、quenched対数分配関数の超加法性を証明できる
+  - 超加法性から圧力極限の存在と上限表示を自力で証明できる
+  - Gaussian集中から試料圧力の確率収束・概収束を導き、極限値の明示計算と区別できる
+definitions:
+  - { id: SG3-DEF-01, name: "Sherrington–Kirkpatrick模型" }
+  - { id: SG3-DEF-02, name: "SK模型のoverlap" }
+propositions:
+  - { id: SG3-PROP-01, name: "対角項を含むGaussian表示の同値性" }
+  - { id: SG3-PROP-02, name: "SK Gaussian場の共分散とoverlap" }
+  - { id: SG3-PROP-03, name: "quenched圧力の微分とoverlap" }
+theorems:
+  - { id: SG3-THM-01, name: "Guerra–Toninelli型の超加法性" }
+  - { id: SG3-THM-02, name: "SK模型のquenched圧力の熱力学極限" }
+canonical_examples:
+  - N=2で分配関数を4coshの形に整理する
+  - full表示の共通正規対角項をくくり出す
+  - 一致数からoverlapを計算し全反転対称性を検証する
+  - N=2のoverlap二乗平均と圧力微分を照合する
+  - 二ブロックの共分散差を負の平方に変形する
+  - Gaussian集中の尾確率から概収束を示す
+problem_patterns:
+  - SG3-COVARIANCE-OVERLAP
+  - SG3-HAMMING-OVERLAP
+  - SG3-TWO-SPIN-GIBBS
+  - SG3-BETA-ZERO
+  - SG3-INTERNAL-ENERGY-IBP
+  - SG3-BLOCK-INTERPOLATION
+  - SG3-SELF-AVERAGING
+  - SG3-THERMODYNAMIC-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 7 }

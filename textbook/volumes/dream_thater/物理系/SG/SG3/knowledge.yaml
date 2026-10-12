@@ -1,0 +1,49 @@
+chapter: SG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG2
+forward_references: []
+concepts:
+  - id: spin-glass.sk-model
+    name: Sherrington–Kirkpatrick模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Sherrington–Kirkpatrick模型）"]
+    requires: [spin-glass.gaussian-field, spin-glass.quenched-annealed]
+  - id: spin-glass.sk-representation
+    name: 対角項を含むGaussian表示の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角項を含むGaussian表示の同値性）"]
+    requires: [spin-glass.sk-model]
+  - id: spin-glass.sk-overlap
+    name: SK模型のoverlap
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SK模型のoverlap）"]
+    requires: [spin-glass.two-replica-average, spin-glass.sk-model]
+  - id: spin-glass.sk-covariance
+    name: SK Gaussian場の共分散とoverlap
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（SK Gaussian場の共分散とoverlap）"]
+    requires: [spin-glass.sk-overlap, spin-glass.sk-representation]
+  - id: spin-glass.sk-pressure-derivative
+    name: quenched圧力の微分とoverlap
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quenched圧力の微分とoverlap）"]
+    requires: [spin-glass.sk-covariance, spin-glass.correlated-gaussian-ibp, spin-glass.gibbs-derivatives]
+  - id: spin-glass.sk-superadditivity
+    name: Guerra–Toninelli型の超加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Guerra–Toninelli型の超加法性）"]
+    requires: [spin-glass.sk-covariance, spin-glass.interpolation-derivative, spin-glass.sk-representation]
+  - id: spin-glass.sk-pressure-limit
+    name: SK模型のquenched圧力の熱力学極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SK模型のquenched圧力の熱力学極限）"]
+    requires: [spin-glass.sk-superadditivity, spin-glass.sk-pressure-derivative, spin-glass.pressure-concentration]

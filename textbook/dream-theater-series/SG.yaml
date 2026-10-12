@@ -15,7 +15,7 @@ chapters:
     title: Gaussian concentration・Gaussian部分積分・補間法
   - id: SG3
     path: textbook/volumes/dream_thater/物理系/SG/SG3
-    status: planned
+    status: completed
     title: Sherrington–Kirkpatrick模型・overlap・自由エネルギー
   - id: SG4
     path: textbook/volumes/dream_thater/物理系/SG/SG4
