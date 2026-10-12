@@ -15,7 +15,7 @@ chapters:
     title: 微正準アンサンブルとBoltzmannエントロピー
   - id: SM3
     path: textbook/volumes/dream_thater/物理系/SM/SM3
-    status: planned
+    status: completed
     title: 正準アンサンブルと分配関数
   - id: SM4
     path: textbook/volumes/dream_thater/物理系/SM/SM4
