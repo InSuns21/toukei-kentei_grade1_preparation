@@ -222,7 +222,11 @@ L_R:\quad z(y)=-\varepsilon_R\left(1-\frac{y^2}{R^2}\right)+iy,
 \qquad y:R\longrightarrow -R
 $$
 
-と選びます。$|y|<R$ では $\operatorname{Re}z(y)<0$ で、端点は $\pm iR$ です。$\varepsilon_R<R$ と十分小さく取れば曲線は円板 $|z|\le R$ 内の正則延長領域に収まり、原点からも離れます。従って $C_R^+$ と $L_R$ をつないだ正向きの閉曲線は原点を一回囲み、その内部で $F$ は正則です。原点を中心とする十分小さい円周へこの曲線を縮めても、$F(z)e^{Tz}(1+z^2/R^2)$ は囲まれた領域で正則です。[積分路のホモトピー不変性](../../../解析系/CA/CA2/index.md#thm-ca2-homotopy-invariance)により積分値は変わらず、その小円周に[Cauchyの積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)を適用できます。
+と選びます。$|y|<R$ では $\operatorname{Re}z(y)<0$ で、端点は $\pm iR$ です。
+
+$\varepsilon_R<R$ と十分小さく取れば、曲線は円板 $|z|\le R$ 内の正則延長領域に収まり、原点からも離れます。従って $C_R^+$ と $L_R$ をつないだ正向きの閉曲線は原点を一回囲み、その内部で $F$ は正則です。
+
+原点を中心とする十分小さい円周へこの曲線を縮めても、$F(z)e^{Tz}(1+z^2/R^2)$ は囲まれた領域で正則です。[積分路のホモトピー不変性](../../../解析系/CA/CA2/index.md#thm-ca2-homotopy-invariance)により積分値は変わらず、その小円周に[Cauchyの積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)を適用できます。
 
 $K_R(z)=(1+z^2/R^2)/z$ と置くと、$z=0$ における留数は $1$ です。ゆえに
 
