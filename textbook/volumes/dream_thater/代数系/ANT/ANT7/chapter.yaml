@@ -1,0 +1,50 @@
+id: "ANT7"
+title: "非自明零点・明示公式・零点計数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT6
+official_scope: []
+learning_objectives:
+  - 臨界帯の境界の零点を排除しξの零点とζの非自明零点を位数込みで対応付けられる
+  - 関数等式と複素共役から非自明零点の四点対称性を証明できる
+  - Jensenの円板零点数評価を調和平均値性質から導出できる
+  - 偏角原理・Stirling公式・Jensen評価からRiemann–von Mangoldt零点計数公式を導ける
+  - 零点計数の上界から逆数二乗和と一次基本因子の局所一様収束を証明できる
+  - 平滑化Perron反転の核と和積分交換を厳密に導出できる
+  - 積分路の移動と各留数から平滑化von Mangoldt型明示公式を導ける
+  - 平滑化公式と鋭い階段関数の明示公式の収束条件の違いを説明できる
+definitions:
+  - { id: ANT7-DEF-01, name: 臨界帯と非自明零点 }
+  - { id: ANT7-DEF-02, name: 非自明零点の計数関数 }
+  - { id: ANT7-DEF-03, name: 一次平滑化したChebyshev和 }
+theorems:
+  - { id: ANT7-THM-01, name: 非自明零点の位置と対称性 }
+  - { id: ANT7-LEM-01, name: 円板のJensen零点数評価 }
+  - { id: ANT7-LEM-02, name: 水平区間に沿うζの偏角評価 }
+  - { id: ANT7-THM-02, name: Riemann–von Mangoldtの零点計数公式 }
+  - { id: ANT7-PROP-01, name: 零点の二乗逆数和と一次基本因子 }
+  - { id: ANT7-LEM-03, name: 一次平滑化の反転核 }
+  - { id: ANT7-PROP-02, name: 平滑化Perron反転 }
+  - { id: ANT7-LEM-04, name: 積分路を移すための高さの選択 }
+  - { id: ANT7-THM-03, name: 一次平滑化したvon Mangoldt型明示公式 }
+canonical_examples:
+  - 架空の零点の四点対称性と実在の零点との区別
+  - f_TのJensen評価に基づく偏角のO(log T)境界
+  - 二次因子s(s-1)が零点計数の定数1に与える寄与
+  - 2<x<3および3<x<4における一次平滑化和の連続性
+  - 留数x/2と零点寄与の負号およびs=0の-log(2pi)
+  - 平滑化と階段関数での零点和の収束の違い
+problem_patterns:
+  - ANT7-ZERO-SYMMETRY
+  - ANT7-JENSEN-ARGUMENT
+  - ANT7-GAMMA-STIRLING
+  - ANT7-ZERO-DYADIC
+  - ANT7-PERRON-KERNEL
+  - ANT7-LOG-DERIVATIVE-RESIDUE
+  - ANT7-SMOOTHED-EXPLICIT-FORMULA
+  - ANT7-CONDITIONAL-ZERO-ERROR
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []

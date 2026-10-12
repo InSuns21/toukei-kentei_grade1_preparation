@@ -1,0 +1,91 @@
+chapter: ANT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT6
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.nontrivial-zeros
+    name: 臨界帯と非自明零点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（臨界帯と非自明零点）]
+    requires: [complex-analysis.zeta-trivial-zeros, analytic-number-theory.zeta-one-line-nonvanishing]
+
+  - id: analytic-number-theory.zero-symmetry
+    name: 非自明零点の位置と対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非自明零点の位置と対称性）]
+    requires: [analytic-number-theory.nontrivial-zeros, complex-analysis.zeta-functional-equation]
+
+  - id: analytic-number-theory.jensen-disk-bound
+    name: 円板のJensen零点数評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（円板のJensen零点数評価）]
+    requires: [complex-analysis.harmonic-mean-value-property]
+
+  - id: analytic-number-theory.zero-count
+    name: 非自明零点の計数関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非自明零点の計数関数）]
+    requires: [analytic-number-theory.nontrivial-zeros]
+
+  - id: analytic-number-theory.zeta-horizontal-argument-bound
+    name: 水平区間に沿うζの偏角評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（水平区間に沿うζの偏角評価）]
+    requires: [analytic-number-theory.jensen-disk-bound, analytic-number-theory.zero-count]
+
+  - id: analytic-number-theory.riemann-von-mangoldt
+    name: Riemann–von Mangoldtの零点計数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Riemann–von Mangoldtの零点計数公式）]
+    requires: [analytic-number-theory.zero-symmetry, analytic-number-theory.zeta-horizontal-argument-bound, complex-analysis.stirling-formula]
+
+  - id: analytic-number-theory.zero-product-convergence
+    name: 零点の二乗逆数和と一次基本因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（零点の二乗逆数和と一次基本因子）]
+    requires: [analytic-number-theory.riemann-von-mangoldt]
+
+  - id: analytic-number-theory.smoothed-psi
+    name: 一次平滑化したChebyshev和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一次平滑化したChebyshev和）]
+    requires: [number-theory.von-mangoldt-function]
+
+  - id: analytic-number-theory.perron-linear-kernel
+    name: 一次平滑化の反転核
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（一次平滑化の反転核）]
+    requires: [complex-analysis.residue-theorem-simple-curve]
+
+  - id: analytic-number-theory.perron-smoothed
+    name: 平滑化Perron反転
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平滑化Perron反転）]
+    requires: [analytic-number-theory.perron-linear-kernel, analytic-number-theory.zeta-logarithmic-derivative]
+
+  - id: analytic-number-theory.good-contour-heights
+    name: 積分路を移すための高さの選択
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（積分路を移すための高さの選択）]
+    requires: [analytic-number-theory.jensen-disk-bound, complex-analysis.zeta-functional-equation]
+
+  - id: analytic-number-theory.smoothed-explicit-formula
+    name: 一次平滑化したvon Mangoldt型明示公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次平滑化したvon Mangoldt型明示公式）]
+    requires: [analytic-number-theory.perron-smoothed, analytic-number-theory.good-contour-heights, analytic-number-theory.zero-product-convergence]
