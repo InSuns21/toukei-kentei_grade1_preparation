@@ -1,0 +1,42 @@
+id: "INFO3"
+title: "典型列と大数の法則による情報源の特徴付け"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 有限アルファベットの独立同分布情報源で列確率と自己情報量を計算できる
+  - 典型集合を零確率の規約も含めて定義し二値情報源で直接判定できる
+  - 対数確率の平均と分散を計算し大数の弱法則に基づく漸近等分割性を証明できる
+  - 典型列それぞれの確率と典型集合の要素数を上下から評価できる
+  - 高確率集合の要素数の下界を示し情報源の記録に必要な候補数を説明できる
+  - 一様分布と非一様分布および非独立情報源の境界例を比較できる
+definitions:
+  - { id: INFO3-DEF-01, name: 有限独立同分布情報源とブロック確率 }
+  - { id: INFO3-DEF-02, name: 弱典型集合 }
+theorems:
+  - { id: INFO3-LEM-01, name: 対数確率の平均と分散 }
+  - { id: INFO3-THM-01, name: 有限独立同分布情報源の漸近等分割性 }
+  - { id: INFO3-THM-02, name: 典型集合の要素数の上下界 }
+  - { id: INFO3-PROP-01, name: 高確率集合の要素数下界 }
+canonical_examples:
+  - 偏った二値情報源の4記号列の弱典型集合
+  - 確率零の記号を持つ情報源と正の台
+  - 一様情報源のすべての正確率列が典型であること
+  - 全時刻で同じビットを繰り返す非独立情報源
+problem_patterns:
+  - INFO3-BLOCK-PROBABILITY
+  - INFO3-BIASED-BINARY-TYPICAL
+  - INFO3-ZERO-SUPPORT
+  - INFO3-CHEBYSHEV-RATE
+  - INFO3-CARDINALITY-SANDWICH
+  - INFO3-UNIFORM-SOURCE
+  - INFO3-DEPENDENCE-COUNTEREXAMPLE
+  - INFO3-HIGH-MASS-CONVERSE
+  - INFO3-TERNARY-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
