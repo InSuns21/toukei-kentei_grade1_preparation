@@ -475,6 +475,7 @@
       "name": "応用系",
       "paths": [
         "textbook/volumes/00_foundations/INFO1/index.md",
+        "textbook/volumes/00_foundations/INFO2/index.md",
         "textbook/volumes/00_foundations/OPT1/index.md",
         "textbook/volumes/00_foundations/OPT2/index.md",
         "textbook/volumes/00_foundations/OPT3/index.md",
