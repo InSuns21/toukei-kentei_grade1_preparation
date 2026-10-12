@@ -31,6 +31,8 @@ $$
 <!-- definition-example-start: def-ant1-mean-order -->
 ### 例：点ごとの等式でなくても平均は一致する
 
+**定義の確認**：具体的な $f,g$ を選び、総和の比が $1$ に近づく条件を調べます。
+
 $f(n)=1+(-1)^n$、$g(n)=1$ とします。$G(x)=\lfloor x\rfloor$ は無限大へ発散します。一方、$N=\lfloor x\rfloor$ とすると、偶奇が対になって消えるので
 
 $$
@@ -62,6 +64,8 @@ $
 
 <!-- definition-example-start: def-ant1-main-error -->
 ### 例：主項と有界な誤差を分ける
+
+**定義の確認**：主項が消えずに増大し、誤差との比が零に近づくことを実際に検査します。
 
 直前の $f(n)=1+(-1)^n$ について、$F(x)=\sum_{n\le x}f(n)$、$M(x)=\lfloor x\rfloor$ と置けば、$x\ge1$ で $M(x)\ge1$ です。$E(x)=\sum_{n\le x}(-1)^n$ は $0$ または $-1$ なので $|E(x)|\le1$ です。従って $|E(x)/M(x)|\le1/\lfloor x\rfloor\to0$ となり、定義の条件が成立します。$E=O(1)$ という評価は、単に $E=o(M)$ とするより多くの誤差情報を伝えます。
 <!-- definition-example-end -->
@@ -214,6 +218,8 @@ $$
 
 <!-- definition-example-start: def-ant1-euler-constant -->
 ### 例：有限の調和和から定数を挟む
+
+**定義の確認**：極限値を有限和と同一視せず、定義した定数が挟まれる区間を求めます。
 
 $m=2$ なら $H_2=3/2$ です。補題の不等式に直接代入すれば
 
