@@ -22,7 +22,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp6-net -->
-**定義の確認。** $d=1$ では $S^0=\{-1,1\}$ です。$\mathcal N=\{-1,1\}$ とすれば任意の $x\in S^0$ に対して $v=x$ が選べ、距離は $0\le\eta$ です。$d=2$ なら正整数 $q\ge2$ に対して $v_j=(\cos(2\pi j/q),\sin(2\pi j/q))$（$0\le j<q$）を候補にします。任意の方向角 $\theta$ から角度差が高々 $\pi/q$ の $v_j$ があり、
+**定義の確認**　 $d=1$ では $S^0=\{-1,1\}$ です。$\mathcal N=\{-1,1\}$ とすれば任意の $x\in S^0$ に対して $v=x$ が選べ、距離は $0\le\eta$ です。$d=2$ なら正整数 $q\ge2$ に対して $v_j=(\cos(2\pi j/q),\sin(2\pi j/q))$（$0\le j<q$）を候補にします。任意の方向角 $\theta$ から角度差が高々 $\pi/q$ の $v_j$ があり、
 
 $$
 \|(\cos\theta,\sin\theta)-v_j\|_2
@@ -50,7 +50,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp6-covering-number -->
-**定義の確認。** $S^0=\{-1,1\}$、$0<\eta<2$ なら、一点だけを選んだ場合には残る点まで距離 $2>\eta$ です。一方二点とも選べば距離は $0$ なので、$N(S^0,\eta)=2$ です。$\eta\ge2$ なら一点ですべてを覆い、被覆数は $1$ になります。定義の最小値は、単なる候補数ではありません。
+**定義の確認**　 $S^0=\{-1,1\}$、$0<\eta<2$ なら、一点だけを選んだ場合には残る点まで距離 $2>\eta$ です。一方二点とも選べば距離は $0$ なので、$N(S^0,\eta)=2$ です。$\eta\ge2$ なら一点ですべてを覆い、被覆数は $1$ になります。定義の最小値は、単なる候補数ではありません。
 <!-- definition-example-end -->
 
 <a id="lem-hdp6-volumetric-net"></a>
