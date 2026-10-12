@@ -6,6 +6,7 @@ prerequisites:
   - SYM2
   - SYM6
   - LA6
+  - RA6A
 forward_references: []
 
 concepts:
