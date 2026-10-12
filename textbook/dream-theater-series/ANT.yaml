@@ -17,7 +17,7 @@ chapters:
     title: Dirichlet級数・Euler積の一般論
   - id: ANT3
     path: textbook/volumes/dream_thater/代数系/ANT/ANT3
-    status: planned
+    status: completed
     title: Dirichlet文字・Gauss和・Dirichlet L関数
   - id: ANT4
     path: textbook/volumes/dream_thater/代数系/ANT/ANT4
