@@ -29,7 +29,7 @@ chapters:
     title: 無理性指数と近似指数
   - id: NDA6
     path: textbook/volumes/dream_thater/代数系/NDA/NDA6
-    status: planned
+    status: completed
     title: Liouvilleの定理・Liouville数・超越性
   - id: NDA7
     path: textbook/volumes/dream_thater/代数系/NDA/NDA7
