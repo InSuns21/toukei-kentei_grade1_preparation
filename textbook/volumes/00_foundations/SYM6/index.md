@@ -309,7 +309,6 @@ $s_\alpha$ は $\Gamma_\alpha$ への微分同相なので、$\Gamma_\alpha$ 上
 零切断は $\alpha=0$ の場合です。$\alpha=df$ なら[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)で $d\alpha=d(df)=0$ です。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-sym6-graph-criterion -->
 ### 直接計算：グラフの傾きが対称になる条件
 
 **定理の条件確認**：$Q=\mathbb R^2$、$\alpha=q^2\,dq^1+q^1\,dq^2$ とします。グラフは $p_1=q^2$、$p_2=q^1$ です。接ベクトルは
@@ -336,7 +335,6 @@ d\alpha=dq^2\wedge dq^1+dq^1\wedge dq^2=0.
 $$
 
 実際、$\alpha=d(q^1q^2)$ で、関数のグラフがLagrangeになる例です。対照的に $\alpha=q^1dq^2$ では $d\alpha=dq^1\wedge dq^2\ne0$。次元が2でもLagrangeにはなりません。
-<!-- definition-example-end -->
 
 ### 成分で確認する閉性と局所的な関数表示
 
