@@ -1,0 +1,49 @@
+id: HDP6
+title: epsilon-netとJohnson–Lindenstrauss射影
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP5
+  - HDP1
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 球面の有限epsilon-netと被覆数を定義し一次元・円周の直接例で検算できる
+  - 体積法から球面の被覆数上界を構成と停止性を含めて証明できる
+  - 有限netから一般行列の作用素ノルムと対称二次形式の評価を導ける
+  - Gaussian行列の固定ベクトル長さ保存を正規二乗和の指数モーメントと最適化から証明できる
+  - Johnson–Lindenstrauss補題を固定点集合の全組への和事象評価から証明できる
+  - 二乗距離・距離の保証と入力次元・出力次元・点数の役割を区別できる
+  - ランダム行列を見てから点を選ぶ場合や全方向への誤適用を核の反例で説明できる
+definitions:
+  - { id: HDP6-DEF-01, name: 球面の有限eta-net }
+  - { id: HDP6-DEF-02, name: 球面の被覆数 }
+theorems:
+  - { id: HDP6-LEM-01, name: 球面の体積法による被覆 }
+  - { id: HDP6-LEM-02, name: netによる作用素ノルム近似 }
+  - { id: HDP6-LEM-03, name: 対称行列の二次形式net評価 }
+  - { id: HDP6-LEM-04, name: Gaussian射影の固定ベクトル長さ保存 }
+  - { id: HDP6-THM-01, name: Gaussian型Johnson–Lindenstrauss補題 }
+canonical_examples:
+  - 一次元球面と円周上の有限net
+  - 体積法と半径eta/2の非交差開球
+  - 四分の一netによる作用素ノルム近似
+  - 正規二乗和の上側・下側指数最適化
+  - 有限点集合の組の同時距離保存
+  - 核ベクトルを使う全方向保証の反例
+problem_patterns:
+  - HDP6-NET-DEFINITION
+  - HDP6-CIRCLE-NET
+  - HDP6-OPERATOR-NORM
+  - HDP6-QUADRATIC-NET
+  - HDP6-PAIR-COUNT
+  - HDP6-VOLUMETRIC-PACKING
+  - HDP6-CHISQUARE-CHERNOFF
+  - HDP6-KERNEL-COUNTEREXAMPLE
+  - HDP6-QUADRATIC-MATRIX
+  - HDP6-JL-PROOF
+  - HDP6-NET-GAUSSIAN-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
