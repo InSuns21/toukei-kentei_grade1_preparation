@@ -415,7 +415,7 @@ s_\alpha^*(dp_i)=d(p_i\circ s_\alpha)
 =da_i=\sum_j(\partial_j a_i)\,dq^j
 $$
 
-です。従ってグラフへの引き戻しを計算すると
+です。最初の等号では[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を写像 $s_\alpha$ と座標関数 $p_i$ に適用しました。従ってグラフへの引き戻しを計算すると
 
 $$
 \begin{aligned}
@@ -637,7 +637,7 @@ W^\omega=\{v:b_1=0\}
 =\operatorname{span}\{e_1,e_2,f_2\}.
 $$
 
-$e_1\in W^\omega$ より $W\subsetneq W^\omega$ で等方ですが、$e_2\in W^\omega\setminus W$ なので余等方ではなく、Lagrangeでもありません。
+$W=\operatorname{span}\{e_1\}$ で $e_1\in W^\omega$ だから $W\subseteq W^\omega$、従って等方です。さらに $e_2\in W^\omega$ ですが $e_2\notin W$ なので $W\subsetneq W^\omega$ です。ゆえに余等方ではなく、Lagrangeでもありません。
 <!-- solution-end -->
 
 #### A2. 半分の次元でも不適切な平面
@@ -700,11 +700,15 @@ v_1=\partial_{q^1}+\partial_{p_2},
 v_2=\partial_{q^2}.
 $$
 
-$dp_2(v_1)=1$、$dq^2(v_2)=1$ だから
+$dq^1(v_1)=1$ ですが $dp_1(v_2)=dp_1(v_1)=0$ なので、$dq^1\wedge dp_1$ の寄与は零です。一方、$dq^2(v_1)=0$、$dq^2(v_2)=1$、$dp_2(v_1)=1$、$dp_2(v_2)=0$ だから
 
 $$
+\begin{aligned}
 \omega_{\mathrm{can}}(v_1,v_2)
-=dq^2\wedge dp_2(v_1,v_2)=-1\ne0.
+&=dq^1\wedge dp_1(v_1,v_2)
+ +dq^2\wedge dp_2(v_1,v_2)\\
+&=0+\bigl(0\cdot0-1\cdot1\bigr)=-1\ne0.
+\end{aligned}
 $$
 
 また $d\alpha=dq^1\wedge dq^2\ne0$ で、[グラフ判定](#thm-sym6-graph-criterion)の否定側も確認できます。
@@ -831,7 +835,14 @@ $$
 f(q^1,q^2)=(q^1)^2+q^1q^2+(q^2)^2+C.
 $$
 
-これを両変数で偏微分すれば、元の1形式の両係数に戻ります。閉性の判定と原始関数の具体構成は別段階で確認しました。
+定数 $C$ の微分は零なので、実際に
+
+$$
+\partial_{q^1}f=2q^1+q^2,\qquad
+\partial_{q^2}f=q^1+2q^2
+$$
+
+となり、元の1形式の両係数に戻ります。閉性の判定と原始関数の具体構成は別段階で確認しました。
 <!-- solution-end -->
 
 #### B4. 曲線の余法束
@@ -848,7 +859,16 @@ $$
 F(u,s)=(q^1,q^2,p_1,p_2)=(u,u^2,-2us,s)
 $$
 
-を得ます。第一成分と第四成分から $(u,s)$ を連続に復元でき、微分も階数2なので $F$ は埋め込みです。座標関数を $F$ に沿って引き戻して微分すると
+を得ます。まず、第一成分と第四成分への射影は $F(u,s)$ から $(u,s)$ を復元する連続な逆写像を与えます。次に二つの座標方向の微分は
+
+$$
+\partial_u F=(1,2u,-2s,0),\qquad
+\partial_s F=(0,0,-2u,1)
+$$
+
+です。仮に $a\,\partial_uF+b\,\partial_sF=0$ なら第一成分から $a=0$、第四成分から $b=0$ です。従って $dF$ はすべての点で階数2の単射であり、$F$ は埋め込みです。
+
+[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を $F$ と各座標関数に適用し、例えば $F^*dq^2=d(q^2\circ F)=d(u^2)$ として、各1形式を計算すると
 
 $$
 \begin{aligned}
