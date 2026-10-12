@@ -4,7 +4,7 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1・ANT2 完了。次章は先頭の planned (ANT3)。
+# ANT1〜ANT3 完了。次章は先頭の planned (ANT4)。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
