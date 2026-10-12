@@ -267,7 +267,7 @@ $$
 
 です。定積なら $dV=0$ なので $\delta Q=dU=n c_V\,dT$ となり、定積熱容量の定義と一致します。
 
-定圧過程では $p>0,n,R$ は一定です。状態方程式 $pV=nRT$ の両辺を温度に沿って微分すると
+定圧過程では $p>0,n,R$ は一定です。[理想気体の状態方程式](../TH1/index.md#def-th1-equation-of-state) $pV=nRT$ の両辺を温度に沿って微分すると
 
 $$
 p\,dV=nR\,dT
@@ -311,7 +311,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[準静的仕事の公式](#prop-th2-pv-work)の条件が満たされます。$T$ は一定なので $p(V)=nRT/V$ であり、
+[準静的仕事の公式](#prop-th2-pv-work)の条件が満たされます。[理想気体の状態方程式](../TH1/index.md#def-th1-equation-of-state)から、$T$ 一定の経路では $p(V)=nRT/V$ となり、
 
 $$
 W=-\int_{V_i}^{V_f}\frac{nRT}{V}\,dV
@@ -380,7 +380,7 @@ $$
 dU=\delta W=-p\,dV.
 $$
 
-$U$ の物性仮定と理想気体の状態方程式を使えば
+$U$ の物性仮定と[理想気体の状態方程式](../TH1/index.md#def-th1-equation-of-state)を使えば
 
 $$
 n c_V\,dT=-\frac{nRT}{V}\,dV.
@@ -549,7 +549,7 @@ W_{23}=-3600\log\frac{0.020}{0.010}
 =-3600\log2\,\mathrm J.
 $$
 
-温度は不変なので $\Delta U_{23}=0$、従って $Q_{23}=3600\log2\,\mathrm J$ です。全体では
+温度は不変なので $\Delta U_{23}=0$ です。[第一法則](#axiom-th2-first-law)から $Q_{23}=\Delta U_{23}-W_{23}=3600\log2\,\mathrm J$ です。全体では
 
 $$
 \Delta U=1800\,\mathrm J,\quad
@@ -600,7 +600,7 @@ $$
 =1\times12\times100=1200\,\mathrm J.
 $$
 
-圧力一定の理想気体について $p\,\Delta V=nR\,\Delta T$ です。したがって[体積仕事の公式](#prop-th2-pv-work)から
+[理想気体の状態方程式](../TH1/index.md#def-th1-equation-of-state)の始点・終点の差を取ると、圧力 $p$ が一定なので $p(V_f-V_i)=nR(T_f-T_i)$、つまり $p\,\Delta V=nR\,\Delta T$ です。したがって[体積仕事の公式](#prop-th2-pv-work)から
 
 $$
 W=-p\,\Delta V
@@ -639,7 +639,7 @@ $$
 \frac{T_2}{T_1}=4^{-2/3}.
 $$
 
-同じ物質量の理想気体では $p_2/p_1=(T_2/T_1)(V_1/V_2)$ なので
+[理想気体の状態方程式](../TH1/index.md#def-th1-equation-of-state)を状態1と2へ適用して $p_j=nRT_j/V_j$ と書けば、同じ $n,R$ であることから $p_2/p_1=(T_2/T_1)(V_1/V_2)$ なので
 
 $$
 \frac{p_2}{p_1}=4^{-2/3}\times4^{-1}=4^{-5/3}.
@@ -705,7 +705,7 @@ W_{23}=-4800\log(0.020/0.010)
 =-4800\log2\,\mathrm J.
 $$
 
-等温かつ $U=U(T,n)$ なので $\Delta U_{23}=0$、第一法則から $Q_{23}=4800\log2\,\mathrm J$ です。
+等温かつ $U=U(T,n)$ なので $\Delta U_{23}=0$、[第一法則](#axiom-th2-first-law)から $Q_{23}=\Delta U_{23}-W_{23}=4800\log2\,\mathrm J$ です。
 
 **第三辺（定圧）。**　$T_3=600\,\mathrm K$ から $T_1=300\,\mathrm K$ へ戻るので
 
