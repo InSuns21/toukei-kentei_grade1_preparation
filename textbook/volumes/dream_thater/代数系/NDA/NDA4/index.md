@@ -597,7 +597,7 @@ $\boldsymbol\alpha=(\sqrt2,2\sqrt2)$ とする。$\boldsymbol\beta=(1/5,2/5)$ �
 $$
 \boldsymbol k\cdot\boldsymbol\alpha=(k_1+2k_2)\sqrt2.
 $$
-$\sqrt2$ は無理数なので、この値が整数となるのは $k_1+2k_2=0$ のときだけです。従って整数関係は $\boldsymbol k=m(-2,1)$（$m\in\mathbb Z$）に限られます。$\boldsymbol\beta$ に対して
+係数 $k_1+2k_2$ は整数です。これが非零なら $(k_1+2k_2)\sqrt2$ は無理数なので整数ではありません。従って $\boldsymbol k\cdot\boldsymbol\alpha\in\mathbb Z$ となる必要十分条件は $k_1+2k_2=0$ です。従って整数関係は $\boldsymbol k=m(-2,1)$（$m\in\mathbb Z$）に限られます。$\boldsymbol\beta$ に対して
 $$
 \boldsymbol k\cdot\boldsymbol\beta
 =m\left(-2\cdot\frac15+\frac25\right)=0\in\mathbb Z
