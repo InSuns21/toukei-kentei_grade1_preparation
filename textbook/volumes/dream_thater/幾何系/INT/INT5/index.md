@@ -82,6 +82,16 @@ $$
 $$
 $B\times\mathbb T^n$ 上でこの行列は一様に単位行列へ近づきます。例えばその摂動項の作用素ノルムが $1/2$ 未満なら逆行列が存在します。
 
+角度を新変数から戻す操作も確認します。固定した $J\in B$ と新角度 $\varphi$ の持ち上げに対して
+$$
+T_{J,\varphi}(\theta)=\varphi-\varepsilon\partial_JW(J,\theta),\qquad
+M_0=\sup_{B\times\mathbb T^n}\|\partial_JW\|
+$$
+$$
+q=|\varepsilon|\sup_{B\times\mathbb T^n}\|\partial^2_{\theta J}W\|_{\mathrm{op}}<1
+$$
+と置きます。$T_{J,\varphi}$ は中心 $\varphi$、半径 $|\varepsilon|M_0$ の閉球を自身に写し、そこで Lipschitz 定数が $q$ 以下です。[縮小写像の補題](../../../基礎科目/RA/RA6A/index.md#lem-ra6a-contraction)により、$\theta=T_{J,\varphi}(\theta)$ はただ一つに解けます。$W$ の周期性から $\varphi$ を $2\pi m$ ずらすと解 $\theta$ も同じだけずれるので、各 $J\in B$ でトーラス上の角度の逆変換が定義されます。
+
 [逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $J=J(I,\theta,\varepsilon)$ が局所的に求まり、続いて $\varphi$ を計算できます。
 
 局所的な持ち上げを $2\pi m$ だけ変えても、$S$ の勾配が規定する $\varphi$ は $2\pi m$ だけ変わります。そのため、トーラス上の写像は一意です。
@@ -145,11 +155,24 @@ $$
 $$
 [生成写像の正準性](#prop-int5-canonical-map)により、小さい $\varepsilon$ では局所的に変換できます。
 
-変換式から、$I-J=\varepsilon W_\theta(J,\theta)$、$\theta-\varphi=-\varepsilon W_J(J,\theta)$ です。コンパクト集合の少し広い近傍で一階・二階微分は有界なので、一変数Taylor公式を線分 $J+t(I-J)$ に適用して
+変換式から、$I-J=\varepsilon W_\theta(J,\theta)$、$\theta-\varphi=-\varepsilon W_J(J,\theta)$ です。コンパクト集合の少し広い近傍で必要な微分は有界です。$\Delta I=I-J=\varepsilon W_\theta(J,\theta)$、$\Delta\theta=\theta-\varphi=-\varepsilon W_J(J,\theta)$ と置き、[二階の多変数Taylor展開](../../../基礎科目/RA/RA6/index.md#thm-ra6-second-order-taylor)を $K$ の点 $J$、増分 $\Delta I$ に適用します。$M_K$ をこの近傍での Hessian の作用素ノルムの上界とすると
 $$
-K(I)=K(J)+\varepsilon\Omega(J)\cdot W_\theta(J,\theta)+O(\varepsilon^2).
+\left|K(J+\Delta I)-K(J)-\Omega(J)\cdot\Delta I\right|
+\le\frac{M_K}{2}\|\Delta I\|^2
+=O(\varepsilon^2).
 $$
-同じく平均値の定理より $f(I,\theta)-f(J,\varphi)=O(\varepsilon)$ です。$\theta-\varphi=O(\varepsilon)$ を $W_\theta$ に代入する際も、その差は $O(\varepsilon)$ です。以上を $H_\varepsilon=K(I)+\varepsilon f(I,\theta)$ に入れれば
+角度は周期的な持ち上げを選び、$t\mapsto f(J+t\Delta I,\varphi+t\Delta\theta)$ に[平均値定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を適用します。$M_f$ を $\|f_I\|$ と $\|f_\theta\|$ の上界として
+$$
+|f(I,\theta)-f(J,\varphi)|
+\le M_f(\|\Delta I\|+\|\Delta\theta\|)
+=O(|\varepsilon|).
+$$
+同様に $M_W=\sup\|\partial^2_{\theta\theta}W\|_{\mathrm{op}}$ と置けば
+$$
+\|W_\theta(J,\theta)-W_\theta(J,\varphi)\|
+\le M_W\|\Delta\theta\|=O(|\varepsilon|).
+$$
+いずれも $B\times\mathbb T^n$ で一様な評価です。以上を $H_\varepsilon=K(I)+\varepsilon f(I,\theta)$ に入れれば
 $$
 \widetilde H_\varepsilon
 =K(J)+\varepsilon[f(J,\varphi)+\Omega(J)\cdot W_\varphi(J,\varphi)]
