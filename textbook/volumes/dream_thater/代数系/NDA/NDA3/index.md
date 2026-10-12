@@ -174,7 +174,19 @@ $$
 \operatorname{vol}_n(E)=2^{-n}\operatorname{vol}_n(K)>
 \operatorname{covol}(\Lambda)
 $$
-です。凸体はJordan可測です。実際、原点が内部にあることを利用し、境界を $(1-\delta)K$ と $(1+\delta)K$ の間の薄い層で覆うと、その層の体積比は $(1+\delta)^n-(1-\delta)^n\to0$ です。
+です。ここで必要な「凸体はJordan可測」という事実も、体積の存在を先取りせずに確かめます。$n=1$ では凸体は閉区間であり、境界は有限集合です。$n\ge2$ では、$K=-K$ と内部が空でないことから、原点を中心とする半径 $0<r<R$ の閉球 $B_r,B_R$ を選んで $B_r\subset K\subset B_R$ とできます。凸性により $0$ は $K$ の内部点です。
+
+任意の $v\in\mathbb R^n$ に対し、原点から $K$ の境界までの距離を測る関数
+$
+p_K(v)=\inf\{t>0:v\in tK\}
+$
+を考えます。$v\in aK$、$w\in bK$ なら、凸性から $(v+w)/(a+b)\in K$ なので $p_K(v+w)\le p_K(v)+p_K(w)$ です。また $B_r\subset K$ より $p_K(v)\le\|v\|/r$ です。これらを $v=(v-w)+w$ と $w=(w-v)+v$ に適用すれば
+$
+|p_K(v)-p_K(w)|\le p_K(v-w)\le\frac{\|v-w\|}{r}.
+$
+単位球面 $S^{n-1}=\{u:\|u\|=1\}$ 上では $1/R\le p_K(u)\le1/r$ だから、写像 $u\mapsto u/p_K(u)$ はLipschitz連続で、その像は $\partial K$ です。
+
+球面は、いずれかの座標について $|u_j|\ge1/\sqrt n$ となる有限個の部分に分けられます。各部分では、その座標は残りの $n-1$ 座標の関数 $u_j=\pm\sqrt{1-\sum_{k\ne j}u_k^2}$ で、その変化率は $|u_j|\ge1/\sqrt n$ により一様に抑えられます。従って $\partial K$ は有限個の $(n-1)$ 次元有界領域からのLipschitz写像の像で覆えます。各領域を一辺 $h$ の小立方体に分割すると、その個数は $O(h^{-(n-1)})$、各像は一辺 $O(h)$ の $n$ 次元立方体で覆えます。覆いの総体積は $O(h^{-(n-1)}h^n)=O(h)\to0$ です。[Jordan可測性の境界判定](../../../基礎科目/RA/RA7/index.md#def-ra7-jordan-measurable)から、$K$ の境界はJordan内容零、従って $K$ はJordan可測です。
 
 [Blichfeldt補題](#lem-nda3-blichfeldt)から相異なる $x,y\in E$ が取れ、$z=x-y\in\Lambda\setminus\{0\}$ です。$2x,2y\in K$ で、対称性から $-2y\in K$。凸性へ係数 $t=1/2$ を代入すれば
 $$
@@ -384,7 +396,10 @@ $$
 ### Level A：定義と境界を確認する
 
 **NDA3-A1（斜め格子の共体積）**  
-$A=\begin{pmatrix}2&1\\0&3\end{pmatrix}$ に対し、$A(1,0)^\mathsf T$、$A(0,1)^\mathsf T$、基本領域の面積、共体積を求めてください。
+$
+A=\begin{pmatrix}2&1\\0&3\end{pmatrix}
+$
+に対し、$A(1,0)^\mathsf T$、$A(0,1)^\mathsf T$、基本領域の面積、共体積を求めてください。
 
 - Level: A
 
