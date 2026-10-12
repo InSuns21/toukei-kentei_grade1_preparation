@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - AG1-01
   - RNG2
+  - FLD3
 official_scope: []
 learning_objectives:
   - 既約な位相空間と既約閉集合を定義し、開集合の交わりによる特徴付けを両方向に証明できる
