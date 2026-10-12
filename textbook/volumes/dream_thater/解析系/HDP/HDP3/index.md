@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp3-psi2 -->
-**直接例：Rademacher変数。** $P(R=-1)=P(R=1)=1/2$ とすると、$R^2=1$ なので
+**定義の確認（Rademacher変数）** $P(R=-1)=P(R=1)=1/2$ とすると、$R^2=1$ なので
 
 $$
 E e^{R^2/s^2}=e^{1/s^2}\le2
@@ -53,7 +53,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp3-psi1 -->
-**直接例：両符号を取る指数変数。** $Z$ は密度 $e^{-z}$（$z\ge0$）を持ち、$R$ は独立なRademacher変数とし、$X=RZ$ とします。$|X|=Z$ だから $s>1$ では
+**定義の確認（両符号を取る指数変数）** $Z$ は密度 $e^{-z}$（$z\ge0$）を持ち、$R$ は独立なRademacher変数とし、$X=RZ$ とします。$|X|=Z$ だから $s>1$ では
 
 $$
 E e^{|X|/s}
