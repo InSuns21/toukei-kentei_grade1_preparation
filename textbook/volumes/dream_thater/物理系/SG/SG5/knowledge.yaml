@@ -1,0 +1,62 @@
+chapter: SG5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG4
+  - SG2
+forward_references: []
+concepts:
+  - id: spin-glass.gg-identities
+    name: Ghirlanda–Guerra恒等式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ghirlanda–Guerra恒等式）"]
+    requires: [spin-glass.overlap-law, spin-glass.sk-overlap]
+  - id: spin-glass.gg-mixture
+    name: 新レプリカの条件付き混合則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（新レプリカの条件付き混合則）"]
+    requires: [spin-glass.gg-identities]
+  - id: spin-glass.finite-gaussian-gg
+    name: 有限サイズのGaussian恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限サイズのGaussian恒等式）"]
+    requires: [spin-glass.correlated-gaussian-ibp, spin-glass.two-replica-average, spin-glass.sk-overlap]
+  - id: spin-glass.gg-from-self-averaging
+    name: 自己平均化からGG恒等式へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自己平均化からGG恒等式へ）"]
+    requires: [spin-glass.finite-gaussian-gg, spin-glass.gg-identities]
+  - id: spin-glass.ultrametric-overlap
+    name: overlapの超距離性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（overlapの超距離性）"]
+    requires: [spin-glass.sk-overlap]
+  - id: spin-glass.threshold-hierarchy
+    name: 閾値ごとの階層的同値関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閾値ごとの階層的同値関係）"]
+    requires: [spin-glass.ultrametric-overlap]
+  - id: spin-glass.maximal-overlap-atoms
+    name: 最大overlapの原子と最上位クラス
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最大overlapの原子と最上位クラス）"]
+    requires: [spin-glass.gg-mixture, spin-glass.ultrametric-overlap]
+  - id: spin-glass.two-value-ultrametricity
+    name: 二値overlapのultrametricity
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（二値overlapのultrametricity）"]
+    requires: [spin-glass.maximal-overlap-atoms]
+  - id: spin-glass.panchenko-ultrametricity
+    name: Panchenkoのultrametricity定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Panchenkoのultrametricity定理）"]
+    requires: [spin-glass.gg-identities, spin-glass.ultrametric-overlap]
