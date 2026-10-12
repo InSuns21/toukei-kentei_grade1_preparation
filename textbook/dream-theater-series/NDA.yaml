@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-12 科目固有の直接依存・章ID・入口監査を完了。NDA1の執筆から開始する。
-# NDA1 本文と演習・検証を完了。未実装のNDA2以降は公開しない。
+# NDA1・NDA2 本文と演習を完了。未実装のNDA3以降は公開しない。
 chapters:
   - id: NDA1
     path: textbook/volumes/dream_thater/代数系/NDA/NDA1
@@ -13,7 +13,7 @@ chapters:
     title: 連分数と最良有理近似の精密化
   - id: NDA2
     path: textbook/volumes/dream_thater/代数系/NDA/NDA2
-    status: planned
+    status: completed
     title: Dirichlet・Hurwitz・悪近似数
   - id: NDA3
     path: textbook/volumes/dream_thater/代数系/NDA/NDA3
