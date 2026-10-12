@@ -13,7 +13,7 @@
 
 - 線形代数 LA: 特性多項式、スペクトル分解、SVD、トレース、作用素ノルム。
 - 確率・測度論: 独立性、収束、特性関数、弱収束、優収束、積分。
-- HDP: sub-Gaussian、集中、標本共分散の非漸近界。
+- HDP: sub-Gaussian、集中、[HDP7の標本共分散の非漸近界](../volumes/dream_thater/解析系/HDP/HDP7/index.md#thm-hdp7-isotropic-covariance)、[HDP8の行列Bernstein不等式](../volumes/dream_thater/解析系/HDP/HDP8/index.md#thm-hdp8-matrix-bernstein)。これらの有限標本評価とRMT固有の極限法則を区別する。
 - RMT: 経験スペクトル測度、moment method、Stieltjes transform / resolvent、Wigner 半円則、sample covariance と Marčenko–Pastur 則。
 - SLT2: 上記の法則を具体的な学習模型の汎化・予測誤差に適用する。
 
