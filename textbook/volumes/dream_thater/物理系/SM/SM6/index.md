@@ -569,25 +569,25 @@ $$
 
 まず、温度 $T>0$ において密度を固定する化学ポテンシャルが、零温度では充填境界のエネルギーへ近づくことを確かめます。熱力学極限のFermi密度を
 
-$
+$$
 \rho_T(\mu)=\frac{g}{(2\pi)^3}
 \int_{\mathbb R^3}
 \frac{d^3k}{\exp[(\hbar^2|k|^2/(2m)-\mu)/(k_{\mathrm B}T)]+1}
-$
+$$
 
 と置きます。各 $T>0$ で $\rho_T(\mu)$ は $\mu$ に関して連続かつ狭義増加し、$\mu\to-\infty$ で0、$\mu\to+\infty$ で無限大へ向かうので、$\rho_T(\mu_T)=\rho$ の解は一意です。任意の固定 $\mu>0$ では、$T\downarrow0$ によって積分の占有因子が球 $|k|<\sqrt{2m\mu}/\hbar$ の指示関数へ収束します。積分は球内の有界領域では有界収束、球外では $T\le T_0$ として十分大きな $k$ に指数減衰の一様上界を取ることで極限と交換できます。この結果、
 
-$
+$$
 \lim_{T\downarrow0}\rho_T(\mu)
 =\frac{g}{6\pi^2}\left(\frac{2m\mu}{\hbar^2}\right)^{3/2}.
-$
+$$
 
 右辺が $\rho$ となる唯一の正数を $\varepsilon_{\mathrm F}$ と定義します。任意の $0<\delta<\varepsilon_{\mathrm F}$ で、上の極限を $\mu=\varepsilon_{\mathrm F}\pm\delta$ に適用すると、十分小さい $T$ では
 
-$
+$$
 \rho_T(\varepsilon_{\mathrm F}-\delta)<\rho<
 \rho_T(\varepsilon_{\mathrm F}+\delta).
-$
+$$
 
 $\rho_T$ の狭義単調性により $\varepsilon_{\mathrm F}-\delta<\mu_T<\varepsilon_{\mathrm F}+\delta$。従って $\mu_T\to\varepsilon_{\mathrm F}$ であり、固定密度の零温度極限が本当にFermi球の充填を与えます。
 
