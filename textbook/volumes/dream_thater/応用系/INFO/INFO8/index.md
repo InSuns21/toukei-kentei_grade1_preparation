@@ -373,7 +373,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\jmath_Q(x;\hat x)$ は有限個の正確率の組だけで評価するので、確率1で有限かつ有界です。また $d$ も有界です。独立同分布で有界な変数 $Z_i$ の標本平均は $E[n^{-1}\sum_iZ_i]=EZ_1$、$\operatorname{Var}(n^{-1}\sum_iZ_i)=\operatorname{Var}(Z_1)/n$ を満たします。$Z_i=d(X_i,\widehat X_i)$ と $Z_i=\jmath_Q(X_i;\widehat X_i)$ のそれぞれについて、二乗平均から得る Chebyshev 評価 $P(|n^{-1}\sum_i Z_i-EZ_1|>\varepsilon)\le\operatorname{Var}(Z_1)/(n\varepsilon^2)$ を適用します。二つの失敗事象の和集合上界から $\eta_n\to0$ です。
+$\jmath_Q(x;\hat x)$ は $a(x,\hat x)>0$ の有限個の組上だけで評価するので、$a$ の下では確率1で有限かつ有界です。また $d$ も有限集合上で有界です。いずれかを $Z_i$ と書けば、$a^n$ の下で独立同分布なので、共分散の交差項が消えて
+
+$$
+E\left[\frac1n\sum_{i=1}^nZ_i\right]=EZ_1,\qquad
+\operatorname{Var}\left(\frac1n\sum_{i=1}^nZ_i\right)
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(Z_i)
+=\frac{\operatorname{Var}(Z_1)}{n}.
+$$
+
+[Chebyshev不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を $Z_i=d(X_i,\widehat X_i)$、次に $Z_i=\jmath_Q(X_i;\widehat X_i)$ に適用します。$V_d:=\operatorname{Var}_a(d(X,\widehat X))$、$V_\jmath:=\operatorname{Var}_a(\jmath_Q(X;\widehat X))$ と置くと
+
+$$
+\begin{aligned}
+\eta_n
+&\le P\left(\frac1n\sum_i d(X_i,\widehat X_i)>D_Q+\varepsilon\right)\\
+&\quad+P\left(\frac1n\sum_i\jmath_Q(X_i;\widehat X_i)>I+\varepsilon\right)\\
+&\le\frac{V_d}{n\varepsilon^2}+\frac{V_\jmath}{n\varepsilon^2}
+\longrightarrow0.
+\end{aligned}
+$$
+
+最初の不等号は二つの失敗事象の和集合上界、最後は両分散が有限であることによります。
 
 $x^n$ を固定して、条件を満たす候補の集合を $A_n(x^n)$ とします。$a^n(x^n,\hat x^n)>0$ の候補に限り、積の比を取ると
 
@@ -465,7 +486,22 @@ $$
 
 各整数 $k\ge1$ について $\varepsilon_k=\min\{1/k,(r-I)/2\}>0$ を選びます。被覆補題から、ある増大する整数 $N_k$ を選べて、すべての $n\ge N_k$ について対応する符号の期待歪みは $D+\varepsilon_k+1/k$ 以下になります。$N_1<N_2<\cdots$ となるよう増やして、$N_k\le n<N_{k+1}$ ではその $k$ の符号を選ぶと $k\to\infty$、ゆえに $\limsup\Delta_n\le D$ です。初めの有限個の $n$ の符号は任意に選べます。
 
-最後に $r_k=R(D)+1/k$ とし、前段落の構成を各 $r_k$ に適用します。十分大きい $n$ では率が $r_k+1/n$ 以下で歪みが $D+1/k$ 以下の符号を選べるので、もう一度増大する区切り $N_k'$ で対角化すると、$\limsup\Delta_n\le D$ かつ $\limsup r_n\le R(D)$ を得ます。一方、[有限歪み付き情報源符号化の有限長逆定理](#thm-info8-converse)により $r_n\ge R(\Delta_n)$。$\limsup\Delta_n\le D$ と[単調性・右連続性](#prop-info8-shape)から $\liminf R(\Delta_n)\ge R(D)$ が従い、結局 $r_n\to R(D)$ です。
+最後に $r_k=R(D)+1/k$ とし、前段落の構成を各 $r_k$ に適用します。十分大きい $n$ では率が $r_k+1/n$ 以下で歪みが $D+1/k$ 以下の符号を選べます。$N_k'$ を単調増大させ、$n\ge N_k'$ では $r_k+1/n\le R(D)+2/k$ と $\Delta_n\le D+1/k$ をともに満たすように選び直します。区間 $N_k'\le n<N_{k+1}'$ ではその $k$ の符号を採用し、有限個の小さい $n$ では任意の符号を選びます。これで
+
+$$
+\limsup_{n\to\infty}\Delta_n\le D,\qquad
+\limsup_{n\to\infty}r_n\le R(D)
+$$
+
+を同時に得ます。逆向きには[有限長逆定理](#thm-info8-converse)で各 $n$ に $r_n\ge R(\Delta_n)$ が成立します。$t>0$ を任意に固定すると、$\limsup\Delta_n\le D$ から、十分大きい $n$ で $\Delta_n\le D+t$ です。そこで[単調性](#prop-info8-shape)をこの二つの歪みに適用して
+
+$$
+\liminf_{n\to\infty}r_n
+\ge\liminf_{n\to\infty}R(\Delta_n)
+\ge R(D+t)
+$$
+
+と評価できます。$t\downarrow0$ とすると[右連続性](#prop-info8-shape)により $R(D+t)\to R(D)$ です。よって下極限も $R(D)$ 以上となり、上極限の評価と合わせて $r_n\to R(D)$ が従います。
 <!-- proof-end -->
 
 境界 $D=D_{\min}$ もこの議論に含まれます。有限長で歪みを**常に**ちょうど $D_{\min}$ 以下にできると主張しているのではなく、期待歪みの上極限が $D_{\min}$ 以下になる符号列を構成しています。
@@ -480,7 +516,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-存在は[達成可能性定理](#thm-info8-achievability)の第二の結論です。逆向きは[有限長逆定理](#thm-info8-converse)で $r_n\ge R(\Delta_n)$ とし、$\limsup\Delta_n\le D$ に[単調性・右連続性](#prop-info8-shape)を適用して $\liminf r_n\ge R(D)$ を得ます。
+存在は[達成可能性定理](#thm-info8-achievability)の第二の結論です。逆向きは[有限長逆定理](#thm-info8-converse)を各 $n$ に適用して $r_n\ge R(\Delta_n)$ とします。任意の $t>0$ に対して十分大きい $n$ では $\Delta_n\le D+t$ であり、[単調性・右連続性](#prop-info8-shape)によって
+
+$$
+\liminf_{n\to\infty}r_n
+\ge R(D+t)\xrightarrow[t\downarrow0]{}R(D).
+$$
+
+$r_n\to r$ という仮定から $r=\liminf r_n$ なので $r\ge R(D)$ です。
 <!-- proof-end -->
 
 ## 7. 演習：歪みと率を別々に検算する
