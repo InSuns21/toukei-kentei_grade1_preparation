@@ -18,7 +18,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-02-irreducible -->
-**定義の確認：無限体のアフィン直線**
+**定義の確認**：無限体のアフィン直線
 
 [無限体上のアフィン直線の閉集合](../AG1-01/index.md#prop-ag1-01-affine-line-closed)によれば、無限体 $k$ の $k^1$ における閉集合は有限集合か $k$ 全体です。もし $k=F\cup G$ で $F,G$ が真の閉集合なら、$F,G$ はともに有限で、その和も有限です。しかし $k$ は無限なので矛盾します。よって $k^1$ は既約です。
 
@@ -162,15 +162,15 @@ $V(xy)$ の二本の座標軸は既約です。一方、原点も既約な閉集
 > **定義（既約成分）**  
 > 位相空間 $X$ の既約閉集合 $C\subseteq X$ が、任意の既約閉集合 $D\subseteq X$ に対して
 >
-> $$
-> C\subseteq D\quad\Longrightarrow\quad C=D
-> $$
+$$
+C\subseteq D\quad\Longrightarrow\quad C=D
+$$
 >
 > を満たすとき、$C$ を $X$ の**既約成分**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-02-component -->
-**定義の確認：二本の直線**
+**定義の確認**：二本の直線
 
 $X=V_{\mathbb C}(xy)$ と置くと、$L_x=V(x)$ と $L_y=V(y)$ は第2節より既約です。どちらも $X$ で閉じています。また $L_x\not\subseteq L_y$ と $L_y\not\subseteq L_x$ です。$L_x\subseteq D\subseteq X$ となる既約閉集合 $D$ を考えます。$D=(D\cap L_x)\cup(D\cap L_y)$ なので、既約性から $D\subseteq L_x$ または $D\subseteq L_y$ です。後者なら $L_x\subseteq L_y$ となり矛盾します。従って $D=L_x$ です。$L_y$ についても同じ包含の議論で最大性が成立し、両者は既約成分です。
 <!-- definition-example-end -->
@@ -181,9 +181,9 @@ $X=V_{\mathbb C}(xy)$ と置くと、$L_x=V(x)$ と $L_y=V(y)$ は第2節より�
 > **補題（既約集合は有限閉被覆の一つに入る）**  
 > $Y$ を位相空間 $X$ の空でない既約部分空間とし、$F_1,\ldots,F_r$ を $X$ の閉集合とする。$r\ge1$ で
 >
-> $$
-> Y\subseteq F_1\cup\cdots\cup F_r
-> $$
+$$
+Y\subseteq F_1\cup\cdots\cup F_r
+$$
 >
 > なら、ある $i$ について $Y\subseteq F_i$ が成り立つ。
 <!-- formal-statement-end -->
@@ -236,15 +236,15 @@ $V_{\mathbb C}(xy)$ の場合、二直線は互いに包含されないので、
 > **定義（Noether位相空間）**  
 > 位相空間 $X$ が**Noether的**であるとは、$X$ の閉集合の任意の下降列
 >
-> $$
-> F_1\supseteq F_2\supseteq F_3\supseteq\cdots
-> $$
+$$
+F_1\supseteq F_2\supseteq F_3\supseteq\cdots
+$$
 >
 > がある $N$ 以降は定常、すなわち $F_N=F_{N+1}=\cdots$ となることをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-02-noetherian -->
-**定義の確認：無限体のアフィン直線**
+**定義の確認**：無限体のアフィン直線
 
 無限体 $k$ 上のアフィン直線の閉集合は有限集合と全体だけです。下降列が一度有限集合 $F_N$ に到達すれば、その後真に減少するたびに要素数が少なくとも $1$ 減るので、真の包含は高々 $|F_N|$ 回です。従って列は定常であり、$k^1$ はNoether的です。定義に「無限個の点があること」と「下降列が無限に真に減ること」は別だと分かります。
 <!-- definition-example-end -->
