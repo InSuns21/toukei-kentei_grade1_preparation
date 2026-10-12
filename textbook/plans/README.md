@@ -62,8 +62,8 @@
 | シンプレクティック幾何・Darboux・Lagrange部分多様体・Moser | `textbook/plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md`（SYM1〜8：全章完了） |
 | Hamilton作用・幾何学的Noether・運動量写像・Marsden–Weinstein簡約 | `textbook/plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md`（GMECH1〜8：本文・横断監査完了） |
 | 第二変分・測地線・Jacobi 場・共役点・極小曲面の安定性 | `DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md` |
-| Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `textbook/plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md`（INT1〜8：前提監査済み、INT1着手可能） |
-| 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md` |
+| Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `textbook/plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md`（INT1〜8：全章実装・終了確認済み） |
+| 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md`（CELE1着手可能） |
 | 一般力学系の不変多様体・分岐・ホモクリニック構造・記号力学・chaos | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md` |
 | Coulomb / Gauss / Maxwell・電磁ポテンシャル・電磁波 | `DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md` |
 | Schrödinger 作用素・変分原理・量子調和振動子・水素原子 | `DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md` |
