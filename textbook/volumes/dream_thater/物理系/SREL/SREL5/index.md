@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[SREL2のMinkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)と[SREL3の四元ベクトル](../SREL3/index.md#def-srel3-four-momentum)によって、運動量を慣性系によらず扱えるようになりました。しかし電磁気学では、電場と磁場を別々の三次元ベクトルとして書くと、時間と空間を混ぜるLorentz変換の下で式がどう変わるのか見えにくくなります。
+[SREL2のMinkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)と[SREL3の四元運動量](../SREL3/index.md#def-srel3-four-momentum)によって、運動量を慣性系によらず扱えるようになりました。しかし電磁気学では、電場と磁場を別々の三次元ベクトルとして書くと、時間と空間を混ぜるLorentz変換の下で式がどう変わるのか見えにくくなります。
 
 本章では、電場と磁場を**一つの反対称な二階テンソル**に組み込みます。さらに電荷密度と電流密度を一つの四成分の量にまとめ、真空中のMaxwell方程式が二つの四次元方程式になることを全成分で検算します。最後に、Lorentz変換で法則が保たれる理由と、その方程式が電荷保存を要求する理由を確かめます。
 
@@ -251,7 +251,7 @@ $$
 =-\frac1c\left(\partial_tB_y+\partial_zE_x-\partial_xE_z\right).
 $$
 
-以上で独立な四成分はそれぞれ磁場のGauss則とFaraday則の三成分の $-1/c$ 倍です。残りの添字の組は、反対称性と添字の順序の入れ替えでこれらの符号違い、または同じ添字を含んで零になる式です。逆向きにも四式の零から元の二本の方程式を回収できるため同値です。
+以上で独立な四成分は、[真空Maxwell方程式の原理](#principle-srel5-maxwell-si)のうち、磁場のGauss則の $-1$ 倍と、Faraday則の三成分それぞれの $-1/c$ 倍であると分かりました。残りの添字の組は、反対称性と添字の順序の入れ替えでこれらの符号違い、または同じ添字を含んで零になる式です。逆向きにも四式の零から元の二本の方程式を回収できるため同値です。
 <!-- proof-end -->
 
 ここで $F^{\mu\nu}$ をそのまま $F_{\mu\nu}$ の代わりに置くと、$\partial_t\boldsymbol B$ と $\nabla\times\boldsymbol E$ の間の符号が崩れます。**下付きにする操作は見た目だけの記法変更ではありません。**
@@ -361,13 +361,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-定数行列の変数変換で連鎖律を使うと、各 $\mu$ に対して
+[SREL1のLorentz変換](../SREL1/index.md#thm-srel1-lorentz)の $x'=\Lambda x+a$ を各微分に適用します。$\Lambda$ と $a$ は定数なので、連鎖律で各 $\mu$ に対して
 
 $$
 \partial'_\mu=(\Lambda^{-1})^\alpha{}_\mu\partial_\alpha.
 $$
 
-従って非斉次式の左辺は
+ここで[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の発散表示を使います。プライム座標での左辺を連鎖律で計算すると
 
 $$
 \begin{aligned}
@@ -385,15 +385,29 @@ $$
 
 二行目では $\Lambda$ が座標に依存しないので微分が行列へ作用しないことを使いました。
 
-斉次式では、Lorentz計量保存から
+斉次式では、[SREL2の計量保存定理](../SREL2/index.md#thm-srel2-interval-invariance)の行列等式 $\Lambda^{\mathsf T}\eta\Lambda=\eta$ を用います。左右から逆行列を掛けると $\eta\Lambda=(\Lambda^{-1})^{\mathsf T}\eta$ なので、成分では
 
 $$
+\eta_{\mu\rho}\Lambda^\rho{}_\alpha
+=(\Lambda^{-1})^\beta{}_\mu\eta_{\beta\alpha}.
+$$
+
+これを [電磁場テンソルの定義](#def-srel5-field-tensor)による二つの添字下げに代入すると
+
+$$
+\begin{aligned}
 F'_{\mu\nu}
-=(\Lambda^{-1})^\alpha{}_\mu
- (\Lambda^{-1})^\beta{}_\nu F_{\alpha\beta}
+&=\eta_{\mu\rho}\eta_{\nu\sigma}
+  \Lambda^\rho{}_\alpha\Lambda^\sigma{}_\beta F^{\alpha\beta}\\
+&=(\Lambda^{-1})^\gamma{}_\mu
+  (\Lambda^{-1})^\delta{}_\nu
+  \eta_{\gamma\alpha}\eta_{\delta\beta}F^{\alpha\beta}\\
+&=(\Lambda^{-1})^\gamma{}_\mu
+  (\Lambda^{-1})^\delta{}_\nu F_{\gamma\delta}.
+\end{aligned}
 $$
 
-です。これを $\partial'_\lambda F'_{\mu\nu}$ に代入すると、三つの逆行列を外へ出して
+を得ます。これを $\partial'_\lambda F'_{\mu\nu}$ に代入すると、三つの逆行列を外へ出して
 
 $$
 \partial'_\lambda F'_{\mu\nu}
@@ -403,7 +417,20 @@ $$
  \partial_\gamma F_{\alpha\beta}.
 $$
 
-他の二つの巡回項では、右辺のダミー添字 $\gamma,\alpha,\beta$ を巡回して同じ前因子にそろえます。従って巡回和は
+残る二項も同じ連鎖律で変換できます。$K^\alpha{}_\mu=(\Lambda^{-1})^\alpha{}_\mu$ と短く書くと、
+
+$$
+\begin{aligned}
+\partial'_\mu F'_{\nu\lambda}
+&=K^\alpha{}_\mu K^\beta{}_\nu K^\gamma{}_\lambda
+  \partial_\alpha F_{\beta\gamma},\\
+\partial'_\nu F'_{\lambda\mu}
+&=K^\beta{}_\nu K^\gamma{}_\lambda K^\alpha{}_\mu
+  \partial_\beta F_{\gamma\alpha}.
+\end{aligned}
+$$
+
+三つの係数はいずれもスカラーの積なので、順序を並べ替えて第1項の $K^\gamma{}_\lambda K^\alpha{}_\mu K^\beta{}_\nu$ にそろえます。従って巡回和は
 
 $$
 \begin{aligned}
@@ -419,7 +446,7 @@ $$
 \end{aligned}
 $$
 
-括弧内が元の斉次方程式で零になることを使いました。
+括弧内が[斉次Maxwell方程式](#thm-srel5-homogeneous-maxwell)の巡回微分条件そのもので零になることを使いました。
 <!-- proof-end -->
 
 この証明では、二つの慣性系を結ぶLorentz行列 $\Lambda$ が時空点によらず一定であることを使いました。位置によって変わる一般の座標変換では、行列を定数として微分の外へ出す計算はそのままでは成立しません。
@@ -450,7 +477,7 @@ $\partial_\nu$ を非斉次式の両辺へ作用させます。混合偏微分�
 <!-- proof-start -->
 ### 証明
 
-元の式へ $\partial_\nu$ を作用させて和を取ると
+[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の $\partial_\mu F^{\mu\nu}=\mu_0J^\nu$ の各 $\nu$ 成分へ $\partial_\nu$ を作用させ、さらに $\nu$ について和を取ると
 
 $$
 \mu_0\partial_\nu J^\nu
@@ -481,7 +508,16 @@ $$
 これで二つの保存式が同値であることも確かめられました。
 <!-- proof-end -->
 
-例えば $\rho(t,\boldsymbol r)=\rho_0$、$\boldsymbol j=\boldsymbol0$ は連続の式を満たしますが、$F=0$ も同時に指定すると $\nabla\cdot\boldsymbol E=\rho/\varepsilon_0$ を満たすのは $\rho_0=0$ の場合だけです。**電荷保存は場の方程式を解くための必要条件ですが、十分条件ではありません。**
+例えば $\rho(t,\boldsymbol r)=\rho_0\ne0$、$\boldsymbol j=\boldsymbol0$ は連続の式を満たします。しかし同時に $\boldsymbol E=\boldsymbol B=\boldsymbol0$ と指定すれば、[電場のGauss則](#principle-srel5-maxwell-si)の左辺は零なのに右辺は $\rho_0/\varepsilon_0\ne0$ で、指定した場と源は整合しません。
+
+一方、時空全体で境界条件を課さないなら、同じ源に対して
+
+$$
+\boldsymbol E(\boldsymbol r)=\frac{\rho_0}{3\varepsilon_0}(x,y,z),
+\qquad \boldsymbol B=\boldsymbol0
+$$
+
+は実際に一つの解です。$\nabla\cdot\boldsymbol E=3\rho_0/(3\varepsilon_0)=\rho_0/\varepsilon_0$ であり、時間微分と回転は零になります。この例が示すのは、**電荷保存だけでは任意に指定した場までMaxwell方程式の解になるとは限らない**ということです。場の存在・境界条件との両立・一意性は、保存則だけから無条件に結論できません。
 
 ## 7. 適用範囲と次章への接続
 
@@ -532,7 +568,7 @@ $\nu=0$ の $\partial_\mu F^{\mu\nu}=\mu_0J^\nu$ を展開し、SI単位の電�
 <!-- solution-start -->
 #### 詳細解答
 
-[電磁場テンソル](#def-srel5-field-tensor)と[四元電流](#def-srel5-four-current)の成分を直接使います。$F^{00}=0$、$F^{i0}=E_i/c$、$J^0=c\rho$ なので、
+[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の $\nu=0$ 成分へ、[電磁場テンソル](#def-srel5-field-tensor)と[四元電流](#def-srel5-four-current)の定義を代入します。$F^{00}=0$、$F^{i0}=E_i/c$、$J^0=c\rho$ なので、
 
 $$
 \partial_\mu F^{\mu0}
@@ -559,7 +595,7 @@ $\boldsymbol B=(0,0,B_z(x,t))$、$\boldsymbol E=(0,E_y(x,t),0)$ とする。非�
 <!-- solution-start -->
 #### 詳細解答
 
-[テンソル定義](#def-srel5-field-tensor)から、$\nu=2$ に寄与する成分は $F^{02}=-E_y/c$、$F^{12}=-B_z$ です。他の成分は零なので
+[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)に[電磁場テンソルの定義](#def-srel5-field-tensor)を用いると、$\nu=2$ に寄与する成分は $F^{02}=-E_y/c$、$F^{12}=-B_z$ です。他の成分は零なので
 
 $$
 \begin{aligned}
@@ -698,7 +734,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$u=x-ct$ なので $\partial_x f(u)=f'(u)$、$\partial_t f(u)=-c f'(u)$ です。$E_x=E_z=B_x=B_y=0$、各非零成分は $x,t$ のみに依存するため、
+[真空Maxwell方程式](#principle-srel5-maxwell-si)の四式をそれぞれ確かめます。$u=x-ct$ なので $\partial_x f(u)=f'(u)$、$\partial_t f(u)=-c f'(u)$ です。$E_x=E_z=B_x=B_y=0$、各非零成分は $x,t$ のみに依存するため、
 
 $$
 \nabla\cdot\boldsymbol E=\partial_yE_y=0,\qquad
@@ -765,7 +801,7 @@ $$
 
 $A>0,k'>0$ なので、位相一定の点は $x'-ct'=\text{定数}$ に沿って正の $x'$ 方向へ速さ $c$ で移動します。また各点で $E'_y=cB'_z$ です。
 
-(3) $w=k'(x'-ct')$ と置けば $\partial_{x'}\cos w=-k'\sin w$、$\partial_{t'}\cos w=ck'\sin w$ です。Faraday則の $z$ 成分は
+(3) [Maxwell方程式の原理](#principle-srel5-maxwell-si)を各成分で検算します。$w=k'(x'-ct')$ と置けば $\partial_{x'}\cos w=-k'\sin w$、$\partial_{t'}\cos w=ck'\sin w$ です。Faraday則の $z$ 成分は
 
 $$
 \begin{aligned}
