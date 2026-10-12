@@ -4,11 +4,11 @@ title: "幾何学的力学 I"
 plan: textbook/plans_progress/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 本文・章別metadata・公開索引は各章を完成させた作業単位で追加する。
+# 各章の本文・章別metadata・公開索引は章完成時に追加する。
 chapters:
   - id: GMECH1
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH1
-    status: planned
+    status: completed
     title: "Lie群作用と余接束への持ち上げ"
   - id: GMECH2
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH2
