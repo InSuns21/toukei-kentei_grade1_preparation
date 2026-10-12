@@ -5,6 +5,8 @@ prerequisites:
   - AG1-05
   - AG1-03
   - RNG4
+  - MOD1
+  - LA3C
 forward_references: []
 
 concepts:
@@ -20,7 +22,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（有限 $A$ 代数）"]
-    requires: [algebra.ring-ideal]
+    requires: [algebra.finitely-generated-module]
 
   - id: algebraic-geometry.integral-finite-criterion
     name: 整元の有限加群判定
