@@ -179,7 +179,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)を適用してから、[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を使います。これらの等式により
+[零点集合の演算法則](../AG1-01/index.md#prop-ag1-01-zero-set-operations)によって $V(J+K)=V(J)\cap V(K)$ と $V(JK)=V(J)\cup V(K)$ が成立します。これに[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)と[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を適用すると
 
 $$
 \sqrt{J+K}=I(V(J+K))=I(V(J)\cap V(K))
@@ -287,7 +287,9 @@ $$
 
 代数閉性を外しても[包含反転と往復](#prop-ag1-08-order-reversing)の各式と、[消滅イデアルの和集合公式](#prop-ag1-08-set-ideal-operations) $I(X\cup Y)=I(X)\cap I(Y)$ は任意の体で成り立ちます。しかし、同じ命題の **交わりの公式** $I(X\cap Y)=\sqrt{I(X)+I(Y)}$ や根基的イデアルとの全単射は、代数閉性なしには一般に成り立ちません。
 
-実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
+実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。
+
+有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
 
 交わりの公式が破れる例も計算します。$k=\mathbb R$ とし、$X=V_{\mathbb R}(y)$、$Y=V_{\mathbb R}(y-x^2(x^2+1))$ を取ります。前者は $x$ 軸、後者は多項式のグラフです。実数では $x^2+1>0$ なので、共通点は原点だけです。従って
 
