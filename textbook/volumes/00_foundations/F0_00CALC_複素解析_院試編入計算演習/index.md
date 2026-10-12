@@ -4,7 +4,7 @@
 
 複素解析は、定理の証明を理解しただけでは試験計算が速くなりにくい分野です。Cauchy–Riemann 方程式を見たら偏導関数を並べる、円周積分を見たら特異点の位置と分母の冪を確認する、Laurent 展開では最初に収束領域を決める、というように、問題を見た直後の一手を反復して身体化する必要があります。
 
-この章では [CA1](../CA1/index.md)〜[CA4](../CA4/index.md) で構成した理論を、院試・編入試験で頻出の手計算へ変換します。新しい理論を追加するのではなく、各計算で「何を見て」「どの式を立て」「どこまで変形すれば答えになるか」を追える形で練習します。
+この章では [CA1](../../dream_thater/解析系/CA1/index.md)〜[CA4](../../dream_thater/解析系/CA4/index.md) で構成した理論を、院試・編入試験で頻出の手計算へ変換します。新しい理論を追加するのではなく、各計算で「何を見て」「どの式を立て」「どこまで変形すれば答えになるか」を追える形で練習します。
 
 ## 1. 計算ルート早見
 
@@ -89,7 +89,7 @@ u_x=v_y,
 u_y=-v_x
 $$
 
-が成り立ちます。4つの偏導関数は多項式なので連続です。よって [CA1 の Cauchy–Riemann 十分条件](../CA1/index.md#thm-ca1-cr-sufficient) から $f$ は $\mathbb C$ 全体で正則です。
+が成り立ちます。4つの偏導関数は多項式なので連続です。よって [CA1 の Cauchy–Riemann 十分条件](../../dream_thater/解析系/CA1/index.md#thm-ca1-cr-sufficient) から $f$ は $\mathbb C$ 全体で正則です。
 
 導関数は
 
@@ -229,7 +229,7 @@ $$
 の全ての解を求めよ。
 
 <!-- solution-start -->
-**解答**：$z=x+iy$ と置きます。[CA1 の $e^z$ の基本性質](../CA1/index.md#thm-ca1-complex-exponential) から
+**解答**：$z=x+iy$ と置きます。[CA1 の $e^z$ の基本性質](../../dream_thater/解析系/CA1/index.md#thm-ca1-complex-exponential) から
 
 $$
 e^z=e^x(\cos y+i\sin y).
@@ -359,7 +359,7 @@ $$
 
 で、$|i|=1<2$ なので円の内部にあります。分子 $e^z$ は整関数です。
 
-したがって [CA3 の Cauchy 積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula) を $f(z)=e^z$, 評価点 $i$ に適用できます。
+したがって [CA3 の Cauchy 積分公式](../../dream_thater/解析系/CA3/index.md#thm-ca3-cauchy-integral-formula) を $f(z)=e^z$, 評価点 $i$ に適用できます。
 
 $$
 \int_{|z|=2}\frac{e^z}{z-i}\,dz
@@ -405,7 +405,7 @@ $$
 z^4=(z-0)^{3+1}
 $$
 
-なので、対応するのは **3階導関数** です。[CA3 の Cauchy 高階導関数公式](../CA3/index.md#thm-ca3-cauchy-derivatives) から
+なので、対応するのは **3階導関数** です。[CA3 の Cauchy 高階導関数公式](../../dream_thater/解析系/CA3/index.md#thm-ca3-cauchy-derivatives) から
 
 $$
 (e^z)^{(3)}\big|_{z=0}
@@ -649,7 +649,7 @@ $$
 =\frac{3}{2}.
 $$
 
-**$R=1$ の場合**：内部にある極は $z=0$ だけです。[CA4 の留数定理](../CA4/index.md#thm-ca4-residue) から
+**$R=1$ の場合**：内部にある極は $z=0$ だけです。[CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) から
 
 $$
 I_1
@@ -725,7 +725,7 @@ $$
 \boxed{\operatorname{Res}(f,1)=\frac e2}.
 $$
 
-$|1|<2$ なので極は積分路の内部にあります。[CA4 の留数定理](../CA4/index.md#thm-ca4-residue) から
+$|1|<2$ なので極は積分路の内部にあります。[CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) から
 
 $$
 \int_{|z|=2}f(z)\,dz
@@ -800,7 +800,7 @@ $$
 \end{aligned}
 $$
 
-半径 $R>1$ の上半円輪郭を取り、上半円弧を $C_R$ とします。[CA4 の留数定理](../CA4/index.md#thm-ca4-residue) から
+半径 $R>1$ の上半円輪郭を取り、上半円弧を $C_R$ とします。[CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) から
 
 $$
 \int_{-R}^{R}\frac{dx}{(1+x^2)^2}
@@ -826,7 +826,7 @@ $$
 \le\frac1{(R^2-1)^2}.
 $$
 
-上半円弧の長さは $\pi R$ なので、[CA2 の ML 評価](../CA2/index.md#thm-ca2-reparam-ml) により
+上半円弧の長さは $\pi R$ なので、[CA2 の ML 評価](../../dream_thater/解析系/CA2/index.md#thm-ca2-reparam-ml) により
 
 $$
 \left|
@@ -882,7 +882,7 @@ $$
 |z^4+1|<|4z|
 $$
 
-が成り立ちます。[CA4 の Rouché の定理](../CA4/index.md#thm-ca4-rouche) を
+が成り立ちます。[CA4 の Rouché の定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-rouche) を
 
 $$
 f(z)=4z,
@@ -945,7 +945,7 @@ $$
 \boxed{\operatorname{Res}(f,0)=\frac16}.
 $$
 
-十分小さい円周の内部にある特異点は0だけです。[CA4 の留数定理](../CA4/index.md#thm-ca4-residue) により
+十分小さい円周の内部にある特異点は0だけです。[CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) により
 
 $$
 \int_{|z|=r}f(z)\,dz
@@ -1263,7 +1263,7 @@ $$
 =1.
 $$
 
-従って [CA4 の留数定理](../CA4/index.md#thm-ca4-residue) から
+従って [CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) から
 
 $$
 I=2\pi i\cdot1.
@@ -1466,7 +1466,7 @@ $$
 \le\frac{R^2}{R^4-1}.
 $$
 
-円弧長は $\pi R$ だから [CA2 の ML 評価](../CA2/index.md#thm-ca2-reparam-ml) により
+円弧長は $\pi R$ だから [CA2 の ML 評価](../../dream_thater/解析系/CA2/index.md#thm-ca2-reparam-ml) により
 
 $$
 \left|
@@ -1626,7 +1626,7 @@ $$
 
 **(3) 円周積分**
 
-分母 $z^5$ は $(z-0)^{4+1}$ なので、[CA3 の Cauchy 高階導関数公式](../CA3/index.md#thm-ca3-cauchy-derivatives) で $n=4$ に対応します。
+分母 $z^5$ は $(z-0)^{4+1}$ なので、[CA3 の Cauchy 高階導関数公式](../../dream_thater/解析系/CA3/index.md#thm-ca3-cauchy-derivatives) で $n=4$ に対応します。
 
 $$
 f^{(4)}(0)
@@ -1700,7 +1700,7 @@ $$
 |z^5+1|<|3z|
 $$
 
-です。[CA4 の Rouché の定理](../CA4/index.md#thm-ca4-rouche) を
+です。[CA4 の Rouché の定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-rouche) を
 
 $$
 f(z)=3z,
@@ -1901,7 +1901,7 @@ $$
 -2+e=e-2.
 $$
 
-[CA4 の留数定理](../CA4/index.md#thm-ca4-residue) から
+[CA4 の留数定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-residue) から
 
 $$
 \boxed{
@@ -1936,7 +1936,7 @@ $$
    $$
 
 <!-- solution-start -->
-**解答**：前半で Rouché により零点数を求め、その結果を後半の [CA4 の偏角原理](../CA4/index.md#thm-ca4-argument-principle) へそのまま入力します。
+**解答**：前半で Rouché により零点数を求め、その結果を後半の [CA4 の偏角原理](../../dream_thater/解析系/CA4/index.md#thm-ca4-argument-principle) へそのまま入力します。
 
 **(1) $|z|<1$**
 
@@ -1960,7 +1960,7 @@ $$
 |z^6+1|<|5z^2|.
 $$
 
-[CA4 の Rouché の定理](../CA4/index.md#thm-ca4-rouche) により
+[CA4 の Rouché の定理](../../dream_thater/解析系/CA4/index.md#thm-ca4-rouche) により
 
 $$
 p(z)=5z^2+(z^6+1)

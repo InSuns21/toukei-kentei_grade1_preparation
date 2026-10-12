@@ -2,34 +2,34 @@ version: 1
 id: AUT
 title: "計算理論 I：形式言語・オートマトン"
 plan: textbook/plan_done/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
-chapter_root: textbook/volumes/00_foundations
+chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: AUT1
-    path: textbook/volumes/00_foundations/AUT1
+    path: textbook/volumes/dream_thater/計算系/AUT1
     status: completed
     title: 文字列・形式言語・判定問題
   - id: AUT2
-    path: textbook/volumes/00_foundations/AUT2
+    path: textbook/volumes/dream_thater/計算系/AUT2
     status: completed
     title: 決定性有限オートマトン
   - id: AUT3
-    path: textbook/volumes/00_foundations/AUT3
+    path: textbook/volumes/dream_thater/計算系/AUT3
     status: completed
     title: 非決定性有限オートマトン・正規表現
   - id: AUT4
-    path: textbook/volumes/00_foundations/AUT4
+    path: textbook/volumes/dream_thater/計算系/AUT4
     status: completed
     title: 正規言語の限界
   - id: AUT5
-    path: textbook/volumes/00_foundations/AUT5
+    path: textbook/volumes/dream_thater/計算系/AUT5
     status: completed
     title: 文脈自由文法
   - id: AUT6
-    path: textbook/volumes/00_foundations/AUT6
+    path: textbook/volumes/dream_thater/計算系/AUT6
     status: completed
     title: プッシュダウン・オートマトン
   - id: AUT7
-    path: textbook/volumes/00_foundations/AUT7
+    path: textbook/volumes/dream_thater/計算系/AUT7
     status: completed
     title: Chomsky 階層と計算モデルへの橋

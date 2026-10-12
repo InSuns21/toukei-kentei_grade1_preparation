@@ -36,7 +36,7 @@
 
 配置:
 
-`textbook/volumes/00_foundations/TOP7/`
+`textbook/volumes/dream_thater/基礎科目/TOP7/`
 
 役割:
 
@@ -75,7 +75,7 @@ TOP6 で net / filter と全有界性まで導入済みなので、そこから 
 
 配置:
 
-`textbook/volumes/00_foundations/MT8/`
+`textbook/volumes/dream_thater/解析系/MT8/`
 
 役割:
 
@@ -114,7 +114,7 @@ Carathéodory 外測度を「長さ・体積」だけでなくスケール依存
 
 配置:
 
-`textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/`
+`textbook/volumes/dream_thater/解析系/F0-00P6B/`
 
 役割:
 
@@ -144,7 +144,7 @@ P4-02 の二項 `Bin(n,p_n)` の Poisson 極限を重複せず、独立だが非
 
 配置:
 
-`textbook/volumes/00_foundations/STO2A/`
+`textbook/volumes/dream_thater/解析系/STO2A/`
 
 役割:
 
@@ -184,7 +184,7 @@ E2-01 の有限状態計算を複製せず、可算状態 Markov chain の長期
 
 配置:
 
-`textbook/volumes/00_foundations/STO3A/`
+`textbook/volumes/dream_thater/解析系/STO3A/`
 
 役割:
 
@@ -230,7 +230,7 @@ E2-04 で「厳密には Donsker が必要」としていた橋を、経路空�
 
 配置:
 
-`textbook/volumes/00_foundations/STO4A/`
+`textbook/volumes/dream_thater/解析系/STO4A/`
 
 役割:
 

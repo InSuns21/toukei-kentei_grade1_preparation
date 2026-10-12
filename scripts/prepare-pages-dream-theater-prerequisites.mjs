@@ -54,10 +54,10 @@ function placeAfterH1(text, line, strict = true) {
 
 function runTests() {
   const map = new Map([
-    ['MQ0', { id: 'MQ0', title: '量子化への橋', href: 'textbook/volumes/00_foundations/MQ0/index.md' }],
-    ['QM6', { id: 'QM6', title: 'スペクトル理論', href: 'textbook/volumes/00_foundations/QM6/index.md' }],
+    ['MQ0', { id: 'MQ0', title: '量子化への橋', href: 'textbook/volumes/dream_thater/物理系/MQ0/index.md' }],
+    ['QM6', { id: 'QM6', title: 'スペクトル理論', href: 'textbook/volumes/dream_thater/解析系/QM6/index.md' }],
   ]);
-  const chapter = { id: 'MQ1', href: 'textbook/volumes/00_foundations/MQ1/index.md', data: { prerequisites: ['MQ0', 'QM6'] } };
+  const chapter = { id: 'MQ1', href: 'textbook/volumes/dream_thater/物理系/MQ1/index.md', data: { prerequisites: ['MQ0', 'QM6'] } };
   const direct = prerequisiteLine(chapter, map);
   assert.match(direct, /\[MQ0 量子化への橋\]/);
   assert.match(direct, /\[QM6 スペクトル理論\]/);

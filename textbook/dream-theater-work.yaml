@@ -6,7 +6,7 @@ updated: 2026-10-12
 # ID未指定の場合、未完了系列が一つならそれを選び、複数なら系列を確認する。
 routing:
   series_directory: textbook/dream-theater-series
-  chapter_root: textbook/volumes/00_foundations
+  chapter_root: textbook/volumes/dream_thater
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
   exercise_policy: textbook/DREAM_THEATER_EXERCISE_POLICY.md
   global_index: textbook/dream-theater-index.json

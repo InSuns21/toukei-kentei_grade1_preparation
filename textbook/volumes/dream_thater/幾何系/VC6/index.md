@@ -1,0 +1,2631 @@
+# VC6 直交曲線座標
+
+デカルト座標では、$x$ を $dx$ だけ増やせば物理的にも長さ $dx$ だけ動き、基底ベクトル $e_x,e_y,e_z$ はどこでも同じ向きを向きます。そのため「成分を偏微分して足す」という勾配・発散・回転の公式を、そのまま使えました。
+
+しかし理論物理や PDE では、
+
+- 円柱対称なら円柱座標
+- 球対称なら球座標
+
+を使いたくなります。ここで単に $x,y,z$ を $\rho,\phi,z$ や $r,\theta,\phi$ に置き換えるだけでは失敗します。例えば円柱座標で $\phi$ を $d\phi$ だけ変えたときの移動距離は $d\phi$ ではなく $\rho\,d\phi$ であり、$e_\rho,e_\phi$ 自身も位置によって回転するからです。
+
+そこで本章では、**座標の一目盛りが実空間で何メートルに相当するか**と、**基底がどの向きを向くか**を先に作ります。その情報から微分演算子を再構成すれば、円柱座標・球座標の長い公式を暗記する必要がなくなります。
+
+本章では公式を暗記せず、
+
+$$
+\text{座標接ベクトル}
+\to
+\text{尺度因子}
+\to
+\text{線素・面素・体積要素}
+\to
+\text{勾配・発散・回転・ラプラシアン}
+$$
+
+の順に再構成します。
+
+---
+
+## 1. 曲線座標と座標方向ベクトル
+
+開領域 $Q\subset\mathbb R^3$ から Euclidean 空間への $C^1$ 座標パラメータ表示
+
+$$
+r=r(q_1,q_2,q_3)
+$$
+
+を考えます。
+
+各座標だけを動かしたときの方向ベクトルは
+
+$$
+a_i
+:=
+\frac{\partial r}{\partial q_i}
+\qquad(i=1,2,3)
+$$
+
+です。
+
+<a id="def-vc6-orthogonal-curvilinear"></a>
+
+<!-- formal-statement-start -->
+> **定義（直交曲線座標）**  
+> $C^1$ 座標パラメータ表示
+>
+$$
+r:Q\to\mathbb R^3
+$$
+>
+> が各点で正則、すなわち
+>
+$$
+\det Dr\ne0
+$$
+>
+> を満たし、さらに座標方向ベクトル
+>
+$$
+a_i=\frac{\partial r}{\partial q_i}
+$$
+>
+> が
+>
+$$
+a_i\cdot a_j=0
+\qquad(i\ne j)
+$$
+>
+> を満たすとき、$(q_1,q_2,q_3)$ をその領域の **直交曲線座標** とする。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc6-orthogonal-curvilinear -->
+**定義の確認**
+
+例：円柱座標
+
+$\rho>0$ で
+
+$$
+r(\rho,\phi,z)
+=
+(\rho\cos\phi,\rho\sin\phi,z)
+$$
+
+とします。座標方向ベクトルは
+
+$$
+r_\rho=(\cos\phi,\sin\phi,0),
+$$
+
+$$
+r_\phi=(-\rho\sin\phi,\rho\cos\phi,0),
+$$
+
+$$
+r_z=(0,0,1).
+$$
+
+三本は互いに直交し、
+
+$$
+\det(r_\rho,r_\phi,r_z)=\rho\ne0.
+$$
+
+したがって $\rho>0$ の領域では、$(\rho,\phi,z)$ は定義の正則性と直交性を実際に満たす直交曲線座標です。
+<!-- definition-example-end -->
+
+直交性は「座標曲線が交わるときに直角」という意味です。ただし各 $a_i$ の長さは 1 とは限りません。
+
+---
+
+## 2. 座標方向の長さ補正と位置依存正規直交基底
+
+<a id="def-vc6-scale-factor"></a>
+
+<!-- formal-statement-start -->
+> **定義（尺度因子と位置依存正規直交基底）**  
+> 直交曲線座標に対して
+>
+$$
+h_i
+:=
+\left|
+\frac{\partial r}{\partial q_i}
+\right|
+=
+|a_i|
+>0
+$$
+>
+> を **尺度因子** とし、
+>
+$$
+e_i
+:=
+\frac{a_i}{h_i}
+$$
+>
+> と置く。
+>
+> このとき $e_1,e_2,e_3$ は各点で正規直交基底をなす。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc6-scale-factor -->
+**定義の確認**
+
+例：円柱座標
+
+$$
+r(\rho,\phi,z)
+=
+(\rho\cos\phi,\rho\sin\phi,z)
+$$
+
+では
+
+$$
+r_\rho
+=
+(\cos\phi,\sin\phi,0),
+$$
+
+$$
+r_\phi
+=
+(-\rho\sin\phi,\rho\cos\phi,0),
+$$
+
+$$
+r_z=(0,0,1).
+$$
+
+互いの内積は 0 で、
+
+$$
+h_\rho=1,
+\qquad
+h_\phi=\rho,
+\qquad
+h_z=1.
+$$
+
+したがって
+
+$$
+e_\rho=(\cos\phi,\sin\phi,0),
+$$
+
+$$
+e_\phi=(-\sin\phi,\cos\phi,0),
+$$
+
+$$
+e_z=(0,0,1).
+$$
+
+ここで $e_\rho,e_\phi$ は $\phi$ とともに回転します。デカルト基底と違い、**成分が一定でもベクトル場自体が一定とは限りません。**
+<!-- definition-example-end -->
+
+---
+
+## 3. 線素・面素・体積要素
+
+まず「$dr$」が何を表しているかを全微分から確認します。$q=(q_1,q_2,q_3)$、$\Delta q=(\Delta q_1,\Delta q_2,\Delta q_3)$ とすると、$r$ の微分可能性から
+
+$$
+r(q+\Delta q)-r(q)
+=
+Dr(q)\Delta q
++
+o(|\Delta q|).
+$$
+
+Jacobian の各列は
+
+$$
+a_i=\frac{\partial r}{\partial q_i}
+$$
+
+なので、一次の主項は
+
+$$
+Dr(q)\Delta q
+=
+a_1\Delta q_1+a_2\Delta q_2+a_3\Delta q_3.
+$$
+
+この一次部分を微分記号で書いたものが
+
+$$
+dr
+=
+a_1\,dq_1+a_2\,dq_2+a_3\,dq_3.
+$$
+
+さらに $a_i=h_ie_i$ を代入して
+
+$$
+dr
+=
+h_1e_1\,dq_1+h_2e_2\,dq_2+h_3e_3\,dq_3.
+$$
+
+つまり $dq_i$ は座標値の変化であり、実空間での一次の移動距離は $h_i\,dq_i$ です。
+
+<a id="prop-vc6-elements"></a>
+
+<!-- formal-statement-start -->
+> **命題（線素・面素・体積要素）**  
+> 右手系をなす直交曲線座標で、
+>
+$$
+ds^2
+=
+h_1^2dq_1^2+h_2^2dq_2^2+h_3^2dq_3^2.
+$$
+>
+> $q_i=\text{const}$ の座標面について、$\{i,j,k\}=\{1,2,3\}$ とすれば
+>
+$$
+dS_i
+=
+h_jh_k\,dq_j\,dq_k.
+$$
+>
+> また体積要素は
+>
+$$
+\boxed{
+dV
+=
+h_1h_2h_3\,dq_1dq_2dq_3
+}
+$$
+>
+> であり、
+>
+$$
+|\det Dr|
+=
+h_1h_2h_3.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+直交しているので、微小座標直方体の三辺の長さは
+
+$$
+h_1dq_1,\quad h_2dq_2,\quad h_3dq_3
+$$
+
+です。面積は二辺の積、体積は三辺の積になります。Jacobian は三つの座標方向ベクトルのスカラー三重積です。
+
+<!-- proof-start -->
+### 証明
+
+直交性から
+
+$$
+dr\cdot dr
+=
+\sum_{i=1}^3
+h_i^2dq_i^2,
+$$
+
+なので線素公式を得ます。
+
+$q_1=\text{const}$ の座標面の二つの方向ベクトルは
+
+$$
+a_2=h_2e_2,
+\qquad
+a_3=h_3e_3.
+$$
+
+したがって
+
+$$
+|a_2\times a_3|
+=
+h_2h_3|e_2\times e_3|
+=
+h_2h_3.
+$$
+
+よって
+
+$$
+dS_1=h_2h_3\,dq_2dq_3.
+$$
+
+他の座標面も巡回的に同様です。
+
+最後に
+
+$$
+|\det Dr|
+=
+|a_1\cdot(a_2\times a_3)|.
+$$
+
+右手系では
+
+$$
+e_1\cdot(e_2\times e_3)=1
+$$
+
+なので
+
+$$
+|\det Dr|
+=
+h_1h_2h_3.
+$$
+
+RA7 の [多変数変数変換定理](../../基礎科目/RA7/index.md#thm-ra7-change-of-variables) から
+
+$$
+dV
+=
+|\det Dr|\,dq_1dq_2dq_3
+=
+h_1h_2h_3\,dq_1dq_2dq_3.
+$$
+<!-- proof-end -->
+
+尺度因子は単なる補助記号ではなく、幾何学的な長さ・面積・体積の倍率そのものです。
+
+---
+
+## 4. 勾配は全微分から出る
+
+スカラー場 $f$ を $q$ の関数として書くと
+
+$$
+df
+=
+\frac{\partial f}{\partial q_1}dq_1
++
+\frac{\partial f}{\partial q_2}dq_2
++
+\frac{\partial f}{\partial q_3}dq_3.
+$$
+
+一方、勾配の定義から
+
+$$
+df
+=
+\nabla f\cdot dr.
+$$
+
+<a id="prop-vc6-gradient"></a>
+
+<!-- formal-statement-start -->
+> **命題（直交曲線座標の勾配）**  
+> $f$ が $C^1$ なら
+>
+$$
+\boxed{
+\nabla f
+=
+\sum_{i=1}^3
+\frac{1}{h_i}
+\frac{\partial f}{\partial q_i}
+e_i
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$$
+dr
+=
+\sum_i h_ie_i\,dq_i
+$$
+
+なので
+
+$$
+\nabla f\cdot dr
+=
+\sum_i
+h_i(\nabla f\cdot e_i)\,dq_i.
+$$
+
+これを
+
+$$
+df
+=
+\sum_i f_{q_i}\,dq_i
+$$
+
+と係数比較すると
+
+$$
+\nabla f\cdot e_i
+=
+\frac1{h_i}f_{q_i}.
+$$
+
+従って
+
+$$
+\nabla f
+=
+\sum_i
+\frac1{h_i}f_{q_i}e_i.
+$$
+<!-- proof-end -->
+
+勾配の公式は暗記ではなく、**一目盛りの物理長さが $h_i\,dq_i$ であることの補正**です。
+
+---
+
+## 5. 発散は微小座標直方体の流束収支
+
+ベクトル場を正規直交基底で
+
+$$
+A
+=
+A_1e_1+A_2e_2+A_3e_3
+$$
+
+と書きます。
+
+$q_1$ 方向の向かい合う二面の面積は局所的に
+
+$$
+h_2h_3\,dq_2dq_3.
+$$
+
+そこを通る正味の外向き流束は一次まで
+
+$$
+\frac{\partial}{\partial q_1}
+(h_2h_3A_1)
+\,dq_1dq_2dq_3
+$$
+
+です。
+
+<a id="prop-vc6-divergence"></a>
+
+<!-- formal-statement-start -->
+> **命題（直交曲線座標の発散）**  
+> $A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
+>
+$$
+\boxed{
+\nabla\cdot A
+=
+\frac{1}{h_1h_2h_3}
+\left[
+\frac{\partial}{\partial q_1}(h_2h_3A_1)
++
+\frac{\partial}{\partial q_2}(h_3h_1A_2)
++
+\frac{\partial}{\partial q_3}(h_1h_2A_3)
+\right]
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+微小座標直方体の六面流束を足し、体積
+
+$$
+h_1h_2h_3\,dq_1dq_2dq_3
+$$
+
+で割ります。VC1 で見た「単位体積あたりの正味の外向き流束」という発散の意味を曲線座標へ移したものです。
+
+<!-- proof-start -->
+### 証明
+
+$q_1$ 方向の面に現れる量を
+
+$$
+B_1(q_1,q_2,q_3)
+:=
+h_2h_3A_1
+$$
+
+と置きます。
+
+微小座標直方体の $q_1$ 正側の面では外向き流束が
+
+$$
+B_1(q_1+dq_1,q_2,q_3)\,dq_2dq_3,
+$$
+
+負側の面では外向き法線が逆なので
+
+$$
+-B_1(q_1,q_2,q_3)\,dq_2dq_3
+$$
+
+です。
+
+したがってこの二面の和は
+
+$$
+\left[
+B_1(q_1+dq_1,q_2,q_3)-B_1(q_1,q_2,q_3)
+\right]dq_2dq_3.
+$$
+
+一次まで展開すると
+
+$$
+\frac{\partial B_1}{\partial q_1}
+\,dq_1dq_2dq_3
++
+o(dq_1dq_2dq_3).
+$$
+
+$q_2$ 方向の二面では、面積係数が $h_3h_1$、法線方向成分が $A_2$ なので、同じ差分を取ると
+
+$$
+\partial_{q_2}(h_3h_1A_2)
+\,dq_1dq_2dq_3
++
+o(dq_1dq_2dq_3)
+$$
+
+が得られます。$q_3$ 方向では
+
+$$
+\partial_{q_3}(h_1h_2A_3)
+\,dq_1dq_2dq_3
++
+o(dq_1dq_2dq_3)
+$$
+
+です。したがって六面すべての正味流束は
+
+$$
+\left[
+\partial_{q_1}(h_2h_3A_1)
++
+\partial_{q_2}(h_3h_1A_2)
++
+\partial_{q_3}(h_1h_2A_3)
+\right]
+dq_1dq_2dq_3
+$$
+
+に高次の項を加えたものです。
+
+一方、座標直方体の体積は主項として
+
+$$
+h_1h_2h_3\,dq_1dq_2dq_3
+$$
+
+です。
+
+正味の流束を体積で割って直方体を一点へ縮めると高次項が消え、
+
+$$
+\nabla\cdot A
+=
+\frac{1}{h_1h_2h_3}
+\left[
+\partial_{q_1}(h_2h_3A_1)
++
+\partial_{q_2}(h_3h_1A_2)
++
+\partial_{q_3}(h_1h_2A_3)
+\right].
+$$
+<!-- proof-end -->
+
+デカルト座標では $h_1=h_2=h_3=1$ なので通常公式へ戻ります。
+
+---
+
+## 6. 回転は微小座標長方形の循環
+
+$(\nabla\times A)\cdot e_1$ を求めるには、$q_1=\text{const}$ の微小長方形を考えます。
+
+その面積は
+
+$$
+h_2h_3\,dq_2dq_3.
+$$
+
+境界循環の一次項は
+
+$$
+\left[
+\frac{\partial}{\partial q_2}(h_3A_3)
+-
+\frac{\partial}{\partial q_3}(h_2A_2)
+\right]dq_2dq_3.
+$$
+
+<a id="prop-vc6-curl"></a>
+
+<!-- formal-statement-start -->
+> **命題（直交曲線座標の回転）**  
+> $(q_1,q_2,q_3)$ を右手系をなす直交曲線座標とする。$A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
+>
+$$
+\boxed{
+(\nabla\times A)_1
+=
+\frac{1}{h_2h_3}
+\left[
+\frac{\partial}{\partial q_2}(h_3A_3)
+-
+\frac{\partial}{\partial q_3}(h_2A_2)
+\right]
+}
+$$
+>
+> であり、残り二成分は添字を $1\to2\to3\to1$ と循環させて
+>
+$$
+(\nabla\times A)_2
+=
+\frac{1}{h_3h_1}
+\left[
+\frac{\partial}{\partial q_3}(h_1A_1)
+-
+\frac{\partial}{\partial q_1}(h_3A_3)
+\right],
+$$
+>
+$$
+(\nabla\times A)_3
+=
+\frac{1}{h_1h_2}
+\left[
+\frac{\partial}{\partial q_1}(h_2A_2)
+-
+\frac{\partial}{\partial q_2}(h_1A_1)
+\right].
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+VC5 で回転は単位面積あたりの循環密度でした。各辺の線素は $h_i\,dq_i$ なので、四辺の循環を足して $h_jh_k\,dq_jdq_k$ で割れば公式が出ます。
+
+<!-- proof-start -->
+### 証明
+
+$q_1$ を固定し、$(q_2,q_3)$ 平面の正向き微小長方形を考えます。
+
+基点を $(q_2,q_3)$ とすると、四辺の循環の主項は
+
+$$
+h_2A_2(q_2,q_3)\,dq_2
++
+h_3A_3(q_2+dq_2,q_3)\,dq_3
+$$
+
+$$
+-
+h_2A_2(q_2,q_3+dq_3)\,dq_2
+-
+h_3A_3(q_2,q_3)\,dq_3.
+$$
+
+ここで $h_iA_i$ の他の固定座標は省略して書いています。
+
+第二辺と第四辺の差は
+
+$$
+\partial_{q_2}(h_3A_3)\,dq_2dq_3
++
+o(dq_2dq_3),
+$$
+
+第一辺と第三辺の差は
+
+$$
+-\partial_{q_3}(h_2A_2)\,dq_2dq_3
++
+o(dq_2dq_3).
+$$
+
+よって全循環は
+
+$$
+\left[
+\partial_{q_2}(h_3A_3)
+-
+\partial_{q_3}(h_2A_2)
+\right]
+dq_2dq_3
++
+o(dq_2dq_3).
+$$
+
+一方、この座標長方形の面積は主項として
+
+$$
+h_2h_3\,dq_2dq_3
+$$
+
+です。
+
+VC5 の [回転の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って長方形を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
+
+したがって
+
+$$
+(\nabla\times A)_1
+=
+\frac1{h_2h_3}
+\left[
+\partial_{q_2}(h_3A_3)
+-
+\partial_{q_3}(h_2A_2)
+\right].
+$$
+
+第2成分では $q_2$ を固定し、$(q_3,q_1)$ 平面の正向き長方形を使います。四辺の主項は
+
+$$
+h_3A_3(q_3,q_1)\,dq_3
++
+h_1A_1(q_3+dq_3,q_1)\,dq_1
+$$
+
+$$
+-
+h_3A_3(q_3,q_1+dq_1)\,dq_3
+-
+h_1A_1(q_3,q_1)\,dq_1.
+$$
+
+したがって循環の主項は
+
+$$
+\left[
+\partial_{q_3}(h_1A_1)
+-
+\partial_{q_1}(h_3A_3)
+\right]
+dq_3dq_1.
+$$
+
+面積 $h_3h_1\,dq_3dq_1$ で割って縮めれば
+
+$$
+(\nabla\times A)_2
+=
+\frac1{h_3h_1}
+\left[
+\partial_{q_3}(h_1A_1)
+-
+\partial_{q_1}(h_3A_3)
+\right].
+$$
+
+第3成分では $q_3$ を固定した $(q_1,q_2)$ 長方形を使います。このとき循環の主項は
+
+$$
+\left[
+\partial_{q_1}(h_2A_2)
+-
+\partial_{q_2}(h_1A_1)
+\right]
+dq_1dq_2
+$$
+
+を面積 $h_1h_2\,dq_1dq_2$ で割るので
+
+$$
+(\nabla\times A)_3
+=
+\frac1{h_1h_2}
+\left[
+\partial_{q_1}(h_2A_2)
+-
+\partial_{q_2}(h_1A_1)
+\right].
+$$
+
+これで三成分すべてが、どの座標面の循環を使ったかまで含めて得られました。
+<!-- proof-end -->
+
+---
+
+## 7. スカラー・ラプラシアンは勾配の発散
+
+<a id="prop-vc6-scalar-laplacian"></a>
+
+<!-- formal-statement-start -->
+> **命題（直交曲線座標のスカラー・ラプラシアン）**  
+> $f\in C^2$ なら
+>
+$$
+\boxed{
+\Delta f
+=
+\frac{1}{h_1h_2h_3}
+\sum_{i=1}^3
+\frac{\partial}{\partial q_i}
+\left(
+\frac{h_1h_2h_3}{h_i^2}
+\frac{\partial f}{\partial q_i}
+\right)
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+[直交曲線座標の勾配](#prop-vc6-gradient) から
+
+$$
+(\nabla f)_i
+=
+\frac1{h_i}f_{q_i}.
+$$
+
+これを [直交曲線座標の発散](#prop-vc6-divergence) に代入します。
+
+第一項は
+
+$$
+\frac{1}{h_1h_2h_3}
+\frac{\partial}{\partial q_1}
+\left(
+h_2h_3\frac1{h_1}f_{q_1}
+\right)
+=
+\frac{1}{h_1h_2h_3}
+\frac{\partial}{\partial q_1}
+\left(
+\frac{h_1h_2h_3}{h_1^2}f_{q_1}
+\right).
+$$
+
+第2項と第3項も、発散公式の $A_2,A_3$ へ
+
+$$
+A_2=\frac1{h_2}f_{q_2},
+\qquad
+A_3=\frac1{h_3}f_{q_3}
+$$
+
+を代入すると
+
+$$
+\frac{1}{h_1h_2h_3}
+\frac{\partial}{\partial q_2}
+\left(
+\frac{h_1h_2h_3}{h_2^2}f_{q_2}
+\right),
+$$
+
+$$
+\frac{1}{h_1h_2h_3}
+\frac{\partial}{\partial q_3}
+\left(
+\frac{h_1h_2h_3}{h_3^2}f_{q_3}
+\right)
+$$
+
+となります。三項をまとめれば主張の和の形を得ます。
+<!-- proof-end -->
+
+---
+
+## 8. 円柱座標
+
+$$
+x=\rho\cos\phi,
+\qquad
+y=\rho\sin\phi,
+\qquad
+z=z
+$$
+
+とします。
+
+すでに確認した通り
+
+$$
+h_\rho=1,
+\qquad
+h_\phi=\rho,
+\qquad
+h_z=1.
+$$
+
+<a id="prop-vc6-cylindrical"></a>
+
+<!-- formal-statement-start -->
+> **命題（円柱座標の公式）**  
+> $\rho>0$ で
+>
+$$
+\nabla f
+=
+e_\rho\frac{\partial f}{\partial\rho}
++
+e_\phi\frac1\rho\frac{\partial f}{\partial\phi}
++
+e_z\frac{\partial f}{\partial z},
+$$
+>
+$$
+\nabla\cdot A
+=
+\frac1\rho
+\frac{\partial}{\partial\rho}(\rho A_\rho)
++
+\frac1\rho
+\frac{\partial A_\phi}{\partial\phi}
++
+\frac{\partial A_z}{\partial z},
+$$
+>
+$$
+\nabla\times A
+=
+e_\rho
+\left(
+\frac1\rho\frac{\partial A_z}{\partial\phi}
+-
+\frac{\partial A_\phi}{\partial z}
+\right)
++
+e_\phi
+\left(
+\frac{\partial A_\rho}{\partial z}
+-
+\frac{\partial A_z}{\partial\rho}
+\right)
+$$
+>
+$$
+\qquad\qquad
++
+e_z
+\left[
+\frac1\rho
+\frac{\partial}{\partial\rho}(\rho A_\phi)
+-
+\frac1\rho
+\frac{\partial A_\rho}{\partial\phi}
+\right],
+$$
+>
+$$
+\Delta f
+=
+\frac1\rho
+\frac{\partial}{\partial\rho}
+\left(
+\rho\frac{\partial f}{\partial\rho}
+\right)
++
+\frac1{\rho^2}
+\frac{\partial^2 f}{\partial\phi^2}
++
+\frac{\partial^2 f}{\partial z^2}.
+$$
+<!-- formal-statement-end -->
+
+ここで「一般公式へ代入しただけ」の中身を一度追います。対応は
+
+$$
+(q_1,q_2,q_3)=(\rho,\phi,z),
+\qquad
+(h_1,h_2,h_3)=(1,\rho,1)
+$$
+
+です。
+
+勾配では
+
+$$
+\frac1{h_1}=1,
+\qquad
+\frac1{h_2}=\frac1\rho,
+\qquad
+\frac1{h_3}=1
+$$
+
+なので
+
+$$
+\nabla f
+=
+e_\rho f_\rho
++
+e_\phi\frac1\rho f_\phi
++
+e_zf_z.
+$$
+
+発散では一般式の三つの積を先に計算すると
+
+$$
+h_2h_3=\rho,
+\qquad
+h_3h_1=1,
+\qquad
+h_1h_2=\rho,
+$$
+
+$$
+h_1h_2h_3=\rho.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1\rho
+\left[
+\partial_\rho(\rho A_\rho)
++
+\partial_\phi A_\phi
++
+\partial_z(\rho A_z)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\rho)
++
+\frac1\rho\partial_\phi A_\phi
++
+\partial_zA_z.
+\end{aligned}
+$$
+
+最後の等号では $\rho$ が $z$ に依存しないことを使いました。
+
+回転も三成分を一つずつ一般式へ入れます。例えば $\rho$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\rho
+&=
+\frac1{h_\phi h_z}
+\left[
+\partial_\phi(h_zA_z)
+-
+\partial_z(h_\phi A_\phi)
+\right]\\
+&=
+\frac1\rho
+\left[
+\partial_\phi A_z
+-
+\partial_z(\rho A_\phi)
+\right]\\
+&=
+\frac1\rho\partial_\phi A_z
+-
+\partial_zA_\phi.
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_zh_\rho}
+\left[
+\partial_z(h_\rho A_\rho)
+-
+\partial_\rho(h_zA_z)
+\right]\\
+&=
+\partial_zA_\rho-\partial_\rho A_z,
+\end{aligned}
+$$
+
+$z$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_z
+&=
+\frac1{h_\rho h_\phi}
+\left[
+\partial_\rho(h_\phi A_\phi)
+-
+\partial_\phi(h_\rho A_\rho)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\phi)
+-
+\frac1\rho\partial_\phi A_\rho.
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは
+
+$$
+h_\rho h_\phi h_z=\rho
+$$
+
+を [一般公式](#prop-vc6-scalar-laplacian) へ代入し、
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1\rho
+\partial_\phi\left(\frac1\rho f_\phi\right)
++
+\frac1\rho
+\partial_z(\rho f_z)\\
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1{\rho^2}f_{\phi\phi}
++
+f_{zz},
+\end{aligned}
+$$
+
+となります。二行目では $\rho$ が $\phi,z$ に依存しないことを使っています。
+
+### 基底自身が回る
+
+$$
+e_\rho=(\cos\phi,\sin\phi,0),
+$$
+
+$$
+e_\phi=(-\sin\phi,\cos\phi,0)
+$$
+
+なので
+
+$$
+\frac{\partial e_\rho}{\partial\phi}
+=
+e_\phi,
+\qquad
+\frac{\partial e_\phi}{\partial\phi}
+=
+-e_\rho.
+$$
+
+この項があるため、ベクトル場の微分では「物理成分だけを微分」してはいけません。
+
+---
+
+## 9. 例：軸対称な方位角方向のベクトル場
+
+$$
+A=A_\phi(\rho)e_\phi
+$$
+
+とし、$\phi,z$ に依存しないとします。
+
+発散は
+
+$$
+\nabla\cdot A=0.
+$$
+
+回転は $z$ 成分だけが残り、
+
+$$
+\nabla\times A
+=
+e_z
+\frac1\rho
+\frac{d}{d\rho}
+(\rho A_\phi).
+$$
+
+特に剛体回転型
+
+$$
+A_\phi(\rho)=\Omega\rho
+$$
+
+では
+
+$$
+\nabla\times A
+=
+e_z
+\frac1\rho
+\frac{d}{d\rho}(\Omega\rho^2)
+=
+2\Omega e_z.
+$$
+
+VC1 のデカルト座標での計算 $(-\Omega y,\Omega x,0)$ と一致します。
+
+---
+
+## 10. 球座標
+
+本章では
+
+$$
+x=r\sin\theta\cos\phi,
+$$
+
+$$
+y=r\sin\theta\sin\phi,
+$$
+
+$$
+z=r\cos\theta
+$$
+
+を使います。
+
+$\theta$ は $+z$ 軸から測る極角、$\phi$ は $xy$ 平面内の方位角です。
+
+位置ベクトルを
+
+$$
+R(r,\theta,\phi)
+=
+(r\sin\theta\cos\phi,\,
+ r\sin\theta\sin\phi,\,
+ r\cos\theta)
+$$
+
+と書きます。尺度因子を完成形から覚えず、この位置ベクトル表示 $R$ を実際に偏微分します。$r$ については
+
+$$
+\frac{\partial R}{\partial r}
+=
+(\sin\theta\cos\phi,\,
+ \sin\theta\sin\phi,\,
+ \cos\theta),
+$$
+
+なので
+
+$$
+h_r
+=
+\left|
+\frac{\partial R}{\partial r}
+\right|
+=
+\sqrt{
+\sin^2\theta(\cos^2\phi+\sin^2\phi)
++\cos^2\theta
+}
+=
+1.
+$$
+
+極角 $\theta$ については
+
+$$
+\frac{\partial R}{\partial\theta}
+=
+(r\cos\theta\cos\phi,\,
+ r\cos\theta\sin\phi,\,
+ -r\sin\theta),
+$$
+
+したがって
+
+$$
+h_\theta
+=
+r\sqrt{
+\cos^2\theta(\cos^2\phi+\sin^2\phi)
++\sin^2\theta
+}
+=
+r.
+$$
+
+方位角 $\phi$ については
+
+$$
+\frac{\partial R}{\partial\phi}
+=
+(-r\sin\theta\sin\phi,\,
+ r\sin\theta\cos\phi,\,
+ 0),
+$$
+
+なので
+
+$$
+h_\phi
+=
+r\sin\theta
+\sqrt{\sin^2\phi+\cos^2\phi}
+=
+r\sin\theta.
+$$
+
+また三本の相互内積は 0 です。例えば
+
+$$
+\frac{\partial R}{\partial r}
+\cdot
+\frac{\partial R}{\partial\theta}
+=
+r\sin\theta\cos\theta-r\sin\theta\cos\theta
+=
+0,
+$$
+
+残りも直接確認できます。
+
+$$
+\frac{\partial R}{\partial r}
+\cdot
+\frac{\partial R}{\partial\phi}
+=
+-r\sin^2\theta\cos\phi\sin\phi
++
+r\sin^2\theta\sin\phi\cos\phi
+=
+0,
+$$
+
+$$
+\begin{aligned}
+\frac{\partial R}{\partial\theta}
+\cdot
+\frac{\partial R}{\partial\phi}
+&=
+-r^2\cos\theta\sin\theta\cos\phi\sin\phi\\
+&\quad+
+r^2\cos\theta\sin\theta\sin\phi\cos\phi\\
+&=0.
+\end{aligned}
+$$
+
+従って $r>0$、$0<\theta<\pi$ では本当に直交曲線座標であり、
+
+$$
+h_r=1,
+\qquad
+h_\theta=r,
+\qquad
+h_\phi=r\sin\theta.
+$$
+
+したがって体積要素は
+
+$$
+dV
+=
+r^2\sin\theta\,dr\,d\theta\,d\phi.
+$$
+
+これは RA7 の球座標 Jacobian と一致します。
+
+<a id="prop-vc6-spherical"></a>
+
+<!-- formal-statement-start -->
+> **命題（球座標の公式）**  
+> $r>0$ かつ $0<\theta<\pi$ で
+>
+$$
+\nabla f
+=
+e_r\frac{\partial f}{\partial r}
++
+e_\theta\frac1r\frac{\partial f}{\partial\theta}
++
+e_\phi\frac1{r\sin\theta}\frac{\partial f}{\partial\phi},
+$$
+>
+$$
+\nabla\cdot A
+=
+\frac1{r^2}
+\frac{\partial}{\partial r}(r^2A_r)
++
+\frac1{r\sin\theta}
+\frac{\partial}{\partial\theta}(\sin\theta A_\theta)
++
+\frac1{r\sin\theta}
+\frac{\partial A_\phi}{\partial\phi},
+$$
+>
+$$
+\nabla\times A
+=
+e_r
+\frac1{r\sin\theta}
+\left[
+\frac{\partial}{\partial\theta}(\sin\theta A_\phi)
+-
+\frac{\partial A_\theta}{\partial\phi}
+\right]
+$$
+>
+$$
+\qquad
++
+e_\theta
+\frac1r
+\left[
+\frac1{\sin\theta}
+\frac{\partial A_r}{\partial\phi}
+-
+\frac{\partial}{\partial r}(rA_\phi)
+\right]
++
+e_\phi
+\frac1r
+\left[
+\frac{\partial}{\partial r}(rA_\theta)
+-
+\frac{\partial A_r}{\partial\theta}
+\right],
+$$
+>
+$$
+\Delta f
+=
+\frac1{r^2}
+\frac{\partial}{\partial r}
+\left(
+r^2\frac{\partial f}{\partial r}
+\right)
++
+\frac1{r^2\sin\theta}
+\frac{\partial}{\partial\theta}
+\left(
+\sin\theta\frac{\partial f}{\partial\theta}
+\right)
++
+\frac1{r^2\sin^2\theta}
+\frac{\partial^2f}{\partial\phi^2}.
+$$
+<!-- formal-statement-end -->
+
+一般公式からこの形へ移る代入も確認します。対応は
+
+$$
+(q_1,q_2,q_3)=(r,\theta,\phi),
+\qquad
+(h_1,h_2,h_3)=(1,r,r\sin\theta)
+$$
+
+です。
+
+発散では
+
+$$
+h_\theta h_\phi=r^2\sin\theta,
+\qquad
+h_\phi h_r=r\sin\theta,
+\qquad
+h_rh_\theta=r,
+$$
+
+$$
+h_rh_\theta h_\phi=r^2\sin\theta.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,A_r)
++
+\partial_\theta(r\sin\theta\,A_\theta)
++
+\partial_\phi(rA_\phi)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2A_r)
++
+\frac1{r\sin\theta}
+\partial_\theta(\sin\theta A_\theta)
++
+\frac1{r\sin\theta}\partial_\phi A_\phi.
+\end{aligned}
+$$
+
+二行目では $\sin\theta$ が $r$ に依存せず、$r$ が $\theta,\phi$ に依存しないことを使いました。
+
+回転の $r$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_r
+&=
+\frac1{h_\theta h_\phi}
+\left[
+\partial_\theta(h_\phi A_\phi)
+-
+\partial_\phi(h_\theta A_\theta)
+\right]\\
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_\theta(r\sin\theta\,A_\phi)
+-
+\partial_\phi(rA_\theta)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\theta(\sin\theta A_\phi)
+-
+\partial_\phi A_\theta
+\right].
+\end{aligned}
+$$
+
+$\theta$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\theta
+&=
+\frac1{h_\phi h_r}
+\left[
+\partial_\phi(h_rA_r)
+-
+\partial_r(h_\phi A_\phi)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\phi A_r
+-
+\partial_r(r\sin\theta\,A_\phi)
+\right]\\
+&=
+\frac1r
+\left[
+\frac1{\sin\theta}\partial_\phi A_r
+-
+\partial_r(rA_\phi)
+\right],
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_rh_\theta}
+\left[
+\partial_r(h_\theta A_\theta)
+-
+\partial_\theta(h_rA_r)
+\right]\\
+&=
+\frac1r
+\left[
+\partial_r(rA_\theta)
+-
+\partial_\theta A_r
+\right].
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは一般公式の各係数
+
+$$
+\frac{h_rh_\theta h_\phi}{h_r^2}
+=
+r^2\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\theta^2}
+=
+\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\phi^2}
+=
+\frac1{\sin\theta}
+$$
+
+を代入して
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,f_r)
++
+\partial_\theta(\sin\theta\,f_\theta)
++
+\partial_\phi\left(\frac1{\sin\theta}f_\phi\right)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2f_r)
++
+\frac1{r^2\sin\theta}\partial_\theta(\sin\theta f_\theta)
++
+\frac1{r^2\sin^2\theta}f_{\phi\phi}.
+\end{aligned}
+$$
+
+こうして長い球座標公式も、尺度因子と一般式から一行ずつ再構成できます。
+
+### 球座標の基底ベクトルの位置依存
+
+$$
+e_r
+=
+(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta),
+$$
+
+$$
+e_\theta
+=
+(\cos\theta\cos\phi,\cos\theta\sin\phi,-\sin\theta),
+$$
+
+$$
+e_\phi
+=
+(-\sin\phi,\cos\phi,0).
+$$
+
+従って
+
+$$
+\partial_\theta e_r=e_\theta,
+\qquad
+\partial_\theta e_\theta=-e_r,
+\qquad
+\partial_\theta e_\phi=0,
+$$
+
+$$
+\partial_\phi e_r
+=
+\sin\theta\,e_\phi,
+$$
+
+$$
+\partial_\phi e_\theta
+=
+\cos\theta\,e_\phi,
+$$
+
+$$
+\partial_\phi e_\phi
+=
+-\sin\theta\,e_r
+-
+\cos\theta\,e_\theta.
+$$
+
+これが球座標でのベクトル解析に現れる追加項の源です。
+
+---
+
+## 11. 放射対称スカラー場
+
+$f=f(r)$ だけに依存するなら角度方向の微分項は消えて
+
+$$
+\nabla f=f'(r)e_r,
+$$
+
+$$
+\boxed{
+\Delta f
+=
+\frac1{r^2}
+\frac{d}{dr}
+\left(
+r^2f'(r)
+\right)
+=
+f''(r)+\frac2r f'(r)
+}.
+$$
+
+例えば
+
+$$
+f(r)=\frac1r
+$$
+
+では $r>0$ で
+
+$$
+f'(r)=-\frac1{r^2},
+\qquad
+f''(r)=\frac2{r^3},
+$$
+
+なので
+
+$$
+\Delta\frac1r
+=
+\frac2{r^3}
+-
+\frac2{r^3}
+=
+0.
+$$
+
+ただし $r=0$ では $1/r$ 自体が未定義です。PDE6 の基本解と同じく、**原点を含む領域へこの計算をそのまま延長してはいけません。**
+
+---
+
+## 12. 逆二乗放射状場
+
+$$
+A
+=
+\frac{C}{r^2}e_r
+$$
+
+とします。
+
+$r>0$ では
+
+$$
+\nabla\cdot A
+=
+\frac1{r^2}
+\frac{d}{dr}
+\left(
+r^2\frac{C}{r^2}
+\right)
+=
+0.
+$$
+
+一方、半径 $R$ の球面では
+
+$$
+A\cdot n
+=
+\frac{C}{R^2},
+$$
+
+したがって
+
+$$
+\int_{S_R}A\cdot n\,dS
+=
+\frac{C}{R^2}
+4\pi R^2
+=
+4\pi C.
+$$
+
+これは VC4 の特異場と同じ現象です。原点を含む球へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できないのは、$A$ が $r=0$ で $C^1$ どころか未定義だからです。
+
+---
+
+## 13. 座標の退化と場自体の未定義性は別物
+
+円柱座標では $\rho=0$ で $\phi$ が定まりません。
+
+球座標では
+
+- $r=0$
+- $\theta=0,\pi$
+
+で一部の座標や基底が退化します。
+
+これは **座標表示の退化** であり、元のベクトル場が未定義だとは限りません。
+
+例えばデカルト座標で表した場
+
+$$
+F=(1,0,0)
+$$
+
+は原点で完全に滑らかですが、球座標成分は角度に依存し、$r=0$ で球座標の基底ベクトル自体が定まりません。
+
+逆に
+
+$$
+\frac{1}{r^2}e_r
+$$
+
+は原点で場自体が未定義で、長さも発散します。
+
+この区別は PDE・電磁気・流体で重要です。
+
+---
+
+## 14. ベクトル・ラプラシアン：成分ごとのスカラー・ラプラシアンではない
+
+Euclidean 三次元でベクトル・ラプラシアンは
+
+$$
+\boxed{
+\Delta A
+=
+\nabla(\nabla\cdot A)
+-
+\nabla\times(\nabla\times A)
+}
+$$
+
+として扱えます。
+
+デカルト基底は一定なので
+
+$$
+\Delta A
+=
+(\Delta A_x,\Delta A_y,\Delta A_z)
+$$
+
+です。
+
+しかし曲線座標では基底が位置依存なので、物理成分 $A_i$ にスカラー・ラプラシアンを一つずつかけるだけでは不足します。
+
+円柱座標では、右辺の $\Delta$ をスカラー・ラプラシアンとして
+
+$$
+(\Delta A)_\rho
+=
+\Delta A_\rho
+-
+\frac{A_\rho}{\rho^2}
+-
+\frac{2}{\rho^2}
+\frac{\partial A_\phi}{\partial\phi},
+$$
+
+$$
+(\Delta A)_\phi
+=
+\Delta A_\phi
+-
+\frac{A_\phi}{\rho^2}
++
+\frac{2}{\rho^2}
+\frac{\partial A_\rho}{\partial\phi},
+$$
+
+$$
+(\Delta A)_z
+=
+\Delta A_z.
+$$
+
+例えば
+
+$$
+A=e_\rho
+$$
+
+は物理成分が
+
+$$
+A_\rho=1,\qquad A_\phi=A_z=0
+$$
+
+なので成分だけ見れば定数ですが、
+
+$$
+\Delta A
+=
+-\frac1{\rho^2}e_\rho
+\qquad(\rho>0).
+$$
+
+基底自身が $\phi$ とともに回るためです。
+
+球座標でも同じ原理で、必要なら
+
+$$
+\nabla(\nabla\cdot A)-\nabla\times(\nabla\times A)
+$$
+
+から構成します。本章では長い成分公式を暗記表として追加せず、**基底の変化を含めて再構成できる方法**を中心にします。
+
+---
+
+## 15. 演習
+
+#### VC6-A01 円柱座標の尺度因子
+- Level: A
+- 目安時間: 15分
+
+$$
+r(\rho,\phi,z)
+=
+(\rho\cos\phi,\rho\sin\phi,z)
+$$
+
+について座標方向ベクトルを計算し、
+
+$$
+h_\rho=1,\qquad
+h_\phi=\rho,\qquad
+h_z=1
+$$
+
+を導け。
+
+<!-- solution-start -->
+### 詳細解答
+
+各変数で偏微分すると
+
+$$
+r_\rho
+=
+(\cos\phi,\sin\phi,0),
+$$
+
+$$
+r_\phi
+=
+(-\rho\sin\phi,\rho\cos\phi,0),
+$$
+
+$$
+r_z=(0,0,1).
+$$
+
+長さは
+
+$$
+|r_\rho|
+=
+\sqrt{\cos^2\phi+\sin^2\phi}
+=
+1,
+$$
+
+$$
+|r_\phi|
+=
+\rho\sqrt{\sin^2\phi+\cos^2\phi}
+=
+\rho
+$$
+
+で、$\rho>0$ を考えています。また
+
+$$
+|r_z|=1.
+$$
+
+従って
+
+$$
+\boxed{
+h_\rho=1,\quad h_\phi=\rho,\quad h_z=1
+}.
+$$
+
+さらに内積
+
+$$
+r_\rho\cdot r_\phi
+=
+-\rho\cos\phi\sin\phi
++
+\rho\sin\phi\cos\phi
+=
+0
+$$
+
+で、$r_z$ は他の二本と直交するので直交曲線座標であることも確認できます。
+<!-- solution-end -->
+
+#### VC6-A02 円柱座標の勾配
+- Level: A
+- 目安時間: 15分
+
+$$
+f(\rho,\phi,z)
+=
+\rho^2z+\sin\phi
+$$
+
+について $\nabla f$ を円柱座標で求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+偏微分は
+
+$$
+f_\rho=2\rho z,
+\qquad
+f_\phi=\cos\phi,
+\qquad
+f_z=\rho^2.
+$$
+
+[円柱座標の公式](#prop-vc6-cylindrical) から
+
+$$
+\nabla f
+=
+e_\rho f_\rho
++
+e_\phi\frac1\rho f_\phi
++
+e_zf_z.
+$$
+
+したがって
+
+$$
+\boxed{
+\nabla f
+=
+2\rho z\,e_\rho
++
+\frac{\cos\phi}{\rho}e_\phi
++
+\rho^2e_z
+}.
+$$
+<!-- solution-end -->
+
+#### VC6-A03 球座標の体積要素
+- Level: A
+- 目安時間: 18分
+
+球座標の尺度因子
+
+$$
+h_r=1,\qquad
+h_\theta=r,\qquad
+h_\phi=r\sin\theta
+$$
+
+から体積要素を求め、半径 $R$ の球体積を積分して確認せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+一般公式
+
+$$
+dV=h_1h_2h_3\,dq_1dq_2dq_3
+$$
+
+へ代入すると
+
+$$
+dV
+=
+r^2\sin\theta\,dr\,d\theta\,d\phi.
+$$
+
+球では
+
+$$
+0\le r\le R,
+\qquad
+0\le\theta\le\pi,
+\qquad
+0\le\phi<2\pi.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+\operatorname{Vol}(B_R)
+&=
+\int_0^R
+\int_0^\pi
+\int_0^{2\pi}
+r^2\sin\theta
+\,d\phi\,d\theta\,dr\\
+&=
+\left(\int_0^Rr^2dr\right)
+\left(\int_0^\pi\sin\theta\,d\theta\right)
+\left(\int_0^{2\pi}d\phi\right)\\
+&=
+\frac{R^3}{3}\cdot2\cdot2\pi\\
+&=
+\boxed{\frac43\pi R^3}.
+\end{aligned}
+$$
+<!-- solution-end -->
+
+#### VC6-A04 放射状スカラー・ラプラシアン
+- Level: A
+- 目安時間: 18分
+
+三次元で
+
+$$
+f(r)=r^m
+$$
+
+とする。$r>0$ で $\Delta f$ を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+放射状関数なので
+
+$$
+\Delta f
+=
+f''(r)+\frac2r f'(r).
+$$
+
+$$
+f'(r)=mr^{m-1},
+$$
+
+$$
+f''(r)=m(m-1)r^{m-2}.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\Delta r^m
+&=
+m(m-1)r^{m-2}
++
+2mr^{m-2}\\
+&=
+m(m+1)r^{m-2}.
+\end{aligned}
+$$
+
+よって
+
+$$
+\boxed{
+\Delta r^m
+=
+m(m+1)r^{m-2}
+}
+\qquad(r>0).
+$$
+
+$m=-1$ なら $\Delta(1/r)=0$ が再現されます。
+<!-- solution-end -->
+
+#### VC6-B01 円柱座標の発散と回転
+- Level: B
+- 目安時間: 25分
+
+$$
+A
+=
+\rho^2e_\rho
++
+\rho z\,e_\phi
++
+z^2e_z
+$$
+
+とする。$\phi$ には依存しない。
+
+1. $\nabla\cdot A$
+2. $\nabla\times A$
+
+を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+成分は
+
+$$
+A_\rho=\rho^2,
+\qquad
+A_\phi=\rho z,
+\qquad
+A_z=z^2.
+$$
+
+1. 発散は
+
+$$
+\nabla\cdot A
+=
+\frac1\rho\partial_\rho(\rho A_\rho)
++
+\frac1\rho\partial_\phi A_\phi
++
+\partial_zA_z.
+$$
+
+$\phi$ 依存がないので第二項は 0 です。
+
+$$
+\frac1\rho\partial_\rho(\rho^3)
+=
+\frac1\rho(3\rho^2)
+=
+3\rho,
+$$
+
+$$
+\partial_z(z^2)=2z.
+$$
+
+したがって
+
+$$
+\boxed{
+\nabla\cdot A=3\rho+2z
+}.
+$$
+
+2. 回転は
+
+$$
+(\nabla\times A)_\rho
+=
+-\partial_zA_\phi
+=
+-\rho,
+$$
+
+$$
+(\nabla\times A)_\phi
+=
+\partial_zA_\rho-\partial_\rho A_z
+=
+0-0
+=
+0,
+$$
+
+$$
+(\nabla\times A)_z
+=
+\frac1\rho\partial_\rho(\rho A_\phi)
+=
+\frac1\rho\partial_\rho(\rho^2z)
+=
+2z.
+$$
+
+よって
+
+$$
+\boxed{
+\nabla\times A
+=
+-\rho e_\rho+2ze_z
+}.
+$$
+<!-- solution-end -->
+
+#### VC6-B02 軸対称旋回流の渦度
+- Level: B
+- 目安時間: 25分
+
+$$
+u=U(\rho)e_\phi
+$$
+
+とする。
+
+1. $\nabla\cdot u=0$ を示せ。
+2. $\nabla\times u$ を求めよ。
+3. $U(\rho)=\Omega\rho$ のとき回転を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+成分は
+
+$$
+u_\rho=0,
+\qquad
+u_\phi=U(\rho),
+\qquad
+u_z=0
+$$
+
+で、$\phi,z$ に依存しません。
+
+1.
+
+$$
+\nabla\cdot u
+=
+\frac1\rho\partial_\rho(\rho\cdot0)
++
+\frac1\rho\partial_\phi U(\rho)
++
+\partial_z0
+=
+\boxed{0}.
+$$
+
+2. 回転の $\rho,\phi$ 成分は 0 で、
+
+$$
+(\nabla\times u)_z
+=
+\frac1\rho
+\frac{d}{d\rho}
+(\rho U(\rho)).
+$$
+
+したがって
+
+$$
+\boxed{
+\nabla\times u
+=
+\frac1\rho
+\frac{d}{d\rho}
+(\rho U(\rho))
+e_z
+}.
+$$
+
+3. $U(\rho)=\Omega\rho$ なら
+
+$$
+\rho U(\rho)=\Omega\rho^2
+$$
+
+なので
+
+$$
+\nabla\times u
+=
+\frac1\rho(2\Omega\rho)e_z
+=
+\boxed{2\Omega e_z}.
+$$
+<!-- solution-end -->
+
+#### VC6-B03 逆二乗場と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)
+- Level: B
+- 目安時間: 30分
+
+$$
+A=\frac{C}{r^2}e_r
+$$
+
+について、
+
+1. $r>0$ で $\nabla\cdot A=0$ を示せ。
+2. 半径 $R$ の球面流束を求めよ。
+3. 1. と 2. が [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) と矛盾しない理由を説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. 放射状場なので
+
+$$
+\nabla\cdot A
+=
+\frac1{r^2}
+\frac{d}{dr}(r^2A_r).
+$$
+
+ここで
+
+$$
+A_r=\frac{C}{r^2}
+$$
+
+だから
+
+$$
+r^2A_r=C.
+$$
+
+従って
+
+$$
+\boxed{
+\nabla\cdot A=0
+}
+\qquad(r>0).
+$$
+
+2. 球面上では $n=e_r$ なので
+
+$$
+A\cdot n
+=
+\frac{C}{R^2}.
+$$
+
+したがって
+
+$$
+\int_{S_R}A\cdot n\,dS
+=
+\frac{C}{R^2}
+4\pi R^2
+=
+\boxed{4\pi C}.
+$$
+
+3. [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は球内部を含む閉領域上で $A\in C^1$ であることを要求します。しかし $A=C e_r/r^2$ は $r=0$ で未定義です。
+
+従って原点を含む球へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できません。
+
+原点を半径 $\varepsilon$ の小球でくり抜けば、外球の流束 $4\pi C$ と内球境界の外向き流束 $-4\pi C$ が相殺し、発散の体積積分 0 と一致します。
+<!-- solution-end -->
+
+#### VC6-C01 放射対称な Laplace 方程式の解と原点での未定義性
+- Level: C
+- 目安時間: 40分
+
+三次元の放射状関数
+
+$$
+f=f(r)
+$$
+
+が $r>0$ で
+
+$$
+\Delta f=0
+$$
+
+を満たすとする。
+
+1. 一般解が
+   $$
+   f(r)=a+\frac br
+   $$
+   であることを導け。
+2. $\nabla f$ を求めよ。
+3. 半径 $R$ の球面で $\nabla f$ の外向き流束を求めよ。
+4. $b\ne0$ のとき、$\Delta f=0$ なのに流束が 0 でない理由を、正則性と領域の観点から説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. 放射状ラプラシアン公式から
+
+$$
+\Delta f
+=
+\frac1{r^2}
+\frac{d}{dr}(r^2f'(r)).
+$$
+
+したがって $\Delta f=0$ は
+
+$$
+\frac{d}{dr}(r^2f'(r))=0
+$$
+
+と同値です。
+
+よってある定数 $c$ が存在して
+
+$$
+r^2f'(r)=c.
+$$
+
+従って
+
+$$
+f'(r)=\frac{c}{r^2}.
+$$
+
+積分すると
+
+$$
+f(r)
+=
+a-\frac{c}{r}.
+$$
+
+$b=-c$ と置けば
+
+$$
+\boxed{
+f(r)=a+\frac br
+}.
+$$
+
+2.
+
+$$
+f'(r)
+=
+-\frac{b}{r^2}.
+$$
+
+$f=f(r)$ なので、[球座標の勾配公式](#prop-vc6-spherical) では角度微分項が消え
+
+$$
+\boxed{
+\nabla f
+=
+-\frac{b}{r^2}e_r
+}.
+$$
+
+3. 半径 $R$ の球面では
+
+$$
+\nabla f\cdot n
+=
+-\frac{b}{R^2}.
+$$
+
+従って
+
+$$
+\int_{S_R}\nabla f\cdot n\,dS
+=
+-\frac{b}{R^2}
+4\pi R^2
+=
+\boxed{-4\pi b}.
+$$
+
+4. $r>0$ では確かに
+
+$$
+\nabla\cdot\nabla f
+=
+\Delta f
+=
+0.
+$$
+
+しかし $b\ne0$ なら $f=a+b/r$ も $\nabla f=-b e_r/r^2$ も $r=0$ で未定義で、絶対値が発散します。
+
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、場 $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
+
+したがって
+
+$$
+\iiint_{B_R}\Delta f\,dV=0
+$$
+
+と書いて流束が 0 だと結論することはできません。
+
+原点をくり抜いた領域では内側境界流束が現れ、外側の $-4\pi b$ と相殺します。
+
+これは球座標の計算、VC4 の穴あき領域の議論、PDE6 の基本解が同じ構造を持つことを示しています。
+<!-- solution-end -->

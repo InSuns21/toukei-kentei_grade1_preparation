@@ -2,66 +2,66 @@ version: 1
 id: CDYN
 title: "力学系 II：連続流・非線形振動・同期"
 plan: textbook/plan_done/DREAM_THEATER_CONTINUOUS_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
-chapter_root: textbook/volumes/00_foundations
+chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: CDYN1
-    path: textbook/volumes/00_foundations/CDYN1
+    path: textbook/volumes/dream_thater/解析系/CDYN1
     status: completed
     title: 連続流から時刻写像へ：一次元でできないこと
   - id: CDYN2
-    path: textbook/volumes/00_foundations/CDYN2
+    path: textbook/volumes/dream_thater/解析系/CDYN2
     status: completed
     title: 保存量とエネルギー曲線の閉軌道
   - id: CDYN3
-    path: textbook/volumes/00_foundations/CDYN3
+    path: textbook/volumes/dream_thater/解析系/CDYN3
     status: completed
     title: 周期軌道を位相で記述する
   - id: CDYN4
-    path: textbook/volumes/00_foundations/CDYN4
+    path: textbook/volumes/dream_thater/解析系/CDYN4
     status: completed
     title: 周期変分方程式とFloquet乗数
   - id: CDYN5
-    path: textbook/volumes/00_foundations/CDYN5
+    path: textbook/volumes/dream_thater/解析系/CDYN5
     status: completed
     title: 強制振動・共振・減衰
   - id: CDYN6
-    path: textbook/volumes/00_foundations/CDYN6
+    path: textbook/volumes/dream_thater/解析系/CDYN6
     status: completed
     title: Duffing振動子のポテンシャルとセパラトリクス
   - id: CDYN7
-    path: textbook/volumes/00_foundations/CDYN7
+    path: textbook/volumes/dream_thater/解析系/CDYN7
     status: completed
     title: ゆっくり変わる振幅の平均化
   - id: CDYN8
-    path: textbook/volumes/00_foundations/CDYN8
+    path: textbook/volumes/dream_thater/解析系/CDYN8
     status: completed
     title: van der Pol振動子と振幅方程式
   - id: CDYN9
-    path: textbook/volumes/00_foundations/CDYN9
+    path: textbook/volumes/dream_thater/解析系/CDYN9
     status: completed
     title: 位相応答と等時相面の入口
   - id: CDYN10
-    path: textbook/volumes/00_foundations/CDYN10
+    path: textbook/volumes/dream_thater/解析系/CDYN10
     status: completed
     title: 弱結合振動子から位相差方程式へ
   - id: CDYN11
-    path: textbook/volumes/00_foundations/CDYN11
+    path: textbook/volumes/dream_thater/解析系/CDYN11
     status: completed
     title: 二振動子の位相同期と引込み域
   - id: CDYN12
-    path: textbook/volumes/00_foundations/CDYN12
+    path: textbook/volumes/dream_thater/解析系/CDYN12
     status: completed
     title: 有限Kuramoto系の秩序変数とLyapunov構造
   - id: CDYN13
-    path: textbook/volumes/00_foundations/CDYN13
+    path: textbook/volumes/dream_thater/解析系/CDYN13
     status: completed
     title: 速遅系：臨界多様体と緩和振動の入口
   - id: CDYN14
-    path: textbook/volumes/00_foundations/CDYN14
+    path: textbook/volumes/dream_thater/解析系/CDYN14
     status: completed
     title: 結合振動子格子と空間モード
   - id: CDYN15
-    path: textbook/volumes/00_foundations/CDYN15
+    path: textbook/volumes/dream_thater/解析系/CDYN15
     status: completed
     title: 周期・分岐・同期・速遅・結合の総合

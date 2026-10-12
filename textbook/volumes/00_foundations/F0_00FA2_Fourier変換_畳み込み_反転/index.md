@@ -233,7 +233,7 @@ $$
 定義積分が「二つの区間の重なり長さ」を数えていることが直接確認できます。
 <!-- definition-example-end -->
 
-また [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を $|f(x-y)g(y)|$ に適用すると
+また [Fubiniの定理](../../dream_thater/解析系/F0-00D2C/index.md#thm-f0-00d2c-02) を $|f(x-y)g(y)|$ に適用すると
 
 $$
 \|f*g\|_1\le\|f\|_1\|g\|_1
@@ -268,7 +268,7 @@ $$
 =\|f\|_1\|g\|_1<\infty.
 $$
 
-したがって [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使えます。$z=x-y$ と置けば
+したがって [Fubiniの定理](../../dream_thater/解析系/F0-00D2C/index.md#thm-f0-00d2c-02) を使えます。$z=x-y$ と置けば
 
 $$
 \begin{aligned}
@@ -506,7 +506,7 @@ $$
 \|f\|_1\int e^{-\varepsilon\xi^2}d\xi<\infty
 $$
 
-なので [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により積分順序を交換できます。[Gaussian の Fourier 公式](#lem-f0-00fa2-gaussian-transform)から内側積分は $2\pi k_\varepsilon(x-y)$ なので
+なので [Fubiniの定理](../../dream_thater/解析系/F0-00D2C/index.md#thm-f0-00d2c-02) により積分順序を交換できます。[Gaussian の Fourier 公式](#lem-f0-00fa2-gaussian-transform)から内側積分は $2\pi k_\varepsilon(x-y)$ なので
 
 $$
 I_\varepsilon(x)
