@@ -4,14 +4,18 @@ coverage: complete
 prerequisites:
   - NDA6
   - FLD1
-forward_references: []
+  - LA3C
+forward_references:
+  - ODE2
 concepts:
   - id: diophantine.roth-theorem
     name: Thue–Siegel–Rothの定理
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Thue–Siegel–Rothの定理：実数の場合）]
-    requires: [diophantine.roth-index-lemma, diophantine.auxiliary-polynomial]
+    # The formal statement depends only on rational approximation vocabulary;
+    # the later proof cites the auxiliary polynomial and Roth lemma at their uses.
+    requires: []
   - id: diophantine.roth-finite-to-uniform
     name: 有限例外から一様下界を作る
     kind: lemma
