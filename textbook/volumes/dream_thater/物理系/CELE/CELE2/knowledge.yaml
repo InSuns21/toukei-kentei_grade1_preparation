@@ -1,0 +1,75 @@
+chapter: CELE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE1
+  - MECH7
+  - AMECH5
+  - AMECH6
+  - INT1
+  - ODE1
+forward_references: []
+
+concepts:
+  - id: celestial.newton-nbody-hamiltonian
+    name: NewtonのN体Hamiltonian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（NewtonのN体Hamiltonian）"]
+    aliases: []
+    requires:
+      - analytical-mechanics.hamiltonian
+      - mechanics.two-body-reduction
+
+  - id: celestial.nbody-equations-conservation
+    name: N体Hamilton方程式と保存量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（N体Hamilton方程式と保存量）"]
+    aliases: []
+    requires:
+      - celestial.newton-nbody-hamiltonian
+      - analytical-mechanics.poisson-time-evolution
+      - mechanics.total-momentum-balance
+
+  - id: celestial.threebody-jacobi-coordinates
+    name: 三体のJacobi正準座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三体のJacobi正準座標）"]
+    aliases: []
+    requires:
+      - celestial.kepler-canonical-reduction
+      - mechanics.two-body-kinetic-energy-decomposition
+
+  - id: celestial.threebody-canonical-reduction
+    name: 三体Hamiltonianの正準重心分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三体Hamiltonianの正準重心分離）"]
+    aliases: []
+    requires:
+      - celestial.threebody-jacobi-coordinates
+      - celestial.newton-nbody-hamiltonian
+
+  - id: celestial.threebody-commuting-integrals
+    name: 三体の既知の可換第一積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三体の既知の可換第一積分）"]
+    aliases: []
+    requires:
+      - celestial.threebody-canonical-reduction
+      - analytical-mechanics.angular-momentum-poisson-relations
+      - integrable.liouville-integrability
+      - integrable.functional-independence
+
+  - id: celestial.nbody-collision-singularity
+    name: 衝突でのNewtonベクトル場の特異性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（衝突でのNewtonベクトル場の特異性）"]
+    aliases: []
+    requires:
+      - celestial.newton-nbody-hamiltonian
+      - ode.ode1-picard-lindelof

@@ -1,0 +1,48 @@
+id: "CELE2"
+title: "N体Hamilton系と三体問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE1
+  - MECH7
+  - AMECH5
+  - AMECH6
+  - INT1
+  - ODE1
+official_scope: []
+learning_objectives:
+  - 衝突を除いたNewtonのN体Hamiltonianを定義してHamilton方程式を導出できる
+  - 総運動量・総角運動量・エネルギーの保存を粒子対の相殺から証明できる
+  - 三体Jacobi座標の正準性を一形式で示し、内部Hamiltonianを導出できる
+  - 三次元と平面の内部自由度を数え、三体が二つのKepler問題へ分離しない理由を説明できる
+  - Poisson括弧から角運動量の非可換性とH・L二乗・Lzの可換性を区別できる
+  - 可換第一積分の微分の独立性を小行列式で確認し、未構成と不存在を区別できる
+  - 二体衝突集合とNewtonベクトル場の特異性・局所存在の適用範囲を示せる
+definitions:
+  - { id: CELE2-DEF-01, name: "NewtonのN体Hamiltonian" }
+  - { id: CELE2-DEF-02, name: "三体のJacobi正準座標" }
+theorems:
+  - { id: CELE2-PROP-01, name: "N体Hamilton方程式と保存量" }
+  - { id: CELE2-PROP-02, name: "三体Hamiltonianの正準重心分離" }
+  - { id: CELE2-PROP-03, name: "三体の既知の可換第一積分" }
+  - { id: CELE2-PROP-04, name: "衝突でのNewtonベクトル場の特異性" }
+canonical_examples:
+  - "三質点の静止三角配置でN体Hamiltonianを直接計算"
+  - "等質量三体のJacobi変換による運動エネルギーの検算"
+  - "二本の相対ベクトルを持つ等質量三体の相互作用ポテンシャル"
+  - "H・L二乗・Lzの独立性を3×3小行列式で検算"
+  - "角運動量零の二体放射落下で有限衝突時刻を導く"
+problem_patterns:
+  - CELE2-PAIRWISE-FORCE
+  - CELE2-JACOBI-KINETIC
+  - CELE2-COLLISION-SETS
+  - CELE2-DEGREES-OF-FREEDOM
+  - CELE2-POISSON-INVOLUTION
+  - CELE2-JACOBI-RECONSTRUCTION
+  - CELE2-COUPLED-RELATIVE-FORCES
+  - CELE2-RADIAL-COLLISION
+  - CELE2-INTEGRABILITY-GAP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 2 }
