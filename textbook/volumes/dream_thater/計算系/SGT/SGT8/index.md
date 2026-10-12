@@ -360,32 +360,32 @@ $x=(0,1,3,4)\subset\mathbb R$ に対し (i) $\varepsilon=11/10$、(ii) $\varepsi
 <!-- solution-start -->
 **詳細解答**　距離は2で閾値3以内にあるため辺があり、その重みは
 
-$
+$$
 a=\exp\left(-\frac{2^2}{2^2}\right)=e^{-1}>0
-$
+$$
 
 です。次数は両頂点とも $a$ なので
 
-$
+$$
 W=\begin{pmatrix}0&a\\a&0\end{pmatrix},\qquad
 D=\begin{pmatrix}a&0\\0&a\end{pmatrix},\qquad
 L=\begin{pmatrix}a&-a\\-a&a\end{pmatrix}.
-$
+$$
 
 行列積を順に計算すると
 
-$
+$$
 Lf=\begin{pmatrix}2a\\-2a\end{pmatrix},\qquad
 f^{\mathsf T}Lf=(1,-1)\begin{pmatrix}2a\\-2a\end{pmatrix}
 =2a+2a=4a.
-$
+$$
 
 一方、[SGT1のDirichletエネルギーの辺表示](../SGT1/index.md#thm-sgt1-dirichlet)を唯一の辺へ適用すれば
 
-$
+$$
 \sum_{i<j}w_{ij}(f_i-f_j)^2
 =a(1-(-1))^2=4a
-$
+$$
 
 となり、二通りの結果が一致します。
 <!-- solution-end -->
@@ -435,17 +435,17 @@ $H_m$ の左右で $f_i=1,-1$ とする。$f$ が次数付き平均零である�
 <!-- solution-start -->
 **詳細解答**　左右の体積はともに $v$ なので、次数付き平均は
 
-$
+$$
 \sum_i d_if_i=\sum_{i\in A}d_i-\sum_{i\in B}d_i=v-v=0
-$
+$$
 
 です。また $f_i^2=1$ であることから分母は $\sum_i d_if_i^2=v+v=2v$ です。内部辺では差が0で、唯一の橋では差が2となるため、重み1の辺エネルギーは4です。従って、正次数・連結性・次数付き平均零を確認して[SGT2の正規化第二固有値の変分表示](../SGT2/index.md#thm-sgt2-rayleigh)へ代入すると
 
-$
+$$
 \frac{\sum_{\{i,j\}\in E}(f_i-f_j)^2}{\sum_i d_if_i^2}
 =\frac{(1-(-1))^2}{2v}=\frac2v,
 \qquad \lambda_2\leq\frac2v.
-$
+$$
 
 ここで等号が成り立つのは**この試験関数の商**であって、試験関数が第二固有ベクトルであるとは主張していません。
 <!-- solution-end -->
