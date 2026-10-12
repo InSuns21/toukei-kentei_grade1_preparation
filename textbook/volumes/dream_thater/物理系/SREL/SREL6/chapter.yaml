@@ -1,0 +1,38 @@
+id: "SREL6"
+title: "電磁場のLorentz変換・エネルギー運動量テンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL5
+official_scope: []
+learning_objectives:
+  - Lorentz boostで電場と磁場が混合する符号と係数を計算し二つの場の不変量を導ける
+  - 計量とSI単位を固定し電磁場のエネルギー運動量テンソルを定義して成分・応力を導ける
+  - 電磁場テンソルの縮約からエネルギー運動量テンソルの対称性・零トレース・Lorentz共変性を示せる
+  - Maxwell方程式の二つの四元式から局所エネルギー運動量収支を導き物質への力密度を計算できる
+  - 平面電磁波の場・エネルギー流・運動量密度・boost変換を全成分で検算できる
+definitions:
+  - { id: SREL6-DEF-01, name: 電磁場のエネルギー運動量テンソル }
+theorems:
+  - { id: SREL6-PROP-01, name: 電磁場のboost成分式 }
+  - { id: SREL6-PROP-02, name: 電磁場の二つのLorentz不変量 }
+  - { id: SREL6-THM-01, name: エネルギー密度・Poynting流・Maxwell応力 }
+  - { id: SREL6-THM-02, name: エネルギー運動量テンソルの共変性・対称性・零トレース }
+  - { id: SREL6-THM-03, name: 電磁場のエネルギー運動量収支 }
+canonical_examples:
+  - 純電場のboostで現れる磁場と負のPoynting流
+  - 純静電場のエネルギー運動量テンソルの直接成分確認
+  - null電磁波の局所収支とboost時のDoppler因子
+problem_patterns:
+  - SREL6-BOOST-ELECTRIC
+  - SREL6-INVARIANTS
+  - SREL6-STATIC-STRESS
+  - SREL6-WAVE-FLUX
+  - SREL6-TENSOR-BOOST
+  - SREL6-TRACE-SYMMETRY
+  - SREL6-FORCE-BALANCE
+  - SREL6-NULL-WAVE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
