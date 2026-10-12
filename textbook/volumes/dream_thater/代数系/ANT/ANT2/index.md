@@ -80,7 +80,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K$ を $\operatorname{Re}s>\sigma_a$ の任意のコンパクト集合とし、$m=\min_{s\in K}\operatorname{Re}s>\sigma_a$ とします。$\sigma_a<u<m$ を選べば、定義と絶対収束集合が右へ閉じていることから $A_a(u)<\infty$ です。$s\in K$ では
+$K$ を絶対収束半平面内の任意のコンパクト集合とします。実部の最小値を
+$$
+m=\min_{s\in K}\operatorname{Re}s>\sigma_a
+$$
+と置きます。$\sigma_a<u<m$ を選べば、絶対収束集合が右へ閉じていることから $A_a(u)<\infty$ です。任意の $s\in K$ では
 
 $$
 \left|\frac{a(n)}{n^s}\right|
@@ -246,14 +250,43 @@ $$
 
 となります。$s=1$ で $F_a(1)=0$ です。他の素数の局所因子は $1$ です。従って「Euler積が存在する」という条件だけで「非零」と結論するのは誤りです。
 
-ただし完全乗法的な係数なら事情がよくなります。$a(p^j)=a(p)^j$ なので、絶対収束域では $|a(p)|p^{-\sigma}<1$ が必要で、
+ただし完全乗法的な係数なら事情がよくなります。$a(p^j)=a(p)^j$ なので、絶対収束する点 $s$（$\sigma=\operatorname{Re}s$）と任意の素数 $p$ に対し
 
 $$
-E_p(s)=\frac1{1-a(p)p^{-s}},\qquad
-F_a(s)=\prod_p(1-a(p)p^{-s})^{-1}.
+\sum_{j\ge0}\frac{|a(p^j)|}{p^{j\sigma}}
+=\sum_{j\ge0}\bigl(|a(p)|p^{-\sigma}\bigr)^j
+\le\sum_{n\ge1}\frac{|a(n)|}{n^\sigma}<\infty.
 $$
 
-分母は零でなく、また $\sum_p |a(p)|p^{-\sigma}<\infty$ です。この総和は絶対収束する全整数の和の部分和で抑えられます。[無限積の局所一様収束判定](../../../解析系/CA/CA10/index.md#thm-ca10-infinite-product-criterion)の非零性条件（各因子が非零で、ずれの和が収束）により、完全乗法的係数の場合は絶対収束域で $F_a(s)\ne0$ となります。
+左辺が非負項の幾何級数であることから $r_p=|a(p)|p^{-\sigma}<1$ が必要です。従って公比 $a(p)p^{-s}$ の局所級数は
+
+$$
+E_p(s)=\frac1{1-a(p)p^{-s}},
+\qquad
+F_a(s)=\prod_p(1-a(p)p^{-s})^{-1}
+$$
+
+となり、どの分母も零になりません。しかし、無限個の非零因子の積が非零になるには、さらに極限を確かめる必要があります。
+
+素数に対応する項は全整数の絶対値級数の一部なので
+
+$$
+\sum_p r_p
+=\sum_p|a(p)|p^{-\sigma}
+\le\sum_{n\ge2}|a(n)|n^{-\sigma}<\infty.
+$$
+
+$r_p\to0$ かつ各 $r_p<1$ ですから $r=\sup_p r_p<1$ となります。$z_p=a(p)p^{-s}$ と置けば
+
+$$
+\begin{aligned}
+\sum_p\left|(1-z_p)^{-1}-1\right|
+&=\sum_p\frac{|z_p|}{|1-z_p|}\\
+&\le\frac1{1-r}\sum_p r_p<\infty.
+\end{aligned}
+$$
+
+ここで[無限積の局所一様収束判定](../../../解析系/CA/CA10/index.md#thm-ca10-infinite-product-criterion)の非零性を得る証明と同じように、十分後ろの因子について $|\log(1+w)|\le2|w|$（$|w|\le1/2$）を使うと、尾部の対数の和が絶対収束します。先頭は非零因子の有限積、尾部は収束する対数和の指数関数です。従って絶対収束する各点 $s$ において $F_a(s)\ne0$ です。これは単なる「各因子が非零」という推論ではなく、無限積の極限まで確認した結論です。
 
 とくに $a(n)=1$ から[ζのEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)を回収します。
 
@@ -330,7 +363,21 @@ $$
 =\varepsilon-(-c)^{*(M+1)}.
 $$
 
-右辺の残差のノルムは $q(u_1)^{M+1}\to0$ です。よって $a*b=\varepsilon$ となり、[逆元の一意性](../../NT/NT4/index.md#thm-nt4-inverse)からこれは $a^{*-1}$ に一致します。最後に $u\ge u_1$ では両級数が絶対収束し、[畳み込みと級数の積](#thm-ant2-convolution-product)により
+右辺の残差のノルムは $q(u_1)^{M+1}\to0$ です。ここで $b_M=a(1)^{-1}\sum_{k=0}^{M}(-c)^{*k}$ と置くと、上の幾何級数評価から
+
+$$
+\|b-b_M\|_{u_1}
+\le\frac{q(u_1)^{M+1}}{|a(1)|(1-q(u_1))}\longrightarrow0.
+$$
+
+一方、畳み込みのノルム評価により
+
+$$
+\|a*(b-b_M)\|_{u_1}
+\le\|a\|_{u_1}\|b-b_M\|_{u_1}\longrightarrow0.
+$$
+
+有限和の恒等式では $a*b_M=\varepsilon-(-c)^{*(M+1)}$ ですから、両辺の極限を比較して $a*b=\varepsilon$ を得ます。[逆元の一意性](../../NT/NT4/index.md#thm-nt4-inverse)により、構成した $b$ は $a^{*-1}$ に一致します。最後に $\operatorname{Re}s=u\ge u_1$ では両級数が絶対収束し、[畳み込みと級数の積](#thm-ant2-convolution-product)により
 
 $$
 F_a(s)F_b(s)=F_{\varepsilon}(s)=1.
@@ -347,7 +394,15 @@ $$
 F_a(s)=1-2^{1-s}.
 $$
 
-畳み込み逆元 $b$ は $b(2^j)=2^j$（$j\ge0$）、それ以外零です。実際 $a*b(2^j)=b(2^j)-2b(2^{j-1})=0$（$j\ge1$）で、$n=1$ では $1$ です。$n$ が $2$ の冪でなければ $b(n)=0$ で、$n$ の約数 $d=1,2$ に対する二項とも零になります。従って $a*b=\varepsilon$ の等式はすべての正整数で確認できます。その級数は
+畳み込み逆元 $b$ は $b(2^j)=2^j$（$j\ge0$）、それ以外零です。$n=1$ では $(a*b)(1)=a(1)b(1)=1$ です。$j\ge1$ のとき、$a(d)$ が零でない約数 $d$ は $1,2$ だけなので
+
+$$
+(a*b)(2^j)
+=b(2^j)-2b(2^{j-1})
+=2^j-2\cdot2^{j-1}=0.
+$$
+
+$n$ が $2$ の冪でなければ $b(n)=0$ です。また $2\mid n$ の場合も $n/2$ は $2$ の冪ではないので $b(n/2)=0$ です。従って $(a*b)(n)=0$ となり、$a*b=\varepsilon$ を全正整数で確認できました。その級数は
 
 $$
 F_b(s)=\sum_{j\ge0}2^{j(1-s)}
@@ -370,7 +425,7 @@ F_{\mu}(s)&=\frac1{\zeta(s)}
 \end{aligned}
 $$
 
-最後の式では $\mu*\mathbf1=\varepsilon$ かつ $|\mu(n)|\le1$ を使いました。両級数が $\sigma>1$ で絶対収束するため、積が $1$ であると確認できます。
+最後の式では[Möbius関数と定数1関数の逆元関係](../../NT/NT5/index.md#thm-nt5-mobius-unit) $\mu*\mathbf1=\varepsilon$ と $|\mu(n)|\le1$ を使いました。両級数が $\sigma>1$ で絶対収束するため、積が $1$ であると確認できます。
 
 また $a(n)=n$ の級数は $\zeta(s-1)$ です。$a(n)=n$ の絶対収束条件は $\sigma>2$ なので、[Euler関数のMöbius反転](../../NT/NT5/index.md#prop-nt5-totient-divisor-sum) $\varphi=\operatorname{id}*\mu$ から
 
@@ -384,14 +439,30 @@ $$
 
 ### 条件収束は別の証明を要する
 
-$a(n)=(-1)^{n-1}$ とすれば部分和 $A(x)=\sum_{n\le x}a(n)$ は $0$ または $1$ です。[Abelの部分和公式](../ANT1/index.md#thm-ant1-abel)を区間 $(N,M]$ に適用し、$b(t)=t^{-s}$、$b'(t)=-st^{-s-1}$ とすると、$\sigma>0$ で
+$a(n)=(-1)^{n-1}$ とします。部分和 $A(x)=\sum_{n\le x}a(n)$ は $0$ または $1$ です。[Abelの部分和公式](../ANT1/index.md#thm-ant1-abel)を区間 $(N,M]$ に適用します。重み関数と導関数は
+$$
+b(t)=t^{-s},\qquad b'(t)=-st^{-s-1}
+$$
+です。$\sigma>0$ のとき
 
 $$
 \left|\sum_{N<n\le M}(-1)^{n-1}n^{-s}\right|
 \le N^{-\sigma}+\frac{|s|}{\sigma}N^{-\sigma}.
 $$
 
-理由は尾部の部分和 $B(t)=\sum_{N<n\le t}(-1)^{n-1}$ が $|B(t)|\le1$ であり、境界項は $M^{-\sigma}$ 以下、積分は $|s|\int_N^Mt^{-\sigma-1}dt\le|s|N^{-\sigma}/\sigma$ だからです（境界項を $M^{-\sigma}\le N^{-\sigma}$ で抑えました）。従ってCauchy条件により級数は $\sigma>0$ で収束します。一方、絶対値を取ると $\sum n^{-\sigma}$ なので絶対収束は $\sigma>1$ に限ります。「収束」と「絶対収束」の半平面を混同しない例です。
+実際、尾部の部分和
+$$
+B(t)=\sum_{N<n\le t}(-1)^{n-1}
+$$
+の絶対値は $1$ 以下です。境界項は $M^{-\sigma}\le N^{-\sigma}$ で抑えられ、積分項は
+$$
+|s|\int_N^M t^{-\sigma-1}\,dt
+=\frac{|s|}{\sigma}(N^{-\sigma}-M^{-\sigma})
+\le\frac{|s|}{\sigma}N^{-\sigma}
+$$
+となるため、上の評価を得ます。従ってCauchy条件により級数は $\sigma>0$ で収束します。
+
+一方、絶対値級数は $\sum n^{-\sigma}$ なので、絶対収束は $\sigma>1$ に限ります。「収束」と「絶対収束」の半平面を混同しない例です。
 
 ## 6. 演習と詳細解答
 
@@ -407,7 +478,14 @@ $a(n)=n$ に対応するDirichlet級数を求め、絶対収束横座標を判�
 - ID: ANT2-A1
 
 <!-- solution-start -->
-**詳細解答**：$a(n)n^{-s}=n^{1-s}$ なので $F_a(s)=\sum n^{-(s-1)}$ です。絶対値は $n^{1-\sigma}$ となり、$\sum n^{-v}$ が $v>1$ のときだけ収束することに $v=\sigma-1$ を代入すれば $\sigma>2$ です。従って絶対収束横座標は $2$、その領域で $F_a(s)=\zeta(s-1)$ です。
+**詳細解答**：係数を代入すると
+$$
+F_a(s)=\sum_{n\ge1}n^{1-s}
+=\sum_{n\ge1}n^{-(s-1)}.
+$$
+絶対値級数は $\sum n^{1-\sigma}$ です。指数 $v=\sigma-1$ と置くと $\sum n^{-v}$ となり、収束するのは $v>1$、すなわち $\sigma>2$ のときだけです。
+
+したがって絶対収束横座標は $2$ であり、この半平面で $F_a(s)=\zeta(s-1)$ です。
 <!-- solution-end -->
 
 #### A2. 畳み込みを $n=12$ で確認する
@@ -481,7 +559,9 @@ $$
 - ID: ANT2-B1
 
 <!-- solution-start -->
-**詳細解答**：[約数和の畳み込み表示](../../NT/NT4/index.md#prop-nt4-divisor-convolutions)より $\sigma=\mathbf1*\operatorname{id}$ です。$\sum n^{-\sigma}$ は $\sigma>1$、$\sum n^{1-\sigma}$ は $\sigma>2$ で絶対収束します。従って共通域 $\sigma>2$ で[畳み込みと級数の積](#thm-ant2-convolution-product)が適用でき、
+**詳細解答**：[約数和の畳み込み表示](../../NT/NT4/index.md#prop-nt4-divisor-convolutions)より、約数和関数は $\sigma=\mathbf1*\operatorname{id}$ です。収束条件を確認します。定数1関数の級数は実部が $1$ より大きいとき絶対収束し、恒等関数 $\operatorname{id}(n)=n$ の級数は実部が $2$ より大きいとき絶対収束します。
+
+従って共通域 $\operatorname{Re}s>2$ で[畳み込みと級数の積](#thm-ant2-convolution-product)が適用でき、
 
 $$
 \sum_{n\ge1}\frac{\sigma(n)}{n^s}
@@ -525,7 +605,17 @@ $a(1)=1$、$a(2)=-2$、$a(n)=0$（$n\ge3$）が乗法的であることを確認
 - ID: ANT2-B3
 
 <!-- solution-start -->
-**詳細解答**：互いに素な $m,n$ のうち両方が $1$ より大きければ、$a(m)a(n)=0$ であり、$mn\ge6$ なので $a(mn)=0$ です。片方が $1$ なら $a(1)=1$ により乗法性が成立します。従って乗法的です。級数は $F_a(s)=1-2\cdot2^{-s}=1-2^{1-s}$ です。$s=1$ を入れると $1-2^{0}=0$ となります。他方、$a(4)=0$ ですが $a(2)^2=4$ なので完全乗法的ではありません。したがって完全乗法的係数に対する局所幾何級数の非零性議論を適用できません。
+**詳細解答**：互いに素な $m,n$ を取ります。両方が $1$ より大きければ、$a(m)a(n)=0$ です。さらに $mn\ge6$ なので $a(mn)=0$ です。片方が $1$ なら $a(1)=1$ によって $a(mn)=a(m)a(n)$ が成立します。従って $a$ は乗法的です。
+
+級数には二項しかないので、すべての複素数 $s$ に対して
+$$
+F_a(s)=1-2\cdot2^{-s}=1-2^{1-s}.
+$$
+$s=1$ を代入すると $F_a(1)=1-2^0=0$ です。他方
+$$
+a(4)=0,\qquad a(2)^2=(-2)^2=4
+$$
+であるため完全乗法的ではありません。よって完全乗法的係数に対する局所幾何級数の非零性議論を適用できません。
 <!-- solution-end -->
 
 #### B4. 条件収束するDirichlet級数
@@ -570,7 +660,14 @@ $$
 - ID: ANT2-C1
 
 <!-- solution-start -->
-**詳細解答**：[Euler関数の約数和と反転](../../NT/NT5/index.md#prop-nt5-totient-divisor-sum)より $\varphi=\operatorname{id}*\mu$ です。$\sigma>2$ なら $\sum n^{1-\sigma}<\infty$ であり、また $|\mu(n)|\le1$ から $\sum|\mu(n)|n^{-\sigma}\le\sum n^{-\sigma}<\infty$ です。よって[畳み込みと級数の積](#thm-ant2-convolution-product)を適用できます。
+**詳細解答**：[Euler関数の約数和と反転](../../NT/NT5/index.md#prop-nt5-totient-divisor-sum)より $\varphi=\operatorname{id}*\mu$ です。$\sigma>2$ なら
+$$
+\sum_{n\ge1}n^{1-\sigma}<\infty,
+\qquad
+\sum_{n\ge1}|\mu(n)|n^{-\sigma}
+\le\sum_{n\ge1}n^{-\sigma}<\infty
+$$
+です。第二の評価では $|\mu(n)|\le1$ を使いました。両級数の絶対収束を確かめたので、[畳み込みと級数の積](#thm-ant2-convolution-product)を適用できます。
 
 $$
 \begin{aligned}
@@ -581,7 +678,12 @@ $$
 \end{aligned}
 $$
 
-第二の因子は $\mu*\mathbf1=\varepsilon$ と両級数の絶対収束により $1/\zeta(s)$ となります。[ζのEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)を $s$ と $s-1$ の両方に適用します。$\sigma>2$ なら $\operatorname{Re}(s-1)>1$ なので
+第二の因子には[Möbius関数と定数1関数の逆元関係](../../NT/NT5/index.md#thm-nt5-mobius-unit)を適用します。$\mu*\mathbf1=\varepsilon$ かつ両級数が $\sigma>1$ で絶対収束するので、[畳み込みと級数の積](#thm-ant2-convolution-product)から
+$$
+\left(\sum_{k\ge1}\mu(k)k^{-s}\right)\zeta(s)
+=\sum_{n\ge1}\varepsilon(n)n^{-s}=1
+$$
+を得ます。したがって第二の因子は $1/\zeta(s)$ です。[ζのEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)を $s$ と $s-1$ の両方に適用します。$\sigma>2$ なら $\operatorname{Re}(s-1)>1$ なので
 
 $$
 \zeta(s-1)=\prod_p(1-p^{1-s})^{-1},
