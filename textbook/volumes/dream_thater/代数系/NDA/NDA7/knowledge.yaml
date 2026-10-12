@@ -5,8 +5,7 @@ prerequisites:
   - NDA6
   - FLD1
   - LA3C
-forward_references:
-  - ode.ode2-wronskian
+forward_references: []
 concepts:
   - id: diophantine.roth-theorem
     name: Thue–Siegel–Rothの定理
