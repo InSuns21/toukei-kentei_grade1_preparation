@@ -1,0 +1,45 @@
+id: "SREL3"
+title: "四元速度・四元運動量と質量殻"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL2
+official_scope: []
+learning_objectives:
+  - 固有時による微分から四元速度を構成し、Lorentz変換性と不変ノルムを示せる
+  - 四元加速度の直交条件と固有加速度を証明し、一次元運動で検算できる
+  - 質量一定の粒子の四元運動量を定義し、エネルギー・運動量と質量殻条件を導ける
+  - エネルギー運動量のLorentz変換と低速極限を計算できる
+  - 質量ゼロ粒子の質量殻と、固有時で四元速度を定義できない理由を区別できる
+definitions:
+  - { id: SREL3-DEF-01, name: 四元速度 }
+  - { id: SREL3-DEF-02, name: 四元加速度と固有加速度 }
+  - { id: SREL3-DEF-03, name: 四元運動量・全エネルギー・三次元運動量 }
+  - { id: SREL3-DEF-04, name: 質量殻と正エネルギー枝 }
+theorems:
+  - { id: SREL3-THM-01, name: 四元速度のLorentz共変性と規格化 }
+  - { id: SREL3-PROP-01, name: 四元加速度の直交性 }
+  - { id: SREL3-PROP-02, name: 一次元運動の固有加速度 }
+  - { id: SREL3-THM-02, name: 質量殻関係式 }
+  - { id: SREL3-PROP-03, name: エネルギー運動量のLorentz変換 }
+  - { id: SREL3-PROP-04, name: 運動エネルギーと低速極限 }
+canonical_examples:
+  - 速度3c/5での四元速度とノルムの直接検算
+  - 一次元の加速度から四元加速度・固有加速度の直接計算
+  - 静止粒子をboostして質量殻を確認
+  - 低速極限で古典的運動エネルギーを回復
+  - 光的四元運動量と質量を持つ粒子の四元速度の区別
+problem_patterns:
+  - SREL3-FOUR-VELOCITY
+  - SREL3-NORM-INVARIANCE
+  - SREL3-PROPER-ACCELERATION
+  - SREL3-MASS-SHELL
+  - SREL3-MASSLESS-SHELL
+  - SREL3-ACCELERATION-ORTHOGONALITY
+  - SREL3-ENERGY-MOMENTUM-BOOST
+  - SREL3-LOW-VELOCITY-LIMIT
+  - SREL3-INTEGRATED-ENERGY-MOMENTUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }

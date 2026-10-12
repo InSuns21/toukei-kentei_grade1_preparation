@@ -1,0 +1,77 @@
+chapter: SREL3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL2
+forward_references: []
+
+concepts:
+  - id: relativity.four-velocity
+    name: 四元速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元速度）]
+    requires: [relativity.proper-time, relativity.minkowski-metric]
+
+  - id: relativity.four-velocity-norm
+    name: 四元速度のLorentz共変性と規格化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四元速度のLorentz共変性と規格化）]
+    requires: [relativity.four-velocity, relativity.interval-invariance, relativity.proper-time-invariance]
+
+  - id: relativity.four-acceleration
+    name: 四元加速度と固有加速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元加速度と固有加速度）]
+    requires: [relativity.four-velocity, relativity.minkowski-metric]
+
+  - id: relativity.four-acceleration-orthogonality
+    name: 四元加速度の直交性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四元加速度の直交性）]
+    requires: [relativity.four-acceleration, relativity.four-velocity-norm]
+
+  - id: relativity.one-dimensional-proper-acceleration
+    name: 一次元運動の固有加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次元運動の固有加速度）]
+    requires: [relativity.four-acceleration-orthogonality]
+
+  - id: relativity.four-momentum
+    name: 四元運動量・全エネルギー・三次元運動量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元運動量・全エネルギー・三次元運動量）]
+    requires: [relativity.four-velocity]
+
+  - id: relativity.mass-shell
+    name: 質量殻と正エネルギー枝
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量殻と正エネルギー枝）]
+    requires: [relativity.four-momentum, relativity.minkowski-metric]
+
+  - id: relativity.mass-shell-relation
+    name: 質量殻関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量殻関係式）]
+    requires: [relativity.mass-shell, relativity.four-velocity-norm]
+
+  - id: relativity.energy-momentum-boost
+    name: エネルギー運動量のLorentz変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エネルギー運動量のLorentz変換）]
+    requires: [relativity.mass-shell-relation, relativity.interval-invariance]
+
+  - id: relativity.kinetic-energy-low-speed
+    name: 運動エネルギーと低速極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（運動エネルギーと低速極限）]
+    requires: [relativity.mass-shell-relation]
