@@ -1,0 +1,46 @@
+id: "SG6"
+title: "Ruelle確率カスケードとParisi変分原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG5
+  - SG3
+  - SG2
+official_scope: []
+learning_objectives:
+  - Poisson点列から一段の確率重みを構成し指数傾斜公式を証明できる
+  - 有限段Ruelle確率カスケードの枝・overlap・二標本分布を計算できる
+  - 木上のGaussian場の共分散とParisi再帰式を再導出できる
+  - 一段のRS極限が既習のRS試行圧力に一致することを検算できる
+  - Guerra補間の両端点と平方完成による和公式・上界を導出できる
+  - Parisi変分原理の等号で必要な研究級の下界と本章の上界を区別できる
+definitions:
+  - { id: SG6-DEF-01, name: "Poisson–Dirichlet型の確率重み" }
+  - { id: SG6-DEF-02, name: "有限段Ruelle確率カスケード" }
+  - { id: SG6-DEF-03, name: "有限段Parisi汎関数" }
+propositions:
+  - { id: SG6-LEM-01, name: "Poisson重みの独立指数傾斜" }
+  - { id: SG6-PROP-01, name: "RPCの階層性と二標本のoverlap" }
+  - { id: SG6-PROP-02, name: "RPCのGaussian積分と再帰式" }
+theorems:
+  - { id: SG6-THM-01, name: "有限段Guerra補間の和公式と上界" }
+  - { id: SG6-THM-02, name: "SK模型のParisi変分原理" }
+canonical_examples:
+  - 三点切詰め重みでの二標本確率
+  - 正規マークのPoisson指数傾斜
+  - 二段木のoverlap三角形
+  - 一段Parisi汎関数からRS圧力への極限
+  - 正の平方によるGuerra補間符号検算
+problem_patterns:
+  - SG6-POISSON-TILT
+  - SG6-RPC-TRIANGLES
+  - SG6-PARISI-CORRECTION
+  - SG6-COVARIANCE-SQUARE
+  - SG6-POISSON-SECOND-MOMENT
+  - SG6-RS-LIMIT
+  - SG6-GUERRA-DERIVATIVE
+  - SG6-ONE-STEP-SUM-RULE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 8 }

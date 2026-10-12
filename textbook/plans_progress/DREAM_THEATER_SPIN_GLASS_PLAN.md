@@ -1,7 +1,7 @@
 # DREAM THEATER スピングラス（SG1〜SG8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（SG1〜SG5を執筆。SG6〜SG8と系列横断監査は未完了）
+状態: in_progress（SG1〜SG6を執筆。SG7〜SG8と系列横断監査は未完了）
 
 ## 中心問い
 
@@ -88,3 +88,9 @@ EOM221 は SG8 の後に置く。
 - SG4の二水準overlapを起点に、GG恒等式と条件付き混合則、Gaussian p-spin摂動の有限サイズ部分積分、自己平均化の十分条件、閾値階層を説明した。
 - 最大overlapの原子性と二値ultrametricityは条件と中間式を含む証明を記載。Panchenkoの一般定理は研究級の外部定理として原論文へ誘導し、有限値の帰納法入口と未完結の核心を明示した。
 - Level A4・B3・C1題と各詳細解答を作成。SG6〜SG8および系列横断査読は残課題。
+
+## SG6 執筆・査読記録（2026-10-13）
+
+- SG5のultrametricityと階層を前提に、有限段Ruelle確率カスケード、Poisson重みの指数傾斜、Parisi汎関数とGaussian再帰を追加。
+- Guerra補間の両端点と負の平方誤差を導く和公式を構成し、有限段の上界とTalagrandのParisi等式（研究級の外部定理）の証明境界を分離した。
+- Level A4題・B3題・C1題と詳細解答を実装。SG7〜SG8及び系列横断監査は残課題。

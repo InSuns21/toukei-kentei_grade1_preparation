@@ -1,0 +1,57 @@
+chapter: SG6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG5
+  - SG3
+  - SG2
+forward_references: []
+concepts:
+  - id: spin-glass.poisson-weights
+    name: Poisson–Dirichlet型の確率重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson–Dirichlet型の確率重み）"]
+    requires: [spin-glass.threshold-hierarchy]
+  - id: spin-glass.poisson-tilting
+    name: Poisson重みの独立指数傾斜
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Poisson重みの独立指数傾斜）"]
+    requires: [spin-glass.poisson-weights]
+  - id: spin-glass.ruelle-cascade
+    name: 有限段Ruelle確率カスケード
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限段Ruelle確率カスケード）"]
+    requires: [spin-glass.poisson-weights, spin-glass.ultrametric-overlap]
+  - id: spin-glass.rpc-overlap-distribution
+    name: RPCの階層性と二標本のoverlap
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RPCの階層性と二標本のoverlap）"]
+    requires: [spin-glass.ruelle-cascade, spin-glass.poisson-tilting]
+  - id: spin-glass.parisi-functional
+    name: 有限段Parisi汎関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限段Parisi汎関数）"]
+    requires: [spin-glass.ruelle-cascade, spin-glass.rs-functional]
+  - id: spin-glass.rpc-gaussian-recursion
+    name: RPCのGaussian積分と再帰式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RPCのGaussian積分と再帰式）"]
+    requires: [spin-glass.parisi-functional, spin-glass.poisson-tilting]
+  - id: spin-glass.guerra-rpc-bound
+    name: 有限段Guerra補間の和公式と上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限段Guerra補間の和公式と上界）"]
+    requires: [spin-glass.rpc-gaussian-recursion, spin-glass.interpolation-derivative, spin-glass.sk-representation]
+  - id: spin-glass.parisi-principle
+    name: SK模型のParisi変分原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SK模型のParisi変分原理：研究級の外部定理）"]
+    requires: [spin-glass.guerra-rpc-bound, spin-glass.sk-pressure-limit]

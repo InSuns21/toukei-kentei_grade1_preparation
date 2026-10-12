@@ -27,7 +27,7 @@ chapters:
     title: Ghirlanda–Guerra恒等式とultrametricity
   - id: SG6
     path: textbook/volumes/dream_thater/物理系/SG/SG6
-    status: planned
+    status: completed
     title: Ruelle確率カスケードとParisi変分原理
   - id: SG7
     path: textbook/volumes/dream_thater/物理系/SG/SG7
