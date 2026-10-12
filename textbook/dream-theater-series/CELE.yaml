@@ -1,0 +1,40 @@
+version: 1
+id: CELE
+title: "天体力学・三体問題・Hamiltonian chaos"
+plan: textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 2026-10-13: prerequisites / ownership audit completed; chapter bodies not yet authored.
+chapters:
+  - id: CELE1
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE1
+    status: planned
+    title: "二体問題を可積分系として読み直す"
+  - id: CELE2
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE2
+    status: planned
+    title: "N体Hamilton系と三体問題"
+  - id: CELE3
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE3
+    status: planned
+    title: "三体問題の特殊解"
+  - id: CELE4
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE4
+    status: planned
+    title: "円制限三体問題"
+  - id: CELE5
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE5
+    status: planned
+    title: "Poincaré・摂動・非可積分性"
+  - id: CELE6
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE6
+    status: planned
+    title: "ホモクリニック構造とHamiltonian chaos"
+  - id: CELE7
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE7
+    status: planned
+    title: "共鳴・KAM・規則運動とカオスの共存"
+  - id: CELE8
+    path: textbook/volumes/dream_thater/物理系/CELE/CELE8
+    status: planned
+    title: "太陽系の長期力学"
