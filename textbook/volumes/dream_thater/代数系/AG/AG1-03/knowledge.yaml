@@ -35,7 +35,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（既約性と座標環の整域性）"]
-    requires: [algebraic-geometry.coordinate-ring, algebraic-geometry.irreducible-vanishing-prime, algebra.prime-quotient-domain]
+    requires: [algebraic-geometry.coordinate-ring, algebraic-geometry.irreducible-vanishing-prime, algebra.prime-ideal-quotient-domain]
 
   - id: algebraic-geometry.regular-map-affine
     name: アフィン代数的集合の正則写像
