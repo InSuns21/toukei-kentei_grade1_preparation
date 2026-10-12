@@ -421,10 +421,10 @@ $N_j=5$、$N_{j-1}=3$、$u=\log10$、$j=2$ のとき、有限chainingの $v_j$ �
 <!-- solution-start -->
 **詳細解答**　$G$ は独立な平均零の座標を持ち、各座標の指数モーメントは $Ee^{\lambda G_i}=e^{\lambda^2/2}$ です。[Hanson–Wrightの定理](../HDP9/index.md#thm-hdp9-hanson-wright)に $K=1$、$A=I_n$ を入れます。$\|I_n\|_{\mathrm F}^2=\sum_{i,j}(I_n)_{ij}^2=n$、$\|I_n\|_{\mathrm{op}}=1$ です。任意の $t>0$ に対し、二次形式の期待値 $E(G^{\mathsf T}I_nG)=n$ を引いた確率は
 
-$
+$$
 P\left(\left|\sum_{i=1}^n(G_i^2-1)\right|\ge t\right)
 \le 2\exp\left[-\min\left\{\frac{t^2}{640n},\frac{t}{64}\right\}\right].
-$
+$$
 
 と評価できます。ここでは添字集合の被覆数ではなく、座標ごとの二次形式が対象です。
 <!-- solution-end -->
@@ -498,10 +498,10 @@ $T_m=\{\sum_{i=1}^ms_i2^{-i}e_i:s_i\in\{0,1\}\}$、$X_t=\langle G,t\rangle$（�
 <!-- solution-start -->
 **詳細解答**　(a) 各 $G_i$ は独立・平均零で共通MGF代理量 $K=1$ なので[Hanson–Wright不等式](../HDP9/index.md#thm-hdp9-hanson-wright)を使えます。$EG_iG_j$ は $i=j$ なら $1$、異なれば $0$ なので、$E(G^{\mathsf T}AG)=\sum_iA_{ii}=\operatorname{tr}(A)$ です。$A\ne0$、$t>0$ なら
 
-$
+$$
 P\left(\left|G^{\mathsf T}AG-\operatorname{tr}(A)\right|\ge t\right)
 \le 2\exp\left[-\min\left\{\frac{t^2}{640\|A\|_{\mathrm F}^2},\frac{t}{64\|A\|_{\mathrm{op}}}\right\}\right].
-$
+$$
 
 $A=0$ なら中心化二次形式は恒等的に零です。(b) 各座標はsub-Gaussianですが独立ではありません。二次形式は $nG^2$、中心化は $n(G^2-1)$ で、(a) の定理を適用できません。[HDP9の独立性に関する反例](../HDP9/index.md#thm-hdp9-hanson-wright)と同じ仕組みです。(c) 標本 $Y_i$ の独立性、有界性、零関数を含む有限な関数族を確認できれば、[有限関数族の系](#cor-hdp10-empirical-finite-class)を適用できます。ここでの複雑度は関数間の $\|\cdot\|_\infty/\sqrt n$ による被覆数であり、(a) のFrobeniusノルムや作用素ノルムを代入する問題ではありません。零関数がなければ基準関数の偏差を別途評価する必要があります。
 <!-- solution-end -->
