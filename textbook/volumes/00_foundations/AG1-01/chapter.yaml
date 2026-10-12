@@ -21,6 +21,7 @@ definitions:
   - { id: AG1-01-DEF-03, name: アフィン代数的集合 }
   - { id: AG1-01-DEF-04, name: Zariski 位相 }
   - { id: AG1-01-DEF-05, name: 消滅イデアル }
+  - { id: AG1-01-DEF-06, name: 根基的イデアル }
 theorems:
   - { id: AG1-01-PROP-01, name: 生成イデアルの最小性 }
   - { id: AG1-01-PROP-02, name: 零点集合の包含・共通部分・和集合 }
