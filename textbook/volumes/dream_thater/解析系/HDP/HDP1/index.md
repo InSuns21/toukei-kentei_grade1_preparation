@@ -655,7 +655,18 @@ $$
 \{Y_i\in A_i\}=\{X_i\in f_i^{-1}(A_i)\}
 $$
 
-であり、$f_i^{-1}(A_i)$ はBorel集合です。よって[独立な確率変数の定義](../../F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)に基づく相互独立性が $X_i$ から $Y_i$ に引き継がれます。
+であり、$f_i^{-1}(A_i)$ はBorel集合です。元の三変数の**相互独立性**を各逆像へ適用すると
+
+$$
+\begin{aligned}
+P(Y_1\in A_1,Y_2\in A_2,Y_3\in A_3)
+&=P\!\left(\bigcap_{i=1}^{3}\{X_i\in f_i^{-1}(A_i)\}\right)\\
+&=\prod_{i=1}^{3}P(X_i\in f_i^{-1}(A_i))\\
+&=\prod_{i=1}^{3}P(Y_i\in A_i).
+\end{aligned}
+$$
+
+従って $Y_1,Y_2,Y_3$ は相互に独立です。ここでは単なる二変数ずつの独立性ではなく、三変数についての積の等式まで確かめています（[独立な確率変数の定義](../../F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)も参照）。
 
 変換後の区間は $[-1,1],[-2,2],[-1,1]$ なので、幅は $2,4,2$ です。従って
 
