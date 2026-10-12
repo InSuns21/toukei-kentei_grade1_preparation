@@ -581,6 +581,12 @@
 3. [DOPT3 マッチング・割当問題](textbook/volumes/00_foundations/DOPT3/index.md)
 4. [DOPT4 全単模性・整数多面体](textbook/volumes/00_foundations/DOPT4/index.md)
 
+
+<a id="dt-subject-spectral-graph-theory"></a>
+### スペクトルグラフ理論
+
+1. [SGT1 重み付きグラフと組合せLaplacian](textbook/volumes/00_foundations/SGT1/index.md)
+
 ## 幾何系
 
 <a id="dt-subject-vector-calculus-i"></a>

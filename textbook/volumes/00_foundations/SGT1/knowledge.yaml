@@ -1,0 +1,85 @@
+chapter: SGT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F1
+  - LA3B
+forward_references: []
+
+concepts:
+  - id: spectral-graph.weighted-graph
+    name: 有限無向重み付きグラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限無向重み付きグラフ）]
+    requires: []
+
+  - id: spectral-graph.weighted-degree
+    name: 重み付き次数・体積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重み付き次数・体積）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.combinatorial-laplacian
+    name: 組合せLaplacian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（組合せLaplacian）]
+    requires: [spectral-graph.weighted-degree]
+
+  - id: spectral-graph.dirichlet-energy
+    name: Dirichletエネルギーの辺表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichletエネルギーの辺表示）]
+    requires: [spectral-graph.combinatorial-laplacian]
+
+  - id: spectral-graph.psd
+    name: 組合せLaplacianの半正定値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（組合せLaplacianの半正定値性）]
+    requires: [spectral-graph.dirichlet-energy, linear.spectral-theorem, linear.positive-semidefinite-matrix]
+
+  - id: spectral-graph.path
+    name: グラフの道
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（グラフの道）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.components
+    name: グラフの連結成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（グラフの連結成分）]
+    requires: [spectral-graph.path]
+
+  - id: spectral-graph.kernel-components
+    name: 核と連結成分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（核と連結成分）]
+    requires: [spectral-graph.components, spectral-graph.dirichlet-energy, linear.spectral-theorem]
+
+  - id: spectral-graph.cut-weight
+    name: Cutの重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Cutの重み）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.cut-energy
+    name: Cutと指示ベクトルのエネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Cutと指示ベクトルのエネルギー）]
+    requires: [spectral-graph.cut-weight, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.gap-variational
+    name: 非正規化Laplacianの変分表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非正規化Laplacianの変分表示）]
+    requires: [spectral-graph.kernel-components, linear.spectral-theorem]
