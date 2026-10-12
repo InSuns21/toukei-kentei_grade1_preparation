@@ -593,7 +593,11 @@ $\boldsymbol\alpha=(\sqrt2,2\sqrt2)$ とする。$\boldsymbol\beta=(1/5,2/5)$ �
 <!-- solution-start -->
 **詳細解答**
 
-[整数関係の定義](#def-nda4-integer-relation)から整数関係は $\boldsymbol k=m(-2,1)$ に限られます。$\boldsymbol\beta$ に対して
+[整数関係の定義](#def-nda4-integer-relation)により、整数ベクトル $\boldsymbol k=(k_1,k_2)$ に対して
+$
+\boldsymbol k\cdot\boldsymbol\alpha=(k_1+2k_2)\sqrt2.
+$
+$\sqrt2$ は無理数なので、この値が整数となるのは $k_1+2k_2=0$ のときだけです。従って整数関係は $\boldsymbol k=m(-2,1)$（$m\in\mathbb Z$）に限られます。$\boldsymbol\beta$ に対して
 $$
 \boldsymbol k\cdot\boldsymbol\beta
 =m\left(-2\cdot\frac15+\frac25\right)=0\in\mathbb Z
