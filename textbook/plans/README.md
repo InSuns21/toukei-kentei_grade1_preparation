@@ -60,7 +60,7 @@
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
 | 一般化座標・Lagrangian・Hamiltonian・Poisson 括弧・Hamilton--Jacobi | `DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md` |
 | シンプレクティック幾何・Darboux・Lagrange部分多様体・Moser | `textbook/plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md`（SYM1〜8：SYM1完了・以降進行中） |
-| Hamilton作用・幾何学的Noether・運動量写像・Marsden–Weinstein簡約 | `DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md`（GMECH1〜8：力学の正本） |
+| Hamilton作用・幾何学的Noether・運動量写像・Marsden–Weinstein簡約 | `../plans_progress/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md`（GMECH1〜8：力学の正本） |
 | 第二変分・測地線・Jacobi 場・共役点・極小曲面の安定性 | `DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md` |
 | Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md` |
 | 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md` |
