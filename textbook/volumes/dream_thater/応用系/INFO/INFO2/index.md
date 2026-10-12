@@ -216,28 +216,35 @@ $D(P\|Q)=+\infty$ なら主張は直ちに成立します。有限の場合に�
 
 まず $D(P\|Q)=+\infty$ なら左辺は $[0,+\infty]$ の値であるため不等式を満たします。以下 $P\ll Q$ とします。このとき $(PW)(z)>0$ なら、ある $x$ で $p(x)W(z|x)>0$ です。その $x$ は $q(x)>0$ でもあるため $(QW)(z)\ge q(x)W(z|x)>0$、従って $PW\ll QW$ です。
 
-出力 $z$ を固定し、$a_x=p(x)W(z|x)$、$b_x=q(x)W(z|x)$ と置きます。これらは非負で、和はそれぞれ $(PW)(z)$、$(QW)(z)$ です。[対数和不等式](#lem-info2-log-sum)より
+まず $(PW)(z)>0$ となる出力 $z$ を固定します。すでに示した $PW\ll QW$ から $(QW)(z)>0$ でもあります。$a_x=p(x)W(z|x)$、$b_x=q(x)W(z|x)$ と置けば、各項は非負で、その和はそれぞれ $(PW)(z)$ と $(QW)(z)$ です。[対数和不等式](#lem-info2-log-sum)を適用して
 
-$$
-(PW)(z)\log_2\frac{(PW)(z)}{(QW)(z)}
-\le\sum_x p(x)W(z|x)\log_2\frac{p(x)W(z|x)}{q(x)W(z|x)}.
-$$
+$
+\begin{aligned}
+&(PW)(z)\log_2\frac{(PW)(z)}{(QW)(z)}\\
+&\le\sum_{x:p(x)W(z|x)>0}
+p(x)W(z|x)\log_2\frac{p(x)W(z|x)}{q(x)W(z|x)}\\
+&=\sum_{x:p(x)W(z|x)>0}
+p(x)W(z|x)\log_2\frac{p(x)}{q(x)}.
+\end{aligned}
+$
 
-確率零の項は規約どおり零とします。$p(x)W(z|x)>0$ の項では三つの因子 $p(x),q(x),W(z|x)$ は正なので、比の $W(z|x)$ を約分できます。これをすべての出力 $z$ で足すと
+二行目に現れる $x$ では $p(x)>0$、$W(z|x)>0$、かつ $P\ll Q$ より $q(x)>0$ です。従ってここだけで分母が正であり、$W(z|x)$ の約分が許されます。逆に $(PW)(z)=0$ の出力は相対エントロピーへの寄与が零なので、**$0/0$ の対数を記述せず**和から除外します。
 
-$$
+この評価を正確率の出力すべてについて足します。固定した $x$ で $p(x)>0$ なら、$W(z|x)>0$ であることと、同時に $p(x)W(z|x)>0$ であることは同値です。したがって有限和を入れ替えると
+
+$
 \begin{aligned}
 D(PW\|QW)
-&\le\sum_z\sum_{x:p(x)W(z|x)>0}
+&\le\sum_{z:(PW)(z)>0}\sum_{x:p(x)W(z|x)>0}
 p(x)W(z|x)\log_2\frac{p(x)}{q(x)}\\
 &=\sum_{x:p(x)>0}p(x)\log_2\frac{p(x)}{q(x)}
-\sum_z W(z|x)\\
-&=\sum_{x:p(x)>0}p(x)\log_2\frac{p(x)}{q(x)}\\
-&=D(P\|Q).
+\sum_{z:W(z|x)>0}W(z|x)\\
+&=\sum_{x:p(x)>0}p(x)\log_2\frac{p(x)}{q(x)}
+=D(P\|Q).
 \end{aligned}
-$$
+$
 
-二行目では有限和の順序を交換しました。$W(z|x)=0$ の項は零なので、$z$ 全体へ和を戻せます。三行目では各 $x$ に対する行和が $1$ であることを使っています。
+最後に用いた $\sum_{z:W(z|x)>0}W(z|x)=1$ は、確率通信路の行和条件であり、零の項を取り除いても和が変わらないことによります。
 <!-- proof-end -->
 
 対数を取る前に確率零のセルをどう処理するかが重要です。また $P,Q$ に**異なる**通信路を適用する場合には、比較する操作自体が変わるため、この不等式はそのまま使えません。
@@ -450,18 +457,19 @@ $P=(t,1-t)$（$0\le t\le1$）と $U=(1/2,1/2)$ とする。$D(P\|U)$ を[INFO1�
 - ID: INFO2-A3
 
 <!-- solution-start -->
-**詳細解答**　$U$ は二点とも正なので、両端の $t=0,1$ を含めて $P\ll U$ です。$0\log_2 0=0$ の規約で
+**詳細解答**　$U$ は二点とも正なので、両端の $t=0,1$ を含めて $P\ll U$ です。まず $0<t<1$ では対数の引数が正であり、[相対エントロピーの定義](#def-info2-relative-entropy)をそのまま展開できます。
 
-$$
+$
 \begin{aligned}
 D(P\|U)
 &=t\log_2(2t)+(1-t)\log_2(2(1-t))\\
-&=t\log_2t+(1-t)\log_2(1-t)+1\\
+&=t(\log_2t+1)+(1-t)(\log_2(1-t)+1)\\
+&=1+t\log_2t+(1-t)\log_2(1-t)\\
 &=1-h_2(t).
 \end{aligned}
-$$
+$
 
-[Gibbs不等式](#thm-info2-gibbs)から $h_2(t)\le1$ であり、等号は $P=U$、つまり $t=1/2$ のときだけです。
+$t=0$ なら $P=(0,1)$、$t=1$ なら $P=(1,0)$ であり、いずれも正確率の項一つだけを足して $D(P\|U)=1$ です。[INFO1の二値エントロピー](../INFO1/index.md#def-info1-entropy)では $h_2(0)=h_2(1)=0$ と定めるので、端点でも同じ等式になります。[Gibbs不等式](#thm-info2-gibbs)から $h_2(t)\le1$ であり、等号は $P=U$、つまり $t=1/2$ のときだけです。
 <!-- solution-end -->
 
 #### A4. 相互情報量と独立性
@@ -551,19 +559,41 @@ $$
 - ID: INFO2-B3
 
 <!-- solution-start -->
-**詳細解答**　$W(0|y)=1$ と置けば $p_{XYZ}(x,y,z)=p_{XY}(x,y)W(z|y)$ なので、[Markov連鎖の定義](#def-info2-markov)を満たします。$X$ は一様で独立雑音を加えても $Y$ は一様です。$X=x$ での $Y$ の分布は確率 $(3/4,1/4)$（並びは $x$ により変わる）なので
+**詳細解答**　$Z$ の出力集合を $\{0,1\}$ として $W(0|y)=1$、$W(1|y)=0$ と置けば、確かに各行の和は $1$ です。$Z$ が恒等的に $0$ なので $p_{XYZ}(x,y,z)=p_{XY}(x,y)\mathbf1_{\{z=0\}}=p_{XY}(x,y)W(z|y)$ となり、[Markov連鎖の定義](#def-info2-markov)を満たします。
 
-$$
-H(Y)=1,\quad H(Y|X)=h_2(1/4).
-$$
+$X$ は公平で $N$ と独立だから、$Y=0$ となる二つの排反事象を足すと
+
+$
+\begin{aligned}
+P(Y=0)
+&=P(X=0,N=0)+P(X=1,N=1)\\
+&=\tfrac12\cdot\tfrac34+\tfrac12\cdot\tfrac14=\tfrac12.
+\end{aligned}
+$
+
+同じく $P(Y=1)=1/2$ なので $H(Y)=1$ です。$X=x$ を固定すると $Y=x$ の確率が $3/4$、$Y=1-x$ の確率が $1/4$ です。[INFO1の条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)の定義に代入して
+
+$
+\begin{aligned}
+H(Y|X)
+&=\sum_{x=0}^1P(X=x)H(Y|X=x)\\
+&=\tfrac12h_2(1/4)+\tfrac12h_2(1/4)
+=h_2(1/4).
+\end{aligned}
+$
 
 [INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
 
-$$
-I(X;Y)=1-h_2(1/4)=\frac12-\frac34\log_2(4/3)>0.
-$$
+$
+\begin{aligned}
+I(X;Y)
+&=1-h_2(1/4)\\
+&=1-\left(\tfrac12+\tfrac34\log_2(4/3)\right)\\
+&=\tfrac12-\tfrac34\log_2(4/3)>0.
+\end{aligned}
+$
 
-一方 $Z$ は一定なので $H(Z)=0$、$H(Z|X)=0$、従って $I(X;Z)=0$ です。[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)の具体例になっています。
+一方 $Z$ は一定なので $H(Z)=0$、$H(Z|X)=0$、従って $I(X;Z)=0$ です。[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)を厳密な不等号で実現しています。
 <!-- solution-end -->
 
 #### B4. 独立な二組の相対エントロピー
@@ -574,22 +604,26 @@ $$
 - ID: INFO2-B4
 
 <!-- solution-start -->
-**詳細解答**　正確率の直積セル $(x,y)$ では $p(x)r(y)>0$ であり、仮定より $q(x)s(y)>0$ です。[相対エントロピーの定義](#def-info2-relative-entropy)に積分布を代入すると
+**詳細解答**　$S_P=\{x:p(x)>0\}$、$S_R=\{y:r(y)>0\}$ とします。$P\ll Q$、$R\ll S$ より、直積の正確率セル $(x,y)\in S_P\times S_R$ では $q(x)s(y)>0$ です。ここだけで[相対エントロピーの定義](#def-info2-relative-entropy)の対数を取り、積の対数を二つに分けると
 
-$$
+$
 \begin{aligned}
 &D(P\otimes R\|Q\otimes S)\\
-&=\sum_{x:p(x)>0}\sum_{y:r(y)>0}
+&=\sum_{x\in S_P}\sum_{y\in S_R}
 p(x)r(y)\log_2\frac{p(x)r(y)}{q(x)s(y)}\\
-&=\sum_{x,y}p(x)r(y)\log_2\frac{p(x)}{q(x)}
-+\sum_{x,y}p(x)r(y)\log_2\frac{r(y)}{s(y)}\\
-&=\left(\sum_y r(y)\right)\sum_xp(x)\log_2\frac{p(x)}{q(x)}\\
-&\quad+\left(\sum_x p(x)\right)\sum_yr(y)\log_2\frac{r(y)}{s(y)}\\
+&=\sum_{x\in S_P}\sum_{y\in S_R}
+p(x)r(y)\log_2\frac{p(x)}{q(x)}\\
+&\quad+\sum_{x\in S_P}\sum_{y\in S_R}
+p(x)r(y)\log_2\frac{r(y)}{s(y)}\\
+&=\left(\sum_{y\in S_R}r(y)\right)
+\sum_{x\in S_P}p(x)\log_2\frac{p(x)}{q(x)}\\
+&\quad+\left(\sum_{x\in S_P}p(x)\right)
+\sum_{y\in S_R}r(y)\log_2\frac{r(y)}{s(y)}\\
 &=D(P\|Q)+D(R\|S).
 \end{aligned}
-$$
+$
 
-和は正確率の台に限って書き、各分布の確率の和が $1$ になることを使用しました。一般に依存する結合分布を勝手に積へ分解することはできません。
+正確率の台だけで和を取るため、$p(x)=0$ または $r(y)=0$ の場所で定義されない比を式に書き込んでいません。二つの括弧はそれぞれ $1$ です。独立な組の[同時分布の積表示](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)にはこの直積構造が対応しますが、依存する結合分布へ同じ因数分解を無条件に流用してはいけません。
 <!-- solution-end -->
 
 ### Level C：二段階の通信を統合する
@@ -639,14 +673,32 @@ $$
 
 二つの事象は互いに排反なので確率を足せます。$0\le s\le1$ です。
 
-**(3)** 公平な $X$ に独立な反転雑音を加えると、$Y$ と $Z$ はいずれも公平です。$X=x$ を与えたときの条件付き確率は $Y$ では $(1-q,q)$、$Z$ では $(1-s,s)$（順序は $x$ に依存）です。従って[INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
+**(3)** $N_1$ と $N_2$ の排他的論理和を $M=N_1\oplus N_2$ とすると、$Z=X\oplus M$ です。$X$ は雑音の組 $(N_1,N_2)$ と独立なので、$M$ とも独立です。(2)で $P(M=1)=s$ と求めました。これにより $X$ を固定したとき、$Y=x$、$Z=x$ の確率はそれぞれ $1-q$、$1-s$ です。
 
-$$
+また公平な $X$ とそれに独立な反転雑音 $M$ に対して
+
+$
+\begin{aligned}
+P(Z=0)
+&=P(X=0,M=0)+P(X=1,M=1)\\
+&=\tfrac12(1-s)+\tfrac12s=\tfrac12.
+\end{aligned}
+$
+
+$Y$ にも $M$ を $N_1$ に替えて同じ計算を行えるため、$Y,Z$ はいずれも公平です。さらに[INFO1の条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)で $X=0,1$ の条件付き分布を平均すると
+
+$
+H(Y|X)=h_2(q),\qquad H(Z|X)=h_2(s)
+$
+
+となります。従って[INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
+
+$
 \begin{aligned}
 I(X;Y)&=H(Y)-H(Y|X)=1-h_2(q),\\
 I(X;Z)&=H(Z)-H(Z|X)=1-h_2(s).
 \end{aligned}
-$$
+$
 
 (1)でMarkov条件を証明したので[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)が適用でき、
 
