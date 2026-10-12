@@ -1,0 +1,37 @@
+id: "NDA1"
+title: "連分数と最良有理近似の精密化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT7
+official_scope: []
+learning_objectives:
+  - NT7の差積恒等式と完全商公式から正規化近似誤差の厳密表示・上下界を導出できる
+  - 中間収束分数を構成して隣接分数との行列式・誤差式を検算できる
+  - 第一種と第二種の最良近似の違いを反例と比較条件で説明できる
+  - 一般の実二次無理数の連分数が最終周期的になるLagrangeの定理と逆向きを証明できる
+  - 二次無理数の具体的な完全商・共役・周期を計算できる
+definitions:
+  - { id: NDA1-DEF-01, name: 正規化近似誤差 }
+  - { id: NDA1-DEF-02, name: 中間収束分数 }
+  - { id: NDA1-DEF-03, name: 第一種最良近似 }
+  - { id: NDA1-DEF-04, name: 最終周期連分数 }
+theorems:
+  - { id: NDA1-PROP-01, name: 正規化誤差の完全商表示 }
+  - { id: NDA1-PROP-02, name: 中間収束分数の誤差公式 }
+  - { id: NDA1-PROP-03, name: 中間収束分数による第一種・第二種比較 }
+  - { id: NDA1-THM-01, name: Lagrangeの最終周期性定理と逆向き }
+canonical_examples:
+  - 平方根2の4/3と3/2による第一種・第二種の相違
+  - (1+平方根3)/2 の周期連分数
+  - (2+平方根2)/3 における共役完全商の入り方
+problem_patterns:
+  - NDA1-ERROR-CONSTANT
+  - NDA1-INTERMEDIATE-CONVERGENT
+  - NDA1-BEST-FIRST-VS-SECOND
+  - NDA1-QUADRATIC-CONJUGATE-RECURRENCE
+  - NDA1-EVENTUAL-PERIODICITY
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
