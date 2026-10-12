@@ -2,7 +2,7 @@
 
 位置空間 $Q$ に回転や平行移動が作用するとき、位置 $q$ の変換だけでは力学の位相空間は動かせません。運動量 $p$ は接ベクトルではなく余ベクトルであり、位置の変換に合わせて**逆微分**で運ばなければ、位置と運動量を組にした幾何が壊れます。
 
-[SYM3の余接持ち上げ](../SYM/SYM3/index.md#def-sym3-cotangent-lift)は一つの微分同相に対する操作でした。本章の問いは「これをLie群のすべての元に同時に適用すると、群作用になり、どんな無限小運動が現れるか」です。[LIE4の基本ベクトル場](../../../代数系/LIE/LIE4/index.md#def-lie4-fundamental-vector-field)と併せ、群作用の有限変換から微分した運動までを具体的に結びます。
+[SYM3の余接持ち上げ](../../SYM/SYM3/index.md#def-sym3-cotangent-lift)は一つの微分同相に対する操作でした。本章の問いは「これをLie群のすべての元に同時に適用すると、群作用になり、どんな無限小運動が現れるか」です。[LIE4の基本ベクトル場](../../../代数系/LIE/LIE4/index.md#def-lie4-fundamental-vector-field)と併せ、群作用の有限変換から微分した運動までを具体的に結びます。
 
 ## 1. 一つの変換から群全体の作用へ
 
@@ -15,7 +15,7 @@ $$
 
 です。とくに $\phi_{g^{-1}}$ が $\phi_g$ の逆写像なので各 $\phi_g$ は微分同相です。
 
-そこで [SYM3の余接持ち上げの定義](../SYM/SYM3/index.md#def-sym3-cotangent-lift)を各 $\phi_g$ に適用します。$g$ が動くことも含めて滑らかであること、作用の積と両立することを示すのが最初の目標です。
+そこで [SYM3の余接持ち上げの定義](../../SYM/SYM3/index.md#def-sym3-cotangent-lift)を各 $\phi_g$ に適用します。$g$ が動くことも含めて滑らかであること、作用の積と両立することを示すのが最初の目標です。
 
 <a id="def-gmech1-cotangent-action"></a>
 
@@ -63,12 +63,12 @@ $$
 
 ### 証明の見取り図
 
-群の積に対する等式は [SYM3の合成則](../SYM/SYM3/index.md#prop-sym3-lift-composition)を $\phi_h,\phi_g$ へ代入すれば出ます。ただし、これは**各 $g$ での滑らかさ**だけでは $G\times T^*Q$ 上の滑らかさを保証しません。後者は作用の局所座標式で別に確認します。
+群の積に対する等式は [SYM3の合成則](../../SYM/SYM3/index.md#prop-sym3-lift-composition)を $\phi_h,\phi_g$ へ代入すれば出ます。ただし、これは**各 $g$ での滑らかさ**だけでは $G\times T^*Q$ 上の滑らかさを保証しません。後者は作用の局所座標式で別に確認します。
 
 <!-- proof-start -->
 ### 証明
 
-$g,h\in G$ を任意に取ります。[余接持ち上げの合成則](../SYM/SYM3/index.md#prop-sym3-lift-composition)に $f=\phi_h$、その次の写像 $\phi_g$ を適用すると
+$g,h\in G$ を任意に取ります。[余接持ち上げの合成則](../../SYM/SYM3/index.md#prop-sym3-lift-composition)に $f=\phi_h$、その次の写像 $\phi_g$ を適用すると
 
 $$
 \widetilde\Phi_g\circ\widetilde\Phi_h
@@ -101,7 +101,7 @@ $$
 
 ## 2. 正準形式を壊さない理由
 
-[SYM3のLiouville 1形式](../SYM/SYM3/index.md#def-sym3-tautological-form)は、余ベクトルと射影した接ベクトルとの自然な評価です。余接持ち上げでは逆微分と微分がこの評価の中で相殺し、1形式そのものが保存されます。2形式だけでなく1形式が保存される点が、任意のシンプレクティック変換と異なります。
+[SYM3のLiouville 1形式](../../SYM/SYM3/index.md#def-sym3-tautological-form)は、余ベクトルと射影した接ベクトルとの自然な評価です。余接持ち上げでは逆微分と微分がこの評価の中で相殺し、1形式そのものが保存されます。2形式だけでなく1形式が保存される点が、任意のシンプレクティック変換と異なります。
 
 <a id="prop-gmech1-canonical-preservation"></a>
 
@@ -120,12 +120,12 @@ $$
 
 ### 証明の見取り図
 
-各 $\phi_g$ が微分同相であることを確認し、[SYM3の保存定理](../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)へ**個別の $g$** を代入します。群作用全体の保存則はこの代入を全ての $g$ について行うことで得られます。
+各 $\phi_g$ が微分同相であることを確認し、[SYM3の保存定理](../../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)へ**個別の $g$** を代入します。群作用全体の保存則はこの代入を全ての $g$ について行うことで得られます。
 
 <!-- proof-start -->
 ### 証明
 
-$g\in G$ を固定します。作用則から $\phi_{g^{-1}}\circ\phi_g=\phi_e=\operatorname{id}_Q$、$\phi_g\circ\phi_{g^{-1}}=\operatorname{id}_Q$ です。滑らかな逆写像を持つので $\phi_g$ は微分同相です。そこで[SYM3の余接持ち上げによる正準形式保存](../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)を $f=\phi_g:Q\to Q$ に適用すれば、
+$g\in G$ を固定します。作用則から $\phi_{g^{-1}}\circ\phi_g=\phi_e=\operatorname{id}_Q$、$\phi_g\circ\phi_{g^{-1}}=\operatorname{id}_Q$ です。滑らかな逆写像を持つので $\phi_g$ は微分同相です。そこで[SYM3の余接持ち上げによる正準形式保存](../../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)を $f=\phi_g:Q\to Q$ に適用すれば、
 
 $$
 \widehat{\phi_g}^{\,*}\theta=\theta,\qquad
@@ -381,7 +381,7 @@ dK_\xi
 =\sum_i a^i\,dp_i+\sum_{i,j}p_j\partial_i a^j\,dq^i.
 $$
 
-一方 [SYM3の正準2形式](../SYM/SYM3/index.md#thm-sym3-cotangent-symplectic)を上の生成子へ縮約すると
+一方 [SYM3の正準2形式](../../SYM/SYM3/index.md#thm-sym3-cotangent-symplectic)を上の生成子へ縮約すると
 
 $$
 \iota_{\xi_{T^*Q}}\omega_{\mathrm{can}}
@@ -555,7 +555,7 @@ S^*\omega_{\mathrm{can}}
 =dq\wedge d(p+c)=dq\wedge dp=\omega_{\mathrm{can}}.
 $$
 
-もし $S=\widehat f$ なら [SYM3の余接持ち上げの正準1形式保存定理](../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)から $S^*\theta=\theta$ が必要です。$c\,dq$ は零でない1形式なので矛盾します。したがって2形式の保存は、余接持ち上げであるための十分条件ではありません。
+もし $S=\widehat f$ なら [SYM3の余接持ち上げの正準1形式保存定理](../../SYM/SYM3/index.md#thm-sym3-cotangent-lift-preserves)から $S^*\theta=\theta$ が必要です。$c\,dq$ は零でない1形式なので矛盾します。したがって2形式の保存は、余接持ち上げであるための十分条件ではありません。
 <!-- solution-end -->
 
 ### Level C
