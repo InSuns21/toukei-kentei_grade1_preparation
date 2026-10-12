@@ -68,7 +68,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の座標近傍で $\omega$ の係数行列を $\Omega(x)$ と書きます。滑らかで非退化だから $\det\Omega(x)\ne0$ であり、余因子行列の公式から $\Omega(x)^{-1}$ の各成分も滑らかです。写像
+任意の座標近傍で $\omega$ の係数行列を $\Omega(x)$ と書きます。滑らかで非退化だから $\det\Omega(x)\ne0$ であり、[余因子行列の恒等式](../LA4/index.md#lem-la4-adjugate-identity)による逆行列の公式から $\Omega(x)^{-1}$ の各成分も滑らかです。写像
 
 $$
 \omega^\flat_x:T_xM\longrightarrow T_x^*M,
