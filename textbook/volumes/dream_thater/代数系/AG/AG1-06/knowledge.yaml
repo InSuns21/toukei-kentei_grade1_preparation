@@ -21,7 +21,7 @@ concepts:
     name: 有限A代数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（有限 $A$ 代数）"]
+    introduction_aliases: ["定義（有限A代数）"]
     requires: [algebra.finitely-generated-module]
 
   - id: algebraic-geometry.integral-finite-criterion
