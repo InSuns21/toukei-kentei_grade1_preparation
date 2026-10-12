@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - INFO1
   - INFO2
+  - F0-00P4
 official_scope: []
 learning_objectives:
   - 有限アルファベットの独立同分布情報源で列確率と自己情報量を計算できる
