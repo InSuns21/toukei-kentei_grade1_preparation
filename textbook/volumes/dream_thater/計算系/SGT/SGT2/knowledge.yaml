@@ -1,0 +1,85 @@
+chapter: SGT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: spectral-graph.positive-degree-domain
+    name: 正次数頂点集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正次数頂点集合）]
+    requires: [spectral-graph.weighted-degree]
+
+  - id: spectral-graph.normalized-laplacian
+    name: 対称正規化Laplacianとrandom-walk Laplacian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対称正規化Laplacianとrandom-walk Laplacian）]
+    requires: [spectral-graph.positive-degree-domain, spectral-graph.combinatorial-laplacian]
+
+  - id: spectral-graph.normalized-similarity
+    name: 正規化Laplacianの相似性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正規化Laplacianの相似性）]
+    requires: [spectral-graph.normalized-laplacian]
+
+  - id: spectral-graph.normalized-dirichlet
+    name: 正規化Dirichletエネルギー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正規化Dirichletエネルギー）]
+    requires: [spectral-graph.normalized-laplacian, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.normalized-spectrum-kernel
+    name: 正規化スペクトルの範囲と核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正規化スペクトルの範囲と核）]
+    requires: [spectral-graph.normalized-dirichlet, spectral-graph.kernel-components, linear.spectral-theorem]
+
+  - id: spectral-graph.walk-transition
+    name: 重み付きランダムウォークの遷移行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重み付きランダムウォークの遷移行列）]
+    requires: [spectral-graph.positive-degree-domain]
+
+  - id: spectral-graph.detailed-balance
+    name: 詳細釣合い
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（詳細釣合い）]
+    requires: [spectral-graph.walk-transition]
+
+  - id: spectral-graph.degree-stationary
+    name: 次数分布の詳細釣合いと定常性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（次数分布の詳細釣合いと定常性）]
+    requires: [spectral-graph.detailed-balance, spectral-graph.weighted-degree]
+
+  - id: spectral-graph.stationary-unique
+    name: 連結グラフの定常分布の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連結グラフの定常分布の一意性）]
+    requires: [spectral-graph.degree-stationary, spectral-graph.components]
+
+  - id: spectral-graph.weighted-adjoint
+    name: 遷移行列の重み付き自己随伴性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（遷移行列の重み付き自己随伴性）]
+    requires: [spectral-graph.walk-transition]
+
+  - id: spectral-graph.normalized-rayleigh
+    name: 正規化第二固有値の変分表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正規化第二固有値の変分表示）]
+    requires: [spectral-graph.normalized-spectrum-kernel, linear.spectral-theorem, spectral-graph.weighted-adjoint]
