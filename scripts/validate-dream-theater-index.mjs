@@ -108,6 +108,12 @@ for (const section of manifest.sections) {
       errors.push(`non-string path in section ${section.name}`);
       continue;
     }
+    // After the category relocation, no canonical index may point to the
+    // former flat foundations directory or the wrong category.
+    const categoryPrefix = 'textbook/volumes/dream_thater/' + section.name + '/';
+    if (!p.startsWith(categoryPrefix) || !/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/.test(p)) {
+      errors.push('canonical DREAM THEATER chapter must use category/ID layout: ' + p);
+    }
     if (seenManifest.has(p)) errors.push(`duplicate manifest entry: ${p}`);
     seenManifest.add(p);
     expected.push(p);
