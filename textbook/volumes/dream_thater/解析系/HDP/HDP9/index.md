@@ -164,7 +164,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M>0$ なら各 $|\lambda a_i|\le 1/(8K^2)$ です。[平方の指数モーメント補題](#lem-hdp9-square-mgf)から
+$M>0$ なら各 $|\lambda a_i|\le 1/(8K^2)$ です。[モーメント母関数代理量からの平方評価](#lem-hdp9-square-mgf)から
 
 $$
 Ee^{\lambda a_i(X_i^2-EX_i^2)}
@@ -468,7 +468,7 @@ $-Q_A=Q_{-A}$ であり、$-A$ の二つのノルムは $A$ と等しいので�
 
 $X_i=R_i$ を独立なRademacher変数、$A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ とすると $X^{\mathsf T}AX=2R_1R_2$、期待値は $0$ です。$A^2=I_2$ なので $\|A\|_{\mathrm F}^2=2$、$\|A\|_{\mathrm{op}}=1$、$K=1$ です。この例では $|Q_A|=2$ が確率一で成立します。上の一般的な不等式は普遍的な上界であって、低次元で鋭いことを保証しません。
 
-### 例2：独立な正規座標の長さ
+### 例2：独立な標準正規変数の長さ
 
 $G_i$ を独立な標準正規変数とし $A=I_n$ と置きます。$Q_A=\sum_i(G_i^2-1)$ で、$\|A\|_{\mathrm F}^2=n$、$\|A\|_{\mathrm{op}}=1$ です。したがって
 
@@ -503,10 +503,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\|BX\|_2^2=(BX)^{\mathsf T}BX=X^{\mathsf T}B^{\mathsf T}BX$ です。$B^{\mathsf T}B$ は $n\times n$ の確定実対称行列で、[Hanson–Wright不等式](#thm-hdp9-hanson-wright)の行列の条件を満たします。$A\ne0$ なら主定理の $H=A$ に置けばよく、$A=0$ なら $0=x^{\mathsf T}Ax=\|Bx\|_2^2$ がすべての $x$ で成立するので $B=0$ です。
+$\|BX\|_2^2=(BX)^{\mathsf T}BX=X^{\mathsf T}B^{\mathsf T}BX$ です。$B^{\mathsf T}B$ は $n\times n$ の確定実対称行列で、[Hanson–Wrightの二次形式集中不等式](#thm-hdp9-hanson-wright)の行列の条件を満たします。$A\ne0$ なら主定理の $H=A$ に置けばよく、$A=0$ なら $0=x^{\mathsf T}Ax=\|Bx\|_2^2$ がすべての $x$ で成立するので $B=0$ です。
 <!-- proof-end -->
 
-この系は固定の線形変換後のエネルギーや、回帰・ランダム射影で現れる二乗残差のゆらぎに使えます。ただし **座標の独立性** は「任意方向の射影がsub-Gaussian」という条件とは異なります。
+この系は固定の線形変換後のエネルギーや、回帰・ランダム射影で現れる二乗残差のゆらぎに使えます。ただし **各座標 $X_i$ が互いに独立である仮定** は「任意方向の射影がsub-Gaussian」という条件とは異なります。
 
 **独立性を失った反例**。$G\sim N(0,1)$ とし、すべての $i$ で $X_i=G$ とします。各座標は平均零で $K=1$ のsub-Gaussianですが、座標同士は完全に従属です。$A=I_n$ では
 
@@ -643,7 +643,7 @@ $$
 =2\sum_iw_i^2.
 $$
 
-(3) 標準正規なので $K=1$、$\|A\|_{\mathrm F}^2=\sum_iw_i^2$、$\|A\|_{\mathrm{op}}=\max_i|w_i|$ です。[Hanson–Wright不等式](#thm-hdp9-hanson-wright)から、少なくとも一つの重みが非零なら
+(3) 標準正規なので $K=1$、$\|A\|_{\mathrm F}^2=\sum_iw_i^2$、$\|A\|_{\mathrm{op}}=\max_i|w_i|$ です。[Hanson–Wrightの二次形式集中不等式](#thm-hdp9-hanson-wright)から、少なくとも一つの重みが非零なら
 
 $$
 P(|T|\ge t)\le2\exp\left[-\min\left\{
