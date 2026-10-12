@@ -32,7 +32,7 @@ $$
 <!-- definition-example-start: def-int8-kolmogorov -->
 ### 直接例：振動数が作用を識別する
 
-$K(I)=\omega_*\cdot I+\tfrac12(I_1^2+2I_2^2)$ では $D^2K=\operatorname{diag}(1,2)$、行列式は $2\ne0$ です。$\Omega(I)=(\omega_{*1}+I_1,\omega_{*2}+2I_2)$ だから振動数の微小な変化から作用の変化を一意に復元できます。対照的に $K(I)=\omega_*\cdot I$ は $D^2K=0$ で、この調整機構を欠きます。
+**定義の確認**：$K(I)=\omega_*\cdot I+\tfrac12(I_1^2+2I_2^2)$ では $D^2K=\operatorname{diag}(1,2)$、行列式は $2\ne0$ です。$\Omega(I)=(\omega_{*1}+I_1,\omega_{*2}+2I_2)$ だから振動数の微小な変化から作用の変化を一意に復元できます。対照的に $K(I)=\omega_*\cdot I$ は $D^2K=0$ で、この調整機構を欠きます。
 <!-- definition-example-end -->
 
 <a id="def-int8-diophantine"></a>
@@ -54,7 +54,7 @@ $$
 <!-- definition-example-start: def-int8-diophantine -->
 ### 直接例：$(1,\sqrt2)$ の小分母
 
-$k=(a,b)\in\mathbb Z^2\setminus\{0\}$ とし、$b\ne0$ の場合は
+**定義の確認**：$k=(a,b)\in\mathbb Z^2\setminus\{0\}$ とし、$b\ne0$ の場合は
 
 $$
 |a+b\sqrt2|\,|a-b\sqrt2|
