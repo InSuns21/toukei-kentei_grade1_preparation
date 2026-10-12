@@ -36,7 +36,7 @@ chapters:
     title: sub-Gaussianベクトルと標本共分散
   - id: HDP8
     path: textbook/volumes/dream_thater/解析系/HDP/HDP8
-    status: planned
+    status: completed
     title: 非可換モーメント母関数と行列Bernstein
   - id: HDP9
     path: textbook/volumes/dream_thater/解析系/HDP/HDP9
