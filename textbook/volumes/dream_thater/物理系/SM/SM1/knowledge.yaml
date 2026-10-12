@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - TH8
+  - F0-00P2A
 forward_references: []
 concepts:
   - id: statistical-mechanics.micro-macro
