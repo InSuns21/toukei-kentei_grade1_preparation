@@ -1,5 +1,5 @@
 id: "INFO8"
-title: "率歪み関数と有限アルファベットの歪み付き情報源符号化"
+title: "率歪み関数と有限離散情報源の歪み付き符号化"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -26,9 +26,9 @@ theorems:
   - { id: INFO8-PROP-02, name: 率歪み関数の単調性・凸性・右連続性 }
   - { id: INFO8-THM-01, name: 公平二値情報源の率歪み関数 }
   - { id: INFO8-THM-02, name: 有限歪み付き情報源符号化の有限長逆定理 }
-  - { id: INFO8-LEM-01, name: 有限アルファベットのランダム被覆評価 }
+  - { id: INFO8-LEM-01, name: 有限離散模型のランダム被覆評価 }
   - { id: INFO8-THM-03, name: 有限歪み付き情報源符号化の達成可能性 }
-  - { id: INFO8-COR-01, name: 有限アルファベットの歪み付き情報源符号化定理 }
+  - { id: INFO8-COR-01, name: 有限離散情報源の歪み付き符号化定理 }
 canonical_examples:
   - 三値信号の平方誤差による復元比較
   - 非対称二値情報源の試験復元通信路と情報量上界
