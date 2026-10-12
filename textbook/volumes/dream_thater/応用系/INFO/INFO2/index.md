@@ -218,7 +218,7 @@ $D(P\|Q)=+\infty$ なら主張は直ちに成立します。有限の場合に�
 
 まず $(PW)(z)>0$ となる出力 $z$ を固定します。すでに示した $PW\ll QW$ から $(QW)(z)>0$ でもあります。$a_x=p(x)W(z|x)$、$b_x=q(x)W(z|x)$ と置けば、各項は非負で、その和はそれぞれ $(PW)(z)$ と $(QW)(z)$ です。[対数和不等式](#lem-info2-log-sum)を適用して
 
-$
+$$
 \begin{aligned}
 &(PW)(z)\log_2\frac{(PW)(z)}{(QW)(z)}\\
 &\le\sum_{x:p(x)W(z|x)>0}
@@ -226,13 +226,13 @@ p(x)W(z|x)\log_2\frac{p(x)W(z|x)}{q(x)W(z|x)}\\
 &=\sum_{x:p(x)W(z|x)>0}
 p(x)W(z|x)\log_2\frac{p(x)}{q(x)}.
 \end{aligned}
-$
+$$
 
 二行目に現れる $x$ では $p(x)>0$、$W(z|x)>0$、かつ $P\ll Q$ より $q(x)>0$ です。従ってここだけで分母が正であり、$W(z|x)$ の約分が許されます。逆に $(PW)(z)=0$ の出力は相対エントロピーへの寄与が零なので、**$0/0$ の対数を記述せず**和から除外します。
 
 この評価を正確率の出力すべてについて足します。固定した $x$ で $p(x)>0$ なら、$W(z|x)>0$ であることと、同時に $p(x)W(z|x)>0$ であることは同値です。したがって有限和を入れ替えると
 
-$
+$$
 \begin{aligned}
 D(PW\|QW)
 &\le\sum_{z:(PW)(z)>0}\sum_{x:p(x)W(z|x)>0}
@@ -242,7 +242,7 @@ p(x)W(z|x)\log_2\frac{p(x)}{q(x)}\\
 &=\sum_{x:p(x)>0}p(x)\log_2\frac{p(x)}{q(x)}
 =D(P\|Q).
 \end{aligned}
-$
+$$
 
 最後に用いた $\sum_{z:W(z|x)>0}W(z|x)=1$ は、確率通信路の行和条件であり、零の項を取り除いても和が変わらないことによります。
 <!-- proof-end -->
@@ -459,7 +459,7 @@ $P=(t,1-t)$（$0\le t\le1$）と $U=(1/2,1/2)$ とする。$D(P\|U)$ を[INFO1�
 <!-- solution-start -->
 **詳細解答**　$U$ は二点とも正なので、両端の $t=0,1$ を含めて $P\ll U$ です。まず $0<t<1$ では対数の引数が正であり、[相対エントロピーの定義](#def-info2-relative-entropy)をそのまま展開できます。
 
-$
+$$
 \begin{aligned}
 D(P\|U)
 &=t\log_2(2t)+(1-t)\log_2(2(1-t))\\
@@ -467,7 +467,7 @@ D(P\|U)
 &=1+t\log_2t+(1-t)\log_2(1-t)\\
 &=1-h_2(t).
 \end{aligned}
-$
+$$
 
 $t=0$ なら $P=(0,1)$、$t=1$ なら $P=(1,0)$ であり、いずれも正確率の項一つだけを足して $D(P\|U)=1$ です。[INFO1の二値エントロピー](../INFO1/index.md#def-info1-entropy)では $h_2(0)=h_2(1)=0$ と定めるので、端点でも同じ等式になります。[Gibbs不等式](#thm-info2-gibbs)から $h_2(t)\le1$ であり、等号は $P=U$、つまり $t=1/2$ のときだけです。
 <!-- solution-end -->
@@ -563,35 +563,35 @@ $$
 
 $X$ は公平で $N$ と独立だから、$Y=0$ となる二つの排反事象を足すと
 
-$
+$$
 \begin{aligned}
 P(Y=0)
 &=P(X=0,N=0)+P(X=1,N=1)\\
 &=\tfrac12\cdot\tfrac34+\tfrac12\cdot\tfrac14=\tfrac12.
 \end{aligned}
-$
+$$
 
 同じく $P(Y=1)=1/2$ なので $H(Y)=1$ です。$X=x$ を固定すると $Y=x$ の確率が $3/4$、$Y=1-x$ の確率が $1/4$ です。[INFO1の条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)の定義に代入して
 
-$
+$$
 \begin{aligned}
 H(Y|X)
 &=\sum_{x=0}^1P(X=x)H(Y|X=x)\\
 &=\tfrac12h_2(1/4)+\tfrac12h_2(1/4)
 =h_2(1/4).
 \end{aligned}
-$
+$$
 
 [INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
 
-$
+$$
 \begin{aligned}
 I(X;Y)
 &=1-h_2(1/4)\\
 &=1-\left(\tfrac12+\tfrac34\log_2(4/3)\right)\\
 &=\tfrac12-\tfrac34\log_2(4/3)>0.
 \end{aligned}
-$
+$$
 
 一方 $Z$ は一定なので $H(Z)=0$、$H(Z|X)=0$、従って $I(X;Z)=0$ です。[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)を厳密な不等号で実現しています。
 <!-- solution-end -->
@@ -606,7 +606,7 @@ $
 <!-- solution-start -->
 **詳細解答**　$S_P=\{x:p(x)>0\}$、$S_R=\{y:r(y)>0\}$ とします。$P\ll Q$、$R\ll S$ より、直積の正確率セル $(x,y)\in S_P\times S_R$ では $q(x)s(y)>0$ です。ここだけで[相対エントロピーの定義](#def-info2-relative-entropy)の対数を取り、積の対数を二つに分けると
 
-$
+$$
 \begin{aligned}
 &D(P\otimes R\|Q\otimes S)\\
 &=\sum_{x\in S_P}\sum_{y\in S_R}
@@ -621,7 +621,7 @@ p(x)r(y)\log_2\frac{r(y)}{s(y)}\\
 \sum_{y\in S_R}r(y)\log_2\frac{r(y)}{s(y)}\\
 &=D(P\|Q)+D(R\|S).
 \end{aligned}
-$
+$$
 
 正確率の台だけで和を取るため、$p(x)=0$ または $r(y)=0$ の場所で定義されない比を式に書き込んでいません。二つの括弧はそれぞれ $1$ です。独立な組の[同時分布の積表示](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)にはこの直積構造が対応しますが、依存する結合分布へ同じ因数分解を無条件に流用してはいけません。
 <!-- solution-end -->
@@ -677,28 +677,28 @@ $$
 
 また公平な $X$ とそれに独立な反転雑音 $M$ に対して
 
-$
+$$
 \begin{aligned}
 P(Z=0)
 &=P(X=0,M=0)+P(X=1,M=1)\\
 &=\tfrac12(1-s)+\tfrac12s=\tfrac12.
 \end{aligned}
-$
+$$
 
 $Y$ にも $M$ を $N_1$ に替えて同じ計算を行えるため、$Y,Z$ はいずれも公平です。さらに[INFO1の条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)で $X=0,1$ の条件付き分布を平均すると
 
-$
+$$
 H(Y|X)=h_2(q),\qquad H(Z|X)=h_2(s)
-$
+$$
 
 となります。従って[INFO1の相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)から
 
-$
+$$
 \begin{aligned}
 I(X;Y)&=H(Y)-H(Y|X)=1-h_2(q),\\
 I(X;Z)&=H(Z)-H(Z|X)=1-h_2(s).
 \end{aligned}
-$
+$$
 
 (1)でMarkov条件を証明したので[相互情報量のデータ処理不等式](#thm-info2-mutual-dpi)が適用でき、
 
