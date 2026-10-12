@@ -138,7 +138,7 @@ CELE 後半は INT8 と相互参照可能だが、循環依存を避けるため
 - horseshoe / symbolic dynamics への接続
 - transport and lobe dynamics の入口
 
-stable manifold theorem や horseshoe の一般証明は DYN 系列を参照し、本章では Hamiltonian / celestial setting での機構を主役にする。
+安定多様体定理や horseshoe の一般証明を使う場合、CELE6の着手時にDYN/ODEのどのcanonical章で証明されているかを確定する。DYN14の線形安定・不安定方向だけで非線形安定多様体定理を既知として扱わない。既存の正本がない結果は、証明担当と直接prerequisiteを先に整える。
 
 ### CELE7 共鳴・KAM・規則運動とカオスの共存
 
@@ -191,16 +191,7 @@ stable manifold theorem や horseshoe の一般証明は DYN 系列を参照し�
 
 ## 5. 力学系系列との責務分担
 
-DYN 系列では、一般の力学系として
-
-- invariant manifold
-- Poincare map
-- local / global bifurcation
-- homoclinic intersection
-- symbolic dynamics
-- chaos の定義と代表的十分条件
-
-を扱う。
+DYN1〜DYN15では、区間写像、記号力学、horseshoeの符号化、線形双曲模型を扱う。非線形のinvariant manifold theorem、一般のPoincare return map、横断homoclinic intersectionからの結論は、既存DYN章が証明を持つと仮定しない。これらをCELE6で使用する前にDYN/ODEの実章・stable anchorと証明ownerを確認し、未整備の一般定理は独立した正本として必要な範囲で補う。
 
 CELE 系列ではそれらを、
 
