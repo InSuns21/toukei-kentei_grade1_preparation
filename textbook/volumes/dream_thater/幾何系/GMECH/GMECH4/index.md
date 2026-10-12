@@ -322,7 +322,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正則レベル集合の命題](#prop-gmech4-tangent-regular)から $L_\mu$ は次元 $2n-r$ の多様体です。[レベル集合への制限作用](#prop-gmech4-level-action)から $G_\mu$ はそこに滑らかに作用します。
+[正則レベル集合の接空間と次元](#prop-gmech4-tangent-regular)から $L_\mu$ は次元 $2n-r$ の多様体です。[レベル集合への制限作用](#prop-gmech4-level-action)から $G_\mu$ はそこに滑らかに作用します。
 
 自由かつ固有なLie群作用の局所商構成を、この場合に適用します。点 $m$ において群軌道写像の微分
 
