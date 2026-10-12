@@ -321,7 +321,7 @@ $$
 p=\alpha\beta
 $$
 
-と、$\alpha,\beta\in\mathbb Z[i]$ をともに非単元として選べます。ノルムの積公式を使うと
+と、$\alpha,\beta\in\mathbb Z[i]$ をともに非単元として選べます。[Gauss 整数とノルム](#def-nt6-gaussian-integers)で確かめた $N(uv)=N(u)N(v)$ に $u=\alpha,v=\beta$ を代入すると
 
 $$
 p^2=N(p)=N(\alpha)N(\beta).
@@ -568,7 +568,7 @@ $$
 \alpha=3^{b/2}(1+i)^a(1+2i)^c
 $$
 
-を作ります。整数係数の積だから $\alpha=X+Yi$（$X,Y\in\mathbb Z$）です。[Gauss 整数とノルム](#def-nt6-gaussian-integers)で示した積公式を適用すると
+を作ります。整数係数の積だから $\alpha=X+Yi$（$X,Y\in\mathbb Z$）です。[Gauss 整数とノルム](#def-nt6-gaussian-integers)で確かめた $N(uv)=N(u)N(v)$ を各因子に繰り返し適用すると
 
 $$
 X^2+Y^2=N(\alpha)
