@@ -214,7 +214,7 @@ $$
 S=Nc_V\log(T/T_*)+NR\log(V/(Nv_*)),\qquad pV=NRT.
 $$
 
-固定体積でのエントロピー微分と、状態方程式 $V=NRT/p$ の偏微分を分けて書きます。
+体積を固定したエントロピー微分と、状態方程式 $V=NRT/p$ の偏微分を分けて書きます。
 
 $$
 \begin{aligned}
@@ -775,7 +775,7 @@ V_p=-\frac b{4p^{3/2}},\qquad
 =\frac{b/(4p^{3/2})}{b/(2\sqrt p)}=\frac1{2p}.
 $$
 
-Hessianの成分と行列式を個別に求めると
+Hessianの対角成分と、対角積から交差項の二乗を引いた量を個別に求めると
 
 $$
 H_G=\begin{pmatrix}
@@ -785,7 +785,7 @@ H_G=\begin{pmatrix}
 \det H_G=\frac{ab}{4p^{3/2}}>0.
 $$
 
-$a,b,p>0$ により左上の成分は負、行列式は正なので、Hessianは負定値です。また、$V=b/(2\sqrt p)$ は温度によらないため
+$a,b,p>0$ により左上の成分は負、対角積から交差項の二乗を引いた値は正なので、二変数Hessianは負定値です。また、$V=b/(2\sqrt p)$ は温度によらないため
 
 $$
 \alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p=0.
