@@ -20,10 +20,10 @@
 > **定義（孤立系の総四元運動量と不変質量）**  
 > 平坦時空で、ある衝突前後に全構成物を含む系を考える。各段階で同じ慣性系における全四元運動量を $P^\mu=(E_{\rm tot}/c,\boldsymbol p_{\rm tot})$ とする。$P^\mu$ が未来向き時間的なら、系の不変質量 $M>0$ を
 >
-> $$
-> M^2c^2=P_\mu P^\mu
-> =\frac{E_{\rm tot}^2}{c^2}-|\boldsymbol p_{\rm tot}|^2
-> $$
+$$
+M^2c^2=P_\mu P^\mu
+=\frac{E_{\rm tot}^2}{c^2}-|\boldsymbol p_{\rm tot}|^2
+$$
 >
 > で定義する。未来向き光的なら $M=0$ とする。四元運動量保存は全構成物を含めた $P^\mu_{\rm before}=P^\mu_{\rm after}$ の意味で用いる。
 <!-- formal-statement-end -->
@@ -110,17 +110,17 @@ $$
 > **命題（真空平面波の方程式と局所エネルギー保存）**  
 > SI単位系で $\epsilon_0,\mu_0>0$、$\epsilon_0\mu_0c^2=1$ とし、$f\in C^1(\mathbb R)$ とする。電荷と電流のないMinkowski時空で
 >
-> $$
-> \boldsymbol E=(0,f(x-ct),0),\qquad
-> \boldsymbol B=(0,0,f(x-ct)/c)
-> $$
+$$
+\boldsymbol E=(0,f(x-ct),0),\qquad
+\boldsymbol B=(0,0,f(x-ct)/c)
+$$
 >
 > と置けば、真空Maxwell方程式の四つの三次元表示を満たす。電磁場のエネルギー密度とPoynting流は
 >
-> $$
-> u_{\rm em}=\epsilon_0 f(x-ct)^2,\qquad
-> \boldsymbol S=(cu_{\rm em},0,0)
-> $$
+$$
+u_{\rm em}=\epsilon_0 f(x-ct)^2,\qquad
+\boldsymbol S=(cu_{\rm em},0,0)
+$$
 >
 > となり、$\partial_tu_{\rm em}+\partial_xS_x=0$ が成り立つ。
 <!-- formal-statement-end -->
@@ -210,10 +210,10 @@ $$
 > **命題（局所保存から有限領域の収支）**  
 > 静止した有界領域 $\Omega\subset\mathbb R^3$ の境界が区分的に滑らかで、$\rho,\boldsymbol j$ が必要な空間・時間微分を持ち、$\partial_t\rho+\nabla\cdot\boldsymbol j=0$ を満たすとする。境界の外向き単位法線を $\boldsymbol n$ とすると、
 >
-> $$
-> \frac{d}{dt}\int_\Omega\rho\,d^3x
-> =-\int_{\partial\Omega}\boldsymbol j\cdot\boldsymbol n\,dA.
-> $$
+$$
+\frac{d}{dt}\int_\Omega\rho\,d^3x
+=-\int_{\partial\Omega}\boldsymbol j\cdot\boldsymbol n\,dA.
+$$
 >
 > 右辺が零なら領域内の総電荷は一定である。一般の開いた領域で右辺が非零なら、領域内電荷は変化する。
 <!-- formal-statement-end -->
@@ -232,7 +232,7 @@ $$
 \int_\Omega\nabla\cdot\boldsymbol j\,d^3x=0.
 $$
 
-時間と無関係な有界領域上で仮定した正則性により第一項は $d(\int_\Omega\rho\,d^3x)/dt$。第二項に[発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用すると境界積分です。移項して所要の式を得ます。$\partial_t\rho+\nabla\cdot\boldsymbol j=0$ は局所の生成消滅がないことを表しますが、境界流出を禁止する式ではありません。
+時間と無関係な有界領域上で仮定した正則性により第一項は $d(\int_\Omega\rho\,d^3x)/dt$。第二項に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用すると境界積分です。移項して所要の式を得ます。$\partial_t\rho+\nabla\cdot\boldsymbol j=0$ は局所の生成消滅がないことを表しますが、境界流出を禁止する式ではありません。
 <!-- proof-end -->
 
 例えば長さ $L>0$、断面積 $A>0$ の細長い箱を $+x$ 方向へ一様な流れが通過するとき、流入・流出が等しければ箱内電荷は一定です。片側の電流だけを零とするのは、箱を孤立系にしたのではなく、境界条件を変更したことです。
