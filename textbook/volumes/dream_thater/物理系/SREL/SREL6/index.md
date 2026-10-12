@@ -206,7 +206,15 @@ T^{ij}&=u\delta_{ij}
 \end{aligned}
 $$
 
-> 特に場の運動量密度は $T^{i0}/c=S_i/c^2$ である。三次元Maxwell応力テンソルを $\sigma_{ij}=\varepsilon_0(E_iE_j-\delta_{ij}|\boldsymbol E|^2/2)+(B_iB_j-\delta_{ij}|\boldsymbol B|^2/2)/\mu_0$ とすれば $T^{ij}=-\sigma_{ij}$ である。
+> 特に場の運動量密度は $T^{i0}/c=S_i/c^2$ である。三次元Maxwell応力テンソルは次の成分で与えられ、
+
+$
+\sigma_{ij}
+=\varepsilon_0\left(E_iE_j-\frac12\delta_{ij}|\boldsymbol E|^2\right)
++\frac1{\mu_0}\left(B_iB_j-\frac12\delta_{ij}|\boldsymbol B|^2\right).
+$
+
+> エネルギー運動量テンソルの空間成分との関係は $T^{ij}=-\sigma_{ij}$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
