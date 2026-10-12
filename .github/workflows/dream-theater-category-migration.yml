@@ -24,5 +24,11 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Inventory source paths and infrastructure references
+        run: |
+          echo '== Files depending on the flat 00_foundations path =='
+          git grep -l '00_foundations' -- scripts pages .github/workflows | sort || true
+          echo '== Number of old-root references in tracked files =='
+          git grep -l '00_foundations' -- ':!package-lock.json' | wc -l || true
       - name: Verify category mapping and chapter IDs
         run: node scripts/dream-theater-layout-inventory.mjs --strict
