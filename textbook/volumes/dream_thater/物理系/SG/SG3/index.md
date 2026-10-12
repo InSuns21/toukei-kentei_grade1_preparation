@@ -758,5 +758,11 @@ $$
 
 $p_N\to p$ と三角不等式を組み合わせて $F_N\to p$ が確率収束します。$\beta=0$ は確定値です。
 
-**(5) 明示式の可否**：**いえません**。極限の存在と $\log(2\cosh h)\le p\le\log(2\cosh h)+\beta^2/4$ は証明しましたが、一般の $\beta,h$ での値を決める等式はまだありません。[有限系の微分公式](#prop-sg3-pressure-derivative)の極限交換も未証明です。SG4以降ではoverlap分布の構造と変分原理を調べます。
+**(5) 明示式の可否**：**いえません**。極限の存在と圧力の上下界
+
+$$
+\log(2\cosh h)\le p\le\log(2\cosh h)+\frac{\beta^2}{4}
+$$
+
+は証明しましたが、一般の $\beta,h$ での値を決める等式はまだありません。[有限系の微分公式](#prop-sg3-pressure-derivative)の極限交換も未証明です。SG4以降ではoverlap分布の構造と変分原理を調べます。
 <!-- solution-end -->
