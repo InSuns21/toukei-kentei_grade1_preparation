@@ -97,7 +97,7 @@ function validate(root) {
       const categorizedParts = typeof chapter.path === 'string' ? chapter.path.split('/') : [];
       const categorizedPath = categorizedParts.length === 6 &&
         categorizedParts.slice(0, 3).join('/') === categorizedRoot &&
-        categorizedParts[3].trim() !== '' && categorizedParts[4] === series.id && categorizedParts[5] === id;
+        categorizedParts[3].trim() !== '' && categorizedParts[4] === (id.startsWith('F0-') ? 'F0' : (/^[A-Z]+/.exec(id)?.[0] ?? '')) && categorizedParts[5] === id;
       if ((chapterRoot === categorizedRoot && !categorizedPath) ||
           (chapterRoot !== categorizedRoot && chapter.path !== legacyPath && !categorizedPath)) {
         fail(label + id + ': chapter path does not match legacy or category/course/ID layout');
