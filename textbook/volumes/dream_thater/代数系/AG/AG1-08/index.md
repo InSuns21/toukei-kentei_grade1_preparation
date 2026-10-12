@@ -216,7 +216,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（既約閉集合と素イデアル）**  
-> $k$ を代数閉体、$R=k[x_1,\ldots,x_n]$ とする。空でない Zariski 閉集合 $X$ が既約であることと、$I(X)$ が素イデアルであることは同値である。さらに素イデアル $\mathfrak p\subsetneq R$ を任意に取ると $V(\mathfrak p)$ は空でない既約閉集合であり、$I(V(\mathfrak p))=\mathfrak p$ である。
+> $k$ を代数閉体、$R=k[x_1,\ldots,x_n]$ とする。空でない Zariski 閉集合 $X$ が既約であることと、$I(X)$ が素イデアルであることは同値である。
+>
+> また任意の素イデアル $\mathfrak p\subsetneq R$ に対して $V(\mathfrak p)$ は空でない既約閉集合となり、次の等式を満たす。
+
+$
+I(V(\mathfrak p))=\mathfrak p.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
