@@ -1,0 +1,45 @@
+id: "SREL1"
+title: "慣性系・光速度不変・Lorentz変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH1
+  - EMAG8
+official_scope: []
+learning_objectives:
+  - Galilei変換と光速度不変が両立しないことを計算し、相対性原理と追加の一様性・等方性の仮定を区別できる
+  - 原点の軌道と左右二方向の光を使って一次元Lorentz変換を導き、逆変換と縮尺係数を証明できる
+  - 同時性の相対性、時計の時間の遅れ、棒の長さの収縮を、それぞれ必要な二事象の条件を示して導ける
+  - 世界線の微分から速度変換を導き、光速度不変と共線速度合成および合成速度の上限を確かめられる
+  - 慣性系・同時測定・時計の静止といった適用条件が失われる反例・誤用を説明できる
+definitions:
+  - { id: SREL1-PRINCIPLE-01, name: 特殊相対論の二つの基本要請 }
+  - { id: SREL1-DEF-01, name: 事象と世界線 }
+  - { id: SREL1-DEF-02, name: Lorentz因子 }
+  - { id: SREL1-DEF-03, name: 静止長と観測長 }
+theorems:
+  - { id: SREL1-THM-01, name: 一次元Lorentz変換 }
+  - { id: SREL1-PROP-01, name: 同時性の相対性 }
+  - { id: SREL1-PROP-02, name: 運動する時計の時間の遅れ }
+  - { id: SREL1-PROP-03, name: 長さの収縮 }
+  - { id: SREL1-THM-02, name: 一次元速度変換と光速の不変性 }
+  - { id: SREL1-PROP-04, name: 共線速度の合成 }
+canonical_examples:
+  - Galilei変換で光速度cがc-vになることの確認
+  - 静止・3c/5のLorentz因子の直接検算
+  - 同時に点灯する離れた二つのランプの時刻差
+  - 一本の動く時計と同時に測る動く棒で異なる測定条件を比較
+  - 右向きと左向きの光の不変性と共線速度の合成
+problem_patterns:
+  - SREL1-GALILEI-LIGHT-CONFLICT
+  - SREL1-LORENTZ-INVERSE
+  - SREL1-SIMULTANEITY-EVENTS
+  - SREL1-CLOCK-ROD-COMPARISON
+  - SREL1-BOOST-LINEAR-DERIVATION
+  - SREL1-VELOCITY-COMPOSITION
+  - SREL1-SPACELIKE-TIMING
+  - SREL1-TRAIN-LIGHT-COMPOSITE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }

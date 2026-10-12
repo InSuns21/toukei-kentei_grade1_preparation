@@ -1,0 +1,78 @@
+chapter: SREL1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH1
+  - EMAG8
+forward_references: []
+
+concepts:
+  - id: relativity.postulates
+    name: 特殊相対論の二つの基本要請
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（特殊相対論の二つの基本要請）]
+    requires: [mechanics.reference-frame, electromagnetism.vacuum-wave-speed]
+
+  - id: relativity.event-worldline
+    name: 事象と世界線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（事象と世界線）]
+    requires: [mechanics.reference-frame, mechanics.point-particle-trajectory]
+
+  - id: relativity.lorentz-factor
+    name: Lorentz因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lorentz因子）]
+    requires: [relativity.postulates]
+
+  - id: relativity.lorentz-boost-1d
+    name: 一次元Lorentz変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次元Lorentz変換）]
+    requires: [relativity.postulates, relativity.event-worldline, relativity.lorentz-factor]
+
+  - id: relativity.simultaneity
+    name: 同時性の相対性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同時性の相対性）]
+    requires: [relativity.lorentz-boost-1d]
+
+  - id: relativity.time-dilation
+    name: 運動する時計の時間の遅れ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（運動する時計の時間の遅れ）]
+    requires: [relativity.lorentz-boost-1d, relativity.event-worldline]
+
+  - id: relativity.rest-observed-length
+    name: 静止長と観測長
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（静止長と観測長）]
+    requires: [relativity.event-worldline]
+
+  - id: relativity.length-contraction
+    name: 長さの収縮
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（長さの収縮）]
+    requires: [relativity.rest-observed-length, relativity.lorentz-boost-1d]
+
+  - id: relativity.velocity-transform-1d
+    name: 一次元速度変換と光速の不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次元速度変換と光速の不変性）]
+    requires: [relativity.lorentz-boost-1d, mechanics.velocity-acceleration]
+
+  - id: relativity.collinear-velocity-composition
+    name: 共線速度の合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共線速度の合成）]
+    requires: [relativity.velocity-transform-1d]

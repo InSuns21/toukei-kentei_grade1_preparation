@@ -1,0 +1,43 @@
+version: 1
+id: SREL
+title: 特殊相対論 I
+plan: textbook/plans_progress/DREAM_THEATER_SPECIAL_RELATIVITY_I_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: SREL1
+    path: textbook/volumes/00_foundations/SREL1
+    status: completed
+    title: 慣性系・光速度不変・Lorentz変換
+  - id: SREL2
+    path: textbook/volumes/00_foundations/SREL2
+    status: planned
+    title: Minkowski時空・光円錐・固有時
+  - id: SREL3
+    path: textbook/volumes/00_foundations/SREL3
+    status: planned
+    title: 四元速度・四元運動量と質量殻
+  - id: SREL4
+    path: textbook/volumes/00_foundations/SREL4
+    status: planned
+    title: 相対論的質点の作用と運動方程式
+  - id: SREL5
+    path: textbook/volumes/00_foundations/SREL5
+    status: planned
+    title: 電磁場テンソル・Maxwell方程式の共変形式
+  - id: SREL6
+    path: textbook/volumes/00_foundations/SREL6
+    status: planned
+    title: 電磁場のLorentz変換・エネルギー運動量テンソル
+  - id: SREL7
+    path: textbook/volumes/00_foundations/SREL7
+    status: planned
+    title: 保存則・相対論的連続体・完全流体
+  - id: SREL8
+    path: textbook/volumes/00_foundations/SREL8
+    status: planned
+    title: Rindler座標と因果構造
+  - id: SREL9
+    path: textbook/volumes/00_foundations/SREL9
+    status: planned
+    title: 共変形式の総合演習と適用限界
