@@ -234,23 +234,27 @@ T=\psi'\circ\psi^{-1},\qquad
 F=\psi\circ f\circ\varphi^{-1}
 $$
 
-と置けば、新表示は $T\circ F\circ S$。点 $a'=\varphi'(p)$、$a=\varphi(p)$、$b=\psi(f(p))$ で[実微分の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を二回使い、各微分を複素線形として表すと
+と置けば、新表示は $T\circ F\circ S$。評価点と複素微分行列を次のように置く。
+
+$$
+a'=\varphi'(p),\qquad a=\varphi(p),\qquad b=\psi(f(p)).
+$$
+
+$$
+B=D_{\mathbb C}T_b\in\mathbb C^{m\times m},\qquad
+C=D_{\mathbb C}S_{a'}\in\mathbb C^{n\times n}.
+$$
+
+[実微分の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $S$ と $F$、さらに $F\circ S$ と $T$ の順に適用する。各微分は複素線形だから、複素Jacobi行列について
 
 $$
 A'=D_{\mathbb C}T_b\,
     D_{\mathbb C}F_a\,
     D_{\mathbb C}S_{a'}
-=BAC.
+=BAC
 $$
 
-ここで、行列の評価点と大きさを明確にしておく。
-
-$$
-\begin{aligned}
-B&=D_{\mathbb C}T_b\in\mathbb C^{m\times m},\\
-C&=D_{\mathbb C}S_{a'}\in\mathbb C^{n\times n}.
-\end{aligned}
-$$
+を得る。
 
 $S$ と $T$ は[正則アトラスの遷移写像](../CM1-01/index.md#def-cm1-01-atlas)であり、逆表示も正則だから、[実微分の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を各恒等写像に適用して
 
