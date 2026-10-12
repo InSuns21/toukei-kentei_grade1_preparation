@@ -455,14 +455,22 @@ $$
 
 [Pell 方程式の正整数解の存在定理](#thm-nt7-pell-existence)により正整数解があり、$x$ は正整数、$y^2=(x^2-1)/D$ なので、$x$ が最小の解を選べます。$x+y\sqrt D$ は $x$ に伴い増えるため、基本解 $\varepsilon=x_1+y_1\sqrt D>1$ が存在します。
 
-$N(a+b\sqrt D)=a^2-Db^2$ と置くと、二つの積を展開して
-
+$N(a+b\sqrt D)=a^2-Db^2$ と置きます。二つの数の積を係数ごとに展開すると
 $$
+(a+b\sqrt D)(c+d\sqrt D)
+=(ac+Dbd)+(ad+bc)\sqrt D
+$$
+です。この数のノルムは
+$$
+\begin{aligned}
 N((a+b\sqrt D)(c+d\sqrt D))
-=(a^2-Db^2)(c^2-Dd^2)
+&=(ac+Dbd)^2-D(ad+bc)^2\\
+&=a^2c^2+2Dabcd+D^2b^2d^2\\
+&\quad-Da^2d^2-2Dabcd-Db^2c^2\\
+&=(a^2-Db^2)(c^2-Dd^2)
+\end{aligned}
 $$
-
-を得ます。$N(\varepsilon)=1$ なので $\varepsilon^{-1}=x_1-y_1\sqrt D$ は整数係数を持ち、$N(\varepsilon^{-1})=1$ です。ゆえに $\varepsilon^n$ の係数も整数で、共役は $\varepsilon^{-n}$、また $\varepsilon^n>1$ なので二つの係数は正です。従って右辺はすべて解になります。
+であり、乗法性が具体的に確認できます。$N(\varepsilon)=1$ なので $\varepsilon^{-1}=x_1-y_1\sqrt D$ は整数係数を持ち、$N(\varepsilon^{-1})=1$ です。ゆえに $\varepsilon^n$ の係数も整数で、共役は $\varepsilon^{-n}$、また $\varepsilon^n>1$ なので二つの係数は正です。従って右辺はすべて解になります。
 
 逆に任意の正整数解 $\delta=x+y\sqrt D>1$ を取ります。$\varepsilon>1$ なのである $n\ge0$ に対して
 
