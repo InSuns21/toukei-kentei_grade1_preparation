@@ -338,13 +338,13 @@ $$
 
 とすると、独立同分布性と有限分散から $E[R_n(\theta)]=R(\theta)$、$\operatorname{Var}(R_n(\theta))=\operatorname{Var}[-\log_2q_\theta(Z_1)]/n$。平均の差の二乗は非負です。$|R_n(\theta)-R(\theta)|\ge\varepsilon$ の事象上では二乗が $\varepsilon^2$ 以上なので、期待値をこの事象と補集合に分けると
 
-$
+$$
 E[(R_n(\theta)-R(\theta))^2]\ge \varepsilon^2P(|R_n(\theta)-R(\theta)|\ge\varepsilon).
-$
+$$
 
 左辺は $\operatorname{Var}(R_n(\theta))$ です。従って任意の $\varepsilon>0$ で
 
-$
+$$
 P(|R_n(\theta)-R(\theta)|\ge\varepsilon)
 \le\frac{\operatorname{Var}[-\log_2q_\theta(Z_1)]}{n\varepsilon^2}
 \longrightarrow0.
