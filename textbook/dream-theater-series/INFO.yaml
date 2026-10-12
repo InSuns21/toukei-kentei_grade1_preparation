@@ -33,5 +33,9 @@ chapters:
 
   - id: INFO7
     path: textbook/volumes/dream_thater/応用系/INFO/INFO7
-    status: planned
+    status: completed
     title: 通信路符号化定理：ランダム符号化による達成可能性
+  - id: INFO8
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO8
+    status: planned
+    title: 率歪み関数と有限アルファベットの歪み付き情報源符号化
