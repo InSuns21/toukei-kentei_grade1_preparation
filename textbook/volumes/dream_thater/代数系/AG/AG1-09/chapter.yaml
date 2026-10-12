@@ -1,0 +1,51 @@
+id: "AG1-09"
+title: "次元・超越次数・イデアルの鎖"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-08
+  - AG1-06
+  - AG1-05
+  - AG1-04
+  - AG1-03
+  - AG1-02
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 素イデアル鎖の長さとKrull次元を定義し多項式環で具体的に確認できる
+  - 超越基底と超越次数を定義し整拡大による不変性を説明できる
+  - 整拡大における素イデアルの持ち上げと非比較性を証明できる
+  - Noether正規化から有限生成整域の次元と超越次数の一致を上下界から証明できる
+  - 既約集合の鎖と可約集合の成分次元の関係を証明できる
+  - 曲線・曲面・冪零元を含む商環の次元を実際に計算できる
+  - 代数閉体上の非空0次元アフィン集合が有限集合に一致することを証明できる
+definitions:
+  - { id: AG1-09-DEF-01, name: 素イデアル鎖とKrull次元 }
+  - { id: AG1-09-DEF-02, name: 超越基底と超越次数 }
+theorems:
+  - { id: AG1-09-LEM-01, name: 有限生成体の超越基底と代数拡大 }
+  - { id: AG1-09-LEM-02, name: 整拡大における素イデアルの持ち上げと非比較性 }
+  - { id: AG1-09-THM-01, name: アフィン整域の次元と超越次数 }
+  - { id: AG1-09-PROP-01, name: 可約なアフィン集合の次元 }
+canonical_examples:
+  - k[x,y]の素イデアル鎖と次元2
+  - 放物線y=x²の座標環と次元1
+  - 尖点y²=x³の整拡大と次元1
+  - 二軸xy=0の極小素イデアルと次元1
+  - k[x,y,z]/(xy)の二枚の平面と次元2
+  - k[x,y]/(x²,y³)の冪零元と次元0
+problem_patterns:
+  - AG1-09-PARABOLA-DIMENSION
+  - AG1-09-LINE-POINT-CHAIN
+  - AG1-09-POINT-ZERO-DIMENSION
+  - AG1-09-PLANE-CHAIN
+  - AG1-09-CUSP-INTEGRAL
+  - AG1-09-AXES-MINIMAL-PRIMES
+  - AG1-09-INTEGRAL-LIFT
+  - AG1-09-NILPOTENT-THICKENING
+  - AG1-09-TWO-PLANES
+  - AG1-09-ZERO-DIM-FINITE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
