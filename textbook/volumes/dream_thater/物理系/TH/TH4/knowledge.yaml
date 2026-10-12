@@ -1,0 +1,57 @@
+chapter: TH4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH3
+  - TH2
+  - TH1
+forward_references: []
+concepts:
+  - id: thermodynamics.clausius-sum
+    name: Clausiusの和・積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Clausiusの和・積分）]
+    requires: [thermodynamics.heat-reservoir, thermodynamics.heat-work, thermodynamics.absolute-temperature]
+  - id: thermodynamics.clausius-inequality
+    name: Clausiusの不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Clausiusの不等式）]
+    requires: [thermodynamics.clausius-sum, thermodynamics.kelvin-planck, thermodynamics.thermodynamic-temperature-ratio]
+  - id: thermodynamics.entropy
+    name: エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エントロピーの候補）]
+    requires: [thermodynamics.clausius-inequality, thermodynamics.reversible-process]
+  - id: thermodynamics.entropy-path-independence
+    name: 可逆熱積分の経路独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（可逆熱積分の経路独立性）]
+    requires: [thermodynamics.entropy, thermodynamics.clausius-inequality]
+  - id: thermodynamics.entropy-balance
+    name: エントロピー収支と孤立系の増大則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エントロピー収支と孤立系の増大則）]
+    requires: [thermodynamics.entropy-path-independence, thermodynamics.clausius-inequality]
+  - id: thermodynamics.ideal-gas-entropy
+    name: 一定熱容量の理想気体のエントロピー差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一定熱容量の理想気体のエントロピー差）]
+    requires: [thermodynamics.entropy-path-independence, thermodynamics.pv-work, thermodynamics.first-law, thermodynamics.equation-of-state]
+  - id: thermodynamics.fundamental-relation-fixed-n
+    name: 単純圧縮閉鎖系の基本関係式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（単純圧縮閉鎖系の基本関係式）]
+    requires: [thermodynamics.entropy-path-independence, thermodynamics.first-law, thermodynamics.pv-work]
+  - id: thermodynamics.chemical-potential
+    name: 化学ポテンシャルと拡張基本関係式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（化学ポテンシャルと拡張基本関係式）]
+    requires: [thermodynamics.fundamental-relation-fixed-n]

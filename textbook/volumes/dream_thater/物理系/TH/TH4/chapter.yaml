@@ -1,0 +1,45 @@
+id: "TH4"
+title: "エントロピーと基本関係式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH3
+  - TH2
+  - TH1
+official_scope: []
+learning_objectives:
+  - 熱の符号と温度を指定してClausiusの和を計算し、第二法則から不等式と可逆等号を証明できる
+  - 可逆接続可能性を仮定して経路独立性を証明し、エントロピーを状態関数として構成できる
+  - 実過程と可逆帰路からエントロピー収支を導き、孤立系の増大則と系単独の減少を区別できる
+  - 理想気体のエントロピー差を第一法則から導出し、自由膨張・熱伝導を再計算できる
+  - 固定物質量の基本関係式と温度・圧力の偏微分を導き、物質量可変の追加仮定と化学ポテンシャルを区別できる
+definitions:
+  - { id: TH4-DEF-01, name: "Clausiusの和・積分" }
+  - { id: TH4-DEF-02, name: "エントロピーの候補" }
+  - { id: TH4-DEF-03, name: "化学ポテンシャルと拡張基本関係式" }
+theorems:
+  - { id: TH4-THM-01, name: "Clausiusの不等式" }
+  - { id: TH4-THM-02, name: "可逆熱積分の経路独立性" }
+  - { id: TH4-PROP-01, name: "エントロピー収支と孤立系の増大則" }
+  - { id: TH4-PROP-02, name: "一定熱容量の理想気体のエントロピー差" }
+  - { id: TH4-PROP-03, name: "単純圧縮閉鎖系の基本関係式" }
+canonical_examples:
+  - 600 Kと300 Kの熱浴でClausiusの符号を直接計算
+  - 400 K等温可逆吸熱で状態量の差を計算
+  - 二つの温度差のある熱浴の合計エントロピー増大
+  - 理想気体の自由膨張に仮想可逆経路を適用
+  - U(S,V,N)からT・p・化学ポテンシャルを偏微分
+problem_patterns:
+  - TH4-CLAUSIUS-ENGINE
+  - TH4-REVERSIBLE-BATH
+  - TH4-ADIABATIC-ENTROPY
+  - TH4-IDEAL-ISOTHERMAL
+  - TH4-FUNDAMENTAL-SIGNS
+  - TH4-THREE-RESERVOIR-BOUND
+  - TH4-TEMPERATURE-VOLUME-ENTROPY
+  - TH4-FINITE-HEAT-BATHS
+  - TH4-FREE-EXPANSION-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
