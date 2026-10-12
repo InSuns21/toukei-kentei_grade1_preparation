@@ -1,0 +1,72 @@
+chapter: AG2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-02
+  - AG2-01
+  - AG1-03
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.projective-polynomial-map
+    name: 斉次式で与える射影写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次式で与える射影写像）"]
+    requires: [algebraic-geometry.homogeneous-polynomial, algebraic-geometry.projective-space]
+
+  - id: algebraic-geometry.projective-morphism
+    name: 射影代数的集合の正則写像・射影射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影代数的集合の正則写像・射影射）"]
+    requires: [algebraic-geometry.standard-affine-chart]
+
+  - id: algebraic-geometry.polynomial-map-well-defined
+    name: 斉次式表示の整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（斉次式表示の整合性）"]
+    requires: [algebraic-geometry.projective-polynomial-map, algebraic-geometry.projective-morphism, algebraic-geometry.homogeneous-scaling]
+
+  - id: algebraic-geometry.veronese-map
+    name: 次数dのVeronese写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次数dのVeronese写像）"]
+    requires: [algebraic-geometry.projective-polynomial-map]
+
+  - id: algebraic-geometry.veronese-embedding
+    name: Veronese写像の埋め込みと閉じた像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Veronese写像の埋め込みと閉じた像）"]
+    requires: [algebraic-geometry.veronese-map, algebraic-geometry.polynomial-map-well-defined, algebraic-geometry.projective-zero-set]
+
+  - id: algebraic-geometry.veronese-conic
+    name: 二次Veronese写像の像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次Veronese写像の像）"]
+    requires: [algebraic-geometry.veronese-map]
+
+  - id: algebraic-geometry.segre-map
+    name: Segre写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Segre写像）"]
+    requires: [algebraic-geometry.projective-space]
+
+  - id: algebraic-geometry.segre-minors
+    name: Segre写像の像と二次小行列式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Segre写像の像と二次小行列式）"]
+    requires: [algebraic-geometry.segre-map, algebraic-geometry.projective-zero-set]
+
+  - id: algebraic-geometry.segre-quadric
+    name: Segre二次曲面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Segre二次曲面）"]
+    requires: [algebraic-geometry.segre-minors]
