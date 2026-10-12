@@ -415,31 +415,51 @@ $$
 
 であるすべての多重添字について$P_{[\boldsymbol\mu]}(\alpha,\ldots,\alpha)=0$とすれば十分です。
 
-まず添字数を評価します。有限集合$\{0,\ldots,d_i\}$から独立に一様な整数$U_i$を取り、$Z=\sum_i U_i/d_i$と置きます。有限和を直接計算すると
+まず添字数を評価します。直積集合
 
 $$
-E[U_i]=\frac{d_i}{2},\qquad
-\operatorname{Var}(U_i)=\frac{d_i(d_i+2)}{12},
+\mathcal J=\{0,\ldots,d_1\}\times\cdots\times\{0,\ldots,d_m\},
+\qquad |\mathcal J|=N
 $$
 
-ゆえに
+の各添字$\boldsymbol u=(u_1,\ldots,u_m)$に対して$z(\boldsymbol u)=\sum_i u_i/d_i$と置きます。次の有限和は、$1+\cdots+d=d(d+1)/2$および$1^2+\cdots+d^2=d(d+1)(2d+1)/6$を代入して確かめられます。
 
 $$
-E[Z]=\frac m2,\qquad
-\operatorname{Var}(Z)
-=\sum_i\frac{d_i+2}{12d_i}
-\le\frac m4.
+\frac1{d_i+1}\sum_{u=0}^{d_i}\frac u{d_i}
+=\frac12,
 $$
 
-最後の評価には$d_i\ge1$を使いました。ここで$Z<t$の添字は$|Z-m/2|>m\eta$を満たします。二乗の平均から直ちに
+$$
+\frac1{d_i+1}\sum_{u=0}^{d_i}
+\left(\frac u{d_i}-\frac12\right)^2
+=\frac{d_i+2}{12d_i}\le\frac14.
+$$
+
+ここで全添字上での二乗偏差を展開します。
 
 $$
-\frac{\#\{\boldsymbol\mu:Z<t\}}{N}
-\le\frac{E[(Z-m/2)^2]}{m^2\eta^2}
+\left(z(\boldsymbol u)-\frac m2\right)^2
+=\sum_i\left(\frac{u_i}{d_i}-\frac12\right)^2
++2\sum_{i<j}\left(\frac{u_i}{d_i}-\frac12\right)
+\left(\frac{u_j}{d_j}-\frac12\right).
+$$
+
+両辺を$\mathcal J$にわたり足して$N$で割ると、$i\ne j$の積の平均は直積構造により一変数平均の積となり、どちらの一変数平均も零だから交差項は消えます。従って
+
+$$
+\frac1N\sum_{\boldsymbol u\in\mathcal J}
+\left(z(\boldsymbol u)-\frac m2\right)^2
+=\sum_i\frac{d_i+2}{12d_i}\le\frac m4.
+$$
+
+$z(\boldsymbol u)<t=m(1/2-\eta)$の添字では二乗偏差が$m^2\eta^2$より大きいので、上式の非負項のうち条件を満たすものだけを足し上げると
+
+$$
+\frac{\#\{\boldsymbol u\in\mathcal J:z(\boldsymbol u)<t\}}{N}
 \le\frac{1}{4m\eta^2}
 $$
 
-を得ます。この不等式は、$|Z-m/2|>m\eta$の添字では$(Z-m/2)^2>m^2\eta^2$となることから、有限個の非負項を数え上げただけです。有限個の整数の和だけから得られます。
+を得ます。確率分布の定理を使わず、有限個の整数の和だけから導きました。
 
 $\alpha$の首係数1の最小多項式を$f(T)=T^r+a_{r-1}T^{r-1}+\cdots+a_0$とします。[最小多項式の基底表示](../../FLD/FLD1/index.md#thm-fld1-minimal-polynomial)により$1,\alpha,\ldots,\alpha^{r-1}$は$\mathbb Q(\alpha)$の$\mathbb Q$基底です。また
 
@@ -508,7 +528,7 @@ $$
 
 ### 証明の見取り図
 
-変数を$X_i=T^{B^{i-1}}$へ置き換え、すべての単項式の指数を異なる整数へ符号化します。すると一変数の一次独立な多項式に変わり、通常のWronskianが零でないことを利用できます。置換後の微分を連鎖律で元の多変数微分へ戻します。
+変数を$X_i=T^{B^{i-1}}$へ置き換え、すべての単項式の指数を異なる整数へ符号化します。すると一変数の一次独立な多項式に変わり、[ODE2で導入されたWronskian](../../../解析系/ODE/ODE2/index.md#def-ode2-wronskian)と同じ形の行列式が、ここでも零多項式でないことを利用できます。ODEの方程式は使わず、多項式の一次独立性だけで証明します。置換後の微分を連鎖律で元の多変数微分へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -1203,21 +1223,22 @@ $$
 <!-- solution-end -->
 
 **NDA7-B5（消滅条件の有限平均による計数）**  
-各$d_i=1$、$m=16$とします。$U_i$が$0,1$を独立に等確率で取る場合、$Z=\sum_{i=1}^{16}U_i$の平均と分散を求めてください。続いて、$Z<4$となる添字列の割合について二乗平均を使った上界を出し、実際の組合せ数とも比較してください。
+長さ16の各$0,1$列$\boldsymbol u$について$z(\boldsymbol u)=\sum_{i=1}^{16}u_i$と置きます。全$2^{16}$個の列における$z$の算術平均および平均二乗偏差を求めてください。続いて、$z<4$となる列の割合の上界を出し、実際の組合せ数と比較してください。
 
 - Level: B
 
 <!-- solution-start -->
 **詳細解答**
 
-$E[U_i]=1/2$、$\operatorname{Var}(U_i)=1/4$です。和について独立性を使うと
+各座標について0と1がちょうど半数ずつ現れるので、算術平均は$16\cdot(1/2)=8$です。各座標の中心化した値は$u_i-1/2=\pm1/2$で、二乗は常に$1/4$です。異なる二座標の積の全列平均は、片方の座標を反転させた列と対を作ると相殺されて零です。従って
 
 $$
-E[Z]=16\cdot\frac12=8,\qquad
-\operatorname{Var}(Z)=16\cdot\frac14=4.
+\frac{1}{2^{16}}\sum_{\boldsymbol u\in\{0,1\}^{16}}
+\bigl(z(\boldsymbol u)-8\bigr)^2
+=16\cdot\frac14=4.
 $$
 
-$Z<4$なら$|Z-8|>4$です。全$2^{16}$個の添字での二乗偏差の平均が4だから、この集合の割合は$4/4^2=1/4$以下です。実際の列の個数は
+$z<4$なら$|z-8|>4$です。全$2^{16}$個の列について二乗偏差の平均が4だから、この集合の割合は$4/4^2=1/4$以下です。実際の列の個数は
 
 $$
 \sum_{k=0}^{3}\binom{16}{k}
