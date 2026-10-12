@@ -6,7 +6,13 @@
 
 ## 1. シンプレクティック作用からHamilton作用へ
 
-$(M,\omega)$ を有限次元シンプレクティック多様体、$G$ を有限次元実Lie群、$\mathfrak g=T_eG$ をそのLie代数とします。滑らかな左作用 $\Phi:G\times M\to M$ を固定し、$\Phi_g(m)=g\cdot m$、$\xi_M(m)=\left.\frac d{dt}\right|_0\exp(t\xi)\cdot m$ とします。基本ベクトル場の符号は[GMECH1の定義](../GMECH1/index.md#def-gmech1-infinitesimal-lift)と同じで、**左作用をそのまま微分**します。
+$(M,\omega)$ を有限次元シンプレクティック多様体、$G$ を有限次元実Lie群、$\mathfrak g=T_eG$ をそのLie代数とします。滑らかな左作用 $\Phi:G\times M\to M$ を固定し、$\Phi_g(m)=g\cdot m$ と書きます。[LIE4の基本ベクトル場の定義](../../../代数系/LIE/LIE4/index.md#def-lie4-fundamental-vector-field)に従い、$\xi\in\mathfrak g$ について
+
+$$
+\xi_M(m)=\left.\frac d{dt}\right|_{t=0}\exp(t\xi)\cdot m
+$$
+
+と定めます。符号は[GMECH1の無限小作用の定義](../GMECH1/index.md#def-gmech1-infinitesimal-lift)と同じで、**左作用をそのまま微分**します。
 
 $\Phi_g^*\omega=\omega$ がすべての $g$ で成立する作用をシンプレクティック作用と考えます。それだけでは $\xi_M$ をHamilton関数から作れるとは限りません。欲しいのは、各 $\xi$ に対して $\iota_{\xi_M}\omega$ がある関数の完全微分となり、その関数を $\xi$ に対して**線形に選べる**ことです。
 
@@ -177,7 +183,7 @@ $$
 
 ## 3. 並進・回転・伸縮の運動量
 
-$Q=\mathbb R^n$ の並進作用 $a\cdot q=q+a$ を考えると、$\xi_Q(q)=\xi$ です。余接束の標準運動量写像は
+$Q=\mathbb R^n$ の並進作用 $a\cdot q=q+a$ を考えると、$\xi_Q(q)=\xi$ です。[余接持ち上げの標準運動量写像の定理](#thm-gmech2-cotangent-momentum)を $\alpha_q=p$ に適用すると、
 
 $$
 \langle J(q,p),\xi\rangle=p^{\mathsf T}\xi.
@@ -327,13 +333,40 @@ $$
 任意の $\xi\in\mathfrak g$ との評価が一致するため、$\mathfrak g^*$ の元として等しいことが従います。
 <!-- proof-end -->
 
-$SO(3)$ の場合は $\operatorname{Ad}_{R}\xi=R\xi$ を $\mathbb R^3$ による表示で確かめると、
+<a id="ref-gmech2-so3-coadjoint"></a>
+### $SO(3)$ の随伴・余随伴作用をベクトルで検算する
+
+$SO(3)$ のLie代数 $\mathfrak{so}(3)$ の元を、$\widehat{\xi}v=\xi\times v$ によって $\xi\in\mathbb R^3$ と同一視します。[LIE2の随伴表現の定義](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation)を行列群 $SO(3)$ に適用すると、$R\in SO(3)$ と $v\in\mathbb R^3$ に対して
+
+$$
+\begin{aligned}
+(R\widehat{\xi}R^{-1})v
+&=R\bigl(\xi\times(R^{-1}v)\bigr)\\
+&=(R\xi)\times v\\
+&=\widehat{R\xi}\,v.
+\end{aligned}
+$$
+
+二行目では $R\in SO(3)$ が内積と向きを保つことから $R(a\times b)=(Ra)\times(Rb)$ を使っています。$v$ は任意なので、$\operatorname{Ad}_R\widehat{\xi}=\widehat{R\xi}$、すなわちこの同一視では $\operatorname{Ad}_R\xi=R\xi$ です。
+
+余随伴作用をEuclid内積で $\mathfrak{so}(3)^*\simeq\mathbb R^3$ と同一視すると、任意の $\mu,\xi\in\mathbb R^3$ に対して
+
+$$
+\begin{aligned}
+\langle\operatorname{Ad}_{R^{-1}}^*\mu,\xi\rangle
+&=\langle\mu,\operatorname{Ad}_{R^{-1}}\xi\rangle\\
+&=\mu\cdot(R^{-1}\xi)\\
+&=(R\mu)\cdot\xi.
+\end{aligned}
+$$
+
+従って余随伴**左**作用は $\mu\mapsto R\mu$ と表示されます。この具体式を[標準運動量写像の同変性定理](#thm-gmech2-cotangent-equivariance)へ代入すると、
 
 $$
 J(Rq,Rp)=(Rq)\times(Rp)=R(q\times p)
 $$
 
-となり、余随伴作用の表現と一致します。直交性と $\det R=1$ が積の向きを保つことに注意してください。
+となります。特に $\det R=1$ を落として反射まで同じベクトル積の式を延長することはできません。
 
 ## 5. Hamilton作用でも同変性は自動でない
 
@@ -428,7 +461,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 微分が $e^{tA}$ だから余接持ち上げは
+**詳細解答。** $D\phi_t=e^{tA}$ です。[余接持ち上げの定義](../GMECH1/index.md#def-gmech1-cotangent-action)では余ベクトルを逆転置微分で運びます。行列指数の性質から $(e^{tA})^{-1}=e^{-tA}$、その転置が $e^{-tA^{\mathsf T}}$ なので、余接持ち上げは
 
 $$
 (q,p)\longmapsto(e^{tA}q,e^{-tA^{\mathsf T}}p).
@@ -485,7 +518,7 @@ $$
 =p\cdot(\xi\times q)=\xi\cdot(q\times p).
 $$
 
-直交行列 $R\in SO(3)$ では内積とベクトル積が保たれるため、
+$R\in SO(3)$ では[第4節の随伴・余随伴作用の計算](#ref-gmech2-so3-coadjoint)により $R^{-1}(a\times b)=(R^{-1}a)\times(R^{-1}b)$ が成り立ちます。従って $\xi\times Rq=R((R^{-1}\xi)\times q)$ であり、直交性 $(Rp)\cdot(Rv)=p\cdot v$ を適用すると、
 
 $$
 \begin{aligned}
@@ -533,7 +566,7 @@ $$
 =\langle J(m),[\xi,\eta]\rangle.
 $$
 
-反対称性 $[\eta,\xi]=-[\xi,\eta]$ を使ったので結論が正符号になることが分かります。この等式を得るには**同変性の仮定が必要**であり、一般のHamilton作用に無条件では主張できません。
+反対称性 $[\eta,\xi]=-[\xi,\eta]$ を使ったので結論が正符号になることが分かります。**この証明で** $-\,[\eta,\xi]$ を取り出したのは同変性を微分した箇所です。同変性は上式の**十分条件**ですが論理的な必要条件とは限りません。一般のHamilton作用だけから上式を無条件に結論することはできません。
 <!-- solution-end -->
 
 ### Level C
