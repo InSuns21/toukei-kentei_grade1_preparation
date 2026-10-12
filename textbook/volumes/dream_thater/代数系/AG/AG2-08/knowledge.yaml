@@ -1,0 +1,81 @@
+chapter: AG2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-07
+  - AG2-06
+  - AG2-05
+  - AG1-04
+  - AG1-11
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.kahler-differentials
+    name: Kähler微分加群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler微分加群）"]
+    requires: [algebraic-geometry.stalk-local-ring-identification]
+
+  - id: algebraic-geometry.plane-curve-differentials
+    name: 多項式環と商環の微分表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式環と商環の微分表示）"]
+    requires: [algebraic-geometry.kahler-differentials]
+
+  - id: algebraic-geometry.differential-localization
+    name: 微分と局所化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（微分と局所化）"]
+    requires: [algebraic-geometry.kahler-differentials]
+
+  - id: algebraic-geometry.differential-local-basis
+    name: 滑らかな曲線の微分の局所基底
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな曲線の微分の局所基底）"]
+    requires: [algebraic-geometry.plane-curve-differentials, algebraic-geometry.differential-localization, algebraic-geometry.curve-uniformizer]
+
+  - id: algebraic-geometry.curve-canonical-sheaf
+    name: 曲線の標準束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則1形式と曲線の標準束）"]
+    requires: [algebraic-geometry.differential-local-basis, algebraic-geometry.invertible-sheaf]
+
+  - id: algebraic-geometry.differential-parameter-change
+    name: 局所パラメータによる微分基底の変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所パラメータによる微分基底の変換）"]
+    requires: [algebraic-geometry.curve-uniformizer, algebraic-geometry.curve-canonical-sheaf]
+
+  - id: algebraic-geometry.rational-one-form-divisor
+    name: 有理微分形式の標準因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有理微分形式・標準因子）"]
+    requires: [algebraic-geometry.differential-parameter-change, algebraic-geometry.principal-divisor]
+
+  - id: algebraic-geometry.canonical-divisor-sheaf
+    name: 標準因子と標準束の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（標準因子と標準束）"]
+    requires: [algebraic-geometry.rational-one-form-divisor, algebraic-geometry.divisor-line-bundle]
+
+  - id: algebraic-geometry.p1-canonical-sheaf
+    name: 射影直線の標準束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の標準束）"]
+    requires: [algebraic-geometry.canonical-divisor-sheaf, algebraic-geometry.p1-picard]
+
+  - id: algebraic-geometry.cubic-nonvanishing-form
+    name: 滑らかなWeierstrass三次曲線の非消失微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかなWeierstrass三次曲線の非消失微分）"]
+    requires: [algebraic-geometry.canonical-divisor-sheaf, algebraic-geometry.differential-local-basis]

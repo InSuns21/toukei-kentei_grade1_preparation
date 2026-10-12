@@ -782,6 +782,7 @@
 5. [AG2-05 構造層と貼り合わせ](textbook/volumes/dream_thater/代数系/AG/AG2-05/index.md)
 6. [AG2-06 可逆層とO(d)](textbook/volumes/dream_thater/代数系/AG/AG2-06/index.md)
 7. [AG2-07 Weil因子・Cartier因子と可逆層](textbook/volumes/dream_thater/代数系/AG/AG2-07/index.md)
+8. [AG2-08 局所パラメータ・微分形式・標準束](textbook/volumes/dream_thater/代数系/AG/AG2-08/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III

@@ -1,0 +1,51 @@
+id: "AG2-08"
+title: "局所パラメータ・微分形式・標準束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-07
+  - AG2-06
+  - AG2-05
+  - AG1-04
+  - AG1-11
+official_scope: []
+learning_objectives:
+  - Kähler微分加群を積の規則から構成し多項式環と一方程式の商環で計算できる
+  - 局所化に伴う分数の微分公式を導出し微分加群の局所基底を構成できる
+  - 滑らかな曲線の局所パラメータの変更で微分基底が単元倍になることを証明できる
+  - 正則1形式と標準束を可逆層として構成できる
+  - 有理微分形式の位数と標準因子を定義し標準束との対応を証明できる
+  - 射影直線の標準束がO(-2)で大域正則1形式が零であることを計算できる
+  - 滑らかなWeierstrass三次曲線で非消失微分を局所計算し標準束の自明性を説明できる
+definitions:
+  - { id: AG2-08-DEF-01, name: Kähler微分加群 }
+  - { id: AG2-08-DEF-02, name: 正則1形式と曲線の標準束 }
+  - { id: AG2-08-DEF-03, name: 有理微分形式・標準因子 }
+theorems:
+  - { id: AG2-08-PROP-01, name: 多項式環と商環の微分表示 }
+  - { id: AG2-08-LEM-01, name: 微分と局所化 }
+  - { id: AG2-08-PROP-02, name: 滑らかな曲線の微分の局所基底 }
+  - { id: AG2-08-THM-01, name: 局所パラメータによる微分基底の変換 }
+  - { id: AG2-08-THM-02, name: 標準因子と標準束 }
+  - { id: AG2-08-THM-03, name: 射影直線の標準束 }
+  - { id: AG2-08-THM-04, name: 滑らかなWeierstrass三次曲線の非消失微分 }
+canonical_examples:
+  - 放物線y=x^2上のdy=2x dxと微分形式の零点
+  - 射影直線上のdy=-x^{-2}dxとK=-2P_infinity
+  - 射影放物線YZ=X^2上のdxの無限遠位数
+  - 滑らかな射影三次曲線上のdx/(2y)の貼り合わせと非消失
+problem_patterns:
+  - AG2-08-A1
+  - AG2-08-A2
+  - AG2-08-A3
+  - AG2-08-A4
+  - AG2-08-B1
+  - AG2-08-B2
+  - AG2-08-B3
+  - AG2-08-B4
+  - AG2-08-C1
+  - AG2-08-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
