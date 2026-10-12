@@ -17,7 +17,7 @@ concepts:
     name: 整数剰余類の逆元の存在条件
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（逆元の存在条件）]
+    introduction_aliases: [命題（整数剰余類の逆元の存在条件）]
     requires: [number-theory.congruence, algebra.euclidean-algorithm-bezout]
 
   - id: number-theory.modular-cancellation

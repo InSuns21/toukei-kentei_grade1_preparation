@@ -15,7 +15,7 @@ learning_objectives:
 definitions:
   - { id: NT1-DEF-01, name: 合同 }
 theorems:
-  - { id: NT1-PROP-01, name: 逆元の存在条件 }
+  - { id: NT1-PROP-01, name: 整数剰余類の逆元の存在条件 }
   - { id: NT1-PROP-02, name: 合同式の約分 }
   - { id: NT1-THM-01, name: 線形合同式の可解条件と解の個数 }
   - { id: NT1-THM-02, name: 整数の中国剰余定理の構成公式 }
