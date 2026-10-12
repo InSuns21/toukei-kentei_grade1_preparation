@@ -47,7 +47,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（最大overlapの原子と最上位クラス）"]
-    requires: [spin-glass.gg-mixture, spin-glass.ultrametric-overlap]
+    requires: [spin-glass.gg-mixture]
   - id: spin-glass.two-value-ultrametricity
     name: 二値overlapのultrametricity
     kind: corollary
