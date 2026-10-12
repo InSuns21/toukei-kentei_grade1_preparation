@@ -1,0 +1,29 @@
+chapter: "SGT1"
+terms:
+  - term: 有限無向重み付きグラフ
+    english: finite undirected weighted graph
+    meaning: "頂点数が有限で、非負かつ対称な辺重みを持ち、自己ループを持たないグラフ。"
+  - term: 重み付き次数
+    english: weighted degree
+    meaning: "ある頂点に接続するすべての辺重みの総和。孤立頂点では零になる。"
+  - term: 体積
+    english: volume
+    meaning: "頂点集合に属する頂点の重み付き次数の総和。"
+  - term: 組合せLaplacian
+    english: combinatorial graph Laplacian
+    meaning: "次数行列Dと重み付き隣接行列Wの差L=D-Wで定義される実対称行列。"
+  - term: Dirichletエネルギー
+    english: Dirichlet energy
+    meaning: "各辺の両端での値の差の二乗に辺重みを掛け、無向辺について一度ずつ足した量。"
+  - term: グラフの道
+    english: graph path
+    meaning: "隣接する各頂点組が正の重みの辺で結ばれた有限頂点の並び。"
+  - term: グラフの連結成分
+    english: connected component of a graph
+    meaning: "正重みの道をたどって互いに到達できる頂点の極大な集まり。"
+  - term: Cutの重み
+    english: cut weight
+    meaning: "ある頂点部分集合とその補集合の間を横切る辺の重みの総和。"
+  - term: スペクトルギャップ
+    english: spectral gap
+    meaning: "ここでは連結グラフの組合せLaplacianの零固有値の次に小さい固有値。"
