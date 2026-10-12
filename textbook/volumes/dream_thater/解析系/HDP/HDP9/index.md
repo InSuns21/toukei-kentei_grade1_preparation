@@ -623,7 +623,28 @@ $n=2$、$S_A=2a_{12}X_1X_2$（$A$ 対称・対角零）とする。$I,J$ を独�
 - ID: HDP9-A4
 
 <!-- solution-start -->
-**詳細解答**　$(\delta_1,\delta_2)=(0,0),(1,1)$ では片方の群が空なので $T_\delta=0$ です。$(1,0)$ では $a_{12}X_1X_2$、$(0,1)$ では $a_{21}X_2X_1=a_{12}X_1X_2$ です。従って $E_\delta T_\delta=(0+0+a_{12}X_1X_2+a_{12}X_1X_2)/4=a_{12}X_1X_2/2=S_A/4$ です。
+**詳細解答**　片方の群が空なら和を取る組は存在しないので $T_\delta=0$ です。残る二つの分割は一つずつの項を与えます。
+
+$$
+\begin{array}{c|c}
+(\delta_1,\delta_2)&T_\delta\\ \hline
+(0,0)&0\\
+(1,1)&0\\
+(1,0)&a_{12}X_1X_2\\
+(0,1)&a_{21}X_2X_1=a_{12}X_1X_2
+\end{array}
+$$
+
+各分割の確率が $1/4$ であることから、
+
+$$
+E_\delta T_\delta
+=\frac{0+0+a_{12}X_1X_2+a_{12}X_1X_2}{4}
+=\frac{a_{12}X_1X_2}{2}
+=\frac{S_A}{4}.
+$$
+
+対称性 $a_{21}=a_{12}$ を使う場所が重要です。
 <!-- solution-end -->
 
 ### A5. 正規二乗の指数モーメントの定義域
@@ -694,7 +715,37 @@ $$
 - ID: HDP9-B3
 
 <!-- solution-start -->
-**詳細解答**　$t>0$ で[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)より $P(Y\ge t)\le e^{-\lambda t+cv\lambda^2}$ です。$t/(2cv)\le b/2$ なら $\lambda=t/(2cv)$ として指数は $-t^2/(2cv)+t^2/(4cv)=-t^2/(4cv)$。それ以外では $t>cvb$ なので $\lambda=b/2$ として指数は $-bt/2+cvb^2/4\le-bt/4$ です。$-Y$ にも同じ条件が成立するため $P(|Y|\ge t)\le2e^{-\min\{t^2/(4cv),bt/4\}}$ です。
+**詳細解答**　$Y$ の指数モーメントの仮定は正負両方の $\lambda$ で成り立ちます。まず $t>0$ について[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)を $e^{\lambda Y}$ に適用すると、$0<\lambda\le b$ で
+
+$$
+P(Y\ge t)\le e^{-\lambda t+cv\lambda^2}
+$$
+
+です。指定された $\lambda=\min\{t/(2cv),b/2\}$ は必ず $0<\lambda\le b$ に入ります。
+
+$t/(2cv)\le b/2$ の場合、$\lambda=t/(2cv)$ を代入すると
+
+$$
+-\lambda t+cv\lambda^2
+=-\frac{t^2}{2cv}+\frac{t^2}{4cv}
+=-\frac{t^2}{4cv}.
+$$
+
+逆の場合は $t>cvb$ です。$\lambda=b/2$ とすると
+
+$$
+-\lambda t+cv\lambda^2
+=-\frac{bt}{2}+\frac{cvb^2}{4}
+<-\frac{bt}{2}+\frac{bt}{4}
+=-\frac{bt}{4}.
+$$
+
+$-Y$ にも同じ指数モーメント評価を適用し、$P(Y\ge t)+P(-Y\ge t)$ で両側を評価します。従って
+
+$$
+P(|Y|\ge t)\le
+2\exp\left[-\min\left\{\frac{t^2}{4cv},\frac{bt}{4}\right\}\right].
+$$
 <!-- solution-end -->
 
 ### B4. 独立性が失われる反例
@@ -746,14 +797,40 @@ $$
 - ID: HDP9-C2
 
 <!-- solution-start -->
-**詳細解答**　(1) 行列積から $G^{\mathsf T}AG=2G_1G_2+2G_2G_1=4G_1G_2$ です。独立で $EG_i=0$ なので期待値は $0$、ゆえに $Q_A=4G_1G_2$ です。(2) 非零成分は二つの $2$ なので $\|A\|_{\mathrm F}^2=2^2+2^2=8$ です。$A^2=4I_2$ から任意の $x$ で $\|Ax\|_2=2\|x\|_2$、従って $\|A\|_{\mathrm{op}}=2$ です。(3) $K=1$ なので
+**詳細解答**　(1) 二次形式の行列積を展開すると
+
+$$
+G^{\mathsf T}AG=G_1(2G_2)+G_2(2G_1)=4G_1G_2.
+$$
+
+独立性と平均零から $E(G_1G_2)=EG_1EG_2=0$ なので、$Q_A=4G_1G_2$ です。
+
+(2) Frobeniusノルムは全成分の二乗和で、
+
+$$
+\|A\|_{\mathrm F}^2=0^2+2^2+2^2+0^2=8.
+$$
+
+一方 $A^2=4I_2$ かつ $A=A^{\mathsf T}$ なので、任意の $x\in\mathbb R^2$ に対して
+
+$$
+\|Ax\|_2^2=x^{\mathsf T}A^{\mathsf T}Ax
+=x^{\mathsf T}(4I_2)x=4\|x\|_2^2.
+$$
+
+従って $\|A\|_{\mathrm{op}}=2$ です。
+
+(3) 各 $G_i$ は独立な中心化標準正規なので共通代理量 $K=1$ を持ちます。[Hanson–Wrightの二次形式集中不等式](#thm-hdp9-hanson-wright)に $H=A$ と前段のノルムを代入し、
 
 $$
 P(|4G_1G_2|\ge t)\le
-2\exp\left[-\min\left\{\frac{t^2}{5120},\frac{t}{128}\right\}\right].
+2\exp\left[-\min\left\{\frac{t^2}{640\cdot8},\frac{t}{64\cdot2}\right\}\right]
+=2\exp\left[-\min\left\{\frac{t^2}{5120},\frac{t}{128}\right\}\right]
 $$
 
-(4) 同じ $G$ を代入すると二次形式は $4G^2$、その期待値は $4$、中心化は $4(G^2-1)$ です。独立性が失われたので (3) の主定理の適用条件は満たしません。特定の $n=2$ で不等式が偶然成立するかどうかではなく、**証明が必要とする独立性を確認できない**点が問題です。
+を得ます。
+
+(4) $G_1=G_2=G$ と置くと $G^{\mathsf T}AG=4G^2$、その期待値は $4EG^2=4$、中心化は $4(G^2-1)$ です。二つの座標は同じ変数となり独立性を失うので、(3) の定理は使えません。特定の二次元で不等式が偶然成立するかどうかと、**その適用条件を満たすか**は別の問題です。
 <!-- solution-end -->
 
 この章の中心操作は、積の従属性を無視せず、分割した二群を条件付きで独立に扱い、Gaussianのモーメント母関数へ落とすことです。次章では、候補が無限にある場合に、有限集合への和集合評価から一歩進んだ複雑度制御を考えます。
