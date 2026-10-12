@@ -556,11 +556,13 @@ $$
 <!-- solution-start -->
 **詳細解答。** (i) 保存量を次のように置きます。
 
-$$
-H_1=\frac{p_1^2}{2}+\kappa(1-\cos q_1),\qquad
+$
+\begin{aligned}
+H_1&=\frac{p_1^2}{2}+\kappa(1-\cos q_1),\qquad
 H_2=\frac{p_2^2+\nu^2q_2^2}{2},\\
-F_1=H=H_1+H_2,\qquad F_2=H_2.
-$$
+F_1&=H=H_1+H_2,\qquad F_2=H_2.
+\end{aligned}
+$
 
 成分エネルギー $H_1,H_2$ は異なる正準座標対の関数なので、[Poisson括弧](../../SYM/SYM4/index.md#def-sym4-poisson-bracket)の各項が零となり $\{H_1,H_2\}=0$ です。したがって $\{F_1,F_2\}=\{H_1+H_2,H_2\}=0$ であり、$F_1=H$ という定理の仮定も満たします。
 
@@ -580,7 +582,12 @@ I_2=\frac{E_2}{\nu}.
 $$
 [作用のエネルギー微分と周期](#prop-int3-period-derivative)から $dI_1/dE_1>0$ なので、任意の $E_1\in(0,2\kappa)$ の近傍で逆関数 $E_1=K_1(I_1)$ を定義できます。ゆえに $H=K_1(I_1)+\nu I_2$ です。振動子の $q_2,p_2$ は第2節の式で正準に表せ、振り子側は[局所作用角座標定理](#thm-int3-local-action-angle)により同じ局所正準形式を持ちます。
 
-(iii) $T_1(E_1)=4\int_0^{a(E_1)}dq/\sqrt{2(E_1-\kappa(1-\cos q))}$ です。従って[逆関数の微分公式](../../../基礎科目/RA/RA3/index.md#thm-ra3-inverse)を使い
+(iii) 往復軌道の周期は
+$
+T_1(E_1)=4\int_0^{a(E_1)}
+\frac{dq}{\sqrt{2(E_1-\kappa(1-\cos q))}}
+$
+です。従って[逆関数の微分公式](../../../基礎科目/RA/RA3/index.md#thm-ra3-inverse)を使い
 $$
 \frac{\partial H}{\partial I_1}
 =\frac{dE_1}{dI_1}=\frac{2\pi}{T_1(E_1)},
