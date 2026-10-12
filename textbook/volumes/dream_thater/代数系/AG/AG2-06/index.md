@@ -324,7 +324,16 @@ $$
 [S:T]\longmapsto[S:Tv_1:\cdots:Tv_n]
 $$
 
-で定めます。$S\ne0$ の座標 $t=T/S$ では $x_j=t v_j$ です。$L_v$ 上の基底変換は $e_j^{(d)}=(X_j/X_0)^d e_0^{(d)}$ をその直線上の非零座標で読むものなので、$\mathcal O_{\mathbb P^n}(d)$ を $L_v$ に制限すると前節の $\mathcal O_{\mathbb P^1}(d)$ の貼り合わせと同じになります。したがって[射影直線上のO(d)の大域切断](#thm-ag2-06-p1-sections)を適用できます。
+で定めます。$S\ne0$ の座標 $t=T/S$ では $x_j=t v_j$ です。$v\ne0$ なので $v_j\ne0$ となる添字 $j$ を選びます。$L_v$ の $S\ne0$ 側は $U_0\cap L_v$、$T\ne0$ 側は $U_j\cap L_v$ です（$X_j=Tv_j$ を使いました）。前者の局所基底を $\widetilde e_S=e_0^{(d)}|_{L_v}$、後者を $\widetilde e_T=v_j^{-d}e_j^{(d)}|_{L_v}$ と取り直します。$v_j$ は非零定数なので負の $d$ でもこの基底変更は許されます。両者の重なりでは
+
+$$
+\widetilde e_T
+=v_j^{-d}\left(\frac{X_j}{X_0}\right)^d\widetilde e_S
+=v_j^{-d}\left(\frac{v_jT}{S}\right)^d\widetilde e_S
+=\left(\frac{T}{S}\right)^d\widetilde e_S.
+$$
+
+これは[射影直線上の $\mathcal O(d)$ の遷移関数](#def-ag2-06-twisting-sheaf)そのものです。基底をこのように一致させたため、$\mathcal O_{\mathbb P^n}(d)|_{L_v}\simeq\mathcal O_{\mathbb P^1}(d)$ が得られ、[射影直線上のO(d)の大域切断](#thm-ag2-06-p1-sections)を適用できます。
 
 $d<0$ なら各 $v\ne0$ で $p(tv)$ は恒等的に零です。特に $t=1$ とすると $p(v)=0$ です。$v=0$ に対しても、固定した非零 $v$ で $t=0$ とすれば $p(0)=0$ です。従って $p$ は全点で零、すなわち $s=0$ です。
 
