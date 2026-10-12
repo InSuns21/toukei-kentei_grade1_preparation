@@ -27,7 +27,7 @@ chapters:
     title: 固有空間の摂動と分割の安定性
   - id: SGT6
     path: textbook/volumes/dream_thater/計算系/SGT/SGT6
-    status: planned
+    status: completed
     title: ランダムウォークの混合とスペクトル
   - id: SGT7
     path: textbook/volumes/dream_thater/計算系/SGT/SGT7

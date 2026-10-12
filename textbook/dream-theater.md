@@ -595,6 +595,7 @@
 3. [SGT3 スペクトルギャップとCheeger不等式](textbook/volumes/dream_thater/計算系/SGT/SGT3/index.md)
 4. [SGT4 スペクトル分割とクラスタリング](textbook/volumes/dream_thater/計算系/SGT/SGT4/index.md)
 5. [SGT5 固有空間の摂動と分割の安定性](textbook/volumes/dream_thater/計算系/SGT/SGT5/index.md)
+6. [SGT6 ランダムウォークの混合とスペクトル](textbook/volumes/dream_thater/計算系/SGT/SGT6/index.md)
 
 ## 幾何系
 

@@ -1,0 +1,49 @@
+id: "SGT6"
+title: "ランダムウォークの混合とスペクトル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 定常分布の存在と分布の収束を区別し、二頂点往復の周期性を説明できる
+  - lazy walkの詳細釣合いと正規化Laplacianからの固有値変換を証明できる
+  - 全変動距離・定常分布重み付き平方平均・混合時間を定義し具体計算できる
+  - 密度差の発展と固有関数展開から混合時間の上界と下界を導ける
+  - 二部性と通常歩行の固有値マイナス1の同値性を証明できる
+  - 非二部通常歩行の混合条件と三角形・三頂点道の速度を検算できる
+definitions:
+  - { id: SGT6-DEF-01, name: lazy walk }
+  - { id: SGT6-DEF-02, name: 全変動距離 }
+  - { id: SGT6-DEF-03, name: 定常分布で重み付けした内積と密度 }
+  - { id: SGT6-DEF-04, name: 混合時間 }
+theorems:
+  - { id: SGT6-PROP-01, name: lazy walkの可逆性と固有値 }
+  - { id: SGT6-LEM-01, name: 全変動距離の平方平均評価 }
+  - { id: SGT6-LEM-02, name: 可逆歩行の密度差の発展 }
+  - { id: SGT6-THM-01, name: lazy walkのスペクトル混合上界 }
+  - { id: SGT6-THM-02, name: 第二固有値からの混合時間下界 }
+  - { id: SGT6-THM-03, name: 二部性と固有値マイナス1の同値性 }
+  - { id: SGT6-THM-04, name: 通常歩行が混合する条件と速度 }
+canonical_examples:
+  - 二頂点の往復歩行が周期2で定常分布へ収束しない例
+  - 二頂点lazy walkが一歩で混ざる例
+  - 三頂点道で非lazyの周期性とlazy化のスペクトルを比較する例
+  - 三角形で通常歩行とlazy walkの全変動距離を正確に算出する例
+problem_patterns:
+  - SGT6-OSCILLATING-WALK
+  - SGT6-TOTAL-VARIATION
+  - SGT6-POINT-MASS-DENSITY
+  - SGT6-TRIANGLE-SPECTRUM
+  - SGT6-REVERSIBLE-DENSITY
+  - SGT6-EIGENFUNCTION-LOWER-BOUND
+  - SGT6-PATH-PERIODICITY
+  - SGT6-MIXING-TIME-ESTIMATE
+  - SGT6-TRIANGLE-EXACT-MIXING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
