@@ -1,0 +1,47 @@
+id: HDP4
+title: Doob差分と有界差分不等式
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP3
+  - F0-00P3A
+official_scope: []
+learning_objectives:
+  - 独立入力に対する座標ごとの有界差分条件を定義し直接例と退化幅を確認できる
+  - Doobマルチンゲールと差分を条件付き期待値から構成し差分和を望む偏差へ戻せる
+  - 未来の独立性を使ってDoob差分の条件付き変動幅がc_iであることを証明できる
+  - 条件付きHoeffding補題と期待値の反復から区間幅によるAzuma型集中を証明できる
+  - McDiarmid不等式の指数定数2と片側・両側評価を最適化で導出できる
+  - 最大値と経験分布関数およびランダムグラフの非線形統計量に適用できる
+  - 完全従属の反例と期待値周りの集中とバイアス評価の違いを説明できる
+  - 高次元最大標本平均の期待値界と集中界を接続できる
+definitions:
+  - { id: HDP4-DEF-01, name: 座標ごとの有界差分条件 }
+  - { id: HDP4-DEF-02, name: DoobマルチンゲールとDoob差分 }
+theorems:
+  - { id: HDP4-LEM-01, name: Doob差分の条件付き変動幅 }
+  - { id: HDP4-LEM-02, name: 条件付きHoeffding評価 }
+  - { id: HDP4-THM-01, name: 区間幅によるAzuma–Hoeffding型不等式 }
+  - { id: HDP4-THM-02, name: McDiarmidの有界差分不等式 }
+canonical_examples:
+  - 座標平均の入替えによる幅1/n
+  - Bernoulli二変数のDoob予測差分
+  - 最大標本平均の座標別影響度
+  - 経験分布関数の最大偏差の期待値周辺集中
+  - 独立辺ランダムグラフの三角形数
+  - 完全従属Rademacher変数による独立性反例
+problem_patterns:
+  - HDP4-DOOB-MAX-TWO-BERNOULLI
+  - HDP4-CENTERED-RANGE
+  - HDP4-SAMPLE-MEAN
+  - HDP4-CONFIDENCE-RADIUS
+  - HDP4-ZERO-INFLUENCE
+  - HDP4-MAXIMUM-INFLUENCE
+  - HDP4-EMPIRICAL-CDF
+  - HDP4-WEIGHTED-NONLINEAR-SUM
+  - HDP4-DEPENDENCE-COUNTEREXAMPLE
+  - HDP4-HIGH-DIMENSIONAL-MAX-MEAN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
