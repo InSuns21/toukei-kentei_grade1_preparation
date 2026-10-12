@@ -32,7 +32,7 @@ chapters:
     title: "Lie–Poisson構造と余随伴軌道"
   - id: GMECH7
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH7
-    status: planned
+    status: completed
     title: "Euler剛体の幾何学的力学"
   - id: GMECH8
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH8
