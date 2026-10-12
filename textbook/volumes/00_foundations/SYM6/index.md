@@ -201,9 +201,9 @@ Lagrangeなら $W=W^\omega$ ですから $k=2n-k$、すなわち $k=n$ であり
 
 Lagrange空間 $W$ を真に含む等方空間 $U$ があると仮定します。$U$ が等方だから $U\subseteq U^\omega$ であり、$W\subseteq U$ だから、任意の $v\in U^\omega$ は $W$ の全ての元にも直交して $U^\omega\subseteq W^\omega$ です。従って
 
-$
+$$
 W\subsetneq U\subseteq U^\omega\subseteq W^\omega=W
-$
+$$
 
 となって矛盾します。よって $W$ は極大等方です。
 
@@ -277,9 +277,9 @@ $$
 
 各点で $DF_{(q,p)}:\mathbb R^{2n}\to\mathbb R^n$ は全射であり、特に $F^{-1}(0)$ の全点で階数が $n$ です。零点集合は空でないので、$0$ は $F$ の正則値です。[正則値定理](../GEO3/index.md#thm-geo3-regular-value)を $F$ と値 $0$ に適用すると、
 
-$
+$$
 \dim F^{-1}(0)=2n-n=n
-$
+$$
 
 となり、$F^{-1}(0)$ が埋め込み部分多様体であることも従います。これは先のパラメータ表示と一致します。
 
@@ -410,10 +410,10 @@ $$
 
 $\alpha=\sum_i a_i(q)\,dq^i$ とします。余接束全体の座標微分 $dp_i$ とグラフ上の微分を混同しないよう、$p_i\circ s_\alpha=a_i$ を微分します。これにより
 
-$
+$$
 s_\alpha^*(dp_i)=d(p_i\circ s_\alpha)
 =da_i=\sum_j(\partial_j a_i)\,dq^j
-$
+$$
 
 です。従ってグラフへの引き戻しを計算すると
 
@@ -428,13 +428,13 @@ $$
 
 ここで各 $i<j$ について $dq^i\wedge dq^j$ の係数を比べれば、
 
-$
+$$
 d\alpha=0
 \quad\Longleftrightarrow\quad
 \partial_j a_i=\partial_i a_j\ \ (\forall i,j)
 \quad\Longleftrightarrow\quad
 Da=(\partial_j a_i)\ \text{が対称}
-$
+$$
 
 です。これがグラフの接方向の傾きから閉性を読む方法です。[局所Poincaréの補題](../GEO9/index.md#thm-geo9-poincare-lemma)は、座標球上の閉1形式なら $\alpha=df$ と書けることを保証します。
 
@@ -632,10 +632,10 @@ $$
 
 条件は $b_1=0$ の一つだけなので、
 
-$
+$$
 W^\omega=\{v:b_1=0\}
 =\operatorname{span}\{e_1,e_2,f_2\}.
-$
+$$
 
 $e_1\in W^\omega$ より $W\subsetneq W^\omega$ で等方ですが、$e_2\in W^\omega\setminus W$ なので余等方ではなく、Lagrangeでもありません。
 <!-- solution-end -->
@@ -675,11 +675,11 @@ $$
 
 この一次元接空間上の任意の二接ベクトルは $as'(q),bs'(q)$ と書けます。交代性から
 
-$
+$$
 \omega_{\mathrm{can}}(as',bs')
 =ab\,\omega_{\mathrm{can}}(s',s')
 =0.
-$
+$$
 
 グラフは一次元で $\frac12\dim T^*\mathbb R=1$ なのでLagrangeです。別の検算として、$\alpha=d(q^3)$ だから $d\alpha=d^2(q^3)=0$ となり、[グラフ判定](#thm-sym6-graph-criterion)にも一致します。
 <!-- solution-end -->
@@ -726,16 +726,16 @@ $$
 
 自由変数は $q^1,q^2,p_3$ なので3次元です。包含 $j:N^*S\hookrightarrow T^*\mathbb R^3$ に沿って正準1形式を引き戻すと、$j^*p_1=j^*p_2=0$ と $j^*dq^3=d(j^*q^3)=0$ から
 
-$
+$$
 j^*\theta
 =j^*(p_1\,dq^1+p_2\,dq^2+p_3\,dq^3)=0.
-$
+$$
 
 [外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)により
 
-$
+$$
 j^*\omega_{\mathrm{can}}=-d(j^*\theta)=0.
-$
+$$
 
 次元は $\dim N^*S=3=\frac12\dim T^*\mathbb R^3$ なのでLagrangeです。
 <!-- solution-end -->
@@ -784,10 +784,10 @@ $$
 
 二つの直交条件 $b_1=0$、$a_2=0$ を同時に課すので、
 
-$
+$$
 W^\omega=\{v:b_1=a_2=0\}
 =\operatorname{span}\{e_1,f_2\}=W.
-$
+$$
 
 また $\omega_0(e_1,f_2)=0$ であり、同じ生成元同士の値も交代性により零です。従って $W$ は等方で、$\dim W=2=n$ です。[線形Lagrange判定](#thm-sym6-lagrangian-criterion)によっても $W$ がLagrangeであると分かります。
 <!-- solution-end -->
@@ -827,9 +827,9 @@ $$
 
 $h'(q^2)=2q^2$ を積分すると $h(q^2)=(q^2)^2+C$ です。従って求める原始関数は
 
-$
+$$
 f(q^1,q^2)=(q^1)^2+q^1q^2+(q^2)^2+C.
-$
+$$
 
 これを両変数で偏微分すれば、元の1形式の両係数に戻ります。閉性の判定と原始関数の具体構成は別段階で確認しました。
 <!-- solution-end -->
@@ -850,12 +850,12 @@ $$
 
 を得ます。第一成分と第四成分から $(u,s)$ を連続に復元でき、微分も階数2なので $F$ は埋め込みです。座標関数を $F$ に沿って引き戻して微分すると
 
-$
+$$
 \begin{aligned}
 F^*dq^1&=du,&F^*dq^2&=2u\,du,\\
 F^*dp_1&=-2s\,du-2u\,ds,&F^*dp_2&=ds.
 \end{aligned}
-$
+$$
 
 よって
 
@@ -887,43 +887,43 @@ $Q=S^1=\mathbb R/(2\pi\mathbb Z)$ とし、各局所角度座標 $t$ で $\alpha
 
 **(1)**　同じ円周上の点を表す二つの角度の差は局所的に $2\pi k$（$k\in\mathbb Z$ は定数）です。したがって座標変換は $t'=t+2\pi k$ となり、
 
-$
+$$
 dt'=d(t+2\pi k)=dt.
-$
+$$
 
 局所表示が重なりで一致するので $\alpha$ は大域的な滑らかな1形式です。また各座標上で[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を局所関数 $t$ に適用すると
 
-$
+$$
 d\alpha=d(dt)=0.
-$
+$$
 
 局所的に零である2形式は大域的にも零です。
 
 **(2)**　円周を一周する曲線 $\gamma:[0,2\pi]\to S^1$、$\gamma(t)=[t]$ に沿って積分すると
 
-$
+$$
 \int_\gamma\alpha
 =\int_0^{2\pi}\gamma^*\alpha
 =\int_0^{2\pi}dt=2\pi.
-$
+$$
 
 もし $\alpha=df$ なら、合成 $f\circ\gamma$ は $[0,2\pi]$ 上の滑らかな実数値関数であり、
 
-$
+$$
 \int_\gamma df
 =(f\circ\gamma)(2\pi)-(f\circ\gamma)(0)
 =f([0])-f([0])=0.
-$
+$$
 
 これは $2\pi\ne0$ に矛盾します。ゆえに $\alpha$ は閉形式ですが完全形式ではありません。
 
 **(3)**　$\alpha$ は滑らかで (1) から $d\alpha=0$ です。[閉1形式のグラフのLagrange判定](#thm-sym6-graph-criterion)を $Q=S^1$ に適用すると、グラフ写像は埋め込みで、
 
-$
+$$
 s_\alpha^*\omega_{\mathrm{can}}=-d\alpha=0,
 \qquad
 \dim\Gamma_\alpha=1=\tfrac12\dim T^*S^1.
-$
+$$
 
 従って $\Gamma_\alpha$ はLagrangeです。(2) より、このグラフを大域的な関数の微分 $df$ のグラフとして書くことはできません。
 <!-- solution-end -->
@@ -953,17 +953,17 @@ $$
 
 **(1)**　$T_\alpha$ は運動量だけを平行移動し、
 
-$
+$$
 T_\alpha(q^1,q^2,p_1,p_2)
 =(q^1,q^2,p_1+q^2,p_2+q^1)
-$
+$$
 
 です。像の運動量を $P_1,P_2$ とすると $p_1=P_1-q^2$、$p_2=P_2-q^1$ なので
 
-$
+$$
 T_\alpha^{-1}(q^1,q^2,P_1,P_2)
 =(q^1,q^2,P_1-q^2,P_2-q^1).
-$
+$$
 
 互いに合成すれば元の4座標へ戻ります。双方とも全域で滑らかなので微分同相です。
 
