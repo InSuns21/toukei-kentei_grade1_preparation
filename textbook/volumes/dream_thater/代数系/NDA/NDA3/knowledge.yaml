@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - NDA2
   - LA3C
+  - RA7
+  - F0-00B
 forward_references: []
 
 concepts:
@@ -26,10 +28,10 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（格子と基本領域）]
-    requires: [diophantine.lattice-fundamental-domain, linear.matrix-determinant]
+    requires: [diophantine.lattice-fundamental-domain, analysis.linear-volume-scaling]
 
   - id: diophantine.covolume-basis-independence
-    name: 共体積の基底不変性と格子の離散性
+    name: 共体積の基底不変性と格子点の局所有限性
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（共体積の基底不変性と格子の離散性）]
@@ -40,7 +42,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: [補題（Blichfeldt補題）]
-    requires: [diophantine.lattice-fundamental-domain, diophantine.lattice-covolume]
+    requires: [diophantine.lattice-fundamental-domain, diophantine.lattice-covolume, analysis.jordan-measurable-set]
 
   - id: diophantine.symmetric-convex-body
     name: 原点対称な凸体
@@ -54,7 +56,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Minkowskiの凸体定理）]
-    requires: [diophantine.blichfeldt-lemma, diophantine.symmetric-convex-body, diophantine.covolume-basis-independence]
+    requires: [diophantine.blichfeldt-lemma, diophantine.symmetric-convex-body, diophantine.covolume-basis-independence, topology.closed-set-sequential-characterization]
 
   - id: diophantine.simultaneous-dirichlet-approximation
     name: 同時Dirichlet近似
