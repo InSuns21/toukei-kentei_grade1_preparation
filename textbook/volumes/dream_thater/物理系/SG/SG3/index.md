@@ -26,15 +26,15 @@ Sherrington–Kirkpatrick（SK）模型では、二配置が各サイトでど�
 >
 > と定める。無秩序 $J$ を固定したGibbs平均、ランダム圧力、quenched圧力をそれぞれ
 
-$
+$$
 \langle f\rangle_J
 =\frac{\sum_{\sigma\in\Sigma_N}f(\sigma)e^{B_N^{\mathrm{SK}}(\sigma)}}{Z_N^{\mathrm{SK}}},
-$
+$$
 
-$
+$$
 F_N=\frac1N\log Z_N^{\mathrm{SK}},\qquad
 p_N(\beta,h)=\mathbb EF_N
-$
+$$
 
 > とする。$\mathbb E$ は結合に関する期待値である。
 <!-- formal-statement-end -->
