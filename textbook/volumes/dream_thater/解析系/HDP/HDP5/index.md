@@ -281,9 +281,26 @@ E[G_ju\partial_jv]
 =E[(\partial_ju)(\partial_jv)+u\partial_{jj}v].
 $$
 
-右辺第2項が $E[u\Delta v]$ と相殺し、上の式が得られます。特に $u=1$ とすれば $E[\mathcal Av(G)]=0$ です。
+$j$ について和を取ると
 
-$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれ、$\log u_t$ とその微分が定義できます。[Gaussian平均の半群性・不変性・微分交換](#lem-hdp5-ou-identities)の生成作用素に関する等式を使うと
+$$
+\begin{aligned}
+E[u(G)\mathcal Av(G)]
+&=\sum_{j=1}^d\left(E[u\,\partial_{jj}v]-E[G_ju\,\partial_jv]\right)\\
+&=-\sum_{j=1}^dE[(\partial_ju)(\partial_jv)]
+=-E[\nabla u(G)\cdot\nabla v(G)].
+\end{aligned}
+$$
+
+特に $u=1$ とすれば $\nabla u=0$ なので $E[\mathcal Av(G)]=0$ です。
+
+$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれるので、$\log u_t$ とその微分が定義できます。さらに $t>0$ について、[Gaussian平均の生成作用素公式](#lem-hdp5-ou-identities)を代入すると
+
+$$
+\partial_t u_t(x)=\Delta u_t(x)-x\cdot\nabla u_t(x).
+$$
+
+$h$ の一階・二階偏導関数が有界なので、$\nabla u_t$ と $\Delta u_t$ も $t$ によらず有界です。従って右辺は、$t$ の有界区間で $C(1+\|x\|_2)$ によって抑えられます。標準Gaussianの $E\|G\|_2$ は有限なので、$H(t)$ の期待値と時間微分を交換できます。これを使うと
 
 $$
 \begin{aligned}
@@ -309,7 +326,17 @@ $$
 E\!\left[\frac{\|\nabla P_th(G)\|_2^2}{P_th(G)}\right]dt.
 $$
 
-ここで[微分交換公式](#lem-hdp5-ou-identities)と、$P_t$ の中の確率分布に関する[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を順に使います。各 $x$ について
+ここで[微分交換公式](#lem-hdp5-ou-identities)と、$P_t$ の中の確率分布に関する[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を順に使います。$Y=e^{-t}x+\sqrt{1-e^{-2t}}G'$ と置くと、各座標 $j$ に対して
+
+$$
+\begin{aligned}
+|E[\partial_jh(Y)]|^2
+&=\left|E\left[\sqrt{h(Y)}\,\frac{\partial_jh(Y)}{\sqrt{h(Y)}}\right]\right|^2\\
+&\le E[h(Y)]\,E\left[\frac{|\partial_jh(Y)|^2}{h(Y)}\right].
+\end{aligned}
+$$
+
+両辺を $j=1,\ldots,d$ で足し、右辺の共通因子 $E[h(Y)]=(P_th)(x)$ を括ると、ベクトルに対する評価が得られます。すなわち各 $x$ について
 
 $$
 \begin{aligned}
@@ -321,7 +348,23 @@ P_t\!\left(\frac{\|\nabla h\|_2^2}{h}\right)(x).
 \end{aligned}
 $$
 
-分母 $P_th$ で割り、期待値を取ります。[Gaussian平均の不変性](#lem-hdp5-ou-identities)を被積分関数 $\|\nabla h\|_2^2/h$ に適用すれば
+分母 $P_th$ で割り、期待値を取ります。ここで
+
+$$
+q(x)=\frac{\|\nabla h(x)\|_2^2}{h(x)}
+$$
+
+と置くと、$\inf h>0$ と $\|\nabla h\|_2$ の有界性から $q$ は有界な連続関数です。ただし $h\in C^2$ だけでは $q$ が $C^2$ とは限らないため、[Gaussian平均の不変性](#lem-hdp5-ou-identities)の滑らかな関数に関する主張をそのまま適用することはできません。
+
+そこで不変性をこの $q$ に直接確認します。$G,G'$ が独立な標準Gaussianであるとき、$Y_t=e^{-t}G+\sqrt{1-e^{-2t}}G'$ の平均は零で、共分散は $e^{-2t}I_d+(1-e^{-2t})I_d=I_d$ です。$Y_t$ は正規ベクトルなので $Y_t\sim N(0,I_d)$ であり、有界性によって積分は有限です。従って期待値を順に取ると
+
+$$
+E[(P_tq)(G)]
+=E\left[q\left(e^{-t}G+\sqrt{1-e^{-2t}}G'\right)\right]
+=E[q(G)].
+$$
+
+この恒等式を非負関数 $q$ に適用すれば
 
 $$
 \begin{aligned}
@@ -441,7 +484,19 @@ $$
 \end{aligned}
 $$
 
-です。$f_{M,\varepsilon}$ は有界かつ滑らかで、各階の導関数も有界なので第1段階が適用できます。$\varepsilon\downarrow0$ で $f_{M,\varepsilon}(x)\to f_M(x)$、その後 $M\to\infty$ で $f_M(x)\to f(x)$ です。各段階で $|f_{M,\varepsilon}|\le M$、さらに $|f_M(x)|\le|f(x)|$ が成立します。前述のGaussian指数可積分性により、指数モーメントと平均の極限を順に取れ、一般の $f$ でも
+です。$f_{M,\varepsilon}$ は有界かつ滑らかで、各階の導関数も有界なので第1段階が適用できます。
+
+まず $M$ を固定して $\varepsilon\downarrow0$ とすると、Lipschitz性と核の台から
+
+$$
+|f_{M,\varepsilon}(x)-f_M(x)|
+\le L\int\|u\|_2\rho_\varepsilon(u)\,du
+\le L\varepsilon\longrightarrow0
+$$
+
+です。また $|f_{M,\varepsilon}|\le M$ だから、平均と指数モーメントに有界収束を適用できます。これで $f_M$ に同じ指数不等式が成立します。
+
+次に $M\to\infty$ とすると $f_M(x)\to f(x)$ かつ $|f_M(x)|\le|f(x)|$ です。先に確認した $Ee^{a|f(G)|}<\infty$（任意の $a\ge0$）によって、平均には $|f(G)|$、指数モーメントには $e^{|\lambda||f(G)|}$ を可積分な優関数として使えます。各極限をこの順序で取れば、一般の $f$ でも
 
 $$
 Ee^{\lambda(f(G)-Ef(G))}\le e^{\lambda^2L^2/2}
@@ -560,7 +615,7 @@ $$
 **定義の確認** $A=\{0\}$ なら下限を取る候補は零ベクトルだけなので $r_A(x)=\|x\|_2$ です。また $A=(0,\infty)\subset\mathbb R$ のとき、$x<0$ では $a\downarrow0$ として $r_A(x)=-x$、$x\ge0$ では $r_A(x)=0$ となります。端点 $0$ が集合に含まれなくても下限は存在します。
 <!-- definition-example-end -->
 
-三角不等式から、任意の $a\in A$ について
+[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)から、任意の $a\in A$ について
 
 $$
 \|x-a\|_2\le\|x-y\|_2+\|y-a\|_2.
@@ -685,7 +740,7 @@ $\mathbb R^d$ 上の $f(x)=\|x\|_2$ と $g(x)=\max_jx_j$ がともに $1$-Lipsch
 - ID: HDP5-A2
 
 <!-- solution-start -->
-**詳細解答**　$f$ については三角不等式を $x=(x-y)+y$ に使い、
+**詳細解答**　$f$ については[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を $x=(x-y)+y$ に使い、
 
 $$
 \|x\|_2-\|y\|_2\le\|x-y\|_2
@@ -773,7 +828,20 @@ $$
 
 ### B1. 対数Sobolev評価から指数モーメントへ
 
-有界で滑らかな $L$-Lipschitz関数 $f$ に対し、$\operatorname{Ent}_\gamma(e^{\lambda f})\le(\lambda^2L^2/2)Ee^{\lambda f}$ が既に示されたとする。$K(\lambda)=\log Ee^{\lambda f(G)}$ を用い、$\lambda>0$ で $K(\lambda)-\lambda Ef(G)\le\lambda^2L^2/2$ を改めて導け。
+有界で滑らかな $L$-Lipschitz関数 $f$ に対し、次の評価が既に示されたとする。
+
+$$
+\operatorname{Ent}_\gamma(e^{\lambda f})
+\le\frac{\lambda^2L^2}{2}Ee^{\lambda f}.
+$$
+
+$K(\lambda)=\log Ee^{\lambda f(G)}$ を用い、$\lambda>0$ について
+
+$$
+K(\lambda)-\lambda Ef(G)\le\frac{\lambda^2L^2}{2}
+$$
+
+を改めて導け。
 
 - Level: B
 - ID: HDP5-B1
@@ -840,7 +908,24 @@ $$
 \Sigma=\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix}.
 $$
 
-固有ベクトル $(1,1)$、$(1,-1)$ に対応する固有値は $1+\rho$、$1-\rho$ なので $\|\Sigma\|_{\mathrm{op}}=1+|\rho|$ です。最大値関数は $1$-Lipschitzです。共分散行列を平方根分解して $X=AG$ と書いたとき、[アフィンGaussian像の集中](#cor-hdp5-affine-gaussian)の証明により対応する標準Gaussian上の関数は $\sqrt{1+|\rho|}$-Lipschitzです。[Gaussian集中とLipschitz関数](#thm-hdp5-gaussian-concentration)の片側評価を適用すると
+固有ベクトル $(1,1)$、$(1,-1)$ に対応する固有値は $1+\rho$、$1-\rho$ です。$|\rho|<1$ より両固有値は正です。正規直交固有ベクトルを列に並べた行列を
+
+$$
+Q=\frac1{\sqrt2}
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+$$
+
+とすれば、$A=Q\operatorname{diag}(\sqrt{1+\rho},\sqrt{1-\rho})Q^\mathsf T$ と取れます。実際、
+
+$$
+AA^\mathsf T
+=Q\operatorname{diag}(1+\rho,1-\rho)Q^\mathsf T
+=\Sigma,
+\qquad
+\|A\|_{\mathrm{op}}=\sqrt{1+|\rho|}.
+$$
+
+独立な標準正規ベクトル $G\in\mathbb R^2$ に対し $AG$ は共分散 $\Sigma$ の共同Gaussianベクトルです。最大値関数は $1$-Lipschitzなので、[アフィンGaussian像の集中](#cor-hdp5-affine-gaussian)の証明どおり、$G\mapsto\max_j(AG)_j$ は $\sqrt{1+|\rho|}$-Lipschitzです。[Gaussian集中とLipschitz関数](#thm-hdp5-gaussian-concentration)の片側評価を適用すると
 
 $$
 P(Z-EZ\ge t)
