@@ -1,0 +1,40 @@
+id: "GMECH5"
+title: "Marsden–Weinstein簡約"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH4
+official_scope: []
+learning_objectives:
+  - 基本2形式の不変性と水平性を定義し運動量レベルで確認できる
+  - 基本2形式が滑らかな商へ一意に降下することを持ち上げと局所切片で証明できる
+  - Marsden–Weinstein簡約で制限形式の核が群軌道方向に一致することを証明できる
+  - 簡約形式の閉性と非退化性と商の次元を仮定つきで説明できる
+  - 不変Hamiltonianが商のHamilton方程式を定めることを導ける
+  - 平面回転対称系の極座標表示から簡約形式と有効ポテンシャルを計算できる
+definitions:
+  - { id: GMECH5-DEF-01, name: 基本2形式と商への降下 }
+theorems:
+  - { id: GMECH5-PROP-01, name: 運動量レベル上の制限形式の基本性 }
+  - { id: GMECH5-PROP-02, name: 基本2形式の一意な降下 }
+  - { id: GMECH5-THM-01, name: Marsden–Weinstein簡約 }
+  - { id: GMECH5-THM-02, name: 不変Hamiltonianの簡約力学 }
+canonical_examples:
+  - 二自由度並進での基本形式と一点の軌道方向の消去
+  - 平面回転対称系の極座標と遠心力ポテンシャル
+  - 非零SO3角運動量レベルの商次元
+  - 中心力問題の円軌道と簡約平衡
+problem_patterns:
+  - GMECH5-BASIC-TRANSLATION
+  - GMECH5-KERNEL-ROTATION
+  - GMECH5-DIMENSION-SO3
+  - GMECH5-EVEN-DIMENSION
+  - GMECH5-NONDEGENERACY
+  - GMECH5-REDUCED-FLOW
+  - GMECH5-RADIAL-STABILITY
+  - GMECH5-SINGULAR-LEVEL
+  - GMECH5-CENTRAL-FORCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 2 }
