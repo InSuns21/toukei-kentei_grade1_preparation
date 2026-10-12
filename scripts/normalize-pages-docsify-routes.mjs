@@ -31,6 +31,29 @@ function normalizeExplicitDocsifyRoutes(markdown) {
   });
 }
 
+// Convert GitHub-friendly "../OTHER/index.md" links only in generated
+// textbook pages; Docsify is configured with relativePath:false.
+function normalizeVolumeRelativeLinks(markdown, relative) {
+  if (!relative.startsWith('textbook/volumes/')) return markdown;
+  const sourceDir = path.posix.dirname(relative);
+  return markdown.replace(/(\]\()(\.\.\/[^)\s]+)(\))/g, (match, open, href, close) => {
+    const suffixAt = href.search(/[?#]/);
+    const targetPath = suffixAt < 0 ? href : href.slice(0, suffixAt);
+    const suffix = suffixAt < 0 ? '' : href.slice(suffixAt);
+    const resolved = path.posix.normalize(path.posix.join(sourceDir, targetPath));
+    if (!resolved.startsWith('textbook/volumes/')) return match;
+    return open + resolved + suffix + close;
+  });
+}
+
+function selfTestVolumeRelativeLinks() {
+  const source = '[result $[X,Y]$](../LIE2/index.md#anchor) and [external](https://example.org)';
+  const actual = normalizeVolumeRelativeLinks(source, 'textbook/volumes/00_foundations/LIE4/index.md');
+  const expected = '[result $[X,Y]$](textbook/volumes/00_foundations/LIE2/index.md#anchor) and [external](https://example.org)';
+  if (actual !== expected) throw new Error('Docsify volume-relative link normalization regression');
+}
+selfTestVolumeRelativeLinks();
+
 await access(siteDir);
 const files = await recursiveMarkdownFiles(siteDir);
 let changedFiles = 0;
@@ -40,12 +63,15 @@ for (const relative of files) {
   const filePath = path.join(siteDir, ...relative.split('/'));
   const before = await readFile(filePath, 'utf8');
   const matches = [...before.matchAll(/\[[^\]]*\]\(#\/[^\s)]+\)/g)].length;
-  if (matches === 0) continue;
+  const relativeMatches = relative.startsWith('textbook/volumes/')
+    ? [...before.matchAll(/\]\(\.\.\/[^)\s]+\)/g)].length : 0;
+  if (matches === 0 && relativeMatches === 0) continue;
 
-  const after = normalizeExplicitDocsifyRoutes(before);
+  const after = normalizeVolumeRelativeLinks(normalizeExplicitDocsifyRoutes(before), relative);
+  if (after === before) continue;
   await writeFile(filePath, after, 'utf8');
   changedFiles += 1;
-  changedLinks += matches;
+  changedLinks += matches + relativeMatches;
 }
 
 console.log(`Normalized ${changedLinks} explicit Docsify route link(s) across ${changedFiles} generated Markdown file(s).`);

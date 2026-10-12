@@ -6,13 +6,13 @@
 
 継続執筆では全 `00_foundations` を列挙しない。
 
-1. `textbook/dream-theater-work.yaml`
-2. 参照先の `textbook/dream-theater-series/<series>.yaml`
-3. `active_plan`
+1. `textbook/dream-theater-work.yaml`（共通 routing）
+2. 指定された章ID・系列IDに対応する `textbook/dream-theater-series/<系列ID>.yaml`
+3. 系列 manifest の `plan`
 4. 対象章の `chapter.yaml` / `knowledge.yaml`
 5. 直接必要な canonical dependency
 
-章を完了して次へ進める場合は、成果物と同じ作業単位で work-state の `completed_through` / `next_work` / `after_next` と series manifest の status を更新する。
+進捗は各系列 manifest の章一覧から導出する（連続する `completed` の末尾、最初の `planned`、その次の章）。章を完了したら**対象系列 manifest だけ**の章 status を成果物と同じ作業単位で更新する。別系列の進捗や共通ルーターを書き換えない。対象系列が不明で未完了系列が複数なら確認する。
 
 ## 執筆前に読む正本
 
@@ -94,13 +94,11 @@ A4/B3/C1 は**下限であって目標値・上限ではない**。最低数に�
 
 自動監査の誤検出を避けるために自然な標準用語を不自然に改名しない。誤検出なら resolver、alias、contextual alias、監査ロジック側を修正する。
 
-## 次章執筆に併走する直前章の追跡監査
+## 既存完了章の追跡監査（明示依頼時のみ）
 
-継続的な新章執筆では、新章の必須自己査読・別観点再査読に加え、**直前に完成した章の追跡監査**をデフォルトで実施する。`textbook/dream-theater-work.yaml` の `review_handoff` と `completed_through`、対象系列 manifest から前章を確定する（数字だけで決めない）。
+新章の執筆では、**変更した章自身**の第10・10.1節の自己査読・別観点再査読を必須とする。他の完了章を自動的に追加監査する義務はない。
 
-直前章の実本文・主要証明・全演習解答を再読・検算し、途中2〜4手の省略、仮定・境界・添字・符号、式の別行配置・インライン過密、引用した既出結果への**使用箇所からの実在 stable anchor リンク**を点検する。警告抽出は補助に限り、実質的欠陥を修正してから再検証する。新章のPR本文には別枠で前章の査読証拠を残す。前章も修正する場合は変更章として第10・10.1節の全ゲートに従う。
-
-監査対象がない初回などは理由を明記する。重大な未解消指摘や監査漏れがあるなら次章も完了扱いにしない。具体的な手順と証拠は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
+ユーザーから特定の章IDの追跡監査を明示されたときは、`textbook/prompts/dream-theater-followup-audit.md` と `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節に従う。既存章を修正するならその章自身を変更章として全件再査読する。別系列・直前章から対象を推測しない。
 
 ## 検証
 

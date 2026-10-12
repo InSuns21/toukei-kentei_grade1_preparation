@@ -1,28 +1,11 @@
-version: 1
+version: 2
 updated: 2026-10-12
 
-active_series: SYM
-active_plan: textbook/plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md
-series_manifest: textbook/dream-theater-series/SYM.yaml
-
-completed_through: SYM5
-next_work: SYM6
-after_next: SYM7
-
-# SYM1〜SYM5実装・査読・公開済。SYM6以降と科目横断監査は進行中。
-
-# 次章の執筆と直前完了章の追跡監査を同じ作業単位で実施する。
-# target_source は固定の章IDではなく、着手時の routing と series manifest から解決する。
-review_handoff:
-  enabled: true
-  mode: paired_previous_chapter_audit
-  with_work_source: next_work
-  target_source: completed_through
-  target_series_source: series_manifest
-  authoring_standard_section: "10.3"
-  evidence_template: textbook/prompts/dream-theater-review-evidence.md
-
+# 全系列に共通するルーティング設定のみ。現在地は各系列manifestの章statusから導出する。
+# 章を進めるたびに共有ファイルを書き換えず、異なる系列の並行作業を可能にする。
+# ID未指定の場合、未完了系列が一つならそれを選び、複数なら系列を確認する。
 routing:
+  series_directory: textbook/dream-theater-series
   chapter_root: textbook/volumes/00_foundations
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
   exercise_policy: textbook/DREAM_THEATER_EXERCISE_POLICY.md

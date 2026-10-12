@@ -36,9 +36,35 @@ async function recursiveFiles(baseDir, predicate, relativeDir = '') {
   return files.sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
 }
 
+// Markdown link patterns must not be applied inside KaTeX or code spans:
+// expressions such as \Bigr](\varphi_t) are not links.
 function extractLinks(markdown) {
-  return [...markdown.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map((match) => match[1].trim());
+  const withoutCode = markdown.replace(
+    /(?:\x60{3,}[\s\S]*?\x60{3,}|\x60[^\x60\n]*\x60)/g,
+    segment => segment.replace(/[^\n]/g, ' '),
+  );
+  const withoutMath = withoutCode.replace(
+    /(?<!\\)\$\$[\s\S]*?(?<!\\)\$\$|(?<!\\)\$(?!\$)(?:\\[^\n]|[^\\$\n])+(?<!\\)\$/g,
+    segment => segment.replace(/[^\n]/g, ' '),
+  );
+  return [...withoutMath.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map(match => match[1].trim());
 }
+
+function testExtractLinks() {
+  const source = [
+    '[valid](textbook/example.md)',
+    '$\\Bigr](\\varphi_t)$',
+    '$$\\left[x\\right](\\varphi_t)$$',
+    '\x60[code](not-a-link.md)\x60',
+    '[second](textbook/second.md#anchor)'
+  ].join('\n');
+  const got = extractLinks(source);
+  const expected = ['textbook/example.md', 'textbook/second.md#anchor'];
+  if (JSON.stringify(got) !== JSON.stringify(expected)) {
+    throw new Error('math/code-aware link extraction regression: ' + JSON.stringify(got));
+  }
+}
+testExtractLinks();
 
 function extractHtmlLinks(html) {
   return [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1].trim());

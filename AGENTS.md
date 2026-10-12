@@ -21,14 +21,16 @@
 
 ## DREAM THEATER の継続作業は探索を最小化する
 
-「続けて」「planを進めて」の場合、`textbook/volumes/00_foundations/` 全体を先に探索しない。まず次を読む。
+「続けて」「planを進めて」の場合、`textbook/volumes/00_foundations/` 全体を先に探索しない。
 
-1. `textbook/dream-theater-work.yaml`
-2. そこから参照される `textbook/dream-theater-series/<series>.yaml`
-3. `active_plan` の該当章
+1. `textbook/dream-theater-work.yaml`（共通設定のみ）
+2. 指定された章ID・系列IDに対応する `textbook/dream-theater-series/<系列ID>.yaml`
+3. その系列 manifest の `plan` と対象章
 4. 対象章と直接依存する正本
 
-数学内容・依存関係の正本は各教材ファイルと knowledge DAG であり、work-state manifest は現在地ルーティング専用である。
+章IDを指定されたら、各 manifest の章一覧と照合して正確に特定する。指定なしなら未完了系列が一つのときのみ続行し、複数なら系列を確認する。単一の `active_series` / `next_work` は持たず、進捗は系列 manifest の `chapters` から導出する。異なる系列の作業で共通ルーターを書き換えない。
+
+数学内容・依存関係の正本は各教材ファイルと knowledge DAG である。別の完了章の追跡監査は**明示依頼時のみ**実施し、変更章自身の必須査読とは区別する。
 
 ## 検証のスコープ
 
