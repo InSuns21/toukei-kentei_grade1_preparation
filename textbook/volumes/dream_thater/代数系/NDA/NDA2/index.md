@@ -271,10 +271,10 @@ $$
 
 最後に $a=1$、$u=u_*=\sqrt5-1$ の場合を調べます。このとき $\theta_n=1/\sqrt5$ です。両端の誤差の小さい方も $1/\sqrt5$ になると仮定すると、先ほど使った二つの上界評価がともに等号でなければなりません。従って
 
-$
+$$
 \min(t,s)=\frac u2,\qquad ts=\frac{u^2}{4},
 \qquad t=s=\frac u2=\frac{\sqrt5-1}{2}.
-$
+$$
 
 しかし $t=q_{n-1}/q_n$ は有理数であり、最後の値は無理数なので矛盾します。よって両端の誤差の小さい方は $1/\sqrt5$ より厳密に小さく、すべての場合に目的の不等式を得ました。
 <!-- proof-end -->
@@ -520,9 +520,9 @@ $$
 
 $\lambda(\alpha)>0$ なら、下極限の定義から、ある $Q$ と $\delta>0$ が存在して $q\ge Q$ で $h_\alpha(q)\ge\delta$ となります。残る有限個の分母 $1\le q<Q$ でも無理数性より各 $h_\alpha(q)>0$ なので、結局 $c(\alpha)>0$ です。逆向きには $\lambda(\alpha)\ge c(\alpha)$ を使えます。従って
 
-$
+$$
 c(\alpha)>0\quad\Longleftrightarrow\quad\lambda(\alpha)>0
-$
+$$
 
 です。ただし、**数値としての $c(\alpha)$ と $\lambda(\alpha)$ は一般に等しくありません**。
 
