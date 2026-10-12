@@ -1,0 +1,52 @@
+chapter: ANT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT5
+  - CA12
+  - NT8
+  - ODE5
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.zeta-three-factor-positivity
+    name: ζの三項正値不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（ζの三項正値不等式）]
+    requires: [complex-analysis.zeta-euler-product]
+
+  - id: analytic-number-theory.zeta-one-line-nonvanishing
+    name: Re s=1上のζの零点不存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Re s=1上のζの零点不存在）]
+    requires: [analytic-number-theory.zeta-three-factor-positivity, complex-analysis.zeta-meromorphic-continuation]
+
+  - id: analytic-number-theory.newman-tauber
+    name: Newman型の複素Tauber補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Newman型の複素Tauber補題）]
+    requires: [complex-analysis.cauchy-integral-formula]
+
+  - id: analytic-number-theory.psi-laplace
+    name: ψの正規化誤差のLaplace変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ψの正規化誤差のLaplace変換）]
+    requires: [analytic-number-theory.psi-mellin, analytic-number-theory.zeta-one-line-nonvanishing]
+
+  - id: analytic-number-theory.psi-prime-asymptotic
+    name: Chebyshevのψ関数の素数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Chebyshevのψ関数の素数定理）]
+    requires: [analytic-number-theory.newman-tauber, analytic-number-theory.psi-laplace, number-theory.chebyshev-psi]
+
+  - id: analytic-number-theory.pnt-analytic-proof
+    name: 素数定理の解析的証明
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（素数定理の解析的証明）]
+    requires: [analytic-number-theory.psi-prime-asymptotic, analytic-number-theory.prime-power-sqrt-error, number-theory.prime-number-theorem]
