@@ -1,0 +1,70 @@
+chapter: SREL8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL3
+forward_references: []
+
+concepts:
+  - id: relativity.rindler-chart
+    name: 右Rindler座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（右Rindler座標）]
+    requires: [relativity.minkowski-metric, relativity.proper-time]
+
+  - id: relativity.rindler-metric
+    name: Rindler座標におけるMinkowski計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Rindler座標におけるMinkowski計量）]
+    requires: [relativity.rindler-chart, relativity.minkowski-metric]
+
+  - id: relativity.rindler-static-observer
+    name: Rindler静止観測者
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Rindler静止観測者）]
+    requires: [relativity.rindler-chart, relativity.proper-time]
+
+  - id: relativity.rindler-proper-acceleration
+    name: Rindler静止観測者の固有加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Rindler静止観測者の固有加速度）]
+    requires: [relativity.rindler-static-observer, relativity.four-acceleration]
+
+  - id: relativity.rindler-horizon
+    name: 右Rindler領域の地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（右Rindler領域の地平線）]
+    requires: [relativity.rindler-chart, relativity.light-cone]
+
+  - id: relativity.rindler-causal-reach
+    name: 永遠に一様加速する観測者の通信可能領域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（永遠に一様加速する観測者の通信可能領域）]
+    requires: [relativity.rindler-horizon, relativity.causal-order]
+
+  - id: relativity.rindler-null-rays
+    name: Rindler座標における光線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Rindler座標における光線）]
+    requires: [relativity.rindler-metric, relativity.rindler-horizon]
+
+  - id: relativity.rindler-radar
+    name: Rindler静止鏡までの往復光距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Rindler静止鏡までの往復光距離）]
+    requires: [relativity.rindler-null-rays, relativity.rindler-static-observer]
+
+  - id: relativity.rindler-frequency
+    name: Rindler静止時計間の周波数比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Rindler静止時計間の周波数比）]
+    requires: [relativity.rindler-null-rays, relativity.rindler-static-observer]
