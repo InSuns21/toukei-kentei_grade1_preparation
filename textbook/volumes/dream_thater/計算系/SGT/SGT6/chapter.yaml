@@ -20,7 +20,6 @@ definitions:
   - { id: SGT6-DEF-02, name: 全変動距離 }
   - { id: SGT6-DEF-03, name: 定常分布で重み付けした内積と密度 }
   - { id: SGT6-DEF-04, name: 混合時間 }
-  - { id: SGT6-DEF-05, name: 二部グラフ }
 theorems:
   - { id: SGT6-PROP-01, name: lazy walkの可逆性と固有値 }
   - { id: SGT6-LEM-01, name: 全変動距離の平方平均評価 }

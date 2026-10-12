@@ -6,7 +6,8 @@ prerequisites:
   - SGT2
   - SGT3
   - F0-00F1
-forward_references: []
+forward_references:
+  - optimization.bipartite-graph
 
 concepts:
   - id: spectral-graph.lazy-walk
@@ -72,19 +73,12 @@ concepts:
     introduction_aliases: [定理（第二固有値からの混合時間下界）]
     requires: [spectral-graph.mixing-time, spectral-graph.lazy-spectrum, spectral-graph.weighted-adjoint]
 
-  - id: spectral-graph.bipartite-graph
-    name: 二部グラフ
-    kind: definition
-    introduction: formal
-    introduction_aliases: [定義（二部グラフ）]
-    requires: [spectral-graph.walk-transition]
-
   - id: spectral-graph.bipartite-spectrum
     name: 二部性と固有値マイナス1の同値性
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（二部性と固有値 $-1$ の同値性）]
-    requires: [spectral-graph.bipartite-graph, spectral-graph.normalized-similarity]
+    requires: [spectral-graph.walk-transition, spectral-graph.normalized-similarity]
 
   - id: spectral-graph.nonlazy-mixing
     name: 通常歩行が混合する条件と速度
