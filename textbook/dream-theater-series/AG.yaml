@@ -56,7 +56,7 @@ chapters:
     title: "アフィン曲線の総合演習"
   - id: AG2-01
     path: textbook/volumes/dream_thater/代数系/AG/AG2-01
-    status: planned
+    status: completed
     title: "射影空間と斉次座標"
   - id: AG2-02
     path: textbook/volumes/dream_thater/代数系/AG/AG2-02
