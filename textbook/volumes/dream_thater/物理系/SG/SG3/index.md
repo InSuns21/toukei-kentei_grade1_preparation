@@ -16,13 +16,13 @@ Sherrington–Kirkpatrick（SK）模型では、二配置が各サイトでど�
 > **定義（Sherrington–Kirkpatrick模型）**  
 > $N\ge1$、$\beta\ge0$、$h\in\mathbb R$ とし、$J_{ij}$（$1\le i<j\le N$）を独立な $N(0,1)$ 変数とする。各 $\sigma\in\Sigma_N$ に対し
 >
-> $$
-> B_N^{\mathrm{SK}}(\sigma)
-> =\frac{\beta}{\sqrt N}\sum_{1\le i<j\le N}J_{ij}\sigma_i\sigma_j
-> +h\sum_{i=1}^N\sigma_i,
-> \qquad
-> Z_N^{\mathrm{SK}}=\sum_{\sigma\in\Sigma_N}e^{B_N^{\mathrm{SK}}(\sigma)}
-> $$
+$$
+B_N^{\mathrm{SK}}(\sigma)
+=\frac{\beta}{\sqrt N}\sum_{1\le i<j\le N}J_{ij}\sigma_i\sigma_j
++h\sum_{i=1}^N\sigma_i,
+\qquad
+Z_N^{\mathrm{SK}}=\sum_{\sigma\in\Sigma_N}e^{B_N^{\mathrm{SK}}(\sigma)}
+$$
 >
 > と定める。無秩序 $J$ を固定したGibbs平均、ランダム圧力、quenched圧力をそれぞれ
 
@@ -68,10 +68,10 @@ $$
 > **命題（対角項を含むGaussian表示の同値性）**  
 > 上記の標準SK模型とfull表示の間で、$N\ge1$、$\beta\ge0$、$h\in\mathbb R$ の全てについて
 >
-> $$
-> Z_N^{\mathrm{full}}\ \stackrel{d}{=}\ e^{\beta D_N}Z_N^{\mathrm{SK}},
-> \qquad D_N\sim N(0,1/2),
-> $$
+$$
+Z_N^{\mathrm{full}}\ \stackrel{d}{=}\ e^{\beta D_N}Z_N^{\mathrm{SK}},
+\qquad D_N\sim N(0,1/2),
+$$
 >
 > かつ右辺の $D_N$ は $Z_N^{\mathrm{SK}}$ と独立に選べる。このため $\mathbb E\log Z_N^{\mathrm{full}}=\mathbb E\log Z_N^{\mathrm{SK}}$ であり、両表示の $p_N(\beta,h)$ は等しい。
 <!-- formal-statement-end -->
@@ -110,9 +110,9 @@ SG2では[二レプリカ平均](../SG2/index.md#def-sg2-replica)を使いまし
 > **定義（SK模型のoverlap）**  
 > $N\ge1$、$\sigma,\tau\in\Sigma_N$ に対し
 >
-> $$
-> q_N(\sigma,\tau)=\frac1N\sum_{i=1}^N\sigma_i\tau_i
-> $$
+$$
+q_N(\sigma,\tau)=\frac1N\sum_{i=1}^N\sigma_i\tau_i
+$$
 >
 > をoverlap（重なり）と呼ぶ。無秩序を固定して独立な二レプリカ $\sigma^1,\sigma^2$ をGibbs分布から取るとき、$q_{12}=q_N(\sigma^1,\sigma^2)$ と書き、$\langle q_{12}^k\rangle$ の後に必要に応じて $\mathbb E$ を取る。
 <!-- formal-statement-end -->
@@ -135,10 +135,10 @@ $$
 > **命題（SK Gaussian場の共分散とoverlap）**  
 > 定義した $X_N$ は平均0の有限Gaussian場であり、任意の $\sigma,\tau\in\Sigma_N$ に対し
 >
-> $$
-> \mathbb E[X_N(\sigma)X_N(\tau)]
-> =\frac N2 q_N(\sigma,\tau)^2.
-> $$
+$$
+\mathbb E[X_N(\sigma)X_N(\tau)]
+=\frac N2 q_N(\sigma,\tau)^2.
+$$
 >
 > 標準表示の相互作用 $Y_N(\sigma)=N^{-1/2}\sum_{i<j}J_{ij}\sigma_i\sigma_j$ では共分散は $(Nq_N(\sigma,\tau)^2-1)/2$ である。特に両表示の配置間の共分散は同じ $q_N^2$ に依存する。
 <!-- formal-statement-end -->
@@ -187,18 +187,18 @@ $$
 > **命題（quenched圧力の微分とoverlap）**  
 > $N\ge1$、$\beta\ge0$、$h\in\mathbb R$ に対し、SKのquenched圧力 $p_N(\beta,h)$ は $\beta$ に関して右微分（$\beta>0$ では通常の微分）が存在し、
 >
-> $$
-> \partial_\beta p_N(\beta,h)
-> =\frac\beta2\left(1-\mathbb E\langle q_{12}^2\rangle\right).
-> $$
+$$
+\partial_\beta p_N(\beta,h)
+=\frac\beta2\left(1-\mathbb E\langle q_{12}^2\rangle\right).
+$$
 >
 > さらに
 >
-> $$
-> 0\le\partial_\beta p_N\le\frac\beta2,\qquad
-> \log(2\cosh h)\le p_N(\beta,h)
-> \le\log(2\cosh h)+\frac{\beta^2}{4}.
-> $$
+$$
+0\le\partial_\beta p_N\le\frac\beta2,\qquad
+\log(2\cosh h)\le p_N(\beta,h)
+\le\log(2\cosh h)+\frac{\beta^2}{4}.
+$$
 >
 > この微分公式はfull表示・標準表示に共通である。
 <!-- formal-statement-end -->
@@ -271,16 +271,16 @@ $a_N=Np_N=\mathbb E\log Z_N$ を比較の対象にします。各ブロックに
 > **定理（Guerra–Toninelli型の超加法性）**  
 > $\beta\ge0$、$h\in\mathbb R$ を固定し、SK模型の $a_N=\mathbb E\log Z_N^{\mathrm{SK}}$ と置く。任意の整数 $N_1,N_2\ge1$ について
 >
-> $$
-> a_{N_1+N_2}\ge a_{N_1}+a_{N_2}.
-> $$
+$$
+a_{N_1+N_2}\ge a_{N_1}+a_{N_2}.
+$$
 >
 > 具体的に、上記の独立なfull Gaussian場を $\sqrt t\,V+\sqrt{1-t}\,Y$ と補間し、その分配関数に対する $\Psi(t)=\mathbb E\log Z_t$ とすると、$N=N_1+N_2$、$0<t<1$ について
 >
-> $$
-> \Psi'(t)=\frac{\beta^2}{4}\frac{N_1N_2}{N}\,
-> \mathbb E\left\langle(q_{12}^{(1)}-q_{12}^{(2)})^2\right\rangle_t\ge0.
-> $$
+$$
+\Psi'(t)=\frac{\beta^2}{4}\frac{N_1N_2}{N}\,
+\mathbb E\left\langle(q_{12}^{(1)}-q_{12}^{(2)})^2\right\rangle_t\ge0.
+$$
 >
 > $q_{12}^{(j)}$ はブロック $j$ 内の二レプリカoverlapである。
 <!-- formal-statement-end -->
@@ -358,13 +358,13 @@ $$
 > **定理（SK模型のquenched圧力の熱力学極限）**  
 > 独立な標準正規結合を持つSK模型で $\beta\ge0$、$h\in\mathbb R$ を固定する。$p_N(\beta,h)=N^{-1}\mathbb E\log Z_N^{\mathrm{SK}}$ は有限な極限を持ち、
 >
-> $$
-> p(\beta,h):=\lim_{N\to\infty}p_N(\beta,h)
-> =\sup_{N\ge1}p_N(\beta,h),
-> \qquad
-> \log(2\cosh h)\le p(\beta,h)\le
-> \log(2\cosh h)+\frac{\beta^2}{4}.
-> $$
+$$
+p(\beta,h):=\lim_{N\to\infty}p_N(\beta,h)
+=\sup_{N\ge1}p_N(\beta,h),
+\qquad
+\log(2\cosh h)\le p(\beta,h)\le
+\log(2\cosh h)+\frac{\beta^2}{4}.
+$$
 >
 > 同じ結合空間上に各 $N$ の模型を定めれば、ランダム圧力 $F_N=N^{-1}\log Z_N^{\mathrm{SK}}$ も $p(\beta,h)$ へ確率収束し、かつ概収束する。ここで $N$ が異なる模型の結合に独立性は要求しない。
 <!-- formal-statement-end -->
