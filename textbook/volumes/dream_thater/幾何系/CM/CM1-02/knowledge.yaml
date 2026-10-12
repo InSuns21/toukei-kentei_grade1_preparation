@@ -1,0 +1,55 @@
+chapter: CM1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-01
+
+concepts:
+  - id: complex-manifolds.manifold-holomorphic-map
+    name: 複素多様体間の正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素多様体間の正則写像）"]
+    requires: [complex-manifolds.complex-n-manifold, complex-manifolds.several-variables-holomorphic-map]
+  - id: complex-manifolds.coordinate-invariance
+    name: 正則写像の座標不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則写像の座標不変性）"]
+    requires: [complex-manifolds.manifold-holomorphic-map, complex-manifolds.higher-holomorphic-atlas, complex-manifolds.holomorphic-composition]
+  - id: complex-manifolds.map-composition
+    name: 多様体間の正則写像の合成と恒等写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多様体間の正則写像の合成と恒等写像）"]
+    requires: [complex-manifolds.coordinate-invariance]
+  - id: complex-manifolds.biholomorphic-equivalence
+    name: 複素多様体の双正則同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素多様体の双正則同値）"]
+    requires: [complex-analysis.biholomorphism, complex-manifolds.manifold-holomorphic-map]
+  - id: complex-manifolds.biholomorphic-inverse
+    name: 実微分同相である正則写像の逆
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実微分同相である正則写像の逆）"]
+    requires: [complex-manifolds.biholomorphic-equivalence, complex-manifolds.coordinate-invariance]
+  - id: complex-manifolds.rank-invariance
+    name: 正則写像の複素Jacobi階数の座標不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則写像の複素Jacobi階数の座標不変性）"]
+    requires: [complex-manifolds.coordinate-invariance, complex-manifolds.holomorphic-composition]
+  - id: complex-manifolds.holomorphic-rank
+    name: 正則写像の局所複素階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則写像の局所複素階数）"]
+    requires: [complex-manifolds.rank-invariance]
+  - id: complex-manifolds.product-maps
+    name: 正則写像の直積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則写像の直積）"]
+    requires: [complex-manifolds.finite-product, complex-manifolds.holomorphic-rank]
