@@ -20,12 +20,12 @@ $$
 
 Euclid 型の平方和 $(c\Delta t)^2+|\Delta\boldsymbol r|^2$ は、[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)で保存されません。次の数値で確かめます。二事象の差とboost速度を
 
-$
+$$
 c\Delta t=5\,\mathrm m,\qquad
 \Delta x=3\,\mathrm m,\qquad
 v=\frac{3c}{5},\qquad
 \gamma=\frac54
-$
+$$
 
 と取って座標を変換すると
 
@@ -339,10 +339,10 @@ $$
 
 滑らかな区間で世界線を $X(t)=(ct,\boldsymbol r(t))$ と表示します。時間で微分し、線形なLorentz変換を $\Lambda$ と書くと、微小変化は
 
-$
+$$
 dX=(c,\dot{\boldsymbol r}(t))\,dt,\qquad
 dX'=\Lambda\,dX
-$
+$$
 
 です。この同じ二つの微小変化へ [時空間隔の不変性](#thm-srel2-interval-invariance)を適用すると
 
@@ -677,14 +677,14 @@ $$
 
 $S$ の原点から出発し、時刻 $T>0$ に同じ原点へ戻る時計を考える。途中の速度は次の区分的な関数とする。
 
-$
+$$
 v(t)=
 \begin{cases}
 u & (0\le t<T/2),\\
 -u & (T/2\le t\le T),
 \end{cases}
 \qquad 0<u<c.
-$
+$$
 
 静止する時計の固有時との大小関係を積分から証明せよ。なぜ二つの慣性系を入れ替える議論だけでは同じ結論が出ないかを述べよ。
 
@@ -715,20 +715,20 @@ $$
 
 $S$ の二事象を、時間の成分が $ct$ となる四成分表示で次のように与える。
 
-$
+$$
 A=(0,\boldsymbol0),\qquad
 B=(10c\,\mathrm s,(3c\,\mathrm s,0,0)).
-$
+$$
 
 二本の時計は同じ事象 $A$ で出発し $B$ で再会する。時計Iは $S$ で速度 $3c/10$ の等速直線運動を続ける。時計IIの速度は
 
-$
+$$
 v_{\mathrm{II}}(t)=
 \begin{cases}
 3c/5 & (0\le t<5\,\mathrm s),\\
 0 & (5\,\mathrm s\le t\le10\,\mathrm s)
 \end{cases}
-$
+$$
 
 とする（速度の切替は理想化する）。
 
