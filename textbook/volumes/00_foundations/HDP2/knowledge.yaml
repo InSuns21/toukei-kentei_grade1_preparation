@@ -1,0 +1,43 @@
+chapter: HDP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP1
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.exponential-remainder
+    name: 指数関数の二次余剰
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（指数関数の二次余剰）]
+    requires: []
+  - id: high-dimensional-probability.variance-sensitive-mgf
+    name: 片側有界変数の分散依存指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（片側有界変数の分散依存指数モーメント）]
+    requires: [high-dimensional-probability.exponential-remainder]
+  - id: high-dimensional-probability.bennett-rate
+    name: Bennettの率関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Bennettの率関数）]
+    requires: []
+  - id: high-dimensional-probability.bennett-inequality
+    name: Bennettの不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bennettの不等式：独立・非同分布版）]
+    requires: [high-dimensional-probability.bennett-rate, high-dimensional-probability.variance-sensitive-mgf, high-dimensional-probability.exponential-markov, prob.expectation-factorization]
+  - id: high-dimensional-probability.bernstein-inequality
+    name: Bernsteinの不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bernsteinの不等式：分散依存の右裾）]
+    requires: [high-dimensional-probability.variance-sensitive-mgf, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.bernstein-two-sided
+    name: Bernsteinの両側不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（Bernsteinの両側不等式）]
+    requires: [high-dimensional-probability.bernstein-inequality, prob.union-bound]

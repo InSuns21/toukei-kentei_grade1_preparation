@@ -1,0 +1,43 @@
+id: HDP2
+title: Bennett・Bernstein不等式と分散依存の集中
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 指数関数の二次余剰を片側上限で抑え、分散依存の指数モーメント補題を証明できる
+  - 独立非同分布の和にBennettの不等式を導き、率関数と最適パラメータを計算できる
+  - Bernsteinの不等式を級数評価から証明し、二次・一次tailの切替を説明できる
+  - 両側評価のための下側上限と退化分散の例外を処理できる
+  - 稀なBernoulli観測と多座標の同時保証で標本数を逆算できる
+  - 独立性または両側上限を落とした反例で証明が壊れる位置を特定できる
+definitions:
+  - { id: HDP2-DEF-01, name: Bennettの率関数 }
+theorems:
+  - { id: HDP2-LEM-01, name: 指数関数の二次余剰 }
+  - { id: HDP2-LEM-02, name: 片側有界変数の分散依存指数モーメント }
+  - { id: HDP2-THM-01, name: Bennettの不等式 }
+  - { id: HDP2-THM-02, name: Bernsteinの不等式 }
+  - { id: HDP2-COR-01, name: Bernsteinの両側不等式 }
+canonical_examples:
+  - Bernoulliの中心化・分散・片側上限
+  - Rademacherと異なる幅の非同分布和
+  - 稀なBernoulliのHoeffding比較
+  - 完全従属によるBernstein上界の反例
+  - 片側上限の下裾への誤用の反例
+problem_patterns:
+  - HDP2-BERNOULLI-CENTERING
+  - HDP2-EXPONENTIAL-REMAINDER
+  - HDP2-ZERO-VARIANCE
+  - HDP2-BENNETT-OPTIMIZATION
+  - HDP2-SYMMETRIC-TAIL
+  - HDP2-RARE-EVENT
+  - HDP2-CONFIDENCE-INVERSION
+  - HDP2-DEPENDENCE-COUNTEREXAMPLE
+  - HDP2-ONE-SIDED-COUNTEREXAMPLE
+  - HDP2-MULTIPLE-COORDINATES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 2 }

@@ -12,7 +12,7 @@ chapters:
     title: 指数Markov法・Hoeffding補題・Hoeffding不等式
   - id: HDP2
     path: textbook/volumes/00_foundations/HDP2
-    status: planned
+    status: completed
     title: Bennett・Bernstein不等式と分散依存の集中
   - id: HDP3
     path: textbook/volumes/00_foundations/HDP3
