@@ -1,0 +1,46 @@
+id: "SG4"
+title: "replica対称性・対称性の破れ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG3
+  - RA2
+official_scope: []
+learning_objectives:
+  - 無秩序共有のレプリカとoverlap分布の意味を説明できる
+  - replica trickの解析接続と厳密Gaussian補間の違いを説明できる
+  - RS試行圧力の補間恒等式と上界を中間式込みで証明できる
+  - Gaussian部分積分でRS停留方程式と固定点の存在を導ける
+  - 外場ゼロの高温圧力を二次モーメント・集中・凸性で証明できる
+  - ATパラメータの近似線形応答を導き真のRSB証明と区別できる
+  - 二水準overlap模型の分布と二乗平均を計算できる
+definitions:
+  - { id: SG4-DEF-01, name: "レプリカoverlap分布" }
+  - { id: SG4-DEF-02, name: "RS試行圧力" }
+  - { id: SG4-DEF-03, name: "RS線形応答のATパラメータ" }
+  - { id: SG4-DEF-04, name: "二水準のoverlap混合模型" }
+propositions:
+  - { id: SG4-PROP-01, name: "RS試行式の停留条件" }
+theorems:
+  - { id: SG4-THM-01, name: "有限サイズRS補間恒等式と上界" }
+  - { id: SG4-THM-02, name: "外場ゼロのSK高温圧力" }
+canonical_examples:
+  - N=1のoverlap分布
+  - q=0のRS試行圧力とannealed上界
+  - 補間共分散の差の平方完成
+  - h=0の自己整合固定点
+  - q=h=0のAT増幅率
+  - 二状態ラベルの二水準overlap分布
+problem_patterns:
+  - SG4-OVERLAP-DISTRIBUTION
+  - SG4-RS-ENDPOINTS
+  - SG4-INTERPOLATION
+  - SG4-SELF-CONSISTENCY
+  - SG4-SECOND-MOMENT
+  - SG4-CONCENTRATION
+  - SG4-AT
+  - SG4-RSB-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 7 }
