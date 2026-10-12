@@ -28,7 +28,7 @@ chapters:
     title: Gaussian集中とLipschitz関数
   - id: HDP6
     path: textbook/volumes/dream_thater/解析系/HDP/HDP6
-    status: planned
+    status: completed
     title: epsilon-netとJohnson–Lindenstrauss射影
   - id: HDP7
     path: textbook/volumes/dream_thater/解析系/HDP/HDP7
