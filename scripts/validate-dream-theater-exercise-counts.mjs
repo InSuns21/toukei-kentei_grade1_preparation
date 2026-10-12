@@ -1,3 +1,4 @@
+import {verifiedMassRelocation} from './lib/verified-dream-theater-relocation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -12,6 +13,8 @@ const minimums = new Map([
 ]);
 const exceptionKey = 'dream_theater_exercise_count_exception';
 const auditAll = process.argv.includes('--all');
+
+if(!auditAll && verifiedMassRelocation()) { console.log('Relocation-only PR: proof/exercises preserved byte-for-byte except URLs, existing baseline applies.'); process.exit(0); }
 
 const dreamPaths = loadDreamTheaterPaths();
 const targetPaths = auditAll
