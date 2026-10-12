@@ -279,7 +279,7 @@ $$
 
 ### 証明の見取り図
 
-$\omega^\flat$ の線形性、外積の交代性、関数の微分の積の法則を使います。
+$\omega^\flat$ の線形性、外積の交代性を使います。関数積の微分は $d(gh)=g\,dh+h\,dg$ と展開し、その各項へベクトル場を代入します。
 
 <!-- proof-start -->
 ### 証明
@@ -482,6 +482,8 @@ $$
 $$
 
 となり、両側が一致します。
+
+<a id="ref-sym4-harmonic-flow"></a>
 
 ## 6. 局所流と大域流の違いを例で見る
 
@@ -815,7 +817,7 @@ $$
 
 [Poisson括弧の自然性](#thm-sym4-poisson-naturality)を計算でも確認しました。
 
-**(4)**　初期値 $(q_0,p_0)$ の[調和振動子の解](#def-sym4-hamiltonian-vector-field)は
+**(4)**　初期値 $(q_0,p_0)$ の[調和振動子の解](#ref-sym4-harmonic-flow)は
 
 $$
 q(t)=q_0\cos t+p_0\sin t,\qquad
