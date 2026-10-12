@@ -517,7 +517,7 @@ F_n^{(u)}(x)-F_n^{(v)}(x)
 =\frac1n(\mathbf1_{\{u_i\le x\}}-\mathbf1_{\{v_i\le x\}})
 $$
 
-であるため絶対値は $1/n$ 以下です。$h_u(x)=|F_n^{(u)}(x)-F(x)|$ と置けば、絶対値の逆三角不等式から $|h_u(x)-h_v(x)|\le1/n$ です。さらに $\sup_xh_u(x)\le\sup_xh_v(x)+1/n$ とその逆を使えば $|Z(u)-Z(v)|\le1/n$ が従います。$V=n/n^2=1/n$ より
+であるため絶対値は $1/n$ 以下です。$h_u(x)=|F_n^{(u)}(x)-F(x)|$ と置けば、絶対値に対する[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から $|h_u(x)-h_v(x)|\le1/n$ です。さらに $\sup_xh_u(x)\le\sup_xh_v(x)+1/n$ とその逆を使えば $|Z(u)-Z(v)|\le1/n$ が従います。$V=n/n^2=1/n$ より
 
 $$
 P(Z-EZ\ge t)\le e^{-2nt^2}.
@@ -534,7 +534,7 @@ $Z$ 自体には一般に $EZ>0$ なので、$P(Z\ge t)\le e^{-2nt^2}$ へ勝手
 - ID: HDP4-B3
 
 <!-- solution-start -->
-**詳細解答**　$S(x)=\sum_iw_i(x_i-EX_i)$ とすれば、入力 $x_i$ を $x_i'$ に替えた差は $w_i(x_i-x_i')$ で、絶対値が $|w_i|$ 以下です。絶対値の逆三角不等式
+**詳細解答**　$S(x)=\sum_iw_i(x_i-EX_i)$ とすれば、入力 $x_i$ を $x_i'$ に替えた差は $w_i(x_i-x_i')$ で、絶対値が $|w_i|$ 以下です。絶対値に対する[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)
 
 $$
 \bigl||S(x)|-|S(x')|\bigr|\le|S(x)-S(x')|
