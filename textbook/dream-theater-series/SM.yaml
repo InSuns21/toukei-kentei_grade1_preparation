@@ -1,0 +1,39 @@
+version: 1
+id: SM
+title: "統計力学"
+plan: textbook/plans_progress/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: SM1
+    path: textbook/volumes/dream_thater/物理系/SM/SM1
+    status: completed
+    title: 微視的状態・巨視的状態・アンサンブル・熱力学極限
+  - id: SM2
+    path: textbook/volumes/dream_thater/物理系/SM/SM2
+    status: planned
+    title: 微正準アンサンブルとBoltzmannエントロピー
+  - id: SM3
+    path: textbook/volumes/dream_thater/物理系/SM/SM3
+    status: planned
+    title: 正準アンサンブルと分配関数
+  - id: SM4
+    path: textbook/volumes/dream_thater/物理系/SM/SM4
+    status: planned
+    title: 大正準アンサンブルと粒子数揺らぎ
+  - id: SM5
+    path: textbook/volumes/dream_thater/物理系/SM/SM5
+    status: planned
+    title: 古典理想気体とアンサンブルの同値性
+  - id: SM6
+    path: textbook/volumes/dream_thater/物理系/SM/SM6
+    status: planned
+    title: 量子統計と量子理想気体
+  - id: SM7
+    path: textbook/volumes/dream_thater/物理系/SM/SM7
+    status: planned
+    title: Ising模型とCurie–Weiss平均場
+  - id: SM8
+    path: textbook/volumes/dream_thater/物理系/SM/SM8
+    status: planned
+    title: 相転移と臨界現象

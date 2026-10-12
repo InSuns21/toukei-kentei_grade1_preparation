@@ -254,12 +254,12 @@ $$
 
 ### 証明の見取り図
 
-[SGT6の混合時間下界](../SGT6/index.md#thm-sgt6-mixing-lower)は第二固有値から得られる減衰率に依存します。先ほど得た $\lambda_2\leq2/v$ を代入するだけでなく、その減衰率が正で1より小さいことを確認します。
+[SGT6の混合時間下界](../SGT6/index.md#thm-sgt6-mixing-lower)は第二固有値から得られる減衰率に依存します。[前節の第二固有値上界](#thm-sgt8-barbell-conductance) $\lambda_2\leq2/v$ を代入するだけでなく、その減衰率が正で1より小さいことを確認します。
 
 <!-- proof-start -->
 ### 証明
 
-[SGT6のlazy walkの固有値変換](../SGT6/index.md#prop-sgt6-lazy-spectrum)から、第二固有値は $\mu_2=1-\lambda_2/2$ です。$H_m$ は連結で正次数なので $\lambda_2>0$。前節の上界と $m\geq2$ から $v\geq3$ だから
+[SGT6のlazy walkの固有値変換](../SGT6/index.md#prop-sgt6-lazy-spectrum)から、第二固有値は $\mu_2=1-\lambda_2/2$ です。$H_m$ は連結で正次数なので $\lambda_2>0$。[前節の第二固有値上界](#thm-sgt8-barbell-conductance)と $m\geq2$ から $v\geq3$ だから
 
 $$
 0<1-\frac1v\leq1-\frac{\lambda_2}{2}=\mu_2<1.
@@ -358,7 +358,36 @@ $x=(0,1,3,4)\subset\mathbb R$ に対し (i) $\varepsilon=11/10$、(ii) $\varepsi
 - ID: SGT8-A2
 
 <!-- solution-start -->
-**詳細解答**　距離は2なので辺があり、重みは $a=\exp(-2^2/2^2)=e^{-1}$ です。従って $W=\begin{pmatrix}0&a\\a&0\end{pmatrix}$、$D=\operatorname{diag}(a,a)$、$L=\begin{pmatrix}a&-a\\-a&a\end{pmatrix}$。行列を掛けると $Lf=(2a,-2a)^{\mathsf T}$、さらに $f^{\mathsf T}Lf=1(2a)+(-1)(-2a)=4a$。辺ごとの和では $a(1-(-1))^2=4a$ で一致します。
+**詳細解答**　距離は2で閾値3以内にあるため辺があり、その重みは
+
+$$
+a=\exp\left(-\frac{2^2}{2^2}\right)=e^{-1}>0
+$$
+
+です。次数は両頂点とも $a$ なので
+
+$$
+W=\begin{pmatrix}0&a\\a&0\end{pmatrix},\qquad
+D=\begin{pmatrix}a&0\\0&a\end{pmatrix},\qquad
+L=\begin{pmatrix}a&-a\\-a&a\end{pmatrix}.
+$$
+
+行列積を順に計算すると
+
+$$
+Lf=\begin{pmatrix}2a\\-2a\end{pmatrix},\qquad
+f^{\mathsf T}Lf=(1,-1)\begin{pmatrix}2a\\-2a\end{pmatrix}
+=2a+2a=4a.
+$$
+
+一方、[SGT1のDirichletエネルギーの辺表示](../SGT1/index.md#thm-sgt1-dirichlet)を唯一の辺へ適用すれば
+
+$$
+\sum_{i<j}w_{ij}(f_i-f_j)^2
+=a(1-(-1))^2=4a
+$$
+
+となり、二通りの結果が一致します。
 <!-- solution-end -->
 
 #### A3. 同距離の近傍選択
@@ -404,7 +433,21 @@ $H_m$ の左右で $f_i=1,-1$ とする。$f$ が次数付き平均零である�
 - ID: SGT8-B2
 
 <!-- solution-start -->
-**詳細解答**　左右の体積はともに $v$ なので、$\sum_i d_if_i=v-v=0$。両側で $f_i^2=1$ だから $\sum_i d_if_i^2=v+v=2v$。内部辺は同じ側にあり差が0、唯一の橋で $(1-(-1))^2=4$。従って[SGT2のRayleigh–Ritz表示](../SGT2/index.md#thm-sgt2-rayleigh)へ代入した商は $4/(2v)=2/v$ です。この関数を許容試験ベクトルとして採用することで $\lambda_2\leq2/v$ を示しますが、試験ベクトルが固有ベクトルかどうかは別問題です。
+**詳細解答**　左右の体積はともに $v$ なので、次数付き平均は
+
+$$
+\sum_i d_if_i=\sum_{i\in A}d_i-\sum_{i\in B}d_i=v-v=0
+$$
+
+です。また $f_i^2=1$ であることから分母は $\sum_i d_if_i^2=v+v=2v$ です。内部辺では差が0で、唯一の橋では差が2となるため、重み1の辺エネルギーは4です。従って、正次数・連結性・次数付き平均零を確認して[SGT2の正規化第二固有値の変分表示](../SGT2/index.md#thm-sgt2-rayleigh)へ代入すると
+
+$$
+\frac{\sum_{\{i,j\}\in E}(f_i-f_j)^2}{\sum_i d_if_i^2}
+=\frac{(1-(-1))^2}{2v}=\frac2v,
+\qquad \lambda_2\leq\frac2v.
+$$
+
+ここで等号が成り立つのは**この試験関数の商**であって、試験関数が第二固有ベクトルであるとは主張していません。
 <!-- solution-end -->
 
 #### B3. Thomson原理を橋のcutへ適用する

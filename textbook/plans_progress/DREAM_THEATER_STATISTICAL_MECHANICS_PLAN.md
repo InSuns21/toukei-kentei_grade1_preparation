@@ -1,7 +1,7 @@
 # DREAM THEATER 統計力学（SM1〜SM8）
 
 作成・分冊: 2026-10-11  
-状態: planned・着手可能（前提のTH1〜TH8は全章完成・横断監査済み。SM本文の実装・公開は未着手）
+状態: in progress（TH1〜TH8の完了・横断監査を前提に、SM1の本文・演習・公開導線を実装。SM2〜SM8と系列横断監査は未完了）
 
 ## 中心問い
 
@@ -10,7 +10,7 @@
 ## 直接必要な前提・PLAN間依存
 
 - 完了済みの熱力学 TH1〜TH8、確率論・測度論。SM1 の着手時には実際に使う正本結果と必要な直接前提を chapter/knowledge metadata に確定する。量子統計を扱うSM6では QM の必要部分を改めて確定する。
-- この系列の推奨順：[TH](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
+- この系列の推奨順：[TH](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](../plans/DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
 
 ## 所有範囲
 
@@ -49,8 +49,14 @@ free-energy nonanalyticity、correlation、critical point、scaling / universali
 - 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。変更章自身の主要証明と全詳細解答を再導出し、別観点の再査読を行う。別の完了章の追跡監査は章IDを指定した明示依頼時のみ行う。
 - 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
 
+## SM1 の着手と進捗（2026-10-12）
+
+- SM1 を微視的状態・巨視的状態・有限アンサンブル・離散準位の状態数・熱力学極限の入口として執筆し、SM 系列 manifest を作成した。
+- SM1 は主要4結果の完全証明と A5/B4/C1 の詳細解答を備える。SM2〜SM8 は未着手、系列横断監査も今後実施する。
+- 概念、証明、数え上げの各役割を区別し、等確率とエントロピーの物理的対応は SM2 に委ねる。
+
 ## 着手ゲートの確認（2026-10-12）
 
 - TH1〜TH8 は系列 manifest で全章 `completed`、熱力学 PLAN は横断監査を完了して `plan_done/` に移動済み。熱力学の未完了を理由に SM1 の実装を留保する必要はない。
-- SM はまだ設計済み・未着手であり、`plans/` に保持する。**SM1 の本文・検証など PLAN 固有作業に実際に着手したとき**、この PLAN を `plans_progress/` へ移し、SM 系列 manifest と直接参照を作成・更新する。準備完了だけでは着手扱いしない。
+- SM1 の本文・検証に着手したため PLAN を `plans_progress/` へ移し、SM 系列 manifest に進捗を登録した。
 - SM1 は微視的状態・巨視的状態・アンサンブル・熱力学極限の定義を入口とし、TH の巨視的平衡論と微視的分配関数の論証を混同しない。
