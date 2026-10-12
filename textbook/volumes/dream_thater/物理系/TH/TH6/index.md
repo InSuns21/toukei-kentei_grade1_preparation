@@ -922,10 +922,10 @@ $$
 
 となり、[厳密な局所安定性と応答の符号](#thm-th6-stability-response)から得た $\det H_U$ と一致します。最後に $T,V,N$ を固定して $b\downarrow0$ とすれば、
 
-$
+$$
 \lim_{b\downarrow0}\kappa_T
 =\frac{V^2}{NRTV}=\frac{V}{NRT}=\frac1p.
-$
+$$
 
 最後の等号は極限模型の $p=NRT/V$ を用いました。
 <!-- solution-end -->
