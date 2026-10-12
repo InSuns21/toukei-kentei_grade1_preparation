@@ -68,9 +68,8 @@ for(const name of planFiles){
  const categories=[...new Set(spec.chapters.map(c=>owners.get(c.id)?.category).filter(Boolean))];
  if(categories.length!==1)throw Error('Unresolved series category in '+name+': '+categories);
  for(const chapter of spec.chapters){
-  if(seriesId(chapter.id)!==spec.id)throw Error('Series ID mismatch in '+name+': '+chapter.id);
   const owner=owners.get(chapter.id);
-  if(owner&&(owner.category!==categories[0]||owner.course!==spec.id))
+  if(owner&&(owner.category!==categories[0]||owner.course!==seriesId(chapter.id)))
     throw Error('Course/category mismatch in '+name+': '+chapter.id);
  }
 }
@@ -121,7 +120,7 @@ if(apply){
   const spec=YAML.parse(body);
   const cat=spec.chapters.map(ch=>owners.get(ch.id)?.category).find(Boolean);
   for(const chapter of spec.chapters){
-   const dest=ROOT+'/'+cat+'/'+spec.id+'/'+chapter.id;
+   const dest=ROOT+'/'+cat+'/'+seriesId(chapter.id)+'/'+chapter.id;
    const prior=chapter.path;
    if(!body.includes('path: '+prior))throw Error('Cannot find series path '+name+'/'+chapter.id);
    body=body.replace('path: '+prior,'path: '+dest);
@@ -174,7 +173,7 @@ for(const name of planFiles){
  const spec=YAML.parse(read(SERIES+'/'+name));
  const cat=[...new Set(spec.chapters.map(c=>owners.get(c.id)?.category).filter(Boolean))];
  for(const ch of spec.chapters){
-  const expected=ROOT+'/'+cat[0]+'/'+spec.id+'/'+ch.id;
+  const expected=ROOT+'/'+cat[0]+'/'+seriesId(ch.id)+'/'+ch.id;
   if(ch.path!==expected)errors.push('Invalid series chapter path: '+name+'/'+ch.id);
   if(ch.status==='completed'&&!exists(expected+'/chapter.yaml'))errors.push('Missing completed series chapter: '+ch.id);
  }
