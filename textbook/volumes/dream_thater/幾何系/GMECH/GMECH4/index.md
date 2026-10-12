@@ -37,6 +37,8 @@ $$
 <!-- definition-example-start: def-gmech4-level-regular -->
 ### 直接例：直線の並進
 
+**定義の確認**：微分が任意の目標値を取れることを接ベクトルで構成し、レベル集合の次元を照合します。
+
 $M=T^*\mathbb R$、$\omega=dq\wedge dp$、$G=(\mathbb R,+)$ が $a\cdot(q,p)=(q+a,p)$ と作用します。[余接持ち上げの標準運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)は $J(q,p)=p$ です。任意の接ベクトル $(u,v)$ に対し
 
 $$
@@ -182,6 +184,8 @@ $$
 <!-- definition-example-start: def-gmech4-coadjoint-stabilizer -->
 ### 直接例：空間回転と角運動量
 
+**定義の確認**：余随伴作用を具体的な回転に直し、保存値を固定する群元をすべて求めます。
+
 $G=SO(3)$ のLie代数・双対を標準内積で $\mathbb R^3$ と同一視します。[GMECH2の回転の運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)は $T^*\mathbb R^3$ 上で $J(q,p)=q\times p$ です。余随伴作用は通常の回転 $\mu\mapsto R\mu$ になります。
 
 $\mu=(0,0,\ell)$、$\ell\ne0$ とすると、$R\mu=\mu$ である回転は $z$ 軸の周りの回転に限られ、
@@ -262,6 +266,8 @@ $$
 
 <!-- definition-example-start: def-gmech4-free-proper -->
 ### 直接例：並進作用と原点の回転
+
+**定義の確認**：安定化群が自明か、作用写像のコンパクト逆像がコンパクトかを別々に判定します。
 
 $\mathbb R$ が $T^*\mathbb R$ に $a(q,p)=(q+a,p)$ と作用すると、$(q+a,p)=(q,p)$ から $a=0$ なので自由です。また $(q,a)$ を $(q,q+a)$ に送る写像は逆写像 $(q,q')\mapsto(q,q'-q)$ を持ちます。$p$ も含む $\Psi$ の逆像で、二点がともにコンパクト範囲にあれば $q$ と $q+a$ が有界だから $a$ も有界で、閉性と合わせコンパクトになります。従って固有です。
 
