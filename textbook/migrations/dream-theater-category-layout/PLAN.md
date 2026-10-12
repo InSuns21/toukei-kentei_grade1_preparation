@@ -1,7 +1,7 @@
 # DREAM THEATER カテゴリー別ディレクトリ移行 PLAN
 
 - 作成日: 2026-10-12
-- 状態: R0 棚卸し・移行前検査に着手（全講義の移動は未着手）
+- 状態: R0 棚卸し・移行前検査実行済み、R1以降未着手（全講義の移動は未着手）
 - 種別: ディレクトリ構造・公開導線・CIを対象とする横断移行。数学講義の執筆PLANとは独立。
 - 対象の正本: textbook/dream-theater-index.json と textbook/dream-theater.md
 - ユーザー決定: **旧URLの互換維持は不要**。旧パスのリダイレクト、複製ファイル、エイリアスページは作成しない。
@@ -49,8 +49,8 @@ textbook/volumes/dream_thater/<カテゴリー>/<chapter.yaml の id>/index.md
 
 - [x] 公開目次の8カテゴリーと540件を確認
 - [x] 旧URL互換不要を確認
-- [ ] scripts/dream-theater-layout-inventory.mjs で移動前の chapter.yaml ID・衝突・欠落を全件検査する
-- [ ] ルート直下探索やパス正規表現を持つスクリプト・CIの参照元を機械調査し、影響ファイル一覧を記録する
+- [x] scripts/dream-theater-layout-inventory.mjs で移動前の chapter.yaml ID・衝突・欠落を全件検査する（540件・改名対象68件・重複0件、GitHub Actions成功）
+- [x] ルート直下探索やパス正規表現を持つスクリプト・CIの参照元を機械調査し、影響ファイル一覧を記録する（旧ルート参照ファイル77件、scripts / pages / workflow の該当リストは Actionsログで確認）
 - [ ] 新規講義を作る際の配置方針を scoped AGENTS とシリーズルーターへ反映する
 
 ### R1 移行基盤・検証器対応
