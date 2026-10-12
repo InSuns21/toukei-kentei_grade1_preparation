@@ -1,0 +1,47 @@
+id: "SGT7"
+title: "電気ネットワークと有効抵抗"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - F0-00F1
+  - LA3B
+official_scope: []
+learning_objectives:
+  - 向きを固定した接続行列からKirchhoffの電流保存則とLaplacian方程式を導ける
+  - 電位差と一単位電流による有効抵抗を計算し、ゲージ不定性と解の存在を説明できる
+  - Thomson原理とDirichlet原理の最小化を直交分解で証明できる
+  - Laplacianの擬似逆を非零固有値から構成し有効抵抗公式を再導出できる
+  - 辺のコンダクタンスに関する単調性と直列・並列の例を検算できる
+  - 全域木の重み付き和を行列式から導き辺の出現確率と有効抵抗を結べる
+definitions:
+  - { id: SGT7-DEF-01, name: 接続行列と向き付き電流 }
+  - { id: SGT7-DEF-02, name: 電位・電流・有効抵抗 }
+  - { id: SGT7-DEF-03, name: Laplacianの擬似逆 }
+  - { id: SGT7-DEF-04, name: 重み付き全域木分布 }
+theorems:
+  - { id: SGT7-PROP-01, name: 電位方程式の解と一意性 }
+  - { id: SGT7-THM-01, name: Thomsonの最小エネルギー原理 }
+  - { id: SGT7-THM-02, name: Dirichletの境界電位原理 }
+  - { id: SGT7-THM-03, name: 擬似逆による有効抵抗公式 }
+  - { id: SGT7-PROP-02, name: Rayleighの単調性 }
+  - { id: SGT7-THM-04, name: 重み付き全域木と有効抵抗 }
+canonical_examples:
+  - 重み2と1の三頂点道で電位と一単位電流を検算
+  - 三角形で最小境界エネルギーを計算
+  - 四頂点サイクルで分流とThomson原理を計算
+  - 三角形の全域木重みと辺採用確率を検算
+problem_patterns:
+  - SGT7-SINGLE-EDGE
+  - SGT7-WEIGHTED-PATH
+  - SGT7-GAUGE
+  - SGT7-DISCONNECTED
+  - SGT7-DIRICHLET-TRIANGLE
+  - SGT7-CYCLE-FLOW
+  - SGT7-SPECTRAL-PATH
+  - SGT7-RAYLEIGH-MONOTONE
+  - SGT7-WEIGHTED-TREE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 4 }
