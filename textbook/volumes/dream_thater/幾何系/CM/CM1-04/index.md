@@ -119,11 +119,34 @@ P^{1,0}+P^{0,1}&=I.
 \end{aligned}
 $$
 
-$JP^{1,0}=\frac12(J-iJ^2)=\frac12(J+iI)=iP^{1,0}$ なので $\operatorname{im}P^{1,0}\subset V^{1,0}$。逆に $Jw=iw$ なら
+まず $J^2=-I$ を $JP^{1,0}$ に代入すると
 $$
-P^{1,0}w=\tfrac12(w-i(iw))=w.
+JP^{1,0}
+=\frac12(J-iJ^2)
+=\frac12(J+iI)
+=iP^{1,0}.
 $$
-ゆえに $\operatorname{im}P^{1,0}=V^{1,0}$。$JP^{0,1}=-iP^{0,1}$ と $Jw=-iw\Rightarrow P^{0,1}w=w$ も同じ式を符号を反転して確かめられる。
+従って $\operatorname{im}P^{1,0}\subset V^{1,0}$。逆に $Jw=iw$ なら
+$$
+P^{1,0}w=\frac12(w-i(iw))=w
+$$
+であるから $\operatorname{im}P^{1,0}=V^{1,0}$。
+
+負の固有値についても、符号を省かず計算すると
+$$
+JP^{0,1}
+=\frac12(J+iJ^2)
+=\frac12(J-iI)
+=-iP^{0,1}.
+$$
+よって $\operatorname{im}P^{0,1}\subset V^{0,1}$。さらに $Jw=-iw$ を満たす $w$ では
+$$
+P^{0,1}w
+=\frac12(w+iJw)
+=\frac12(w+i(-iw))
+=w
+$$
+となるため、$\operatorname{im}P^{0,1}=V^{0,1}$ も得られる。
 
 任意の $w$ は $w=P^{1,0}w+P^{0,1}w$ と分解できる。もし $w$ が両方の固有空間に属するなら $iw=Jw=-iw$ より $2iw=0$、従って $w=0$。これが直和である。
 
@@ -230,7 +253,26 @@ $$
 \qquad
 \partial_{y^k}=i\partial_{z^k}-i\partial_{\overline z^k}.
 $$
-この公式は微分作用素にも作用させられる。実 $C^1$ 級の複素値関数 $f$ について $\partial_{z^k}f=(\partial_{x^k}f-i\partial_{y^k}f)/2$ などであり、$z^j$ に作用させれば $\partial_{z^k}z^j=\delta_{kj}$、$\partial_{\overline z^k}z^j=0$ となる。
+これらの複素化接ベクトルは、実 $C^1$ 級の複素値関数 $f$ への微分作用素としても働く。例えば
+$$
+\partial_{z^k}f
+=\frac12\bigl(\partial_{x^k}f-i\partial_{y^k}f\bigr),
+\qquad
+\partial_{\overline z^k}f
+=\frac12\bigl(\partial_{x^k}f+i\partial_{y^k}f\bigr).
+$$
+$z^j=x^j+iy^j$ には $\partial_{x^k}z^j=\delta_{kj}$、$\partial_{y^k}z^j=i\delta_{kj}$ が成り立つので、代入して
+$$
+\begin{aligned}
+\partial_{z^k}z^j
+&=\frac12(\delta_{kj}-i^2\delta_{kj})
+=\delta_{kj},\\
+\partial_{\overline z^k}z^j
+&=\frac12(\delta_{kj}+i^2\delta_{kj})
+=0.
+\end{aligned}
+$$
+これで二つの型が座標関数を異なる仕方で微分することも確認できる。
 
 ## 5. 正則写像が保存するのはどちらの方向か
 
@@ -315,7 +357,20 @@ $$
 P^{1,0}e_x=\frac12(e_x-i e_y),\qquad
 P^{0,1}e_x=\frac12(e_x+i e_y).
 $$
-前者へ $J$ を掛けると $(e_y+i e_x)/2=i(e_x-i e_y)/2$、後者へ掛けると $(e_y-i e_x)/2=-i(e_x+i e_y)/2$。よって順に固有値 $i,-i$ を持つ。
+前者と後者へ $J$ を掛け、$Je_x=e_y$、$Je_y=-e_x$ を代入すると
+$$
+\begin{aligned}
+JP^{1,0}e_x
+&=\tfrac12(e_y+i e_x)
+=i\,\tfrac12(e_x-i e_y)
+=iP^{1,0}e_x,\\
+JP^{0,1}e_x
+&=\tfrac12(e_y-i e_x)
+=-i\,\tfrac12(e_x+i e_y)
+=-iP^{0,1}e_x.
+\end{aligned}
+$$
+従って二つの射影の像の固有値はそれぞれ $i,-i$ である。
 <!-- solution-end -->
 
 <a id="ex-cm1-04-a03"></a>
