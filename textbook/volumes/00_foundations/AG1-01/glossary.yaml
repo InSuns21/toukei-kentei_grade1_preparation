@@ -1,0 +1,23 @@
+chapter: "AG1-01"
+terms:
+  - term: 多変数多項式環
+    english: multivariate polynomial ring
+    meaning: 体kを係数とする複数の不定元の有限形式和全体で、成分ごとの加法と指数の和による乗法を備えた環。
+  - term: 全次数
+    english: total degree
+    meaning: 非零多変数多項式に現れる単項式の指数和の最大値。零多項式には定義しない。
+  - term: 生成イデアル
+    english: generated ideal
+    meaning: 与えた多項式から有限個を選び、多項式係数を掛けた有限和として表せる全体。与えた式を含む最小のイデアル。
+  - term: アフィン代数的集合
+    english: affine algebraic set
+    meaning: 体kのn次元アフィン空間で、多項式族のすべてを同時に零とする点の集合。
+  - term: Zariski 位相
+    english: Zariski topology
+    meaning: アフィン代数的集合を閉集合とする位相。有限和・任意共通部分の閉性を多項式イデアルの演算から示す。
+  - term: 消滅イデアル
+    english: vanishing ideal
+    meaning: 与えた点集合のすべての点で値が零となる多項式全体からなるイデアル。
+  - term: 根基的イデアル
+    english: radical ideal
+    meaning: 多項式の正の整数乗が属すならその多項式自身も属すイデアル。消滅イデアルはこの性質を持つ。

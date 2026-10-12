@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-10-12  
-状態: planned（設計のみ。章本文と公開は未着手）
+状態: in_progress（INFO1本文・公開動線を実装。INFO2以降と系列横断監査は未着手）
 
 ## 中心問い・直接前提
 
@@ -12,7 +12,7 @@
 
 ### 共通参照
 
-- 横断読順は[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
+- 横断読順は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
 - 上記前提のうち未実装PLANの定理は、必要な本文が完成するまでは章内導入か理由付き結果先行とする。
 
 ## 講義設計：講数を決めずに中心問いから構成する
@@ -59,3 +59,9 @@
 - 各変更章の主要証明と全演習解答を再計算し、完成本文を初見扱いで別観点から再査読する。別の完了章の追跡監査は章IDを指定した明示依頼がある場合に限る。
 - discrete/continuous、独立性、確率零、極限、符号化の模型、引用定理の適用条件を明示する。
 - 学修目標、証明、演習、canonical anchorと使用箇所のリンク、系列全体の依存・公開導線、必要なCIを検証して完了判定する。講数・週数を達成することは条件ではない。
+
+## 着手記録（2026-10-12）
+
+- INFO1「自己情報量・Shannonエントロピー・条件付け」を初回章として実装し、finite-discreteの平均・上限・連鎖律まで扱う。
+- 系列manifestは `textbook/dream-theater-series/INFO.yaml`。次章 INFO2 は相対エントロピー、Gibbs不等式、データ処理不等式のまとまりとして予定。
+- A～Eの残りの範囲と系列全体の横断監査は未完了。章数は内容に応じて分割・追加する。

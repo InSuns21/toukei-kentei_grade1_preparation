@@ -1,0 +1,44 @@
+id: HDP1
+title: 指数Markov法・Hoeffding補題・Hoeffding不等式
+volume: foundations
+status: supplementary
+prerequisites:
+  - F0-00P2A
+  - F0-00P3
+  - RA3
+official_scope: []
+learning_objectives:
+  - 指数Markov法を非負変数のMarkov不等式から導き有限指数モーメントの必要性を説明できる
+  - 中心化対数指数モーメントを定義し二点分布で計算できる
+  - 指数傾斜下の分散を用いてHoeffding補題の定数1/8を両符号で導出できる
+  - 独立非同分布のHoeffding不等式と両側評価を証明し退化幅V=0を処理できる
+  - 分布の独立性・有界性を落とした際の失敗機構を反例で特定できる
+  - 標本平均と多座標の同時偏差にHoeffding評価を適用し標本数を設計できる
+definitions:
+  - { id: HDP1-DEF-01, name: 中心化対数指数モーメント }
+theorems:
+  - { id: HDP1-PROP-01, name: 指数Markov法 }
+  - { id: HDP1-LEM-01, name: Hoeffding補題 }
+  - { id: HDP1-THM-01, name: Hoeffdingの不等式 }
+  - { id: HDP1-COR-01, name: Hoeffdingの両側不等式 }
+canonical_examples:
+  - 二点分布の指数Markov法と中心化対数指数モーメント
+  - 指数傾斜下の分散上界と定数1/8
+  - 非同分布の幅の二乗和
+  - 独立性を外したRademacherの完全従属反例
+  - 指数モーメントが発散する有限平均分布
+problem_patterns:
+  - HDP1-EXPONENTIAL-MARKOV
+  - HDP1-CENTERED-LOG-MGF
+  - HDP1-UNEQUAL-WIDTHS
+  - HDP1-SAMPLE-MEAN
+  - HDP1-DEGENERATE-BOUND
+  - HDP1-DEPENDENCE-COUNTEREXAMPLE
+  - HDP1-WEIGHTED-SUM
+  - HDP1-MULTIPLE-COMPARISONS
+  - HDP1-CHEBYSHEV-COMPARISON
+  - HDP1-SIMULTANEOUS-CONCENTRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 2 }

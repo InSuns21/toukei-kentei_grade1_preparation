@@ -1,0 +1,29 @@
+chapter: "INFO1"
+terms:
+  - term: 自己情報量
+    english: self-information
+    meaning: "正確率の事象 A に対する -log_2 P(A)。確率0の事象には無限大を割り当てる。"
+  - term: Shannonエントロピー
+    english: Shannon entropy
+    meaning: "有限離散確率変数の自己情報量を確率で加重平均した量。零確率の項は0とする。"
+  - term: 確率質量関数
+    english: probability mass function
+    meaning: "離散確率変数 X の各値 x に割り当てられた確率 P(X=x)。"
+  - term: 台
+    english: support
+    meaning: "有限離散分布において正の確率が割り当てられる記号の集合。"
+  - term: 二値エントロピー
+    english: binary entropy
+    meaning: "二値分布 (1-t,t) のShannonエントロピー h_2(t)。"
+  - term: 結合エントロピー
+    english: joint entropy
+    meaning: "二つの有限離散確率変数の組 (X,Y) の確率質量関数から計算するShannonエントロピー。"
+  - term: 条件付きエントロピー
+    english: conditional entropy
+    meaning: "正確率の条件 X=x ごとの Y のエントロピーを P(X=x) で平均した量。"
+  - term: 連鎖律
+    english: entropy chain rule
+    meaning: "有限離散分布において H(X,Y)=H(X)+H(Y|X) と分解する恒等式。"
+  - term: 相互情報量
+    english: mutual information
+    meaning: "H(X)+H(Y)-H(X,Y) で表される二つの確率変数に共有された情報の平均的尺度。"

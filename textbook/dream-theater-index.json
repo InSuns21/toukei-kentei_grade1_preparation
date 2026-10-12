@@ -189,6 +189,7 @@
         "textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md",
         "textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md",
         "textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md",
+        "textbook/volumes/00_foundations/HDP1/index.md",
         "textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md",
         "textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md",
         "textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md",
@@ -440,7 +441,8 @@
         "textbook/volumes/00_foundations/SYM3/index.md",
         "textbook/volumes/00_foundations/SYM4/index.md",
         "textbook/volumes/00_foundations/SYM5/index.md",
-        "textbook/volumes/00_foundations/SYM6/index.md"
+        "textbook/volumes/00_foundations/SYM6/index.md",
+        "textbook/volumes/00_foundations/SYM7/index.md"
       ]
     },
     {
@@ -462,6 +464,7 @@
         "textbook/volumes/00_foundations/FLD3/index.md",
         "textbook/volumes/00_foundations/FLD4/index.md",
         "textbook/volumes/00_foundations/FLD5/index.md",
+        "textbook/volumes/00_foundations/AG1-01/index.md",
         "textbook/volumes/00_foundations/LIE1/index.md",
         "textbook/volumes/00_foundations/LIE2/index.md",
         "textbook/volumes/00_foundations/LIE3/index.md",
@@ -471,6 +474,7 @@
     {
       "name": "応用系",
       "paths": [
+        "textbook/volumes/00_foundations/INFO1/index.md",
         "textbook/volumes/00_foundations/OPT1/index.md",
         "textbook/volumes/00_foundations/OPT2/index.md",
         "textbook/volumes/00_foundations/OPT3/index.md",
@@ -564,6 +568,7 @@
         "textbook/volumes/00_foundations/EMAG7/index.md",
         "textbook/volumes/00_foundations/EMAG8/index.md",
         "textbook/volumes/00_foundations/TH1/index.md",
+        "textbook/volumes/00_foundations/SREL1/index.md",
         "textbook/volumes/00_foundations/MQ0/index.md",
         "textbook/volumes/00_foundations/MQ1/index.md",
         "textbook/volumes/00_foundations/MQ2/index.md",

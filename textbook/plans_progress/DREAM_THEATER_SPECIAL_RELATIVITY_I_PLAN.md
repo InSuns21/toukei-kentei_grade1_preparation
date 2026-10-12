@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-10-12  
-状態: planned（設計のみ。章本文と公開は未着手）
+状態: in_progress（SREL1を実装・査読。SREL2〜SREL9は未着手）
 
 ## 中心問い・直接前提
 
@@ -12,14 +12,14 @@
 
 ### 共通参照
 
-- 横断読順は[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
+- 横断読順は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
 - 上記前提のうち未実装PLANの定理は、必要な本文が完成するまでは章内導入か理由付き結果先行とする。
 
 ## 講義設計：物理的導出の長さから章を決める
 
 以下のA〜Fは**中心問いと証明機構による学習ブロック**であり、1ブロック＝1講・1章ではない。講数・週数を先に決めず、Lorentz変換や共変形式の導出、前提となる定義の直接例、反例、詳細演習を初学者が追える長さに分割する。同じ仮定の一続きの論証なら統合し、必要な補題と説明には追加章を設ける。
 
-正式な章IDは SREL 系列として着手時に確定し、既存章との衝突、series manifest、knowledge DAG、下流PLAN参照を照合する。仮の連番を固定の講数とみなさない。
+SREL1〜SREL9の暫定章構成を系列manifestに登録した。執筆時は各章の中心問いと実際の説明量を優先し、後続章の追加・分割・統合を許す。番号の数を講数の上限・必須値としない。
 
 ## 中心問いと主要な導出
 
@@ -64,3 +64,9 @@
 - 初出定義の直接例、Level A 4題・B 3題・C 1題以上（理由付き例外を除く）の演習、全問の詳細解答を設ける。必要に応じて問題・章を追加する。
 - 変更章の全主要証明と全演習を再計算し、完成本文を別観点で再査読する。別の完了章の追跡監査は章IDの明示指定があるときのみ行う。
 - 学修目標と証明の充足、canonical anchorの使用箇所リンク、依存関係、公開導線、必要なCIをもって完了判定する。講数や週数は判定に使わない。
+
+## 実装進捗（2026-10-12）
+
+- SREL1：一次元Lorentz変換・同時性・時計と長さ・速度合成の本文、定義例、A4/B3/C1演習・詳細解答、自己査読と別観点再査読、公開導線を実装。
+- SREL2〜SREL9：未着手。各章は前章の完成を確認して着手する。SREL9後に系列横断の参照・数理整合・公開監査を行う。
+- 進捗の正本：textbook/dream-theater-series/SREL.yaml。個別章の完了をPLAN全体の完了と混同しない。

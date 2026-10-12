@@ -1,0 +1,86 @@
+chapter: AG1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG4
+  - FLD0
+  - TOP1
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.multivariate-polynomial-ring
+    name: 多変数多項式環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多変数多項式環）"]
+    requires: [algebra.polynomial-ring]
+
+  - id: algebraic-geometry.generated-ideal
+    name: 多項式が生成するイデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式が生成するイデアル）"]
+    requires: [algebra.ring-ideal, algebraic-geometry.multivariate-polynomial-ring]
+
+  - id: algebraic-geometry.generated-ideal-minimal
+    name: 生成イデアルの最小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成イデアルの最小性）"]
+    requires: [algebraic-geometry.generated-ideal]
+
+  - id: algebraic-geometry.affine-algebraic-set
+    name: アフィン代数的集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィン代数的集合）"]
+    requires: [algebraic-geometry.multivariate-polynomial-ring]
+
+  - id: algebraic-geometry.zero-set-operations
+    name: 零点集合の包含・共通部分・和集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零点集合の包含・共通部分・和集合）"]
+    requires: [algebraic-geometry.affine-algebraic-set, algebra.ideal-product, algebraic-geometry.generated-ideal]
+
+  - id: algebraic-geometry.zariski-topology
+    name: Zariski 位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Zariski 位相）"]
+    requires: [algebraic-geometry.affine-algebraic-set]
+
+  - id: algebraic-geometry.zariski-topology-existence
+    name: Zariski 位相の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Zariski 位相の存在）"]
+    requires: [algebraic-geometry.zariski-topology, algebraic-geometry.zero-set-operations]
+
+  - id: algebraic-geometry.affine-line-closed
+    name: 無限体上のアフィン直線の閉集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（無限体上のアフィン直線の閉集合）"]
+    requires: [algebraic-geometry.zariski-topology, algebra.polynomial-division-algorithm]
+
+  - id: algebraic-geometry.vanishing-ideal
+    name: 消滅イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（消滅イデアル）"]
+    requires: [algebraic-geometry.affine-algebraic-set, algebra.ring-ideal]
+
+  - id: algebraic-geometry.radical-ideal
+    name: 根基的イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（根基的イデアル）"]
+    requires: [algebra.ring-ideal]
+
+  - id: algebraic-geometry.vanishing-ideal-radical
+    name: 消滅イデアルは根基的
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（消滅イデアルは根基的）"]
+    requires: [algebraic-geometry.vanishing-ideal, algebraic-geometry.radical-ideal, algebra.integral-domain]

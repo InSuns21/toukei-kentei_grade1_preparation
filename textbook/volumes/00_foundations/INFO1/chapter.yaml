@@ -1,0 +1,46 @@
+id: "INFO1"
+title: "自己情報量・Shannonエントロピー・条件付け"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P1
+  - F0-00P2A
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 零確率事象の規約を区別して自己情報量とエントロピーを有限分布から計算できる
+  - 独立な正確率事象の自己情報量の加法性を導ける
+  - 有限エントロピーの上下限と等号成立条件を対数不等式から証明できる
+  - 結合・条件付き分布とエントロピーを零確率の行に注意して定義・計算できる
+  - 有限分布の連鎖律を条件付き確率の積から証明できる
+  - 相互情報量を複数の等価な表式から計算し、二値通信模型の両端を説明できる
+  - 三変数の連鎖律を用い、二変数を合わせて観測することと個別の観測を区別できる
+definitions:
+  - { id: INFO1-DEF-01, name: 自己情報量 }
+  - { id: INFO1-DEF-02, name: Shannonエントロピー }
+  - { id: INFO1-DEF-03, name: 結合エントロピー }
+  - { id: INFO1-DEF-04, name: 条件付きエントロピー }
+  - { id: INFO1-DEF-05, name: 相互情報量 }
+theorems:
+  - { id: INFO1-PROP-01, name: 独立事象の自己情報量の加法性 }
+  - { id: INFO1-THM-01, name: 有限離散エントロピーの上下限 }
+  - { id: INFO1-THM-02, name: 結合エントロピーの連鎖律 }
+canonical_examples:
+  - 公平なコイン二回による自己情報量の加法性
+  - 確率零の記号を含む四値情報源とエントロピー
+  - 独立二値変数と決定的な写像による条件付きエントロピー
+  - 二値対称な誤り模型による相互情報量
+problem_patterns:
+  - INFO1-SELF-INFORMATION-ZERO
+  - INFO1-ENTROPY-AVERAGE
+  - INFO1-DETERMINISTIC-CONDITIONING
+  - INFO1-SUPPORT-UPPER-BOUND
+  - INFO1-INDEPENDENT-CHAIN
+  - INFO1-MANY-TO-ONE
+  - INFO1-JOINT-ROW-CONDITIONING
+  - INFO1-XOR-TRIPLE-CHAIN
+  - INFO1-BINARY-CHANNEL-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1.5 }

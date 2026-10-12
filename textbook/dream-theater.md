@@ -267,6 +267,7 @@
 17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
 18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
 19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
+20. [HDP1 指数Markov法・Hoeffding補題・Hoeffding不等式](textbook/volumes/00_foundations/HDP1/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I
@@ -635,6 +636,7 @@
 4. [SYM4 Hamiltonベクトル場・Poisson括弧・シンプレクティック流](textbook/volumes/00_foundations/SYM4/index.md)
 5. [SYM5 Darbouxの定理](textbook/volumes/00_foundations/SYM5/index.md)
 6. [SYM6 Lagrange部分空間・Lagrange部分多様体](textbook/volumes/00_foundations/SYM6/index.md)
+7. [SYM7 Moserの方法とシンプレクティック変形](textbook/volumes/00_foundations/SYM7/index.md)
 
 ## 代数系
 
@@ -658,6 +660,11 @@
 15. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
 16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/00_foundations/FLD5/index.md)
 
+<a id="dt-subject-algebraic-geometry"></a>
+### 代数幾何学 I〜III
+
+1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/00_foundations/AG1-01/index.md)
+
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
 
@@ -667,6 +674,11 @@
 4. [LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan](textbook/volumes/00_foundations/LIE4/index.md)
 
 ## 応用系
+
+<a id="dt-subject-information-theory"></a>
+### 情報理論 I
+
+1. [INFO1 自己情報量・Shannonエントロピー・条件付け](textbook/volumes/00_foundations/INFO1/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
@@ -789,6 +801,11 @@
 6. [EMAG6 Lorentz 力と荷電粒子](textbook/volumes/00_foundations/EMAG6/index.md)
 7. [EMAG7 電磁誘導と Maxwell 方程式](textbook/volumes/00_foundations/EMAG7/index.md)
 8. [EMAG8 電磁波とエネルギー](textbook/volumes/00_foundations/EMAG8/index.md)
+
+<a id="dt-subject-special-relativity-i"></a>
+### 特殊相対論 I
+
+1. [SREL1 慣性系・光速度不変・Lorentz変換](textbook/volumes/00_foundations/SREL1/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
