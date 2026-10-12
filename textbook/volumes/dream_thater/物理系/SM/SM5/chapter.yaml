@@ -4,7 +4,6 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SM4
-  - SM2
 official_scope: []
 learning_objectives:
   - 連続相空間・作用セル・同種粒子の1/N!補正を仮定とともに定義し、Gaussian積分から古典理想気体の正準分配関数を導出できる
@@ -19,6 +18,7 @@ definitions:
   - { id: SM5-DEF-01, name: "古典理想気体の相空間模型" }
   - { id: SM5-DEF-02, name: "古典理想気体の累積相空間体積" }
 theorems:
+  - { id: SM5-LEM-01, name: "対数Gamma関数の漸近評価" }
   - { id: SM5-PROP-01, name: "古典理想気体の正準分配関数" }
   - { id: SM5-PROP-02, name: "Maxwell–Boltzmann速度分布" }
   - { id: SM5-THM-01, name: "古典理想気体の正準熱力学" }
