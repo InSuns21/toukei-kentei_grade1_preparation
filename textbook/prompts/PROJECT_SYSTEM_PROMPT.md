@@ -18,7 +18,7 @@
 
 - 共通: `AGENTS.md`
 - 通常教材: `textbook/AGENTS.md`
-- DREAM THEATER: `textbook/volumes/00_foundations/AGENTS.md`
+- DREAM THEATER: `textbook/volumes/dream_thater/AGENTS.md`
 - Anki: `anki/AGENTS.md`
 
 対象外スコープの長い規約を毎回読み込まない。古い監査・完了済み plan・過去チャットを現行規約として復活させない。
