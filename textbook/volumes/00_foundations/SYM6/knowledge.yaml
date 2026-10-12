@@ -12,12 +12,26 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: symplectic.lagrangian-linear-types
-    name: 等方・余等方・Lagrange部分空間
+  - id: symplectic.isotropic-subspace
+    name: 等方部分空間
     kind: definition
     introduction: formal
     introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
     requires: [symplectic.orthogonal-complement, symplectic.symplectic-vector-space]
+
+  - id: symplectic.coisotropic-subspace
+    name: 余等方部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    requires: [symplectic.orthogonal-complement, symplectic.symplectic-vector-space]
+
+  - id: symplectic.lagrangian-subspace
+    name: Lagrange部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    requires: [symplectic.isotropic-subspace, symplectic.coisotropic-subspace]
 
   - id: symplectic.orthogonal-dimension
     name: シンプレクティック直交補の次元
@@ -31,7 +45,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（等方・余等方の次元とLagrange判定）]
-    requires: [symplectic.orthogonal-dimension, symplectic.lagrangian-linear-types]
+    requires: [symplectic.orthogonal-dimension, symplectic.lagrangian-subspace]
 
   - id: symplectic.lagrangian-submanifold
     name: Lagrange部分多様体
