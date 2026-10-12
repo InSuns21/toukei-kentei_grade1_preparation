@@ -91,7 +91,7 @@ function selfTest(){
  assert(reasoning('QM6の定理を使う'));
  assert(!reasoning('QM6を紹介する'));
  assert(forward('次章で扱います'));
- assert(resolve('textbook/volumes/dream_thater/物理系/MQ1/index.md','../../解析系/QM6/index.md')==='textbook/volumes/dream_thater/解析系/QM6/index.md');
+ assert(resolve('textbook/volumes/dream_thater/物理系/MQ/MQ1/index.md','../../../解析系/QM/QM6/index.md')==='textbook/volumes/dream_thater/解析系/QM/QM6/index.md');
  console.log('Narrative prerequisite audit self-test passed');
 }
 if(process.argv.includes('--self-test')){selfTest();process.exit(0);}
