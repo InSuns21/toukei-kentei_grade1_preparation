@@ -220,9 +220,9 @@ $$
 >
 > また任意の素イデアル $\mathfrak p\subsetneq R$ に対して $V(\mathfrak p)$ は空でない既約閉集合となり、次の等式を満たす。
 
-$
+$$
 I(V(\mathfrak p))=\mathfrak p.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
