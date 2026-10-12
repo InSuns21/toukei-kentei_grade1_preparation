@@ -8,6 +8,7 @@ prerequisites:
   - AG2-01
   - AG1-11
   - AG1-04
+  - VC1
 official_scope: []
 learning_objectives:
   - 被約な斉次方程式から射影平面曲線と次数を定義し冪を除く理由を説明できる

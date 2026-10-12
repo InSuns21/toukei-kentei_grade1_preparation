@@ -18,7 +18,9 @@
 > **定義（射影平面曲線と次数）**  
 > $F\in k[X,Y,Z]$ を次数 $d\ge1$ の非零斉次多項式とする。$F$ が平方因子を持たない、すなわち既約因子の分解で同じ因子が二回以上現れないとき、
 >
-> $C=V_+(F)\subseteq\mathbb P^2_k$
+$
+C=V_+(F)\subseteq\mathbb P^2_k
+$
 >
 > を **（被約な）射影平面曲線** と呼び、その **次数** を $\deg C=d$ とする。ここでは曲線は一つの斉次式で定義されるものを扱い、既約性は仮定しない。
 <!-- formal-statement-end -->
@@ -56,7 +58,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（直線と曲線の交点重複度）**  
-> $C=V_+(F)\subseteq\mathbb P^2_k$ を次数 $d$ の射影平面曲線、$L\subseteq\mathbb P^2_k$ を $C$ に含まれない直線とする。上記の同型 $\phi:\mathbb P^1\to L$ による制限を $G(u,v)=F(ua+vb)\ne0$ とする。$P=\phi([u_0:v_0])\in C\cap L$ に対し、$G$ の一次因子 $v_0u-u_0v$ が何回現れるかを **直線との交点重複度** $I_P(C,L)$ と定義する。
+> $C=V_+(F)$ を次数 $d$ の射影平面曲線、$L$ を $C$ に含まれない射影直線とする。$L$ を張る独立な $a,b\in k^3$ を選び、次のように制限式を作る。
+
+$
+\phi([u:v])=[ua+vb],\qquad G(u,v)=F(ua+vb)\ne0.
+$
+
+> $P=\phi([u_0:v_0])\in C\cap L$ を交点とする。$G$ の一次因子 $v_0u-u_0v$ の指数を **直線との交点重複度** $I_P(C,L)$ と定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-04-line-intersection-order -->
@@ -228,7 +236,7 @@ $$
 
 ## 6. 接線を重複度から見抜く
 
-[アフィン曲線の特異点と偏微分による判定](../AG1-11/index.md#def-ag1-11-singular-point)を思い出します。射影平面で $P=[x_0:y_0:1]$ と書ける点の近傍では、$f(x,y)=F(x,y,1)$ を使えます。$f(P)=0$ かつ $(f_x(P),f_y(P))\ne(0,0)$ なら、この点は滑らかです。
+[アフィン曲線の特異点と偏微分による判定](../AG1-11/index.md#def-ag1-11-singular-point)を思い出します。 ここで[勾配の定義](../../../幾何系/VC/VC1/index.md#def-vc1-gradient)により、偏微分係数をベクトルとしてまとめられます。射影平面で $P=[x_0:y_0:1]$ と書ける点の近傍では、$f(x,y)=F(x,y,1)$ を使えます。$f(P)=0$ かつ $(f_x(P),f_y(P))\ne(0,0)$ なら、この点は滑らかです。
 
 <a id="prop-ag2-04-tangent-order"></a>
 
