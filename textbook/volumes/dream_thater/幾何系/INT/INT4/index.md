@@ -316,7 +316,7 @@ S_M(\theta+he_j)-S_M(\theta)
 $$
 で $M\to\infty$ として $\partial_{\theta_j}\chi=T_j$ を得ます。同じ議論を高階微分に繰り返せば、次数 $s$ 以下で項別に作った微分級数が、実際の導関数を表します。
 
-係数ごとには $i(k\cdot\Omega)\chi_k=g_k$ が成り立ちます。さらに $r>s+\tau+n\ge n$ と $|g_k|\le n^rM_r|k|_1^{-r}$ より、$g$ のFourier級数
+係数ごとには $i(k\cdot\Omega)\chi_k=g_k$ が成り立ちます。さらに $s,\tau\ge0$ と $r>s+\tau+n$ から $r>n$ であり、$|g_k|\le n^rM_r|k|_1^{-r}$ より、$g$ のFourier級数
 $$
 G(\theta)=\sum_{k\in\mathbb Z^n\setminus\{0\}}g_ke^{ik\cdot\theta}
 $$
@@ -328,6 +328,7 @@ $$
 =-\int_{\mathbb T^n}(\Omega\cdot\partial_\theta S_M)\varphi\,d\theta.
 $$
 左辺は $S_M\to\chi$ の一様収束、右辺は $\Omega\cdot\partial_\theta S_M\to G=g$ の一様収束から極限を取れます。従って $\Omega\cdot\partial_\theta\chi=g$ は分布の意味でも成立します。
+
 実数値性と零平均性は $g_{-k}=\overline{g_k}$ と零モードを除いたことから従います。
 <!-- proof-end -->
 
