@@ -1,0 +1,49 @@
+id: "AG2-03"
+title: "射影射・Veronese写像・Segre写像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-02
+  - AG2-01
+  - AG1-03
+official_scope: []
+learning_objectives:
+  - 同次数斉次式の代表元不変性・共通零点なし条件から射影射を構成できる
+  - 射影射のチャート上の正則性と未定義点の違いを説明できる
+  - Veronese写像を一般次数で構成し単射性・局所逆・閉じた像を証明できる
+  - 二次Veroneseの像の斉次方程式と逆写像を計算できる
+  - Segre写像の像が階数1行列の二次小行列式で定まることを両包含から証明できる
+  - Segre二次曲面のチャートと二直線族を計算できる
+definitions:
+  - { id: AG2-03-DEF-01, name: 斉次式で与える射影写像 }
+  - { id: AG2-03-DEF-02, name: 射影代数的集合の正則写像・射影射 }
+  - { id: AG2-03-DEF-03, name: Veronese写像 }
+  - { id: AG2-03-DEF-04, name: Segre写像 }
+theorems:
+  - { id: AG2-03-PROP-01, name: 斉次式表示の整合性 }
+  - { id: AG2-03-PROP-02, name: Veronese写像の埋め込みと閉じた像 }
+  - { id: AG2-03-PROP-03, name: 二次Veronese写像の像 }
+  - { id: AG2-03-THM-01, name: Segre写像の像と二次小行列式 }
+  - { id: AG2-03-PROP-04, name: Segre二次曲面 }
+canonical_examples:
+  - 次数の異なる座標式の代表元依存性
+  - 共通零点で未定義になる射影写像
+  - 二次Veroneseによる射影直線の二次曲線表示
+  - Veroneseの一般次数のチャート逆写像
+  - Segre写像の階数1行列と小行列式
+  - Segre二次曲面の二つの直線族
+problem_patterns:
+  - AG2-03-BASE-LOCUS
+  - AG2-03-VERONESE-CHART
+  - AG2-03-SEGRE-COORDINATES
+  - AG2-03-MIXED-DEGREE
+  - AG2-03-VERONESE-INVERSE
+  - AG2-03-SEGRE-INVERSE
+  - AG2-03-CUBIC-VERONESE
+  - AG2-03-NONINJECTIVE-MAP
+  - AG2-03-VERONESE-SURFACE
+  - AG2-03-SEGRE-RULINGS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }

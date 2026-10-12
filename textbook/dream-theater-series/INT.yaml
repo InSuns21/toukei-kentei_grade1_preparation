@@ -1,0 +1,40 @@
+version: 1
+id: INT
+title: "可積分系と摂動論・KAM"
+plan: textbook/plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# INT1本文・metadata・公開索引登録済み。次の予定章はINT2。
+chapters:
+  - id: INT1
+    path: textbook/volumes/dream_thater/幾何系/INT/INT1
+    status: completed
+    title: "第一積分とLiouville可積分性"
+  - id: INT2
+    path: textbook/volumes/dream_thater/幾何系/INT/INT2
+    status: planned
+    title: "Liouville–Arnoldの定理"
+  - id: INT3
+    path: textbook/volumes/dream_thater/幾何系/INT/INT3
+    status: planned
+    title: "作用角変数"
+  - id: INT4
+    path: textbook/volumes/dream_thater/幾何系/INT/INT4
+    status: planned
+    title: "近可積分Hamilton系と小分母"
+  - id: INT5
+    path: textbook/volumes/dream_thater/幾何系/INT/INT5
+    status: planned
+    title: "正準摂動論と共鳴"
+  - id: INT6
+    path: textbook/volumes/dream_thater/幾何系/INT/INT6
+    status: planned
+    title: "Birkhoff標準形"
+  - id: INT7
+    path: textbook/volumes/dream_thater/幾何系/INT/INT7
+    status: planned
+    title: "twist mapとPoincaré–Birkhoff"
+  - id: INT8
+    path: textbook/volumes/dream_thater/幾何系/INT/INT8
+    status: planned
+    title: "KAM定理と可積分性の破れ"

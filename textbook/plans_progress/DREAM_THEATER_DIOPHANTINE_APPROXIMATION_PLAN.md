@@ -1,0 +1,163 @@
+# DREAM THEATER Diophantine近似（NDA1〜NDA8）
+
+分冊: 2026-10-11  
+状態: in progress（2026-10-12 科目固有の依存・ID・入口監査を完了。章本文は未着手、NDA1から着手可能）
+
+## 中心問いと直接依存
+
+[NT1〜NT3・NT6・NT7](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)、RA1/RA1A。NDA3はLA、NDA6はFLD1、NDA8は測度論（MT1・MT8等）の必要部分を追加する。後続のTRN・EOM017に接続するが、それらの未実装章はNDAの着手条件にしない。
+
+**本科目の新規正本：** 連分数の近似定数の精密化、Hurwitz・Minkowski・Weyl・Kronecker、無理性指数・Liouville・Roth、計量的Diophantine近似。**NT7で証明済み**の連分数基本恒等式・第二種最良近似・一次元Dirichlet近似・平方根の周期性・Pellの基本結果を重複して所有しない。
+
+# 3A. Diophantine近似 NDA1--NDA8
+
+## 3A.0 位置付け
+
+NT7 に一章分の Diophantine 近似を圧縮したり、EOM017 のためだけに irrationality exponent の補講を追加したりしない。
+
+**Diophantine近似を、整数論の内部に置く独立1セメスター科目として設計する。**
+
+公開科目名は「Diophantine近似」とする。管理 ID は仮に NDA1--NDA8 とし、実装開始時に衝突を再確認する。
+
+主 prerequisite:
+
+- NT1--NT3 の必要部分
+- NT7
+- RA1 / RA1A
+- NDA3 以降で必要に応じて線形代数・凸幾何
+- NDA8 で測度論 / 確率論の必要部分
+
+## NDA1 連分数と最良有理近似
+
+- finite / infinite continued fraction
+- convergent
+- recurrence
+- determinant identity
+- best approximation
+- 二次無理数の周期性
+- Pell 方程式との対応
+
+NT7 の定義と主要証明を canonical dependency として利用し、一般の二次無理数の最終周期性（平方根に限定したNT7の結果からの拡張）、誤差定数・第一種／第二種最良近似の差、semiconvergentなどを新たな証明課題にする。Pell の既存証明を再録しない。
+
+## NDA2 Dirichlet・Hurwitz・badly approximable numbers
+
+- NT7の一次元Dirichlet近似は既習として再利用し、指数と定数の改良に進む
+- Hurwitz theorem
+- approximation constant
+- badly approximable number
+- golden ratio の位置付け
+
+## NDA3 geometry of numbers と同時近似
+
+- lattice の最小導入
+- symmetric convex body
+- Blichfeldt補題からMinkowskiの凸体定理を導く核心証明
+- simultaneous approximation
+- linear forms
+
+geometry of numbers を巨大な別系列へ膨らませず、本科目に必要な標準部分を閉じる。
+
+## NDA4 一様分布・Kronecker・Weyl
+
+- fractional part
+- irrational rotation
+- equidistribution mod 1
+- Weyl criterion
+- Kronecker approximation theorem
+- QMC / dynamical systems との接続
+
+## NDA5 irrationality measure・irrationality exponent
+
+- 無理数 $\alpha$ の有理近似指数を量化（既約分数・無限に多くの近似・上限）を含めて定義
+- irrationality exponent $\mu(\alpha)$
+- Dirichlet近似からすべての無理数について $\mu(\alpha)\ge2$
+- badly approximable numbers との関係
+- 具体例の exponent
+
+EOM017 で使う語彙はここを canonical owner とする。
+
+## NDA6 Liouville 数・超越数
+
+- Liouville theorem
+- Liouville numbers
+- transcendence
+- 代数的数への近似制約
+- 明示的 transcendental number
+
+## NDA7 Thue--Siegel--Roth
+
+- Roth theorem の exact statement（代数的無理数 $\alpha$ と任意の $\varepsilon>0$ に対する指数 $2+\varepsilon$ の下界）
+- 代数的無理数に対する $\mu(\alpha)=2$ の量化付き導出
+- Thue / Siegel / Roth の歴史的流れと、Liouville評価から何が改善されるか
+- Rothの完全証明に必要な補助多項式・次数・高さ・零点多重度等の証明経路と前提を実装前に確定する
+
+Rothは深い定理であり、FLD1やRAだけから短く従う結果ではない。証明の核心を閉じられない限りNDA7を完成扱いしない。必要ならNDA7を補題のまとまりで分割し、追加章・直接prerequisiteを明示する。引用だけで済ませる場合は「未証明の発展定理」と明示し、その状態で全系列をcompletedとしない。NDA1着手の障害にはしない。
+
+## NDA8 metric Diophantine approximation
+
+- almost every real number の irrationality exponent
+- Borel--Cantelliの必要な形（未所有ならここで証明）
+- Khintchine theoremの正確な条件（単調な近似関数、級数の収束・発散、Lebesgue測度0/1）と証明経路
+- null / full measure
+- exceptional set
+- Hausdorff dimension との接続
+
+無理数のほとんどすべてで $\mu(\alpha)=2$ を、下界はDirichlet、上界は測度の総和評価とBorel--Cantelliから導く。Hausdorff次元の結論はMT8の既出定理が実際に適用できる場合だけ主張し、未実装の幾何学的測度論PLANを既習扱いしない。
+
+## NDA から EOM017 への出口
+
+~~~text
+NT7
+ ↓
+NDA1--NDA4
+ ↓
+NDA5 irrationality exponent
+ ↓
+NDA6--NDA8
+ ↓
+代数的無理数では NDA7 の Roth により exponent 2
+ ↓
+超越数 pi では何が分かるか
+ ↓
+EOM017
+~~~
+
+EOM017 は irrationality exponent の初出定義を担当しない。
+
+---
+
+## 章別執筆・数理査読・完了判定
+
+本PLANは科目固有の依存・ID・入口監査を実施済みであるが、章本文は未実装である。未実装科目・未証明定理を既習としない。実装前に章ID・実在する直接prerequisite・concept ownerを確認し、独習者が追える証明粒度と演習A4/B3/C1以上の全詳細解答を整える。新規・実質改稿章は主要証明と全演習解答を再計算し、同一担当者による別観点再読を区別して記録する。**別章の追跡監査はユーザーが対象章IDを明示した場合のみ**実施する。科目ごとの公開・依存・リンクの横断監査を通して初めて完了扱いにする。
+
+
+## 2026-10-12 着手準備ゲート：確認済み事項
+
+- **直接依存は着手可能**：`textbook/dream-theater-series/NT.yaml` でNT1〜NT10はすべて `completed`。特にNT7の `chapter.yaml`・`knowledge.yaml`・本文の正本を確認した。RA1・RA1A、LA1、FLD1、MT1・MT8の章ファイルは存在し、後半の必要理論も先行して参照できる。**ANTは独立した並行系列でありNDA1の必須依存ではない**。
+- **ID衝突と公開状態**：`代数系/` に `NDA/` はなく、`NDA.yaml` は科目固有入口監査とともに新設する。NDA1〜NDA8は系列内の `planned` IDであり、章の執筆時には本文ディレクトリ・series manifest・公開索引・knowledge DAG上で再確認する。未作成の章を公開済み・証明済みとは扱わない。
+- **NT7のstable anchor再利用**：[単純連分数](../volumes/dream_thater/代数系/NT/NT7/index.md#def-nt7-continued-fraction)、[収束分数](../volumes/dream_thater/代数系/NT/NT7/index.md#def-nt7-convergent)、[差積恒等式と完全商公式](../volumes/dream_thater/代数系/NT/NT7/index.md#lem-nt7-convergent-matrix)、[収束分数の誤差](../volumes/dream_thater/代数系/NT/NT7/index.md#thm-nt7-convergent-error)、[第二種最良近似](../volumes/dream_thater/代数系/NT/NT7/index.md#thm-nt7-best-approximation)、[平方根の周期性](../volumes/dream_thater/代数系/NT/NT7/index.md#thm-nt7-square-root-periodic)、[一次元Dirichlet近似](../volumes/dream_thater/代数系/NT/NT7/index.md#lem-nt7-dirichlet-approximation)、[Pellの全正整数解](../volumes/dream_thater/代数系/NT/NT7/index.md#thm-nt7-pell-all-solutions)。章本文で使用するときは**その使用箇所から**canonical anchorへリンクする。
+- **代数・解析のowner**：代数的元・最小多項式は[FLD1](../volumes/dream_thater/代数系/FLD/FLD1/index.md#def-fld1-minimal-polynomial)、数列・極限はRA1、級数評価はRA1A、測度収束はMT1、Hausdorff次元はMT8。Minkowskiの凸体定理・Roth・Khintchineの全証明がこれらから自動的に得られるとはみなさない。
+- **境界**：NDAはHilbert第10問題（NT9・NT10）や超越数論（TRN）の代替ではない。EOM017へ供給するcanonical定義はNDA5の無理性指数、NDA6のLiouville評価、NDA7のRoth適用条件である。
+
+## 章ごとの証明経路と演習の焦点
+
+| 章 | 新たに閉じる証明・条件 | 手を動かす演習の焦点 |
+|---|---|---|
+| NDA1 | NT7の収束分数の差積から誤差定数を導き、一般二次無理数の最終周期性を新たに示す | 同じ数で近似種別を比較、一般二次無理数の周期を検証 |
+| NDA2 | Hurwitzの $1/\sqrt5$ の評価と最適性、badly approximableと有界部分商の同値 | 黄金比・有界部分商・無界部分商の反例 |
+| NDA3 | Blichfeldt→Minkowski→同時Dirichlet近似を、格子の行列式・体積条件を確認して導く | $\mathbb Z^n$ と一般格子、凸体の境界、二変数の近似 |
+| NDA4 | Weyl判定の両方向を三角多項式近似で示し、無理回転・Kroneckerの整数関係条件を確認 | 有理回転／無理回転、指数和の評価、同時近似の可否 |
+| NDA5 | 無理数に限った $\mu(\alpha)$ の定義・量化、Dirichlet下界と二次無理数の上界 | $\sqrt2$、有界部分商、指数の上下界の区別 |
+| NDA6 | 整数係数最小多項式 $P$ に対する $|P(p/q)|\ge q^{-d}$ と平均値評価からLiouvilleの下界を導く | 代数的次数依存、Liouville数の近似列と超越性 |
+| NDA7 | Rothの指数 $2+\varepsilon$ の定量的条件・完全証明への補助理論を閉じてから $\mu=2$ へ進む | $\varepsilon$ の量化、代数的数とLiouville数の対比 |
+| NDA8 | $\sum_q q^{-1-\varepsilon}<\infty$ 型評価とBorel--Cantelliでa.e.指数2、Khintchineの収束／発散方向と単調性を点検 | 零測度・全測度、例外集合、Hausdorff次元との違い |
+
+章間の主要依存は `NDA1 → NDA2 → NDA5 → NDA6 → NDA7`、`NDA2 → NDA3 → NDA4`、`NDA5・NDA4・MT → NDA8` とする。これは概形であり、`chapter.yaml` には証明が**直接使う最小の** prerequisite のみを登録する。NDA3以降がNDA1の着手を妨げないよう、各章の証明経路は着手時に個別確定する。
+
+## 次の作業：NDA1を始めるとき
+
+1. 本PLANは**依存・ID・入口監査に着手済み**のため `textbook/plans_progress/` へ移動済み。章本文・証明・演習の実装と科目横断監査は未実施。NDA1の執筆が次の実装タスクである。
+2. `textbook/dream-theater-series/NDA.yaml` は科目固有の入口監査とともに作成済みで、`plan` は本PLANの `plans_progress` パス、`chapter_root` は既存ルーター、NDA1〜NDA8はすべて `planned`。共通ルーターは変更しない。NDA1執筆に着手しても未完成章の公開索引・knowledge DAGへの先行登録をしない。
+3. 最初の章は `textbook/volumes/dream_thater/代数系/NDA/NDA1/` の `chapter.yaml`・`knowledge.yaml`・`index.md`。NT7のリンク先を個別に利用し、**既出証明の再掲で章数を埋めない**。一般二次無理数の最終周期性、近似型の差、具体例を導入→定義→証明→演習で閉じる。
+4. 理由付き例外がなければ各新章に有意味なLevel A 4題・B 3題・C 1題以上と全詳細解答を置く。区分Cの全主要証明・全演習解答を出発点から再計算し、別観点で再読する。PRには検証根拠と未確認部分を記録する。章本文と検証が完成した章だけ公開索引・目次・knowledge DAGへ追加し、系列manifestの当該章を `completed` に更新する。
+5. 変更に応じて `npm run validate:textbook:changed`、`npm run validate:textbook-knowledge:changed`、`npm run validate:dream-theater-concepts:changed`、`npm run validate:dream-theater-exercise-counts` を実行。manifest・公開索引等に波及する際は現行規約に従い必要な全体検証へ昇格する。後続のRoth・Khintchineの証明経路が未完了なら、その章は `completed` にしない。

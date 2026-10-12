@@ -106,7 +106,20 @@ $$
 
 であり、各項は $W$ 上で零です。従ってイデアルであり、定義から斉次です。
 
-$f^r\in I_+(W)$ と仮定します。任意の $P=[p]\in W$ に対して、各斉次成分が零なので $f^r(\lambda p)=0$ がすべての $\lambda\in k^\times$ で成立します。したがって $f(\lambda p)^r=0$、体の零因子不在から $f(\lambda p)=0$ です。$f(\lambda p)=\sum_d\lambda^d f_d(p)$ を $\lambda$ の多項式とみれば、無限体 $k$ のすべての非零元で零なので各係数 $f_d(p)$ が零です。$P$ は任意ゆえ $f\in I_+(W)$ で、根基性が成立します。$W=\varnothing$ の場合は $I_+(W)=S$ なので同様です。
+根基性を確認します。$W=\varnothing$ なら $I_+(W)=S$ なので成立します。$W\ne\varnothing$ とし、$f^r\in I_+(W)$ を仮定します。任意の $P=[p]\in W$ を選ぶと、$f^r$ の各斉次成分が $p$ で零であるため、任意の $\lambda\in k^\times$ について
+
+$$
+0=f^r(\lambda p)=\bigl(f(\lambda p)\bigr)^r
+$$
+
+です。体に零因子はないので $f(\lambda p)=0$ が従います。一方 $f=\sum_d f_d$ の斉次分解を使うと
+
+$$
+0=f(\lambda p)=\sum_d \lambda^d f_d(p)
+\qquad(\lambda\in k^\times).
+$$
+
+右辺は $\lambda$ の一変数多項式です。無限体 $k$ のすべての非零元が根なので、この多項式の各係数 $f_d(p)$ は零です。$P$ は任意だから、すべての $f_d$ が $W$ で消え、$f\in I_+(W)$ となります。
 
 最後に斉次イデアル $I$ の $f\in I$ を成分分解すると各 $f_d\in I$ です。[射影零点集合の定義](../AG2-01/index.md#def-ag2-01-projective-zero-set)から各 $f_d$ は $V_+(I)$ 上で零なので $f\in I_+(V_+(I))$ です。
 <!-- proof-end -->
@@ -153,7 +166,31 @@ $$
 **定義の確認**：$I=(X^2,XY)$ では $\mathfrak m X=(X^2,XY)\subseteq I$ なので $X\in I^{\mathrm{sat}}$ です。一方 $I\subseteq(X)$ で、$f\notin(X)$ なら $f(0,Y)\ne0$ です。$\mathfrak m^q f\subseteq I$ なら特に $Y^q f\in(X)$ ですが $Y^q f(0,Y)\ne0$ となって矛盾します。よって $I^{\mathrm{sat}}=(X)$ です。
 <!-- definition-example-end -->
 
-飽和はイデアルです。もし $\mathfrak m^p f\subseteq I$、$\mathfrak m^qg\subseteq I$ なら $r=\max(p,q)$ として $\mathfrak m^r(f+g)\subseteq I$、また任意の $h\in S$ で $\mathfrak m^p hf\subseteq I$ です。$q$ は元によって違ってかまいません。また $(I^{\mathrm{sat}})^{\mathrm{sat}}=I^{\mathrm{sat}}$ です。後者は $\mathfrak m^a f\subseteq I^{\mathrm{sat}}$ の各次数 $a$ の単項式倍に対して必要な指数を有限個の最大値に揃えることで従います。
+飽和がイデアルになることを確認します。$\mathfrak m^p f\subseteq I$ と $\mathfrak m^q g\subseteq I$ に対し、$r=\max(p,q)$ とすれば $\mathfrak m^r\subseteq\mathfrak m^p\cap\mathfrak m^q$ なので
+
+$$
+\mathfrak m^r(f+g)\subseteq
+\mathfrak m^p f+\mathfrak m^q g\subseteq I.
+$$
+
+任意の $h\in S$ に対しても $\mathfrak m^p(hf)=h\mathfrak m^p f\subseteq I$ です。したがって $I^{\mathrm{sat}}$ はイデアルです。指数 $p,q$ は各元によって異なってかまいません。
+
+次に、飽和を二度行っても変わらないことを証明します。$f\in(I^{\mathrm{sat}}:\mathfrak m^\infty)$ なら、ある $a\ge0$ について $\mathfrak m^a f\subseteq I^{\mathrm{sat}}$ です。次数 $a$ の単項式を $M_1,\ldots,M_N$ と列挙すると、各 $M_jf\in I^{\mathrm{sat}}$ に対し整数 $q_j\ge0$ が存在して
+
+$$
+\mathfrak m^{q_j}M_j f\subseteq I
+\qquad(1\le j\le N)
+$$
+
+となります。$q=\max_j q_j$ とすれば $\mathfrak m^q M_j f\subseteq I$ が全 $j$ に成立します。$M_j$ が $\mathfrak m^a$ を生成するため
+
+$$
+\mathfrak m^{a+q}f
+=\mathfrak m^q(\mathfrak m^a f)
+\subseteq I.
+$$
+
+よって $f\in I^{\mathrm{sat}}$ です。逆の包含は $a=0$ を選べば成立するので、$(I^{\mathrm{sat}})^{\mathrm{sat}}=I^{\mathrm{sat}}$ が従います。
 
 <a id="prop-ag2-02-saturation-locus"></a>
 
@@ -214,7 +251,13 @@ $I=S$ は別扱いします。$I\ne S$ なら原点はアフィン錐にあり�
 
 $I=S$ なら $V_+(I)=\varnothing$、$\sqrt I=S$ で、両辺は $S$ です。以下は真の斉次イデアル $I\subseteq\mathfrak m$ を考えます。
 
-**準備：$\sqrt I$ も斉次である。** $f=\sum_{d=0}^D f_d\in\sqrt I$ とし、$f^r\in I$ となる $r\ge1$ を取ります。$f^r$ の最高次数成分は $f_D^r$ です。$I$ が斉次なので $f_D^r\in I$、よって $f_D\in\sqrt I$ です。[根基がイデアルであること](../AG1-07/index.md#def-ag1-07-ideal-radical)から $f-f_D\in\sqrt I$ となります。これを最高次数が一つ低い多項式に繰り返し、すべての $f_d\in\sqrt I$ を得ます。
+**準備：$\sqrt I$ も斉次である。** $f=0$ なら主張は直ちに成立します。$f\ne0$ とし、最高次の非零成分を $f_D$ として $f=\sum_{d=0}^D f_d$ と書きます。$f\in\sqrt I$ だから $f^r\in I$ となる整数 $r\ge1$ が存在します。次数 $rD$ の成分は
+
+$$
+(f^r)_{rD}=f_D^r\in I
+$$
+
+です。ここで右辺の所属には $I$ の斉次性を使いました。よって $f_D\in\sqrt I$ です。[根基がイデアルであること](../AG1-07/index.md#def-ag1-07-ideal-radical)から $f-f_D\in\sqrt I$ となります。$f-f_D$ の最高次数は $D$ より小さいので、同じ手順を有限回繰り返すとすべての $f_d\in\sqrt I$ が得られます。
 
 **場合1：$V_+(I)\ne\varnothing$。** $W=V_+(I)$、$C=V_{\mathbb A}(I)$ と書きます。$C\setminus\{0\}$ は $W$ の代表元全体です。
 
@@ -222,7 +265,13 @@ $F\in I_+(W)$ の各斉次成分 $F_d$ は $C\setminus\{0\}$ 上で零です。$
 
 [強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を $k^{n+1}$ とイデアル $I$ に適用して $F\in\sqrt I$ を得ます。
 
-逆に $F\in\sqrt I$ ならある $r$ について $F^r\in I$ です。$F$ の斉次成分 $F_d$ は準備から $\sqrt I$ に入るので、各 $F_d^r$ が $I$ に属するよう $r$ を成分ごとに選べます。$P\in W$ では $F_d(P)^r=0$、よって $F_d(P)=0$ で、$F\in I_+(W)$ です。この二方向から
+逆に $F\in\sqrt I$ とすると、準備から各斉次成分 $F_d\in\sqrt I$ です。従って次数 $d$ ごとに整数 $r_d\ge1$ を選んで $F_d^{r_d}\in I$ とできます。任意の $P\in W=V_+(I)$ で
+
+$$
+0=F_d^{r_d}(P)=\bigl(F_d(P)\bigr)^{r_d}
+$$
+
+が成立します。体には零因子がないので $F_d(P)=0$ です。すべての $d,P$ で成立するため $F\in I_+(W)$ となり、この二方向から
 
 $$
 I_+(W)=\sqrt I
@@ -279,7 +328,15 @@ $$
 
 射影閉集合 $W$ はある斉次イデアル $I$ によって $W=V_+(I)$ と表せます。定義から $I\subseteq I_+(W)$ なので $V_+(I_+(W))\subseteq W$ です。他方 $I_+(W)$ の各斉次式は $W$ の各点で零だから $W\subseteq V_+(I_+(W))$ です。従って等号です。
 
-[射影消滅イデアルの斉次性と根基性](#prop-ag2-02-vanishing-radical)から $I_+(W)$ は根基的・斉次です。さらに $I_+(W)$ は飽和です。実際、$\mathfrak m^qf\subseteq I_+(W)$ なら、各点 $P=[p]\in W$ の非零座標 $p_i$ に対し、$X_i^qf$ の各斉次成分が零です。$X_i^qf_d$ がその成分なので $p_i^qf_d(p)=0$、よって $f_d(P)=0$、すなわち $f\in I_+(W)$ です。$W=\varnothing$ のときは $I_+(W)=S$ で明白です。
+[射影消滅イデアルの斉次性と根基性](#prop-ag2-02-vanishing-radical)から $I_+(W)$ は根基的・斉次です。飽和性も確かめます。$W=\varnothing$ なら $I_+(W)=S$ なので直ちに成立します。$W\ne\varnothing$ とし、$\mathfrak m^qf\subseteq I_+(W)$ を仮定します。
+
+任意の $P=[p]\in W$ から非零座標 $p_i$ を選びます。$X_i^qf\in I_+(W)$ なので、$f=\sum_d f_d$ の各成分について
+
+$$
+0=(X_i^q f_d)(p)=p_i^q f_d(p).
+$$
+
+$p_i\ne0$ より各 $f_d(p)=0$ です。$P$ と $d$ は任意だから $f\in I_+(W)$ となり、$(I_+(W):\mathfrak m^\infty)=I_+(W)$ が従います。
 
 逆に根基的で飽和な斉次イデアル $J$ なら、[射影版Hilbertの零点定理](#thm-ag2-02-projective-nullstellensatz)から
 
@@ -407,7 +464,17 @@ $I=(X^2,XY)\subset k[X,Y]$ とする。$I^{\mathrm{sat}}=(X)$ を両包含から
 - ID: AG2-02-B1
 
 <!-- solution-start -->
-**詳細解答。** $\mathfrak m X=(X^2,XY)\subseteq I$ より $X\in I^{\mathrm{sat}}$ です。飽和がイデアルなので $(X)\subseteq I^{\mathrm{sat}}$ です。逆に $f\in I^{\mathrm{sat}}$ なら、ある $q\ge0$ で $Y^q f\in I\subseteq(X)$ です。$X=0$ を代入すると $Y^q f(0,Y)=0$ が $k[Y]$ で成立し、整域性より $f(0,Y)=0$ です。$f$ の $X$ に関する定数項が零だから $f\in(X)$ です。よって飽和は $(X)$ です。零点は $X^2=0$ から $X=0$、$Y\ne0$ なので $[0:1]$ 一点です。
+**詳細解答。** まず $\mathfrak m X=(X^2,XY)=I$ です。よって $X\in I^{\mathrm{sat}}$ であり、飽和はイデアルだから $(X)\subseteq I^{\mathrm{sat}}$ です。
+
+逆に $f\in I^{\mathrm{sat}}$ を取ります。ある $q\ge0$ について $\mathfrak m^q f\subseteq I$ です。特に $Y^qf\in I\subseteq(X)$ なので、$X=0$ を代入して
+
+$$
+Y^q f(0,Y)=0 \quad\text{（多項式環 } k[Y]\text{ で）}
+$$
+
+を得ます。$k[Y]$ は整域で $Y^q\ne0$ なので $f(0,Y)=0$、すなわち $f$ は $X$ で割り切れます。従って $I^{\mathrm{sat}}\subseteq(X)$ です。両包含から $I^{\mathrm{sat}}=(X)$ となります。
+
+射影零点では $X^2=0$ より $X=0$ です。代表元は非零だから $Y\ne0$ であり、唯一の点は $[0:1]$ です。
 <!-- solution-end -->
 
 ### B2. 原点しかないアフィン錐
@@ -418,7 +485,23 @@ $I=(X^2,Y^2)\subset k[X,Y]$ とする。アフィン零点集合、$\sqrt I$、$
 - ID: AG2-02-B2
 
 <!-- solution-start -->
-**詳細解答。** $X^2=Y^2=0$ は $X=Y=0$ と同値なので、アフィン零点集合は $\{(0,0)\}$、射影零点集合は空です。[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)から $\sqrt I=I_{\mathbb A}(\{0\})=(X,Y)=\mathfrak m$ です。$\mathfrak m\cdot 1\subseteq\mathfrak m$ なので $1\in(\sqrt I:\mathfrak m^\infty)$、従って飽和は $S$ です。実際 $\mathfrak m^3$ の各次数三の単項式 $X^3,X^2Y,XY^2,Y^3$ は $X^2$ または $Y^2$ の倍数なので $\mathfrak m^3\subseteq I$ であり、$I^{\mathrm{sat}}$ 自体も $S$ になります。
+**詳細解答。** $X^2=Y^2=0$ は体の零因子不在により $X=Y=0$ と同値です。従ってアフィン零点集合は $\{(0,0)\}$、射影空間では非零代表元が存在しないので零点集合は空です。
+
+[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を $k[X,Y]$ の $I$ に適用すると
+
+$$
+\sqrt I=I_{\mathbb A}(\{(0,0)\})=(X,Y)=\mathfrak m.
+$$
+
+$\mathfrak m\cdot1\subseteq\sqrt I$ より $1\in(\sqrt I:\mathfrak m^\infty)$ なので、この飽和は $S$ です。
+
+さらに元の $I$ も飽和すると $S$ になります。実際 $\mathfrak m^3$ の生成単項式は
+
+$$
+X^3,\quad X^2Y,\quad XY^2,\quad Y^3
+$$
+
+であり、各単項式は $X^2$ または $Y^2$ で割り切れます。従って $\mathfrak m^3\subseteq I$、ゆえに $1\in I^{\mathrm{sat}}$ です。根基と飽和を取る順番が、この例でも直接確かめられます。
 <!-- solution-end -->
 
 ### B3. 二点のイデアルを求める
@@ -450,7 +533,23 @@ $\mathbb P^1$ の $I=(X^2)$ と $J=(X)$ について、$I^{\mathrm{sat}}=I$、$J
 - ID: AG2-02-B4
 
 <!-- solution-start -->
-**詳細解答。** $f\in I^{\mathrm{sat}}$ ならある $q$ について $Y^qf\in(X^2)$ です。$f$ を $X$ のべきで整理したときの定数項・一次項を $a_0(Y),a_1(Y)$ とすると、$Y^q a_0(Y)=Y^q a_1(Y)=0$ です。$k[Y]$ が整域なので両係数が零、従って $X^2\mid f$ です。$I\subseteq I^{\mathrm{sat}}$ と合わせて等号です。$J$ についても $Y^qf\in(X)$ から $f(0,Y)=0$ となるので $J^{\mathrm{sat}}=J$ です。射影零点は双方とも $X=0$、すなわち $[0:1]$ です。ただし $\sqrt{(X^2)}=(X)$ なので、零点を復元するときには飽和に加えて根基が必要です。
+**詳細解答。** $f\in I^{\mathrm{sat}}$ ならある $q\ge0$ について $Y^qf\in(X^2)$ です。$X$ のべきで $f$ を整理して
+
+$$
+f=a_0(Y)+Xa_1(Y)+X^2h(X,Y)
+$$
+
+と書きます。$Y^qf$ が $X^2$ で割り切れるためには、$X$ の零次・一次の係数が零でなければなりません。すなわち
+
+$$
+Y^qa_0(Y)=Y^qa_1(Y)=0.
+$$
+
+$k[Y]$ は整域で $Y^q\ne0$ なので $a_0(Y)=a_1(Y)=0$ です。従って $f\in(X^2)$。逆向きの包含 $I\subseteq I^{\mathrm{sat}}$ と合わせて $I^{\mathrm{sat}}=I$ です。
+
+$J=(X)$ についても、$f\in J^{\mathrm{sat}}$ なら $Y^q f\in(X)$ から $Y^q f(0,Y)=0$ が従います。整域性で $f(0,Y)=0$、すなわち $f\in(X)$ なので $J^{\mathrm{sat}}=J$ です。
+
+両者の射影零点は $X=0$、つまり $[0:1]$ だけです。しかし $\sqrt{(X^2)}=(X)$ なので、**飽和しても冪の情報は消えない**ことが分かります。零点からの復元には根基も必要です。
 <!-- solution-end -->
 
 **Level C：複数の議論を接続する**
@@ -467,7 +566,18 @@ $\mathbb P^1$ で $I=(X^2Y,XY^2)\subseteq k[X,Y]$ とする。(1) $V_+(I)$ を�
 
 (1) 両方の方程式が零で、$X,Y$ がともに非零なら、$X^2Y$ が非零となって矛盾します。従って $X=0$ または $Y=0$ です。逆にいずれかが零なら両生成元は消えます。射影点は $[0:1]$ と $[1:0]$ です。
 
-(2) $\mathfrak m\cdot XY=(X^2Y,XY^2)=I$ なので $(XY)\subseteq I^{\mathrm{sat}}$ です。逆に $f\in I^{\mathrm{sat}}$ ならある $q$ で $X^qf\in I\subseteq(Y)$、$Y^qf\in I\subseteq(X)$ です。$X^q f(X,0)=0$ が $k[X]$ で成立し整域性から $f(X,0)=0$、よって $f\in(Y)$ です。同様に $Y^qf(0,Y)=0$ から $f\in(X)$ です。$X,Y$ は異なる不定元であるため、両方で割り切れる多項式は $XY$ で割り切れます。従って $I^{\mathrm{sat}}\subseteq(XY)$ で、等号です。
+(2) まず $\mathfrak m\cdot XY=(X^2Y,XY^2)=I$ です。ゆえに $XY\in I^{\mathrm{sat}}$ となり、$(XY)\subseteq I^{\mathrm{sat}}$ が得られます。
+
+逆に $f\in I^{\mathrm{sat}}$ なら、ある $q\ge0$ で $\mathfrak m^qf\subseteq I$ です。特に
+
+$$
+X^qf\in I\subseteq(Y),\qquad
+Y^qf\in I\subseteq(X).
+$$
+
+第一の包含で $Y=0$ を代入すると、$k[X]$ において $X^qf(X,0)=0$ です。整域性から $f(X,0)=0$ なので $f\in(Y)$ です。第二の包含では $X=0$ を代入し、同様に $f\in(X)$ を得ます。
+
+最後に $(X)\cap(Y)=(XY)$ であることを確かめます。$f\in(X)\cap(Y)$ を $f=Xg$ と書くと、$0=f(X,0)=Xg(X,0)$ です。$k[X]$ が整域なので $g(X,0)=0$、よって $g=Yh$ で $f=XYh$ となります。従って $f\in(XY)$ であり、両包含から $I^{\mathrm{sat}}=(XY)$ です。
 
 (3) $I\subseteq(XY)$ かつ $(XY)$ は根基的です。これは $XY\mid f^r$ なら $X\mid f$ と $Y\mid f$ なので $XY\mid f$ となることから分かります。
 
