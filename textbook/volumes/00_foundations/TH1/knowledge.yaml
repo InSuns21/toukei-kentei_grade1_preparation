@@ -1,0 +1,85 @@
+chapter: TH1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH1
+  - RA3
+forward_references: []
+
+concepts:
+  - id: thermodynamics.system-boundary
+    name: 系・環境・境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（系・環境・境界）]
+    requires: []
+
+  - id: thermodynamics.equilibrium-state
+    name: 熱力学的平衡状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱力学的平衡状態）]
+    requires: [thermodynamics.system-boundary]
+
+  - id: thermodynamics.state-variables
+    name: 巨視的状態量・状態関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（巨視的状態量・状態関数）]
+    requires: [thermodynamics.equilibrium-state]
+
+  - id: thermodynamics.extensive-intensive
+    name: 示量量・示強量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（示量量・示強量）]
+    requires: [thermodynamics.state-variables]
+
+  - id: thermodynamics.thermal-equilibrium
+    name: 熱平衡関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱平衡関係）]
+    requires: [thermodynamics.equilibrium-state]
+
+  - id: thermodynamics.zeroth-law
+    name: 熱力学第0法則
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（熱力学第0法則：熱平衡の推移性）]
+    requires: [thermodynamics.thermal-equilibrium]
+
+  - id: thermodynamics.equivalence-classes
+    name: 熱平衡関係の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱平衡関係の同値性）]
+    requires: [thermodynamics.zeroth-law]
+
+  - id: thermodynamics.empirical-temperature
+    name: 経験温度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（経験温度）]
+    requires: [thermodynamics.equivalence-classes]
+
+  - id: thermodynamics.equation-of-state
+    name: 状態方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（状態方程式）]
+    requires: [thermodynamics.state-variables]
+
+  - id: thermodynamics.ideal-gas-scaling
+    name: 理想気体の拡大不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体の拡大不変性）]
+    requires: [thermodynamics.equation-of-state, thermodynamics.extensive-intensive]
+
+  - id: thermodynamics.ideal-gas-response
+    name: 理想気体の圧力の偏微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体の圧力の偏微分）]
+    requires: [thermodynamics.equation-of-state]

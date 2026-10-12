@@ -1,0 +1,44 @@
+chapter: "TH1"
+terms:
+  - term: 系
+    english: thermodynamic system
+    meaning: "観察対象として指定した物質または空間領域。環境との境界をどこに置くかにより開放系・閉鎖系などが決まる。"
+  - term: 環境
+    english: surroundings
+    meaning: "指定した系の外側で、系と物質またはエネルギーを交換する可能性があるもの。"
+  - term: 閉鎖系
+    english: closed system
+    meaning: "境界を通る物質の交換がない系。エネルギー交換は許し得るので孤立系とは限らない。"
+  - term: 孤立系
+    english: isolated system
+    meaning: "境界を通じて物質もエネルギーも交換しないと理想化した系。"
+  - term: 開放系
+    english: open system
+    meaning: "境界を通じて物質を交換し得る系。"
+  - term: 熱力学的平衡状態
+    english: thermodynamic equilibrium
+    meaning: "外部拘束を固定したとき巨視的量の自発変化や持続流、内部の熱的・力学的・化学的な不均衡がないとみなせる状態。"
+  - term: 状態量
+    english: state variable
+    meaning: "系の現在の平衡状態に対応して一意に定まる量。状態への到達履歴によらない。"
+  - term: 示量量
+    english: extensive quantity
+    meaning: "同じ状態の系を理想的にλ倍複製したとき値がλ倍になる量。体積や物質量が典型例。"
+  - term: 示強量
+    english: intensive quantity
+    meaning: "同じ状態の系を理想的にλ倍複製しても値が変化しない量。圧力や温度が典型例。"
+  - term: 熱平衡
+    english: thermal equilibrium
+    meaning: "熱的接触をさせても両者の間に巨視的な熱的変化を起こす差がない状態関係。"
+  - term: 熱力学第0法則
+    english: zeroth law of thermodynamics
+    meaning: "二系が同じ第三の系と熱平衡にあれば二系も互いに熱平衡にあるという経験的原理。"
+  - term: 経験温度
+    english: empirical temperature
+    meaning: "熱平衡の同値類を同じ実数で表す温度目盛り。第0法則単独では数値目盛りは一意に決まらない。"
+  - term: 状態方程式
+    english: equation of state
+    meaning: "指定された種類の平衡系の圧力・体積・温度・物質量などの間に成立する拘束関係。"
+  - term: 理想気体
+    english: ideal gas
+    meaning: "平衡状態でpV=nRTが成立する気体の理想化模型。高密度や相転移近傍へ無条件には適用できない。"

@@ -1,7 +1,7 @@
 # DREAM THEATER 熱力学（TH1〜TH8）
 
 作成・分冊: 2026-10-11  
-状態: planned（設計のみ。本文実装・公開は未着手）
+状態: in_progress（TH1 完了、TH2〜TH8 未着手。科目横断監査は未実施）
 
 ## 中心問い
 
@@ -10,7 +10,7 @@
 ## 直接必要な前提・PLAN間依存
 
 - 既存 RA/MECH/微積分。SMの前提となる平衡熱力学。
-- この系列の推奨順：[TH](DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
+- この系列の推奨順：[TH](DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](../plans/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](../plans/DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
 
 ## 所有範囲
 
@@ -48,5 +48,5 @@ first / continuous transition、order parameter、magnetic field / magnetization
 
 - 各章の実在 prerequisite / canonical anchor を着手時に確定する。前提PLANが planned の場合、その定理を証明済み扱いしない。
 - DREAM THEATER 現行 standard に従い、動機→定義例→仮定つき主要定理→再計算可能な証明→演習と全詳細解答で閉じる。
-- 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、別観点の再査読と直前完了章の追跡監査を行う。
+- 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、変更章自身の別観点の再査読を行う。別の完了章の追跡監査は、対象章が明示依頼された場合のみ実施する。
 - 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
