@@ -298,7 +298,7 @@ $$
 +nR\int_{V_1}^{V_2}\frac{dV}{V}.
 $$
 
-原始関数はそれぞれ $\log T$、$\log V$ なので、端点を代入すれば主張の式を得ます。異なる可逆経路でも[経路独立性](#thm-th4-entropy-state-function)によって同じ値です。
+原始関数はそれぞれ $\log T$、$\log V$ なので、端点を代入すれば主張の式を得ます。異なる可逆経路でも[可逆熱積分についての定理](#thm-th4-entropy-state-function)によって同じ値です。
 <!-- proof-end -->
 
 ### 例：自由膨張は断熱でも等エントロピーではない
@@ -341,7 +341,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[エントロピーの経路独立性](#thm-th4-entropy-state-function)から可逆微小過程では $\delta Q_{\mathrm{rev}}=T\,dS$ です。[第一法則](../TH2/index.md#axiom-th2-first-law)と[準静的な体積仕事](../TH2/index.md#prop-th2-pv-work)を用いると
+[可逆熱積分についての定理](#thm-th4-entropy-state-function)から可逆微小過程では $\delta Q_{\mathrm{rev}}=T\,dS$ です。[第一法則](../TH2/index.md#axiom-th2-first-law)と[準静的な体積仕事](../TH2/index.md#prop-th2-pv-work)を用いると
 
 $$
 dU=\delta Q_{\mathrm{rev}}+\delta W_{\mathrm{rev}}
@@ -453,7 +453,7 @@ $$
 - ID: TH4-A3
 
 <!-- solution-start -->
-**詳細解答**　[断熱過程の定義](../TH2/index.md#def-th2-adiabatic)から $\delta Q_{\mathrm{rev}}=0$ です。[経路独立性](#thm-th4-entropy-state-function)をこの可逆経路へ適用すると
+**詳細解答**　[断熱過程の定義](../TH2/index.md#def-th2-adiabatic)から $\delta Q_{\mathrm{rev}}=0$ です。[可逆熱積分についての定理](#thm-th4-entropy-state-function)をこの可逆経路へ適用すると
 
 $$
 S(B)-S(A)=\int_A^B\frac{0}{T}=0.
@@ -582,7 +582,7 @@ $\frac98>1$ なので対数は正です。全体は孤立していても、有�
 
 #### C1. 自由膨張から元の状態へ戻す
 
-物質量 $n>0$ の理想気体が、$T_0,V_0>0$ の平衡状態 A にある。$pV=nRT$、$U=n c_VT+\mathrm{const}$、$R,c_V>0$ を仮定する。まず断熱・剛体の真空室へ自由膨張して体積 $2V_0$ の状態 B に至る。次に温度 $T_0$ の一つの熱浴と接触させ、摩擦なしに可逆等温圧縮して体積 $V_0$ の状態 A に戻す。自由膨張での外部仕事は零とする。(1) Bの温度とAからBへのエントロピー差、(2) BからAの系が受け取る熱と仕事、(3) 全操作終了後の気体・熱浴・その合計のエントロピー差を計算し、この循環が第二法則に反しない理由を説明せよ。
+物質量 $n>0$ の理想気体が、$T_0,V_0>0$ の平衡状態 A にある。$pV=nRT$、$U=n c_VT+\mathrm{const}$、$R,c_V>0$ を仮定する。まず断熱された体積固定の真空室へ自由膨張して体積 $2V_0$ の状態 B に至る。次に温度 $T_0$ の一つの熱浴と接触させ、摩擦なしに可逆等温圧縮して体積 $V_0$ の状態 A に戻す。自由膨張での外部仕事は零とする。(1) Bの温度とAからBへのエントロピー差、(2) BからAの系が受け取る熱と仕事、(3) 全操作終了後の気体・熱浴・その合計のエントロピー差を計算し、この循環が第二法則に反しない理由を説明せよ。
 
 - Level: C
 - ID: TH4-C1
