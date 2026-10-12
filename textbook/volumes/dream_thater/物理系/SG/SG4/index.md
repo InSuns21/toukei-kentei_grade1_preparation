@@ -279,31 +279,31 @@ $Z=0$ では波括弧を1と定める。$\lvert\tanh x\rvert\le\lvert x\rvert$ �
 
 $h=0$、$q\downarrow0$ の展開では、正規変数 $Z$ が非有界なので、点ごとのTaylor展開をそのまま期待値へ入れない。任意の実数 $x$ について、$\tanh'(x)=1-\tanh^2x$ と $|\tanh x|\le|x|$ から
 
-$
+$$
 |\tanh x-x|
 =\left|\int_0^x\tanh^2s\,ds\right|
 \le\frac{|x|^3}{3},
 \qquad
 |\tanh^2x-x^2|
 \le\frac{2|x|^4}{3}.
-$
+$$
 
 従って $x=\beta\sqrt q\,Z$ と代入し、標準正規変数の四次モーメント $\mathbb EZ^4=3$ を使うと
 
-$
+$$
 \left|T_{\beta,0}(q)-\beta^2q\right|
 \le\frac23\beta^4q^2\mathbb EZ^4
 =2\beta^4q^2.
-$
+$$
 
 これで期待値を含む剰余まで評価でき、
 
-$
+$$
 T_{\beta,0}(q)=\beta^2q+O(q^2),
 \qquad
 \mathcal P_{\mathrm{RS}}'(q)
 =\frac{\beta^2}{2}(1-\beta^2)q+O(q^2).
-$
+$$
 
 従って $\beta>1$ では $q=0$ はRS試行式の片側局所最大であり、正の固定点へ向かう動機が現れる。$\beta<1$ なら $q=0$ は片側局所最小である。$\beta=1$ はこの一次判定の境界である。ここでの「安定」は試行式の局所的な形の話であり、真のGibbs状態の安定性とは分ける。
 
