@@ -458,7 +458,13 @@ $$
 ### Level A
 
 <a id="ex-int2-a01"></a>
-**A1. 二つのHamiltonベクトル場の可換性。** 滑らかなシンプレクティック多様体上で $\{F,G\}=0$ とする。$X_Fh=\{h,F\}$ とJacobi恒等式を用いて $[X_F,X_G]=0$ を示せ。
+**A1. 二つのHamiltonベクトル場の可換性。** 滑らかなシンプレクティック多様体上で $\{F,G\}=0$ とする。[Lie括弧の基本恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)で扱う作用素の差
+
+$$
+[X_F,X_G]h=X_F(X_Gh)-X_G(X_Fh)
+$$
+
+と[Poisson括弧のJacobi恒等式](../../../物理系/AMECH/AMECH6/index.md#thm-amech6-poisson-identities)を用いて $[X_F,X_G]=0$ を示せ。
 
 - Level: A
 
