@@ -179,7 +179,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)を適用してから、[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を使います。これらの等式により
+[零点集合の演算法則](../AG1-01/index.md#prop-ag1-01-zero-set-operations)によって $V(J+K)=V(J)\cap V(K)$ と $V(JK)=V(J)\cup V(K)$ が成立します。これに[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)と[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を適用すると
 
 $$
 \sqrt{J+K}=I(V(J+K))=I(V(J)\cap V(K))
@@ -197,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-です。ここで $JK\subseteq J\cap K$ なので、包含反転により $V(J\cap K)\subseteq V(JK)$ です。一方 $J\cap K\subseteq J,K$ なので $V(J)\cup V(K)\subseteq V(J\cap K)$ です。[零点集合の包含・共通部分・和集合](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から $V(JK)=V(J)\cup V(K)$ であり、両側から挟んで $V(J\cap K)=V(JK)$ を得ます。従って同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です.
+です。ここで $JK\subseteq J\cap K$ なので、包含反転により $V(J\cap K)\subseteq V(JK)$ です。一方 $J\cap K\subseteq J,K$ なので $V(J)\cup V(K)\subseteq V(J\cap K)$ です。[零点集合の包含・共通部分・和集合](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から $V(JK)=V(J)\cup V(K)$ であり、両側から挟んで $V(J\cap K)=V(JK)$ を得ます。従って同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です。
 <!-- proof-end -->
 
 **具体例：接している二曲線。** $X=V(y)$（$x$ 軸）と $Y=V(y-x^2)$（放物線）を考えます。共通点では $y=0$ かつ $x^2=0$ だから $X\cap Y=\{(0,0)\}$ です。一方、方程式を合わせたイデアルは $(y,y-x^2)=(y,x^2)$ で、$(x,y)$ とは異なります。対応は
@@ -285,9 +285,35 @@ $$
 
 ## 5. 体を変えると何が壊れるか
 
-代数閉性を外しても[包含反転と往復](#prop-ag1-08-order-reversing)や[演算法則](#prop-ag1-08-set-ideal-operations)の最初の三式は使えます。しかし全単射は壊れます。実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
+代数閉性を外しても[包含反転と往復](#prop-ag1-08-order-reversing)の各式と、[消滅イデアルの和集合公式](#prop-ag1-08-set-ideal-operations) $I(X\cup Y)=I(X)\cap I(Y)$ は任意の体で成り立ちます。しかし、同じ命題の **交わりの公式** $I(X\cap Y)=\sqrt{I(X)+I(Y)}$ や根基的イデアルとの全単射は、代数閉性なしには一般に成り立ちません。
 
-壊れる機構は、真のイデアルが基礎体の点を持つという[弱零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)の仮定が失われることです。特に「素イデアルは必ず $k$ の点を含む既約集合を定める」という本章の逆向きは、代数閉性なしには主張できません。
+実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。
+
+有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
+
+交わりの公式が破れる例も計算します。$k=\mathbb R$ とし、$X=V_{\mathbb R}(y)$、$Y=V_{\mathbb R}(y-x^2(x^2+1))$ を取ります。前者は $x$ 軸、後者は多項式のグラフです。実数では $x^2+1>0$ なので、共通点は原点だけです。従って
+
+$$
+I_{\mathbb R}(X\cap Y)=(x,y).
+$$
+
+一方、任意の多項式 $f(x,y)$ を $y$（または $y-x^2(x^2+1)$）で割った余りは $x$ だけの多項式です。各グラフのすべての実数点で零なら、その余りは無限個の根を持つため零多項式となります。よって
+
+$$
+I_{\mathbb R}(X)=(y),\qquad
+I_{\mathbb R}(Y)=(y-x^2(x^2+1)),
+$$
+
+であり、和は $(y,x^2(x^2+1))$ です。もし $x$ がこの和の根基に属すれば、ある $m\ge1$ で $x^m$ が和に入り、$y=0$ を代入すると $x^m$ は $\mathbb R[x]$ で $x^2(x^2+1)$ の倍数になります。しかし複素数 $x=i$ を代入すると右辺は零、左辺は $i^m\ne0$ で矛盾します。つまり
+
+$$
+x\in I_{\mathbb R}(X\cap Y),\qquad
+x\notin\sqrt{I_{\mathbb R}(X)+I_{\mathbb R}(Y)}.
+$$
+
+この差は、複素数上にはある零点を実数の点集合からは検出できないために生じます。
+
+壊れる機構は、[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)を支える**基礎体の代数閉性**が失われ、真のイデアルが必ず基礎体上の零点を持つとは言えなくなることです。特に「素イデアルは必ず $k$ の点を含む既約集合を定める」という本章の逆向きは、代数閉性なしには主張できません。
 
 ## 6. 演習：対応を逆向きにも使う
 
