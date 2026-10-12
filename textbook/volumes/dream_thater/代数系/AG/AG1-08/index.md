@@ -102,7 +102,7 @@ $V(I(S))$ が $S$ を含むことは先ほど示しました。ほかの閉集�
 <!-- proof-start -->
 ### 証明
 
-[包含と往復の命題](#prop-ag1-08-order-reversing)により $S\subseteq V(I(S))$、かつ $I(S)=I(V(I(S)))$ です。$Y$ を $S\subseteq Y$ を満たす任意の閉集合とします。$Y=V(J)$ と書け、$I(Y)\subseteq I(S)$ です。$V$ の包含反転と $Y=V(I(Y))$（前節の定理）を順に用いると
+[零点・消滅操作の包含反転と往復](#prop-ag1-08-order-reversing)により $S\subseteq V(I(S))$、かつ $I(S)=I(V(I(S)))$ です。$Y$ を $S\subseteq Y$ を満たす任意の閉集合とします。$Y=V(J)$ と書け、$I(Y)\subseteq I(S)$ です。$V$ の包含反転と $Y=V(I(Y))$（前節の定理）を順に用いると
 
 $$
 V(I(S))\subseteq V(I(Y))=Y
@@ -136,14 +136,14 @@ $$
 
 ### 証明の見取り図
 
-[零点集合の演算法則](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から、和イデアルは図形の交わりへ、積イデアルは和集合へ対応することが既に分かっています。今回新しく求めるのは**消滅イデアルへ戻す向き**です。和集合の式は定義だけで確かめられますが、交わりの式では根基が必要になります。
+[零点集合の包含・共通部分・和集合](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から、和イデアルは図形の交わりへ、積イデアルは和集合へ対応することが既に分かっています。今回新しく求めるのは**消滅イデアルへ戻す向き**です。和集合の式は定義だけで確かめられますが、交わりの式では根基が必要になります。
 
 <!-- proof-start -->
 ### 証明
 
 $f\in I(X\cup Y)$ とは、$f$ が $X$ と $Y$ の両方のすべての点で零となることです。これは $f\in I(X)$ かつ $f\in I(Y)$ と同値なので、最初の等式が成立します。この部分は代数閉性を使いません。
 
-次に $X,Y$ を Zariski 閉集合とします。[閉集合と根基イデアルの対応](#thm-ag1-08-closed-radical-bijection)から $X=V(I(X))$ と $Y=V(I(Y))$ です。この二つの閉集合に、[既習の零点集合の交わりの公式](../AG1-01/index.md#prop-ag1-01-zero-set-operations)を適用すると
+次に $X,Y$ を Zariski 閉集合とします。[閉集合と根基イデアルの対応](#thm-ag1-08-closed-radical-bijection)から $X=V(I(X))$ と $Y=V(I(Y))$ です。この二つの閉集合に、[零点集合の包含・共通部分・和集合](../AG1-01/index.md#prop-ag1-01-zero-set-operations)を適用すると
 
 $$
 X\cap Y=V(I(X))\cap V(I(Y))=V(I(X)+I(Y))
@@ -179,7 +179,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)と[直前の命題](#prop-ag1-08-set-ideal-operations)より
+[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)を適用してから、[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を使います。これらの等式により
 
 $$
 \sqrt{J+K}=I(V(J+K))=I(V(J)\cap V(K))
@@ -197,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-です。ここで $JK\subseteq J\cap K$ なので、包含反転により $V(J\cap K)\subseteq V(JK)$ です。一方 $J\cap K\subseteq J,K$ なので $V(J)\cup V(K)\subseteq V(J\cap K)$ です。[積イデアルの零点集合の公式](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から $V(JK)=V(J)\cup V(K)$ であり、両側から挟んで $V(J\cap K)=V(JK)$ を得ます。従って同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です.
+です。ここで $JK\subseteq J\cap K$ なので、包含反転により $V(J\cap K)\subseteq V(JK)$ です。一方 $J\cap K\subseteq J,K$ なので $V(J)\cup V(K)\subseteq V(J\cap K)$ です。[零点集合の包含・共通部分・和集合](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から $V(JK)=V(J)\cup V(K)$ であり、両側から挟んで $V(J\cap K)=V(JK)$ を得ます。従って同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です.
 <!-- proof-end -->
 
 **具体例：接している二曲線。** $X=V(y)$（$x$ 軸）と $Y=V(y-x^2)$（放物線）を考えます。共通点では $y=0$ かつ $x^2=0$ だから $X\cap Y=\{(0,0)\}$ です。一方、方程式を合わせたイデアルは $(y,y-x^2)=(y,x^2)$ で、$(x,y)$ とは異なります。対応は
@@ -228,7 +228,7 @@ $$
 
 [既約集合と消滅イデアルの素性](../AG1-02/index.md#thm-ag1-02-irreducible-prime)を閉集合 $X$ に適用すれば、空でない既約性と $I(X)$ の素性は同値です。
 
-任意の素イデアル $\mathfrak p$ は根基的です。実際、$f^m\in\mathfrak p$ なら、$m=1$ は明白で、$m\ge2$ では $f\cdot f^{m-1}\in\mathfrak p$ に素イデアルの定義を適用すると $f\in\mathfrak p$ または $f^{m-1}\in\mathfrak p$ です。後者なら冪指数を一つ減らして同じ議論を続け、有限回で $f\in\mathfrak p$ を得ます。従って[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)より $I(V(\mathfrak p))=\sqrt{\mathfrak p}=\mathfrak p$ です。
+任意の素イデアル $\mathfrak p$ は根基的です。実際、$f^m\in\mathfrak p$ なら、$m=1$ は明白で、$m\ge2$ では $f\cdot f^{m-1}\in\mathfrak p$ です。[真のイデアル・素イデアル・極大イデアルの定義](../../RNG/RNG2/index.md#def-rng2-prime-maximal)をこの積に適用すると $f\in\mathfrak p$ または $f^{m-1}\in\mathfrak p$ です。後者なら冪指数を一つ減らして同じ議論を続け、有限回で $f\in\mathfrak p$ を得ます。従って[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)より $I(V(\mathfrak p))=\sqrt{\mathfrak p}=\mathfrak p$ です。
 
 $\mathfrak p$ は真なので、[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)の対偶から $V(\mathfrak p)\ne\varnothing$ です。最初の同値に $X=V(\mathfrak p)$ を適用すれば、$I(X)=\mathfrak p$ の素性から $X$ は既約です。
 <!-- proof-end -->
@@ -395,7 +395,7 @@ $J=(x^2,xy)$、$K=(y-x^2)$ とする。(1) $V(J)$ と $\sqrt J$、(2) $V(J)\cap 
 
 (2) 二集合の交わりでは $x=0$ かつ $y-x^2=0$ ですから $y=0$、すなわち唯一の点 $(0,0)$ を得ます。従って $I(V(J)\cap V(K))=(x,y)$ です。和イデアルでも $J+K=(x^2,xy,y-x^2)=(x^2,y)$ となり、$\sqrt{J+K}=(x,y)$ なので[交わりの公式](#prop-ag1-08-set-ideal-operations)と一致します。最初の等号は $y=(y-x^2)+x^2$ と $xy\in(y)$ によります。
 
-(3) $I(V(J))=(x)$、$I(V(K))=(y-x^2)$ なので[和集合の公式](#prop-ag1-08-set-ideal-operations)より求めるものは $(x)\cap(y-x^2)$ です。$f=xg$ が $(y-x^2)$ にも属すれば、商 $R/(y-x^2)\simeq k[x]$ で $0=\overline{x}\,\overline g$ となります。$k[x]$ は整域で $\overline x\ne0$ なので $\overline g=0$ です。よって $g\in(y-x^2)$ であり、
+(3) $I(V(J))=(x)$、$I(V(K))=(y-x^2)$ です。[消滅イデアルの演算法則](#prop-ag1-08-set-ideal-operations)を適用すると、求めるイデアルは $(x)\cap(y-x^2)$ です。$f=xg$ が $(y-x^2)$ にも属すれば、商 $R/(y-x^2)\simeq k[x]$ で $0=\overline{x}\,\overline g$ となります。$k[x]$ は整域で $\overline x\ne0$ なので $\overline g=0$ です。よって $g\in(y-x^2)$ であり、
 
 $$
 I(V(J)\cup V(K))=(x(y-x^2))
@@ -420,7 +420,7 @@ $$
 
 なので $f\in\sqrt{JK}$ です。従って一般の可換環でも等式は成立します。
 
-具体例では $\sqrt{(x^2)}=(x)$ です。また $K=(xy)$ は $(x)\cap(y)$ と等しく根基的なので $\sqrt K=(xy)$ です。従って右辺は $(x)\cap(xy)=(xy)$ です。左辺でも $JK=(x^3y)$ となり、$V(x^3y)=V(xy)$ だから[強零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)により $\sqrt{(x^3y)}=I(V(xy))=(xy)$ です。抽象的な指数計算と具体的な零点計算が一致します。
+具体例では $\sqrt{(x^2)}=(x)$ です。また $K=(xy)$ は $(x)\cap(y)$ と等しく根基的なので $\sqrt K=(xy)$ です。従って右辺は $(x)\cap(xy)=(xy)$ です。左辺でも $JK=(x^3y)$ となり、$V(x^3y)=V(xy)$ です。そこで[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を適用すると $\sqrt{(x^3y)}=I(V(xy))=(xy)$ です。抽象的な指数計算と具体的な零点計算が一致します。
 <!-- solution-end -->
 
 以上により、**図形の包含・交わり・和集合・既約成分**が、それぞれ**イデアルの逆向きの包含・和の根基・共通部分・極小素イデアル**に翻訳されます。次章ではこの翻訳を使い、素イデアルの鎖と超越次数から次元を測ります。
