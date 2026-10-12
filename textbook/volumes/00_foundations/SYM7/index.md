@@ -12,7 +12,13 @@
 
 <!-- formal-statement-start -->
 > **定義（シンプレクティック形式の滑らかな経路）**  
-> $M$ 上の族 $(\omega_t)_{0\le t\le1}$ がシンプレクティック形式の滑らかな経路であるとは、局所座標で $\omega_t$ の全係数が $(t,x)$ に滑らかに依存し、すべての $t\in[0,1]$ で $d\omega_t=0$ かつ各点で $\omega_t$ が非退化であることをいう。端点での滑らかさは時間区間の外側への局所的な滑らかな延長として理解する。
+> $M$ 上の2形式の族 $(\omega_t)$ がシンプレクティック形式の滑らかな経路であるとは、局所座標で各係数が時間・空間変数に滑らかに依存し、各点・各時刻で非退化かつ
+>
+$$
+d\omega_t=0 \qquad(0\le t\le1)
+$$
+>
+> を満たすことをいう。時間区間の両端での滑らかさは、その外側への局所的な滑らかな延長によって定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym7-symplectic-path -->
@@ -120,7 +126,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Moser型同位変形に必要な完全性）**  
-> $M$ を境界のない滑らかな多様体、$(\omega_t)$ をシンプレクティック形式の滑らかな経路とする。滑らかな微分同相の族 $\varphi_t$ が $\varphi_0=\mathrm{id}_M$ と $\varphi_t^*\omega_t=\omega_0$ を満たすなら、各 $\dot\omega_t=\partial_t\omega_t$ は大域的な完全2形式であり、すべての $t$ で $[\omega_t]=[\omega_0]$ となる。
+> $M$ を境界のない滑らかな多様体、$(\omega_t)$ をシンプレクティック形式の滑らかな経路とする。滑らかな微分同相の族 $(\varphi_t)$ が次の条件
+>
+$$
+\varphi_0=\mathrm{id}_M,\qquad
+\varphi_t^*\omega_t=\omega_0
+$$
+>
+> を満たすなら、各 $\dot\omega_t=\partial_t\omega_t$ は大域的な完全2形式であり、すべての時刻で
+>
+$$
+[\omega_t]=[\omega_0]
+$$
+>
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
