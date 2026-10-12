@@ -2,7 +2,7 @@
 
 > **アーカイブ**
 >
-> このページの内容は [RKHS2「正則化問題の表現定理」](../RKHS2/index.md)、[RKHS4「最大マージンとハードマージン SVM」](../RKHS4/index.md)、[RKHS5「ソフトマージン・ヒンジ損失・カーネル SVM」](../RKHS5/index.md) へ整理して引き継いでいます。現在の通読では RKHS 系列を参照してください。過去リンクのため、このページ自体は残しています。
+> このページの内容は [RKHS2「正則化問題の表現定理」](../../dream_thater/応用系/RKHS2/index.md)、[RKHS4「最大マージンとハードマージン SVM」](../../dream_thater/応用系/RKHS4/index.md)、[RKHS5「ソフトマージン・ヒンジ損失・カーネル SVM」](../../dream_thater/応用系/RKHS5/index.md) へ整理して引き継いでいます。現在の通読では RKHS 系列を参照してください。過去リンクのため、このページ自体は残しています。
 
 無限次元RKHSの最適化解が、なぜ有限標本が張る部分空間へ落ちるのかをrepresenter theoremとSVM stationarityの両方から見ます。
 

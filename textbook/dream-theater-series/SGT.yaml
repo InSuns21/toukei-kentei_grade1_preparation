@@ -2,38 +2,38 @@ version: 1
 id: SGT
 title: "スペクトルグラフ理論"
 plan: textbook/plans_progress/DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md
-chapter_root: textbook/volumes/00_foundations
+chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: SGT1
-    path: textbook/volumes/00_foundations/SGT1
+    path: textbook/volumes/dream_thater/計算系/SGT1
     status: completed
     title: 重み付きグラフと組合せLaplacian
   - id: SGT2
-    path: textbook/volumes/00_foundations/SGT2
+    path: textbook/volumes/dream_thater/計算系/SGT2
     status: planned
     title: 正規化Laplacianとランダムウォーク
   - id: SGT3
-    path: textbook/volumes/00_foundations/SGT3
+    path: textbook/volumes/dream_thater/計算系/SGT3
     status: planned
     title: スペクトルギャップとCheeger不等式
   - id: SGT4
-    path: textbook/volumes/00_foundations/SGT4
+    path: textbook/volumes/dream_thater/計算系/SGT4
     status: planned
     title: スペクトル分割とクラスタリング
   - id: SGT5
-    path: textbook/volumes/00_foundations/SGT5
+    path: textbook/volumes/dream_thater/計算系/SGT5
     status: planned
     title: 固有空間の摂動と分割の安定性
   - id: SGT6
-    path: textbook/volumes/00_foundations/SGT6
+    path: textbook/volumes/dream_thater/計算系/SGT6
     status: planned
     title: ランダムウォークの混合とスペクトル
   - id: SGT7
-    path: textbook/volumes/00_foundations/SGT7
+    path: textbook/volumes/dream_thater/計算系/SGT7
     status: planned
     title: 電気ネットワークと有効抵抗
   - id: SGT8
-    path: textbook/volumes/00_foundations/SGT8
+    path: textbook/volumes/dream_thater/計算系/SGT8
     status: planned
     title: 点群グラフ・連続極限との境界・総合演習

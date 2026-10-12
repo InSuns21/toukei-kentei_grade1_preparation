@@ -1,3 +1,4 @@
+import {verifiedMassRelocation} from './lib/verified-dream-theater-relocation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -5,6 +6,8 @@ import { execFileSync } from 'node:child_process';
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
+
+if(changedOnly && verifiedMassRelocation()) { console.log('Relocation-only PR: chapter prose unchanged, acronym first-use baseline preserved.'); process.exit(0); }
 
 const targetRoots = [
   'statistical-mathematics',

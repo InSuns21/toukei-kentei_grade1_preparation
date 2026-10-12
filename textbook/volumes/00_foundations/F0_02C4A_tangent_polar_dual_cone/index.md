@@ -1,7 +1,7 @@
 # F0-02C4A 凸解析：tangent cone・polar cone・dual cone
 
 > **Archive notice**  
-> このページは archive です。接錐・極錐・双対錐の canonical owner は [OPT3](../OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+> このページは archive です。接錐・極錐・双対錐の canonical owner は [OPT3](../../dream_thater/応用系/OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
 
 <!-- definition-example-audit: strict -->
 

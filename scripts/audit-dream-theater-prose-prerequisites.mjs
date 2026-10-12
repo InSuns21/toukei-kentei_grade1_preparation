@@ -40,18 +40,23 @@ function deps(value,loc){
  if(!Array.isArray(value)||value.some(v=>typeof v!=='string'||!v.trim()))throw Error(loc+': bad prerequisites');
  return [...new Set(value)];
 }
-for(const vol of fs.readdirSync('textbook/volumes',{withFileTypes:true}).filter(x=>x.isDirectory())){
- const dir='textbook/volumes/'+vol.name;
- for(const item of fs.readdirSync(dir,{withFileTypes:true}).filter(x=>x.isDirectory())){
-  const cp=dir+'/'+item.name+'/chapter.yaml';
-  if(!fs.existsSync(cp))continue;
-  const obj=YAML.parse(file(cp))??{};
-  if(!obj.id)continue;
-  const rec={id:String(obj.id),title:String(obj.title??''),prereqs:deps(obj.prerequisites??[],cp),yaml:cp,md:dir+'/'+item.name+'/index.md',knowledge:dir+'/'+item.name+'/knowledge.yaml'};
-  byPath.set(rec.md,rec);
-  const arr=records.get(rec.id)??[];arr.push(rec);records.set(rec.id,arr);
+function* chapterDirs(base){
+ for(const entry of fs.readdirSync(base,{withFileTypes:true})){
+  if(!entry.isDirectory())continue;
+  const dir=base+'/'+entry.name;
+  if(fs.existsSync(dir+'/chapter.yaml'))yield dir;
+  else yield* chapterDirs(dir);
  }
 }
+for(const dir of chapterDirs('textbook/volumes')){
+ const cp=dir+'/chapter.yaml';
+ const obj=YAML.parse(file(cp))??{};
+ if(!obj.id)continue;
+ const rec={id:String(obj.id),title:String(obj.title??''),prereqs:deps(obj.prerequisites??[],cp),yaml:cp,md:dir+'/index.md',knowledge:dir+'/knowledge.yaml'};
+ byPath.set(rec.md,rec);
+ const arr=records.get(rec.id)??[];arr.push(rec);records.set(rec.id,arr);
+}
+
 const chapters=new Map();
 for(const [id,arr] of records){
  const listed=arr.filter(r=>indexed.has(r.md));
@@ -74,7 +79,7 @@ function reasoning(text){
  return /(?:を(?:使|用い|利用|適用|援用)|に(?:依存|基づ|従い)|から(?:導|得|従|借)|の(?:定理|補題|結果|定義|公式|構成|証明|議論)|で(?:証明|示し|示す|得た|導い|導入|定義|学んだ|扱った))/u.test(text);
 }
 function forward(text){
- return /(?:後続|次章|次節|次の章|この先|将来|今後|後で|予告|で扱います|で扱う|で学びます|への接続|と比較|との対比|参考として|へ進みます)/u.test(text);
+ return /(?:後続|後段|次章|次節|次の章|この先|将来|今後|後で|予告|で扱います|で扱う|で学びます|への接続|と比較|との対比|参考として|へ進みます)/u.test(text);
 }
 function resolve(source,link){
  if(/^(?:https?:|mailto:|#|\/)/iu.test(link))return null;
@@ -86,7 +91,7 @@ function selfTest(){
  assert(reasoning('QM6の定理を使う'));
  assert(!reasoning('QM6を紹介する'));
  assert(forward('次章で扱います'));
- assert(resolve('textbook/volumes/00_foundations/MQ1/index.md','../QM6/index.md')==='textbook/volumes/00_foundations/QM6/index.md');
+ assert(resolve('textbook/volumes/dream_thater/物理系/MQ1/index.md','../../解析系/QM6/index.md')==='textbook/volumes/dream_thater/解析系/QM6/index.md');
  console.log('Narrative prerequisite audit self-test passed');
 }
 if(process.argv.includes('--self-test')){selfTest();process.exit(0);}

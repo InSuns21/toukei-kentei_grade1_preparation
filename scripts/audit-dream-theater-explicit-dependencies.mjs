@@ -399,7 +399,7 @@ function collectChangedFiles() {
     const output = execFileSync('git', [
       '-c', 'core.quotepath=false',
       'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--',
-      'textbook/volumes/00_foundations',
+      'textbook/volumes/dream_thater',
       'textbook/dream-theater-index.json',
       'textbook/dream-theater-knowledge.yaml',
     ], { cwd: root, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
@@ -418,7 +418,7 @@ function collectChangedLineNumbers() {
     const diff = execFileSync('git', [
       '-c', 'core.quotepath=false',
       'diff', '--unified=0', '--diff-filter=ACMR', base, 'HEAD', '--',
-      'textbook/volumes/00_foundations',
+      'textbook/volumes/dream_thater',
     ], { cwd: root, encoding: 'utf8', maxBuffer: 40 * 1024 * 1024 });
     let current = null;
     for (const line of diff.split('\n')) {

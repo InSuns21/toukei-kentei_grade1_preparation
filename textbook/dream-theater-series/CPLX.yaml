@@ -2,90 +2,90 @@ version: 1
 id: CPLX
 title: "計算量理論 I：P・NP・NP完全性"
 plan: textbook/plan_done/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
-chapter_root: textbook/volumes/00_foundations
+chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: CPLX1
-    path: textbook/volumes/00_foundations/CPLX1
+    path: textbook/volumes/dream_thater/計算系/CPLX1
     status: completed
     title: 入力サイズ・時間計算量・空間計算量
   - id: CPLX2
-    path: textbook/volumes/00_foundations/CPLX2
+    path: textbook/volumes/dream_thater/計算系/CPLX2
     status: completed
     title: クラスP
   - id: CPLX3
-    path: textbook/volumes/00_foundations/CPLX3
+    path: textbook/volumes/dream_thater/計算系/CPLX3
     status: completed
     title: クラスNP：証明書と検証
   - id: CPLX4
-    path: textbook/volumes/00_foundations/CPLX4
+    path: textbook/volumes/dream_thater/計算系/CPLX4
     status: completed
     title: 非決定性Turing機械とNP
   - id: CPLX5
-    path: textbook/volumes/00_foundations/CPLX5
+    path: textbook/volumes/dream_thater/計算系/CPLX5
     status: completed
     title: 多項式時間 many-one 帰着
   - id: CPLX6
-    path: textbook/volumes/00_foundations/CPLX6
+    path: textbook/volumes/dream_thater/計算系/CPLX6
     status: completed
     title: NP-hard・NP-complete
   - id: CPLX7
-    path: textbook/volumes/00_foundations/CPLX7
+    path: textbook/volumes/dream_thater/計算系/CPLX7
     status: completed
     title: Cook--Levinの定理
   - id: CPLX8
-    path: textbook/volumes/00_foundations/CPLX8
+    path: textbook/volumes/dream_thater/計算系/CPLX8
     status: completed
     title: SATから3-SATへの帰着
   - id: CPLX9
-    path: textbook/volumes/00_foundations/CPLX9
+    path: textbook/volumes/dream_thater/計算系/CPLX9
     status: completed
     title: グラフ問題への帰着
   - id: CPLX10
-    path: textbook/volumes/00_foundations/CPLX10
+    path: textbook/volumes/dream_thater/計算系/CPLX10
     status: completed
     title: 数値問題と弱NP完全性
   - id: CPLX11
-    path: textbook/volumes/00_foundations/CPLX11
+    path: textbook/volumes/dream_thater/計算系/CPLX11
     status: completed
     title: P vs NP
   - id: CPLX12
-    path: textbook/volumes/00_foundations/CPLX12
+    path: textbook/volumes/dream_thater/計算系/CPLX12
     status: completed
     title: 空間計算量
   - id: CPLX13
-    path: textbook/volumes/00_foundations/CPLX13
+    path: textbook/volumes/dream_thater/計算系/CPLX13
     status: completed
     title: Savitch の定理
   - id: CPLX14
-    path: textbook/volumes/00_foundations/CPLX14
+    path: textbook/volumes/dream_thater/計算系/CPLX14
     status: completed
     title: PSPACE完全性とTQBF
   - id: CPLX15
-    path: textbook/volumes/00_foundations/CPLX15
+    path: textbook/volumes/dream_thater/計算系/CPLX15
     status: completed
     title: 階層定理
   - id: CPLX16
-    path: textbook/volumes/00_foundations/CPLX16
+    path: textbook/volumes/dream_thater/計算系/CPLX16
     status: completed
     title: 多項式階層
   - id: CPLX17
-    path: textbook/volumes/00_foundations/CPLX17
+    path: textbook/volumes/dream_thater/計算系/CPLX17
     status: completed
     title: Oracleと相対化
   - id: CPLX18
-    path: textbook/volumes/00_foundations/CPLX18
+    path: textbook/volumes/dream_thater/計算系/CPLX18
     status: completed
     title: 回路計算量
   - id: CPLX19
-    path: textbook/volumes/00_foundations/CPLX19
+    path: textbook/volumes/dream_thater/計算系/CPLX19
     status: completed
     title: 回路下界への入口
   - id: CPLX20
-    path: textbook/volumes/00_foundations/CPLX20
+    path: textbook/volumes/dream_thater/計算系/CPLX20
     status: completed
     title: 乱択計算
   - id: CPLX21
-    path: textbook/volumes/00_foundations/CPLX21
+    path: textbook/volumes/dream_thater/計算系/CPLX21
     status: completed
     title: P vs NPの証明障壁

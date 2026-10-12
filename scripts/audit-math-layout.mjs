@@ -1,7 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
-const prefix = 'textbook/volumes/00_foundations/';
+const prefix = 'textbook/volumes/dream_thater/';
 const changedOnly = process.argv.includes('--changed-only');
 const strict = process.argv.includes('--strict');
 const opt = (name) => {const i=process.argv.indexOf(name);return i<0?'':process.argv[i+1];};
@@ -46,11 +46,11 @@ function scan(source) {
   flush();return findings;
 }
 function files() {
-  if(!changedOnly)return readdirSync(prefix,{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>prefix+x.name+'/index.md').filter(x=>{try{readFileSync(x);return true;}catch{return false;}});
+  if(!changedOnly)return readdirSync(prefix,{withFileTypes:true}).filter(x=>x.isDirectory()).flatMap(x=>readdirSync(prefix+x.name,{withFileTypes:true}).filter(y=>y.isDirectory()).map(y=>prefix+x.name+'/'+y.name+'/index.md')).filter(x=>existsSync(x));
   if(!base)throw Error('missing --base for changed-only');
   const p=spawnSync('git',['diff','--name-only','--diff-filter=ACMR',base+'...HEAD'],{encoding:'utf8'});
   if(p.status!==0)throw Error(p.stderr||'git diff failed');
-  return p.stdout.split(/\r?\n/u).filter(x=>/^textbook\/volumes\/00_foundations\/[^/]+\/index\.md$/u.test(x));
+  return p.stdout.split(/\r?\n/u).filter(x=>/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/u.test(x));
 }
 if(process.argv.includes('--self-test')){
   const assert=(ok,m)=>{if(!ok)throw Error(m);};

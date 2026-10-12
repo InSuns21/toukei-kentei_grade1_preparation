@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = path.resolve('textbook/volumes/00_foundations');
+const ROOT = path.resolve('textbook/volumes/dream_thater');
 const args = process.argv.slice(2);
 const writeIndex = args.indexOf('--write');
 const writePath = writeIndex >= 0 ? args[writeIndex + 1] : null;

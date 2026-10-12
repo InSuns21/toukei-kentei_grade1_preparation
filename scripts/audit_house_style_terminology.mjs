@@ -7,7 +7,7 @@ const root = process.cwd();
 // 既存の地下世界を一括置換せず、監査済みの章をここへ追加して再発を防ぐ。
 const migratedFiles = [
   'textbook/dream-theater.md',
-  'textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md',
+  'textbook/volumes/dream_thater/基礎科目/F0-00D/index.md',
 ];
 
 const rules = [

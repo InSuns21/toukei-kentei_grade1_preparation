@@ -75,8 +75,8 @@ function inspectFormalReference(file, line, match, contents, anchors) {
 }
 
 function testFormalReferenceGate() {
-  const source = path.resolve('textbook/volumes/00_foundations/CMP5/index.md');
-  const target = path.resolve('textbook/volumes/00_foundations/CMP3/index.md');
+  const source = path.resolve('textbook/volumes/dream_thater/計算系/CMP5/index.md');
+  const target = path.resolve('textbook/volumes/dream_thater/計算系/CMP3/index.md');
   const contents = new Map([[source, ''], [target, '']]);
   const anchors = new Map([[source, new Set()], [target, new Set(['prop-cmp3-pair-injective'])]]);
   const check = (href) => {

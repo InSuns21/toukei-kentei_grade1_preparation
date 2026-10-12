@@ -4,7 +4,7 @@
 
 ## 1. 対象、読み順と監査方法
 
-- 対象は `textbook/volumes/00_foundations/CELL1`〜`CELL15` の15章の実本文、`chapter.yaml` / `knowledge.yaml`、科目の公開目次、グローバル索引、series manifest、work-state、PLANと図版8点。
+- 対象は `textbook/volumes/dream_thater/計算系/CELL1`〜`CELL15` の15章の実本文、`chapter.yaml` / `knowledge.yaml`、科目の公開目次、グローバル索引、series manifest、work-state、PLANと図版8点。
 - 15章の実ファイルをGitHub mainから読み、学習節・形式的主張のanchor・証明マーカー・演習ID・解答ブロック・リンクを抽出して章ごとに照合した。数理論証の高リスク接続は定理本文とLevel C詳細解答を実際に読んで、仮定、モデル、途中計算と結論を確認した。
 - 今回の別観点査読は、**同一担当・同一実行コンテキスト**。以前の章別PRの自己査読と別の観点での横断監査であり、外部第三者による独立査読を実施したものではない。
 - 2026-10-10のCELL15マージcommit `8a59ed7b9f565a84a7b4fe4ca2081c4ed08c4831` を基準とする。main pushに対する `Validate textbook`、`Validate DREAM THEATER concepts`、`Validate DREAM THEATER exercises`、`Validate terminology`、`Deploy learning site to GitHub Pages` がいずれもsuccess。Pages run `38062323722` のbuild・deploy・`Smoke-test changed published Pages files` はすべてsuccessだった。

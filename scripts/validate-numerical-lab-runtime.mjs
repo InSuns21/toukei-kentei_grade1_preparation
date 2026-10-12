@@ -3,9 +3,12 @@ import { execFileSync } from 'node:child_process';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
+import {chapterPathsFromIndex} from './lib/dream-theater-chapter-paths.mjs';
 
 const root = process.cwd();
-const foundationsDir = path.join(root, 'textbook', 'volumes', '00_foundations');
+const indexedChapters = chapterPathsFromIndex(JSON.parse(
+  await readFile(path.join(root, 'textbook/dream-theater-index.json'), 'utf8')
+));
 
 async function read(relative) {
   return readFile(path.join(root, relative), 'utf8');
@@ -86,10 +89,8 @@ assert.match(serviceWorker, /isNumericalRuntimeRequest/);
 assert.match(serviceWorker, /numericalRuntimeCacheName/);
 assert.match(serviceWorker, /numericalRuntime \? 'cache-first'/);
 
-const chapterDirs = (await readdir(foundationsDir, { withFileTypes: true }))
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name)
-  .filter((name) => name === 'PYNUM1' || /^NUMLAB\d+$/.test(name))
+const chapterDirs = [...indexedChapters.keys()]
+  .filter(name => name === 'PYNUM1' || /^NUMLAB\d+$/.test(name))
   .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
 
 assert.ok(chapterDirs.includes('PYNUM1'), 'PYNUM1 numerical lab page is missing');
@@ -189,7 +190,7 @@ function parseLabs(chapter, markdown) {
 }
 
 for (const chapter of chapterDirs) {
-  const markdown = await read(`textbook/volumes/00_foundations/${chapter}/index.md`);
+  const markdown = await read(indexedChapters.get(chapter));
   pageText.set(chapter, markdown);
   const labs = parseLabs(chapter, markdown);
   pageLabs.set(chapter, labs);
@@ -231,7 +232,7 @@ for (const [index, link] of linkRegistry.links.entries()) {
   assert.match(link.lab_chapter, /^NUMLAB[1-5]$/, `${label}: lab_chapter must be NUMLAB1–NUMLAB5`);
   assert.ok(pageText.has(link.lab_chapter), `${label}: missing lab page ${link.lab_chapter}`);
 
-  const theory = await read(`textbook/volumes/00_foundations/${link.theory_chapter}/index.md`);
+  const theory = await read(indexedChapters.get(link.theory_chapter));
   const lab = pageText.get(link.lab_chapter);
 
   assert.ok(

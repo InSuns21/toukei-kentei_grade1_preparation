@@ -1,6 +1,6 @@
 # textbook スコープ規約
 
-このファイルは `textbook/**` の通常教材と共通教材インフラに適用する。DREAM THEATER の `textbook/volumes/00_foundations/**` では、さらにその配下の `AGENTS.md` を適用する。
+このファイルは `textbook/**` の通常教材と共通教材インフラに適用する。DREAM THEATER の `textbook/volumes/dream_thater/**` では、さらにその配下の `AGENTS.md` を適用する。
 
 ## 通常教材の正本
 

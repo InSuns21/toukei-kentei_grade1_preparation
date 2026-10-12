@@ -6,6 +6,8 @@ on:
       - 'textbook/migrations/dream-theater-category-layout/**'
       - 'scripts/dream-theater-layout-inventory.mjs'
       - '.github/workflows/dream-theater-category-migration.yml'
+      - 'scripts/migrate-dream-theater-categories.mjs'
+      - 'scripts/verify-dream-theater-category-relocation.mjs'
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,8 @@ jobs:
     steps:
       - name: Checkout current repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
@@ -31,4 +35,18 @@ jobs:
           echo '== Number of old-root references in tracked files =='
           git grep -l '00_foundations' -- ':!package-lock.json' | wc -l || true
       - name: Verify category mapping and chapter IDs
-        run: node scripts/dream-theater-layout-inventory.mjs --strict
+        run: |
+          if grep -q 'textbook/volumes/00_foundations/' textbook/dream-theater-index.json; then
+            node scripts/dream-theater-layout-inventory.mjs --strict
+          else
+            node scripts/migrate-dream-theater-categories.mjs --check
+          fi
+      - name: Verify content preservation when category migration is proposed
+        if: github.event_name == 'pull_request'
+        run: |
+          BASE="$(git merge-base origin/main HEAD)"
+          if git show "$BASE:textbook/dream-theater-index.json" | grep -q 'textbook/volumes/00_foundations/'; then
+            node scripts/verify-dream-theater-category-relocation.mjs --base "$BASE"
+          else
+            echo 'Migration already canonical in base; no bulk-relocation proof needed'
+          fi

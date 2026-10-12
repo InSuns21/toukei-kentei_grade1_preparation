@@ -40,7 +40,7 @@ if (indexChange) {
 }
 
 for (const change of changes) {
-  if (!change.path.startsWith('textbook/volumes/00_foundations/')) continue;
+  if (!change.path.startsWith('textbook/volumes/dream_thater/')) continue;
 
   if (change.path.endsWith('/knowledge.yaml')) {
     if (change.status === 'A' && isKnowledgeForNewPage(change.path, changes, base)) continue;

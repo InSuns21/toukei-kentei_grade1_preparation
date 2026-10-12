@@ -48,8 +48,8 @@ function normalizeVolumeRelativeLinks(markdown, relative) {
 
 function selfTestVolumeRelativeLinks() {
   const source = '[result $[X,Y]$](../LIE2/index.md#anchor) and [external](https://example.org)';
-  const actual = normalizeVolumeRelativeLinks(source, 'textbook/volumes/00_foundations/LIE4/index.md');
-  const expected = '[result $[X,Y]$](textbook/volumes/00_foundations/LIE2/index.md#anchor) and [external](https://example.org)';
+  const actual = normalizeVolumeRelativeLinks(source, 'textbook/volumes/dream_thater/代数系/LIE4/index.md');
+  const expected = '[result $[X,Y]$](textbook/volumes/dream_thater/代数系/LIE2/index.md#anchor) and [external](https://example.org)';
   if (actual !== expected) throw new Error('Docsify volume-relative link normalization regression');
 }
 selfTestVolumeRelativeLinks();

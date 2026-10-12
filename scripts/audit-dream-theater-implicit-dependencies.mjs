@@ -229,7 +229,7 @@ function collectChangedLineNumbers() {
     const names = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--name-only', `${base}...HEAD`], { encoding: 'utf8' });
     for (const name of names.split(/\r?\n/).filter(Boolean)) files.add(name);
 
-    const diff = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--unified=0', '--no-color', `${base}...HEAD`, '--', 'textbook/volumes/00_foundations/**'], { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+    const diff = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--unified=0', '--no-color', `${base}...HEAD`, '--', 'textbook/volumes/dream_thater/**'], { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
     let currentFile = null;
     let currentLine = 0;
     for (const line of diff.split(/\r?\n/)) {

@@ -98,7 +98,8 @@ function validate(root) {
       const categorizedPath = categorizedParts.length === 5 &&
         categorizedParts.slice(0, 3).join('/') === categorizedRoot &&
         categorizedParts[3].trim() !== '' && categorizedParts[4] === id;
-      if (chapter.path !== legacyPath && !categorizedPath) {
+      if ((chapterRoot === categorizedRoot && !categorizedPath) ||
+          (chapterRoot !== categorizedRoot && chapter.path !== legacyPath && !categorizedPath)) {
         fail(label + id + ': chapter path does not match legacy or category/ID layout');
       }
     }
