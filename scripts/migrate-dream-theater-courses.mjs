@@ -136,6 +136,9 @@ if(apply){
  }
  write(INDEX,JSON.stringify(index,null,2)+'\n');
  let facade=read(FACADE);
+ // These exercise links were already present in the public facade but were
+ // intentionally absent from the canonical index. Reuse one index entry only.
+ facade=facade.split('\n').filter(line=>!extras.some(e=>line.includes('('+e.source+'/index.md)'))).join('\n');
  for(const e of extras){
   const previous=originalIndex.get(e.insertAfter);
   const re=facade.split('\n');
