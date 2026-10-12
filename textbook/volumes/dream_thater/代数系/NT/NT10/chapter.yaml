@@ -6,6 +6,7 @@ prerequisites:
   - NT9
   - NT1
   - NT6
+  - RA3
 official_scope: []
 learning_objectives:
   - 整数と有理数で多項式可解性が異なる具体例を証明できる
