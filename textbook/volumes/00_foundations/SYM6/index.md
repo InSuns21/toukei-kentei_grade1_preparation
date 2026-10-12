@@ -415,7 +415,7 @@ s_\alpha^*(dp_i)=d(p_i\circ s_\alpha)
 =da_i=\sum_j(\partial_j a_i)\,dq^j
 $$
 
-です。最初の等号では[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を写像 $s_\alpha$ と座標関数 $p_i$ に適用しました。従ってグラフへの引き戻しを計算すると
+です。最初の等号では[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を写像 $s_\alpha$ と座標関数 $p_i$ に適用しました。さらに[引き戻しと外積の可換性](../GEO7/index.md#prop-geo7-pullback-wedge)を各 $dq^i\wedge dp_i$ に適用し、グラフへの引き戻しを計算すると
 
 $$
 \begin{aligned}
@@ -595,7 +595,7 @@ Lagrange条件は座標によらず2形式の制限で定まります。[SYM2の
 <!-- proof-start -->
 ### 証明
 
-包含を $i:L\hookrightarrow M$、$F(L)$ の包含を $j:F(L)\hookrightarrow N$ とし、制限 $f=F|_L:L\to F(L)$ を取ります。$F$ と $F^{-1}$ は滑らかなので $f$ は微分同相で、$F(L)$ は埋め込み $n$ 次元部分多様体です。等式 $j\circ f=F\circ i$ と $F^*\eta=\omega$ を使えば
+包含を $i:L\hookrightarrow M$、$F(L)$ の包含を $j:F(L)\hookrightarrow N$ とし、制限 $f=F|_L:L\to F(L)$ を取ります。$F$ と $F^{-1}$ は滑らかなので $f$ は微分同相で、$F(L)$ は埋め込み $n$ 次元部分多様体です。等式 $j\circ f=F\circ i$、$F^*\eta=\omega$ と、[微分形式の引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)を適用すると
 
 $$
 \begin{aligned}
@@ -868,7 +868,7 @@ $$
 
 です。仮に $a\,\partial_uF+b\,\partial_sF=0$ なら第一成分から $a=0$、第四成分から $b=0$ です。従って $dF$ はすべての点で階数2の単射であり、$F$ は埋め込みです。
 
-[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を $F$ と各座標関数に適用し、例えば $F^*dq^2=d(q^2\circ F)=d(u^2)$ として、各1形式を計算すると
+[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を $F$ と各座標関数に適用し、例えば $F^*dq^2=d(q^2\circ F)=d(u^2)$ とします。[引き戻しと外積の可換性](../GEO7/index.md#prop-geo7-pullback-wedge)を正準2形式にも適用し、各1形式を計算すると
 
 $$
 \begin{aligned}
