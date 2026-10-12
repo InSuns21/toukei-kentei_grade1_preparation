@@ -60,7 +60,7 @@ concepts:
     introduction_aliases: [定理（六次模型の一次転移と潜熱）]
     requires: [thermodynamics.landau-sextic, thermodynamics.envelope-branch]
   - id: thermodynamics.field-temperature-coexistence-slope
-    name: 外場・温度共存線の傾き
+    name: 共存線の外場・温度勾配
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（共存線の外場・温度勾配）]
