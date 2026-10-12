@@ -1,0 +1,23 @@
+chapter: "INFO2"
+terms:
+  - term: 相対エントロピー
+    english: Kullback-Leibler divergence
+    meaning: "有限分布PとQの対数比をPで平均する量。PがQに絶対連続でなければ無限大。"
+  - term: 絶対連続性
+    english: absolute continuity
+    meaning: "有限離散分布では、Qが確率0を与える点ではPも確率0を与えること（P<<Q）。"
+  - term: Gibbs不等式
+    english: Gibbs inequality
+    meaning: "相対エントロピーD(P||Q)が非負であり、零となるのはP=Qに限ること。"
+  - term: 対数和不等式
+    english: log-sum inequality
+    meaning: "非負数列の対数比の重み付き和が、総和同士の比を使った下界を持つ不等式。"
+  - term: 有限確率通信路
+    english: finite stochastic channel
+    meaning: "各入力xについて出力zの条件付き確率W(z|x)を規定する非負・行和1の配列。"
+  - term: データ処理不等式
+    english: data processing inequality
+    meaning: "共通の確率通信路を通した二分布の相対エントロピーが増えないという不等式。"
+  - term: Markov連鎖
+    english: Markov chain
+    meaning: "XからYを経てZが生成され、Zの条件付き分布がYだけに依存する三変数の構造。"
