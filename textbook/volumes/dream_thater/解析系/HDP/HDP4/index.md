@@ -690,7 +690,11 @@ Z=\max_{1\le j\le d}\frac1n\sum_{i=1}^nX_{ij},
 \qquad \mu_*=\max_{1\le j\le d}\mu_j
 $$
 
-と置く。(1) $Z$ の有界差分定数を求めよ。(2) $EZ\le\mu_*+\sqrt{\log d/(2n)}$ を示せ。(3) 任意の $t>0$ で、$P(Z\ge\mu_*+\sqrt{\log d/(2n)}+t)\le e^{-2nt^2}$ を証明せよ。
+と置く。
+
+1. $Z$ の有界差分定数を求めよ。
+2. $EZ\le\mu_*+\sqrt{\log d/(2n)}$ を示せ。
+3. 任意の $t>0$ で、$P(Z\ge\mu_*+\sqrt{\log d/(2n)}+t)\le e^{-2nt^2}$ を証明せよ。
 
 - Level: C
 - ID: HDP4-C1

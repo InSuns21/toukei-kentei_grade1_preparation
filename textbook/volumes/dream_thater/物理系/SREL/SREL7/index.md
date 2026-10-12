@@ -727,7 +727,14 @@ $$
 
 ### C1. 圧力勾配を支える外力と観測者変換
 
-$|\beta|<1$、$\gamma=(1-\beta^2)^{-1/2}$、$v=\beta c$ とする。元の慣性系のある開領域で、$u^\mu=(c,0,0,0)$、$n=n_0>0$、$\varepsilon=\varepsilon_0>0$、$p(x)=p_0+\kappa x>0$（$\kappa\ne0$）の完全流体を考える。局所的な外力密度 $f^\mu$ が $\partial_\mu T^{\mu\nu}=f^\nu$ を満たすとする。(1) $T^{\mu\nu}$ と $f^\mu$ を求める。(2) $\partial_\mu N^\mu=0$ とエネルギー・Euler方程式を検算する。(3) 受動的 $x$ boost $x'^0=\gamma(x^0-\beta x^1)$、$x'^1=\gamma(x^1-\beta x^0)$ の下で、$f'^\mu$ と $T'^{00},T'^{01},T'^{11}$ を計算する。(4) プライム座標で $\nu=0,1$ の局所収支を偏微分で直接確かめる。$\kappa$ を保つ外力の微視的な起源は指定しなくてよい。
+$|\beta|<1$、$\gamma=(1-\beta^2)^{-1/2}$、$v=\beta c$ とする。元の慣性系のある開領域で、$u^\mu=(c,0,0,0)$、$n=n_0>0$、$\varepsilon=\varepsilon_0>0$、$p(x)=p_0+\kappa x>0$（$\kappa\ne0$）の完全流体を考える。局所的な外力密度 $f^\mu$ が $\partial_\mu T^{\mu\nu}=f^\nu$ を満たすとする。
+
+1. $T^{\mu\nu}$ と $f^\mu$ を求める。
+2. $\partial_\mu N^\mu=0$ とエネルギー・Euler方程式を検算する。
+3. 受動的 $x$ boost $x'^0=\gamma(x^0-\beta x^1)$、$x'^1=\gamma(x^1-\beta x^0)$ の下で、$f'^\mu$ と $T'^{00},T'^{01},T'^{11}$ を計算する。
+4. プライム座標で $\nu=0,1$ の局所収支を偏微分で直接確かめる。
+
+$\kappa$ を保つ外力の微視的な起源は指定しなくてよい。
 
 - Level: C
 

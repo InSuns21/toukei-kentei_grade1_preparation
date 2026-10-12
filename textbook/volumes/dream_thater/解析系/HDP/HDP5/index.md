@@ -881,7 +881,10 @@ $$
 
 ### B2. 相関した二つのGaussian座標
 
-$(X_1,X_2)$ を平均零、各分散 $1$、共分散 $\rho$（$-1<\rho<1$）の共同Gaussianベクトルとする。$Z=\max(X_1,X_2)$ について、(1) $EZ$ を求め、(2) $P(Z-EZ\ge t)$ を $\rho$ を含む形で評価せよ。
+$(X_1,X_2)$ を平均零、各分散 $1$、共分散 $\rho$（$-1<\rho<1$）の共同Gaussianベクトルとする。$Z=\max(X_1,X_2)$ について、
+
+1. $EZ$ を求めよ。
+2. $P(Z-EZ\ge t)$ を $\rho$ を含む形で評価せよ。
 
 - Level: B
 - ID: HDP5-B2
@@ -964,7 +967,10 @@ $E\|G\|_2\le\sqrt d$ なので $\{\|G\|_2>\sqrt d+u\}$ は上の偏差事象に�
 
 ### B4. 二次関数では何が失われるか
 
-$G\sim N(0,1)$ とし $Y=G^2-1$ とする。(1) $E e^{\lambda Y}$ が有限な $\lambda$ の範囲とその値を求めよ。(2) $f(x)=x^2$ へGaussian集中定理を直接適用できない理由を、勾配条件と指数モーメントの両面から述べよ。
+$G\sim N(0,1)$ とし $Y=G^2-1$ とする。
+
+1. $E e^{\lambda Y}$ が有限な $\lambda$ の範囲とその値を求めよ。
+2. $f(x)=x^2$ へGaussian集中定理を直接適用できない理由を、勾配条件と指数モーメントの両面から述べよ。
 
 - Level: B
 - ID: HDP5-B4
@@ -996,7 +1002,13 @@ Z=\max_{1\le j\le d}(b_j+a_j^\mathsf TG),
 \qquad R=\max_{1\le j\le d}\|a_j\|_2>0,\qquad b_*=\max_jb_j
 $$
 
-とする。(1) $Z$ を $G$ の関数と見たLipschitz定数を評価せよ。(2) $EZ\le b_*+R\sqrt{2\log d}$ を示せ。(3) $u>0$ について $P(Z\ge b_*+R\sqrt{2\log d}+u)\le e^{-u^2/(2R^2)}$ を導け。ベクトル $a_j$ は直交すると仮定しない。
+とする。
+
+1. $Z$ を $G$ の関数と見たLipschitz定数を評価せよ。
+2. $EZ\le b_*+R\sqrt{2\log d}$ を示せ。
+3. $u>0$ について $P(Z\ge b_*+R\sqrt{2\log d}+u)\le e^{-u^2/(2R^2)}$ を導け。
+
+ベクトル $a_j$ は直交すると仮定しない。
 
 - Level: C
 - ID: HDP5-C1

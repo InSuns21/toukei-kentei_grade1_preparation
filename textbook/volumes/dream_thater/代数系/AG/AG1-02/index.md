@@ -431,7 +431,10 @@ $$
 
 ### B3. アフィン直線のNoether性と成分
 
-無限体 $k$ にZariski位相を入れる。(1) $k$ がNoether的であることを示せ。(2) 相異なる $a_1,\ldots,a_r\in k$（$r\ge1$）からなる有限集合 $F=\{a_1,\ldots,a_r\}$ の既約成分をすべて求めよ。
+無限体 $k$ にZariski位相を入れる。
+
+1. $k$ がNoether的であることを示せ。
+2. 相異なる $a_1,\ldots,a_r\in k$（$r\ge1$）からなる有限集合 $F=\{a_1,\ldots,a_r\}$ の既約成分をすべて求めよ。
 
 - Level: B
 - ID: AG1-02-B3
