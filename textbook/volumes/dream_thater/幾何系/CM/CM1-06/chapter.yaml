@@ -1,0 +1,42 @@
+id: "CM1-06"
+title: "Nijenhuisテンソルと局所座標での必要条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-05
+  - GEO5
+  - VC1
+official_scope: []
+learning_objectives:
+  - ベクトル場のLie括弧を微分作用素と局所成分から導出できる
+  - Nijenhuisテンソルの符号規約を把握し定義から計算できる
+  - Nijenhuisテンソルの関数双線形性と反対称性を積の微分則から証明できる
+  - Jの実座標成分と一階導関数からNijenhuisの成分公式を再現できる
+  - (1,0)および(0,1)の交換子閉性とNijenhuis消滅の同値を型射影で示せる
+  - 正則アトラス由来のJならNijenhuisテンソルが零である必要条件を証明できる
+  - 実二次元の自動消滅と四次元の非可積分な例を計算できる
+  - 必要条件とNewlander–Nirenberg定理の十分性を区別できる
+definitions:
+  - { id: CM1-06-DEF-02, name: Nijenhuisテンソル }
+  - { id: CM1-06-DEF-03, name: 型別分布の交換子閉性 }
+theorems:
+  - { id: CM1-06-THM-01, name: Nijenhuisテンソルのテンソル性と反対称性 }
+  - { id: CM1-06-THM-02, name: Nijenhuisテンソルの局所成分公式 }
+  - { id: CM1-06-THM-03, name: Nijenhuis消滅と型別交換子閉性 }
+  - { id: CM1-06-THM-04, name: 正則アトラスによる概複素構造の必要条件 }
+canonical_examples:
+  - 座標ベクトル場の交換子と関数倍
+  - 定数標準複素構造とNijenhuis消滅
+  - 非定数二次元構造と零のNijenhuis
+  - 複素二次元の非閉型別枠と非零Nijenhuis
+problem_patterns:
+  - CM1-06-LIE-BRACKET
+  - CM1-06-TENSORIALITY
+  - CM1-06-LOCAL-COMPONENTS
+  - CM1-06-TYPE-BRACKET
+  - CM1-06-NECESSITY
+  - CM1-06-OBSTRUCTION-CONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
