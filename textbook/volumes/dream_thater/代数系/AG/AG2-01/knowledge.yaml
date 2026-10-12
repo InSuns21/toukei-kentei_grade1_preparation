@@ -1,0 +1,73 @@
+chapter: AG2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-12
+  - AG1-11
+  - AG1-03
+  - AG1-01
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.projective-space
+    name: 射影空間と斉次座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影空間と斉次座標）"]
+    requires: []
+
+  - id: algebraic-geometry.standard-affine-chart
+    name: 標準アフィンチャート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準アフィンチャート）"]
+    requires: [algebraic-geometry.projective-space]
+
+  - id: algebraic-geometry.projective-chart-bijection
+    name: 標準チャートとアフィン空間の全単射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準チャートとアフィン空間の全単射）"]
+    requires: [algebraic-geometry.standard-affine-chart]
+
+  - id: algebraic-geometry.projective-chart-transition
+    name: チャート変換の整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（チャート変換の整合性）"]
+    requires: [algebraic-geometry.projective-chart-bijection]
+
+  - id: algebraic-geometry.homogeneous-polynomial
+    name: 斉次多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次多項式）"]
+    requires: []
+
+  - id: algebraic-geometry.homogeneous-scaling
+    name: 斉次式の零点条件の代表元不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（斉次式の零点条件の代表元不変性）"]
+    requires: [algebraic-geometry.homogeneous-polynomial, algebraic-geometry.projective-space]
+
+  - id: algebraic-geometry.projective-zero-set
+    name: 射影零点集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影零点集合）"]
+    requires: [algebraic-geometry.homogeneous-scaling]
+
+  - id: algebraic-geometry.projective-chart-equations
+    name: 射影方程式のチャート上での非斉次化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影方程式のチャート上での非斉次化）"]
+    requires: [algebraic-geometry.projective-zero-set, algebraic-geometry.projective-chart-bijection]
+
+  - id: algebraic-geometry.projective-linear-action
+    name: 可逆線形変換の射影空間への作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可逆線形変換の射影空間への作用）"]
+    requires: [algebraic-geometry.projective-space]

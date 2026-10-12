@@ -727,7 +727,7 @@
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
 
-公開準備中（AG2-01〜AG2-12）。
+1. [AG2-01 射影空間と斉次座標](textbook/volumes/dream_thater/代数系/AG/AG2-01/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
