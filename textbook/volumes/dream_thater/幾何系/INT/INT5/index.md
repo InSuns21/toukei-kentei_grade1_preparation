@@ -6,7 +6,7 @@
 
 ## 1. 小さな正準変換を生成関数で作る
 
-$n\ge2$、$D\subset\mathbb R^n$ は開集合、$\mathbb T^n=(\mathbb R/2\pi\mathbb Z)^n$ とします。$K\in C^3(D)$、$f\in C^2(D\times\mathbb T^n)$ は実数値で、$H_\varepsilon=K(I)+\varepsilon f(I,\theta)$ とします。座標の正準形式は $d\theta\wedge dI$、Hamilton方程式は $\dot\theta=\partial_IH$、$\dot I=-\partial_\theta H$ です。
+$n\ge2$、$D\subset\mathbb R^n$ は開集合、$\mathbb T^n=(\mathbb R/2\pi\mathbb Z)^n$ とします。$K\in C^4(D)$、$f\in C^3(D\times\mathbb T^n)$ は実数値で、$H_\varepsilon=K(I)+\varepsilon f(I,\theta)$ とします。座標の正準形式は $d\theta\wedge dI$、Hamilton方程式は $\dot\theta=\partial_IH$、$\dot I=-\partial_\theta H$ です。
 
 古い角度を $\theta$、新しい作用を $J$ とする関数 $S(\theta,J)$ により、$I=\partial_\theta S$、$\varphi=\partial_J S$ を同時に定めます。$\theta\cdot J$ だけなら恒等変換であり、小さな周期関数を足すと恒等変換に近い写像が得られます。
 
@@ -102,7 +102,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限Fourier摂動の一次平均化）**  
-> $K\in C^3(D)$、$f\in C^3(D\times\mathbb T^n)$ とし、$f$ は角度について有限Fourier和で、その波数集合を有限集合 $F\subset\mathbb Z^n$ とする。$B\Subset D$ はコンパクトで、全ての $J\in B$ と $k\in F\setminus\{0\}$ について
+> $K\in C^4(D)$、$f\in C^3(D\times\mathbb T^n)$ とし、$f$ は角度について有限Fourier和で、その波数集合を有限集合 $F\subset\mathbb Z^n$ とする。$B\Subset D$ はコンパクトで、全ての $J\in B$ と $k\in F\setminus\{0\}$ について
 >
 $$
 |k\cdot\Omega(J)|\ge c>0
