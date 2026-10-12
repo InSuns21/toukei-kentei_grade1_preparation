@@ -461,7 +461,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $D\phi_t=e^{tA}$ です。[余接持ち上げの定義](../GMECH1/index.md#def-gmech1-cotangent-action)では余ベクトルを逆転置微分で運びます。[行列指数の加法則](../../../解析系/ODE/ODE3/index.md#thm-ode3-matrix-exponential-properties)から $(e^{tA})^{-1}=e^{-tA}$、その転置が $e^{-tA^{\mathsf T}}$ なので、余接持ち上げは
+**詳細解答。** $D\phi_t=e^{tA}$ です。[余接持ち上げの定義](../GMECH1/index.md#def-gmech1-cotangent-action)では余ベクトルを逆転置微分で運びます。[ODE3の行列指数の基本性質](../../../解析系/ODE/ODE3/index.md#thm-ode3-matrix-exponential-properties)から $(e^{tA})^{-1}=e^{-tA}$、その転置が $e^{-tA^{\mathsf T}}$ なので、余接持ち上げは
 
 $$
 (q,p)\longmapsto(e^{tA}q,e^{-tA^{\mathsf T}}p).
@@ -566,7 +566,7 @@ $$
 =\langle J(m),[\xi,\eta]\rangle.
 $$
 
-反対称性 $[\eta,\xi]=-[\xi,\eta]$ を使ったので結論が正符号になることが分かります。**この証明で** $-\,[\eta,\xi]$ を取り出したのは同変性を微分した箇所です。同変性は上式の**十分条件**ですが論理的な必要条件とは限りません。一般のHamilton作用だけから上式を無条件に結論することはできません。
+反対称性 $[\eta,\xi]=-[\xi,\eta]$ を使ったので結論が正符号になることが分かります。**この証明で** $-\,[\eta,\xi]$ を取り出したのは同変性を微分した箇所です。同変性は上式の十分条件ですが論理的な必要条件とは限りません。一般のHamilton作用だけから上式を無条件に結論することはできません。
 <!-- solution-end -->
 
 ### Level C
