@@ -42,7 +42,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（エネルギーHessianによる判定）**  
-> $N$ 固定で $U(S,V,N)$ が $C^2$ 級なら、上の交換に対するエネルギー差は、$z=(s,v)^{\mathsf T}$ として
+> $N>0$ を固定し、$(S,V)$ の開領域で $U(S,V,N)$ が $C^2$ 級とする。二つの部分系の総エントロピー・総体積を固定し、一方に $(s,v)$、他方に $(-s,-v)$ の交換を加える。$z=(s,v)^{\mathsf T}$、交換後の総エネルギーを
+
+$$
+E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)
+$$
+
+> と定める。このとき、
 >
 $$
 E(s,v)-E(0,0)=z^{\mathsf T}H_Uz+o(s^2+v^2),
@@ -55,25 +61,54 @@ $$
 
 ### 証明の見取り図
 
-正負二つのTaylor展開を足すと、一次項と奇数次数の項が消えます。判定に効くのは方向 $z$ に沿う二次形式です。
+二点への変化をそれぞれ一変数関数に制限して二階まで展開します。正負の変化を足すと一次項は相殺され、方向 $z$ に沿う二次形式が残ります。$C^2$ 級だけを仮定しているため、ここで三次以上のTaylor係数の存在は主張しません。
 
 <!-- proof-start -->
 ### 証明
 
-$N$ を固定し、$x=(S,V)$ と書きます。$C^2$ 級のTaylor展開を $z$ と $-z$ に適用すると
+$N$ を固定し、$x=(S,V)$、$z=(s,v)$ と書きます。多変数の展開を暗黙に使わないため、線分上の一変数関数 $\varphi_z(t)=U(x+tz,N)$（$-1\le t\le1$）を作ります。連鎖律を二回適用すると
+
+$$
+\varphi_z'(t)=\nabla U(x+tz,N)\cdot z,\qquad
+\varphi_z''(t)=z^{\mathsf T}H_U(x+tz,N)z.
+$$
+
+まず微積分の基本定理で $\varphi_z(1)-\varphi_z(0)=\int_0^1\varphi_z'(t)\,dt$。さらに $\varphi_z'(t)=\varphi_z'(0)+\int_0^t\varphi_z''(u)\,du$ を代入し、三角領域の積分順序を入れ替えると
+
+$$
+\varphi_z(1)=\varphi_z(0)+\varphi_z'(0)
++\int_0^1(1-t)\varphi_z''(t)\,dt.
+$$
+
+$U$ の二階偏微分は $x$ の近傍で連続です。したがって $z\to0$ のとき、$0\le t\le1$ に一様に $H_U(x+tz,N)-H_U(x,N)\to0$ となり、
 
 $$
 \begin{aligned}
-U(x+z,N)&=U(x,N)+\nabla U(x,N)\cdot z
-+\frac12 z^{\mathsf T}H_Uz+o(\|z\|^2),\\
-U(x-z,N)&=U(x,N)-\nabla U(x,N)\cdot z
-+\frac12 z^{\mathsf T}H_Uz+o(\|z\|^2).
+U(x+z,N)
+&=U(x,N)+\nabla U(x,N)\cdot z\\
+&\quad+\frac12z^{\mathsf T}H_U(x,N)z+o(\|z\|^2).
 \end{aligned}
 $$
 
-両辺を加え、$2U(x,N)$ を引くと主張の展開になります。局所最小なら任意の固定した方向 $w$ に対し、$z=tw$ として差が非負です。$t^2>0$ で割り $t\to0$ とすると $w^{\mathsf T}H_Uw\ge0$、よって半正定値です。
+$z$ の代わりに $-z$ を入れた式では一次項の符号だけが変わります。両式を加えて $2U(x,N)$ を引けば、主張の展開が得られます。
 
-逆に正定値の対称行列は単位円周上で二次形式が正の最小値 $m>0$ を取ります。従って $z^{\mathsf T}H_Uz\ge m\|z\|^2$ であり、剰余の絶対値を $(m/2)\|z\|^2$ 以下にできる十分小さな近傍では差が正です。ある方向 $w$ で二次形式が負なら同じ極限の議論で小さな $t\ne0$ に対し差は負です。
+局所最小なら任意の固定方向 $w=(w_1,w_2)$ に対し $z=tw$ としたエネルギー差は十分小さい $t$ で非負です。$t\ne0$ の場合について
+
+$$
+0\le\frac{E(tw_1,tw_2)-E(0,0)}{t^2}
+=w^{\mathsf T}H_Uw+o(1)
+$$
+
+と書けます。$t\to0$ とするとすべての $w$ で $w^{\mathsf T}H_Uw\ge0$ なので、Hessianは半正定値です。
+
+逆にHessianが正定値なら、単位円周上の二次形式には正の最小値 $m>0$ が存在します。$z\ne0$ で $w=z/\|z\|$ と置けば
+
+$$
+z^{\mathsf T}H_Uz=\|z\|^2w^{\mathsf T}H_Uw
+\ge m\|z\|^2.
+$$
+
+剰余の絶対値を $(m/2)\|z\|^2$ 以下にできる十分小さな近傍では、交換エネルギー差は $(m/2)\|z\|^2>0$ です。逆にある方向 $w$ で二次形式が負なら、上の $t\to0$ の式から十分小さい非零 $t$ で差が負となり、局所最小ではありません。
 <!-- proof-end -->
 
 <a id="prop-th6-global-convexity"></a>
@@ -133,7 +168,14 @@ $$
 U(x+hw,N)+U(x-hw,N)-2U(x,N)\ge0
 $$
 
-です。二次のTaylor展開で左辺を $h^2$ で割り $h\to0$ とすると $w^{\mathsf T}H_U(x)w\ge0$。従って各点のHessianは半正定値です。すべての点で正定値なら、$w\ne0$ について $\varphi''(t)>0$ なので、内点での導関数の平均値に関する不等式は厳密です。
+です。ここに[交換エネルギーの二階展開](#prop-th6-hessian)を $z=hw$ として適用すると
+
+$$
+U(x+hw,N)+U(x-hw,N)-2U(x,N)
+=h^2w^{\mathsf T}H_U(x)w+o(h^2).
+$$
+
+左辺が非負なので $h^2>0$ で割り $h\to0$ とすれば、$w^{\mathsf T}H_U(x)w\ge0$ です。従って各点のHessianは半正定値です。全点で正定値なら $w\ne0$ について $\varphi''(t)>0$。このとき内点での導関数の平均値の不等式は厳密になります。
 <!-- proof-end -->
 
 局所の正定値だけでは、異なる領域にある二つの離れた極小のどちらが低いかは分かりません。上の結論は**凸な領域全体**で曲率条件が成立するときのもので、相共存のように一つの滑らかな単相領域で覆えない場合へは無条件に拡張しません。
@@ -172,7 +214,20 @@ $$
 S=Nc_V\log(T/T_*)+NR\log(V/(Nv_*)),\qquad pV=NRT.
 $$
 
-$S_T|_V=Nc_V/T$ なので $C_V=Nc_V$。$V=NRT/p$ を固定 $p$ で微分すれば $V_T|_p=NR/p=V/T$、従って $\alpha=1/T$。固定 $T$ で $V_p=-NRT/p^2=-V/p$ なので $\kappa_T=1/p$。各定義の分母は $T,p,V>0$ で零になりません。
+体積を固定したエントロピー微分と、状態方程式 $V=NRT/p$ の偏微分を分けて書きます。
+
+$$
+\begin{aligned}
+C_V&=T\left(\frac{\partial S}{\partial T}\right)_{V,N}
+=T\frac{Nc_V}{T}=Nc_V,\\
+\alpha&=\frac1V\left(\frac{\partial V}{\partial T}\right)_{p,N}
+=\frac1V\frac{NR}{p}=\frac1T,\\
+\kappa_T&=-\frac1V\left(\frac{\partial V}{\partial p}\right)_{T,N}
+=-\frac1V\left(-\frac{NRT}{p^2}\right)=\frac1p.
+\end{aligned}
+$$
+
+ここでは $T,p,V>0$ なので分母は零にならず、それぞれに指定した固定条件が保たれています。
 <!-- definition-example-end -->
 
 <a id="thm-th6-stability-response"></a>
@@ -197,14 +252,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$V,N$ 固定で $T=U_S$ を $S$ 微分すれば $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分すると、連鎖律で $U_{SS}S_T|_V=1$ です。正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。従って定義から
+[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $T=U_S$ を $V,N$ 固定で $S$ 微分すると $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分し、連鎖律を適用します。
+
+$$
+U_{SS}\left(\frac{\partial S}{\partial T}\right)_{V,N}=1.
+$$
+
+正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。[熱容量の定義](#def-th6-response)を用い、
 
 $$
 C_V=T S_T|_V=\frac{T}{U_{SS}},
 \qquad U_{SS}=\frac{T}{C_V}.
 $$
 
-次に $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$ です。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると $-U_{VV}V_p|_S=1$。正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$、従って $\kappa_S=-(1/V)V_p|_S=1/(VU_{VV})$ です。
+次に同じ[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると
+
+$$
+-U_{VV}\left(\frac{\partial V}{\partial p}\right)_{S,N}=1.
+$$
+
+正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$。[断熱圧縮率の定義](#def-th6-response)に代入すれば
+
+$$
+\kappa_S=-\frac1V V_p|_S
+=\frac1{VU_{VV}}
+$$
+
+を得ます。
 
 次に $T$ 一定の微小変化では $dT=U_{SS}\,dS+U_{SV}\,dV=0$ です。正定値より $U_{SS}>0$ なので
 
@@ -288,7 +362,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（断熱・等温圧縮率の関係）**  
-> 前定理の領域でさらに $C_V>0$、$\kappa_T>0$ とし、$S,p$ の局所座標が存在するとする。このとき
+> $N>0$ 固定の一成分単相系で $U$ が $C^3$ 級、$T,V>0$ とし、$(T,V)$、$(T,p)$、$(S,p)$ が滑らかな局所平衡座標であるとする。各応答量が定義でき、$C_V>0$、$\kappa_T>0$ であり、Helmholtz自由エネルギーのMaxwell関係式が成り立つとする。このとき
 >
 $$
 \frac{\kappa_T}{\kappa_S}=\frac{C_p}{C_V},
@@ -303,7 +377,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-直前の証明で求めた $dS$ に $dS=0$ を代入します。$C_V>0$ なので
+[熱容量差の定理](#thm-th6-heat-capacity-difference)の証明で得た $dS=(C_V/T)\,dT+(p_T|_V)\,dV$ に、断熱条件 $dS=0$ を代入します。$C_V>0$ なので
 
 $$
 \left(\frac{\partial T}{\partial V}\right)_{S,N}
@@ -701,7 +775,28 @@ V_p=-\frac b{4p^{3/2}},\qquad
 =\frac{b/(4p^{3/2})}{b/(2\sqrt p)}=\frac1{2p}.
 $$
 
-二階微分は $G_{TT}=-a$、$G_{Tp}=0$、$G_{pp}=-b/(4p^{3/2})$。先頭の対角成分は負、対角積から交差項の二乗を引いた値は $ab/(4p^{3/2})>0$ なのでHessianは負定値です。$V$ が $T$ に依存しないため $\alpha=0$ であり、[熱容量差](#thm-th6-heat-capacity-difference)から $C_V=C_p$ です。
+Hessianの対角成分と、対角積から交差項の二乗を引いた量を個別に求めると
+
+$$
+H_G=\begin{pmatrix}
+-a&0\\[2pt]0&-\dfrac{b}{4p^{3/2}}
+\end{pmatrix},
+\qquad
+\det H_G=\frac{ab}{4p^{3/2}}>0.
+$$
+
+$a,b,p>0$ により左上の成分は負、対角積から交差項の二乗を引いた値は正なので、二変数Hessianは負定値です。また、$V=b/(2\sqrt p)$ は温度によらないため
+
+$$
+\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p=0.
+$$
+
+正の $\kappa_T$ があるので[熱容量差の定理](#thm-th6-heat-capacity-difference)を適用できます。
+
+$$
+C_p-C_V=\frac{TV\alpha^2}{\kappa_T}=0,
+\qquad C_V=C_p=aT.
+$$
 <!-- solution-end -->
 
 #### B5. 大域凸性を二次形式から証明する
@@ -784,7 +879,13 @@ $$
 
 ゆえに $C_p=aNT+TN^2R^2V/(NRTV+2bN^2)>0$ です。
 
-$S_T|_V=aN>0$ により $S$ から $T$ への逆関数が局所的に存在します。また $p_V|_T<0$ なので $(T,p)$ も局所座標です。[Hessianと応答の定理](#thm-th6-stability-response)の逆向きを使い、
+$S=aNT+NR\log(V/(Nv_*))$ を $T$ について解くと
+
+$$
+T=\frac{S-NR\log(V/(Nv_*))}{aN}.
+$$
+
+$aN>0$ なので $(S,V)$ と $(T,V)$ の変数交換が局所的に可能です。また $p_V|_T<0$ より、固定 $T$ の近傍で圧力から体積を一意に解けるため $(T,p)$ も局所座標になります。求めた $C_V>0$、$\kappa_T>0$ と合わせて[厳密な局所安定性と応答の符号](#thm-th6-stability-response)の逆向きを適用すると、
 
 $$
 U_{SS}=\frac{T}{C_V}=\frac1{aN}>0,\qquad
@@ -792,7 +893,41 @@ U_{SS}=\frac{T}{C_V}=\frac1{aN}>0,\qquad
 =\frac{NRTV+2bN^2}{aNV^3}>0.
 $$
 
-二条件から $H_U$ は正定値です。最後に $b\to0$ を取ると $V^2/(NRTV)=V/(NRT)=1/p$（極限模型では $p=NRT/V$）で、理想気体型の等温圧縮率へ戻ります。
+二条件から $H_U$ は正定値です。別の検算として、[Helmholtz自由エネルギーの定義](../TH5/index.md#def-th5-potentials) $U=F+TS$ に $S=aNT+NR\log(V/(Nv_*))$ を代入すると
+
+$$
+U(S,V,N)=\frac{\bigl(S-NR\log(V/(Nv_*))\bigr)^2}{2aN}
++\frac{bN^2}{V}.
+$$
+
+$N$ を固定して二回微分すれば
+
+$$
+\begin{aligned}
+U_{SS}&=\frac1{aN},\qquad U_{SV}=-\frac R{aV},\\
+U_{VV}&=\frac{NRT}{V^2}+\frac{NR^2}{aV^2}+\frac{2bN^2}{V^3}.
+\end{aligned}
+$$
+
+したがって
+
+$$
+\begin{aligned}
+U_{SS}U_{VV}-U_{SV}^2
+&=\frac{RT}{aV^2}+\frac{R^2}{a^2V^2}
+ +\frac{2bN}{aV^3}-\frac{R^2}{a^2V^2}\\
+&=\frac{NRTV+2bN^2}{aNV^3}>0,
+\end{aligned}
+$$
+
+となり、[厳密な局所安定性と応答の符号](#thm-th6-stability-response)から得た $\det H_U$ と一致します。最後に $T,V,N$ を固定して $b\downarrow0$ とすれば、
+
+$$
+\lim_{b\downarrow0}\kappa_T
+=\frac{V^2}{NRTV}=\frac{V}{NRT}=\frac1p.
+$$
+
+最後の等号は極限模型の $p=NRT/V$ を用いました。
 <!-- solution-end -->
 
 ## 8. 次に何を問うか
