@@ -304,9 +304,9 @@ $$
 
 $\partial_r\Theta=1$、Jacobianの行列式は1です。対角線上で $s(\theta)=-\varepsilon\cos\theta$ なので $s'(\theta)=\varepsilon\sin\theta$ です。$\varepsilon\ne0$ のとき、持ち上げの**角度変位が零**（$X=\theta$）となる固定点は $(0,0)$ と $(\pi,0)$ です。ただし円筒上の固定点は角度が $2\pi$ の整数倍だけ変化してもよいため、作用条件 $R=r$ と併せると
 
-$
+$$
 \sin\theta=0,\qquad r=2\pi k\quad(k\in\mathbb Z)
-$
+$$
 
 が必要十分であり、実際には $(0,2\pi k)$ と $(\pi,2\pi k)$ がすべて固定点です。対角線 $X=\theta$ の臨界点から構成した二固定点と、円筒上の固定点全体を混同してはいけません。また $\varepsilon\ne0$ なら任意の有限水平境界 $r=a,b$ は一般に保存されません。従って**この無限円筒の計算を、そのまま閉円環版の定理の仮定確認に代えてはいけません**。
 
@@ -409,27 +409,27 @@ $F(\theta,r)=(\theta+\gamma,r)$、$\gamma\notin2\pi\mathbb Z$ は面積と両境
 <!-- solution-start -->
 **詳細解答。** まず生成関数を偏微分して
 
-$
+$$
 S_\theta=-(X-\theta)+\varepsilon\sin\theta,\qquad
 S_X=X-\theta
-$
+$$
 
 を得ます。$r=-S_\theta$ を $X$ について解き、$R=S_X$ に代入すると
 
-$
+$$
 X=\theta+r+\varepsilon\sin\theta,\qquad
 R=r+\varepsilon\sin\theta,\qquad
 \partial_rX=1>0
-$
+$$
 
 です。固定点の作用条件 $R=r$ は、$\varepsilon\ne0$ より $\sin\theta=0$、すなわち $\theta=0,\pi\pmod{2\pi}$ と同値です。この条件の下では $X=\theta+r$ なので、**持ち上げで** $X=\theta$ と要求すれば $r=0$ となり $(0,0),(\pi,0)$ の二点を得ます。
 
 一方、**円筒上**の角度条件は $X-\theta\in2\pi\mathbb Z$ です。従って
 
-$
+$$
 (\theta,r)=(0,2\pi k),\ (\pi,2\pi k)
 \qquad(k\in\mathbb Z)
-$
+$$
 
 が円筒上の固定点全体です。円筒は作用方向に無限なので $k\ne0$ の点を排除できません。有限水平境界は一般に保存されないため、この計算単体は閉円環定理の適用ではありません。
 <!-- solution-end -->
