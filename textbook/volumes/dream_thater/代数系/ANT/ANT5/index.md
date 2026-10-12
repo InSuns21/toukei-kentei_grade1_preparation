@@ -2,7 +2,21 @@
 
 [ANT4のDirichletの定理](../ANT4/index.md#thm-ant4-dirichlet)は、既約剰余類ごとに素数が無限個あることを証明しました。しかし「$x$ 以下にどの程度あるか」という数の増え方は、そこからは分かりません。[NT8の素数計数関数](../../NT/NT8/index.md#def-nt8-prime-counting) $\pi(x)$ に解析的な関数を結び付けるには、素数を個数だけで数えるのではなく、素数冪に適切な重みを与えるのが有効です。
 
-[NT8で定義したvon Mangoldt関数](../../NT/NT8/index.md#def-nt8-von-mangoldt) $\Lambda$ は、$n=p^k$（$p$ は素数、$k\ge1$）なら $\log p$、それ以外なら $0$ です。また、[Chebyshev の θ 関数](../../NT/NT8/index.md#def-nt8-chebyshev-theta)は $\theta(x)=\sum_{p\le x}\log p$ です。[Chebyshev の ψ 関数](../../NT/NT8/index.md#def-nt8-chebyshev-psi)は $\psi(x)=\sum_{n\le x}\Lambda(n)$ です。この章ではこれらの定義を新しく作り直しません。**なぜこの重みが $\zeta'/\zeta$ に現れるか、そして解析的な情報をどのような手順で素数の側へ戻すか**を調べます。
+[NT8で定義したvon Mangoldt関数](../../NT/NT8/index.md#def-nt8-von-mangoldt) $\Lambda$ は、$n=p^k$（$p$ は素数、$k\ge1$）なら $\log p$、それ以外なら $0$ です。
+
+[Chebyshev の θ 関数](../../NT/NT8/index.md#def-nt8-chebyshev-theta)は次のように素数へ重みを与えます。
+
+$$
+\theta(x)=\sum_{p\le x}\log p.
+$$
+
+[Chebyshev の ψ 関数](../../NT/NT8/index.md#def-nt8-chebyshev-psi)は、素数冪を含めた総和です。
+
+$$
+\psi(x)=\sum_{n\le x}\Lambda(n).
+$$
+
+この章では既存の定義を作り直しません。**なぜこの重みが $\zeta'/\zeta$ に現れるか**、そして解析的な情報をどのように素数の側へ戻すかを調べます。
 
 以下、$x\ge2$ は実数、$s=\sigma+it$ は複素数、$\log$ は正の実数上では自然対数とします。$O$ の定数が依存するパラメータは必要に応じて明記します。素数についての和は $\sum_p$ と書きます。
 
@@ -327,7 +341,15 @@ $$
 これにより第二の表示が得られます。
 <!-- proof-end -->
 
-この式では、主項 $x$ が $\frac{s}{s-1}$ に対応しています。[CA12のζの有理型接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)で $\zeta$ は $s=1$ に単純極を持つため、$-\zeta'/\zeta$ の $s=1$ での留数は $+1$ です。実際 $s/(s-1)=1+1/(s-1)$ は同じ留数を持ちます。**ただし「極がある」だけで $\psi(x)\sim x$ を結論してはいけません。** この後の論証で、ほかの零点が邪魔をする仕組みを特定します。
+この式では、主項 $x$ が $\frac{s}{s-1}$ に対応しています。
+
+[CA12のζの有理型接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)で $\zeta$ は $s=1$ に単純極を持つため、$-\zeta'/\zeta$ の $s=1$ での留数は $+1$ です。実際、
+
+$$
+\frac{s}{s-1}=1+\frac{1}{s-1}
+$$
+
+も同じ留数を持ちます。**ただし「極がある」だけで $\psi(x)\sim x$ を結論してはいけません。** この後の論証で、ほかの零点が邪魔をする仕組みを特定します。
 
 ## 5. ψの誤差とζの零点――一方向の含意
 
@@ -611,7 +633,24 @@ $$
 =\frac C{\sigma-2/3}.
 $$
 
-閉半平面 $\sigma\ge2/3+\delta$ で $s$ 微分すると $(\log x)^j$ が付くだけで、任意の $j$ に対し $\int_1^\infty (\log x)^j x^{-1-\delta}dx<\infty$ です。よって誤差積分は半平面 $\sigma>2/3$ で正則です。従って右辺は $s=1$ 以外に極を持ちません。[CA12のζの有理型性](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により、左辺は有理型関数です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)をこの二つの有理型関数に適用すると、左辺も同じ領域へ一致して延長されます。もし $s_0\ne1$ が零点で位数 $m$ なら、$\zeta(s)=(s-s_0)^m g(s)$ から $-\zeta'/\zeta=-m/(s-s_0)-g'/g$ となり極が生じ、矛盾します。$s=1$ は零点ではなく単純極です。
+閉半平面 $\sigma\ge2/3+\delta$ で $s$ 微分すると、被積分関数には $(\log x)^j$ が付きます。各整数 $j\ge0$ に対して
+
+$$
+\int_1^\infty(\log x)^j x^{-1-\delta}\,dx<\infty
+$$
+
+なので、誤差積分は半平面 $\sigma>2/3$ で正則です。右辺は $s=1$ 以外に極を持ちません。
+
+[CA12のζの有理型性](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により、左辺は有理型関数です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を有理型関数の正則な部分へ適用し、両者が半平面内で一致すると分かります。
+
+もし $s_0\ne1$ が零点で位数 $m$ なら、局所的に $\zeta(s)=(s-s_0)^m g(s)$ と書けるので
+
+$$
+-\frac{\zeta'(s)}{\zeta(s)}
+=-\frac{m}{s-s_0}-\frac{g'(s)}{g(s)}
+$$
+
+となり、$s_0$ に極が生じて矛盾します。$s=1$ は零点ではなく単純極です。
 
 単純極という情報は $s=1$ の**局所的**な性質だけを指定します。他の点でζが零になる可能性や、誤差積分がどこまで正則に延長できるかは制御しません。従って冪誤差の仮定を除いて同じ零点不存在を主張することはできません。
 <!-- solution-end -->
