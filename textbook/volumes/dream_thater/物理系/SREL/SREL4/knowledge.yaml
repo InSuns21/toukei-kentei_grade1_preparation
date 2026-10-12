@@ -1,0 +1,77 @@
+chapter: SREL4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL3
+forward_references: []
+
+concepts:
+  - id: relativity.free-particle-action
+    name: 自由質点の固有時作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由質点の固有時作用）]
+    requires: [relativity.proper-time, relativity.minkowski-metric]
+
+  - id: relativity.free-action-invariance
+    name: 自由作用のLorentz不変性と再パラメータ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由作用のLorentz不変性と再パラメータ不変性）]
+    requires: [relativity.free-particle-action, relativity.interval-invariance]
+
+  - id: relativity.free-particle-variation
+    name: 自由質点の変分方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由質点の変分方程式）]
+    requires: [relativity.free-particle-action, relativity.four-velocity]
+
+  - id: relativity.canonical-energy
+    name: 正準運動量と正準エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正準運動量と正準エネルギー）]
+    requires: [relativity.free-particle-action]
+
+  - id: relativity.canonical-momentum-relation
+    name: 正準量と四元運動量の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正準量と四元運動量の一致）]
+    requires: [relativity.canonical-energy, relativity.four-momentum, relativity.mass-shell-relation]
+
+  - id: relativity.three-force
+    name: 三次元力と仕事率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三次元力と仕事率）]
+    requires: [relativity.four-momentum]
+
+  - id: relativity.work-energy
+    name: 相対論的な仕事とエネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（相対論的な仕事とエネルギー）]
+    requires: [relativity.three-force, relativity.mass-shell-relation]
+
+  - id: relativity.four-force
+    name: 四元力
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元力）]
+    requires: [relativity.four-acceleration, relativity.four-momentum]
+
+  - id: relativity.four-force-orthogonality
+    name: 四元力の成分・直交性・質量殻保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四元力の成分・直交性・質量殻保存）]
+    requires: [relativity.four-force, relativity.work-energy, relativity.four-acceleration-orthogonality]
+
+  - id: relativity.constant-force-motion
+    name: 一次元の一定力と固有加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次元の一定力と固有加速度）]
+    requires: [relativity.three-force, relativity.work-energy, relativity.one-dimensional-proper-acceleration]
