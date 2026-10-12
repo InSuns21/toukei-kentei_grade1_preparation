@@ -589,7 +589,7 @@ $E e^{X^2/K^2}\le2$ を満たす $K>0$ と実数値確率変数 $X$ について
 - ID: HDP3-A2
 
 <!-- solution-start -->
-**詳細解答**　非負変数 $e^{X^2/K^2}$ にMarkovの不等式を適用すると
+**詳細解答**　非負変数 $e^{X^2/K^2}$ に[Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用すると
 
 $$
 P(|X|\ge2K)
