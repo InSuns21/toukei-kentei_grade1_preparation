@@ -655,6 +655,7 @@
 1. [CM1-01 複素座標と高次元正則アトラス](textbook/volumes/dream_thater/幾何系/CM/CM1-01/index.md)
 2. [CM1-02 複素多様体間の正則写像と座標不変性](textbook/volumes/dream_thater/幾何系/CM/CM1-02/index.md)
 3. [CM1-03 基礎となる実多様体と概複素構造J](textbook/volumes/dream_thater/幾何系/CM/CM1-03/index.md)
+4. [CM1-04 (1,0)・(0,1)接空間への複素化分解](textbook/volumes/dream_thater/幾何系/CM/CM1-04/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -763,6 +764,7 @@
 3. [AG2-03 射影射・Veronese写像・Segre写像](textbook/volumes/dream_thater/代数系/AG/AG2-03/index.md)
 4. [AG2-04 射影曲線と次数・Bézoutの例](textbook/volumes/dream_thater/代数系/AG/AG2-04/index.md)
 5. [AG2-05 構造層と貼り合わせ](textbook/volumes/dream_thater/代数系/AG/AG2-05/index.md)
+6. [AG2-06 可逆層とO(d)](textbook/volumes/dream_thater/代数系/AG/AG2-06/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III

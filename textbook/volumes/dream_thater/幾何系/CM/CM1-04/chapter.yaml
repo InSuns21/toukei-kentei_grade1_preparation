@@ -1,0 +1,41 @@
+id: "CM1-04"
+title: "(1,0)・(0,1)接空間への複素化分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-03
+official_scope: []
+learning_objectives:
+  - 実接空間の複素化を構成し複素共役と実部分空間の対応を説明できる
+  - 概複素構造の複素線形拡張を定めiおよび負iの固有空間を計算できる
+  - 二つの射影公式と直和・次元・共役の関係を出発点から証明できる
+  - 型別複素接束が滑らかな階数nの部分束となることを局所枠で示せる
+  - 複素座標での偏微分基底と逆変換を求めて実際の関数へ作用させられる
+  - 実微分と概複素構造の可換性を型保存条件へ変換できる
+  - 正則写像と共役写像の型の振る舞いを具体計算で区別できる
+  - 固有空間分解と正則座標の存在が別問題であることを説明できる
+definitions:
+  - { id: CM1-04-DEF-01, name: 実ベクトル空間の複素化 }
+  - { id: CM1-04-DEF-02, name: 概複素構造の二つの固有空間 }
+  - { id: CM1-04-DEF-03, name: 型別複素接束 }
+theorems:
+  - { id: CM1-04-THM-01, name: 複素化の型分解と射影公式 }
+  - { id: CM1-04-PROP-01, name: 型別接束の滑らかさ }
+  - { id: CM1-04-THM-02, name: 概複素構造との可換条件と型の保存 }
+canonical_examples:
+  - 実平面の標準回転と複素固有基底
+  - 複素共役と二つの型の交換
+  - 実座標の伸縮における固有方向
+  - 正則多項式写像の型保存
+  - 複素共役写像による型の交換
+problem_patterns:
+  - CM1-04-COMPLEXIFICATION
+  - CM1-04-TYPE-EIGENSPACES
+  - CM1-04-PROJECTIONS
+  - CM1-04-SMOOTH-BUNDLES
+  - CM1-04-COORDINATE-FRAMES
+  - CM1-04-TYPE-PRESERVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }

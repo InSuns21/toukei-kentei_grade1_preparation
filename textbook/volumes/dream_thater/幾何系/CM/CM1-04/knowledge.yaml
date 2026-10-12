@@ -1,0 +1,43 @@
+chapter: CM1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-03
+
+concepts:
+  - id: complex-manifolds.tangent-complexification
+    name: 実ベクトル空間の複素化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実ベクトル空間の複素化）"]
+    requires: [geometry.tangent-bundle]
+  - id: complex-manifolds.tangent-type-eigenspaces
+    name: 概複素構造の二つの固有空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（概複素構造の二つの固有空間）"]
+    requires: [complex-manifolds.tangent-complexification, complex-manifolds.almost-complex-structure]
+  - id: complex-manifolds.tangent-type-projections
+    name: 複素化の型分解と射影公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素化の型分解と射影公式）"]
+    requires: [complex-manifolds.tangent-type-eigenspaces]
+  - id: complex-manifolds.type-tangent-bundles
+    name: 型別複素接束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別複素接束）"]
+    requires: [complex-manifolds.tangent-type-eigenspaces, geometry.tangent-bundle]
+  - id: complex-manifolds.smooth-type-bundles
+    name: 型別接束の滑らかさ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（型別接束の滑らかさ）"]
+    requires: [complex-manifolds.type-tangent-bundles, complex-manifolds.tangent-type-projections]
+  - id: complex-manifolds.type-preservation
+    name: 概複素構造との可換条件と型の保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（概複素構造との可換条件と型の保存）"]
+    requires: [complex-manifolds.tangent-type-projections, complex-manifolds.j-holomorphic-intertwining]

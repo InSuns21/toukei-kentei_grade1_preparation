@@ -1,0 +1,82 @@
+chapter: AG2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-05
+  - AG2-01
+  - AG1-04
+  - AG1-07
+  - LA3E
+  - F0-00C1
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.invertible-sheaf
+    name: 可逆層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（可逆層・直線束）"]
+    requires: [algebraic-geometry.projective-structure-sheaf, algebraic-geometry.structure-sheaf-gluing]
+
+  - id: algebraic-geometry.line-bundle-transition
+    name: 遷移関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（遷移関数）"]
+    requires: [algebraic-geometry.invertible-sheaf]
+
+  - id: algebraic-geometry.transition-gluing
+    name: 遷移関数による可逆層の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（遷移関数による可逆層の構成）"]
+    requires: [algebraic-geometry.line-bundle-transition, algebraic-geometry.structure-sheaf-gluing]
+
+  - id: algebraic-geometry.projective-twist
+    name: 射影空間のO(d)
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影空間のO(d)）"]
+    requires: [algebraic-geometry.transition-gluing, algebraic-geometry.standard-affine-chart]
+
+  - id: algebraic-geometry.od-cocycle
+    name: O(d)の貼り合わせの整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（O(d)の貼り合わせの整合性）"]
+    requires: [algebraic-geometry.projective-twist, algebraic-geometry.line-bundle-transition]
+
+  - id: algebraic-geometry.od-homogeneous-sections
+    name: 斉次式から作る大域切断
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（斉次式から作る大域切断）"]
+    requires: [algebraic-geometry.projective-twist, algebraic-geometry.homogeneous-polynomial]
+
+  - id: algebraic-geometry.affine-global-polynomial
+    name: アフィン空間上の大域正則関数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（アフィン空間上の大域正則関数）"]
+    requires: [algebraic-geometry.projective-structure-sheaf]
+
+  - id: algebraic-geometry.p1-od-sections
+    name: 射影直線上のO(d)の大域切断
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線上のO(d)の大域切断）"]
+    requires: [algebraic-geometry.od-homogeneous-sections, algebraic-geometry.affine-global-polynomial]
+
+  - id: algebraic-geometry.pn-od-sections
+    name: 射影空間上のO(d)の大域切断
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間上のO(d)の大域切断）"]
+    requires: [algebraic-geometry.p1-od-sections, algebraic-geometry.od-homogeneous-sections]
+
+  - id: algebraic-geometry.od-tensor-dual
+    name: ねじれ層のテンソル積と双対
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ねじれ層のテンソル積と双対）"]
+    requires: [algebraic-geometry.projective-twist]
