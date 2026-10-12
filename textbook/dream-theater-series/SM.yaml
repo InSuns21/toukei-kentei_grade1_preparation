@@ -27,7 +27,7 @@ chapters:
     title: 古典理想気体とアンサンブルの同値性
   - id: SM6
     path: textbook/volumes/dream_thater/物理系/SM/SM6
-    status: planned
+    status: completed
     title: 量子統計と量子理想気体
   - id: SM7
     path: textbook/volumes/dream_thater/物理系/SM/SM7
