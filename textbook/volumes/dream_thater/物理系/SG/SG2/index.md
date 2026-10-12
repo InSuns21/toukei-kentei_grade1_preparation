@@ -122,9 +122,9 @@ $$
 > **命題（Gibbs重みの微分）**  
 > [有限Gaussian場の設定](#def-sg2-gaussian-field)で $x=(x_\sigma)$ を確定した実数ベクトルとする。Gibbs重みを
 
-$
+$$
 w_x(\sigma)=\frac{e^{\beta x_\sigma+h_\sigma}}{\sum_\rho e^{\beta x_\rho+h_\rho}}
-$
+$$
 
 > と置く。任意の $\sigma,\tau\in\Omega$ に対して
 
