@@ -367,7 +367,7 @@ $$
 \partial'_\mu=(\Lambda^{-1})^\alpha{}_\mu\partial_\alpha.
 $$
 
-ここで[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の発散表示を使います。プライム座標での左辺を連鎖律で計算すると
+ここで[非斉次Maxwell方程式の発散表示](#thm-srel5-inhomogeneous-maxwell)の発散表示を使います。プライム座標での左辺を連鎖律で計算すると
 
 $$
 \begin{aligned}
@@ -446,7 +446,7 @@ $$
 \end{aligned}
 $$
 
-括弧内が[斉次Maxwell方程式](#thm-srel5-homogeneous-maxwell)の巡回微分条件そのもので零になることを使いました。
+括弧内が[斉次Maxwell方程式の巡回微分表示](#thm-srel5-homogeneous-maxwell)の巡回微分条件そのもので零になることを使いました。
 <!-- proof-end -->
 
 この証明では、二つの慣性系を結ぶLorentz行列 $\Lambda$ が時空点によらず一定であることを使いました。位置によって変わる一般の座標変換では、行列を定数として微分の外へ出す計算はそのままでは成立しません。
@@ -477,7 +477,7 @@ $\partial_\nu$ を非斉次式の両辺へ作用させます。混合偏微分�
 <!-- proof-start -->
 ### 証明
 
-[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の $\partial_\mu F^{\mu\nu}=\mu_0J^\nu$ の各 $\nu$ 成分へ $\partial_\nu$ を作用させ、さらに $\nu$ について和を取ると
+[非斉次Maxwell方程式の発散表示](#thm-srel5-inhomogeneous-maxwell)の $\partial_\mu F^{\mu\nu}=\mu_0J^\nu$ の各 $\nu$ 成分へ $\partial_\nu$ を作用させ、さらに $\nu$ について和を取ると
 
 $$
 \mu_0\partial_\nu J^\nu
@@ -568,7 +568,7 @@ $\nu=0$ の $\partial_\mu F^{\mu\nu}=\mu_0J^\nu$ を展開し、SI単位の電�
 <!-- solution-start -->
 #### 詳細解答
 
-[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)の $\nu=0$ 成分へ、[電磁場テンソル](#def-srel5-field-tensor)と[四元電流](#def-srel5-four-current)の定義を代入します。$F^{00}=0$、$F^{i0}=E_i/c$、$J^0=c\rho$ なので、
+[非斉次Maxwell方程式の発散表示](#thm-srel5-inhomogeneous-maxwell)の $\nu=0$ 成分へ、[電磁場テンソル](#def-srel5-field-tensor)と[四元電流](#def-srel5-four-current)の定義を代入します。$F^{00}=0$、$F^{i0}=E_i/c$、$J^0=c\rho$ なので、
 
 $$
 \partial_\mu F^{\mu0}
@@ -595,7 +595,7 @@ $\boldsymbol B=(0,0,B_z(x,t))$、$\boldsymbol E=(0,E_y(x,t),0)$ とする。非�
 <!-- solution-start -->
 #### 詳細解答
 
-[非斉次Maxwell方程式](#thm-srel5-inhomogeneous-maxwell)に[電磁場テンソルの定義](#def-srel5-field-tensor)を用いると、$\nu=2$ に寄与する成分は $F^{02}=-E_y/c$、$F^{12}=-B_z$ です。他の成分は零なので
+[非斉次Maxwell方程式の発散表示](#thm-srel5-inhomogeneous-maxwell)に[電磁場テンソルの定義](#def-srel5-field-tensor)を用いると、$\nu=2$ に寄与する成分は $F^{02}=-E_y/c$、$F^{12}=-B_z$ です。他の成分は零なので
 
 $$
 \begin{aligned}
