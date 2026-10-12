@@ -197,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-です。また $V(J\cap K)=V(JK)$ なので、同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です。
+です。ここで $JK\subseteq J\cap K$ なので、包含反転により $V(J\cap K)\subseteq V(JK)$ です。一方 $J\cap K\subseteq J,K$ なので $V(J)\cup V(K)\subseteq V(J\cap K)$ です。[積イデアルの零点集合の公式](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から $V(JK)=V(J)\cup V(K)$ であり、両側から挟んで $V(J\cap K)=V(JK)$ を得ます。従って同じ零点定理を適用して $\sqrt{J\cap K}=I(V(J\cap K))=I(V(JK))=\sqrt{JK}$ です.
 <!-- proof-end -->
 
 **具体例：接している二曲線。** $X=V(y)$（$x$ 軸）と $Y=V(y-x^2)$（放物線）を考えます。共通点では $y=0$ かつ $x^2=0$ だから $X\cap Y=\{(0,0)\}$ です。一方、方程式を合わせたイデアルは $(y,y-x^2)=(y,x^2)$ で、$(x,y)$ とは異なります。対応は
@@ -275,7 +275,7 @@ $$
 (x)\cap(y)=(xy)=\sqrt{(xy)}.
 $$
 
-この計算は、図形の分解をイデアルの共通部分へ翻訳したものです。[Noether空間の有限既約成分分解](../AG1-02/index.md#thm-ag1-02-noether-components)と[多項式環のNoether性](../AG1-05/index.md#thm-ag1-05-hilbert-basis)により、一般のアフィン代数的集合でも既約成分は有限個であることが分かります。
+この計算は、図形の分解をイデアルの共通部分へ翻訳したものです。[Noether空間の有限既約成分分解](../AG1-02/index.md#thm-ag1-02-noether-components)と[アフィン空間のNoether性](../AG1-05/index.md#thm-ag1-05-zariski-noether)により、一般のアフィン代数的集合でも既約成分は有限個であることが分かります。
 
 ## 5. 体を変えると何が壊れるか
 
