@@ -174,6 +174,71 @@ $$
 
 位置積分が容積 $V$ に比例することから圧力を、運動量積分が $T^{3/2}$ に比例することから内部エネルギーを計算できます。熱力学量へつなぐときには、[Helmholtz自由エネルギー](../SM3/index.md#def-sm3-free-energy)の定義を使います。ただしここでの連続相空間への拡張は前節の積分が有限であることによって正当化します。
 
+ここから先のエントロピー比較では、階乗とGamma関数の対数の主要項を何度も使います。定数までの精密なStirling公式は必要ありません。次の粗い評価なら、Gamma積分だけから証明できます。
+
+<a id="lem-sm5-log-gamma"></a>
+
+<!-- formal-statement-start -->
+> **補題（対数Gamma関数の漸近評価）**  
+> 実数 $x\ge1$ に対し、$x\to\infty$ で
+
+$
+\log\Gamma(x+1)=x\log x-x+O(\log x)
+$
+
+> が成り立つ。特に整数 $N\to\infty$ では $\log N!=N\log N-N+O(\log N)$ である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+Gamma積分の変数を $t=xu$ に変え、指数関数の最大が $u=1$ 付近にあることを使います。積分全体は $x^{-1}$ 程度より小さくならず、定数倍を超えて増大もしません。その対数が $O(\log x)$ に収まることが十分です。
+
+<!-- proof-start -->
+### 証明
+
+Gamma積分の定義に $t=xu$ を代入し、$h(u)=u-1-\log u$（$u>0$）とすると
+
+$
+\begin{aligned}
+\Gamma(x+1)
+&=\int_0^\infty t^xe^{-t}\,dt\\
+&=x^{x+1}e^{-x}
+\int_0^\infty \exp[-x(u-1-\log u)]\,du\\
+&=x^{x+1}e^{-x}J_x.
+\end{aligned}
+$
+
+$\log u\le u-1$ なので $h(u)\ge0$。従って $0<u\le2$ の積分は2以下です。$u\ge2$ では $h'(u)=1-1/u\ge1/2$ と $h(2)>0$ より $h(u)\ge(u-2)/2$、従って
+
+$
+J_x\le2+\int_2^\infty e^{-x(u-2)/2}\,du
+=2+\frac2x\le4.
+$
+
+一方 $0\le y\le1/x$ に対し、$\log(1+y)\ge y-y^2/2$ は両辺の差を微分すれば確かめられるので、$h(1+y)\le y^2/2$ です。従って $u\in[1,1+1/x]$ で $xh(u)\le1/(2x)\le1/2$ となり、
+
+$
+J_x\ge\int_1^{1+1/x}e^{-xh(u)}\,du
+\ge\frac{e^{-1/2}}x.
+$
+
+まとめると
+
+$
+-\log x-\frac12\le\log J_x\le\log4.
+$
+
+はじめのGamma積分の等式で対数を取り、
+
+$
+\log\Gamma(x+1)
+=(x+1)\log x-x+\log J_x
+=x\log x-x+O(\log x)
+$
+
+を得ます。整数 $N\ge1$ に対して $\Gamma(N+1)=N!$ なので最後の主張も成立します。
+<!-- proof-end -->
+
 <a id="thm-sm5-ideal-thermodynamics"></a>
 
 <!-- formal-statement-start -->
@@ -211,8 +276,9 @@ $\log Z_N$ の容積微分・逆温度微分・温度微分を別々に行いま
 [分配関数](#prop-sm5-partition)の対数を開くと
 
 $$
-\log Z_N=N\log V-\log N!-3N\log h
-+\frac{3N}{2}\log\frac{2\pi m}{\beta}.
+\log Z_N=N\log\frac{V}{\lambda_T^3}-\log N!,
+\qquad
+\partial_\beta\log\lambda_T^3=\frac{3}{2\beta}.
 $$
 
 $\beta$ 微分は $\partial_\beta\log\beta=1/\beta$ より
@@ -250,9 +316,9 @@ S&=-\partial_T(-k_{\mathrm B}T\log Z_N)\\
 \end{aligned}
 $$
 
-$F=U-TS$ も代入すれば確かめられます。次にStirlingの漸近式
+$F=U-TS$ も代入すれば確かめられます。次に[対数Gamma関数の漸近評価](#lem-sm5-log-gamma)により
 
-$$
+$
 \log N!=N\log N-N+O(\log N)
 $$
 
@@ -495,7 +561,7 @@ $$
 +\alpha\log(2\pi mE_N)-\log\Gamma(\alpha+1).
 $$
 
-Stirling式を $N$ および $\alpha$ に適用すると
+[対数Gamma関数の漸近評価](#lem-sm5-log-gamma)を $N$ および $\alpha$ に適用すると
 
 $$
 \log N!=N\log N-N+O(\log N),
