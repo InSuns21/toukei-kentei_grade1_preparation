@@ -238,6 +238,8 @@ $$
 
 典型列を定義しただけでは、その個数は分かりません。ここで重要なのは、典型列の**それぞれの確率**が一定の範囲に入ることです。この事実と「確率の総和は1以下」を組み合わせます。
 
+<a id="ref-info3-typical-probability-bound"></a>
+
 任意の $x^n\in T_{n,\varepsilon}(p)$ について[弱典型集合の定義](#def-info3-weak-typical)を移項すると
 
 $$
@@ -315,13 +317,29 @@ H(p)-\varepsilon+\frac1n\log_2(1-\eta_n)
 \le H(p)+\varepsilon.
 $$
 
-$n\to\infty$ とすると左端の補正項は零になります。ただし固定した $\varepsilon$ のままで**必ず極限が $H(p)$ と等しい**とは、この挟み撃ちだけでは言えません。任意の $\varepsilon>0$ に対して評価が成り立つことを用いて、誤差幅を最後に零へ近づけると
+[漸近等分割性](#thm-info3-aep)から、固定した $\varepsilon>0$ について $\eta_n\to0$ です。したがって十分大きい $n$ では $1-\eta_n>0$ となり、典型集合の個数の対数を取れます。さらに $\log_2(1-\eta_n)\to0$ であり、これを $n$ で割った補正項も零へ収束します。そこで上下界から、まず**$\varepsilon$ を固定したまま $n\to\infty$** とすると
 
 $$
-\lim_{n\to\infty}\frac1n\log_2|T_{n,\varepsilon}(p)|=H(p)
+H(p)-\varepsilon
+\le\liminf_{n\to\infty}\frac1n\log_2|T_{n,\varepsilon}(p)|
+\le\limsup_{n\to\infty}\frac1n\log_2|T_{n,\varepsilon}(p)|
+\le H(p)+\varepsilon.
 $$
 
-と固定 $\varepsilon$ について断言するのは一般に誤りです。正しくは、例えば $\varepsilon\downarrow0$ と $n\to\infty$ の関係を明示して $H(p)$ に近い指数規模の集合を構成できる、という結論です。後の符号化では、先に任意の小さい $\varepsilon$ を固定して $n$ を大きくします。
+この評価は固定した $\varepsilon$ に対して指数率が必ず $H(p)$ に収束するとは述べていません。次に**$\varepsilon\downarrow0$** とすると、両側の極限を挟む幅が零になるので
+
+$$
+\begin{aligned}
+\lim_{\varepsilon\downarrow0}\liminf_{n\to\infty}
+\frac1n\log_2|T_{n,\varepsilon}(p)|
+&=H(p),\\
+\lim_{\varepsilon\downarrow0}\limsup_{n\to\infty}
+\frac1n\log_2|T_{n,\varepsilon}(p)|
+&=H(p).
+\end{aligned}
+$$
+
+ここでは $\varepsilon$ を先に固定してから $n\to\infty$ とし、最後に $\varepsilon$ を小さくする順序を守りました。後の符号化では、任意に小さく選んだ固定の $\varepsilon$ に対し、十分大きい $n$ で評価を使います。
 
 ## 5. 高い確率を捉える集合は小さすぎてはいけない
 
@@ -358,7 +376,7 @@ P(X^n\in B_n\cap T)
 \end{aligned}
 $$
 
-一方、[典型列ごとの確率上界](#thm-info3-typical-cardinality)の証明で使用した評価を $B_n\cap T$ の各列へ適用すると
+一方、[典型列ごとの確率上界](#ref-info3-typical-probability-bound)の証明で使用した評価を $B_n\cap T$ の各列へ適用すると
 
 $$
 \begin{aligned}
@@ -388,10 +406,18 @@ $$
 
 ### 独立性を落とすと1記号のエントロピーへ集まらない
 
-$X_1$ を公平な二値変数とし、すべての $i\ge2$ について $X_i=X_1$ とします。各 $X_i$ の周辺分布は同じで、その[エントロピー](../INFO1/index.md#def-info1-entropy)は1ビットです。しかし、長さ $n$ のブロックは $0^n$ と $1^n$ の二通りしか生じず、各確率は $1/2$ です。したがって
+$X_1$ を公平な二値変数とし、すべての $i\ge2$ について $X_i=X_1$ とします。各 $X_i$ の周辺分布は同じで、その[エントロピー](../INFO1/index.md#def-info1-entropy)は1ビットです。しかし、長さ $n$ のブロックは $0^n$ と $1^n$ の二通りしか生じず、各確率は $1/2$ です。非独立なこのブロックの確率質量関数を
 
 $$
--\frac1n\log_2P(X^n)=\frac1n\longrightarrow0
+r_n(x^n):=P(X^n=x^n)
+$$
+
+と置くと、$r_n(0^n)=r_n(1^n)=1/2$、それ以外の列の確率は零です。実際に観測される列では $r_n(X^n)=1/2$ ですから
+
+$$
+-\frac1n\log_2r_n(X^n)
+=-\frac1n\log_2\frac12
+=\frac1n\longrightarrow0
 $$
 
 が確率1で成り立ち、1には近づきません。独立でなければブロック確率を各時刻の周辺確率の積として書けず、証明の冒頭の $\overline Z_n$ への置換が壊れます。各時刻の分布が同じという条件だけでは不十分です。
@@ -529,16 +555,24 @@ $$
 
 #### B3. 時間依存が作る反例
 
-公平な $X_1\in\{0,1\}$ に対し、すべての $i$ で $X_i=X_1$ とする。$X^n$ が取り得る値と確率、$-n^{-1}\log_2P(X^n)$ の値を求め、独立同分布の結論と比較せよ。
+公平な $X_1\in\{0,1\}$ に対し、すべての $i\ge1$ で $X_i=X_1$ とする。ブロック確率質量関数を $r_n(x^n)=P(X^n=x^n)$ と定義する。$X^n$ が取り得る値と確率、および $-n^{-1}\log_2r_n(X^n)$ の値を求め、独立同分布の結論と比較せよ。
 
 - Level: B
 - ID: INFO3-B3
 
 <!-- solution-start -->
-**詳細解答**　$X^n$ が取るのは $0^n$ と $1^n$ だけです。$P(X^n=0^n)=P(X_1=0)=1/2$、$P(X^n=1^n)=1/2$ で、他の列の確率は零です。従って確率1で
+**詳細解答**　すべての時刻で $X_i=X_1$ なので、$X^n$ が取るのは $0^n$ と $1^n$ だけです。定義したブロック確率質量関数について
 
 $$
--\frac1n\log_2P(X^n)= -\frac1n\log_2(1/2)=\frac1n\to0.
+r_n(0^n)=P(X_1=0)=\frac12,\qquad
+r_n(1^n)=P(X_1=1)=\frac12
+$$
+
+で、他の列では $r_n(x^n)=0$ です。従って確率1で $r_n(X^n)=1/2>0$ となり、対数は実数として定義され、
+
+$$
+-\frac1n\log_2r_n(X^n)
+=-\frac1n\log_2(1/2)=\frac1n\to0.
 $$
 
 一方、各時刻の周辺分布だけで計算したエントロピーは $H(X_i)=1$ です。例えば $n=2$ で $P(X_1=0,X_2=0)=1/2$ ですが $P(X_1=0)P(X_2=0)=1/4$ なので、[独立性の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)を満たしません。従って[漸近等分割性](#thm-info3-aep)のブロック確率の積表示を利用できず、結論を流用できません。
@@ -562,7 +596,7 @@ P(X^n\in B_n\cap T_{n,\varepsilon})
 \end{aligned}
 $$
 
-[典型列の確率上界](#thm-info3-typical-cardinality)から各共通列の確率は $2^{-n(H(p)-\varepsilon)}$ 以下なので
+[典型列の確率上界](#ref-info3-typical-probability-bound)から各共通列の確率は $2^{-n(H(p)-\varepsilon)}$ 以下なので
 
 $$
 0.95\le |B_n\cap T_{n,\varepsilon}|2^{-n(H(p)-\varepsilon)}
