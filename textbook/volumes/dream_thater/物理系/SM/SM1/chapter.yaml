@@ -1,0 +1,43 @@
+id: "SM1"
+title: "微視的状態・巨視的状態・アンサンブル・熱力学極限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH8
+official_scope: []
+learning_objectives:
+  - 有限状態空間と巨視的写像を区別し、逆像の多重度と分割による数え上げを証明できる
+  - 有限アンサンブルの重みと巨視的な確率分布を定め、非一様分布でも期待値を集約できる
+  - 離散エネルギー準位の状態数と半開エネルギー窓を区別して数え上げられる
+  - 粒子数・容積・密度の条件から熱力学極限の設定を正確に記述できる
+  - 二値スピンの中央多重度の指数成長を証明し、規格化対数の極限を求められる
+  - 密度固定だけで極限の存在や等確率・温度・相転移を結論できない理由を説明できる
+definitions:
+  - { id: SM1-DEF-01, name: "微視的状態・巨視的状態" }
+  - { id: SM1-DEF-02, name: "有限系のアンサンブル" }
+  - { id: SM1-DEF-03, name: "離散準位の状態数とエネルギー窓" }
+  - { id: SM1-DEF-04, name: "熱力学極限の設定" }
+theorems:
+  - { id: SM1-PROP-01, name: "巨視的状態による分割と数え上げ" }
+  - { id: SM1-PROP-02, name: "巨視的確率と期待値の集約" }
+  - { id: SM1-PROP-03, name: "状態数の窓への分解" }
+  - { id: SM1-THM-01, name: "二値スピンの中央多重度の指数成長" }
+canonical_examples:
+  - 三個の二値スピンで微視的配置と巨視的な上向き個数を比較する
+  - 四状態の非一様アンサンブルで確率と多重度を区別する
+  - 二スピンのエネルギー窓で右端の排除を検査する
+  - 中央二項係数の指数成長と偶奇で極限の存在が壊れる例
+problem_patterns:
+  - SM1-MICRO-MACRO-COUNT
+  - SM1-NONUNIFORM-ENSEMBLE
+  - SM1-DENSITY-OF-STATES
+  - SM1-ENERGY-SHELL-ENDPOINT
+  - SM1-DENSITY-FIXED-LIMIT
+  - SM1-CENTRAL-DEGENERACY
+  - SM1-COARSE-GRAINING
+  - SM1-OSCILLATING-LIMIT
+  - SM1-SPIN-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
