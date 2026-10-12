@@ -3,6 +3,7 @@ title: "KAM定理と可積分性の破れ"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - CA3
   - INT2
   - INT3
   - INT4
