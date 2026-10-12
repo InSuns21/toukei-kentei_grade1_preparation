@@ -1442,7 +1442,7 @@ $$
 \end{aligned}
 $$
 
-半径 $R>1$ の上半円弧を $C_R$ とします。[留数定理（単純閉曲線版）](../../CA/CA4/index.md#thm-ca4-residue)から
+半径 $R>1$ の上半円弧を $C_R$ とします。[留数定理](../../CA/CA4/index.md#thm-ca4-residue)から
 
 $$
 \int_{-R}^{R}\frac{x^2}{x^4+1}\,dx
