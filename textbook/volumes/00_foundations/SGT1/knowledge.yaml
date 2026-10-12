@@ -53,7 +53,6 @@ concepts:
     name: グラフの連結成分
     kind: definition
     introduction: formal
-    aliases: [連結成分]
     introduction_aliases: [定義（グラフの連結成分）]
     requires: [spectral-graph.path]
 
