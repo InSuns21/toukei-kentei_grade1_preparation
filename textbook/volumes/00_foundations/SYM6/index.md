@@ -199,7 +199,13 @@ $$
 
 Lagrangeなら $W=W^\omega$ ですから $k=2n-k$、すなわち $k=n$ であり、両方の包含が成立します。逆に、等方で $k=n$ なら $W\subseteq W^\omega$ かつ双方の次元は $n$、従って等号です。余等方で $k=n$ の場合も同じです。
 
-Lagrange空間 $W$ を真に含む等方空間 $U$ があるとすると、$U\subseteq U^\omega\subseteq W^\omega=W$ となり $W\subsetneq U\subseteq W$ と矛盾します。従って極大等方です。
+Lagrange空間 $W$ を真に含む等方空間 $U$ があると仮定します。$U$ が等方だから $U\subseteq U^\omega$ であり、$W\subseteq U$ だから、任意の $v\in U^\omega$ は $W$ の全ての元にも直交して $U^\omega\subseteq W^\omega$ です。従って
+
+$$
+W\subsetneq U\subseteq U^\omega\subseteq W^\omega=W
+$$
+
+となって矛盾します。よって $W$ は極大等方です。
 
 逆に $W$ が極大等方で $W\ne W^\omega$ と仮定します。$v\in W^\omega\setminus W$ を取り、$U=W+\mathbb Rv$ と置きます。$w,w'\in W$、実数 $a,b$ について
 
@@ -269,7 +275,13 @@ DF_{(q,p)}=
 \begin{pmatrix}0&I_n\end{pmatrix}.
 $$
 
-どの点でも $DF$ の階数は $n$ です。従って $F^{-1}(0)$ は埋め込み $n$ 次元部分多様体となり、先のパラメータ表示とも整合します。
+各点で $DF_{(q,p)}:\mathbb R^{2n}\to\mathbb R^n$ は全射であり、特に $F^{-1}(0)$ の全点で階数が $n$ です。零点集合は空でないので、$0$ は $F$ の正則値です。[正則値定理](../GEO3/index.md#thm-geo3-regular-value)を $F$ と値 $0$ に適用すると、
+
+$$
+\dim F^{-1}(0)=2n-n=n
+$$
+
+となり、$F^{-1}(0)$ が埋め込み部分多様体であることも従います。これは先のパラメータ表示と一致します。
 
 これに対して方程式
 
@@ -277,7 +289,7 @@ $$
 p_1^2+\cdots+p_n^2=0
 $$
 
-を「一本の方程式だから余次元1」と判断するのは誤りです。零点上では左辺の微分が零となるため、正則値定理の階数条件を使えません。
+を「一本の方程式だから余次元1」と判断するのは誤りです。実数の二乗和が零であるのは各 $p_i=0$ の場合に限るため、零点集合は上と同じ $n$ 次元の零切断です。しかし左辺の微分は零点上で零写像となります。従ってこの**方程式に直接**[正則値定理](../GEO3/index.md#thm-geo3-regular-value)を適用して次元を数えることはできません。集合が滑らかであることと、選んだ制約式の微分が全射であることは別の問題です。
 
 ## 4. 余接束の零切断と1形式のグラフ
 
@@ -396,7 +408,14 @@ $$
 
 ### 成分で確認する閉性と局所的な関数表示
 
-$\alpha=\sum_i a_i(q)dq^i$ のグラフ上では $dp_i=\sum_j\partial_j a_i\,dq^j$ なので
+$\alpha=\sum_i a_i(q)\,dq^i$ とします。余接束全体の座標微分 $dp_i$ とグラフ上の微分を混同しないよう、$p_i\circ s_\alpha=a_i$ を微分します。これにより
+
+$$
+s_\alpha^*(dp_i)=d(p_i\circ s_\alpha)
+=da_i=\sum_j(\partial_j a_i)\,dq^j
+$$
+
+です。従ってグラフへの引き戻しを計算すると
 
 $$
 \begin{aligned}
@@ -407,7 +426,17 @@ s_\alpha^*\omega_{\mathrm{can}}
 \end{aligned}
 $$
 
-従って傾きの行列 $Da=(\partial_j a_i)$ が対称となることが閉性です。[局所Poincaréの補題](../GEO9/index.md#thm-geo9-poincare-lemma)は、座標球上の閉1形式なら $\alpha=df$ と書けることを保証します。
+ここで各 $i<j$ について $dq^i\wedge dq^j$ の係数を比べれば、
+
+$$
+d\alpha=0
+\quad\Longleftrightarrow\quad
+\partial_j a_i=\partial_i a_j\ \ (\forall i,j)
+\quad\Longleftrightarrow\quad
+Da=(\partial_j a_i)\ \text{が対称}
+$$
+
+です。これがグラフの接方向の傾きから閉性を読む方法です。[局所Poincaréの補題](../GEO9/index.md#thm-geo9-poincare-lemma)は、座標球上の閉1形式なら $\alpha=df$ と書けることを保証します。
 
 しかし**大域的には閉形式が必ずしも完全形式ではありません**。円周を
 
@@ -489,7 +518,7 @@ $S$ に沿う適合局所座標を選ぶと、余法束の条件は二群の座�
 <!-- proof-start -->
 ### 証明
 
-$S$ の任意の点の周囲で埋め込み部分多様体の座標を取り、$Q$ の座標を
+$S$ の任意の点で、[埋め込み部分多様体の適合局所座標](../GEO3/index.md#def-geo3-embedded-submanifold)を選びます。$Q$ の座標を
 
 $$
 (u^1,\ldots,u^k,v^1,\ldots,v^{n-k})
@@ -601,7 +630,14 @@ $$
 \omega_0(v,e_1)=-b_1.
 $$
 
-従って $W^\omega=\{b_1=0\}=\operatorname{span}\{e_1,e_2,f_2\}$ です。$W\subsetneq W^\omega$ なので等方ですが、$W^\omega\not\subseteq W$ なので余等方ではなく、Lagrangeでもありません。
+条件は $b_1=0$ の一つだけなので、
+
+$$
+W^\omega=\{v:b_1=0\}
+=\operatorname{span}\{e_1,e_2,f_2\}.
+$$
+
+$e_1\in W^\omega$ より $W\subsetneq W^\omega$ で等方ですが、$e_2\in W^\omega\setminus W$ なので余等方ではなく、Lagrangeでもありません。
 <!-- solution-end -->
 
 #### A2. 半分の次元でも不適切な平面
@@ -637,7 +673,15 @@ $$
 s'(q)=\partial_q+6q\,\partial_p.
 $$
 
-この一次元空間上では任意の二接ベクトルが $as',bs'$ の形を取るので、交代性から $\omega_{\mathrm{can}}(as',bs')=ab\omega_{\mathrm{can}}(s',s')=0$。次元は $1=\frac12\dim T^*\mathbb R$ でLagrangeです。別の検算として $\alpha=d(q^3)$、$d\alpha=0$ です。
+この一次元接空間上の任意の二接ベクトルは $as'(q),bs'(q)$ と書けます。交代性から
+
+$$
+\omega_{\mathrm{can}}(as',bs')
+=ab\,\omega_{\mathrm{can}}(s',s')
+=0.
+$$
+
+グラフは一次元で $\frac12\dim T^*\mathbb R=1$ なのでLagrangeです。別の検算として、$\alpha=d(q^3)$ だから[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)により $d\alpha=d^2(q^3)=0$ となり、[グラフ判定](#thm-sym6-graph-criterion)にも一致します。
 <!-- solution-end -->
 
 #### A4. 非閉1形式のグラフ
@@ -680,7 +724,20 @@ $$
 N^*S=\{q^3=p_1=p_2=0\}.
 $$
 
-自由変数は $q^1,q^2,p_3$ なので3次元です。$\theta=p_1dq^1+p_2dq^2+p_3dq^3$ を制限すると、最初の二項は係数が零、最後の項は $q^3=0$ の接方向で $dq^3=0$ だから零です。従って $-d\theta$ も制限上で零となり、Lagrangeです。
+自由変数は $q^1,q^2,p_3$ なので3次元です。包含 $j:N^*S\hookrightarrow T^*\mathbb R^3$ に沿って正準1形式を引き戻すと、$j^*p_1=j^*p_2=0$ と $j^*dq^3=d(j^*q^3)=0$ から
+
+$$
+j^*\theta
+=j^*(p_1\,dq^1+p_2\,dq^2+p_3\,dq^3)=0.
+$$
+
+[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)により
+
+$$
+j^*\omega_{\mathrm{can}}=-d(j^*\theta)=0.
+$$
+
+次元は $\dim N^*S=3=\frac12\dim T^*\mathbb R^3$ なのでLagrangeです。
 <!-- solution-end -->
 
 ### Level B：二つ以上の条件を結び付ける
@@ -706,7 +763,7 @@ $$
 =\omega(w,w')+b\omega(w,v)+a\omega(v,w')+ab\omega(v,v)=0.
 $$
 
-各項は順に $W$ の等方性、$v$ の直交性、交代性で消えます。よって $U$ は求める真の等方拡大です。
+第1項は $W$ の等方性から消え、第2項は $\omega(w,v)=-\omega(v,w)=0$、第3項は $\omega(v,w')=0$、第4項は交代性 $\omega(v,v)=0$ から消えます。よって $U$ は求める真の等方拡大です。
 <!-- solution-end -->
 
 #### B2. 位置と運動量が混じるLagrange平面
@@ -725,7 +782,14 @@ $$
 \omega_0(v,f_2)=a_2.
 $$
 
-従って $W^\omega=\{b_1=a_2=0\}=\operatorname{span}\{e_1,f_2\}=W$。また内部の生成元について $\omega_0(e_1,f_2)=0$、同じベクトルとの組も零ですから等方で、$\dim W=2=n$。従って[線形判定定理](#thm-sym6-lagrangian-criterion)の必要十分条件も満たします。
+二つの直交条件 $b_1=0$、$a_2=0$ を同時に課すので、
+
+$$
+W^\omega=\{v:b_1=a_2=0\}
+=\operatorname{span}\{e_1,f_2\}=W.
+$$
+
+また $\omega_0(e_1,f_2)=0$ であり、同じ生成元同士の値も交代性により零です。従って $W$ は等方で、$\dim W=2=n$ です。[線形Lagrange判定](#thm-sym6-lagrangian-criterion)によっても $W$ がLagrangeであると分かります。
 <!-- solution-end -->
 
 #### B3. 閉性と完全性を区別する
@@ -761,7 +825,13 @@ $$
 \qquad h'(q^2)=2q^2.
 $$
 
-よって $f=(q^1)^2+q^1q^2+(q^2)^2+C$ が求める関数です。閉性の判定と原始関数の具体構成は別段階で確認しました。
+$h'(q^2)=2q^2$ を積分すると $h(q^2)=(q^2)^2+C$ です。従って求める原始関数は
+
+$$
+f(q^1,q^2)=(q^1)^2+q^1q^2+(q^2)^2+C.
+$$
+
+これを両変数で偏微分すれば、元の1形式の両係数に戻ります。閉性の判定と原始関数の具体構成は別段階で確認しました。
 <!-- solution-end -->
 
 #### B4. 曲線の余法束
@@ -778,11 +848,13 @@ $$
 F(u,s)=(q^1,q^2,p_1,p_2)=(u,u^2,-2us,s)
 $$
 
-を得ます。基点の第一成分と余接座標の第四成分が $(u,s)$ なので $F$ は埋め込みです。微分すると
+を得ます。第一成分と第四成分から $(u,s)$ を連続に復元でき、微分も階数2なので $F$ は埋め込みです。座標関数を $F$ に沿って引き戻して微分すると
 
 $$
-dq^1=du,\quad dq^2=2u\,du,\quad
-dp_1=-2s\,du-2u\,ds,\quad dp_2=ds.
+\begin{aligned}
+F^*dq^1&=du,&F^*dq^2&=2u\,du,\\
+F^*dp_1&=-2s\,du-2u\,ds,&F^*dp_2&=ds.
+\end{aligned}
 $$
 
 よって
@@ -797,6 +869,63 @@ F^*\omega_{\mathrm{can}}
 $$
 
 二つの自由変数で2次元であり、$T^*\mathbb R^2$ の半分の次元ですからLagrangeです。
+<!-- solution-end -->
+
+#### B5. 円周上の閉1形式は完全とは限らない
+
+$Q=S^1=\mathbb R/(2\pi\mathbb Z)$ とし、各局所角度座標 $t$ で $\alpha=dt$ と書く1形式を考える。次を示せ。
+
+1. この局所表示が大域的な滑らかな1形式を定め、$d\alpha=0$ となること。
+2. $\alpha=df$ を満たす大域的な滑らかな実数値関数 $f$ は存在しないこと。
+3. それでも $\Gamma_\alpha\subset T^*S^1$ はLagrange部分多様体になること。
+
+- Level: B
+- ID: SYM6-B5
+
+<!-- solution-start -->
+**詳細解答**
+
+**(1)**　同じ円周上の点を表す二つの角度の差は局所的に $2\pi k$（$k\in\mathbb Z$ は定数）です。したがって座標変換は $t'=t+2\pi k$ となり、
+
+$$
+dt'=d(t+2\pi k)=dt.
+$$
+
+局所表示が重なりで一致するので $\alpha$ は大域的な滑らかな1形式です。また各座標上で[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を局所関数 $t$ に適用すると
+
+$$
+d\alpha=d(dt)=0.
+$$
+
+局所的に零である2形式は大域的にも零です。
+
+**(2)**　円周を一周する曲線 $\gamma:[0,2\pi]\to S^1$、$\gamma(t)=[t]$ に沿って積分すると
+
+$$
+\int_\gamma\alpha
+=\int_0^{2\pi}\gamma^*\alpha
+=\int_0^{2\pi}dt=2\pi.
+$$
+
+もし $\alpha=df$ なら、合成 $f\circ\gamma$ は $[0,2\pi]$ 上の滑らかな実数値関数であり、
+
+$$
+\int_\gamma df
+=(f\circ\gamma)(2\pi)-(f\circ\gamma)(0)
+=f([0])-f([0])=0.
+$$
+
+これは $2\pi\ne0$ に矛盾します。ゆえに $\alpha$ は閉形式ですが完全形式ではありません。
+
+**(3)**　$\alpha$ は滑らかで (1) から $d\alpha=0$ です。[閉1形式のグラフのLagrange判定](#thm-sym6-graph-criterion)を $Q=S^1$ に適用すると、グラフ写像は埋め込みで、
+
+$$
+s_\alpha^*\omega_{\mathrm{can}}=-d\alpha=0,
+\qquad
+\dim\Gamma_\alpha=1=\tfrac12\dim T^*S^1.
+$$
+
+従って $\Gamma_\alpha$ はLagrangeです。(2) より、このグラフを大域的な関数の微分 $df$ のグラフとして書くことはできません。
 <!-- solution-end -->
 
 ### Level C：グラフと座標変換を接続する
@@ -822,7 +951,21 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)**　$T_\alpha(q,p)=(q^1,q^2,p_1+q^2,p_2+q^1)$ です。逆は $T_\alpha^{-1}(q,P)=(q^1,q^2,P_1-q^2,P_2-q^1)$ で、両方とも全域で滑らかなので微分同相です。
+**(1)**　$T_\alpha$ は運動量だけを平行移動し、
+
+$$
+T_\alpha(q^1,q^2,p_1,p_2)
+=(q^1,q^2,p_1+q^2,p_2+q^1)
+$$
+
+です。像の運動量を $P_1,P_2$ とすると $p_1=P_1-q^2$、$p_2=P_2-q^1$ なので
+
+$$
+T_\alpha^{-1}(q^1,q^2,P_1,P_2)
+=(q^1,q^2,P_1-q^2,P_2-q^1).
+$$
+
+互いに合成すれば元の4座標へ戻ります。双方とも全域で滑らかなので微分同相です。
 
 **(2)**　[正準1形式の座標表示](../SYM3/index.md#prop-sym3-liouville-coordinate)に代入すると
 
