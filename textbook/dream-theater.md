@@ -725,6 +725,7 @@
 1. [ANT1 算術関数の平均と部分和](textbook/volumes/dream_thater/代数系/ANT/ANT1/index.md)
 2. [ANT2 Dirichlet級数・Euler積の一般論](textbook/volumes/dream_thater/代数系/ANT/ANT2/index.md)
 3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
+4. [ANT4 算術級数中の素数に関するDirichletの定理](textbook/volumes/dream_thater/代数系/ANT/ANT4/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
