@@ -8,7 +8,8 @@ prerequisites:
   - AMECH6
   - SYM2
   - SYM3
-forward_references: []
+forward_references:
+  - symplectic.darboux-theorem
 
 concepts:
   - id: symplectic.hamiltonian-vector-field
