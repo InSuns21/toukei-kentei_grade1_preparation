@@ -55,8 +55,11 @@ for(const e of extras){
  const target=ROOT+'/'+e.category+'/'+e.course+'/'+e.id;
  const source=exists(e.source)?e.source:target;
  if(!exists(source+'/chapter.yaml')||YAML.parse(read(source+'/chapter.yaml')).id!==e.id)throw Error('Exercise metadata mismatch: '+e.id);
- if(owners.has(e.id))throw Error('Duplicate exercise ID '+e.id);
- owners.set(e.id,{category:e.category,course:e.course,target,source,extra:true});
+ if(owners.has(e.id)){
+  const existing=owners.get(e.id);
+  if(existing.category!==e.category||existing.course!==e.course||existing.target!==target)
+    throw Error('Conflicting indexed exercise '+e.id);
+ }else owners.set(e.id,{category:e.category,course:e.course,target,source,extra:true});
  if(source!==target)moves.set(source,target);
 }
 const planFiles=fs.readdirSync(SERIES).filter(f=>f.endsWith('.yaml'));
@@ -166,7 +169,7 @@ for(const s of final.sections)for(const href of s.paths){
  indexed.add(id);counts.set(s.name,(counts.get(s.name)||0)+1);
 }
 for(const e of extras)if(!indexed.has(e.id))errors.push('Exercise missing from public index: '+e.id);
-if(indexed.size!==indexCount+extras.length && indexCount===540)errors.push('Expected 542 canonical entries; got '+indexed.size);
+if(indexed.size!==542)errors.push('Expected 542 canonical entries; got '+indexed.size);
 for(const name of planFiles){
  const spec=YAML.parse(read(SERIES+'/'+name));
  const cat=[...new Set(spec.chapters.map(c=>owners.get(c.id)?.category).filter(Boolean))];
