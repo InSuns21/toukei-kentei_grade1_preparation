@@ -272,6 +272,7 @@
 22. [HDP3 sub-Gaussianとsub-exponentialの同値評価](textbook/volumes/dream_thater/解析系/HDP/HDP3/index.md)
 23. [HDP4 Doob差分と有界差分不等式](textbook/volumes/dream_thater/解析系/HDP/HDP4/index.md)
 24. [HDP5 Gaussian集中とLipschitz関数](textbook/volumes/dream_thater/解析系/HDP/HDP5/index.md)
+25. [HDP6 ε-netとJohnson–Lindenstrauss射影](textbook/volumes/dream_thater/解析系/HDP/HDP6/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I
