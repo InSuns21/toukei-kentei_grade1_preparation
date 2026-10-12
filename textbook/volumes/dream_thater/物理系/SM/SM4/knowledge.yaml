@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SM3
   - TH7
+  - F0-00P3
 forward_references: []
 concepts:
   - id: statistical-mechanics.grand-canonical-ensemble
@@ -35,7 +36,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（大分配関数の対数微分と粒子数揺らぎ）]
-    requires: [statistical-mechanics.grand-normalization, statistical-mechanics.grand-partition-function]
+    requires: [statistical-mechanics.grand-normalization, statistical-mechanics.grand-partition-function, prob.covariance]
   - id: statistical-mechanics.grand-fixed-mu-energy
     name: 化学ポテンシャル固定でのエネルギー交換量
     kind: proposition
