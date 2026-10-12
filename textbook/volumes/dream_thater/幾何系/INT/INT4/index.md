@@ -299,25 +299,30 @@ $$
 |\partial_\theta^\beta(\chi_ke^{ik\cdot\theta})|
 \le\frac{n^rM_r}{\gamma}|k|_1^{s+\tau-r}.
 $$
-$|k|_1=m$ の整数点の数は $C_nm^{n-1}$ 以下です（各成分の絶対値の和が $m$ となる組合せを数える）。よって全項の大きさの和は定数倍の
+$|k|_1=m$ の整数点では、非負整数の組 $(|k_1|,\ldots,|k_n|)$ の和が $m$ です。そのような組は $\binom{m+n-1}{n-1}$ 個で、符号の選び方は高々 $2^n$ 通りです。従って格子点の個数は $2^n\binom{m+n-1}{n-1}\le C_nm^{n-1}$ で抑えられます。よって全項の大きさの和は定数倍の
 $$
 \sum_{m=1}^\infty m^{n-1+s+\tau-r}
 $$
-以下です。条件 $r>s+\tau+n$ の下では、和の指数が $-1$ より小さくなり、級数は収束します。Weierstrassの一様収束判定から、$\chi$ と次数 $s$ 以下の項別微分による級数は絶対一様収束します。部分和への一様微分収束を順次適用すれば、これらが実際に $\chi$ の導関数となることも分かります。
+以下です。条件 $r>s+\tau+n$ の下では、和の指数が $-1$ より小さくなり、級数は収束します。この総和の尾部は、$m>M$ の上記の収束級数の尾部で一様に抑えられ、$M\to\infty$ で零へ収束します。従って $\chi$ と次数 $s$ 以下の項別微分級数は絶対一様収束します。$s\ge1$ では、有限部分和 $S_M$ の $j$ 方向の微分が連続関数 $T_j$ に一様収束するので、
+$$
+S_M(\theta+he_j)-S_M(\theta)
+=\int_0^h\partial_{\theta_j}S_M(\theta+ue_j)\,du
+$$
+で $M\to\infty$ として $\partial_{\theta_j}\chi=T_j$ を得ます。同じ議論を高階微分に繰り返せば、次数 $s$ 以下の形式微分が実際の導関数です。
 
-係数ごとには次の等式が成立します。
+係数ごとには $i(k\cdot\Omega)\chi_k=g_k$ が成り立ちます。さらに $r>s+\tau+n\ge n$ と $|g_k|\le n^rM_r|k|_1^{-r}$ より、$g$ のFourier級数
 $$
-i(k\cdot\Omega)\chi_k=g_k.
+G(\theta)=\sum_{k\in\mathbb Z^n\setminus\{0\}}g_ke^{ik\cdot\theta}
 $$
-これが元の関数 $g$ の等式になる理由も確認します。求めたFourier級数と $g$ の差を $h$ とすると、$h$ は連続で、すべてのFourier係数が零です。
+も絶対一様収束し、連続関数 $G$ を定めます。$g_0=0$ なので $h=G-g$ は連続で、各Fourier係数が零です。[Fejér平均の一様収束](../../../解析系/FOU/FOU2/index.md#thm-fou2-fejer-uniform)を各角度に順に適用すると、$h$ の矩形Fejér平均は $h$ へ一様収束します。一方、各平均は零係数だけの有限和なので恒等的に零であり、$G=g$ と分かります。
 
-[Fejér平均の一様収束](../../../解析系/FOU/FOU2/index.md#thm-fou2-fejer-uniform)を各角度変数に順番に適用すると、多変数の矩形Fejér平均も $h$ へ一様収束します。しかし各平均は零係数から作る有限和であり、恒等的に零です。従って $h=0$ です。
-
-以上で、$s\ge1$ のときは通常の微分の意味で、$s=0$ のときは分布の意味で
+$s\ge1$ なら項別微分から $\Omega\cdot\partial_\theta\chi=G=g$ です。$s=0$ でも分布として同じ等式が成立します。実際、有限部分和 $S_M$ と滑らかな周期試験関数 $\varphi$ に対し、周期境界の部分積分により
 $$
-\Omega\cdot\partial_\theta\chi=g
+\int_{\mathbb T^n}S_M\,\Omega\cdot\partial_\theta\varphi\,d\theta
+=-\int_{\mathbb T^n}(\Omega\cdot\partial_\theta S_M)\varphi\,d\theta.
 $$
-が成立します。実数値性と零平均性は $g_{-k}=\overline{g_k}$ と零モードを除いたことから従います。
+左辺は $S_M\to\chi$ の一様収束、右辺は $\Omega\cdot\partial_\theta S_M\to G=g$ の一様収束から極限を取れます。従って $\Omega\cdot\partial_\theta\chi=g$ は分布の意味でも成立します。
+実数値性と零平均性は $g_{-k}=\overline{g_k}$ と零モードを除いたことから従います。
 <!-- proof-end -->
 
 この命題で $C^r$ の正則性を $C^s$ まで失うのは、あくまで一回の線形な除算の評価です。$K$ に依存する $\Omega(I)$ を作用全域で扱うとき、作用微分や共鳴集合の位置も考える必要があります。まして無限回の正準変換の収束を証明したわけではありません。KAM定理では非退化性、作用領域の除外、反復余剰の制御を別に組み立てます。
@@ -453,7 +458,7 @@ $$
 $$
 |q\alpha-p|=|x_s-x_r|<1/N,\qquad1\le q\le N.
 $$
-無理数性より $q\alpha-p\ne0$ です。もし有限個の $q$ しか出現しなければ、各固定 $q$ と任意の整数 $p$ の距離 $\operatorname{dist}(q\alpha,\mathbb Z)>0$ の有限個の最小値が正となります。しかし $1/N\to0$ に矛盾します。従って $q$ は無限に大きくなる部分列を持ちます。
+無理数性より $q\alpha-p\ne0$ です。固定した $q$ に対する $\delta_q=\operatorname{dist}(q\alpha,\mathbb Z)$ は正で、上の不等式が成り立つのは $1/N>\delta_q$ の場合だけです。従って一つの $q$ が任意に大きい $N$ に繰り返し使われることはありません。もし有限個の $q$ しか出現しなければ、それらの $\delta_q$ の最小値は正となります。しかし $1/N\to0$ に矛盾します。従って $q$ は無限に大きくなる部分列を持ちます。
 <!-- solution-end -->
 
 <a id="ex-int4-b03"></a>
@@ -498,7 +503,7 @@ $$
 $$
 I(t)=I^0+\varepsilon ak\,t\sin(3\theta_1^0-2\theta_2^0).
 $$
-初期位相の正弦が非零なら永年項があり、$k$ モードの係数は非零なので周期的ホモロジー方程式は解けません。
+$\varepsilon\ne0$ かつ初期位相の正弦が非零なら作用は時間に比例して変化します（$\varepsilon=0$ なら作用は一定です）。一方、摂動関数 $f=a\cos(k\cdot\theta)$ の $k$ モードの係数 $a/2$ は $a\ne0$ により非零なので、一次ホモロジー方程式の周期解は存在しません。
 
 (ii) $\lambda_B=3-2\sqrt2>0$ です。角度は $\theta^0+\Omega_Bt$、作用は[単一モードの厳密解](#prop-int4-secular)により
 $$
