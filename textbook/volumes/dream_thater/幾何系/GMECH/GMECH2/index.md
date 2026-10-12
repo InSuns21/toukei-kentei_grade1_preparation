@@ -2,7 +2,7 @@
 
 [GMECH1の余接持ち上げ作用](../GMECH1/index.md#thm-gmech1-lift-action)は位置と運動量の変換を同時に記述し、その[無限小座標公式](../GMECH1/index.md#thm-gmech1-infinitesimal-coordinate)は位置速度だけでなく運動量速度まで求めました。ただし、それがどんな**関数**によって生成されるかはまだ体系化していません。[SYM4のHamiltonベクトル場](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)を使えば、ベクトル場と関数を結ぶことができます。
 
-本章では、Lie代数の元 $\xi$ ごとに得る関数を一つの双対空間値写像へ束ねます。すると平行移動には線形運動量、回転には角運動量が現れます。さらに、群で状態を変換したときその写像がどう変わるかを追います。**群作用がシンプレクティックであること、Hamiltonianであること、運動量写像が同変であることは、それぞれ異なる条件**です。最後の違いは具体的な反例でも確認します。
+本章では、Lie代数の元 $\xi$ ごとに得る関数を一つの双対空間値写像へ束ねます。すると平行移動には線形運動量、回転には角運動量が現れます。さらに、群で状態を変換したときその写像がどう変わるかを追います。**群作用がシンプレクティックであること、Hamiltonianであること、得られる双対値写像が群の変換と両立することは、それぞれ異なる条件**です。最後の違いは具体的な反例でも確認します。
 
 ## 1. シンプレクティック作用からHamilton作用へ
 
@@ -43,7 +43,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（連結な位相空間での運動量写像の不定性）**  
-> $M$ を連結なシンプレクティック多様体とし、同じ滑らかな左作用に対して $J,K:M\to\mathfrak g^*$ が運動量写像であるとする。このとき、ある定数 $c\in\mathfrak g^*$ が存在して $K(m)=J(m)+c$ が全 $m\in M$ で成立する。
+> $M$ を連結なシンプレクティック多様体とし、同じ滑らかな左作用に対して $J,K:M\to\mathfrak g^*$ がともに運動量写像であるとする。このとき、ある定数 $c\in\mathfrak g^*$ が存在して、任意の $m\in M$ で次を満たす。
+>
+$$
+K(m)=J(m)+c.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -107,7 +111,7 @@ $$
 
 滑らかさは局所座標で調べます。Lie代数の基底を $e_a$ とし、$(e_a)_Q=\sum_i a_a^i(q)\partial_{q^i}$ と書くと、双対基底に関する $J$ の成分は $\sum_i p_i a_a^i(q)$ です。作用が滑らかなので係数 $a_a^i$ は滑らかであり、従って $J$ も滑らかです。
 
-[Liouville 1形式の定義](../../SYM/SYM3/index.md#def-sym3-tautological-form)では $\theta_{\alpha_q}(v)=\alpha_q(d\pi_{\alpha_q}v)$ です。[GMECH1の生成子の射影公式](../GMECH1/index.md#thm-gmech1-infinitesimal-coordinate)から
+[Liouville 1形式の定義](../../SYM/SYM3/index.md#def-sym3-tautological-form)では $\theta_{\alpha_q}(v)=\alpha_q(d\pi_{\alpha_q}v)$ です。[余接持ち上げの無限小座標公式](../GMECH1/index.md#thm-gmech1-infinitesimal-coordinate)から
 
 $$
 \begin{aligned}
@@ -210,7 +214,7 @@ $$
 
 運動量写像は無限小作用を関数へ翻訳しました。次は有限な群元 $g$ で点 $m$ を動かした後の $J(g\cdot m)$ を知りたい、という問いです。Lie代数の基底は群による共役で変わるので、その双対側の変換を使います。
 
-[LIE2の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation) $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$ は $h\mapsto ghg^{-1}$ の単位元での微分です。その双対を $(\operatorname{Ad}_g)^*:\mathfrak g^*\to\mathfrak g^*$ と書くとき、$G$ の**左余随伴作用**は逆元を含む写像で与えます。
+[LIE2の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation) $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$ は $h\mapsto ghg^{-1}$ の単位元での微分です。その双対を $(\operatorname{Ad}_g)^*:\mathfrak g^*\to\mathfrak g^*$ と書きます。これから定義する双対空間上の左作用には逆元が現れます。
 
 <a id="def-gmech2-coadjoint-equivariance"></a>
 
@@ -289,7 +293,7 @@ $$
 =g\cdot\bigl((g^{-1}\exp(t\xi)g)\cdot q\bigr)
 $$
 
-の $t=0$ での微分を考えます。[LIE2の共役と指数写像の可換性](../../../代数系/LIE/LIE2/index.md#thm-lie2-conjugation-exponential)から
+の $t=0$ での微分を考えます。[LIE2の共役とLie群の指数の可換性](../../../代数系/LIE/LIE2/index.md#thm-lie2-conjugation-exponential)から
 
 $$
 g^{-1}\exp(t\xi)g
@@ -403,7 +407,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 位置の生成子は $x\partial_y$ なので $J_1=xp_y$ です。[GMECH1の生成子公式](../GMECH1/index.md#thm-gmech1-infinitesimal-coordinate)から余接束上の生成子は $X=x\partial_y-p_y\partial_{p_x}$ です。$\omega=dx\wedge dp_x+dy\wedge dp_y$ に代入すると、
+**詳細解答。** 位置の生成子は $x\partial_y$ なので $J_1=xp_y$ です。[余接持ち上げの無限小座標公式](../GMECH1/index.md#thm-gmech1-infinitesimal-coordinate)から余接束上の生成子は $X=x\partial_y-p_y\partial_{p_x}$ です。$\omega=dx\wedge dp_x+dy\wedge dp_y$ に代入すると、
 
 $$
 \iota_X\omega=p_y\,dx+x\,dp_y=d(xp_y).
@@ -583,7 +587,7 @@ J(aq+b,p/a)
 =\left(qp+\frac ba p,\frac pa\right).
 $$
 
-右辺について $\mu=(\mu_D,\mu_T)$ とすれば、(2) と[余随伴作用の定義](#def-gmech2-coadjoint-equivariance)により
+右辺について $\mu=(\mu_D,\mu_T)$ とすれば、(2) と[左余随伴作用](#def-gmech2-coadjoint-equivariance)により
 
 $$
 \operatorname{Ad}_{g^{-1}}^*\mu
