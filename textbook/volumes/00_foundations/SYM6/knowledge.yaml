@@ -16,21 +16,21 @@ concepts:
     name: 等方部分空間
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    introduction_aliases: [定義（等方部分空間）]
     requires: [symplectic.orthogonal-complement, symplectic.symplectic-vector-space]
 
   - id: symplectic.coisotropic-subspace
     name: 余等方部分空間
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    introduction_aliases: [定義（余等方部分空間）]
     requires: [symplectic.orthogonal-complement, symplectic.symplectic-vector-space]
 
   - id: symplectic.lagrangian-subspace
     name: Lagrange部分空間
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（等方・余等方・Lagrange部分空間）]
+    introduction_aliases: [定義（Lagrange部分空間）]
     requires: [symplectic.isotropic-subspace, symplectic.coisotropic-subspace]
 
   - id: symplectic.orthogonal-dimension
