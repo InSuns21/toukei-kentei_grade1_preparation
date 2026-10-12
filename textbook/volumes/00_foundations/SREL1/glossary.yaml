@@ -1,0 +1,38 @@
+chapter: "SREL1"
+terms:
+  - term: 慣性系
+    english: inertial reference frame
+    meaning: "自由粒子が等速直線運動する基準系。特殊相対論の比較では互いに等速で運動する慣性系を扱う。"
+  - term: 相対性原理
+    english: principle of relativity
+    meaning: "物理法則がどの慣性系でも同じ形を持ち、特定の慣性系が優先されないという物理的要請。"
+  - term: 光速度不変
+    english: invariance of the speed of light
+    meaning: "真空中を進む光の速さが、各慣性系で共通の正定数 c であるという物理的要請。"
+  - term: 事象
+    english: spacetime event
+    meaning: "同一の物理的出来事を時刻と位置の組で記述したもの。座標変換後も出来事自体は同じ。"
+  - term: 世界線
+    english: worldline
+    meaning: "粒子や信号の軌跡を時刻と位置の組の集合として表示したもの。"
+  - term: Lorentz因子
+    english: Lorentz factor
+    meaning: "相対速度 |v|<c に対して gamma=1/sqrt(1-v^2/c^2) と定まる正の無次元量。"
+  - term: 一次元Lorentz変換
+    english: one-dimensional Lorentz transformation
+    meaning: "整列した慣性系間の座標変換 x'=gamma(x-vt), t'=gamma(t-vx/c^2)。"
+  - term: 同時性の相対性
+    english: relativity of simultaneity
+    meaning: "一つの慣性系で同時な離れた事象が、別の慣性系で同時とは限らない性質。"
+  - term: 運動する時計の時間の遅れ
+    english: time dilation
+    meaning: "時計が静止する系での刻み幅 delta t' と動く時計を観測する系での時間差が delta t=gamma delta t' を満たす現象。"
+  - term: 静止長
+    english: proper length
+    meaning: "棒が静止する系での二端点の位置差。動く棒の観測では測定する系で同時の二事象を用いる。"
+  - term: 長さの収縮
+    english: length contraction
+    meaning: "棒が静止する系での長さ L0 に対し、相対速度 v で動く系で同時測定した長さが L=L0/gamma となること。"
+  - term: 共線速度の合成
+    english: relativistic collinear velocity addition
+    meaning: "同一軸上の二つの相対速度 u,v を (u+v)/(1+uv/c^2) と合成する法則。"
