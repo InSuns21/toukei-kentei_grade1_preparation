@@ -79,7 +79,7 @@ function reasoning(text){
  return /(?:を(?:使|用い|利用|適用|援用)|に(?:依存|基づ|従い)|から(?:導|得|従|借)|の(?:定理|補題|結果|定義|公式|構成|証明|議論)|で(?:証明|示し|示す|得た|導い|導入|定義|学んだ|扱った))/u.test(text);
 }
 function forward(text){
- return /(?:後続|次章|次節|次の章|この先|将来|今後|後で|予告|で扱います|で扱う|で学びます|への接続|と比較|との対比|参考として|へ進みます)/u.test(text);
+ return /(?:後続|後段|次章|次節|次の章|この先|将来|今後|後で|予告|で扱います|で扱う|で学びます|への接続|と比較|との対比|参考として|へ進みます)/u.test(text);
 }
 function resolve(source,link){
  if(/^(?:https?:|mailto:|#|\/)/iu.test(link))return null;
