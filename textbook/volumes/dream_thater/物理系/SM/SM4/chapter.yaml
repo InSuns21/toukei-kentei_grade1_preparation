@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - SM3
   - TH7
+  - F0-00P3
 official_scope: []
 learning_objectives:
   - 粒子数別の有限状態空間と正準分配関数から大分配関数・大正準確率を定義し、具体模型で規格化を確認できる
