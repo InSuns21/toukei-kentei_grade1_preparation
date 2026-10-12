@@ -38,13 +38,14 @@ concepts:
     name: Hilbert第10問題 over Z
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（Hilbert第10問題 over $\\mathbb Z$）]
+    introduction_aliases: [定義（Hilbert第10問題 over Z）]
     requires: [number-theory.diophantine-set-z]
   - id: number-theory.dprm-theorem
     name: Davis–Putnam–Robinson–Matiyasevich定理
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Davis–Putnam–Robinson–Matiyasevich：DPRM）]
+    aliases: [DPRM定理]
     requires: [number-theory.diophantine-recognizable]
   - id: number-theory.naturals-to-integers-diophantine
     name: 非負整数のDiophantine定義を整数へ移す
