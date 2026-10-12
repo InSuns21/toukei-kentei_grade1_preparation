@@ -4,11 +4,11 @@ title: "可積分系と摂動論・KAM"
 plan: textbook/plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# INT1は着手可能。教材・章別metadata・公開索引は各章完成時に登録する。
+# INT1本文・metadata・公開索引登録済み。次の予定章はINT2。
 chapters:
   - id: INT1
     path: textbook/volumes/dream_thater/幾何系/INT/INT1
-    status: planned
+    status: completed
     title: "第一積分とLiouville可積分性"
   - id: INT2
     path: textbook/volumes/dream_thater/幾何系/INT/INT2
