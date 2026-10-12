@@ -680,7 +680,21 @@ $p,q$ を相異なる $3\bmod4$ の奇素数とし、$n=pq$ とする。$\left(\
 - ID: NT3-C2
 
 <!-- solution-start -->
-**詳細解答**　$p\equiv q\equiv3\pmod4$ なので[第一補充法則](#thm-nt3-supplement-minus-one)から $\left(\frac{-1}p\right)=\left(\frac{-1}q\right)=-1$ です。[Jacobi 記号の定義](#def-nt3-jacobi)では二因子を掛けるので $\left(\frac{-1}{pq}\right)_{\!J}=(-1)(-1)=1$ です。一方、仮に $x^2\equiv-1\pmod{pq}$ とすると $x^2\equiv-1\pmod p$ も成り立ちます。しかし Legendre 記号が $-1$ であることはこの合同式が不可解であることを意味し、矛盾します。例えば $p=3,q=7$ なら Jacobi 記号は $1$ でも法 $21$ に解はありません。二素数がともに $3\bmod4$ という仮定を外し、ともに $1\bmod4$ とすれば各素数で解が存在し、[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)から法 $pq$ に解が存在します。問題の障害は各素数法での非剰余を掛け合わせると符号だけが相殺されてしまう点です。
+**詳細解答**　$p\equiv q\equiv3\pmod4$ と仮定します。[第一補充法則](#thm-nt3-supplement-minus-one)をそれぞれの奇素数に適用すると
+$$
+\left(\frac{-1}p\right)=-1,\qquad
+\left(\frac{-1}q\right)=-1
+$$
+です。[Jacobi 記号の定義](#def-nt3-jacobi)により、$n=pq$ の二つの素因数から
+$$
+\left(\frac{-1}{pq}\right)_{\!J}
+=\left(\frac{-1}p\right)\left(\frac{-1}q\right)=(-1)(-1)=1
+$$
+を得ます。
+
+一方、法 $pq$ に根 $x$ があると仮定すると、$pq\mid x^2+1$ より $p\mid x^2+1$、すなわち $x^2\equiv-1\pmod p$ です。しかし [Legendre 記号の定義](#def-nt3-legendre-symbol)によれば $\left(\frac{-1}p\right)=-1$ は法 $p$ で解が存在しないことを意味します。矛盾するので法 $pq$ にも解はありません。具体的に $p=3,q=7$ なら Jacobi 記号は $1$ ですが法 $21$ の解は存在しません。
+
+仮定が重要なのは、各素数法での非剰余が**二つ重なる**ためです。二素数がともに $1\bmod4$ なら各素数法で根が存在し、$\gcd(p,q)=1$ のもとで[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)を使えば法 $pq$ にも根を構成できます。したがって Jacobi 記号が $1$ であることだけでは、個別の素数法で解けないという局所障害は検出できません。
 <!-- solution-end -->
 
 ## 9. まとめと次章への橋
