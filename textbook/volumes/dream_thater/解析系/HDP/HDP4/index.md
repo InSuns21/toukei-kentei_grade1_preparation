@@ -228,7 +228,7 @@ E[e^{\lambda Y}\mid\mathcal G]
 +\frac{-A}{B-A}e^{\lambda B}.
 $$
 
-ここで $A\le0\le B$ は零平均と条件付きの単調性から従います。右辺は $A$ と $B$ をそれぞれ確率 $B/(B-A)$ と $-A/(B-A)$ で取る**平均零の二点分布**の指数モーメントです。この二点分布は幅が $B-A\le c$ なので、[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)に端点 $A,B$、指数係数 $\lambda\in\mathbb R$ を代入して
+ここで $A\le0\le B$ は零平均と条件付きの単調性から従います。右辺は $A$ と $B$ をそれぞれ確率 $B/(B-A)$ と $-A/(B-A)$ で取る平均零の確率変数の指数モーメントです。この確率変数は値 $A,B$ の二つだけを取り、幅が $B-A\le c$ なので、[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)に端点 $A,B$、指数係数 $\lambda\in\mathbb R$ を代入して
 
 $$
 E[e^{\lambda Y}\mid\mathcal G]
