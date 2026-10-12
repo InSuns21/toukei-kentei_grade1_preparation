@@ -232,48 +232,77 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a_0=\lfloor\sqrt D\rfloor$ として $\alpha_0=\sqrt D$ から開始し、各段階を
-
+まず $\alpha_0=\sqrt D$、$a_0=\lfloor\sqrt D\rfloor$ とし、完全商を
 $$
 \alpha_n=\frac{\sqrt D+m_n}{d_n}
 $$
-
-と書きます。初期状態は $m_0=0,d_0=1$ です。$\alpha_n-a_n=(\sqrt D+m_n-a_nd_n)/d_n$ を逆数にして分母を有理化すると、
-
+と表示します。初期値は $m_0=0,d_0=1$ です。各 $\alpha_n$ は無理数なので $0<\alpha_n-a_n<1$ であり、逆数を取ると
 $$
 \begin{aligned}
-m_{n+1}&=a_nd_n-m_n,\\
-d_{n+1}&=\frac{D-m_{n+1}^2}{d_n},\\
-a_{n+1}&=\left\lfloor\frac{\sqrt D+m_{n+1}}{d_{n+1}}\right\rfloor.
+\alpha_{n+1}
+&=\frac1{\alpha_n-a_n}
+=\frac{d_n}{\sqrt D-(a_nd_n-m_n)}\\
+&=\frac{d_n(\sqrt D+m_{n+1})}{D-m_{n+1}^2},
+\qquad m_{n+1}=a_nd_n-m_n.
 \end{aligned}
 $$
-
-$m_0,d_0$ は整数であり、$d_0=1$ は $D-m_0^2$ を割ります。$d_n\mid D-m_n^2$ と仮定すると $m_{n+1}\equiv-m_n\pmod{d_n}$ から $d_n\mid D-m_{n+1}^2$ です。よって帰納的に $m_{n+1},d_{n+1}$ は整数になります。$\alpha_n-a_n=(\sqrt D-m_{n+1})/d_n>0$ と $\alpha_n'-a_n=-(\sqrt D+m_{n+1})/d_n<-1$ から、$d_n>0$ を仮定すれば $-\sqrt D<m_{n+1}<\sqrt D$ です。従って $D-m_{n+1}^2>0$ で $d_{n+1}>0$ となり、この正値性も帰納的に成立します。
-
-$\alpha_n'$ を $\sqrt D$ を $-\sqrt D$ に置き換えた共役完全商とします。最初の逆数操作で
-
+したがって次の整数候補と分母の漸化式は
 $$
-\alpha_1'=\frac1{-\sqrt D-a_0}\in(-1,0),
-\qquad \alpha_1>1
+m_{n+1}=a_nd_n-m_n,\qquad
+d_{n+1}=\frac{D-m_{n+1}^2}{d_n},\qquad
+a_{n+1}=\left\lfloor\frac{\sqrt D+m_{n+1}}{d_{n+1}}\right\rfloor
 $$
+です。分母が整数かつ正であることを順番に確かめます。
 
-です。$n\ge1$ で $\alpha_n'>-1$ かつ $\alpha_n'<0$ と仮定します。$a_n\ge1$ だから $\alpha_n'-a_n<-1$、従って
-
+最初は $d_0=1\mid D-m_0^2$ です。$d_n$ が正整数で $d_n\mid D-m_n^2$ なら、$m_{n+1}$ は整数であり
 $$
-\alpha_{n+1}'=\frac1{\alpha_n'-a_n}\in(-1,0).
+m_{n+1}\equiv-m_n\pmod{d_n},
+\qquad
+D-m_{n+1}^2\equiv D-m_n^2\equiv0\pmod{d_n}
 $$
-
-一方 $\alpha_{n+1}=1/(\alpha_n-a_n)>1$ です。帰納的にすべての $n\ge1$ で $\alpha_n>1$、$-1<\alpha_n'<0$ となります。
-
-共役表示 $\alpha_n'=(m_n-\sqrt D)/d_n$ において $d_n>0$ とすると、$\alpha_n'<0$ より $m_n<\sqrt D$、$\alpha_n+\alpha_n'=2m_n/d_n>0$ より $m_n>0$、$\alpha_n>1$ より $d_n<\sqrt D+m_n<2\sqrt D$ です。$d_1=D-a_0^2>0$ で、$m_{n+1}<\sqrt D$ により漸化式中の $d_{n+1}>0$ が保証され、帰納は閉じます。
-
-従って $n\ge1$ の整数対 $(m_n,d_n)$ は
-
+です。従って $d_{n+1}$ は整数です。残る正値性を示すため、共役完全商
 $$
-0<m_n<\sqrt D,\qquad 0<d_n<2\sqrt D
+\alpha_n'=\frac{-\sqrt D+m_n}{d_n}
 $$
+を用います。共役を取る操作は有理数係数の和・積・逆数と両立するので
+$$
+\alpha_{n+1}'=\frac1{\alpha_n'-a_n}
+$$
+です。
 
-を満たす有限集合に属します。次の状態は現在の $(m_n,d_n)$ だけで決まるため、鳩の巣原理で同じ状態が再出現した後は状態列が反復し、$a_n$ もやがて周期的です。
+$n=0$ では $\alpha_0'=-\sqrt D$、$a_0\ge1$ なので $\alpha_0'-a_0<-1$ です。$n\ge1$ で $-1<\alpha_n'<0$ と仮定しても、$a_n\ge1$ より $\alpha_n'-a_n<-1$ となります。ゆえに帰納的に
+$$
+-1<\alpha_n'<0\quad(n\ge1),
+\qquad
+\alpha_n>1\quad(n\ge1)
+$$
+です。後者は $0<\alpha_{n-1}-a_{n-1}<1$ の逆数を取った結果です。
+
+$n=0$ でも $n\ge1$ でも $\alpha_n-a_n>0$、$\alpha_n'-a_n<-1$ です。そこで
+$$
+\begin{aligned}
+0&>(\alpha_n-a_n)(\alpha_n'-a_n)\\
+&=\frac{(\sqrt D-m_{n+1})(-\sqrt D-m_{n+1})}{d_n^2}\\
+&=\frac{m_{n+1}^2-D}{d_n^2}.
+\end{aligned}
+$$
+よって $D-m_{n+1}^2>0$ です。$d_n>0$ という帰納仮定と合わせて $d_{n+1}>0$ が従います。初期値 $d_0>0$ から、すべての $n$ で正整数の分母が構成されました。
+
+$n\ge1$ では $\alpha_n>1$ と $-1<\alpha_n'<0$ なので
+$$
+0<\alpha_n+\alpha_n'=\frac{2m_n}{d_n},
+\qquad
+\alpha_n'=\frac{m_n-\sqrt D}{d_n}<0
+$$
+です。$d_n>0$ より $0<m_n<\sqrt D$ となります。さらに $\alpha_n>1$ から
+$$
+0<d_n<\sqrt D+m_n<2\sqrt D
+$$
+です。従って整数対 $(m_n,d_n)$ は $n\ge1$ で
+$$
+0<m_n<\sqrt D,\qquad0<d_n<2\sqrt D
+$$
+という有限個の候補に収まります。$a_n$ と次状態 $(m_{n+1},d_{n+1})$ は現在の整数対だけで決まるので、同じ状態が再び現れた後は状態列と部分商列が同じ順序で反復します。よって連分数は最終的に周期的です。
 <!-- proof-end -->
 
 一般の実二次無理数でも連分数が最終的に周期的になるという Lagrange の定理があります。ここでは Pell 方程式に直接使う $\sqrt D$ の場合を完全に証明しました。
