@@ -7,7 +7,7 @@ prerequisites:
   - GRP2
   - FLD1
 forward_references:
-  - NT4
+  - number-theory.arithmetic-function
 
 concepts:
   - id: number-theory.quadratic-residue
