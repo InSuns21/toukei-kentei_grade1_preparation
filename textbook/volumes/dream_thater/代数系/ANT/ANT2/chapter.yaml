@@ -1,0 +1,40 @@
+id: "ANT2"
+title: "Dirichlet級数・Euler積の一般論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT1
+  - CA12
+official_scope: []
+learning_objectives:
+  - Dirichlet級数と絶対収束横座標を定義し、局所一様収束と項別微分を収束域内で証明できる
+  - 絶対収束するDirichlet級数の積が畳み込みに一致することを二重級数から証明できる
+  - 乗法的係数からEuler積を導き、局所因子と非零性の条件を区別できる
+  - Dirichlet逆元の級数が十分右側で絶対収束することを畳み込み等比級数で示せる
+  - Riemann ζ関数と約数・Möbius・Euler関数の級数を同じ枠組みで計算できる
+  - 条件収束と絶対収束の違いを部分和評価で説明できる
+definitions:
+  - { id: ANT2-DEF-01, name: Dirichlet級数 }
+  - { id: ANT2-DEF-02, name: 絶対収束横座標 }
+theorems:
+  - { id: ANT2-THM-01, name: Dirichlet級数の絶対収束半平面での正則性 }
+  - { id: ANT2-THM-02, name: Dirichlet級数の積と畳み込み }
+  - { id: ANT2-THM-03, name: 乗法的係数のEuler積 }
+  - { id: ANT2-THM-04, name: 逆Dirichlet級数の絶対収束 }
+canonical_examples:
+  - a(n)=n^2 の絶対収束横座標
+  - ζ(s)^2 と約数個数関数の畳み込み
+  - 素数2と3の有限Euler積
+  - 乗法的係数 a(2)=-2 における零点と逆級数
+  - 交代係数の条件収束
+problem_patterns:
+  - ANT2-ABSOLUTE-ABSCISSA
+  - ANT2-CONVOLUTION-PRODUCT
+  - ANT2-EULER-FACTORS
+  - ANT2-INVERSE-CONVERGENCE
+  - ANT2-ZETA-APPLICATIONS
+  - ANT2-CONDITIONAL-CONVERGENCE
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
