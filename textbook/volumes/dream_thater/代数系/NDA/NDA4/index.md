@@ -10,7 +10,7 @@
 
 実数 $t$ から最大の $t$ 以下の整数 $\lfloor t\rfloor$ を引いた $\{t\}=t-\lfloor t\rfloor$ が小数部分です。整数を足しても小数部分は変わりません。多次元では各座標を同じ方法で扱い、$[0,1)^d$ の向かい合う面をつないだ空間を $\mathbb T^d=\mathbb R^d/\mathbb Z^d$ と記します。点 $x$ は $x+\boldsymbol m$（$\boldsymbol m\in\mathbb Z^d$）と同じ点です。
 
-$a_j,b_j$ が $0\le a_j<b_j\le1$ を満たすとき、$R=\prod_{j=1}^d[a_j,b_j)$ を半開直方体とします。境界上にある点を二重に数えず、体積は $\prod_j(b_j-a_j)$ です。こうした箱に訪問割合が体積どおりに収束するのが一様分布です。
+$a_j,b_j$ が $0\le a_j<b_j\le1$ を満たすとき、$R=\prod_{j=1}^d[a_j,b_j)$ を半開直方体とします。境界上にある点を二重に数えず、体積は $\prod_j(b_j-a_j)$ です。訪問割合がすべての箱についてその体積へ収束することを、次の定義で厳密にします。
 
 <a id="def-nda4-equidistribution"></a>
 
@@ -313,12 +313,12 @@ $$
 > **定理（Kroneckerの近似定理）**  
 > $d\ge1$、$\boldsymbol\alpha,\boldsymbol\beta\in\mathbb R^d$ とする。次は同値である。
 >
-> 1. 任意の $\varepsilon>0$ に対し、整数 $n\ge0$ が存在して
+> **条件1（近似可能性）**：任意の $\varepsilon>0$ に対し、整数 $n\ge0$ が存在して
 $$
 \max_{1\le j\le d}\|n\alpha_j-\beta_j\|<\varepsilon
 $$
 > を満たす。
-> 2. 任意の $\boldsymbol k\in\mathbb Z^d$ について
+> **条件2（整数関係）**：任意の $\boldsymbol k\in\mathbb Z^d$ について
 $$
 \boldsymbol k\cdot\boldsymbol\alpha\in\mathbb Z
 \quad\Longrightarrow\quad
