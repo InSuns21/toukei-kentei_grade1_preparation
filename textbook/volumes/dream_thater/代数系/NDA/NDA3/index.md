@@ -490,10 +490,10 @@ $$
 
 その添字に沿って
 
-$
+$$
 \frac{z}{1+1/m}\in K,\qquad
 \frac{z}{1+1/m}\longrightarrow z
-$
+$$
 
 となります。[閉集合の点列特徴付け](../../../基礎科目/F0/F0-00B/index.md#thm-f0-00b-01)を使うと $z\in K\cap\Lambda$ です。非零性も保たれます。これは[Minkowskiの凸体定理](#thm-nda3-minkowski)の等号部分を示しており、核心は「有限個の候補の一つが固定される」ことです。
 <!-- solution-end -->
