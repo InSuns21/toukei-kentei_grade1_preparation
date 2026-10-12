@@ -1,0 +1,66 @@
+chapter: NT9
+scope: dream-theater
+coverage: complete
+prerequisites: [NT1, NT6, CMP1, CMP3, CMP4, CMP5, CMP6]
+forward_references: []
+concepts:
+  - id: number-theory.diophantine-set-z
+    name: 整数上のDiophantine集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（整数上の Diophantine 集合）]
+    requires: []
+  - id: number-theory.existential-diophantine-definition
+    name: 存在的Diophantine定義
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（存在的 Diophantine 定義）]
+    requires: [number-theory.diophantine-set-z]
+  - id: number-theory.diophantine-closure
+    name: Diophantine集合の閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Diophantine 集合の閉性）]
+    requires: [number-theory.diophantine-set-z]
+  - id: number-theory.diophantine-polynomial-preimage
+    name: 整数係数多項式による逆像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（整数係数多項式による逆像）]
+    requires: [number-theory.diophantine-set-z]
+  - id: number-theory.diophantine-recognizable
+    name: Diophantine集合は認識可能
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Diophantine 集合は認識可能）]
+    requires: [number-theory.diophantine-set-z]
+  - id: number-theory.hilbert-tenth-z
+    name: Hilbert第10問題 over Z
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Hilbert第10問題 over $\\mathbb Z$）]
+    requires: [number-theory.diophantine-set-z]
+  - id: number-theory.dprm-theorem
+    name: Davis–Putnam–Robinson–Matiyasevich定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Davis–Putnam–Robinson–Matiyasevich：DPRM）]
+    requires: [number-theory.diophantine-recognizable]
+  - id: number-theory.naturals-to-integers-diophantine
+    name: 非負整数のDiophantine定義を整数へ移す
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非負整数の Diophantine 定義を整数へ移す）]
+    requires: [number-theory.dprm-theorem]
+  - id: number-theory.h10z-undecidable
+    name: 整数上のHilbert第10問題の決定不能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数上のHilbert第10問題の決定不能性）]
+    requires: [number-theory.dprm-theorem, number-theory.naturals-to-integers-diophantine]
+  - id: number-theory.h10z-recognizable
+    name: 整数可解性は認識可能だが決定不能
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（整数可解性は認識可能だが決定不能）]
+    requires: [number-theory.h10z-undecidable, number-theory.diophantine-recognizable]
