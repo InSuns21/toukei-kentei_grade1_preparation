@@ -1,0 +1,48 @@
+id: "SGT4"
+title: "スペクトル分割とクラスタリング"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - cut重み・頂点数・体積からRatio CutとNormalized Cutを定義し四頂点道や星型グラフで比較できる
+  - 分割指示関数から平均を除く操作により両cut目的関数のRayleigh商表示を厳密に導出できる
+  - 二値制約の除去と第二固有値の変分式を接続し緩和値と離散最適値の違いを説明できる
+  - 第二固有ベクトルの閾値分割候補を全列挙しconductanceとの関係と復元保証の限界を述べられる
+  - k分割の正規直交指示行列・trace表示・最小k固有値和による連続緩和を証明できる
+  - 非連結グラフ・固有値重複・孤立頂点で分割の解釈がどう変わるか確認できる
+definitions:
+  - { id: SGT4-DEF-01, name: Ratio Cut と Normalized Cut }
+  - { id: SGT4-DEF-02, name: 閾値によるスペクトル二分割 }
+  - { id: SGT4-DEF-03, name: k分割と多群のcut目的関数 }
+theorems:
+  - { id: SGT4-THM-01, name: 二分割のRayleigh商表示 }
+  - { id: SGT4-THM-02, name: 二分割目的関数のスペクトル緩和 }
+  - { id: SGT4-PROP-01, name: 有限の閾値候補の完全列挙 }
+  - { id: SGT4-PROP-02, name: Normalized Cut と conductance の比較 }
+  - { id: SGT4-THM-03, name: 多群cutの行列表示とスペクトル緩和 }
+canonical_examples:
+  - 四頂点単純道の両cut目的関数と全二分割の比較
+  - 四頂点単純道の正規化第二固有値と離散最適値のギャップ
+  - 星型グラフの等価な複数の最適分割
+  - 二つの二頂点成分の完全回復
+  - 四頂点道の三群分割と行列trace
+problem_patterns:
+  - SGT4-RATIO-NCUT
+  - SGT4-INDICATOR-NORMS
+  - SGT4-STAR-OBJECTIVE
+  - SGT4-THRESHOLD-SWEEP
+  - SGT4-KWAY-DIRECT
+  - SGT4-RATIO-IDENTITY
+  - SGT4-NCUT-LOWER-BOUND
+  - SGT4-CONDUCTANCE-FACTOR
+  - SGT4-TRACE-IDENTITY
+  - SGT4-P4-ENUMERATE-SPECTRUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
