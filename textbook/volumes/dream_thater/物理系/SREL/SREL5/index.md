@@ -4,7 +4,7 @@
 
 [SREL2のMinkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)と[SREL3の四元ベクトル](../SREL3/index.md#def-srel3-four-momentum)によって、運動量を慣性系によらず扱えるようになりました。しかし電磁気学では、電場と磁場を別々の三次元ベクトルとして書くと、時間と空間を混ぜるLorentz変換の下で式がどう変わるのか見えにくくなります。
 
-本章では、電場と磁場を**一つの反対称な二階テンソル**に組み込みます。さらに電荷密度と電流密度を四元電流にまとめ、真空中のMaxwell方程式が二つの四次元方程式になることを全成分で検算します。最後に、Lorentz変換で法則が保たれる理由と、その方程式が電荷保存を要求する理由を確かめます。
+本章では、電場と磁場を**一つの反対称な二階テンソル**に組み込みます。さらに電荷密度と電流密度を一つの四成分の量にまとめ、真空中のMaxwell方程式が二つの四次元方程式になることを全成分で検算します。最後に、Lorentz変換で法則が保たれる理由と、その方程式が電荷保存を要求する理由を確かめます。
 
 ## 1. 記法・単位・物理的な前提
 
@@ -33,7 +33,7 @@ $$
 
 ### 1.1 三次元のMaxwell方程式を出発点とする
 
-次の四本は数学だけから証明する式ではなく、**真空中の電磁場の経験的な物理法則**です。[EMAG7で導入したFaraday則](../../EMAG/EMAG7/index.md#principle-emag7-faraday)と[Ampère–Maxwell則](../../EMAG/EMAG7/index.md#principle-emag7-ampere-maxwell)を、静電・静磁のGauss則と合わせて再掲します。四次元化はこれらの法則と同値な記述を導く作業です。
+次の四本は数学だけから証明する式ではなく、実験的に採用する真空中の電磁場の法則です。[EMAG7で導入したFaraday則](../../EMAG/EMAG7/index.md#principle-emag7-faraday)と[Ampère–Maxwell則](../../EMAG/EMAG7/index.md#principle-emag7-ampere-maxwell)を、静電・静磁のGauss則と合わせて再掲します。四次元化はこれらの法則と同値な記述を導く作業です。
 
 <a id="principle-srel5-maxwell-si"></a>
 
@@ -145,7 +145,7 @@ $$
 <a id="thm-srel5-inhomogeneous-maxwell"></a>
 
 <!-- formal-statement-start -->
-> **定理（非斉次Maxwell方程式の四元形式）**  
+> **定理（非斉次Maxwell方程式の巡回微分表示）**  
 > 上記のSI単位系・計量・電磁場テンソルと四元電流に対して、次の四成分の方程式は、三次元のGauss則とAmpère–Maxwell則の組に同値である。
 
 $$
@@ -199,7 +199,7 @@ $$
 <a id="thm-srel5-homogeneous-maxwell"></a>
 
 <!-- formal-statement-start -->
-> **定理（斉次Maxwell方程式の四元形式）**  
+> **定理（斉次Maxwell方程式の巡回微分表示）**  
 > 前節の設定で $F_{\mu\nu}=\eta_{\mu\alpha}\eta_{\nu\beta}F^{\alpha\beta}$ とする。次の条件は、磁場のGauss則とFaradayの電磁誘導則の組に同値である。
 
 $$
@@ -251,14 +251,14 @@ $$
 =-\frac1c\left(\partial_tB_y+\partial_zE_x-\partial_xE_z\right).
 $$
 
-以上で独立な四成分はそれぞれ磁場のGauss則とFaraday則の三成分の $-1/c$ 倍です。残りの添字の組は、反対称性と巡回置換でこれらの符号違い、または同じ添字を含んで零になる式です。逆向きにも四式の零から元の二本の方程式を回収できるため同値です。
+以上で独立な四成分はそれぞれ磁場のGauss則とFaraday則の三成分の $-1/c$ 倍です。残りの添字の組は、反対称性と添字の順序の入れ替えでこれらの符号違い、または同じ添字を含んで零になる式です。逆向きにも四式の零から元の二本の方程式を回収できるため同値です。
 <!-- proof-end -->
 
 ここで $F^{\mu\nu}$ をそのまま $F_{\mu\nu}$ の代わりに置くと、$\partial_t\boldsymbol B$ と $\nabla\times\boldsymbol E$ の間の符号が崩れます。**下付きにする操作は見た目だけの記法変更ではありません。**
 
 ## 5. Lorentz変換で方程式が保たれる
 
-[SREL2の計量保存](../SREL2/index.md#thm-srel2-interval-invariance)を満たす**一定**のLorentz行列 $\Lambda$ を使い、座標を $x'^\mu=\Lambda^\mu{}_\nu x^\nu+a^\mu$ で変換します。$a^\mu$ は定数です。電磁場には添字が二つあるので、四元ベクトルを二回変換する法則を使います。
+[SREL2の計量保存](../SREL2/index.md#thm-srel2-interval-invariance)を満たす**一定**のLorentz行列 $\Lambda$ を使い、座標を $x'^\mu=\Lambda^\mu{}_\nu x^\nu+a^\mu$ で変換します。$a^\mu$ は定数です。電磁場には添字が二つあるので、各添字にLorentz行列を一つずつ作用させます。
 
 <a id="prop-srel5-field-boost"></a>
 
@@ -422,11 +422,11 @@ $$
 括弧内が元の斉次方程式で零になることを使いました。
 <!-- proof-end -->
 
-この証明は**一様な慣性系変換**に対するものです。位置によって変わる一般の座標変換では、行列を定数として微分の外へ出す計算はそのままでは成立しません。
+この証明は**慣性系間の一定Lorentz変換**に対するものです。位置によって変わる一般の座標変換では、行列を定数として微分の外へ出す計算はそのままでは成立しません。
 
 ## 6. 四元形式から電荷保存を導く
 
-非斉次Maxwell方程式の四元形式には、源に対する制約が含まれます。反対称テンソルの発散をもう一度とると、二階偏微分の対称性と反対称性が打ち消し合うからです。
+非斉次Maxwell方程式の巡回微分表示には、源に対する制約が含まれます。反対称テンソルの発散をもう一度とると、二階偏微分の対称性と反対称性が打ち消し合うからです。
 
 <a id="thm-srel5-continuity"></a>
 

@@ -29,17 +29,17 @@ concepts:
     requires: [relativity.minkowski-metric]
 
   - id: relativity.inhomogeneous-maxwell-four
-    name: 非斉次Maxwell方程式の四元形式
+    name: 非斉次Maxwell方程式の巡回微分表示
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（非斉次Maxwell方程式の四元形式）]
+    introduction_aliases: [定理（非斉次Maxwell方程式の巡回微分表示）]
     requires: [relativity.vacuum-maxwell-si, relativity.four-current, relativity.electromagnetic-field-tensor]
 
   - id: relativity.homogeneous-maxwell-four
-    name: 斉次Maxwell方程式の四元形式
+    name: 斉次Maxwell方程式の巡回微分表示
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（斉次Maxwell方程式の四元形式）]
+    introduction_aliases: [定理（斉次Maxwell方程式の巡回微分表示）]
     requires: [relativity.vacuum-maxwell-si, relativity.electromagnetic-field-tensor]
 
   - id: relativity.em-field-boost
