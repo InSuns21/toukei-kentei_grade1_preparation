@@ -168,10 +168,12 @@ $$
 とすると、$f^{-1}(w_1,w_2)=(w_1-w_2^2,w_2)$ である。両方向が多項式写像だから正則で、二つの合成も恒等写像になる。従って $f$ は双正則である。これは[前章の剪断座標](../CM1-01/index.md#prop-cm1-01-shear-atlas)を、二つの複素多様体の間の写像として読み直した例である。
 <!-- definition-example-end -->
 
+複素座標の実部・虚部を並べれば、局所的には $\mathbb R^{2n}$ の実座標として読める。次の命題の「実 $C^1$ 級微分同相」は、$f$ が全単射であり、始点・終点の複素座標をこのように実座標へ読み替えたとき、$f$ と $f^{-1}$ の局所表示がいずれも実 $C^1$ 級であるという仮定である。[複素座標遷移が実 $C^1$ 級であること](../CM1-01/index.md#def-cm1-01-atlas)から、これは座標を替えても成り立つ。実多様体としての全体構成は次章で行うが、ここでは必要な局所条件だけを使う。
+
 <a id="prop-cm1-02-biholomorphic-inverse"></a>
 <!-- formal-statement-start -->
 > **命題（実微分同相である正則写像の逆）**  
-> 同じ複素次元 $n$ の複素多様体 $X,Y$ の間の正則写像 $f:X\to Y$ が、基礎となる実 $C^1$ 級多様体の間の $C^1$ 級微分同相写像なら、$f$ は双正則である。
+> 同じ複素次元 $n$ の複素多様体 $X,Y$ の間の正則写像 $f:X\to Y$ が全単射であり、複素座標の実部・虚部を用いた実 $2n$ 次元の局所表示で $f$ と $f^{-1}$ が実 $C^1$ 級なら、$f$ は双正則である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -181,13 +183,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q=f(p)$ とする。$f$ は実 $C^1$ 級微分同相なので、$f^{-1}$ は連続かつ実 $C^1$ 級である。座標 $\varphi:U\to\mathbb C^n$ と $\psi:V\to\mathbb C^n$ を選び、$p$ の十分小さい近傍 $W$ を取って $f(W)\subset V$ とする。
+$p\in X$ を任意に取り、$q=f(p)$ とする。仮定から $f^{-1}$ は実局所表示で $C^1$ 級、従って連続である。座標 $\varphi:U\to\mathbb C^n$ と $\psi:V\to\mathbb C^n$ を選び、$p$ の十分小さい開近傍 $W\subset U\cap f^{-1}(V)$ を取る。$f$ は全単射で逆も連続だから、$f(W)$ は $q$ の開近傍である。
 
 $$
 F=\psi\circ f\circ\varphi^{-1}
 $$
 
-は $\varphi(W)$ 上で正則な実 $C^1$ 級微分同相写像で、その像 $\psi(f(W))$ は開である。ここで
+は $\varphi(W)$ 上で正則な実 $C^1$ 級微分同相写像である。像 $\psi(f(W))$ も開であり、$F$ の逆写像をそこで定義できる。ここで
 
 $$
 F^{-1}=\varphi\circ f^{-1}\circ\psi^{-1}
@@ -241,14 +243,23 @@ A'=D_{\mathbb C}T_b\,
 =BAC.
 $$
 
-$S$ と $T$ はアトラスの双正則な座標変換だから、その逆表示も正則であり、
+ここで、行列の評価点と大きさを明確にしておく。
+
+$$
+\begin{aligned}
+B&=D_{\mathbb C}T_b\in\mathbb C^{m\times m},\\
+C&=D_{\mathbb C}S_{a'}\in\mathbb C^{n\times n}.
+\end{aligned}
+$$
+
+$S$ と $T$ は[正則アトラスの遷移写像](../CM1-01/index.md#def-cm1-01-atlas)であり、逆表示も正則だから、[実微分の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を各恒等写像に適用して
 
 $$
 D_{\mathbb C}S^{-1}_{a}\,C=I_n,\qquad
-D_{\mathbb C}T^{-1}_{\psi'(f(p))}\,B=I_m
+D_{\mathbb C}T^{-1}_{T(b)}\,B=I_m
 $$
 
-が成り立つ。従って $C$ は $n\times n$ 可逆、$B$ は $m\times m$ 可逆である。$C(\mathbb C^n)=\mathbb C^n$ なので
+を得る。逆側の合成も恒等写像になるため、$C$ は $n\times n$ 可逆、$B$ は $m\times m$ 可逆である。$C(\mathbb C^n)=\mathbb C^n$ なので
 
 $$
 \operatorname{im}(AC)=\operatorname{im}(A).
@@ -318,7 +329,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in X,p'\in X'$ について、各写像の始点・終点座標を選び、局所表示を $F:\mathbb C^n\supset A\to\mathbb C^m$、$G:\mathbb C^{n'}\supset A'\to\mathbb C^{m'}$ とする。積座標での表示は
+$p\in X,p'\in X'$ について、各写像の始点・終点座標を選び、局所表示を $F:\mathbb C^n\supset A\to\mathbb C^m$、$G:\mathbb C^{n'}\supset A'\to\mathbb C^{m'}$ とする。[複素多様体の直積構成](../CM1-01/index.md#prop-cm1-01-product)により、積座標での表示は
 
 $$
 H(z,w)=(F(z),G(w))
@@ -557,7 +568,7 @@ $\zeta=0$ は無限遠点で、その像を無限遠と定めたから $\eta(0)=
 #### CM1-02-B04 直積写像のJacobi行列
 - Level: B
 
-$f:\mathbb C\to\mathbb C^2$、$f(z)=(z^2,z)$ と $g:\mathbb C\to\mathbb C$、$g(w)=w^2$ の積写像を求め、点 $(0,0)$ と $(1,0)$ における局所複素階数を計算せよ。
+$f:\mathbb C\to\mathbb C^2$、$f(z)=(z^2,z)$ と $g:\mathbb C\to\mathbb C$、$g(w)=w^2$ の積写像を求め、点 $(0,0)$、$(1,0)$、$(0,1)$ における局所複素階数を計算せよ。最後の点では、両因子の階数が正になる場合の加法性も確認せよ。
 
 <!-- solution-start -->
 **詳細解答**。積写像は
@@ -578,6 +589,19 @@ DH_{(z,w)}
 $$
 
 $(0,0)$ では第一列 $(0,1,0)^T$ が非零で第二列が零だから階数1。$(1,0)$ では第一列 $(2,1,0)^T$ が非零で第二列が零だから階数1。どちらでも $Df_z=(2z,1)^T$ は階数1、$Dg_0=0$ は階数0なので、[積写像命題](#prop-cm1-02-product-maps)の $1+0=1$ に一致する。
+
+一方、$(0,1)$ では行列は
+
+$$
+DH_{(0,1)}
+=\begin{pmatrix}
+0&0\\
+1&0\\
+0&2
+\end{pmatrix}.
+$$
+
+二つの列 $(0,1,0)^T$ と $(0,0,2)^T$ は、互いに異なる成分に非零項を持つため複素線形独立である。よって階数2となる。実際 $Df_0$ と $Dg_1=2$ はどちらも階数1で、$1+1=2$ となる。
 <!-- solution-end -->
 
 ### Level C
@@ -621,7 +645,13 @@ $$
 \end{aligned}
 $$
 
-複素指数関数の微分は、[正則関数のTaylor展開](../../../解析系/CA/CA3/index.md#thm-ca3-taylor)を $a$ で用いると $e^{a+h}=e^a+e^ah+O(|h|^2)$ となることから $e^a$ である。したがって
+複素指数関数に[正則関数のTaylor展開](../../../解析系/CA/CA3/index.md#thm-ca3-taylor)を、展開点 $a$、評価点 $a+h$、一次まで適用する。指数関数の導関数が指数関数自身であることを使うと
+
+$$
+e^{a+h}=e^a+e^a h+O(|h|^2)
+$$
+
+となり、一次係数は $e^a$ である。第2成分 $b$ は $b$ 方向の係数が1、$a$ 方向の係数が0なので、
 
 $$
 D_{\mathbb C}(\psi\circ f\circ\sigma^{-1})_{(a,b)}
@@ -637,7 +667,16 @@ D_{\mathbb C}f_z
 =\begin{pmatrix}e^{z_1}&0\\1&1\end{pmatrix}.
 $$
 
-その行列式は $e^{z_1}$。新座標表示の行列式は $e^a$ で $a=z_1$ だから、両方とも零にならず階数2となる。さらに $D\sigma^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ を用いれば
+元の行列式は $e^{z_1}$。新座標表示の行列式は $e^a$ で $a=z_1$ だから、指数関数が零にならないことにより、両方とも階数2となる。
+
+新座標の点 $(a,b)$ における逆座標の微分は
+
+$$
+D_{\mathbb C}\sigma^{-1}_{(a,b)}
+=\begin{pmatrix}1&0\\-1&1\end{pmatrix}.
+$$
+
+連鎖律における元の写像の評価点は $\sigma^{-1}(a,b)=(a,b-a)$ である。$z_1=a$ としてこれを掛けると
 
 $$
 D_{\mathbb C}f_z\,D_{\mathbb C}\sigma^{-1}
