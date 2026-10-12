@@ -265,13 +265,13 @@ $$
 
 $a_N=Np_N=\mathbb E\log Z_N$ を比較の対象にします。各ブロックにも元の模型と同じ $\beta,h$ を使用します。第1ブロックの配置を $\sigma^{(1)}$、第2ブロックを $\sigma^{(2)}$ とします。分割したGaussian場 $Y$ と全系の場 $V$ を
 
-$
+$$
 \begin{aligned}
 Y(\sigma)&=\beta X_{N_1}^{(1)}(\sigma^{(1)})
           +\beta X_{N_2}^{(2)}(\sigma^{(2)}),\\
 V(\sigma)&=\beta X_N(\sigma)
 \end{aligned}
-$
+$$
 
 と置きます。両場は独立に作り、外場 $h\sum_i\sigma_i$ は共通に足します。
 
@@ -551,10 +551,10 @@ $$
 
 従って $p_N(0,h)=\log(2\cosh h)$ です。[微分の上下界](#prop-sg3-pressure-derivative)を積分すると
 
-$
+$$
 \int_0^2 0\,d\gamma=0,\qquad
 \int_0^2\frac{\gamma}{2}\,d\gamma=1
-$
+$$
 
 なので
 
@@ -672,9 +672,9 @@ $N\ge M$ のうち一度でもずれる確率は和事象の上界で $\sum_{N\g
 
 標準SK模型 $Z_N^{\mathrm{SK}}$ と、独立な $G_{ij}$ 全てを使ったGaussian場
 
-$
+$$
 X_N(\sigma)=\frac1{\sqrt{2N}}\sum_{i,j}G_{ij}\sigma_i\sigma_j
-$
+$$
 
 を考え、$\beta\ge0$、$h\in\mathbb R$ とする。次の各問に答えよ。
 
@@ -716,30 +716,30 @@ $$
 
 対角では0なので、[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)から
 
-$
+$$
 \Psi'(t)=\frac{\beta^2N_1N_2}{4N}
 \mathbb E\langle(u-v)^2\rangle_t\ge0
-$
+$$
 
 となります。$t=1$ と $t=0$ の期待対数分配関数はそれぞれ $a_N$ と $a_{N_1}+a_{N_2}$ なので、積分すると
 
-$
+$$
 a_N\ge a_{N_1}+a_{N_2}
-$
+$$
 
 を得ます。
 
 **(4) 極限と確率収束**：[圧力の一様評価](#prop-sg3-pressure-derivative)によって $a_N/N$ は上から抑えられます。固定した $m$ について $n=km+r$（$0\le r<m$）とすると、超加法性から $a_n\ge k a_m+a_r$（$r=0$ では $a_0=0$）です。さらに $a_r\ge r\log(2\cosh h)$ なので
 
-$
+$$
 \liminf_{n\to\infty}\frac{a_n}{n}\ge\frac{a_m}{m}
-$
+$$
 
 となります。$m$ は任意であり、各 $p_n$ は $\sup_m p_m$ 以下なので
 
-$
+$$
 \lim_{n\to\infty}p_n=\sup_{m\ge1}p_m=:p
-$
+$$
 
 を得ます。さらに $F_N$ の結合に関する勾配の二乗は
 
@@ -751,10 +751,10 @@ $$
 
 $\beta>0$ なら[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)により
 
-$
+$$
 \mathbb P(|F_N-p_N|\ge\varepsilon)
 \le2e^{-N\varepsilon^2/\beta^2}\longrightarrow0.
-$
+$$
 
 $p_N\to p$ と三角不等式を組み合わせて $F_N\to p$ が確率収束します。$\beta=0$ は確定値です。
 
