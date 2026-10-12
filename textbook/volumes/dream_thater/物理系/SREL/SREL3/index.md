@@ -128,7 +128,16 @@ $$
 <!-- definition-example-start: def-srel3-four-acceleration -->
 ### 例：瞬間的に静止する点
 
-**定義の確認**：瞬間静止系でも四元加速度を定義でき、平方が非正になることを成分で確かめます。ある時点に粒子が $\boldsymbol v=0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では $\gamma=1$、$d\gamma/dt=\gamma^3(\boldsymbol v\cdot d\boldsymbol v/dt)/c^2=0$ です。よって
+**定義の確認**：瞬間静止系でも四元加速度を定義でき、平方が非正になることを成分で確かめます。ある時点に粒子が $\boldsymbol v=\boldsymbol0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では
+
+$$
+\gamma=1,\qquad
+\frac{d\gamma}{dt}
+=\gamma^3\frac{\boldsymbol v\cdot(d\boldsymbol v/dt)}{c^2}
+=0.
+$$
+
+よって
 
 $$
 A=\gamma\frac{d}{dt}(\gamma c,\gamma\boldsymbol v)
@@ -167,7 +176,22 @@ $$
 =g(A,U)+g(U,A)=2g(U,A).
 $$
 
-従って $g(U,A)=0$ です。$U$ は未来向き時間的であり $|\boldsymbol v|<c$ なので、[SREL2 の両端静止系の作り方](../SREL2/index.md#prop-srel2-inertial-max-proper-time)と同じ一方向boostを、今度は**その点の瞬間速度**へ適用すれば $U_*=(c,\boldsymbol0)$ とする慣性系が取れます。この系で直交条件は
+従って $g(U,A)=0$ です。ここから $g(A,A)\le0$ を導くには、**その瞬間にだけ**粒子が静止する慣性系を作ります。$\boldsymbol v=\boldsymbol0$ なら元の系がそのまま使えます。$\boldsymbol v\ne\boldsymbol0$ なら、[SREL2の慣性系の構成](../SREL2/index.md#prop-srel2-inertial-max-proper-time)と同じように空間軸を瞬間速度の方向へ回し、その方向を $x$ 軸、速さを $w=|\boldsymbol v|<c$ とします。これは時刻ごとに動く座標系を導入する操作ではなく、**調べている一点で一定の速度 $w$ を選び、そこに一つの慣性系を固定する操作**です。
+
+この軸での四元速度は $U=(\gamma_wc,\gamma_ww,0,0)$ です。[一次元Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を四元速度へ作用させると、$\gamma_w^2(1-w^2/c^2)=1$ を使って
+
+$$
+\begin{aligned}
+U_*^0
+&=\gamma_w\left(\gamma_wc-\frac wc\gamma_ww\right)
+=\gamma_w^2c(1-w^2/c^2)=c,\\
+U_*^1
+&=\gamma_w\left(\gamma_ww-\frac wc\gamma_wc\right)=0,\\
+U_*^2&=U_*^3=0.
+\end{aligned}
+$$
+
+この慣性系では $U_*=(c,\boldsymbol0)$ なので直交条件は
 
 $$
 0=g(U_*,A_*)=cA_*^0
@@ -386,7 +410,7 @@ $$
 
 ### 証明の見取り図
 
-四元運動量は定数スカラー $m$ と四元速度の積です。そこで [Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を、座標差の代わりに $P$ の四成分へ適用します。変換速度 $w$ と粒子の速度 $v$ は別物として扱います。
+四元運動量は定数スカラー $m$ と四元速度の積です。そこで [Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を、座標差の代わりに $P$ の四成分へ適用します。変換速度 $w$ と粒子の速度 $\boldsymbol v$ は別物として扱います。
 
 <!-- proof-start -->
 ### 証明
@@ -405,15 +429,17 @@ p'_x=\gamma_w\left(p_x-\frac wc\frac Ec\right)
 =\gamma_w(p_x-wE/c^2).
 $$
 
-横方向成分は変わりません。差の平方を計算すると
+横方向成分は変わりません。平方の展開で交差項が消えることも確かめます。$\beta=w/c$、$Q=E/c$、$r=p_x$ と置くと $|\beta|<1$ で、
 
 $$
 \begin{aligned}
 \frac{E'^2}{c^2}-(p'_x)^2
-&=\gamma_w^2\left[\left(\frac Ec-\frac wc p_x\right)^2
--\left(p_x-\frac wc\frac Ec\right)^2\right]\\
-&=\gamma_w^2(1-w^2/c^2)\left(\frac{E^2}{c^2}-p_x^2\right)\\
-&=\frac{E^2}{c^2}-p_x^2.
+&=\gamma_w^2\left[(Q-\beta r)^2-(r-\beta Q)^2\right]\\
+&=\gamma_w^2\left[Q^2-2\beta Qr+\beta^2r^2
+-r^2+2\beta Qr-\beta^2Q^2\right]\\
+&=\gamma_w^2(1-\beta^2)(Q^2-r^2)\\
+&=Q^2-r^2
+=\frac{E^2}{c^2}-p_x^2.
 \end{aligned}
 $$
 
@@ -514,7 +540,16 @@ $$
 
 たとえば $P=(q,q,0,0)$、$q>0$ を取ると $g(P,P)=q^2-q^2=0$、$E=cq>0$ です。これは光的な四元運動量の直接例です。零ベクトルを除くため $q>0$ が必要です。
 
-**注意：** この $P$ を $mU$ で作ってはいけません。質量 $m=0$ を $mU$ に代入すると、有限の $U$ では零ベクトルしか得られません。さらに光的世界線では [固有時の定義](../SREL2/index.md#def-srel2-proper-time)の微小増分が零になり、$dX/d\tau$ を定義できません。質量ゼロ粒子の非零の四元運動量は、光的なベクトルとして**別に**与える必要があります。質量を持つ粒子の静止系を作った証明も、光的ベクトルには転用できません。
+**注意：** この $P$ を $mU$ で作ってはいけません。質量 $m=0$ を $mU$ に代入すると、有限の $U$ では零ベクトルしか得られません。
+
+質量殻の代数式だけでは世界線の形は決まりません。質量ゼロ粒子が光的世界線をたどるモデルでは、[固有時の定義](../SREL2/index.md#def-srel2-proper-time)から
+
+$$
+g(dX,dX)=0,\qquad
+d\tau=\frac{\sqrt{g(dX,dX)}}{c}=0
+$$
+
+となるため、$dX/d\tau$ を通常の時間的世界線と同じようには定義できません。非零の光的四元運動量は別に与える必要があります。質量を持つ粒子の静止系を作った証明も、光的ベクトルには転用できません。
 
 本章までの関係は運動量の運動学的な制約です。外力があるとき、どんな方程式で $P$ が変化するかはまだ決めていません。次章では質点の作用と運動方程式を考え、今得た四元運動量を動力学へ接続します。
 
@@ -647,7 +682,14 @@ $$
 g(P,P)=(2q)^2-(2q)^2=0
 $$
 
-となり、正エネルギーで非零の光的四元運動量です。光的経路では $g(dX,dX)=0$ のため [固有時](../SREL2/index.md#def-srel2-proper-time)の $d\tau=\sqrt{g(dX,dX)}/c$ が零になり、$dX/d\tau$ を通常の意味では定義できません。また $mU$ に $m=0$ を入れても、有限の $U$ なら $P=0$ になり、指定された $P\ne0$ を作れません。
+となり、正エネルギーで非零の光的四元運動量です。ここまでの質量殻の式だけでは世界線は決まりませんが、質量ゼロ粒子が光的経路をたどるモデルでは、[固有時](../SREL2/index.md#def-srel2-proper-time)について
+
+$$
+g(dX,dX)=0,\qquad
+d\tau=\frac{\sqrt{g(dX,dX)}}{c}=0
+$$
+
+となり、$dX/d\tau$ を通常の意味では定義できません。また $mU$ に $m=0$ を入れても、有限の $U$ なら $P=0$ になり、指定された $P\ne0$ を作れません。
 <!-- solution-end -->
 
 ## Level B
@@ -667,7 +709,8 @@ $$
 \begin{aligned}
 A^0&=\gamma c\,d\gamma/dt=\gamma^4va/c,\\
 A^1&=\gamma[(d\gamma/dt)v+\gamma a]\\
-&=\gamma^4v^2a/c^2+\gamma^2a
+&=\gamma^4v^2a/c^2+\gamma^2a\\
+&=\gamma^4a\left(\frac{v^2}{c^2}+1-\frac{v^2}{c^2}\right)
 =\gamma^4a.
 \end{aligned}
 $$
