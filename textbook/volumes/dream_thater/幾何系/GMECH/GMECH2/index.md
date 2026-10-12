@@ -212,7 +212,7 @@ $$
 
 運動量写像は無限小作用を関数へ翻訳しました。次は有限な群元 $g$ で点 $m$ を動かした後の $J(g\cdot m)$ を知りたい、という問いです。Lie代数の基底は群による共役で変わるので、その双対側の変換を使います。
 
-$G$ の随伴作用 $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$ は $h\mapsto ghg^{-1}$ の単位元での微分です。その双対を $(\operatorname{Ad}_g)^*:\mathfrak g^*\to\mathfrak g^*$ と書くとき、$G$ の**左余随伴作用**は逆元を含む写像で与えます。
+[LIE2の随伴表現](../../../代数系/LIE/LIE2/index.md#def-lie2-adjoint-representation) $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$ は $h\mapsto ghg^{-1}$ の単位元での微分です。その双対を $(\operatorname{Ad}_g)^*:\mathfrak g^*\to\mathfrak g^*$ と書くとき、$G$ の**左余随伴作用**は逆元を含む写像で与えます。
 
 <a id="def-gmech2-coadjoint-equivariance"></a>
 
@@ -282,7 +282,7 @@ $$
 =g\cdot\bigl((g^{-1}\exp(t\xi)g)\cdot q\bigr)
 $$
 
-の $t=0$ での微分を考えます。共役写像の微分と指数写像の関係から
+の $t=0$ での微分を考えます。[LIE2の共役と指数写像の可換性](../../../代数系/LIE/LIE2/index.md#thm-lie2-conjugation-exponential)から
 
 $$
 g^{-1}\exp(t\xi)g
@@ -510,7 +510,7 @@ J_\xi(\exp(t\eta)\cdot m)
 =\langle J(m),\operatorname{Ad}_{\exp(-t\eta)}\xi\rangle.
 $$
 
-$\operatorname{Ad}_{\exp(-t\eta)}\xi=\xi-t[\eta,\xi]+O(t^2)$ を $t=0$ で微分すると、
+[LIE2の無限小随伴作用と括弧](../../../代数系/LIE/LIE2/index.md#thm-lie2-infinitesimal-adjoint-bracket)より $\left.\frac d{dt}\right|_0\operatorname{Ad}_{\exp(-t\eta)}\xi=-[\eta,\xi]$ なので、$t=0$ で微分すると、
 
 $$
 \eta_M J_\xi(m)
