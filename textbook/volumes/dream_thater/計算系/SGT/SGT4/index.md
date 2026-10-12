@@ -2,13 +2,13 @@
 
 [SGT3のCheeger不等式](../SGT3/index.md#thm-sgt3-cheeger)は、固有値が小さいと境界の細い集合が見つかることを保証しました。ただし、conductance は「小さい側の体積」による評価であり、**二つの集団を同時に評価する最適化問題**とは少し違います。グラフを実際にクラスタ分割するなら、切る辺を少なくするだけでなく、両側の規模を考える必要があります。
 
-例えば四頂点の道で端の一頂点を切ると、境界は一辺です。中央で二頂点ずつに切っても境界は一辺です。単に辺数を最小化するだけでは、この二つを区別できません。本章では、規模の測り方を「頂点数」と「次数の総和」に分け、離散的な分割を連続ベクトルの最小化へ置き換えます。**緩和問題を解くこと**と**最良の離散分割を復元すること**の違いも、例と定理で明確にします。
+例えば四頂点の道で端の一頂点を切ると、境界は一辺です。中央で二頂点ずつに切っても境界は一辺です。単に切る辺の数だけでは、この二つを区別できません。本章では、規模の測り方を「頂点数」と「次数の総和」に分け、離散的な分割の最適値を連続ベクトルの変分問題を通して評価します。**緩和問題を解くこと**と**最良の離散分割を復元すること**の違いも、例と定理で明確にします。
 
-以下、$V=\{1,\ldots,n\}$、$n\geq2$ の有限無向グラフを考えます。辺重みは $w_{ij}=w_{ji}\geq0$、$w_{ii}=0$ とし、$d_i=\sum_jw_{ij}>0$ を仮定します。[重み付き次数と体積](../SGT1/index.md#def-sgt1-degree-volume)の記号 $D=\operatorname{diag}(d_1,\ldots,d_n)$、$M=\sum_i d_i$、[組合せLaplacian](../SGT1/index.md#def-sgt1-laplacian) $L=D-W$、[正規化Laplacian](../SGT2/index.md#def-sgt2-normalized) $\mathcal L=D^{-1/2}LD^{-1/2}$ を用います。第1〜5節では必要に応じて連結性を仮定し、第6節では非連結の場合も扱います。
+以下、$V=\{1,\ldots,n\}$、$n\geq2$ の有限無向グラフを考えます。辺重みは $w_{ij}=w_{ji}\geq0$、$w_{ii}=0$ とし、$d_i=\sum_jw_{ij}>0$ を仮定します。[重み付き次数と体積](../SGT1/index.md#def-sgt1-degree-volume)の記号 $D=\operatorname{diag}(d_1,\ldots,d_n)$、$M=\sum_i d_i$、[組合せLaplacian](../SGT1/index.md#def-sgt1-laplacian) $L=D-W$、[正規化Laplacian](../SGT2/index.md#def-sgt2-normalized) $\mathcal L=D^{-1/2}LD^{-1/2}$ を用います。第1〜5節では必要に応じてグラフが連結であることを仮定し、第6節では非連結の場合も扱います。
 
 ## 1. 同じcutでも「均衡」の意味が違う
 
-[Cutの重み](../SGT1/index.md#def-sgt1-cut) $c(S)=w(S,S^c)$ を小さくするだけでは、極小集団を切り離す解が現れ得ます。頂点数 $|S|$ と体積 $\operatorname{vol}(S)=\sum_{i\in S}d_i$ は異なります。次数が一様でないとき、この違いが最適化する問題そのものを変えます。
+[Cutの重み](../SGT1/index.md#def-sgt1-cut) $c(S)=w(S,S^c)$ を小さくするだけでは、極小集団を切り離す解が現れ得ます。頂点数 $|S|$ と体積 $\operatorname{vol}(S)=\sum_{i\in S}d_i$ は異なります。次数が一様でないとき、この違いが求めたい最良の分割そのものを変えます。
 
 <a id="def-sgt4-balanced-cuts"></a>
 
@@ -61,7 +61,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（二分割のRayleigh商表示）**  
-> 第1節のグラフの非空真部分集合 $S$ について、$a=|S|$、$b=|S^c|$、$A=\operatorname{vol}(S)$、$B=\operatorname{vol}(S^c)$ とする。指示関数 $\boldsymbol1_S$ と全成分1のベクトル $\boldsymbol1$ を用い、
+> 第1節のグラフの非空真部分集合 $S$ について、$a=|S|$、$b=|S^c|$、$A=\operatorname{vol}(S)$、$B=\operatorname{vol}(S^c)$ とする。集合の指示ベクトル $\boldsymbol1_S$ と全成分1のベクトル $\boldsymbol1$ を用い、
 
 $$
 f=\boldsymbol1_S-\frac an\boldsymbol1,
@@ -167,7 +167,7 @@ $$
 
 ### 証明の見取り図
 
-[非正規化Laplacianの変分表示](../SGT1/index.md#prop-sgt1-gap-variational)および[正規化第二固有値の変分表示](../SGT2/index.md#thm-sgt2-rayleigh)が、左側の等号を与えます。その最小化で許されるベクトルの集合に、前節の各分割指示ベクトルが含まれることを確認します。
+[非正規化Laplacianの変分表示](../SGT1/index.md#prop-sgt1-gap-variational)および[正規化第二固有値の変分表示](../SGT2/index.md#thm-sgt2-rayleigh)が、左側の等号を与えます。その変分問題で許されるベクトルの集合に、前節の各分割指示ベクトルが含まれることを確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -228,7 +228,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（閾値によるスペクトル二分割）**  
-> 上記のグラフの非定数ベクトル $x\in\mathbb R^n$ と実数 $t$ に対して、$S_t=\{i\in V:x_i>t\}$ とする。$\varnothing\ne S_t\subsetneq V$ となる全ての異なる候補の中で、指定した $\operatorname{Rcut}$ または $\operatorname{Ncut}$ が最小のものを選ぶ操作を閾値分割とする。同値の候補があれば、事前に固定した頂点順などの規則で一つを選ぶ。
+> 上記のグラフの非定数ベクトル $x\in\mathbb R^n$ と実数 $t$ から、次の集合を作る。
+
+$
+S_t=\{i\in V:x_i>t\}.
+$
+
+> この集合が非空の真部分集合となる条件
+
+$
+\varnothing\ne S_t\subsetneq V
+$
+
+> を満たす全ての異なる候補のうち、指定した $\operatorname{Rcut}$ または $\operatorname{Ncut}$ が最小となるものを選ぶ操作を閾値分割とする。同値の候補があれば、事前に固定した頂点順などの規則で一つを選ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sgt4-threshold-partition -->
@@ -305,7 +317,7 @@ $$
 \end{aligned}
 $$
 
-$0<A/B\leq1$ から $1\leq1+A/B\leq2$ であり、第一の評価が従います。さらに連結性・正次数を仮定すると、[Cheeger不等式とsweep cut構成](../SGT3/index.md#thm-sgt3-cheeger)で $\phi(S)\leq\sqrt{2\mu_2}$ となる非空真部分集合を構成できます。第一の評価をこの $S$ に適用して第二の主張が得られます。
+$0<A/B\leq1$ から $1\leq1+A/B\leq2$ であり、第一の評価が従います。さらにグラフが連結であり各次数が正と仮定すると、[Cheeger不等式とsweep cut構成](../SGT3/index.md#thm-sgt3-cheeger)で $\phi(S)\leq\sqrt{2\mu_2}$ となる非空真部分集合を構成できます。第一の評価をこの $S$ に適用して第二の主張が得られます。
 <!-- proof-end -->
 
 同じ固有ベクトルを閾値分割して最小Normalized Cutを選べば、前段のsweepで用いた候補も含まれる場合は保証を引き継ぎます。ただしCheegerの保証の構成は重み付き中央値と正負部分を用いるため、**単に元の固有ベクトルの片側だけを試す実装**と混同してはいけません。
@@ -317,7 +329,7 @@ $0<A/B\leq1$ から $1\leq1+A/B\leq2$ であり、第一の評価が従います
 <a id="def-sgt4-kway-partition"></a>
 
 <!-- formal-statement-start -->
-> **定義（$k$ 分割と多群のcut目的関数）**  
+> **定義（k分割と多群のcut目的関数）**  
 > $2\leq k\leq n$ とし、$V=C_1\sqcup\cdots\sqcup C_k$ を空でない互いに素な集合の分割とする。各 $C_r$ の境界重みを $c(C_r)=w(C_r,V\setminus C_r)$ と書く。多群の目的関数は
 
 $$
@@ -401,7 +413,7 @@ $$
 =\frac{c(C_r)}{\operatorname{vol}(C_r)}.
 $$
 
-$\operatorname{tr}(H^\mathsf TAH)$ は対角成分の和 $\sum_r h_r^\mathsf TAh_r$ なので二つのtrace等式が得られます。
+$\operatorname{tr}(H^\mathsf TAH)$ は対角成分の和 $\sum_r h_r^\mathsf TAh_r$ なので二つの分割目的関数の行列表示が得られます。
 
 最後に対称行列 $A$ の正規直交固有ベクトルを $u_1,\ldots,u_n$ とします。$H$ の列を $h_1,\ldots,h_k$ と書き、$h_r=\sum_\ell c_{\ell r}u_\ell$ と展開すると
 
@@ -426,7 +438,7 @@ $$
 第一の各積は非正数同士、第二の各積は非負数同士の積です。$H=[u_1,\ldots,u_k]$ とすれば $t_\ell=1$（$\ell\leq k$）、残りは零となり等号を達成します。ゆえに最小値は $\sum_{\ell=1}^k\alpha_\ell$。分割由来の $H$ は全て直交列の候補の一部だから、連続最小値が離散最小値の下界となります。
 <!-- proof-end -->
 
-**クラスタリングへの変換**：最小 $k$ 個の固有値に属する直交固有ベクトルを列に並べ、各頂点に対応する行を $\mathbb R^k$ 内の点として見る方法があります。Normalized Cut では $D^{-1/2}$ による戻し方や行の正規化を選択する必要があります。例えば正次数かつちょうど $k$ 個の連結成分があるときは、適切に選んだ零固有空間の基底で成分ごとに同じ方向の行が得られ、分割費用は零です。しかし連結グラフでは固有空間の回転・近接した固有値・点の丸め方により分割が変わります。行に対する $k$-means などは**追加の離散化算法**であり、上のtrace定理だけから全分割での最適性は出ません。
+**クラスタリングへの変換**：最小 $k$ 個の固有値に属する直交固有ベクトルを列に並べ、各頂点に対応する行を $\mathbb R^k$ 内の点として見る方法があります。Normalized Cut では $D^{-1/2}$ による戻し方や行の正規化を選択する必要があります。例えば正次数かつちょうど $k$ 個のグラフ上の成分があるときは、適切に選んだ零固有空間の基底で成分ごとに同じ方向の行が得られ、分割費用は零です。しかし連結グラフでは固有空間の回転・近接した固有値・点の丸め方により分割が変わります。行に対する $k$-means などは**追加の離散化算法**であり、上のtrace定理だけから全分割での最適性は出ません。
 
 ## 7. 成功例と失敗機構を切り分ける
 
@@ -582,7 +594,7 @@ $$
 - ID: SGT4-B3
 
 <!-- solution-start -->
-**詳細解答**　両側の体積の小さい方を $A$、大きい方を $B$ とすると、$0<A\leq B$、$c=c(S)\geq0$ です。[conductanceの定義](../SGT3/index.md#def-sgt3-conductance)から $\phi=c/A$ であり、
+**詳細解答**　両側の体積の小さい方を $A$、大きい方を $B$ とすると、$0<A\leq B$、$c=c(S)\geq0$ です。[ConductanceとグラフのCheeger定数](../SGT3/index.md#def-sgt3-conductance)から $\phi=c/A$ であり、
 
 $$
 \operatorname{Ncut}=c\left(\frac1A+\frac1B\right)
@@ -592,7 +604,7 @@ $$
 $0<A/B\leq1$ なので係数は1以上2以下です。$A=B$ のとき $\operatorname{Ncut}=2\phi$ となります。特に四頂点単純道の中央分割では $\phi=1/3$、$\operatorname{Ncut}=2/3$ で確かめられます。$c=0$ の場合にも不等式は成立します。
 <!-- solution-end -->
 
-#### B4. 多群の直交列とtrace
+#### B4. 多群の直交列と行列の対角和
 
 非空の分割 $V=C_1\sqcup\cdots\sqcup C_k$ の各指示ベクトルから $H_{\mathrm N}$ を作り、$H_{\mathrm N}^\mathsf TH_{\mathrm N}=I_k$ と $\operatorname{tr}(H_{\mathrm N}^\mathsf T\mathcal LH_{\mathrm N})=\operatorname{Ncut}_k$ を証明せよ。
 
@@ -622,7 +634,7 @@ D^{1/2}D^{-1/2}LD^{-1/2}D^{1/2}
 \end{aligned}
 $$
 
-traceはこの対角成分の合計なので、[多群の定義](#def-sgt4-kway-partition)そのものになります。
+$\operatorname{tr}$ はこの対角成分の合計なので、[多群の定義](#def-sgt4-kway-partition)そのものになります。
 <!-- solution-end -->
 
 ### Level C：分割を列挙し緩和とのギャップを見る
@@ -668,6 +680,6 @@ $$
 
 ## 9. どの結果を次に使うか
 
-本章は、二分割の離散目的関数をRayleigh商として**厳密に**表示し、二値制約を外すことで第二固有値を得ました。さらに多群の目的関数をtraceで表し、最小 $k$ 個の固有空間を使う緩和まで導きました。いずれも固有値から自然な候補を構成する方法であって、緩和解から任意の真の群が一意に回復するという主張ではありません。
+本章は、二分割の離散目的関数をRayleigh商として**厳密に**表示し、二値制約を外すことで第二固有値を得ました。さらに多群の目的関数を行列の対角和で表し、最小 $k$ 個の固有空間を使う緩和まで導きました。いずれも固有値から自然な候補を構成する方法であって、緩和解から任意の真の群が一意に回復するという主張ではありません。
 
 次のSGT5では、グラフ重みが少し動くと固有空間や、その空間を用いた分割がどこまで安定するかを、固有値の隔たりを条件に調べます。現段階で必要な結論は、**グラフの入力と、固有空間の出力と、離散化後の分割を別々の対象として扱う**ことです。
