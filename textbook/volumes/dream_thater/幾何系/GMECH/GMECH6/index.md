@@ -137,7 +137,24 @@ $$
 \end{aligned}
 $$
 
-三つの巡回順序で足したとき、$G_{j\ell}=G_{\ell j}$ を含む項は $j,\ell$ の入れ替えで同じ二階微分に逆符号の交代係数が掛かるため相殺します。$F,H$ の二階微分を含む項も同じ理由で消えます。残りのJacobiatorは
+三つの巡回順序で足したとき、二階微分項は対ごとに消えます。例えば $H$ の二階微分を含む項は、最初の二つの二重括弧から
+
+$$
+\begin{aligned}
+T_1&=\sum_{ijk\ell}\pi^{i\ell}\pi^{jk}F_iG_jH_{k\ell},\\
+T_2&=\sum_{ijk\ell}\pi^{j\ell}\pi^{ki}G_jH_{k\ell}F_i
+\end{aligned}
+$$
+
+と現れます。$T_2$ の和で $k$ と $\ell$ を交換し、$H_{\ell k}=H_{k\ell}$ と $\pi^{\ell i}=-\pi^{i\ell}$ を使うと
+
+$$
+T_2=\sum_{ijk\ell}\pi^{jk}\pi^{\ell i}F_iG_jH_{\ell k}
+=-\sum_{ijk\ell}\pi^{i\ell}\pi^{jk}F_iG_jH_{k\ell}
+=-T_1.
+$$
+
+$F$ または $G$ の二階微分を含む項も三関数を巡回させると同じように相殺します。残りのJacobiatorは
 
 $$
 \sum_{ijk\ell}\bigl(
@@ -258,7 +275,7 @@ $$
 =-\langle\nu,[\zeta,\eta]\rangle.
 $$
 
-従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これは定義が接ベクトルだけで決まることを保証します。逆に $v=\rho_\xi(\nu)$ が全ての $w=\rho_\eta(\nu)$ と零の組合せを持てば、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ となり、同じ式から $\rho_\xi(\nu)=0$、つまり $v=0$ です。局所的には軌道写像の滑らかな切片で $\xi,\eta$ を選べるため係数も滑らかです。
+従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これは定義が接ベクトルだけで決まることを保証します。逆に $v=\rho_\xi(\nu)$ が全ての $w=\rho_\eta(\nu)$ と零の組合せを持てば、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ となり、同じ式から $\rho_\xi(\nu)=0$、つまり $v=0$ です。滑らかさも確認します。[LIE4の軌道写像の階数と接空間の定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)により軌道写像の階数は一定であり、軌道は局所的に滑らかな座標を持ちます。接空間への線形写像 $\xi\mapsto\rho_\xi(\nu)$ の核の補空間を選ぶと、局所座標上で接ベクトルの滑らかな代表 $\xi$ を取れます。$\langle\nu,[\xi,\eta]\rangle$ はこれらと $\nu$ について滑らかなので、$\omega_{\mathrm{KKS}}$ も滑らかです。
 
 **閉性。** [LIE4の左作用の基本ベクトル場の交換子](../../../代数系/LIE/LIE4/index.md#thm-lie4-fundamental-flow-antihom)は
 
@@ -285,18 +302,42 @@ $$
 
 二つの巡回和はそれぞれ[Lie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)から零です。軌道の接方向は $\rho_\xi$ で張られるため、$d\omega_{\mathrm{KKS}}=0$ です。
 
-**Poisson括弧の一致。** $dF_\xi(\rho_\eta)=\langle\rho_\eta,\xi\rangle=\langle\nu,[\xi,\eta]\rangle$ なので $\iota_{\rho_\xi}\omega_{\mathrm{KKS}}=dF_\xi$ です。一般の滑らかな $F$ にも点ごとに $\xi=dF_\nu$ を選び、非退化性から $X_F(\nu)=\rho_{dF_\nu}(\nu)$ となります。したがって
+**Poisson括弧の一致。** まず線形関数 $F_\xi(\nu)=\langle\nu,\xi\rangle$ では
+
+$$
+dF_\xi(\rho_\eta(\nu))
+=\langle\rho_\eta(\nu),\xi\rangle
+=\langle\nu,[\xi,\eta]\rangle
+=\omega_{\mathrm{KKS}}(\rho_\xi(\nu),\rho_\eta(\nu)).
+$$
+
+接ベクトルは $\rho_\eta(\nu)$ で張られるため、$\iota_{\rho_\xi}\omega_{\mathrm{KKS}}=dF_\xi$ です。
+
+一般の軌道上の滑らかな関数 $f$ では、点 $\nu$ の近傍で $f$ を $\mathfrak g^*$ 上の滑らかな関数 $\widetilde f$ へ局所延長します。軌道の局所座標を周囲の座標へ延ばせるため、そのような局所延長は存在します。$\xi=d\widetilde f_\nu\in\mathfrak g$ と置くと、任意の軌道接方向 $\rho_\eta(\nu)$ に対して
 
 $$
 \begin{aligned}
-\{F,G\}_{\mathrm{KKS}}(\nu)
-&=dF_\nu(X_G(\nu))\\
-&=\langle\nu,[dF_\nu,dG_\nu]\rangle
-=\{F,G\}_+(\nu).
+df_\nu(\rho_\eta(\nu))
+&=\langle\rho_\eta(\nu),d\widetilde f_\nu\rangle\\
+&=\langle\nu,[d\widetilde f_\nu,\eta]\rangle
+=\omega_{\mathrm{KKS}}(\rho_\xi(\nu),\rho_\eta(\nu)).
 \end{aligned}
 $$
 
-非退化性・閉性と整合が全て確認できました。
+従って $X_f(\nu)=\rho_{d\widetilde f_\nu}(\nu)$ です。別の延長との差の微分 $\zeta$ は全軌道接方向を消すので、全 $\eta$ で $\langle\nu,[\zeta,\eta]\rangle=0$ となり、$\rho_\zeta(\nu)=0$ です。ゆえに $X_f$ は延長の選び方に依存しません。
+
+軌道上の $f,g$ と延長 $\widetilde f,\widetilde g$ について[SYM4のPoisson括弧の定義](../../SYM/SYM4/index.md#def-sym4-poisson-bracket)を使うと
+
+$$
+\begin{aligned}
+\{f,g\}_{\mathrm{KKS}}(\nu)
+&=df_\nu(X_g(\nu))\\
+&=\langle\nu,[d\widetilde f_\nu,d\widetilde g_\nu]\rangle
+=\{\widetilde f,\widetilde g\}_+(\nu).
+\end{aligned}
+$$
+
+したがって軌道上の括弧は、周囲の正のLie–Poisson括弧の制限として、延長の選び方によらず定まります。
 <!-- proof-end -->
 
 ## 5. Casimirとシンプレクティック葉
