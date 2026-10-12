@@ -82,13 +82,29 @@ $$
 \qquad v\longmapsto\omega_x(v,\cdot)
 $$
 
-は各点で線形同型となり、局所表示の逆行列が滑らかに変化します。従って
+は各点で線形同型となり、局所表示の逆行列が滑らかに変化します。**係数の転置と符号**を明確にするため、$\omega_x(u,v)=u^{\mathsf T}\Omega(x)v$ とし、$u,v$ および $dH$ の係数を列ベクトルで表します。このとき余ベクトル $\omega^\flat_x(u)$ の係数は、任意の $v$ との組み合わせから
+
+$$
+\omega_x(u,v)
+=u^{\mathsf T}\Omega(x)v
+=\bigl(\Omega(x)^{\mathsf T}u\bigr)^{\mathsf T}v
+$$
+
+と決まります。従って、$\iota_{X_H}\omega=dH$ に対応する連立一次方程式は
+
+$$
+\Omega(x)^{\mathsf T}[X_H]_x=[dH]_x,
+\qquad
+[X_H]_x=\Omega(x)^{-\mathsf T}[dH]_x
+$$
+
+です。ここで逆転置行列も $\Omega^{-1}$ の転置として滑らかです。座標に依存しない形では
 
 $$
 X_H(x)=(\omega^\flat_x)^{-1}(dH_x)
 $$
 
-が座標の重なりでも同じベクトルを与え、滑らかな大域ベクトル場として存在します。同型性により各点で一意です。
+となります。各点で方程式の解は一意なので座標の重なりでも同じベクトルを与え、局所的に滑らかな解は滑らかな大域ベクトル場へ貼り合います。
 
 正準形式を持つ局所座標で $X=\sum_i(a_i\partial_{q^i}+b_i\partial_{p_i})$ とおき、外積の評価を展開すると
 
@@ -225,14 +241,27 @@ $$
 
 二行目では[Hamiltonベクトル場の定義](#def-sym4-hamiltonian-vector-field)と、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)、[シンプレクティック形式の閉性](../SYM2/index.md#def-sym2-symplectic-manifold)をそれぞれ使いました。
 
-[微分形式のLie微分と流れの関係](../GEO7/index.md#def-geo7-lie-derivative)から、初期点 $x$ を固定し $\Phi_s(x)$ が定義される時刻区間では
+次に、[Lie微分の流れによる定義](../GEO7/index.md#def-geo7-lie-derivative)を使います。各時刻の流れを共通して定義できる小さな開集合を選び、点 $x$ と接ベクトル $v,w\in T_xM$ に対して
 
 $$
-\frac{d}{dt}\Phi_t^*\omega
-=\Phi_t^*(\mathcal L_{X_H}\omega)=0.
+(\Phi_t^*\omega)_x(v,w)
+=\omega_{\Phi_t(x)}(d\Phi_t|_xv,d\Phi_t|_xw)
 $$
 
-$t=0$ で $\Phi_0=\mathrm{id}$ なので、各時刻の共通する定義域上で $\Phi_t^*\omega=\Phi_0^*\omega=\omega$ です。[流れの合成則](../ODE8/index.md#prop-ode8-flow-law)により逆写像は像上で $\Phi_{-t}$ だから微分同相です。[シンプレクティック微分同相の定義](../SYM2/index.md#def-sym2-symplectomorphism)を満たします。
+と評価します。[流れの合成則](../ODE8/index.md#prop-ode8-flow-law)で $\Phi_{t+h}=\Phi_h\circ\Phi_t$ と書き、この評価式を $h$ で微分して $h=0$ とすると
+
+$$
+\begin{aligned}
+\frac{d}{dt}(\Phi_t^*\omega)
+&=\Phi_t^*\left(
+\left.\frac{d}{dh}\right|_{h=0}\Phi_h^*\omega
+\right)\\
+&=\Phi_t^*(\mathcal L_{X_H}\omega)\\
+&=\Phi_t^*(0)=0.
+\end{aligned}
+$$
+
+ここではまず流れが定義される範囲で微分し、その範囲内の任意の $t$ で零になると結論しています。$t=0$ では $\Phi_0=\mathrm{id}$ ですから、$\Phi_t^*\omega=\Phi_0^*\omega=\omega$ が従います。さらに[流れの合成則](../ODE8/index.md#prop-ode8-flow-law)による $\Phi_{-t}$ が像上の逆写像となります。従って各固定時刻の $\Phi_t$ は定義域から像への微分同相であり、[シンプレクティック微分同相の定義](../SYM2/index.md#def-sym2-symplectomorphism)を満たします。
 <!-- proof-end -->
 
 **閉性が必要な場所。** 非退化性だけなら $X_H$ は定義できますが、$d\omega\ne0$ なら上の計算に $\iota_{X_H}d\omega$ が残ります。一般には流れによる保存を結論できません。
@@ -295,7 +324,17 @@ $\omega^\flat$ の線形性、外積の交代性を使います。関数積の�
 <!-- proof-start -->
 ### 証明
 
-$d(af+bg)=a\,df+b\,dg$ で、[存在一意性](#thm-sym4-existence-coordinate)から $X_{af+bg}=aX_f+bX_g$ です。従って $\omega(X_{af+bg},X_h)$ は各項に分配され、第二引数も同じです。交代性は $\omega(X_f,X_g)=-\omega(X_g,X_f)$。積については[括弧の定義](#def-sym4-poisson-bracket)の $df(X_g)$ と反対称性を用い、
+$d(af+bg)=a\,df+b\,dg$ で、[Hamiltonベクトル場の存在一意性](#thm-sym4-existence-coordinate)から $X_{af+bg}=aX_f+bX_g$ です。[括弧の定義](#def-sym4-poisson-bracket)を使うと第一引数について
+
+$$
+\begin{aligned}
+\{af+bg,h\}
+&=\omega(aX_f+bX_g,X_h)\\
+&=a\{f,h\}+b\{g,h\}
+\end{aligned}
+$$
+
+となります。第二引数についても $X_{ag+bh}=aX_g+bX_h$ を適用し、$\{f,ag+bh\}=a\{f,g\}+b\{f,h\}$ です。交代性は $\omega(X_f,X_g)=-\omega(X_g,X_f)$ から従います。積については[括弧の定義](#def-sym4-poisson-bracket)の $df(X_g)$ と交代性を用い、
 
 $$
 \begin{aligned}
@@ -327,27 +366,31 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意のベクトル場 $Y,Z$ と2形式 $\omega$ について、Lie微分の定義を一方向ずつ展開すれば
+任意の滑らかなベクトル場 $Y,Z,V$ と2形式 $\omega$ について、[Lie微分の定義](../GEO7/index.md#def-geo7-lie-derivative)を1形式と2形式にそれぞれ適用します。まず
+
+$$
+\bigl(\mathcal L_Y(\iota_Z\omega)\bigr)(V)
+=Y\bigl(\omega(Z,V)\bigr)-\omega(Z,[Y,V])
+$$
+
+です。一方、2形式のLie微分を $Z,V$ へ評価すると
+
+$$
+\begin{aligned}
+(\mathcal L_Y\omega)(Z,V)
+&=Y\bigl(\omega(Z,V)\bigr)\\
+&\quad-\omega([Y,Z],V)-\omega(Z,[Y,V]).
+\end{aligned}
+$$
+
+ここに $\omega([Y,Z],V)$ を足すと左辺と一致します。$V$ は任意なので、1形式として
 
 $$
 \mathcal L_Y(\iota_Z\omega)
 =\iota_{[Y,Z]}\omega+\iota_Z(\mathcal L_Y\omega)
 $$
 
-となります。実際、左辺を $V$ に評価した値は
-
-$$
-Y(\omega(Z,V))-\omega(Z,[Y,V])
-$$
-
-で、右辺は
-
-$$
-\omega([Y,Z],V)
-+Y(\omega(Z,V))-\omega([Y,Z],V)-\omega(Z,[Y,V])
-$$
-
-と展開して一致します。
+が成立します。
 
 これを $Y=X_f$、$Z=X_g$ として使います。[流れ保存の証明](#thm-sym4-flow-preservation)で示した $\mathcal L_{X_f}\omega=0$ と $\iota_{X_g}\omega=dg$ から
 
@@ -408,21 +451,34 @@ X_h\{f,g\}
 \end{aligned}
 $$
 
-左辺は[括弧の定義](#def-sym4-poisson-bracket)から $\{\{f,g\},h\}$ です。また交代性で
+[括弧の定義](#def-sym4-poisson-bracket)より、任意の滑らかな関数 $F$ について $X_h(F)=dF(X_h)=\{F,h\}$ です。これを $F=\{f,g\}$ に適用すると
 
 $$
--\{f,\{h,g\}\}=\{\{h,g\},f\}=-\{\{g,h\},f\}.
+X_h\{f,g\}=\{\{f,g\},h\}.
 $$
 
-従って上式を左辺へ移項し、$\{h,g\}=-\{g,h\}$ を用いると
+他方、[交代性](#prop-sym4-poisson-elementary)を内側・外側の順に使うと
 
 $$
+\begin{aligned}
+-\{f,\{h,g\}\}
+&=+\{\{h,g\},f\}\\
+&=-\{\{g,h\},f\}.
+\end{aligned}
+$$
+
+従って先ほどの等式に代入した後、項を左辺に移して
+
+$$
+\begin{aligned}
 \{\{f,g\},h\}
-+\{\{h,f\},g\}
-+\{\{g,h\},f\}=0
+&=-\{\{h,f\},g\}-\{\{g,h\},f\},\\
+\{\{f,g\},h\}
+&+\{\{g,h\},f\}+\{\{h,f\},g\}=0
+\end{aligned}
 $$
 
-を得ます。双線形性・交代性は[基本性質](#prop-sym4-poisson-elementary)で確認済みなので、Lie代数の公理が揃います。
+を得ます。双線形性・交代性は[基本性質](#prop-sym4-poisson-elementary)で証明済みなので、Lie代数の公理が揃います。
 <!-- proof-end -->
 
 ## 5. 座標変換に依存しないことの確かめ方
