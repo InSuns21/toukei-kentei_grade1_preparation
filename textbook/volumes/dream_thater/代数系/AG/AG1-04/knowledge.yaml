@@ -1,0 +1,93 @@
+chapter: AG1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-03
+  - RNG2
+  - RNG4
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.multiplicative-set
+    name: 乗法的集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（乗法的集合）"]
+    requires: [algebra.commutative-ring, algebra.unital-ring]
+
+  - id: algebraic-geometry.localization
+    name: 局所化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所化）"]
+    requires: [algebraic-geometry.multiplicative-set, algebra.ring-homomorphism]
+
+  - id: algebraic-geometry.localization-fractions
+    name: 局所化の演算と零判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所化の演算と零判定）"]
+    requires: [algebraic-geometry.localization]
+
+  - id: algebraic-geometry.localization-universal
+    name: 局所化の普遍性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所化の普遍性）"]
+    requires: [algebraic-geometry.localization-fractions, algebra.ring-homomorphism]
+
+  - id: algebraic-geometry.principal-open
+    name: 主開集合と一元局所化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主開集合と一元局所化）"]
+    requires: [algebraic-geometry.zariski-topology, algebraic-geometry.localization]
+
+  - id: algebraic-geometry.principal-open-basis
+    name: 主開集合は開集合の基底
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（主開集合は開集合の基底）"]
+    requires: [algebraic-geometry.principal-open, algebraic-geometry.zariski-topology]
+
+  - id: algebraic-geometry.principal-open-fractions
+    name: 主開集合上の分数関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（主開集合上の分数関数）"]
+    requires: [algebraic-geometry.principal-open, algebraic-geometry.localization-fractions, algebraic-geometry.coordinate-polynomial-functions]
+
+  - id: algebraic-geometry.local-ring
+    name: 局所環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所環）"]
+    requires: [algebra.maximal-ideal, algebra.commutative-ring]
+
+  - id: algebraic-geometry.point-local-ring
+    name: 点の極大イデアルと点の局所環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点の極大イデアルと点の局所環）"]
+    requires: [algebraic-geometry.localization, algebraic-geometry.coordinate-ring, algebra.maximal-ideal]
+
+  - id: algebraic-geometry.point-local-ring-units
+    name: 点の局所環の単元と唯一の極大イデアル
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点の局所環の単元と唯一の極大イデアル）"]
+    requires: [algebraic-geometry.local-ring, algebraic-geometry.point-local-ring, algebraic-geometry.localization-universal, algebra.maximal-ideal-quotient-field]
+
+  - id: algebraic-geometry.fraction-germ
+    name: 点における分数関数の芽
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点における分数関数の芽）"]
+    requires: [algebraic-geometry.point-local-ring, algebraic-geometry.principal-open]
+
+  - id: algebraic-geometry.germ-local-ring-isomorphism
+    name: 点の局所環と分数関数の芽の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点の局所環と分数関数の芽の一致）"]
+    requires: [algebraic-geometry.fraction-germ, algebraic-geometry.principal-open-basis, algebraic-geometry.coordinate-polynomial-functions]
