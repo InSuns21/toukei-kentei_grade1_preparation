@@ -84,7 +84,22 @@ $$
 \end{aligned}
 $$
 
-仮定の複素線形性から $\partial_{y^k}f=i\partial_{x^k}f$ なので、両式を比較して $\partial_{y^k}h=i\partial_{x^k}h$ を得る。一方 $z^j$ については積分核 $(\zeta-z^j)^{-2}$ の $z^j$ 微分を取れて、同じ積分表示から $h$ が $z^j$ について正則である。すべての偏微分は上の積分表示により局所的に連続であり、$Dh$ は各複素座標方向で複素線形、従って全方向で複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)から $h$ は正則。$p,j,a$ は任意だったから結論を得る。$\square$
+仮定の複素線形性は、円周上の各 $\zeta$ に対しても
+
+$
+\partial_{y^k}f=i\partial_{x^k}f
+$
+
+を意味する。上の二つの積分式へ代入して差を取れば
+
+$
+\partial_{y^k}h-i\partial_{x^k}h
+=\frac{1}{2\pi i}\int_{C_j}
+\frac{\partial_{y^k}f-i\partial_{x^k}f}
+{(\zeta-z^j)^2}\,d\zeta=0.
+$
+
+$z^j$ については、評価点が固定円周の内部にあるので積分核の変数を微分できる。これにより $h$ は $z^j$ の正則関数となる。偏微分は積分表示から局所的に連続であり、全ての複素座標方向について Cauchy–Riemann 条件が成り立つ。従って $Dh$ は複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を適用し、$h$ の正則性を得る。$p,j,a$ は任意なので結論が従う。$\square$
 <!-- proof-end -->
 
 次に、二つの正則座標 $(U_\alpha,z_\alpha)$ と $(U_\beta,z_\beta)$ を取り、重なり $W=U_\alpha\cap U_\beta$ で
@@ -297,7 +312,16 @@ a_\beta^a(p)=\sum_{j=1}^n
 (G_{\beta\alpha}(p))_{aj}\,a_\alpha^j(p).
 $$
 
-$\beta$ 座標を $w$ として式を関数として見る場合、右辺は $p=z_\beta^{-1}(w)$ を代入する。$a_\alpha^j\circ z_\alpha^{-1}$ は正則であり、$\alpha$ 座標から $\beta$ 座標への変数変換 $F_{\alpha\beta}$ は[正則アトラスの条件](../CM1-01/index.md#def-cm1-01-atlas)で正則だから、[正則写像の合成](../CM1-01/index.md#prop-cm1-01-composition)によって $a_\alpha^j\circ z_\beta^{-1}$ も正則になる。[偏導関数の正則性](#lem-cm1-05-holomorphic-derivative)から $G_{\beta\alpha}$ の各成分も $w$ 座標で正則である。有限個の積と和は正則なので各 $a_\beta^a$ が正則になる。
+$\beta$ 座標を $w$ とし、$p=z_\beta^{-1}(w)$ と置く。$\alpha$ 座標で表示された成分を $w$ に移すには、変換 $F_{\alpha\beta}$ を使う。実際、
+
+$
+(a_\alpha^j\circ z_\beta^{-1})(w)
+=(a_\alpha^j\circ z_\alpha^{-1})(F_{\alpha\beta}(w)).
+$
+
+右辺の第一の関数は仮定により正則である。また $F_{\alpha\beta}$ は[正則アトラスの条件](../CM1-01/index.md#def-cm1-01-atlas)により正則だから、[正則写像の合成](../CM1-01/index.md#prop-cm1-01-composition)によって $w$ に関する成分も正則になる。
+
+[偏導関数の正則性](#lem-cm1-05-holomorphic-derivative)から、$G_{\beta\alpha}$ の各成分も $w$ 座標で正則である。係数変換式の右辺は有限個の正則関数の積と和なので、各 $a_\beta^a$ が正則になる。
 
 逆に $a_\beta$ が正則なら $a_\alpha=G_{\alpha\beta}a_\beta$ に同じ議論を適用する。各点の周りの重なりで示したから全域で成り立つ。$\square$
 <!-- proof-end -->
