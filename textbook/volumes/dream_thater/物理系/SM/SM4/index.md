@@ -138,7 +138,7 @@ P_S(n,\omega)
  W_B(U-H_m(\eta),M-m)}
 $$
 
-> である。さらに全組で分子の浴状態数が正で、ある $a,\beta,\mu\in\mathbb R$ と $\delta\ge0$ について
+> である。さらに全組で分子の浴状態数が正で、ある $a,\mu\in\mathbb R$、$\beta>0$ と $\delta\ge0$ について
 
 $$
 \left|\log W_B(U-H_n(\omega),M-n)
@@ -153,7 +153,7 @@ e^{-2\delta}\le
 \le e^{2\delta}
 $$
 
-> を満たす。物理的な温度の解釈には $\beta>0$ を要する。
+> を満たす。ここで $\beta=1/(k_{\mathrm B}T)$ により正の温度が対応する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -199,7 +199,25 @@ $$
 
 二番目の関係は[化学ポテンシャルを含む熱力学の基本関係](../../TH/TH7/index.md#def-th7-component-mu)を $dS=(dU-\mu\,dN)/T$ と解いたものです。従って一次項は $-\beta E+\beta\mu n$。粒子を浴から取り出したときの浴の粒子数変化が $-n$ であることが、指数の符号を決めます。
 
-たとえばTaylor展開の線分上で Hessian の二次形式が $|v^{\mathsf T}D^2L\,v|\le K\|v\|_2^2$ を満たせば、積分剰余から $|R(E,n)|\le K(E^2+n^2)/2$ と評価できます（エネルギーと粒子数を一つの同じ座標尺度へ換算した場合）。さらに離散状態数を $W_{\mathrm{sm}}$ に近似する誤差を別に評価して初めて、前の命題の $\delta$ が確定します。**単に浴が大きいという理由だけで、誤差を0としてはいけません。**
+たとえばエネルギーと粒子数を共通の座標尺度へ換算し、$(U,M)$ と $(U-E,M-n)$ を結ぶ線分上で、任意の二次元ベクトル $v$ に対して Hessian が
+
+$$
+|v^{\mathsf T}D^2L\,v|\le K\|v\|_2^2
+$$
+
+を満たすとします。二変数Taylorの積分剰余では、変位 $d=(-E,-n)$ を代入して
+
+$$
+R(E,n)=\int_0^1(1-t)\,d^{\mathsf T}
+D^2L((U,M)+td)\,d\,dt,
+$$
+
+$$
+|R(E,n)|\le K(E^2+n^2)\int_0^1(1-t)\,dt
+=\frac K2(E^2+n^2)
+$$
+
+と評価できます。これは**滑らかな模型のTaylor誤差**であり、真の離散状態数を $W_{\mathrm{sm}}$ に近似する誤差を別に評価して初めて、前の命題の $\delta$ が確定します。単に浴が大きいという理由だけで、誤差を0としてはいけません。
 
 ## 3. 対数微分が粒子数の揺らぎを測る
 
@@ -218,7 +236,7 @@ $$
 \qquad \alpha=\beta\mu
 $$
 
-> と置く。$\beta,\alpha\in\mathbb R$ において
+> と置く。$\beta>0$、$\alpha\in\mathbb R$ において
 
 $$
 \partial_\alpha\log\widehat\Xi=\langle N\rangle,
@@ -622,7 +640,7 @@ $$
 各粒子数の周辺確率は順に $1/(1+z)^2$、$2z/(1+z)^2$、$z^2/(1+z)^2$ です。分子の和は $\Xi$ に一致します。粒子数1に二配置があるので、その準位の確率には係数2が必要です。
 <!-- solution-end -->
 
-#### A3. エネルギー原点と粒子数原点
+#### A3. エネルギー原点の移動
 
 各配置のエネルギーを $H'_n(\omega)=H_n(\omega)+c$ と一律にずらす（$c\in\mathbb R$）。粒子数は変えない。新しい $\Xi'$ と $p'$、$\mathcal G'$ を求めよ。
 
@@ -676,13 +694,19 @@ $$
 
 #### A5. 化学ポテンシャルの符号
 
-浴の対数状態数近似が $L(u,m)=a+\beta u-\beta\mu m$（$\beta>0$）で、試料がエネルギー $E$ と粒子数 $n$ を得たとする。浴の状態数比 $W_B(U-E,M-n)/W_B(U,M)$ を求めよ。
+浴の正の滑らかな重み模型を $W_{\mathrm{sm}}(u,m)=e^{L(u,m)}$、$L(u,m)=a+\beta u-\beta\mu m$（$\beta>0$）と**等式で**定める。試料がエネルギー $E$ と粒子数 $n$ を得たとき、この模型での比
+
+$$
+\frac{W_{\mathrm{sm}}(U-E,M-n)}{W_{\mathrm{sm}}(U,M)}
+$$
+
+を求めよ。真の離散状態数 $W_B$ と滑らかな模型 $W_{\mathrm{sm}}$ の違いにも触れよ。
 
 - Level: A
 - ID: SM4-A5
 
 <!-- solution-start -->
-**詳細解答**　滑らかな模型 $W_B=e^L$ を仮定し、浴へ残った値を代入します。
+**詳細解答**　問題文の仮定は真の離散状態数についての近似式ではなく、滑らかな重み模型 $W_{\mathrm{sm}}=e^L$ を**等号で指定**したものです。この模型に浴へ残ったエネルギー・粒子数を代入すると、
 
 $$
 \begin{aligned}
@@ -693,7 +717,14 @@ L(U-E,M-n)-L(U,M)
 \end{aligned}
 $$
 
-両辺を指数化すると求める比は $e^{-\beta(E-\mu n)}$ です。[浴からの周辺確率](#prop-sm4-reservoir-marginal)と同じ符号で、浴の粒子数が $M-n$ へ減ることを使います。
+両辺を指数化すれば
+
+$$
+\frac{W_{\mathrm{sm}}(U-E,M-n)}{W_{\mathrm{sm}}(U,M)}
+=e^{-\beta(E-\mu n)}.
+$$
+
+[浴からの周辺確率](#prop-sm4-reservoir-marginal)と同じ符号であり、浴の粒子数が $M-n$ へ減ることが重要です。ただし真の離散状態数 $W_B$ が $W_{\mathrm{sm}}$ と異なるなら、$W_B$ の比が上式と**厳密に一致するとは限りません**。両点での対数状態数の近似誤差を評価して初めて、その比の誤差も評価できます。
 <!-- solution-end -->
 
 ### Level B：定理の再構成と仮定の確認
@@ -769,7 +800,19 @@ $$
 \end{aligned}
 $$
 
-他方 $-\sum p\log p=\beta(U-\mu\bar N)+\log\Xi$ は $\log p=-\beta(H-\mu N)-\log\Xi$ と $\sum p=1$ から得られるので、[Gibbsエントロピー](../SM3/index.md#def-sm3-gibbs-entropy)は $S_{\mathrm G}=k_{\mathrm B}\log\Xi+(U-\mu\bar N)/T$ です。従って表示式は $-S_{\mathrm G}$ に等しくなります。
+他方、各状態 $x$ で $\log p(x)=-\beta(H(x)-\mu N(x))-\log\Xi$ です。[Gibbsエントロピーの定義](../SM3/index.md#def-sm3-gibbs-entropy)に代入し、規格化 $\sum_xp(x)=1$ を用いると
+
+$$
+\begin{aligned}
+S_{\mathrm G}
+&=-k_{\mathrm B}\sum_xp(x)\log p(x)\\
+&=k_{\mathrm B}\beta\sum_xp(x)(H(x)-\mu N(x))
+ +k_{\mathrm B}\log\Xi\sum_xp(x)\\
+&=\frac{U-\mu\bar N}{T}+k_{\mathrm B}\log\Xi.
+\end{aligned}
+$$
+
+したがって、直前に求めた $\partial_T\mathcal G|_\mu$ は $-S_{\mathrm G}$ と一致します。
 <!-- solution-end -->
 
 #### B4. 化学ポテンシャルのシフトと分布不変性
@@ -879,7 +922,22 @@ U-TS_{\mathrm G}-\mu\bar N
 \end{aligned}
 $$
 
-**(4)**　$q_x$ は各サイトを独立に確率 $x$ で占有する分布です。$0\log0=0$ の約束の下で $q_x$ の平均粒子数は $Mx$、エネルギー平均は $M\varepsilon x$、エントロピーは $-Mk_{\mathrm B}[x\log x+(1-x)\log(1-x)]$ です。従って
+**(4)**　$q_x$ は各サイトを独立に確率 $x$ で占有する分布です。各占有指示変数の期待値が $x$ なので、線形性から
+
+$$
+\mathbb E_{q_x}[N]=\sum_{i=1}^M\mathbb E_{q_x}[I_i]=Mx,
+\qquad
+\mathbb E_{q_x}[H]=\varepsilon Mx.
+$$
+
+また、積分布の対数は各サイトの対数確率の和であるため、[Gibbsエントロピー](../SM3/index.md#def-sm3-gibbs-entropy)を各サイトに分けて平均すると
+
+$$
+S_{\mathrm G}(q_x)
+=-Mk_{\mathrm B}[x\log x+(1-x)\log(1-x)].
+$$
+
+ここでは両端点でも $0\log0=0$ と定めます。以上を[変分関数の定義](#thm-sm4-variational)へ代入すると
 
 $$
 \mathcal A_{T,\mu}(q_x)
