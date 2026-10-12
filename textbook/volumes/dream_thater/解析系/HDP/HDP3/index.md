@@ -372,7 +372,7 @@ P\left(\sum_iX_i\ge t\right)
 \le e^{-\lambda t+2\lambda^2V}.
 $$
 
-指数関数は単調増加なので、指数の二次式 $q(\lambda)=-\lambda t+2\lambda^2V$ を $\lambda>0$ で最小化します。$V>0$ から
+指数関数は単調増加なので、指数の二次式 $q(\lambda)=-\lambda t+2\lambda^2V$ の最小点を $\lambda>0$ の範囲で求めます。$V>0$ から
 
 $$
 q'(\lambda)=-t+4V\lambda=0
