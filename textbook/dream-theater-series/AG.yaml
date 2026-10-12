@@ -13,7 +13,7 @@ chapters:
   - id: AG1-02
     path: textbook/volumes/00_foundations/AG1-02
     status: planned
-    title: "Zariski位相・既約性・素イデアルと既約成分"
+    title: "既約集合・素イデアルと既約成分"
   - id: AG1-03
     path: textbook/volumes/00_foundations/AG1-03
     status: planned
