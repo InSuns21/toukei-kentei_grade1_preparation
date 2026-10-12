@@ -27,7 +27,7 @@ chapters:
     title: 熱力学ポテンシャルとLegendre変換
   - id: TH6
     path: textbook/volumes/dream_thater/物理系/TH/TH6
-    status: planned
+    status: completed
     title: 熱力学的安定性・応答・凸性
   - id: TH7
     path: textbook/volumes/dream_thater/物理系/TH/TH7
