@@ -16,8 +16,9 @@ learning_objectives:
   - 多項式の無限方程式系から有限個を選んで同じ零点集合を表すことを証明できる
   - 零因子を持つ二軸の座標環でもNoether性が成立することを具体的に検証できる
 definitions:
-  - { id: AG1-05-DEF-01, name: Noether環 }
-  - { id: AG1-05-DEF-02, name: 次数別最高次係数イデアル }
+  - { id: AG1-05-DEF-01, name: イデアルの昇鎖条件 }
+  - { id: AG1-05-DEF-02, name: Noether環 }
+  - { id: AG1-05-DEF-03, name: 次数別最高次係数イデアル }
 theorems:
   - { id: AG1-05-PROP-01, name: 昇鎖条件と有限生成の同値性 }
   - { id: AG1-05-THM-01, name: Hilbertの基底定理 }
