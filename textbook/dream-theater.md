@@ -636,6 +636,7 @@
 4. [SYM4 Hamiltonベクトル場・Poisson括弧・シンプレクティック流](textbook/volumes/00_foundations/SYM4/index.md)
 5. [SYM5 Darbouxの定理](textbook/volumes/00_foundations/SYM5/index.md)
 6. [SYM6 Lagrange部分空間・Lagrange部分多様体](textbook/volumes/00_foundations/SYM6/index.md)
+7. [SYM7 Moserの方法とシンプレクティック変形](textbook/volumes/00_foundations/SYM7/index.md)
 
 ## 代数系
 

@@ -1,0 +1,23 @@
+chapter: "SYM7"
+terms:
+  - term: シンプレクティック形式の滑らかな経路
+    english: smooth path of symplectic forms
+    meaning: "時間・空間に滑らかに依存し、各時刻に閉性と非退化性を満たす2形式の族。"
+  - term: Moser型の同位変形
+    english: Moser isotopy
+    meaning: "初期写像を恒等写像とし、変形する2形式を初期形式へ引き戻す微分同相の族。"
+  - term: コホモロジー的に等しい閉2形式
+    english: cohomologous closed two-forms
+    meaning: "二つの閉2形式の差が大域的な1形式の外微分で表されること。"
+  - term: Moserの方法
+    english: Moser's method
+    meaning: "時間依存ベクトル場を内部積の方程式から作り、2形式の時間変化を引き戻しの微分で打ち消す方法。"
+  - term: Moserの安定性定理
+    english: Moser stability theorem
+    meaning: "コンパクトで境界のない多様体上で原始形式の滑らかな族とシンプレクティック経路が与えられたとき、同位変形を構成できるという定理。"
+  - term: 経路中の非退化性
+    english: nondegeneracy along the path
+    meaning: "端点に限らず全時刻で2形式が非退化であること。線形補間では自動的に保たれない。"
+  - term: 時間依存ベクトル場の完備性
+    english: completeness of a time-dependent vector field
+    meaning: "指定された全時間区間にわたり全初期点から解が存在する性質。コンパクト性が十分条件になる。"
