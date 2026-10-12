@@ -1,0 +1,44 @@
+id: "TH5"
+title: "熱力学ポテンシャルとLegendre変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH4
+official_scope: []
+learning_objectives:
+  - 局所Legendre変換の可逆性条件と全微分の相殺を証明し、失敗例を説明できる
+  - U・F・H・Gの定義と自然変数を、符号を含めて導出できる
+  - 混合二階偏微分から四つのMaxwell関係式を導き、理想気体で検算できる
+  - 一次同次性からEuler関係式とGibbs–Duhem関係式を途中式つきで証明できる
+  - 明示的な基本関係と理想気体についてLegendre変換・化学ポテンシャルを計算できる
+definitions:
+  - { id: TH5-DEF-01, name: "局所Legendre変換" }
+  - { id: TH5-DEF-02, name: "熱力学ポテンシャル" }
+  - { id: TH5-DEF-03, name: "基本関係の一次同次性" }
+theorems:
+  - { id: TH5-PROP-01, name: "Legendre変換の全微分" }
+  - { id: TH5-PROP-02, name: "四つのポテンシャルの自然変数" }
+  - { id: TH5-THM-01, name: "Maxwell関係式" }
+  - { id: TH5-THM-02, name: "Euler関係式" }
+  - { id: TH5-THM-03, name: "Gibbs–Duhem関係式" }
+canonical_examples:
+  - 二次関数のLegendre変換の構成と線形関数での局所逆写像の失敗
+  - 状態量数値例によるF・H・Gの定義の確認
+  - 理想気体のMaxwell関係式と定圧・定積熱容量
+  - 一次同次な基本関係の拡大確認とF・H・Gの明示計算
+  - 理想気体のGibbs自由エネルギーと化学ポテンシャル
+problem_patterns:
+  - TH5-HELMHOLTZ-DIFFERENTIAL
+  - TH5-ENTHALPY-SIGN
+  - TH5-GIBBS-NUMERICAL
+  - TH5-MAXWELL-CROSS-PARTIAL
+  - TH5-EULER-HOMOGENEITY
+  - TH5-NONLINEAR-POTENTIALS
+  - TH5-IDEAL-GAS-HEAT-CAPACITY
+  - TH5-GIBBS-DUHEM-CONSTRAINT
+  - TH5-LEGENDRE-DEGENERACY
+  - TH5-IDEAL-GAS-GIBBS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

@@ -848,6 +848,7 @@
 2. [TH2 第一法則・内部エネルギー・熱・仕事](textbook/volumes/dream_thater/物理系/TH/TH2/index.md)
 3. [TH3 第二法則・Carnotの定理・絶対温度](textbook/volumes/dream_thater/物理系/TH/TH3/index.md)
 4. [TH4 エントロピーと基本関係式](textbook/volumes/dream_thater/物理系/TH/TH4/index.md)
+5. [TH5 熱力学ポテンシャルとLegendre変換](textbook/volumes/dream_thater/物理系/TH/TH5/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学

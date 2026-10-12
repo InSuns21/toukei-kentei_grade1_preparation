@@ -23,7 +23,7 @@ chapters:
     title: エントロピーと基本関係式
   - id: TH5
     path: textbook/volumes/dream_thater/物理系/TH/TH5
-    status: planned
+    status: completed
     title: 熱力学ポテンシャルとLegendre変換
   - id: TH6
     path: textbook/volumes/dream_thater/物理系/TH/TH6
