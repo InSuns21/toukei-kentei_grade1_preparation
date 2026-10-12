@@ -547,7 +547,7 @@ D(P_f\|P_g)
 \end{aligned}
 $$
 
-[連続Gibbs不等式](#thm-info9-continuous-gibbs)より左辺は非負なので上界が出ます。等号なら同じ定理の等号条件で $f=g$ がほとんど至る所で成立します。逆に $f=g$ は[Gaussianの微分エントロピー](#prop-info9-gaussian-entropy)の値を達成します。
+[連続分布の相対エントロピーの非負性](#thm-info9-continuous-gibbs)より左辺は非負なので上界が出ます。等号なら同じ定理の等号条件で $f=g$ がほとんど至る所で成立します。逆に $f=g$ は[Gaussianの微分エントロピー](#prop-info9-gaussian-entropy)の値を達成します。
 <!-- proof-end -->
 
 **例：分散が同じ一様分布。** $X$ が $[-a,a]$ 上一様（$a>0$）なら $h(X)=\log_2(2a)$、分散は $a^2/3$ です。対応するGaussianの上界は
