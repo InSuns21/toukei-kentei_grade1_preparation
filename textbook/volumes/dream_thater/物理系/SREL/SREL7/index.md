@@ -75,7 +75,7 @@ $$
 
 ### 有限領域での粒子数収支
 
-滑らかな有界領域 $\Omega\subset\mathbb R^3$ と外向き法線 $\boldsymbol\nu$ について、$\gamma n\boldsymbol v$ が境界まで $C^1$ なら三次元の発散定理により
+境界が有限個の $C^1$ 曲面片からなり、各座標方向のグラフ領域に有限分割できる有界領域 $\Omega\subset\mathbb R^3$ と外向き法線 $\boldsymbol\nu$ を取ります。$\gamma n\boldsymbol v$ が閉包まで $C^1$ なら、[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)により
 
 $$
 \frac{d}{dt}\int_\Omega \gamma n\,d^3x
