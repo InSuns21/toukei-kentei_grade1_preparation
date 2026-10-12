@@ -3,11 +3,12 @@ import { execFileSync } from 'node:child_process';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
+import {chapterPathsFromIndex} from './lib/dream-theater-chapter-paths.mjs';
 
 const root = process.cwd();
-const indexedChapters = new Map(JSON.parse(
+const indexedChapters = chapterPathsFromIndex(JSON.parse(
   await readFile(path.join(root, 'textbook/dream-theater-index.json'), 'utf8')
-).sections.flatMap(section => section.paths).map(href => [path.basename(path.dirname(href)), href]));
+));
 
 async function read(relative) {
   return readFile(path.join(root, relative), 'utf8');
