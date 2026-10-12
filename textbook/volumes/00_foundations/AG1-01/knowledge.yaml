@@ -6,7 +6,7 @@ prerequisites:
   - FLD0
   - TOP1
 forward_references:
-  - FLD2
+  - algebra.algebraically-closed-field
 
 concepts:
   - id: algebraic-geometry.multivariate-polynomial-ring
