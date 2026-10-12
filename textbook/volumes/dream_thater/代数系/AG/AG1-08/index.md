@@ -285,27 +285,29 @@ $$
 
 ## 5. 体を変えると何が壊れるか
 
-代数閉性を外しても[包含反転と往復](#prop-ag1-08-order-reversing)の各式と、[消滅イデアルの和集合公式](#prop-ag1-08-set-ideal-operations) $I(X\cup Y)=I(X)\cap I(Y)$ は任意の体で成り立ちます。しかし、同じ命題の **交わりの公式** $I(X\cap Y)=\sqrt{I(X)+I(Y)}$ や根基的イデアルとの全単射は、代数閉性なしには一般に成り立ちません。実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
+代数閉性を外しても[包含反転と往復](#prop-ag1-08-order-reversing)の各式と、[消滅イデアルの和集合公式](#prop-ag1-08-set-ideal-operations) $I(X\cup Y)=I(X)\cap I(Y)$ は任意の体で成り立ちます。しかし、同じ命題の **交わりの公式** $I(X\cap Y)=\sqrt{I(X)+I(Y)}$ や根基的イデアルとの全単射は、代数閉性なしには一般に成り立ちません。
+
+実数上で $J=(x^2+1)\subset\mathbb R[x]$ は真の根基的イデアル（商は体 $\mathbb C$ と同型）なのに $V_{\mathbb R}(J)=\varnothing$ です。そのため $I_{\mathbb R}(V_{\mathbb R}(J))=\mathbb R[x]\ne J$ となります。有限体 $\mathbb F_2$ でも、$x^2-x$ は $0,1$ の両方で零となる非零多項式なので、$\sqrt{(0)}=(0)$ と $I_{\mathbb F_2}(\mathbb F_2)$ は一致しません。
 
 交わりの公式が破れる例も計算します。$k=\mathbb R$ とし、$X=V_{\mathbb R}(y)$、$Y=V_{\mathbb R}(y-x^2(x^2+1))$ を取ります。前者は $x$ 軸、後者は多項式のグラフです。実数では $x^2+1>0$ なので、共通点は原点だけです。従って
 
-$
+$$
 I_{\mathbb R}(X\cap Y)=(x,y).
-$
+$$
 
 一方、任意の多項式 $f(x,y)$ を $y$（または $y-x^2(x^2+1)$）で割った余りは $x$ だけの多項式です。各グラフのすべての実数点で零なら、その余りは無限個の根を持つため零多項式となります。よって
 
-$
+$$
 I_{\mathbb R}(X)=(y),\qquad
 I_{\mathbb R}(Y)=(y-x^2(x^2+1)),
-$
+$$
 
 であり、和は $(y,x^2(x^2+1))$ です。もし $x$ がこの和の根基に属すれば、ある $m\ge1$ で $x^m$ が和に入り、$y=0$ を代入すると $x^m$ は $\mathbb R[x]$ で $x^2(x^2+1)$ の倍数になります。しかし複素数 $x=i$ を代入すると右辺は零、左辺は $i^m\ne0$ で矛盾します。つまり
 
-$
+$$
 x\in I_{\mathbb R}(X\cap Y),\qquad
 x\notin\sqrt{I_{\mathbb R}(X)+I_{\mathbb R}(Y)}.
-$
+$$
 
 この差は、複素数上にはある零点を実数の点集合からは検出できないために生じます。
 
