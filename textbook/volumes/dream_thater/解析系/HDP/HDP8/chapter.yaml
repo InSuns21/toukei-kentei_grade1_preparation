@@ -1,0 +1,58 @@
+id: HDP8
+title: 非可換モーメント母関数と行列Bernstein
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP7
+  - HDP2
+  - HDP1
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - Loewner順序・行列指数モーメント・固有値のトレース指数評価を定義し計算できる
+  - 非可換行列の指数の積分解が成立しない具体例とLieb凹性の外部入力範囲を説明できる
+  - Lieb凹性から条件付きJensenによる独立和の非可換指数モーメント評価を導ける
+  - 行列対数の順序単調性と有界対称行列の二次余り指数モーメントを証明できる
+  - 行列分散代理量を構成し独立な有界対称行列のBernstein不等式を証明できる
+  - 区間有界行列のHoeffding不等式を割線評価から導ける
+  - 自己共役拡張から長方形行列Bernsteinを導き係数p+qを説明できる
+  - 有界ベクトルの標本共分散への適用と独立性喪失時の反例を再現できる
+definitions:
+  - { id: HDP8-DEF-01, name: Loewner順序と行列指数モーメント }
+  - { id: HDP8-DEF-02, name: 行列分散代理量 }
+  - { id: HDP8-DEF-03, name: 長方形行列の自己共役拡張 }
+theorems:
+  - { id: HDP8-LEM-01, name: トレース指数による固有値の指数Markov評価 }
+  - { id: HDP8-THM-01, name: Liebの凹性定理（外部入力・証明は本章対象外） }
+  - { id: HDP8-LEM-02, name: 独立行列和の非可換指数モーメント評価 }
+  - { id: HDP8-LEM-03, name: 行列対数の順序単調性 }
+  - { id: HDP8-THM-02, name: 行列Laplace法の基本尾部評価 }
+  - { id: HDP8-LEM-04, name: 有界な平均零対称行列の指数モーメント }
+  - { id: HDP8-THM-03, name: 独立有界対称行列に対する行列Bernstein不等式 }
+  - { id: HDP8-THM-04, name: 区間有界な独立対称行列の行列Hoeffding不等式 }
+  - { id: HDP8-COR-01, name: 長方形行列のBernstein不等式 }
+canonical_examples:
+  - 非可換な2次元行列の指数積分解の失敗
+  - Rademacher対角行列の指数モーメントと分散代理量
+  - JensenとLieb凹性による後ろからの条件付き平均
+  - 行列対数の積分表示と逆行列の順序反転
+  - 指数の二次余りとBernsteinの二領域最適化
+  - 区間割線と二点分布による行列Hoeffding
+  - 長方形行列の自己共役拡張と片側固有値
+  - 有界な標本共分散と完全従属の反例
+problem_patterns:
+  - HDP8-DIAGONAL-SIGN
+  - HDP8-TRACE-EXP
+  - HDP8-TWO-SIDED-HOEFFDING
+  - HDP8-DILATION-EIGENVALUES
+  - HDP8-ZERO-VARIANCE
+  - HDP8-SPECTRAL-MGF-REMAINDER
+  - HDP8-TWO-POINT-HOEFFDING
+  - HDP8-BOUNDED-COVARIANCE
+  - HDP8-RECTANGULAR-VARIANCE
+  - HDP8-CONFIDENCE-THRESHOLD
+  - HDP8-DEPENDENCE-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 4 }
