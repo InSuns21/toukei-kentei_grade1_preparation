@@ -48,7 +48,7 @@ chapters:
     title: "Zariski接空間とJacobian判定の準備"
   - id: AG1-11
     path: textbook/volumes/dream_thater/代数系/AG/AG1-11
-    status: planned
+    status: completed
     title: "特異点・接錐と平面曲線"
   - id: AG1-12
     path: textbook/volumes/dream_thater/代数系/AG/AG1-12
