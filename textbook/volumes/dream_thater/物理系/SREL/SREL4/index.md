@@ -54,7 +54,7 @@ $$
 <!-- definition-example-start: def-srel4-free-action -->
 ### 例：静止と等速運動
 
-**定義の確認：** どちらも未来向きで $|v|<c$ です。時間幅 $T>0$ に対し、静止なら $S_0=-mc^2T$、$v=3c/5$ の等速世界線なら
+**定義の確認**： どちらも未来向きで $|v|<c$ です。時間幅 $T>0$ に対し、静止なら $S_0=-mc^2T$、$v=3c/5$ の等速世界線なら
 
 $$
 S_0=-mc^2 T\sqrt{1-9/25}=-\frac45mc^2T.
@@ -215,7 +215,7 @@ $$
 <!-- definition-example-start: def-srel4-canonical-energy -->
 ### 例：静止系
 
-**定義の確認：** $\boldsymbol v=0$ は定義域内で、$L_0(0)=-mc^2$、微分した運動量は $\boldsymbol\pi=0$ です。したがって $H_0=0-(-mc^2)=mc^2$ です。静止粒子にも正準エネルギーがあることが確認できます。
+**定義の確認**： $\boldsymbol v=0$ は定義域内で、$L_0(0)=-mc^2$、微分した運動量は $\boldsymbol\pi=0$ です。したがって $H_0=0-(-mc^2)=mc^2$ です。静止粒子にも正準エネルギーがあることが確認できます。
 <!-- definition-example-end -->
 
 <a id="thm-srel4-canonical-momentum"></a>
@@ -295,7 +295,7 @@ $$
 <!-- definition-example-start: def-srel4-three-force -->
 ### 例：座標加速度が一定でない場合
 
-**定義の確認：** 一次元で瞬間速度 $v=3c/5$、座標加速度 $a=dv/dt$ のとき、[SREL3 の固有加速度の計算](../SREL3/index.md#prop-srel3-proper-accel-1d)と同じ積の微分を使い
+**定義の確認**： 一次元で瞬間速度 $v=3c/5$、座標加速度 $a=dv/dt$ のとき、[SREL3 の固有加速度の計算](../SREL3/index.md#prop-srel3-proper-accel-1d)と同じ積の微分を使い
 
 $$
 \frac{dp_x}{dt}
@@ -362,7 +362,7 @@ $$
 <!-- definition-example-start: def-srel4-four-force -->
 ### 例：瞬間静止系
 
-**定義の確認：** ある瞬間に $\boldsymbol v=0$ なら $\gamma=1$、$U=(c,\boldsymbol0)$ です。[四元加速度の瞬間静止系での形](../SREL3/index.md#def-srel3-four-acceleration)を使うと $A=(0,\boldsymbol a)$ なので、$K=(0,m\boldsymbol a)$ です。時間成分が零であるのは瞬間静止系に限った事実で、別の慣性系でも常に零という意味ではありません。
+**定義の確認**： ある瞬間に $\boldsymbol v=0$ なら $\gamma=1$、$U=(c,\boldsymbol0)$ です。[四元加速度の瞬間静止系での形](../SREL3/index.md#def-srel3-four-acceleration)を使うと $A=(0,\boldsymbol a)$ なので、$K=(0,m\boldsymbol a)$ です。時間成分が零であるのは瞬間静止系に限った事実で、別の慣性系でも常に零という意味ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-srel4-four-force"></a>
