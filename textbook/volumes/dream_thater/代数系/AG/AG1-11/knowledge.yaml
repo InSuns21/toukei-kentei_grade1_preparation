@@ -12,10 +12,19 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: algebraic-geometry.plane-curve-singular
-    name: 平面曲線の正則点と特異点
+  - id: algebraic-geometry.plane-curve-regular
+    name: 平面曲線の正則点
     kind: definition
     introduction: formal
+    aliases: ["正則点"]
+    introduction_aliases: ["定義（平面曲線の正則点と特異点）"]
+    requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.ideal-radical]
+
+  - id: algebraic-geometry.plane-curve-singular
+    name: 平面曲線の特異点
+    kind: definition
+    introduction: formal
+    aliases: ["特異点"]
     introduction_aliases: ["定義（平面曲線の正則点と特異点）"]
     requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.ideal-radical]
 
@@ -67,3 +76,10 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（可逆アフィン座標変換での不変性）"]
     requires: [algebraic-geometry.plane-curve-tangent-cone]
+
+  - id: algebraic-geometry.ordinary-double-point
+    name: 通常二重点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（通常二重点）"]
+    requires: [algebraic-geometry.plane-curve-tangent-cone, algebraic-geometry.plane-curve-multiplicity]
