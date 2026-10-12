@@ -368,7 +368,7 @@ $R=k[x,y]$、$A=R/(xy)$ とする。$A$ のイデアル $L=(\bar x^2,\bar y)$ �
 
 ### B1. 多項式環のNoether性から係数環を判定する
 
-単位的可換環 $R$ について、$R[t]$ がNoetherなら $R$ もNoetherであることを証明せよ。その結果とHilbertの基底定理を用いて、$R$ と $R[t]$ のNoether性が同値であることを示せ。
+単位的可換環 $R$ について、$R[t]$ がNoetherなら $R$ もNoetherであることを証明せよ。その結果と[Hilbertの基底定理](#thm-ag1-05-hilbert-basis)を用いて、$R$ と $R[t]$ のNoether性が同値であることを示せ。
 
 - Level: B
 - ID: AG1-05-B1
@@ -402,7 +402,7 @@ $X_1\supseteq X_2\supseteq\cdots$ を $k^n$ のZariski閉集合の降鎖とす�
 - ID: AG1-05-B3
 
 <!-- solution-start -->
-**詳細解答**　$X_{i+1}\subseteq X_i$ のとき $f\in I(X_i)$ は $X_i$ のすべての点で零ですから、その部分集合 $X_{i+1}$ のすべての点でも零です。従って $I(X_i)\subseteq I(X_{i+1})$ です。$k[x_1,\dots,x_n]$ は[Hilbertの基底定理の系](#cor-ag1-05-multivariate-noether)からNoetherなので、ある $N$ で $I(X_i)=I(X_N)$ ($i\ge N$) です。ここから集合の等式を結論するには、同じ消滅イデアルを持つ閉集合が同じであることが必要です。実際閉集合 $X=V(E)$ に対し $E\subseteq I(X)$ だから $V(I(X))\subseteq V(E)=X$、また定義から $X\subseteq V(I(X))$ です。よって $X=V(I(X))$ となり、$X_i=X_N$ が従います。消滅イデアルの包含関係だけでは集合の等式まで飛ばせず、この復元が必要です。
+**詳細解答**　$X_{i+1}\subseteq X_i$ のとき $f\in I(X_i)$ は $X_i$ のすべての点で零ですから、その部分集合 $X_{i+1}$ のすべての点でも零です。従って $I(X_i)\subseteq I(X_{i+1})$ です。$k[x_1,\dots,x_n]$ は[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)からNoetherなので、ある $N$ で $I(X_i)=I(X_N)$ ($i\ge N$) です。ここから集合の等式を結論するには、同じ消滅イデアルを持つ閉集合が同じであることが必要です。実際閉集合 $X=V(E)$ に対し $E\subseteq I(X)$ だから $V(I(X))\subseteq V(E)=X$、また定義から $X\subseteq V(I(X))$ です。よって $X=V(I(X))$ となり、$X_i=X_N$ が従います。消滅イデアルの包含関係だけでは集合の等式まで飛ばせず、この復元が必要です。
 <!-- solution-end -->
 
 ### B4. 無限の方程式を有限個へ
