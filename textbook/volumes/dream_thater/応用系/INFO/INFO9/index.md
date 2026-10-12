@@ -18,11 +18,15 @@
 > **定義（微分エントロピー）**  
 > $X$ を $\mathbb R^d$（$d\ge1$）上の確率密度関数 $f$ を持つ確率変数とする。$f\ge0$、$\int_{\mathbb R^d}f(x)\,dx=1$ であり、
 >
-> $$\int_{\mathbb R^d}|f(x)\log_2 f(x)|\,dx<\infty$$
+$$
+\int_{\mathbb R^d}|f(x)\log_2 f(x)|\,dx<\infty
+$$
 >
 > と仮定する。ただし $0\log_2 0=0$ とする。このとき、微分エントロピーを
 >
-> $$h(X):=-\int_{\mathbb R^d}f(x)\log_2 f(x)\,dx$$
+$$
+h(X):=-\int_{\mathbb R^d}f(x)\log_2 f(x)\,dx
+$$
 >
 > と定義する。密度は通常の体積に関する密度であり、この定義の下では $h(X)$ は有限の実数である。
 <!-- formal-statement-end -->
@@ -61,7 +65,9 @@ $Y=aX+b$（$a\ne0$）では、変換後の短い区間の幅が $|a|$ 倍にな�
 > **命題（微分エントロピーの可逆アフィン変換則）**  
 > $\mathbb R^d$ に密度 $f_X$ を持ち、$h(X)$ の定義の絶対可積分条件を満たす $X$ を考える。$d\times d$ 実正則行列 $A$ と $b\in\mathbb R^d$ について $Y=AX+b$ と置くと $Y$ も密度を持ち、
 >
-> $$h(Y)=h(X)+\log_2|\det A|$$
+$$
+h(Y)=h(X)+\log_2|\det A|
+$$
 >
 > が成り立つ。特に一次元で $a\ne0$ のとき $h(aX+b)=h(X)+\log_2|a|$。
 <!-- formal-statement-end -->
@@ -118,7 +124,9 @@ $$
 > **定理（区間上の連続密度と等幅量子化）**  
 > $X$ は $[0,1]$ 上の連続で非負の密度 $f$ を持ち、$\int_0^1f(x)\,dx=1$ とする。整数 $n\ge1$ に対し $K_n=\lfloor nX\rfloor$（$X=1$ のときは $K_n=n-1$ とする）と置く。このとき
 >
-> $$\lim_{n\to\infty}\bigl(H(K_n)-\log_2 n\bigr)=h(X).$$
+$$
+\lim_{n\to\infty}\bigl(H(K_n)-\log_2 n\bigr)=h(X).
+$$
 >
 > ここで $H(K_n)$ は有限集合 $\{0,\ldots,n-1\}$ 上の離散エントロピーである。
 <!-- formal-statement-end -->
@@ -180,7 +188,9 @@ $$
 > **定義（連続分布の相対エントロピー）**  
 > 同じ $\mathbb R^d$ 上の確率密度 $p,q$ を持つ確率分布 $P,Q$ に対し、$q(x)=0$ なのに $p(x)>0$ となる集合の $P$-確率が正なら $D(P\|Q)=+\infty$ とする。それ以外の場合に
 >
-> $$D(P\|Q):=\int_{\{p>0\}}p(x)\log_2\frac{p(x)}{q(x)}\,dx$$
+$$
+D(P\|Q):=\int_{\{p>0\}}p(x)\log_2\frac{p(x)}{q(x)}\,dx
+$$
 >
 > と定める。積分値は $[0,+\infty]$ に属する拡張実数として解釈する。$p=0$ の箇所は零とする。$q=0$ の箇所が $P$-零集合である条件を $P\ll Q$ と書く。
 <!-- formal-statement-end -->
@@ -192,7 +202,9 @@ $$
 
 **定義の確認**：$P$ を $[0,1]$ 上一様、$Q$ を $[0,2]$ 上一様とします。$p=1$（$[0,1]$）、$q=1/2$（$[0,2]$）で双方が正規化され、$P\ll Q$ です。$P$ の台では $p/q=2$ なので
 
-$$D(P\|Q)=\int_0^1 1\cdot\log_2 2\,dx=1.$$
+$$
+D(P\|Q)=\int_0^1 1\cdot\log_2 2\,dx=1.
+$$
 
 逆向きは $x\in(1,2]$ で $q(x)>0$、$p(x)=0$ なので $D(Q\|P)=+\infty$。微分エントロピー同士の単純な差ではありません。
 <!-- definition-example-end -->
@@ -253,7 +265,9 @@ $$
 > **定義（連続変数の相互情報量）**  
 > $(X,Y)$ が $\mathbb R^{d+e}$ 上に結合密度 $p_{XY}$ を持ち、周辺密度 $p_X,p_Y$ を持つとする。積密度 $p_X(x)p_Y(y)$ を持つ分布を $P_X\otimes P_Y$ と書き、
 >
-> $$I(X;Y):=D(P_{XY}\|P_X\otimes P_Y)$$
+$$
+I(X;Y):=D(P_{XY}\|P_X\otimes P_Y)
+$$
 >
 > と定義する。値は $[0,+\infty]$ に属する。積密度が正のところでは密度比の積分で表せる。
 <!-- formal-statement-end -->
@@ -280,13 +294,17 @@ $$
 > **定理（連続相互情報量の非負性とエントロピー表示）**  
 > $(X,Y)$ に結合密度があるとき $I(X;Y)\ge0$ であり、$I(X;Y)=0$ と $X,Y$ の独立性は同値である。さらに
 >
-> $$\int|p_{XY}\log_2p_{XY}|<\infty,\quad
-> \int|p_X\log_2p_X|<\infty,\quad
-> \int|p_Y\log_2p_Y|<\infty$$
+$
+\int|p_{XY}\log_2p_{XY}|<\infty,\qquad
+\int|p_X\log_2p_X|<\infty,\qquad
+\int|p_Y\log_2p_Y|<\infty.
+$
 >
 > が成り立つ場合には相互情報量は有限で、
 >
-> $$I(X;Y)=h(X)+h(Y)-h(X,Y)$$
+$$
+I(X;Y)=h(X)+h(Y)-h(X,Y)
+$$
 >
 > が成立する。積分はそれぞれの定義域全体で行う。
 <!-- formal-statement-end -->
@@ -332,7 +350,9 @@ $$
 > **定義（連続条件付き微分エントロピー）**  
 > 結合密度 $p_{XY}$ と周辺密度 $p_X$ があり、$p_X(x)>0$ の点で $p_{Y|X}(y|x):=p_{XY}(x,y)/p_X(x)$ とする。積分 $\iint |p_{XY}\log_2p_{Y|X}|\,dx\,dy$ が有限の場合、
 >
-> $$h(Y|X):=-\iint p_{XY}(x,y)\log_2p_{Y|X}(y|x)\,dx\,dy$$
+$$
+h(Y|X):=-\iint p_{XY}(x,y)\log_2p_{Y|X}(y|x)\,dx\,dy
+$$
 >
 > と定める。$p_X=0$ の点の条件付き密度は任意に定めてよく、積分には寄与しない。
 <!-- formal-statement-end -->
@@ -349,7 +369,9 @@ $$
 > **命題（連続結合エントロピーの連鎖律）**  
 > 結合密度 $p_{XY}$ を持つ $(X,Y)$ について、$h(X,Y)$ と $h(X)$ の定義の絶対可積分条件が成り立つとき、上の条件付き微分エントロピーも有限に定義され、
 >
-> $$h(X,Y)=h(X)+h(Y|X)$$
+$$
+h(X,Y)=h(X)+h(Y|X)
+$$
 >
 > が成立する。さらに $h(Y)$ も有限なら $I(X;Y)=h(Y)-h(Y|X)$ が成立する。
 <!-- formal-statement-end -->
@@ -384,7 +406,9 @@ $$
 > **命題（可逆アフィン座標変換での相互情報量の不変性）**  
 > $(X,Y)$ が結合密度を持つとし、$U=AX+a$、$V=BY+b$ で $A,B$ はそれぞれ正則行列とする。このとき、$I(X;Y)$ が有限でも無限大でも
 >
-> $$I(U;V)=I(X;Y)$$
+$$
+I(U;V)=I(X;Y)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -426,17 +450,45 @@ $$
 > **命題（一次元Gaussian分布の微分エントロピー）**  
 > $X$ が平均 $\mu\in\mathbb R$、分散 $\sigma^2>0$ のGaussian密度
 >
-> $$g(x)=\frac1{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
+$$
+g(x)=\frac1{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
 >
 > を持つなら
 >
-> $$h(X)=\frac12\log_2(2\pi e\sigma^2).$$
+$$
+h(X)=\frac12\log_2(2\pi e\sigma^2).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-Gaussian密度は正であり $\int g=1$、$E[(X-\mu)^2]=\sigma^2<\infty$ です。対数を取ると
+まずGaussian密度の正規化と二次モーメントを確認します。$J=\int_{-\infty}^{\infty}e^{-u^2/2}\,du>0$ とすると、非負関数の二重積分を極座標 $(u,v)=(r\cos\theta,r\sin\theta)$ に変換して
+
+$
+\begin{aligned}
+J^2
+&=\int_{\mathbb R^2}e^{-(u^2+v^2)/2}\,du\,dv\\
+&=\int_0^{2\pi}\int_0^\infty e^{-r^2/2}r\,dr\,d\theta\\
+&=2\pi\left[-e^{-r^2/2}\right]_{r=0}^{\infty}=2\pi.
+\end{aligned}
+$
+
+従って $J=\sqrt{2\pi}$。標準化変数 $u=(x-\mu)/\sigma$（$\sigma>0$）を使うと $\int g(x)\,dx=J/\sqrt{2\pi}=1$ です。偶関数の対称性で $\int u e^{-u^2/2}\,du=0$、さらに部分積分で
+
+$
+\begin{aligned}
+\int_{-\infty}^{\infty}u^2 e^{-u^2/2}\,du
+&=\left[-u e^{-u^2/2}\right]_{-\infty}^{\infty}
++\int_{-\infty}^{\infty}e^{-u^2/2}\,du\\
+&=0+J=J.
+\end{aligned}
+$
+
+境界項が零なのは $|u|e^{-u^2/2}\to0$ のためです。これを標準化へ戻して $E[X]=\mu$、$E[(X-\mu)^2]=\sigma^2$ が確かめられます。
+
+以上によりGaussian密度は正規化され、必要な二次モーメントは有限です。対数を取ると
 
 $$
 -\log_2g(x)=\frac12\log_2(2\pi\sigma^2)
@@ -462,7 +514,9 @@ $$
 > **定理（平均・分散を固定した最大微分エントロピー）**  
 > $X$ は $\mathbb R$ 上の密度 $f$ を持ち、$E[X]=\mu$、$E[(X-\mu)^2]=\sigma^2\in(0,\infty)$ とし、$\int|f\log_2f|<\infty$ と仮定する。このとき
 >
-> $$h(X)\le\frac12\log_2(2\pi e\sigma^2),$$
+$$
+h(X)\le\frac12\log_2(2\pi e\sigma^2),
+$$
 >
 > 等号が成り立つのは $X$ が平均 $\mu$、分散 $\sigma^2$ のGaussian分布に従う場合、かつその場合に限る。
 <!-- formal-statement-end -->
@@ -749,7 +803,9 @@ $$
 
 比較Gaussian密度 $g$ は全実数上で正です。$f$ はコンパクト台で $\int|f\log f|<\infty$、二次モーメントは $a^2/3$ なので、[最大エントロピー定理](#thm-info9-gaussian-max)の証明どおり
 
-$$D(P_X\|P_G)=h(G)-h(X)\ge0.$$
+$$
+D(P_X\|P_G)=h(G)-h(X)\ge0.
+$$
 
 等号なら $f=g$ がほとんど至る所で必要ですが、一方は $[-a,a]$ の外で0、他方は常に正なので不可能です。従って差は厳密に正です。
 
