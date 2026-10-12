@@ -6,11 +6,18 @@
 
 以下、特に断らない限り $k$ は**代数閉体**（具体的には $k=\mathbb C$ としてよい）、$n\ge1$、$R=k[x_1,\ldots,x_n]$ とし、すべての環は単位的可換環です。代数閉体とは、$k[T]$ の次数が正の任意の多項式が $k$ に根を持つ体です。一般の体で成立する箇所は区別します。[共通零点集合](../AG1-01/index.md#def-ag1-01-affine-zero-set) $V_k(J)$ と[消滅イデアル](../AG1-01/index.md#def-ag1-01-vanishing-ideal) $I_k(X)$ を使います。空集合上ですべての点に関する条件は真なので $I_k(\varnothing)=R$ です。
 
-## 1. 最大イデアルはなぜ点を表すのか
+## 1. 極大イデアルはなぜ点を表すのか
 
 一点 $a=(a_1,\ldots,a_n)\in k^n$ を固定すると、評価写像 $R\to k$、$p\mapsto p(a)$ は全射で、核は $(x_1-a_1,\ldots,x_n-a_n)$ です。後者の商が体 $k$ になるので、[極大イデアルと商体の判定](../../RNG/RNG2/index.md#thm-rng2-maximal-quotient-field)から極大です。問題は**これ以外の極大イデアルがあるか**です。
 
-例えば $k[x,y]$ の $(x-2,y+3)$ は $(2,-3)$ に対応します。一方、実数上の $(x^2+1)$ は、$\mathbb R[x]/(x^2+1)$ が体となるため極大ですが、実数の点には対応しません。これを排除するのが代数閉性です。
+例えば $k[x,y]$ の $(x-2,y+3)$ は $(2,-3)$ に対応します。一方、実数上の $(x^2+1)$ は、$\mathbb R[x]/(x^2+1)$ が体となるため極大ですが、実数の点には対応しません。実際、商環の元は $a+b\bar x$（$a,b\in\mathbb R$）と書け、$\bar x^2=-1$ です。$(a,b)\ne(0,0)$ なら $a^2+b^2>0$ なので
+
+$$
+(a+b\bar x)\frac{a-b\bar x}{a^2+b^2}
+=\frac{a^2-b^2\bar x^2}{a^2+b^2}=1
+$$
+
+となり、すべての非零元が逆元を持ちます。この極大イデアルが実数点に対応しないことを排除するのが代数閉性です。
 
 極大イデアル $\mathfrak m$ に対して $K=R/\mathfrak m$ と置けば $K$ は体であり、$x_i$ の剰余類で $k$ 代数として生成されます。ここで必要な「有限個の元で生成された体は、代数閉体上では新しい元を含まない」という補題を証明します。
 
@@ -89,7 +96,26 @@ $$
 p(x_1,\ldots,x_n)-p(a_1,\ldots,a_n)\in\mathfrak m_a
 $$
 
-です。実際、各単項式 $x_1^{e_1}\cdots x_n^{e_n}$ と定数 $a_1^{e_1}\cdots a_n^{e_n}$ の差は、一つずつ $x_i$ を $a_i$ に取り替えた差の和に分解でき、各差は $x_i-a_i$ で割り切れます。従って評価写像の核は $\mathfrak m_a$ で、$R/\mathfrak m_a\simeq k$ です。よって $\mathfrak m_a$ も極大であり、極大イデアルの包含 $\mathfrak m_a\subseteq\mathfrak m$ は等号になります。
+です。これは各単項式について、座標を左から順に $a_i$ に置き換える差を足せば確かめられます。指数 $e_i\ge0$ に対して
+
+$$
+\begin{aligned}
+&\prod_{j=1}^{n}x_j^{e_j}-\prod_{j=1}^{n}a_j^{e_j}\\
+&=\sum_{i=1}^{n}
+\left(\prod_{j<i}a_j^{e_j}\right)
+(x_i^{e_i}-a_i^{e_i})
+\left(\prod_{j>i}x_j^{e_j}\right)
+\end{aligned}
+$$
+
+です。$e_i=0$ なら第 $i$ 項は零であり、$e_i\ge1$ なら
+
+$$
+x_i^{e_i}-a_i^{e_i}
+=(x_i-a_i)\sum_{h=0}^{e_i-1}x_i^{e_i-1-h}a_i^h
+$$
+
+と因数分解できるので、差は $\mathfrak m_a$ に入ります。多項式は単項式の有限和だから、任意の $p$ について $p-p(a)\in\mathfrak m_a$ です。$p(a)=0$ なら $p\in\mathfrak m_a$、逆に生成元はすべて点 $a$ で零なので $\mathfrak m_a\subseteq\ker\operatorname{ev}_a$ です。したがって $\ker\operatorname{ev}_a=\mathfrak m_a$ であり、評価写像の全射性から $R/\mathfrak m_a\simeq k$ です。よって $\mathfrak m_a$ も極大であり、極大イデアルの包含 $\mathfrak m_a\subseteq\mathfrak m$ は等号になります。
 
 点の一意性は、$\mathfrak m_a=\mathfrak m_b$ のとき $x_i-a_i$ を $b$ で評価すると $b_i-a_i=0$ となることから従います。逆に任意の $a$ に対して商 $R/\mathfrak m_a\simeq k$ なので $\mathfrak m_a$ は極大です。
 <!-- proof-end -->
@@ -154,7 +180,13 @@ $$
 **定義の確認**：$R=k[x]$、$J=(x^2)$ なら $x^2\in J$ なので $x\in\sqrt J$ です。従って $(x)\subseteq\sqrt J$。逆に $f^m\in(x^2)\subseteq(x)$ なら $f(0)^m=0$、体では $f(0)=0$ です。[多項式除法](../../RNG/RNG4/index.md#thm-rng4-division-algorithm)から $f=xq$ なので $f\in(x)$ です。よって $\sqrt{(x^2)}=(x)$ となります。
 <!-- definition-example-end -->
 
-根基は実際にイデアルです。$f^m,g^\ell\in J$ なら、$(f+g)^{m+\ell-1}$ の各項は $f$ の指数が $m$ 以上、または $g$ の指数が $\ell$ 以上なので、どの項も $J$ に入ります。$r\in R$ について $(rf)^m=r^mf^m\in J$ です。また $J\subseteq\sqrt J$ で、$\sqrt J$ は[根基的イデアル](../AG1-01/index.md#def-ag1-01-radical-ideal)です。実際 $(h^q)^m=h^{qm}\in J$ なら $h\in\sqrt J$ となります。以上は代数閉性に関係なく任意の可換環で成立します。
+根基は実際にイデアルです。$f^m,g^\ell\in J$ とし、$q=m+\ell-1$ と置きます。二項展開
+
+$$
+(f+g)^q=\sum_{j=0}^{q}\binom qj f^jg^{q-j}
+$$
+
+で、$j\ge m$ なら $f^j$ は $f^m$ の倍数です。$j<m$ なら $q-j\ge m+\ell-1-(m-1)=\ell$ なので $g^{q-j}$ が $g^\ell$ の倍数です。よってすべての項が $J$ に属し、$(f+g)^q\in J$、すなわち $f+g\in\sqrt J$ です。$r\in R$ について $(rf)^m=r^mf^m\in J$ です。また $J\subseteq\sqrt J$ で、$\sqrt J$ は[根基的イデアル](../AG1-01/index.md#def-ag1-01-radical-ideal)です。実際 $(h^q)^m=h^{qm}\in J$ なら $h\in\sqrt J$ となります。以上は代数閉性に関係なく任意の可換環で成立します。
 
 $J\subseteq I_k(V_k(J))$ と、$f^m\in J$ ならすべての共通零点で $f(a)^m=0$ となることから、常に $\sqrt J\subseteq I_k(V_k(J))$ です。逆の包含には「解の不在」を扱う弱零点定理を使います。
 
@@ -184,7 +216,7 @@ $$
 
 **$\sqrt J\subseteq I_k(V_k(J))$。** $f\in\sqrt J$ なら $f^m\in J$ となる $m\ge1$ があります。任意の $a\in V_k(J)$ について $0=f^m(a)=f(a)^m$ です。体 $k$ に零因子がないので $f(a)=0$、つまり $f\in I_k(V_k(J))$ です。$V_k(J)=\varnothing$ の場合もこの包含は成り立ちます。
 
-**$I_k(V_k(J))\subseteq\sqrt J$。** $f\in I_k(V_k(J))$ とします。$f=0$ なら $f\in J\subseteq\sqrt J$ なので、以下は $f\ne0$ として構いません。$J$ は[Hilbertの基底定理](../AG1-05/index.md#thm-ag1-05-hilbert-basis)と有限生成性の同値性から有限生成であり、$J=(g_1,\ldots,g_s)$ と書けます。$J=0$ の場合は空の生成系を許します。
+**$I_k(V_k(J))\subseteq\sqrt J$。** $f\in I_k(V_k(J))$ とします。$f=0$ なら $f\in J\subseteq\sqrt J$ なので、以下は $f\ne0$ として構いません。$J$ は[Hilbertの基底定理](../AG1-05/index.md#thm-ag1-05-hilbert-basis)によりNoether環 $R$ のイデアルであり、[昇鎖条件と有限生成の同値性](../AG1-05/index.md#prop-ag1-05-acc-finite-generation)から有限生成です。そこで $J=(g_1,\ldots,g_s)$ と書けます。$J=0$ の場合は空の生成系を許します。
 
 新変数 $u$ を加えた $R[u]=k[x_1,\ldots,x_n,u]$ に
 
@@ -376,7 +408,13 @@ $J=(x^2,xy)\subset k[x,y]$ とする。(1) $V_k(J)$ と $I_k(V_k(J))$ を直接�
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $x^2=0$ は $x=0$ を強制し、$xy=0$ は $x=0$ の下ではすべての $y$ に対し成り立ちます。従って $V_k(J)=\{(0,b):b\in k\}$ です。任意の多項式 $p(x,y)$ は $x$ について定数項とそれ以外に分けて $p(x,y)=p(0,y)+xq(x,y)$ と書けます。$p$ がこの直線で消えるなら、すべての $b\in k$ について $p(0,b)=0$ です。$k$ は代数閉体なので無限体であり（有限体の全元を根に持つ多項式に定数 $1$ を足せば代数閉性に矛盾）、非零一変数多項式はその次数より多くの根を持てません。ゆえに $p(0,y)$ は零多項式で $p\in(x)$ です。逆に $xq$ は $x=0$ で零なので $I_k(V_k(J))=(x)$ です。
+**(1)** $x^2=0$ は $x=0$ を強制し、$xy=0$ は $x=0$ の下ではすべての $y$ に対し成り立ちます。従って $V_k(J)=\{(0,b):b\in k\}$ です。任意の多項式 $p(x,y)$ は $x$ について定数項とそれ以外に分けて $p(x,y)=p(0,y)+xq(x,y)$ と書けます。$p$ がこの直線で消えるなら、すべての $b\in k$ について $p(0,b)=0$ です。$k$ は代数閉体なので無限体です。実際、有限体だと仮定して $k=\{a_1,\ldots,a_q\}$ と列挙すると、
+
+$$
+Q(T)=1+\prod_{i=1}^{q}(T-a_i)\in k[T]
+$$
+
+は正の次数を持ちながら、どの $a_i$ に対しても $Q(a_i)=1$ となって根を持たず、代数閉性に矛盾します。従って $k$ は無限体であり、非零一変数多項式はその次数より多くの根を持てません。ゆえに $p(0,y)$ は零多項式で $p\in(x)$ です。逆に $xq$ は $x=0$ で零なので $I_k(V_k(J))=(x)$ です。
 
 **(2)** $k[x,y,u]$ 内で
 

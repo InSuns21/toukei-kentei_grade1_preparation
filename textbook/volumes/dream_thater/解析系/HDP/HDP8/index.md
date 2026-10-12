@@ -47,8 +47,15 @@ $$
 $\cosh\theta\ge1$ だから $I_2\preceq Ee^{\theta X}$ です。一般の $X$ でも $e^{\theta X}\succ0$ なので、その期待値は正定値になります。実際、$u\ne0$ なら $E[u^{\mathsf T}e^{\theta X}u]>0$ です。
 <!-- definition-example-end -->
 
-**成分ごとの大小関係とは異なる。** 例えば
-$B=\begin{pmatrix}1&2\\2&1\end{pmatrix}$ は全成分が正ですが、$u=(1,-1)^{\mathsf T}$ とすると $u^{\mathsf T}Bu=-2<0$ です。従って $0\preceq B$ とはいえません。Loewner順序を判断するときは、成分の符号でなく**すべての二次形式の符号**を確認します。
+**成分ごとの大小関係とは異なる。** 例えば全成分が正の行列でも、
+
+$$
+B=\begin{pmatrix}1&2\\2&1\end{pmatrix},
+\qquad u=\begin{pmatrix}1\\-1\end{pmatrix},
+\qquad u^{\mathsf T}Bu=-2<0
+$$
+
+となります。従って $0\preceq B$ とはいえません。Loewner順序を判断するときは、成分の符号でなく**すべての二次形式の符号**を確認します。
 
 確率のイベントへ接続するには、最大固有値が大きいとトレース指数も大きいことを使います。
 
@@ -167,7 +174,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t\ge0$ とし $A+tI\preceq B+tI$ を考えます。$C=(A+tI)^{-1/2}(B+tI)(A+tI)^{-1/2}\succeq I$ だから、固有値を逆数にすると $C^{-1}\preceq I$ です。[合同変換](../../../基礎科目/LA/LA6/index.md#def-la6-congruence)で戻せば
+$t\ge0$ とすると $0\prec A+tI\preceq B+tI$ です。$C=(A+tI)^{-1/2}(B+tI)(A+tI)^{-1/2}\succeq I$ とおきます。$C$ の全固有値は $1$ 以上なので、逆数を取って $C^{-1}\preceq I$ が従います。ここで逆行列の積の順序を反転させると
+
+$$
+C^{-1}=(A+tI)^{1/2}(B+tI)^{-1}(A+tI)^{1/2}\preceq I.
+$$
+
+両辺を $(A+tI)^{-1/2}$ で[合同変換](../../../基礎科目/LA/LA6/index.md#def-la6-congruence)して戻せば
 
 $$
 (B+tI)^{-1}\preceq(A+tI)^{-1}.
@@ -179,7 +192,17 @@ $$
 \log x=\int_0^\infty\left(\frac1{1+t}-\frac1{x+t}\right)\,dt
 $$
 
-は、右辺を $0$ から $T$ まで積分して $\log x-\log(1+T)+\log(x+T)$ とし $T\to\infty$ とすれば確かめられます。固有値ごとに同じ積分を施すと
+は、$T>0$ までの積分を実行すれば確かめられます。実際、
+
+$$
+\begin{aligned}
+\int_0^T\left(\frac1{1+t}-\frac1{x+t}\right)\,dt
+&=\bigl[\log(1+t)-\log(x+t)\bigr]_0^T\\
+&=\log(1+T)-\log(x+T)+\log x.
+\end{aligned}
+$$
+
+ここで $\log(1+T)-\log(x+T)=\log\{(1+T)/(x+T)\}\to0$ なので、$T\to\infty$ で所望の表示を得ます。この計算をそれぞれの正定値行列の固有値へ適用すると
 
 $$
 \log B-\log A
@@ -449,7 +472,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp8-dilation -->
-**定義の確認**。 $Z=(a,b)^{\mathsf T}\in\mathbb R^{2\times1}$ なら、$\mathcal D(Z)$ は $3\times3$ の対称行列です。$\mathcal D(Z)^2=\operatorname{diag}(ZZ^{\mathsf T},Z^{\mathsf T}Z)$ なので非零固有値は $\pm\sqrt{a^2+b^2}$ となり、$\|\mathcal D(Z)\|_{\mathrm{op}}=\|Z\|_{\mathrm{op}}=\sqrt{a^2+b^2}$ を確認できます。
+**定義の確認**。$Z=(a,b)^{\mathsf T}\in\mathbb R^{2\times1}$ なら $\mathcal D(Z)$ は $3\times3$ の対称行列で、
+
+$$
+\mathcal D(Z)=\begin{pmatrix}0&0&a\\0&0&b\\a&b&0\end{pmatrix},
+\qquad
+\mathcal D(Z)^2=\operatorname{diag}(ZZ^{\mathsf T},Z^{\mathsf T}Z).
+$$
+
+$r=\sqrt{a^2+b^2}>0$ なら、直接掛け算すると $(a,b,r)^{\mathsf T}$ と $(a,b,-r)^{\mathsf T}$ は、それぞれ固有値 $r$ と $-r$ の固有ベクトルです。また $(-b,a,0)^{\mathsf T}$ は固有値 $0$ の固有ベクトルです。よって固有値は $r,-r,0$、作用素ノルムは $r=\|Z\|_{\mathrm{op}}$ です。$r=0$ なら $\mathcal D(Z)=0$ なので同じノルムの等式が成り立ちます。
 <!-- definition-example-end -->
 
 <a id="cor-hdp8-rectangular-bernstein"></a>
@@ -484,7 +515,23 @@ Y_i^2=
 \left\|\sum_iEY_i^2\right\|_{\mathrm{op}}=v_{\mathrm{rec}}.
 $$
 
-$\mathcal D(\sum_iZ_i)$ の固有値は各特異値の正負の組（および零）なので、$\lambda_{\max}(\sum_iY_i)=\|\sum_iZ_i\|_{\mathrm{op}}$ です。[行列Bernsteinの片側評価](#thm-hdp8-matrix-bernstein)を大きさ $p+q$ の $Y_i$ へ適用すれば、**両側の係数 $2(p+q)$ ではなく** $(p+q)$ が得られます。
+ここで $Z=\sum_iZ_i$ に[実行列の特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を適用します。$Z=U\Sigma V^{\mathsf T}$（$U\in\mathbb R^{p\times p}$、$V\in\mathbb R^{q\times q}$ は直交行列）なら、ブロック対角の直交行列 $Q=\operatorname{diag}(U,V)$ により
+
+$$
+Q^{\mathsf T}\mathcal D(Z)Q
+=\begin{pmatrix}0&\Sigma\\\Sigma^{\mathsf T}&0\end{pmatrix}.
+$$
+
+正の特異値 $\sigma_j$ に対応する左右の標準基底ベクトルを $e_j^{(p)},e_j^{(q)}$ と書くと、右辺に $(e_j^{(p)},\pm e_j^{(q)})^{\mathsf T}/\sqrt2$ を掛けた結果は、そのベクトルの $\pm\sigma_j$ 倍です。零特異値に対応する方向と、縦横の次元差によって余る標準基底方向は、いずれも固有値 $0$ に対応します。したがって $\mathcal D(Z)$ の固有値は正負の特異値の組と零であり、
+
+$$
+\lambda_{\max}\left(\sum_iY_i\right)
+=\lambda_{\max}(\mathcal D(Z))
+=\|Z\|_{\mathrm{op}}
+=\left\|\sum_iZ_i\right\|_{\mathrm{op}}.
+$$
+
+$Z=0$ の場合は両辺が $0$ です。よって[行列Bernsteinの片側評価](#thm-hdp8-matrix-bernstein)を次元 $p+q$ の $Y_i$ へ適用すると、**両側の係数 $2(p+q)$ ではなく** $(p+q)$ が得られます。
 <!-- proof-end -->
 
 もう一つの利用例は、有界なベクトルから作った標本共分散です。$X_i\in\mathbb R^d$ が独立同分布、$EX_i=0$、$\|X_i\|_2\le L$（$L>0$）、$\Sigma=E[X_iX_i^{\mathsf T}]$ とします。$Y_i=X_iX_i^{\mathsf T}-\Sigma$ には
@@ -566,7 +613,17 @@ $$
 \mathcal D(Z)^2=\begin{pmatrix}a^2&ab&0\\ab&b^2&0\\0&0&a^2+b^2\end{pmatrix}.
 $$
 
-$\mathcal D(Z)$ の特性多項式を第一行に沿って展開すると $-\lambda(\lambda^2-a^2-b^2)$ です。固有値は $0,\pm\sqrt{a^2+b^2}$ であり最大固有値は $\sqrt{a^2+b^2}=\|Z\|_{\mathrm{op}}$ です。
+$\mathcal D(Z)$ の固有値を直接確認します。$\det(\mathcal D(Z)-\lambda I)$ を第一行に沿って展開すると
+
+$$
+\begin{aligned}
+\det(\mathcal D(Z)-\lambda I)
+&=(-\lambda)(\lambda^2-b^2)+\lambda a^2\\
+&=-\lambda(\lambda^2-a^2-b^2).
+\end{aligned}
+$$
+
+したがって固有値は $0,\pm\sqrt{a^2+b^2}$ であり、最大固有値は $\sqrt{a^2+b^2}=\|Z\|_{\mathrm{op}}$ です。
 <!-- solution-end -->
 
 ### A5. 分散ゼロをどう扱うか
