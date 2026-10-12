@@ -52,7 +52,11 @@ function presentationSignature(source) {
     else if (/^[-*+]\s+/.test(s)) s = s.replace(/^[-*+]\s+/, 'ITEM:');
     else if (/^\*\*[（(][A-Za-z]{0,2}\d+[）)]/.test(s))
       s = s.replace(/^\*\*[（(][A-Za-z]{0,2}\d+[）)]\s*/, 'ITEM:**');
-    return s.replace(/\*\*/g, '').replace(/__/g, '').replace(/[ \t]+/g, ' ').trim();
+    // Remove only paired Markdown emphasis markers, never bare "**" or "__"
+    // within prose (which could be meaningful operators or identifiers).
+    return s.replace(/(^|[\s:「『（(\[])\*\*([^*\n]+)\*\*/g, '$1$2')
+      .replace(/(^|[\s:「『（(\[])__([^_\n]+)__/g, '$1$2')
+      .replace(/[ \t]+/g, ' ').trim();
   }).filter(Boolean).join('\n');
 }
 function isVerifiedFormatOnly(before, after) {
@@ -114,6 +118,8 @@ function selfTest() {
   assert(!isVerifiedFormatOnly('### A1. 問題\n' + from, '### A2. 問題\n' + to), 'exercise ID change must not qualify');
   assert(!isVerifiedFormatOnly('```js\na**b\n```', '```js\nab\n```'), 'code change must not qualify');
   assert(!isVerifiedFormatOnly(null, to), 'new chapter must not qualify');
+  assert(!isVerifiedFormatOnly('a**b', 'ab'), 'non-Markdown exponent-like syntax must not qualify');
+  assert(!isVerifiedFormatOnly('a__b', 'ab'), 'non-Markdown underscore identifiers must not qualify');
   assert(isVerifiedFormatOnly('  元の本文  \n\n定義', '元の本文\n定義'), 'spaces and blank lines should qualify');
   const tick = String.fromCharCode(96);
   const body = fields.map(f => '- **' + f + '**：十分な実査読情報をここに記録した。').join('\n')
