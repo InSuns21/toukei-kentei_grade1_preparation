@@ -1,0 +1,48 @@
+id: "INT2"
+title: "Liouville–Arnoldの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT1
+  - SYM4
+  - SYM6
+  - RA6A
+  - FOU2
+official_scope: []
+learning_objectives:
+  - Poisson可換性からHamiltonベクトル場と流れの可換性を導出できる
+  - コンパクトな正則レベル上での流れの完備性と推移性を証明できる
+  - 周期群が離散格子となりコンパクト性がその階数を最大にする機構を証明できる
+  - Liouville–Arnoldの定理のトーラス構造と直線運動を証明できる
+  - 周期格子の基底から角度座標と振動数ベクトルを計算できる
+  - 周期的運動と非周期的な準周期運動を整数関係で判定できる
+  - コンパクト性・正則性・連結性を落とした反例を区別できる
+definitions:
+  - { id: INT2-DEF-01, name: 流れの周期群 }
+  - { id: INT2-DEF-02, name: 振動数ベクトル }
+  - { id: INT2-DEF-03, name: 準周期運動 }
+theorems:
+  - { id: INT2-LEM-01, name: 可換Hamilton流とコンパクトレベル上の完備性 }
+  - { id: INT2-LEM-02, name: 周期群の格子構造 }
+  - { id: INT2-THM-01, name: Liouville–Arnoldの定理（トーラスと直線運動） }
+  - { id: INT2-PROP-01, name: 直線運動の周期判定 }
+canonical_examples:
+  - 二振動子の周期格子と基本角度の構成
+  - 振動数比が有理の場合と無理の場合
+  - 非コンパクトな自由運動の直線レベル
+  - 一自由度二重井戸の非連結正則エネルギーレベル
+  - 振動子の零エネルギー臨界レベル
+problem_patterns:
+  - INT2-FLOW-COMMUTATOR
+  - INT2-REGULAR-TANGENCY
+  - INT2-ONE-DIM-LATTICE
+  - INT2-PERIOD-VECTOR
+  - INT2-QUOTIENT-TO-TORUS
+  - INT2-RATIONAL-RESONANCE
+  - INT2-COMPACTNESS-FAILURE
+  - INT2-REGULARITY-CONNECTEDNESS
+  - INT2-FREQUENCY-INTEGER-BASIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 3 }
