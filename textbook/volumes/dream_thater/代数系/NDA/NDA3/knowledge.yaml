@@ -31,7 +31,7 @@ concepts:
     requires: [diophantine.lattice-fundamental-domain, analysis.linear-volume-scaling]
 
   - id: diophantine.covolume-basis-independence
-    name: 共体積の基底不変性と格子点の局所有限性
+    name: 共体積の基底不変性
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（共体積の基底不変性と格子の離散性）]
