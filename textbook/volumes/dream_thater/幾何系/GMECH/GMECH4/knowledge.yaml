@@ -1,0 +1,91 @@
+chapter: GMECH4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH2
+  - GMECH3
+  - SYM4
+  - LIE4
+  - GEO2
+forward_references: []
+
+concepts:
+  - id: mechanics.momentum-level-set
+    name: 運動量レベル集合
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（運動量レベル集合と正則値）"]
+    requires:
+      - mechanics.momentum-map
+
+  - id: mechanics.regular-momentum-value
+    name: 運動量写像の正則値
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（運動量レベル集合と正則値）"]
+    requires:
+      - mechanics.momentum-map
+
+  - id: mechanics.regular-momentum-level-tangent
+    name: 正則レベル集合の接空間と次元
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.regular-momentum-value
+      - geometry.differential
+
+  - id: mechanics.momentum-differential-stabilizer
+    name: 運動量写像の微分・軌道方向・正則性
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.momentum-map
+      - lie.smooth-action
+
+  - id: mechanics.coadjoint-stabilizer
+    name: 余随伴安定化群
+    kind: definition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.coadjoint-left-action
+
+  - id: mechanics.momentum-level-preservation
+    name: 運動量レベル集合への制限作用
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.momentum-equivariance
+      - mechanics.coadjoint-stabilizer
+
+  - id: mechanics.free-proper-action
+    name: 自由作用と固有作用
+    kind: definition
+    introduction: formal
+    aliases: []
+    requires:
+      - lie.smooth-action
+
+  - id: mechanics.regular-level-action-restriction
+    name: レベル集合に制限した作用の自由性・固有性
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.free-proper-action
+      - mechanics.momentum-level-preservation
+
+  - id: mechanics.regular-momentum-quotient
+    name: 正則運動量レベルの滑らかな商
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.regular-momentum-level-tangent
+      - mechanics.regular-level-action-restriction
+      - lie.stabilizer-orbit-rank
