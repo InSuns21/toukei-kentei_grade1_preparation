@@ -13,9 +13,14 @@ export function verifiedMassRelocation() {
     }
     const index=JSON.parse(fs.readFileSync('textbook/dream-theater-index.json','utf8'));
     if(index.sections.reduce((n,s)=>n+s.paths.length,0)<500)return false;
+    const previous=JSON.parse(execFileSync('git',['show',base+':textbook/dream-theater-index.json'],{encoding:'utf8'}));
+    const oldFirst=previous.sections[0]?.paths?.[0]??'';
+    const script=oldFirst.split('/').length===6
+      ? 'scripts/verify-dream-theater-course-relocation.mjs'
+      : 'scripts/verify-dream-theater-category-relocation.mjs';
     const checked=execFileSync(process.execPath,
-      ['scripts/verify-dream-theater-category-relocation.mjs','--base',base],
+      [script,'--base',base],
       {encoding:'utf8',maxBuffer:10*1024*1024});
-    return checked.includes('Migration content proof OK:');
+    return checked.includes('Migration content proof OK:')||checked.includes('Course relocation content proof OK:');
   }catch{return false;}
 }
