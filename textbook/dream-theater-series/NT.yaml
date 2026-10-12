@@ -32,7 +32,7 @@ chapters:
     title: 不定方程式と平方和
   - id: NT7
     path: textbook/volumes/dream_thater/代数系/NT/NT7
-    status: planned
+    status: completed
     title: 連分数・Pell方程式・Diophantine近似
   - id: NT8
     path: textbook/volumes/dream_thater/代数系/NT/NT8

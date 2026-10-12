@@ -1,0 +1,78 @@
+chapter: NT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT1
+  - NT6
+forward_references: []
+
+concepts:
+  - id: number-theory.simple-continued-fraction
+    name: 単純連分数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（単純連分数）]
+    requires: []
+
+  - id: number-theory.convergent-fraction
+    name: 収束分数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（収束分数）]
+    requires: [number-theory.simple-continued-fraction]
+
+  - id: number-theory.convergent-determinant
+    name: 収束分数の行列式と完全商公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（収束分数の行列式と完全商公式）]
+    requires: [number-theory.convergent-fraction]
+
+  - id: number-theory.convergent-error
+    name: 収束分数の誤差と交互近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（収束分数の誤差と交互近似）]
+    requires: [number-theory.convergent-determinant]
+
+  - id: number-theory.second-kind-best-approximation
+    name: 第二種最良近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二種最良近似）]
+    requires: [number-theory.convergent-error]
+
+  - id: number-theory.square-root-periodic-fraction
+    name: 平方根の連分数の周期性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平方根の連分数の周期性）]
+    requires: [number-theory.simple-continued-fraction]
+
+  - id: number-theory.pell-equation
+    name: Pell 方程式と基本解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Pell 方程式と基本解）]
+    requires: []
+
+  - id: number-theory.dirichlet-one-dimensional-approximation
+    name: 一次元の Dirichlet 近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（一次元の Dirichlet 近似）]
+    requires: []
+
+  - id: number-theory.pell-positive-existence
+    name: Pell 方程式の正整数解の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Pell 方程式の正整数解の存在）]
+    requires: [number-theory.dirichlet-one-dimensional-approximation, number-theory.pell-equation]
+
+  - id: number-theory.pell-all-positive-solutions
+    name: Pell 方程式の全正整数解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Pell 方程式の全正整数解）]
+    requires: [number-theory.pell-positive-existence]
