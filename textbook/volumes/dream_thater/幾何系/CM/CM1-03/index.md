@@ -126,7 +126,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[多変数正則性の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)により、$D_{\mathbb R}F_z$ は複素線形だから任意の実接ベクトル $v$ に対して
+[複素線形微分による多変数正則写像](../CM1-01/index.md#def-cm1-01-holomorphic-map)により、$D_{\mathbb R}F_z$ は複素線形だから任意の実接ベクトル $v$ に対して
 
 $$
 D_{\mathbb R}F_z(J_0v)
