@@ -685,6 +685,7 @@
 
 1. [INT1 第一積分とLiouville可積分性](textbook/volumes/dream_thater/幾何系/INT/INT1/index.md)
 2. [INT2 Liouville–Arnoldの定理](textbook/volumes/dream_thater/幾何系/INT/INT2/index.md)
+3. [INT3 作用角変数](textbook/volumes/dream_thater/幾何系/INT/INT3/index.md)
 
 ## 代数系
 
@@ -726,6 +727,7 @@
 ### Diophantine近似
 
 1. [NDA1 連分数と最良有理近似の精密化](textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md)
+2. [NDA2 Dirichlet・Hurwitz・悪近似数](textbook/volumes/dream_thater/代数系/NDA/NDA2/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
