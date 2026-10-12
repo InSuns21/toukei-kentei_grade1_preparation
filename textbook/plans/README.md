@@ -44,7 +44,7 @@
 | 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
 | 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
 | 超越数論Ⅰ・Hermiteの $e$ の超越性・Hermite–Lindemann・Lindemann–Weierstrass | `DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md`（TRN1–TRN14、独立科目。Liouville定理・Liouville数は整数論ルート `NDA6` が正本） |
-| 熱力学・熱力学ポテンシャル | `DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1〜8） |
+| 熱力学・熱力学ポテンシャル | `textbook/plans_progress/DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1完了、TH2〜8未着手） |
 | 平衡統計力学・アンサンブル・Ising | `DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md`（SM1〜8） |
 | スピングラス・SK・Parisi・cavity | `DREAM_THEATER_SPIN_GLASS_PLAN.md`（SG1〜8） |
 | ブラックホール熱力学・情報・量子場など12科目PLANへの横断ルート（TH/SMを含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（15セメスター横断、TH/SMは既存正本） |
