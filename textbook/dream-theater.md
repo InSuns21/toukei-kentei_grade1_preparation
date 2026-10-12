@@ -634,6 +634,7 @@
 3. [SYM3 余接束の正準シンプレクティック形式](textbook/volumes/00_foundations/SYM3/index.md)
 4. [SYM4 Hamiltonベクトル場・Poisson括弧・シンプレクティック流](textbook/volumes/00_foundations/SYM4/index.md)
 5. [SYM5 Darbouxの定理](textbook/volumes/00_foundations/SYM5/index.md)
+6. [SYM6 Lagrange部分空間・Lagrange部分多様体](textbook/volumes/00_foundations/SYM6/index.md)
 
 ## 代数系
 
