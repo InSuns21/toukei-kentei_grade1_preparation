@@ -1,0 +1,47 @@
+id: "SYM5"
+title: "Darbouxの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM1
+  - SYM4
+  - GEO7
+  - GEO9
+  - ODE1
+  - ODE8
+official_scope: []
+learning_objectives:
+  - Darboux座標を定義し具体的な2次元の非定数係数形式を座標変換で標準化できる
+  - 線形標準形で原点の2形式を合わせ、閉じた差の動径原始形式を成分ごとに構成・検算できる
+  - 形式の線形補間が共通する小球で非退化となることを行列式の連続性と時間区間のコンパクト性から証明できる
+  - 時間依存ベクトル場の収縮式から局所流の時刻1までの存在域をGrönwall評価で確保できる
+  - Cartanの公式と時間依存の引き戻し微分を用いてDarbouxの定理を証明できる
+  - Darboux座標でHamilton方程式とPoisson括弧を計算し、局所性・閉性の必要性と大域的障害を区別できる
+definitions:
+  - { id: SYM5-DEF-01, name: Darboux座標 }
+theorems:
+  - { id: SYM5-LEM-01, name: 閉2形式の動径原始形式の具体式 }
+  - { id: SYM5-LEM-02, name: 経路全体に共通する非退化近傍 }
+  - { id: SYM5-THM-01, name: Darbouxの定理 }
+  - { id: SYM5-COR-01, name: 各点の近くでの正準Poisson括弧 }
+canonical_examples:
+  - 平面上の非定数係数形式のDarboux座標
+  - 動径積分による原始形式の構成と外微分の照合
+  - 非退化性を保つ経路と線形補間が壊れる例
+  - 閉性のない4次元非退化形式の反例
+  - Darboux座標下のHamiltonベクトル場とPoisson括弧
+problem_patterns:
+  - SYM5-EXPLICIT-CHART
+  - SYM5-UNIFORM-NONDEGENERACY
+  - SYM5-RADIAL-PRIMITIVE
+  - SYM5-MOSER-SIGN
+  - SYM5-FORM-PATH
+  - SYM5-NONCLOSED-COUNTEREXAMPLE
+  - SYM5-INTERPOLATION-FAILURE
+  - SYM5-LOCAL-FLOW-BOUND
+  - SYM5-PULLBACK-CANCELLATION
+  - SYM5-HAMILTONIAN-COVARIANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
