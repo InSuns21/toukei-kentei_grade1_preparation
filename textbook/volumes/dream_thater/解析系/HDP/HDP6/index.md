@@ -11,7 +11,7 @@ $d\ge1$ とし、Euclidノルムを $\|x\|_2=(\sum_{j=1}^d x_j^2)^{1/2}$、単�
 <a id="def-hdp6-net"></a>
 
 <!-- formal-statement-start -->
-> **定義（球面の有限 $\eta$-net）**  
+> **定義（球面の有限η-net）**  
 > $d\ge1$、$\eta>0$ とする。有限集合 $\mathcal N\subset S^{d-1}$ が $\eta$-netであるとは、任意の $x\in S^{d-1}$ に対し、ある $v\in\mathcal N$ が存在して
 
 $$
@@ -395,7 +395,7 @@ $$
 
 ### 証明の見取り図
 
-固定した組 $(i,j)$ については[長さ保存補題](#lem-hdp6-gaussian-fixed-vector)が使えます。組は $\binom N2$ 個しかないため、[有限事象の和の確率評価](../HDP1/index.md#thm-hdp1-hoeffding)とは異なり独立性を仮定せず、各失敗事象の確率を足すだけで済みます（ここで使うのは単純な和事象の上界であり、Hoeffding不等式そのものではありません）。
+固定した組 $(i,j)$ については[長さ保存補題](#lem-hdp6-gaussian-fixed-vector)が使えます。組は $\binom N2$ 個しかないため、和事象の確率は各事象の確率の和以下であり、点対ごとの事象には独立性を仮定しません。
 
 <!-- proof-start -->
 ### 証明
