@@ -1,0 +1,46 @@
+id: "AG1-03"
+title: "座標環とアフィン代数多様体の正則写像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-01
+  - AG1-02
+  - RNG1
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 消滅イデアルによる座標環を定義し、多項式関数の環との同型を核から証明できる
+  - アフィン代数多様体を既約代数的集合として定義し、座標環の整域性との同値性を証明できる
+  - 正則写像の座標ごとの多項式表示を確認し、Zariski連続性と逆命題の失敗例を証明できる
+  - 正則写像と座標環のk-代数準同型の反変対応を両方向に構成し、well-defined性・一意性・合成則を示せる
+  - 座標環の同型から幾何的な正則同型を構成し、放物線とアフィン直線の同型を計算できる
+  - 正則写像の像が閉じるとは限らないことを双曲線の射影で説明できる
+definitions:
+  - { id: AG1-03-DEF-01, name: 座標環 }
+  - { id: AG1-03-DEF-02, name: アフィン代数多様体 }
+  - { id: AG1-03-DEF-03, name: アフィン代数的集合の正則写像 }
+theorems:
+  - { id: AG1-03-PROP-01, name: 座標環と多項式関数 }
+  - { id: AG1-03-PROP-02, name: 既約性と座標環の整域性 }
+  - { id: AG1-03-PROP-03, name: 正則写像のZariski連続性 }
+  - { id: AG1-03-THM-01, name: 正則写像と座標環準同型の反変対応 }
+  - { id: AG1-03-COR-01, name: アフィン代数的集合の同型判定 }
+canonical_examples:
+  - 放物線上でyとx^2が同じ多項式関数になる
+  - V(xy)で座標関数が非零零因子になる
+  - tを(t,t^2)へ送る正則同型
+  - 複素共役はZariski連続だが多項式でない
+  - 双曲線uv=1の第一座標の像は閉でない
+problem_patterns:
+  - AG1-03-FINITE-COORDINATE-RING
+  - AG1-03-REDUCIBLE-ZERO-DIVISOR
+  - AG1-03-PARABOLA-FUNCTION-IDENTITY
+  - AG1-03-PULLBACK-COMPUTATION
+  - AG1-03-PARABOLA-QUOTIENT
+  - AG1-03-CONTINUOUS-NONREGULAR
+  - AG1-03-CONTRAVARIANT-COMPOSITION
+  - AG1-03-ISOMORPHISM-HYPERBOLA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 2 }

@@ -1,0 +1,66 @@
+chapter: AG1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-01
+  - AG1-02
+  - RNG1
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.coordinate-ring
+    name: 座標環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（座標環）"]
+    requires: [algebraic-geometry.vanishing-ideal, algebra.quotient-ring]
+
+  - id: algebraic-geometry.coordinate-polynomial-functions
+    name: 座標環と多項式関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（座標環と多項式関数）"]
+    requires: [algebraic-geometry.coordinate-ring, algebra.first-isomorphism-theorem-ring]
+
+  - id: algebraic-geometry.affine-variety
+    name: アフィン代数多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィン代数多様体）"]
+    requires: [algebraic-geometry.affine-algebraic-set, algebraic-geometry.irreducible-space]
+
+  - id: algebraic-geometry.coordinate-domain
+    name: 既約性と座標環の整域性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（既約性と座標環の整域性）"]
+    requires: [algebraic-geometry.coordinate-ring, algebraic-geometry.irreducible-vanishing-prime, algebra.prime-ideal-quotient-domain]
+
+  - id: algebraic-geometry.regular-map-affine
+    name: アフィン代数的集合の正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィン代数的集合の正則写像）"]
+    requires: [algebraic-geometry.affine-algebraic-set, algebraic-geometry.coordinate-polynomial-functions]
+
+  - id: algebraic-geometry.regular-map-continuity
+    name: 正則写像のZariski連続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則写像のZariski連続性）"]
+    requires: [algebraic-geometry.regular-map-affine, algebraic-geometry.zariski-topology]
+
+  - id: algebraic-geometry.affine-morphism-coordinate-duality
+    name: 正則写像と座標環準同型の反変対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則写像と座標環準同型の反変対応）"]
+    requires: [algebraic-geometry.coordinate-polynomial-functions, algebraic-geometry.regular-map-affine, algebra.ring-homomorphism]
+
+  - id: algebraic-geometry.affine-isomorphism-test
+    name: アフィン代数的集合の同型判定
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（アフィン代数的集合の同型判定）"]
+    requires: [algebraic-geometry.affine-morphism-coordinate-duality]
