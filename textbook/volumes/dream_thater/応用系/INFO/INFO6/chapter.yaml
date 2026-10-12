@@ -1,0 +1,49 @@
+id: "INFO6"
+title: "離散無記憶通信路・通信路容量・Fano不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO5
+official_scope: []
+learning_objectives:
+  - 有限離散無記憶通信路のブロック遷移確率と条件付き独立性を確認できる
+  - 決定的通信路符号と一様メッセージの平均誤り確率・伝送率を定義して計算できる
+  - 通信路容量を相互情報量の上限として定義し二元対称・二元消失通信路で計算できる
+  - 誤り指示変数を使ってFano不等式を零確率境界も含めて証明できる
+  - 無記憶通信路でブロック相互情報量を各時刻の和で上から評価できる
+  - Fano不等式とブロック上界から通信路符号化の弱逆定理を証明できる
+  - 入力依存性と雑音の条件付き独立性を区別し無記憶性を欠く反例で破綻箇所を特定できる
+  - 弱逆定理と達成可能性・強逆定理の主張を区別できる
+definitions:
+  - { id: INFO6-DEF-01, name: 離散無記憶通信路のブロック遷移 }
+  - { id: INFO6-DEF-02, name: 通信路符号と平均誤り確率 }
+  - { id: INFO6-DEF-03, name: 有限離散通信路の容量 }
+theorems:
+  - { id: INFO6-THM-01, name: 二元対称通信路の容量 }
+  - { id: INFO6-THM-02, name: 二元消失通信路の容量 }
+  - { id: INFO6-THM-03, name: Fano不等式 }
+  - { id: INFO6-THM-04, name: 無記憶通信路のブロック相互情報量上界 }
+  - { id: INFO6-THM-05, name: 離散無記憶通信路符号化の弱逆定理 }
+canonical_examples:
+  - 反転確率4分の1の二回使用と積通信路
+  - 一様ビットの二元対称通信路と容量達成
+  - 二元消失通信路の条件付きエントロピー
+  - Fano不等式の三メッセージ等号例
+  - 同じ二値変数を二回送る相関入力
+  - 全時刻で同じ雑音を使う非無記憶通信路
+problem_patterns:
+  - INFO6-DMC-PRODUCT
+  - INFO6-BSC-MUTUAL-INFORMATION
+  - INFO6-BEC-CONDITIONAL-ENTROPY
+  - INFO6-FANO-BOUND
+  - INFO6-FANO-EQUALITY
+  - INFO6-CHANNEL-CASCADE
+  - INFO6-CORRELATED-INPUT
+  - INFO6-WEAK-CONVERSE
+  - INFO6-CAPACITY-FANO-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 4 }

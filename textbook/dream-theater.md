@@ -710,6 +710,7 @@
 3. [INFO3 典型列と大数の法則による情報源の特徴付け](textbook/volumes/dream_thater/応用系/INFO/INFO3/index.md)
 4. [INFO4 接頭語符号・Kraft不等式・符号木](textbook/volumes/dream_thater/応用系/INFO/INFO4/index.md)
 5. [INFO5 情報源符号化定理：固定長ブロック符号の限界と達成](textbook/volumes/dream_thater/応用系/INFO/INFO5/index.md)
+6. [INFO6 離散無記憶通信路・通信路容量・Fano不等式](textbook/volumes/dream_thater/応用系/INFO/INFO6/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

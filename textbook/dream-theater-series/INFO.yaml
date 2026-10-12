@@ -28,5 +28,10 @@ chapters:
     title: 情報源符号化定理：固定長ブロック符号の限界と達成
   - id: INFO6
     path: textbook/volumes/dream_thater/応用系/INFO/INFO6
-    status: planned
+    status: completed
     title: 離散無記憶通信路・通信路容量・Fano不等式
+
+  - id: INFO7
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO7
+    status: planned
+    title: 通信路符号化定理：ランダム符号化による達成可能性
