@@ -19,7 +19,7 @@ chapters:
     title: 正準アンサンブルと分配関数
   - id: SM4
     path: textbook/volumes/dream_thater/物理系/SM/SM4
-    status: planned
+    status: completed
     title: 大正準アンサンブルと粒子数揺らぎ
   - id: SM5
     path: textbook/volumes/dream_thater/物理系/SM/SM5
