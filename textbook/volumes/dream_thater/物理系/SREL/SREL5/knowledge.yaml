@@ -1,0 +1,63 @@
+chapter: SREL5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL4
+forward_references: []
+
+concepts:
+  - id: relativity.vacuum-maxwell-si
+    name: 真空中のMaxwell方程式・SI単位系
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（真空中のMaxwell方程式・SI単位系）]
+    requires: [relativity.minkowski-metric]
+
+  - id: relativity.four-current
+    name: 四元電流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元電流）]
+    requires: [relativity.minkowski-metric]
+
+  - id: relativity.electromagnetic-field-tensor
+    name: 電磁場テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電磁場テンソル）]
+    requires: [relativity.minkowski-metric]
+
+  - id: relativity.inhomogeneous-maxwell-four
+    name: 非斉次Maxwell方程式の四元形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非斉次Maxwell方程式の四元形式）]
+    requires: [relativity.vacuum-maxwell-si, relativity.four-current, relativity.electromagnetic-field-tensor]
+
+  - id: relativity.homogeneous-maxwell-four
+    name: 斉次Maxwell方程式の四元形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（斉次Maxwell方程式の四元形式）]
+    requires: [relativity.vacuum-maxwell-si, relativity.electromagnetic-field-tensor]
+
+  - id: relativity.em-field-boost
+    name: 電磁場のLorentz変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電磁場のLorentz変換）]
+    requires: [relativity.electromagnetic-field-tensor, relativity.interval-invariance]
+
+  - id: relativity.maxwell-lorentz-covariance
+    name: Maxwell方程式のLorentz共変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Maxwell方程式のLorentz共変性）]
+    requires: [relativity.inhomogeneous-maxwell-four, relativity.homogeneous-maxwell-four, relativity.em-field-boost, relativity.four-current]
+
+  - id: relativity.maxwell-charge-continuity
+    name: Maxwell方程式からの局所電荷保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Maxwell方程式からの局所電荷保存）]
+    requires: [relativity.inhomogeneous-maxwell-four, relativity.four-current]
