@@ -30,10 +30,10 @@ concepts:
     requires: [algebraic-geometry.projective-polynomial-map, algebraic-geometry.projective-morphism, algebraic-geometry.homogeneous-scaling]
 
   - id: algebraic-geometry.veronese-map
-    name: 次数dのVeronese写像
+    name: Veronese写像
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（次数dのVeronese写像）"]
+    introduction_aliases: ["定義（Veronese写像）"]
     requires: [algebraic-geometry.projective-polynomial-map]
 
   - id: algebraic-geometry.veronese-embedding
