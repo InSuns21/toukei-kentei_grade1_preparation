@@ -1,0 +1,94 @@
+chapter: SGT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: spectral-graph.lazy-walk
+    name: lazy walk
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（lazy walk）]
+    requires: [spectral-graph.walk-transition]
+
+  - id: spectral-graph.lazy-spectrum
+    name: lazy walkの可逆性と固有値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（lazy walkの可逆性と固有値）]
+    requires: [spectral-graph.lazy-walk, spectral-graph.normalized-spectrum-kernel, spectral-graph.degree-stationary]
+
+  - id: spectral-graph.total-variation
+    name: 全変動距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（全変動距離）]
+    requires: []
+
+  - id: spectral-graph.pi-density
+    name: 定常分布で重み付けした内積と密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定常分布で重み付けした内積と密度）]
+    requires: [spectral-graph.degree-stationary]
+
+  - id: spectral-graph.mixing-time
+    name: 混合時間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（混合時間）]
+    requires: [spectral-graph.total-variation, spectral-graph.lazy-walk]
+
+  - id: spectral-graph.tv-l2
+    name: 全変動距離の平方平均評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（全変動距離の平方平均評価）]
+    requires: [spectral-graph.total-variation, spectral-graph.pi-density]
+
+  - id: spectral-graph.density-evolution
+    name: 可逆歩行の密度差の発展
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（可逆歩行の密度差の発展）]
+    requires: [spectral-graph.pi-density, spectral-graph.lazy-spectrum]
+
+  - id: spectral-graph.mixing-upper
+    name: lazy walkのスペクトル混合上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（lazy walkのスペクトル混合上界）]
+    requires: [spectral-graph.density-evolution, spectral-graph.tv-l2, spectral-graph.lazy-spectrum, spectral-graph.weighted-adjoint]
+
+  - id: spectral-graph.mixing-lower
+    name: 第二固有値からの混合時間下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二固有値からの混合時間下界）]
+    requires: [spectral-graph.mixing-time, spectral-graph.lazy-spectrum, spectral-graph.weighted-adjoint]
+
+  - id: spectral-graph.bipartite-graph
+    name: 二部グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二部グラフ）]
+    requires: [spectral-graph.walk-transition]
+
+  - id: spectral-graph.bipartite-spectrum
+    name: 二部性と固有値マイナス1の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二部性と固有値 $-1$ の同値性）]
+    requires: [spectral-graph.bipartite-graph, spectral-graph.normalized-similarity]
+
+  - id: spectral-graph.nonlazy-mixing
+    name: 通常歩行が混合する条件と速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（通常歩行が混合する条件と速度）]
+    requires: [spectral-graph.bipartite-spectrum, spectral-graph.pi-density, spectral-graph.tv-l2, spectral-graph.weighted-adjoint]
