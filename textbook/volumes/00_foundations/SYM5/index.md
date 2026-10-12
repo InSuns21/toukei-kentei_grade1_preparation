@@ -602,7 +602,7 @@ $$
 
 ### なぜ大域座標にはならないか
 
-例えば球面上の面積形式は[SYM2の球面の例](../SYM2/index.md#def-sym2-symplectic-manifold)のようにシンプレクティックですが、球面全体を $\mathbb R^2$ の開集合へ一枚の座標で写せません。実際、もしコンパクトな球面全体を開集合に微分同相で写せれば、その像はコンパクトかつ非空の開集合となり不可能です。ここでの障害は局所的な2形式の係数ではなく、大域的な位相です。
+例えば球面上の面積形式は[SYM2の球面の面積形式の命題](../SYM2/index.md#prop-sym2-sphere-area)で示したようにシンプレクティックですが、球面全体を $\mathbb R^2$ の開集合へ一枚の座標で写せません。実際、もしコンパクトな球面全体を開集合に微分同相で写せれば、その像はコンパクトかつ非空の開集合となり不可能です。ここでの障害は局所的な2形式の係数ではなく、大域的な位相です。
 
 ## 7. 演習：差の原始形式から局所座標の構成まで
 
@@ -616,16 +616,16 @@ $\mathbb R^2$ 上で $\omega=e^x\,dx\wedge dy$ とする。$q=x$、$p=e^xy$ がD
 - ID: SYM5-A1
 
 <!-- solution-start -->
-**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。さらに
+**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。$p=e^x\cdot y$ の微分に積の法則を適用すると
 
-$$
-dp=e^xy\,dx+e^x\,dy,
-$$
+$
+dp=y\,d(e^x)+e^x\,dy=e^x y\,dx+e^x\,dy.
+$
 
 $$
 \begin{aligned}
 dq\wedge dp
-&=dx\wedge(e^xy\,dx+e^x\,dy)\\
+&=dx\wedge(e^x y\,dx+e^x\,dy)\\
 &=e^x\,dx\wedge dy=\omega.
 \end{aligned}
 $$
@@ -829,17 +829,35 @@ $\omega_0=dx\wedge dy$、$\omega_1=(1+x)dx\wedge dy$ とし、$|x|<1/2$ に制�
 - ID: SYM5-B4
 
 <!-- solution-start -->
-**詳細解答**　A3と同じ偏微分で
+**詳細解答**　まず $\sigma=(x^2\,dy-xy\,dx)/3$ をそれぞれ外微分します。$d(dy)=d(dx)=0$ と $dx\wedge dx=0$ を使えば
 
-$$
-d\sigma=x\,dx\wedge dy=\omega_1-\omega_0.
-$$
+$
+\begin{aligned}
+d\sigma
+&=\frac{2x}{3}\,dx\wedge dy
+-\frac13(y\,dx+x\,dy)\wedge dx\\
+&=\left(\frac{2x}{3}+\frac{x}{3}\right)dx\wedge dy\\
+&=x\,dx\wedge dy=\omega_1-\omega_0.
+\end{aligned}
+$
 
-また $\omega_t=(1+tx)dx\wedge dy$ は2次元の2形式なので $d\omega_t=0$ です。A4より
+また $\omega_t=(1+tx)dx\wedge dy$ は2次元上の2形式なので $d\omega_t=0$ です。A4の成分式をもう一度代入すると
 
-$$
-\iota_{Y_t}\omega_t=-\sigma.
-$$
+$
+Y_t=-\frac{x^2}{3(1+tx)}\partial_x
+-\frac{xy}{3(1+tx)}\partial_y,
+$
+
+$
+\begin{aligned}
+\iota_{Y_t}\omega_t
+&=(1+tx)\left(
+-\frac{x^2}{3(1+tx)}dy
++\frac{xy}{3(1+tx)}dx
+\right)\\
+&=-\frac{x^2}{3}dy+\frac{xy}{3}dx=-\sigma.
+\end{aligned}
+$
 
 [Cartanの公式](../GEO7/index.md#thm-geo7-cartan-formula)で計算すると
 
@@ -914,19 +932,26 @@ $$
 \dot x=\frac{y}{1+x^2},\qquad\dot y=0.
 $$
 
-**(4)**　逆変換を $H$ に代入し、
+**(4)**　逆変換 $x=q$、$y=p/(1+q^2)$ を $H(x,y)=y^2/2$ に代入し、
 
-$$
-\widetilde H(q,p)=\frac{p^2}{2(1+q^2)^2}.
-$$
+$
+\widetilde H(q,p)=\frac12p^2(1+q^2)^{-2}
+$
 
-偏微分は
+と書きます。$p$ と $q$ をそれぞれ独立に微分すると
 
-$$
-\widetilde H_p=\frac{p}{(1+q^2)^2},
-\qquad
-\widetilde H_q=-\frac{2qp^2}{(1+q^2)^3}.
-$$
+$
+\begin{aligned}
+\widetilde H_p
+&=\frac12(2p)(1+q^2)^{-2}
+=\frac{p}{(1+q^2)^2},\\
+\frac{\partial}{\partial q}(1+q^2)^{-2}
+&=-2(1+q^2)^{-3}(2q),\\
+\widetilde H_q
+&=\frac{p^2}{2}\bigl(-4q(1+q^2)^{-3}\bigr)
+=-\frac{2qp^2}{(1+q^2)^3}.
+\end{aligned}
+$
 
 [SYM4の正準Hamilton方程式](../SYM4/index.md#thm-sym4-existence-coordinate)を適用すると
 
