@@ -12,7 +12,7 @@ $$
 a=\beta J>0,\qquad b=\beta h\in\mathbb R
 $$
 
-を使います。[SM7の磁化階級表示](../SM7/index.md#prop-sm7-multiplicity)と[変分定理](../SM7/index.md#thm-sm7-pressure)により、
+を使います。[磁化階級別のCurie–Weiss分配関数](../SM7/index.md#prop-sm7-multiplicity)から有限 $N$ の式を得ます。熱力学極限については[Curie–Weiss圧力の変分表示と磁化集中](../SM7/index.md#thm-sm7-pressure)を適用し、
 
 $$
 Z_N(a,b)=\sum_{k=0}^N\binom Nk
@@ -698,7 +698,7 @@ $a>1$ を固定し、有限 $N$ の $p_N(a,b)$ の $b=0$ における一次導�
 <!-- solution-start -->
 **詳細解答**
 
-[有限系の応答命題](#prop-sm8-finite-analytic)より $\partial_b p_N=\mathbb Em_N$ です。零外場で正負の配置は等しい重みを持つため[SM7の全反転対称性](../SM7/index.md#prop-sm7-spin-flip)から
+[有限Curie–Weiss模型の解析性と応答](#prop-sm8-finite-analytic)より $\partial_b p_N=\mathbb Em_N$ です。零外場で正負の配置は等しい重みを持つため[SM7の全反転対称性](../SM7/index.md#prop-sm7-spin-flip)から
 
 $$
 \partial_b p_N(a,0)=\mathbb E_{N,a,0}m_N=0
