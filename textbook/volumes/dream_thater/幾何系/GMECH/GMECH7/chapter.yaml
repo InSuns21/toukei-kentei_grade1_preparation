@@ -1,0 +1,42 @@
+id: "GMECH7"
+title: "Euler剛体の幾何学的力学"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH6
+official_scope: []
+learning_objectives:
+  - SO3の物体座標角速度と物体角運動量および空間角運動量の関係を導ける
+  - 制約付き変分からEuler剛体の運動方程式を全成分で導ける
+  - 物体座標のEuler方程式に負のLie–Poisson括弧が必要な符号理由を説明できる
+  - エネルギーとCasimirの保存を計算で証明できる
+  - 角運動量球面上の主軸平衡点を求めて極値と鞍点を判定できる
+  - エネルギー球面交線の位相図とセパラトリクスを導ける
+  - 中間軸の線形化とヘテロクリニック解を具体例で再導出できる
+definitions:
+  - { id: GMECH7-DEF-01, name: Euler剛体の物体角運動量とエネルギー }
+theorems:
+  - { id: GMECH7-THM-01, name: 自由剛体のEuler方程式 }
+  - { id: GMECH7-THM-02, name: Euler方程式のLie–Poisson表示 }
+  - { id: GMECH7-THM-03, name: 角運動量球面とエネルギーの保存 }
+  - { id: GMECH7-THM-04, name: 主軸回転とエネルギーの臨界値 }
+  - { id: GMECH7-THM-05, name: Euler剛体の縮約位相図 }
+canonical_examples:
+  - Iが対角の物体角速度と角運動量
+  - 正負のLie–Poisson括弧と物体座標の符号
+  - SO3の角運動量球面とエネルギー楕円体の交線
+  - 中間主軸の鞍点とヘテロクリニック解
+problem_patterns:
+  - GMECH7-BODY-MOMENTUM
+  - GMECH7-EULER-COMPONENTS
+  - GMECH7-POISSON-SIGN
+  - GMECH7-ENERGY-AXES
+  - GMECH7-SPATIAL-MOMENTUM
+  - GMECH7-AXIS-SADDLE
+  - GMECH7-PHASE-ELLIPSE
+  - GMECH7-LINEARIZATION
+  - GMECH7-SEPARATRIX
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 2 }
