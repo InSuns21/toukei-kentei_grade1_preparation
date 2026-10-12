@@ -1,0 +1,23 @@
+chapter: "SYM4"
+terms:
+  - term: Hamiltonベクトル場
+    english: Hamiltonian vector field
+    meaning: "シンプレクティック形式への内部積がHamilton関数の微分に一致する、点ごとに一意な滑らかなベクトル場。"
+  - term: Poisson括弧
+    english: Poisson bracket
+    meaning: "二つの関数に対応するHamiltonベクトル場をシンプレクティック形式に入力して得る関数。"
+  - term: シンプレクティック流
+    english: symplectic flow
+    meaning: "定義される時間と開集合の範囲でシンプレクティック形式を保つ局所流。"
+  - term: Cartanの公式
+    english: Cartan formula
+    meaning: "微分形式のLie微分を外微分と内部積を用いて表す恒等式。"
+  - term: Jacobi恒等式
+    english: Jacobi identity
+    meaning: "Poisson括弧の三重の入れ子について巡回和が零になる代数的恒等式。"
+  - term: 保存量
+    english: conserved quantity
+    meaning: "Hamilton軌道に沿って値が変化しない関数。Poisson括弧がHamilton関数と零になることで判定できる。"
+  - term: シンプレクティック微分同相
+    english: symplectomorphism
+    meaning: "滑らかな逆写像を持ち、引き戻しでシンプレクティック形式を保つ写像。"
