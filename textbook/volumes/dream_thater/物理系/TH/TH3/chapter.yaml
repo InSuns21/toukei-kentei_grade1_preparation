@@ -14,9 +14,10 @@ learning_objectives:
   - 可逆熱量比の合成則から絶対温度を構成し、効率の温度比公式を導ける
   - 理想気体の二本の断熱曲線から体積比を導き、四行程の熱・仕事・効率を検算できる
 definitions:
-  - { id: TH3-DEF-01, name: "熱機関と熱効率" }
-  - { id: TH3-DEF-02, name: "熱力学的可逆過程" }
-  - { id: TH3-DEF-03, name: "熱力学的絶対温度" }
+  - { id: TH3-DEF-01, name: "熱浴" }
+  - { id: TH3-DEF-02, name: "熱機関と熱効率" }
+  - { id: TH3-DEF-03, name: "熱力学的可逆過程" }
+  - { id: TH3-DEF-04, name: "熱力学的絶対温度" }
 theorems:
   - { id: TH3-PROP-01, name: "二熱浴熱機関の収支" }
   - { id: TH3-AXIOM-01, name: "第二法則：Kelvin–Planckの表現" }
