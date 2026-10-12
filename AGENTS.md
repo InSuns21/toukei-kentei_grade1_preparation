@@ -7,7 +7,7 @@
 作業内容に応じて、root の規約を全部読み続けるのではなく、対象に最も近い正本へ移る。
 
 - 通常教材・textbook 共通: `textbook/AGENTS.md`
-- DREAM THEATER / `textbook/volumes/00_foundations/**`: `textbook/volumes/00_foundations/AGENTS.md`
+- DREAM THEATER / `textbook/volumes/dream_thater/**`: `textbook/volumes/00_foundations/AGENTS.md`
 - Anki / `anki/**`: `anki/AGENTS.md`
 - リポジトリ横断インフラ・CI: このファイルと変更対象の workflow / script
 
@@ -21,7 +21,7 @@
 
 ## DREAM THEATER の継続作業は探索を最小化する
 
-「続けて」「planを進めて」の場合、`textbook/volumes/00_foundations/` 全体を先に探索しない。
+「続けて」「planを進めて」の場合、`textbook/volumes/dream_thater/` 全体を先に探索しない。
 
 1. `textbook/dream-theater-work.yaml`（共通設定のみ）
 2. 指定された章ID・系列IDに対応する `textbook/dream-theater-series/<系列ID>.yaml`
