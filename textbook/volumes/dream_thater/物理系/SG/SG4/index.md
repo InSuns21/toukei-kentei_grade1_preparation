@@ -222,15 +222,15 @@ $$
 \end{aligned}
 $$
 
-$q=0$ でも右微分として同じ式が成立する。実際、$0\le\operatorname{sech}^2u\le1$ なので優収束定理により
+$q=0$ でも右微分として同じ式が成立する。実際、$0\le\operatorname{sech}^2u\le1$ なので[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)により
 
-$
+$$
 \lim_{q\downarrow0}\mathcal P_{\mathrm{RS}}'(q)
 =\frac{\beta^2}{2}\bigl(\operatorname{sech}^2h-1\bigr)
 =-\frac{\beta^2}{2}\tanh^2h.
-$
+$$
 
-右側の差分商は平均値の定理を使ってこの右極限へ収束するため、上式が $q=0$ の右微分となる。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
+[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を $[0,q]$ に適用すると、ある $\xi_q\in(0,q)$ に対して $\{\mathcal P_{\mathrm{RS}}(q)-\mathcal P_{\mathrm{RS}}(0)\}/q=\mathcal P_{\mathrm{RS}}'(\xi_q)$。$q\downarrow0$ で $\xi_q\downarrow0$ なので、上式が $q=0$ の右微分となる。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
 
 <a id="prop-sg4-self-consistency"></a>
 
@@ -412,11 +412,11 @@ $$
 
 最後に $0<\beta<1$ を固定する。有限和の対数を二回微分すると、同じ無秩序のGibbs平均で
 
-$
+$$
 p_N''(\beta,0)=\frac1N\mathbb E\left[
 \langle X_N^2\rangle_\beta-\langle X_N\rangle_\beta^2
 \right]\ge0
-$
+$$
 
 となる（括弧内は確率重み付き分散）。従って $p_N'$ は非減少である。任意の小さい $\delta>0$ に対し導関数の単調性は
 
