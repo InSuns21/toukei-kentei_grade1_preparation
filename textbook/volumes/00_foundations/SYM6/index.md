@@ -275,7 +275,9 @@ DF_{(q,p)}=
 \begin{pmatrix}0&I_n\end{pmatrix}.
 $$
 
-各点で $DF_{(q,p)}:\mathbb R^{2n}\to\mathbb R^n$ は全射であり、特に $F^{-1}(0)$ の全点で階数が $n$ です。零点集合は空でないので、$0$ は $F$ の正則値です。[正則値定理](../GEO3/index.md#thm-geo3-regular-value)を $F$ と値 $0$ に適用すると、
+このJacobianの右側にある $I_n$ により、各点の微分 $DF_{(q,p)}$ は全射で、階数は $n$ です。
+
+特に零点集合上でも同じ階数なので、$0$ は $F$ の正則値です。[正則値定理](../GEO3/index.md#thm-geo3-regular-value)を値 $0$ に適用すると、
 
 $$
 \dim F^{-1}(0)=2n-n=n
@@ -597,7 +599,11 @@ Lagrange条件は座標によらず2形式の制限で定まります。[SYM2の
 <!-- proof-start -->
 ### 証明
 
-包含を $i:L\hookrightarrow M$、$F(L)$ の包含を $j:F(L)\hookrightarrow N$ とし、制限 $f=F|_L:L\to F(L)$ を取ります。$F$ と $F^{-1}$ は滑らかなので $f$ は微分同相で、$F(L)$ は埋め込み $n$ 次元部分多様体です。まず、等式 $j\circ f=F\circ i$ と $F^*\eta=\omega$ を確認します。[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)の命題に含まれる引き戻しの合成則を適用すると
+包含写像をそれぞれ $i:L\hookrightarrow M$、$j:F(L)\hookrightarrow N$ と書きます。制限写像 $f=F|_L$ の逆写像は $F^{-1}|_{F(L)}$ です。
+
+これらは滑らかなので、$f:L\to F(L)$ は微分同相です。従って $F(L)$ は埋め込み $n$ 次元部分多様体です。
+
+定義から $j\circ f=F\circ i$ です。これと $F^*\eta=\omega$ に[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)の命題にある合成則を適用すると
 
 $$
 \begin{aligned}
@@ -795,7 +801,9 @@ W^\omega=\{v:b_1=a_2=0\}
 =\operatorname{span}\{e_1,f_2\}=W.
 $$
 
-また $\omega_0(e_1,f_2)=0$ であり、同じ生成元同士の値も交代性により零です。従って $W$ は等方で、$\dim W=2=n$ です。[線形Lagrange判定](#thm-sym6-lagrangian-criterion)によっても $W$ がLagrangeであると分かります。
+また $\omega_0(e_1,f_2)=0$ であり、同じ生成元同士の値も交代性によって零です。従って $W$ は等方です。
+
+さらに $\dim W=2=n$ なので、[線形Lagrange判定](#thm-sym6-lagrangian-criterion)を適用できます。直交補を直接計算した結論とも一致し、$W$ はLagrangeです。
 <!-- solution-end -->
 
 #### B3. 閉性と完全性を区別する
