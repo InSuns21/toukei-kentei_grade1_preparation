@@ -590,7 +590,7 @@ $$
 [約数個数関数の平均](#thm-ant1-divisor-mean)の総和との差は $O(\sqrt x+\log(2x))=o(x\log x)$ です。この $g(n)$ は非負で、総和が無限大へ発散するため、[平均次数の定義](#def-ant1-mean-order)を満たします。特に素数 $p$ での $\tau(p)=2$ は、この平均に矛盾しません。
 <!-- solution-end -->
 
-#### B3. Abelの公式で重み付き約数総和を作る
+#### B3. 部分和変形で重み付き約数総和を作る
 
 $D(t)=t\log t+ct+O(\sqrt t)$ を仮定し、Abelの部分和公式で $\sum_{n\le x}\tau(n)/n$ の $(\log x)^2$ 項・$\log x$ 項を求めよ。その後 $c=2\gamma-1$ を代入せよ。
 
@@ -615,7 +615,7 @@ $$
 です。後ろの積分は $2(1-x^{-1/2})\le2$ なので、誤差は有界です。合計して $\frac12(\log x)^2+(c+1)\log x+O(1)$ を得ます。$c=2\gamma-1$ なら係数は $2\gamma$ です。
 <!-- solution-end -->
 
-### Level C：Möbius反転とAbelの公式を接続する
+### Level C：Möbius反転と部分和変形を接続する
 
 #### C1. Euler関数の重み付き平均
 
