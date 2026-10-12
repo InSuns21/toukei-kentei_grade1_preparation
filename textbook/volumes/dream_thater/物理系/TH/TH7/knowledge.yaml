@@ -1,0 +1,73 @@
+chapter: TH7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH6
+forward_references: []
+concepts:
+  - id: thermodynamics.multicomponent-chemical-potential
+    name: 多成分系の化学ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多成分系の化学ポテンシャル）]
+    requires: [thermodynamics.chemical-potential]
+  - id: thermodynamics.multicomponent-euler
+    name: 多成分Euler関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（多成分Euler関係式）]
+    requires: [thermodynamics.multicomponent-chemical-potential, thermodynamics.extensive-homogeneity, thermodynamics.euler-relation]
+  - id: thermodynamics.multicomponent-gibbs-duhem
+    name: 多成分Gibbs–Duhem関係式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（多成分Gibbs–Duhem関係式）]
+    requires: [thermodynamics.multicomponent-euler, thermodynamics.gibbs-duhem]
+  - id: thermodynamics.phase-transfer-coordinate
+    name: 相間物質移動の座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相間物質移動の座標）]
+    requires: [thermodynamics.multicomponent-chemical-potential]
+  - id: thermodynamics.phase-transfer-equilibrium
+    name: 相間移動の平衡条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相間移動の平衡条件）]
+    requires: [thermodynamics.phase-transfer-coordinate, thermodynamics.free-energy-minimum]
+  - id: thermodynamics.clapeyron
+    name: Clapeyron式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Clapeyron式）]
+    requires: [thermodynamics.phase-transfer-equilibrium, thermodynamics.gibbs-duhem]
+  - id: thermodynamics.ideal-mixing-gibbs
+    name: 理想混合のGibbs自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（理想混合のGibbs自由エネルギー）]
+    requires: [thermodynamics.potential-natural-variables, thermodynamics.multicomponent-chemical-potential]
+  - id: thermodynamics.ideal-mixing-potentials
+    name: 理想混合の化学ポテンシャルと混合エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想混合の化学ポテンシャルと混合エントロピー）]
+    requires: [thermodynamics.ideal-mixing-gibbs]
+  - id: thermodynamics.reaction-extent
+    name: 反応進行度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（反応進行度）]
+    requires: [thermodynamics.multicomponent-chemical-potential]
+  - id: thermodynamics.reaction-equilibrium
+    name: 化学反応平衡の条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（化学反応平衡の条件）]
+    requires: [thermodynamics.reaction-extent, thermodynamics.ideal-mixing-potentials, thermodynamics.free-energy-minimum]
+  - id: thermodynamics.third-law-perfect-crystal
+    name: 第三法則の完全結晶表示
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（第三法則の完全結晶表示）]
+    requires: [thermodynamics.entropy, thermodynamics.thermodynamic-response]
