@@ -34,7 +34,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Eulerの定理）]
-    requires: [number-theory.euler-totient]
+    requires: [number-theory.euler-totient, algebra.lagrange-theorem, algebra.element-order]
 
   - id: number-theory.fermat-little-theorem
     name: Fermatの小定理
@@ -55,28 +55,28 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（法nの原始根）]
-    requires: [number-theory.euler-totient]
+    requires: [number-theory.euler-totient, algebra.element-order]
 
   - id: number-theory.abelian-group-exponent-lemma
     name: 有限可換群の位数の最小公倍数
     kind: lemma
     introduction: formal
     introduction_aliases: [補題（有限可換群の位数の最小公倍数）]
-    requires: [number-theory.primitive-root]
+    requires: [algebra.abelian-group, algebra.element-order]
 
   - id: number-theory.finite-field-subgroup-cyclic
     name: 体の乗法群の有限部分群は巡回群
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（体の乗法群の有限部分群は巡回群）]
-    requires: [number-theory.abelian-group-exponent-lemma]
+    requires: [number-theory.abelian-group-exponent-lemma, algebra.field]
 
   - id: number-theory.odd-prime-lifting-lemma
     name: 奇素数での位数の持ち上げ
     kind: lemma
     introduction: formal
     introduction_aliases: [補題（奇素数での位数の持ち上げ）]
-    requires: [number-theory.primitive-root]
+    requires: [number-theory.congruence]
 
   - id: number-theory.primitive-root-prime-power
     name: 奇素数冪の原始根
