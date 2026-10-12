@@ -772,6 +772,7 @@
 4. [AG2-04 射影曲線と次数・Bézoutの例](textbook/volumes/dream_thater/代数系/AG/AG2-04/index.md)
 5. [AG2-05 構造層と貼り合わせ](textbook/volumes/dream_thater/代数系/AG/AG2-05/index.md)
 6. [AG2-06 可逆層とO(d)](textbook/volumes/dream_thater/代数系/AG/AG2-06/index.md)
+7. [AG2-07 Weil因子・Cartier因子と可逆層](textbook/volumes/dream_thater/代数系/AG/AG2-07/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III

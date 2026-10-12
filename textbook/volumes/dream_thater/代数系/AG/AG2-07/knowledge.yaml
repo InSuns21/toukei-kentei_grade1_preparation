@@ -1,0 +1,91 @@
+chapter: AG2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-06
+  - AG2-05
+  - AG2-01
+  - AG1-04
+  - AG1-05
+  - AG1-07
+  - AG1-11
+  - CA3
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.curve-uniformizer
+    name: 局所パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所パラメータ）"]
+    requires: [algebraic-geometry.stalk-local-ring-identification]
+
+  - id: algebraic-geometry.weil-divisor
+    name: Weil因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Weil因子・有効因子・次数）"]
+    requires: [algebraic-geometry.projective-structure-sheaf]
+
+  - id: algebraic-geometry.local-divisor-parameter
+    name: 曲線の局所パラメータと位数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（滑らかな平面曲線の局所パラメータと位数）"]
+    requires: [algebraic-geometry.weil-divisor, algebraic-geometry.curve-uniformizer, algebraic-geometry.stalk-local-ring-identification]
+
+  - id: algebraic-geometry.principal-divisor
+    name: 主因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位数・主因子）"]
+    requires: [algebraic-geometry.local-divisor-parameter]
+
+  - id: algebraic-geometry.cartier-divisor
+    name: Cartier因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cartier因子）"]
+    requires: [algebraic-geometry.projective-structure-sheaf, algebraic-geometry.line-bundle-transition]
+
+  - id: algebraic-geometry.cartier-to-weil
+    name: Cartier因子からWeil因子への対応
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cartier因子からWeil因子へ）"]
+    requires: [algebraic-geometry.cartier-divisor, algebraic-geometry.principal-divisor]
+
+  - id: algebraic-geometry.curve-weil-cartier
+    name: 滑らかな曲線のWeil因子とCartier因子の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな平面曲線のWeil因子とCartier因子）"]
+    requires: [algebraic-geometry.cartier-to-weil, algebraic-geometry.local-divisor-parameter]
+
+  - id: algebraic-geometry.divisor-line-bundle
+    name: 因子に付随する可逆層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子に付随する可逆層）"]
+    requires: [algebraic-geometry.cartier-divisor, algebraic-geometry.invertible-sheaf]
+
+  - id: algebraic-geometry.divisor-gluing-sections
+    name: 因子の貼り合わせと切断条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（因子からの貼り合わせと切断条件）"]
+    requires: [algebraic-geometry.divisor-line-bundle, algebraic-geometry.principal-divisor]
+
+  - id: algebraic-geometry.cartier-picard
+    name: Cartier因子類とPicard群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cartier因子類と可逆層の同型類）"]
+    requires: [algebraic-geometry.divisor-line-bundle, algebraic-geometry.od-tensor-dual]
+
+  - id: algebraic-geometry.p1-picard
+    name: 射影直線のPicard群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の因子類とPicard群）"]
+    requires: [algebraic-geometry.cartier-picard, algebraic-geometry.curve-weil-cartier]
