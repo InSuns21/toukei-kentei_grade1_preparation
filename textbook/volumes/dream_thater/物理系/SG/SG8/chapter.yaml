@@ -1,0 +1,48 @@
+id: "SG8"
+title: "cavity法・Belief Propagation・Mézard–Parisi"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG7
+  - SG6
+  - SG3
+  - SG1
+official_scope: []
+learning_objectives:
+  - 正の因子を持つ有限因子木のcavity messageとBP更新式を導出できる
+  - BP局所beliefとBethe分配関数を構成し木上の厳密性を証明できる
+  - Ising対相互作用をcavity fieldに変換し二頂点を計算できる
+  - 三角形のloop補正を求め木と一般グラフを区別できる
+  - Poisson分枝木のRS分布再帰と高温収縮を証明できる
+  - 1RSBの状態重み付けとMézard–Parisiの仮説的射程を説明できる
+definitions:
+  - { id: SG8-DEF-01, name: "cavity messageとBelief Propagation" }
+  - { id: SG8-DEF-02, name: "局所beliefとBethe分配関数" }
+  - { id: SG8-DEF-03, name: "Ising cavity field" }
+  - { id: SG8-DEF-04, name: "RS分布再帰" }
+  - { id: SG8-DEF-05, name: "1RSBの状態重み付け" }
+propositions:
+  - { id: SG8-PROP-01, name: "BPの局所整合性" }
+  - { id: SG8-PROP-02, name: "三角形の閉路補正" }
+  - { id: SG8-PROP-03, name: "RS再帰の高温収縮" }
+theorems:
+  - { id: SG8-THM-01, name: "有限因子木でのBPとBethe分配関数の厳密性" }
+canonical_examples:
+  - 一因子・二スピンのBPメッセージ
+  - 二変数一因子でのBethe正規化
+  - 磁場を持つ二頂点cavity field
+  - 三角形の高温展開とloop補正
+  - Poisson分枝木のRS再帰
+  - 二状態の1RSB重み付け
+problem_patterns:
+  - SG8-BP-MESSAGES
+  - SG8-LOCAL-BELIEF
+  - SG8-TREE-BETHE
+  - SG8-ISING-FIELD
+  - SG8-LOOP
+  - SG8-RS-CONTRACTION
+  - SG8-RSB-REWEIGHT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 8 }
