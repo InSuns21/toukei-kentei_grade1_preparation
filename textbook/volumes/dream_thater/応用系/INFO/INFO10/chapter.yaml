@@ -7,6 +7,8 @@ prerequisites:
   - INFO2
   - INFO3
   - INFO9
+  - F0-00P7
+  - F0-00P7A
 official_scope: []
 learning_objectives:
   - 有限分布の対数損失を台と確率0の規約を含めて定義し期待損失を計算できる
