@@ -474,7 +474,7 @@ $$
 <!-- solution-end -->
 
 **NDA3-B2（等号で非零点を失わない理由）**  
-原点対称なコンパクト凸体 $K$ で $\operatorname{vol}_n(K)=2^n\operatorname{covol}(\Lambda)$ を仮定します。厳密不等号のMinkowski定理のみを既知として、等号の場合を証明してください。
+原点対称なコンパクト凸体 $K$ で $\operatorname{vol}_n(K)=2^n\operatorname{covol}(\Lambda)$ を仮定します。厳密不等号に限った[Minkowskiの凸体定理](#thm-nda3-minkowski)のみを既知として、等号の場合を証明してください。
 
 - Level: B
 
