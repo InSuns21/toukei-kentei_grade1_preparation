@@ -382,7 +382,17 @@ $$
 =\alpha_q.
 $$
 
-逆向きも同様に合成が恒等写像になります。
+逆向きは $\beta_r\in T_r^*R$ と $q=f^{-1}(r)$ を取ると、[逆写像の微分](../GEO2/index.md#thm-geo2-composition-differential)から $(df^{-1}_r)^{-1}=df_q$ です。従って
+
+$$
+\begin{aligned}
+\widehat f\bigl(\widehat{f^{-1}}(\beta_r)\bigr)
+&=(\beta_r\circ df_q)\circ(df_q)^{-1}\\
+&=\beta_r.
+\end{aligned}
+$$
+
+よって両方向の合成が恒等写像になり、$\widehat f$ は微分同相です。
 
 次に $\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を固定し、$\beta_{f(q)}=\widehat f(\alpha_q)$ と置きます。[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を $\pi_R\circ\widehat f=f\circ\pi_Q$ に適用すると
 
@@ -921,13 +931,14 @@ $$
 
 **(3)**　基点の写像は滑らかな逆写像を持つため、[余接持ち上げは正準1形式を保存する定理](#thm-sym3-cotangent-lift-preserves)の仮定が成立します。さらに平行移動の逆は反対符号の平行移動です。従って合成写像も微分同相です。
 
-次に[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を合成写像に適用し、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を用いると
+次に[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を合成写像と射影 $\pi_Q$ に適用し、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を基点 $Q$ 上の関数 $(Q^1Q^2)\circ f$ に用いると
 
 $$
 \begin{aligned}
 F^*\omega_R
 &=-d(F^*\theta_R)\\
-&=-d\theta_Q-d^2((Q^1Q^2)\circ f)\\
+&=-d\theta_Q-d\bigl(\pi_Q^*d((Q^1Q^2)\circ f)\bigr)\\
+&=\omega_Q-\pi_Q^*d^2((Q^1Q^2)\circ f)\\
 &=\omega_Q.
 \end{aligned}
 $$

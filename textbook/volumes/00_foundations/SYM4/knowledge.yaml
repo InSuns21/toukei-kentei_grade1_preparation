@@ -1,0 +1,82 @@
+chapter: SYM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - GEO7
+  - ODE8
+  - AMECH6
+  - SYM2
+  - SYM3
+forward_references: []
+
+concepts:
+  - id: symplectic.hamiltonian-vector-field
+    name: シンプレクティック多様体上のHamiltonベクトル場
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Hamiltonベクトル場）]
+    requires: [symplectic.symplectic-manifold, geometry.form-interior-product, analytical-mechanics.hamiltonian-vector-field]
+
+  - id: symplectic.hamiltonian-vector-field-existence
+    name: Hamiltonベクトル場の存在・一意性と正準座標式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hamiltonベクトル場の存在・一意性と正準座標式）]
+    requires: [symplectic.hamiltonian-vector-field, symplectic.cotangent-symplectic]
+
+  - id: symplectic.manifold-poisson-bracket
+    name: シンプレクティック多様体上のPoisson括弧
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック多様体上のPoisson括弧）]
+    requires: [symplectic.hamiltonian-vector-field, analytical-mechanics.poisson-bracket]
+
+  - id: symplectic.manifold-poisson-coordinate
+    name: 正準座標のPoisson括弧
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準座標のPoisson括弧）]
+    requires: [symplectic.manifold-poisson-bracket, symplectic.hamiltonian-vector-field-existence]
+
+  - id: symplectic.hamiltonian-flow-preserves-form
+    name: Hamilton流のシンプレクティック形式保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hamilton流のシンプレクティック形式保存）]
+    requires: [symplectic.hamiltonian-vector-field, geometry.cartan-formula, geometry.maximal-flow-local-group-law]
+
+  - id: symplectic.observables-evolution
+    name: 観測量の時間発展と保存量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（観測量の時間発展と保存量）]
+    requires: [symplectic.manifold-poisson-bracket, symplectic.hamiltonian-flow-preserves-form]
+
+  - id: symplectic.poisson-elementary
+    name: Poisson括弧の基本性質
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Poisson括弧の基本性質）]
+    requires: [symplectic.manifold-poisson-bracket]
+
+  - id: symplectic.hamiltonian-commutator
+    name: Hamiltonベクトル場の交換子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Hamiltonベクトル場の交換子）]
+    requires: [symplectic.hamiltonian-flow-preserves-form, symplectic.manifold-poisson-bracket]
+
+  - id: symplectic.manifold-poisson-jacobi
+    name: シンプレクティックPoisson括弧のJacobi恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Poisson括弧のJacobi恒等式）]
+    requires: [symplectic.hamiltonian-commutator, analytical-mechanics.poisson-jacobi-identity]
+
+  - id: symplectic.poisson-naturality
+    name: シンプレクティック微分同相の下での自然性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（シンプレクティック微分同相の下での自然性）]
+    requires: [symplectic.manifold-poisson-bracket, symplectic.symplectomorphism]

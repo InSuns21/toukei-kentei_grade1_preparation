@@ -5,11 +5,11 @@ active_series: SYM
 active_plan: textbook/plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md
 series_manifest: textbook/dream-theater-series/SYM.yaml
 
-completed_through: SYM3
-next_work: SYM4
-after_next: SYM5
+completed_through: SYM4
+next_work: SYM5
+after_next: SYM6
 
-# SYM1〜SYM3実装・査読・公開済。SYM4以降と科目横断監査は進行中。
+# SYM1〜SYM4実装・査読・公開済。SYM5以降と科目横断監査は進行中。
 
 # 次章の執筆と直前完了章の追跡監査を同じ作業単位で実施する。
 # target_source は固定の章IDではなく、着手時の routing と series manifest から解決する。

@@ -19,7 +19,7 @@ chapters:
     title: 余接束の正準シンプレクティック形式
   - id: SYM4
     path: textbook/volumes/00_foundations/SYM4
-    status: planned
+    status: completed
     title: Hamiltonベクトル場・Poisson括弧・シンプレクティック流
   - id: SYM5
     path: textbook/volumes/00_foundations/SYM5
