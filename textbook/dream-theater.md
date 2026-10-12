@@ -665,6 +665,7 @@
 1. [GMECH1 Lie群作用と余接束への持ち上げ](textbook/volumes/dream_thater/幾何系/GMECH/GMECH1/index.md)
 2. [GMECH2 Hamilton作用と運動量写像](textbook/volumes/dream_thater/幾何系/GMECH/GMECH2/index.md)
 3. [GMECH3 幾何学的Noetherの定理](textbook/volumes/dream_thater/幾何系/GMECH/GMECH3/index.md)
+4. [GMECH4 運動量レベル集合・群作用・正則性](textbook/volumes/dream_thater/幾何系/GMECH/GMECH4/index.md)
 
 ## 代数系
 
@@ -696,6 +697,7 @@
 3. [NT3 平方剰余・平方剰余の相互法則](textbook/volumes/dream_thater/代数系/NT/NT3/index.md)
 4. [NT4 算術関数と Dirichlet 畳み込み](textbook/volumes/dream_thater/代数系/NT/NT4/index.md)
 5. [NT5 Möbius反転・約数和・総和関数](textbook/volumes/dream_thater/代数系/NT/NT5/index.md)
+6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
 
 ### 代数幾何学 I〜III
 
@@ -730,6 +732,7 @@
 7. [INFO7 通信路符号化定理：ランダム符号化による達成可能性](textbook/volumes/dream_thater/応用系/INFO/INFO7/index.md)
 8. [INFO8 率歪み関数と有限離散情報源の歪み付き符号化](textbook/volumes/dream_thater/応用系/INFO/INFO8/index.md)
 9. [INFO9 微分エントロピーと連続変数の情報量](textbook/volumes/dream_thater/応用系/INFO/INFO9/index.md)
+10. [INFO10 対数損失・統計的推測と相対エントロピー](textbook/volumes/dream_thater/応用系/INFO/INFO10/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

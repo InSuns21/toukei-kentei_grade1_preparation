@@ -28,7 +28,7 @@ chapters:
     title: Möbius反転・約数和・総和関数
   - id: NT6
     path: textbook/volumes/dream_thater/代数系/NT/NT6
-    status: planned
+    status: completed
     title: 不定方程式と平方和
   - id: NT7
     path: textbook/volumes/dream_thater/代数系/NT/NT7
