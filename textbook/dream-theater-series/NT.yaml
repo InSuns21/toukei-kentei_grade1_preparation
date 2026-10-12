@@ -24,7 +24,7 @@ chapters:
     title: 算術関数と Dirichlet 畳み込み
   - id: NT5
     path: textbook/volumes/dream_thater/代数系/NT/NT5
-    status: planned
+    status: completed
     title: Möbius反転・約数和・総和関数
   - id: NT6
     path: textbook/volumes/dream_thater/代数系/NT/NT6
