@@ -1,0 +1,51 @@
+id: "TH6"
+title: "熱力学的安定性・応答・凸性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH5
+official_scope: []
+learning_objectives:
+  - 固定エントロピー・体積での交換変分を定義し、Taylor展開からHessianの安定判定と零曲率の限界を証明できる
+  - 凸な状態領域全体でのHessian半正定値と大域凸性の同値、および支持平面不等式を証明できる
+  - 定積・定圧熱容量、等温・断熱圧縮率、熱膨張率を定義から計算し、厳密安定性の曲率条件と結び付けられる
+  - Maxwell関係式から熱容量差と圧縮率比の恒等式を中間式つきで証明できる
+  - Helmholtz・Gibbsポテンシャルの自然変数に関する凹凸性と内部状態の最小原理を混同せず説明できる
+  - 熱浴と圧力浴のエントロピー収支から自由エネルギー減少則を導き、局所と大域の安定性を区別できる
+  - 外場感受率を停留条件の微分から導き、理想気体および滑らかな非理想模型で応答とHessianを検算できる
+definitions:
+  - { id: TH6-DEF-01, name: "固定エントロピー・体積での局所安定性" }
+  - { id: TH6-DEF-02, name: "熱容量・圧縮率・熱膨張率" }
+  - { id: TH6-DEF-03, name: "外場に対する局所感受率" }
+theorems:
+  - { id: TH6-PROP-01, name: "エネルギーHessianによる判定" }
+  - { id: TH6-PROP-04, name: "大域凸性と支持平面" }
+  - { id: TH6-THM-01, name: "厳密な局所安定性と応答の符号" }
+  - { id: TH6-THM-02, name: "定圧・定積熱容量の差" }
+  - { id: TH6-THM-03, name: "断熱・等温圧縮率の関係" }
+  - { id: TH6-PROP-02, name: "Helmholtz・Gibbsポテンシャルの曲率" }
+  - { id: TH6-THM-04, name: "自由エネルギーの変分原理" }
+  - { id: TH6-PROP-03, name: "感受率は安定曲率の逆数" }
+canonical_examples:
+  - 二つの部分系の交換変分と二次エネルギーの正値検証
+  - 二次曲率が零となるxの四次関数の対比例
+  - 一定熱容量の理想気体の等温圧縮率・膨張率・熱容量差・断熱圧縮率
+  - Gibbsポテンシャルの負定値性と試行状態についての自由エネルギー最小原理の区別
+  - 外場と二次ポテンシャルの感受率
+  - 体積依存のあるHelmholtz自由エネルギーから安定Hessianを復元
+problem_patterns:
+  - TH6-HESSIAN-QUADRATIC
+  - TH6-IDEAL-GAS-RESPONSE
+  - TH6-HELMHOLTZ-CURVATURE
+  - TH6-GENERALIZED-SUSCEPTIBILITY
+  - TH6-FLAT-CURVATURE
+  - TH6-RESPONSE-NUMERICS
+  - TH6-COUPLED-HESSIAN-COUNTEREXAMPLE
+  - TH6-ADIABATIC-COMPRESSIBILITY
+  - TH6-GIBBS-CONCAVITY
+  - TH6-GLOBAL-CONVEXITY-SUPPORT
+  - TH6-NONIDEAL-FREE-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }

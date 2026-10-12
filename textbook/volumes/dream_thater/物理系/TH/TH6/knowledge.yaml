@@ -1,0 +1,73 @@
+chapter: TH6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH5
+forward_references: []
+concepts:
+  - id: thermodynamics.local-stability
+    name: 固定エントロピー・体積での局所安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（固定エントロピー・体積での局所安定性）]
+    requires: [thermodynamics.fundamental-relation-fixed-n]
+  - id: thermodynamics.energy-hessian
+    name: エネルギーHessianによる判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エネルギーHessianによる判定）]
+    requires: [thermodynamics.local-stability]
+  - id: thermodynamics.global-convexity
+    name: 大域凸性と支持平面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（大域凸性と支持平面）]
+    requires: [thermodynamics.energy-hessian]
+  - id: thermodynamics.thermodynamic-response
+    name: 熱容量・圧縮率・熱膨張率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱容量・圧縮率・熱膨張率）]
+    requires: [thermodynamics.fundamental-relation-fixed-n]
+  - id: thermodynamics.stability-response
+    name: 厳密な局所安定性と応答の符号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（厳密な局所安定性と応答の符号）]
+    requires: [thermodynamics.energy-hessian, thermodynamics.thermodynamic-response]
+  - id: thermodynamics.heat-capacity-difference
+    name: 定圧・定積熱容量の差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（定圧・定積熱容量の差）]
+    requires: [thermodynamics.thermodynamic-response, thermodynamics.maxwell-relations]
+  - id: thermodynamics.compressibility-ratio
+    name: 断熱・等温圧縮率の関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（断熱・等温圧縮率の関係）]
+    requires: [thermodynamics.heat-capacity-difference]
+  - id: thermodynamics.potential-curvature
+    name: Helmholtz・Gibbsポテンシャルの曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Helmholtz・Gibbsポテンシャルの曲率）]
+    requires: [thermodynamics.potential-natural-variables, thermodynamics.heat-capacity-difference]
+  - id: thermodynamics.free-energy-minimum
+    name: 自由エネルギーの変分原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由エネルギーの変分原理）]
+    requires: [thermodynamics.entropy-balance, thermodynamics.thermodynamic-potentials]
+  - id: thermodynamics.external-susceptibility
+    name: 外場に対する局所感受率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（外場に対する局所感受率）]
+    requires: [thermodynamics.local-stability]
+  - id: thermodynamics.susceptibility-curvature
+    name: 感受率は安定曲率の逆数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（感受率は安定曲率の逆数）]
+    requires: [thermodynamics.external-susceptibility]
