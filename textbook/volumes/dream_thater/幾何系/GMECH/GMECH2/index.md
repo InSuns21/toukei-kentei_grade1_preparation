@@ -236,10 +236,10 @@ $$
 
 任意の $g,h\in G$ に対し $\operatorname{Ad}_{(gh)^{-1}}=\operatorname{Ad}_{h^{-1}}\operatorname{Ad}_{g^{-1}}$ です。[随伴表現の準同型性](../../../代数系/LIE/LIE2/index.md#thm-lie2-adjoint-homomorphism)の双対を取れば
 
-$
+$$
 \operatorname{Ad}_{(gh)^{-1}}^*
 =\operatorname{Ad}_{g^{-1}}^*\operatorname{Ad}_{h^{-1}}^*.
-$
+$$
 
 従って $(gh)\cdot\mu=g\cdot(h\cdot\mu)$ です。逆元を使うのは左作用の積の順序を正しくするためです。
 
