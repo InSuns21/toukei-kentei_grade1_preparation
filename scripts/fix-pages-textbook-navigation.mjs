@@ -34,6 +34,10 @@ if (fs.existsSync(linearCalcAdvanced) && fs.existsSync(linearCalcSiteIndex)) {
     .replace(/^#\s+[^\n]+\n+/, '')
     .trim();
   fs.writeFileSync(linearCalcSiteIndex, `${base}\n\n---\n\n${advanced}\n`, 'utf8');
+  // Advanced drills are inlined into the canonical page, never a second
+  // standalone DREAM THEATER route without its own chapter.yaml.
+  const advancedSitePage = path.join(path.dirname(linearCalcSiteIndex), 'advanced.md');
+  if (fs.existsSync(advancedSitePage)) fs.unlinkSync(advancedSitePage);
   console.log('Linear algebra calculation drills merged into canonical index.md: A8/B10/C4.');
 }
 
