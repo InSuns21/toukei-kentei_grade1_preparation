@@ -1,0 +1,51 @@
+id: "INFO8"
+title: "率歪み関数と有限アルファベットの歪み付き情報源符号化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO5
+  - INFO6
+  - INFO7
+official_scope: []
+learning_objectives:
+  - 有限非負歪みと固定長ブロック符号の期待歪み・ビット率を定義し具体例を計算できる
+  - 復元通信路を用いて率歪み関数を定義し実現可能領域と零率境界を説明できる
+  - 率歪み関数の最小値の存在・単調性・凸性・右連続性を有限次元で証明できる
+  - 公平二値情報源のHamming歪みで率歪み関数をエントロピーから完全に導出できる
+  - 任意の決定的ブロック符号への有限長逆定理を情報量と凸性から証明できる
+  - 独立復元候補のランダム被覆確率を情報密度と典型性から評価できる
+  - 被覆法と対角化により有限アルファベットの達成可能性・漸近最適率を導ける
+  - 独立同分布・期待歪み・有限アルファベットという条件と破綻例を区別できる
+definitions:
+  - { id: INFO8-DEF-01, name: 歪み尺度・固定長歪み付きブロック符号 }
+  - { id: INFO8-DEF-02, name: 有限情報源の率歪み関数 }
+theorems:
+  - { id: INFO8-PROP-01, name: 実現可能な歪みと零率の境界 }
+  - { id: INFO8-PROP-02, name: 率歪み関数の単調性・凸性・右連続性 }
+  - { id: INFO8-THM-01, name: 公平二値情報源の率歪み関数 }
+  - { id: INFO8-THM-02, name: 有限歪み付き情報源符号化の有限長逆定理 }
+  - { id: INFO8-LEM-01, name: 有限アルファベットのランダム被覆評価 }
+  - { id: INFO8-THM-03, name: 有限歪み付き情報源符号化の達成可能性 }
+  - { id: INFO8-COR-01, name: 有限アルファベットの歪み付き情報源符号化定理 }
+canonical_examples:
+  - 三値信号の平方誤差による復元比較
+  - 非対称二値情報源の試験復元通信路と情報量上界
+  - 公平二値Hamming歪みの率歪み関数
+  - 先頭ビットを二記号へ複製する有限長符号
+  - 相関二値情報源に独立同分布の逆定理を誤用する反例
+problem_patterns:
+  - INFO8-DISTORTION-ENDPOINTS
+  - INFO8-TWO-SYMBOL-BLOCK
+  - INFO8-TEST-CHANNEL
+  - INFO8-BINARY-RATE-DISTORTION
+  - INFO8-ZERO-DISTORTION
+  - INFO8-MIXED-CHANNEL
+  - INFO8-RANDOM-COVERING
+  - INFO8-IID-COUNTEREXAMPLE
+  - INFO8-SOURCE-CODING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 6 }
