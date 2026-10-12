@@ -278,7 +278,7 @@ $$
 
 と検算できます。
 
-ここで $H=|p|^2/(2m_0)+V(q)$ に変えます。$V$ が $q^1$ のみに依存しないなら、その方向の平行移動だけは残ります。例えば $n=2$ で $V(x,y)=y^2/2$ とすると $x$ 方向の運動量 $p_x$ は保存しますが、$y$ 方向は
+ここで $H=|p|^2/(2m_0)+V(q)$ に変えます。**$V$ が $q^1$ に依存しない**（$V(q^1+a,q^2,\ldots,q^n)=V(q^1,q^2,\ldots,q^n)$ が任意の $a$ で成り立つ）なら、$q^1$ 方向の平行移動対称性が残ります。他の方向の対称性は $V$ の形に依存します。例えば $n=2$ で $V(x,y)=y^2/2$ とすると $x$ 方向の運動量 $p_x$ は保存しますが、$y$ 方向は
 
 $$
 \{p_y,H\}=-\frac{\partial H}{\partial y}=-y
@@ -401,7 +401,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gmech3-a02"></a>
-**A2. 部分対称性。** $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。(1) $x$ 方向の平行移動による $J$ を求めよ。(2) $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
+**A2. 部分対称性。** $m_0>0$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。(1) $x$ 方向の平行移動による $J$ を求めよ。(2) $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
 
 - Level: A
 
@@ -429,7 +429,20 @@ $$
 =0\cdot p-1\cdot\kappa=-\kappa.
 $$
 
-時間発展式は $\dot p=-\kappa$ で、時刻 $t_0$ から積分して $p(t)=p(t_0)-\kappa(t-t_0)$ です。$H(q+a,p)-H(q,p)=\kappa a$ なので、$\kappa\ne0$ ではHamiltonianの並進不変性が欠けています。
+時間発展式は $\dot p=-\kappa$ です。任意の時刻 $t_0$ から積分すると
+
+$
+p(t)-p(t_0)=\int_{t_0}^{t}(-\kappa)\,ds=-\kappa(t-t_0),
+\qquad p(t)=p(t_0)-\kappa(t-t_0).
+$
+
+一方、位置を $a$ だけ平行移動させると
+
+$
+H(q+a,p)-H(q,p)=\kappa a.
+$
+
+従って $\kappa\ne0$ ではHamiltonianの並進不変性が欠けています。
 <!-- solution-end -->
 
 <a id="ex-gmech3-a04"></a>
@@ -454,7 +467,7 @@ $$
 ### Level B
 
 <a id="ex-gmech3-b01"></a>
-**B1. 部分空間への並進。** $T^*\mathbb R^3$ で $H=(p_1^2+p_2^2+p_3^2)/(2m_0)+V(q^3)$ とする。$G=(\mathbb R^2,+)$ が $q^1,q^2$ を並進する作用の運動量写像を求め、全 $\xi$ で保存されることを示せ。また $p_3$ の時間微分を計算せよ。
+**B1. 部分空間への並進。** $m_0>0$、$V\in C^\infty(\mathbb R)$ とする。$T^*\mathbb R^3$ で $H=(p_1^2+p_2^2+p_3^2)/(2m_0)+V(q^3)$ とする。$G=(\mathbb R^2,+)$ が $q^1,q^2$ を並進する作用の運動量写像を求め、全 $\xi$ で保存されることを示せ。また $p_3$ の時間微分を計算せよ。
 
 - Level: B
 
@@ -471,16 +484,32 @@ $$
 \{J_\xi,H\}=-aH_{q^1}-bH_{q^2}=0
 $$
 
-を確かめられます。一方、$\dot p_3=-H_{q^3}=-V'(q^3)$ なので、$V'$ が一般に非零なら $p_3$ は保存しません。
+を確かめられます。一方、$q^3$ 方向には並進不変性を仮定していません。[正準座標のHamilton方程式](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から
+
+$
+\dot p_3=-\frac{\partial H}{\partial q^3}=-V'(q^3)
+$
+
+です。$V'$ が零でない点を通る局所軌道では $p_3$ の時間微分が零にならず、全軌道での保存は保証されません。
 <!-- solution-end -->
 
 <a id="ex-gmech3-b02"></a>
-**B2. 非等方振動子の角運動量。** $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。(1) $\{L,H\}$ を導け。(2) $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
+**B2. 非等方振動子の角運動量。** $m_0>0$、$\alpha,\beta\in\mathbb R$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。(1) $\{L,H\}$ を導け。(2) $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
 
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 偏微分は $L_x=p_y,L_y=-p_x,L_{p_x}=-y,L_{p_y}=x$、$H_x=\alpha x,H_y=\beta y,H_{p_x}=p_x/m_0,H_{p_y}=p_y/m_0$ です。[正準括弧の公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)に入れると
+**詳細解答。** 偏微分をそれぞれ計算すると
+
+$
+\begin{aligned}
+&L_x=p_y,\quad L_y=-p_x,\quad L_{p_x}=-y,\quad L_{p_y}=x,\\
+&H_x=\alpha x,\quad H_y=\beta y,\\
+&H_{p_x}=p_x/m_0,\quad H_{p_y}=p_y/m_0.
+\end{aligned}
+$
+
+これらを[正準括弧の公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)に入れると
 
 $$
 \begin{aligned}
