@@ -24,7 +24,7 @@ chapters:
     title: Doob差分と有界差分不等式
   - id: HDP5
     path: textbook/volumes/dream_thater/解析系/HDP/HDP5
-    status: planned
+    status: completed
     title: Gaussian集中とLipschitz関数
   - id: HDP6
     path: textbook/volumes/dream_thater/解析系/HDP/HDP6

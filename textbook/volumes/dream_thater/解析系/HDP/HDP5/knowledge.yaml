@@ -1,0 +1,63 @@
+chapter: HDP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP4
+  - F0-00F2
+  - VC1
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.euclidean-lipschitz
+    name: Euclid距離に関するLipschitz関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euclid距離に関するLipschitz関数）]
+    requires: []
+  - id: high-dimensional-probability.gaussian-integration-by-parts
+    name: Gaussian部分積分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gaussian部分積分）]
+    requires: []
+  - id: high-dimensional-probability.distance-to-set
+    name: 集合までの距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（集合までの距離）]
+    requires: []
+  - id: high-dimensional-probability.ou-semigroup
+    name: Ornstein–Uhlenbeck平均作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Ornstein–Uhlenbeck平均作用素）]
+    requires: []
+  - id: high-dimensional-probability.gaussian-entropy
+    name: Gaussianエントロピー汎関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Gaussianエントロピー汎関数）]
+    requires: []
+  - id: high-dimensional-probability.ou-identities
+    name: Gaussian平均の半群性・不変性・微分交換
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gaussian平均の半群性・不変性・微分交換）]
+    requires: [high-dimensional-probability.gaussian-integration-by-parts, high-dimensional-probability.ou-semigroup]
+  - id: high-dimensional-probability.gaussian-log-sobolev
+    name: Gaussian対数Sobolev不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gaussian対数Sobolev不等式）]
+    requires: [high-dimensional-probability.ou-identities, high-dimensional-probability.gaussian-entropy]
+  - id: high-dimensional-probability.gaussian-concentration
+    name: Gaussian集中とLipschitz関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gaussian集中とLipschitz関数）]
+    requires: [high-dimensional-probability.euclidean-lipschitz, high-dimensional-probability.gaussian-log-sobolev, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.affine-gaussian-concentration
+    name: アフィンGaussian像の集中
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（アフィンGaussian像の集中）]
+    requires: [high-dimensional-probability.gaussian-concentration]

@@ -1,0 +1,54 @@
+id: HDP5
+title: Gaussian集中とLipschitz関数
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP4
+  - F0-00F2
+  - VC1
+official_scope: []
+learning_objectives:
+  - Euclid距離のLipschitz条件を最大値・ノルム・線形関数で直接検算できる
+  - Gaussian部分積分を密度から証明し標準正規の指数モーメントを再計算できる
+  - Ornstein–Uhlenbeck平均の不変性・微分交換・生成作用素を導出できる
+  - 対数Sobolev不等式を半群のエントロピー減衰とCauchy–Schwarzから証明できる
+  - Herbst法の微分積分からGaussian集中と係数1/2を導き非滑らかな関数へ拡張できる
+  - Gaussian最大値・ベクトルノルムで期待値界と平均からの集中を接続できる
+  - 共分散付きGaussianのアフィン像に対する作用素ノルムを用いた集中を導出できる
+  - 集合までの距離がLipschitzとなることを直接証明できる
+  - Gaussian入力と大域Lipschitz条件を外す反例を説明できる
+definitions:
+  - { id: HDP5-DEF-01, name: Euclid距離に関するLipschitz関数 }
+  - { id: HDP5-DEF-02, name: Ornstein–Uhlenbeck平均作用素 }
+  - { id: HDP5-DEF-03, name: Gaussianエントロピー汎関数 }
+  - { id: HDP5-DEF-04, name: 集合までの距離 }
+theorems:
+  - { id: HDP5-LEM-01, name: Gaussian部分積分 }
+  - { id: HDP5-LEM-02, name: Gaussian平均の半群性・不変性・微分交換 }
+  - { id: HDP5-LEM-03, name: Gaussian対数Sobolev不等式 }
+  - { id: HDP5-THM-01, name: Gaussian集中とLipschitz関数 }
+  - { id: HDP5-COR-01, name: アフィンGaussian像の集中 }
+canonical_examples:
+  - 最大値とEuclidノルムのLipschitz条件
+  - Gaussian部分積分と指数モーメント
+  - Gaussian半群の不変性と勾配縮小
+  - ノルムの期待値と集中の分離
+  - Gaussian座標最大値の期待値界と集中
+  - 正規標本平均と共分散付きGaussian像
+  - Cauchy入力と二次関数による仮定の破綻
+problem_patterns:
+  - HDP5-LINEAR-LIPSCHITZ
+  - HDP5-MAX-NORM
+  - HDP5-CONFIDENCE-RADIUS
+  - HDP5-GAUSSIAN-SAMPLE-MEAN
+  - HDP5-GENERATOR-MOMENT
+  - HDP5-HERBST-DERIVATION
+  - HDP5-CORRELATED-MAXIMUM
+  - HDP5-GAUSSIAN-NORM-RADIUS
+  - HDP5-QUADRATIC-COUNTEREXAMPLE
+  - HDP5-FINITE-GAUSSIAN-LINEAR-MAX
+  - HDP5-COVARIANCE-NORM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 4 }
