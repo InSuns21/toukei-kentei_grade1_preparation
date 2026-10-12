@@ -1,0 +1,46 @@
+chapter: AG1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-06
+  - AG1-05
+  - AG1-04
+  - AG1-01
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.zariski-lemma
+    name: 有限生成体の補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限生成体の補題）"]
+    requires: [algebraic-geometry.noether-normalization, algebraic-geometry.integral-finite-criterion]
+
+  - id: algebraic-geometry.maximal-point-ideals
+    name: 代数閉体上の多項式環の極大イデアル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（代数閉体上の多項式環の極大イデアル）"]
+    requires: [algebraic-geometry.zariski-lemma, algebra.maximal-ideal-quotient-field]
+
+  - id: algebraic-geometry.weak-nullstellensatz
+    name: 弱Hilbertの零点定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（弱Hilbertの零点定理）"]
+    requires: [algebraic-geometry.maximal-point-ideals, algebraic-geometry.affine-algebraic-set]
+
+  - id: algebraic-geometry.ideal-radical
+    name: イデアルの根基
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの根基）"]
+    requires: [algebraic-geometry.radical-ideal, algebra.ring-ideal]
+
+  - id: algebraic-geometry.strong-nullstellensatz
+    name: 強Hilbertの零点定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強Hilbertの零点定理）"]
+    requires: [algebraic-geometry.weak-nullstellensatz, algebraic-geometry.ideal-radical, algebraic-geometry.vanishing-ideal, algebraic-geometry.vanishing-ideal-radical]

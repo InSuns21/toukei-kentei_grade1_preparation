@@ -1,0 +1,48 @@
+id: "NT4"
+title: "算術関数と Dirichlet 畳み込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - NT2
+  - RNG3
+official_scope: []
+learning_objectives:
+  - 算術関数・乗法的関数・完全乗法的関数を区別し、互いに素の条件の役割を例と反例で説明できる
+  - 約数個数関数τ・約数和関数σ・Eulerのφ関数・Möbius関数μを素数冪で計算できる
+  - Dirichlet畳み込みの可換性・結合性・単位元を有限約数和の添字変更で証明できる
+  - 乗法的関数の畳み込み閉性を互いに素な数の約数分解から証明し、素数冪の局所式を使える
+  - Dirichlet畳み込みの逆元の存在条件と再帰的な構成を証明し、具体的に計算できる
+definitions:
+  - { id: NT4-DEF-01, name: 算術関数 }
+  - { id: NT4-DEF-02, name: 乗法的関数と完全乗法的関数 }
+  - { id: NT4-DEF-03, name: 約数個数関数と約数和関数 }
+  - { id: NT4-DEF-04, name: Möbius関数 }
+  - { id: NT4-DEF-05, name: Dirichlet畳み込み }
+  - { id: NT4-DEF-06, name: 畳み込みの単位元 }
+theorems:
+  - { id: NT4-PROP-01, name: 典型的な算術関数の乗法性と素数冪の値 }
+  - { id: NT4-THM-01, name: Dirichlet畳み込みの可換性・結合性・単位元 }
+  - { id: NT4-THM-02, name: 乗法的関数の畳み込み閉性 }
+  - { id: NT4-PROP-02, name: 素数冪における畳み込み公式 }
+  - { id: NT4-PROP-03, name: τとσの畳み込み表示 }
+  - { id: NT4-THM-03, name: Dirichlet逆元の存在条件 }
+canonical_examples:
+  - n=12の約数一覧からτ・σ・φ・μを比較
+  - 法が互いに素でないτ(4)τ(2)とτ(8)の差
+  - εと定数1関数をn=6で区別
+  - n=12でτ=1*1を直接計算
+  - 素数冪p^3での畳み込み四項
+  - f=1+idのDirichlet逆元をn=1,2,3,4まで再帰計算
+problem_patterns:
+  - NT4-ARITHMETIC-FUNCTIONS
+  - NT4-MULTIPLICATIVE-VS-COMPLETE
+  - NT4-DIVISOR-SUMS
+  - NT4-DIRICHLET-CONVOLUTION
+  - NT4-MULTIPLICATIVE-CLOSURE
+  - NT4-PRIME-POWER-LOCAL
+  - NT4-DIRICHLET-INVERSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }

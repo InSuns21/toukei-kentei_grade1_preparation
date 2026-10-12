@@ -73,7 +73,9 @@ $$
 
 は停止しません。矛盾です。零イデアルは空集合で生成されるため、例外にはなりません。
 
-**(2)$\Rightarrow$(1).** 昇鎖 $(I_n)$ を任意に取り、$I=\bigcup_{n\ge1}I_n$ と置きます。$a,b\in I$ なら $a\in I_i,b\in I_j$ となる $i,j$ があり、$m=\max(i,j)$ に対し $a-b\in I_m$ です。また $r\in R$ なら $ra\in I_i$ です。従って $I$ はイデアルです。有限生成性から $I=(b_1,\dots,b_s)$ と書け、各 $b_j$ はある $I_{n_j}$ に入ります。$N=\max n_j$ とすると $I\subseteq I_N$、逆向き $I_N\subseteq I$ もあるので $I=I_N$ です。$n\ge N$ に対し $I_N\subseteq I_n\subseteq I$ となり、停止します。$I=0$ なら列は初めから零なので同じ結論です。
+**(2)$\Rightarrow$(1).** 昇鎖 $(I_n)$ を任意に取り、$I=\bigcup_{n\ge1}I_n$ と置きます。$a,b\in I$ なら $a\in I_i,b\in I_j$ となる $i,j$ があり、$m=\max(i,j)$ に対し $a-b\in I_m$ です。また $r\in R$ なら $ra\in I_i$ です。従って $I$ はイデアルです。
+
+有限生成性から $I=(b_1,\dots,b_s)$ と書け、各 $b_j$ はある $I_{n_j}$ に入ります。$I\ne0$ なら $s\ge1$ として $N=\max_{1\le j\le s}n_j$ を選びます。このとき $b_j\in I_N$ なので $I\subseteq I_N$、逆に $I_N\subseteq I$ であり $I=I_N$ です。従って $n\ge N$ では $I_N\subseteq I_n\subseteq I_N$ となり停止します。$I=0$ ならすべての $I_n$ が零なので初めから停止します。
 
 **(1)$\Rightarrow$(3).** 空でないイデアルの集合 $\mathcal F$ に極大元がないなら $J_1\in\mathcal F$ を一つ選び、各 $J_n$ に対して $J_n\subsetneq J_{n+1}\in\mathcal F$ を選べます。これは停止しない昇鎖で矛盾です。
 
@@ -117,7 +119,15 @@ $$
 
 となります。
 
-具体例として $R=k[x]$、$J=(xt,t^2)\subseteq R[t]$ を調べましょう。次数零の多項式は $J$ に零しかありません。実際 $J$ の各元は $t$ で割り切れます。次数高々一の元は $xt$ の定数倍ではなく、$R$ 倍とその加減で作られ、$t$ の係数は $(x)$ に属します。一方 $t^2\in J$ なので次数二の係数には $1$ が現れます。従って
+具体例として $R=k[x]$、$J=(xt,t^2)\subseteq R[t]$ を調べましょう。任意の $f\in J$ は $f=xt\,a(x,t)+t^2b(x,t)$ と書けるので、$t$ で割り切れます。従って次数零の元は零だけです。
+
+次数一の係数は、$a(x,t)=a_0(x)+t a_1(x,t)$ と分ければ
+
+$$
+f=x a_0(x)t+t^2\bigl(xa_1(x,t)+b(x,t)\bigr)
+$$
+
+から $xa_0(x)$ と分かります。これは常に $(x)$ に入り、逆に $xt\in J$ の $R$ 倍ですべての $(x)$ の元を実現できます。また $t^2\in J$ の $t^2$ 係数は $1$ なので、従って
 
 $$
 J_0=(0),\qquad J_1=(x),\qquad J_2=R,\qquad J_d=R\ (d\ge2).
@@ -203,6 +213,10 @@ $n=0$ では多項式環は $R$ そのものです。$n$ 個の場合を仮定�
 
 代数的集合の[座標環](../AG1-03/index.md#def-ag1-03-coordinate-ring)は多項式環の商環でした。また前章では[点の局所環](../AG1-04/index.md#def-ag1-04-point-local-ring)を局所化として構成しました。Noether性がこれらに残ることを、元のイデアルから証明します。
 
+**商環と座標環の区別。** $X=V_k(xy)$ に対して、任意の体 $k$ で $k[x,y]/(xy)$ という商環は作れますが、座標環の定義は $A_k(X)=k[x,y]/I_k(X)$ です。$k$ が無限体なら両者は一致します。実際 $f\in I_k(X)$ なら全 $a,b\in k$ に対して $f(a,0)=f(0,b)=0$ です。[無限体上のアフィン直線の閉集合の分類](../AG1-01/index.md#prop-ag1-01-affine-line-closed)で用いた根の個数の議論により、$f(x,0)=0$ と $f(0,y)=0$ は**多項式としての等号**です。前者は $f$ の各単項式に $y$ が現れること、後者は各単項式に $x$ が現れることを意味し、$xy\mid f$ が従います。逆向き $(xy)\subseteq I_k(X)$ は明白なので $I_k(X)=(xy)$ です。
+
+一方 $k$ が有限体なら、$h(x)=\prod_{a\in k}(x-a)$ は $k$ の全元を根に持つモニックな非零多項式です。従って $k^2$ の全点で零となり $h(x)\in I_k(X)$ ですが、$h(x)\notin(xy)$ です。実際、$(xy)$ の元なら $y=0$ を代入すると零多項式になるのに、$h(x)$ は $y$ に依存しない非零多項式だからです。従って有限体の場合は $k[x,y]/(xy)$ を **$xy$ による商環** として扱い、点集合 $X$ の座標環と混同しません。
+
 <a id="prop-ag1-05-quotient-localization"></a>
 
 <!-- formal-statement-start -->
@@ -242,7 +256,23 @@ $$
 です。逆に各 $a_i/1\in J$ なので、この有限個が $J$ を生成します。$S^{-1}R=0$ の場合でもイデアルは零のみで同じ議論が成立します。
 <!-- proof-end -->
 
-**直接例。** $A=k[x,y]/(xy)$ は零因子を持ちますが、[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)を $k[x,y]$ に適用します。その結果を[商環と局所化でのNoether性の保存](#prop-ag1-05-quotient-localization)に順に適用すると、$A$ も $A_x$ もNoetherです。前章の[局所化の零判定](../AG1-04/index.md#prop-ag1-04-fractions-ring)から $xy=0$ を $x$ で局所化すると $y/1=0$ となり、$A_x$ は $k[x,x^{-1}]$ と同型になります。実際、$k[x,y]\to k[x,x^{-1}]$ を $x\mapsto x,y\mapsto0$ で定めれば $xy$ は零となり、$x$ の像は単元です。従って[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)で $A_x\to k[x,x^{-1}]$ が得られ、逆向きには $x$ とその逆元の像を送る準同型を使えます。両合成は $x,x^{-1}$ と $A_x$ の生成元 $a/x^n$ 上で恒等写像なので互いに逆です。ここで重要なのは、Noetherであることと、零因子がないことは別の性質だという点です。
+**直接例。** $A=k[x,y]/(xy)$ は零因子を持ちます。[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)を $k[x,y]$ に、その後[商環と局所化でのNoether性の保存](#prop-ag1-05-quotient-localization)を $A$ と $A_x$ に適用すると、どちらもNoetherです。
+
+この局所化では $xy=0$ と $x/1$ の可逆性から
+
+$$
+y/1=(x/1)^{-1}(xy/1)=0
+$$
+
+です（[局所化の零判定](../AG1-04/index.md#prop-ag1-04-fractions-ring)とも一致します）。さらに $A_x\simeq k[x,x^{-1}]$ を写像の両方向から確かめます。$k[x,y]\to k[x,x^{-1}]$ を $x\mapsto x,\ y\mapsto0$ で定めると $xy$ は零になり、$x$ の像は単元です。[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)から
+
+$$
+A_x\longrightarrow k[x,x^{-1}]
+$$
+
+を得ます。逆向きの写像は Laurent 多項式 $\sum_{i=-m}^{n}a_ix^i$ を $\sum_{i=-m}^{n}a_i(x/1)^i\in A_x$ へ送るものです。双方の合成は、$x$ とその逆元、さらに $A_x$ の各分数 $a/x^r$ 上で恒等写像となり、互いに逆です。
+
+従ってNoetherであることと、零因子がないことは別の性質です。
 
 上の商環について、$A$ がNoetherだからといって**部分環まで必ずNoether**とは結論できません。また、局所化でNoether性が残る証明は、逆向きに元の $R$ がNoetherだと主張するものではありません。使った写像の方向を取り違えないようにしましょう。
 
@@ -360,7 +390,13 @@ $R=k[x]$、$J=(xt,t^2)\subset R[t]$ とする。[次数別最高次係数イデ�
 - ID: AG1-05-A3
 
 <!-- solution-start -->
-**詳細解答**　$J$ の任意の元は $xt\,a(x,t)+t^2b(x,t)$ なので、$t$ で割り切れます。従って $J$ の次数零の元は零で $J_0=(0)$ です。次数一以下であれば $t^2b$ は次数一の部分に寄与できず、$xt\,a$ の $t$ 係数は $x$ の倍数です。$xt\in J$ だからすべての $x$ の倍数が実現し、$J_1=(x)$ です。$t^2\in J$ は $t^2$ 係数 $1$ を持つので $J_2=R$ です。以後 $J_d\subseteq R$ かつ $J_2\subseteq J_d$ なので $J_d=R$ となり、$d=2$ で安定します。
+**詳細解答**　$J$ の任意の元は $f=xt\,a(x,t)+t^2b(x,t)$ なので、$t$ で割り切れます。従って $J_0=(0)$ です。$a(x,t)=a_0(x)+t a_1(x,t)$ と書けば
+
+$$
+f=x a_0(x)t+t^2\bigl(xa_1(x,t)+b(x,t)\bigr)
+$$
+
+となるので、$f$ の $t$ 係数は $xa_0(x)\in(x)$ です。逆に任意の $c(x)\in k[x]$ に対して $c(x)xt\in J$ の $t$ 係数は $xc(x)$ だから $J_1=(x)$ です。$t^2\in J$ の $t^2$ 係数が $1$ なので $J_2=R$ です。単調性 $J_2\subseteq J_d\subseteq R$ ($d\ge2$) により $J_d=R$、従って $d=2$ から安定します。
 <!-- solution-end -->
 
 ### A4. 商環の有限生成性
@@ -384,7 +420,7 @@ $R=k[x,y]$、$A=R/(xy)$ とする。$A$ のイデアル $L=(\bar x^2,\bar y)$ �
 - ID: AG1-05-B1
 
 <!-- solution-start -->
-**詳細解答**　評価写像 $\varepsilon_0:R[t]\to R$、$\sum_i a_it^i\mapsto a_0$ を考えます。和の定数項は定数項の和、積の定数項は定数項どうしの積なので環準同型です。定数多項式の像が任意の $r\in R$ を与えるため全射です。核は定数項が零の多項式全体であり、これは $(t)$ です。従って $R[t]/(t)\cong R$ です。$R[t]$ がNoetherなら[商環の保存命題](#prop-ag1-05-quotient-localization)の (1) により $R$ はNoetherです。逆向きは[Hilbertの基底定理](#thm-ag1-05-hilbert-basis)です。よって同値です。
+**詳細解答**　評価写像 $\varepsilon_0:R[t]\to R$、$\sum_i a_it^i\mapsto a_0$ を考えます。和の定数項は定数項の和、積の定数項は定数項どうしの積なので環準同型です。定数多項式の像が任意の $r\in R$ を与えるため全射です。核は定数項が零の多項式全体であり、これは $(t)$ です。従って[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)をこの全射へ適用して $R[t]/(t)\cong R$ です。$R[t]$ がNoetherなら[商環の保存命題](#prop-ag1-05-quotient-localization)の (1) により $R$ はNoetherです。逆向きは[Hilbertの基底定理](#thm-ag1-05-hilbert-basis)です。よって同値です。
 <!-- solution-end -->
 
 ### B2. 零因子があってもNoetherである
@@ -395,7 +431,11 @@ $A=k[x,y]/(xy)$、$S=\{1,\bar x,\bar x^2,\ldots\}$ とする。$A$ と $S^{-1}A$
 - ID: AG1-05-B2
 
 <!-- solution-start -->
-**詳細解答**　$k$ はNoetherなので、[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)により $k[x,y]$ はNoetherです。[商環と局所化での保存命題](#prop-ag1-05-quotient-localization)をまず $(xy)$ による商へ、次に乗法的集合 $S$ へ適用すると、$A$ と $S^{-1}A$ の全イデアルは有限生成です。$S^{-1}A$ は零環でないことも確かめます。$A$ の評価 $x\mapsto1,y\mapsto0$ は $xy$ を零にするので $A\to k$ を定め、$S$ の像はすべて $1$ です。[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)から $S^{-1}A\to k$ が存在し、$1$ の像は $1$ なので零環ではありません。$\bar x\bar y=0$ と $\bar x/1$ の可逆性より
+**詳細解答**　$k$ はNoetherなので、[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)により $k[x,y]$ はNoetherです。[商環と局所化での保存命題](#prop-ag1-05-quotient-localization)をまず $(xy)$ による商へ、次に乗法的集合 $S$ へ適用すると、$A$ と $S^{-1}A$ の全イデアルは有限生成です。
+
+$S^{-1}A$ が零環でないことも確かめます。評価 $x\mapsto1,\ y\mapsto0$ は $xy$ を零にするため $A\to k$ を定め、$S$ の像はすべて $1$ です。[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)をこの評価写像へ適用すると $S^{-1}A\to k$ が得られ、$1$ の像が $1$ なので局所化先は零環ではありません。
+
+$\bar x\bar y=0$ と $\bar x/1$ の可逆性より
 
 $$
 \bar y/1=(\bar x/1)^{-1}(\bar x\bar y/1)=0.
@@ -412,7 +452,9 @@ $X_1\supseteq X_2\supseteq\cdots$ を $k^n$ のZariski閉集合の降鎖とす�
 - ID: AG1-05-B3
 
 <!-- solution-start -->
-**詳細解答**　$X_{i+1}\subseteq X_i$ のとき $f\in I(X_i)$ は $X_i$ のすべての点で零ですから、その部分集合 $X_{i+1}$ のすべての点でも零です。従って $I(X_i)\subseteq I(X_{i+1})$ です。$k[x_1,\dots,x_n]$ は[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)からNoetherなので、ある $N$ で $I(X_i)=I(X_N)$ ($i\ge N$) です。ここから集合の等式を結論するには、同じ消滅イデアルを持つ閉集合が同じであることが必要です。実際閉集合 $X=V(E)$ に対し $E\subseteq I(X)$ だから $V(I(X))\subseteq V(E)=X$、また定義から $X\subseteq V(I(X))$ です。よって $X=V(I(X))$ となり、$X_i=X_N$ が従います。消滅イデアルの包含関係だけでは集合の等式まで飛ばせず、この復元が必要です。
+**詳細解答**　$X_{i+1}\subseteq X_i$ のとき $f\in I(X_i)$ は $X_i$ のすべての点で零ですから、その部分集合 $X_{i+1}$ のすべての点でも零です。従って $I(X_i)\subseteq I(X_{i+1})$ です。[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)により $k[x_1,\dots,x_n]$ はNoetherなので、ある $N$ で $I(X_i)=I(X_N)$（$i\ge N$）となります。
+
+閉集合 $X=V(E)$ に対し $E\subseteq I(X)$ なので $V(I(X))\subseteq V(E)=X$、一方 $I(X)$ は $X$ の全点で消える多項式全体だから $X\subseteq V(I(X))$ です。従って $X=V(I(X))$ です。この復元式を各 $X_i$ に使えば $X_i=V(I(X_i))=V(I(X_N))=X_N$（$i\ge N$）となります。消滅イデアルの昇鎖停止だけから集合の等式を直接結論するのでなく、復元式を介する必要があります。
 <!-- solution-end -->
 
 ### B4. 無限の方程式を有限個へ
@@ -434,7 +476,7 @@ $$
 
 **Level C：最高次係数・局所化・幾何を接続する**
 
-### C1. 二軸の座標環で三つの有限性を確かめる
+### C1. 二軸の方程式から作る商環で三つの有限性を確かめる
 
 $k$ を体、$R=k[x]$、$J=(xt,t^2)\subset R[t]$、$A=k[x,y]/(xy)$、$X=V_k(xy)$ とする。
 
@@ -448,9 +490,13 @@ $k$ を体、$R=k[x]$、$J=(xt,t^2)\subset R[t]$、$A=k[x,y]/(xy)$、$X=V_k(xy)$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)**　$J$ の元はすべて $t$ の倍数なので $J_0=(0)$ です。$xt\in J$ より $J_1$ は $(x)$ を含み、次数一の元の $t$ 係数は $(x)$ に限られるので $J_1=(x)$ です。$t^2\in J$ より $J_2=R$、以後は $J_d=R$ です。したがって定理の証明における $N=2$、代表多項式として $xt$（次数1）と $t^2$（次数2）を選べます。$f\in J$ が次数 $m\ge2$、最高次係数 $a(x)$ を持てば、$a(x)t^{m-2}t^2$ を引くと次数は $m$ 未満です。次数 $1$ に達したらその $t$ 係数は $xb(x)$ なので $b(x)xt$ を引くと零になります。$J_0=0$ なので定数項は残りません。引いた項をすべて足し戻すと $f=U(x,t)t^2+V(x,t)xt$ です。これはこの具体例での[Hilbertの基底定理の次数降下](#thm-ag1-05-hilbert-basis)の実演です。
+**(1)**　$J$ の元はすべて $t$ の倍数なので $J_0=(0)$ です。$xt\in J$ より $J_1$ は $(x)$ を含み、第2節で $t$ 係数を展開した結果から $J_1=(x)$ です。$t^2\in J$ より $J_2=R$、単調性から $J_d=R$（$d\ge2$）です。
 
-**(2)**　体 $k$ はNoetherです。[有限変数多項式環の系](#cor-ag1-05-multivariate-noether)で $k[x,y]$ はNoether、[商環での保存](#prop-ag1-05-quotient-localization)で $A$ もNoetherです。$o$ の評価準同型の核は $\mathfrak m_o=(\bar x,\bar y)$ で、[点の局所環の構成](../AG1-04/index.md#def-ag1-04-point-local-ring)より $A_{\mathfrak m_o}=(A\setminus\mathfrak m_o)^{-1}A$ です。$A$ がNoetherなので再び[局所化での保存](#prop-ag1-05-quotient-localization)を適用でき、この局所環もNoetherです。ここで局所環が整域であるとは主張していません。
+従って[Hilbertの基底定理](#thm-ag1-05-hilbert-basis)の証明では $N=2$ とでき、代表多項式には $xt$（次数1）と $t^2$（次数2）を選べます。$f\in J$ が次数 $m\ge2$、最高次係数 $a(x)$ を持てば、$a(x)t^{m-2}t^2$ を引くと次数は $m$ 未満です。次数 $1$ に達したらその $t$ 係数は $xb(x)$ なので $b(x)xt$ を引いて零にします。$J_0=0$ なので定数項は残りません。引いた項を足し戻すと $f=U(x,t)t^2+V(x,t)xt$ となり、次数降下の機構を再現できます。
+
+**(2)**　体 $k$ はNoetherです。[有限変数多項式環のNoether性](#cor-ag1-05-multivariate-noether)を $k[x,y]$ に、次に[商環でのNoether性の保存](#prop-ag1-05-quotient-localization)を $(xy)$ に適用して $A$ はNoetherとなります。
+
+$o$ での評価準同型 $A\to k$ の核は $\mathfrak m_o=(\bar x,\bar y)$ です。[点の局所環の構成](../AG1-04/index.md#def-ag1-04-point-local-ring)によると $A_{\mathfrak m_o}=(A\setminus\mathfrak m_o)^{-1}A$ です。[局所化でのNoether性の保存](#prop-ag1-05-quotient-localization)をここへ適用して $A_{\mathfrak m_o}$ もNoetherです。局所環が整域であるとは主張していません。
 
 **(3)**　[アフィン代数的集合のNoether位相](#thm-ag1-05-zariski-noether)により $k^2$ はNoetherで、閉部分集合 $X$ もNoetherです。$xy=0$ は体では $x=0$ または $y=0$ と同値なので
 
@@ -458,7 +504,11 @@ $$
 X=V_k(x)\cup V_k(y).
 $$
 
-各直線は $k^1$ と多項式写像および逆写像で同型であり、[アフィン直線の閉集合の分類](../AG1-01/index.md#prop-ag1-01-affine-line-closed)から、$k$ が無限体なら直線は既約です。有限体の場合にはZariski位相が離散的になるため、直線が既約とは限りません。従って本問の既約成分について、**$k$ が無限体のとき**は二本の座標軸 $V_k(x),V_k(y)$ が互いに含まれない既約閉集合であり、既約成分です。有限体のときは $X$ は有限離散空間なので、既約成分は各一点集合です。後者も有限個です。一般の有限分解は、ここで証明したNoether性と[Noether空間での既約成分分解](../AG1-02/index.md#thm-ag1-02-noether-components)から従います。
+$V_k(y)$ は $t\mapsto(t,0)$ と $(a,0)\mapsto a$ により $k^1$ と対応し、$V_k(x)$ も $t\mapsto(0,t)$ と $(0,b)\mapsto b$ で対応します。これらは多項式で与えられる互いに逆の正則写像なので、[正則写像のZariski連続性](../AG1-03/index.md#prop-ag1-03-continuity)から位相同型です。[無限体上のアフィン直線の閉集合の分類](../AG1-01/index.md#prop-ag1-01-affine-line-closed)によれば、$k$ が無限体ならどちらの直線も既約です。二本は互いに包含されないため、$X$ の既約成分はこの二本です。
+
+有限体の場合を別に検討します。$|k|<\infty$ なら $k^2$ は有限集合で、各一点 $\{(a,b)\}$ は $V_k(x-a,y-b)$ というZariski閉集合です。[零点集合の有限和の性質](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から一点集合の有限和も閉集合なので、$k^2$ のすべての部分集合は閉集合です。従って $k^2$ と部分空間 $X$ は離散空間です。二点以上を含む集合は相異なる二つの非空な真の閉部分集合の和に分解できるため、有限体では $X$ の既約成分は各一点集合です。こちらも有限個です。
+
+両場合で有限既約分解が存在する一般的な根拠は、上で証明したNoether性と[Noether空間での既約成分分解](../AG1-02/index.md#thm-ag1-02-noether-components)です。なお有限体上の商環 $A=k[x,y]/(xy)$ と点集合の座標環 $A_k(X)$ が異なる点は第3節で確かめたとおりで、$A$ のNoether性の計算には影響しません。
 <!-- solution-end -->
 
 ## 6. 次章へ：有限生成性から整拡大へ

@@ -250,7 +250,28 @@ D(P\|Q)
 \end{aligned}
 $$
 
-等号の場合、$S$ 上で $p/q$ に対する対数不等式の差が非負であり、その積分が0でなければなりません。この差は $p=q$ のときだけ0なので $p=q$ が $S$ 上でほとんど至る所成り立ち、さらに $\int_{S^c}q=0$ です。よって全体で $p=q$ です。逆方向は密度比が1なので積分が零です。
+等号条件も、途中で捨てた非負の量を明示して確かめます。$S$ 上で $t(x)=q(x)/p(x)>0$ と置くと、
+
+$$
+(\ln2)D(P\|Q)
+=\int_S p(x)\bigl[t(x)-1-\ln t(x)\bigr]\,dx
++\int_{S^c}q(x)\,dx.
+$$
+
+実際、右辺の積分を展開すると
+
+$$
+\begin{aligned}
+&\int_S\bigl[p\ln(p/q)-p+q\bigr]\,dx
+  +\int_{S^c}q\,dx\\
+&=\int_S p\ln(p/q)\,dx
+  -\underbrace{\int_Sp\,dx}_{=1}
+  +\underbrace{\int_{\mathbb R^d}q\,dx}_{=1}\\
+&=(\ln2)D(P\|Q).
+\end{aligned}
+$$
+
+また $\ln t\le t-1$ より第一項の被積分関数は非負で、$t-1-\ln t=0$ は $t=1$ のときだけです。従って $D(P\|Q)=0$ なら第一項と第二項がともに零であり、$S$ 上で $p=q$ がほとんど至る所成立し、$S^c$ 上でも $q=0=p$ です。逆に $p=q$ がほとんど至る所なら密度比は1で $D(P\|Q)=0$ です。
 <!-- proof-end -->
 
 ここで体積に関する「ほとんど至る所」とは、長さ・面積などが0の集合を除くことです。密度はそのような集合上で変更しても分布を変えないため、点ごとの一致は要求しません。
@@ -699,13 +720,38 @@ h(X,Y)=-\iint_{\{p_{XY}=2\}}2\log_22\,dx\,dy
 =-2\cdot\frac12=-1.
 $$
 
-条件付き密度は各半区間で2なので $h(Y|X)=-1$。相互情報量は [連続エントロピー表示](#thm-info9-mutual-entropy)の有限性条件（各対数の絶対積分は有限）を満たし、
+周辺密度は $p_X(x)=1$（$0<x<1$）です。[連続条件付き微分エントロピー](#def-info9-conditional-entropy)の定義で使う条件付き密度を代入すると、正密度領域では
 
 $$
-I(X;Y)=0+0-(-1)=1.
+p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)}=\frac21=2
 $$
 
-また $p_{XY}=2$ の部分は $p_Xp_Y=1$ と異なるため独立ではありません。
+であり、ほかでは0です。正密度領域の面積は $1/2$ なので、
+
+$$
+\begin{aligned}
+\iint p_{XY}|\log_2p_{Y|X}|\,dx\,dy
+&=2\cdot\frac12\cdot|\log_22|=1<\infty,\\
+h(Y|X)
+&=-\iint_{\{p_{XY}=2\}}2\log_22\,dx\,dy
+=-2\cdot\frac12=-1.
+\end{aligned}
+$$
+
+[連続エントロピー表示](#thm-info9-mutual-entropy)の有限性条件も満たします。従って
+
+$$
+I(X;Y)=h(X)+h(Y)-h(X,Y)=0+0-(-1)=1.
+$$
+
+密度比からも直接確認します。正密度領域では $p_Xp_Y=1$ なので
+
+$$
+I(X;Y)=\iint_{\{p_{XY}=2\}}2\log_2\frac{2}{1}\,dx\,dy
+=2\cdot\frac12\cdot1=1.
+$$
+
+その領域で $p_{XY}=2$ は $p_Xp_Y=1$ と異なるため、独立ではありません。
 <!-- solution-end -->
 
 #### B3. 最大エントロピーの等号条件
@@ -753,7 +799,24 @@ h(V)=h(Y)+\log_2(1/2)=-1,\quad
 h(U,V)=h(X,Y)+\log_21=-1.
 $$
 
-従って $I(U;V)=1+(-1)-(-1)=1$ ビットです。直接確認するなら変換後の結合密度は $p_{UV}=p_{XY}/1$、周辺密度は $p_U=p_X/2$、$p_V=2p_Y$ です。ゆえに $p_U p_V=p_Xp_Y$ で比は変わらず、[不変性命題](#prop-info9-mutual-invariance)とも整合します。
+従って $I(U;V)=1+(-1)-(-1)=1$ ビットです。密度比でも確認します。変換後の点 $(u,v)$ に対応する元の点と結合変換の Jacobian は
+
+$$
+x=\frac{u-1}{2},\qquad y=2v,\qquad
+J=\left|2\cdot\frac12\right|=1.
+$$
+
+正密度領域で
+
+$$
+\begin{aligned}
+p_{UV}(u,v)&=p_{XY}\left(\frac{u-1}{2},2v\right),\\
+p_U(u)&=\frac12p_X\left(\frac{u-1}{2}\right),\\
+p_V(v)&=2p_Y(2v).
+\end{aligned}
+$$
+
+従って $p_U(u)p_V(v)=p_X(x)p_Y(y)$、$p_{UV}(u,v)=p_{XY}(x,y)$ が**対応する点で**成り立ちます。また $du\,dv=dx\,dy$ なので、相互情報量を定める密度比の積分値は変わりません。これは[相互情報量の不変性命題](#prop-info9-mutual-invariance)の具体的な検証です。
 <!-- solution-end -->
 
 ### Level C：すべての公式の適用条件をつなぐ

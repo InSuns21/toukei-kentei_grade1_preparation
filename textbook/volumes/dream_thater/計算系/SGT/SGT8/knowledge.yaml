@@ -1,0 +1,61 @@
+chapter: SGT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - SGT5
+  - SGT6
+  - SGT7
+forward_references: []
+
+concepts:
+  - id: spectral-graph.radius-knn-point-graphs
+    name: 半径グラフと対称化k近傍グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（半径グラフと対称化k近傍グラフ）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.geometric-weight-energy
+    name: 幾何重みと有限グラフのエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（幾何重みと有限グラフのエネルギー）]
+    requires: [spectral-graph.radius-knn-point-graphs, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.point-margin-spectral-stability
+    name: 半径閾値の余裕と有限スペクトルの安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（半径閾値の余裕と有限スペクトルの安定性）]
+    requires: [spectral-graph.geometric-weight-energy, spectral-graph.weyl-perturbation]
+
+  - id: spectral-graph.barbell-cliques
+    name: 一本橋で結んだ二つの完全グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一本橋で結んだ二つの完全グラフ）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.barbell-cut-gap
+    name: 一本橋グラフのconductanceと第二固有値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一本橋グラフのconductanceと第二固有値）]
+    requires: [spectral-graph.barbell-cliques, spectral-graph.conductance, spectral-graph.cheeger-two-sided, spectral-graph.normalized-rayleigh]
+
+  - id: spectral-graph.barbell-lazy-mixing
+    name: 一本橋グラフの混合の下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一本橋グラフの混合の下界）]
+    requires: [spectral-graph.barbell-cut-gap, spectral-graph.mixing-lower, spectral-graph.lazy-spectrum]
+
+  - id: spectral-graph.barbell-bridge-resistance
+    name: 橋の両端間の有効抵抗
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（橋の両端間の有効抵抗）]
+    requires: [spectral-graph.barbell-cliques, spectral-graph.thomson]

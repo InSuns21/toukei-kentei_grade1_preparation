@@ -198,6 +198,7 @@
         "textbook/volumes/dream_thater/解析系/HDP/HDP5/index.md",
         "textbook/volumes/dream_thater/解析系/HDP/HDP6/index.md",
         "textbook/volumes/dream_thater/解析系/HDP/HDP7/index.md",
+        "textbook/volumes/dream_thater/解析系/HDP/HDP8/index.md",
         "textbook/volumes/dream_thater/解析系/F0/F0-02C/index.md",
         "textbook/volumes/dream_thater/解析系/F0/F0-00D1/index.md",
         "textbook/volumes/dream_thater/解析系/F0/F0-02C1/index.md",
@@ -417,7 +418,8 @@
         "textbook/volumes/dream_thater/計算系/SGT/SGT4/index.md",
         "textbook/volumes/dream_thater/計算系/SGT/SGT5/index.md",
         "textbook/volumes/dream_thater/計算系/SGT/SGT6/index.md",
-        "textbook/volumes/dream_thater/計算系/SGT/SGT7/index.md"
+        "textbook/volumes/dream_thater/計算系/SGT/SGT7/index.md",
+        "textbook/volumes/dream_thater/計算系/SGT/SGT8/index.md"
       ]
     },
     {
@@ -460,7 +462,9 @@
         "textbook/volumes/dream_thater/幾何系/SYM/SYM7/index.md",
         "textbook/volumes/dream_thater/幾何系/SYM/SYM8/index.md",
         "textbook/volumes/dream_thater/幾何系/GMECH/GMECH1/index.md",
-        "textbook/volumes/dream_thater/幾何系/GMECH/GMECH2/index.md"
+        "textbook/volumes/dream_thater/幾何系/GMECH/GMECH2/index.md",
+        "textbook/volumes/dream_thater/幾何系/GMECH/GMECH3/index.md",
+        "textbook/volumes/dream_thater/幾何系/GMECH/GMECH4/index.md"
       ]
     },
     {
@@ -485,12 +489,15 @@
         "textbook/volumes/dream_thater/代数系/NT/NT1/index.md",
         "textbook/volumes/dream_thater/代数系/NT/NT2/index.md",
         "textbook/volumes/dream_thater/代数系/NT/NT3/index.md",
+        "textbook/volumes/dream_thater/代数系/NT/NT4/index.md",
+        "textbook/volumes/dream_thater/代数系/NT/NT5/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-02/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-03/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-04/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-05/index.md",
         "textbook/volumes/dream_thater/代数系/AG/AG1-06/index.md",
+        "textbook/volumes/dream_thater/代数系/AG/AG1-07/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE1/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE2/index.md",
         "textbook/volumes/dream_thater/代数系/LIE/LIE3/index.md",
@@ -610,6 +617,7 @@
         "textbook/volumes/dream_thater/物理系/SREL/SREL6/index.md",
         "textbook/volumes/dream_thater/物理系/SREL/SREL7/index.md",
         "textbook/volumes/dream_thater/物理系/SREL/SREL8/index.md",
+        "textbook/volumes/dream_thater/物理系/SREL/SREL9/index.md",
         "textbook/volumes/dream_thater/物理系/TH/TH1/index.md",
         "textbook/volumes/dream_thater/物理系/TH/TH2/index.md",
         "textbook/volumes/dream_thater/物理系/TH/TH3/index.md",
@@ -618,6 +626,7 @@
         "textbook/volumes/dream_thater/物理系/TH/TH6/index.md",
         "textbook/volumes/dream_thater/物理系/TH/TH7/index.md",
         "textbook/volumes/dream_thater/物理系/TH/TH8/index.md",
+        "textbook/volumes/dream_thater/物理系/SM/SM1/index.md",
         "textbook/volumes/dream_thater/物理系/MQ/MQ0/index.md",
         "textbook/volumes/dream_thater/物理系/MQ/MQ1/index.md",
         "textbook/volumes/dream_thater/物理系/MQ/MQ2/index.md",

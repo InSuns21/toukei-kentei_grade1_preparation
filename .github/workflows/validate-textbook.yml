@@ -63,6 +63,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Block both failures seen after concurrent merges in the same required PR check.
+      # The full index check (not facade-only) also validates chapter.yaml titles.
+      - name: Validate DREAM THEATER public index and source alignment
+        run: npm run validate:dream-theater-index
+
+      - name: Validate formal statement panels and math layout
+        run: npm run validate:formal-statements
+
       - name: Validate DREAM THEATER work-state router
         run: npm run validate:dream-theater-work
 
@@ -123,7 +131,6 @@ jobs:
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         run: |
           npm run validate:structure
-          npm run validate:formal-statements
           npm run validate:implicit-formals
           npm run validate:named-formals
           npm run validate:formal-references
@@ -174,10 +181,6 @@ jobs:
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
-
-      - name: Validate formal statement panels and anchors
-        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
-        run: npm run validate:formal-statements
 
       - name: Block new prose-style formal definitions
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'

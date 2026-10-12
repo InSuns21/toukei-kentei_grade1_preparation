@@ -131,7 +131,7 @@ $$
 
 ## 3. 歪みを緩めると必要率はどう動くか
 
-許す歪みを増やして必要率が上昇するのは不自然です。さらに、二つの復元規則を確率的に混ぜると、歪みは線形に変わり、相互情報量は上に凸の不等式を満たします。これを証明しておくと、ブロック符号の各座標で歪みが違っても一つの率の下界にまとめられます。
+許す歪みを増やして必要率が上昇するのは不自然です。さらに、二つの復元規則を確率的に混ぜると、歪みは線形に変わり、相互情報量は**混合後の値が混合前の値の加重平均以下**になる凸性を満たします。これを証明しておくと、ブロック符号の各座標で歪みが違っても一つの率の下界にまとめられます。
 
 <a id="prop-info8-shape"></a>
 
@@ -214,7 +214,13 @@ $$
 H(X|\widehat X)=H(E|\widehat X)\le H(E)=h_2(\delta).
 $$
 
-最初の等号は $(X,\widehat X)\leftrightarrow(E,\widehat X)$ の各 $\widehat X$ における全単射、次の不等号は[条件付きエントロピー](../INFO1/index.md#def-info1-conditional-entropy)を外すと増加しない事実（相互情報量の非負性）によります。$0\le\delta\le D\le1/2$ のとき、$h_2$ は $[0,1/2]$ 上単調増加です。実際、内部で $h_2'(t)=\log_2((1-t)/t)\ge0$、端点でも連続です。ゆえに
+最初の等号は、$\widehat X$ を固定すると $E=X\oplus\widehat X$ と $X=E\oplus\widehat X$ が互いに逆の対応になるためです。次の不等号は、[相互情報量の相対エントロピー表示](../INFO2/index.md#thm-info2-mutual-kl)と[Gibbs不等式](../INFO2/index.md#thm-info2-gibbs)を $(E,\widehat X)$ に適用し、
+
+$$
+H(E)-H(E|\widehat X)=I(E;\widehat X)\ge0
+$$
+
+とすることで得られます。すなわち、**条件付けを外すとエントロピーは減少しません**。$0\le\delta\le D\le1/2$ のとき、$h_2$ は $[0,1/2]$ 上単調増加です。実際、内部で $h_2'(t)=\log_2((1-t)/t)\ge0$、端点でも連続です。ゆえに
 
 $$
 I(X;\widehat X)=H(X)-H(X|\widehat X)
@@ -256,17 +262,37 @@ $$
 \log_2M\ge I(X^n;J)\ge I(X^n;\widehat X^n).
 $$
 
-情報源の独立性から $H(X^n)=\sum_{i=1}^nH(X_i)$ です。条件付きエントロピーの[連鎖律](../INFO1/index.md#thm-info1-chain-rule)を条件付け付きで展開し、条件付けを増やすとエントロピーが増えないことを逐次使うと
+情報源の独立性から $H(X^n)=\sum_{i=1}^nH(X_i)$ です。次に、[結合エントロピーの連鎖律](../INFO1/index.md#thm-info1-chain-rule)を、各 $i$ について組 $(X^{i-1},\widehat X^n)$ と変数 $X_i$ に適用します。$X^0$ は空列とし、差を足すと途中の項が消えて
 
 $$
 \begin{aligned}
 H(X^n|\widehat X^n)
-&=\sum_{i=1}^nH(X_i|X^{i-1},\widehat X^n)\\
-&\le\sum_{i=1}^nH(X_i|\widehat X_i).
+&=H(X^n,\widehat X^n)-H(\widehat X^n)\\
+&=\sum_{i=1}^n\bigl[H(X^i,\widehat X^n)
+                  -H(X^{i-1},\widehat X^n)\bigr]\\
+&=\sum_{i=1}^nH(X_i|X^{i-1},\widehat X^n).
 \end{aligned}
 $$
 
-ここで $\widehat X_i$ は $(X^{i-1},\widehat X^n)$ の一部であり、追加の条件付けを外すとエントロピーは減らないため、不等号の向きは表示の通りです。両式を引き算して
+右辺を各座標の条件付きエントロピーで上から抑えます。$B_i=\widehat X_i$、$Z_i=(X^{i-1},\widehat X_1,\ldots,\widehat X_{i-1},\widehat X_{i+1},\ldots,\widehat X_n)$ と置くと、有限分布の定義から
+
+$$
+\begin{aligned}
+&H(X_i|B_i)-H(X_i|B_i,Z_i)\\
+&\quad=\sum_{\substack{b,z:\\P(B_i=b,Z_i=z)>0}}
+P(B_i=b,Z_i=z)
+D\bigl(P_{X_i|B_i=b,Z_i=z}\,\|\,P_{X_i|B_i=b}\bigr)\ge0.
+\end{aligned}
+$$
+
+最後は[相対エントロピーの定義](../INFO2/index.md#def-info2-relative-entropy)と[Gibbs不等式](../INFO2/index.md#thm-info2-gibbs)によります。正確率の $(b,z)$ で条件付き分布が正である記号は $P_{X_i|B_i=b}$ でも正なので、比の分母は零になりません。従って
+
+$$
+H(X^n|\widehat X^n)
+\le\sum_{i=1}^nH(X_i|\widehat X_i).
+$$
+
+ここで独立であると仮定したのは入力列 $X^n$ だけで、復元列の座標に独立性は必要ありません。両式を引き算して
 
 $$
 \begin{aligned}
@@ -288,7 +314,19 @@ $$
 \end{aligned}
 $$
 
-中間の不等号は有限個の点へ凸性を繰り返して適用した Jensen 型評価です。最後の等号は期待値と有限和の交換によります。$\Delta_n\le D$ なら単調非増加性から $R(\Delta_n)\ge R(D)$ です。
+中間の不等号は[率歪み関数の凸性](#prop-info8-shape)を、歪み値 $D_1,\ldots,D_n\ge D_{\min}$ に反復したものです。例えば $n\ge2$ なら
+
+$$
+\begin{aligned}
+R\left(\frac1n\sum_{i=1}^nD_i\right)
+&=R\left(\frac{n-1}{n}\frac{\sum_{i=1}^{n-1}D_i}{n-1}
+          +\frac1nD_n\right)\\
+&\le\frac{n-1}{n}R\left(\frac{\sum_{i=1}^{n-1}D_i}{n-1}\right)
++\frac1nR(D_n).
+\end{aligned}
+$$
+
+この操作を $n-1$ 個の平均にも繰り返すと $\frac1n\sum_iR(D_i)$ が得られます。$n=1$ では等号です。最後の等号は期待値の線形性から $\Delta_n=n^{-1}\sum_iD_i$ としたものです。$\Delta_n\le D$ なら単調非増加性から $R(\Delta_n)\ge R(D)$ です。
 <!-- proof-end -->
 
 情報源座標間の独立性が失われると、$H(X^n)=\sum_iH(X_i)$ という等式が一般に成立しません。この証明を定常だが相関のある情報源へ、そのまま転用することはできません。
@@ -335,9 +373,30 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\jmath_Q(x;\hat x)$ は有限個の正確率の組だけで評価するので、確率1で有限かつ有界です。また $d$ も有界です。独立同分布で有界な変数 $Z_i$ の標本平均は $E[n^{-1}\sum_iZ_i]=EZ_1$、$\operatorname{Var}(n^{-1}\sum_iZ_i)=\operatorname{Var}(Z_1)/n$ を満たします。$Z_i=d(X_i,\widehat X_i)$ と $Z_i=\jmath_Q(X_i;\widehat X_i)$ のそれぞれについて、二乗平均から得る Chebyshev 評価 $P(|n^{-1}\sum_i Z_i-EZ_1|>\varepsilon)\le\operatorname{Var}(Z_1)/(n\varepsilon^2)$ を適用します。二つの失敗事象の和集合上界から $\eta_n\to0$ です。
+$\jmath_Q(x;\hat x)$ は $a(x,\hat x)>0$ の有限個の組上だけで評価するので、$a$ の下では確率1で有限かつ有界です。また $d$ も有限集合上で有界です。いずれかを $Z_i$ と書けば、$a^n$ の下で独立同分布なので、共分散の交差項が消えて
 
-$x^n$ を固定して、条件を満たす候補の集合を $A_n(x^n)$ とします。$a^n(x^n,\hat x^n)>0$ の候補に限り、積の比を取ると
+$$
+E\left[\frac1n\sum_{i=1}^nZ_i\right]=EZ_1,\qquad
+\operatorname{Var}\left(\frac1n\sum_{i=1}^nZ_i\right)
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(Z_i)
+=\frac{\operatorname{Var}(Z_1)}{n}.
+$$
+
+[Chebyshev不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を $Z_i=d(X_i,\widehat X_i)$、次に $Z_i=\jmath_Q(X_i;\widehat X_i)$ に適用します。$V_d:=\operatorname{Var}_a(d(X,\widehat X))$、$V_\jmath:=\operatorname{Var}_a(\jmath_Q(X;\widehat X))$ と置くと
+
+$$
+\begin{aligned}
+\eta_n
+&\le P\left(\frac1n\sum_i d(X_i,\widehat X_i)>D_Q+\varepsilon\right)\\
+&\quad+P\left(\frac1n\sum_i\jmath_Q(X_i;\widehat X_i)>I+\varepsilon\right)\\
+&\le\frac{V_d}{n\varepsilon^2}+\frac{V_\jmath}{n\varepsilon^2}
+\longrightarrow0.
+\end{aligned}
+$$
+
+最初の不等号は二つの失敗事象の和集合上界、最後は両分散が有限であることによります。
+
+$p^n(x^n)>0$ の入力列 $x^n$ を固定し、$Q^n(\hat x^n|x^n)>0$ かつ $G_n$ の二条件を満たす候補の集合を $A_n(x^n)$ とします。条件付き確率が零の候補では $\jmath_Q$ を評価しません。$A_n(x^n)$ の候補ではすべての座標対が $a(x_i,\hat x_i)>0$ なので、積の比を取ると
 
 $$
 q^n(\hat x^n)
@@ -427,7 +486,22 @@ $$
 
 各整数 $k\ge1$ について $\varepsilon_k=\min\{1/k,(r-I)/2\}>0$ を選びます。被覆補題から、ある増大する整数 $N_k$ を選べて、すべての $n\ge N_k$ について対応する符号の期待歪みは $D+\varepsilon_k+1/k$ 以下になります。$N_1<N_2<\cdots$ となるよう増やして、$N_k\le n<N_{k+1}$ ではその $k$ の符号を選ぶと $k\to\infty$、ゆえに $\limsup\Delta_n\le D$ です。初めの有限個の $n$ の符号は任意に選べます。
 
-最後に $r_k=R(D)+1/k$ とし、前段落の構成を各 $r_k$ に適用します。十分大きい $n$ では率が $r_k+1/n$ 以下で歪みが $D+1/k$ 以下の符号を選べるので、もう一度増大する区切り $N_k'$ で対角化すると、$\limsup\Delta_n\le D$ かつ $\limsup r_n\le R(D)$ を得ます。一方、[有限歪み付き情報源符号化の有限長逆定理](#thm-info8-converse)により $r_n\ge R(\Delta_n)$。$\limsup\Delta_n\le D$ と[単調性・右連続性](#prop-info8-shape)から $\liminf R(\Delta_n)\ge R(D)$ が従い、結局 $r_n\to R(D)$ です。
+最後に $r_k=R(D)+1/k$ とし、前段落の構成を各 $r_k$ に適用します。十分大きい $n$ では率が $r_k+1/n$ 以下で歪みが $D+1/k$ 以下の符号を選べます。$N_k'$ を単調増大させ、$n\ge N_k'$ では $r_k+1/n\le R(D)+2/k$ と $\Delta_n\le D+1/k$ をともに満たすように選び直します。区間 $N_k'\le n<N_{k+1}'$ ではその $k$ の符号を採用し、有限個の小さい $n$ では任意の符号を選びます。これで
+
+$$
+\limsup_{n\to\infty}\Delta_n\le D,\qquad
+\limsup_{n\to\infty}r_n\le R(D)
+$$
+
+を同時に得ます。逆向きには[有限長逆定理](#thm-info8-converse)で各 $n$ に $r_n\ge R(\Delta_n)$ が成立します。$t>0$ を任意に固定すると、$\limsup\Delta_n\le D$ から、十分大きい $n$ で $\Delta_n\le D+t$ です。そこで[単調性](#prop-info8-shape)をこの二つの歪みに適用して
+
+$$
+\liminf_{n\to\infty}r_n
+\ge\liminf_{n\to\infty}R(\Delta_n)
+\ge R(D+t)
+$$
+
+と評価できます。$t\downarrow0$ とすると[右連続性](#prop-info8-shape)により $R(D+t)\to R(D)$ です。よって下極限も $R(D)$ 以上となり、上極限の評価と合わせて $r_n\to R(D)$ が従います。
 <!-- proof-end -->
 
 境界 $D=D_{\min}$ もこの議論に含まれます。有限長で歪みを**常に**ちょうど $D_{\min}$ 以下にできると主張しているのではなく、期待歪みの上極限が $D_{\min}$ 以下になる符号列を構成しています。
@@ -442,7 +516,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-存在は[達成可能性定理](#thm-info8-achievability)の第二の結論です。逆向きは[有限長逆定理](#thm-info8-converse)で $r_n\ge R(\Delta_n)$ とし、$\limsup\Delta_n\le D$ に[単調性・右連続性](#prop-info8-shape)を適用して $\liminf r_n\ge R(D)$ を得ます。
+存在は[達成可能性定理](#thm-info8-achievability)の第二の結論です。逆向きは[有限長逆定理](#thm-info8-converse)を各 $n$ に適用して $r_n\ge R(\Delta_n)$ とします。任意の $t>0$ に対して十分大きい $n$ では $\Delta_n\le D+t$ であり、[単調性・右連続性](#prop-info8-shape)によって
+
+$$
+\liminf_{n\to\infty}r_n
+\ge R(D+t)\xrightarrow[t\downarrow0]{}R(D).
+$$
+
+$r_n\to r$ という仮定から $r=\liminf r_n$ なので $r\ge R(D)$ です。
 <!-- proof-end -->
 
 ## 7. 演習：歪みと率を別々に検算する
@@ -457,7 +538,21 @@ $P(X=1)=0.3$ の二値情報源を Hamming 歪みで復元する。$D_{\min}$ �
 - ID: INFO8-A1
 
 <!-- solution-start -->
-**詳細解答**　各入力 $x$ に同じ記号 $\hat x=x$ を選べば歪み0なので $D_{\min}=0$。定数0を返した場合の期待歪みは $P(X=1)=0.3$、定数1なら $P(X=0)=0.7$、よって $D_0=\min(0.3,0.7)=0.3$。[端点命題](#prop-info8-endpoints)より $D\ge0$ では実現可能で $R(D)$ は有限、$D\ge0.3$ で $R(D)=0$ です。問題は $D\ge0$ としているため、この範囲で $R(D)=+\infty$ はありません。定義を負の $D$ にまで拡張する場合には $D<0$ で $+\infty$ になります。
+**詳細解答**　各入力 $x$ を同じ記号 $\hat x=x$ に復元する核を選べば誤りがないので $D_{\min}=0$ です。一方、何も伝えず定数0を復元すると誤るのは $X=1$ のとき、定数1なら $X=0$ のときです。従って
+
+$$
+D_0=\min\{P(X=1),P(X=0)\}
+=\min\{0.3,0.7\}=0.3.
+$$
+
+[実現可能な歪みと零率の境界](#prop-info8-endpoints)をこの二値模型に適用すると
+
+$$
+R(D)<\infty\quad(D\ge0),\qquad
+R(D)=0\quad(D\ge0.3).
+$$
+
+問題が指定した $D\ge0$ では $R(D)=+\infty$ となる値はありません。仮に定義域を $D<0$ に拡張するなら、歪みが非負のため実現可能な核は存在せず、そのときだけ $R(D)=+\infty$ となります。
 <!-- solution-end -->
 
 #### A2. 二位置の歪みとビット率
@@ -468,7 +563,27 @@ $\mathcal X=\widehat{\mathcal X}=\{0,1\}$ とし、$n=2$、$p(0)=p(1)=1/2$、Ham
 - ID: INFO8-A2
 
 <!-- solution-start -->
-**詳細解答**　符号は最初のビットを送り、二位置ともその値で復元します。第一位置は常に一致するので歪み0、第二位置は独立な公平ビット $X_2$ と $X_1$ が異なるときだけ歪み1です。従って $P(X_2\ne X_1)=P(0,1)+P(1,0)=1/4+1/4=1/2$。一記号あたりの期待歪みは $\Delta_2=(0+1/2)/2=1/4$、率は $r_2=(\log_22)/2=1/2$ です。[有限長逆定理](#thm-info8-converse)は $1/2\ge R(1/4)=1-h_2(1/4)$ と整合します。
+**詳細解答**　符号は最初のビットを送り、二位置ともその値で復元します。第一位置は常に一致し歪み0です。第二位置は独立な公平ビット $X_2$ と $X_1$ が異なるときだけ歪み1なので
+
+$$
+P(X_2\ne X_1)=P(0,1)+P(1,0)
+=\frac14+\frac14=\frac12.
+$$
+
+よって一記号あたりの期待歪みとビット率は
+
+$$
+\Delta_2=\frac12\left(0+\frac12\right)=\frac14,\qquad
+r_2=\frac{\log_2 2}{2}=\frac12.
+$$
+
+[有限長逆定理](#thm-info8-converse)の適用条件は独立同分布の入力・有限非負の Hamming 歪み・決定的符号であり、すべて成立します。この場合の評価は
+
+$$
+\frac12\ge R(1/4)=1-h_2(1/4)
+$$
+
+となり、$h_2(1/4)>1/2$ なので整合します。
 <!-- solution-end -->
 
 #### A3. 非対称復元通信路
@@ -509,7 +624,20 @@ $\mathcal X=\widehat{\mathcal X}$ を有限集合、$d(x,\hat x)=\mathbf1_{\{x\n
 - ID: INFO8-B1
 
 <!-- solution-start -->
-**詳細解答**　$D(Q)\le0$ と非負性から $P(X\ne\widehat X)=0$、従って $\widehat X=X$ が確率1で成立します。ゆえに $H(X|\widehat X)=0$、[相互情報量](../INFO1/index.md#def-info1-mutual-information)は $I(X;\widehat X)=H(X)$ です。逆に $Q(\hat x|x)=\mathbf1_{\{\hat x=x\}}$ は歪み0、情報量 $H(X)$ を達成します。$p(x)=0$ の $x$ の行は最適値に影響しないため、台の外の確率を割り算に使う必要はありません。
+**詳細解答**　$D(Q)\le0$ かつ歪みが非負なので、期待値が零になるには $P(X\ne\widehat X)=0$ が必要です。このとき $\widehat X=X$ が確率1で成立し、$H(X|\widehat X)=0$ です。[相互情報量の定義](../INFO1/index.md#def-info1-mutual-information)を代入して
+
+$$
+I(X;\widehat X)=H(X)-H(X|\widehat X)=H(X)
+$$
+
+を得ます。逆に核 $Q(\hat x|x)=\mathbf1_{\{\hat x=x\}}$ を取れば
+
+$$
+D(Q)=\sum_xp(x)d(x,x)=0,\qquad
+I_Q(X;\widehat X)=H(X)
+$$
+
+を達成します。従って $R(0)=H(X)$。$p(x)=0$ の $x$ の行は最適値に影響しないため、台の外の確率を割り算に使う必要はありません。
 <!-- solution-end -->
 
 #### B2. 二つの復元規則を混ぜる
@@ -565,7 +693,20 @@ $X_1=X_2=Z$、$Z$ は公平二値とし、復元歪みは Hamming、$n=2$ とす
 - ID: INFO8-B4
 
 <!-- solution-start -->
-**詳細解答**　入力は $(0,0)$ または $(1,1)$ の二種類だけです。符号器は $(0,0)$ を番号1、$(1,1)$ を番号2に送り、それ以外の入力列も例えば番号1に写す全域写像とします。復号器は1を $(0,0)$、2を $(1,1)$ に写します。実際に現れる入力列では歪み0、率は $(\log_22)/2=1/2$ です。誤って公平二値の $R(0)=1$ を入れると $1/2\ge1$ を主張してしまいます。[逆定理](#thm-info8-converse)の証明で本質的なのは $H(X^2)=H(X_1)+H(X_2)$ の独立性による等式で、ここでは $H(X^2)=H(Z)=1$ に対し右辺は $1+1=2$ となり成立しません。
+**詳細解答**　実際に現れる入力は $(0,0)$ または $(1,1)$ だけです。符号器は前者を番号1、後者を番号2へ送り、その他の列も例えば番号1へ送る全域写像とします。復号器は番号1から $(0,0)$、番号2から $(1,1)$ を出力します。したがって
+
+$$
+\Delta_2=0,\qquad r_2=\frac{\log_22}{2}=\frac12.
+$$
+
+公平二値の一文字関数は[公平二値情報源の率歪み関数](#thm-info8-binary)から $R(0)=1$ です。これを誤って[有限長逆定理](#thm-info8-converse)に当てはめると、偽の結論 $1/2\ge1$ になります。逆定理の証明では独立性を用いて $H(X^2)=H(X_1)+H(X_2)$ としましたが、ここでは
+
+$$
+H(X^2)=H(Z)=1,\qquad
+H(X_1)+H(X_2)=1+1=2.
+$$
+
+従って、壊れたのは入力エントロピーの加法性です。各位置が同じ公平分布に従うだけでは、独立同分布という定理の仮定を満たしません。
 <!-- solution-end -->
 
 ### Level C：定理・符号・極限を統合する
@@ -618,4 +759,4 @@ $$
 
 ---
 
-率歪み関数は「許容歪みを固定すると、復元値に最低どれだけの情報を残す必要があるか」を表します。有限情報源では、[有限長逆定理](#thm-info8-converse)と[ランダム被覆による達成可能性](#thm-info8-achievability)が一致し、計算した一記号あたりの最小情報量がブロック符号の限界になります。連続値情報源では密度や微分エントロピーの扱いが別途必要であり、有限和とコンパクト性に基づく今回の証明をそのまま転用することはできません。
+率歪み関数は「許容歪みを固定すると、復元値に最低どれだけの情報を残す必要があるか」を表します。有限情報源では、[有限長逆定理](#thm-info8-converse)と[ランダム被覆による達成可能性](#thm-info8-achievability)が一致し、計算した一記号あたりの最小情報量がブロック符号の限界になります。連続値情報源では、密度と連続値の情報量を別途定義する必要があります。有限和とコンパクト性に基づく今回の証明を、そのまま転用することはできません。

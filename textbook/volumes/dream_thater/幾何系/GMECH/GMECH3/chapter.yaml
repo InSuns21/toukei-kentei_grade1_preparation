@@ -1,0 +1,46 @@
+id: "GMECH3"
+title: "幾何学的Noetherの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH2
+  - SYM4
+  - LIE2
+  - GEO2
+official_scope: []
+learning_objectives:
+  - Hamiltonianの群不変性と無限小不変性を定義に戻って検査できる
+  - 無限小不変性が単位連結成分への不変性と同値であることを証明し非連結群の限界を説明できる
+  - 幾何学的Noetherの定理を運動量写像の符号規約とPoisson括弧から証明できる
+  - すべての運動量成分の保存と双対空間値の保存の同値、および時間区間の制限を説明できる
+  - 保存則の逆向きの条件を全局所軌道に対して証明できる
+  - 平行移動・部分並進・平面と空間回転の保存量を具体的に再計算できる
+  - 対称性が破れた例と非同変な運動量写像の例から仮定の役割を説明できる
+definitions:
+  - { id: GMECH3-DEF-01, name: Hamiltonianの群不変性と無限小不変性 }
+theorems:
+  - { id: GMECH3-PROP-01, name: 無限小不変性と単位連結成分 }
+  - { id: GMECH3-THM-01, name: 幾何学的Noetherの定理 }
+  - { id: GMECH3-PROP-02, name: 運動量関数の保存と無限小対称性の同値 }
+canonical_examples:
+  - 自由粒子の全並進不変性と運動量保存
+  - 一方向だけの並進対称性と保存成分
+  - 中心ポテンシャルのSO2およびSO3角運動量
+  - 非等方ポテンシャルによる角運動量保存の破れ
+  - O2の反射による無限小不変性との相違
+  - R2の非同変運動量写像にも適用できるNoether保存
+  - T*S1の非Hamiltonなシンプレクティック作用
+problem_patterns:
+  - GMECH3-FREE-TRANSLATION
+  - GMECH3-PARTIAL-SYMMETRY
+  - GMECH3-SIGN
+  - GMECH3-ROTATION
+  - GMECH3-SUBGROUP
+  - GMECH3-ANISOTROPY
+  - GMECH3-CONSEQUENCE-CONVERSE
+  - GMECH3-NONEQUIVARIANCE
+  - GMECH3-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
