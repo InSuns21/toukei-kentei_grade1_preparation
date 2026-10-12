@@ -48,9 +48,8 @@
 13. [F0-00F2 特異値分解・作用素ノルム](textbook/volumes/dream_thater/基礎科目/F0/F0-00F2/index.md)
 14. [LA6 スペクトル・二次形式・極分解・複素特異値分解](textbook/volumes/dream_thater/基礎科目/LA/LA6/index.md)
 15. [LAX1 線形代数・院試／編入 計算演習](textbook/volumes/dream_thater/基礎科目/LAX/LAX1/index.md)
-15. [LA3D 交代多重線形形式・抽象行列式](textbook/volumes/dream_thater/基礎科目/LA/LA3D/index.md)
-16. [LA3E テンソル積・外積代数](textbook/volumes/dream_thater/基礎科目/LA/LA3E/index.md)
-17. [線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/dream_thater/基礎科目/LAX/LAX1/index.md)
+16. [LA3D 交代多重線形形式・抽象行列式](textbook/volumes/dream_thater/基礎科目/LA/LA3D/index.md)
+17. [LA3E テンソル積・外積代数](textbook/volumes/dream_thater/基礎科目/LA/LA3E/index.md)
 
 <a id="dt-subject-real-analysis"></a>
 ### 実解析
@@ -125,10 +124,9 @@
 3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/dream_thater/解析系/CA/CA3/index.md)
 4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/dream_thater/解析系/CA/CA4/index.md)
 5. [CAX1 複素解析・院試／編入 計算演習](textbook/volumes/dream_thater/解析系/CAX/CAX1/index.md)
-5. [CA5 winding number・解析接続・monodromy](textbook/volumes/dream_thater/解析系/CA/CA5/index.md)
-6. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/dream_thater/解析系/CA/CA6/index.md)
-7. [CA7 正則関数列・正規族・Riemann 写像定理](textbook/volumes/dream_thater/解析系/CA/CA7/index.md)
-8. [複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/dream_thater/解析系/CAX/CAX1/index.md)
+6. [CA5 winding number・解析接続・monodromy](textbook/volumes/dream_thater/解析系/CA/CA5/index.md)
+7. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/dream_thater/解析系/CA/CA6/index.md)
+8. [CA7 正則関数列・正規族・Riemann 写像定理](textbook/volumes/dream_thater/解析系/CA/CA7/index.md)
 
 <a id="dt-subject-complex-analysis-ii"></a>
 ### 複素解析 II
