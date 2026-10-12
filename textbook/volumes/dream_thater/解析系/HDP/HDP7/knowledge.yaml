@@ -1,0 +1,64 @@
+chapter: HDP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP6
+  - HDP3
+  - HDP1
+  - F0-00F2
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.subgaussian-vector
+    name: sub-Gaussian確率ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（sub-Gaussian確率ベクトル）]
+    requires: [high-dimensional-probability.psi2-norm]
+  - id: high-dimensional-probability.isotropic-vector
+    name: 等方的確率ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等方的確率ベクトル）]
+    requires: []
+  - id: high-dimensional-probability.square-centered-mgf
+    name: sub-Gaussian平方の中心化指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（sub-Gaussian平方の中心化指数モーメント）]
+    requires: [high-dimensional-probability.psi2-norm]
+  - id: high-dimensional-probability.fixed-quadratic-concentration
+    name: 固定方向の経験二次モーメント集中
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（固定方向の経験二次モーメント集中）]
+    requires: [high-dimensional-probability.square-centered-mgf, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.isotropic-sample-covariance
+    name: 等方的sub-Gaussian標本の共分散作用素ノルム評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等方的sub-Gaussian標本の共分散作用素ノルム評価）]
+    requires: [high-dimensional-probability.isotropic-vector, high-dimensional-probability.subgaussian-vector, high-dimensional-probability.fixed-quadratic-concentration, high-dimensional-probability.volumetric-net, high-dimensional-probability.quadratic-net]
+  - id: high-dimensional-probability.mean-net
+    name: 等方的sub-Gaussian標本平均のノルム評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（等方的sub-Gaussian標本平均のノルム評価）]
+    requires: [high-dimensional-probability.subgaussian-sum, high-dimensional-probability.volumetric-net]
+  - id: high-dimensional-probability.centered-sample-covariance
+    name: 標本平均で中心化した共分散の評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（標本平均で中心化した共分散の評価）]
+    requires: [high-dimensional-probability.isotropic-sample-covariance, high-dimensional-probability.mean-net]
+  - id: high-dimensional-probability.covariance-adapted-subgaussian
+    name: 共分散尺度に適合するsub-Gaussian条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共分散尺度に適合するsub-Gaussian条件）]
+    requires: [high-dimensional-probability.subgaussian-vector]
+  - id: high-dimensional-probability.general-sample-covariance
+    name: 退化を許す一般共分散の評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（退化を許す一般共分散の評価）]
+    requires: [high-dimensional-probability.covariance-adapted-subgaussian, high-dimensional-probability.isotropic-sample-covariance, high-dimensional-probability.centered-sample-covariance]
