@@ -4,6 +4,7 @@ volume: foundations
 status: supplementary
 prerequisites:
   - HDP3
+  - F0-00P3A
 official_scope: []
 learning_objectives:
   - 独立入力に対する座標ごとの有界差分条件を定義し直接例と退化幅を確認できる
