@@ -1,0 +1,49 @@
+id: HDP10
+title: 被覆数からchainingへの入口と応用総合
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP9
+  - HDP6
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 単一スケールのunion boundの限界を説明し、距離に従うsub-Gaussian増分と有限距離空間の被覆数を直接例で検証できる
+  - 指数Markov法から増分の両側尾部を導き、スケール別の失敗確率配分を検算できる
+  - 有限netの代理点、望遠鏡和、全組の和集合評価から有限chaining定理を証明できる
+  - 被覆数の単調性と幾何級数からエントロピー積分の上界を導ける
+  - 指数的に多い近接候補のGaussian例で単純union boundとchainingの次数を比較できる
+  - 独立標本の有界関数族についてHoeffding補題から増分MGFを作り一様偏差へ適用できる
+  - HDP1からHDP9の適用仮定を比較し、二次形式・行列集中・候補族最大偏差を区別できる
+  - 無限集合へ一般化するときに追加の可分性・可測性・収束条件が必要と説明できる
+definitions:
+  - { id: HDP10-DEF-01, name: 距離に従うsub-Gaussian増分 }
+  - { id: HDP10-DEF-02, name: 有限距離空間の被覆数 }
+theorems:
+  - { id: HDP10-LEM-01, name: 増分の両側尾部 }
+  - { id: HDP10-THM-01, name: 有限過程の多段階chaining評価 }
+  - { id: HDP10-COR-01, name: 有限距離空間のエントロピー積分上界 }
+  - { id: HDP10-COR-02, name: 有限関数族の一様標本平均偏差 }
+canonical_examples:
+  - 正規線形過程での全組の増分MGFと候補間の依存
+  - 三点距離空間の被覆数と最大距離
+  - 二進配分によるレベルごとの失敗確率
+  - 幾何減衰する座標を持つ二進立方体での被覆数と期待最大値
+  - 独立標本の有界関数族とHoeffding増分MGF
+  - 同じGaussianを共有する過程と二次形式の独立性の違い
+problem_patterns:
+  - HDP10-METRIC-COVER
+  - HDP10-INCREMENT-GAUSSIAN
+  - HDP10-TELESCOPING
+  - HDP10-UNION-ALLOCATION
+  - HDP10-QUADRATIC-DISTINCTION
+  - HDP10-ALL-PAIR-TAIL
+  - HDP10-ENTROPY-INTEGRAL
+  - HDP10-DEPENDENT-GAUSSIAN
+  - HDP10-EMPIRICAL-MGF
+  - HDP10-MULTISCALE-CUBE
+  - HDP10-ASSUMPTION-SELECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
