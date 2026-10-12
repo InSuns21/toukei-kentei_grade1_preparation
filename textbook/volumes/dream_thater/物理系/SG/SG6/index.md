@@ -258,7 +258,7 @@ $$
 
 ### 証明の見取り図
 
-根に共通な分散 $q_1$ のGaussian増分、深さ $\ell$ の各枝に独立な分散 $q_{\ell+1}-q_\ell$ の増分を置く。この構成の共分散は $Q_{\alpha\gamma}$ になる。最下段の子について[Poisson傾斜補題](#lem-sg6-poisson-tilt)を使い、葉から根へ繰り返す。
+根に共通な分散 $q_1$ のGaussian増分、深さ $\ell$ の各枝に独立な分散 $q_{\ell+1}-q_\ell$ の増分を置く。この構成の共分散は $Q_{\alpha\gamma}$ になる。最下段の子について[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を使い、葉から根へ繰り返す。
 
 <!-- proof-start -->
 ### 証明
@@ -273,7 +273,7 @@ Y_\alpha=\sum_{i=1}^N\log\cosh
 \beta\sqrt{1-q_1}Z_{i,2,\alpha})
 $$
 
-と置く。枝ごとの $Y_\alpha$ は条件付き独立同分布なので、[Poisson傾斜補題](#lem-sg6-poisson-tilt)を条件付きで適用し、
+と置く。枝ごとの $Y_\alpha$ は条件付き独立同分布なので、[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を条件付きで適用し、
 
 $$
 \mathbb E\left[\log\sum_\alpha v_\alpha e^{Y_\alpha}
@@ -353,7 +353,7 @@ $$
 \sum_\alpha v_\alpha e^{\beta\sqrt N y(\alpha)}.
 $$
 
-$y$ は根に共通な分散 $q_1^2/2$ と、深さ $\ell$ の分散 $(q_{\ell+1}^2-q_\ell^2)/2$ の独立Gaussian増分の和として構成できる。根の項は平均対数へ寄与しない。各深さで[Poisson傾斜補題](#lem-sg6-poisson-tilt)を $Y=\beta\sqrt{N(q_{\ell+1}^2-q_\ell^2)/2}\,Z$ に適用すると
+$y$ は根に共通な分散 $q_1^2/2$ と、深さ $\ell$ の分散 $(q_{\ell+1}^2-q_\ell^2)/2$ の独立Gaussian増分の和として構成できる。根の項は平均対数へ寄与しない。各深さで[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を $Y=\beta\sqrt{N(q_{\ell+1}^2-q_\ell^2)/2}\,Z$ に適用すると
 
 $$
 \frac1{m_\ell}\log\mathbb Ee^{m_\ell Y}
@@ -441,7 +441,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[Poisson傾斜補題](#lem-sg6-poisson-tilt)へ $m=1/2$ を代入する。正規変数の指数モーメントは $\mathbb Ee^{m aZ}=\exp(m^2a^2/2)$ だから
+[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)へ $m=1/2$ を代入する。正規変数の指数モーメントは $\mathbb Ee^{m aZ}=\exp(m^2a^2/2)$ だから
 
 $$
 \frac1m\log\mathbb Ee^{maZ}
@@ -497,7 +497,7 @@ $r=s$ なら零であり、逆に実数の平方は零のときに限り $r=s$ �
 <!-- solution-start -->
 ### 詳細解答
 
-$S=\sum_j u_j$ とすると、$S^{-2}=\int_0^\infty te^{-tS}dt$ である。PoissonのCampbell公式を用い、選択された点 $u$ の他の点は独立であることから
+$S=\sum_j u_j$ とすると、$S^{-2}=\int_0^\infty te^{-tS}dt$ である。Poisson点の1点挿入による期待値を展開する。選択された点 $u$ を除く点群は元のPoisson過程と同じ法則を持つので
 
 $$
 \mathbb E\sum_jv_j^2
@@ -505,7 +505,7 @@ $$
 \int_0^\infty m u^{1-m}e^{-tu}du\,dt.
 $$
 
-内側は $m\Gamma(2-m)t^{m-2}$、Laplace変換は $\exp[-\Gamma(1-m)t^m]$。ゆえに
+内側は $m\Gamma(2-m)t^{m-2}$、指数型期待値 $\mathbb Ee^{-tS}$ は $\exp[-\Gamma(1-m)t^m]$。ゆえに
 
 $$
 m\Gamma(2-m)\int_0^\infty
@@ -604,7 +604,7 @@ $$
 (h+\beta\sqrt qA+\beta\sqrt{1-q}B)\right].
 $$
 
-$t=1$ ではスピン和と葉の和が分離する。$y$ の共通成分 $qU/\sqrt2$ は平均対数で零、枝固有成分は同補題より
+$t=1$ ではスピン和と葉の和が分離する。$y$ の共通成分 $qU/\sqrt2$ は平均対数で零、枝固有成分は[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)より
 
 $$
 \frac1N\mathbb E\log\sum_\alpha v_\alpha
