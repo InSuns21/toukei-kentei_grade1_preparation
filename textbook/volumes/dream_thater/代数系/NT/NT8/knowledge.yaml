@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - NT5
+  - RA1
 forward_references: []
 
 concepts:
