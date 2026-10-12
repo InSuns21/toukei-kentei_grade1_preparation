@@ -6,7 +6,8 @@ prerequisites:
   - NT2
   - GRP2
   - FLD1
-forward_references: []
+forward_references:
+  - NT4
 
 concepts:
   - id: number-theory.quadratic-residue
