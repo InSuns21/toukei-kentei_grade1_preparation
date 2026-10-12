@@ -290,3 +290,82 @@ $x\ge2$ では $\log x\le\sqrt x$ です。実際 $u=\sqrt x$ とすれば $u-2\
 
 この定理は $\pi(x)$ が $x/\log x$ の定数倍より大きくならないことを示します。しかし下側の評価も必要です。
 
+## 5. 素数が極端に少なくないことを示す
+
+中央二項係数は $\psi$ を下から評価できます。ただし $\psi$ には素数の平方・立方も入るため、$\theta$ との差を別に見積もります。
+
+<a id="lem-nt8-binomial-psi"></a>
+
+<!-- formal-statement-start -->
+> **補題（二項係数からの $\psi$ の下界）**  
+> すべての正整数 $m$ に対して
+>
+$$
+\psi(2m)\ge2m\log2-\log(2m+1)
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+二項係数の素因数 $p$ の指数を、素数冪 $p^k$ ごとの寄与へ分解します。一つの冪の寄与は $0$ または $1$ なので、$\psi(2m)$ の重みが二項係数の対数を上から押さえます。
+
+<!-- proof-start -->
+### 証明
+
+$N!$ に含まれる素数 $p$ の指数を $v_p(N!)$ とします。$1,\ldots,N$ にある $p^k$ の倍数は $\lfloor N/p^k\rfloor$ 個なので
+$$
+v_p(N!)=\sum_{k\ge1}\left\lfloor\frac N{p^k}\right\rfloor.
+$$
+従って
+$$
+v_p\binom{2m}{m}
+=\sum_{k\ge1}
+\left(\left\lfloor\frac{2m}{p^k}\right\rfloor
+-2\left\lfloor\frac m{p^k}\right\rfloor\right).
+$$
+任意の実数 $u$ で $\lfloor2u\rfloor-2\lfloor u\rfloor$ は $0$ または $1$ です。また $p^k>2m$ の項は零です。従って
+$$
+v_p\binom{2m}{m}
+\le\#\{k\ge1:p^k\le2m\}.
+$$
+両辺を $\log p$ 倍して全素数で加えると
+$$
+\log\binom{2m}{m}
+=\sum_pv_p\binom{2m}{m}\log p
+\le\sum_{p^k\le2m}\log p
+=\psi(2m).
+$$
+さらに[二項係数の下界](#lem-nt8-binomial-bounds)から
+$$
+\log\binom{2m}{m}\ge2m\log2-\log(2m+1)
+$$
+なので結論が従います。
+<!-- proof-end -->
+
+<a id="lem-nt8-prime-powers-error"></a>
+
+<!-- formal-statement-start -->
+> **補題（素数冪の余剰寄与）**  
+> $x\ge2$ で
+>
+$$
+0\le\psi(x)-\theta(x)
+\le\sqrt x\,\log x\,\lfloor\log_2x\rfloor
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+[素数冪ごとの分解](#prop-nt8-psi-prime-powers)より
+$$
+\psi(x)-\theta(x)=\sum_{k=2}^{K}\theta(x^{1/k}),
+\qquad K=\lfloor\log_2x\rfloor.
+$$
+$k\ge2$ では $x^{1/k}\le\sqrt x$ です。$\sqrt x$ 以下の素数は高々 $\sqrt x$ 個で、一つの重みは $\log p\le\log x$ なので、各項は $\sqrt x\log x$ 以下です。項数は高々 $K$ です。$K<2$ なら和は空で差は零です。
+<!-- proof-end -->
+
