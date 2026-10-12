@@ -21,7 +21,7 @@ chapters:
     title: 数の幾何と同時Diophantine近似
   - id: NDA4
     path: textbook/volumes/dream_thater/代数系/NDA/NDA4
-    status: planned
+    status: completed
     title: 一様分布・Weyl判定・Kronecker近似
   - id: NDA5
     path: textbook/volumes/dream_thater/代数系/NDA/NDA5

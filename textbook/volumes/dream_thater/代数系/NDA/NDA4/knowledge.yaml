@@ -1,0 +1,66 @@
+chapter: NDA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA3
+  - RA7
+  - FOU2
+forward_references: []
+
+concepts:
+  - id: diophantine.equidistribution-mod-one
+    name: 一様分布 mod 1
+    aliases: [一様分布]
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一様分布 mod 1）]
+    requires: [analysis.jordan-measurable-set]
+
+  - id: diophantine.continuous-test-equidistribution
+    name: 連続関数による一様分布の判定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（連続関数による一様分布の判定）]
+    requires: [diophantine.equidistribution-mod-one]
+
+  - id: diophantine.fejer-trigonometric-approximation
+    name: Fejér核による三角多項式近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Fejér核による三角多項式近似）]
+    requires: [analysis.jordan-measurable-set, fourier.fou2-fejer-kernel, fourier.fou2-continuous-periodic-function]
+
+  - id: diophantine.weyl-criterion
+    name: Weyl判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Weyl判定）]
+    requires: [diophantine.continuous-test-equidistribution, diophantine.fejer-trigonometric-approximation]
+
+  - id: diophantine.irrational-rotation-equidistribution
+    name: 無理回転の一様分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無理回転の一様分布）]
+    requires: [diophantine.weyl-criterion]
+
+  - id: diophantine.integer-relation
+    name: 整数関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（整数関係）]
+    requires: []
+
+  - id: diophantine.kronecker-approximation
+    name: Kroneckerの近似定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Kroneckerの近似定理）]
+    requires: [diophantine.integer-relation]
+
+  - id: diophantine.rational-independence-equidistribution
+    name: 有理独立とトーラス上の一様分布
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有理独立とトーラス上の一様分布）]
+    requires: [diophantine.weyl-criterion, diophantine.kronecker-approximation]

@@ -1,0 +1,39 @@
+id: "NDA4"
+title: "一様分布・Weyl判定・Kronecker近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA3
+  - RA7
+  - FOU2
+official_scope: []
+learning_objectives:
+  - 小数部分・トーラス・半開直方体による一様分布の定義を直接例で判定できる
+  - 連続関数の判定とFejér核による三角多項式の一様近似を証明できる
+  - Weyl判定の必要十分性を証明し有理・無理回転の指数和を計算できる
+  - 整数関係の必要十分条件を用いてKronecker近似を証明し同時近似の可否を判定できる
+  - 有理独立とトーラス上の一様分布・連続関数の時間平均を関連付けられる
+definitions:
+  - { id: NDA4-DEF-01, name: 一様分布 mod 1 }
+  - { id: NDA4-DEF-02, name: 整数関係 }
+theorems:
+  - { id: NDA4-LEM-01, name: 連続関数による一様分布の判定 }
+  - { id: NDA4-LEM-02, name: Fejér核による三角多項式近似 }
+  - { id: NDA4-THM-01, name: Weyl判定 }
+  - { id: NDA4-THM-02, name: 無理回転の一様分布 }
+  - { id: NDA4-THM-03, name: Kroneckerの近似定理 }
+  - { id: NDA4-COR-01, name: 有理独立とトーラス上の一様分布 }
+canonical_examples:
+  - 四分の一回転と長さ八分の一の区間の訪問頻度
+  - 平方根2の無理回転と等比級数の指数和
+  - 平方根2と二倍平方根2の整数関係による到達可能な目標
+problem_patterns:
+  - NDA4-UNIFORM-DISTRIBUTION-RECTANGLES
+  - NDA4-FEJER-FOURIER-APPROXIMATION
+  - NDA4-WEYL-ROTATION-EXPONENTIAL-SUM
+  - NDA4-KRONECKER-INTEGER-RELATIONS
+  - NDA4-TIME-SPACE-AVERAGES
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
