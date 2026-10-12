@@ -553,18 +553,41 @@ $$
 
 #### B2. 滑らかなエントロピーから最適分割
 
-$U>0$ とし、$0<u<U$ で $S_A(u)=a\log u$、$S_B(U-u)=b\log(U-u)$（$a,b>0$）を仮定する。最大となる $u$ と、その点での温度一致を証明せよ。$a,b$ の単位はエントロピーと同じとする。
+$U>0$ を総エネルギー、$u_0>0$ を固定した基準エネルギーとする。$0<u<U$ に対し、滑らかなエントロピーが
+
+$$
+S_A(u)=a\log\frac{u}{u_0},\qquad
+S_B(U-u)=b\log\frac{U-u}{u_0}
+$$
+
+で与えられるとする（$a,b>0$、単位はエントロピーと同じ）。総エントロピーを最大にする $u$ と、その点での統計的温度の一致を証明せよ。
 
 - Level: B
 - ID: SM2-B2
 
 <!-- solution-start -->
-**詳細解答**　総エントロピーは $F(u)=a\log u+b\log(U-u)$ です。両引数は正なので微分可能で、
+**詳細解答**　総エントロピーは
+
+$$
+F(u)=a\log\frac{u}{u_0}
++b\log\frac{U-u}{u_0}
+$$
+
+です。$u_0,u,U-u$ はすべて正なので対数の引数は正の無次元量です。$u_0$ は定数であり、
+
+$$
+\frac{d}{du}\log\frac{u}{u_0}=\frac1u,\qquad
+\frac{d}{du}\log\frac{U-u}{u_0}=-\frac1{U-u}
+$$
+
+より、
 
 $$
 F'(u)=\frac au-\frac b{U-u},\qquad
 F''(u)=-\frac a{u^2}-\frac b{(U-u)^2}<0.
 $$
+
+基準エネルギー $u_0$ は $F$ の値に定数項を加えるだけで、最大点も温度の微分関係も変えません。
 
 $F'(u)=0$ を解くと $a(U-u)=bu$、つまり
 
@@ -616,14 +639,41 @@ $$
 =-\frac{k_{\mathrm B}\log3}{\varepsilon}<0.
 $$
 
-差商は区間ごとの有限差分で、任意の点での微分係数ではありません。同じ三点の値を通る滑らかな補間関数は複数あり、その中間点での微分が異なり得ます。したがって[統計的温度の定義](#def-sm2-statistical-temperature)を、補間や熱力学極限の根拠なしに一意に適用できません。符号の変化は準位の多重度が山型であることを示しますが、有限系の熱平衡を証明してはいません。
+差商は区間ごとの有限差分で、任意の点での微分係数ではありません。この違いを具体的な補間で確かめます。$c=k_{\mathrm B}\log3$、$\lambda\in\mathbb R$ として滑らかな関数
+
+$$
+\widetilde S_\lambda(u)
+=c\left[1-\left(\frac{u-\varepsilon}{\varepsilon}\right)^2\right]
++\frac{\lambda c}{\varepsilon^3}u(u-\varepsilon)(u-2\varepsilon)
+$$
+
+を考えます。$u=0,\varepsilon,2\varepsilon$ では三次式の項がすべて0で、第一項は順に $0,c,0$ です。しかし $u=\varepsilon$ で微分すると、三次式の導関数は
+
+$$
+\left.\frac{d}{du}\bigl[u(u-\varepsilon)(u-2\varepsilon)\bigr]\right|_{u=\varepsilon}
+=\varepsilon(\varepsilon-2\varepsilon)=-\varepsilon^2
+$$
+
+なので、
+
+$$
+\widetilde S_\lambda'(\varepsilon)=-\frac{\lambda c}{\varepsilon}.
+$$
+
+同じ三つのエントロピー値を与えても、$\lambda=0$ なら微分は0、$\lambda=-1$ なら正、$\lambda=1$ なら負です。従って[統計的温度の定義](#def-sm2-statistical-temperature)を、補間や熱力学極限の根拠なしに一意に適用できません。符号の変化は準位の多重度が山型であることを示しますが、有限系の熱平衡を証明してはいません。
 <!-- solution-end -->
 
 ### Level C：多重度・極限・熱力学を接続する
 
 #### C1. 固定磁化の二値スピンと状態数
 
-$N\ge2$、$h>0$、$\Omega_N=\{-1,+1\}^N$、$H_N(\sigma)=-h\sum_i\sigma_i$ とする。整数 $k_N\in\{0,\ldots,N\}$ について上向きの個数をちょうど $k_N$ に制限した微正準アンサンブルを考え、$k_N/N\to q\in(0,1)$ とする。
+$N\ge2$、$\varepsilon>0$、$\Omega_N=\{-1,+1\}^N$ とし、各配置 $\sigma$ のエネルギーを
+
+$$
+H_N(\sigma)=-\varepsilon\sum_{i=1}^N\sigma_i
+$$
+
+とする。整数 $k_N\in\{0,\ldots,N\}$ について上向きの個数をちょうど $k_N$ に制限した微正準アンサンブルを考え、$k_N/N\to q\in(0,1)$ とする。
 
 1. エネルギー $E_{k_N}$、許容状態数、各許容配置の確率を求めよ。
 2. $\mathbb E_{\mathrm{mc}}[\sigma_1]$ を求めよ（座標の対称性を数え上げで示すこと）。
@@ -639,18 +689,30 @@ $N\ge2$、$h>0$、$\Omega_N=\{-1,+1\}^N$、$H_N(\sigma)=-h\sum_i\sigma_i$ とす
 **(1)**　上向きが $k_N$ 個、下向きが $N-k_N$ 個なので和は $2k_N-N$ です。[SM1の二値スピン計数](../SM1/index.md#prop-sm1-counting)から
 
 $$
-E_{k_N}=-h(2k_N-N),\qquad
+E_{k_N}=-\varepsilon(2k_N-N),\qquad
 W_N(k_N)=\binom N{k_N}.
 $$
 
-$h>0$ のため異なる $k$ は異なるエネルギーを与えます。厳密な準位を指定した[微正準分布](#def-sm2-microcanonical)により、許される各配置の確率は $\binom N{k_N}^{-1}$、残りは0です。
+$\varepsilon>0$ のため異なる $k$ は異なるエネルギーを与えます。厳密な準位を指定した[微正準分布](#def-sm2-microcanonical)により、許される各配置の確率は $\binom N{k_N}^{-1}$、残りは0です。
 
-**(2)**　第一座標が $+1$ であるには、残る $N-1$ 座標から $k_N-1$ 個の上向きを選ぶので、$1\le k_N\le N$ ならその数は $\binom{N-1}{k_N-1}$ です。第一座標が $-1$ の配置数は $\binom{N-1}{k_N}$ で、$k_N=0,N$ でも二項係数の範囲外を0と約束すればよいです。階乗の式を使うと
+**(2)**　第一座標が $+1$ である配置は、残る $N-1$ 座標から $k_N-1$ 個の上向きを選ぶので $\binom{N-1}{k_N-1}$ 個です。第一座標が $-1$ である配置は、残る座標から $k_N$ 個の上向きを選ぶので $\binom{N-1}{k_N}$ 個です。範囲外の二項係数は0と約束します。
+
+まず $1\le k_N\le N-1$ では階乗を展開して
 
 $$
-\frac{\binom{N-1}{k_N-1}}{\binom N{k_N}}=\frac{k_N}{N},\qquad
-\frac{\binom{N-1}{k_N}}{\binom N{k_N}}=\frac{N-k_N}{N}.
+\begin{aligned}
+\frac{\binom{N-1}{k_N-1}}{\binom N{k_N}}
+&=\frac{(N-1)!}{(k_N-1)!(N-k_N)!}
+  \frac{k_N!(N-k_N)!}{N!}
+=\frac{k_N}{N},\\
+\frac{\binom{N-1}{k_N}}{\binom N{k_N}}
+&=\frac{(N-1)!}{k_N!(N-1-k_N)!}
+  \frac{k_N!(N-k_N)!}{N!}
+=\frac{N-k_N}{N}.
+\end{aligned}
 $$
+
+端点 $k_N=0$ では全スピンが $-1$、$k_N=N$ では全スピンが $+1$ であり、それぞれ対応する配置が一つだけです。従って両端点でも上の二つの比は順に $(0,1)$ と $(1,0)$ となり、同じ公式が成立します。
 
 従って
 
@@ -668,10 +730,10 @@ $$
 \lim_{N\to\infty}\frac{S_{\mathrm B,N}(k_N)}N=k_{\mathrm B}h(q).
 $$
 
-エネルギーについては $E_{k_N}/N=-h(2k_N/N-1)$ と代入できるため
+エネルギーについては $E_{k_N}/N=-\varepsilon(2k_N/N-1)$ と代入できるため
 
 $$
-\lim_{N\to\infty}\frac{E_{k_N}}N=-h(2q-1).
+\lim_{N\to\infty}\frac{E_{k_N}}N=-\varepsilon(2q-1).
 $$
 
 **(4)**　$h'(q)=\log((1-q)/q)$、$h''(q)<0$ なので $h(1/2)=\log2$ が唯一の最大です。$q\ne1/2$ なら $h(q)<\log2$ ですが、これは**制約を固定した状態数の指数成長率**の比較に過ぎません。温度にはエネルギー変数に対する滑らかなエントロピーの微分、および熱力学的エントロピーと統計的エントロピーの同定が必要です。指定された有限系の等確率という仮定だけで絶対温度を結論してはいけません。
