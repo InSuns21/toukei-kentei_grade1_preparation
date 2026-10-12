@@ -15,6 +15,7 @@ learning_objectives:
 definitions:
   - { id: ANT1-DEF-01, name: 算術関数の平均次数 }
   - { id: ANT1-DEF-02, name: Euler定数 }
+  - { id: ANT1-DEF-03, name: 主項と誤差項 }
 theorems:
   - { id: ANT1-THM-01, name: Abelの部分和公式 }
   - { id: ANT1-LEM-01, name: 調和和の評価 }

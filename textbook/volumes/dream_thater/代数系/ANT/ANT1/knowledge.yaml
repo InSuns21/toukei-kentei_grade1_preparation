@@ -14,6 +14,13 @@ concepts:
     introduction_aliases: [定義（算術関数の平均次数）]
     requires: [number-theory.summatory-function]
 
+  - id: analytic-number-theory.main-error
+    name: 主項と誤差項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（主項と誤差項）]
+    requires: [analytic-number-theory.mean-order]
+
   - id: analytic-number-theory.euler-constant
     name: Euler定数
     kind: definition
