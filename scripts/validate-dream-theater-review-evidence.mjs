@@ -34,7 +34,7 @@ function stableInventory(source) {
     links: [...source.matchAll(/\\[[^\\]]+\\]\\([^\\n)]+\\)/g)].map(x => x[0]),
     codeBlocks: [...source.matchAll(/(```|~~~)[^\\n]*\\n[\\s\\S]*?\\n\\1/g)].map(x => x[0]),
     inlineCode: [...source.matchAll(/(?<!`)`[^`\\n]+`(?!`)/g)].map(x => x[0]),
-    mathematics: [...source.matchAll(/\\$\\$[\\s\\S]*?\\$\\$|(?<!\\\\)\\$(?:\\\\.|[^\\$\\\\\\n])+\\$/g)].map(x => x[0]),
+    mathematics: [...source.matchAll(/\\$\\$[\\s\\S]*?\\$\\$|(?<!\)\\$(?:\.|[^\\$\\\n])+\\$/g)].map(x => x[0]),
     exercises: inventory(source).exercises
   };
 }
@@ -123,7 +123,7 @@ function selfTest() {
       '- **全演習ID**：' + tick + 'A1' + tick + ', ' + tick + 'B2' + tick + ', ' + tick + 'C1' + tick);
   assert.deepEqual(checkChapter('T1', {mode: 'substantive', text: body}, expected), []);
   assert(checkChapter('T1', {mode:'substantive', text:body.replace(tick + 'C1' + tick, tick + 'D1' + tick)}, expected).some(x => x.includes('C1')));
-  const local = localFields.map(f => '- **' + f + '**：変更した証明を出発点から検算し、関連箇所を確認した。').join('\\n');
+  const local = localFields.map(f => '- **' + f + '**：変更した証明を出発点から検算し、関連箇所を確認した。').join('\n');
   assert.deepEqual(checkChapter('T1', {mode:'local-math', text:local}, expected), []);
   assert(checkChapter('T1', {mode:'local-math', text:local.replace('波及先の証明・演習確認', '未確認の項目')}, expected).length > 0);
   assert(checkChapter('T1', {mode:'substantive', text:''}, expected).length > 0);
