@@ -1,0 +1,45 @@
+id: "SREL7"
+title: "保存則・相対論的連続体・完全流体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL6
+  - TH1
+  - VC4
+official_scope: []
+learning_objectives:
+  - 粒子数四元流束の定義から局所連続の式と流体に沿う密度変化を再導出できる
+  - 静止系の等方応力から完全流体テンソルを導出し運動系のエネルギー・運動量流束を計算できる
+  - 四元速度への平行射影と直交射影からエネルギー方程式・相対論的Euler方程式を証明できる
+  - 粒子数保存と断熱状態方程式を区別し圧力なしの粒子群と圧力流体を計算できる
+  - 電磁場とのエネルギー運動量交換・外力の符号・Newton流体への低速近似を検算できる
+definitions:
+  - { id: SREL7-DEF-01, name: 粒子数四元流束 }
+  - { id: SREL7-DEF-02, name: 完全流体のエネルギー運動量テンソル }
+  - { id: SREL7-DEF-03, name: 流体に直交する射影テンソル }
+theorems:
+  - { id: SREL7-THM-01, name: 粒子数保存の四元表示 }
+  - { id: SREL7-PROP-01, name: 静止系の等方性から共変な形を導く }
+  - { id: SREL7-PROP-02, name: 観測系における完全流体の成分 }
+  - { id: SREL7-THM-02, name: 完全流体の局所収支と相対論的Euler方程式 }
+  - { id: SREL7-PROP-03, name: 圧力のない粒子群の測地的な運動 }
+  - { id: SREL7-PROP-04, name: Newton流体への形式的低速極限 }
+canonical_examples:
+  - 静止系とboost系で粒子数の数密度と流束を比較する
+  - 静止系で完全流体テンソルの圧力成分と射影の負符号を検算する
+  - 等方応力のboostでエネルギー流束に圧力が現れることを検算する
+  - 圧力勾配がある静止流体を外力が支える例をboostして収支を検算する
+problem_patterns:
+  - SREL7-PARTICLE-FLUX
+  - SREL7-DENSITY-DERIVATIVE
+  - SREL7-REST-TENSOR
+  - SREL7-MOMENTUM-DENSITY
+  - SREL7-STATIC-PRESSURE
+  - SREL7-FLUID-PROJECTIONS
+  - SREL7-BAROTROPIC-CLOSURE
+  - SREL7-EM-ENERGY-EXCHANGE
+  - SREL7-BOOSTED-FORCE-BALANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
