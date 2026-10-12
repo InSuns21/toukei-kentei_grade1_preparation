@@ -1,0 +1,55 @@
+chapter: INT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+forward_references: []
+
+concepts:
+  - id: integrable.positive-elliptic-equilibrium
+    name: 正定値楕円型平衡点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正定値楕円型平衡点）"]
+    aliases: []
+    requires: []
+  - id: integrable.linear-symplectic-normalization
+    name: 正定値二次Hamilton関数の正準線形標準化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正定値二次Hamilton関数の正準線形標準化）"]
+    aliases: []
+    requires: [integrable.positive-elliptic-equilibrium]
+  - id: integrable.homogeneous-birkhoff-resonance
+    name: 同次次数とBirkhoff非共鳴条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同次次数とBirkhoff非共鳴条件）"]
+    aliases: []
+    requires: [integrable.linear-symplectic-normalization, integrable.integer-resonance]
+  - id: integrable.finite-birkhoff-normal-form
+    name: 有限次数Birkhoff標準形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限次数Birkhoff標準形）"]
+    aliases: []
+    requires: [integrable.homogeneous-birkhoff-resonance, integrable.near-identity-generating-function]
+  - id: integrable.quartic-oscillator-birkhoff
+    name: 四次振動子のBirkhoff係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四次振動子のBirkhoff係数）"]
+    aliases: []
+    requires: [integrable.finite-birkhoff-normal-form]
+  - id: integrable.finite-normal-form-action-drift
+    name: 有限次数標準形の作用変動評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限次数標準形の作用変動評価）"]
+    aliases: []
+    requires: [integrable.finite-birkhoff-normal-form, integrable.action-angle]

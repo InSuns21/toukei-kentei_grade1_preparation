@@ -4,7 +4,7 @@ title: "可積分系と摂動論・KAM"
 plan: textbook/plans_progress/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# INT1〜INT5本文・metadata・公開索引登録済み。次の予定章はINT6。
+# INT1〜INT6本文・metadata・公開索引登録済み。次の予定章はINT7。
 chapters:
   - id: INT1
     path: textbook/volumes/dream_thater/幾何系/INT/INT1
@@ -28,7 +28,7 @@ chapters:
     title: "正準摂動論と共鳴"
   - id: INT6
     path: textbook/volumes/dream_thater/幾何系/INT/INT6
-    status: planned
+    status: completed
     title: "Birkhoff標準形"
   - id: INT7
     path: textbook/volumes/dream_thater/幾何系/INT/INT7

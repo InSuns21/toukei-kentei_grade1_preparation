@@ -1,0 +1,48 @@
+id: "INT6"
+title: "Birkhoff標準形"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+official_scope: []
+learning_objectives:
+  - 正定値楕円型平衡点のHessianを検査し二次Hamilton関数を正準線形標準化できる
+  - 複素振動子座標のPoisson括弧と同次単項式の周波数分母を導ける
+  - 次数別非共鳴条件と共鳴項が作用多項式に限られる理由を説明できる
+  - Hamilton流による帰納的Birkhoff標準形の存在を有限次数で証明できる
+  - 一自由度の四次振動子の標準形係数と生成関数を計算できる
+  - 共鳴による除去不能例と正定値性による安定性を区別できる
+  - 有限次剰余からの作用変動評価と無限次数の収束問題を区別できる
+definitions:
+  - { id: INT6-DEF-01, name: 正定値楕円型平衡点 }
+  - { id: INT6-DEF-02, name: 同次次数とBirkhoff非共鳴条件 }
+theorems:
+  - { id: INT6-PROP-01, name: 正定値二次Hamilton関数の正準線形標準化 }
+  - { id: INT6-THM-01, name: 有限次数Birkhoff標準形 }
+  - { id: INT6-PROP-02, name: 四次振動子のBirkhoff係数 }
+  - { id: INT6-PROP-03, name: 有限次数標準形の作用変動評価 }
+canonical_examples:
+  - 二振動子の正定値Hessian判定
+  - 一自由度振動子の線形正準標準化
+  - 無理数周波数と1対2共鳴の単項式判定
+  - 四次非線形振動子のBirkhoff係数と生成関数
+  - エネルギー閉じ込めと作用変動の長時間評価
+problem_patterns:
+  - INT6-POSITIVE-ELLIPTIC
+  - INT6-COMPLEX-POISSON
+  - INT6-HOMOGENEOUS-RESONANCE
+  - INT6-QUARTIC-PROJECTION
+  - INT6-FREQUENCY-SHIFT
+  - INT6-DEGREE-COUNT
+  - INT6-RESONANT-STABILITY
+  - INT6-REMAINDER-DRIFT
+  - INT6-QUARTIC-FULL-NORMALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 4 }
