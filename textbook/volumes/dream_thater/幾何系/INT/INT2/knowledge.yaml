@@ -1,0 +1,60 @@
+chapter: INT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT1
+  - SYM4
+  - SYM6
+  - RA6A
+forward_references: []
+
+concepts:
+  - id: integrable.commuting-flows
+    name: 可換Hamilton流とコンパクトレベル上の完備性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（可換Hamilton流とコンパクトレベル上の完備性）"]
+    aliases: []
+    requires: [integrable.poisson-involution, integrable.regular-fiber-lagrangian]
+  - id: integrable.period-group
+    name: 流れの周期群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（流れの周期群）"]
+    aliases: []
+    requires: [integrable.commuting-flows]
+  - id: integrable.period-lattice
+    name: 周期群の格子構造
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（周期群の格子構造）"]
+    aliases: []
+    requires: [integrable.period-group]
+  - id: integrable.liouville-arnold
+    name: Liouville–Arnoldの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Liouville–Arnoldの定理：トーラスと直線運動）"]
+    aliases: []
+    requires: [integrable.commuting-flows, integrable.period-lattice, integrable.regular-fiber-lagrangian]
+  - id: integrable.frequency-vector
+    name: 振動数ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（振動数ベクトル）"]
+    aliases: []
+    requires: [integrable.liouville-arnold]
+  - id: integrable.quasiperiodic-flow
+    name: 準周期運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（トーラス上の準周期運動）"]
+    aliases: []
+    requires: [integrable.frequency-vector]
+  - id: integrable.periodicity-criterion
+    name: 直線運動の周期判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直線運動の周期判定）"]
+    aliases: []
+    requires: [integrable.quasiperiodic-flow, integrable.frequency-vector]
