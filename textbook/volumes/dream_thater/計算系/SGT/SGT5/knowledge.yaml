@@ -1,0 +1,73 @@
+chapter: SGT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT4
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: spectral-graph.symmetric-perturbation
+    name: 対称行列の摂動量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対称行列の摂動量）]
+    requires: [linear.spectral-theorem]
+
+  - id: spectral-graph.weyl-perturbation
+    name: 対称行列の固有値摂動評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（対称行列の固有値摂動評価）]
+    requires: [spectral-graph.symmetric-perturbation, linear.spectral-theorem]
+
+  - id: spectral-graph.subspace-projector
+    name: 下位固有空間と直交射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（下位固有空間と直交射影）]
+    requires: [linear.spectral-theorem, spectral-graph.partition-relaxation]
+
+  - id: spectral-graph.davis-kahan
+    name: 下位固有空間のDavis–Kahan型摂動評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（下位固有空間のDavis–Kahan型摂動評価）]
+    requires: [spectral-graph.subspace-projector, spectral-graph.weyl-perturbation]
+
+  - id: spectral-graph.single-vector-stability
+    name: 単純固有ベクトルの方向の安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単純固有ベクトルの方向の安定性）]
+    requires: [spectral-graph.weyl-perturbation, spectral-graph.davis-kahan]
+
+  - id: spectral-graph.edge-perturbation
+    name: 組合せLaplacianの一辺更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（組合せLaplacianの一辺更新）]
+    requires: [spectral-graph.combinatorial-laplacian, spectral-graph.symmetric-perturbation]
+
+  - id: spectral-graph.normalized-perturbation
+    name: 正規化Laplacianの摂動量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正規化Laplacianの摂動量）]
+    requires: [spectral-graph.normalized-laplacian, spectral-graph.symmetric-perturbation]
+
+  - id: spectral-graph.threshold-margin
+    name: 閾値の余裕
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（閾値の余裕）]
+    requires: [spectral-graph.threshold-partition]
+
+  - id: spectral-graph.threshold-stability
+    name: 固定閾値の分割が変わらない十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（固定閾値の分割が変わらない十分条件）]
+    requires: [spectral-graph.threshold-margin, spectral-graph.single-vector-stability]
