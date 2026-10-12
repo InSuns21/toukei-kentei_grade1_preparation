@@ -1,7 +1,7 @@
 # DREAM THEATER 可積分系と摂動論・KAM コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress（2026-10-12。前提・証明ownerの着手時監査を実施、INT1本文は未着手）
 
 ## 0. 目的
 
@@ -44,7 +44,7 @@
 
 推奨:
 
-- [幾何学的力学I](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH1〜3（Lie群作用と運動量写像）。INTの章ごとに実際の援用を確認する
+- [幾何学的力学I](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH1〜3（Lie群作用と運動量写像）。INTの章ごとに実際の援用を確認する
 - Diophantine approximation の初歩
 - 複素解析の Cauchy estimate の基本
 
@@ -174,7 +174,7 @@ KAM の証明で使う解析的評価は必要な範囲を本文で補う。読�
 
 他系列を参照:
 
-- シンプレクティック多様体：[SYM](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
+- シンプレクティック多様体：[SYM](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
 - generic invariant manifold / chaos / symbolic dynamics: 力学系
 - restricted three-body / solar system applications: CELE 系列
 - KdV / Toda / inverse scattering / Lax pair / soliton / discrete integrable systems: 将来の可積分 PDE・離散可積分系列
@@ -233,3 +233,11 @@ KAM により一部トーラスが存続
 6. CELE 系列への cross-link
 7. knowledge DAG / public index / series manifest
 8. 数学的完全性・読者粒度の二系統レビュー
+
+## 8. 着手時の前提・証明担当監査（2026-10-12）
+
+- AMECH1〜8 と SYM1〜8 の系列manifestはすべて `completed`。SYM4にHamiltonベクトル場・Poisson括弧・座標計算、AMECH6にPoisson力学の基礎がある。ODEの既存教材にも流れ・Poincaré写像へ接続する前提教材がある。未実装のINT定理をこれらの既存正本に仮託しない。
+- GMECH1〜8 は完了・横断確認済み。GMECH8は可換保存量と微分の独立性の**具体例・境界**までを担当する。INT1は `2n` 次元での独立な第一積分の個数とinvolutionを新たに形式化し、Liouville可積分性の正本を所有する。
+- INT2のLiouville–Arnold証明とINT3の作用角変数は本科目が所有し、SYMやGMECHの相対平衡・簡約の証明を重複させない。INT4以降の小分母・共鳴・Birkhoff・KAMも本科目の担当とする。CELE/DYN等は応用・別の機構として必要箇所で参照する。
+- `textbook/dream-theater-series/INT.yaml` を新設してINT1〜8を `planned` とし、先頭のINT1を次の着手章に確定した。未作成の章本文・knowledge metadata・公開索引は先行公開しない。
+- 次作業：INT1のchapter/knowledge/本文を新規執筆し、必要なcanonical stable anchor・A4/B3/C1以上の演習・詳細解答と新規章の区分C査読・CIを完成させる。
