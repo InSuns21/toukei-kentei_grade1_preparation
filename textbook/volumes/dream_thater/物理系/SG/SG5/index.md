@@ -424,14 +424,107 @@ $$
 
 この研究級定理はD. Panchenko, *The Parisi ultrametricity conjecture*, Annals of Mathematics **177** (2013), 383–393, [原論文](https://annals.math.princeton.edu/2013/177-1/p08) による。完全な証明にはGG恒等式から導く測度の不変性・複製構成・Gram幾何を組み合わせる。ここでの[最大overlapの原子定理](#thm-sg5-top-overlap)は二値の場合を完全に閉じた証明であるが、**それを一般のPanchenko定理の完全証明と取り違えない**。一般定理の原論文の証明は独立の研究級論証である。
 
-有限値の場合の帰納法の入口は次のように見える。最大値 $q_k$ で一致する原子を除き、最初の $n$ 人が全員異なる事象を $A_n$ とする。最大値の確率を $p_k$ とすれば、[GG混合則](#prop-sg5-conditional-mixture)から
+### 有限個のoverlap値の場合：階層の帰納法
+
+一般の定理の証明を展開する前に、値が $q_1<\cdots<q_k$ の有限個に限られる場合には、帰納法の全体を見通せる。ここでは一つだけ外部の確率表現定理を明示的に使用する。
+
+**使用する表現定理（Dovbysh–Sudakov）**：対称・半正定値・弱交換可能な無限確率配列 $Q$ で対角が定数 $c$ なら、ある可分Hilbert空間 $H'$ 上のランダム確率測度から条件付き独立同分布に選んだ $(v_i,b_i)$ に対し、
 
 $$
-\mathbf E[f(R^n)\mathbf1_{A_{n+1}}]
-=(1-p_k)\mathbf E[f(R^n)\mathbf1_{A_n}]
+Q_{ij}\ \stackrel d=\ v_i\cdot v_j+b_i\mathbf1_{\{i=j\}},\qquad b_i\ge0
 $$
 
-が成り立つ。実際、$A_n$ 上では $n$ 人の既知の相手との重なりが $q_k$ になる項は全て0であり、次のレプリカが既知のいずれかと同じ原子を取る確率は $p_k$ になる。従って $\mathbf P(A_n)=(1-p_k)^{n-1}$ で、$A_n$ で条件付けた有限次元分布は射影整合的になる。ここから**条件付きGram配列の表現と、閾値で切ったoverlapの半正定値性**を確保する部分が非自明であり、これを飛ばして帰納法が完成したと称してはならない。有限値版の詳しい証明は[Panchenko (2011)](https://www.numdam.org/articles/10.1016/j.crma.2011.06.021/)にある。
+と表せる。この表現定理自体の証明はここでは引用する。重要なのは、$Q$ に条件付き独立標本を再導入できることである。以下の帰納法の残りはGG恒等式とGram行列の計算で直接追える。
+
+最上位の値を $q_k$、その出現確率を $p_k>0$ とする。[最大overlapの原子定理](#thm-sg5-top-overlap)より、元のランダム測度 $G$ の標本で $R_{ij}=q_k$ となることは、二点が同じ原子であることと同値である。
+
+最初の $n$ 個の原子が**互いに異なる**事象を
+
+$$
+B_n=\{R_{ij}<q_k\text{ for all }1\le i<j\le n\}
+$$
+
+とする。$B_n$ 上で第 $n+1$ レプリカがどれか既存の原子と一致する事象は互いに排反である。[GG恒等式](#def-sg5-gg)を各 $\ell\le n$ に適用して $\psi(r)=\mathbf1_{\{r=q_k\}}$ と置くと、有界な $f=f(R^n)$ に対し
+
+$$
+\mathbf E\left[f\mathbf1_{B_n}\mathbf1_{\{R_{\ell,n+1}=q_k\}}\right]
+=\frac{p_k}{n}\mathbf E[f\mathbf1_{B_n}].
+$$
+
+実際、和に現れる $\mathbf1_{\{R_{\ell j}=q_k\}}$ は $B_n$ 上で全て0になる。従って $n$ 個の排反事象を足すと
+
+$$
+\mathbf E[f\mathbf1_{B_{n+1}}]
+=(1-p_k)\mathbf E[f\mathbf1_{B_n}],
+\qquad
+\mathbf P(B_n)=(1-p_k)^{n-1}.
+$$
+
+ここでは $0<p_k<1$ とする。$p_k=1$ なら全ての異なるレプリカのoverlapが同じ値なのでultrametric性はすでに成立する。
+
+$\mathbf P_n^*$ を $B_n$ で条件付けた $n$ 次overlap行列の分布とする。直前の式を $\mathbf P(B_{n+1})$ で割ると、$n+1$ 次元から最初の $n$ 成分を取り出した分布が $\mathbf P_n^*$ と一致する。よって一貫した無限配列 $Q$ を作れる。$B_n$ は添字の置換で不変であり、各有限行列はもとのHilbert内積のGram行列だから、$Q$ も弱交換可能で半正定値である。対角は $q_k$、非対角値は $q_1,\ldots,q_{k-1}$ になる。
+
+次に、$Q$ 自身もGG恒等式を満たすことを確認する。$f$ は最初の $n$ 成分に依存するとし、$\psi$ は有界関数とする。$B_n$ 上で既存の $\ell$ と新しい点が一致すると、$R_{1,n+1}=R_{1\ell}$ となる。$\ell=1$ の場合だけ値は $q_k$ である。そこで
+
+$$
+\begin{aligned}
+&\mathbf E[f\psi(R_{1,n+1})\mathbf1_{B_{n+1}}]\\
+&=\mathbf E[f\psi(R_{1,n+1})\mathbf1_{B_n}]\\
+&\quad-\frac{p_k}{n}
+\mathbf E\left[f\mathbf1_{B_n}
+\left\{\psi(q_k)+\sum_{\ell=2}^n\psi(R_{1\ell})\right\}\right].
+\end{aligned}
+$$
+
+最初の右辺に元の[GG恒等式](#def-sg5-gg)を代入し、同類項をまとめると
+
+$$
+\begin{aligned}
+&\mathbf E[f\psi(R_{1,n+1})\mathbf1_{B_{n+1}}]\\
+&=\frac1n\mathbf E[f\mathbf1_{B_n}]
+\{\mathbf E\psi(R_{12})-p_k\psi(q_k)\}\\
+&\quad+\frac{1-p_k}{n}
+\sum_{\ell=2}^n\mathbf E[f\psi(R_{1\ell})\mathbf1_{B_n}].
+\end{aligned}
+$$
+
+両辺を $(1-p_k)\mathbf P(B_n)$ で割る。すると
+
+$$
+\begin{aligned}
+\mathbf E_Q[f\psi(Q_{1,n+1})]
+&=\frac1n\mathbf E_Q[f]\,
+\mathbf E_Q[\psi(Q_{12})]\\
+&\quad+\frac1n\sum_{\ell=2}^n
+\mathbf E_Q[f\psi(Q_{1\ell})]
+\end{aligned}
+$$
+
+が得られる。実際、$\mathbf E_Q\psi(Q_{12})
+=\{\mathbf E\psi(R_{12})-p_k\psi(q_k)\}/(1-p_k)$ である。
+
+残る問題は、$Q$ の**対角がまだ $q_k$** なのに、非対角の最大値が $q_{k-1}$ へ下がった点である。ここに先ほどのDovbysh–Sudakov表現を適用する。$Q_{ij}=v_i\cdot v_j$（$i\ne j$）の標本表現が得られ、[最大overlapの原子定理の第1段階](#thm-sg5-top-overlap)と同じ開球の議論によって
+
+$$
+\|v_i\|^2\le q_{k-1}\quad\text{ほとんど確実に}
+$$
+
+が従う。このとき対角だけを $q_{k-1}$ へ置き換えた配列 $\widetilde Q$ は、有限個の係数 $a_i$ について
+
+$$
+\begin{aligned}
+\sum_{i,j}a_i a_j\widetilde Q_{ij}
+&=\left\|\sum_i a_i v_i\right\|^2
++\sum_i a_i^2\{q_{k-1}-\|v_i\|^2\}\\
+&\ge0
+\end{aligned}
+$$
+
+なので半正定値である。非対角値とそのGG恒等式は変更されない。従って、$k-1$ 種類の値に対する同じ主張を帰納法の仮定として用いれば、$B_3$ 上の三角形は超距離的である。
+
+$B_3$ の外では、少なくとも二点が同じ原子である。この二点と第三点との重なりは等しいので、やはり三角形は超距離的になる。以上で有限値の場合の帰納法が閉じる。
+
+**証明の境界**：この帰納法ではDovbysh–Sudakov表現定理を外部結果として使った。さらに連続的なoverlap値の場合は「最大原子を取り除く」操作を有限回繰り返せないため、これだけで一般の[Panchenko定理](#thm-sg5-panchenko)を証明したことにはならない。一般の場合の証明には同論文の不変性原理と複製構成が必要になる。
 
 ここまでの論理をまとめると、Gaussian部分積分と適切な自己平均化からGG恒等式へ進み、Hilbert空間上の極限overlapに関する完全なGG恒等式からPanchenko定理で階層性が従う。**有限サイズのSK模型がそのままultrametricだという主張ではない**。階層の各節点へどの確率重みが乗るか、極限圧力がどの変分汎関数で決まるかは、次のRuelle確率カスケードとParisi変分原理で扱う。
 
