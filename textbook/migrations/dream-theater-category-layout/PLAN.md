@@ -1,4 +1,7 @@
-# DREAM THEATER カテゴリー別ディレクトリ移行 PLAN
+# DREAM THEATER カテゴリー別ディレクトリ移行 PLAN（第一段階・履歴）
+
+> **後続訂正**：この計画の完成形 `カテゴリー/章ID` はユーザー指定より1階層不足していた。2026-10-12に [PR #999](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/999) で `カテゴリー/講義系列ID/章ID` へ訂正し、演習科目LAX1・CAX1も移動した。現在の正本は `textbook/migrations/dream-theater-course-layer/PLAN.md` と最新の `dream-theater-index.json`。以下は当時の第一段階の記録であり、最終構造を示さない。
+
 
 - 作成日: 2026-10-12
 - 状態: **完了**（2026-10-12、[PR #996](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/996) をmainへmerge、merge SHA `9313af759065063d15a283ab53e9ea0abbba6ece`）
