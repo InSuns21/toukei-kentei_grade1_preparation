@@ -1,0 +1,23 @@
+chapter: "SYM6"
+terms:
+  - term: 等方部分空間
+    english: isotropic subspace
+    meaning: "内部の任意の二方向に対するシンプレクティック形式の値が零となる部分空間。"
+  - term: 余等方部分空間
+    english: coisotropic subspace
+    meaning: "シンプレクティック直交補を自分自身に含む部分空間。"
+  - term: Lagrange部分空間
+    english: Lagrangian subspace
+    meaning: "シンプレクティック直交補と一致する部分空間。等方性と半次元性を併せ持つ。"
+  - term: Lagrange部分多様体
+    english: Lagrangian submanifold
+    meaning: "シンプレクティック多様体の半分の次元を持ち、シンプレクティック形式の制限が零になる埋め込み部分多様体。"
+  - term: 閉1形式のグラフ
+    english: graph of a closed one-form
+    meaning: "各基点へ閉1形式が指定する余ベクトルを対応させた余接束内のグラフ。Lagrange部分多様体になる。"
+  - term: 余法束
+    english: conormal bundle
+    meaning: "部分多様体の各点において、その接空間を零にする全ての余ベクトルを集めた余接束内の部分多様体。"
+  - term: 極大等方部分空間
+    english: maximal isotropic subspace
+    meaning: "包含関係に関してこれ以上真に大きな等方部分空間へ拡大できない等方部分空間。非退化交代形式の下ではLagrange部分空間と一致する。"
