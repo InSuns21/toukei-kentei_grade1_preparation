@@ -208,7 +208,9 @@ $$
 
 ### 証明の見取り図
 
-非退化性で方程式 $\iota_{Y_t}\omega_t=-\alpha_t$ を点ごとに解きます。次にコンパクトな $M$ と時間の有限区間を使って、流れの存在を全点で時刻1まで延長します。最後に引き戻しを微分し、$\dot\omega_t=d\alpha_t$ と $d\omega_t=0$ の二条件で打ち消します。ここで局所的に球を縮める[SYM5の議論](../SYM5/index.md#thm-sym5-darboux)との違いは、**解の存在域をコンパクト性で大域化する**一点です。
+非退化性でMoser方程式を点ごとに解きます。その後、コンパクト性と有限の時間区間を使って、流れを全点で時刻1まで延長します。
+
+最後に引き戻しの時間微分を調べ、差の完全性と閉性で相殺します。[SYM5の局所的な構成](../SYM5/index.md#thm-sym5-darboux)と違って、**解の存在域を多様体全体に広げる**ことが核心です。
 
 <!-- proof-start -->
 ### 証明
@@ -247,9 +249,13 @@ $$
 K=[0,1]\times M
 $$
 
-というコンパクト集合の中にあります。[局所解の一意性](../ODE1/index.md#thm-ode1-picard-lindelof)で作った解が仮に $t<1$ で延長不能になれば、[最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)を拡大系 $Z$ とコンパクト集合 $K$ に適用した結論に反します。従って全ての初期点 $x\in M$ で $\varphi_t(x)$ が $0\le t\le1$ にわたり存在します。
+というコンパクト集合の中にあります。
 
-同じ拡大系の初期値を $(t,z)$ として時刻0まで逆向きに解けるのも、時間区間と $M$ がコンパクトだからです。正向きの解と逆向きの解の合成は[解の一意性と流れの合成則](../ODE8/index.md#prop-ode8-flow-law)によって恒等写像になります。初期値への滑らかな依存は[流れの初期値微分](../ODE8/index.md#lem-ode8-flow-variational)から得られるので、各 $\varphi_t$ とその逆は滑らかです。よって $\varphi_t$ は $M$ 全体の微分同相です。
+[局所解の一意性](../ODE1/index.md#thm-ode1-picard-lindelof)で作った解が仮に時刻1より前に延長不能になれば、[最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)を拡大系 $Z$ と集合 $K$ に適用した結論に反します。従って全初期点から時刻1まで解が存在します。
+
+同じ拡大系の初期値を $(t,z)$ として時刻0まで逆向きに解けるのも、時間区間と $M$ のコンパクト性によります。[解の一意性と流れの合成則](../ODE8/index.md#prop-ode8-flow-law)から、正向きと逆向きの写像は互いに逆になります。
+
+[流れの初期値微分](../ODE8/index.md#lem-ode8-flow-variational)で写像とその逆の滑らかさを確認できます。従って各 $\varphi_t$ は $M$ 全体の微分同相です。
 
 **(3) 引き戻しの時間微分。** [Cartanの公式](../GEO7/index.md#thm-geo7-cartan-formula)および[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)から
 
@@ -440,7 +446,7 @@ $$
 <a id="prop-sym7-relative-fixed-set"></a>
 
 <!-- formal-statement-start -->
-> **命題（点wiseに零の原始形式が与える固定集合）**  
+> **命題（各点で零となる原始形式が与える固定集合）**  
 > [大域Moser安定性定理](#thm-sym7-moser-stability)の仮定を満たし、$S\subset M$ を部分集合とする。さらに各 $x\in S$、全 $t\in[0,1]$ で、**$T_x^*M$ の元として** $\alpha_t(x)=0$ と仮定する。このとき定理のベクトル場が生成する同位変形は $\varphi_t(x)=x$ を全 $x\in S$ と全 $t$ で満たす。
 <!-- formal-statement-end -->
 
