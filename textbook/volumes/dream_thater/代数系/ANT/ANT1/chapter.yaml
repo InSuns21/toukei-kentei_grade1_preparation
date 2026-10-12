@@ -1,0 +1,38 @@
+id: "ANT1"
+title: "算術関数の平均と部分和"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT5
+  - NT8
+official_scope: []
+learning_objectives:
+  - Abelの部分和公式を有限和の変形から証明し、階段関数を用いた積分形へ移せる
+  - 調和和とEuler定数の評価を証明し、床関数の誤差を適切に評価できる
+  - Dirichletの双曲線分割を用いて約数個数関数の主項・誤差項を求められる
+  - Möbius反転からEulerのφ関数の平均を導き、絶対収束によって定数を同定できる
+  - 平均次数と点ごとの近似を区別し、Abelの部分和で重み付き平均を導ける
+definitions:
+  - { id: ANT1-DEF-01, name: 算術関数の平均次数 }
+  - { id: ANT1-DEF-02, name: Euler定数 }
+theorems:
+  - { id: ANT1-THM-01, name: Abelの部分和公式 }
+  - { id: ANT1-LEM-01, name: 調和和の評価 }
+  - { id: ANT1-THM-02, name: 約数個数関数の平均 }
+  - { id: ANT1-THM-03, name: Euler関数の平均 }
+  - { id: ANT1-PROP-01, name: 約数個数関数の重み付き総和 }
+canonical_examples:
+  - 交代符号列に対するAbelの部分和公式
+  - x=16のDirichlet双曲線分割
+  - x=6のEuler関数の総和
+  - 重み1/nを持つ約数個数関数の総和
+problem_patterns:
+  - ANT1-ABEL-FINITE
+  - ANT1-HARMONIC-BOUND
+  - ANT1-DIVISOR-MAIN-ERROR
+  - ANT1-TOTIENT-MEAN
+  - ANT1-WEIGHTED-SUM
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
