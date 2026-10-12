@@ -234,7 +234,14 @@ $$
 \int_\Omega\nabla\cdot\boldsymbol j\,d^3x=0.
 $$
 
-時間と無関係な有界領域上で仮定した正則性により第一項は $d(\int_\Omega\rho\,d^3x)/dt$。第二項に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用すると境界積分です。移項して所要の式を得ます。$\partial_t\rho+\nabla\cdot\boldsymbol j=0$ は局所の生成消滅がないことを表しますが、境界流出を禁止する式ではありません。
+時間と無関係な有界領域上で仮定した正則性により第一項は $d(\int_\Omega\rho\,d^3x)/dt$。第二項に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用すると、二つの項の対応が次のように確定します。
+
+$$
+\frac{dQ}{dt}+\int_{\partial\Omega}\boldsymbol j\cdot\boldsymbol n\,dA=0,
+\qquad Q(t)=\int_\Omega\rho(t,\boldsymbol x)\,d^3x.
+$$
+
+したがって $dQ/dt=-\int_{\partial\Omega}\boldsymbol j\cdot\boldsymbol n\,dA$ です。$\partial_t\rho+\nabla\cdot\boldsymbol j=0$ は局所の生成消滅がないことを表しますが、境界流出を禁止する式ではありません。
 <!-- proof-end -->
 
 例えば長さ $L>0$、断面積 $A>0$ の細長い箱を $+x$ 方向へ一様な流れが通過するとき、流入・流出が等しければ箱内電荷は一定です。片側の電流だけを零とするのは、箱を孤立系にしたのではなく、境界条件を変更したことです。
@@ -272,11 +279,27 @@ $$
 
 さらに四元電流 $J^\mu=(c\rho,\boldsymbol j)$ が保存式を満たさないなら、[Maxwell方程式からの電荷保存](../SREL5/index.md#thm-srel5-continuity)との整合性が失われます。任意の $\rho,\boldsymbol j$ を指定して、解が必ず存在すると言うこともできません。
 
-### 4.3 加速座標の地平線と有限時間の加速
+### 4.3 加速座標の地平線と有限時間だけの加速
 
 [Rindlerの通信可能条件](../SREL8/index.md#thm-srel8-causal-domain)では、世界線が全固有時にわたり $U_O=s_0e^{-a\tau/c}>0$ を保ち、$\tau\to\infty$ で $U_O\downarrow0$ となることが必要でした。未来のある時刻から慣性運動へ切り替えたロケットでは、この極限が変わります。
 
-具体的に、$s_0=c^2/a$ として $\tau\le0$ は $ct=s_0\sinh(a\tau/c)$、$x=s_0\cosh(a\tau/c)$、$\tau\ge0$ は $ct=c\tau$、$x=s_0$ と続けます。接続点で位置と四元速度は一致し、加速度だけが不連続な理想化です。後半では $U_O=s_0-c\tau$ が零を通って負になります。$P=(ct,x)=(2s_0,0)$ は $U_P=-2s_0<0$ ですが、$R=(4s_0,s_0)$ という後半の世界線上の事象との差は
+実際に加速が有限の固有時間だけ続く例を作ります。$s_0=c^2/a$、$T>0$、$\theta=aT/c$ と置き、区間 $-T\le\tau\le0$ では
+
+$$
+ct=s_0\sinh(a\tau/c),\qquad x=s_0\cosh(a\tau/c)
+$$
+
+と一定の固有加速度 $a$ で進みます。$\tau\ge0$ では $ct=c\tau,\ x=s_0$ と慣性運動へ切り替え、$\tau\le -T$ でも加速開始点で接する慣性運動を選びます。具体的には
+
+$$
+\begin{aligned}
+ct&=-s_0\sinh\theta+c(\tau+T)\cosh\theta,\\
+x&=s_0\cosh\theta-c(\tau+T)\sinh\theta
+\qquad(\tau\le -T).
+\end{aligned}
+$$
+
+$\tau=-T$ の左右で位置は $(-s_0\sinh\theta,s_0\cosh\theta)$、四元速度は $(c\cosh\theta,-c\sinh\theta)$ と一致します。$\tau=0$ でも位置は $(0,s_0)$、四元速度は $(c,0)$ と一致します。よって加速度だけが両端で不連続な、$-T\le\tau\le0$ の間だけ加速する世界線です。後半では $U_O=s_0-c\tau$ が零を通って負になります。$P=(ct,x)=(2s_0,0)$ は $U_P=-2s_0<0$ ですが、$R=(4s_0,s_0)$ という後半の世界線上の事象との差は
 
 $$
 \Delta(ct)=2s_0,\quad\Delta x=s_0,\quad
@@ -343,7 +366,7 @@ u_{\rm em}=\epsilon_0E_0^2\cos^2k(x-ct),\qquad
 S_x=c\epsilon_0E_0^2\cos^2k(x-ct).
 $$
 
-$E_y B_z>0$ だから $\boldsymbol E\times\boldsymbol B$ は $+x$ 向きです。単位は $u_{\rm em}$ が $\mathrm{J/m^3}$、$S_x$ が $\mathrm{W/m^2}$ です。
+$E_yB_z=E_0^2\cos^2(k(x-ct))/c\ge0$ です。波の節では流束は零、節以外では $\boldsymbol E\times\boldsymbol B$ は $+x$ 向きです。単位は $u_{\rm em}$ が $\mathrm{J/m^3}$、$S_x$ が $\mathrm{W/m^2}$ です。
 <!-- solution-end -->
 
 ### A4. 開いた箱の電荷
@@ -458,7 +481,18 @@ B'_z&=\Gamma(B_z-wE_y/c^2)
 \end{aligned}
 $$
 
-したがって $u'_{\rm em}=\epsilon_0(E'_y)^2=D^2\epsilon_0E_y^2$、場が零でない点では $u'_{\rm em}/u_{\rm em}=D^2$ です。$w>0$ なら $0<D<1$ なので、波と同方向に動く観測者は小さい振幅と密度を測ります。零点では比は $0/0$ で未定義ですが $u'_{\rm em}=D^2u_{\rm em}$ の等式自体は成立します。
+逆Lorentz変換から $x-ct=D(x'-ct')$ なので、変換後の場と密度の関係は
+
+$$
+\begin{aligned}
+E'_y(t',x')&=DE_0\cos(kD(x'-ct')),\\
+u'_{\rm em}(t',x')&=\epsilon_0(E'_y)^2
+=D^2\epsilon_0E_y(t,x)^2
+=D^2u_{\rm em}(t,x).
+\end{aligned}
+$$
+
+右端の $(t,x)$ と左端の $(t',x')$ は**同一事象の座標**です。場が零でない点では $u'_{\rm em}/u_{\rm em}=D^2$ です。$w>0$ なら $0<D<1$ なので、波と同方向に動く観測者は小さい振幅と密度を測ります。零点では比は $0/0$ で未定義ですが $u'_{\rm em}=D^2u_{\rm em}$ の等式自体は成立します。
 <!-- solution-end -->
 
 ### B4. 局所保存と流束境界の判断
@@ -533,7 +567,7 @@ $$
 
 ### C2. 波束の局所収支と観測系
 
-$f\in C^1(\mathbb R)$ はコンパクトな台を持つ実関数で、真空中の電磁場を $\boldsymbol E=(0,f(x-ct),0)$、$\boldsymbol B=(0,0,f(x-ct)/c)$ とする。単位 $yz$ 面積当たりの全エネルギー $\mathcal E(t)=\int_{-\infty}^{\infty}u_{\rm em}(t,x)\,dx$ を考える。(i) 有限で時間に依存しないことを直接示し、(ii) $+x$ 方向へ速さ $w$ でboostした系で $\mathcal E'$ を計算して $\mathcal E'/\mathcal E$ を求め、(iii) 波束が $y,z$ に無限に広い場合の解釈の限界を説明せよ。
+$f\in C^1(\mathbb R)$ は恒等的に零ではないコンパクトな台を持つ実関数で、真空中の電磁場を $\boldsymbol E=(0,f(x-ct),0)$、$\boldsymbol B=(0,0,f(x-ct)/c)$ とする。単位 $yz$ 面積当たりの全エネルギー $\mathcal E(t)=\int_{-\infty}^{\infty}u_{\rm em}(t,x)\,dx$ を考える。(i) 有限で時間に依存しないことを直接示し、(ii) $+x$ 方向へ速さ $w$ でboostした系で $\mathcal E'$ を計算して $\mathcal E'/\mathcal E$ を求め、(iii) 波束が $y,z$ に無限に広い場合の解釈の限界を説明せよ。
 
 - Level: C
 
@@ -560,7 +594,7 @@ $$
 \end{aligned}
 $$
 
-振幅の二乗で密度は $D^2$ 倍ですが、同時刻切片での波束の幅が $1/D$ 倍になるため、積分エネルギーは $D$ 倍です。(iii) この $\mathcal E$ はあくまで**単位横断面積当たり**の量であり、無限の $yz$ 面積まで積分すれば全エネルギーは通常発散します。有限な三次元孤立波束の総四元運動量をこの一様平面波へ無条件に当てはめてはいけません。
+$f\not\equiv0$ なので $\mathcal E>0$ であり、求める比は $\mathcal E'/\mathcal E=D$ です。$f\equiv0$ を許した場合は両積分が零となり、比 $0/0$ は定義できません。振幅の二乗で密度は $D^2$ 倍ですが、同時刻切片での波束の幅が $1/D$ 倍になるため、積分エネルギーは $D$ 倍です。(iii) この $\mathcal E$ はあくまで**単位横断面積当たり**の量であり、無限の $yz$ 面積まで積分すれば全エネルギーは通常発散します。有限な三次元孤立波束の総四元運動量をこの一様平面波へ無条件に当てはめてはいけません。
 <!-- solution-end -->
 
 ## 総合確認

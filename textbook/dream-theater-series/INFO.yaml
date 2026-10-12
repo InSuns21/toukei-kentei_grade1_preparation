@@ -45,5 +45,5 @@ chapters:
     title: 微分エントロピーと連続変数の情報量
   - id: INFO10
     path: textbook/volumes/dream_thater/応用系/INFO/INFO10
-    status: planned
+    status: completed
     title: 対数損失・統計的推測と相対エントロピー

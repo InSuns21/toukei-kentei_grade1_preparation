@@ -39,7 +39,7 @@ E e^{\lambda Y}
 =e^{\lambda^2/2}.
 $$
 
-[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)で $\lambda=t$ とし、$-Y$ にも適用すると $P(|Y|\ge t)\le2e^{-t^2/2}$ です。$W=Y^2/8$ について $P(W>v)\le2e^{-4v}$ なので、非負変数の尾部積分を $e^W$ に適用すると
+[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)で $\lambda=t$ とし、$-Y$ にも適用すると $P(|Y|\ge t)\le2e^{-t^2/2}$ です。$W=Y^2/8$ について $P(W>v)\le2e^{-4v}$ です。非負な $W$ では $e^W=1+\int_0^\infty e^v\boldsymbol{1}_{\{W>v\}}\,dv$ なので、非負積分の順序を交換して期待値を取ると
 
 $$
 E e^{Y^2/8}
@@ -174,7 +174,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[直前の補題](#lem-hdp7-square-mgf)を各 $Y_i$ に適用し、独立性から $|\lambda|\le n/(4K^2)$ の範囲で
+[直前の補題](#lem-hdp7-square-mgf)を各 $Y_i$ に適用し、[独立変数の期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)により $|\lambda|\le n/(4K^2)$ の範囲で
 
 $$
 \begin{aligned}
@@ -241,7 +241,7 @@ $$
 \sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
 $$
 >
-> とする。$L=d\log9+\log(2/\delta)$ とおけば、確率 $1-\delta$ 以上で
+> とする。$\widehat\Sigma_0=n^{-1}\sum_{i=1}^nX_iX_i^{\mathsf T}$、$L=d\log9+\log(2/\delta)$ とおけば、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_0-I_d\|_{\mathrm{op}}
@@ -347,7 +347,14 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（等方的sub-Gaussian標本平均のノルム評価）**  
-> 定理の等方性・独立同分布・全方向 $\psi_2$ 尺度 $K$ を仮定する。$0<\delta<1$、$M=d\log5+\log(2/\delta)$ とすると、確率 $1-\delta$ 以上で
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。$X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で $EX_i=0$、$E[X_iX_i^{\mathsf T}]=I_d$ とし、全単位方向で
+>
+$$
+\|\langle X_i,u\rangle\|_{\psi_2}\le K
+\qquad(\|u\|_2=1)
+$$
+>
+> が成り立つとする。$\overline X=n^{-1}\sum_{i=1}^nX_i$、$M=d\log5+\log(2/\delta)$ とすると、確率 $1-\delta$ 以上で
 >
 $$
 \|\overline X\|_2^2\le\frac{32K^2M}{n}
@@ -370,7 +377,7 @@ P(|\langle\overline X,v\rangle|\ge s)
 \le2e^{-ns^2/(8K^2)}.
 $$
 
-和集合の劣加法性から全 $v$ で $|\langle\overline X,v\rangle|<s$ となる確率は $1-2\,5^de^{-ns^2/(8K^2)}$ 以上です。$\overline X\ne0$ なら $u=\overline X/\|\overline X\|_2$ を取り、netの $v$ で $\|u-v\|_2\le1/2$ を満たすものを選びます。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)から全 $v$ で $|\langle\overline X,v\rangle|<s$ となる確率は $1-2\,5^de^{-ns^2/(8K^2)}$ 以上です。$\overline X\ne0$ なら $u=\overline X/\|\overline X\|_2$ を取り、netの $v$ で $\|u-v\|_2\le1/2$ を満たすものを選びます。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -389,14 +396,20 @@ $$
 
 <!-- formal-statement-start -->
 > **系（標本平均で中心化した共分散の評価）**  
-> 定理と同じ等方的sub-Gaussian標本を考え、$0<\delta<1$ とする。
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。$X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で $EX_i=0$、$E[X_iX_i^{\mathsf T}]=I_d$ かつ
 >
 $$
-L_1=d\log9+\log(4/\delta),\qquad
-L_2=d\log5+\log(4/\delta)
+\sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
 $$
 >
-> と置くと、確率 $1-\delta$ 以上で
+> とする。$\overline X=n^{-1}\sum_iX_i$、
+>
+$$
+\widehat\Sigma_c
+=\frac1n\sum_{i=1}^n(X_i-\overline X)(X_i-\overline X)^{\mathsf T}
+$$
+>
+> とし、$L_1=d\log9+\log(4/\delta)$、$L_2=d\log5+\log(4/\delta)$ と置くと、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_c-I_d\|_{\mathrm{op}}
@@ -423,7 +436,7 @@ $$
 
 作用素ノルムの三角不等式と $\|\overline X\overline X^{\mathsf T}\|_{\mathrm{op}}=\|\overline X\|_2^2$ を使います。後者は任意の単位 $v$ について $\|\overline X\overline X^{\mathsf T}v\|_2=|\langle\overline X,v\rangle|\|\overline X\|_2\le\|\overline X\|_2^2$ であり、$\overline X\ne0$ なら $v=\overline X/\|\overline X\|_2$ で等号となるためです。
 
-[共分散作用素ノルム定理](#thm-hdp7-isotropic-covariance)を $\delta/2$ で適用すると最初の項が現れます。[標本平均の補題](#lem-hdp7-mean-net)を $\delta/2$ で適用すると第二項が現れます。二つの失敗事象の確率の和は $\delta$ 以下なので結論を得ます。
+[共分散作用素ノルム定理](#thm-hdp7-isotropic-covariance)を $\delta/2$ で適用すると最初の項が現れます。[標本平均の補題](#lem-hdp7-mean-net)を $\delta/2$ で適用すると第二項が現れます。二つの失敗事象へ[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)を適用すると、同時成功の確率が $1-\delta$ 以上になり結論を得ます。
 <!-- proof-end -->
 
 ## 5. 非等方的・特異な共分散に戻す
@@ -451,7 +464,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp7-covariance-adapted -->
-**定義の確認**。 $X=(2G,0)$、$G\sim N(0,1)$ とします。標準正規の密度積分から $Ee^{G^2/s^2}=(1-2/s^2)^{-1/2}$（$s^2>2$）で、これが $2$ 以下となるのは $s^2\ge8/3$ です。任意の $u=(u_1,u_2)$ に対し
+**定義の確認**。 $X=(2G,0)$、$G\sim N(0,1)$ とします。標準正規の密度は $(2\pi)^{-1/2}e^{-x^2/2}$ です。$s^2>2$ なら $a=1/2-1/s^2>0$ と置きます。$z=\sqrt{2a}\,x$ と変数変換すると、標準正規密度の積分が $1$ であることから $\int_{\mathbb R}e^{-ax^2}\,dx=(2a)^{-1/2}\int_{\mathbb R}e^{-z^2/2}\,dz=\sqrt{\pi/a}$ です。これを代入すると
+
+$$
+\begin{aligned}
+Ee^{G^2/s^2}
+&=\frac1{\sqrt{2\pi}}\int_{\mathbb R}
+e^{-(1/2-1/s^2)x^2}\,dx\\
+&=\frac1{\sqrt{2\pi}}\sqrt{\frac{\pi}{1/2-1/s^2}}
+=\frac1{\sqrt{1-2/s^2}}.
+\end{aligned}
+$$
+
+$s^2\le2$ なら積分は発散します。$s^2>2$ の場合、上式が $2$ 以下であることは $1-2/s^2\ge1/4$、すなわち $s^2\ge8/3$ と同値です。従って $\|G\|_{\psi_2}=\sqrt{8/3}$ です。任意の $u=(u_1,u_2)$ に対し
 
 $$
 \|\langle X,u\rangle\|_{\psi_2}
@@ -466,7 +491,22 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（退化を許す一般共分散の評価）**  
-> $X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で平均 $\mu$、有限共分散 $\Sigma$ を持ち、上の共分散尺度 $K$ のsub-Gaussian条件を満たすとする。$r=\operatorname{rank}\Sigma\ge1$、$0<\delta<1$、$L_r=r\log9+\log(2/\delta)$ とする。真の平均を用いた $\widehat\Sigma_\mu$ について、確率 $1-\delta$ 以上で
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。独立同分布な $X_1,\ldots,X_n\in\mathbb R^d$ は平均 $\mu$ と有限共分散 $\Sigma$ を持ち、すべての $u\in\mathbb R^d$ に対して
+>
+$$
+\|\langle X_i-\mu,u\rangle\|_{\psi_2}
+\le K\sqrt{u^{\mathsf T}\Sigma u}
+$$
+>
+> を満たすとする。$\overline X=n^{-1}\sum_iX_i$、真の平均を用いた $\widehat\Sigma_\mu$ と標本平均で中心化した $\widehat\Sigma_c$ を
+>
+$$
+\widehat\Sigma_\mu=\frac1n\sum_i(X_i-\mu)(X_i-\mu)^{\mathsf T},
+\qquad
+\widehat\Sigma_c=\frac1n\sum_i(X_i-\overline X)(X_i-\overline X)^{\mathsf T}
+$$
+>
+> で定義する。$r=\operatorname{rank}\Sigma\ge1$ なら、$L_r=r\log9+\log(2/\delta)$ として、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_\mu-\Sigma\|_{\mathrm{op}}
@@ -474,7 +514,18 @@ $$
 \max\left\{\sqrt{\frac{L_r}{n}},\frac{L_r}{n}\right\}.
 $$
 >
-> 標本平均による $\widehat\Sigma_c$ についても、前節の系の右辺で $d$ を $r$ に置き換え、全体に $\|\Sigma\|_{\mathrm{op}}$ を掛けた上界が確率 $1-\delta$ 以上で成立する。$\Sigma=0$ の場合は両推定行列とも確率一で零行列である。
+> また $L_1=r\log9+\log(4/\delta)$、$L_2=r\log5+\log(4/\delta)$ とすれば、確率 $1-\delta$ 以上で
+>
+$$
+\|\widehat\Sigma_c-\Sigma\|_{\mathrm{op}}
+\le\|\Sigma\|_{\mathrm{op}}
+\left[
+16K^2\max\left\{\sqrt{\frac{L_1}{n}},\frac{L_1}{n}\right\}
++\frac{32K^2L_2}{n}
+\right].
+$$
+>
+> $r=0$（すなわち $\Sigma=0$）なら両推定行列は確率一で零行列である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -763,7 +814,7 @@ $$
 \widehat\sigma_0^2=\frac1n\sum_{i=1}^nG^2=G^2.
 $$
 
-$G$ は非退化な標準正規分布なので $p=P(|G|\ge2)>0$ です。この事象では $|\widehat\sigma_0^2-1|=G^2-1\ge3$ であり、すべての $n$ で $P(|\widehat\sigma_0^2-1|\ge1/2)\ge p>0$ です。従って確率収束しません。独立なら $Z_i=X_i^2-EX_i^2$ の指数モーメントについて
+$G$ は非退化な標準正規分布なので $p=P(|G|\ge2)>0$ です。この事象では $|\widehat\sigma_0^2-1|=G^2-1\ge3$ であり、すべての $n$ で $P(|\widehat\sigma_0^2-1|\ge1/2)\ge p>0$ です。従って確率収束しません。[独立変数の期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)が使えるなら $Z_i=X_i^2-EX_i^2$ の指数モーメントについて
 
 $$
 E\exp\left(\frac{\lambda}{n}\sum_iZ_i\right)
@@ -803,7 +854,7 @@ $$
 \le16K^2\max\{\sqrt{L_1/n},L_1/n\}
 $$
 
-です。[平均のnet補題](#lem-hdp7-mean-net)でも $\delta/2$ を使うと、確率 $1-\delta/2$ 以上で $\|\bar X\|_2^2\le32K^2L_2/n$ です。交差事象は和集合の劣加法性により確率 $1-\delta$ 以上です。その事象上で
+です。[平均のnet補題](#lem-hdp7-mean-net)でも $\delta/2$ を使うと、確率 $1-\delta/2$ 以上で $\|\bar X\|_2^2\le32K^2L_2/n$ です。[和集合の劣加法性](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound)により二つの失敗確率を加えると、交差事象は確率 $1-\delta$ 以上です。その事象上で
 
 $$
 \begin{aligned}
