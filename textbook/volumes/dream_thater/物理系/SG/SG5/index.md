@@ -113,7 +113,7 @@ $$
 
 ## 3. Gaussian部分積分がGG恒等式を生む箇所
 
-混合則を最初から仮定するのではなく、[SG2の共分散付きGaussian部分積分](../SG2/index.md#prop-sg2-gaussian-ibp)から導いてみる。
+混合則を最初から仮定するのではなく、[SG2の共分散付きGaussian部分積分](../SG2/index.md#prop-sg2-correlated-ibp)から導いてみる。
 
 整数 $p\ge1$ ごとに独立な標準正規係数 $J_{i_1\ldots i_p}^{(p)}$ を用意し、補助Gaussian場を
 
@@ -182,7 +182,7 @@ $$
 -n\frac{W(\tau)e^{a g_{N,p}(\tau)}}Z\right).
 $$
 
-ここでは $f(R^n)$ が配置だけの関数なので、Gaussian座標に関する追加の微分項を持たない。有限次元の[Gaussian部分積分](../SG2/index.md#prop-sg2-gaussian-ibp)を $g_{N,p}(\sigma^1)$ に適用し、その共分散 $NR(\sigma^1,\tau)^p$ を代入する。分子に由来する項は
+ここでは $f(R^n)$ が配置だけの関数なので、Gaussian座標に関する追加の微分項を持たない。有限次元の[Gaussian部分積分](../SG2/index.md#prop-sg2-correlated-ibp)を $g_{N,p}(\sigma^1)$ に適用し、その共分散 $NR(\sigma^1,\tau)^p$ を代入する。分子に由来する項は
 
 $$
 \frac{a}{N}\sum_{\ell=1}^n
@@ -595,7 +595,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(a) [Gaussian部分積分](../SG2/index.md#prop-sg2-gaussian-ibp)では、$n$ 個の分子を微分した寄与は $a\sum_{\ell=1}^n\mathbb E\langle f R_{1\ell}^p\rangle$、分母の $Z^{-n}$ を微分した寄与は $-an\mathbb E\langle f R_{1,n+1}^p\rangle$ になる。$R_{11}=1$ なので
+(a) [Gaussian部分積分](../SG2/index.md#prop-sg2-correlated-ibp)では、$n$ 個の分子を微分した寄与は $a\sum_{\ell=1}^n\mathbb E\langle f R_{1\ell}^p\rangle$、分母の $Z^{-n}$ を微分した寄与は $-an\mathbb E\langle f R_{1,n+1}^p\rangle$ になる。$R_{11}=1$ なので
 
 $$
 \frac1N\mathbb E\langle fg_{N,p}(\sigma^1)\rangle
