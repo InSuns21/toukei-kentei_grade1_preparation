@@ -384,13 +384,13 @@ $$
 
 逆向きは $\beta_r\in T_r^*R$ と $q=f^{-1}(r)$ を取ると、[逆写像の微分](../GEO2/index.md#thm-geo2-composition-differential)から $(df^{-1}_r)^{-1}=df_q$ です。従って
 
-$
+$$
 \begin{aligned}
 \widehat f\bigl(\widehat{f^{-1}}(\beta_r)\bigr)
 &=(\beta_r\circ df_q)\circ(df_q)^{-1}\\
 &=\beta_r.
 \end{aligned}
-$
+$$
 
 よって両方向の合成が恒等写像になり、$\widehat f$ は微分同相です。
 
