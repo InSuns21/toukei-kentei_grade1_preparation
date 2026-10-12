@@ -1,0 +1,64 @@
+chapter: AG1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-01
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.irreducible-space
+    name: 既約な位相空間・既約閉集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既約な位相空間・既約閉集合）"]
+    requires: [algebraic-geometry.zariski-topology]
+
+  - id: algebraic-geometry.irreducible-open-intersection
+    name: 既約性と開集合の交わり
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（既約性と開集合の交わり）"]
+    requires: [algebraic-geometry.irreducible-space]
+
+  - id: algebraic-geometry.irreducible-vanishing-prime
+    name: 既約集合と消滅イデアルの素性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（既約集合と消滅イデアルの素性）"]
+    requires: [algebraic-geometry.irreducible-space, algebraic-geometry.vanishing-ideal, algebra.prime-ideal, algebraic-geometry.zero-set-operations]
+
+  - id: algebraic-geometry.irreducible-component
+    name: 既約成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既約成分）"]
+    requires: [algebraic-geometry.irreducible-space]
+
+  - id: algebraic-geometry.finite-irreducible-cover
+    name: 既約集合は有限閉被覆の一つに入る
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（既約集合は有限閉被覆の一つに入る）"]
+    requires: [algebraic-geometry.irreducible-space]
+
+  - id: algebraic-geometry.finite-decomposition-uniqueness
+    name: 有限既約分解があれば成分は一意
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限既約分解があれば成分は一意）"]
+    requires: [algebraic-geometry.finite-irreducible-cover, algebraic-geometry.irreducible-component]
+
+  - id: algebraic-geometry.noetherian-topological-space
+    name: Noether位相空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Noether位相空間）"]
+    requires: [algebraic-geometry.zariski-topology]
+
+  - id: algebraic-geometry.noetherian-component-decomposition
+    name: Noether空間の有限既約成分分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Noether空間の有限既約成分分解）"]
+    requires: [algebraic-geometry.noetherian-topological-space, algebraic-geometry.finite-decomposition-uniqueness]
