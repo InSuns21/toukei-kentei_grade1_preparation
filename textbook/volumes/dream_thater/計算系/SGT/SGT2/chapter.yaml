@@ -1,0 +1,48 @@
+id: "SGT2"
+title: "正規化Laplacianとランダムウォーク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 正次数集合を区別し、孤立頂点で逆行列を定義しない理由を具体例で説明できる
+  - 対称正規化Laplacianとrandom-walk Laplacianの相似性を証明し、非一様重みの例で計算できる
+  - 正規化Dirichletエネルギー、固有値の区間[0,2]、零空間と連結成分の対応を導出できる
+  - 遷移行列・詳細釣合い・次数に比例する定常分布を導き、連結時の一意性を証明できる
+  - 次数付き内積と正規化第二固有値の変分表示を証明し、周期2の反例で定常性と収束を区別できる
+definitions:
+  - { id: SGT2-DEF-01, name: 正次数頂点集合 }
+  - { id: SGT2-DEF-02, name: 対称正規化Laplacianとrandom-walk Laplacian }
+  - { id: SGT2-DEF-03, name: 重み付きランダムウォークの遷移行列 }
+  - { id: SGT2-DEF-04, name: 詳細釣合い }
+theorems:
+  - { id: SGT2-PROP-01, name: 正規化Laplacianの相似性 }
+  - { id: SGT2-THM-01, name: 正規化Dirichletエネルギー }
+  - { id: SGT2-THM-02, name: 正規化スペクトルの範囲と核 }
+  - { id: SGT2-THM-03, name: 次数分布の詳細釣合いと定常性 }
+  - { id: SGT2-THM-04, name: 連結グラフの定常分布の一意性 }
+  - { id: SGT2-PROP-02, name: 遷移行列の重み付き自己随伴性 }
+  - { id: SGT2-THM-05, name: 正規化第二固有値の変分表示 }
+canonical_examples:
+  - 重み2と1の三頂点道と孤立頂点の定義域比較
+  - 三頂点道の正規化Laplacianと遷移行列
+  - 三角形の詳細釣合いと定常分布
+  - 二頂点往復の周期2反例
+  - 完全グラフK3の正規化スペクトルと変分商
+problem_patterns:
+  - SGT2-MATRICES
+  - SGT2-ISOLATED-DEGREE
+  - SGT2-TWO-STEP
+  - SGT2-WEIGHTED-TRIANGLE
+  - SGT2-ENERGY
+  - SGT2-D-ADJOINT
+  - SGT2-DISCONNECTED-STATIONARY
+  - SGT2-K3-SPECTRUM
+  - SGT2-BIPARTITE-PERIOD
+  - SGT2-WEIGHTED-PATH-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
