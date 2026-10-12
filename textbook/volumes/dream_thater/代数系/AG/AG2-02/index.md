@@ -106,7 +106,20 @@ $$
 
 であり、各項は $W$ 上で零です。従ってイデアルであり、定義から斉次です。
 
-$f^r\in I_+(W)$ と仮定します。任意の $P=[p]\in W$ に対して、各斉次成分が零なので $f^r(\lambda p)=0$ がすべての $\lambda\in k^\times$ で成立します。したがって $f(\lambda p)^r=0$、体の零因子不在から $f(\lambda p)=0$ です。$f(\lambda p)=\sum_d\lambda^d f_d(p)$ を $\lambda$ の多項式とみれば、無限体 $k$ のすべての非零元で零なので各係数 $f_d(p)$ が零です。$P$ は任意ゆえ $f\in I_+(W)$ で、根基性が成立します。$W=\varnothing$ の場合は $I_+(W)=S$ なので同様です。
+根基性を確認します。$W=\varnothing$ なら $I_+(W)=S$ なので成立します。$W\ne\varnothing$ とし、$f^r\in I_+(W)$ を仮定します。任意の $P=[p]\in W$ を選ぶと、$f^r$ の各斉次成分が $p$ で零であるため、任意の $\lambda\in k^\times$ について
+
+$$
+0=f^r(\lambda p)=\bigl(f(\lambda p)\bigr)^r
+$$
+
+です。体に零因子はないので $f(\lambda p)=0$ が従います。一方 $f=\sum_d f_d$ の斉次分解を使うと
+
+$$
+0=f(\lambda p)=\sum_d \lambda^d f_d(p)
+\qquad(\lambda\in k^\times).
+$$
+
+右辺は $\lambda$ の一変数多項式です。無限体 $k$ のすべての非零元が根なので、この多項式の各係数 $f_d(p)$ は零です。$P$ は任意だから、すべての $f_d$ が $W$ で消え、$f\in I_+(W)$ となります。
 
 最後に斉次イデアル $I$ の $f\in I$ を成分分解すると各 $f_d\in I$ です。[射影零点集合の定義](../AG2-01/index.md#def-ag2-01-projective-zero-set)から各 $f_d$ は $V_+(I)$ 上で零なので $f\in I_+(V_+(I))$ です。
 <!-- proof-end -->
@@ -153,7 +166,31 @@ $$
 **定義の確認**：$I=(X^2,XY)$ では $\mathfrak m X=(X^2,XY)\subseteq I$ なので $X\in I^{\mathrm{sat}}$ です。一方 $I\subseteq(X)$ で、$f\notin(X)$ なら $f(0,Y)\ne0$ です。$\mathfrak m^q f\subseteq I$ なら特に $Y^q f\in(X)$ ですが $Y^q f(0,Y)\ne0$ となって矛盾します。よって $I^{\mathrm{sat}}=(X)$ です。
 <!-- definition-example-end -->
 
-飽和はイデアルです。もし $\mathfrak m^p f\subseteq I$、$\mathfrak m^qg\subseteq I$ なら $r=\max(p,q)$ として $\mathfrak m^r(f+g)\subseteq I$、また任意の $h\in S$ で $\mathfrak m^p hf\subseteq I$ です。$q$ は元によって違ってかまいません。また $(I^{\mathrm{sat}})^{\mathrm{sat}}=I^{\mathrm{sat}}$ です。後者は $\mathfrak m^a f\subseteq I^{\mathrm{sat}}$ の各次数 $a$ の単項式倍に対して必要な指数を有限個の最大値に揃えることで従います。
+飽和がイデアルになることを確認します。$\mathfrak m^p f\subseteq I$ と $\mathfrak m^q g\subseteq I$ に対し、$r=\max(p,q)$ とすれば $\mathfrak m^r\subseteq\mathfrak m^p\cap\mathfrak m^q$ なので
+
+$$
+\mathfrak m^r(f+g)\subseteq
+\mathfrak m^p f+\mathfrak m^q g\subseteq I.
+$$
+
+任意の $h\in S$ に対しても $\mathfrak m^p(hf)=h\mathfrak m^p f\subseteq I$ です。したがって $I^{\mathrm{sat}}$ はイデアルです。指数 $p,q$ は各元によって異なってかまいません。
+
+次に、飽和を二度行っても変わらないことを証明します。$f\in(I^{\mathrm{sat}}:\mathfrak m^\infty)$ なら、ある $a\ge0$ について $\mathfrak m^a f\subseteq I^{\mathrm{sat}}$ です。次数 $a$ の単項式を $M_1,\ldots,M_N$ と列挙すると、各 $M_jf\in I^{\mathrm{sat}}$ に対し整数 $q_j\ge0$ が存在して
+
+$$
+\mathfrak m^{q_j}M_j f\subseteq I
+\qquad(1\le j\le N)
+$$
+
+となります。$q=\max_j q_j$ とすれば $\mathfrak m^q M_j f\subseteq I$ が全 $j$ に成立します。$M_j$ が $\mathfrak m^a$ を生成するため
+
+$$
+\mathfrak m^{a+q}f
+=\mathfrak m^q(\mathfrak m^a f)
+\subseteq I.
+$$
+
+よって $f\in I^{\mathrm{sat}}$ です。逆の包含は $a=0$ を選べば成立するので、$(I^{\mathrm{sat}})^{\mathrm{sat}}=I^{\mathrm{sat}}$ が従います。
 
 <a id="prop-ag2-02-saturation-locus"></a>
 
@@ -214,7 +251,13 @@ $I=S$ は別扱いします。$I\ne S$ なら原点はアフィン錐にあり�
 
 $I=S$ なら $V_+(I)=\varnothing$、$\sqrt I=S$ で、両辺は $S$ です。以下は真の斉次イデアル $I\subseteq\mathfrak m$ を考えます。
 
-**準備：$\sqrt I$ も斉次である。** $f=\sum_{d=0}^D f_d\in\sqrt I$ とし、$f^r\in I$ となる $r\ge1$ を取ります。$f^r$ の最高次数成分は $f_D^r$ です。$I$ が斉次なので $f_D^r\in I$、よって $f_D\in\sqrt I$ です。[根基がイデアルであること](../AG1-07/index.md#def-ag1-07-ideal-radical)から $f-f_D\in\sqrt I$ となります。これを最高次数が一つ低い多項式に繰り返し、すべての $f_d\in\sqrt I$ を得ます。
+**準備：$\sqrt I$ も斉次である。** $f=0$ なら主張は直ちに成立します。$f\ne0$ とし、最高次の非零成分を $f_D$ として $f=\sum_{d=0}^D f_d$ と書きます。$f\in\sqrt I$ だから $f^r\in I$ となる整数 $r\ge1$ が存在します。次数 $rD$ の成分は
+
+$$
+(f^r)_{rD}=f_D^r\in I
+$$
+
+です。ここで右辺の所属には $I$ の斉次性を使いました。よって $f_D\in\sqrt I$ です。[根基がイデアルであること](../AG1-07/index.md#def-ag1-07-ideal-radical)から $f-f_D\in\sqrt I$ となります。$f-f_D$ の最高次数は $D$ より小さいので、同じ手順を有限回繰り返すとすべての $f_d\in\sqrt I$ が得られます。
 
 **場合1：$V_+(I)\ne\varnothing$。** $W=V_+(I)$、$C=V_{\mathbb A}(I)$ と書きます。$C\setminus\{0\}$ は $W$ の代表元全体です。
 
@@ -222,7 +265,13 @@ $F\in I_+(W)$ の各斉次成分 $F_d$ は $C\setminus\{0\}$ 上で零です。$
 
 [強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を $k^{n+1}$ とイデアル $I$ に適用して $F\in\sqrt I$ を得ます。
 
-逆に $F\in\sqrt I$ ならある $r$ について $F^r\in I$ です。$F$ の斉次成分 $F_d$ は準備から $\sqrt I$ に入るので、各 $F_d^r$ が $I$ に属するよう $r$ を成分ごとに選べます。$P\in W$ では $F_d(P)^r=0$、よって $F_d(P)=0$ で、$F\in I_+(W)$ です。この二方向から
+逆に $F\in\sqrt I$ とすると、準備から各斉次成分 $F_d\in\sqrt I$ です。従って次数 $d$ ごとに整数 $r_d\ge1$ を選んで $F_d^{r_d}\in I$ とできます。任意の $P\in W=V_+(I)$ で
+
+$$
+0=F_d^{r_d}(P)=\bigl(F_d(P)\bigr)^{r_d}
+$$
+
+が成立します。体には零因子がないので $F_d(P)=0$ です。すべての $d,P$ で成立するため $F\in I_+(W)$ となり、この二方向から
 
 $$
 I_+(W)=\sqrt I
