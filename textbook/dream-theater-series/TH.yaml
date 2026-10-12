@@ -15,7 +15,7 @@ chapters:
     title: 第一法則・内部エネルギー・熱・仕事
   - id: TH3
     path: textbook/volumes/dream_thater/物理系/TH/TH3
-    status: planned
+    status: completed
     title: 第二法則・Carnotの定理・絶対温度
   - id: TH4
     path: textbook/volumes/dream_thater/物理系/TH/TH4
