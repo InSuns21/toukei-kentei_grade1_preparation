@@ -1,6 +1,6 @@
 # NDA7 Thue–Siegel–Rothの定理
 
-[Liouvilleの近似下界](../NDA6/index.md#thm-nda6-liouville-bound)から、次数$d$の代数的無理数$\alpha$への有理近似は分母の$d$乗より速くはなれません。一方、[Dirichlet近似の普遍下界](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)によって、すべての無理数へ指数2の近似は無限に存在します。$d\ge3$では、指数2と$d$の間に大きな隔たりがあります。これは代数的数の性質でしょうか、それともLiouvilleの方法の限界でしょうか。
+[Liouvilleの近似下界](../../../volumes/dream_thater/代数系/NDA/NDA6/index.md#thm-nda6-liouville-bound)から、次数$d$の代数的無理数$\alpha$への有理近似は分母の$d$乗より速くはなれません。一方、[Dirichlet近似の普遍下界](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)によって、すべての無理数へ指数2の近似は無限に存在します。$d\ge3$では、指数2と$d$の間に大きな隔たりがあります。これは代数的数の性質でしょうか、それともLiouvilleの方法の限界でしょうか。
 
 Rothの定理は、代数的無理数の無理性指数が次数によらず**ちょうど2**であることを示します。その完全証明には、多変数補助多項式を作り、高さ（係数の大きさ）と零点多重度を同時に制御する議論が必要です。以下ではまず定理の意味と量化、厳密に証明できる帰結、そして補助多項式を構成するための線形代数を扱います。主定理そのものは第5節に示す未証明の補助理論を必要とします。
 
@@ -19,7 +19,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
-**量化の順序**：$\alpha$を固定し、次に任意の$\varepsilon>0$を指定します。例外となる有理数の個数は$\alpha,\varepsilon$に依存して構いません。これは「ある$\varepsilon>0$で有限」と比べてはるかに強い主張です。なお指数2そのものでは[Dirichlet近似](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)により無限個あり、正の$\varepsilon$を完全に取り除くことはできません。
+**量化の順序**：$\alpha$を固定し、次に任意の$\varepsilon>0$を指定します。例外となる有理数の個数は$\alpha,\varepsilon$に依存して構いません。これは「ある$\varepsilon>0$で有限」と比べてはるかに強い主張です。なお指数2そのものでは[Dirichlet近似](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)により無限個あり、正の$\varepsilon$を完全に取り除くことはできません。
 
 この主定理の完全証明はまだここにはありません。以下の帰結は「Rothの定理を仮定した系」として、使用条件と途中式を独立に確かめます。
 
@@ -91,7 +91,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（代数的無理数の無理性指数）**  
-> $\alpha\in\mathbb R\setminus\mathbb Q$が$\mathbb Q$上代数的なら、[無理性指数](../NDA5/index.md#def-nda5-irrationality-exponent)は次の値を取る。
+> $\alpha\in\mathbb R\setminus\mathbb Q$が$\mathbb Q$上代数的なら、[無理性指数](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#def-nda5-irrationality-exponent)は次の値を取る。
 
 $$
 \mu(\alpha)=2.
@@ -105,9 +105,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\alpha$が無理数なので[普遍下界](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)から$\mu(\alpha)\ge2$です。
+$\alpha$が無理数なので[普遍下界](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)から$\mu(\alpha)\ge2$です。
 
-逆に$\mu(\alpha)>2$と仮定します。$\mu(\alpha)$が有限なら$2<\nu<\mu(\alpha)$を、無限なら$\nu=3$を選びます。[無理性指数の定義](../NDA5/index.md#def-nda5-irrationality-exponent)で許される指数の上限が$\mu(\alpha)$なので、ある許容指数$\lambda>\nu$が存在します。従って
+逆に$\mu(\alpha)>2$と仮定します。$\mu(\alpha)$が有限なら$2<\nu<\mu(\alpha)$を、無限なら$\nu=3$を選びます。[無理性指数の定義](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#def-nda5-irrationality-exponent)で許される指数の上限が$\mu(\alpha)$なので、ある許容指数$\lambda>\nu$が存在します。従って
 
 $$
 \left|\alpha-\frac pq\right|<q^{-\lambda}
@@ -124,7 +124,7 @@ $$
 しかし[Thue–Siegel–Rothの定理](#thm-nda7-roth)によれば、この$\varepsilon$について上の近似は有限個しかありません。矛盾により$\mu(\alpha)\le2$であり、下界と合わせて等号が従います。
 <!-- proof-end -->
 
-[Liouville数の無理性指数は無限大](../NDA6/index.md#prop-nda6-liouville-exponent)ですが、代数的無理数では上の定理により2です。ただし逆に無理性指数2の実数が代数的だという結論は得られません。
+[Liouville数の無理性指数は無限大](../../../volumes/dream_thater/代数系/NDA/NDA6/index.md#prop-nda6-liouville-exponent)ですが、代数的無理数では上の定理により2です。ただし逆に無理性指数2の実数が代数的だという結論は得られません。
 
 ## 4. 補助多項式の前提：小さい整数係数の非零解
 
@@ -252,7 +252,7 @@ P_{[j,k]}(\alpha,\alpha)
 c_{ab}\binom aj\binom bk\,\alpha^{a+b-j-k}.
 $$
 
-[最小多項式の存在と次数](../../FLD/FLD1/index.md#thm-fld1-minimal-polynomial)から、$\mathbb Q(\alpha)$は$1,\alpha,\ldots,\alpha^{d-1}$を$\mathbb Q$基底とします。その基底に上式の各冪を表せば、一つの$P_{[j,k]}(\alpha,\alpha)=0$は高々$d$個の有理係数斉次一次方程式になります。
+[最小多項式の存在と次数](../../../volumes/dream_thater/代数系/FLD/FLD1/index.md#thm-fld1-minimal-polynomial)から、$\mathbb Q(\alpha)$は$1,\alpha,\ldots,\alpha^{d-1}$を$\mathbb Q$基底とします。その基底に上式の各冪を表せば、一つの$P_{[j,k]}(\alpha,\alpha)=0$は高々$d$個の有理係数斉次一次方程式になります。
 
 $j+k<t$となる非負整数組は$1+2+\cdots+t=t(t+1)/2$個です。従って条件は高々$R=dt(t+1)/2$個です。$D\ge4d$から$t\le D/(4d)$、$t+1\le D/(2d)$なので
 
@@ -277,7 +277,7 @@ $$
 
 ## 6. Thue・Siegel・Rothの改良
 
-Thueは代数的次数$d$に対して$d/2+1+\varepsilon$型の制限を導きました。Siegel・Dysonの仕事を経て、Rothが1955年に次数に依存しない指数$2+\varepsilon$を達成しました。これは下界の定数だけを改善したのではなく、**指数から次数への依存を除いた**点が決定的です。[Dirichlet近似](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)は指数2では無限個の近似を与えるため、この意味でRothの指数は最良です。
+Thueは代数的次数$d$に対して$d/2+1+\varepsilon$型の制限を導きました。Siegel・Dysonの仕事を経て、Rothが1955年に次数に依存しない指数$2+\varepsilon$を達成しました。これは下界の定数だけを改善したのではなく、**指数から次数への依存を除いた**点が決定的です。[Dirichlet近似](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)は指数2では無限個の近似を与えるため、この意味でRothの指数は最良です。
 
 ## 7. 演習と詳細解答
 
@@ -325,7 +325,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[収束分数から得られるDirichlet近似](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)は相異なる既約分数$p_n/q_n$を無限に与え、各々について
+[収束分数から得られるDirichlet近似](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)は相異なる既約分数$p_n/q_n$を無限に与え、各々について
 
 $$
 \left|\alpha-\frac{p_n}{q_n}\right|<\frac1{q_n^2}
@@ -396,7 +396,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[Liouvilleの近似下界](../NDA6/index.md#thm-nda6-liouville-bound)と[普遍下界](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)から$2\le\mu(\alpha)\le4$です。
+[Liouvilleの近似下界](../../../volumes/dream_thater/代数系/NDA/NDA6/index.md#thm-nda6-liouville-bound)と[普遍下界](../../../volumes/dream_thater/代数系/NDA/NDA5/index.md#thm-nda5-dirichlet-lower-bound)から$2\le\mu(\alpha)\le4$です。
 
 もし$\mu(\alpha)>2$なら$2<\nu<\mu(\alpha)$を選べます（$\mu=\infty$なら$\nu=3$）。上限の定義から$\nu$より大きい許容指数が存在するので、指数$\nu$の既約近似は無限個あります。$\varepsilon=\nu-2>0$で[Thue–Siegel–Rothの定理](#thm-nda7-roth)に反します。従って$\mu(\alpha)\le2$であり、Dirichletの下界から$\mu(\alpha)=2$です。
 <!-- solution-end -->
