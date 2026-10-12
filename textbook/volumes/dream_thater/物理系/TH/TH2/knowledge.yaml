@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - TH1
-  - MECH1
+  - MECH3
   - RA3
 forward_references: []
 
@@ -37,10 +37,10 @@ concepts:
     requires: [thermodynamics.equilibrium-state]
 
   - id: thermodynamics.pv-work
-    name: 準静的なpV仕事
+    name: 準静的な体積仕事
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（準静的な $pV$ 仕事）]
+    introduction_aliases: [命題（準静的な体積仕事）]
     requires: [thermodynamics.quasistatic, thermodynamics.heat-work]
 
   - id: thermodynamics.cycle-balance

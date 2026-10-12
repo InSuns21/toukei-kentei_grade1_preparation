@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - TH1
-  - MECH1
+  - MECH3
   - RA3
 official_scope: []
 learning_objectives:
@@ -22,7 +22,7 @@ definitions:
   - { id: TH2-DEF-05, name: "断熱過程" }
 theorems:
   - { id: TH2-AXIOM-01, name: "熱力学第一法則" }
-  - { id: TH2-PROP-01, name: "準静的なpV仕事" }
+  - { id: TH2-PROP-01, name: "準静的な体積仕事" }
   - { id: TH2-PROP-02, name: "閉鎖過程のエネルギー収支" }
   - { id: TH2-PROP-03, name: "理想気体の定圧・定積熱容量の差" }
   - { id: TH2-PROP-04, name: "理想気体の準静的等温仕事" }
