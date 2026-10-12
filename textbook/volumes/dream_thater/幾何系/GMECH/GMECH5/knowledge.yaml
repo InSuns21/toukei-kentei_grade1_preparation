@@ -1,0 +1,54 @@
+chapter: GMECH5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH4
+forward_references: []
+
+concepts:
+  - id: mechanics.basic-two-form
+    name: 基本2形式と商への降下
+    kind: definition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.regular-momentum-quotient
+
+  - id: mechanics.basic-restriction
+    name: 運動量レベル上の制限形式の基本性
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.basic-two-form
+      - mechanics.momentum-level-preservation
+
+  - id: mechanics.basic-form-descent
+    name: 基本2形式の一意な降下
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.basic-two-form
+      - mechanics.free-proper-action
+
+  - id: mechanics.marsden-weinstein-reduction
+    name: Marsden–Weinstein簡約
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.basic-restriction
+      - mechanics.basic-form-descent
+      - mechanics.momentum-differential-stabilizer
+      - mechanics.regular-momentum-quotient
+
+  - id: mechanics.reduced-hamiltonian-flow
+    name: 不変Hamiltonianの簡約力学
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.marsden-weinstein-reduction
+      - mechanics.geometric-noether-theorem
+      - symplectic.hamiltonian-vector-field-existence
