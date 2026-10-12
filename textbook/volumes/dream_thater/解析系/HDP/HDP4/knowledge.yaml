@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - HDP3
+  - F0-00P3A
 forward_references: []
 concepts:
   - id: high-dimensional-probability.bounded-differences
