@@ -1,0 +1,42 @@
+id: "ANT5"
+title: "ζ'/ζとvon Mangoldt関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT4
+  - NT8
+  - CA12
+official_scope: []
+learning_objectives:
+  - von Mangoldt関数とChebyshev計数関数の既存定義を使って具体例を検算できる
+  - Euler積を局所一様な絶対収束の下で対数微分しΛのDirichlet級数を導ける
+  - Möbius反転によるΛの表示を導き、素数冪補正がO(sqrt(x))であることを示せる
+  - 部分和公式でπとθの厳密な積分恒等式を得られる
+  - ψのMellin型積分表示を導き、冪誤差から零点不存在への含意を証明できる
+  - 素数定理とζの零点に関する次章の未証明部分を区別できる
+definitions: []
+theorems:
+  - { id: ANT5-PROP-01, name: von Mangoldt関数のMöbius反転表示 }
+  - { id: ANT5-THM-01, name: ζの対数微分とvon Mangoldt級数 }
+  - { id: ANT5-PROP-02, name: 素数冪による補正は平方根程度 }
+  - { id: ANT5-PROP-03, name: 素数計数関数の部分和恒等式 }
+  - { id: ANT5-THM-02, name: ψのMellin型積分表示 }
+  - { id: ANT5-THM-03, name: ψの冪誤差から導く零点不存在 }
+canonical_examples:
+  - ψ(10)とθ(10)の差
+  - n=12のMöbius反転
+  - 素数2の対数微分因子
+  - x=5の部分和恒等式
+  - 仮定付きの冪誤差と零点不存在
+problem_patterns:
+  - ANT5-LAMBDA-DIRECT
+  - ANT5-MOBIUS-LOG
+  - ANT5-EULER-LOG-DERIVATIVE
+  - ANT5-PRIME-POWER-ERROR
+  - ANT5-THETA-PI-ABEL
+  - ANT5-MELLIN-SUM-EXCHANGE
+  - ANT5-ERROR-ZERO-FREE
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []

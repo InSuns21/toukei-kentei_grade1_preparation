@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SM7
   - F0-00P3
+  - F0-00P4
 forward_references: []
 concepts:
   - id: spin-glass.quenched-annealed
