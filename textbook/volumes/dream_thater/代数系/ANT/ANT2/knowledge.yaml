@@ -7,19 +7,19 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: analytic-number-theory.dirichlet-series
-    name: Dirichlet級数
+  - id: analytic-number-theory.complex-dirichlet-series
+    name: 複素変数のDirichlet級数
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（Dirichlet級数）]
-    requires: [number-theory.arithmetic-function]
+    introduction_aliases: [定義（複素変数のDirichlet級数）]
+    requires: [number-theory.dirichlet-series]
 
   - id: analytic-number-theory.absolute-abscissa
     name: 絶対収束横座標
     kind: definition
     introduction: formal
     introduction_aliases: [定義（絶対収束横座標）]
-    requires: [analytic-number-theory.dirichlet-series]
+    requires: [analytic-number-theory.complex-dirichlet-series]
 
   - id: analytic-number-theory.dirichlet-holomorphic
     name: Dirichlet級数の絶対収束半平面での正則性
@@ -33,7 +33,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（Dirichlet級数の積と畳み込み）]
-    requires: [analytic-number-theory.dirichlet-series, number-theory.dirichlet-convolution]
+    requires: [analytic-number-theory.complex-dirichlet-series, number-theory.dirichlet-convolution]
 
   - id: analytic-number-theory.euler-product
     name: 乗法的係数のEuler積
