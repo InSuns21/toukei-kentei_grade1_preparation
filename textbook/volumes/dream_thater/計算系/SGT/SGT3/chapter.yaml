@@ -1,0 +1,45 @@
+id: "SGT3"
+title: "スペクトルギャップとCheeger不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - SGT2
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - cutと体積からconductanceを定義し、孤立頂点の除外・重み・体積が定数に与える影響を説明できる
+  - 指示関数を正規化第二固有値の変分式に代入しCheeger不等式の上界を全ての定数とともに証明できる
+  - 重み付き中央値・正負部分・離散coarea公式・Cauchy–Schwarzを順に組み合わせ下界を証明できる
+  - 非負関数の閾値集合をsweep cutとして構成し、体積条件とconductanceの保証を確認できる
+  - 三角形・四頂点道・細い橋の例で固有値とconductanceを再計算し仮定と定数を検証できる
+definitions:
+  - { id: SGT3-DEF-01, name: ConductanceとグラフのCheeger定数 }
+  - { id: SGT3-DEF-02, name: 重み付き中央値 }
+  - { id: SGT3-DEF-03, name: Sweep cut }
+theorems:
+  - { id: SGT3-THM-01, name: Cheeger不等式の上界 }
+  - { id: SGT3-LEM-01, name: 重み付き中央値の存在 }
+  - { id: SGT3-LEM-02, name: 非負関数のsweep cut補題 }
+  - { id: SGT3-THM-02, name: Cheeger不等式の下界 }
+  - { id: SGT3-THM-03, name: 正規化Cheeger不等式とcut構成 }
+canonical_examples:
+  - 四頂点単純道の体積と全cut候補
+  - 完全グラフK3のconductanceと正規化第二固有値
+  - 中央辺重み1/2の四頂点道のスペクトルとsweep cut
+  - 孤立頂点除外と非連結グラフの零ギャップの区別
+problem_patterns:
+  - SGT3-P3-CONDUCTANCE
+  - SGT3-K3-CONDUCTANCE
+  - SGT3-WEIGHTED-BRIDGE
+  - SGT3-MEDIAN-PLUS-MINUS
+  - SGT3-SWEEP-TABLE
+  - SGT3-MEDIAN-EXISTENCE
+  - SGT3-COAREA
+  - SGT3-COMPLETE-GRAPH
+  - SGT3-DISCONNECTED-BOUNDARY
+  - SGT3-WEIGHTED-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
