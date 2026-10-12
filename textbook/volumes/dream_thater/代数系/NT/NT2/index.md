@@ -350,7 +350,7 @@ $n=18$ に対し $(\mathbb Z/18\mathbb Z)^\times$ の元をすべて列挙し、
 - ID: NT2-A2
 
 <!-- solution-start -->
-**詳細解答**　$3^1\equiv3$、$3^2\equiv9$、$3^3\equiv27\equiv7$、$3^4\equiv21\equiv1\pmod{10}$ です。$1$ に初めて戻るのは指数 $4$ なので位数 $4$ です。$9^1\equiv9$、$9^2=81\equiv1\pmod{10}$ より位数 $2$ です。$\varphi(10)=4$ で、両位数 $4,2$ は $4$ を割り、[Euler の定理](#thm-nt2-euler)に一致します。
+**詳細解答**　$3^1\equiv3$、$3^2\equiv9$、$3^3\equiv27\equiv7$、$3^4=81\equiv1\pmod{10}$ です。$1$ に初めて戻るのは指数 $4$ なので位数 $4$ です。$9^1\equiv9$、$9^2=81\equiv1\pmod{10}$ より位数 $2$ です。$\varphi(10)=4$ で、両位数 $4,2$ は $4$ を割り、[Euler の定理](#thm-nt2-euler)に一致します。
 <!-- solution-end -->
 
 #### A3. Fermat と Wilson を数値で確かめる
