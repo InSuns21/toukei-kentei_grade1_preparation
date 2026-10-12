@@ -5,11 +5,12 @@ prerequisites:
   - SYM4
   - GMECH8
   - RA6A
+  - SYM6
 forward_references: []
 
 concepts:
   - id: integrable.first-integral
-    name: 第一積分
+    name: Hamilton系の第一積分
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（第一積分）"]
@@ -42,7 +43,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（独立なPoisson可換関数の個数の上限）"]
     aliases: []
-    requires: [integrable.poisson-involution, integrable.functional-independence]
+    requires: [integrable.poisson-involution, integrable.functional-independence, symplectic.isotropic-subspace]
   - id: integrable.liouville-integrability
     name: Liouville可積分性
     kind: definition
@@ -63,4 +64,4 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（正則共通レベルの不変性とLagrange性）"]
     aliases: []
-    requires: [integrable.regular-common-level, integrable.liouville-integrability, integrable.poisson-involution]
+    requires: [integrable.regular-common-level, integrable.liouville-integrability, integrable.poisson-involution, symplectic.lagrangian-submanifold]
