@@ -77,7 +77,7 @@ concepts:
     name: 二部性と固有値マイナス1の同値性
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（二部性と固有値 $-1$ の同値性）]
+    introduction_aliases: [定理（二部性と固有値マイナス1の同値性）]
     requires: [spectral-graph.walk-transition, spectral-graph.normalized-similarity]
 
   - id: spectral-graph.nonlazy-mixing
