@@ -1,0 +1,47 @@
+id: "AG1-12"
+title: "アフィン曲線の総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-11
+  - AG1-10
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-03
+official_scope: []
+learning_objectives:
+  - アフィン曲線の既約成分・座標環・次元・接空間・接錐を順序立てて計算できる
+  - Weierstrass型アフィン三次曲線の既約性を多項式の次数から証明できる
+  - 座標環の超越次数からWeierstrass型三次曲線の次元1を証明できる
+  - 判別条件4A³+27B²と特異点の存在の同値性を導出できる
+  - 判別条件が零のときに尖点と通常二重点を平行移動後の最低次式で区別できる
+  - パラメータ表示の曲線への代入と速度から接方向を確かめられる
+  - 点集合上の全単射と正則同型の違いを座標環の引き戻しで示せる
+definitions:
+  - { id: AG1-12-DEF-01, name: Weierstrass型アフィン三次曲線 }
+theorems:
+  - { id: AG1-12-PROP-01, name: Weierstrass型三次曲線の既約性と次元 }
+  - { id: AG1-12-PROP-02, name: Weierstrass型アフィン三次曲線の特異点判定 }
+canonical_examples:
+  - 放物線の接空間と最低次斉次部分
+  - 二直線の座標環における零因子
+  - 尖点と接する二枝の接錐の一致
+  - 特異なWeierstrass三次曲線の節点
+  - 非特異なWeierstrass三次曲線の垂直接方向
+  - 尖点のパラメータ表示と座標環の引き戻し
+problem_patterns:
+  - AG1-12-PARABOLA-TANGENT
+  - AG1-12-REDUCIBLE-COORDINATE-RING
+  - AG1-12-CUSP-TANGENT
+  - AG1-12-SMOOTH-WEIERSTRASS
+  - AG1-12-NODAL-CUBIC
+  - AG1-12-TANGENT-CONE-COMPONENTS
+  - AG1-12-CUSP-PARAMETRIZATION
+  - AG1-12-NODAL-TRANSLATION
+  - AG1-12-CUBIC-FAMILY-CLASSIFICATION
+  - AG1-12-CURVE-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
