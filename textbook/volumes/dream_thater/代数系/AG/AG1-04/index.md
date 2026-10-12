@@ -192,15 +192,15 @@ $$
 > **定義（主開集合と一元局所化）**  
 > $X\subseteq k^n$ をアフィン代数的集合、$A=A_k(X)$、$f\in A$ とする。次の集合を主開集合という。
 
-$
+$$
 D_X(f)=\{p\in X:f(p)\ne0\}
-$
+$$
 
 > $D_X(f)\ne\varnothing$ なら $f$ の冪の集合 $S_f$ は乗法的であり、対応する局所化を次のように書く。
 
-$
+$$
 S_f=\{1,f,f^2,\ldots\},\qquad A_f=S_f^{-1}A
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-04-principal-open -->
@@ -363,10 +363,10 @@ $$
 > **定義（点における分数関数の芽）**  
 > 体 $k$、アフィン代数的集合 $X$、点 $p\in X$ に対し、$s(p)\ne0$ なる表示 $a/s$ が $D_X(s)$ 上に定める関数を考える。二つの分数表示 $a/s$ と $b/t$ が同じ芽を定めるのは、$p$ を含む相対Zariski開集合 $U$ が存在して、次の条件を満たす場合である。
 
-$
+$$
 p\in U\subseteq D_X(s)\cap D_X(t),
 \qquad\frac{a(q)}{s(q)}=\frac{b(q)}{t(q)}\quad(\forall q\in U)
-$
+$$
 
 > この同値関係による芽の集合を $\mathcal G_p$ と書く。
 <!-- formal-statement-end -->
