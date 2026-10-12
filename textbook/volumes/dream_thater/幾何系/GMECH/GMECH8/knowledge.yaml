@@ -1,0 +1,49 @@
+chapter: GMECH8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH7
+  - GMECH5
+  - GMECH3
+  - SYM4
+forward_references: []
+
+concepts:
+  - id: mechanics.relative-equilibrium
+    name: 相対平衡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相対平衡）"]
+    aliases: []
+    requires: [mechanics.reduced-hamiltonian-flow, mechanics.hamiltonian-lie-action]
+  - id: mechanics.augmented-hamiltonian
+    name: 拡張Hamiltonian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（拡張Hamiltonian）"]
+    aliases: []
+    requires: [mechanics.relative-equilibrium, mechanics.hamiltonian-lie-action]
+  - id: mechanics.relative-equilibrium-critical
+    name: 相対平衡の臨界点判定
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.augmented-hamiltonian, mechanics.geometric-noether-theorem]
+  - id: mechanics.relative-reduced-correspondence
+    name: 相対平衡と簡約平衡の対応
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.relative-equilibrium-critical, mechanics.reduced-hamiltonian-flow]
+  - id: mechanics.energy-momentum-stability
+    name: 固定運動量面のenergy–momentum安定判定
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.relative-reduced-correspondence, mechanics.augmented-hamiltonian]
+  - id: mechanics.involutive-integrals-check
+    name: 可換な保存量の直接検査
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires: [symplectic.manifold-poisson-bracket, mechanics.geometric-noether-theorem]
