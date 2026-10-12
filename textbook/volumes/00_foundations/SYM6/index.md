@@ -2,7 +2,7 @@
 
 [SYM5のDarbouxの定理](../SYM5/index.md#thm-sym5-darboux)によって、どのシンプレクティック多様体も一点の近くでは位置と運動量の座標で記述できるようになりました。しかし、その空間の中の「半分の次元をもつ曲面」をすべて同じ種類の対象とみなしてよいわけではありません。曲面に沿って2形式が零になるかどうかで、Hamilton力学と結び付く特別な部分多様体が現れます。
 
-まず一つの接空間に戻り、[SYM1のシンプレクティック直交補](../SYM1/index.md#def-sym1-symplectic-orthogonal)を使って、等方・余等方・Lagrangeという三種類の部分空間を比較します。その後、条件を各接空間へ移します。最後に[SYM3の正準1形式](../SYM3/index.md#def-sym3-tautological-form)を使って、余接束の零切断・閉1形式のグラフ・部分多様体の余法束を構成します。「半分の次元」というだけで十分だと誤認しないことが一貫した主題です。
+まず一つの接空間に戻り、[SYM1のシンプレクティック直交補](../SYM1/index.md#def-sym1-symplectic-orthogonal)を使って、等方・余等方・Lagrangeという三種類の部分空間を比較します。その後、条件を各接空間へ移します。最後に[SYM3の正準1形式](../SYM3/index.md#def-sym3-tautological-form)を使って、余接束の零切断・閉1形式のグラフ・接方向を消す余ベクトルの集合を構成します。「半分の次元」というだけで十分だと誤認しないことが一貫した主題です。
 
 ## 1. 面積を消す方向と、その直交補
 
@@ -14,27 +14,13 @@ $$
 
 でした。「$W$ の内部にいる任意の二方向を組にしても面積が零」と、「$W$ と直交するすべての方向が $W$ に含まれる」は別の条件です。
 
-<a id="def-sym6-three-linear-types"></a>
-
-<!-- formal-statement-start -->
-> **定義（等方・余等方・Lagrange部分空間）**  
-> $(V,\omega)$ を実シンプレクティックベクトル空間、$W\subseteq V$ を線形部分空間とする。
->
-> - $W$ が **等方部分空間** とは $\omega|_{W\times W}=0$、同値に $W\subseteq W^\omega$ となることである。
-> - $W$ が **余等方部分空間** とは $W^\omega\subseteq W$ となることである。
-> - $W$ が **Lagrange部分空間** とは $W=W^\omega$ となることである。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-sym6-three-linear-types -->
-### 直接例：四次元で三つの条件を確かめる
-
-**定義の確認**：$V=\mathbb R^4$ に座標 $(q^1,q^2,p_1,p_2)$ と
+この三種類の違いを、標準空間 $V=\mathbb R^4$、座標 $(q^1,q^2,p_1,p_2)$ と
 
 $$
 \omega_0=dq^1\wedge dp_1+dq^2\wedge dp_2
 $$
 
-を置きます。$e_i=\partial_{q^i}$、$f_i=\partial_{p_i}$ とすると
+で確かめます。$e_i=\partial_{q^i}$、$f_i=\partial_{p_i}$ と書けば
 
 $$
 \omega_0(e_i,f_j)=\delta_{ij},
@@ -42,15 +28,70 @@ $$
 \omega_0(e_i,e_j)=\omega_0(f_i,f_j)=0.
 $$
 
-$E=\operatorname{span}\{e_1,e_2\}$ では内部の組は零です。また $v=a_1e_1+a_2e_2+b_1f_1+b_2f_2$ が $E$ と直交する条件は
+<a id="def-sym6-isotropic-subspace"></a>
+
+<!-- formal-statement-start -->
+> **定義（等方部分空間）**  
+> $(V,\omega)$ を実シンプレクティックベクトル空間、$W\subseteq V$ を線形部分空間とする。$W$ が **等方部分空間** とは $\omega|_{W\times W}=0$、同値に $W\subseteq W^\omega$ となることをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sym6-isotropic-subspace -->
+### 直接例：一方向では面積が消える
+
+**定義の確認**：$W=\operatorname{span}\{e_1\}$ の任意の二ベクトルは $ae_1,be_1$ の形なので
 
 $$
-\omega_0(v,e_1)=-b_1=0,
-\qquad
+\omega_0(ae_1,be_1)=ab\,\omega_0(e_1,e_1)=0.
+$$
+
+ゆえに等方です。さらに $v=a_1e_1+a_2e_2+b_1f_1+b_2f_2$ とすれば
+
+$$
+\omega_0(v,e_1)=-b_1,
+$$
+
+したがって $W^\omega=\operatorname{span}\{e_1,e_2,f_2\}$ であり、包含 $W\subsetneq W^\omega$ も直接確認できます。
+<!-- definition-example-end -->
+
+<a id="def-sym6-coisotropic-subspace"></a>
+
+<!-- formal-statement-start -->
+> **定義（余等方部分空間）**  
+> $(V,\omega)$ を実シンプレクティックベクトル空間、$W\subseteq V$ を線形部分空間とする。$W$ が **余等方部分空間** とは $W^\omega\subseteq W$ となることをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sym6-coisotropic-subspace -->
+### 直接例：超平面は直交方向を含む
+
+**定義の確認**：$H=\operatorname{span}\{e_1,e_2,f_1\}$ に直交する $v$ について
+
+$$
+\omega_0(v,e_1)=-b_1=0,\quad
+\omega_0(v,e_2)=-b_2=0,\quad
+\omega_0(v,f_1)=a_1=0.
+$$
+
+よって $H^\omega=\operatorname{span}\{e_2\}\subset H$ で余等方です。しかし $\omega_0(e_1,f_1)=1$ なので等方ではありません。
+<!-- definition-example-end -->
+
+<a id="def-sym6-lagrangian-subspace"></a>
+
+<!-- formal-statement-start -->
+> **定義（Lagrange部分空間）**  
+> $(V,\omega)$ を実シンプレクティックベクトル空間、$W\subseteq V$ を線形部分空間とする。$W$ が **Lagrange部分空間** とは $W=W^\omega$ となることをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sym6-lagrangian-subspace -->
+### 直接例：位置方向の平面
+
+**定義の確認**：$E=\operatorname{span}\{e_1,e_2\}$ では内部の組は零です。また $v$ が $E$ に直交する条件は
+
+$$
+\omega_0(v,e_1)=-b_1=0,\qquad
 \omega_0(v,e_2)=-b_2=0.
 $$
 
-ゆえに $E^\omega=E$ で、$E$ はLagrangeです。一方、$W=\operatorname{span}\{e_1\}$ では $W^\omega=\operatorname{span}\{e_1,e_2,f_2\}$ なので $W\subsetneq W^\omega$。$W$ は等方ですがLagrangeではありません。$H=\operatorname{span}\{e_1,e_2,f_1\}$ は $H^\omega=\operatorname{span}\{e_2\}$ なので余等方であり、$\omega_0(e_1,f_1)=1$ だから等方ではありません。
+従って $E^\omega=E$ であり、Lagrangeです。同じ計算から、先の一次元空間 $W$ は等方でもLagrangeではないことが分かります。
 <!-- definition-example-end -->
 
 等方は「内部で2形式が消える」、余等方は「内部と直交する方向をすでに含む」という意味です。両方が同時に成り立つのがLagrangeですが、どの次元でそれが可能なのでしょうか。
@@ -304,7 +345,7 @@ s_\alpha^*\omega_{\mathrm{can}}
 \end{aligned}
 $$
 
-$s_\alpha$ は $\Gamma_\alpha$ への微分同相なので、$\Gamma_\alpha$ 上で $\omega_{\mathrm{can}}$ が消える条件は $d\alpha=0$ と同値です。次元はすでに $n$ と確認しているため、[部分多様体の定義](#def-sym6-lagrangian-submanifold)から必要十分性を得ます。
+$s_\alpha$ は $\Gamma_\alpha$ への微分同相なので、$\Gamma_\alpha$ 上で $\omega_{\mathrm{can}}$ が消える条件は $d\alpha=0$ と同値です。次元はすでに $n$ と確認しているため、[Lagrange部分多様体の定義](#def-sym6-lagrangian-submanifold)から必要十分性を得ます。
 
 零切断は $\alpha=0$ の場合です。$\alpha=df$ なら[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)で $d\alpha=d(df)=0$ です。
 <!-- proof-end -->
@@ -582,7 +623,7 @@ $(V,\omega)$ を $2n$ 次元シンプレクティック空間、$W$ を等方部
 - ID: SYM6-B1
 
 <!-- solution-start -->
-**詳細解答**　[直交補の次元補題](#lem-sym6-orthogonal-dimension)から
+**詳細解答**　[シンプレクティック直交補の次元](#lem-sym6-orthogonal-dimension)から
 
 $$
 \dim W^\omega=2n-\dim W>\dim W.
@@ -734,7 +775,7 @@ $$
 
 ここで $d\alpha=dq^2\wedge dq^1+dq^1\wedge dq^2=0$ なので保存されます。これは[SYM3の平行移動判定](../SYM3/index.md#thm-sym3-translation-criterion)とも一致します。
 
-**(3)**　零切断 $p=0$ は[SYM3の零切断の命題](../SYM3/index.md#prop-sym3-zero-section-fibers)および[グラフ判定](#thm-sym6-graph-criterion)からLagrangeです。その像は $p_1=q^2,p_2=q^1$ のグラフです。$d\alpha=0$ を使った[グラフ判定](#thm-sym6-graph-criterion)で直接Lagrangeと判定できます。また(2)のシンプレクティック微分同相性と[像の保存命題](#prop-sym6-symplectic-image)からも同じ結論です。
+**(3)**　零切断 $p=0$ は[SYM3の零切断の命題](../SYM3/index.md#prop-sym3-zero-section-fibers)および[グラフ判定](#thm-sym6-graph-criterion)からLagrangeです。その像は $p_1=q^2,p_2=q^1$ のグラフです。$d\alpha=0$ を使った[グラフ判定](#thm-sym6-graph-criterion)で直接Lagrangeと判定できます。また(2)で $T_\alpha$ がシンプレクティック微分同相となったので、[シンプレクティック微分同相によるLagrange性の保存](#prop-sym6-symplectic-image)からも同じ結論です。
 
 **(4)**　$\beta=q^1dq^2$ なら $d\beta=dq^1\wedge dq^2$ です。従って
 
