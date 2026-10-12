@@ -16,6 +16,7 @@ concepts:
 
   - id: spectral-graph.normalized-laplacian
     name: 対称正規化Laplacianとrandom-walk Laplacian
+    aliases: [正規化Laplacian]
     kind: definition
     introduction: formal
     introduction_aliases: [定義（対称正規化Laplacianとrandom-walk Laplacian）]
