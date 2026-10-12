@@ -1,7 +1,7 @@
 chapter: NT10
 scope: dream-theater
 coverage: complete
-prerequisites: [NT9, NT1, NT6]
+prerequisites: [NT9, NT1, NT6, RA3]
 forward_references: []
 concepts:
   - id: number-theory.h10q-problem
