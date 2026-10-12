@@ -273,7 +273,7 @@ $$
 \end{aligned}
 $$
 
-共分散のCauchy–Schwarz不等式より $|C_{\sigma\tau}|\le\sqrt{C_{\sigma\sigma}C_{\tau\tau}}\le vN$。Gibbs重みの総和は1なので
+共分散に対する[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より $|C_{\sigma\tau}|\le\sqrt{C_{\sigma\sigma}C_{\tau\tau}}\le vN$。Gibbs重みの総和は1なので
 
 $$
 0\le\|\nabla_GF_X\|_2^2
