@@ -120,7 +120,7 @@ $$
 uv=\frac{z^2-x^2}{4}=\left(\frac y2\right)^2.
 $$
 
-$u,v$ の共通約数は $u+v=z$ と $u-v=x$ の両方を割るので、$\gcd(u,v)=1$ です。[互いに素な平方積の補題](#lem-nt6-coprime-square-product)より $u=m^2,v=n^2$ と置けます。$u>v>0$ より $m>n>0$、$\gcd(u,v)=1$ より $\gcd(m,n)=1$ です。さらに
+$u,v$ の共通約数は $u+v=z$ と $u-v=x$ の両方を割るので、$\gcd(u,v)=1$ です。[互いに素な積が平方なら各因子も平方という補題](#lem-nt6-coprime-square-product)より $u=m^2,v=n^2$ と置けます。$u>v>0$ より $m>n>0$、$\gcd(u,v)=1$ より $\gcd(m,n)=1$ です。さらに
 
 $$
 z=u+v=m^2+n^2,\quad
@@ -153,7 +153,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（合同式による不存在判定）**  
-> 整数係数多項式 $F(x_1,\ldots,x_r)$ と整数 $c$ について、ある正整数 $q$ を法とする合同式 $F(x_1,\ldots,x_r)\equiv c\pmod q$ が解を持たなければ、整数方程式 $F(x_1,\ldots,x_r)=c$ も解を持たない。
+> 整数係数多項式 $F$（変数は $x_1,\ldots,x_r$）と整数 $c$ について、ある正整数 $q$ を法とする合同式
+
+$
+F(x_1,\ldots,x_r)\equiv c\pmod q
+$
+
+> が整数の組を解に持たなければ、方程式 $F(x_1,\ldots,x_r)=c$ も整数解を持たない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -169,8 +175,14 @@ $$
 <a id="lem-nt6-three-mod-four"></a>
 
 <!-- formal-statement-start -->
-> **補題（$3$ mod $4$ の素因数の指数）**  
-> $n=x^2+y^2>0$ で $x,y\in\mathbb Z$ とする。素数 $p\equiv3\pmod4$ が $n$ を割るなら $p$ は $x,y$ の両方を割る。従って $n$ の素因数分解での $p$ の指数は偶数である。
+> **補題（3 mod 4 の素因数の指数）**  
+> 整数 $x,y$、正整数 $n$、素数 $p\equiv3\pmod4$ について、次を仮定する。
+
+$
+n=x^2+y^2,\qquad p\mid n.
+$
+
+> このとき $p$ は $x,y$ の両方を割り、$n$ の素因数分解での $p$ の指数は偶数である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -216,7 +228,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Gauss 整数とノルム）**  
-> $\mathbb Z[i]=\{a+bi:a,b\in\mathbb Z\}$ に、複素数としての加法・乗法を入れる。$\alpha=a+bi$ のノルムを $N(\alpha)=a^2+b^2$ とする。任意の $\alpha,\beta\in\mathbb Z[i]$ で $N(\alpha\beta)=N(\alpha)N(\beta)$ が成り立つ。
+> 次の複素数の集合に通常の複素数の加法・乗法を入れる。
+
+$
+\mathbb Z[i]=\{a+bi:a,b\in\mathbb Z\}.
+$
+
+> この集合の元 $\alpha=a+bi$ のノルムを次で定める。
+
+$
+N(\alpha)=a^2+b^2.
+$
+
+> 任意の $\alpha,\beta\in\mathbb Z[i]$ に対して次の積公式が成り立つ。
+
+$
+N(\alpha\beta)=N(\alpha)N(\beta).
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nt6-gaussian-integers -->
@@ -274,7 +302,7 @@ $$
 <a id="thm-nt6-prime-two-squares"></a>
 
 <!-- formal-statement-start -->
-> **定理（$1$ mod $4$ の素数の二平方表示）**  
+> **定理（1 mod 4 の素数の二平方表示）**  
 > 素数 $p\equiv1\pmod4$ に対し、整数 $a,b$ が存在して $p=a^2+b^2$ と書ける。さらに $p=2=1^2+1^2$ である。
 <!-- formal-statement-end -->
 
@@ -540,7 +568,7 @@ $$
 \alpha=3^{b/2}(1+i)^a(1+2i)^c
 $$
 
-を作ります。整数係数の積だから $\alpha=X+Yi$（$X,Y\in\mathbb Z$）です。[ノルムの積公式](#def-nt6-gaussian-integers)を適用すると
+を作ります。整数係数の積だから $\alpha=X+Yi$（$X,Y\in\mathbb Z$）です。[Gauss 整数とノルム](#def-nt6-gaussian-integers)で示した積公式を適用すると
 
 $$
 X^2+Y^2=N(\alpha)
