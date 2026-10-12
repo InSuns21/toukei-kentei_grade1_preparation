@@ -23,7 +23,7 @@ chapters:
     title: 大正準アンサンブルと粒子数揺らぎ
   - id: SM5
     path: textbook/volumes/dream_thater/物理系/SM/SM5
-    status: planned
+    status: completed
     title: 古典理想気体とアンサンブルの同値性
   - id: SM6
     path: textbook/volumes/dream_thater/物理系/SM/SM6

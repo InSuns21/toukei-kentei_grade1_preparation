@@ -1,0 +1,69 @@
+chapter: SM5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM4
+  - AMECH5
+  - F0-00P4
+forward_references: []
+concepts:
+  - id: statistical-mechanics.classical-ideal-gas-phase-space
+    name: 古典理想気体の相空間模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古典理想気体の相空間模型）]
+    requires: [statistical-mechanics.canonical-ensemble, statistical-mechanics.grand-canonical-ensemble, analytical-mechanics.phase-space, mechanics.linear-momentum]
+  - id: statistical-mechanics.classical-ideal-gas-partition
+    name: 古典理想気体の正準分配関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典理想気体の正準分配関数）]
+    requires: [statistical-mechanics.classical-ideal-gas-phase-space, statistical-mechanics.partition-function]
+  - id: statistical-mechanics.maxwell-boltzmann-velocity
+    name: Maxwell–Boltzmann速度分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Maxwell–Boltzmann速度分布）]
+    requires: [statistical-mechanics.classical-ideal-gas-partition]
+  - id: statistical-mechanics.log-gamma-asymptotic
+    name: 対数Gamma関数の漸近評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対数Gamma関数の漸近評価）]
+    requires: []
+  - id: statistical-mechanics.ideal-gas-canonical-thermodynamics
+    name: 古典理想気体の正準熱力学
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（古典理想気体の正準熱力学）]
+    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.canonical-helmholtz-energy, statistical-mechanics.log-gamma-asymptotic]
+  - id: statistical-mechanics.classical-cumulative-phase-volume
+    name: 古典理想気体の累積相空間体積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古典理想気体の累積相空間体積）]
+    requires: [statistical-mechanics.classical-ideal-gas-phase-space, statistical-mechanics.microcanonical-ensemble]
+  - id: statistical-mechanics.classical-microcanonical-equation
+    name: 累積相空間体積と微正準型の状態方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（累積相空間体積と微正準型の状態方程式）]
+    requires: [statistical-mechanics.classical-cumulative-phase-volume]
+  - id: statistical-mechanics.ideal-gas-gamma-energy
+    name: 正準エネルギーの分布と集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正準エネルギーの分布と集中）]
+    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.canonical-energy-fluctuation, prob.probability-convergence]
+  - id: statistical-mechanics.ideal-gas-ensemble-equivalence
+    name: 古典理想気体の熱力学量の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（古典理想気体の熱力学量の同値性）]
+    requires: [statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.ideal-gas-canonical-thermodynamics, statistical-mechanics.ideal-gas-gamma-energy, statistical-mechanics.log-gamma-asymptotic]
+  - id: statistical-mechanics.ideal-gas-poisson-number
+    name: 古典理想気体の大分配関数とPoisson粒子数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典理想気体の大分配関数とPoisson粒子数）]
+    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.grand-partition-function, statistical-mechanics.number-fluctuation]
