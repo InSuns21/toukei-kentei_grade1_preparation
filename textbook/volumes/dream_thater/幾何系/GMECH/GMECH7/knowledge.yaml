@@ -3,6 +3,9 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GMECH6
+  - MECH8
+  - VC7
+  - MECH5
 forward_references: []
 
 concepts:
@@ -12,13 +15,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（Euler剛体の物体角運動量とエネルギー）"]
     aliases: []
-    requires: [mechanics.coadjoint-symplectic-leaves]
+    requires: [mechanics.coadjoint-symplectic-leaves, mechanics.rigid-body-inertia-tensor]
   - id: mechanics.euler-equations
-    name: 自由剛体のEuler方程式
+    name: 自由剛体のEuler変分原理
     kind: theorem
     introduction: formal
     aliases: []
-    requires: [mechanics.euler-body-momentum]
+    requires: [mechanics.euler-body-momentum, mechanics.euler-rigid-body-equations]
   - id: mechanics.euler-lie-poisson
     name: Euler方程式のLie–Poisson表示
     kind: theorem
