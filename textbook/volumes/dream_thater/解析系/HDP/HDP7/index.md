@@ -241,7 +241,7 @@ $$
 \sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
 $$
 >
-> とする。$L=d\log9+\log(2/\delta)$ とおけば、確率 $1-\delta$ 以上で
+> とする。$\widehat\Sigma_0=n^{-1}\sum_{i=1}^nX_iX_i^{\mathsf T}$、$L=d\log9+\log(2/\delta)$ とおけば、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_0-I_d\|_{\mathrm{op}}
@@ -347,7 +347,14 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（等方的sub-Gaussian標本平均のノルム評価）**  
-> 定理の等方性・独立同分布・全方向 $\psi_2$ 尺度 $K$ を仮定する。$0<\delta<1$、$M=d\log5+\log(2/\delta)$ とすると、確率 $1-\delta$ 以上で
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。$X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で $EX_i=0$、$E[X_iX_i^{\mathsf T}]=I_d$ とし、全単位方向で
+>
+$$
+\|\langle X_i,u\rangle\|_{\psi_2}\le K
+\qquad(\|u\|_2=1)
+$$
+>
+> が成り立つとする。$\overline X=n^{-1}\sum_{i=1}^nX_i$、$M=d\log5+\log(2/\delta)$ とすると、確率 $1-\delta$ 以上で
 >
 $$
 \|\overline X\|_2^2\le\frac{32K^2M}{n}
@@ -389,14 +396,20 @@ $$
 
 <!-- formal-statement-start -->
 > **系（標本平均で中心化した共分散の評価）**  
-> 定理と同じ等方的sub-Gaussian標本を考え、$0<\delta<1$ とする。
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。$X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で $EX_i=0$、$E[X_iX_i^{\mathsf T}]=I_d$ かつ
 >
 $$
-L_1=d\log9+\log(4/\delta),\qquad
-L_2=d\log5+\log(4/\delta)
+\sup_{\|u\|_2=1}\|\langle X_i,u\rangle\|_{\psi_2}\le K
 $$
 >
-> と置くと、確率 $1-\delta$ 以上で
+> とする。$\overline X=n^{-1}\sum_iX_i$、
+>
+$$
+\widehat\Sigma_c
+=\frac1n\sum_{i=1}^n(X_i-\overline X)(X_i-\overline X)^{\mathsf T}
+$$
+>
+> とし、$L_1=d\log9+\log(4/\delta)$、$L_2=d\log5+\log(4/\delta)$ と置くと、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_c-I_d\|_{\mathrm{op}}
@@ -478,7 +491,22 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（退化を許す一般共分散の評価）**  
-> $X_1,\ldots,X_n\in\mathbb R^d$ は独立同分布で平均 $\mu$、有限共分散 $\Sigma$ を持ち、上の共分散尺度 $K$ のsub-Gaussian条件を満たすとする。$r=\operatorname{rank}\Sigma\ge1$、$0<\delta<1$、$L_r=r\log9+\log(2/\delta)$ とする。真の平均を用いた $\widehat\Sigma_\mu$ について、確率 $1-\delta$ 以上で
+> $d,n\ge1$、$K>0$、$0<\delta<1$ とする。独立同分布な $X_1,\ldots,X_n\in\mathbb R^d$ は平均 $\mu$ と有限共分散 $\Sigma$ を持ち、すべての $u\in\mathbb R^d$ に対して
+>
+$$
+\|\langle X_i-\mu,u\rangle\|_{\psi_2}
+\le K\sqrt{u^{\mathsf T}\Sigma u}
+$$
+>
+> を満たすとする。$\overline X=n^{-1}\sum_iX_i$、真の平均を用いた $\widehat\Sigma_\mu$ と標本平均で中心化した $\widehat\Sigma_c$ を
+>
+$$
+\widehat\Sigma_\mu=\frac1n\sum_i(X_i-\mu)(X_i-\mu)^{\mathsf T},
+\qquad
+\widehat\Sigma_c=\frac1n\sum_i(X_i-\overline X)(X_i-\overline X)^{\mathsf T}
+$$
+>
+> で定義する。$r=\operatorname{rank}\Sigma\ge1$ なら、$L_r=r\log9+\log(2/\delta)$ として、確率 $1-\delta$ 以上で
 >
 $$
 \|\widehat\Sigma_\mu-\Sigma\|_{\mathrm{op}}
@@ -486,7 +514,18 @@ $$
 \max\left\{\sqrt{\frac{L_r}{n}},\frac{L_r}{n}\right\}.
 $$
 >
-> 標本平均による $\widehat\Sigma_c$ についても、前節の系の右辺で $d$ を $r$ に置き換え、全体に $\|\Sigma\|_{\mathrm{op}}$ を掛けた上界が確率 $1-\delta$ 以上で成立する。$\Sigma=0$ の場合は両推定行列とも確率一で零行列である。
+> また $L_1=r\log9+\log(4/\delta)$、$L_2=r\log5+\log(4/\delta)$ とすれば、確率 $1-\delta$ 以上で
+>
+$$
+\|\widehat\Sigma_c-\Sigma\|_{\mathrm{op}}
+\le\|\Sigma\|_{\mathrm{op}}
+\left[
+16K^2\max\left\{\sqrt{\frac{L_1}{n}},\frac{L_1}{n}\right\}
++\frac{32K^2L_2}{n}
+\right].
+$$
+>
+> $r=0$（すなわち $\Sigma=0$）なら両推定行列は確率一で零行列である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
