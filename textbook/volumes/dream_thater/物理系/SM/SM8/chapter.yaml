@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SM7
+  - F0-00P3
 official_scope: []
 learning_objectives:
   - 有限系の分配関数が実解析的である理由と有限微分の揺らぎ恒等式を説明・証明できる
