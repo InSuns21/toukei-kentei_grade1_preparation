@@ -43,7 +43,7 @@ $$
 これが平滑化を外すための出発点です。$\Lambda(n)\ge0$ より $\psi$ は非減少なので、$0<h<x-1$ に対して
 $$
 \frac{F(x)-F(x-h)}h\le\psi(x)\le
-\frac{F(x+h)-F(x)}h. \tag{2.1}
+\frac{F(x+h)-F(x)}h. 
 $$
 この不等式は跳び点でも成り立ちます。左右に積分した区間での大小をそのまま比較すればよいからです。
 
@@ -68,12 +68,12 @@ $$
 
 ### 証明の見取り図
 
-式 (2.1) の前後差分を取ります。主項は $x\pm h/2$、誤差は $O(x^\alpha/h)$ になります。従って $h$ と $x^\alpha/h$ を同程度にすることが肝心です。
+式 上の差分不等式 の前後差分を取ります。主項は $x\pm h/2$、誤差は $O(x^\alpha/h)$ になります。従って $h$ と $x^\alpha/h$ を同程度にすることが肝心です。
 
 <!-- proof-start -->
 ### 証明
 
-$x$ を十分大きく取り $0<h\le x/2$ とします。$E(y)=F(y)-y^2/2$ と置けば、仮定と $x/2\le y\le3x/2$ より $|E(y)|\le Cx^\alpha$ です。(2.1) の右辺は
+$x$ を十分大きく取り $0<h\le x/2$ とします。$E(y)=F(y)-y^2/2$ と置けば、仮定と $x/2\le y\le3x/2$ より $|E(y)|\le Cx^\alpha$ です。上の差分不等式 の右辺は
 $$
 \frac{F(x+h)-F(x)}h=x+\frac h2+\frac{E(x+h)-E(x)}h
 =x+\frac h2+O(x^\alpha/h).
@@ -307,7 +307,7 @@ $$
 \le C\log(|t|+3)
 -\!\!\sum_{\substack{\rho\\|\operatorname{Im}\rho-t|\le1}}
 \frac{\sigma-\operatorname{Re}\rho}
-{(\sigma-\operatorname{Re}\rho)^2+(t-\operatorname{Im}\rho)^2}. \tag{4.1}
+{(\sigma-\operatorname{Re}\rho)^2+(t-\operatorname{Im}\rho)^2}. 
 $$
 零点の項はすべて非負なので、右側で一部を残し他を捨てると上界が得られます。
 
@@ -317,7 +317,7 @@ $$
 +\operatorname{Re}A(\sigma+2i\gamma),\quad
 A(s)=-\frac{\zeta'(s)}{\zeta(s)}.
 $$
-$s=1$ の単純極から $A(1+\delta)=\delta^{-1}+O(1)$ です。(4.1) で $t=\gamma$ とすれば $\rho_0$ 自身が零点和へ入り
+$s=1$ の単純極から $A(1+\delta)=\delta^{-1}+O(1)$ です。直前の対数微分評価 で $t=\gamma$ とすれば $\rho_0$ 自身が零点和へ入り
 $$
 \operatorname{Re}A(1+\delta+i\gamma)
 \le C\log(|\gamma|+3)-\frac1{\delta+v}.
@@ -326,7 +326,7 @@ $$
 $\operatorname{Re}A(1+\delta+2i\gamma)\le C\log(2|\gamma|+3)$ です。合わせて
 $$
 0\le \frac3\delta-\frac4{\delta+v}
-+C_1\log(|\gamma|+3). \tag{4.2}
++C_1\log(|\gamma|+3). 
 $$
 $L=\log(|\gamma|+3)$、$\delta=d/L$ と選び、もし $v\le d/(10L)=\delta/10$ なら
 $$
@@ -334,7 +334,7 @@ $$
 \le\frac3\delta-\frac{40}{11\delta}
 =-\frac7{11\delta}.
 $$
-従って (4.2) の右辺は $L(-7/(11d)+C_1)$ 以下です。$d>0$ を $7/(11d)>C_1$ となるよう十分小さく選べば矛盾します。ゆえに $v>d/(10L)$ です。
+従って 上の三項正値評価 の右辺は $L(-7/(11d)+C_1)$ 以下です。$d>0$ を $7/(11d)>C_1$ となるよう十分小さく選べば矛盾します。ゆえに $v>d/(10L)$ です。
 
 $|\gamma|<3$ の零点については、[ANT6の零点不存在](../ANT6/index.md#thm-ant6-zeta-line-one)と $s=1$ の極、$\zeta$ の有理型性・[零点の孤立性](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を使います。$0<\beta<1$ で $|\gamma|\le3$ の零点は有限個なので、それぞれの $1-\beta$ の最小値は正です。この有限個に合わせて $c$ をさらに小さくすれば結論が全零点に及びます。
 <!-- proof-end -->
@@ -371,7 +371,7 @@ $L=\log x$、$T=e^{\sqrt L}$ とします。[ANT7の零点計数](../ANT7/index.
 $$
 \sum_{|\gamma|>T}\frac1{|\rho(\rho+1)|}
 \ll\sum_{j\ge0}\frac{N(2^{j+1}T)}{(2^jT)^2}
-\ll\frac{\log T+1}{T}. \tag{5.1}
+\ll\frac{\log T+1}{T}. 
 $$
 [ζの古典的な対数型零点不存在領域](#thm-ant8-classical-zero-free)より $|\gamma|\le T$ では
 $$
@@ -385,7 +385,7 @@ $$
 \sum_{|\gamma|\le T}\left|\frac{x^\rho}{\rho(\rho+1)}\right|
 \ll xe^{-(c/2)\sqrt L}.
 $$
-高い零点には $|x^\rho|\le x$ を用い、(5.1) により
+高い零点には $|x^\rho|\le x$ を用い、上で示した高い零点の和の評価 により
 $$
 \sum_{|\gamma|>T}\left|\frac{x^\rho}{\rho(\rho+1)}\right|
 \ll x(1+\sqrt L)e^{-\sqrt L}.
