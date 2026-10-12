@@ -172,7 +172,7 @@ $$
 <!-- definition-example-start: def-srel6-em-energy-momentum -->
 ### 直接例：一方向だけの静電場
 
-$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=\boldsymbol0$ とします。$F^{02}=-E_0/c$、$F^{20}=E_0/c$ だけが非零です。従って
+**定義の確認**：$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=\boldsymbol0$ とします。$F^{02}=-E_0/c$、$F^{20}=E_0/c$ だけが非零です。従って
 
 $$
 F^{0\alpha}F^0{}_\alpha=-E_0^2/c^2,\qquad
@@ -208,11 +208,11 @@ $$
 
 > 特に場の運動量密度は $T^{i0}/c=S_i/c^2$ である。三次元Maxwell応力テンソルは次の成分で与えられ、
 
-$
+$$
 \sigma_{ij}
 =\varepsilon_0\left(E_iE_j-\frac12\delta_{ij}|\boldsymbol E|^2\right)
 +\frac1{\mu_0}\left(B_iB_j-\frac12\delta_{ij}|\boldsymbol B|^2\right).
-$
+$$
 
 > エネルギー運動量テンソルの空間成分との関係は $T^{ij}=-\sigma_{ij}$ である。
 <!-- formal-statement-end -->
