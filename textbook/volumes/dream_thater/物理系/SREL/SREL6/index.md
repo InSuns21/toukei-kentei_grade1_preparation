@@ -460,7 +460,7 @@ $I=K=0$ も成り立ちます。対して、たとえ $I=K=0$ を満たすだけ
 
 ### A1. 純電場のboost
 
-$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=0$、$0<v<c$ とする。$x$ boost後の非零成分と磁場の向きを求め、$B'_z/E'_y$ を計算せよ。
+$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=0$、$E_0\ne0$、$0<v<c$ とする。$x$ boost後の非零成分と磁場の向きを求め、$B'_z/E'_y$ を計算せよ。
 
 - Level: A
 
@@ -570,7 +570,7 @@ S'_x&=E'_yB'_z/\mu_0
 \end{aligned}
 $$
 
-次に[A3の空間成分](#thm-srel6-components)で元の系は $T^{00}=T^{11}=u_0$、$T^{01}=0$ です。二つの添字へ $\Lambda$ を掛けると
+次に[エネルギー・応力の成分定理](#thm-srel6-components)で元の系は $T^{00}=T^{11}=u_0$、$T^{01}=0$ です。二つの添字へ $\Lambda$ を掛けると
 
 $$
 \begin{aligned}
