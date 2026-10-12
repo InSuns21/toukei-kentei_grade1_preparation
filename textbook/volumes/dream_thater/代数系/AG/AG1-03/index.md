@@ -167,7 +167,7 @@ $F:X\to Y$ が正則なら、$Y$ 上の多項式関数 $h$ を $F$ と合成し�
 
 <!-- formal-statement-start -->
 > **定理（正則写像と座標環準同型の反変対応）**  
-> 体 $k$、アフィン代数的集合 $X\subseteq k^n$、$Y\subseteq k^m$ に対し、正則写像 $F:X\to Y$ と、$1$ および定数 $k$ を固定する $k$-代数準同型 $\varphi:A_k(Y)\to A_k(X)$ は一対一に対応する。対応は
+> 体 $k$、空でないアフィン代数的集合 $X\subseteq k^n$、$Y\subseteq k^m$ に対し、正則写像 $F:X\to Y$ と、$1$ および定数 $k$ を固定する $k$-代数準同型 $\varphi:A_k(Y)\to A_k(X)$ は一対一に対応する。対応は
 >
 $$
 F^*(\overline H)=\overline{H(F_1,\ldots,F_m)}
@@ -202,7 +202,7 @@ $$
 &=\overline{H(F_1,\ldots,F_m)}\in A_k(X).
 \end{aligned}
 $$
-[座標環と多項式関数の命題](#prop-ag1-03-evaluation)から、これは全 $a\in X$ に対して $H(F(a))=0$ を意味します。$H\in I_k(Y)$ は任意です。[消滅イデアルの定義](../AG1-01/index.md#def-ag1-01-vanishing-ideal)と $Y=V_k(I_k(Y))$ により $F(a)\in Y$ が従います。最後の等式は $Y$ が代数的集合だから成り立ちます。従って $F:X\to Y$ は正則写像です。
+[座標環と多項式関数の命題](#prop-ag1-03-evaluation)から、これは全 $a\in X$ に対して $H(F(a))=0$ を意味します。$H\in I_k(Y)$ は任意です。従って $F(a)\in V_k(I_k(Y))$ です。ここで $Y$ は代数的集合なので、ある多項式族 $S$ を使って $Y=V_k(S)$ と書けます。定義から $S\subseteq I_k(Y)$ だから $V_k(I_k(Y))\subseteq V_k(S)=Y$ であり、逆包含 $Y\subseteq V_k(I_k(Y))$ も[消滅イデアルの定義](../AG1-01/index.md#def-ag1-01-vanishing-ideal)から従います。よって $Y=V_k(I_k(Y))$ であり、$F(a)\in Y$ が得られます。従って $F:X\to Y$ は正則写像です。
 
 **(3) 一対一性。** 以上で構成した $F$ は
 $$
@@ -229,7 +229,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（アフィン代数的集合の同型判定）**  
-> 体 $k$ 上のアフィン代数的集合 $X,Y$ について、双方に正則な逆写像を持つ正則写像 $X\to Y$ が存在することと、$k$-代数同型 $A_k(Y)\simeq A_k(X)$ が存在することは同値である。
+> 体 $k$ 上の空でないアフィン代数的集合 $X,Y$ について、双方に正則な逆写像を持つ正則写像 $X\to Y$ が存在することと、$k$-代数同型 $A_k(Y)\simeq A_k(X)$ が存在することは同値である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
