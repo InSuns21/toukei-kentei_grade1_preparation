@@ -90,7 +90,7 @@ $$
 <a id="def-ag2-03-veronese"></a>
 
 <!-- formal-statement-start -->
-> **定義（次数 $d$ のVeronese写像）**  
+> **定義（Veronese写像）**  
 > $k=\mathbb C$、$n\ge1$、$d\ge1$ とし、$N=\binom{n+d}{d}-1$ と置く。非負整数の多重指数 $\alpha=(\alpha_0,\ldots,\alpha_n)$ で $|\alpha|=\sum_i\alpha_i=d$ を満たすものを固定した順に並べる。このとき次数 $d$ の **Veronese写像** は
 
 $$
