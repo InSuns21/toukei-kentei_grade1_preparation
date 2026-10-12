@@ -710,13 +710,13 @@ $$
 
 各候補で $-\sum_xp(x)\log_2q_\theta(x)=R(\theta)$ だから、相対エントロピーの定義を展開すると
 
-$
+$$
 \begin{aligned}
 D(p\|q_\theta)
 &=\sum_xp(x)\log_2p(x)-\sum_xp(x)\log_2q_\theta(x)\\
 &=-H(p)+R(\theta).
 \end{aligned}
-$
+$$
 
 $H(p)=-\frac34\log_2(3/4)-\frac14\log_2(1/4)$ は候補によらないので、$D(p\|q_b)-D(p\|q_a)=R(b)-R(a)$ です。
 
