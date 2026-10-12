@@ -885,7 +885,7 @@ $$
 T=\frac{S-NR\log(V/(Nv_*))}{aN}.
 $$
 
-$aN>0$ なので $(S,V)$ と $(T,V)$ の変数交換が局所的に可能です。また $p_V|_T<0$ より、固定 $T$ の近傍で圧力から体積を一意に解けるため $(T,p)$ も局所座標になります。求めた $C_V>0$、$\kappa_T>0$ と合わせて[Hessianと応答の定理](#thm-th6-stability-response)の逆向きを適用すると、
+$aN>0$ なので $(S,V)$ と $(T,V)$ の変数交換が局所的に可能です。また $p_V|_T<0$ より、固定 $T$ の近傍で圧力から体積を一意に解けるため $(T,p)$ も局所座標になります。求めた $C_V>0$、$\kappa_T>0$ と合わせて[厳密な局所安定性と応答の符号](#thm-th6-stability-response)の逆向きを適用すると、
 
 $$
 U_{SS}=\frac{T}{C_V}=\frac1{aN}>0,\qquad
@@ -920,7 +920,7 @@ U_{SS}U_{VV}-U_{SV}^2
 \end{aligned}
 $$
 
-となり、[Hessianと応答の定理](#thm-th6-stability-response)から得た $\det H_U$ と一致します。最後に $T,V,N$ を固定して $b\downarrow0$ とすれば、
+となり、[厳密な局所安定性と応答の符号](#thm-th6-stability-response)から得た $\det H_U$ と一致します。最後に $T,V,N$ を固定して $b\downarrow0$ とすれば、
 
 $
 \lim_{b\downarrow0}\kappa_T
