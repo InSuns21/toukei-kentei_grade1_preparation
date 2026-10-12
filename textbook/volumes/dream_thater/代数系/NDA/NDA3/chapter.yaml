@@ -18,7 +18,7 @@ definitions:
   - { id: NDA3-DEF-01, name: 格子と基本領域 }
   - { id: NDA3-DEF-02, name: 原点対称な凸体 }
 theorems:
-  - { id: NDA3-PROP-01, name: 共体積の基底不変性と格子点の局所有限性 }
+  - { id: NDA3-PROP-01, name: 共体積の基底不変性 }
   - { id: NDA3-LEM-01, name: Blichfeldt補題 }
   - { id: NDA3-THM-01, name: Minkowskiの凸体定理 }
   - { id: NDA3-THM-02, name: 同時Dirichlet近似 }
