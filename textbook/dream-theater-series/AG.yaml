@@ -28,7 +28,7 @@ chapters:
     title: "Noether環とHilbertの基底定理"
   - id: AG1-06
     path: textbook/volumes/dream_thater/代数系/AG/AG1-06
-    status: planned
+    status: completed
     title: "整拡大とNoether正規化"
   - id: AG1-07
     path: textbook/volumes/dream_thater/代数系/AG/AG1-07
