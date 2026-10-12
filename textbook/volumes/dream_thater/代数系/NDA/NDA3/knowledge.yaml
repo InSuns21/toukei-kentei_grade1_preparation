@@ -34,7 +34,7 @@ concepts:
     name: 共体積の基底不変性
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（共体積の基底不変性と格子の離散性）]
+    introduction_aliases: [命題（共体積の基底不変性）]
     requires: [diophantine.lattice-covolume, linear.determinant-multiplicativity]
 
   - id: diophantine.blichfeldt-lemma
