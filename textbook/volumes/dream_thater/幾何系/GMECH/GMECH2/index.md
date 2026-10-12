@@ -208,7 +208,7 @@ $$
 =\xi\cdot(q\times p),
 $$
 
-ゆえに **$J(q,p)=q\times p$** です。最後の等式はスカラー三重積の循環性から得られます。$q,p$ を同時に回すと角運動量も同じ回転で変わります。
+ゆえに **$J(q,p)=q\times p$** です。最後の等式はスカラー三重積の循環性から得られます。$q,p$ を同時に回したときの変換則は、[§4の余随伴作用の直接計算](#ref-gmech2-so3-coadjoint)で確かめます。
 
 伸縮作用 $\phi_t(q)=e^tq$ では $\xi_Q(q)=\xi q$ ですから、
 
@@ -383,7 +383,7 @@ $$
 =d(ap-bq).
 $$
 
-したがって $J(q,p)=(p,-q)$ は（標準双対基底に関して）確かに運動量写像です。しかし可換群の余随伴作用は恒等であるにもかかわらず、
+したがって[運動量写像の定義](#def-gmech2-hamiltonian-action)により、$J(q,p)=(p,-q)$ は（標準双対基底に関して）確かに運動量写像です。しかし可換群の余随伴作用は恒等であるにもかかわらず、
 
 $$
 J((u,v)\cdot(q,p))
@@ -461,7 +461,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $D\phi_t=e^{tA}$ です。[余接持ち上げの定義](../GMECH1/index.md#def-gmech1-cotangent-action)では余ベクトルを逆転置微分で運びます。行列指数の性質から $(e^{tA})^{-1}=e^{-tA}$、その転置が $e^{-tA^{\mathsf T}}$ なので、余接持ち上げは
+**詳細解答。** $D\phi_t=e^{tA}$ です。[余接持ち上げの定義](../GMECH1/index.md#def-gmech1-cotangent-action)では余ベクトルを逆転置微分で運びます。[行列指数の加法則](../../../解析系/ODE/ODE3/index.md#thm-ode3-matrix-exponential-properties)から $(e^{tA})^{-1}=e^{-tA}$、その転置が $e^{-tA^{\mathsf T}}$ なので、余接持ち上げは
 
 $$
 (q,p)\longmapsto(e^{tA}q,e^{-tA^{\mathsf T}}p).
