@@ -7,6 +7,8 @@ prerequisites:
   - HDP2
   - HDP1
   - F0-00F2
+  - ODE3
+  - LA6
 official_scope: []
 learning_objectives:
   - Loewner順序・行列指数モーメント・固有値のトレース指数評価を定義し計算できる
