@@ -1,0 +1,58 @@
+chapter: INFO7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO6
+forward_references: []
+
+concepts:
+  - id: information.information-density
+    name: 情報密度とブロック情報密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（情報密度とブロック情報密度）]
+    requires: [information.mutual-information, information.dmc-block]
+
+  - id: information.information-density-concentration
+    name: 情報密度の加法性と平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（情報密度の加法性と平均）]
+    requires: [information.information-density, information.mutual-information]
+
+  - id: information.threshold-decoder
+    name: 情報密度閾値復号器
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（情報密度閾値復号器）]
+    requires: [information.information-density, information.channel-code]
+
+  - id: information.false-alarm-bound
+    name: 独立候補の閾値超過確率
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（独立候補の閾値超過確率）]
+    requires: [information.information-density, information.threshold-decoder]
+
+  - id: information.random-coding-bound
+    name: 情報密度閾値によるランダム符号化上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（情報密度閾値によるランダム符号化上界）]
+    requires: [information.false-alarm-bound, information.threshold-decoder]
+
+  - id: information.channel-achievability
+    name: 有限離散無記憶通信路の符号化・達成可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限離散無記憶通信路の符号化・達成可能性）]
+    requires: [information.random-coding-bound, information.information-density-concentration, information.channel-capacity]
+
+  - id: information.channel-coding-theorem
+    name: 有限離散無記憶通信路の通信路符号化定理
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有限離散無記憶通信路の通信路符号化定理：平均誤り基準）]
+    requires: [information.channel-achievability, information.channel-weak-converse]
