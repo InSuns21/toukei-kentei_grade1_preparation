@@ -294,11 +294,11 @@ $$
 > **定理（連続相互情報量の非負性とエントロピー表示）**  
 > $(X,Y)$ に結合密度があるとき $I(X;Y)\ge0$ であり、$I(X;Y)=0$ と $X,Y$ の独立性は同値である。さらに
 >
-$
+$$
 \int|p_{XY}\log_2p_{XY}|<\infty,\qquad
 \int|p_X\log_2p_X|<\infty,\qquad
 \int|p_Y\log_2p_Y|<\infty.
-$
+$$
 >
 > が成り立つ場合には相互情報量は有限で、
 >
@@ -466,25 +466,25 @@ $$
 
 まずGaussian密度の正規化と二次モーメントを確認します。$J=\int_{-\infty}^{\infty}e^{-u^2/2}\,du>0$ とすると、非負関数の二重積分を極座標 $(u,v)=(r\cos\theta,r\sin\theta)$ に変換して
 
-$
+$$
 \begin{aligned}
 J^2
 &=\int_{\mathbb R^2}e^{-(u^2+v^2)/2}\,du\,dv\\
 &=\int_0^{2\pi}\int_0^\infty e^{-r^2/2}r\,dr\,d\theta\\
 &=2\pi\left[-e^{-r^2/2}\right]_{r=0}^{\infty}=2\pi.
 \end{aligned}
-$
+$$
 
 従って $J=\sqrt{2\pi}$。標準化変数 $u=(x-\mu)/\sigma$（$\sigma>0$）を使うと $\int g(x)\,dx=J/\sqrt{2\pi}=1$ です。偶関数の対称性で $\int u e^{-u^2/2}\,du=0$、さらに部分積分で
 
-$
+$$
 \begin{aligned}
 \int_{-\infty}^{\infty}u^2 e^{-u^2/2}\,du
 &=\left[-u e^{-u^2/2}\right]_{-\infty}^{\infty}
 +\int_{-\infty}^{\infty}e^{-u^2/2}\,du\\
 &=0+J=J.
 \end{aligned}
-$
+$$
 
 境界項が零なのは $|u|e^{-u^2/2}\to0$ のためです。これを標準化へ戻して $E[X]=\mu$、$E[(X-\mu)^2]=\sigma^2$ が確かめられます。
 
