@@ -4,10 +4,13 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GMECH6
+  - MECH8
+  - VC7
+  - MECH5
 official_scope: []
 learning_objectives:
   - SO3の物体座標角速度と物体角運動量および空間角運動量の関係を導ける
-  - 制約付き変分からEuler剛体の運動方程式を全成分で導ける
+  - 制約付き変分とEuler剛体の運動方程式が同値であることを導ける
   - 物体座標のEuler方程式に負のLie–Poisson括弧が必要な符号理由を説明できる
   - エネルギーとCasimirの保存を計算で証明できる
   - 角運動量球面上の主軸平衡点を求めて極値と鞍点を判定できる
@@ -16,7 +19,7 @@ learning_objectives:
 definitions:
   - { id: GMECH7-DEF-01, name: Euler剛体の物体角運動量とエネルギー }
 theorems:
-  - { id: GMECH7-THM-01, name: 自由剛体のEuler方程式 }
+  - { id: GMECH7-THM-01, name: 自由剛体のEuler変分原理 }
   - { id: GMECH7-THM-02, name: Euler方程式のLie–Poisson表示 }
   - { id: GMECH7-THM-03, name: 角運動量球面とエネルギーの保存 }
   - { id: GMECH7-THM-04, name: 主軸回転とエネルギーの臨界値 }
