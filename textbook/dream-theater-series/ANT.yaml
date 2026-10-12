@@ -4,7 +4,7 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1〜ANT3 完了。次章は先頭の planned (ANT4)。
+# ANT1〜ANT4 完了。次章は先頭の planned (ANT5)。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
@@ -21,7 +21,7 @@ chapters:
     title: Dirichlet文字・Gauss和・Dirichlet L関数
   - id: ANT4
     path: textbook/volumes/dream_thater/代数系/ANT/ANT4
-    status: planned
+    status: completed
     title: 算術級数中の素数に関するDirichletの定理
   - id: ANT5
     path: textbook/volumes/dream_thater/代数系/ANT/ANT5

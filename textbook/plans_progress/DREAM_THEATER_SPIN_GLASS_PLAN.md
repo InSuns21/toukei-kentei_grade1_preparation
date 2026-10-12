@@ -1,7 +1,7 @@
 # DREAM THEATER スピングラス（SG1〜SG8）
 
 作成・分冊: 2026-10-11  
-状態: planned（設計のみ。本文実装・公開は未着手）
+状態: in_progress（SG1 の本文初稿・章メタデータに着手。未公開・未検証。SG2〜SG8 と横断監査は未着手）
 
 ## 中心問い
 
@@ -48,5 +48,13 @@ EOM221 は SG8 の後に置く。
 
 - 各章の実在 prerequisite / canonical anchor を着手時に確定する。前提PLANが planned の場合、その定理を証明済み扱いしない。
 - DREAM THEATER 現行 standard に従い、動機→定義例→仮定つき主要定理→再計算可能な証明→演習と全詳細解答で閉じる。
-- 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、別観点の再査読と直前完了章の追跡監査を行う。
+- 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、別観点の再査読を行う。別の完了章の追跡監査は、章IDを指定した明示依頼時のみ実施する。
 - 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
+
+
+## SG1 着手記録（2026-10-12）
+
+- TH1〜TH8、SM1〜SM8 は現行系列 manifest で全章 completed、両 PLAN は plan_done にあるため、SG1 は前提ゲートを通過。
+- SG 系列 manifest を作成し、SG1 の chapter/knowledge metadata と本文初稿を作成。SG1の章statusは planned に保ち、本文は未公開の draft.txt に置く。全件査読・CI・公開索引のゲートを通るまでは completed にしない。
+- REM の quenched/annealed、Gaussian tail、有限温度の比較、自由エネルギー極限（確率収束・期待値収束）、凍結転移を最初の学修単位とする。Gaussian integration by parts・SK overlap は SG2 / SG3 が担当。
+- 実装初稿の段階で PLAN を plans_progress に移動。検証前の SG1 や SG2〜8 を completed としない。
