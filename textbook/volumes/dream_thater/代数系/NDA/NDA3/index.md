@@ -396,9 +396,9 @@ $$
 ### Level A：定義と境界を確認する
 
 **NDA3-A1（斜め格子の共体積）**  
-$
+$$
 A=\begin{pmatrix}2&1\\0&3\end{pmatrix}
-$
+$$
 に対し、$A(1,0)^\mathsf T$、$A(0,1)^\mathsf T$、基本領域の面積、共体積を求めてください。
 
 - Level: A
