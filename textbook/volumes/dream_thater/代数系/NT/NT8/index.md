@@ -230,7 +230,7 @@ $$
 $$
 <!-- proof-end -->
 
-**例**：$m=4$ では $\binom84=70$、$(4,8]$ の素数は $5,7$ です。$35=5\cdot7\mid70$ なので $\theta(8)-\theta(4)=\log35\le\log70$ を確認できます。
+**例**：$m=4$ では $\binom{8}{4}=70$、$(4,8]$ の素数は $5,7$ です。$35=5\cdot7\mid70$ なので $\theta(8)-\theta(4)=\log35\le\log70$ を確認できます。
 
 <a id="thm-nt8-chebyshev-upper"></a>
 
@@ -277,7 +277,7 @@ $$
 $p\le\sqrt x$ の素数は高々 $\sqrt x$ 個です。$\sqrt x<p\le x$ なら $\log p>\frac12\log x$ なので、その個数を $R$ として
 $$
 \frac12R\log x
-<\sum_{\sqrt x<p\le x}\log p
+\le\sum_{\sqrt x<p\le x}\log p
 \le\theta(x).
 $$
 従って
@@ -632,7 +632,7 @@ $m=4$ に対して $(m,2m]$ 内の素数の積が中央二項係数を割るこ�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**：区間 $(4,8]$ の素数は $5,7$ で積は $35$ です。$\binom84=70=2\cdot35$ だから $35\mid70$ です。従って
+**詳細解答**：区間 $(4,8]$ の素数は $5,7$ で積は $35$ です。$\binom{8}{4}=70=2\cdot35$ だから $35\mid70$ です。従って
 $$
 \theta(8)-\theta(4)=\log35
 \le\log70\le\log256=8\log2.
@@ -650,7 +650,7 @@ $x\ge2$ で $\theta(x)\le Kx$（$K>0$）と仮定する。$\pi(x)\le\sqrt x+2Kx/
 **詳細解答**：$p\le\sqrt x$ の素数は高々 $\sqrt x$ 個です。$\sqrt x<p\le x$ の素数は $\log p>\frac12\log x$ を満たします。個数を $R$ とすると
 $$
 \frac12R\log x
-<\sum_{\sqrt x<p\le x}\log p
+\le\sum_{\sqrt x<p\le x}\log p
 \le\theta(x)\le Kx.
 $$
 従って $R<2Kx/\log x$ です。二群を足すと $\pi(x)\le\sqrt x+2Kx/\log x$ です。[上界定理](#thm-nt8-chebyshev-upper)により $K=5\log2$ を使うと
