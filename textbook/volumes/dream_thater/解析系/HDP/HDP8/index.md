@@ -86,7 +86,7 @@ $$
 \subseteq \{\operatorname{tr}e^{\theta S}\ge e^{\theta t}\}.
 $$
 
-ここで非負変数 $\operatorname{tr}e^{\theta S}$ にMarkov不等式を適用すると
+ここで非負変数 $\operatorname{tr}e^{\theta S}$ に[Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用すると
 
 $$
 P(\lambda_{\max}(S)\ge t)
@@ -410,7 +410,7 @@ Ee^{\theta X_i}
 +\frac{-a_i}{b_i-a_i}e^{\theta b_i}\right\}I_d.
 $$
 
-右辺の括弧は $P(Y_i=a_i)=b_i/(b_i-a_i)$、$P(Y_i=b_i)=-a_i/(b_i-a_i)$ とする実数値変数 $Y_i$ の $Ee^{\theta Y_i}$ です。確率は非負で和が $1$、$EY_i=0$、台は $[a_i,b_i]$ です。[Hoeffdingの補題](../HDP1/index.md#lem-hdp1-hoeffding)を適用すると
+右辺の括弧は $P(Y_i=a_i)=b_i/(b_i-a_i)$、$P(Y_i=b_i)=-a_i/(b_i-a_i)$ とする実数値変数 $Y_i$ の $Ee^{\theta Y_i}$ です。確率は非負で和が $1$、$EY_i=0$、台は $[a_i,b_i]$ です。[区間有界な平均零変数の指数モーメント補題](../HDP1/index.md#lem-hdp1-hoeffding)を $Y_i$ に適用すると
 
 $$
 Ee^{\theta X_i}
