@@ -15,6 +15,12 @@ const oldIndex=JSON.parse(git('show',base+':'+indexPath).toString());
 const newIndex=JSON.parse(fs.readFileSync(indexPath,'utf8'));
 const oldItems=oldIndex.sections.flatMap(s=>s.paths.map(p=>({cat:s.name,p})));
 const newItems=newIndex.sections.flatMap(s=>s.paths.map(p=>({cat:s.name,p})));
+// この監査は旧rootから8カテゴリーへ移動した一回限りの変更用。
+// baseがすでに移行後なら通常の新章追加を移行漏れと誤判定しない。
+if(oldItems.length>=500&&oldItems.every(({p})=>p.startsWith(newRoot))){
+ console.log('One-time relocation proof not applicable: base index already uses categorized chapter root.');
+ process.exit(0);
+}
 if(oldItems.length!==newItems.length||oldItems.length<500)throw Error('Unexpected index count');
 const mapping=new Map(),ids=new Set();
 for(let k=0;k<oldItems.length;k++){
