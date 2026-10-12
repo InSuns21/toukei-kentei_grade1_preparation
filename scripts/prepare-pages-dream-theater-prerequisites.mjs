@@ -77,31 +77,41 @@ async function exists(file) {
   try { await access(file); return true; } catch { return false; }
 }
 
+async function* chapterDirectories(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const dir = path.join(directory, entry.name);
+    // A chapter folder is atomic: do not mistake nested review/assets folders
+    // for other textbook volumes or chapters.
+    if (await exists(path.join(dir, 'chapter.yaml'))) {
+      yield dir;
+    } else {
+      yield* chapterDirectories(dir);
+    }
+  }
+}
+
 async function loadChapters() {
-  const volumes = (await readdir(volumesRoot, { withFileTypes: true })).filter((entry) => entry.isDirectory());
   const records = new Map();
   const hrefs = new Map();
-  for (const volume of volumes) {
-    const entries = await readdir(path.join(volumesRoot, volume.name), { withFileTypes: true });
-    for (const entry of entries) {
-      if (!entry.isDirectory()) continue;
-      const dir = path.join(volumesRoot, volume.name, entry.name);
-      const yamlFile = path.join(dir, 'chapter.yaml');
-      if (!(await exists(yamlFile))) continue;
-      const data = YAML.parse(await readFile(yamlFile, 'utf8')) ?? {};
-      const id = String(data.id ?? '').trim();
-      if (!id) throw new Error(yamlFile + ': chapter id missing');
-      const title = String(data.title ?? '').trim();
-      if (!title) throw new Error(yamlFile + ': chapter title missing');
-      const href = 'textbook/volumes/' + volume.name + '/' + entry.name + '/index.md';
-      const record = { id, title, href, data };
-      if (records.has(id)) {
-        // An indexed canonical chapter wins over historical duplicates.
-        if (!Array.isArray(records.get(id))) records.set(id, [records.get(id)]);
-        records.get(id).push(record);
-      } else records.set(id, record);
-      hrefs.set(href, record);
-    }
+  // The old layout was volume/chapter; category migration adds a level
+  // (volume/category/chapter), so discover by chapter.yaml instead of depth.
+  for await (const dir of chapterDirectories(volumesRoot)) {
+    const yamlFile = path.join(dir, 'chapter.yaml');
+    const data = YAML.parse(await readFile(yamlFile, 'utf8')) ?? {};
+    const id = String(data.id ?? '').trim();
+    if (!id) throw new Error(yamlFile + ': chapter id missing');
+    const title = String(data.title ?? '').trim();
+    if (!title) throw new Error(yamlFile + ': chapter title missing');
+    const href = path.relative(root, path.join(dir, 'index.md')).split(path.sep).join('/');
+    const record = { id, title, href, data };
+    if (records.has(id)) {
+      // An indexed canonical chapter wins over historical duplicates.
+      if (!Array.isArray(records.get(id))) records.set(id, [records.get(id)]);
+      records.get(id).push(record);
+    } else records.set(id, record);
+    hrefs.set(href, record);
   }
   return { records, hrefs };
 }
