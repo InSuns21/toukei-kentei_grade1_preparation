@@ -325,7 +325,7 @@ $$
 
 ### 証明の見取り図
 
-各候補の一標本負対数損失 $-\log_2q_\theta(Z_i)$ は有界な独立同分布列です。[大数の法則による標本平均の集中](../INFO3/index.md#thm-info3-aep-chebyshev)を各候補に使います。候補数が有限なので、すべての候補について同時に近似が成立し、正のKLギャップが順位を固定します。
+各候補の一標本負対数損失 $-\log_2q_\theta(Z_i)$ は有界な独立同分布列です。INFO3の[漸近等分割性の証明](../INFO3/index.md#thm-info3-aep)と同じ二乗平均の評価を各候補に適用します。候補数が有限なので、すべての候補について同時に近似が成立し、正のKLギャップが順位を固定します。
 
 <!-- proof-start -->
 ### 証明
@@ -336,9 +336,15 @@ $$
 R_n(\theta)=-\frac1n\sum_{i=1}^n\log_2q_\theta(Z_i)
 $$
 
-とすると、独立同分布性と有限分散から $E[R_n(\theta)]=R(\theta)$、$\operatorname{Var}(R_n(\theta))=\operatorname{Var}[-\log_2q_\theta(Z_1)]/n$。Chebyshev不等式により任意の $\varepsilon>0$ で
+とすると、独立同分布性と有限分散から $E[R_n(\theta)]=R(\theta)$、$\operatorname{Var}(R_n(\theta))=\operatorname{Var}[-\log_2q_\theta(Z_1)]/n$。平均の差の二乗は非負です。$|R_n(\theta)-R(\theta)|\ge\varepsilon$ の事象上では二乗が $\varepsilon^2$ 以上なので、期待値をこの事象と補集合に分けると
 
-$$
+$
+E[(R_n(\theta)-R(\theta))^2]\ge \varepsilon^2P(|R_n(\theta)-R(\theta)|\ge\varepsilon).
+$
+
+左辺は $\operatorname{Var}(R_n(\theta))$ です。従って任意の $\varepsilon>0$ で
+
+$
 P(|R_n(\theta)-R(\theta)|\ge\varepsilon)
 \le\frac{\operatorname{Var}[-\log_2q_\theta(Z_1)]}{n\varepsilon^2}
 \longrightarrow0.
