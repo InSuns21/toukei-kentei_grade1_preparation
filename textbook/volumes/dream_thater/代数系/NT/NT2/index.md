@@ -349,7 +349,7 @@ $$
 $$
 n=2^a m,\qquad a\ge3,\quad m\text{ は奇数}
 $$
-と書きます。法 $8$ の任意の単数 $r\in\{1,3,5,7\}$ を選びます。$r$ は奇数なので、$2^a$ を法としても単数です。[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)を互いに素な $2^a,m$ に適用すると、
+と書きます。法 $8$ の任意の単数 $r\in\{1,3,5,7\}$ を選びます。$r$ は奇数なので、$2^a$ を法としても単数です。$m=1$ なら $x=r$ と置きます。$m>1$ なら、互いに素な $2^a,m$ に[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)を適用します。どちらの場合も、
 $$
 x\equiv r\pmod{2^a},\qquad x\equiv1\pmod m
 $$
