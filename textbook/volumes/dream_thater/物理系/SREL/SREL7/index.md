@@ -10,7 +10,7 @@
 
 ## 1. 粒子を数える保存則：流体が動くと密度はどう見えるか
 
-まず圧力のない粒子群を想像します。流体と一緒に動く小体積で単位体積当たり $n$ 個の粒子があるなら、別の慣性系では体積のLorentz収縮によって同時刻の密度が $\gamma n$ になります。ただ密度だけを変換するより、密度と流れを**四元ベクトル**にまとめる方が自然です。
+まず圧力のない粒子群を想像します。流体と一緒に動く小体積で単位体積当たり $n$ 個の粒子があるなら、別の慣性系では[SREL1の長さの収縮](../SREL1/index.md#prop-srel1-length-contraction)を、流れの方向に沿う局所的な同時刻体積の収縮へ適用すると、粒子数を変えずに体積が $1/\gamma$ 倍となるため、観測系の密度は $\gamma n$ になります。ただ密度だけを変換するより、密度と流れを**四元ベクトル**にまとめる方が自然です。
 
 流体の四元速度を $u^\mu=\gamma(c,\boldsymbol v)$、$\gamma=(1-|\boldsymbol v|^2/c^2)^{-1/2}$ とし、[四元速度の規格化](../SREL3/index.md#thm-srel3-four-velocity)により $u_\mu u^\mu=c^2$ を満たします。
 
@@ -129,7 +129,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所静止系で空間回転のすべてに対して不変な対称テンソルを考えます。時間空間部分は回転によって向きが変わる三成分ベクトルなので零です。空間空間部分は直交基底の軸反転で非対角成分が零になり、軸を入れ替える回転で三つの対角成分が等しくなります。したがって独立な係数は二つです。
+局所静止系で空間回転のすべてに対して不変な対称テンソルを考えます。時間空間部分 $T_*^{0i}$ は空間回転で三成分ベクトルとして変わります。すべての回転で不変なベクトルは零なので $T_*^{0i}=0$ です。空間空間部分について、第一座標軸のまわりの $180$ 度回転は第2・第3成分の符号を反転させ、$T_*^{12},T_*^{13}$ を各々その負に写すため、この二成分は零です。第二座標軸まわりの $180$ 度回転から $T_*^{23}=0$ も従います。さらに座標軸を入れ替える $90$ 度回転に対する不変性から $T_*^{11}=T_*^{22}=T_*^{33}$ です。したがって独立な係数は二つです。
 
 共変に使える二階の対称テンソル $u^\mu u^\nu$ と $\eta^{\mu\nu}$ で $T^{\mu\nu}=Au^\mu u^\nu+B\eta^{\mu\nu}$ とおき、静止系へ代入します。空間対角成分から
 
@@ -444,29 +444,73 @@ $\gamma=1+O(|\boldsymbol v|^2/c^2)$ なので四元微分は通常の物質微�
 <!-- proof-start -->
 ### 証明
 
-$\gamma=1+O(|\boldsymbol v|^2/c^2)$ を[粒子数保存式](#thm-srel7-particle-continuity)へ代入します。$m$ が一定なので主要次数で
+[粒子数保存式](#thm-srel7-particle-continuity)を $m>0$ 倍し、$\rho_m=mn$ を用います。$\gamma-1$ を省略せず分離すると、厳密に
 
 $$
-m\{\partial_t(\gamma n)+\nabla\cdot(\gamma n\boldsymbol v)\}
-=\partial_t\rho_m+\nabla\cdot(\rho_m\boldsymbol v)
-+O(|\boldsymbol v|^2/c^2)=0.
+\begin{aligned}
+0&=\partial_t(\gamma\rho_m)+\nabla\cdot(\gamma\rho_m\boldsymbol v)\\
+&=\partial_t\rho_m+\nabla\cdot(\rho_m\boldsymbol v)
++\partial_t\{(\gamma-1)\rho_m\}
++\nabla\cdot\{(\gamma-1)\rho_m\boldsymbol v\}.
+\end{aligned}
 $$
 
-$u^i=\gamma v_i$、$D=\gamma(\partial_t+\boldsymbol v\cdot\nabla)$ だから、$\gamma$ の微分による高次項を除くと
+$\gamma-1=O(|\boldsymbol v|^2/c^2)$ は**無次元の係数**についての評価です。密度の時間・空間微分が低速極限で異常に増大せず、最後の二つの微分項が質量保存の主要項より高次となる場合、最初の二項だけが残ります。$O(|\boldsymbol v|^2/c^2)$ を質量密度の時間微分へそのまま足すのは次元が合わないので避けます。
+
+次に、通常の流体微分を $D_t:=\partial_t+\boldsymbol v\cdot\nabla$ と定めます。[四元速度](../SREL3/index.md#def-srel3-four-velocity)では $u^i=\gamma v_i$、$D=\gamma D_t$ です。また
 
 $$
-a^i=D(\gamma v_i)
-=(\partial_t+\boldsymbol v\cdot\nabla)v_i
-+\text{低速展開の高次項}.
+D_t\gamma
+=D_t\left(1-\frac{|\boldsymbol v|^2}{c^2}\right)^{-1/2}
+=\gamma^3\frac{\boldsymbol v\cdot D_t\boldsymbol v}{c^2}.
 $$
 
-空間射影は $\Delta^{ij}=-\delta_{ij}+O(|\boldsymbol v|^2/c^2)$、$\Delta^{i0}=O(|\boldsymbol v|/c)$ です。圧力の時間変化も低速の流体時間スケールに従うと仮定すれば、$\Delta^{i\nu}\partial_\nu p=-\partial_i p+\text{高次項}$。また $(\varepsilon+p)/c^2=\rho_m+(e+p)/c^2$。これらを[Euler方程式](#thm-srel7-fluid-balance)へ代入し、高次項を落とすと
+これを $a^i=D(\gamma v_i)$ に連鎖律で代入すると
 
 $$
-\rho_m(\partial_t+\boldsymbol v\cdot\nabla)v_i+\partial_i p=0
+\begin{aligned}
+a^i&=\gamma\{(D_t\gamma)v_i+\gamma D_tv_i\}\\
+&=\gamma^2D_tv_i
++\frac{\gamma^4v_i}{c^2}(\boldsymbol v\cdot D_t\boldsymbol v).
+\end{aligned}
 $$
 
-となります。無次元速度が小さいだけでは時間微分の大きさまで確定しないため、低速流れに整合する時間・空間変化の仮定を明記しました。
+さらに[直交射影](#def-srel7-orth-projector)の各成分は
+
+$$
+\Delta^{i0}=-\frac{\gamma^2v_i}{c},\qquad
+\Delta^{ij}=-\delta_{ij}-\frac{\gamma^2v_iv_j}{c^2}.
+$$
+
+$\partial_0p=c^{-1}\partial_tp$ を忘れずに縮約すると
+
+$$
+\begin{aligned}
+\Delta^{i\nu}\partial_\nu p
+&=-\frac{\gamma^2v_i}{c^2}\partial_tp
+-\partial_ip-\frac{\gamma^2v_i}{c^2}\sum_jv_j\partial_jp\\
+&=-\partial_ip-\frac{\gamma^2v_i}{c^2}D_tp.
+\end{aligned}
+$$
+
+よって[相対論的Euler方程式](#thm-srel7-fluid-balance)の空間成分は、外力がない場合、**近似前に**
+
+$$
+\begin{aligned}
+0={}&\frac{\varepsilon+p}{c^2}
+\left\{\gamma^2D_tv_i+
+\frac{\gamma^4v_i}{c^2}(\boldsymbol v\cdot D_t\boldsymbol v)\right\}\\
+&+\partial_ip+\frac{\gamma^2v_i}{c^2}D_tp
+\end{aligned}
+$$
+
+です。$|\boldsymbol v|/c\ll1$ なら $\gamma^2=1+O(|\boldsymbol v|^2/c^2)$ であり、$(\varepsilon+p)/c^2=\rho_m+(e+p)/c^2$ です。加速度・圧力の微分が低速の時間・空間スケールに従い、$v_i(\boldsymbol v\cdot D_t\boldsymbol v)/c^2$ と $v_iD_tp/c^2$ が保持する項に対して高次となるとき、
+
+$$
+\rho_mD_tv_i+\partial_ip=0
+$$
+
+が主次数として得られます。速度が小さいこと**だけ**から微分項の小ささは導けず、この仮定を失えば最後の近似操作は正当化できません。
 <!-- proof-end -->
 
 ### 保存則が使えない場合を区別する
@@ -763,5 +807,12 @@ $$
 \end{aligned}
 $$
 
-$x'^2,x'^3$ に依存せず、$T'^{\mu2}$、$T'^{\mu3}$ は定数または零なので残りも $f'^2=f'^3=0$ と一致します。観測者変換で源の時間成分が現れることは、ある系で仕事をしない外力でも、別の系ではエネルギー授受を伴って見えることを表しています。
+残りの成分では $T'^{22}=T'^{33}=p_0+\kappa\gamma(x'^1+\beta x'^0)$ は**定数ではありません**。しかし $p$ は $x'^2,x'^3$ に依存せず、$T'^{02}=T'^{12}=T'^{32}=T'^{03}=T'^{13}=T'^{23}=0$ なので
+
+$$
+\partial'_\mu T'^{\mu2}=\partial'_2p=0,\qquad
+\partial'_\mu T'^{\mu3}=\partial'_3p=0.
+$$
+
+したがって $f'^2=f'^3=0$ と一致します。観測者変換で源の時間成分が現れることは、ある系で仕事をしない外力でも、別の系ではエネルギー授受を伴って見えることを表しています。
 <!-- solution-end -->
