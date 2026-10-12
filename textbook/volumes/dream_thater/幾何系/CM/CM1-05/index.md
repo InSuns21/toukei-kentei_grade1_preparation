@@ -86,18 +86,18 @@ $$
 
 仮定の複素線形性は、円周上の各 $\zeta$ に対しても
 
-$
+$$
 \partial_{y^k}f=i\partial_{x^k}f
-$
+$$
 
 を意味する。上の二つの積分式へ代入して差を取れば
 
-$
+$$
 \partial_{y^k}h-i\partial_{x^k}h
 =\frac{1}{2\pi i}\int_{C_j}
 \frac{\partial_{y^k}f-i\partial_{x^k}f}
 {(\zeta-z^j)^2}\,d\zeta=0.
-$
+$$
 
 $z^j$ については、評価点が固定円周の内部にあるので積分核の変数を微分できる。これにより $h$ は $z^j$ の正則関数となる。偏微分は積分表示から局所的に連続であり、全ての複素座標方向について Cauchy–Riemann 条件が成り立つ。従って $Dh$ は複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を適用し、$h$ の正則性を得る。$p,j,a$ は任意なので結論が従う。$\square$
 <!-- proof-end -->
@@ -151,8 +151,14 @@ $$
 \left.\partial_{z_\beta^a}\right|_p
 $$
 
-> であり、$v_p=\sum_j a_\alpha^j\partial_{z_\alpha^j}|_p
-=\sum_a a_\beta^a\partial_{z_\beta^a}|_p$ の係数列は
+> である。同じベクトルを二つの座標基底で展開すると
+
+$$
+v_p=\sum_j a_\alpha^j\partial_{z_\alpha^j}|_p
+=\sum_a a_\beta^a\partial_{z_\beta^a}|_p
+$$
+
+> と表せる。このとき係数列は
 
 $$
 a_\beta(p)=G_{\beta\alpha}(p)a_\alpha(p)
@@ -314,10 +320,10 @@ $$
 
 $\beta$ 座標を $w$ とし、$p=z_\beta^{-1}(w)$ と置く。$\alpha$ 座標で表示された成分を $w$ に移すには、変換 $F_{\alpha\beta}$ を使う。実際、
 
-$
+$$
 (a_\alpha^j\circ z_\beta^{-1})(w)
 =(a_\alpha^j\circ z_\alpha^{-1})(F_{\alpha\beta}(w)).
-$
+$$
 
 右辺の第一の関数は仮定により正則である。また $F_{\alpha\beta}$ は[正則アトラスの条件](../CM1-01/index.md#def-cm1-01-atlas)により正則だから、[正則写像の合成](../CM1-01/index.md#prop-cm1-01-composition)によって $w$ に関する成分も正則になる。
 
@@ -435,8 +441,15 @@ J(\overline z\,\partial_z)
 =i\overline z\,\partial_z=is.
 $$
 
-$\overline z=x-iy$ は実 $C^\infty$ 級だから $s$ は滑らかである。一方、$\partial_{\overline z}\overline z
-=(\partial_x+i\partial_y)(x-iy)/2=(1+1)/2=1$ である。係数は正則でなく、[正則切断の定義](#def-cm1-05-holomorphic-tangent-section)を満たさない。
+$\overline z=x-iy$ は実 $C^\infty$ 級だから $s$ は滑らかである。一方、係数の偏微分を計算すると
+
+$$
+\partial_{\overline z}\overline z
+=\frac12(\partial_x+i\partial_y)(x-iy)
+=\frac{1+1}{2}=1
+$$
+
+となる。従って係数は正則でなく、[正則切断の定義](#def-cm1-05-holomorphic-tangent-section)を満たさない。
 <!-- solution-end -->
 
 <a id="ex-cm1-05-a04"></a>
