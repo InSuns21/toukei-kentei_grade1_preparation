@@ -1,0 +1,40 @@
+version: 1
+id: GMECH
+title: "幾何学的力学 I"
+plan: textbook/plans_progress/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 本文・章別metadata・公開索引は各章を完成させた作業単位で追加する。
+chapters:
+  - id: GMECH1
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH1
+    status: planned
+    title: "Lie群作用と余接束への持ち上げ"
+  - id: GMECH2
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH2
+    status: planned
+    title: "Hamilton作用と運動量写像"
+  - id: GMECH3
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH3
+    status: planned
+    title: "幾何学的Noetherの定理"
+  - id: GMECH4
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH4
+    status: planned
+    title: "運動量レベル集合・群作用・正則性"
+  - id: GMECH5
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH5
+    status: planned
+    title: "Marsden–Weinstein簡約"
+  - id: GMECH6
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH6
+    status: planned
+    title: "Lie–Poisson構造と余随伴軌道"
+  - id: GMECH7
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH7
+    status: planned
+    title: "Euler剛体の幾何学的力学"
+  - id: GMECH8
+    path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH8
+    status: planned
+    title: "相対平衡・安定性・可積分系への橋"
