@@ -7,6 +7,7 @@ prerequisites:
   - SYM2
   - SYM6
   - LA6
+  - RA6A
 official_scope: []
 learning_objectives:
   - 線形複素構造と適合性の三条件を区別し、低次元の行列例を直接検算できる
