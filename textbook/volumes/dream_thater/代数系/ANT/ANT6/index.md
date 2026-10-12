@@ -170,14 +170,14 @@ $$
 
 $j=1$ の積分は部分積分で具体的に
 
-$
+$$
 \begin{aligned}
 \int_0^\infty u e^{-\sigma_0u}\,du
 &=\left[-\frac{u}{\sigma_0}e^{-\sigma_0u}\right]_{0}^{\infty}
 +\frac1{\sigma_0}\int_0^\infty e^{-\sigma_0u}\,du\\
 &=\frac1{\sigma_0^2}
 \end{aligned}
-$
+$$
 
 と確かめられます。これらの優関数は $z$ に依存しないため、積分の差商に優収束を適用でき、
 
