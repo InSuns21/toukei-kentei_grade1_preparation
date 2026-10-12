@@ -782,7 +782,7 @@ $$
 \end{aligned}
 $$
 
-を確認します。初期値も満たすので、[初期値問題の一意性](../ODE8/index.md#def-ode8-maximal-solution)から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
+を確認します。初期値も満たすので、[Picard–Lindelöfの存在一意性定理](../ODE1/index.md#thm-ode1-picard-lindelof)から求める軌道です。$t<1$ で定義され、$t\uparrow1$ で $q(t)\to+\infty$ だから $t=1$ より先へ滑らかに延長できません。また
 
 $$
 H(q(t),p(t))
