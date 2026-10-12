@@ -106,13 +106,26 @@ $$
 可逆行列 $A^{-1}$ を使っていないので、$C$ が特異でも証明は変わりません。以降に用いるGibbs重みは有界で、各一階導関数も有界ですから、この部分積分を適用するための可積分性条件を満たします。
 <!-- proof-end -->
 
-**簡単な検算**：$X\sim N(0,v)$、$F(x)=e^{tx}$ とすると
+**簡単な検算（指数関数への拡張）**：$v>0$、$t\in\mathbb R$、$X\sim N(0,v)$ とします。$F(x)=e^{tx}$ は $t\ne0$ で命題の多項式増大条件を満たさないため、その命題を直接適用したとは言えません。ここでは正規密度
 
-$$
+$
+\varphi_v(x)=\frac1{\sqrt{2\pi v}}e^{-x^2/(2v)},
+\qquad
+\varphi_v'(x)=-\frac{x}{v}\varphi_v(x)
+$
+
+から部分積分を直接確かめます。平方完成により $\mathbb E[|X|e^{tX}]<\infty$ であり、$e^{tx}\varphi_v(x)\to0$ は $x\to\pm\infty$ で成立します。よって境界項は消え、
+
+$
+\begin{aligned}
 \mathbb E[Xe^{tX}]
-=v t\,\mathbb Ee^{tX}
-=vt\,e^{vt^2/2}.
-$$
+&=-v\int_{\mathbb R}e^{tx}\varphi_v'(x)\,dx\\
+&=vt\int_{\mathbb R}e^{tx}\varphi_v(x)\,dx\\
+&=vt\,e^{vt^2/2}
+\end{aligned}
+$
+
+を得ます。すなわち指数関数についても、可積分性と境界項を別途確認すれば同じ部分積分恒等式が成立します。
 
 最後の式は[SG1の正規指数モーメントの計算](../SG1/index.md#prop-sg1-annealed-rem)からも得られます。
 
@@ -340,7 +353,19 @@ $\sqrt t$ を微分した $1/(2\sqrt t)$ は一見特異ですが、[Gaussian部
 <!-- proof-start -->
 ### 証明
 
-$0<t<1$ では有限和の微分とGaussianの指数可積分性により期待値と微分を交換できます。$w_t(\sigma)=e^{\beta H_t(\sigma)+h_\sigma}/Z_t$ として連鎖律を使うと
+任意の $0<\delta<1/2$ と $t\in[\delta,1-\delta]$ に対して、Gibbs重みの非負性と総和1から
+
+$
+\begin{aligned}
+\left|\partial_t\left(\frac1N\log Z_t\right)\right|
+&=\left|\frac{\beta}{2N}\sum_\sigma w_t(\sigma)
+\left(\frac{X_\sigma}{\sqrt t}-\frac{Y_\sigma}{\sqrt{1-t}}\right)\right|\\
+&\le\frac{\beta}{2N\sqrt\delta}
+\left(\max_\sigma|X_\sigma|+\max_\sigma|Y_\sigma|\right)
+\end{aligned}
+$
+
+です。配置集合は有限でGaussianの一次絶対モーメントは有限なので、右辺は可積分です。この上界による優収束から $0<t<1$ で期待値と微分を交換できます。$w_t(\sigma)=e^{\beta H_t(\sigma)+h_\sigma}/Z_t$ として連鎖律を使うと
 
 $$
 \begin{aligned}
@@ -391,7 +416,15 @@ $$
 \max_{\sigma,\tau}|D_{\sigma\tau}|\right)
 $$
 
-で一様に有界です。よって端点を除いた微積分の基本定理から $\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)dt$ を得ます。
+で一様に有界です。さらに任意の有限個の実数列 $(a_\sigma),(b_\sigma)$ に対して
+
+$
+\left|\log\sum_\sigma e^{a_\sigma}
+-\log\sum_\sigma e^{b_\sigma}\right|
+\le\max_\sigma|a_\sigma-b_\sigma|
+$
+
+が成立します。実際、$d=\max_\sigma|a_\sigma-b_\sigma|$ と置けば、各 $\sigma$ で $e^{-d}e^{b_\sigma}\le e^{a_\sigma}\le e^d e^{b_\sigma}$ として和を取ればよいからです。これを $a_\sigma=\beta H_t(\sigma)+h_\sigma$、$b_\sigma=\beta H_{t_0}(\sigma)+h_\sigma$ に適用し、Gaussian場の有限な一次絶対モーメントを用いると、$\Phi(t)$ は端点を含め連続です。よって $[\varepsilon,1-\varepsilon]$ 上で微積分の基本定理を使い、導関数の一様有界性と端点連続性から $\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)\,dt$ を得ます。
 <!-- proof-end -->
 
 <a id="cor-sg2-comparison"></a>
