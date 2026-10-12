@@ -44,7 +44,7 @@ problem_patterns:
   - NDA7-AUXILIARY-COEFFICIENT-COUNT
   - NDA7-ROTH-FINAL-EXPONENT
   - NDA7-THUE-EQUATION-FINITENESS
-exercise_counts: { level_a: 5, level_b: 5, level_c: 2, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 6, level_c: 2, level_d: 0 }
 estimated_hours: { reading: 18, exercises: 9, review: 6 }
 past_exam_alignment: []
 integrated_exam_problems: []
