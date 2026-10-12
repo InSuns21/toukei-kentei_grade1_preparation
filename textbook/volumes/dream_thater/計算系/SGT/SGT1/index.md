@@ -636,17 +636,17 @@ $$
 
 また $L\mathbf1=0$ なので $\det L=0$ です。上の計算から $t^2$ の係数は $-2(a+b)$、$t$ の係数は $ab+ab+ab=3ab$、定数項は零になるはずです。これを[行列式のLeibniz公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)から直接展開して確かめます。まず
 
-$
+$$
 tI-L=\begin{pmatrix}
 t-a&a&0\\
 a&t-a-b&b\\
 0&b&t-b
 \end{pmatrix}
-$
+$$
 
 です。第1行の非零成分に対応する項を取り出し、二次行列式まで展開すると
 
-$
+$$
 \begin{aligned}
 \det(tI-L)
 &=(t-a)\{(t-a-b)(t-b)-b^2\}-a^2(t-b)\\
@@ -655,7 +655,7 @@ $
 &=t^3-2(a+b)t^2+3ab\,t\\
 &=t\{t^2-2(a+b)t+3ab\}.
 \end{aligned}
-$
+$$
 
 これで、対角和が $t^2$ の係数、二次主小行列式の和が $t$ の係数になることも確認できました。
 
