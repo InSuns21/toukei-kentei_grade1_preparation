@@ -58,7 +58,13 @@ function validate(root) {
     const label = name + ': ';
     if (!/^[A-Z][A-Z0-9_-]*\.yaml$/.test(name)) fail(label + 'invalid filename');
     if (series.id !== name.slice(0, -5)) fail(label + 'manifest ID must match filename');
-    if (series.chapter_root !== chapterRoot) fail(label + 'chapter_root differs from global routing');
+    // In the move-only transition, existing series and migrated series may
+    // temporarily use different roots. A categorized path must end at the
+    // stable chapter ID, not a guessed long directory name.
+    const categorizedRoot = 'textbook/volumes/dream_thater';
+    if (series.chapter_root !== chapterRoot && series.chapter_root !== categorizedRoot) {
+      fail(label + 'chapter_root differs from supported DREAM THEATER routing roots');
+    }
     const planPath = localPath(series.plan, label + 'plan');
     if (planPath && !fs.existsSync(planPath)) fail(label + 'plan missing: ' + series.plan);
     if (!Array.isArray(series.chapters) || !series.chapters.length) {
@@ -87,8 +93,13 @@ function validate(root) {
         const completedPath = localPath(chapter.path, label + id + '.path');
         if (completedPath && !fs.existsSync(completedPath)) fail(label + id + ': chapter path missing: ' + chapter.path);
       }
-      if (typeof chapter.path !== 'string' || chapter.path !== chapterRoot + '/' + id) {
-        fail(label + id + ': chapter path does not match ID');
+      const legacyPath = 'textbook/volumes/00_foundations/' + id;
+      const categorizedParts = typeof chapter.path === 'string' ? chapter.path.split('/') : [];
+      const categorizedPath = categorizedParts.length === 5 &&
+        categorizedParts.slice(0, 3).join('/') === categorizedRoot &&
+        categorizedParts[3].trim() !== '' && categorizedParts[4] === id;
+      if (chapter.path !== legacyPath && !categorizedPath) {
+        fail(label + id + ': chapter path does not match legacy or category/ID layout');
       }
     }
     const next = firstPlanned >= 0 ? series.chapters[firstPlanned].id : null;
