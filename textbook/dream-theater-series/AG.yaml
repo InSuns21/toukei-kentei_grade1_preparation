@@ -24,7 +24,7 @@ chapters:
     title: "局所化・局所環・点の近傍での関数"
   - id: AG1-05
     path: textbook/volumes/dream_thater/代数系/AG/AG1-05
-    status: planned
+    status: completed
     title: "Noether環とHilbertの基底定理"
   - id: AG1-06
     path: textbook/volumes/dream_thater/代数系/AG/AG1-06
