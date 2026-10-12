@@ -161,19 +161,19 @@ $$
 
 ここで正則性を積分の評価から確認します。$\sigma_0>0$ を固定すると、$\operatorname{Re}z\ge\sigma_0$ で $j=0,1$ について
 
-$
+$$
 |u^j f(u)e^{-zu}|\le Mu^j e^{-\sigma_0u},
 \qquad
 \int_0^\infty u^j e^{-\sigma_0u}\,du
 =\frac{j!}{\sigma_0^{j+1}}<\infty.
-$
+$$
 
 右辺は $z$ に依存しません。したがって積分の差商に優収束を適用でき、
 
-$
+$$
 F'(z)=-\int_0^\infty uf(u)e^{-zu}\,du
 \qquad(\operatorname{Re}z>0)
-$
+$$
 
 となるので、$F$ は右半平面で正則です。有限区間の $F_T$ では、任意の $B>0$ と $|z|\le B$ に対して $|uf(u)e^{-zu}|\le MT e^{BT}$（$0\le u\le T$）です。同じ差商の議論をすべての $z$ で行えるため、$F_T$ は整関数です。$\sigma>0$ では
 
@@ -206,10 +206,10 @@ $$
 
 を下端から上端にたどります。虚軸の閉線分はコンパクトなので、その正則延長領域には線分の十分細い近傍が含まれます。そこで小さい $\varepsilon_R>0$ を取り、
 
-$
+$$
 L_R:\quad z(y)=-\varepsilon_R\left(1-\frac{y^2}{R^2}\right)+iy,
 \qquad y:R\longrightarrow -R
-$
+$$
 
 と選びます。$|y|<R$ では $\operatorname{Re}z(y)<0$ で、端点は $\pm iR$ です。$\varepsilon_R<R$ と十分小さく取れば曲線は円板 $|z|\le R$ 内の正則延長領域に収まり、原点からも離れます。従って $C_R^+$ と $L_R$ をつないだ正向きの閉曲線は原点を一回囲み、その内部で $F$ は正則です。[Cauchyの積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)をこの閉曲線へ適用できます。
 
