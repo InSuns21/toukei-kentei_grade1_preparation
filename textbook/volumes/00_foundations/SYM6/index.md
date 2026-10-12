@@ -144,7 +144,7 @@ v\in\ker T
 \end{aligned}
 $$
 
-よって階数・退化次数の公式から
+よって[階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)を線形写像 $T:V\to W^*$ に適用すると
 
 $$
 2n=\dim\ker T+\dim\operatorname{im}T
