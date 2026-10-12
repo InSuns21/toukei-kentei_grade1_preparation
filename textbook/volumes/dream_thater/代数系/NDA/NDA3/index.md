@@ -486,7 +486,16 @@ $$
 \operatorname{vol}_n(K_m)=(1+1/m)^n2^n\operatorname{covol}(\Lambda)
 >2^n\operatorname{covol}(\Lambda).
 $$
-厳密不等号版から非零点 $z_m\in\Lambda\cap K_m$ が存在します。$K_m\subset2K$ で、$2K$ は有界なので[格子点の局所有限性](#prop-nda3-covolume-independent)から $\Lambda\cap2K$ は有限です。よって一定の非零点 $z$ が無限回選ばれます。その添字に沿って $z/(1+1/m)\in K$ かつ $z/(1+1/m)\to z$ です。閉性により $z\in K\cap\Lambda$。非零性も保たれます。[Minkowskiの凸体定理](#thm-nda3-minkowski)の等号部分の核心は「有限個の候補の一つが固定される」ことです。
+厳密不等号の場合の議論から、非零格子点 $z_m\in\Lambda\cap K_m$ が存在します。$K_m\subset2K$ で、$2K$ は有界なので[格子点の局所有限性](#prop-nda3-covolume-independent)から $\Lambda\cap2K$ は有限です。よって、ある非零点 $z$ が無限回選ばれます。
+
+その添字に沿って
+
+$
+\frac{z}{1+1/m}\in K,\qquad
+\frac{z}{1+1/m}\longrightarrow z
+$
+
+となります。[閉集合の点列特徴付け](../../../基礎科目/F0/F0-00B/index.md#thm-f0-00b-01)を使うと $z\in K\cap\Lambda$ です。非零性も保たれます。これは[Minkowskiの凸体定理](#thm-nda3-minkowski)の等号部分を示しており、核心は「有限個の候補の一つが固定される」ことです。
 <!-- solution-end -->
 
 **NDA3-B3（共体積は基底に依存しない）**  
@@ -525,7 +534,7 @@ $$
 |m_1|,|m_2|\le H,\qquad
 |\alpha_1m_1+\alpha_2m_2-p|\le H^{-2}
 $$
-を満たします。$m_1=m_2=0$ なら $|p|\le H^{-2}<1$ から整数 $p=0$、全成分零となって矛盾します。したがって $(m_1,m_2)\ne(0,0)$ です。変数が三つあるのに二次元でMinkowskiを使わない点に注意します。
+を満たします。$m_1=m_2=0$ なら $|p|\le H^{-2}<1$ から整数 $p=0$、全成分零となって矛盾します。したがって $(m_1,m_2)\ne(0,0)$ です。変数は三つあるため、二次元の凸体定理ではなく三次元の[線形形式定理](#thm-nda3-linear-forms)を適用する点に注意します。
 <!-- solution-end -->
 
 ### Level C：重み付き近似と格子の設計
