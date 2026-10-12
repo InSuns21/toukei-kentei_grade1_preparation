@@ -195,7 +195,14 @@ $$
 
 最終段まで葉を生成したあと、深さ $\ell$ の節点 $v$ が持つ葉重みの総和は $W_vT_v$ と書ける。ここで $T_v$ はその下の独立な子木の総質量である。指数の順序 $m_\ell<m_{\ell+1}$ により、$\ell<k$ なら $\mathbb ET_v^{m_\ell}<\infty$ となる。最下段 $\ell=k$ では $T_v=1$ とする。
 
-したがってPoissonの独立標識写像で $W_vT_v$ の強度はさらに定数倍されるだけである。正規化すればその係数は消え、深さ $\ell$ の接頭辞ごとのGibbs重みは指数 $m_\ell$ のPoisson–Dirichlet型となる。
+$T_v$ は深さ $\ell$ の節点ごとに独立同分布であり、節点重みと独立である。親の重みを固定した条件の下で、$x=W_vu_{v,j}T_{v,j}$ と写像すると、Poisson強度の係数は $\mathbb ET_v^{m_\ell}$ 倍される。従って葉質量を接頭辞ごとに合算した点過程の条件付き強度は
+
+$$
+m_\ell\left(\sum_{|v|=\ell-1}W_v^{m_\ell}\right)
+\mathbb ET_v^{m_\ell}\,x^{-1-m_\ell}\,dx
+$$
+
+である。この強度の係数は点の大きさ $x$ に依存せず、全点の一様な伸縮に対応する。従って正規化後の接頭辞重みは指数 $m_\ell$ のPoisson–Dirichlet型になる。
 
 ここで二標本が深さ $\ell$ まで同じ枝をたどる確率は $1-m_\ell$ である。従って
 
@@ -323,7 +330,64 @@ $$
 
 右辺のGaussianはサイトごとに独立だから、対数の中の期待値が積に分かれ、右辺は $\sum_i X_1(Z_{i,1})$ となる。根のGaussianも平均すると $NX_0$。先に分離した $2^N$ が $N\log2$ を与える。
 
-一般の $k$ では、最下段の子のマークが条件付き独立なので、[Poisson重みの独立指数傾斜](#lem-sg6-poisson-tilt)を適用する。各子木のランダム総質量による上段のPoisson強度の変化は、独立標識の写像則で吸収される。次の段では $m_{k-1}$ を指数とする対数指数平均になり、順に $X_k,X_{k-1},\ldots,X_1$ が得られる。最後に独立な根のGaussianを平均すれば $NX_0$ となる。
+多段で注意するのは、子木の総質量が上段のPoisson点の**ランダムなマーク**になることである。$k=2$ でこれを計算する。根のGaussian $(Z_{i,1})_{i\le N}$ を固定し、第1枝を $a$、その子を $b$ と書く。子のPoisson点を $u_{a,b}$、その総質量を $S_a=\sum_bu_{a,b}$ とし、葉のマークを
+
+$$
+F_{a,b}=\sum_{i=1}^N\log\cosh\!\left(
+h+\beta\sqrt{q_1}Z_{i,1}
++\beta\sqrt{q_2-q_1}Z_{i,2,a}
++\beta\sqrt{1-q_2}Z_{i,3,a,b}\right)
+$$
+
+とする。第1枝のGaussianも固定すれば、子のマークは独立同分布であり、[Poisson重みの独立指数傾斜の写像計算](#lem-sg6-poisson-tilt)から
+
+$$
+c_a=\mathbb E_{Z_3}e^{m_2F_{a,b}}
+=\exp\!\left(m_2\sum_{i=1}^N
+X_2(Z_{i,1},Z_{i,2,a})\right).
+$$
+
+従って子の総和は次の分布等式を満たす。
+
+$$
+\sum_bu_{a,b}e^{F_{a,b}}
+\ \stackrel d=\ c_a^{1/m_2}S_a
+=S_a\exp\!\left(\sum_iX_2(Z_{i,1},Z_{i,2,a})\right).
+$$
+
+ここで右辺の $S_a$ は、同じ分布の独立な子木総質量として取り直してよい。元の分母の $S_a$ と同時に等置するのではなく、**分子・分母の期待対数を別々に計算する**。$S_a$ は指数 $m_2$ のPoisson総質量である。$S_a=S_a^{\le1}+S_a^{>1}$ と分ける。$0<p<1$ なら非負の $x,y$ について $(x+y)^p\le x^p+y^p$、$x^p\le1+x$ である。この二つの不等式を $p=m_1$ に用いると
+
+$$
+\mathbb ES_a^{m_1}
+\le 1+\mathbb ES_a^{\le1}
++\mathbb E\sum_{u_{a,b}>1}u_{a,b}^{m_1}
+=1+\frac{m_2}{1-m_2}
++\frac{m_2}{m_2-m_1}<\infty
+$$
+
+となる。第1枝のPoisson点を $u_a$ とすると、根のGaussianを固定した条件で、上段の独立標識写像とPoisson総質量の伸縮則により
+
+$$
+\mathbb E\log\sum_a u_a\sum_bu_{a,b}e^{F_{a,b}}
+-\mathbb E\log\sum_a u_aS_a
+=\frac1{m_1}\log
+\frac{\mathbb E_{S,Z_2}
+\left[S^{m_1}\exp\!\left(m_1\sum_i
+X_2(Z_{i,1},Z_{i,2})\right)\right]}
+{\mathbb ES^{m_1}}.
+$$
+
+$S$ と $Z_2$ は独立であり、サイトごとの $Z_{i,2}$ も独立なので、分子は積に分かれる。従って上式は
+
+$$
+\sum_{i=1}^N\frac1{m_1}\log
+\mathbb E_{Z_2}e^{m_1X_2(Z_{i,1},Z_2)}
+=\sum_{i=1}^NX_1(Z_{i,1})
+$$
+
+となる。
+
+二段ではこれで再帰式を得た。一般の $k$ でも下段のPoisson点を先にGaussianマークで写し、その子木総質量の $m_{\ell}$ 次モーメントが有限であること（$m_{\ell}<m_{\ell+1}$）を使い、上段の分子・分母の期待対数の差を取る。同じ計算を葉から根へ順に反復すれば $X_k,X_{k-1},\ldots,X_1$ が現れ、根のGaussianの平均が $NX_0$、分離した $2^N$ が $N\log2$ を与える。
 <!-- proof-end -->
 
 ## 5. Guerra補間：平方の残差が上界を作る
