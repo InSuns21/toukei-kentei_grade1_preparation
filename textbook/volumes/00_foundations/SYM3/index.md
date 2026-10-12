@@ -381,7 +381,17 @@ $$
 \left(f(q),(Df_q)^{-\mathsf T}p\right)
 $$
 
-です。ここで $A(q)=Df_q$ とすると、$f$ が微分同相なので $\det A(q)\ne0$ です。$A(q)$ の各成分は $q$ に関して滑らかであり、$A(q)^{-1}$ の各成分は $A(q)$ の小行列式を $\det A(q)$ で割った形になります。分母は局所座標領域内で零にならないため、逆行列と逆転置の各成分も滑らかです。従って[余接束の局所自明化](../GEO2/index.md#prop-geo2-cotangent-bundle-smooth)に関して $\widehat f$ は滑らかです。
+です。ここで $A(q)=Df_q$ とおきます。$f$ が微分同相だから
+
+$$
+\det A(q)\ne0
+$$
+
+が座標近傍の各点で成立します。行列 $A(q)$ の各成分は位置 $q$ に関して滑らかです。
+
+逆行列の各成分は、元の行列の小行列式に符号を付け、非零の行列式で割った形になります。小行列式は元の成分の多項式なので滑らかであり、分母は零になりません。このため逆行列と逆転置の各成分も滑らかです。
+
+従って[余接束の局所自明化](../GEO2/index.md#prop-geo2-cotangent-bundle-smooth)に関して $\widehat f$ は滑らかです。
 
 $f^{-1}$ の余接持ち上げが逆写像です。実際、$r=f(q)$ で $(df^{-1}_r)^{-1}=df_q$ だから
 
@@ -535,7 +545,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$T_\sigma$ は局所座標で $(q,p)\mapsto(q,p+\sigma(q))$ なので滑らかで逆写像 $T_{-\sigma}$ を持ちます。$\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を取ります。$T_\sigma$ は基点を変えないので $\pi\circ T_\sigma=\pi$ です。これに[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を適用すると
+局所座標で $T_\sigma$ とその逆写像を表示すると
+
+$$
+T_\sigma(q,p)=(q,p+\sigma(q)),\qquad
+T_{-\sigma}(q,P)=(q,P-\sigma(q))
+$$
+
+です。どちらも滑らかで、互いに合成すると恒等写像となります。
+
+$\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を取ります。基点は変わらないので $\pi\circ T_\sigma=\pi$ です。これに[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を適用すると
 
 $$
 d\pi_{\alpha_q+\sigma_q}\circ d(T_\sigma)_{\alpha_q}
@@ -989,7 +1008,19 @@ $$
 d\tau=dQ^1\wedge dQ^2\ne0.
 $$
 
-[平行移動が正準形式を保存する条件](#thm-sym3-translation-criterion)を $T_\tau$ に適用します。[引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)を $G=T_\tau\circ\widehat f$ に用いると、$G^*=\widehat f^{\,*}\circ T_\tau^*$ です。また[余接持ち上げの定義](#def-sym3-cotangent-lift)にある $\pi_R\circ\widehat f=f\circ\pi_Q$ から
+[平行移動が正準形式を保存する条件](#thm-sym3-translation-criterion)を $T_\tau$ に適用します。[引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)を合成写像 $G=T_\tau\circ\widehat f$ に用いると
+
+$$
+G^*=\widehat f^{\,*}\circ T_\tau^*
+$$
+
+となります。また[余接持ち上げの定義](#def-sym3-cotangent-lift)にある関係
+
+$$
+\pi_R\circ\widehat f=f\circ\pi_Q
+$$
+
+から
 
 $$
 \begin{aligned}
