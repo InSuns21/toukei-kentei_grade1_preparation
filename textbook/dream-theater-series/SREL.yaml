@@ -39,5 +39,5 @@ chapters:
     title: Rindler座標と因果構造
   - id: SREL9
     path: textbook/volumes/dream_thater/物理系/SREL/SREL9
-    status: planned
+    status: completed
     title: 共変形式の総合演習と適用限界
