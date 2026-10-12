@@ -1,0 +1,23 @@
+chapter: "SYM8"
+terms:
+  - term: 線形複素構造
+    english: linear complex structure
+    meaning: "実ベクトル空間の線形写像Jで、二乗が-Iとなるもの。"
+  - term: 適合複素構造
+    english: compatible complex structure
+    meaning: "J²=-I、ω(Ju,Jv)=ω(u,v)、非零vに対するω(v,Jv)>0を満たす構造。"
+  - term: 適合計量
+    english: compatible metric
+    meaning: "適合するJからg(u,v)=ω(u,Jv)によって定まる正定値内積。"
+  - term: 概複素構造
+    english: almost complex structure
+    meaning: "多様体の接束上でJ²=-Iを各点で満たす滑らかな束自己準同型。複素座標の存在は仮定しない。"
+  - term: 正定値平方根
+    english: positive definite square root
+    meaning: "正定値対称作用素BをS²=Bと表す唯一の正定値対称作用素S。"
+  - term: 馴らされる概複素構造
+    english: tame almost complex structure
+    meaning: "ω(v,Jv)>0を全非零接ベクトルで満たす概複素構造。ωの保存までは要求しない。"
+  - term: 可積分性
+    english: integrability
+    meaning: "概複素構造が局所複素座標に由来することに関わる追加条件。本章の適合性からは一般に導けない。"
