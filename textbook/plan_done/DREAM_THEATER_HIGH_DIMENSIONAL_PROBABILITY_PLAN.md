@@ -2,7 +2,7 @@
 
 作成日: 2026-10-10  
 再設計: 2026-10-12  
-状態: in_progress（HDP1〜HDP10 本文実装・変更章査読、系列横断監査と下流参照整理は未完了）
+状態: completed（HDP1〜HDP10 の教材・演習・変更章査読、HDP10の追跡監査、系列整合・公開導線・下流計画参照の確認を完了）
 
 ## 0. 中心問い
 
@@ -88,7 +88,7 @@ sub-Gaussian の特性は平均中心化・全方向の線形射影に対する�
 参考範囲: Roman Vershynin, *High-Dimensional Probability*; Martin Wainwright, *High-Dimensional Statistics*; Stéphane Boucheron, Gábor Lugosi, Pascal Massart, *Concentration Inequalities*.
 
 
-## 6. 実装系列と現在地（2026-10-12）
+## 6. 実装系列の履歴（2026-10-12）
 
 - 系列manifest: `textbook/dream-theater-series/HDP.yaml`
 - HDP1: 指数Markov法、Hoeffding補題、独立非同分布Hoeffding不等式、両側偏差と多座標union bound。本文・全演習解答を実装し、自己検算と同一担当の別観点再査読を実施。
@@ -100,5 +100,7 @@ sub-Gaussian の特性は平均中心化・全方向の線形射影に対する�
 - HDP7: 全方向のsub-Gaussianベクトル・等方性・平方の中心化指数モーメント・固定方向のBernstein型集中、有限netによる標本共分散作用素ノルム評価、母平均未知の階数一補正・平均集中、特異共分散の正固有空間への白色化、全11演習と詳細解答を実装・変更章査読済。次章はHDP8。
 - HDP8: 行列指数とLoewner順序、Lieb凹性の明示的な外部入力、非可換Laplace法、行列Bernstein・Hoeffding、長方形行列への自己共役拡張、有界標本共分散、全11演習を実装・変更章査読済。次章はHDP9。
 - HDP9: 独立な中心化sub-Gaussian座標の二次形式について、対角項の平方MGF、ランダム二群分割、Gaussian比較、Cauchy–Schwarzによる合成を通じてHanson–Wright不等式を定数付きで証明。正規二乗ノルム・確定線形変換後のエネルギー・完全従属の反例、全11演習を実装・変更章査読済。次章はHDP10。
-- HDP10: 有限距離空間の被覆数、sub-Gaussian増分、全組の失敗確率配分による多段階chaining定理、有限エントロピー積分、指数的な点数の近接Gaussian候補と有限関数族の標本平均への応用を実装。全11演習・詳細解答を付属。無限集合の可分性・可測性などは一般化の追加仮定として分離。次工程はPLANの科目横断監査と下流参照の整合確認。
-- PLAN全体の科目横断監査、下流SLT/RMTへの参照更新は、該当成果物が揃った段階で行う。HDP1の完成は PLAN全体の完了を意味しない。
+- HDP10: 有限距離空間の被覆数、sub-Gaussian増分、全組の失敗確率配分による多段階chaining定理、有限エントロピー積分、指数的な点数の近接Gaussian候補と有限関数族の標本平均への応用を実装。全11演習・詳細解答を付属。無限集合の可分性・可測性などは一般化の追加仮定として分離。HDP10の追跡監査で全4主要証明・全11詳細解答を再検算し、二次形式の偏差事象と $k$ の範囲を明示した。
+- 2026-10-12に科目横断の完了確認を実施した。HDP1〜HDP10の実本文、主要結果アンカー、全106題の演習・解答の存在、各章の依存関係、公開索引と目次への全10章の登録を確認した。主要概念・集中法の使い分けはHDP10第7節で統合した。HDP10の全4主要証明と全11解答を追跡再計算し、指数Markov法、Hoeffding補題、Hanson–Wright等の使用箇所の実在アンカーを照合した。既存HDP1〜HDP9の数学内容全件をこの横断確認で再査読したとは扱わず、各章の実装時レビューを維持する。
+- 下流のSLT・RMTはまだ`textbook/plans/`の設計段階であり、既存講義本文の修正対象はない。両PLANから現在のHDP canonical結果への直接リンクを追加し、SLT PLANから本PLANへの移動後の相対リンクを更新した。将来の下流章実装時には対応する個別結果の仮定を改めて照合する。
+- このPLANの固有成果物と検証を終了し、`textbook/plan_done/` に移動した。シリーズmanifestの `plan` も同一PRで更新する。
