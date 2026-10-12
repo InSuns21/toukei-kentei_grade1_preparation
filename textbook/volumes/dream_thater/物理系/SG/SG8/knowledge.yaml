@@ -1,0 +1,64 @@
+chapter: SG8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG7
+  - SG6
+  - SG3
+  - SG1
+forward_references: []
+concepts:
+  - id: spin-glass.cavity-bp
+    name: cavity messageとBelief Propagation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（cavity messageとBelief Propagation）"]
+    requires: [spin-glass.random-factor-graph, spin-glass.tree-partition]
+  - id: spin-glass.bethe-partition
+    name: 局所beliefとBethe分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所beliefとBethe分配関数）"]
+    requires: [spin-glass.cavity-bp]
+  - id: spin-glass.bp-local-consistency
+    name: BPの局所整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（BPの局所整合性）"]
+    requires: [spin-glass.bethe-partition]
+  - id: spin-glass.bp-tree-exact
+    name: 有限因子木でのBPとBethe分配関数の厳密性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限因子木でのBPとBethe分配関数の厳密性）"]
+    requires: [spin-glass.bp-local-consistency, spin-glass.tree-partition]
+  - id: spin-glass.ising-cavity-field
+    name: Ising cavity field
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ising cavity field）"]
+    requires: [spin-glass.cavity-bp]
+  - id: spin-glass.triangle-loop
+    name: 三角形の閉路補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三角形の閉路補正）"]
+    requires: [spin-glass.ising-cavity-field, spin-glass.bethe-partition]
+  - id: spin-glass.rs-cavity-law
+    name: RS分布再帰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RS分布再帰）"]
+    requires: [spin-glass.ising-cavity-field, spin-glass.poisson-degree]
+  - id: spin-glass.rs-contraction
+    name: RS再帰の高温収縮
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RS再帰の高温収縮）"]
+    requires: [spin-glass.rs-cavity-law]
+  - id: spin-glass.rsb-reweight
+    name: 1RSBの状態重み付け
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1RSBの状態重み付け）"]
+    requires: [spin-glass.rs-cavity-law, spin-glass.ruelle-cascade]
