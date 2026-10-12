@@ -44,5 +44,5 @@ chapters:
     title: Hanson–Wrightの二次形式集中
   - id: HDP10
     path: textbook/volumes/dream_thater/解析系/HDP/HDP10
-    status: planned
+    status: completed
     title: 被覆数からchainingへの入口と応用総合
