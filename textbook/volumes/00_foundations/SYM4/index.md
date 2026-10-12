@@ -27,6 +27,8 @@ $$
 <!-- definition-example-start: def-sym4-hamiltonian-vector-field -->
 ### 直接例：一自由度の調和振動子
 
+**定義の確認**：内部積と $dH$ の各係数を計算して定義式の成立を確認します。
+
 $M=T^*\mathbb R$、$\omega=dq\wedge dp$、$H(q,p)=(q^2+p^2)/2$ とします。$X=a\partial_q+b\partial_p$ とおくと
 
 $$
@@ -116,6 +118,8 @@ $$
 
 <!-- definition-example-start: def-sym4-poisson-bracket -->
 ### 直接例：基本括弧と符号
+
+**定義の確認**：二つのHamiltonベクトル場を2形式へ代入して括弧を評価します。
 
 $T^*\mathbb R$ で $f=q$、$g=p$ とします。[Hamiltonベクトル場の座標式](#thm-sym4-existence-coordinate)から
 
