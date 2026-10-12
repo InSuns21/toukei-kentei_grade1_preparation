@@ -3,8 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SG1
-  - F0-00P3
-  - F0-00P4
+  - HDP5
 forward_references: []
 concepts:
   - id: spin-glass.gaussian-field
@@ -13,12 +12,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（有限Gaussian場と共分散）"]
     requires: [spin-glass.quenched-annealed]
-  - id: spin-glass.gaussian-integration-by-parts
-    name: Gaussian部分積分
-    kind: lemma
+  - id: spin-glass.correlated-gaussian-ibp
+    name: 共分散付きGaussian部分積分
+    kind: proposition
     introduction: formal
-    introduction_aliases: ["補題（Gaussian部分積分）"]
-    requires: [spin-glass.gaussian-field]
+    introduction_aliases: ["命題（共分散付きGaussian部分積分）"]
+    requires: [spin-glass.gaussian-field, high-dimensional-probability.gaussian-integration-by-parts]
   - id: spin-glass.gibbs-derivatives
     name: Gibbs重みの微分
     kind: proposition
@@ -31,24 +30,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（二レプリカGibbs平均）"]
     requires: [spin-glass.gibbs-derivatives]
-  - id: spin-glass.euclidean-lipschitz
-    name: Euclid-Lipschitz定数
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（Euclid-Lipschitz定数）"]
-    requires: []
-  - id: spin-glass.gaussian-concentration
-    name: 有限次元Gaussian集中不等式
-    kind: theorem
-    introduction: formal
-    introduction_aliases: ["定理（有限次元Gaussian集中不等式）"]
-    requires: [spin-glass.euclidean-lipschitz, spin-glass.gaussian-integration-by-parts]
   - id: spin-glass.pressure-concentration
     name: 正規無秩序圧力の集中
     kind: corollary
     introduction: formal
     introduction_aliases: ["系（正規無秩序圧力の集中）"]
-    requires: [spin-glass.gaussian-concentration, spin-glass.gibbs-derivatives]
+    requires: [high-dimensional-probability.gaussian-concentration, spin-glass.gibbs-derivatives]
   - id: spin-glass.sqrt-interpolation
     name: Gaussian平方根補間
     kind: definition
@@ -60,7 +47,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Gaussian補間の微分公式）"]
-    requires: [spin-glass.sqrt-interpolation, spin-glass.gaussian-integration-by-parts, spin-glass.gibbs-derivatives, spin-glass.two-replica-average]
+    requires: [spin-glass.sqrt-interpolation, spin-glass.correlated-gaussian-ibp, spin-glass.gibbs-derivatives, spin-glass.two-replica-average]
   - id: spin-glass.gaussian-comparison
     name: 等分散Gaussian場の圧力比較
     kind: corollary
