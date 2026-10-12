@@ -815,6 +815,7 @@
 
 1. [SREL1 慣性系・光速度不変・Lorentz変換](textbook/volumes/dream_thater/物理系/SREL/SREL1/index.md)
 2. [SREL2 Minkowski時空・光円錐・固有時](textbook/volumes/dream_thater/物理系/SREL/SREL2/index.md)
+3. [SREL3 四元速度・四元運動量と質量殻](textbook/volumes/dream_thater/物理系/SREL/SREL3/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
