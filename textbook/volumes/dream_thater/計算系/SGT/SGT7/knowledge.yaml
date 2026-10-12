@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SGT1
+  - SGT2
   - F0-00F1
   - LA3B
 forward_references: []
