@@ -768,6 +768,27 @@ a\gamma,&\gamma\ge a.
 \end{cases}
 $$
 
+(b)の補間微分式は、(c)の有限 $N$ の恒等式からも独立に検算できます。$\gamma=\beta\sqrt{1-s}$ と置き、独立な $U_\sigma$ だけを使う圧力を $q_N(\gamma)=p_N(0;\gamma)$、対応するGibbs重みを $v_\gamma(\sigma)$ と書きます。[共分散付きGaussian部分積分](#prop-sg2-correlated-ibp)と[Gibbs重みの微分](#prop-sg2-gibbs-derivatives)から
+
+$
+\begin{aligned}
+q_N'(\gamma)
+&=\frac1N\sum_\sigma\mathbb E[U_\sigma v_\gamma(\sigma)]\\
+&=\frac1N\sum_\sigma N\gamma\,
+ \mathbb E[v_\gamma(\sigma)(1-v_\gamma(\sigma))]\\
+&=\gamma\,\mathbb E\left[1-\sum_\sigma v_\gamma(\sigma)^2\right].
+\end{aligned}
+$
+
+共通因子 $e^{\beta\sqrt s\,G}$ がGibbs重みから消えるため $v_\gamma(\sigma)=w_s(\sigma)$ です。また $d\gamma/ds=-\beta/(2\sqrt{1-s})$ なので、連鎖律から
+
+$
+p_N'(s)=q_N'(\gamma)\frac{d\gamma}{ds}
+=-\frac{\beta^2}{2}\mathbb E\left[1-\sum_\sigma w_s(\sigma)^2\right].
+$
+
+これは共分散差を使った(b)の導出と一致します。
+
 (d) (a)により全配置で $C_{\sigma\sigma}=N$ です。[圧力集中の系](#cor-sg2-pressure-concentration)に $v=1$ を代入すると
 
 $$
