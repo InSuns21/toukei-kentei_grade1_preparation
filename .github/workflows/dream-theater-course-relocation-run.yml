@@ -1,0 +1,48 @@
+name: DREAM THEATER course-layer relocation (one-time PR)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/dream-theater-course-relocation-run.yml'
+      - 'scripts/migrate-dream-theater-courses.mjs'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dream-theater-course-relocation-998
+  cancel-in-progress: false
+
+jobs:
+  relocate:
+    if: github.head_ref == 'fix/dream-theater-course-layer-20261012' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: fix/dream-theater-course-layer-20261012
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Apply branch-only relocation
+        run: |
+          if grep -q 'textbook/volumes/dream_thater/基礎科目/F0-00A/index.md' textbook/dream-theater-index.json; then
+            node scripts/migrate-dream-theater-courses.mjs --apply
+            node scripts/migrate-dream-theater-courses.mjs --check
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -A
+            git diff --cached --stat | tail -n 22
+            git commit -m 'refactor: add DREAM THEATER course series folder for 542 chapters'
+            git push origin HEAD:refs/heads/fix/dream-theater-course-layer-20261012
+          else
+            node scripts/migrate-dream-theater-courses.mjs --check
+          fi
+      - name: Verify mathematical text and assets unchanged
+        run: |
+          BASE="$(git merge-base origin/main HEAD)"
+          node scripts/verify-dream-theater-course-relocation.mjs --base "$BASE"
