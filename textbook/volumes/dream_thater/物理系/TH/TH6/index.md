@@ -920,7 +920,14 @@ U_{SS}U_{VV}-U_{SV}^2
 \end{aligned}
 $$
 
-となり、応答公式から得たHessianの行列式と一致します。最後に $T,V,N$ を固定して $b\to0$ を取ると、$\kappa_T=V^2/(NRTV+2bN^2)$ は $V/(NRT)=1/p$ へ収束します。最後の等号は極限模型の $p=NRT/V$ を用いました。
+となり、[Hessianと応答の定理](#thm-th6-stability-response)から得た $\det H_U$ と一致します。最後に $T,V,N$ を固定して $b\downarrow0$ とすれば、
+
+$
+\lim_{b\downarrow0}\kappa_T
+=\frac{V^2}{NRTV}=\frac{V}{NRT}=\frac1p.
+$
+
+最後の等号は極限模型の $p=NRT/V$ を用いました。
 <!-- solution-end -->
 
 ## 8. 次に何を問うか
