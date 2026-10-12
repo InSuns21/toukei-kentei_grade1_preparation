@@ -445,7 +445,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（非正規化Laplacianの変分表示）**  
-> 頂点数 $n\geq2$ の有限連結無向非負重み付きグラフ $(V,W)$ の組合せLaplacianを $L=D-W$ とし、固有値を $0=\lambda_1<\lambda_2\leq\cdots\leq\lambda_n$ と並べる。このとき
+> 頂点数 $n\geq2$ の有限連結無向非負重み付きグラフ $(V,W)$ の組合せLaplacianを $L=D-W$ とする。固有値を昇順に
+>
+$$
+0=\lambda_1<\lambda_2\leq\cdots\leq\lambda_n
+$$
+>
+> と並べる。このとき
 
 $$
 \lambda_2
@@ -624,7 +630,13 @@ $f$ の座標和は零だから $Lf=4f$ で、$f^{\mathsf T}Lf=4(1^2+(-1)^2)=8$ 
 - ID: SGT1-B3
 
 <!-- solution-start -->
-**詳細解答**　$L=\begin{pmatrix}a&-a&0\\-a&a+b&-b\\0&-b&b\end{pmatrix}$ です。$\det(tI-L)$ の $t^2$ の係数は $-\operatorname{tr}L=-2(a+b)$ です。一方、$t$ の係数に現れる $2\times2$ の主小行列式を三つ計算すると
+**詳細解答**　次数と辺重みから組合せLaplacianは
+
+$$
+L=\begin{pmatrix}a&-a&0\\-a&a+b&-b\\0&-b&b\end{pmatrix}.
+$$
+
+対角和は $\operatorname{tr}L=a+(a+b)+b=2(a+b)$ です。$\det(tI-L)$ の $t^2$ の係数は $-\operatorname{tr}L=-2(a+b)$ です。一方、$t$ の係数に現れる $2\times2$ の主小行列式を三つ計算すると
 
 $$
 \begin{aligned}
