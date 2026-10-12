@@ -30,6 +30,8 @@ $$
 <!-- definition-example-start: def-int3-action -->
 ### 直接例：円軌道の積分を計算する
 
+**定義の確認**：正エネルギーの周期軌道に沿って $p\,dq$ を積分し、$2\pi$ で割った値が $I$ になることを確かめます。
+
 $\nu>0$ とし、$H=(p^2+\nu^2q^2)/2=E>0$ の解を
 $$
 q=\frac{\sqrt{2E}}{\nu}\sin u,\qquad p=\sqrt{2E}\cos u,\qquad 0\le u\le2\pi
@@ -74,6 +76,8 @@ $$
 
 <!-- definition-example-start: def-int3-action-angle -->
 ### 直接例：振動子の正準性を微分で検証する
+
+**定義の確認**：$(\theta,I)$ の変換が定義の正準形式 $dq\wedge dp=d\theta\wedge dI$ を満たすことをJacobianから確認します。
 
 $I>0$ として
 $$
