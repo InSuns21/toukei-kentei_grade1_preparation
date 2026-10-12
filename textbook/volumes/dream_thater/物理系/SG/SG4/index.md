@@ -415,3 +415,103 @@ $$
 
 **ここでの結論**は、外場ゼロ・$0<\beta<1$ において二レプリカのoverlapが二乗平均で0へ収束すること、したがって $R_{12}$ が確率でも0へ近づくことである。$\beta>1$ や外場ありの場合には、この証明の二次モーメント評価はそのまま使えない。評価が発散するというだけで、RSBの成立まで証明されたわけではない。
 
+## 5. AT条件：自己整合解を揺らしたらどうなるか
+
+RS自己整合方程式は一つの数 $q$ を決める候補だが、**候補解が微小な摂動に耐えるか**は別の問いである。物理的には、多数の弱い結合から有効場を作り、応答を別のサイトへ伝えるcavity型の近似を使う。この近似を有限$N$のSK模型の厳密恒等式と混同しない。
+
+有効場 $u=\beta\sqrt q\,Z+h$ に対し、サイト磁化の近似を $m=\tanh u$ とする。ここに小さい追加場 $\eta$ を入れると一階の応答は
+
+$$
+\tanh(u+\eta)-\tanh u
+=\operatorname{sech}^2(u)\eta+O(\eta^2)
+$$
+
+となる。仮に、独立な微小摂動が各結合を介して $N$ 本足し合わされ、次の場の摂動が
+
+$$
+\eta_i^{\mathrm{new}}
+=\frac{\beta}{\sqrt N}\sum_{j=1}^N J_{ij}
+\operatorname{sech}^2(u_j)\eta_j
+$$
+
+で近似できるとする。ここで $J_{ij}$ は平均0、分散1で、摂動と独立な結合として**近似的に扱う**。$\eta_j$ が独立で平均0・分散 $v$、$u_j$ が同一の有効場分布を持つと仮定すると、交差項の平均が消え、
+
+$$
+\begin{aligned}
+\mathbb E(\eta_i^{\mathrm{new}})^2
+&=\frac{\beta^2}{N}\sum_j
+\mathbb EJ_{ij}^2\,
+\mathbb E\operatorname{sech}^4(u_j)\,\mathbb E\eta_j^2\\
+&=\beta^2\mathbb E_Z\operatorname{sech}^4(\beta\sqrt q\,Z+h)\,v.
+\end{aligned}
+$$
+
+つまり、分散が一段で何倍になるかを計算できる。厳密なSK模型では場・結合・摂動の依存がこの単純な独立性を必ずしも満たさない。ここでの計算は**指定した線形応答近似の下での結論**である。
+
+<a id="def-sg4-at-parameter"></a>
+
+<!-- formal-statement-start -->
+> **定義（RS線形応答のATパラメータ）**  
+> $\beta\ge0$、$h\in\mathbb R$、$q\in[0,1]$ に対し
+>
+$$
+\lambda_{\mathrm{AT}}(q;\beta,h)
+=\beta^2\mathbb E_Z\operatorname{sech}^4(\beta\sqrt q\,Z+h)
+$$
+>
+> と置く。上記の独立摂動・線形応答近似では、分散増幅率は $\lambda_{\mathrm{AT}}$ である。$\lambda_{\mathrm{AT}}<1$ はこの近似の減衰条件、$\lambda_{\mathrm{AT}}>1$ は増幅条件、$\lambda_{\mathrm{AT}}=1$ は一次判定の境界である。これをAT（de Almeida–Thouless）判定と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sg4-at-parameter -->
+### 判定の最小例
+
+$h=0,q=0$ では $u=0$、$\operatorname{sech}^4(0)=1$ だから $\lambda_{\mathrm{AT}}=\beta^2$。$\beta=1/2$ なら $1/4<1$、$\beta=2$ なら $4>1$ である。これは零解に対する近似的な判定であり、$\beta=2$ の**非零の自己整合解のAT値を計算したことにはならない**。
+<!-- definition-example-end -->
+
+AT条件を物理学で「repliconの安定性条件」と解釈するには、RS鞍点に対する適切な揺らぎ方向を定義し、二次変分を評価する必要がある。本章の分散増幅の計算はその動機を再現するが、真のSK圧力がRS値と異なること、あるいは特定の領域でRSBが成立することの**厳密証明ではない**。その区別はSG5・SG6のoverlap恒等式と変分理論を学ぶ際に重要になる。
+
+## 6. RSBは「同じoverlap値」という単純化を超える
+
+RSの描像では、状態を記述するための重なりパラメータを一つの典型値で代表させる。一方、多数の巨視的状態の間では、同じ状態から引いた二つの標本と異なる状態から引いた二つの標本でoverlapが変わり得る。そのような**複数のoverlap尺度**を残す描像がRSBの出発点となる。
+
+説明のため、有限個の巨視的状態をラベル $\alpha\in\{1,\ldots,K\}$ で表し、選択重み $w_\alpha>0$、$\sum_\alpha w_\alpha=1$ とする。同じラベル同士の重なりを $q_1$、異なるラベル同士を $q_0$ と近似する。これはSK模型の有限$N$から自動的に導かれる構造ではなく、overlap階層の**模型例**である。
+
+<a id="def-sg4-two-level-rsb"></a>
+
+<!-- formal-statement-start -->
+> **定義（二水準のoverlap混合模型）**  
+> $K\ge2$、$w_\alpha>0$、$\sum_{\alpha=1}^K w_\alpha=1$、$-1\le q_0<q_1\le1$ とする。独立に選んだ二つの状態ラベルが一致したら重なり $q_1$、異なれば $q_0$ とする。このとき重なり分布は
+>
+$$
+\nu^{(2)}
+=\left(\sum_{\alpha=1}^K w_\alpha^2\right)\delta_{q_1}
++\left(1-\sum_{\alpha=1}^K w_\alpha^2\right)\delta_{q_0}
+$$
+>
+> である。このような複数の重なり水準を持つ模型は、一段階RSB（1RSB）描像の最小の代数的例となる。ただしこれだけでParisiの1RSB解を定義したことにはならない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sg4-two-level-rsb -->
+### 重みを代入して直接確認する
+
+$K=2$、$w_1=1/3$、$w_2=2/3$、$q_0=0$、$q_1=3/4$ とすると、ラベル一致確率は
+
+$$
+w_1^2+w_2^2=\frac19+\frac49=\frac59,
+$$
+
+異なる確率は $2w_1w_2=4/9$。従って
+
+$$
+\nu^{(2)}=\frac59\delta_{3/4}+\frac49\delta_0,
+\qquad
+\int r^2\,\nu^{(2)}(dr)=\frac59\left(\frac34\right)^2=\frac5{16}.
+$$
+
+確率の和は1であり、$q_0<q_1$ なので二水準は区別できる。有限系にこのような混合分布が一度現れただけでは、無限サイズでRSB相が成立するとはいえない。
+<!-- definition-example-end -->
+
+多段階の描像では、状態をさらに下位集団へ分けることを繰り返す。どの三つの状態も階層的な重なりを満たすか、無限系でどの分布が実現するかは、次章のGhirlanda–Guerra恒等式・ultrametricityと、その後のParisi変分原理の問題となる。
+
+ここまでで証明したのは**RS試行式の上界と高温での等号**であり、ATの式は指定した近似における増幅率、二水準模型はRSBの幾何的イメージを数え上げる例である。三者の証明の強さが異なることを押さえてから演習へ進む。
+
