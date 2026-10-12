@@ -36,7 +36,7 @@ chapters:
     title: 連分数・Pell方程式・Diophantine近似
   - id: NT8
     path: textbook/volumes/dream_thater/代数系/NT/NT8
-    status: planned
+    status: completed
     title: 素数分布への入口
   - id: NT9
     path: textbook/volumes/dream_thater/代数系/NT/NT9
