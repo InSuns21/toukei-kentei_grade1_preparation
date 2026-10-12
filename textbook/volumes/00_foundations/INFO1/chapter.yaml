@@ -14,6 +14,7 @@ learning_objectives:
   - 結合・条件付き分布とエントロピーを零確率の行に注意して定義・計算できる
   - 有限分布の連鎖律を条件付き確率の積から証明できる
   - 相互情報量を複数の等価な表式から計算し、二値通信模型の両端を説明できる
+  - 三変数の連鎖律を用い、二変数を合わせて観測することと個別の観測を区別できる
 definitions:
   - { id: INFO1-DEF-01, name: 自己情報量 }
   - { id: INFO1-DEF-02, name: Shannonエントロピー }
@@ -37,8 +38,9 @@ problem_patterns:
   - INFO1-INDEPENDENT-CHAIN
   - INFO1-MANY-TO-ONE
   - INFO1-JOINT-ROW-CONDITIONING
+  - INFO1-XOR-TRIPLE-CHAIN
   - INFO1-BINARY-CHANNEL-INTEGRATED
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 5, exercises: 4, review: 1.5 }
