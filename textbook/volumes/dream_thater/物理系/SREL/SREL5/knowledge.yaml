@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SREL4
+  - EMAG7
 forward_references: []
 
 concepts:

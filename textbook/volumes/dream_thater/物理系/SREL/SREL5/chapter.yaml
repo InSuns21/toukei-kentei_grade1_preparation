@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SREL4
+  - EMAG7
 official_scope: []
 learning_objectives:
   - SI単位とMinkowski計量の符号を固定し四元電流・電磁場テンソルの上下添字を具体計算できる
