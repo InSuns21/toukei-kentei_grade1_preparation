@@ -120,51 +120,42 @@ $$
 <a id="prop-ag1-08-set-ideal-operations"></a>
 
 <!-- formal-statement-start -->
-> **命題（零点・消滅イデアルの演算法則）**  
-> 任意の体 $k$ 上で、イデアル $J,K\subseteq k[x_1,\ldots,x_n]$ と集合 $X,Y\subseteq k^n$ に対して次が成り立つ。
+> **命題（消滅イデアルの演算法則）**  
+> 任意の体 $k$、任意の集合 $X,Y\subseteq k^n$ について、次が成り立つ。
 
 $$
-\begin{aligned}
-V(J+K)&=V(J)\cap V(K),\\
-V(JK)&=V(J\cap K)=V(J)\cup V(K),\\
-I(X\cup Y)&=I(X)\cap I(Y).
-\end{aligned}
+I(X\cup Y)=I(X)\cap I(Y).
 $$
 
-> さらに $k$ が代数閉体で $X,Y$ が Zariski 閉集合なら
+> さらに $k$ が代数閉体で、$X,Y$ が Zariski 閉集合なら、次の公式が成り立つ。
 
 $$
-I(X\cap Y)=\sqrt{I(X)+I(Y)}
+I(X\cap Y)=\sqrt{I(X)+I(Y)}.
 $$
-
-> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-和イデアル $J+K$ の全元が零となるのは、$J$ と $K$ がともに零となる場合です。積イデアルでは、点での評価を使い「両方が零でない式を一つずつ選べば、その積も零でない」と対偶で示します。最後の根基は強零点定理による復元です。
+[零点集合の演算法則](../AG1-01/index.md#prop-ag1-01-zero-set-operations)から、和イデアルは図形の交わりへ、積イデアルは和集合へ対応することが既に分かっています。今回新しく求めるのは**消滅イデアルへ戻す向き**です。和集合の式は定義だけで確かめられますが、交わりの式では根基が必要になります。
 
 <!-- proof-start -->
 ### 証明
 
-$a\in V(J+K)$ なら $J,K\subseteq J+K$ なので $a\in V(J)\cap V(K)$ です。逆に $a$ が両方に属するなら任意の $f\in J,g\in K$ について $(f+g)(a)=0$ となります。$J+K$ の元はそのような和なので $a\in V(J+K)$ です。
+$f\in I(X\cup Y)$ とは、$f$ が $X$ と $Y$ の両方のすべての点で零となることです。これは $f\in I(X)$ かつ $f\in I(Y)$ と同値なので、最初の等式が成立します。この部分は代数閉性を使いません。
 
-$JK\subseteq J$ かつ $JK\subseteq K$ なので $V(J)\cup V(K)\subseteq V(JK)$ です。逆に $a\notin V(J)$ かつ $a\notin V(K)$ なら、ある $f\in J,g\in K$ で $f(a)\ne0,g(a)\ne0$ です。体に零因子がないので $(fg)(a)=f(a)g(a)\ne0$、かつ $fg\in JK$ です。従って $a\notin V(JK)$ です。以上で $V(JK)=V(J)\cup V(K)$ となります。$JK\subseteq J\cap K$ から $V(J\cap K)\subseteq V(JK)$、また $J\cap K\subseteq J,K$ から $V(J)\cup V(K)\subseteq V(J\cap K)$ なので、両者も等しいです。
-
-$f\in I(X\cup Y)$ とは、$f$ が $X$ と $Y$ の両方ですべての点において零となることです。これは $f\in I(X)\cap I(Y)$ と同値です。
-
-最後に $X,Y$ を閉集合とします。直前に示した和イデアルの式と[閉集合・根基イデアルの対応](#thm-ag1-08-closed-radical-bijection)を使い、
+次に $X,Y$ を Zariski 閉集合とします。[閉集合と根基イデアルの対応](#thm-ag1-08-closed-radical-bijection)から $X=V(I(X))$ と $Y=V(I(Y))$ です。この二つの閉集合に、[既習の零点集合の交わりの公式](../AG1-01/index.md#prop-ag1-01-zero-set-operations)を適用すると
 
 $$
-\begin{aligned}
-I(X\cap Y)
- &= I\bigl(V(I(X))\cap V(I(Y))\bigr)\\
- &= I\bigl(V(I(X)+I(Y))\bigr)\\
- &= \sqrt{I(X)+I(Y)}
-\end{aligned}
+X\cap Y=V(I(X))\cap V(I(Y))=V(I(X)+I(Y))
 $$
 
-となります。第二行で零点集合の交わり、第三行で強零点定理を使用しました。
+となります。[強Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-strong-nullstellensatz)を右端のイデアル $I(X)+I(Y)$ に適用して
+
+$$
+I(X\cap Y)=I(V(I(X)+I(Y)))=\sqrt{I(X)+I(Y)}
+$$
+
+を得ます。右辺に根基が現れるのは、この最後の定理適用のためです。
 <!-- proof-end -->
 
 <a id="cor-ag1-08-radical-operations"></a>
