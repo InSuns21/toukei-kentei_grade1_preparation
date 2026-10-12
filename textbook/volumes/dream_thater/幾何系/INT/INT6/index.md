@@ -220,9 +220,9 @@ $$
 
 を得ます。$\chi_m$ のHamilton流の時間1写像を $\Psi_m$ とします。$\chi_m$ は次数 $m$ であり、そのベクトル場は $O(|z|^{m-1})$ だから、十分小さい近傍で流れが定義され $\Psi_m(z)=z+O(|z|^{m-1})$ です。Poisson括弧の次数評価
 
-$
+$$
 \{F_a,G_b\}\not\equiv0\quad\Longrightarrow\quad\deg\{F_a,G_b\}=a+b-2
-$
+$$
 
 は、同次多項式の偏微分がそれぞれ次数を1下げることから従います。括弧が恒等的に零なら対応する項は現れません。時間に沿う微分が $d(F\circ\Psi_m^t)/dt=\{F,\chi_m\}\circ\Psi_m^t$ なので、Taylor展開により $m$ 次まで
 
