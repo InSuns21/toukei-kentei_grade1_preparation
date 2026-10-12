@@ -25,7 +25,7 @@ chapters:
     title: 一様分布・Weyl判定・Kronecker近似
   - id: NDA5
     path: textbook/volumes/dream_thater/代数系/NDA/NDA5
-    status: planned
+    status: completed
     title: 無理性指数と近似指数
   - id: NDA6
     path: textbook/volumes/dream_thater/代数系/NDA/NDA6
