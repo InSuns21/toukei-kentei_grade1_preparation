@@ -79,7 +79,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[NT7の分母漸化式](../../NT/NT7/index.md#def-nt7-convergent)から $q_n\to\infty$ であり、十分後は厳密に増加します。任意の十分大きい $q$ に対して $q_n\le q<q_{n+1}$ となる $n$ を選べます。[第二種最良近似](../../NT/NT7/index.md#thm-nt7-best-approximation)をこの $n$ と $q$ に用いると、上で計算した通り $h_\alpha(q)\ge\theta_n$ です。$q\to\infty$ ならこの $n$ も無限大へ進むため、
+[NT7の分母漸化式](../../NT/NT7/index.md#def-nt7-convergent)から、分母列は無限大へ発散し、十分後は厳密に増加します。任意の十分大きい正整数 $q$ に対し、連続する収束分数の分母の間に置ける添字 $n$ を選びます。
+
+$
+q_n\le q<q_{n+1}.
+$
+
+ここに[第二種最良近似](../../NT/NT7/index.md#thm-nt7-best-approximation)を用いると、先ほど計算した分母区間の評価が得られます。
+
+$
+h_\alpha(q)\ge\theta_n.
+$
+
+$q$ を無限大へ送れば、選んだ $n$ も無限大へ進みます。従って
 
 $$
 \liminf_{q\to\infty}h_\alpha(q)
