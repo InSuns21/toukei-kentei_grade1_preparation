@@ -1,0 +1,32 @@
+chapter: "SREL2"
+terms:
+  - term: Minkowski時空
+    english: Minkowski spacetime
+    meaning: "時刻ctと三つの空間座標を持ち、符号規約 (+---) の非正定値な計量で因果関係を表す平坦時空。"
+  - term: Minkowski計量
+    english: Minkowski metric
+    meaning: "四成分U,Vに対し g(U,V)=U0V0-U1V1-U2V2-U3V3 と置く対称非退化双線形形式。"
+  - term: 時空間隔
+    english: spacetime interval
+    meaning: "二事象の差に対する g(ΔX,ΔX)=c²Δt²-|Δr|²。符号はLorentz変換で不変。"
+  - term: 時間的分離
+    english: timelike separation
+    meaning: "異なる二事象の時空間隔の平方が正の場合。両端が同じ位置となる慣性系が存在する。"
+  - term: 光的分離
+    english: null separation
+    meaning: "異なる二事象の時空間隔の平方が零の場合。光円錐の境界に対応する。"
+  - term: 空間的分離
+    english: spacelike separation
+    meaning: "異なる二事象の時空間隔の平方が負の場合。同時に見える慣性系が存在する。"
+  - term: 光円錐
+    english: light cone
+    meaning: "与えられた事象から光が進む非零の変位の集合であり、因果円錐の境界を構成する。"
+  - term: 因果円錐
+    english: causal cone
+    meaning: "一つの事象から未来または過去へ、光速以下の理想的信号で結べる事象の領域。"
+  - term: 固有時
+    english: proper time
+    meaning: "区分的に時間的で未来向きの世界線に沿い、sqrt(1-|v|²/c²) を座標時間について積分した時計の経過時間。"
+  - term: 固有時最大性
+    english: maximal proper time of inertial motion
+    meaning: "平坦時空で同じ未来向き時間的に分離した二事象を結ぶ経路のうち、慣性直線の固有時が最大となる性質。"
