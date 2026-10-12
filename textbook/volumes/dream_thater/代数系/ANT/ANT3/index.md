@@ -1,6 +1,6 @@
 # ANT3 Dirichlet文字・Gauss和・Dirichlet L関数
 
-[ANT2のDirichlet級数とEuler積](../ANT2/index.md#thm-ant2-euler-product)は、算術関数の乗法性を素数の積へ変換しました。しかし係数を $1$ にしたままでは、「素数 $p$ が $a$ を法 $q$ とする剰余類に属するか」を区別できません。この章では、剰余類の掛け算を複素数の掛け算に翻訳する **Dirichlet文字**を作り、加法的な指数関数との橋となるGauss和、さらに複素解析へ接続するDirichlet $L$ 関数を導きます。
+[ANT2のDirichlet級数とEuler積](../ANT2/index.md#thm-ant2-euler-product)は、算術関数の乗法性を素数の積へ変換しました。しかし係数を $1$ にしたままでは、「素数 $p$ が $a$ を法 $q$ とする剰余類に属するか」を区別できません。この章では、剰余類の掛け算を複素数の掛け算に移す重みを構成し、加法的な指数関数との橋になる有限和を計算します。さらに、その重みをDirichlet級数へ入れて複素解析へつなげます。
 
 [NT2の単数群](../../NT/NT2/index.md#def-nt2-unit-group)、[NT3のLegendre記号](../../NT/NT3/index.md#def-nt3-legendre-symbol)、[ANT2のDirichlet級数](../ANT2/index.md#def-ant2-complex-dirichlet-series)を既習とします。法 $q$ は整数 $q\ge2$、$G=(\mathbb Z/q\mathbb Z)^\times$、$h=|G|=\varphi(q)$ とし、$\operatorname{Re}s=\sigma$、$e_q(t)=\exp(2\pi it/q)$ と記します。文字はすべて複素数値です。
 
@@ -48,7 +48,7 @@ $$
 法 $6$ の単数は $1,5$ です。$\chi_0(1)=\chi_0(5)=1$、$\chi_0(2)=\chi_0(3)=\chi_0(4)=\chi_0(6)=0$ で、これが周期的に続きます。例えば $5\cdot5\equiv1\pmod6$ に対して、文字値の積は $1\cdot1=1$ です。
 <!-- definition-example-end -->
 
-主文字以外では、単数上で $1$ 以外の値を取るものがあります。これらをすべて一度に足すと剰余類を取り出すフィルターになります。その仕組みを証明しましょう。
+主文字以外では、単数上で $1$ 以外の値を取るものがあります。これらをすべて一度に足すと剰余類を取り出す抽出式になります。その仕組みを証明しましょう。
 
 ## 2. 有限可換群の指標と直交関係
 
@@ -109,7 +109,7 @@ $$
 両辺を複素共役に取ることで第二の直交関係を得ます。非単数の場合はすべての文字値が $0$ です。
 <!-- proof-end -->
 
-法 $5$ の単数群は [NT2の有限体の乗法群の巡回性](../../NT/NT2/index.md#thm-nt2-finite-subgroup-cyclic)により巡回群であり、実際 $2,4,3,1$ と $2$ の冪が全単数を巡ります。$\chi_k(2^j)=i^{kj}$（$k=0,1,2,3$）の四文字があり、例えば $a=1,b=2$ に対して $1+i^{-1}+i^{-2}+i^{-3}=0$ です。
+法 $5$ の単数群は [体の乗法群の有限部分群は巡回群](../../NT/NT2/index.md#thm-nt2-finite-subgroup-cyclic)により巡回群であり、実際 $2,4,3,1$ と $2$ の冪が全単数を巡ります。$\chi_k(2^j)=i^{kj}$（$k=0,1,2,3$）の四文字があり、例えば $a=1,b=2$ に対して $1+i^{-1}+i^{-2}+i^{-3}=0$ です。
 
 <a id="cor-ant3-residue-projector"></a>
 
@@ -231,7 +231,7 @@ $$
 
 ### 証明の見取り図
 
-加法的な指数関数の直交性を利用すると、$S_\chi(a)$ の絶対値二乗の総和は $q$ 倍の文字の絶対値二乗の総和になります。他方、[Gauss変換定理](#thm-ant3-gauss-transform)を代入すると同じ和が $\varphi(q)|\tau(\chi)|^2$ になります。
+加法的な指数関数の直交性を利用すると、$S_\chi(a)$ の絶対値二乗の総和は $q$ 倍の文字の絶対値二乗の総和になります。他方、[原始文字のGauss変換](#thm-ant3-gauss-transform)を代入すると同じ和が $\varphi(q)|\tau(\chi)|^2$ になります。
 
 <!-- proof-start -->
 ### 証明
@@ -333,7 +333,7 @@ $$
 =\frac{|z|}{|1-z|}
 \le\frac{|z|}{1-2^{-m}},
 $$
-なので各因子の $1$ からのずれの和も一様収束します。[無限積の非零性定理](../../../解析系/CA/CA10/index.md#thm-ca10-infinite-product-criterion)により極限は非零です。
+なので各因子の $1$ からのずれの和も一様収束します。[無限積の局所一様収束判定](../../../解析系/CA/CA10/index.md#thm-ca10-infinite-product-criterion)により極限は非零です。
 
 主文字では $p\mid q$ のとき $\chi_0(p)=0$ なので局所因子は $1$、$p\nmid q$ のときは $(1-p^{-s})^{-1}$ です。[ζのEuler積](../../../解析系/CA/CA12/index.md#thm-ca12-euler-product)で全素数の因子を掛けたものから有限個の $p\mid q$ の因子を取り除くと最後の式になります。
 <!-- proof-end -->
@@ -395,7 +395,7 @@ $$
 L(s,\chi_0)=\zeta(s)P_q(s),\qquad
 P_q(s)=\prod_{p\mid q}(1-p^{-s})
 $$
-と書きます。$P_q$ は有限積の全関数です。[CA12のζの有理型解析接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により $\zeta$ は $\sigma>0$ で $s=1$ 以外正則で、そこに留数 $1$ の単純極を持ちます。$P_q(1)=\prod_{p\mid q}(1-1/p)>0$ だから、積の留数は $P_q(1)$、極は消えず単純です。[NT2のφの積公式](../../NT/NT2/index.md#prop-nt2-totient-formula)から $P_q(1)=\varphi(q)/q$ です。
+と書きます。$P_q$ は有限積の全関数です。[CA12のζの有理型解析接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により $\zeta$ は $\sigma>0$ で $s=1$ 以外正則で、そこに留数 $1$ の単純極を持ちます。$P_q(1)=\prod_{p\mid q}(1-1/p)>0$ だから、積の留数は $P_q(1)$、極は消えず単純です。[φ 関数の積公式](../../NT/NT2/index.md#prop-nt2-totient-formula)から $P_q(1)=\varphi(q)/q$ です。
 <!-- proof-end -->
 
 主文字に対する極と、非主文字の $s=1$ での正則性を区別できました。ただし正則であることは値が $0$ でないことを保証しません。**ここがANT4で新しい証明を要する箇所**です。
@@ -440,7 +440,7 @@ $2$ が法 $5$ の単数群の生成元であることを確認し、文字 $\ch
 $$
 L(s,\chi_0)=\zeta(s)(1-2^{-s})(1-3^{-s}).
 $$
-[主L関数の留数定理](#thm-ant3-l-continuation)から、$s=1$ での留数は $(1-1/2)(1-1/3)=(1/2)(2/3)=1/3$ です。[NT2のφの積公式](../../NT/NT2/index.md#prop-nt2-totient-formula)でも $\varphi(6)/6=2/6=1/3$ と確かめられます。
+[主L関数の留数定理](#thm-ant3-l-continuation)から、$s=1$ での留数は $(1-1/2)(1-1/3)=(1/2)(2/3)=1/3$ です。[φ 関数の積公式](../../NT/NT2/index.md#prop-nt2-totient-formula)でも $\varphi(6)/6=2/6=1/3$ と確かめられます。
 <!-- solution-end -->
 
 #### A4. 法4のGauss和
@@ -516,7 +516,7 @@ $$
 - ID: ANT3-B4
 
 <!-- solution-start -->
-**詳細解答**：[Gauss変換定理](#thm-ant3-gauss-transform)を複素共役に取ると、$a$ に対して
+**詳細解答**：[原始文字のGauss変換](#thm-ant3-gauss-transform)を複素共役に取ると、$a$ に対して
 $$
 \overline{S_\chi(a)}=\chi(a)\overline{\tau(\chi)}.
 $$
@@ -528,14 +528,14 @@ $$
 &=q\chi(n).
 \end{aligned}
 $$
-一方、[Gauss変換定理](#thm-ant3-gauss-transform)から左辺は $\tau(\chi)\sum_{a}\overline{\chi(a)}e_q(-an)$ です。従って正しい逆変換は
+一方、[原始文字のGauss変換](#thm-ant3-gauss-transform)から左辺は $\tau(\chi)\sum_{a}\overline{\chi(a)}e_q(-an)$ です。従って正しい逆変換は
 $$
 \chi(n)=\frac{\tau(\chi)}q\sum_{a\bmod q}\overline{\chi(a)}e_q(-an).
 $$
 [Gauss和の絶対値](#thm-ant3-gauss-magnitude)による $|\tau(\chi)|^2=q$ から $\tau(\chi)/q=1/\overline{\tau(\chi)}$ です。したがって問題文の式が成立します。原始性がなければ $\tau(\chi)=0$ となることがあり、この割り算はできません。
 <!-- solution-end -->
 
-### Level C：文字フィルターとL関数を結ぶ
+### Level C：文字抽出式とL関数を結ぶ
 
 #### C1. 法5の剰余類をL関数で抽出する
 
