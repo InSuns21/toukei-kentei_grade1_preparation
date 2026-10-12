@@ -1,7 +1,7 @@
 version: 1
 id: HDP
 title: 高次元確率論・集中不等式
-plan: textbook/plans_progress/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 学習ブロック単位を尊重し、講数・週数に固定しない。後続章の分割は実装時に見直す。

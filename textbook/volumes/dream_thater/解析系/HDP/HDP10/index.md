@@ -419,7 +419,14 @@ $N_j=5$、$N_{j-1}=3$、$u=\log10$、$j=2$ のとき、有限chainingの $v_j$ �
 - ID: HDP10-A5
 
 <!-- solution-start -->
-**詳細解答**　$G$ は独立な平均零の座標を持ち、各座標の指数モーメントは $Ee^{\lambda G_i}=e^{\lambda^2/2}$ です。[Hanson–Wrightの定理](../HDP9/index.md#thm-hdp9-hanson-wright)に $K=1$、$A=I_n$ を入れます。$\|I_n\|_{\mathrm F}^2=\sum_{i,j}(I_n)_{ij}^2=n$、$\|I_n\|_{\mathrm{op}}=1$ です。よって二領域上界は $2\exp[-\min\{t^2/(640n),t/64\}]$ です。ここでは添字集合の被覆数ではなく、座標ごとの二次形式が対象です。
+**詳細解答**　$G$ は独立な平均零の座標を持ち、各座標の指数モーメントは $Ee^{\lambda G_i}=e^{\lambda^2/2}$ です。[Hanson–Wrightの定理](../HDP9/index.md#thm-hdp9-hanson-wright)に $K=1$、$A=I_n$ を入れます。$\|I_n\|_{\mathrm F}^2=\sum_{i,j}(I_n)_{ij}^2=n$、$\|I_n\|_{\mathrm{op}}=1$ です。任意の $t>0$ に対し、二次形式の期待値 $E(G^{\mathsf T}I_nG)=n$ を引いた確率は
+
+$$
+P\left(\left|\sum_{i=1}^n(G_i^2-1)\right|\ge t\right)
+\le 2\exp\left[-\min\left\{\frac{t^2}{640n},\frac{t}{64}\right\}\right].
+$$
+
+と評価できます。ここでは添字集合の被覆数ではなく、座標ごとの二次形式が対象です。
 <!-- solution-end -->
 
 **Level B：核心証明の段階を再構成する**
@@ -472,7 +479,7 @@ $G\sim N(0,1)$ と $T=\{0,1,2\}$ を取り、$X_t=tG$、$d(s,t)=|s-t|$ とする
 
 ### C1. 指数的に多い近接候補
 
-$T_m=\{\sum_{i=1}^ms_i2^{-i}e_i:s_i\in\{0,1\}\}$、$X_t=\langle G,t\rangle$（独立標準正規 $G_i$）とする。(1) $D^2$ を計算せよ。(2) 前 $k$ 座標を残す被覆を作り、半径と点数を示せ。(3) $E\sup_t X_t$ を計算し、$2^m$ 個への単純union boundと比較せよ。
+$T_m=\{\sum_{i=1}^ms_i2^{-i}e_i:s_i\in\{0,1\}\}$、$X_t=\langle G,t\rangle$（独立標準正規 $G_i$）とする。(1) $D^2$ を計算せよ。(2) $0\le k\le m$ として前 $k$ 座標を残す被覆を作り、半径と点数を示せ。(3) $E\sup_t X_t$ を計算し、$2^m$ 個への単純union boundと比較せよ。
 
 - Level: C
 - ID: HDP10-C1
@@ -489,7 +496,14 @@ $T_m=\{\sum_{i=1}^ms_i2^{-i}e_i:s_i\in\{0,1\}\}$、$X_t=\langle G,t\rangle$（�
 - ID: HDP10-C2
 
 <!-- solution-start -->
-**詳細解答**　(a) 各 $G_i$ は独立・平均零で共通MGF代理量 $K=1$ なので[Hanson–Wright不等式](../HDP9/index.md#thm-hdp9-hanson-wright)を使えます。偏差の上界は $2\exp[-\min\{t^2/(640\|A\|_{\mathrm F}^2),t/(64\|A\|_{\mathrm{op}})\}]$（$A\ne0$）です。(b) 各座標はsub-Gaussianですが独立ではありません。二次形式は $nG^2$、中心化は $n(G^2-1)$ で、(a) の定理を適用できません。[HDP9の独立性に関する反例](../HDP9/index.md#thm-hdp9-hanson-wright)と同じ仕組みです。(c) 標本 $Y_i$ の独立性、有界性、零関数を含む有限な関数族を確認できれば、[有限関数族の系](#cor-hdp10-empirical-finite-class)を適用できます。ここでの複雑度は関数間の $\|\cdot\|_\infty/\sqrt n$ による被覆数であり、(a) のFrobeniusノルムや作用素ノルムを代入する問題ではありません。零関数がなければ基準関数の偏差を別途評価する必要があります。
+**詳細解答**　(a) 各 $G_i$ は独立・平均零で共通MGF代理量 $K=1$ なので[Hanson–Wright不等式](../HDP9/index.md#thm-hdp9-hanson-wright)を使えます。$EG_iG_j$ は $i=j$ なら $1$、異なれば $0$ なので、$E(G^{\mathsf T}AG)=\sum_iA_{ii}=\operatorname{tr}(A)$ です。$A\ne0$、$t>0$ なら
+
+$$
+P\left(\left|G^{\mathsf T}AG-\operatorname{tr}(A)\right|\ge t\right)
+\le 2\exp\left[-\min\left\{\frac{t^2}{640\|A\|_{\mathrm F}^2},\frac{t}{64\|A\|_{\mathrm{op}}}\right\}\right].
+$$
+
+$A=0$ なら中心化二次形式は恒等的に零です。(b) 各座標はsub-Gaussianですが独立ではありません。二次形式は $nG^2$、中心化は $n(G^2-1)$ で、(a) の定理を適用できません。[HDP9の独立性に関する反例](../HDP9/index.md#thm-hdp9-hanson-wright)と同じ仕組みです。(c) 標本 $Y_i$ の独立性、有界性、零関数を含む有限な関数族を確認できれば、[有限関数族の系](#cor-hdp10-empirical-finite-class)を適用できます。ここでの複雑度は関数間の $\|\cdot\|_\infty/\sqrt n$ による被覆数であり、(a) のFrobeniusノルムや作用素ノルムを代入する問題ではありません。零関数がなければ基準関数の偏差を別途評価する必要があります。
 <!-- solution-end -->
 
 ここまでで、単一の確率変数の集中から、有限個の候補の同時制御、行列・二次形式、**候補間の距離を使う多段階の同時制御**までがつながりました。chainingを無限集合や統計的学習理論の一般論へ広げるときには、本章では仮定していない可算な代表点からの近似・個々の実現での近似・関数族の可測性といった条件を改めて確かめる必要があります。

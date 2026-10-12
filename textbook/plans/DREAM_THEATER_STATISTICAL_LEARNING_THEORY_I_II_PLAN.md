@@ -5,7 +5,7 @@
 
 ## 中心問いと直接依存
 
-[ML1](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)、確率論・測度論、[HDP](DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md)の集中不等式。SLT2でRMTを使う部分は必要講に限定。
+[ML1](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)、確率論・測度論、[HDP](../plan_done/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md)の集中不等式。SLT2でRMTを使う部分は必要講に限定。
 
 **本科目の正本：** VC・Rademacher・汎化界、次に高次元・深層学習の条件付き理論。
 
@@ -15,12 +15,12 @@
 |---|---|
 | 1 | risk・Bayes risk・excess risk |
 | 2 | 学習可能性と PAC 定式化 |
-| 3 | HDP の Hoeffding 型集中を有限仮説に適用 |
+| 3 | [HDP1のHoeffding不等式](../volumes/dream_thater/解析系/HDP/HDP1/index.md#thm-hdp1-hoeffding)を有限仮説に適用 |
 | 4 | 一様大数則、union bound と必要標本数 |
 | 5 | shattering と VC 次元 |
 | 6 | Sauer–Shelah 補題 |
 | 7 | VC 型汎化誤差界 |
-| 8 | covering number・epsilon-net の導入 |
+| 8 | [HDP10の有限被覆数](../volumes/dream_thater/解析系/HDP/HDP10/index.md#def-hdp10-covering-number)を起点にcovering number・epsilon-netを学習問題へ適用 |
 | 9 | symmetrization・Rademacher 複雑度 |
 | 10 | contraction・関数クラスの評価 |
 | 11 | 正則化 ERM・oracle inequality |
