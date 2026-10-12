@@ -55,6 +55,6 @@ EOM221 は SG8 の後に置く。
 ## SG1 着手記録（2026-10-12）
 
 - TH1〜TH8、SM1〜SM8 は現行系列 manifest で全章 completed、両 PLAN は plan_done にあるため、SG1 は前提ゲートを通過。
-- SG 系列 manifest を作成し、SG1 の chapter/knowledge metadata と本文初稿を作成。SG1 は review / CI / 公開索引への登録前の drafting 扱いとする。
+- SG 系列 manifest を作成し、SG1 の chapter/knowledge metadata と本文初稿を作成。SG1の章statusは planned に保ち、本文は未公開の draft.md に置く。全件査読・CI・公開索引のゲートを通るまでは completed にしない。
 - REM の quenched/annealed、Gaussian tail、有限温度の比較、自由エネルギー極限（確率収束・期待値収束）、凍結転移を最初の学修単位とする。Gaussian integration by parts・SK overlap は SG2 / SG3 が担当。
 - 実装初稿の段階で PLAN を plans_progress に移動。検証前の SG1 や SG2〜8 を completed としない。
