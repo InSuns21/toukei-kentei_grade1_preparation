@@ -42,7 +42,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（エネルギーHessianによる判定）**  
-> $N>0$ を固定し、$(S,V)$ の開領域上で $U(S,V,N)$ が $C^2$ 級とする。二つの部分系の総エントロピー・総体積を固定し、一方の状態を $(S+s,V+v,N)$、他方を $(S-s,V-v,N)$ に変える。$E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)$、$z=(s,v)^{\mathsf T}$ と置くと、
+> $N>0$ を固定し、$(S,V)$ の開領域で $U(S,V,N)$ が $C^2$ 級とする。二つの部分系の総エントロピー・総体積を固定し、一方に $(s,v)$、他方に $(-s,-v)$ の交換を加える。$z=(s,v)^{\mathsf T}$、交換後の総エネルギーを
+
+$
+E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)
+$
+
+> と定める。このとき、
 >
 $$
 E(s,v)-E(0,0)=z^{\mathsf T}H_Uz+o(s^2+v^2),
@@ -84,9 +90,25 @@ U(x+z,N)
 \end{aligned}
 $
 
-$z$ の代わりに $-z$ を入れた式では一次項の符号だけが変わります。両式を加えて $2U(x,N)$ を引けば、主張の展開が得られます。局所最小なら任意の固定した方向 $w$ に対し、$z=tw$ として差が非負です。$t^2>0$ で割り $t\to0$ とすると $w^{\mathsf T}H_Uw\ge0$、よって半正定値です。
+$z$ の代わりに $-z$ を入れた式では一次項の符号だけが変わります。両式を加えて $2U(x,N)$ を引けば、主張の展開が得られます。
 
-逆に正定値の対称行列は単位円周上で二次形式が正の最小値 $m>0$ を取ります。従って $z^{\mathsf T}H_Uz\ge m\|z\|^2$ であり、剰余の絶対値を $(m/2)\|z\|^2$ 以下にできる十分小さな近傍では差が正です。ある方向 $w$ で二次形式が負なら同じ極限の議論で小さな $t\ne0$ に対し差は負です。
+局所最小なら任意の固定方向 $w$ に対し $z=tw$ としたエネルギー差は十分小さい $t$ で非負です。$t\ne0$ の場合について
+
+$
+0\le\frac{E(tw)-E(0)}{t^2}
+=w^{\mathsf T}H_Uw+o(1)
+$
+
+と書けます。$t\to0$ とするとすべての $w$ で $w^{\mathsf T}H_Uw\ge0$ なので、Hessianは半正定値です。
+
+逆にHessianが正定値なら、単位円周上の二次形式には正の最小値 $m>0$ が存在します。$z\ne0$ で $w=z/\|z\|$ と置けば
+
+$
+z^{\mathsf T}H_Uz=\|z\|^2w^{\mathsf T}H_Uw
+\ge m\|z\|^2.
+$
+
+剰余の絶対値を $(m/2)\|z\|^2$ 以下にできる十分小さな近傍では、交換エネルギー差は $(m/2)\|z\|^2>0$ です。逆にある方向 $w$ で二次形式が負なら、上の $t\to0$ の式から十分小さい非零 $t$ で差が負となり、局所最小ではありません。
 <!-- proof-end -->
 
 <a id="prop-th6-global-convexity"></a>
@@ -223,14 +245,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $T=U_S$ を $V,N$ 固定で $S$ 微分すれば $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分すると、連鎖律で $U_{SS}S_T|_V=1$ です。正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。従って定義から
+[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $T=U_S$ を $V,N$ 固定で $S$ 微分すると $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分し、連鎖律を適用します。
+
+$
+U_{SS}\left(\frac{\partial S}{\partial T}\right)_{V,N}=1.
+$
+
+正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。[熱容量の定義](#def-th6-response)を用い、
 
 $$
 C_V=T S_T|_V=\frac{T}{U_{SS}},
 \qquad U_{SS}=\frac{T}{C_V}.
 $$
 
-次に同じ[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$ です。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると $-U_{VV}V_p|_S=1$。正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$、従って $\kappa_S=-(1/V)V_p|_S=1/(VU_{VV})$ です。
+次に同じ[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると
+
+$
+-U_{VV}\left(\frac{\partial V}{\partial p}\right)_{S,N}=1.
+$
+
+正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$。[断熱圧縮率の定義](#def-th6-response)に代入すれば
+
+$
+\kappa_S=-\frac1V V_p|_S
+=\frac1{VU_{VV}}
+$
+
+を得ます。
 
 次に $T$ 一定の微小変化では $dT=U_{SS}\,dS+U_{SV}\,dV=0$ です。正定値より $U_{SS}>0$ なので
 
@@ -737,7 +778,18 @@ H_G=\begin{pmatrix}
 \det H_G=\frac{ab}{4p^{3/2}}>0.
 $
 
-$a,b,p>0$ により左上の成分は負、行列式は正なので、Hessianは負定値です。また $V=b/(2\sqrt p)$ は $T$ に依存しないため $\alpha=(1/V)V_T|_p=0$。正の $\kappa_T$ があるので[熱容量差の定理](#thm-th6-heat-capacity-difference)を適用でき、$C_p-C_V=TV\alpha^2/\kappa_T=0$、すなわち $C_V=C_p=aT$ です。
+$a,b,p>0$ により左上の成分は負、行列式は正なので、Hessianは負定値です。また、$V=b/(2\sqrt p)$ は温度によらないため
+
+$
+\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p=0.
+$
+
+正の $\kappa_T$ があるので[熱容量差の定理](#thm-th6-heat-capacity-difference)を適用できます。
+
+$
+C_p-C_V=\frac{TV\alpha^2}{\kappa_T}=0,
+\qquad C_V=C_p=aT.
+$
 <!-- solution-end -->
 
 #### B5. 大域凸性を二次形式から証明する
