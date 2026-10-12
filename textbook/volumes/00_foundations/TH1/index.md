@@ -198,7 +198,7 @@ $$
 
 上の式は平衡気体の広い近似範囲を説明する**経験的な模型法則**であり、数学の定義だけから導かれる全物質共通の恒等式ではありません。相転移近傍・高密度・強い相互作用下では別の状態方程式が必要です。
 
-物質量 $n$ の単位は mol、$R$ の単位は $\mathrm{J\,mol^{-1}K^{-1}}$ です。[MECH1の次元・単位](../MECH1/index.md#def-mech1-dimension-and-unit)で見たように、圧力 $p$ の単位 Pa と体積の単位 $\mathrm{m^3}$ の積は
+物質量 $n$ の単位は mol、$R$ の単位は $\mathrm{J\,mol^{-1}K^{-1}}$ です。[MECH1の次元・単位](../MECH1/index.md#def-mech1-dimension-unit)で見たように、圧力 $p$ の単位 Pa と体積の単位 $\mathrm{m^3}$ の積は
 
 $$
 \mathrm{Pa}\,\mathrm{m^3}
@@ -270,7 +270,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$T,n,R$ を定数として $p(V,T)=nRT\,V^{-1}$ を $V$ で微分します。[RA3の微分法](../RA3/index.md)で使ったべき関数の微分から
+$T,n,R$ を定数として $p(V,T)=nRT\,V^{-1}$ を $V$ で微分します。[RA3の微分法](../RA3/index.md#def-ra3-derivative)で使ったべき関数の微分から
 
 $$
 \left(\frac{\partial p}{\partial V}\right)_{T,n}
