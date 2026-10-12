@@ -155,9 +155,9 @@ $$
 > **命題（合同式による不存在判定）**  
 > 整数係数多項式 $F$（変数は $x_1,\ldots,x_r$）と整数 $c$ について、ある正整数 $q$ を法とする合同式
 
-$
+$$
 F(x_1,\ldots,x_r)\equiv c\pmod q
-$
+$$
 
 > が整数の組を解に持たなければ、方程式 $F(x_1,\ldots,x_r)=c$ も整数解を持たない。
 <!-- formal-statement-end -->
@@ -178,9 +178,9 @@ $
 > **補題（3 mod 4 の素因数の指数）**  
 > 整数 $x,y$、正整数 $n$、素数 $p\equiv3\pmod4$ について、次を仮定する。
 
-$
+$$
 n=x^2+y^2,\qquad p\mid n.
-$
+$$
 
 > このとき $p$ は $x,y$ の両方を割り、$n$ の素因数分解での $p$ の指数は偶数である。
 <!-- formal-statement-end -->
@@ -230,21 +230,21 @@ $$
 > **定義（Gauss 整数とノルム）**  
 > 次の複素数の集合に通常の複素数の加法・乗法を入れる。
 
-$
+$$
 \mathbb Z[i]=\{a+bi:a,b\in\mathbb Z\}.
-$
+$$
 
 > この集合の元 $\alpha=a+bi$ のノルムを次で定める。
 
-$
+$$
 N(\alpha)=a^2+b^2.
-$
+$$
 
 > 任意の $\alpha,\beta\in\mathbb Z[i]$ に対して次の積公式が成り立つ。
 
-$
+$$
 N(\alpha\beta)=N(\alpha)N(\beta).
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nt6-gaussian-integers -->
