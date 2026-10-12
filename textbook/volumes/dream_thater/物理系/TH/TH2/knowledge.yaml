@@ -1,0 +1,86 @@
+chapter: TH2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH1
+  - MECH3
+  - RA3
+forward_references: []
+
+concepts:
+  - id: thermodynamics.internal-energy
+    name: 内部エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（内部エネルギー）]
+    requires: [thermodynamics.state-variables]
+
+  - id: thermodynamics.heat-work
+    name: 熱と仕事の符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱と仕事の符号）]
+    requires: [thermodynamics.system-boundary]
+
+  - id: thermodynamics.first-law
+    name: 熱力学第一法則
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（熱力学第一法則）]
+    requires: [thermodynamics.internal-energy, thermodynamics.heat-work]
+
+  - id: thermodynamics.quasistatic
+    name: 準静的過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（準静的過程）]
+    requires: [thermodynamics.equilibrium-state]
+
+  - id: thermodynamics.pv-work
+    name: 準静的な体積仕事
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（準静的な体積仕事）]
+    requires: [thermodynamics.quasistatic, thermodynamics.heat-work]
+
+  - id: thermodynamics.cycle-balance
+    name: 閉鎖過程のエネルギー収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（閉鎖過程のエネルギー収支）]
+    requires: [thermodynamics.first-law]
+
+  - id: thermodynamics.heat-capacities
+    name: 定積熱容量と定圧熱容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定積熱容量と定圧熱容量）]
+    requires: [thermodynamics.first-law]
+
+  - id: thermodynamics.mayer
+    name: 理想気体の定圧・定積熱容量の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体の定圧・定積熱容量の差）]
+    requires: [thermodynamics.heat-capacities, thermodynamics.pv-work, thermodynamics.equation-of-state]
+
+  - id: thermodynamics.isothermal-work
+    name: 理想気体の準静的等温仕事
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体の準静的等温仕事）]
+    requires: [thermodynamics.pv-work, thermodynamics.first-law, thermodynamics.equation-of-state]
+
+  - id: thermodynamics.adiabatic-process
+    name: 断熱過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（断熱過程）]
+    requires: [thermodynamics.heat-work]
+
+  - id: thermodynamics.adiabatic-curve
+    name: 理想気体の準静的断熱曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体の準静的断熱曲線）]
+    requires: [thermodynamics.adiabatic-process, thermodynamics.first-law, thermodynamics.pv-work, thermodynamics.mayer]
