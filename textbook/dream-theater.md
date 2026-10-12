@@ -877,6 +877,11 @@
 7. [TH7 化学ポテンシャル・多成分系・相平衡](textbook/volumes/dream_thater/物理系/TH/TH7/index.md)
 8. [TH8 相転移・磁性・Landau理論への入口](textbook/volumes/dream_thater/物理系/TH/TH8/index.md)
 
+<a id="dt-subject-statistical-mechanics"></a>
+### 統計力学
+
+1. [SM1 微視的状態・巨視的状態・アンサンブル・熱力学極限](textbook/volumes/dream_thater/物理系/SM/SM1/index.md)
+
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
 
