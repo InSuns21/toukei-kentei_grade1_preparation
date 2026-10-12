@@ -660,6 +660,11 @@
 15. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
 16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/00_foundations/FLD5/index.md)
 
+<a id="dt-subject-algebraic-geometry"></a>
+### 代数幾何学 I〜III
+
+1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/00_foundations/AG1-01/index.md)
+
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
 
