@@ -27,7 +27,7 @@ chapters:
     title: Darbouxの定理
   - id: SYM6
     path: textbook/volumes/00_foundations/SYM6
-    status: planned
+    status: completed
     title: Lagrange部分空間・Lagrange部分多様体
   - id: SYM7
     path: textbook/volumes/00_foundations/SYM7
