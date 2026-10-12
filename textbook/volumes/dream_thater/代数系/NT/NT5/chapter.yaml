@@ -1,0 +1,38 @@
+id: "NT5"
+title: "Möbius反転・約数和・総和関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT4
+official_scope: []
+learning_objectives:
+  - Möbius関数の約数和が単位元になることを平方自由な約数の符号消去で証明できる
+  - Möbius反転公式の両方向をDirichlet畳み込みから導出して約数和を復元できる
+  - Eulerのφ関数の約数和を最大公約数による分類で証明し反転できる
+  - 総和関数と床関数の関係を整数対の二重計数から証明できる
+  - Dirichletの双曲線分割の領域・重複補正を示して総和関数を計算できる
+definitions:
+  - { id: NT5-DEF-01, name: 約数和変換 }
+  - { id: NT5-DEF-02, name: 総和関数 }
+theorems:
+  - { id: NT5-THM-01, name: Möbius関数と定数1関数の逆元関係 }
+  - { id: NT5-THM-02, name: Möbius反転公式 }
+  - { id: NT5-PROP-01, name: Euler関数の約数和と反転 }
+  - { id: NT5-THM-03, name: 畳み込みの総和と二重和 }
+  - { id: NT5-THM-04, name: Dirichletの双曲線分割 }
+canonical_examples:
+  - n=6でσの約数和をMöbius反転する
+  - n=12のEuler関数の約数和を最大公約数で分類する
+  - D(10)を約数個数と床関数の二方式で計算する
+  - x=12の双曲線分割で3×3の重複を補正する
+problem_patterns:
+  - NT5-MOBIUS-UNIT-IDENTITY
+  - NT5-MOBIUS-INVERSION
+  - NT5-TOTIENT-DIVISOR-SUM
+  - NT5-SUMMATORY-CONVOLUTION
+  - NT5-FLOOR-IDENTITY
+  - NT5-HYPERBOLA-METHOD
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
