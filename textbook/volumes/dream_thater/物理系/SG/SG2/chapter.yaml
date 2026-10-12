@@ -1,0 +1,48 @@
+id: "SG2"
+title: "Gaussian concentration・Gaussian部分積分・補間法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG1
+  - HDP5
+official_scope: []
+learning_objectives:
+  - 有限Gaussian場の共分散行列を計算し、退化した正規場も含めた定義を確認できる
+  - HDP5のGaussian部分積分から特異な共分散行列に対する部分積分を導出できる
+  - Gibbs重みを微分し、対角項と二レプリカ項の由来を説明できる
+  - HDP5のGaussian集中定理の適用条件を確かめ、圧力に必要なLipschitz定数を評価できる
+  - 正規場の圧力のLipschitz定数と指数的な集中評価を計算できる
+  - 二つのGaussian場の平方根補間を微分し、共分散差の公式を再現できる
+  - 等分散Gaussian場の圧力比較の向きと等分散仮定の役割を説明できる
+  - 共通ノイズREM型場で圧力、補間微分、熱力学極限を接続できる
+definitions:
+  - { id: SG2-DEF-01, name: "有限Gaussian場と共分散" }
+  - { id: SG2-DEF-02, name: "二レプリカGibbs平均" }
+  - { id: SG2-DEF-04, name: "Gaussian平方根補間" }
+propositions:
+  - { id: SG2-PROP-03, name: "共分散付きGaussian部分積分" }
+  - { id: SG2-PROP-01, name: "Gibbs重みの微分" }
+  - { id: SG2-PROP-02, name: "共通Gaussian無秩序による圧力低下" }
+theorems:
+  - { id: SG2-THM-02, name: "Gaussian補間の微分公式" }
+  - { id: SG2-COR-01, name: "正規無秩序圧力の集中" }
+  - { id: SG2-COR-02, name: "等分散Gaussian場の圧力比較" }
+canonical_examples:
+  - 共通正規変数と独立正規変数を混ぜた二配置の共分散を求める
+  - Gaussian部分積分を正規指数モーメントに適用する
+  - 二配置のレプリカが一致する確率をGibbs重みから計算する
+  - 独立場と全配置共通場のquenched圧力を比較する
+  - 相関するREM型の共通ノイズをくくり出して圧力を求める
+problem_patterns:
+  - SG2-COVARIANCE-MATRIX
+  - SG2-GAUSSIAN-IBP-MOMENTS
+  - SG2-GIBBS-DERIVATIVES
+  - SG2-LIPSCHITZ-TAIL
+  - SG2-TWO-STATE-COMPARISON
+  - SG2-SELF-AVERAGING
+  - SG2-EQUAL-VARIANCE-ASSUMPTION
+  - SG2-COMMON-NOISE-INTERPOLATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 6 }
