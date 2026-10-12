@@ -720,7 +720,7 @@ h(X,Y)=-\iint_{\{p_{XY}=2\}}2\log_22\,dx\,dy
 =-2\cdot\frac12=-1.
 $$
 
-周辺密度は $p_X(x)=1$（$0<x<1$）です。[条件付き密度の定義](#def-info9-conditional-entropy)により、正密度領域では
+周辺密度は $p_X(x)=1$（$0<x<1$）です。[連続条件付き微分エントロピー](#def-info9-conditional-entropy)の定義で使う条件付き密度を代入すると、正密度領域では
 
 $$
 p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)}=\frac21=2
