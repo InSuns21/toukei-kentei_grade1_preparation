@@ -350,10 +350,10 @@ $F$ が面積と各境界を保つため、$F^q$ も同じ二性質を持ちま�
 
 仮定した単調twistと境界twistを合わせ、[単調twist版の固定点定理](#thm-int7-poincare-birkhoff)を $G$ に適用します。相異なる二固定点 $x_1,x_2$ が存在し、それぞれの持ち上げで
 
-$
+$$
 \widetilde F^{\,q}(\widetilde x_j)=\widetilde x_j+(2\pi p,0)
 \qquad(j=1,2)
-$
+$$
 
 となります。円環へ射影すれば $F^q(x_j)=x_j$ です。ただし二点が $F$ によって互いに移る可能性は残ります。二点だけを根拠に二本の周期軌道があるとは結論しません。
 <!-- proof-end -->
@@ -441,21 +441,21 @@ $F(\theta,r)=(\theta+\gamma,r)$、$\gamma\notin2\pi\mathbb Z$ は面積と両境
 <!-- solution-start -->
 **詳細解答。** 時間変数と初期値変数への連鎖律を、それぞれ $u,v$ に適用します。
 
-$
+$$
 dPu=d\varphi^\tau u+X_H(P(x))\,d\tau(u),
 \qquad
 dPv=d\varphi^\tau v+X_H(P(x))\,d\tau(v).
-$
+$$
 
 $\omega(dPu,dPv)$ を双線形性によって四項に展開します。固定時間流の接写像はエネルギー面の接ベクトルを同じエネルギー面へ写します。[Hamiltonベクトル場の定義](../../SYM/SYM4/index.md#def-sym4-hamiltonian-vector-field)より $\iota_{X_H}\omega=dH$ であり、エネルギー面では $dH$ が接ベクトル上で零です。
 
 従って $X_H$ とエネルギー面への接ベクトルとの混合項二つは零です。最後の $X_H$ 同士の項も交代性で零となります。残りは[Hamilton流のシンプレクティック形式保存](../../SYM/SYM4/index.md#thm-sym4-flow-preservation)によって
 
-$
+$$
 \omega(dPu,dPv)
 =\omega(d\varphi^\tau u,d\varphi^\tau v)
 =\omega(u,v)
-$
+$$
 
 となり、[帰還写像の面積保存](#prop-int7-return-area)を得ます。帰還時間を一定と仮定していません。
 <!-- solution-end -->
@@ -468,10 +468,10 @@ $
 <!-- solution-start -->
 **詳細解答。** $G$ の偏微分からHamilton方程式は次の形です。
 
-$
+$$
 \dot\theta=\partial_rG=-4r(1-r^2)\cos\theta,\qquad
 \dot r=-\partial_\theta G=(1-r^2)^2\sin\theta.
-$
+$$
 
 $r=\pm1$ では二成分がともに零なので、$\varphi_G^\varepsilon$ は両境界上で恒等です。[Hamilton流のシンプレクティック形式保存](../../SYM/SYM4/index.md#thm-sym4-flow-preservation)と $T$ の行列式1から、合成は面積を保存します。境界変位はそれぞれ $-1$ と $+1$ なので、境界twistは厳密です。
 
