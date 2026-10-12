@@ -382,7 +382,17 @@ $$
 =\alpha_q.
 $$
 
-逆向きも同様に合成が恒等写像になります。
+逆向きは $\beta_r\in T_r^*R$ と $q=f^{-1}(r)$ を取ると、[逆写像の微分](../GEO2/index.md#thm-geo2-composition-differential)から $(df^{-1}_r)^{-1}=df_q$ です。従って
+
+$
+\begin{aligned}
+\widehat f\bigl(\widehat{f^{-1}}(\beta_r)\bigr)
+&=(\beta_r\circ df_q)\circ(df_q)^{-1}\\
+&=\beta_r.
+\end{aligned}
+$
+
+よって両方向の合成が恒等写像になり、$\widehat f$ は微分同相です。
 
 次に $\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を固定し、$\beta_{f(q)}=\widehat f(\alpha_q)$ と置きます。[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を $\pi_R\circ\widehat f=f\circ\pi_Q$ に適用すると
 
