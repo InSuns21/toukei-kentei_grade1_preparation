@@ -1,0 +1,47 @@
+id: "SG5"
+title: "Ghirlanda–Guerra恒等式とultrametricity"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG4
+  - SG2
+official_scope: []
+learning_objectives:
+  - overlap行列の半正定値性とレプリカの交換可能性を導ける
+  - 完全なGhirlanda–Guerra恒等式の条件付き混合則を計算できる
+  - p-spin補助Gaussian場の共分散と有限N部分積分恒等式を導出できる
+  - エネルギー密度自己平均化の条件からGG式の誤差上界を再導出できる
+  - 超距離性と閾値同値類の入れ子構造を証明できる
+  - 最大overlapの原子定理と二値ultrametricityを証明できる
+  - Panchenkoの一般定理の仮定と有限値の場合の証明の境界を説明できる
+definitions:
+  - { id: SG5-DEF-01, name: "Ghirlanda–Guerra恒等式" }
+  - { id: SG5-DEF-02, name: "overlapの超距離性" }
+propositions:
+  - { id: SG5-PROP-01, name: "新レプリカの条件付き混合則" }
+  - { id: SG5-PROP-02, name: "閾値ごとの階層的同値関係" }
+theorems:
+  - { id: SG5-THM-01, name: "有限サイズのGaussian恒等式" }
+  - { id: SG5-THM-02, name: "自己平均化からGG恒等式へ" }
+  - { id: SG5-THM-03, name: "最大overlapの原子と最上位クラス" }
+  - { id: SG5-THM-04, name: "Panchenkoのultrametricity定理" }
+  - { id: SG5-COR-01, name: "二値overlapのultrametricity" }
+canonical_examples:
+  - n=2のGG二次モーメント
+  - 混合則のn=3の具体例
+  - p=2,N=2のGaussian補助場共分散
+  - 超距離三角形の成立と反例
+  - 閾値による小集団と大集団
+problem_patterns:
+  - SG5-GG-MOMENTS
+  - SG5-CONDITIONAL-MIXTURE
+  - SG5-GAUSSIAN-COVARIANCE
+  - SG5-GAUSSIAN-IBP
+  - SG5-SELF-AVERAGING
+  - SG5-ULTRAMETRIC-TRIANGLES
+  - SG5-ATOMIC-OVERLAP
+  - SG5-PANCHENKO-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 7 }
