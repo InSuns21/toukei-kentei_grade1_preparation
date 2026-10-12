@@ -180,7 +180,7 @@ $$
 
 最後の極限が零なのは $\beta_{kj}$ が原点付近で有界だからです。これが全ての $j,k$ で成り立ち、$d\sigma=\beta$ が従います。
 
-さらに $\beta(0)=0$ の場合、小球の閉包上で係数の一階微分に一様上界 $C_1$ を取れます。$s\mapsto\beta_{ij}(stx)$ に一変数の微積分の基本定理を使うと
+さらに $\beta(0)=0$ の場合、小球の閉包上で係数の一階微分に一様上界 $C_1$ を取れます。$s\mapsto\beta_{ij}(stx)$ に[微積分の基本定理（FTC II）](../RA4/index.md#thm-ra4-ftc2)を適用すると
 
 $$
 \begin{aligned}
@@ -342,7 +342,7 @@ $$
 
 です。[非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)のコンパクト性による証明を、時間区間 $[-1,2]$ に適用します。$R$ を元の座標球より小さく取り直せば、$[-1,2]\times\overline{B_R}$ で全ての $\Omega_t(x)$ を非退化にできます。従って前の逆行列表示から $Y_t(x)$ はこの集合を含む開近傍上で滑らかです。
 
-特にコンパクト集合 $[0,1]\times\overline{B_R}$ 上で $D_xY_t$ は有界です。$Y_t(0)=0$ と原点からの線分上の微積分の基本定理により、定数 $L>0$ があり、
+特にコンパクト集合 $[0,1]\times\overline{B_R}$ 上で $D_xY_t$ は有界です。$Y_t(0)=0$ と、$s\mapsto Y_t(sx)$ に適用する[微積分の基本定理（FTC II）](../RA4/index.md#thm-ra4-ftc2)により、定数 $L>0$ があり、
 
 $$
 Y_t(x)-Y_t(0)
@@ -641,7 +641,7 @@ $\mathbb R^2$ 上で $\omega=e^x\,dx\wedge dy$ とする。$q=x$、$p=e^xy$ がD
 - ID: SYM5-A1
 
 <!-- solution-start -->
-**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。$p=e^x\cdot y$ の微分に積の法則を適用すると
+**詳細解答**　逆写像は $x=q$、$y=e^{-q}p$ で、全点で滑らかです。$p=e^x\cdot y$ の微分に[積の微分公式](../RA3/index.md#prop-ra3-product-rule)を適用すると
 
 $$
 dp=y\,d(e^x)+e^x\,dy=e^x y\,dx+e^x\,dy.
