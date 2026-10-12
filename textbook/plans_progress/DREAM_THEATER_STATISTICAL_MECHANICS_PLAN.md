@@ -85,3 +85,10 @@ free-energy nonanalyticity、correlation、critical point、scaling / universali
 
 - SM6 はBose型・Fermi型占有数、大分配関数と揺らぎ、周期境界自由粒子の状態密度、量子理想気体の状態方程式、希薄極限、Bose基底占有とFermi零温度極限を実装した。
 - 主要 formal result 11件、主要証明8件、Level A 4題・B 4題・C 1題の詳細解答を配置。SM7〜SM8 の実装と系列横断監査は残っている。
+
+
+## SM7 の進捗（2026-10-12）
+
+- 有限強磁性Ising模型、零外場反転対称性、一次元開放鎖の分配関数・二点相関、Curie–Weissの磁化別分配関数を実装した。
+- 二項係数の一様評価、圧力の変分極限と磁化集中、臨界温度、微小外場による自発磁化、極限順序の非可換性、磁化感受率を証明した。Level A 4題・B 3題・C 1題に全て詳細解答を配置した。
+- SM8 と系列横断監査は残るため、PLANは進行中のままとする。

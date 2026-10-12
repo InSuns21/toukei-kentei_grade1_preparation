@@ -31,7 +31,7 @@ chapters:
     title: 量子統計と量子理想気体
   - id: SM7
     path: textbook/volumes/dream_thater/物理系/SM/SM7
-    status: planned
+    status: completed
     title: Ising模型とCurie–Weiss平均場
   - id: SM8
     path: textbook/volumes/dream_thater/物理系/SM/SM8

@@ -1,0 +1,67 @@
+chapter: SM7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM3
+forward_references: []
+concepts:
+  - id: statistical-mechanics.ising-model
+    name: 有限強磁性Ising模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限強磁性Ising模型）"]
+    requires: [statistical-mechanics.canonical-ensemble]
+  - id: statistical-mechanics.ising-spin-flip
+    name: 有限零外場の反転対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限零外場の反転対称性）"]
+    requires: [statistical-mechanics.ising-model]
+  - id: statistical-mechanics.ising-chain-correlation
+    name: 一次元開放鎖の分配関数と相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次元開放鎖の分配関数と相関）"]
+    requires: [statistical-mechanics.ising-model]
+  - id: statistical-mechanics.curie-weiss-model
+    name: Curie–Weiss平均場模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Curie–Weiss平均場模型）"]
+    requires: [statistical-mechanics.ising-model]
+  - id: statistical-mechanics.curie-weiss-multiplicity
+    name: 磁化階級別のCurie–Weiss分配関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（磁化階級別のCurie–Weiss分配関数）"]
+    requires: [statistical-mechanics.curie-weiss-model]
+  - id: statistical-mechanics.curie-weiss-binomial-bound
+    name: 二項係数の一様エントロピー評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二項係数の一様エントロピー評価）"]
+    requires: []
+  - id: statistical-mechanics.curie-weiss-pressure
+    name: Curie–Weiss圧力の変分表示と磁化集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Curie–Weiss圧力の変分表示と磁化集中）"]
+    requires: [statistical-mechanics.curie-weiss-multiplicity, statistical-mechanics.curie-weiss-binomial-bound]
+  - id: statistical-mechanics.curie-weiss-critical-point
+    name: Curie–Weiss模型の零外場臨界点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Curie–Weiss模型の零外場臨界点）"]
+    requires: [statistical-mechanics.curie-weiss-pressure]
+  - id: statistical-mechanics.curie-weiss-spontaneous
+    name: Curie–Weiss模型の自発磁化と極限の非可換性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Curie–Weiss模型の自発磁化と極限の非可換性）"]
+    requires: [statistical-mechanics.curie-weiss-critical-point, statistical-mechanics.curie-weiss-pressure, statistical-mechanics.ising-spin-flip]
+  - id: statistical-mechanics.curie-weiss-response
+    name: 磁化分散と常磁性相の感受率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（磁化分散と常磁性相の感受率）"]
+    requires: [statistical-mechanics.curie-weiss-spontaneous, statistical-mechanics.curie-weiss-multiplicity]
