@@ -55,10 +55,10 @@ $$
 > **補題（Poisson重みの独立指数傾斜）**  
 > $0<m<1$ とする。Poisson点列 $(u_j)$ に対し独立同分布な実数マーク $(Y_j)$ を付け、$\mathbb E e^{mY_1}<\infty$ とする。このとき
 >
-> $$
-> \mathbb E\log\sum_jv_je^{Y_j}
-> =\frac1m\log\mathbb E e^{mY_1}.
-> $$
+$$
+\mathbb E\log\sum_jv_je^{Y_j}
+=\frac1m\log\mathbb E e^{mY_1}.
+$$
 >
 > 右辺の期待値はマークの分布について取り、左辺の期待値はPoisson点列とマークの両方について取る。
 <!-- formal-statement-end -->
@@ -121,9 +121,9 @@ $$
 
 > である。葉 $\alpha=(\alpha_1,\ldots,\alpha_k)$ の非正規化重みを、根から葉までの点の積 $w_\alpha$ とし、
 >
-> $$
-> v_\alpha=\frac{w_\alpha}{\sum_{\gamma}w_\gamma}
-> $$
+$$
+v_\alpha=\frac{w_\alpha}{\sum_{\gamma}w_\gamma}
+$$
 >
 > と置く。葉二つの最後に共通する節点の深さを $d(\alpha,\gamma)$ とし、異なる葉のoverlapを $Q_{\alpha\gamma}=q_{d(\alpha,\gamma)+1}$、同じ葉のoverlapを $Q_{\alpha\alpha}=1$ とする。これを有限段RPCと呼ぶ。
 <!-- formal-statement-end -->
@@ -151,11 +151,11 @@ $$
 > **命題（RPCの階層性と二標本のoverlap）**  
 > 上記の有限段RPCから条件付き独立に二つの葉を抽出する。木上の $Q$ は各標本ごとにultrametricである。また無条件のoverlap分布は
 >
-> $$
-> \mathbb P(Q_{12}=q_\ell)=m_\ell-m_{\ell-1}
-> \quad(1\le\ell\le k),\qquad
-> \mathbb P(Q_{12}=1)=1-m_k
-> $$
+$$
+\mathbb P(Q_{12}=q_\ell)=m_\ell-m_{\ell-1}
+\quad(1\le\ell\le k),\qquad
+\mathbb P(Q_{12}=1)=1-m_k
+$$
 >
 > である。ただし同じ $q$ 値が重なる場合は対応する質量を足し合わせる。
 <!-- formal-statement-end -->
@@ -218,26 +218,26 @@ RPCは階層構造を与えたが、圧力を数値として評価するには�
 > **定義（有限段Parisi汎関数）**  
 > $\beta\ge0$、$h\in\mathbb R$、上記の $q_\ell,m_\ell$ に対して
 >
-> $$
-> X_{k+1}=\log\cosh\left(h+\beta\sum_{\ell=1}^{k+1}
-> \sqrt{q_\ell-q_{\ell-1}}Z_\ell\right)
-> $$
+$$
+X_{k+1}=\log\cosh\left(h+\beta\sum_{\ell=1}^{k+1}
+\sqrt{q_\ell-q_{\ell-1}}Z_\ell\right)
+$$
 >
 > と置く。$\ell=k,k-1,\ldots,1$ の順に、$Z_1,\ldots,Z_\ell$ を固定した条件付き平均により
 >
-> $$
-> X_\ell=\frac1{m_\ell}\log
-> \mathbb E_{Z_{\ell+1}}\exp(m_\ell X_{\ell+1}),
-> \qquad X_0=\mathbb E_{Z_1}X_1
-> $$
+$$
+X_\ell=\frac1{m_\ell}\log
+\mathbb E_{Z_{\ell+1}}\exp(m_\ell X_{\ell+1}),
+\qquad X_0=\mathbb E_{Z_1}X_1
+$$
 >
 > と定める。このとき有限段Parisi汎関数は
 >
-> $$
-> \mathcal P_k(\beta,h;q,m)
-> =\log2+X_0-\frac{\beta^2}{4}
-> \sum_{\ell=1}^k m_\ell(q_{\ell+1}^2-q_\ell^2)
-> $$
+$$
+\mathcal P_k(\beta,h;q,m)
+=\log2+X_0-\frac{\beta^2}{4}
+\sum_{\ell=1}^k m_\ell(q_{\ell+1}^2-q_\ell^2)
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -279,19 +279,19 @@ $$
 > **命題（RPCのGaussian積分と再帰式）**  
 > 有限段RPCの葉 $\alpha$ ごとに、各サイト $i$ 独立な中心Gaussian場 $z_i(\alpha)$ を置き、
 >
-> $$
-> \mathbb Ez_i(\alpha)z_j(\gamma)
-> =\delta_{ij}Q_{\alpha\gamma}
-> $$
+$$
+\mathbb Ez_i(\alpha)z_j(\gamma)
+=\delta_{ij}Q_{\alpha\gamma}
+$$
 >
 > とする。この場とRPC重みは独立とする。任意の整数 $N\ge1$ について
 >
-> $$
-> \frac1N\mathbb E\log\left[
-> \sum_\alpha v_\alpha\prod_{i=1}^N
-> 2\cosh(h+\beta z_i(\alpha))\right]
-> =\log2+X_0.
-> $$
+$$
+\frac1N\mathbb E\log\left[
+\sum_\alpha v_\alpha\prod_{i=1}^N
+2\cosh(h+\beta z_i(\alpha))\right]
+=\log2+X_0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -336,28 +336,28 @@ $$
 > **定理（有限段Guerra補間の和公式と上界）**  
 > [対角項付きSK場](../SG3/index.md#prop-sg3-representation) $H_N$、任意の有限段RPC、独立なGaussian場 $z_i(\alpha)$ と $y(\alpha)$ を取り、
 >
-> $$
-> \mathbb Ez_i(\alpha)z_j(\gamma)=\delta_{ij}Q_{\alpha\gamma},
-> \qquad \mathbb Ey(\alpha)y(\gamma)=\frac12Q_{\alpha\gamma}^2.
-> $$
+$$
+\mathbb Ez_i(\alpha)z_j(\gamma)=\delta_{ij}Q_{\alpha\gamma},
+\qquad \mathbb Ey(\alpha)y(\gamma)=\frac12Q_{\alpha\gamma}^2.
+$$
 >
 > $H_N,z,y$ は互いに独立、RPC重みとも独立とする。$t\in[0,1]$ で
 >
-> $$
-> \mathcal H_t(\sigma,\alpha)=\sqrt t H_N(\sigma)
-> +\sqrt{1-t}\sum_{i=1}^N z_i(\alpha)\sigma_i
-> +\sqrt{tN}\,y(\alpha)
-> $$
+$$
+\mathcal H_t(\sigma,\alpha)=\sqrt t H_N(\sigma)
++\sqrt{1-t}\sum_{i=1}^N z_i(\alpha)\sigma_i
++\sqrt{tN}\,y(\alpha)
+$$
 >
 > とし、$\langle\cdot\rangle_t$ は重み $v_\alpha\exp(\beta\mathcal H_t+h\sum_i\sigma_i)$ のGibbs平均（同じ無秩序で二レプリカを抽出）とする。このとき
 >
-> $$
-> p_N(\beta,h)=\mathcal P_k(\beta,h;q,m)
-> -\frac{\beta^2}{4}\int_0^1
-> \mathbb E\left\langle
-> (R(\sigma^1,\sigma^2)-Q_{\alpha^1\alpha^2})^2
-> \right\rangle_t\,dt.
-> $$
+$$
+p_N(\beta,h)=\mathcal P_k(\beta,h;q,m)
+-\frac{\beta^2}{4}\int_0^1
+\mathbb E\left\langle
+(R(\sigma^1,\sigma^2)-Q_{\alpha^1\alpha^2})^2
+\right\rangle_t\,dt.
+$$
 >
 > 従って全 $N\ge1$ に対して $p_N(\beta,h)\le\mathcal P_k(\beta,h;q,m)$ である。
 <!-- formal-statement-end -->
@@ -456,10 +456,10 @@ $$
 > **定理（SK模型のParisi変分原理：研究級の外部定理）**  
 > 独立な標準Gaussian結合を持つSK模型で、$\beta\ge0$、$h\in\mathbb R$ を固定する。quenched圧力の熱力学極限は存在し、上で定義した有限段Parisi汎関数の全試行パラメータについて
 >
-> $$
-> \lim_{N\to\infty}p_N(\beta,h)
-> =\inf_{k,q,m}\mathcal P_k(\beta,h;q,m)
-> $$
+$$
+\lim_{N\to\infty}p_N(\beta,h)
+=\inf_{k,q,m}\mathcal P_k(\beta,h;q,m)
+$$
 >
 > が成立する。等値の $q_\ell$ や境界値の $m_\ell$ は極限として許しても同じ下限を与える。
 <!-- formal-statement-end -->
