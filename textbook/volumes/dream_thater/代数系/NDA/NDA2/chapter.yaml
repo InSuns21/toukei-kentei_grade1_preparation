@@ -1,0 +1,38 @@
+id: "NDA2"
+title: "Dirichlet・Hurwitz・悪近似数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA1
+  - RA1
+official_scope: []
+learning_objectives:
+  - 正規化近似誤差と漸近近似定数の違いを定義・具体計算で説明できる
+  - 第二種最良近似から漸近近似定数が収束分数の誤差の下極限に等しいと導ける
+  - 隣接三収束分数の誤差式からHurwitzの1/平方根5の厳密評価を証明できる
+  - 黄金比の整数ノルムからHurwitz定数の普遍的最適性を証明できる
+  - 悪近似数と連分数の部分商有界性の同値を両方向に証明できる
+  - Dirichlet近似とHurwitz近似の違い及び個別・漸近定数の違いを説明できる
+definitions:
+  - { id: NDA2-DEF-01, name: 近似定数と漸近近似定数 }
+  - { id: NDA2-DEF-02, name: 悪近似数 }
+theorems:
+  - { id: NDA2-PROP-01, name: 漸近近似定数の収束分数表示 }
+  - { id: NDA2-LEM-01, name: 隣接三収束分数の誤差公式 }
+  - { id: NDA2-LEM-02, name: 三項Hurwitz補題 }
+  - { id: NDA2-THM-01, name: Hurwitzの近似定理 }
+  - { id: NDA2-PROP-02, name: 黄金比におけるHurwitz定数の最適性 }
+  - { id: NDA2-THM-02, name: 悪近似数と有界部分商の同値 }
+canonical_examples:
+  - 黄金比の1項だけの部分商と漸近定数1/平方根5
+  - 平方根2の部分商有界性と一様近似下界
+  - 部分商が増加する無理数の非悪近似性
+problem_patterns:
+  - NDA2-THREE-CONVERGENT-ERROR
+  - NDA2-HURWITZ-SHARP-CONSTANT
+  - NDA2-BADLY-APPROXIMABLE-QUOTIENTS
+  - NDA2-ASYMPTOTIC-VS-UNIFORM-CONSTANT
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
