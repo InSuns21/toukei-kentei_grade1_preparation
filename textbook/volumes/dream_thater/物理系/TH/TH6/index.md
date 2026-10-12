@@ -42,7 +42,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（エネルギーHessianによる判定）**  
-> $N$ 固定で $U(S,V,N)$ が $C^2$ 級なら、上の交換に対するエネルギー差は、$z=(s,v)^{\mathsf T}$ として
+> $N>0$ を固定し、$(S,V)$ の開領域上で $U(S,V,N)$ が $C^2$ 級とする。二つの部分系の総エントロピー・総体積を固定し、一方の状態を $(S+s,V+v,N)$、他方を $(S-s,V-v,N)$ に変える。$E(s,v)=U(S+s,V+v,N)+U(S-s,V-v,N)$、$z=(s,v)^{\mathsf T}$ と置くと、
 >
 $$
 E(s,v)-E(0,0)=z^{\mathsf T}H_Uz+o(s^2+v^2),
@@ -55,23 +55,36 @@ $$
 
 ### 証明の見取り図
 
-正負二つのTaylor展開を足すと、一次項と奇数次数の項が消えます。判定に効くのは方向 $z$ に沿う二次形式です。
+二点への変化をそれぞれ一変数関数に制限して二階まで展開します。正負の変化を足すと一次項は相殺され、方向 $z$ に沿う二次形式が残ります。$C^2$ 級だけを仮定しているため、ここで三次以上のTaylor係数の存在は主張しません。
 
 <!-- proof-start -->
 ### 証明
 
-$N$ を固定し、$x=(S,V)$ と書きます。$C^2$ 級のTaylor展開を $z$ と $-z$ に適用すると
+$N$ を固定し、$x=(S,V)$、$z=(s,v)$ と書きます。多変数の展開を暗黙に使わないため、線分上の一変数関数 $\varphi_z(t)=U(x+tz,N)$（$-1\le t\le1$）を作ります。連鎖律を二回適用すると
 
-$$
+$
+\varphi_z'(t)=\nabla U(x+tz,N)\cdot z,\qquad
+\varphi_z''(t)=z^{\mathsf T}H_U(x+tz,N)z.
+$
+
+まず微積分の基本定理で $\varphi_z(1)-\varphi_z(0)=\int_0^1\varphi_z'(t)\,dt$。さらに $\varphi_z'(t)=\varphi_z'(0)+\int_0^t\varphi_z''(u)\,du$ を代入し、三角領域の積分順序を入れ替えると
+
+$
+\varphi_z(1)=\varphi_z(0)+\varphi_z'(0)
++\int_0^1(1-t)\varphi_z''(t)\,dt.
+$
+
+$U$ の二階偏微分は $x$ の近傍で連続です。したがって $z\to0$ のとき、$0\le t\le1$ に一様に $H_U(x+tz,N)-H_U(x,N)\to0$ となり、
+
+$
 \begin{aligned}
-U(x+z,N)&=U(x,N)+\nabla U(x,N)\cdot z
-+\frac12 z^{\mathsf T}H_Uz+o(\|z\|^2),\\
-U(x-z,N)&=U(x,N)-\nabla U(x,N)\cdot z
-+\frac12 z^{\mathsf T}H_Uz+o(\|z\|^2).
+U(x+z,N)
+&=U(x,N)+\nabla U(x,N)\cdot z\\
+&\quad+\frac12z^{\mathsf T}H_U(x,N)z+o(\|z\|^2).
 \end{aligned}
-$$
+$
 
-両辺を加え、$2U(x,N)$ を引くと主張の展開になります。局所最小なら任意の固定した方向 $w$ に対し、$z=tw$ として差が非負です。$t^2>0$ で割り $t\to0$ とすると $w^{\mathsf T}H_Uw\ge0$、よって半正定値です。
+$z$ の代わりに $-z$ を入れた式では一次項の符号だけが変わります。両式を加えて $2U(x,N)$ を引けば、主張の展開が得られます。局所最小なら任意の固定した方向 $w$ に対し、$z=tw$ として差が非負です。$t^2>0$ で割り $t\to0$ とすると $w^{\mathsf T}H_Uw\ge0$、よって半正定値です。
 
 逆に正定値の対称行列は単位円周上で二次形式が正の最小値 $m>0$ を取ります。従って $z^{\mathsf T}H_Uz\ge m\|z\|^2$ であり、剰余の絶対値を $(m/2)\|z\|^2$ 以下にできる十分小さな近傍では差が正です。ある方向 $w$ で二次形式が負なら同じ極限の議論で小さな $t\ne0$ に対し差は負です。
 <!-- proof-end -->
@@ -197,14 +210,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$V,N$ 固定で $T=U_S$ を $S$ 微分すれば $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分すると、連鎖律で $U_{SS}S_T|_V=1$ です。正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。従って定義から
+[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $T=U_S$ を $V,N$ 固定で $S$ 微分すれば $T_S|_V=U_{SS}$ です。座標変換の恒等式 $U_S(S(T,V),V,N)=T$ を $T$ で微分すると、連鎖律で $U_{SS}S_T|_V=1$ です。正定値性より $U_{SS}>0$ なので $S_T|_V=1/U_{SS}$ と解けます。従って定義から
 
 $$
 C_V=T S_T|_V=\frac{T}{U_{SS}},
 \qquad U_{SS}=\frac{T}{C_V}.
 $$
 
-次に $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$ です。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると $-U_{VV}V_p|_S=1$。正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$、従って $\kappa_S=-(1/V)V_p|_S=1/(VU_{VV})$ です。
+次に同じ[基本関係式](../TH4/index.md#prop-th4-fundamental-fixed-n)の $p=-U_V$ を $S,N$ 固定で $V$ 微分すると $p_V|_S=-U_{VV}$ です。恒等式 $-U_V(S,V(S,p),N)=p$ を $p$ で微分すると $-U_{VV}V_p|_S=1$。正定値性から $U_{VV}>0$ なので $V_p|_S=-1/U_{VV}$、従って $\kappa_S=-(1/V)V_p|_S=1/(VU_{VV})$ です。
 
 次に $T$ 一定の微小変化では $dT=U_{SS}\,dS+U_{SV}\,dV=0$ です。正定値より $U_{SS}>0$ なので
 
@@ -288,7 +301,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（断熱・等温圧縮率の関係）**  
-> 前定理の領域でさらに $C_V>0$、$\kappa_T>0$ とし、$S,p$ の局所座標が存在するとする。このとき
+> $N>0$ 固定の一成分単相系で $U$ が $C^3$ 級、$T,V>0$ とし、$(T,V)$、$(T,p)$、$(S,p)$ が滑らかな局所平衡座標であるとする。各応答量が定義でき、$C_V>0$、$\kappa_T>0$ であり、Helmholtz自由エネルギーのMaxwell関係式が成り立つとする。このとき
 >
 $$
 \frac{\kappa_T}{\kappa_S}=\frac{C_p}{C_V},
@@ -303,7 +316,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-直前の証明で求めた $dS$ に $dS=0$ を代入します。$C_V>0$ なので
+[熱容量差の定理](#thm-th6-heat-capacity-difference)の証明で得た $dS=(C_V/T)\,dT+(p_T|_V)\,dV$ に、断熱条件 $dS=0$ を代入します。$C_V>0$ なので
 
 $$
 \left(\frac{\partial T}{\partial V}\right)_{S,N}
