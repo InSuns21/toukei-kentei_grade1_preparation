@@ -80,7 +80,7 @@ $$
 
 これで（B1）を得ます。次に水平性（B2）を確認します。任意の点 $m\in L_\mu$、接ベクトル $v\in T_mL_\mu$、Lie代数元 $\xi\in\mathfrak g_\mu$ を固定します。
 
-$\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[GMECH4の運動量レベル接空間・次元命題](../GMECH4/index.md#prop-gmech4-tangent-regular)より
+$\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[GMECH4で導いた運動量レベル集合の接空間の表示](../GMECH4/index.md#prop-gmech4-tangent-regular)より
 
 $$
 dJ_m(v)=0.
