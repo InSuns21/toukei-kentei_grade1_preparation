@@ -26,7 +26,7 @@ theorems:
   - { id: SYM7-PROP-01, name: Moser型同位変形に必要な完全性 }
   - { id: SYM7-THM-01, name: Moserの安定性定理 }
   - { id: SYM7-COR-01, name: コホモロジー的に等しい端点の線形経路による変形 }
-  - { id: SYM7-PROP-02, name: 点wiseに零の原始形式が与える固定集合 }
+  - { id: SYM7-PROP-02, name: 各点で零となる原始形式が与える固定集合 }
 canonical_examples:
   - トーラス上の正の係数からなるシンプレクティック形式の族
   - 平面の一定倍率を打ち消すMoser型同位変形
