@@ -4,7 +4,7 @@
 
 本章はその二つの問いを接続します。まずRiemann予想を厳密に記述し、平滑化した素数和から点ごとの誤差を取り出す際に失われる冪指数まで計算します。次に定量的な零点不存在領域から、無条件で得られる素数定理の誤差を導きます。最後にDirichlet L関数・一般L関数へ何が移り、何が未証明のまま残るかを整理します。
 
-以下 $x\ge2$、$s=\sigma+it$、$\rho=\beta+i\gamma$ とし、零点は重複度込みで数えます。$\Lambda(n)$ と $\psi(x)=\sum_{n\le x}\Lambda(n)$ は[ANT5の定義](../ANT5/index.md#def-ant5-von-mangoldt)および[NT8の定義](../../NT/NT8/index.md#def-nt8-chebyshev-psi)を使います。
+以下 $x\ge2$、$s=\sigma+it$、$\rho=\beta+i\gamma$ とし、零点は重複度込みで数えます。$\Lambda(n)$ と $\psi(x)=\sum_{n\le x}\Lambda(n)$ は[NT8の定義](../../NT/NT8/index.md#def-nt8-von-mangoldt)および[NT8の総和関数](../../NT/NT8/index.md#def-nt8-chebyshev-psi)を使います。
 
 ## 1. Riemann予想は何を追加で主張するか
 
@@ -119,48 +119,14 @@ $$
 
 ## 3. 逆向き：素数の誤差が零点を押し返す
 
-誤差評価から零点不存在を導く方向は、[ANT5の対数微分Dirichlet級数](../ANT5/index.md#thm-ant5-logarithmic-derivative)を部分積分すれば、より直接的に証明できます。
+誤差評価から零点不存在を導く方向は、すでに[ANT5の「ψの冪誤差から導く零点不存在」定理](../ANT5/index.md#thm-ant5-error-zero-free)で証明しました。ここではその**既出結果を援用**してRHの十分条件を得ます。
 
-<a id="thm-ant8-error-implies-zero-free"></a>
-
-<!-- formal-statement-start -->
-> **定理（Chebyshev誤差から零点不存在領域へ）**  
-> $1/2\le\theta<1$ とし、$\psi(x)=x+O(x^\theta)$ が成り立つと仮定する。このとき $\zeta(s)$ は半平面 $\operatorname{Re}s>\theta$ に零点を持たない。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-$\psi(x)-x$ を誤差 $E(x)$ とし、$-\zeta'/\zeta$ を $E$ のMellin型積分で表します。誤差の減衰が解析接続できる半平面を決めます。
-
-<!-- proof-start -->
-### 証明
-
-$\sigma>1$ では [ANT5の級数](../ANT5/index.md#thm-ant5-logarithmic-derivative)を絶対収束で積分交換して
+再利用する論理を確認します。誤差を $E(u)=\psi(u)-u=O(u^\theta)$ と書くと、[ANT5のMellin型積分表示](../ANT5/index.md#thm-ant5-mellin-psi)から
 $$
 -\frac{\zeta'(s)}{\zeta(s)}
-=\sum_{n\ge1}\frac{\Lambda(n)}{n^s}
-=s\int_1^\infty\psi(u)u^{-s-1}\,du.
+=\frac{s}{s-1}+s\int_1^\infty E(u)u^{-s-1}\,du
 $$
-実際、右辺に $\psi(u)=\sum_{n\le u}\Lambda(n)$ を代入し、各 $n$ について $s\int_n^\infty u^{-s-1}du=n^{-s}$ を用いました。$E(u)=\psi(u)-u$ とすると
-$$
--\frac{\zeta'(s)}{\zeta(s)}
-=\frac{s}{s-1}+s\int_1^\infty E(u)u^{-s-1}\,du. \tag{3.1}
-$$
-$|E(u)|\le Cu^\theta$ より、$\sigma>\theta$ で
-$$
-\int_1^\infty |E(u)u^{-s-1}|\,du
-\le C\int_1^\infty u^{\theta-\sigma-1}\,du
-=\frac C{\sigma-\theta}.
-$$
-コンパクト部分集合で同じ収束が一様になり、$s$ で微分した積分にも $\log u$ を付けて同様の評価を適用できるので、積分は $\sigma>\theta$ で正則です。よって (3.1) は $s=1$ の可能な極を除いて $\sigma>\theta$ に正則な延長を与えます。
-
-仮にその半平面の $s_0\ne1$ がζの零点で位数 $m\ge1$ なら $\zeta(s)=(s-s_0)^m g(s)$、$g(s_0)\ne0$ から
-$$
--\frac{\zeta'(s)}{\zeta(s)}
-=-\frac m{s-s_0}-\frac{g'(s)}{g(s)}
-$$
-となり $s_0$ に極を持ちます。これは (3.1) の正則性に反します。$s=1$ は[CA12のζの単純極](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)なので零点ではありません。
-<!-- proof-end -->
+です。$\sigma>\theta$ のとき右側の積分は、被積分関数の絶対値を $Cu^{\theta-\sigma-1}$ で抑えられるので正則です。一方、位数 $m$ の零点 $s=\rho$ があると $-\zeta'/\zeta$ は留数 $-m$ の極を持ちます。従って $\beta>\theta$ に零点はありません。この積分交換・正則延長・極との矛盾の完全な証明は[ANT5の定理](../ANT5/index.md#thm-ant5-error-zero-free)にあります。
 
 <a id="cor-ant8-strong-error-rh"></a>
 
@@ -176,7 +142,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $\beta>1/2$ に対し $0<\varepsilon<\min(\beta-1/2,1/2)$ を選ぶと、[直前の定理](#thm-ant8-error-implies-zero-free)から $\beta$ を実部とする零点は存在しません。従って全非自明零点の実部は $1/2$ 以下です。[ANT7の対称性](../ANT7/index.md#thm-ant7-zero-symmetry)によれば $\beta<1/2$ の零点があれば $1-\beta>1/2$ にも零点があるため、結局 $\beta=1/2$ です。
+任意の $\beta>1/2$ に対し $0<\varepsilon<\min(\beta-1/2,1/2)$ を選ぶと、[直前の定理](../ANT5/index.md#thm-ant5-error-zero-free)から $\beta$ を実部とする零点は存在しません。従って全非自明零点の実部は $1/2$ 以下です。[ANT7の対称性](../ANT7/index.md#thm-ant7-zero-symmetry)によれば $\beta<1/2$ の零点があれば $1-\beta>1/2$ にも零点があるため、結局 $\beta=1/2$ です。
 
 後半は $\log^K x=O_\varepsilon(x^\varepsilon)$ を使います。この評価は $y=\log x$ と置くと $y^Ke^{-\varepsilon y}$ が $y\to\infty$ で有界となることから従います。
 <!-- proof-end -->
@@ -510,7 +476,7 @@ $\psi(x)=x+O(x^{2/3})$ を仮定したときの $-\zeta'/\zeta$ の解析接続�
 - ID: ANT8-B2
 
 <!-- solution-start -->
-**詳細解答**：[誤差から零点不存在への定理](#thm-ant8-error-implies-zero-free)の積分を $E(u)=O(u^{2/3})$ に対して使います。
+**詳細解答**：[誤差から零点不存在への定理](../ANT5/index.md#thm-ant5-error-zero-free)の積分を $E(u)=O(u^{2/3})$ に対して使います。
 $$
 \left|\int_1^\infty E(u)u^{-s-1}du\right|
 \le C\int_1^\infty u^{2/3-\sigma-1}du
