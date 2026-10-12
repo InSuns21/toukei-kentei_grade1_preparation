@@ -325,7 +325,18 @@ $$
 となります。集合の条件からイデアルを実際に求められました。
 <!-- definition-example-end -->
 
-環のイデアル $J$ について、$f^m\in J$（$m\ge1$）なら必ず $f\in J$ となる性質を**根基的**と呼びます。これは「式の累乗が消えるなら、元の式も消える」という、零点集合にふさわしい条件です。
+ここで、式の累乗がイデアルに属するとき、元の式も属すという性質を考えます。零点での値を使うと、この条件が自然に現れます。
+
+<a id="def-ag1-01-radical-ideal"></a>
+
+<!-- formal-statement-start -->
+> **定義（根基的イデアル）**  
+> 可換環 $R$ のイデアル $J$ が根基的であるとは、任意の $f\in R$ と整数 $m\ge1$ について、$f^m\in J$ なら $f\in J$ が成り立つことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ag1-01-radical-ideal -->
+**定義の確認**：$\mathbb C[x]$ のイデアル $(x)$ は根基的です。実際、$f^m\in(x)$ なら、ある $g$ により $f(x)^m=xg(x)$ です。両辺に $x=0$ を代入すると $f(0)^m=0$、従って $f(0)=0$ です。[多項式除法](../RNG4/index.md#thm-rng4-division-algorithm)で $f=xq+f(0)$ と書けるため $f=xq\in(x)$ です。
+<!-- definition-example-end -->
 
 <a id="prop-ag1-01-vanishing-ideal-radical"></a>
 
