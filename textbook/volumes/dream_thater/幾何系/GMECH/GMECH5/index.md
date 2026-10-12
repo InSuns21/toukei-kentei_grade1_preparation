@@ -80,7 +80,7 @@ $$
 
 これで（B1）を得ます。次に水平性（B2）を確認します。任意の点 $m\in L_\mu$、接ベクトル $v\in T_mL_\mu$、Lie代数元 $\xi\in\mathfrak g_\mu$ を固定します。
 
-$\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[正則レベル集合の接空間](../GMECH4/index.md#prop-gmech4-tangent-regular)より
+$\xi$ は安定化Lie代数に属するので、基本ベクトル $\xi_M(m)$ はレベル集合に接します。また[GMECH4の運動量レベル接空間・次元命題](../GMECH4/index.md#prop-gmech4-tangent-regular)より
 
 $$
 dJ_m(v)=0.
@@ -629,7 +629,17 @@ M_\mu\simeq(0,\infty)\times\mathbb R,\qquad
 \omega_\mu=dr\wedge dp_r.
 $$
 
-位置の長さは $r$ で、直交分解から $|p|^2=p_r^2+\mu^2/r^2$ です。よって
+位置ベクトルの長さは $r$ です。$e_r$ と $e_\theta$ は長さ1で互いに直交するため、運動量の内積を成分ごとに展開すると
+
+$
+|p|^2=p\cdot p
+=p_r^2(e_r\cdot e_r)
++2\frac{p_r\mu}{r}(e_r\cdot e_\theta)
++\frac{\mu^2}{r^2}(e_\theta\cdot e_\theta)
+=p_r^2+\frac{\mu^2}{r^2}.
+$
+
+この式をもとのHamiltonianへ代入すると
 
 $$
 H_\mu(r,p_r)=\frac12p_r^2+\frac{\mu^2}{2r^2}-\frac{k}{r}.
