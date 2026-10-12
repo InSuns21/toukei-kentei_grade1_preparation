@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00F1
+  - LA3B
 official_scope: []
 learning_objectives:
   - 有限無向非負重み付きグラフ、次数、体積、孤立頂点と組合せLaplacianを定義して具体的に計算できる
@@ -16,8 +17,9 @@ definitions:
   - { id: SGT1-DEF-01, name: 有限無向重み付きグラフ }
   - { id: SGT1-DEF-02, name: 重み付き次数・体積 }
   - { id: SGT1-DEF-03, name: 組合せLaplacian }
-  - { id: SGT1-DEF-04, name: 道・連結成分 }
-  - { id: SGT1-DEF-05, name: Cutの重み }
+  - { id: SGT1-DEF-04, name: グラフの道 }
+  - { id: SGT1-DEF-05, name: グラフの連結成分 }
+  - { id: SGT1-DEF-06, name: Cutの重み }
 theorems:
   - { id: SGT1-THM-01, name: Dirichletエネルギーの辺表示 }
   - { id: SGT1-THM-02, name: 組合せLaplacianの半正定値性 }
