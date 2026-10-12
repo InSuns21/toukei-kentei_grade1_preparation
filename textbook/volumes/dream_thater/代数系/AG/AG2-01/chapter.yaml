@@ -1,0 +1,51 @@
+id: "AG2-01"
+title: "射影空間と斉次座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-12
+  - AG1-11
+  - AG1-03
+  - AG1-01
+official_scope: []
+learning_objectives:
+  - 非零ベクトルのスカラー倍による同値関係と射影空間を定義し、代表元の同一性を判定できる
+  - 標準アフィンチャートの全単射を証明して各座標を計算できる
+  - チャート間の有理的な座標変換と三重重複の整合性を証明できる
+  - 斉次多項式のスカラー倍公式と射影零点条件の代表元不変性を証明できる
+  - 射影零点集合の閉集合公理とチャート上の非斉次化を確認できる
+  - アフィン曲線の斉次化から無限遠点を求められる
+  - 可逆線形変換の射影空間への作用を証明し非可逆な場合の失敗を説明できる
+definitions:
+  - { id: AG2-01-DEF-01, name: 射影空間と斉次座標 }
+  - { id: AG2-01-DEF-02, name: 標準アフィンチャート }
+  - { id: AG2-01-DEF-03, name: 斉次多項式 }
+  - { id: AG2-01-DEF-04, name: 射影零点集合 }
+theorems:
+  - { id: AG2-01-PROP-01, name: 標準チャートとアフィン空間の全単射 }
+  - { id: AG2-01-PROP-02, name: チャート変換の整合性 }
+  - { id: AG2-01-PROP-03, name: 斉次式の零点条件の代表元不変性 }
+  - { id: AG2-01-PROP-04, name: 射影方程式のチャート上での非斉次化 }
+  - { id: AG2-01-PROP-05, name: 可逆線形変換の射影空間への作用 }
+canonical_examples:
+  - 射影点の代表元の同一性と零ベクトルの排除
+  - 射影直線の二チャートと無限遠点
+  - 射影平面の三つのチャート間の座標変換
+  - 放物線の斉次化と唯一の無限遠点
+  - 平行直線の無限遠での交点
+  - 可逆行列の射影作用と非可逆行列の失敗
+problem_patterns:
+  - AG2-01-REPRESENTATIVE-EQUIVALENCE
+  - AG2-01-CHART-COORDINATES
+  - AG2-01-P1-TRANSITION
+  - AG2-01-HOMOGENIZATION-INFINITY
+  - AG2-01-TRIPLE-OVERLAP
+  - AG2-01-LINEAR-ACTION
+  - AG2-01-PROJECTIVE-UNION-INTERSECTION
+  - AG2-01-WEIERSTRASS-INFINITY
+  - AG2-01-CHART-DEHOMOGENIZATION
+  - AG2-01-CONIC-PARAMETRIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
