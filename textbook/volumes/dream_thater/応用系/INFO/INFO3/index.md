@@ -229,10 +229,10 @@ $$
 P(A_n)\le \frac{V(p)}{n\varepsilon^2}.
 $$
 
-[弱典型集合の定義](#def-info3-weak-typical)から $A_n=\{X^n\notin T_{n,\varepsilon}(p)\}$ が確率1で成り立ちます。$V(p)$、$\varepsilon$ を固定すれば右辺は $n\to\infty$ で零になるため、確率収束と典型集合の確率が1に近づくという二つの結論を得ます。
+[弱典型集合の定義](#def-info3-weak-typical)から $A_n=\{X^n\notin T_{n,\varepsilon}(p)\}$ が確率1で成り立ちます。$V(p)$、$\varepsilon$ を固定すれば右辺は $n\to\infty$ で零になります。従って任意の $\varepsilon>0$ に対し $P(|\overline Z_n-H(p)|>\varepsilon)\to0$ であり、[確率収束の定義](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence)を満たします。さらに $P(X^n\in T_{n,\varepsilon}(p))=1-P(A_n)\to1$ です。
 <!-- proof-end -->
 
-**仮定の役割**：有限記号集合は $V(p)<\infty$ を保証し、同一分布はすべての平均が同じ $H(p)$ になることを保証し、独立性は分散の交差項を消します。独立性を省くと分散が $V(p)/n$ に減る保証はありません。なお $V(p)=0$ なら、補題の分散式から $\overline Z_n=H(p)$ が確率1で成り立ちます。
+**仮定の役割**：有限記号集合は $V(p)<\infty$ を保証し、同一分布はすべての平均が同じ $H(p)$ になることを保証し、独立性は分散の交差項を消します。独立性を省くと分散が $V(p)/n$ に減る保証はありません。なお $V(p)=0$ なら、[対数確率の平均と分散](#lem-info3-log-moments)の式は非負項 $p(x)[-\log_2p(x)-H(p)]^2$ の和が零であることを意味します。$x\in S$ では $p(x)>0$ なので各項が零となり、$-\log_2p(x)=H(p)$ です。従って $X_i\in S$ が確率1で成り立つことから、各 $n$ について $\overline Z_n=H(p)$ が確率1で成立します。
 
 ## 4. 典型列は何個あるのか
 
