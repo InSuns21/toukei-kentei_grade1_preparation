@@ -1,0 +1,47 @@
+id: "ANT3"
+title: "Dirichlet文字・Gauss和・Dirichlet L関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANT2
+  - NT2
+  - NT3
+official_scope: []
+learning_objectives:
+  - Dirichlet文字・主文字・原始文字の定義を確認し有限な単数群の例を構成できる
+  - 有限可換群の指標の分離と直交関係を証明し剰余類指示関数を導出できる
+  - 原始性がGauss変換へ及ぼす役割を証明しGauss和の絶対値を直交性から導出できる
+  - Dirichlet L関数の絶対収束、Euler積と右半平面での非零性を証明できる
+  - 非主L関数の正則延長と主L関数の単純極をAbelの部分和から説明できる
+  - L(1,chi)の存在と非零性を区別しDirichletの定理の未証明の核心を特定できる
+definitions:
+  - { id: ANT3-DEF-01, name: Dirichlet文字 }
+  - { id: ANT3-DEF-02, name: 主Dirichlet文字 }
+  - { id: ANT3-DEF-03, name: 誘導文字と原始Dirichlet文字 }
+  - { id: ANT3-DEF-04, name: Gauss和 }
+  - { id: ANT3-DEF-05, name: Dirichlet L関数 }
+theorems:
+  - { id: ANT3-THM-01, name: Dirichlet文字の直交関係 }
+  - { id: ANT3-COR-01, name: 既約剰余類の指示関数 }
+  - { id: ANT3-THM-02, name: 原始文字のGauss変換 }
+  - { id: ANT3-THM-03, name: 原始文字のGauss和の絶対値 }
+  - { id: ANT3-THM-04, name: Dirichlet L関数のEuler積と非零性 }
+  - { id: ANT3-THM-05, name: 非主L関数の正則延長と主L関数の極 }
+canonical_examples:
+  - 法4の非主文字の乗法性とGauss和
+  - 法5の単数群の四文字と直交関係
+  - 法8の原始文字と法4から誘導される非原始文字
+  - 法6の主文字のEuler積と留数
+  - 法4のL級数と絶対収束・条件収束
+problem_patterns:
+  - ANT3-CHARACTER-CHECK
+  - ANT3-CHARACTER-ORTHOGONALITY
+  - ANT3-PRIMITIVE-INDUCED
+  - ANT3-GAUSS-TRANSFORM
+  - ANT3-L-EULER
+  - ANT3-L-CONTINUATION
+  - ANT3-RESIDUE-PROJECTOR
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

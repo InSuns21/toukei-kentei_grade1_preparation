@@ -1,0 +1,68 @@
+chapter: CM1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA8
+  - GEO2
+
+concepts:
+  - id: complex-manifolds.several-variables-holomorphic-map
+    name: 複素線形微分による多変数正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素線形微分による多変数正則写像）"]
+    requires: [complex-analysis.holomorphic-function]
+  - id: complex-manifolds.complex-n-chart
+    name: 複素n次元座標近傍
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素n次元座標近傍）"]
+    requires: [complex-analysis.complex-chart, complex-manifolds.several-variables-holomorphic-map]
+  - id: complex-manifolds.higher-holomorphic-atlas
+    name: 高次元正則アトラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高次元正則アトラス）"]
+    requires: [complex-manifolds.complex-n-chart]
+  - id: complex-manifolds.complex-n-manifold
+    name: 複素n次元多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素n次元多様体）"]
+    requires: [complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.holomorphic-composition
+    name: 高次元正則写像の合成と双正則座標変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則写像の合成と双正則座標変換）"]
+    requires: [complex-manifolds.several-variables-holomorphic-map]
+  - id: complex-manifolds.nonlinear-shear-charts
+    name: 非線形剪断座標による正則アトラス
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非線形剪断座標による正則アトラス）"]
+    requires: [complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.atlas-compatibility
+    name: 複素アトラスの両立性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アトラスの両立性）"]
+    requires: [complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.maximal-atlas
+    name: 極大正則アトラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極大正則アトラス）"]
+    requires: [complex-manifolds.atlas-compatibility]
+  - id: complex-manifolds.maximal-atlas-extension
+    name: 両立アトラスの極大延長
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（両立アトラスの極大延長）"]
+    requires: [complex-manifolds.maximal-atlas]
+  - id: complex-manifolds.finite-product
+    name: 複素多様体の有限直積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素多様体の有限直積）"]
+    requires: [complex-manifolds.complex-n-manifold]

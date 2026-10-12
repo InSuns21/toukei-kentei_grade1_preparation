@@ -1,0 +1,43 @@
+id: "CM1-01"
+title: "複素座標と高次元正則アトラス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA8
+  - GEO2
+official_scope: []
+learning_objectives:
+  - 複素数値多変数写像の正則性を実微分の複素線形性から判定し、合成の正則性を証明できる
+  - Hausdorff性・第二可算性・複素座標・双方向の正則な遷移から複素n次元多様体を定義できる
+  - 座標遷移の定義域・逆写像・複素Jacobi行列の条件を具体例で照合できる
+  - 正則アトラスの両立性を判定し、極大正則アトラスの構成を証明できる
+  - 開集合・非線形座標・Riemann面の直積を複素多様体として構成できる
+  - 複素共役を含む不適合な座標と、正則座標変換との差を説明できる
+definitions:
+  - { id: CM1-01-DEF-01, name: 複素線形微分による多変数正則写像 }
+  - { id: CM1-01-DEF-02, name: 複素n次元座標近傍 }
+  - { id: CM1-01-DEF-03, name: 高次元正則アトラス }
+  - { id: CM1-01-DEF-04, name: 複素n次元多様体 }
+  - { id: CM1-01-DEF-05, name: アトラスの両立性 }
+  - { id: CM1-01-DEF-06, name: 極大正則アトラス }
+theorems:
+  - { id: CM1-01-PROP-01, name: 正則写像の合成と双正則座標変換 }
+  - { id: CM1-01-PROP-02, name: 非線形剪断座標による正則アトラス }
+  - { id: CM1-01-THM-01, name: 両立アトラスの極大延長 }
+  - { id: CM1-01-PROP-03, name: 複素多様体の有限直積 }
+canonical_examples:
+  - 複素Euclid空間の恒等座標
+  - 多項式剪断写像と陽な逆写像
+  - 複素共役による不適合な遷移写像
+  - 二つのRiemann面の直積座標
+problem_patterns:
+  - CM1-01-CR-LINEAR
+  - CM1-01-SHEAR
+  - CM1-01-CONJUGATION
+  - CM1-01-ATLAS
+  - CM1-01-PRODUCT
+  - CM1-01-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 2 }
