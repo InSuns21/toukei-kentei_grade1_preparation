@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp4-bounded-differences -->
-**定義の直接確認。** $S_i=[0,1]$、$f(x)=n^{-1}\sum_{j=1}^n x_j$ とします。第 $i$ 座標を $x_i'$ に取り替えると
+**定義の確認** $S_i=[0,1]$、$f(x)=n^{-1}\sum_{j=1}^n x_j$ とします。第 $i$ 座標を $x_i'$ に取り替えると
 
 $$
 f(x)-f(x_1,\ldots,x_i',\ldots,x_n)
@@ -62,7 +62,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp4-doob-differences -->
-**定義の直接確認。** 独立なBernoulli変数 $X_1,X_2$ がそれぞれ確率 $1/2$ で $1$ を取り、$Z=X_1+2X_2$ とします。$E[X_1]=E[X_2]=1/2$ を使うと
+**定義の確認** 独立なBernoulli変数 $X_1,X_2$ がそれぞれ確率 $1/2$ で $1$ を取り、$Z=X_1+2X_2$ とします。$E[X_1]=E[X_2]=1/2$ を使うと
 
 $$
 M_0=\frac32,\qquad M_1=X_1+1,\qquad M_2=X_1+2X_2.
