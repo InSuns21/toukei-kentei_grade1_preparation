@@ -16,9 +16,9 @@
 > **定義（有限無向重み付きグラフ）**  
 > 有限集合 $V=\{1,\ldots,n\}$ と実行列 $W=(w_{ij})_{i,j=1}^n$ の組を考える。すべての $i,j$ に対し
 >
-> $$
-> w_{ij}=w_{ji}\geq0,\qquad w_{ii}=0
-> $$
+$$
+w_{ij}=w_{ji}\geq0,\qquad w_{ii}=0
+$$
 >
 > を満たすとき、$(V,W)$ を有限無向重み付きグラフという。$w_{ij}>0$ の組 $\{i,j\}$ を辺と呼び、その重みを $w_{ij}$ とする。
 <!-- formal-statement-end -->
@@ -43,10 +43,10 @@ $$
 > **定義（重み付き次数・体積）**  
 > 有限無向重み付きグラフ $(V,W)$ について、頂点 $i$ の重み付き次数 $d_i$、部分集合 $S\subseteq V$ の体積 $\operatorname{vol}(S)$ を
 >
-> $$
-> d_i=\sum_{j=1}^n w_{ij},\qquad
-> \operatorname{vol}(S)=\sum_{i\in S}d_i
-> $$
+$$
+d_i=\sum_{j=1}^n w_{ij},\qquad
+\operatorname{vol}(S)=\sum_{i\in S}d_i
+$$
 >
 > とする。次数行列を $D=\operatorname{diag}(d_1,\ldots,d_n)$ と定める。$d_i=0$ の頂点を孤立頂点という。
 <!-- formal-statement-end -->
@@ -77,9 +77,9 @@ $$
 > **定義（組合せLaplacian）**  
 > 有限無向重み付きグラフ $(V,W)$ の次数行列を $D$ とするとき、組合せLaplacianを
 >
-> $$
-> L=D-W
-> $$
+$$
+L=D-W
+$$
 >
 > と定める。すなわち $L_{ii}=d_i$、$i\ne j$ なら $L_{ij}=-w_{ij}$ である。
 <!-- formal-statement-end -->
@@ -108,11 +108,11 @@ $$
 > **定理（Dirichletエネルギーの辺表示）**  
 > 有限無向非負重み付きグラフの組合せLaplacian $L=D-W$ と任意の $f\in\mathbb R^n$ に対して、
 >
-> $$
-> f^{\mathsf T}Lf
-> =\sum_{1\leq i<j\leq n}w_{ij}(f_i-f_j)^2
-> =\frac12\sum_{i,j=1}^n w_{ij}(f_i-f_j)^2
-> $$
+$$
+f^{\mathsf T}Lf
+=\sum_{1\leq i<j\leq n}w_{ij}(f_i-f_j)^2
+=\frac12\sum_{i,j=1}^n w_{ij}(f_i-f_j)^2
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -228,11 +228,11 @@ $$
 > **定理（核と連結成分）**  
 > 有限無向非負重み付きグラフの連結成分を $C_1,\ldots,C_c$ とすると、組合せLaplacian $L$ に対して
 >
-> $$
-> \ker L
-> =\operatorname{span}\{\mathbf1_{C_1},\ldots,\mathbf1_{C_c}\},
-> \qquad \dim\ker L=c
-> $$
+$$
+\ker L
+=\operatorname{span}\{\mathbf1_{C_1},\ldots,\mathbf1_{C_c}\},
+\qquad \dim\ker L=c
+$$
 >
 > が成り立つ。ここで $\mathbf1_C$ は $i\in C$ で1、それ以外で0のベクトルである。とくに0固有値の重複度は $c$ であり、グラフが連結であることと0固有値が単純であることは同値である。
 <!-- formal-statement-end -->
@@ -363,10 +363,10 @@ $\mathbf1$ に直交する空間の次元は $n-1$ なので、固有値は0が�
 > **定義（Cutの重み）**  
 > 有限無向重み付きグラフの部分集合 $S\subseteq V$ に対し、
 >
-> $$
-> \operatorname{cut}(S,V\setminus S)
-> =\sum_{i\in S}\sum_{j\notin S}w_{ij}
-> $$
+$$
+\operatorname{cut}(S,V\setminus S)
+=\sum_{i\in S}\sum_{j\notin S}w_{ij}
+$$
 >
 > を境界を横切る辺の重みとする。各無向辺はこの二重和で一度だけ数える。
 <!-- formal-statement-end -->
@@ -389,10 +389,10 @@ $$
 > **命題（Cutと指示ベクトルのエネルギー）**  
 > 任意の $S\subseteq V$ について、$S$ の指示ベクトル $\mathbf1_S$ を用いると
 >
-> $$
-> \mathbf1_S^{\mathsf T}L\mathbf1_S
-> =\operatorname{cut}(S,V\setminus S)
-> $$
+$$
+\mathbf1_S^{\mathsf T}L\mathbf1_S
+=\operatorname{cut}(S,V\setminus S)
+$$
 >
 > が成立する。
 <!-- formal-statement-end -->
@@ -437,11 +437,11 @@ $$
 > **命題（非正規化Laplacianの変分表示）**  
 > 頂点数 $n\geq2$ の有限連結無向非負重み付きグラフに対し、
 >
-> $$
-> \lambda_2
-> =\min_{\substack{f\in\mathbb R^n\setminus\{0\}\\f\perp\mathbf1}}
-> \frac{\sum_{i<j}w_{ij}(f_i-f_j)^2}{\sum_i f_i^2}
-> $$
+$$
+\lambda_2
+=\min_{\substack{f\in\mathbb R^n\setminus\{0\}\\f\perp\mathbf1}}
+\frac{\sum_{i<j}w_{ij}(f_i-f_j)^2}{\sum_i f_i^2}
+$$
 >
 > が成立する。この $\lambda_2$ は**組合せLaplacian**の第二固有値であり、後続の正規化Laplacianの第二固有値とは一般に異なる。
 <!-- formal-statement-end -->
