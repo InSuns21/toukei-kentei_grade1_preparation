@@ -257,7 +257,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正則共通レベル集合）**  
-> 滑らかな写像 $F:M^{2n}\to\mathbb R^n$ と $c\in\mathbb R^n$ に対し、$N_c=F^{-1}(c)$ の各点で $\operatorname{rank}dF=n$ が成り立つとき、$N_c$ を正則共通レベル集合という。空でない $N_c$ の各点で独立性を確認する必要がある。
+> 滑らかな写像 $F:M^{2n}\to\mathbb R^n$ と $c\in\mathbb R^n$ を取る。共通レベル集合を
+
+$
+N_c=F^{-1}(c)
+$
+
+> と書く。$N_c$ が空でなく、その全ての点で
+
+$
+\operatorname{rank}dF_x=n\qquad(x\in N_c)
+$
+
+> が成り立つとき、$N_c$ を正則共通レベル集合という。微分の階数は共通レベルの各点で確認する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-int1-regular-fiber -->
