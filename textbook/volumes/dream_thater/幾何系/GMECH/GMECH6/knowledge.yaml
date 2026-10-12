@@ -1,0 +1,62 @@
+chapter: GMECH6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH5
+  - LIE2
+  - SYM4
+forward_references: []
+
+concepts:
+  - id: mechanics.coadjoint-orbit-tangent
+    name: 余随伴軌道と無限小余随伴作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余随伴軌道と無限小余随伴作用）"]
+    aliases: []
+    requires: [mechanics.coadjoint-left-action, lie.infinitesimal-adjoint-bracket]
+  - id: mechanics.positive-lie-poisson
+    name: 正・負のLie–Poisson括弧
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正・負のLie–Poisson括弧）"]
+    aliases: []
+    requires: [mechanics.coadjoint-orbit-tangent, symplectic.manifold-poisson-bracket]
+  - id: mechanics.lie-poisson-jacobi
+    name: Lie–Poisson括弧のJacobi恒等式
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.positive-lie-poisson]
+  - id: mechanics.lie-poisson-flow
+    name: Lie–Poisson運動方程式と軌道保存
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.coadjoint-orbit-tangent, mechanics.positive-lie-poisson]
+  - id: mechanics.kks-form
+    name: KKS形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（KKS形式）"]
+    aliases: []
+    requires: [mechanics.coadjoint-orbit-tangent]
+  - id: mechanics.kks-symplectic
+    name: 余随伴軌道のシンプレクティック構造
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.kks-form, mechanics.lie-poisson-jacobi]
+  - id: mechanics.lie-poisson-casimir
+    name: Casimir関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Casimir関数）"]
+    aliases: []
+    requires: [mechanics.positive-lie-poisson]
+  - id: mechanics.coadjoint-symplectic-leaves
+    name: Casimirと余随伴シンプレクティック葉
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.lie-poisson-casimir, mechanics.kks-symplectic, mechanics.lie-poisson-flow]
