@@ -6,6 +6,8 @@ prerequisites:
   - AG1-05
   - AG1-03
   - RNG4
+  - MOD1
+  - LA3C
 official_scope: []
 learning_objectives:
   - モニック方程式による整元を定義し、直接例と非整元の反例を判定できる
