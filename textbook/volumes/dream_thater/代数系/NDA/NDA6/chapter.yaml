@@ -1,0 +1,39 @@
+id: "NDA6"
+title: "Liouvilleの近似定理・Liouville数・超越性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA5
+  - FLD1
+  - RA3
+official_scope: []
+learning_objectives:
+  - 整数係数多項式の有理数代入で分母のd乗を払い零でない整数の下界を証明できる
+  - 最小多項式と平均値定理から代数的無理数のLiouville近似下界と指数の上界を証明できる
+  - Liouville数の量化と無理性指数が無限大であることの同値を説明できる
+  - 近似下界との矛盾によりLiouville数の超越性を証明できる
+  - 階乗桁のLiouville定数の既約近似列・尾部評価・無理性をすべて検証できる
+  - 底の変更と桁選択によって超越数を多数構成できる
+definitions:
+  - { id: NDA6-DEF-01, name: Liouville数 }
+theorems:
+  - { id: NDA6-LEM-01, name: 整数係数多項式の分母評価 }
+  - { id: NDA6-THM-01, name: Liouvilleの近似下界 }
+  - { id: NDA6-PROP-01, name: Liouville数と無理性指数 }
+  - { id: NDA6-THM-02, name: Liouville数の超越性 }
+  - { id: NDA6-THM-03, name: Liouville定数の構成 }
+canonical_examples:
+  - 平方根3の整数ノルムを用いた二次の一様近似下界
+  - 三乗根2の最小多項式による指数3の上界
+  - 階乗の位置に1を置くLiouville定数
+  - 桁を1または3に選ぶ非可算個の超越数
+problem_patterns:
+  - NDA6-INTEGER-POLYNOMIAL-DENOMINATOR
+  - NDA6-ALGEBRAIC-DEGREE-BOUND
+  - NDA6-LIOUVILLE-QUANTIFIERS
+  - NDA6-LIOUVILLE-CONSTANT
+  - NDA6-UNCOUTABLE-CONSTRUCTION
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

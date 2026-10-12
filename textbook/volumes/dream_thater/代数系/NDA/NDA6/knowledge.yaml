@@ -1,0 +1,52 @@
+chapter: NDA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA5
+  - FLD1
+  - RA3
+forward_references: []
+
+concepts:
+  - id: diophantine.integer-polynomial-denominator
+    name: 整数係数多項式の分母評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（整数係数多項式の分母評価）]
+    requires: []
+
+  - id: diophantine.liouville-inequality
+    name: Liouvilleの近似下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Liouvilleの近似下界）]
+    requires: [diophantine.integer-polynomial-denominator, algebra.minimal-polynomial-theorem, diophantine.irrationality-exponent]
+
+  - id: diophantine.liouville-number
+    name: Liouville数
+    aliases: [Liouville number]
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Liouville数）]
+    requires: [diophantine.irrationality-exponent]
+
+  - id: diophantine.liouville-exponent-equivalence
+    name: Liouville数と無理性指数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Liouville数と無理性指数）]
+    requires: [diophantine.liouville-number, diophantine.irrationality-exponent]
+
+  - id: diophantine.liouville-transcendence
+    name: Liouville数の超越性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Liouville数の超越性）]
+    requires: [diophantine.liouville-inequality, diophantine.liouville-number, algebra.transcendental-element]
+
+  - id: diophantine.liouville-constant
+    name: Liouville定数の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Liouville定数の構成）]
+    requires: [diophantine.liouville-transcendence, diophantine.liouville-number]
