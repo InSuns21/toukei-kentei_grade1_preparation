@@ -655,7 +655,7 @@ $$
 
 ### B2. 信頼水準から偏差幅を逆算する
 
-$0<\delta<1$、$x=\log(1/\delta)$ とする。右裾Bernstein不等式を用いて
+$0<\delta<1$、$x=\log(1/\delta)$ とする。[右裾Bernstein不等式](#thm-hdp2-bernstein)を用いて
 
 $$
 t=\sqrt{2vx}+\frac{2bx}{3}
