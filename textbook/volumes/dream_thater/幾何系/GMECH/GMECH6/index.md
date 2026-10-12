@@ -152,7 +152,7 @@ c_{i\ell}^m c_{jk}^{\ell}
 +c_{k\ell}^m c_{ij}^{\ell}\right).
 $$
 
-これは $[e_i,[e_j,e_k]]+[e_j,[e_k,e_i]]+[e_k,[e_i,e_j]]$ の $e_m$ 成分なので、Lie代数のJacobi恒等式により零です。全係数が零だから滑らかな三関数についても結論が成り立ちます。
+これは $[e_i,[e_j,e_k]]+[e_j,[e_k,e_i]]+[e_k,[e_i,e_j]]$ の $e_m$ 成分なので、[Lie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)により零です。全係数が零だから滑らかな三関数についても結論が成り立ちます。
 <!-- proof-end -->
 
 ## 3. Hamilton方程式は余随伴軌道に沿う
@@ -240,7 +240,7 @@ $$
 
 ### 証明の見取り図
 
-代表元の差が速度零なら2形式の値に寄与しないことを示します。同じ計算で非退化性を示し、外微分公式でLie代数のJacobi恒等式を使って閉性を証明します。
+代表元の差が速度零なら2形式の値に寄与しないことを示します。同じ計算で非退化性を示し、外微分公式で[Lie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)を使って閉性を証明します。
 
 <!-- proof-start -->
 ### 証明
@@ -277,7 +277,7 @@ d\omega_{\mathrm{KKS}}(\rho_\xi,\rho_\eta,\rho_\zeta)
 \end{aligned}
 $$
 
-二つの巡回和はそれぞれLie代数のJacobi恒等式から零です。軌道の接方向は $\rho_\xi$ で張られるため、$d\omega_{\mathrm{KKS}}=0$ です。
+二つの巡回和はそれぞれ[Lie括弧のJacobi恒等式](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)から零です。軌道の接方向は $\rho_\xi$ で張られるため、$d\omega_{\mathrm{KKS}}=0$ です。
 
 **Poisson括弧の一致。** $dF_\xi(\rho_\eta)=\langle\rho_\eta,\xi\rangle=\langle\nu,[\xi,\eta]\rangle$ なので $\iota_{\rho_\xi}\omega_{\mathrm{KKS}}=dF_\xi$ です。一般の滑らかな $F$ にも点ごとに $\xi=dF_\nu$ を選び、非退化性から $X_F(\nu)=\rho_{dF_\nu}(\nu)$ となります。したがって
 
