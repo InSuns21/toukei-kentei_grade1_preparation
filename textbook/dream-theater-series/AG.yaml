@@ -20,7 +20,7 @@ chapters:
     title: "座標環とアフィン代数多様体の正則写像"
   - id: AG1-04
     path: textbook/volumes/dream_thater/代数系/AG/AG1-04
-    status: planned
+    status: completed
     title: "局所化・局所環・点の近傍での関数"
   - id: AG1-05
     path: textbook/volumes/dream_thater/代数系/AG/AG1-05
