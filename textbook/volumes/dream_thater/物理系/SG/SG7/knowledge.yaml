@@ -1,0 +1,63 @@
+chapter: SG7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG6
+  - SG3
+  - SG1
+forward_references: []
+concepts:
+  - id: spin-glass.viana-bray
+    name: Poisson化Viana–Bray模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson化Viana–Bray模型）"]
+    requires: [spin-glass.quenched-annealed]
+  - id: spin-glass.poisson-degree
+    name: Poisson次数と局所木性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson次数と局所木性）"]
+    requires: [spin-glass.viana-bray]
+  - id: spin-glass.random-factor-graph
+    name: 因子グラフと分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子グラフと分配関数）"]
+    requires: [spin-glass.viana-bray]
+  - id: spin-glass.tree-partition
+    name: 木上のIsing分配関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（木上のIsing分配関数）"]
+    requires: [spin-glass.random-factor-graph]
+  - id: spin-glass.vb-annealed
+    name: Poisson化模型のannealed圧力とquenched上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson化模型のannealed圧力とquenched上界）"]
+    requires: [spin-glass.viana-bray, spin-glass.quenched-annealed]
+  - id: spin-glass.multi-overlap
+    name: 多レプリカoverlap
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多レプリカoverlap）"]
+    requires: [spin-glass.sk-overlap]
+  - id: spin-glass.add-edge-identity
+    name: Poissonの一辺追加公式と多レプリカ展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Poissonの一辺追加公式と多レプリカ展開）"]
+    requires: [spin-glass.viana-bray, spin-glass.multi-overlap]
+  - id: spin-glass.poisson-ksat
+    name: Poisson化ランダムk-SAT
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson化ランダムk-SAT）"]
+    requires: [spin-glass.random-factor-graph]
+  - id: spin-glass.ksat-first-moment
+    name: Poisson化ランダムk-SATの第一モーメント上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Poisson化ランダムk-SATの第一モーメント上界）"]
+    requires: [spin-glass.poisson-ksat]
