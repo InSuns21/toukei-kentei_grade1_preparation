@@ -738,7 +738,21 @@ $$
 E e^{X^2/K^2}\le e^{1/K^2}=2.
 $$
 
-従ってsub-Gaussianです。一方、$E e^{\lambda X}=1-p+pe^\lambda\ge1+p\lambda$ です。仮に $E e^{\lambda X}\le e^{C\lambda^2}$ が全 $\lambda>0$ で成立すると、$\lambda\downarrow0$ で左辺の一次係数 $p$ に対し右辺の一次係数は零となり矛盾します。具体的には両辺から $1$ を引き $\lambda$ で割ると、左辺は $p$、右辺は $0$ へ収束します。$X-p$ に中心化すれば、一次項の問題は解消します。
+従ってsub-Gaussianです。一方、$e^\lambda\ge1+\lambda$ より
+
+$$
+E e^{\lambda X}=1-p+pe^\lambda\ge1+p\lambda.
+$$
+
+仮に $E e^{\lambda X}\le e^{C\lambda^2}$ が全 $\lambda>0$ で成立する有限な $C$ があれば、両辺から $1$ を引き $\lambda$ で割ることで
+
+$$
+p\le\frac{E e^{\lambda X}-1}{\lambda}
+\le\frac{e^{C\lambda^2}-1}{\lambda}\longrightarrow0
+\qquad(\lambda\downarrow0)
+$$
+
+となります。しかし $p>0$ なので矛盾します。$X-p$ に中心化すれば、一次項の問題は解消します。
 <!-- solution-end -->
 
 **Level B：同値条件と和の使い分け**
@@ -805,7 +819,21 @@ $a_i=0$ の項は確率一で零なので除いてから定理を使えます。
 - ID: HDP3-B3
 
 <!-- solution-start -->
-**詳細解答**　各 $Y_i=R_iZ_i$ は可積分で、$R_i$ と $Z_i$ の独立性および[期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から $E Y_i=E R_i E Z_i=0$ です。また $|Y_i|=Z_i$ なので $E e^{|Y_i|/2}=E e^{Z_i/2}=2$ です。従って[独立sub-exponential和の定理](#thm-hdp3-subexponential-sum)に $K_i=2$ を選べて
+**詳細解答**　各 $Y_i=R_iZ_i$ は可積分です。$R_i$ と $Z_i$ の独立性および[期待値の因数分解](../../F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から
+
+$$
+E Y_i=E R_i\, E Z_i=0.
+$$
+
+また $|Y_i|=Z_i$ と指数分布の密度を使うと
+
+$$
+E e^{|Y_i|/2}=E e^{Z_i/2}
+=\int_0^\infty e^{z/2}e^{-z}\,dz
+=\int_0^\infty e^{-z/2}\,dz=2.
+$$
+
+従って[独立sub-exponential和の定理](#thm-hdp3-subexponential-sum)に $K_i=2$ を選べて
 
 $$
 V=\sum_iK_i^2=4n,\qquad L=2.
