@@ -657,6 +657,7 @@
 ### 幾何学的力学 I
 
 1. [GMECH1 Lie群作用と余接束への持ち上げ](textbook/volumes/dream_thater/幾何系/GMECH/GMECH1/index.md)
+2. [GMECH2 Hamilton作用と運動量写像](textbook/volumes/dream_thater/幾何系/GMECH/GMECH2/index.md)
 
 ## 代数系
 

@@ -1,0 +1,77 @@
+chapter: GMECH2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH1
+  - SYM4
+  - GEO7
+  - LIE2
+  - LIE4
+forward_references: []
+
+concepts:
+  - id: mechanics.hamiltonian-lie-action
+    name: Hamilton作用
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（Hamilton作用）"]
+    requires:
+      - symplectic.hamiltonian-vector-field
+      - mechanics.cotangent-lifted-lie-action
+
+  - id: mechanics.momentum-map
+    name: 運動量写像
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（Hamilton作用）"]
+    requires:
+      - mechanics.hamiltonian-lie-action
+
+  - id: mechanics.momentum-ambiguity
+    name: 連結な位相空間での運動量写像の不定性
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.momentum-map
+
+  - id: mechanics.cotangent-momentum-map
+    name: 余接持ち上げ作用の標準運動量写像
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.momentum-map
+      - mechanics.cotangent-lifted-action-preservation
+      - geometry.cartan-formula
+
+  - id: mechanics.coadjoint-left-action
+    name: 左余随伴作用
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（余随伴作用と同変な運動量写像）"]
+    requires:
+      - lie.adjoint-representation
+
+  - id: mechanics.momentum-equivariance
+    name: 運動量写像の同変性
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（余随伴作用と同変な運動量写像）"]
+    requires:
+      - mechanics.momentum-map
+      - mechanics.coadjoint-left-action
+
+  - id: mechanics.cotangent-momentum-equivariance
+    name: 余接持ち上げの標準運動量写像は同変
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.cotangent-momentum-map
+      - mechanics.momentum-equivariance
+      - lie.conjugation-exponential-naturality

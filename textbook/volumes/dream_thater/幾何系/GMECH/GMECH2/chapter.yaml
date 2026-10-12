@@ -1,0 +1,47 @@
+id: "GMECH2"
+title: "Hamilton作用と運動量写像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH1
+  - SYM4
+  - GEO7
+  - LIE2
+  - LIE4
+official_scope: []
+learning_objectives:
+  - Hamilton作用と運動量写像の定義をSYM4の内部積符号と整合させ、直接例で確かめられる
+  - 連結な位相空間上で二つの運動量写像の差が双対空間の定数になることを証明できる
+  - 余接持ち上げの運動量写像をLiouville 1形式の保存とCartanの公式から導ける
+  - 局所座標で線形運動量・角運動量・伸縮・せん断の各関数を直接再計算できる
+  - 余随伴左作用の逆元の位置を固定し、標準運動量写像の同変性を証明できる
+  - Hamilton作用だけでは同変性が従わない例を示し、定数の取り直しでも修正できないと論証できる
+  - 同変な運動量写像のPoisson括弧の符号を導き、非可換アフィン群で照合できる
+definitions:
+  - { id: GMECH2-DEF-01, name: Hamilton作用と運動量写像 }
+  - { id: GMECH2-DEF-02, name: 余随伴作用と同変な運動量写像 }
+theorems:
+  - { id: GMECH2-PROP-01, name: 連結な位相空間での運動量写像の不定性 }
+  - { id: GMECH2-THM-01, name: 余接持ち上げ作用の標準運動量写像 }
+  - { id: GMECH2-THM-02, name: 余接持ち上げの標準運動量写像は同変 }
+canonical_examples:
+  - 直線・平面の平行移動の運動量写像
+  - SO(2)回転に対応する角運動量
+  - SO(3)の余随伴作用とベクトル積
+  - 伸縮とせん断の運動量関数
+  - 位相平面の全平行移動における非同変性と定数差の反証
+  - 非可換アフィン群の同変性とPoisson括弧
+problem_patterns:
+  - GMECH2-TRANSLATION
+  - GMECH2-SCALING
+  - GMECH2-ROTATION
+  - GMECH2-SHEAR
+  - GMECH2-LINEAR-ACTION
+  - GMECH2-NONEQUIVARIANT
+  - GMECH2-SO3
+  - GMECH2-BRACKET
+  - GMECH2-AFFINE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
