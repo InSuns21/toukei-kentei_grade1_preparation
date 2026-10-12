@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp10-subgaussian-increments -->
-**定義の直接例**。$G=(G_1,\ldots,G_m)$ の座標を独立な標準正規変数とし、$T$ を $\mathbb R^m$ の任意の有限部分集合とします。$X_t=\langle G,t\rangle$ と $d(s,t)=\|t-s\|_2$ に取ります。$E X_t=0$ です。差は平均零・分散 $\sum_i(t_i-s_i)^2$ の正規変数だから
+**定義の確認**。$G=(G_1,\ldots,G_m)$ の座標を独立な標準正規変数とし、$T$ を $\mathbb R^m$ の任意の有限部分集合とします。$X_t=\langle G,t\rangle$ と $d(s,t)=\|t-s\|_2$ に取ります。$E X_t=0$ です。差は平均零・分散 $\sum_i(t_i-s_i)^2$ の正規変数だから
 
 $$
 Ee^{\lambda(X_t-X_s)}
@@ -69,7 +69,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hdp10-covering-number -->
-**定義の直接例**。$T=\{0,1,2\}$、$d(s,t)=|s-t|$ とします。$0\le\varepsilon<1$ なら異なる点を代表にできないので $N=3$ です。$1\le\varepsilon<2$ では中央の $\{1\}$ だけで三点を覆い $N=1$、$\varepsilon\ge2$ でも $N=1$ です。被覆中心を $T$ 内に限定している点に注意します。[HDP6の球面の被覆数](../HDP6/index.md#def-hdp6-covering-number)と同じ考え方を一般の有限距離空間に移したものです。
+**定義の確認**。$T=\{0,1,2\}$、$d(s,t)=|s-t|$ とします。$0\le\varepsilon<1$ なら異なる点を代表にできないので $N=3$ です。$1\le\varepsilon<2$ では中央の $\{1\}$ だけで三点を覆い $N=1$、$\varepsilon\ge2$ でも $N=1$ です。被覆中心を $T$ 内に限定している点に注意します。[HDP6の球面の被覆数](../HDP6/index.md#def-hdp6-covering-number)と同じ考え方を一般の有限距離空間に移したものです。
 <!-- definition-example-end -->
 
 有限性によって最小値を実現する $S$ は存在します。半径を小さくすれば被覆の条件は厳しくなるので、$\varepsilon'\le\varepsilon$ なら $N(T,d,\varepsilon')\ge N(T,d,\varepsilon)$ です。
