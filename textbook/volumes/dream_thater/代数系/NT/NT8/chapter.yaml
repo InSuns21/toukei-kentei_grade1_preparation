@@ -1,0 +1,50 @@
+id: "NT8"
+title: "素数分布への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT5
+  - RA1
+official_scope: []
+learning_objectives:
+  - Euclid の素数無限性を矛盾の構成から証明し、素数の数え上げ問題との違いを説明できる
+  - 素数計数関数、Chebyshev の theta・psi 関数、von Mangoldt 関数を定義し素数冪で計算できる
+  - von Mangoldt 関数の約数和と階乗恒等式を素因数分解・二重計数から導ける
+  - 中央二項係数を使い素数計数関数の両側 Chebyshev 型評価を証明できる
+  - 素数定理の漸近式を正確に説明し、pi と theta の漸近式の同値性を証明できる
+  - 絶対収束する Dirichlet 級数を定義し、Euler 積と素数の逆数和の発散を導ける
+definitions:
+  - { id: NT8-DEF-01, name: 素数計数関数 }
+  - { id: NT8-DEF-02, name: Chebyshev の theta 関数 }
+  - { id: NT8-DEF-03, name: von Mangoldt 関数 }
+  - { id: NT8-DEF-04, name: Chebyshev の psi 関数 }
+  - { id: NT8-DEF-05, name: Dirichlet 級数 }
+theorems:
+  - { id: NT8-THM-01, name: Euclid の素数無限性 }
+  - { id: NT8-PROP-01, name: 素数冪ごとの分解 }
+  - { id: NT8-PROP-02, name: 対数の約数和と階乗恒等式 }
+  - { id: NT8-LEM-01, name: 二項係数と区間内素数 }
+  - { id: NT8-THM-02, name: Chebyshev 型の上界 }
+  - { id: NT8-LEM-02, name: 二項係数からの psi の下界 }
+  - { id: NT8-LEM-03, name: 素数冪の余剰寄与 }
+  - { id: NT8-THM-03, name: 素数計数関数の両側 Chebyshev 型評価 }
+  - { id: NT8-THM-04, name: 素数定理（主張のみ） }
+  - { id: NT8-PROP-03, name: 素数定理と theta の漸近式の同値性 }
+  - { id: NT8-THM-05, name: 絶対収束域における Euler 積 }
+canonical_examples:
+  - 10以下の素数と素数冪による pi・theta・psi の比較
+  - 6! の von Mangoldt 関数による再構成
+  - 中央二項係数 8C4 と区間 (4,8] の素数
+  - 有限 Euler 積に現れる整数の一意な生成
+problem_patterns:
+  - NT8-PRIME-COUNTING
+  - NT8-PRIME-POWER-WEIGHTS
+  - NT8-VON-MANGOLDT-DIVISOR-SUM
+  - NT8-BINOMIAL-CHEBYSHEV
+  - NT8-PRIME-NUMBER-THEOREM-MEANING
+  - NT8-EULER-PRODUCT
+  - NT8-PRIME-RECIPROCAL-DIVERGENCE
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
