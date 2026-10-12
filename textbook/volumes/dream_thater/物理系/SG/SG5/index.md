@@ -712,19 +712,19 @@ $$
 
 (a) $g=g_{N,p}$ とおき、$n$ レプリカの重みと一人のGibbs確率をそれぞれ
 
-$
+$$
 \begin{aligned}
 w_n&=f(R^n)\frac{\prod_{\ell=1}^nW(\sigma^\ell)e^{ag(\sigma^\ell)}}{Z^n},\\
 \pi(\tau)&=\frac{W(\tau)e^{ag(\tau)}}{Z}
 \end{aligned}
-$
+$$
 
 とおく。$f$ は配置の関数でGaussian場に直接依存しないので、積と商を微分すると
 
-$
+$$
 \frac{\partial w_n}{\partial g(\tau)}
 =a w_n\left\{\sum_{\ell=1}^n\mathbf1_{\{\sigma^\ell=\tau\}}-n\pi(\tau)\right\}.
-$
+$$
 
 [Gaussian部分積分](../../../解析系/HDP/HDP5/index.md#lem-hdp5-gaussian-ibp)を共分散 $\mathbb E[g(\sigma^1)g(\tau)]=NR(\sigma^1,\tau)^p$ で適用する。和の第1項から $a\sum_{\ell=1}^n\mathbb E\langle fR_{1\ell}^p\rangle$ が出る。第2項では $\sum_\tau\pi(\tau)R(\sigma^1,\tau)^p$ を独立な追加レプリカによる平均に書き換えるので、$-an\mathbb E\langle fR_{1,n+1}^p\rangle$ となる。$R_{11}=1$ を代入して
 
