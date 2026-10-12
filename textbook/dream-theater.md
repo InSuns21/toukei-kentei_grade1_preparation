@@ -723,6 +723,7 @@
 7. [INFO7 通信路符号化定理：ランダム符号化による達成可能性](textbook/volumes/dream_thater/応用系/INFO/INFO7/index.md)
 8. [INFO8 率歪み関数と有限離散情報源の歪み付き符号化](textbook/volumes/dream_thater/応用系/INFO/INFO8/index.md)
 9. [INFO9 微分エントロピーと連続変数の情報量](textbook/volumes/dream_thater/応用系/INFO/INFO9/index.md)
+10. [INFO10 対数損失・統計的推測と相対エントロピー](textbook/volumes/dream_thater/応用系/INFO/INFO10/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
