@@ -1,0 +1,47 @@
+chapter: SYM5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM1
+  - SYM4
+  - GEO7
+  - GEO9
+  - ODE1
+  - ODE8
+forward_references: []
+
+concepts:
+  - id: symplectic.darboux-chart
+    name: Darboux座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Darboux座標）]
+    requires: [symplectic.symplectic-manifold, symplectic.linear-normal-form]
+
+  - id: symplectic.radial-primitive
+    name: 閉2形式の動径原始形式の具体式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（閉2形式の動径原始形式の具体式）]
+    requires: [geometry.poincare-lemma]
+
+  - id: symplectic.uniform-symplectic-path
+    name: 経路全体に共通する非退化近傍
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（経路全体に共通する非退化近傍）]
+    requires: [symplectic.symplectic-manifold]
+
+  - id: symplectic.darboux-theorem
+    name: Darbouxの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Darbouxの定理）]
+    requires: [symplectic.darboux-chart, symplectic.radial-primitive, symplectic.uniform-symplectic-path]
+
+  - id: symplectic.local-poisson-normal-form
+    name: 各点の近くでの正準Poisson括弧
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（各点の近くでの正準Poisson括弧）]
+    requires: [symplectic.darboux-theorem, symplectic.manifold-poisson-coordinate]
