@@ -206,7 +206,21 @@ $$
 \end{aligned}
 $$
 
-最後の項と $\sqrt x$ の比は $(\log x)/x^{1/6}$ です。$u=\log x$ と置けばその比は $u e^{-u/6}$ で、$e^{u/6}\ge(u/6)^2/2$ より $u e^{-u/6}\le72/u$（$u>0$）なので零へ収束します。従って差は $O(\sqrt x)$ です。$2\le x<8$ は有界区間なので定数を増せば同じ評価で包含できます。
+最後の項が $\sqrt x$ と比べて小さいことを確認します。$u=\log x>0$ と置くと
+
+$$
+\frac{x^{1/3}\log x}{\sqrt x}
+=\frac{\log x}{x^{1/6}}
+=u e^{-u/6}.
+$$
+
+指数関数の級数の非負項を使うと $e^{u/6}\ge (u/6)^2/2$ です。従って
+
+$$
+0\le u e^{-u/6}\le\frac{72}{u}\xrightarrow{u\to\infty}0.
+$$
+
+よって $x^{1/3}\log x=o(\sqrt x)$ であり、前の評価から $\psi(x)-\theta(x)=O(\sqrt x)$ を得ます。$2\le x<8$ は有界区間なので、定数を増やせば同じ評価に含められます。
 
 さらに $(\psi(x)-\theta(x))/x=O(x^{-1/2})\to0$ です。よって $\psi(x)/x-\theta(x)/x\to0$ であり、一方が $1$ に収束することと他方が $1$ に収束することは同値です。
 <!-- proof-end -->
@@ -414,9 +428,21 @@ $$
 =\frac{s}{s-1}+G(s)
 $$
 
-です。右辺は $\operatorname{Re}s>\alpha$ において $s=1$ 以外正則です。左辺は[CA12の有理型接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)に基づく有理型関数で、両辺は開集合 $\operatorname{Re}s>1$ で一致します。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により有理型関数として一致するため、左辺もこの半平面の $s=1$ 以外で極を持ちません。
+です。右辺は $\operatorname{Re}s>\alpha$ において $s=1$ 以外正則です。一方、左辺は[CA12の有理型接続](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)に基づく有理型関数です。両辺の差を
 
-もし $s_0\ne1$ かつ $\operatorname{Re}s_0>\alpha$ で $\zeta(s_0)=0$ なら、零点の位数を $m\ge1$ とした上記の局所表示から $-\zeta'/\zeta$ は $s_0$ に留数 $-m$ の極を持ちます。右辺は $s_0$ で正則なので矛盾します。$s=1$ は[CA12の単純極](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)であり零点ではありません。以上で零点不存在が従います。
+$$
+H(s)=-\frac{\zeta'(s)}{\zeta(s)}-\frac{s}{s-1}-G(s)
+$$
+
+と置きます。$D=\{s\in\mathbb C:\operatorname{Re}s>\alpha\}$ とすると、この半平面は連結であり、$H$ は $D$ 上の有理型関数です。
+
+前の積分表示から、開集合 $\operatorname{Re}s>1$ で $H(s)=0$ です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を正則な点で適用し、有理型関数として解析接続すると、$H$ は $D$ 全体で恒等的に零となります。途中に孤立特異点があっても、零関数として除去可能です。
+
+従って $-\zeta'/\zeta$ は、$s=1$ を除いた $D$ 内で極を持ちません。
+
+ここで $\operatorname{Re}s_0>\alpha$、$s_0\ne1$ を満たす零点 $\zeta(s_0)=0$ が存在すると仮定します。零点の位数を $m\ge1$ とすれば、先に導いた局所表示より、$-\zeta'/\zeta$ は $s_0$ に留数 $-m$ の極を持ちます。
+
+しかし積分表示の右辺は $s_0$ で正則なので矛盾します。また $s=1$ は[CA12の単純極](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)であり、零点ではありません。以上で零点不存在が従います。
 <!-- proof-end -->
 
 例えば仮に $\psi(x)=x+O(x^{3/4})$ を証明できれば、この定理から $\operatorname{Re}s>3/4$ にζの零点がないと分かります。しかしこの具体的な誤差評価を**この章では証明していません**。「もし強い誤差評価があれば何が従うか」を示した条件付きの推論です。
@@ -648,7 +674,7 @@ $$
 
 なので、誤差積分は半平面 $\sigma>2/3$ で正則です。右辺は $s=1$ 以外に極を持ちません。
 
-[CA12のζの有理型性](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により、左辺は有理型関数です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を有理型関数の正則な部分へ適用し、両者が半平面内で一致すると分かります。
+[CA12のζの有理型性](../../../解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)により左辺は有理型関数です。左辺と積分表示の右辺との差は連結な半平面 $\sigma>2/3$ で有理型であり、$\sigma>1$ では零です。[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により、その差は半平面全体で零（途中の孤立特異点は除去可能）です。従って左辺は $s=1$ 以外で正則な右辺と一致します。
 
 もし $s_0\ne1$ が零点で位数 $m$ なら、局所的に $\zeta(s)=(s-s_0)^m g(s)$ と書けるので
 
