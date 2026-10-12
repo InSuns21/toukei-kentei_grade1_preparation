@@ -1,7 +1,7 @@
 # DREAM THEATER スピングラス（SG1〜SG8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（SG1 の本文初稿・章メタデータに着手。未公開・未検証。SG2〜SG8 と横断監査は未着手）
+状態: in_progress（SG1 は執筆・全件査読を経て公開。SG2〜SG8 と系列横断監査は未完了）
 
 ## 中心問い
 
@@ -58,3 +58,9 @@ EOM221 は SG8 の後に置く。
 - SG 系列 manifest を作成し、SG1 の chapter/knowledge metadata と本文初稿を作成。SG1の章statusは planned に保ち、本文は未公開の draft.txt に置く。全件査読・CI・公開索引のゲートを通るまでは completed にしない。
 - REM の quenched/annealed、Gaussian tail、有限温度の比較、自由エネルギー極限（確率収束・期待値収束）、凍結転移を最初の学修単位とする。Gaussian integration by parts・SK overlap は SG2 / SG3 が担当。
 - 実装初稿の段階で PLAN を plans_progress に移動。検証前の SG1 や SG2〜8 を completed としない。
+
+## SG1 公開・査読記録（2026-10-12）
+
+- `SG1/index.md` として初稿を正式公開。正規尾・区間計数・圧力極限の上下界・期待値収束、Jensenの等号条件、凍結公式を点検した。
+- Level A 4題、Level B 3題、Level C 1題と各詳細解答を点検し、特に一般化REMの帯評価からの上下界・期待値移行を加筆した。
+- `textbook/dream-theater-index.json` と `textbook/dream-theater.md` へ公開導線を追加し、SG manifest のSG1を completed に更新。SG2以降と系列横断査読を本PLANの残課題とする。
