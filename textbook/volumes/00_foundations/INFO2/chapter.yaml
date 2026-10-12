@@ -1,0 +1,44 @@
+id: "INFO2"
+title: "相対エントロピー・Gibbs不等式・データ処理不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+official_scope: []
+learning_objectives:
+  - 有限分布の相対エントロピーの定義を台の包含条件とともに説明し両方向を計算できる
+  - Gibbs不等式の非負性と等号成立条件を対数不等式から証明できる
+  - 対数和不等式を分布の規格化によって導き零項を扱える
+  - 有限通信路が誘導する出力分布と相対エントロピーのデータ処理不等式を証明できる
+  - 相互情報量を結合分布と積分布の相対エントロピーとして導出し独立性と対応づけられる
+  - 有限Markov連鎖の条件を検証し相互情報量のデータ処理不等式を導出できる
+  - 二段階の二値通信路で反転確率と相互情報量を計算できる
+definitions:
+  - { id: INFO2-DEF-01, name: 相対エントロピー }
+  - { id: INFO2-DEF-02, name: 有限確率通信路・出力分布 }
+  - { id: INFO2-DEF-03, name: 有限Markov連鎖 }
+theorems:
+  - { id: INFO2-THM-01, name: Gibbs不等式 }
+  - { id: INFO2-LEM-01, name: 対数和不等式 }
+  - { id: INFO2-THM-02, name: 相対エントロピーのデータ処理不等式 }
+  - { id: INFO2-THM-03, name: 相互情報量の相対エントロピー表示 }
+  - { id: INFO2-THM-04, name: 相互情報量のデータ処理不等式 }
+canonical_examples:
+  - 公平なコインと偏ったコインの二方向の相対エントロピー
+  - 確率零の予測による無限大
+  - 三記号から二記号への集約と厳密なデータ処理不等式
+  - 二段階のビット反転通信路のMarkov連鎖
+problem_patterns:
+  - INFO2-KL-ASYMMETRY
+  - INFO2-KL-SUPPORT
+  - INFO2-GIBBS-ENTROPY-BOUND
+  - INFO2-MUTUAL-INDEPENDENCE
+  - INFO2-CHANNEL-COARSE-GRAINING
+  - INFO2-INFINITE-INPUT-FINITE-OUTPUT
+  - INFO2-MARKOV-COLLAPSE
+  - INFO2-KL-TENSOR-ADDITIVITY
+  - INFO2-BSC-CASCADE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
