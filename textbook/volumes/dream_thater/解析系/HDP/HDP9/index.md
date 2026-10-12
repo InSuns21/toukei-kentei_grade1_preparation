@@ -1,6 +1,15 @@
 # HDP9 Hanson–Wrightの二次形式集中
 
-[HDP7の標本共分散評価](../HDP7/index.md#thm-hdp7-isotropic-covariance)では、固定方向に沿った標本の二乗和を集中させ、球面の有限集合へ拡張しました。しかし一般の二次形式には異なる座標の積 $X_iX_j$ が登場します。[HDP3の独立なsub-Gaussian和](../HDP3/index.md#thm-hdp3-subgaussian-sum)を、積 $X_iX_j$ の和へそのまま適用することはできません。例えば $X_1X_2$ は $X_1$ と $X_2$ のどちらとも独立ではないからです。
+[HDP7の標本共分散評価](../HDP7/index.md#thm-hdp7-isotropic-covariance)では、固定方向に沿った標本の二乗和を集中させ、球面の有限集合へ拡張しました。しかし一般の二次形式には異なる座標の積 $X_iX_j$ が登場します。[HDP3の独立なsub-Gaussian和](../HDP3/index.md#thm-hdp3-subgaussian-sum)を積の和にそのまま適用することはできません。座標が独立でも、積同士は共通の座標を含むため従属になり得るからです。
+
+例えば独立な標準正規座標 $X_1,X_2,X_3$ に対し、$U=X_1X_2$ と $V=X_1X_3$ は独立ではありません。標準正規の二次・四次モーメントから、
+
+$$
+EU^2=EV^2=1,\qquad
+E(U^2V^2)=E(X_1^4)E(X_2^2)E(X_3^2)=3\ne1
+$$
+
+となるためです。反対に、独立なRademacher変数 $R_1,R_2$ では $R_1R_2$ が $R_1$ と独立になることもあります。「積なら必ず従属」ではなく、**積の和に必要な独立性を個別に確認できない**ことが問題です。
 
 ここで知りたいのは、独立な中心化座標を持つベクトル $X\in\mathbb R^n$ と確定行列 $A$ に対して、二次形式 $X^{\mathsf T}AX$ が期待値からどの程度離れるかです。結論を支配するのは **Frobeniusノルム（すべての成分の二乗和）**と **作用素ノルム（最大の伸び）**という異なる二つの大きさです。
 
@@ -119,7 +128,15 @@ E|X|^{2p}
 \end{aligned}
 $$
 
-$Y=X^2-EX^2$ に対し、三角不等式とJensenの不等式で
+$Y=X^2-EX^2$ とし、$p\ge1$ を固定します。非負変数 $X^2$ と凸関数 $z\mapsto z^p$ にJensenの不等式を適用すると
+
+$$
+(EX^2)^p\le E(X^2)^p=E|X|^{2p},
+\qquad
+EX^2\le(E|X|^{2p})^{1/p}
+$$
+
+です。さらに $L^p$ の三角不等式を $X^2$ と定数 $-EX^2$ に適用すれば
 
 $$
 (E|Y|^p)^{1/p}
@@ -293,13 +310,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$I,J$ を冒頭の独立なランダム分割とすると、固定 $X$ に対して $S_A=4E_\delta T_\delta$ です。指数関数の凸性により、正負どちらの $\lambda$ に対しても
+$I,J$ を冒頭の独立なランダム分割とすると、固定 $X$ に対して $S_A=4E_\delta T_\delta$ です。分割 $\delta$ の $2^n$ 通りは全て等確率であり、指数関数は凸です。従って有限個の数 $4\lambda T_\delta$ にJensenの不等式を適用すると、正負どちらの $\lambda$ に対しても
 
 $$
 e^{\lambda S_A}
-=e^{E_\delta(4\lambda T_\delta)}
-\le E_\delta e^{4\lambda T_\delta}.
+=\exp\left(\frac1{2^n}\sum_{\delta\in\{0,1\}^n}4\lambda T_\delta\right)
+\le\frac1{2^n}\sum_{\delta\in\{0,1\}^n}e^{4\lambda T_\delta}
+=E_\delta e^{4\lambda T_\delta}.
 $$
+
+ここでは $X$ を固定したまま分割だけを平均しており、積同士の独立性を仮定していません。
 
 $I,J$ の実現を固定し、部分行列 $B=A_{J,I}$ と $Z=X_I$ を置きます。$T_\delta=(X_J)^{\mathsf T}BZ$ です。$X_I$ と $X_J$ の独立性から、$Z$ を固定して後者で期待値を取ると
 
@@ -378,7 +398,24 @@ Ee^{\lambda(D_A+S_A)}
 (Ee^{2\lambda S_A})^{1/2}.
 $$
 
-実対称 $A$ では $\max_i|a_{ii}|\le\|A\|_{\mathrm{op}}$ であり、$|2\lambda|\le1/(8K^2\|A\|_{\mathrm{op}})$ は[対角項の補題](#lem-hdp9-diagonal-mgf)の範囲内です。また $|2\lambda|\le1/(8K^2\|A\|_{\mathrm{op}})\le1/(\sqrt{32}K^2\|A\|_{\mathrm{op}})$ は[非対角項の補題](#lem-hdp9-offdiagonal-mgf)の範囲内です。よって
+実対称 $A$ では単位ベクトル $e_i$ に対して $|a_{ii}|=|e_i^{\mathsf T}Ae_i|\le\|Ae_i\|_2\le\|A\|_{\mathrm{op}}$ です。仮定 $|\lambda|\le1/(16K^2\|A\|_{\mathrm{op}})$ から
+
+$$
+|2\lambda|\le\frac1{8K^2\|A\|_{\mathrm{op}}}
+$$
+
+となります。最大対角成分の絶対値が正なら右辺は $1/(8K^2\max_i|a_{ii}|)$ 以下なので、[対角項の補題](#lem-hdp9-diagonal-mgf)を使えます。全対角成分が零なら $D_A=0$ です。また $8>\sqrt{32}$ なので
+
+$$
+|2\lambda|
+\le\frac1{8K^2\|A\|_{\mathrm{op}}}
+\le\frac1{\sqrt{32}K^2\|A\|_{\mathrm{op}}}
+$$
+
+となり、[非対角項の補題](#lem-hdp9-offdiagonal-mgf)も使えます。
+
+
+よって
 
 $$
 \begin{aligned}
@@ -532,7 +569,28 @@ $A=\begin{pmatrix}1&3\\-1&2\end{pmatrix}$ に対して $H=(A+A^{\mathsf T})/2$ �
 - ID: HDP9-A1
 
 <!-- solution-start -->
-**詳細解答**　$A+A^{\mathsf T}=\begin{pmatrix}2&2\\2&4\end{pmatrix}$ なので $H=\begin{pmatrix}1&1\\1&2\end{pmatrix}$ です。$Ax=(x_1+3x_2,-x_1+2x_2)^{\mathsf T}$ より $x^{\mathsf T}Ax=x_1^2+2x_1x_2+2x_2^2$。一方 $Hx=(x_1+x_2,x_1+2x_2)^{\mathsf T}$ なので $x^{\mathsf T}Hx$ も同じ式です。
+**詳細解答**　対称部分は
+
+$$
+H=\frac12(A+A^{\mathsf T})
+=\frac12\begin{pmatrix}2&2\\2&4\end{pmatrix}
+=\begin{pmatrix}1&1\\1&2\end{pmatrix}
+$$
+
+です。$x=(x_1,x_2)^{\mathsf T}$ とすると
+
+$$
+\begin{aligned}
+Ax&=(x_1+3x_2,-x_1+2x_2)^{\mathsf T},\\
+x^{\mathsf T}Ax&=x_1(x_1+3x_2)+x_2(-x_1+2x_2)
+=x_1^2+2x_1x_2+2x_2^2,\\
+Hx&=(x_1+x_2,x_1+2x_2)^{\mathsf T},\\
+x^{\mathsf T}Hx&=x_1(x_1+x_2)+x_2(x_1+2x_2)
+=x_1^2+2x_1x_2+2x_2^2.
+\end{aligned}
+$$
+
+二次形式が一致することを確認できました。
 <!-- solution-end -->
 
 ### A2. 独立符号変数と中心化
@@ -600,7 +658,32 @@ $G\sim N(0,1)$ とする。$Ee^{sG^2}$ を正規密度から計算し、有限�
 - ID: HDP9-B2
 
 <!-- solution-start -->
-**詳細解答**　独立な $G\sim N(0,1)$ を導入します。正規モーメント母関数で $e^{\alpha(aZ_1+bZ_2)^2}=E_Ge^{\sqrt{2\alpha}G(aZ_1+bZ_2)}$ です。$G$ 固定で座標独立性を使えば期待値は $e^{\alpha K^2(a^2+b^2)G^2}$ 以下です。$s=\alpha K^2(a^2+b^2)\le1/4$ なので $Ee^{sG^2}=(1-2s)^{-1/2}$ です。$-\log(1-2s)\le4s$ を使うと $(1-2s)^{-1/2}\le e^{2s}$ となり、指定の上界を得ます。
+**詳細解答**　$Z_1,Z_2$ と独立な $G\sim N(0,1)$ を導入します。$z=(z_1,z_2)$ を固定して正規モーメント母関数を使うと
+
+$$
+e^{\alpha(az_1+bz_2)^2}
+=E_Ge^{\sqrt{2\alpha}G(az_1+bz_2)}
+$$
+
+です。次に $G=g$ を固定し、$Z_1,Z_2$ の独立性と指数モーメント代理量を使うと
+
+$$
+\begin{aligned}
+E_Ze^{\sqrt{2\alpha}g(aZ_1+bZ_2)}
+&=Ee^{\sqrt{2\alpha}gaZ_1}\,Ee^{\sqrt{2\alpha}gbZ_2}\\
+&\le e^{\alpha K^2a^2g^2}e^{\alpha K^2b^2g^2}
+=e^{\alpha K^2(a^2+b^2)g^2}.
+\end{aligned}
+$$
+
+非負の指数関数について期待値の順序を交換できます。$s=\alpha K^2(a^2+b^2)\le1/4$ と置けば、[本章で求めた正規二乗の指数モーメント](#lem-hdp9-gaussian-comparison)と同じ密度積分から
+
+$$
+Ee^{\alpha(aZ_1+bZ_2)^2}
+\le Ee^{sG^2}=(1-2s)^{-1/2}
+$$
+
+です。$0\le2s\le1/2$ だから $-\log(1-2s)\le4s$ です。右辺の対数は $-\frac12\log(1-2s)\le2s$ となるので、所望の上界 $e^{2\alpha K^2(a^2+b^2)}$ が得られます。
 <!-- solution-end -->
 
 ### B3. パラメータの選択と二領域
