@@ -11,7 +11,7 @@ chapters:
     title: 微視的状態・巨視的状態・アンサンブル・熱力学極限
   - id: SM2
     path: textbook/volumes/dream_thater/物理系/SM/SM2
-    status: planned
+    status: completed
     title: 微正準アンサンブルとBoltzmannエントロピー
   - id: SM3
     path: textbook/volumes/dream_thater/物理系/SM/SM3

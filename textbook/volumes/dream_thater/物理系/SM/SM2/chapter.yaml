@@ -1,0 +1,47 @@
+id: "SM2"
+title: "微正準アンサンブルとBoltzmannエントロピー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM1
+  - TH4
+official_scope: []
+learning_objectives:
+  - 有限エネルギー窓の許容集合と微正準等確率の仮定を区別し、確率と期待値を検算できる
+  - Boltzmannエントロピーの定義域・窓幅・状態数の数え方を説明し、対数の加法性を証明できる
+  - 加法的複合系で固定エネルギー分割の積と総エネルギー固定の畳み込みを区別して導ける
+  - 総エネルギー微正準分布から部分系のエネルギー分割確率を導出できる
+  - 滑らかなエントロピーの内部最大という仮定の下で温度一致を証明し、境界最大や有限離散系への適用限界を説明できる
+  - 二値スピンの多重度の対数漸近率を二項分布の上下界から証明できる
+  - 統計的エントロピーと熱力学的エントロピーの同定は追加の物理的仮定を要することを説明できる
+definitions:
+  - { id: SM2-DEF-01, name: "有限微正準アンサンブル" }
+  - { id: SM2-DEF-02, name: "Boltzmannエントロピー" }
+  - { id: SM2-DEF-03, name: "加法的な複合有限系" }
+  - { id: SM2-DEF-04, name: "エントロピー微分による統計的温度" }
+theorems:
+  - { id: SM2-PROP-01, name: "微正準分布の規格化と観測量" }
+  - { id: SM2-PROP-02, name: "固定分割の積と総エネルギーの畳み込み" }
+  - { id: SM2-PROP-03, name: "エネルギー分割の確率" }
+  - { id: SM2-THM-01, name: "固定総エネルギー下の内部極値と温度の一致" }
+  - { id: SM2-THM-02, name: "二値スピンの多重度のエントロピー率" }
+canonical_examples:
+  - 二スピンの半開エネルギー窓で微正準確率を直接確認する
+  - エネルギー分割1対4対1の複合系で状態数の積と畳み込みを比較する
+  - 指数型の滑らかな状態数近似で統計的温度を計算する
+  - 中央二項係数を一般の上向き比率へ拡張してエントロピー率を調べる
+problem_patterns:
+  - SM2-ENERGY-SHELL-UNIFORMITY
+  - SM2-BOLTZMANN-LOG-STATE-COUNT
+  - SM2-COMPOSITE-FIXED-SPLIT
+  - SM2-TEMPERATURE-DIMENSIONS
+  - SM2-SPIN-ENTROPY-COMPARE
+  - SM2-ENERGY-CONVOLUTION
+  - SM2-ENTROPY-INTERNAL-MAX
+  - SM2-BOUNDARY-EXTREMUM
+  - SM2-FINITE-DIFFERENCES
+  - SM2-COARSE-MACRO-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
