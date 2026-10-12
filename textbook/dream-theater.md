@@ -644,6 +644,7 @@
 5. [SYM5 Darbouxの定理](textbook/volumes/dream_thater/幾何系/SYM/SYM5/index.md)
 6. [SYM6 Lagrange部分空間・Lagrange部分多様体](textbook/volumes/dream_thater/幾何系/SYM/SYM6/index.md)
 7. [SYM7 Moserの方法とシンプレクティック変形](textbook/volumes/dream_thater/幾何系/SYM/SYM7/index.md)
+8. [SYM8 適合概複素構造と発展境界](textbook/volumes/dream_thater/幾何系/SYM/SYM8/index.md)
 
 ## 代数系
 
