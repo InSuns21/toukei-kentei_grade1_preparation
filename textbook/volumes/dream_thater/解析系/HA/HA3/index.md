@@ -159,7 +159,19 @@ I_s(a)=\int_0^a\frac{s}{s^2+v^2}\,dv
 =\arctan(a/s)
 $$
 
-を得ます。$a>0$ の場合、尾部 $[A,B]$ の $\sin(at)/t$ の積分は変数 $u=at$ と上の部分積分評価から $3/(aA)$ 以下（$aA\ge1$）です。指数減衰付きの尾部も部分積分すると同じ次数で一様に抑えられます。有限区間 $[0,A]$ では [優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)で $e^{-st}\to1$ とできるので、
+を得ます。$a>0$ の場合、尾部 $[A,B]$ の $\sin(at)/t$ の積分は変数 $u=at$ と上の部分積分評価から $3/(aA)$ 以下（$aA\ge1$）です。指数減衰付きの尾部も、$w_s(t)=e^{-st}/t$ と置いて部分積分します。$s>0$ なら $w_s$ は正で単調減少し、$w_s(\infty)=0$ なので
+
+$$
+\begin{aligned}
+\left|\int_A^\infty e^{-st}\frac{\sin(at)}t\,dt\right|
+&=\left|\left[-\frac{w_s(t)\cos(at)}a\right]_A^\infty
++\frac1a\int_A^\infty w_s'(t)\cos(at)\,dt\right|\\
+&\le\frac{w_s(A)}a+\frac1a\int_A^\infty|w_s'(t)|\,dt\\
+&=\frac{2e^{-sA}}{aA}\le\frac2{aA}.
+\end{aligned}
+$$
+
+従って二種類の尾部は $s$ に依存せず $A\to\infty$ で0になります。有限区間 $[0,A]$ では $|\sin(at)/t|\le a$ が可積分な優関数となるので、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)で $e^{-st}\to1$ とできます。先に有限区間で $s\downarrow0$、次に一様な尾部評価を用いて $A\to\infty$ とすると、
 
 $$
 \lim_{s\downarrow0}I_s(a)
@@ -174,7 +186,7 @@ $a<0$ は奇性から負号が付き、$a=0$ は両辺0です。
 
 ## 3. $L^2$ 上にHilbert変換を構成する
 
-$\varepsilon<|t|<R$ の切断核なら $L^1$ です。[FOU3の畳み込み定理](../../FOU/FOU3/index.md#thm-fou3-convolution)で乗数が書け、切断を除いても乗数が一様有界であることから $L^2$ 極限が残ります。
+$\varepsilon<|t|<R$ の切断核なら $L^1$ です。[FOU4の$L^1$-$L^2$畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)で乗数が書け、切断を除いても乗数が一様有界であることから $L^2$ 極限が残ります。
 
 <a id="def-ha3-l2-hilbert"></a>
 <!-- formal-statement-start -->
@@ -240,7 +252,7 @@ m_{\varepsilon,R}(\xi)
 \int_{|\xi|\varepsilon}^{|\xi|R}\frac{\sin u}{u}\,du.
 $$
 
-[補題の部分積分評価](#lem-ha3-dirichlet)から全ての $\xi,\varepsilon,R$ で $|m_{\varepsilon,R}(\xi)|\le 8/\pi$ です。$\xi=0$ なら $m_{\varepsilon,R}(0)=0$ です。まず $\varepsilon>0$ を固定して $R\to\infty$ とすると、Dirichletの収束判定より各 $\xi$ で
+[補題の部分積分評価](#lem-ha3-dirichlet)から全ての $\xi,\varepsilon,R$ で $|m_{\varepsilon,R}(\xi)|\le 8/\pi$ です。$\xi=0$ なら $m_{\varepsilon,R}(0)=0$ です。まず $\varepsilon>0$ を固定して $R\to\infty$ とすると、[Dirichlet積分の補題](#lem-ha3-dirichlet)の尾部評価より各 $\xi$ で
 
 $$
 m_\varepsilon(\xi)
@@ -273,7 +285,7 @@ $$
 |\widehat f(\xi)|^2\,d\xi\longrightarrow0.
 $$
 
-有限切断の一様有界性も $|m_{\varepsilon,R}|\le8/\pi$ と Plancherel から従います。
+有限切断の一様有界性も $|m_{\varepsilon,R}|\le8/\pi$ と [Plancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)から従います。
 
 最後に $f\in C_c^1$ とします。[滑らかな関数の主値の存在](#prop-ha3-smooth-pv)により、各点の切断積分は主値に収束します。有限切断の遠方の誤差は
 
@@ -281,7 +293,7 @@ $$
 \int_{|t|>R}\frac{|f(x-t)|}{|t|}\,dt\le\frac{\|f\|_1}{R}
 $$
 
-なので、$L^2$ で定義した切断 $H_\varepsilon f$ は点wise積分の同値類と一致します。
+です。$\varepsilon$ を固定すると、この評価から $H_{\varepsilon,R}f(x)$ はすべての $x$ で通常の切断積分 $H_\varepsilon f(x)$ に収束します。一方、先ほど証明した $L^2$ 収束から $R_n\to\infty$ という部分列を選べば、$H_{\varepsilon,R_n}f$ は $L^2$ 極限の代表元にほとんど至る所収束します。各点の積分極限とその部分列の極限を比較すると、$L^2$ で定義した $H_\varepsilon f$ は点ごとの切断積分とほとんど至る所で一致します。
 
 また $H_\varepsilon f\to Hf$ の $L^2$ 収束から、$\varepsilon_n\downarrow0$ を選んだ部分列でほとんど至る所収束します。各点の主値への収束は既に証明しており、同じ点の数列が二つの異なる極限を持たない（[極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)）ため、主値と $Hf$ はほとんど至る所で一致します。
 <!-- proof-end -->
@@ -440,7 +452,24 @@ Poisson核のFourier変換により、乗数 $e^{-y|\xi|}$ は元の周波数を
 <!-- proof-start -->
 ### 証明
 
-$P_y\in L^1$ なので [FOU4の$L^1$-$L^2$畳み込み](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と [変換対](#prop-ha3-poisson-fourier)から $\widehat{P_y*f}=e^{-y|\xi|}\widehat f$ です。共役核については直前で定義した乗数による $L^2$ 畳み込みとします。
+$P_y\in L^1$ なので [FOU4の$L^1$-$L^2$畳み込み](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と [変換対](#prop-ha3-poisson-fourier)から $\widehat{P_y*f}=e^{-y|\xi|}\widehat f$ です。共役核についてはまず乗数による $L^2$ 畳み込みとします。
+
+この乗数で定めた $Q_y*f$ が、各点で絶対収束する通常の畳み込み積分の同値類にもなっていることを確認します。[Gaussian Fourier core の$L^2$稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)から $L^1\cap L^2$ に属する $f_n$ を取り、$\|f_n-f\|_2\to0$ とします。$f_n\in L^1$、$Q_y\in L^2$ なので [FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用でき、
+
+$$
+\mathcal F_2(Q_y*f_n)
+=\widehat f_n\,\mathcal F_2Q_y
+=-i\operatorname{sgn}(\xi)e^{-y|\xi|}\widehat f_n.
+$$
+
+右辺の乗数は絶対値が1以下なので、$Q_y*f_n$ は乗数で定義した $v_y$ に $L^2$ 収束します。一方、各点の畳み込み積分は[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+
+$$
+\sup_{x\in\mathbb R}|Q_y*(f_n-f)(x)|
+\le\|Q_y\|_2\|f_n-f\|_2\longrightarrow0
+$$
+
+と一様収束します。$L^2$ 収束列からほとんど至る所収束する部分列を取って比較すると、点ごとの積分 $Q_y*f(x)$ は乗数で定義した $v_y$ をほとんど至る所で表します。以後この点ごとの表示を微分の際にも使えます。
 
 [Hilbert変換の乗数表示](#thm-ha3-multiplier)から
 
@@ -479,15 +508,34 @@ $$
 \partial_y Q_y=-\frac{2yr}{\pi D^2}.
 $$
 
-従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ です。さらに微分すると
+従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ です。これらの滑らかな核では混合偏微分が交換できるので
 
 $$
-\Delta P_y=\Delta Q_y=0.
+\begin{aligned}
+\Delta P_y
+&=\partial_x(\partial_yQ_y)-\partial_y(\partial_xQ_y)=0,\\
+\Delta Q_y
+&=-\partial_x(\partial_yP_y)+\partial_y(\partial_xP_y)=0.
+\end{aligned}
 $$
 
 これを畳み込み積分へ移す正当性を確認します。$y_0>0$ を固定し、高さを $y\in[y_0/2,2y_0]$ に限定します。この範囲では核の任意階導関数が $t$ について $L^2$ に属し、そのノルムは一様に有界です。核を有理関数として微分した各項は、原点付近では正の下界 $y\ge y_0/2$ によって抑えられ、無限遠では二乗可積分なべきで減衰するからです。
 
-各階の導関数は平行移動 $x$ と高さ $y$ に関して $L^2$ 連続です。微分商を[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)で評価し、さらにCauchy–Schwarz不等式を $f\in L^2$ と核の導関数に適用すると、積分の内側で微分できます。よって $P_y*f$ と $Q_y*f$ は任意階で微分可能となり、先ほどの核のLaplacianを積分して
+各階の導関数は平行移動 $x$ と高さ $y$ に関して $L^2$ 連続です。実際、$x,y$ を固定点の近傍に制限すれば、導関数の有理式に共通の二乗可積分な上界を取れるため、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を二乗の差に適用できます。
+
+$K_y=P_y$ または $Q_y$ とします。$h\ne0$ で、[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を関数 $z\mapsto K_y(x+z-t)$ の区間 $[0,h]$（$h<0$ では積分の向きを逆にする）に適用すると、
+
+$$
+\begin{aligned}
+&\left\|\frac{K_y(x+h-\cdot)-K_y(x-\cdot)}h
+-(\partial_xK_y)(x-\cdot)\right\|_2\\
+&\quad\le\int_0^1\|(\partial_xK_y)(x+\theta h-\cdot)
+-(\partial_xK_y)(x-\cdot)\|_2\,d\theta
+\longrightarrow0.
+\end{aligned}
+$$
+
+高さ $y$ の差分にも同じ評価を適用できます。この極限の左辺の各項と $f\in L^2$ の積分には[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用できるので、畳み込みを任意階で微分してよいことが分かります。従って先ほどの核のLaplacianを積分して
 
 $$
 \Delta u=(\Delta P_y)*f=0,
@@ -706,7 +754,7 @@ $$
 =\widehat{P_{y+z}}.
 $$
 
-Fourier変換の一意性から最初の等式です。$P_z\in L^1,Q_y\in L^2$ なので[$L^1$-$L^2$畳み込み定理](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)が適用でき、
+$P_y\in L^2$、$P_z\in L^1$ から $P_y*P_z\in L^2$ でもあるので、[FOU4のFourier反転・一意性](../../FOU/FOU4/index.md#thm-fou4-l2-inversion)から最初の等式です。$P_z\in L^1,Q_y\in L^2$ なので[$L^1$-$L^2$畳み込み定理](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)が適用でき、
 
 $$
 \widehat{Q_y*P_z}
