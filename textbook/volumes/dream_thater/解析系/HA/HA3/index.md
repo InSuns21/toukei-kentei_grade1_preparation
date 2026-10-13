@@ -80,7 +80,7 @@ H_\varepsilon f(x)=\frac1\pi
 +\int_{|t|\ge1}\frac{f(x-t)}t\,dt\right\}.
 $$
 
-[平均値の定理](../../RA/RA3/index.md#thm-ra3-mean-value)の適用対象を $s\mapsto f(x-s)$、区間の端点を $0,t$ とすると、
+[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)の適用対象を $s\mapsto f(x-s)$、区間の端点を $0,t$ とすると、
 
 $$
 |f(x-t)-f(x)|\le \|f'\|_\infty |t|.
