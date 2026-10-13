@@ -1,0 +1,39 @@
+chapter: CM2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-04
+  - CM1-10
+  - FOU2
+
+concepts:
+  - id: complex-manifolds.smooth-torus-fourier
+    name: 滑らかな二重周期関数のFourier展開
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（滑らかな二重周期関数のFourier展開）"]
+    requires: []
+  - id: complex-manifolds.torus-dolbeault-groups
+    name: 正方格子トーラスの全Dolbeault群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正方格子トーラスの全Dolbeault群）"]
+    requires: [complex-manifolds.smooth-torus-fourier, complex-manifolds.dolbeault-cohomology, complex-manifolds.torus-quotient-atlas]
+  - id: complex-manifolds.global-plane-dbar-solution
+    name: 複素平面上の大域bar∂可解性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（複素平面上の大域bar∂可解性）"]
+    requires: [complex-manifolds.one-variable-dbar-inverse]
+  - id: complex-manifolds.two-chart-dolbeault-quotient
+    name: 二つの座標領域による障害の商表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二つの座標領域による障害の商表示）"]
+    requires: [complex-manifolds.global-plane-dbar-solution, complex-manifolds.dolbeault-cohomology]
+  - id: complex-manifolds.projective-line-dolbeault-groups
+    name: 複素射影直線の全Dolbeault群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素射影直線の全Dolbeault群）"]
+    requires: [complex-manifolds.two-chart-dolbeault-quotient, complex-manifolds.dolbeault-cohomology]
