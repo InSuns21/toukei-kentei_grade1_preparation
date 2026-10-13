@@ -11,6 +11,7 @@ const $ = (name) => document.getElementById(name);
 const canvas = $("plot");
 let client = null, record = null, running = false, currentModel = "celev";
 let tracks = [[], []], latest = null;
+let playEpoch = 0;
 
 function show(message, error = false) {
   $("status").textContent = message;
@@ -96,6 +97,7 @@ function updatePhysics(response) {
 }
 async function start() {
   running = false;
+  playEpoch++;
   if (client) client.dispose();
   const { params, seed, adapter } = configuration();
   client = new SimulationClient(adapter.engineId, adapter.experimentId, {
@@ -127,24 +129,34 @@ async function runSteps(steps) {
 }
 async function play() {
   if (!client || currentModel !== "celev" || running) return;
-  if (client.state === "paused") await client.resume();
+  const active = client;
+  if (active.state === "paused") await active.resume();
+  const epoch = ++playEpoch;
   running = true;
   try {
-    while (running && client.state === "ready") {
+    while (running && epoch === playEpoch && client === active &&
+        active.state === "ready") {
       if (record.observations.length >= 999) {
+        record.stopReason = "observation-limit";
         show("記録上限に達したため、連続実行を停止しました");
-        break;
+        return;
       }
       await runSteps(25);
+      if (epoch !== playEpoch || client !== active) return;
       await new Promise((resolve) => setTimeout(resolve, 30));
     }
-    if (client?.state === "ready" && !running) {
-      await client.pause();
+    if (epoch === playEpoch && client === active &&
+        active.state === "ready" && !running) {
+      await active.pause();
       record.stopReason = "paused";
       show("バッチ境界で一時停止しました");
     }
+  } catch (error) {
+    // Reset/cancel can terminate an in-flight Worker. Its rejection belongs
+    // to the old run, not to the freshly selected experiment.
+    if (epoch === playEpoch && client === active) throw error;
   } finally {
-    running = false;
+    if (epoch === playEpoch) running = false;
   }
 }
 function download(name, contents, mime) {
@@ -216,7 +228,7 @@ $("resume").addEventListener("click", guard(async () => {
   await play();
 }));
 $("cancel").addEventListener("click", () => {
-  running = false; client?.cancel();
+  running = false; playEpoch++; client?.cancel();
   if (record) record.stopReason = "cancelled";
   show("Workerを終了しました。初期化で復旧できます");
 });
@@ -234,7 +246,7 @@ $("load-json").addEventListener("change", guard(async () => {
   if (file) await replay(await file.text());
   $("load-json").value = "";
 }));
-window.addEventListener("pagehide", () => { running = false; client?.dispose(); });
+window.addEventListener("pagehide", () => { running = false; playEpoch++; client?.dispose(); });
 setMode();
 if (typeof Worker === "undefined") show("このブラウザではWorkerを使用できません", true);
 else guard(start)();

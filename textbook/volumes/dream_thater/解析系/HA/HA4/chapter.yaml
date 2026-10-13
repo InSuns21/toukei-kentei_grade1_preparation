@@ -1,0 +1,40 @@
+id: "HA4"
+title: "Calderón–Zygmund分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA1
+  - HA2
+  - MT7
+official_scope: []
+learning_objectives:
+  - 二進立方体と親立方体を定義し、極大立方体の存在・互いに素・平均上下界・体積評価を証明できる
+  - Calderón–Zygmund分解を構成し、good partのL1・L∞・L2評価とbad partの零平均・L1評価を一つずつ導出できる
+  - 零平均と核のHölder型差評価から遠方の積分可能性を半径積分で証明できる
+  - 核の差と零平均・例外集合の体積評価の役割を区別し、消去がない場合の破綻を具体的に計算できる
+  - L2有界作用素に対してgood partの分布関数評価を導き、一般CZ作用素の弱型証明に必要な追加仮定を説明できる
+definitions:
+  - { id: HA4-DEF-01, name: 二進立方体と親立方体 }
+  - { id: HA4-DEF-02, name: 二進最大関数と悪い集合 }
+  - { id: HA4-DEF-03, name: 拡大立方体 }
+theorems:
+  - { id: HA4-LEM-01, name: 極大二進立方体の選択 }
+  - { id: HA4-THM-01, name: Calderón–Zygmund分解 }
+  - { id: HA4-LEM-02, name: 零平均と核の差による遠方評価 }
+  - { id: HA4-PROP-01, name: 良い部分の二乗平均評価 }
+canonical_examples:
+  - d=1の段差関数からの極大区間の選択とgood/bad partの構成
+  - 親立方体と体積比2^dによる平均上界の確認
+  - 零平均を持つ2段階関数とHilbert型核の減衰
+  - 零平均がない関数では遠方のL1評価が対数発散する反例
+problem_patterns:
+  - HA4-DYADIC-PARENT
+  - HA4-MAXIMAL-CUBES
+  - HA4-CZ-GOOD-BAD
+  - HA4-MEAN-ZERO
+  - HA4-OFF-SUPPORT
+  - HA4-GOOD-L2
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
