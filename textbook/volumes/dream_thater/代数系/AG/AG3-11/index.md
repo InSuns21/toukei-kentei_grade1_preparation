@@ -2,7 +2,7 @@
 
 [前章の射影空間のねじり層のコホモロジー](../AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で、$\mathbb P^2$ 上の $\mathcal O(m)$ の群は全て計算できました。しかし、曲線 $C\subset\mathbb P^2$ に制限すると、これまで零だった一次群 $H^1(C,\mathcal O_C)$ が現れることがあります。たとえば射影直線と滑らかな三次曲線はどちらも局所的には一本の線ですが、大域的な正則関数や微分形式の貼り合わせには差があります。
 
-ここではその差を**種数**として数えます。まず曲線を一つの斉次方程式で切り出し、$\mathbb P^2$ の既知のコホモロジーから $C$ の零次・一次群を求めます。次に[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)で正則微分形式を数え、最後に Riemann–Roch の形を**平面曲線の超平面因子について証明**します。任意の因子へ拡張するために何が足りないかも区別します。
+ここではその差を**種数**として数えます。まず曲線を一つの斉次方程式で切り出し、$\mathbb P^2$ の既知のコホモロジーから $C$ の零次・一次群を求めます。次に[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)で正則微分形式を数え、最後に Riemann–Roch の形を**直線で切り出した因子について証明**します。任意の因子へ拡張するために何が足りないかも区別します。
 
 以下、$k$ は代数閉体、$S=k[X,Y,Z]$、$P=\mathbb P_k^2$ とします。$F\in S_d$ は $d\ge1$ の非零斉次多項式で、$C=V_+(F)$ は滑らかで幾何学的に整な射影平面曲線であるとします。$\mathcal O_C(m)$ は $\mathcal O_P(m)$ の制限、$h^i(C,\mathcal F)=\dim_kH^i(C,\mathcal F)$ と記します。$S_t=0$（$t<0$）と約束します。
 
@@ -120,7 +120,7 @@ $$
 \to H^2(C,\mathcal O_C(m))\to0.
 $$
 
-> ここで[最高次コホモロジーの完全係数対](../AG3-10/index.md#prop-ag3-10-top-pairing)の下で、この中央の写像の双対を調べます。二つの双対空間を次数で書くと
+> ここで[最高次コホモロジーの完全係数対](../AG3-10/index.md#prop-ag3-10-top-pairing)の下で、この中央の写像の双対を調べます。ここで $V^*=\operatorname{Hom}_k(V,k)$ と書きます。二つの有限次元線形双対を次数で表すと
 
 $$
 H^2(P,\mathcal O(m))^*\simeq S_{-m-3},
@@ -268,7 +268,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[標準束と因子](../AG2-08/index.md#thm-ag2-08-canonical-divisor)の対応と[本章の命題](#prop-ag3-11-canonical-sections)から、$K_C\sim(d-3)H$ です。そのため
+[標準因子と標準束](../AG2-08/index.md#thm-ag2-08-canonical-divisor)の定理から $\mathcal O_C(K_C)\simeq\omega_C$ です。[標準束と正則微分形式の個数](#prop-ag3-11-canonical-sections)で $\omega_C\simeq\mathcal O_C(d-3)$ と示しました。よって $K_C\sim(d-3)H$ です。そのため
 
 $$
 \ell(K_C-mH)
@@ -285,7 +285,7 @@ $$
 
 > この時点で、平面曲線の超平面因子に対する「$H^1$ と正則微分形式の切断の個数の対応」が具体的に確かめられました。
 
-次に Euler 標数を求めます。[長完全列](../AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和は短完全列に対し加法的です。また[射影平面のEuler標数](../AG3-10/index.md#cor-ag3-10-euler-characteristic)から、任意の整数 $t$ について
+次に層コホモロジー群の交代次元和を求めます。[長完全列](../AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和は短完全列に対し加法的です。また[射影平面のEuler標数](../AG3-10/index.md#cor-ag3-10-euler-characteristic)から、任意の整数 $t$ について
 
 $$
 \chi(P,\mathcal O_P(t))=\frac{(t+2)(t+1)}2.
@@ -303,7 +303,7 @@ h^0(C,\mathcal O_C(m))-h^1(C,\mathcal O_C(m))
 \end{aligned}
 $$
 
-> 二行目で $m^2$ が消えることが、次数という一次の量が現れる理由です。最初の等式 $h^1=\ell(K_C-mH)$ を左辺へ代入し、[超平面因子の定義](#def-ag3-11-hyperplane-divisor)から $\deg(mH)=dm$ とすれば結論です。
+> 二行目で $m^2$ が消えることが、次数という一次の量が現れる理由です。最初の等式 $h^1=\ell(K_C-mH)$ を左辺へ代入し、[平面曲線の超平面因子](#def-ag3-11-hyperplane-divisor)から $\deg(mH)=dm$ とすれば結論です。
 <!-- proof-end -->
 
 $d=4$、$m=1$ を入れると $g=3$、$\deg H=4$ なので
@@ -359,7 +359,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$d=2$ なので[種数公式](#cor-ag3-11-plane-genus)より
+$d=2$ です。[滑らかな平面曲線の種数公式](#cor-ag3-11-plane-genus)へ代入すると
 
 $$
 g(C)=\frac{(2-1)(2-2)}2=0.
@@ -501,7 +501,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$d=5$ なので[種数公式](#cor-ag3-11-plane-genus)から
+$d=5$ です。[滑らかな平面曲線の種数公式](#cor-ag3-11-plane-genus)へ代入すると
 
 $$
 g(C)=\frac{(5-1)(5-2)}2=6.
