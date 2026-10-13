@@ -16,19 +16,19 @@ forward_references:
 
 concepts:
   - id: calculus-of-variations.metric-kinetic-lagrangian
-    name: 計量の運動エネルギーLagrangian
+    name: 計量の運動エネルギー関数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（計量の運動エネルギーLagrangian）"]
+    introduction_aliases: ["定義（計量の運動エネルギー関数）"]
     requires:
       - geometry.riemannian-metric
       - geometry.riemannian-curve-energy
 
   - id: calculus-of-variations.metric-el-geodesic-bridge
-    name: 計量Lagrangianと測地線方程式
+    name: 計量エネルギーと測地線方程式
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（計量Lagrangianと測地線方程式）"]
+    introduction_aliases: ["命題（計量エネルギーと測地線方程式）"]
     requires:
       - calculus-of-variations.metric-kinetic-lagrangian
       - geometry.geodesic-equation
