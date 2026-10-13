@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - CM2-03
   - CM1-09
+  - GEO9
 official_scope: []
 learning_objectives:
   - 局所bar∂可解性と大域bar∂可解性の違いを説明できる
