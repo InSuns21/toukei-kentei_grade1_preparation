@@ -6,6 +6,7 @@ prerequisites:
   - CELEV2
   - CELEV1
   - VAR9
+  - VAR11
 forward_references: []
 concepts:
   - id: celestial-variational.equivariant-loop
@@ -35,14 +36,16 @@ concepts:
       - celestial-variational.equivariant-loop
       - calculus-of-variations.mean-zero-poincare
       - celestial-variational.newton-action-weak-lsc
-  - id: celestial-variational.symmetric-criticality
-    name: 有限群の対称臨界性
+  - id: celestial-variational.newton-equivariant-stationarity
+    name: 非衝突同変極小点のNewton周期解への昇格
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（有限群の対称臨界性）"]
+    introduction_aliases: ["定理（非衝突同変極小点のNewton周期解への昇格）"]
     aliases: []
     requires:
+      - calculus-of-variations.finite-symmetry-critical
       - celestial-variational.group-averaging
+      - celestial-variational.newton-first-variation
   - id: celestial-variational.rotating-circle-property
     name: 回転円条件
     kind: definition
