@@ -1,0 +1,45 @@
+id: "VAR11"
+title: "Palais–Smale・Ekeland・minimax"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR10
+  - VAR9
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - Gâteaux微分とFréchet微分の違いを方向極限と一様残差で示せる
+  - 臨界点と極小点を区別しPS列・(PS)コンパクト性条件を実例で検査できる
+  - Ekelandの変分原理を完備性と下半連続性から証明できる
+  - Ekelandの比較不等式から微分可能汎関数の小勾配点を構成できる
+  - minimax値からMountain PassのPS列を変形法により構成できる
+  - (PS)条件を適用して鞍点を含む臨界点を回収できる
+  - 有限群の対称臨界性を証明し不変性を失った反例を説明できる
+definitions:
+  - { id: VAR11-DEF-01, name: "Gâteaux微分とFréchet微分" }
+  - { id: VAR11-DEF-02, name: "臨界点と臨界値" }
+  - { id: VAR11-DEF-03, name: "Palais–Smale列とコンパクト性条件" }
+  - { id: VAR11-DEF-04, name: "Mountain Passの経路族とminimax値" }
+theorems:
+  - { id: VAR11-PROP-01, name: "(PS)条件による臨界点の回収" }
+  - { id: VAR11-THM-01, name: "Ekelandの変分原理" }
+  - { id: VAR11-PROP-02, name: "Ekeland点の勾配評価" }
+  - { id: VAR11-THM-02, name: "Mountain Passの定理：局所Lipschitz勾配版" }
+  - { id: VAR11-PROP-03, name: "有限群の対称臨界性" }
+canonical_examples:
+  - 二次汎関数のFréchet微分とPS条件
+  - 方向微分が存在するがFréchet微分が存在しない連続関数
+  - 指数型のPS失敗と無限次元の正規直交列
+  - 二重井戸のminimaxと二次元の鞍点
+  - 座標交換・反転対称性と不変性欠落の反例
+problem_patterns:
+  - VAR11-GATEAUX-FRECHET
+  - VAR11-PS-COMPACTNESS
+  - VAR11-PS-FAILURE
+  - VAR11-EKELAND-SLOPE
+  - VAR11-MOUNTAIN-PASS
+  - VAR11-SYMMETRIC-CRITICAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.0 }
