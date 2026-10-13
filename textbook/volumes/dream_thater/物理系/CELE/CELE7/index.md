@@ -252,7 +252,7 @@ $$
 で、各正準対の二項が相殺されます。
 <!-- proof-end -->
 
-この模型の $\delta=0$ では分離曲線が一致しています。$\delta\ne0$ でその安定枝・不安定枝が**横断的に**分離するなら、[CELE6の横断性判定](../CELE6/index.md#prop-cele6-melnikov-transversality)と[外部入力として明示されたSmale–Birkhoff定理](../CELE6/index.md#ref-cele6-smale-birkhoff)によりカオス的な不変集合を論じられます。ただし「第二角を入れた」だけで横断性やカオスを断定してはいけません。分離量、パラメータ、対象周期軌道を実際に検証する仕事が残ります。
+この模型の $\delta=0$ では安定枝と不安定枝が分離曲線上で一致しています。$\delta\ne0$ では、[CELE6で使ったMelnikov分離量の方法](../CELE6/index.md#prop-cele6-melnikov-transversality)を参考に、本模型の対象周期軌道とパラメータについて分離量および横断性を改めて検証する必要があります。横断ホモクリニック交差を示せた場合には、[外部入力のSmale–Birkhoff定理](../CELE6/index.md#ref-cele6-smale-birkhoff)によってカオス的な不変集合を論じられます。「第二角を入れた」だけでその結論を得たことにはなりません。
 
 ## 5. それでも残るKAMトーラス
 
@@ -342,7 +342,7 @@ S^n(x,y)=(x+ny,y),\qquad
 DS^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}.
 $$
 
-$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。Euclidノルムと三角不等式から、$|b|\le\|v\|$ を使って
+$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。Euclidノルムで評価します。三角不等式により、$|b|\le\|v\|$ を使って
 
 $$
 \|DS^n v\|
