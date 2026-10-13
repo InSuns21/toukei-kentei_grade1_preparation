@@ -94,13 +94,13 @@ $$
 =\frac{\partial_{\bar z}\varphi}{z}.
 $$
 
-$h$ が滑らかなとき $d(h\,dz)=2i\,\partial_{\bar z}h\,dA$ である。従って Stokes の公式を $h=\varphi/z$ に適用すると、外周では $\varphi=0$、内周は時計回りなので
+$h$ が滑らかなとき $d(h\,dz)=2i\,\partial_{\bar z}h\,dA$ である。従って Stokes の公式を $h=\varphi/z$ に適用すると、外周では $\varphi=0$、内周は時計回り（$\oint$ は反時計回り）なので
 
 $$
 \begin{aligned}
 \int_{D_\varepsilon}\frac{\partial_{\bar z}\varphi}{z}\,dA
 &=\frac1{2i}\int_{\partial D_\varepsilon}\frac{\varphi(z)}z\,dz\\
-&=-\frac1{2i}\int_{|z|=\varepsilon}^{\mathrm{反時計回り}}\frac{\varphi(z)}z\,dz.
+&=-\frac1{2i}\oint_{|z|=\varepsilon}\frac{\varphi(z)}z\,dz.
 \end{aligned}
 $$
 
@@ -208,7 +208,7 @@ $$
 
 ### 証明の見取り図
 
-先の一変数定理を、他の $n-1$ 変数をパラメータとして適用する。最後の主張には、$\bar\partial$ による正則関数の判定を用いる。
+先の一変数定理を、他の $n-1$ 変数をパラメータとして適用する。最後の主張には [正則関数の判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)を用いる。
 
 <!-- proof-start -->
 ### 証明
