@@ -204,7 +204,7 @@ P_n(x)\subset B(x,\sqrt d\,\ell_n),\qquad
 \frac{|B(x,\sqrt d\,\ell_n)|}{|P_n(x)|}=|B(0,\sqrt d)|.
 $$
 
-$g\in L^1_{\mathrm{loc}}$ なので、[$\mathbb R^d$ のLebesgue微分定理](../HA1/index.md#thm-ha1-differentiation)により、ほとんどすべての $x$ は $g$ のLebesgue点です。そのような点では
+$g\in L^1_{\mathrm{loc}}$ なので、[高次元Lebesgue微分定理](../HA1/index.md#thm-ha1-differentiation)により、ほとんどすべての $x$ は $g$ のLebesgue点です。そのような点では
 
 $$
 \begin{aligned}
