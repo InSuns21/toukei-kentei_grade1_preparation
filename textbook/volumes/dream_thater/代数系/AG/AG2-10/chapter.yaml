@@ -1,0 +1,50 @@
+id: "AG2-10"
+title: "正規束と随伴公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-09
+  - AG2-08
+  - AG2-06
+  - AG2-05
+  - AG2-03
+  - AG1-10
+official_scope: []
+learning_objectives:
+  - 滑らかな射影超曲面の余法層I/I²を構成し方程式の遷移からO(-d)と同一視できる
+  - Kähler微分の商表示から余法完全列を構成しJacobianの単元係数による局所分裂を証明できる
+  - 余法完全列を双対化して正規束O(d)と接完全列を計算できる
+  - 局所分裂完全列の行列式と射影空間の標準束から随伴公式を証明できる
+  - 曲線・超平面・五次超曲面の標準束を次数と次元を代入して計算できる
+  - 局所随伴形式の符号と偏微分による分母を計算し異なる座標選択を照合できる
+  - 滑らかな完全交叉の正規束と随伴公式を証明しJacobian階数低下で破綻する箇所を説明できる
+definitions:
+  - { id: AG2-10-DEF-01, name: 余法層と正規層 }
+theorems:
+  - { id: AG2-10-PROP-01, name: 超曲面の余法層 }
+  - { id: AG2-10-THM-01, name: 滑らかな超曲面の余法完全列 }
+  - { id: AG2-10-THM-02, name: 超曲面の正規束と接完全列 }
+  - { id: AG2-10-THM-03, name: 滑らかな射影超曲面の随伴公式 }
+  - { id: AG2-10-PROP-02, name: 局所随伴形式 }
+  - { id: AG2-10-THM-04, name: 滑らかな射影完全交叉の正規束と随伴公式 }
+canonical_examples:
+  - 放物線y=x²のdfと接ベクトルおよび余法層
+  - 平面二次曲線YZ=X²の余法束と標準束
+  - 平面三次曲線の局所形式dx/(2y)と標準束の自明性
+  - P4内の五次超曲面とP3内の二つの二次式による完全交叉
+  - 尖点y²=x³でのJacobian階数低下
+problem_patterns:
+  - AG2-10-A1
+  - AG2-10-A2
+  - AG2-10-A3
+  - AG2-10-A4
+  - AG2-10-B1
+  - AG2-10-B2
+  - AG2-10-B3
+  - AG2-10-B4
+  - AG2-10-C1
+  - AG2-10-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 5 }
