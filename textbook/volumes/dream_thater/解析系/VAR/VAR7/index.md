@@ -116,10 +116,10 @@ $$
 積分に使う平面の発散公式を、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)から確認します。VC4の定理は **3次元領域** に関するものです。そこで区分的 $C^1$ 境界を持つ有界平面領域 $U$ と $C^1$ ベクトル場 $(P,Q)$ に対し、$\Omega=U\times(0,1)$、$F(u,v,t)=(P(u,v),Q(u,v),0)$ と置きます。$\operatorname{div}_{\mathbb R^3}F=P_u+Q_v$ であり、立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
 
 <a id="eq-var7-planar-divergence"></a>
-$
+$$
 \int_U(P_u+Q_v)\,du\,dv
 =\int_{\partial U}(P,Q)\cdot\nu_U\,ds_U.
-$
+$$
 
 曲面を、区分的に滑らかな境界を持ち各片が一つの局所座標で記述できる有限個の小片へ分けてこの公式を適用します。重複する座標近傍をそのまま二重に足すのではありません。接線場 $W$ から得られる流束は座標に依存しない幾何学的量なので、隣接小片の共有境界では余法線が逆向きとなり寄与が相殺され、曲面の実際の境界だけが残ります。
 
@@ -263,9 +263,9 @@ $$
 =-\int_D\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right)\,dx\,dy.
 $$
 ここで $q=\operatorname{div}(\nabla u/w)$ と置きます。[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)は **1次元の区間** に対する結果なので、$D\subset\mathbb R^2$ へ直接適用するのではなく、二度用います。任意の長方形 $I\times J\Subset D$ を取り、$\eta\in C_c^\infty(I)$、$\zeta\in C_c^\infty(J)$ に対し $\varphi(x,y)=\eta(x)\zeta(y)$ と選ぶと
-$
+$$
 0=\int_I\eta(x)\left(\int_J q(x,y)\zeta(y)\,dy\right)dx.
-$
+$$
 固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で1次元基本補題を適用して $\int_J q(x,y)\zeta(y)\,dy=0$ をすべての $x\in I$ について得ます。次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上で同じ補題を適用すると $q(x,y)=0$ が $I\times J$ で成立します。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
 
 発散を展開するため $w_x=(u_xu_{xx}+u_yu_{xy})/w$、$w_y=(u_xu_{xy}+u_yu_{yy})/w$ を計算します。従って
@@ -372,14 +372,14 @@ $$
 -\sqrt{1+(r')^2}=0.
 $$
 $w=\sqrt{1+(r')^2}$ と置いて左辺を微分・通分すると
-$
+$$
 \frac{(r')^2}{w}+\frac{rr''}{w^3}-w
 =\frac{rr''-w^2}{w^3}=0.
-$
+$$
 $w>0$ なので
-$
+$$
 rr''=w^2=1+(r')^2.
-$
+$$
 $r=a\cosh(z/a)$ では $r'=\sinh(z/a)$、$r''=\cosh(z/a)/a$ なので左右とも $\cosh^2(z/a)$ です。ただし回転対称変分での停留だけから一般変分での停留は直ちには言えません。その不足を上の平均曲率の直接計算が埋めています。また停留は面積の**大域最小性を保証しません**。
 
 ### 5.2 螺旋面（helicoid）：回転面ではない極小曲面
