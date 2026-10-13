@@ -289,9 +289,7 @@ $I$ が有限生成なら、その生成元を関係式として並べれば足�
 
 $I=(a_1,\ldots,a_s)$ なら $A^s\to A\to A/I\to0$ で、最初の写像を $(b_i)\mapsto\sum_i b_i a_i$ とすれば有限表示です。
 
-逆に $A/I$ の有限表示 $A^s\xrightarrow{d}A^r\xrightarrow{\pi}A/I\to0$ があるとします。標準全射 $q:A\to A/I$ と比較します。$A$ と $A^r$ は自由なので、$\pi$ を $A$ に持ち上げた $h:A^r\to A$、$q$ を $A^r$ に持ち上げた $j:A\to A^r$ が存在し、$qh=\pi$、$\pi j=q$ です。
-
-$K=\ker\pi=\operatorname{im}d$ は有限生成です。$x\in I=\ker q$ なら $\pi j(x)=q(x)=0$ なので $j(x)\in K$。また $x-hj(x)\in I$ ですが、$h j(x)$ 自体は $q h j(x)=0$ より $I$ に属します。より直接に、$q h=\pi$ から $h(K)\subseteq I$、$j(x)\in K$ なので $h j(x)\in h(K)$ です。さらに $j$ と $h$ を一般には逆にできませんが、$j h-\mathrm{id}_{A^r}$ の像は $K$ に含まれます。よって $\ker q$ が有限生成であることは次の直接和比較でも分かります。
+逆に $A/I$ が有限表示で、$A^s\xrightarrow{d}A^r\xrightarrow{\pi}A/I\to0$ という完全列を持つとします。$K=\ker\pi=\operatorname{im}d$ は $d$ の列ベクトル $s$ 個で生成されます。標準全射 $q:A\to A/I$ の核 $I$ も有限生成であることを、二つの自由加群からの全射を比較して示します。
 
 二つの全射 $A^r\twoheadrightarrow A/I$ と $A\twoheadrightarrow A/I$ のファイバー積を $P=\{(u,a):\pi(u)=q(a)\}$ とします。第一射影 $P\to A^r$ は核 $I$、第二射影 $P\to A$ は核 $K$ を持ちます。自由加群 $A^r,A$ へのそれぞれの全射は分裂するため
 
