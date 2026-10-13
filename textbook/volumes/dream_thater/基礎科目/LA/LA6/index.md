@@ -119,7 +119,7 @@ $$
 <a id="def-la6-inertia-index"></a>
 <!-- formal-statement-start -->
 > **定義（慣性指数）**  
-> Hermitian行列 $A\in\mathbb C^{m\times m}$ の正・負・零固有値の個数（重複度込み）をそれぞれ $p,q,r$ とするとき、三つ組 $(p,q,r)$ を $A$ の **慣性指数** という。ここで $p+q+r=m$ である。実対称行列もHermitian行列の特別な場合として同じ定義を使う。
+> Hermitian行列 $A\in\mathbb C^{m\times m}$ の正・負・零固有値の個数（重複度込み）をそれぞれ $p,q,r$ とするとき、三つ組 $(p,q,r)$ を $A$ の **慣性指数** という。ここで $p+q+r=m$ である。実対称行列は $A^*=A$ を満たすため、その固有値についても同じように正・負・零の個数を数えられる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la6-inertia-index -->
