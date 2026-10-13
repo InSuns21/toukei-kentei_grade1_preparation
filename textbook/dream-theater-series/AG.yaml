@@ -100,7 +100,7 @@ chapters:
     title: "滑らかな超曲面と正則性"
   - id: AG2-12
     path: textbook/volumes/dream_thater/代数系/AG/AG2-12
-    status: planned
+    status: completed
     title: "射影平面三次曲線とquintic"
   - id: AG3-01
     path: textbook/volumes/dream_thater/代数系/AG/AG3-01
