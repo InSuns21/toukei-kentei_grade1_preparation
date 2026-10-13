@@ -63,7 +63,7 @@ $$
 <a id="ref-cele6-stable-manifold-input"></a>
 
 <!-- formal-statement-start -->
-> **外部定理として使用する入力（局所安定多様体定理）**  
+> **定理（局所安定多様体定理：外部入力）**  
 > $P_\varepsilon$ を平面の $C^r$ 級微分同相の $C^r$ 級一パラメータ族（$r\ge3$）とし、$\varepsilon=0$ で鞍型双曲固定点 $z_0$ を持つとする。十分小さい $\varepsilon$ で固定点 $z_\varepsilon$ が存続し、$z_\varepsilon$ の局所安定・不安定集合は対応する固有方向に接する $C^{r-1}$ 級曲線となる。適切な局所区間上でこれらの曲線は $\varepsilon$ とともに少なくとも $C^1$ 級に変化する。
 <!-- formal-statement-end -->
 
@@ -222,7 +222,21 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（強制振り子の鞍型周期軌道）**  
-> $\omega>0$ を固定する。上記の $\mathcal H_\varepsilon$ で $\varepsilon=0$ の周期軌道 $(q,p)=(0,0)$、$\phi=\omega t$ に対応する時間 $T=2\pi/\omega$ 写像の固定点は鞍型で、乗数は $e^T,e^{-T}$ である。十分小さい $|\varepsilon|$ で、この固定点は唯一の近傍固定点として存続し鞍型である。
+> $\omega>0$ を固定し、二自由度Hamiltonianを
+
+$
+\mathcal H_\varepsilon(q,p,\phi,J)
+=\frac{p^2}{2}+\cos q+
+\varepsilon\cos q\cos\phi+\omega J
+$
+
+> とする。$\varepsilon=0$ で $(q,p)=(0,0)$、$\phi=\omega t$ に対応する周期軌道は、時間
+
+$
+T=\frac{2\pi}{\omega}
+$
+
+> の帰還写像に鞍型固定点を与え、その乗数は $e^T,e^{-T}$ である。十分小さい $|\varepsilon|$ で、この固定点は唯一の近傍固定点として存続し鞍型である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -402,7 +416,7 @@ $$
 <a id="ref-cele6-smale-birkhoff"></a>
 
 <!-- formal-statement-start -->
-> **外部定理（Smale–Birkhoffのホモクリニック定理）**  
+> **定理（Smale–Birkhoffのホモクリニック定理：外部入力）**  
 > $P$ を二次元多様体上の $C^2$ 級微分同相、$z_*$ を鞍型双曲固定点とする。$z_*$ と異なる横断ホモクリニック点が存在すれば、ある整数 $N\ge1$ とコンパクトな $P^N$ 不変の双曲集合 $\Lambda$ が存在し、$P^N|_\Lambda$ は二記号の**両側**全シフトと位相共役になる。
 <!-- formal-statement-end -->
 
@@ -489,7 +503,7 @@ $$
 =\operatorname{area}(L).
 $$
 
-グラフ表示がある場合、垂直な切片の長さは $p_u(q)-p_s(q)$ です。Fubiniの反復積分を用いれば
+グラフ表示がある場合、垂直な切片の長さは $p_u(q)-p_s(q)$ です。連続な上下境界の間の面積を縦方向に積分すると
 
 $$
 \operatorname{area}(L)
@@ -510,7 +524,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $P^n(x,y)=(3^nx,4^{-n}y)$。$n\to+\infty$ で原点へ収束するには $x=0$ が必要十分で、$n\to-\infty$ では $y=0$ が必要十分です。従って[安定・不安定集合の定義](#def-cele6-stable-unstable)から
+**詳細解答。** $P^n(x,y)=(3^nx,4^{-n}y)$。$n\to+\infty$ で原点へ収束するには $x=0$ が必要十分で、$n\to-\infty$ では $y=0$ が必要十分です。従って[安定集合・不安定集合](#def-cele6-stable-unstable)から
 
 $$
 W^s(0)=\{(0,y):y\in\mathbb R\},\qquad
@@ -643,7 +657,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [二記号horseshoeの命題](#prop-cele6-symbolic-consequences)より $(P^N)^3$ の固定点数は $2^3=8$ です。最小周期1の点は定数列 $000\cdots,111\cdots$ の2点、3の正の約数は1と3だけなので最小周期3の点は $8-2=6$ 点です。一方これらは $P^N$ に対する周期の情報です。$P$ 自身の固定点が8点あるとは言えず、$P$ の周期と $P^N$ の周期を取り違えてはいけません。
+**詳細解答。** [二記号horseshoeから導く複雑さ](#prop-cele6-symbolic-consequences)より $(P^N)^3$ の固定点数は $2^3=8$ です。最小周期1の点は定数列 $000\cdots,111\cdots$ の2点、3の正の約数は1と3だけなので最小周期3の点は $8-2=6$ 点です。一方これらは $P^N$ に対する周期の情報です。$P$ 自身の固定点が8点あるとは言えず、$P$ の周期と $P^N$ の周期を取り違えてはいけません。
 <!-- solution-end -->
 
 ### Level C
@@ -674,7 +688,7 @@ $$
 $A(0)=2$ で連続なので十分小さい正の $\omega$ では $A(\omega)>0$、従って $M(0)=0,\ M'(0)=2\omega^2A(\omega)>0$ です。
 
 4. **第1段階**：曲線 $W^s,W^u$ の存在・滑らかな依存性および $D=\varepsilon M+O(\varepsilon^2)$ の $C^1$ 一様展開に、非線形安定多様体定理を用います。この条件を満たして初めて[分離量の単純零点から横断交差への命題](#prop-cele6-melnikov-transversality)を適用できます。**第2段階**：横断交点からコンパクトなhorseshoeを得るには[Smale–Birkhoffの外部定理](#ref-cele6-smale-birkhoff)を使います。DYN14の線形模型だけでもDYN13の区間模型だけでもこの一般定理は証明できません。
-5. 断面写像は面積を保存するため、[ローブ面積保存命題](#prop-cele6-lobe-area)から $\operatorname{area}(P(L))=\operatorname{area}(L)$ です。しかし $P(L)$ は元の $L$ と異なる場所へ延びたり、薄い形に変形したりします。**面積が不変**という性質は**位置・形が不変**という主張ではないので、交差による輸送と矛盾しません。
+5. 断面写像は面積を保存するため、[ローブ面積の保存とグラフ表示](#prop-cele6-lobe-area)から $\operatorname{area}(P(L))=\operatorname{area}(L)$ です。しかし $P(L)$ は元の $L$ と異なる場所へ延びたり、薄い形に変形したりします。**面積が不変**という性質は**位置・形が不変**という主張ではないので、交差による輸送と矛盾しません。
 <!-- solution-end -->
 
 ## 9. 天体力学へ戻るための点検
