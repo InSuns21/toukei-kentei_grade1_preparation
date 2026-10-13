@@ -1,0 +1,49 @@
+id: "CELE4"
+title: "円制限三体問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE3
+  - AMECH5
+official_scope: []
+learning_objectives:
+  - 円制限三体問題の質量比・無次元化と主天体の回転位置を説明し検算できる
+  - 回転系でのCoriolis項と実効ポテンシャルをNewton方程式から導出できる
+  - 正準運動量と回転系Hamiltonianを導きJacobi定数との関係を証明できる
+  - Jacobi定数からHill領域と零速度曲線を定義し禁止領域を判定できる
+  - 三共線点の唯一性と二正三角形点の座標を平衡方程式から証明できる
+  - Hessianと四次特性方程式から共線点の線形不安定性を証明できる
+  - 正三角形点のRouth質量比閾値と境界のJordan増大を導出できる
+  - 数値平衡位置とJacobi閾値から首の局所開閉を判定し軌道輸送と区別できる
+definitions:
+  - { id: CELE4-DEF-01, name: "平面円制限三体問題" }
+  - { id: CELE4-DEF-02, name: "Hill領域と零速度曲線" }
+  - { id: CELE4-DEF-03, name: "円制限三体問題のLagrange点" }
+theorems:
+  - { id: CELE4-PROP-01, name: "回転系の運動方程式とHamiltonian" }
+  - { id: CELE4-PROP-02, name: "Jacobi積分" }
+  - { id: CELE4-THM-01, name: "五つのLagrange点" }
+  - { id: CELE4-THM-02, name: "共線点の線形不安定性" }
+  - { id: CELE4-THM-03, name: "正三角形点の線形安定条件" }
+  - { id: CELE4-PROP-03, name: "共線点近傍の首の閾値" }
+canonical_examples:
+  - "質量比0.01で重心・距離・回転速度の無次元化を検算"
+  - "三角点で勾配とJacobi定数を直接評価"
+  - "共線点を一変数方程式で一意に決め質量比0.01で数値検算"
+  - "特性式と三角点Routh閾値を直接導出"
+  - "共線点近傍のJacobi閾値により首の局所的な開閉を判定"
+problem_patterns:
+  - CELE4-NONDIMENSIONALIZATION
+  - CELE4-CANONICAL-MOMENTA
+  - CELE4-JACOBI-FORBIDDEN-REGION
+  - CELE4-LAGRANGE-TRIANGLE
+  - CELE4-TRIANGULAR-JACOBI
+  - CELE4-COLLINEAR-UNIQUENESS
+  - CELE4-LINEAR-CHARACTERISTIC
+  - CELE4-ROUTH-THRESHOLD
+  - CELE4-NECK-OPENING
+  - CELE4-INTEGRATED-TRANSPORT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
