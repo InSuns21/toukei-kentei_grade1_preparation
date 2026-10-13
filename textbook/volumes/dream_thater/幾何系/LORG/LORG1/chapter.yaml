@@ -1,0 +1,45 @@
+id: "LORG1"
+title: "Lorentz内積と未来錐"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA6
+official_scope: []
+learning_objectives:
+  - Lorentz内積の慣性指数と標準形をSylvesterの慣性法則から説明できる
+  - 時間的・光的・空間的ベクトルと未来錐をMinkowski座標で判定できる
+  - 閉未来錐の閉性・内部・凸性を座標ノルムから証明できる
+  - 逆Cauchy–Schwarz不等式と等号条件を完全証明できる
+  - 逆三角不等式と未来向き折れ線の固有時を比較できる
+  - 時間的ベクトルの直交補が正定値であることを慣性法則から証明できる
+  - Lorentz変換の計量保存と未来向き保存の違いを説明できる
+definitions:
+  - { id: LORG1-DEF-01, name: Lorentz内積 }
+  - { id: LORG1-DEF-02, name: Lorentz因果型 }
+  - { id: LORG1-DEF-03, name: 閉未来錐と時間的未来錐 }
+  - { id: LORG1-DEF-04, name: 未来因果ベクトルの固有時ノルム }
+theorems:
+  - { id: LORG1-PROP-01, name: 未来錐の凸性と正のスカラー倍 }
+  - { id: LORG1-THM-01, name: Lorentz型逆Cauchy–Schwarz不等式 }
+  - { id: LORG1-COR-01, name: 未来錐上の逆三角不等式 }
+  - { id: LORG1-LEM-01, name: 時間的ベクトルの直交補空間は正定値 }
+canonical_examples:
+  - 不定値形式のMinkowski座標への変換
+  - 因果型の分類と未来錐の直接判定
+  - 光的二方向の和が時間的になる例
+  - 双曲角による逆Cauchy–Schwarzの検算
+  - 時間的ベクトルの直交補空間と時間反転
+problem_patterns:
+  - LORG1-INERTIA
+  - LORG1-CAUSAL-TYPES
+  - LORG1-NULL-ADDITION
+  - LORG1-ORTHOGONAL
+  - LORG1-REVERSE-CS
+  - LORG1-REVERSE-TRIANGLE
+  - LORG1-OFFDIAGONAL
+  - LORG1-BOOST
+  - LORG1-POLYGONAL-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
