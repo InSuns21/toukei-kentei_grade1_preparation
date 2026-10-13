@@ -10,7 +10,7 @@
 ## 直接必要な前提・PLAN間依存
 
 - 既存 RA/MECH/微積分。SMの前提となる平衡熱力学。
-- この系列の推奨順：[TH](DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](../plan_done/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](../plans_progress/DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
+- この系列の推奨順：[TH](DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](../plan_done/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
 
 ## 所有範囲
 

@@ -10,7 +10,7 @@
 ## 直接必要な前提・PLAN間依存
 
 - 完了済みの熱力学 TH1〜TH8、確率論・測度論。SM1 の着手時には実際に使う正本結果と必要な直接前提を chapter/knowledge metadata に確定する。量子統計を扱うSM6では QM の必要部分を改めて確定する。
-- この系列の推奨順：[TH](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](../plans_progress/DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
+- この系列の推奨順：[TH](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md) → [SM](DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md) → [SG](DREAM_THEATER_SPIN_GLASS_PLAN.md)。SGは他系列のブラックホール基礎に無条件必修としない。
 
 ## 所有範囲
 
