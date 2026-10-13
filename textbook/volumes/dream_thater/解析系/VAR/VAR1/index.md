@@ -130,7 +130,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\eta\in C_c^\infty(a,b)$ を取ります。これは $\eta(a)=0$ を満たすため許容方向です。[第一変分の境界項公式](#prop-var1-first-variation-boundary)の端点項は消えます。[変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)により
+まず $\eta\in C_c^\infty(a,b)$ を取ります。これは $\eta(a)=0$ を満たすため許容方向です。[第一変分と境界項](#prop-var1-first-variation-boundary)の命題の端点項は消えます。[変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)により
 $$
 F_y-\frac{d}{dx}F_p=0\quad(a<x<b).
 $$
@@ -168,7 +168,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$[a,c]$ と $[c,b]$ に[境界項公式](#prop-var1-first-variation-boundary)を別々に使います。外端は固定、各区間の内部項は仮定でゼロです。左区間の上端項は $F_p(c-)\eta(c)$、右区間の下端項は $-F_p(c+)\eta(c)$ なので
+$[a,c]$ と $[c,b]$ に[第一変分と境界項](#prop-var1-first-variation-boundary)の命題を別々に使います。外端は固定、各区間の内部項は仮定でゼロです。左区間の上端項は $F_p(c-)\eta(c)$、右区間の下端項は $-F_p(c+)\eta(c)$ なので
 $$
 \delta J[u;\eta]
 =\bigl(F_p(c-)-F_p(c+)\bigr)\eta(c).
