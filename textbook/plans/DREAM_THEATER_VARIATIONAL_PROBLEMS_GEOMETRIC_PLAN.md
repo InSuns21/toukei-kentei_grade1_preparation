@@ -1,15 +1,15 @@
-# DREAM THEATER 変分問題：第二変分・測地線・極小曲面 コース計画
+# DREAM THEATER 変分問題：幾何的第二変分・存在定理・臨界点理論 コース計画
 
 作成日: 2026-10-07  
 状態: planned
 
 ## 0. 目的
 
-解析力学 I で現れる第一変分と Euler--Lagrange 方程式を出発点に、**第二変分・測地線・Jacobi 場・共役点・極小曲面・安定性**までを一学期規模で体系化する。
+解析力学 I で現れる第一変分と Euler--Lagrange 方程式を出発点に、**第二変分・測地線・Jacobi 場・共役点・極小曲面・安定性**と、**極小点の存在の直接法・弱下半連続性・minimax・Morse指数**を体系化する。証明量で講数を調整する。
 
 中心問いは、
 
-> 停留点であることと最小であることはどう違い、その差は第二変分と幾何にどう現れるか。
+> 停留点であることと最小であることはどう違うか。そもそも極小点は存在するのか。その差と存在条件は第二変分・幾何・弱収束にどう現れるか。
 
 とする。
 
@@ -257,11 +257,11 @@ Jacobi 方程式
 
 ## 7. 実装順
 
-1. AMECH3 / 微分幾何 / 幾何解析との重複監査
-2. VAR1--VAR2
-3. VAR3--VAR4
-4. VAR5--VAR6
-5. VAR7--VAR8
-6. AMECH / 幾何解析への cross-link
-7. knowledge DAG / public index / series manifest
-8. 数学的完全性・読者粒度の二系統レビュー
+1. AMECH3 / 微分幾何 / GPDE3〜5 / 幾何解析 / CELEVとの重複・証明正本監査。
+2. VAR1〜VAR2（端点項・角点条件・第二変分の必要/十分条件を含む）。
+3. VAR3〜VAR4、VAR5〜VAR6、VAR7〜VAR8（幾何変分の各組）。
+4. VAR9〜VAR10（H¹直接法・Tonelli存在/正則性）。
+5. VAR11〜VAR12（Palais–Smale・minimax・指数）。
+6. AMECH / GPDE / 幾何解析 / CELEVへの実在stable anchor cross-link。未実装定理を既知扱いしない。
+7. knowledge DAG / public index / series manifest（**PLAN段階では未公開章を登録しない**）。
+8. 数学的完全性・読者粒度の二系統レビューとCI/公開検証。
