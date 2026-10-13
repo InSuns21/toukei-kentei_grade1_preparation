@@ -1,0 +1,55 @@
+id: "AG3-06"
+title: "準連接層・連接層"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-05
+  - AG3-04
+  - AG3-03
+  - AG3-02
+  - AG2-06
+  - AG1-05
+  - AG1-04
+  - LA3E
+official_scope: []
+learning_objectives:
+  - 加群の局所化から層を構成し主開切断・茎・大域切断を証明できる
+  - 準連接層を局所アフィンな加群の層として定義し直接例を確認できる
+  - アフィンスキーム上で準連接層と加群が同値になる理由を分母処理から証明できる
+  - 準連接層の射と加群の射および完全列との対応を説明できる
+  - アフィン射による層の引戻しをテンソル積として計算できる
+  - 有限型・有限表示の差と巡回商加群の関係式を証明できる
+  - 連接層と局所Noether条件の役割を証明し非Noether反例を解析できる
+definitions:
+  - { id: AG3-06-DEF-01, name: 加群に付随する層 }
+  - { id: AG3-06-DEF-02, name: 準連接層 }
+  - { id: AG3-06-DEF-03, name: 有限型・有限表示の準連接層 }
+  - { id: AG3-06-DEF-04, name: 連接層 }
+theorems:
+  - { id: AG3-06-THM-01, name: 加群から層への構成 }
+  - { id: AG3-06-THM-02, name: アフィンスキーム上の準連接層と加群 }
+  - { id: AG3-06-PROP-01, name: 加群列と準連接層の完全性 }
+  - { id: AG3-06-PROP-02, name: アフィン射による引戻し }
+  - { id: AG3-06-PROP-03, name: 巡回商加群の有限表示判定 }
+  - { id: AG3-06-THM-03, name: 局所Noetherスキームの有限型準連接層 }
+canonical_examples:
+  - k[t]/(t²)の局所化と茎
+  - k[x,y]/(x²,xy)の有限表示
+  - 非Noether多項式環上の有限型非有限表示商加群
+  - 射影直線のO(1)の準連接性
+  - テンソル積の単射不保存の例
+problem_patterns:
+  - AG3-06-A1
+  - AG3-06-A2
+  - AG3-06-A3
+  - AG3-06-A4
+  - AG3-06-B1
+  - AG3-06-B2
+  - AG3-06-B3
+  - AG3-06-B4
+  - AG3-06-C1
+  - AG3-06-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 19, exercises: 13, review: 7 }
