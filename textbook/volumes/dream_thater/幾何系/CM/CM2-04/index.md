@@ -284,7 +284,7 @@ $$
 
 ## 7. 複素トーラスに残る非零類
 
-$\Lambda=\mathbb Z+i\mathbb Z$ とし、$X=\mathbb C/\Lambda$ を一次元の複素トーラスとする。[トーラスの正則アトラス](../CM1-09/index.md#thm-cm1-09-complex-torus-atlas)のもと、平行移動で不変な $d\bar z$ は大域的な $(0,1)$ 形式 $\alpha$ を定める。
+$\Lambda=\mathbb Z+i\mathbb Z$ とし、$X=\mathbb C/\Lambda$ を一次元の複素トーラスとする。[トーラスの正則アトラス](../CM1-09/index.md#thm-cm1-09-quotient-atlas)のもと、平行移動で不変な $d\bar z$ は大域的な $(0,1)$ 形式 $\alpha$ を定める。
 
 <a id="prop-cm2-04-torus-class"></a>
 
