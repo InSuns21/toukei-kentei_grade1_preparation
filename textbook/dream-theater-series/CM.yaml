@@ -89,5 +89,5 @@ chapters:
     title: "Chern接続の存在・一意性"
   - id: CM2-11
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-11
-    status: planned
+    status: completed
     title: "Chern曲率の計算と正則束の総合演習"
