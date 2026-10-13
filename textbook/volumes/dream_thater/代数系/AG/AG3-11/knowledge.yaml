@@ -1,0 +1,53 @@
+chapter: AG3-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-10
+  - AG3-08
+  - AG2-10
+  - AG2-08
+  - AG2-07
+forward_references: []
+concepts:
+  - id: algebraic-geometry.curve-genus
+    name: 曲線の種数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲線の種数）"]
+    requires: [algebraic-geometry.sheaf-cohomology-les]
+  - id: algebraic-geometry.plane-curve-hyperplane-divisor
+    name: 平面曲線の超平面因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面曲線の超平面因子）"]
+    requires: [algebraic-geometry.curve-genus]
+  - id: algebraic-geometry.plane-curve-restriction
+    name: 平面曲線の制限完全列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面曲線の制限完全列）"]
+    requires: [algebraic-geometry.proj-graded-module-sheaf]
+  - id: algebraic-geometry.plane-curve-cohomology
+    name: 平面曲線のねじり層のコホモロジー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面曲線のねじり層のコホモロジー）"]
+    requires: [algebraic-geometry.plane-curve-restriction, algebraic-geometry.projective-twist-cohomology]
+  - id: algebraic-geometry.plane-curve-genus-formula
+    name: 滑らかな平面曲線の種数公式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（滑らかな平面曲線の種数公式）"]
+    requires: [algebraic-geometry.plane-curve-cohomology, algebraic-geometry.curve-genus]
+  - id: algebraic-geometry.plane-curve-canonical-sections
+    name: 標準束と正則微分形式の個数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準束と正則微分形式の個数）"]
+    requires: [algebraic-geometry.plane-curve-genus-formula]
+  - id: algebraic-geometry.plane-curve-rr
+    name: 超平面因子に対するRiemann–Roch等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超平面因子に対するRiemann–Roch等式）"]
+    requires: [algebraic-geometry.plane-curve-cohomology, algebraic-geometry.plane-curve-canonical-sections]
