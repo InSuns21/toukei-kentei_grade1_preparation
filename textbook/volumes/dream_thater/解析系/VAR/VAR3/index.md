@@ -230,7 +230,7 @@ $\eta=fT+gn$、$\det(T,T)=0$、$\det(n,T)=-1$ より $\delta A=-\int g\,ds$ で�
 $$
 \Gamma_{t,u}(s)=\gamma(s)+(tg(s)+u)n(s)
 $$
-に対して面積拘束 $A[\Gamma_{t,u}]=A_0$ を考えます。$u$ による偏微分は $-L\ne0$ なので陰関数定理から $u=u(t)$ が取れます。[面積の第一変分](#prop-var3-area-first)により $u'(0)=-(\delta A[g]/\delta A[h])=0$ です。よってこの厳密な面積保存族の初期変分は $gn$ であり、停留性と[周長の第一変分](#prop-var3-length-first)から
+に対して面積拘束 $A[\Gamma_{t,u}]=A_0$ を考えます。$u$ による偏微分は $-L\ne0$ なので[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から $u=u(t)$ が取れます。[面積の第一変分](#prop-var3-area-first)により $u'(0)=-(\delta A[g]/\delta A[h])=0$ です。よってこの厳密な面積保存族の初期変分は $gn$ であり、停留性と[周長の第一変分](#prop-var3-length-first)から
 $$
 0=\delta L[\gamma;gn]=-\int_0^L\kappa g\,ds.
 $$
@@ -408,7 +408,7 @@ $$
 
 ## 7. グラフ表示と小さな曲がり
 
-<a id="formula-var3-graph-curvature"></a>
+<a id="prop-var3-graph-curvature"></a>
 平面曲線を局所的に $\gamma(x)=(x,u(x))$ と書ける場合は、前二章の汎関数へ戻れます。ただし $x$ は一般に弧長ではありません。$u\in C^4$、$x\in[a,b]$ とし、左向き回転で法線を定めると
 $$
 ds=\sqrt{1+(u')^2}\,dx,\qquad
@@ -427,7 +427,7 @@ E[u]\approx\frac12\int_a^b(u'')^2dx
 $$
 です。これは長さの問題で $u'$ が現れたのに対し、曲げでは $u''$ が現れることを示します。
 
-この近似を正確に読むには、$|u'|\le\rho$ なら中間値定理から
+この近似を正確に読むには、$|u'|\le\rho$ なら[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)から
 $$
 \left|(1+(u')^2)^{-5/2}-1\right|
 \le\frac52(u')^2\le\frac52\rho^2
@@ -546,7 +546,7 @@ $\gamma(x)=(x,\alpha x^2)$、$\alpha\in\mathbb R$ とする。$\kappa(x)$、$\ka
 <!-- solution-start -->
 ### 詳細解答
 
-$u'=2\alpha x$、$u''=2\alpha$ です。[第7節のグラフ公式](#formula-var3-graph-curvature)に示した $\kappa=u''/(1+(u')^2)^{3/2}$ を代入すると
+$u'=2\alpha x$、$u''=2\alpha$ です。[第7節のグラフ公式](#prop-var3-graph-curvature)に示した $\kappa=u''/(1+(u')^2)^{3/2}$ を代入すると
 $$
 \kappa(x)=\frac{2\alpha}{(1+4\alpha^2x^2)^{3/2}},
 \qquad \kappa(0)=2\alpha.
@@ -666,7 +666,7 @@ $$
 $$
 \delta A[gn]=-\int_0^L g\,ds.
 $$
-従って一次拘束条件は $\int g=0$ です。$h\equiv1$ による補正を導入して $\Gamma_{t,u}=\gamma+(tg+u)n$ と置きます。$u=0,t=0$ で面積は指定値、さらに $\partial_u A|_{(0,0)}=-L\ne0$ です。二変数の陰関数定理により $A[\Gamma_{t,u(t)}]=A[\gamma]$ を満たす $u(t)$ が存在し、微分すると
+従って一次拘束条件は $\int g=0$ です。$h\equiv1$ による補正を導入して $\Gamma_{t,u}=\gamma+(tg+u)n$ と置きます。$u=0,t=0$ で面積は指定値、さらに $\partial_u A|_{(0,0)}=-L\ne0$ です。二変数の[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により $A[\Gamma_{t,u(t)}]=A[\gamma]$ を満たす $u(t)$ が存在し、微分すると
 $$
 0=-\int_0^Lg\,ds-Lu'(0)=-Lu'(0),
 \qquad u'(0)=0.
@@ -689,7 +689,7 @@ $$
 最後に、この証明は周長の**停留曲線の分類**です。候補が円しかないことから、全許容曲線に対して必ず $L^2\ge4\pi A$ という大域最小性が従うわけではありません。大域最小の存在・比較または等周不等式の独立な証明が必要です。[VAR2で区別した停留性と最小性](../VAR2/index.md#thm-var2-necessary)の違いがここにも残ります。
 <!-- solution-end -->
 
-## VAR3-C02 弾性曲線の保存量と端点
+## VAR3-C02 弾性曲線の第一積分と端点
 
 - Level: C
 - 目安時間: 35分
