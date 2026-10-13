@@ -29,10 +29,17 @@ $$
 
 まず $\theta_2=0\pmod{2\pi}$ を取ると、$\dot\theta_2=I_2>0$ なので横断し、次の帰還時刻は $T=2\pi/I_2$ です。正則なエネルギー $E>0$ を固定すれば、$I_2=\sqrt{2E-I_1^2}>0$ によって断面は $(I_1,\theta_1)$ の二次元となります。$I_2$ を従属変数とした表示での帰還写像は
 
-$$
+$
 P_0(I_1,I_2,\theta_1)
 =\left(I_1,I_2,\theta_1+2\pi\frac{I_1}{I_2}\pmod{2\pi}\right).
-$$
+$
+
+エネルギー $E$ を固定した断面の独立座標 $(I_1,\theta_1)$ で書き直せば、定義域 $0<I_1<\sqrt{2E}$ に対し
+
+$
+P_{0,E}(I_1,\theta_1)
+=\left(I_1,\theta_1+\frac{2\pi I_1}{\sqrt{2E-I_1^2}}\pmod{2\pi}\right).
+$
 
 **具体例**。$I_1=3/2,I_2=1$ なら $E=13/8$ のエネルギー面上にあり、角度の増分は $3\pi$、すなわち $\pi$ です。断面上で二回帰還すると元の角度へ戻ります。比 $I_1/I_2$ が無理数なら、このような有限回帰還は起こりません。この違いは軌道を断面に描けば見えますが、摂動後の「新たな第一積分が存在しない」ことの証明ではありません。
 
@@ -233,7 +240,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 零次係数が作用にしか依存しないこと。** $D^2K$ は可逆なので、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\omega=\nabla K$ には局所逆写像が存在します。従って任意の小さい開近傍の像も開近傍を含みます。全ての非零整数 $k$ について $k\cdot\omega\ne0$ となる周波数は稠密です（各共鳴直線の補集合の可算共通部分が稠密）。各非零Fourierモードに対し
+**(1) 零次係数が作用にしか依存しないこと。** $D^2K$ は可逆なので、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\omega=\nabla K$ には局所逆写像が存在します。従って任意の小さい開近傍の像も開近傍を含みます。全ての非零整数 $k$ について $k\cdot\omega\ne0$ となる周波数も稠密です。実際、任意の周波数の開円盤内で $\omega_2\ne0$ かつ $\omega_1/\omega_2$ が無理数となる点を選べます。この比が無理数なら、$k_1\omega_1+k_2\omega_2=0$ を満たす非零整数組 $(k_1,k_2)$ は存在しません。$\omega$ は局所微分同相なので、そのような非共鳴周波数の逆像は任意の作用近傍に存在します。各非零Fourierモードに対し
 
 $$
 (k\cdot\omega)F_{0,k}=0
@@ -386,7 +393,14 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 一回の帰還は $\theta_2$ が $2\pi$ 増える時間 $2\pi/I_2$ です。従って $\Delta\theta_1=I_1(2\pi/I_2)=5\pi\equiv\pi\pmod{2\pi}$。一回では戻らず、二回なら $2\pi$ 増加なので最小周期は二回です。これは[帰還写像の定義](../../../幾何系/INT/INT7/index.md#def-int7-return)に従う計算です。
+**詳細解答。** [帰還写像の定義](../../../幾何系/INT/INT7/index.md#def-int7-return)に従い、一回の帰還は $\theta_2$ が $2\pi$ 増える時間 $T=2\pi/I_2$ で起こります。この間の第一角の増分は
+
+$
+\Delta\theta_1=I_1T=2\pi\frac{I_1}{I_2}
+=5\pi\equiv\pi\pmod{2\pi}.
+$
+
+一回では戻らず、二回での角度増分は $10\pi\equiv0\pmod{2\pi}$ なので、最小周期は二回です。
 <!-- solution-end -->
 
 <a id="ex-cele5-a03"></a>
@@ -395,7 +409,21 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $k=(1,-1)$ に対し $k\cdot\omega=I_1-I_2=0$。$V_k=1/2$、$\nabla f=(1,0)$ だから $k\cdot\nabla f=1\ne0$ です。[一次障害](#prop-cele5-resonance-obstruction)の必要条件に反し、$F_0=I_1$ としてパラメータ解析的な第一積分を延長することはできません。
+**詳細解答。** $k=(1,-1)$ で $\omega=(I_1,I_2)$ とすれば、共鳴条件は
+
+$
+k\cdot\omega=I_1-I_2=0
+$
+
+です。他方、$V_k=1/2$、$\nabla f=(1,0)$ なので
+
+$
+(k\cdot\nabla f)V_k
+=(1,-1)\cdot(1,0)\,\frac12
+=\frac12\ne0.
+$
+
+これは[一次障害](#prop-cele5-resonance-obstruction)の必要条件に反するため、$F_0=I_1$ をパラメータに共同解析的な第一積分として延長することはできません。
 <!-- solution-end -->
 
 <a id="ex-cele5-a04"></a>
@@ -404,7 +432,22 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $\dot I_j=-\partial_{\theta_j}H_\varepsilon$ だから、$\dot I_1=\varepsilon\sin(\theta_1-\theta_2)$、$\dot I_2=-\varepsilon\sin(\theta_1-\theta_2)$。和は常に零です。従って $I_1+I_2$ は保存量であり、共鳴が一つあるだけで非可積分性は結論できません。
+**詳細解答。** Hamilton方程式 $\dot I_j=-\partial_{\theta_j}H_\varepsilon$ を各角度について計算すると
+
+$
+\dot I_1=\varepsilon\sin(\theta_1-\theta_2),
+\qquad
+\dot I_2=-\varepsilon\sin(\theta_1-\theta_2).
+$
+
+よって
+
+$
+\frac{d}{dt}(I_1+I_2)
+=\dot I_1+\dot I_2=0.
+$
+
+従って $I_1+I_2$ は保存量であり、共鳴が一つあるだけで非可積分性は結論できません。
 <!-- solution-end -->
 
 <a id="ex-cele5-a05"></a>
@@ -413,7 +456,28 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $\partial_L(-L^{-2}/2)=L^{-3}$、$\partial_GK_0=-1$ なので $\omega=(L^{-3},-1)$ です。さらに $\partial_{LL}K_0=-3L^{-4}$、$\partial_{LG}K_0=\partial_{GG}K_0=0$。よって $D^2K_0=\operatorname{diag}(-3L^{-4},0)$ で行列式は零です。[回転Kepler極限](#prop-cele5-kepler-degeneracy)の退化を確認できました。
+**詳細解答。** 各作用で偏微分すると、振動数は
+
+$
+\omega=\nabla K_0
+=\left(\partial_L(-L^{-2}/2),\partial_G(-G)\right)
+=(L^{-3},-1).
+$
+
+さらに
+
+$
+\partial_{LL}K_0=-3L^{-4},\qquad
+\partial_{LG}K_0=\partial_{GG}K_0=0,
+$
+
+$
+D^2K_0=
+\begin{pmatrix}-3L^{-4}&0\\0&0\end{pmatrix},
+\qquad \det D^2K_0=0.
+$
+
+これで[回転Kepler極限](#prop-cele5-kepler-degeneracy)のHessian退化を確認できました。
 <!-- solution-end -->
 
 ### Level B
@@ -447,7 +511,21 @@ Fourier指数 $e^{ik\cdot\theta}$ の微分は $ik e^{ik\cdot\theta}$。係数�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $I_*=(a,b)$ は $a,b>0$。有理数 $q/p>0$ を $b/a$ に任意に近く取ります。共鳴直線 $I_2=(q/p)I_1$ 上に $(a,(q/p)a)$ を取ると、$q/p\to b/a$ によりこの点は $(a,b)$ へ収束します。$D$ は開集合なので十分近ければ点は $D$ 内です。$k=(q,-p)$ について $k\cdot\omega=qa-p(q/p)a=0$。係数も仮定により非零ですから各近傍は $\mathcal P$ と交わります。
+**詳細解答。** $I_*=(a,b)\in D$ として、正の有理数の列 $q_n/p_n\to b/a$ を取ります。共鳴直線上の作用を
+
+$
+I^{(n)}=\left(a,\frac{q_n}{p_n}a\right)
+\longrightarrow(a,b)=I_*
+$
+
+と選べば、$D$ は開集合なので十分大きい $n$ で $I^{(n)}\in D$ です。$k_n=(q_n,-p_n)$ とおくと
+
+$
+k_n\cdot\omega(I^{(n)})
+=q_na-p_n\frac{q_n}{p_n}a=0.
+$
+
+仮定より $V_{k_n}(I^{(n)})\ne0$ なので $I^{(n)}\in\mathcal P$。従って $I_*$ のどの近傍も $\mathcal P$ と交わります。
 <!-- solution-end -->
 
 <a id="ex-cele5-b03"></a>
@@ -472,7 +550,19 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $\omega=(L^{-3},-1)$ なので $L=1$ では $\omega=(1,-1)$、$k\cdot\omega=1-1=0$ です。しかし第一に $D^2K_0=\operatorname{diag}(-3,0)$ で可逆でなく、[Poincaré型の解析的非可積分性](#thm-cele5-poincare-nonintegrability)のHessian非退化条件が失われます。第二に実際の[摂動関数](#def-cele5-disturbing-function)の $(1,1)$ Fourier係数が、この軌道で非零かどうかは未計算です。共鳴条件は分母が零であることしか示さず、一次障害の右辺が非零であるとは言えません。
+**詳細解答。** $L=1$ での振動数は $\omega=(L^{-3},-1)=(1,-1)$。従って
+
+$
+k\cdot\omega=(1,1)\cdot(1,-1)=0.
+$
+
+ただし、第一に
+
+$
+D^2K_0=\operatorname{diag}(-3,0),\qquad \det D^2K_0=0
+$
+
+なので、[Poincaré型の解析的非可積分性](#thm-cele5-poincare-nonintegrability)のHessian非退化仮定が失われます。第二に実際の[摂動関数](#def-cele5-disturbing-function)の $k=(1,1)$ Fourier係数がこの軌道で非零かどうかも未計算です。共鳴条件は一次障害式の左辺が零であることを示すだけで、右辺が非零だとはまだ言えません。
 <!-- solution-end -->
 
 ### Level C
@@ -485,19 +575,24 @@ H_\varepsilon=\frac12(I_1^2+I_2^2)
 +\varepsilon\sum_{k\in\mathbb Z^2\setminus\{0\}}e^{-2|k|_1}\cos(k\cdot\theta)
 $$
 
-を考える。(i) 零摂動時の $\theta_2=0$ への帰還写像を求める。(ii) 一次障害式を導く。(iii) Poincaré型定理の仮定をこの系で検査し、どの第一積分を否定できるか明記する。(iv) 同じ証明を円制限三体問題に機械的に移せない理由を説明せよ。
+を考える。次を示せ。
+
+1. 零摂動時の $\theta_2=0$ への帰還写像を求める。
+2. 一次障害式を導く。
+3. Poincaré型定理の仮定をこの系で検査し、どの第一積分を否定できるか明記する。
+4. 同じ証明を円制限三体問題に機械的に移せない理由を説明する。
 
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** (i) $\varepsilon=0$ では $\dot I=0$、$\dot\theta=(I_1,I_2)$。$I_2>1$ なので $\theta_2=0$ 断面は横断的です。帰還時間 $2\pi/I_2$ に $\theta_1$ が $2\pi I_1/I_2$ 増えるので
+**詳細解答。** **（1）** $\varepsilon=0$ では $\dot I=0$、$\dot\theta=(I_1,I_2)$。$I_2>1$ なので $\theta_2=0$ 断面は横断的です。帰還時間 $2\pi/I_2$ に $\theta_1$ が $2\pi I_1/I_2$ 増えるので
 
 $$
 P_0(I_1,I_2,\theta_1)
 =(I_1,I_2,\theta_1+2\pi I_1/I_2\pmod{2\pi}).
 $$
 
-(ii) 第一積分を $F_\varepsilon=f(I)+\varepsilon F_1+\cdots$ と仮定すると、Poisson括弧の一次係数は
+**（2）** 第一積分を $F_\varepsilon=f(I)+\varepsilon F_1+\cdots$ と仮定すると、Poisson括弧の一次係数は
 
 $$
 \omega\cdot\partial_\theta F_1
@@ -506,7 +601,7 @@ $$
 
 $k$ のFourier係数比較により $(k\cdot\omega)F_{1,k}=(k\cdot\nabla f)V_k$。共鳴点では $V_k\ne0$ なら $k\cdot\nabla f=0$ が必要です。
 
-(iii) $D$ は連結開集合で、$K,V$ は実解析的です。$K$ のHessianは単位行列であり、振動数ベクトルは $D$ 上で零になりません。
+**（3）** $D$ は連結開集合で、$K,V$ は実解析的です。$K$ のHessianは単位行列であり、振動数ベクトルは $D$ 上で零になりません。
 
 $$
 \omega=(I_1,I_2)\ne0,\qquad D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix}.
@@ -520,7 +615,7 @@ $$
 
 有理数の稠密性により、$\mathcal P$ は $D$ に稠密です。[Poincaré型の解析的非可積分性](#thm-cele5-poincare-nonintegrability)の全仮定を満たすので、$\varepsilon=0$ を含む近傍で共同実解析的な、Hamiltonianに関数的に独立な第二第一積分は存在しません。ただし $C^\infty$ の全ての積分を否定したわけではありません。
 
-(iv) 円制限三体の零質量比極限では $K_0(L,G)=-1/(2L^2)-G$ なのでHessian行列式は零です。また[実際の一次摂動関数](#def-cele5-disturbing-function)の共鳴Fourier係数の非零性も個別に調べる必要があります。従って(i)〜(iii)の模型の結論を円制限三体問題の完全な非可積分性証明と同一視できません。
+**（4）** 円制限三体の零質量比極限では $K_0(L,G)=-1/(2L^2)-G$ なのでHessian行列式は零です。また[実際の一次摂動関数](#def-cele5-disturbing-function)の共鳴Fourier係数の非零性も個別に調べる必要があります。従って(i)〜(iii)の模型の結論を円制限三体問題の完全な非可積分性証明と同一視できません。
 <!-- solution-end -->
 
 ## 9. 次章への問い
