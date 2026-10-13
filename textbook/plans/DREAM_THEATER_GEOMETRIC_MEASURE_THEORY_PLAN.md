@@ -22,7 +22,7 @@ Kakeya を読むためだけに Hausdorff dimension と Frostman lemma の短い
 
 までを一つの科目として閉じる。
 
-Kakeya の研究最前線は本計画の終盤で独立調和解析 PLAN の HA8 と合流し、EOM074 へ送る。
+Kakeya の研究最前線は本計画の終盤で独立調和解析 PLAN の HA11 と合流し、EOM074 へ送る。
 
 ## 0.1 範囲校正に用いる標準書
 
@@ -130,7 +130,7 @@ MT4 の1次元 BV を prerequisite とする。
 - set version と maximal version
 - scaling
 - wave packet / restriction との接続
-- HA8 との合流
+- HA11 との合流
 
 2026 Family 074 の proof details は EOM074 へ送る。
 
@@ -145,7 +145,7 @@ GMT3 → GMT4 → GMT5 → GMT6
                   │
                   └────→ GMT7 → GMT8
                                 ↑
-                               HA8
+                               HA11
 ~~~
 
 実際の prerequisite は章ごとに最小化する。
@@ -187,4 +187,4 @@ GMT3 → GMT4 → GMT5 → GMT6
 6. finite perimeter と reduced boundary を説明できる。
 7. Besicovitch set と Kakeya conjecture の関係を説明できる。
 8. Kakeya maximal operator が set conjecture より解析的に強い形であることを説明できる。
-9. HA8 と GMT8 が自然に合流し EOM074 へ進める。
+9. HA11 と GMT8 が自然に合流し EOM074 へ進める。
