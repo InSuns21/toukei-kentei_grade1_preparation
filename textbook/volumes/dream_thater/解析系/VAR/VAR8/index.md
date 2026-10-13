@@ -122,18 +122,18 @@ $\Sigma$ はコンパクトで変分が滑らかなので、各座標で一様�
 一般の固定境界変分 $X_t$ の初速度を $V=fN+W$（$W$ は接ベクトル場）とします。境界の各点を固定するので $V|_{\partial\Sigma}=0$、したがって $f|_{\partial\Sigma}=0$ かつ $W|_{\partial\Sigma}=0$ です。$W=dX(w)$ と表される曲面上の接ベクトル場 $w$ の流れ $\phi_t$ を、初速度 $\left.\partial_t\phi_t\right|_0=-w$ で取ります。$w$ は境界で消えるため、$\phi_t$ は境界を点ごとに固定します。
 
 再パラメータ化した曲面 $Y_t=X_t\circ\phi_t$ について、連鎖律から
-$
+$$
 \left.\partial_tY_t\right|_0
 =V+dX\left(\left.\partial_t\phi_t\right|_0\right)
 =fN+W-dX(w)=fN.
-$
+$$
 各 $\phi_t$ は曲面の微分同相なので、全ての小さい $t$ で $A[Y_t]=A[X_t]$ です。
 
 さらに、任意の変分族 $Z_t$ の面積の二階微分は、初速度 $\dot Z_0$ と加速度 $\ddot Z_0$ を用いて
-$
+$$
 \left.\frac{d^2}{dt^2}A[Z_t]\right|_0
 =D^2A[X](\dot Z_0,\dot Z_0)+DA[X](\ddot Z_0)
-$
+$$
 と分かれます。[VAR7の固定境界停留条件](../VAR7/index.md#thm-var7-stationary-minimal)によって、極小曲面では境界零の加速度に対する $DA[X]$ は消えます。したがって $Y_t$ と直線的な法線変分 $X+tfN$ は初速度が同じなので面積の二階微分も等しく、接成分は安定性の判定に寄与しません。境界を動かせる場合は $\phi_t$ の境界固定も第一変分の消失もそのままでは使えません。
 
 ## 3. Jacobi 作用素は「平均曲率の線形化」
@@ -419,19 +419,19 @@ $$
 極小曲面は $H=0$ でした。石鹸の泡のように囲む体積を指定して面積を変えるときは、面積だけの停留とは条件が違います。閉じた埋め込み曲面 $\Sigma$ の外向き単位法線を $N$ とし、囲まれる体積を $V$ とします。
 
 体積の第一変分も法線座標から導けます。十分小さい $r$ について、$\Phi(p,r)=X(p)+rN(p)$ は曲面の近傍で正則な座標を与えます。$S=-dN$ とすれば $d\Phi$ の接方向成分は $I-rS$、法線方向成分は $N$ なので、体積の Jacobian は
-$
+$$
 \det(I-rS)=1-r\operatorname{tr}S+r^2\det S.
-$
+$$
 法線グラフ $X_t=X+tfN$ による内外の体積差は、$tf$ が負の場所も符号付き積分として
-$
+$$
 V(t)-V(0)
 =\int_\Sigma\int_0^{tf(p)}
 \det(I-rS_p)\,dr\,dA
-$
+$$
 となります。内側の積分の一次項は $tf(p)$、残りは $O(t^2)$ なので
-$
+$$
 \delta V=\left.\frac{dV}{dt}\right|_0=\int_\Sigma f\,dA.
-$
+$$
 固定体積を保つ変分は、したがって一次で $\int_\Sigma f\,dA=0$ を満たします。
 
 <a id="prop-var8-cmc-constraint"></a>
