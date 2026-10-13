@@ -7,8 +7,8 @@
 
 1. 古典力学 I（MECH1〜8、既存完了章）
 2. 解析力学 I（AMECH1〜8、既存完了章）
-3. [シンプレクティック幾何学 I（SYM1〜8）](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)：閉じた非退化2形式、余接束、Darboux、Lagrange部分多様体、Moser。
-4. [幾何学的力学 I（GMECH1〜8）](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)：Hamilton作用、運動量写像、Noether、簡約、Lie–Poisson。
+3. [シンプレクティック幾何学 I（SYM1〜8）](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)：閉じた非退化2形式、余接束、Darboux、Lagrange部分多様体、Moser。
+4. [幾何学的力学 I（GMECH1〜8）](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)：Hamilton作用、運動量写像、Noether、簡約、Lie–Poisson。
 5. [可積分系と摂動論・KAM（INT1〜8）](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)。
 6. [天体力学・三体問題・Hamiltonian chaos（CELE1〜8）](../plan_done/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
 7. [変分的周期軌道・8の字・舞踏解と実数値シミュレーション（CELEV1〜8）](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（未着手）。
