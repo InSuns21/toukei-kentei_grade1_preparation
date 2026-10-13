@@ -1,0 +1,47 @@
+id: "HA2"
+title: "弱Lpと補間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA1
+  - MT7
+  - CA3
+official_scope: []
+learning_objectives:
+  - 分布関数とlayer-cake公式を定義・証明し、弱Lp準ノルムと強Lpの違いを具体例で計算できる
+  - 劣線形・弱型・強型を定義し、Marcinkiewicz補間の閾値分解と指数の収束条件を追える
+  - 有限端点およびL∞端点からMarcinkiewicz補間の強型推定を導き、HA1の最大作用素へ適用できる
+  - CA3の最大値原理から三線定理の有界正則関数版を証明できる
+  - Riesz–Thorin補間の解析的補助関数、境界ノルム、単関数稠密性による延長を説明できる
+  - 畳み込み作用素と行列の二端点推定から入出力指数の異なる中間推定を導ける
+definitions:
+  - { id: HA2-DEF-01, name: 分布関数 }
+  - { id: HA2-DEF-02, name: 弱Lp空間 }
+  - { id: HA2-DEF-03, name: 劣線形作用素 }
+  - { id: HA2-DEF-04, name: 強型・弱型(p,q) }
+theorems:
+  - { id: HA2-PROP-01, name: layer-cake公式 }
+  - { id: HA2-PROP-02, name: 強型から弱型への包含と準三角不等式 }
+  - { id: HA2-THM-01, name: Marcinkiewicz補間・有限端点 }
+  - { id: HA2-THM-02, name: Marcinkiewicz補間・L∞端点 }
+  - { id: HA2-COR-01, name: Hardy--Littlewood最大作用素の強いLp評価 }
+  - { id: HA2-LEM-01, name: 三線定理・有界正則関数版 }
+  - { id: HA2-THM-03, name: Riesz--Thorin補間 }
+canonical_examples:
+  - 弱Lpに属するが強Lpには属さない球内のべき関数
+  - 二段階単関数の分布関数とlayer-cake
+  - Hardy--Littlewood最大作用素のLp評価
+  - 三線定理の帯上正則関数の境界評価
+  - 有限次元行列と区間指示関数の畳み込み補間
+problem_patterns:
+  - HA2-DISTRIBUTION-LAYERCAKE
+  - HA2-WEAK-LP
+  - HA2-SUBLINEAR-ENDPOINT
+  - HA2-MARCINKIEWICZ-FINITE
+  - HA2-MARCINKIEWICZ-INFINITY
+  - HA2-RIESZ-THORIN-STRIP
+  - HA2-CONVOLUTION-INTERPOLATION
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

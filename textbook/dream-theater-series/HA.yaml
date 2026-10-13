@@ -12,7 +12,7 @@ chapters:
     title: 高次元最大作用素とLebesgue微分定理
   - id: HA2
     path: textbook/volumes/dream_thater/解析系/HA/HA2
-    status: planned
+    status: completed
     title: 弱Lpと補間
   - id: HA3
     path: textbook/volumes/dream_thater/解析系/HA/HA3
