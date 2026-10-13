@@ -377,6 +377,7 @@
 5. [VAR5 第二変分・Jacobi場・共役点](textbook/volumes/dream_thater/解析系/VAR/VAR5/index.md)
 6. [VAR6 最短測地線と存在](textbook/volumes/dream_thater/解析系/VAR/VAR6/index.md)
 7. [VAR7 曲面の面積の第一変分と極小曲面](textbook/volumes/dream_thater/解析系/VAR/VAR7/index.md)
+8. [VAR8 極小曲面の第二変分と安定性](textbook/volumes/dream_thater/解析系/VAR/VAR8/index.md)
 
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式
@@ -682,6 +683,7 @@
 17. [CM2-07 正則ベクトル束と正則切断](textbook/volumes/dream_thater/幾何系/CM/CM2-07/index.md)
 18. [CM2-08 標準束・双対束・テンソル束](textbook/volumes/dream_thater/幾何系/CM/CM2-08/index.md)
 19. [CM2-09 Hermite計量と局所表示](textbook/volumes/dream_thater/幾何系/CM/CM2-09/index.md)
+20. [CM2-10 Chern接続の存在・一意性](textbook/volumes/dream_thater/幾何系/CM/CM2-10/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

@@ -1,0 +1,46 @@
+id: "VAR8"
+title: "極小曲面の第二変分と安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR2
+  - VAR5
+  - VAR7
+  - GEO10
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 法線変分の計量の二次展開から面積第二変分の勾配項と曲率項を導出し固定境界の意味を説明できる
+  - Jacobi作用素を平均曲率の線形化と結びつけ、固定境界の弱形式と零方向を説明できる
+  - Rayleigh商とH0^1の弱コンパクト性から第一固有値の達成と安定性判定を証明できる
+  - 懸垂面の基本形式を第二変分へ代入し、s tanh(s)=1の臨界高さの上下で全方向の安定性と不安定性を証明できる
+  - 平均曲率一定の閉曲面と体積制約付き面積停留の同値性を説明し極小曲面の安定性と混同しない
+definitions:
+  - { id: VAR8-DEF-01, name: "固定境界の安定・不安定な極小曲面" }
+  - { id: VAR8-DEF-02, name: "極小曲面のJacobi作用素とJacobi関数" }
+  - { id: VAR8-DEF-03, name: "固定境界の第一Rayleigh値" }
+theorems:
+  - { id: VAR8-THM-01, name: "極小曲面の面積第二変分" }
+  - { id: VAR8-PROP-01, name: "平均曲率の線形化と第二変分の弱形式" }
+  - { id: VAR8-THM-02, name: "固定境界のスペクトル安定判定" }
+  - { id: VAR8-THM-03, name: "対称切断懸垂面の安定性の臨界高さ" }
+  - { id: VAR8-PROP-02, name: "閉曲面の体積制約付き面積停留" }
+canonical_examples:
+  - 平面円板のグラフ面積と安定性
+  - 正方形の第一Dirichlet固有値
+  - 懸垂面のJacobi零モードとs tanh(s)=1の安定閾値
+  - 球面の体積制約付き停留
+problem_patterns:
+  - VAR8-PLANE-SECOND
+  - VAR8-SHAPE-TERM
+  - VAR8-JACOBI-BOUNDARY
+  - VAR8-CMC-SPHERE
+  - VAR8-INTEGRATION-BY-PARTS
+  - VAR8-CATENOID-QUADRATIC
+  - VAR8-RECTANGLE-EIGEN
+  - VAR8-CATENOID-MODES
+  - VAR8-CATENOID-THRESHOLD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }

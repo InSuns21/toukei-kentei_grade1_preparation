@@ -1,0 +1,64 @@
+chapter: VAR8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR2
+  - VAR5
+  - VAR7
+  - GEO10
+  - GPDE5
+concepts:
+  - id: calculus-of-variations.minimal-surface-stability
+    name: 固定境界の安定・不安定な極小曲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定境界の安定・不安定な極小曲面）"]
+    requires: [calculus-of-variations.minimal-surface-definition, calculus-of-variations.second-variation]
+  - id: calculus-of-variations.minimal-surface-second-variation
+    name: 極小曲面の面積第二変分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（極小曲面の面積第二変分）"]
+    requires: [calculus-of-variations.surface-area-first-variation, calculus-of-variations.minimal-surface-stability, geometry.shape-operator]
+  - id: calculus-of-variations.minimal-surface-jacobi-operator
+    name: Jacobi 作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小曲面の Jacobi 作用素と Jacobi 関数）"]
+    requires: [calculus-of-variations.minimal-surface-second-variation]
+  - id: calculus-of-variations.minimal-surface-jacobi-function
+    name: Jacobi 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小曲面の Jacobi 作用素と Jacobi 関数）"]
+    requires: [calculus-of-variations.minimal-surface-jacobi-operator]
+  - id: calculus-of-variations.minimal-surface-jacobi-linearization
+    name: 平均曲率の線形化と第二変分の弱形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均曲率の線形化と第二変分の弱形式）"]
+    requires: [calculus-of-variations.minimal-surface-jacobi-operator, calculus-of-variations.surface-area-first-variation]
+  - id: calculus-of-variations.minimal-surface-rayleigh
+    name: 固定境界の第一Rayleigh値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定境界の第一 Rayleigh 値）"]
+    requires: [calculus-of-variations.minimal-surface-jacobi-operator, sobolev.h01]
+  - id: calculus-of-variations.minimal-surface-spectral-stability
+    name: 固定境界のスペクトル安定判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定境界のスペクトル安定判定）"]
+    requires: [calculus-of-variations.minimal-surface-rayleigh, functional-analysis.bounded-hilbert-sequence-weak-subsequence, analysis.compact-embedding]
+  - id: calculus-of-variations.catenoid-stability-threshold
+    name: 対称切断懸垂面の安定性の臨界高さ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対称切断懸垂面の安定性の臨界高さ）"]
+    requires: [calculus-of-variations.minimal-surface-second-variation, calculus-of-variations.catenoid-minimal-surface]
+  - id: calculus-of-variations.cmc-volume-stationarity
+    name: 閉曲面の体積制約付き面積停留
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉曲面の体積制約付き面積停留）"]
+    requires: [calculus-of-variations.surface-area-first-variation]
