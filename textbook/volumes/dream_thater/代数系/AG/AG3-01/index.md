@@ -404,7 +404,23 @@ $D=k[\varepsilon]/(\varepsilon^2)$ とする。$h_D(k)$ と $h_D(D)$ の元の�
 - ID: AG3-01-B4
 
 <!-- solution-start -->
-**詳細解答。** $h_D(B)$ は $b^2=0$ を満たす $b\in B$ と対応します。$B=k$ では体に非零の平方零元がないため $b=0$ の一通りです。$B=D$ では少なくとも $b=0$ と $b=\varepsilon$ の二通りがあります。実際 $\varepsilon^2=0$ かつ $\varepsilon\ne0$ です。一方 $k$ から任意の $k$ 代数 $B$ への $k$ 代数準同型は構造写像の一通りなので、$h_k(D)$ は一点です。$D$ での値の個数が異なり、関手 $h_D$ と $h_k$ は自然同型ではありません。
+**詳細解答。** [代数のB値点の定義](#def-ag3-01-b-points)から、$h_D(B)$ は $b^2=0$ を満たす $b\in B$ と対応します。$B=k$ では体に非零の平方零元がないため $b=0$ の一通りです。
+
+$B=D$ では任意の元は一意に $a+c\varepsilon$（$a,c\in k$）と表せます。$\varepsilon^2=0$ なので
+
+$$
+(a+c\varepsilon)^2=a^2+2ac\varepsilon+c^2\varepsilon^2
+=a^2+2ac\varepsilon.
+$$
+
+これが平方零なら、定数項の比較から $a^2=0$、$k$ は体なので $a=0$ です。逆に任意の $c\in k$ で $(c\varepsilon)^2=0$ です。従って平方零元はちょうど $c\varepsilon$（$c\in k$）で、対応する点を $u_c$ と書けば
+
+$$
+h_D(D)=\{u_c\mid c\in k,\ u_c(\varepsilon)=c\varepsilon\},
+\qquad |h_D(D)|=|k|\ge2.
+$$
+
+一方、$k$ から任意の $k$ 代数 $B$ への $k$ 代数準同型は構造写像の一通りなので、$h_k(D)$ は一点です。$D$ での値の個数が異なり、関手 $h_D$ と $h_k$ は自然同型ではありません。
 <!-- solution-end -->
 
 ### C1. 自然変換を全値域で決定する
