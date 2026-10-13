@@ -15,7 +15,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - 対象を「多様体値の写像」へ変えると線形理論のどこが壊れるか、
 を独習者が主要計算と核心証明で再構成できる科目にする。
 
-単なる5回分の見取り図だったGA1--GA5に、スペクトル・熱核・Bochner・非線形解析を適切に分離する補強章を設ける。番号は仮であり**講数・週数の上限を設けない**。既存の GA1 が確率解析 II のPLANから参照されるため、GA1の責務・IDを維持する。
+旧計画の5講構成から、スペクトル・熱核・Bochner・非線形解析を適切に分離した **GA1--GA9（全9講、欠番・枝番なし）** へ再編する。番号は仮IDであり、9週・9回授業という時間割は強制しない。既存の GA1 が確率解析 II のPLANから参照されるため、GA1の責務・IDを維持する。
 
 ## 0.1 標準的教科書との比較（2026-10-14）
 
@@ -23,12 +23,12 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 
 | 教科書 | 確認した主題 | 本科目での採用・切り分け |
 |---|---|---|
-| Jürgen Jost, *Riemannian Geometry and Geometric Analysis*, 7th ed., Springer | Laplace作用素と調和形式、曲率・接続、harmonic maps、熱流・変分 | **GA4 Hodge・GA4A Bochner・GA5 harmonic maps**を中核に。GEO/VAR既存定理は再所有しない |
+| Jürgen Jost, *Riemannian Geometry and Geometric Analysis*, 7th ed., Springer | Laplace作用素と調和形式、曲率・接続、harmonic maps、熱流・変分 | **GA6 Hodge・GA7 Bochner・GA8 harmonic maps**を中核に。GEO/VAR既存定理は再所有しない |
 | Steven Rosenberg, *The Laplacian on a Riemannian Manifold*, Cambridge | Hodge定理、Weitzenböck、熱核の構成と漸近 | Hodgeとscalar Laplaceの符号・領域を分離。熱核の存在・正値性・保存性・漸近を別論点に |
-| Alexander Grigor'yan, *Heat Kernel and Analysis on Manifolds*, AMS/IP | $L^2$作用素、最大値原理、熱核、スペクトル、完備性、Gaussian評価 | **GA3・GA3A・GA3B**を分離。非コンパクトをcompactと混同しない |
-| Emmanuel Hebey, *Nonlinear Analysis on Manifolds: Sobolev Spaces and Inequalities*, AMS | 多様体Sobolev、境界・非コンパクト、臨界指数・最良定数 | GA2の貼り合わせと定数依存、GA5Aのcritical問題へ接続 |
-| Isaac Chavel, *Eigenvalues in Riemannian Geometry*, Academic Press | Laplace固有値、曲率、不等式、熱核 | Rayleigh商・固有値・曲率下界の解析的意味を GA3A/GA4A に取り込む |
-| Michael E. Taylor, *Partial Differential Equations III: Nonlinear Equations*, Springer | 調和写像・極小曲面・幾何由来の非線形PDE | GA5/GA5Aの局所化・非線形性を校正。既存VAR7/8の変分公式は参照する |
+| Alexander Grigor'yan, *Heat Kernel and Analysis on Manifolds*, AMS/IP | $L^2$作用素、最大値原理、熱核、スペクトル、完備性、Gaussian評価 | **GA3・GA4・GA5**を分離。非コンパクトをcompactと混同しない |
+| Emmanuel Hebey, *Nonlinear Analysis on Manifolds: Sobolev Spaces and Inequalities*, AMS | 多様体Sobolev、境界・非コンパクト、臨界指数・最良定数 | GA2の貼り合わせと定数依存、GA9のcritical問題へ接続 |
+| Isaac Chavel, *Eigenvalues in Riemannian Geometry*, Academic Press | Laplace固有値、曲率、不等式、熱核 | Rayleigh商・固有値・曲率下界の解析的意味を GA4/GA7 に取り込む |
+| Michael E. Taylor, *Partial Differential Equations III: Nonlinear Equations*, Springer | 調和写像・極小曲面・幾何由来の非線形PDE | GA8/GA9の局所化・非線形性を校正。既存VAR7/8の変分公式は参照する |
 
 確認先:
 - https://link.springer.com/book/10.1007/978-3-319-61860-9
@@ -39,9 +39,9 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - https://link.springer.com/book/10.1007/978-1-4419-7049-7
 
 **主要な改訂判断**:
-1. 旧GA3は楕円型・熱方程式・熱核・スペクトルを一章に詰め込んでいたため、GA3/GA3A/GA3Bへ分離。
-2. 旧GA4はHodge分解の証明と、曲率が消滅定理へ現れるBochner型評価を欠いたため、GA4Aを設ける。
-3. GA5後続の幾何学的非線形方程式の比較対象・臨界性をGA5Aに限定的に追加。
+1. 旧GA3は楕円型・熱方程式・熱核・スペクトルを一章に詰め込んでいたため、GA3/GA4/GA5へ分離。
+2. 旧5講案のGA4はHodge分解の証明と、曲率が消滅定理へ現れるBochner型評価を欠いたため、現GA7を設ける。
+3. GA8後続の幾何学的非線形方程式の比較対象・臨界性をGA9に限定的に追加。
 4. VAR系列がすでに極小曲面の第一・第二変分を担当しているため、幾何解析ではその導出を別のcanonical theoremとして重複登録しない。
 
 ## 1. canonical ownerと前提
@@ -106,7 +106,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - 弱/強最大値原理の採用版を仮定込みで証明。境界なし調和関数の定数性
 - Dirichlet/Neumannの違いと反例（compatibilityを欠く例）
 
-### GA3A Laplace作用素のスペクトル理論（補強）
+### GA4 Laplace作用素のスペクトル理論
 
 - 平均零部分と定数固有空間、$L_g=-\Delta_g$ の弱形式・非負自己共役実現
 - compact埋め込みからのcompact resolvent、離散固有値と正規直交固有関数
@@ -114,7 +114,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - 円・平坦トーラス・球面で低次固有値の確認（球面調和関数の必要基礎を明示）
 - Weyl漸近公式・完全な固有関数 $L^p$ 評価は停止線。主張するなら定理としての証明責務を別途定義
 
-### GA3B 熱方程式・熱半群・熱核（補強）
+### GA5 熱方程式・熱半群・熱核
 
 - $e^{-tL_g}$ と固有関数展開による解の構成、$t>0$ での平滑化
 - 熱核 $p_t(x,y)$ の存在・対称性・滑らかさ・半群性・正値性・質量保存の各論理を区別
@@ -124,7 +124,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - **非コンパクト完備だけでは質量保存を無条件に主張しない**。stochastic completenessに別条件が必要な場合がある
 - SGA側のtransition densityとの一致は生成作用素・正規化・一意性を確認して接続する
 
-### GA4 Hodge Laplacian・調和形式・de Rham
+### GA6 Hodge Laplacian・調和形式・de Rham
 
 - Hodge star / codifferential $d^*$ / $\Delta_H$ の定義、境界条件なしの場合の形式的随伴と実際の作用素領域
 - $L^2$ 内積と $\langle\Delta_H\omega,\omega\rangle=\|d\omega\|^2+\|d^*\omega\|^2$
@@ -133,7 +133,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - 円・トーラス・球面で次数別の調和形式の例と、Betti数への橋
 - 非コンパクト・境界ありの $L^2$ Hodge分解を同じ定理文で主張しない
 
-### GA4A Bochner--Weitzenböck公式・曲率と解析（補強）
+### GA7 Bochner--Weitzenböck公式・曲率と解析
 
 - scalar Bochner identity（上記の $\Delta_g$ 規約）
   $\frac12\Delta_g|\nabla u|^2=|\nabla^2u|^2+\langle\nabla u,\nabla\Delta_g u\rangle+\mathrm{Ric}(\nabla u,\nabla u)$
@@ -143,7 +143,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - 適切な曲率下界のもとでの第一固有値評価（例: $\mathrm{Ric}\ge(d-1)K\,g$, $K>0$ なら $\lambda_1\ge dK$）の証明責務を固定
 - complete非コンパクトへの積分公式の無条件拡張を避け、cutoff・境界項・可積分性を必要に応じて明示
 
-### GA5 調和写像・非線形幾何変分
+### GA8 調和写像・非線形幾何変分
 
 - 滑らかな写像 $u:(M,g)\to(N,h)$、エネルギー、pullback connection、tension field $\tau(u)$
 - 第一変分から $\tau(u)=0$ を導く。既存VARの変分一般論へ正本リンクし、写像値の共変微分はGAで具体化
@@ -152,7 +152,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 - domain dimensionが2のときのエネルギーのスケールと高次元での違い。弱調和写像の滑らかさを無条件に宣言しない
 - harmonic map heat flowは滑らかな解に対するエネルギー散逸の計算を入口にし、一般存在/特異性理論は境界外
 
-### GA5A 幾何的非線形楕円PDEと臨界現象（補強）
+### GA9 幾何的非線形楕円PDEと臨界現象
 
 - minimal graph equation・平均曲率方程式を**VAR7/VAR8の面積変分・第二変分**から受け取り、線形化・一様楕円性の成立範囲・境界条件を解析する
 - 楕円方程式での係数が未知関数/勾配に依存することと、線形弱解理論をそのまま適用できない理由
@@ -172,18 +172,18 @@ GEO（計量・接続・曲率） + GPDE（Sobolev・弱PDE）
                       ↓
                     GA3
                       ↓
-                    GA3A
-                      ↓
-                    GA3B ───────→ SGA（確率的熱核）
-                      │
                     GA4
                       ↓
-                    GA4A
+                    GA5 ───────→ SGA（確率的熱核）
                       │
-                    GA5 ────────→ GA5A（VAR7/8も参照）
+                    GA6
+                      ↓
+                    GA7
+                      │
+                    GA8 ────────→ GA9（VAR7/8も参照）
 ~~~
 
-この図は読順であり、全章に全先行章のprerequisiteを積み上げない。例えばGA4の微分形式はGEO7とGA2/GA3Aで構成でき、GA3Bの熱核を前提にせずHodge定理を証明する選択肢もある。実装時のproof choiceに応じて必要最小の依存だけを登録する。
+この図は読順であり、全章に全先行章のprerequisiteを積み上げない。例えばGA6の微分形式はGEO7とGA2/GA4で構成でき、GA5の熱核を前提にせずHodge定理を証明する選択肢もある。実装時のproof choiceに応じて必要最小の依存だけを登録する。
 
 ## 5. 境界・非コンパクト・符号をまたぐ重点監査
 
@@ -203,10 +203,10 @@ GEO（計量・接続・曲率） + GPDE（Sobolev・弱PDE）
 
 ## 6. 既存科目との参照・停止線
 
-- GEO15/17 の測地線最小性・Jacobi場はVARおよびGEOが正本。GA4AではBochner評価のために曲率公式を使用するが、幾何学一般論を再証明しない。
-- VAR7/8 は曲面積の第一/第二変分の正本。GA5Aはその結果に続く楕円性・弱形式・解析的挙動を担当する。
+- GEO15/17 の測地線最小性・Jacobi場はVARおよびGEOが正本。GA7ではBochner評価のために曲率公式を使用するが、幾何学一般論を再証明しない。
+- VAR7/8 は曲面積の第一/第二変分の正本。GA9はその結果に続く楕円性・弱形式・解析的挙動を担当する。
 - GPDE3--9の Euclid 弱形式/正則性の「局所化に必要な具体条件」を検証して援用する。一般PDEの証明を全篇複製しない。
-- SGA3/SGA9 はLaplace--Beltrami・熱核に対応する確率過程を扱う。GA1/GA3Bの決定論的結果の未実装状態に注意する。
+- SGA3/SGA9 はLaplace--Beltrami・熱核に対応する確率過程を扱う。GA1/GA5の決定論的結果の未実装状態に注意する。
 - HA のEuclid CZ / Littlewood--Paley理論はGAで必要な場合のみ direct prerequisite。HA全講を多様体PDEの必須条件にしない。
 - Ricci flow、mean curvature flow、Yamabe問題、極小曲面の完全な高次正則性、index theory、Yang--Mills、sub-Riemannian解析、general noncompact heat-kernel Gaussian bound、幾何学的測度論は**体系的な完全理論にしない**。新たな独立成果物が必要なら別PLANとする。
 
