@@ -97,15 +97,21 @@ $$
 =2^d\lambda|Q_j|.
 $$
 
-また選択の厳密な不等号を各 $j$ に適用すると
+極大族が空の場合は $\sum_j|Q_j|=0$ であり、体積評価は直ちに成立します。極大族が空でない場合、任意の有限部分族 $Q_1,\dots,Q_N$ について、選択の厳密な不等号と互いに素であることから
 
 $$
-\lambda\sum_j|Q_j|
-<\sum_j\int_{Q_j}|f|
-\le\int_{\mathbb R^d}|f|=\|f\|_1
+\lambda\sum_{j=1}^N|Q_j|
+<\sum_{j=1}^N\int_{Q_j}|f|
+\le\|f\|_1
 $$
 
-（無限族の場合、先に有限部分和へ適用して極限を取れば $\le$ が得られる）。二進立方体全体は可算なので極大族も可算です。
+です。二進立方体全体は可算なので極大族も可算です。有限族ならこれでよく、無限族なら有限部分和の単調極限を取って
+
+$$
+\sum_j|Q_j|\le\frac{\|f\|_1}{\lambda}
+$$
+
+を得ます。無限族の極限で厳密不等号を保つ必要はありません。
 <!-- proof-end -->
 
 ここで得られた $\sum_j|Q_j|$ の評価は、悪い部分を覆う領域が小さいことを表します。$L^1$ ノルムそのものが小さいという意味ではありません。
@@ -237,7 +243,7 @@ $$
 <a id="lem-ha4-off-support"></a>
 <!-- formal-statement-start -->
 > **補題（零平均と核の差による遠方評価）**  
-> $Q\subset\mathbb R^d$ を立方体、$b\in L^1$ を $Q$ に台を持ち $\int_Qb=0$ を満たす関数とする。$\delta>0$、$A>0$ とし、$x\notin Q^*$、$y\in Q$ で核 $K(x,y)$ が定義され、
+> $Q\subset\mathbb R^d$ を立方体、$b\in L^1$ を $Q$ に台を持ち $\int_Qb=0$ を満たす関数とする。$\delta>0$、$A>0$ とする。核 $K(x,y)$ は $(\mathbb R^d\setminus Q^*)\times Q$ 上で共同可測な複素数値関数で、各 $x\notin Q^*$ で $K(x,c_Q)$ が有限とする。さらに $x\notin Q^*$、$y\in Q$ で
 
 $$
 |K(x,y)-K(x,c_Q)|
@@ -250,7 +256,7 @@ $$
 F_Q(x)=\int_Q K(x,y)b(y)\,dy
 $$
 
-> は絶対収束し（$K(x,c_Q)$ が有限とする）、次の評価が成り立つ。
+> は絶対収束し、$F_Q$ は $(Q^*)^c$ 上で可測であり、次の評価が成り立つ。
 
 $$
 \int_{\mathbb R^d\setminus Q^*}|F_Q(x)|\,dx
@@ -265,7 +271,14 @@ $\int b=0$ を使って $K(x,c_Q)$ を積分から消します。その結果 $|
 <!-- proof-start -->
 ### 証明
 
-固定した $x\notin Q^*$ では $|x-c_Q|>0$ です。仮定により $y\in Q$ で $K(x,y)$ は定数 $K(x,c_Q)$ と有界な差を持つので、$b\in L^1$ に対して通常の積分が存在します。零平均から
+固定した $x\notin Q^*$ では $|x-c_Q|>0$ です。$y\mapsto K(x,y)b(y)$ は可測であり、核の差の仮定から
+
+$$
+|K(x,y)b(y)|\le\left(|K(x,c_Q)|+
+A\frac{(\sqrt d\,\ell(Q)/2)^\delta}{|x-c_Q|^{d+\delta}}\right)|b(y)|
+$$
+
+となります。右辺は $y\in Q$ で可積分なので $F_Q(x)$ は絶対収束します。また共同可測性から、$y$ についての積分で定めた $F_Q(x)$ は $(Q^*)^c$ 上で可測です。零平均から
 
 $$
 \begin{aligned}
@@ -455,7 +468,7 @@ $f\in L^1(\mathbb R^d;\mathbb C)$、$Q$ を有限体積の立方体とし $b_Q=(
 $f\in L^1(\mathbb R^d)$、$\lambda>0$ とし、相異なる極大二進立方体 $Q_1,\dots,Q_N$ について $\sum_{j=1}^N|Q_j|\le\|f\|_1/\lambda$ を示せ。さらに無限族でも成立する理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**　各 $j$ で $\lambda|Q_j|<\int_{Q_j}|f|$。極大立方体は互いに素なので
+**詳細解答**　各 $j$ で $\lambda|Q_j|<\int_{Q_j}|f|$。[極大二進立方体の選択](#lem-ha4-maximal-selection)により極大立方体は互いに素なので
 
 $$
 \lambda\sum_{j=1}^N|Q_j|
@@ -521,14 +534,14 @@ $1/t$ ではなく $1/t^2$ が現れるのは $L^2$ に対する二乗積分の�
 **演習 HA4-C01（分解と遠方制御の接続）**  
 - Level: C
 
-$f\in L^1(\mathbb R^d)$、$\lambda>0$ の Calderón–Zygmund 分解を $(Q_j,b_j)$ とする。$\delta,A>0$、核 $K(x,y)$ が、すべての $j$ に対して $x\notin Q_j^*$、$y\in Q_j$ で
+$f\in L^1(\mathbb R^d)$、$\lambda>0$ の [Calderón–Zygmund分解](#thm-ha4-cz-decomposition)を $(Q_j,b_j)$ とする。$\delta,A>0$ とし、核 $K(x,y)$ は $x\ne y$ 上で共同可測かつ有限値とする。すべての $j$ に対して $x\notin Q_j^*$、$y\in Q_j$ で
 
 $$
 |K(x,y)-K(x,c_j)|
 \le A\frac{|y-c_j|^\delta}{|x-c_j|^{d+\delta}}
 $$
 
-を満たし、$K(x,c_j)$ が有限とする。$U=\bigcup_jQ_j^*$、$F_j(x)=\int_{Q_j}K(x,y)b_j(y)\,dy$（$x\notin Q_j^*$）とおく。次を証明せよ。
+を満たすとする。$U=\bigcup_jQ_j^*$、$F_j(x)=\int_{Q_j}K(x,y)b_j(y)\,dy$（$x\notin Q_j^*$）とおく。次を証明せよ。
 
 1. $|U|\le(4\sqrt d)^d\|f\|_1/\lambda$。
 2. $t>0$ に対し、$\sum_j|F_j(x)|$ が $U^c$ 上でほとんど至る所有限であり、$|\{x\in U^c:\sum_j|F_j(x)|>t\}|\le (2C_{d,\delta}A/t)\|f\|_1$。
