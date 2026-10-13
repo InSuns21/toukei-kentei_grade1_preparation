@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - VAR2
+  - VAR5
   - VAR7
   - GEO10
   - GPDE5
@@ -20,11 +21,17 @@ concepts:
     introduction_aliases: ["定理（極小曲面の面積第二変分）"]
     requires: [calculus-of-variations.surface-area-first-variation, calculus-of-variations.minimal-surface-stability, geometry.shape-operator]
   - id: calculus-of-variations.minimal-surface-jacobi-operator
-    name: 極小曲面のJacobi作用素とJacobi関数
+    name: Jacobi 作用素
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（極小曲面の Jacobi 作用素と Jacobi 関数）"]
     requires: [calculus-of-variations.minimal-surface-second-variation]
+  - id: calculus-of-variations.minimal-surface-jacobi-function
+    name: Jacobi 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小曲面の Jacobi 作用素と Jacobi 関数）"]
+    requires: [calculus-of-variations.minimal-surface-jacobi-operator]
   - id: calculus-of-variations.minimal-surface-jacobi-linearization
     name: 平均曲率の線形化と第二変分の弱形式
     kind: proposition
