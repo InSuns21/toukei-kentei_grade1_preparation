@@ -32,7 +32,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（等質量三体の形状球面）"]
     aliases: []
-    requires: [celestial-variational.euler-isosceles-arc]
+    requires: [celestial.threebody-jacobi-coordinates]
   - id: celestial-variational.rotation-zero-angular
     name: 回転自由な端点とゼロ角運動量
     kind: proposition
@@ -41,7 +41,7 @@ concepts:
     aliases: []
     requires:
       - celestial-variational.euler-isosceles-direct-method
-      - celestial-variational.equal-mass-shape-sphere
+      - celestial-variational.euler-isosceles-arc
   - id: celestial-variational.figure-eight-collision-comparison
     name: Chenciner–Montgomeryの基本弧衝突排除
     kind: theorem
