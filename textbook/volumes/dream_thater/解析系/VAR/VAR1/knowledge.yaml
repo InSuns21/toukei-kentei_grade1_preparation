@@ -1,0 +1,85 @@
+chapter: VAR1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH3
+forward_references: []
+
+concepts:
+  - id: calculus-of-variations.admissible-class
+    name: 許容曲線と許容変分
+    kind: definition
+    aliases: [admissible class, admissible variation]
+    introduction: formal
+    introduction_aliases: ["定義（許容曲線と許容変分）"]
+    requires:
+      - analysis.functional
+      - analytical-mechanics.fixed-end-variation
+
+  - id: calculus-of-variations.stationary-curve
+    name: 第一変分と停留曲線
+    kind: definition
+    aliases: [stationary curve]
+    introduction: formal
+    introduction_aliases: ["定義（第一変分と停留曲線）"]
+    requires:
+      - analytical-mechanics.first-variation
+      - calculus-of-variations.admissible-class
+
+  - id: calculus-of-variations.boundary-first-variation
+    name: 第一変分と境界項
+    kind: proposition
+    aliases: [boundary term of the first variation]
+    introduction: formal
+    introduction_aliases: ["命題（第一変分と境界項）"]
+    requires:
+      - calculus-of-variations.stationary-curve
+      - analytical-mechanics.first-variation
+
+  - id: calculus-of-variations.natural-boundary
+    name: 自然境界条件
+    kind: theorem
+    aliases: [natural boundary condition, transversality for free endpoint]
+    introduction: formal
+    introduction_aliases: ["定理（自然境界条件）"]
+    requires:
+      - calculus-of-variations.boundary-first-variation
+      - analytical-mechanics.variational-fundamental-lemma
+
+  - id: calculus-of-variations.corner-momentum
+    name: 固定位置の角点と運動量接合
+    kind: theorem
+    aliases: [momentum corner condition]
+    introduction: formal
+    introduction_aliases: ["定理（固定位置の角点と運動量接合）"]
+    requires:
+      - calculus-of-variations.boundary-first-variation
+
+  - id: calculus-of-variations.weierstrass-erdmann
+    name: Weierstrass–Erdmannの接合条件
+    kind: theorem
+    aliases: [Weierstrass–Erdmann corner conditions, Weierstrass-Erdmann corner conditions]
+    introduction: formal
+    introduction_aliases: ["定理（Weierstrass–Erdmannの接合条件）"]
+    requires:
+      - calculus-of-variations.corner-momentum
+      - calculus-of-variations.boundary-first-variation
+
+  - id: calculus-of-variations.isoperimetric-regular
+    name: 等周拘束と正則点
+    kind: definition
+    aliases: [isoperimetric constraint, regular isoperimetric constraint]
+    introduction: formal
+    introduction_aliases: ["定義（等周拘束と正則点）"]
+    requires:
+      - calculus-of-variations.stationary-curve
+
+  - id: calculus-of-variations.isoperimetric-multiplier
+    name: 正則な等周拘束のLagrange乗数
+    kind: theorem
+    aliases: [isoperimetric Lagrange multiplier theorem]
+    introduction: formal
+    introduction_aliases: ["定理（正則な等周拘束のLagrange乗数）"]
+    requires:
+      - calculus-of-variations.isoperimetric-regular
+      - analytical-mechanics.euler-lagrange-from-action
