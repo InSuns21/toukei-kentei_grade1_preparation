@@ -23,7 +23,7 @@ chapters:
     title: "Lorentz接続と測地線"
   - id: LORG5
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG5
-    status: planned
+    status: completed
     title: "凸正規近傍と局所最大化"
   - id: LORG6
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG6

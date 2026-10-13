@@ -1,0 +1,84 @@
+chapter: LORG5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - GEO14
+concepts:
+  - id: lorentz-geometry.lorentz-normal-coordinates
+    name: Lorentz正規座標と放射測地線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz正規座標と放射測地線）"]
+    requires:
+      - lorentz-geometry.lorentz-exponential-local
+      - lorentz-geometry.causal-type
+
+  - id: lorentz-geometry.normal-coordinate-light-cone
+    name: 正規座標の基点と放射光円錐
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規座標の基点と放射光円錐）"]
+    requires:
+      - lorentz-geometry.lorentz-normal-coordinates
+      - lorentz-geometry.geodesic-causal-type-conservation
+
+  - id: lorentz-geometry.convex-normal-neighborhood
+    name: Lorentz凸正規近傍
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz凸正規近傍）"]
+    requires:
+      - lorentz-geometry.lorentz-normal-coordinates
+      - lorentz-geometry.lorentz-exponential-local
+
+  - id: lorentz-geometry.convex-normal-neighborhood-existence
+    name: Lorentz凸正規近傍の局所存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz凸正規近傍の局所存在）"]
+    requires:
+      - lorentz-geometry.convex-normal-neighborhood
+      - lorentz-geometry.normal-coordinate-light-cone
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: lorentz-geometry.exponential-gauss-lemma
+    name: Lorentz指数写像のGaussの補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz指数写像のGaussの補題）"]
+    requires:
+      - lorentz-geometry.lorentz-exponential-local
+      - lorentz-geometry.lorentz-levi-civita-extension
+
+  - id: lorentz-geometry.gaussian-time-coordinates
+    name: 時間的測地線に沿うGaussian正規座標
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時間的測地線に沿うGaussian正規座標）"]
+    requires:
+      - lorentz-geometry.lorentz-levi-civita-extension
+      - lorentz-geometry.geodesic-causal-type-conservation
+      - lorentz-geometry.timelike-orthogonal-positive
+
+  - id: lorentz-geometry.timelike-local-length-max
+    name: 時間的測地線の局所Lorentz長さ最大化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（時間的測地線の局所Lorentz長さ最大化）"]
+    requires:
+      - lorentz-geometry.gaussian-time-coordinates
+      - lorentz-geometry.lorentzian-length
+      - lorentz-geometry.reparametrization-invariance
+
+  - id: lorentz-geometry.flat-cylinder-nonmax-geodesic
+    name: 平坦Lorentz円筒での非最大時間的測地線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦Lorentz円筒での非最大時間的測地線）"]
+    requires:
+      - lorentz-geometry.timelike-local-length-max
+      - lorentz-geometry.lorentzian-length

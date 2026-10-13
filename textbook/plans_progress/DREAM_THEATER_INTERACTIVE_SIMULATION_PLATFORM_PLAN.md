@@ -10,7 +10,7 @@
 
 本PLANは科目PLANの上位に立つ数学的正本ではなく、**GitHub Pages上の対話型計算実験に共通するソフトウェア基盤の実装計画**である。現行の直接利用者は次の2科目とする。
 
-- [CELEV：変分的周期軌道・n体舞踏解と数値シミュレーション](../plans/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)：Newton方程式・Verlet積分・変分的周期軌道探索。
+- [CELEV：変分的周期軌道・n体舞踏解と数値シミュレーション](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)：Newton方程式・Verlet積分・変分的周期軌道探索。
 - [ML I・II：機械学習](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)：標本抽出・勾配法・SGD・EM・MCMC・確率的推論・深層学習と生成模型。
 
 将来のODE/PDE/最適制御教材が使う場合も、共通基盤への依存は**ソフトウェアAPIに限る**。学修prerequisites・knowledge DAG・定理のcanonical ownershipを横断して統合しない。CELEV/MLの章ID・執筆進捗は各系列manifestが所有し、本PLANに系列manifestや未実装章の公開索引を作らない。
