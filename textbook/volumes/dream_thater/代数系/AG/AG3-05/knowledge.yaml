@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AG3-04
+  - LA3E
   - AG3-03
   - AG3-02
   - AG3-01
