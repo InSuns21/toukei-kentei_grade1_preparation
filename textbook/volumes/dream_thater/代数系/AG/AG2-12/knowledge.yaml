@@ -1,0 +1,48 @@
+chapter: AG2-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-11
+  - AG2-10
+  - AG2-09
+  - AG2-08
+  - AG2-07
+  - AG2-06
+  - AG2-02
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.weierstrass-cubic-smooth
+    name: Weierstrass三次曲線の滑らかさ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Weierstrass三次曲線の滑らかさ）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion]
+
+  - id: algebraic-geometry.weierstrass-cubic-differential
+    name: 三次曲線の消えない正則1形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三次曲線の消えない正則1形式）"]
+    requires: [algebraic-geometry.weierstrass-cubic-smooth, algebraic-geometry.curve-uniformizer, algebraic-geometry.canonical-divisor-sheaf]
+
+  - id: algebraic-geometry.weierstrass-x-divisor
+    name: 三次曲線上の座標関数の主因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次曲線上の座標関数の主因子）"]
+    requires: [algebraic-geometry.weierstrass-cubic-smooth, algebraic-geometry.principal-divisor]
+
+  - id: algebraic-geometry.fermat-quintic-canonical
+    name: Fermat quinticの滑らかさと標準束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fermat quinticの滑らかさと標準束）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion, algebraic-geometry.hypersurface-adjunction]
+
+  - id: algebraic-geometry.quintic-local-three-form
+    name: quinticの局所標準形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの局所標準形式）"]
+    requires: [algebraic-geometry.fermat-quintic-canonical, algebraic-geometry.hypersurface-local-cotangent-basis]
