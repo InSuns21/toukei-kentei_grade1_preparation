@@ -569,7 +569,22 @@ $\mathbb P^n$ に非零の大域正則1形式が存在しないことを、標�
 - ID: AG2-09-B4
 
 <!-- solution-start -->
-**詳細解答。** [Euler列](#thm-ag2-09-euler-sequence)の $\iota:\Omega^1_P\to\mathcal O_P(-1)^{\oplus(n+1)}$ は各チャートで単射です。非零の大域切断 $s$ があると仮定すれば、$\iota(s)$ も非零の大域切断となります。ところが[射影空間上のO(d)の大域切断](../AG2-06/index.md#thm-ag2-06-pn-sections)に $d=-1$ を代入すると $H^0(P,\mathcal O(-1))=0$ です。有限直和の切断は各成分の切断からなり、すべての成分は零なので $\iota(s)=0$ です。単射性より $s=0$ となり矛盾します。従って $H^0(P,\Omega^1_P)=0$ です。
+**詳細解答。** [Euler列](#thm-ag2-09-euler-sequence)の単射 $\iota:\Omega^1_P\to\mathcal O_P(-1)^{\oplus(n+1)}$ は、各チャートで核が $0$ です。非零の大域切断 $s$ が存在すると仮定します。$\iota(s)=0$ なら各チャートで $s=0$ となるので、$\iota(s)$ も非零の大域切断のはずです。
+
+一方、[射影空間上のO(d)の大域切断](../AG2-06/index.md#thm-ag2-06-pn-sections)に $d=-1$ を代入すると
+
+$
+H^0(P,\mathcal O_P(-1))=0.
+$
+
+有限直和の大域切断は各成分の大域切断からなります。従って
+
+$
+\iota(s)\in H^0\!\left(P,\mathcal O_P(-1)^{\oplus(n+1)}\right)
+=H^0(P,\mathcal O_P(-1))^{\oplus(n+1)}=0.
+$
+
+これは $\iota(s)$ が非零という結論に矛盾します。ゆえに $H^0(P,\Omega^1_P)=0$ です。
 <!-- solution-end -->
 
 **Level C：複数の構成を接続する**
