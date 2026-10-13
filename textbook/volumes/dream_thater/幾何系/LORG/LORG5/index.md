@@ -707,7 +707,7 @@ $$
 
 従って $\gamma$ は大域最大ではありません。
 
-一方、$\gamma$ は任意の $s_0$ の近くで単位速度の未来時間的測地線へアフィン再パラメータ化できます。つまり $c=\pi\sqrt5$ として固有時パラメータ $\tau=c(s-s_0)$ を用いれば $g(d\gamma/d\tau,d\gamma/d\tau)=-1$ です。[時間的測地線に沿うGaussian正規座標の補題](#lem-lorg5-gaussian-time)により、十分短い区間 $[a,b]$ を含む近傍で $g=-d\tau^2+h_{\tau,ij}dy^idy^j$、$h_\tau$ 正定値、測地線は $y=0$ です。端点を固定して**この近傍内を通る**未来因果曲線 $\alpha(u)=(\tau(u),y(u))$ に対し
+一方、$\gamma$ は任意の $s_0$ の近くで単位速度の未来時間的測地線へアフィン再パラメータ化できます。つまり $c=\pi\sqrt5$ として固有時パラメータ $\tau=c(s-s_0)$ を用いれば $g(d\gamma/d\tau,d\gamma/d\tau)=-1$ です。[時間的測地線に沿うGaussian正規座標](#lem-lorg5-gaussian-time)により、十分短い区間 $[a,b]$ を含む近傍で $g=-d\tau^2+h_{\tau,ij}dy^idy^j$、$h_\tau$ 正定値、測地線は $y=0$ です。端点を固定して**この近傍内を通る**未来因果曲線 $\alpha(u)=(\tau(u),y(u))$ に対し
 
 $$
 \sqrt{-g(\dot\alpha,\dot\alpha)}
