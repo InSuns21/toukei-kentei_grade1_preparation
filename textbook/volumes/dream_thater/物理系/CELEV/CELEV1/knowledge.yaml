@@ -1,0 +1,70 @@
+chapter: CELEV1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE2
+  - AMECH3
+  - VAR9
+forward_references: []
+concepts:
+  - id: celestial-variational.centered-periodic-loop
+    name: 重心零の周期ループ空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重心零の周期ループ空間）"]
+    aliases: []
+    requires:
+      - calculus-of-variations.interval-admissible-classes
+      - celestial.newton-nbody-hamiltonian
+  - id: celestial-variational.extended-newton-action
+    name: Newton n体の拡張作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Newton n体の拡張作用）"]
+    aliases: []
+    requires:
+      - celestial-variational.centered-periodic-loop
+      - analytical-mechanics.action-functional
+  - id: celestial-variational.finite-action-collision
+    name: 有限作用の衝突ループ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限作用の衝突ループ）"]
+    aliases: []
+    requires: [celestial-variational.extended-newton-action]
+  - id: celestial-variational.periodic-variation
+    name: 重心を保つ周期変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重心を保つ周期変分）"]
+    aliases: []
+    requires:
+      - celestial-variational.centered-periodic-loop
+      - analytical-mechanics.first-variation
+  - id: celestial-variational.newton-first-variation
+    name: Newton作用の周期第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Newton作用の周期第一変分）"]
+    aliases: []
+    requires:
+      - celestial-variational.periodic-variation
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.periodic-newton-stationarity
+    name: 周期停留条件とNewton方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期停留条件とNewton方程式）"]
+    aliases: []
+    requires:
+      - celestial-variational.newton-first-variation
+      - analytical-mechanics.variational-fundamental-lemma
+  - id: celestial-variational.mean-zero-noncoercivity
+    name: 重心零だけでは強制性がない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重心零だけでは強制性がない）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+      - calculus-of-variations.direct-coercivity

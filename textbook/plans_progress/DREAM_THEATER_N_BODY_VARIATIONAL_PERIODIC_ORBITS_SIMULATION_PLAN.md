@@ -1,7 +1,7 @@
 # DREAM THEATER 変分的周期軌道・n体舞踏解と数値シミュレーション PLAN
 
 作成日: 2026-10-13  
-状態: planned（PLANの設計のみ。CELEV本文・数値エンジン・公開UIは未実装）
+状態: in_progress（2026-10-14。CELEV1を実装済み。CELEV2〜8とCELEV固有Python/数値シミュレーションは未完了）
 
 ## 0. 中心問いと停止線
 
@@ -12,7 +12,7 @@ CELE1〜8の「三体問題の方程式・中心配置・非可積分性・KAM�
 数学的存在証明の正本と、実際のNewton方程式を積分するブラウザ数値実験をセットで設計する。ただし数値実験は厳密存在証明・真の周期性・無限時間安定性の代わりではない。
 
 - 仮講義ID: CELEV1〜CELEV8。節目・証明量に応じて追加/分割可。固定8講ノルマではない。
-- **本PLANでは教材・数値プログラムを実装しない。** PLANレビュー・マージのみでは完成扱いしない。
+- **初期PLANの設計段階では教材・数値プログラムを実装しなかった。** CELEV1から章別実装を開始し、全章と数値成果物の完成までは本PLANを完了扱いしない。
 - 停止線: 任意質量・任意対称群の周期解一般存在定理、全nに対する舞踏解、Morse/Floer全理論、Rigorous numericsによる8の字解の機械証明、n体一般の大域衝突正則化、GPU大規模n体。
 
 ## 1. 教科書・研究論文と既存PLANの照合
@@ -35,7 +35,7 @@ GitHub上の既存正本:
 - [CELE2 n体Hamilton系](../volumes/dream_thater/物理系/CELE/CELE2/index.md) — Newton方程式、衝突集合。
 - [CELE3 中心配置](../volumes/dream_thater/物理系/CELE/CELE3/index.md) — Euler/Lagrange解、相似解。再証明しない。
 - [CELE6 カオス](../volumes/dream_thater/物理系/CELE/CELE6/index.md)、[CELE7 共鳴・KAM](../volumes/dream_thater/物理系/CELE/CELE7/index.md)、[INT](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md) — 非可積分性と安定性の区別。
-- [VAR 変分問題](../plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md) — **直接法・Tonelli・無限次元臨界点理論を含むVAR9〜12を証明の正本**とする。
+- [VAR 変分問題](../plan_done/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md) — **直接法・Tonelli・無限次元臨界点理論を含むVAR9〜12を証明の正本**とする。
 - [GPDE3 Sobolev空間](../volumes/dream_thater/解析系/GPDE/GPDE3/index.md)、[GPDE4 端点トレース](../volumes/dream_thater/解析系/GPDE/GPDE4/index.md) — 関数空間の基礎。区間上のcompact embedding/周期端点条件はVAR9で直接扱う。
 
 未実装PLANの内容を既に証明済みと記述しない。着手時は各canonical stable anchorと実章を再検査する。
@@ -57,7 +57,7 @@ GitHub上の既存正本:
 5. **非自明性・接合**: 得られた解が定数解/衝突解でなく、基本区間の対称延長がC^2解になることと周期を確認する。
 6. **安定性**: 作用の極小性・Morse指数・Floquet乗数・KAM的安定性は別概念。数値軌道の閉じた見かけを存在証明に転用しない。
 
-VAR9〜12の未実装部分はCELEVの先行証明とせず、直接必要な最小限をCELEV内で自給するか、VARの実装を先行する。
+着手時にはVAR9〜12の既存本文とstable anchorを確認し、成立済みの正本を再利用する。未立証の仮定はCELEV内で明示して扱う。
 
 ## 3. CELEV講義群（仮ID）
 
@@ -109,7 +109,7 @@ VAR9〜12の未実装部分はCELEVの先行証明とせず、直接必要な最
 
 ## 4. 実動作する数値シミュレーション（必須成果物）
 
-**共通基盤との分担：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)を、実行/停止・Worker通信契約・世代管理・表示アダプター・実験記録の正本とする。本章以下のPython数値カーネル、物理時間刻み、離散変分探索、保存量・衝突判定、数値許容誤差は**CELEV固有**であり、共通基盤へ移さない。共通Runtimeはまだ未実装なので、既存一回実行Pythonラボが対話計算を提供すると誤認しない。
+**共通基盤との分担：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)を、実行/停止・Worker通信契約・世代管理・表示アダプター・実験記録の正本とする。本章以下のPython数値カーネル、物理時間刻み、離散変分探索、保存量・衝突判定、数値許容誤差は**CELEV固有**であり、共通基盤へ移さない。共通RuntimeのPhase 0/1にJS基準模型とWorker/UIが実装済みだが、CELEV固有Python/NumPy物理・変分カーネルは未実装。共通Runtimeの基準模型を本番CELEVカーネルと混同しない。
 
 
 ### 4.0 実装アーキテクチャ：既存Pyodide優先・JavaScript描画
