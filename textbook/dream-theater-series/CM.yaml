@@ -33,7 +33,7 @@ chapters:
     title: "Nijenhuisテンソルと局所座標での必要条件"
   - id: CM1-07
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-07
-    status: planned
+    status: completed
     title: "Newlander–Nirenberg定理と証明境界"
   - id: CM1-08
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-08
