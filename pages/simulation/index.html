@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DREAM THEATER 対話型数値実験</title>
+<link rel="stylesheet" href="./simulation.css">
+</head>
+<body>
+<main class="app">
+<header>
+  <a href="../index.html">← DREAM THEATER 教材に戻る</a>
+  <h1>対話型数値シミュレーション</h1>
+  <p>計算はブラウザ内の専用Workerで実行します。数値実験は数学的な存在証明や無限時間の安定性を意味しません。</p>
+</header>
+<section class="panel">
+  <h2>実験の設定</h2>
+  <label for="experiment">模型</label>
+  <select id="experiment">
+    <option value="celev">CELEV：Newtonの二体円運動（velocity-Verlet）</option>
+    <option value="ml">ML1-01：有限四セル確率分布の標本抽出</option>
+  </select>
+  <div id="celev-params" class="controls">
+    <label>各物体の質量 m <input id="mass" type="number" min="0.01" max="100" step="0.1" value="1"></label>
+    <label>質点間距離 r <input id="separation" type="number" min="0.01" max="100" step="0.1" value="1"></label>
+    <label>重力定数 G <input id="gravity" type="number" min="0.01" max="100" step="0.1" value="1"></label>
+    <label>積分刻み Δt <input id="dt" type="number" min="0.001" max="0.1" step="0.001" value="0.01"></label>
+  </div>
+  <div id="ml-params" class="controls" hidden>
+    <label>P(00) <input id="p00" type="number" min="0" max="1" step="0.01" value="0.4"></label>
+    <label>P(01) <input id="p01" type="number" min="0" max="1" step="0.01" value="0.1"></label>
+    <label>P(10) <input id="p10" type="number" min="0" max="1" step="0.01" value="0.1"></label>
+    <label>P(11) <input id="p11" type="number" min="0" max="1" step="0.01" value="0.4"></label>
+    <label>標本数 <input id="sample-count" type="number" min="1" max="100000" step="1" value="10000"></label>
+  </div>
+  <div class="controls">
+    <label>乱数seed <input id="seed" type="number" min="0" max="4294967295" step="1" value="123"></label>
+    <label>表示ズーム <input id="zoom" type="range" min="0.5" max="3" step="0.25" value="1"></label>
+  </div>
+  <div class="buttons">
+    <button id="reset">初期化・パラメータ反映</button>
+    <button id="step">1ステップ</button>
+    <button id="run">100ステップ</button>
+    <button id="play">連続実行</button>
+    <button id="pause">一時停止</button>
+    <button id="resume">再開</button>
+    <button id="cancel">中断・Worker終了</button>
+    <button id="sample">標本を抽出</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">未実行</p>
+</section>
+<section class="panel">
+  <h2>計算結果</h2>
+  <canvas id="plot" width="720" height="440" role="img" aria-label="数値計算結果の可視化"></canvas>
+  <p id="legend">実線＝物体0、破線＝物体1。描画間引きは計算刻みを変更しません。</p>
+  <div id="diagnostics" aria-live="polite"></div>
+</section>
+<section class="panel">
+  <h2>実験の再現・持ち出し</h2>
+  <div class="buttons">
+    <button id="save-json">JSONを出力</button>
+    <button id="save-csv">観測値CSVを出力</button>
+    <label class="upload">記録JSONを読み込む<input id="load-json" type="file" accept=".json,application/json"></label>
+  </div>
+  <p>模型ID・パラメータ・seed・ステップ数・診断値を保存します。外部サーバーへデータを送信しません。</p>
+</section>
+</main>
+<script type="module" src="./simulation-app.mjs"></script>
+</body>
+</html>
