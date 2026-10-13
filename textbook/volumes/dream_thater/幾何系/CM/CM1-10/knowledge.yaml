@@ -8,11 +8,17 @@ prerequisites:
 
 concepts:
   - id: complex-manifolds.complex-projective-space
-    name: 複素射影空間と同次座標
+    name: 複素射影空間
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（複素射影空間と同次座標）"]
-    requires: [complex-manifolds.complex-n-manifold]
+    requires: []
+  - id: complex-manifolds.projective-homogeneous-coordinates
+    name: 複素射影空間の同次座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素射影空間と同次座標）"]
+    requires: [complex-manifolds.complex-projective-space]
   - id: complex-manifolds.projective-affine-chart
     name: 射影空間の標準アフィン座標
     kind: definition
