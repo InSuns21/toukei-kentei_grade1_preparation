@@ -230,7 +230,7 @@ $$
 
 ## 5. 行列式を取って随伴公式を導く
 
-[前章で証明した局所分裂短完全列の行列式](../AG2-09/index.md#prop-ag2-09-determinant-exact)は、真ん中の行列式を左と右の行列式のテンソル積へ分解します。このとき局所的な「内側の微分 $n-1$ 本」と「法線方向の微分1本」の楔積が、周囲の微分 $n$ 本を作ります。
+[前章で証明した局所分裂短完全列の行列式](../AG2-09/index.md#prop-ag2-09-determinant-exact)は、商が階数1の場合に行列式を分解しました。ここでは**左項が階数1、商が階数 $n-1$** なので、その証明に使った局所基底の楔積を一般の階数にも適用する過程を明示します。「内側の微分 $n-1$ 本」と「法線方向の微分1本」の楔積が、周囲の微分 $n$ 本を作ります。
 
 <a id="thm-ag2-10-adjunction"></a>
 
@@ -254,7 +254,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[余法完全列](#thm-ag2-10-conormal-sequence)の三項はいずれも局所自由で、階数は $1,n,n-1$ です。[行列式命題](../AG2-09/index.md#prop-ag2-09-determinant-exact)を左項 $L=\mathcal O_Y(-d)$、中央項 $E=\Omega_P^1|_Y$、右項 $Q=\Omega_Y^1$ に適用すると
+[余法完全列](#thm-ag2-10-conormal-sequence)の三項はいずれも局所自由で、階数は $1,n,n-1$ です。左項を $L=\mathcal O_Y(-d)$、中央項を $E=\Omega_P^1|_Y$、右項を $Q=\Omega_Y^1$ と書きます。
+
+局所分裂する開集合で $L$ の基底を $\ell$、$Q$ の基底を $q_1,\ldots,q_{n-1}$ とし、各 $q_j$ の $E$ への持ち上げを $\widetilde q_j$ と取ります。分裂により $\ell,\widetilde q_1,\ldots,\widetilde q_{n-1}$ は $E$ の基底です。そこで
+
+$$
+\ell\otimes(q_1\wedge\cdots\wedge q_{n-1})
+\longmapsto\ell\wedge\widetilde q_1\wedge\cdots\wedge\widetilde q_{n-1}
+$$
+
+を定めます。持ち上げを $\widetilde q_j+c_j\ell$ に変えても $\ell\wedge\ell=0$ なので像は不変です。$L$ と $Q$ の基底変換に対して両辺がそれぞれの行列式の積だけ変わるため、この局所同型は重なりで貼り合います。これは[前章の行列式命題](../AG2-09/index.md#prop-ag2-09-determinant-exact)と同じ楔積の構成を、商の階数が $n-1$ の場合まで直接確かめたものです。従って
 
 $$
 \det E\simeq(\det L)\otimes(\det Q).
@@ -297,13 +306,15 @@ $$
 df_i\wedge\eta=\pm a_r\,dz_1\wedge\cdots\wedge dz_n.
 $$
 
-ここで $\pm$ は座標を並べ替える符号です。$a_r$ が単元なので
+ここで $\pm$ は座標を並べ替える符号です。$a_r$ が単元なので、$dz_r$ を除いた $(n-1)$ 形式を $a_r$ で割ると
 
 $$
-\frac{dz_1\wedge\cdots\wedge dz_n}{a_r}
+df_i\wedge\left(
+(-1)^{r-1}\frac{dz_1\wedge\cdots\wedge\widehat{dz_r}\wedge\cdots\wedge dz_n}{a_r}
+\right)=dz_1\wedge\cdots\wedge dz_n
 $$
 
-を $Y$ に沿って考えると、$\eta$ と同じ局所基底を表します（符号は選んだ順序で固定します）。これは超曲面上の標準形式を**周囲の最高次形式を方程式の微分係数で割ったもの**として読む方法です。
+が成り立ちます。これはまず周囲の余接層 $\Omega_P^1|_Y$ での楔積として読む等式です。$df_i$ はこの層では余法方向の非零な基底ですが、商 $\Omega_Y^1$ では零になります。したがって周囲の $n$ 形式をそのまま $Y$ 上の $(n-1)$ 形式と同一視するのではありません。**法線方向の因子 $df_i$ を取り除いて残る微分形式**が、超曲面上の標準束の局所基底を与えます。
 
 <a id="prop-ag2-10-local-residue"></a>
 
@@ -337,7 +348,14 @@ $$
 
 よって命題の $\eta_r$ では $df_i\wedge\eta_r=dz_1\wedge\cdots\wedge dz_n$ です。$a_r$ が単元なので $\eta_r$ は $\Omega_Y^1$ の残る $n-1$ 本の微分の楔積の単元倍であり、局所基底です。
 
-別の添字 $s$ でも $a_s$ が単元なら、$\Omega_Y^1$ 上で $df_i=0$ すなわち $\sum_j a_jdz_j=0$ です。両辺に $n-2$ 本の他の座標微分を楔積し、順序を揃えると $(-1)^{r-1}a_s\eta^{(r)}=(-1)^{s-1}a_r\eta^{(s)}$ となります。両辺を単元 $a_ra_s$ で割れば $\eta_r=\eta_s$ が得られます（固定した座標順を使用）。従って定義は法線方向の座標選択に依存しません。
+別の添字 $s$ でも $a_s$ が単元なら、$\Omega_Y^1$ 上で $df_i=0$ すなわち $\sum_j a_jdz_j=0$ です。この式に $r,s$ 以外の $n-2$ 本の座標微分を楔積し、順序を揃えると
+
+$$
+(-1)^{r-1}a_s\eta^{(r)}
+=(-1)^{s-1}a_r\eta^{(s)}
+$$
+
+となります。両辺を単元 $a_ra_s$ で割れば $\eta_r=\eta_s$ が得られます（固定した座標順を使用）。従って定義は法線方向の座標選択に依存しません。
 <!-- proof-end -->
 
 **具体例。** 平面三次曲線 $F=Y^2Z-X^3-XZ^2-Z^3$ の $Z\ne0$ チャートでは $f=y^2-x^3-x-1$ です。$f_y=2y\ne0$ の近傍で $r=y$ と取れば $\eta_y=-dx/(2y)$（符号は順序による）を得ます。$f_x=-(3x^2+1)\ne0$ の近傍では $\eta_x=dy/f_x$ です。$df=f_xdx+f_ydy=0$ から
@@ -395,7 +413,17 @@ $$
 0\to I/I^2\to\Omega_P^1|_Y\to\Omega_Y^1\to0
 $$
 
-は、Jacobianの可逆小行列式を選んだ近傍で分裂します。双対を取ると $N_{Y/P}\simeq\bigoplus_a\mathcal O_Y(d_a)$ です。また[局所分裂列の行列式](../AG2-09/index.md#prop-ag2-09-determinant-exact)から
+は、Jacobianの可逆小行列式を選んだ近傍で分裂します。双対を取ると $N_{Y/P}\simeq\bigoplus_a\mathcal O_Y(d_a)$ です。
+
+行列式についても階数を確認します。$I/I^2$ の基底 $\overline{f_{1,i}},\ldots,\overline{f_{r,i}}$ は、余接層では $df_{1,i},\ldots,df_{r,i}$ に写ります。Jacobianの可逆小行列式に対応する $r$ 本の座標微分をこれらに置き換えます。その小行列で使わなかった座標添字を $j_1,\ldots,j_{n-r}$ とすると、
+
+$$
+\bigl(df_{1,i},\ldots,df_{r,i},dz_{j_1},\ldots,dz_{j_{n-r}}\bigr)
+$$
+
+が $\Omega_P^1|_Y$ の局所基底になります。なぜなら元の座標微分基底からの変換行列の行列式は、順序による符号を除いて選んだJacobian小行列式であり、仮定から単元だからです。
+
+よって $r$ 本の $df_{a,i}$ の外積と、残り $n-r$ 本の商の基底の外積との対応は、[随伴公式の証明](#thm-ag2-10-adjunction)で示した持ち上げに依存しない楔積の構成と同じです。したがって**左項が階数 $r$、右項が階数 $n-r$** の場合にも
 
 $$
 \omega_P|_Y\simeq
