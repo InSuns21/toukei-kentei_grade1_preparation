@@ -1,0 +1,43 @@
+id: "HA5"
+title: "特異積分とRiesz変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA2
+  - HA3
+  - HA4
+  - FOU4
+  - MT7
+official_scope: []
+learning_objectives:
+  - 標準Calderón–Zygmund核のサイズ・両変数の滑らかさとL2有界性を区別し定義例を検算できる
+  - Calderón–Zygmund分解から一般作用素の弱型(1,1)を例外集合・良い部分・悪い部分に分けて証明できる
+  - Marcinkiewicz補間と随伴・Lp双対で全域1<p<∞の強型を導き、切断の一様評価と主値収束を区別できる
+  - Riesz変換の熱核表示から核の定数とFourier乗数を導き、L2とLp有界性を証明できる
+  - Riesz変換を用いてPoisson方程式の二階微分と圧力の非局所表示を導出できる
+definitions:
+  - { id: HA5-DEF-01, name: 標準Calderón–Zygmund核 }
+  - { id: HA5-DEF-02, name: L2 Calderón–Zygmund作用素 }
+  - { id: HA5-DEF-03, name: Riesz変換 }
+theorems:
+  - { id: HA5-THM-01, name: 標準CZ作用素の弱型(1,1) }
+  - { id: HA5-THM-02, name: 標準CZ作用素の強型(p,p) }
+  - { id: HA5-PROP-01, name: 一様切断評価の限界 }
+  - { id: HA5-THM-03, name: Riesz変換の核とLp有界性 }
+  - { id: HA5-PROP-02, name: Poisson方程式の二階微分評価 }
+  - { id: HA5-PROP-03, name: 圧力の非局所表示 }
+canonical_examples:
+  - Hilbert核の両変数Hölder評価
+  - 非消去の正値放射核で主値が対数発散する例
+  - 1次元Riesz核とHilbert核の一致
+  - 平均零だが粗い核では遠方L1評価が破綻する例
+problem_patterns:
+  - HA5-STANDARD-KERNEL
+  - HA5-WEAK-11
+  - HA5-ADJOINT-INTERPOLATION
+  - HA5-RIESZ-FOURIER
+  - HA5-POISSON-PRESSURE
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
