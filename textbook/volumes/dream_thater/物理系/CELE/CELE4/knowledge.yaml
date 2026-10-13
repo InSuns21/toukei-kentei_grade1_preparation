@@ -1,0 +1,91 @@
+chapter: CELE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE3
+  - AMECH5
+forward_references: []
+
+concepts:
+  - id: celestial.cr3bp
+    name: 平面円制限三体問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面円制限三体問題）"]
+    aliases: []
+    requires:
+      - celestial.rotating-relative-equilibrium
+
+  - id: celestial.cr3bp-rotating-hamiltonian
+    name: 回転系の運動方程式とHamiltonian
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転系の運動方程式とHamiltonian）"]
+    aliases: []
+    requires:
+      - celestial.cr3bp
+      - analytical-mechanics.hamiltonian
+
+  - id: celestial.jacobi-integral
+    name: Jacobi積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Jacobi積分）"]
+    aliases: []
+    requires:
+      - celestial.cr3bp-rotating-hamiltonian
+
+  - id: celestial.hill-region
+    name: Hill領域と零速度曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hill領域と零速度曲線）"]
+    aliases: []
+    requires:
+      - celestial.jacobi-integral
+
+  - id: celestial.lagrange-point
+    name: 円制限三体問題のLagrange点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円制限三体問題のLagrange点）"]
+    aliases: []
+    requires:
+      - celestial.cr3bp-rotating-hamiltonian
+
+  - id: celestial.five-lagrange-points
+    name: 五つのLagrange点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（五つのLagrange点）"]
+    aliases: []
+    requires:
+      - celestial.lagrange-point
+
+  - id: celestial.collinear-linear-instability
+    name: 共線点の線形不安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共線点の線形不安定性）"]
+    aliases: []
+    requires:
+      - celestial.five-lagrange-points
+
+  - id: celestial.triangular-linear-stability
+    name: 正三角形点の線形安定条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正三角形点の線形安定条件）"]
+    aliases: []
+    requires:
+      - celestial.five-lagrange-points
+
+  - id: celestial.neck-threshold
+    name: 共線点近傍の首の閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共線点近傍の首の閾値）"]
+    aliases: []
+    requires:
+      - celestial.hill-region
+      - celestial.collinear-linear-instability

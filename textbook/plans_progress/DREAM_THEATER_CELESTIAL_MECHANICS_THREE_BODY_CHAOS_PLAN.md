@@ -1,7 +1,7 @@
 # DREAM THEATER 天体力学・三体問題・Hamiltonian chaos コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。CELE1〜CELE3本文を実装し、次章CELE4）
+状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。CELE1〜CELE4本文を実装し、次章CELE5）
 
 ## 0. 目的
 
