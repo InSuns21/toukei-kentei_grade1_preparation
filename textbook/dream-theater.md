@@ -791,7 +791,7 @@
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
 
-公開準備中（AG3-01〜AG3-14）。
+1. [AG3-01 関手的視点とSpec](textbook/volumes/dream_thater/代数系/AG/AG3-01/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
