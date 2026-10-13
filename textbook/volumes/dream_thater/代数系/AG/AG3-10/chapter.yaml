@@ -1,0 +1,49 @@
+id: "AG3-10"
+title: "射影空間のO(d)のコホモロジー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-09
+  - AG3-08
+  - AG3-07
+  - AG3-06
+  - AG2-06
+official_scope: []
+learning_objectives:
+  - 標準開被覆と次数付き局所化でO(d)のČech複体を構成し比較定理の適用条件を確認できる
+  - Laurent単項式を負指数集合で分類し中間次数の複体を縮約して消滅を証明できる
+  - 任意の射影空間P^nのO(d)の全コホモロジー群と次元を計算できる
+  - 最高次のLaurent単項式の係数対と双対な基底を具体計算できる
+  - 超平面制限の短完全列と長完全列の連結準同型を具体例で計算できる
+  - O(d)のEuler標数を全整数dについて導ける
+definitions:
+  - { id: AG3-10-DEF-01, name: 標準被覆の次数付きČech複体 }
+  - { id: AG3-10-DEF-02, name: 負指数集合 }
+theorems:
+  - { id: AG3-10-PROP-01, name: 標準被覆による層コホモロジーの計算 }
+  - { id: AG3-10-LEM-01, name: 単項式ごとの複体への分解 }
+  - { id: AG3-10-LEM-02, name: 負指数集合による三分類 }
+  - { id: AG3-10-THM-01, name: 射影空間のねじり層のコホモロジー }
+  - { id: AG3-10-PROP-02, name: 最高次コホモロジーの完全係数対 }
+  - { id: AG3-10-PROP-03, name: 超平面制限の短完全列 }
+  - { id: AG3-10-COR-01, name: 射影空間のO(d)のEuler標数 }
+canonical_examples:
+  - P2のO(-3)で生じる二次コホモロジー
+  - 真部分集合の負指数集合に対する縮約
+  - P2のO(-4)の最高次3次元基底
+  - 超平面の連結写像によるLaurent単項式の移動
+problem_patterns:
+  - AG3-10-A1
+  - AG3-10-A2
+  - AG3-10-A3
+  - AG3-10-A4
+  - AG3-10-B1
+  - AG3-10-B2
+  - AG3-10-B3
+  - AG3-10-B4
+  - AG3-10-C1
+  - AG3-10-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 20, exercises: 12, review: 8 }

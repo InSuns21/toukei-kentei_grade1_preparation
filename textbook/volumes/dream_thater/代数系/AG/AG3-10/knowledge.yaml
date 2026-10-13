@@ -1,0 +1,65 @@
+chapter: AG3-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-09
+  - AG3-08
+  - AG3-07
+  - AG3-06
+  - AG2-06
+forward_references: []
+concepts:
+  - id: algebraic-geometry.projective-graded-cech
+    name: 標準被覆の次数付きČech複体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準被覆の次数付きČech複体）"]
+    requires: [algebraic-geometry.cech-affine-comparison, algebraic-geometry.proj-polynomial-twist]
+  - id: algebraic-geometry.projective-cech-comparison
+    name: 標準被覆による層コホモロジーの計算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準被覆による層コホモロジーの計算）"]
+    requires: [algebraic-geometry.projective-graded-cech, algebraic-geometry.affine-vanishing]
+  - id: algebraic-geometry.negative-exponent-support
+    name: 負指数集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（負指数集合）"]
+    requires: [algebraic-geometry.projective-graded-cech]
+  - id: algebraic-geometry.projective-monomial-cech-splitting
+    name: 単項式ごとの複体への分解
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（単項式ごとの複体への分解）"]
+    requires: [algebraic-geometry.negative-exponent-support, algebraic-geometry.projective-graded-cech]
+  - id: algebraic-geometry.negative-support-acyclicity
+    name: 負指数集合による三分類
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（負指数集合による三分類）"]
+    requires: [algebraic-geometry.projective-monomial-cech-splitting]
+  - id: algebraic-geometry.projective-twist-cohomology
+    name: 射影空間のねじり層のコホモロジー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間のねじり層のコホモロジー）"]
+    requires: [algebraic-geometry.projective-cech-comparison, algebraic-geometry.negative-support-acyclicity]
+  - id: algebraic-geometry.projective-top-pairing
+    name: 最高次コホモロジーの完全係数対
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最高次コホモロジーの完全係数対）"]
+    requires: [algebraic-geometry.projective-twist-cohomology]
+  - id: algebraic-geometry.projective-hyperplane-sequence
+    name: 超平面制限の短完全列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超平面制限の短完全列）"]
+    requires: [algebraic-geometry.proj-graded-module-sheaf, algebraic-geometry.sheaf-cohomology-les]
+  - id: algebraic-geometry.projective-twist-euler-characteristic
+    name: 射影空間のO(d)のEuler標数
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（射影空間のO(d)のEuler標数）"]
+    requires: [algebraic-geometry.projective-twist-cohomology]

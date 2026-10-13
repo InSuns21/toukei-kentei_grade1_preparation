@@ -140,7 +140,7 @@ chapters:
     title: "射影スキームとProj"
   - id: AG3-10
     path: textbook/volumes/dream_thater/代数系/AG/AG3-10
-    status: planned
+    status: completed
     title: "射影空間のO(d)のコホモロジー"
   - id: AG3-11
     path: textbook/volumes/dream_thater/代数系/AG/AG3-11
