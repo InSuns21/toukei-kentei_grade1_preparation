@@ -400,7 +400,15 @@ $$
 
 最後の分数は $y=0$ で非零の定数値を持つため、無限遠での位数は $\deg q-\deg p$ です。よって全点での位数和は $0$ となり、主因子の次数は $0$ です。したがって次数の異なる $d[P_\infty]$ は線形同値にならず、次数で類が一意に決まります。
 
-前節の[Cartier因子類と可逆層](#thm-ag2-07-cartier-picard)によってPicard群へ移ります。$[P_\infty]$ の局所方程式は $f_S=1,f_T=y$ であり、[付随層の例](#def-ag2-07-associated-line-bundle)から $\mathcal O([P_\infty])\simeq\mathcal O(1)$ です。[可逆層のテンソル積と双対](../AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと、正の $d$ は $\mathcal O(1)$ の $d$ 回テンソル積、負の $d$ はその双対の $-d$ 回テンソル積に対応するため、すべての整数 $d$ について $\mathcal O(d[P_\infty])\simeq\mathcal O(d)$ となります。
+前節の[Cartier因子類と可逆層](#thm-ag2-07-cartier-picard)によってPicard群へ移ります。$[P_\infty]$ の局所方程式は $f_S=1,f_T=y$ であり、[付随層の例](#def-ag2-07-associated-line-bundle)から $\mathcal O([P_\infty])\simeq\mathcal O(1)$ です。
+
+[可逆層のテンソル積と双対](../AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと、正の $d$ は $\mathcal O(1)$ の $d$ 回テンソル積、負の $d$ はその双対の $-d$ 回テンソル積に対応します。したがって
+
+$$
+\mathcal O(d[P_\infty])\simeq\mathcal O(d)\qquad(d\in\mathbb Z)
+$$
+
+が成り立ちます。
 <!-- proof-end -->
 
 例えば $D=[P_2]-2[P_0]+3[P_\infty]$ は次数 $2$ なので $\mathcal O(D)\simeq\mathcal O(2)$ です。しかし $D$ 自身と $2[P_\infty]$ は等しい因子ではなく、主因子を加えた**線形同値類**が同じです。
