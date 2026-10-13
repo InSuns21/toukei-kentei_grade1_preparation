@@ -2,7 +2,7 @@
 
 設計日: 2026-10-14  
 着手日: 2026-10-14  
-状態: in_progress（Phase 0：通信契約・2模型の基準カーネル・headless検証を追加。Phase 1以降のWorker・UI・配信は未実装）
+状態: in_progress（Phase 0完了、Phase 1実装・検証中。Worker・Canvas/HTML描画・JSON/CSV記録・Pages入口を追加。ブラウザ実操作・負荷試験は未完了）
 
 ## 0. 対象、中心問い、位置付け
 
@@ -96,7 +96,7 @@ ExperimentAdapter
 
 ## 5. 実装方針・フォルダの責任分離（候補パス）
 
-パスは**候補**であり、着手時に既存ビルド/Service Worker/Pyodide契約と衝突を検証して確定する。Phase 0 の `protocol.mjs` と受け入れ模型は追加済み。Worker/UI/保存・可視化はまだ存在しない。
+パスは**候補**であり、着手時に既存ビルド/Service Worker/Pyodide契約と衝突を検証して確定する。Phase 0 の `protocol.mjs` と基準模型に加え、Phase 1 の専用Worker・クライアント・保存/表示UIを追加。数値カーネルはあくまで基準模型であり、CELEV Python側の完成はPhase 2。
 
 ```text
 pages/simulation/                 # 新しい共通UI/Workerクライアント（候補）
@@ -122,9 +122,9 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 
 ### Phase 1: 共通Runtime・可視化・保存
 
-- [ ] Workerホスト、セッション/世代管理、`computeOnce`/`runBatch`/`pause`/`reset`/`dispose` を実装。
-- [ ] line/scatter/heatmap/tableの共通描画とエラー画面、設定JSON・診断/CSV出力を作る。
-- [ ] 計算APIのheadlessテスト、ブラウザ操作テスト、エラー/旧応答/メモリ制限・再訪キャッシュテストを追加。
+- [x] Workerホスト、セッション/世代管理、`computeOnce`/`runBatch`/`pause`/`reset`/`dispose` を実装（Worker境界での停止、期限切れterminate・再初期化を含む）。
+- [x] line/scatter/heatmap/tableの共通描画、エラー表示、設定JSON・診断/CSV出力、ブラウザ実験入口を作成（実機表示・操作の監査は残る）。
+- [ ] 計算APIのheadlessテスト（実装追加済み）に加え、ブラウザ操作・旧応答・メモリ制限・再訪キャッシュを**実機で**テストし、記録する。
 
 ### Phase 2: 二科目による共通化検証
 
@@ -143,7 +143,7 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 
 本PLANの完成は**共通RuntimeをCELEV/MLの2つの異なる模型で実操作できる**ことと、worker/描画/再現性・数値検算・Pagesの回帰テストが通ることによる。ソースコードだけ、事前録画の軌跡、固定SVG/GIF、見た目だけのアニメーションでは完成としない。
 
-本変更はPLANの設計・責務整理のみであり、数値エンジン・UI/通信実装をまだ提供しない。CELEV/ML各講の証明・詳細演習・学習成果物は各PLANの査読規定で完成判定する。
+Phase 0 と Phase 1 の実装を進めているが、ブラウザ実機での公開動作・回帰、CELEV Pythonカーネル、Phase 2の横断検証が未完了なのでPLANは in_progress に留める。CELEV/ML各講の証明・詳細演習・学習成果物は各PLANの査読規定で完成判定する。
 
 
 ## 8. Phase 0 着手成果物（2026-10-14）
@@ -153,4 +153,12 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 - [ML1-01四セル標本抽出の受け入れ模型](../../pages/simulation/engines/ml/four-cell.mjs) — 母集団リスク・seed・標本数の基準。
 - [受け入れ試験と実機測定条件](../../pages/simulation/README.md)、[headlessテスト](../../scripts/validate-simulation-phase0.mjs)。Pages組立の冒頭から呼ぶ。CI合否はPRで確認。
 
-**次工程:** Phase 1 の専用Workerとセッション状態機械、Canvas/HTML/SVGの表示アダプター、記録の再読み込み・export、および実ブラウザ/キャッシュ検証。これらが終わるまでは基盤完成や公開動作を主張しない。
+**Phase 1進行中:** 専用Worker・UI・記録のexport/import・配信資産を追加。次はPlaywright等による実ブラウザ操作（リセット世代排除、連続実行、ネット断、再訪、アクセシビリティ）と性能・資源上限の実測。未検証の項目を完了扱いしない。
+
+
+## 9. Phase 1 実装成果物（2026-10-14）
+
+- [Workerホスト](../../pages/simulation/simulation-worker-host.mjs)、[Workerクライアント](../../pages/simulation/simulation-runtime.mjs)：セッション・世代管理、旧応答の破棄、計算数上限、キャンセル時terminate、復帰。
+- [表示アダプター](../../pages/simulation/plot-adapters.mjs)、[実験記録](../../pages/simulation/experiment-record.mjs)、[ブラウザ実験入口](../../pages/simulation/index.html)：CELEV・MLで共通の操作/表示/設定再現とJSON/CSV出力。
+- [Phase 1 headlessテスト](../../scripts/validate-simulation-phase1.mjs)：モデルを差し替えずに実ホストのプロトコル検証を行う。CIはPages assemblyから実行。ブラウザ実測・Playwrightは未完了。
+
