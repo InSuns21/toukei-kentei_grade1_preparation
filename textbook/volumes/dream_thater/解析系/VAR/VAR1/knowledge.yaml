@@ -67,11 +67,11 @@ concepts:
       - calculus-of-variations.boundary-first-variation
 
   - id: calculus-of-variations.isoperimetric-regular
-    name: 等周拘束と正則点
+    name: 等周拘束と正則性
     kind: definition
     aliases: [isoperimetric constraint, regular isoperimetric constraint]
     introduction: formal
-    introduction_aliases: ["定義（等周拘束と正則点）"]
+    introduction_aliases: ["定義（等周拘束と正則性）"]
     requires:
       - calculus-of-variations.stationary-curve
 
