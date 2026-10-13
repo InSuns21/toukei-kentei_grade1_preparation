@@ -414,7 +414,7 @@ w'\circ f\circ(z')^{-1}
 \circ(z\circ(z')^{-1})
 $$
 
-である。よって[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)と[接枠の遷移行列の定義](#def-cm1-05-transition-matrix)から
+である。この三写像の合成に[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を適用する。さらに左右の座標変換の微分を[接枠の遷移行列の定義](#def-cm1-05-transition-matrix)に従って書き換えると
 
 $$
 \begin{aligned}
