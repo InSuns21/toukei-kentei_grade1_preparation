@@ -1,0 +1,43 @@
+id: "AG3-14"
+title: "射影曲線と超曲面の総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-13
+  - AG3-11
+  - AG2-10
+official_scope: []
+learning_objectives:
+  - 射影3空間の超曲面の構造層の各コホモロジー群を制限完全列と射影空間の計算から導出できる
+  - 滑らかな射影曲面の標準束を随伴公式で求め切断数との一致を検算できる
+  - 曲線と曲面のコホモロジー次数を区別して平面四次・五次の例を計算できる
+  - 平面曲線の種数・正則微分形式・超平面因子のEuler標数を接続できる
+  - 射影平面曲線と直線の局所交叉重複度を商環の基底から計算できる
+  - 原始的斉次方程式で定まる1パラメータ射影族の平坦性を証明できる
+  - 係数族の特異ファイバーと構造層のコホモロジーを区別できる
+  - 既証明の範囲と一般交叉理論・双対性・変形障害の未証明部分を区別できる
+definitions: []
+theorems:
+  - { id: AG3-14-THM-01, name: 射影3空間の超曲面の構造層コホモロジー }
+  - { id: AG3-14-PROP-01, name: 原始的斉次方程式の1パラメータ族は平坦 }
+canonical_examples:
+  - Fermat平面四次曲線の種数と標準束および切断数
+  - Fermat四次曲面の構造層の2次群と標準束
+  - 三次曲線と無限遠直線の3重交叉
+  - 三次曲線族の平坦性と特異パラメータ
+  - 四次曲面族の平坦性と特異ファイバー
+problem_patterns:
+  - AG3-14-A1
+  - AG3-14-A2
+  - AG3-14-A3
+  - AG3-14-A4
+  - AG3-14-B1
+  - AG3-14-B2
+  - AG3-14-B3
+  - AG3-14-B4
+  - AG3-14-C1
+  - AG3-14-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 12, review: 8 }

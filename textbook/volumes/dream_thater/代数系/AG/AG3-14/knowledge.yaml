@@ -1,0 +1,21 @@
+chapter: AG3-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-13
+  - AG3-11
+  - AG2-10
+forward_references: []
+concepts:
+  - id: algebraic-geometry.projective-hypersurface-structure-cohomology
+    name: 射影3空間の超曲面の構造層コホモロジー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影3空間の超曲面の構造層コホモロジー）"]
+    requires: [algebraic-geometry.projective-twist-cohomology, algebraic-geometry.hypersurface-adjunction]
+  - id: algebraic-geometry.primitive-projective-hypersurface-flat-family
+    name: 原始的斉次方程式の1パラメータ族は平坦
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（原始的斉次方程式の1パラメータ族は平坦）"]
+    requires: [algebraic-geometry.pid-flatness-criterion, algebraic-geometry.flat-morphism]
