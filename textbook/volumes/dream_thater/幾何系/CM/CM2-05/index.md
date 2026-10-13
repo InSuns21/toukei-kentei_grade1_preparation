@@ -14,7 +14,7 @@
 
 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ では、$z=x+iy$ の $x,y$ をそれぞれ1だけ増やしても同じ点を表す。[格子商の正則アトラス](../CM1-09/index.md#thm-cm1-09-quotient-atlas)で、平行移動は $dz$ と $d\bar z$ を不変にする。そのため任意の滑らかな $(0,1)$ 形式は、一意的に $f(x,y)d\bar z$ と表せる。ここで $f$ は両変数について周期1の滑らかな関数である。
 
-周波数 $(m,n)\in\mathbb Z^2$ に対して $e_{mn}(x,y)=e^{2\pi i(mx+ny)}$ と置く。[複素Fourier係数](../../../../解析系/FOU/FOU1/index.md#thm-fou1-coefficient-extraction)に対応する二変数の係数を
+周波数 $(m,n)\in\mathbb Z^2$ に対して $e_{mn}(x,y)=e^{2\pi i(mx+ny)}$ と置く。[複素Fourier係数](../../../解析系/FOU/FOU1/index.md#thm-fou1-coefficient-extraction)に対応する二変数の係数を
 
 $$
 \widehat f(m,n)=\int_0^1\!\int_0^1 f(x,y)e^{-2\pi i(mx+ny)}\,dx\,dy
@@ -37,7 +37,7 @@ $$
 
 ### 証明の見取り図
 
-一回の部分積分ごとに周波数の因子を分母へ移す。十分な回数繰り返せば、項別微分しても絶対収束する。関数そのものと級数の一致には[三角多項式の稠密性](../../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)を各変数で順に用いる。
+一回の部分積分ごとに周波数の因子を分母へ移す。十分な回数繰り返せば、項別微分しても絶対収束する。関数そのものと級数の一致には[三角多項式の稠密性](../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)を各変数で順に用いる。
 
 <!-- proof-start -->
 ### 証明
@@ -51,7 +51,7 @@ $$
 
 を得る。左辺の絶対値は $(1-\Delta)^Nf$ の基本正方形上での絶対値の積分以下なので、主張した速い減衰が従う。偏微分 $\partial_x^a\partial_y^b$ を施した項は係数に $(2\pi im)^a(2\pi in)^b$ を乗じるだけである。$N$ を $(a+b+2)/2$ より大きく取れば、二重級数は絶対一様収束する。
 
-和を $g$ とすると $g$ は滑らかで、項別積分から $\widehat g(m,n)=\widehat f(m,n)$。$h=f-g$ は全Fourier係数が零である。[三角多項式の一様稠密性](../../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)をまず $x$ 方向、次に $y$ 方向へ適用すると、二変数三角多項式は連続二重周期関数を一様近似する。従って $h$ 自身を三角多項式で一様近似でき、$h$ と任意の三角多項式との積分は零だから
+和を $g$ とすると $g$ は滑らかで、項別積分から $\widehat g(m,n)=\widehat f(m,n)$。$h=f-g$ は全Fourier係数が零である。[三角多項式の一様稠密性](../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)をまず $x$ 方向、次に $y$ 方向へ適用すると、二変数三角多項式は連続二重周期関数を一様近似する。従って $h$ 自身を三角多項式で一様近似でき、$h$ と任意の三角多項式との積分は零だから
 
 $$
 \int_{[0,1]^2}|h|^2
@@ -161,7 +161,7 @@ $$
 
 ## 4. 射影直線では二つの局所解を比べる
 
-[複素射影直線の正則アトラス](../CM1-10/index.md#thm-cm1-10-standard-atlas)から
+[複素射影直線の正則アトラス](../CM1-10/index.md#thm-cm1-10-projective-atlas)から
 
 $$
 U_0=\mathbb{CP}^1\setminus\{\infty\}\cong\mathbb C_z,\qquad
@@ -307,7 +307,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$H^{0,0}$ は[零次コホモロジーの正則形式との同定](../CM2-04/index.md#prop-cm2-04-zero-degree)で大域正則関数に一致する。$\mathbb{CP}^1$ は[射影直線のコンパクト性](../CM1-10/index.md#thm-cm1-10-compact-hausdorff)を持つので、正則関数の絶対値は最大値を取り、一変数の最大値原理により連結な $X$ 上で定数である。
+$H^{0,0}$ は[零次コホモロジーの正則形式との同定](../CM2-04/index.md#prop-cm2-04-zero-degree)で大域正則関数に一致する。$\mathbb{CP}^1$ は[射影直線のコンパクト性](../CM1-10/index.md#thm-cm1-10-projective-topology)を持つので、正則関数の絶対値は最大値を取り、一変数の最大値原理により連結な $X$ 上で定数である。
 
 大域正則1形式を $f(z)dz$ と書くと、無限遠点の近くでは
 
