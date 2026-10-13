@@ -573,16 +573,16 @@ $\mathbb P^n$ に非零の大域正則1形式が存在しないことを、標�
 
 一方、[射影空間上のO(d)の大域切断](../AG2-06/index.md#thm-ag2-06-pn-sections)に $d=-1$ を代入すると
 
-$
+$$
 H^0(P,\mathcal O_P(-1))=0.
-$
+$$
 
 有限直和の大域切断は各成分の大域切断からなります。従って
 
-$
+$$
 \iota(s)\in H^0\!\left(P,\mathcal O_P(-1)^{\oplus(n+1)}\right)
 =H^0(P,\mathcal O_P(-1))^{\oplus(n+1)}=0.
-$
+$$
 
 これは $\iota(s)$ が非零という結論に矛盾します。ゆえに $H^0(P,\Omega^1_P)=0$ です。
 <!-- solution-end -->
