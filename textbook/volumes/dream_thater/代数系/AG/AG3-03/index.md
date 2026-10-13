@@ -236,9 +236,31 @@ $D_A(f)$ では $f$ が可逆なので、最初から $A_f$ のスペクトル�
 <!-- proof-start -->
 ### 証明
 
-$\lambda:A\to A_f$ の[スペクトル射](#thm-ag3-03-spec-map)を考えます。$A_f$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $f\notin\mathfrak p$ を満たします。逆に $\mathfrak p\in D_A(f)$ なら $A_f/\mathfrak pA_f\simeq(A/\mathfrak p)_f$ は整域の非零元での局所化なので整域であり、$\mathfrak pA_f$ は素イデアルです。両操作が逆であることは、$b/f^n\in\mathfrak q$ と $b\in\lambda^{-1}(\mathfrak q)$ が同値であることから分かります。
+$f$ が冪零の場合を先に処理します。$f^N=0$ なら $A_f$ では $f$ が可逆なので
 
-任意の $g\in A$ に対して $D_A(fg)$ の逆像は $D_{A_f}(g/1)$ です。$A_f$ の元はすべて $g/f^n$ の形で、その主開集合は $D_{A_f}(g/1)$ に等しいため、これは双方の開基を対応させる同相です。
+$$
+1=f^{-N}f^N=0
+$$
+
+となり、$A_f$ は零環です。また任意の素イデアルは冪零元を含むため $D_A(f)=\varnothing$ です。どちらも空の局所環付き空間となり、命題は成立します。以下、$f$ は冪零でないとします。
+
+$\lambda:A\to A_f$ の[スペクトル射](#thm-ag3-03-spec-map)を考えます。$A_f$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $f\notin\mathfrak p$ を満たします。逆に $\mathfrak p\in D_A(f)$ なら
+
+$$
+A_f/\mathfrak pA_f\simeq(A/\mathfrak p)_f
+$$
+
+です。実際、$a/f^n$ を $(a+\mathfrak p)/(f+\mathfrak p)^n$ に送る写像は全射で、$A/\mathfrak p$ が整域かつ $f\notin\mathfrak p$ だから、像が零になるのは $a\in\mathfrak p$ の場合に限ります。核が $\mathfrak pA_f$ なので上の同型が成立します。右辺は整域の非零元による局所化であり整域です。従って $\mathfrak pA_f$ は素イデアルです。さらに $f/1$ が $A_f$ で単元であることを使うと
+
+$$
+\frac{b}{f^n}\in\mathfrak q
+\Longleftrightarrow \frac b1\in\mathfrak q
+\Longleftrightarrow b\in\lambda^{-1}(\mathfrak q).
+$$
+
+従って素点の拡大と収縮は互いに逆です。
+
+任意の $g\in A$ に対して $D_A(fg)$ の逆像は $D_{A_f}(g/1)$ です。また $A_f$ の任意の元 $b/f^n$ による主開集合は、$f/1$ が単元なので $D_{A_f}(b/f^n)=D_{A_f}(b/1)$ です。従って $D_A(f)$ の開基 $\{D_A(fg):g\in A\}$ と $\operatorname{Spec}A_f$ の開基が対応し、点対応は同相になります。
 
 [主開切断環](../AG3-02/index.md#thm-ag3-02-principal-sections)を両方に適用すると
 
@@ -248,7 +270,24 @@ $$
 \mathcal O_{\operatorname{Spec}A_f}(D_{A_f}(g/1))=(A_f)_{g/1}.
 $$
 
-右辺と左辺は[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)により同型です。具体的に $b/(fg)^n$ を $(b/f^n)/(g/1)^n$ へ写せば、$f,g$ の逆元を持つ環として逆写像も定まります。これらの同型は制限と両立し、各茎でも同じ分数式を与えるので局所同型です。$f$ が冪零であれば両空間とも空であり、結論は同様に成立します。
+右辺と左辺を同じ環として比較します。もし $fg$ が冪零なら $A_{fg}$ は零環です。また $f$ は $A_f$ で単元なので、$(fg)^N=0$ から $(g/1)^N=0$ が従い、$(A_f)_{g/1}$ も零環です。この場合、両者の同型は唯一のものです。
+
+$fg$ が冪零でない場合、$f$ は冪零でなく、$g/1\in A_f$ も冪零ではありません。実際、$(g/1)^n=0$ ならある $m\ge0$ で $f^mg^n=0$ となり、$N=\max\{m,n\}$ とすれば $(fg)^N=0$ に矛盾します。従って $f$ と $g/1$ の冪から成る乗法的集合はいずれも $0$ を含まず、[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)を適用できます。両環は $f,g$ を可逆にする同じ環で、対応を分数で書くと
+
+$$
+\frac{b}{(fg)^n}\longmapsto\frac{b/f^n}{(g/1)^n}
+$$
+
+と、その逆方向は
+
+$$
+\frac{b/f^m}{(g/1)^n}\longmapsto
+\frac{bf^{N-m}g^{N-n}}{(fg)^N},
+\qquad N=\max\{m,n\}
+$$
+
+です。二つの写像は $A$ の元と $f,g$ の逆元で互いに逆であり、普遍性により環全体で逆写像となります。主開集合の制限写像も分子・分母を保つ局所化なので、この同型は制限と両立します。各茎での写像も同じ分数を対応させ、局所環の同型です。
+
 <!-- proof-end -->
 
 例えば $D_{k[t]}(t)\simeq\operatorname{Spec}k[t,t^{-1}]$ です。元のアフィン直線全体では $1/t$ は大域正則ではありませんが、この主開集合の上では正則です。
@@ -299,7 +338,16 @@ $A=k[t]$、$I=(t^2)$ では $V(t^2)=V(t)$ ですが、$(A/I)_{(t)/(t^2)}$ には
 - ID: AG3-03-A1
 
 <!-- solution-start -->
-**詳細解答。** 体 $k$ の唯一の素イデアルは $(0)$ で、茎は $k_{(0)}=k$、極大イデアルは $(0)$、剰余体は $k$ です。$D$ で素イデアル $\mathfrak p$ があれば $\varepsilon^2=0\in\mathfrak p$ から $\varepsilon\in\mathfrak p$ です。$D/(\varepsilon)\simeq k$ なので唯一の素イデアルは $(\varepsilon)$ です。$a+b\varepsilon$（$a\ne0$）の逆元は $a^{-1}-ba^{-2}\varepsilon$ なので $D$ は局所環で、茎は $D$、極大イデアルは $(\varepsilon)$、剰余体は $k$ です。両者の茎は平方零元の有無で異なります。
+**詳細解答。** 体 $k$ の唯一の素イデアルは $(0)$ であり、茎・極大イデアル・剰余体はそれぞれ $k$、$(0)$、$k$ です。
+
+$D$ の素イデアル $\mathfrak p$ は $\varepsilon^2=0\in\mathfrak p$ と素性から $\varepsilon\in\mathfrak p$ を満たします。さらに $D/(\varepsilon)\simeq k$ は体なので、唯一の素イデアルは $(\varepsilon)$ です。$a\ne0$ なら
+
+$$
+(a+b\varepsilon)(a^{-1}-ba^{-2}\varepsilon)
+=1+(ba^{-1}-ba^{-1})\varepsilon-b^2a^{-2}\varepsilon^2=1
+$$
+
+となります。従って $(\varepsilon)$ の外側の元はすべて単元です。茎は $D_{(\varepsilon)}=D$、極大イデアルは $(\varepsilon)$、剰余体は $D/(\varepsilon)\simeq k$ です。両者の茎は非零の平方零元の有無で異なります。
 <!-- solution-end -->
 
 ### A2. 局所性の失敗
