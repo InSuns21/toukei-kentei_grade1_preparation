@@ -2,7 +2,7 @@
 
 [VAR8の第二変分](../VAR8/index.md#thm-var8-second-variation)は、既に見つかった停留点が安定かどうかを判定しました。しかし、曲線や関数の候補をいくら改良しても、そもそも最小値を実現する関数が存在する保証はありません。有限次元の閉有界集合上なら収束部分列を探せますが、関数の集まりでは通常の意味での強い収束は得られないことがあります。
 
-そこで本章では、[GPDE3のSobolev空間](../../GPDE/GPDE3/index.md#def-gpde3-sobolev-space)で変分問題を定式化し、[GPDE5のHilbert空間の弱部分列定理](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って最小化列から極限を取り出します。極限が制約を満たし、エネルギーが極限で増えないことを確認する手順を**最小化の直接法**として証明します。弱収束の一般論とSobolev空間の完備性を再証明するのではなく、「その定理を変分問題へどう適用するか」を新しく扱います。
+そこで本章では、[GPDE3のSobolev空間](../../GPDE/GPDE3/index.md#def-gpde3-sobolev-space)で変分問題を定式化し、[Hilbert空間の有界列からの弱収束部分列](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って最小化列から極限を取り出します。極限が制約を満たし、エネルギーが極限で増えないことを確認する手順を**最小化の直接法**として証明します。弱収束の一般論とSobolev空間の完備性を再証明するのではなく、「その定理を変分問題へどう適用するか」を新しく扱います。
 
 ## 1. 区間上の許容関数を選ぶ
 
@@ -41,7 +41,7 @@ $$
 **定義の確認。** $I=(0,1)$ で $u(t)=t(1-t)$ は両端0なので $\mathcal A_{0,0}$ に属します。$v(t)=\sin(2\pi t)$ は両端0で値が一致し、積分も0なので $\mathcal P_0$ に属します。一方、定数 $w(t)=3$ は周期集合に属しますが、積分は3であり $\mathcal P_0$ に属しません。
 <!-- definition-example-end -->
 
-[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)は端点評価が $H^1$ 上の連続な線形写像であることを保証します。平均値についてもCauchy–Schwarz不等式から
+[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)は端点評価が $H^1$ 上の連続な線形写像であることを保証します。平均値についても[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 $$
 \left|\int_a^b u\,dt\right|\le\sqrt L\,\|u\|_{L^2}\le\sqrt L\,\|u\|_{H^1}
 $$
@@ -74,7 +74,7 @@ $H^1$ での弱収束 $u_n\rightharpoonup u$ は、あらゆる $v\in H^1(I)$ �
 <!-- proof-start -->
 ### 証明
 
-$u_n\rightharpoonup u$ を $H^1(I)$ の弱収束とします。端点評価 $T_a(u)=u(a)$、$T_b(u)=u(b)$ は[区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により有界線形です。Hilbert空間上の有界線形汎関数は弱収束を保存するため
+$u_n\rightharpoonup u$ を $H^1(I)$ の弱収束とします。端点評価 $T_a(u)=u(a)$、$T_b(u)=u(b)$ は[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により有界線形です。Hilbert空間上の有界線形汎関数は弱収束を保存するため
 $$
 T_a(u_n)\to T_a(u),\qquad T_b(u_n)\to T_b(u).
 $$
@@ -95,7 +95,7 @@ $$
 
 <a id="prop-var9-uniform-compactness"></a>
 <!-- formal-statement-start -->
-> **命題（区間上の $H^1$ 有界列の一様コンパクト性）**  
+> **命題（区間上のH1有界列の一様コンパクト性）**  
 > 有界区間 $I=(a,b)$ において $\sup_n\|u_n\|_{H^1(I)}<\infty$ なら、各 $u_n$ の連続代表元から $[a,b]$ 上一様収束する部分列を取れる。さらに $u_n\rightharpoonup u$ in $H^1(I)$ が分かっているとき、その部分列の一様極限は $u$ の連続代表元である。
 <!-- formal-statement-end -->
 
@@ -140,7 +140,7 @@ $$
 $$
 \|u_{n_j}-v\|_{L^2}\le\sqrt L\,\|u_{n_j}-v\|_\infty\to0
 $$
-を与え、弱極限の一意性から $u=v$ がほとんど至る所成立します。連続代表元としても一致します。
+を与えます。$L^2$ の任意の $w$ に対し、弱収束から $\langle u_{n_j},w\rangle_2\to\langle u,w\rangle_2$、強収束から $\langle u_{n_j},w\rangle_2\to\langle v,w\rangle_2$ です。従って $\langle u-v,w\rangle_2=0$、特に $w=u-v$ を取ると $\|u-v\|_2^2=0$ です。すなわち $u=v$ がほとんど至る所成立し、連続代表元としても一致します。
 <!-- proof-end -->
 
 **強い $H^1$ 収束と混同しないでください。** $I=(0,1)$ の
@@ -160,7 +160,7 @@ $$
 $$
 J(u)\to+\infty
 $$
-> となることをいう。すなわち $J(u)\le R$ で定まる任意の下位集合は $H$ の中で有界である。
+> となることをいう。すなわち $J(u)\le R$ で定まる任意の集合 $\{u\in C:J(u)\le R\}$ は $H$ の中で有界である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-coercivity -->
@@ -277,7 +277,7 @@ J_f(u)
 $$
 です。最後の行は $\frac14s^2-Cs\ge-C^2$ に $s=\|u'\|_2$、$C=C_P\|f\|_2$ を代入したものです。この評価と $\|u\|_{H^1}^2\le(1+C_P^2)\|u'\|_2^2$ より、$J_f$ は下に有界で強制的です。
 
-$H_0^1(I)$ は[GPDE4の閉部分空間](../../GPDE/GPDE4/index.md#prop-gpde4-h01-closed)で、線形閉部分空間ゆえ弱逐次閉です。$u_n\rightharpoonup u$ in $H_0^1$ とすると $u_n'\rightharpoonup u'$ in $L^2$。§4の平方恒等式により
+$H_0^1(I)$ は[GPDE4の閉部分空間](../../GPDE/GPDE4/index.md#prop-gpde4-h01-closed)で、線形閉部分空間ゆえ弱逐次閉です。$u_n\rightharpoonup u$ in $H_0^1$ とすると $u_n'\rightharpoonup u'$ in $L^2$。[弱逐次下半連続性](#def-var9-weak-lsc)を示した§4の平方の展開により
 $$
 \frac12\|u'\|_2^2\le\liminf_n\frac12\|u_n'\|_2^2.
 $$
@@ -287,7 +287,7 @@ $$
 $$
 J_f(w)=\frac{J_f(u)+J_f(v)}2-\frac18\|u'-v'\|_2^2.
 $$
-両方が同じ最小値を取るので $\|u'-v'\|_2=0$ です。$u-v\in H_0^1(I)$ にPoincaré不等式を適用すると $\|u-v\|_2=0$、ゆえに $u=v$ です。
+両方が同じ最小値を取るので $\|u'-v'\|_2=0$ です。$u-v\in H_0^1(I)$ に[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)を適用すると $\|u-v\|_2=0$、ゆえに $u=v$ です。
 <!-- proof-end -->
 
 **端点が0以外の場合。** $\mathcal A_{A,B}=g+H_0^1(I)$ と書きます。ただし §2のアフィン関数 $g$ を使い、[区間の零トレースと $H_0^1$ の同一視](../../GPDE/GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から等号が成り立ちます。$u=g+v$ として $J_f(g+v)$ を $v\in H_0^1$ 上で最小化すれば、導関数の二次項と $v$ の線形項に帰着します。具体的に
@@ -458,7 +458,7 @@ $u_n\rightharpoonup u$ in $H^1(0,1)$ で、$u_n(0)=u_n(1)=1$ なら $u(0)=u(1)=1
 <!-- solution-start -->
 ### 詳細解答
 
-[区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により $T_0(v)=v(0)$ と $T_1(v)=v(1)$ は $H^1$ 上の有界線形汎関数です。弱収束の定義にそれぞれ適用すると
+[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により $T_0(v)=v(0)$ と $T_1(v)=v(1)$ は $H^1$ 上の有界線形汎関数です。弱収束の定義にそれぞれ適用すると
 $$
 u(0)=\lim_nT_0(u_n)=1,\qquad
 u(1)=\lim_nT_1(u_n)=1.

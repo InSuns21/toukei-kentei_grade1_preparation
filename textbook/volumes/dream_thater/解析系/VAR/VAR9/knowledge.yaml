@@ -30,8 +30,8 @@ concepts:
     name: 区間上のH1有界列の一様コンパクト性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（区間上の $H^1$ 有界列の一様コンパクト性）"]
-    requires: [calculus-of-variations.admissible-weak-closedness]
+    introduction_aliases: ["命題（区間上のH1有界列の一様コンパクト性）"]
+    requires: [sobolev.h01, functional-analysis.bounded-hilbert-sequence-weak-subsequence]
   - id: calculus-of-variations.direct-coercivity
     name: 許容集合上の強制性
     kind: definition
@@ -39,7 +39,7 @@ concepts:
     introduction_aliases: ["定義（許容集合上の強制性）"]
     requires: [sobolev.h01]
   - id: calculus-of-variations.direct-weak-lsc
-    name: 変分汎関数の弱逐次下半連続性
+    name: 弱逐次下半連続性
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（弱逐次下半連続性）"]
