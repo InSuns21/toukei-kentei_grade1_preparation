@@ -97,7 +97,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[区間上の$H^1$関数の絶対連続代表元の定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を各座標へ適用すると、$r(0)=0$ より
+[区間上の $H^1$ 関数の絶対連続代表元の定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を各座標へ適用すると、$r(0)=0$ より
 $$
 |r(t)|=\left|\int_0^t r'(s)\,ds\right|
 \le |t|^{1/2}\left(\int_{-L}^{L}|r'(s)|^2ds\right)^{1/2}
@@ -260,7 +260,18 @@ $$
 $$
 c(t)=\frac1M\sum_i m_ip_i(t),\qquad M=\sum_i m_i
 $$
-を引き、$v_i=p_i-c$ とします。各粒子対の位置差は $v_i-v_j=(p_i-c)-(p_j-c)=p_i-p_j$ なので、相互距離から作る[Newtonポテンシャル](../CELEV1/index.md#def-celev1-extended-action)について $U(p)=U(v)$ です。また $\sum_i m_iv_i=0$ を微分すると $\sum_i m_iv_i'=0$（ほとんど至るところ）なので
+を引き、$v_i=p_i-c$ とします。任意の粒子対について、
+$$
+v_i(t)-v_j(t)
+=(p_i(t)-c(t))-(p_j(t)-c(t))
+=p_i(t)-p_j(t)
+$$
+となります。したがって相互距離から作る[Newtonポテンシャル](../CELEV1/index.md#def-celev1-extended-action)は不変です。また質量重心の定義より
+$$
+\sum_i m_iv_i(t)=0,
+\qquad \sum_i m_iv_i'(t)=0\quad\text{（ほとんど至るところ）}
+$$
+なので
 $$
 \begin{aligned}
 \sum_i m_i|p_i'|^2
