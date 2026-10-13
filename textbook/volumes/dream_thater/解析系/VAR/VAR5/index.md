@@ -67,7 +67,7 @@ $$
 <a id="prop-var5-constant-curvature-threshold"></a>
 <!-- formal-statement-start -->
 > **命題（定曲率の法方向と区間長の閾値）**  
-> $[0,L]$ 上の単位速測地線 $\gamma$ に沿い、平行な単位法ベクトル場 $N$ が存在し、その法断面曲率が定数 $k$ であるとする。$f$ は区分的 $C^1$ 級、$f(0)=f(L)=0$ とする。このとき
+> $[0,L]$ 上の単位速測地線 $\gamma$ に沿い、平行な単位法ベクトル場 $N$ が存在し、その法断面曲率が定数 $k$ であるとする。$f$ は連続かつ区分的 $C^1$ 級、$f(0)=f(L)=0$ とする。このとき
 
 $$
 I(fN,fN)=\int_0^L\{(f')^2-kf^2\}\,dt.
@@ -85,7 +85,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-平行条件から $D(fN)/dt=f'N$ であり、曲率項は $kf^2$ なので第一式を得ます。[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)に区間長 $L$ と端点0の $f$ を代入すると
+平行条件から $D(fN)/dt=f'N$ であり、曲率項は $kf^2$ なので第一式を得ます。
+
+[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)は $C^1$ 級関数について証明されています。ここで用いる連続な区分的 $C^1$ 級関数にも適用できることを確認します。接続点は有限個なので、その各点の前後の幅 $2\varepsilon$ の区間を、両端の関数値と一階微分を一致させる三次Hermite補間で置き換えます。各区分で $f'$ は有界であり、補間区間の両端の関数値の差は $O(\varepsilon)$ です。したがって補間後の導関数も $\varepsilon$ に依らず有界に取れます。こうして得た $f_\varepsilon\in C^1([0,L])$ は端点0を保ち、変更した区間の全長が $O(\varepsilon)$ なので
+
+$$
+\int_0^L|f_\varepsilon-f|^2dt\longrightarrow0,\qquad
+\int_0^L|f_\varepsilon'-f'|^2dt\longrightarrow0
+$$
+
+です。$f_\varepsilon$ にWirtinger不等式を適用し、両辺の積分の極限を取れば $f$ にも成立します。そこで区間長 $L$ と端点0の $f$ に適用すると
 
 $$
 \int_0^L(f')^2dt\ge\frac{\pi^2}{L^2}\int_0^Lf^2dt.
@@ -191,7 +200,7 @@ $$
 V(t)=\sin\frac{\pi t}{L}\,e_2
 $$
 
-とします。端点では $V=0$ です。球面の断面曲率は $1/a^2$ です。第2節で導いた指数形式の表示に $f(t)=\sin(\pi t/L)$ を代入すると
+とします。端点では $V=0$ です。球面の断面曲率は $1/a^2$ です。[第2節の定曲率の命題](#prop-var5-constant-curvature-threshold)に $f(t)=\sin(\pi t/L)$ を代入すると
 
 $$
 \begin{aligned}
@@ -222,7 +231,7 @@ $$
 <a id="prop-var5-curvature-upper-bound"></a>
 <!-- formal-statement-start -->
 > **命題（断面曲率上界からの指数形式の下界）**  
-> $\gamma:[0,L]\to(M,g)$ を単位速測地線、$\kappa\ge0$ とする。$\gamma$ 上のすべての接平面の断面曲率が $\kappa$ 以下と仮定する。任意の区分的 $C^1$ 級ベクトル場 $V$ で $V(0)=V(L)=0$ なら
+> $\gamma:[0,L]\to(M,g)$ を単位速測地線、$\kappa\ge0$ とする。$\gamma$ 上のすべての接平面の断面曲率が $\kappa$ 以下と仮定する。任意の連続かつ区分的 $C^1$ 級ベクトル場 $V$ で $V(0)=V(L)=0$ なら
 
 $$
 I(V,V)\ge\left(\frac{\pi^2}{L^2}-\kappa\right)\int_0^L|V|^2dt.
@@ -245,13 +254,13 @@ g(R(V,\dot\gamma)\dot\gamma,V)
 \le \kappa|V^\perp|^2\le\kappa|V|^2.
 $$
 
-区間に沿う平行正規直交標構 $E_1,\ldots,E_n$ を取り $V=\sum_i f_iE_i$ と書くと、$DE_i/dt=0$ であるため
+[平行移動の存在と一意性](../../../幾何系/GEO/GEO13/index.md#thm-geo13-parallel-existence)および[等長性](../../../幾何系/GEO/GEO13/index.md#prop-geo13-parallel-isometry)から、区間に沿う平行正規直交標構 $E_1,\ldots,E_n$ を取り $V=\sum_i f_iE_i$ と書くと、$DE_i/dt=0$ であるため
 
 $$
 \int_0^L\left|\frac{DV}{dt}\right|^2dt=\sum_i\int_0^L(f_i')^2dt.
 $$
 
-$V(0)=V(L)=0$ なので全成分に $f_i(0)=f_i(L)=0$ が成り立ちます。[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)を成分ごとに適用して足すと
+$V(0)=V(L)=0$ なので全成分に $f_i(0)=f_i(L)=0$ が成り立ちます。各 $f_i$ は連続かつ区分的 $C^1$ 級です。第2節で確認した接続点の $C^1$ 近似により、[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)を各 $f_i$ に適用できます。成分ごとの評価を足すと
 
 $$
 \sum_i\int_0^L(f_i')^2dt
@@ -395,7 +404,7 @@ $$
 f(t)=\frac12\sin2t.
 $$
 
-正の零点は $2t=m\pi$（正整数 $m$）であり、最初は $t=\pi/2$ です。$\pi/\sqrt4=\pi/2$ と命題の閾値に一致します。
+正の零点は $2t=m\pi$（正整数 $m$）であり、最初は $t=\pi/2$ です。$\pi/\sqrt4=\pi/2$ と[第2節の命題](#prop-var5-constant-curvature-threshold)の閾値に一致します。
 <!-- solution-end -->
 
 ### Level B
@@ -436,7 +445,7 @@ $L>0$ より正です。これは接方向の結果であり、曲率が正で�
 <!-- solution-start -->
 ### 詳細解答
 
-第5節の命題の仮定を $\kappa=1/9$ として確認します。平行標構でWirtingerの不等式を成分ごとに適用した結論は
+[第5節の曲率上界の命題](#prop-var5-curvature-upper-bound)の仮定を $\kappa=1/9$ として確認します。平行標構でWirtingerの不等式を成分ごとに適用した結論は
 
 $$
 I(V,V)\ge\left(\frac{\pi^2}{L^2}-\frac19\right)\int_0^L|V|^2dt.
@@ -461,7 +470,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-(i) 第3節で $J=a\sin(t/a)e_2$ が Jacobi場であることを直接検算しました。$J(0)=J(\pi a)=0$ で、$t=\pi a/2$ では $J=ae_2\ne0$ です。[共役点の定義](../../../幾何系/GEO/GEO17/index.md#def-geo17-conjugate)から南極は北極に共役です。
+(i) [第3節の球面Jacobi場の命題](#prop-var5-sphere-variation)で $J=a\sin(t/a)e_2$ が Jacobi場であることを直接検算しました。$J(0)=J(\pi a)=0$ で、$t=\pi a/2$ では $J=ae_2\ne0$ です。[共役点の定義](../../../幾何系/GEO/GEO17/index.md#def-geo17-conjugate)から南極は北極に共役です。
 
 (ii) 球面の極座標計量では各滑らかな曲線の速さは $a\sqrt{\dot\theta^2+\sin^2\theta\dot\varphi^2}$ です。非負項を落とすと速さは $a|\dot\theta|$ 以上なので
 
