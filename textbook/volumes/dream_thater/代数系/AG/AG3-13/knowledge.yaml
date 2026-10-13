@@ -1,0 +1,57 @@
+chapter: AG3-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-12
+  - AG2-04
+  - AG2-10
+forward_references: []
+concepts:
+  - id: algebraic-geometry.local-intersection-multiplicity
+    name: 孤立交点の局所交叉重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（孤立交点の局所交叉重複度）"]
+    requires: [algebraic-geometry.point-local-ring, algebraic-geometry.line-intersection-multiplicity]
+  - id: algebraic-geometry.intersection-coordinate-invariance
+    name: 交叉重複度の対称性と座標変換不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（交叉重複度の対称性と座標変換不変性）"]
+    requires: [algebraic-geometry.local-intersection-multiplicity]
+  - id: algebraic-geometry.transverse-intersection-length
+    name: 横断交叉の重複度は1
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（横断交叉の重複度は1）"]
+    requires: [algebraic-geometry.local-intersection-multiplicity, algebraic-geometry.jacobian-kernel]
+  - id: algebraic-geometry.line-intersection-additivity
+    name: 直線に沿った交叉重複度の加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直線に沿った交叉重複度の加法性）"]
+    requires: [algebraic-geometry.local-intersection-multiplicity]
+  - id: algebraic-geometry.embedded-first-order-deformation
+    name: 超曲面の埋込み一次変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（超曲面の埋込み一次変形）"]
+    requires: [algebraic-geometry.flat-morphism]
+  - id: algebraic-geometry.hypersurface-first-order-flat
+    name: 非零超曲面方程式の一次変形は平坦
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非零超曲面方程式の一次変形は平坦）"]
+    requires: [algebraic-geometry.embedded-first-order-deformation, algebraic-geometry.flat-module]
+  - id: algebraic-geometry.embedded-deformation-jacobian-quotient
+    name: 埋込み一次変形のJacobian商
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（埋込み一次変形のJacobian商）"]
+    requires: [algebraic-geometry.embedded-first-order-deformation, algebraic-geometry.hypersurface-conormal]
+  - id: algebraic-geometry.point-lifting-first-order-obstruction
+    name: 一次の点の持ち上げ条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次の点の持ち上げ条件）"]
+    requires: [algebraic-geometry.embedded-first-order-deformation, algebraic-geometry.jacobian-kernel]
