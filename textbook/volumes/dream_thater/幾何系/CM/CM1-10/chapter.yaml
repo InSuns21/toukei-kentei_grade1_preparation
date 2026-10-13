@@ -1,0 +1,43 @@
+id: "CM1-10"
+title: "複素射影空間と正則アトラス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-01
+  - CM1-02
+  - CM1-09
+official_scope: []
+learning_objectives:
+  - 非零同次座標の同値関係を確認し、複素射影空間の点と複素直線を対応させられる
+  - 標準アフィン座標のwell-defined性・逆写像・商位相との整合性を証明できる
+  - 射影座標間の遷移写像と定義域を具体的に計算し正則性を確認できる
+  - 射影空間のコンパクト性・Hausdorff性・第二可算性・道連結性を個別に証明できる
+  - 複素射影直線と射影平面の座標変換・無限遠超平面を具体的に説明できる
+  - 射影線形写像の双正則性と同じ射影変換を定める行列の分類を証明できる
+  - アフィン座標の分母の零と射影写像自体の特異性を区別できる
+definitions:
+  - { id: CM1-10-DEF-01, name: 複素射影空間と同次座標 }
+  - { id: CM1-10-DEF-02, name: 射影空間の標準アフィン座標 }
+  - { id: CM1-10-DEF-03, name: 射影線形写像 }
+theorems:
+  - { id: CM1-10-THM-01, name: 複素射影空間の標準正則アトラス }
+  - { id: CM1-10-THM-02, name: 複素射影空間の位相的性質 }
+  - { id: CM1-10-PROP-01, name: アフィンチャートと無限遠超平面 }
+  - { id: CM1-10-THM-03, name: 射影線形写像の双正則性とスカラー核 }
+canonical_examples:
+  - CP1の反転遷移写像と無限遠点
+  - CP2の三枚の標準チャートと三重重なり
+  - 階数一Hermite射影行列によるHausdorff分離
+  - CP2の無限遠超平面とCP1の対応
+  - 行列が誘導するMöbius型局所公式と分母の零
+problem_patterns:
+  - CM1-10-HOMOGENEOUS-COORDINATES
+  - CM1-10-CHART-TRANSITIONS
+  - CM1-10-HAUSDORFF-COMPACTNESS
+  - CM1-10-HYPERPLANE
+  - CM1-10-PROJECTIVE-AUTOMORPHISM
+  - CM1-10-INFINITY-IMAGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
