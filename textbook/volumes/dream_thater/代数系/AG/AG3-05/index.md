@@ -41,7 +41,24 @@ $$
 <!-- definition-example-start: def-ag3-05-fiber-product -->
 ### 例：二つのアフィン直線
 
-**定義の確認** $X=\operatorname{Spec}k[x]$、$Y=\operatorname{Spec}k[y]$、$S=\operatorname{Spec}k$ とします。候補を $P=\operatorname{Spec}k[x,y]$ とし、射影は $k[x]\to k[x,y]$ および $k[y]\to k[x,y]$ から作ります。[アフィンスキームの射と環準同型の対応](../AG3-03/index.md#thm-ag3-03-affine-fully-faithful)により、任意のアフィンな $T=\operatorname{Spec}D$ の二つの射は $x\mapsto u$、$y\mapsto v$（$u,v\in D$）で指定されます。$k[x,y]\to D$ を $x\mapsto u$、$y\mapsto v$ とする方法は唯一です。非アフィンの $T$ でも、アフィン開被覆上の一意な射が重複部分で一致するので[射の貼り合わせ](../AG3-04/index.md#thm-ag3-04-morphism-gluing)で一意な射を得ます。したがってこの候補は定義の条件を満たします。
+**定義の確認** 体 $k$ に対し、$X=\operatorname{Spec}k[x]$、$Y=\operatorname{Spec}k[y]$、$S=\operatorname{Spec}k$ とします。
+
+候補は $P=\operatorname{Spec}k[x,y]$ です。射影は二つの環準同型
+
+$$
+k[x]\longrightarrow k[x,y],\qquad
+k[y]\longrightarrow k[x,y]
+$$
+
+から作ります。
+
+[アフィンスキームの射と環準同型の対応](../AG3-03/index.md#thm-ag3-03-affine-fully-faithful)により、アフィンな試験対象 $T=\operatorname{Spec}D$ の二つの射は、$x\mapsto u$ と $y\mapsto v$（$u,v\in D$）で指定されます。両者は $k$ 上で一致します。
+
+$$
+k[x,y]\longrightarrow D,\qquad x\longmapsto u,\quad y\longmapsto v
+$$
+
+を定める方法は唯一です。非アフィンの $T$ でも、アフィン開被覆上の一意な射が重複部分で一致するため、[射の貼り合わせ](../AG3-04/index.md#thm-ag3-04-morphism-gluing)で一意な射を得ます。したがって候補は定義の条件を満たします。
 <!-- definition-example-end -->
 
 <a id="thm-ag3-05-affine-product"></a>
@@ -581,7 +598,19 @@ $$
 
 ### C1. グラフの方程式と普遍性
 
-$k$ を体、$f:\operatorname{Spec}k[x]\to\operatorname{Spec}k[y]$ を $y\mapsto x^2$ で定まる射とする。$\Gamma_f$ を、$(\mathrm{id},f)$ が定める $\operatorname{Spec}k[x]\to\operatorname{Spec}k[x]\times_{\operatorname{Spec}k}\operatorname{Spec}k[y]$ とする。(1) 積の座標環、(2) $\Gamma_f$ の環準同型と核、(3) $\Gamma_f$ が閉埋め込みであること、(4) 任意のスキーム $T$ からの射がグラフへ因子化する条件を示せ。
+$k$ を体とし、$f:\operatorname{Spec}k[x]\to\operatorname{Spec}k[y]$ を $y\mapsto x^2$ で定まる射とする。$\Gamma_f$ を、$(\mathrm{id},f)$ が定める次の射とする。
+
+$$
+\Gamma_f:\operatorname{Spec}k[x]\longrightarrow
+\operatorname{Spec}k[x]\times_{\operatorname{Spec}k}\operatorname{Spec}k[y].
+$$
+
+次を示せ。
+
+1. 積の座標環。
+2. $\Gamma_f$ の環準同型とその核。
+3. $\Gamma_f$ が閉埋め込みであること。
+4. 任意のスキーム $T$ から積への射がグラフを経由するための必要十分条件。
 
 - Level: C
 - ID: AG3-05-C1
@@ -602,7 +631,24 @@ $\varphi$ は $x$ を含むので全射です。$y-x^2$ は核に属し、$k[x,y
 
 (3) [商環の素スペクトルの閉埋め込み](../AG3-03/index.md#prop-ag3-03-quotient-image)により $\Gamma_f$ は $V(y-x^2)$ への閉埋め込みです。
 
-(4) $T$ の射 $a:T\to\operatorname{Spec}k[x,y]$ がグラフを経由するための必要十分条件は、$a$ の定める $x$ と $y$ の引き戻し切断について $a^\#(y)=a^\#(x)^2$ が成り立つことです。必要性は $\varphi(y-x^2)=0$ から従います。十分性はアフィン開被覆 $T_\lambda$ 上で $k[x,y]\to\Gamma(T_\lambda,\mathcal O_T)$ がイデアル $(y-x^2)$ を殺すため、商環 $k[x]$ を経由する唯一の環準同型があることによります。各 $T_\lambda$ の射は重複部分で一致し、[射の貼り合わせ](../AG3-04/index.md#thm-ag3-04-morphism-gluing)で一意の因子化を得ます。これによりグラフは方程式としても普遍性としても特徴付けられます。
+(4) 任意のスキーム $T$ の射 $a:T\to\operatorname{Spec}k[x,y]$ がグラフを経由するためには、$a$ が引き戻す二つの切断が次を満たすことが必要十分です。
+
+$$
+a^\#(y)=a^\#(x)^2
+\quad\text{in }\Gamma(T,\mathcal O_T).
+$$
+
+必要性は $\varphi(y-x^2)=0$ を $a$ で引き戻すことで従います。
+
+十分性のため $T$ のアフィン開被覆を $T_\lambda$ とします。各 $T_\lambda$ 上の環準同型
+
+$$
+k[x,y]\longrightarrow\Gamma(T_\lambda,\mathcal O_T)
+$$
+
+は $(y-x^2)$ を殺すので、商環 $k[x]$ を経由する唯一の環準同型が存在します。この準同型に対応する $T_\lambda\to\operatorname{Spec}k[x]$ は、元の $a|_{T_\lambda}$ の因子化です。
+
+重複部分上では二つの候補はともに $x$ を $a^\#(x)$ に送るため一致します。[射の貼り合わせ](../AG3-04/index.md#thm-ag3-04-morphism-gluing)から一意の因子化 $T\to\operatorname{Spec}k[x]$ が得られます。
 <!-- solution-end -->
 
 ### C2. 特異ファイバーと冪零ファイバーを比較する
