@@ -109,11 +109,15 @@ $$
 u\,d(at-bs)+(at-bs)\,du=0.
 $$
 
-局所化後は $u$ が単元で $at-bs=0$ なので、$d(at-bs)=0$ です。積の規則を展開し、$st$ で割ると
+局所化後は $u$ が単元で $at-bs=0$ なので、$d(at-bs)=0$ です。積の規則を展開すると
 
 $$
-t\,da+a\,dt-s\,db-b\,ds=0,
-\qquad
+t\,da+a\,dt-s\,db-b\,ds=0.
+$$
+
+さらに $st$ で割って整理すると
+
+$$
 \frac{da}{s}-\frac{db}{t}=\frac{b\,ds-a\,dt}{st}.
 $$
 
