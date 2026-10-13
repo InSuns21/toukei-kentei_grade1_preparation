@@ -1,0 +1,47 @@
+id: "CELEV2"
+title: "最小化列と周期解の存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELEV1
+  - VAR9
+  - F0-00D2B
+official_scope: []
+learning_objectives:
+  - 半周期反転を課した重心零の周期ループを定義し、有限作用の直接例を確認できる
+  - 半周期反転による時間平均零とPoincaré評価からNewton作用の強制性を証明できる
+  - H1弱収束と一様収束部分列で端点・重心・反転条件の閉性を示せる
+  - 弱ノルム下半連続性とFatouの補題を区別してNewton拡張作用の弱下半連続性を証明できる
+  - 有限作用の比較ループと直接法から非定数最小点の存在を証明できる
+  - 非衝突を追加仮定した最小点について変分の対称化と重心射影を使いNewton周期解へ昇格させられる
+  - 滑らかな時間周期ポテンシャルの唯一の非自明周期最小点を具体的に計算できる
+  - 存在・非自明性・非衝突・停留性を別々に判定できる
+definitions:
+  - { id: CELEV2-DEF-01, name: "半周期反転ループの許容クラス" }
+theorems:
+  - { id: CELEV2-PROP-01, name: "半周期反転クラス上の強制性" }
+  - { id: CELEV2-PROP-02, name: "許容クラスの弱逐次閉性" }
+  - { id: CELEV2-PROP-03, name: "Newton拡張作用の弱逐次下半連続性" }
+  - { id: CELEV2-THM-01, name: "半周期反転クラスにおけるNewton作用の最小点" }
+  - { id: CELEV2-THM-02, name: "非衝突極小点のNewton周期解への昇格" }
+  - { id: CELEV2-PROP-04, name: "周期外力を持つ二次作用の非自明な周期最小点" }
+canonical_examples:
+  - 異質量二体の半周期反転ループ
+  - 任意n体の非衝突な有限作用円形比較曲線
+  - 時間周期二次ポテンシャルの厳密な周期最小点
+  - 静止配置の逃走列と反転制約の対比
+problem_patterns:
+  - CELEV2-HALFTURN-CHECK
+  - CELEV2-MEANZERO-POINCARE
+  - CELEV2-FINITE-TRIAL
+  - CELEV2-SINGULAR-LSC
+  - CELEV2-SMOOTH-MINIMIZER
+  - CELEV2-NONCOERCIVE-ESCAPE
+  - CELEV2-WEAK-CLOSURE
+  - CELEV2-KINETIC-VS-FATOU
+  - CELEV2-SYMMETRIZE-VARIATIONS
+  - CELEV2-CIRCULAR-TRIAL-OPTIMIZE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 3 }
