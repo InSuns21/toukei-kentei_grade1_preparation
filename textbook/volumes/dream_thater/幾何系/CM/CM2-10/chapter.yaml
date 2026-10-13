@@ -1,0 +1,47 @@
+id: "CM2-10"
+title: "Chern接続の存在・一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-09
+  - CM2-02
+  - CM2-08
+official_scope: []
+learning_objectives:
+  - 複素束の接続とLeibniz則を定義し局所公式を確認できる
+  - 接続行列の一般の枠変更則を導出し局所接続を貼り合わせられる
+  - 正則構造とHermite計量の両立条件を型分解と行列等式で表せる
+  - Chern接続の存在・一意性を正則枠ごとの構成から証明できる
+  - 正則線束・O(-1)の接続を二チャートで計算し枠変更を照合できる
+  - 滑らかな単位枠と正則枠での接続行列の相違を説明できる
+  - 双対・テンソル積・行列式束の誘導接続公式を導出できる
+  - 片方の両立条件を失うと一意性が壊れる反例を構成できる
+definitions:
+  - { id: CM2-10-DEF-01, name: 複素ベクトル束上の接続 }
+  - { id: CM2-10-DEF-02, name: 正則構造・Hermite計量と両立する接続 }
+theorems:
+  - { id: CM2-10-PROP-01, name: 接続行列の枠変更則 }
+  - { id: CM2-10-PROP-02, name: 計量両立性の行列方程式 }
+  - { id: CM2-10-THM-01, name: Chern接続の存在・一意性 }
+  - { id: CM2-10-PROP-03, name: 正則線束のChern接続 }
+  - { id: CM2-10-PROP-04, name: 普遍線束O(-1)のChern接続 }
+  - { id: CM2-10-PROP-05, name: 非正則単位枠での接続行列 }
+  - { id: CM2-10-PROP-06, name: 双対・テンソル積・行列式束のChern接続 }
+canonical_examples:
+  - 平坦自明線束の接続とLeibniz則
+  - B*B型階数二Hermite行列のChern接続
+  - 射影直線の普遍線束O(-1)の二チャート
+  - 非正則単位枠での(0,1)接続成分
+  - 二つの両立条件の独立性
+problem_patterns:
+  - CM2-10-LEIBNIZ
+  - CM2-10-METRIC-EQUATION
+  - CM2-10-GAUGE-CONNECTION
+  - CM2-10-TAUTOLOGICAL-PATCHING
+  - CM2-10-INDUCED-CONNECTIONS
+  - CM2-10-UNITARY-FRAME
+  - CM2-10-UNIQUENESS-CONDITIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 5 }
