@@ -1,0 +1,49 @@
+id: "HA8"
+title: "Littlewood–Paley理論と周波数局在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FOU4
+  - F0-00P2A
+  - VC1
+  - HA5
+  - MT7
+official_scope: []
+learning_objectives:
+  - 滑らかなdyadic分割を構成し非斉次分解と斉次分解の収束と零周波数の違いを説明できる
+  - Littlewood–Paley射影を畳み込みとして導き周波数台とSchwartz核の尺度を検算できる
+  - Plancherelと有限重複からL2平方関数の上下評価を証明できる
+  - Rademacher符号のKhintchine評価と一様Calderón–Zygmund核を証明し1<p<∞の平方関数評価を導ける
+  - Bernstein不等式の指数d(1/p-1/q)と導関数の次数をYoung不等式から再現できる
+  - 二乗平均Sobolevノルムとの対応と斉次分解における多項式の曖昧さを区別できる
+definitions:
+  - { id: HA8-DEF-01, name: dyadic周波数分割 }
+  - { id: HA8-DEF-02, name: Littlewood–Paley射影 }
+  - { id: HA8-DEF-03, name: Littlewood–Paley平方関数 }
+  - { id: HA8-DEF-04, name: Rademacher符号 }
+theorems:
+  - { id: HA8-PROP-01, name: 非斉次・斉次分解のL2収束 }
+  - { id: HA8-THM-01, name: L2平方関数定理 }
+  - { id: HA8-LEM-01, name: Khintchine型符号補題 }
+  - { id: HA8-LEM-02, name: 符号付き周波数乗数の一様Lp評価 }
+  - { id: HA8-THM-02, name: Littlewood–PaleyのLp平方関数定理 }
+  - { id: HA8-LEM-03, name: Schwartz核の畳み込み評価 }
+  - { id: HA8-THM-03, name: 周波数局在のBernstein不等式 }
+  - { id: HA8-COR-01, name: L2 Sobolevノルムのdyadic表示 }
+canonical_examples:
+  - 半径に関する単調な滑らかcutoffからの非負分割
+  - 1つの周波数環帯に台を持つ関数
+  - 定数関数と多項式に対する斉次射影の消滅
+  - 符号付き乗数の核の近方遠方の尺度評価
+  - 2進周波数の導関数とBernstein指数
+problem_patterns:
+  - HA8-DYADIC-TELESCOPE
+  - HA8-SQUARE-L2
+  - HA8-RANDOM-SIGNS
+  - HA8-KERNEL-CZ
+  - HA8-BERNSTEIN
+  - HA8-SOBOLEV
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
