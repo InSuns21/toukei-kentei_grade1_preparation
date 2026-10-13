@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - LA6
+  - F0-00B
 official_scope: []
 learning_objectives:
   - Lorentz内積の慣性指数と標準形をSylvesterの慣性法則から説明できる

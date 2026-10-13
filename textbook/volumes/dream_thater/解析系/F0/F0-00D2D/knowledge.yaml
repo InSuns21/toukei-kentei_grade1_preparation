@@ -73,7 +73,7 @@ concepts:
   - id: measure.minkowski-inequality
     name: Minkowskiの不等式
     kind: theorem
-    aliases: [Minkowskiの不等式, Minkowski]
+    aliases: [Minkowskiの不等式]
     requires:
       - measure.holder-inequality
       - measure.lebesgue-integral

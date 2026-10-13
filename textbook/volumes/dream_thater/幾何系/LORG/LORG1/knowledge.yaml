@@ -3,7 +3,9 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - LA6
-forward_references: []
+  - F0-00B
+forward_references:
+  - geometry.tensor-field
 
 concepts:
   - id: lorentz-geometry.lorentz-inner-product
@@ -48,6 +50,7 @@ concepts:
   - id: lorentz-geometry.reverse-cauchy-schwarz
     name: Lorentz型逆Cauchy–Schwarz不等式
     kind: theorem
+    aliases: [逆Cauchy–Schwarz不等式]
     introduction: formal
     introduction_aliases: ["定理（Lorentz型逆Cauchy–Schwarz不等式）"]
     requires: [lorentz-geometry.future-proper-time-norm]
