@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha1-centered-maximal -->
-**定義の直接確認**　$f=\boldsymbol{1}_{B(0,1)}$ とすると、$0<r\le1$ では
+**定義の確認**　$f=\boldsymbol{1}_{B(0,1)}$ とすると、$0<r\le1$ では
 
 $$
 \frac{1}{v_dr^d}\int_{B(0,r)}f(y)\,dy
@@ -55,7 +55,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha1-uncentered-maximal -->
-**定義の直接確認**　$f=\boldsymbol{1}_{B(0,1)}$ では $M_{\mathrm u}f(0)=1$ です。中心0の半径1/2の球で平均1を実現し、すべての球の平均は1以下だからです。一般に中心付き球も非中心球の候補なので、$(Mf)(x)\le(M_{\mathrm u}f)(x)$ となります。
+**定義の確認**　$f=\boldsymbol{1}_{B(0,1)}$ では $M_{\mathrm u}f(0)=1$ です。中心0の半径1/2の球で平均1を実現し、すべての球の平均は1以下だからです。一般に中心付き球も非中心球の候補なので、$(Mf)(x)\le(M_{\mathrm u}f)(x)$ となります。
 <!-- definition-example-end -->
 
 <a id="prop-ha1-basic-maximal"></a>
@@ -251,7 +251,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha1-lebesgue-point -->
-**定義の直接確認**　$f=\boldsymbol{1}_{B(0,1)}$ について $|x|<1$ なら $0<r<1-|x|$ で $f(y)=f(x)=1$ が球内で成り立つので、差の平均は0です。$|x|>1$ でも $0<r<|x|-1$ で同様に0です。境界 $|x|=1$ では $f(x)$ の代表値や球の内外比が効き、一般にはLebesgue点になりません。境界球面の $d$ 次元Lebesgue測度は0です。
+**定義の確認**　$f=\boldsymbol{1}_{B(0,1)}$ について $|x|<1$ なら $0<r<1-|x|$ で $f(y)=f(x)=1$ が球内で成り立つので、差の平均は0です。$|x|>1$ でも $0<r<|x|-1$ で同様に0です。境界 $|x|=1$ では $f(x)$ の代表値や球の内外比が効き、一般にはLebesgue点になりません。境界球面の $d$ 次元Lebesgue測度は0です。
 <!-- definition-example-end -->
 
 <a id="thm-ha1-differentiation"></a>
