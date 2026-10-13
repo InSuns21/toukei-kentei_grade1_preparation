@@ -1,0 +1,76 @@
+chapter: VAR9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR8
+  - VAR2
+  - GPDE3
+  - GPDE4
+  - GPDE5
+concepts:
+  - id: calculus-of-variations.interval-admissible-classes
+    name: 区間上の三つの許容集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間上の三つの許容集合）"]
+    requires: [sobolev.h01]
+  - id: calculus-of-variations.weak-sequential-closedness
+    name: 弱逐次閉集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱逐次閉集合）"]
+    requires: [functional-analysis.bounded-hilbert-sequence-weak-subsequence]
+  - id: calculus-of-variations.admissible-weak-closedness
+    name: 三つの許容集合の弱逐次閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三つの許容集合の弱逐次閉性）"]
+    requires: [calculus-of-variations.interval-admissible-classes, calculus-of-variations.weak-sequential-closedness]
+  - id: calculus-of-variations.interval-uniform-compactness
+    name: 区間上のH1有界列の一様コンパクト性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（区間上のH1有界列の一様コンパクト性）"]
+    requires: [sobolev.h01, functional-analysis.bounded-hilbert-sequence-weak-subsequence]
+  - id: calculus-of-variations.direct-coercivity
+    name: 許容集合上の強制性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（許容集合上の強制性）"]
+    requires: [sobolev.h01]
+  - id: calculus-of-variations.direct-weak-lsc
+    name: 弱逐次下半連続性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱逐次下半連続性）"]
+    requires: [functional-analysis.bounded-hilbert-sequence-weak-subsequence]
+  - id: calculus-of-variations.direct-method-existence
+    name: Hilbert空間上の最小化の直接法
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hilbert空間上の最小化の直接法）"]
+    requires: [calculus-of-variations.weak-sequential-closedness, calculus-of-variations.direct-coercivity, calculus-of-variations.direct-weak-lsc]
+  - id: calculus-of-variations.dirichlet-quadratic-minimizer
+    name: 固定端点二次エネルギーの存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定端点二次エネルギーの存在と一意性）"]
+    requires: [calculus-of-variations.direct-method-existence, sobolev.h01]
+  - id: calculus-of-variations.mean-zero-poincare
+    name: 平均零の一次元Poincaré評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均零の一次元Poincaré評価）"]
+    requires: [calculus-of-variations.interval-admissible-classes]
+  - id: calculus-of-variations.periodic-forcing-coercivity
+    name: 周期問題での強制性の成否
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期問題での強制性の成否）"]
+    requires: [calculus-of-variations.mean-zero-poincare, calculus-of-variations.direct-method-existence]
+  - id: calculus-of-variations.continuous-potential-existence
+    name: 連続ポテンシャルを含む一次元直接法
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続ポテンシャルを含む一次元直接法）"]
+    requires: [calculus-of-variations.interval-uniform-compactness, calculus-of-variations.direct-method-existence]
