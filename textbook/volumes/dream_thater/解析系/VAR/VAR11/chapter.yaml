@@ -6,6 +6,7 @@ prerequisites:
   - VAR10
   - VAR9
   - GPDE5
+  - GRP3
 official_scope: []
 learning_objectives:
   - Gâteaux微分とFréchet微分の違いを方向極限と一様残差で示せる

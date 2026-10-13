@@ -5,6 +5,7 @@ prerequisites:
   - VAR10
   - VAR9
   - GPDE5
+  - GRP3
 concepts:
   - id: calculus-of-variations.frechet-gateaux
     name: Gâteaux微分とFréchet微分
@@ -59,4 +60,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（有限群の対称臨界性）"]
-    requires: [calculus-of-variations.critical-point]
+    requires: [calculus-of-variations.critical-point, algebra.group-action]
