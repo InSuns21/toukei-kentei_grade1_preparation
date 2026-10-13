@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - CELEV1
   - VAR9
+  - F0-00D2B
 forward_references: []
 concepts:
   - id: celestial-variational.half-turn-loop-class
@@ -42,6 +43,7 @@ concepts:
       - celestial-variational.extended-newton-action
       - calculus-of-variations.direct-weak-lsc
       - calculus-of-variations.interval-uniform-compactness
+      - measure.fatou-lemma
   - id: celestial-variational.half-turn-minimizer
     name: 半周期反転クラスにおけるNewton作用の最小点
     kind: theorem
