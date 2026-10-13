@@ -1,0 +1,52 @@
+chapter: LORG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - GEO13
+  - GEO14
+  - GEO15
+concepts:
+  - id: lorentz-geometry.lorentz-levi-civita-extension
+    name: Lorentz計量のLevi-Civita接続とKoszul表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz計量のLevi-Civita接続とKoszul表示）"]
+    requires:
+      - lorentz-geometry.lorentz-metric
+      - geometry.affine-connection
+      - geometry.koszul-formula
+      - geometry.connection-torsion
+
+  - id: lorentz-geometry.geodesic-causal-type-conservation
+    name: Lorentz測地線方程式と因果型保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz測地線方程式と因果型保存）"]
+    requires:
+      - lorentz-geometry.lorentz-levi-civita-extension
+      - geometry.geodesic
+      - geometry.geodesic-equation
+      - lorentz-geometry.time-orientation
+
+  - id: lorentz-geometry.parallel-causal-cone
+    name: Lorentz平行移動による内積・未来錐の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz平行移動による内積・未来錐の保存）"]
+    requires:
+      - lorentz-geometry.lorentz-levi-civita-extension
+      - geometry.parallel-transport
+      - lorentz-geometry.time-orientation
+
+  - id: lorentz-geometry.lorentz-exponential-local
+    name: Lorentz測地線の局所存在と指数写像の局所可逆性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz測地線の局所存在と指数写像の局所可逆性）"]
+    requires:
+      - lorentz-geometry.lorentz-levi-civita-extension
+      - geometry.geodesic-local-existence-uniqueness
+      - geometry.exponential-map-origin-differential
