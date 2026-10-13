@@ -204,7 +204,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（零次Čechコホモロジーと大域切断）**  
-> 任意の開被覆 $\mathfrak U$ とアーベル群の層 $\mathcal F$ について、制限写像による自然な同型
+> 任意の有限順序付き開被覆 $\mathfrak U$ とアーベル群の層 $\mathcal F$ について、制限写像による自然な同型
 >
 $$
 \mathcal F(X)\xrightarrow{\ \sim\ }\check H^0(\mathfrak U,\mathcal F)
@@ -266,7 +266,15 @@ $t_j-t_i$ を $\mathcal F'$ へ戻し、三重交叉で差の和が打ち消さ�
 <!-- proof-start -->
 ### 証明
 
-$\beta(t_j-t_i)=s|_{ij}-s|_{ij}=0$ です。短完全列の[茎判定](#thm-ag3-07-exact-stalks)により $\ker\beta=\operatorname{im}\alpha$ は層として一致します。しかも $\alpha$ は単射なので、各共通部分上で一意の $c_{ij}$ が存在し $\alpha(c_{ij})=t_j-t_i$ です。
+$W_{ij}=U_i\cap U_j$、$w_{ij}=t_j|_{W_{ij}}-t_i|_{W_{ij}}$ と置くと、
+$$
+\beta_{W_{ij}}(w_{ij})=s|_{W_{ij}}-s|_{W_{ij}}=0.
+$$
+短完全列の[茎判定](#thm-ag3-07-exact-stalks)により $\ker\beta=\operatorname{im}\alpha$ は層として一致します。従って各 $x\in W_{ij}$ のある近傍 $V_x\subseteq W_{ij}$ で、$a_x\in\mathcal F'(V_x)$ を選んで $\alpha_{V_x}(a_x)=w_{ij}|_{V_x}$ とできます。$V_x\cap V_y$ 上では
+$$
+\alpha_{V_x\cap V_y}(a_x|_{V_x\cap V_y}-a_y|_{V_x\cap V_y})=0
+$$
+です。$\alpha$ は単射な層の射なので括弧内は零となり、$a_x$ たちは重なりで一致します。層の貼り合わせにより一意の $c_{ij}\in\mathcal F'(W_{ij})$ が存在して $\alpha(c_{ij})=w_{ij}$ となります。
 
 三重共通部分では
 $$
@@ -403,7 +411,7 @@ $C^0=k[t]\oplus k[u]$、$C^1=k[t,t^{-1}]$ で、微分は $(f,g)\mapsto g(t^{-1}
 <!-- solution-start -->
 ### 詳細解答
 
-定義から $(\delta^0s)_{01}=s_1-s_0$、$(\delta^0s)_{02}=s_2-s_0$、$(\delta^0s)_{12}=s_2-s_1$ です。各項を三重交叉へ制限すると
+[Čech微分の定義](#def-ag3-07-cech-complex)から $(\delta^0s)_{01}=s_1-s_0$、$(\delta^0s)_{02}=s_2-s_0$、$(\delta^0s)_{12}=s_2-s_1$ です。各項を三重交叉へ制限すると
 $$
 (\delta^1\delta^0s)_{012}
 =(s_2-s_1)-(s_2-s_0)+(s_1-s_0)
@@ -442,7 +450,14 @@ $X=\mathbb P^1_k$ とし、後述の標準射 $\beta:\mathcal O(-1)^{\oplus2}\to
 
 $U_0$ では $X_0$ が局所自明化の単元として扱えるので $(X_0^{-1},0)$ を取ると $\beta(X_0^{-1},0)=1$ です。$U_1$ では $(0,X_1^{-1})$ の像が $1$ です。よって任意の点は持ち上げのある近傍を持ち、$\beta$ は層の全射です。
 
-しかし[射影直線の計算](#thm-ag3-07-p1-cech)を $d=-1$ に適用すると $\Gamma(X,\mathcal O(-1))=0$ です。従って $\Gamma(X,\mathcal O(-1)^{\oplus2})=0$ から $\Gamma(X,\mathcal O)=k$ への写像は零写像で、$k$ が零環でない体である以上全射ではありません。局所的な持ち上げと大域的な持ち上げを区別する必要があります。
+しかし[射影直線の計算](#thm-ag3-07-p1-cech)を $d=-1$ と $d=0$ に適用すると
+$$
+\Gamma(X,\mathcal O(-1)^{\oplus2})
+=\Gamma(X,\mathcal O(-1))^{\oplus2}=0,
+\qquad
+\Gamma(X,\mathcal O)=k
+$$
+となります。従って大域切断上の $\beta$ は $0\to k$ という零写像であり、体 $k$ の元 $1$ を像に持たないため全射ではありません。局所的な持ち上げと大域的な持ち上げを区別する必要があります。
 <!-- solution-end -->
 
 ### B2. 三つの開集合と一次コサイクル
@@ -455,7 +470,7 @@ $U_0,U_1,U_2$ のすべての共通部分で定数切断を考える。$c_{01}=a
 <!-- solution-start -->
 ### 詳細解答
 
-三重交叉では
+[Čech微分の定義](#def-ag3-07-cech-complex)により、三重交叉では
 $$
 (\delta^1c)_{012}=c_{12}-c_{02}+c_{01}
 =b-(a+b)+a=0.
@@ -494,7 +509,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\alpha(c_{01})=t_1-t_0$、$\alpha(c'_{01})=t'_1-t'_0$ と定義します。差を取ると
+[Čech障害の構成](#prop-ag3-07-connecting-obstruction)に従い、$\alpha(c_{01})=t_1-t_0$、$\alpha(c'_{01})=t'_1-t'_0$ と定義します。差を取ると
 $$
 \alpha(c'_{01}-c_{01})
 =(t_1+\alpha(a_1)-t_0-\alpha(a_0))-(t_1-t_0)
