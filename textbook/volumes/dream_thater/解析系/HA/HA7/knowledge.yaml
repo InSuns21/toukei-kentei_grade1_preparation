@@ -1,0 +1,58 @@
+chapter: HA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA1
+  - HA2
+  - HA5
+  - MT7
+forward_references: []
+concepts:
+  - id: harmonic.ha7-riesz-potential
+    name: Rieszポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Rieszポテンシャル）]
+    requires: []
+  - id: harmonic.ha7-scaling
+    name: Rieszポテンシャルのスケーリング
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（尺度変換と指数の必要条件）]
+    requires: [harmonic.ha7-riesz-potential]
+  - id: harmonic.ha7-hedberg
+    name: Hedberg型評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Hedberg型の点ごと評価）]
+    requires: [harmonic.ha7-riesz-potential]
+  - id: harmonic.ha7-hls
+    name: Hardy–Littlewood–Sobolev不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hardy–Littlewood–Sobolev不等式）]
+    requires: [harmonic.ha7-hedberg]
+  - id: harmonic.ha7-hls-weak
+    name: 弱型端点HLS
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（弱型端点のHLS）]
+    requires: [harmonic.ha7-hedberg]
+  - id: harmonic.ha7-endpoint-failure
+    name: 端点の強型評価の失敗
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（端点で成立しない強型評価）]
+    requires: [harmonic.ha7-hls-weak]
+  - id: harmonic.ha7-bilinear
+    name: HLSの双線形評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（双線形形のHLS）]
+    requires: [harmonic.ha7-hls]
+  - id: harmonic.ha7-sobolev
+    name: 一階斉次Sobolev埋め込み
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（コンパクト台滑らかな関数のSobolev不等式）]
+    requires: [harmonic.ha7-hls]

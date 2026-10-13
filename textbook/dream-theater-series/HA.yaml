@@ -32,8 +32,8 @@ chapters:
     title: BMOと端点の見取り図
   - id: HA7
     path: textbook/volumes/dream_thater/解析系/HA/HA7
-    status: planned
-    title: RieszポテンシャルとHardy--Littlewood--Sobolev
+    status: completed
+    title: RieszポテンシャルとHardy–Littlewood–Sobolev不等式
   - id: HA8
     path: textbook/volumes/dream_thater/解析系/HA/HA8
     status: planned
