@@ -20,9 +20,9 @@ $$
 
 複素数値の滑らかな1形式は $(1,0)$ 型と $(0,1)$ 型に分かれる。外微分の型分解は[型別微分](../CM2-02/index.md#def-cm2-02-dolbeault-operators)によって
 
-$
+$$
 d=\partial+\bar\partial
-$
+$$
 
 と書く。
 
