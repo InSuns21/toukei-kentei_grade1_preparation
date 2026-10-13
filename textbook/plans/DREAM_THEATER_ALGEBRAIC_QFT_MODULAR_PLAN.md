@@ -16,7 +16,7 @@ Riemann幾何や平坦な波動方程式では不足する、この科目固有�
 
 ## 所有範囲
 
-局所代数net、CCR、Type III因子、Tomita–Takesaki、相対エントロピー。
+局所代数net、CCR、Type III因子、Tomita–Takesaki、相対エントロピー。**Wightman／Schwinger／OSの再構成と構成的相互作用模型、Epstein–Glaserくりこみ**は[MQFC I/II](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)が数学的構成の正本。局所環netとその表現・モジュラー理論の本PLANと責務を重複させない。
 
 ### 4. 代数的量子場理論・モジュラー理論 I（AQFT1–AQFT15：仮構成）
 

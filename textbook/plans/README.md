@@ -47,7 +47,11 @@
 | 熱力学・熱力学ポテンシャル | `textbook/plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1〜TH8 全章・横断監査完了） |
 | 平衡統計力学・アンサンブル・Ising | `DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md`（SM1〜8） |
 | スピングラス・SK・Parisi・cavity | `DREAM_THEATER_SPIN_GLASS_PLAN.md`（SG1〜8） |
-| ブラックホール熱力学・情報・量子場など12科目PLANへの横断ルート（TH/SMを含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（15セメスター横断、TH/SMは既存正本） |
+| ブラックホール熱力学・情報・量子場など12科目PLANへの横断ルート（TH/SMを含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（2026-10-13改訂・17セメスター相当、TH/SMは既存正本） |
+| 量子場理論 I〜IV：自由場・散乱・QED・くりこみ・標準模型・CFT | `DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md`（旧I/II計画を移動。正式章数は着手時に決定） |
+| Lie群の表現・相対論的粒子・スピノル | `DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md`（LREP：QFT I／IIIで必要な表現論の独立数学科目） |
+| 主束・接続・Chern–Weil・大域的ゲージ幾何 | `DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md`（GBG：GEO／LIEの停止線外、QFT II／IIIと接続） |
+| Euclid場／構成的QFT・対角延長による摂動的くりこみ | `DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md`（MQFC I/II：任意の数学的厳密化ルート） |
 | ローレンツ幾何・大域因果構造 | `DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md`（LORG1〜15） |
 | Lorentz多様体上の双曲型PDE | `DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md`（HPDE1〜15） |
 | 超局所解析・Hadamard条件 | `DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md`（MICA1〜15） |
