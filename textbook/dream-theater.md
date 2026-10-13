@@ -211,6 +211,7 @@
 2. [HA2 弱Lpと補間](textbook/volumes/dream_thater/解析系/HA/HA2/index.md)
 3. [HA3 Hilbert変換と主値](textbook/volumes/dream_thater/解析系/HA/HA3/index.md)
 4. [HA4 Calderón–Zygmund分解](textbook/volumes/dream_thater/解析系/HA/HA4/index.md)
+5. [HA5 特異積分とRiesz変換](textbook/volumes/dream_thater/解析系/HA/HA5/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
