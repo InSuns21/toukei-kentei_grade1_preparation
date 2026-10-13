@@ -83,7 +83,7 @@ $$
 
 ### 証明の見取り図
 
-関数の方程式を $dz\circ J=i\,dz$ へ戻す。逆関数定理による可逆性の確認も必要であり、方程式を満たす定数関数だけでは座標にならない。
+関数の方程式を $dz\circ J=i\,dz$ へ戻す。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)による可逆性の確認も必要であり、方程式を満たす定数関数だけでは座標にならない。
 
 <!-- proof-start -->
 ### 証明
@@ -103,7 +103,7 @@ $$
 0=Zz^k=dz^k(X)+i\,dz^k(JX)
 $$
 
-を得る。$i\,dz^k(JX)=-dz^k(X)$ の両辺を $i$ で割ると $dz^k(JX)=i\,dz^k(X)$ となる。これが各成分について成立するので $dz\circ J=i\,dz$。さらに実Jacobi行列が可逆な点では実逆関数定理を適用し、近傍を縮めると $z$ が滑らかな実局所座標を与える。$\square$
+を得る。$i\,dz^k(JX)=-dz^k(X)$ の両辺を $i$ で割ると $dz^k(JX)=i\,dz^k(X)$ となる。これが各成分について成立するので $dz\circ J=i\,dz$。さらに実Jacobi行列が可逆な点では[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を適用し、近傍を縮めると $z$ が滑らかな実局所座標を与える。$\square$
 <!-- proof-end -->
 
 ## 3. Newlander–Nirenberg定理
@@ -138,7 +138,9 @@ $$
 
 ## 4. 座標を構成する際の一次方程式
 
-点 $p$ で $J_p$ が標準形となるように実線形座標 $w^1,\ldots,w^n$ を取る。近傍を十分小さくすると、$T^{0,1}M$ は標準の $(0,1)$ 型方向への射影で同型になるので、滑らかな局所枠は
+点 $p$ で $J_p$ が標準形となるように実線形座標 $w^1,\ldots,w^n$ を取る。ここで[型分解](../CM1-04/index.md#thm-cm1-04-splitting)を使い、$D_q=T_q^{0,1}M$ から補助座標の $\partial_{\bar w^1},\ldots,\partial_{\bar w^n}$ の張る空間への射影 $\pi_{\bar w}$ を、$\partial_w$ 成分を捨てることで定める。
+
+$p$ では $J_p$ が標準形なので $D_p=\operatorname{span}_{\mathbb C}\{\partial_{\bar w^1}|_p,\ldots,\partial_{\bar w^n}|_p\}$ であり、$\pi_{\bar w}|_{D_p}$ は同型である。$D$ の滑らかな局所枠に関するこの射影の行列式は $p$ で非零だから、連続性により近傍でも非零となる。従って各 $\partial_{\bar w^j}$ の逆像を取れば滑らかな局所枠 $Z_j$ が得られ、$\partial_{\bar w}$ 成分がそれぞれ第 $j$ 基底ベクトルになるため、次の形に書ける。
 
 $$
 Z_j=\partial_{\bar w^j}+
@@ -199,7 +201,13 @@ $$
 
 差を取ると指定した $F_{ij}^k$ となる。$Z_i$ の $\partial_{\bar w^m}$ 係数は $\delta_{im}$ なので、その導関数は零。ゆえに括弧は $\partial_{\bar w}$ 成分を持たない。
 
-閉性があれば $[Z_i,Z_j]=\sum_m c^m Z_m$ と表せる。$\partial_{\bar w^m}$ の係数を比較して $c^m=0$、従って全 $F_{ij}^k=0$。逆に全 $F$ が零なら $[Z_i,Z_j]=0$。任意の局所切断は $Z_j$ の関数係数線形結合なので、[括弧の積の微分則](../../GEO/GEO5/index.md#def-geo5-lie-bracket)よりその交換子も同じ枠の張る部分束に入る。$\square$
+閉性があれば $[Z_i,Z_j]=\sum_m c^m Z_m$ と表せる。$\partial_{\bar w^m}$ の係数を比較して $c^m=0$、従って全 $F_{ij}^k=0$。逆に全 $F$ が零なら $[Z_i,Z_j]=0$。任意の局所切断は $Z_j$ の関数係数線形結合である。[括弧の積の微分則](../../GEO/GEO5/index.md#def-geo5-lie-bracket)を使うと、任意の滑らかな複素関数 $f,g$ について
+
+$$
+[fZ_i,gZ_j]=fg[Z_i,Z_j]+f(Z_ig)Z_j-g(Z_jf)Z_i
+$$
+
+である。$F=0$ なら右辺は $Z_i,Z_j$ の張る部分束に属するので、線形結合どうしの括弧も同じ部分束に属する。$\square$
 <!-- proof-end -->
 
 **必要条件と存在は別**。$Z_jz^\alpha=0$ を仮定すれば $[Z_i,Z_j]z^\alpha=Z_i(0)-Z_j(0)=0$ という整合式が従う。しかし $F_{ij}^k=0$ という形式的条件だけを計算した段階では、実Jacobi行列が可逆な $n$ 個の解をまだ作れていない。一般次元の解の存在は[Newlander–Nirenberg定理](#thm-cm1-07-newlander-nirenberg)の深い方向である。
