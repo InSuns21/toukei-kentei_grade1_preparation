@@ -1,0 +1,61 @@
+chapter: AG2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-09
+  - AG2-08
+  - AG2-06
+  - AG2-05
+  - AG2-03
+  - AG1-10
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.conormal-and-normal-sheaf
+    name: 余法層と正規層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余法層と正規層）"]
+    requires: [algebraic-geometry.kahler-differentials, algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.hypersurface-conormal
+    name: 超曲面の余法層
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超曲面の余法層）"]
+    requires: [algebraic-geometry.conormal-and-normal-sheaf, algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.hypersurface-conormal-exact-sequence
+    name: 滑らかな超曲面の余法完全列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな超曲面の余法完全列）"]
+    requires: [algebraic-geometry.hypersurface-conormal, algebraic-geometry.kahler-differentials]
+
+  - id: algebraic-geometry.hypersurface-normal-tangent
+    name: 超曲面の正規束と接完全列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超曲面の正規束と接完全列）"]
+    requires: [algebraic-geometry.hypersurface-conormal-exact-sequence, algebraic-geometry.od-tensor-dual]
+
+  - id: algebraic-geometry.hypersurface-adjunction
+    name: 滑らかな射影超曲面の随伴公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな射影超曲面の随伴公式）"]
+    requires: [algebraic-geometry.hypersurface-conormal-exact-sequence, algebraic-geometry.determinant-exact-sequence, algebraic-geometry.projective-canonical-formula]
+
+  - id: algebraic-geometry.local-adjunction-form
+    name: 局所随伴形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所随伴形式）"]
+    requires: [algebraic-geometry.hypersurface-adjunction]
+
+  - id: algebraic-geometry.complete-intersection-adjunction
+    name: 滑らかな射影完全交叉の正規束と随伴公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな射影完全交叉の正規束と随伴公式）"]
+    requires: [algebraic-geometry.hypersurface-conormal-exact-sequence, algebraic-geometry.determinant-exact-sequence]
