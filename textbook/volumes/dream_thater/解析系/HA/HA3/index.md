@@ -452,7 +452,24 @@ Poisson核のFourier変換により、乗数 $e^{-y|\xi|}$ は元の周波数を
 <!-- proof-start -->
 ### 証明
 
-$P_y\in L^1$ なので [FOU4の$L^1$-$L^2$畳み込み](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と [変換対](#prop-ha3-poisson-fourier)から $\widehat{P_y*f}=e^{-y|\xi|}\widehat f$ です。共役核については直前で定義した乗数による $L^2$ 畳み込みとします。
+$P_y\in L^1$ なので [FOU4の$L^1$-$L^2$畳み込み](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と [変換対](#prop-ha3-poisson-fourier)から $\widehat{P_y*f}=e^{-y|\xi|}\widehat f$ です。共役核についてはまず乗数による $L^2$ 畳み込みとします。
+
+この乗数で定めた $Q_y*f$ が、各点で絶対収束する通常の畳み込み積分の同値類にもなっていることを確認します。[FOU4の稠密性定理](../../FOU/FOU4/index.md#thm-fou4-core-density)から $L^1\cap L^2$ に属する $f_n$ を取り、$\|f_n-f\|_2\to0$ とします。$f_n\in L^1$、$Q_y\in L^2$ なので [FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用でき、
+
+$$
+\mathcal F_2(Q_y*f_n)
+=\widehat f_n\,\mathcal F_2Q_y
+=-i\operatorname{sgn}(\xi)e^{-y|\xi|}\widehat f_n.
+$$
+
+右辺の乗数は絶対値が1以下なので、$Q_y*f_n$ は乗数で定義した $v_y$ に $L^2$ 収束します。一方、各点の畳み込み積分はCauchy–Schwarz不等式から
+
+$$
+\sup_{x\in\mathbb R}|Q_y*(f_n-f)(x)|
+\le\|Q_y\|_2\|f_n-f\|_2\longrightarrow0
+$$
+
+と一様収束します。$L^2$ 収束列からほとんど至る所収束する部分列を取って比較すると、点ごとの積分 $Q_y*f(x)$ は乗数で定義した $v_y$ をほとんど至る所で表します。以後この点ごとの表示を微分の際にも使えます。
 
 [Hilbert変換の乗数表示](#thm-ha3-multiplier)から
 
