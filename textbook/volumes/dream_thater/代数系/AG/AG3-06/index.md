@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-tilde-module -->
-**定義の確認。** $M=A$ では $M_f=A_f$ なので、[主開集合上の構造層の切断](../AG3-02/index.md#thm-ag3-02-principal-sections)と一致し、$\widetilde A=\mathcal O_X$ になります。$M=A/(t^2)$ の上の例では $D(t)$ 上の切断は $0$、点 $(t)$ の茎は非零です。制限と局所化が同じ規則で動くことを直接確かめられます。
+**定義の確認**： $M=A$ では $M_f=A_f$ なので、[主開集合上の構造層の切断](../AG3-02/index.md#thm-ag3-02-principal-sections)と一致し、$\widetilde A=\mathcal O_X$ になります。$M=A/(t^2)$ の上の例では $D(t)$ 上の切断は $0$、点 $(t)$ の茎は非零です。制限と局所化が同じ規則で動くことを直接確かめられます。
 <!-- definition-example-end -->
 
 この割当てが本当に層を定めるには、局所的に一致する分数が一つに貼れることが必要です。
@@ -120,7 +120,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-quasicoherent -->
-**定義の確認。** $X=\operatorname{Spec}k[t]$、$I=(t^2)$ とすれば $\mathcal F=\widetilde{k[t]/(t^2)}$ は被覆が $X$ 一枚で済む準連接層です。点 $(t)$ における茎は $k[t]_{(t)}/(t^2)$、$D(t)$ への制限は零です。$k[t]/(t^2)$ が自由である必要はなく、まさにそれを許すための定義です。
+**定義の確認**： $X=\operatorname{Spec}k[t]$、$I=(t^2)$ とすれば $\mathcal F=\widetilde{k[t]/(t^2)}$ は被覆が $X$ 一枚で済む準連接層です。点 $(t)$ における茎は $k[t]_{(t)}/(t^2)$、$D(t)$ への制限は零です。$k[t]/(t^2)$ が自由である必要はなく、まさにそれを許すための定義です。
 <!-- definition-example-end -->
 
 別の例として、[射影直線上の $\mathcal O(1)$](../AG2-06/index.md#def-ag2-06-twisting-sheaf) は二つのアフィンチャートのそれぞれで $\mathcal O$ と同型です。従って準連接ですが、一般に $\mathcal O(1)$ は一つの大域的自由加群の層としては記述できません。アフィン性が重要です。
@@ -271,7 +271,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-finite-type-presentation -->
-**定義の確認。** $A=k[x,y]$、$M=A/(x^2,xy)$ とすると、$A^2\to A$ の写像 $(a,b)\mapsto ax^2+bxy$ の余核が $M$ です。従って $A^2\to A\to M\to0$ は有限表示であり、$\widetilde M$ は有限表示です。対して環 $A=k[x_1,x_2,\ldots]$ のイデアル $I=(x_1,x_2,\ldots)$ に対する $A/I$ は $1$ 個で生成されますが、関係式を有限個に切り詰められません。
+**定義の確認**： $A=k[x,y]$、$M=A/(x^2,xy)$ とすると、$A^2\to A$ の写像 $(a,b)\mapsto ax^2+bxy$ の余核が $M$ です。従って $A^2\to A\to M\to0$ は有限表示であり、$\widetilde M$ は有限表示です。対して環 $A=k[x_1,x_2,\ldots]$ のイデアル $I=(x_1,x_2,\ldots)$ に対する $A/I$ は $1$ 個で生成されますが、関係式を有限個に切り詰められません。
 <!-- definition-example-end -->
 
 <a id="prop-ag3-06-cyclic-presentation"></a>
@@ -321,7 +321,7 @@ $A\oplus K$ は有限生成なので $A^r\oplus I$ も有限生成です。そ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-coherent -->
-**定義の確認。** $A=k[t]$、$M=A/(t^2)$ を考えます。$A$ は[Hilbertの基底定理](../AG1-05/index.md#thm-ag1-05-hilbert-basis)により Noether 環です。$M$ は $\bar1$ で生成され、任意の有限自由加群から $M$ への射の核は Noether 加群 $A^r$ の部分加群なので有限生成です。局所化したチャートでもこの性質が続くため $\widetilde M$ は連接層です。
+**定義の確認**： $A=k[t]$、$M=A/(t^2)$ を考えます。$A$ は[Hilbertの基底定理](../AG1-05/index.md#thm-ag1-05-hilbert-basis)により Noether 環です。$M$ は $\bar1$ で生成され、任意の有限自由加群から $M$ への射の核は Noether 加群 $A^r$ の部分加群なので有限生成です。局所化したチャートでもこの性質が続くため $\widetilde M$ は連接層です。
 <!-- definition-example-end -->
 
 <a id="thm-ag3-06-noether-coherence"></a>
