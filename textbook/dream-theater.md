@@ -381,6 +381,7 @@
 9. [VAR9 H¹弱収束と最小化の直接法](textbook/volumes/dream_thater/解析系/VAR/VAR9/index.md)
 10. [VAR10 Tonelli型存在論・弱Euler–Lagrange方程式と正則性](textbook/volumes/dream_thater/解析系/VAR/VAR10/index.md)
 11. [VAR11 Palais–Smale・Ekeland・minimax](textbook/volumes/dream_thater/解析系/VAR/VAR11/index.md)
+12. [VAR12 第二変分作用素・Morse指数](textbook/volumes/dream_thater/解析系/VAR/VAR12/index.md)
 
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式
