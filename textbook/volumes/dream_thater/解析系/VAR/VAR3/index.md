@@ -226,11 +226,11 @@ $\eta=fT+gn$、$\det(T,T)=0$、$\det(n,T)=-1$ より $\delta A=-\int g\,ds$ で�
 <!-- proof-start -->
 ### 証明
 
-任意の滑らかな周期的 $g$ で $\int_0^Lgds=0$ とします。例えば補正方向 $h\equiv1$ を用いた二変数族
+任意の $C^2$ 級の周期的 $g$ で $\int_0^Lgds=0$ とします。例えば補正方向 $h\equiv1$ を用いた二変数族
 $$
 \Gamma_{t,u}(s)=\gamma(s)+(tg(s)+u)n(s)
 $$
-に対して面積拘束 $A[\Gamma_{t,u}]=A_0$ を考えます。$u$ による偏微分は $-L\ne0$ なので[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から $u=u(t)$ が取れます。[面積の第一変分](#prop-var3-area-first)により $u'(0)=-(\delta A[g]/\delta A[h])=0$ です。よってこの厳密な面積保存族の初期変分は $gn$ であり、停留性と[周長の第一変分](#prop-var3-length-first)から
+に対して面積拘束 $A[\Gamma_{t,u}]=A_0$ を考えます。$u$ による偏微分は $-L\ne0$ なので[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から $u=u(t)$ が取れます。基準曲線は正則な単純閉曲線なので、十分小さい $t,u$ に対して $\Gamma_{t,u}$ も正則かつ単純閉です。実際、導関数が $T$ に一様に近いことから正則性と各点近傍での単射性が保たれ、離れたパラメータ点の像は元の曲線上で正の最小距離を持つため、その交差も新たに生じません。[面積の第一変分](#prop-var3-area-first)により $u'(0)=-(\delta A[g]/\delta A[h])=0$ です。よってこの厳密な面積保存族の初期変分は $gn$ であり、停留性と[周長の第一変分](#prop-var3-length-first)から
 $$
 0=\delta L[\gamma;gn]=-\int_0^L\kappa g\,ds.
 $$
@@ -734,7 +734,7 @@ $$
 0=-\int_0^Lg\,ds-Lu'(0)=-Lu'(0),
 \qquad u'(0)=0.
 $$
-これで初期方向が $gn$ である厳密な面積保存族を得ます。
+元の単純閉曲線の正則性・単純性は $C^1$ で十分小さい変形の下で保たれるため、これで初期方向が $gn$ である厳密な面積保存族を得ます。
 
 [長さの第一変分](#prop-var3-length-first)と停留性より、全ての $\int g=0$ に対して $\int\kappa g=0$ です。$\bar\kappa=L^{-1}\int\kappa$ とおき $g=\kappa-\bar\kappa$ を選ぶと
 $$
