@@ -94,7 +94,16 @@ g(au+bu',v)
 &=ag(u,v)+bg(u',v).
 \end{aligned}
 $$
-第二引数でも同じように分配して線形性が成立します。また
+第二引数についても $v'=(s',y')$ と置いて
+$$
+\begin{aligned}
+g(u,av+bv')
+&=-4t(as+bs')+9x(ay+by')\\
+&=a(-4ts+9xy)+b(-4ts'+9xy')\\
+&=ag(u,v)+bg(u,v').
+\end{aligned}
+$$
+となります。また
 $$
 g((s,y),(t,x))=-4st+9yx=g((t,x),(s,y))
 $$
