@@ -1,0 +1,43 @@
+id: "CM2-02"
+title: "∂とbar∂の構成・二重複体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-01
+official_scope: []
+learning_objectives:
+  - 滑らかな関数のWirtinger微分から∂fとbar∂fを導出し直接計算できる
+  - 外微分の局所係数公式から(p,q)型に作用する∂とbar∂を構成できる
+  - dの座標不変性と型分解の一意性から作用素の座標不変性を証明できる
+  - d²=0と型の直和から∂²=bar∂²=0および反可換性を証明できる
+  - 次数付きLeibniz則の符号を証明し具体計算で検証できる
+  - 複素共役と正則引き戻しに対する自然性を証明できる
+  - C1級関数についてbar∂f=0と正則性の同値を説明できる
+  - 二重複体の配置と局所bar∂方程式の未解決部分を区別できる
+definitions:
+  - { id: CM2-02-DEF-01, name: 関数に作用する偏微分作用素 }
+  - { id: CM2-02-DEF-02, name: 型別外微分 }
+  - { id: CM2-02-DEF-03, name: 型別形式の二重複体 }
+theorems:
+  - { id: CM2-02-THM-01, name: 局所公式と座標不変性 }
+  - { id: CM2-02-THM-02, name: 型別外微分の三つの恒等式 }
+  - { id: CM2-02-PROP-01, name: 型別の次数付き積の法則 }
+  - { id: CM2-02-PROP-02, name: 共役と正則引き戻し }
+  - { id: CM2-02-PROP-03, name: 正則関数の判定 }
+canonical_examples:
+  - zbar zの二種類の微分と∂bar∂の反可換性
+  - 複素2次元の(1,1)形式における局所公式と並べ替え符号
+  - 正則写像t↦t²に沿ったbar∂と引き戻しの可換性
+  - 二重複体の二本の道と反可換性
+problem_patterns:
+  - CM2-02-WIRTINGER
+  - CM2-02-LOCAL-FORMULA
+  - CM2-02-TYPE-VANISHING
+  - CM2-02-ANTICOMMUTATION
+  - CM2-02-GRADED-LEIBNIZ
+  - CM2-02-PULLBACK
+  - CM2-02-HOLOMORPHICITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
