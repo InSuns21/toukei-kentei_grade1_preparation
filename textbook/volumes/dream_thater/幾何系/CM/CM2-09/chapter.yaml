@@ -6,6 +6,8 @@ prerequisites:
   - CM2-08
   - CM2-02
   - GEO4
+  - LA5
+  - LA6
 official_scope: []
 learning_objectives:
   - 第一変数を共役線形とするHermite計量の定義と局所正値Hermite行列を検証できる
