@@ -80,12 +80,12 @@ $$
 
 ### 証明の見取り図
 
-[Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)を使います。ここで $f$ は $f(0)=f(L)=0$ を満たします。この不等式によって、微分の正の項と曲率の負の項を同じ $\int f^2$ で比較できます。最初の正弦波は等号を達成するため、閾値が鋭いことも一度に分かります。
+[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)を使います。ここで $f$ は $f(0)=f(L)=0$ を満たします。この不等式によって、微分の正の項と曲率の負の項を同じ $\int f^2$ で比較できます。最初の正弦波は等号を達成するため、閾値が鋭いことも一度に分かります。
 
 <!-- proof-start -->
 ### 証明
 
-平行条件から $D(fN)/dt=f'N$ であり、曲率項は $kf^2$ なので第一式を得ます。[Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)に区間長 $L$ と端点0の $f$ を代入すると
+平行条件から $D(fN)/dt=f'N$ であり、曲率項は $kf^2$ なので第一式を得ます。[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)に区間長 $L$ と端点0の $f$ を代入すると
 
 $$
 \int_0^L(f')^2dt\ge\frac{\pi^2}{L^2}\int_0^Lf^2dt.
@@ -233,7 +233,7 @@ $$
 
 ### 証明の見取り図
 
-曲率項の上界を入れた後、測地線に沿う平行正規直交標構で $V$ を成分表示します。各成分には [Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)が使えます。
+曲率項の上界を入れた後、測地線に沿う平行正規直交標構で $V$ を成分表示します。各成分には [固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)が使えます。
 
 <!-- proof-start -->
 ### 証明
@@ -251,7 +251,7 @@ $$
 \int_0^L\left|\frac{DV}{dt}\right|^2dt=\sum_i\int_0^L(f_i')^2dt.
 $$
 
-$V(0)=V(L)=0$ なので全成分に $f_i(0)=f_i(L)=0$ が成り立ちます。[Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)を成分ごとに適用して足すと
+$V(0)=V(L)=0$ なので全成分に $f_i(0)=f_i(L)=0$ が成り立ちます。[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)を成分ごとに適用して足すと
 
 $$
 \sum_i\int_0^L(f_i')^2dt
