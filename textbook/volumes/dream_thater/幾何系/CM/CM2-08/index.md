@@ -8,7 +8,7 @@
 
 各繊維で線形代数の双対、テンソル積、線形写像、外冪を作り、それらが基点とともに**正則に変化するか**を確認したい。局所的には線形代数と同じだが、貼り合わせで生じる行列は異なる。特に双対では「逆行列」だけでなく「転置」も必要となる。
 
-本章では列係数を用い、局所枠の約束 $\mathcal E_j=\mathcal E_iG_{ij}$ を維持する。[枠変更公式](../CM2-07/index.md#prop-cm2-07-gauge-frame-change)と向きを揃えれば、構成の正則性を局所計算から確認できる。
+本章では列係数を用い、基底変更の約束 $\mathcal E_j=\mathcal E_iG_{ij}$ を維持する。[枠変更公式](../CM2-07/index.md#prop-cm2-07-gauge-frame-change)と向きを揃えれば、構成の正則性を局所計算から確認できる。
 
 ## 2. 射影空間の部分線束と商束
 
@@ -227,7 +227,7 @@ $$
 局所係数は正則関数の積だから正則で、重なりで一致する。$ \square$
 <!-- proof-end -->
 
-特に射影直線の $\mathcal O(a)$ と $\mathcal O(b)$ では、遷移関数の積 $z^az^b=z^{a+b}$ から
+特に射影直線の $\mathcal O(a)$ と $\mathcal O(b)$ では、局所枠の変換係数の積 $z^az^b=z^{a+b}$ から
 
 $$
 \mathcal O(a)\otimes\mathcal O(b)\cong\mathcal O(a+b).
@@ -620,7 +620,7 @@ $$
 =-z^2\frac{\partial}{\partial z}.
 $$
 
-従って接束の遷移は $-z^2$。一方、[双対の公式](#prop-cm2-08-dual-evaluation)より $S^\vee$ の遷移は $(z^{-1})^{-1}=z$ であり、[テンソル積の公式](#prop-cm2-08-tensor-cocycle)より
+従って接束の遷移は $-z^2$。一方、[双対の公式](#prop-cm2-08-dual-evaluation)より $S^\vee$ の遷移は $(z^{-1})^{-1}=z$ であり、[テンソル積束の遷移と正則切断](#prop-cm2-08-tensor-cocycle)より
 
 $$
 g_{0\infty}^{S^\vee\otimes Q}
