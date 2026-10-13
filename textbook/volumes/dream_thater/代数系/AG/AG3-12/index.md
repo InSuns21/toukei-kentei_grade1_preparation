@@ -151,7 +151,14 @@ $C$ を環、$I\subset C$ を $I^2=0$ となるイデアルとします。$C/I$ 
 
 <!-- formal-statement-start -->
 > **定理（超曲面族の相対Jacobianによる滑らかさ）**  
-> 可換環 $R$、多項式 $F\in R[x_1,\ldots,x_n]$、$B=R[x_1,\ldots,x_n]/(F)$ とする。$h=\partial F/\partial x_j$ の像を $B$ の元とし、その元で局所化した $B_h$ は $R$ 上の滑らかな有限表示代数である。従って $\operatorname{Spec}B\to\operatorname{Spec}R$ は相対偏微分の少なくとも一つが可逆である開集合上で滑らかである。
+> 可換環 $R$、その上の $n$ 変数多項式 $F$ を取り、次の $R$-代数と元を考える。
+
+$
+B=R[x_1,\ldots,x_n]/(F),\qquad
+h=\partial F/\partial x_j\in B.
+$
+
+> このとき $B_h$ は $R$ 上の滑らかな有限表示代数である。従って相対偏微分が可逆となる開集合上で、対応するスキーム射は滑らかである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
