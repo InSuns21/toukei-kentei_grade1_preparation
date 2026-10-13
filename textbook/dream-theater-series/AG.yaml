@@ -112,7 +112,7 @@ chapters:
     title: "素スペクトルの位相と構造層"
   - id: AG3-03
     path: textbook/volumes/dream_thater/代数系/AG/AG3-03
-    status: planned
+    status: completed
     title: "局所環付き空間とアフィンスキーム"
   - id: AG3-04
     path: textbook/volumes/dream_thater/代数系/AG/AG3-04
