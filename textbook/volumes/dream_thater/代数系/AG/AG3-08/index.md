@@ -249,7 +249,13 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Čech零化から層コホモロジーの零化）**  
-> 位相空間 $Y$ とアーベル群の層 $\mathcal G$ を考える。開集合の基底 $\mathcal B$ があり、各基底開集合の任意の開被覆には指定された基底被覆による細分があるとする。指定被覆とその有限交叉におけるČech複体が正次数で完全であり、同じ性質が基底開部分でも成立するなら、任意の $U\in\mathcal B$ に対して
+> 環付き空間 $(Y,\mathcal O_Y)$ と $\mathcal O_Y$-加群の層 $\mathcal G$ を考える。位相の基底 $\mathcal B$ と、各 $U\in\mathcal B$ の指定された開被覆の族 $\mathrm{Cov}$ が次の条件を満たすとする。
+>
+> 1. 各 $\mathfrak U=(U_i)_{i\in I}\in\mathrm{Cov}$ について、被覆される $U$、各 $U_i$、空でない全有限交叉 $U_{i_0\cdots i_p}$ は $\mathcal B$ に属する。
+> 2. 任意の $U\in\mathcal B$ とその任意の開被覆に対して、それを細分する $\mathrm{Cov}$ の被覆が存在する。
+> 3. 全ての $\mathfrak U\in\mathrm{Cov}$ と $p>0$ について $\check H^p(\mathfrak U,\mathcal G)=0$ である。
+>
+> このとき、任意の $U\in\mathcal B$ に対して
 >
 $$
 H^q(U,\mathcal G)=0\qquad(q>0)
@@ -260,22 +266,47 @@ $$
 
 ### 基底比較の証明機構
 
-ここで必要なのは、**各開集合の切断が層の全射から自動的に持ち上がるとは限らない**点です。基底被覆を細分してはじめて持ち上げが存在します。次の手順でそれを扱います。
+層としての全射は、固定した開集合上での切断の全射を意味しません。まず指定被覆への細分と一次Čech類の消滅から、**基底開集合上では持ち上げを貼れる**ことを証明します。その後、各次数で短完全なČech複体を作り、商層にも消滅条件が引き継がれることを確認します。
 
 <!-- proof-start -->
 ### 証明
 
-入射層への単射 $0\to\mathcal G\to\mathcal I\to\mathcal Q\to0$ を取ります。入射層の制限写像は全射（フラスク性）であるため、被覆上のČech複体は正次数で縮約でき、$\check H^{>0}(-,\mathcal I)=0$ です。また任意の $\mathcal Q(U)$ の切断は、$\mathcal I\to\mathcal Q$ が層として全射であることから、$U$ の基底被覆をさらに細分すれば局所的に持ち上がります。
-
-この二点を使い、$\mathcal Q$ の基底被覆での $q$-コサイクルを $\mathcal I$ へ局所的に持ち上げると、その微分は $\mathcal G$ の $(q+1)$-コサイクルになります。持ち上げの差は境界に変わり、さらに細分しても同じ類を表します。従って被覆を細分した極限では、正次数で
+入射層への埋込みから短完全列
 $$
-\varinjlim_{\mathfrak U}\check H^q(\mathfrak U,\mathcal Q)
-\simeq
-\varinjlim_{\mathfrak U}\check H^{q+1}(\mathfrak U,\mathcal G)
+0\longrightarrow\mathcal G\longrightarrow\mathcal I
+\longrightarrow\mathcal Q\longrightarrow0
 $$
-という次数移動が得られます。右辺は仮定により零です。零次では層の貼り合わせから $\check H^0(U,\mathcal Q)=\Gamma(U,\mathcal Q)$ です。よって $\Gamma(U,\mathcal I)\to\Gamma(U,\mathcal Q)$ の余核も、局所持ち上げから得るČech一次障害が細分で消えるので零です。
+を取ります。入射層 $\mathcal I$ はフラスク（任意の開包含について制限写像が全射）なので、どの指定被覆でも $\check H^p(\mathfrak U,\mathcal I)=0$（$p>0$）です。
 
-入射層は高次層コホモロジーを持ちません。従って[長完全列](#thm-ag3-08-long-exact)で $H^1(U,\mathcal G)=0$ となり、さらに $H^q(U,\mathcal Q)\simeq H^{q+1}(U,\mathcal G)$ です。同じ議論を $\mathcal Q$ に対して繰り返せば、次数移動によって各 $H^q(U,\mathcal G)$ が零になります。ここで必要な被覆の細分は、基底被覆が任意の開被覆を細分でき、各有限交叉でも同様に行えるという仮定で保証されています。
+**第一段階：基底上の切断の全射性。** $W\in\mathcal B$ と $s\in\mathcal Q(W)$ を取ります。層の全射性から、ある開被覆上に持ち上げ $t_i\in\mathcal I(W_i)$ が存在します。条件2により、それを細分する指定被覆を選び直せます。この被覆の重なりで
+$$
+c_{ij}=t_j|_{W_{ij}}-t_i|_{W_{ij}}\in\mathcal G(W_{ij})
+$$
+とすると、$c_{jk}-c_{ik}+c_{ij}=0$ なので $c$ は一次Čechコサイクルです。条件3から $[c]=0$ となり、$c_{ij}=a_j-a_i$ を満たす $a_i\in\mathcal G(W_i)$ があります。すると $t_i-a_i$ は重なりで一致して $\mathcal I(W)$ の切断へ貼り合わさり、その $\mathcal Q(W)$ での像は $s$ です。従って全ての $W\in\mathcal B$ で
+$$
+0\to\mathcal G(W)\to\mathcal I(W)\to\mathcal Q(W)\to0
+$$
+が完全です。
+
+**第二段階：商層へのČech消滅の継承。** 条件1により指定被覆の全有限交叉は $\mathcal B$ に属するので、第一段階を各交叉へ適用できます。各Čech次数で全射が得られ、複体の短完全列
+$$
+0\to\check C^\bullet(\mathfrak U,\mathcal G)
+\to\check C^\bullet(\mathfrak U,\mathcal I)
+\to\check C^\bullet(\mathfrak U,\mathcal Q)\to0
+$$
+ができます。この複体の[連結写像の構成](#thm-ag3-08-long-exact)と同じ持ち上げ・微分の議論から長完全列を得ます。$\mathcal I$ の正次数Čech消滅と条件3を代入すると、$p\ge1$ について
+$$
+\check H^p(\mathfrak U,\mathcal Q)
+\simeq\check H^{p+1}(\mathfrak U,\mathcal G)=0
+$$
+です。すなわち $\mathcal Q$ 自身も同じ三条件のうち条件3を満たします（基底と指定被覆は変更しません）。
+
+**第三段階：層コホモロジーの次数移動。** $U\in\mathcal B$ に対し、第一段階により $\Gamma(U,\mathcal I)\to\Gamma(U,\mathcal Q)$ は全射です。入射層の高次コホモロジーは定義から零なので、[長完全列](#thm-ag3-08-long-exact)により
+$$
+H^1(U,\mathcal G)=0,\qquad
+H^{q+1}(U,\mathcal G)\simeq H^q(U,\mathcal Q)\quad(q\ge1)
+$$
+となります。第二段階により $\mathcal Q$ にも同じ議論を適用できるので、まず $H^1(U,\mathcal Q)=0$、従って $H^2(U,\mathcal G)=0$ を得ます。さらに $\mathcal Q$ を新たな出発層として繰り返せば、任意の $q>0$ の消滅が順に従います。
 <!-- proof-end -->
 
 この補題は通常、Čechコホモロジーと導来コホモロジーの比較に使う基底消滅補題と呼ばれます。具体的な計算へ適用するときは、基底・有限交叉・細分可能性をその場で確認します。
@@ -567,7 +598,7 @@ $\mathbb P^1_k$ の標準二チャートで $H^1(\mathcal O(-4))$ の基底と�
 $$
 H^1(\mathbb P^1_k,\mathcal O(-4))
 \simeq k[t,t^{-1}]/(k[t]+t^{-4}k[t^{-1}])
-=k[t^{-3}]\oplus k[t^{-2}]\oplus k[t^{-1}]
+\simeq k\cdot[t^{-3}]\oplus k\cdot[t^{-2}]\oplus k\cdot[t^{-1}]
 $$
 です。右端の記法は剰余類の $k$-線形直和を意味します。二チャートとその交叉はアフィンなので[二アフィン被覆の定理](#thm-ag3-08-mayer-vietoris)が使え、$C^2=0$ より真の層コホモロジー $H^2=0$ です。
 <!-- solution-end -->
@@ -582,7 +613,7 @@ $0\to\mathcal O(-2)\to\mathcal O(-1)^{\oplus2}\to\mathcal O\to0$ の長完全列
 <!-- solution-start -->
 ### 詳細解答
 
-[射影直線の計算](#thm-ag3-08-p1-cohomology)から $H^0(\mathcal O(-1))=0$、$H^1(\mathcal O(-1))=0$、$H^0(\mathcal O)=k$、$H^1(\mathcal O(-2))\simeq k[t^{-1}]$ です。[長完全列](#thm-ag3-08-long-exact)の当該部分は $0\to k\xrightarrow{\partial^0}k\to0$ になるので $\partial^0$ は同型です。
+[射影直線の計算](#thm-ag3-08-p1-cohomology)から $H^0(\mathcal O(-1))=0$、$H^1(\mathcal O(-1))=0$、$H^0(\mathcal O)=k$、$H^1(\mathcal O(-2))\simeq k\cdot[t^{-1}]$ です。[長完全列](#thm-ag3-08-long-exact)の当該部分は $0\to k\xrightarrow{\partial^0}k\to0$ になるので $\partial^0$ は同型です。
 
 さらにチャート持ち上げを $v_0=(X_0^{-1},0)$、$v_1=(0,X_1^{-1})$ とすると、$\mathcal O(-1)$ の $U_0$ 基底で
 $$
