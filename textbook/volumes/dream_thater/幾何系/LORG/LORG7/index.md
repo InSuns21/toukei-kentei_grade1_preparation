@@ -130,7 +130,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[LORG2の時間向き付け可能性と大域時間的ベクトル場の同値性](../LORG2/index.md#thm-lorg2-time-orientability)を、指定済みの時間向きに適用し、滑らかな大域的未来時間的ベクトル場 $T$ を選びます。$T$ の局所流れを $\Phi_u$ とします。曲線像はコンパクトなので、十分小さい一様な $|u|$ ではすべての $\Phi_u(\gamma(s))$ が存在します。
+[LORG2の時間向き付け可能性と大域時間的ベクトル場の同値性](../LORG2/index.md#thm-lorg2-time-orientability)を、指定済みの時間向きに適用し、滑らかな大域的未来時間的ベクトル場 $T$ を選びます。$T$ の[GEO5で定義した局所流](../../GEO/GEO5/index.md#def-geo5-local-flow)を $\Phi_u$ とします。曲線像はコンパクトなので、十分小さい一様な $|u|$ ではすべての $\Phi_u(\gamma(s))$ が存在します。
 
 [Riemann計量の存在定理](../../GEO/GEO12/index.md#thm-geo12-metric-existence)により、補助的な正定値のRiemann計量 $h$ を一つ選びます。区分的 $C^1$ 性から、滑らかな各片で $\|\dot\gamma(s)\|_h\le K$ となる有限定数 $K$ が存在します。未来因果ベクトル $v$ と未来時間的 $T$ には、コンパクトな曲線像上で、ある $c_0>0$ について
 
