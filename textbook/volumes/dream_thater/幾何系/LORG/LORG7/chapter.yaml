@@ -1,0 +1,42 @@
+id: "LORG7"
+title: "push-up補題とI±の開性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+official_scope: []
+learning_objectives:
+  - 時間的関係の端点安定性を局所座標と開錐性から証明できる
+  - 因果曲線を時間的場の流れで押し上げる変形と一様誤差評価を再現できる
+  - push-up補題の二方向の含意を端点の摂動と連結で証明できる
+  - 任意の部分集合の時間的未来・過去が開集合になる理由を説明できる
+  - I±とJ±の内部・閉包の関係を因果到達関係から証明できる
+  - 点除去Minkowski時空でJ+の非閉性を曲線の積分と近似直線から証明できる
+definitions: []
+theorems:
+  - { id: LORG7-LEM-01, name: 時間的関係の端点安定性 }
+  - { id: LORG7-LEM-02, name: 因果曲線の未来・過去への時間的変形 }
+  - { id: LORG7-THM-01, name: push-up補題 }
+  - { id: LORG7-THM-02, name: 時間的未来・過去の開性 }
+  - { id: LORG7-PROP-01, name: 時間的未来と因果的未来の内部・閉包 }
+  - { id: LORG7-PROP-02, name: 点除去Minkowski時空での因果的未来の非閉性 }
+canonical_examples:
+  - Minkowski光的直線の時間方向への摂動
+  - p≤q≪rの光的区間と時間的区間の直接計算
+  - 点除去時空で欠けた光路と近似する時間的直線
+problem_patterns:
+  - LORG7-TIMELIKE-ENDPOINT-STABILITY
+  - LORG7-FLOW-PERTURBATION
+  - LORG7-PUSH-UP-TWO-ORDERS
+  - LORG7-OPEN-CHRONOLOGICAL-SETS
+  - LORG7-INTERIOR-AND-CLOSURE
+  - LORG7-PUNCTURED-CAUSAL-NONCLOSED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
