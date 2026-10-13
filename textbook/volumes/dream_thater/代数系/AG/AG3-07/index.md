@@ -421,7 +421,7 @@ $C^0=k[t]\oplus k[u]$、$C^1=k[t,t^{-1}]$ で、微分は $(f,g)\mapsto g(t^{-1}
 <!-- solution-start -->
 ### 詳細解答
 
-[Čech微分の定義](#def-ag3-07-cech-complex)から $(\delta^0s)_{01}=s_1-s_0$、$(\delta^0s)_{02}=s_2-s_0$、$(\delta^0s)_{12}=s_2-s_1$ です。各項を三重交叉へ制限すると
+[Čech複体](#def-ag3-07-cech-complex)で定めた微分の式から $(\delta^0s)_{01}=s_1-s_0$、$(\delta^0s)_{02}=s_2-s_0$、$(\delta^0s)_{12}=s_2-s_1$ です。各項を三重交叉へ制限すると
 $$
 (\delta^1\delta^0s)_{012}
 =(s_2-s_1)-(s_2-s_0)+(s_1-s_0)
@@ -480,7 +480,7 @@ $U_0,U_1,U_2$ のすべての共通部分で定数切断を考える。$c_{01}=a
 <!-- solution-start -->
 ### 詳細解答
 
-[Čech微分の定義](#def-ag3-07-cech-complex)により、三重交叉では
+[Čech複体](#def-ag3-07-cech-complex)で定めた微分の式により、三重交叉では
 $$
 (\delta^1c)_{012}=c_{12}-c_{02}+c_{01}
 =b-(a+b)+a=0.
