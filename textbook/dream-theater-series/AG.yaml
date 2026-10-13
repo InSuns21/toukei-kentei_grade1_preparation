@@ -132,7 +132,7 @@ chapters:
     title: "層の射と完全列・Čechコホモロジー"
   - id: AG3-08
     path: textbook/volumes/dream_thater/代数系/AG/AG3-08
-    status: planned
+    status: completed
     title: "層コホモロジーの基本計算"
   - id: AG3-09
     path: textbook/volumes/dream_thater/代数系/AG/AG3-09
