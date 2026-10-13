@@ -199,9 +199,9 @@ $P(x)>0$ を全区間で要求するのが、Legendreの非負条件を強める
 <!-- formal-statement-start -->
 > **定義（強められたLegendre条件）**  
 > 第1節の正則性の下で固定端の停留曲線 $u$ に沿い、すべての $x\in[a,b]$ で
-$
+$$
 F_{pp}(x,u(x),u'(x))>0
-$
+$$
 > が成り立つとき、強められたLegendre条件を満たすという。
 <!-- formal-statement-end -->
 
