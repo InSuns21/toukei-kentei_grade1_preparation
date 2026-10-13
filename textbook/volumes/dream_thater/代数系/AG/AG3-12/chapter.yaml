@@ -9,6 +9,7 @@ prerequisites:
   - AG2-11
   - AG1-10
   - AG1-05
+  - MOD2
 official_scope: []
 learning_objectives:
   - テンソル積の完全性から平坦加群と平坦射を定義し具体例を検算できる
