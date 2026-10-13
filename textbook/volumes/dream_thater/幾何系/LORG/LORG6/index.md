@@ -173,7 +173,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-未来因果曲線 $\gamma(s)=(t(s),\mathbf x(s))$ を $p$ から $q$ まで取ります。各滑らかな片で速度が未来因果なので、
+未来因果曲線 $\gamma(s)=(t(s),\mathbf x(s))$ を $p$ から $q$ まで取ります。各滑らかな片で速度が[LORG1の未来錐の条件](../LORG1/index.md#def-lorg1-future-cone)を満たすので、
 
 $$
 \dot t(s)\ge|\dot{\mathbf x}(s)|\ge0
@@ -394,7 +394,7 @@ $$
 $\mathbb R^{1+2}$ の未来因果的区分的 $C^1$ 曲線 $\gamma(s)=(t(s),x(s),y(s))$ が $p$ と $q$ を結ぶとする。速度条件から $\Delta t\ge\sqrt{(\Delta x)^2+(\Delta y)^2}$ を、少なくとも二段階の不等式を明示して導け。
 
 <!-- solution-start -->
-**詳細解答**。未来因果性から滑らかな各片で $\dot t\ge\sqrt{\dot x^2+\dot y^2}$ です。まず全ての片で積分して加えます。
+**詳細解答**。[LORG1の未来錐の条件](../LORG1/index.md#def-lorg1-future-cone)から滑らかな各片で $\dot t\ge\sqrt{\dot x^2+\dot y^2}$ です。まず全ての片で積分して加えます。
 
 $$
 \Delta t=\int_0^1\dot t\,ds
@@ -472,7 +472,7 @@ $$
 $U=\mathbb R^{1+1}\setminus\{(0,0)\}$ とし、$p=(-2,-2)$、$q=(2,2)$ とする。全時空では $p\le q$ だが、$U$ での未来因果曲線は存在しないことを証明せよ。単に直線が欠けているという観察だけで終えないこと。
 
 <!-- solution-start -->
-**詳細解答**。全時空では直線 $\gamma(s)=(-2+4s,-2+4s)$ が未来光的なので $p\le q$ です。仮に $U$ 内の未来因果曲線 $(t(s),x(s))$ が存在すると、各片で $\dot t\ge|\dot x|\ge\dot x$ が成り立ちます。両端の差は $\Delta t=\Delta x=4$ なので
+**詳細解答**。全時空では直線 $\gamma(s)=(-2+4s,-2+4s)$ が未来光的なので $p\le q$ です。仮に $U$ 内の未来因果曲線 $(t(s),x(s))$ が存在すると、[LORG1の未来錐の条件](../LORG1/index.md#def-lorg1-future-cone)により各片で $\dot t\ge|\dot x|\ge\dot x$ が成り立ちます。両端の差は $\Delta t=\Delta x=4$ なので
 
 $$
 0=\Delta t-\Delta x
