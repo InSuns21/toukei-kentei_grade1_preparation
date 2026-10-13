@@ -1,0 +1,50 @@
+chapter: CM2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-02
+  - CM1-09
+
+concepts:
+  - id: complex-manifolds.local-dbar-primitive
+    name: 局所bar∂原始形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所bar∂原始形式）"]
+    requires: [complex-manifolds.type-exterior-derivatives]
+  - id: complex-manifolds.cauchy-transform
+    name: 一変数のCauchy変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一変数のCauchy変換）"]
+    requires: [complex-manifolds.local-dbar-primitive]
+  - id: complex-manifolds.dbar-fundamental-kernel
+    name: bar∂の基本解
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（bar∂の基本解）"]
+    requires: [complex-manifolds.cauchy-transform]
+  - id: complex-manifolds.one-variable-dbar-inverse
+    name: 一変数でのbar∂右逆
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一変数でのbar∂右逆）"]
+    requires: [complex-manifolds.dbar-fundamental-kernel, complex-manifolds.cauchy-transform]
+  - id: complex-manifolds.polydisc-coordinate-inverse
+    name: 多重円板の座標別右逆
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（多重円板の座標別右逆）"]
+    requires: [complex-manifolds.one-variable-dbar-inverse]
+  - id: complex-manifolds.local-dbar-poincare
+    name: 局所bar∂-Poincaré補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所bar∂-Poincaré補題）"]
+    requires: [complex-manifolds.polydisc-coordinate-inverse, complex-manifolds.dolbeault-identities, complex-manifolds.local-dbar-primitive]
+  - id: complex-manifolds.local-dbar-kernel
+    name: 零次の核と正の次数の局所完全性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零次の核と正の次数の局所完全性）"]
+    requires: [complex-manifolds.local-dbar-poincare, complex-manifolds.dolbeault-holomorphic-function]
