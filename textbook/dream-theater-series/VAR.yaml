@@ -53,5 +53,5 @@ chapters:
     title: "Palais–Smale・Ekeland・minimax"
   - id: VAR12
     path: textbook/volumes/dream_thater/解析系/VAR/VAR12
-    status: planned
+    status: completed
     title: "第二変分作用素・Morse指数"
