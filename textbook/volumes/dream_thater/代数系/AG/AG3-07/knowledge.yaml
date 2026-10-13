@@ -1,0 +1,71 @@
+chapter: AG3-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-06
+  - AG3-04
+  - AG3-02
+  - AG2-06
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.sheaf-morphism
+    name: 加群の層の射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加群の層の射）"]
+    requires: [algebraic-geometry.quasicoherent-sheaf]
+  - id: algebraic-geometry.sheaf-morphism-stalks
+    name: 層の射の茎による判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（層の射の茎による判定）"]
+    requires: [algebraic-geometry.sheaf-morphism]
+  - id: algebraic-geometry.sheaf-exact-sequence
+    name: 層の核・像・完全列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層の核・像・完全列）"]
+    requires: [algebraic-geometry.sheaf-morphism]
+  - id: algebraic-geometry.sheaf-exact-stalks
+    name: 層の完全性の茎判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層の完全性の茎判定）"]
+    requires: [algebraic-geometry.sheaf-exact-sequence, algebraic-geometry.sheaf-morphism-stalks]
+  - id: algebraic-geometry.cech-complex
+    name: Čech複体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Čech複体）"]
+    requires: [algebraic-geometry.sheaf-exact-sequence]
+  - id: algebraic-geometry.cech-differential
+    name: Čech微分の二乗は零
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Čech微分の二乗は零）"]
+    requires: [algebraic-geometry.cech-complex]
+  - id: algebraic-geometry.cech-cohomology
+    name: Čechコホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Čechコホモロジー）"]
+    requires: [algebraic-geometry.cech-complex, algebraic-geometry.cech-differential]
+  - id: algebraic-geometry.cech-h0
+    name: 零次Čechコホモロジーと大域切断
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（零次Čechコホモロジーと大域切断）"]
+    requires: [algebraic-geometry.cech-cohomology]
+  - id: algebraic-geometry.cech-obstruction
+    name: 局所持ち上げから得られるČech障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所持ち上げから得られるČech障害）"]
+    requires: [algebraic-geometry.cech-cohomology, algebraic-geometry.sheaf-exact-stalks]
+  - id: algebraic-geometry.p1-cech-twists
+    name: 射影直線のねじれ層の二チャートČech計算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線のねじれ層の二チャートČech計算）"]
+    requires: [algebraic-geometry.cech-cohomology, algebraic-geometry.quasicoherent-sheaf]

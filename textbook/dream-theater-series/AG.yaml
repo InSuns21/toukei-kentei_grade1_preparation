@@ -128,7 +128,7 @@ chapters:
     title: "準連接層・連接層"
   - id: AG3-07
     path: textbook/volumes/dream_thater/代数系/AG/AG3-07
-    status: planned
+    status: completed
     title: "層の射と完全列・Čechコホモロジー"
   - id: AG3-08
     path: textbook/volumes/dream_thater/代数系/AG/AG3-08
