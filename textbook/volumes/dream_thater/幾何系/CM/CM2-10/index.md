@@ -681,10 +681,10 @@ $$
 
 $\mathbb C$ 上の自明階数二束の標準枠で、接続行列と接続の作用を
 
-$
+$$
 A=\begin{pmatrix}0&dz\\0&0\end{pmatrix},
 \qquad D(v)=dv+Av
-$
+$$
 
 と定める。$v=(z,\bar z)^{\mathsf T}$ と $f=z^2$ について $D(fv)=df\,v+fDv$ を両辺から具体計算して示せ。
 
@@ -811,10 +811,10 @@ $$
 
 次の行列値計量を考える。
 
-$
+$$
 H=B^*B,\qquad
 B=\begin{pmatrix}1&0\\z&1\end{pmatrix}.
-$
+$$
 
 $A=H^{-1}\partial H$ を計算し、$A=\partial H\,H^{-1}$ とは一般に一致しないことを $z=1$ で示せ。
 
@@ -837,12 +837,12 @@ $$
 
 $z=1$ での行列は
 
-$
+$$
 \begin{aligned}
 \partial H\big|_{z=1}&=\begin{pmatrix}1&0\\1&0\end{pmatrix}dz,\\
 H^{-1}\big|_{z=1}&=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}
 \end{aligned}
-$
+$$
 
 だから
 
@@ -863,9 +863,9 @@ $$
 
 $\mathbb{CP}^1$ の $\mathcal O(-1)$ で、標準計量と次の局所枠・座標を使う。
 
-$
+$$
 e_0=(1,z),\qquad e_\infty=(w,1),\qquad w=z^{-1}.
-$
+$$
 
 $A_0,A_\infty$ を独立に求め、$A_\infty=A_0+g^{-1}dg$ を示せ。さらに $z=1$ で $A_0$ と変換後 $A_\infty$ の係数が等しくない理由を述べよ。
 
@@ -1067,9 +1067,9 @@ $$
 
 $(3)$ 枠変更行列の逆は
 
-$
+$$
 G^{-1}=\begin{pmatrix}1&-z\\0&1\end{pmatrix}
-$
+$$
 
 であり、
 
