@@ -15,7 +15,7 @@ chapters:
     title: "Lorentz計量と時間向き"
   - id: LORG3
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG3
-    status: planned
+    status: completed
     title: "因果曲線とLorentz長さ"
   - id: LORG4
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG4
