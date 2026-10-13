@@ -5,6 +5,8 @@ prerequisites:
   - CM1-06
   - CM1-01
   - GEO5
+  - GEO6
+  - PDE1
 
 concepts:
   - id: complex-manifolds.integrable-almost-complex-structure
@@ -17,7 +19,7 @@ concepts:
     name: J正則関数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$J$ 正則関数）"]
+    introduction_aliases: ["定義（J正則関数）"]
     requires: [complex-manifolds.type-tangent-bundles]
   - id: complex-manifolds.compatible-coordinate-criterion
     name: 適合座標の関数による判定
