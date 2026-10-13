@@ -4,7 +4,7 @@
 
 ## 1. 曲線の「まっすぐ」を曲がった時空で判定する
 
-[LORG3で定義したLorentz長さ](../LORG3/index.md#def-lorg3-lorentz-length)から、Minkowski時空では時間的直線が最大固有時を与えることを確かめました。しかし一般の時空では、離れた二点の接空間をそのまま同一視できません。曲線の速度が「変化しない」とは何かを記述するには、接ベクトルを曲線に沿って比較する規則が要ります。
+[LORG3のLorentz長さの定義](../LORG3/index.md#def-lorg3-lorentz-length)と[Minkowski時空での長さ比較定理](../LORG3/index.md#thm-lorg3-minkowski-length-bound)により、Minkowski時空では時間的直線が最大固有時を与えることを確かめました。しかし一般の時空では、離れた二点の接空間をそのまま同一視できません。曲線の速度が「変化しない」とは何かを記述するには、接ベクトルを曲線に沿って比較する規則が要ります。
 
 [GEO13のアフィン接続](../../GEO/GEO13/index.md#def-geo13-affine-connection)はその規則を与えます。Riemann計量で使ったLevi-Civita接続の作り方は、どこまでLorentz計量へ持ち込めるでしょうか。鍵は **正定値性ではなく非退化性** です。この違いをKoszulの式から見直し、測地線と指数写像を作ります。固有時の**局所最大化**は次のLORG5で、凸正規近傍を準備してから扱います。
 
@@ -374,7 +374,7 @@ $a'=0$ の点では表示した係数も零で、計量の他の係数は零で�
 #### LORG4-A04 時計の付け替えと測地線
 - Level: A
 
-Minkowski時空で $\gamma(s)=(s,0)$ は測地線である。$u>0$ 上で $\widetilde\gamma(u)=\gamma(u^2)$ は測地線か。また $0<u\le1$ でのLorentz長さは幾らか。
+Minkowski時空で $\gamma(s)=(s,0)$ は測地線である。$u>0$ 上で $\widetilde\gamma(u)=\gamma(u^2)$ は測地線か。また $\widetilde\gamma$ を $u=0$ に連続拡張したとき、$[0,1]$ におけるLorentz長さは幾らか。
 
 <!-- solution-start -->
 **詳細解答**。$\widetilde\gamma'(u)=(2u,0)$、$\widetilde\gamma''(u)=(2,0)$ です。Minkowski接続係数は零なので測地線方程式の左辺は $(2,0)\ne0$、よってアフィン測地線ではありません。一方、[Lorentz長さの定義](../LORG3/index.md#def-lorg3-lorentz-length)により
@@ -385,7 +385,7 @@ L_\eta(\widetilde\gamma|_{[\varepsilon,1]})
 =\int_\varepsilon^1 2u\,du=1-\varepsilon^2.
 $$
 
-$\varepsilon\downarrow0$ で長さは $1$ へ近づき、閉区間 $[0,1]$ でも長さは $1$ です。長さの不変性は測地線方程式の不変性を意味しません。
+$\widetilde\gamma(0)=(0,0)$ と定めれば曲線は $[0,1]$ 上で $C^1$ に延長され、$u=0$ での速度は $(0,0)$ です。長さの被積分関数は $u=0$ で $0$ となるため、$\varepsilon\downarrow0$ の極限から $L_\eta(\widetilde\gamma|_{[0,1]})=1$ です。長さの不変性は測地線方程式の不変性を意味しません。
 <!-- solution-end -->
 
 <a id="ex-lorg4-a05"></a>
@@ -438,7 +438,7 @@ $$
 $g=-dt^2+e^{2t}dx^2$、初期値 $(t,x,\dot t,\dot x)=(0,0,1,1)$ とする。$\gamma(s)=(\log(1+s),\,s/(1+s))$（$s>-1$）がアフィン測地線で、未来向き光的であることを直接検証せよ。
 
 <!-- solution-start -->
-**詳細解答**。[第4節の係数公式](#thm-lorg4-lorentz-levi-civita)に $a(t)=e^t,\ a'=e^t$ を代入すると、$\Gamma^t_{xx}=e^{2t}$、$\Gamma^x_{tx}=\Gamma^x_{xt}=1$ です。曲線の速度と加速度は
+**詳細解答**。[第2節のLevi-Civita接続の係数公式](#thm-lorg4-lorentz-levi-civita)に $a(t)=e^t,\ a'=e^t$ を代入すると、$\Gamma^t_{xx}=e^{2t}$、$\Gamma^x_{tx}=\Gamma^x_{xt}=1$ です。曲線の速度と加速度は
 
 $$
 \dot t=\frac1{1+s},\quad
