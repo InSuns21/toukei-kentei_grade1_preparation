@@ -2,7 +2,7 @@
 
 [前章の構造層](../AG3-02/index.md#def-ag3-02-structure-sheaf)は、素スペクトル上で「局所的に同じ分数で表せる関数」を集めました。[素点での茎](../AG3-02/index.md#thm-ag3-02-stalk)は $A_{\mathfrak p}$ であり、点の近くで逆数を取れる関数を識別します。ところが位相空間としては $\operatorname{Spec}k$ と $\operatorname{Spec}(k[\varepsilon]/(\varepsilon^2))$ はともに一点で、この局所情報を区別できません。
 
-そこで空間と関数の層を一体化し、**局所環付き空間**を導入します。さらに環準同型 $A\to B$ が単なる連続写像だけでなく局所環付き空間の射 $\operatorname{Spec}B\to\operatorname{Spec}A$ を与えること、そしてアフィンスキーム間のすべての射が逆に環準同型から復元できることを証明します。最後に主開集合と商環を計算して、射が点と関数を同時に動かす意味を確かめます。
+そこで空間と、その上で許される関数を一体として扱う仕組みを作ります。さらに環準同型 $A\to B$ が、単なる連続写像だけでなく関数の引き戻しを伴う写像を与えること、そして一つの環から作った空間どうしではすべての写像が環準同型から復元できることを証明します。最後に主開集合と商環を計算し、点と関数を同時に動かす意味を確かめます。
 
 以下、環は可換単位的とし、零環も許します。準同型は単位元を保ちます。[環の層](../AG2-05/index.md#def-ag2-05-sheaf-axioms)と[局所化](../AG1-04/index.md#def-ag1-04-localization)の基本事項を使います。
 
@@ -14,7 +14,13 @@ $k[t]_{(t)}$ では $t$ は非単元、$1+t$ は単元です。通常の位相�
 
 <!-- formal-statement-start -->
 > **定義（局所環付き空間）**  
-> 位相空間 $X$ とその上の可換単位的環の層 $\mathcal O_X$ について、すべての $x\in X$ で茎 $\mathcal O_{X,x}$ が局所環であるとき、組 $(X,\mathcal O_X)$ を局所環付き空間という。茎の唯一の極大イデアルを $\mathfrak m_x$、剰余体を $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$ と書く。
+> 位相空間 $X$ とその上の可換単位的環の層 $\mathcal O_X$ の組を考える。  
+> すべての $x\in X$ で茎 $\mathcal O_{X,x}$ が局所環なら、組 $(X,\mathcal O_X)$ を局所環付き空間という。  
+> 茎の唯一の極大イデアルを $\mathfrak m_x$ と書き、剰余体を次で定める。
+
+$
+\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x.
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-03-lrs -->
@@ -138,7 +144,7 @@ $$
 \qquad \alpha(u)\notin\mathfrak q,
 $$
 
-なので $B_{\mathfrak q}$ でも一致します。$s$ が $\mathfrak p$ の近傍 $W$ で同じ分数 $b/t$ として書けるなら、その逆像 $f^{-1}(W)$ では $\alpha(b)/\alpha(t)$ と書けます。[構造層の定義](../AG3-02/index.md#def-ag3-02-structure-sheaf)の局所表示条件を満たすため、$f_U^\#s$ は切断です。加法・乗法・単位元の保存と制限との両立は、この点ごとの公式から従います。
+なので $B_{\mathfrak q}$ でも一致します。$s$ が $\mathfrak p$ の近傍 $W$ で同じ分数 $b/t$ として書けるなら、その逆像 $f^{-1}(W)$ では $\alpha(b)/\alpha(t)$ と書けます。[構造層の定義](../AG3-02/index.md#def-ag3-02-structure-sheaf)の局所表示条件を満たすため、$f_U^\#s$ は切断です。加法・乗法・単位元の保存と制限との両立は、直前に定めた分数表示を各点で比較すると従います。
 
 $\mathfrak q$ での茎の写像を考えます。分数 $b/t$ が $A_{\mathfrak p}$ の極大イデアルに入るのは $b\in\mathfrak p$ の場合、像が $B_{\mathfrak q}$ の極大イデアルに入るのは $\alpha(b)\in\mathfrak q$ の場合です。$\mathfrak p=\alpha^{-1}(\mathfrak q)$ より二条件は同値です。従って[茎の極大イデアル](#thm-ag3-03-affine-lrs)について逆像が一致し局所的です。
 
@@ -307,7 +313,7 @@ $\alpha:k[t]\to k[s]$、$t\mapsto s^2$ について、$D(t)$ の逆像と切断 
 - ID: AG3-03-A3
 
 <!-- solution-start -->
-**詳細解答。** [主開集合の逆像公式](../AG3-02/index.md#prop-ag3-02-continuity)から $D(t)$ の逆像は $D(s^2)$ で、素性により $s^2\notin\mathfrak q$ と $s\notin\mathfrak q$ は同値だから $D(s^2)=D(s)$ です。[射の分数公式](#thm-ag3-03-spec-map)に分子 $1+t$ と分母 $t$ を代入して
+**詳細解答。** [環準同型が定める連続写像](../AG3-02/index.md#prop-ag3-02-continuity)から $D(t)$ の逆像は $D(s^2)$ で、素性により $s^2\notin\mathfrak q$ と $s\notin\mathfrak q$ は同値だから $D(s^2)=D(s)$ です。[環準同型が定める射](#thm-ag3-03-spec-map)に分子 $1+t$ と分母 $t$ を代入して
 
 $$
 (1+t)/t\longmapsto (1+s^2)/s^2=1+s^{-2}
