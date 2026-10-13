@@ -28,7 +28,7 @@ $$
 <!-- definition-example-start: def-ag3-01-b-points -->
 ### 例：多項式の値を代入する
 
-**定義の確認。** $A=k[t]$ とすると、任意の $u:k[t]\to B$ は $u(t)=b$ で決まります。実際、$u(\sum a_it^i)=\sum a_ib^i$ であり、逆に各 $b\in B$ はこの代入準同型を与えます。したがって $h_{k[t]}(B)\simeq B$ です。$\varphi:B\to C$ を作用させると、$t$ の像は $\varphi(b)$ に移ります。恒等準同型では $b$ は不変、$B\to C\to D$ の合成では $b\mapsto\varphi(b)\mapsto\psi(\varphi(b))$ となり、関手の二条件を実際に満たします。
+**定義の確認** $A=k[t]$ とすると、任意の $u:k[t]\to B$ は $u(t)=b$ で決まります。実際、$u(\sum a_it^i)=\sum a_ib^i$ であり、逆に各 $b\in B$ はこの代入準同型を与えます。したがって $h_{k[t]}(B)\simeq B$ です。$\varphi:B\to C$ を作用させると、$t$ の像は $\varphi(b)$ に移ります。恒等準同型では $b$ は不変、$B\to C\to D$ の合成では $b\mapsto\varphi(b)\mapsto\psi(\varphi(b))$ となり、関手の二条件を実際に満たします。
 
 $A=k[x,y]/(xy)$ の場合は、準同型が $x,y$ の像 $b,c$ で決まり、商環の関係が $bc=0$ を課します。
 
@@ -72,7 +72,7 @@ $$
 <!-- definition-example-start: def-ag3-01-spec -->
 ### 例：一次式の零点と一般点
 
-**定義の確認。** $k[t]$ は整域だから $(0)$ は素イデアルです。また $(t-a)$ は、商環 $k[t]/(t-a)\simeq k$ が体なので素イデアルです。ゆえに $(0)$ と各 $(t-a)$ はいずれも $\operatorname{Spec}k[t]$ の点です。$k$ が代数閉体なら[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)により極大イデアルはすべて $(t-a)$ の形ですが、$(0)$ は極大でありません。従来の $a\in k$ のほかに、直線全体に対応する点が現れます。
+**定義の確認** $k[t]$ は整域だから $(0)$ は素イデアルです。また $(t-a)$ は、商環 $k[t]/(t-a)\simeq k$ が体なので素イデアルです。ゆえに $(0)$ と各 $(t-a)$ はいずれも $\operatorname{Spec}k[t]$ の点です。$k$ が代数閉体なら[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)により極大イデアルはすべて $(t-a)$ の形ですが、$(0)$ は極大でありません。従来の $a\in k$ のほかに、直線全体に対応する点が現れます。
 
 $D=k[\varepsilon]/(\varepsilon^2)$ では、素イデアル $\mathfrak p$ に $\varepsilon^2=0$ が属するため、素性から $\varepsilon\in\mathfrak p$ です。$(\varepsilon)$ は商が $k$ なので素イデアルであり、ほかの素イデアルはありません。$\operatorname{Spec}D$ と $\operatorname{Spec}k$ は集合としてともに一点です。
 <!-- definition-example-end -->
@@ -100,7 +100,7 @@ $$
 <!-- definition-example-start: def-ag3-01-residue-field -->
 ### 例：有限の点と一般点では剰余体が違う
 
-**定義の確認。** $A=k[t]$ とし $\mathfrak p=(t-a)$ とすると、$A/\mathfrak p\simeq k$ は整域であり、その分数体も $k$ です。$t$ の評価値は $a$ です。一方 $\mathfrak p=(0)$ では商が $k[t]$ という整域になり、その分数体は $k(t)$ です。この点での $t$ の値は固定された数でなく、有理関数体の元 $t$ そのものです。
+**定義の確認** $A=k[t]$ とし $\mathfrak p=(t-a)$ とすると、$A/\mathfrak p\simeq k$ は整域であり、その分数体も $k$ です。$t$ の評価値は $a$ です。一方 $\mathfrak p=(0)$ では商が $k[t]$ という整域になり、その分数体は $k(t)$ です。この点での $t$ の値は固定された数でなく、有理関数体の元 $t$ そのものです。
 <!-- definition-example-end -->
 
 <a id="prop-ag3-01-field-points"></a>
