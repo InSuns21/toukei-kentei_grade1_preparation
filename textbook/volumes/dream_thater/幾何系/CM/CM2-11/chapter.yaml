@@ -1,0 +1,48 @@
+id: "CM2-11"
+title: "Chern曲率の計算と正則束の総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-10
+  - CM2-09
+  - CM2-02
+  - CM2-08
+  - CM2-06
+  - GEO8
+official_scope: []
+learning_objectives:
+  - 接続のE値形式への拡張と曲率Dの二乗を定義し局所公式を導出できる
+  - 曲率の枠変更による共役則とトレースの大域性を説明できる
+  - Chern曲率が(1,1)型であることをMaurer–Cartan型恒等式から証明できる
+  - 線束と行列束のChern曲率を符号付きで計算できる
+  - 双対・テンソル・行列式束の曲率を導出できる
+  - 第一Chern形式の閉性と計量変更時の完全性を証明できる
+  - CP1のO(k)の二チャートの計量・接続・曲率と規格化積分を照合できる
+  - 曲率零と接続行列零の違いおよび非自明な線束の障害を説明できる
+definitions:
+  - { id: CM2-11-DEF-01, name: 接続の曲率 }
+  - { id: CM2-11-DEF-02, name: 第一Chern形式 }
+theorems:
+  - { id: CM2-11-PROP-01, name: 曲率行列と枠変更則 }
+  - { id: CM2-11-THM-01, name: Chern曲率の型と局所公式 }
+  - { id: CM2-11-PROP-02, name: 双対・テンソル積・行列式束の曲率 }
+  - { id: CM2-11-PROP-03, name: 第一Chern形式の閉性と計量変更 }
+  - { id: CM2-11-THM-02, name: 射影直線上のO(k)の曲率積分 }
+canonical_examples:
+  - 自明線束で接続の二回作用を直接計算する
+  - 定数でない接続形式を持つ平坦計量と曲がった線束
+  - 正則行列BのB*B型計量における曲率零
+  - 対角計量の階数二束と非対角の正則枠
+  - CP1上のO(k)の二チャート貼り合わせと曲率積分
+problem_patterns:
+  - CM2-11-CURVATURE-LOCAL
+  - CM2-11-CHERN-TYPE
+  - CM2-11-HERMITIAN-MATRIX
+  - CM2-11-GAUGE
+  - CM2-11-FUNCTORIAL-CURVATURE
+  - CM2-11-CHERN-CLASS
+  - CM2-11-PROJECTIVE-LINE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }

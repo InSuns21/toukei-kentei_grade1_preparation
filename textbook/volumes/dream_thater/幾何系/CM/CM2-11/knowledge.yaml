@@ -1,0 +1,53 @@
+chapter: CM2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-10
+  - CM2-09
+  - CM2-02
+  - CM2-08
+  - CM2-06
+  - GEO8
+concepts:
+  - id: complex-manifolds.connection-curvature
+    name: 接続の曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接続の曲率）"]
+    requires: [complex-manifolds.connection-definition]
+  - id: complex-manifolds.curvature-gauge-law
+    name: 曲率行列と枠変更則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率行列と枠変更則）"]
+    requires: [complex-manifolds.connection-curvature, complex-manifolds.connection-gauge-law]
+  - id: complex-manifolds.chern-curvature-type
+    name: Chern曲率の型と局所公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Chern曲率の型と局所公式）"]
+    requires: [complex-manifolds.connection-curvature, complex-manifolds.chern-connection-existence-uniqueness, complex-manifolds.type-exterior-derivatives]
+  - id: complex-manifolds.chern-induced-curvature
+    name: 双対・テンソル積・行列式束の曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対・テンソル積・行列式束の曲率）"]
+    requires: [complex-manifolds.chern-curvature-type, complex-manifolds.chern-induced-connections]
+  - id: complex-manifolds.first-chern-form
+    name: 第一Chern形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第一Chern形式）"]
+    requires: [complex-manifolds.curvature-gauge-law]
+  - id: complex-manifolds.first-chern-form-closed
+    name: 第一Chern形式の閉性と計量変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（第一Chern形式の閉性と計量変更）"]
+    requires: [complex-manifolds.first-chern-form, complex-manifolds.chern-induced-curvature, complex-manifolds.hermitian-metric-gauge-law]
+  - id: complex-manifolds.projective-line-curvature-integral
+    name: 射影直線上のO(k)の曲率積分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線上のO(k)の曲率積分）"]
+    requires: [complex-manifolds.first-chern-form, complex-manifolds.chern-curvature-type, complex-manifolds.holomorphic-line-bundle, complex-manifolds.chern-line-formula]

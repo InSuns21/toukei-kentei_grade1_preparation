@@ -1,7 +1,7 @@
 version: 1
 id: AG
 title: "代数幾何学 I〜III"
-plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 第I〜III部を一つの系列として管理。各部の講数は固定ノルマではない。
@@ -156,5 +156,5 @@ chapters:
     title: "交叉理論・変形障害への橋"
   - id: AG3-14
     path: textbook/volumes/dream_thater/代数系/AG/AG3-14
-    status: planned
+    status: completed
     title: "射影曲線と超曲面の総合演習"
