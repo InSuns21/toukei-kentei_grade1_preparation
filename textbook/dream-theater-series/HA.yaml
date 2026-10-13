@@ -28,7 +28,7 @@ chapters:
     title: 特異積分とRiesz変換
   - id: HA6
     path: textbook/volumes/dream_thater/解析系/HA/HA6
-    status: planned
+    status: completed
     title: BMOと端点の見取り図
   - id: HA7
     path: textbook/volumes/dream_thater/解析系/HA/HA7
