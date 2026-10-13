@@ -8,7 +8,7 @@
 
 ## 1. 局所的にアフィンという条件
 
-各点の近くに環の素スペクトルの形をした開集合があれば、局所環付き空間を幾何として計算できます。これは、アフィンスキームで証明した分数の計算を局所的に使うための条件です。
+各点の近くに環の素スペクトルの形をした開集合があれば、局所環付き空間を幾何として計算できます。これは、前章で証明した分数の計算を局所的に使うための条件です。
 
 <a id="def-ag3-04-scheme"></a>
 
@@ -20,7 +20,7 @@
 <!-- definition-example-start: def-ag3-04-scheme -->
 ### 例：アフィン直線の開部分
 
-$X=\operatorname{Spec}k[t]$ のすべての点は $X$ 自身をアフィン近傍に持ち、定義を満たします。さらに $D(t)\subseteq X$ は[主開集合のアフィン表示](../AG3-03/index.md#prop-ag3-03-principal-affine)により $\operatorname{Spec}k[t,t^{-1}]$ と同型です。したがって $D(t)$ の各点もアフィン近傍を持ちます。局所的な条件は満たしていても、全体が一つの $\operatorname{Spec}A$ と書けるとは限りません。
+**定義の確認** $X=\operatorname{Spec}k[t]$ のすべての点は $X$ 自身をアフィン近傍に持ち、定義を満たします。さらに $D(t)\subseteq X$ は[主開集合のアフィン表示](../AG3-03/index.md#prop-ag3-03-principal-affine)により $\operatorname{Spec}k[t,t^{-1}]$ と同型です。したがって $D(t)$ の各点もアフィン近傍を持ちます。局所的な条件は満たしていても、全体が一つの $\operatorname{Spec}A$ と書けるとは限りません。
 <!-- definition-example-end -->
 
 <a id="prop-ag3-04-open-subscheme"></a>
@@ -81,7 +81,7 @@ $$
 <!-- definition-example-start: def-ag3-04-gluing-data -->
 ### 例：逆数でつなぐ二つの直線
 
-$X_0=\operatorname{Spec}k[t]$、$X_\infty=\operatorname{Spec}k[u]$ とし、$U_{0\infty}=D(t)$、$U_{\infty0}=D(u)$ とします。両者の切断環は $k[t,t^{-1}]$ と $k[u,u^{-1}]$ です。[アフィンスキームの射と環準同型の対応](../AG3-03/index.md#thm-ag3-03-affine-fully-faithful)により、環同型
+**定義の確認** $X_0=\operatorname{Spec}k[t]$、$X_\infty=\operatorname{Spec}k[u]$ とし、$U_{0\infty}=D(t)$、$U_{\infty0}=D(u)$ とします。両者の切断環は $k[t,t^{-1}]$ と $k[u,u^{-1}]$ です。[アフィンスキームの射と環準同型の対応](../AG3-03/index.md#thm-ag3-03-affine-fully-faithful)により、環同型
 
 $$
 k[t,t^{-1}]\longrightarrow k[u,u^{-1}],
@@ -193,7 +193,7 @@ $$
 <!-- definition-example-start: def-ag3-04-projective-line -->
 ### 例：有理点と無限遠点を確認する
 
-$k$ 値点に限って考えると、第1チャートの $(t-a)$（$a\in k$）は有限座標 $a$ の点です。$a\ne0$ なら重複部分で第2チャートの $(u-a^{-1})$ と同一視されます。一方、第2チャートの $(u)$ は $D(u)$ に入らないので第1チャートの点とは同一視されません。これが無限遠点 $\infty$ です。従って $k$ 値点の集合は $k\cup\{\infty\}$ です。スキーム全体にはこのほか、非閉点や非有理閉点も存在し得るので、全点集合を $k\cup\{\infty\}$ と同一視しません。
+**定義の確認** $k$ 値点に限って考えると、第1チャートの $(t-a)$（$a\in k$）は有限座標 $a$ の点です。$a\ne0$ なら重複部分で第2チャートの $(u-a^{-1})$ と同一視されます。一方、第2チャートの $(u)$ は $D(u)$ に入らないので第1チャートの点とは同一視されません。これが無限遠点 $\infty$ です。従って $k$ 値点の集合は $k\cup\{\infty\}$ です。スキーム全体にはこのほか、非閉点や非有理閉点も存在し得るので、全点集合を $k\cup\{\infty\}$ と同一視しません。
 <!-- definition-example-end -->
 
 二つの開部分の共通部分は $\operatorname{Spec}k[t,t^{-1}]$ です。重複部分における切断の整合性は、一方の Laurent 多項式をもう一方の座標の逆数で表すことに相当します。
