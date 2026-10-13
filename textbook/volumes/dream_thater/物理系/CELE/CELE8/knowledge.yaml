@@ -15,7 +15,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（円軌道摂動天体の摂動関数）"]
     aliases: []
-    requires: [celestial.resonant-angle]
+    requires: []
   - id: celestial.relative-acceleration
     name: 中心星相対加速度
     kind: proposition
