@@ -330,7 +330,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（強制振り子のMelnikov関数と単純零点）**  
-> 上記の模型について
+> $H_0(q,p)=p^2/2+\cos q$ の分離曲線
+> $q_0(s)=4\arctan(e^s)$、$p_0(s)=2\operatorname{sech}s$ と、
+> $\omega>0$ に対する摂動 $H_\varepsilon=H_0+\varepsilon\cos q\cos(\omega t)$ を考える。
+> $M(\tau)$ を[この模型のMelnikov積分](#def-cele6-melnikov)で定める。このとき
 >
 $$
 M(\tau)=2\omega A(\omega)\sin(\omega\tau),
@@ -441,7 +444,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（分離量の単純零点から横断交差へ）**  
-> 強制振り子の小摂動で、エネルギー面上の $q=\pi,\ p>0$ 断面における $(\phi,p)=(\omega\tau,p)$ 表示で、安定枝と不安定枝の運動量 $p_s,p_u$ が $C^1$ 級に依存し、上記のエネルギー差の展開が $\tau$ に関して $C^1$ 一様に成立するとする。ある $\tau_*$ で $M(\tau_*)=0$ かつ $M'(\tau_*)\ne0$ なら、十分小さい非零 $\varepsilon$ に対し、$\tau_*$ に近い位相で両枝は横断的に交わる。
+> $\omega>0$ とし、$H_\varepsilon(q,p,t)=p^2/2+\cos q+\varepsilon\cos q\cos(\omega t)$ の自律拡大系を固定エネルギー面で考える。$q=\pi,\ p>0$ 断面の局所座標を $(\phi,p)=(\omega\tau,p)$ とし、鞍型周期軌道の安定・不安定枝の運動量をそれぞれ $p_s(\tau,\varepsilon),p_u(\tau,\varepsilon)$ とする。これらが $C^1$ 級で、
+>
+$
+\begin{aligned}
+D(\tau,\varepsilon)
+&:=H_0(\pi,p_u(\tau,\varepsilon))
+-H_0(\pi,p_s(\tau,\varepsilon))\\
+&=\varepsilon M(\tau)+O(\varepsilon^2)
+\end{aligned}
+$
+>
+> が $\tau$ に関して $C^1$ 一様に成立すると仮定する。ただし $H_0(q,p)=p^2/2+\cos q$、$M$ は[強制振り子のMelnikov関数](#def-cele6-melnikov)である。ある $\tau_*$ で $M(\tau_*)=0$、$M'(\tau_*)\ne0$ なら、十分小さい非零 $\varepsilon$ に対し、$\tau_*$ に近い位相で二枝は横断交差する。その交差は時間 $T=2\pi/\omega$ の $\phi=0$ 帰還写像の横断ホモクリニック点を与える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
