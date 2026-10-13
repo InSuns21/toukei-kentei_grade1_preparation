@@ -1,0 +1,49 @@
+id: "LORG8"
+title: "共形因果構造と局所因果凸性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+official_scope: []
+learning_objectives:
+  - 正の滑らかな共形再尺度で未来錐・因果曲線・I±・J±が不変であることを定義から証明できる
+  - 共形再尺度でLorentz長さが変わる公式を導き具体曲線の固有時を積分できる
+  - 因果的凸集合の量化条件と部分時空に相対的な因果的凸性を区別できる
+  - Alexandrovダイヤモンドの開性と因果的凸性をpush-up補題で証明できる
+  - 局所時間座標の円錐評価から相対的な小ダイヤモンドの存在を構成できる
+  - 時間周期円筒で大域的な小さい因果的凸近傍がないことを曲線で検証できる
+definitions:
+  - { id: LORG8-DEF-01, name: 共形再尺度と共形同値 }
+  - { id: LORG8-DEF-02, name: 因果的凸集合 }
+  - { id: LORG8-DEF-03, name: Alexandrovダイヤモンド }
+theorems:
+  - { id: LORG8-THM-01, name: 共形再尺度による因果関係の不変性 }
+  - { id: LORG8-PROP-01, name: 共形再尺度でのLorentz長さ }
+  - { id: LORG8-THM-02, name: Alexandrovダイヤモンドの開性と因果的凸性 }
+  - { id: LORG8-LEM-01, name: 相対的なAlexandrov近傍の局所基底 }
+  - { id: LORG8-PROP-02, name: 時間周期円筒のAlexandrov集合 }
+canonical_examples:
+  - 時刻依存の共形倍率による固有時の変更
+  - Minkowskiダイヤモンドの厳密不等式と境界除外
+  - 座標円錐速度上界による相対的近傍の縮小
+  - 時間周期円筒での全点間時間的到達と閉時間的曲線
+problem_patterns:
+  - LORG8-CONE-SIGN
+  - LORG8-CONFORMAL-PROPER-TIME
+  - LORG8-MINKOWSKI-DIAMOND
+  - LORG8-PUSH-UP-CONVEXITY
+  - LORG8-RELATIVE-CONVEXITY
+  - LORG8-PUNCTURED-CAUSE
+  - LORG8-TIME-PERIODIC-CYLINDER
+  - LORG8-LOCAL-CONE-BOUND
+  - LORG8-CONFORMAL-GLOBAL-PATHOLOGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }

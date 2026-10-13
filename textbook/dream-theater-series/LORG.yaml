@@ -35,7 +35,7 @@ chapters:
     title: "push-up補題とI±の開性"
   - id: LORG8
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG8
-    status: planned
+    status: completed
     title: "共形因果構造と局所因果凸性"
   - id: LORG9
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG9

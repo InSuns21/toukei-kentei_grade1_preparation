@@ -686,6 +686,7 @@
 5. [LORG5 凸正規近傍と局所最大化](textbook/volumes/dream_thater/幾何系/LORG/LORG5/index.md)
 6. [LORG6 因果的未来と過去の集合](textbook/volumes/dream_thater/幾何系/LORG/LORG6/index.md)
 7. [LORG7 push-up補題とI±の開性](textbook/volumes/dream_thater/幾何系/LORG/LORG7/index.md)
+8. [LORG8 共形因果構造と局所因果凸性](textbook/volumes/dream_thater/幾何系/LORG/LORG8/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
