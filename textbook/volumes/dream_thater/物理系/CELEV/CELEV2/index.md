@@ -115,15 +115,15 @@ $$
 $H^1$ の弱収束列はノルム有界です。[VAR9の一様収束部分列の命題](../../../解析系/VAR/VAR9/index.md#prop-var9-uniform-compactness)を有限個の実座標へ適用し、同じ部分列を選び直して
 $$
 \sup_{0\le t\le T}|q^{(j_k)}(t)-v(t)|\longrightarrow0
-$
+$$
 となる連続関数 $v$ が得られます。一様収束は強 $L^2$ 収束を含むので、任意の $\varphi\in L^2(0,T;(\mathbb R^2)^n)$ に対して
-$
+$$
 \int_0^T(q^{(j_k)}-v)\cdot\varphi\,dt\longrightarrow0
-$
+$$
 です。一方、元の列は $q$ に $H^1$ 弱収束し、したがって $L^2$ 弱収束もするので
-$
+$$
 \int_0^T(q-v)\cdot\varphi\,dt=0
-$
+$$
 となります。ここで $\varphi=q-v$ を選べば $\|q-v\|_2^2=0$ です。$q$ と $v$ はともに連続代表を持つため、全時刻で $q(t)=v(t)$ と結論できます。
 
 各 $j_k$ で $q^{(j_k)}(0)=q^{(j_k)}(T)$ なので、$k\to\infty$ として $q(0)=q(T)$ です。各時刻で
