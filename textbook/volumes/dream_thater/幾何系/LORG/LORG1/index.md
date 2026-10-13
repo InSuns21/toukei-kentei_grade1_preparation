@@ -51,7 +51,19 @@ $$
 g(u,u)=-t^2+\|\mathbf x\|^2
 $$
 
-です。$g(u,u)<0$ の非零ベクトルは時間的、$g(u,u)=0$ の非零ベクトルは光的、$g(u,u)>0$ の非零ベクトルは空間的と区別します。ここで $\|\mathbf x\|$ は空間の通常のEuclidノルムです。時間的ベクトルについては $|t|>\|\mathbf x\|$ が必要なので、$t$ の符号で二つの領域に分かれます。
+です。$g(u,u)$ の符号を使えば、正定値空間にはなかった三種類の方向を区別できます。ここで $\|\mathbf x\|$ は空間の通常のEuclidノルムです。
+
+<a id="def-lorg1-causal-type"></a>
+
+<!-- formal-statement-start -->
+> **定義（Lorentz因果型）**  
+> Lorentzベクトル空間 $(V,g)$ の非零ベクトル $u$ を、$g(u,u)<0$ なら時間的、$g(u,u)=0$ なら光的、$g(u,u)>0$ なら空間的という。時間的または光的な非零ベクトルを因果的という。零ベクトルはこれら三種類のいずれにも分類しない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lorg1-causal-type -->
+**定義の直接確認**。$1+1$ 次元で $(2,0)$ は $-4<0$ なので時間的、$(1,1)$ は $-1+1=0$ なので光的、$(0,1)$ は $1>0$ なので空間的です。$(0,0)$ も自己二乗は零ですが、零ベクトルを光的と呼ぶ定義ではありません。
+<!-- definition-example-end -->
+時間的ベクトルについては $|t|>\|\mathbf x\|$ が必要なので、$t$ の符号で二つの領域に分かれます。
 
 どちらを未来と呼んでも代数的には同じです。以下では $t>0$ の側を選びます。原点も加えた集合を扱うと、和や極限についての性質を簡潔に述べられます。
 
@@ -123,7 +135,30 @@ $$
 
 Euclid内積では、二つのベクトルのなす角の余弦の絶対値は1以下です。一方、未来向き時間的ベクトルでは、Lorentz内積の負号を外した値は**両者の固有時ノルムの積以上**になります。
 
-未来向き因果ベクトル $u$ に対し $\ell(u)=\sqrt{-g(u,u)}$ と置きます。錐の中では $-g(u,u)\ge0$ なので実数として定義できます。光的ベクトルでは $\ell(u)=0$ ですが、これはEuclid空間の正定値ノルムではありません。
+未来向き因果ベクトルでは自己二乗が非正なので、負号を付けて平方根を取れます。光的方向も含めて扱えるよう、この量を定義します。
+
+<a id="def-lorg1-proper-time-norm"></a>
+
+<!-- formal-statement-start -->
+> **定義（未来因果ベクトルの固有時ノルム）**  
+> 標準Lorentz空間の閉未来錐 $C_+$ 上の関数 $\ell:C_+\to[0,\infty)$ を
+>
+$
+\ell(u)=\sqrt{-g(u,u)}
+$
+>
+> と定める。$\ell(0)=0$ であり、非零の光的ベクトルでも $\ell(u)=0$ である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lorg1-proper-time-norm -->
+**定義の直接確認**。$1+1$ 次元の $u=(\sqrt5,1)$ は $\sqrt5>1$ で未来向き時間的なので
+
+$
+\ell(u)=\sqrt{5-1}=2.
+$
+
+一方、未来向き光的な $v=(1,1)$ では $\ell(v)=\sqrt{1-1}=0$ です。非零でも値が零になるため、$\ell$ はEuclidの正定値ノルムではありません。
+<!-- definition-example-end -->
 
 <a id="thm-lorg1-reverse-cauchy-schwarz"></a>
 
@@ -146,7 +181,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u=(t,\mathbf x)$、$v=(s,\mathbf y)$ とし、$r=\|\mathbf x\|$、$q=\|\mathbf y\|$ と置く。$t\ge r\ge0$、$s\ge q\ge0$ である。[Euclid空間のCauchy–Schwarz不等式](../../../基礎科目/LA/LA5/index.md#thm-la5-cauchy-schwarz)を空間成分に適用すると
+$u=(t,\mathbf x)$、$v=(s,\mathbf y)$ とし、$r=\|\mathbf x\|$、$q=\|\mathbf y\|$ と置く。$t\ge r\ge0$、$s\ge q\ge0$ である。空間部分では通常のEuclidのCauchy–Schwarz不等式 $\mathbf x\cdot\mathbf y\le rq$ が成り立つ。$r,q>0$ なら $\|\mathbf x/r-\mathbf y/q\|^2\ge0$ を展開して従い、どちらかが零なら直接成り立つ。これを適用すると
 
 $$
 -g(u,v)=ts-\mathbf x\cdot\mathbf y\ge ts-rq\ge0.
