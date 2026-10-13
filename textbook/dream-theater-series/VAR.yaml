@@ -29,7 +29,7 @@ chapters:
     title: "第二変分・Jacobi場・共役点"
   - id: VAR6
     path: textbook/volumes/dream_thater/解析系/VAR/VAR6
-    status: planned
+    status: completed
     title: "最短測地線と存在"
   - id: VAR7
     path: textbook/volumes/dream_thater/解析系/VAR/VAR7
