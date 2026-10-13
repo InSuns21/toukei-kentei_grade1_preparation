@@ -1,0 +1,52 @@
+id: "AG3-05"
+title: "ファイバー積と基底変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-04
+  - LA3E
+  - AG3-03
+  - AG3-02
+  - AG3-01
+  - AG1-04
+  - AG1-02
+official_scope: []
+learning_objectives:
+  - スキームのファイバー積の普遍性を定義しアフィンの場合にテンソル積で証明できる
+  - テンソル積を方程式として計算し相対的な積と素点の単純な直積の違いを説明できる
+  - アフィンチャートから一般のファイバー積を貼り合わせて普遍性を検証できる
+  - 基底変換と反復基底変換を説明し結合法則を普遍性から証明できる
+  - 開埋め込みと閉埋め込みの基底変換を局所化・商環で証明できる
+  - 点上のファイバー・幾何学的ファイバーと剰余体の関係を示し特異・冪零ファイバーを計算できる
+definitions:
+  - { id: AG3-05-DEF-01, name: スキームのファイバー積 }
+  - { id: AG3-05-DEF-02, name: 基底変換 }
+  - { id: AG3-05-DEF-03, name: 点上のファイバーと幾何学的ファイバー }
+theorems:
+  - { id: AG3-05-THM-01, name: アフィンスキームのファイバー積 }
+  - { id: AG3-05-PROP-01, name: 多項式表示と方程式 }
+  - { id: AG3-05-THM-02, name: スキームのファイバー積の存在と一意性 }
+  - { id: AG3-05-PROP-02, name: 反復基底変換と結合法則 }
+  - { id: AG3-05-PROP-03, name: 開部分と閉部分の基底変換 }
+  - { id: AG3-05-PROP-04, name: アフィンな族の点上のファイバー }
+canonical_examples:
+  - アフィン直線二本の積と多項式環
+  - 二つの二乗写像のファイバー積
+  - 閉部分・開部分の基底変換
+  - x²=tとxy=tの特殊ファイバー
+  - 実数体上の複素点のファイバー積
+problem_patterns:
+  - AG3-05-A1
+  - AG3-05-A2
+  - AG3-05-A3
+  - AG3-05-A4
+  - AG3-05-B1
+  - AG3-05-B2
+  - AG3-05-B3
+  - AG3-05-B4
+  - AG3-05-C1
+  - AG3-05-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 19, exercises: 12, review: 6 }
