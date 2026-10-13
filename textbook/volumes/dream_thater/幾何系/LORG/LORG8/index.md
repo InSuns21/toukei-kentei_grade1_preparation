@@ -162,7 +162,7 @@ $$
 
 ## 5. Alexandrov近傍：二つの時間的錐を重ねる
 
-[pからの時間的未来](../LORG6/index.md#def-lorg6-chronological-causal-future)と点 $b$ の時間的過去を交差させれば、$a$ より後で $b$ より前という**二重の時間制約**を持つ領域ができます。これをAlexandrovダイヤモンドと呼びます。開性を調べた後、曲線がその外へ抜けられないことを証明します。
+[pからの時間的未来](../LORG6/index.md#def-lorg6-chronological-causal-future)と点 $b$ の時間的過去を交差させれば、$a$ より後で $b$ より前という**二重の時間制約**を持つ領域ができます。この二つの錐が重なる領域を調べます。開性を確認した後、曲線が領域の外へ抜けられないことを証明します。
 
 <a id="def-lorg8-alexandrov-diamond"></a>
 
