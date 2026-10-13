@@ -18,9 +18,9 @@ $k[t]_{(t)}$ では $t$ は非単元、$1+t$ は単元です。通常の位相�
 > すべての $x\in X$ で茎 $\mathcal O_{X,x}$ が局所環なら、組 $(X,\mathcal O_X)$ を局所環付き空間という。  
 > 茎の唯一の極大イデアルを $\mathfrak m_x$ と書き、剰余体を次で定める。
 
-$
+$$
 \kappa(x)=\mathcal O_{X,x}/\mathfrak m_x.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-03-lrs -->
@@ -280,9 +280,9 @@ $A/I$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $I$ を含む
 
 その核を求めます。$a/s$ が0に写るのは、ある $u\notin\mathfrak p$ について $ua\in I$ となる場合です。そこで
 
-$
+$$
 \frac{a}{s}=\frac{ua}{us}\in IA_{\mathfrak p}
-$
+$$
 
 です。逆に $IA_{\mathfrak p}$ の元はすべて商側で0になるので、核は $IA_{\mathfrak p}$ に一致します。[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)により、茎の商環表示を得ます。
 <!-- proof-end -->
@@ -431,9 +431,9 @@ $Y$ は一点なので $f$ は連続です。$U=X$ の切断の引き戻しは $
 
 しかし $Y$ の点での茎の写像は包含 $R\hookrightarrow K$ です。$K$ の極大イデアルは $(0)$ であり、その逆像は $(0)\subset R$ です。$R$ の極大イデアルは $tR$ なので、
 
-$
+$$
 (R\hookrightarrow K)^{-1}((0))=(0)\ne tR
-$
+$$
 
 となり、[局所準同型の条件](#def-ag3-03-morphism)を満たしません。
 
