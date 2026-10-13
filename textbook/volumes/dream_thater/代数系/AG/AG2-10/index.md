@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-10-conormal -->
-**定義の直接例。** $A=\mathbb C[x,y]$、$I=(y-x^2)=(f)$ とします。$A$ は整域なので、$a f\in(f^2)$ は $a\in(f)$ と同値です。よって
+**定義の確認**： $A=\mathbb C[x,y]$、$I=(y-x^2)=(f)$ とします。$A$ は整域なので、$a f\in(f^2)$ は $a\in(f)$ と同値です。よって
 
 $$
 A/(f)\longrightarrow I/I^2,\qquad
@@ -624,7 +624,7 @@ $$
 aS^2+bST+cT^2
 $$
 
-という斉次二次式です。例えば超平面 $Z=0$ の引き戻しは $T^2=0$ です。[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)を $d=2$ に適用すると
+という斉次二次式です。例えば射影平面の直線 $Z=0$ の引き戻しは $T^2=0$ です。[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)を $d=2$ に適用すると
 
 $$
 \nu_2^*\mathcal O_{C_2}(1)
@@ -656,7 +656,11 @@ $$
 df=2y\,dy-3x^2\,dx
 $$
 
-です。原点の局所環の極大イデアルは $\mathfrak m=(x,y)$ であり、$df$ の係数 $2y,-3x^2$ はいずれも $\mathfrak m$ に属します。もし $B\,df$ が $Bdx\oplus Bdy$ の直和因子で商が自由階数1なら、$df$ を基底の一つに拡張できます。そうすると変換行列の行列式が単元なので、$df$ の二つの係数の少なくとも一方は単元でなければなりません。しかしそのような係数はありません。従って[余法完全列の局所分裂](#thm-ag2-10-conormal-sequence)の証明はここでは使えません。なお、これだけで余法写像が非単射と結論したわけではありません。
+です。原点の局所環の極大イデアルを $\mathfrak m=(x,y)$ とします。$df$ の係数は $2y$ と $-3x^2$ であり、どちらも $\mathfrak m$ に属するため単元ではありません。
+
+もし $B\,df$ が $Bdx\oplus Bdy$ の直和因子で、その商が自由階数1なら、$df$ を基底の一つに拡張できます。その場合、基底変換行列の行列式は単元です。ところが $df$ の二つの係数はともに $\mathfrak m$ の元なので、行列式も $\mathfrak m$ に属し、単元になれません。これは矛盾です。
+
+従って[余法完全列の局所分裂](#thm-ag2-10-conormal-sequence)の証明は尖点で使えません。なお、ここから余法写像そのものが非単射とは結論していません。
 
 (b) $D\subset\mathbb P^3$ は次数 $d_1=2,d_2=3$ の滑らかな完全交叉であり、Jacobianの階数が全点で2です。[完全交叉の定理](#thm-ag2-10-complete-intersection)の $n=3,r=2$ の場合を使うと正規束は
 
