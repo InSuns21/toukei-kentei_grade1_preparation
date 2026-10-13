@@ -65,7 +65,7 @@ chapters:
     title: "Dolbeault複体・コホモロジー"
   - id: CM2-05
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-05
-    status: planned
+    status: completed
     title: "低次元Dolbeaultコホモロジーの計算"
   - id: CM2-06
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-06
