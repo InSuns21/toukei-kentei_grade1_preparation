@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - AMECH3
   - VC2
-forward_references: []
+forward_references:
+  - VAR2
 
 concepts:
   - id: calculus-of-variations.admissible-class
