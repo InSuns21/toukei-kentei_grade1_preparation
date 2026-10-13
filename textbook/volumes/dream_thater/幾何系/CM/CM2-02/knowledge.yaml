@@ -1,0 +1,55 @@
+chapter: CM2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-01
+
+concepts:
+  - id: complex-manifolds.function-wirtinger-differentials
+    name: 関数に作用する偏微分作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（関数に作用する偏微分作用素）"]
+    requires: [complex-manifolds.cotangent-type-splitting, geometry.exterior-derivative]
+  - id: complex-manifolds.type-exterior-derivatives
+    name: 型別外微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別外微分）"]
+    requires: [complex-manifolds.pq-form-decomposition, complex-manifolds.function-wirtinger-differentials, geometry.exterior-derivative]
+  - id: complex-manifolds.dolbeault-local-formula
+    name: 局所公式と座標不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所公式と座標不変性）"]
+    requires: [complex-manifolds.type-exterior-derivatives, complex-manifolds.pq-coordinate-invariance, geometry.exterior-derivative-invariant-formula]
+  - id: complex-manifolds.dolbeault-identities
+    name: 型別外微分の三つの恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（型別外微分の三つの恒等式）"]
+    requires: [complex-manifolds.dolbeault-local-formula, geometry.exterior-derivative-square-zero, complex-manifolds.pq-form-decomposition]
+  - id: complex-manifolds.dolbeault-graded-leibniz
+    name: 型別の次数付き積の法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（型別の次数付き積の法則）"]
+    requires: [complex-manifolds.dolbeault-local-formula, geometry.exterior-derivative-graded-leibniz, complex-manifolds.pq-wedge-conjugation]
+  - id: complex-manifolds.dolbeault-conjugation-pullback
+    name: 共役と正則引き戻し
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共役と正則引き戻し）"]
+    requires: [complex-manifolds.dolbeault-local-formula, complex-manifolds.holomorphic-pullback-preserves-type, geometry.pullback-commutes-exterior-derivative]
+  - id: complex-manifolds.dolbeault-holomorphic-function
+    name: 正則関数の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則関数の判定）"]
+    requires: [complex-manifolds.function-wirtinger-differentials, complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.dolbeault-bicomplex
+    name: 型別形式の二重複体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別形式の二重複体）"]
+    requires: [complex-manifolds.dolbeault-identities]
