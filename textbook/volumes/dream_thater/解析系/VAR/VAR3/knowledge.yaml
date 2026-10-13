@@ -6,6 +6,7 @@ prerequisites:
   - VAR2
   - GEO10
   - AMECH3
+  - ODE4
 forward_references: [geometry.geodesic]
 
 concepts:
@@ -73,3 +74,10 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（位置固定・接線自由の曲げ端点条件）"]
     requires: [calculus-of-variations.planar-elastica-equation, calculus-of-variations.planar-transversality]
+
+  - id: calculus-of-variations.planar-graph-bending
+    name: グラフ曲線の曲率と曲げ密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（グラフ曲線の曲率と曲げ密度）"]
+    requires: [calculus-of-variations.elastica-bending-energy, calculus-of-variations.planar-signed-curvature]
