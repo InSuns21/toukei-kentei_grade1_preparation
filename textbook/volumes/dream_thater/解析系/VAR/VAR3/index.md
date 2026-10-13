@@ -415,16 +415,16 @@ $$
 > **命題（グラフ曲線の曲率と曲げ密度）**  
 > $u\in C^4([a,b])$、$\gamma(x)=(x,u(x))$ を左向き法線の向きで測る正則グラフ曲線とする。このとき
 >
-$
+$$
 ds=\sqrt{1+(u')^2}\,dx,\qquad
 \kappa=\frac{u''}{(1+(u')^2)^{3/2}}
-$
+$$
 >
 > が成り立ち、曲げエネルギーは
 >
-$
+$$
 E[u]=\frac12\int_a^b\frac{(u'')^2}{(1+(u')^2)^{5/2}}\,dx
-$
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -437,23 +437,23 @@ $
 ### 証明
 
 $\gamma_x=(1,u')$、$\gamma_{xx}=(0,u'')$ なので
-$
+$$
 |\gamma_x|=\sqrt{1+(u')^2},\qquad
 \det(\gamma_x,\gamma_{xx})=u''.
-$
+$$
 [符号付き曲率の定義](#def-var3-signed-curvature)は弧長微分で書かれています。$v=|\gamma_x|>0$ とすれば、$T=\gamma_x/v$、$d/ds=v^{-1}d/dx$ なので
-$
+$$
 \frac{dT}{ds}=\frac{\gamma_{xx}}{v^2}-\frac{\gamma_xv'}{v^3},\qquad
 \det\left(T,\frac{dT}{ds}\right)
 =\frac{\det(\gamma_x,\gamma_{xx})}{v^3}
-$
+$$
 です。第二項は $\det(\gamma_x,\gamma_x)=0$ だから消えます。従って
-$
+$$
 \kappa=\frac{u''}{(1+(u')^2)^{3/2}},\qquad
 \frac12\kappa^2\,ds
 =\frac{(u'')^2}{2(1+(u')^2)^3}\sqrt{1+(u')^2}\,dx
 =\frac{(u'')^2}{2(1+(u')^2)^{5/2}}\,dx.
-$
+$$
 これを $[a,b]$ で積分して結論を得ます。
 <!-- proof-end -->
 
@@ -511,10 +511,35 @@ $$
 =\left((\kappa')^2+\frac14\kappa^4-\lambda\kappa^2\right)'=0.
 $$
 従って
-$
+$$
 (\kappa')^2+\frac14\kappa^4-\lambda\kappa^2=C
-$
-という第一積分を持ちます。二階方程式を $q=\kappa$、$v=\kappa'$ による自律系 $q'=v,\ v'=\lambda q-q^3/2$ にすると、$H(q,v)=v^2+q^4/4-\lambda q^2$ は軌道上で一定です。この意味で[ODE4の保存量（第一積分）の定義](../../ODE/ODE4/index.md#def-ode4-first-integral)を満たします。定数解 $\kappa=c\ne0$ には $\lambda=c^2/2$ が必要です。非定数の曲率解から実際の平面曲線を作るには $T'=\kappa JT$、$\gamma'=T$ をさらに積分し、端点や閉曲線の接続条件を検査します。第一積分だけでは形状の存在を保証しません。
+$$
+という第一積分が得られます。この定数式は[ODE4の保存量（第一積分）の定義](../../ODE/ODE4/index.md#def-ode4-first-integral)に当てはまります。
+
+実際、$q=\kappa$、$v=\kappa'$ と置くと、元の曲率方程式は二次元の自律系
+$$
+q'=v,\qquad v'=\lambda q-\frac12q^3
+$$
+となります。ここで
+$$
+H(q,v)=v^2+\frac14q^4-\lambda q^2
+$$
+と定めると、連鎖律により軌道上で
+$$
+\begin{aligned}
+\frac{dH}{ds}
+&=2v\left(\lambda q-\frac12q^3\right)
+ +(q^3-2\lambda q)v\\
+&=2\lambda qv-q^3v+q^3v-2\lambda qv=0
+\end{aligned}
+$$
+です。従って $H=C$ は $s$ に依存しません。
+
+定数解 $\kappa=c\ne0$ には $\lambda=c^2/2$ が必要です。非定数の曲率解から実際の平面曲線を作るには
+$$
+T'=\kappa JT,\qquad \gamma'=T
+$$
+をさらに積分し、端点や閉曲線の接続条件を検査します。第一積分だけでは形状の存在を保証しません。
 
 ここまでで「長さを動かすと曲率」「曲率エネルギーを動かすと曲率の微分」という関係ができました。次の VAR4 では、直線の代わりに Riemann多様体上の測地線を扱い、曲率と空間自体の曲がり方を区別します。
 
