@@ -8,7 +8,15 @@
 
 [VC3の正則パラメータ曲面と面積要素](../../../幾何系/VC/VC3/index.md#def-vc3-area-element)では、$X=X(u^1,u^2)$ に対し $g_{ij}=\langle X_i,X_j\rangle$、面積要素 $dA=\sqrt{\det g}\,du^1du^2$ を学びました。[GEO10の形作用素と第二基本形式](../../../幾何系/GEO/GEO10/index.md#def-geo10-shape-operator)では、選んだ単位法線 $N$ に対し $S=-dN$、$b_{ij}=\langle X_{ij},N\rangle$ と置きました。本章でもこの符号を保持します。
 
-境界をもつコンパクトな向き付け可能 $C^3$ 曲面 $\Sigma$（必要なら閉曲面）を $\mathbb R^3$ に $C^3$ 級で埋め込み、その像を $X(\Sigma)$ と書きます。境界は区分的 $C^2$ とします。局所計算は座標 $(u^1,u^2)$ で行います。曲面全体の面積は誘導計量の面積要素 $dA$ を積分して定め、$\sqrt{\det g}\,du^1du^2$ は各座標近傍での表示です。閉曲面を含む一般の曲面に、一つの座標表示を全域で使えるとは仮定しません。$\varepsilon$ に関し $C^1$、空間変数に関し $C^2$ の正則な曲面族 $X_\varepsilon$ を $X_0=X$ として用意し、その速度を $V=\partial_\varepsilon X_\varepsilon|_0$ とします。面積の一次変化を $\delta A[X;V]=\left.\frac{d}{d\varepsilon}A[X_\varepsilon]\right|_0$ と書きます。
+境界をもつコンパクトな向き付け可能 $C^3$ 曲面 $\Sigma$（必要なら閉曲面）を $\mathbb R^3$ に $C^3$ 級で埋め込み、その像を $X(\Sigma)$ と書きます。境界は区分的 $C^2$ とします。
+
+曲面全体の面積は誘導計量の面積要素 $dA$ を積分して定めます。局所座標 $(u^1,u^2)$ では
+$
+dA=\sqrt{\det g}\,du^1du^2
+$
+です。閉曲面を含む一般の曲面に、一つの座標表示を全域で使えるとは仮定しません。
+
+$\varepsilon$ に関し $C^1$、空間変数に関し $C^2$ の正則な曲面族 $X_\varepsilon$ を $X_0=X$ として用意し、その速度を $V=\partial_\varepsilon X_\varepsilon|_0$ とします。面積の一次変化を $\delta A[X;V]=\left.\frac{d}{d\varepsilon}A[X_\varepsilon]\right|_0$ と書きます。
 
 変分を考える際には、$V$ は接線方向 $W$ と法線方向 $fN$ に一意に分かれます。**固定境界**なら $V=0$ を境界に課し、**境界自由**ならこの制約を課しません。境界上で曲面の接平面に属し、境界接ベクトルに直交して外を向く単位ベクトルを外向き余法線 $\mu$ と書きます。
 
@@ -113,7 +121,19 @@ $$
 $$
 です。
 
-積分に使う平面の発散公式を、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)から確認します。VC4の定理は **3次元領域** に関するものです。そこで区分的 $C^1$ 境界を持つ有界平面領域 $U$ と $C^1$ ベクトル場 $(P,Q)$ に対し、$\Omega=U\times(0,1)$、$F(u,v,t)=(P(u,v),Q(u,v),0)$ と置きます。$\operatorname{div}_{\mathbb R^3}F=P_u+Q_v$ であり、立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
+積分に使う平面の発散公式を、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)から確認します。VC4の定理は **3次元領域** に関するものです。
+
+区分的 $C^1$ 境界を持つ有界平面領域 $U$ と $C^1$ ベクトル場 $(P,Q)$ に対し、次の立体とベクトル場を考えます。
+$
+\Omega=U\times(0,1),\qquad F(u,v,t)=(P(u,v),Q(u,v),0).
+$
+このとき3次元での発散は
+$
+\operatorname{div}_{\mathbb R^3}F=P_u+Q_v
+$
+です。
+
+立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
 
 <a id="ref-var7-planar-divergence"></a>
 $$
@@ -266,7 +286,17 @@ $$
 $$
 0=\int_I\eta(x)\left(\int_J q(x,y)\zeta(y)\,dy\right)dx.
 $$
-固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用して $\int_J q(x,y)\zeta(y)\,dy=0$ をすべての $x\in I$ について得ます。次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上でも[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用すると $q(x,y)=0$ が $I\times J$ で成立します。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
+固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用すると
+$
+\int_J q(x,y)\zeta(y)\,dy=0\qquad(x\in I)
+$
+を得ます。
+
+次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上でも[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用すると
+$
+q(x,y)=0\qquad((x,y)\in I\times J)
+$
+です。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
 
 発散を展開するため $w_x=(u_xu_{xx}+u_yu_{xy})/w$、$w_y=(u_xu_{xy}+u_yu_{yy})/w$ を計算します。従って
 $$
