@@ -337,6 +337,16 @@ $$
 第一のファイバーは冪零元を持ち、第二の環は $(x-1)$ と $(x+1)$ が互いに素なので $k\times k$ に同型です。この差はスキームとしてのファイバーを取らなければ読み取れません。
 <!-- definition-example-end -->
 
+同じ族を $k=\mathbb R$ 上で考え、基底点 $s=(t+1)$ を取ると、$X_s\simeq\operatorname{Spec}\mathbb R[x]/(x^2+1)$ です。$x^2+1$ は $\mathbb R$ 上既約なのでこのファイバーは一点ですが、$\kappa(s)=\mathbb R$ を代数閉包 $\mathbb C$ に拡大すると
+
+$$
+X_{\bar s}
+\simeq\operatorname{Spec}\mathbb C[x]/((x-i)(x+i))
+\simeq\operatorname{Spec}(\mathbb C\times\mathbb C)
+$$
+
+となり二点が現れます。これは点の個数の変化が、ファイバーの係数体にも依存することを示しています。
+
 <a id="prop-ag3-05-fiber-coordinate"></a>
 
 <!-- formal-statement-start -->
