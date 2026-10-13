@@ -784,6 +784,7 @@
 7. [AG2-07 Weil因子・Cartier因子と可逆層](textbook/volumes/dream_thater/代数系/AG/AG2-07/index.md)
 8. [AG2-08 局所パラメータ・微分形式・標準束](textbook/volumes/dream_thater/代数系/AG/AG2-08/index.md)
 9. [AG2-09 射影空間の標準束とEuler列](textbook/volumes/dream_thater/代数系/AG/AG2-09/index.md)
+10. [AG2-10 正規束と随伴公式](textbook/volumes/dream_thater/代数系/AG/AG2-10/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
