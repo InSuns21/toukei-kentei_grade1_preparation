@@ -143,9 +143,9 @@ Euclid内積では、二つのベクトルのなす角の余弦の絶対値は1�
 > **定義（未来因果ベクトルの固有時ノルム）**  
 > 標準Lorentz空間の閉未来錐 $C_+$ 上の関数 $\ell:C_+\to[0,\infty)$ を
 >
-$
+$$
 \ell(u)=\sqrt{-g(u,u)}
-$
+$$
 >
 > と定める。$\ell(0)=0$ であり、非零の光的ベクトルでも $\ell(u)=0$ である。
 <!-- formal-statement-end -->
@@ -153,9 +153,9 @@ $
 <!-- definition-example-start: def-lorg1-proper-time-norm -->
 **定義の直接確認**。$1+1$ 次元の $u=(\sqrt5,1)$ は $\sqrt5>1$ で未来向き時間的なので
 
-$
+$$
 \ell(u)=\sqrt{5-1}=2.
-$
+$$
 
 一方、未来向き光的な $v=(1,1)$ では $\ell(v)=\sqrt{1-1}=0$ です。非零でも値が零になるため、$\ell$ はEuclidの正定値ノルムではありません。
 <!-- definition-example-end -->
