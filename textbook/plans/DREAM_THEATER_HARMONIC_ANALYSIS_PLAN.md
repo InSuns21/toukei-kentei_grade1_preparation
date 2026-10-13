@@ -26,10 +26,10 @@ Fourier 解析で関数を周波数へ分解できるようになった。では
 
 確認先:
 - https://link.springer.com/book/10.1007/978-1-4939-1194-3
-- https://press.princeton.edu/books/paperback/9780691080789/singular-integrals-and-differentiability-properties-of-functions
-- https://press.princeton.edu/books/hardcover/9780691113845/fourier-analysis
+- https://www.jstor.org/stable/j.ctt1bpmb07
+- https://books.google.com/books/about/Fourier_Analysis.html?id=I6CJngEACAAJ
 - https://www.jstor.org/stable/j.ctt1bpmb3s
-- https://www.cambridge.org/core/books/fourier-integrals-in-classical-analysis/9733215B5C73DC21C01D2F5384607F75
+- https://www.cambridge.org/core/books/fourier-integrals-in-classical-analysis/B6564D013B4F3C1897BCC052096EE462
 
 **主な欠落の是正**: 旧案では (i) Mikhlin型乗数定理が不在、(ii) L^\infty の endpoint を説明する BMO が不在、(iii) HA8 で定常位相法・Stein--Tomas・wave packet を同居させ証明の前提が足りなかった。補強章はこの三点を埋めるもので、教科書の目次を網羅するための水増しではない。
 
