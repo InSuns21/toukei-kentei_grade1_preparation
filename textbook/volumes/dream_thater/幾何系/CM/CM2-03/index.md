@@ -71,7 +71,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（bar∂の基本解）**  
-> $\mathbb C$ 上で局所可積分な関数 $K(z)=1/(\pi z)$ は、分布の意味で $\partial_{\bar z}K=\delta_0$ を満たす。すなわち任意の $\varphi\in C_c^\infty(\mathbb C)$ に対し
+> $\mathbb C$ 上で近傍ごとに絶対積分が有限な関数 $K(z)=1/(\pi z)$ は、分布の意味で $\partial_{\bar z}K=\delta_0$ を満たす。すなわち任意の $\varphi\in C_c^\infty(\mathbb C)$ に対し
 
 $$
 -\frac1\pi\int_{\mathbb C}\frac{\partial_{\bar z}\varphi(z)}{z}\,dA(z)=\varphi(0)
@@ -104,7 +104,7 @@ $$
 \end{aligned}
 $$
 
-$z=\varepsilon e^{it}$ と代入すると、右辺は $-\frac12\int_0^{2\pi}\varphi(\varepsilon e^{it})\,dt$ となり、$\varepsilon\downarrow0$ で $-\pi\varphi(0)$ に収束する。左辺も $|\partial_{\bar z}\varphi(z)|/|z|$ の局所可積分性により元の積分へ収束する。両辺に $-1/\pi$ を掛ければ結論となる。$\square$
+$z=\varepsilon e^{it}$ と代入すると、右辺は $-\frac12\int_0^{2\pi}\varphi(\varepsilon e^{it})\,dt$ となり、$\varepsilon\downarrow0$ で $-\pi\varphi(0)$ に収束する。左辺も $|\partial_{\bar z}\varphi(z)|/|z|$ の特異核の積分可能性により元の積分へ収束する。両辺に $-1/\pi$ を掛ければ結論となる。$\square$
 <!-- proof-end -->
 
 <a id="thm-cm2-03-one-variable-inverse"></a>
@@ -153,7 +153,7 @@ $$
 左辺も右辺も滑らかな関数なので、分布としての等号は各点での等号である。パラメータ $t$ に関しても上と同じ局所一様優関数が使え、$\partial_t(Tg)=T(\partial_tg)$ を得る。高階微分はこれを反復する。$\square$
 <!-- proof-end -->
 
-この定理は $g$ がコンパクト台を持つ場合の全平面上の右逆である。一般の局所関数 $f$ へ適用するには、切断関数を掛ける。円板 $D\subset\mathbb C$ とその内部の小円板 $E$ を取り、$\chi\in C_c^\infty(D)$、$\chi|_E=1$ とすれば
+この定理は $g$ が台がコンパクトな場合の全平面上の右逆である。一般の局所関数 $f$ へ適用するには、切断関数を掛ける。円板 $D\subset\mathbb C$ とその内部の小円板 $E$ を取り、$\chi\in C_c^\infty(D)$、$\chi|_E=1$ とすれば
 
 $$
 T(\chi f)(z)=\frac1\pi\int_D\frac{\chi(\zeta)f(\zeta)}{z-\zeta}\,dA(\zeta),
@@ -165,7 +165,7 @@ $$
 
 ## 4. パラメータ付き積分と多重円板
 
-多重円板 $D=D_1\times\cdots\times D_n\subset\mathbb C^n$ と、各円板に相対コンパクトな小円板 $E_j\Subset D_j$ を選ぶ。$\chi_j\in C_c^\infty(D_j)$ は $E_j$ 上で1とする。滑らかな係数 $f$ に対し、$j$ 番目の変数だけ積分する作用素を
+多重円板 $D=D_1\times\cdots\times D_n\subset\mathbb C^n$ と、各円板に閉包が大きい円板内にある小円板 $E_j\Subset D_j$ を選ぶ。$\chi_j\in C_c^\infty(D_j)$ は $E_j$ 上で1とする。滑らかな係数 $f$ に対し、$j$ 番目の変数だけ積分する作用素を
 
 $$
 (T_j f)(z)
@@ -187,7 +187,15 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（多重円板の座標別右逆）**  
-> $D=\prod_{j=1}^nD_j$ を多重円板、$E_j\Subset D_j$ を小円板とし、$\chi_j\in C_c^\infty(D_j)$ は $E_j$ 上で1とする。任意の $f\in C^\infty(D)$ について $T_jf$ は $D$ 上滑らかであり、$z^j\in E_j$ では $\partial_{\bar z^j}T_jf=f$、$k\ne j$ では $D$ 上 $\partial_{\bar z^k}T_jf=T_j\partial_{\bar z^k}f$ を満たす。$f$ が他の変数 $z^k$ に正則なら $T_jf$ もその変数に正則である。
+> $D=\prod_{j=1}^nD_j$ を多重円板とし、各小円板 $E_j$ の閉包が $D_j$ に含まれるとする。切断関数 $\chi_j\in C_c^\infty(D_j)$ は $E_j$ 上で1とする。任意の滑らかな関数 $f$ に対して $T_jf$ は $D$ 上滑らかであり、次を満たす。
+
+$
+\partial_{\bar z^j}T_jf=f\quad(z^j\in E_j),
+\qquad
+\partial_{\bar z^k}T_jf=T_j\partial_{\bar z^k}f\quad(k\ne j).
+$
+
+> また $f$ が他の変数 $z^k$ に正則なら $T_jf$ もその変数に正則である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
