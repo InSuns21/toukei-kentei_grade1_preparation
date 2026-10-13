@@ -268,7 +268,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[標準因子と標準束](../AG2-08/index.md#thm-ag2-08-canonical-divisor)の定理から $\mathcal O_C(K_C)\simeq\omega_C$ です。[標準束と正則微分形式の個数](#prop-ag3-11-canonical-sections)で $\omega_C\simeq\mathcal O_C(d-3)$ と示しました。よって $K_C\sim(d-3)H$ です。そのため
+[標準因子と標準束](../AG2-08/index.md#thm-ag2-08-canonical-divisor)は $\mathcal O_C(K_C)\simeq\omega_C$ を与えます。[標準束と正則微分形式の個数](#prop-ag3-11-canonical-sections)で $\omega_C\simeq\mathcal O_C(d-3)$ と示しました。よって $K_C\sim(d-3)H$ です。そのため
 
 $$
 \ell(K_C-mH)
@@ -409,7 +409,7 @@ $$
 
 ### B1. 四次曲線の二次切断と一次群
 
-滑らかな四次曲線 $C$ に対し、$h^0(C,\mathcal O_C(2))$ と $h^1(C,\mathcal O_C(2))$ を求め、Euler標数を検算せよ。
+滑らかな四次曲線 $C$ に対し、$h^0(C,\mathcal O_C(2))$ と $h^1(C,\mathcal O_C(2))$ を求め、その交代次元和を検算せよ。
 
 - Level: B
 - ID: AG3-11-B1
