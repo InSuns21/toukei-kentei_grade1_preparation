@@ -1,0 +1,78 @@
+chapter: CELEV5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV4
+  - CELEV3
+  - CELEV2
+  - CELEV1
+  - VAR9
+  - CELE2
+forward_references: []
+concepts:
+  - id: celestial-variational.euler-isosceles-arc
+    name: Euler–二等辺型の基本弧
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euler–二等辺型の基本弧）"]
+    aliases: []
+    requires: [celestial-variational.extended-newton-action]
+  - id: celestial-variational.euler-isosceles-direct-method
+    name: 基本弧の強制性と最小点の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基本弧の強制性と最小点の存在）"]
+    aliases: []
+    requires:
+      - celestial-variational.euler-isosceles-arc
+      - calculus-of-variations.direct-method-existence
+  - id: celestial-variational.equal-mass-shape-sphere
+    name: 等質量三体の形状球面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等質量三体の形状球面）"]
+    aliases: []
+    requires: [celestial-variational.euler-isosceles-arc]
+  - id: celestial-variational.rotation-zero-angular
+    name: 回転自由な端点とゼロ角運動量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転自由な端点とゼロ角運動量）"]
+    aliases: []
+    requires:
+      - celestial-variational.euler-isosceles-direct-method
+      - celestial-variational.equal-mass-shape-sphere
+  - id: celestial-variational.figure-eight-collision-comparison
+    name: Chenciner–Montgomeryの基本弧衝突排除
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Chenciner–Montgomeryの基本弧衝突排除：外部結果）"]
+    aliases: []
+    requires:
+      - celestial-variational.euler-isosceles-direct-method
+      - celestial-variational.marchal-fixed-ends
+  - id: celestial-variational.figure-eight-reconstruction
+    name: 基本弧の接合と慣性系での復元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基本弧の接合と慣性系での復元：Chenciner–Montgomeryの外部結果）"]
+    aliases: []
+    requires:
+      - celestial-variational.figure-eight-collision-comparison
+      - celestial-variational.rotation-zero-angular
+  - id: celestial-variational.equal-mass-choreography
+    name: 等質量三体の舞踏解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等質量三体の舞踏解）"]
+    aliases: []
+    requires: [celestial-variational.figure-eight-reconstruction]
+  - id: celestial-variational.figure-eight-shape
+    name: Chenciner–Montgomeryの8の字解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Chenciner–Montgomeryの8の字解：外部結果の幾何学的部分）"]
+    aliases: []
+    requires:
+      - celestial-variational.equal-mass-choreography
+      - celestial-variational.figure-eight-reconstruction
