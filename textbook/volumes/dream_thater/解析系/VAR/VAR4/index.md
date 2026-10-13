@@ -224,8 +224,14 @@ $$
 =\frac{\dot\gamma(\phi)}{c_0}.
 $$
 
-曲線に沿う微分則より $D\widetilde U/ds
-=(\phi'/c_0)(D\dot\gamma/dt)(\phi)=0$。従って長さの第一変分は全固定端方向でゼロです。
+曲線に沿う微分則を適用すると、
+
+$
+\frac{D\widetilde U}{ds}
+=\frac{\phi'}{c_0}\left(\frac{D\dot\gamma}{dt}\right)(\phi)=0
+$
+
+です。従って長さの第一変分は全固定端方向でゼロです。
 
 一方、曲線に沿う共変微分の合成則を順に使うと
 
