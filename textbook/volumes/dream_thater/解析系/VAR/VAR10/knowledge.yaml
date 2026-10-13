@@ -1,0 +1,60 @@
+chapter: VAR10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR9
+concepts:
+  - id: calculus-of-variations.integral-functional-fixed-endpoint
+    name: 固定端点の積分汎関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定端点の積分汎関数）"]
+    requires: [calculus-of-variations.interval-admissible-classes]
+  - id: calculus-of-variations.tonelli-quadratic-hypotheses
+    name: 一次元二次成長のTonelli型条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次元二次成長のTonelli型条件）"]
+    requires: [calculus-of-variations.integral-functional-fixed-endpoint]
+  - id: calculus-of-variations.tonelli-weak-lsc
+    name: 速度凸な積分汎関数の弱逐次下半連続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（速度凸な積分汎関数の弱逐次下半連続性）"]
+    requires: [calculus-of-variations.tonelli-quadratic-hypotheses, calculus-of-variations.interval-uniform-compactness, calculus-of-variations.direct-weak-lsc]
+  - id: calculus-of-variations.tonelli-existence
+    name: 固定端点の一次元Tonelli型存在定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定端点の一次元Tonelli型存在定理）"]
+    requires: [calculus-of-variations.tonelli-weak-lsc, calculus-of-variations.direct-method-existence]
+  - id: calculus-of-variations.weak-euler-lagrange
+    name: 弱Euler–Lagrange方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱Euler–Lagrange方程式）"]
+    requires: [calculus-of-variations.integral-functional-fixed-endpoint, calculus-of-variations.stationary-curve]
+  - id: calculus-of-variations.weak-euler-lagrange-necessity
+    name: 最小点の弱Euler–Lagrange必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最小点の弱Euler–Lagrange必要条件）"]
+    requires: [calculus-of-variations.weak-euler-lagrange, calculus-of-variations.tonelli-quadratic-hypotheses]
+  - id: calculus-of-variations.momentum-flux-ac
+    name: 運動量流束の絶対連続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（運動量流束の絶対連続性）"]
+    requires: [calculus-of-variations.weak-euler-lagrange]
+  - id: calculus-of-variations.strong-convexity-regularity
+    name: 強い速度凸性の下での一次元正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強い速度凸性の下での一次元正則性）"]
+    requires: [calculus-of-variations.momentum-flux-ac, calculus-of-variations.weak-euler-lagrange-necessity]
+  - id: calculus-of-variations.nonconvex-nonattainment
+    name: 速度非凸な強制的汎関数の非達成例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（速度非凸な強制的汎関数の非達成例）"]
+    requires: [calculus-of-variations.tonelli-weak-lsc, calculus-of-variations.direct-coercivity]
