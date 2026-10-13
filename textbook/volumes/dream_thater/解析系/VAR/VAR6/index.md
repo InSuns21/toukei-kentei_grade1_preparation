@@ -63,7 +63,7 @@ $$
 
 Cauchy–Schwarz の等号条件は二関数が比例することなので、速さがほとんど至る所一定という条件になります。一方で [GEO15 の最短測地線の定義](../../../幾何系/GEO/GEO15/index.md#def-geo15-minimizing-geodesic)に使う距離は長さの下限だから $L(\gamma)\ge d(p,q)$ です。
 
-下限が等しいことも示します。距離の定義から、任意の $\varepsilon>0$ について区分的 $C^1$ 曲線 $\alpha$ で
+下限が等しいことも示します。$p=q$ のときは定数曲線が $E=0=d(p,q)^2/2$ を達成するので、以下では $p\ne q$ とします。距離の定義から、任意の $\varepsilon>0$ について区分的 $C^1$ 曲線 $\alpha$ で
 
 $$
 L(\alpha)<d(p,q)+\varepsilon
@@ -216,7 +216,7 @@ $$
 \qquad |\sigma'(s)|=R,
 $$
 
-なので $L(\sigma)=R\theta$、したがって $d(p,q)\le R\theta$ です。
+なので $L(\sigma)=R\theta$、したがって $d(p,q)\le R\theta$ です。$q=p$ なら定数曲線が長さ0を達成します。$q=-p$ なら $u$ に直交する任意の単位ベクトル $w$ を選び、同じ式の $0\le s\le\pi$ を使えば長さ $\pi R$ の半大円が得られます。従って $\theta=0,\pi$ の場合も距離の上界 $d(p,q)\le R\theta$ が成立します。
 
 逆向きを任意の区分的 $C^1$ 曲線 $x(t)$ に対して示します。$x(t)\ne\pm p$ の部分で $\varphi(t)=\arccos(u\cdot x(t)/R)$ と置きます。$\cos\varphi=(u\cdot x)/R$ を微分すると
 
@@ -239,17 +239,76 @@ $$
 |\varphi'(t)|\le\frac{|x'(t)|}{R}.
 $$
 
-北極または南極を通る曲線では、その点を通過する区間の前後へ分け、連続性により同じ評価を積分してよいので、
+ただし $x(t)=p$ または $x(t)=-p$ では $\sin\varphi=0$ なので、この微分の式を直接使えません。北極や南極を繰り返し通る曲線も一度に扱うため、$\varepsilon>0$ に対して
 
 $$
-\theta=|\varphi(1)-\varphi(0)|
-\le\int_0^1|\varphi'|\,dt
-\le\frac1R\int_0^1|x'|\,dt.
+\psi_\varepsilon(t)
+=
+\arccos\left(\frac{u\cdot x(t)}{R(1+\varepsilon)}\right)
 $$
 
-これで $L(x)\ge R\theta$、すなわち距離公式が従います。
+を考えます。$\arccos$ の引数の絶対値は $1/(1+\varepsilon)<1$ 以下なので、$\psi_\varepsilon$ は極であっても区分的 $C^1$ です。先ほどの接空間への射影の評価 $|u\cdot x'|\le\sin\varphi\,|x'|$ を使うと、
 
-$0<\theta<\pi$ で等号になる最短曲線は、各点で $\varphi$ の増加方向の勾配に沿わなければなりません。この方向は北極からの同じ子午線方向を指定するため、上の $w$ に対応する短い大円弧に限られます。$\theta=\pi$ のとき終点 $q=-p$ は $w$ によらないので、$u$ に直交するどの単位ベクトル $w$ でも長さ $\pi R$ の最短半大円が得られます。
+$$
+|\psi_\varepsilon'|
+=
+\frac{|u\cdot x'|}
+{R\sqrt{(1+\varepsilon)^2-\cos^2\varphi}}
+\le
+\frac{\sin\varphi\,|x'|}
+{R\sqrt{\sin^2\varphi+2\varepsilon+\varepsilon^2}}
+\le\frac{|x'|}{R}.
+$$
+
+ここでは $\sin\varphi\ge0$ であり、分母が正なので、$x(t)=\pm p$ の場合も不等式が成り立ちます。区分的 $C^1$ の各滑らかな区間で導関数を積分し、その区間ごとの増分を足すと、任意の $0\le s<t\le1$ に対し
+
+$$
+|\psi_\varepsilon(t)-\psi_\varepsilon(s)|
+\le\int_s^t|\psi_\varepsilon'(r)|\,dr
+\le\frac1R\int_s^t|x'(r)|\,dr.
+$$
+
+$\varepsilon\downarrow0$ とすれば $\psi_\varepsilon(r)\to\varphi(r)$ なので
+
+$$
+|\varphi(t)-\varphi(s)|
+\le\frac1R L(x|_{[s,t]}).
+$$
+
+特に $s=0,\ t=1$ では $\varphi(0)=0,\ \varphi(1)=\theta$ より $L(x)\ge R\theta$、すなわち距離公式が従います。
+
+$0<\theta<\pi$ で最短曲線 $x$ の長さが $R\theta$ に等しい場合、任意の $t\in[0,1]$ に対し、上の部分区間の評価を両側で使うと
+
+$$
+R\theta=L(x|_{[0,t]})+L(x|_{[t,1]})
+\ge R\varphi(t)+R|\theta-\varphi(t)|
+\ge R\theta
+$$
+
+となります。全て等号なので $\varphi(t)\le\theta$ かつ $L(x|_{[0,t]})=R\varphi(t)$ です。従って $\varphi$ は減少せず、部分弧長の積分を微分して
+
+$$
+\varphi'(t)=\frac{|x'(t)|}{R}
+\quad\text{（ほとんど至る所）}
+$$
+
+を得ます。
+
+$0<\varphi<\pi$ の区間では
+
+$$
+x(t)=R\bigl(\cos\varphi(t)\,u+\sin\varphi(t)\,w(t)\bigr),
+\quad |w(t)|=1,\quad u\cdot w(t)=0
+$$
+
+と書けます。$w\cdot w'=0$ と $u\cdot w'=0$ を用いて微分し、直交する項の二乗ノルムを足すと
+
+$$
+|x'|^2
+=R^2\bigl(\varphi'^2+\sin^2\varphi\,|w'|^2\bigr).
+$$
+
+$|x'|=R\varphi'$ だから $\sin\varphi\,|w'|=0$、つまり内部では $w'=0$ です。また $\varphi$ は減少しないので、いったん北極を離れてから戻ることはありません。従って $w$ は端点 $q$ で決まる一定方向となり、最短曲線の軌跡は先に構成した短い大円弧に限られます。$\theta=\pi$ のときは終点 $q=-p$ が $w$ によらないので、$u$ に直交するどの単位ベクトル $w$ でも長さ $\pi R$ の最短半大円が得られます。
 
 一方向の単位速大円 $\gamma(t)=R(\cos(t/R)\,u+\sin(t/R)\,w)$ で $0\le t\le\pi R$ は距離を達成します。しかし $\pi R<t<2\pi R$ なら、距離公式から
 
