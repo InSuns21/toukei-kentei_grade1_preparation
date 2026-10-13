@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A
+  - SET-U2
 forward_references: []
 
 concepts:
@@ -32,6 +33,15 @@ concepts:
     introduction: formal
     requires:
       - algebra.group
+
+  - id: algebra.cyclic-subgroup-basic
+    name: 巡回部分群の基本性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.generated-subgroup
+      - algebra.subgroup-test
 
   - id: algebra.subgroup
     name: 部分群
