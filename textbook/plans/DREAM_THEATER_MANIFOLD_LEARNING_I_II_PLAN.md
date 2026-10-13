@@ -1,7 +1,7 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1・MFL2）
 
 分冊: 2026-10-11  
-改訂日: 2026-10-14（標準教科書・原著論文・現行正本と照合して改訂）  
+改訂日: 2026-10-14（標準教科書・原著論文・現行正本照合、ML章依存の具体化）  
 状態: planned（本PLAN設計改訂のみ。MFL固有の教材本文・series manifestは未実装）
 
 ## 0. 中心問いと具体的な講義規模
@@ -61,7 +61,28 @@
 | SO(3)の一般表現論、Peter–Weyl、主束一般論 | GEO/LIE、LREP/GBGなど実在する完成章を確認 | MFL2では有限群、SO(2)、低階ベクトル表現と局所frame計算を直接閉じる。一般大定理の無証明引用は禁止 |
 | 非線形PDE、情報幾何、物理モデルの解法 | GPDE/GA/IG/PMLの該当正本 | 幾何データ・等変性・数値誤差の検証への接続のみ |
 
-**入口を過剰に重くしない**。MFL1-01〜06はLA/RA・基礎確率・GEOの必要部分から始め、SGTをgraph章から、GAを連続作用素章から使う。MFL2前半はMFL1全21章を一律必修とせず有限群・有限次元線形代数から開始可能。後半の場・mesh章はGEO/GAやMFL1の必要結果を明示して依存させる。
+**入口を過剰に重くしない**。MFL1-01〜04はLA/RA・基礎確率・GEOの必要部分から始められる。MFL1-05以降のPCA・近傍法にはML1の必要章、SGTはgraph章から、GAは連続作用素章から利用する。MFL2-01〜03の群作用・有限表現はNN未習でも学べるが、**MFL2-04以降で学習層を構成する段階ではML2-13/14/16の必要結果に明確に依存する**。MFL2にMFL1全21章を一律必修としない一方、場・mesh章はGEO/GAやMFL1の必要結果も明示する。
+
+### 2.1 機械学習I/IIとの章別依存（ML PLANとの双方向の責務境界）
+
+[機械学習I/IIの現行PLAN](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md) と [ML系列manifest](../dream-theater-series/ML.yaml) を基準にした**具体的な設計依存**を次に固定する。2026-10-14時点でML1-01〜21・ML2-01〜25はすべてplannedであり、**PLANに記されたML結果を、証明済みの定理としては使用しない**。以下の「主要前提」は必要な数学的内容に対応する章IDであり、執筆時には完成status、使用定理のstable anchor、実際の直接prerequisiteを再確認する。
+
+| MFL側（導入章・利用章） | 対応するML章 | 利用する数学・手法 | 必須とする時点・重複を防ぐ境界 |
+|---|---|---|---|
+| MFL1-01〜04 | ML1-01（学習問題・標本） | データ生成・標本/母集団の区別 | **概念的な接続**。MFL1の幾何的標本モデルは基礎確率から自立して導入可能。ML1全体を開始前提としない |
+| MFL1-05、MFL1-08 | **ML1-19**（PCA・SVD） | 中心化、Gram/covariance、主成分・低ランク近似 | PCAの一般原理はML1-19または完成済みLAの同内容を参照。MFLは**局所接空間の推定誤差**・幾何への適用だけを新規所有 |
+| MFL1-06〜07 | **ML1-11**（k近傍・核密度） | kNN、半径/bandwidth、近傍探索、密度の概念 | ML1-11の一般算法とMFLのreach・幾何被覆・グラフ近傍を区別。直接のkNN定義は前提未実装時に必要範囲を説明 |
+| MFL1-20 | **ML2-01**（KL）、**ML1-09/10**（最適化） | t-SNEのKL損失、確率重み、勾配学習・反復 | KLの数学は完成済みINFOの該当結果でも代替可能。最適化の一般定理はML/OPTを参照し、MFLは可視化目的・非保存例を扱う |
+| MFL1-21 | **ML1-12**（検証分割・モデル選択）、必要に応じML1-21 | train/test、パラメータ調整、分布シフト | 一般的検証法はML、幾何推定の誤差指標・対照点群はMFL |
+| MFL2-01〜03 | ML2-13（後続への接続） | 等変性の問題設定、有限群と有限表現 | **NNの前段となる数学**なので、ここでML2-13のニューラルネット結果を無条件必須としない |
+| MFL2-04、MFL2-08 | **ML2-13**（多層perceptron） | 層の合成、特徴・活性化、集合NN | 有限群平均・置換等変層の**証明**はMFL、新規NNの一般構成はML |
+| MFL2-05〜07 | **ML2-16**（CNN・平行移動等変） | 離散畳み込み、padding、stride、重み共有 | ML2-16の**平行移動の証明**から有限群畳み込み・等質空間・steerable層へ拡張し、単なるCNNを再執筆しない |
+| MFL2-09〜12 | **ML2-13/14**（NN・逆伝播）、SGT | message/aggregate/updateと学習可能な写像、スペクトル | GNNの置換等変性・1-WL限界・oversmoothingはMFL所有。**一般の微分・自動微分の証明はML2-14** |
+| MFL2-13〜16 | **ML2-13/14**、学習実験にはML2-15 | E(n)等変座標更新・計算グラフ、学習の最適化 | 厳密な等変性はMFLの群変換から証明し、訓練・逆伝播の一般手順はMLから引く |
+| MFL2-17〜21 | **ML2-13/14**、GEO/GAの直接必要章 | 多様体場/mesh上の学習可能な線形層・局所frame | 接続・ゲージ変換の幾何はGEO/GA、層構成とgauge-equivarianceはMFL、一般NN/backpropはML |
+| MFL2-22 | **ML1-12、ML2-15** | 訓練/検証、seed、正則化、比較実験 | 通常NNとの公平な比較と、等変残差・幾何的帰納バイアスの効果の切り分け。MLのモデル評価一般論は重複所有しない |
+
+**実装時の判断**：対象ML章が未執筆なら、(A) 先にML側の当該章を実装する、(B) MFL本文で自立して証明できる有限・局所模型に対象を限定し、一般ML定理は既知とせず、完成後に正本リンクへ接続する、のいずれかを章の着手前に明示する。必須の一般ML理論を数行の無証明引用へ置き換えてはいけない。MLの予定章へ直接prerequisiteを機械的登録しない。**MFL1の前半をML2完了まで不必要に停止させず、MFL2の深層部分をMLなしで完成扱いしない**。
 
 ### 採用する標準模型と記法
 
@@ -137,28 +158,34 @@ $$
 ~~~text
 LA/RA・基礎確率・GEO（必要部分）
       ↓
-MFL1-01〜06   統計的幾何模型・接空間・内在次元
+MFL1-01〜04   統計的幾何模型（基礎確率/GEOから開始）
       ↓
-MFL1-07〜11   SGT1〜8を利用したgraph・埋め込み
+ML1-19 → MFL1-05〜06（局所PCA・内在次元）
+      ↓
+ML1-11 + SGT1〜8 → MFL1-07〜11（graph・埋め込み）
       ↓
 MFL1-12〜19   GAの必要部分・kernel極限・spectral consistency
       ↓
+ML1-09/10/12・ML2-01（またはINFOのKL）
+      ↓
 MFL1-20〜21   可視化とnear-manifoldの総合検証
 
-群作用・有限表現・必要なML/NN基礎
+群作用・有限表現 → MFL2-01〜03（NN不要な数学導入）
       ↓
-MFL2-01〜08   symmetryと等変層
+ML2-13 → MFL2-04（等変層）・MFL2-08（集合NN）
       ↓
-MFL2-09〜12   GNNとその表現限界
+ML2-16 → MFL2-05〜07（group convolution）
       ↓
-MFL2-13〜16   座標付きE(n)/SE(3)モデル
+ML2-13/14 + SGT → MFL2-09〜12（GNNと表現力）
       ↓
-MFL2-17〜21   GEO/GAと接続するmanifold field・gauge
+ML2-13/14 → MFL2-13〜16（E(n)/SE(3)等変層）
       ↓
-MFL2-22       総合実験
+ML2-13/14 + GEO/GA → MFL2-17〜21（manifold field・gauge）
+      ↓
+ML1-12 + ML2-15 → MFL2-22（対照実験）
 ~~~
 
-上図は読順であり、**全前講を各章の直接prerequisiteに機械的追加しない**。各chapter.yaml/knowledge.yamlは証明に必要な直接結果を所有する実在章・stable anchorから確定する。MFL2-09のpermutation equivarianceにMFL1-19の一般spectral convergenceは不要。MFL1-12以降が使うGAはplannedであれば未証明として扱い、一般結果が必要な章の実装を保留または局所模型へ限定する。MFL2-17以降も同様にGEO/GAの実在結果を照合する。
+上図は読順であり、**全前講を各章の直接prerequisiteに機械的追加しない**。各chapter.yaml/knowledge.yamlは証明に必要な直接結果を所有する実在章・stable anchorから確定する。MFL2-09のpermutation equivarianceにMFL1-19の一般spectral convergenceは不要。MFL1-12以降が使うGAはplannedであれば未証明として扱い、一般結果が必要な章の実装を保留または局所模型へ限定する。**MLのplanned章も同様であり、章IDを書いただけでは定理の前提を満たさない**。MFL2-17以降も同様にGEO/GAの実在結果を照合する。
 
 ## 6. 章別数値実験・対話シミュレーション
 
@@ -207,7 +234,7 @@ MFL2-22       総合実験
 ## 8. series manifest・実装・完了ゲート
 
 1. 本改訂は**設計のみ**のためPLANを textbook/plans/ に留める。章が存在するかのようにmanifest、chapter.yaml、knowledge.yamlや公開indexを捏造しない。
-2. 着手前に GitHub上の本PLAN、SGT.yaml、直接必要なGEO/GA/MLの現行chapter.yaml/knowledge.yaml、知識DAG、MFL1-01〜21・MFL2-01〜22のID衝突を確認する。
+2. 着手前に GitHub上の本PLAN、SGT.yaml、**ML系列manifestとML1-11/12/19・ML2-13/14/15/16等の実装status**、直接必要なGEO/GA/MLの現行chapter.yaml/knowledge.yaml（未実装なら存在しないこと）、知識DAG、MFL1-01〜21・MFL2-01〜22のID衝突を確認する。
 3. MFL固有の本文・検証・系列manifestの着手時にPLANを plans_progress/ へ**移動**し、同じ作業単位で適切なseries manifest（MFL.yaml等）を実際に作成する。manifestのplan参照を新パスへ揃える。PLANを二重配置しない。
 4. manifestの上から連続するcompletedの次の最初のplannedを進め、完了時には**MFLのmanifestだけ**を更新。common routingへ単一active seriesを置かない。
 5. 新章はDREAM_THEATER_AUTHORING_STANDARDの変更区分Cに従い、全主要証明・全演習/詳細解答の出発点からの再計算と別観点再読を行う。局所数学変更は区分Bの波及先、表示のみの変更は区分Aの意味内容同値・レンダリング確認を使う。
