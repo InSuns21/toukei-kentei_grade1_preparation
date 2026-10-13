@@ -98,10 +98,10 @@ $\alpha(1)=q=\beta(0)$ だから $\gamma$ は連続で、各区間では速度�
 
 最後の一意性はこの命題からは従いません。例えば $S^1_\theta\times\mathbb R_x$ に $g=-d\theta^2+dx^2$ を入れ、$\theta$ の増加方向を未来にします。$p=(0,0)$、$q=(\pi,0)$（角度は $2\pi$ を法として読む）について、
 
-$
+$$
 \alpha(s)=(\pi s,0),\qquad
 \beta(s)=(\pi+\pi s,0),\qquad 0\le s\le1
-$
+$$
 
 を円周上の曲線と見れば、$\alpha$ は $p$ から $q$ へ、$\beta$ は $q$ から $p$ へ進みます。どちらも速度の自己内積は $-\pi^2<0$ で未来向きです。従って $p\ne q$ でも $p\ll q$ かつ $q\ll p$ が成立し、因果到達は反対称とは限りません。$\square$
 <!-- proof-end -->
@@ -450,9 +450,11 @@ $$
 です。$q_k\to q=(t,\mathbf x)$ なら $t_k\to t$、$\mathbf x_k\to\mathbf x$ です。ノルムの連続性により
 
 $$
-t-t_0=\lim_{k\to\infty}(t_k-t_0)
-\ge\lim_{k\to\infty}|\mathbf x_k-\mathbf x_0|
-=|\mathbf x-\mathbf x_0|.
+\begin{aligned}
+t-t_0&=\lim_{k\to\infty}(t_k-t_0)\\
+&\ge\lim_{k\to\infty}|\mathbf x_k-\mathbf x_0|\\
+&=|\mathbf x-\mathbf x_0|.
+\end{aligned}
 $$
 
 よって $q\in J^+(p)$ です。一方 $I^+(p)$ の厳密不等式は極限で等号に変わりえます。実際、$p=(0,0)$、$q_k=(1+1/k,1)$ では
