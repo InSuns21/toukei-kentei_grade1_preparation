@@ -156,7 +156,7 @@ $$
 $$
 よって強制的です。有限作用の比較曲線があるので、最小化列の作用を一つの有限数で上から抑えられます。上の評価で $H^1$ 有界となり、弱収束部分列を取れます。[VAR9の一様コンパクト性](../../../解析系/VAR/VAR9/index.md#prop-var9-uniform-compactness)でさらに一様収束する部分列を選ぶと、極限で周期端点、重心零、すべての同変等式を保ちます。弱極限と一様極限が一致する理由は[CELEV2の弱閉性の証明](../CELEV2/index.md#prop-celev2-weak-closed)と同じく、$L^2$ の弱極限の一意性です。
 
-運動項は弱下半連続です。ポテンシャルは各時刻の粒子間距離の一様収束から点wiseに拡張実数値で下半連続となり、非負性に[Fatouの補題を使うCELEV2の証明](../CELEV2/index.md#prop-celev2-action-lsc)を適用できます。したがって弱極限 $q_*$ は
+運動項は弱下半連続です。ポテンシャルは各時刻の粒子間距離の一様収束から点wiseに拡張実数値で下半連続となり、非負性から[Fatouの補題](../../../解析系/F0/F0-00D2B/index.md#lem-f0-00d2b-01)をポテンシャル積分へ適用できます。[CELEV2の弱下半連続性](../CELEV2/index.md#prop-celev2-action-lsc)も同じ論証に基づきます。したがって弱極限 $q_*$ は
 $$
 \mathcal A_T[q_*]\le\liminf_{k\to\infty}\mathcal A_T[q^{(k)}]
 =\inf_{\mathcal H_T^G}\mathcal A_T<\infty
