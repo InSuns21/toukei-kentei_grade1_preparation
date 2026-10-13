@@ -72,7 +72,15 @@ $$
 <!-- definition-example-start: def-ag3-01-spec -->
 ### 例：一次式の零点と一般点
 
-**定義の確認** $k[t]$ は整域だから $(0)$ は素イデアルです。また $(t-a)$ は、商環 $k[t]/(t-a)\simeq k$ が体なので素イデアルです。ゆえに $(0)$ と各 $(t-a)$ はいずれも $\operatorname{Spec}k[t]$ の点です。$k$ が代数閉体なら[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)により極大イデアルはすべて $(t-a)$ の形ですが、$(0)$ は極大でありません。従来の $a\in k$ のほかに、直線全体に対応する点が現れます。
+**定義の確認** $k[t]$ は整域なので $(0)$ は素イデアルです。さらに $(t-a)$ の商は体になります。
+
+$$
+k[t]/(t-a)\simeq k.
+$$
+
+したがって各 $(t-a)$ も素イデアルであり、どちらも $\operatorname{Spec}k[t]$ の点です。
+
+$k$ が代数閉体の場合、[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)から極大イデアルは $(t-a)$ に限られます。しかし $(0)$ は極大ではありません。従来の $a\in k$ のほかに、直線全体に対応する点が加わります。
 
 $D=k[\varepsilon]/(\varepsilon^2)$ では、素イデアル $\mathfrak p$ に $\varepsilon^2=0$ が属するため、素性から $\varepsilon\in\mathfrak p$ です。$(\varepsilon)$ は商が $k$ なので素イデアルであり、ほかの素イデアルはありません。$\operatorname{Spec}D$ と $\operatorname{Spec}k$ は集合としてともに一点です。
 <!-- definition-example-end -->
@@ -316,7 +324,27 @@ $k$ を体、$A=k[x,y]/(xy)$、$B=k[t]$ とする。$k$ 代数準同型 $\alpha:
 - ID: AG3-01-B2
 
 <!-- solution-start -->
-**詳細解答。** $xy$ の像は $t\cdot0=0$ なので、商環からの準同型 $\alpha$ は well-defined です。多項式表示 $f(x,y)$ に対して $\alpha(\bar f)=f(t,0)$ となります。$(0)$ の逆像は $f(t,0)=0$ となる元全体で、$f(x,0)=0$ と同値です。多項式を $y$ で割った余りは $f(x,0)$ なので、これは $(y)$ です。$A/(y)\simeq k[x]$ が整域なので素です。$(t-a)$ の逆像は $f(a,0)=0$ を満たす元全体、すなわち $(y,x-a)$ です。$A/(y,x-a)\simeq k$ は体なので素です。特に $a=0$ のときは二本の軸が交わる $(x,y)$ へ写ります。
+**詳細解答。** まず $xy$ の像は $t\cdot0=0$ です。したがって商環の関係式を保ち、$\alpha$ は well-defined です。任意の剰余類 $\bar f\in A$ に対し、
+
+$$
+\alpha(\bar f)=f(t,0)
+$$
+
+と書けます。$(0)\subset k[t]$ の逆像に属する条件は $f(t,0)=0$ であり、これは $f(x,0)=0$ という多項式等式です。$f$ を $y$ の多項式として定数項とそれ以外に分けると、
+
+$$
+f(x,y)=f(x,0)+y\,g(x,y)
+$$
+
+となります。よって逆像は $(y)$ であり、商 $A/(y)\simeq k[x]$ が整域だから素イデアルです。
+
+次に $(t-a)$ の逆像条件は $f(a,0)=0$ です。これを満たす多項式は $(y,x-a)$ に属し、逆も成り立つため逆像は $(y,x-a)$ です。商は
+
+$$
+A/(y,x-a)\simeq k
+$$
+
+という体なので素イデアルです。$a=0$ のときだけ二本の軸の交点 $(x,y)$ に対応します。
 <!-- solution-end -->
 
 ### B3. 代数閉でない基礎体
@@ -327,7 +355,17 @@ $A=\mathbb R[t]/(t^2+1)$ とする。$\operatorname{Spec}A$、$h_A(\mathbb R)$�
 - ID: AG3-01-B3
 
 <!-- solution-start -->
-**詳細解答。** $t^2+1$ は $\mathbb R$ 上既約なので $A$ は体で、$A\simeq\mathbb C$ です。体の真の素イデアルは $(0)$ だけで、$\operatorname{Spec}A=\{(0)\}$ となります。$\mathbb R$ への単位的 $\mathbb R$ 代数準同型があれば $t$ の像 $r\in\mathbb R$ は $r^2+1=0$ を満たす必要がありますが不可能なので $h_A(\mathbb R)=\varnothing$ です。$\mathbb C$ への $\mathbb R$ 代数準同型では $t$ の像は $i$ または $-i$ です。両方とも代入準同型を定め、$h_A(\mathbb C)$ は二点です。素点集合の一点は剰余体 $\kappa((0))\simeq\mathbb C$ を持ち、値域体の選び方で実現する準同型の数が変化します。
+**詳細解答。** $t^2+1$ は $\mathbb R$ 上既約です。従って
+
+$$
+A=\mathbb R[t]/(t^2+1)\simeq\mathbb C
+$$
+
+は体です。体の唯一の真の素イデアルは $(0)$ なので、$\operatorname{Spec}A=\{(0)\}$ です。
+
+$\mathbb R$ 値点では $t$ の像 $r\in\mathbb R$ に $r^2+1=0$ が必要ですが、実数に解がありません。よって $h_A(\mathbb R)=\varnothing$ です。
+
+$\mathbb C$ 値点では $t$ の像 $z$ は $z^2+1=0$ を満たすので $z=i,-i$ に限られます。それぞれ多項式の代入によって異なる $\mathbb R$ 代数準同型を与えます。したがって $h_A(\mathbb C)$ は2点です。$\operatorname{Spec}A$ の点の剰余体は $\mathbb C$ で、同じ素点に対して値域体によって準同型の数が変わることが分かります。
 <!-- solution-end -->
 
 ### B4. 冪零元を関手で検出する
@@ -360,7 +398,33 @@ $k$ を代数閉体、$A=k[x,y]/(xy)$ とする。$(x)$、$(y)$、$(x,y)$ がそ
 - ID: AG3-01-C2
 
 <!-- solution-start -->
-**詳細解答。** $(x)$ で割ると $A/(x)\simeq k[y]$、$(y)$ で割ると $A/(y)\simeq k[x]$ となり、ともに整域です。$(x,y)$ で割ると $A/(x,y)\simeq k$ となるので、三つとも素イデアルです。$(x,y)$ は原点 $(0,0)$ の極大イデアルであり、各軸上の $k$ 値点は $(x-a,y)$ または $(x,y-b)$ の形です。一方 $(x)$ と $(y)$ は極大でなく、各軸を一つの既約なまとまりとして表す素点です。指定の環準同型 $\alpha$ は $xy$ を0に送るので well-defined で、その核は $f(t,0)=0$ となる元の集合、すなわち $(y)$ です。したがって $\operatorname{Spec}(\alpha)((0))=\alpha^{-1}((0))=(y)$ です。これは $x$ 軸の一般点に対応します。
+**詳細解答。** 三つのイデアルについて、まず商を計算します。
+
+$$
+A/(x)\simeq k[y],\qquad
+A/(y)\simeq k[x],\qquad
+A/(x,y)\simeq k.
+$$
+
+前二者は整域、最後は体です。従って $(x)$、$(y)$、$(x,y)$ はすべて素イデアルです。最後の $(x,y)$ は原点の極大イデアルに対応します。
+
+$k$ が代数閉体なので、二本の座標軸上の $k$ 値点は $(x-a,y)$ または $(x,y-b)$ と表せます。一方、$(x)$ と $(y)$ は極大ではなく、各軸全体に対応する素点です。
+
+指定の環準同型 $\alpha$ は $xy$ を0に送るため well-defined です。$\alpha(\bar f)=f(t,0)$ だから、逆像に属する条件は
+
+$$
+f(t,0)=0\quad\Longleftrightarrow\quad
+f(x,0)=0\quad\Longleftrightarrow\quad
+\bar f\in(y)
+$$
+
+です。従って
+
+$$
+\operatorname{Spec}(\alpha)((0))=\alpha^{-1}((0))=(y)
+$$
+
+となり、これは $x$ 軸の一般点です。
 <!-- solution-end -->
 
 次章では $\operatorname{Spec}A$ の素点の間にZariski位相を入れ、各開集合へ局所化環を割り当てて構造層を作ります。今回得た反変写像が、位相・層を備えた空間の射へどう持ち上がるかが次の中心問題です。
