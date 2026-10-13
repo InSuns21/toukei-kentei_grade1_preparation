@@ -1,10 +1,10 @@
 version: 1
 id: CELE
 title: "天体力学・三体問題・Hamiltonian chaos"
-plan: textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 2026-10-13: CELE1 through CELE8 authored; cross-series verification remains in the PLAN.
+# 2026-10-13: CELE1 through CELE8 completed; cross-series verification and PLAN closure completed.
 chapters:
   - id: CELE1
     path: textbook/volumes/dream_thater/物理系/CELE/CELE1
