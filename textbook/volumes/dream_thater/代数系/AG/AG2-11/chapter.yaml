@@ -1,0 +1,50 @@
+id: "AG2-11"
+title: "滑らかな超曲面と正則性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-10
+  - AG2-09
+  - AG2-08
+  - AG2-02
+  - AG1-10
+  - AG1-09
+  - AG1-04
+official_scope: []
+learning_objectives:
+  - 斉次多項式のEuler恒等式を導き射影Jacobianとアフィンチャートの判定を一致させられる
+  - 射影超曲面の滑らかな点と特異点をJacobian階数で判定できる
+  - 局所環の埋め込み次元と正則局所環の定義を具体例で確認できる
+  - 超曲面の局所環とZariski余接空間から滑らかさの判定を再導出できる
+  - 滑らかな点の近傍でKähler微分の局所基底を明示できる
+  - Fermat型と円錐・尖点・可約な超曲面の特異点を正しく計算できる
+  - 滑らかさの検査後に随伴公式を適用し非被約方程式との違いを説明できる
+definitions:
+  - { id: AG2-11-DEF-01, name: 超曲面の滑らかさと特異性 }
+  - { id: AG2-11-DEF-02, name: 正則局所環と埋め込み次元 }
+theorems:
+  - { id: AG2-11-PROP-01, name: Euler恒等式とチャートJacobian }
+  - { id: AG2-11-THM-01, name: 射影超曲面のJacobian判定 }
+  - { id: AG2-11-LEM-01, name: 超曲面の閉点での局所次元 }
+  - { id: AG2-11-THM-02, name: 超曲面の滑らかさと正則局所環 }
+  - { id: AG2-11-PROP-02, name: 滑らかな超曲面での局所余接基底 }
+canonical_examples:
+  - 斉次二次曲線X0X2-X1²の滑らかさと接方向
+  - Fermat型五次超曲面と標準束の自明性
+  - 二次円錐X0X1-X2²の唯一の頂点
+  - 可約な二直線の交点と非被約二重直線
+problem_patterns:
+  - AG2-11-A1
+  - AG2-11-A2
+  - AG2-11-A3
+  - AG2-11-A4
+  - AG2-11-B1
+  - AG2-11-B2
+  - AG2-11-B3
+  - AG2-11-B4
+  - AG2-11-C1
+  - AG2-11-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 5 }

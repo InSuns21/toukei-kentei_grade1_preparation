@@ -96,7 +96,7 @@ chapters:
     title: "正規束と随伴公式"
   - id: AG2-11
     path: textbook/volumes/dream_thater/代数系/AG/AG2-11
-    status: planned
+    status: completed
     title: "滑らかな超曲面と正則性"
   - id: AG2-12
     path: textbook/volumes/dream_thater/代数系/AG/AG2-12

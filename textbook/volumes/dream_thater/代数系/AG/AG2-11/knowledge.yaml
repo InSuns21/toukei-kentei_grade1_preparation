@@ -1,0 +1,55 @@
+chapter: AG2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-10
+  - AG2-09
+  - AG2-08
+  - AG2-02
+  - AG1-10
+  - AG1-09
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.projective-euler-gradient
+    name: Euler恒等式とチャートJacobian
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euler恒等式とチャートJacobian）"]
+    requires: [algebraic-geometry.hypersurface-conormal]
+  - id: algebraic-geometry.hypersurface-smooth-point
+    name: 超曲面の滑らかさと特異性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（超曲面の滑らかさと特異性）"]
+    requires: [algebraic-geometry.projective-euler-gradient]
+  - id: algebraic-geometry.hypersurface-jacobian-criterion
+    name: 射影超曲面のJacobian判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影超曲面のJacobian判定）"]
+    requires: [algebraic-geometry.hypersurface-smooth-point]
+  - id: algebraic-geometry.regular-local-ring
+    name: 正則局所環と埋め込み次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則局所環と埋め込み次元）"]
+    requires: []
+  - id: algebraic-geometry.hypersurface-local-dimension
+    name: 超曲面の閉点での局所次元
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（超曲面の閉点での局所次元）"]
+    requires: [algebraic-geometry.regular-local-ring]
+  - id: algebraic-geometry.hypersurface-regularity-criterion
+    name: 超曲面の滑らかさと正則局所環
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超曲面の滑らかさと正則局所環）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion, algebraic-geometry.regular-local-ring, algebraic-geometry.hypersurface-local-dimension]
+  - id: algebraic-geometry.hypersurface-local-cotangent-basis
+    name: 滑らかな超曲面での局所余接基底
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな超曲面での局所余接基底）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion, algebraic-geometry.hypersurface-conormal-exact-sequence]
