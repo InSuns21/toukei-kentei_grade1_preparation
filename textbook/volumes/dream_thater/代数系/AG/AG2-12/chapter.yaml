@@ -1,0 +1,48 @@
+id: "AG2-12"
+title: "射影平面三次曲線とquintic"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-11
+  - AG2-10
+  - AG2-09
+  - AG2-08
+  - AG2-07
+  - AG2-06
+  - AG2-02
+  - AG1-04
+official_scope: []
+learning_objectives:
+  - 射影Weierstrass三次曲線の有限点と無限遠点にJacobian判定を適用し既約性を検証できる
+  - 滑らかな三次曲線で局所パラメータを交換し非消失正則1形式を全点で再構成できる
+  - 座標関数の零点位数と無限遠での極の位数を求め主因子を計算できる
+  - Fermat quinticの滑らかさ・余接階数・標準束を随伴公式で求められる
+  - quinticの局所3形式を構成し消去方向と射影チャート変更の符号を追跡できる
+  - 滑らかさの仮定が崩れた三次曲線とquinticでどの証明操作が使えなくなるか説明できる
+definitions: []
+theorems:
+  - { id: AG2-12-PROP-01, name: Weierstrass三次曲線の滑らかさ }
+  - { id: AG2-12-THM-01, name: 三次曲線の消えない正則1形式 }
+  - { id: AG2-12-PROP-02, name: 三次曲線上の座標関数の主因子 }
+  - { id: AG2-12-THM-02, name: Fermat quinticの滑らかさと標準束 }
+  - { id: AG2-12-PROP-03, name: quinticの局所標準形式 }
+canonical_examples:
+  - Weierstrass三次曲線の無限遠点と局所形式
+  - 三次曲線のxの主因子
+  - Fermat quinticの局所3形式とチャート変換
+  - 尖点三次と特異な五次円錐
+problem_patterns:
+  - AG2-12-A1
+  - AG2-12-A2
+  - AG2-12-A3
+  - AG2-12-A4
+  - AG2-12-B1
+  - AG2-12-B2
+  - AG2-12-B3
+  - AG2-12-B4
+  - AG2-12-C1
+  - AG2-12-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 5 }
