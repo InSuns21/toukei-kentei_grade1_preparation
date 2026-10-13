@@ -600,7 +600,7 @@ $$
 ### 演習 HA2-A02（分布関数から $L^2$）
 <a id="ex-ha2-a02"></a>
 - Level: A
-- 問題: $(0,3)$ 上で $f=2\boldsymbol{1}_{(0,1)}+\boldsymbol{1}_{(1,3)}$ とする。分布関数を閾値の等号に注意して書き、layer-cake公式から $\|f\|_2$ を求めよ。
+- 問題: $(0,3)$ 上で $f=2\boldsymbol{1}_{(0,1)}+\boldsymbol{1}_{(1,3)}$ とする。分布関数を閾値の等号に注意して書き、[layer-cake公式](#prop-ha2-layercake)から $\|f\|_2$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
