@@ -106,7 +106,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M=\sup_n\|u_n\|_{H^1}<\infty$ とします。任意の $x,y\in[a,b]$ に対し、絶対連続性とCauchy–Schwarzから
+$M=\sup_n\|u_n\|_{H^1}<\infty$ とします。任意の $x,y\in[a,b]$ に対し、[絶対連続代表元の定理](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 $$
 |u_n(x)-u_n(y)|
 =\left|\int_y^x u_n'(t)\,dt\right|
@@ -178,7 +178,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-weak-lsc -->
-**定義の確認**。 $J(u)=\int_I|u'|^2$ は弱逐次下半連続です。弱収束すると $L^2$ の導関数も弱収束し、[Hilbert空間の弱収束部分列](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)と両立する次のノルム不等式が使えます。導関数の極限を $w=u'$ とし、$z=u_n'$ とおくと
+**定義の確認**。 $J(u)=\int_I|u'|^2$ は弱逐次下半連続です。実際、導関数写像 $D:H^1(I)\to L^2(I)$ は
+$$
+\|Dv\|_2=\|v'\|_2\le\|v\|_{H^1}
+$$
+を満たす有界線形作用素です。任意の $w\in L^2(I)$ に対して、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+$$
+\left|\int_Iv'w\,dt\right|\le\|v'\|_2\|w\|_2
+\le\|v\|_{H^1}\|w\|_2
+$$
+です。従って $v\mapsto\int_Iv'w$ は $H^1$ 上の有界線形汎関数なので、$u_n\rightharpoonup u$ in $H^1$ なら $u_n'\rightharpoonup u'$ in $L^2$ です。$w=u'$、$z=u_n'$ とおくと
 $$
 0\le\|z-w\|_2^2
 =\|z\|_2^2-2\langle z,w\rangle_2+\|w\|_2^2.
@@ -266,7 +275,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\|u\|_2\le C_P\|u'\|_2$ と書きます。[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)の仮定は $u\in H_0^1(I)$ により満たされます。Cauchy–Schwarzから
+$\|u\|_2\le C_P\|u'\|_2$ と書きます。[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)の仮定は $u\in H_0^1(I)$ により満たされます。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 $$
 \begin{aligned}
 J_f(u)
@@ -296,7 +305,7 @@ J_f(g+v)=\frac12\|v'\|_2^2+
 \int_Ig'v'\,dt-\int_Ifv\,dt+
 \left(\frac12\|g'\|_2^2-\int_Ifg\,dt\right).
 $$
-$g'\in L^2$ であり線形項をCauchy–SchwarzとPoincaréで抑えられるため、同じ証明が働きます。
+$g'\in L^2$ であり線形項を[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)で抑えられるため、同じ証明が働きます。
 
 ## 7. 周期問題では定数方向を制御する
 
@@ -344,12 +353,12 @@ $$
 >
 > **（2）** $\int_If\ne0$ なら、$H^1_{\mathrm{per}}(I)$ 上で $J_f$ は下に有界でない。
 >
-> **（3）** $\int_If=0$ なら、周期集合上では最小点が存在しても一意でない（任意の定数を加えたものも最小点）。
+> **（3）** $\int_If=0$ なら、周期集合上に最小点が存在し、その全体は $\mathcal P_0$ 上の一意な最小点 $u_*$ と任意定数 $c\in\mathbb R$ の和 $u_*+c$ である。特に $J_f$ は周期集合上で強制的ではなく、最小点も一意ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-（1）は平均零Poincaré評価を二次エネルギーに代入し、直接法と厳密凸性を適用します。（2）は定数方向へ移動します。（3）はエネルギーの定数並進不変性で確認します。
+（1）は[平均零Poincaré評価](#prop-var9-mean-zero-poincare)を二次エネルギーに代入し、直接法と厳密凸性を適用します。（2）は定数方向へ移動します。（3）はエネルギーの定数並進不変性で確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -371,7 +380,19 @@ $$
 $$
 J_f(u+c)=J_f(u)-c\int_If=J_f(u).
 $$
-存在は（1）の最小点を用いて示せます。任意の周期 $u$ から平均 $\bar u=L^{-1}\int_Iu$ を引けば $u-\bar u\in\mathcal P_0$ で、$\int f=0$ により $J_f(u)=J_f(u-\bar u)$。ゆえに（1）の最小点は周期集合全体でも最小で、定数を加えれば異なる最小点が無数に得られます。
+存在は（1）の一意な最小点 $u_*$ を用いて示せます。任意の周期 $u$ に対し、平均を $\bar u=L^{-1}\int_Iu$ とすると、$\int_If=0$ より
+$$
+u-\bar u\in\mathcal P_0,\qquad J_f(u)=J_f(u-\bar u)
+$$
+です。ゆえに $u_*$ は周期集合全体でも最小です。
+
+逆に周期集合の任意の最小点 $u$ について、$u-\bar u$ も $\mathcal P_0$ 上の最小点なので、（1）の一意性から $u-\bar u=u_*$ です。したがって最小点の全体は $u_*+c$（$c\in\mathbb R$）となります。
+
+さらに $u_n=u_*+n$ とおけば
+$$
+\|u_n\|_{H^1}\to\infty,\qquad J_f(u_n)=J_f(u_*)
+$$
+なので、周期集合上の強制性も成立しません。
 <!-- proof-end -->
 
 ## 8. 非凸な位置エネルギーも区間上なら扱える
@@ -390,7 +411,7 @@ $$
 
 ### 証明の見取り図
 
-ポテンシャルが下に有界なので導関数ノルムが制御され、固定端点のPoincaré評価で最小化列が $H^1$ 有界になります。弱収束部分列からさらに一様収束部分列を取り、ポテンシャル項を通常の連続性で極限へ移します。
+ポテンシャルが下に有界なので導関数ノルムが制御され、固定端点の[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)で最小化列が $H^1$ 有界になります。弱収束部分列からさらに一様収束部分列を取り、ポテンシャル項を通常の連続性で極限へ移します。
 
 <!-- proof-start -->
 ### 証明
@@ -565,7 +586,7 @@ $I=(a,b)$、$L=b-a$ とし、$\int_Iu=0$ から $\|u\|_{H^1}^2\le(1+L^2)\|u'\|_2
 $$
 u(x)=\frac1L\int_I(u(x)-u(y))dy.
 $$
-[絶対連続代表元](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を使い、$u(x)-u(y)=\int_y^xu'$ と書いてCauchy–Schwarzを適用すれば $|u(x)|\le\sqrt L\|u'\|_2$。これを積分して $\|u\|_2^2\le L^2\|u'\|_2^2$、従って
+[絶対連続代表元](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)を使い、$u(x)-u(y)=\int_y^xu'$ と書いて[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すれば $|u(x)|\le\sqrt L\|u'\|_2$。これを積分して $\|u\|_2^2\le L^2\|u'\|_2^2$、従って
 $$
 \|u\|_{H^1}^2=\|u\|_2^2+\|u'\|_2^2
 \le(1+L^2)\|u'\|_2^2.
