@@ -226,10 +226,10 @@ $$
 
 曲線に沿う微分則を適用すると、
 
-$
+$$
 \frac{D\widetilde U}{ds}
 =\frac{\phi'}{c_0}\left(\frac{D\dot\gamma}{dt}\right)(\phi)=0
-$
+$$
 
 です。従って長さの第一変分は全固定端方向でゼロです。
 
