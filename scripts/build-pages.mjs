@@ -3,6 +3,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import './validate-numerical-lab-runtime.mjs';
 import './validate-simulation-phase0.mjs';
+import './validate-simulation-phase1.mjs';
 
 const root = process.cwd();
 const outDir = path.join(root, '_site');
@@ -190,6 +191,7 @@ for (const runtimeFile of [
   await cp(path.join(pagesDir, runtimeFile), path.join(outDir, runtimeFile));
 }
 await cp(path.join(pagesDir, 'home.md'), path.join(outDir, 'home.md'));
+await cp(path.join(pagesDir, 'simulation'), path.join(outDir, 'simulation'), { recursive: true });
 await writeFile(path.join(outDir, '.nojekyll'), '', 'utf8');
 
 let sidebar = '- [トップ](home.md)\n\n';
@@ -367,6 +369,7 @@ const ankiDistDir = path.join(root, 'anki', 'dist');
 await access(path.join(ankiDistDir, 'index.html'));
 await cp(ankiDistDir, path.join(outDir, 'anki'), { recursive: true });
 sidebar += '- <a href="./anki/index.html" data-no-router>Ankiカード</a>\n\n';
+sidebar += '- <a href="./simulation/index.html" data-no-router>対話型数値シミュレーション</a>\n\n';
 
 // Textbook chapters refer to shared repository references. Include them in the
 // Pages artifact so those links never fall through to a 404.
