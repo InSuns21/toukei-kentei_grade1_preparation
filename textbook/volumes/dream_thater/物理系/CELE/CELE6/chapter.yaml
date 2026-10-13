@@ -36,6 +36,7 @@ theorems:
   - { id: CELE6-PROP-06, name: "ローブ面積の保存とグラフ表示" }
 external_results:
   - "非線形安定多様体定理とパラメータ依存性：graph transformを要する外部入力として仮定を明示"
+  - "Melnikov分離量のC1一様二次剰余：安定多様体の存在とは別に無限時間の摂動評価を要する外部入力"
   - "Smale–Birkhoffホモクリニック定理：一般の平面horseshoe構成は意図的黒箱"
 canonical_examples:
   - "diag(2,1/2)で安定集合と不安定集合を直接計算"
