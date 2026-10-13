@@ -1,5 +1,7 @@
 # CELE6 ホモクリニック構造とHamiltonian chaos
 
+<!-- DT-REVIEW: CELE6 -->
+
 <!-- definition-example-audit: strict -->
 
 > **使う結果**：[CELE4の回転系Hamiltonian](../CELE4/index.md#prop-cele4-rotating-equations)、[CELE5の共鳴障害](../CELE5/index.md#prop-cele5-resonance-obstruction)、[INT7の第一帰還写像](../../../幾何系/INT/INT7/index.md#def-int7-return)、[DYN14の双曲線形模型](../../../解析系/DYN/DYN14/index.md#thm-dyn14-eigen-dichotomy)と[DYN13の二枝符号化](../../../解析系/DYN/DYN13/index.md#thm-dyn13-conjugacy)を足場にします。後二者は一般の非線形定理の証明ではありません。
@@ -62,10 +64,9 @@ $$
 
 <a id="ref-cele6-stable-manifold-input"></a>
 
-<!-- formal-statement-start -->
-> **定理（局所安定多様体定理：外部入力）**  
+**外部から使う結果（非線形局所安定多様体定理）**  
 > $P_\varepsilon$ を平面の $C^r$ 級微分同相の $C^r$ 級一パラメータ族（$r\ge3$）とし、$\varepsilon=0$ で鞍型双曲固定点 $z_0$ を持つとする。十分小さい $\varepsilon$ で固定点 $z_\varepsilon$ が存続し、$z_\varepsilon$ の局所安定・不安定集合は対応する固有方向に接する $C^{r-1}$ 級曲線となる。適切な局所区間上でこれらの曲線は $\varepsilon$ とともに少なくとも $C^1$ 級に変化する。
-<!-- formal-statement-end -->
+
 
 この外部定理の一般証明にはgraph transformと指数二分性の解析が必要です。本章の独立証明の対象とはせず、**ここが仮定ではなく外部から借りる深い定理である**と区別します。後で再会点があれば、その存在だけを線形固有値から推測せず、交差の横断性を別に検査します。
 
@@ -415,10 +416,9 @@ $$
 
 <a id="ref-cele6-smale-birkhoff"></a>
 
-<!-- formal-statement-start -->
-> **定理（Smale–Birkhoffのホモクリニック定理：外部入力）**  
+**外部から使う結果（Smale–Birkhoffのホモクリニック定理）**  
 > $P$ を二次元多様体上の $C^2$ 級微分同相、$z_*$ を鞍型双曲固定点とする。$z_*$ と異なる横断ホモクリニック点が存在すれば、ある整数 $N\ge1$ とコンパクトな $P^N$ 不変の双曲集合 $\Lambda$ が存在し、$P^N|_\Lambda$ は二記号の**両側**全シフトと位相共役になる。
-<!-- formal-statement-end -->
+
 
 この定理は本章では**意図的な黒箱**です。証明には局所安定多様体定理、homoclinic $\lambda$-lemma、細い帯の横断反復、双曲的な入れ子長方形の構成が必要です。DYN13で証明済みなのは、**区間の二枝縮小逆写像から片側全シフトを構成する定理**であり、ここに述べた平面の両側全シフトの結論を証明したものではありません。DYN14はさらに線形の場合だけを扱います。この相違を前提にして、一般定理の仮定・結論だけを借ります。
 
