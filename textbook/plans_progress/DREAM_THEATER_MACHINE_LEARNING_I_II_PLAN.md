@@ -181,9 +181,11 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 
 ### 5A.4 共通実装の方針と既存基盤の利用
 
+**共通Runtimeの正本：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)。実行制御・Workerプロトコル・描画アダプター・実験の保存/export・ブラウザ試験は共通PLANを再利用し、本PLANは学習模型・サンプラー/最適化/推論・損失/校正/正確な観測指標を所有する。共通基盤の設計状態はplannedであり、存在しないRuntimeを実装済みとして前提にしない。
+
 1. **Python数値カーネルを第一候補**：既存`pages/numerical-lab-worker.mjs`のPyodide、`pages/numerical-lab-runtime.js`のPythonラボを、アルゴリズム構成・勾配検査・一回の収束実験・Matplotlib図表で再利用する。既存UIは一回実行とPNG出力の契約であり、連続対話を実装済みと誤認しない。
-2. **対話用UIは計算と描画を分離**：入力→計算要求→実算結果→表示の経路を設計し、Canvas 2D / SVG / HTMLグラフ等は**計算結果の表示**にのみ使う。軽量な有限離散模型や2次元二次最適化はJSの独立数値モジュールを使用してよい。大きな行列計算・反復推論などは、計測の上でPyodide/NumPy Workerを利用。PythonとJSの混在時は同じ固定小問題の数値一致を検証する。
-3. **常駐型は専用Worker**：初期化、step-batch、pause、reset、parameter-update、dispose、結果/診断のメッセージ契約を設計する。既存の一回実行型Pythonラボに長時間駆動を無理に押し込まない。job-ID、世代番号、古い計算結果の破棄、キャンセル、NaN検知、同時起動制限、タイムアウト、メモリ上限、ページ移動時の解放を必須とする。
+2. **対話用UIは共通基盤の描画アダプターを利用**：入力→数値カーネルの再計算→実結果→表示の経路を共通化し、Canvas 2D / SVG / HTMLグラフ等は**計算結果の表示**にのみ使う。軽量な有限離散模型や2次元二次最適化はJSのML固有数値モジュールを許す。大きな行列計算・反復推論は計測の上でPyodide/NumPy Workerを使い、PythonとJSの混在時は固定模型で数値照合する。
+3. **対話反復は共通WorkerホストにMLアダプターを接続**：共通PLANの`computeOnce` / `runBatch` / `pause` / `reset` / `dispose`、世代管理・例外・資源上限を利用する。Pythonラボの一回実行形式は維持する。SGD/EM/MCMCはそれぞれML固有の状態更新と観測値を実装し、ML固有の反復を物理時間と混同しない。
 4. **複数章の再利用**：共通の`dataset generator`（真の生成分布と固定seed）、`model/optimizer stepper`（パラメータと診断列）、`plot adapter`（散布図・損失/精度曲線・密度・ヒートマップ）、`experiment record`（設定・seed・データ分割・バージョン）を分離。UIと学習カーネルの双方を独立にテストする。
 5. **実験の保存・持ち運び**：seedと生成分布を固定して「同じ実験を再現」でき、別seedで「確率的変動を観測」できるようにする。JSON設定・CSV時系列・（必要時）静止画像のexportを想定し、個人データを既定で送信しない。まず小規模合成データでブラウザ単体動作とし、大容量学習/GPU/サーバーAPIは必須としない。
 6. **資源とアクセス**：計算量、最大標本数、更新回数、Web Workerメモリ、ブラウザ応答性を制限。適切な停止/中断と処理中表示、キーボード操作、色以外の系列区別、数学記号・軸ラベル・単位・凡例、タブレット/狭幅でも図と操作が衝突しないことを確認する。表示FPSは学習ステップ数/数学的時間とは独立であり、隠れた間引きや補間を精度として見せない。
@@ -209,7 +211,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 
 1. series manifest textbook/dream-theater-series/ML.yaml の先頭未完了ML1-01を読み、パス textbook/volumes/dream_thater/応用系/ML/ML1-01 に章を作る。予定章を本文や公開索引へ事前登録しない。
 2. DREAM_THEATER_AUTHORING_STANDARD.md、対象に近いAGENTS.md、既存の確率・線形代数のchapter.yaml/knowledge.yamlを確認し、ML1-01のprerequisites・learning objectives・新規concept ownerを実在IDで確定する。
-3. ML1-01では**§5A.6の最小対話ラボも同時に実装する**。有限特徴空間/二値分類の例から始め、(i)観測分布P(X,Y)、(ii)独立な訓練標本、(iii)仮説f、(iv)損失l、(v)母集団リスクと経験リスク、(vi)その差の意味を定義・直接計算する。確率的保証は次章以降の見通しとして区別し、SLTの定理を先取りしない。
+3. ML1-01では**§5A.6の最小対話ラボも同時に実装する**。共通基盤PLANのPhase 0/1で定めるAPIと実動作を確認し、有限4セル模型・数理テスト・学習者向け結果解釈は本PLANで完成させる。有限特徴空間/二値分類の例から始め、(i)観測分布P(X,Y)、(ii)独立な訓練標本、(iii)仮説f、(iv)損失l、(v)母集団リスクと経験リスク、(vi)その差の意味を定義・直接計算する。確率的保証は次章以降の見通しとして区別し、SLTの定理を先取りしない。
 4. 書籍の本文やコード断片の無断転載は禁止。標準のformal statement・proof・A/B/C詳細解答を整え、変更区分Cとして全主要証明・全演習を再計算した自己査読と別観点の再読を実施する。
 5. 実装完了後は当該章・knowledge metadata・系列manifest（その章だけcompleted）・公開導線を同一PRで更新する。通常のleaf chapterはchanged-only検証、globalに波及する変更はfull validationへ昇格する。**別の完成済み章の追跡監査は明示依頼時のみ**で、直前章だからといって自動追加しない。
 
