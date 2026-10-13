@@ -511,7 +511,38 @@ $C=\{Y^2Z-X^3-XZ^2-Z^3=0\}\subset\mathbb P^2$ について、滑らかさを確�
 - ID: AG2-10-B3
 
 <!-- solution-start -->
-**詳細解答。** $F_X=-3X^2-Z^2$、$F_Y=2YZ$、$F_Z=Y^2-2XZ-3Z^2$ です。$Z\ne0$ のチャートでは $f=y^2-x^3-x-1$ で、$f_x=-(3x^2+1)$、$f_y=2y$ です。両方零なら $y=0,x^2=-1/3$ ですが、$f=0$ は $x^3+x+1=x(x^2+1)+1=(2/3)x+1=0$ を要求し $x=-3/2$ となって矛盾します。$Z=0$ 上の曲線点は $[0:1:0]$ だけで、そこで $F_Z=Y^2\ne0$ です。よって滑らかです。[随伴公式](#thm-ag2-10-adjunction)へ $n=2,d=3$ を入れて $\omega_C=\mathcal O_C(0)$ となります。[局所随伴形式](#prop-ag2-10-local-residue)で $(z_1,z_2)=(x,y),r=2$ とすると $\eta=-dx/(2y)$ です。符号を変えた $dx/(2y)$ も局所基底です。
+**詳細解答。** まず斉次多項式を偏微分すると
+
+$$
+F_X=-3X^2-Z^2,\qquad
+F_Y=2YZ,\qquad
+F_Z=Y^2-2XZ-3Z^2
+$$
+
+です。$Z\ne0$ のチャートで $x=X/Z,y=Y/Z$ とすると
+
+$$
+f=y^2-x^3-x-1,\quad
+f_x=-(3x^2+1),\quad f_y=2y.
+$$
+
+両偏微分が零なら $y=0,x^2=-1/3$ です。ところが曲線上では $x^3+x+1=0$ なので
+
+$$
+0=x(x^2+1)+1=\frac23x+1,
+\qquad x=-\frac32.
+$$
+
+これでは $x^2=9/4\ne-1/3$ となり矛盾します。$Z=0$ の曲線点は $[0:1:0]$ だけで、ここでは $F_Z=Y^2\ne0$ です。従って曲線は全点で滑らかです。
+
+[随伴公式](#thm-ag2-10-adjunction)に $n=2,d=3$ を代入すると $\omega_C\simeq\mathcal O_C(0)$ となります。[局所随伴形式](#prop-ag2-10-local-residue)では $(z_1,z_2)=(x,y)$ とし、$f_y=2y$ が単元な近傍で $r=2$ を選びます。このとき
+
+$$
+\eta=(-1)^{2-1}\frac{dx}{f_y}
+=-\frac{dx}{2y}
+$$
+
+が局所基底です。符号を替えた $dx/(2y)$ も局所基底です。
 <!-- solution-end -->
 
 ### B4. 二つの二次方程式の独立性
@@ -529,7 +560,40 @@ $$
 - ID: AG2-10-B4
 
 <!-- solution-start -->
-**詳細解答。** 二つの勾配は $2(X_0,X_1,X_2,X_3)$、$2(0,X_1,2X_2,3X_3)$ です。独立でないとすると、ある $\lambda$ に対して $(0,X_1,2X_2,3X_3)=\lambda(X_0,X_1,X_2,X_3)$ です。非零な $X_j$ に対応する値 $0,1,2,3$ はすべて異なるので、非零座標は高々一つです。しかし一つだけ非零なら $F_1=X_j^2\ne0$ となり共通零点ではありません。従って勾配は独立です。例として $[1:i\sqrt2:1:0]$ は $F_1=1-2+1=0$、$F_2=-2+2=0$ を満たすため、空集合の議論ではありません。局所方程式は階数2のJacobianを持ち、余次元2の滑らかな完全交叉です。[完全交叉の定理](#thm-ag2-10-complete-intersection)から余法層は $\mathcal O_Y(-2)^{\oplus2}$、正規束は $\mathcal O_Y(2)^{\oplus2}$、標準束は $\mathcal O_Y(2+2-3-1)=\mathcal O_Y$ です。
+**詳細解答。** 二つの斉次勾配は
+
+$$
+\nabla F_1=2(X_0,X_1,X_2,X_3),\qquad
+\nabla F_2=2(0,X_1,2X_2,3X_3)
+$$
+
+です。共通零点でこれらが従属すると仮定します。$\nabla F_1$ は射影点では非零なので、ある $\lambda$ が存在して
+
+$$
+(0,X_1,2X_2,3X_3)
+=\lambda(X_0,X_1,X_2,X_3).
+$$
+
+$X_j\ne0$ なら $j=0,1,2,3$ に応じて $\lambda=0,1,2,3$ であり、相異なる値のため非零座標は高々一つです。しかし射影点には少なくとも一つ非零座標が必要で、一つだけなら $F_1=X_j^2\ne0$ です。これは共通零点の条件に反します。従って勾配は独立です。
+
+実際 $[1:i\sqrt2:1:0]$ は
+
+$$
+F_1=1-2+1=0,\qquad F_2=-2+2=0
+$$
+
+を満たすため、共通零点集合は空ではありません。Jacobian階数が全点で2なので、余次元2の滑らかな完全交叉です。[完全交叉の定理](#thm-ag2-10-complete-intersection)を $n=3,d_1=d_2=2$ へ適用し、
+
+$$
+\mathcal I_Y/\mathcal I_Y^2\simeq\mathcal O_Y(-2)^{\oplus2},
+\qquad N_{Y/\mathbb P^3}\simeq\mathcal O_Y(2)^{\oplus2},
+$$
+
+$$
+\omega_Y\simeq\mathcal O_Y(2+2-3-1)=\mathcal O_Y
+$$
+
+を得ます。
 <!-- solution-end -->
 
 ### C1. 曲線二例の標準束を比較する
@@ -540,7 +604,34 @@ $$
 - ID: AG2-10-C1
 
 <!-- solution-start -->
-**詳細解答。** [随伴公式](#thm-ag2-10-adjunction)は $n=2$ で $\omega_C\simeq\mathcal O_C(d-3)$ を与えます。$d=2$ なら $\omega_{C_2}\simeq\mathcal O_{C_2}(-1)$、$d=3$ なら $\omega_{C_3}\simeq\mathcal O_{C_3}$ です。[二次Veronese写像](../AG2-03/index.md#prop-ag2-03-veronese-embedding)は $\nu_2([S:T])=[S^2:ST:T^2]$ で、標準チャート $S\ne0$ の座標 $t=T/S$ を $\nu_2$ で送ると $[1:t:t^2]$ です。$U_X$ の超平面切断 $Z=0$ は、引き戻すと斉次二次式 $T^2=0$ になります。一般に斉次一次式 $aX+bY+cZ$ は引き戻すと $aS^2+bST+cT^2$ であるため、[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)から $\nu_2^*\mathcal O_{C_2}(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。よって
+**詳細解答。** [随伴公式](#thm-ag2-10-adjunction)に $n=2$ を入れると、次数 $d$ の滑らかな平面曲線の標準束は $\mathcal O_C(d-3)$ です。従って
+
+$$
+\omega_{C_2}\simeq\mathcal O_{C_2}(-1),
+\qquad
+\omega_{C_3}\simeq\mathcal O_{C_3}.
+$$
+
+[二次Veronese写像](../AG2-03/index.md#prop-ag2-03-veronese-embedding)は次で与えられます。
+
+$$
+\nu_2([S:T])=[S^2:ST:T^2].
+$$
+
+$S\ne0$ の座標 $t=T/S$ では $[1:t:t^2]$ へ写ります。また、射影平面の斉次一次式 $aX+bY+cZ$ の引き戻しは
+
+$$
+aS^2+bST+cT^2
+$$
+
+という斉次二次式です。例えば超平面 $Z=0$ の引き戻しは $T^2=0$ です。[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)を $d=2$ に適用すると
+
+$$
+\nu_2^*\mathcal O_{C_2}(1)
+\simeq\mathcal O_{\mathbb P^1}(2).
+$$
+
+よって
 
 $$
 \nu_2^*\omega_{C_2}
@@ -559,7 +650,22 @@ $$
 - ID: AG2-10-C2
 
 <!-- solution-start -->
-**詳細解答。** (a) $f=y^2-x^3$ では $df=2y\,dy-3x^2\,dx$ です。原点の極大イデアル $\mathfrak m=(x,y)$ で係数 $2y,-3x^2$ は両方 $\mathfrak m$ に入ります。もし $B\,df$ が $Bdx\oplus Bdy$ の直和因子で商が自由階数1なら、$df$ を基底の一つに拡張でき、係数の少なくとも一つが単元になる必要がありますが、どちらも単元ではありません。従って[余法完全列の局所分裂](#thm-ag2-10-conormal-sequence)の証明は成立しません。これは余法写像が必ず非単射という主張ではありません。(b) $D$ ではJacobian階数がすべての点で2であると仮定されているので、[完全交叉の定理](#thm-ag2-10-complete-intersection)を $n=3,r=2,d_1=2,d_2=3$ に適用できます。正規束は $\mathcal O_D(2)\oplus\mathcal O_D(3)$、標準束は
+**詳細解答。** (a) 尖点の方程式を $f=y^2-x^3$ と置くと
+
+$$
+df=2y\,dy-3x^2\,dx
+$$
+
+です。原点の局所環の極大イデアルは $\mathfrak m=(x,y)$ であり、$df$ の係数 $2y,-3x^2$ はいずれも $\mathfrak m$ に属します。もし $B\,df$ が $Bdx\oplus Bdy$ の直和因子で商が自由階数1なら、$df$ を基底の一つに拡張できます。そうすると変換行列の行列式が単元なので、$df$ の二つの係数の少なくとも一方は単元でなければなりません。しかしそのような係数はありません。従って[余法完全列の局所分裂](#thm-ag2-10-conormal-sequence)の証明はここでは使えません。なお、これだけで余法写像が非単射と結論したわけではありません。
+
+(b) $D\subset\mathbb P^3$ は次数 $d_1=2,d_2=3$ の滑らかな完全交叉であり、Jacobianの階数が全点で2です。[完全交叉の定理](#thm-ag2-10-complete-intersection)の $n=3,r=2$ の場合を使うと正規束は
+
+$$
+N_{D/\mathbb P^3}
+\simeq\mathcal O_D(2)\oplus\mathcal O_D(3)
+$$
+
+となり、標準束は
 
 $$
 \omega_D\simeq\mathcal O_D(2+3-3-1)=\mathcal O_D(1).
