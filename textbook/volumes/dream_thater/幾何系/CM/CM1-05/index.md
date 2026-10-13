@@ -101,7 +101,7 @@ $$
 
 $z^j=x^j+iy^j$ については、固定円周の内部で $|\zeta-z^j|$ が正の下界を持つので、積分核を $x^j,y^j$ で微分してよい。具体的に、
 
-$
+$$
 \begin{aligned}
 \frac{\partial h}{\partial x^j}
 &=\frac{2}{2\pi i}\int_{C_j}
@@ -113,7 +113,7 @@ $
 {(\zeta-z^j)^3}\,d\zeta
 =i\frac{\partial h}{\partial x^j}.
 \end{aligned}
-$
+$$
 
 ここでは積分の分子が $z^j$ に依存しないことを使った。従って $j$ 方向にも Cauchy–Riemann 条件が成立する。偏微分は積分表示から局所的に連続であり、全ての複素座標方向について Cauchy–Riemann 条件が成り立つ。従って $Dh$ は複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を適用し、$h$ の正則性を得る。$p,j,a$ は任意なので結論が従う。$\square$
 <!-- proof-end -->
@@ -163,9 +163,9 @@ $$
 >
 > 次の遷移行列を置く。
 
-$
+$$
 G_{\beta\alpha}(p)=D_{\mathbb C}(z_\beta\circ z_\alpha^{-1})(z_\alpha(p)).
-$
+$$
 
 > この行列はすべての $p\in W$ で可逆で、$z_\alpha$ で表した各行列成分は正則である。複素接基底の変換は
 
@@ -402,21 +402,21 @@ $$
 
 $\partial\overline F/\partial z^j=0$ だから $(0,1)$ 成分がなく、[補題](#lem-cm1-05-holomorphic-derivative)からこの $m\times n$ 行列の各成分は正則である。始点座標を $z'$、終点座標を $w'$ に替えたときも、どの点でどの行列を評価するかを追える。$q=f(p)$ とし、元の座標での微分行列を
 
-$
+$$
 H_{wz}(p)=D_{\mathbb C}(w\circ f\circ z^{-1})(z(p))
-$
+$$
 
 と置く。新しい座標表示は
 
-$
+$$
 w'\circ f\circ(z')^{-1}
 =(w'\circ w^{-1})\circ(w\circ f\circ z^{-1})
 \circ(z\circ(z')^{-1})
-$
+$$
 
 である。よって[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)と[接枠の遷移行列の定義](#def-cm1-05-transition-matrix)から
 
-$
+$$
 \begin{aligned}
 H_{w'z'}(p)
 &=D_{\mathbb C}(w'\circ w^{-1})(w(q))\,
@@ -424,7 +424,7 @@ H_{w'z'}(p)
   D_{\mathbb C}(z\circ(z')^{-1})(z'(p))\\
 &=G^Y_{w'w}(q)\,H_{wz}(p)\,G^X_{zz'}(p).
 \end{aligned}
-$
+$$
 
 ここで $G^X,G^Y$ はそれぞれ始点多様体と終点多様体の遷移行列である。右端が始点の **逆向きの座標遷移** $z'\to z$、左端が終点の $w\to w'$ になる。この評価点と積の順序が、正則写像の微分を二つの複素接束の間で扱える理由である。
 
