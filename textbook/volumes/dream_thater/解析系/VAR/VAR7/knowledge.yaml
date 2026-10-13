@@ -1,0 +1,59 @@
+chapter: VAR7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR1
+  - VAR3
+  - GEO10
+  - VC3
+  - VC4
+  - PDE1
+concepts:
+  - id: calculus-of-variations.surface-area-variation-definition
+    name: 曲面変分と面積の第一変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲面変分と面積の第一変分）"]
+    requires: [vector-calculus.surface-area-element, geometry.mean-curvature]
+  - id: calculus-of-variations.surface-area-first-variation
+    name: 曲面積の第一変分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（曲面積の第一変分）"]
+    requires: [calculus-of-variations.surface-area-variation-definition, geometry.mean-curvature, geometry.shape-operator]
+  - id: calculus-of-variations.minimal-surface-definition
+    name: 極小曲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小曲面）"]
+    requires: [geometry.mean-curvature]
+  - id: calculus-of-variations.surface-fixed-boundary-stationarity
+    name: 固定境界での面積停留条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定境界での面積停留条件）"]
+    requires: [calculus-of-variations.surface-area-first-variation, calculus-of-variations.minimal-surface-definition]
+  - id: calculus-of-variations.surface-free-boundary-condition
+    name: 支持面上で自由な境界の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（支持面上で自由な境界の必要条件）"]
+    requires: [calculus-of-variations.surface-area-first-variation]
+  - id: calculus-of-variations.minimal-graph-equation
+    name: 極小曲面のグラフ方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（極小曲面のグラフ方程式）"]
+    requires: [calculus-of-variations.surface-fixed-boundary-stationarity, geometry.coordinate-fundamental-forms]
+  - id: calculus-of-variations.catenoid-minimal-surface
+    name: 懸垂面は極小曲面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（懸垂面は極小曲面）"]
+    requires: [calculus-of-variations.minimal-surface-definition, geometry.coordinate-fundamental-forms]
+  - id: calculus-of-variations.helicoid-minimal-surface
+    name: 螺旋面は極小曲面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（螺旋面は極小曲面）"]
+    requires: [calculus-of-variations.minimal-surface-definition, geometry.coordinate-fundamental-forms]
