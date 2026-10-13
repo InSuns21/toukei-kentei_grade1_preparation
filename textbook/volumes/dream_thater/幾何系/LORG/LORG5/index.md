@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg5-normal-coordinates -->
-**定義の直接例**。$(\mathbb R^{1+1},-dt^2+dx^2)$ で $p=(0,0)$、$e_0=\partial_t$、$e_1=\partial_x$ とすると、接続係数は零で $\exp_p(v)=p+v$ です。$V=(-2,2)^2$ は星形で、$U_p=(-2,2)^2$ に写ります。放射曲線は $(st,sx)$、速度の自己内積は $-t^2+x^2$ です。$t>|x|$ なら未来時間的、$t=|x|>0$ なら未来光的、$|x|>t$ なら空間的です。星形という条件は $v\in V$ なら $sv\in V$（$0\le s\le1$）であり、放射曲線が像の中に留まることを保証します。
+**定義の確認**。$(\mathbb R^{1+1},-dt^2+dx^2)$ で $p=(0,0)$、$e_0=\partial_t$、$e_1=\partial_x$ とすると、接続係数は零で $\exp_p(v)=p+v$ です。$V=(-2,2)^2$ は星形で、$U_p=(-2,2)^2$ に写ります。放射曲線は $(st,sx)$、速度の自己内積は $-t^2+x^2$ です。$t>|x|$ なら未来時間的、$t=|x|>0$ なら未来光的、$|x|>t$ なら空間的です。星形という条件は $v\in V$ なら $sv\in V$（$0\le s\le1$）であり、放射曲線が像の中に留まることを保証します。
 <!-- definition-example-end -->
 
 <a id="prop-lorg5-normal-coordinate-cone"></a>
@@ -99,7 +99,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg5-convex-normal -->
-**定義の直接例**。Minkowski空間の開Euclid球 $B_r(p)$ では任意の $x,y$ の間の測地線が
+**定義の確認**。Minkowski空間の開Euclid球 $B_r(p)$ では任意の $x,y$ の間の測地線が
 
 $$
 \gamma(s)=(1-s)x+sy
