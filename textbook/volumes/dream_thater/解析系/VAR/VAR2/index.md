@@ -78,7 +78,7 @@ $$
 
 <a id="def-var2-local-minimum"></a>
 <!-- formal-statement-start -->
-> **定義（$C^1$ 局所最小点）**  
+> **定義（C1位相での局所最小点）**  
 > 固定端を満たす $u\in C^2([a,b])$ が $C^1$ 局所最小点であるとは、ある $\rho>0$ が存在し、同じ端点を持つ任意の $v\in C^2([a,b])$ で $\|v-u\|_{C^1}<\rho$ なら $J[v]\ge J[u]$ となることをいう。$v\ne u$ の場合に常に不等号が厳しければ狭義局所最小点という。
 <!-- formal-statement-end -->
 
@@ -193,7 +193,23 @@ $$
 従って $\int_I\chi^2\cos^2(nx)dx\to\frac12\int_I\chi^2dx>0$。十分大きい $n$ では右辺の負の $n^2$ 項が $O(n)$ を圧倒して $Q_u(\eta_n)<0$ となり、[第二必要条件](#thm-var2-necessary)と矛盾します。
 <!-- proof-end -->
 
-$P(x)>0$ を全区間で満たす場合を**強められたLegendre条件**と呼びます。$P$ が連続で $[a,b]$ 上正ならコンパクト性から $P\ge m>0$ です。しかし **$P\ge m$ だけでは最小性は保証されません**。$S$ に大きい負項があれば $Q$ は負になります。
+$P(x)>0$ を全区間で要求するのが、Legendreの非負条件を強める方法です。$P$ が連続で $[a,b]$ 上正ならコンパクト性から $P\ge m>0$ となります。ただし傾き方向だけの厳密凸性です。
+
+<a id="def-var2-strong-legendre"></a>
+<!-- formal-statement-start -->
+> **定義（強められたLegendre条件）**  
+> 第1節の正則性の下で固定端の停留曲線 $u$ に沿い、すべての $x\in[a,b]$ で
+$
+F_{pp}(x,u(x),u'(x))>0
+$
+> が成り立つとき、強められたLegendre条件を満たすという。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-var2-strong-legendre -->
+**定義の確認**。 $F(x,y,p)=\frac12(p^2-\lambda y^2)$ なら $F_{pp}=1$ が $[a,b]$ の全点で正です。よって条件を満たしますが、$J_\lambda$ が最小性を失う場合は次節で計算します。定義には $S=F_{yy}$ の符号制約は含まれません。
+<!-- definition-example-end -->
+
+**$P\ge m$ だけでは最小性は保証されません**。$S$ に大きい負項があれば $Q$ は負になります。
 
 <a id="prop-var2-easy-coercivity"></a>
 <!-- formal-statement-start -->
@@ -207,7 +223,7 @@ $$
 
 ### 証明の見取り図
 
-交差項は $2R\eta\eta'=(R\eta^2)'-R'\eta^2$ として境界が消えます。残る負の $\eta^2$ を固定端の Poincaré不等式で $\eta'^2$ に吸収します。ここで閾値 $\pi^2/L^2$ は次節で直接導きます。
+交差項は $2R\eta\eta'=(R\eta^2)'-R'\eta^2$ として境界が消えます。残る負の $\eta^2$ を固定端の積分評価で $\eta'^2$ に吸収します。ここで閾値 $\pi^2/L^2$ は次節で直接導きます。
 
 <!-- proof-start -->
 ### 証明
@@ -223,7 +239,7 @@ $$
 Q_u(\eta)=\int_a^b[P(\eta')^2+(S-R')\eta^2]dx
 \ge m\int_a^b(\eta')^2dx-\mu\int_a^b\eta^2dx.
 $$
-後の[鋭い区間不等式](#lem-var2-wirtinger)により $\int\eta^2\le L^2/\pi^2\int(\eta')^2$ です。ここで $\mu\ge0$ としてよく（元の下界の $\mu$ が負なら $0$ へ置き換えます）、$d=m-\mu L^2/\pi^2>0$ とすると $Q_u(\eta)\ge d\int(\eta')^2$。さらに
+後の[固定端Wirtinger補題](#lem-var2-wirtinger)により $\int\eta^2\le L^2/\pi^2\int(\eta')^2$ です。ここで $\mu\ge0$ としてよく（元の下界の $\mu$ が負なら $0$ へ置き換えます）、$d=m-\mu L^2/\pi^2>0$ とすると $Q_u(\eta)\ge d\int(\eta')^2$。さらに
 $$
 \int_a^b[\eta^2+(\eta')^2]dx
 \le(1+L^2/\pi^2)\int_a^b(\eta')^2dx
@@ -302,11 +318,11 @@ $$
 Q_0(\eta)=\int_a^b[(\eta')^2-\lambda\eta^2]dx,
 \qquad J_\lambda[u]=\tfrac12Q_0(u).
 $$
-$\lambda\le0$ のとき $Q_0(u)\ge\int(u')^2$、$u\ne0$ なら積分は正です。$0<\lambda<k^2$ のとき [Wirtinger不等式](#lem-var2-wirtinger)を使うと
+$\lambda\le0$ のとき $Q_0(u)\ge\int(u')^2$、$u\ne0$ なら積分は正です。$0<\lambda<k^2$ では[固定端の補題](#lem-var2-wirtinger)を代入すると
 $$
 Q_0(u)\ge(k^2-\lambda)\int_a^bu^2dx.
 $$
-右辺は非零 $u$ で正です。よって（1）は一意な大域最小です。$\lambda=k^2$ のときは不等式によって $Q_0\ge0$、等号の条件が $u=Cw$ なので（2）が従います。$\lambda>k^2$ なら $u=tw$ を代入し
+右辺は非零 $u$ で正です。よって（1）は一意な大域最小です。$\lambda=k^2$ の場合は補題の不等式によって $Q_0\ge0$、等号の条件が $u=Cw$ なので（2）が従います。$\lambda>k^2$ なら $u=tw$ を代入し
 $$
 J_\lambda[tw]
 =\frac{t^2}{2}(k^2-\lambda)\int_a^bw^2dx
@@ -434,7 +450,7 @@ $$
 $$
 Q_0(\eta)=\frac{\pi^2-16}{2}<0
 $$
-となります。$\pi^2<16$ だから[第二必要条件](#thm-var2-necessary)に反し、$u=0$ は局所最小ではありません。強められたLegendre条件があっても負の $S$ の影響は残ります。
+となります。$\pi^2<16$ だから[第二必要条件](#thm-var2-necessary)に反し、$u=0$ は局所最小ではありません。[強められたLegendre条件](#def-var2-strong-legendre)があっても負の $S$ の影響は残ります。
 <!-- solution-end -->
 
 ## VAR2-A03 退化する局所最小点
@@ -460,7 +476,7 @@ $F(x,y,p)=\frac12p^2+xyp+\frac12(2+x^2)y^2$、停留曲線 $u=0$ の場合、$P,
 <!-- solution-start -->
 ### 詳細解答
 
-$F_{pp}=1$、$F_{yp}=x$、$F_{yy}=2+x^2$ です。$u=0$ は $F_y-F_p'=0$ を満たします。$R'=1$ だから [Jacobi方程式の定義](#def-var2-jacobi-direction)より
+$F_{pp}=1$、$F_{yp}=x$、$F_{yy}=2+x^2$ です。$u=0$ は $F_y-F_p'=0$ を満たします。$R'=1$ なので[第5節の定義](#def-var2-jacobi-direction)から
 $$
 -h''+(1+x^2)h=0.
 $$
@@ -489,7 +505,7 @@ $2x\eta\eta'=(x\eta^2)'-\eta^2$、端点で $\eta=0$ を使うと
 $$
 Q_0(\eta)=\int_0^1[(\eta')^2+(\beta-\alpha)\eta^2]dx.
 $$
-もし $\beta-\alpha\ge0$ なら非零方向で正です。もし $-\pi^2<\beta-\alpha<0$ なら [Wirtinger不等式](#lem-var2-wirtinger)により
+もし $\beta-\alpha\ge0$ なら非零方向で正です。もし $-\pi^2<\beta-\alpha<0$ なら[固定端の補題](#lem-var2-wirtinger)により
 $$
 Q_0(\eta)\ge\left(1+\frac{\beta-\alpha}{\pi^2}\right)\int_0^1(\eta')^2dx>0
 $$
