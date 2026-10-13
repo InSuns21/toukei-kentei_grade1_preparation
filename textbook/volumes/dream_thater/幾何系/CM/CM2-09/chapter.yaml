@@ -1,0 +1,45 @@
+id: "CM2-09"
+title: "Hermite計量と局所表示"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-08
+  - CM2-02
+  - GEO4
+  - LA5
+  - LA6
+official_scope: []
+learning_objectives:
+  - 第一変数を共役線形とするHermite計量の定義と局所正値Hermite行列を検証できる
+  - 正則枠変更でH_j=G_ij^*H_iG_ijを証明し切断の長さの不変性を計算できる
+  - 滑らかな1の分割を用いて正則ベクトル束上にHermite計量を構成できる
+  - 普遍線束O(-1)の自然計量を二チャートで求められる
+  - 双対・テンソル積・行列式への誘導計量と正値性を導出できる
+  - H^{-1}∂Hの正則枠変更則を証明し次章のChern接続に備えられる
+  - 滑らかな単位枠と正則な単位枠の相違を混合Wirtinger微分によって示せる
+definitions:
+  - { id: CM2-09-DEF-01, name: 正則ベクトル束上のHermite計量 }
+  - { id: CM2-09-DEF-02, name: Hermite計量の局所行列 }
+  - { id: CM2-09-DEF-03, name: 誘導Hermite計量 }
+theorems:
+  - { id: CM2-09-PROP-01, name: Hermite行列の枠変更則と座標不変性 }
+  - { id: CM2-09-THM-01, name: 正則ベクトル束上のHermite計量の存在 }
+  - { id: CM2-09-PROP-02, name: 誘導計量の局所行列 }
+  - { id: CM2-09-PROP-03, name: 計量行列の対数微分の変換則 }
+  - { id: CM2-09-PROP-04, name: 正則な単位枠が存在しない計量の例 }
+canonical_examples:
+  - 階数二自明束のB*B型正値Hermite行列
+  - 射影直線上のO(-1)の自然計量
+  - O(1)の双対誘導計量
+  - 滑らかな単位枠と正則な単位枠の相違
+problem_patterns:
+  - CM2-09-POSITIVE-MATRIX
+  - CM2-09-GAUGE-METRIC
+  - CM2-09-PARTITION-OF-UNITY
+  - CM2-09-DUAL-TENSOR-DETERMINANT
+  - CM2-09-LOG-DERIVATIVE
+  - CM2-09-HOLOMORPHIC-UNIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }

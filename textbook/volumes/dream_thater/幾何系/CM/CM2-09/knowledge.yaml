@@ -1,0 +1,58 @@
+chapter: CM2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-08
+  - CM2-02
+  - GEO4
+  - LA5
+  - LA6
+concepts:
+  - id: complex-manifolds.hermitian-metric
+    name: 正則ベクトル束上のHermite計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則ベクトル束上のHermite計量）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle]
+  - id: complex-manifolds.hermitian-metric-matrix
+    name: Hermite計量の局所行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hermite計量の局所行列）"]
+    requires: [complex-manifolds.hermitian-metric]
+  - id: complex-manifolds.hermitian-metric-gauge-law
+    name: Hermite行列の枠変更則と座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hermite行列の枠変更則と座標不変性）"]
+    requires: [complex-manifolds.hermitian-metric-matrix, complex-manifolds.vector-bundle-transition-matrices]
+  - id: complex-manifolds.hermitian-metric-existence
+    name: 正則ベクトル束上のHermite計量の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則ベクトル束上のHermite計量の存在）"]
+    requires: [complex-manifolds.hermitian-metric, complex-manifolds.hermitian-metric-gauge-law]
+  - id: complex-manifolds.induced-hermitian-metrics
+    name: 誘導Hermite計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（誘導Hermite計量）"]
+    requires: [complex-manifolds.hermitian-metric, complex-manifolds.holomorphic-dual-bundle, complex-manifolds.holomorphic-tensor-product-bundle]
+  - id: complex-manifolds.induced-hermitian-matrices
+    name: 誘導計量の局所行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（誘導計量の局所行列）"]
+    requires: [complex-manifolds.induced-hermitian-metrics, complex-manifolds.hermitian-metric-gauge-law]
+  - id: complex-manifolds.hermitian-log-derivative
+    name: 計量行列の対数微分の変換則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（計量行列の対数微分の変換則）"]
+    requires: [complex-manifolds.hermitian-metric-gauge-law]
+  - id: complex-manifolds.holomorphic-unit-obstruction
+    name: 正則な単位枠が存在しない計量の例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則な単位枠が存在しない計量の例）"]
+    requires: [complex-manifolds.hermitian-log-derivative]

@@ -81,7 +81,7 @@ chapters:
     title: "標準束・双対束・テンソル束"
   - id: CM2-09
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-09
-    status: planned
+    status: completed
     title: "Hermite計量と局所表示"
   - id: CM2-10
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-10
