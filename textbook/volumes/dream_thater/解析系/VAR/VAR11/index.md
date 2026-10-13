@@ -162,15 +162,15 @@ f(y)\ge\inf_{S(x_n)}f
 \ge f(x_{n+1})-2^{-n-1}\varepsilon.
 $$
 $n\to\infty$ で $f(y)\ge\lim_n f(x_n)$ を得ます。さらに $x_*\in S(x_n)$ なので $f(x_n)\ge f(x_*)$ です。一方で、$x_*$ は比較集合 $S(x_n)$ に含まれるため、近似最小性の選択条件から
-$
+$$
 f(x_{n+1})\le\inf_{z\in S(x_n)}f(z)+2^{-n-1}\varepsilon
 \le f(x_*)+2^{-n-1}\varepsilon.
-$
+$$
 従って
-$
+$$
 f(x_*)\le\liminf_n f(x_n)
 \le\limsup_n f(x_n)\le f(x_*).
-$
+$$
 すなわち $f(x_n)\to f(x_*)$。先ほどの評価に戻すと $f(y)\ge f(x_*)$ です。一方 $y\in S(x_*)$ なら $f(y)+\theta d(y,x_*)\le f(x_*)$。両者を合わせると $d(y,x_*)=0$、すなわち $y=x_*$。よって $x\ne x_*$ は $S(x_*)$ に入らず、これが(E3)です。
 <!-- proof-end -->
 
