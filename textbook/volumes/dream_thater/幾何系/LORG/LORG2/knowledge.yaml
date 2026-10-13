@@ -1,0 +1,68 @@
+chapter: LORG2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - GEO4
+  - GEO5
+  - GEO7
+  - GEO8
+concepts:
+  - id: lorentz-geometry.lorentz-metric
+    name: Lorentz計量
+    kind: definition
+    aliases: [Lorentz計量, Lorentzian metric]
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz計量とLorentz多様体）"]
+    requires: [lorentz-geometry.lorentz-inner-product, geometry.tensor-field]
+
+  - id: lorentz-geometry.local-timelike-field
+    name: 時間的ベクトル場の局所存在
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時間的ベクトル場の局所存在）"]
+    requires: [lorentz-geometry.lorentz-metric, geometry.smooth-vector-field]
+
+  - id: lorentz-geometry.timelike-sign-test
+    name: 時間的基準ベクトルによる向きの判定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時間的基準ベクトルによる向きの判定）"]
+    requires: [lorentz-geometry.future-cone, lorentz-geometry.reverse-cauchy-schwarz]
+
+  - id: lorentz-geometry.time-orientation
+    name: 時間向き
+    kind: definition
+    aliases: [時間向き, time orientation]
+    introduction: formal
+    introduction_aliases: ["定義（時間向き・時間向き付け可能性・時空）"]
+    requires: [lorentz-geometry.lorentz-metric, lorentz-geometry.local-timelike-field]
+
+  - id: lorentz-geometry.time-orientable
+    name: 時間向き付け可能性
+    kind: definition
+    aliases: [時間向き付け可能性, time orientability]
+    introduction: formal
+    introduction_aliases: ["定義（時間向き・時間向き付け可能性・時空）"]
+    requires: [lorentz-geometry.time-orientation]
+
+  - id: lorentz-geometry.global-timelike-field-equivalence
+    name: 時間向き付け可能性と大域時間的ベクトル場の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（時間向き付け可能性と大域時間的ベクトル場の同値性）"]
+    requires: [lorentz-geometry.time-orientable, lorentz-geometry.cone-convexity, geometry.partition-of-unity-existence]
+
+  - id: lorentz-geometry.global-future-test
+    name: 大域時間的場による未来向きの判定
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（大域時間的場による未来向きの判定）"]
+    requires: [lorentz-geometry.timelike-sign-test, lorentz-geometry.global-timelike-field-equivalence]
+
+  - id: lorentz-geometry.twisted-minkowski-quotient
+    name: 時間反転Minkowski商の時間向き不可能性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間反転Minkowski商の時間向き不可能性）"]
+    requires: [lorentz-geometry.global-timelike-field-equivalence, lorentz-geometry.lorentz-metric]
