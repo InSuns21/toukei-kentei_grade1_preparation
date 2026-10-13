@@ -226,7 +226,7 @@ $$
 
 交差項も、逆変換に現れる速度の係数を掛け合わせて確認できます。運動エネルギー $T=\frac12\sum_i m_i|\dot x_i|^2$ における三つの内積の係数は、それぞれ
 
-$
+$$
 \begin{aligned}
 C_{R\rho}
 &=-\frac{m_1m_2}{M_{12}}+\frac{m_2m_1}{M_{12}}=0,\\
@@ -236,7 +236,7 @@ C_{\rho\lambda}
 &=\frac{m_1m_2m_3}{M_{12}M}
 -\frac{m_2m_1m_3}{M_{12}M}=0.
 \end{aligned}
-$
+$$
 
 したがって交差項は全て消え、
 
@@ -271,7 +271,7 @@ $$
 
 正準並進分離後の三体は6自由度です。[角運動量のPoisson関係](../../AMECH/AMECH6/index.md#prop-amech6-angular-momentum)により、回転の生成量は保存されます。[Jacobi正準重心分離](#prop-cele2-jacobi-reduction)の逆変換を用いて元の角運動量を展開すると
 
-$
+$$
 \begin{aligned}
 \sum_{i=1}^3x_i\times p_i
 &=R\times(p_1+p_2+p_3)\\
@@ -279,13 +279,13 @@ $
 &\quad+\lambda\times\frac{M_{12}p_3-m_3(p_1+p_2)}{M}\\
 &=R\times P+\rho\times\pi+\lambda\times\eta.
 \end{aligned}
-$
+$$
 
 第2・第3項の運動量係数は正準一形式の比較で得た $\pi,\eta$ と一致します。重心部分 $R\times P$ を除いた内部角運動量を
 
-$
+$$
 L=\rho\times\pi+\lambda\times\eta
-$
+$$
 
 と定めます。
 
@@ -372,14 +372,14 @@ $$
 
 平面運動だけを初めから仮定する場合、相対位置二本は各2成分となり、重心分離後は4自由度です。平面内で独立な回転の生成量はスカラー $L_z$ 一つなので、既知の可換積分として $H_{\rm int},L_z$ が残ります。これらの独立性も具体点で確かめられます。等質量 $m_i=1$ で
 
-$
+$$
 \rho=(1,0),\quad \lambda=(0,1),\quad
 \pi=(0,1),\quad \eta=(0,0)
-$
+$$
 
 とすると非衝突であり、$(\pi_y,\eta_x)$ に関する小行列式は
 
-$
+$$
 \det
 \begin{pmatrix}
 \partial_{\pi_y}H_{\rm int}&\partial_{\eta_x}H_{\rm int}\\
@@ -387,7 +387,7 @@ $
 \end{pmatrix}
 =\det\begin{pmatrix}2&0\\1&-1\end{pmatrix}
 =-2\ne0.
-$
+$$
 
 したがって少なくともこの点の近傍で二つは独立ですが、4自由度に必要な4個へは届きません。
 
