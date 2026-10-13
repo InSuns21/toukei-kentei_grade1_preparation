@@ -96,15 +96,15 @@ $$
 
 ここでは Stokes の定理を前提にせず、極座標で積分を直接求める。$z=\rho e^{i\theta}$（$\rho>0$）に対し、連鎖律から
 
-$
+$$
 \partial_{\bar z}
 =\frac{e^{i\theta}}2\left(\partial_\rho+\frac i\rho\partial_\theta\right),
 \qquad dA=\rho\,d\rho\,d\theta
-$
+$$
 
 が成り立つ。$\varphi$ の台を半径 $R$ の円板の内部に取ると、$\theta$ に関する偏導関数の積分は周期性から零になるので、
 
-$
+$$
 \begin{aligned}
 \int_{D_\varepsilon}\frac{\partial_{\bar z}\varphi(z)}z\,dA(z)
 &=\frac12\int_\varepsilon^R\int_0^{2\pi}
@@ -115,7 +115,7 @@ $
 \bigl(\varphi(Re^{i\theta})-\varphi(\varepsilon e^{i\theta})\bigr)\,d\theta\\
 &=-\frac12\int_0^{2\pi}\varphi(\varepsilon e^{i\theta})\,d\theta.
 \end{aligned}
-$
+$$
 
 $\varepsilon\downarrow0$ で最後の積分は $-\pi\varphi(0)$ に収束する。左辺も $|\partial_{\bar z}\varphi(z)|/|z|$ の特異核の積分可能性により元の積分へ収束する。両辺に $-1/\pi$ を掛ければ結論となる。$\square$
 <!-- proof-end -->
@@ -311,14 +311,14 @@ $$
 
 は $d\bar z^r$ を含まない。さらに、$\bar\partial_{<r}$ と $\partial_{\bar z^r}$ は滑らかな係数上で交換するから、
 
-$
+$$
 \begin{aligned}
 \partial_{\bar z^r}\alpha_{n-r+1}
 &=\partial_{\bar z^r}\beta
 -\bar\partial_{<r}(\partial_{\bar z^r}u_r)\\
 &=\bar\partial_{<r}\gamma-\bar\partial_{<r}\gamma=0.
 \end{aligned}
-$
+$$
 
 従って残差の係数は $z^r$ に正則である。$T_r$ は処理済みの $z^{r+1},\ldots,z^n$ に関する正則性も保つので、帰納法の仮定を維持する。また [型別外微分の二乗零](../CM2-02/index.md#thm-cm2-02-double-complex-identities) より $\bar\partial\alpha_{n-r+1}=0$。
 
