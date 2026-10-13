@@ -285,7 +285,7 @@ $$
 
 $\mathbb{CP}^n$ はコンパクトであり、$U_0\simeq\mathbb C^n$ はその真の開部分集合である。コンパクトな空間から非コンパクトな $\mathbb C^n$ への同相写像はあり得ない。さらに、$\mathbb{CP}^n$ 上の複素数値正則関数 $f$ も定数になる。[前章の正則関数の剛性の証明](../CM1-09/index.md#thm-cm1-09-holomorphic-rigidity)をここに適用するため、局所多変数部分の引数を確認する。
 
-コンパクト性から $M=\max_{p\in\mathbb{CP}^n}|f(p)|$ が存在する。$S=\{p:|f(p)|=M\}$ は非空で閉である。任意の $p\in S$ を取り、$p$ の正則座標 $\varphi:U\to V\subset\mathbb C^n$ で $a=\varphi(p)$ とする。$V$ は開だから $B_{2\rho}(a)\subset V$ となる $\rho>0$ を選べる。$\|h\|<\rho$ のとき
+[位相的性質の定理](#thm-cm1-10-projective-topology)で得たコンパクト性から $M=\max_{p\in\mathbb{CP}^n}|f(p)|$ が存在する。$S=\{p:|f(p)|=M\}$ は非空で閉である。任意の $p\in S$ を取り、$p$ の正則座標 $\varphi:U\to V\subset\mathbb C^n$ で $a=\varphi(p)$ とする。$V$ は開だから $B_{2\rho}(a)\subset V$ となる $\rho>0$ を選べる。$\|h\|<\rho$ のとき
 
 $$
 g_h(t)=f\bigl(\varphi^{-1}(a+th)\bigr)\qquad(|t|<2)
