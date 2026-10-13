@@ -263,6 +263,8 @@ $\mathfrak p\in D(f)$ では $f$ を逆にできるので写像は自然に定�
 
 **写像の定義。** $f\notin\mathfrak p$ のとき $A_f\to A_{\mathfrak p}$ が[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)から得られます。従って各 $a/f^n$ は $D(f)$ の全点で同じ表示を持ち、切断です。これは環準同型 $\Phi_f:A_f\to\mathcal O_X(D(f))$ を定めます。
 
+**空の主開集合の場合。** $D(f)=\varnothing$ なら、前節の被覆・根基の議論を空の被覆に適用すると $f\in\sqrt{(0)}$ です。従ってある $N\ge1$ で $f^N=0$ となり、$A_f$ は零環です。空集合上の切断の集合もただ一つの空の族からなり零環なので、ここで既に同型です。以下は $D(f)\ne\varnothing$ として証明します。
+
 **単射。** $\Phi_f(a/f^n)=0$ とします。各 $\mathfrak p\in D(f)$ で $a/f^n=0$ となるので、ある $h_{\mathfrak p}\notin\mathfrak p$ が $h_{\mathfrak p}a=0$ を満たします。実際、局所化で分数が零となる条件を分母に適用して共通分母の冪を吸収すれば、この形にできます。$D(h_{\mathfrak p})$ は $D(f)$ を覆うので、準コンパクト性より有限個 $h_1,\ldots,h_r$ で覆えます。前節の証明と同じ被覆・根基の議論により
 
 $$
