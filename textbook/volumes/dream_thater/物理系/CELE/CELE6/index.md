@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **使う結果**：[CELE4の回転系Hamiltonian](../CELE4/index.md#prop-cele4-rotating-equations)、[CELE5のPoincaré断面の具体計算](../CELE5/index.md#prop-cele5-resonance-obstruction)、[INT7の第一帰還写像](../../../幾何系/INT/INT7/index.md#def-int7-return)、[DYN14の双曲線形模型](../../../解析系/DYN/DYN14/index.md#thm-dyn14-eigen-dichotomy)と[DYN13の二枝符号化](../../../解析系/DYN/DYN13/index.md#thm-dyn13-conjugacy)を足場にします。後二者は一般の非線形定理の証明ではありません。
+> **使う結果**：[CELE4の回転系Hamiltonian](../CELE4/index.md#prop-cele4-rotating-equations)、[CELE5の共鳴障害](../CELE5/index.md#prop-cele5-resonance-obstruction)、[INT7の第一帰還写像](../../../幾何系/INT/INT7/index.md#def-int7-return)、[DYN14の双曲線形模型](../../../解析系/DYN/DYN14/index.md#thm-dyn14-eigen-dichotomy)と[DYN13の二枝符号化](../../../解析系/DYN/DYN13/index.md#thm-dyn13-conjugacy)を足場にします。後二者は一般の非線形定理の証明ではありません。
 
 ## 1. 保存量の不存在と軌道の行き先は別の問い
 
