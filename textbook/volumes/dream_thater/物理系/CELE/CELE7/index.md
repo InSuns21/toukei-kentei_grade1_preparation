@@ -351,7 +351,7 @@ $$
 \le(n+1)\|v\|.
 $$
 
-逆行列 $DS^{-n}=\begin{pmatrix}1&-n\\0&1\end{pmatrix}$ にも同じ評価を適用できます。$w=DS^n v$ と置けば
+逆写像は $S^{-n}(x,y)=(x-ny,y)$ なので、$DS^{-n}(a,b)=(a-nb,b)$ です。こちらにも同じ三角不等式を適用できます。$w=DS^n v$ と置けば
 
 $$
 \|v\|=\|DS^{-n}w\|
@@ -553,7 +553,13 @@ $2(\phi-\psi)=\pi/2$ の初期点では $\dot P=-2\delta\ne0$ なので $P$ は�
 $K(I)=\tfrac12(I_1^2+I_2^2)$、$I_*=(1,\sqrt2)$ を考える。Kolmogorov非退化性と、整数 $k=(p,q)\ne0$ に対する振動数の下界を示せ。また $I_*=(1,1)$ では何が失われるか述べよ。
 
 <!-- solution-start -->
-**詳細解答**。[Kolmogorov非退化性](../../../幾何系/INT/INT8/index.md#def-int8-kolmogorov)をHessianから確認します。$D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix}$ で行列式は $1$、非退化です。$\omega_*=(1,\sqrt2)$ とすると、整数 $p^2-2q^2$ は非零で絶対値は $1$ 以上だから
+**詳細解答**。[Kolmogorov非退化性](../../../幾何系/INT/INT8/index.md#def-int8-kolmogorov)をHessianから確認します。
+
+$
+D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad \det D^2K=1\ne0.
+$
+
+従って非退化です。$\omega_*=(1,\sqrt2)$ とすると、整数 $p^2-2q^2$ は非零で絶対値は $1$ 以上だから
 
 $$
 |p+q\sqrt2|
