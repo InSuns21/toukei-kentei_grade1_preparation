@@ -6,12 +6,30 @@
 
 ## 1. 比較してよい曲線を先に決める
 
-閉区間 $[a,b]$ は $a<b$、未知関数は実数値の曲線 $u$ とします。積分する関数を $F(x,y,p)$ と書き、第3引数 $p$ は傾きです。特に断らなければ $F$ は関係する値の近傍で $C^2$ 級、曲線と変分は $C^2([a,b])$ とします。ここで扱うのは古典的な滑らかな変分で、弱微分や弱収束による存在論は後の VAR9 へ送ります。
+閉区間 $[a,b]$ は $a<b$、未知関数は実数値の曲線 $u$ とします。積分する関数を $F(x,y,p)$ と書き、第3引数 $p$ は傾きです。特に断らなければ $F$ は関係する値の近傍で $C^2$ 級、曲線と変分は $C^2([a,b])$ とします。ここで扱うのは古典的な滑らかな変分で、関数空間で極限を扱う存在論は後の VAR9 へ送ります。
 
 <a id="def-var1-admissible"></a>
 <!-- formal-statement-start -->
 > **定義（許容曲線と許容変分）**  
-> $J[u]=\int_a^b F(x,u(x),u'(x))\,dx$ が定義される関数集合 $\mathcal A$ を**許容クラス**という。$u\in\mathcal A$ に対し、十分小さい $|\varepsilon|$ について $u_\varepsilon=u+\varepsilon\eta\in\mathcal A$ となる関数 $\eta$ を、その点での**許容変分方向**という。固定端点 $u(a)=A,\ u(b)=B$ の場合は $\eta(a)=\eta(b)=0$ を要求する。
+> 次の積分が定義される関数集合 $\mathcal A$ を**許容クラス**という。
+>
+$
+J[u]=\int_a^b F(x,u(x),u'(x))\,dx.
+$
+>
+> $u\in\mathcal A$ に対し、十分小さい $|\varepsilon|$ について
+>
+$
+u_\varepsilon=u+\varepsilon\eta\in\mathcal A
+$
+>
+> となる $\eta$ を、その点での**許容変分方向**という。両端の値を固定する場合には
+>
+$
+\eta(a)=\eta(b)=0
+$
+>
+> を要求する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-admissible -->
@@ -225,7 +243,20 @@ $$
 <a id="def-var1-isoperimetric"></a>
 <!-- formal-statement-start -->
 > **定義（等周拘束と正則点）**  
-> $J[u]=\int_a^bF(x,u,u')dx$ を、$K[u]=\int_a^bG(x,u,u')dx=\ell$ と固定端条件の下で考える問題を等周型変分問題という。$u$ において、両端ゼロの滑らかな方向 $\psi$ で $\delta K[u;\psi]\ne0$ となるものが存在すれば、その点で拘束は**正則**という。
+> 固定端のもとで、二つの積分汎関数について
+>
+$
+J[u]=\int_a^b F(x,u,u')\,dx,\qquad
+K[u]=\int_a^b G(x,u,u')\,dx=\ell
+$
+>
+> を課す問題を等周型変分問題という。両端ゼロの滑らかな方向 $\psi$ が存在し、
+>
+$
+\delta K[u;\psi]\ne0
+$
+>
+> を満たすとき、その点で拘束は**正則**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-isoperimetric -->
@@ -289,7 +320,7 @@ $$
 
 ### 6.1 グラフの最短曲線
 
-グラフ $(x,u(x))$ の弧長は
+グラフ $(x,u(x))$ の[弧長](../../../幾何系/VC/VC2/index.md#def-vc2-arclength)は
 $$
 L[u]=\int_a^b\sqrt{1+(u')^2}\,dx.
 $$
@@ -320,7 +351,7 @@ $$
 J[y]=\rho g\int_a^by\sqrt{1+(y')^2}\,dx,\qquad
 K[y]=\int_a^b\sqrt{1+(y')^2}\,dx=\ell.
 $$
-正則な制約点における[乗数定理](#thm-var1-multiplier)から、正の定数 $\rho g$ で割って
+[正則な等周拘束のLagrange乗数](#thm-var1-multiplier)から、正の定数 $\rho g$ で割って
 $$
 \widetilde F(y,p)=(y+\lambda)\sqrt{1+p^2}
 $$
@@ -539,12 +570,12 @@ $$
 J[y]=\int_a^b y\sqrt{1+(y')^2}\,dx,\quad
 K[y]=\int_a^b\sqrt{1+(y')^2}\,dx=\ell
 $$
-を考える。$K$ が正則な停留解について $J+\lambda K$ の第一変分を計算し、第一積分を導け。第一積分定数 $c>0$ の枝では $y=c\cosh((x-x_0)/c)-\lambda$ となることを示せ。
+を考える。$K$ が正則な停留解について $J+\lambda K$ の第一変分を計算し、定数関係を導け。定数関係定数 $c>0$ の枝では $y=c\cosh((x-x_0)/c)-\lambda$ となることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-[等周拘束の乗数定理](#thm-var1-multiplier)により $\widetilde F=(y+\lambda)\sqrt{1+p^2}$ を考えます。偏微分は
+[正則な等周拘束のLagrange乗数](#thm-var1-multiplier)により $\widetilde F=(y+\lambda)\sqrt{1+p^2}$ を考えます。偏微分は
 $$
 \widetilde F_y=\sqrt{1+p^2},\qquad
 \widetilde F_p=(y+\lambda)\frac p{\sqrt{1+p^2}}.
@@ -577,12 +608,12 @@ $$
 \frac d{dx}(\widetilde F-p\widetilde F_p)
 =p(\widetilde F_y-\tfrac d{dx}\widetilde F_p)=0.
 $$
-従って第一積分は $(y+\lambda)/\sqrt{1+(y')^2}=c$ です。$c>0$ なら $y+\lambda=c\sqrt{1+p^2}$ であり、前の二階式へ代入して $p'=y''=\sqrt{1+p^2}/c$。分離積分により
+従って定数関係は $(y+\lambda)/\sqrt{1+(y')^2}=c$ です。$c>0$ なら $y+\lambda=c\sqrt{1+p^2}$ であり、前の二階式へ代入して $p'=y''=\sqrt{1+p^2}/c$。分離積分により
 $$
 \operatorname{arsinh}p=\frac{x-x_0}{c},\qquad
 p=\sinh\left(\frac{x-x_0}{c}\right).
 $$
-さらに積分して $y=c\cosh((x-x_0)/c)+C$、第一積分に代入すると $C=-\lambda$。最後に端点と $K[y]=\ell$ を別途検査する必要があります。
+さらに積分して $y=c\cosh((x-x_0)/c)+C$、定数関係に代入すると $C=-\lambda$。最後に端点と $K[y]=\ell$ を別途検査する必要があります。
 <!-- solution-end -->
 
 ## VAR1-C02 移動角点の二つの条件
