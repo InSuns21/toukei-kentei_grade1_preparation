@@ -365,7 +365,23 @@ f^*(d\bar w^a)
 =\sum_j\overline{\frac{\partial f^a}{\partial z^j}}d\bar z^j.
 $$
 
-$\alpha$ を [局所基底表示](#thm-cm2-01-type-decomposition)で展開すると各項は係数 $a_{I\bar J}$ と $p$ 個の $dw$、$q$ 個の $d\bar w$ の外積である。[引き戻しと外積の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)から、引き戻しは係数を $a_{I\bar J}\circ f$ へ変え、残りを上式の外積に移す。従って $(p,q)$ 型である。定義域側に必要な1形式が不足すると、交代性により零になる。$\square$
+$\alpha$ を [型分解定理](#thm-cm2-01-type-decomposition)の局所基底で展開すると、次のように書ける。
+
+$
+\alpha=\sum_{|I|=p,\ |J|=q}a_{I\bar J}\,
+dw^I\wedge d\bar w^J.
+$
+
+[引き戻しと外積の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)を各項に適用する。係数は合成で引き戻し、外積は個々の1形式へ引き戻しを配るので、
+
+$
+f^*\alpha
+=\sum_{|I|=p,\ |J|=q}
+(a_{I\bar J}\circ f)\,
+f^*(dw^I)\wedge f^*(d\bar w^J)
+$
+
+となる。先ほど求めた1形式の式によって、右辺は必ず $p$ 個の $dz$ と $q$ 個の $d\bar z$ の外積の和である。従って $(p,q)$ 型を保つ。始域側に同じ種類の独立な1形式が足りなければ、各項が交代性により零となる。$\square$
 <!-- proof-end -->
 
 **具体例**。$f:\mathbb C\to\mathbb C^2$、$f(z)=(z,z^2)$、$\alpha=dw^1\wedge d\bar w^2$ とする。すると
