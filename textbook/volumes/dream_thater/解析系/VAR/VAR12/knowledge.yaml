@@ -1,0 +1,54 @@
+chapter: VAR12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR2
+  - VAR5
+  - VAR8
+  - VAR11
+  - FOU1
+  - GPDE5
+  - GPDE7
+concepts:
+  - id: calculus-of-variations.morse-index
+    name: Morse指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Morse指数と零化次数）"]
+    requires: [calculus-of-variations.second-variation-form]
+  - id: calculus-of-variations.morse-nullity
+    name: 零化次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Morse指数と零化次数）"]
+    requires: [calculus-of-variations.morse-index]
+  - id: calculus-of-variations.sturm-second-variation-operator
+    name: 固定端点の第二変分作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定端点の第二変分作用素）"]
+    requires: [calculus-of-variations.second-variation-form]
+  - id: calculus-of-variations.sturm-selfadjoint
+    name: 第二変分作用素の自己共役性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（第二変分作用素の自己共役性）"]
+    requires: [calculus-of-variations.sturm-second-variation-operator, functional-analysis.lax-milgram]
+  - id: calculus-of-variations.sturm-morse-index
+    name: Dirichlet Sturm模型のMorse指数と零化次数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Dirichlet Sturm模型のMorse指数と零化次数）"]
+    requires: [calculus-of-variations.morse-index, calculus-of-variations.morse-nullity, calculus-of-variations.wirtinger-sharp]
+  - id: calculus-of-variations.constant-curvature-morse-count
+    name: 定曲率測地線のMorse指数と共役点の個数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定曲率測地線のMorse指数と共役点の個数）"]
+    requires: [calculus-of-variations.sturm-morse-index]
+  - id: calculus-of-variations.constrained-second-variation
+    name: 滑らかな等式制約下の第二変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな等式制約下の第二変分）"]
+    requires: [calculus-of-variations.morse-index]
