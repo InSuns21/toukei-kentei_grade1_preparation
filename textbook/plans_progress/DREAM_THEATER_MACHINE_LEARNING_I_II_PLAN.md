@@ -27,7 +27,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 - https://mitpress.mit.edu/9780262046824/probabilistic-machine-learning/
 - https://probml.github.io/pml-book/book2.html
 - https://link.springer.com/book/10.1007/978-0-387-84858-7
-- https://www.cambridge.org/core/books/understanding-machine-learning/30597C90E85C1D0A91AEBB610F19CB4F
+- https://www.cambridge.org/core/books/understanding-machine-learning/3059695661405D25673058E43C8BE2A6
 - https://mitpress.mit.edu/9780262039406/foundations-of-machine-learning/
 - https://link.springer.com/book/10.1007/978-3-031-45468-4
 
@@ -96,7 +96,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 | ML2-20 | 変分autoencoder | encoder/decoderからVAEのELBOを導出し、Gaussian再パラメータと再構成項・KLを計算 | ML2-08/09/14 |
 | ML2-21 | 正規化flow・密度変換 | 微分同相の変数変換とlog Jacobianを適用し、可逆層の限界・supportの違いを説明 | ML2-01・多変数積分 |
 | ML2-22 | 敵対的生成モデルと分布比較 | 固定生成分布で最適識別器を計算し、密度/support条件下のJensen–Shannonとの関係を導く | ML2-01・ML2-14 |
-| ML2-23 | Score matchingとノイズ除去 | 積分部品の境界条件からscore matching恒等式を導き、Gaussianノイズ付加時のdenoising関係を検算 | ML2-01/21・多変数微分/積分 |
+| ML2-23 | Score matchingとノイズ除去 | 部分積分の境界条件からscore matching恒等式を導き、Gaussianノイズ付加時のdenoising関係を検算 | ML2-01/21・多変数微分/積分 |
 | ML2-24 | 離散拡散模型と逆向き推論 | 正方向Gaussian noising・条件付き事後分布・学習損失を導出；連続時間逆SDEはSTOを満たす発展節に限定 | ML2-20/23・Gaussian条件付け |
 | ML2-25 | 生成評価・不確実性・統合実験 | log likelihood・サンプル品質・校正・OOD・計算量を別指標で比較し、seed/分割/再計算可能な結論をまとめる | ML2-06/12/18/20/21/22/24 |
 
@@ -118,7 +118,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 1. series manifest textbook/dream-theater-series/ML.yaml の先頭未完了ML1-01を読み、パス textbook/volumes/dream_thater/応用系/ML/ML1-01 に章を作る。予定章を本文や公開索引へ事前登録しない。
 2. DREAM_THEATER_AUTHORING_STANDARD.md、対象に近いAGENTS.md、既存の確率・線形代数のchapter.yaml/knowledge.yamlを確認し、ML1-01のprerequisites・learning objectives・新規concept ownerを実在IDで確定する。
 3. ML1-01では有限特徴空間/二値分類の例から始め、(i)観測分布P(X,Y)、(ii)独立な訓練標本、(iii)仮説f、(iv)損失l、(v)母集団リスクと経験リスク、(vi)その差の意味を定義・直接計算する。確率的保証は次章以降の見通しとして区別し、SLTの定理を先取りしない。
-4. 書籍の章題写しやコード断片の転載は禁止。標準のformal statement・proof・A/B/C詳細解答を整え、変更区分Cとして全主要証明・全演習を再計算した自己査読と別観点の再読を実施する。
+4. 書籍の本文やコード断片の無断転載は禁止。標準のformal statement・proof・A/B/C詳細解答を整え、変更区分Cとして全主要証明・全演習を再計算した自己査読と別観点の再読を実施する。
 5. 実装完了後は当該章・knowledge metadata・系列manifest（その章だけcompleted）・公開導線を同一PRで更新する。通常のleaf chapterはchanged-only検証、globalに波及する変更はfull validationへ昇格する。**別の完成済み章の追跡監査は明示依頼時のみ**で、直前章だからといって自動追加しない。
 
 ## 7. 現時点の完了判定
