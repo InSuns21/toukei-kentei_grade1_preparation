@@ -1,0 +1,61 @@
+chapter: AG3-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-11
+  - AG3-05
+  - AG3-06
+  - AG2-11
+  - AG1-10
+  - AG1-05
+  - MOD2
+forward_references: []
+concepts:
+  - id: algebraic-geometry.flat-module
+    name: 平坦加群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦加群）"]
+    requires: [algebraic-geometry.affine-fiber-product]
+  - id: algebraic-geometry.flat-morphism
+    name: 平坦射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦射）"]
+    requires: [algebraic-geometry.flat-module, algebraic-geometry.scheme]
+  - id: algebraic-geometry.pid-flatness-criterion
+    name: PID上の平坦性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（PID上の平坦性判定）"]
+    requires: [algebraic-geometry.flat-module]
+  - id: algebraic-geometry.flat-base-change
+    name: 平坦性の基底変換による保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦性の基底変換による保存）"]
+    requires: [algebraic-geometry.flat-morphism, algebraic-geometry.base-change]
+  - id: algebraic-geometry.smooth-algebra
+    name: 有限表示代数の滑らかさ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限表示代数の滑らかさ）"]
+    requires: [algebraic-geometry.qc-finite-type-presentation]
+  - id: algebraic-geometry.relative-jacobian-smoothness
+    name: 超曲面族の相対Jacobianによる滑らかさ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超曲面族の相対Jacobianによる滑らかさ）"]
+    requires: [algebraic-geometry.smooth-algebra, algebraic-geometry.hypersurface-jacobian-criterion]
+  - id: algebraic-geometry.nodal-lifting-obstruction
+    name: 節点ファイバーの持ち上げ障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（節点ファイバーの持ち上げ障害）"]
+    requires: [algebraic-geometry.smooth-algebra, algebraic-geometry.pid-flatness-criterion]
+  - id: algebraic-geometry.smooth-base-change
+    name: 滑らかさの基底変換による保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかさの基底変換による保存）"]
+    requires: [algebraic-geometry.smooth-algebra, algebraic-geometry.base-change]

@@ -678,6 +678,7 @@
 14. [CM2-04 Dolbeault複体・コホモロジー](textbook/volumes/dream_thater/幾何系/CM/CM2-04/index.md)
 15. [CM2-05 低次元Dolbeaultコホモロジーの計算](textbook/volumes/dream_thater/幾何系/CM/CM2-05/index.md)
 16. [CM2-06 正則線束・遷移関数](textbook/volumes/dream_thater/幾何系/CM/CM2-06/index.md)
+17. [CM2-07 正則ベクトル束と正則切断](textbook/volumes/dream_thater/幾何系/CM/CM2-07/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -822,6 +823,7 @@
 9. [AG3-09 射影スキームとProj](textbook/volumes/dream_thater/代数系/AG/AG3-09/index.md)
 10. [AG3-10 射影空間のO(d)のコホモロジー](textbook/volumes/dream_thater/代数系/AG/AG3-10/index.md)
 11. [AG3-11 曲線の種数とRiemann–Rochへの入口](textbook/volumes/dream_thater/代数系/AG/AG3-11/index.md)
+12. [AG3-12 平坦性・滑らかさと特異ファイバー](textbook/volumes/dream_thater/代数系/AG/AG3-12/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
