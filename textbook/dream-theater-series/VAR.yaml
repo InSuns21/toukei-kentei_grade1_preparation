@@ -17,7 +17,7 @@ chapters:
     title: "第二変分と最小性"
   - id: VAR3
     path: textbook/volumes/dream_thater/解析系/VAR/VAR3
-    status: planned
+    status: completed
     title: "平面曲線の変分"
   - id: VAR4
     path: textbook/volumes/dream_thater/解析系/VAR/VAR4

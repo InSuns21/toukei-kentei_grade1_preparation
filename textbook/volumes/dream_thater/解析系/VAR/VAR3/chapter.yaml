@@ -1,0 +1,36 @@
+id: "VAR3"
+title: "平面曲線の変分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR1
+  - VAR2
+  - GEO10
+  - AMECH3
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 弧長曲線の符号付き曲率と接線・法線分解を例で検証し、一般変分に対する速度要素と曲率の一次変化を導出できる
+  - 周長の第一変分の内部曲率項と端点項を分離し、固定端・支持曲線上の自由端点の条件を証明できる
+  - 閉曲線の面積第一変分を導き、正則な等周拘束から定数曲率と円を導出できる
+  - 曲率二乗の曲げエネルギーを線素とともに微分し、Euler弾性曲線方程式と境界項を導ける
+  - 端点位置固定・接線自由の自然境界条件を導き、円弧が内部停留しても境界停留しない例を判定できる
+  - グラフ曲線の曲げ密度と小傾斜近似の誤差を計算し、長さの第二変分および弾性曲線の第一積分へつなげられる
+definitions:
+  - { id: VAR3-DEF-01, name: "符号付き曲率と接線・法線分解" }
+  - { id: VAR3-DEF-02, name: "平面曲線の曲げエネルギー" }
+theorems:
+  - { id: VAR3-PROP-01, name: "速度要素と曲率の第一変分" }
+  - { id: VAR3-PROP-02, name: "平面曲線の長さの第一変分" }
+  - { id: VAR3-THM-01, name: "長さ問題の自由端点条件" }
+  - { id: VAR3-PROP-03, name: "閉曲線の面積の第一変分" }
+  - { id: VAR3-THM-02, name: "面積拘束下での周長の停留条件" }
+  - { id: VAR3-THM-03, name: "曲げエネルギーの第一変分と弾性曲線方程式" }
+  - { id: VAR3-PROP-04, name: "位置固定・接線自由の曲げ端点条件" }
+  - { id: VAR3-PROP-05, name: "グラフ曲線の曲率と曲げ密度" }
+canonical_examples: [反時計回りの円の変分, 直線の端点自由問題, 面積一定の円, Euler弾性曲線の円弧, グラフの曲げ密度, 直線の第二変分]
+problem_patterns: [VAR3-CIRCLE-SIGNS, VAR3-TANGENT-BOUNDARY, VAR3-GRAPH-CURVATURE, VAR3-STRAIGHT-SECOND, VAR3-AREA-FOURIER, VAR3-SLIDING-END, VAR3-HINGED-ARC, VAR3-ISOPERIMETRIC, VAR3-ELASTICA-CONSERVED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 2.0 }

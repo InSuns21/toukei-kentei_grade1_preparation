@@ -1,0 +1,83 @@
+chapter: VAR3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR1
+  - VAR2
+  - GEO10
+  - AMECH3
+  - ODE4
+forward_references: [geometry.geodesic]
+
+concepts:
+  - id: calculus-of-variations.planar-signed-curvature
+    name: 符号付き曲率と接線・法線分解
+    kind: definition
+    aliases: [signed curvature and tangent normal decomposition]
+    introduction: formal
+    introduction_aliases: ["定義（符号付き曲率と接線・法線分解）"]
+    requires: [geometry.arc-length-parameter, geometry.curve-curvature]
+
+  - id: calculus-of-variations.planar-curvature-variation
+    name: 速度要素と曲率の第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（速度要素と曲率の第一変分）"]
+    requires: [calculus-of-variations.planar-signed-curvature, calculus-of-variations.stationary-curve]
+
+  - id: calculus-of-variations.planar-length-variation
+    name: 平面曲線の長さの第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面曲線の長さの第一変分）"]
+    requires: [calculus-of-variations.planar-curvature-variation]
+
+  - id: calculus-of-variations.planar-transversality
+    name: 長さ問題の自由端点条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（長さ問題の自由端点条件）"]
+    requires: [calculus-of-variations.planar-length-variation, calculus-of-variations.natural-boundary]
+
+  - id: calculus-of-variations.planar-area-variation
+    name: 閉曲線の面積の第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉曲線の面積の第一変分）"]
+    requires: [calculus-of-variations.planar-signed-curvature]
+
+  - id: calculus-of-variations.planar-isoperimetric-stationarity
+    name: 面積拘束下での周長の停留条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（面積拘束下での周長の停留条件）"]
+    requires: [calculus-of-variations.planar-length-variation, calculus-of-variations.planar-area-variation, calculus-of-variations.isoperimetric-multiplier]
+
+  - id: calculus-of-variations.elastica-bending-energy
+    name: 平面曲線の曲げエネルギー
+    kind: definition
+    aliases: [Euler elastica bending energy]
+    introduction: formal
+    introduction_aliases: ["定義（平面曲線の曲げエネルギー）"]
+    requires: [calculus-of-variations.planar-signed-curvature]
+
+  - id: calculus-of-variations.planar-elastica-equation
+    name: 曲げエネルギーの第一変分と弾性曲線方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（曲げエネルギーの第一変分と弾性曲線方程式）"]
+    requires: [calculus-of-variations.elastica-bending-energy, calculus-of-variations.planar-curvature-variation, calculus-of-variations.planar-length-variation]
+
+  - id: calculus-of-variations.planar-hinged-elastica
+    name: 位置固定・接線自由の曲げ端点条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（位置固定・接線自由の曲げ端点条件）"]
+    requires: [calculus-of-variations.planar-elastica-equation, calculus-of-variations.planar-transversality]
+
+  - id: calculus-of-variations.planar-graph-bending
+    name: グラフ曲線の曲率と曲げ密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（グラフ曲線の曲率と曲げ密度）"]
+    requires: [calculus-of-variations.elastica-bending-energy, calculus-of-variations.planar-signed-curvature]
