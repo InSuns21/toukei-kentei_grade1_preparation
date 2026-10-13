@@ -3,8 +3,8 @@
 分冊: 2026-10-11  
 状態: planned（横断案内のみ）
 
-1. [ローレンツ幾何と大域因果構造 I（LORG1〜15）](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)
-2. [ローレンツ多様体上の双曲型PDE I（HPDE1〜15）](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)
+1. [ローレンツ幾何と大域因果構造（LORG系列・章数未定）](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)
+2. [ローレンツ多様体上の双曲型PDE（HPDE系列・章数未定）](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)
 3. [超局所解析・Hadamard条件 I（MICA1〜15）](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)
 4. [代数的量子場理論・モジュラー理論 I（AQFT1〜15）](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)
 
@@ -28,8 +28,8 @@ GEO / SREL → LORG → HPDE → MICA（厳密Hadamard条件）。OA / VN + QM /
 
 | 科目 | 位置付け | 主な接続先 | 章ID候補 |
 |---|---|---|---|
-| ローレンツ幾何と大域因果構造 I | 必須の数学基盤 | GR I/II | LORG1–LORG15 |
-| ローレンツ多様体上の双曲型偏微分方程式 I | 必須の数学基盤 | QFT I・QCURV | HPDE1–HPDE15 |
+| ローレンツ幾何と大域因果構造 I | 必須の数学基盤 | GR I/II | LORG系列（正式ID・講数未定） |
+| ローレンツ多様体上の双曲型偏微分方程式 I | 必須の数学基盤 | QFT I・QCURV | HPDE系列（正式ID・講数未定） |
 | 超局所解析・波面集合・Hadamard条件 I | 厳密な曲がった時空QFTの発展基盤 | QCURV・BHT | MICA1–MICA15 |
 | 代数的量子場理論・モジュラー理論 I | ブラックホール情報の研究入門を支える発展基盤 | BHI I/II・HOLO | AQFT1–AQFT15 |
 
