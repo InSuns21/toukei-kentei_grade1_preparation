@@ -268,10 +268,9 @@ v_i(t)-v_j(t)
 $$
 となります。したがって相互距離から作る[Newtonポテンシャル](../CELEV1/index.md#def-celev1-extended-action)は不変です。また質量重心の定義より
 $$
-\sum_i m_iv_i(t)=0,
-\qquad \sum_i m_iv_i'(t)=0\quad\text{（ほとんど至るところ）}
+\sum_i m_iv_i(t)=0,\qquad \sum_i m_iv_i'(t)=0
 $$
-なので
+です。後者は微分が存在するほとんどすべての時刻で成立します。これを使うと
 $$
 \begin{aligned}
 \sum_i m_i|p_i'|^2
