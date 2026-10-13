@@ -1,7 +1,7 @@
 # DREAM THEATER 変分的周期軌道・n体舞踏解と数値シミュレーション PLAN
 
 作成日: 2026-10-13  
-状態: in_progress（2026-10-14。CELEV1・2を実装済み。CELEV3〜8とCELEV固有Python/数値シミュレーションは未完了）
+状態: in_progress（2026-10-14。CELEV1〜3を実装済み。CELEV4〜8とCELEV固有Python/数値シミュレーションは未完了）
 
 ## 0. 中心問いと停止線
 
