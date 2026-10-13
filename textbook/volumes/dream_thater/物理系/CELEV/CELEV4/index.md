@@ -305,7 +305,13 @@ $$
 $$
 \delta_{\sigma_h(i)}=\rho_h\delta_i\qquad(h\in G_t)
 $$
-が必要です。特に $h\in(G_t)_i$ なら左辺は $\delta_i$ なので $\rho_h\delta_i=\delta_i$ です。逆に、この固定条件を満たす $\delta_i$ から同じ粒子軌道上の $\delta_{\sigma_h(i)}$ を上式で定めても、$h$ の選び方に依存しません。実際 $\sigma_h(i)=\sigma_k(i)$ なら $k^{-1}h\in(G_t)_i$ であり、$\rho_h\delta_i=\rho_k\rho_{k^{-1}h}\delta_i=\rho_k\delta_i$ だからです。したがって固定ベクトルの空間は**対称性を壊さず粒子を動かせる方向**を表します。衝突回避に必要な変形方向を円周上で平均できるか、という条件が次です。
+が必要です。特に $h\in(G_t)_i$ なら左辺は $\delta_i$ なので $\rho_h\delta_i=\delta_i$ です。逆に、この固定条件を満たす $\delta_i$ から同じ粒子軌道上の $\delta_{\sigma_h(i)}$ を上式で定めても、$h$ の選び方に依存しません。実際 $\sigma_h(i)=\sigma_k(i)$ なら $k^{-1}h\in(G_t)_i$ なので
+$$
+\rho_h\delta_i
+=\rho_k\rho_{k^{-1}h}\delta_i
+=\rho_k\delta_i
+$$
+です。したがって固定ベクトルの空間は**対称性を壊さず粒子を動かせる方向**を表します。衝突回避に必要な変形方向を円周上で平均できるか、という条件が次です。
 
 <a id="def-celev4-rotating-circle"></a>
 <!-- formal-statement-start -->
