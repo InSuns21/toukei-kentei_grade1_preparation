@@ -285,7 +285,7 @@ $$
 
 > この時点で、平面曲線の超平面因子に対する「$H^1$ と正則微分形式の切断の個数の対応」が具体的に確かめられました。
 
-次に Euler 標数を求めます。[長完全列](../AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和は短完全列に対し加法的です。また[射影平面のEuler標数](../AG3-10/index.md#cor-ag3-10-projective-euler)から、任意の整数 $t$ について
+次に Euler 標数を求めます。[長完全列](../AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和は短完全列に対し加法的です。また[射影平面のEuler標数](../AG3-10/index.md#cor-ag3-10-euler-characteristic)から、任意の整数 $t$ について
 
 $$
 \chi(P,\mathcal O_P(t))=\frac{(t+2)(t+1)}2.
