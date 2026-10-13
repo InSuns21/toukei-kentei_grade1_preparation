@@ -313,7 +313,7 @@ $$
 
 **$q=0$** では「$\bar\partial$ 閉」は正則関数（あるいは正則 $(p,0)$ 形式）を特徴づける。$q=-1$ の微分形式は存在しないため、その関数をさらに $\bar\partial$ の像と見なすことはできない。例えば $f(z)=1$ は $\bar\partial f=0$ だが、$f=\bar\partial u$ となる $(-1)$ 次の形式 $u$ はない。
 
-**大域では成立しない場合がある**。$\mathbb C$ から格子 $\Lambda=\mathbb Z+i\mathbb Z$ で割った複素トーラス $X=\mathbb C/\Lambda$ 上で、$d\bar z$ は平行移動で不変だから大域的な $(0,1)$ 形式 $\alpha$ に降りる。$\bar\partial\alpha=0$ だが、$\bar\partial u=\alpha$ を満たす大域的な滑らかな関数 $u$ は存在しない。
+**大域では成立しない場合がある**。$\mathbb C$ から格子 $\Lambda=\mathbb Z+i\mathbb Z$ で割った[複素トーラス](../CM1-09/index.md#def-cm1-09-complex-torus) $X=\mathbb C/\Lambda$ 上で、$d\bar z$ は平行移動で不変だから大域的な $(0,1)$ 形式 $\alpha$ に降りる。$\bar\partial\alpha=0$ だが、$\bar\partial u=\alpha$ を満たす大域的な滑らかな関数 $u$ は存在しない。
 
 その理由を見ておく。存在したと仮定し、周期関数 $\widetilde u$ へ持ち上げると $\partial_{\bar z}\widetilde u=1$ となる。基本正方形 $Q=[0,1]\times[0,1]$ 上で Wirtinger 微分の定義を使えば
 
