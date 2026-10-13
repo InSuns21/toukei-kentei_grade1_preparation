@@ -109,13 +109,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（準連接層）**  
-> スキーム $X$ 上の $\mathcal O_X$-加群の層 $\mathcal F$ が準連接層であるとは、$X$ にアフィン開被覆 $U_i=\operatorname{Spec}A_i$ が存在し、各 $i$ についてある $A_i$-加群 $M_i$ と $\mathcal O_{U_i}$-加群の層同型
+> スキーム $X$ 上の $\mathcal O_X$-加群の層 $\mathcal F$ が準連接層であるとは、あるアフィン開被覆 $(U_i)$ の各部分で加群から作った層として表示できることをいう。
 >
-> $$
-> \mathcal F|_{U_i}\simeq\widetilde {M_i}
-> $$
+> より正確には、各 $i$ に環 $A_i$ とその加群 $M_i$ があり、次が成り立つ。
 >
-> が存在することをいう。
+$
+U_i=\operatorname{Spec}A_i,
+\qquad \mathcal F|_{U_i}\simeq\widetilde{M_i}.
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-quasicoherent -->
