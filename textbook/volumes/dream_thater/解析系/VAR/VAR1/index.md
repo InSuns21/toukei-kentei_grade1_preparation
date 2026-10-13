@@ -357,7 +357,7 @@ $$
 $$
 を停留させます。ここで $\lambda$ は長さ拘束の乗数を $\rho g$ で割った値です。
 
-$x$ に陽に依存しない場合、Euler–Lagrange方程式を使って直接微分すると
+$x$ に陽に依存しない場合、先に得た停留条件 $\widetilde F_y-\frac d{dx}\widetilde F_p=0$ を使って直接微分すると
 $$
 \begin{aligned}
 \frac d{dx}(\widetilde F-p\widetilde F_p)
