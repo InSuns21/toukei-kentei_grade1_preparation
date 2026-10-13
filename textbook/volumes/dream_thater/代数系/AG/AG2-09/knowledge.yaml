@@ -52,7 +52,7 @@ concepts:
     requires: [algebraic-geometry.projective-cotangent-euler, algebraic-geometry.determinant-exact-sequence, algebraic-geometry.projective-twist]
 
   - id: algebraic-geometry.projective-tangent-sheaf
-    name: 接層
+    name: 射影空間の接層
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（接層）"]
