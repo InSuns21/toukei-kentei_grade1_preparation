@@ -271,7 +271,14 @@ $$
 
 と書けます。これに $a$ を掛けると $f^Na=\sum_i c_i(h_i a)=0$ です。ゆえに $a/f^n=0$（$A_f$ 内） となり、単射です。
 
-**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。局所表示が成り立つ近傍を主開集合まで縮め、$D(f)$ との共通部分を取れば、各点の周りの $D(fg_i)$ 上で $s$ は一つの局所化元で表されます。[準コンパクト性](#thm-ag3-02-quasicompact)によって、有限個の $D(fg_1),\ldots,D(fg_r)$ を選べます。
+**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。任意の $\mathfrak p\in D(f)$ で、定義から $\mathfrak p$ の開近傍 $W\subseteq D(f)$ と $a,h\in A$ があり、$s(\mathfrak q)=a/h$ かつ $h\notin\mathfrak q$ がすべての $\mathfrak q\in W$ で成立します。主開基を使って $\mathfrak p\in D(v)\subseteq W$ とし、$g=vh$ と置きます。このとき $\mathfrak p\in D(fg)\subseteq D(v)\subseteq W$ であり、
+
+$
+a/h=(av)/(vh)=(av)/g
+\quad\text{in }A_{\mathfrak q}\qquad(\mathfrak q\in D(fg))
+$
+
+です。したがって $s$ は $D(fg)$ 上で一つの局所化元から得られます。[準コンパクト性](#thm-ag3-02-quasicompact)によって、これらの中から有限個の $D(fg_1),\ldots,D(fg_r)$ を選べます。
 
 $B=A_f$ と置き、まず素点の対応を調べます。$B$ の素イデアル $\mathfrak q$ を $A$ へ引き戻して $\mathfrak p$ と置くと、$f$ が $B$ で可逆であるため $f\notin\mathfrak p$ です。逆にその条件を満たす素イデアル $\mathfrak p$ については
 
@@ -279,7 +286,7 @@ $$
 B/\mathfrak pB\simeq(A/\mathfrak p)_f
 $$
 
-が零でない整域です。従って $\mathfrak pB$ は素イデアルです。
+が零でない整域です。ここでは $\mathfrak p$ の素性から $A/\mathfrak p$ が整域になるという[素イデアルの整域商判定](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)を使っています。従って $\mathfrak pB$ は素イデアルです。
 
 $\mathfrak q$ の元 $a/f^n$ は、可逆な $f$ を掛けてもイデアルへの所属が変わらないため、$a/1\in\mathfrak q$ と同値です。一方、$a/1\in\mathfrak pB$ ならある $m$ に対して $f^m a\in\mathfrak p$ です。ここで素性と $f\notin\mathfrak p$ により $a\in\mathfrak p$ です。以上から素点の拡大・縮約は逆写像となります。
 
@@ -305,7 +312,7 @@ $$
 c_i g_j^N=c_j g_i^N
 $$
 
-が $B$ 内の等式として成り立ちます。被覆 $D_B(g_i)$ が全 $\operatorname{Spec}B$ を覆うため、$(g_1,\ldots,g_r)=B$ です。実際このイデアルが真なら極大イデアルに含まれ、被覆から漏れる素点が生じます。従って $(g_1^N,\ldots,g_r^N)=B$ であり、ある $u_i\in B$ が
+が $B$ 内の等式として成り立ちます。被覆 $D_B(g_i)$ が全 $\operatorname{Spec}B$ を覆うため、$(g_1,\ldots,g_r)=B$ です。実際このイデアルが真なら極大イデアルに含まれ、被覆から漏れる素点が生じます。さらに $(g_1^N,\ldots,g_r^N)=B$ です。仮に冪で生成されるイデアルが真なら極大イデアル $\mathfrak m$ に含まれ、$g_i^N\in\mathfrak m$ と素性からすべての $g_i\in\mathfrak m$ となります。これは先ほどの被覆と矛盾します。よってある $u_i\in B$ が
 
 $$
 \sum_{i=1}^r u_i g_i^N=1
@@ -383,7 +390,7 @@ $$
 
 ## 7. 点も位相も同じでも、関数環は違う
 
-$D=k[\varepsilon]/(\varepsilon^2)$ の素イデアルは $(\varepsilon)$ だけでした。[前章の素点の計算](../AG3-01/index.md#def-ag3-01-spec)を使うと、$X=\operatorname{Spec}D$ は一点の位相空間です。同様に $Y=\operatorname{Spec}k$ も一点です。しかし
+$D=k[\varepsilon]/(\varepsilon^2)$ では、任意の素イデアル $\mathfrak p$ が $\varepsilon^2=0\in\mathfrak p$ を含むため $\varepsilon\in\mathfrak p$ です。一方 $D/(\varepsilon)\simeq k$ は体なので $(\varepsilon)$ は極大かつ素です。従って[素スペクトルの定義](../AG3-01/index.md#def-ag3-01-spec)による $X=\operatorname{Spec}D$ は一点の位相空間です。同様に $Y=\operatorname{Spec}k$ も一点です。しかし
 
 $$
 \mathcal O_X(X)\simeq D,\qquad
@@ -496,7 +503,7 @@ $A=k[x,y]$ とし、$D(x+y)$ が $D(x)$ と $D(y)$ で覆われることを証�
 - ID: AG3-02-B2
 
 <!-- solution-start -->
-**詳細解答。** $\mathfrak p\in D(x+y)$ なら $x+y\notin\mathfrak p$ です。もし $x,y\in\mathfrak p$ ならイデアルの加法閉性で $x+y\in\mathfrak p$ となり矛盾します。従って $x\notin\mathfrak p$ または $y\notin\mathfrak p$ で、$D(x+y)\subseteq D(x)\cup D(y)$ です。これは $(x+y)=1\cdot x+1\cdot y$ という有限生成の等式に対応します。
+**詳細解答。** $\mathfrak p\in D(x+y)$ なら $x+y\notin\mathfrak p$ です。もし $x,y\in\mathfrak p$ ならイデアルの加法閉性で $x+y\in\mathfrak p$ となり矛盾します。従って $x\notin\mathfrak p$ または $y\notin\mathfrak p$ で、$D(x+y)\subseteq D(x)\cup D(y)$ です。これは $x+y=1\cdot x+1\cdot y\in(x,y)$ という元の等式に対応します。
 
 しかし $\mathfrak m=(x,y)$ は $A/\mathfrak m\simeq k$ により極大イデアルで、$x,y$ の双方を含みます。従って $\mathfrak m\notin D(x)\cup D(y)$ です。前半は $D(x+y)$ の被覆であって、全空間の被覆を意味しません。
 <!-- solution-end -->
@@ -548,7 +555,7 @@ $$
 - ID: AG3-02-C1
 
 <!-- solution-start -->
-**詳細解答。** $(f,g)=A$ なので $D(f)\cup D(g)=X$ です。$a\in A$ が $A_f,A_g$ の双方で零になれば、ある $r,s$ に対し $f^ra=g^sa=0$ です。$N\ge r,s$ として $f^Na=g^Na=0$。さらに $(f^N,g^N)=A$ なので $u f^N+v g^N=1$ と書けます。両辺に $a$ を掛けると $a=0$ で、写像は単射です。
+**詳細解答。** $(f,g)=A$ なので $D(f)\cup D(g)=X$ です。$a\in A$ が $A_f,A_g$ の双方で零になれば、ある $r,s$ に対し $f^ra=g^sa=0$ です。$N\ge\max(r,s,1)$ として $f^Na=g^Na=0$。ここで $(f,g)=A$ から $\lambda f+\mu g=1$ と書き、両辺を $2N-1$ 乗します。展開した各項は $f$ または $g$ を少なくとも $N$ 個因子に持つので、$1=(\lambda f+\mu g)^{2N-1}\in(f^N,g^N)$ です。よって $u f^N+v g^N=1$ と書けます。両辺に $a$ を掛けると $a=0$ で、写像は単射です。
 
 次に $x=b/f^n\in A_f$、$y=c/g^n\in A_g$ が $A_{fg}$ で一致するとします。分母を共通の $n$ に揃えました。局所化の等号からある $m$ について
 
@@ -556,7 +563,7 @@ $$
 (fg)^m(bg^n-cf^n)=0
 $$
 
-です。$N=n+m$、$B=bf^m$、$C=cg^m$ とすると $B g^N=C f^N$ が $A$ で成り立ちます。$(f^N,g^N)=A$ より $u f^N+v g^N=1$ を選び、$a=uB+vC$ と置きます。すると
+です。$N=n+m$、$B=bf^m$、$C=cg^m$ とすると $B g^N=C f^N$ が $A$ で成り立ちます。先ほどと同じ二項展開により $(f^N,g^N)=A$ ですから、$u f^N+v g^N=1$ を選び、$a=uB+vC$ と置きます。すると
 
 $$
 af^N=uBf^N+vCf^N
