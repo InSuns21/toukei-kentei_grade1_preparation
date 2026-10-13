@@ -22,7 +22,7 @@ Riemann幾何や平坦な波動方程式では不足する、この科目固有�
 
 - **位置付け:** 厳密な曲がった時空QFTの発展基盤
 - **前提:** HPDE、Fourier解析、GPDE、調和解析の必要部分（既存独立PLAN）
-- **canonical ownership:** 波面集合、分布の積と引戻しの可否、特異性伝播、Hadamard条件の超局所的定式化を所有。実際の曲がった時空の物理状態・粒子観測はQCURV、CFTレプリカはQFT II。
+- **canonical ownership:** 波面集合、分布の積と引戻しの可否、特異性伝播、Hadamard条件の超局所的定式化を所有。実際の曲がった時空の物理状態・粒子観測はQCURV、CFTレプリカはQFT IV。
 
 - **候補MICA1**：分布の局所Fourier変換と滑らかさ
 - **候補MICA2**：滑らかなcutoffと周波数方向への減衰
