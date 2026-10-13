@@ -347,7 +347,7 @@ $$
 
 連続な被積分係数に[変分法の基本補題](../../AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用すると $m_i\ddot q_i-F_i(q)=0$ が $(0,T)$ で成立します。
 
-これを第一変分式へ戻すと積分項は消え、周期条件 $h_i(T)=h_i(0)$ により
+これを上の線形形式の部分積分形へ戻すと積分項は消え、周期条件 $h_i(T)=h_i(0)$ により
 
 $$
 0=\mathscr L_q[h]
