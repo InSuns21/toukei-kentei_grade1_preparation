@@ -1,0 +1,64 @@
+chapter: AG3-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-02
+  - AG3-01
+  - AG1-04
+  - AG2-05
+forward_references: []
+concepts:
+  - id: algebraic-geometry.locally-ringed-space
+    name: 局所環付き空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所環付き空間）"]
+    requires: [algebraic-geometry.spectrum-stalk, algebraic-geometry.sheaf-of-rings-axioms]
+  - id: algebraic-geometry.spec-locally-ringed
+    name: 素スペクトルの局所環付き空間性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（素スペクトルの局所環付き空間性）"]
+    requires: [algebraic-geometry.locally-ringed-space, algebraic-geometry.spectrum-stalk]
+  - id: algebraic-geometry.lrs-morphism
+    name: 局所環付き空間の射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所環付き空間の射）"]
+    requires: [algebraic-geometry.locally-ringed-space]
+  - id: algebraic-geometry.lrs-residue-field-map
+    name: 射に伴う剰余体の準同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射に伴う剰余体の準同型）"]
+    requires: [algebraic-geometry.lrs-morphism]
+  - id: algebraic-geometry.spec-ring-hom-morphism
+    name: 環準同型が定める射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（環準同型が定める射）"]
+    requires: [algebraic-geometry.lrs-morphism, algebraic-geometry.spectrum-principal-sections, algebraic-geometry.spectrum-morphism-continuity]
+  - id: algebraic-geometry.affine-scheme
+    name: アフィンスキーム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィンスキーム）"]
+    requires: [algebraic-geometry.locally-ringed-space, algebraic-geometry.spec-locally-ringed]
+  - id: algebraic-geometry.affine-scheme-ring-hom-bijection
+    name: アフィンスキームの射と環準同型の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィンスキームの射と環準同型の対応）"]
+    requires: [algebraic-geometry.affine-scheme, algebraic-geometry.spec-ring-hom-morphism, algebraic-geometry.spectrum-principal-sections]
+  - id: algebraic-geometry.principal-affine-scheme
+    name: 主開集合のアフィン表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（主開集合のアフィン表示）"]
+    requires: [algebraic-geometry.affine-scheme, algebraic-geometry.spectrum-principal-sections, algebraic-geometry.localization]
+  - id: algebraic-geometry.quotient-spectrum-image
+    name: 商環が定める閉集合への射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（商環が定める閉集合への射）"]
+    requires: [algebraic-geometry.spec-ring-hom-morphism, algebraic-geometry.spectrum-zariski-topology]
