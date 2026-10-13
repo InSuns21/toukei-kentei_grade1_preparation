@@ -462,7 +462,7 @@ $$
 =-i\operatorname{sgn}(\xi)e^{-y|\xi|}\widehat f_n.
 $$
 
-右辺の乗数は絶対値が1以下なので、$Q_y*f_n$ は乗数で定義した $v_y$ に $L^2$ 収束します。一方、各点の畳み込み積分はCauchy–Schwarz不等式から
+右辺の乗数は絶対値が1以下なので、$Q_y*f_n$ は乗数で定義した $v_y$ に $L^2$ 収束します。一方、各点の畳み込み積分は[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \sup_{x\in\mathbb R}|Q_y*(f_n-f)(x)|
@@ -535,7 +535,7 @@ $$
 \end{aligned}
 $$
 
-高さ $y$ の差分にも同じ評価を適用できます。この極限の左辺の各項と $f\in L^2$ の積分にはCauchy–Schwarz不等式を適用できるので、畳み込みを任意階で微分してよいことが分かります。従って先ほどの核のLaplacianを積分して
+高さ $y$ の差分にも同じ評価を適用できます。この極限の左辺の各項と $f\in L^2$ の積分には[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用できるので、畳み込みを任意階で微分してよいことが分かります。従って先ほどの核のLaplacianを積分して
 
 $$
 \Delta u=(\Delta P_y)*f=0,
