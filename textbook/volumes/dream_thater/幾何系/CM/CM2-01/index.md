@@ -116,7 +116,7 @@ $$
 \Lambda^q T_x^{*0,1}X
 $$
 
-> とおく。この部分空間を滑らかに動く部分束 $\Lambda^{p,q}T^*X$ の滑らかな切断を **$(p,q)$ 形式**という。全体を $\Omega^{p,q}(X)$ と書く。$p=0$ または $q=0$ では対応する0次外冪を $\mathbb C$ とする。零形式の空間は $\Omega^{0,0}(X)=C^\infty(X;\mathbb C)$ である。
+> とおく。この部分空間を滑らかに動く部分束 $\Lambda^{p,q}T^*X$ の滑らかな切断を **$(p,q)$ 形式**という。全体を $\Omega^{p,q}(X)$ と書く。$p=0$ または $q=0$ では対応する0次外冪を $\mathbb C$ とする。0次形式の空間は $\Omega^{0,0}(X)=C^\infty(X;\mathbb C)$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm2-01-pq-form -->
