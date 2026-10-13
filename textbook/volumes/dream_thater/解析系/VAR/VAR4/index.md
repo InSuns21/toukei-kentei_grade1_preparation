@@ -20,11 +20,11 @@ $$
 
 古典的な変分では、端点 $\gamma(a)=p,\gamma(b)=q$ を固定した滑らかな曲線族 $F(s,t)$ を比較します。[GEO17の曲線変分](../../../幾何系/GEO/GEO17/index.md#def-geo17-variation)に従い、変分方向は $V(t)=\partial_sF(0,t)$ で $V(a)=V(b)=0$ を満たします。各曲線族について $dE[F(s,\cdot)]/ds|_{s=0}=0$ ならエネルギー停留とします。
 
-速度の二乗をLagrangianとして扱うため、局所座標ごとに次を記号として用います。
+[AMECH2の力学的ラグランジアン](../../../物理系/AMECH/AMECH2/index.md#def-amech2-mechanical-lagrangian)と同じ発想で、速度の二乗を扱うため、局所座標ごとに次を記号として用います。
 
 <a id="def-var4-metric-lagrangian"></a>
 <!-- formal-statement-start -->
-> **定義（計量の運動エネルギーLagrangian）**  
+> **定義（計量の運動エネルギー関数）**  
 > Riemann多様体 $(M,g)$ の局所座標 $x$ と接ベクトル成分 $v=(v^1,\ldots,v^n)$ に対し、
 >
 $$
@@ -87,7 +87,7 @@ $$
 
 <a id="prop-var4-metric-el-connection"></a>
 <!-- formal-statement-start -->
-> **命題（計量Lagrangianと測地線方程式）**  
+> **命題（計量エネルギーと測地線方程式）**  
 > 滑らかなRiemann多様体 $(M,g)$ の局所座標で、固定端点の滑らかな曲線 $x:[a,b]\to M$ を考える。$\mathcal L_g(x,v)=g_{ij}(x)v^iv^j/2$ のEuler–Lagrange方程式は
 >
 $$
@@ -323,7 +323,7 @@ $$
 
 ## 7. 力のない粒子はいつ測地線を動くか
 
-[AMECH3の作用原理](../../../物理系/AMECH/AMECH3/index.md#thm-amech3-euler-lagrange)ではLagrangianの運動エネルギーとポテンシャルを比較しました。質量 $m>0$ の粒子が、時刻に依存しないRiemann計量 $g$ を運動エネルギーに持ち、位置ポテンシャル $V(x)$ を受けるなら
+[AMECH3の作用原理](../../../物理系/AMECH/AMECH3/index.md#thm-amech3-euler-lagrange)では力学的ラグランジアンの運動エネルギー項とポテンシャルを比較しました。質量 $m>0$ の粒子が、時刻に依存しないRiemann計量 $g$ を運動エネルギーに持ち、位置ポテンシャル $V(x)$ を受けるなら
 
 $$
 \mathcal L(x,\dot x)
@@ -371,7 +371,7 @@ $$
 区間長は $b-a=2$ です。従って $L^2=100$、$2(b-a)E=2\cdot2\cdot25=100$。両者が等しいのは速度が一定であるという[GEO12の等号条件](../../../幾何系/GEO/GEO12/index.md#prop-geo12-length-energy)に一致します。
 <!-- solution-end -->
 
-## VAR4-A02 対角計量からLagrangian
+## VAR4-A02 対角計量から運動エネルギー関数
 
 - Level: A
 - 目安時間: 12分
@@ -429,7 +429,7 @@ Euclid直線上で質量 $m>0$、ポテンシャル $V(x)=kx^2/2$（$k>0$）の�
 <!-- solution-start -->
 ### 詳細解答
 
-Lagrangianは $\mathcal L=m\dot x^2/2-kx^2/2$ です。$\partial_{\dot x}\mathcal L=m\dot x$、$\partial_x\mathcal L=-kx$ なので
+力学的ラグランジアンは $\mathcal L=m\dot x^2/2-kx^2/2$ です。$\partial_{\dot x}\mathcal L=m\dot x$、$\partial_x\mathcal L=-kx$ なので
 
 $$
 \frac d{dt}(m\dot x)-(-kx)=0,\qquad m\ddot x+kx=0.
@@ -443,7 +443,7 @@ $k=0$ なら $m\ddot x=0$、$m>0$ より $\ddot x=0$ です。Euclid計量のChr
 - Level: B
 - 目安時間: 22分
 
-$ds^2=dr^2+r^2d\theta^2$ について、計量LagrangianからEuler–Lagrange方程式を両成分とも直接導き、$r^2\dot\theta$ が一定であることを示せ。$r$ が定数で $\dot\theta\ne0$ となる測地線はあるか。
+$ds^2=dr^2+r^2d\theta^2$ について、計量の運動エネルギー関数からEuler–Lagrange方程式を両成分とも直接導き、$r^2\dot\theta$ が一定であることを示せ。$r$ が定数で $\dot\theta\ne0$ となる測地線はあるか。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -532,7 +532,7 @@ $\widetilde\gamma''(s)=(e^s/(e-1),0)\ne0$ よりEuclid測地線方程式を満�
 
 $u$ がある開区間、$v$ が局所角座標を動く曲面に、$f(u)>0$ を滑らかな関数として $ds^2=du^2+f(u)^2dv^2$ を入れる。
 
-1. 計量Lagrangianから測地線方程式を導け。
+1. 計量の運動エネルギー関数から測地線方程式を導け。
 2. $f(u)^2\dot v$ が保存することを示せ。
 3. $u(t)\equiv u_0,\ v(t)=\omega t$（$\omega\ne0$）が測地線になる条件を求めよ。
 4. $f(u)=R\sin(u/R)$、$0<u<\pi R$ と置いて、球面の緯線で測地線となるものを判定せよ。
@@ -582,7 +582,7 @@ $f(u_0)>0,\omega\ne0$ より条件は $f'(u_0)=0$ です。球面では $f'(u)=\
 
 ## 章末チェック
 
-- 計量から作った二次のLagrangianを位置と速度で微分し、Christoffel係数まで中間式を追えるか。
+- 計量から作った二次の運動エネルギー関数を位置と速度で微分し、Christoffel係数まで中間式を追えるか。
 - 長さは再パラメータ化不変だが、エネルギーは一定速を選ぶ理由を説明できるか。
 - 球面の赤道とそれ以外の緯線を、測地線方程式で区別できるか。
 - 停留、局所最短、大域最短を混同していないか。
