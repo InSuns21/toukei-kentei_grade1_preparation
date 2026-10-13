@@ -489,7 +489,7 @@ $$
 #### CM1-06-B01 局所成分公式を初めから復元
 - Level: B
 
-実座標 $x^i$ で $J\partial_i=\sum_kJ^k{}_i\partial_k$ と書き、$N^k{}_{ij}$ の成分公式をLie括弧の定義から導け。反対称性も確認せよ。以下の和の添字はすべて $1,\ldots,2n$ を動く。
+実座標 $x^i$ で $J\partial_i=\sum_kJ^k{}_i\partial_k$ と書く。総和添字 $k,p$ は $1,\ldots,2n$ を動く。この表示から Lie 括弧を展開して $N^k{}_{ij}$ の成分公式を導け。添字 $i,j$ を交換したときの反対称性も確認せよ。
 
 <!-- solution-start -->
 **詳細解答**。[GEO5のLie括弧の座標公式](../../GEO/GEO5/index.md#thm-geo5-bracket-coordinate)に $J\partial_i=\sum_pJ^p{}_i\partial_p$ と $J\partial_j=\sum_pJ^p{}_j\partial_p$ を代入する。座標偏微分場同士の括弧が零であることから
