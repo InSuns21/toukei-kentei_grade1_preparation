@@ -239,7 +239,7 @@ $$
 Q_u(\eta)=\int_a^b[P(\eta')^2+(S-R')\eta^2]dx
 \ge m\int_a^b(\eta')^2dx-\mu\int_a^b\eta^2dx.
 $$
-後の[固定端Wirtinger補題](#lem-var2-wirtinger)により $\int\eta^2\le L^2/\pi^2\int(\eta')^2$ です。ここで $\mu\ge0$ としてよく（元の下界の $\mu$ が負なら $0$ へ置き換えます）、$d=m-\mu L^2/\pi^2>0$ とすると $Q_u(\eta)\ge d\int(\eta')^2$。さらに
+[§4の区間評価](#lem-var2-wirtinger)を用いると $\int\eta^2\le L^2/\pi^2\int(\eta')^2$ です。ここで $\mu\ge0$ としてよく（元の下界の $\mu$ が負なら $0$ へ置き換えます）、$d=m-\mu L^2/\pi^2>0$ とすると $Q_u(\eta)\ge d\int(\eta')^2$。さらに
 $$
 \int_a^b[\eta^2+(\eta')^2]dx
 \le(1+L^2/\pi^2)\int_a^b(\eta')^2dx
@@ -580,7 +580,7 @@ $$
 Q_u(\eta)=\int_a^b[P(\eta')^2+(S-R')\eta^2]dx
 \ge2\int_a^b(\eta')^2dx-\int_a^b\eta^2dx.
 $$
-[Wirtinger不等式](#lem-var2-wirtinger)より $\int\eta^2\le L^2/\pi^2\int(\eta')^2$。従って $L<\pi\sqrt2$ なら
+[§4の区間評価](#lem-var2-wirtinger)を用いると $\int\eta^2\le L^2/\pi^2\int(\eta')^2$。従って $L<\pi\sqrt2$ なら
 $$
 Q_u(\eta)\ge\left(2-\frac{L^2}{\pi^2}\right)\int_a^b(\eta')^2dx.
 $$
