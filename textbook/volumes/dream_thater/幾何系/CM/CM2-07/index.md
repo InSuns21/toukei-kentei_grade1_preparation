@@ -67,7 +67,7 @@ G_{ij}G_{jk}=G_{ik}
 \quad\text{on }U_i\cap U_j\cap U_k.
 $$
 
-> 局所枠は $\mathcal E_j=\mathcal E_iG_{ij}$ の向きで比較する。
+> この章では、領域間の基底変更を $\mathcal E_j=\mathcal E_iG_{ij}$ の向きで記す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm2-07-transition-matrices -->
