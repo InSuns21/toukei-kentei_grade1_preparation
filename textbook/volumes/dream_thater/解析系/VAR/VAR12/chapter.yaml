@@ -10,6 +10,9 @@ prerequisites:
   - FOU1
   - GPDE5
   - GPDE7
+  - FA6
+  - QM5
+  - OPT5
 official_scope: []
 learning_objectives:
   - Morse指数と零化次数を負定値部分空間と双線形形式の核から定義し等方方向と区別できる
