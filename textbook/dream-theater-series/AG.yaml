@@ -144,7 +144,7 @@ chapters:
     title: "射影空間のO(d)のコホモロジー"
   - id: AG3-11
     path: textbook/volumes/dream_thater/代数系/AG/AG3-11
-    status: planned
+    status: completed
     title: "曲線の種数とRiemann–Rochへの入口"
   - id: AG3-12
     path: textbook/volumes/dream_thater/代数系/AG/AG3-12
