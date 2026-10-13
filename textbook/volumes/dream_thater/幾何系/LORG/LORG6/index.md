@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg6-chronological-causal-future -->
-**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。$r\notin I^+(p)$ であることは次節で端点不等式から証明します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
+**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。$r\notin I^+(p)$ であることは第4節の端点不等式から証明します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
 <!-- definition-example-end -->
 
 ここで二種類の「厳密さ」を区別します。$p\ll p$ が不可能だと**まだ仮定していません**。閉時間的曲線のある時空では $p\in I^+(p)$ もありえます。逆に $p\le p$ は定数曲線だけで常に成立します。したがって $I^\pm$ が必ず自分自身を除く、という集合論的規則ではありません。
@@ -55,7 +55,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg6-horismos -->
-**定義の確認**。上の平坦時空で $q=(2,1)$ は $I^+(p)$ に入るので $E^+(p)$ には入りません。$r=(2,2)$ は $J^+(p)$ に入り、時間的曲線では到達できないことを次節で示すので $E^+(p)$ に入ります。$p$ 自身も $J^+(p)$ に属し、平坦時空では非自明な閉時間的曲線がないので $p\notin I^+(p)$、従って $p\in E^+(p)$ です。**光円錐の頂点も含む**ことに注意してください。
+**定義の確認**。上の平坦時空で $q=(2,1)$ は $I^+(p)$ に入るので $E^+(p)$ には入りません。$r=(2,2)$ は $J^+(p)$ に入り、時間的曲線では到達できないことを第4節で示すので $E^+(p)$ に入ります。$p$ 自身も $J^+(p)$ に属し、平坦時空では非自明な閉時間的曲線がないので $p\notin I^+(p)$、従って $p\in E^+(p)$ です。**光円錐の頂点も含む**ことに注意してください。
 <!-- definition-example-end -->
 
 ## 3. 連結できる曲線は到達関係をつなげる
@@ -96,7 +96,14 @@ $\alpha(1)=q=\beta(0)$ だから $\gamma$ は連続で、各区間では速度�
 
 因果曲線の場合も同じ連結を使います。未来因果ベクトルの正倍は未来因果のままなので $p\le r$ です。また時間的な速度は因果的でもあるため $p\ll q\Rightarrow p\le q$。定数曲線を選べば $p\le p$ です。定義集合へ戻して $I^\pm(p)\subset J^\pm(p)$ を得ます。
 
-最後の一意性はこの命題からは従いません。例えば $\mathbb R\times S^1$ に $-d\theta^2+dx^2$ を入れ、$\theta$ の増加方向を未来にすると、時間方向に一周する閉時間的曲線が存在し、異なる点同士で双方向に因果到達できます。$\square$
+最後の一意性はこの命題からは従いません。例えば $S^1_\theta\times\mathbb R_x$ に $g=-d\theta^2+dx^2$ を入れ、$\theta$ の増加方向を未来にします。$p=(0,0)$、$q=(\pi,0)$（角度は $2\pi$ を法として読む）について、
+
+$
+\alpha(s)=(\pi s,0),\qquad
+\beta(s)=(\pi+\pi s,0),\qquad 0\le s\le1
+$
+
+を円周上の曲線と見れば、$\alpha$ は $p$ から $q$ へ、$\beta$ は $q$ から $p$ へ進みます。どちらも速度の自己内積は $-\pi^2<0$ で未来向きです。従って $p\ne q$ でも $p\ll q$ かつ $q\ll p$ が成立し、因果到達は反対称とは限りません。$\square$
 <!-- proof-end -->
 
 集合に対する記号でも、**全称条件ではなく存在条件**であることが重要です。
@@ -306,7 +313,18 @@ $$
 $\mathbb R^{1+1}$ で $p=(1,-1)$ とし、$q=(4,1)$、$r=(4,2)$、$s=(2,3)$ がそれぞれ $I^+(p)$、$E^+(p)$、$J^+(p)$ のどれに入るかを判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)において $\Delta t=t-t_p$、$\rho=|x-x_p|$ を使います。$q$ では $\Delta t=3$、$\rho=2$ なので $3>2$、従って $q\in I^+(p)\subset J^+(p)$、$q\notin E^+(p)$ です。$r$ では $\Delta t=3$、$\rho=3$ なので等号、$r\in E^+(p)\subset J^+(p)$、$r\notin I^+(p)$ です。$s$ は $\Delta t=1$、$\rho=4$ で $\Delta t<\rho$、従って三集合のどれにも入りません。
+**詳細解答**。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)により、$\Delta t=t-t_p$ と $\rho=|x-x_p|$ を比較します。各点の値は
+
+$$
+\begin{array}{c|cc|c}
+ & \Delta t & \rho & \text{判定}\\ \hline
+q=(4,1)&3&2&3>2\\
+r=(4,2)&3&3&3=3\\
+s=(2,3)&1&4&1<4
+\end{array}
+$$
+
+です。従って $q\in I^+(p)\subset J^+(p)$ で $q\notin E^+(p)$、$r\in E^+(p)\subset J^+(p)$ で $r\notin I^+(p)$ です。$s$ は $J^+(p)$ に入らず、従って $I^+(p)$ と $E^+(p)$ にも入りません。
 <!-- solution-end -->
 
 <a id="ex-lorg6-a02"></a>
@@ -316,7 +334,16 @@ $\mathbb R^{1+1}$ で $p=(1,-1)$ とし、$q=(4,1)$、$r=(4,2)$、$s=(2,3)$ が�
 $\mathbb R^{1+2}$ の $p=(3,0,0)$ に対し、$a=(1,1,0)$ と $b=(1,2,0)$ の $I^-(p)$、$E^-(p)$、$J^-(p)$ への所属を決めよ。
 
 <!-- solution-start -->
-**詳細解答**。[過去集合公式](#thm-lorg6-minkowski-futures)では $t_p-t$ と空間差を比較します。$a$ では $t_p-t_a=2$、$|\mathbf x_p-\mathbf x_a|=1$ なので $a\in I^-(p)\subset J^-(p)$ かつ $a\notin E^-(p)$。$b$ では $t_p-t_b=2$、空間差のノルムは $2$ なので $b\in E^-(p)\subset J^-(p)$、$b\notin I^-(p)$ です。過去向きの判定で $t-t_p$ を使ってしまうと両方を誤判定します。
+**詳細解答**。[過去集合の公式](#thm-lorg6-minkowski-futures)では時間差 $t_p-t$ と空間距離 $|\mathbf x_p-\mathbf x|$ を比較します。二点について
+
+$$
+\begin{aligned}
+a:\quad&t_p-t_a=2>1=|\mathbf x_p-\mathbf x_a|,\\
+b:\quad&t_p-t_b=2=2=|\mathbf x_p-\mathbf x_b|
+\end{aligned}
+$$
+
+です。よって $a\in I^-(p)\subset J^-(p)$ かつ $a\notin E^-(p)$、$b\in E^-(p)\subset J^-(p)$ かつ $b\notin I^-(p)$ です。過去側では $t-t_p$ でなく $t_p-t$ を使うことが判定の要点です。
 <!-- solution-end -->
 
 <a id="ex-lorg6-a03"></a>
@@ -346,7 +373,16 @@ Minkowski平面で $p=(-2,0)$ から $q=(1,3)$ への直線 $\gamma(s)=(-2+3s,3s
 Minkowski平面で $S=\{(0,0),(0,4)\}$、$q=(3,2)$、$r=(2,2)$ とする。$q,r$ の $I^+(S)$、$J^+(S)$、$E^+(S)$ への所属を判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$q$ について、$S$ の両基点からの時間差は $3$、空間差は $2$ なのでどちらからも時間的に到達でき、$q\in I^+(S)\subset J^+(S)$、$q\notin E^+(S)$ です。$r$ では両基点から時間差も空間差も $2$。従って $r\in J^+(S)$ ですが、どちらの点からも時間的に到達できず $r\notin I^+(S)$。よって $r\in E^+(S)$ です。[合併の命題](#prop-lorg6-set-unions)で始点を二つとも調べた点が重要です。
+**詳細解答**。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)を二つの始点に適用すると、空間差はどちらからも $2$ であり、
+
+$$
+\begin{aligned}
+q=(3,2):\quad&\Delta t=3>2=\rho,\\
+r=(2,2):\quad&\Delta t=2=2=\rho
+\end{aligned}
+$$
+
+となります。従って $q$ は両始点から時間的に到達可能で、$q\in I^+(S)\subset J^+(S)$、$q\notin E^+(S)$ です。一方 $r$ は両始点から因果的に到達できますが、いずれからも時間的には到達できません。[集合の未来の合併](#prop-lorg6-set-unions)より $r\in J^+(S)\setminus I^+(S)=E^+(S)$ です。
 <!-- solution-end -->
 
 ### Level B
@@ -405,13 +441,28 @@ $$
 Minkowski時空で $p$ を固定し、$q_k\in J^+(p)$、$q_k\to q$ とする。$q\in J^+(p)$ を座標不等式から示し、同じ手順で $I^+(p)$ が閉集合だと主張できない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書くと、各 $k$ に対して[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)より
+**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書きます。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)を各 $q_k$ に適用すると、
 
 $$
-t_k-t_0\ge|\mathbf x_k-\mathbf x_0|.
+t_k-t_0\ge|\mathbf x_k-\mathbf x_0|
 $$
 
-$t_k\to t$、$\mathbf x_k\to\mathbf x$ とノルムの連続性から極限を取れば $t-t_0\ge|\mathbf x-\mathbf x_0|$。従って $q\in J^+(p)$ です。一方 $I^+(p)$ で成り立つ厳密不等式 $t_k-t_0>|\mathbf x_k-\mathbf x_0|$ は、極限で等号に変わりえます。例えば $p=(0,0)$、$q_k=(1+1/k,1)$ は全て $I^+(p)$ に属しますが、極限 $(1,1)$ は $E^+(p)$ に属し $I^+(p)$ には入りません。
+です。$q_k\to q=(t,\mathbf x)$ なら $t_k\to t$、$\mathbf x_k\to\mathbf x$ です。ノルムの連続性により
+
+$$
+t-t_0=\lim_{k\to\infty}(t_k-t_0)
+\ge\lim_{k\to\infty}|\mathbf x_k-\mathbf x_0|
+=|\mathbf x-\mathbf x_0|.
+$$
+
+よって $q\in J^+(p)$ です。一方 $I^+(p)$ の厳密不等式は極限で等号に変わりえます。実際、$p=(0,0)$、$q_k=(1+1/k,1)$ では
+
+$$
+1+\frac1k>1,\qquad
+q_k\longrightarrow(1,1),\qquad 1=|1|
+$$
+
+となるため、全ての $q_k$ が $I^+(p)$ に属するのに、極限 $(1,1)$ は $E^+(p)$ に属し $I^+(p)$ には入りません。
 <!-- solution-end -->
 
 <a id="ex-lorg6-b04"></a>
