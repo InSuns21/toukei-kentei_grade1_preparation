@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - VAR2
+  - VAR5
   - VAR7
   - GEO10
   - GPDE5
