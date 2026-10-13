@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm1-07-integrable -->
-**直接例**。$\mathbb R^2$ の $J\partial_x=\partial_y$、$J\partial_y=-\partial_x$ に対し $z=x+iy$ とすると
+**定義の確認**。$\mathbb R^2$ の $J\partial_x=\partial_y$、$J\partial_y=-\partial_x$ に対し $z=x+iy$ とすると
 
 $$
 dz(J\partial_x)=i=i\,dz(\partial_x),\qquad
@@ -72,7 +72,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm1-07-j-holomorphic-functions -->
-**直接例**。標準 $\mathbb C^2$ では $(0,1)$ 型の枠が $\partial_{\bar w^1},\partial_{\bar w^2}$ である。$f=(w^1)^2+w^2$ はどちらで微分しても零で、任意の関数係数の線形結合でも零だから $J$ 正則である。
+**定義の確認**。標準 $\mathbb C^2$ では $(0,1)$ 型の枠が $\partial_{\bar w^1},\partial_{\bar w^2}$ である。$f=(w^1)^2+w^2$ はどちらで微分しても零で、任意の関数係数の線形結合でも零だから $J$ 正則である。
 <!-- definition-example-end -->
 
 <a id="prop-cm1-07-coordinate-criterion"></a>
