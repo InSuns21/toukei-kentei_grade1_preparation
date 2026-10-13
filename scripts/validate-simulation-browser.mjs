@@ -289,5 +289,6 @@ try {
   if (ws) ws.close();
   browser.kill("SIGKILL");
   server.close();
-  await rm(profile, { recursive: true, force: true });
+  // Chromium may still be flushing its profile after SIGKILL; retry ENOTEMPTY races.
+  await rm(profile, { recursive: true, force: true, maxRetries: 20, retryDelay: 150 });
 }
