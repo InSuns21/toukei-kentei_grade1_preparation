@@ -358,13 +358,22 @@ $$
 q(t)=q(a)+\int_a^tF_z(s,u_*(s),u_*'(s))\,ds
 $$
 
-から $q\in C^1$ です。$F\in C^2$ と $u_*\in C^1$ の下で $F_p(t,u_*,u_*')=q(t)$ を微分すると
+から $q\in C^1$ です。ここで $F_{pp}\ge\mu>0$ なので、方程式 $F_p(t,z,p)-q=0$ の $p$ に関する微分は $F_{pp}\ne0$ です。[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を $(t,z,q,p)$ の各解の近傍で適用すると、逆写像 $p=P(t,z,q)$ は局所的に $C^1$ です。既に $P$ の連続性と解の一意性を示しているので、これらの局所表示は一致します。
+
+$u_*\in C^1$、$q\in C^1$ を代入すると
 
 $$
-F_{pt}+F_{pz}u_*'+F_{pp}u_*''=q'=F_z.
+u_*'(t)=P(t,u_*(t),q(t))
 $$
 
-ここで $F_{pp}\ge\mu>0$ なので、$F_p(t,z,p)-q=0$ に陰関数定理を適用でき、$p=P(t,z,q)$ は局所的に $C^1$ です。従って $u_*\in C^1$、$q\in C^1$ を代入すると $u_*^{\prime}=P(t,u_*,q)$ は $C^1$ です。連鎖律と $F_{pp}\ge\mu$ による除算から右辺は連続です。従って $u_*'$ は $C^1$、すなわち $u_*\in C^2$ で、表示した式が成り立ちます。
+は $C^1$ です。従って、ここで初めて $u_*\in C^2$ が確定します。この正則性の下で $F_p(t,u_*,u_*')=q(t)$ の両辺を微分すれば、連鎖律より
+
+$$
+F_{pt}(t,u_*,u_*')+F_{pz}(t,u_*,u_*')u_*'
++F_{pp}(t,u_*,u_*')u_*''=q'=F_z(t,u_*,u_*').
+$$
+
+$F_{pp}\ge\mu>0$ だから $u_*''$ について割り算でき、定理の古典方程式と表示式を得ます。
 <!-- proof-end -->
 
 上の逆関数の微分については、まず連続な速度が得られてから、$F_{pp}\ne0$ に対する[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を用いれば局所的に微分可能です。$\mu$ を下界に持つことが「$F_{pp}$ で割ってよい」理由になります。
@@ -549,7 +558,7 @@ $u\in H^1(a,b)$、$u(a)=A$、$L=b-a$ とする。$\|u\|_2$ と $\|u\|_\infty$ �
 $$
 u(t)=A+\int_a^t u'(s)\,ds.
 $$
-Cauchy–Schwarzにより
+[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 $$
 |u(t)|\le |A|+\sqrt{t-a}\,\|u'\|_2
 \le |A|+\sqrt L\,\|u'\|_2.
@@ -662,7 +671,7 @@ $H^1(0,1)$ の $u(0)=0,u(1)=1$ について $J(u)=\frac12\int_0^1a(t)|u'|^2dt$�
 <!-- solution-start -->
 ### 詳細解答
 
-全ての許容 $u$ で Cauchy–Schwarz を $1=\int u'=\int(\sqrt a\,u')(1/\sqrt a)$ に適用すると
+全ての許容 $u$ で [Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $1=\int u'=\int(\sqrt a\,u')(1/\sqrt a)$ に適用すると
 $$
 1\le\left(\int_0^1a|u'|^2dt\right)
 \left(\int_0^1\frac{dt}{a}\right)
@@ -718,11 +727,24 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-全方向 $v\in H^1$ の変分を使うと
+最小点 $u$ があれば、任意の $v\in H^1(0,1)$ と実数 $s$ に対し
 $$
-0=\int_0^1(u'v'+(u-1)v)dt.
+\begin{aligned}
+J(u+sv)-J(u)
+&=s\int_0^1\bigl(u'v'+(u-1)v\bigr)\,dt\\
+&\quad+\frac{s^2}{2}\int_0^1\bigl(v'^2+v^2\bigr)\,dt.
+\end{aligned}
 $$
-コンパクト台の $v$ に制限すれば分布として $u''=u-1$ です。係数は滑らかなので $u$ は $C^2$ となり、一般の $v$ に部分積分すると
+$s=0$ で最小になるので一次の係数は0、すなわち
+$$
+0=\int_0^1(u'v'+(u-1)v)\,dt
+\quad(v\in H^1(0,1))
+$$
+です。コンパクト台の $v$ に制限すると、$q=u'\in L^2$ の分布微分は $Dq=u-1$ です。[一変数の絶対連続代表元の定理](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)から
+$$
+q(t)=c+\int_0^t(u(s)-1)\,ds
+$$
+となります。$u\in H^1(0,1)$ は連続代表元を持つので右辺は $C^1$、従って $u'=q\in C^1$、つまり $u\in C^2([0,1])$ です。これで $u''=u-1$ は古典的にも成立します。一般の $v$ に部分積分すると
 $$
 0=[u'v]_0^1+\int_0^1(-u''+u-1)v\,dt
 =u'(1)v(1)-u'(0)v(0).
