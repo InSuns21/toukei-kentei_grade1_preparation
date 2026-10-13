@@ -78,9 +78,9 @@ $$
 k[t]/(t-a)\simeq k.
 $$
 
-したがって各 $(t-a)$ も素イデアルであり、どちらも $\operatorname{Spec}k[t]$ の点です。
+したがって[素イデアルと商整域](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)により各 $(t-a)$ も素イデアルであり、どちらも $\operatorname{Spec}k[t]$ の点です。
 
-$k$ が代数閉体の場合、[弱Hilbertの零点定理](../AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)から極大イデアルは $(t-a)$ に限られます。しかし $(0)$ は極大ではありません。従来の $a\in k$ のほかに、直線全体に対応する点が加わります。
+$k$ が代数閉体の場合、[極大イデアルと点の対応](../AG1-07/index.md#prop-ag1-07-maximal-points)から極大イデアルは $(t-a)$ に限られます。しかし $(0)$ は極大ではありません。従来の $a\in k$ のほかに、直線全体に対応する点が加わります。
 
 $D=k[\varepsilon]/(\varepsilon^2)$ では、素イデアル $\mathfrak p$ に $\varepsilon^2=0$ が属するため、素性から $\varepsilon\in\mathfrak p$ です。$(\varepsilon)$ は商が $k$ なので素イデアルであり、ほかの素イデアルはありません。$\operatorname{Spec}D$ と $\operatorname{Spec}k$ は集合としてともに一点です。
 <!-- definition-example-end -->
@@ -302,7 +302,29 @@ $\alpha:k[t]\to k[s]$ を $t\mapsto s^2$ とする。$(s)$、$(s-2)$、$(0)$ の
 - ID: AG3-01-A4
 
 <!-- solution-start -->
-**詳細解答。** $\alpha^{-1}((s-a))$ は $f(s^2)$ が $s=a$ で0になる $f(t)$ 全体、すなわち $f(a^2)=0$ を満たす多項式全体です。因数定理で $(t-a^2)$ です。$a=0,2$ に対し順に $(t)$、$(t-4)$ となります。さらに $\alpha^{-1}((0))=\{f(t)\mid f(s^2)=0\}$ です。非零 $f$ の最高次数項 $c_nt^n$ は $cs^{2n}$ となって消えないので $f=0$ だけが属し、逆像は $(0)$ です。
+**詳細解答。** $(s-a)$ の逆像に属する条件は、$f(s^2)$ が $s=a$ で消えること、すなわち $f(a^2)=0$ です。因数定理を $t-a^2$ に適用すると
+
+$$
+\alpha^{-1}((s-a))=(t-a^2)
+$$
+
+を得ます。$a=0,2$ を代入して、順に $(t)$、$(t-4)$ です。標数が2の場合には $2=4=0$ なので、二つの逆像はいずれも $(t)$ になります。
+
+次に $(0)$ の逆像を考えます。非零多項式 $f(t)$ の次数を $n$、最高次係数を $c_n\ne0$ とすると、
+
+$$
+f(t)=c_nt^n+\cdots+c_0
+\quad\Longrightarrow\quad
+f(s^2)=c_ns^{2n}+\cdots+c_0\ne0.
+$$
+
+従って $f(s^2)=0$ となるのは $f=0$ の場合だけで、
+
+$$
+\alpha^{-1}((0))=(0)
+$$
+
+です。
 <!-- solution-end -->
 
 ### B1. 剰余体で一般点を評価する
@@ -336,15 +358,21 @@ $$
 f(x,y)=f(x,0)+y\,g(x,y)
 $$
 
-となります。よって逆像は $(y)$ であり、商 $A/(y)\simeq k[x]$ が整域だから素イデアルです。
+となります。よって逆像は $(y)$ であり、商 $A/(y)\simeq k[x]$ が整域だから、[素イデアルと商整域](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)により $(y)$ は素イデアルです。
 
-次に $(t-a)$ の逆像条件は $f(a,0)=0$ です。これを満たす多項式は $(y,x-a)$ に属し、逆も成り立つため逆像は $(y,x-a)$ です。商は
+次に $(t-a)$ の逆像条件は $f(a,0)=0$ です。$f(x,0)$ を $x-a$ で割ると、ある $h(x)\in k[x]$ によって $f(x,0)=(x-a)h(x)+f(a,0)$ と書けます。先ほどの分解と合わせると
+
+$$
+f(x,y)=(x-a)h(x)+y\,g(x,y)+f(a,0).
+$$
+
+従って $f(a,0)=0$ なら $\bar f\in(y,x-a)$ です。逆に $y$ と $x-a$ はともに $(a,0)$ で消えるため、$(y,x-a)$ の元はすべて条件を満たします。よって逆像は $(y,x-a)$ です。商は
 
 $$
 A/(y,x-a)\simeq k
 $$
 
-という体なので素イデアルです。$a=0$ のときだけ二本の軸の交点 $(x,y)$ に対応します。
+という体なので、$(y,x-a)$ は素イデアルです。$a=0$ のときだけ二本の軸の交点 $(x,y)$ に対応します。
 <!-- solution-end -->
 
 ### B3. 代数閉でない基礎体
@@ -387,7 +415,48 @@ $k$ を体、$A=k[t]$、$C=k[z]/(z^2)$ とする。自然変換 $h_A\Rightarrow 
 - ID: AG3-01-C1
 
 <!-- solution-start -->
-**詳細解答。** 自然変換 $\eta$ があれば $\alpha=\eta_A(\operatorname{id}_A):C\to A$ を取ります。$z^2=0$ より $\alpha(z)^2=0$ です。$A=k[t]$ は整域なので $\alpha(z)=0$ だけが可能であり、$C\to A$ はこの指定で唯一に決まります。任意の $u:A\to B$ に対し、値域変更 $u:A\to B$ と自然性を使えば $\eta_B(u)=u\circ\alpha$ です。逆にこの式は $\eta_{B'}(\varphi\circ u)=\varphi\circ\eta_B(u)$ を満たすので自然変換を定めます。従ってただ一つです。$B=C$ における $u$ は $u(t)=b\in C$ で決まりますが、$\eta_C(u)(z)=(u\circ\alpha)(z)=u(0)=0$ です。$b$ の選び方に関係なく、$h_C(C)$ の零点に送られます。
+**詳細解答。** 自然変換 $\eta:h_A\Rightarrow h_C$ が与えられたとします。まず $B=A$ で恒等準同型の行き先を取り、
+
+$$
+\alpha=\eta_A(\operatorname{id}_A):C\to A
+$$
+
+と置きます。$C=k[z]/(z^2)$ の関係式を保存する必要があるので、
+
+$$
+\alpha(z)^2=\alpha(z^2)=0.
+$$
+
+$A=k[t]$ は整域であるため $\alpha(z)=0$ です。$C$ は $z$ で生成されるので、$\alpha$ はこの条件で一意に決まります。
+
+任意の $u:A\to B$ に対し、値域変更 $u$ に関する自然性を $\operatorname{id}_A$ に適用すると、
+
+$$
+\begin{aligned}
+\eta_B(u)
+&=\eta_B\bigl(h_A(u)(\operatorname{id}_A)\bigr)\\
+&=h_C(u)\bigl(\eta_A(\operatorname{id}_A)\bigr)\\
+&=u\circ\alpha.
+\end{aligned}
+$$
+
+逆に、唯一の $\alpha$ から $\eta_B(u)=u\circ\alpha$ と定めれば、任意の $\varphi:B\to B'$ に対して
+
+$$
+\eta_{B'}(\varphi\circ u)
+=(\varphi\circ u)\circ\alpha
+=\varphi\circ\eta_B(u)
+$$
+
+となり、自然性を満たします。ゆえに自然変換は一つだけです。
+
+特に $B=C$ の点 $u:k[t]\to C$ は $u(t)=b\in C$ で決まりますが、
+
+$$
+\eta_C(u)(z)=u(\alpha(z))=u(0)=0
+$$
+
+です。$b$ の選び方によらず、$h_C(C)$ のうち $z$ を0に送る点になります。
 <!-- solution-end -->
 
 ### C2. 二本の軸と三種類の素点
@@ -406,11 +475,11 @@ A/(y)\simeq k[x],\qquad
 A/(x,y)\simeq k.
 $$
 
-前二者は整域、最後は体です。従って $(x)$、$(y)$、$(x,y)$ はすべて素イデアルです。最後の $(x,y)$ は原点の極大イデアルに対応します。
+前二者は整域、最後は体です。[素イデアルと商整域](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)により $(x)$、$(y)$、$(x,y)$ はすべて素イデアルです。最後の $(x,y)$ は原点の極大イデアルに対応します。
 
-$k$ が代数閉体なので、二本の座標軸上の $k$ 値点は $(x-a,y)$ または $(x,y-b)$ と表せます。一方、$(x)$ と $(y)$ は極大ではなく、各軸全体に対応する素点です。
+$k$ 値点は $A\to k$ という評価準同型であり、二本の座標軸上の $(a,0)$ または $(0,b)$（$a,b\in k$）に対応します。その核はそれぞれ極大イデアル $(x-a,y)$、$(x,y-b)$ です。例えば $f(x,y)-f(a,0)$ は $(x-a,y)$ に属するので、$(a,0)$ での評価の核が分かります。一方、$(x)$ と $(y)$ は極大ではなく、各軸全体に対応する素点です。
 
-指定の環準同型 $\alpha$ は $xy$ を0に送るため well-defined です。$\alpha(\bar f)=f(t,0)$ だから、逆像に属する条件は
+指定の環準同型 $\alpha$ は $xy$ を0に送るため well-defined です。$\alpha(\bar f)=f(t,0)$ であり、$f(x,y)=f(x,0)+y\,g(x,y)$ と分解できるので、逆像に属する条件は
 
 $$
 f(t,0)=0\quad\Longleftrightarrow\quad
