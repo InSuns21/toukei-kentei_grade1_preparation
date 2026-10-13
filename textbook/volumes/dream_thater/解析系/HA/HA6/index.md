@@ -524,7 +524,13 @@ $Q=[0,1)$、$g=4\boldsymbol1_{[0,1/8)}$ とする。局所二進分割で平均�
 非負関数 $h$ が有界集合 $Q$ 上で $|\{x\in Q:h(x)>t\}|\le2|Q|e^{-ct/M}$（$t>0$、$c,M>0$）を満たす。二乗平均の上界を求めよ。
 
 <!-- solution-start -->
-**詳細解答**　$h(x)^2=\int_0^{h(x)}2t\,dt$ として非負関数に [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を適用し、積分順序を入れ替えると
+**詳細解答**　非負性 $h(x)\ge0$ より、二乗の出発点を積分で表すと
+
+$
+h(x)^2=\int_0^{h(x)}2t\,dt
+$
+
+です。非負可測関数 $2t\boldsymbol1_{\{0<t<h(x)\}}$ に [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を適用して積分順序を交換すると
 
 $$
 \begin{aligned}
