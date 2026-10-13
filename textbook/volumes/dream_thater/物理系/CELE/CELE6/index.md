@@ -223,17 +223,17 @@ $$
 > **命題（強制振り子の鞍型周期軌道）**  
 > $\omega>0$ を固定し、二自由度Hamiltonianを
 
-$
+$$
 \mathcal H_\varepsilon(q,p,\phi,J)
 =\frac{p^2}{2}+\cos q+
 \varepsilon\cos q\cos\phi+\omega J
-$
+$$
 
 > とする。$\varepsilon=0$ で $(q,p)=(0,0)$、$\phi=\omega t$ に対応する周期軌道は、時間
 
-$
+$$
 T=\frac{2\pi}{\omega}
-$
+$$
 
 > の帰還写像に鞍型固定点を与え、その乗数は $e^T,e^{-T}$ である。十分小さい $|\varepsilon|$ で、この固定点は唯一の近傍固定点として存続し鞍型である。
 <!-- formal-statement-end -->
@@ -255,18 +255,18 @@ $$
 
 固有ベクトル $(1,1),(1,-1)$ の固有値はそれぞれ $+1,-1$ です。従って時間 $T$ 写像の微分の固有値と固定点方程式の微分の固有値は、順に
 
-$
+$$
 \lambda_\pm(DP_0)=e^{\pm T},\qquad
 \lambda_\pm(D(P_0-\operatorname{id}))=e^{\pm T}-1\ne0
-$
+$$
 
 です。よって $D(P_0-\operatorname{id})$ は可逆です。
 
 Hamilton方程式の解は初期値と摂動パラメータに滑らかに依存します。[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を固定点方程式
 
-$
+$$
 P_\varepsilon(z)-z=0
-$
+$$
 
 に適用すると、零摂動の固定点の近傍で一意の固定点 $z_\varepsilon$ を得ます。微分行列の固有値は小摂動で $e^{\pm T}$ の近くに残るため、一つが単位円内、他方が単位円外です。
 <!-- proof-end -->
@@ -672,15 +672,15 @@ $$
 <!-- solution-start -->
 **詳細解答。** [二記号horseshoeから導く複雑さ](#prop-cele6-symbolic-consequences)より、三回シフトで不変な両側列は先頭の三記号で一意に決まります。従って、対応する固定点は
 
-$
+$$
 \#\operatorname{Fix}((P^N)^3)=2^3=8
-$
+$$
 
 個です。このうち最小周期1の点は定数列 $000\cdots$、$111\cdots$ に対応する2点です。3の正の約数は1と3のみなので、最小周期3の点数は
 
-$
+$$
 8-2=6
-$
+$$
 
 です。ただしこれは $P^N$ に対する周期の情報であり、$P$ 自身に固定点が8点あるとは言えません。二つの写像の周期を取り違えてはいけません。
 <!-- solution-end -->
