@@ -45,7 +45,7 @@ $
 
 [茎の定理](../AG3-02/index.md#thm-ag3-02-stalk)によって $\mathcal O_{\operatorname{Spec}A,\mathfrak p}\simeq A_{\mathfrak p}$ です。$s\notin\mathfrak p$ として $a/s\in A_{\mathfrak p}$ を取ります。$a\notin\mathfrak p$ なら $s/a$ が逆元です。逆に $a\in\mathfrak p$ で $a/s$ が可逆なら、ある $b/t$ と $u\notin\mathfrak p$ が存在して $u(ab-st)=0$ です。$ab\in\mathfrak p$ より $ust\in\mathfrak p$ ですが、$u,s,t\notin\mathfrak p$ と素性に矛盾します。
 
-従って非単元はちょうど $\mathfrak p A_{\mathfrak p}$ の元です。どの真のイデアルも単元を含まないため、このイデアルに含まれます。よって唯一の極大イデアルです。分数 $a/s$ を $(a+\mathfrak p)/(s+\mathfrak p)$ へ送る写像は $\operatorname{Frac}(A/\mathfrak p)$ への全射で、核は $\mathfrak p A_{\mathfrak p}$ です。第一同型定理から剰余体の表示を得ます。$A=0$ なら素スペクトルが空なので点に関する条件は空虚に成立します。
+従って非単元はちょうど $\mathfrak p A_{\mathfrak p}$ の元です。どの真のイデアルも単元を含まないため、このイデアルに含まれます。よって唯一の極大イデアルです。分数 $a/s$ を $(a+\mathfrak p)/(s+\mathfrak p)$ へ送る写像は $\operatorname{Frac}(A/\mathfrak p)$ への全射で、核は $\mathfrak p A_{\mathfrak p}$ です。[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)から剰余体の表示を得ます。$A=0$ なら素スペクトルが空なので点に関する条件は空虚に成立します。
 <!-- proof-end -->
 
 ## 2. 関数を引き戻す射と局所性
@@ -248,7 +248,7 @@ $$
 \mathcal O_{\operatorname{Spec}A_f}(D_{A_f}(g/1))=(A_f)_{g/1}.
 $$
 
-右辺と左辺は局所化の普遍性により同型です。具体的に $b/(fg)^n$ を $(b/f^n)/(g/1)^n$ へ写せば、$f,g$ の逆元を持つ環として逆写像も定まります。これらの同型は制限と両立し、各茎でも同じ分数式を与えるので局所同型です。$f$ が冪零であれば両空間とも空であり、結論は同様に成立します。
+右辺と左辺は[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)により同型です。具体的に $b/(fg)^n$ を $(b/f^n)/(g/1)^n$ へ写せば、$f,g$ の逆元を持つ環として逆写像も定まります。これらの同型は制限と両立し、各茎でも同じ分数式を与えるので局所同型です。$f$ が冪零であれば両空間とも空であり、結論は同様に成立します。
 <!-- proof-end -->
 
 例えば $D_{k[t]}(t)\simeq\operatorname{Spec}k[t,t^{-1}]$ です。元のアフィン直線全体では $1/t$ は大域正則ではありませんが、この主開集合の上では正則です。
@@ -276,7 +276,7 @@ $$
 
 $A/I$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $I$ を含む素イデアルです。逆に $I\subseteq\mathfrak p$ が素なら $(A/I)/(\mathfrak p/I)\simeq A/\mathfrak p$ が整域なので $\mathfrak p/I$ は素です。これは逆対応となり点像は $V_A(I)$ です。$J\subseteq A$ の閉集合 $V_A(J)\cap V_A(I)$ は商側の $V_{A/I}((I+J)/I)$ に対応します。$V_A(I)$ の相対閉集合がすべてこの形なので同相です。
 
-局所分数 $a/s$ の像は $(a+I)/(s+I)$ であり、$s\notin\mathfrak p$ なので分母の条件を満たします。任意の商側の分数が持ち上がるから全射です。核に入るのは、ある $u\notin\mathfrak p$ に対して $ua\in I$ となる $a/s$ です。そのとき $a/s=(ua)/(us)\in IA_{\mathfrak p}$ です。逆に $IA_{\mathfrak p}$ の元はすべて0へ写るので核が一致します。第一同型定理から商の同型が従います。
+局所分数 $a/s$ の像は $(a+I)/(s+I)$ であり、$s\notin\mathfrak p$ なので分母の条件を満たします。任意の商側の分数が持ち上がるから全射です。核に入るのは、ある $u\notin\mathfrak p$ に対して $ua\in I$ となる $a/s$ です。そのとき $a/s=(ua)/(us)\in IA_{\mathfrak p}$ です。逆に $IA_{\mathfrak p}$ の元はすべて0へ写るので核が一致します。[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)から商の同型が従います。
 <!-- proof-end -->
 
 $A=k[t]$、$I=(t^2)$ では $V(t^2)=V(t)$ ですが、$(A/I)_{(t)/(t^2)}$ には $t$ の非零な平方零剰余類が残ります。$I=(t)$ とした場合の茎は体 $k$ なので、同じ閉集合にも異なる局所環が付きます。
