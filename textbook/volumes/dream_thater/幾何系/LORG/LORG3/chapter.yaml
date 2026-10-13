@@ -6,6 +6,7 @@ prerequisites:
   - LORG1
   - LORG2
   - GEO12
+  - GEO14
 official_scope: []
 learning_objectives:
   - 区分的C1曲線の速度が未来向き因果・時間的・光的である条件を判定できる
