@@ -48,10 +48,12 @@
     <button id="sample">標本を抽出</button>
   </div>
   <p id="status" role="status" aria-live="polite">未実行</p>
+  <p id="offline-support" role="status" aria-live="polite">オフライン対応の初期化中です。初回はオンライン接続が必要です。</p>
 </section>
 <section class="panel">
   <h2>計算結果</h2>
-  <canvas id="plot" width="720" height="440" role="img" aria-label="数値計算結果の可視化"></canvas>
+  <canvas id="plot" width="720" height="440" role="img" aria-label="数値計算結果の可視化" aria-describedby="legend plot-description"></canvas>
+  <p id="plot-description">軌跡は横軸x・縦軸yの距離座標、標本分布は四セルの度数を示します。計算値は下の数値診断表でも確認できます。</p>
   <p id="legend">実線＝物体0、破線＝物体1。描画間引きは計算刻みを変更しません。</p>
   <div id="diagnostics" aria-live="polite"></div>
 </section>
@@ -65,6 +67,26 @@
   <p>模型ID・パラメータ・seed・ステップ数・診断値を保存します。外部サーバーへデータを送信しません。</p>
 </section>
 </main>
+<script>
+  // Direct links to /simulation/ must register the same root-scoped Service
+  // Worker as the main Docsify shell; otherwise offline revisits cannot work.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("../service-worker.js", {
+        scope: "../", updateViaCache: "none",
+      }).then(() => navigator.serviceWorker.ready).then(() => {
+        document.getElementById("offline-support").textContent =
+          "オフライン用資産の登録が完了しました。再訪時に利用できます。";
+      }).catch(() => {
+        document.getElementById("offline-support").textContent =
+          "オフライン用資産を登録できませんでした。オンライン接続を確認してください。";
+      });
+    });
+  } else {
+    document.getElementById("offline-support").textContent =
+      "このブラウザはオフライン保存に対応していません。";
+  }
+</script>
 <script type="module" src="./simulation-app.mjs"></script>
 </body>
 </html>
