@@ -1,0 +1,42 @@
+chapter: VAR5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR1
+  - VAR2
+  - VAR4
+  - GEO14
+  - GEO16
+  - GEO17
+forward_references:
+  - geometry.hopf-rinow-theorem
+
+concepts:
+  - id: calculus-of-variations.constant-curvature-index-threshold
+    name: 定曲率の法方向と区間長の閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定曲率の法方向と区間長の閾値）"]
+    requires:
+      - geometry.index-form
+      - geometry.sectional-curvature
+      - calculus-of-variations.wirtinger-sharp
+
+  - id: calculus-of-variations.sphere-geodesic-family-jacobi
+    name: 球面の測地線族から得るJacobi場
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球面の測地線族から得るJacobi場）"]
+    requires:
+      - geometry.geodesic-variation-jacobi
+      - geometry.sphere-antipodal-conjugate
+
+  - id: calculus-of-variations.curvature-upper-index-bound
+    name: 断面曲率上界からの指数形式の下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（断面曲率上界からの指数形式の下界）"]
+    requires:
+      - geometry.index-form
+      - geometry.sectional-curvature
+      - calculus-of-variations.wirtinger-sharp
