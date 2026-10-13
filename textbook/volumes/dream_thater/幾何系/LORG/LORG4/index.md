@@ -318,7 +318,10 @@ $$
 #### LORG4-A01 定数計量の接続
 - Level: A
 
-$\mathbb R^{1+1}$ に $g=-4dt^2+9dx^2$ を入れる。(1) Levi-Civita接続の全Christoffel係数を求めよ。(2) $(t,x)=(1+2s,3-s)$ が測地線か判定し、速度の因果型を答えよ。
+$\mathbb R^{1+1}$ に $g=-4dt^2+9dx^2$ を入れる。
+
+1. Levi-Civita接続の全Christoffel係数を求めよ。
+2. $(t,x)=(1+2s,3-s)$ が測地線か判定し、速度の因果型を答えよ。
 
 <!-- solution-start -->
 **詳細解答**。$g_{tt}=-4,\ g_{xx}=9,\ g_{tx}=0$ は定数なので、係数公式の三つの偏微分はすべて零です。従って $\Gamma^k_{ij}=0$ です。曲線の二階導関数は $(\ddot t,\ddot x)=(0,0)$ なので[測地線方程式](#prop-lorg4-geodesic-causal-type)を満たします。速度は $(2,-1)$、自己内積は
@@ -463,7 +466,10 @@ $$
 #### LORG4-B03 平坦時空の曲線座標
 - Level: B
 
-領域 $r>0$ に $g=-dt^2+dr^2+r^2d\theta^2$ を入れる。(1) 非零Christoffel係数を示せ。(2) $t(s)=s,\ r(s)=r_0+s,\ \theta(s)=0$（$s>-r_0,\ r_0>0$）が未来向き光的測地線であることを確認せよ。
+領域 $r>0$ に $g=-dt^2+dr^2+r^2d\theta^2$ を入れる。
+
+1. 非零Christoffel係数を示せ。
+2. $t(s)=s,\ r(s)=r_0+s,\ \theta(s)=0$（$s>-r_0,\ r_0>0$）が未来向き光的測地線であることを確認せよ。
 
 <!-- solution-start -->
 **詳細解答**。計量逆行列の $\theta\theta$ 成分は $r^{-2}$、計量の非零偏微分は $\partial_rg_{\theta\theta}=2r$ です。従って
