@@ -933,6 +933,7 @@
 3. [CELE3 三体問題の特殊解](textbook/volumes/dream_thater/物理系/CELE/CELE3/index.md)
 4. [CELE4 円制限三体問題](textbook/volumes/dream_thater/物理系/CELE/CELE4/index.md)
 5. [CELE5 Poincaré・摂動・非可積分性](textbook/volumes/dream_thater/物理系/CELE/CELE5/index.md)
+6. [CELE6 ホモクリニック構造とHamiltonian chaos](textbook/volumes/dream_thater/物理系/CELE/CELE6/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
