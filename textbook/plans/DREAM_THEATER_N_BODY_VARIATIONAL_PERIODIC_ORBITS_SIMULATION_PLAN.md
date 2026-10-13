@@ -35,7 +35,7 @@ GitHub上の既存正本:
 - [CELE2 n体Hamilton系](../volumes/dream_thater/物理系/CELE/CELE2/index.md) — Newton方程式、衝突集合。
 - [CELE3 中心配置](../volumes/dream_thater/物理系/CELE/CELE3/index.md) — Euler/Lagrange解、相似解。再証明しない。
 - [CELE6 カオス](../volumes/dream_thater/物理系/CELE/CELE6/index.md)、[CELE7 共鳴・KAM](../volumes/dream_thater/物理系/CELE/CELE7/index.md)、[INT](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md) — 非可積分性と安定性の区別。
-- [VAR 変分問題](DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md) — **直接法・Tonelli・無限次元臨界点理論を含むVAR9〜12を証明の正本**とする。
+- [VAR 変分問題](../plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md) — **直接法・Tonelli・無限次元臨界点理論を含むVAR9〜12を証明の正本**とする。
 - [GPDE3 Sobolev空間](../volumes/dream_thater/解析系/GPDE/GPDE3/index.md)、[GPDE4 端点トレース](../volumes/dream_thater/解析系/GPDE/GPDE4/index.md) — 関数空間の基礎。区間上のcompact embedding/周期端点条件はVAR9で直接扱う。
 
 未実装PLANの内容を既に証明済みと記述しない。着手時は各canonical stable anchorと実章を再検査する。
