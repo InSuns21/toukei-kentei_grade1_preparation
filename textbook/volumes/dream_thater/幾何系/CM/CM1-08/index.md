@@ -85,7 +85,7 @@ $$
 
 ## 3. 交換子一つで積分可能性を判定する
 
-[Lie括弧の積の微分則](../../GEO/GEO5/index.md#def-geo5-lie-bracket)と、座標偏微分の可換性を使う。$Z_1$ の係数は定数なので
+[Lie括弧の積の微分則](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)と、座標偏微分の可換性を使う。$Z_1$ の係数は定数なので
 
 $$
 \begin{aligned}
@@ -141,7 +141,7 @@ $$
 Z=f_1Z_1+f_2Z_2,\qquad W=g_1Z_1+g_2Z_2.
 $$
 
-[括弧の積の微分則](../../GEO/GEO5/index.md#def-geo5-lie-bracket)を各項に適用すると、交換子は
+[括弧の積の微分則](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)を各項に適用すると、交換子は
 
 $$
 [Z,W]=
@@ -433,7 +433,16 @@ Z_j\zeta^1=Z_jz^1+2z^2Z_jz^2=0,\qquad
 Z_j\zeta^2=Z_jz^2=0\quad(j=1,2).
 $$
 
-$z$ は滑らかな実座標であり、$z\mapsto\zeta$ は $(z^1,z^2)\mapsto(z^1+(z^2)^2,z^2)$。その逆は $(\zeta^1,\zeta^2)\mapsto(\zeta^1-(\zeta^2)^2,\zeta^2)$ で、両方とも複素変数の多項式である。従って実逆関数が存在し、[適合座標の判定](../CM1-07/index.md#prop-cm1-07-coordinate-criterion)から $\zeta$ も適合する。[正則座標変換の座標不変性](../CM1-02/index.md#thm-cm1-02-coordinate-independence)とも一致する。
+$z$ は滑らかな実座標である。$z$ から $\zeta$ への遷移とその逆は、それぞれ
+
+$
+\begin{aligned}
+(z^1,z^2)&\longmapsto(z^1+(z^2)^2,\,z^2),\\
+(\zeta^1,\zeta^2)&\longmapsto(\zeta^1-(\zeta^2)^2,\,\zeta^2)
+\end{aligned}
+$
+
+であり、両方とも複素変数の多項式である。従って実逆関数が存在し、[適合座標の判定](../CM1-07/index.md#prop-cm1-07-coordinate-criterion)から $\zeta$ も適合する。[正則座標変換の座標不変性](../CM1-02/index.md#thm-cm1-02-coordinate-independence)とも一致する。
 <!-- solution-end -->
 
 ### Level C
@@ -459,7 +468,13 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**(1)** $a$ は多項式なので滑らかである。共役枠は $\overline{Z_1}=\partial_u$ と $\overline{Z_2}=\partial_v+\bar a\partial_{\bar u}$。四本の線形結合が零なら、$\partial_{\bar v},\partial_v$ 成分の比較で $Z_2,\overline{Z_2}$ の係数が零となり、残る $\partial_{\bar u},\partial_u$ 成分で $Z_1,\overline{Z_1}$ の係数も零となる。よって $T_{\mathbb C}\mathbb C^2=D_a\oplus\overline{D_a}$。この二部分束に $-i,+i$ を掛ける $J$ は共役と可換で実接束を保ち、$J^2=-I$ を満たす。
+**(1)** $a$ は多項式なので滑らかである。共役枠は $\overline{Z_1}=\partial_u$ と $\overline{Z_2}=\partial_v+\bar a\partial_{\bar u}$。四本の線形結合が零なら、$\partial_{\bar v},\partial_v$ 成分の比較で $Z_2,\overline{Z_2}$ の係数が零となり、残る $\partial_{\bar u},\partial_u$ 成分で $Z_1,\overline{Z_1}$ の係数も零となる。よって
+
+$
+T_{\mathbb C}\mathbb C^2=D_a\oplus\overline{D_a}
+$
+
+となる。この二部分束にそれぞれ $-i,+i$ を掛ける $J$ は共役と可換で実接束を保ち、$J^2=-I$ を満たす。
 
 **(2)** Wirtinger 微分では $\partial_{\bar u}u=0$、$\partial_{\bar u}\bar v=0$、$\partial_{\bar u}(\bar u)^2=2\bar u$。従って
 
