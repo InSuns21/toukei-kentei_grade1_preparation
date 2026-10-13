@@ -381,10 +381,10 @@ $$
 #### LORG8-A02 固有時の積分
 - Level: A
 
-$\Omega(t,x)=1+t$ を $t\ge0$ の領域で用い、$g=-dt^2+dx^2$、$\widetilde g=\Omega^2g$ とする。$\gamma(s)=(s,0)$（$0\le s\le2$）の二つのLorentz長さを求めよ。
+$\Omega(t,x)=1+t$ を開領域 $t>-1$ で用い、$g=-dt^2+dx^2$、$\widetilde g=\Omega^2g$ とする。$\gamma(s)=(s,0)$（$0\le s\le2$）の二つのLorentz長さを求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$\Omega=1+t\ge1>0$ は領域内で滑らかです。$\dot\gamma=(1,0)$ で $g(\dot\gamma,\dot\gamma)=-1$ です。[共形再尺度での長さ公式](#prop-lorg8-length-change)を、$\Omega(\gamma(s))=1+s$ へ適用すると
+**詳細解答**。$\Omega=1+t>0$ は開領域 $t>-1$ で滑らかであり、曲線上では $\Omega\ge1$ です。$\dot\gamma=(1,0)$ で $g(\dot\gamma,\dot\gamma)=-1$ です。[共形再尺度での長さ公式](#prop-lorg8-length-change)を、$\Omega(\gamma(s))=1+s$ へ適用すると
 
 $$
 L_g(\gamma)=\int_0^2 1\,ds=2,\qquad
@@ -447,7 +447,7 @@ $$
 g(\dot\gamma,\dot\gamma)=-1+\frac14=-\frac34<0,
 $$
 
-かつ時刻成分は $1>0$ です。[共形因果不変性](#thm-lorg8-conformal-causality)から $\widetilde g$ でも未来時間的です。直接にも自己内積は $-3e^{2s/2}/4<0$ です。[長さ公式](#prop-lorg8-length-change)へ代入すると
+かつ時刻成分は $1>0$ です。[共形因果不変性](#thm-lorg8-conformal-causality)から $\widetilde g$ でも未来時間的です。直接にも自己内積は $-3e^s/4<0$ です。[長さ公式](#prop-lorg8-length-change)へ代入すると
 
 $$
 \begin{aligned}
