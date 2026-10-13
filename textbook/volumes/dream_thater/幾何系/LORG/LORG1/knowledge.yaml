@@ -2,6 +2,7 @@ chapter: LORG1
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - LA3E
   - LA6
   - F0-00B
 forward_references:
@@ -14,7 +15,7 @@ concepts:
     aliases: [Lorentz内積, Lorentzian inner product]
     introduction: formal
     introduction_aliases: ["定義（Lorentz内積）"]
-    requires: [linear.sylvester-inertia-law]
+    requires: [linear.sylvester-inertia-law, linear.nondegenerate-bilinear-form, linear.bilinear-nondegenerate-matrix]
 
   - id: lorentz-geometry.causal-type
     name: Lorentz因果型

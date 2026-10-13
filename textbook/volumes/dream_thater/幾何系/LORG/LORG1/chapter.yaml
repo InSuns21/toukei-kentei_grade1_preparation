@@ -3,6 +3,7 @@ title: "Lorentz内積と未来錐"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - LA3E
   - LA6
   - F0-00B
 official_scope: []

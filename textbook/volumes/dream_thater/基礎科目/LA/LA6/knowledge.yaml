@@ -24,6 +24,13 @@ concepts:
       - linear.hermitian-quadratic-form
       - linear.representation-matrix
 
+  - id: linear.inertia-index
+    name: 慣性指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（慣性指数）]
+    requires: [linear.hermitian-quadratic-form, linear.complex-normal-spectral-theorem]
+
   - id: linear.sylvester-inertia-law
     name: Sylvesterの慣性法則
     kind: theorem
@@ -31,6 +38,7 @@ concepts:
     requires:
       - linear.congruence
       - linear.complex-normal-spectral-theorem
+      - linear.inertia-index
 
   - id: linear.hermitian-psd-operator
     name: Hermitian半正定値作用素
