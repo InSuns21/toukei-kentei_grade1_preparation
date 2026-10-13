@@ -69,10 +69,10 @@ H^2(P,\mathcal O_P)\to H^2(X,\mathcal O_X)
 \to H^3(P,\mathcal O_P)
 $$
 でも両端が零なので、中央は同型となります。さらに長完全列の次の部分は
-$
+$$
 H^3(P,\mathcal O_P)\longrightarrow H^3(X,\mathcal O_X)
 \longrightarrow H^4(P,\mathcal O_P(-d))
-$
+$$
 で、両端は $\dim P=3$ とねじり層のコホモロジー計算により零です。したがって $H^3(X,\mathcal O_X)=0$ であり、Euler標数を $h^0-h^1+h^2$ で計算できます。$d\le3$ の場合は右側の $H^3$ が零です。$d\ge4$ なら、全変数に負指数を持つ単項式
 $$
 X_0^{-1-a_0}X_1^{-1-a_1}X_2^{-1-a_2}X_3^{-1-a_3},
