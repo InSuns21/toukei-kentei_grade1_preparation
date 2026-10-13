@@ -299,23 +299,47 @@ c(t)=\frac1M\sum_jm_jh_j(t),\qquad
 \eta_i(t)=h_i(t)-c(t)
 $$
 
-と置きます。$\sum_i m_i\eta_i=0$、$\eta(0)=\eta(T)$ なので、$\eta$ は許容方向です。[第一変分の式](#prop-celev1-first-variation)で $h$ と $\eta$ の差は全粒子共通の $c$ です。位置エネルギーの変分は粒子差しか見ないので不変です。また
+と置きます。$\sum_i m_i\eta_i=0$、$\eta(0)=\eta(T)$ なので、$\eta$ は許容方向です。ここで重心制約を満たさない周期方向にも使えるよう、次の**線形形式**を定めます。
+
+$$
+\mathscr L_q[h]
+=\int_0^T\sum_i m_i\dot q_i\cdot\dot h_i\,dt
++\int_0^T\sum_i F_i(q)\cdot h_i\,dt.
+$$
+
+$h$ が許容方向なら[第一変分の式](#prop-celev1-first-variation)より $\mathscr L_q[h]=\delta\mathcal A_T[q;h]$ です。制約を満たさない $h$ に対しては、制約付き作用の第一変分を定義したことにはせず、$\mathscr L_q[h]$ という計算上の線形形式を用います。
+
+粒子対ごとの力は作用反作用の関係 $F_{ij}=-F_{ji}$ を持つため $\sum_iF_i(q)=0$ です。また、重心零の恒等式を時間微分すると
 
 $$
 \sum_i m_i\dot q_i(t)=
 \frac d{dt}\sum_i m_iq_i(t)=0
 $$
 
-から、運動項の差も
+となります。$h_i-\eta_i=c$ はすべての粒子に共通なので、
 
 $$
-\int_0^T\sum_i m_i\dot q_i\cdot\dot c\,dt
-=\int_0^T0\cdot\dot c\,dt=0.
+\begin{aligned}
+\mathscr L_q[h]-\mathscr L_q[\eta]
+&=\int_0^T\left\{
+\left(\sum_i m_i\dot q_i\right)\cdot\dot c
++\left(\sum_iF_i(q)\right)\cdot c
+\right\}dt\\
+&=0.
+\end{aligned}
 $$
 
-よって $\delta\mathcal A_T[q;h]=\delta\mathcal A_T[q;\eta]$ です。右辺がすべての許容 $\eta$ で零なら、左辺はすべての周期 $h$ で零です。
+したがってすべての許容 $\eta$ に対する停留性から、**任意の周期 $h$ について** $\mathscr L_q[h]=0$ が得られます。さらに上の線形形式を各粒子で部分積分すると
 
-まず粒子 $i$ の成分だけに、$(0,T)$ 内に台を持つ任意の滑らかな関数 $h_i$ を取ります。この $h$ は端点で零なので、[第一変分の部分積分形](#prop-celev1-first-variation)に境界項は残りません。従って
+$$
+\mathscr L_q[h]
+=\left[\sum_i m_i\dot q_i\cdot h_i\right]_0^T
+-\int_0^T\sum_i(m_i\ddot q_i-F_i(q))\cdot h_i\,dt
+$$
+
+です。
+
+まず粒子 $i$ の成分だけに、$(0,T)$ 内に台を持つ任意の滑らかな関数 $h_i$ を取ります。この $h$ は端点で零なので、上の部分積分形に境界項は残りません。従って
 
 $$
 \int_0^T(m_i\ddot q_i-F_i(q))\cdot h_i\,dt=0.
@@ -326,7 +350,7 @@ $$
 これを第一変分式へ戻すと積分項は消え、周期条件 $h_i(T)=h_i(0)$ により
 
 $$
-0=\delta\mathcal A_T[q;h]
+0=\mathscr L_q[h]
 =\sum_i m_i(\dot q_i(T)-\dot q_i(0))\cdot h_i(0).
 $$
 
@@ -338,6 +362,8 @@ $$
 この命題は**非衝突かつ $C^2$ の曲線についての同値性**です。$H^1$ の極小曲線がその仮定を満たすことはまだ示していません。存在・正則性・衝突回避を先に証明せず、極小点にNewton方程式を適用してはなりません。
 
 ## 7. 円運動を代入して、式を数字に戻す
+
+<a id="calc-celev1-circular-orbit"></a>
 
 第1節の等質量円ループについて $q_1=Re(t)$、$q_2=-Re(t)$、$|e(t)|=1$ とします。$q_1''=-\omega^2 Re(t)$、距離は $2R$。$q_1$ に働くNewton力は
 
@@ -466,7 +492,7 @@ $\eta_i$ は $C^1$ で $\cos 2\pi=\cos0$ のため端点一致です。重心変
 <!-- solution-start -->
 ### 詳細解答
 
-相対距離が $2R=2$ なので $R=1$。[円運動の導出](#prop-celev1-periodic-stationarity)で確認する条件は $\omega^2=Gm/(4R^3)=1/4$、したがって $\omega=1/2$、$T=2\pi/\omega=4\pi$。作用は
+相対距離が $2R=2$ なので $R=1$。[円運動の計算](#calc-celev1-circular-orbit)で確認する条件は $\omega^2=Gm/(4R^3)=1/4$、したがって $\omega=1/2$、$T=2\pi/\omega=4\pi$。作用は
 
 $$
 \mathcal A_T=\frac{3TGm^2}{4R}
@@ -532,7 +558,7 @@ $$
 =\sum_i m_i(\dot q_i(T)-\dot q_i(0))\cdot\eta_i(0).
 $$
 
-周期方向では $\eta_i(T)=\eta_i(0)$ ですが、その値が零とは限りません。従って内部方程式だけから境界項は消えません。ただし重心零で $\sum m_i\dot q_i=0$、相互作用が並進不変なので、第6節の射影操作により任意の周期 $h$ に拡張できます。全方向の停留には各速度差が零であることが必要で、そのとき境界項は十分に消えます。
+周期方向では $\eta_i(T)=\eta_i(0)$ ですが、その値が零とは限りません。従って内部方程式だけから境界項は消えません。重心零で $\sum_i m_i\dot q_i=0$、また $\sum_iF_i=0$ なので、第6節で定義した線形形式 $\mathscr L_q$ は周期方向 $h$ とその重心零射影 $\eta$ で同じ値です。従って全許容方向での停留には各速度差が零であることが必要で、速度が接合すれば境界項も零になります。
 <!-- solution-end -->
 
 <a id="ex-celev1-b03"></a>
@@ -621,7 +647,21 @@ $$
 
 位置・速度ともに $T$ 周期であり非衝突なので、[周期停留命題](#prop-celev1-periodic-stationarity)より停留軌道です。
 
-(iv) 停留は第一変分が零というだけであり、すべての許容曲線の中で作用が最小とは言えません。[重心零での非強制性](#prop-celev1-no-coercivity)は、このままの集合では大域最小を確保できないことを示しています。また、[有限作用の衝突例](#prop-celev1-finite-collision)により、有限作用と非衝突は同値ではありません。従って存在・非衝突・停留・極小はそれぞれ独立した確認が必要です。
+(iv) 停留は第一変分が零というだけであり、大域最小ではありません。このことは比較曲線によって**否定まで証明**できます。単位ベクトル $e_0$ を固定し、
+
+$$
+p_1(t)=\frac{m_2}{M}a e_0,\qquad
+p_2(t)=-\frac{m_1}{M}a e_0
+$$
+
+という静止ループを取ります。$p\in\mathcal H_T$、粒子間距離は $a$、運動エネルギーは0ですから、
+
+$$
+\mathcal A_T[p]=\frac{TGm_1m_2}{a}
+<\frac{3TGm_1m_2}{2a}=\mathcal A_T[q].
+$$
+
+従って円運動 $q$ は停留しますが、$\mathcal H_T$ での大域最小ではありません。さらに $a$ の代わりに静止粒子間距離 $r\to\infty$ を取れば、作用は $TGm_1m_2/r\to0$ となります。[重心零での非強制性](#prop-celev1-no-coercivity)と同様、作用の下限0も達成されません。一方、[有限作用の衝突例](#prop-celev1-finite-collision)により有限作用と非衝突は同値ではありません。**存在・非衝突・停留・極小は別々に確認する必要があります。**
 <!-- solution-end -->
 
 ## 10. 次章に持ち越す課題
