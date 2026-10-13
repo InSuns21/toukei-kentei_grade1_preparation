@@ -1,0 +1,56 @@
+chapter: CM2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-03
+  - CM1-09
+
+concepts:
+  - id: complex-manifolds.dolbeault-complex
+    name: Dolbeault複体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dolbeault複体）"]
+    requires: [complex-manifolds.dolbeault-bicomplex]
+  - id: complex-manifolds.dolbeault-closed-exact
+    name: bar∂閉形式とbar∂完全形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（bar∂閉形式とbar∂完全形式）"]
+    requires: [complex-manifolds.dolbeault-complex, complex-manifolds.dolbeault-identities]
+  - id: complex-manifolds.dolbeault-cohomology
+    name: Dolbeaultコホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dolbeaultコホモロジー）"]
+    requires: [complex-manifolds.dolbeault-closed-exact]
+  - id: complex-manifolds.dolbeault-zero-class
+    name: 商空間と零類の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（商空間と零類の判定）"]
+    requires: [complex-manifolds.dolbeault-cohomology, complex-manifolds.dolbeault-identities]
+  - id: complex-manifolds.dolbeault-zero-degree
+    name: 零次コホモロジーと正則p形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零次コホモロジーと正則p形式）"]
+    requires: [complex-manifolds.dolbeault-cohomology, complex-manifolds.dolbeault-holomorphic-function]
+  - id: complex-manifolds.dolbeault-functoriality
+    name: Dolbeaultコホモロジーの引き戻し
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dolbeaultコホモロジーの引き戻し）"]
+    requires: [complex-manifolds.dolbeault-cohomology, complex-manifolds.dolbeault-conjugation-pullback]
+  - id: complex-manifolds.dolbeault-gluing
+    name: 局所原始関数の貼り合わせ判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所原始関数の貼り合わせ判定）"]
+    requires: [complex-manifolds.dolbeault-zero-class, complex-manifolds.local-dbar-poincare, complex-manifolds.dolbeault-holomorphic-function]
+  - id: complex-manifolds.dolbeault-torus-nonzero
+    name: 複素トーラスの非零Dolbeault類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素トーラスの非零Dolbeault類）"]
+    requires: [complex-manifolds.dolbeault-zero-class, complex-manifolds.torus-quotient-atlas]
