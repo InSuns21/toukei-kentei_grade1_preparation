@@ -222,15 +222,15 @@ $$
 
 よって $|K|\le3^d\|f\|_1/\lambda$ です。ここで使うのは [開集合の内正則性](../../MT/MT5/index.md#def-mt5-radon)です。$E_\lambda\ne\mathbb R^d$ のとき、具体的に
 
-$
+$$
 K_n:=\{x\in\mathbb R^d:|x|\le n,\ \operatorname{dist}(x,E_\lambda^c)\ge1/n\}
-$
+$$
 
 と置くと、$K_n$ はコンパクトで $K_n\subset K_{n+1}\subset E_\lambda$、かつ $\bigcup_{n\ge1}K_n=E_\lambda$ です。実際、$x\in E_\lambda$ なら開集合性から $\operatorname{dist}(x,E_\lambda^c)>0$ であり、十分大きい $n$ で二条件を満たします。測度の [下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)から
 
-$
+$$
 |E_\lambda|=\lim_{n\to\infty}|K_n|\le\frac{3^d}{\lambda}\|f\|_1
-$
+$$
 
 が従います。$E_\lambda=\mathbb R^d$ なら $K_n=\overline{B(0,n)}$ とすれば同じ議論ができます。
 
@@ -335,21 +335,21 @@ $$
 
 ここで $D_f$ の可測性も確認します。正の有理数 $q$ に対して
 
-$
+$$
 G_q(x):=\frac{1}{v_dq^d}\int_{\mathbb R^d}|f(y)-f(x)|\boldsymbol{1}_{\{|y-x|<q\}}\,dy
-$
+$$
 
 と置きます。$f$ は可測なので被積分関数は $(x,y)$ の非負可測関数であり、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $x\mapsto G_q(x)$ は可測です。固定した有限値の $f(x)$ と $r>0$ に対し、$h_x(y):=|f(y)-f(x)|$ は $B(x,2r)$ 上で可積分です。$s\to r$ のとき球の対称差 $B(x,s)\mathbin{\triangle}B(x,r)$ の測度が0へ近づくので、[積分の絶対連続性](../../MT/MT4/index.md#thm-mt4-integral-absolute-continuity)により
 
-$
+$$
 \int_{B(x,s)}h_x(y)\,dy\longrightarrow\int_{B(x,r)}h_x(y)\,dy.
-$
+$$
 
 分母 $v_ds^d$ も $v_dr^d>0$ へ近づくため、各 $x$ で平均は半径について連続です。したがって
 
-$
+$$
 D_f(x)=\inf_{n\ge1}\ \sup_{\substack{q\in\mathbb Q\\0<q<1/n}}G_q(x)
-$
+$$
 
 と表せます。右辺は可測関数の可算回の上限・下限なので $D_f$ は可測です。
 
