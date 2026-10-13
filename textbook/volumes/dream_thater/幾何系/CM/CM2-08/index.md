@@ -57,7 +57,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U_i$ 上で $v_i(Z)=Z/Z_i$ と定める。これは第 $i$ 成分が $1$ の正則ベクトル値関数である。従って $S|_{U_i}$ の局所枠は $v_i$ である。$\mathbb C^{n+1}$ の標準基底を $e_0,\ldots,e_n$ とし、$a\ne i$ に対して $q_{ia}=[e_a]\in Q_{[Z]}$ と置く。
+$U_i$ 上で $v_i(Z)=Z/Z_i$ と定める。これは第 $i$ 成分が $1$ の正則ベクトル値関数である。従って $S|_{U_i}$ の局所基底は $v_i$ である。$\mathbb C^{n+1}$ の標準基底を $e_0,\ldots,e_n$ とし、$a\ne i$ に対して $q_{ia}=[e_a]\in Q_{[Z]}$ と置く。
 
 任意の $u=\sum_a u_ae_a$ は
 
@@ -71,7 +71,23 @@ $$
 [u]=\sum_{a\ne i}(u_a-u_i(v_i)_a)q_{ia}.
 $$
 
-この係数は $u$ と $[Z]$ に関して正則であり、$q_{ia}$ は商繊維の基底をなす。重なりで基底同士を変換する行列は、いずれも正則な係数表示を合成することで得られ、逆も同じ方法で正則である。[行列値余輪からの貼り合わせ](../CM2-07/index.md#thm-cm2-07-gluing)によって $Q$ の正則束構造が定まる。局所表示で包含は $c\mapsto cv_i$、商写像は上の係数を取る写像だからいずれも正則である。繊維ごとに $p_\ell(u)=[u]$ であるから、$\ker p_\ell=\ell=S_\ell$。包含の単射性と商写像の全射性はこの分解から従う。$ \square$
+表示係数は座標 $[Z]$ と $u$ に関して正則である。各 $q_{ia}$ は商繊維の基底となるため、重なりの基底変換は、この係数表示を合成すれば求まる。逆向きも同じ表示で計算でき、どちらも正則である。[行列値余輪からの貼り合わせ](../CM2-07/index.md#thm-cm2-07-gluing)により、商束 $Q$ の正則構造が得られる。
+
+包含写像と商写像を $U_i$ の座標で表示すると、
+
+$
+\iota_i(x,c)=(x,cv_i(x)),
+\qquad
+p_i(x,u)=\left(x,(u_a-u_i(v_i)_a)_{a\ne i}\right)
+$
+
+となる。各成分は正則である。繊維ごとの商写像は $u\mapsto[u]$ であり、その核は
+
+$
+\ker p_\ell=\ell=S_\ell.
+$
+
+包含は非零ベクトル $v_i$ によるスカラー倍なので単射、商写像は剰余類の基底によって全射である。ゆえに標準完全列は正則な束写像からなる。$ \square$
 <!-- proof-end -->
 
 ## 3. 双対束：逆転置はどこから出るか
@@ -82,7 +98,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正則双対束）**  
-> 複素多様体 $X$ 上の階数 $r$ の正則ベクトル束 $E$ に対し、繊維 $E_x^\vee=\operatorname{Hom}_{\mathbb C}(E_x,\mathbb C)$ を持つ束を双対束 $E^\vee$ とする。局所枠 $\mathcal E_i=(e_{i1},\ldots,e_{ir})$ の双対枠 $\mathcal E_i^\vee=(e_i^1,\ldots,e_i^r)$ は $e_i^a(e_{ib})=\delta^a_b$ で定義し、遷移行列は
+> 複素多様体 $X$ 上の階数 $r$ の正則ベクトル束 $E$ に対し、繊維 $E_x^\vee=\operatorname{Hom}_{\mathbb C}(E_x,\mathbb C)$ を持つ束を双対束 $E^\vee$ とする。局所基底 $\mathcal E_i=(e_{i1},\ldots,e_{ir})$ の双対枠 $\mathcal E_i^\vee=(e_i^1,\ldots,e_i^r)$ は $e_i^a(e_{ib})=\delta^a_b$ で定義し、遷移行列は
 
 $$
 G_{ij}^{\vee}=(G_{ij}^{-1})^{\mathsf T}
@@ -107,7 +123,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（双対遷移と評価の座標不変性）**  
-> 複素多様体 $X$ 上の正則ベクトル束 $E$ の局所枠を $\mathcal E_i$ とし、重なりで次を仮定する。
+> 複素多様体 $X$ 上の正則ベクトル束 $E$ の局所基底を $\mathcal E_i$ とし、重なりで次を仮定する。
 
 $$
 \mathcal E_j=\mathcal E_iG_{ij}.
@@ -160,13 +176,13 @@ $$
 
 ## 4. テンソル積とその正則性
 
-二つの線束を重ねるとき、局所枠の遷移係数は積となる。高階数でも各繊維のテンソル積を使えば同じ操作を行えるが、遷移行列は通常の行列積ではなく **Kronecker 積**となる。
+二つの線束を重ねるとき、局所基底の遷移係数は積となる。高階数でも各繊維のテンソル積を使えば同じ操作を行えるが、遷移行列は通常の行列積ではなく **Kronecker 積**となる。
 
 <a id="def-cm2-08-tensor-bundle"></a>
 
 <!-- formal-statement-start -->
 > **定義（正則テンソル積束）**  
-> 複素多様体 $X$ 上の階数 $r,s$ の正則ベクトル束 $E,F$ に対し、各繊維が $E_x\otimes_{\mathbb C}F_x$ である階数 $rs$ の束を $E\otimes F$ と呼ぶ。局所枠 $e_{ia}$、$f_{ib}$ に対し $(e_{ia}\otimes f_{ib})_{a,b}$ を辞書式順序の局所枠に取り、遷移行列を
+> 複素多様体 $X$ 上の階数 $r,s$ の正則ベクトル束 $E,F$ に対し、各繊維が $E_x\otimes_{\mathbb C}F_x$ である階数 $rs$ の束を $E\otimes F$ と呼ぶ。局所基底 $e_{ia}$、$f_{ib}$ に対し $(e_{ia}\otimes f_{ib})_{a,b}$ を辞書式順序の局所基底に取り、遷移行列を
 
 $$
 G_{ij}^{E\otimes F}=G_{ij}^{E}\otimes G_{ij}^{F}
@@ -227,7 +243,7 @@ $$
 局所係数は正則関数の積だから正則で、重なりで一致する。$ \square$
 <!-- proof-end -->
 
-特に射影直線の $\mathcal O(a)$ と $\mathcal O(b)$ では、局所枠の変換係数の積 $z^az^b=z^{a+b}$ から
+特に射影直線の $\mathcal O(a)$ と $\mathcal O(b)$ では、局所基底の変換係数の積 $z^az^b=z^{a+b}$ から
 
 $$
 \mathcal O(a)\otimes\mathcal O(b)\cong\mathcal O(a+b).
@@ -311,7 +327,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（行列式束）**  
-> 階数 $r\ge1$ の正則ベクトル束 $E$ に対し、最高外冪の線束 $\det E=\bigwedge^rE$ を行列式束と呼ぶ。局所枠 $\mathcal E_i=(e_{i1},\ldots,e_{ir})$ に対し、局所枠は $e_{i1}\wedge\cdots\wedge e_{ir}$ であり、遷移関数は
+> 階数 $r\ge1$ の正則ベクトル束 $E$ に対し、最高外冪の線束 $\det E=\bigwedge^rE$ を行列式束と呼ぶ。局所基底 $\mathcal E_i=(e_{i1},\ldots,e_{ir})$ に対し、局所基底は $e_{i1}\wedge\cdots\wedge e_{ir}$ であり、遷移係数は
 
 $$
 g_{ij}^{\det E}=\det G_{ij}^{E}.
@@ -359,7 +375,7 @@ $$
 =(\det G_{ij}^E)^{-1}.
 $$
 
-ここでは $\det(A^{\mathsf T})=\det A$ と $\det(AB)=\det A\det B$ に $B=A^{-1}$ を代入した。右辺は行列式線束の双対の遷移である。いずれも局所枠の対応が重なりで一致するため、正則線束同型が得られる。最後は $z^{k_1}\cdots z^{k_r}=z^{\sum k_a}$ を代入する。$ \square$
+ここでは $\det(A^{\mathsf T})=\det A$ と $\det(AB)=\det A\det B$ に $B=A^{-1}$ を代入した。右辺は行列式線束の双対の遷移である。いずれも局所基底の対応が重なりで一致するため、正則線束同型が得られる。最後は $z^{k_1}\cdots z^{k_r}=z^{\sum k_a}$ を代入する。$ \square$
 <!-- proof-end -->
 
 ## 7. 射影空間の接束を標準束から作る
@@ -413,7 +429,7 @@ v_i\longmapsto\left[\sum_{a\ne i}\dot v_{ia}e_a\right]
 =\sum_{a\ne i}\dot v_{ia}q_{ia}
 $$
 
-と移る。前節の[標準商束の局所枠](#prop-cm2-08-standard-exact)では $q_{ia}$ が基底であるから、これは $\mathbb C^n\to\operatorname{Hom}(\mathbb Cv_i,Q_\ell)$ の線形同型で、逆は係数 $(\dot v_{ia})$ を取る写像となる。両向きの成分は標準チャートで正則であり、代表変更の不変性から重なりで一致する。ゆえに束全体の正則同型となる。最後の同型は[Hom と双対テンソル積](#prop-cm2-08-hom-identification)を $E=S,F=Q$ に適用したもの。$ \square$
+と移る。前節の[標準商束の局所基底](#prop-cm2-08-standard-exact)では $q_{ia}$ が基底であるから、これは $\mathbb C^n\to\operatorname{Hom}(\mathbb Cv_i,Q_\ell)$ の線形同型で、逆は係数 $(\dot v_{ia})$ を取る写像となる。両向きの成分は標準チャートで正則であり、代表変更の不変性から重なりで一致する。ゆえに束全体の正則同型となる。最後の同型は[Hom と双対テンソル積](#prop-cm2-08-hom-identification)を $E=S,F=Q$ に適用したもの。$ \square$
 <!-- proof-end -->
 
 射影直線で確認しよう。$z$ チャートと $w=1/z$ チャートの接枠をそれぞれ $\partial/\partial z$、$\partial/\partial w$ とすると、[接束の座標変換則](../CM1-05/index.md#thm-cm1-05-frame-change)により
@@ -461,7 +477,7 @@ G^{-\mathsf T}
 \det G^{-\mathsf T}=\frac16\ne0.
 $$
 
-どちらも全平面で正則で、双対束の局所枠の変更として適切である。
+どちらも全平面で正則で、双対束の局所基底の変更として適切である。
 <!-- solution-end -->
 
 <a id="ex-cm2-08-a02"></a>
@@ -511,7 +527,7 @@ $$
 #### CM2-08-A04 行列式束の計算
 - Level: A
 
-$E=\mathcal O(-2)\oplus\mathcal O(3)\oplus\mathcal O(0)$ とする。$\det E$ の遷移関数と正則同型な線束を求めよ。
+$E=\mathcal O(-2)\oplus\mathcal O(3)\oplus\mathcal O(0)$ とする。$\det E$ の遷移係数と正則同型な線束を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。直和束の遷移行列は $\operatorname{diag}(z^{-2},z^3,1)$ である。[行列式束の公式](#prop-cm2-08-determinant-identities)より
@@ -523,7 +539,7 @@ g^{\det E}_{0\infty}(z)
 \det E\cong\mathcal O(1).
 $$
 
-もとの $E$ の階数は $3$、最高外冪の階数は $1$。$z$ は重なり $\mathbb C^\times$ で非零正則なので正則線束の遷移関数になる。
+もとの $E$ の階数は $3$、最高外冪の階数は $1$。$z$ は重なり $\mathbb C^\times$ で非零正則なので正則線束の遷移係数になる。
 <!-- solution-end -->
 
 <a id="ex-cm2-08-a05"></a>
@@ -665,7 +681,7 @@ $(\det E)^\vee$ の遷移は $(g^{\det E})^{-1}=1$ であり、$\det(E^\vee)$ �
 
 $X=\mathbb{CP}^1$、$S=\mathcal O(-1)$、$Q_\ell=\mathbb C^2/\ell$ とする。$U_0$ の座標 $z$、$U_\infty$ の座標 $w=1/z$ を用いて次を示せ。
 
-1. $S,Q$ の局所枠 $v_0,v_\infty,q_0,q_\infty$ の遷移を求め、$Q\cong\mathcal O(1)$ を証明せよ。
+1. $S,Q$ の局所基底 $v_0,v_\infty,q_0,q_\infty$ の遷移を求め、$Q\cong\mathcal O(1)$ を証明せよ。
 2. $S^\vee\otimes Q$ の遷移を求め、接束 $T^{1,0}X$ と同型であることを、両チャートの接枠の遷移と比較して確かめよ。
 3. 大域正則ベクトル場の $U_0$ における全局所表示を求め、その空間の複素次元を示せ。
 4. どこでも零にならない大域正則ベクトル場が存在しないことを示し、局所自明性との違いを説明せよ。
@@ -673,13 +689,13 @@ $X=\mathbb{CP}^1$、$S=\mathcal O(-1)$、$Q_\ell=\mathbb C^2/\ell$ とする。$
 <!-- solution-start -->
 **詳細解答**。
 
-1. [普遍線束の局所枠](../CM2-06/index.md#def-cm2-06-tautological-bundle)から $v_0=(1,z)$、$v_\infty=(w,1)=z^{-1}v_0$ であり、$g^S_{0\infty}=z^{-1}$。商繊維で $q_0=[(0,1)]$、$q_\infty=[(1,0)]$ と取ると
+1. [普遍線束の局所基底](../CM2-06/index.md#def-cm2-06-tautological-bundle)から $v_0=(1,z)$、$v_\infty=(w,1)=z^{-1}v_0$ であり、$g^S_{0\infty}=z^{-1}$。商繊維で $q_0=[(0,1)]$、$q_\infty=[(1,0)]$ と取ると
 
 $$
 q_\infty=[(1,z)-z(0,1)]=-zq_0.
 $$
 
-従って $g^Q_{0\infty}=-z$。$q'_\infty=-q_\infty$ に局所枠を取り替えると $q'_\infty=zq_0$ となるから、[ねじれ線束の遷移](../CM2-06/index.md#prop-cm2-06-ok-sections)の $k=1$ と一致し $Q\cong\mathcal O(1)$。
+従って $g^Q_{0\infty}=-z$。$q'_\infty=-q_\infty$ に局所基底を取り替えると $q'_\infty=zq_0$ となるから、[ねじれ線束の遷移](../CM2-06/index.md#prop-cm2-06-ok-sections)の $k=1$ と一致し $Q\cong\mathcal O(1)$。
 
 2. [双対束](#prop-cm2-08-dual-evaluation)の遷移から $g^{S^\vee}_{0\infty}=z$。これと $g^Q_{0\infty}=-z$ の積により
 
@@ -695,7 +711,7 @@ $$
 =-z^2\frac{\partial}{\partial z}
 $$
 
-となる。両線束は同じ二枚のチャート上で同じ遷移関数を持ち、[貼り合わせ定理](../CM2-06/index.md#thm-cm2-06-gluing)によって正則同型である。
+となる。両線束は同じ二枚のチャート上で同じ遷移係数を持ち、[貼り合わせ定理](../CM2-06/index.md#thm-cm2-06-gluing)によって正則同型である。
 
 3. 前問の遷移から $T^{1,0}X\cong\mathcal O(2)$。[大域切断の分類](../CM2-06/index.md#prop-cm2-06-ok-sections)を指数 $k=2$ に適用すると、$U_0$ 側の係数は次数高々二の多項式に限る。従って全ての場は
 
