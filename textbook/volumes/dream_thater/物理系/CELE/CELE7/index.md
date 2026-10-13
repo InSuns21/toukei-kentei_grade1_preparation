@@ -196,7 +196,7 @@ $$
 \delta\cos(2\phi-2\psi),\qquad \delta\in\mathbb R.
 $$
 
-ここでは $\varepsilon>0$ を固定し、$|\delta|$ を追加摂動の大きさとします。
+ここでは $\varepsilon>0$ を固定し、$|\delta|$ を追加摂動の大きさとします。元の角度では $2\phi-2\psi=\theta_1-3\theta_2$ なので、追加項は元の $\mathbb T^2$ 上でも単価値です。局所正準変換の周期同一視とHamiltonianの定義域は区別します。
 
 <a id="prop-cele7-two-angle"></a>
 
@@ -252,7 +252,7 @@ $$
 で、各正準対の二項が相殺されます。
 <!-- proof-end -->
 
-この模型の $\delta=0$ では分離曲線が一致しています。$\delta\ne0$ でその安定枝・不安定枝が**横断的に**分離するなら、[CELE6の横断性判定](../CELE6/index.md#prop-cele6-melnikov-transversality)と外部のSmale–Birkhoff機構によりカオス的な不変集合を論じられます。ただし「第二角を入れた」だけで横断性やカオスを断定してはいけません。分離量、パラメータ、対象周期軌道を実際に検証する仕事が残ります。
+この模型の $\delta=0$ では安定枝と不安定枝が分離曲線上で一致しています。$\delta\ne0$ では、[CELE6で使ったMelnikov分離量の方法](../CELE6/index.md#prop-cele6-melnikov-transversality)を参考に、本模型の対象周期軌道とパラメータについて分離量および横断性を改めて検証する必要があります。横断ホモクリニック交差を示せた場合には、[外部入力のSmale–Birkhoff定理](../CELE6/index.md#ref-cele6-smale-birkhoff)によってカオス的な不変集合を論じられます。「第二角を入れた」だけでその結論を得たことにはなりません。
 
 ## 5. それでも残るKAMトーラス
 
@@ -342,18 +342,35 @@ S^n(x,y)=(x+ny,y),\qquad
 DS^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}.
 $$
 
-$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。逆行列も $\begin{pmatrix}1&-n\\0&1\end{pmatrix}$ なので、Euclidノルムで
+$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。Euclidノルムで評価します。三角不等式により、$|b|\le\|v\|$ を使って
 
 $$
-\frac1{n+2}\|v\|\le\|DS^n v\|\le(n+2)\|v\|,\qquad n\ge1.
+\|DS^n v\|
+=\|v+(nb,0)\|
+\le\|v\|+n|b|
+\le(n+1)\|v\|.
 $$
 
-実際、任意のベクトルへの作用ノルムは行和評価などで $n+2$ 以下となり、逆写像にも同じ上界が使えます。従って
+逆写像は $S^{-n}(x,y)=(x-ny,y)$ なので、$DS^{-n}(a,b)=(a-nb,b)$ です。こちらにも同じ三角不等式を適用できます。$w=DS^n v$ と置けば
 
 $$
--\frac{\log(n+2)}n
+\|v\|=\|DS^{-n}w\|
+\le(n+1)\|w\|
+=(n+1)\|DS^n v\|.
+$$
+
+従って
+
+$$
+\frac1{n+1}\|v\|\le\|DS^n v\|\le(n+1)\|v\|,\qquad n\ge1.
+$$
+
+両辺を $\|v\|>0$ で割って対数を取ると
+
+$$
+-\frac{\log(n+1)}n
 \le\frac1n\log\frac{\|DS^n v\|}{\|v\|}
-\le\frac{\log(n+2)}n\longrightarrow0.
+\le\frac{\log(n+1)}n\longrightarrow0.
 $$
 
 $v=(0,1)$ では比が $\sqrt{n^2+1}$ なので命題の有限時間式が従います。
@@ -536,7 +553,13 @@ $2(\phi-\psi)=\pi/2$ の初期点では $\dot P=-2\delta\ne0$ なので $P$ は�
 $K(I)=\tfrac12(I_1^2+I_2^2)$、$I_*=(1,\sqrt2)$ を考える。Kolmogorov非退化性と、整数 $k=(p,q)\ne0$ に対する振動数の下界を示せ。また $I_*=(1,1)$ では何が失われるか述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix}$ で行列式は $1$、非退化です。$\omega_*=(1,\sqrt2)$ とすると、整数 $p^2-2q^2$ は非零で絶対値は $1$ 以上だから
+**詳細解答**。[Kolmogorov非退化性](../../../幾何系/INT/INT8/index.md#def-int8-kolmogorov)をHessianから確認します。
+
+$$
+D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad \det D^2K=1\ne0.
+$$
+
+従って非退化です。$\omega_*=(1,\sqrt2)$ とすると、整数 $p^2-2q^2$ は非零で絶対値は $1$ 以上だから
 
 $$
 |p+q\sqrt2|
@@ -545,7 +568,7 @@ $$
 \ge\frac1{\sqrt2(|p|+|q|)}.
 $$
 
-このDiophantine下界が、解析的KAM定理の振動数に課す条件を満たします。$(1,1)$ では $k=(1,-1)$ に対して $k\cdot\omega_*=0$ なので同じ条件に失敗します。Hessianの非退化性は失われていません。二つの仮定を混同してはいけません。
+$|k|_1\ge1$ なので $\gamma=1/\sqrt2,\ \tau=2>1$ と選べば[解析的KAM定理のDiophantine条件](../../../幾何系/INT/INT8/index.md#def-int8-diophantine)を満たします。$(1,1)$ では $k=(1,-1)$ に対して $k\cdot\omega_*=0$ なので同じ条件に失敗します。Hessianの非退化性は失われていません。二つの仮定を混同してはいけません。
 <!-- solution-end -->
 
 ### Level C
@@ -600,7 +623,17 @@ $$
 
 （iii）$\dot P=-\partial_\psi H=-2\delta\sin(2\phi-2\psi)$。$\delta\ne0$ なら $P$ は全軌道で保存されません。
 
-（iv）非摂動部は解析的でHessianが単位行列、たとえば $(1,\sqrt2)$ の振動数は上のB4で示したDiophantine下界を持ちます。解析ノルムで摂動がKAM定理の閾値以下なら、指定振動数の不変トーラスの存続を主張できます。一方、$I_1=I_2$ の共鳴帯では固定振動数版KAMの算術仮定は使えず、$\delta=0$ でも振り子島と双曲鞍点が現れます。$\delta\ne0$ で横断ホモクリニック交差まで確認できた場合には、その付近でカオス的な不変集合を論じられますが、$\dot P\ne0$ の計算だけでは横断性も正の漸近Lyapunov指数も証明していません。さらにこの局所模型を実際の太陽系へ適用するには質量・非退化性・衝突回避・時間尺度の検証が別に必要です。
+（iv）非摂動部 $K=(I_1^2+I_2^2)/2$ は解析的で $D^2K=\mathrm{Id}_2$ は可逆です。$I_*=(1,\sqrt2)$ では $\omega_*=(1,\sqrt2)$。零でない整数対 $(p,q)$ について $p^2-2q^2$ は零でない整数だから
+
+$$
+|p+q\sqrt2|=\frac{|p^2-2q^2|}{|p-q\sqrt2|}
+\ge\frac1{|p|+\sqrt2|q|}
+\ge\frac1{\sqrt2(|p|+|q|)}.
+$$
+
+従って $\gamma=1/\sqrt2,\ \tau=2>1$ が使えます。二つの余弦項は元の角度トーラス上で解析的であり、指定した複素近傍での **両摂動の合計の解析ノルム** が[INT8の解析的KAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)の閾値以下なら、この振動数を持つ不変トーラスが元の $I_*$ の近くに存続します。単に $|\delta|$ だけが小さくても、$\varepsilon$ の小ささを確認しない限りKAMの結論は出ません。
+
+一方、$I_1=I_2$ の共鳴帯では固定振動数版KAMの算術仮定は使えず、$\delta=0$ でも振り子島と双曲鞍点が現れます。$\delta\ne0$ で横断ホモクリニック交差まで確認できた場合には、その付近でカオス的な不変集合を論じられますが、$\dot P\ne0$ の計算だけでは横断性も正の漸近Lyapunov指数も証明していません。さらにこの局所模型を実際の太陽系へ適用するには質量・非退化性・衝突回避・時間尺度の検証が別に必要です。
 <!-- solution-end -->
 
 ## 10. 太陽系の長期力学へつなぐ
