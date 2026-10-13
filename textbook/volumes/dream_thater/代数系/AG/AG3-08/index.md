@@ -371,6 +371,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
+ここで用いる**フラスク層の高次消滅**を確認しておきます。フラスク層 $\mathcal E$ を入射層 $\mathcal I$ に埋め込み、商を $\mathcal Q$ とします。任意の開集合 $W$ 上の $\mathcal Q$ の切断 $s$ は局所的には $\mathcal I$ へ持ち上がります。持ち上げの定義域を包含関係で極大に取ったとき、残りの点の近傍に持ち上げを選ぶと、重なりでの二つの持ち上げの差は $\mathcal E$ の切断です。$\mathcal E$ のフラスク性でその差を新しい近傍全体へ延長し、一方の持ち上げから引けば、両者は貼り合わさります。極大性に反するので持ち上げは $W$ 全体に存在します。従って全ての開集合 $W$ で
+$
+0\to\mathcal E(W)\to\mathcal I(W)\to\mathcal Q(W)\to0
+$
+は完全です。さらに $\mathcal I$ はフラスクなので、$V\subseteq W$ に対して $\mathcal Q(V)$ の切断をいったん $\mathcal I(V)$ へ持ち上げて $\mathcal I(W)$ へ延長でき、$\mathcal Q$ もフラスクです。これを商層について繰り返すと、$\mathcal E$ の入射分解の切断複体は任意の $W$ 上で正次数にコホモロジーを持ちません。ゆえにフラスク層の $H^{q}(W,\mathcal E)$ は $q>0$ で零です。この事実によって、以下では入射分解を各交叉へ制限した**フラスク分解**で層コホモロジーを計算できます。
+
 $\mathcal F\to\mathcal I^\bullet$ を入射分解とします。$p,q\ge0$ に対し
 $$
 K^{p,q}
@@ -478,7 +484,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（局所持ち上げと連結準同型）**  
-> $X$ を有限アフィン開被覆 $\mathfrak U$ の全有限交叉がアフィンであるスキームとし、準連接層の短完全列 $0\to\mathcal F'\xrightarrow{\alpha}\mathcal F\xrightarrow{\beta}\mathcal F''\to0$ を取る。$s\in H^0(X,\mathcal F'')$ の局所持ち上げ $t_i\in\mathcal F(U_i)$ を選ぶと、
+> $X$ を有限アフィン開被覆 $\mathfrak U$ の全有限交叉がアフィンであるスキームとし、準連接層の短完全列
+>
+$
+0\to\mathcal F'\xrightarrow{\alpha}\mathcal F
+\xrightarrow{\beta}\mathcal F''\to0
+$
+>
+> を取る。$s\in H^0(X,\mathcal F'')$ の局所持ち上げ $t_i\in\mathcal F(U_i)$ を選ぶと、
 >
 $$
 \alpha(c_{ij})=t_j-t_i
