@@ -273,7 +273,7 @@ $$
 <a id="def-var3-elastica-energy"></a>
 <!-- formal-statement-start -->
 > **定義（平面曲線の曲げエネルギー）**  
-> $C^4$ 級の正則平面曲線について
+> $C^2$ 級の正則平面曲線について
 >
 $$
 E[\gamma]=\frac12\int_\gamma\kappa^2\,ds
@@ -281,6 +281,8 @@ $$
 >
 > を曲げエネルギー（Euler弾性曲線のエネルギー）という。元の曲線が単位速なら積分は $\frac12\int_0^L\kappa(s)^2ds$ である。長さに対する乗数 $\lambda\in\mathbb R$ を入れた作用を $\mathcal F_\lambda=E+\lambda L$ とする。
 <!-- formal-statement-end -->
+
+正則な $C^2$ 曲線では曲率と線素が連続なので、曲げエネルギーは定義できます。一方、後で第一変分を部分積分し $\kappa''$ を使うため、停留方程式を導く基準曲線には $C^4$ を仮定します。変分方向は $C^2$ で十分であり、微小変形後の曲線も正則な $C^2$ 曲線としてエネルギーを計算できます。
 
 <!-- definition-example-start: def-var3-elastica-energy -->
 **定義の確認**。半径 $R>0$ の円では $\kappa^2=1/R^2$、$L=2\pi R$ だから
