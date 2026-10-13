@@ -140,7 +140,13 @@ $$
 \frac{(us)^d}{f^{m+\deg u}}
 =\frac{u^d}{f^{\deg u}}\frac{s^d}{f^m}
 $$
-で分かります。さらに $st$ が条件を満たせば右辺が $\mathfrak q$ に入り、$\mathfrak q$ が素なので $s$ または $t$ が条件を満たします。従ってこの斉次イデアルの商環 $S/\mathfrak p_{\mathfrak q}$ では、非零の斉次元同士の積が非零です。ここから通常の元の積についても素性を確認します。商環の非零元 $a,b$ を次数成分へ分け、最高次数の非零成分をそれぞれ $a_M,b_N$ とします。積 $ab$ の次数 $M+N$ 成分は $a_Mb_N$ だけであり、これは非零です。よって $ab\ne0$ となり、$S/\mathfrak p_{\mathfrak q}$ は整域、従って $\mathfrak p_{\mathfrak q}$ は素イデアルです。
+で分かります。$st$ が条件を満たせば、右辺が $\mathfrak q$ に入り、素性から $s$ または $t$ が条件を満たします。
+
+これで斉次イデアル $\mathfrak p_{\mathfrak q}$ による商環では、非零の斉次元同士の積が非零だと分かりました。任意の非零元 $a,b$ の最高次数の非零成分を $a_M,b_N$ とすると、積の最高次数候補の成分は
+$$
+(ab)_{M+N}=a_Mb_N\ne0
+$$
+です。この次数に寄与するのは両方の最高次数成分の積だけだからです。従って $ab\ne0$、商環は整域であり、$\mathfrak p_{\mathfrak q}$ は通常の素イデアルです。
 
 $f^d/f^d=1\notin\mathfrak q$ なので $f\notin\mathfrak p_{\mathfrak q}$ です。二つの構成が互いに逆であることは、次数零分数 $s/f^r$（$\deg s=rd$）について
 $$
