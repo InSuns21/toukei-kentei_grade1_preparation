@@ -23,22 +23,38 @@ $(M,g)$ は滑らかな連結・Hausdorff・第二可算・境界なしの時間
 
 ### 証明の見取り図
 
-時間的曲線の最初と最後のごく短い部分を、座標内の時間的な直線に置き換えます。未来時間的ベクトル全体は接空間で開錐なので、短い直線の端点を微小に変えても速度は未来時間的なままです。中央の元の曲線を接続すれば、端点を両方動かせます。
+凸正規近傍に収まる時間的曲線の終点が放射光円錐の**内側**にあることをGaussの補題で確かめます。次に指数写像の滑らかな端点依存性と未来時間的錐の開性から、端点を同時に動かせると分かります。端点での速度が非零という仮定は不要です。中央の元の時間的曲線はそのまま残します。
 
 <!-- proof-start -->
 ### 証明
 
-$p$ から $q$ への区分的 $C^1$ 未来時間的曲線 $\gamma:[0,1]\to M$ を取ります。始点の直後の滑らかな片に座標 $x$ を選び、$a=\gamma(s_0)$（$s_0>0$ は十分小）を取ります。未来時間的な速度 $\dot\gamma(0)$ の近くでは $g(v,v)<0$ と未来性がともに開条件です。座標で
+$p$ から $q$ への区分的 $C^1$ 未来時間的曲線 $\gamma:[0,1]\to M$ を取ります。まず短い時間的曲線の局所的な性質を確認します。[凸正規近傍の存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)により、点 $u$ の小さな凸正規近傍 $N$ を取り、$u$ から $v$ への未来時間的曲線 $\alpha$ がすべて $N$ に含まれるとします。$w(s)=\exp_u^{-1}(\alpha(s))$ と置きます。
+
+正規座標の放射光円錐の境界は $g_u(w,w)=0$ です。この境界上では、[Gaussの補題](../LORG5/index.md#thm-lorg5-gauss-lemma)により放射ベクトル $R=(d\exp_u)_w w$ が光円錐の接ベクトルと直交する未来光的ベクトルになります。従って $F(w)=g_u(w,w)$ について、境界上の未来時間的速度を代入すると
 
 $$
-\frac{x(a)-x(p)}{s_0}
-=\frac1{s_0}\int_0^{s_0}\frac{d}{ds}x(\gamma(s))\,ds
-\longrightarrow (dx)_p\dot\gamma(0)
+\frac{d}{ds}F(w(s))
+=2g_u(w,\dot w)
+=2g_{\alpha(s)}(R,\dot\alpha(s))<0
 $$
 
-となるので、$s_0$ を小さくすると、$x(p)$ と $x(a)$ を結ぶ座標直線の速度は未来時間的になります。この直線の通るコンパクトな短い区間上では、計量係数と時間向きが連続なので、直線の始点を $p'$ へ微小に動かしても全点で未来時間的なままです。したがって $p$ のある近傍 $U$ のすべての $p'$ について $p'\ll a$ です。
+です。最後の符号は[逆Cauchy–Schwarz不等式](../LORG1/index.md#thm-lorg1-reverse-cauchy-schwarz)によります。光円錐の側面では未来時間的速度が必ず内側を向くため、頂点から出発した未来時間的曲線は側面の外へ逸脱できません。正規座標の未来時間成分が増加することも合わせ、短い時間的曲線の終点 $v$ は
 
-終点側でも、最後の滑らかな片の $b=\gamma(s_1)$（$s_1<1$ を十分 $1$ に近く取る）から $q$ への座標直線は未来時間的であり、$q$ の近傍 $V$ のすべての $q'$ へ $b\ll q'$ が成り立ちます。$s_0<s_1$ となるように取れば、元の曲線の中間部分から $a\ll b$ です。[時間的関係の推移性](../LORG6/index.md#prop-lorg6-transitivity)を二度適用し、
+$$
+\exp_u^{-1}(v)\in C_u^{\mathrm{tim},+}
+$$
+
+を満たします。これは、曲線の**始点での速度**を未来時間的と仮定する議論ではありません。
+
+元の曲線の始点近くで $a=\gamma(s_0)$ を取ります。$s_0>0$ を十分小さくすれば $\gamma([0,s_0])$ は $p$ の凸正規近傍に含まれるので、上の局所結果から $\exp_p^{-1}(a)$ は未来時間的です。二点を結ぶ指数写像の逆は凸正規近傍で滑らかに端点へ依存します。未来時間的錐の開性から、$p$ のある開近傍 $U$ のすべての $p'$ について
+
+$$
+\exp_{p'}^{-1}(a)\in C_{p'}^{\mathrm{tim},+}
+$$
+
+となります。$p'$ と $a$ を結ぶ短い放射測地線は未来時間的なので $p'\ll a$ です。
+
+同じ議論を終点側にも用います。$s_1<1$ を十分 $1$ に近く取って $b=\gamma(s_1)$ とすると、$b$ と $q$ は共通の凸正規近傍内にあります。その中で $b\ll q$ だから $q$ の開近傍 $V$ を小さくすれば、すべての $q'\in V$ に対し $b\ll q'$ です。$s_0<s_1$ とし、中央の元の時間的曲線から $a\ll b$ を得ます。[時間的関係の推移性](../LORG6/index.md#prop-lorg6-transitivity)を二度適用し、
 
 $$
 p'\ll a,\qquad a\ll b,\qquad b\ll q'
@@ -256,7 +272,21 @@ $J^+$ の内点 $q$ のすぐ過去に $J^+$ の点 $z$ を取り、$z\ll q$ と
 
 まず $I^+(S)\subset J^+(S)$ は[定義と包含](../LORG6/index.md#prop-lorg6-transitivity)から成立し、[開性](#thm-lorg7-chronological-open)から $I^+(S)\subset\operatorname{int}J^+(S)$ です。
 
-逆に $q\in\operatorname{int}J^+(S)$ を取ります。$q$ の開近傍 $V$ で $V\subset J^+(S)$ となるものがあります。$q$ の滑らかな未来時間的ベクトル $T_q$ を一つ取り、十分小さい $\delta>0$ に対して $z=\exp_q(-\delta T_q)$ を考えます。[放射測地線の因果型保存](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により、$\delta$ を小さくすると $z\in V$ かつ $z\ll q$ です。$z\in J^+(S)$ なので、ある $s\in S$ に対して $s\le z$。ここで[push-up補題](#thm-lorg7-push-up)を $s\le z\ll q$ に適用すると $s\ll q$、よって $q\in I^+(S)$ です。したがって内部の等式が成立します。
+逆に $q\in\operatorname{int}J^+(S)$ を取ります。開近傍 $V$ を $q\in V\subset J^+(S)$ となるように取ります。未来時間的な $T_q$ に対し、十分小さい $\delta>0$ で
+
+$$
+z=\exp_q(-\delta T_q)
+$$
+
+と定めます。[放射測地線の因果型保存](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)から $z\in V$ かつ $z\ll q$ です。
+
+$z\in J^+(S)$ より、ある $s\in S$ に対し $s\le z$ です。[push-up補題](#thm-lorg7-push-up)を適用すると
+
+$$
+s\le z\ll q\quad\Longrightarrow\quad s\ll q
+$$
+
+です。従って $q\in I^+(S)$ となり、内部の等式が成立します。
 
 次に $q\in J^+(S)$ とします。ある $s\in S$ に対し $s\le q$ です。未来時間的ベクトル $T_q$ に沿って $q_\delta=\exp_q(\delta T_q)$ を取ると $q\ll q_\delta$、かつ $q_\delta\to q$ です。[push-up補題](#thm-lorg7-push-up)から $s\ll q_\delta$、従って $q_\delta\in I^+(S)$ です。よって
 
@@ -391,7 +421,25 @@ $$
 標準Minkowski平面で $p=(0,0)$、$q=(1,1)$ とする。$q$ が $I^+(p)$、$J^+(p)$、$\operatorname{int}J^+(p)$、$\overline{I^+(p)}$ のどれに属するか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、$q$ の時間差と空間差はともに $1$ です。厳密不等式 $1>1$ は偽なので $q\notin I^+(p)$、非厳密不等式 $1\ge1$ は真なので $q\in J^+(p)$。また[時間的未来と因果的未来の内部・閉包](#prop-lorg7-interior-closure)から $\operatorname{int}J^+(p)=I^+(p)$ であり $q$ は内部に入りません。同じ命題とMinkowskiでの $J^+$ の閉性から $\overline{I^+(p)}=J^+(p)$、ゆえに $q\in\overline{I^+(p)}$ です。
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、$q$ の時間差と空間差はともに $1$。厳密不等式は偽ですが、非厳密不等式は成立するので
+
+$$
+q\notin I^+(p),\qquad q\in J^+(p)
+$$
+
+です。[時間的未来と因果的未来の内部・閉包](#prop-lorg7-interior-closure)より
+
+$$
+\operatorname{int}J^+(p)=I^+(p)
+$$
+
+ですから、$q$ は内部に入りません。一方、[Minkowskiでの因果的未来の閉性](../LORG6/index.md#prop-lorg6-minkowski-boundary)と閉包の等式を合わせると
+
+$$
+\overline{I^+(p)}=J^+(p)
+$$
+
+となり、$q$ はこの閉包に入ります。
 <!-- solution-end -->
 
 ### Level B
@@ -425,7 +473,15 @@ $$
 z=\exp_q(-\delta T_q)
 $$
 
-とします。[放射測地線の因果型保存](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)によって $z\ll q$、また $z\to q$ だから小さい $\delta$ では $z\in V$ です。$z\in J^+(p)$ は $p\le z$ と同値であり、[push-up補題](#thm-lorg7-push-up)を $p\le z\ll q$ に適用して $p\ll q$ を得ます。従って内点は $I^+(p)$ に入ります。開集合性だけでなく、内点の**過去側に因果的に到達済みの点を取った**のが核心です。
+とします。[放射測地線の因果型保存](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)より $z\ll q$、また $z\to q$ なので小さい $\delta$ で $z\in V$ です。
+
+$z\in J^+(p)$ は $p\le z$ と同値です。[push-up補題](#thm-lorg7-push-up)へ代入すれば
+
+$$
+p\le z\ll q\quad\Longrightarrow\quad p\ll q
+$$
+
+です。従って内点は $I^+(p)$ に入ります。核心は、内点の**過去側に既に到達できている点を取る**ことです。
 <!-- solution-end -->
 
 <a id="ex-lorg7-b03"></a>
@@ -435,7 +491,23 @@ $$
 Minkowski平面で $p=(0,0)$、$q=(2,0)$、$r=(3,1)$ とする。$p\ll q\le r$ からpush-upを適用し、終点を固定する過去側の変形がなぜ必要かを説明せよ。さらに $p$ と $r$ を結ぶ時間的直線を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$q-p=(2,0)$ は自己内積 $-4<0$ の未来時間的変位です。$r-q=(1,1)$ は自己内積零の未来光的変位です。したがって $p\ll q\le r$ です。第二の[push-up補題](#thm-lorg7-push-up)では、$q$ から $r$ の因果区間の始点を少し過去の $q_\varepsilon^-$ に動かし、$q_\varepsilon^-\ll r$ とします。$p\ll q$ の[端点安定性](#lem-lorg7-timelike-endpoints)によって $p\ll q_\varepsilon^-$ も成り立ち、連結すれば $p\ll r$ です。直接の時間的直線は $\sigma(s)=(3s,s)$ で、速度 $(3,1)$ の自己内積は $-9+1=-8<0$、時間成分は正です。終点 $r$ を保つ構成が第一の向きとの違いです。
+**詳細解答**。変位 $q-p=(2,0)$ の自己内積は $-4<0$、変位 $r-q=(1,1)$ の自己内積は零です。時間成分はいずれも正なので
+
+$$
+p\ll q\le r
+$$
+
+です。第二の[push-up補題](#thm-lorg7-push-up)では、因果区間の始点を少し過去の $q_\varepsilon^-$ に動かして $q_\varepsilon^-\ll r$ とします。
+
+[端点安定性](#lem-lorg7-timelike-endpoints)を $p\ll q$ に適用すると、小さい $\varepsilon$ で $p\ll q_\varepsilon^-$ です。これらを連結して $p\ll r$ を得ます。
+
+直接の時間的直線は $\sigma(s)=(3s,s)$。速度は $(3,1)$ で
+
+$$
+g(\dot\sigma,\dot\sigma)=-9+1=-8<0
+$$
+
+かつ時間成分は正です。終点 $r$ を保ったまま変形することが第一の場合との違いです。
 <!-- solution-end -->
 
 <a id="ex-lorg7-b04"></a>
@@ -495,7 +567,15 @@ $$
 
 したがって $q$ はその内部にも入りません。以上で四集合への所属が決まります。
 
-最後に、[時間的未来の開性](#thm-lorg7-chronological-open)は各時間的曲線の末端を局所的に動かせることから従い、時空全体で曲線列の極限が残ることを要求しません。他方 $J_U^+(p)$ の閉性には、到達可能な $q_k$ が極限 $q$ に近づいたときも $U$ 内の因果曲線で到達できる必要があります。$\sigma_k$ は平坦な全時空では光的直線 $\sigma(s)=(-1+2s,-1+2s)$ に収束しますが、$\sigma(1/2)=(0,0)\notin U$ です。したがって閉性に必要な極限曲線が $U$ から脱落します。二つの性質は論理的に矛盾しません。
+最後に、[時間的未来の開性](#thm-lorg7-chronological-open)は時間的曲線の端点を局所的に動かせることから従います。曲線列の大域的な極限は仮定しません。
+
+他方、$J_U^+(p)$ の閉性には、到達可能な $q_k$ の極限 $q$ へも $U$ 内の因果曲線で到達できることが必要です。$\sigma_k$ の全Minkowski時空での極限は
+
+$$
+\sigma(s)=(-1+2s,-1+2s)
+$$
+
+ですが、$\sigma(1/2)=(0,0)\notin U$ です。このように極限曲線が $U$ から脱落するため、閉性が失われます。開性と非閉性は矛盾しません。
 <!-- solution-end -->
 
 ## 9. この先の因果階層への入口
