@@ -56,7 +56,7 @@ $$
 \boldsymbol{1}_{\{\lambda<|f(x)|\}}\,d\lambda.
 $$
 
-$|f(x)|=+\infty$ でも両辺は $+\infty$ として一致します。被積分関数が非負なので、[Tonelliの定理](../../MT/MT3/index.md#thm-mt3-tonelli)により
+$|f(x)|=+\infty$ でも両辺は $+\infty$ として一致します。被積分関数が非負なので、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)により
 
 $$
 \begin{aligned}
@@ -275,7 +275,7 @@ $$
 =p\,2^p\int_0^\infty\lambda^{p-1}d_{Tf}(2\lambda)\,d\lambda.
 $$
 
-ここへ先の上界を代入します。第1項では $|f(x)|>c\lambda$ は $0<\lambda<|f(x)|/c$ と同じです。$p-p_0>0$ なので [Tonelliの定理](../../MT/MT3/index.md#thm-mt3-tonelli)を使って
+ここへ先の上界を代入します。第1項では $|f(x)|>c\lambda$ は $0<\lambda<|f(x)|/c$ と同じです。$p-p_0>0$ なので [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使って
 
 $$
 \begin{aligned}
@@ -541,7 +541,7 @@ $$
 
 と置きます。$f_z$ は有限個の固定された指示関数の線形結合です。$T$ が線形なので $Tf_z$ も固定された $T\boldsymbol{1}_{E_j}$ の有限線形結合であり、$h_z$ も有限個の指示関数からなります。両端点の評価により $T\boldsymbol{1}_{E_j}\in L^{q_0}\cap L^{q_1}$ で、$\nu(F_k)<\infty$ です。従ってすべての積分 $\int_{F_k}T\boldsymbol{1}_{E_j}\,d\nu$ は絶対収束します（$q_i=\infty$ の場合も有限測度台を使う）。これら固定された有限個の積分の係数は $z$ の指数関数なので、$F$ は帯の内部で正則、閉帯で連続であり、閉帯全体で有界です。
 
-左右の境界では [Hölderの不等式](../../MT/MT5/index.md#thm-mt5-holder)と端点の作用素評価から
+左右の境界では [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)と端点の作用素評価から
 
 $$
 \begin{aligned}
@@ -819,7 +819,7 @@ $$
 \le\int_0^1|f(x-y)|^2\,dy.
 $$
 
-これを $x$ で積分し、[Tonelliの定理](../../MT/MT3/index.md#thm-mt3-tonelli)と平行移動不変性を使うと
+これを $x$ で積分し、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)と平行移動不変性を使うと
 
 $$
 \begin{aligned}
