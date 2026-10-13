@@ -1,0 +1,67 @@
+chapter: LORG8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+concepts:
+  - id: lorentz-geometry.conformal-rescaling
+    name: 共形再尺度と共形同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共形再尺度と共形同値）"]
+    requires: [lorentz-geometry.lorentz-metric]
+
+  - id: lorentz-geometry.conformal-causal-invariance
+    name: 共形再尺度による因果関係の不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共形再尺度による因果関係の不変性）"]
+    requires: [lorentz-geometry.conformal-rescaling, lorentz-geometry.causal-curve, lorentz-geometry.chronological-causal-future]
+
+  - id: lorentz-geometry.conformal-length-change
+    name: 共形再尺度でのLorentz長さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共形再尺度でのLorentz長さ）"]
+    requires: [lorentz-geometry.conformal-rescaling, lorentz-geometry.lorentzian-length]
+
+  - id: lorentz-geometry.causal-convexity
+    name: 因果的凸集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果的凸集合）"]
+    requires: [lorentz-geometry.causal-curve]
+
+  - id: lorentz-geometry.alexandrov-diamond
+    name: Alexandrovダイヤモンド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Alexandrovダイヤモンド）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+
+  - id: lorentz-geometry.diamond-causal-convexity
+    name: Alexandrovダイヤモンドの開性と因果的凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Alexandrovダイヤモンドの開性と因果的凸性）"]
+    requires: [lorentz-geometry.alexandrov-diamond, lorentz-geometry.causal-convexity, lorentz-geometry.push-up, lorentz-geometry.chronological-futures-open]
+
+  - id: lorentz-geometry.local-relative-diamonds
+    name: 相対的なAlexandrov近傍の局所基底
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（相対的なAlexandrov近傍の局所基底）"]
+    requires: [lorentz-geometry.diamond-causal-convexity, lorentz-geometry.lorentz-metric]
+
+  - id: lorentz-geometry.periodic-time-alexandrov
+    name: 時間周期円筒のAlexandrov集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間周期円筒のAlexandrov集合）"]
+    requires: [lorentz-geometry.alexandrov-diamond, lorentz-geometry.causal-convexity]
