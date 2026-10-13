@@ -86,15 +86,32 @@ The headless test is `npm run validate:simulation-phase0`; the Pages build also
 imports this test. It checks message negatives, stale generations, deterministic
 seeds, exact risk/energy references, bounded steps and nonfinite snapshots.
 
-## Phase 1 browser/operational acceptance to measure (not yet measured)
+## Phase 1 browser acceptance (Chromium on CI)
 
-Record test device/browser/version, CPU and available memory, network status,
-worker boot duration (DOMContentLoaded → initial ready), first actionable
-render latency, parameter-edit → correct generation/render latency, peak heap
-where exposed, transferred bytes, frame rate and tab-hidden recovery.
-Exercise online cold load, warmed cache, version migration, offline explanatory
-failure, repeated navigation and low-memory worker termination. Set actual
-thresholds based on baseline measurements rather than claiming a speedup now.
+The `npm run validate:simulation-browser` command launches real Chromium
+against a locally assembled Pages build; the Pages validation workflow runs it
+as a blocking test. It checks direct-page Service Worker registration, app-shell
+precache, network-first refresh of an unchanged URL, offline fetch of the
+refreshed content, offline reload with a functioning module Worker, and explicit
+failure for a resource not available offline.
+
+It also calculates **100,000 real two-body steps** in bounded Worker batches,
+checks that step 100,001 is rejected, and exercises UI pause/resume/cancel/reset.
+Responsive/accessibility checks include 360×760 viewport overflow, form labels,
+aria-live status, plot description and diagnostic table, distinguishing line
+styles, and a real keyboard Enter action.
+
+The CI also emulates **4× CPU throttling**. Example from 2026-10-14,
+PR #1390: 100,000 steps took 86 ms in its headless CI environment, and
+100 steps under CPU throttling took 4 ms; horizontal overflow was 0 px.
+These are **per-run measurements, not published performance guarantees**.
+CI runner, browser version and scheduling can change.
+
+**Still open:** physical low-power/mobile device memory and heat, hidden-tab
+recovery under actual OS suspension, hands-on NVDA/VoiceOver usability, and
+cache migration across separate deployed GitHub Pages releases. The synthetic
+cached URL refresh exercises the installed Service Worker, but does not
+simulate an actual release update. Never equate a throttle with a real device.
 
 ## Phase 1 interactive demo
 
@@ -112,7 +129,8 @@ remain separate and unchanged.
 Tests: `npm run validate:simulation-phase0` and
 `npm run validate:simulation-phase1`. Phase 1's Node tests exercise the **real
 Worker host dispatch** and the client over an async mock transport, not an
-actual browser Worker. Browser navigation, offline cache transitions, and
-accessibility require the separate end-to-end acceptance gate before calling
-the shared platform complete. This prototype's two-body kernel is JavaScript;
+actual browser Worker. An actual-browser acceptance gate now checks navigation, offline fallback,
+cache refreshing, keyboard interaction, narrow layout and bounded execution.
+Physical-device and screen-reader review remain separate. This prototype's
+two-body kernel is JavaScript;
 the CELEV PLAN's required independent Python/NumPy engine is a Phase 2 task.
