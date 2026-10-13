@@ -265,7 +265,7 @@ $$
 \simeq\mathcal O_P(-n-1)}
 $$
 
-> である。超平面 $H=V(X_0)\subset P$ に対して $\mathcal O_P(H)\simeq\mathcal O_P(1)$ と見なすと、標準因子類は $K_P\sim-(n+1)H$ である。
+> である。一次斉次式 $X_0$ が定める因子 $H=V(X_0)\subset P$ に対して $\mathcal O_P(H)\simeq\mathcal O_P(1)$ と見なすと、標準因子類は $K_P\sim-(n+1)H$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -292,7 +292,7 @@ $$
 
 これは[O(d)の遷移規則](../AG2-06/index.md#def-ag2-06-twisting-sheaf)で $d=-(n+1)$ と置いたものです。従って $\det E\simeq\mathcal O_P(-n-1)$ であり、二つの同型を合成して所望の式を得ます。
 
-最後に超平面 $H=\{X_0=0\}$ は各チャートで一つの正則関数によって定まります。$X_0$ は[O(1)の斉次式切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)で、零因子が $H$ です。[因子の付随可逆層](../AG2-07/index.md#def-ag2-07-associated-line-bundle)の局所表示から $\mathcal O_P(H)\simeq\mathcal O_P(1)$ が従い、テンソル冪を取れば $\omega_P\simeq\mathcal O_P(-(n+1)H)$ です。
+最後に $H=\{X_0=0\}$ は一次斉次式の零点集合であり、各チャートで一つの正則関数によって定まる因子です。$X_0$ は[O(1)の斉次式切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)で、零因子が $H$ です。[因子の付随可逆層](../AG2-07/index.md#def-ag2-07-associated-line-bundle)の局所表示から $\mathcal O_P(H)\simeq\mathcal O_P(1)$ が従い、テンソル冪を取れば $\omega_P\simeq\mathcal O_P(-(n+1)H)$ です。
 <!-- proof-end -->
 
 **低次元での確認**：$n=1$ なら $\omega_{\mathbb P^1}\simeq\mathcal O(-2)$ で、[前章の直接計算](../AG2-08/index.md#thm-ag2-08-p1-canonical)と一致します。$n=2$ なら $\omega_{\mathbb P^2}\simeq\mathcal O(-3)$ であり、第1節の $du\wedge dv=-x^{-3}dx\wedge dy$ の係数と一致します。$n=3$ なら $\mathcal O(-4)$ です。いずれも次数 $-(n+1)$ が現れるのは、元の $E$ が **$n+1$ 本の $\mathcal O(-1)$** からできているためです。
@@ -305,11 +305,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（接層）**  
-> $P=\mathbb P^n_{\mathbb C}$ の接層を $T_P=\mathcal H om_{\mathcal O_P}(\Omega^1_P,\mathcal O_P)$ と定義する。$U_i$ 上では $dz_j^{(i)}$ の双対 $\partial/\partial z_j^{(i)}$（$j\ne i$）を自由基底とする。
+> $P=\mathbb P^n_{\mathbb C}$ の接層を $T_P=(\Omega^1_P)^\vee$ と定義する。$U_i$ 上では $dz_j^{(i)}$ の双対 $\partial/\partial z_j^{(i)}$（$j\ne i$）を自由基底とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-09-tangent-sheaf -->
-**定義の確認**：$U_0\subset\mathbb P^2$ で $x=X_1/X_0,y=X_2/X_0$ とすると、$\partial_x(dx)=1$、$\partial_x(dy)=0$、$\partial_y(dx)=0$、$\partial_y(dy)=1$ です。従って $a\partial_x+b\partial_y$ は $dx,dy$ に対してそれぞれ $a,b$ を返す線形汎関数です。
+**定義の確認**：$U_0\subset\mathbb P^2$ で $x=X_1/X_0,y=X_2/X_0$ とすると、$\partial_x(dx)=1$、$\partial_x(dy)=0$、$\partial_y(dx)=0$、$\partial_y(dy)=1$ です。従って $a\partial_x+b\partial_y$ は $dx,dy$ に対してそれぞれ $a,b$ を返す $\mathcal O$-線形写像です。
 <!-- definition-example-end -->
 
 <a id="thm-ag2-09-tangent-euler"></a>
@@ -473,7 +473,7 @@ $\mathbb P^1,\mathbb P^2,\mathbb P^4$ の標準束を $\mathcal O(d)$ で表せ�
 - ID: AG2-09-A4
 
 <!-- solution-start -->
-**詳細解答。** [射影空間の標準束定理](#thm-ag2-09-canonical-projective)で $d=-(n+1)$ と代入します。$n=1,2,4$ に対して順に $\mathcal O(-2),\mathcal O(-3),\mathcal O(-5)$ です。いずれも $d<0$ なので、[O(d)の大域切断定理](../AG2-06/index.md#thm-ag2-06-pn-sections)により $H^0(\mathbb P^n,\mathcal O(d))=0$ です。同型を通じ、各最高次微分形式の空間も零となります。
+**詳細解答。** [射影空間の標準束定理](#thm-ag2-09-canonical-projective)で $d=-(n+1)$ と代入します。$n=1,2,4$ に対して順に $\mathcal O(-2),\mathcal O(-3),\mathcal O(-5)$ です。いずれも $d<0$ なので、[射影空間上のO(d)の大域切断](../AG2-06/index.md#thm-ag2-06-pn-sections)により $H^0(\mathbb P^n,\mathcal O(d))=0$ です。同型を通じ、各最高次微分形式の空間も零となります。
 <!-- solution-end -->
 
 **Level B：チャートの整合性と完全性**
@@ -569,7 +569,7 @@ $\mathbb P^n$ に非零の大域正則1形式が存在しないことを、標�
 - ID: AG2-09-B4
 
 <!-- solution-start -->
-**詳細解答。** [Euler列](#thm-ag2-09-euler-sequence)の $\iota:\Omega^1_P\to\mathcal O_P(-1)^{\oplus(n+1)}$ は各チャートで単射です。非零の大域切断 $s$ があると仮定すれば、$\iota(s)$ も非零の大域切断となります。ところが[O(d)の大域切断定理](../AG2-06/index.md#thm-ag2-06-pn-sections)に $d=-1$ を代入すると $H^0(P,\mathcal O(-1))=0$ です。有限直和の切断は各成分の切断からなり、すべての成分は零なので $\iota(s)=0$ です。単射性より $s=0$ となり矛盾します。従って $H^0(P,\Omega^1_P)=0$ です。
+**詳細解答。** [Euler列](#thm-ag2-09-euler-sequence)の $\iota:\Omega^1_P\to\mathcal O_P(-1)^{\oplus(n+1)}$ は各チャートで単射です。非零の大域切断 $s$ があると仮定すれば、$\iota(s)$ も非零の大域切断となります。ところが[射影空間上のO(d)の大域切断](../AG2-06/index.md#thm-ag2-06-pn-sections)に $d=-1$ を代入すると $H^0(P,\mathcal O(-1))=0$ です。有限直和の切断は各成分の切断からなり、すべての成分は零なので $\iota(s)=0$ です。単射性より $s=0$ となり矛盾します。従って $H^0(P,\Omega^1_P)=0$ です。
 <!-- solution-end -->
 
 **Level C：複数の構成を接続する**
@@ -615,7 +615,7 @@ $\mathbb P^2$ で各 $U_i$ の局所座標を添字の小さい順に並べ、�
 - ID: AG2-09-C2
 
 <!-- solution-start -->
-**詳細解答。** $U_0$ では $x=X_1/X_0,y=X_2/X_0$ として $\eta_0=dx\wedge dy$ です。$U_1$ では $u=X_0/X_1=1/x,v=X_2/X_1=y/x$ として $\eta_1=du\wedge dv$。よって[A3の変換計算](#def-ag2-09-cotangent-sheaf)と同じ微分から
+**詳細解答。** $U_0$ では $x=X_1/X_0,y=X_2/X_0$ として $\eta_0=dx\wedge dy$ です。$U_1$ では $u=X_0/X_1=1/x,v=X_2/X_1=y/x$ として $\eta_1=du\wedge dv$。よって[第1節の定義例](#def-ag2-09-cotangent-sheaf)と同じ微分から
 
 $$
 \eta_1=-x^{-3}\eta_0.
