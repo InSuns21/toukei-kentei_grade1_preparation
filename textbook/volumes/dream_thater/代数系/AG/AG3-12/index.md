@@ -29,11 +29,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（平坦加群）**  
 > 可換環 $A$ 上の加群 $M$ が平坦であるとは、任意の単射 $A$-加群準同型 $u:N'\to N$ に対し
->
-> $$
-> u\otimes 1_M:N'\otimes_A M\longrightarrow N\otimes_A M
-> $$
->
+$
+u\otimes 1_M:N'\otimes_A M\longrightarrow N\otimes_A M
+$
 > が単射となることをいう。テンソル積はもともと右完全なので、これは任意の短完全列をテンソル積した列が再び短完全になることと同値である。
 <!-- formal-statement-end -->
 
