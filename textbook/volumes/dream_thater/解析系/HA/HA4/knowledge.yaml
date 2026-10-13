@@ -1,0 +1,58 @@
+chapter: HA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA1
+  - HA2
+  - MT7
+forward_references: []
+
+concepts:
+  - id: harmonic.ha4-dyadic-cubes
+    name: 二進立方体と親立方体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二進立方体と親立方体）]
+    requires: []
+
+  - id: harmonic.ha4-dyadic-maximal
+    name: 二進最大関数と悪い集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二進最大関数と悪い集合）]
+    requires: [harmonic.ha4-dyadic-cubes]
+
+  - id: harmonic.ha4-maximal-selection
+    name: 極大二進立方体の選択
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（極大二進立方体の選択）]
+    requires: [harmonic.ha4-dyadic-maximal]
+
+  - id: harmonic.ha4-cz-decomposition
+    name: Calderón–Zygmund分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Calderón–Zygmund分解：二進立方体版）]
+    requires: [harmonic.ha4-maximal-selection]
+
+  - id: harmonic.ha4-enlarged-cube
+    name: 拡大立方体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（拡大立方体）]
+    requires: [harmonic.ha4-dyadic-cubes]
+
+  - id: harmonic.ha4-off-support
+    name: 零平均と核の差による遠方評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（零平均と核の差による遠方評価）]
+    requires: [harmonic.ha4-enlarged-cube, harmonic.ha4-cz-decomposition]
+
+  - id: harmonic.ha4-good-l2
+    name: 良い部分の二乗平均評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（良い部分の二乗平均評価）]
+    requires: [harmonic.ha4-cz-decomposition]
