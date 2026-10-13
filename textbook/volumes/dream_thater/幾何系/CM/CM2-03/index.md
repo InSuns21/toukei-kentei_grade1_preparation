@@ -87,24 +87,37 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\varphi$ の台を含む大きな円板から半径 $\varepsilon$ の閉円板を除いた領域を $D_\varepsilon$ とする。$z\ne0$ では $\partial_{\bar z}(1/z)=0$ だから
+$\varphi$ の台が半径 $R$ の円板の内部に含まれるよう $R>0$ を取り、$0<\varepsilon<R$ に対して $D_\varepsilon=\{\varepsilon<|z|<R\}$ とする。$z\ne0$ では $\partial_{\bar z}(1/z)=0$ だから
 
 $$
 \partial_{\bar z}\!\left(\frac{\varphi}{z}\right)
 =\frac{\partial_{\bar z}\varphi}{z}.
 $$
 
-$h$ が滑らかなとき $d(h\,dz)=2i\,\partial_{\bar z}h\,dA$ である。従って Stokes の公式を $h=\varphi/z$ に適用すると、外周では $\varphi=0$、内周は時計回り（$\oint$ は反時計回り）なので
+ここでは Stokes の定理を前提にせず、極座標で積分を直接求める。$z=\rho e^{i\theta}$（$\rho>0$）に対し、連鎖律から
+
+$$
+\partial_{\bar z}
+=\frac{e^{i\theta}}2\left(\partial_\rho+\frac i\rho\partial_\theta\right),
+\qquad dA=\rho\,d\rho\,d\theta
+$$
+
+が成り立つ。上で選んだ $R$ に対し、$\theta$ に関する偏導関数の積分は周期性から零になるので、
 
 $$
 \begin{aligned}
-\int_{D_\varepsilon}\frac{\partial_{\bar z}\varphi}{z}\,dA
-&=\frac1{2i}\int_{\partial D_\varepsilon}\frac{\varphi(z)}z\,dz\\
-&=-\frac1{2i}\oint_{|z|=\varepsilon}\frac{\varphi(z)}z\,dz.
+\int_{D_\varepsilon}\frac{\partial_{\bar z}\varphi(z)}z\,dA(z)
+&=\frac12\int_\varepsilon^R\int_0^{2\pi}
+\left(\partial_\rho\varphi(\rho e^{i\theta})
++\frac i\rho\partial_\theta\varphi(\rho e^{i\theta})\right)
+\,d\theta\,d\rho\\
+&=\frac12\int_0^{2\pi}
+\bigl(\varphi(Re^{i\theta})-\varphi(\varepsilon e^{i\theta})\bigr)\,d\theta\\
+&=-\frac12\int_0^{2\pi}\varphi(\varepsilon e^{i\theta})\,d\theta.
 \end{aligned}
 $$
 
-$z=\varepsilon e^{it}$ と代入すると、右辺は $-\frac12\int_0^{2\pi}\varphi(\varepsilon e^{it})\,dt$ となり、$\varepsilon\downarrow0$ で $-\pi\varphi(0)$ に収束する。左辺も $|\partial_{\bar z}\varphi(z)|/|z|$ の特異核の積分可能性により元の積分へ収束する。両辺に $-1/\pi$ を掛ければ結論となる。$\square$
+$\varepsilon\downarrow0$ で最後の積分は $-\pi\varphi(0)$ に収束する。左辺も $|\partial_{\bar z}\varphi(z)|/|z|$ の特異核の積分可能性により元の積分へ収束する。両辺に $-1/\pi$ を掛ければ結論となる。$\square$
 <!-- proof-end -->
 
 <a id="thm-cm2-03-one-variable-inverse"></a>
@@ -289,14 +302,25 @@ $x$ を含み、閉包が正則座標領域に含まれる多重円板 $D=\prod_
 
 $\alpha_0=\alpha$ とし、$r=n,n-1,\dots,1$ について帰納的に、既に $z^{r+1},\ldots,z^n$ に正則でそれらの $d\bar z$ を持たない $\bar\partial$ 閉形式 $\alpha_{n-r}$ を扱う。その定義域は、まだ処理していない座標では $D_j$、処理済みの座標では $E_j$ とする。
 
-$r$ 番目の反正則微分を左端に出して $\alpha_{n-r}=\beta+d\bar z^r\wedge\gamma$ と分解する。$\bar\partial\alpha_{n-r}=0$ の係数を比較すると、$\partial_{\bar z^r}\beta=\bar\partial_{<r}\gamma$ が成立する。$u_r=T_r\gamma$ と置けば [座標別右逆](#lem-cm2-03-parametric-inverse)より、$z^r\in E_r$ で $\partial_{\bar z^r}u_r=\gamma$。したがって
+$r$ 番目の反正則微分を左端に出して $\alpha_{n-r}=\beta+d\bar z^r\wedge\gamma$ と分解する。処理済みの方向では係数の反正則微分が零である。また $\bar\partial_{<r}(d\bar z^r\wedge\gamma)=-d\bar z^r\wedge\bar\partial_{<r}\gamma$ なので、$\bar\partial\alpha_{n-r}=0$ の $d\bar z^r$ を含む係数を比較すると、$\partial_{\bar z^r}\beta=\bar\partial_{<r}\gamma$ が成立する。$u_r=T_r\gamma$ と置けば [座標別右逆](#lem-cm2-03-parametric-inverse)より、$z^r\in E_r$ で $\partial_{\bar z^r}u_r=\gamma$。したがって
 
 $$
 \alpha_{n-r}-\bar\partial u_r
 =\beta-\bar\partial_{<r}u_r=:\alpha_{n-r+1}
 $$
 
-は $d\bar z^r$ を含まず、$\partial_{\bar z^r}\alpha_{n-r+1}=0$ である。$T_r$ は処理済みの $z^{r+1},\ldots,z^n$ に関する正則性も保つので、帰納法の仮定を維持する。また $\bar\partial^2=0$ より $\bar\partial\alpha_{n-r+1}=0$。
+は $d\bar z^r$ を含まない。さらに、$\bar\partial_{<r}$ と $\partial_{\bar z^r}$ は滑らかな係数上で交換するから、
+
+$$
+\begin{aligned}
+\partial_{\bar z^r}\alpha_{n-r+1}
+&=\partial_{\bar z^r}\beta
+-\bar\partial_{<r}(\partial_{\bar z^r}u_r)\\
+&=\bar\partial_{<r}\gamma-\bar\partial_{<r}\gamma=0.
+\end{aligned}
+$$
+
+従って残差の係数は $z^r$ に正則である。$T_r$ は処理済みの $z^{r+1},\ldots,z^n$ に関する正則性も保つので、帰納法の仮定を維持する。また [型別外微分の二乗零](../CM2-02/index.md#thm-cm2-02-double-complex-identities) より $\bar\partial\alpha_{n-r+1}=0$。
 
 $r=1$ まで進むと $\alpha_n$ は $d\bar z^1,\dots,d\bar z^n$ を一切含まない $(p,q)$ 形式である。$q\ge1$ なので $\alpha_n=0$。従って $V$ 上で
 
