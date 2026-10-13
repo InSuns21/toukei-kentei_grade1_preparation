@@ -408,6 +408,7 @@ $$
 
 ## 7. グラフ表示と小さな曲がり
 
+<a id="formula-var3-graph-curvature"></a>
 平面曲線を局所的に $\gamma(x)=(x,u(x))$ と書ける場合は、前二章の汎関数へ戻れます。ただし $x$ は一般に弧長ではありません。$u\in C^4$、$x\in[a,b]$ とし、左向き回転で法線を定めると
 $$
 ds=\sqrt{1+(u')^2}\,dx,\qquad
@@ -545,7 +546,7 @@ $\gamma(x)=(x,\alpha x^2)$、$\alpha\in\mathbb R$ とする。$\kappa(x)$、$\ka
 <!-- solution-start -->
 ### 詳細解答
 
-$u'=2\alpha x$、$u''=2\alpha$ です。[第7節のグラフ公式](#def-var3-elastica-energy)に示した $\kappa=u''/(1+(u')^2)^{3/2}$ を代入すると
+$u'=2\alpha x$、$u''=2\alpha$ です。[第7節のグラフ公式](#formula-var3-graph-curvature)に示した $\kappa=u''/(1+(u')^2)^{3/2}$ を代入すると
 $$
 \kappa(x)=\frac{2\alpha}{(1+4\alpha^2x^2)^{3/2}},
 \qquad \kappa(0)=2\alpha.
