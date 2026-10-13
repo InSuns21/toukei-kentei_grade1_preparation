@@ -9,7 +9,7 @@
 - [統計力学 SM1〜8](../plan_done/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md)
 - [情報理論 I（INFO系列・講数可変）](../plan_done/DREAM_THEATER_INFORMATION_THEORY_I_PLAN.md)
 - [情報熱力学 I（ITD1〜15）](DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md)
-- [量子情報 I（QINF1〜33）](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)
+- [量子情報 I〜III（QINF1〜33・3部構成）](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)
 - [特殊相対論 I（SREL1〜15）](../plan_done/DREAM_THEATER_SPECIAL_RELATIVITY_I_PLAN.md)
 - [一般相対論 I・II（GR1〜30）](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
 - [量子場理論 I〜IV（QFT系列・仮章数可変）](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)
@@ -61,7 +61,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 熱・情報 | 統計力学（既存正本・1セメスター） | 既存SM1–SM8 | SM8 臨界現象・普遍性への入口 |
 | 熱・情報 | 情報理論 I：エントロピー・符号化・通信 | 新規 INFO1–INFO15 | 情報量・物理エントロピー比較演習 |
 | 熱・情報 | 情報熱力学 I：測定・フィードバック・消去 | 新規 ITD1–ITD15 | 独立モデルによる収支総合演習 |
-| 熱・情報 | 量子情報 I：状態・チャネル・エンタングルメント・量子誤り訂正 | 新規 QINF1–QINF33 | 有限次元の可逆発展・部分系の情報収支を導き、蒸発問題への適用限界を説明 |
+| 熱・情報 | 量子情報 I〜III：I＝状態・測定・チャネル、II＝エンタングルメント・エントロピー・通信、III＝誤り訂正・情報回復・Page型模型 | 新規 QINF1–13 / QINF14–24 / QINF25–33 | 有限次元の量子情報操作から情報収支を導き、蒸発問題への適用限界を説明 |
 | 時空・量子場 | 特殊相対論 I：Minkowski時空と相対論的場 | 新規 SREL1–SREL15 | 因果構造と一般相対論への橋 |
 | 時空・量子場 | 一般相対論 I：幾何とEinstein方程式 | 新規 GR1–GR15 | 解・仮定・座標不変量の総合演習 |
 | 時空・量子場 | 一般相対論 II：因果構造とブラックホール時空 | 新規 GR16–GR30 | ブラックホール摂動・熱力学への橋 |
@@ -80,7 +80,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 - 1科目の講数・学習期間は固定しない。各章の中心問い、主要証明、独習に必要な演習で自然な区切りを選ぶ。TH/SMの既存8章を15週に引き伸ばさず、未証明部分があればそのために必要な講だけ追加する。
 - 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII/QFTIII/QFTIV`、`BHII/BHIII` は**科目管理キー**であり、公開章IDはその都度確定する。旧QFT1–QFT30は未実装の仮IDであり、改訂後にそのまま継承・連番固定しない。
 - TH/SMは既存PLANの **TH1–TH8 / SM1–SM8** を維持する。SG1–SG8はスピングラス独立科目として存続するが、ブラックホールへの必須前提には置かない。
-- この規模は一人が17科目を同時履修する前提ではない。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
+- この規模は一人が17科目を同時履修する前提ではない。量子情報 I〜III は一つのQINF教育系列に置いた3部であり、この既存の系列単位集計では1項目として計数する（3部を各独立セメスターと数えるときは規模表を再計算する）。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
 
 ## 1.1 数学科目の補完：独立4セメスター
 
@@ -154,7 +154,7 @@ S(R) = min ext_I [ S_gen(I;R) ]  （適切な模型・サドルの範囲内）
 
 - **TH**：熱力学の法則・状態量・ポテンシャル・安定性。**SM**：アンサンブル・分配関数・微視的統計。SGは既存スピングラスPLAN。
 - **INFO**：Shannonの符号化・情報量の定義と定理。**ITD**：熱浴・測定・フィードバック・Landauer消去の物理的収支。Landauer下界を「情報1 bitが常に熱k_BT ln2を必ず放出する」と無条件に書かない。
-- **QINF**：量子エントロピー・量子チャネル・情報理論側の誤り訂正。HOLOでは重力双対へ必要な翻訳を行い、情報理論の基礎証明を繰り返さない。
+- **QINF I〜III**：I＝量子状態・測定・チャネル、II＝量子エントロピー・量子Shannon理論、III＝量子誤り訂正・典型性。HOLOでは重力双対へ必要な翻訳を行い、情報理論の基礎証明を繰り返さない。
 - **SREL**：平坦時空の運動学と場の共変性。**GR I**：曲率とEinstein方程式。**GR II**：大域因果構造・ブラックホール解と地平線。
 - **QFT I〜IV**：I＝自由場・散乱、II＝QED・くりこみ・非可換ゲージ、III＝標準模型、IV＝CFTとレプリカ。**QCURV**：曲がった背景時空におけるUnruh/Hawking効果の実計算。**BHT**：ブラックホール熱力学法則・S_BH・一般化第二法則・Waldエントロピー。
 - **HOLO**：AdS/CFT・RT/HRT/QES・entanglement wedgeと誤り訂正。**BHI I**：情報損失の論理、Page曲線、firewall、scrambling。**BHI II**：replica wormhole / island / JT、研究段階での限界と解釈。
