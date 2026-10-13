@@ -238,7 +238,7 @@ $$
 $$
 0=\delta L[\gamma;gn]=-\int_0^L\kappa g\,ds.
 $$
-平均曲率を $\bar\kappa=L^{-1}\int_0^L\kappa\,ds$ と置き、$g=\kappa-\bar\kappa$ を選べば $\int g=0$ です。従って
+平均曲率を $\bar\kappa=L^{-1}\int_0^L\kappa\,ds$ と置き、$g=\kappa-\bar\kappa$ を選びます。$\gamma$ は $C^4$ 級だから $\kappa$ は $C^2$ 級で、この $g$ も先に定めた許容変分方向に属します。また $\int_0^L g\,ds=0$ です。従って
 $$
 0=\int_0^L\kappa(\kappa-\bar\kappa)ds
 =\int_0^L(\kappa-\bar\kappa)^2ds.
