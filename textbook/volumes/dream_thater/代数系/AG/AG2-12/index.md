@@ -53,15 +53,15 @@ $$
 
 既約性も確認します。多項式を
 
-$
+$$
 p(x)=x^3-x=x(x-1)(x+1)
-$
+$$
 
 と置くと、$x=0,\pm1$ はいずれも一重の零点です。もし $p=(a/b)^2$ が $\mathbb C(x)$ で成り立つなら、$x=0$ での位数は
 
-$
+$$
 1=\operatorname{ord}_0(p)=2\operatorname{ord}_0(a/b)
-$
+$$
 
 となります。右辺は偶整数で矛盾します。従って $p$ は $\mathbb C(x)$ の平方ではなく、二次式 $y^2-p(x)$ は $\mathbb C(x)[y]$ で既約です。
 
@@ -87,7 +87,9 @@ $$
 > **定理（三次曲線の消えない正則1形式）**  
 > $C=V_+(Y^2Z-X^3+XZ^2)\subset\mathbb P^2_{\mathbb C}$ とし、アフィンチャート $Z\ne0$ で $x=X/Z,\ y=Y/Z$ と置く。関数体上の有理微分形式
 >
-> $\displaystyle \eta=\frac{dx}{2y}$
+$$
+\eta=\frac{dx}{2y}
+$$
 >
 > は $C$ 全体で正則で、どの点でも零にならない。従って $\eta$ は $\omega_C$ の大域基底で、標準因子は $\operatorname{div}(\eta)=0$ である。
 <!-- formal-statement-end -->
@@ -193,9 +195,9 @@ $$
 > **命題（三次曲線上の座標関数の主因子）**  
 > 上の滑らかな曲線 $C$ において $P=(0,0)\in C\cap\{Z\ne0\}$ と置くと、有理関数 $x=X/Z$ の主因子は
 >
-$
+$$
 \operatorname{div}(x)=2[P]-2[O].
-$
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -235,7 +237,9 @@ $$
 > **定理（Fermat quinticの滑らかさと標準束）**  
 > $Q=V_+(\sum_{i=0}^4X_i^5)\subset\mathbb P^4_{\mathbb C}$ は滑らかな三次元超曲面であり、
 >
-> $\displaystyle \omega_Q\simeq\mathcal O_Q$
+$$
+\omega_Q\simeq\mathcal O_Q
+$$
 >
 > が成り立つ。また各滑らかな点の近傍で $\Omega_Q^1$ は階数3の局所自由層である。
 <!-- formal-statement-end -->
@@ -279,10 +283,10 @@ $$
 
 です。$x_4\ne0$ の領域では $f_{x_4}=5x_4^4$ が単元だから、$dx_1,dx_2,dx_3$ が局所余接基底です。その最上外冪には、例えば
 
-$
+$$
 \varphi_{0,4}=
 \frac{dx_1\wedge dx_2\wedge dx_3}{5x_4^4}
-$
+$$
 
 という具体的な基底を選べます。以下ではチャート間の向きを統一するため、符号を付け直した $\theta_{0,4}=-\varphi_{0,4}$ を採用します。分母が零になる点では、消去する変数を取り替えます。例えば $x_3\ne0$ なら $dx_1,dx_2,dx_4$ を使います。
 
@@ -292,9 +296,10 @@ $
 > **命題（quinticの局所標準形式）**  
 > 滑らかな $Q=V_+(\sum_{i=0}^4X_i^5)\subset\mathbb P^4_{\mathbb C}$ に対し、$U_0\cap Q$ 上で $f_{x_j}\ne0$ となる場所では、次の式が $\omega_Q$ の局所基底になる。
 >
-> $\displaystyle
-> \theta_{0,j}=\frac{(-1)^{j-1}\,dx_1\wedge\cdots\wedge\widehat{dx_j}\wedge\cdots\wedge dx_4}{f_{x_j}}
-> \quad(1\le j\le4).$
+$$
+\theta_{0,j}=\frac{(-1)^{j-1}\,dx_1\wedge\cdots\wedge\widehat{dx_j}\wedge\cdots\wedge dx_4}{f_{x_j}}
+\qquad(1\le j\le4).
+$$
 >
 > ここで帽子はその微分を除く意味である。基底は消去変数を変更しても一致する（符号の選び方は、上の式で固定する）。
 <!-- formal-statement-end -->
@@ -423,17 +428,17 @@ $D=V_+(Y^2Z-X^3)\subset\mathbb P^2$ の特異点を全て求め、その点で $
 <!-- solution-start -->
 **詳細解答。** 斉次偏微分は
 
-$
+$$
 F_X=-3X^2,\qquad F_Y=2YZ,\qquad F_Z=Y^2
-$
+$$
 
 です。同時に零なら $X=Y=0$ となり、唯一の射影点 $P=[0:0:1]$ が残ります。$F(P)=0$ なので、この点は特異です。
 
 $Z=1$ では $y^2=x^3$ であり、微分関係は
 
-$
+$$
 df=2y\,dy-3x^2\,dx=0.
-$
+$$
 
 原点では $2y$ も $-3x^2$ も非単元で、どちらの微分も単元係数で消去できません。一方、滑らかな $y^2=x^3-x$ では $y=0$ の点でも $f_x=1-3x^2$ は単元であり、$dx$ を消去できました。
 
