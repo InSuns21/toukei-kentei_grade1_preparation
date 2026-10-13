@@ -395,7 +395,7 @@ $$
 <a id="prop-cm2-10-tautological-connection"></a>
 
 <!-- formal-statement-start -->
-> **命題（普遍線束 $\mathcal O(-1)$ のChern接続）**  
+> **命題（普遍線束のChern接続）**  
 > $X=\mathbb{CP}^1$ の $\mathcal O(-1)$ に、$\mathbb C^2$ の標準Hermite計量を制限する。上記の二つの正則枠ではChern接続の接続1形式は
 
 $$
