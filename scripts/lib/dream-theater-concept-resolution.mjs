@@ -33,7 +33,14 @@ export function aliasAppears(source, alias) {
     }
     return regex.test(source);
   }
-  return normalizeAlias(source).includes(normalizeAlias(needle));
+  // 「準連接層」は「連接層」の部分文字列だが、両者は別の概念。
+  // 別個の「連接層」が同じ行に現れる場合にはそれを引き続き検出する。
+  const normalizedSource = normalizeAlias(source);
+  const normalizedNeedle = normalizeAlias(needle);
+  if (normalizedNeedle === '連接層') {
+    return normalizedSource.replaceAll('準連接層', '').includes(normalizedNeedle);
+  }
+  return normalizedSource.includes(normalizedNeedle);
 }
 
 export function stripNonReaderContent(source) {
