@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - CM2-03
   - CM1-09
+  - GEO9
 
 concepts:
   - id: complex-manifolds.dolbeault-complex
