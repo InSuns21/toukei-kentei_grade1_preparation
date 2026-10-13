@@ -396,7 +396,7 @@ $$
 R=\mathbb C[u,v]_{(u,v)}/(u),\qquad
 S=\mathbb C[u,v]_{(u,v)}/(u^2)
 $$
-です。$R$ では $u=0$ なので $\mathfrak m_R/\mathfrak m_R^2=\mathbb C[v]$ は $[v]$ を基底とする1次元の $\mathbb C$-ベクトル空間です。一方 $S$ では $u^2=0$ は二次の関係にすぎず、一次剰余空間の $[u],[v]$ は独立に残るので
+です。$R$ では $u=0$ なので $\mathfrak m_R/\mathfrak m_R^2=\mathbb C\,[v]$ は $[v]$ を基底とする1次元の $\mathbb C$-ベクトル空間です。一方 $S$ では $u^2=0$ は二次の関係にすぎず、一次剰余空間の $[u],[v]$ は独立に残るので
 $$
 \dim_{\mathbb C}(\mathfrak m_R/\mathfrak m_R^2)=1,\qquad
 \dim_{\mathbb C}(\mathfrak m_S/\mathfrak m_S^2)=2.
