@@ -489,39 +489,47 @@ $$
 #### CM1-06-B01 局所成分公式を初めから復元
 - Level: B
 
-実座標 $x^i$ で $J\partial_i=J^k{}_i\partial_k$ と書き、$N^k{}_{ij}$ の成分公式をLie括弧の定義から導け。反対称性も確認せよ。
+実座標 $x^i$ で $J\partial_i=\sum_kJ^k{}_i\partial_k$ と書く。総和添字 $k,p$ は $1,\ldots,2n$ を動く。この表示から Lie 括弧を展開して $N^k{}_{ij}$ の成分公式を導け。添字 $i,j$ を交換したときの反対称性も確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[GEO5のLie括弧](../../GEO/GEO5/index.md#def-geo5-lie-bracket)を用い、まず
+**詳細解答**。[GEO5のLie括弧の座標公式](../../GEO/GEO5/index.md#thm-geo5-bracket-coordinate)に $J\partial_i=\sum_pJ^p{}_i\partial_p$ と $J\partial_j=\sum_pJ^p{}_j\partial_p$ を代入する。座標偏微分場同士の括弧が零であることから
 
 $$
 [J\partial_i,J\partial_j]
-=\left(J^p{}_i\partial_pJ^k{}_j-J^p{}_j\partial_pJ^k{}_i\right)\partial_k
+=\sum_{k,p}\left(
+J^p{}_i\partial_pJ^k{}_j
+-J^p{}_j\partial_pJ^k{}_i
+\right)\partial_k
 $$
 
-となる。次に
+となる。次に一方が座標偏微分場のときは
 
 $$
-[J\partial_i,\partial_j]=-(\partial_jJ^p{}_i)\partial_p,\qquad
-[\partial_i,J\partial_j]=(\partial_iJ^p{}_j)\partial_p.
+[J\partial_i,\partial_j]=-\sum_p(\partial_jJ^p{}_i)\partial_p,
+\qquad
+[\partial_i,J\partial_j]=\sum_p(\partial_iJ^p{}_j)\partial_p.
 $$
 
-[Nijenhuisの定義](#def-cm1-06-nijenhuis)の第二・第三項へ $J\partial_p=J^k{}_p\partial_k$ を代入すると
+[Nijenhuisの定義](#def-cm1-06-nijenhuis)の第二・第三項へ $J\partial_p=\sum_kJ^k{}_p\partial_k$ を代入すると
 
 $$
--J[J\partial_i,\partial_j]+(-J[\partial_i,J\partial_j])
-=J^k{}_p(\partial_jJ^p{}_i-\partial_iJ^p{}_j)\partial_k.
+\begin{aligned}
+&-J[J\partial_i,\partial_j]-J[\partial_i,J\partial_j]\\
+&=\sum_{k,p}J^k{}_p(\partial_jJ^p{}_i-\partial_iJ^p{}_j)\partial_k.
+\end{aligned}
 $$
 
-$[\partial_i,\partial_j]=0$ を合わせれば
+第四項は $[\partial_i,\partial_j]=0$ なので零である。第一項と第二・第三項で $\partial_k$ の係数を集めれば
 
 $$
 N^k{}_{ij}
-=J^p{}_i\partial_pJ^k{}_j-J^p{}_j\partial_pJ^k{}_i
--J^k{}_p(\partial_iJ^p{}_j-\partial_jJ^p{}_i).
+=\sum_p\left(
+J^p{}_i\partial_pJ^k{}_j-J^p{}_j\partial_pJ^k{}_i
+-J^k{}_p(\partial_iJ^p{}_j-\partial_jJ^p{}_i)
+\right).
 $$
 
-添字 $i,j$ を交換すると各括弧の符号が反転するから $N^k{}_{ji}=-N^k{}_{ij}$ である。
+添字 $i,j$ を交換すると各括弧の符号が反転するから $N^k{}_{ji}=-N^k{}_{ij}$ である。これは[局所成分公式](#thm-cm1-06-components)と一致する。
 <!-- solution-end -->
 
 <a id="ex-cm1-06-b02"></a>
