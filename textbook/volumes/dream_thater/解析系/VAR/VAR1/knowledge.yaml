@@ -5,7 +5,7 @@ prerequisites:
   - AMECH3
   - VC2
 forward_references:
-  - VAR2
+  - calculus-of-variations.second-variation
 
 concepts:
   - id: calculus-of-variations.admissible-class
