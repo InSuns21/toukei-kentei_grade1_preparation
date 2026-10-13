@@ -163,7 +163,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（超曲面の埋込み一次変形）**  
-> $0\ne F\in k[x,y]$ と $A=k[\epsilon]/(\epsilon^2)$ に対し、$F+\epsilon G$ で定まる $A$ 上の族 $\mathcal B_G$ を、方程式 $F=0$ の**埋込み一次変形**という。二つの変形の比較では、$\epsilon=0$ で恒等となる座標変更と、$\epsilon=0$ で $1$ となる方程式の単元倍を許す。
+> $0\ne F\in k[x,y]$、$G\in k[x,y]$ とし、$A=k[\epsilon]/(\epsilon^2)$ とおく。次の $A$ 上の族を考える。
+
+$
+\mathcal B_G=A[x,y]/(F+\epsilon G).
+$
+
+> この族を $F=0$ の**埋込み一次変形**という。二つの変形の比較では、$\epsilon=0$ で恒等となる座標変更と、$1+\epsilon q$（$q\in k[x,y]$）による方程式の単元倍を許す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-13-first-order-deformation -->
@@ -367,7 +373,7 @@ $F=xy$、$G=x$ とする。$F+\epsilon G=0$ を座標変更で $F=0$ に戻せ�
 <!-- solution-start -->
 ### 詳細解答
 
-$F+\epsilon G=xy+\epsilon x=x(y+\epsilon)$ です。$y'=y+\epsilon$、$x'=x$ と置くと方程式は $x'y'=0$ です。逆変換 $y=y'-\epsilon$ が存在し、$\epsilon=0$ では恒等です。また $F_y=x$ なので $G=F_y$ です。[Jacobian商の定理](#thm-ag3-13-jacobian-quotient)でも $[G]=0$ と確認できます。
+$F+\epsilon G=xy+\epsilon x=x(y+\epsilon)$ です。$y'=y+\epsilon$、$x'=x$ と置くと方程式は $x'y'=0$ です。逆変換 $y=y'-\epsilon$ が存在し、$\epsilon=0$ では恒等です。また $F_y=x$ なので $G=F_y$ です。[埋込み一次変形のJacobian商](#thm-ag3-13-jacobian-quotient)でも $[G]=0$ と確認できます。
 <!-- solution-end -->
 
 ### A4. 節点のJacobian商
@@ -418,7 +424,7 @@ $F_x=-3x^2$、$F_y=2y$ です。$2,3$ が単元なので
 $$
 (F,F_x,F_y)=(y^2-x^3,x^2,y)=(x^2,y).
 $$
-従って商環は $k[x]/(x^2)$ で、$[1],[x]$ が基底です。$[x^2]=0$ ですが $[x]\ne0$ です。[Jacobian商の定理](#thm-ag3-13-jacobian-quotient)により $G=x^2$ は一次座標変更で除けます。実際 $F_x=-3x^2$ なので $a=-1/3$ とすると $aF_x=x^2$ です。一方 $G=x$ は $x^2,y$ の生成するイデアルに入らず、許された変換では消せません。
+従って商環は $k[x]/(x^2)$ で、$[1],[x]$ が基底です。$[x^2]=0$ ですが $[x]\ne0$ です。[埋込み一次変形のJacobian商](#thm-ag3-13-jacobian-quotient)により $G=x^2$ は一次座標変更で除けます。実際 $F_x=-3x^2$ なので $a=-1/3$ とすると $aF_x=x^2$ です。一方 $G=x$ は $x^2,y$ の生成するイデアルに入らず、許された変換では消せません。
 <!-- solution-end -->
 
 ### B3. 特異点の一次の点が持ち上がらない
