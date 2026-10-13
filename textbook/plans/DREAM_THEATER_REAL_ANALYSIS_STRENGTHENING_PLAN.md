@@ -211,5 +211,6 @@ DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md
 ## 6. 2026-10-07 再設計メモ
 
 - HA1--HA8 は実解析強化PLANから分離し、`DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md` の独立1セメスター正規講義とする。
+- 2026-10-14改訂で独立調和解析PLANの仮IDは **HA1--HA11** の連番となった。上記HA1--HA8は2026-10-07当時の計画を指す履歴記述であり、現行の章構成は調和解析PLANを正本とする。
 - 本計画は実解析上の不足と HA への接続だけを担当する。
 - FOU / MT / FA と HA の canonical ownership を混同しない。
