@@ -197,7 +197,26 @@ $$
 
 有限部分和に同じ評価を適用し極限を取ると、主張の非厳密な体積上界を得ます。
 
-選択族の外側の点 $x$ を固定すると、その点を含む局所二進立方体はすべて $g$ の平均が $\le KM$ です。[$\mathbb R^d$ のLebesgue微分定理](../HA1/index.md#thm-ha1-differentiation)をこの縮小立方体列に適用すると、ほとんどすべてのそのような $x$ で $g(x)\le KM$ となります。
+選択族の外側の点 $x$ を固定すると、その点を含む局所二進立方体はすべて $g$ の平均が $\le KM$ です。この平均が $g(x)$ に収束する理由を確認します。$x$ を含む第 $n$ 世代の局所二進立方体を $P_n(x)$ とし、その辺長を $\ell_n=2^{-n}\ell(Q)$ とします。すると
+
+$$
+P_n(x)\subset B(x,\sqrt d\,\ell_n),\qquad
+\frac{|B(x,\sqrt d\,\ell_n)|}{|P_n(x)|}=|B(0,\sqrt d)|.
+$$
+
+$g\in L^1_{\mathrm{loc}}$ なので、[$\mathbb R^d$ のLebesgue微分定理](../HA1/index.md#thm-ha1-differentiation)により、ほとんどすべての $x$ は $g$ のLebesgue点です。そのような点では
+
+$$
+\begin{aligned}
+\frac1{|P_n(x)|}\int_{P_n(x)}|g(y)-g(x)|\,dy
+&\le \frac{|B(x,\sqrt d\,\ell_n)|}{|P_n(x)|}
+\frac1{|B(x,\sqrt d\,\ell_n)|}
+\int_{B(x,\sqrt d\,\ell_n)}|g(y)-g(x)|\,dy\\
+&\longrightarrow0.
+\end{aligned}
+$$
+
+体積比は次元だけの定数であり、球平均の絶対偏差はLebesgue点の性質により零へ収束します。したがって $g$ の $P_n(x)$ 上の平均は $g(x)$ に収束します。どの $n$ でもその平均は $KM$ 以下なので、$g(x)\le KM$ を得ます。
 <!-- proof-end -->
 
 <a id="thm-ha6-john-nirenberg"></a>
@@ -301,7 +320,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M=0$ は自明です。$M>0$ とし $c_d=(\log2)/2^{d+1}$ と置きます。非負関数 $h=|f-f_Q|$ に対して $h(x)^p=\int_0^{h(x)}pt^{p-1}\,dt$ です。$(x,t)$ 上の非負関数 $pt^{p-1}\boldsymbol1_{\{0<t<h(x)\}}$ の積分順序を交換すると
+$M=0$ は自明です。$M>0$ とし $c_d=(\log2)/2^{d+1}$ と置きます。非負関数 $h=|f-f_Q|$ に対して $h(x)^p=\int_0^{h(x)}pt^{p-1}\,dt$ です。$(x,t)$ 上の非負可測関数 $pt^{p-1}\boldsymbol1_{\{0<t<h(x)\}}$ に [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を適用して積分順序を交換すると
 
 $$
 \begin{aligned}
@@ -314,7 +333,7 @@ $$
 \end{aligned}
 $$
 
-二行目は[John–Nirenberg不等式](#thm-ha6-john-nirenberg)、三行目は $u=c_dt/M$ の置換です。従って $C_{d,p}=(2\Gamma(p+1))^{1/p}/c_d$ を選べます。
+二行目は[John–Nirenberg不等式](#thm-ha6-john-nirenberg)、三行目は $u=c_dt/M$ の置換です。ここで $\Gamma(p+1)=p\int_0^\infty u^{p-1}e^{-u}\,du$ であり、$p\ge1$ なら原点付近では $u^{p-1}$ が可積分で、無限遠では指数減衰により積分が有限です。従って $C_{d,p}=(2\Gamma(p+1))^{1/p}/c_d$ を選べます。
 <!-- proof-end -->
 
 ## 4. Calderón–Zygmund作用素の本当の端点
@@ -344,6 +363,8 @@ $$
 
 $x\in Q$ なら $|x-c|\le\sqrt d\,\ell/2$、$y\notin Q^*$ なら $|y-c|\ge2\sqrt d\,\ell$ です。従って $|x-c|\le|y-c|/4$ であり、[標準核の第1変数の滑らかさ](../HA5/index.md#def-ha5-standard-kernel)の適用条件が成立します。
 
+核の第1変数の滑らかさは、基点を $c$、比較点を $x$ として適用します。すなわち $|c-x|\le|c-y|/2$ を使い、核差の分母を $|c-y|^{d+\delta}$ とします。
+
 $Q$ と $f_2$ の台は離れているので、対角線外での核表示を使い、
 
 $$
@@ -366,7 +387,7 @@ $$
 \end{aligned}
 $$
 
-他方、$Q$ 上の $Tf_1$ の平均絶対値は Cauchy–Schwarz と $L^2$ 有界性を順に使い、
+他方、$Q$ 上の $Tf_1$ の平均絶対値は [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を $p=q=2$ で使い、そのあと $T$ の $L^2$ 有界性を使って、
 
 $$
 \begin{aligned}
@@ -503,7 +524,7 @@ $Q=[0,1)$、$g=4\boldsymbol1_{[0,1/8)}$ とする。局所二進分割で平均�
 非負関数 $h$ が有界集合 $Q$ 上で $|\{x\in Q:h(x)>t\}|\le2|Q|e^{-ct/M}$（$t>0$、$c,M>0$）を満たす。二乗平均の上界を求めよ。
 
 <!-- solution-start -->
-**詳細解答**　$h(x)^2=\int_0^{h(x)}2t\,dt$ として非負関数の積分順序を入れ替えると
+**詳細解答**　$h(x)^2=\int_0^{h(x)}2t\,dt$ として非負関数に [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を適用し、積分順序を入れ替えると
 
 $$
 \begin{aligned}
@@ -563,7 +584,7 @@ $F(s)=\sup_PF_P(s)$ と置けば $F(s+8M)\le F(s)/4$。$F(0)\le1$ だから $F(8
 $d=1$、$T$ は核 $K$ の滑らかさ指数 $\delta=1$、定数 $A$ と $L^2$ ノルム $B$ を持つ標準CZ作用素とする。$Q$ の辺長 $\ell$、$Q^*$ の辺長 $4\ell$ として、$f\in L^\infty_c$ の BMO 評価に必要な近方と遠方の二つの上界を導け。
 
 <!-- solution-start -->
-**詳細解答**　$|Q^*|/|Q|=4$ だから $f_1=f\boldsymbol1_{Q^*}$ に対し Cauchy–Schwarz と $L^2$ 有界性で
+**詳細解答**　$|Q^*|/|Q|=4$ だから $f_1=f\boldsymbol1_{Q^*}$ に対し [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)（$p=q=2$）と $L^2$ 有界性で
 
 $$
 \frac1{|Q|}\int_Q|Tf_1|
@@ -663,7 +684,7 @@ $$
 \le2\exp\left(-\frac{(\log2)t}{4C}\right).
 $$
 
-(iii) $h=|Hf-(Hf)_Q|\ge0$ とおき、$e^{\alpha h}=1+\int_0^h\alpha e^{\alpha t}\,dt$ を使います。Tonelliで
+(iii) $h=|Hf-(Hf)_Q|\ge0$ とおき、$e^{\alpha h}=1+\int_0^h\alpha e^{\alpha t}\,dt$ を使います。非負可測関数 $\alpha e^{\alpha t}\boldsymbol1_{\{0<t<h(x)\}}$ に [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を適用すると
 
 $$
 \begin{aligned}
