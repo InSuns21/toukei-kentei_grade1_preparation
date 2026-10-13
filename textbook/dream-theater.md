@@ -373,6 +373,7 @@
 1. [VAR1 汎関数・第一変分・Euler–Lagrange方程式](textbook/volumes/dream_thater/解析系/VAR/VAR1/index.md)
 2. [VAR2 第二変分と最小性](textbook/volumes/dream_thater/解析系/VAR/VAR2/index.md)
 3. [VAR3 平面曲線の変分](textbook/volumes/dream_thater/解析系/VAR/VAR3/index.md)
+4. [VAR4 Riemann多様体上の測地線](textbook/volumes/dream_thater/解析系/VAR/VAR4/index.md)
 
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式

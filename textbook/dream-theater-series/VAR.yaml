@@ -21,7 +21,7 @@ chapters:
     title: "平面曲線の変分"
   - id: VAR4
     path: textbook/volumes/dream_thater/解析系/VAR/VAR4
-    status: planned
+    status: completed
     title: "Riemann多様体上の測地線"
   - id: VAR5
     path: textbook/volumes/dream_thater/解析系/VAR/VAR5
