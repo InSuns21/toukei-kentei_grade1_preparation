@@ -19,7 +19,7 @@ chapters:
     title: "特異ポテンシャル・衝突・局所変形"
   - id: CELEV4
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV4
-    status: planned
+    status: completed
     title: "対称作用原理"
   - id: CELEV5
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV5
