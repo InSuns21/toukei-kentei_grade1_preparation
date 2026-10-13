@@ -460,7 +460,7 @@ $$
 #### LORG1-B01 逆三角不等式の証明と検算
 - Level: B
 
-未来向き因果ベクトル $u,v\in C_+$ に対し、逆Cauchy–Schwarz不等式を使って逆三角不等式を導け。さらに $1+1$ 次元の $u=(2,1)$、$v=(3,-1)$ で値を比較せよ。
+未来向き因果ベクトル $u,v\in C_+$ に対し、[逆Cauchy–Schwarz不等式](#thm-lorg1-reverse-cauchy-schwarz)を使って逆三角不等式を導け。さらに $1+1$ 次元の $u=(2,1)$、$v=(3,-1)$ で値を比較せよ。
 
 <!-- solution-start -->
 **詳細解答**。[未来錐の凸性](#prop-lorg1-cone-convex)から $u+v\in C_+$。[逆Cauchy–Schwarz不等式](#thm-lorg1-reverse-cauchy-schwarz)より $-g(u,v)\ge\ell(u)\ell(v)$。従って
