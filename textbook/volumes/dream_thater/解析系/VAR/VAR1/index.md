@@ -242,7 +242,7 @@ $$
 
 <a id="def-var1-isoperimetric"></a>
 <!-- formal-statement-start -->
-> **定義（等周拘束と正則点）**  
+> **定義（等周拘束と正則性）**  
 > 固定端のもとで、二つの積分汎関数について
 >
 $
