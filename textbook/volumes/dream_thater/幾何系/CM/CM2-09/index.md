@@ -223,7 +223,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（誘導Hermite計量）**  
-> 正値Hermite計量を持つ階数 $r$ の束 $E$ と階数 $s$ の束 $F$ に対し、$E^\vee$ の計量は各繊維のRiesz対応により、$E\otimes F$ の計量は純テンソルについて
+> 正値Hermite計量を持つ階数 $r$ の束 $E$ と階数 $s$ の束 $F$ に対し、各線形汎関数 $\lambda$ に $\lambda(v)=h_E(u_\lambda,v)$ で対応するベクトル $u_\lambda$ を取り、双対の計量を $h_{E^\vee}(\lambda,\mu)=h_E(u_\mu,u_\lambda)$ とする。$E\otimes F$ の計量は純テンソルについて
 
 $$
 h_{E\otimes F}(u\otimes v,u'\otimes v')
@@ -283,12 +283,12 @@ $$
 
 $$
 h_{E^\vee}(\lambda,\mu)
-=h_E(H^{-1}\overline a,H^{-1}\overline b)
-=a^{\mathsf T}H^{-1}\overline b
+=h_E(H^{-1}\overline b,H^{-1}\overline a)
+=b^{\mathsf T}H^{-1}\overline a
 =a^*(H^{-1})^{\mathsf T}b.
 $$
 
-最後の等号はスカラーの添字を入れ替えて確認できる。$H^{-1}$ がHermite正値なので、その転置もHermite正値である。
+引数を逆順にしたのは、双対計量も第一変数が共役線形になるようにするためである。最後の等号はスカラーの添字を入れ替えて確認できる。$H^{-1}$ がHermite正値なので、その転置もHermite正値である。
 
 [双対遷移](../CM2-08/index.md#prop-cm2-08-dual-evaluation)は $G^\vee=G^{-\mathsf T}$、原束の計量は $H_j=G^*H_iG$。逆と転置をこの順に取ると
 
