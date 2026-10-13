@@ -514,14 +514,38 @@ $$
 
 一般の $F_{jk}\in L^p$ に対し [$L^p$単関数の稠密性](../../MT/MT7/index.md#thm-mt7-simple-dense)と滑らかな近似を用います。近似列のRiesz像は上の評価で $L^p$ 収束し、$\partial_j\partial_k$ と $\Delta$ は試験関数に移して極限を取れるため分布恒等式が残ります。
 
-同じ右辺を持つ二つの $L^p$ 解の差 $h$ は調和分布です。滑らかなGaussian核で畳み込んだ $h*G_t$ は調和関数で、平均値性と[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から任意の $R>0$ について
+同じ右辺を持つ二つの $L^p$ 解の差 $h$ は $\Delta h=0$ を満たす分布です。前節で導入したGaussian核 $G_t$ から直接一意性を示します。$G_t(x)=(4\pi t)^{-d/2}e^{-|x|^2/(4t)}$ の微分は
 
 $$
-|h*G_t(x)|\le C_d R^{-d/p}\|h*G_t\|_p
-\le C_dR^{-d/p}\|h\|_p.
+\partial_tG_t(x)
+=\left(-\frac d{2t}+\frac{|x|^2}{4t^2}\right)G_t(x)
+=\Delta G_t(x)
 $$
 
-$R\to\infty$ とすれば $h*G_t=0$、さらに $t\downarrow0$ の近似恒等族の極限で $h=0$ です。最後に [$L^{2p}$ Hölder不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)より $\|v_jv_k\|_p\le\|v_j\|_{2p}\|v_k\|_{2p}$ なので速度場の場合も定義できます。
+となります。$h\in L^p$ にこの滑らかな核を畳み込むと、分布の微分と畳込みの交換により
+
+$$
+\partial_t(h*G_t)=h*(\Delta G_t)=(\Delta h)*G_t=0.
+$$
+
+したがって $h*G_t(x)$ は $t>0$ に依存しません。他方、$q=p/(p-1)$ とし、[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を用いると
+
+$$
+\begin{aligned}
+|h*G_t(x)|&\le\|h\|_p\|G_t\|_q,\\
+\|G_t\|_q^q&=t^{-dq/2}t^{d/2}\|G_1\|_q^q,\\
+\|G_t\|_q&=t^{-d/(2p)}\|G_1\|_q.
+\end{aligned}
+$$
+
+ここで $G_t(x)=t^{-d/2}G_1(x/\sqrt t)$ を使いました。$t\to\infty$ では右辺が零になり、時間に依存しない $h*G_t$ は恒等的に零です。さらに $t\downarrow0$ のGaussian近似恒等族について
+
+$$
+\|h*G_t-h\|_p
+\le\int G_t(y)\|h(\,\cdot-y)-h\|_p\,dy\longrightarrow0
+$$
+
+が成り立ちます。最後の収束は $G_t$ の質量1・遠方質量の消失と $L^p$ 平行移動連続性（$C_c^\infty$ の稠密性と平行移動の等長性から従う）によります。従って $h=0$ です。最後に [$L^{2p}$ Hölder不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)より $\|v_jv_k\|_p\le\|v_j\|_{2p}\|v_k\|_{2p}$ なので速度場の場合も定義できます。
 <!-- proof-end -->
 
 この圧力は一点の速度だけでは決まりません。各 $R_j$ は空間全体に広がった核を使い、各点の速度積が離れた点の圧力へ寄与します。非圧縮流体の運動方程式から圧力Poisson方程式を得る部分は方程式側の課題であり、ここで証明したのは**その右辺に対応する解作用素の解析的評価**です。
@@ -537,7 +561,21 @@ $R\to\infty$ とすれば $h*G_t=0$、さらに $t\downarrow0$ の近似恒等�
 $d=2$、$k_1(z)=c_2z_1/|z|^3$ とする。$|k_1(z)|\le c_2|z|^{-2}$ と $|\partial_2k_1(z)|\le3c_2|z|^{-3}$ を示せ。
 
 <!-- solution-start -->
-**詳細解答**　$|z_1|\le|z|$ より $|k_1(z)|\le c_2|z|/|z|^3=c_2|z|^{-2}$。$r=|z|$ とすると $\partial_2r^{-3}=-3z_2r^{-5}$ だから $\partial_2k_1=-3c_2z_1z_2r^{-5}$。$|z_1z_2|\le r^2$ を代入して絶対値は $3c_2r^{-3}$ 以下です。
+**詳細解答**　$r=|z|$ とします。$|z_1|\le r$ から
+
+$$
+|k_1(z)|=c_2\frac{|z_1|}{r^3}\le c_2r^{-2}.
+$$
+
+また $z\ne0$ で連鎖律を用いると
+
+$$
+\partial_2(r^{-3})=-3r^{-4}\frac{z_2}{r}=-3z_2r^{-5},
+\qquad
+\partial_2k_1(z)=-3c_2z_1z_2r^{-5}.
+$$
+
+$|z_1z_2|\le r^2$ を代入すれば $|\partial_2k_1(z)|\le3c_2r^{-3}$ です。
 <!-- solution-end -->
 
 <a id="ex-ha5-a02"></a>
@@ -547,7 +585,19 @@ $d=2$、$k_1(z)=c_2z_1/|z|^3$ とする。$|k_1(z)|\le c_2|z|^{-2}$ と $|\parti
 $c_d=\Gamma((d+1)/2)/\pi^{(d+1)/2}$ から $c_1$ を計算し、$k_1(t)$ がHilbert変換の核と一致することを確かめよ。
 
 <!-- solution-start -->
-**詳細解答**　$d=1$ なら $\Gamma((1+1)/2)=\Gamma(1)=1$、$\pi^{(1+1)/2}=\pi$ だから $c_1=1/\pi$。$t\ne0$ では $t/|t|^2=t/t^2=1/t$、従って $k_1(t)=1/(\pi t)$ です。[HA3のHilbert変換](../HA3/index.md#thm-ha3-multiplier)と同じ正規化であり、乗数も $-i\operatorname{sgn}\xi$ になります。
+**詳細解答**　$d=1$ では $\Gamma(1)=1$ なので
+
+$$
+c_1=\frac{\Gamma((1+1)/2)}{\pi^{(1+1)/2}}=\frac1\pi.
+$$
+
+$t\ne0$ なら $|t|^2=t^2$ ですから
+
+$$
+k_1(t)=c_1\frac{t}{|t|^2}=\frac1{\pi t}.
+$$
+
+これは[HA3のHilbert変換](../HA3/index.md#thm-ha3-multiplier)の核と同じ正規化で、Fourier乗数も $-i\operatorname{sgn}\xi$ に一致します。
 <!-- solution-end -->
 
 <a id="ex-ha5-a03"></a>
@@ -577,7 +627,15 @@ $$
 $k_j(z)=c_d z_j/|z|^{d+1}$ とする。$0<r<R$ について $\int_{\{r<|z|<R\}}k_j(z)\,dz=0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答**　領域は $z\mapsto-z$ で不変です。$k_j(-z)=c_d(-z_j)/|-z|^{d+1}=-k_j(z)$ です。球殻では $r>0$ のため積分は絶対収束します。変数変換 $w=-z$ によって積分 $I$ は $I=\int k_j(-w)\,dw=-I$ だから $I=0$ となります。球を中心にした切断に重要な性質です。
+**詳細解答**　球殻 $D=\{z:r<|z|<R\}$ は変換 $z\mapsto-z$ で不変です。$r>0$ なので $k_j$ は $D$ 上で絶対可積分であり、$k_j(-z)=-k_j(z)$ となります。積分を $I$ と置いて変数変換 $w=-z$ を行うと
+
+$$
+I=\int_Dk_j(z)\,dz
+=\int_Dk_j(-w)\,dw
+=-\int_Dk_j(w)\,dw=-I.
+$$
+
+従って $2I=0$、すなわち $I=0$ です。この相殺が球対称切断に効きます。
 <!-- solution-end -->
 
 <a id="ex-ha5-a05"></a>
@@ -587,7 +645,13 @@ $k_j(z)=c_d z_j/|z|^{d+1}$ とする。$0<r<R$ について $\int_{\{r<|z|<R\}}k
 $p=4$ の $L^p$ 有界性を随伴から証明するときに使う共役指数を求め、なぜ $1<q<2$ になるか確認せよ。
 
 <!-- solution-start -->
-**詳細解答**　共役条件 $1/p+1/q=1$ に $p=4$ を入れて $1/q=1-1/4=3/4$、従って $q=4/3$。$1<4/3<2$ なので、[弱型と$L^2$からの補間](#thm-ha5-stronglp)を随伴 $T^*$ に使えます。[双対性](../../MT/MT7/index.md#thm-mt7-lp-duality)で $T^*:L^{4/3}\to L^{4/3}$ の評価を $T:L^4\to L^4$ へ戻します。
+**詳細解答**　共役条件を $1/p+1/q=1$ とし、$p=4$ を代入すると
+
+$$
+\frac1q=1-\frac14=\frac34,\qquad q=\frac43.
+$$
+
+$1<4/3<2$ なので、[弱型と$L^2$からの補間](#thm-ha5-stronglp)を随伴 $T^*$ に適用できます。その $L^{4/3}$ 評価を、[$L^p$双対性](../../MT/MT7/index.md#thm-mt7-lp-duality)により $T$ の $L^4$ 評価へ戻します。
 <!-- solution-end -->
 
 <a id="ex-ha5-b01"></a>
@@ -687,7 +751,13 @@ $x>2$、$0\le y\le1$ では $1/(x-y)\ge1/x$ よりこの積分は $1/x$ 以上�
 **演習 HA5-C01（圧力Poisson方程式）**  
 - Level: C
 
-$d=3$、$1<p<\infty$、$v=(v_1,v_2,v_3)$ で各 $v_j\in L^{2p}(\mathbb R^3)$ とする。$\pi=\sum_{j,k=1}^3R_jR_k(v_jv_k)$ を定義する。(i) $\pi\in L^p$ と量的上界、(ii) $-\Delta\pi=\sum_{j,k}\partial_j\partial_k(v_jv_k)$ の分布等式、(iii) その $L^p$ 解の一意性を証明せよ。速度場の発散零はこの解析的主張に必要か。
+$d=3$、$1<p<\infty$、$v=(v_1,v_2,v_3)$ で各 $v_j\in L^{2p}(\mathbb R^3)$ とする。$\pi=\sum_{j,k=1}^3R_jR_k(v_jv_k)$ を定義し、次を示せ。
+
+1. $\pi\in L^p$ とその量的上界。
+2. $-\Delta\pi=\sum_{j,k}\partial_j\partial_k(v_jv_k)$ の分布等式。
+3. この方程式の $L^p$ 解の一意性。
+
+また、速度場の発散零はこれらの解析的主張に必要か答えよ。
 
 <!-- solution-start -->
 **詳細解答**　(i) [Hölder不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)で $\|v_jv_k\|_p\le\|v_j\|_{2p}\|v_k\|_{2p}$。[$R_j$の強型推定](#thm-ha5-riesz-kernel)を二回用い
@@ -698,9 +768,37 @@ $$
 \le C_{p,3}\left(\sum_{j=1}^3\|v_j\|_{2p}\right)^2<\infty.
 $$
 
-(ii) 滑らかなテンソル $F_{jk}$ から始めると、$R_jR_k$ の乗数は $-\xi_j\xi_k/|\xi|^2$ です。従って $-\Delta$ の乗数 $|\xi|^2$ を掛ければ $-\xi_j\xi_k$ となり、$\partial_j\partial_k$ の乗数に一致します。一般の $F_{jk}=v_jv_k\in L^p$ は滑らかな関数で $L^p$ 近似し、Riesz変換の有界性で左辺を $L^p$ 収束させ、両辺を試験関数で評価して分布極限を取れば結論です。
+(ii) まず $F_{jk}\in C_c^\infty$ とすると、[Riesz変換の乗数](#def-ha5-riesz)を二度掛けて
 
-(iii) 二解の差 $h\in L^p$ は $\Delta h=0$ です。[圧力表示命題](#prop-ha5-pressure)の証明と同じくGaussian核で平滑化すると調和関数 $h*G_t$ になり、球平均と[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から $|h*G_t(x)|\le C R^{-3/p}\|h\|_p$。$R\to\infty$ で零、さらに $t\downarrow0$ で $h=0$。発散零は流体方程式から圧力式を導く場面で使う条件ですが、ここで定義した作用素の評価・分布恒等式・一意性そのものには不要です。
+$$
+\widehat{R_jR_kF_{jk}}(\xi)
+=-\frac{\xi_j\xi_k}{|\xi|^2}\widehat F_{jk}(\xi).
+$$
+
+$-\Delta$ の乗数 $|\xi|^2$ を掛ければ $-\xi_j\xi_k\widehat F_{jk}$ となり、$\partial_j\partial_kF_{jk}$ の乗数と一致します。一般の $F_{jk}=v_jv_k\in L^p$ については $F_{jk}^{(n)}\in C_c^\infty$ で $L^p$ 近似し、(i)の評価から $\pi_n\to\pi$ が $L^p$ で成立します。試験関数 $\varphi\in C_c^\infty$ に対し
+
+$$
+\begin{aligned}
+\langle-\Delta\pi_n,\varphi\rangle
+&=\langle\pi_n,-\Delta\varphi\rangle
+\longrightarrow\langle\pi,-\Delta\varphi\rangle,\\
+\sum_{j,k}\langle\partial_j\partial_kF_{jk}^{(n)},\varphi\rangle
+&=\sum_{j,k}\langle F_{jk}^{(n)},\partial_j\partial_k\varphi\rangle
+\longrightarrow\sum_{j,k}\langle F_{jk},\partial_j\partial_k\varphi\rangle.
+\end{aligned}
+$$
+
+よって分布等式が得られます。
+
+(iii) 二つの $L^p$ 解の差 $h$ は $\Delta h=0$ です。[圧力表示命題](#prop-ha5-pressure)のGaussian核による証明を $d=3$ に適用します。
+
+$$
+\partial_t(h*G_t)=(\Delta h)*G_t=0,\qquad
+|h*G_t(x)|\le\|h\|_p\|G_t\|_{p/(p-1)}
+=C_p t^{-3/(2p)}\|h\|_p.
+$$
+
+$t\to\infty$ で $h*G_t=0$、$t\downarrow0$ の $L^p$ 近似恒等族の極限から $h=0$ です。速度場の発散零は流体方程式から圧力式を導く場面で使う条件ですが、この解析的主張には不要です。
 <!-- solution-end -->
 
 ## 7. 何を得て、何をまだ得ていないか
