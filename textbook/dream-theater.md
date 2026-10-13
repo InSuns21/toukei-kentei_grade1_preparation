@@ -818,6 +818,7 @@
 8. [AG3-08 層コホモロジーの基本計算](textbook/volumes/dream_thater/代数系/AG/AG3-08/index.md)
 9. [AG3-09 射影スキームとProj](textbook/volumes/dream_thater/代数系/AG/AG3-09/index.md)
 10. [AG3-10 射影空間のO(d)のコホモロジー](textbook/volumes/dream_thater/代数系/AG/AG3-10/index.md)
+11. [AG3-11 曲線の種数とRiemann–Rochへの入口](textbook/volumes/dream_thater/代数系/AG/AG3-11/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
