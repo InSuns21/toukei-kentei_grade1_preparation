@@ -38,7 +38,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-admissible -->
-**定義の確認。** $I=(0,1)$ で $u(t)=t(1-t)$ は両端0なので $\mathcal A_{0,0}$ に属します。$v(t)=\sin(2\pi t)$ は両端0で値が一致し、積分も0なので $\mathcal P_0$ に属します。一方、定数 $w(t)=3$ は周期集合に属しますが、積分は3であり $\mathcal P_0$ に属しません。
+**定義の確認**。 $I=(0,1)$ で $u(t)=t(1-t)$ は両端0なので $\mathcal A_{0,0}$ に属します。$v(t)=\sin(2\pi t)$ は両端0で値が一致し、積分も0なので $\mathcal P_0$ に属します。一方、定数 $w(t)=3$ は周期集合に属しますが、積分は3であり $\mathcal P_0$ に属しません。
 <!-- definition-example-end -->
 
 [GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)は端点評価が $H^1$ 上の連続な線形写像であることを保証します。平均値についても[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
@@ -58,7 +58,7 @@ $H^1$ での弱収束 $u_n\rightharpoonup u$ は、あらゆる $v\in H^1(I)$ �
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-weak-closed -->
-**定義の確認。** $u_n\in\mathcal A_{0,0}$ が $H^1$ 弱収束したとします。[トレースの連続性](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)より $u_n(a)\to u(a)$、$u_n(b)\to u(b)$ なので $u(a)=u(b)=0$ です。したがって $\mathcal A_{0,0}$ は弱逐次閉です。周期条件と平均零条件についても同じ論法が使えます。
+**定義の確認**。 $u_n\in\mathcal A_{0,0}$ が $H^1$ 弱収束したとします。[トレースの連続性](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)より $u_n(a)\to u(a)$、$u_n(b)\to u(b)$ なので $u(a)=u(b)=0$ です。したがって $\mathcal A_{0,0}$ は弱逐次閉です。周期条件と平均零条件についても同じ論法が使えます。
 <!-- definition-example-end -->
 
 <a id="prop-var9-admissible-weak-closed"></a>
@@ -74,7 +74,7 @@ $H^1$ での弱収束 $u_n\rightharpoonup u$ は、あらゆる $v\in H^1(I)$ �
 <!-- proof-start -->
 ### 証明
 
-$u_n\rightharpoonup u$ を $H^1(I)$ の弱収束とします。端点評価 $T_a(u)=u(a)$、$T_b(u)=u(b)$ は[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により有界線形です。Hilbert空間上の有界線形汎関数は弱収束を保存するため
+$u_n\rightharpoonup u$ を $H^1(I)$ の弱収束とします。端点評価 $T_a(u)=u(a)$、$T_b(u)=u(b)$ は[区間上のH^1トレース](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により有界線形です。Hilbert空間上の有界線形汎関数は弱収束を保存するため
 $$
 T_a(u_n)\to T_a(u),\qquad T_b(u_n)\to T_b(u).
 $$
@@ -164,7 +164,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-coercivity -->
-**定義の確認。** $C=H_0^1(0,1)$、$J(u)=\int_0^1|u'|^2$ とします。[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)から $\|u\|_{H^1}^2\le (1+C_P^2)\|u'\|_2^2$ となり、$J$ は $C$ 上で強制的です。一方、$C=H^1_{\mathrm{per}}(0,1)$ では定数 $u_n=n$ に対し $\|u_n\|_{H^1}=n$、$J(u_n)=0$ なので強制的ではありません。
+**定義の確認**。 $C=H_0^1(0,1)$、$J(u)=\int_0^1|u'|^2$ とします。[Poincaré不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)から $\|u\|_{H^1}^2\le (1+C_P^2)\|u'\|_2^2$ となり、$J$ は $C$ 上で強制的です。一方、$C=H^1_{\mathrm{per}}(0,1)$ では定数 $u_n=n$ に対し $\|u_n\|_{H^1}=n$、$J(u_n)=0$ なので強制的ではありません。
 <!-- definition-example-end -->
 
 <a id="def-var9-weak-lsc"></a>
@@ -178,7 +178,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var9-weak-lsc -->
-**定義の確認。** $J(u)=\int_I|u'|^2$ は弱逐次下半連続です。弱収束すると $L^2$ の導関数も弱収束し、[Hilbert空間の弱収束部分列](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)と両立する次のノルム不等式が使えます。導関数の極限を $w=u'$ とし、$z=u_n'$ とおくと
+**定義の確認**。 $J(u)=\int_I|u'|^2$ は弱逐次下半連続です。弱収束すると $L^2$ の導関数も弱収束し、[Hilbert空間の弱収束部分列](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)と両立する次のノルム不等式が使えます。導関数の極限を $w=u'$ とし、$z=u_n'$ とおくと
 $$
 0\le\|z-w\|_2^2
 =\|z\|_2^2-2\langle z,w\rangle_2+\|w\|_2^2.
@@ -458,7 +458,7 @@ $u_n\rightharpoonup u$ in $H^1(0,1)$ で、$u_n(0)=u_n(1)=1$ なら $u(0)=u(1)=1
 <!-- solution-start -->
 ### 詳細解答
 
-[GPDE4の区間トレース定理](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により $T_0(v)=v(0)$ と $T_1(v)=v(1)$ は $H^1$ 上の有界線形汎関数です。弱収束の定義にそれぞれ適用すると
+[区間上のH^1トレース](../../GPDE/GPDE4/index.md#thm-gpde4-trace-interval)により $T_0(v)=v(0)$ と $T_1(v)=v(1)$ は $H^1$ 上の有界線形汎関数です。弱収束の定義にそれぞれ適用すると
 $$
 u(0)=\lim_nT_0(u_n)=1,\qquad
 u(1)=\lim_nT_1(u_n)=1.
