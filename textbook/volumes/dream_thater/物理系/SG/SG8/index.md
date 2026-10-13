@@ -204,7 +204,25 @@ Q(\sigma)=
 {\prod_{(i,a):i\in\partial a}b_i(\sigma_i)}
 $$
 
-を作れます。これは正規化された確率分布です。実際、木に根を一つ取り、根の周辺分布から各子の条件付き分布へ順に展開するとこの積商になります。各条件付き分布は子の配置について和が1ですから、葉から足し上げると $\sum_\sigma Q(\sigma)=1$ です。因子の葉を取り除く場合も $b_a/b_i$ を $\sigma_{\partial a\setminus\{i\}}$ の条件付き分布として使い、[局所整合性](#prop-sg8-local)により和が1になります。
+を作れます。正規化を確認するため、変数頂点 $r$ を根に選び、各因子 $a$ に根に近い親変数 $p(a)$ を一つ定めます。親変数のスピン $s$ を固定したとき、その因子の子変数を同時に選ぶ条件付き分布は
+
+$$
+P_a(\sigma_{\partial a\setminus\{p(a)\}}\mid s)
+=\frac{b_a(s,\sigma_{\partial a\setminus\{p(a)\}})}{b_{p(a)}(s)},
+\qquad
+\sum_{\sigma_{\partial a\setminus\{p(a)\}}}P_a(\sigma\mid s)=1.
+$$
+
+分母は正で、和が1であることは[局所整合性](#prop-sg8-local)によります。木では各変数（根以外）に親因子が一つだけあるため、根の確率 $b_r(\sigma_r)$ から外へ向かってこれらの条件付き分布を掛けると
+
+$$
+b_r(\sigma_r)\prod_{a\in A}P_a(\sigma_{\partial a\setminus\{p(a)\}}\mid\sigma_{p(a)})
+=\prod_{a\in A}b_a(\sigma_{\partial a})
+\prod_{i\in V}b_i(\sigma_i)^{\,1-|\partial i|}
+=Q(\sigma).
+$$
+
+根では分母の出現回数が $|\partial r|$、それ以外の変数では $|\partial i|-1$ であり、表示した指数になります。各子変数群について葉から順に和を取れば条件付き確率は1となり、最後に $\sum_{\sigma_r}b_r(\sigma_r)=1$ です。したがって $\sum_\sigma Q(\sigma)=1$ が、定理の「木」の仮定だけから従います。
 
 **第四段階：全てのメッセージを消す。** [局所belief](#def-sg8-bethe)を $Q$ に代入して積を展開すると、各接続の $\mu_{i\to a}$ と $\widehat\mu_{a\to i}$ は分子と分母で一回ずつ相殺されます。従って
 
@@ -315,10 +333,26 @@ z_{ij}^{\rm pair}=\sum_{s,t=\pm1}e^{Kst}
 \nu_{i\to j}(s)\nu_{j\to i}(t)=\cosh K.
 $$
 
-これは[因子形式のBethe公式](#def-sg8-bethe)から因子メッセージを消去した同値形であり、頂点・辺は各3つなので
+これは[因子形式のBethe公式](#def-sg8-bethe)から因子メッセージを消去した同値形です。その変換も確認します。対相互作用の辺 $e=\{i,j\}$ に対し、変数間メッセージを $\nu_{i\to j}=\mu_{i\to e}$ とし、未正規化の因子側メッセージとその和を
 
 $$
-Z_{\mathrm B}=\frac{[2(\cosh K)^2]^3}{(\cosh K)^3}
+\eta_{j\to i}(s)=\sum_{t=\pm1}e^{Kst}\nu_{j\to i}(t),
+\qquad A_{j\to i}=\sum_s\eta_{j\to i}(s)
+$$
+
+と置きます。すると $\widehat\mu_{e\to i}=\eta_{j\to i}/A_{j\to i}$ です。辺の局所正規化を $z_{ij}^{\rm pair}=\sum_s\nu_{i\to j}(s)\eta_{j\to i}(s)$ とすると、
+
+$$
+z_i=\frac{z_i^{\rm pair}}{\prod_{j\in\partial i}A_{j\to i}},
+\qquad z_e=z_{ij}^{\rm pair},
+\qquad z_{ie}=\frac{z_{ij}^{\rm pair}}{A_{j\to i}}.
+$$
+
+Bethe積へ代入すると全ての $A_{j\to i}$ が消え、
+
+$$
+Z_{\mathrm B}=\frac{\prod_i z_i^{\rm pair}}{\prod_{\{i,j\}\in E}z_{ij}^{\rm pair}}
+=\frac{[2(\cosh K)^2]^3}{(\cosh K)^3}
 =8(\cosh K)^3.
 $$
 

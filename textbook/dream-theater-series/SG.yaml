@@ -1,7 +1,7 @@
 version: 1
 id: SG
 title: "スピングラス"
-plan: textbook/plans_progress/DREAM_THEATER_SPIN_GLASS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_SPIN_GLASS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 chapters:

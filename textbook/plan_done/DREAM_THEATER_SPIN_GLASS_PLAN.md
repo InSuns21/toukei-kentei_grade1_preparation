@@ -1,7 +1,7 @@
 # DREAM THEATER スピングラス（SG1〜SG8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（SG1〜SG8を執筆。系列横断監査は未完了）
+状態: completed（SG1〜SG8公開・追跡監査・系列横断照合を完了）
 
 ## 中心問い
 
@@ -107,3 +107,17 @@ EOM221 は SG8 の後に置く。
 - Ising cavity field、三角形のloop補正、RS分布再帰と高温収縮、有限状態1RSB重み付けを実装した。Mézard–Parisiの一般希薄グラフ公式は物理的仮定との境界を明記した。
 - Level A4・B3・C1と全詳細解答を作成。数学的全件自己検算と別観点再読は同一執筆担当者による。第三者独立査読とは区別する。
 - SG1〜SG8の本文は揃った。依存・証明担当・演習接続・公開導線の系列横断監査は残るためPLANはplans_progressに維持する。
+
+## SG7・SG8追跡監査とSG系列横断完了判定（2026-10-13）
+
+- 確認範囲：SG7とSG8の公開本文全文、chapter/knowledge metadata、直接のSG1/SG3/SG6正本、全formal statement・全主要証明・各8問と詳細解答。全式の仮定、定義域、符号、係数、極限、行間、配置とstable anchorリンクを検査した。
+- SG7の主要結果anchor：prop-sg7-poisson-degree、prop-sg7-tree-partition、prop-sg7-annealed-pressure、thm-sg7-add-edge、thm-sg7-ksat-first-moment。演習：SG7-A1〜A4、SG7-B1〜B3、SG7-C1の全詳細解答を照合。
+- SG8の主要結果anchor：prop-sg8-local、thm-sg8-tree、prop-sg8-loop、prop-sg8-contraction。演習：SG8-A1〜A4、SG8-B1〜B3、SG8-C1の全詳細解答を照合。
+- SG7局所木性の中間根拠を補足：無向異頂点対の辺数は独立Poi(c/N)、自己ループはPoi(c/(2N))。探索上限Kで未発見頂点への辺数をPoi(c)に結合した差はO(K/N)、既探索への衝突はO(K²/N)。N→∞の後にK→∞とする。次数の平均はc(1−1/(2N))。
+- SG7一辺追加の再導出：辺を一本加えた分配関数比はcoshβ(1+J tanhβ q)、J平均の対数はlog coshβ+(1/2)log(1−t²q²)。cで微分するとこの平均の1/2倍になり、多レプリカ展開は−t^(2n)/(4n) E⟨R_(1…2n)²⟩。演習SG7-C1(c)の2次係数−t²/4と4次係数−t⁴/8を別計算で照合。木の葉和2cosh(βJ)、k-SAT期待値2^N exp(−αN2^(−k))も再導出。
+- SG8木上厳密性の再導出：根から各因子の条件付き分布b_a/b_parentを掛けるとQ=∏b_a∏b_i^(1−deg i)、葉からの総和で1になる。BPメッセージを消去するとQ=w/Z_B、ゆえにZ=Z_B。条件付き分布の正規化と因子形式から対相互作用形式へのBethe因子消去を本文で展開した。
+- SG8高温収縮の再導出：u'(K,x)=t(1−tanh²x)/(1−t²tanh²x)、絶対値はtanhβ以下。共通D、Jと最適結合した入力の誤差期待値はc tanhβ倍以下となり、W1完備性から固定点の存在と一意性が従う。三角形は空辺集合と全三辺の寄与だけ残りZ/Z_B=1+tanh³K。演習SG8-C1(d)の再重み付けは(2/3,1/3)、Φ_(1/2)=2log(3/2)。
+- 数式配置とリンク：両章の数式ブロック、演習解答、定理引用を通読。SG7→SG1/SG3/SG6、SG8→SG7/SG6、両章の同章結果リンクの全anchorと、F0-00P2AのMarkov不等式を実在照合した。
+- 系列横断：SG1〜SG8は系列manifest上すべてcompleted。SG各章本文の存在、各章8つの詳細解答、主要結果anchor、SG7/SG8の章間引用、公開索引JSONとdream-theater.mdへの全8章掲載を照合。SG5の一般ultrametricityとSG6のParisi等式が研究級外部結果であり、SG7/SG8へ無条件に転用されないことも確認。SG1〜SG6の全証明再計算は今回の追跡監査対象外。
+- 査読実施主体：ChatGPTによる数理検算と読者粒度の別観点再読。同一実施主体であり第三者独立査読ではない。
+- SG系列の執筆、直接依存、証明・演習の接続、横断監査、公開導線の計画課題は完了。CIと最終マージ結果は [追跡監査・PLAN完了PR #1259](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1259) を最終証拠とする。
