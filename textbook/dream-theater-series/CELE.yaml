@@ -4,7 +4,7 @@ title: "天体力学・三体問題・Hamiltonian chaos"
 plan: textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 2026-10-13: CELE1 through CELE7 authored; next planned chapter CELE8.
+# 2026-10-13: CELE1 through CELE8 authored; final cross-series review remains.
 chapters:
   - id: CELE1
     path: textbook/volumes/dream_thater/物理系/CELE/CELE1
@@ -36,5 +36,5 @@ chapters:
     title: "共鳴・KAM・規則運動とカオスの共存"
   - id: CELE8
     path: textbook/volumes/dream_thater/物理系/CELE/CELE8
-    status: planned
+    status: completed
     title: "太陽系の長期力学"
