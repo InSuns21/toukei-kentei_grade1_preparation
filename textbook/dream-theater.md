@@ -664,6 +664,7 @@
 10. [CM1-10 複素射影空間と正則アトラス](textbook/volumes/dream_thater/幾何系/CM/CM1-10/index.md)
 11. [CM2-01 (p,q)形式と型分解](textbook/volumes/dream_thater/幾何系/CM/CM2-01/index.md)
 12. [CM2-02 ∂とbar∂の構成・二重複体](textbook/volumes/dream_thater/幾何系/CM/CM2-02/index.md)
+13. [CM2-03 局所bar∂-Poincaré補題と解析的準備](textbook/volumes/dream_thater/幾何系/CM/CM2-03/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
