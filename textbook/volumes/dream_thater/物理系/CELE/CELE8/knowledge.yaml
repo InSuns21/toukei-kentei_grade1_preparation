@@ -1,0 +1,74 @@
+chapter: CELE8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE1
+  - CELE4
+  - CELE5
+  - CELE7
+  - INT8
+forward_references: []
+concepts:
+  - id: celestial.circular-disturbing
+    name: 円軌道摂動天体の摂動関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円軌道摂動天体の摂動関数）"]
+    aliases: []
+    requires: [celestial.resonant-angle]
+  - id: celestial.relative-acceleration
+    name: 中心星相対加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心星相対加速度）"]
+    aliases: []
+    requires: [celestial.circular-disturbing]
+  - id: celestial.quadrupole-double-average
+    name: 円軌道摂動の二重平均・四重極近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円軌道摂動の二重平均・四重極近似）"]
+    aliases: []
+    requires: [celestial.circular-disturbing]
+  - id: celestial.secular-precession
+    name: 円軌道四重極模型の近点歳差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円軌道四重極模型の近点歳差）"]
+    aliases: []
+    requires: [celestial.quadrupole-double-average]
+  - id: celestial.mean-motion-resonance
+    name: 平均運動共鳴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均運動共鳴）"]
+    aliases: []
+    requires: [celestial.resonant-angle]
+  - id: celestial.detuned-island-width
+    name: 離調つき共鳴正規形の島幅・面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離調つき共鳴正規形の島幅・面積）"]
+    aliases: []
+    requires: [celestial.mean-motion-resonance, celestial.resonant-island]
+  - id: celestial.trojan-linear-frequency
+    name: 三角点の遅い線形振動数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三角点の遅い線形振動数）"]
+    aliases: []
+    requires: [celestial.mean-motion-resonance]
+  - id: celestial.spin-synchronous
+    name: 同期自転の振り子還元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同期自転の振り子還元）"]
+    aliases: []
+    requires: [celestial.resonant-island]
+  - id: celestial.symplectic-euler-area
+    name: kick-drift型symplectic Euler法の面積保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（kick-drift型symplectic Euler法の面積保存）"]
+    aliases: []
+    requires: []
