@@ -257,7 +257,7 @@ $$
 =\frac{\nabla u}{w}\cdot\nabla\varphi
 +\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right).
 $$
-これを積分し、第2節で3次元の定理から導いた[平面の発散公式](#eq-var7-planar-divergence)を $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
+これを積分し、第2節で導いた[平面の発散公式](#eq-var7-planar-divergence)を $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
 $$
 \delta A[u;\varphi]
 =-\int_D\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right)\,dx\,dy.
@@ -266,7 +266,7 @@ $$
 $$
 0=\int_I\eta(x)\left(\int_J q(x,y)\zeta(y)\,dy\right)dx.
 $$
-固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で1次元基本補題を適用して $\int_J q(x,y)\zeta(y)\,dy=0$ をすべての $x\in I$ について得ます。次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上で同じ補題を適用すると $q(x,y)=0$ が $I\times J$ で成立します。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
+固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用して $\int_J q(x,y)\zeta(y)\,dy=0$ をすべての $x\in I$ について得ます。次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上でも[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)を適用すると $q(x,y)=0$ が $I\times J$ で成立します。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
 
 発散を展開するため $w_x=(u_xu_{xx}+u_yu_{xy})/w$、$w_y=(u_xu_{xy}+u_yu_{yy})/w$ を計算します。従って
 $$
