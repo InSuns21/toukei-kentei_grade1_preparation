@@ -5,6 +5,8 @@ prerequisites:
   - CM2-08
   - CM2-02
   - GEO4
+  - LA5
+  - LA6
 concepts:
   - id: complex-manifolds.hermitian-metric
     name: 正則ベクトル束上のHermite計量
