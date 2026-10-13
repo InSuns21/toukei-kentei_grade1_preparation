@@ -211,6 +211,7 @@
 2. [HA2 弱Lpと補間](textbook/volumes/dream_thater/解析系/HA/HA2/index.md)
 3. [HA3 Hilbert変換と主値](textbook/volumes/dream_thater/解析系/HA/HA3/index.md)
 4. [HA4 Calderón–Zygmund分解](textbook/volumes/dream_thater/解析系/HA/HA4/index.md)
+5. [HA5 特異積分とRiesz変換](textbook/volumes/dream_thater/解析系/HA/HA5/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
@@ -680,6 +681,7 @@
 2. [LORG2 Lorentz計量と時間向き](textbook/volumes/dream_thater/幾何系/LORG/LORG2/index.md)
 3. [LORG3 因果曲線とLorentz長さ](textbook/volumes/dream_thater/幾何系/LORG/LORG3/index.md)
 4. [LORG4 Lorentz接続と測地線](textbook/volumes/dream_thater/幾何系/LORG/LORG4/index.md)
+5. [LORG5 凸正規近傍と局所最大化](textbook/volumes/dream_thater/幾何系/LORG/LORG5/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
@@ -998,6 +1000,11 @@
 6. [CELE6 ホモクリニック構造とHamiltonian chaos](textbook/volumes/dream_thater/物理系/CELE/CELE6/index.md)
 7. [CELE7 共鳴・KAM・規則運動とカオスの共存](textbook/volumes/dream_thater/物理系/CELE/CELE7/index.md)
 8. [CELE8 太陽系の長期力学](textbook/volumes/dream_thater/物理系/CELE/CELE8/index.md)
+
+<a id="dt-subject-nbody-variational-periodic"></a>
+### 変分的周期軌道・n体舞踏解
+
+1. [CELEV1 n体の作用と周期ループ空間](textbook/volumes/dream_thater/物理系/CELEV/CELEV1/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I

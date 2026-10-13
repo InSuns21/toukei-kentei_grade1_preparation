@@ -24,7 +24,7 @@ chapters:
     title: Calderón--Zygmund分解
   - id: HA5
     path: textbook/volumes/dream_thater/解析系/HA/HA5
-    status: planned
+    status: completed
     title: 特異積分とRiesz変換
   - id: HA6
     path: textbook/volumes/dream_thater/解析系/HA/HA6

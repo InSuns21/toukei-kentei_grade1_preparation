@@ -69,7 +69,7 @@
 | 変分問題・第二変分・測地線・極小曲面・直接法・Tonelli・minimax・Morse指数 | `../plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md`（VAR1〜12：前提監査・manifest初期化済、各章は未執筆） |
 | Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `textbook/plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md`（INT1〜8：全章実装・終了確認済み） |
 | 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `textbook/plan_done/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md`（CELE1〜8完了） |
-| 変分的n体周期軌道・Chenciner–Montgomery 8の字・舞踏解・実動作するNewton/変分シミュレーション | `DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md`（CELEV1〜8、未着手。Canvasで物理積分し誤差可視化。SVG再生のみは禁止） |
+| 変分的n体周期軌道・Chenciner–Montgomery 8の字・舞踏解・実動作するNewton/変分シミュレーション | [DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md](../plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（CELEV1完成・CELEV2〜8未着手。Python物理積分+Canvas描画を計画。SVG再生のみは禁止） |
 | 一般力学系の不変多様体・分岐・ホモクリニック構造・記号力学・chaos | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md` |
 | Coulomb / Gauss / Maxwell・電磁ポテンシャル・電磁波 | `DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md` |
 | Schrödinger 作用素・変分原理・量子調和振動子・水素原子 | `DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md` |
