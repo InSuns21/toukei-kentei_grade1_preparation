@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - VAR1
   - AMECH3
-forward_references: []
+  - OPT1
+forward_references: [GEO14, GEO17]
 
 concepts:
   - id: calculus-of-variations.second-variation
@@ -24,11 +25,11 @@ concepts:
     requires: [calculus-of-variations.second-variation]
 
   - id: calculus-of-variations.c1-local-minimum
-    name: C1局所最小点
+    name: C1位相での局所最小点
     kind: definition
     aliases: [C1 local minimizer]
     introduction: formal
-    introduction_aliases: ["定義（$C^1$ 局所最小点）"]
+    introduction_aliases: ["定義（C1位相での局所最小点）"]
     requires: [calculus-of-variations.admissible-class]
 
   - id: calculus-of-variations.second-necessary
@@ -53,6 +54,13 @@ concepts:
     introduction_aliases: ["定理（Legendreの必要条件）"]
     requires: [calculus-of-variations.second-necessary]
 
+  - id: calculus-of-variations.strong-legendre
+    name: 強められたLegendre条件
+    kind: definition
+    aliases: [strengthened Legendre condition]
+    introduction: formal
+    introduction_aliases: ["定義（強められたLegendre条件）"]
+    requires: [calculus-of-variations.second-variation-form, calculus-of-variations.legendre-necessary]
   - id: calculus-of-variations.legendre-coercive
     name: Legendre条件と下界の組合せ
     kind: proposition
