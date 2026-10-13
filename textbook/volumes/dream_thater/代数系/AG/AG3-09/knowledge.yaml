@@ -1,0 +1,74 @@
+chapter: AG3-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-08
+  - AG3-06
+  - AG3-04
+  - AG3-03
+  - AG2-06
+  - AG2-03
+  - AG2-02
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.proj-points
+    name: 斉次素イデアルとProj
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斉次素イデアルとProj）"]
+    requires: [algebraic-geometry.prime-spectrum, algebraic-geometry.homogeneous-ideal, algebraic-geometry.irrelevant-ideal]
+  - id: algebraic-geometry.proj-topology
+    name: ProjのZariski位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ProjのZariski位相）"]
+    requires: [algebraic-geometry.proj-points, algebraic-geometry.spectrum-zariski-topology]
+  - id: algebraic-geometry.proj-degree-zero-localization
+    name: 次数零の局所化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次数零の局所化）"]
+    requires: [algebraic-geometry.proj-points, algebraic-geometry.localization]
+  - id: algebraic-geometry.proj-standard-open-affine
+    name: Projの標準開集合はアフィン
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Projの標準開集合はアフィン）"]
+    requires: [algebraic-geometry.proj-degree-zero-localization, algebraic-geometry.spectrum-principal-sections]
+  - id: algebraic-geometry.proj-structure-sheaf
+    name: Projの構造層と射影スキーム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Projの構造層と射影スキーム）"]
+    requires: [algebraic-geometry.proj-standard-open-affine, algebraic-geometry.scheme-gluing]
+  - id: algebraic-geometry.proj-gluing
+    name: Projの存在と構造射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Projの存在と構造射）"]
+    requires: [algebraic-geometry.proj-structure-sheaf, algebraic-geometry.projective-chart-transition]
+  - id: algebraic-geometry.proj-closed-subscheme
+    name: 斉次商環と閉部分スキーム
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斉次商環と閉部分スキーム）"]
+    requires: [algebraic-geometry.proj-gluing, algebraic-geometry.quotient-spectrum-image]
+  - id: algebraic-geometry.proj-standard-graded-embedding
+    name: 次数1生成環の射影空間への閉埋込み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（次数1生成環の射影空間への閉埋込み）"]
+    requires: [algebraic-geometry.proj-closed-subscheme, algebraic-geometry.projective-space]
+  - id: algebraic-geometry.proj-graded-module-sheaf
+    name: 次数付き加群に付随する層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次数付き加群に付随する層）"]
+    requires: [algebraic-geometry.proj-degree-zero-localization, algebraic-geometry.associated-sheaf]
+  - id: algebraic-geometry.proj-polynomial-twist
+    name: 多項式環のねじりとO(r)
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式環のねじりとO(r)）"]
+    requires: [algebraic-geometry.proj-graded-module-sheaf, algebraic-geometry.projective-twist]
