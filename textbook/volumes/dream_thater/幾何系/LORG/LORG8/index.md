@@ -29,13 +29,17 @@ Minkowski平面で計量を $g=-dt^2+dx^2$ から $4g$ に替えると、ベク�
 > と置く操作を共形再尺度という。二つのLorentz計量 $g,\widetilde g$ がこの関係にあるとき共形同値という。両者には同じ未来錐の成分を時間向きとして指定する。
 <!-- formal-statement-end -->
 
-**直接例と全条件の確認。** $M=\mathbb R^{1+1}$、$g=-dt^2+dx^2$、$\Omega(t,x)=2+t^2$ とします。$\Omega$ は全点で滑らか、かつ $\Omega\ge2>0$ です。任意の接ベクトル $v=a\partial_t+b\partial_x$ に対し
+<!-- definition-example-start: def-lorg8-conformal-rescaling -->
+
+**定義の確認**（直接例）。 $M=\mathbb R^{1+1}$、$g=-dt^2+dx^2$、$\Omega(t,x)=2+t^2$ とします。$\Omega$ は全点で滑らか、かつ $\Omega\ge2>0$ です。任意の接ベクトル $v=a\partial_t+b\partial_x$ に対し
 
 $$
 \widetilde g(v,v)=(2+t^2)^2(-a^2+b^2).
 $$
 
 倍率が厳密に正なので、$-a^2+b^2<0$, $=0$, $>0$ の三条件はそれぞれ変わりません。計量行列は座標基底 $(\partial_t,\partial_x)$ で $\operatorname{diag}(-\Omega^2,\Omega^2)$ となり、その行列式は $-\Omega^4\ne0$ です。対称性・滑らかさも元の計量から引き継ぐため、確かにLorentz計量です。未来向きは従来どおり $a>0$ 側を選べます。
+
+<!-- definition-example-end -->
 
 <a id="thm-lorg8-conformal-causality"></a>
 
@@ -158,7 +162,19 @@ $$
 > が成り立つことをいう。$N\subset M$ が開集合である場合、「$U\subset N$ が $N$ において因果的凸」とは、$N$ 内に全体が含まれる因果曲線だけを量化することをいう。
 <!-- formal-statement-end -->
 
-**簡単な非例。** Minkowski平面の縦に二つ並ぶ小領域の和を考えれば、上と下の点を結ぶ未来時間的な縦線が二領域の隙間を通ります。そこで端点は集合内、途中は集合外となり、因果的凸ではありません。この失敗は「端点から経路まで」の量化を一段強くした理由そのものです。
+<!-- definition-example-start: def-lorg8-causal-convex -->
+
+**定義の確認**（正例と非例）。Minkowski平面の開領域 $U=(-1,1)\times\mathbb R$ を考えます。未来因果曲線 $\gamma(s)=(t(s),x(s))$ の時間成分は、各滑らかな片で $\dot t\ge|\dot x|\ge0$ を満たすので、全曲線で非減少です。両端点が $U$ 内にあれば、任意の途中点に対して
+
+$$
+-1<t(a)\le t(s)\le t(b)<1
+$$
+
+となり、$\gamma([a,b])\subset U$ です。従って $U$ は $M=\mathbb R^{1+1}$ において因果的凸であり、「すべての端点・すべての曲線」という定義の量化条件を満たします。
+
+一方、開領域 $V=\big((-2,-1)\cup(1,2)\big)\times\mathbb R$ では $p=(-3/2,0)$ と $q=(3/2,0)$ がともに $V$ にありますが、未来時間的な縦線 $\sigma(s)=(-3/2+3s,0)$（$0\le s\le1$）の速度は $(3,0)$、自己内積は $-9<0$、時間成分は $3>0$ です。ところが $\sigma(1/2)=(0,0)\notin V$ なので $V$ は因果的凸ではありません。失敗するのは端点の所属から曲線全像の所属への含意です。
+
+<!-- definition-example-end -->
 
 ## 5. Alexandrov近傍：二つの時間的錐を重ねる
 
@@ -177,7 +193,9 @@ $$
 > をAlexandrovダイヤモンドという。$a\not\ll b$ なら空集合であり得る。開部分時空 $N\subset M$ では $N$ 内の曲線による $I_N^\pm$ を用いて $D_N(a,b)$ を定義する。
 <!-- formal-statement-end -->
 
-**Minkowskiでの条件確認。** $a=(-T,0)$、$b=(T,0)$、$T>0$ と置き、点 $z=(t,\mathbf x)$ を取ります。[Minkowskiの時間的未来・過去の公式](../LORG6/index.md#thm-lorg6-minkowski-futures)に従って
+<!-- definition-example-start: def-lorg8-alexandrov-diamond -->
+
+**定義の確認**（Minkowskiでの条件）。 $a=(-T,0)$、$b=(T,0)$、$T>0$ と置き、点 $z=(t,\mathbf x)$ を取ります。[Minkowskiの時間的未来・過去の公式](../LORG6/index.md#thm-lorg6-minkowski-futures)に従って
 
 $$
 \begin{aligned}
@@ -193,6 +211,8 @@ D_M(a,b)=\{(t,\mathbf x):|t|+|\mathbf x|<T\}.
 $$
 
 特に $0=(0,\mathbf0)$ は含まれ、$|t|+|\mathbf x|=T$ の境界点と両頂点は含まれません。時間的未来・過去の**厳密な**不等式によることまで確かめました。
+
+<!-- definition-example-end -->
 
 <a id="thm-lorg8-diamond-convex"></a>
 
