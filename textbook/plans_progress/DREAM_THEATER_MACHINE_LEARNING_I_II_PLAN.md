@@ -181,7 +181,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 
 ### 5A.4 共通実装の方針と既存基盤の利用
 
-**共通Runtimeの正本：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)。実行制御・Workerプロトコル・描画アダプター・実験の保存/export・ブラウザ試験は共通PLANを再利用し、本PLANは学習模型・サンプラー/最適化/推論・損失/校正/正確な観測指標を所有する。共通基盤の設計状態はplannedであり、存在しないRuntimeを実装済みとして前提にしない。
+**共通Runtimeの正本：** [DREAM THEATER 対話型数値シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)。実行制御・Workerプロトコル・描画アダプター・実験の保存/export・ブラウザ試験は共通PLANを再利用し、本PLANは学習模型・サンプラー/最適化/推論・損失/校正/正確な観測指標を所有する。共通基盤はPhase 0の通信契約・受け入れ模型に着手済みだが、Worker・対話UIは未実装であり、完成したRuntimeを前提にしない。
 
 1. **Python数値カーネルを第一候補**：既存`pages/numerical-lab-worker.mjs`のPyodide、`pages/numerical-lab-runtime.js`のPythonラボを、アルゴリズム構成・勾配検査・一回の収束実験・Matplotlib図表で再利用する。既存UIは一回実行とPNG出力の契約であり、連続対話を実装済みと誤認しない。
 2. **対話用UIは共通基盤の描画アダプターを利用**：入力→数値カーネルの再計算→実結果→表示の経路を共通化し、Canvas 2D / SVG / HTMLグラフ等は**計算結果の表示**にのみ使う。軽量な有限離散模型や2次元二次最適化はJSのML固有数値モジュールを許す。大きな行列計算・反復推論は計測の上でPyodide/NumPy Workerを使い、PythonとJSの混在時は固定模型で数値照合する。
