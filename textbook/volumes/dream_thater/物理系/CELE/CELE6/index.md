@@ -444,18 +444,38 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（分離量の単純零点から横断交差へ）**  
-> $\omega>0$ とし、$H_\varepsilon(q,p,t)=p^2/2+\cos q+\varepsilon\cos q\cos(\omega t)$ の自律拡大系を固定エネルギー面で考える。$q=\pi,\ p>0$ 断面の局所座標を $(\phi,p)=(\omega\tau,p)$ とし、鞍型周期軌道の安定・不安定枝の運動量をそれぞれ $p_s(\tau,\varepsilon),p_u(\tau,\varepsilon)$ とする。これらが $C^1$ 級で、
+> $\omega>0$ を固定し、次の周期強制振り子の自律拡大系を考える。
 >
-$
+$$
+H_\varepsilon(q,p,t)=\frac{p^2}{2}+\cos q+\varepsilon\cos q\cos(\omega t).
+$$
+>
+> 固定エネルギー面上で、$q=\pi$ かつ $p>0$ の断面を取る。
+> その局所座標を $(\phi,p)=(\omega\tau,p)$ とする。
+> 安定枝・不安定枝の運動量を $p_s(\tau,\varepsilon)$、$p_u(\tau,\varepsilon)$ とし、
+> 零摂動ではどちらも $2$ とする。両関数は $C^1$ 級で、
+>
+$$
 \begin{aligned}
 D(\tau,\varepsilon)
 &:=H_0(\pi,p_u(\tau,\varepsilon))
 -H_0(\pi,p_s(\tau,\varepsilon))\\
 &=\varepsilon M(\tau)+O(\varepsilon^2)
 \end{aligned}
-$
+$$
 >
-> が $\tau$ に関して $C^1$ 一様に成立すると仮定する。ただし $H_0(q,p)=p^2/2+\cos q$、$M$ は[強制振り子のMelnikov関数](#def-cele6-melnikov)である。ある $\tau_*$ で $M(\tau_*)=0$、$M'(\tau_*)\ne0$ なら、十分小さい非零 $\varepsilon$ に対し、$\tau_*$ に近い位相で二枝は横断交差する。その交差は時間 $T=2\pi/\omega$ の $\phi=0$ 帰還写像の横断ホモクリニック点を与える。
+> が $\tau$ に関して $C^1$ 一様に成立すると仮定する。
+> ここで $H_0(q,p)=p^2/2+\cos q$、$M$ は[Melnikov関数](#def-cele6-melnikov)である。
+> ある $\tau_*$ が
+>
+$$
+M(\tau_*)=0,\qquad M'(\tau_*)\ne0
+$$
+>
+> を満たすとき、十分小さい非零 $\varepsilon$ に対して二枝は
+> $\tau_*$ に近い位相で横断交差する。
+> この交差は時間 $T=2\pi/\omega$ の $\phi=0$ 帰還写像の
+> 横断ホモクリニック点を与える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
