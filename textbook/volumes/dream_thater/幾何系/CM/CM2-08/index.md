@@ -308,7 +308,7 @@ $$
 
 任意の列ベクトルで成立するので $A_iG_{ij}^E=G_{ij}^FA_j$。右から $(G_{ij}^E)^{-1}$ を掛ければ定義の変換則となる。双対テンソル積の基底 $f_{ib}\otimes e_i^a$ は $v\mapsto e_i^a(v)f_{ib}$ という行列単位（第 $b,a$ 成分だけ $1$）へ写り、$sr$ 個の行列単位をすべて与える。従って繊維ごとに同型。
 
-重なりで[双対の公式](#prop-cm2-08-dual-evaluation)と[テンソル積束の遷移](#prop-cm2-08-tensor-cocycle)を基底に適用する。$F$ と $E^\vee$ の局所枠の変換を成分で展開すると、
+重なりで[双対の公式](#prop-cm2-08-dual-evaluation)と[テンソル積束の遷移](#prop-cm2-08-tensor-cocycle)を基底に適用する。$F$ と $E^\vee$ の各チャートの基底変換を成分で展開すると、
 
 $$
 f_{jc}\otimes e_j^d
