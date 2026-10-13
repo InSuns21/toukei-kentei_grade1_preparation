@@ -659,6 +659,7 @@
 5. [CM1-05 複素接束の座標変換と正則性](textbook/volumes/dream_thater/幾何系/CM/CM1-05/index.md)
 6. [CM1-06 Nijenhuisテンソルと局所座標での必要条件](textbook/volumes/dream_thater/幾何系/CM/CM1-06/index.md)
 7. [CM1-07 Newlander–Nirenberg定理と証明境界](textbook/volumes/dream_thater/幾何系/CM/CM1-07/index.md)
+8. [CM1-08 積分可能性の計算例・非可積分例](textbook/volumes/dream_thater/幾何系/CM/CM1-08/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
