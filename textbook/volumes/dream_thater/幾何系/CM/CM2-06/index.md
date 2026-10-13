@@ -19,13 +19,11 @@
 <!-- formal-statement-start -->
 > **定義（正則線束と局所自明化）**  
 > 複素多様体 $X$ 上の正則線束とは、複素多様体 $L$、正則写像 $\pi:L\to X$、各繊維 $L_x=\pi^{-1}(x)$ 上の複素一次元ベクトル空間構造であって、開被覆 $(U_i)$ と正則な同型
->
 
-$
-\Phi_i:\pi^{-1}(U_i)\to U_i\times\mathbb C.
-$
+$$
+\Phi_i:\pi^{-1}(U_i)\to U_i\times\mathbb C
+$$
 
->
 > が存在し、$\operatorname{pr}_1\circ\Phi_i=\pi$ かつ各 $x\in U_i$ で $\Phi_i|_{L_x}$ が複素線形同型となるものをいう。$\Phi_i$ を局所自明化という。
 <!-- formal-statement-end -->
 
