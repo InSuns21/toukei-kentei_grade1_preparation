@@ -27,7 +27,11 @@ $$
 > が存在し、$\operatorname{pr}_1\circ\Phi_i=\pi$ かつ各 $x\in U_i$ で $\Phi_i|_{L_x}$ が複素線形同型となるものをいう。$\Phi_i$ を局所自明化という。
 <!-- formal-statement-end -->
 
-**定義を満たす最初の例**。$L=X\times\mathbb C$、$\pi(x,v)=x$ と置き、すべての $U_i$ で $\Phi_i(x,v)=(x,v)$ とすればよい。全空間は直積複素多様体、射影は正則、各繊維は $\{x\}\times\mathbb C$、$\Phi_i$ は繊維上で恒等写像である。これは自明正則線束の具体例である。一般の線束は局所的にはこれと同じだが、同じ $\Phi$ を全域で選べるとは限らない。
+<!-- definition-example-start: def-cm2-06-holomorphic-line-bundle -->
+**定義を満たす最初の例**。$L=X\times\mathbb C$、$\pi(x,v)=x$ と置き、すべての $U_i$ で $\Phi_i(x,v)=(x,v)$ とすればよい。全空間は直積複素多様体、射影は正則、各繊維は $\{x\}\times\mathbb C$、$\Phi_i$ は繊維上で恒等写像である。これは自明正則線束の具体例である。
+<!-- definition-example-end -->
+
+一般の線束は局所的にはこれと同じだが、同じ $\Phi$ を全域で選べるとは限らない。
 
 自明化 $\Phi_i$ で座標 $1$ に当たる繊維ベクトルを $e_i(x)=\Phi_i^{-1}(x,1)$ と置く。これは $U_i$ 上で零にならない正則な局所枠であり、任意の $v\in L_x$ をただ一通り $v=a\,e_i(x)$ と書ける。[分布の局所枠](../../GEO/GEO6/index.md#def-geo6-linear-subspaces)も繊維の基底を局所的に選ぶ考え方だが、ここでは正則線束自身の繊維を対象とし、分布の理論を前提にはしない。
 
@@ -49,6 +53,10 @@ $$
 <!-- formal-statement-end -->
 
 最初の式は枠を変えない操作、二つ目は逆向きの操作、三つ目は $i\to j\to k$ と直接 $i\to k$ が一致することを表す。なお $g_{ij}$ の添字の約束は **$e_j=g_{ij}e_i$** で固定する。切断の係数の変換は逆向きに見えるので、後で区別する。
+
+<!-- definition-example-start: def-cm2-06-transition-cocycle -->
+**定義の直接確認**。自明線束 $\mathbb C\times\mathbb C$ の上で、同じ開集合 $U_0=U_1=U_2=\mathbb C$ を三枚の被覆として使い、枠を $e_0=1$、$e_1=2e_0$、$e_2=6e_0$ と取る。定数関数 $g_{01}=2$、$g_{12}=3$、$g_{02}=6$ と、逆向きの $g_{10}=1/2$、$g_{21}=1/3$、$g_{20}=1/6$ はすべて非零正則である。例えば $g_{01}g_{10}=2(1/2)=1$、$g_{01}g_{12}=2\cdot3=6=g_{02}$ であり、ほかの三つ組も基準枠の比 $g_{ij}=e_j/e_i$ を代入すれば $g_{ij}g_{jk}=g_{ik}$ を満たす。$g_{ii}=1$ も直接確認できる。
+<!-- definition-example-end -->
 
 <a id="prop-cm2-06-cocycle-from-frames"></a>
 
@@ -145,6 +153,10 @@ s_i=g_{ij}s_j.
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-cm2-06-holomorphic-section -->
+**切断の定義を満たす例**。$X=\mathbb C^*$ 上の自明束で $e_0(x)=(x,1)$、$e_1(x)=(x,2x)$ を局所枠とする。$g_{01}(x)=2x$ は $X$ 上で非零正則である。切断 $s(x)=(x,x+1)$ は正則で $\pi(s(x))=x$ を満たす。係数は $s_0(x)=x+1$、$s_1(x)=(x+1)/(2x)$ であり、両者とも $\mathbb C^*$ 上で正則、$g_{01}s_1=2x\cdot(x+1)/(2x)=x+1=s_0$ となる。重なりで値が一致することも確認した。
+<!-- definition-example-end -->
+
 **変換則の直接確認**。$s=s_i e_i=s_j e_j=s_jg_{ij}e_i$ なので $s_i=g_{ij}s_j$。例えば $g_{01}(z)=z^{-1}$ なら $s_0(z)=z^{-1}s_1(1/z)$ であって、$s_1=z^{-1}s_0$ ではない。この方程式は単なる形式上の約束ではなく、各局所式が大域的な写像へ貼り合う必要十分条件である。
 
 同じ線束で新しい局所枠 $e'_i=h_i e_i$ を選ぶと、$h_i$ は $U_i$ 上の零にならない正則関数である。すると
@@ -201,13 +213,17 @@ e_0(z)=(1,z),\qquad e_\infty(w)=(w,1).
 $$
 <!-- formal-statement-end -->
 
-二つの枠は各々の繊維に属し、第一成分または第二成分が $1$ なので零にならない。重なりでは
+<!-- definition-example-start: def-cm2-06-tautological-bundle -->
+**定義の直接確認**。$[1:z]$ の繊維は $\mathbb C(1,z)$ だから $e_0=(1,z)$ はその繊維の非零ベクトルである。$[w:1]$ の繊維も同様で、$e_\infty=(w,1)$ は非零。各局所枠は対応する複素座標で正則であり、重なりでは
 
 $$
 e_\infty(1/z)=(1/z,1)=z^{-1}(1,z)=z^{-1}e_0(z).
 $$
 
-従って $g_{0\infty}(z)=z^{-1}$、$g_{\infty0}(w)=w^{-1}$ であり、その積は $1$。これは[正則線束の貼り合わせ定理](#thm-cm2-06-gluing)に必要な二重重なりの条件を満たす。二枚の場合でも $g_{0\infty}$ を $1$ にできるかは別問題である。
+従って $g_{0\infty}(z)=z^{-1}$、$g_{\infty0}(w)=w^{-1}$ であり、その積は $1$。これは[正則線束の貼り合わせ定理](#thm-cm2-06-gluing)に必要な二重重なりの条件を満たす。
+<!-- definition-example-end -->
+
+二枚の場合でも $g_{0\infty}$ を $1$ にできるかは別問題である。
 
 <a id="thm-cm2-06-tautological-nontrivial"></a>
 
