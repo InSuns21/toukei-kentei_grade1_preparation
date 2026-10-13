@@ -63,14 +63,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（非退化交代形式）**  
-> 有限次元実ベクトル空間 $V$ 上の交代双線形形式 $\omega$ が、任意の $v\in V$ について
+> 有限次元実ベクトル空間 $V$ 上の交代双線形形式 $\omega$ が、[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form) を満たすとき、$\omega$ を **非退化交代形式** という。すなわち、任意の $v\in V$ について
 >
 $$
 \bigl[\omega(v,w)=0\ \text{が全ての }w\in V\text{ で成立}\bigr]
 \ \Longrightarrow\ v=0
 $$
 >
-> を満たすとき、$\omega$ を非退化という。
+> が成立する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym1-nondegenerate-form -->
@@ -168,7 +168,7 @@ $$
 \Omega^{\mathsf T}[v]=0
 $$
 
-となります。よって非退化性は $\ker\Omega^{\mathsf T}=\{0\}$ と同値です。$\Omega$ は正方行列なので、これは $\Omega$ が可逆であることと同値です。
+となります。これは [LA3Eの双線形形式の行列表示と非退化性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix) を交代形式に適用した計算です。よって非退化性は $\ker\Omega^{\mathsf T}=\{0\}$ と同値です。$\Omega$ は正方行列なので、これは $\Omega$ が可逆であることと同値です。
 
 <a id="thm-sym1-even-dimension"></a>
 
