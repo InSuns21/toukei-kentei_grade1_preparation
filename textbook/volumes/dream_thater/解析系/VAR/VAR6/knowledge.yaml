@@ -1,0 +1,56 @@
+chapter: VAR6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR4
+  - VAR5
+  - GEO15
+concepts:
+  - id: calculus-of-variations.minimizing-curve-energy-infimum
+    name: 単位時間エネルギーと距離の下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単位時間エネルギーと距離の下限）"]
+    requires:
+      - geometry.length-energy-inequality
+      - geometry.riemannian-distance
+      - geometry.minimizing-geodesic
+
+  - id: calculus-of-variations.normal-convex-minimizing
+    name: 正規球と凸正規近傍での最短性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規球と凸正規近傍での最短性）"]
+    requires:
+      - geometry.normal-ball
+      - geometry.normal-distance
+      - geometry.convex-normal-neighborhood-existence
+
+  - id: calculus-of-variations.complete-minimizing-energy-existence
+    name: 完備な有限次元 Riemann 多様体でのエネルギー最小曲線の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完備な有限次元 Riemann 多様体でのエネルギー最小曲線の存在）"]
+    requires:
+      - geometry.hopf-rinow-theorem
+      - calculus-of-variations.minimizing-curve-energy-infimum
+
+  - id: calculus-of-variations.sphere-geodesic-cut-time
+    name: 球面の距離と切断時刻
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球面の距離と切断時刻）"]
+    requires:
+      - geometry.riemannian-distance
+      - geometry.cut-time
+      - geometry.cut-point
+
+  - id: calculus-of-variations.flat-torus-lattice-minimizing
+    name: 平坦トーラスの距離と切断点集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦トーラスの距離と切断点集合）"]
+    requires:
+      - geometry.riemannian-distance
+      - geometry.cut-locus
+      - geometry.nonpositive-curvature-no-conjugate
