@@ -59,7 +59,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（中心配置の係数と縮尺）**  
-> $m_i,G>0$ の非衝突中心配置 $b$ に対応する係数は一意で、
+> $m_i,G>0$ の非衝突中心配置 $b$ について、$I(b)=\sum_i m_i|b_i|^2$、$U(b)=G\sum_{i<j}m_im_j/|b_i-b_j|$ とする。このとき対応する係数は一意で、
 
 $$
 \lambda=\frac{U(b)}{I(b)}>0
@@ -110,7 +110,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Lagrangeの正三角形中心配置）**  
-> $m_i,G>0$ とし、相異なる $a_1,a_2,a_3\in\mathbb R^2$ が一辺 $d>0$ の正三角形をなすとする。$c=M^{-1}\sum_i m_i a_i$、$b_i=a_i-c$ とすれば、$(b_i)$ は中心配置であり
+> $m_i,G>0$ とし、相異なる $a_1,a_2,a_3\in\mathbb R^2$ が一辺 $d>0$ の正三角形をなすとする。$M=m_1+m_2+m_3$、$c=M^{-1}\sum_i m_i a_i$、$b_i=a_i-c$ とすれば、$(b_i)$ は中心配置であり
 
 $$
 \lambda=\frac{GM}{d^3}.
@@ -392,7 +392,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（中心配置と回転座標系の平衡）**  
-> $m_i,G>0$ の非衝突平面三体について、$\omega\ne0$ を固定し、$q_i(t)=R_{\omega t}s_i(t)$ とする。回転座標系でのNewton方程式は
+> $m_i,G>0$ の非衝突平面三体について、$\omega\ne0$ を固定し、$J(u_1,u_2)=(-u_2,u_1)$、$q_i(t)=R_{\omega t}s_i(t)$ とする。回転座標系でのNewton方程式は
 
 $$
 \ddot s_i+2\omega J\dot s_i
