@@ -13,16 +13,16 @@ prerequisites:
   - AMECH3
 official_scope: []
 learning_objectives:
-  - Riemann計量から長さ・エネルギーと計量Lagrangianを構成し一定速の等号条件を検査できる
-  - 計量Lagrangianの各偏微分からChristoffel係数を作りEuler–Lagrange方程式と測地線を対応させられる
+  - Riemann計量から長さ・エネルギーと計量の運動エネルギー関数を構成し一定速の等号条件を検査できる
+  - 運動エネルギー関数の各偏微分からChristoffel係数を作りEuler–Lagrange方程式と測地線を対応させられる
   - Euclid極座標と球面の計量から測地線方程式を計算し直線・大円・非測地線を区別できる
   - 非アフィン再パラメータ化に対する長さとエネルギーの停留性の違いを証明できる
   - Gaussの補題に基づく局所最短性の適用範囲と大域最短性の失敗を具体例で説明できる
   - 運動エネルギーとポテンシャルの変分から力のない粒子と測地線の一致条件を示せる
 definitions:
-  - { id: VAR4-DEF-01, name: "計量の運動エネルギーLagrangian" }
+  - { id: VAR4-DEF-01, name: "計量の運動エネルギー関数" }
 theorems:
-  - { id: VAR4-PROP-01, name: "計量Lagrangianと測地線方程式" }
+  - { id: VAR4-PROP-01, name: "計量エネルギーと測地線方程式" }
   - { id: VAR4-PROP-02, name: "再パラメータ化と二種類の停留性" }
 canonical_examples: [Euclid計量の線分, 極座標の直線と保存量, 球面の赤道と緯線, 正規球の放射測地線, 自由粒子とポテンシャル]
 problem_patterns: [VAR4-LENGTH-ENERGY, VAR4-DIAGONAL-METRIC, VAR4-SPHERE-EQUATOR, VAR4-FREE-PARTICLE, VAR4-POLAR-CONSERVATION, VAR4-FREE-END-ORTHOGONALITY, VAR4-NONAFFINE, VAR4-WARPED-METRIC]
