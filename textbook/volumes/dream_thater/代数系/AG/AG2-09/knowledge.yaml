@@ -1,0 +1,73 @@
+chapter: AG2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG2-08
+  - AG2-06
+  - AG2-05
+  - AG2-01
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.projective-cotangent-sheaf
+    name: 射影空間の余接層と標準束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影空間の余接層と標準束）"]
+    requires: [algebraic-geometry.kahler-differentials, algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.projective-euler-map
+    name: Euler写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euler写像）"]
+    requires: [algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.euler-map-local-kernel
+    name: Euler写像の貼り合わせと全射性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euler写像の貼り合わせと全射性）"]
+    requires: [algebraic-geometry.projective-euler-map, algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.projective-cotangent-euler
+    name: 射影空間の余接Euler列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間の余接Euler列）"]
+    requires: [algebraic-geometry.projective-cotangent-sheaf, algebraic-geometry.euler-map-local-kernel, algebraic-geometry.differential-localization]
+
+  - id: algebraic-geometry.determinant-exact-sequence
+    name: 局所分裂短完全列の行列式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所分裂短完全列の行列式）"]
+    requires: [algebraic-geometry.projective-cotangent-sheaf]
+
+  - id: algebraic-geometry.projective-canonical-formula
+    name: 射影空間の標準束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間の標準束）"]
+    requires: [algebraic-geometry.projective-cotangent-euler, algebraic-geometry.determinant-exact-sequence, algebraic-geometry.projective-twist]
+
+  - id: algebraic-geometry.projective-tangent-sheaf
+    name: 射影空間の接層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接層）"]
+    requires: [algebraic-geometry.projective-cotangent-sheaf]
+
+  - id: algebraic-geometry.projective-tangent-euler
+    name: 射影空間の接Euler列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間の接Euler列）"]
+    requires: [algebraic-geometry.projective-cotangent-euler, algebraic-geometry.projective-tangent-sheaf, algebraic-geometry.od-tensor-dual]
+
+  - id: algebraic-geometry.projective-no-global-forms
+    name: 射影空間の大域正則1形式と標準形式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（射影空間の大域正則1形式と標準形式）"]
+    requires: [algebraic-geometry.projective-cotangent-euler, algebraic-geometry.projective-canonical-formula, algebraic-geometry.pn-od-sections]

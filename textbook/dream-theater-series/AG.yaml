@@ -88,7 +88,7 @@ chapters:
     title: "局所パラメータ・微分形式・標準束"
   - id: AG2-09
     path: textbook/volumes/dream_thater/代数系/AG/AG2-09
-    status: planned
+    status: completed
     title: "射影空間の標準束とEuler列"
   - id: AG2-10
     path: textbook/volumes/dream_thater/代数系/AG/AG2-10
