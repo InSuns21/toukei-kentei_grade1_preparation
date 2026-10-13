@@ -12,19 +12,16 @@
 <!-- formal-statement-start -->
 > **定義（許容曲線と許容変分）**  
 > 次の積分が定義される関数集合 $\mathcal A$ を**許容クラス**という。
->
 $$
 J[u]=\int_a^b F(x,u(x),u'(x))\,dx.
 $$
 >
 > $u\in\mathcal A$ に対し、十分小さい $|\varepsilon|$ について
->
 $$
 u_\varepsilon=u+\varepsilon\eta\in\mathcal A
 $$
 >
 > となる $\eta$ を、その点での**許容変分方向**という。両端の値を固定する場合には
->
 $$
 \eta(a)=\eta(b)=0
 $$
@@ -47,10 +44,10 @@ $$
 > **定義（第一変分と停留曲線）**  
 > $u_\varepsilon=u+\varepsilon\eta$ が許容されるとき、
 >
-> $$
+$$
 > \delta J[u;\eta]
 > =\left.\frac{d}{d\varepsilon}J[u_\varepsilon]\right|_{\varepsilon=0}
-> $$
+$$
 >
 > を第一変分という。すべての許容変分方向 $\eta$ について $\delta J[u;\eta]=0$ なら、$u$ はその許容クラスに関して停留しているという。
 <!-- formal-statement-end -->
@@ -70,12 +67,12 @@ $$
 > **命題（第一変分と境界項）**  
 > $F\in C^2$、$u,\eta\in C^2([a,b])$ とし、$u+\varepsilon\eta$ が許容されるとする。このとき
 >
-> $$
+$$
 > \delta J[u;\eta]
 > =\int_a^b(F_y\eta+F_p\eta')\,dx
 > =\int_a^b\left(F_y-\frac{d}{dx}F_p\right)\eta\,dx
 > +[F_p\eta]_a^b.
-> $$
+$$
 >
 > ここで各偏微分は $(x,u(x),u'(x))$ で評価する。
 <!-- formal-statement-end -->
@@ -126,10 +123,10 @@ $$
 > **定理（自然境界条件）**  
 > $F\in C^2$、$u\in C^2([a,b])$ が、左端 $u(a)=A$ を固定し右端を自由にした全 $C^2$ 許容変分について停留しているなら、
 >
-> $$
+$$
 > \frac{d}{dx}F_p-F_y=0\quad(a<x<b),
 > \qquad F_p(b,u(b),u'(b))=0.
-> $$
+$$
 >
 > 逆に、これら二条件を満たせば全許容変分に対して停留する。両端自由ならさらに $F_p(a,u(a),u'(a))=0$ が必要十分である。
 <!-- formal-statement-end -->
@@ -168,10 +165,10 @@ $$
 > **定理（固定位置の角点と運動量接合）**  
 > 上の条件で各開区間上の Euler–Lagrange方程式が成立しているとする。接合点の値を自由に動かす全連続変分についての停留性は
 >
-> $$
+$$
 > F_p(c,u(c),u'(c-))
 > =F_p(c,u(c),u'(c+))
-> $$
+$$
 >
 > と同値である。
 <!-- formal-statement-end -->
@@ -200,9 +197,9 @@ $\zeta$ は接合点の実際の高さの一次変化です。
 > **定理（Weierstrass–Erdmannの接合条件）**  
 > $F\in C^2$、連続な区分的 $C^2$ 曲線の左右で Euler–Lagrange方程式が成り立つとする。接合点の位置と高さを独立に動かす滑らかな区分曲線族（外端固定）に関して停留しているなら、接合点で
 >
-> $$
+$$
 > [F_p]_-^+=0,\qquad[F-u'F_p]_-^+=0
-> $$
+$$
 >
 > が成立する。ここで $[H]_-^+=H(c+)-H(c-)$ である。逆にこの二条件が成立すれば、この種類の曲線族に対する第一変分はゼロになる。
 <!-- formal-statement-end -->
@@ -244,14 +241,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（等周拘束と正則性）**  
 > 固定端のもとで、二つの積分汎関数について
->
 $$
 J[u]=\int_a^b F(x,u,u')\,dx,\qquad
 K[u]=\int_a^b G(x,u,u')\,dx=\ell
 $$
 >
 > を課す問題を等周型変分問題という。両端ゼロの滑らかな方向 $\psi$ が存在し、
->
 $$
 \delta K[u;\psi]\ne0
 $$
@@ -272,15 +267,15 @@ $$
 > **定理（正則な等周拘束のLagrange乗数）**  
 > $F,G\in C^2$、$u\in C^2([a,b])$ とする。固定端点かつ $K[u]=\ell$ のもとで $u$ が局所的に停留し、$K$ が $u$ で正則なら、ある実数 $\lambda$ が存在して
 >
-> $$
+$$
 > \delta(J+\lambda K)[u;\eta]=0
-> $$
+$$
 >
 > がすべての固定端方向 $\eta$ について成り立つ。したがって
 >
-> $$
+$$
 > \frac d{dx}(F_p+\lambda G_p)-(F_y+\lambda G_y)=0
-> $$
+$$
 >
 > が $(a,b)$ で成立する。乗数方程式だけでは元の拘束と端点条件を満たすとは限らず、これらも別に解く。
 <!-- formal-statement-end -->
