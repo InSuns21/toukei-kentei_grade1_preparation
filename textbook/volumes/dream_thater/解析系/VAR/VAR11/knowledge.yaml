@@ -1,0 +1,63 @@
+chapter: VAR11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR10
+  - VAR9
+  - GPDE5
+  - GRP3
+concepts:
+  - id: calculus-of-variations.frechet-gateaux
+    name: Gâteaux微分とFréchet微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gâteaux微分とFréchet微分）"]
+    requires: [calculus-of-variations.integral-functional-fixed-endpoint]
+  - id: calculus-of-variations.critical-point
+    name: 臨界点と臨界値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（臨界点と臨界値）"]
+    requires: [calculus-of-variations.frechet-gateaux]
+  - id: calculus-of-variations.palais-smale-condition
+    name: Palais–Smale列とコンパクト性条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Palais–Smale列とコンパクト性条件）"]
+    requires: [calculus-of-variations.critical-point]
+  - id: calculus-of-variations.ps-critical-point
+    name: (PS)条件による臨界点の回収
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（(PS)条件による臨界点の回収）"]
+    requires: [calculus-of-variations.palais-smale-condition]
+  - id: calculus-of-variations.ekeland-principle
+    name: Ekelandの変分原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ekelandの変分原理）"]
+    requires: [calculus-of-variations.direct-method-existence]
+  - id: calculus-of-variations.ekeland-gradient
+    name: Ekeland点の勾配評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Ekeland点の勾配評価）"]
+    requires: [calculus-of-variations.ekeland-principle, calculus-of-variations.frechet-gateaux]
+  - id: calculus-of-variations.mountain-pass-minimax
+    name: Mountain Passの経路族とminimax値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Mountain Passの経路族とminimax値）"]
+    requires: [calculus-of-variations.critical-point]
+  - id: calculus-of-variations.mountain-pass-theorem
+    name: Mountain Passの定理：局所Lipschitz勾配版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Mountain Passの定理：局所Lipschitz勾配版）"]
+    requires: [calculus-of-variations.mountain-pass-minimax, calculus-of-variations.ps-critical-point]
+  - id: calculus-of-variations.finite-symmetry-critical
+    name: 有限群の対称臨界性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限群の対称臨界性）"]
+    requires: [calculus-of-variations.critical-point, algebra.group-action]

@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-14（標準教科書・論文との範囲照合、証明と依存の再設計）  
-状態: planned（設計のみ。本文実装・公開は未着手）
+状態: in_progress（LORG1は本文実装・査読・公開済み、LORG2〜LORG21は未実装）
 
 ## 中心問いと出口
 
@@ -13,10 +13,10 @@
 ## 直接必要な前提・依存と責務
 
 - 既習の正本：GEO1–GEO19の多様体、テンソル、接続、曲率、指数写像、変分・Jacobi場（**Riemann計量の正定値性を使う結論は再利用しない**）。線形代数の符号数・非退化形式。SRELのMinkowski時空は動機と具体例として再導入する。
-- 数学的矢印：GEO / SREL → **LORG** → [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。GR I/IIはLORGの定義・因果定理を参照する物理分岐。
+- 数学的矢印：GEO / SREL → **LORG** → [HPDE](../plans/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。GR I/IIはLORGの定義・因果定理を参照する物理分岐。
 - LORGが所有：不定符号計量、時間向き、因果集合と因果階層、Lorentz時間分離、achronal集合、依存領域、大域双曲性、Cauchy面・時間関数の幾何。
-- [GR I/II](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)が所有：Einstein方程式、Schwarzschild/Kerr模型、具体的なブラックホール・Killing/事象/見かけの地平線、Raychaudhuri方程式の物理・エネルギー条件・集束定理・特異点定理の応用。LORGで必要な共役点と測地線幾何は定義するが、これらの物理トピックを重複証明しない。
-- [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)が所有：波動作用素・エネルギー評価・大域Cauchy解・Green作用素。「大域双曲だから解ける」をLORGで先取りして証明したことにしない。
+- [GR I/II](../plans/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)が所有：Einstein方程式、Schwarzschild/Kerr模型、具体的なブラックホール・Killing/事象/見かけの地平線、Raychaudhuri方程式の物理・エネルギー条件・集束定理・特異点定理の応用。LORGで必要な共役点と測地線幾何は定義するが、これらの物理トピックを重複証明しない。
+- [HPDE](../plans/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)が所有：波動作用素・エネルギー評価・大域Cauchy解・Green作用素。「大域双曲だから解ける」をLORGで先取りして証明したことにしない。
 
 **規約・記号の出発点**：原則、滑らかな連結Hausdorff・第二可算の時空 M（次元 n+1、n≥1）、滑らかな計量 g の符号を (-,+,…,+)、時間向きが指定されたものとする。境界付き多様体・低正則計量・非時間向き可能な例は明示したときだけ扱う。接ベクトルの因果型、向き、許容する曲線の正則性（区分的 C¹ ないし局所Lipschitz）を結果ごとに定め、時空の計量と補助Riemann計量を混同しない。各章の実在前提・canonical anchorは実装時に確認する。
 
@@ -84,9 +84,9 @@
 
 ### 初回実装・講間依存
 
-- **直ちに着手できる最初の章：`LORG1`**。前提は既存の線形代数（非退化対称形式・符号数）とMinkowskiの座標計算のみ。本文では既知とする前提の実在結果とstable anchorを確認する。
+- **LORG1は実装済み、次の執筆対象は`LORG2`**。LORG1では線形代数のSylvester慣性法則と集合の開閉を基礎としてLorentz内積・未来錐を導出した。LORG2ではLORG1と既存微分幾何を前提に時間向きを扱う。
 - LORG2以降は、原則として当該講以前の必要結果のみを使用し、未完成の後続結果を証明へ逆輸入しない。とくにLORG14の限界曲線→LORG16/18の大域結果、LORG19/20の時間関数→HPDEの時間分割という直接依存を保持する。
-- `textbook/plans/` に留めるのは**計画が未着手だから**であり、21章のID・数・着手順は本PLANで確定済み。本文を実際に始めるときは本PLANを `plans_progress/` へ移動し、系列manifest・直接参照・公開導線を規約に従い追加する。今は未公開・未執筆でありcompletedにしない。
+- `textbook/plans_progress/` に配置済み。LORG1の本文・系列manifest・公開導線を追加し、21講中の最初の1講を完了した。LORG2〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
 
 ## 必須の数学的到達・証明ゲート
 

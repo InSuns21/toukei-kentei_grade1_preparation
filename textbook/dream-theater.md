@@ -385,6 +385,7 @@
 8. [VAR8 極小曲面の第二変分と安定性](textbook/volumes/dream_thater/解析系/VAR/VAR8/index.md)
 9. [VAR9 H¹弱収束と最小化の直接法](textbook/volumes/dream_thater/解析系/VAR/VAR9/index.md)
 10. [VAR10 Tonelli型存在論・弱Euler–Lagrange方程式と正則性](textbook/volumes/dream_thater/解析系/VAR/VAR10/index.md)
+11. [VAR11 Palais–Smale・Ekeland・minimax](textbook/volumes/dream_thater/解析系/VAR/VAR11/index.md)
 
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式
@@ -667,6 +668,11 @@
 8. [GEO17 変分公式・Jacobi 場・共役点](textbook/volumes/dream_thater/幾何系/GEO/GEO17/index.md)
 9. [GEO18 比較幾何入門](textbook/volumes/dream_thater/幾何系/GEO/GEO18/index.md)
 10. [GEO19 Gauss--Bonnet と二次元大域幾何](textbook/volumes/dream_thater/幾何系/GEO/GEO19/index.md)
+
+<a id="dt-subject-lorentzian-geometry"></a>
+### ローレンツ幾何と大域因果構造
+
+1. [LORG1 Lorentz内積と未来錐](textbook/volumes/dream_thater/幾何系/LORG/LORG1/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I

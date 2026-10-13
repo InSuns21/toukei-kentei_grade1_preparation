@@ -1,0 +1,91 @@
+version: 1
+id: LORG
+title: "ローレンツ幾何と大域因果構造 I"
+plan: textbook/plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: LORG1
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG1
+    status: completed
+    title: "Lorentz内積と未来錐"
+  - id: LORG2
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG2
+    status: planned
+    title: "Lorentz計量と時間向き"
+  - id: LORG3
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG3
+    status: planned
+    title: "因果曲線とLorentz長さ"
+  - id: LORG4
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG4
+    status: planned
+    title: "Lorentz接続と測地線"
+  - id: LORG5
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG5
+    status: planned
+    title: "凸正規近傍と局所最大化"
+  - id: LORG6
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG6
+    status: planned
+    title: "因果的未来と過去の集合"
+  - id: LORG7
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG7
+    status: planned
+    title: "push-up補題とI±の開性"
+  - id: LORG8
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG8
+    status: planned
+    title: "共形因果構造と局所因果凸性"
+  - id: LORG9
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG9
+    status: planned
+    title: "因果階層 I：chronologyとcausality"
+  - id: LORG10
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG10
+    status: planned
+    title: "因果階層 II：strongとstable"
+  - id: LORG11
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG11
+    status: planned
+    title: "因果階層 III：continuityとsimplicity"
+  - id: LORG12
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG12
+    status: planned
+    title: "achronal集合・edge・achronal境界"
+  - id: LORG13
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG13
+    status: planned
+    title: "依存領域とCauchy horizon"
+  - id: LORG14
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG14
+    status: planned
+    title: "限界曲線補題"
+  - id: LORG15
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG15
+    status: planned
+    title: "Cauchy超曲面の定義と具体例"
+  - id: LORG16
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG16
+    status: planned
+    title: "大域双曲性の特徴付け"
+  - id: LORG17
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG17
+    status: planned
+    title: "Lorentz時間分離と曲線長の極限"
+  - id: LORG18
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG18
+    status: planned
+    title: "最大化因果曲線とAvez–Seifert"
+  - id: LORG19
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG19
+    status: planned
+    title: "Cauchy時間関数の存在"
+  - id: LORG20
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG20
+    status: planned
+    title: "滑らかな時空分割"
+  - id: LORG21
+    path: textbook/volumes/dream_thater/幾何系/LORG/LORG21
+    status: planned
+    title: "時空模型の総合演習とHPDE接続"
