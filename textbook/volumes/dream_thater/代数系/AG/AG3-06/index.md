@@ -113,10 +113,10 @@ $$
 >
 > より正確には、各 $i$ に環 $A_i$ とその加群 $M_i$ があり、次が成り立つ。
 >
-$
+$$
 U_i=\operatorname{Spec}A_i,
 \qquad \mathcal F|_{U_i}\simeq\widetilde{M_i}.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-06-quasicoherent -->
