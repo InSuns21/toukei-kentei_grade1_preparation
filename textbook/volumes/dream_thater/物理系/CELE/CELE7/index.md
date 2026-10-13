@@ -555,9 +555,9 @@ $K(I)=\tfrac12(I_1^2+I_2^2)$、$I_*=(1,\sqrt2)$ を考える。Kolmogorov非退�
 <!-- solution-start -->
 **詳細解答**。[Kolmogorov非退化性](../../../幾何系/INT/INT8/index.md#def-int8-kolmogorov)をHessianから確認します。
 
-$
+$$
 D^2K=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad \det D^2K=1\ne0.
-$
+$$
 
 従って非退化です。$\omega_*=(1,\sqrt2)$ とすると、整数 $p^2-2q^2$ は非零で絶対値は $1$ 以上だから
 
