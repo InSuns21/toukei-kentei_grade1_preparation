@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { Worker as NodeWorker } from "node:worker_threads";
 import { createSimulationHost } from "../pages/simulation/simulation-worker-host.mjs";
 import { SimulationClient } from "../pages/simulation/simulation-runtime.mjs";
 import { createExperimentRecord, appendObservation, exportExperimentJson,
@@ -103,4 +104,26 @@ drawPlot({width:720,height:440,getContext:()=>ctx},{
   series:[{points:[[0,0],[1,1]]}],
 });
 assert.ok(draws.length > 5);
-console.log("Simulation Phase 1 host / lifecycle / records / plotting: PASS");
+const threaded = new NodeWorker(
+  new URL("./simulation-worker-node-wrapper.mjs", import.meta.url), { type: "module" },
+);
+const threadedRequest = (request) => new Promise((resolve, reject) => {
+  const timer = setTimeout(() => reject(new Error("Node Worker message timeout")), 5000);
+  threaded.once("message", (response) => {
+    clearTimeout(timer); resolve(response);
+  });
+  threaded.postMessage(request);
+});
+try {
+  const initialized = await threadedRequest({
+    ...base, type: "initialize", params: physicsParams, seed: 1,
+  });
+  assert.equal(initialized.type, "ready");
+  const batch = await threadedRequest({ ...base, type: "runBatch", steps: 20 });
+  assert.equal(batch.type, "result");
+  assert.equal(batch.stepIndex, 20);
+  assert.ok(Math.abs(batch.diagnostics.energy + 0.5) < 1e-4);
+} finally {
+  await threaded.terminate();
+}
+console.log("Simulation Phase 1 host / lifecycle / real Worker / records / plotting: PASS");
