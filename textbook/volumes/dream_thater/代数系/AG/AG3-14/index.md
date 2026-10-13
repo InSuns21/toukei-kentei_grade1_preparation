@@ -148,3 +148,100 @@ $$
 ## 5. 総合演習と詳細解答
 
 以下では次元、次数、滑らかさの仮定を毎回照合します。
+
+### A1. 四次平面曲線の種数と標準束
+
+$C:X^4+Y^4+Z^4=0\subset\mathbb P^2_{\mathbb C}$ の滑らかさを判定し、種数 $g(C)$ と標準束 $K_C$ を求めよ。
+
+- Level: A
+- ID: AG3-14-A1
+
+<!-- solution-start -->
+### 詳細解答
+
+偏微分は $4X^3,4Y^3,4Z^3$ です。標数が0なので全て零なら $X=Y=Z=0$ となり射影点ではありません。従って滑らかです。[種数公式](../AG3-11/index.md#cor-ag3-11-plane-genus)へ $d=4$ を代入し
+$$
+g(C)=\frac{(4-1)(4-2)}2=3.
+$$
+[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)では平面曲線の $K_C$ は $\mathcal O_C(d-3)$ なので、$K_C\simeq\mathcal O_C(1)$ です。これは曲線の $H^1(\mathcal O_C)$ が3次元という結論であり、四次曲面の $H^2$ と同じ数ではありません。
+<!-- solution-end -->
+
+### A2. 四次曲線で次数を変えて切断を数える
+
+A1の $C$ について $m=1,2$ に対し $h^0(C,\mathcal O_C(m))$、$h^1(C,\mathcal O_C(m))$ および $\chi(C,\mathcal O_C(m))$ を求めよ。
+
+- Level: A
+- ID: AG3-14-A2
+
+<!-- solution-start -->
+### 詳細解答
+
+[平面曲線のコホモロジー定理](../AG3-11/index.md#thm-ag3-11-curve-cohomology)へ $d=4$ を入れます。$m=1$ では
+$$
+h^0=\dim S_1-\dim S_{-3}=3,\quad
+h^1=\dim S_{4-1-3}-\dim S_{-1-3}
+=\dim S_0=1.
+$$
+従って $\chi=3-1=2$。$m=2$ では
+$$
+h^0=\dim S_2-\dim S_{-2}=6,\quad
+h^1=\dim S_{-1}-\dim S_{-5}=0
+$$
+で $\chi=6$ です。[超平面因子のRiemann–Roch等式](../AG3-11/index.md#thm-ag3-11-hyperplane-rr)へ $\deg H=4,g=3$ を代入すると、$m=1,2$ で $m\deg H+1-g=2,6$ となり一致します。
+<!-- solution-end -->
+
+### A3. 四次曲面の三つの群
+
+$X:X_0^4+X_1^4+X_2^4+X_3^4=0\subset\mathbb P^3_{\mathbb C}$ について、$K_X$、$h^0(\mathcal O_X)$、$h^1(\mathcal O_X)$、$h^2(\mathcal O_X)$、$\chi(\mathcal O_X)$ を求めよ。
+
+- Level: A
+- ID: AG3-14-A3
+
+<!-- solution-start -->
+### 詳細解答
+
+偏微分 $4X_i^3$ が全て零となる射影点はないので $X$ は滑らかです。[超曲面の構造層定理](#thm-ag3-14-surface-cohomology)に $d=4$ を代入すると
+$$
+(h^0,h^1,h^2)=\left(1,0,\binom33\right)=(1,0,1).
+$$
+標準束は $K_X\simeq\mathcal O_X(4-4)=\mathcal O_X$、Euler標数は $1-0+1=2$ です。A1の平面曲線とは、同じ「四次」でも異なる次元の対象です。
+<!-- solution-end -->
+
+### A4. 無限遠直線と三次曲線
+
+$C:Y^2Z-X^3+XZ^2=0$ と $L:Z=0$ を $\mathbb P^2_{\mathbb C}$ 内で考える。集合としての交点と局所交叉重複度を求めよ。
+
+- Level: A
+- ID: AG3-14-A4
+
+<!-- solution-start -->
+### 詳細解答
+
+$Z=0$ を代入すると $-X^3=0$ なので唯一の交点は $P=[0:1:0]$ です。$Y=1$ で $x=X/Y,z=Z/Y$ と置くと二つの方程式は $z-x^3+xz^2=0,z=0$。[局所交叉重複度の定義](../AG3-13/index.md#def-ag3-13-local-intersection)へ入れると
+$$
+I_P(C,L)
+=\dim_{\mathbb C}\mathbb C[x,z]_{(x,z)}/(z-x^3+xz^2,z)
+=\dim_{\mathbb C}\mathbb C[x]_{(x)}/(x^3)=3.
+$$
+最後の環の基底は $1,x,x^2$ です。[直線Bézout公式](../AG2-04/index.md#thm-ag2-04-line-bezout)の次数3に一致します。
+<!-- solution-end -->
+
+### B1. 五次平面曲線の特殊な切断
+
+$C:X^5+Y^5+Z^5=0\subset\mathbb P^2_{\mathbb C}$ の滑らかさを確認し、$g(C)$、$K_C$、$h^0(C,\mathcal O_C(2))$、$h^1(C,\mathcal O_C(2))$ を計算してEuler標数を検算せよ。
+
+- Level: B
+- ID: AG3-14-B1
+
+<!-- solution-start -->
+### 詳細解答
+
+偏微分は $5X^4,5Y^4,5Z^4$ なので、同時零の射影点はなく滑らかです。[種数公式](../AG3-11/index.md#cor-ag3-11-plane-genus)から $g=4\cdot3/2=6$、[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)から $K_C\simeq\mathcal O_C(5-3)=\mathcal O_C(2)$ です。
+
+[コホモロジー公式](../AG3-11/index.md#thm-ag3-11-curve-cohomology)で $d=5,m=2$ とすると
+$$
+h^0=\dim S_2-\dim S_{-3}=6,\qquad
+h^1=\dim S_0-\dim S_{-5}=1.
+$$
+よって $\chi=6-1=5$。[超平面因子のRiemann–Roch等式](../AG3-11/index.md#thm-ag3-11-hyperplane-rr)では $\deg(2H)+1-g=2\cdot5+1-6=5$ で一致します。$K_C=2H$ のため $h^1=1$ が残ることを、切断数の計算と結び付けて理解します。
+<!-- solution-end -->
