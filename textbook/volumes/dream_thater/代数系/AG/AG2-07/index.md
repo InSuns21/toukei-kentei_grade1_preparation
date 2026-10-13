@@ -81,7 +81,13 @@ $$
 
 局所環の極大イデアルは $x-a,y-b$ で生成されますから $\mathfrak m_P=(t)$ です。
 
-$A$ はNoether整域です。$I=\bigcap_{r\ge0}t^rA$ と置くと、$I$ は有限生成イデアルです。また $z\in I$ なら $z=tw$ と書け、$z\in t^{r+1}A$ から整域での $t$ の約分により $w\in t^rA$ が各 $r$ に対して従います。ゆえに $I=tI$ です。
+$F$ が既約なので $\mathbb C[x,y]/(F)$ は整域です。[有限変数多項式環のNoether性](../AG1-05/index.md#cor-ag1-05-multivariate-noether)と[商環・局所化でのNoether性の保存](../AG1-05/index.md#prop-ag1-05-quotient-localization)を順に適用すると、次の局所環はNoether整域です。
+
+$$
+A=(\mathbb C[x,y]/(F))_{(x-a,y-b)}.
+$$
+
+そこで $I=\bigcap_{r\ge0}t^rA$ と置きます。$A$ がNoetherなので、$I$ は有限生成イデアルです。また $z\in I$ なら $z=tw$ と書け、$z\in t^{r+1}A$ から整域での $t$ の約分により $w\in t^rA$ が各 $r$ に対して従います。ゆえに $I=tI$ です。
 
 $I$ の生成元を $z_1,\ldots,z_m$ とし、$z_i=t\sum_j a_{ij}z_j$ と書きます。係数行列 $I_m-t(a_{ij})$ の行列式は $1$ と $\mathfrak m_P$ の元の和なので単元です。随伴行列を掛ければ $z_i=0$ がすべての $i$ について従い、$I=0$ です。
 
@@ -105,7 +111,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag2-07-order-principal -->
-**定義の確認**：直線 $y=x^2$ の原点では $t=x$ が局所パラメータで、$y=t^2$ です。従って $\operatorname{ord}_0(x)=1$、$\operatorname{ord}_0(y)=2$、$\operatorname{ord}_0(1/x)=-1$ です。単に零点であるかどうかでなく、何回局所パラメータで割れるかを数えています。
+**定義の確認**：放物線 $y=x^2$ の原点では $t=x$ が局所パラメータで、$y=t^2$ です。従って $\operatorname{ord}_0(x)=1$、$\operatorname{ord}_0(y)=2$、$\operatorname{ord}_0(1/x)=-1$ です。単に零点であるかどうかでなく、何回局所パラメータで割れるかを数えています。
 <!-- definition-example-end -->
 
 位数は乗法と両立します。$f=t_P^au$、$g=t_P^bv$ なら $fg=t_P^{a+b}uv$ で、$uv$ は単元なので
@@ -311,7 +317,9 @@ $$
 
 $D=\operatorname{div}(h)$ が一つの大域有理関数で表示される主Cartier因子なら、全チャートで $f_i=h$ を取れて遷移関数は $1$ です。したがって $\mathcal O(D)$ は自明です。ゆえに群準同型は商へ降ります。
 
-全射性を示します。可逆層 $\mathcal L$ の各局所基底を $e_i$ とし、遷移関数を $e_j=g_{ij}e_i$ とします。$X$ は既約なので、任意の二つの非空開集合が交わり、局所基底は一般点で同じ一次元 $K$-ベクトル空間の基底となります。この空間で非零元 $s$ を選び、$s=h_i e_i$ と表します。$h_i\in K^\times$ で、$h_i e_i=h_j e_j=h_jg_{ij}e_i$ より
+全射性を示します。可逆層 $\mathcal L$ の各局所基底を $e_i$ とし、遷移関数を $e_j=g_{ij}e_i$ とします。$X$ は既約なので、任意の二つの非空開集合が交わります。
+
+各非空 $U_i$ 上の局所基底 $e_i$ から一次元 $K$-ベクトル空間 $K e_i$ を作り、重なりの $e_j=g_{ij}e_i$ によって同一視します。遷移関数は $g_{ij}g_{jk}=g_{ik}$ を満たすので、この同一視は三重の重なりでも整合します。こうして得た共通の一次元 $K$-ベクトル空間で非零元 $s$ を選び、各 $i$ について $s=h_i e_i$ と表します。$h_i\in K^\times$ で、$h_i e_i=h_j e_j=h_jg_{ij}e_i$ より
 
 $$
 h_i=h_jg_{ij},\qquad
@@ -392,7 +400,15 @@ $$
 
 最後の分数は $y=0$ で非零の定数値を持つため、無限遠での位数は $\deg q-\deg p$ です。よって全点での位数和は $0$ となり、主因子の次数は $0$ です。したがって次数の異なる $d[P_\infty]$ は線形同値にならず、次数で類が一意に決まります。
 
-前節の[Cartier因子類と可逆層](#thm-ag2-07-cartier-picard)によってPicard群へ移ります。$[P_\infty]$ の局所方程式は $f_S=1,f_T=y$ であり、[付随層の例](#def-ag2-07-associated-line-bundle)から $\mathcal O([P_\infty])\simeq\mathcal O(1)$ です。テンソル積と双対で任意の整数 $d$ に対し $\mathcal O(d[P_\infty])\simeq\mathcal O(d)$ となります。
+前節の[Cartier因子類と可逆層](#thm-ag2-07-cartier-picard)によってPicard群へ移ります。$[P_\infty]$ の局所方程式は $f_S=1,f_T=y$ であり、[付随層の例](#def-ag2-07-associated-line-bundle)から $\mathcal O([P_\infty])\simeq\mathcal O(1)$ です。
+
+[可逆層のテンソル積と双対](../AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと、正の $d$ は $\mathcal O(1)$ の $d$ 回テンソル積、負の $d$ はその双対の $-d$ 回テンソル積に対応します。したがって
+
+$$
+\mathcal O(d[P_\infty])\simeq\mathcal O(d)\qquad(d\in\mathbb Z)
+$$
+
+が成り立ちます。
 <!-- proof-end -->
 
 例えば $D=[P_2]-2[P_0]+3[P_\infty]$ は次数 $2$ なので $\mathcal O(D)\simeq\mathcal O(2)$ です。しかし $D$ 自身と $2[P_\infty]$ は等しい因子ではなく、主因子を加えた**線形同値類**が同じです。
@@ -538,7 +554,14 @@ $$
 
 $X=0$ を代入すると $s^2=0$ となるため、交点は $s=0$、すなわち $Q=[0:0:1]$ だけです。$Z\ne0$ の局所座標を $z=s/t=Y/Z$ とすると $X/Z=z^2$ です。$z$ は $Q$ の局所パラメータで、$X/Z$ の位数は $2$ なので交点因子は $2[Q]$ です。
 
-超平面切断の線束は、各チャートの基底変換が斉次座標の一次比で与えられる $\mathcal O_C(1)$ です。引き戻した座標切断 $X,Y,Z$ はそれぞれ $s^2,st,t^2$ となり、$\mathbb P^1$ 上の[斉次二次式の切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)と同じ遷移関数で貼り合わさります。従って $\nu^*\mathcal O_C(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。次数 $2$ という結論は交点因子 $2[Q]$ と一致します。
+超平面切断の線束は、[射影空間の$\mathcal O(1)$の定義](../AG2-06/index.md#def-ag2-06-twisting-sheaf)による $\mathcal O_C(1)$ です。$X\ne0$、$Z\ne0$ における局所基底をそれぞれ $e_X,e_Z$ と書くと、重なりで $e_Z=(Z/X)e_X$ です。$\nu$ により $X=s^2$、$Z=t^2$ だから、引き戻した基底の変換は
+
+$$
+\nu^*e_Z=\nu^*\!\left(\frac{Z}{X}\right)\nu^*e_X
+=\left(\frac{t}{s}\right)^2\nu^*e_X.
+$$
+
+これは $\mathbb P^1$ 上の $\mathcal O(2)$ の基底変換そのものです。また座標切断 $X,Y,Z$ は引き戻すと $s^2,st,t^2$ になり、[斉次二次式の切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)とも整合します。従って $\nu^*\mathcal O_C(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。次数 $2$ は交点因子 $2[Q]$ と一致します。
 <!-- solution-end -->
 
 ### C2. 因子の次数と切断空間
