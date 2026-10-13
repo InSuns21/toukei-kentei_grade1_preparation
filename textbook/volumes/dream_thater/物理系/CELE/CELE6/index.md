@@ -31,7 +31,7 @@ $$
 
 <!-- definition-example-start: def-cele6-hyperbolic -->
 
-**直接例**。$D(x,y)=(2x,y/2)$ は原点を固定し、微分行列は $\operatorname{diag}(2,1/2)$ です。固有値 $2,1/2$ がそれぞれ拡大・収縮を与えます。$(0,y)$ は前方に原点へ、$(x,0)$ は後方に原点へ近づきます。これは[対角模型の安定・不安定方向](../../../解析系/DYN/DYN14/index.md#thm-dyn14-diagonal-directions)の具体例です。
+**定義の確認**。$D(x,y)=(2x,y/2)$ は原点を固定し、微分行列は $\operatorname{diag}(2,1/2)$ です。固有値 $2,1/2$ がそれぞれ拡大・収縮を与えます。$(0,y)$ は前方に原点へ、$(x,0)$ は後方に原点へ近づきます。これは[対角模型の安定・不安定方向](../../../解析系/DYN/DYN14/index.md#thm-dyn14-diagonal-directions)の具体例です。
 
 <!-- definition-example-end -->
 
