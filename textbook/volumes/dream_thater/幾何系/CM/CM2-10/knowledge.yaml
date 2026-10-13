@@ -1,0 +1,62 @@
+chapter: CM2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-09
+  - CM2-02
+  - CM2-08
+concepts:
+  - id: complex-manifolds.connection-definition
+    name: 複素ベクトル束上の接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素ベクトル束上の接続）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle, complex-manifolds.type-exterior-derivatives]
+  - id: complex-manifolds.connection-gauge-law
+    name: 接続行列の枠変更則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接続行列の枠変更則）"]
+    requires: [complex-manifolds.connection-definition, complex-manifolds.vector-bundle-gauge-change]
+  - id: complex-manifolds.chern-compatible-conditions
+    name: 正則構造・Hermite計量と両立する接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則構造・Hermite計量と両立する接続）"]
+    requires: [complex-manifolds.connection-definition, complex-manifolds.hermitian-metric, complex-manifolds.type-exterior-derivatives]
+  - id: complex-manifolds.connection-metric-equation
+    name: 計量両立性の行列方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（計量両立性の行列方程式）"]
+    requires: [complex-manifolds.chern-compatible-conditions, complex-manifolds.hermitian-metric-matrix]
+  - id: complex-manifolds.chern-connection-existence-uniqueness
+    name: Chern接続の存在・一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Chern接続の存在・一意性）"]
+    requires: [complex-manifolds.connection-metric-equation, complex-manifolds.connection-gauge-law, complex-manifolds.hermitian-log-derivative]
+  - id: complex-manifolds.chern-line-formula
+    name: 正則線束のChern接続
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則線束のChern接続）"]
+    requires: [complex-manifolds.chern-connection-existence-uniqueness, complex-manifolds.holomorphic-line-bundle]
+  - id: complex-manifolds.chern-tautological-connection
+    name: 普遍線束O(-1)のChern接続
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍線束 $\mathcal O(-1)$ のChern接続）"]
+    requires: [complex-manifolds.chern-line-formula, complex-manifolds.hermitian-metric]
+  - id: complex-manifolds.chern-smooth-unit-frame
+    name: 非正則単位枠での接続行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非正則単位枠での接続行列）"]
+    requires: [complex-manifolds.connection-gauge-law, complex-manifolds.chern-connection-existence-uniqueness]
+  - id: complex-manifolds.chern-induced-connections
+    name: 双対・テンソル積・行列式束のChern接続
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対・テンソル積・行列式束のChern接続）"]
+    requires: [complex-manifolds.chern-connection-existence-uniqueness, complex-manifolds.induced-hermitian-metrics, complex-manifolds.holomorphic-dual-bundle, complex-manifolds.holomorphic-tensor-product-bundle, complex-manifolds.determinant-line-bundle]
