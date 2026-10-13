@@ -928,6 +928,7 @@
 
 1. [CELE1 二体問題を可積分系として読み直す](textbook/volumes/dream_thater/物理系/CELE/CELE1/index.md)
 2. [CELE2 N体Hamilton系と三体問題](textbook/volumes/dream_thater/物理系/CELE/CELE2/index.md)
+3. [CELE3 三体問題の特殊解](textbook/volumes/dream_thater/物理系/CELE/CELE3/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
