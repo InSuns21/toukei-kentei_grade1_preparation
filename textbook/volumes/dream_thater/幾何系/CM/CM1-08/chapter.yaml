@@ -1,0 +1,39 @@
+id: "CM1-08"
+title: "積分可能性の計算例・非可積分例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-07
+  - CM1-06
+  - CM1-04
+  - GEO5
+official_scope: []
+learning_objectives:
+  - 三角型の(0,1)局所枠と共役が複素化接束の直和を与えることを証明できる
+  - 局所枠の交換子からNijenhuisテンソルの係数と符号を求められる
+  - 局所積分可能性が近傍全体でのNijenhuis消滅を要することを説明できる
+  - 係数が非定数でも積分可能な構造について適合座標と逆写像を構成できる
+  - 一点でNijenhuisが零でも局所積分可能でない例を証明できる
+  - パラメータ付きの非可積分例と可積分例を同じ判定で分類できる
+definitions:
+  - { id: CM1-08-DEF-01, name: 三角型の型別局所枠 }
+theorems:
+  - { id: CM1-08-PROP-01, name: 三角型枠による概複素構造の構成 }
+  - { id: CM1-08-THM-01, name: 三角型枠の積分可能性判定 }
+  - { id: CM1-08-PROP-02, name: 明示的な適合座標の二系列 }
+  - { id: CM1-08-PROP-03, name: 一点でのNijenhuis消滅は十分でない }
+canonical_examples:
+  - 定数および非定数係数の可積分な三角型枠
+  - 指数関数による非線形な適合座標
+  - 一点で障害が零でも近傍に適合座標がない例
+  - パラメータ変形による積分可能性の分類
+problem_patterns:
+  - CM1-08-TRIANGULAR-FRAME
+  - CM1-08-BRACKET-OBSTRUCTION
+  - CM1-08-EXPLICIT-CHART
+  - CM1-08-POINTWISE-VS-NEIGHBORHOOD
+  - CM1-08-PARAMETER-FAMILY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
