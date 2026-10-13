@@ -5,6 +5,7 @@ prerequisites:
   - LORG1
   - LORG2
   - GEO12
+  - GEO14
 concepts:
   - id: lorentz-geometry.causal-curve
     name: 因果曲線
