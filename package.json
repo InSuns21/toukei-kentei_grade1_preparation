@@ -73,7 +73,8 @@
     "audit:dream-theater-prose-prerequisites": "node scripts/audit-dream-theater-prose-prerequisites.mjs --strict",
     "test:dream-theater-prose-prerequisites": "node scripts/audit-dream-theater-prose-prerequisites.mjs --self-test",
     "audit:math-layout": "node scripts/audit-math-layout.mjs",
-    "validate:simulation-phase1": "node scripts/validate-simulation-phase1.mjs"
+    "validate:simulation-phase1": "node scripts/validate-simulation-phase1.mjs",
+    "validate:simulation-browser": "node scripts/validate-simulation-browser.mjs"
   },
   "dependencies": {
     "katex": "^0.16.11",
