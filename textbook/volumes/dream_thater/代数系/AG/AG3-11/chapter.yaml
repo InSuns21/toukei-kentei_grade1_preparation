@@ -1,0 +1,46 @@
+id: "AG3-11"
+title: "曲線の種数とRiemann–Rochへの入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-10
+  - AG3-08
+  - AG2-10
+  - AG2-08
+  - AG2-07
+official_scope: []
+learning_objectives:
+  - 滑らかな射影曲線の種数をH1(O_C)として理解し平面曲線で有限性と値を計算できる
+  - 平面曲線の定義多項式から制限完全列を構成し大域切断の核・余核を追える
+  - 射影平面のO(m)の全コホモロジーと長完全列から曲線上のh0・h1を全整数mで求められる
+  - 滑らかな次数dの平面曲線の種数を(d-1)(d-2)/2と導ける
+  - 随伴公式で標準束を記述し正則微分形式の個数と種数を対応させられる
+  - 超平面因子mHに対するRiemann–Roch型の等式を証明し一般因子への未解決の段差を特定できる
+definitions:
+  - { id: AG3-11-DEF-01, name: 曲線の種数 }
+  - { id: AG3-11-DEF-02, name: 平面曲線の超平面因子 }
+theorems:
+  - { id: AG3-11-PROP-01, name: 平面曲線の制限完全列 }
+  - { id: AG3-11-THM-01, name: 平面曲線のねじり層のコホモロジー }
+  - { id: AG3-11-COR-01, name: 滑らかな平面曲線の種数公式 }
+  - { id: AG3-11-PROP-02, name: 標準束と正則微分形式の個数 }
+  - { id: AG3-11-THM-02, name: 超平面因子に対するRiemann–Roch等式 }
+canonical_examples:
+  - 滑らかな直線・二次曲線・三次曲線・四次曲線の種数
+  - 平面四次曲線の二次曲線切断と特殊線型系
+  - 平面五次曲線の正則微分形式の数
+problem_patterns:
+  - AG3-11-A1
+  - AG3-11-A2
+  - AG3-11-A3
+  - AG3-11-A4
+  - AG3-11-B1
+  - AG3-11-B2
+  - AG3-11-B3
+  - AG3-11-B4
+  - AG3-11-C1
+  - AG3-11-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 18, exercises: 12, review: 8 }
