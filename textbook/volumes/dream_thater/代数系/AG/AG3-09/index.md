@@ -140,7 +140,7 @@ $$
 \frac{(us)^d}{f^{m+\deg u}}
 =\frac{u^d}{f^{\deg u}}\frac{s^d}{f^m}
 $$
-で分かります。さらに $st$ が条件を満たせば右辺が $\mathfrak q$ に入り、$\mathfrak q$ が素なので $s$ または $t$ が条件を満たします。従って生成された斉次イデアルは斉次元について素であり、**斉次イデアルが斉次元の積について素なら通常の素イデアル**という次数最高成分からの帰納法により、$\mathfrak p_{\mathfrak q}$ は素イデアルです。
+で分かります。さらに $st$ が条件を満たせば右辺が $\mathfrak q$ に入り、$\mathfrak q$ が素なので $s$ または $t$ が条件を満たします。従ってこの斉次イデアルの商環 $S/\mathfrak p_{\mathfrak q}$ では、非零の斉次元同士の積が非零です。ここから通常の元の積についても素性を確認します。商環の非零元 $a,b$ を次数成分へ分け、最高次数の非零成分をそれぞれ $a_M,b_N$ とします。積 $ab$ の次数 $M+N$ 成分は $a_Mb_N$ だけであり、これは非零です。よって $ab\ne0$ となり、$S/\mathfrak p_{\mathfrak q}$ は整域、従って $\mathfrak p_{\mathfrak q}$ は素イデアルです。
 
 $f^d/f^d=1\notin\mathfrak q$ なので $f\notin\mathfrak p_{\mathfrak q}$ です。二つの構成が互いに逆であることは、次数零分数 $s/f^r$（$\deg s=rd$）について
 $$
@@ -150,6 +150,15 @@ $$
 \Longleftrightarrow s\in\mathfrak p_{\mathfrak q}
 $$
 を用いて確認できます。最初の同値は素イデアルの根基性、最後の同値は定義です。
+
+逆方向も斉次元ごとに確かめます。$\mathfrak p\in D_+(f)$ から $\mathfrak q=(\mathfrak pS_f)_0$ を作ったとき、斉次元 $s\in S_m$ について
+$
+\frac{s^d}{f^m}\in\mathfrak q
+\Longleftrightarrow
+\text{ある }r\ge0\text{ で }f^rs^d\in\mathfrak p
+\Longleftrightarrow s\in\mathfrak p.
+$
+最後の同値は $f\notin\mathfrak p$ と $\mathfrak p$ の素性から従います。これで $\mathfrak p\mapsto\mathfrak q$ と $\mathfrak q\mapsto\mathfrak p_{\mathfrak q}$ が互いに逆であることを、両方向で示せました。
 
 $g\in S_e$ について $g\notin\mathfrak p_{\mathfrak q}$ は $g^d/f^e\notin\mathfrak q$ と同値です。この対応によって開基が一致し、同相性が従います。さらに $B$ で $g^d/f^e$ を逆にすることは、次数零の分数の分母に $g$ を許すことと同じです。具体的には $s/(f^ag^b)$ の次数零条件は $\deg s=ad+be$ です。この分数は
 $$
@@ -375,6 +384,18 @@ $$
 となるので自由階数1です。$x_1$ 側では $x_1$ が局所基底となり、重なりで $x_1=(x_1/x_0)x_0$ という遷移を持ちます。これは[射影直線の $\mathcal O(1)$](../AG2-06/index.md#def-ag2-06-twisting-sheaf)と同じです。
 <!-- definition-example-end -->
 
+この貼り合わせが次数付き加群にも使えることを確かめます。$f\in S_d$、$g\in S_e$（$d,e>0$）とし、$m\in M_{ad+be}$、$a,b\ge0$ とします。重なりでの次数零分数は
+$
+\frac{m}{f^ag^b}
+=\underbrace{\frac{mg^{(d-1)b}}{f^{a+eb}}}_{\in(M_f)_0}
+\left(\frac{f^e}{g^d}\right)^b
+$
+と書けます。第一因子の分子の次数は $ad+be+(d-1)be=d(a+eb)$ なので次数零です。従って、標準開集合の環の場合と同じ操作で
+$
+((M_f)_0)_{g^d/f^e}\simeq(M_{fg})_0
+$
+となり、二重交叉上の加群と三重交叉上の制限が一致します。したがって局所的な加群の層を貼れます。
+
 <a id="prop-ag3-09-twists-polynomial"></a>
 
 <!-- formal-statement-start -->
@@ -481,7 +502,22 @@ $S=k[u,v]$、$\deg u=1,\deg v=2$ とする。$D_+(u)$、$D_+(v)$ の座標環を
 <!-- solution-start -->
 ### 詳細解答
 
-$u$ を反転すると、次数零の単項式 $u^av^b$（$a$ は負整数も許す）は $a+2b=0$ を満たすので $(v/u^2)^b$ です。従って $(S_u)_0=k[v/u^2]$ です。$v$ を反転すると、$u^av^b$（$b$ は負整数、$a\ge0$）の次数零条件は $a+2b=0$ です。よって $a$ は偶数で $(S_v)_0=k[u^2/v]$ です。$t=v/u^2$、$s=u^2/v$ とすれば、重なりで $ts=1$ です。$S_1=ku$ の元から生成される $k$-部分代数は $k[u]$ にすぎず、$v$ は含まれません。従って次数1生成という追加仮定は成り立ちません。
+$u$ を反転した環の次数零単項式は $u^av^b$（$a\in\mathbb Z$、$b\ge0$）のうち $a+2b=0$ を満たすものです。したがって $a=-2b$ であり、
+$
+(S_u)_0=k[t],\qquad t=\frac{v}{u^2}
+$
+となります。
+
+$v$ を反転した環では $a\ge0$、$b\in\mathbb Z$ として次数零条件は
+$
+a+2b=0\quad\Longrightarrow\quad
+a=2j,\ b=-j\quad(j\ge0)
+$
+です。従って
+$
+(S_v)_0=k[s],\qquad s=\frac{u^2}{v}.
+$
+重なりで $ts=(v/u^2)(u^2/v)=1$ です。また $S_1=ku$ から生成される $k$-部分代数は $k[u]$ にすぎず、$v$ を含みません。従って次数1生成という追加仮定は成り立ちません。
 <!-- solution-end -->
 
 ### B2. 斉次方程式の局所化
