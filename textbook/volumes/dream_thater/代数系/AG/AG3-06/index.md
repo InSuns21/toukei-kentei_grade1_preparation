@@ -131,19 +131,23 @@ $$
 > **定理（アフィンスキーム上の準連接層と加群）**  
 > $A$ を可換環、$X=\operatorname{Spec}A$ とする。$A$-加群 $M$ から $\widetilde M$ を作る対応と、準連接層 $\mathcal F$ から $\Gamma(X,\mathcal F)$ を取る対応は互いに逆の同値を与える。特に準連接層 $\mathcal F$ と $f\in A$ について
 >
-> $$
-> \Gamma(X,\mathcal F)_f
-> \simeq \Gamma(D(f),\mathcal F),
-> \qquad
-> \widetilde{\Gamma(X,\mathcal F)}\simeq\mathcal F.
-> $$
+
+$$
+\Gamma(X,\mathcal F)_f
+\simeq \Gamma(D(f),\mathcal F),
+\qquad
+\widetilde{\Gamma(X,\mathcal F)}\simeq\mathcal F.
+$$
+
 >
 > また任意の $A$-加群 $M,N$ に対し、層の射には自然な全単射がある。
 >
-> $$
-> \operatorname{Hom}_A(M,N)\simeq
-> \operatorname{Hom}_{\mathcal O_X}(\widetilde M,\widetilde N).
-> $$
+
+$$
+\operatorname{Hom}_A(M,N)\simeq
+\operatorname{Hom}_{\mathcal O_X}(\widetilde M,\widetilde N).
+$$
+
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -191,16 +195,20 @@ $\widetilde M$ は加群を幾何へ運ぶだけでなく、加群の列の「�
 > **命題（加群列と準連接層の完全性）**  
 > $A$ を可換環とする。$A$-加群列
 >
-> $$
-> M'\xrightarrow{u}M\xrightarrow{v}M''
-> $$
+
+$$
+M'\xrightarrow{u}M\xrightarrow{v}M''
+$$
+
 >
 > が $M$ で完全であることと、$X=\operatorname{Spec}A$ 上の層の列
 >
-> $$
-> \widetilde{M'}\xrightarrow{\widetilde u}
-> \widetilde M\xrightarrow{\widetilde v}\widetilde{M''}
-> $$
+
+$$
+\widetilde{M'}\xrightarrow{\widetilde u}
+\widetilde M\xrightarrow{\widetilde v}\widetilde{M''}
+$$
+
 >
 > が $\widetilde M$ で完全であることは同値である。ここで層の完全性は各茎での完全性をいう。
 <!-- formal-statement-end -->
@@ -225,9 +233,11 @@ $u,v$ が合成零で $\operatorname{im}u=\ker v$ とします。[茎の表示](
 > **命題（アフィン射による引戻し）**  
 > 環準同型 $A\to B$ が定めるスキームの射 $f:\operatorname{Spec}B\to\operatorname{Spec}A$ と $A$-加群 $M$ に対し、$\mathcal O_{\operatorname{Spec}B}$-加群の層として自然な同型がある。
 >
-> $$
-> f^*(\widetilde M)\simeq\widetilde{B\otimes_A M}.
-> $$
+
+$$
+f^*(\widetilde M)\simeq\widetilde{B\otimes_A M}.
+$$
+
 >
 > ここで $f^*\mathcal F=f^{-1}\mathcal F\otimes_{f^{-1}\mathcal O_X}\mathcal O_Y$ は加群の層の引戻しを表す。
 <!-- formal-statement-end -->
@@ -263,9 +273,11 @@ $$
 >
 > 有限表示であるとは、同じように局所的に有限整数 $r,s$ と完全列
 >
-> $$
-> A^s\longrightarrow A^r\longrightarrow M\longrightarrow0
-> $$
+
+$$
+A^s\longrightarrow A^r\longrightarrow M\longrightarrow0
+$$
+
 >
 > を取れることをいう。有限表示なら有限型だが、一般には逆は成り立たない。
 <!-- formal-statement-end -->
@@ -313,9 +325,11 @@ $A\oplus K$ は有限生成なので $A^r\oplus I$ も有限生成です。そ�
 > **定義（連接層）**  
 > スキーム $X$ 上の準連接層 $\mathcal F$ が連接層であるとは、$\mathcal F$ が有限型であり、さらに任意の開集合 $U\subseteq X$、任意の有限整数 $r$、任意の $\mathcal O_U$-加群の層の射
 >
-> $$
-> \varphi:\mathcal O_U^r\longrightarrow\mathcal F|_U
-> $$
+
+$$
+\varphi:\mathcal O_U^r\longrightarrow\mathcal F|_U
+$$
+
 >
 > に対して $\ker\varphi$ が有限型であることをいう。
 <!-- formal-statement-end -->
