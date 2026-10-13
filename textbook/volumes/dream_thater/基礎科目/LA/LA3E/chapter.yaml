@@ -15,6 +15,8 @@ learning_objectives:
   - 内部積を定義し、外積に対する符号付き積の法則を証明できる
 definitions:
   - { id: LA3E-DEF-01, name: テンソル積 }
+  - { id: LA3E-DEF-10, name: 双線形形式 }
+  - { id: LA3E-DEF-11, name: 双線形形式の非退化性 }
   - { id: LA3E-DEF-02, name: 単純テンソル }
   - { id: LA3E-DEF-03, name: "(r,s)型テンソル" }
   - { id: LA3E-DEF-04, name: 評価写像による因子消去 }
@@ -27,6 +29,7 @@ theorems:
   - { id: LA3E-THM-01, name: 有限次元テンソル積の存在と基底 }
   - { id: LA3E-THM-02, name: テンソル積の一意性 }
   - { id: LA3E-PROP-01, name: 交代化は射影 }
+  - { id: LA3E-PROP-03, name: 双線形形式の行列表示と非退化性 }
   - { id: LA3E-PROP-02, name: 1次形式の外積の行列式表示 }
   - { id: LA3E-THM-03, name: 外冪の標準基底と次元 }
   - { id: LA3E-THM-04, name: 外積の結合性と次数付き交換則 }

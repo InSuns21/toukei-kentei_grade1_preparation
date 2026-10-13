@@ -19,6 +19,27 @@ forward_references:
   - geometry.global-top-form-integral
 
 concepts:
+  - id: linear.bilinear-form
+    name: 双線形形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（双線形形式）]
+    requires: [linear.linear-map]
+
+  - id: linear.nondegenerate-bilinear-form
+    name: 双線形形式の非退化性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（双線形形式の非退化性）]
+    requires: [linear.bilinear-form, linear.algebraic-dual-space]
+
+  - id: linear.bilinear-nondegenerate-matrix
+    name: 双線形形式の行列表示と非退化性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（双線形形式の行列表示と非退化性）]
+    requires: [linear.nondegenerate-bilinear-form, linear.representation-matrix]
+
   - id: linear.tensor-product
     name: テンソル積
     kind: definition
