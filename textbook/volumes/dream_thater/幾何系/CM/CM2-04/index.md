@@ -98,18 +98,18 @@ $$
 > **命題（商空間と零類の判定）**  
 > 複素多様体 $X$ と $0\le p,q\le\dim_{\mathbb C}X$ に対して、bar∂完全形式はbar∂閉形式の複素線形部分空間をなす。すなわち
 
-$
+$$
 B_{\bar\partial}^{p,q}(X)\subset Z_{\bar\partial}^{p,q}(X).
-$
+$$
 
 > 従ってこの二空間の商は複素ベクトル空間として定義できる。閉形式 $\alpha$ の類が零になるのは、大域的な原始形式が存在するときに限る。
 
-$
+$$
 [\alpha]=0
 \quad\Longleftrightarrow\quad
 \exists u\in\mathcal A^{p,q-1}(X):
 \ \alpha=\bar\partial u.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -143,15 +143,15 @@ $q=0$ では割るべき像が零空間であるため、$\bar\partial$ 閉な $
 > **命題（零次コホモロジーと正則p形式）**  
 > 複素多様体 $X$ と $0\le p\le\dim_{\mathbb C}X$ に対して、$H_{\bar\partial}^{p,0}(X)$ は大域的な正則 $(p,0)$ 形式の複素ベクトル空間に自然に一致する。正則 $(p,0)$ 形式とは、任意の正則座標 $z$ 上で
 
-$
+$$
 \omega=\sum_{|I|=p}a_I(z)\,dz^I
-$
+$$
 
 > と表示したとき、各係数 $a_I$ が正則関数となる形式である。特に正則関数全体を $\mathcal O(X)$ と書けば
 
-$
+$$
 H_{\bar\partial}^{0,0}(X)=\mathcal O(X).
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -180,12 +180,12 @@ $$
 
 $dz^I\wedge d\bar z^j$ は $(p,1)$ 形式の局所基底である。従って上の和が零になるのは、各係数が零であるときに限る。
 
-$
+$$
 \bar\partial\omega=0
 \quad\Longleftrightarrow\quad
 \frac{\partial a_I}{\partial\bar z^j}=0
 \qquad(\text{すべての }I,j).
-$
+$$
 
 [正則関数の判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)より、これはすべての $a_I$ が正則であることと同値である。正則座標変換では係数の変換行列も正則なので、この性質は座標の選び方によらない。
 
