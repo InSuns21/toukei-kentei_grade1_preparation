@@ -1,0 +1,53 @@
+id: "AG3-08"
+title: "層コホモロジーの基本計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-07
+  - AG3-06
+  - AG3-04
+  - AG2-06
+  - AG1-04
+official_scope: []
+learning_objectives:
+  - 大域切断の左完全性を証明し短完全列の大域全射性が失敗する理由を説明できる
+  - 入射分解を用いた層コホモロジーの定義と分解選択不変性を再構成できる
+  - 短完全列の連結写像を構成し長完全列の完全性を追える
+  - 主開被覆の増大Čech複体の完全性と準連接層のアフィン消滅を証明できる
+  - アフィン有限交叉のČech比較を二重複体で説明し適用条件を判定できる
+  - P1のO(d)のH0・H1・高次消滅を導出し基底を求められる
+  - Koszul型短完全列の連結写像と局所持ち上げの障害を一致させられる
+definitions:
+  - { id: AG3-08-DEF-01, name: 入射層と入射分解 }
+  - { id: AG3-08-DEF-02, name: 層コホモロジー }
+theorems:
+  - { id: AG3-08-PROP-01, name: 大域切断の左完全性 }
+  - { id: AG3-08-PROP-02, name: 分解の選択不変性と零次 }
+  - { id: AG3-08-THM-01, name: 層コホモロジーの長完全列 }
+  - { id: AG3-08-LEM-01, name: 主開被覆の増大Čech複体 }
+  - { id: AG3-08-LEM-02, name: Čech零化から層コホモロジーの零化 }
+  - { id: AG3-08-THM-02, name: 準連接層のアフィン消滅 }
+  - { id: AG3-08-THM-03, name: アフィン交叉を持つ被覆のČech比較 }
+  - { id: AG3-08-THM-04, name: 二アフィン被覆のMayer–Vietoris列 }
+  - { id: AG3-08-THM-05, name: 射影直線の層コホモロジー }
+  - { id: AG3-08-PROP-03, name: 局所持ち上げと連結準同型 }
+canonical_examples:
+  - 二点離散空間の層コホモロジー
+  - Spec k[x]のD(x),D(1-x)主開被覆
+  - P1のO(-3)とO(2)のコホモロジー
+  - P1のKoszul型短完全列と連結写像
+problem_patterns:
+  - AG3-08-A1
+  - AG3-08-A2
+  - AG3-08-A3
+  - AG3-08-A4
+  - AG3-08-B1
+  - AG3-08-B2
+  - AG3-08-B3
+  - AG3-08-B4
+  - AG3-08-C1
+  - AG3-08-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 20, exercises: 13, review: 8 }
