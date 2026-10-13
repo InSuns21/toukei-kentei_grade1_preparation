@@ -376,11 +376,11 @@ $$
 
 逆に全ての $f_{\bar z^j}$ が零とする。$f$ は $C^1$ 級だから実微分が存在し、任意の増分 $h\in\mathbb C^n$ に対して
 
-$
+$$
 f(z+h)-f(z)=D_{\mathbb R}f(z)[h]+o(\|h\|)
-$
+$$
 
-が成り立つ。各座標方向の Cauchy–Riemann 条件は実微分 $D_{\mathbb R}f(z)$ が複素線形であることを意味する。従って上の式は複素線形な主項を持ち、[高次元正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)から $f$ は正則となる。
+が成り立つ。各座標方向の Cauchy–Riemann 条件は実微分 $D_{\mathbb R}f(z)$ が複素線形であることを意味する。従って上の式は複素線形な主項を持ち、[複素線形微分による多変数正則写像](../CM1-01/index.md#def-cm1-01-holomorphic-map)から $f$ は正則となる。
 
 最後に $d\bar z^1,\ldots,d\bar z^n$ は独立な余接基底なので、$\bar\partial f=0$ と全ての $f_{\bar z^j}=0$ は同値である。$\square$
 <!-- proof-end -->
