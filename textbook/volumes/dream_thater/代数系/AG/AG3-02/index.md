@@ -207,9 +207,9 @@ $$
 > **命題（構造層の制限と貼り合わせ）**  
 > **任意の可換単位的環 $A$** に対し、上の $\mathcal O_X$ は $X=\operatorname{Spec}A$ 上の環の層である。具体的には開被覆 $U=\bigcup_i U_i$ と切断 $s_i\in\mathcal O_X(U_i)$ がすべての重なりで一致するなら、一意の $s\in\mathcal O_X(U)$ が存在し、各 $i$ で
 
-$
+$$
 s|_{U_i}=s_i
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -275,17 +275,17 @@ $$
 
 $B=A_f$ と置き、まず素点の対応を調べます。$B$ の素イデアル $\mathfrak q$ を $A$ へ引き戻して $\mathfrak p$ と置くと、$f$ が $B$ で可逆であるため $f\notin\mathfrak p$ です。逆にその条件を満たす素イデアル $\mathfrak p$ については
 
-$
+$$
 B/\mathfrak pB\simeq(A/\mathfrak p)_f
-$
+$$
 
 が零でない整域です。従って $\mathfrak pB$ は素イデアルです。
 
 $\mathfrak q$ の元 $a/f^n$ は、可逆な $f$ を掛けてもイデアルへの所属が変わらないため、$a/1\in\mathfrak q$ と同値です。一方、$a/1\in\mathfrak pB$ ならある $m$ に対して $f^m a\in\mathfrak p$ です。ここで素性と $f\notin\mathfrak p$ により $a\in\mathfrak p$ です。以上から素点の拡大・縮約は逆写像となります。
 
-$
+$$
 \operatorname{Spec}(A_f)\simeq D_A(f).
-$
+$$
 
 この対応は $g_i/1\notin\mathfrak pB$ と $g_i\notin\mathfrak p$ の同値から主開集合を保ちます。
 
@@ -370,11 +370,11 @@ $$
 
 従って $s$ の芽は零です。二つの芽の差に同じ議論を適用すれば単射が従います。最後に $a/s\in A_{\mathfrak p}$ で $a\notin\mathfrak p$ なら、$s/a$ が逆元です。$a\in\mathfrak p$ の分数はイデアル $\mathfrak pA_{\mathfrak p}$ に入ります。商環は
 
-$
+$$
 A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}
 \simeq (A/\mathfrak p)_{(A/\mathfrak p)\setminus\{0\}}
 =\operatorname{Frac}(A/\mathfrak p)
-$
+$$
 
 という体なので $\mathfrak pA_{\mathfrak p}$ は極大です。それ以外の元はすべて単元だから、ほかに極大イデアルはありません。これは[点での局所環の単元判定](../AG1-04/index.md#thm-ag1-04-local-ring)を任意の素点へ広げた計算です。
 <!-- proof-end -->
