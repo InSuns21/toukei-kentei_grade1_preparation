@@ -1,0 +1,46 @@
+id: "HA1"
+title: "高次元最大作用素とLebesgue微分定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MT4
+  - MT7
+  - FOU3
+official_scope: []
+learning_objectives:
+  - 球と立方体の平均、中心付きと非中心Hardy--Littlewood最大作用素を定義し、具体例で評価できる
+  - 有限球の3倍被覆補題を半径降順の貪欲選択から証明し、体積比を説明できる
+  - 高次元最大作用素の弱(1,1)推定とL∞推定を、仮定・定数・可測性を含めて証明できる
+  - L1稠密近似と超水準集合の評価から高次元Lebesgue微分定理を導き、局所可積分に拡張できる
+  - 球・立方体による微分の一致、密度定理、コンパクト台近似恒等族の点ごと収束を導ける
+  - 指示関数の遠方での減衰を積分し、最大作用素が強(1,1)有界でないことを示せる
+definitions:
+  - { id: HA1-DEF-01, name: 中心付きHardy--Littlewood最大作用素 }
+  - { id: HA1-DEF-02, name: 非中心Hardy--Littlewood最大作用素 }
+  - { id: HA1-DEF-03, name: Lebesgue点 }
+theorems:
+  - { id: HA1-PROP-01, name: 最大作用素の基本性質 }
+  - { id: HA1-LEM-01, name: 有限球の3倍被覆 }
+  - { id: HA1-THM-01, name: Hardy--Littlewood最大作用素の弱(1,1)評価 }
+  - { id: HA1-THM-02, name: 高次元Lebesgue微分定理 }
+  - { id: HA1-PROP-02, name: 球と立方体による微分の一致 }
+  - { id: HA1-COR-01, name: 高次元Lebesgue密度定理 }
+  - { id: HA1-PROP-03, name: コンパクト台の近似恒等族 }
+  - { id: HA1-PROP-04, name: 強い(1,1)評価の失敗 }
+canonical_examples:
+  - 単位球指示関数の原点最大値
+  - 半径降順で選ぶ有限球の3倍被覆
+  - 球と立方体の局所平均の比較
+  - コンパクト台の平均核
+  - 最大関数の遠方での対数発散
+problem_patterns:
+  - HA1-MAXIMAL-AVERAGES
+  - HA1-FINITE-BALL-COVERING
+  - HA1-WEAK11-COMPARISON
+  - HA1-LEBESGUE-POINT
+  - HA1-DENSITY-AND-KERNEL
+  - HA1-NOT-STRONG11
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

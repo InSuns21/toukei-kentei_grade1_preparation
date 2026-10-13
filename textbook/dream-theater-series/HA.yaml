@@ -1,0 +1,52 @@
+version: 1
+id: HA
+title: "調和解析"
+plan: textbook/plans_progress/DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# HA1で着手。進捗は本manifestを正本として、残りの章を順次執筆する。
+chapters:
+  - id: HA1
+    path: textbook/volumes/dream_thater/解析系/HA/HA1
+    status: completed
+    title: 高次元最大作用素とLebesgue微分定理
+  - id: HA2
+    path: textbook/volumes/dream_thater/解析系/HA/HA2
+    status: planned
+    title: 弱Lpと補間
+  - id: HA3
+    path: textbook/volumes/dream_thater/解析系/HA/HA3
+    status: planned
+    title: Hilbert変換と主値
+  - id: HA4
+    path: textbook/volumes/dream_thater/解析系/HA/HA4
+    status: planned
+    title: Calderón--Zygmund分解
+  - id: HA5
+    path: textbook/volumes/dream_thater/解析系/HA/HA5
+    status: planned
+    title: 特異積分とRiesz変換
+  - id: HA6
+    path: textbook/volumes/dream_thater/解析系/HA/HA6
+    status: planned
+    title: BMOと端点の見取り図
+  - id: HA7
+    path: textbook/volumes/dream_thater/解析系/HA/HA7
+    status: planned
+    title: RieszポテンシャルとHardy--Littlewood--Sobolev
+  - id: HA8
+    path: textbook/volumes/dream_thater/解析系/HA/HA8
+    status: planned
+    title: Littlewood--Paley理論と周波数局在
+  - id: HA9
+    path: textbook/volumes/dream_thater/解析系/HA/HA9
+    status: planned
+    title: Mikhlin--Hörmander型Fourier乗数
+  - id: HA10
+    path: textbook/volumes/dream_thater/解析系/HA/HA10
+    status: planned
+    title: 振動積分と定常位相法
+  - id: HA11
+    path: textbook/volumes/dream_thater/解析系/HA/HA11
+    status: planned
+    title: Fourier restrictionとKakeyaへの入口
