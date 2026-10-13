@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00A
+  - SET-U2
 official_scope: []
 learning_objectives:
   - 群・可換群を定義し、単位元・逆元の一意性、消去法則、積の逆元公式を群公理だけから証明できる
