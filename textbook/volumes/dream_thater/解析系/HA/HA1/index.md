@@ -299,7 +299,7 @@ $h$ の点値が大きい点も、閾値を超える集合上の積分を評価�
 <!-- proof-start -->
 ### 証明
 
-**第1段階：$f\in L^1(\mathbb R^d)$。**　任意の $\varepsilon>0$ について [連続コンパクト台関数の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から $g\in C_c(\mathbb R^d)$ を $\|f-g\|_1<\varepsilon$ となるよう選びます。$h=f-g$ と置きます。$f(x),g(x)$ が有限な点で $|u+v|\le|u|+|v|$ を二度用いると
+**第1段階：$f\in L^1(\mathbb R^d)$。**　零測度集合上の値を0に取り直し、$f$ の有限値を取る可測代表元を固定します（ほとんど至る所の結論は変わりません）。任意の $\varepsilon>0$ について [連続コンパクト台関数の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から $g\in C_c(\mathbb R^d)$ を $\|f-g\|_1<\varepsilon$ となるよう選びます。$h=f-g$ と置きます。$f(x),g(x)$ が有限な点で $|u+v|\le|u|+|v|$ を二度用いると
 
 $$
 \begin{aligned}
