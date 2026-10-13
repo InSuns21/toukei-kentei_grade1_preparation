@@ -1,0 +1,39 @@
+id: "HA6"
+title: "BMOと端点の見取り図"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA1
+  - HA3
+  - HA4
+  - HA5
+  - MT7
+official_scope: []
+learning_objectives:
+  - BMOを平均振動で定義し定数による商と有界関数からの包含を確認できる
+  - log|x|のBMO有界性を遠方と近方に分けて証明できる
+  - 局所停止立方体からJohn–Nirenbergの指数減衰を証明できる
+  - 指数尾部から任意の有限次数の平均振動評価を導ける
+  - CZ作用素の近方L2評価と遠方核差から端点BMO評価を導ける
+  - Hilbert変換の指示関数の像で強型端点の不成立を説明できる
+definitions:
+  - { id: HA6-DEF-01, name: BMO }
+theorems:
+  - { id: HA6-PROP-01, name: BMO半ノルムの基本性質 }
+  - { id: HA6-PROP-02, name: 非有界なBMO関数 }
+  - { id: HA6-LEM-01, name: 局所停止立方体 }
+  - { id: HA6-THM-01, name: John–Nirenberg不等式 }
+  - { id: HA6-COR-01, name: 高次の平均振動 }
+  - { id: HA6-THM-02, name: CZ作用素の端点評価 }
+canonical_examples:
+  - 指示関数の平均振動
+  - log|x|のBMO評価
+  - Hilbert変換の対数特異性
+problem_patterns:
+  - HA6-BMO
+  - HA6-JOHN-NIRENBERG
+  - HA6-CZ-ENDPOINT
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
