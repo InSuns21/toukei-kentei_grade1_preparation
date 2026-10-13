@@ -7,6 +7,7 @@ prerequisites:
   - VAR2
   - GEO10
   - AMECH3
+  - ODE4
 official_scope: []
 learning_objectives:
   - 弧長曲線の符号付き曲率と接線・法線分解を例で検証し、一般変分に対する速度要素と曲率の一次変化を導出できる
@@ -26,6 +27,7 @@ theorems:
   - { id: VAR3-THM-02, name: "面積拘束下での周長の停留条件" }
   - { id: VAR3-THM-03, name: "曲げエネルギーの第一変分と弾性曲線方程式" }
   - { id: VAR3-PROP-04, name: "位置固定・接線自由の曲げ端点条件" }
+  - { id: VAR3-PROP-05, name: "グラフ曲線の曲率と曲げ密度" }
 canonical_examples: [反時計回りの円の変分, 直線の端点自由問題, 面積一定の円, Euler弾性曲線の円弧, グラフの曲げ密度, 直線の第二変分]
 problem_patterns: [VAR3-CIRCLE-SIGNS, VAR3-TANGENT-BOUNDARY, VAR3-GRAPH-CURVATURE, VAR3-STRAIGHT-SECOND, VAR3-AREA-FOURIER, VAR3-SLIDING-END, VAR3-HINGED-ARC, VAR3-ISOPERIMETRIC, VAR3-ELASTICA-CONSERVED]
 past_exam_alignment: []
