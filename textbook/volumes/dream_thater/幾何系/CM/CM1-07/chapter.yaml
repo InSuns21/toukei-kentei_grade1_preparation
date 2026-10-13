@@ -6,6 +6,8 @@ prerequisites:
   - CM1-06
   - CM1-01
   - GEO5
+  - GEO6
+  - PDE1
 official_scope: []
 learning_objectives:
   - 積分可能な概複素構造とJに適合する複素座標を定義し直接例を検証できる
