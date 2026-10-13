@@ -353,30 +353,30 @@ $$
 
 ここまでで二次形式 $q(u)=g(u,u)$ の保存を確かめました。対称双線形形式そのものについては、任意の $u,v$ に対する偏極恒等式
 
-$
+$$
 2g(u,v)=q(u+v)-q(u)-q(v)
-$
+$$
 
 を使います。$B_\theta$ は線形で、上の計算によりすべての $w$ について $q(B_\theta w)=q(w)$ です。従って
 
-$
+$$
 \begin{aligned}
 2g(B_\theta u,B_\theta v)
 &=q(B_\theta(u+v))-q(B_\theta u)-q(B_\theta v)\\
 &=q(u+v)-q(u)-q(v)\\
 &=2g(u,v).
 \end{aligned}
-$
+$$
 
 したがって $B_\theta$ は、二次形式だけでなくLorentz内積 $g$ 自体を保ちます。
 
 さらに[閉未来錐の定義](#def-lorg1-future-cone)から $u=(t,x)\in C_+$ なら $t\ge|x|$ です。$t\ge0$ と $\cosh\theta>0$ を使って
 
-$
+$$
 t'=\cosh\theta\,t-\sinh\theta\,x
 \ge(\cosh\theta-|\sinh\theta|)t
 =e^{-|\theta|}t\ge0.
-$
+$$
 
 計量保存から $-t'^2+x'^2=-t^2+x^2\le0$ も成り立つため、$|x'|\le t'$、すなわち $B_\theta u\in C_+$ です。$t=0$ なら錐の条件から $x=0$ なので、非零の未来因果ベクトルについては $t'>0$ です。
 
