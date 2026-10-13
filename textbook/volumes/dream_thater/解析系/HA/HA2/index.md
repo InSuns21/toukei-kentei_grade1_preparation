@@ -201,7 +201,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha2-type -->
-**定義の確認**　恒等作用素 $I$ は任意の $1\le p\le\infty$ で強型 $(p,p)$、定数1です。[弱型包含](#prop-ha2-weak-properties)から $p<\infty$ では弱型 $(p,p)$ でもあります。一方、HA1の $M$ は[弱型 $(1,1)$](../HA1/index.md#thm-ha1-weak11)ですが、[強型 $(1,1)$](../HA1/index.md#prop-ha1-no-strong11)ではありません。
+**定義の確認**　恒等作用素 $I$ は任意の $1\le p\le\infty$ で強型 $(p,p)$、定数1です。
+
+[弱型包含](#prop-ha2-weak-properties)から $p<\infty$ では弱型 $(p,p)$ でもあります。
+
+一方、HA1の $M$ は[弱型 $(1,1)$](../HA1/index.md#thm-ha1-weak11)ですが、[強型 $(1,1)$](../HA1/index.md#prop-ha1-no-strong11)ではありません。
 <!-- definition-example-end -->
 
 ## 3. Marcinkiewicz補間を分布関数から証明する
