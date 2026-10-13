@@ -371,6 +371,7 @@
 ### 変分問題・幾何的第二変分
 
 1. [VAR1 汎関数・第一変分・Euler–Lagrange方程式](textbook/volumes/dream_thater/解析系/VAR/VAR1/index.md)
+2. [VAR2 第二変分と最小性](textbook/volumes/dream_thater/解析系/VAR/VAR2/index.md)
 
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式
