@@ -398,7 +398,15 @@ $$
 
 ## 7. $\mathbb{CP}^1$ の $\mathcal O(k)$ を二チャートで測る
 
-[標準線束 $\mathcal O(-1)$](../CM2-06/index.md#thm-cm2-06-tautological-nontrivial)と[双対束](../CM2-08/index.md#def-cm2-08-dual-bundle)と[テンソル積束](../CM2-08/index.md#def-cm2-08-tensor-bundle)から、整数 $k$ に対して $\mathcal O(k)$ を構成できる。$U_0$ 上の座標を $z$、$U_\infty$ 上の座標を $w=1/z$ とし、正則枠を $e_\infty=z^k e_0$ と取る。$\mathcal O(-1)$ で $e_\infty=z^{-1}e_0$ となる約束と一致する。
+[標準線束 $\mathcal O(-1)$](../CM2-06/index.md#thm-cm2-06-tautological-nontrivial)に[双対束](../CM2-08/index.md#def-cm2-08-dual-bundle)と[テンソル積束](../CM2-08/index.md#def-cm2-08-tensor-bundle)の構成を適用すると、整数 $k$ に対して $\mathcal O(k)$ が得られる。
+
+$U_0$ 上の座標を $z$、$U_\infty$ 上の座標を $w=1/z$ とする。二つの正則局所枠の関係を
+
+$
+e_\infty=z^k e_0
+$
+
+と取る。$k=-1$ では $e_\infty=z^{-1}e_0$ となり、標準線束での約束と一致する。
 
 これらの局所枠に、正の計量関数
 
