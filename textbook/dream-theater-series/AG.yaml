@@ -1,7 +1,7 @@
 version: 1
 id: AG
 title: "代数幾何学 I〜III"
-plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 第I〜III部を一つの系列として管理。各部の講数は固定ノルマではない。

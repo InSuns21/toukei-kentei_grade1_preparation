@@ -679,7 +679,14 @@ $$
 #### CM2-10-A01 接続のLeibniz則を検算する
 - Level: A
 
-$\mathbb C$ 上の自明階数二束の標準枠で $A=\begin{pmatrix}0&dz\\0&0\end{pmatrix}$ とし、$D(v)=dv+Av$ と定める。$v=(z,\bar z)^{\mathsf T}$ と $f=z^2$ について $D(fv)=df\,v+fDv$ を両辺から具体計算して示せ。
+$\mathbb C$ 上の自明階数二束の標準枠で、接続行列と接続の作用を
+
+$$
+A=\begin{pmatrix}0&dz\\0&0\end{pmatrix},
+\qquad D(v)=dv+Av
+$$
+
+と定める。$v=(z,\bar z)^{\mathsf T}$ と $f=z^2$ について $D(fv)=df\,v+fDv$ を両辺から具体計算して示せ。
 
 <!-- solution-start -->
 **詳細解答**。まず
@@ -802,7 +809,14 @@ $$
 #### CM2-10-A05 行列値計量の積順序
 - Level: A
 
-$H=B^*B$、$B=\begin{pmatrix}1&0\\z&1\end{pmatrix}$ とする。$A=H^{-1}\partial H$ を計算し、$A=\partial H\,H^{-1}$ とは一般に一致しないことを $z=1$ で示せ。
+次の行列値計量を考える。
+
+$$
+H=B^*B,\qquad
+B=\begin{pmatrix}1&0\\z&1\end{pmatrix}.
+$$
+
+$A=H^{-1}\partial H$ を計算し、$A=\partial H\,H^{-1}$ とは一般に一致しないことを $z=1$ で示せ。
 
 <!-- solution-start -->
 **詳細解答**。本文の計算を最初から行うと
@@ -821,7 +835,16 @@ $$
 A=\begin{pmatrix}0&0\\1&0\end{pmatrix}dz.
 $$
 
-$z=1$ では $\partial H=\begin{pmatrix}1&0\\1&0\end{pmatrix}dz$、$H^{-1}=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}$ だから
+$z=1$ での行列は
+
+$$
+\begin{aligned}
+\partial H\big|_{z=1}&=\begin{pmatrix}1&0\\1&0\end{pmatrix}dz,\\
+H^{-1}\big|_{z=1}&=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}
+\end{aligned}
+$$
+
+この二つの行列を掛けると
 
 $$
 (\partial H)H^{-1}=
@@ -838,7 +861,13 @@ $$
 #### CM2-10-B01 $\mathcal O(-1)$ の接続を二チャートで照合する
 - Level: B
 
-$\mathbb{CP}^1$ の $\mathcal O(-1)$ で $e_0=(1,z)$、$e_\infty=(w,1)$、$w=1/z$、標準計量を使う。$A_0,A_\infty$ を独立に求め、$A_\infty=A_0+g^{-1}dg$ を示せ。さらに $z=1$ で $A_0$ と変換後 $A_\infty$ の係数が等しくない理由を述べよ。
+$\mathbb{CP}^1$ の $\mathcal O(-1)$ で、標準計量と次の局所枠・座標を使う。
+
+$$
+e_0=(1,z),\qquad e_\infty=(w,1),\qquad w=z^{-1}.
+$$
+
+$A_0,A_\infty$ を独立に求め、$A_\infty=A_0+g^{-1}dg$ を示せ。さらに $z=1$ で $A_0$ と変換後 $A_\infty$ の係数が等しくない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。$h_0=1+|z|^2$、$h_\infty=1+|w|^2$ なので[正則線束のChern接続](#prop-cm2-10-line-formula)から
@@ -928,10 +957,13 @@ $A_u^*=-A_u$ により計量両立性が分かる。ところが $\bar\partial g
 #### CM2-10-B04 片方の条件だけでは一意でない
 - Level: B
 
-$\mathbb C$ 上の自明正則線束に標準計量 $h(e,e)=1$ を入れる。$(i)$ $\beta=dx$ として $D_1=d+i\beta$ が計量両立だが正則構造両立でないことを示せ。$(ii)$ $D_2=d+dz$ が正則構造両立だが計量両立でないことを示せ。ここで $z=x+iy$ である。
+$\mathbb C$ 上の自明正則線束に標準計量 $h(e,e)=1$ を入れ、$z=x+iy$ とする。次を示せ。
+
+1. $\beta=dx$ として $D_1=d+i\beta$ が計量両立だが正則構造両立でないこと。
+2. $D_2=d+dz$ が正則構造両立だが計量両立でないこと。
 
 <!-- solution-start -->
-**詳細解答**。$(i)$ $A_1=i\,dx$ は実1形式 $dx$ の純虚数倍であり、$A_1^*=-i\,dx$。標準計量は $H=1$ で $dH=0$ だから
+**詳細解答（1）**。$A_1=i\,dx$ は実1形式 $dx$ の純虚数倍であり、$A_1^*=-i\,dx$。標準計量は $H=1$ で $dH=0$ だから
 
 $$
 A_1^*H+HA_1=-i\,dx+i\,dx=0.
@@ -945,7 +977,7 @@ $$
 
 なので正則構造とは両立しない。
 
-$(ii)$ $A_2=dz$ は $(1,0)$ 型なので $(A_2)^{0,1}=0$、従って正則構造と両立する。しかし
+**詳細解答（2）**。$A_2=dz$ は $(1,0)$ 型なので $(A_2)^{0,1}=0$、従って正則構造と両立する。しかし
 
 $$
 A_2^*H+HA_2=d\bar z+dz=2dx\ne0=dH.
@@ -970,7 +1002,12 @@ G(z)=\begin{pmatrix}1&z\\0&1\end{pmatrix},
 \quad \mathcal E_1=\mathcal E_0G
 $$
 
-を与える。$(1)$ $H_0$ の正値性を証明し $A_0$ を求めよ。$(2)$ $H_1=G^*H_0G$ と $A_1=H_1^{-1}\partial H_1$ を、$B,G$ の積を利用して求めよ。$(3)$ $A_1=G^{-1}A_0G+G^{-1}dG$ を行列で確認せよ。$(4)$ 双対束の正則枠における接続行列 $A_1^\vee$ を書き、評価の積の法則を説明せよ。
+を与える。次の各問に答えよ。
+
+1. $H_0$ の正値性を証明し、$A_0$ を求めよ。
+2. $H_1=G^*H_0G$ と $A_1=H_1^{-1}\partial H_1$ を、$B,G$ の積を利用して求めよ。
+3. $A_1=G^{-1}A_0G+G^{-1}dG$ を行列で確認せよ。
+4. 双対束の正則枠における接続行列 $A_1^\vee$ を書き、評価の積の法則を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**。$(1)$ $B$ は $\det B=1$ なので全ての $z$ で可逆である。従って非零列 $v$ に対し
@@ -1028,7 +1065,13 @@ A_1=
 \begin{pmatrix}-z&1-z^2\\1&z\end{pmatrix}dz.
 $$
 
-$(3)$ $G^{-1}=\begin{pmatrix}1&-z\\0&1\end{pmatrix}$ であり、
+$(3)$ 枠変更行列の逆は
+
+$$
+G^{-1}=\begin{pmatrix}1&-z\\0&1\end{pmatrix}
+$$
+
+である。この逆行列を使って積を計算すると
 
 $$
 A_0G=\begin{pmatrix}0&0\\1&z\end{pmatrix}dz,\quad
