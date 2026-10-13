@@ -68,14 +68,19 @@ H^2(P,\mathcal O_P)\to H^2(X,\mathcal O_X)
 \to H^3(P,\mathcal O_P(-d))
 \to H^3(P,\mathcal O_P)
 $$
-でも両端が零なので、中央は同型となります。$d\le3$ の場合は右側の $H^3$ が零です。$d\ge4$ なら、全変数に負指数を持つ単項式
+でも両端が零なので、中央は同型となります。さらに長完全列の次の部分は
+$$
+H^3(P,\mathcal O_P)\longrightarrow H^3(X,\mathcal O_X)
+\longrightarrow H^4(P,\mathcal O_P(-d))
+$$
+で、両端は $\dim P=3$ とねじり層のコホモロジー計算により零です。したがって $H^3(X,\mathcal O_X)=0$ であり、Euler標数を $h^0-h^1+h^2$ で計算できます。$d\le3$ の場合は右側の $H^3$ が零です。$d\ge4$ なら、全変数に負指数を持つ単項式
 $$
 X_0^{-1-a_0}X_1^{-1-a_1}X_2^{-1-a_2}X_3^{-1-a_3},
 \qquad a_i\ge0,\quad \sum_{i=0}^3a_i=d-4
 $$
 が基底です。組の数は $\binom{d-1}{3}$ であり、前半が従います。
 
-$X$ が滑らかなら[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)に $n=3$ を代入して $K_X\simeq\mathcal O_X(d-4)$ です。制限列を $d-4$ 回ねじると
+$X$ が滑らかなら[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)に $n=3$ を代入して $K_X\simeq\mathcal O_X(d-4)$ です。制限列に $\mathcal O_P(d-4)$ をテンソルすると
 $$
 0\to\mathcal O_P(-4)\to\mathcal O_P(d-4)
 \to i_*\mathcal O_X(d-4)\to0.
