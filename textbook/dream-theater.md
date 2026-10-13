@@ -826,6 +826,7 @@
 10. [AG3-10 射影空間のO(d)のコホモロジー](textbook/volumes/dream_thater/代数系/AG/AG3-10/index.md)
 11. [AG3-11 曲線の種数とRiemann–Rochへの入口](textbook/volumes/dream_thater/代数系/AG/AG3-11/index.md)
 12. [AG3-12 平坦性・滑らかさと特異ファイバー](textbook/volumes/dream_thater/代数系/AG/AG3-12/index.md)
+13. [AG3-13 交叉理論・変形障害への橋](textbook/volumes/dream_thater/代数系/AG/AG3-13/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

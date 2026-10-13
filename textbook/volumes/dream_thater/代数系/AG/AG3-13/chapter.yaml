@@ -1,0 +1,50 @@
+id: "AG3-13"
+title: "交叉理論・変形障害への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-12
+  - AG2-04
+  - AG2-10
+official_scope: []
+learning_objectives:
+  - 孤立した平面曲線の交点を局所商環の有限長で定義し計算できる
+  - 横断交叉の重複度が1となることをJacobianと局所環から証明できる
+  - 直線に沿う交叉重複度の加法性を短完全列から示せる
+  - 直線に対するBézout公式を局所長の和として検算できる
+  - 非零超曲面の平方零一次変形が平坦であることを証明できる
+  - 座標変更による一次変形の同値とJacobian商を導ける
+  - 節点と尖点の一次変形方向を具体的に数えられる
+  - 一次の点の持ち上げ条件と高次への延長障害を区別できる
+  - 一般の交叉理論・変形障害群との証明範囲の境界を説明できる
+definitions:
+  - { id: AG3-13-DEF-01, name: 孤立交点の局所交叉重複度 }
+  - { id: AG3-13-DEF-02, name: 超曲面の埋込み一次変形 }
+theorems:
+  - { id: AG3-13-PROP-01, name: 交叉重複度の対称性と座標変換不変性 }
+  - { id: AG3-13-PROP-02, name: 横断交叉の重複度は1 }
+  - { id: AG3-13-PROP-03, name: 直線に沿った交叉重複度の加法性 }
+  - { id: AG3-13-THM-01, name: 非零超曲面方程式の一次変形は平坦 }
+  - { id: AG3-13-THM-02, name: 埋込み一次変形のJacobian商 }
+  - { id: AG3-13-PROP-04, name: 一次の点の持ち上げ条件 }
+canonical_examples:
+  - y=0とy=x^mの局所交叉重複度
+  - 射影三次曲線と直線の交点重複度
+  - xy=epsilonの非自明な節点変形と点の持ち上げ障害
+  - 尖点y^2=x^3の二次元Jacobian商
+  - xy=s^2における指定した一次の点の二次延長障害
+problem_patterns:
+  - AG3-13-A1
+  - AG3-13-A2
+  - AG3-13-A3
+  - AG3-13-A4
+  - AG3-13-B1
+  - AG3-13-B2
+  - AG3-13-B3
+  - AG3-13-B4
+  - AG3-13-C1
+  - AG3-13-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 20, exercises: 12, review: 9 }
