@@ -80,7 +80,7 @@ $$
 
 ### 証明の見取り図
 
-端点条件 $f(0)=f(L)=0$ に対する [Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)を使えば、微分の正の項と曲率の負の項を同じ $\int f^2$ で比較できます。最初の正弦波は等号を達成するため、閾値が鋭いことも一度に分かります。
+[Wirtingerの不等式](../VAR2/index.md#lem-var2-wirtinger)を使います。ここで $f$ は $f(0)=f(L)=0$ を満たします。この不等式によって、微分の正の項と曲率の負の項を同じ $\int f^2$ で比較できます。最初の正弦波は等号を達成するため、閾値が鋭いことも一度に分かります。
 
 <!-- proof-start -->
 ### 証明
@@ -410,7 +410,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-測地線方程式 $D\dot\gamma/dt=0$ から $DV/dt=h'\dot\gamma$。曲率テンソルの最初の二変数の交代性により $R(\dot\gamma,\dot\gamma)=0$ です。従って
+[測地線方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation) $D\dot\gamma/dt=0$ から $DV/dt=h'\dot\gamma$。曲率テンソルの最初の二変数の交代性により $R(\dot\gamma,\dot\gamma)=0$ です。従って
 
 $$
 I(V,V)=\int_0^L(h')^2dt.
