@@ -4,7 +4,7 @@ title: "天体力学・三体問題・Hamiltonian chaos"
 plan: textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 2026-10-13: prerequisite audit completed; CELE1 and CELE2 authored; next planned chapter CELE3.
+# 2026-10-13: CELE1 through CELE3 authored and reviewed; next planned chapter CELE4.
 chapters:
   - id: CELE1
     path: textbook/volumes/dream_thater/物理系/CELE/CELE1
@@ -16,7 +16,7 @@ chapters:
     title: "N体Hamilton系と三体問題"
   - id: CELE3
     path: textbook/volumes/dream_thater/物理系/CELE/CELE3
-    status: planned
+    status: completed
     title: "三体問題の特殊解"
   - id: CELE4
     path: textbook/volumes/dream_thater/物理系/CELE/CELE4
