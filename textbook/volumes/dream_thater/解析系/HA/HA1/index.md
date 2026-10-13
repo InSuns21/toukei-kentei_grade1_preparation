@@ -191,11 +191,11 @@ $$
 
 非中心版の超水準集合も可測です。実際、球 $B(a,r)$ の平均が $\lambda$ を超えるという条件は $x$ に依存しないので
 
-$
+$$
 \{M_{\mathrm u}f>\lambda\}
 =\bigcup_{\substack{a\in\mathbb R^d,\ r>0\\
 |B(a,r)|^{-1}\int_{B(a,r)}|f|>\lambda}}B(a,r)
-$
+$$
 
 と表せます。右辺は開球の合併であり開集合です。これは上限を取る球の中心が $x$ と一致しなくても成り立ちます。
 
@@ -305,9 +305,9 @@ $$
 
 固定した $\delta>0$ に対し、$D_f(x)>\delta$ なら $Mh(x)>\delta/2$ または $|h(x)|>\delta/2$ です。[弱型評価](#thm-ha1-weak11)を使います。また $|h|>\delta/2$ の集合上で $|h|\ge\delta/2$ を積分すれば
 
-$
+$$
 |\{|h|>\delta/2\}|\le\frac{2}{\delta}\int_{\{|h|>\delta/2\}}|h|\le\frac{2\|h\|_1}{\delta}
-$
+$$
 
 です。従って
 
