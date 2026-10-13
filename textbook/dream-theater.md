@@ -828,6 +828,7 @@
 11. [AG3-11 曲線の種数とRiemann–Rochへの入口](textbook/volumes/dream_thater/代数系/AG/AG3-11/index.md)
 12. [AG3-12 平坦性・滑らかさと特異ファイバー](textbook/volumes/dream_thater/代数系/AG/AG3-12/index.md)
 13. [AG3-13 交叉理論・変形障害への橋](textbook/volumes/dream_thater/代数系/AG/AG3-13/index.md)
+14. [AG3-14 射影曲線と超曲面の総合演習](textbook/volumes/dream_thater/代数系/AG/AG3-14/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
