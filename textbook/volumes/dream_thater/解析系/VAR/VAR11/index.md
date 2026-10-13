@@ -20,7 +20,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var11-frechet -->
-**直接例**。固定した $f\in H$ に対し $\Phi(u)=\frac12\|u-f\|^2$ とすると
+**定義の確認**。固定した $f\in H$ に対し $\Phi(u)=\frac12\|u-f\|^2$ とすると
 $$
 \Phi(u+h)-\Phi(u)
 =\langle u-f,h\rangle+\frac12\|h\|^2.
@@ -43,18 +43,18 @@ $b=0$ でも同じ極限は0です。しかし $y=x^2$ に沿えば $g(x,x^2)=x/
 <!-- formal-statement-start -->
 > **定義（臨界点と臨界値）**  
 > 実Hilbert空間 $H$ 上の $\Phi\in C^1(H,\mathbb R)$ について、$u\in H$ が次を満たすとき臨界点、$\Phi(u)$ を臨界値という。
-$
+$$
 D\Phi(u)=0.
-$
+$$
 > Riesz表現で得られる勾配は各 $h\in H$ に対して
-$
+$$
 D\Phi(u)h=\langle\nabla\Phi(u),h\rangle
-$
+$$
 > を満たすため、臨界点条件は $\nabla\Phi(u)=0$ と同値である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var11-critical -->
-**直接例**。$\Phi(x)=x^4-2x^2$ ($H=\mathbb R$) では $\Phi'(x)=4x(x^2-1)$ より $x=0,\pm1$ が臨界点です。$\Phi''(0)=-4$ で0は極大点、$\Phi''(\pm1)=8$ で $\pm1$ は極小点です。臨界点という語は最小点を意味しません。
+**定義の確認**。$\Phi(x)=x^4-2x^2$ ($H=\mathbb R$) では $\Phi'(x)=4x(x^2-1)$ より $x=0,\pm1$ が臨界点です。$\Phi''(0)=-4$ で0は極大点、$\Phi''(\pm1)=8$ で $\pm1$ は極小点です。臨界点という語は最小点を意味しません。
 <!-- definition-example-end -->
 
 ## 2. 近似的な臨界点が収束する条件
@@ -73,7 +73,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var11-ps -->
-**直接例**。$\Phi(u)=\frac12\|u-f\|^2$ なら $\nabla\Phi(u)=u-f$。PS列について $\|u_n-f\|\to0$ なので $u_n\to f$ と強収束します。逆に $\Phi(x)=e^{-x^2}$ ($H=\mathbb R$) では $x_n=n$ に対して $\Phi(x_n)\to0$、$\Phi'(x_n)=-2ne^{-n^2}\to0$ ですが、$x_n$ は収束部分列を持ちません。これはレベル0の(PS)が破れる直接例です。
+**定義の確認**。$\Phi(u)=\frac12\|u-f\|^2$ なら $\nabla\Phi(u)=u-f$。PS列について $\|u_n-f\|\to0$ なので $u_n\to f$ と強収束します。逆に $\Phi(x)=e^{-x^2}$ ($H=\mathbb R$) では $x_n=n$ に対して $\Phi(x_n)\to0$、$\Phi'(x_n)=-2ne^{-n^2}\to0$ ですが、$x_n$ は収束部分列を持ちません。これはレベル0の(PS)が破れる直接例です。
 <!-- definition-example-end -->
 
 <a id="prop-var11-ps-critical"></a>
@@ -223,7 +223,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var11-minimax -->
-**直接例**。$H=\mathbb R$、$\Phi(x)=x^2(x-2)^2$、$e=2$ を考えます。任意の $\gamma\in\Gamma$ は中間値の定理により $1$ を通るので
+**定義の確認**。$H=\mathbb R$、$\Phi(x)=x^2(x-2)^2$、$e=2$ を考えます。任意の $\gamma\in\Gamma$ は中間値の定理により $1$ を通るので
 $$
 \max_t\Phi(\gamma(t))\ge\Phi(1)=1.
 $$
@@ -548,7 +548,7 @@ $$
 $$
 従って $c=1$ です。
 
-**2.** $\Phi(x,y)\to\infty$ as $\|(x,y)\|\to\infty$ です。実際 $|y|\to\infty$ なら $y^2\to\infty$、$|x|\to\infty$ なら $x^2(x-2)^2\to\infty$ です。どのPS列も $\Phi(u_n)\to c_0$ から有限の下位集合に入り、有限次元のBolzano–Weierstrass定理で強収束部分列を持ちます。従って全レベルで(PS)。導関数を計算すると
+**2.** $\Phi(x,y)\to\infty$ as $\|(x,y)\|\to\infty$ です。実際 $|y|\to\infty$ なら $y^2\to\infty$、$|x|\to\infty$ なら $x^2(x-2)^2\to\infty$ です。どのPS列も $\Phi(u_n)\to c_0$ なので、ある $M\in\mathbb R$ に対する集合 $\{u:\Phi(u)\le M\}$ に、十分大きな添字で入ります、有限次元のBolzano–Weierstrass定理で強収束部分列を持ちます。従って全レベルで(PS)。導関数を計算すると
 $$
 \nabla\Phi(x,y)=(4x(x-1)(x-2),\,2y).
 $$
