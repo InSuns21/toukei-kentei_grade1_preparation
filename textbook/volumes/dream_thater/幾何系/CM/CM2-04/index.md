@@ -178,7 +178,18 @@ $$
 d\bar z^j\wedge dz^I.
 $$
 
-$dz^I\wedge d\bar z^j$ は $(p,1)$ 形式の局所基底だから、この和が零となる必要十分条件はすべての $I,j$ について $\partial a_I/\partial\bar z^j=0$ となることである。[正則関数の判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)より、これはすべての $a_I$ が正則であることと同値である。正則座標変換では係数の変換行列も正則なので、この性質は座標の選び方によらない。$p=0$ の場合は $\omega=a_\varnothing$、すなわち正則関数である。$\square$
+$dz^I\wedge d\bar z^j$ は $(p,1)$ 形式の局所基底である。従って上の和が零になるのは、各係数が零であるときに限る。
+
+$
+\bar\partial\omega=0
+\quad\Longleftrightarrow\quad
+\frac{\partial a_I}{\partial\bar z^j}=0
+\qquad(\text{すべての }I,j).
+$
+
+[正則関数の判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)より、これはすべての $a_I$ が正則であることと同値である。正則座標変換では係数の変換行列も正則なので、この性質は座標の選び方によらない。
+
+$p=0$ の場合、形式は関数 $\omega=a_\varnothing$ だけになる。従って零次の結論は正則関数全体の同定に帰着する。$\square$
 <!-- proof-end -->
 
 **直接例**。$\mathbb C$ では $1,z,z^2,\ldots$ はすべて異なる $H_{\bar\partial}^{0,0}(\mathbb C)$ の元である。$\bar\partial z^k=0$ であり、$B^{0,0}=0$ なので二つの異なる正則関数が完全形式の差によって同一視されることはない。対して $\bar z$ は $\bar\partial\bar z=d\bar z\ne0$ なので、零次コホモロジーの元ではない。
