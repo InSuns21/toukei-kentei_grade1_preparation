@@ -273,10 +273,10 @@ $$
 
 **全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。任意の $\mathfrak p\in D(f)$ で、定義から $\mathfrak p$ の開近傍 $W\subseteq D(f)$ と $a,h\in A$ があり、$s(\mathfrak q)=a/h$ かつ $h\notin\mathfrak q$ がすべての $\mathfrak q\in W$ で成立します。主開基を使って $\mathfrak p\in D(v)\subseteq W$ とし、$g=vh$ と置きます。このとき $\mathfrak p\in D(fg)\subseteq D(v)\subseteq W$ であり、
 
-$
+$$
 a/h=(av)/(vh)=(av)/g
 \quad\text{in }A_{\mathfrak q}\qquad(\mathfrak q\in D(fg))
-$
+$$
 
 です。したがって $s$ は $D(fg)$ 上で一つの局所化元から得られます。[準コンパクト性](#thm-ag3-02-quasicompact)によって、これらの中から有限個の $D(fg_1),\ldots,D(fg_r)$ を選べます。
 
@@ -300,7 +300,7 @@ $$
 
 重なりでの $s$ の値は等しいので、$D(fg_i g_j)$ 上の切断として一致します。すでに証明した**単射**を $fg_i g_j$ に適用すると、$s_i$ と $s_j$ の像は $B_{g_ig_j}$ で等しくなります。
 
-**有限個の分数を貼る計算。** まず $s_i=b_i/g_i^n$ の分母指数を共通の $n$ に揃えます。$B_{g_ig_j}$ での一致から、各 $i,j$ に対して十分大きい共通整数 $m$ を選べば
+**有限個の分数を貼る計算。** まず $s_i=b_i/g_i^n$ の分母指数を共通の $n$ に揃えます。$B_{g_ig_j}$ での一致から、各 $i,j$ に対して十分大きい共通整数 $m\ge1$ を選べば
 
 $$
 (g_i g_j)^m(b_i g_j^n-b_j g_i^n)=0
@@ -557,7 +557,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** $(f,g)=A$ なので $D(f)\cup D(g)=X$ です。$a\in A$ が $A_f,A_g$ の双方で零になれば、ある $r,s$ に対し $f^ra=g^sa=0$ です。$N\ge\max(r,s,1)$ として $f^Na=g^Na=0$。ここで $(f,g)=A$ から $\lambda f+\mu g=1$ と書き、両辺を $2N-1$ 乗します。展開した各項は $f$ または $g$ を少なくとも $N$ 個因子に持つので、$1=(\lambda f+\mu g)^{2N-1}\in(f^N,g^N)$ です。よって $u f^N+v g^N=1$ と書けます。両辺に $a$ を掛けると $a=0$ で、写像は単射です。
 
-次に $x=b/f^n\in A_f$、$y=c/g^n\in A_g$ が $A_{fg}$ で一致するとします。分母を共通の $n$ に揃えました。局所化の等号からある $m$ について
+次に $x=b/f^n\in A_f$、$y=c/g^n\in A_g$ が $A_{fg}$ で一致するとします。分母を共通の $n$ に揃えました。局所化の等号からある整数 $m\ge1$ について
 
 $$
 (fg)^m(bg^n-cf^n)=0
