@@ -33,7 +33,7 @@ chapters:
     title: "最短測地線と存在"
   - id: VAR7
     path: textbook/volumes/dream_thater/解析系/VAR/VAR7
-    status: planned
+    status: completed
     title: "曲面の面積の第一変分と極小曲面"
   - id: VAR8
     path: textbook/volumes/dream_thater/解析系/VAR/VAR8
