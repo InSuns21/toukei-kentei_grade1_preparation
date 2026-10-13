@@ -8,13 +8,13 @@
 
 ## 1. $n$ 個の座標微分はどこから来るか
 
-$U_i\simeq\mathbb A^n$ の座標環は $k[z_j^{(i)}:j\ne i]$ です。[Kähler微分加群](../AG2-08/index.md#def-ag2-08-kahler)の積の規則を各変数へ適用すると、多項式 $f$ の微分は
+[標準アフィンチャートの全単射](../AG2-01/index.md#prop-ag2-01-chart-bijection)から $U_i\simeq\mathbb A^n$ の座標環は $k[z_j^{(i)}:j\ne i]$ です。[Kähler微分加群](../AG2-08/index.md#def-ag2-08-kahler)の積の規則を各変数へ適用すると、多項式 $f$ の微分は
 
 $$
 df=\sum_{j\ne i}\frac{\partial f}{\partial z_j^{(i)}}\,dz_j^{(i)}.
 $$
 
-多項式環の各形式的偏微分で係数を取り出せるので、$dz_j^{(i)}$ の間に非自明な関係はありません。従って $U_i$ 上で微分の層は階数 $n$ の自由加群です。しかし $U_i\cap U_k$ 上では $z_j^{(k)}=z_j^{(i)}/z_k^{(i)}$ なので、分数の微分が生じます。異なるチャートの基底を単純に同一視することはできません。
+自由性も[多項式環の微分表示](../AG2-08/index.md#prop-ag2-08-polynomial-differentials)と同じ方法で確認できます。各 $j\ne i$ の形式的偏微分 $D_j=\partial/\partial z_j^{(i)}$ は積の規則を満たし、$D_j(z_\ell^{(i)})=\delta_{j\ell}$ です。従って $\sum_{\ell\ne i}a_\ell dz_\ell^{(i)}=0$ なら、各 $D_j$ から誘導される係数写像を適用して $a_j=0$ が全 $j$ で従います。上の $df$ の表示と合わせて、$U_i$ 上で微分の層は階数 $n$ の自由加群です。しかし $U_i\cap U_k$ 上では $z_j^{(k)}=z_j^{(i)}/z_k^{(i)}$ なので、分数の微分が生じます。異なるチャートの基底を単純に同一視することはできません。
 
 <a id="def-ag2-09-cotangent-sheaf"></a>
 
@@ -166,7 +166,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U_i$ で $z_j=z_j^{(i)}$ とします。多項式環の微分は自由基底 $dz_j$ を持ち、その局所化は[分数の微分公式](../AG2-08/index.md#lem-ag2-08-localization)に従います。$U_i\cap U_k$ 上で $k\ne i$ とすると
+$U_i$ で $z_j=z_j^{(i)}$ とします。[多項式環の微分表示](../AG2-08/index.md#prop-ag2-08-polynomial-differentials)を各変数に適用した自由基底 $dz_j$ は、局所化すると[分数の微分公式](../AG2-08/index.md#lem-ag2-08-localization)に従います。$U_i\cap U_k$ 上で $k\ne i$ とすると
 
 $$
 z_j^{(k)}=\frac{z_j}{z_k},\qquad
@@ -292,7 +292,7 @@ $$
 
 これは[O(d)の遷移規則](../AG2-06/index.md#def-ag2-06-twisting-sheaf)で $d=-(n+1)$ と置いたものです。従って $\det E\simeq\mathcal O_P(-n-1)$ であり、二つの同型を合成して所望の式を得ます。
 
-最後に $H=\{X_0=0\}$ は一次斉次式の零点集合であり、各チャートで一つの正則関数によって定まる因子です。$X_0$ は[O(1)の斉次式切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)で、零因子が $H$ です。[因子の付随可逆層](../AG2-07/index.md#def-ag2-07-associated-line-bundle)の局所表示から $\mathcal O_P(H)\simeq\mathcal O_P(1)$ が従い、テンソル冪を取れば $\omega_P\simeq\mathcal O_P(-(n+1)H)$ です。
+最後に $H=\{X_0=0\}$ は一次斉次式の零点集合であり、各チャートで一つの正則関数によって定まる因子です。$X_0$ は[O(1)の斉次式切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)で、零因子が $H$ です。[因子の付随可逆層](../AG2-07/index.md#def-ag2-07-associated-line-bundle)の局所表示から $\mathcal O_P(H)\simeq\mathcal O_P(1)$ が従い、[ねじれ層のテンソル積](../AG2-06/index.md#prop-ag2-06-tensor-dual)で次数を加えれば $\omega_P\simeq\mathcal O_P(-(n+1)H)$ です。
 <!-- proof-end -->
 
 **低次元での確認**：$n=1$ なら $\omega_{\mathbb P^1}\simeq\mathcal O(-2)$ で、[前章の直接計算](../AG2-08/index.md#thm-ag2-08-p1-canonical)と一致します。$n=2$ なら $\omega_{\mathbb P^2}\simeq\mathcal O(-3)$ であり、第1節の $du\wedge dv=-x^{-3}dx\wedge dy$ の係数と一致します。$n=3$ なら $\mathcal O(-4)$ です。いずれも次数 $-(n+1)$ が現れるのは、元の $E$ が **$n+1$ 本の $\mathcal O(-1)$** からできているためです。
