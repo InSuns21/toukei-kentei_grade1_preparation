@@ -1,0 +1,51 @@
+id: "VAR7"
+title: "曲面の面積の第一変分と極小曲面"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR1
+  - VAR3
+  - GEO10
+  - VC3
+  - VC4
+  - PDE1
+official_scope: []
+learning_objectives:
+  - 曲面の変分場を接・法線成分に分け、面積の局所微分から内部平均曲率項と境界余法線項を証明できる
+  - 形作用素の符号と法線の向きを球面で検算し、固定境界停留とH=0の同値性を証明できる
+  - 支持面上の自由境界で必要となる直交条件を第一変分から導ける
+  - グラフ面積の第一変分から発散形・非発散形の極小曲面方程式と境界流束を導出できる
+  - 懸垂面と螺旋面の基本形式を計算し、全変分での停留を平均曲率ゼロから判定できる
+  - $\Delta u=0$ と極小グラフの相違、停留と大域最小の相違を反例で説明できる
+definitions:
+  - { id: VAR7-DEF-01, name: "曲面変分と面積の第一変分" }
+  - { id: VAR7-DEF-02, name: "極小曲面" }
+theorems:
+  - { id: VAR7-THM-01, name: "曲面積の第一変分" }
+  - { id: VAR7-THM-02, name: "固定境界での面積停留条件" }
+  - { id: VAR7-PROP-01, name: "支持面上で自由な境界の必要条件" }
+  - { id: VAR7-THM-03, name: "極小曲面のグラフ方程式" }
+  - { id: VAR7-PROP-02, name: "懸垂面は極小曲面" }
+  - { id: VAR7-PROP-03, name: "螺旋面は極小曲面" }
+canonical_examples:
+  - 平面の法線変分と面積の一次変化
+  - 球面の外向き変分での符号検査
+  - 自由境界の平面円板
+  - affineグラフと調和関数xy
+  - 懸垂面の基本形式
+  - 螺旋面の混合第二基本形式
+  - Scherk型極小グラフ
+problem_patterns:
+  - VAR7-PLANE-GRAPH
+  - VAR7-SPHERE-SIGN
+  - VAR7-HARMONIC-NONMINIMAL
+  - VAR7-MOVING-BOUNDARY
+  - VAR7-GRAPH-NEUMANN
+  - VAR7-CATENOID-FORMS
+  - VAR7-HELICOID-FORMS
+  - VAR7-SCHERK-GRAPH
+  - VAR7-ROTATION-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }

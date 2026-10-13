@@ -77,7 +77,7 @@ chapters:
     title: "正則ベクトル束と正則切断"
   - id: CM2-08
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-08
-    status: planned
+    status: completed
     title: "標準束・双対束・テンソル束"
   - id: CM2-09
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-09
