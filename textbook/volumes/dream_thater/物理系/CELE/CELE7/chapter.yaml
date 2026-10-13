@@ -1,0 +1,52 @@
+id: "CELE7"
+title: "共鳴・KAM・規則運動とカオスの共存"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE5
+  - CELE6
+  - INT4
+  - INT7
+  - INT8
+  - DYN14
+official_scope: []
+learning_objectives:
+  - 共鳴ベクトルと作用角変数の正準変換を計算し共鳴振り子へ還元できる
+  - 共鳴島の楕円・双曲固定点、分離曲線、幅、面積を中間式から導ける
+  - 一共鳴模型の可積分性と第二摂動による一般の非可積分性を区別できる
+  - KAMの非退化性・Diophantine条件と存続トーラスの結論を天体模型に照合できる
+  - 断面上の規則的曲線、島、散乱点とLyapunov指数の論理的射程を区別できる
+  - カントーラス、共鳴重なり、Arnold拡散の位置づけと厳密結果との境界を説明できる
+  - 二自由度の輸送障壁と三自由度以上の拡散可能性を次元で説明できる
+definitions:
+  - { id: CELE7-DEF-01, name: "一次共鳴と共鳴角" }
+  - { id: CELE7-DEF-02, name: "共鳴島と分離曲線" }
+  - { id: CELE7-DEF-03, name: "有限時間Lyapunov指数" }
+  - { id: CELE7-DEF-04, name: "カントーラスの解釈" }
+theorems:
+  - { id: CELE7-PROP-01, name: "二振動子の一対一共鳴還元" }
+  - { id: CELE7-PROP-02, name: "共鳴島の幅と面積" }
+  - { id: CELE7-PROP-03, name: "第二角の摂動と保存作用の消失" }
+  - { id: CELE7-PROP-04, name: "せん断写像のLyapunov指数" }
+canonical_examples:
+  - "I1=I2が一対一共鳴面であることを振動数で確認"
+  - "正準変換から振り子方程式を導き楕円点と双曲点を区別"
+  - "分離曲線の最大作用幅と島の面積を積分"
+  - "第二角の摂動で総作用Pが保存されなくなることをPoisson括弧で確認"
+  - "せん断写像の有限時間伸長と零の漸近Lyapunov指数"
+  - "KAM非退化性とKepler退化の対照"
+problem_patterns:
+  - CELE7-RESONANCE-ANGLE
+  - CELE7-CANONICAL-REDUCTION
+  - CELE7-RESONANCE-WIDTH
+  - CELE7-ISLAND-AREA
+  - CELE7-FINITE-TIME-LYAPUNOV
+  - CELE7-DETUNING
+  - CELE7-OVERLAP-HEURISTIC
+  - CELE7-SECOND-PERTURBATION
+  - CELE7-KAM-HYPOTHESES
+  - CELE7-COEXISTENCE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 3 }
