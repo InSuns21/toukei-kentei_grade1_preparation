@@ -19,7 +19,7 @@ chapters:
     title: "因果曲線とLorentz長さ"
   - id: LORG4
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG4
-    status: planned
+    status: completed
     title: "Lorentz接続と測地線"
   - id: LORG5
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG5

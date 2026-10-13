@@ -20,7 +20,7 @@ chapters:
     title: Hilbert変換と主値
   - id: HA4
     path: textbook/volumes/dream_thater/解析系/HA/HA4
-    status: planned
+    status: completed
     title: Calderón--Zygmund分解
   - id: HA5
     path: textbook/volumes/dream_thater/解析系/HA/HA5

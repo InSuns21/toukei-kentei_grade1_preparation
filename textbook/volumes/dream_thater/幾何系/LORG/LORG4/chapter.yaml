@@ -1,0 +1,47 @@
+id: "LORG4"
+title: "Lorentz接続と測地線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - GEO13
+  - GEO14
+  - GEO15
+official_scope: []
+learning_objectives:
+  - 非退化なLorentz計量に対してLevi-Civita接続の存在一意性をKoszul表示から証明できる
+  - Lorentz計量の逆行列・成分微分からChristoffel係数を計算し計量両立性を検算できる
+  - 測地線方程式を導出し自己内積・因果型・時間向きの保存を証明できる
+  - アフィンパラメータと一般の再パラメータ化の違いを説明できる
+  - 平行移動が不定符号内積と未来錐を保存することを証明できる
+  - 測地線初期値問題から指数写像を作り原点での微分が恒等写像と示せる
+  - 大域単射性・測地完備性・長さ最大化を局所存在の帰結と取り違えない
+definitions: []
+theorems:
+  - { id: LORG4-THM-01, name: Lorentz計量のLevi-Civita接続とKoszul表示 }
+  - { id: LORG4-PROP-01, name: Lorentz測地線方程式と因果型保存 }
+  - { id: LORG4-PROP-02, name: Lorentz平行移動による内積・未来錐の保存 }
+  - { id: LORG4-PROP-03, name: Lorentz測地線の局所存在と指数写像の局所可逆性 }
+canonical_examples:
+  - Minkowskiの零Christoffel係数と直線測地線
+  - 静的計量の非零Christoffel係数と静止曲線の非測地性
+  - 膨張模型での未来光的測地線と座標微分の計算
+  - Lorentz円筒で指数写像の大域単射性が失敗する例
+  - 半空間と時間依存共形計量での測地不完備性
+problem_patterns:
+  - LORG4-CONSTANT-METRIC-CONNECTION
+  - LORG4-STATIC-CHRISTOFFEL
+  - LORG4-WARPED-CHRISTOFFEL
+  - LORG4-AFFINE-REPARAMETRIZATION
+  - LORG4-CAUSAL-TYPE-INVARIANCE
+  - LORG4-INITIAL-ACCELERATION
+  - LORG4-NULL-GEODESIC-VERIFY
+  - LORG4-CURVILINEAR-COORDINATES
+  - LORG4-PARALLEL-CAUSAL-CONE
+  - LORG4-CONFORMAL-NULL-INCOMPLETENESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
