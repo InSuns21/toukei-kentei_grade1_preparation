@@ -85,7 +85,7 @@ $$
 
 ## 3. 交換子一つで積分可能性を判定する
 
-[Lie括弧の積の微分則](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)と、座標偏微分の可換性を使う。$Z_1$ の係数は定数なので
+[Lie括弧の積の微分則](../../GEO/GEO5/index.md#thm-geo5-bracket-identities)を複素化ベクトル場と複素数値関数へ拡張し、座標偏微分の可換性と合わせて使う。$Z_1$ の係数は定数なので
 
 $$
 \begin{aligned}
