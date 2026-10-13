@@ -1,0 +1,53 @@
+chapter: HA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA1
+  - HA3
+  - HA4
+  - HA5
+  - MT7
+forward_references: []
+concepts:
+  - id: harmonic.ha6-bmo
+    name: 有界平均振動BMO
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有界平均振動：BMO）]
+    requires: []
+  - id: harmonic.ha6-seminorm
+    name: BMO半ノルムの基本性質
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（定数による商と基本評価）]
+    requires: [harmonic.ha6-bmo]
+  - id: harmonic.ha6-log
+    name: 非有界なBMO関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非有界な BMO 関数）]
+    requires: [harmonic.ha6-bmo]
+  - id: harmonic.ha6-stopping
+    name: 局所停止立方体
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（局所停止立方体）]
+    requires: [harmonic.ha6-bmo]
+  - id: harmonic.ha6-john-nirenberg
+    name: John–Nirenberg不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（John–Nirenberg不等式：立方体版）]
+    requires: [harmonic.ha6-stopping]
+  - id: harmonic.ha6-lp-oscillation
+    name: 高次の平均振動
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（高次の平均振動）]
+    requires: [harmonic.ha6-john-nirenberg]
+  - id: harmonic.ha6-cz-endpoint
+    name: CZ作用素のL∞からBMOへの端点評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標準Calderón–Zygmund作用素の端点）]
+    requires: [harmonic.ha6-bmo, harmonic.ha5-cz-operator, harmonic.ha5-standard-kernel]
