@@ -30,7 +30,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Dolbeault複体）**  
-> $X$ を複素次元 $n$ の複素多様体とし、$p\in\{0,\ldots,n\}$ を固定する。滑らかな $(p,q)$ 形式の複素ベクトル空間 $\mathcal A^{p,q}(X)$ と、型別外微分 $\bar\partial:\mathcal A^{p,q}(X)\to\mathcal A^{p,q+1}(X)$ からなる上記の列を、$p$ を固定した Dolbeault 複体という。境界での項は零空間とし、$\bar\partial^2=0$ が成り立つ。
+> $X$ を複素次元 $n$ の複素多様体とし、$p\in\{0,\ldots,n\}$ を固定する。滑らかな $(p,q)$ 形式の複素ベクトル空間 $\mathcal A^{p,q}(X)$ と、型別外微分 $\bar\partial:\mathcal A^{p,q}(X)\to\mathcal A^{p,q+1}(X)$ からなる列を、$p$ を固定した Dolbeault 複体という。この列は $q=0,1,\ldots,n$ の全項を順に並べ、$q=-1,n+1$ に零空間を置いたもので、$\bar\partial^2=0$ が成り立つ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm2-04-dolbeault-complex -->
