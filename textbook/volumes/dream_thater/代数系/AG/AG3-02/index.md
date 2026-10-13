@@ -271,7 +271,23 @@ $$
 
 と書けます。これに $a$ を掛けると $f^Na=\sum_i c_i(h_i a)=0$ です。ゆえに $a/f^n=0$（$A_f$ 内） となり、単射です。
 
-**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。局所表示が成り立つ近傍を主開集合まで縮め、$D(f)$ との共通部分を取れば、各点の周りの $D(fg_i)$ 上で $s$ は一つの局所化元で表されます。上の準コンパクト性で有限個の $D(fg_1),\ldots,D(fg_r)$ を選びます。$B=A_f$ と置きます。ここで $\operatorname{Spec}B\simeq D_A(f)$ を確かめます。$B$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $f\notin\mathfrak p$ を満たします。逆に $f\notin\mathfrak p$ なら $\mathfrak pB$ は素イデアルです。なぜなら $B/\mathfrak pB\simeq(A/\mathfrak p)_f$ は零でない整域だからです。さらに $a/f^n\in\mathfrak q$ となる条件は $a/1\in\mathfrak q$ となる条件と同じなので、$\mathfrak q$ は逆像 $\mathfrak p$ で決まります。逆に $a/1\in\mathfrak pB$ なら $f^m a\in\mathfrak p$ となる $m$ があり、素性と $f\notin\mathfrak p$ から $a\in\mathfrak p$ です。従って両対応は逆写像です。主開集合の対応も $g_i\notin\mathfrak p$ と $g_i/1\notin\mathfrak pB$ の同値から分かります。
+**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。局所表示が成り立つ近傍を主開集合まで縮め、$D(f)$ との共通部分を取れば、各点の周りの $D(fg_i)$ 上で $s$ は一つの局所化元で表されます。[準コンパクト性](#thm-ag3-02-quasicompact)によって、有限個の $D(fg_1),\ldots,D(fg_r)$ を選べます。
+
+$B=A_f$ と置き、まず素点の対応を調べます。$B$ の素イデアル $\mathfrak q$ を $A$ へ引き戻して $\mathfrak p$ と置くと、$f$ が $B$ で可逆であるため $f\notin\mathfrak p$ です。逆にその条件を満たす素イデアル $\mathfrak p$ については
+
+$
+B/\mathfrak pB\simeq(A/\mathfrak p)_f
+$
+
+が零でない整域です。従って $\mathfrak pB$ は素イデアルです。
+
+$\mathfrak q$ の元 $a/f^n$ は、可逆な $f$ を掛けてもイデアルへの所属が変わらないため、$a/1\in\mathfrak q$ と同値です。一方、$a/1\in\mathfrak pB$ ならある $m$ に対して $f^m a\in\mathfrak p$ です。ここで素性と $f\notin\mathfrak p$ により $a\in\mathfrak p$ です。以上から素点の拡大・縮約は逆写像となります。
+
+$
+\operatorname{Spec}(A_f)\simeq D_A(f).
+$
+
+この対応は $g_i/1\notin\mathfrak pB$ と $g_i\notin\mathfrak p$ の同値から主開集合を保ちます。
 
 よって選んだ $D_A(fg_i)$ は $\operatorname{Spec}B$ の主開被覆 $D_B(g_i)$ に対応します。[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)を二度使えば、$f$ と $g_i$ を順に逆にすることと積 $fg_i$ を逆にすることは同じなので $A_{fg_i}\simeq B_{g_i}$ です。各局所表示を $s_i\in B_{g_i}$ と書きます。
 
