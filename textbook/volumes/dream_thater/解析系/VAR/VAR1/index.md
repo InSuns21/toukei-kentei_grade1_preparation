@@ -11,29 +11,26 @@
 <a id="def-var1-admissible"></a>
 <!-- formal-statement-start -->
 > **定義（許容曲線と許容変分）**  
-> 次の積分が定義される関数集合 $\mathcal A$ を**許容クラス**という。
+> 積分汎関数
 $$
-J[u]=\int_a^b F(x,u(x),u'(x))\,dx.
+J[u]=\int_a^b F(x,u(x),u'(x))\,dx
 $$
->
-> $u\in\mathcal A$ に対し、十分小さい $|\varepsilon|$ について
+> が定義される曲線から選んだ集合 $\mathcal A$ を**許容クラス**という。$u\in\mathcal A$ に対して、$u_0=u$ であり、十分小さい $|\varepsilon|$ のすべてで $u_\varepsilon\in\mathcal A$ となる、$C^2([a,b])$ のノルムについて微分可能な曲線族 $\varepsilon\mapsto u_\varepsilon$ を**許容変分**という。その一次変化
 $$
-u_\varepsilon=u+\varepsilon\eta\in\mathcal A
+\eta=\left.\frac{d}{d\varepsilon}u_\varepsilon\right|_{\varepsilon=0}
 $$
->
-> となる $\eta$ を、その点での**許容変分方向**という。両端の値を固定する場合には
+> を**許容変分方向**という。特に直線族 $u_\varepsilon=u+\varepsilon\eta$ が許容される場合もあるが、これだけには限らない。両端の値が固定される場合、どの許容方向も
 $$
 \eta(a)=\eta(b)=0
 $$
->
-> を要求する。
+> を満たす。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-admissible -->
 **定義の確認**。 $\mathcal A=\{u\in C^2([0,1]):u(0)=0,\ u(1)=1\}$ とし、$u(x)=x$ とする。$\eta(x)=x(1-x)$ なら任意の $\varepsilon$ で $u_\varepsilon(0)=0,\ u_\varepsilon(1)=1$ なので許容方向です。$\eta(x)=1$ は $u_\varepsilon(0)=\varepsilon$ となるため、固定端問題では許容されません。同じ $\eta=1$ も両端自由なクラスでは許容されます。
 <!-- definition-example-end -->
 
-拘束 $K[u]=\ell$ がある場合、$\delta K[u;\eta]=0$ という一次条件だけでは一般に $u+\varepsilon\eta$ が拘束を正確に保つとは限りません。この差を第5節で回収します。
+拘束 $K[u]=\ell$ がある場合、$\delta K[u;\eta]=0$ は許容方向の必要条件ですが、それだけで直線族 $u+\varepsilon\eta$ が拘束を保つとは限りません。第5節では、一次変化が $\eta$ となる**非直線の許容変分**を構成します。
 
 ## 2. 第一変分を計算すると端点が残る
 
@@ -42,14 +39,12 @@ $$
 <a id="def-var1-first-variation"></a>
 <!-- formal-statement-start -->
 > **定義（第一変分と停留曲線）**  
-> $u_\varepsilon=u+\varepsilon\eta$ が許容されるとき、
->
+> $u_\varepsilon$ を $u$ を通る許容変分、$\eta=\left.\frac{d}{d\varepsilon}u_\varepsilon\right|_{\varepsilon=0}$ をその方向とするとき、
 $$
-> \delta J[u;\eta]
-> =\left.\frac{d}{d\varepsilon}J[u_\varepsilon]\right|_{\varepsilon=0}
+\delta J[u;\eta]
+=\left.\frac{d}{d\varepsilon}J[u_\varepsilon]\right|_{\varepsilon=0}
 $$
->
-> を第一変分という。すべての許容変分方向 $\eta$ について $\delta J[u;\eta]=0$ なら、$u$ はその許容クラスに関して停留しているという。
+> を**第一変分**という。第2節の公式が示すとおり、この値は一次変化 $\eta$ だけで決まり、同じ $\eta$ をもつ許容曲線族の選び方によらない。すべての許容変分について第一変分が $0$ なら、$u$ はその許容クラスに関して**停留**しているという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-first-variation -->
@@ -65,15 +60,13 @@ $$
 <a id="prop-var1-first-variation-boundary"></a>
 <!-- formal-statement-start -->
 > **命題（第一変分と境界項）**  
-> $F\in C^2$、$u,\eta\in C^2([a,b])$ とし、$u+\varepsilon\eta$ が許容されるとする。このとき
->
+> $F\in C^2$、$u\in C^2([a,b])$ とし、$u$ を通る $C^2([a,b])$ 値の微分可能な許容変分 $u_\varepsilon$ の方向を $\eta\in C^2([a,b])$ とする。このとき
 $$
-> \delta J[u;\eta]
-> =\int_a^b(F_y\eta+F_p\eta')\,dx
-> =\int_a^b\left(F_y-\frac{d}{dx}F_p\right)\eta\,dx
-> +[F_p\eta]_a^b.
+\delta J[u;\eta]
+=\int_a^b(F_y\eta+F_p\eta')\,dx
+=\int_a^b\left(F_y-\frac{d}{dx}F_p\right)\eta\,dx
++[F_p\eta]_a^b.
 $$
->
 > ここで各偏微分は $(x,u(x),u'(x))$ で評価する。
 <!-- formal-statement-end -->
 
@@ -84,13 +77,12 @@ $F$ の第2・第3引数はそれぞれ $\eta,\eta'$ だけ動きます。連鎖
 <!-- proof-start -->
 ### 証明
 
-$h(\varepsilon,x)=F(x,u(x)+\varepsilon\eta(x),u'(x)+\varepsilon\eta'(x))$ と置きます。$x$ は固定し、$\varepsilon$ に関して連鎖律を適用します。
+$h(\varepsilon,x)=F(x,u_\varepsilon(x),u_\varepsilon'(x))$ と置きます。$\varepsilon=0$ での $C^2$ ノルム微分から、$u_\varepsilon$ とその $x$ 微分の一次変化はそれぞれ $\eta,\eta'$ です。$x$ を固定して連鎖律を適用すると
 $$
-\partial_\varepsilon h
-=F_y(x,u_\varepsilon,u_\varepsilon')\eta
-+F_p(x,u_\varepsilon,u_\varepsilon')\eta'.
+\left.\partial_\varepsilon h\right|_{\varepsilon=0}
+=F_y(x,u,u')\eta+F_p(x,u,u')\eta'.
 $$
-$\varepsilon=0$ と置き、前述の一様連続性による積分下の微分を使うと
+コンパクト区間上での $C^2$ ノルム微分と $F_y,F_p$ の連続性から差商の収束は一様であり、積分と $\varepsilon$ 微分を交換できます。従って
 $$
 \delta J[u;\eta]
 =\int_a^b(F_y\eta+F_p\eta')\,dx.
@@ -124,8 +116,8 @@ $$
 > $F\in C^2$、$u\in C^2([a,b])$ が、左端 $u(a)=A$ を固定し右端を自由にした全 $C^2$ 許容変分について停留しているなら、
 >
 $$
-> \frac{d}{dx}F_p-F_y=0\quad(a<x<b),
-> \qquad F_p(b,u(b),u'(b))=0.
+\frac{d}{dx}F_p-F_y=0\quad(a<x<b),
+\qquad F_p(b,u(b),u'(b))=0.
 $$
 >
 > 逆に、これら二条件を満たせば全許容変分に対して停留する。両端自由ならさらに $F_p(a,u(a),u'(a))=0$ が必要十分である。
@@ -138,7 +130,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\eta\in C_c^\infty(a,b)$ を取ります。これは $\eta(a)=0$ を満たすため許容方向です。[第一変分の境界項公式](#prop-var1-first-variation-boundary)の端点項は消えます。[変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)により
+まず $\eta\in C_c^\infty(a,b)$ を取ります。これは $\eta(a)=0$ を満たすため許容方向です。[第一変分と境界項](#prop-var1-first-variation-boundary)の命題の端点項は消えます。[変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)により
 $$
 F_y-\frac{d}{dx}F_p=0\quad(a<x<b).
 $$
@@ -166,8 +158,8 @@ $$
 > 上の条件で各開区間上の Euler–Lagrange方程式が成立しているとする。接合点の値を自由に動かす全連続変分についての停留性は
 >
 $$
-> F_p(c,u(c),u'(c-))
-> =F_p(c,u(c),u'(c+))
+F_p(c,u(c),u'(c-))
+=F_p(c,u(c),u'(c+))
 $$
 >
 > と同値である。
@@ -176,7 +168,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$[a,c]$ と $[c,b]$ に[境界項公式](#prop-var1-first-variation-boundary)を別々に使います。外端は固定、各区間の内部項は仮定でゼロです。左区間の上端項は $F_p(c-)\eta(c)$、右区間の下端項は $-F_p(c+)\eta(c)$ なので
+$[a,c]$ と $[c,b]$ に[第一変分と境界項](#prop-var1-first-variation-boundary)の命題を別々に使います。外端は固定、各区間の内部項は仮定でゼロです。左区間の上端項は $F_p(c-)\eta(c)$、右区間の下端項は $-F_p(c+)\eta(c)$ なので
 $$
 \delta J[u;\eta]
 =\bigl(F_p(c-)-F_p(c+)\bigr)\eta(c).
@@ -198,7 +190,7 @@ $\zeta$ は接合点の実際の高さの一次変化です。
 > $F\in C^2$、連続な区分的 $C^2$ 曲線の左右で Euler–Lagrange方程式が成り立つとする。接合点の位置と高さを独立に動かす滑らかな区分曲線族（外端固定）に関して停留しているなら、接合点で
 >
 $$
-> [F_p]_-^+=0,\qquad[F-u'F_p]_-^+=0
+[F_p]_-^+=0,\qquad[F-u'F_p]_-^+=0
 $$
 >
 > が成立する。ここで $[H]_-^+=H(c+)-H(c-)$ である。逆にこの二条件が成立すれば、この種類の曲線族に対する第一変分はゼロになる。
@@ -228,14 +220,32 @@ $$
 =(F_p(c-)-F_p(c+))\zeta
 +\Bigl[(F-u'F_p)(c-)-(F-u'F_p)(c+)\Bigr]\sigma.
 $$
-独立な高さ変動と位置変動を持つ区分曲線族を選べるので、二つの係数はそれぞれゼロです。逆に条件が二つともゼロなら任意の $\zeta,\sigma$ について $\delta J=0$ です。
+高さの変動 $\zeta$ と位置の変動 $\sigma$ が独立に指定できることも確かめます。外端でゼロとなり、接合点で必要な値を取る一次変化の例は次のとおりです。
+
+$$
+\begin{aligned}
+\eta_-(x)&=(\zeta-u'(c-)\sigma)\frac{x-a}{c-a},\\
+\eta_+(x)&=(\zeta-u'(c+)\sigma)\frac{b-x}{b-c}.
+\end{aligned}
+$$
+
+左右の元の曲線を接合点付近まで $C^2$ に延長します。移動する接合位置は $c_\varepsilon=c+\varepsilon\sigma$ とし、そこでの左右の曲線値をともに $u(c)+\varepsilon\zeta$ にするように補正します。この補正は接合点付近に局在させ、外端ではゼロにできます。
+
+接合条件の一次式が成り立つため、必要な補正は $\varepsilon$ の一次より小さく取れます。よって一階の変化は上の $\eta_\pm$ のままで、連続性も正確に満たせます。
+
+任意の $\zeta,\sigma$ についてそのような許容族を作れるので、両係数はそれぞれゼロです。逆に、両係数がゼロなら任意の許容族に対して $\delta J=0$ です。
 <!-- proof-end -->
 
-例えば $F=\frac12p^2$ なら $F_p=p$ なので第一の接合条件だけで左右の傾きが一致します。したがってこの滑らかな均質モデルの停留曲線には、真の角は残りません。媒質が接合点で不連続なら $F$ が単一の $C^2$ 関数である仮定が破れます。そのとき移動角点の二条件を無条件に転用してはいけません。
+例えば $F=\frac12p^2$ なら $F_p=p$ なので第一の接合条件だけで左右の傾きが一致します。したがってこの滑らかな均質モデルの停留曲線には、真の角は残りません。媒質が接合点で不連続なら、単一の $C^2$ 関数 $F$ という仮定が破れます。ただし接合位置を**固定**すれば、左右それぞれの滑らかな被積分関数 $F_-,F_+$ へ[境界項公式](#prop-var1-first-variation-boundary)を適用でき、境界項の差から $F_{-,p}(c-)=F_{+,p}(c+)$ を直接導けます。移動角点の二条件は、媒質境界の移動規則を定めずに転用してはいけません。
 
 ## 5. 長さなどの等周拘束を入れる
 
-許容クラスが $K[u]=\ell$ を満たす必要があるとき、単純な固定端変分は拘束から外れます。制約面上に曲線族を補正するため、**制約の第一変分が少なくとも一方向ではゼロでないこと**が鍵です。
+許容クラスが $K[u]=\ell$ を満たす必要があるとき、直線族 $u+\varepsilon\eta$ は一般に拘束から外れます。例えば長さ拘束 $K[u]=\int_a^b\sqrt{1+(u')^2}\,dx$ では、固定端方向 $\eta$ に沿った二階微分は
+$$
+\left.\frac{d^2}{d\varepsilon^2}K[u+\varepsilon\eta]\right|_{\varepsilon=0}
+=\int_a^b\frac{(\eta')^2}{(1+(u')^2)^{3/2}}\,dx>0
+$$
+です（$\eta\not\equiv0$ の場合）。従って一次変化が $\delta K[u;\eta]=0$ でも、直線族そのものは長さを保てません。制約面上に**非直線の許容変分**を作るには、制約の第一変分が少なくとも一方向ではゼロでないことが鍵です。
 
 <a id="def-var1-isoperimetric"></a>
 <!-- formal-statement-start -->
@@ -268,13 +278,13 @@ $$
 > $F,G\in C^2$、$u\in C^2([a,b])$ とする。固定端点かつ $K[u]=\ell$ のもとで $u$ が局所的に停留し、$K$ が $u$ で正則なら、ある実数 $\lambda$ が存在して
 >
 $$
-> \delta(J+\lambda K)[u;\eta]=0
+\delta(J+\lambda K)[u;\eta]=0
 $$
 >
 > がすべての固定端方向 $\eta$ について成り立つ。したがって
 >
 $$
-> \frac d{dx}(F_p+\lambda G_p)-(F_y+\lambda G_y)=0
+\frac d{dx}(F_p+\lambda G_p)-(F_y+\lambda G_y)=0
 $$
 >
 > が $(a,b)$ で成立する。乗数方程式だけでは元の拘束と端点条件を満たすとは限らず、これらも別に解く。
@@ -300,7 +310,7 @@ $$
 $$
 t'(0)=-\frac{\delta K[u;\eta]}{\delta K[u;\psi]}.
 $$
-曲線 $u+s\eta+t(s)\psi$ は固定端と拘束を保ちます。制約付き停留性より
+曲線 $u+s\eta+t(s)\psi$ は固定端と拘束を正確に保つ許容変分です。一般には直線族ではありませんが、第1節の定義では許容されます。その $s=0$ での方向は $\eta+t'(0)\psi$ です。[第一変分の公式](#prop-var1-first-variation-boundary)の線形性と制約付き停留性より
 $$
 0=\delta J[u;\eta]+t'(0)\delta J[u;\psi]
 =\delta J[u;\eta]
@@ -490,7 +500,13 @@ $J[u]=\frac12\int_0^1a(x)(u')^2dx$、$u(0)=0,u(1)=1$ とする。$a=1$（$0\le x
 <!-- solution-start -->
 ### 詳細解答
 
-左右で $F=\frac12ap^2$、$F_p=ap$ です。各内部では $(au')'=0$ だから、左の傾きを $k$、右の傾きを $m$ とすると両方一定です。接合位置固定の[運動量接合条件](#thm-var1-corner-momentum)より $k=2m$。端点と連続性から全高低差は
+左右で $F_-=\frac12p^2$、$F_+=p^2$ です。各内部では $(au')'=0$ だから、左の傾きを $k$、右の傾きを $m$ とすると両方一定です。$c=1/2$ は固定されているため、左右で別々に[第一変分と境界項](#prop-var1-first-variation-boundary)の命題を使うと、外端固定かつ内部方程式の下で
+$$
+\delta J[u;\eta]
+=\bigl(F_{-,p}(c-)-F_{+,p}(c+)\bigr)\eta(c)
+=(k-2m)\eta(c).
+$$
+接合点の高さ $\eta(c)$ を自由に動かせるので、停留性は $k=2m$ を要求します。端点と連続性から全高低差は
 $$
 1=u(1)-u(0)=\frac12 k+\frac12m.
 $$
