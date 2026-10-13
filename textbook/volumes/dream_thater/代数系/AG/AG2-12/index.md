@@ -147,7 +147,7 @@ $$
 \eta=-\frac{du}{1+2uv}.
 $$
 
-$1+2uv$ は $O$ で値1を取る正則単元です。従って $\eta$ は無限遠でも零でも極でもありません。有限点と無限遠点を尽くしたので、$\eta$ は $C$ の全点で局所基底です。[有理微分の位数と標準因子](../AG2-08/index.md#def-ag2-08-rational-differential)の定義から、すべての点で位数が0、ゆえに $\operatorname{div}(\eta)=0$ です。
+$1+2uv$ は $O$ で値1を取る正則単元です。従って $\eta$ は無限遠でも零でも極でもありません。有限点と無限遠点を尽くしたので、$\eta$ は $C$ の全点で局所基底です。[有理微分形式・標準因子](../AG2-08/index.md#def-ag2-08-rational-differential)の定義から、すべての点で位数が0、ゆえに $\operatorname{div}(\eta)=0$ です。
 <!-- proof-end -->
 
 一つの形式の三通りの表示を並べておきます。
@@ -158,7 +158,7 @@ $1+2uv$ は $O$ で値1を取る正則単元です。従って $\eta$ は無限�
 | $Z=1,\ y=0$ | $y$ | $dy/(3x^2-1)$ |
 | $O=[0:1:0]$ | $u=X/Y$ | $-du/(1+2uv)$ |
 
-標準因子の情報が分かると、[標準因子と標準束の対応](../AG2-08/index.md#thm-ag2-08-canonical-divisor)からも $\omega_C\simeq\mathcal O_C$ と分かります。こうして**随伴公式からの束の計算**と**局所微分からの因子の計算**が一致しました。
+標準因子の情報が分かると、[標準因子と標準束の対応](../AG2-08/index.md#thm-ag2-08-canonical-divisor)からも $\omega_C\simeq\mathcal O_C$ と分かります。従って、前節で適用した[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)による束の計算と、局所微分による因子の計算が一致します。
 
 ## 3. 無限遠における関数の極と微分の違い
 
@@ -179,7 +179,9 @@ $$
 > **命題（三次曲線上の座標関数の主因子）**  
 > 上の滑らかな曲線 $C$ において $P=(0,0)\in C\cap\{Z\ne0\}$ と置くと、有理関数 $x=X/Z$ の主因子は
 >
-> $\displaystyle \operatorname{div}(x)=2[P]-2[O]$
+$
+\operatorname{div}(x)=2[P]-2[O].
+$
 >
 > である。
 <!-- formal-statement-end -->
