@@ -249,16 +249,28 @@ try {
   assert.equal(accessibility.status, "polite");
   assert.ok(accessibility.plot.includes("legend"));
   assert.ok(accessibility.table && accessibility.meaning);
+  // Hardware-keyboard activation is tested in desktop emulation. Chromium
+  // mobile input emulation can route Enter through a virtual IME instead.
+  await cdp("Emulation.setCPUThrottlingRate", { rate: 1 });
+  await cdp("Emulation.clearDeviceMetricsOverride");
   await evaluate('document.querySelector("#step").focus()');
+  assert.equal(await evaluate('document.activeElement.id'), "step");
   await cdp("Input.dispatchKeyEvent", {
-    type: "rawKeyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13,
+    type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13,
+  });
+  await cdp("Input.dispatchKeyEvent", {
+    type: "char", text: "\r", key: "Enter", windowsVirtualKeyCode: 13,
   });
   await cdp("Input.dispatchKeyEvent", {
     type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13,
   });
-  await waitFor(stepNumber + ' === 101');
-  await cdp("Emulation.setCPUThrottlingRate", { rate: 1 });
-  await cdp("Emulation.clearDeviceMetricsOverride");
+  try {
+    await waitFor(stepNumber + ' === 101');
+  } catch (error) {
+    throw new Error(error.message + "; keyboard state: " +
+      JSON.stringify(await evaluate('({step: ' + stepNumber +
+        ', focused: document.activeElement.id, status: document.querySelector("#status").textContent})')));
+  }
 
   console.log(JSON.stringify({
     test: "simulation-phase1-acceptance", status: "PASS",
