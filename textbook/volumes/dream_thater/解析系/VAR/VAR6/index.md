@@ -239,54 +239,62 @@ $$
 |\varphi'(t)|\le\frac{|x'(t)|}{R}.
 $$
 
-ただし $x(t)=p$ または $x(t)=-p$ では $\sin\varphi=0$ なので、ここで $\varphi'$ の式をそのまま使うことはできません。極点を何度通る曲線でも扱えるよう、$0<\delta<\pi/2$ を固定して角度を切り詰めます。
+ただし $x(t)=p$ または $x(t)=-p$ では $\sin\varphi=0$ なので、この微分の式を直接使えません。北極や南極を繰り返し通る曲線も一度に扱うため、$\varepsilon>0$ に対して
 
 $$
-\varphi_\delta(t)
+\psi_\varepsilon(t)
 =
-\min\{\pi-\delta,\max\{\delta,\varphi(t)\}\}.
+\arccos\left(\frac{u\cdot x(t)}{R(1+\varepsilon)}\right)
 $$
 
-$z\in[-1,1]$ に対する関数
+を考えます。$\arccos$ の引数の絶対値は $1/(1+\varepsilon)<1$ 以下なので、$\psi_\varepsilon$ は極であっても区分的 $C^1$ です。先ほどの接空間への射影の評価 $|u\cdot x'|\le\sin\varphi\,|x'|$ を使うと、
 
 $$
-z\longmapsto
-\min\{\pi-\delta,\max\{\delta,\arccos z\}\}
+|\psi_\varepsilon'|
+=
+\frac{|u\cdot x'|}
+{R\sqrt{(1+\varepsilon)^2-\cos^2\varphi}}
+\le
+\frac{\sin\varphi\,|x'|}
+{R\sqrt{\sin^2\varphi+2\varepsilon+\varepsilon^2}}
+\le\frac{|x'|}{R}.
 $$
 
-は、両端付近では定数で、残りの閉区間では導関数が有界なので Lipschitz 連続です。従って、区分的 $C^1$ の $t\mapsto u\cdot x(t)/R$ と合成した $\varphi_\delta$ は絶対連続です。$\delta<\varphi<\pi-\delta$ の部分では先ほどの評価が成り立ち、切り詰められた部分では $\varphi_\delta'=0$ がほとんど至る所で成り立ちます。よって
+ここでは $\sin\varphi\ge0$ であり、分母が正なので、$x(t)=\pm p$ の場合も不等式が成り立ちます。区分的 $C^1$ 関数に積分の基本定理を適用すると、任意の $0\le s<t\le1$ に対し
 
 $$
-|\varphi_\delta'(t)|
-\le\frac{|x'(t)|}{R}
+|\psi_\varepsilon(t)-\psi_\varepsilon(s)|
+\le\int_s^t|\psi_\varepsilon'(r)|\,dr
+\le\frac1R\int_s^t|x'(r)|\,dr.
+$$
+
+$\varepsilon\downarrow0$ とすれば $\psi_\varepsilon(r)\to\varphi(r)$ なので
+
+$$
+|\varphi(t)-\varphi(s)|
+\le\frac1R L(x|_{[s,t]}).
+$$
+
+特に $s=0,\ t=1$ では $\varphi(0)=0,\ \varphi(1)=\theta$ より $L(x)\ge R\theta$、すなわち距離公式が従います。
+
+$0<\theta<\pi$ で最短曲線 $x$ の長さが $R\theta$ に等しい場合、任意の $t\in[0,1]$ に対し、上の部分区間の評価を両側で使うと
+
+$$
+R\theta=L(x|_{[0,t]})+L(x|_{[t,1]})
+\ge R\varphi(t)+R|\theta-\varphi(t)|
+\ge R\theta
+$$
+
+となります。全て等号なので $\varphi(t)\le\theta$ かつ $L(x|_{[0,t]})=R\varphi(t)$ です。従って $\varphi$ は減少せず、部分弧長の積分を微分して
+
+$$
+\varphi'(t)=\frac{|x'(t)|}{R}
 \quad\text{（ほとんど至る所）}
 $$
 
-であり、絶対連続関数の基本定理から
+を得ます。
 
-$$
-|\varphi_\delta(1)-\varphi_\delta(0)|
-\le\int_0^1|\varphi_\delta'(t)|\,dt
-\le\frac1R\int_0^1|x'|\,dt.
-$$
-
-$\delta\downarrow0$ とすれば、$\varphi_\delta$ は $\varphi$ へ一様収束し、端点では $\varphi(0)=0,\ \varphi(1)=\theta$ なので
-
-$$
-\theta\le\frac1R L(x).
-$$
-
-これで $L(x)\ge R\theta$、すなわち距離公式が従います。この評価は任意の部分区間でも成り立つため、$\varphi$ 自身も絶対連続で $|\varphi'|\le |x'|/R$ をほとんど至る所で満たします。
-
-$0<\theta<\pi$ で長さが $R\theta$ に等しい場合、一連の評価
-
-$$
-\theta=\int_0^1\varphi'\,dt
-\le\int_0^1|\varphi'|\,dt
-\le\frac1R\int_0^1|x'|\,dt=\theta
-$$
-
-は全て等号です。従って $\varphi'\ge0$ かつ $|x'|=R\varphi'$ がほとんど至る所で成立します。$0<\varphi<\pi$ の区間では
+$0<\varphi<\pi$ の区間では
 
 $$
 x(t)=R\bigl(\cos\varphi(t)\,u+\sin\varphi(t)\,w(t)\bigr),
