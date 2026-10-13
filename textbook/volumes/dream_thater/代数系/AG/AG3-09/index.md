@@ -200,15 +200,15 @@ $$
 > **定理（Projの存在と構造射）**  
 > 非負次数付き環 $S$ に対し、前の構成はスキーム $\operatorname{Proj}S$ を一意に定める。$S_0=A$ なら自然な構造射
 >
-$
+$$
 \operatorname{Proj}S\longrightarrow\operatorname{Spec}A
-$
+$$
 >
 > が存在する。特に $S=A[x_0,\ldots,x_n]$ が次数1の変数で生成される多項式環なら
 >
-$
+$$
 \operatorname{Proj}A[x_0,\ldots,x_n]\simeq\mathbb P_A^n
-$
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -360,9 +360,9 @@ $$
 > **定義（次数付き加群に付随する層）**  
 > 非負次数付き環 $S$ と整数次数付き $S$-加群 $M$ を取る。各標準開集合 $D_+(f)$ 上で $(M_f)_0$ に付随する層を作り、次数零の局所化で貼り合わせた $\mathcal O_{\operatorname{Proj}S}$-加群を $\widetilde M$ と書く。整数 $r$ による次数のずらしを
 >
-$
+$$
 M(r)_n=M_{n+r}\qquad(n\in\mathbb Z)
-$
+$$
 >
 > で定める。
 <!-- formal-statement-end -->
