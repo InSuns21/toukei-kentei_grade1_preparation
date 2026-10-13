@@ -1,0 +1,48 @@
+id: "CELEV3"
+title: "特異ポテンシャル・衝突・局所変形"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELEV2
+  - CELEV1
+  - VAR9
+official_scope: []
+learning_objectives:
+  - 単純二体衝突・多重衝突・全衝突を区別し重心変換による保存を確認できる
+  - 冪型ポテンシャルの衝突閾値α=2をH1評価と冪関数の積分から証明できる
+  - 二体衝突・再放出路で横方向の端点固定局所変形を構成し作用差のδ二乗とδ二分の一乗を比較できる
+  - Marchalの固定端点衝突排除定理の適用条件・内部時刻限定・外部証明の境界を説明できる
+  - 質量重心の射影が端点を保ち作用を増やさない恒等式を証明できる
+  - 半周期反転の二重貼り込みで自由固定端点局所最小性を証明できる
+  - CELEV2の最小点から衝突のないNewton周期解を導出し最小周期とは区別できる
+  - 一次元・対称拘束の例から局所変形が許容されない失敗機構を説明できる
+definitions:
+  - { id: CELEV3-DEF-01, name: "二体衝突・全衝突" }
+theorems:
+  - { id: CELEV3-PROP-01, name: "冪型ポテンシャルの有限作用衝突閾値" }
+  - { id: CELEV3-PROP-02, name: "二体衝突・再放出路の横方向局所変形" }
+  - { id: CELEV3-THM-01, name: "Marchalの固定端点衝突排除定理" }
+  - { id: CELEV3-PROP-03, name: "半周期反転極小点の自由な局所最小性" }
+  - { id: CELEV3-THM-02, name: "半周期反転作用最小点の衝突排除とNewton周期解" }
+canonical_examples:
+  - 二体衝突と三体全衝突の違い
+  - 冪指数2/3のH1かつ有限Newton作用の衝突路
+  - 垂直方向の局所変形と作用差評価
+  - 重心射影による端点を固定した運動エネルギー減少
+  - 半周期反転区間の対称な二重貼り込み
+  - 一次元端点順序による衝突強制
+problem_patterns:
+  - CELEV3-COLLISION-TYPES
+  - CELEV3-POWER-THRESHOLD
+  - CELEV3-KEPLER-SINGULAR-INTEGRAL
+  - CELEV3-BARYCENTER-PROJECTION
+  - CELEV3-TRANSVERSE-SURGERY
+  - CELEV3-STRONG-FORCE-H1
+  - CELEV3-SYMMETRIC-PASTING
+  - CELEV3-FREE-ENDPOINT-COMPETITORS
+  - CELEV3-ONE-DIMENSION-FAILURE
+  - CELEV3-COLLISIONLESS-PERIODIC-EXISTENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
