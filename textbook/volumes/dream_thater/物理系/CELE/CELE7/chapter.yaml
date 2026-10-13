@@ -19,10 +19,9 @@ learning_objectives:
   - カントーラス、共鳴重なり、Arnold拡散の位置づけと厳密結果との境界を説明できる
   - 二自由度の輸送障壁と三自由度以上の拡散可能性を次元で説明できる
 definitions:
-  - { id: CELE7-DEF-01, name: "一次共鳴と共鳴角" }
+  - { id: CELE7-DEF-01, name: "整数共鳴と共鳴角" }
   - { id: CELE7-DEF-02, name: "共鳴島と分離曲線" }
   - { id: CELE7-DEF-03, name: "有限時間Lyapunov指数" }
-  - { id: CELE7-DEF-04, name: "カントーラスの解釈" }
 theorems:
   - { id: CELE7-PROP-01, name: "二振動子の一対一共鳴還元" }
   - { id: CELE7-PROP-02, name: "共鳴島の幅と面積" }
