@@ -267,11 +267,13 @@ $$
 \ge\frac1{\sqrt2(|p|+|q|)}.
 $$
 
-分母の有理化は $p=q=0$ 以外で正当です。この評価は $\ell^1$ ノルムについて指数 $\tau=1$ の下界を与え、さらに $|k|_1\ge1$ より任意の $\tau>1$（例えば $\tau=2$）の[Diophantine条件](../../../幾何系/INT/INT4/index.md#def-int4-diophantine)も含意します。従って[INT8のKAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)が要求する $\tau>n-1=1$ と整合します。$(1,\sqrt2)$ が「無理数比だから大丈夫」という言葉だけで済まない理由は、この定量的下界にあります。
+分母の有理化は $p=q=0$ 以外で正当です。この評価は $\ell^1$ ノルムで指数 $\tau=1$ の下界を与えます。$|k|_1\ge1$ より任意の $\tau>1$ の[Diophantine条件](../../../幾何系/INT/INT4/index.md#def-int4-diophantine)も含意します。
+
+たとえば $\tau=2$ を選べば、[INT8のKAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)が要求する $\tau>n-1=1$ を満たします。無理数比という定性的な事実だけでなく、整数ベクトルごとの定量的下界まで得たことが重要です。
 
 [解析的Kolmogorov型KAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)を本模型に適用する入力は、次の順です。
 
-1. $K$ は解析的で、$D^2K=I_2$ は可逆。作用領域を $I_*$ のまわりのコンパクトな小近傍に取る。
+1. $K$ は解析的で、$D^2K=\mathrm{Id}_2$ は可逆。作用領域を $I_*$ のまわりのコンパクトな小近傍に取る。
 2. $\omega_*=(1,\sqrt2)$ は上で証明したDiophantine条件を満たす。
 3. $\cos(\theta_1-\theta_2)$、さらに第二角の項を入れるなら $\cos(2\phi-2\psi)$ はそれぞれ指定領域の解析関数であり、解析ノルムを伴う摂動の小ささが必要となる。
 4. これらに応じた**定理のしきい値以下**の摂動なら、振動数 $\omega_*$ で直線流に共役な不変トーラスが、近くの位置に存続する。
@@ -562,7 +564,18 @@ H_{\varepsilon,\delta}
 +\delta\cos(\theta_1-3\theta_2)
 $$
 
-を、$\varepsilon>0$、小さい $|\delta|$ の下で、$\psi=(\theta_1+\theta_2)/2$、$\phi=\theta_1-\theta_2$、$P=I_1+I_2$、$J=(I_1-I_2)/2$ の局所座標で考える。（i）第二角項を $\phi,\psi$ で書き直せ。（ii）$\delta=0$ での島の半幅と面積を求めよ。（iii）$\delta\ne0$ で $\dot P$ を計算せよ。（iv）非共鳴トーラスの存続について[INT8の解析的KAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)の仮定を点検し、共鳴帯付近で複雑な運動を結論するには何が不足するか説明せよ。
+を、$\varepsilon>0$ かつ小さい $|\delta|$ の下で考える。次の局所正準座標を用いよ。
+
+$$
+\psi=\frac{\theta_1+\theta_2}{2},\quad
+\phi=\theta_1-\theta_2,\quad
+P=I_1+I_2,\quad J=\frac{I_1-I_2}{2}.
+$$
+
+1. 第二角項を $\phi,\psi$ で書き直せ。
+2. $\delta=0$ で島の半幅と面積を求めよ。
+3. $\delta\ne0$ で $\dot P$ を計算せよ。
+4. [INT8の解析的KAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)の仮定を点検し、共鳴帯で複雑な運動を結論するために不足する検証を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。（i）逆変換 $\theta_1=\psi+\phi/2$、$\theta_2=\psi-\phi/2$ を代入すると
