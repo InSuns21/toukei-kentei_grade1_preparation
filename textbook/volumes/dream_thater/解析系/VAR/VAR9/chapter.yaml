@@ -1,0 +1,52 @@
+id: "VAR9"
+title: "H¹弱収束と最小化の直接法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR8
+  - VAR2
+  - GPDE3
+  - GPDE4
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 区間上の固定端点・周期・平均零のH1許容集合を区別し、トレースと平均汎関数から弱逐次閉性を示せる
+  - H1有界列の一様収束部分列を一次元の微分積分と対角抽出から証明し、強いH1収束との違いを説明できる
+  - 強制性と弱逐次下半連続性を定義・反例で区別し、直接法の全手順を証明できる
+  - 固定端点二次エネルギーについてPoincaré評価・弱下半連続性・厳密凸性により存在と一意性を示せる
+  - 平均零拘束のPoincaré評価を導き、周期条件のみでは定数方向に強制性を失うことを計算できる
+  - 非凸な連続位置ポテンシャルを含む一次元のエネルギーで一様コンパクト性を用いた存在証明を行える
+definitions:
+  - { id: VAR9-DEF-01, name: "区間上の三つの許容集合" }
+  - { id: VAR9-DEF-02, name: "弱逐次閉集合" }
+  - { id: VAR9-DEF-03, name: "強制性" }
+  - { id: VAR9-DEF-04, name: "弱逐次下半連続性" }
+theorems:
+  - { id: VAR9-PROP-01, name: "三つの許容集合の弱逐次閉性" }
+  - { id: VAR9-PROP-02, name: "区間上のH1有界列の一様コンパクト性" }
+  - { id: VAR9-THM-01, name: "Hilbert空間上の最小化の直接法" }
+  - { id: VAR9-THM-02, name: "固定端点二次エネルギーの存在と一意性" }
+  - { id: VAR9-PROP-03, name: "平均零の一次元Poincaré評価" }
+  - { id: VAR9-PROP-04, name: "周期問題での強制性の成否" }
+  - { id: VAR9-THM-03, name: "連続ポテンシャルを含む一次元直接法" }
+canonical_examples:
+  - 固定端点二次エネルギーの最小点t(1-t)
+  - 周期エネルギーの定数並進と強制性の失敗
+  - 高振動列の一様収束とH1強収束の不一致
+  - 非下半連続汎関数の最小値非達成
+  - 非凸二重井戸ポテンシャルの存在
+problem_patterns:
+  - VAR9-H1-NORM
+  - VAR9-TRACE-WEAK-CLOSED
+  - VAR9-PERIODIC-MEAN
+  - VAR9-COERCIVITY-COUNTEREXAMPLE
+  - VAR9-UNIFORM-NOT-STRONG
+  - VAR9-QUADRATIC-MINIMIZATION
+  - VAR9-MEAN-POINCARE
+  - VAR9-WEAK-LSC
+  - VAR9-LSC-FAILURE
+  - VAR9-PERIODIC-FORCING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.0 }

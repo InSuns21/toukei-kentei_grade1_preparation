@@ -41,7 +41,7 @@ chapters:
     title: "極小曲面の第二変分と安定性"
   - id: VAR9
     path: textbook/volumes/dream_thater/解析系/VAR/VAR9
-    status: planned
+    status: completed
     title: "H¹弱収束と最小化の直接法"
   - id: VAR10
     path: textbook/volumes/dream_thater/解析系/VAR/VAR10
