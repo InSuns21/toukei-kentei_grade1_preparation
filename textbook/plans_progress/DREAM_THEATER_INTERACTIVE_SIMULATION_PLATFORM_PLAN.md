@@ -1,7 +1,8 @@
 # DREAM THEATER 対話型数値シミュレーション共通基盤 PLAN
 
 設計日: 2026-10-14  
-状態: planned（共通基盤の設計のみ。Runtime・Worker・UI・テストコードは未実装）
+着手日: 2026-10-14  
+状態: in_progress（Phase 0：通信契約・2模型の基準カーネル・headless検証を追加。Phase 1以降のWorker・UI・配信は未実装）
 
 ## 0. 対象、中心問い、位置付け
 
@@ -9,14 +10,14 @@
 
 本PLANは科目PLANの上位に立つ数学的正本ではなく、**GitHub Pages上の対話型計算実験に共通するソフトウェア基盤の実装計画**である。現行の直接利用者は次の2科目とする。
 
-- [CELEV：変分的周期軌道・n体舞踏解と数値シミュレーション](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)：Newton方程式・Verlet積分・変分的周期軌道探索。
-- [ML I・II：機械学習](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)：標本抽出・勾配法・SGD・EM・MCMC・確率的推論・深層学習と生成模型。
+- [CELEV：変分的周期軌道・n体舞踏解と数値シミュレーション](../plans/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)：Newton方程式・Verlet積分・変分的周期軌道探索。
+- [ML I・II：機械学習](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)：標本抽出・勾配法・SGD・EM・MCMC・確率的推論・深層学習と生成模型。
 
 将来のODE/PDE/最適制御教材が使う場合も、共通基盤への依存は**ソフトウェアAPIに限る**。学修prerequisites・knowledge DAG・定理のcanonical ownershipを横断して統合しない。CELEV/MLの章ID・執筆進捗は各系列manifestが所有し、本PLANに系列manifestや未実装章の公開索引を作らない。
 
 ## 1. 現在の資産と非変更範囲
 
-2026-10-14時点のGitHub実ファイルを確認した。
+2026-10-14の着手時にGitHub実ファイルを確認した。
 
 - [`pages/numerical-lab-runtime.js`](../../pages/numerical-lab-runtime.js)：一回実行型のPython演習、結果表示、保存と中断。常駐型対話実行の共通エンジンはない。
 - [`pages/numerical-lab-worker.mjs`](../../pages/numerical-lab-worker.mjs)：Pyodideでコード＋テストを一回実行し、標準出力・Matplotlib PNG等を返す。
@@ -95,7 +96,7 @@ ExperimentAdapter
 
 ## 5. 実装方針・フォルダの責任分離（候補パス）
 
-パスは**候補**であり、着手時に既存ビルド/Service Worker/Pyodide契約と衝突を検証して確定する。現在コードは存在しない。
+パスは**候補**であり、着手時に既存ビルド/Service Worker/Pyodide契約と衝突を検証して確定する。Phase 0 の `protocol.mjs` と受け入れ模型は追加済み。Worker/UI/保存・可視化はまだ存在しない。
 
 ```text
 pages/simulation/                 # 新しい共通UI/Workerクライアント（候補）
@@ -114,10 +115,10 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 
 ### Phase 0: 共通契約と受け入れ模型を固定
 
-- [ ] 現行のPythonラボ、service worker、Pages assembly、テスト入口を再確認。
-- [ ] JSON schema相当のメッセージ定義と状態機械、adapterのバージョン固定・負例テスト。
-- [ ] 最小の2つの模型を同じ共通APIで動かす仕様と基準結果を確定：**CELEV二体円運動（実時間積分）**、**ML1-01有限4セル標本抽出（単発・乱数実験）**。
-- [ ] 実機での入力遅延・メモリ・初回起動時間の測定条件を確定。性能優位を測らずに断定しない。
+- [x] 現行のPythonラボ、service worker、Pages assembly、テスト入口を再確認（既存コードは変更しない）。
+- [x] JSON schema相当のメッセージ定義と状態遷移表、protocol=1・負例のheadlessテストを作成（Workerへの接続はPhase 1）。
+- [x] 同じ共通adapter契約で2模型の基準式を固定：**CELEV二体円運動（実時間積分）**、**ML1-01有限4セル標本抽出（単発・乱数実験）**。Phase 0 は独立したJSの受け入れカーネル。CELEV側の本番Python実装はPhase 2。
+- [x] 実機入力遅延・メモリ・初回起動時間の測定項目と観測条件を固定（[Phase 0仕様](../../pages/simulation/README.md)）。**実測と閾値設定はPhase 1以降**。
 
 ### Phase 1: 共通Runtime・可視化・保存
 
@@ -143,3 +144,13 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 本PLANの完成は**共通RuntimeをCELEV/MLの2つの異なる模型で実操作できる**ことと、worker/描画/再現性・数値検算・Pagesの回帰テストが通ることによる。ソースコードだけ、事前録画の軌跡、固定SVG/GIF、見た目だけのアニメーションでは完成としない。
 
 本変更はPLANの設計・責務整理のみであり、数値エンジン・UI/通信実装をまだ提供しない。CELEV/ML各講の証明・詳細演習・学習成果物は各PLANの査読規定で完成判定する。
+
+
+## 8. Phase 0 着手成果物（2026-10-14）
+
+- [protocol v1 / 状態遷移 / JSON制限](../../pages/simulation/protocol.mjs) — 純粋な契約検証。Workerの起動・同期は未接続。
+- [CELEV二体円運動のVerlet受け入れ模型](../../pages/simulation/engines/celev/two-body.mjs) — 保存量・物理時刻の基準。
+- [ML1-01四セル標本抽出の受け入れ模型](../../pages/simulation/engines/ml/four-cell.mjs) — 母集団リスク・seed・標本数の基準。
+- [受け入れ試験と実機測定条件](../../pages/simulation/README.md)、[headlessテスト](../../scripts/validate-simulation-phase0.mjs)。Pages組立の冒頭から呼ぶ。CI合否はPRで確認。
+
+**次工程:** Phase 1 の専用Workerとセッション状態機械、Canvas/HTML/SVGの表示アダプター、記録の再読み込み・export、および実ブラウザ/キャッシュ検証。これらが終わるまでは基盤完成や公開動作を主張しない。

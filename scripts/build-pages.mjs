@@ -2,6 +2,7 @@ import { access, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/pro
 import path from 'node:path';
 import YAML from 'yaml';
 import './validate-numerical-lab-runtime.mjs';
+import './validate-simulation-phase0.mjs';
 
 const root = process.cwd();
 const outDir = path.join(root, '_site');
