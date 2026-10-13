@@ -12,7 +12,7 @@
 
 ## 前提・境界・設定
 
-- 必須：[LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の時間向き・因果集合・Cauchy超曲面・大域双曲性・滑らかな時間分割。[GPDE1–10](../plan_done/DREAM_THEATER_ENCORE_III_GRAD_PDE_RESTRUCTURE_PLAN.md)の分布・Sobolev・弱解、PDE I、FOU、EVOLの必要節を**実在章・stable anchorで確認して**再利用する。前提PLANの未実装結果を既知としない。
+- 必須：[LORG](../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の時間向き・因果集合・Cauchy超曲面・大域双曲性・滑らかな時間分割。[GPDE1–10](../plan_done/DREAM_THEATER_ENCORE_III_GRAD_PDE_RESTRUCTURE_PLAN.md)の分布・Sobolev・弱解、PDE I、FOU、EVOLの必要節を**実在章・stable anchorで確認して**再利用する。前提PLANの未実装結果を既知としない。
 - HPDEが所有：滑らかなベクトル束と束値微分作用素の波動問題に必要な部分、normally hyperbolic作用素、エネルギー評価、Cauchy問題、有限伝播、局所/大域基本解、advanced/retarded Green作用素、因果伝播子、古典的実KG解のシンプレクティック構造。
 - [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)が所有：波面集合、擬微分・伝播の微局所理論、Hadamard**二点関数**の特異構造、点分離と応力テンソル。HPDEでは局所基本解の構成に必要な**古典的Hadamard係数・transport equationの入口**だけを扱い、二点関数のHadamard条件は先取りしない。
 - [AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)が所有：CCR代数・状態・モジュラー理論の精密な構成。HPDEの解空間は量子化に渡すデータであり、量子論としてのCCRの詳細は移さない。[QCURV](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)は粒子数・Bogoliubov係数・量子状態・物理観測を所有。

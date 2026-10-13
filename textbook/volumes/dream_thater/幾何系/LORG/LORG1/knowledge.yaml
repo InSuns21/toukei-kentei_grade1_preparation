@@ -1,0 +1,70 @@
+chapter: LORG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA6
+  - F0-00B
+forward_references:
+  - geometry.tensor-field
+
+concepts:
+  - id: lorentz-geometry.lorentz-inner-product
+    name: Lorentz内積
+    kind: definition
+    aliases: [Lorentz内積, Lorentzian inner product]
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz内積）"]
+    requires: [linear.sylvester-inertia-law]
+
+  - id: lorentz-geometry.causal-type
+    name: Lorentz因果型
+    kind: definition
+    aliases: [Lorentz因果型]
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz因果型）"]
+    requires: [lorentz-geometry.lorentz-inner-product]
+
+  - id: lorentz-geometry.future-cone
+    name: 閉未来錐と時間的未来錐
+    kind: definition
+    aliases: [閉未来錐, 未来錐, future cone]
+    introduction: formal
+    introduction_aliases: ["定義（閉未来錐と時間的未来錐）"]
+    requires: [lorentz-geometry.causal-type]
+
+  - id: lorentz-geometry.future-proper-time-norm
+    name: 未来因果ベクトルの固有時ノルム
+    kind: definition
+    aliases: [未来因果ベクトルの固有時ノルム]
+    introduction: formal
+    introduction_aliases: ["定義（未来因果ベクトルの固有時ノルム）"]
+    requires: [lorentz-geometry.future-cone]
+
+  - id: lorentz-geometry.cone-convexity
+    name: 未来錐の凸性と正のスカラー倍
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（未来錐の凸性と正のスカラー倍）"]
+    requires: [lorentz-geometry.future-cone]
+
+  - id: lorentz-geometry.reverse-cauchy-schwarz
+    name: Lorentz型逆Cauchy–Schwarz不等式
+    kind: theorem
+    aliases: [逆Cauchy–Schwarz不等式]
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz型逆Cauchy–Schwarz不等式）"]
+    requires: [lorentz-geometry.future-proper-time-norm]
+
+  - id: lorentz-geometry.reverse-triangle
+    name: 未来錐上の逆三角不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（未来錐上の逆三角不等式）"]
+    requires: [lorentz-geometry.reverse-cauchy-schwarz, lorentz-geometry.cone-convexity]
+
+  - id: lorentz-geometry.timelike-orthogonal-positive
+    name: 時間的ベクトルの直交補空間は正定値
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時間的ベクトルの直交補空間は正定値）"]
+    requires: [lorentz-geometry.lorentz-inner-product, linear.sylvester-inertia-law]
