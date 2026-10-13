@@ -32,7 +32,7 @@ Euclid空間で構成したSobolev空間・楕円型弱解・熱方程式を、�
 
 確認先:
 - https://link.springer.com/book/10.1007/978-3-319-61860-9
-- https://www.cambridge.org/core/books/laplacian-on-a-riemannian-manifold/EA3DCD6A8A047608209100456C1FA077
+- https://www.cambridge.org/core/books/the-laplacian-on-a-riemannian-manifold/56F18C2AB0A765A91892E164079A3B74
 - https://bookstore.ams.org/view?ProductCode=AMSIP%2F47
 - https://books.google.com/books/about/Nonlinear_Analysis_on_Manifolds_Sobolev.html?id=fsyFAwAAQBAJ
 - https://shop.elsevier.com/books/eigenvalues-in-riemannian-geometry/chavel/978-0-12-170640-1
