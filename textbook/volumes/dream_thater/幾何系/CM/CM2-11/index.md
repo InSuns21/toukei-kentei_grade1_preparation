@@ -810,7 +810,19 @@ $$
 \end{aligned}
 $$
 
-**$(4)$ 非自明性**。もし大域非零正則枠 $e$ があれば、全域で正値関数 $h(e,e)$ が定まり、[正則線束のChern接続](../CM2-10/index.md#prop-cm2-10-line-formula)から $F=d(\partial\log h(e,e))$ となる。よってコンパクトで境界のない $\mathbb{CP}^1$ 上の[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で $\int c_1=0$ となる。しかし $(3)$ の積分は $k\ne0$ で非零。矛盾するので大域非零正則枠は存在しない。
+**$(4)$ 非自明性**。もし大域非零正則枠 $e$ があれば、全域で正値関数 $h(e,e)$ が定まる。[正則線束のChern接続](../CM2-10/index.md#prop-cm2-10-line-formula)をこの正則枠へ適用すると
+
+$
+F=d(\partial\log h(e,e)).
+$
+
+ゆえに第一Chern形式も大域的な完全2形式である。コンパクトで境界のない $\mathbb{CP}^1$ に[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用すると
+
+$
+\int_{\mathbb{CP}^1}c_1=0.
+$
+
+ところが $(3)$ の積分値は $k\ne0$ で非零。矛盾するので大域非零正則枠は存在しない。
 <!-- solution-end -->
 
 ## 9. まとめと、この先の問い
