@@ -87,7 +87,20 @@ $$
 
 平行条件から $D(fN)/dt=f'N$ であり、曲率項は $kf^2$ なので第一式を得ます。
 
-[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)は $C^1$ 級関数について証明されています。ここで用いる連続な区分的 $C^1$ 級関数にも適用できることを確認します。接続点は有限個なので、その各点の前後の幅 $2\varepsilon$ の区間を、両端の関数値と一階微分を一致させる三次Hermite補間で置き換えます。各区分で $f'$ は有界であり、補間区間の両端の関数値の差は $O(\varepsilon)$ です。したがって補間後の導関数も $\varepsilon$ に依らず有界に取れます。こうして得た $f_\varepsilon\in C^1([0,L])$ は端点0を保ちます。変更区間では $|f_\varepsilon-f|=O(\varepsilon)$、$|f_\varepsilon'-f'|=O(1)$ で、区間の全長が $O(\varepsilon)$ なので
+[固定端の鋭いWirtinger不等式](../VAR2/index.md#lem-var2-wirtinger)は $C^1$ 級関数について証明されています。ここで使う連続な区分的 $C^1$ 級関数にも適用できることを確認します。
+
+接続点は有限個です。それぞれの周囲に長さ $2\varepsilon$ の互いに交わらない区間を取り、両端の関数値と一階微分が一致する三次Hermite補間で置き換えます。
+
+各区分で導関数は有界であり、補間区間の両端の関数値の差は $O(\varepsilon)$ です。したがって補間後の導関数も一様に有界です。この操作で端点0を保つ関数 $f_\varepsilon\in C^1([0,L])$ が得られます。
+
+変更区間では、接続点を除いて次の評価が成立します。
+
+$$
+|f_\varepsilon-f|=O(\varepsilon),\qquad
+|f_\varepsilon'-f'|=O(1).
+$$
+
+変更区間の全長は $O(\varepsilon)$ なので
 
 $$
 \int_0^L|f_\varepsilon-f|^2dt\longrightarrow0,\qquad
