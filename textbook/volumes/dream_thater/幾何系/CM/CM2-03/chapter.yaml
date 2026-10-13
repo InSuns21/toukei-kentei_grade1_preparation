@@ -1,0 +1,44 @@
+id: "CM2-03"
+title: "局所bar∂-Poincaré補題と解析的準備"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-02
+  - CM1-09
+official_scope: []
+learning_objectives:
+  - bar∂閉性がbar∂方程式の局所可解性の必要条件であることを示せる
+  - 局所bar∂原始形式を定義し外積の符号を含めて直接検算できる
+  - 1/zの局所可積分性と分布的基本解を境界積分から証明できる
+  - コンパクト台付きCauchy変換の平滑性とbar∂右逆性を導出できる
+  - 切断関数と縮小円板による局所右逆の成立範囲を確認できる
+  - 他変数の微分とT_jの交換、他変数での正則性保存を証明できる
+  - 座標方向を一つずつ除去して局所bar∂-Poincaré補題を証明できる
+  - 正の反正則次数と零次の違いを説明できる
+  - 複素トーラスで局所可解でも大域可解でない具体例を周期積分から証明できる
+definitions:
+  - { id: CM2-03-DEF-01, name: 局所bar∂原始形式 }
+  - { id: CM2-03-DEF-02, name: 一変数のCauchy変換 }
+theorems:
+  - { id: CM2-03-LEM-01, name: bar∂の基本解 }
+  - { id: CM2-03-THM-01, name: 一変数でのbar∂右逆 }
+  - { id: CM2-03-LEM-02, name: 多重円板の座標別右逆 }
+  - { id: CM2-03-THM-02, name: 局所bar∂-Poincaré補題 }
+  - { id: CM2-03-PROP-01, name: 零次の核と正の次数の局所完全性 }
+canonical_examples:
+  - z dbar zの一変数原始関数
+  - dzとdbar zの外積の符号を含む具体例
+  - 特異核の局所可積分性と円周積分
+  - 多重円板の座標別積分と切断関数
+  - 複素トーラスにおける局所解と大域障害
+problem_patterns:
+  - CM2-03-NECESSARY-CLOSEDNESS
+  - CM2-03-LOCAL-PRIMITIVE
+  - CM2-03-KERNEL-INTEGRABILITY
+  - CM2-03-CUTOFF-INVERSE
+  - CM2-03-COORDINATE-ELIMINATION
+  - CM2-03-TORUS-GLOBAL-OBSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
