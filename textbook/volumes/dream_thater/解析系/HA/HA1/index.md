@@ -90,7 +90,7 @@ $$
 \le\frac1{|B|}\int_B|f|+\frac1{|B|}\int_B|g|.
 $$
 
-同じ球の全候補について上限を取ると劣加法性が出ます。斉次性は $|af|=|a||f|$ によります。
+同じ球の全候補について上限を取ると劣加法性が出ます。斉次性は $a\ne0$ なら $|af|=|a||f|$ によります。$a=0$ では $M(0)=0$ と直接確認します。最大関数が $+\infty$ を取る点でも等式を読むため、$0\cdot(+\infty)=0$ と約束します。
 
 $x\in B(a,r)$ とすると、任意の $y\in B(a,r)$ について
 
@@ -220,7 +220,19 @@ $$
 \end{aligned}
 $$
 
-よって $|K|\le3^d\|f\|_1/\lambda$ です。Lebesgue測度の開集合に対する内正則性（コンパクト集合による下からの近似）により、$E_\lambda$ にも同じ不等式が成立します。
+よって $|K|\le3^d\|f\|_1/\lambda$ です。ここで使うのは [開集合の内正則性](../../MT/MT5/index.md#def-mt5-radon)です。$E_\lambda\ne\mathbb R^d$ のとき、具体的に
+
+$$
+K_n:=\{x\in\mathbb R^d:|x|\le n,\ \operatorname{dist}(x,E_\lambda^c)\ge1/n\}
+$$
+
+と置くと、$K_n$ はコンパクトで $K_n\subset K_{n+1}\subset E_\lambda$、かつ $\bigcup_{n\ge1}K_n=E_\lambda$ です。実際、$x\in E_\lambda$ なら開集合性から $\operatorname{dist}(x,E_\lambda^c)>0$ であり、十分大きい $n$ で二条件を満たします。測度の [下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)から
+
+$$
+|E_\lambda|=\lim_{n\to\infty}|K_n|\le\frac{3^d}{\lambda}\|f\|_1
+$$
+
+が従います。$E_\lambda=\mathbb R^d$ なら $K_n=\overline{B(0,n)}$ とすれば同じ議論ができます。
 
 最後に [最大作用素の比較](#prop-ha1-basic-maximal)を使うと
 
@@ -287,7 +299,7 @@ $h$ の点値が大きい点も、閾値を超える集合上の積分を評価�
 <!-- proof-start -->
 ### 証明
 
-**第1段階：$f\in L^1(\mathbb R^d)$。**　任意の $\varepsilon>0$ について [連続コンパクト台関数の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から $g\in C_c(\mathbb R^d)$ を $\|f-g\|_1<\varepsilon$ となるよう選びます。$h=f-g$ と置きます。$f(x),g(x)$ が有限な点で $|u+v|\le|u|+|v|$ を二度用いると
+**第1段階：$f\in L^1(\mathbb R^d)$。**　零測度集合上の値を0に取り直し、$f$ の有限値を取る可測代表元を固定します（ほとんど至る所の結論は変わりません）。任意の $\varepsilon>0$ について [連続コンパクト台関数の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から $g\in C_c(\mathbb R^d)$ を $\|f-g\|_1<\varepsilon$ となるよう選びます。$h=f-g$ と置きます。固定した有限値の代表元に対し、$|u+v|\le|u|+|v|$ を二度用いると
 
 $$
 \begin{aligned}
@@ -321,9 +333,29 @@ $$
 \end{aligned}
 $$
 
-ここで $D_f$ は可測です。球平均の上極限は、半径を正の有理数に限っても変わりません。
+ここで $D_f$ の可測性も確認します。正の有理数 $q$ に対して
 
-その理由は、固定した $x$ に対し、[Lebesgue積分の絶対連続性](../../MT/MT4/index.md#thm-mt4-integral-absolute-continuity)により、球の半径を変えた積分が連続であるためです。分母の球体積も正の半径について連続なので、平均全体が連続になります。
+$$
+G_q(x):=\frac{1}{v_dq^d}\int_{\mathbb R^d}|f(y)-f(x)|\boldsymbol{1}_{\{|y-x|<q\}}\,dy
+$$
+
+と置きます。$f$ は可測なので、被積分関数は $(x,y)$ の非負可測関数です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $x\mapsto G_q(x)$ は可測です。
+
+次に半径についての連続性を調べます。有限値の $f(x)$ と $r>0$ を固定すると、$h_x(y):=|f(y)-f(x)|$ は $B(x,2r)$ 上で可積分です。
+
+$s\to r$ では、球の対称差 $B(x,s)\mathbin{\triangle}B(x,r)$ の測度が0へ近づきます。そのため [積分の絶対連続性](../../MT/MT4/index.md#thm-mt4-integral-absolute-continuity)から
+
+$$
+\int_{B(x,s)}h_x(y)\,dy\longrightarrow\int_{B(x,r)}h_x(y)\,dy.
+$$
+
+分母 $v_ds^d$ も $v_dr^d>0$ へ近づくため、各 $x$ で平均は半径について連続です。したがって
+
+$$
+D_f(x)=\inf_{n\ge1}\ \sup_{\substack{q\in\mathbb Q\\0<q<1/n}}G_q(x)
+$$
+
+と表せます。右辺は可測関数の可算回の上限・下限なので $D_f$ は可測です。
 
 $\varepsilon>0$ は任意ですから、先ほどの上界を0へ近づけて $|\{D_f>\delta\}|=0$ を得ます。$\delta=1/n$（$n=1,2,\ldots$）とすれば、零測度集合の可算和を除いて $D_f(x)=0$ が成立します。
 
@@ -688,7 +720,7 @@ $$
 \end{aligned}
 $$
 
-最後の平均はLebesgue点の定義から0へ収束します。核が非負であるという仮定は不要で、質量1と一様な大きさ・台の制御が使われています。
+最後の平均は [Lebesgue点の定義](#def-ha1-lebesgue-point)から0へ収束します。核が非負であるという仮定は不要で、質量1と一様な大きさ・台の制御が使われています。
 <!-- solution-end -->
 
 ### 演習 HA1-C01（弱型と強型を同時に判定）
