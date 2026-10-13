@@ -5,7 +5,7 @@
 
 ## 中心問い・直接前提
 
-[GR II](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)、[QFT II](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_II_PLAN.md)、[QINF](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)、[BHT](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)。局所環の厳密議論ではAQFTを追加。
+[GR II](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)、[QFT IV](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)、[QINF](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)、[BHT](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)。局所環の厳密議論ではAQFTを追加。
 
 **canonical owner：** AdS/CFT、RT/HRT面、量子誤り訂正。
 
@@ -21,7 +21,7 @@
 ### 13. ホログラフィー I：AdS/CFTと量子誤り訂正
 
 - **canonical owner:** 新規 HOLO1–HOLO15
-- **前提:** GRII、QFTII、QINF、BHT。局所環の因数分解を厳密に扱う場合はAQFTを参照
+- **前提:** GRII、QFTIV、QINF、BHT。局所環の因数分解を厳密に扱う場合はAQFTを参照
 - **学修成果:** モデル・双対性・仮説の境界を監査に到達し、主要な式の適用条件を説明して代表模型で検算する。
 
 - **候補テーマ01**：反de Sitter時空の幾何
