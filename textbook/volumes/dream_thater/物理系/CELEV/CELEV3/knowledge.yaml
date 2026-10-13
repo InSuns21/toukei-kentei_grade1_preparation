@@ -1,0 +1,61 @@
+chapter: CELEV3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV2
+  - CELEV1
+  - VAR9
+forward_references: []
+concepts:
+  - id: celestial-variational.collision-types
+    name: 二体衝突・全衝突
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二体衝突・全衝突）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.power-collision-threshold
+    name: 冪型ポテンシャルの有限作用衝突閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪型ポテンシャルの有限作用衝突閾値）"]
+    aliases: []
+    requires:
+      - celestial-variational.finite-action-collision
+  - id: celestial-variational.transverse-collision-surgery
+    name: 二体衝突・再放出路の横方向局所変形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二体衝突・再放出路の横方向局所変形）"]
+    aliases: []
+    requires:
+      - celestial-variational.power-collision-threshold
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.marchal-fixed-ends
+    name: Marchalの固定端点衝突排除定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Marchalの固定端点衝突排除定理：外部定理）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.half-turn-local-minimality
+    name: 半周期反転極小点の自由な局所最小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半周期反転極小点の自由な局所最小性）"]
+    aliases: []
+    requires:
+      - celestial-variational.half-turn-minimizer
+      - celestial-variational.half-turn-loop-class
+  - id: celestial-variational.half-turn-collisionless-newton
+    name: 半周期反転作用最小点の衝突排除とNewton周期解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（半周期反転作用最小点の衝突排除とNewton周期解）"]
+    aliases: []
+    requires:
+      - celestial-variational.marchal-fixed-ends
+      - celestial-variational.half-turn-local-minimality
+      - celestial-variational.collisionfree-minimizer-newton

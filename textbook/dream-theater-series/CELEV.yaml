@@ -15,7 +15,7 @@ chapters:
     title: "最小化列と周期解の存在"
   - id: CELEV3
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV3
-    status: planned
+    status: completed
     title: "特異ポテンシャル・衝突・局所変形"
   - id: CELEV4
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV4

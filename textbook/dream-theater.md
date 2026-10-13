@@ -213,6 +213,7 @@
 4. [HA4 Calderón–Zygmund分解](textbook/volumes/dream_thater/解析系/HA/HA4/index.md)
 5. [HA5 特異積分とRiesz変換](textbook/volumes/dream_thater/解析系/HA/HA5/index.md)
 6. [HA6 BMOと端点の見取り図](textbook/volumes/dream_thater/解析系/HA/HA6/index.md)
+7. [HA7 RieszポテンシャルとHardy–Littlewood–Sobolev不等式](textbook/volumes/dream_thater/解析系/HA/HA7/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
@@ -1009,6 +1010,7 @@
 
 1. [CELEV1 n体の作用と周期ループ空間](textbook/volumes/dream_thater/物理系/CELEV/CELEV1/index.md)
 2. [CELEV2 最小化列と周期解の存在](textbook/volumes/dream_thater/物理系/CELEV/CELEV2/index.md)
+3. [CELEV3 特異ポテンシャル・衝突・局所変形](textbook/volumes/dream_thater/物理系/CELEV/CELEV3/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
