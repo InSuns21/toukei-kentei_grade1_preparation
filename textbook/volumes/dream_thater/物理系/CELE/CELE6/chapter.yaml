@@ -1,0 +1,61 @@
+id: "CELE6"
+title: "ホモクリニック構造とHamiltonian chaos"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE5
+  - CELE4
+  - INT7
+  - DYN13
+  - DYN14
+  - ODE11
+official_scope: []
+learning_objectives:
+  - 双曲固定点の安定集合・不安定集合および横断ホモクリニック点を定義から判定できる
+  - ホモクリニック点の全反復で両側収束と横断性が保存されることを証明できる
+  - 振り子の分離曲線をHamilton方程式と保存エネルギーから検算できる
+  - 周期強制振り子を自律二自由度Hamilton系へ拡張し帰還写像の乗数を導ける
+  - Melnikov関数の符号と部分積分を追い単純零点を証明できる
+  - 分離量のC1一様展開と非線形安定多様体定理が横断判定に必要な理由を説明できる
+  - Smale–Birkhoff定理の仮定と結論を正確に述べ外部定理と本文中の証明を区別できる
+  - 二記号両側シフト上の周期点数を導き帰還写像との反復の違いを説明できる
+  - ローブ面積の積分公式と面積保存を導き制限三体問題での適用条件を列挙できる
+definitions:
+  - { id: CELE6-DEF-01, name: "双曲固定点と周期軌道" }
+  - { id: CELE6-DEF-02, name: "安定集合・不安定集合" }
+  - { id: CELE6-DEF-03, name: "ホモクリニック点と横断性" }
+  - { id: CELE6-DEF-04, name: "強制振り子のMelnikov関数" }
+  - { id: CELE6-DEF-05, name: "単純なローブ" }
+theorems:
+  - { id: CELE6-PROP-01, name: "ホモクリニック軌道の反復と横断性の保存" }
+  - { id: CELE6-PROP-02, name: "振り子のホモクリニック分離曲線" }
+  - { id: CELE6-PROP-03, name: "強制振り子の鞍型周期軌道" }
+  - { id: CELE6-THM-01, name: "強制振り子のMelnikov関数と単純零点" }
+  - { id: CELE6-PROP-04, name: "分離量の単純零点から横断交差へ" }
+  - { id: CELE6-PROP-05, name: "二記号horseshoeから導く複雑さ" }
+  - { id: CELE6-PROP-06, name: "ローブ面積の保存とグラフ表示" }
+external_results:
+  - "非線形安定多様体定理とパラメータ依存性：graph transformを要する外部入力として仮定を明示"
+  - "Smale–Birkhoffホモクリニック定理：一般の平面horseshoe構成は意図的黒箱"
+canonical_examples:
+  - "diag(2,1/2)で安定集合と不安定集合を直接計算"
+  - "接ベクトルの行列式で横断・接触を区別"
+  - "q0=4arctan(exp t), p0=2sech tを分離曲線として検算"
+  - "時間周期強制を位相作用の自律Hamilton系へ拡張"
+  - "小さい正の周波数でMelnikov積分の単純零点を導出"
+  - "ローブの上下グラフの面積積分"
+problem_patterns:
+  - CELE6-STABLE-UNSTABLE
+  - CELE6-TRANSVERSALITY
+  - CELE6-SEPARATRIX
+  - CELE6-MELNIKOV-PARITY
+  - CELE6-MELNIKOV-ZERO
+  - CELE6-HYPERBOLIC-MULTIPLIERS
+  - CELE6-MELNIKOV-DERIVATION
+  - CELE6-SPLITTING-TRANSVERSALITY
+  - CELE6-TWO-SIDED-SHIFT
+  - CELE6-HOMCLINIC-TRANSPORT-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 3 }
