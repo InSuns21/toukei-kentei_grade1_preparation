@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AMECH3
+  - VC2
 forward_references: []
 
 concepts:
