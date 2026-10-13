@@ -99,7 +99,23 @@ $$
 {(\zeta-z^j)^2}\,d\zeta=0.
 $$
 
-$z^j$ については、評価点が固定円周の内部にあるので積分核の変数を微分できる。これにより $h$ は $z^j$ の正則関数となる。偏微分は積分表示から局所的に連続であり、全ての複素座標方向について Cauchy–Riemann 条件が成り立つ。従って $Dh$ は複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を適用し、$h$ の正則性を得る。$p,j,a$ は任意なので結論が従う。$\square$
+$z^j=x^j+iy^j$ については、固定円周の内部で $|\zeta-z^j|$ が正の下界を持つので、積分核を $x^j,y^j$ で微分してよい。具体的に、
+
+$$
+\begin{aligned}
+\frac{\partial h}{\partial x^j}
+&=\frac{2}{2\pi i}\int_{C_j}
+\frac{f(z^1,\ldots,\zeta,\ldots,z^n)}
+{(\zeta-z^j)^3}\,d\zeta,\\
+\frac{\partial h}{\partial y^j}
+&=\frac{2i}{2\pi i}\int_{C_j}
+\frac{f(z^1,\ldots,\zeta,\ldots,z^n)}
+{(\zeta-z^j)^3}\,d\zeta
+=i\frac{\partial h}{\partial x^j}.
+\end{aligned}
+$$
+
+ここでは積分の分子が $z^j$ に依存しないことを使った。従って $j$ 方向にも Cauchy–Riemann 条件が成立する。偏微分は積分表示から局所的に連続であり、全ての複素座標方向について Cauchy–Riemann 条件が成り立つ。従って $Dh$ は複素線形である。[複素線形微分による多変数正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を適用し、$h$ の正則性を得る。$p,j,a$ は任意なので結論が従う。$\square$
 <!-- proof-end -->
 
 次に、二つの正則座標 $(U_\alpha,z_\alpha)$ と $(U_\beta,z_\beta)$ を取り、重なり $W=U_\alpha\cap U_\beta$ で
@@ -143,7 +159,15 @@ $$
 <a id="thm-cm1-05-frame-change"></a>
 <!-- formal-statement-start -->
 > **定理（複素接枠と成分列の座標変換則）**  
-> 上記二つの正則座標の重なり $W$ では、$G_{\beta\alpha}(p)$ はすべての $p\in W$ で可逆で、座標変換を $z$ として表した各行列成分は正則である。複素接基底の変換は
+> $X$ を複素次元 $n$ の複素多様体、$(U_\alpha,z_\alpha)$ と $(U_\beta,z_\beta)$ を正則座標、$W=U_\alpha\cap U_\beta$ とする。$p\in W$ に対し
+>
+> 次の遷移行列を置く。
+
+$$
+G_{\beta\alpha}(p)=D_{\mathbb C}(z_\beta\circ z_\alpha^{-1})(z_\alpha(p)).
+$$
+
+> この行列はすべての $p\in W$ で可逆で、$z_\alpha$ で表した各行列成分は正則である。複素接基底の変換は
 
 $$
 \left.\partial_{z_\alpha^j}\right|_p
@@ -376,7 +400,33 @@ d_{\mathbb C}f_p(\partial_{z^j}|_p)
 \partial_{w^a}|_{f(p)}.
 $$
 
-$\partial\overline F/\partial z^j=0$ だから $(0,1)$ 成分がなく、[補題](#lem-cm1-05-holomorphic-derivative)からこの $m\times n$ 行列の各成分は正則である。座標を替えた行列は、始点の逆遷移行列と終点の遷移行列を左右から掛けて得られる。これが正則写像の微分を複素接束の間で扱える理由である。
+$\partial\overline F/\partial z^j=0$ だから $(0,1)$ 成分がなく、[補題](#lem-cm1-05-holomorphic-derivative)からこの $m\times n$ 行列の各成分は正則である。始点座標を $z'$、終点座標を $w'$ に替えたときも、どの点でどの行列を評価するかを追える。$q=f(p)$ とし、元の座標での微分行列を
+
+$$
+H_{wz}(p)=D_{\mathbb C}(w\circ f\circ z^{-1})(z(p))
+$$
+
+と置く。新しい座標表示は
+
+$$
+w'\circ f\circ(z')^{-1}
+=(w'\circ w^{-1})\circ(w\circ f\circ z^{-1})
+\circ(z\circ(z')^{-1})
+$$
+
+である。この三写像の合成に[連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を適用する。さらに左右の座標変換の微分を[接枠の遷移行列の定義](#def-cm1-05-transition-matrix)に従って書き換えると
+
+$$
+\begin{aligned}
+H_{w'z'}(p)
+&=D_{\mathbb C}(w'\circ w^{-1})(w(q))\,
+  H_{wz}(p)\,
+  D_{\mathbb C}(z\circ(z')^{-1})(z'(p))\\
+&=G^Y_{w'w}(q)\,H_{wz}(p)\,G^X_{zz'}(p).
+\end{aligned}
+$$
+
+ここで $G^X,G^Y$ はそれぞれ始点多様体と終点多様体の遷移行列である。右端が始点の **逆向きの座標遷移** $z'\to z$、左端が終点の $w\to w'$ になる。この評価点と積の順序が、正則写像の微分を二つの複素接束の間で扱える理由である。
 
 ## 7. 演習（全問詳細解答）
 
@@ -471,7 +521,16 @@ $$
 G_{uw}G_{wz}=(4z)\cdot2=8z=G_{uz}.
 $$
 
-$\mathbb C^\times$ 上ではすべて非零なので、各座標変換は局所的に双正則である。ただし $u=w^2$ は $\mathbb C^\times$ 全体では単射でないから、全域の単一座標とはせず、値域を適切に制限した局所座標で読む必要がある。[合成条件](#thm-cm1-05-cocycle)は各局所重なりで成立する。
+指定円板の任意の点は $\operatorname{Re}z>3/4$ を満たす。二点 $z_1,z_2$ で $u(z_1)=u(z_2)$ とすると
+
+$$
+4z_1^2=4z_2^2,\qquad
+(z_1-z_2)(z_1+z_2)=0.
+$$
+
+両点の実部は正なので $z_1+z_2\ne0$ であり、$z_1=z_2$ を得る。従って指定円板上では単射である。また $du/dz=8z\ne0$ なので各点で局所正則逆写像が存在する。この局所逆写像は単射性によって一致し、指定円板の像全体で正則座標の逆を与える。
+
+一方、二乗写像 $u=w^2$ は $\mathbb C^\times$ 全体では単射でないため、全域の単一座標にはならない。[合成条件](#thm-cm1-05-cocycle)は指定した局所座標の重なりで成立する。
 <!-- solution-end -->
 
 <a id="ex-cm1-05-a05"></a>
@@ -481,7 +540,7 @@ $\mathbb C^\times$ 上ではすべて非零なので、各座標変換は局所�
 $w=(z^1,z^2+(z^1)^2)$、$s=z^1\partial_{z^1}+\partial_{z^2}$ とする。$\det G_{wz}$ と $s$ の $w$ 成分を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。偏導から $G_{wz}=\begin{pmatrix}1&0\\2z^1&1\end{pmatrix}$ なので $\det G_{wz}=1$。元の係数列は $(z^1,1)^T$ だから
+**詳細解答**。偏導から $G_{wz}=\begin{pmatrix}1&0\\2z^1&1\end{pmatrix}$ なので $\det G_{wz}=1$。[成分列の変換則](#thm-cm1-05-frame-change)で元の係数列 $(z^1,1)^T$ に掛けると
 
 $$
 G_{wz}\begin{pmatrix}z^1\\1\end{pmatrix}
@@ -527,7 +586,7 @@ $$
 $z\ne0$ で $w=1/z$ とし、整数 $k$ に対して $s_k=z^k\partial_z$ を考える。$w$ 座標での係数を求め、$w=0$ を加えた近傍へ正則に延長できる $k$ を判定せよ。さらに $z=0$ の近傍と両方へ延長できる $k$ を答えよ。
 
 <!-- solution-start -->
-**詳細解答**。反転微分 $dw/dz=-z^{-2}$ を使うと
+**詳細解答**。[接枠変換則](#thm-cm1-05-frame-change)に反転微分 $dw/dz=-z^{-2}$ を代入すると
 
 $$
 s_k=z^k(-z^{-2})\partial_w
@@ -537,7 +596,7 @@ $$
 
 整数冪 $w^{2-k}$ が $w=0$ で正則に延長できるのは指数が非負、すなわち $2-k\ge0$ または $k\le2$ のときに限る。逆に $2-k<0$ なら係数は極を持ち、正則延長は不可能である。
 
-$z=0$ での係数は $z^k$ なので、こちらへの延長条件は $k\ge0$。両方を満たすのは $0\le k\le2$、従って $k=0,1,2$ である。これは[Riemann球面の反転座標](../../../解析系/CA/CA8/index.md#def-ca8-riemann-surface)で接ベクトル場を比較する計算にもなっている。
+$z=0$ での係数は $z^k$ なので、こちらへの延長条件は $k\ge0$。両方を満たすのは $0\le k\le2$、従って $k=0,1,2$ である。これは[Riemann球面の標準アトラス](../../../解析系/CA/CA8/index.md#prop-ca8-riemann-sphere-atlas)で接ベクトル場を比較する計算にもなっている。
 <!-- solution-end -->
 
 <a id="ex-cm1-05-b03"></a>
