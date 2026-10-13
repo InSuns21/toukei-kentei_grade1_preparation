@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg6-chronological-causal-future -->
-**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。$r\notin I^+(p)$ という判定は、第4節の[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)で確認します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
+**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。ただし $r\notin I^+(p)$ の判定は、後の第4節で端点の時間差と空間距離を比較して確認します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
 <!-- definition-example-end -->
 
 ここで二種類の「厳密さ」を区別します。$p\ll p$ が不可能だと**まだ仮定していません**。閉時間的曲線のある時空では $p\in I^+(p)$ もありえます。逆に $p\le p$ は定数曲線だけで常に成立します。したがって $I^\pm$ が必ず自分自身を除く、という集合論的規則ではありません。
@@ -339,7 +339,7 @@ $\mathbb R^{1+2}$ の $p=(3,0,0)$ に対し、$a=(1,1,0)$ と $b=(1,2,0)$ の $I
 $$
 \begin{aligned}
 a:\quad&t_p-t_a=2>1=|\mathbf x_p-\mathbf x_a|,\\
-b:\quad&t_p-t_b=2=2=|\mathbf x_p-\mathbf x_b|
+b:\quad&t_p-t_b=2=|\mathbf x_p-\mathbf x_b|
 \end{aligned}
 $$
 
@@ -378,7 +378,7 @@ Minkowski平面で $S=\{(0,0),(0,4)\}$、$q=(3,2)$、$r=(2,2)$ とする。$q,r$
 $$
 \begin{aligned}
 q=(3,2):\quad&\Delta t=3>2=\rho,\\
-r=(2,2):\quad&\Delta t=2=2=\rho
+r=(2,2):\quad&\Delta t=2=\rho
 \end{aligned}
 $$
 
