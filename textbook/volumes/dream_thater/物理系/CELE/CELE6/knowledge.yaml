@@ -1,0 +1,108 @@
+chapter: CELE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE5
+  - CELE4
+  - INT7
+  - DYN13
+  - DYN14
+  - ODE11
+forward_references: []
+
+concepts:
+  - id: celestial.hyperbolic-return-point
+    name: 双曲固定点と周期軌道
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双曲固定点と周期軌道）"]
+    aliases: []
+    requires: [dynamical-systems.eigen-direction-dichotomy, integrable.poincare-first-return]
+
+  - id: celestial.stable-unstable-set
+    name: 安定集合・不安定集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定集合・不安定集合）"]
+    aliases: []
+    requires: [celestial.hyperbolic-return-point]
+
+  - id: celestial.homoclinic-point
+    name: ホモクリニック点と横断性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ホモクリニック点と横断性）"]
+    aliases: []
+    requires: [celestial.stable-unstable-set]
+
+  - id: celestial.homoclinic-invariance
+    name: ホモクリニック軌道の反復と横断性の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ホモクリニック軌道の反復と横断性の保存）"]
+    aliases: []
+    requires: [celestial.homoclinic-point]
+
+  - id: celestial.pendulum-separatrix
+    name: 振り子のホモクリニック分離曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（振り子のホモクリニック分離曲線）"]
+    aliases: []
+    requires: [celestial.homoclinic-point]
+
+  - id: celestial.forced-pendulum-hyperbolicity
+    name: 強制振り子の鞍型周期軌道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（強制振り子の鞍型周期軌道）"]
+    aliases: []
+    requires: [celestial.hyperbolic-return-point, celestial.pendulum-separatrix]
+
+  - id: celestial.melnikov-function
+    name: 強制振り子のMelnikov関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（この模型のMelnikov関数）"]
+    aliases: []
+    requires: [celestial.pendulum-separatrix]
+
+  - id: celestial.melnikov-simple-zero
+    name: 強制振り子のMelnikov関数と単純零点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強制振り子のMelnikov関数と単純零点）"]
+    aliases: []
+    requires: [celestial.melnikov-function]
+
+  - id: celestial.splitting-transversality
+    name: 分離量の単純零点から横断交差へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分離量の単純零点から横断交差へ）"]
+    aliases: []
+    requires: [celestial.melnikov-simple-zero, celestial.homoclinic-point]
+
+  - id: celestial.horseshoe-symbolic-consequences
+    name: 二記号horseshoeから導く複雑さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二記号horseshoeから導く複雑さ）"]
+    aliases: []
+    requires: [celestial.homoclinic-point, dynamical-systems.horseshoe-conjugacy]
+
+  - id: celestial.lobe
+    name: 単純なローブ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単純なローブ）"]
+    aliases: []
+    requires: [celestial.stable-unstable-set]
+
+  - id: celestial.lobe-area
+    name: ローブ面積の保存とグラフ表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ローブ面積の保存とグラフ表示）"]
+    aliases: []
+    requires: [celestial.lobe, integrable.return-area-preservation]

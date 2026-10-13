@@ -1,7 +1,7 @@
 # DREAM THEATER 天体力学・三体問題・Hamiltonian chaos コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。CELE1〜CELE4本文を実装し、次章CELE5）
+状態: in_progress（2026-10-13。CELE1〜CELE6本文を実装。次章CELE7。シリーズ全体は未完了）
 
 ## 0. 目的
 
@@ -259,3 +259,15 @@ Hamiltonian chaos
 - **前提の境界**：DYN14は双曲線形模型の安定・不安定方向を証明する章であり、一般の非線形安定多様体定理や横断ホモクリニック定理の完全証明まで所有するとみなさない。CELE6着手時には、直接必要なDYN/ODEのcanonical resultを再確認し、不足する定理の証明先を確保する。後続章の未確認結果をCELE1の暗黙前提にしない。
 - **系列開始**：`textbook/dream-theater-series/CELE.yaml` にCELE1〜CELE8を `planned` として登録する。CELE1の章本文・knowledge metadata・公開索引を追加済み。CELE1はMECH6/MECH7、AMECH5/AMECH6、INT1〜INT3の既出結果を確認して執筆する。
 - **INTとの接続**：可積分系の完了PLANは[INT1〜INT8](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)。力学系の一般論は[DYN](../plan_done/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md)を再利用する。天体力学の非可積分性・具体的な三体モデルは本計画を正本とする。
+
+
+## 10. CELE6 の外部定理と次の一般証明担当（2026-10-13）
+
+CELE6では、強制振り子のホモクリニック分離曲線・Melnikov積分・単純零点・分離量から横断性への局所計算・ローブ面積を本文内で証明し、一般論への橋を明示した。
+
+DYN13は**区間上の片側シフトへの共役**、DYN14は**線形双曲模型**を証明する章であり、次の一般結果を証明済みだと誤認しない。
+
+- 非線形局所安定多様体定理とその滑らかなパラメータ依存性（graph transformなどの理論を要する）。
+- Smale–Birkhoffの横断ホモクリニック点から平面双曲horseshoeを作る定理（lambda-lemmaと長方形の双方向縮小を要する）。
+
+CELE6の教材ではこれら二結果を**外部定理・意図的黒箱**と明示し、ステートメントの仮定を検査した上でのみ適用する。黒箱定理の一般証明をDYN13・DYN14・CELE6自身が所持するとはしない。将来DYN系で独立した証明正本を増補する場合は、当該定理とstable anchorを確立してからCELE6の外部入力をその参照に置き換える。CELE7ではこの一般証明を既に本文で閉じたものとして扱わない。
