@@ -27,7 +27,7 @@
 |---|---|---|
 | M. A. Nielsen & I. L. Chuang, *Quantum Computation and Quantum Information*（10th Anniversary ed.）, [Cambridge目次](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE/contents/729A1063B8E18926B2B83C43A9D3F892) | 量子雑音・操作、状態の距離、誤り訂正、エントロピー・情報理論という順の体系を参照 | POVM・距離尺度・具体的符号・スタビライザー符号が欠けていた |
 | J. Watrous, *The Theory of Quantum Information* (2018), [著者公開の章別原稿](https://jhwatrous.github.io/books-and-courses.html) | 状態・チャネルの距離、majorization、量子エントロピー、二部エンタングルメント、容量の厳密な有限次元定式化 | 精製・忠実度・Choi表現・LOCC・可識別性を補強 |
-| M. M. Wilde, *Quantum Information Theory*, 2nd ed. (2017), [Cambridge版](https://www.cambridge.org/core/books/quantum-information-theory/), [目次](https://assets.cambridge.org/97811071/76164/toc/9781107176164_toc.pdf) | 古典/量子情報量・典型部分空間・Schumacher圧縮・量子Shannon理論の区別を参照 | 情報源符号化と通信路容量を区別し、圧縮・典型性を追加 |
+| M. M. Wilde, *Quantum Information Theory*, 2nd ed. (2017), [目次](https://assets.cambridge.org/97811071/76164/toc/9781107176164_toc.pdf) | 古典/量子情報量・典型部分空間・Schumacher圧縮・量子Shannon理論の区別を参照 | 情報源符号化と通信路容量を区別し、圧縮・典型性を追加 |
 | J. Preskill, *Lecture Notes on Quantum Computation*, [公式資料](https://www.preskill.caltech.edu/ph229/) | 状態と測定、エンタングルメント、誤り訂正・耐故障性、量子Shannon理論の講義上の接続を参照 | 符号の直接例→一般条件→環境への情報という動線を追加 |
 | M. Hayashi, *Quantum Information Theory: Mathematical Foundation* (2017), [Springer](https://link.springer.com/book/10.1007/978-3-662-49725-8) | 仮説検定・状態識別、通信路・測定、エンタングルメント、量子圧縮の数学的な到達水準を参照 | 区別可能性・量子/古典通信のモデル・測定結果の確率評価を明示 |
 
@@ -126,7 +126,7 @@ QINF19〜20の一般定理、QINF23〜24の漸近符号化定理は重い。主�
 - **演習:** 理由付き例外がなければLevel A 4題、B 3題、C 1題を**最低数**として全問詳細解答付きで置く。分割・転置の符号、support条件、CPと正値写像、物理/数学的な情報の区別、漸近極限を独立に練習できるよう必要なら増題する。題数を満たすための水増しはしない。
 - **有限行列の数値検算:** 2〜4qubitの部分トレース、Kraus恒等式、Choi固有値、POVM結果、トレース距離・忠実度を小行列で再現。算術結果は本文の証明・仮定チェックと照合する。
 - **チャネル・符号の実験:** 振幅減衰率/脱分極率を変えた情報量とsyndrome成功率を計算する。一般誤りモデルの保証や耐故障閾値を有限規模の実験だけから推定したと断言しない。
-- **Page模型の実験:** 乱数種、サンプル数、Hilbert空間次元、生成分布（複素Gaussianベクトルの正規化/Haar）、平均・誤差帯を記録し、swap trickによる解析的平均purityと比較する。単なるSVGアニメ再生ではなく**モデルから数値を再計算する**ものとする。UIを作る場合は既存の[対話型シミュレーション基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)の仕様を参照し、技術基盤を学修の必須prerequisiteにはしない。
+- **Page模型の実験:** 乱数種、サンプル数、Hilbert空間次元、生成分布（複素Gaussianベクトルの正規化/Haar）、平均・誤差帯を記録し、swap trickによる解析的平均purityと比較する。単なるSVGアニメ再生ではなく**モデルから数値を再計算する**ものとする。UIを作る場合は既存の[対話型シミュレーション基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)の仕様を参照し、技術基盤を学修の必須prerequisiteにはしない。
 - **図:** 回路・環境・参照系の分割図、Bloch球、Bell測定、syndrome回路、Page型曲線は、系名・測定の順序・確率または次元が追える図とし、本文で図なしでも意味を再構成できるようにする。図・SVGは[DREAM THEATER執筆規約](../DREAM_THEATER_AUTHORING_STANDARD.md)に従ってレンダリングを検証する。
 
 ## 5. 他科目との所有権・停止線
