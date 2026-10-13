@@ -32,7 +32,7 @@ $X$ を複素次元 $n\ge1$ の複素多様体とする。基礎となる実多�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm2-01-cotangent-types -->
-**定義の直接確認**。$\mathbb C$ の $z=x+iy$ 座標で
+**定義の確認**。$\mathbb C$ の $z=x+iy$ 座標で
 
 $$
 \frac{\partial}{\partial z}
@@ -120,7 +120,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm2-01-pq-form -->
-**定義の直接確認**。$\mathbb C^2$ 上の
+**定義の確認**。$\mathbb C^2$ 上の
 
 $$
 \alpha=(z^1+\bar z^2)\,dz^1\wedge d\bar z^2
