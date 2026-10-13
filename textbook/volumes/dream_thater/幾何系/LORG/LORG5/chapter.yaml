@@ -1,0 +1,50 @@
+id: "LORG5"
+title: "凸正規近傍と局所最大化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - GEO14
+official_scope: []
+learning_objectives:
+  - Lorentz正規座標と放射測地線を定義し基点での計量・接続係数と光円錐を導ける
+  - 端点指数写像の逆と補助Euclid半径の凸性から凸正規近傍の局所存在を証明できる
+  - Gaussの補題を捩率零と計量両立性から導出できる
+  - 時間的測地線に沿うGaussian正規座標の計量分解を導出できる
+  - 未来向き因果曲線のLorentz長さを座標時刻で評価し時間的測地線の局所最大化と等号条件を示せる
+  - Lorentz円筒で局所最大化と大域非最大化が両立することを計算できる
+  - 放射光円錐の分類と大域因果関係の判定を区別できる
+definitions:
+  - { id: LORG5-DEF-01, name: Lorentz正規座標と放射測地線 }
+  - { id: LORG5-DEF-02, name: Lorentz凸正規近傍 }
+theorems:
+  - { id: LORG5-PROP-01, name: 正規座標の基点と放射光円錐 }
+  - { id: LORG5-THM-01, name: Lorentz凸正規近傍の局所存在 }
+  - { id: LORG5-THM-02, name: Lorentz指数写像のGaussの補題 }
+  - { id: LORG5-LEM-01, name: 時間的測地線に沿うGaussian正規座標 }
+  - { id: LORG5-THM-03, name: 時間的測地線の局所Lorentz長さ最大化 }
+  - { id: LORG5-PROP-02, name: 平坦Lorentz円筒での非最大時間的測地線 }
+canonical_examples:
+  - Minkowskiでの正規座標と放射光円錐の直接計算
+  - Minkowski開球でのLorentz凸正規近傍
+  - Gaussian座標における固有時の積分上界と等号条件
+  - 膨張計量での時間的測地線の最大化
+  - 平坦Lorentz円筒の巻き付き時間的測地線
+problem_patterns:
+  - LORG5-RADIAL-CAUSAL-CONE
+  - LORG5-CONVEX-NORMAL-COUNTEREXAMPLE
+  - LORG5-ENDPOINTS-IN-MAXIMIZATION
+  - LORG5-GAUSS-ORTHOGONALITY
+  - LORG5-LOCAL-EQUALITY-CASE
+  - LORG5-WARPED-GAUSSIAN-LENGTH
+  - LORG5-GAUSSIAN-METRIC-ORTHOGONALITY
+  - LORG5-ENDPOINT-EXPONENTIAL-MAP
+  - LORG5-CYLINDER-WINDING
+  - LORG5-LOCAL-VERSUS-GLOBAL-MAXIMUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
