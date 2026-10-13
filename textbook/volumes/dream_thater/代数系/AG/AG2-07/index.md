@@ -81,7 +81,13 @@ $$
 
 局所環の極大イデアルは $x-a,y-b$ で生成されますから $\mathfrak m_P=(t)$ です。
 
-$F$ が既約なので $\mathbb C[x,y]/(F)$ は整域です。[有限変数多項式環のNoether性](../AG1-05/index.md#cor-ag1-05-multivariate-noether)と[商環・局所化でのNoether性の保存](../AG1-05/index.md#prop-ag1-05-quotient-localization)を順に適用すると、$A=(\mathbb C[x,y]/(F))_{(x-a,y-b)}$ はNoether整域です。そこで $I=\bigcap_{r\ge0}t^rA$ と置きます。$A$ がNoetherなので、$I$ は有限生成イデアルです。また $z\in I$ なら $z=tw$ と書け、$z\in t^{r+1}A$ から整域での $t$ の約分により $w\in t^rA$ が各 $r$ に対して従います。ゆえに $I=tI$ です。
+$F$ が既約なので $\mathbb C[x,y]/(F)$ は整域です。[有限変数多項式環のNoether性](../AG1-05/index.md#cor-ag1-05-multivariate-noether)と[商環・局所化でのNoether性の保存](../AG1-05/index.md#prop-ag1-05-quotient-localization)を順に適用すると、次の局所環はNoether整域です。
+
+$$
+A=(\mathbb C[x,y]/(F))_{(x-a,y-b)}.
+$$
+
+そこで $I=\bigcap_{r\ge0}t^rA$ と置きます。$A$ がNoetherなので、$I$ は有限生成イデアルです。また $z\in I$ なら $z=tw$ と書け、$z\in t^{r+1}A$ から整域での $t$ の約分により $w\in t^rA$ が各 $r$ に対して従います。ゆえに $I=tI$ です。
 
 $I$ の生成元を $z_1,\ldots,z_m$ とし、$z_i=t\sum_j a_{ij}z_j$ と書きます。係数行列 $I_m-t(a_{ij})$ の行列式は $1$ と $\mathfrak m_P$ の元の和なので単元です。随伴行列を掛ければ $z_i=0$ がすべての $i$ について従い、$I=0$ です。
 
@@ -540,10 +546,10 @@ $X=0$ を代入すると $s^2=0$ となるため、交点は $s=0$、すなわ�
 
 超平面切断の線束は、[射影空間の$\mathcal O(1)$の定義](../AG2-06/index.md#def-ag2-06-twisting-sheaf)による $\mathcal O_C(1)$ です。$X\ne0$、$Z\ne0$ における局所基底をそれぞれ $e_X,e_Z$ と書くと、重なりで $e_Z=(Z/X)e_X$ です。$\nu$ により $X=s^2$、$Z=t^2$ だから、引き戻した基底の変換は
 
-$
+$$
 \nu^*e_Z=\nu^*\!\left(\frac{Z}{X}\right)\nu^*e_X
 =\left(\frac{t}{s}\right)^2\nu^*e_X.
-$
+$$
 
 これは $\mathbb P^1$ 上の $\mathcal O(2)$ の基底変換そのものです。また座標切断 $X,Y,Z$ は引き戻すと $s^2,st,t^2$ になり、[斉次二次式の切断](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)とも整合します。従って $\nu^*\mathcal O_C(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。次数 $2$ は交点因子 $2[Q]$ と一致します。
 <!-- solution-end -->
