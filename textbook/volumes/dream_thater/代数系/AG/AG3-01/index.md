@@ -302,7 +302,29 @@ $\alpha:k[t]\to k[s]$ を $t\mapsto s^2$ とする。$(s)$、$(s-2)$、$(0)$ の
 - ID: AG3-01-A4
 
 <!-- solution-start -->
-**詳細解答。** $\alpha^{-1}((s-a))$ は $f(s^2)$ が $s=a$ で0になる $f(t)$ 全体、すなわち $f(a^2)=0$ を満たす多項式全体です。因数定理で $(t-a^2)$ です。$a=0,2$ に対し順に $(t)$、$(t-4)$ となります。さらに $\alpha^{-1}((0))=\{f(t)\mid f(s^2)=0\}$ です。非零の $f(t)=c_nt^n+\cdots+c_0$（$c_n\ne0$）に対し、$f(s^2)$ の最高次数項は $c_ns^{2n}\ne0$ です。従って $f(s^2)=0$ なら $f=0$ に限り、逆像は $(0)$ です。
+**詳細解答。** $(s-a)$ の逆像に属する条件は、$f(s^2)$ が $s=a$ で消えること、すなわち $f(a^2)=0$ です。因数定理を $t-a^2$ に適用すると
+
+$$
+\alpha^{-1}((s-a))=(t-a^2)
+$$
+
+を得ます。$a=0,2$ を代入して、順に $(t)$、$(t-4)$ です。
+
+次に $(0)$ の逆像を考えます。非零多項式 $f(t)$ の次数を $n$、最高次係数を $c_n\ne0$ とすると、
+
+$$
+f(t)=c_nt^n+\cdots+c_0
+\quad\Longrightarrow\quad
+f(s^2)=c_ns^{2n}+\cdots+c_0\ne0.
+$$
+
+従って $f(s^2)=0$ となるのは $f=0$ の場合だけで、
+
+$$
+\alpha^{-1}((0))=(0)
+$$
+
+です。
 <!-- solution-end -->
 
 ### B1. 剰余体で一般点を評価する
@@ -393,7 +415,48 @@ $k$ を体、$A=k[t]$、$C=k[z]/(z^2)$ とする。自然変換 $h_A\Rightarrow 
 - ID: AG3-01-C1
 
 <!-- solution-start -->
-**詳細解答。** 自然変換 $\eta$ があれば $\alpha=\eta_A(\operatorname{id}_A):C\to A$ を取ります。$z^2=0$ より $\alpha(z)^2=0$ です。$A=k[t]$ は整域なので $\alpha(z)=0$ だけが可能であり、$C\to A$ はこの指定で唯一に決まります。任意の $u:A\to B$ に対し、値域変更 $u:A\to B$ と自然性を使えば $\eta_B(u)=u\circ\alpha$ です。逆にこの式は $\eta_{B'}(\varphi\circ u)=\varphi\circ\eta_B(u)$ を満たすので自然変換を定めます。従ってただ一つです。$B=C$ における $u$ は $u(t)=b\in C$ で決まりますが、$\eta_C(u)(z)=(u\circ\alpha)(z)=u(0)=0$ です。$b$ の選び方に関係なく、$h_C(C)$ の零点に送られます。
+**詳細解答。** 自然変換 $\eta:h_A\Rightarrow h_C$ が与えられたとします。まず $B=A$ で恒等準同型の行き先を取り、
+
+$$
+\alpha=\eta_A(\operatorname{id}_A):C\to A
+$$
+
+と置きます。$C=k[z]/(z^2)$ の関係式を保存する必要があるので、
+
+$$
+\alpha(z)^2=\alpha(z^2)=0.
+$$
+
+$A=k[t]$ は整域であるため $\alpha(z)=0$ です。$C$ は $z$ で生成されるので、$\alpha$ はこの条件で一意に決まります。
+
+任意の $u:A\to B$ に対し、値域変更 $u$ に関する自然性を $\operatorname{id}_A$ に適用すると、
+
+$$
+\begin{aligned}
+\eta_B(u)
+&=\eta_B\bigl(h_A(u)(\operatorname{id}_A)\bigr)\\
+&=h_C(u)\bigl(\eta_A(\operatorname{id}_A)\bigr)\\
+&=u\circ\alpha.
+\end{aligned}
+$$
+
+逆に、唯一の $\alpha$ から $\eta_B(u)=u\circ\alpha$ と定めれば、任意の $\varphi:B\to B'$ に対して
+
+$$
+\eta_{B'}(\varphi\circ u)
+=(\varphi\circ u)\circ\alpha
+=\varphi\circ\eta_B(u)
+$$
+
+となり、自然性を満たします。ゆえに自然変換は一つだけです。
+
+特に $B=C$ の点 $u:k[t]\to C$ は $u(t)=b\in C$ で決まりますが、
+
+$$
+\eta_C(u)(z)=u(\alpha(z))=u(0)=0
+$$
+
+です。$b$ の選び方によらず、$h_C(C)$ のうち $z$ を0に送る点になります。
 <!-- solution-end -->
 
 ### C2. 二本の軸と三種類の素点
