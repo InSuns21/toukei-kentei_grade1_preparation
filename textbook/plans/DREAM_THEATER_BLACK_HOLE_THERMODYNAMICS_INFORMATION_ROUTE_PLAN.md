@@ -12,7 +12,7 @@
 - [量子情報 I（QINF1〜15）](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)
 - [特殊相対論 I（SREL1〜15）](DREAM_THEATER_SPECIAL_RELATIVITY_I_PLAN.md)
 - [一般相対論 I・II（GR1〜30）](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
-- [量子場理論 I・II（QFT1〜30）](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_II_PLAN.md)
+- [量子場理論 I〜IV（QFT系列・仮章数可変）](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)
 - [曲がった時空の量子場 I（QCURV1〜15）](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
 - [ブラックホール熱力学 I（BHT1〜15）](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
 - [ホログラフィー I（HOLO1〜15）](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
@@ -25,14 +25,14 @@ RA/MECH → TH → SM ────────────┐
 確率論 → INFO → ITD ← TH/SM   │
 QM → QINF ────────────────────┤
 SREL → GR I→II ← LORG ────────┤
-SREL/QM → QFT I→II ← HPDE     │
+SREL/QM → QFT I→II ← HPDE     │（IIからIII／IVへ分岐）
 GR＋QFT＋HPDE → QCURV ────────┼→ BHT → BHI I→II
-GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
+GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
                                       INFO   HOLO
 ~~~
 
 - LORG/HPDE/MICA/AQFTは[独立した数学系列](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)が正本。MICAやAQFT全講をすべての物理科目に必須としない。
-- 旧15セメスター相当は「TH・SM各1、INFO・ITD・QINF・SREL各1、GR・QFT・BHI各2、QCURV・BHT・HOLO各1」で15。**GR I/II、QFT I/II、BHI I/IIの連続科目だけを同一PLANに保つ**。
+- **2026-10-13改訂: 物理・情報は17セメスター相当**（従来の15にQFT II・IIIの不足範囲を追加し、旧QFT IIのCFTはIVへ移す）。QFT I〜IVは同一PLAN内に置くが、I→II→IIIの素粒子ルートとI→IIの必要部分→IVのCFTルートに分岐する。講数・実学修週数は固定しない。
 - 章ID・前提の全体衝突監査、未実装PLANの利用停止線、物理的仮定の整合は各講義着手時に確認する。本ルートファイルは個別科目の完了を代替しない。
 
 ---
@@ -65,8 +65,10 @@ GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 時空・量子場 | 特殊相対論 I：Minkowski時空と相対論的場 | 新規 SREL1–SREL15 | 因果構造と一般相対論への橋 |
 | 時空・量子場 | 一般相対論 I：幾何とEinstein方程式 | 新規 GR1–GR15 | 解・仮定・座標不変量の総合演習 |
 | 時空・量子場 | 一般相対論 II：因果構造とブラックホール時空 | 新規 GR16–GR30 | ブラックホール摂動・熱力学への橋 |
-| 時空・量子場 | 量子場理論 I：自由場・作用・量子化 | 新規 QFT1–QFT15 | Unruh/Hawking計算に必要な自由場の総演習 |
-| 時空・量子場 | 量子場理論 II：共形対称性・相関関数・エンタングルメント | 新規 QFT16–QFT30 | 共形場と重力エントロピー計算の橋 |
+| 時空・量子場 | 量子場理論 I：自由場・作用・量子化・散乱 | 新規 QFT I（仮IDは着手時に確定） | 自由場・LSZ・木レベル散乱を再計算 |
+| 時空・量子場 | 量子場理論 II：QED・ループ・くりこみ・Yang–Mills | 新規 QFT II（仮IDは着手時に確定） | 代表1ループ・Ward恒等式・RG・ゲージ固定 |
+| 時空・量子場 | 量子場理論 III：標準模型・対称性の破れ・有効理論 | 新規 QFT III（仮IDは着手時に確定） | Higgs・電弱・QCDの模型計算（HOLOに必須ではない） |
+| 時空・量子場 | 量子場理論 IV：共形場・OPE・レプリカ・エンタングルメント | 新規 QFT IV（仮IDは着手時に確定） | CFTの基本演算・区間エントロピーからHOLOへ |
 | 時空・量子場 | 曲がった時空の量子場 I：Unruh効果とHawking放射 | 新規 QCURV1–QCURV15 | 導出可能範囲・近似・観測量の総点検 |
 | ブラックホール | ブラックホール熱力学 I：地平線・温度・エントロピー | 新規 BHT1–BHT15 | 微視状態数の問いと情報問題への導線 |
 | ブラックホール | ホログラフィー I：AdS/CFTと量子誤り訂正 | 新規 HOLO1–HOLO15 | モデル・双対性・仮説の境界を監査 |
@@ -76,9 +78,9 @@ GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
 ### 各科目の単位規模
 
 - 1科目の講数・学習期間は固定しない。各章の中心問い、主要証明、独習に必要な演習で自然な区切りを選ぶ。TH/SMの既存8章を15週に引き伸ばさず、未証明部分があればそのために必要な講だけ追加する。
-- 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII`、`BHII/BHIII` は**科目管理キー**であり、公開章IDはそれぞれ GR1–GR30、QFT1–QFT30、BHI1–BHI30 を想定する。
+- 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII/QFTIII/QFTIV`、`BHII/BHIII` は**科目管理キー**であり、公開章IDはその都度確定する。旧QFT1–QFT30は未実装の仮IDであり、改訂後にそのまま継承・連番固定しない。
 - TH/SMは既存PLANの **TH1–TH8 / SM1–SM8** を維持する。SG1–SG8はスピングラス独立科目として存続するが、ブラックホールへの必須前提には置かない。
-- この規模は一人が15科目を同時履修する前提ではない。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
+- この規模は一人が17科目を同時履修する前提ではない。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
 
 ## 1.1 数学科目の補完：独立4セメスター
 
@@ -91,7 +93,7 @@ GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | MICA1–MICA15：超局所解析・波面集合・Hadamard条件 | 厳密ルート | 分布の積と引戻し・特異性伝播・量子場のUV構造 |
 | AQFT1–AQFT15：代数的量子場理論・モジュラー理論 | 研究入門 | 局所環・Type III・Tomita–Takesaki・相対エントロピー |
 
-新数学 **4科目** を独立に位置付ける。物理・情報の連続I/IIを含む計15セメスター相当の教育単位と合わせて設計するが、**60週・285週などの固定学修週数は設定しない**。数学側の学習テーマと証明課題は [専用数学PLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) の科目別正本で扱う。
+新数学 **4科目** を独立に位置付ける。物理・情報のQFT I〜IVを含む計17セメスター相当の教育単位と合わせて設計するが、**60週・285週などの固定学修週数は設定しない**。数学側の学習テーマと証明課題は [専用数学PLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) の科目別正本で扱う。
 
 数学的に厳密なQCURV・BHT・BHIの発展内容を読む際にはMICA/AQFTを強く推奨する。一方、標準の物理講義の導入部へそれらの全講を一律必修化しない。各章の必要箇所でLORG/HPDEの定義・定理やMICA/AQFTの先行結果を参照する。**GR Iの幾何学的前提はLORGに置き、LORGにGR Iを必須前提として設定しない**。
 
@@ -108,12 +110,12 @@ GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
  │                 └─ EMAG → SREL → GR I → GR II ──┬─ BHT ──────┐
  │                           │                    │             │
  ├─ QM1–QM8 ───┬─ QINF ← INFO┼────────────────────┤             ├→ BHI I → BHI II
- │             └─ QFT I → QFT II ─┬─ HOLO ← GR II ┘             │             ↑
+ │             └─ QFT I → QFT II → QFT IV ─┬─ HOLO ← GR II ┘             │             ↑
  │                               └─ QCURV ← GR II ───→ BHT ─────┘             │
  └─ 既存確率・作用素環・複素解析は必要な場所で合流                HOLO ───────────┘
 ~~~
 
-注：上の図は読み順の概略。**章ごとの直接 prerequisite は実装時の `chapter.yaml` と `knowledge.yaml` が正本**であり、未実装IDを現在の公開索引やDAGへ先取り登録しない。QFT II・QCURV・HOLOの厳密な入口条件は独立PLAN化・本文実装時に最小集合へ精査する。
+注：QFT II→III（標準模型）は図示を省略した独立の分岐であり、QFT IV・QCURV・HOLOの必修前提ではない。上の図は読み順の概略。**章ごとの直接 prerequisite は実装時の `chapter.yaml` と `knowledge.yaml` が正本**であり、未実装IDを現在の公開索引やDAGへ先取り登録しない。QFT IV・QCURV・HOLOの厳密な入口条件は独立PLAN化・本文実装時に最小集合へ精査する。
 
 ### 学修ゲート
 
@@ -131,7 +133,7 @@ GR＋QFT II＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | Boltzmann / Gibbsエントロピー | SM | 微視状態の計数・確率分布 | 有限系・熱力学極限・粗視化の違いを示す |
 | Shannonエントロピー H(X) | INFO | 確率変数の分布 | 単位bit/natと物理次元の違いを示す |
 | von Neumannエントロピー S(ρ) | QINF | 密度演算子と部分系 | 熱平衡状態だけの量ではない |
-| エンタングルメントエントロピー S(A) | QINF / QFT II | 複合系の縮約状態 | 分割、紫外発散、正則化依存を示す |
+| エンタングルメントエントロピー S(A) | QINF / QFT IV | 複合系の縮約状態 | 分割、紫外発散、正則化依存を示す |
 | Bekenstein–Hawkingエントロピー S_BH | BHT | ブラックホールの地平線面積 | 全モデルの微視的状態数を既知としない |
 | 一般化エントロピー S_gen | BHT / HOLO / BHI II | 幾何学的面積項と量子場のエントロピー | coarse/fine-grained、領域とrenormalizationを区別する |
 
@@ -154,7 +156,7 @@ S(R) = min ext_I [ S_gen(I;R) ]  （適切な模型・サドルの範囲内）
 - **INFO**：Shannonの符号化・情報量の定義と定理。**ITD**：熱浴・測定・フィードバック・Landauer消去の物理的収支。Landauer下界を「情報1 bitが常に熱k_BT ln2を必ず放出する」と無条件に書かない。
 - **QINF**：量子エントロピー・量子チャネル・情報理論側の誤り訂正。HOLOでは重力双対へ必要な翻訳を行い、情報理論の基礎証明を繰り返さない。
 - **SREL**：平坦時空の運動学と場の共変性。**GR I**：曲率とEinstein方程式。**GR II**：大域因果構造・ブラックホール解と地平線。
-- **QFT I / II**：量子化・場の相関・CFTとレプリカの数学。**QCURV**：曲がった背景時空におけるUnruh/Hawking効果の実計算。**BHT**：ブラックホール熱力学法則・S_BH・一般化第二法則・Waldエントロピー。
+- **QFT I〜IV**：I＝自由場・散乱、II＝QED・くりこみ・非可換ゲージ、III＝標準模型、IV＝CFTとレプリカ。**QCURV**：曲がった背景時空におけるUnruh/Hawking効果の実計算。**BHT**：ブラックホール熱力学法則・S_BH・一般化第二法則・Waldエントロピー。
 - **HOLO**：AdS/CFT・RT/HRT/QES・entanglement wedgeと誤り訂正。**BHI I**：情報損失の論理、Page曲線、firewall、scrambling。**BHI II**：replica wormhole / island / JT、研究段階での限界と解釈。
 - 既存の**情報幾何PLAN**はFisher–Rao・統計多様体を所有する。Shannon情報理論・量子情報・ブラックホール情報の正式導入はこのPLANではない。
 
@@ -199,7 +201,7 @@ S(R) = min ext_I [ S_gen(I;R) ]  （適切な模型・サドルの範囲内）
 - 物理の導出は、座標系、計量符号、単位系、境界条件、真空状態、系/環境の分割、近似次数を宣言する。情報の定理は有限次元/無限次元、UVカットオフ、演算子の定義域を区別する。
 - 各PRの査読は数理・物理整合性と読者粒度を別観点で実施する。独立査読を実施しなければそう明記し、CI成功を論証の完全性と同一視しない。
 - Phase 1：既存TH/SMの学修目標・証明責務の確認＋INFO/ITD/QINFを独立PLANへ切り出す。
-- Phase 2：数学のLORG/HPDEを先行して数学PLANの設計・実装ゲートを満たし、SREL、GR I/II、QFT I/II、QCURVの科目PLAN・章ID衝突監査と実装を進める。数学的に厳密なQCURVの発展分岐はMICAを参照する。
+- Phase 2：数学のLORG/HPDEを先行して数学PLANの設計・実装ゲートを満たし、SREL、GR I/II、QFT I〜IV、QCURVの科目PLAN・章ID衝突監査と実装を進める。数学的に厳密なQCURVの発展分岐はMICAを参照する。
 - Phase 3：BHT、HOLO、BHI I/IIの実装。量子場の局所環・factorizationを精密に論じる発展部分はAQFTを参照し、特に島公式章のモデル条件を監査。
 - Phase 4：横断して用語、エントロピーの単位と領域、依存逆転、演習詳細解答、図、公開動線を監査して完了。
 
