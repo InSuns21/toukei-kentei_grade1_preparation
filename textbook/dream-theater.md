@@ -680,6 +680,7 @@
 2. [LORG2 Lorentz計量と時間向き](textbook/volumes/dream_thater/幾何系/LORG/LORG2/index.md)
 3. [LORG3 因果曲線とLorentz長さ](textbook/volumes/dream_thater/幾何系/LORG/LORG3/index.md)
 4. [LORG4 Lorentz接続と測地線](textbook/volumes/dream_thater/幾何系/LORG/LORG4/index.md)
+5. [LORG5 凸正規近傍と局所最大化](textbook/volumes/dream_thater/幾何系/LORG/LORG5/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
