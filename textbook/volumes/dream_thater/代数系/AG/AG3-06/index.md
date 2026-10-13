@@ -348,7 +348,22 @@ $$
 
 が得られます。
 
-任意の開集合 $W\subseteq X$ 上の $\varphi:\mathcal O_W^n\to\mathcal F|_W$ を考え、その任意の点の周囲で、上の $U$ に含まれる主開 $D(g)$ を取ります。[アフィン対応](#thm-ag3-06-affine-equivalence)から制限した $\varphi$ は $A_g^n\to M_g$ に対応します。$A_g$ は Noether 環なので、その核は $A_g^n$ の有限生成部分加群です。[完全性](#prop-ag3-06-exactness)から層の核はこの加群の層に一致し、局所的に有限型です。すべての点で成立するので $\ker\varphi$ は有限型です。よって $\mathcal F$ は連接層です。
+任意の開集合 $W\subseteq X$ 上の層の射を取ります。
+
+$$
+\varphi:\mathcal O_W^n\longrightarrow\mathcal F|_W.
+$$
+
+$W$ の任意の点の周囲で、先ほどのアフィン近傍 $U$ に含まれる主開 $D(g)$ を取れます。[アフィン対応](#thm-ag3-06-affine-equivalence)より、制限した層の射は次の加群準同型に対応します。
+
+$$
+\varphi_g:A_g^n\longrightarrow M_g.
+$$
+
+$A_g$ は Noether 環なので、$\ker\varphi_g$ は自由加群の部分加群として有限生成です。[加群列と層の完全性](#prop-ag3-06-exactness)をこの列へ適用すると、層の核は $\widetilde{\ker\varphi_g}$ に一致し、この主開上で有限型になります。
+
+任意の点でこうした主開近傍を選べるため、$\ker\varphi$ は局所的に有限型です。従って $\mathcal F$ は連接層です。
+
 <!-- proof-end -->
 
 **Noether 条件を外したとき。** $A=k[x_1,x_2,\ldots]$ 上の $A/I$ は有限型ですが、$A\to A/I$ の核 $I$ は有限生成ではありません。もし連接なら $\widetilde I$ が有限型になりますが、アフィン上では局所的な有限生成元を有限主開被覆で揃えて $I$ の有限生成元を得られるため、矛盾します。従って $\widetilde{A/I}$ は連接でありません。破綻したのは「有限生成自由加群の部分加群が有限生成」という証明の一手です。
