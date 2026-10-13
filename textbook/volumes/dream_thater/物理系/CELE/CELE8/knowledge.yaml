@@ -1,0 +1,82 @@
+chapter: CELE8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE4
+  - CELE5
+  - CELE7
+  - INT8
+forward_references: []
+
+concepts:
+  - id: celestial.secular-double-average
+    name: 二重平均と永年摂動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二重平均と永年摂動）"]
+    aliases: []
+    requires: [celestial.resonant-angle]
+
+  - id: celestial.secular-quadrupole
+    name: 円軌道外部摂動天体の四重極永年項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円軌道外部摂動天体の四重極永年項）"]
+    aliases: []
+    requires: [celestial.secular-double-average]
+
+  - id: celestial.secular-apsidal-precession
+    name: 平面円外部摂動の永年近日点歳差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面円外部摂動の永年近日点歳差）"]
+    aliases: []
+    requires: [celestial.secular-quadrupole]
+
+  - id: celestial.mean-motion-resonance
+    name: 平均運動共鳴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均運動共鳴）"]
+    aliases: []
+    requires: [celestial.resonant-angle]
+
+  - id: celestial.resonance-normal-form-width
+    name: 共鳴正規形の島幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共鳴正規形の島幅）"]
+    aliases: []
+    requires: [celestial.mean-motion-resonance, celestial.island-width-area]
+
+  - id: celestial.trojan-coorbital
+    name: Trojan型の共軌道運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Trojan型の共軌道運動）"]
+    aliases: []
+    requires: [celestial.triangular-linear-stability]
+
+  - id: celestial.spin-orbit-one-to-one
+    name: 1対1自転・公転共鳴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1対1自転・公転共鳴）"]
+    aliases: []
+    requires: [celestial.mean-motion-resonance]
+
+  - id: celestial.spin-orbit-pendulum
+    name: 自転・公転同期の振り子模型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自転・公転同期の振り子模型）"]
+    aliases: []
+    requires: [celestial.spin-orbit-one-to-one]
+
+  - id: celestial.symplectic-step-area
+    name: 振り子の一段数値写像の面積保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（振り子の一段数値写像の面積保存）"]
+    aliases: []
+    requires: [celestial.spin-orbit-pendulum]
