@@ -593,7 +593,19 @@ $$
 <\infty
 $$
 
-を得ます。端点の一方が $\infty$ なら、その因子を $\|Tf\|_\infty$ でくくって残りを積分すれば同じ結論です。$q_\theta=\infty$ なら $q_0=q_1=\infty$ なので、やはり $Tf\in L^\infty$ です。
+を得ます。端点の一方が $\infty$ の場合も積分を直接確かめます。例えば $q_0=\infty$、$q_1<\infty$ なら指数の定義から $\theta q_\theta=q_1$ なので
+
+$$
+\begin{aligned}
+\int_Y|Tf|^{q_\theta}\,d\nu
+&=\int_Y|Tf|^{(1-\theta)q_\theta}|Tf|^{\theta q_\theta}\,d\nu\\
+&\le\|Tf\|_\infty^{(1-\theta)q_\theta}
+\int_Y|Tf|^{q_1}\,d\nu\\
+&=\|Tf\|_\infty^{(1-\theta)q_\theta}\|Tf\|_{q_1}^{q_1}<\infty.
+\end{aligned}
+$$
+
+$q_1=\infty$ の場合は左右を入れ替えて同様です。$q_\theta=\infty$ なら $q_0=q_1=\infty$ なので、やはり $Tf\in L^\infty$ です。
 
 まず $1<q_\theta<\infty$ なら、有限測度台の単関数 $h$ を動かして積分の上限を取ります。今確認した $Tf\in L^{q_\theta}$ と[単関数稠密性・$L^q$ 双対](../../MT/MT7/index.md#thm-mt7-lp-duality)により、$Tf$ のノルムは同じ定数以下です。
 
