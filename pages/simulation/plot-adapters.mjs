@@ -61,9 +61,11 @@ export function drawPlot(canvas, plot, zoom = 1) {
   }
   const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]);
   const xm = (Math.min(...xs) + Math.max(...xs)) / 2;
-  const ym = (Math.min(...ys) + Math.max(...ys)) / 2;
+  const ym = plot.type === "histogram" ? Math.max(...ys) / 2 :
+    (Math.min(...ys) + Math.max(...ys)) / 2;
   const dx = Math.max(1e-9, Math.max(...xs) - Math.min(...xs)) / zoom;
-  const dy = Math.max(1e-9, Math.max(...ys) - Math.min(...ys)) / zoom;
+  const dy = Math.max(1e-9, plot.type === "histogram" ? Math.max(...ys) :
+    Math.max(...ys) - Math.min(...ys)) / zoom;
   const toX = (x) => pad + (x - xm + dx / 2) * (w - 2 * pad) / dx;
   const toY = (y) => h - pad - (y - ym + dy / 2) * (h - 2 * pad) / dy;
   ctx.strokeStyle = "#68758a";
@@ -81,8 +83,12 @@ export function drawPlot(canvas, plot, zoom = 1) {
       const x = toX(p[0]), y = toY(p[1]);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       if (plot.type === "scatter") ctx.fillRect(x - 2, y - 2, 4, 4);
+      if (plot.type === "histogram") {
+        const baseline = Math.min(h - pad, toY(0));
+        ctx.fillRect(x - 5, Math.min(y, baseline), 10, Math.abs(baseline - y));
+      }
     });
-    if (plot.type !== "scatter") ctx.stroke();
+    if (plot.type === "line") ctx.stroke();
   });
   ctx.setLineDash([]);
 }
