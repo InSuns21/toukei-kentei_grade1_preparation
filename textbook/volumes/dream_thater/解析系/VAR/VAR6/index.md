@@ -216,7 +216,7 @@ $$
 \qquad |\sigma'(s)|=R,
 $$
 
-なので $L(\sigma)=R\theta$、したがって $d(p,q)\le R\theta$ です。
+なので $L(\sigma)=R\theta$、したがって $d(p,q)\le R\theta$ です。$q=p$ なら定数曲線が長さ0を達成します。$q=-p$ なら $u$ に直交する任意の単位ベクトル $w$ を選び、同じ式の $0\le s\le\pi$ を使えば長さ $\pi R$ の半大円が得られます。従って $\theta=0,\pi$ の場合も距離の上界 $d(p,q)\le R\theta$ が成立します。
 
 逆向きを任意の区分的 $C^1$ 曲線 $x(t)$ に対して示します。$x(t)\ne\pm p$ の部分で $\varphi(t)=\arccos(u\cdot x(t)/R)$ と置きます。$\cos\varphi=(u\cdot x)/R$ を微分すると
 
