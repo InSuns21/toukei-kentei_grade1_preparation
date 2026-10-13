@@ -188,7 +188,7 @@ $$
 
 とします。この候補は $U_{i\lambda}$ と $V_{i\mu}$ に射影します。
 
-**開部分との整合。** $U=\operatorname{Spec}B$ の主開 $D(b)=\operatorname{Spec}B_b$ と $V=\operatorname{Spec}C$ の主開 $D(c)=\operatorname{Spec}C_c$ に対し、局所化の普遍性から
+**開部分との整合。** $U=\operatorname{Spec}B$ の主開 $D(b)=\operatorname{Spec}B_b$ と $V=\operatorname{Spec}C$ の主開 $D(c)=\operatorname{Spec}C_c$ に対し、[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)から
 
 $$
 B_b\otimes_R C_c
@@ -295,7 +295,7 @@ D_B(b)\times_{\operatorname{Spec}R}\operatorname{Spec}C
 \simeq D_{B\otimes_R C}(b\otimes1).
 $$
 
-最後の同型は局所化の普遍性によります。これは基底変換後の空間の開部分です。任意の開部分 $U$ は主開集合で覆われ、各部分の表示は重複部分でも同じ開集合に一致します。一般の $X,S,S'$ も、$S$ とその逆像のアフィン開部分に局所化して確認でき、開埋め込みが得られます。
+最後の同型は[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)によります。これは基底変換後の空間の開部分です。任意の開部分 $U$ は主開集合で覆われ、各部分の表示は重複部分でも同じ開集合に一致します。一般の $X,S,S'$ も、$S$ とその逆像のアフィン開部分に局所化して確認でき、開埋め込みが得られます。
 
 **閉埋め込み。** アフィンの場合、$(B/I)\otimes_R C$ は $B\otimes_R C$ において $i\otimes c$（$i\in I$）をすべて零とする商環です。したがって標準準同型は全射で、その核は $I(B\otimes_R C)$ です。環全射の[素スペクトルの閉集合への射](../AG3-03/index.md#prop-ag3-03-quotient-image)から、対応する射は閉埋め込みです。一般の閉埋め込みは標的のアフィン開部分上でこの形になり、局所表示が重複部分で一致するので大域の結論が従います。
 <!-- proof-end -->
