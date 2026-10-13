@@ -21,9 +21,14 @@ const mime = (name) => name.endsWith(".html") ? "text/html" :
   name.endsWith(".css") ? "text/css" :
   /\.(?:mjs|js)$/.test(name) ? "text/javascript" :
   name.endsWith(".json") ? "application/json" : "text/plain";
+let acceptanceRevision = "first";
 const server = createServer(async (req, res) => {
   try {
     const name = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+    if (name === "/simulation/acceptance-cache.txt") {
+      res.writeHead(200, { "content-type": "text/plain", "cache-control": "no-store" });
+      res.end(acceptanceRevision); return;
+    }
     const target = path.resolve(root, "." + name);
     if (!target.startsWith(root + path.sep)) {
       res.writeHead(403); res.end(); return;
@@ -121,6 +126,163 @@ try {
   assert.equal(await evaluate('document.querySelector("#diagnostics")?.textContent'), before);
   await cdp("Page.reload", { ignoreCache: false });
   await waitFor('document.querySelector("#status")?.textContent.includes("計算完了")');
+
+  // The standalone page must install and control the root-scoped Service
+  // Worker itself. A prior visit to the main Docsify shell is not assumed.
+  await waitFor('Boolean(navigator.serviceWorker?.controller)');
+  const shellCached = await waitFor(`(async () => {
+    const keys = await caches.keys();
+    const cacheName = keys.find((key) => key.startsWith("toukei-grade1-runtime-"));
+    if (!cacheName) return false;
+    const cache = await caches.open(cacheName);
+    const names = [
+      "simulation/index.html",
+      "simulation/simulation-worker-host.mjs",
+      "simulation/engines/celev/two-body.mjs",
+      "simulation/engines/ml/four-cell.mjs",
+    ];
+    for (const relative of names) {
+      if (!await cache.match(new URL("/" + relative, location.origin))) return false;
+    }
+    return true;
+  })()`);
+  assert.ok(shellCached, "Service Worker shell is not cached after direct entry");
+  const asset = 'new URL("./acceptance-cache.txt", location.href).href';
+  const fetchRevision = 'fetch(' + asset + ').then((r) => r.text())';
+  assert.equal(await evaluate(fetchRevision), "first");
+  acceptanceRevision = "updated";
+  assert.equal(await evaluate(fetchRevision), "updated",
+    "online network-first must refresh cached same-origin assets");
+  await cdp("Network.enable");
+  await cdp("Network.emulateNetworkConditions", {
+    offline: true, latency: 0, downloadThroughput: 0, uploadThroughput: 0,
+  });
+  assert.equal(await evaluate(fetchRevision), "updated",
+    "offline fetch must read the last successfully refreshed cached version");
+  await cdp("Page.reload", { ignoreCache: true });
+  await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+  assert.ok(Math.abs(await evaluate(energy) + 0.5) < 1e-14,
+    "offline reload must restart a real computation via the cached module Worker");
+  await evaluate('document.querySelector("#step").click()');
+  const stepNumber = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x => x.cells[0]?.textContent === "stepIndex")?.cells[1]?.textContent)';
+  await waitFor(stepNumber + ' === 1');
+  const offlineMiss = await evaluate('fetch("./not-pre-cached.txt").then(()=>false,()=>true)');
+  assert.equal(offlineMiss, true, "uncached offline resources must not appear successful");
+  await cdp("Network.emulateNetworkConditions", {
+    offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1,
+  });
+
+  // Real Worker calculation all the way to the resource limit, without
+  // allocating 100,000 DOM rows. Values are computed, not a recorded movie.
+  const longStarted = Date.now();
+  const long = await evaluate(`(async () => {
+    const { SimulationClient } = await import("./simulation-runtime.mjs");
+    const client = new SimulationClient("celev-two-body-verlet-v1",
+      "celev-two-body-circular-v1", { timeoutMs: 15000 });
+    try {
+      await client.initialize({ mass: 1, separation: 1,
+        gravitationalConstant: 1, dt: 0.01 }, 123);
+      let last;
+      for (let i = 0; i < 100; i++) last = await client.runBatch(1000);
+      if (last.stepIndex !== 100000) return { error: "incorrect step count" };
+      try {
+        await client.runBatch(1);
+        return { error: "resource limit missing" };
+      } catch (err) {
+        return { stepIndex: last.stepIndex,
+          limit: String(err).includes("RESOURCE_LIMIT"),
+          energyFinite: Number.isFinite(last.diagnostics.energy) };
+      }
+    } finally {
+      client.dispose();
+    }
+  })()`);
+  assert.equal(long?.stepIndex, 100000, JSON.stringify(long));
+  assert.equal(long.limit, true, "step 100001 must be rejected");
+  assert.equal(long.energyFinite, true, "long-run diagnostics must remain finite");
+  const longMs = Date.now() - longStarted;
+  assert.ok(longMs < 30000, "long run exceeded CI budget: " + longMs);
+
+  // Exercise pause, resume, cancel and reinitialize through actual buttons.
+  await evaluate('document.querySelector("#play").click()');
+  await waitFor(stepNumber + ' >= 501');
+  await evaluate('document.querySelector("#pause").click()');
+  await waitFor('document.querySelector("#status").textContent.includes("一時停止") || document.querySelector("#status").textContent.includes("停止しました")');
+  const pausedAt = await evaluate(stepNumber);
+  await new Promise((resolve) => setTimeout(resolve, 150));
+  assert.equal(await evaluate(stepNumber), pausedAt, "paused simulation still advances");
+  await evaluate('document.querySelector("#resume").click()');
+  await waitFor(stepNumber + ' >= ' + (pausedAt + 100));
+  await evaluate('document.querySelector("#cancel").click()');
+  await waitFor('document.querySelector("#status").textContent.includes("Workerを終了")');
+  await evaluate('document.querySelector("#reset").click()');
+  await waitFor(stepNumber + ' === 0');
+  assert.equal(await evaluate('document.querySelector("#status").dataset.error'), "false");
+
+  // Four-fold CPU throttle and narrow screen are an *emulation*, not a real
+  // low-power handset benchmark. Record latency, reject unresponsive controls.
+  await cdp("Emulation.setCPUThrottlingRate", { rate: 4 });
+  await cdp("Emulation.setDeviceMetricsOverride", {
+    width: 360, height: 760, deviceScaleFactor: 1, mobile: true,
+  });
+  const lowStart = Date.now();
+  await evaluate('document.querySelector("#run").click()');
+  await waitFor(stepNumber + ' === 100');
+  const throttledMs = Date.now() - lowStart;
+  assert.ok(throttledMs < 15000, "throttled UI unresponsive: " + throttledMs);
+  const overflow = await evaluate('document.documentElement.scrollWidth - window.innerWidth');
+  assert.ok(overflow <= 1, "360px viewport has horizontal overflow: " + overflow);
+
+  // Label binding, live status, independent numeric table and keyboard action.
+  const accessibility = await evaluate(`(() => ({
+    unlabeled: [...document.querySelectorAll("input,select")].filter((el) =>
+      !el.labels?.length).map((el) => el.id),
+    headings: [...document.querySelectorAll("h1,h2")].map((el) => el.tagName),
+    status: document.querySelector("#status").getAttribute("aria-live"),
+    plot: document.querySelector("#plot").getAttribute("aria-describedby"),
+    table: !!document.querySelector("#diagnostics table"),
+    meaning: document.querySelector("#legend").textContent.includes("実線") &&
+      document.querySelector("#legend").textContent.includes("破線"),
+  }))()`);
+  assert.deepEqual(accessibility.unlabeled, [], "form inputs need accessible names");
+  assert.equal(accessibility.headings[0], "H1");
+  assert.equal(accessibility.status, "polite");
+  assert.ok(accessibility.plot.includes("legend"));
+  assert.ok(accessibility.table && accessibility.meaning);
+  // Hardware-keyboard activation is tested in desktop emulation. Chromium
+  // mobile input emulation can route Enter through a virtual IME instead.
+  await cdp("Emulation.setCPUThrottlingRate", { rate: 1 });
+  await cdp("Emulation.clearDeviceMetricsOverride");
+  await evaluate('document.querySelector("#step").focus()');
+  assert.equal(await evaluate('document.activeElement.id'), "step");
+  await cdp("Input.dispatchKeyEvent", {
+    type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13,
+  });
+  await cdp("Input.dispatchKeyEvent", {
+    type: "char", text: "\r", key: "Enter", windowsVirtualKeyCode: 13,
+  });
+  await cdp("Input.dispatchKeyEvent", {
+    type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13,
+  });
+  try {
+    await waitFor(stepNumber + ' === 101');
+  } catch (error) {
+    throw new Error(error.message + "; keyboard state: " +
+      JSON.stringify(await evaluate('({step: ' + stepNumber +
+        ', focused: document.activeElement.id, status: document.querySelector("#status").textContent})')));
+  }
+
+  console.log(JSON.stringify({
+    test: "simulation-phase1-acceptance", status: "PASS",
+    cachedShell: shellCached, cacheNetworkRefresh: "first→updated→offline updated",
+    offlineRevisit: true, longRunSteps: long.stepIndex, limitRejected: long.limit,
+    longRunMs: longMs, emulatedCpuSlowdown: "4x",
+    emulatedViewport: "360x760", throttledStep100Ms: throttledMs,
+    maxHorizontalOverflowPx: overflow, keyboardStep: true,
+    accessibilityLabels: "all associated",
+    note: "CPU throttling is not evidence of physical device performance",
+  }));
+
   assert.equal(exceptions.length, 0, "Browser script exceptions: " + exceptions.join("; "));
   console.log("Simulation Chromium smoke: CELEV, parameter reset, ML seed, reload: PASS");
 } finally {

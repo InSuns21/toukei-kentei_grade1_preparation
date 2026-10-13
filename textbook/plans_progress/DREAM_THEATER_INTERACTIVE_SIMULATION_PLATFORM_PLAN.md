@@ -2,7 +2,7 @@
 
 設計日: 2026-10-14  
 着手日: 2026-10-14  
-状態: in_progress（Phase 0完了、Phase 1実装・検証中。Worker・Canvas/HTML描画・JSON/CSV記録・Pages入口を追加。ブラウザ実操作・負荷試験は未完了）
+状態: in_progress（Phase 0完了、Phase 1の自動受け入れ試験を追加。オフライン・キャッシュ更新・長時間実行・低速CPUエミュレーション・キーボード操作をCIで確認。実機/スクリーンリーダー確認とPhase 2以降は未完了）
 
 ## 0. 対象、中心問い、位置付け
 
@@ -124,7 +124,8 @@ scripts/validate-simulation-*.mjs # プロトコル/描画/エンジン数値検
 
 - [x] Workerホスト、セッション/世代管理、`computeOnce`/`runBatch`/`pause`/`reset`/`dispose` を実装（Worker境界での停止、期限切れterminate・再初期化を含む）。
 - [x] line/scatter/heatmap/tableの共通描画、エラー表示、設定JSON・診断/CSV出力、ブラウザ実験入口を作成（実機表示・操作の監査は残る）。
-- [ ] 計算APIのheadlessテスト（実装追加済み）に加え、ブラウザ操作・旧応答・メモリ制限・再訪キャッシュを**実機で**テストし、記録する。
+- [x] 計算APIのheadlessと実Chromiumで、オフライン直接再訪、Workerキャッシュ、ネットワーク復帰時の同一URL更新、10万ステップの上限、pause/resume/cancel、低速CPU・狭いviewport、キーボード操作の自動受け入れ試験を追加（[Chrome試験](../../scripts/validate-simulation-browser.mjs)）。
+- [ ] **実端末・人手ゲート**：低性能モバイル機の長時間稼働・消費メモリと発熱・非表示タブ復帰、スクリーンリーダーでの操作、実デプロイ間のキャッシュ世代移行を監査。CPU 4倍スロットルは実端末の代用品ではない。
 
 ### Phase 2: 二科目による共通化検証
 
@@ -153,7 +154,7 @@ Phase 0 と Phase 1 の実装を進めているが、ブラウザ実機での公
 - [ML1-01四セル標本抽出の受け入れ模型](../../pages/simulation/engines/ml/four-cell.mjs) — 母集団リスク・seed・標本数の基準。
 - [受け入れ試験と実機測定条件](../../pages/simulation/README.md)、[headlessテスト](../../scripts/validate-simulation-phase0.mjs)。Pages組立の冒頭から呼ぶ。CI合否はPRで確認。
 
-**Phase 1進行中:** 専用Worker・UI・記録のexport/import・配信資産を追加。次はPlaywright等による実ブラウザ操作（リセット世代排除、連続実行、ネット断、再訪、アクセシビリティ）と性能・資源上限の実測。未検証の項目を完了扱いしない。
+**Phase 1受け入れ試験:** Chromium/CDPで実Worker、リセット・連続実行、オフライン直接再訪、ネットワーク更新、ステップ上限、キーボード・小画面・CPU低速化を検査する。実機端末・読み上げソフトの手動検証と本番デプロイ間の移行は独立した未完了事項。
 
 
 ## 9. Phase 1 実装成果物（2026-10-14）
@@ -162,3 +163,11 @@ Phase 0 と Phase 1 の実装を進めているが、ブラウザ実機での公
 - [表示アダプター](../../pages/simulation/plot-adapters.mjs)、[実験記録](../../pages/simulation/experiment-record.mjs)、[ブラウザ実験入口](../../pages/simulation/index.html)：CELEV・MLで共通の操作/表示/設定再現とJSON/CSV出力。
 - [Phase 1 headlessテスト](../../scripts/validate-simulation-phase1.mjs)：モデルを差し替えずに実ホストのプロトコル検証を行う。CIはPages assemblyから実行。ブラウザ実測・Playwrightは未完了。
 
+
+## 10. Phase 1 追加受け入れ試験（2026-10-14）
+
+- [Chromium受け入れ試験](../../scripts/validate-simulation-browser.mjs)はローカルのPages組立物をHTTP配信して検証する。CIコマンドは `npm run validate:simulation-browser`。オンライン初回／Service Workerのcontrol／シェル資産の事前保存→同一URL更新→通信遮断下での更新キャッシュ利用→ページ再読込とWorker再起動の順で確かめる。
+- 長時間実行は**100バッチ×1,000ステップ**の10万ステップ、および超過リクエスト拒否を実Workerに通す。画面の連続実行→境界停止→再開→中断→再初期化も操作する。速度計測値はCIログへ出力する。
+- 低性能条件はChromiumの**4倍CPUスロットル**と**360×760 CSS画面**で100ステップの反応時間・横スクロールを検査。これはCPU負荷の模擬であって実スマートフォンのメモリ容量・発熱・電力を保証しない。
+- アクセシビリティはinput/selectのlabel、live status、Canvasの文章代替と数値診断表、色以外の線種、Enterキー操作を自動確認。実スクリーンリーダー（NVDA/VoiceOver等）の読み上げ・キーボード全経路・表示倍率への人手査読は未実施。
+- **公開済サイトへの実物試験ではない。** ブラウザの実操作自体は行うが、サーバーはCIのlocalhost。GH Pagesのリリース間キャッシュ更新と物理端末の基準値は、Phase 1の残ゲートとして維持する。
