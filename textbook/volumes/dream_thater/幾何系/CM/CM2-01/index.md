@@ -59,7 +59,7 @@ $$
 <a id="prop-cm2-01-cotangent-splitting"></a>
 
 <!-- formal-statement-start -->
-> **命題（余接空間の直和と局所枠）**  
+> **命題（余接空間の直和と局所基底）**  
 > 複素次元 $n$ の複素多様体 $X$ と任意の $x\in X$ に対し、
 
 $$
@@ -92,7 +92,7 @@ $$
 正則座標で、$dz^j(\partial_{z^k})=\delta_{jk}$、$dz^j(\partial_{\bar z^k})=0$ を前の一変数計算の各座標への適用で得る。したがって $dz^1,\ldots,dz^n$ は第一成分の双対基底である。共役を取って第二成分も得られる。$\square$
 <!-- proof-end -->
 
-局所枠が具体的なので、一般の複素1形式は
+局所基底が具体的なので、一般の複素1形式は
 
 $$
 \eta=\sum_{j=1}^n a_j\,dz^j+\sum_{j=1}^n b_j\,d\bar z^j
@@ -107,7 +107,7 @@ $$
 <a id="def-cm2-01-pq-form"></a>
 
 <!-- formal-statement-start -->
-> **定義（$(p,q)$ 形式）**  
+> **定義（型別微分形式）**  
 > $X$ を複素次元 $n$ の複素多様体、$p,q$ を $0\le p,q\le n$ の整数とする。各点で
 
 $$
@@ -129,7 +129,7 @@ $$
 は $(1,1)$ 形式である。入力を $\partial_{\bar z^1},\partial_{z^2}$ とすると、$dz^1$ は第一入力で零、$d\bar z^2$ は第二入力で零なので、外積の二項はともに零。一方、$\partial_{z^1},\partial_{\bar z^2}$ に代入すると、外積の定義から $\alpha(\partial_{z^1},\partial_{\bar z^2})=z^1+\bar z^2$。型を決めるのは一つ目と二つ目の方向の組合せであり、係数が $\bar z^2$ を含んでいても型は変わらない。
 <!-- definition-example-end -->
 
-多重指数 $I=(i_1<\cdots<i_p)$ と $J=(j_1<\cdots<j_q)$ について、$dz^I=dz^{i_1}\wedge\cdots\wedge dz^{i_p}$、$d\bar z^J=d\bar z^{j_1}\wedge\cdots\wedge d\bar z^{j_q}$ と記す。添字集合が空なら対応する積は $1$ とする。両者で同じ添字が現れても、$dz^j$ と $d\bar z^j$ は**別の余ベクトル**なので外積が必ず零になるわけではない。
+昇順添字列 $I=(i_1<\cdots<i_p)$ と $J=(j_1<\cdots<j_q)$ について、$dz^I=dz^{i_1}\wedge\cdots\wedge dz^{i_p}$、$d\bar z^J=d\bar z^{j_1}\wedge\cdots\wedge d\bar z^{j_q}$ と記す。添字集合が空なら対応する積は $1$ とする。両者で同じ添字が現れても、$dz^j$ と $d\bar z^j$ は**別の余ベクトル**なので外積が必ず零になるわけではない。
 
 <a id="thm-cm2-01-type-decomposition"></a>
 
@@ -182,7 +182,7 @@ $$
 <a id="thm-cm2-01-coordinate-invariance"></a>
 
 <!-- formal-statement-start -->
-> **定理（$(p,q)$ 型の座標不変性）**  
+> **定理（型別形式の座標不変性）**  
 > 複素多様体 $X$ の重なり合う正則座標 $z,w$ に対し、各 $p,q$ の部分束 $\Lambda^{p,q}T^*X$ と成分への射影は座標選択によらない。局所基底の変換は
 
 $$
@@ -288,7 +288,7 @@ $$
 <a id="prop-cm2-01-real-eleven"></a>
 
 <!-- formal-statement-start -->
-> **命題（実 $(1,1)$ 形式の係数判定）**  
+> **命題（実混合型2形式の係数判定）**  
 > 正則座標上の $(1,1)$ 形式
 
 $$

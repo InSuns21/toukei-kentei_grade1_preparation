@@ -19,7 +19,7 @@ definitions:
   - { id: CM2-01-DEF-01, name: 型別複素余接空間 }
   - { id: CM2-01-DEF-02, name: (p,q)形式 }
 theorems:
-  - { id: CM2-01-PROP-01, name: 余接空間の直和と局所枠 }
+  - { id: CM2-01-PROP-01, name: 余接空間の直和と局所基底 }
   - { id: CM2-01-THM-01, name: 複素微分形式の型分解 }
   - { id: CM2-01-THM-02, name: (p,q)型の座標不変性 }
   - { id: CM2-01-PROP-02, name: 外積の型と複素共役 }
