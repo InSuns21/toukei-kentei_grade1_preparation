@@ -18,7 +18,7 @@ learning_objectives:
 definitions:
   - { id: VAR1-DEF-01, name: "許容曲線と許容変分" }
   - { id: VAR1-DEF-02, name: "第一変分と停留曲線" }
-  - { id: VAR1-DEF-03, name: "等周拘束と正則点" }
+  - { id: VAR1-DEF-03, name: "等周拘束と正則性" }
 theorems:
   - { id: VAR1-PROP-01, name: "第一変分と境界項" }
   - { id: VAR1-THM-01, name: "自然境界条件" }
