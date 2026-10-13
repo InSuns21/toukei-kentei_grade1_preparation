@@ -1000,6 +1000,11 @@
 7. [CELE7 共鳴・KAM・規則運動とカオスの共存](textbook/volumes/dream_thater/物理系/CELE/CELE7/index.md)
 8. [CELE8 太陽系の長期力学](textbook/volumes/dream_thater/物理系/CELE/CELE8/index.md)
 
+<a id="dt-subject-nbody-variational-periodic"></a>
+### 変分的周期軌道・n体舞踏解
+
+1. [CELEV1 n体の作用と周期ループ空間](textbook/volumes/dream_thater/物理系/CELEV/CELEV1/index.md)
+
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
 
