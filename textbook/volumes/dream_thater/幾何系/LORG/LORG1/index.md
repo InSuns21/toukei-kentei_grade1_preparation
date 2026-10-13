@@ -44,9 +44,9 @@ $$
 $$
 \bigl[g(u,v)=0\quad(\forall v\in V)\bigr]\Longrightarrow u=0
 $$
-を要求します。[行列による判定命題](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)から、これは $\det A\ne0$ と同値です。**一つの非零 $u$ について $g(u,u)=0$ となることとは別の条件**です。
+を要求します。[双線形形式の行列表示と非退化性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)から、これは $\det A\ne0$ と同値です。**一つの非零 $u$ について $g(u,u)=0$ となることとは別の条件**です。
 
-非退化だけでは、正方向と負方向が何本ずつあるかは区別できません。実対称行列 $A$ は [実対称行列の直交対角化定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) により、実直交行列 $Q$ を用いて $Q^{\mathsf T}AQ=\operatorname{diag}(\lambda_0,\ldots,\lambda_n)$ とできます。正・負・零の固有値の個数をそれぞれ $p,q,r$ とし、この三つ組 $(p,q,r)$ を**慣性指数**と呼びます（$p+q+r=n+1$）。
+非退化だけでは、正方向と負方向が何本ずつあるかは区別できません。実対称行列 $A$ は [実対称行列の直交対角化定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) により、実直交行列 $Q$ を用いて $Q^{\mathsf T}AQ=\operatorname{diag}(\lambda_0,\ldots,\lambda_n)$ とできます。正・負・零の固有値の個数をそれぞれ $p,q,r$ と書きます。この三つ組は [LA6で定義した慣性指数](../../../基礎科目/LA/LA6/index.md#def-la6-inertia-index) で、$p+q+r=n+1$ です。
 
 各非零固有値に対応する座標を $|\lambda_i|^{1/2}$ 倍する、つまり
 $$
@@ -61,15 +61,15 @@ $$
 $$
 S^{\mathsf T}AS=D(Q^{\mathsf T}AQ)D
 $$
-の対角成分は順に $+1,-1,0$ のいずれかになります。必要に応じて基底を並べ替えれば $\operatorname{diag}(I_p,-I_q,0_r)$ です。[LA6のSylvesterの慣性法則](../../../基礎科目/LA/LA6/index.md#thm-la6-inertia)によって、この個数は可逆な基底変換の選び方に依存しません。実行列を実数のまま標準化できるのは、上で実直交行列 $Q$ と実対角行列 $D$ を構成したためです。
+の対角成分は順に $+1,-1,0$ のいずれかになります。必要に応じて基底を並べ替えれば $\operatorname{diag}(I_p,-I_q,0_r)$ です。[LA6のSylvesterの慣性法則](../../../基礎科目/LA/LA6/index.md#thm-la6-inertia)によって、この個数は可逆な座標の取り替え方に依存しません。実行列を実数のまま標準化できるのは、上で実直交行列 $Q$ と実対角行列 $D$ を構成したためです。
 
-このうち負方向がちょうど一つで、零方向がない場合をLorentz内積として定義します。
+このうち負方向がちょうど一つで、零方向がない場合に、特別な名前を付けます。
 
 <a id="def-lorg1-lorentz-inner-product"></a>
 
 <!-- formal-statement-start -->
 > **定義（Lorentz内積）**  
-> $n\ge1$ とし、$V$ を実 $(n+1)$ 次元ベクトル空間とする。対称双線形形式 $g:V\times V\to\mathbb R$ が非退化で、その慣性指数が「負1本、正$n$本、零0本」であるとき、$g$ を符号規約 $(-,+,\ldots,+)$ の **Lorentz内積** と呼ぶ。組 $(V,g)$ をLorentzベクトル空間という。
+> $n\ge1$ とし、$V$ を実 $(n+1)$ 次元ベクトル空間とする。対称双線形形式 $g:V\times V\to\mathbb R$ が非退化で、その[慣性指数](../../../基礎科目/LA/LA6/index.md#def-la6-inertia-index)が「負1本、正$n$本、零0本」であるとき、$g$ を符号規約 $(-,+,\ldots,+)$ の **Lorentz内積** と呼ぶ。組 $(V,g)$ をLorentzベクトル空間という。
 >
 > ある基底で $u=(t,x_1,\ldots,x_n)$、$v=(s,y_1,\ldots,y_n)$ と表したとき、標準形は
 >
