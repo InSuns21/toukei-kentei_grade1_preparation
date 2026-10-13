@@ -111,7 +111,7 @@ $$
 z_1=\frac{q_2-q_3}{\sqrt2},\qquad
 z_2=\sqrt{\frac23}\left(q_1-\frac{q_2+q_3}{2}\right).
 $$
-これは「2番と3番の相対位置」と「1番の位置から残る二体の中点を引いた量」を、運動エネルギーを保つように規格化した表示です。$q_1+q_2+q_3=0$ を代入すると
+[CELE2の三体Jacobi座標](../../CELE/CELE2/index.md#def-cele2-jacobi)を等質量・重心零で規格化したもので、これは「2番と3番の相対位置」と「1番の位置から残る二体の中点を引いた量」を、運動エネルギーを保つように規格化した表示です。$q_1+q_2+q_3=0$ を代入すると
 $$
 z_2=\sqrt{\frac32}q_1,\qquad
 |z_1|^2+|z_2|^2=\sum_{i=1}^3|q_i|^2=:I.
@@ -158,7 +158,7 @@ $$
 J(t)=\sum_{i=1}^3q_i(t)\wedge\dot q_i(t),\qquad
 (x,y)\wedge(v,w)=xw-yv
 $$
-と書きます。これは粒子の速度が全体の回転に使われる成分を測ります。[CELE2のNewton運動方程式](../../CELE/CELE2/index.md)から保存することも分かりますが、いまは**方程式が分かる前**に変分の式から零であることを出します。
+と書きます。これは粒子の速度が全体の回転に使われる成分を測ります。[CELE2のN体Hamilton方程式と保存量](../../CELE/CELE2/index.md#prop-cele2-nbody-equations)から保存することも分かりますが、いまは**方程式が分かる前**に変分の式から零であることを出します。
 
 <a id="prop-celev5-zero-angular"></a>
 <!-- formal-statement-start -->
