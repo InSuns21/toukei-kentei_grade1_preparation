@@ -12,10 +12,10 @@ forward_references: []
 
 concepts:
   - id: celestial.resonant-angle
-    name: 一次共鳴と共鳴角
+    name: 整数共鳴と共鳴角
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（一次共鳴と共鳴角）"]
+    introduction_aliases: ["定義（整数共鳴と共鳴角）"]
     aliases: []
     requires: [integrable.action-angle, integrable.near-integrable-hamiltonian]
   - id: celestial.resonant-pendulum-reduction
@@ -60,10 +60,3 @@ concepts:
     introduction_aliases: ["命題（せん断写像のLyapunov指数）"]
     aliases: []
     requires: [celestial.finite-time-lyapunov]
-  - id: celestial.cantorus-introduction
-    name: カントーラスの解釈
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（カントーラスの解釈）"]
-    aliases: []
-    requires: [integrable.analytic-kam-theorem, integrable.return-area-preservation]
