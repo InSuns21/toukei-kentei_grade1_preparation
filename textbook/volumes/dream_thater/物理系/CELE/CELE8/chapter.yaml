@@ -1,0 +1,50 @@
+id: "CELE8"
+title: "太陽系の長期力学"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE1
+  - CELE4
+  - CELE5
+  - CELE7
+  - INT8
+official_scope: []
+learning_objectives:
+  - 中心星相対座標の摂動関数と直接項・間接項から運動方程式を導ける
+  - 階層的円軌道模型の二重平均四重極項と近点歳差を再計算できる
+  - 平均運動共鳴角と共鳴位置を求め、共鳴振り子の作用幅と面積を計算できる
+  - Trojanの線形振動数と質量比の条件を確認できる
+  - 同期自転の模型を正準変換し振り子還元を導ける
+  - 共鳴・永年平均・数値実験・KAMの結論の射程を区別できる
+definitions:
+  - { id: CELE8-DEF-01, name: "円軌道摂動天体の摂動関数" }
+  - { id: CELE8-DEF-02, name: "平均運動共鳴" }
+theorems:
+  - { id: CELE8-PROP-01, name: "中心星相対加速度" }
+  - { id: CELE8-PROP-02, name: "円軌道摂動の二重平均・四重極近似" }
+  - { id: CELE8-PROP-03, name: "円軌道四重極模型の近点歳差" }
+  - { id: CELE8-PROP-04, name: "離調つき共鳴正規形の島幅・面積" }
+  - { id: CELE8-PROP-05, name: "三角点の遅い線形振動数" }
+  - { id: CELE8-PROP-06, name: "同期自転の振り子還元" }
+  - { id: CELE8-PROP-07, name: "kick-drift型symplectic Euler法の面積保存" }
+canonical_examples:
+  - 間接項が一次の双極子項を相殺すること
+  - 二重平均で離心近点角の重みを使用すること
+  - 3対1共鳴の半長軸比と近点歳差を含む共鳴角
+  - Trojanの小質量比での低周波数
+  - 同期自転の平衡とセパラトリクス
+  - symplectic Eulerの面積保存とエネルギー非保存
+problem_patterns:
+  - CELE8-DISTURBING-INDIRECT
+  - CELE8-DOUBLE-AVERAGE
+  - CELE8-SECULAR-PRECESSION
+  - CELE8-MEAN-MOTION-RESONANCE
+  - CELE8-RESONANT-WIDTH
+  - CELE8-TROJAN-FREQUENCY
+  - CELE8-SPIN-ORBIT
+  - CELE8-SYMPLECTIC-INTEGRATION
+  - CELE8-LONG-TERM-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 3 }
