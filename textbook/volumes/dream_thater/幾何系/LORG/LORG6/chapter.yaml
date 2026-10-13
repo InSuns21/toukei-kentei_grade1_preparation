@@ -1,0 +1,46 @@
+id: "LORG6"
+title: "因果的未来と過去の集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+official_scope: []
+learning_objectives:
+  - 未来時間的・因果的曲線の存在を用いてI±・J±とhorismosを定義し頂点の扱いを区別できる
+  - 因果関係の反射性・推移性・時間的関係から因果的関係への包含を曲線連結で証明できる
+  - Minkowski時空でI±・J±の必要十分な座標不等式を積分と直線の構成から導出できる
+  - MinkowskiのI±の開性、J±の閉性、E±と境界の一致を連続性で証明できる
+  - 集合SからのI±・J±の合併とE±の非可換性を具体的に計算できる
+  - 部分時空と全時空では曲線の許される範囲が異なることを光的到達の反例から説明できる
+definitions:
+  - { id: LORG6-DEF-01, name: 時間的未来・過去と因果的未来・過去 }
+  - { id: LORG6-DEF-02, name: horismos }
+theorems:
+  - { id: LORG6-PROP-01, name: 因果到達関係の推移性と反射性 }
+  - { id: LORG6-PROP-02, name: 集合の未来・過去は点ごとの合併 }
+  - { id: LORG6-THM-01, name: Minkowski時空の時間的・因果的未来と過去 }
+  - { id: LORG6-PROP-03, name: 平坦時空での開性・閉性・horismosの境界表示 }
+canonical_examples:
+  - Minkowski平面の未来時間的直線と未来光的直線
+  - 未来錐の頂点を含むhorismos
+  - 点集合のhorismosと個々の光円錐境界の相違
+  - 点除去Minkowski部分時空で消える光的到達
+problem_patterns:
+  - LORG6-TIME-AND-SPACE-SEPARATION
+  - LORG6-PAST-SIGN
+  - LORG6-VERTEX-INCLUSION
+  - LORG6-NULL-STRAIGHT-LINE
+  - LORG6-SET-UNION
+  - LORG6-INTEGRAL-ENDPOINT-INEQUALITY
+  - LORG6-HORISMOS-NONCOMMUTATIVITY
+  - LORG6-FLAT-CLOSEDNESS
+  - LORG6-PUNCTURED-SPACETIME
+  - LORG6-TWO-CONE-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
