@@ -1,0 +1,44 @@
+chapter: LORG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - GEO12
+concepts:
+  - id: lorentz-geometry.causal-curve
+    name: 因果曲線
+    kind: definition
+    aliases: [因果曲線, causal curve]
+    introduction: formal
+    introduction_aliases: ["定義（区分的 $C^1$ 因果曲線・時間的曲線・光的曲線）"]
+    requires: [lorentz-geometry.future-cone, lorentz-geometry.time-orientation]
+
+  - id: lorentz-geometry.lorentzian-length
+    name: Lorentz長さ
+    kind: definition
+    aliases: [Lorentz長さ, Lorentzian length]
+    introduction: formal
+    introduction_aliases: ["定義（因果曲線のLorentz長さ・固有時）"]
+    requires: [lorentz-geometry.causal-curve, lorentz-geometry.lorentz-metric, lorentz-geometry.future-proper-time-norm]
+
+  - id: lorentz-geometry.length-additivity
+    name: Lorentz長さの非負性・分割独立性・加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz長さの非負性・分割独立性・加法性）"]
+    requires: [lorentz-geometry.lorentzian-length]
+
+  - id: lorentz-geometry.reparametrization-invariance
+    name: Lorentz長さの向き保存再パラメータ化不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz長さの向き保存再パラメータ化不変性）"]
+    requires: [lorentz-geometry.length-additivity, lorentz-geometry.cone-convexity]
+
+  - id: lorentz-geometry.minkowski-length-bound
+    name: Minkowski時空における端点とLorentz長さ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Minkowski時空における端点とLorentz長さ）"]
+    requires: [lorentz-geometry.lorentzian-length, lorentz-geometry.reverse-triangle]
