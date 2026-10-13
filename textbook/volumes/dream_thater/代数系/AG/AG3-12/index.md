@@ -244,9 +244,9 @@ $$
 (\epsilon+a\epsilon\delta)(\delta+b\epsilon\delta)=\epsilon\delta\ne0
 $$
 となり、$t=0$ と整合しません。持ち上げは存在しません。この障害が原点での非滑らかさを示すことも、局所化を通して確かめます。原点の極大イデアルを $\mathfrak m=(t,x,y)\subset B$ とし、$g\in B\setminus\mathfrak m$ と取ります。このとき $c=g(0,0,0)\in k^\times$ です。$C/I\simeq k[\epsilon,\delta]/(\epsilon^2,\epsilon\delta,\delta^2)$ では $\varphi(g)=c+n$（$n\in(\epsilon,\delta)$、$n^2=0$）となり、
-$
+$$
 (c+n)(c^{-1}-c^{-2}n)=1
-$
+$$
 です。従って $\varphi(g)$ は単元であり、$\varphi$ は任意の $g\notin\mathfrak m$ について $B_g\to C/I$ に延長されます。
 
 もし射が原点で滑らかなら、原点を含むある主開集合 $D(g)$（$g\notin\mathfrak m$）で持ち上げ条件が成立します。そこでは $B_g\to C/I$ が $B_g\to C$ に持ち上がり、$B\to B_g$ との合成が先ほど不可能と示した $B\to C$ の持ち上げとなって矛盾します。従って原点で滑らかではありません。
