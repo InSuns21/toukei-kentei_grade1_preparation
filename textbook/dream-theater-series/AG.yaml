@@ -148,7 +148,7 @@ chapters:
     title: "曲線の種数とRiemann–Rochへの入口"
   - id: AG3-12
     path: textbook/volumes/dream_thater/代数系/AG/AG3-12
-    status: planned
+    status: completed
     title: "平坦性・滑らかさと特異ファイバー"
   - id: AG3-13
     path: textbook/volumes/dream_thater/代数系/AG/AG3-13

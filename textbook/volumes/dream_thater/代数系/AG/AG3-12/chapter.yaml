@@ -1,0 +1,51 @@
+id: "AG3-12"
+title: "平坦性・滑らかさと特異ファイバー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-11
+  - AG3-05
+  - AG3-06
+  - AG2-11
+  - AG1-10
+  - AG1-05
+  - MOD2
+official_scope: []
+learning_objectives:
+  - テンソル積の完全性から平坦加群と平坦射を定義し具体例を検算できる
+  - PID上の平坦性とねじれなしの同値性を証明し一変数族に適用できる
+  - 平坦性が任意の基底変換で保存されることをテンソル積から証明できる
+  - 二乗零イデアルによる滑らかさの持ち上げ条件を定義から確認できる
+  - 超曲面族の相対Jacobian非消失条件から持ち上げを構成できる
+  - xy=tの平坦性と特異ファイバーの持ち上げ障害を区別できる
+  - 二重点・節点・尖点・非平坦な次元跳躍を複数の方法で比較できる
+definitions:
+  - { id: AG3-12-DEF-01, name: 平坦加群 }
+  - { id: AG3-12-DEF-02, name: 平坦射 }
+  - { id: AG3-12-DEF-03, name: 有限表示代数の滑らかさ }
+theorems:
+  - { id: AG3-12-THM-01, name: PID上の平坦性判定 }
+  - { id: AG3-12-PROP-01, name: 平坦性の基底変換による保存 }
+  - { id: AG3-12-THM-02, name: 超曲面族の相対Jacobianによる滑らかさ }
+  - { id: AG3-12-PROP-02, name: 節点ファイバーの持ち上げ障害 }
+  - { id: AG3-12-PROP-03, name: 滑らかさの基底変換による保存 }
+canonical_examples:
+  - tx=0のねじれとファイバー次元跳躍
+  - xy=tの平坦な節点退化と平方零持ち上げ障害
+  - x^2=tの有限自由二点族と非被約特殊ファイバー
+  - y^2=x^3+tの尖点特殊化
+problem_patterns:
+  - AG3-12-A1
+  - AG3-12-A2
+  - AG3-12-A3
+  - AG3-12-A4
+  - AG3-12-B1
+  - AG3-12-B2
+  - AG3-12-B3
+  - AG3-12-B4
+  - AG3-12-C1
+  - AG3-12-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 18, exercises: 12, review: 8 }
