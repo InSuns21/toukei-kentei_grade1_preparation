@@ -205,7 +205,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（構造層の制限と貼り合わせ）**  
-> 任意の可換単位的環 $A$ に対し、上の $\mathcal O_X$ は $X=\operatorname{Spec}A$ 上の環の層である。すなわち開被覆 $U=\bigcup_iU_i$ と切断 $s_i\in\mathcal O_X(U_i)$ が重なり $U_i\cap U_j$ 上で一致するとき、一意の $s\in\mathcal O_X(U)$ が存在して $s|_{U_i}=s_i$ を満たす。
+> **任意の可換単位的環 $A$** に対し、上の $\mathcal O_X$ は $X=\operatorname{Spec}A$ 上の環の層である。具体的には開被覆 $U=\bigcup_i U_i$ と切断 $s_i\in\mathcal O_X(U_i)$ がすべての重なりで一致するなら、一意の $s\in\mathcal O_X(U)$ が存在し、各 $i$ で
+
+$
+s|_{U_i}=s_i
+$
+
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
