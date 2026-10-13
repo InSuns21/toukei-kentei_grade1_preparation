@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - AMECH3
+  - VC2
 official_scope: []
 learning_objectives:
   - 固定端・自由端の許容クラスと許容方向を区別し、変分が拘束を保つ条件を検証できる
