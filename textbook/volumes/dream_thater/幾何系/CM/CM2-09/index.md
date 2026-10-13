@@ -12,11 +12,19 @@
 
 ## 2. 繊維の内積と正値Hermite行列
 
+同じ繊維で内積を定めるには、一方の複素係数を共役にし、非零ベクトルの長さを正にする。これらの条件が基点とともに滑らかに変化するかも確認する。
+
 <a id="def-cm2-09-hermitian-metric"></a>
 
 <!-- formal-statement-start -->
 > **定義（正則ベクトル束上のHermite計量）**  
-> 複素多様体 $X$ 上の階数 $r\ge1$ の正則ベクトル束 $\pi:E\to X$ に対し、各 $x\in X$ の繊維 $E_x$ に写像 $h_x:E_x\times E_x\to\mathbb C$ を与える。全ての $u,v,w\in E_x$ と $a,b\in\mathbb C$ に対して
+> 複素多様体 $X$ 上の階数 $r\ge1$ の正則ベクトル束 $\pi:E\to X$ に対し、各 $x\in X$ の繊維に次の写像を与える。
+
+$
+h_x:E_x\times E_x\longrightarrow\mathbb C.
+$
+
+> 全ての $u,v,w\in E_x$ と $a,b\in\mathbb C$ に対して
 >
 > - $h_x(au+bv,w)=\overline a h_x(u,w)+\overline b h_x(v,w)$、
 > - $h_x(u,av+bw)=a h_x(u,v)+b h_x(u,w)$、
@@ -390,7 +398,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正則な単位枠が存在しない計量の例）**  
-> 円板 $D\subset\mathbb C$ 上の自明な正則線束 $D\times\mathbb C$ の標準正則枠 $e$ に $h(e,e)=1+|z|^2$ を与える。このとき、$D$ のどの非空開部分集合にも正則な単位枠 $e'=fe$（$f$ は零点を持たない正則関数）は存在しない。
+> 円板 $D\subset\mathbb C$ 上の自明な正則線束の標準正則枠 $e$ に、次の計量を与える。
+
+$
+h(e,e)=1+|z|^2.
+$
+
+> このとき $D$ のどの非空開部分集合にも、零点を持たない正則関数 $f$ による単位枠 $e'=fe$ は存在しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
