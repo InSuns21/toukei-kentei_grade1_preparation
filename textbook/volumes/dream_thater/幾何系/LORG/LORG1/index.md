@@ -368,7 +368,7 @@ $
 \end{aligned}
 $
 
-こうして二次形式だけでなくLorentz内積も保つことが分かります。
+したがって $B_\theta$ は、二次形式だけでなくLorentz内積 $g$ 自体を保ちます。
 
 さらに[閉未来錐の定義](#def-lorg1-future-cone)から $u=(t,x)\in C_+$ なら $t\ge|x|$ です。$t\ge0$ と $\cosh\theta>0$ を使って
 
