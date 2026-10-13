@@ -10,6 +10,14 @@
 
 核 $|z|^{\alpha-d}$ は $z=0$ に特異性をもちます。しかし半径 $\varepsilon$ の球上で積分すると、極座標の体積要素の $r^{d-1}$ と打ち消し合い、$r^{\alpha-1}$ が現れます。$\alpha>0$ が局所積分可能性を保証する理由です。
 
+以下の正規化定数に現れる $\Gamma$ はGamma関数で、$s>0$ に対し
+
+$$
+\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt
+$$
+
+と定義します。原点では $s>0$ により、無限遠では指数減衰により積分は収束します。部分積分から $\Gamma(s+1)=s\Gamma(s)$ が従います。また、球面積の公式 $|S^{d-1}|=2\pi^{d/2}/\Gamma(d/2)$ を後で使います。
+
 <a id="def-ha7-riesz-potential"></a>
 <!-- formal-statement-start -->
 > **定義（Rieszポテンシャル）**  
@@ -346,7 +354,7 @@ $$
 
 ## 4. $p=1$ では弱型だけが残る
 
-先ほどの証明で $p=1$ を代入しようとしても、[最大作用素は強型 $(1,1)$ ではありません](../HA1/index.md#prop-ha1-no-strong11)。しかし[弱型 $(1,1)$ 評価](../HA1/index.md#thm-ha1-weak11)なら使えます。すると出力のノルムではなく、閾値を超える点の集合の大きさが制御できます。
+先ほどの証明で $p=1$ を代入しようとしても、[最大作用素は強型 $(1,1)$ ではありません](../HA1/index.md#prop-ha1-no-strong11)。しかし[弱型 $(1,1)$ 評価](../HA1/index.md#thm-ha1-weak11)なら使えます。[HA2の弱型 $(p,q)$ の定義](../HA2/index.md#def-ha2-type)では、出力の超水準集合の測度を閾値の $-q$ 乗で抑えます。ここではその指数を導きます。
 
 <a id="thm-ha7-hls-weak"></a>
 <!-- formal-statement-start -->
@@ -549,7 +557,7 @@ $$
 
 と定めます。$\chi'(t)\ge0$、$\int_1^2\chi'(t)\,dt=\chi(2)-\chi(1)=1$ です。$\chi_\varepsilon(y)=\chi(|x-y|/\varepsilon)$ と置けば、$\chi_\varepsilon F_x$ は $x$ の近くで零であり、$u\in C_c^1$ と掛けた各座標成分は無限遠でも零です。
 
-従って各座標で一変数の積分の部分積分を行い、Fubiniで足し合わせると
+ここでは $u$ がコンパクト台をもち、切断で特異点も避けているため、各座標の被積分関数は絶対可積分です。従って一変数の積分の部分積分を行い、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で積分順序を交換して足し合わせると
 
 $$
 \begin{aligned}
@@ -628,16 +636,80 @@ $$
 を得ます。$p=1$ では上の議論は[弱型端点](#thm-ha7-hls-weak)までしか与えません。
 <!-- proof-end -->
 
-**Newtonポテンシャルとの対応。** $d\ge3$ なら $\alpha=2<d$ で、
+**Newtonポテンシャルとの対応。** $d\ge3$ なら $\alpha=2<d$ です。上で確認した $\Gamma(s+1)=s\Gamma(s)$ と $|S^{d-1}|=2\pi^{d/2}/\Gamma(d/2)$ を順に代入すると
 
 $$
+\begin{aligned}
 c_{d,2}
-=\frac{1}{(d-2)|S^{d-1}|},\qquad
-I_2f(x)=\frac1{(d-2)|S^{d-1}|}
-\int_{\mathbb R^d}|x-y|^{2-d}f(y)\,dy.
+&=\frac{\Gamma((d-2)/2)}{4\pi^{d/2}}
+=\frac{\Gamma(d/2)}{2(d-2)\pi^{d/2}}\\
+&=\frac1{(d-2)|S^{d-1}|}
+\end{aligned}
 $$
 
-これは $-\Delta$ の点源に対応する核との畳込みです。$d=2$ では $\alpha=2=d$ となり本章の $I_\alpha$ の定義域を外れ、二次元の基本解は $\frac1{2\pi}\log(1/|x|)$ 型です。次元を無視して $|x|^{2-d}$ を $d=2$ に代入すると単なる定数になり、基本解は得られません。二次元の対数核と三次元以上のべき核を混同しないことが重要です。
+となり、
+
+$$
+I_2f(x)=\frac1{(d-2)|S^{d-1}|}
+\int_{\mathbb R^d}|x-y|^{2-d}f(y)\,dy
+$$
+
+です。$-\Delta$ の点源に対応する理由も核から確認します。$r=|z|>0$ として
+
+$$
+G_d(z)=\frac{r^{2-d}}{(d-2)|S^{d-1}|},
+\qquad
+G_d'(r)=-\frac{r^{1-d}}{|S^{d-1}|}
+$$
+
+と置きます。$r=(z_1^2+\cdots+z_d^2)^{1/2}$ なので $\partial_{z_j}r=z_j/r$ です。連鎖律を二度使って
+
+$$
+\begin{aligned}
+\partial_{z_j}G_d&=G_d'(r)\frac{z_j}{r},\\
+\partial_{z_j}^2G_d
+&=G_d''(r)\frac{z_j^2}{r^2}
+ +G_d'(r)\left(\frac1r-\frac{z_j^2}{r^3}\right).
+\end{aligned}
+$$
+
+$\sum_jz_j^2=r^2$ を代入して全座標で足すと
+
+$$
+\begin{aligned}
+\Delta G_d&=G_d''(r)+\frac{d-1}{r}G_d'(r)\\
+&=\frac{(d-1)r^{-d}}{|S^{d-1}|}
+-\frac{(d-1)r^{-d}}{|S^{d-1}|}=0
+\qquad (r>0).
+\end{aligned}
+$$
+
+となり、原点以外では調和的です。他方、半径 $\varepsilon$ の球面で、中心から外向きに半径 $r$ を増す方向の微分 $\partial_rG_d$ は
+
+$$
+-\int_{\partial B(0,\varepsilon)}
+\partial_rG_d\,dS
+=\frac{\varepsilon^{1-d}}{|S^{d-1}|}
+|S^{d-1}|\varepsilon^{d-1}=1
+$$
+
+を満たします。すなわち原点を囲む球面を通る $-\nabla G_d$ の流束が1であり、単位点源を表します。
+
+$d=2$ では $\alpha=2=d$ となり本章の $I_\alpha$ の定義域を外れます。形式的な核 $r^{2-d}$ は定数となるため、その半径方向の微分と流束はともに零です。一方、二次元の対数核
+
+$$
+G_2(r)=\frac1{2\pi}\log(1/r)
+$$
+
+なら $G_2'(r)=-1/(2\pi r)$ なので、
+
+$$
+-\int_{\partial B(0,\varepsilon)}
+\partial_rG_2\,dS
+=\frac1{2\pi\varepsilon}(2\pi\varepsilon)=1
+$$
+
+です。二次元の点源には対数核が必要であり、次元を無視してべき核を代入してはなりません。
 
 ## 6. 演習と詳細解答
 
