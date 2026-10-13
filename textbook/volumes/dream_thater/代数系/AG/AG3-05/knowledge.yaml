@@ -1,0 +1,67 @@
+chapter: AG3-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-04
+  - LA3E
+  - AG3-03
+  - AG3-02
+  - AG3-01
+  - AG1-04
+  - AG1-02
+forward_references: []
+concepts:
+  - id: algebraic-geometry.fiber-product
+    name: スキームのファイバー積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スキームのファイバー積）"]
+    requires: [algebraic-geometry.scheme, algebraic-geometry.lrs-morphism]
+  - id: algebraic-geometry.affine-fiber-product
+    name: アフィンスキームのファイバー積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィンスキームのファイバー積）"]
+    requires: [algebraic-geometry.fiber-product, algebraic-geometry.affine-scheme-ring-hom-bijection]
+  - id: algebraic-geometry.fiber-product-equations
+    name: 多項式表示と方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式表示と方程式）"]
+    requires: [algebraic-geometry.affine-fiber-product]
+  - id: algebraic-geometry.scheme-fiber-product-existence
+    name: スキームのファイバー積の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スキームのファイバー積の存在と一意性）"]
+    requires: [algebraic-geometry.fiber-product, algebraic-geometry.affine-fiber-product, algebraic-geometry.scheme-gluing]
+  - id: algebraic-geometry.base-change
+    name: 基底変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基底変換）"]
+    requires: [algebraic-geometry.scheme-fiber-product-existence]
+  - id: algebraic-geometry.base-change-associativity
+    name: 反復基底変換と結合法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反復基底変換と結合法則）"]
+    requires: [algebraic-geometry.base-change, algebraic-geometry.fiber-product]
+  - id: algebraic-geometry.base-change-immersions
+    name: 開部分と閉部分の基底変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（開部分と閉部分の基底変換）"]
+    requires: [algebraic-geometry.base-change, algebraic-geometry.principal-affine-scheme, algebraic-geometry.quotient-spectrum-image]
+  - id: algebraic-geometry.scheme-fiber
+    name: 点上のファイバーと幾何学的ファイバー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点上のファイバーと幾何学的ファイバー）"]
+    requires: [algebraic-geometry.base-change, algebraic-geometry.residue-field-of-prime]
+  - id: algebraic-geometry.affine-fiber-coordinate
+    name: アフィンな族の点上のファイバー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィンな族の点上のファイバー）"]
+    requires: [algebraic-geometry.scheme-fiber, algebraic-geometry.affine-fiber-product]
