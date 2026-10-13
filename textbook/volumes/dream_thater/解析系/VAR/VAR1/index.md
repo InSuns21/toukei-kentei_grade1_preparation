@@ -33,7 +33,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-admissible -->
-**定義の確認。** $\mathcal A=\{u\in C^2([0,1]):u(0)=0,\ u(1)=1\}$ とし、$u(x)=x$ とする。$\eta(x)=x(1-x)$ なら任意の $\varepsilon$ で $u_\varepsilon(0)=0,\ u_\varepsilon(1)=1$ なので許容方向です。$\eta(x)=1$ は $u_\varepsilon(0)=\varepsilon$ となるため、固定端問題では許容されません。同じ $\eta=1$ も両端自由なクラスでは許容されます。
+**定義の確認**。 $\mathcal A=\{u\in C^2([0,1]):u(0)=0,\ u(1)=1\}$ とし、$u(x)=x$ とする。$\eta(x)=x(1-x)$ なら任意の $\varepsilon$ で $u_\varepsilon(0)=0,\ u_\varepsilon(1)=1$ なので許容方向です。$\eta(x)=1$ は $u_\varepsilon(0)=\varepsilon$ となるため、固定端問題では許容されません。同じ $\eta=1$ も両端自由なクラスでは許容されます。
 <!-- definition-example-end -->
 
 拘束 $K[u]=\ell$ がある場合、$\delta K[u;\eta]=0$ という一次条件だけでは一般に $u+\varepsilon\eta$ が拘束を正確に保つとは限りません。この差を第5節で回収します。
@@ -56,7 +56,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-first-variation -->
-**定義の確認。** $J[u]=\frac12\int_0^1(u')^2dx,\ u(x)=x,\ \eta=x(1-x)$ とすると、
+**定義の確認**。 $J[u]=\frac12\int_0^1(u')^2dx,\ u(x)=x,\ \eta=x(1-x)$ とすると、
 $$
 J[u+\varepsilon\eta]
 =\frac12\int_0^1[1+\varepsilon(1-2x)]^2dx
@@ -260,7 +260,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var1-isoperimetric -->
-**定義の確認。** $[0,1]$ で $K[u]=\int_0^1u(x)dx$ とし $\psi=x(1-x)$ を取れば、$\psi$ は固定端方向で
+**定義の確認**。 $[0,1]$ で $K[u]=\int_0^1u(x)dx$ とし $\psi=x(1-x)$ を取れば、$\psi$ は固定端方向で
 $$
 \delta K[u;\psi]=\int_0^1x(1-x)dx=\frac16\ne0.
 $$
