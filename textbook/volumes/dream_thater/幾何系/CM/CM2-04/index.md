@@ -52,7 +52,7 @@ $\bar\partial\alpha=0$ を満たす形式を「閉」、$\alpha=\bar\partial u$ 
 
 <!-- formal-statement-start -->
 > **定義（bar∂閉形式とbar∂完全形式）**  
-> $X$ を複素次元 $n$ の複素多様体、$p,q$ を $0\le p,q\le n$ を満たす整数とする。次の部分空間を定める。$q=0$ の場合は $\mathcal A^{p,-1}(X)=0$ とする。
+> $X$ を複素次元 $n$ の複素多様体とし、$0\le p,q\le n$ を満たす整数 $p,q$ を取る。次の部分空間を定める。$q=0$ の場合は $\mathcal A^{p,-1}(X)=0$ とする。
 
 $$
 Z_{\bar\partial}^{p,q}(X)
