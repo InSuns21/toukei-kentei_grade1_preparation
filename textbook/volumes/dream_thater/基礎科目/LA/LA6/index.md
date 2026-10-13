@@ -114,6 +114,18 @@ $$
 
 スペクトル定理で固有方向へ分けた後、各正の固有値を $+1$、各負の固有値を $-1$ へ大きさだけ正規化すれば、二次形式の符号構造だけを残した標準形が得られそうです。次の定理は、その標準形が必ず存在し、正・負・零方向の本数が座標変換の選び方に依らないことを述べます。
 
+正・負・零の本数を繰り返し使うので、まずその三つ組に名前を付けます。これは正定値かどうかだけでは区別できない不定値形式の情報です。
+
+<a id="def-la6-inertia-index"></a>
+<!-- formal-statement-start -->
+> **定義（慣性指数）**  
+> Hermitian行列 $A\in\mathbb C^{m\times m}$ の正・負・零固有値の個数（重複度込み）をそれぞれ $p,q,r$ とするとき、三つ組 $(p,q,r)$ を $A$ の **慣性指数** という。ここで $p+q+r=m$ である。実対称行列もHermitian行列の特別な場合として同じ定義を使う。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-la6-inertia-index -->
+**定義の確認**。$A=\operatorname{diag}(2,-3,0)$ は実対称かつHermitianで、固有値は $2,-3,0$ です。正・負・零固有値はそれぞれ一つなので、慣性指数は $(p,q,r)=(1,1,1)$ です。一方 $A=\operatorname{diag}(4,9)$ は $(2,0,0)$ です。
+<!-- definition-example-end -->
+
 <a id="thm-la6-inertia"></a>
 <!-- formal-statement-start -->
 > **定理（Sylvesterの慣性法則）**  
