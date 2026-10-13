@@ -69,7 +69,7 @@ chapters:
     title: "低次元Dolbeaultコホモロジーの計算"
   - id: CM2-06
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-06
-    status: planned
+    status: completed
     title: "正則線束・遷移関数"
   - id: CM2-07
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-07
