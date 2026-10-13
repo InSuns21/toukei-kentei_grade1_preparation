@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var10-admissible-functional -->
-**定義の直接例。** $I=(0,1)$、$A=B=0$ とし、$F(t,z,p)=\frac12(1+z^2)p^2+\frac12z^2$ を取ります。$u(t)=t(1-t)$ は両端で0、$u'=1-2t\in L^2$ なので許容されます。$u$ は連続で有界、したがって $(1+u^2)|u'|^2$ と $u^2$ は可積分で、$J_F(u)$ は有限です。任意の $H^1$ 関数にもこの有限性が成り立つ理由は、[VAR9の一様コンパクト性命題で使った評価](../VAR9/index.md#prop-var9-uniform-compactness)から各関数が有界だからです。
+**定義の確認**。 $I=(0,1)$、$A=B=0$ とし、$F(t,z,p)=\frac12(1+z^2)p^2+\frac12z^2$ を取ります。$u(t)=t(1-t)$ は両端で0、$u'=1-2t\in L^2$ なので許容されます。$u$ は連続で有界、したがって $(1+u^2)|u'|^2$ と $u^2$ は可積分で、$J_F(u)$ は有限です。任意の $H^1$ 関数にもこの有限性が成り立つ理由は、[VAR9の一様コンパクト性命題で使った評価](../VAR9/index.md#prop-var9-uniform-compactness)から各関数が有界だからです。
 <!-- definition-example-end -->
 
 ## 2. 二次成長と速度凸性を分けて読む
@@ -62,7 +62,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var10-tonelli-hypotheses -->
-**三条件を実際に確かめる。** $F(t,z,p)=\frac12(1+z^2)p^2+\frac12z^2$ では
+**定義の確認**。三条件を実際に確かめます。 $F(t,z,p)=\frac12(1+z^2)p^2+\frac12z^2$ では
 
 $$
 F_z=zp^2+z,\quad F_p=(1+z^2)p,\quad F_{pp}=1+z^2\ge1.
@@ -217,7 +217,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var10-weak-el -->
-**定義の直接例。** $F(t,z,p)=\frac12p^2$、$u(t)=A+(B-A)(t-a)/(b-a)$ と取れば $F_z=0$、$F_p=u'=(B-A)/(b-a)$ は定数です。[区間上の絶対連続代表元](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)により、任意の $v\in H_0^1$ で $\int_a^b v'=v(b)-v(a)=0$。したがって積分恒等式を実際に満たします。
+**定義の確認**。 $F(t,z,p)=\frac12p^2$、$u(t)=A+(B-A)(t-a)/(b-a)$ と取れば $F_z=0$、$F_p=u'=(B-A)/(b-a)$ は定数です。[区間上の絶対連続代表元](../../GPDE/GPDE4/index.md#thm-gpde4-w11-ac)により、任意の $v\in H_0^1$ で $\int_a^b v'=v(b)-v(a)=0$。したがって積分恒等式を実際に満たします。
 <!-- definition-example-end -->
 
 <a id="thm-var10-weak-el-necessity"></a>
