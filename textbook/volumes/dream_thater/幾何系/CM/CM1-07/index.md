@@ -427,7 +427,16 @@ $$
 を考える。小さな近傍で $T^{0,1}$ として実概複素構造 $J$ を定められることを説明し、$N_J(Z_1,Z_2)$ の原点での値を求め、$\lambda\ne0$ の場合に適合座標がないことを示せ。$\lambda=0$ の場合も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。原点では $Z_1=\partial_{\bar w^1}, Z_2=\partial_{\bar w^2}$、その共役は $\partial_{w^1},\partial_{w^2}$ である。四本は複素化接空間の基底をなし、基底行列の行列式は原点で非零。連続性から十分小さい近傍でも $D=\operatorname{span}_{\mathbb C}\{Z_1,Z_2\}$ と $\bar D$ は直和で全接空間を張る。$J=-i$ を $D$ に、$J=i$ を $\bar D$ に作用させれば共役と可換で実接束を保ち、$J^2=-I$ となる。
+**詳細解答**。原点では $Z_1=\partial_{\bar w^1}, Z_2=\partial_{\bar w^2}$、その共役は $\partial_{w^1},\partial_{w^2}$ である。四本は複素化接空間の基底をなし、基底行列の行列式は原点で非零。連続性から十分小さい近傍でも $D=\operatorname{span}_{\mathbb C}\{Z_1,Z_2\}$ と $\bar D$ は直和で全接空間を張る。$J=-i$ を $D$ に、$J=i$ を $\bar D$ に作用させる。$U\in D,\ V\in\bar D$ とすると
+
+$$
+\overline{J(U+V)}
+=\overline{-iU+iV}
+=i\bar U-i\bar V
+=J(\bar U+\bar V)
+$$
+
+だから $J$ は共役と可換であり、共役不変な実接束を保つ。また $J^2U=(-i)^2U=-U$、$J^2V=i^2V=-V$ なので、直和上で $J^2=-I$ となる。
 
 座標偏微分の交換子は零で、$\partial_{\bar w^1}(\lambda\bar w^1)=\lambda$ だから
 
