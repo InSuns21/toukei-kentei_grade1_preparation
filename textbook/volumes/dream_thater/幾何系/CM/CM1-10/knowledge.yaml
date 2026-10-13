@@ -1,0 +1,51 @@
+chapter: CM1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-01
+  - CM1-02
+  - CM1-09
+
+concepts:
+  - id: complex-manifolds.complex-projective-space
+    name: 複素射影空間と同次座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素射影空間と同次座標）"]
+    requires: [complex-manifolds.complex-n-manifold]
+  - id: complex-manifolds.projective-affine-chart
+    name: 射影空間の標準アフィン座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影空間の標準アフィン座標）"]
+    requires: [complex-manifolds.complex-projective-space, complex-manifolds.complex-n-chart]
+  - id: complex-manifolds.projective-atlas
+    name: 複素射影空間の標準正則アトラス
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素射影空間の標準正則アトラス）"]
+    requires: [complex-manifolds.projective-affine-chart, complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.projective-topology
+    name: 複素射影空間の位相的性質
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素射影空間の位相的性質）"]
+    requires: [complex-manifolds.projective-atlas, complex-manifolds.complex-n-manifold]
+  - id: complex-manifolds.projective-infinity-hyperplane
+    name: アフィンチャートと無限遠超平面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィンチャートと無限遠超平面）"]
+    requires: [complex-manifolds.projective-atlas, complex-manifolds.biholomorphic-equivalence]
+  - id: complex-manifolds.projective-linear-map
+    name: 射影線形写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影線形写像）"]
+    requires: [complex-manifolds.complex-projective-space, complex-manifolds.manifold-holomorphic-map]
+  - id: complex-manifolds.projective-automorphisms
+    name: 射影線形写像の双正則性とスカラー核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影線形写像の双正則性とスカラー核）"]
+    requires: [complex-manifolds.projective-linear-map, complex-manifolds.biholomorphic-equivalence, complex-manifolds.projective-atlas]
