@@ -1,0 +1,47 @@
+id: "AG3-01"
+title: "関手的視点とSpec"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-07
+  - AG1-04
+  - AG1-03
+  - AG1-02
+  - RNG2
+  - FLD3
+official_scope: []
+learning_objectives:
+  - k代数のB値点を準同型として構成し値域変更の関手性を示せる
+  - k値点が冪零情報を検出しない例と代数値点の違いを説明できる
+  - 素イデアルからSpecを構成し閉点に加えて一般点を識別できる
+  - 素点の剰余体を定義し体値点が剰余体を経由することを証明できる
+  - 環準同型が素スペクトルへ反変写像を与えることを証明・計算できる
+  - 自然変換とk代数準同型の一対一対応を恒等写像への評価から再導出できる
+definitions:
+  - { id: AG3-01-DEF-01, name: 代数のB値点 }
+  - { id: AG3-01-DEF-02, name: 素スペクトル }
+  - { id: AG3-01-DEF-03, name: 素点の剰余体 }
+theorems:
+  - { id: AG3-01-PROP-01, name: 体値点と素点 }
+  - { id: AG3-01-PROP-02, name: 素スペクトルの反変写像 }
+  - { id: AG3-01-THM-01, name: 代数の値点関手の自然変換 }
+canonical_examples:
+  - 多項式環と二本の軸のB値点
+  - 冪零元をもつ厚み付き一点の代数値点
+  - k[t]の閉点と一般点の剰余体
+  - 二乗写像による素イデアルの引き戻し
+problem_patterns:
+  - AG3-01-A1
+  - AG3-01-A2
+  - AG3-01-A3
+  - AG3-01-A4
+  - AG3-01-B1
+  - AG3-01-B2
+  - AG3-01-B3
+  - AG3-01-B4
+  - AG3-01-C1
+  - AG3-01-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 5 }

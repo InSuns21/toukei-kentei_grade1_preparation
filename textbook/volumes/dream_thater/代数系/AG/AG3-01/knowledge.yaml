@@ -1,0 +1,53 @@
+chapter: AG3-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-07
+  - AG1-04
+  - AG1-03
+  - AG1-02
+  - RNG2
+  - FLD3
+forward_references: []
+concepts:
+  - id: algebraic-geometry.functor-of-points
+    name: 代数のB値点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（代数のB値点）"]
+    requires: [algebra.ring-homomorphism, algebraic-geometry.affine-morphism-coordinate-duality]
+
+  - id: algebraic-geometry.prime-spectrum
+    name: 素スペクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（素スペクトル）"]
+    requires: [algebra.prime-ideal, algebraic-geometry.irreducible-vanishing-prime]
+
+  - id: algebraic-geometry.residue-field-of-prime
+    name: 素点の剰余体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（素点の剰余体）"]
+    requires: [algebraic-geometry.prime-spectrum, algebraic-geometry.localization]
+
+  - id: algebraic-geometry.field-valued-prime-points
+    name: 体値点と素点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体値点と素点）"]
+    requires: [algebraic-geometry.residue-field-of-prime, algebraic-geometry.localization-universal]
+
+  - id: algebraic-geometry.spectrum-pullback
+    name: 素スペクトルの反変写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（素スペクトルの反変写像）"]
+    requires: [algebraic-geometry.prime-spectrum, algebra.ring-homomorphism]
+
+  - id: algebraic-geometry.functor-of-points-naturality
+    name: 代数の値点関手の自然変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（代数の値点関手の自然変換）"]
+    requires: [algebraic-geometry.functor-of-points, algebra.ring-homomorphism]
