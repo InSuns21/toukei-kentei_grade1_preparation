@@ -202,16 +202,16 @@ $$
 > **定理（代数の値点関手の自然変換）**  
 > 可換 $k$ 代数 $A,C$ を取る。任意の可換 $k$ 代数 $B$ に対して次の値点集合を考える。
 
-$
+$$
 h_A(B)=\operatorname{Hom}_{k\text{-}\mathrm{Alg}}(A,B),\qquad
 h_C(B)=\operatorname{Hom}_{k\text{-}\mathrm{Alg}}(C,B).
-$
+$$
 
 > 二つの値点関手の間の自然変換は $k$ 代数準同型 $\alpha:C\to A$ と一対一に対応し、その対応は次の式で与えられる。
 
-$
+$$
 \eta_B(u)=u\circ\alpha\qquad(u\in h_A(B)).
-$
+$$
 <!-- formal-statement-end -->
 
 自然変換とは、各 $B$ で写像 $\eta_B:h_A(B)\to h_C(B)$ を一つずつ選び、$B\to B'$ で値域を変えても結果が一致する規則です。一つの $B$ だけではなく、**すべての値域に対して一貫した選び方**という条件が肝心です。
