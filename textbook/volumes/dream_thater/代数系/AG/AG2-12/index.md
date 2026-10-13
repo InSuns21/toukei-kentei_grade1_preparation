@@ -508,7 +508,22 @@ $$
 - ID: AG2-12-B2
 
 <!-- solution-start -->
-**詳細解答。** $x=0$ の有限点は $P=(0,0)$ だけです。$P$ では $x(x^2-1)=y^2$、$x^2-1$ は単元で $y$ が局所パラメータだから $\operatorname{ord}_P(x)=2$。無限遠 $O$ では $v(1+uv)=u^3$、$u$ がパラメータで $1+uv$ が単元なので $\operatorname{ord}_O(v)=3$ です。$x=u/v$ より $\operatorname{ord}_O(x)=1-3=-2$。他の点で $x$ は非零正則なので、[主因子の定義](../AG2-07/index.md#def-ag2-07-order-principal)によって $\operatorname{div}(x)=2[P]-2[O]$ です。
+**詳細解答。** $x=0$ の有限点は $P=(0,0)$ だけです。$P$ では $x(x^2-1)=y^2$ で、$x^2-1$ は値 $-1$ の単元です。さらに[局所パラメータの補題](../AG2-07/index.md#lem-ag2-07-local-parameter)より $y$ がパラメータなので
+
+$$
+x=\frac{y^2}{x^2-1},\qquad
+\operatorname{ord}_P(x)
+=2\operatorname{ord}_P(y)-\operatorname{ord}_P(x^2-1)=2.
+$$
+
+無限遠 $O$ では $v(1+uv)=u^3$ で、$u$ はパラメータ、$1+uv$ は単元です。従って
+
+$$
+\operatorname{ord}_O(v)=3,\qquad
+\operatorname{ord}_O(x)=\operatorname{ord}_O(u)-\operatorname{ord}_O(v)=1-3=-2.
+$$
+
+他の点で $x$ は非零正則なので、[主因子の定義](../AG2-07/index.md#def-ag2-07-order-principal)によって $\operatorname{div}(x)=2[P]-2[O]$ です。
 <!-- solution-end -->
 
 ### B3. 余接3形式の消去方向
@@ -526,7 +541,22 @@ $$
 +5x_4^4\,dx_1\wedge dx_2\wedge dx_4=0.
 $$
 
-$x_3x_4\ne0$ なので両方の係数は単元です。従って $dx_1\wedge dx_2\wedge dx_3/(5x_4^4)=-dx_1\wedge dx_2\wedge dx_4/(5x_3^4)$。定義の符号を付けた $\theta_{0,4}=-dx_1\wedge dx_2\wedge dx_3/(5x_4^4)$ と $\theta_{0,3}=dx_1\wedge dx_2\wedge dx_4/(5x_3^4)$ が一致します。
+$x_3x_4\ne0$ なので両方の係数は単元です。上式をその積で割ると
+
+$$
+\frac{dx_1\wedge dx_2\wedge dx_3}{5x_4^4}
+=-\frac{dx_1\wedge dx_2\wedge dx_4}{5x_3^4}.
+$$
+
+従って[局所随伴形式](../AG2-10/index.md#prop-ag2-10-local-residue)の符号 $(-1)^{j-1}$ に従えば
+
+$$
+\theta_{0,4}=-\frac{dx_1\wedge dx_2\wedge dx_3}{5x_4^4}
+=\frac{dx_1\wedge dx_2\wedge dx_4}{5x_3^4}
+=\theta_{0,3}
+$$
+
+となり、両者は同じ3形式です。
 <!-- solution-end -->
 
 ### B4. 平面Fermat三次との比較
