@@ -8,7 +8,7 @@
 
 [VC3の正則パラメータ曲面と面積要素](../../../幾何系/VC/VC3/index.md#def-vc3-area-element)では、$X=X(u^1,u^2)$ に対し $g_{ij}=\langle X_i,X_j\rangle$、面積要素 $dA=\sqrt{\det g}\,du^1du^2$ を学びました。[GEO10の形作用素と第二基本形式](../../../幾何系/GEO/GEO10/index.md#def-geo10-shape-operator)では、選んだ単位法線 $N$ に対し $S=-dN$、$b_{ij}=\langle X_{ij},N\rangle$ と置きました。本章でもこの符号を保持します。
 
-境界をもつコンパクトな向き付け可能 $C^3$ 曲面 $\Sigma$（必要なら閉曲面）を $\mathbb R^3$ に $C^3$ 級で埋め込み、その像を $X(\Sigma)$ と書きます。境界は区分的 $C^2$ とします。局所計算は座標 $(u^1,u^2)$ で行います。$\varepsilon$ に関し $C^1$、空間変数に関し $C^2$ の正則な曲面族 $X_\varepsilon$ を $X_0=X$ として用意し、その速度を $V=\partial_\varepsilon X_\varepsilon|_0$ とします。面積の一次変化を $\delta A[X;V]=\left.\frac{d}{d\varepsilon}A[X_\varepsilon]\right|_0$ と書きます。
+境界をもつコンパクトな向き付け可能 $C^3$ 曲面 $\Sigma$（必要なら閉曲面）を $\mathbb R^3$ に $C^3$ 級で埋め込み、その像を $X(\Sigma)$ と書きます。境界は区分的 $C^2$ とします。局所計算は座標 $(u^1,u^2)$ で行います。曲面全体の面積は誘導計量の面積要素 $dA$ を積分して定め、$\sqrt{\det g}\,du^1du^2$ は各座標近傍での表示です。閉曲面を含む一般の曲面に、一つの座標表示を全域で使えるとは仮定しません。$\varepsilon$ に関し $C^1$、空間変数に関し $C^2$ の正則な曲面族 $X_\varepsilon$ を $X_0=X$ として用意し、その速度を $V=\partial_\varepsilon X_\varepsilon|_0$ とします。面積の一次変化を $\delta A[X;V]=\left.\frac{d}{d\varepsilon}A[X_\varepsilon]\right|_0$ と書きます。
 
 変分を考える際には、$V$ は接線方向 $W$ と法線方向 $fN$ に一意に分かれます。**固定境界**なら $V=0$ を境界に課し、**境界自由**ならこの制約を課しません。境界上で曲面の接平面に属し、境界接ベクトルに直交して外を向く単位ベクトルを外向き余法線 $\mu$ と書きます。
 
@@ -20,10 +20,10 @@
 $$
 \delta A[X;V]
 =\left.\frac{d}{d\varepsilon}
-\int_\Sigma\sqrt{\det g_\varepsilon}\,du^1du^2\right|_{\varepsilon=0}
+\int_\Sigma dA_\varepsilon\right|_{\varepsilon=0}
 $$
 >
-> と定義する。$g_{\varepsilon,ij}=\langle\partial_iX_\varepsilon,\partial_jX_\varepsilon\rangle$ である。
+> と定義する。$dA_\varepsilon$ は $X_\varepsilon$ が誘導する面積要素であり、局所座標では $dA_\varepsilon=\sqrt{\det g_\varepsilon}\,du^1du^2$、$g_{\varepsilon,ij}=\langle\partial_iX_\varepsilon,\partial_jX_\varepsilon\rangle$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var7-surface-variation -->
@@ -113,7 +113,15 @@ $$
 $$
 です。
 
-この式を各座標領域で積分し、[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を平面のパラメータ領域に適用します。領域どうしの内部境界からの寄与は逆向きに現れて相殺され、実際の曲面境界だけが残ります。
+積分に使う平面の発散公式を、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)から確認します。VC4の定理は **3次元領域** に関するものです。そこで区分的 $C^1$ 境界を持つ有界平面領域 $U$ と $C^1$ ベクトル場 $(P,Q)$ に対し、$\Omega=U\times(0,1)$、$F(u,v,t)=(P(u,v),Q(u,v),0)$ と置きます。$\operatorname{div}_{\mathbb R^3}F=P_u+Q_v$ であり、立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
+
+<a id="eq-var7-planar-divergence"></a>
+$
+\int_U(P_u+Q_v)\,du\,dv
+=\int_{\partial U}(P,Q)\cdot\nu_U\,ds_U.
+$
+
+曲面を、区分的に滑らかな境界を持ち各片が一つの局所座標で記述できる有限個の小片へ分けてこの公式を適用します。重複する座標近傍をそのまま二重に足すのではありません。接線場 $W$ から得られる流束は座標に依存しない幾何学的量なので、隣接小片の共有境界では余法線が逆向きとなり寄与が相殺され、曲面の実際の境界だけが残ります。
 
 実際、境界近くで $v=0$ を境界、$v>0$ を内側とする座標 $(u,v)$ を取ります。$E=\langle X_u,X_u\rangle$、$F=\langle X_u,X_v\rangle$、$G=\langle X_v,X_v\rangle$ と置くと、境界の外向き余法線と線素は
 $$
@@ -249,12 +257,16 @@ $$
 =\frac{\nabla u}{w}\cdot\nabla\varphi
 +\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right).
 $$
-これを積分し、[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を平面領域 $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
+これを積分し、第2節で3次元の定理から導いた[平面の発散公式](#eq-var7-planar-divergence)を $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
 $$
 \delta A[u;\varphi]
 =-\int_D\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right)\,dx\,dy.
 $$
-ここで [変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation) を連続関数 $\operatorname{div}(\nabla u/w)$ に適用します。全ての内部コンパクト台の $\varphi$ で積分が0なら、この連続関数は各点で0です。逆に発散が0なら積分はすべて0になります。
+ここで $q=\operatorname{div}(\nabla u/w)$ と置きます。[AMECH3の変分法の基本補題](../../../物理系/AMECH/AMECH3/index.md#lem-amech3-fundamental-variation)は **1次元の区間** に対する結果なので、$D\subset\mathbb R^2$ へ直接適用するのではなく、二度用います。任意の長方形 $I\times J\Subset D$ を取り、$\eta\in C_c^\infty(I)$、$\zeta\in C_c^\infty(J)$ に対し $\varphi(x,y)=\eta(x)\zeta(y)$ と選ぶと
+$
+0=\int_I\eta(x)\left(\int_J q(x,y)\zeta(y)\,dy\right)dx.
+$
+固定した $\zeta$ について内側の積分は $x$ の連続関数です。まず $I$ 上で1次元基本補題を適用して $\int_J q(x,y)\zeta(y)\,dy=0$ をすべての $x\in I$ について得ます。次に各 $x$ を固定し、任意の $\zeta$ に対して $J$ 上で同じ補題を適用すると $q(x,y)=0$ が $I\times J$ で成立します。このような長方形が $D$ のすべての点を覆うため $q=0$ が $D$ 全体で成り立ちます。逆に $q=0$ なら先の積分式から第一変分はすべて0になります。
 
 発散を展開するため $w_x=(u_xu_{xx}+u_yu_{xy})/w$、$w_y=(u_xu_{xy}+u_yu_{yy})/w$ を計算します。従って
 $$
@@ -354,15 +366,20 @@ $$
 $$
 A[r]=2\pi\int r\sqrt{1+(r')^2}\,dz
 $$
-です。$F(r,r')=r\sqrt{1+(r')^2}$ の Euler–Lagrange 方程式を導くと
+です。$F(r,r')=r\sqrt{1+(r')^2}$ に[VAR1のEuler–Lagrange方程式](../VAR1/index.md#prop-var1-first-variation-boundary)を適用すると
 $$
 \frac{d}{dz}\left(\frac{rr'}{\sqrt{1+(r')^2}}\right)
 -\sqrt{1+(r')^2}=0.
 $$
-左辺を通分して $rr''/(1+(r')^2)^{3/2}-1/\sqrt{1+(r')^2}=0$、従って
-$$
-rr''=1+(r')^2.
-$$
+$w=\sqrt{1+(r')^2}$ と置いて左辺を微分・通分すると
+$
+\frac{(r')^2}{w}+\frac{rr''}{w^3}-w
+=\frac{rr''-w^2}{w^3}=0.
+$
+$w>0$ なので
+$
+rr''=w^2=1+(r')^2.
+$
 $r=a\cosh(z/a)$ では $r'=\sinh(z/a)$、$r''=\cosh(z/a)/a$ なので左右とも $\cosh^2(z/a)$ です。ただし回転対称変分での停留だけから一般変分での停留は直ちには言えません。その不足を上の平均曲率の直接計算が埋めています。また停留は面積の**大域最小性を保証しません**。
 
 ### 5.2 螺旋面（helicoid）：回転面ではない極小曲面
@@ -510,7 +527,7 @@ $w=\sqrt{1+|\nabla u|^2}$ と置き、$w_\varepsilon^2=1+|\nabla u+\varepsilon\n
 $$
 \delta A=\int_D\frac{\nabla u}{w}\cdot\nabla\varphi\,dx\,dy.
 $$
-積の発散を展開して平面の発散定理を用い、
+積の発散を展開して第2節の[平面の発散公式](#eq-var7-planar-divergence)を用い、
 $$
 \delta A=
 -\int_D\varphi\,\operatorname{div}(\nabla u/w)\,dx\,dy+
