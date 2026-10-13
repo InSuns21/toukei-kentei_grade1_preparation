@@ -299,7 +299,7 @@ $$
 
 [Marchalの固定端点衝突排除定理](../CELEV3/index.md#thm-celev3-marchal)は、端点以外を自由に変更できる極小点の内部衝突を取り除きます。一方、$\mathcal H_T^G$ の極小点に許される局所変更は、その時刻の対称性によって制約されます。特に時間反転の固定時刻は、他の時刻と異なる制約を課すことがあります。
 
-時刻 $t$ を動かさない群要素の集合を $G_t=\{g\in G:\tau_gt=t\}$ と置きます。また $H\subset G$ に対し、粒子番号 $i$ を固定する部分群を $H_i=\{h\in H:\sigma_h(i)=i\}$ と書きます。これらはそれぞれ時刻と粒子番号の**安定化群**です。
+時刻 $t$ を動かさない群要素の集合を $G_t=\{g\in G:\tau_gt=t\}$ と置きます。また $H\le G$ を部分群とし、粒子番号 $i$ を固定する部分群を $H_i=\{h\in H:\sigma_h(i)=i\}$ と書きます。これらはそれぞれ時刻と粒子番号の**安定化群**です。
 
 ここで時刻 $t$ における同変な配置の変形量を $\delta=(\delta_i)$ とすると、[同変条件](#def-celev4-equivariant-loop)を元の配置と変形後の配置について差し引くことで
 $$
@@ -310,7 +310,7 @@ $$
 <a id="def-celev4-rotating-circle"></a>
 <!-- formal-statement-start -->
 > **定義（回転円条件）**  
-> $H\subset G$ と粒子番号 $i$ に対し、原点中心の正半径の円 $S\subset\mathbb R^2$ が、$\rho_hS=S$（$h\in H$）を満たし、$\rho_h$ の $S$ への制限がすべて向きを保つ回転であり、さらに
+> 部分群 $H\le G$ と粒子番号 $i$ に対し、原点中心の正半径の円 $S\subset\mathbb R^2$ が、$\rho_hS=S$（$h\in H$）を満たし、$\rho_h$ の $S$ への制限がすべて向きを保つ回転であり、さらに
 $$
 S\subset\{v\in\mathbb R^2:\rho_hv=v\quad(h\in H_i)\}
 $$
