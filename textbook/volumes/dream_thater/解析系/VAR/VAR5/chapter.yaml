@@ -1,0 +1,30 @@
+id: "VAR5"
+title: "第二変分・Jacobi場・共役点"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR1
+  - VAR2
+  - VAR4
+  - GEO14
+  - GEO16
+  - GEO17
+official_scope: []
+learning_objectives:
+  - 測地線のエネルギー第二変分と指数形式における曲率項の符号を具体的な法変分場で計算できる
+  - 単位速定曲率模型でWirtinger不等式から指数形式の正・零・負の閾値を証明できる
+  - 球面の測地線族を明示してJacobi場とJacobi方程式を共変微分により再構成できる
+  - 始点からの共役点と終点共役・内部共役を区別し最短性に対する結論の強さを説明できる
+  - 断面曲率上界から一般の固定端点場の指数形式の下界を導出できる
+  - 非単位速の測地線で曲率項と共役時刻の速度依存を計算できる
+definitions: []
+theorems:
+  - { id: VAR5-PROP-01, name: "定曲率の法方向と区間長の閾値" }
+  - { id: VAR5-PROP-02, name: "球面の測地線族から得るJacobi場" }
+  - { id: VAR5-PROP-03, name: "断面曲率上界からの指数形式の下界" }
+canonical_examples: [Euclid空間の固定端点場, 定曲率法方向のWirtinger閾値, 球面測地線族, 北極南極の半周大円, 断面曲率上界, 非単位速の球面大円]
+problem_patterns: [VAR5-EUCLID-INDEX, VAR5-SPHERE-FAMILY, VAR5-SPHERE-THRESHOLD, VAR5-JACOBI-ODE, VAR5-TANGENTIAL-INDEX, VAR5-UPPER-CURVATURE, VAR5-ENDPOINT-CONJUGATE, VAR5-NONUNIT-SPHERE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }
