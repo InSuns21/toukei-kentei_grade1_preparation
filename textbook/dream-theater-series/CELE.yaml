@@ -4,7 +4,7 @@ title: "天体力学・三体問題・Hamiltonian chaos"
 plan: textbook/plans_progress/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 2026-10-13: CELE1 through CELE5 authored and reviewed; next planned chapter CELE6.
+# 2026-10-13: CELE1 through CELE6 authored; next planned chapter CELE7.
 chapters:
   - id: CELE1
     path: textbook/volumes/dream_thater/物理系/CELE/CELE1
@@ -28,7 +28,7 @@ chapters:
     title: "Poincaré・摂動・非可積分性"
   - id: CELE6
     path: textbook/volumes/dream_thater/物理系/CELE/CELE6
-    status: planned
+    status: completed
     title: "ホモクリニック構造とHamiltonian chaos"
   - id: CELE7
     path: textbook/volumes/dream_thater/物理系/CELE/CELE7
