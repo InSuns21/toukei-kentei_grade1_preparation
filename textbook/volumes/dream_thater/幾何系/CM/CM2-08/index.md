@@ -109,16 +109,16 @@ $$
 > **命題（双対遷移と評価の座標不変性）**  
 > 複素多様体 $X$ 上の正則ベクトル束 $E$ の局所枠を $\mathcal E_i$ とし、重なりで次を仮定する。
 
-$
+$$
 \mathcal E_j=\mathcal E_iG_{ij}.
-$
+$$
 
 > 双対枠の変換は次の式で与えられる。
 
-$
+$$
 \mathcal E_j^\vee
 =\mathcal E_i^\vee(G_{ij}^{-1})^{\mathsf T}.
-$
+$$
 
 > 正則局所切断 $\lambda$（$E^\vee$ の切断）と $s$（$E$ の切断）が各領域で整合して大域切断を定めるなら、評価 $\lambda(s)$ は大域正則関数である。また $(E^\vee)^\vee\cong E$ は正則束同型である。
 <!-- formal-statement-end -->
