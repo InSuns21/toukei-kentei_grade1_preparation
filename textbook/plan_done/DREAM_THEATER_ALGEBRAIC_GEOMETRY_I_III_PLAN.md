@@ -122,6 +122,8 @@ AG1-01を最初の実装章として、現行のseries manifestに進捗を記�
 
 ## 系列横断監査・PLAN完了判定（2026-10-14）
 
+変更管理の境界: 既存38章の `chapter.yaml` / `knowledge.yaml` と公開索引自体は変更せず、系列manifestの `plan` パスのみを変更する。学習者向け本文の数学修正はAG3-14の第2節に限定する。追跡監査と系列横断点検の実施範囲は以下に明示する。
+
 - 対象38章（AG1-01〜AG1-12、AG2-01〜AG2-12、AG3-01〜AG3-14）は系列manifestで全て `completed`。38個の実本文を取得して章名、主要証明の開始・終了対応、全演習IDと詳細解答の対応、同一ページの明示anchor宛リンクを確認した。欠損やブロックの対応不整合は確認されなかった。
 - `textbook/dream-theater-index.json` と `textbook/dream-theater.md` に対象38章の公開リンクがそれぞれ1回ずつ存在することを照合した。章IDごとの配置・公開導線は一致する。
 - AG3-14の主要結果 `thm-ag3-14-surface-cohomology`、`prop-ag3-14-primitive-flat` を全文再読。構造層の長完全列から $H^0,H^1,H^2$ と $H^3=0$ を再導出し、$h^2=\binom{d-1}{3}$ （$d\ge4$）を4変数負指数の単項式数で確認した。原始的 $F$ と非零 $a\in k[t]$ の互いに素性から、$F\mid aG\Rightarrow F\mid G$、商環のねじれなし、PID上の平坦性、相対Projの次数零局所化へ至る証明を再検討した。
