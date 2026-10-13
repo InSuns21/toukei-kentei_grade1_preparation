@@ -214,7 +214,19 @@ $$
 
 左辺の逆元 $b^{-1}\otimes1$ と $1\otimes c^{-1}$ は右辺で存在し、右辺の $(b\otimes c)^{-1}$ は左辺で $b^{-1}\otimes c^{-1}$ に移るため、互いに逆の準同型が構成できます。ゆえに右辺の素スペクトルは $P$ の開部分 $D(b\otimes c)$ です。
 
-**貼り合わせ。** 二つの $P_{i\lambda\mu}$ の上で、両方の射影がそれぞれ二つの元チャートの交わりへ入る部分を考えます。この部分の各点では、$S$ の二つのアフィン開集合の交わりに含まれる主開近傍 $D(r)$ を取れます。さらに $U,V$ 側の交わりを主開近傍へ縮めます。上の局所化同型によって、二つの候補のこれらの開部分は同じアフィン・ファイバー積で表示されます。この同型は[アフィンの場合の普遍性](#thm-ag3-05-affine-product)から一意で、三重の重複でも同じ二つの射影を持つため合成が一致します。よって[貼り合わせ定理](../AG3-04/index.md#thm-ag3-04-gluing)でスキーム $P$ と射影 $p_X,p_Y$ を得ます。
+**貼り合わせ。** 異なる二つのチャートの射影が、ともに元チャートの交わりへ入る開部分を考えます。その点の共通の基底像 $s$ は $W_i\cap W_j$ に属します。そこで $W_i$ の中で $s$ を含み、この交わりに収まる主開近傍 $W=D(r)$ を選びます。
+
+まず元チャートを $f^{-1}(W)$ または $g^{-1}(W)$ と交わらせます。次に $X$ 側の二つの元チャートの交わり、$Y$ 側の二つの元チャートの交わりを、各点の周りでさらにアフィンな主開部分へ細分します。縮めたチャートの環をそれぞれ $B',C'$、共通の基底環を $R_W=\Gamma(W,\mathcal O_S)$ と置きます。
+
+両候補をこの共通の開部分へ制限したものは、[アフィンの場合の定理](#thm-ag3-05-affine-product)によってともに
+
+$$
+\operatorname{Spec}(B'\otimes_{R_W}C')
+$$
+
+と同型になります。上の局所化同型により、これは元のファイバー積候補の開部分です。よって重複部分をこのような開集合で覆い、普遍性による同型を貼り合わせられます。
+
+三重の重複では、二つの同型の合成と直接の同型が同じ射影を持つので、[アフィンの場合の一意性](#thm-ag3-05-affine-product)から一致します。こうして得た重複同型は貼り合わせ条件を満たすため、[スキームの貼り合わせ定理](../AG3-04/index.md#thm-ag3-04-gluing)からスキーム $P$ と射影 $p_X,p_Y$ が得られます。
 
 **普遍性。** $T$ と $S$ 上で一致する射 $a:T\to X$、$b:T\to Y$ を取ります。任意の $t\in T$ で $s=f(a(t))=g(b(t))$ を含む $W_i$ を選び、$a(t)$、$b(t)$ を含む $U_{i\lambda}$、$V_{i\mu}$ を選びます。
 
@@ -351,7 +363,7 @@ X_{s_0}\simeq\operatorname{Spec}k[x]/(x^2),
 X_{s_1}\simeq\operatorname{Spec}k[x]/(x^2-1).
 $$
 
-第一のファイバーは冪零元を持ち、第二の環は $(x-1)$ と $(x+1)$ が互いに素なので $k\times k$ に同型です。この差はスキームとしてのファイバーを取らなければ読み取れません。
+第一のファイバーは冪零元を持ち、第二の環は $(x-1)$ と $(x+1)$ が互いに素なので[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)から $k\times k$ に同型です。この差はスキームとしてのファイバーを取らなければ読み取れません。
 <!-- definition-example-end -->
 
 同じ族を $k=\mathbb R$ 上で考え、基底点 $s=(t+1)$ を取ると、$X_s\simeq\operatorname{Spec}\mathbb R[x]/(x^2+1)$ です。$x^2+1$ は $\mathbb R$ 上既約なのでこのファイバーは一点ですが、$\kappa(s)=\mathbb R$ を代数閉包 $\mathbb C$ に拡大すると
@@ -387,19 +399,19 @@ $$
 
 最初の同型は[アフィンファイバー積定理](#thm-ag3-05-affine-product)を $C=\kappa(\mathfrak p)$ に適用したものです。
 
-点の対応を確認します。$T=R\setminus\mathfrak p$ と置くと
+点の対応を確認します。$\iota:R\to B$ を構造準同型、$T=R\setminus\mathfrak p$ と置くと
 
 $$
 B\otimes_R\kappa(\mathfrak p)
 \simeq T^{-1}B/\mathfrak p(T^{-1}B).
 $$
 
-右辺の素イデアルは $T^{-1}B$ の素イデアルで $\mathfrak p(T^{-1}B)$ を含むものに対応します。局所化における素イデアルの対応を、分母を避ける素イデアルの逆像と延長から直接確認すると、これは $B$ の素イデアル $\mathfrak q$ で $\mathfrak q\cap R$ が $\mathfrak p$ に含まれ、かつ $\mathfrak pB\subseteq\mathfrak q$ を満たすものです。二条件を合わせると
+右辺の素イデアルは $T^{-1}B$ の素イデアルで $\mathfrak p(T^{-1}B)$ を含むものに対応します。局所化の素イデアル $\mathfrak Q\subseteq T^{-1}B$ は、分母を避ける $B$ の素イデアル $\mathfrak q$、すなわち $\iota(T)\cap\mathfrak q=\varnothing$ を満たすものに対応します。この条件は $\iota^{-1}(\mathfrak q)\subseteq\mathfrak p$ と同値です。また $\mathfrak p(T^{-1}B)\subseteq\mathfrak Q$ は $\mathfrak pB\subseteq\mathfrak q$ と同値で、これは $\mathfrak p\subseteq\iota^{-1}(\mathfrak q)$ を意味します。したがって二条件を合わせると
 
 $$
-\mathfrak p\subseteq \mathfrak q\cap R\subseteq\mathfrak p
+\mathfrak p\subseteq\iota^{-1}(\mathfrak q)\subseteq\mathfrak p
 \quad\Longleftrightarrow\quad
-\mathfrak q\cap R=\mathfrak p.
+\iota^{-1}(\mathfrak q)=\mathfrak p.
 $$
 
 よってファイバーの素点はちょうど所望の素点に対応します。一方、同じ素点集合を持つ環でも冪零元の有無が異なるため、位相的な点の記述だけで構造層を復元することはできません。
@@ -411,7 +423,7 @@ $$
 j^2+1=(j-i)(j+i),\qquad (j-i)+( -j-i)=-2i
 $$
 
-となり、二つの因子は互いに素なので中国剰余定理から $\mathbb C\times\mathbb C$ です。従ってファイバー積には二点があります。集合としての一点と一点の積を用いる方法では、この二点を検出できません。
+となり、二つの因子は互いに素なので[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)から $\mathbb C\times\mathbb C$ です。従ってファイバー積には二点があります。集合としての一点と一点の積を用いる方法では、この二点を検出できません。
 
 ## 6. 演習：方程式・普遍性・ファイバー
 
@@ -518,7 +530,7 @@ x^2-1=(x-1)(x+1),
 \qquad (x+1)-(x-1)=2.
 $$
 
-$2$ は $k$ で単元なので $(x-1)$ と $(x+1)$ は互いに素です。中国剰余定理で $k[x]/(x^2-1)\simeq k\times k$、点は二つで非零冪零元はありません。標数の条件が必要なのはここです。
+$2$ は $k$ で単元なので $(x-1)$ と $(x+1)$ は互いに素です。[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)で $k[x]/(x^2-1)\simeq k\times k$、点は二つで非零冪零元はありません。標数の条件が必要なのはここです。
 <!-- solution-end -->
 
 ### B2. 同じ基底座標の二乗を一致させる
@@ -585,7 +597,7 @@ $$
 =\mathbb C[z]/((z-i)(z+i)).
 $$
 
-$(z-i)$ と $(z+i)$ の和には $2i$ が含まれ、$2i$ は $\mathbb C$ の単元です。中国剰余定理から
+$(z-i)$ と $(z+i)$ の和には $2i$ が含まれ、$2i$ は $\mathbb C$ の単元です。[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)から
 
 $$
 \mathbb C[z]/((z-i)(z+i))\simeq
