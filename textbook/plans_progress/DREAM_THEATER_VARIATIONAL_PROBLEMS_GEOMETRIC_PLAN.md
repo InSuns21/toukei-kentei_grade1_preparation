@@ -1,7 +1,7 @@
 # DREAM THEATER 変分問題：幾何的第二変分・存在定理・臨界点理論 コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress（着手準備・前提照合を開始。VAR1〜VAR12本文はすべて未執筆）
 
 ## 0. 目的
 
@@ -43,6 +43,19 @@
 - 関数解析の Hilbert 空間の基礎
 
 一般Sobolev空間・弱収束・埋め込みはGPDE3〜5を正本とするが、**最小化の直接法・Tonelli型存在定理はVAR9〜10が正本**とする。多次元PDEの一般的準凸性・緩和・正則性は後続へ送る。
+
+## 2A. 着手準備と既存証明正本の照合（2026-10-13）
+
+章の本文執筆に先立って、GitHub上の現行 `chapter.yaml` と系列manifestを確認した。
+
+- **第一変分の入口**: `AMECH3` の作用積分・固定端点変分・Euler--Lagrange方程式・停留点と極小点の相違が既存の証明正本。VAR1は自由端点、角点、等周拘束、許容関数空間へ拡張する。
+- **曲線・曲面**: `GEO10` の弧長・曲率・基本形式・平均曲率を使用する。VAR3・VAR7〜8はこれらを変分したときの境界項、停留条件、具体計算を扱う。
+- **測地線**: `GEO12`（計量と長さ・エネルギー）、`GEO13`（接続）、`GEO14`（測地線）、`GEO16`（曲率）が存在する。**`GEO17` は測地線の第一・第二変分公式、指数形式、Jacobi場、共役点、局所最短性の証明正本**である。VAR4〜5は既存の [GEO17](../volumes/dream_thater/幾何系/GEO/GEO17/index.md) の結果へ使用箇所でリンクし、曲線変分との比較、曲率模型の計算、安定性・Morse指数への接続を中心にする。
+- **大域測地線論**: `GEO15` がHopf--Rinow・最短測地線・切断点の証明正本であり、VAR6で無条件に再証明しない。[GEO15](../volumes/dream_thater/幾何系/GEO/GEO15/index.md) の仮定を明示して変分的存在論と比較する。
+- **関数空間**: `GPDE3`（Sobolevの定義）、`GPDE4`（区間トレースとPoincaré）、`GPDE5`（Hilbert弱収束・Rellich）は実在する。VAR9では必要な1次元の弱閉性・コンパクト性を具体化し、最小化の直接法を新たに証明する。
+- **後続との停止線**: `CELE2〜3` はNewton n体の正本だが、CELEVは未執筆であり、VAR9〜12の未実装定理を既知として先取りしない。
+
+VAR系列manifestの全12章は `planned` で初期化し、本文・chapter.yaml・knowledge.yaml・公開索引・目次は**VAR1の実執筆まで追加しない**。章ごとの正確なprerequisitesは執筆時に `chapter.yaml` で確定する。初期の教材スコープは `textbook/volumes/dream_thater/解析系/VAR/` とする。
 
 ## 3. 章構成
 
@@ -98,7 +111,7 @@ AMECH3 と重複する導出は canonical dependency を尊重し、本章では
 - Gauss lemma への接続
 - 力のない粒子との対応
 
-解析力学の自由運動と Riemann 幾何の測地線を同一視するための仮定を明示する。
+解析力学の自由運動と Riemann 幾何の測地線を同一視するための仮定を明示する。一般の第一変分公式・測地線と臨界点の同値はGEO17を証明正本とし、本章では具体的Lagrangianと幾何の対応を再計算する。
 
 ### VAR5 第二変分・Jacobi 場・共役点
 
@@ -111,7 +124,7 @@ AMECH3 と重複する導出は canonical dependency を尊重し、本章では
 - curvature term
 - minimality の破れ
 
-Jacobi 場を「名前付き方程式」として置くだけでなく、測地線族の微分として導く。
+Jacobi 場を「名前付き方程式」として置くだけでなく、測地線族の微分との対応を具体例で再構成する。一般の第二変分・Jacobi方程式・共役点と局所最短性の定理はGEO17が既存の証明正本であり、完全な一般証明を重複させず実在stable anchorへリンクする。
 
 ### VAR6 最短測地線と存在
 
@@ -123,7 +136,7 @@ Jacobi 場を「名前付き方程式」として置くだけでなく、測地�
 - cut locus の入口
 - sphere / torus examples
 
-Hopf--Rinow の完全証明を既存微分幾何で扱う場合は重複せず参照する。
+Hopf--Rinow・切断点・最短測地線はGEO15が既存の証明正本である。定理の適用仮定と、変分による極小化の直接法との違いを本章で具体化する。
 
 ### VAR7 曲面の面積の第一変分と極小曲面
 
@@ -189,7 +202,7 @@ PDE としての極小曲面方程式の正則性理論は幾何解析へ送る�
 - 共役点・局所最小性・Morse indexの関係を条件つきで扱い、制約付きHessianと全変分Hessianを区別する。
 - 作用の極小性・力学的安定性・Floquet乗数を同一視せず、CELEV7への接続を確保。
 
-**後続**：[CELEV1〜8 変分的n体周期軌道・8の字・舞踏解と実シミュレーション](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)。VAR9〜12を一般変分理論の正本、CELEVを特異作用/衝突回避/対称性/実際のNewton積分の正本とする。CELEVがVAR未実装定理を参照するときは、必ず実章の存在を確認する。
+**後続**：[CELEV1〜8 変分的n体周期軌道・8の字・舞踏解と実シミュレーション](../plans/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)。VAR9〜12を一般変分理論の正本、CELEVを特異作用/衝突回避/対称性/実際のNewton積分の正本とする。CELEVがVAR未実装定理を参照するときは、必ず実章の存在を確認する。
 
 **VAR1〜8の局所補強**: VAR1には自由端点・角点・Weierstrass–Erdmannの接合条件を加える。VAR2にはLegendre/Jacobiの必要条件と十分条件の差・使用位相・coercivity仮定を加える。VAR6にはHopf–Rinowの前提とcut locusの限界、VAR7〜8には面積変分と安定作用素の境界条件を明示する。これらは実装時の必須チェック項目であり、このPLAN更新だけで実本文へ反映済みとみなさない。
 
@@ -199,8 +212,8 @@ PDE としての極小曲面方程式の正則性理論は幾何解析へ送る�
 
 - 変分問題の直接法・Tonelli型存在定理・無限次元臨界点/minimax・Morse indexの基礎（VAR9〜12）
 - 変分問題としての第一・第二変分
-- 第二変分からの Jacobi equation
-- geodesic index form / Jacobi field / conjugate point
+- 一般の許容変分・第一/第二変分と局所最小性の区別（既存AMECH3の重複を除く）
+- 平面曲線・幾何的拘束変分でのJacobi型線形化と安定性への応用（GEO17の一般測地線定理を重複所有しない）
 - 曲線・曲面の代表的幾何変分
 - minimal surface の第一・第二変分と Jacobi operator の入口
 
@@ -208,7 +221,8 @@ PDE としての極小曲面方程式の正則性理論は幾何解析へ送る�
 
 - Hamilton の原理の物理的意味: 解析力学 I
 - Riemann 多様体の一般論: 微分幾何
-- Hopf--Rinow 等の大域 Riemann 幾何: 既存 canonical owner があれば参照
+- Hopf--Rinow・最短測地線・切断点: GEO15
+- 測地線エネルギーの第一・第二変分、指数形式、Jacobi場・共役点と最短性: GEO17
 - Sobolev・弱収束・埋め込み: GPDE3〜5。直接法/Tonelli: VAR9〜10。多次元PDE正則性・準凸性: 後続
 - Newton n体の特異作用・衝突回避・8の字/舞踏解・実際の物理時間発展: CELEV後続PLAN
 - mean curvature flow 等の発展方程式: 幾何解析
@@ -257,7 +271,7 @@ Jacobi 方程式
 
 ## 7. 実装順
 
-1. AMECH3 / 微分幾何 / GPDE3〜5 / 幾何解析 / CELEVとの重複・証明正本監査。
+1. AMECH3 / GEO10・12〜17 / GPDE3〜5 / 幾何解析 / CELEVとの重複・証明正本監査（着手準備で主要前提とGEO15/17の所有関係を確認。章執筆時に実在anchorを再確認する）。
 2. VAR1〜VAR2（端点項・角点条件・第二変分の必要/十分条件を含む）。
 3. VAR3〜VAR4、VAR5〜VAR6、VAR7〜VAR8（幾何変分の各組）。
 4. VAR9〜VAR10（H¹直接法・Tonelli存在/正則性）。

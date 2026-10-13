@@ -1,0 +1,57 @@
+version: 1
+id: VAR
+title: "変分問題・幾何的第二変分・臨界点理論"
+plan: textbook/plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 2026-10-13: 前提章とcanonical ownershipを確認し、12章を着手可能状態として登録。
+# 章本文・chapter.yaml・knowledge.yaml・公開indexは未登録。予定章は未完成として扱う。
+chapters:
+  - id: VAR1
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR1
+    status: planned
+    title: "汎関数・第一変分・Euler–Lagrange方程式"
+  - id: VAR2
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR2
+    status: planned
+    title: "第二変分と最小性"
+  - id: VAR3
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR3
+    status: planned
+    title: "平面曲線の変分"
+  - id: VAR4
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR4
+    status: planned
+    title: "Riemann多様体上の測地線"
+  - id: VAR5
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR5
+    status: planned
+    title: "第二変分・Jacobi場・共役点"
+  - id: VAR6
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR6
+    status: planned
+    title: "最短測地線と存在"
+  - id: VAR7
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR7
+    status: planned
+    title: "曲面の面積の第一変分と極小曲面"
+  - id: VAR8
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR8
+    status: planned
+    title: "極小曲面の第二変分と安定性"
+  - id: VAR9
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR9
+    status: planned
+    title: "H¹弱収束と最小化の直接法"
+  - id: VAR10
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR10
+    status: planned
+    title: "Tonelli型存在論・弱Euler–Lagrange方程式と正則性"
+  - id: VAR11
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR11
+    status: planned
+    title: "Palais–Smale・Ekeland・minimax"
+  - id: VAR12
+    path: textbook/volumes/dream_thater/解析系/VAR/VAR12
+    status: planned
+    title: "第二変分作用素・Morse指数"
