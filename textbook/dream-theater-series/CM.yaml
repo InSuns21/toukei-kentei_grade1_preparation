@@ -49,7 +49,7 @@ chapters:
     title: "複素射影空間と正則アトラス"
   - id: CM2-01
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-01
-    status: planned
+    status: completed
     title: "(p,q)形式と型分解"
   - id: CM2-02
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-02

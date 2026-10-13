@@ -1,0 +1,56 @@
+chapter: CM2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-04
+  - GEO7
+
+concepts:
+  - id: complex-manifolds.type-cotangent-spaces
+    name: 型別複素余接空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別複素余接空間）"]
+    requires: [complex-manifolds.tangent-type-eigenspaces, geometry.cotangent-space]
+  - id: complex-manifolds.cotangent-type-splitting
+    name: 余接空間の直和と局所基底
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余接空間の直和と局所基底）"]
+    requires: [complex-manifolds.type-cotangent-spaces, complex-manifolds.tangent-type-projections]
+  - id: complex-manifolds.pq-differential-forms
+    name: (p,q)形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別微分形式）"]
+    requires: [complex-manifolds.type-cotangent-spaces, geometry.form-wedge-product]
+  - id: complex-manifolds.pq-form-decomposition
+    name: 複素微分形式の型分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素微分形式の型分解）"]
+    requires: [complex-manifolds.pq-differential-forms, complex-manifolds.cotangent-type-splitting]
+  - id: complex-manifolds.pq-coordinate-invariance
+    name: (p,q)型の座標不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（型別形式の座標不変性）"]
+    requires: [complex-manifolds.pq-form-decomposition, complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.pq-wedge-conjugation
+    name: 外積の型と複素共役
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外積の型と複素共役）"]
+    requires: [complex-manifolds.pq-form-decomposition, geometry.form-wedge-product]
+  - id: complex-manifolds.real-eleven-form-criterion
+    name: 実(1,1)形式の係数判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実混合型2形式の係数判定）"]
+    requires: [complex-manifolds.pq-wedge-conjugation]
+  - id: complex-manifolds.holomorphic-pullback-preserves-type
+    name: 正則引き戻しの型保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則引き戻しの型保存）"]
+    requires: [complex-manifolds.pq-coordinate-invariance, geometry.differential-form-pullback, geometry.pullback-wedge-functoriality]
