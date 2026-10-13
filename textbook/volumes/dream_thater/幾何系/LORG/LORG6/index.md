@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg6-chronological-causal-future -->
-**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。$r\notin I^+(p)$ であることは第4節の端点不等式から証明します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
+**定義の確認**。$\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向きを $dt>0$ とし、$p=(0,0)$、$q=(2,1)$ とします。$\gamma(s)=(2s,s)$（$0\le s\le1$）の速度は $(2,1)$ で、$g(\dot\gamma,\dot\gamma)=-4+1=-3<0$、時間成分は正です。よって $p\ll q$ であり $q\in I^+(p)\subset J^+(p)$ です。一方 $r=(2,2)$ について $\lambda(s)=(2s,2s)$ は $g(\dot\lambda,\dot\lambda)=0$ の未来光的曲線なので $p\le r$ です。$r\notin I^+(p)$ という判定は、第4節の[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)で確認します。定数曲線 $s\mapsto p$ により $p\in J^+(p)\cap J^-(p)$ です。
 <!-- definition-example-end -->
 
 ここで二種類の「厳密さ」を区別します。$p\ll p$ が不可能だと**まだ仮定していません**。閉時間的曲線のある時空では $p\in I^+(p)$ もありえます。逆に $p\le p$ は定数曲線だけで常に成立します。したがって $I^\pm$ が必ず自分自身を除く、という集合論的規則ではありません。
@@ -313,7 +313,7 @@ $$
 $\mathbb R^{1+1}$ で $p=(1,-1)$ とし、$q=(4,1)$、$r=(4,2)$、$s=(2,3)$ がそれぞれ $I^+(p)$、$E^+(p)$、$J^+(p)$ のどれに入るかを判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)により、$\Delta t=t-t_p$ と $\rho=|x-x_p|$ を比較します。各点の値は
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)により、$\Delta t=t-t_p$ と $\rho=|x-x_p|$ を比較します。各点の値は
 
 $$
 \begin{array}{c|cc|c}
@@ -334,7 +334,7 @@ $$
 $\mathbb R^{1+2}$ の $p=(3,0,0)$ に対し、$a=(1,1,0)$ と $b=(1,2,0)$ の $I^-(p)$、$E^-(p)$、$J^-(p)$ への所属を決めよ。
 
 <!-- solution-start -->
-**詳細解答**。[過去集合の公式](#thm-lorg6-minkowski-futures)では時間差 $t_p-t$ と空間距離 $|\mathbf x_p-\mathbf x|$ を比較します。二点について
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)では時間差 $t_p-t$ と空間距離 $|\mathbf x_p-\mathbf x|$ を比較します。二点について
 
 $$
 \begin{aligned}
@@ -373,7 +373,7 @@ Minkowski平面で $p=(-2,0)$ から $q=(1,3)$ への直線 $\gamma(s)=(-2+3s,3s
 Minkowski平面で $S=\{(0,0),(0,4)\}$、$q=(3,2)$、$r=(2,2)$ とする。$q,r$ の $I^+(S)$、$J^+(S)$、$E^+(S)$ への所属を判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)を二つの始点に適用すると、空間差はどちらからも $2$ であり、
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)を二つの始点に適用すると、空間差はどちらからも $2$ であり、
 
 $$
 \begin{aligned}
@@ -441,7 +441,7 @@ $$
 Minkowski時空で $p$ を固定し、$q_k\in J^+(p)$、$q_k\to q$ とする。$q\in J^+(p)$ を座標不等式から示し、同じ手順で $I^+(p)$ が閉集合だと主張できない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書きます。[Minkowski時空の未来の公式](#thm-lorg6-minkowski-futures)を各 $q_k$ に適用すると、
+**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書きます。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)を各 $q_k$ に適用すると、
 
 $$
 t_k-t_0\ge|\mathbf x_k-\mathbf x_0|
