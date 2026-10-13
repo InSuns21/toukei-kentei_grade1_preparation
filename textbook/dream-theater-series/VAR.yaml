@@ -37,7 +37,7 @@ chapters:
     title: "曲面の面積の第一変分と極小曲面"
   - id: VAR8
     path: textbook/volumes/dream_thater/解析系/VAR/VAR8
-    status: planned
+    status: completed
     title: "極小曲面の第二変分と安定性"
   - id: VAR9
     path: textbook/volumes/dream_thater/解析系/VAR/VAR9
