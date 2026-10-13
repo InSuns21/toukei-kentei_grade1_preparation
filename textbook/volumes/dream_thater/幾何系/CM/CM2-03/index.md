@@ -197,11 +197,11 @@ $$
 
 > 任意の滑らかな関数 $f$ について、座標別積分 $T_jf$ は $D$ 上滑らかであり、次を満たす。
 
-$
+$$
 \partial_{\bar z^j}T_jf=f\quad(z^j\in E_j),
 \qquad
 \partial_{\bar z^k}T_jf=T_j\partial_{\bar z^k}f\quad(k\ne j).
-$
+$$
 
 > また $f$ が他の変数 $z^k$ に正則なら $T_jf$ もその変数に正則である。
 <!-- formal-statement-end -->
