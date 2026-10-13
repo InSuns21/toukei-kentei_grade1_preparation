@@ -1,0 +1,40 @@
+chapter: CM1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-07
+  - CM1-06
+  - CM1-04
+  - GEO5
+
+concepts:
+  - id: complex-manifolds.triangular-zero-one-frame
+    name: 三角型の型別局所枠
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三角型の型別局所枠）"]
+    requires: [complex-manifolds.type-tangent-bundles]
+  - id: complex-manifolds.triangular-frame-almost-complex
+    name: 三角型枠による概複素構造の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三角型枠による概複素構造の構成）"]
+    requires: [complex-manifolds.triangular-zero-one-frame, complex-manifolds.almost-complex-structure]
+  - id: complex-manifolds.triangular-integrability-criterion
+    name: 三角型枠の積分可能性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三角型枠の積分可能性判定）"]
+    requires: [complex-manifolds.triangular-frame-almost-complex, complex-manifolds.nijenhuis-bracket-equivalence, complex-manifolds.newlander-nirenberg]
+  - id: complex-manifolds.explicit-compatible-chart-families
+    name: 明示的な適合座標の二系列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（明示的な適合座標の二系列）"]
+    requires: [complex-manifolds.triangular-integrability-criterion, complex-manifolds.compatible-coordinate-criterion]
+  - id: complex-manifolds.pointwise-nijenhuis-failure
+    name: 一点でのNijenhuis消滅は十分でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一点でのNijenhuis消滅は十分でない）"]
+    requires: [complex-manifolds.triangular-integrability-criterion, complex-manifolds.nijenhuis-necessary-condition]
