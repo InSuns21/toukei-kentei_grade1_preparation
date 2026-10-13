@@ -57,7 +57,7 @@ chapters:
     title: "∂とbar∂の構成・二重複体"
   - id: CM2-03
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-03
-    status: planned
+    status: completed
     title: "局所bar∂-Poincaré補題と解析的準備"
   - id: CM2-04
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-04
