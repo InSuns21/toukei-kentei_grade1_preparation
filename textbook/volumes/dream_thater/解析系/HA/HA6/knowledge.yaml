@@ -49,5 +49,5 @@ concepts:
     name: CZ作用素のL∞からBMOへの端点評価
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（標準Calderón–Zygmund作用素の $L^\infty$ 端点）]
+    introduction_aliases: [定理（標準Calderón–Zygmund作用素の端点）]
     requires: [harmonic.ha6-bmo, harmonic.ha5-cz-operator, harmonic.ha5-standard-kernel]
