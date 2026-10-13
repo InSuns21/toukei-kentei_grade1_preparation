@@ -23,7 +23,7 @@ chapters:
     title: "対称作用原理"
   - id: CELEV5
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV5
-    status: planned
+    status: completed
     title: "等質量三体の8の字解"
   - id: CELEV6
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV6
