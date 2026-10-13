@@ -1,0 +1,75 @@
+chapter: CM2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM2-07
+  - CM2-06
+  - CM1-05
+  - CM1-10
+concepts:
+  - id: complex-manifolds.standard-quotient-bundle
+    name: 射影空間の普遍部分束と標準商束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影空間の普遍部分束と標準商束）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle, complex-manifolds.holomorphic-line-bundle]
+  - id: complex-manifolds.standard-exact-sequence
+    name: 標準商束の正則局所自明化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準商束の正則局所自明化）"]
+    requires: [complex-manifolds.standard-quotient-bundle, complex-manifolds.vector-bundle-gluing]
+  - id: complex-manifolds.holomorphic-dual-bundle
+    name: 正則双対束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則双対束）"]
+    requires: [complex-manifolds.vector-bundle-transition-matrices]
+  - id: complex-manifolds.dual-evaluation-invariance
+    name: 双対遷移と評価の座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対遷移と評価の座標不変性）"]
+    requires: [complex-manifolds.holomorphic-dual-bundle]
+  - id: complex-manifolds.holomorphic-tensor-product-bundle
+    name: 正則テンソル積束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則テンソル積束）"]
+    requires: [complex-manifolds.vector-bundle-transition-matrices]
+  - id: complex-manifolds.tensor-cocycle
+    name: テンソル積束の遷移と正則切断
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（テンソル積束の遷移と正則切断）"]
+    requires: [complex-manifolds.holomorphic-tensor-product-bundle, complex-manifolds.vector-bundle-gluing]
+  - id: complex-manifolds.holomorphic-hom-bundle
+    name: 正則Hom束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則 Hom 束）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle]
+  - id: complex-manifolds.hom-tensor-identification
+    name: Homと双対テンソル積の同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hom と双対テンソル積の同型）"]
+    requires: [complex-manifolds.holomorphic-hom-bundle, complex-manifolds.holomorphic-dual-bundle, complex-manifolds.holomorphic-tensor-product-bundle]
+  - id: complex-manifolds.determinant-line-bundle
+    name: 行列式束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行列式束）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle]
+  - id: complex-manifolds.determinant-identities
+    name: 行列式束の基本公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（行列式束の基本公式）"]
+    requires: [complex-manifolds.determinant-line-bundle, complex-manifolds.holomorphic-dual-bundle]
+  - id: complex-manifolds.projective-tangent-standard-description
+    name: 射影空間の正則接束の標準表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間の正則接束の標準表示）"]
+    requires: [complex-manifolds.standard-quotient-bundle, complex-manifolds.hom-tensor-identification]

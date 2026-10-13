@@ -680,6 +680,7 @@
 15. [CM2-05 低次元Dolbeaultコホモロジーの計算](textbook/volumes/dream_thater/幾何系/CM/CM2-05/index.md)
 16. [CM2-06 正則線束・遷移関数](textbook/volumes/dream_thater/幾何系/CM/CM2-06/index.md)
 17. [CM2-07 正則ベクトル束と正則切断](textbook/volumes/dream_thater/幾何系/CM/CM2-07/index.md)
+18. [CM2-08 標準束・双対束・テンソル束](textbook/volumes/dream_thater/幾何系/CM/CM2-08/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

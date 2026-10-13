@@ -1,0 +1,47 @@
+id: "CM2-08"
+title: "標準束・双対束・テンソル束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-07
+  - CM2-06
+  - CM1-05
+  - CM1-10
+official_scope: []
+learning_objectives:
+  - 射影空間の普遍部分束と標準商束を局所枠で構成し標準完全列の正則性を証明できる
+  - 双対束の逆転置遷移を評価の不変性から導き二重双対を確認できる
+  - テンソル積束のKronecker積遷移と切断の貼り合わせを導出できる
+  - Hom束の左右の遷移とFテンソルE双対の自然同型を証明できる
+  - 行列式束と直和・双対の公式を具体的に計算できる
+  - 射影空間の正則接束をS双対テンソルQで構成し射影直線の大域場を分類できる
+definitions:
+  - { id: CM2-08-DEF-01, name: 射影空間の普遍部分束と標準商束 }
+  - { id: CM2-08-DEF-02, name: 正則双対束 }
+  - { id: CM2-08-DEF-03, name: 正則テンソル積束 }
+  - { id: CM2-08-DEF-04, name: 正則Hom束 }
+  - { id: CM2-08-DEF-05, name: 行列式束 }
+theorems:
+  - { id: CM2-08-PROP-01, name: 標準商束の正則局所自明化 }
+  - { id: CM2-08-PROP-02, name: 双対遷移と評価の座標不変性 }
+  - { id: CM2-08-PROP-03, name: テンソル積束の遷移と正則切断 }
+  - { id: CM2-08-PROP-04, name: Homと双対テンソル積の同型 }
+  - { id: CM2-08-PROP-05, name: 行列式束の基本公式 }
+  - { id: CM2-08-THM-01, name: 射影空間の正則接束の標準表示 }
+canonical_examples:
+  - 射影直線の標準商束とO(1)
+  - 三角行列の双対遷移
+  - ねじれ線束のテンソル積とHom
+  - 直和束の行列式
+  - 射影直線の接束O(2)と大域ベクトル場
+problem_patterns:
+  - CM2-08-STANDARD-EXACT
+  - CM2-08-DUAL-EVALUATION
+  - CM2-08-TENSOR-COCYCLE
+  - CM2-08-HOM-MATRIX
+  - CM2-08-DETERMINANT
+  - CM2-08-PROJECTIVE-TANGENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
