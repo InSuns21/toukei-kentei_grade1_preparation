@@ -813,6 +813,7 @@
 6. [AG3-06 準連接層・連接層](textbook/volumes/dream_thater/代数系/AG/AG3-06/index.md)
 7. [AG3-07 層の射と完全列・Čechコホモロジー](textbook/volumes/dream_thater/代数系/AG/AG3-07/index.md)
 8. [AG3-08 層コホモロジーの基本計算](textbook/volumes/dream_thater/代数系/AG/AG3-08/index.md)
+9. [AG3-09 射影スキームとProj](textbook/volumes/dream_thater/代数系/AG/AG3-09/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
