@@ -172,9 +172,11 @@ MFL1-20〜21   可視化とnear-manifoldの総合検証
 
 群作用・有限表現 → MFL2-01〜03（NN不要な数学導入）
       ↓
-ML2-13 → MFL2-04（等変層）・MFL2-08（集合NN）
+ML2-13 → MFL2-04（等変層）
       ↓
 ML2-16 → MFL2-05〜07（group convolution）
+      ↓
+ML2-13 → MFL2-08（集合NN）
       ↓
 ML2-13/14 + SGT → MFL2-09〜12（GNNと表現力）
       ↓
