@@ -10,7 +10,7 @@
 
 まず $R$ を可換環、$B,C$ を $R$ から環準同型を備えた可換環とします。$B$ と $C$ の元を掛け合わせるだけではなく、$r\in R$ をどちらから作用させても一致するという条件が必要です。
 
-そのために $R$-加群のテンソル積 $B\otimes_R C$ を使います。これは記号 $b\otimes c$ の有限和で、$(b+b')\otimes c=b\otimes c+b'\otimes c$、$b\otimes(c+c')=b\otimes c+b\otimes c'$、$(rb)\otimes c=b\otimes(rc)$ を課した加群です。この関係を満たす任意の双加法的な写像は $B\otimes_R C$ からの一意な加法写像に延長されます。純テンソルに
+そのために[テンソル積](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product) $B\otimes_R C$ を使います。これは記号 $b\otimes c$ の有限和で、$(b+b')\otimes c=b\otimes c+b'\otimes c$、$b\otimes(c+c')=b\otimes c+b\otimes c'$、$(rb)\otimes c=b\otimes(rc)$ を課した加群です。この関係を満たす任意の双加法的な写像は $B\otimes_R C$ からの一意な加法写像に延長されます。純テンソルに
 
 $$
 (b\otimes c)(b'\otimes c')=bb'\otimes cc',
@@ -23,7 +23,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（スキームのファイバー積）**  
-> スキームの射 $f:X\to S$、$g:Y\to S$ に対し、スキーム $P$ と射 $p_X:P\to X$、$p_Y:P\to Y$ の組がファイバー積であるとは、$f\circ p_X=g\circ p_Y$ であり、任意のスキーム $T$ と射 $a:T\to X$、$b:T\to Y$ が $f\circ a=g\circ b$ を満たすたびに、$p_X\circ h=a$、$p_Y\circ h=b$ を満たす射 $h:T\to P$ がただ一つ存在することをいう。$P$ を $X\times_S Y$ と記す。
+> スキームの射 $f:X\to S$、$g:Y\to S$ を取る。スキーム $P$ と射 $p_X:P\to X$、$p_Y:P\to Y$ が次の可換条件を満たすとする。
+
+$$
+f\circ p_X=g\circ p_Y.
+$$
+
+> 任意のスキーム $T$ と射 $a:T\to X$、$b:T\to Y$ で $f\circ a=g\circ b$ が成立するとき、次の二条件を満たす射 $h:T\to P$ がただ一つ存在するなら、$P$ をファイバー積といい、$X\times_S Y$ と記す。
+
+$$
+p_X\circ h=a,\qquad p_Y\circ h=b.
+$$
 <!-- formal-statement-end -->
 
 ここで $T$ はアフィンと仮定しません。条件は、特定の座標表示ではなく**すべてのスキームからの射**についての主張です。普遍性が一意性を保証するので、ファイバー積は存在すれば一意な同型を除いて定まります。
@@ -164,7 +174,7 @@ $$
 
 ### 証明の見取り図
 
-まず $S$ のアフィン開集合の上へ制限します。そこでは $X,Y$ のアフィン開部分を選び、[アフィンの場合の定理](#thm-ag3-05-affine-product)を使います。共通部分では $D(b\otimes c)$ に縮めると、両方のチャートの主開部分への制限と一致します。これらを貼り合わせ、最後に普遍性を局所的に確認します。
+まず $S$ のアフィン開集合の上へ制限します。そこでは $X,Y$ のアフィン開部分を選び、[アフィンスキームのファイバー積](#thm-ag3-05-affine-product)を使います。共通部分では $D(b\otimes c)$ に縮めると、両方のチャートの主開部分への制限と一致します。これらを貼り合わせ、最後に普遍性を局所的に確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -202,9 +212,9 @@ $$
 
 この構成は、二つの空間の「同じ基底の点の上にある部分」を合わせる操作です。しかし点集合そのものが対の集合とは限りません。後の具体例でその違いを確認します。
 
-## 4. 基底変換と図式の再構成
+## 4. 基底を替えた図式の再構成
 
-射 $f:X\to S$ と射 $q:S'\to S$ に対し、$X'=X\times_S S'$ を作って $S'$ へ射影すると、もとの族を新しい基底で眺め直せます。これが**基底変換**です。方程式では、係数を $S$ 上の環から $S'$ 上の環へ移すことに当たります。
+射 $f:X\to S$ と射 $q:S'\to S$ に対し、$X'=X\times_S S'$ を作って $S'$ へ射影すると、もとの族を新しい基底で眺め直せます。この操作を正確に定義しましょう。方程式では、係数を $S$ 上の環から $S'$ 上の環へ移すことに当たります。
 
 <a id="def-ag3-05-base-change"></a>
 
@@ -216,14 +226,14 @@ $$
 <!-- definition-example-start: def-ag3-05-base-change -->
 ### 例：方程式の係数を一つの値に固定する
 
-**定義の確認** $k$ を体とし、$S=\operatorname{Spec}k[t]$、$X=\operatorname{Spec}k[t,x]/(x^2-t)$ とします。$q:S'=\operatorname{Spec}k\to S$ を $t\mapsto0$ で定めると、[多項式表示の命題](#prop-ag3-05-equation)により
+**定義の確認** $k$ を体とし、$S=\operatorname{Spec}k[t]$、$X=\operatorname{Spec}k[t,x]/(x^2-t)$ とします。$q:S'=\operatorname{Spec}k\to S$ を $t\mapsto0$ で定めると、[多項式表示と方程式](#prop-ag3-05-equation)により
 
 $$
 X'=\operatorname{Spec}\bigl((k[t,x]/(x^2-t))\otimes_{k[t]}k\bigr)
 \simeq\operatorname{Spec}k[x]/(x^2).
 $$
 
-両射影の合成は $t\mapsto0$ で一致し、[ファイバー積の定理](#thm-ag3-05-affine-product)による普遍性を満たします。これが基底変換の直接例です。もとの $x^2=t$ を単に点集合で $t=0$ と置き換えるより、冪零元 $x$ を保持できる点が重要です。
+両射影の合成は $t\mapsto0$ で一致し、[アフィンスキームのファイバー積](#thm-ag3-05-affine-product)による普遍性を満たします。これが基底変換の直接例です。もとの $x^2=t$ を単に点集合で $t=0$ と置き換えるより、冪零元 $x$ を保持できる点が重要です。
 <!-- definition-example-end -->
 
 <a id="prop-ag3-05-associativity"></a>
@@ -300,7 +310,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（点上のファイバーと幾何学的ファイバー）**  
-> スキームの射 $f:X\to S$ と点 $s\in S$ に対し、点上のファイバーとは、標準射 $\operatorname{Spec}\kappa(s)\to S$ による基底変換 $X_s=X\times_S\operatorname{Spec}\kappa(s)$ をいう。さらに $\kappa(s)$ の代数閉包 $\overline{\kappa(s)}$ を選んだとき、$X_{\bar s}=X\times_S\operatorname{Spec}\overline{\kappa(s)}$ を幾何学的ファイバーという。
+> スキームの射 $f:X\to S$ と点 $s\in S$ に対し、標準射 $\operatorname{Spec}\kappa(s)\to S$ による次の基底変換を点上のファイバーという。
+
+$$
+X_s=X\times_S\operatorname{Spec}\kappa(s).
+$$
+
+> $\kappa(s)$ の代数閉包 $\overline{\kappa(s)}$ を選んだとき、次を幾何学的ファイバーという。
+
+$$
+X_{\bar s}=X\times_S\operatorname{Spec}\overline{\kappa(s)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag3-05-fiber -->
@@ -416,7 +436,7 @@ $k$ を体、$R=k[t]$、$B=R[x]/(x^3-t)$ とする。$t\mapsto a$（$a\in k$）�
 <!-- solution-start -->
 ### 詳細解答
 
-$\operatorname{Spec}k$ への環準同型は $k[t]\to k$、$t\mapsto a$ です。[多項式表示の命題](#prop-ag3-05-equation)で係数を移すと
+$\operatorname{Spec}k$ への環準同型は $k[t]\to k$、$t\mapsto a$ です。[多項式表示と方程式](#prop-ag3-05-equation)で係数を移すと
 
 $$
 B\otimes_{k[t]}k
