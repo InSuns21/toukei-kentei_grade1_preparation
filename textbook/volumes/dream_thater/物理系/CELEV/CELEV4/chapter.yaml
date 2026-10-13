@@ -1,0 +1,48 @@
+id: "CELEV4"
+title: "対称作用原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELEV3
+  - CELEV2
+  - CELEV1
+  - VAR9
+official_scope: []
+learning_objectives:
+  - 時間二面体作用と平面直交作用と質量保存置換を組み合わせた同変ループの定義を具体例で確認できる
+  - 等質量三体の循環・反転対称の合成則と同変な円ループの有限作用を計算できる
+  - 有限群平均が固定点空間への射影になりNewton拡張作用が不変なことを証明できる
+  - 固定定数配置が零の条件から作用の強制性と最小点の存在を示せる
+  - 微分可能な有限群不変汎関数について対称臨界性をすべての方向に拡張して証明できる
+  - 非衝突性を確立してから初めて対称臨界性をNewton方程式に適用できる理由を説明できる
+  - Ferrario–Terraciniの回転円条件を時刻安定化群と粒子安定化群から判定できる
+  - 対称極小・自由固定端点極小・衝突回避の条件の差を反例で説明できる
+definitions:
+  - { id: CELEV4-DEF-01, name: "有限群の対称作用と同変ループ" }
+  - { id: CELEV4-DEF-02, name: "回転円条件" }
+theorems:
+  - { id: CELEV4-PROP-01, name: "有限群平均と作用不変性" }
+  - { id: CELEV4-PROP-02, name: "固定定数配置が零のときの最小点の存在" }
+  - { id: CELEV4-THM-01, name: "有限群の対称臨界性" }
+  - { id: CELEV4-THM-02, name: "Ferrario–Terraciniの同変極小点衝突排除" }
+canonical_examples:
+  - 等質量三体のD3対称円ループ
+  - 群平均による有限群固定点空間への射影
+  - 固定定数配置の消滅とPoincaré型評価
+  - 時間の単射的循環作用の回転円条件
+  - 反転・粒子交換が衝突を強制する有限作用の例
+problem_patterns:
+  - CELEV4-EQUIVARIANT-INDEX
+  - CELEV4-DIHEDRAL-RELATIONS
+  - CELEV4-AVERAGING-PROJECTION
+  - CELEV4-CIRCULAR-ACTION
+  - CELEV4-TIME-ISOTROPY
+  - CELEV4-COERCIVITY
+  - CELEV4-SYMMETRIC-CRITICALITY
+  - CELEV4-NEWTON-CIRCLE
+  - CELEV4-FORCED-COLLISION
+  - CELEV4-CYCLIC-EXISTENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
