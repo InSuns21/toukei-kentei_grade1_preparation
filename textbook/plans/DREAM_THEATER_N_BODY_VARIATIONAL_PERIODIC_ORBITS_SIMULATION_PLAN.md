@@ -114,10 +114,10 @@ VAR9〜12の未実装部分はCELEVの先行証明とせず、直接必要な最
 **初期方針はPython（Pyodide）で数値計算、JavaScriptで入力とCanvas 2D描画を担うハイブリッド構成。** 3体の物理積分・離散作用最小化をすぐJavaScriptへ移植せず、既存のPython学習資産を再利用する。計算言語そのものを絶対条件とはしない。端末上の測定で性能・配信容量・初回起動に実質的な問題がある部分だけ、同じ計算契約・回帰テストのもとJS/WASMへ差し替える。
 
 **現行資産と差分（実GitHub実装の確認事項）**
-- [Python実行Worker](../../../pages/numerical-lab-worker.mjs): 現行Pyodide `314.0.7`、`loadPyodide`、依存パッケージ読込、Pythonコード+テストを1ジョブとして実行。**進行中の座標を継続的に送るAPIはまだない**。
-- [PythonラボUI](../../../pages/numerical-lab-runtime.js): Web Worker作成・強制停止・進捗保存・MatplotlibのPNG結果表示。**通常8秒/最大60秒の実行制限、起動上限120秒は既存の一回実行型ジョブに対するもの**。時間発展の1ステップごとにこのジョブを再実行する設計は採らない。
-- [Python数値ラボ規約](../NUMERICAL_LAB_AUTHORING_STANDARD.md)と[現行runtime検証](../../../scripts/validate-numerical-lab-runtime.mjs): `python-lab`/solution/test はコード穴埋め演習の正本。CELEVの**常時動く対話式シミュレーションとは別契約**とし、既存演習UI・タイムアウト・保存キー・CIを壊さない。
-- [Pages service worker](../../../pages/service-worker.js): Pyodideアセットのキャッシュを既に持つ。新しい専用WorkerやPython実験データの追加時はPages assembly、配信URL、キャッシュ版、初回オンライン起動・再訪起動・オフライン時の動作を検証する。
+- [Python実行Worker](../../pages/numerical-lab-worker.mjs): 現行Pyodide `314.0.7`、`loadPyodide`、依存パッケージ読込、Pythonコード+テストを1ジョブとして実行。**進行中の座標を継続的に送るAPIはまだない**。
+- [PythonラボUI](../../pages/numerical-lab-runtime.js): Web Worker作成・強制停止・進捗保存・MatplotlibのPNG結果表示。**通常8秒/最大60秒の実行制限、起動上限120秒は既存の一回実行型ジョブに対するもの**。時間発展の1ステップごとにこのジョブを再実行する設計は採らない。
+- [Python数値ラボ規約](../NUMERICAL_LAB_AUTHORING_STANDARD.md)と[現行runtime検証](../../scripts/validate-numerical-lab-runtime.mjs): `python-lab`/solution/test はコード穴埋め演習の正本。CELEVの**常時動く対話式シミュレーションとは別契約**とし、既存演習UI・タイムアウト・保存キー・CIを壊さない。
+- [Pages service worker](../../pages/service-worker.js): Pyodideアセットのキャッシュを既に持つ。新しい専用WorkerやPython実験データの追加時はPages assembly、配信URL、キャッシュ版、初回オンライン起動・再訪起動・オフライン時の動作を検証する。
 
 **モジュール分離と通信契約**
 1. Python物理カーネル: pure Python/NumPyによる `acceleration(state, params)`、`verlet_step(state, dt)`、`diagnostics(state)`、`integrate_batch(state, steps, dt)` を状態/計算に分離。CPU数値実装の正本を先に作り、CPythonとPyodideの双方で同じテストベクトルを使う。
