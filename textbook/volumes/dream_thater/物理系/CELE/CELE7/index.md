@@ -562,7 +562,7 @@ H_{\varepsilon,\delta}
 +\delta\cos(\theta_1-3\theta_2)
 $$
 
-を、$\varepsilon>0$、小さい $|\delta|$ の下で、$\psi=(\theta_1+\theta_2)/2$、$\phi=\theta_1-\theta_2$、$P=I_1+I_2$、$J=(I_1-I_2)/2$ の局所座標で考える。（i）第二角項を $\phi,\psi$ で書き直せ。（ii）$\delta=0$ での島の半幅と面積を求めよ。（iii）$\delta\ne0$ で $\dot P$ を計算せよ。（iv）この計算と[INT8のKAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)を使って「共鳴帯付近の複雑な運動」と「非共鳴トーラスの存続」が両立する場合の仮定と、まだ証明していない点を説明せよ。
+を、$\varepsilon>0$、小さい $|\delta|$ の下で、$\psi=(\theta_1+\theta_2)/2$、$\phi=\theta_1-\theta_2$、$P=I_1+I_2$、$J=(I_1-I_2)/2$ の局所座標で考える。（i）第二角項を $\phi,\psi$ で書き直せ。（ii）$\delta=0$ での島の半幅と面積を求めよ。（iii）$\delta\ne0$ で $\dot P$ を計算せよ。（iv）非共鳴トーラスの存続について[INT8の解析的KAM定理](../../../幾何系/INT/INT8/index.md#thm-int8-kam)の仮定を点検し、共鳴帯付近で複雑な運動を結論するには何が不足するか説明せよ。
 
 <!-- solution-start -->
 **詳細解答**。（i）逆変換 $\theta_1=\psi+\phi/2$、$\theta_2=\psi-\phi/2$ を代入すると
