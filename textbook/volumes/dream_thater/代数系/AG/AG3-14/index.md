@@ -134,9 +134,9 @@ $$
 $$
 h^1(C,\mathcal O_C(m))=\dim S_{d-m-3}-\dim S_{-m-3}
 $$
-と書けます。$m\ge0$ なら $\dim S_m=\binom{m+2}{2}$。滑らかな場合は[種数公式](../AG3-11/index.md#cor-ag3-11-plane-genus)から $g=(d-1)(d-2)/2$ です。
+と書けます。$m\ge0$ なら $\dim S_m=\binom{m+2}{2}$。曲線 $C$ が滑らかなら、[滑らかな平面曲線の種数公式](../AG3-11/index.md#cor-ag3-11-plane-genus)へ次数 $d$ を代入して $g=(d-1)(d-2)/2$ を得ます。
 
-例えば平面四次曲線で $m=1$ とすると $(h^0,h^1)=(3,1)$、$m=2$ では $(6,0)$ です。他方、射影3空間の四次曲面は前節の定理から $h^2(\mathcal O_X)=1$ です。「四次」の文字だけを見て値を移してはいけません。
+例えば平面四次曲線で $m=1$ とすると $(h^0,h^1)=(3,1)$、$m=2$ では $(6,0)$ です。他方、射影3空間の四次曲面は[超曲面の構造層コホモロジー](#thm-ag3-14-surface-cohomology)へ $d=4$ を代入して $h^2(\mathcal O_X)=1$ です。「四次」の文字だけを見て値を移してはいけません。
 
 [局所交叉重複度](../AG3-13/index.md#def-ag3-13-local-intersection)はコホモロジーではなく局所商環の長さです。例えば $C:Y^2Z-X^3+XZ^2=0$ と $L:Z=0$ は $P=[0:1:0]$ だけで交わります。$Y=1$ の局所座標 $x=X/Y,z=Z/Y$ では
 $$
@@ -267,7 +267,7 @@ $$
 \xrightarrow{\cdot F}\mathcal O_{\mathbb P^3}(1)
 \to i_*\mathcal O_X(1)\to0
 $$
-です。[射影空間のコホモロジー定理](../AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)より $H^0(\mathcal O(-4))=H^1(\mathcal O(-4))=0$、$h^0(\mathcal O(1))=4$ だから $h^0(\mathcal O_X(1))=4$ です。また
+です。[射影空間のねじり層のコホモロジー](../AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)より $H^0(\mathcal O(-4))=H^1(\mathcal O(-4))=0$、$h^0(\mathcal O(1))=4$ だから $h^0(\mathcal O_X(1))=4$ です。また
 $$
 H^1(\mathcal O_X(1))\simeq H^2(\mathbb P^3,\mathcal O(-4))=0
 $$
@@ -393,7 +393,7 @@ $$
 0\to\mathcal O_{\mathbb P^3}(-4)\xrightarrow{\cdot F_t}
 \mathcal O_{\mathbb P^3}\to i_{t*}\mathcal O_{X_t}\to0
 $$
-があり、$F_t\ne0$ だから左の単射性が保たれることが根拠です。$t\ne0$ の場合には[滑らかな超曲面の随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)を使い
+があり、$F_t\ne0$ だから左の単射性が保たれることが根拠です。$t\ne0$ で滑らかであることを確認したので、[滑らかな射影超曲面の随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)を適用し
 $$
 K_{X_t}\simeq\mathcal O_{X_t}(4-4)=\mathcal O_{X_t}.
 $$
