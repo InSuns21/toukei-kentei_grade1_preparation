@@ -11,7 +11,7 @@ chapters:
     title: "n体の作用と周期ループ空間"
   - id: CELEV2
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV2
-    status: planned
+    status: completed
     title: "最小化列と周期解の存在"
   - id: CELEV3
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV3
