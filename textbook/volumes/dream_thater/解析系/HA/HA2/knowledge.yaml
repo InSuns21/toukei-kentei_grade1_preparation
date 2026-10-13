@@ -1,0 +1,86 @@
+chapter: HA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA1
+  - MT7
+  - CA3
+forward_references: []
+
+concepts:
+  - id: harmonic.ha2-distribution
+    name: 分布関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（分布関数）]
+    requires: []
+
+  - id: harmonic.ha2-layercake
+    name: layer-cake公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（layer-cake公式）]
+    requires: [harmonic.ha2-distribution]
+
+  - id: harmonic.ha2-weak-lp
+    name: 弱Lp空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（弱Lp空間）]
+    requires: [harmonic.ha2-distribution]
+
+  - id: harmonic.ha2-weak-properties
+    name: 弱Lpの準三角不等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（強型から弱型への包含と準三角不等式）]
+    requires: [harmonic.ha2-weak-lp]
+
+  - id: harmonic.ha2-sublinear
+    name: 劣線形作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（劣線形作用素）]
+    requires: []
+
+  - id: harmonic.ha2-operator-type
+    name: 作用素の強型・弱型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（強型・弱型(p,q)）]
+    requires: [harmonic.ha2-distribution]
+
+  - id: harmonic.ha2-marc-finite
+    name: Marcinkiewicz補間の有限端点定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Marcinkiewicz補間：有限端点）]
+    requires: [harmonic.ha2-sublinear, harmonic.ha2-operator-type, harmonic.ha2-layercake]
+
+  - id: harmonic.ha2-marc-infinity
+    name: Marcinkiewicz補間の無限端点定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Marcinkiewicz補間：L∞端点）]
+    requires: [harmonic.ha2-marc-finite]
+
+  - id: harmonic.ha2-maximal-strong
+    name: Hardy--Littlewood最大作用素の強Lp評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（Hardy--Littlewood最大作用素の強いLp評価）]
+    requires: [harmonic.ha2-marc-infinity, harmonic.ha1-weak11]
+
+  - id: harmonic.ha2-three-lines
+    name: 三線定理
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（三線定理：有界正則関数版）]
+    requires: [complex-analysis.maximum-modulus-principle]
+
+  - id: harmonic.ha2-riesz-thorin
+    name: Riesz--Thorin補間定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Riesz–Thorin補間：稠密部分空間からの版）]
+    requires: [harmonic.ha2-three-lines, measure.lp-simple-dense, measure.lp-duality-sigma-finite]
