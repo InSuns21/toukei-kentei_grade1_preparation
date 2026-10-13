@@ -1,0 +1,83 @@
+chapter: AG3-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-07
+  - AG3-06
+  - AG3-04
+  - AG2-06
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.global-sections-left-exact
+    name: 大域切断の左完全性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（大域切断の左完全性）"]
+    requires: [algebraic-geometry.sheaf-exact-stalks]
+  - id: algebraic-geometry.injective-resolution
+    name: 入射層と入射分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入射層と入射分解）"]
+    requires: [algebraic-geometry.sheaf-exact-sequence]
+  - id: algebraic-geometry.sheaf-cohomology
+    name: 層コホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層コホモロジー）"]
+    requires: [algebraic-geometry.injective-resolution]
+  - id: algebraic-geometry.resolution-independence
+    name: 分解の選択不変性と零次
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分解の選択不変性と零次）"]
+    requires: [algebraic-geometry.sheaf-cohomology, algebraic-geometry.global-sections-left-exact]
+  - id: algebraic-geometry.sheaf-cohomology-les
+    name: 層コホモロジーの長完全列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層コホモロジーの長完全列）"]
+    requires: [algebraic-geometry.sheaf-cohomology]
+  - id: algebraic-geometry.principal-cech-exactness
+    name: 主開被覆の増大Čech複体
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（主開被覆の増大Čech複体）"]
+    requires: [algebraic-geometry.cech-complex, algebraic-geometry.associated-sheaf-stalks]
+  - id: algebraic-geometry.cech-basis-vanishing
+    name: Čech零化から層コホモロジーの零化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Čech零化から層コホモロジーの零化）"]
+    requires: [algebraic-geometry.sheaf-cohomology-les, algebraic-geometry.principal-cech-exactness]
+  - id: algebraic-geometry.affine-vanishing
+    name: 準連接層のアフィン消滅
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（準連接層のアフィン消滅）"]
+    requires: [algebraic-geometry.cech-basis-vanishing, algebraic-geometry.affine-qc-equivalence]
+  - id: algebraic-geometry.cech-affine-comparison
+    name: アフィン交叉を持つ被覆のČech比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィン交叉を持つ被覆のČech比較）"]
+    requires: [algebraic-geometry.affine-vanishing, algebraic-geometry.sheaf-cohomology]
+  - id: algebraic-geometry.two-affine-mayer-vietoris
+    name: 二アフィン被覆のMayer–Vietoris列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二アフィン被覆のMayer–Vietoris列）"]
+    requires: [algebraic-geometry.cech-affine-comparison]
+  - id: algebraic-geometry.p1-sheaf-cohomology
+    name: 射影直線の層コホモロジー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の層コホモロジー）"]
+    requires: [algebraic-geometry.two-affine-mayer-vietoris, algebraic-geometry.p1-cech-twists]
+  - id: algebraic-geometry.connecting-cech
+    name: 局所持ち上げと連結準同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所持ち上げと連結準同型）"]
+    requires: [algebraic-geometry.cech-affine-comparison, algebraic-geometry.cech-obstruction, algebraic-geometry.sheaf-cohomology-les]
