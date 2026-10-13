@@ -454,7 +454,7 @@ Poisson核のFourier変換により、乗数 $e^{-y|\xi|}$ は元の周波数を
 
 $P_y\in L^1$ なので [FOU4の$L^1$-$L^2$畳み込み](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と [変換対](#prop-ha3-poisson-fourier)から $\widehat{P_y*f}=e^{-y|\xi|}\widehat f$ です。共役核についてはまず乗数による $L^2$ 畳み込みとします。
 
-この乗数で定めた $Q_y*f$ が、各点で絶対収束する通常の畳み込み積分の同値類にもなっていることを確認します。[FOU4の稠密性定理](../../FOU/FOU4/index.md#thm-fou4-core-density)から $L^1\cap L^2$ に属する $f_n$ を取り、$\|f_n-f\|_2\to0$ とします。$f_n\in L^1$、$Q_y\in L^2$ なので [FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用でき、
+この乗数で定めた $Q_y*f$ が、各点で絶対収束する通常の畳み込み積分の同値類にもなっていることを確認します。[Gaussian Fourier core の$L^2$稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)から $L^1\cap L^2$ に属する $f_n$ を取り、$\|f_n-f\|_2\to0$ とします。$f_n\in L^1$、$Q_y\in L^2$ なので [FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用でき、
 
 $$
 \mathcal F_2(Q_y*f_n)
@@ -523,7 +523,7 @@ $$
 
 各階の導関数は平行移動 $x$ と高さ $y$ に関して $L^2$ 連続です。実際、$x,y$ を固定点の近傍に制限すれば、導関数の有理式に共通の二乗可積分な上界を取れるため、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を二乗の差に適用できます。
 
-$K_y=P_y$ または $Q_y$ とし、$h\ne0$ に対し [微積分学の基本定理](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)から得る差分の積分表示を用いると、
+$K_y=P_y$ または $Q_y$ とします。$h\ne0$ で、[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を関数 $z\mapsto K_y(x+z-t)$ の区間 $[0,h]$（$h<0$ では積分の向きを逆にする）に適用すると、
 
 $$
 \begin{aligned}
@@ -535,7 +535,7 @@ $$
 \end{aligned}
 $$
 
-高さ $y$ の差分にも同じ評価を適用できます。これらの $L^2$ 差分商と $f\in L^2$ の積分にはCauchy–Schwarz不等式を適用できるので、畳み込みを任意階で微分してよいことが分かります。従って先ほどの核のLaplacianを積分して
+高さ $y$ の差分にも同じ評価を適用できます。この極限の左辺の各項と $f\in L^2$ の積分にはCauchy–Schwarz不等式を適用できるので、畳み込みを任意階で微分してよいことが分かります。従って先ほどの核のLaplacianを積分して
 
 $$
 \Delta u=(\Delta P_y)*f=0,
