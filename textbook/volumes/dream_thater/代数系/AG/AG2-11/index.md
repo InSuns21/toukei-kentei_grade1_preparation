@@ -376,7 +376,7 @@ $\mathbb P^4$ の五次式 $F=\sum_{i=0}^4X_i^5$ が定める $Y$ について�
 - ID: AG2-11-C1
 
 <!-- solution-start -->
-**詳細解答。** (a) $F_i=5X_i^4$ で、標数0ゆえ全偏微分が零なら全座標零となるので射影点に反します。従って[Jacobian判定](#thm-ag2-11-jacobian-criterion)で $Y$ は滑らかです。(b) 点 $p=[a]$ で非零な $a_i$ を一つ選んでチャート $U_i$ に入ります。もし $j\ne i$ の偏微分が全部零なら、[本章の斉次式の次数恒等式](#prop-ag2-11-euler-gradient)より $F_i(a)=dF(a)-\sum_{j\ne i}a_jF_j(a)=0$ となって全勾配が零という (a) に矛盾します。従ってある $j\ne i$ の $F_j(a)$ は非零で、$U_i$ の局所方程式では $f_{i,j}(p)\ne0$ となり、近傍で単元です。[滑らかな超曲面での局所余接基底](#prop-ag2-11-local-basis)により $\Omega_Y^1$ は階数 $4-1=3$ の局所自由層です。(c) [随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)の $d=5,n=4$ より $\omega_Y\simeq\mathcal O_Y(5-4-1)=\mathcal O_Y$ です。(a) がなければ前章の余法完全列の局所分裂が保証されず、(c) をこの形で導いた証明を適用できません。
+**詳細解答。** (a) $F_i=5X_i^4$ で、標数0ゆえ全偏微分が零なら全座標零となるので射影点に反します。従って[Jacobian判定](#thm-ag2-11-jacobian-criterion)で $Y$ は滑らかです。(b) 点 $p=[a]$ で非零な $a_i$ を一つ選んでチャート $U_i$ に入ります。もし $j\ne i$ の偏微分が全部零なら、[Euler恒等式とチャートJacobian](#prop-ag2-11-euler-gradient)より $F_i(a)=dF(a)-\sum_{j\ne i}a_jF_j(a)=0$ となって全勾配が零という (a) に矛盾します。従ってある $j\ne i$ の $F_j(a)$ は非零で、$U_i$ の局所方程式では $f_{i,j}(p)\ne0$ となり、近傍で単元です。[滑らかな超曲面での局所余接基底](#prop-ag2-11-local-basis)により $\Omega_Y^1$ は階数 $4-1=3$ の局所自由層です。(c) [随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)の $d=5,n=4$ より $\omega_Y\simeq\mathcal O_Y(5-4-1)=\mathcal O_Y$ です。(a) がなければ前章の余法完全列の局所分裂が保証されず、(c) をこの形で導いた証明を適用できません。
 <!-- solution-end -->
 
 ### C2. 被約・非被約・特異点の区別
