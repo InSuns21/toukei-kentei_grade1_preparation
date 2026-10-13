@@ -5,9 +5,6 @@ prerequisites:
   - VAR4
   - VAR5
   - GEO15
-forward_references:
-  - calculus-of-variations.direct-method-existence
-
 concepts:
   - id: calculus-of-variations.minimizing-curve-energy-infimum
     name: 単位時間エネルギーと距離の下限
@@ -56,4 +53,4 @@ concepts:
     requires:
       - geometry.riemannian-distance
       - geometry.cut-locus
-      - geometry.nonpositive-no-conjugate
+      - geometry.nonpositive-curvature-no-conjugate
