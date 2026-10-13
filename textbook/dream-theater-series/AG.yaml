@@ -152,7 +152,7 @@ chapters:
     title: "平坦性・滑らかさと特異ファイバー"
   - id: AG3-13
     path: textbook/volumes/dream_thater/代数系/AG/AG3-13
-    status: planned
+    status: completed
     title: "交叉理論・変形障害への橋"
   - id: AG3-14
     path: textbook/volumes/dream_thater/代数系/AG/AG3-14
