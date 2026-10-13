@@ -4,7 +4,7 @@
 
 ## 1. 曲線の「まっすぐ」を曲がった時空で判定する
 
-[LORG3のLorentz長さの定義](../LORG3/index.md#def-lorg3-lorentz-length)と[Minkowski時空での長さ比較定理](../LORG3/index.md#thm-lorg3-minkowski-length-bound)により、Minkowski時空では時間的直線が最大固有時を与えることを確かめました。しかし一般の時空では、離れた二点の接空間をそのまま同一視できません。曲線の速度が「変化しない」とは何かを記述するには、接ベクトルを曲線に沿って比較する規則が要ります。
+[LORG3で定義したLorentz長さ](../LORG3/index.md#def-lorg3-lorentz-length)で因果曲線の固有時を比較できます。[Minkowski時空における端点とLorentz長さ](../LORG3/index.md#thm-lorg3-minkowski-length-bound)から、時間的直線が最大固有時を与えることを確かめました。しかし一般の時空では、離れた二点の接空間をそのまま同一視できません。曲線の速度が「変化しない」とは何かを記述するには、接ベクトルを曲線に沿って比較する規則が要ります。
 
 [GEO13のアフィン接続](../../GEO/GEO13/index.md#def-geo13-affine-connection)はその規則を与えます。Riemann計量で使ったLevi-Civita接続の作り方は、どこまでLorentz計量へ持ち込めるでしょうか。鍵は **正定値性ではなく非退化性** です。この違いをKoszulの式から見直し、測地線と指数写像を作ります。固有時の**局所最大化**は次のLORG5で、凸正規近傍を準備してから扱います。
 
