@@ -183,11 +183,30 @@ $$
 \frac{dp_0}{dt}=-2\operatorname{sech}t\tanh t.
 $$
 
-四倍角の恒等式、または $q_0/2=2\arctan(e^t)$ から
+半角公式を途中まで展開します。$u=e^t$ とおくと
 
 $$
-\sin q_0(t)=-2\operatorname{sech}t\tanh t,\qquad
-\cos q_0(t)=1-2\operatorname{sech}^2t
+\begin{aligned}
+\sin\frac{q_0}{2}
+&=\sin(2\arctan u)=\frac{2u}{1+u^2}
+=\operatorname{sech}t,\\
+\cos\frac{q_0}{2}
+&=\cos(2\arctan u)=\frac{1-u^2}{1+u^2}
+=-\tanh t.
+\end{aligned}
+$$
+
+従って倍角公式に代入すると
+
+$$
+\begin{aligned}
+\sin q_0(t)
+&=2\sin\frac{q_0}{2}\cos\frac{q_0}{2}
+=-2\operatorname{sech}t\tanh t,\\
+\cos q_0(t)
+&=1-2\sin^2\frac{q_0}{2}
+=1-2\operatorname{sech}^2t.
+\end{aligned}
 $$
 
 を得ます。よって両Hamilton方程式が成立し、
@@ -275,7 +294,7 @@ $$
 
 ## 5. Melnikov積分で枝のずれを測る
 
-摂動がなければ二枝は分離曲線として重なりました。摂動後に $\phi=0$ の断面で二枝が横断交差するかを判定するため、軌道上の**無摂動エネルギー** $H_0$ の変化を計算します。
+摂動がなければ二枝は分離曲線として重なりました。摂動後は、まず自律拡大系の $q=\pi$ という断面上で二枝のずれを測り、そこで得た横断交差を $\phi=0$ の時間 $T$ 帰還写像へ移します。その計算に使う量が、軌道上の**無摂動エネルギー** $H_0$ の変化です。
 
 まず $H_1(q,t)=\cos q\cos(\omega t)$ とおくと、Hamilton方程式を直接代入して
 
@@ -311,7 +330,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（強制振り子のMelnikov関数と単純零点）**  
-> 上記の模型について
+> $H_0(q,p)=p^2/2+\cos q$ の分離曲線
+> $q_0(s)=4\arctan(e^s)$、$p_0(s)=2\operatorname{sech}s$ と、
+> $\omega>0$ に対する摂動 $H_\varepsilon=H_0+\varepsilon\cos q\cos(\omega t)$ を考える。
+> $M(\tau)$ を[この模型のMelnikov積分](#def-cele6-melnikov)で定める。このとき
 >
 $$
 M(\tau)=2\omega A(\omega)\sin(\omega\tau),
@@ -372,20 +394,88 @@ M'(\tau)=2\omega^2A(\omega)\cos(\omega\tau),
 $$
 <!-- proof-end -->
 
-**単純零点から横断交差へ進むための追加条件**を省略してはいけません。非線形安定多様体定理の滑らかなパラメータ依存性を使って、安定枝・不安定枝が共通の横断面 $q=\pi$ に交わる位置を $p_s(\tau,\varepsilon),p_u(\tau,\varepsilon)$ と表せるとします。$p_s,p_u$ は $\varepsilon=0$ でともに $2$ であり、局所的に
+**単純零点から横断交差へ進むための追加条件**を省略してはいけません。自律拡大系で $\mathcal H_\varepsilon=E$ を固定すると、$\partial_J\mathcal H_\varepsilon=\omega>0$ なので $J$ は $(q,p,\phi)$ から一意に決まり、エネルギー面は正則な三次元多様体です。この面の $q=\pi,\ p>0$ という二次元断面では $\dot q=p>0$ だから流れに横断的で、$(\phi,p)$ が局所座標になります。**この断面と、帰還写像を定義した $\phi=0$ の断面は別物です。**
 
+$q=\pi$ での強制位相を $\phi=\omega\tau\pmod {2\pi}$ と置きます。局所的に $\tau$ を実数座標として選び、安定枝・不安定枝がこの断面と交わる運動量を、それぞれ $p_s(\tau,\varepsilon),p_u(\tau,\varepsilon)$ と書きます。零摂動では両者は $2$ です。非線形の[局所安定多様体に関する外部定理](#ref-cele6-stable-manifold-input)は、この二枝の存在と滑らかな依存性を与えますが、**次の積分の剰余評価を単独で保証するとみなしてはいけません**。
+
+<a id="ref-cele6-melnikov-splitting-input"></a>
+
+### 外部から使う技術的評価（Melnikov分離量の一様展開）
+> 上の滑らかな強制振り子において、鞍型周期軌道近傍での指数的な収束と摂動解のパラメータ微分に対する一様評価を用いると、$\tau$ の固定された小区間で
+>
 $$
-H_0(\pi,p_u)-H_0(\pi,p_s)
+D(\tau,\varepsilon)
+:=H_0(\pi,p_u(\tau,\varepsilon))
+-H_0(\pi,p_s(\tau,\varepsilon))
 =\varepsilon M(\tau)+O(\varepsilon^2)
 $$
+>
+> が $\tau$ に関して $C^1$ 一様に成立する。すなわち剰余とその $\tau$ 微分が一様に $O(\varepsilon^2)$ である。この無限時間での誤差評価は本章では外部入力とし、以下では一次係数を独立に導く。
 
-が $\tau$ に関して $C^1$ 一様に成り立ちます。この展開の一次係数は、安定枝について未来に向かって積分したエネルギー変化に負号を付け、不安定枝について過去から現在まで積分した変化を引き算することで、全実数の[Melnikov積分](#def-cele6-melnikov)となります。無摂動鞍点では $\nabla H_0(0,0)=0$ なので、摂動された周期解の $H_0$ と $1$ の差は一次項を持ちません。
+一次係数の由来を確かめます。$q=\pi$ を時刻 $t=\tau$ に横切る不安定枝と安定枝の解をそれぞれ $(q^u_\varepsilon(t),p^u_\varepsilon(t))$ と $(q^s_\varepsilon(t),p^s_\varepsilon(t))$ とします。この模型の鞍点 $(q,p)=(0,0)$ は摂動後も厳密な周期解で、そこで $H_0=1$ です。両枝に沿って $\dot H_0=\varepsilon p\sin q\cos(\omega t)$ を積分すると、符号を含めて
+
+$$
+\begin{aligned}
+H_0(\pi,p_u)-1
+&=\varepsilon\int_{-\infty}^{\tau}
+p^u_\varepsilon(t)\sin q^u_\varepsilon(t)\cos(\omega t)\,dt,\\
+1-H_0(\pi,p_s)
+&=\varepsilon\int_{\tau}^{\infty}
+p^s_\varepsilon(t)\sin q^s_\varepsilon(t)\cos(\omega t)\,dt.
+\end{aligned}
+$$
+
+従って両式を加えると $D$ になります。一次係数では双方の軌道を零摂動の $q_0(t-\tau),p_0(t-\tau)$ に戻せるので、$s=t-\tau$ と置き換えて
+
+$$
+\begin{aligned}
+\left.\frac{\partial D}{\partial\varepsilon}\right|_{\varepsilon=0}
+&=\int_{-\infty}^{\infty}
+p_0(t-\tau)\sin q_0(t-\tau)\cos(\omega t)\,dt\\
+&=\int_{-\infty}^{\infty}
+p_0(s)\sin q_0(s)\cos(\omega(s+\tau))\,ds
+=M(\tau).
+\end{aligned}
+$$
+
+これは[Melnikov積分](#def-cele6-melnikov)と一致します。無限区間での極限と $\tau$ 微分を一様に扱い、さらに二次剰余を得る段階だけは、先に明示した外部評価に依存します。
 
 <a id="prop-cele6-melnikov-transversality"></a>
 
 <!-- formal-statement-start -->
 > **命題（分離量の単純零点から横断交差へ）**  
-> 強制振り子の小摂動で、安定枝と不安定枝の断面位置が $C^1$ 級にパラメータ依存し、上記のエネルギー差の展開が $\tau$ に関して $C^1$ 一様に成立するとする。ある $\tau_*$ で $M(\tau_*)=0$ かつ $M'(\tau_*)\ne0$ なら、十分小さい非零 $\varepsilon$ に対し、$\tau_*$ に近い位相で両枝は横断的に交わる。
+> $\omega>0$ を固定し、次の周期強制振り子を考える。位相 $\phi$ と共役作用 $J$ を加えた自律二自由度Hamilton系で議論する。
+>
+$$
+H_\varepsilon(q,p,t)=\frac{p^2}{2}+\cos q+\varepsilon\cos q\cos(\omega t).
+$$
+>
+> 固定エネルギー面上で、$q=\pi$ かつ $p>0$ の断面を取る。
+> その局所座標を $(\phi,p)=(\omega\tau,p)$ とする。
+> 安定枝・不安定枝の運動量を $p_s(\tau,\varepsilon)$、$p_u(\tau,\varepsilon)$ とし、
+> 零摂動ではどちらも $2$ とする。両関数は $C^1$ 級で、
+>
+$$
+\begin{aligned}
+D(\tau,\varepsilon)
+&:=H_0(\pi,p_u(\tau,\varepsilon))
+-H_0(\pi,p_s(\tau,\varepsilon))\\
+&=\varepsilon M(\tau)+O(\varepsilon^2)
+\end{aligned}
+$$
+>
+> が $\tau$ に関して $C^1$ 一様に成立すると仮定する。
+> ここで $H_0(q,p)=p^2/2+\cos q$、$M$ は[Melnikov関数](#def-cele6-melnikov)である。
+> ある $\tau_*$ が
+>
+$$
+M(\tau_*)=0,\qquad M'(\tau_*)\ne0
+$$
+>
+> を満たすとき、十分小さい非零 $\varepsilon$ に対して二枝は
+> $\tau_*$ に近い位相で横断交差する。
+> この交差は時間 $T=2\pi/\omega$ の $\phi=0$ 帰還写像の
+> 横断ホモクリニック点を与える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -418,10 +508,16 @@ $$
 =p_u(\partial_\tau p_u-\partial_\tau p_s)\ne0.
 $$
 
-したがって $(\tau,p_u(\tau))$ と $(\tau,p_s(\tau))$ の接線は異なり横断的に交わります。
+したがって $(\tau,p_u(\tau))$ と $(\tau,p_s(\tau))$ の接線は異なり、$q=\pi$ 断面上で横断的に交わります。$\phi=\omega\tau$ の座標変換は $\omega>0$ なので可逆で、$(\phi,p)$ でも横断性は保たれます。
 <!-- proof-end -->
 
-この命題の結論は単純零点の計算だけでなく、**二枝が存在し一様展開できること**を必要とします。今回の滑らかな強制振り子は非線形安定多様体定理とそのパラメータ依存版の仮定を満たすため、十分小さい $\varepsilon\ne0$、$0<\omega<\omega_0$ で横断ホモクリニック点が得られます。ここで使用した非線形定理の一般証明は本章では扱っていません。
+ここでの交点は、**まだ $q=\pi$ 断面上で見つかったもの**です。時間 $T$ の帰還写像に移すため、流れに沿って $\phi=0$ 断面へ運びます。
+
+$\dot q=p>0$ と $\dot\phi=\omega>0$ より、両断面は交点の近傍で流れに横断的です。流れの一意性と逆向きの流れを用いると、両断面の間の局所遷移写像は $C^1$ 級微分同相になります。
+
+この遷移写像は二本の異なる接線を異なる接線へ写します。ゆえに $\phi=0$ の帰還写像にも横断ホモクリニック点が現れます。得られた点は固定点とは異なり、無摂動では $q=\pi$ を通る分離曲線上に対応する非自明な交点です。
+
+この結論には、**二枝の存在**を与える[非線形安定多様体定理](#ref-cele6-stable-manifold-input)だけでなく、**一様誤差評価**を与える[Melnikov分離量の外部評価](#ref-cele6-melnikov-splitting-input)が必要です。強制振り子についてそれらの適用条件を置き、[単純零点](#thm-cele6-melnikov-computation)と上の命題を合わせると、十分小さい $\varepsilon\ne0$、$0<\omega<\omega_0$ で横断ホモクリニック点が得られます。一般定理と無限時間誤差評価の証明は本章では扱っていません。
 
 ## 6. 横断交差からhorseshoeへ進む論理の境界
 
@@ -439,7 +535,7 @@ $$
 
 1. 強制振り子の時間 $T$ 写像は $C^2$ 級微分同相である。Hamilton流の存在する有界なホモクリニック軌道の近傍に制限する。
 2. [鞍型固定点](#prop-cele6-hyperbolic-persistence)は $e^{\pm T}$ から小摂動で存続する。
-3. [Melnikov計算](#thm-cele6-melnikov-computation)が単純零点を持ち、[分離曲線の命題](#prop-cele6-melnikov-transversality)と安定多様体の滑らかな依存性から、非固定の横断交点が得られる。
+3. [Melnikov計算](#thm-cele6-melnikov-computation)が単純零点を持ち、[横断交差の命題](#prop-cele6-melnikov-transversality)、[Melnikov分離量の一様評価](#ref-cele6-melnikov-splitting-input)と安定多様体の滑らかな依存性から、非固定の横断交点が得られる。
 
 これらが整った後に初めてSmale–Birkhoffの結論を適用します。$P$ の全位相空間がシフトに共役になるのではありません。**一部のコンパクト不変集合 $\Lambda$** で、**ある反復 $P^N$** がシフトと共役になるという結論です。
 
@@ -661,7 +757,7 @@ $$
 +\frac12(p_u-p_s)(\partial_\tau p_u+\partial_\tau p_s).
 $$
 
-交点で第二項は消え、第一項が非零なら $\partial_\tau p_u\ne\partial_\tau p_s$。よって二つのグラフの接線 $(1,\partial_\tau p_u)$、$(1,\partial_\tau p_s)$ は異なり、[横断性の定義](#def-cele6-homoclinic)を満たします。
+交点で第二項は消え、第一項が非零なら $\partial_\tau p_u\ne\partial_\tau p_s$。よって $q=\pi$ 断面の局所座標 $(\tau,p)$ で二つのグラフの接線 $(1,\partial_\tau p_u)$、$(1,\partial_\tau p_s)$ は異なります。$\phi=\omega\tau$ は $\omega>0$ の可逆な座標変換なので、[横断性の定義](#def-cele6-homoclinic)を満たします。
 <!-- solution-end -->
 
 <a id="ex-cele6-b04"></a>
@@ -703,7 +799,19 @@ $$
 
 1. 位相 $\phi$ と共役変数 $J$ を加え、$\mathcal H_\varepsilon=p^2/2+\cos q+\varepsilon\cos q\cos\phi+\omega J$ とする。$\dot\phi=\omega>0$ なので $\phi=0$ への第一帰還時間は $T=2\pi/\omega$。二自由度の自律Hamilton流を断面へ制限した写像は[面積保存](../../../幾何系/INT/INT7/index.md#prop-int7-return-area)です。
 2. $\varepsilon=0$ で $\dot q=p,\dot p=q$ の変分方程式を解く。固有値 $+1,-1$ に沿った時間 $T$ 乗数は $e^{T},e^{-T}$ なので鞍型です。
-3. [分離曲線](#prop-cele6-pendulum-separatrix)上で $p_0\sin q_0=-4\operatorname{sech}^2s\tanh s=2(\operatorname{sech}^2s)'$。部分積分し奇関数を消すと
+3. [分離曲線](#prop-cele6-pendulum-separatrix)上で $p_0\sin q_0=-4\operatorname{sech}^2s\tanh s=2(\operatorname{sech}^2s)'$ です。端点で $\operatorname{sech}^2s\to0$ だから部分積分の境界項は消えて
+
+$$
+\begin{aligned}
+M(\tau)
+&=2\int_{\mathbb R}(\operatorname{sech}^2s)'
+\cos(\omega(s+\tau))\,ds\\
+&=2\omega\int_{\mathbb R}\operatorname{sech}^2s
+\sin(\omega(s+\tau))\,ds.
+\end{aligned}
+$$
+
+正弦加法公式の $\sin(\omega s)\cos(\omega\tau)$ の項は奇関数として消え、残りから
 
 $$
 M(\tau)=2\omega A(\omega)\sin(\omega\tau),\quad
@@ -712,7 +820,7 @@ $$
 
 $A(0)=2$ で連続なので十分小さい正の $\omega$ では $A(\omega)>0$、従って $M(0)=0,\ M'(0)=2\omega^2A(\omega)>0$ です。
 
-4. **第1段階**：曲線 $W^s,W^u$ の存在・滑らかな依存性および $D=\varepsilon M+O(\varepsilon^2)$ の $C^1$ 一様展開に、非線形安定多様体定理を用います。この条件を満たして初めて[分離量の単純零点から横断交差への命題](#prop-cele6-melnikov-transversality)を適用できます。**第2段階**：横断交点からコンパクトなhorseshoeを得るには[Smale–Birkhoffの外部定理](#ref-cele6-smale-birkhoff)を使います。DYN14の線形模型だけでもDYN13の区間模型だけでもこの一般定理は証明できません。
+4. **第1段階**：曲線 $W^s,W^u$ の存在・滑らかな依存性には[非線形安定多様体定理](#ref-cele6-stable-manifold-input)を、$D=\varepsilon M+O(\varepsilon^2)$ の $C^1$ 一様展開には別途[Melnikov分離量の外部評価](#ref-cele6-melnikov-splitting-input)を用います。この条件を満たして初めて[分離量の単純零点から横断交差への命題](#prop-cele6-melnikov-transversality)を適用できます。断面 $q=\pi$ の交点を $\phi=0$ の帰還断面へ局所的な流れの微分同相で移し、横断性を保ちます。**第2段階**：横断交点からコンパクトなhorseshoeを得るには[Smale–Birkhoffの外部定理](#ref-cele6-smale-birkhoff)を使います。DYN14の線形模型だけでもDYN13の区間模型だけでもこの一般定理は証明できません。
 5. 断面写像は面積を保存するため、[ローブ面積の保存とグラフ表示](#prop-cele6-lobe-area)から $\operatorname{area}(P(L))=\operatorname{area}(L)$ です。しかし $P(L)$ は元の $L$ と異なる場所へ延びたり、薄い形に変形したりします。**面積が不変**という性質は**位置・形が不変**という主張ではないので、交差による輸送と矛盾しません。
 <!-- solution-end -->
 
