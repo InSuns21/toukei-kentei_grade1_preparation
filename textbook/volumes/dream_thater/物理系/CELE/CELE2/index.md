@@ -686,7 +686,22 @@ $$
 
 $H_{\rm int},|L|^2,L_z$ は相互可換で、[第一積分の保存判定](../../../幾何系/INT/INT1/index.md#prop-int1-conservation-criterion)により保存されます。
 
-**(2)** $\mu_{12}=1/2,\mu_3=2/3$ より $H_{\rm int}$ の運動量微分は $\partial_{\pi_y}H_{\rm int}=2,\partial_{\eta_z}H_{\rm int}=3/2,\partial_{\eta_x}H_{\rm int}=0$。この点で $L=(1,0,1)$。$dL=d\rho\times\pi+\rho\times d\pi+d\lambda\times\eta+\lambda\times d\eta$ ですから、三つの指定運動量方向では
+**(2)** 等質量の換算質量は $\mu_{12}=1/2,\mu_3=2/3$ です。指定点でのHamiltonianの運動量偏微分を直接求めると
+
+$$
+\partial_{\pi_y}H_{\rm int}=2,\qquad
+\partial_{\eta_z}H_{\rm int}=\frac32,\qquad
+\partial_{\eta_x}H_{\rm int}=0.
+$$
+
+この点で $L=(1,0,1)$ です。内部角運動量の定義を微分すると
+
+$$
+dL=d\rho\times\pi+\rho\times d\pi+
+d\lambda\times\eta+\lambda\times d\eta
+$$
+
+となります。位置を固定して三つの運動量方向に変化させれば
 
 $$
 \partial_{\pi_y}L=e_z,\quad
