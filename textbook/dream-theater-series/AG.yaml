@@ -124,7 +124,7 @@ chapters:
     title: "ファイバー積と基底変換"
   - id: AG3-06
     path: textbook/volumes/dream_thater/代数系/AG/AG3-06
-    status: planned
+    status: completed
     title: "準連接層・連接層"
   - id: AG3-07
     path: textbook/volumes/dream_thater/代数系/AG/AG3-07
