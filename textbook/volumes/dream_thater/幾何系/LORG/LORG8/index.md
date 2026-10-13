@@ -91,7 +91,7 @@ $$
 
 ## 3. 長さは保たれない：同じ曲線の異なる固有時
 
-因果的到達関係に曲線の長さが含まれない点を、式で確かめましょう。[LORG3のLorentz長さ](../LORG3/index.md#def-lorg3-lorentzian-length)を同じ未来因果曲線 $\gamma:[a,b]\to M$ に適用すると、$\Omega(\gamma(s))>0$ なので平方根を取り出せます。
+因果的到達関係に曲線の長さが含まれない点を、式で確かめましょう。[LORG3のLorentz長さ](../LORG3/index.md#def-lorg3-lorentz-length)を同じ未来因果曲線 $\gamma:[a,b]\to M$ に適用すると、$\Omega(\gamma(s))>0$ なので平方根を取り出せます。
 
 <a id="prop-lorg8-length-change"></a>
 
