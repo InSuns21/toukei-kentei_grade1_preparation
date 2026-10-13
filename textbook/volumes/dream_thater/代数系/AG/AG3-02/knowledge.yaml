@@ -1,0 +1,72 @@
+chapter: AG3-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-01
+  - AG1-04
+  - AG2-05
+  - RNG2
+forward_references: []
+concepts:
+  - id: algebraic-geometry.spectrum-zariski-topology
+    name: 素スペクトルのZariski位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（素スペクトルのZariski閉集合と主開集合）"]
+    requires: [algebraic-geometry.prime-spectrum]
+
+  - id: algebraic-geometry.spectrum-principal-open-basis
+    name: Zariski位相と主開基
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Zariski位相と主開基）"]
+    requires: [algebraic-geometry.spectrum-zariski-topology, algebra.prime-ideal]
+
+  - id: algebraic-geometry.spectrum-point-closure
+    name: 素点の閉包と特殊化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（素点の閉包と特殊化）"]
+    requires: [algebraic-geometry.spectrum-zariski-topology]
+
+  - id: algebraic-geometry.spectrum-morphism-continuity
+    name: 環準同型が定める連続写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（環準同型が定める連続写像）"]
+    requires: [algebraic-geometry.spectrum-pullback, algebraic-geometry.spectrum-principal-open-basis]
+
+  - id: algebraic-geometry.spectrum-principal-quasicompact
+    name: 主開集合の準コンパクト性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（主開集合の準コンパクト性）"]
+    requires: [algebraic-geometry.spectrum-principal-open-basis, algebraic-geometry.localization]
+
+  - id: algebraic-geometry.spectrum-structure-sheaf
+    name: 素スペクトルの構造層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（素スペクトルの構造層）"]
+    requires: [algebraic-geometry.prime-spectrum, algebraic-geometry.localization, algebraic-geometry.sheaf-of-rings-axioms]
+
+  - id: algebraic-geometry.spectrum-sheaf-gluing
+    name: 素スペクトル上の構造層の貼り合わせ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（構造層の制限と貼り合わせ）"]
+    requires: [algebraic-geometry.spectrum-structure-sheaf, algebraic-geometry.sheaf-of-rings-axioms]
+
+  - id: algebraic-geometry.spectrum-principal-sections
+    name: 主開集合の切断環
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（主開集合の切断環）"]
+    requires: [algebraic-geometry.spectrum-principal-quasicompact, algebraic-geometry.spectrum-sheaf-gluing, algebraic-geometry.localization-universal]
+
+  - id: algebraic-geometry.spectrum-stalk
+    name: 素点での構造層の茎
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（素点での構造層の茎）"]
+    requires: [algebraic-geometry.spectrum-structure-sheaf, algebraic-geometry.structure-sheaf-stalk, algebraic-geometry.point-local-ring]
