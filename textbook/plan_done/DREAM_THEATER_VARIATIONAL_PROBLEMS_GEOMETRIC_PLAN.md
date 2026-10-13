@@ -1,7 +1,7 @@
 # DREAM THEATER 変分問題：幾何的第二変分・存在定理・臨界点理論 コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（VAR1〜VAR12本文を執筆済み。系列横断の参照・検証およびPLAN完了判定は継続）
+状態: completed（VAR1〜VAR12の本文・公開導線・系列横断参照を確認。2026-10-14のPR検証完了後にクローズ）
 
 ## 0. 目的
 
@@ -59,7 +59,7 @@ VAR系列manifestの全12章は `planned` で初期化し、本文・chapter.yam
 
 ## 3. 章構成
 
-候補 ID: VAR1--VAR12（VAR9〜12は上記監査による追加、実装は未着手）。
+実装済みID: VAR1--VAR12（VAR9〜12は2026-10-13の計画増補を経て完成）。
 
 ### VAR1 汎関数・第一変分・Euler--Lagrange 方程式
 
@@ -279,3 +279,12 @@ Jacobi 方程式
 6. AMECH / GPDE / 幾何解析 / CELEVへの実在stable anchor cross-link。未実装定理を既知扱いしない。
 7. knowledge DAG / public index / series manifest（**PLAN段階では未公開章を登録しない**）。
 8. 数学的完全性・読者粒度の二系統レビューとCI/公開検証。
+
+## 8. 完了判定（2026-10-14）
+
+- 系列manifest上でVAR1〜VAR12の12章すべてが`completed`、各章の`index.md`に学習本文、主要結果、詳細解答付き演習が存在することを確認した。
+- 公開索引`textbook/dream-theater-index.json`に全12章が登録済み。系列の本文中で参照される既出結果のMarkdownリンクについて、参照先ファイルとstable anchorの実在を横断照合した。
+- VAR1の自由端点・角点・Weierstrass–Erdmann条件、VAR2のLegendre条件・十分性と強圧性、VAR6の完備性・切断点、VAR7〜8の面積変分・境界条件・Jacobi作用素を実本文で確認した。
+- VAR12は第10.3節に基づき全主要証明4件と詳細解答10件を再計算し、自己共役性・Sturm指数定理・共役点計数・制約付きHessianの仮定と中間式を点検した。自然数の下限の曖昧さ、Taylor二次項の説明、演習B01のWirtinger定数の導出を補正した。
+- CELEVは後続の未実装系列計画であり、存在しない章への参照をVARの完成条件に含めない。CELEVの実装時にVAR9〜12への参照を追加する。
+- 自動検証・公開導線の最終判定は本クローズPRのCIで行い、成功を確認してからmainへマージする。数理査読と読者粒度の再読はいずれも同一AI担当であり、第三者の独立査読とは称しない。
