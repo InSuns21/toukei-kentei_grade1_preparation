@@ -32,14 +32,14 @@ $$
 つまり「粒子 $j$ を時刻 $s$ で観察する」「時間を $\tau_g$ だけ動かして粒子番号を $\sigma_g$ に変える」「元の位置を $\rho_g$ で動かす」の二通りの操作が一致する、という条件です。
 
 ここで、定義式が本当に $\mathcal H_T$ 上の作用になることも確認しておきます。$\tau_{g^{-1}}$ は周期円周の等長変換なので、$H^1$ 正則性と周期端点の一致を保ちます。重心零については $s=\tau_{g^{-1}}t$、$j=\sigma_{g^{-1}}(i)$ と置き、質量保存を使うと
-$
+$$
 \begin{aligned}
 \sum_i m_i(U_gq)_i(t)
 &=\rho_g\sum_i m_iq_{\sigma_{g^{-1}}(i)}(s)\\
 &=\rho_g\sum_jm_{\sigma_g(j)}q_j(s)\\
 &=\rho_g\sum_jm_jq_j(s)=0.
 \end{aligned}
-$
+$$
 したがって $U_gq\in\mathcal H_T$ です。なお、$U_gU_h=U_{gh}$ の合成則は次節の[群作用の計算](#prop-celev4-reynolds)で添字まで確認します。
 
 <!-- definition-example-start: def-celev4-equivariant-loop -->
@@ -201,18 +201,18 @@ $$
 ### 証明
 
 まず $q_*\in H^1$ の段階で第一変分を確立します。$q_*$ の全粒子対について
-$
+$$
 \delta=\min_{t\in\mathbb T_T}\min_{i<j}|q_{*,i}(t)-q_{*,j}(t)|>0
-$
+$$
 です。$H^1$ の一様ノルム制御から、$q_*$ の十分小さい近傍の全粒子対距離は $\delta/2$ 以上です。従って各距離逆数はその近傍で一様に有界な導関数を持ち、積分と方向微分を交換できます。運動項の二次形式と合わせ、$q$ がこの近傍にあり $v\in\mathcal H_T$ なら
-$
+$$
 \begin{aligned}
 D\mathcal A_T(q)[v]
 ={}&\int_0^T\sum_i m_i\dot q_i\cdot\dot v_i\,dt\\
 &-G_0\int_0^T\sum_{i<j}m_im_j
 \frac{(q_i-q_j)\cdot(v_i-v_j)}{|q_i-q_j|^3}\,dt
 \end{aligned}
-$
+$$
 となります。距離が $\delta/2$ 以上という同じ評価は導関数の連続性も保証するので、この近傍で $\mathcal A_T$ は $C^1$ です。[CELEV1の粒子対微分](../CELEV1/index.md#prop-celev1-first-variation)と式は一致しますが、ここでは $q$ に $C^2$ 正則性を仮定していません。
 
 任意の固定方向 $w\in\mathcal H_T^G$ について、$q_*+sw$ は $|s|$ が十分小さいとき非衝突かつ同変です。局所極小性により
@@ -242,24 +242,24 @@ $$
 [群平均の射影性](#prop-celev4-reynolds)より $P_Gv\in\mathcal H_T^G$ なので、左辺は固定方向の局所極小性から零です。したがって全 $v\in\mathcal H_T$ に対して $D\mathcal A_T(q_*)[v]=0$ となります。これがNewton作用についての対称臨界性の具体的な確認です。
 
 残るのは、$H^1$ の停留点からNewton方程式と速度接合を導くことです。非衝突配置上で連続な力
-$
+$$
 F_i(q)=G_0\sum_{j\ne i}m_im_j
 \frac{q_j-q_i}{|q_j-q_i|^3}
-$
+$$
 を置きます。粒子対 $(i,j)$ と $(j,i)$ の寄与をまとめると、先ほどの第一変分は
-$
+$$
 D\mathcal A_T(q_*)[v]
 =\int_0^T\sum_i
 \left(m_i\dot q_{*,i}\cdot\dot v_i
 +F_i(q_*)\cdot v_i\right)dt
-$
+$$
 です。任意の滑らかな周期試験曲線 $h=(h_i)_i$ に対し、$M=\sum_i m_i$ として
-$
+$$
 c(t)=\frac1M\sum_i m_ih_i(t),
 \qquad v_i(t)=h_i(t)-c(t)
-$
+$$
 と置きます。この $v$ は重心零の周期方向です。一方、$\sum_i m_i\dot q_{*,i}=0$ がほとんどすべての時刻で、また各粒子対の力が相殺され $\sum_iF_i(q_*)=0$ なので、
-$
+$$
 \begin{aligned}
 0=D\mathcal A_T(q_*)[v]
 &=\int_0^T\sum_i
@@ -270,26 +270,26 @@ $
 \underbrace{\sum_i F_i(q_*)}_{=0}\cdot c
 \right)dt.
 \end{aligned}
-$
+$$
 よって最後の等式は各粒子ごとに独立な任意の周期試験方向 $h_i$ に成立します。
 
 まず $h_i$ を $(0,T)$ にコンパクトな台を持つ滑らかな関数に選び、他の成分を零とします。分布微分の定義から
-$
+$$
 m_i\ddot q_{*,i}=F_i(q_*)\quad\text{in }\mathcal D'(0,T)
-$
+$$
 を得ます。$q_*$ は連続で全時刻非衝突なので右辺 $F_i(q_*(t))$ は連続です。従って $\dot q_{*,i}$ の弱微分は連続関数 $F_i(q_*)/m_i$ であり、
-$
+$$
 \dot q_{*,i}(t)=v_i^0+
 \frac1{m_i}\int_0^tF_i(q_*(s))\,ds
-$
+$$
 という連続代表を持ちます（$v_i^0$ は積分定数）。この式をもう一度積分すれば $q_{*,i}\in C^2([0,T])$、かつNewton方程式が各時刻で成立します。
 
 最後に任意の滑らかな周期方向 $h$ に対し部分積分します。内部では $m_i\ddot q_{*,i}=F_i(q_*)$ なので
-$
+$$
 0=\left[\sum_i m_i\dot q_{*,i}\cdot h_i\right]_0^T
 =\sum_i m_i\bigl(\dot q_{*,i}(T)-\dot q_{*,i}(0)\bigr)
 \cdot h_i(0).
-$
+$$
 各 $h_i(0)=h_i(T)$ は独立に任意のベクトルへ選べるため、$\dot q_{*,i}(T)=\dot q_{*,i}(0)$ が全 $i$ について従います。位置の端点一致は $\mathcal H_T$ の定義に含まれます。これで[CELEV1の周期停留条件](../CELEV1/index.md#prop-celev1-periodic-stationarity)にも必要な $C^2$ 正則性を**先に証明した**ことになり、主張が閉じます。$\square$
 <!-- proof-end -->
 
@@ -302,9 +302,9 @@ $
 時刻 $t$ を動かさない群要素の集合を $G_t=\{g\in G:\tau_gt=t\}$ と置きます。また $H\subset G$ に対し、粒子番号 $i$ を固定する部分群を $H_i=\{h\in H:\sigma_h(i)=i\}$ と書きます。これらはそれぞれ時刻と粒子番号の**安定化群**です。
 
 ここで時刻 $t$ における同変な配置の変形量を $\delta=(\delta_i)$ とすると、[同変条件](#def-celev4-equivariant-loop)を元の配置と変形後の配置について差し引くことで
-$
+$$
 \delta_{\sigma_h(i)}=\rho_h\delta_i\qquad(h\in G_t)
-$
+$$
 が必要です。特に $h\in(G_t)_i$ なら左辺は $\delta_i$ なので $\rho_h\delta_i=\delta_i$ です。逆に、この固定条件を満たす $\delta_i$ から同じ粒子軌道上の $\delta_{\sigma_h(i)}$ を上式で定めても、$h$ の選び方に依存しません。実際 $\sigma_h(i)=\sigma_k(i)$ なら $k^{-1}h\in(G_t)_i$ であり、$\rho_h\delta_i=\rho_k\rho_{k^{-1}h}\delta_i=\rho_k\delta_i$ だからです。したがって固定ベクトルの空間は**対称性を壊さず粒子を動かせる方向**を表します。衝突回避に必要な変形方向を円周上で平均できるか、という条件が次です。
 
 <a id="def-celev4-rotating-circle"></a>
