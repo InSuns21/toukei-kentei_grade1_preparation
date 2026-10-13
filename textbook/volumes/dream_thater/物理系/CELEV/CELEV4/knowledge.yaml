@@ -1,0 +1,61 @@
+chapter: CELEV4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV3
+  - CELEV2
+  - CELEV1
+  - VAR9
+forward_references: []
+concepts:
+  - id: celestial-variational.equivariant-loop
+    name: 有限群の対称作用と同変ループ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群の対称作用と同変ループ）"]
+    aliases: []
+    requires:
+      - celestial-variational.centered-periodic-loop
+  - id: celestial-variational.group-averaging
+    name: 有限群平均と作用不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限群平均と作用不変性）"]
+    aliases: []
+    requires:
+      - celestial-variational.equivariant-loop
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.equivariant-coercivity
+    name: 固定定数配置が零のときの最小点の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定定数配置が零のときの最小点の存在）"]
+    aliases: []
+    requires:
+      - celestial-variational.equivariant-loop
+      - calculus-of-variations.mean-zero-poincare
+      - celestial-variational.newton-action-weak-lsc
+  - id: celestial-variational.symmetric-criticality
+    name: 有限群の対称臨界性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限群の対称臨界性）"]
+    aliases: []
+    requires:
+      - celestial-variational.group-averaging
+  - id: celestial-variational.rotating-circle-property
+    name: 回転円条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回転円条件）"]
+    aliases: []
+    requires:
+      - celestial-variational.equivariant-loop
+  - id: celestial-variational.ferrario-terracini-collisionless
+    name: Ferrario–Terraciniの同変極小点衝突排除
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ferrario–Terraciniの同変極小点衝突排除：外部定理）"]
+    aliases: []
+    requires:
+      - celestial-variational.rotating-circle-property
