@@ -339,7 +339,11 @@ $$
 G_q(x):=\frac{1}{v_dq^d}\int_{\mathbb R^d}|f(y)-f(x)|\boldsymbol{1}_{\{|y-x|<q\}}\,dy
 $$
 
-と置きます。$f$ は可測なので被積分関数は $(x,y)$ の非負可測関数であり、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $x\mapsto G_q(x)$ は可測です。固定した有限値の $f(x)$ と $r>0$ に対し、$h_x(y):=|f(y)-f(x)|$ は $B(x,2r)$ 上で可積分です。$s\to r$ のとき球の対称差 $B(x,s)\mathbin{\triangle}B(x,r)$ の測度が0へ近づくので、[積分の絶対連続性](../../MT/MT4/index.md#thm-mt4-integral-absolute-continuity)により
+と置きます。$f$ は可測なので、被積分関数は $(x,y)$ の非負可測関数です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $x\mapsto G_q(x)$ は可測です。
+
+次に半径についての連続性を調べます。有限値の $f(x)$ と $r>0$ を固定すると、$h_x(y):=|f(y)-f(x)|$ は $B(x,2r)$ 上で可積分です。
+
+$s\to r$ では、球の対称差 $B(x,s)\mathbin{\triangle}B(x,r)$ の測度が0へ近づきます。そのため [積分の絶対連続性](../../MT/MT4/index.md#thm-mt4-integral-absolute-continuity)から
 
 $$
 \int_{B(x,s)}h_x(y)\,dy\longrightarrow\int_{B(x,r)}h_x(y)\,dy.
