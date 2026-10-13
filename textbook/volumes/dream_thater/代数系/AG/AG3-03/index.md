@@ -276,7 +276,15 @@ $$
 
 $A/I$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $I$ を含む素イデアルです。逆に $I\subseteq\mathfrak p$ が素なら $(A/I)/(\mathfrak p/I)\simeq A/\mathfrak p$ が整域なので $\mathfrak p/I$ は素です。これは逆対応となり点像は $V_A(I)$ です。$J\subseteq A$ の閉集合 $V_A(J)\cap V_A(I)$ は商側の $V_{A/I}((I+J)/I)$ に対応します。$V_A(I)$ の相対閉集合がすべてこの形なので同相です。
 
-局所分数 $a/s$ の像は $(a+I)/(s+I)$ であり、$s\notin\mathfrak p$ なので分母の条件を満たします。任意の商側の分数が持ち上がるから全射です。核に入るのは、ある $u\notin\mathfrak p$ に対して $ua\in I$ となる $a/s$ です。そのとき $a/s=(ua)/(us)\in IA_{\mathfrak p}$ です。逆に $IA_{\mathfrak p}$ の元はすべて0へ写るので核が一致します。[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)から商の同型が従います。
+局所分数 $a/s$ の像は $(a+I)/(s+I)$ です。分母は $s\notin\mathfrak p$ なので商側でも許されます。任意の商側の分数を分子・分母ごとに持ち上げられるため、茎の準同型は全射です。
+
+その核を求めます。$a/s$ が0に写るのは、ある $u\notin\mathfrak p$ について $ua\in I$ となる場合です。そこで
+
+$
+\frac{a}{s}=\frac{ua}{us}\in IA_{\mathfrak p}
+$
+
+です。逆に $IA_{\mathfrak p}$ の元はすべて商側で0になるので、核は $IA_{\mathfrak p}$ に一致します。[環の第一同型定理](../../RNG/RNG1/index.md#thm-rng1-first-isomorphism-ring)により、茎の商環表示を得ます。
 <!-- proof-end -->
 
 $A=k[t]$、$I=(t^2)$ では $V(t^2)=V(t)$ ですが、$(A/I)_{(t)/(t^2)}$ には $t$ の非零な平方零剰余類が残ります。$I=(t)$ とした場合の茎は体 $k$ なので、同じ閉集合にも異なる局所環が付きます。
@@ -421,7 +429,15 @@ $R=k[t]_{(t)}$、$K=k(t)$、$X=\operatorname{Spec}R$、$Y=\operatorname{Spec}K$ 
 
 $Y$ は一点なので $f$ は連続です。$U=X$ の切断の引き戻しは $R\hookrightarrow K$ とします。$tR\notin U$ なら $f^{-1}(U)=\varnothing$ なので、切断を零環 $\mathcal O_Y(\varnothing)$ に送る唯一の準同型を使います。制限との両立性はこの二場合で直接確認できます。従って環の層の射にはなります。
 
-しかし $Y$ の点での茎写像は $R\hookrightarrow K$ であり、極大イデアル $(0)\subset K$ の逆像は $(0)\subset R$ です。これは $R$ の極大イデアル $tR$ と異なり、[局所性](#def-ag3-03-morphism)が破れます。これに対して[環準同型によるスペクトル射](#thm-ag3-03-spec-map)では、$K$ の唯一の素点 $(0)$ の逆像は $R$ の一般点 $(0)$ です。したがって同じ全体切断準同型でも、局所性を課さなければ閉点への偽の射を除外できません。
+しかし $Y$ の点での茎の写像は包含 $R\hookrightarrow K$ です。$K$ の極大イデアルは $(0)$ であり、その逆像は $(0)\subset R$ です。$R$ の極大イデアルは $tR$ なので、
+
+$
+(R\hookrightarrow K)^{-1}((0))=(0)\ne tR
+$
+
+となり、[局所準同型の条件](#def-ag3-03-morphism)を満たしません。
+
+一方、[環準同型が定める射](#thm-ag3-03-spec-map)では $K$ の唯一の素点 $(0)$ は $R$ の一般点 $(0)$ へ写ります。同じ全体切断の準同型でも、茎の局所性を要求することによって、閉点を選ぶ誤った点写像を除外できるわけです。
 <!-- solution-end -->
 
 次章ではアフィンスキームを共通の開部分で貼り合わせ、単一の環では全体を表しにくい空間を構成します。
