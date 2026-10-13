@@ -8,6 +8,7 @@ prerequisites:
   - AG2-11
   - AG1-10
   - AG1-05
+  - MOD2
 forward_references: []
 concepts:
   - id: algebraic-geometry.flat-module
