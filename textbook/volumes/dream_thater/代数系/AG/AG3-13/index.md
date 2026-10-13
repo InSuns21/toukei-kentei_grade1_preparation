@@ -33,7 +33,7 @@ $$
 
 <!-- definition-example-start: def-ag3-13-local-intersection -->
 
-**定義の直接確認。** $f=y$、$g=y-x^3$、$p=(0,0)$ とすると、$Q_p(f,g)\simeq k[x]_{(x)}/(x^3)$ です。分母の定数項が非零の多項式はこの商で逆元を持ち、$1,x,x^2$ が $k$-基底です。従って $I_p(y,y-x^3)=3$ です。一方 $f=g=y$ なら $Q_p(y,y)\simeq k[x]_{(x)}$ で、$1,x,x^2,\ldots$ が一次独立のため有限の値を割り当てられません。共通成分を持つ場合へ、この定義を機械的に適用できない理由です。
+**定義の確認** $f=y$、$g=y-x^3$、$p=(0,0)$ とすると、$Q_p(f,g)\simeq k[x]_{(x)}/(x^3)$ です。分母の定数項が非零の多項式はこの商で逆元を持ち、$1,x,x^2$ が $k$-基底です。従って $I_p(y,y-x^3)=3$ です。一方 $f=g=y$ なら $Q_p(y,y)\simeq k[x]_{(x)}$ で、$1,x,x^2,\ldots$ が一次独立のため有限の値を割り当てられません。共通成分を持つ場合へ、この定義を機械的に適用できない理由です。
 
 <!-- definition-example-end -->
 
@@ -174,7 +174,7 @@ $
 
 <!-- definition-example-start: def-ag3-13-first-order-deformation -->
 
-**定義の直接確認。** $F=xy$、$G=-1$ なら $xy=\epsilon$ です。$\epsilon=0$ では二直線の交叉 $xy=0$ ですが、一次のパラメータを含む方程式へ変わっています。$G=x$ なら $xy+\epsilon x=x(y+\epsilon)$ となり、$y'=y+\epsilon$ という座標変更で $xy=0$ に戻ります。二つの変形は同じ性質ではありません。
+**定義の確認** $F=xy$、$G=-1$ なら $xy=\epsilon$ です。$\epsilon=0$ では二直線の交叉 $xy=0$ ですが、一次のパラメータを含む方程式へ変わっています。$G=x$ なら $xy+\epsilon x=x(y+\epsilon)$ となり、$y'=y+\epsilon$ という座標変更で $xy=0$ に戻ります。二つの変形は同じ性質ではありません。
 
 <!-- definition-example-end -->
 
