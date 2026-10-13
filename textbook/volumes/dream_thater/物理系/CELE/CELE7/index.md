@@ -342,7 +342,24 @@ S^n(x,y)=(x+ny,y),\qquad
 DS^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}.
 $$
 
-$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。逆行列も $\begin{pmatrix}1&-n\\0&1\end{pmatrix}$ なので、Euclidノルムで、$DS^n v=v+(nb,0)$ だから三角不等式と $|b|\le\|v\|$ より $\|DS^n v\|\le(n+1)\|v\|$ です。逆行列 $DS^{-n}$ も $w=(c,d)$ を $w+(-nd,0)$ に移すので、同じ評価を $w=DS^n v$ に適用すると $\|v\|\le(n+1)\|DS^n v\|$。従って
+$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。Euclidノルムと三角不等式から、$|b|\le\|v\|$ を使って
+
+$$
+\|DS^n v\|
+=\|v+(nb,0)\|
+\le\|v\|+n|b|
+\le(n+1)\|v\|.
+$$
+
+逆行列 $DS^{-n}=\begin{pmatrix}1&-n\\0&1\end{pmatrix}$ にも同じ評価を適用できます。$w=DS^n v$ と置けば
+
+$$
+\|v\|=\|DS^{-n}w\|
+\le(n+1)\|w\|
+=(n+1)\|DS^n v\|.
+$$
+
+従って
 
 $$
 \frac1{n+1}\|v\|\le\|DS^n v\|\le(n+1)\|v\|,\qquad n\ge1.
