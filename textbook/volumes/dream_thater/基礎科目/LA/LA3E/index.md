@@ -568,30 +568,36 @@ $$
 > **定義（双線形形式）**  
 > 有限次元の $\mathbb F$ ベクトル空間 $V$（$\mathbb F=\mathbb R$ または $\mathbb C$）に対し、写像 $B:V\times V\to\mathbb F$ が各引数について線形であるとき、$B$ を **双線形形式** という。すなわち任意の $u,u',v,v'\in V$ と $a,b\in\mathbb F$ に対して
 >
-$
+$$
 \begin{aligned}
 B(au+bu',v)&=aB(u,v)+bB(u',v),\\
 B(u,av+bv')&=aB(u,v)+bB(u,v')
 \end{aligned}
-$
+$$
 >
 > が成立する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la3e-bilinear-form -->
 **定義の確認**。$V=\mathbb R^2$、$u=(x,y)$、$v=(s,t)$ として $B(u,v)=xt-ys$ と置きます。$u'=(x',y')$ に対し
-$
+$$
 \begin{aligned}
 B(au+bu',v)
 &=(ax+bx')t-(ay+by')s\\
 &=a(xt-ys)+b(x't-y's)\\
 &=aB(u,v)+bB(u',v).
 \end{aligned}
-$
-$
-B(u,av+bv')=aB(u,v)+bB(u,v')
-$
-も $v'=(s',t')$ を代入して同じように展開できます。したがって $B$ は双線形形式です。
+$$
+第二引数についても $v'=(s',t')$ として
+$$
+\begin{aligned}
+B(u,av+bv')
+&=x(at+bt')-y(as+bs')\\
+&=a(xt-ys)+b(xt'-ys')\\
+&=aB(u,v)+bB(u,v').
+\end{aligned}
+$$
+従って $B$ は双線形形式です。
 <!-- definition-example-end -->
 
 双線形形式が一つの方向をまったく検出できない場合を考えます。例えば $B((x,y),(s,t))=xs$ では、$u=(0,1)$ にどんな $v=(s,t)$ を組み合わせても $B(u,v)=0$ です。このような方向を排除する条件は、形式が対称か交代かに関係なく共通に定義できます。
@@ -602,18 +608,18 @@ $
 > **定義（双線形形式の非退化性）**  
 > 有限次元の $\mathbb F$ ベクトル空間 $V$ 上の双線形形式 $B$ が
 >
-$
+$$
 \bigl[B(u,v)=0\quad(\forall v\in V)\bigr]\Longrightarrow u=0
-$
+$$
 >
 > を満たすとき、$B$ を **非退化** という。そうでないとき **退化** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la3e-nondegenerate-bilinear-form -->
 **定義の確認**。先ほどの面積形式 $B((x,y),(s,t))=xt-ys$ で、$B(u,v)=0$ がすべての $v$ に対して成立すると仮定します。$v=(0,1)$ と $v=(1,0)$ を代入して
-$
+$$
 B(u,(0,1))=x=0,\qquad B(u,(1,0))=-y=0
-$
+$$
 を得ます。ゆえに $u=0$ であり非退化です。一方 $B((x,y),(s,t))=xs$ は $u=(0,1)\ne0$ がすべての $v$ と組にして零になるので退化しています。
 <!-- definition-example-end -->
 
@@ -627,9 +633,9 @@ $
 > **命題（双線形形式の行列表示と非退化性）**  
 > $m$ 次元 $\mathbb F$ ベクトル空間 $V$ 上の双線形形式 $B$ と基底 $e_1,\ldots,e_m$ を取る。$A=(B(e_i,e_j))_{1\le i,j\le m}$ とすると、任意の $u,v\in V$ に対し
 >
-$
+$$
 B(u,v)=[u]^{\mathsf T}A[v]
-$
+$$
 >
 > が成立する。さらに $B$ が非退化であることと、$A$ が可逆（$\det A\ne0$）であることは同値である。
 <!-- formal-statement-end -->
@@ -642,7 +648,7 @@ $
 ### 証明
 
 $u=\sum_i u_i e_i$、$v=\sum_j v_j e_j$ と書くと、双線形性より
-$
+$$
 \begin{aligned}
 B(u,v)
 &=B\left(\sum_i u_ie_i,\sum_j v_je_j\right)\\
@@ -650,29 +656,29 @@ B(u,v)
 &=\sum_{i,j}u_iv_jB(e_i,e_j)\\
 &=[u]^{\mathsf T}A[v].
 \end{aligned}
-$
+$$
 
 任意の $v$ の座標 $[v]$ は $\mathbb F^m$ 全体を動きます。したがって
-$
+$$
 \begin{aligned}
 B(u,v)=0\ (\forall v\in V)
 &\Longleftrightarrow [u]^{\mathsf T}A=0\\
 &\Longleftrightarrow A^{\mathsf T}[u]=0.
 \end{aligned}
-$
+$$
 これは標準基底の各座標ベクトルを順に $[v]$ に代入しても確かめられます。よって非退化性は $\ker A^{\mathsf T}=\{0\}$ と同値です。$A$ は正方行列なので、これは $A^{\mathsf T}$、従って $A$ が可逆であることと同値です。$\square$
 <!-- proof-end -->
 
 **行列による直接例**。$B((x,y),(s,t))=xt-ys$ では
-$
+$$
 A=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
 \qquad \det A=1.
-$
+$$
 一方 $B((x,y),(s,t))=xs$ では
-$
+$$
 A=\begin{pmatrix}1&0\\0&0\end{pmatrix},
 \qquad \det A=0.
-$
+$$
 先ほど定義から調べた非退化性と一致します。後にLorentz幾何で扱う対称形式と、シンプレクティック幾何で扱う交代形式は、**行列の対称性こそ異なりますが、非退化性の判定には同じ命題を使います**。
 
 ---
