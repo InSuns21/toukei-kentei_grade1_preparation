@@ -179,7 +179,7 @@ $dz^k\wedge dz^I\wedge d\bar z^J$ は $(p+1,q)$ 型であり、$d\bar z^k\wedge 
 
 ## 4. 二乗すると零になる理由
 
-正則座標での係数公式は便利だが、$\partial^2$ や $\bar\partial^2$ の値を全ての係数について計算するのは煩雑である。[外微分の二乗零](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)と型分解の一意性を使うと、一度に三つの恒等式を得られる。
+正則座標での係数公式は便利だが、$\partial^2$ や $\bar\partial^2$ の値を全ての係数について計算するのは煩雑である。[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)と型分解の一意性を使うと、一度に三つの恒等式を得られる。
 
 <a id="thm-cm2-02-double-complex-identities"></a>
 
