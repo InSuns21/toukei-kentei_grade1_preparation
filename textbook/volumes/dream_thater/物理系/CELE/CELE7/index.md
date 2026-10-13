@@ -342,7 +342,14 @@ S^n(x,y)=(x+ny,y),\qquad
 DS^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}.
 $$
 
-$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。$N=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ と置けば $DS^n=\mathrm{Id}+nN$ であり、Euclidノルムに対して $\|Nv\|=|b|\le\|v\|$ です。三角不等式から
+$v=(a,b)\ne0$ について $DS^n v=(a+nb,b)$。次の行列を使うと、伸長を三角不等式で評価できます。
+
+$
+N=\begin{pmatrix}0&1\\0&0\end{pmatrix},\qquad
+DS^n=\mathrm{Id}+nN,\qquad Nv=(b,0).
+$
+
+Euclidノルムでは $\|Nv\|=|b|\le\|v\|$ なので
 
 $
 \|DS^n v\|\le\|v\|+n\|Nv\|\le(n+1)\|v\|.
