@@ -1,0 +1,50 @@
+id: "VAR12"
+title: "第二変分作用素・Morse指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VAR2
+  - VAR5
+  - VAR8
+  - VAR11
+  - FOU1
+  - GPDE5
+  - GPDE7
+official_scope: []
+learning_objectives:
+  - Morse指数と零化次数を負定値部分空間と双線形形式の核から定義し等方方向と区別できる
+  - H0^1上の第二変分形式とL2上のSturm微分作用素の定義域を区別できる
+  - 固定端点Sturm作用素の自己共役性とコンパクトなシフト逆作用素を証明できる
+  - 正弦関数による負方向構成と分割Wirtinger評価の両側からMorse指数と零化次数を算出できる
+  - 定曲率測地線で内部共役点と終点共役が指数・零化次数へ寄与する違いを証明できる
+  - 等式制約下のLagrangian Hessianを接空間上で導き制約ありとなしの指数を区別できる
+  - 固定端点作用の指数と時間発展の安定性・Floquet乗数を混同せず反例で示せる
+definitions:
+  - { id: VAR12-DEF-01, name: "Morse指数と零化次数" }
+  - { id: VAR12-DEF-02, name: "固定端点の第二変分作用素" }
+theorems:
+  - { id: VAR12-PROP-01, name: "第二変分作用素の自己共役性" }
+  - { id: VAR12-THM-01, name: "Dirichlet Sturm模型のMorse指数と零化次数" }
+  - { id: VAR12-PROP-02, name: "定曲率測地線のMorse指数と共役点の個数" }
+  - { id: VAR12-PROP-03, name: "滑らかな等式制約下の第二変分" }
+canonical_examples:
+  - 三次元対角二次形式の指数と零化次数
+  - Dirichlet区間の固有値と臨界閾値
+  - 定曲率球面測地線の内部共役点と終点共役
+  - 円周拘束でのLagrangian Hessianと曲率項
+  - 調和振動子の作用Hessianと有界な時間発展
+problem_patterns:
+  - VAR12-INDEX-NULLITY
+  - VAR12-DIRICHLET-EIGEN
+  - VAR12-SECOND-DERIVATIVE
+  - VAR12-CONJUGATE-ENDPOINT
+  - VAR12-LINEAR-CONSTRAINT
+  - VAR12-STURM-CODIMENSION
+  - VAR12-CURVED-CONSTRAINT
+  - VAR12-MECHANICAL-STABILITY
+  - VAR12-PERIODIC-BOUNDARY
+  - VAR12-CURVATURE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.0 }
