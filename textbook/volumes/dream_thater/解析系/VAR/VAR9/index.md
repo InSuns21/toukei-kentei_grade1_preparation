@@ -179,14 +179,14 @@ $$
 
 <!-- definition-example-start: def-var9-weak-lsc -->
 **定義の確認**。 $J(u)=\int_I|u'|^2$ は弱逐次下半連続です。実際、導関数写像 $D:H^1(I)\to L^2(I)$ は
-$
+$$
 \|Dv\|_2=\|v'\|_2\le\|v\|_{H^1}
-$
+$$
 を満たす有界線形作用素です。任意の $w\in L^2(I)$ に対して、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
-$
+$$
 \left|\int_Iv'w\,dt\right|\le\|v'\|_2\|w\|_2
 \le\|v\|_{H^1}\|w\|_2
-$
+$$
 です。従って $v\mapsto\int_Iv'w$ は $H^1$ 上の有界線形汎関数なので、$u_n\rightharpoonup u$ in $H^1$ なら $u_n'\rightharpoonup u'$ in $L^2$ です。$w=u'$、$z=u_n'$ とおくと
 $$
 0\le\|z-w\|_2^2
@@ -381,17 +381,17 @@ $$
 J_f(u+c)=J_f(u)-c\int_If=J_f(u).
 $$
 存在は（1）の一意な最小点 $u_*$ を用いて示せます。任意の周期 $u$ に対し、平均を $\bar u=L^{-1}\int_Iu$ とすると、$\int_If=0$ より
-$
+$$
 u-\bar u\in\mathcal P_0,\qquad J_f(u)=J_f(u-\bar u)
-$
+$$
 です。ゆえに $u_*$ は周期集合全体でも最小です。
 
 逆に周期集合の任意の最小点 $u$ について、$u-\bar u$ も $\mathcal P_0$ 上の最小点なので、（1）の一意性から $u-\bar u=u_*$ です。したがって最小点の全体は $u_*+c$（$c\in\mathbb R$）となります。
 
 さらに $u_n=u_*+n$ とおけば
-$
+$$
 \|u_n\|_{H^1}\to\infty,\qquad J_f(u_n)=J_f(u_*)
-$
+$$
 なので、周期集合上の強制性も成立しません。
 <!-- proof-end -->
 
