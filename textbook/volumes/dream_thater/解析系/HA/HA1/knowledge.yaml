@@ -1,0 +1,86 @@
+chapter: HA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT4
+  - MT7
+  - FOU3
+forward_references: []
+
+concepts:
+  - id: harmonic.ha1-centered-maximal
+    name: 中心付きHardy--Littlewood最大作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中心付きHardy--Littlewood最大作用素）]
+    requires: []
+
+  - id: harmonic.ha1-uncentered-maximal
+    name: 非中心Hardy--Littlewood最大作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非中心Hardy--Littlewood最大作用素）]
+    requires: [harmonic.ha1-centered-maximal]
+
+  - id: harmonic.ha1-maximal-basic
+    name: 最大作用素の基本性質
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（最大作用素の基本性質）]
+    requires: [harmonic.ha1-centered-maximal, harmonic.ha1-uncentered-maximal]
+
+  - id: harmonic.ha1-finite-ball-covering
+    name: 有限球の3倍被覆
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限球の3倍被覆）]
+    requires: []
+
+  - id: harmonic.ha1-weak11
+    name: Hardy--Littlewood最大作用素の弱(1,1)評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hardy--Littlewood最大作用素の弱(1,1)評価）]
+    requires: [harmonic.ha1-centered-maximal, harmonic.ha1-finite-ball-covering]
+
+  - id: harmonic.ha1-lebesgue-point
+    name: Lebesgue点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lebesgue点）]
+    requires: []
+
+  - id: harmonic.ha1-differentiation
+    name: 高次元Lebesgue微分定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（高次元Lebesgue微分定理）]
+    requires: [harmonic.ha1-weak11, harmonic.ha1-lebesgue-point]
+
+  - id: harmonic.ha1-cube-differentiation
+    name: 球と立方体による微分の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球と立方体による微分の一致）]
+    requires: [harmonic.ha1-lebesgue-point]
+
+  - id: harmonic.ha1-density
+    name: 高次元Lebesgue密度定理
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（高次元Lebesgue密度定理）]
+    requires: [harmonic.ha1-differentiation, harmonic.ha1-cube-differentiation]
+
+  - id: harmonic.ha1-approximate-identity
+    name: コンパクト台の近似恒等族
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（コンパクト台の近似恒等族）]
+    requires: [harmonic.ha1-lebesgue-point]
+
+  - id: harmonic.ha1-no-strong11
+    name: 強い(1,1)評価の失敗
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（強い(1,1)評価の失敗）]
+    requires: [harmonic.ha1-centered-maximal]
