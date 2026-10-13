@@ -444,7 +444,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（分離量の単純零点から横断交差へ）**  
-> $\omega>0$ を固定し、次の周期強制振り子の自律拡大系を考える。
+> $\omega>0$ を固定し、次の周期強制振り子を考える。位相 $\phi$ と共役作用 $J$ を加えた自律二自由度Hamilton系で議論する。
 >
 $$
 H_\varepsilon(q,p,t)=\frac{p^2}{2}+\cos q+\varepsilon\cos q\cos(\omega t).
