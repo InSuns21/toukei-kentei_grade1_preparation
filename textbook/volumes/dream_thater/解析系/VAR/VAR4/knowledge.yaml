@@ -1,0 +1,45 @@
+chapter: VAR4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR1
+  - VAR2
+  - VAR3
+  - GEO12
+  - GEO13
+  - GEO14
+  - GEO17
+  - AMECH3
+forward_references:
+  - geometry.energy-second-variation
+  - geometry.jacobi-field
+
+concepts:
+  - id: calculus-of-variations.metric-kinetic-lagrangian
+    name: 計量の運動エネルギーLagrangian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計量の運動エネルギーLagrangian）"]
+    requires:
+      - geometry.riemannian-metric
+      - geometry.riemannian-curve-energy
+
+  - id: calculus-of-variations.metric-el-geodesic-bridge
+    name: 計量Lagrangianと測地線方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（計量Lagrangianと測地線方程式）"]
+    requires:
+      - calculus-of-variations.metric-kinetic-lagrangian
+      - geometry.geodesic-equation
+      - geometry.geodesic-energy-critical
+
+  - id: calculus-of-variations.length-energy-reparam-critical
+    name: 再パラメータ化と二種類の停留性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再パラメータ化と二種類の停留性）"]
+    requires:
+      - geometry.length-first-variation
+      - geometry.geodesic-affine-reparametrization
+      - geometry.geodesic-energy-critical
