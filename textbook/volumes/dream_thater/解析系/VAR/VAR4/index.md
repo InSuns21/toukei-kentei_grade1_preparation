@@ -308,7 +308,15 @@ $$
 
 [VAR2の第二変分と最小性の区別](../VAR2/index.md#thm-var2-necessary)と同じく、測地線であることは第一変分が消えるという条件にすぎません。最短性をいうには比較する端点、曲線クラス、区間の大きさを固定する必要があります。
 
-[GEO14のGaussの補題](../../../幾何系/GEO/GEO14/index.md#thm-geo14-gauss-lemma)は、点 $p$ から指数写像で出る放射方向と角方向が直交するという結果です。[正規球内の放射測地線の最短性](../../../幾何系/GEO/GEO14/index.md#thm-geo14-radial-minimizing)ではこの直交性を利用します。$U=\exp_p(B_R(0))$（$B_R(0)\subset T_pM$）を $p$ の正規球とし、$v\in B_R(0)$ と $q=\exp_p(v)$ を定めます。$p$ から $q$ へ至る放射測地線 $\gamma(t)=\exp_p(tv)$、$0\le t\le1$ について
+[GEO14のGaussの補題](../../../幾何系/GEO/GEO14/index.md#thm-geo14-gauss-lemma)は、指数写像で出る放射方向と角方向が直交するという結果です。[正規球内の放射測地線の最短性](../../../幾何系/GEO/GEO14/index.md#thm-geo14-radial-minimizing)ではこの直交性を利用します。
+
+点 $p\in M$ と半径 $R>0$ を固定し、$B_R(0)\subset T_pM$ を接空間内の開球として
+
+$
+U=\exp_p(B_R(0)),\qquad v\in B_R(0),\qquad q=\exp_p(v)\in U
+$
+
+と置きます。$U$ は $p$ の正規球とします。$p$ から $q$ へ至る放射測地線 $\gamma(t)=\exp_p(tv)$、$0\le t\le1$ について
 
 $$
 L[\gamma]=|v|_g,\qquad E[\gamma]=\frac12|v|_g^2
