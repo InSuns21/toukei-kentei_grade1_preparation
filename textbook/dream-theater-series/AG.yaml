@@ -104,7 +104,7 @@ chapters:
     title: "射影平面三次曲線とquintic"
   - id: AG3-01
     path: textbook/volumes/dream_thater/代数系/AG/AG3-01
-    status: planned
+    status: completed
     title: "関手的視点とSpec"
   - id: AG3-02
     path: textbook/volumes/dream_thater/代数系/AG/AG3-02
