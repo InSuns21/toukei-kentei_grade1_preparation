@@ -87,7 +87,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\varphi$ の台を含む大きな円板から半径 $\varepsilon$ の閉円板を除いた領域を $D_\varepsilon$ とする。$z\ne0$ では $\partial_{\bar z}(1/z)=0$ だから
+$\varphi$ の台が半径 $R$ の円板の内部に含まれるよう $R>0$ を取り、$0<\varepsilon<R$ に対して $D_\varepsilon=\{\varepsilon<|z|<R\}$ とする。$z\ne0$ では $\partial_{\bar z}(1/z)=0$ だから
 
 $$
 \partial_{\bar z}\!\left(\frac{\varphi}{z}\right)
@@ -102,7 +102,7 @@ $$
 \qquad dA=\rho\,d\rho\,d\theta
 $$
 
-が成り立つ。$\varphi$ の台を半径 $R$ の円板の内部に取ると、$\theta$ に関する偏導関数の積分は周期性から零になるので、
+が成り立つ。上で選んだ $R$ に対し、$\theta$ に関する偏導関数の積分は周期性から零になるので、
 
 $$
 \begin{aligned}
