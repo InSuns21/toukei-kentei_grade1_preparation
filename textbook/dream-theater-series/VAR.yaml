@@ -45,7 +45,7 @@ chapters:
     title: "H¹弱収束と最小化の直接法"
   - id: VAR10
     path: textbook/volumes/dream_thater/解析系/VAR/VAR10
-    status: planned
+    status: completed
     title: "Tonelli型存在論・弱Euler–Lagrange方程式と正則性"
   - id: VAR11
     path: textbook/volumes/dream_thater/解析系/VAR/VAR11
