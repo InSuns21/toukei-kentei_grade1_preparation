@@ -1,0 +1,67 @@
+chapter: CM2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-10
+  - CM2-04
+  - CA3
+forward_references:
+  - geometry.distribution-local-frame
+  - algebraic-geometry.line-bundle-transition
+  - algebraic-geometry.invertible-sheaf
+
+concepts:
+  - id: complex-manifolds.holomorphic-line-bundle
+    name: 正則線束と局所自明化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則線束と局所自明化）"]
+    requires: [complex-manifolds.projective-atlas]
+  - id: complex-manifolds.line-bundle-transition
+    name: 遷移関数と余輪条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（遷移関数と余輪条件）"]
+    requires: [complex-manifolds.holomorphic-line-bundle]
+  - id: complex-manifolds.line-bundle-cocycle
+    name: 局所枠が与える余輪
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所枠が与える余輪）"]
+    requires: [complex-manifolds.line-bundle-transition]
+  - id: complex-manifolds.line-bundle-gluing
+    name: 遷移関数による正則線束の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（遷移関数による正則線束の構成）"]
+    requires: [complex-manifolds.line-bundle-transition]
+  - id: complex-manifolds.holomorphic-line-section
+    name: 正則切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則切断）"]
+    requires: [complex-manifolds.holomorphic-line-bundle]
+  - id: complex-manifolds.line-bundle-frame-change
+    name: 枠の変更と正則自明性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（枠の変更と正則自明性）"]
+    requires: [complex-manifolds.line-bundle-transition, complex-manifolds.holomorphic-line-section]
+  - id: complex-manifolds.projective-tautological-line
+    name: 射影直線の普遍線束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影直線の普遍線束）"]
+    requires: [complex-manifolds.holomorphic-line-bundle, complex-manifolds.projective-atlas]
+  - id: complex-manifolds.tautological-nontrivial
+    name: 普遍線束の非自明性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（普遍線束の非自明性）"]
+    requires: [complex-manifolds.projective-tautological-line, complex-manifolds.line-bundle-frame-change]
+  - id: complex-manifolds.ok-holomorphic-sections
+    name: 射影直線のねじれ線束の大域正則切断
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線のねじれ線束の大域正則切断）"]
+    requires: [complex-manifolds.line-bundle-gluing, complex-manifolds.holomorphic-line-section]

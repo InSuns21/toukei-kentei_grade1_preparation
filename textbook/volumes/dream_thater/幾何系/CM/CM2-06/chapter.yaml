@@ -1,0 +1,44 @@
+id: "CM2-06"
+title: "正則線束・遷移関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-10
+  - CM2-04
+  - CA3
+official_scope: []
+learning_objectives:
+  - 正則線束と局所自明化を定義し自明束で条件を確かめられる
+  - 局所枠から遷移関数と余輪条件を導出できる
+  - 乗法的余輪から正則線束を貼り合わせて構成できる
+  - 正則切断の係数の変換則と枠の変更公式を区別して計算できる
+  - 大域非零正則切断と正則自明性の同値を証明できる
+  - 射影直線の普遍線束の遷移関数と非自明性を証明できる
+  - O(k)の大域正則切断を多項式として分類できる
+  - 正則写像の引き戻しで遷移関数が合成されることを具体例で確認できる
+definitions:
+  - { id: CM2-06-DEF-01, name: 正則線束と局所自明化 }
+  - { id: CM2-06-DEF-02, name: 遷移関数と余輪条件 }
+  - { id: CM2-06-DEF-03, name: 正則切断 }
+  - { id: CM2-06-DEF-04, name: 射影直線の普遍線束 }
+theorems:
+  - { id: CM2-06-PROP-01, name: 局所枠が与える余輪 }
+  - { id: CM2-06-THM-01, name: 遷移関数による正則線束の構成 }
+  - { id: CM2-06-PROP-02, name: 枠の変更と正則自明性 }
+  - { id: CM2-06-THM-02, name: 普遍線束の非自明性 }
+  - { id: CM2-06-PROP-03, name: 射影直線のねじれ線束の大域正則切断 }
+canonical_examples:
+  - 自明束上の恒等自明化と三枚の局所枠
+  - 射影直線上の普遍線束とzの負一次の遷移関数
+  - O(1)の非零切断の零点と正則非自明性
+  - O(k)の多項式切断と次元
+problem_patterns:
+  - CM2-06-COCYCLE
+  - CM2-06-GLUING
+  - CM2-06-SECTION
+  - CM2-06-TRIVIALITY
+  - CM2-06-PROJECTIVE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
