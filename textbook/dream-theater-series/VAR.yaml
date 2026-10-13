@@ -9,7 +9,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: VAR1
     path: textbook/volumes/dream_thater/解析系/VAR/VAR1
-    status: planned
+    status: completed
     title: "汎関数・第一変分・Euler–Lagrange方程式"
   - id: VAR2
     path: textbook/volumes/dream_thater/解析系/VAR/VAR2

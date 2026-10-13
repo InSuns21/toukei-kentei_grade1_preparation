@@ -1,0 +1,33 @@
+id: "VAR1"
+title: "汎関数・第一変分・Euler–Lagrange方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH3
+  - VC2
+official_scope: []
+learning_objectives:
+  - 固定端・自由端の許容クラスと許容方向を区別し、変分が拘束を保つ条件を検証できる
+  - 第一変分の連鎖律と部分積分を計算し内部方程式と端点項を分離できる
+  - 自然境界条件の必要十分性を端点方向の独立性から証明できる
+  - 区分的滑らかな曲線の運動量接合条件を導き固定角点・移動角点を区別できる
+  - Weierstrass–Erdmannの二つの接合条件を移動端の積分微分から導ける
+  - 等周拘束の正則性を検査し制約を保つ変分とLagrange乗数の導出を証明できる
+  - 最短グラフと懸垂線の第一積分を中間計算から導出できる
+  - 停留性と大域最小性を別々に検証し第二変分・直接法が必要になる理由を説明できる
+definitions:
+  - { id: VAR1-DEF-01, name: "許容曲線と許容変分" }
+  - { id: VAR1-DEF-02, name: "第一変分と停留曲線" }
+  - { id: VAR1-DEF-03, name: "等周拘束と正則性" }
+theorems:
+  - { id: VAR1-PROP-01, name: "第一変分と境界項" }
+  - { id: VAR1-THM-01, name: "自然境界条件" }
+  - { id: VAR1-THM-02, name: "固定位置の角点と運動量接合" }
+  - { id: VAR1-THM-03, name: "Weierstrass–Erdmannの接合条件" }
+  - { id: VAR1-THM-04, name: "正則な等周拘束のLagrange乗数" }
+canonical_examples: [片端自由の二次汎関数, 媒質不連続な固定接合, 最短グラフの大域最小性, 懸垂線, 正則性を欠く等周拘束]
+problem_patterns: [VAR1-ADMISSIBLE-1, VAR1-FIRST-1, VAR1-NATURAL-1, VAR1-CORNER-1, VAR1-FLUX-1, VAR1-IRREGULAR-1, VAR1-LENGTH-1, VAR1-CATENARY-1, VAR1-WEIERSTRASS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 1.5 }
