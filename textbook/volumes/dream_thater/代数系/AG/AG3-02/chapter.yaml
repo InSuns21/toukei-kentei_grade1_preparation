@@ -1,0 +1,47 @@
+id: "AG3-02"
+title: "素スペクトルの位相と構造層"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-01
+  - AG1-04
+  - AG2-05
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 任意の可換環についてV(I)が定めるZariski位相とD(f)の開基を証明できる
+  - 素点の閉包と特殊化を包含関係で求め環準同型による連続写像を説明できる
+  - 主開集合の準コンパクト性を根基イデアルによって証明できる
+  - 点ごとの局所分数表示から構造層を定め制限と貼り合わせを検証できる
+  - 主開集合の切断環と局所化の同型を貼り合わせの具体計算から再構成できる
+  - 素点の茎が局所環に一致することを証明し冪零元の例で位相との違いを説明できる
+definitions:
+  - { id: AG3-02-DEF-01, name: 素スペクトルのZariski閉集合と主開集合 }
+  - { id: AG3-02-DEF-02, name: 素スペクトルの構造層 }
+theorems:
+  - { id: AG3-02-PROP-01, name: Zariski位相と主開基 }
+  - { id: AG3-02-PROP-02, name: 素点の閉包と特殊化 }
+  - { id: AG3-02-PROP-03, name: 環準同型が定める連続写像 }
+  - { id: AG3-02-THM-01, name: 主開集合の準コンパクト性 }
+  - { id: AG3-02-PROP-04, name: 構造層の制限と貼り合わせ }
+  - { id: AG3-02-THM-02, name: 主開集合の切断環 }
+  - { id: AG3-02-THM-03, name: 素点での構造層の茎 }
+canonical_examples:
+  - 一変数多項式環の一般点と閉点およびD(t)の切断
+  - 冪零元をもつ厚み付き一点の構造層
+  - 二本の座標軸の局所化と交わり
+problem_patterns:
+  - AG3-02-A1
+  - AG3-02-A2
+  - AG3-02-A3
+  - AG3-02-A4
+  - AG3-02-B1
+  - AG3-02-B2
+  - AG3-02-B3
+  - AG3-02-B4
+  - AG3-02-C1
+  - AG3-02-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 11, review: 5 }
