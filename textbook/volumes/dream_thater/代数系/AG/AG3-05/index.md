@@ -10,7 +10,7 @@
 
 まず $R$ を可換環、$B,C$ を $R$ から環準同型を備えた可換環とします。$B$ と $C$ の元を掛け合わせるだけではなく、$r\in R$ をどちらから作用させても一致するという条件が必要です。
 
-そのために $R$-加群のテンソル積 $B\otimes_R C$ を取り、純テンソルに
+そのために $R$-加群のテンソル積 $B\otimes_R C$ を使います。これは記号 $b\otimes c$ の有限和で、$(b+b')\otimes c=b\otimes c+b'\otimes c$、$b\otimes(c+c')=b\otimes c+b\otimes c'$、$(rb)\otimes c=b\otimes(rc)$ を課した加群です。この関係を満たす任意の双加法的な写像は $B\otimes_R C$ からの一意な加法写像に延長されます。純テンソルに
 
 $$
 (b\otimes c)(b'\otimes c')=bb'\otimes cc',
@@ -110,16 +110,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $R[x_1,\ldots,x_n]\otimes_R C\to C[x_1,\ldots,x_n]$ を
+$F=R[x_1,\ldots,x_n]$、$B=F/I$ とします。まず $R$ の係数を $C$ の元として読めるので、自然な環準同型 $F\to C[x_1,\ldots,x_n]$ があります。$J=I_C$ と置き、$E=C[x_1,\ldots,x_n]/J$ を考えます。
+
+**$E$ からテンソル積への写像。** $C[x_1,\ldots,x_n]\to B\otimes_R C$ を
 
 $$
-\left(\sum_\nu r_\nu x^\nu\right)\otimes c
-\longmapsto\sum_\nu (r_\nu c)x^\nu
+c\longmapsto1_B\otimes c,\qquad
+x_i\longmapsto \bar x_i\otimes1_C
 $$
 
-で定めます（$r_\nu c$ は $R\to C$ の作用）。逆写像は $c x^\nu\mapsto x^\nu\otimes c$ です。両者は単項式で逆になり、加法・積を保存するため環同型です。
+で定めます。$f\in I$ は $B$ で零なので、$f$ の係数を $C$ へ移した多項式の像は $0\otimes1=0$ です。この環準同型は $J$ を殺すため、商環 $E$ からの準同型 $\varphi:E\to B\otimes_R C$ を誘導します。
 
-次に $R[x_1,\ldots,x_n]\to B$ の商写像と $C$ のテンソル積で、$B\otimes_R C$ は $R[x_1,\ldots,x_n]\otimes_R C$ の像となります。核は $f\otimes c$（$f\in I$、$c\in C$）の有限和の集合です。これは、任意のテンソルを持つ二つの加群の生成元と関係式からテンソル積を作ると、$I$ の関係式を追加することに等しいことから従います。上の同型の下で核はまさに $I_C$ です。したがって主張の同型が成立します。
+**テンソル積から $E$ への写像。** $b\in B$ に対して代表元 $p(x)\in F$ を選び、その係数を $C$ へ送った多項式の $E$ における類を $p_C(x)+J$ と書きます。代表元が $p'(x)$ に変わっても $p-p'\in I$ より $p_C-p'_C\in J$ ですから、これは $b$ のみに依存します。
+
+$$
+B\times C\longrightarrow E,\qquad
+(b,c)\longmapsto c\,p_C(x)+J
+$$
+
+は加法的かつ $R$-平衡的です。従ってテンソル積の定義により加法準同型 $\psi:B\otimes_R C\to E$ を誘導します。純テンソルの積について
+
+$$
+\psi((b\otimes c)(b'\otimes c'))
+=cc'\,(pp')_C+J
+=\psi(b\otimes c)\psi(b'\otimes c')
+$$
+
+なので環準同型です。$\psi(1\otimes1)=1$ も成立します。
+
+最後に $\psi\varphi$ は $C$ と各 $x_i$ に恒等的に作用するため $E$ の恒等写像です。逆向きの $\varphi\psi$ は $b\otimes c=(b\otimes1)(1\otimes c)$ の各因子を保つので、すべての純テンソル上で恒等となり、有限和でも恒等です。よって $\varphi$ と $\psi$ は互いに逆であり、主張の同型を得ます。
 <!-- proof-end -->
 
 **具体計算。** $R=k[t]$、$B=k[x]$（$t\mapsto x^2$）、$C=k[y]$（$t\mapsto y^2$）では、$B\simeq R[x]/(x^2-t)$、$C\simeq R[y]/(y^2-t)$ なので
