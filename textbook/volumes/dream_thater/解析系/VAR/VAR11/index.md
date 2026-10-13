@@ -46,7 +46,7 @@ $b=0$ でも同じ極限は0です。しかし $y=x^2$ に沿えば $g(x,x^2)=x/
 $$
 D\Phi(u)=0.
 $$
-> Riesz表現で得られる勾配は各 $h\in H$ に対して
+> [Riesz表現定理](../../F0/F0-02C2/index.md#ref-riesz-representation)で得られる勾配は各 $h\in H$ に対して
 $$
 D\Phi(u)h=\langle\nabla\Phi(u),h\rangle
 $$
@@ -293,7 +293,41 @@ V(u)=
 $$
 と定義します。第一の場合 $2\eta<\rho$ より分母は $\delta^2$ 以上です。$\nabla\Phi$ の局所Lipschitz性、$\Phi$ の局所Lipschitz性、$\chi=0$ となる帯の境界から、$V$ は境界をまたいでも局所Lipschitzです。また $\|V(u)\|\le1/\delta$ が全域で成り立ちます。
 
-従って常微分方程式 $\dot u=V(u)$ は各初期値から局所一意解を持ち、速度が一様有界なので有限時刻に発散せず、全ての $s\ge0$ まで延長できます。流れを $T_s(u)$ と書くと、連鎖律から
+無限次元でもこの常微分方程式を解けることを確かめます。初期点 $u_0\in H$ を固定すると、局所Lipschitz性から、ある $a,L>0$ について球 $B(u_0,a)$ 上で
+$$
+\|V(v)-V(w)\|\le L\|v-w\|
+$$
+が成り立ちます。$0<b<a$ を取り、$\tau>0$ を $\tau/\delta\le b$ かつ $L\tau<1$ となるように選びます。$[0,\tau]$ から閉球 $\overline B(u_0,b)$ への連続写像全体に一様ノルムを入れ、
+$$
+(\mathcal Tu)(s)=u_0+\int_0^s V(u(\sigma))\,d\sigma
+$$
+と置きます。$\|V\|\le1/\delta$ なので $\|\mathcal Tu(s)-u_0\|\le\tau/\delta\le b$、また
+$$
+\|\mathcal Tu-\mathcal Tv\|_\infty
+\le L\tau\|u-v\|_\infty.
+$$
+従って $\mathcal T$ は完備な閉集合上の縮小写像です。反復 $u_{k+1}=\mathcal Tu_k$ の差は $(L\tau)^k$ 倍以下となり、一様Cauchy列として唯一の固定点に収束します。固定点は積分方程式を満たすので $\dot u=V(u)$ の局所解です。
+
+その解が有限の最大時刻 $T$ で止まると仮定すると、$0\le s<t<T$ について
+$$
+\|u(t)-u(s)\|
+\le\int_s^t\|V(u(\sigma))\|\,d\sigma
+\le(t-s)/\delta.
+$$
+よって $t\uparrow T$ で $u(t)$ はCauchyとなり、完備な $H$ 内の極限点から同じ局所構成をやり直して $T$ を越えて延長できます。これは最大性に反するため、解は全ての $s\ge0$ まで存在します。流れを $T_s(u)$ と書きます。
+
+初期値への連続依存性も同じ局所評価から従います。近接する二つの解の距離 $w(s)=\|u(s)-v(s)\|$ は、共通のLipschitz近傍内で
+$$
+w(s)\le w(0)+L\int_0^s w(\sigma)\,d\sigma
+$$
+を満たします。この不等式を $N$ 回代入すると、$M=\sup_{0\le\sigma\le\tau}w(\sigma)$ を用いて
+$$
+w(s)\le w(0)\sum_{j=0}^{N-1}\frac{(Ls)^j}{j!}
++M\frac{(Ls)^N}{N!}.
+$$
+$N\to\infty$ で $w(s)\le e^{Ls}w(0)$。有限時間区間はこうした近傍の有限個で覆えるため、各固定時刻 $s$ の写像 $T_s$ は連続です。
+
+流れに沿って連鎖律を適用すると、
 $$
 \frac d{ds}\Phi(T_s(u))
 =\langle\nabla\Phi(T_s(u)),V(T_s(u))\rangle
@@ -321,7 +355,23 @@ $$
 \Phi(x,y)=x^2(x-2)^2+y^2
 \ge \alpha>0
 $$
-となる $\alpha$ は存在します。実際、半径1の円上で $\Phi=0$ なら $y=0$ かつ $x=0$ または2となり半径1と矛盾し、コンパクト性により正の最小値が存在します。全経路は $x=1$ を通り、その点で $\Phi(1,y)=1+y^2\ge1$。$y=0$ の直線経路では最大値1なので $c=1$。$(1,0)$ は臨界点で、Hessianは $\operatorname{diag}(-4,2)$、最小点ではなく鞍点です。
+となる正の $\alpha$ が存在することを確かめます。半径1の円周上でエネルギーが零なら、二つの非負項がともに零です。したがって $y=0$ かつ $x=0$ または $2$ となり、半径1という条件に反します。
+
+円周を次のように媒介変数表示します。
+$$
+(x,y)=(\cos t,\sin t),\qquad 0\le t\le2\pi.
+$$
+この区間で $t\mapsto\Phi(\cos t,\sin t)$ は連続かつ常に正です。[Weierstrassの最大最小定理](../../../基礎科目/F0/F0-00C2/index.md#thm-f0-00c2-01)により、最小値を達成し、その値も正となります。これを $\alpha$ とします。
+
+一方、任意の端点間の経路は第一座標が1になる点を通り、そこでの値は
+$$
+\Phi(1,y)=1+y^2\ge1.
+$$
+したがって最大エネルギーは1以上です。第二座標を0に保つ直線経路は最大値1を達成するので、minimax値は $c=1$ です。点 $(1,0)$ の勾配は零で、Hessianは
+$$
+D^2\Phi(1,0)=\operatorname{diag}(-4,2).
+$$
+正負の固有値をともに持つため、ここは最小点ではなく鞍点です。
 
 この汎関数は多項式なので勾配は局所Lipschitz、$\Phi$ が一定値以下に収まる点の集合は有界です。有限次元では有界列は収束部分列を持つため各レベルで(PS)も満たします。無限次元では同じ結論を言うには別途コンパクト性の証明が必要です。
 
@@ -507,11 +557,22 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\|u+h\|^2=\|u\|^2+2\langle u,h\rangle+\|h\|^2$ による多項式展開から
+$a=\|u\|^2$、$b=2\langle u,h\rangle+\|h\|^2$ と置くと $\|u+h\|^2=a+b$ なので
+$$
+\begin{aligned}
+\Phi(u+h)-\Phi(u)
+&=\frac12b-\frac14\bigl((a+b)^2-a^2\bigr)\\
+&=\frac12(1-a)b-\frac14b^2\\
+&=(1-\|u\|^2)\langle u,h\rangle
++\frac12(1-\|u\|^2)\|h\|^2-\frac14b^2.
+\end{aligned}
+$$
+固定した $u$ について $|b|\le2\|u\|\|h\|+\|h\|^2$ なので、最後の二項は $O(\|h\|^2)$ です。従ってFréchet微分と勾配は
 $$
 D\Phi(u)h=(1-\|u\|^2)\langle u,h\rangle,
-\qquad \nabla\Phi(u)=(1-\|u\|^2)u.
+\qquad \nabla\Phi(u)=(1-\|u\|^2)u
 $$
+であり、$u$ に関して連続です。
 $\|u\|=1$ なら $\nabla\Phi(u)=0$、$\Phi(u)=1/2-1/4=1/4$ です。無限次元Hilbert空間には正規直交列 $(e_n)$ があり、各 $e_n$ はレベル $1/4$ の臨界点なのでPS列です。しかし $\|e_n-e_m\|=\sqrt2$ で収束部分列はありません。臨界点が存在していても、そのレベルの(PS)は破れ得ます。
 <!-- solution-end -->
 
@@ -553,7 +614,36 @@ $$
 $$
 従って $c=1$ です。
 
-**2.** $\Phi(x,y)\to\infty$ as $\|(x,y)\|\to\infty$ です。実際 $|y|\to\infty$ なら $y^2\to\infty$、$|x|\to\infty$ なら $x^2(x-2)^2\to\infty$ です。どのPS列も $\Phi(u_n)\to c_0$ なので、ある $M\in\mathbb R$ に対する集合 $\{u:\Phi(u)\le M\}$ に、十分大きな添字で入ります、有限次元のBolzano–Weierstrass定理で強収束部分列を持ちます。従って全レベルで(PS)。導関数を計算すると
+**2.** まずエネルギーを上から抑えた点は有界な範囲に入ることを示します。実際、第二項が非負であることから
+$$
+\Phi(x,y)\le M\quad\Longrightarrow\quad |y|\le\sqrt M
+$$
+です（ここでは $M\ge0$）。また $|x|\ge4$ なら $|x-2|\ge|x|/2$ なので
+$$
+\Phi(x,y)\ge x^2(x-2)^2\ge\frac{x^4}{4}.
+$$
+よって同時に $\Phi(x,y)\le M$ なら、第一座標は
+$$
+|x|\le\max\{4,(4M)^{1/4}\}
+$$
+を満たします。したがってエネルギーが上に有界なら座標も有界です。
+
+任意のPS列を $u_n=(x_n,y_n)$ と書き、そのエネルギー極限を $c_0$ とします。十分大きな添字では
+$$
+\Phi(u_n)\le c_0+1
+$$
+なので、上の評価から両座標列は有界です。
+
+[実数列のBolzano–Weierstrassの定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-bolzano-weierstrass)を第一座標に適用し、さらに選んだ部分列の第二座標に適用すると
+$$
+x_{n_{k_j}}\longrightarrow x_*,
+\qquad y_{n_{k_j}}\longrightarrow y_*.
+$$
+先に得た第一座標の収束は部分列を取っても保たれます。従って
+$$
+u_{n_{k_j}}\longrightarrow(x_*,y_*)\qquad\text{in }\mathbb R^2.
+$$
+従って全レベルで(PS)条件が成り立ちます。導関数を計算すると
 $$
 \nabla\Phi(x,y)=(4x(x-1)(x-2),\,2y).
 $$
