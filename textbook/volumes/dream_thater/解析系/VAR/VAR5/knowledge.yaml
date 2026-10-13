@@ -10,6 +10,7 @@ prerequisites:
   - GEO17
 forward_references:
   - geometry.hopf-rinow-theorem
+  - geometry.cut-point
 
 concepts:
   - id: calculus-of-variations.constant-curvature-index-threshold
