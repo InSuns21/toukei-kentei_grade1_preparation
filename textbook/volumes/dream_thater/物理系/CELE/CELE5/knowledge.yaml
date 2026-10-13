@@ -1,0 +1,71 @@
+chapter: CELE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE4
+  - CELE1
+  - INT1
+  - INT3
+  - INT4
+  - INT7
+  - CA3
+  - RA6A
+forward_references: []
+
+concepts:
+  - id: celestial.disturbing-function
+    name: 円制限三体問題の一次摂動関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円制限三体問題の一次摂動関数）"]
+    aliases: []
+    requires:
+      - celestial.cr3bp-rotating-hamiltonian
+
+  - id: celestial.cr3bp-small-mass-expansion
+    name: 円制限三体問題の小質量比展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円制限三体問題の小質量比展開）"]
+    aliases: []
+    requires:
+      - celestial.disturbing-function
+
+  - id: celestial.resonance-obstruction
+    name: 共鳴における一次障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共鳴における一次障害）"]
+    aliases: []
+    requires:
+      - integrable.integer-resonance
+      - integrable.first-integral
+
+  - id: celestial.poincare-resonance-set
+    name: Poincaré共鳴集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poincaré共鳴集合）"]
+    aliases: []
+    requires:
+      - celestial.resonance-obstruction
+
+  - id: celestial.poincare-analytic-nonintegrability
+    name: Poincaré型の解析的非可積分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Poincaré型の解析的非可積分性）"]
+    aliases: []
+    requires:
+      - celestial.poincare-resonance-set
+      - celestial.resonance-obstruction
+
+  - id: celestial.rotating-kepler-degeneracy
+    name: 回転Kepler極限のHessian退化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転Kepler極限のHessian退化）"]
+    aliases: []
+    requires:
+      - celestial.poincare-analytic-nonintegrability
+      - celestial.disturbing-function

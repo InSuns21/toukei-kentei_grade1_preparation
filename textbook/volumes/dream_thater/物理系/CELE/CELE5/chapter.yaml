@@ -1,0 +1,48 @@
+id: "CELE5"
+title: "Poincaré・摂動・非可積分性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE4
+  - CELE1
+  - INT1
+  - INT3
+  - INT4
+  - INT7
+  - CA3
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 二自由度のPoincaré断面を定義域と帰還時刻を検査して計算できる
+  - 円制限三体問題のHamiltonianを質量比について展開し一次摂動関数を導ける
+  - 近可積分系の第一積分の一次係数比較から共鳴障害を導ける
+  - Poincaré共鳴集合の稠密性と解析的第一積分の関数的従属性の証明を再現できる
+  - 全Fourierモードを持つ解析模型と有限モード可積分模型の違いを説明できる
+  - 回転Kepler極限の作用Hessian退化を計算し適用不能な仮定を特定できる
+  - 断面図の複雑さと指定クラスの第一積分不存在を区別できる
+definitions:
+  - { id: CELE5-DEF-01, name: "円制限三体問題の一次摂動関数" }
+  - { id: CELE5-DEF-02, name: "Poincaré共鳴集合" }
+theorems:
+  - { id: CELE5-PROP-01, name: "円制限三体問題の小質量比展開" }
+  - { id: CELE5-PROP-02, name: "共鳴における一次障害" }
+  - { id: CELE5-THM-01, name: "Poincaré型の解析的非可積分性" }
+  - { id: CELE5-PROP-03, name: "回転Kepler極限のHessian退化" }
+canonical_examples:
+  - "非衝突点で円制限三体の一次摂動係数を直接計算"
+  - "断面上で有理周波数比による二周期点を確認"
+  - "共鳴k=(1,-1)の障害式を具体的に計算"
+  - "全整数Fourierモードの解析模型で共鳴稠密性を証明"
+  - "有限モードの角度対称性から第二保存量を発見"
+  - "回転Kepler作用のHessian退化で定理の適用境界を確認"
+problem_patterns:
+  - CELE5-DISTURBING-EXPANSION
+  - CELE5-POINCARE-RETURN
+  - CELE5-FIRST-ORDER-OBSTRUCTION
+  - CELE5-POINCARE-RESONANCE-DENSITY
+  - CELE5-NONINTEGRABILITY-REVIEW
+  - CELE5-KEPLER-DEGENERACY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
