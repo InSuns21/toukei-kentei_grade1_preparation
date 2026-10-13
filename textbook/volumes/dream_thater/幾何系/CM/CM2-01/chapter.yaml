@@ -1,0 +1,44 @@
+id: "CM2-01"
+title: "(p,q)形式と型分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-04
+  - GEO7
+official_scope: []
+learning_objectives:
+  - 複素接空間の型分解を双対化して型別余接空間を定義し局所双対基底を検証できる
+  - (p,q)形式を型別余接空間の外冪として構成し直接例で入力方向を評価できる
+  - 複素k形式の型分解の存在一意性と各型の複素次元を基底から証明できる
+  - 正則座標変換が型を保存することをWirtinger微分の連鎖律で証明できる
+  - 外積の型・符号・複素共役の型交換を計算できる
+  - 実(1,1)形式のHermite係数条件を導出し具体的に検証できる
+  - 正則写像の引き戻しによる型保存と次元超過時の消滅を証明できる
+  - 実滑らかな非正則座標変更では型が混ざる理由を反例で説明できる
+definitions:
+  - { id: CM2-01-DEF-01, name: 型別複素余接空間 }
+  - { id: CM2-01-DEF-02, name: (p,q)形式 }
+theorems:
+  - { id: CM2-01-PROP-01, name: 余接空間の直和と局所基底 }
+  - { id: CM2-01-THM-01, name: 複素微分形式の型分解 }
+  - { id: CM2-01-THM-02, name: (p,q)型の座標不変性 }
+  - { id: CM2-01-PROP-02, name: 外積の型と複素共役 }
+  - { id: CM2-01-PROP-03, name: 実(1,1)形式の係数判定 }
+  - { id: CM2-01-PROP-04, name: 正則引き戻しの型保存 }
+canonical_examples:
+  - dzとdbar zによる双対基底の実評価
+  - 複素次元2の2形式の(2,0)(1,1)(0,2)分解と次元
+  - 正則な剪断座標と非正則な実座標変更の対比
+  - 実(1,1)形式のHermite係数行列
+  - 次元が異なる正則写像の引き戻しと消滅
+problem_patterns:
+  - CM2-01-COTANGENT-DUAL
+  - CM2-01-PQ-DECOMPOSITION
+  - CM2-01-TYPE-INVARIANCE
+  - CM2-01-WEDGE-CONJUGATION
+  - CM2-01-REAL-ELEVEN
+  - CM2-01-HOLOMORPHIC-PULLBACK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
