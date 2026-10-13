@@ -26,7 +26,7 @@ theorems:
   - { id: CM2-06-THM-01, name: 遷移関数による正則線束の構成 }
   - { id: CM2-06-PROP-02, name: 枠の変更と正則自明性 }
   - { id: CM2-06-THM-02, name: 普遍線束の非自明性 }
-  - { id: CM2-06-PROP-03, name: O(k)の大域正則切断 }
+  - { id: CM2-06-PROP-03, name: 射影直線のねじれ線束の大域正則切断 }
 canonical_examples:
   - 自明束上の恒等自明化と三枚の局所枠
   - 射影直線上の普遍線束とzの負一次の遷移関数
