@@ -1,0 +1,45 @@
+chapter: CM1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-06
+  - CM1-01
+  - GEO5
+
+concepts:
+  - id: complex-manifolds.integrable-almost-complex-structure
+    name: 概複素構造の積分可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（概複素構造の積分可能性）"]
+    requires: [complex-manifolds.almost-complex-structure, complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.j-holomorphic-function
+    name: J正則関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$J$ 正則関数）"]
+    requires: [complex-manifolds.type-tangent-bundles]
+  - id: complex-manifolds.compatible-coordinate-criterion
+    name: 適合座標の関数による判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（適合座標の関数による判定）"]
+    requires: [complex-manifolds.integrable-almost-complex-structure, complex-manifolds.j-holomorphic-function]
+  - id: complex-manifolds.newlander-nirenberg
+    name: Newlander–Nirenberg定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Newlander–Nirenberg定理）"]
+    requires: [complex-manifolds.integrable-almost-complex-structure, complex-manifolds.nijenhuis-bracket-equivalence]
+  - id: complex-manifolds.local-bracket-compatibility
+    name: 局所一次方程式の交換子整合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所一次方程式の交換子整合条件）"]
+    requires: [complex-manifolds.type-bracket-closure, geometry.lie-bracket]
+  - id: complex-manifolds.dimension-one-integrability
+    name: 実二次元の概複素構造は積分可能
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（実二次元の概複素構造は積分可能）"]
+    requires: [complex-manifolds.newlander-nirenberg, complex-manifolds.nijenhuis-bracket-equivalence]
