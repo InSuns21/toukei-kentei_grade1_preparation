@@ -800,6 +800,7 @@
 3. [AG3-03 局所環付き空間とアフィンスキーム](textbook/volumes/dream_thater/代数系/AG/AG3-03/index.md)
 4. [AG3-04 スキームの貼り合わせと射](textbook/volumes/dream_thater/代数系/AG/AG3-04/index.md)
 5. [AG3-05 ファイバー積と基底変換](textbook/volumes/dream_thater/代数系/AG/AG3-05/index.md)
+6. [AG3-06 準連接層・連接層](textbook/volumes/dream_thater/代数系/AG/AG3-06/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
