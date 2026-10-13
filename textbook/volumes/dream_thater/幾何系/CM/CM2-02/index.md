@@ -172,7 +172,11 @@ $dz^j$ と $d\bar z^j$ 自身は閉形式なので、外微分は係数だけに
 
 $dz^k\wedge dz^I\wedge d\bar z^J$ は $(p+1,q)$ 型であり、$d\bar z^k\wedge dz^I\wedge d\bar z^J$ は $(p,q+1)$ 型である。従ってこれ以外の型成分はなく、和は $d\alpha$ に等しい。
 
-正則座標 $z,w$ を重なる領域で二組取る。[型別形式の座標不変性](../CM2-01/index.md#thm-cm2-01-coordinate-invariance)により $\mathcal A^{r,s}$ の各部分空間は座標によらず定まる。[外微分の座標不変性](../../GEO/GEO7/index.md#thm-geo7-exterior-invariant-formula)により $d\alpha$ 自身も座標で変わらない。[型分解の一意性](../CM2-01/index.md#thm-cm2-01-type-decomposition)から $d\alpha$ の $(p+1,q)$、$(p,q+1)$ 成分も一致する。よって $\partial\alpha,\bar\partial\alpha$ は重なりで整合し、大域的に定まる。境界 $p=n$、$q=n$ では対応する外積は交代性により零となる。$\square$
+正則座標 $z,w$ を重なる領域で二組取る。[型別形式の座標不変性](../CM2-01/index.md#thm-cm2-01-coordinate-invariance)により、形式が $(r,s)$ 型であることは座標によらない。一方、[外微分の座標不変性](../../GEO/GEO7/index.md#thm-geo7-exterior-invariant-formula)により $d\alpha$ も座標で変わらない。
+
+この二つを合わせて [型分解の一意性](../CM2-01/index.md#thm-cm2-01-type-decomposition)を適用すると、$d\alpha$ の $(p+1,q)$ 成分と $(p,q+1)$ 成分は両座標で一致する。従って $\partial\alpha$ と $\bar\partial\alpha$ は大域的に定まる。
+
+境界 $p=n$ または $q=n$ では対応する外積が交代性により零となるので、同じ構成が成立する。$\square$
 <!-- proof-end -->
 
 ここで必要なのは、$X$ が正則座標変換で結ばれたアトラスを持つ複素多様体であることだ。一般の概複素構造だけでは $d$ が上記二型にしか移らないとは限らず、以後の二重複体の証明をそのまま移すことはできない。
@@ -368,7 +372,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正則なら各座標変数で複素微分可能なので Cauchy–Riemann 条件を満たし、$f_{\bar z^j}=0$ である。逆に全ての $f_{\bar z^j}=0$ なら、各座標変数に他の変数を固定した制限は $C^1$ 級で Cauchy–Riemann 条件を満たすので正則となる。さらに実微分の存在と連続性により、増分 $h\in\mathbb C^n$ について $f(z+h)-f(z)=D_{\mathbb R}f(z)[h]+o(\|h\|)$ である。Cauchy–Riemann 条件はこの実微分が複素線形であることを意味するので、$f$ は複素微分可能であり、[高次元正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を満たす。最後に $\{d\bar z^j\}$ が独立な局所基底であることから、$\bar\partial f=0$ と各係数の消滅が同値となる。$\square$
+正則なら、各座標変数に関する複素微分可能性から Cauchy–Riemann 条件を満たす。よって全ての $f_{\bar z^j}$ は零となる。
+
+逆に全ての $f_{\bar z^j}$ が零とする。$f$ は $C^1$ 級だから実微分が存在し、任意の増分 $h\in\mathbb C^n$ に対して
+
+$
+f(z+h)-f(z)=D_{\mathbb R}f(z)[h]+o(\|h\|)
+$
+
+が成り立つ。各座標方向の Cauchy–Riemann 条件は実微分 $D_{\mathbb R}f(z)$ が複素線形であることを意味する。従って上の式は複素線形な主項を持ち、[高次元正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)から $f$ は正則となる。
+
+最後に $d\bar z^1,\ldots,d\bar z^n$ は独立な余接基底なので、$\bar\partial f=0$ と全ての $f_{\bar z^j}=0$ は同値である。$\square$
 <!-- proof-end -->
 
 なおこの判定は滑らかな関数に対する $\bar\partial$ の定義を先に構成した上での結果であり、$\bar\partial$ 方程式 $\bar\partial u=\gamma$ を任意の $\gamma$ について解けると主張しているわけではない。局所可解性の条件とその証明は次章で扱う。
