@@ -16,7 +16,7 @@ chapters:
     title: 弱Lpと補間
   - id: HA3
     path: textbook/volumes/dream_thater/解析系/HA/HA3
-    status: planned
+    status: completed
     title: Hilbert変換と主値
   - id: HA4
     path: textbook/volumes/dream_thater/解析系/HA/HA4

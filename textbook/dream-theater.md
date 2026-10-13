@@ -209,6 +209,7 @@
 
 1. [HA1 高次元最大作用素とLebesgue微分定理](textbook/volumes/dream_thater/解析系/HA/HA1/index.md)
 2. [HA2 弱Lpと補間](textbook/volumes/dream_thater/解析系/HA/HA2/index.md)
+3. [HA3 Hilbert変換と主値](textbook/volumes/dream_thater/解析系/HA/HA3/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>

@@ -1,0 +1,41 @@
+id: "HA3"
+title: "Hilbert変換と主値"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA2
+  - FOU4
+  - MT7
+official_scope: []
+learning_objectives:
+  - 通常のLebesgue積分とCauchy主値積分を区別し、滑らかな関数で消去を用いて主値の存在を証明できる
+  - 二重切断Hilbert変換のFourier乗数を求め、Dirichlet積分の符号と2π正規化を検算できる
+  - Plancherelと一様乗数評価を用いてHilbert変換をL2上で構成し、等長性と二乗が負の恒等作用素になることを示せる
+  - Poisson核と共役Poisson核のFourier変換を導き、共役調和拡張とL2境界収束を証明できる
+  - 有理関数と区間指示関数の主値積分を直接計算し、L2極限と一般関数の点wise主値とを混同しない
+definitions:
+  - { id: HA3-DEF-01, name: Cauchy主値とHilbert変換の切断 }
+  - { id: HA3-DEF-02, name: L2 Hilbert変換 }
+  - { id: HA3-DEF-03, name: Poisson核と共役Poisson核 }
+theorems:
+  - { id: HA3-PROP-01, name: 滑らかな関数の主値の存在 }
+  - { id: HA3-LEM-01, name: Dirichlet積分 }
+  - { id: HA3-THM-01, name: Hilbert変換のFourier乗数とL2構成 }
+  - { id: HA3-COR-01, name: 等長性とHの二乗 }
+  - { id: HA3-PROP-02, name: Poisson核と共役Poisson核の変換対 }
+  - { id: HA3-THM-02, name: Poisson・共役PoissonのL2境界値 }
+  - { id: HA3-PROP-03, name: Poisson核のHilbert変換 }
+canonical_examples:
+  - C1関数での局所消去
+  - 1/(1+x²) のHilbert変換
+  - 区間指示関数の対数特異性と端点での主値不成立
+problem_patterns:
+  - HA3-PRINCIPAL-VALUE
+  - HA3-DIRICHLET-MULTIPLIER
+  - HA3-L2-ISOMETRY
+  - HA3-POISSON
+  - HA3-INTERVAL-LOG
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

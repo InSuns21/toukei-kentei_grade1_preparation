@@ -1,0 +1,79 @@
+chapter: HA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA2
+  - FOU4
+  - MT7
+forward_references: []
+
+concepts:
+  - id: harmonic.ha3-pv
+    name: Cauchy主値積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Cauchy主値と切断Hilbert変換）]
+    requires: []
+
+  - id: harmonic.ha3-pointwise
+    name: 滑らかな関数のHilbert主値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（滑らかな関数の主値の存在）]
+    requires: [harmonic.ha3-pv]
+
+  - id: harmonic.ha3-dirichlet
+    name: Dirichlet積分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Dirichlet積分）]
+    requires: []
+
+  - id: harmonic.ha3-l2
+    name: L2 Hilbert変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（L2 Hilbert変換）]
+    requires: [harmonic.ha3-dirichlet, fourier.fou4-l2-transform]
+
+  - id: harmonic.ha3-multiplier
+    name: Hilbert変換のFourier乗数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hilbert変換のFourier乗数とL2構成）]
+    requires: [harmonic.ha3-dirichlet]
+
+  - id: harmonic.ha3-square
+    name: Hilbert変換の等長性と二乗
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（等長性とHの二乗）]
+    requires: [harmonic.ha3-multiplier]
+
+  - id: harmonic.ha3-poisson-kernels
+    name: Poisson核と共役Poisson核
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Poisson核と共役Poisson核）]
+    requires: []
+
+  - id: harmonic.ha3-poisson-transform
+    name: Poisson核のFourier変換対
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Poisson核と共役Poisson核の変換対）]
+    requires: [harmonic.ha3-poisson-kernels]
+
+  - id: harmonic.ha3-poisson-boundary
+    name: 共役Poisson積分のL2境界値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Poisson積分と共役Poisson積分のL2境界値）]
+    requires: [harmonic.ha3-poisson-transform, harmonic.ha3-multiplier]
+
+  - id: harmonic.ha3-poisson-hilbert
+    name: Poisson核のHilbert変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Poisson核のHilbert変換）]
+    requires: [harmonic.ha3-poisson-transform]
