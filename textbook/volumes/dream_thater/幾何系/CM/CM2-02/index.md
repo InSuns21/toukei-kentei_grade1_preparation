@@ -4,7 +4,7 @@
 
 ## 1. 外微分を二つに分けたい
 
-[前章の型分解定理](../CM2-01/index.md#thm-cm2-01-type-decomposition)によれば、複素多様体上の複素微分形式は、$dz$ の本数 $p$ と $d\bar z$ の本数 $q$ を指定して分類できる。一方、[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative) $d$ は次数を一つ上げる。では、$(p,q)$ 型の形式を微分すると、増えるのはどちらの本数だろうか。
+[複素微分形式の型分解](../CM2-01/index.md#thm-cm2-01-type-decomposition)によれば、複素多様体上の複素微分形式は、$dz$ の本数 $p$ と $d\bar z$ の本数 $q$ を指定して分類できる。一方、[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative) $d$ は次数を一つ上げる。では、$(p,q)$ 型の形式を微分すると、増えるのはどちらの本数だろうか。
 
 まず $\mathbb C$ 上の滑らかな関数 $f(z,\bar z)=z\bar z$ を考える。実座標 $z=x+iy$ では $f=x^2+y^2$ なので、
 
@@ -82,7 +82,7 @@ $$
 
 と書ける。$I,J$ はそれぞれ昇順の多重添字で、$a_{I\bar J}$ は滑らかな複素数値関数である。
 
-[外微分の積の公式](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を項ごとに適用する。$d(dz^j)=d^2z^j=0$、$d(d\bar z^j)=0$ なので、基底1形式の外微分は消える。従って
+[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を項ごとに適用する。$d(dz^j)=d^2z^j=0$、$d(d\bar z^j)=0$ なので、基底1形式の外微分は消える。従って
 
 $$
 \begin{aligned}
@@ -168,14 +168,14 @@ $dz^j$ と $d\bar z^j$ 自身は閉形式なので、外微分は係数だけに
 <!-- proof-start -->
 ### 証明
 
-局所公式は定義の直前に計算した通りである。詳しくは、各基底1形式が $dz^j=d(z^j)$ または $d\bar z^j=d(\bar z^j)$ なので、[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)によりその微分は零となり、外微分の積の公式を使うと係数の一次微分だけが残る。
+局所公式は定義の直前に計算した通りである。詳しくは、各基底1形式が $dz^j=d(z^j)$ または $d\bar z^j=d(\bar z^j)$ なので、[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)によりその微分は零となり、[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使うと係数の一次微分だけが残る。
 
 $dz^k\wedge dz^I\wedge d\bar z^J$ は $(p+1,q)$ 型であり、$d\bar z^k\wedge dz^I\wedge d\bar z^J$ は $(p,q+1)$ 型である。従ってこれ以外の型成分はなく、和は $d\alpha$ に等しい。
 
 正則座標 $z,w$ を重なる領域で二組取る。[型別形式の座標不変性](../CM2-01/index.md#thm-cm2-01-coordinate-invariance)により $\mathcal A^{r,s}$ の各部分空間は座標によらず定まる。[外微分の座標不変性](../../GEO/GEO7/index.md#thm-geo7-exterior-invariant-formula)により $d\alpha$ 自身も座標で変わらない。[型分解の一意性](../CM2-01/index.md#thm-cm2-01-type-decomposition)から $d\alpha$ の $(p+1,q)$、$(p,q+1)$ 成分も一致する。よって $\partial\alpha,\bar\partial\alpha$ は重なりで整合し、大域的に定まる。境界 $p=n$、$q=n$ では対応する外積は交代性により零となる。$\square$
 <!-- proof-end -->
 
-ここで必要なのは、$X$ が正則な遷移関数を持つ複素多様体であることだ。一般の概複素構造だけでは $d$ が上記二型にしか移らないとは限らず、以後の二重複体の証明をそのまま移すことはできない。
+ここで必要なのは、$X$ が正則座標変換で結ばれたアトラスを持つ複素多様体であることだ。一般の概複素構造だけでは $d$ が上記二型にしか移らないとは限らず、以後の二重複体の証明をそのまま移すことはできない。
 
 ## 4. 二乗すると零になる理由
 
@@ -429,7 +429,7 @@ f_{\bar z}&=\tfrac12(f_x+if_y)
 \end{aligned}
 $$
 
-[関数の作用素の定義](#def-cm2-02-wirtinger-operators)から $\partial f=2z\,dz$、$\bar\partial f=0$。$f=z^2$ で正則なこととも一致する。
+[関数に作用する偏微分作用素](#def-cm2-02-wirtinger-operators)から $\partial f=2z\,dz$、$\bar\partial f=0$。$f=z^2$ で正則なこととも一致する。
 <!-- solution-end -->
 
 <a id="ex-cm2-02-a02"></a>
@@ -546,7 +546,7 @@ $$
 #### CM2-02-B02 積の法則の符号
 - Level: B
 
-$\mathbb C^2$ 上で $\alpha=\bar z^1\,dz^2$、$\beta=z^1\,d\bar z^2$ とする。$\bar\partial(\alpha\wedge\beta)$ を直接計算し、次数付き積の法則から求めた答えと照合せよ。
+$\mathbb C^2$ 上で $\alpha=\bar z^1\,dz^2$、$\beta=z^1\,d\bar z^2$ とする。$\bar\partial(\alpha\wedge\beta)$ を直接計算し、[型別の次数付き積の法則](#prop-cm2-02-graded-leibniz)から求めた答えと照合せよ。
 
 <!-- solution-start -->
 **詳細解答**。まず $\alpha\wedge\beta=z^1\bar z^1\,dz^2\wedge d\bar z^2$。局所公式により
@@ -707,4 +707,4 @@ $$
 
 外微分を型で分けた結果、$\partial$ は第一指数を、$\bar\partial$ は第二指数を1増やし、どちらも二乗零、二つを続ける順序は負号を伴って入れ替わる。複素多様体の正則な座標遷移があるから、この構造は局所公式にとどまらず大域的に意味を持つ。
 
-ただし $\bar\partial^2=0$ から分かるのは、$\bar\partial u=\gamma$ を解くための**必要条件** $\bar\partial\gamma=0$ だけである。十分性はまだ示していない。次章で局所的にその方程式を解くための解析を用意する。
+ただし $\bar\partial^2=0$ から言えるのは、方程式 $\bar\partial u=\gamma$ に解 $u$ が存在するなら、両辺に $\bar\partial$ をかけて $\bar\partial\gamma=0$ を満たす、ということだけである。逆にこの条件から解が得られるかはまだ示していない。次章で局所的にその方程式を解くための解析を用意する。
