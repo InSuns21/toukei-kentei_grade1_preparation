@@ -1,54 +1,110 @@
-# DREAM THEATER ローレンツ幾何と大域因果構造 I（LORG系列・講数可変）
+# DREAM THEATER ローレンツ幾何と大域因果構造 I（LORG系列・全21講）
 
 作成・分冊: 2026-10-11  
+改訂: 2026-10-14（標準教科書・論文との範囲照合、証明と依存の再設計）  
 状態: planned（設計のみ。本文実装・公開は未着手）
 
-## 中心問い
+## 中心問いと出口
 
-Riemann幾何や平坦な波動方程式では不足する、この科目固有の幾何・解析・代数は何か。
+正定値なRiemann計量の「距離・最短路・完備性」をそのまま時空へ移せないのはなぜか。局所的な光円錐の情報から、因果関係、初期値を決定できる領域、大域双曲性まで、何を仮定すれば何がいえるか。
 
-## 直接必要な前提・PLAN間依存
+この科目の出口は、**時間向き付きLorentz多様体における局所・大域因果構造を定義・計算し、大域双曲性の定理を仮定付きで使えること**。HPDEが必要とするCauchy超曲面、因果的支持集合、分割の正確な数学的基盤を作る。Einstein方程式の解やブラックホールの物理解釈を主役としない。
 
-- GEO1〜19、線形代数、特殊相対論SRELの必要部分。
-- 経路：[LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md) → [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)はHPDE・OA/VN/QINFからの発展分岐でありMICA全講の一律必修ではない。
+## 直接必要な前提・依存と責務
 
-**講数・ID方針（2026-10-12）**：本PLANの旧15週案は**15個の学習テーマを列挙した草案**であり、15講・15週を完成条件としない。下記の番号は候補IDで、1テーマを複数講に分ける／関連テーマを統合する／必要な補題・演習講を追加してよい。正式なchapter IDと全体講数は着手時に確定し、下流の参照も同時に更新する。証明の閉包と独習者の理解を優先する。
+- 既習の正本：GEO1–GEO19の多様体、テンソル、接続、曲率、指数写像、変分・Jacobi場（**Riemann計量の正定値性を使う結論は再利用しない**）。線形代数の符号数・非退化形式。SRELのMinkowski時空は動機と具体例として再導入する。
+- 数学的矢印：GEO / SREL → **LORG** → [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。GR I/IIはLORGの定義・因果定理を参照する物理分岐。
+- LORGが所有：不定符号計量、時間向き、因果集合と因果階層、Lorentz時間分離、achronal集合、依存領域、大域双曲性、Cauchy面・時間関数の幾何。
+- [GR I/II](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)が所有：Einstein方程式、Schwarzschild/Kerr模型、具体的なブラックホール・Killing/事象/見かけの地平線、Raychaudhuri方程式の物理・エネルギー条件・集束定理・特異点定理の応用。LORGで必要な共役点と測地線幾何は定義するが、これらの物理トピックを重複証明しない。
+- [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)が所有：波動作用素・エネルギー評価・大域Cauchy解・Green作用素。「大域双曲だから解ける」をLORGで先取りして証明したことにしない。
 
-## 所有範囲
+**規約・記号の出発点**：原則、滑らかな連結Hausdorff・第二可算の時空 M（次元 n+1、n≥1）、滑らかな計量 g の符号を (-,+,…,+)、時間向きが指定されたものとする。境界付き多様体・低正則計量・非時間向き可能な例は明示したときだけ扱う。接ベクトルの因果型、向き、許容する曲線の正則性（区分的 C¹ ないし局所Lipschitz）を結果ごとに定め、時空の計量と補助Riemann計量を混同しない。各章の実在前提・canonical anchorは実装時に確認する。
 
-Lorentz計量・因果曲線・大域双曲性・Cauchy超曲面。
+## 教科書との対照と補強の理由（目次・公開解説を照合）
 
-### 1. ローレンツ幾何と大域因果構造 I（LORG1–LORG15：仮構成）
+| 教科書・文献 | 実際の扱いと本講座への示唆 | 対応 |
+| --- | --- | --- |
+| B. O'Neill, *Semi-Riemannian Geometry with Applications to Relativity* (1983), ch. 3, 5, 10, 14 | 半Riemann幾何、変分、Lorentz因果論を別々に積み上げる。Riemann測地線の「最短」を転用しない | 符号数・指数写像→Lorentz長さと最大化へ |
+| J. K. Beem, P. E. Ehrlich, K. L. Easley, *Global Lorentzian Geometry*, 2nd ed. (1996) | 因果、Lorentz距離、時空例、完備性・最大測地線を独立に扱う | **時間分離・最大化・完備性の相違**を補強 |
+| S. W. Hawking and G. F. R. Ellis, *The Large Scale Structure of Space-Time* (1973), §6.1–6.7 | 因果曲線→achronal境界→因果条件→Cauchy development→大域双曲性 | 境界・依存領域・因果階層の論理順を明示 |
+| E. Minguzzi, “Lorentzian causality theory” (2019) | 因果階層、Lorentz時間分離、最大曲線、edge・依存領域を条件付きで体系化 | 教科書より細かな定理仮定と反例の照合先 |
+| A. N. Bernal and M. Sánchez, *Smoothness of time functions and the metric splitting of globally hyperbolic spacetimes* (2005) | 大域双曲時空の滑らかなCauchy時間関数・直交分割の到達点 | 旧案の「分割」の証明範囲を正確に指定 |
 
-- **位置付け:** 必須の数学基盤
-- **前提:** GEO1–GEO19（多様体・接続・曲率）、線形代数、SRELのMinkowski時空概念（初回に必要部分を再定義）
-- **canonical ownership:** Lorentz計量、因果集合、Cauchy超曲面、大域双曲性を数学として所有。Einstein方程式・物理的地平線・崩壊模型・時空解の解釈はGR I/II。
+参照（本文の代用品ではない）：
+- https://shop.elsevier.com/books/semi-riemannian-geometry-with-applications-to-relativity/oneill/978-0-12-526740-3
+- https://www.routledge.com/Global-Lorentzian-Geometry-Second-Edition/Beem-Ehrlich-Easley/p/book/9780824793241
+- https://www.cambridge.org/core/books/large-scale-structure-of-spacetime/contents/F6CFDA827F5D549112E3845809887685
+- https://link.springer.com/article/10.1007/s41114-019-0019-x
+- https://arxiv.org/abs/gr-qc/0401112
 
-- **候補LORG1**：非退化対称双線形形式、符号数、ローレンツ計量
-- **候補LORG2**：時間的・光的・空間的ベクトルと錐、時間向き
-- **候補LORG3**：因果曲線、固有時、Lorentz長さの極値
-- **候補LORG4**：Levi-Civita接続とLorentz測地線
-- **候補LORG5**：法線座標と測地線方程式、局所的な因果錐
-- **候補LORG6**：時系列集合I⁺/I⁻と因果集合J⁺/J⁻の定義
-- **候補LORG7**：因果階層（chronology・causality・strong causality）
-- **候補LORG8**：achronal集合・acausal集合・edgeの実例
-- **候補LORG9**：領域依存 D(S) とCauchy horizonの基礎
-- **候補LORG10**：Cauchy超曲面の定義・Minkowskiの具体例
-- **候補LORG11**：大域双曲性・因果ダイヤモンドのコンパクト性
-- **候補LORG12**：大域双曲時空の分割と時間関数（正確な定理の範囲）
-- **候補LORG13**：光的測地線束・共役点・集束の幾何
-- **候補LORG14**：準局所地平線と大域事象地平線の区別
-- **候補LORG15**：因果図・反例・依存条件の総合演習
+## 講義計画（**全21講：LORG1〜LORG21**）
 
-**必須の計算・証明ゲート**
+**本PLANの執筆単位は21章に確定する。** 章IDは `LORG1` から `LORG21` まで連番で使用し、以下を実装順序・担当範囲の正本とする。これは旧15講への数合わせではない。Lorentz計量・因果階層・限界曲線・大域双曲性・時間分離・時間関数という**異なる証明機構**を分けた結果の21講である。各講に動機・主要定義の直接例・核心論証・演習と全詳細解答を置き、補題の必要数は講内で調整する。内容の不足が判明した場合は証明を削って定数の21に押し込まず、PLAN改訂で章ID・直接参照を明示的に更新する。**着手時に章数を再決定する必要はない。**
 
-1. 平坦Minkowski時空でI⁺(p), J⁺(p), D(S)を座標から計算する
-2. 時間向きと因果曲線の接ベクトルの定義からLorentz長さを検算する
-3. 大域双曲性を必要とする存在定理と、単なる局所計量の存在からは導けない主張を反例で分離する
+### 第I部：計量・測地線・局所因果（LORG1〜LORG5、5講）
 
-## 執筆・査読・完了条件
+| 章ID | 章題 | この講で閉じる数学 |
+| --- | --- | --- |
+| LORG1 | Lorentz内積と未来錐 | Sylvester慣性法則を復習し、不定値内積・逆Cauchy–Schwarz不等式・未来錐の凸性をMinkowski座標で証明する。 |
+| LORG2 | Lorentz計量と時間向き | 時間的・光的・空間的ベクトル、滑らかな時間向き、時間向き可能性を定義し、Minkowskiと時間方向の商の例で検算する。 |
+| LORG3 | 因果曲線とLorentz長さ | 未来向き曲線の許容正則性、固有時と再パラメータ化不変性を導き、光的曲線の零長さ・Riemann長さとの違いを示す。 |
+| LORG4 | Lorentz接続と測地線 | Koszul公式・測地線方程式・指数写像を非退化性の下で導き、正定値性に依存しないGEOの結果を特定する。 |
+| LORG5 | 凸正規近傍と局所最大化 | 法線座標、局所光円錐、時間的測地線の局所長さ最大化を証明し、大域最大化への無条件拡張が誤りであることを示す。 |
 
-- 各章の実在 prerequisite / canonical anchor を着手時に確定する。前提PLANが planned の場合、その定理を証明済み扱いしない。
-- DREAM THEATER 現行 standard に従い、動機→定義例→仮定つき主要定理→再計算可能な証明→演習と全詳細解答で閉じる。
-- 理由付き例外がなければ変更章につき Level A 4 / B 3 / C 1 以上。主要証明と全詳細解答を再導出し、別観点の再査読と直前完了章の追跡監査を行う。
-- 科目単位の横断監査で章間依存、証明担当、演習接続、図・リンク・公開導線を確認する。PLANの設計だけで進行中・完了扱いしない。
+### 第II部：因果集合と因果階層（LORG6〜LORG11、6講）
+
+| 章ID | 章題 | この講で閉じる数学 |
+| --- | --- | --- |
+| LORG6 | 因果的未来と過去の集合 | I±・J±・horismosを曲線で定義し、Minkowskiで内点・境界・開閉を座標計算する。 |
+| LORG7 | push-up補題とI±の開性 | 局所曲線変形からpush-up補題とI±の開性を導出し、J±が一般には閉でない模型を検討する。 |
+| LORG8 | 共形因果構造と局所因果凸性 | 共形再尺度でI/Jが不変で固有時が変わることを証明し、因果的凸近傍とAlexandrov近傍を具体化する。 |
+| LORG9 | 因果階層 I：chronologyとcausality | chronological・causal・distinguishingの関係を整理し、閉時間的・閉因果曲線の反例で逆含意を吟味する。 |
+| LORG10 | 因果階層 II：strongとstable | 強因果性、安定因果性、時間関数の関係を正確に述べ、局所因果凸性が役立つ箇所を説明する。 |
+| LORG11 | 因果階層 III：continuityとsimplicity | 因果連続性・因果単純性の定義と含意を検証し、非閉なJ等の病理で逆含意が失敗する仕組みを扱う。 |
+
+### 第III部：Cauchy構造と大域幾何（LORG12〜LORG20、9講）
+
+| 章ID | 章題 | この講で閉じる数学 |
+| --- | --- | --- |
+| LORG12 | achronal集合・edge・achronal境界 | achronalとacausalの違い、edgeの定義と局所例を検算し、achronal境界・光的生成子の基本性質を導く。 |
+| LORG13 | 依存領域とCauchy horizon | D±(S)とCauchy horizonを非延長因果曲線で定義し、初期区間から未来・過去の依存ダイヤモンドを計算する。 |
+| LORG14 | 限界曲線補題 | 補助Riemann計量による曲線の再パラメータ化、局所コンパクト性・部分列収束を積み上げ、適用の因果仮定を整理する。 |
+| LORG15 | Cauchy超曲面の定義と具体例 | すべての非延長因果曲線との一意交差を検証し、Minkowskiの時刻一定面・非例を計算する。 |
+| LORG16 | 大域双曲性の特徴付け | Cauchy面存在と因果ダイヤモンドのコンパクト性の特徴付けを、causality等の仮定付きで接続し、点除去時空を反例にする。 |
+| LORG17 | Lorentz時間分離と曲線長の極限 | 時間分離d(p,q)、逆三角不等式・連続性/半連続性の必要仮定を調べ、Minkowskiで距離公式を算出する。 |
+| LORG18 | 最大化因果曲線とAvez–Seifert | 大域双曲性・限界曲線・長さ半連続性から最大曲線の存在を追い、共役点と極大性・完備性の違いを説明する。 |
+| LORG19 | Cauchy時間関数の存在 | Geroch型時間関数の狙いと連続Cauchy時間関数の構成の核を示し、時間関数の単調性・Cauchy性を区別する。 |
+| LORG20 | 滑らかな時空分割 | Bernal–SánchezのCauchy temporal function・g=-βdt²+h_t の定理を正確な条件で提示し、滑らかな面・単位法線をHPDEへ渡す。 |
+
+### 第IV部：模型・反例・後続接続（LORG21、1講）
+
+| 章ID | 章題 | この講で閉じる数学 |
+| --- | --- | --- |
+| LORG21 | 時空模型の総合演習とHPDE接続 | Minkowski・静的積・点除去・時間周期商でI/J・D(S)・時間分離・因果階層を総合検算し、HPDEの必要前提を確定する。 |
+
+### 初回実装・講間依存
+
+- **直ちに着手できる最初の章：`LORG1`**。前提は既存の線形代数（非退化対称形式・符号数）とMinkowskiの座標計算のみ。本文では既知とする前提の実在結果とstable anchorを確認する。
+- LORG2以降は、原則として当該講以前の必要結果のみを使用し、未完成の後続結果を証明へ逆輸入しない。とくにLORG14の限界曲線→LORG16/18の大域結果、LORG19/20の時間関数→HPDEの時間分割という直接依存を保持する。
+- `textbook/plans/` に留めるのは**計画が未着手だから**であり、21章のID・数・着手順は本PLANで確定済み。本文を実際に始めるときは本PLANを `plans_progress/` へ移動し、系列manifest・直接参照・公開導線を規約に従い追加する。今は未公開・未執筆でありcompletedにしない。
+
+## 必須の数学的到達・証明ゲート
+
+1. **局所の代数と幾何**：Minkowski内積で逆Cauchy–Schwarz不等式を証明し、将来向き時間的錐の凸性と因果曲線の長さ不等式を導く。Lorentz測地線の局所最大化とRiemann最短路の差を明示する。
+2. **具体的因果集合**：座標でMinkowskiの I⁺(p), J⁺(p) を求め、有限区間 S⊂{t=0} の D(S) を描いて計算する。端点の含有と未来・過去両側の条件を検算する。
+3. **局所→大域の橋**：I⁺の開性・push-up、強因果性と局所因果凸性、限界曲線の使いどころを、仮定と中間補題を指定して証明。大域定理を短い「明らか」で済ませない。
+4. **大域双曲性の正確な主張**：Cauchy面・因果ダイヤモンド・時間関数の関係を、定理ごとに時空の正則性・因果仮定・「存在」「任意」を区別。Minkowskiの点除去でコンパクト性破綻を実際に示す。
+5. **最大化と分割**：少なくともMinkowskiまたは明示した積時空で時間分離と最大曲線を出発点から導き、Avez–Seifert型一般定理およびBernal–Sánchez滑らか分割を使う箇所は、その核心となる補題・構成を分離して提示する。一般証明まで閉じられない場合は結果先行と明記し、後続で何を仮定して援用できるかを正確に残す。
+
+## 演習・教材の設計
+
+- 主役定義には定義条件を逐一検算する例を置く。図は時空図を補助に使い、縦軸を時間、光円錐の境界・開閉と領域の端点を座標で定義する。SVGの見栄えで数学的包含を証明したことにしない。
+- 反例には**落とした仮定→失敗する主張→破綻する証明の一歩**を付す。例：因果ダイヤモンドのコンパクト性を外すと曲線極限を保証できない、など。
+- 標準上の最低演習数A4/B3/C1は章ごとに適用し、学習目標に対して不足するなら増やす。証明・全解答を実際に再計算し、数式・stable anchorを結果の使用箇所に置く。
+- **現行標準の変更章査読A/B/Cに従う**。新規実装・実質改稿は全件自己査読と別観点再査読。別の完成章の追跡監査は**章IDを指定された場合のみ**行う。PLAN設計だけで実装・査読・公開完了扱いしない。
+
+## 着手時の確認と完了条件
+
+- GEO/SRELの実在結果・stable anchor、既存Lorentz定義との重複、正式ID衝突、HPDE・GRの直接依存を確定する。未執筆PLANの定理を既習・証明済みとして引用しない。
+- 各章は中心問い→定義例→仮定付き主張→途中式と核心論証→反例→演習と全詳細解答を満たす。特に高度な大域定理は証明の閉包と結果先行の境界を透明にする。
+- LORG1〜LORG21の全21章・横断監査・必要なmanifest / index / 公開導線・検証が完了するまで計画をdoneへ移さない。
