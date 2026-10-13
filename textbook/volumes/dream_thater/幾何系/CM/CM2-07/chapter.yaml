@@ -1,0 +1,44 @@
+id: "CM2-07"
+title: "正則ベクトル束と正則切断"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-06
+  - CM1-05
+  - CM1-10
+official_scope: []
+learning_objectives:
+  - 階数rの正則ベクトル束・局所自明化・局所枠を定義し直接例で確かめられる
+  - 行列値の遷移関数と非可換な余輪条件を枠の比較から導出できる
+  - GLr値の正則余輪から商によって正則ベクトル束を貼り合わせられる
+  - 正則切断の局所係数の整合式と枠変更公式を向きまで区別できる
+  - 大域正則枠と正則自明性が同値であることを証明できる
+  - 射影直線の直和束の大域正則切断を分類し階数と切断次元を区別できる
+  - 二次正則写像の引き戻しで遷移行列と切断を計算できる
+definitions:
+  - { id: CM2-07-DEF-01, name: 正則ベクトル束と局所自明化 }
+  - { id: CM2-07-DEF-02, name: 遷移行列と行列値余輪 }
+  - { id: CM2-07-DEF-03, name: 正則ベクトル束の正則切断 }
+  - { id: CM2-07-DEF-04, name: 大域正則枠 }
+theorems:
+  - { id: CM2-07-PROP-01, name: 局所枠からの行列値余輪 }
+  - { id: CM2-07-THM-01, name: 正則遷移行列からの貼り合わせ }
+  - { id: CM2-07-PROP-02, name: 枠の変更と係数行列 }
+  - { id: CM2-07-THM-02, name: 大域正則枠と正則自明性の同値 }
+  - { id: CM2-07-PROP-03, name: 射影直線上の直和束の正則切断 }
+canonical_examples:
+  - 自明階数二束の三角行列による局所枠
+  - 二つの非可換可逆行列の余輪条件
+  - 射影直線上のO(-1)とO(1)の直和の大域切断
+  - 射影直線の二乗写像による引き戻し
+problem_patterns:
+  - CM2-07-COCYCLE
+  - CM2-07-GLUING
+  - CM2-07-GAUGE
+  - CM2-07-SECTION
+  - CM2-07-GLOBAL-FRAME
+  - CM2-07-PULLBACK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
