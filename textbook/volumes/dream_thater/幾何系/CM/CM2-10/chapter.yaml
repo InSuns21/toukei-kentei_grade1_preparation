@@ -24,7 +24,7 @@ theorems:
   - { id: CM2-10-PROP-02, name: 計量両立性の行列方程式 }
   - { id: CM2-10-THM-01, name: Chern接続の存在・一意性 }
   - { id: CM2-10-PROP-03, name: 正則線束のChern接続 }
-  - { id: CM2-10-PROP-04, name: 普遍線束O(-1)のChern接続 }
+  - { id: CM2-10-PROP-04, name: 普遍線束のChern接続 }
   - { id: CM2-10-PROP-05, name: 非正則単位枠での接続行列 }
   - { id: CM2-10-PROP-06, name: 双対・テンソル積・行列式束のChern接続 }
 canonical_examples:
