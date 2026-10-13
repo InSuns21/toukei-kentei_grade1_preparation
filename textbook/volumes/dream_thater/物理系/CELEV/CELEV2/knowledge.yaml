@@ -1,0 +1,72 @@
+chapter: CELEV2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV1
+  - VAR9
+forward_references: []
+concepts:
+  - id: celestial-variational.half-turn-loop-class
+    name: 半周期反転ループの許容クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半周期反転ループの許容クラス）"]
+    aliases: []
+    requires:
+      - celestial-variational.centered-periodic-loop
+  - id: celestial-variational.half-turn-coercivity
+    name: 半周期反転クラス上の強制性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半周期反転クラス上の強制性）"]
+    aliases: []
+    requires:
+      - celestial-variational.half-turn-loop-class
+      - calculus-of-variations.mean-zero-poincare
+  - id: celestial-variational.half-turn-weak-closure
+    name: 許容クラスの弱逐次閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（許容クラスの弱逐次閉性）"]
+    aliases: []
+    requires:
+      - celestial-variational.half-turn-loop-class
+      - calculus-of-variations.interval-uniform-compactness
+  - id: celestial-variational.newton-action-weak-lsc
+    name: Newton拡張作用の弱逐次下半連続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Newton拡張作用の弱逐次下半連続性）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+      - calculus-of-variations.direct-weak-lsc
+      - calculus-of-variations.interval-uniform-compactness
+  - id: celestial-variational.half-turn-minimizer
+    name: 半周期反転クラスにおけるNewton作用の最小点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（半周期反転クラスにおけるNewton作用の最小点）"]
+    aliases: []
+    requires:
+      - celestial-variational.half-turn-coercivity
+      - celestial-variational.half-turn-weak-closure
+      - celestial-variational.newton-action-weak-lsc
+      - calculus-of-variations.direct-method-existence
+  - id: celestial-variational.collisionfree-minimizer-newton
+    name: 非衝突極小点のNewton周期解への昇格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非衝突極小点のNewton周期解への昇格）"]
+    aliases: []
+    requires:
+      - celestial-variational.half-turn-minimizer
+      - celestial-variational.newton-first-variation
+  - id: celestial-variational.smooth-forced-periodic-minimizer
+    name: 周期外力を持つ二次作用の非自明な周期最小点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期外力を持つ二次作用の非自明な周期最小点）"]
+    aliases: []
+    requires:
+      - calculus-of-variations.mean-zero-poincare
