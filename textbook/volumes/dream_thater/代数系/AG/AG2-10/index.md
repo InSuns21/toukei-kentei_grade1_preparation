@@ -258,16 +258,16 @@ $$
 
 局所分裂する開集合で $L$ の基底を $\ell$、$Q$ の基底を $q_1,\ldots,q_{n-1}$ とし、各 $q_j$ の $E$ への持ち上げを $\widetilde q_j$ と取ります。分裂により $\ell,\widetilde q_1,\ldots,\widetilde q_{n-1}$ は $E$ の基底です。そこで
 
-$
+$$
 \ell\otimes(q_1\wedge\cdots\wedge q_{n-1})
 \longmapsto\ell\wedge\widetilde q_1\wedge\cdots\wedge\widetilde q_{n-1}
-$
+$$
 
 を定めます。持ち上げを $\widetilde q_j+c_j\ell$ に変えても $\ell\wedge\ell=0$ なので像は不変です。$L$ と $Q$ の基底変換に対して両辺がそれぞれの行列式の積だけ変わるため、この局所同型は重なりで貼り合います。これは[前章の行列式命題](../AG2-09/index.md#prop-ag2-09-determinant-exact)と同じ楔積の構成を、商の階数が $n-1$ の場合まで直接確かめたものです。従って
 
-$
+$$
 \det E\simeq(\det L)\otimes(\det Q).
-$
+$$
 
 ここで $\det E=\omega_P|_Y$、$\det L=L$、$\det Q=\omega_Y$ です。従って
 
@@ -308,11 +308,11 @@ $$
 
 ここで $\pm$ は座標を並べ替える符号です。$a_r$ が単元なので、$dz_r$ を除いた $(n-1)$ 形式を $a_r$ で割ると
 
-$
+$$
 df_i\wedge\left(
 (-1)^{r-1}\frac{dz_1\wedge\cdots\wedge\widehat{dz_r}\wedge\cdots\wedge dz_n}{a_r}
 \right)=dz_1\wedge\cdots\wedge dz_n
-$
+$$
 
 が成り立ちます。これはまず周囲の余接層 $\Omega_P^1|_Y$ での楔積として読む等式です。$df_i$ はこの層では余法方向の非零な基底ですが、商 $\Omega_Y^1$ では零になります。したがって周囲の $n$ 形式をそのまま $Y$ 上の $(n-1)$ 形式と同一視するのではありません。**法線方向の因子 $df_i$ を取り除いて残る微分形式**が、超曲面上の標準束の局所基底を与えます。
 
@@ -350,10 +350,10 @@ $$
 
 別の添字 $s$ でも $a_s$ が単元なら、$\Omega_Y^1$ 上で $df_i=0$ すなわち $\sum_j a_jdz_j=0$ です。この式に $r,s$ 以外の $n-2$ 本の座標微分を楔積し、順序を揃えると
 
-$
+$$
 (-1)^{r-1}a_s\eta^{(r)}
 =(-1)^{s-1}a_r\eta^{(s)}
-$
+$$
 
 となります。両辺を単元 $a_ra_s$ で割れば $\eta_r=\eta_s$ が得られます（固定した座標順を使用）。従って定義は法線方向の座標選択に依存しません。
 <!-- proof-end -->
@@ -417,7 +417,7 @@ $$
 
 行列式についても階数を確認します。$I/I^2$ の基底 $\overline{f_{1,i}},\ldots,\overline{f_{r,i}}$ は、余接層では $df_{1,i},\ldots,df_{r,i}$ に写ります。Jacobianの可逆小行列式に対応する $r$ 本の座標微分をこれらに置き換え、残る $n-r$ 本の座標微分を加えると $\Omega_P^1|_Y$ の基底を得ます。よって $r$ 本の $df_{a,i}$ の外積と、残り $n-r$ 本の商の基底の外積との対応は、[随伴公式の証明](#thm-ag2-10-adjunction)で示した持ち上げに依存しない楔積の構成と同じです。したがって**左項が階数 $r$、右項が階数 $n-r$** の場合にも
 
-$
+$$
 \omega_P|_Y\simeq
 \left(\bigotimes_{a=1}^r\mathcal O_Y(-d_a)\right)\otimes\omega_Y.
 $$
