@@ -137,7 +137,7 @@ $$
 \end{aligned}
 $$
 
-[GEO13のLevi-Civita接続の座標公式](../../../幾何系/GEO/GEO13/index.md#thm-geo13-levi-civita)で定まる $\Gamma^m_{ij}$ です。したがって[測地線の座標方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)と一致します。一般の曲線は有限個の座標近傍で分割して同じ計算を行え、方程式は $\nabla_{\dot\gamma}\dot\gamma=0$ という座標に依らない形を持ちます。
+[GEO13のLevi-Civita接続の座標公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)で定まる $\Gamma^m_{ij}$ です。したがって[測地線の座標方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)と一致します。一般の曲線は有限個の座標近傍で分割して同じ計算を行え、方程式は $\nabla_{\dot\gamma}\dot\gamma=0$ という座標に依らない形を持ちます。
 <!-- proof-end -->
 
 一般の変分公式自体は[GEO17のエネルギーの第一変分定理](../../../幾何系/GEO/GEO17/index.md#thm-geo17-first-variation-energy)が証明済みです。記号を $D\dot\gamma/dt=\nabla_{\dot\gamma}\dot\gamma$ とすると
@@ -520,7 +520,7 @@ E=\frac12\int_0^1\frac{e^{2s}}{(e-1)^2}ds
 =\frac{e+1}{4(e-1)}>\frac12.
 $$
 
-最後の不等式は $e+1>2(e-1)$ とは**ならない**ので、そのように結論してはいけません。実際、$e+1-2(e-1)=3-e>0$ で今回の $e<3$ では成立し、別の指数基底ではこの比較はできません。より一般的には第1節の不等式から $E\ge L^2/2=1/2$ で、$\phi'$ が定数でないため厳密不等号です。
+不等式 $E>1/2$ は、分子を比較すると $e+1-2(e-1)=3-e>0$（$e<3$）と直接確認できます。独立な説明として、第1節の不等式 $E\ge L^2/2=1/2$ の等号条件からも、$\phi'$ が定数でないため厳密不等号だと分かります。
 
 $\widetilde\gamma''(s)=(e^s/(e-1),0)\ne0$ よりEuclid測地線方程式を満たしません。一方、単位接ベクトルは $(1,0)$ で一定だから、[長さの第一変分](../../../幾何系/GEO/GEO17/index.md#thm-geo17-first-variation-length)は固定端方向に対してゼロです。
 <!-- solution-end -->
