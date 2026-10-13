@@ -264,7 +264,7 @@ $$
 =Q(f_n,f_n)+\int_\Sigma|A|^2f_n^2dA
 \le\lambda_1+1+M.
 $$
-よって $f_n$ は $H_0^1$ で有界です。[Hilbert空間の弱収束部分列](../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $H_0^1$ 弱収束する部分列を取れます。また [Rellichのコンパクト埋め込み](../GPDE/GPDE5/index.md#thm-gpde5-rellich-h01-l2)を有限個の曲面座標と分割関数で適用すると、同じ部分列のさらなる部分列が $L^2$ で強収束します。極限を $f_1$ とすると $\|f_1\|_{L^2}=1$ です。
+よって $f_n$ は $H_0^1$ で有界です。[Hilbert空間の弱収束部分列](../../GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $H_0^1$ 弱収束する部分列を取れます。また [Rellichのコンパクト埋め込み](../../GPDE/GPDE5/index.md#thm-gpde5-rellich-h01-l2)を有限個の曲面座標と分割関数で適用すると、同じ部分列のさらなる部分列が $L^2$ で強収束します。極限を $f_1$ とすると $\|f_1\|_{L^2}=1$ です。
 
 勾配の二乗ノルムは弱下半連続なので
 $$
