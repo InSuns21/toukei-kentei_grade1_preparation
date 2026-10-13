@@ -26,7 +26,7 @@ $$
 <a id="def-cele7-resonant-angle"></a>
 
 <!-- formal-statement-start -->
-> **定義（一次共鳴と共鳴角）**  
+> **定義（整数共鳴と共鳴角）**  
 > 二自由度の作用角領域で、非摂動振動数 $\omega(I)=\nabla K(I)$ と零でない整数ベクトル $k\in\mathbb Z^2$ に対し
 >
 $$
@@ -193,7 +193,7 @@ $\varepsilon$ を四倍にすれば、作用幅・島面積は二倍になりま
 $$
 \widetilde H_{\varepsilon,\delta}
 =\frac{P^2}{4}+J^2+\varepsilon\cos\phi+
-\delta\cos(\phi-\psi),\qquad \delta\in\mathbb R.
+\delta\cos(2\phi-2\psi),\qquad \delta\in\mathbb R.
 $$
 
 ここでは $\varepsilon>0$ を固定し、$|\delta|$ を追加摂動の大きさとします。
@@ -205,8 +205,8 @@ $$
 > 上の $\widetilde H_{\varepsilon,\delta}$ では
 >
 $$
-\dot P=-\delta\sin(\phi-\psi),\qquad
-\dot J=\varepsilon\sin\phi+\delta\sin(\phi-\psi),
+\dot P=-2\delta\sin(2\phi-2\psi),\qquad
+\dot J=\varepsilon\sin\phi+2\delta\sin(2\phi-2\psi),
 $$
 >
 $$
@@ -226,20 +226,20 @@ $$
 $\phi$ と $\psi$ を独立な角度として微分します。
 
 $$
-\partial_\psi\cos(\phi-\psi)=\sin(\phi-\psi),\qquad
-\partial_\phi\cos(\phi-\psi)=-\sin(\phi-\psi).
+\partial_\psi\cos(2\phi-2\psi)=2\sin(2\phi-2\psi),\qquad
+\partial_\phi\cos(2\phi-2\psi)=-2\sin(2\phi-2\psi).
 $$
 
 従って正準Hamilton方程式から
 
 $$
-\dot P=-\partial_\psi\widetilde H=-\delta\sin(\phi-\psi),
+\dot P=-\partial_\psi\widetilde H=-2\delta\sin(2\phi-2\psi),
 \qquad
 \dot J=-\partial_\phi\widetilde H
-=\varepsilon\sin\phi+\delta\sin(\phi-\psi).
+=\varepsilon\sin\phi+2\delta\sin(2\phi-2\psi).
 $$
 
-運動量微分は $\partial_P\widetilde H=P/2$ と $\partial_J\widetilde H=2J$ です。$\delta\ne0$ では例えば $\phi-\psi=\pi/2$ の点で $\dot P=-\delta\ne0$ なので、$P$ は全軌道に沿って一定の関数ではありません。エネルギーについては、四組の正準方程式を代入すると
+運動量微分は $\partial_P\widetilde H=P/2$ と $\partial_J\widetilde H=2J$ です。$\delta\ne0$ では例えば $2(\phi-\psi)=\pi/2$ の点で $\dot P=-2\delta\ne0$ なので、$P$ は全軌道に沿って一定の関数ではありません。エネルギーについては、四組の正準方程式を代入すると
 
 $$
 \frac{d\widetilde H}{dt}
@@ -273,7 +273,7 @@ $$
 
 1. $K$ は解析的で、$D^2K=I_2$ は可逆。作用領域を $I_*$ のまわりのコンパクトな小近傍に取る。
 2. $\omega_*=(1,\sqrt2)$ は上で証明したDiophantine条件を満たす。
-3. $\cos(\theta_1-\theta_2)$、さらに第二角の項を入れるなら $\cos(\phi-\psi)$ はそれぞれ指定領域の解析関数であり、解析ノルムを伴う摂動の小ささが必要となる。
+3. $\cos(\theta_1-\theta_2)$、さらに第二角の項を入れるなら $\cos(2\phi-2\psi)$ はそれぞれ指定領域の解析関数であり、解析ノルムを伴う摂動の小ささが必要となる。
 4. これらに応じた**定理のしきい値以下**の摂動なら、振動数 $\omega_*$ で直線流に共役な不変トーラスが、近くの位置に存続する。
 
 したがって十分小さい摂動で、選んだDiophantine振動数の規則運動は残ります。KAM定理は**すべての振動数・すべての初期条件・任意の摂動に対する安定性**を主張しません。共鳴面 $I_1=I_2$ 上では $\omega_1-\omega_2=0$ ですから、同じ固定振動数版KAM定理をそのまま代入することはできません。
@@ -512,18 +512,18 @@ $$
 **B3：保存作用はなぜ破れるか**
 - Level: B
 
-$\widetilde H=P^2/4+J^2+\varepsilon\cos\phi+\delta\cos(\phi-\psi)$ について $\dot P$ と $\dot J$ を導き、$\delta\ne0$ のとき $P$ が第一積分でない理由と、それだけでは非可積分性の証明にならない理由を述べよ。
+$\widetilde H=P^2/4+J^2+\varepsilon\cos\phi+\delta\cos(2\phi-2\psi)$ について $\dot P$ と $\dot J$ を導き、$\delta\ne0$ のとき $P$ が第一積分でない理由と、それだけでは非可積分性の証明にならない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$\partial_\psi\cos(\phi-\psi)=\sin(\phi-\psi)$、$\partial_\phi\cos(\phi-\psi)=-\sin(\phi-\psi)$ だから
+**詳細解答**。$\partial_\psi\cos(2\phi-2\psi)=2\sin(2\phi-2\psi)$、$\partial_\phi\cos(2\phi-2\psi)=-2\sin(2\phi-2\psi)$ だから
 
 $$
-\dot P=-\partial_\psi\widetilde H=-\delta\sin(\phi-\psi),
+\dot P=-\partial_\psi\widetilde H=-2\delta\sin(2\phi-2\psi),
 \qquad
-\dot J=-\partial_\phi\widetilde H=\varepsilon\sin\phi+\delta\sin(\phi-\psi).
+\dot J=-\partial_\phi\widetilde H=\varepsilon\sin\phi+2\delta\sin(2\phi-2\psi).
 $$
 
-$\phi-\psi=\pi/2$ の初期点では $\dot P=-\delta\ne0$ なので $P$ は全解に沿って保存される関数ではありません。しかし別の未知の第一積分 $F$ が存在する可能性はこの計算では排除しておらず、非可積分性の結論には別の仮定・論証が必要です。
+$2(\phi-\psi)=\pi/2$ の初期点では $\dot P=-2\delta\ne0$ なので $P$ は全解に沿って保存される関数ではありません。しかし別の未知の第一積分 $F$ が存在する可能性はこの計算では排除しておらず、非可積分性の結論には別の仮定・論証が必要です。
 <!-- solution-end -->
 
 <a id="ex-cele7-b04"></a>
@@ -559,7 +559,7 @@ $$
 H_{\varepsilon,\delta}
 =\frac12(I_1^2+I_2^2)
 +\varepsilon\cos(\theta_1-\theta_2)
-+\delta\cos\!\left(\frac{\theta_1-3\theta_2}{2}\right)
++\delta\cos(\theta_1-3\theta_2)
 $$
 
 を、$\varepsilon>0$、小さい $|\delta|$ の下で、$\psi=(\theta_1+\theta_2)/2$、$\phi=\theta_1-\theta_2$、$P=I_1+I_2$、$J=(I_1-I_2)/2$ の局所座標で考える。（i）第二角項を $\phi,\psi$ で書き直せ。（ii）$\delta=0$ での島の半幅と面積を求めよ。（iii）$\delta\ne0$ で $\dot P$ を計算せよ。（iv）この計算とKAM定理を使って「共鳴帯付近の複雑な運動」と「非共鳴トーラスの存続」が両立する場合の仮定と、まだ証明していない点を説明せよ。
@@ -568,12 +568,12 @@ $$
 **詳細解答**。（i）逆変換 $\theta_1=\psi+\phi/2$、$\theta_2=\psi-\phi/2$ を代入すると
 
 $$
-\frac{\theta_1-3\theta_2}{2}
-=\frac{\psi+\phi/2-3\psi+3\phi/2}{2}
-=\phi-\psi.
+\theta_1-3\theta_2
+=\psi+\phi/2-3\psi+3\phi/2
+=2\phi-2\psi.
 $$
 
-従って局所Hamiltonianは $P^2/4+J^2+\varepsilon\cos\phi+\delta\cos(\phi-\psi)$ です。元の角度トーラス上で $\cos((\theta_1-3\theta_2)/2)$ は一般には $2\pi$ 周期でないため、**問題の式は角度トーラス全体では単価値のHamiltonianとは限りません**。以下は、指定された局所チャートまたは適切な二重被覆上での計算です。
+従って局所Hamiltonianは $P^2/4+J^2+\varepsilon\cos\phi+\delta\cos(2\phi-2\psi)$ です。元の角度に対し整数係数の $\cos(\theta_1-3\theta_2)$ を選んだので、この追加項は元の角度トーラス上でも $2\pi$ 周期で単価値です。正準変換の和角・差角表示は局所的ですが、Hamiltonianの元の定義には問題がありません。
 
 （ii）$\delta=0$ では $P$ 保存なので、固定 $P$ 上の鞍点エネルギーは $\varepsilon$。$J^2+\varepsilon\cos\phi=\varepsilon$ より
 
@@ -585,7 +585,7 @@ $$
 
 半幅は $J$ で $\sqrt{2\varepsilon}$、作用差 $I_1-I_2$ で $2\sqrt{2\varepsilon}$ です。
 
-（iii）$\dot P=-\partial_\psi H=-\delta\sin(\phi-\psi)$。$\delta\ne0$ なら $P$ は全軌道で保存されません。
+（iii）$\dot P=-\partial_\psi H=-2\delta\sin(2\phi-2\psi)$。$\delta\ne0$ なら $P$ は全軌道で保存されません。
 
 （iv）非摂動部は解析的でHessianが単位行列、たとえば $(1,\sqrt2)$ の振動数は上のB4で示したDiophantine下界を持ちます。解析ノルムで摂動がKAM定理の閾値以下なら、指定振動数の不変トーラスの存続を主張できます。一方、$I_1=I_2$ の共鳴帯では固定振動数版KAMの算術仮定は使えず、$\delta=0$ でも振り子島と双曲鞍点が現れます。$\delta\ne0$ で横断ホモクリニック交差まで確認できた場合には、その付近でカオス的な不変集合を論じられますが、$\dot P\ne0$ の計算だけでは横断性も正の漸近Lyapunov指数も証明していません。さらにこの局所模型を実際の太陽系へ適用するには質量・非退化性・衝突回避・時間尺度の検証が別に必要です。
 <!-- solution-end -->
