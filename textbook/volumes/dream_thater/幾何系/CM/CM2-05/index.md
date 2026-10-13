@@ -53,7 +53,15 @@ $$
 
 この二重級数の和を $g$ とすると、$g$ は滑らかであり、項別積分によってそのFourier係数は $f$ と一致する。そこで差を $h=f-g$ と置く。$h$ の全Fourier係数は零である。
 
-[三角多項式の一様稠密性](../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)を、まず $x$ 方向、次に $y$ 方向へ適用する。コンパクトな二次元トーラス上の連続関数は、この手順で二変数三角多項式によって一様近似できる。$h$ に対する近似列を $P_k$ と書くと、$h$ と各 $P_k$ の積分はFourier係数の消失により零となる。従って
+[三角多項式の一様稠密性](../../../解析系/FOU/FOU2/index.md#thm-fou2-trigonometric-density)を二変数へ移す際には、もう一方の変数についても誤差が一様であることを確認する。周期1に正規化した非負のFejér核を $K_N$ とし、$x$ 方向のFejér平均を $\sigma_N^x h$ と書く。[Fejér核の基本性質](../../../解析系/FOU/FOU2/index.md#thm-fou2-fejer-kernel-properties)から $\int_0^1K_N(t)\,dt=1$ であり、原点から離れた部分の積分は $N\to\infty$ で零となる。$h$ は二次元トーラス上で一様連続だから、
+
+$$
+\sup_{x,y}|\sigma_N^x h(x,y)-h(x,y)|
+\le\sup_{x,y}\int_0^1K_N(t)|h(x-t,y)-h(x,y)|\,dt
+\longrightarrow0
+$$
+
+となる。各 $\sigma_N^x h$ は $x$ の有限個の指数関数の和で、係数は $y$ の連続周期関数である。各係数を上記の一変数稠密性によって $y$ の三角多項式で一様近似し、有限個の誤差の和を抑えれば、二変数三角多項式 $P_k$ が $h$ へ一様収束する。$h$ に対するこの近似列を $P_k$ と書くと、$h$ と各 $P_k$ の積分はFourier係数の消失により零となる。従って
 
 $$
 \int_{[0,1]^2}|h|^2
@@ -199,7 +207,7 @@ $$
 \partial_{\bar z}(v_{j+1}-v_j)=0\qquad (|z|<j).
 $$
 
-[正則性判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)により $v_{j+1}-v_j$ は円板 $|z|<j$ で正則である。そのTaylor級数の部分和を十分長く取れば、多項式 $P_j$ を選んで、円板 $|z|\le j-1$ で全ての $a+b\le j$ に対し
+[正則性判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)により $v_{j+1}-v_j$ は円板 $|z|<j$ で正則である。[正則関数のTaylor展開](../../../解析系/CA/CA3/index.md#thm-ca3-taylor)の部分和を十分長く取れば、多項式 $P_j$ を選んで、円板 $|z|\le j-1$ で全ての $a+b\le j$ に対し
 
 $$
 \sup_{|z|\le j-1}
@@ -263,7 +271,7 @@ $$
 
 ## 5. Laurent級数から射影直線の全群を出す
 
-$p=0$ では重なりの正則関数はLaurent級数 $c(z)=\sum_{k\in\mathbb Z}a_kz^k$ を持つ。ここで係数の正の側
+$p=0$ では[Laurent展開](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)により、重なりの正則関数は級数 $c(z)=\sum_{k\in\mathbb Z}a_kz^k$ を持つ。ここで係数の正の側
 
 $$
 h_0(z)=\sum_{k\ge0}a_kz^k
@@ -284,7 +292,13 @@ h_\infty(1/z)\,d(1/z)
 =-h_\infty(1/z)z^{-2}\,dz
 $$
 
-となり、こちらは $k\le-2$ の冪を除ける。**$z^{-1}dz$ だけはどちらの側からも生じない**。よってそのLaurent係数 $a_{-1}$ が全障害を測る。
+となる。特に負冪の $k\le-2$ の部分に対しては
+
+$$
+h_\infty(w)=-\sum_{k\le-2}a_kw^{-k-2}
+$$
+
+とすれば、$-h_\infty(1/z)z^{-2}\,dz=\sum_{k\le-2}a_kz^k\,dz$ である。この $h_\infty$ はLaurent展開の収束領域が $0<|z|<\infty$ であることから、任意の有限な $w$ に対して正則に収束する。したがって $k\le-2$ の冪を $U_\infty$ 側から除ける。**$z^{-1}dz$ だけはどちらの側からも生じない**。よってそのLaurent係数 $a_{-1}$ が全障害を測る。
 
 <a id="thm-cm2-05-projective-line-four-groups"></a>
 
@@ -317,7 +331,7 @@ $$
 f(z)dz=-f(1/w)w^{-2}dw.
 $$
 
-右辺の係数が $w=0$ まで正則なら、十分大きな $|z|$ に対して $|f(z)|\le C|z|^{-2}$ である。$f$ は $\mathbb C$ 全体で正則かつ有界なのでLiouvilleの定理で定数、さらに無限遠で零へ向かうから定数は零である。従って $H^{1,0}=0$。
+右辺の係数が $w=0$ まで正則なら、十分大きな $|z|$ に対して $|f(z)|\le C|z|^{-2}$ である。$f$ は $\mathbb C$ 全体で正則かつ有界なので[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)で定数、さらに無限遠で零へ向かうから定数は零である。従って $H^{1,0}=0$。
 
 $H^{0,1}$ については[二チャートの商表示](#lem-cm2-05-two-chart-quotient)を使う。直前のLaurent分解は任意の重なりの正則関数を両側からの制限の差に表すので、商は零。
 
