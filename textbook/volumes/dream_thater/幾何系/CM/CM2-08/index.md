@@ -4,13 +4,13 @@
 
 ## 1. 束を作る操作はなぜ必要か
 
-前章の[正則ベクトル束](../CM2-07/index.md#def-cm2-07-holomorphic-vector-bundle)では、局所枠を $\mathcal E_j=\mathcal E_iG_{ij}$ と交換することで束を記述した。射影空間上の線束を一つ構成しても、複素接束やベクトル束間の正則線形写像を調べるにはそれだけでは足りない。
+前章の[正則ベクトル束](../CM2-07/index.md#def-cm2-07-holomorphic-vector-bundle)では、局所基底を $\mathcal E_j=\mathcal E_iG_{ij}$ と交換することで束を記述した。射影空間上の線束を一つ構成しても、複素接束やベクトル束間の正則線形写像を調べるにはそれだけでは足りない。
 
 各繊維で線形代数の双対、テンソル積、線形写像、外冪を作り、それらが基点とともに**正則に変化するか**を確認したい。局所的には線形代数と同じだが、貼り合わせで生じる行列は異なる。特に双対では「逆行列」だけでなく「転置」も必要となる。
 
 本章では列係数を用い、局所枠の約束 $\mathcal E_j=\mathcal E_iG_{ij}$ を維持する。[枠変更公式](../CM2-07/index.md#prop-cm2-07-gauge-frame-change)と向きを揃えれば、構成の正則性を局所計算から確認できる。
 
-## 2. 射影空間の標準束と商束
+## 2. 射影空間の部分線束と商束
 
 [複素射影空間のアトラス](../CM1-10/index.md#thm-cm1-10-projective-atlas)で、一点 $\ell=[Z_0:\cdots:Z_n]$ は $\mathbb C^{n+1}$ の一次元部分空間を表す。この直線そのものを繊維にするのが普遍部分線束であり、射影直線の場合は[普遍線束](../CM2-06/index.md#def-cm2-06-tautological-bundle)として構成した。
 
@@ -107,7 +107,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（双対遷移と評価の座標不変性）**  
-> $\mathcal E_j=\mathcal E_iG_{ij}$ を満たす正則局所枠を持つ正則ベクトル束 $E\to X$ に対し、双対枠は $\mathcal E_j^\vee=\mathcal E_i^\vee(G_{ij}^{-1})^{\mathsf T}$ と変換する。正則局所切断 $\lambda\in\Gamma(E^\vee)$ と $s\in\Gamma(E)$ の評価 $\lambda(s)$ は、大域的な正則関数を定める。また $(E^\vee)^\vee\cong E$ は正則同型である。
+> 複素多様体 $X$ 上の正則ベクトル束 $E$ の局所枠を $\mathcal E_i$ とし、重なりで次を仮定する。
+
+$
+\mathcal E_j=\mathcal E_iG_{ij}.
+$
+
+> 双対枠の変換は次の式で与えられる。
+
+$
+\mathcal E_j^\vee
+=\mathcal E_i^\vee(G_{ij}^{-1})^{\mathsf T}.
+$
+
+> 正則局所切断 $\lambda$（$E^\vee$ の切断）と $s$（$E$ の切断）が各領域で整合して大域切断を定めるなら、評価 $\lambda(s)$ は大域正則関数である。また $(E^\vee)^\vee\cong E$ は正則束同型である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -147,7 +160,7 @@ $$
 
 ## 4. テンソル積とその正則性
 
-二つの線束を重ねるとき、遷移関数は積となる。高階数でも各繊維のテンソル積を使えば同じ操作を行えるが、遷移行列は通常の行列積ではなく **Kronecker 積**となる。
+二つの線束を重ねるとき、局所枠の遷移係数は積となる。高階数でも各繊維のテンソル積を使えば同じ操作を行えるが、遷移行列は通常の行列積ではなく **Kronecker 積**となる。
 
 <a id="def-cm2-08-tensor-bundle"></a>
 
@@ -279,7 +292,7 @@ $$
 
 任意の列ベクトルで成立するので $A_iG_{ij}^E=G_{ij}^FA_j$。右から $(G_{ij}^E)^{-1}$ を掛ければ定義の変換則となる。双対テンソル積の基底 $f_{ib}\otimes e_i^a$ は $v\mapsto e_i^a(v)f_{ib}$ という行列単位（第 $b,a$ 成分だけ $1$）へ写り、$sr$ 個の行列単位をすべて与える。従って繊維ごとに同型。
 
-重なりの変換則も[双対の公式](#prop-cm2-08-dual-evaluation)および[テンソル積の公式](#prop-cm2-08-tensor-cocycle)を基底に作用させると一致する。局所写像と逆写像は行列成分の並べ替えで正則だから、束同型である。$ \square$
+重なりの変換則も[双対の公式](#prop-cm2-08-dual-evaluation)および[テンソル積束の遷移と正則切断](#prop-cm2-08-tensor-cocycle)を基底に作用させると一致する。局所写像と逆写像は行列成分の並べ替えで正則だから、束同型である。$ \square$
 <!-- proof-end -->
 
 特に $\operatorname{Hom}(E,E)$ の単位写像は、各チャートで $I_r$ と表せる。
@@ -346,7 +359,7 @@ $$
 =(\det G_{ij}^E)^{-1}.
 $$
 
-転置で行列式が不変であることと、可逆行列の行列式の積の公式を用いた。右辺は行列式線束の双対の遷移である。いずれも局所枠の対応が重なりで一致するため、正則線束同型が得られる。最後は $z^{k_1}\cdots z^{k_r}=z^{\sum k_a}$ を代入する。$ \square$
+ここでは $\det(A^{\mathsf T})=\det A$ と $\det(AB)=\det A\det B$ に $B=A^{-1}$ を代入した。右辺は行列式線束の双対の遷移である。いずれも局所枠の対応が重なりで一致するため、正則線束同型が得られる。最後は $z^{k_1}\cdots z^{k_r}=z^{\sum k_a}$ を代入する。$ \square$
 <!-- proof-end -->
 
 ## 7. 射影空間の接束を標準束から作る
@@ -544,7 +557,7 @@ $$
 $\mathbb{CP}^1$ 上の $E=\mathcal O(2)$、$F=\mathcal O(4)$ に対して $\operatorname{Hom}(E,F)$ を線束として同定せよ。$U_0$ 上で $A_0(z)=1+3z+z^2$ とする局所行列が大域正則束準同型になることを、$U_\infty$ 側の係数から確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Hom の公式](#prop-cm2-08-hom-identification)より $\operatorname{Hom}(E,F)\cong F\otimes E^\vee$。$E^\vee\cong\mathcal O(-2)$ なので
+**詳細解答**。[Hom と双対テンソル積の同型](#prop-cm2-08-hom-identification)より $\operatorname{Hom}(E,F)\cong F\otimes E^\vee$。$E^\vee\cong\mathcal O(-2)$ なので
 
 $$
 F\otimes E^\vee\cong
@@ -569,7 +582,7 @@ $$
 階数二の束 $E,F$ について、重なりで $G^E=\operatorname{diag}(z,1)$、$G^F=\operatorname{diag}(1,z^2)$ とする。$j$ 側の束写像の行列が $A_j=\begin{pmatrix}1&2\\3&4\end{pmatrix}$ のとき、$i$ 側の $A_i$ を求めよ（$z\ne0$）。入力切断 $v_j=(1,1)^T$ を使い、出力の貼り合わせも確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Hom 束の定義](#def-cm2-08-hom-bundle)により
+**詳細解答**。[正則 Hom 束](#def-cm2-08-hom-bundle)の定義により
 
 $$
 A_i=G^FA_j(G^E)^{-1}
