@@ -115,11 +115,11 @@ $\int_{|x|<1}|\log|x||\,dx=|S^{d-1}|\int_0^1r^{d-1}|\log r|\,dr<\infty$ です�
 
 $Q$ の辺長を $\ell$、中心を $c$ とします。まず $\operatorname{dist}(0,Q)\ge2\sqrt d\,\ell$ なら、$x,y\in Q$ を結ぶ線分は $Q$ 内にあり、どの点 $z$ も $|z|\ge2\sqrt d\,\ell$ です。$z(s)=y+s(x-y)$、$\phi(s)=\log|z(s)|$ ($0\le s\le1$) と置きます。すべての $s$ で $z(s)\in Q$ なので $|z(s)|\ge2\sqrt d\,\ell$ です。$|z(s)|^2$ を微分すれば $2z(s)\cdot(x-y)$、さらに対数を微分して
 
-$
+$$
 \phi'(s)=\frac{z(s)\cdot(x-y)}{|z(s)|^2},\qquad
 |\phi'(s)|\le\frac{|x-y|}{|z(s)|}
 \le\frac{\sqrt d\,\ell}{2\sqrt d\,\ell}=\frac12.
-$
+$$
 
 [平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を $\phi$ の区間 $[0,1]$ に適用して $|f(x)-f(y)|=|\phi(1)-\phi(0)|\le1/2$ を得ます。
 
@@ -584,8 +584,14 @@ $$
 \end{aligned}
 $$
 
-ゆえに $\frac1{|Q|}\int_Q|Tf-(Tf)_Q|
-\le2(2B+A/2)\|f\|_\infty=(4B+A)\|f\|_\infty$。近方には $L^2$ 仮定、遠方には**第1変数**の滑らかさを使いました。
+ゆえに
+
+$$
+\frac1{|Q|}\int_Q|Tf-(Tf)_Q|
+\le2(2B+A/2)\|f\|_\infty=(4B+A)\|f\|_\infty.
+$$
+
+近方には $L^2$ 仮定、遠方には**第1変数**の滑らかさを使いました。
 <!-- solution-end -->
 
 <a id="ex-ha6-b04"></a>
