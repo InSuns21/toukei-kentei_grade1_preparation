@@ -1,0 +1,193 @@
+version: 1
+id: ML
+title: "機械学習 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 2026-10-14: 教科書照合・prerequisite確認を行って46章を確定。
+# 予定章の本文、chapter.yaml、knowledge.yaml、公開indexは未登録。全章未執筆。
+chapters:
+  - id: ML1-01
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-01
+    status: planned
+    title: "学習問題・標本・予測器"
+  - id: ML1-02
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-02
+    status: planned
+    title: "Bayes決定則と損失関数"
+  - id: ML1-03
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-03
+    status: planned
+    title: "経験リスク最小化と正則化"
+  - id: ML1-04
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-04
+    status: planned
+    title: "最小二乗法・正規方程式・非一意性"
+  - id: ML1-05
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-05
+    status: planned
+    title: "Ridge回帰・縮小・bias–variance"
+  - id: ML1-06
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-06
+    status: planned
+    title: "Lasso・疎性・近接写像"
+  - id: ML1-07
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-07
+    status: planned
+    title: "生成的分類・Naive Bayes・LDA/QDA"
+  - id: ML1-08
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-08
+    status: planned
+    title: "Logistic/softmax回帰・対数損失"
+  - id: ML1-09
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-09
+    status: planned
+    title: "滑らかな凸損失と勾配法"
+  - id: ML1-10
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-10
+    status: planned
+    title: "確率的勾配法・ミニバッチ"
+  - id: ML1-11
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-11
+    status: planned
+    title: "k近傍法・核密度推定"
+  - id: ML1-12
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-12
+    status: planned
+    title: "検証分割・交差検証・モデル選択"
+  - id: ML1-13
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-13
+    status: planned
+    title: "分類評価・適切なスコア・校正"
+  - id: ML1-14
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-14
+    status: planned
+    title: "決定木・分割不純度"
+  - id: ML1-15
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-15
+    status: planned
+    title: "Bagging・random forest・bootstrap"
+  - id: ML1-16
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-16
+    status: planned
+    title: "Boosting・加法モデル"
+  - id: ML1-17
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-17
+    status: planned
+    title: "SVMの予測とマージンの適用"
+  - id: ML1-18
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-18
+    status: planned
+    title: "カーネル回帰と正則化経路"
+  - id: ML1-19
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-19
+    status: planned
+    title: "PCA・SVD・低ランク近似"
+  - id: ML1-20
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-20
+    status: planned
+    title: "k-means・階層クラスタリング"
+  - id: ML1-21
+    path: textbook/volumes/dream_thater/応用系/ML/ML1-21
+    status: planned
+    title: "分布シフト・欠測・総合検証実験"
+  - id: ML2-01
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-01
+    status: planned
+    title: "確率的予測・対数損失・KL"
+  - id: ML2-02
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-02
+    status: planned
+    title: "Bayes線形回帰・事後予測"
+  - id: ML2-03
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-03
+    status: planned
+    title: "指数型分布族と共役性"
+  - id: ML2-04
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-04
+    status: planned
+    title: "確率的グラフィカルモデル"
+  - id: ML2-05
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-05
+    status: planned
+    title: "潜在変数・混合モデル・識別不能性"
+  - id: ML2-06
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-06
+    status: planned
+    title: "EM算法と尤度の単調改善"
+  - id: ML2-07
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-07
+    status: planned
+    title: "連続潜在因子・因子分析・PPCA"
+  - id: ML2-08
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-08
+    status: planned
+    title: "変分推論の基礎・ELBO恒等式"
+  - id: ML2-09
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-09
+    status: planned
+    title: "Mean-field変分Bayes・再パラメータ化"
+  - id: ML2-10
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-10
+    status: planned
+    title: "Monte Carlo・重要度サンプリング"
+  - id: ML2-11
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-11
+    status: planned
+    title: "MCMC・Metropolis–Hastings・Gibbs"
+  - id: ML2-12
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-12
+    status: planned
+    title: "Gaussian process回帰と不確実性"
+  - id: ML2-13
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-13
+    status: planned
+    title: "多層perceptron・表現力と限界"
+  - id: ML2-14
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-14
+    status: planned
+    title: "逆伝播・自動微分・Jacobian"
+  - id: ML2-15
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-15
+    status: planned
+    title: "深層最適化・正則化・汎化検証"
+  - id: ML2-16
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-16
+    status: planned
+    title: "畳み込みネットワークと等変性"
+  - id: ML2-17
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-17
+    status: planned
+    title: "系列模型・再帰ネットワーク"
+  - id: ML2-18
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-18
+    status: planned
+    title: "Attention・Transformerの演算"
+  - id: ML2-19
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-19
+    status: planned
+    title: "自己教師あり表現学習"
+  - id: ML2-20
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-20
+    status: planned
+    title: "変分autoencoder"
+  - id: ML2-21
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-21
+    status: planned
+    title: "正規化flow・密度変換"
+  - id: ML2-22
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-22
+    status: planned
+    title: "敵対的生成モデルと分布比較"
+  - id: ML2-23
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-23
+    status: planned
+    title: "Score matchingとノイズ除去"
+  - id: ML2-24
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-24
+    status: planned
+    title: "離散拡散模型と逆向き推論"
+  - id: ML2-25
+    path: textbook/volumes/dream_thater/応用系/ML/ML2-25
+    status: planned
+    title: "生成評価・不確実性・統合実験"
