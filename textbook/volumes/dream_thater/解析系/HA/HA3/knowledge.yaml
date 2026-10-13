@@ -5,6 +5,7 @@ prerequisites:
   - HA2
   - FOU4
   - MT7
+  - CA6
 forward_references: []
 
 concepts:
@@ -40,14 +41,14 @@ concepts:
     name: Hilbert変換のFourier乗数
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（Hilbert変換のFourier乗数とL2構成）]
+    introduction_aliases: [定理（Hilbert変換のFourier乗数）]
     requires: [harmonic.ha3-dirichlet]
 
   - id: harmonic.ha3-square
     name: Hilbert変換の等長性と二乗
     kind: corollary
     introduction: formal
-    introduction_aliases: [系（等長性とHの二乗）]
+    introduction_aliases: [系（Hilbert変換の等長性と二乗）]
     requires: [harmonic.ha3-multiplier]
 
   - id: harmonic.ha3-poisson-kernels
@@ -68,7 +69,7 @@ concepts:
     name: 共役Poisson積分のL2境界値
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（Poisson積分と共役Poisson積分のL2境界値）]
+    introduction_aliases: [定理（共役Poisson積分のL2境界値）]
     requires: [harmonic.ha3-poisson-transform, harmonic.ha3-multiplier]
 
   - id: harmonic.ha3-poisson-hilbert
