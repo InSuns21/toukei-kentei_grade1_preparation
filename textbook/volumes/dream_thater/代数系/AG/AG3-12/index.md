@@ -243,7 +243,13 @@ $$
 $$
 (\epsilon+a\epsilon\delta)(\delta+b\epsilon\delta)=\epsilon\delta\ne0
 $$
-となり、$t=0$ と整合しません。持ち上げは存在しません。この障害が原点での非滑らかさを示すことも確認します。原点の極大イデアルを $\mathfrak m=(t,x,y)\subset B$ とすると、$g\in B\setminus\mathfrak m$ は $c=g(0,0,0)\ne0$ を満たします。$C/I\simeq k[\epsilon,\delta]/(\epsilon^2,\epsilon\delta,\delta^2)$ なので、$\varphi(g)=c+n$（$n\in(\epsilon,\delta)$、$n^2=0$）です。その逆元は $c^{-1}-c^{-2}n$ であり、$\varphi(g)$ は単元です。従って任意の $g\notin\mathfrak m$ について $\varphi$ は $B_g\to C/I$ に延長できます。もし射が原点で滑らかなら、原点を含むアフィン開近傍を十分小さくしたある $D(g)$（$g\notin\mathfrak m$）でこの写像を $B_g\to C$ へ持ち上げられます。それを $B\to B_g$ と合成すれば、すでに不可能と示した $B\to C$ の持ち上げを得て矛盾します。従って原点で滑らかではありません。
+となり、$t=0$ と整合しません。持ち上げは存在しません。この障害が原点での非滑らかさを示すことも、局所化を通して確かめます。原点の極大イデアルを $\mathfrak m=(t,x,y)\subset B$ とし、$g\in B\setminus\mathfrak m$ と取ります。このとき $c=g(0,0,0)\in k^\times$ です。$C/I\simeq k[\epsilon,\delta]/(\epsilon^2,\epsilon\delta,\delta^2)$ では $\varphi(g)=c+n$（$n\in(\epsilon,\delta)$、$n^2=0$）となり、
+$
+(c+n)(c^{-1}-c^{-2}n)=1
+$
+です。従って $\varphi(g)$ は単元であり、$\varphi$ は任意の $g\notin\mathfrak m$ について $B_g\to C/I$ に延長されます。
+
+もし射が原点で滑らかなら、原点を含むある主開集合 $D(g)$（$g\notin\mathfrak m$）で持ち上げ条件が成立します。そこでは $B_g\to C/I$ が $B_g\to C$ に持ち上がり、$B\to B_g$ との合成が先ほど不可能と示した $B\to C$ の持ち上げとなって矛盾します。従って原点で滑らかではありません。
 <!-- proof-end -->
 
 **何が壊れたか。** 平坦性の証明では $p(t)$ が非零因子であることだけが必要でした。一方、滑らかさの証明で必要だった「相対偏微分を逆にして誤差を打ち消す」操作は、$x=y=0$ で失敗します。平坦性は特異点を排除しないのです。
