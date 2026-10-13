@@ -47,6 +47,8 @@ $$
 <!-- definition-example-start: def-celev1-periodic-loop -->
 ### 例：二つの粒子が重心の周囲を回る
 
+**定義の確認**
+
 等質量 $m_1=m_2=m$ とし、$R>0$、$\omega=2\pi/T$ に対して
 
 $$
@@ -92,6 +94,8 @@ $H^1$ の代表は連続なので $U(q(t))$ は拡張実数値可測関数です
 
 <!-- definition-example-start: def-celev1-extended-action -->
 ### 例：一定距離と無限作用
+
+**定義の確認**
 
 等質量二体で $q_1(t)=(R,0),q_2(t)=(-R,0)$ とすると重心零・周期端点条件を満たし、運動エネルギーは0、距離は $2R$ です。従って
 
@@ -174,6 +178,8 @@ $$
 
 <!-- definition-example-start: def-celev1-periodic-variation -->
 ### 例：端点でゼロでない変分
+
+**定義の確認**
 
 等質量二体に対して $\eta_1(t)=e$、$\eta_2(t)=-e$ （定数単位ベクトル $e$）とします。$m\eta_1+m\eta_2=0$、$\eta(T)=\eta(0)$ なので許される方向です。しかし $\eta_i(0)\ne0$ です。周期変分を固定端変分と取り違えると、このような方向を不当に除外してしまいます。
 <!-- definition-example-end -->
