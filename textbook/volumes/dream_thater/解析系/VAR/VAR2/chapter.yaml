@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - VAR1
   - AMECH3
+  - OPT1
 official_scope: []
 learning_objectives:
   - 第二変分を対称双線形形式と二次形式として出発点から導出できる
@@ -14,8 +15,9 @@ learning_objectives:
   - 二次形式の変分からJacobi方程式を導き零方向と共役点の入口を説明できる
 definitions:
   - { id: VAR2-DEF-01, name: "第二変分" }
-  - { id: VAR2-DEF-02, name: "C1局所最小点" }
+  - { id: VAR2-DEF-02, name: "C1位相での局所最小点" }
   - { id: VAR2-DEF-03, name: "Jacobi方程式と零方向" }
+  - { id: VAR2-DEF-04, name: "強められたLegendre条件" }
 theorems:
   - { id: VAR2-PROP-01, name: "第二変分の二次形式" }
   - { id: VAR2-THM-01, name: "局所最小性の第一・第二必要条件" }
