@@ -268,7 +268,7 @@ $$
 
 最後の同型は局所化の普遍性によります。これは基底変換後の空間の開部分です。任意の開部分 $U$ は主開集合で覆われ、各部分の表示は重複部分でも同じ開集合に一致します。一般の $X,S,S'$ も、$S$ とその逆像のアフィン開部分に局所化して確認でき、開埋め込みが得られます。
 
-**閉埋め込み。** アフィンの場合、$(B/I)\otimes_R C$ は $B\otimes_R C$ において $i\otimes c$（$i\in I$）をすべて零とする商環です。したがって標準準同型は全射で、その核は $I(B\otimes_R C)$ です。環全射の[素スペクトルの閉集合への射](../AG3-03/index.md#prop-ag3-03-quotient-spectrum)から、対応する射は閉埋め込みです。一般の閉埋め込みは標的のアフィン開部分上でこの形になり、局所表示が重複部分で一致するので大域の結論が従います。
+**閉埋め込み。** アフィンの場合、$(B/I)\otimes_R C$ は $B\otimes_R C$ において $i\otimes c$（$i\in I$）をすべて零とする商環です。したがって標準準同型は全射で、その核は $I(B\otimes_R C)$ です。環全射の[素スペクトルの閉集合への射](../AG3-03/index.md#prop-ag3-03-quotient-image)から、対応する射は閉埋め込みです。一般の閉埋め込みは標的のアフィン開部分上でこの形になり、局所表示が重複部分で一致するので大域の結論が従います。
 <!-- proof-end -->
 
 ここで**閉埋め込みの基底変換に平坦性は必要ありません**。ただしテンソル積があらゆる単射を保つ、という主張は別物です。後の平坦性の学習ではこの違いが重要になります。
@@ -328,7 +328,7 @@ B\otimes_R\kappa(\mathfrak p)
 \simeq T^{-1}B/\mathfrak p(T^{-1}B).
 $$
 
-右辺の素イデアルは $T^{-1}B$ の素イデアルで $\mathfrak p(T^{-1}B)$ を含むものに対応します。[局所化による素イデアルの対応](../AG1-04/index.md#thm-ag1-04-universal)を用いると、これは $B$ の素イデアル $\mathfrak q$ で $\mathfrak q\cap R$ が $\mathfrak p$ に含まれ、かつ $\mathfrak pB\subseteq\mathfrak q$ を満たすものです。二条件を合わせると
+右辺の素イデアルは $T^{-1}B$ の素イデアルで $\mathfrak p(T^{-1}B)$ を含むものに対応します。局所化における素イデアルの対応を、分母を避ける素イデアルの逆像と延長から直接確認すると、これは $B$ の素イデアル $\mathfrak q$ で $\mathfrak q\cap R$ が $\mathfrak p$ に含まれ、かつ $\mathfrak pB\subseteq\mathfrak q$ を満たすものです。二条件を合わせると
 
 $$
 \mathfrak p\subseteq \mathfrak q\cap R\subseteq\mathfrak p
@@ -551,7 +551,7 @@ $$
 
 $\varphi$ は $x$ を含むので全射です。$y-x^2$ は核に属し、$k[x,y]/(y-x^2)\to k[x]$ は $y$ を $x^2$ と置き換える同型なので $\ker\varphi=(y-x^2)$ です。
 
-(3) [商環の素スペクトルの閉埋め込み](../AG3-03/index.md#prop-ag3-03-quotient-spectrum)により $\Gamma_f$ は $V(y-x^2)$ への閉埋め込みです。
+(3) [商環の素スペクトルの閉埋め込み](../AG3-03/index.md#prop-ag3-03-quotient-image)により $\Gamma_f$ は $V(y-x^2)$ への閉埋め込みです。
 
 (4) $T$ の射 $a:T\to\operatorname{Spec}k[x,y]$ がグラフを経由するための必要十分条件は、$a$ の定める $x$ と $y$ の引き戻し切断について $a^\#(y)=a^\#(x)^2$ が成り立つことです。必要性は $\varphi(y-x^2)=0$ から従います。十分性はアフィン開被覆 $T_\lambda$ 上で $k[x,y]\to\Gamma(T_\lambda,\mathcal O_T)$ がイデアル $(y-x^2)$ を殺すため、商環 $k[x]$ を経由する唯一の環準同型があることによります。各 $T_\lambda$ の射は重複部分で一致し、[射の貼り合わせ](../AG3-04/index.md#thm-ag3-04-morphism-gluing)で一意の因子化を得ます。これによりグラフは方程式としても普遍性としても特徴付けられます。
 <!-- solution-end -->
