@@ -217,7 +217,21 @@ $$
 \end{aligned}
 $$
 
-$x^2(1+x)^2>0$ を掛けて展開すると、ちょうど $P(x)=0$ になります。よって必要条件が得られました。
+$x^2(1+x)^2>0$ を掛けます。質量別にまとめると、分母を消した左辺は
+
+$$
+\begin{aligned}
+&\frac{x^2(1+x)^2}{G}\{f_3-f_2-x(f_2-f_1)\}\\
+={}&m_1x^2\{(1+x)^3-1\}
+ +m_2(x^3-1)(1+x)^2\\
+&-m_3\{(1+x)^3-x^3\}\\
+={}&m_1x^3(x^2+3x+3)\\
+&+m_2(x^5+2x^4+x^3-x^2-2x-1)\\
+&-m_3(3x^2+3x+1)=P(x).
+\end{aligned}
+$$
+
+したがって $P(x)=0$ が必要条件になります。
 
 正の根を調べるため $F(x)=P(x)/x^3$ と置きます。これは
 
@@ -230,7 +244,18 @@ F(x)={}&(m_1+m_2)x^2+(3m_1+2m_2)x+(3m_1+m_2)\\
 \end{aligned}
 $$
 
-です。正の質量の仮定から、$F'(x)$ は全て正の項の和になります。特に $F$ は $(0,\infty)$ 上で連続かつ狭義増加で、
+です。項別に微分すると
+
+$$
+\begin{aligned}
+F'(x)={}&2(m_1+m_2)x+(3m_1+2m_2)\\
+&+\frac{m_2+3m_3}{x^2}
++\frac{2(2m_2+3m_3)}{x^3}
++\frac{3(m_2+m_3)}{x^4}>0
+\end{aligned}
+$$
+
+です。$x>0$ と $m_i>0$ から各項が正なので、$F$ は $(0,\infty)$ 上で連続かつ狭義増加で、
 
 $$
 \lim_{x\downarrow0}F(x)=-\infty,\qquad
@@ -246,7 +271,7 @@ $$
 =MK-\lambda Mc.
 $$
 
-従って $K=\lambda c$、すなわち $f_i=-\lambda(a_i-c)=-\lambda b_i$。ここで $I>0$ であり、前節と同じ粒子対の内積計算から $\lambda I=U>0$ が導かれます。したがって $\lambda>0$ も確かめられ、定義の全条件が成立します。
+従って $K=\lambda c$、すなわち $f_i=-\lambda(a_i-c)=-\lambda b_i$。ここで $I>0$ であり、[中心配置の係数の証明](#prop-cele3-multiplier-scaling)と同じ粒子対の内積計算を、今得た $f_i=-\lambda b_i$ に適用すると $\lambda I=U>0$ が導かれます。したがって $\lambda>0$ も確かめられ、定義の全条件が成立します。
 <!-- proof-end -->
 
 $m_1=m_2=m_3=m$ なら $x=1$ が方程式の解です。唯一性から間隔比は $1:1$、重心を引けば $(-1,0,1)$ に相当します。ただし質量を変えると一般に $x=1$ ではなくなります。Euler型は「等間隔の三点」ではなく「正しい間隔比を持つ一直線配置」です。
@@ -318,7 +343,7 @@ $$
 +(2\dot r\dot\theta+r\ddot\theta)JR_\theta b_i.
 $$
 
-他方、粒子間距離は $|q_i-q_j|=r|b_i-b_j|$ なので、中心配置の定義をそのまま代入して
+他方、粒子間距離は $|q_i-q_j|=r|b_i-b_j|$ なので、[中心配置の定義](#def-cele3-central-configuration)をそのまま代入して
 
 $$
 G\sum_{j\ne i}m_j\frac{q_j-q_i}{|q_j-q_i|^3}
@@ -520,7 +545,18 @@ f_2=G\left(-m_1+\frac{m_3}{x^2}\right),\quad
 f_3=-G\left(\frac{m_1}{(1+x)^2}+\frac{m_2}{x^2}\right).
 $$
 
-共通 $\lambda$ があるなら $f_2-f_1=-\lambda$、$f_3-f_2=-\lambda x$ なので $f_3-f_2-x(f_2-f_1)=0$。代入後 $x^2(1+x)^2/G$ を掛けて分母を消し、$x$ のべきでまとめると
+共通 $\lambda$ があるなら $f_2-f_1=-\lambda$、$f_3-f_2=-\lambda x$ なので $f_3-f_2-x(f_2-f_1)=0$。代入して $x^2(1+x)^2/G$ を掛け、質量別に整理すると
+
+$$
+\begin{aligned}
+&\frac{x^2(1+x)^2}{G}\{f_3-f_2-x(f_2-f_1)\}\\
+={}&m_1x^3(x^2+3x+3)\\
+&+m_2(x^3-1)(1+x)^2
+-m_3(3x^2+3x+1).
+\end{aligned}
+$$
+
+ここで $(x^3-1)(1+x)^2=x^5+2x^4+x^3-x^2-2x-1$ を代入し、$x$ のべきでまとめると
 
 $$
 \begin{aligned}
@@ -571,7 +607,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $\dot q_i=R_\theta(\dot r b_i+r\dot\theta Jb_i)$ です。$b_i\cdot Jb_i=0$ であり回転はノルムを保つので
+**詳細解答。** [中心配置の係数と縮尺](#prop-cele3-multiplier-scaling)により $U_0=\lambda I_0$ です。また、$\dot q_i=R_\theta(\dot r b_i+r\dot\theta Jb_i)$ です。$b_i\cdot Jb_i=0$ であり回転はノルムを保つので
 
 $$
 |\dot q_i|^2=\dot r^2|b_i|^2+r^2\dot\theta^2|b_i|^2.
@@ -619,13 +655,20 @@ $h^2=\lambda r_0$ を代入して $W_h''(r_0)=\lambda/r_0^3>0$ です。これ�
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** (i) 辺長はすべて $d=2$、総質量は $M=6$ です。重心は $c=(7/6,\sqrt3/2)$。重心系の慣性モーメントは、$\sum_i m_i b_i=0$ を使う恒等式
+**詳細解答。** (i) 辺長はすべて $d=2$、総質量は $M=6$ です。重心は $c=(7/6,\sqrt3/2)$。重心系の慣性モーメントは、粒子対の和を展開して求めます。$\sum_i m_i b_i=0$ より
 
 $$
-M\sum_i m_i|b_i|^2=\sum_{i<j}m_im_j|b_i-b_j|^2
+\begin{aligned}
+\sum_{i<j}m_im_j|b_i-b_j|^2
+&=\frac12\sum_{i,j}m_im_j
+\bigl(|b_i|^2+|b_j|^2-2b_i\cdot b_j\bigr)\\
+&=M\sum_i m_i|b_i|^2
+-\left|\sum_i m_i b_i\right|^2\\
+&=M I_0.
+\end{aligned}
 $$
 
-で計算できます。右辺は $4(m_1m_2+m_1m_3+m_2m_3)=4(2+3+6)=44$ なので
+これで個々の $b_i$ の二乗を毎回計算せず、辺長だけから $I_0$ を求められます。右辺は $4(m_1m_2+m_1m_3+m_2m_3)=4(2+3+6)=44$ なので
 
 $$
 I_0=\frac{44}{6}=\frac{22}3,\qquad
