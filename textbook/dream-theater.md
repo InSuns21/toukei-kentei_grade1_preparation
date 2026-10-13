@@ -792,6 +792,7 @@
 ### 代数幾何学 III
 
 1. [AG3-01 関手的視点とSpec](textbook/volumes/dream_thater/代数系/AG/AG3-01/index.md)
+2. [AG3-02 素スペクトルの位相と構造層](textbook/volumes/dream_thater/代数系/AG/AG3-02/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
