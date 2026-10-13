@@ -16,12 +16,12 @@ $$
 
 自由性も[多項式環の微分表示](../AG2-08/index.md#prop-ag2-08-polynomial-differentials)と同じ方法で確認できます。各 $j\ne i$ の形式的偏微分 $D_j=\partial/\partial z_j^{(i)}$ は積の規則を満たし、$D_j(z_\ell^{(i)})=\delta_{j\ell}$ です。微分加群の関係式に $D_j$ から誘導される係数写像を適用すると、
 
-$
+$$
 \sum_{\ell\ne i}a_\ell dz_\ell^{(i)}=0
 \quad\Longrightarrow\quad
 0=\sum_{\ell\ne i}a_\ell D_j(z_\ell^{(i)})=a_j
 \qquad(j\ne i).
-$
+$$
 
 全係数が零となるので、この微分族は一次独立です。上の $df$ の表示と合わせて、$U_i$ 上で微分の層は階数 $n$ の自由加群です。しかし $U_i\cap U_k$ 上では $z_j^{(k)}=z_j^{(i)}/z_k^{(i)}$ なので、分数の微分が生じます。異なるチャートの基底を単純に同一視することはできません。
 
