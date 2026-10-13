@@ -36,7 +36,7 @@ $$
 =\lim_{\varepsilon\downarrow0}H_\varepsilon f(x)
 $$
 
-> といい、点 $x$ における Hilbert 変換と呼ぶ。二つの極限が存在することを定義に含める。
+> といい、この主値を点 $x$ でのHilbert変換の値とする。二つの極限が存在することを定義に含める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha3-principal-value -->
@@ -275,7 +275,7 @@ $$
 
 有限切断の一様有界性も $|m_{\varepsilon,R}|\le8/\pi$ と Plancherel から従います。
 
-最後に $f\in C_c^1$ なら [滑らかな関数の主値の存在](#prop-ha3-smooth-pv)により $H_\varepsilon f(x)$ は各点で通常の主値へ収束します。有限切断の $R\to\infty$ は各点で $\int_{|t|>R}|f(x-t)|/|t|dt\le\|f\|_1/R$ ですから、ここで定義した $H_\varepsilon f$ の $L^2$ 同値類はこの点wise積分の同値類です。さらに $H_\varepsilon f\to Hf$ の $L^2$ 収束列から、$\varepsilon_n\downarrow0$ を適切に選んだ部分列がほとんど至る所で収束します。点wise主値の極限の一意性から、両者はほとんど至る所で一致します。
+最後に $f\in C_c^1$ なら [滑らかな関数の主値の存在](#prop-ha3-smooth-pv)により $H_\varepsilon f(x)$ は各点で通常の主値へ収束します。有限切断の $R\to\infty$ は各点で $\int_{|t|>R}|f(x-t)|/|t|dt\le\|f\|_1/R$ ですから、ここで定義した $H_\varepsilon f$ の $L^2$ 同値類はこの点wise積分の同値類です。さらに $H_\varepsilon f\to Hf$ の $L^2$ 収束列から、$\varepsilon_n\downarrow0$ を適切に選んだ部分列がほとんど至る所で収束します。同じ点で二つの異なる数に収束することはない（[極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)）ので、両者はほとんど至る所で一致します。
 <!-- proof-end -->
 
 $L^2$ 極限は、任意の $L^2$ 関数で各点の主値が存在することをまだ証明していません。とりわけ主値の存在を単に「$L^2$ 収束だから」と言い換えるのは誤りです。
@@ -471,7 +471,7 @@ $$
 \partial_y Q_y=-\frac{2yr}{\pi D^2}.
 $$
 
-従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ であり、二回微分すると $\Delta P_y=\Delta Q_y=0$ です。各 $y>0$ の近傍では核の任意階導関数の $L^1$（$P_y$）あるいは $L^2$（$Q_y$）の高さ $y$ が正の範囲にある各小区間で一様な上界が得られます。$f\in L^2$ に対して $\partial_x^a\partial_y^b K_y*f$ の絶対収束と局所一様収束を Cauchy–Schwarz により確かめられるので、積分内微分が正当化されます。ゆえに $\Delta u=\Delta v=0$ です。
+従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ であり、二回微分すると $\Delta P_y=\Delta Q_y=0$ です。各 $y_0>0$ に対して $y\in[y_0/2,2y_0]$ と限定すると、$P_y,Q_y$ の任意階の $x,y$ 導関数は $t$ の関数として $L^2(\mathbb R)$ に属し、そのノルムには $y$ と $x$ に依存しない有限上界があります。実際、核を有理関数として微分した各項の分母は $(t^2+y^2)$ の正の整数冪であり、$y\ge y_0/2$ により原点付近の発散を抑え、無限遠では二乗可積分なべきで減衰します。各導関数の $L^2$ 連続性と平均値の定理を用い、微分商の $L^2$ 極限を先に取り、Cauchy–Schwarz の不等式で $f\in L^2$ との積分へ移せます。従って $P_y*f$ と $Q_y*f$ は何度でも積分内で微分でき、核の $\Delta P_y=\Delta Q_y=0$ から $\Delta u=\Delta v=0$ です。
 <!-- proof-end -->
 
 この証明は $L^2$ ノルムにおける境界値です。全ての $L^2$ 関数について各点で $v(x,y)$ が $Hf(x)$ に収束することや、主値がほとんど至る所存在することをここで得たわけではありません。
