@@ -40,7 +40,7 @@ concepts:
     name: Hardy--Littlewood最大作用素の弱(1,1)評価
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（Hardy--Littlewood最大作用素の弱 $(1,1)$ 評価）]
+    introduction_aliases: [定理（Hardy--Littlewood最大作用素の弱(1,1)評価）]
     requires: [harmonic.ha1-centered-maximal, harmonic.ha1-finite-ball-covering]
 
   - id: harmonic.ha1-lebesgue-point
@@ -82,5 +82,5 @@ concepts:
     name: 強い(1,1)評価の失敗
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（強い $(1,1)$ 評価の失敗）]
+    introduction_aliases: [命題（強い(1,1)評価の失敗）]
     requires: [harmonic.ha1-centered-maximal]
