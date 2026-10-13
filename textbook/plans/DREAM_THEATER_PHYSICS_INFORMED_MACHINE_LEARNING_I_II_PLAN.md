@@ -5,7 +5,7 @@
 
 ## 中心問いと直接依存
 
-PML1は[ML1/2](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)と熱力学TH・統計力学SM・力学系の必要結果。PML2はさらにGPDE、逆問題INV、FEMの必要章。
+PML1は[ML1/2](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)と熱力学TH・統計力学SM・力学系の必要結果。PML2はさらにGPDE、逆問題INV、FEMの必要章。
 
 **本科目の正本：** 統計力学的な学習モデル、物理制約付き機械学習と科学機械学習。
 
