@@ -1,0 +1,49 @@
+id: "AG2-09"
+title: "射影空間の標準束とEuler列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-08
+  - AG2-06
+  - AG2-05
+  - AG2-01
+official_scope: []
+learning_objectives:
+  - 射影空間の余接層と標準束を局所座標の微分と外冪から構成できる
+  - O(-1)の斉次座標によるEuler写像の貼り合わせ・全射性・核の自由基底を証明できる
+  - 局所座標の分数微分と核の基底変換を照合して余接Euler列の完全性を証明できる
+  - 局所分裂短完全列の行列式の同型を基底と持ち上げから導ける
+  - 余接Euler列から射影空間の標準束O(-n-1)と標準因子類を計算できる
+  - 接Euler列を局所双対から導き接層の階数と遷移を説明できる
+  - 大域切断の単射と負次数のO(d)の大域切断定理から大域正則1形式の消失を証明できる
+definitions:
+  - { id: AG2-09-DEF-01, name: 射影空間の余接層と標準束 }
+  - { id: AG2-09-DEF-02, name: Euler写像 }
+  - { id: AG2-09-DEF-03, name: 接層 }
+theorems:
+  - { id: AG2-09-PROP-01, name: Euler写像の貼り合わせと全射性 }
+  - { id: AG2-09-THM-01, name: 射影空間の余接Euler列 }
+  - { id: AG2-09-PROP-02, name: 局所分裂短完全列の行列式 }
+  - { id: AG2-09-THM-02, name: 射影空間の標準束 }
+  - { id: AG2-09-THM-03, name: 射影空間の接Euler列 }
+  - { id: AG2-09-COR-01, name: 射影空間の大域正則1形式と標準形式 }
+canonical_examples:
+  - P1での核の基底とdy=-x^{-2}dxの対応
+  - P2でのdu∧dv=-x^{-3}dx∧dyによる局所計算
+  - PnでのEuler写像の右逆と核のn本の自由基底
+  - P1・P2・P3の標準束の次数
+problem_patterns:
+  - AG2-09-A1
+  - AG2-09-A2
+  - AG2-09-A3
+  - AG2-09-A4
+  - AG2-09-B1
+  - AG2-09-B2
+  - AG2-09-B3
+  - AG2-09-B4
+  - AG2-09-C1
+  - AG2-09-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 5 }
