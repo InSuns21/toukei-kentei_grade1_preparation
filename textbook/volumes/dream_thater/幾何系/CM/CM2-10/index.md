@@ -844,7 +844,7 @@ H^{-1}\big|_{z=1}&=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}
 \end{aligned}
 $$
 
-だから
+この二つの行列を掛けると
 
 $$
 (\partial H)H^{-1}=
@@ -1071,7 +1071,7 @@ $$
 G^{-1}=\begin{pmatrix}1&-z\\0&1\end{pmatrix}
 $$
 
-であり、
+である。この逆行列を使って積を計算すると
 
 $$
 A_0G=\begin{pmatrix}0&0\\1&z\end{pmatrix}dz,\quad
