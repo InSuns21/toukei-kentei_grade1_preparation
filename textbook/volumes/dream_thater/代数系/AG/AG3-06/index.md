@@ -213,7 +213,7 @@ $\widetilde M$ は加群を幾何へ運ぶだけでなく、加群の列の「�
 
 $u,v$ が合成零で $\operatorname{im}u=\ker v$ とします。[茎の表示](#thm-ag3-06-tilde-sheaf)から $\mathfrak p$ での列は $M'_{\mathfrak p}\to M_{\mathfrak p}\to M''_{\mathfrak p}$ です。局所化は核・像を保つので、各茎で完全です。
 
-逆に茎の列がすべて完全なら、$v\circ u$ は各 $\mathfrak p$ で零です。ある元 $x\in M'$ の像 $y=(v\circ u)(x)\ne0$ が存在すると仮定します。$y$ の消去イデアル $\operatorname{Ann}(y)$ は真のイデアルだから、これを含む極大イデアル $\mathfrak m$ が存在します。もし $y/1=0$ in $M''_{\mathfrak m}$ なら $s\notin\mathfrak m$ で $sy=0$ となり、$s\in\operatorname{Ann}(y)\subseteq\mathfrak m$ に矛盾します。従って合成は零です。
+逆に茎の列がすべて完全なら、$v\circ u$ は各 $\mathfrak p$ で零です。ある元 $x\in M'$ の像 $y=(v\circ u)(x)\ne0$ が存在すると仮定します。$y$ の消去イデアル $\operatorname{Ann}(y)$ は真のイデアルだから、これを含む極大イデアル $\mathfrak m$ が存在します。もし $y/1=0$ が $M''_{\mathfrak m}$ で成り立てば $s\notin\mathfrak m$ で $sy=0$ となり、$s\in\operatorname{Ann}(y)\subseteq\mathfrak m$ に矛盾します。従って合成は零です。
 
 そこで $Q=\ker v/\operatorname{im}u$ とします。局所化の完全性と茎の仮定から各 $Q_{\mathfrak p}=0$ です。$Q\ne0$ なら先ほどと同じ消去イデアルの議論で非零の局所化を持ち矛盾します。従って $Q=0$、すなわち加群列も完全です。
 <!-- proof-end -->
@@ -352,7 +352,7 @@ $$
 任意の開集合 $W\subseteq X$ 上の $\varphi:\mathcal O_W^n\to\mathcal F|_W$ を考え、その任意の点の周囲で、上の $U$ に含まれる主開 $D(g)$ を取ります。[アフィン対応](#thm-ag3-06-affine-equivalence)から制限した $\varphi$ は $A_g^n\to M_g$ に対応します。$A_g$ は Noether 環なので、その核は $A_g^n$ の有限生成部分加群です。[完全性](#prop-ag3-06-exactness)から層の核はこの加群の層に一致し、局所的に有限型です。すべての点で成立するので $\ker\varphi$ は有限型です。よって $\mathcal F$ は連接層です。
 <!-- proof-end -->
 
-**Noether 条件を外したとき。** $A=k[x_1,x_2,\ldots]$ 上の $A/I$ は有限型ですが、$A\to A/I$ の核 $I$ は有限生成ではありません。従って $\widetilde{A/I}$ は連接でありません。破綻したのは「有限生成自由加群の部分加群が有限生成」という証明の一手です。
+**Noether 条件を外したとき。** $A=k[x_1,x_2,\ldots]$ 上の $A/I$ は有限型ですが、$A\to A/I$ の核 $I$ は有限生成ではありません。もし連接なら $\widetilde I$ が有限型になりますが、アフィン上では局所的な有限生成元を有限主開被覆で揃えて $I$ の有限生成元を得られるため、矛盾します。従って $\widetilde{A/I}$ は連接でありません。破綻したのは「有限生成自由加群の部分加群が有限生成」という証明の一手です。
 
 ## 6. 演習：局所化・再構成・有限性
 
@@ -452,7 +452,7 @@ $A=k[x_1,x_2,\ldots]$、$I=(x_1,x_2,\ldots)$、$M=A/I$ とする。$M$ が有限
 
 $M$ は $\bar1$ 一つで生成されるので有限生成です。$I$ が有限生成と仮定し、その生成元を $f_1,\ldots,f_r$ とします。それらは有限個の変数 $x_1,\ldots,x_N$ だけを使います。代入 $x_i\mapsto0$（$1\le i\le N$）、$x_{N+1}\mapsto1$、残りを $0$ とする $k$-代数準同型 $A\to k$ では、すべての $f_i$ が $0$ に写る一方 $x_{N+1}$ は $1$ に写ります。これは $x_{N+1}\in I=(f_1,\ldots,f_r)$ に矛盾します。
 
-従って $I$ は有限生成でありません。[巡回商の判定](#prop-ag3-06-cyclic-presentation)から $A/I$ は有限表示でありません。さらに $A\to A/I$ の核が有限型でないため $\widetilde M$ は連接でもありません。
+従って $I$ は有限生成でありません。[巡回商の判定](#prop-ag3-06-cyclic-presentation)から $A/I$ は有限表示でありません。さらに $A\to A/I$ の核 $I$ はアフィン上で有限型でありません。有限型なら、有限主開被覆で局所生成元の分母を払い、有限個の大域生成元を作れて $I$ が有限生成となるからです。従って $\widetilde M$ は連接でもありません。
 <!-- solution-end -->
 
 ### B3. 基底変換で関係式がどう変わるか
@@ -541,7 +541,7 @@ $$
 
 ### C2. 射影直線と準連接層の局所・大域
 
-$k$ を体、$X=\mathbb P^1_k$ とし、標準チャート $U_0,U_1$ をそれぞれ $\operatorname{Spec}k[x]$、$\operatorname{Spec}k[y]$（重なりで $xy=1$）とする。[ねじれ層 $\mathcal O(1)$](../AG2-06/index.md#def-ag2-06-twisting-sheaf) を考える。
+$k=\mathbb C$、$X=\mathbb P^1_k$ とし、標準チャート $U_0,U_1$ をそれぞれ $\operatorname{Spec}k[x]$、$\operatorname{Spec}k[y]$（重なりで $xy=1$）とする。[ねじれ層 $\mathcal O(1)$](../AG2-06/index.md#def-ag2-06-twisting-sheaf) を考える。
 
 1. 各チャートへの制限が加群から作る層であることを説明せよ。
 2. $U_0\cap U_1$ での局所基底変換と、切断の係数変換を書け。
