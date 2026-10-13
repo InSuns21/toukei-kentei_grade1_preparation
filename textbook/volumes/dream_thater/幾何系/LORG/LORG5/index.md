@@ -188,7 +188,16 @@ f_1(s)=|z(s)-z(1)|^2,\qquad
 f_i''(s)\ge|\dot z(s)|^2
 $$
 
-とできます。$f_0(0)=f_0'(0)=0$ と $f_1(1)=f_1'(1)=0$ だから
+とできます。$f_0(0)=f_0'(0)=0$ と $f_1(1)=f_1'(1)=0$ です。二階微分をそれぞれ端点から二度積分すると
+
+$$
+\begin{aligned}
+f_0(1)&=\int_0^1(1-s)f_0''(s)\,ds,\\
+f_1(0)&=\int_0^1s f_1''(s)\,ds.
+\end{aligned}
+$$
+
+両端で $f_0(1)=f_1(0)=|z(1)-z(0)|^2$ なので、$f_i''\ge|\dot z|^2$ を代入して
 
 $$
 \begin{aligned}
@@ -205,7 +214,13 @@ $$
 \int_0^1|\dot z(s)|^2\,ds<8r^2.
 $$
 
-また $\ddot z^\mu=-\Gamma^\mu_{\alpha\beta}(z)\dot z^\alpha\dot z^\beta$ と座標球上での $\Gamma$ の有界性を使うと、ある定数 $C_R$ で
+また、速度を一度積分すると
+
+$$
+z(1)-z(0)=\dot z(0)+\int_0^1(1-s)\ddot z(s)\,ds.
+$$
+
+ここに $\ddot z^\mu=-\Gamma^\mu_{\alpha\beta}(z)\dot z^\alpha\dot z^\beta$ と座標球上での $\Gamma$ の有界性を使うと、ある定数 $C_R$ で
 
 $$
 \begin{aligned}
@@ -216,7 +231,7 @@ $$
 \end{aligned}
 $$
 
-$r$ をさらに小さくすれば、この初速度は全て $\mathcal W$ の繊維近傍に入り、$E$ の逆写像の一意性から $\dot\beta(0)=V(x,y)$ です。測地線初期値問題の一意性により $\beta=\gamma_{x,y}$。任意に小さい $r$ を取れるので結論を得ます。$\square$
+$r$ をさらに小さくすれば、この初速度は全て $\mathcal W$ の繊維近傍に入り、$E$ の逆写像の一意性から $\dot\beta(0)=V(x,y)$ です。[LORG4の測地線初期値問題の一意性](../LORG4/index.md#prop-lorg4-lorentz-exponential)により $\beta=\gamma_{x,y}$。任意に小さい $r$ を取れるので結論を得ます。$\square$
 <!-- proof-end -->
 
 **注意**：この証明は補助Euclidノルムでの閉じ込めと初速度評価です。[GEO14のRiemann距離の最短性](../../GEO/GEO14/index.md#thm-geo14-radial-minimizing)を使っていません。これで局所**一意性**と滑らかな端点依存を作ったのであり、固有時の最大性は次節以降で別に証明します。
@@ -252,7 +267,7 @@ $$
 F(t,u)=\exp_p(t(v+uw))
 $$
 
-を定めます。$u$ を十分小さくすれば星形性と開性から定義できます。$T=\partial_tF$、$J=\partial_uF$ とすると、各 $u$ について $D_tT=0$ であり、初期速度は $v+uw$ です。捩率零から $D_tJ=D_uT$。計量両立性によって
+を定めます。$u$ を十分小さくすれば星形性と開性から定義できます。$T=\partial_tF$、$J=\partial_uF$ とすると、各 $u$ について $D_tT=0$ であり、初期速度は $v+uw$ です。[LORG4のLevi-Civita接続の捩率零](../LORG4/index.md#thm-lorg4-lorentz-levi-civita)から $D_tJ=D_uT$。計量両立性によって
 
 $$
 \begin{aligned}
@@ -263,7 +278,7 @@ $$
 \end{aligned}
 $$
 
-測地線の因果型保存から $g(T,T)=g_p(v+uw,v+uw)$ なので
+[LORG4の測地線の因果型保存](../LORG4/index.md#prop-lorg4-geodesic-causal-type)から $g(T,T)=g_p(v+uw,v+uw)$ なので
 
 $$
 \left.\frac12\partial_u g(T,T)\right|_{u=0}
@@ -317,13 +332,35 @@ $p$ で $\dot\gamma(0)$ に直交する空間的超平面を取り、その接�
 
 $p$ の局所座標を選び、[時間的ベクトルの直交補空間の正定値性](../LORG1/index.md#lem-lorg1-timelike-orthogonal)から $H=\dot\gamma(0)^\perp\subset T_pM$ が $n$ 次元の空間的部分空間であることを使います。$H$ を接空間に持つ座標超曲面 $S$ を $p$ の近くで取れます。$g|_{TS}$ は $p$ で正定値なので、$S$ を縮めれば全点で正定値です。
 
-$S$ 上には、$\dot\gamma(0)$ と同じ未来向きの滑らかな単位時間的法線場 $N_y$ が存在します。法線は $g(N,N)=-1,\ g(N,\partial_i\sigma)=0$ を解くことで局所的に滑らかに選べます。$S$ の座標表示を $\sigma(y)$、$\sigma(0)=p$ として
+$S$ 上で $\dot\gamma(0)$ を滑らかなベクトル場 $Z$ に延長します。$g|_{TS}$ のGram行列 $G_{ij}=g(\partial_i\sigma,\partial_j\sigma)$ は正定値なので、逆行列 $(G^{ij})$ が存在します。そこで
+
+$$
+\widetilde N=Z-\sum_{i,j=1}^nG^{ij}g(Z,\partial_j\sigma)\partial_i\sigma
+$$
+
+このとき $\sum_iG^{ij}G_{ik}=\delta^j_k$ を使うと、直交条件を次のように確認できます。
+
+$$
+\begin{aligned}
+g(\widetilde N,\partial_k\sigma)
+&=g(Z,\partial_k\sigma)-\sum_{i,j}G^{ij}g(Z,\partial_j\sigma)G_{ik}\\
+&=g(Z,\partial_k\sigma)-\sum_j\delta^j_k g(Z,\partial_j\sigma)=0.
+\end{aligned}
+$$
+
+$p$ では $\widetilde N=\dot\gamma(0)$ なので、$S$ を縮めれば $\widetilde N$ は未来時間的です。正規化
+
+$$
+N=\frac{\widetilde N}{\sqrt{-g(\widetilde N,\widetilde N)}}
+$$
+
+により、$g(N,N)=-1$ と $g(N,\partial_i\sigma)=0$ を満たす未来向きの滑らかな法線ベクトル場 $N$ が得られます。$S$ の座標表示を $\sigma(y)$、$\sigma(0)=p$ として
 
 $$
 F(t,y)=\exp_{\sigma(y)}(tN_y)
 $$
 
-と置きます。$F(0,y)=\sigma(y)$、$dF_{(0,0)}$ は $t$ 方向を $\dot\gamma(0)$、$y$ 方向を $H$ の基底に写すため線形同型です。逆写像定理から $F$ は小さい直積座標領域で微分同相になります。$\gamma$ と $t\mapsto F(t,0)$ は位置・初速度が同じ測地線なので、ODEの一意性から一致します。
+と置きます。$F(0,y)=\sigma(y)$、$dF_{(0,0)}$ は $t$ 方向を $\dot\gamma(0)$、$y$ 方向を $H$ の基底に写すため線形同型です。逆写像定理から $F$ は小さい直積座標領域で微分同相になります。$\gamma$ と $t\mapsto F(t,0)$ は位置・初速度が同じ測地線なので、[LORG4の測地線初期値問題の一意性](../LORG4/index.md#prop-lorg4-lorentz-exponential)から一致します。
 
 $T=\partial_tF$、$Y_i=\partial_{y^i}F$ と書くと各 $y$ で $D_tT=0$ です。よって
 
@@ -332,7 +369,7 @@ $$
 g(T,T)|_{t=0}=g(N_y,N_y)=-1.
 $$
 
-捩率零と座標変分の交換から $D_tY_i=D_iT$ です。従って
+[LORG4のLevi-Civita接続の捩率零](../LORG4/index.md#thm-lorg4-lorentz-levi-civita)と座標変分の交換から $D_tY_i=D_iT$ です。従って
 
 $$
 \partial_tg(T,Y_i)
