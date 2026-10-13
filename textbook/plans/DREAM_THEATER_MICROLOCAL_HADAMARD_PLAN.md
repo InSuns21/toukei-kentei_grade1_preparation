@@ -16,13 +16,13 @@ Riemann幾何や平坦な波動方程式では不足する、この科目固有�
 
 ## 所有範囲
 
-波面集合、分布の積・引き戻し、特異性伝播、Hadamard状態。
+波面集合、分布の積・引き戻し、特異性伝播、Hadamard状態。**局所Hadamard二点関数の点分離と応力テンソルの繰り込み**は本PLANの責務。相互作用の時間順序積を衝突対角へ延長するEpstein–Glaser型の**摂動的くりこみの構成**は[MQFC II](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)が独立正本であり、混同しない。
 
 ### 3. 超局所解析・波面集合・Hadamard条件 I（MICA1–MICA15：仮構成）
 
 - **位置付け:** 厳密な曲がった時空QFTの発展基盤
 - **前提:** HPDE、Fourier解析、GPDE、調和解析の必要部分（既存独立PLAN）
-- **canonical ownership:** 波面集合、分布の積と引戻しの可否、特異性伝播、Hadamard条件の超局所的定式化を所有。実際の曲がった時空の物理状態・粒子観測はQCURV、CFTレプリカはQFT II。
+- **canonical ownership:** 波面集合、分布の積と引戻しの可否、特異性伝播、Hadamard条件の超局所的定式化を所有。実際の曲がった時空の物理状態・粒子観測はQCURV、CFTレプリカはQFT IV。
 
 - **候補MICA1**：分布の局所Fourier変換と滑らかさ
 - **候補MICA2**：滑らかなcutoffと周波数方向への減衰
