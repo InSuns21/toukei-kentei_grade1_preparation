@@ -135,9 +135,6 @@ $$
 
 立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
 
-<a id="ref-var7-planar-divergence"></a>
-#### 平面の発散公式
-
 $
 \int_U(P_u+Q_v)\,du\,dv
 =\int_{\partial U}(P,Q)\cdot\nu_U\,ds_U.
@@ -279,7 +276,7 @@ $$
 =\frac{\nabla u}{w}\cdot\nabla\varphi
 +\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right).
 $$
-これを積分し、第2節で導いた[平面の発散公式](#ref-var7-planar-divergence)を $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
+これを積分し、第2節で導いた[平面の発散公式](#thm-var7-first-variation)を $D$ に適用します。$\varphi$ が内部コンパクト台なら境界積分は0です。従って
 $$
 \delta A[u;\varphi]
 =-\int_D\varphi\operatorname{div}\left(\frac{\nabla u}{w}\right)\,dx\,dy.
@@ -559,7 +556,7 @@ $w=\sqrt{1+|\nabla u|^2}$ と置き、$w_\varepsilon^2=1+|\nabla u+\varepsilon\n
 $$
 \delta A=\int_D\frac{\nabla u}{w}\cdot\nabla\varphi\,dx\,dy.
 $$
-積の発散を展開して第2節の[平面の発散公式](#ref-var7-planar-divergence)を用い、
+積の発散を展開して第2節の[平面の発散公式](#thm-var7-first-variation)を用い、
 $$
 \delta A=
 -\int_D\varphi\,\operatorname{div}(\nabla u/w)\,dx\,dy+
