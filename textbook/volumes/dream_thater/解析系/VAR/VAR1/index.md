@@ -13,21 +13,21 @@
 > **定義（許容曲線と許容変分）**  
 > 次の積分が定義される関数集合 $\mathcal A$ を**許容クラス**という。
 >
-$
+$$
 J[u]=\int_a^b F(x,u(x),u'(x))\,dx.
-$
+$$
 >
 > $u\in\mathcal A$ に対し、十分小さい $|\varepsilon|$ について
 >
-$
+$$
 u_\varepsilon=u+\varepsilon\eta\in\mathcal A
-$
+$$
 >
 > となる $\eta$ を、その点での**許容変分方向**という。両端の値を固定する場合には
 >
-$
+$$
 \eta(a)=\eta(b)=0
-$
+$$
 >
 > を要求する。
 <!-- formal-statement-end -->
@@ -245,16 +245,16 @@ $$
 > **定義（等周拘束と正則性）**  
 > 固定端のもとで、二つの積分汎関数について
 >
-$
+$$
 J[u]=\int_a^b F(x,u,u')\,dx,\qquad
 K[u]=\int_a^b G(x,u,u')\,dx=\ell
-$
+$$
 >
 > を課す問題を等周型変分問題という。両端ゼロの滑らかな方向 $\psi$ が存在し、
 >
-$
+$$
 \delta K[u;\psi]\ne0
-$
+$$
 >
 > を満たすとき、その点で拘束は**正則**という。
 <!-- formal-statement-end -->
