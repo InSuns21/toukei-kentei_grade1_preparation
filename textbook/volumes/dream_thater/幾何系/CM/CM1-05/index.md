@@ -161,9 +161,13 @@ $$
 > **定理（複素接枠と成分列の座標変換則）**  
 > $X$ を複素次元 $n$ の複素多様体、$(U_\alpha,z_\alpha)$ と $(U_\beta,z_\beta)$ を正則座標、$W=U_\alpha\cap U_\beta$ とする。$p\in W$ に対し
 >
-> $G_{\beta\alpha}(p)=D_{\mathbb C}(z_\beta\circ z_\alpha^{-1})(z_\alpha(p))$
->
-> と置く。この行列はすべての $p\in W$ で可逆で、$z_\alpha$ で表した各行列成分は正則である。複素接基底の変換は
+> 次の遷移行列を置く。
+
+$
+G_{\beta\alpha}(p)=D_{\mathbb C}(z_\beta\circ z_\alpha^{-1})(z_\alpha(p)).
+$
+
+> この行列はすべての $p\in W$ で可逆で、$z_\alpha$ で表した各行列成分は正則である。複素接基底の変換は
 
 $$
 \left.\partial_{z_\alpha^j}\right|_p
