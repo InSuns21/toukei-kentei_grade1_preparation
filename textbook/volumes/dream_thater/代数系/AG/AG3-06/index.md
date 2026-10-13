@@ -304,13 +304,16 @@ $I=(a_1,\ldots,a_s)$ なら $A^s\to A\to A/I\to0$ で、最初の写像を $(b_i
 
 逆に $A/I$ が有限表示で、$A^s\xrightarrow{d}A^r\xrightarrow{\pi}A/I\to0$ という完全列を持つとします。$K=\ker\pi=\operatorname{im}d$ は $d$ の列ベクトル $s$ 個で生成されます。標準全射 $q:A\to A/I$ の核 $I$ も有限生成であることを、二つの自由加群からの全射を比較して示します。
 
-二つの全射 $A^r\twoheadrightarrow A/I$ と $A\twoheadrightarrow A/I$ のファイバー積を $P=\{(u,a):\pi(u)=q(a)\}$ とします。第一射影 $P\to A^r$ は核 $I$、第二射影 $P\to A$ は核 $K$ を持ちます。自由加群 $A^r,A$ へのそれぞれの全射は分裂するため
+二つの全射 $A^r\twoheadrightarrow A/I$ と $A\twoheadrightarrow A/I$ のファイバー積を $P=\{(u,a):\pi(u)=q(a)\}$ とします。第一射影 $p_1:P\to A^r$ の核は $\{(0,a):q(a)=0\}\simeq I$、第二射影 $p_2:P\to A$ の核は $\{(u,0):\pi(u)=0\}\simeq K$ です。
+
+これらの全射が実際に分裂することを確認します。$A^r$ の標準基底 $e_j$ ごとに $q(a_j)=\pi(e_j)$ となる $a_j\in A$ を選べるので、$e_j\mapsto(e_j,a_j)$ を線形に延長した写像は $p_1$ の右逆です。また $\pi(u_0)=q(1)$ となる $u_0\in A^r$ を選ぶと、$a\mapsto(au_0,a)$ は $p_2$ の右逆です。よって二つの分裂完全列から
 
 $$
-P\simeq A^r\oplus I\simeq A\oplus K.
+P\simeq A^r\oplus I,
+\qquad P\simeq A\oplus K.
 $$
 
-$A\oplus K$ は有限生成なので $A^r\oplus I$ も有限生成です。その直和因子 $I$ も有限生成となります。
+$K=\operatorname{im}d$ は有限生成なので $A\oplus K$、従ってそれと同型な $A^r\oplus I$ も有限生成です。直和射影 $A^r\oplus I\to I$ は全射ですから、前者の有限個の生成元の像で $I$ が生成されます。
 <!-- proof-end -->
 
 上の証明は環を Noether と仮定していません。従って $A=k[x_1,x_2,\ldots]$ で $I=(x_1,x_2,\ldots)$ が有限生成でないことを確かめれば、有限型と有限表示の違いが実際に生じます。有限個の多項式は有限個の変数しか含まず、残りの変数 $x_j$ をその有限個で生成したイデアルに入れることはできません（残りの変数だけを $1$、使われた変数を $0$ とする代入で確認できます）。
@@ -354,7 +357,23 @@ $$
 
 連接層は定義により有限型です。逆に有限型 $\mathcal F$ を取り、点 $x\in X$ の Noether なアフィン開近傍 $U=\operatorname{Spec}A$ に制限します。さらに主開集合へ縮めて $\mathcal F|_U=\widetilde M$、$M$ を有限生成とできます。環 $A$ の Noether 性は局所化で保存されるので、縮めた $A$ も Noether です。
 
-$M$ の生成元を $m_1,\ldots,m_r$ とすると $A^r\to M$ は全射です。$A$ が Noether なので $A^r$ の部分加群 $\ker(A^r\to M)$ は有限生成です。従って有限整数 $s$ による表示
+ここで、Noether 環 $A$ 上の有限自由加群の部分加群は有限生成であることを、階数について帰納的に示します。
+
+階数 $r=0$ では部分加群は零です。$r=1$ では部分加群はイデアルですから、[Noether 環の有限生成イデアルの特徴付け](../AG1-05/index.md#prop-ag1-05-acc-finite-generation)から有限生成です。
+
+$r>1$ とし、部分加群 $L\subseteq A^r$ の第1座標への射影を $p$ とします。その像 $J=p(L)\subseteq A$ はイデアルなので有限生成です。$J$ の生成元を、それぞれ $L$ の元へ持ち上げます。
+
+射影を $L$ に制限した写像の核は
+
+$$
+\ker(p|_L)=L\cap(0\oplus A^{r-1})
+$$
+
+です。これは $A^{r-1}$ の部分加群だから帰納法で有限生成です。任意の $L$ の元から、射影先の生成元に対応する持上げを適切に引けば、この核の元になります。よって持上げの有限個と核の生成元の有限個を併せて、$L$ 全体を生成できます。
+
+この事実を、$M$ の有限個の生成元 $m_1,\ldots,m_r$ が定める全射 $A^r\to M$ に適用します。
+
+従って $L=\ker(A^r\to M)$ は有限生成です。有限整数 $s$ による表示
 
 $$
 A^s\longrightarrow A^r\longrightarrow M\longrightarrow0
@@ -368,7 +387,7 @@ $$
 \varphi:\mathcal O_W^n\longrightarrow\mathcal F|_W.
 $$
 
-$W$ の任意の点の周囲で、先ほどのアフィン近傍 $U$ に含まれる主開 $D(g)$ を取れます。[アフィン対応](#thm-ag3-06-affine-equivalence)より、制限した層の射は次の加群準同型に対応します。
+$W$ の任意の点 $x$ に対して、$x\in D(g)\subseteq U\cap W$ となる主開近傍を取ります。$D(g)$ は $U$ の中での主開集合であり、以下の $A_g,M_g$ はこの $U$ の座標環と加群を局所化したものです。[アフィン対応](#thm-ag3-06-affine-equivalence)より、制限した層の射は次の加群準同型に対応します。
 
 $$
 \varphi_g:A_g^n\longrightarrow M_g.
@@ -394,7 +413,7 @@ $A=k[t]$、$M=A/(t^3)$ とする。$\widetilde M(D(t))$ と $(\widetilde M)_{(t)
 <!-- solution-start -->
 ### 詳細解答
 
-[加群から層への構成](#thm-ag3-06-tilde-sheaf)から $D(t)$ 上の切断は $M_t$ です。$t^3\bar1=0$ に $t^{-3}$ を掛けて $\bar1=0$ なので $M_t=0$ です。一方、茎は $M_{(t)}=k[t]_{(t)}/(t^3)$。ここで $t\notin(t^3)k[t]_{(t)}$ です。もし $t=t^3 a/s$、$s(0)\ne0$ なら $st=t^3a$ で、左辺の $t$ の次数は1、右辺は3以上になり矛盾します。従って茎では $\bar t\ne0$、ただし $\bar t^3=0$ です。
+[加群から層への構成](#thm-ag3-06-tilde-sheaf)から $D(t)$ 上の切断は $M_t$ です。$t^3\bar1=0$ に $t^{-3}$ を掛けて $\bar1=0$ なので $M_t=0$ です。一方、茎は $M_{(t)}=k[t]_{(t)}/(t^3)$。ここで $t\notin(t^3)k[t]_{(t)}$ です。もし $t=t^3 a/s$、$s(0)\ne0$ なら $st=t^3a$ です。$s(t)=s(0)+t h(t)$ と書くと左辺は $s(0)t+t^2h(t)$ で $t$ の一次の係数は非零ですが、右辺 $t^3a$ の一次の係数は零です。係数比較に矛盾します。従って茎では $\bar t\ne0$、ただし $\bar t^3=0$ です。
 <!-- solution-end -->
 
 ### A2. 主開集合の切断
