@@ -244,7 +244,7 @@ $$
 A_f/\mathfrak pA_f\simeq(A/\mathfrak p)_f
 $$
 
-は整域 $A/\mathfrak p$ の非零元 $f+\mathfrak p$ による局所化なので整域であり、$\mathfrak pA_f$ は素イデアルです。さらに $f/1$ が $A_f$ で単元であることを使うと
+です。実際、$a/f^n$ を $(a+\mathfrak p)/(f+\mathfrak p)^n$ に送る写像は全射で、$A/\mathfrak p$ が整域かつ $f\notin\mathfrak p$ だから、像が零になるのは $a\in\mathfrak p$ の場合に限ります。核が $\mathfrak pA_f$ なので上の同型が成立します。右辺は整域の非零元による局所化であり整域です。従って $\mathfrak pA_f$ は素イデアルです。さらに $f/1$ が $A_f$ で単元であることを使うと
 
 $$
 \frac{b}{f^n}\in\mathfrak q
@@ -254,7 +254,7 @@ $$
 
 従って素点の拡大と収縮は互いに逆です。
 
-任意の $g\in A$ に対して $D_A(fg)$ の逆像は $D_{A_f}(g/1)$ です。$A_f$ の元はすべて $g/f^n$ の形で、その主開集合は $D_{A_f}(g/1)$ に等しいため、これは双方の開基を対応させる同相です。
+任意の $g\in A$ に対して $D_A(fg)$ の逆像は $D_{A_f}(g/1)$ です。また $A_f$ の任意の元 $b/f^n$ による主開集合は、$f/1$ が単元なので $D_{A_f}(b/f^n)=D_{A_f}(b/1)$ です。従って $D_A(f)$ の開基 $\{D_A(fg):g\in A\}$ と $\operatorname{Spec}A_f$ の開基が対応し、点対応は同相になります。
 
 [主開切断環](../AG3-02/index.md#thm-ag3-02-principal-sections)を両方に適用すると
 
