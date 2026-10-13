@@ -1,7 +1,5 @@
 # CELE6 ホモクリニック構造とHamiltonian chaos
 
-<!-- DT-REVIEW: CELE6 -->
-
 <!-- definition-example-audit: strict -->
 
 > **使う結果**：[CELE4の回転系Hamiltonian](../CELE4/index.md#prop-cele4-rotating-equations)、[CELE5の共鳴障害](../CELE5/index.md#prop-cele5-resonance-obstruction)、[INT7の第一帰還写像](../../../幾何系/INT/INT7/index.md#def-int7-return)、[DYN14の双曲線形模型](../../../解析系/DYN/DYN14/index.md#thm-dyn14-eigen-dichotomy)と[DYN13の二枝符号化](../../../解析系/DYN/DYN13/index.md#thm-dyn13-conjugacy)を足場にします。後二者は一般の非線形定理の証明ではありません。
@@ -242,7 +240,7 @@ $
 
 ### 証明の見取り図
 
-固定点の存続だけなら陰関数定理で示せます。非線形の安定曲線の存在まで陰関数定理だけで導けるわけではありません。
+固定点の存続だけなら[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)で示せます。非線形の安定曲線の存在まで[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)だけで導けるわけではありません。
 
 <!-- proof-start -->
 ### 証明
@@ -255,7 +253,7 @@ $$
 \binom{\delta q}{\delta p}.
 $$
 
-固有ベクトル $(1,1),(1,-1)$ の固有値はそれぞれ $+1,-1$。従って時間 $T$ 写像の微分の固有値は $e^T,e^{-T}$ です。$e^T\ne1$ かつ $e^{-T}\ne1$ だから $D(P_0-\operatorname{id})$ は可逆です。Hamilton方程式の解は初期値・$\varepsilon$ に滑らかに依存するので、陰関数定理を $P_\varepsilon(z)-z=0$ に適用すると $\varepsilon=0$ 近傍で一意の固定点 $z_\varepsilon$ を得ます。微分行列の固有値は小摂動で $e^{\pm T}$ の近くに残るので、一つが単位円内、他方が単位円外です。
+固有ベクトル $(1,1),(1,-1)$ の固有値はそれぞれ $+1,-1$。従って時間 $T$ 写像の微分の固有値は $e^T,e^{-T}$ です。$e^T\ne1$ かつ $e^{-T}\ne1$ だから $D(P_0-\operatorname{id})$ は可逆です。Hamilton方程式の解は初期値・$\varepsilon$ に滑らかに依存するので、[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を $P_\varepsilon(z)-z=0$ に適用すると $\varepsilon=0$ 近傍で一意の固定点 $z_\varepsilon$ を得ます。微分行列の固有値は小摂動で $e^{\pm T}$ の近くに残るので、一つが単位円内、他方が単位円外です。
 <!-- proof-end -->
 
 この模型では実は $q=p=0$ は任意の $\varepsilon$ で厳密解です。$\dot p=(1+\varepsilon\cos\omega t)\sin q$ が零だからです。したがって存続点はそのまま原点で、微分方程式の係数は周期的になります。
@@ -377,7 +375,7 @@ $$
 
 ### 証明の見取り図
 
-エネルギー差を $\varepsilon$ で割ってから陰関数定理を使います。断面上では $p$ が $2$ の近くにあるので、エネルギー差の位相微分が非零であれば二曲線の接線は異なります。
+エネルギー差を $\varepsilon$ で割り、単純零点の両側で符号が異なることと一様展開を使って交点を構成します。断面上では $p$ が $2$ の近くにあるので、エネルギー差の位相微分が非零であれば二曲線の接線は異なります。
 
 <!-- proof-start -->
 ### 証明
@@ -597,7 +595,7 @@ $$
 =ae^t\binom11+be^{-t}\binom1{-1}.
 $$
 
-従って時間 $T$ 写像は $v_+$ に沿い $e^T>1$ 倍、$v_-$ に沿い $0<e^{-T}<1$ 倍です。双方の絶対値が $1$ でないので[双曲鞍型の定義](#def-cele6-hyperbolic)を満たします。固定点存続には $e^{\pm T}-1\ne0$ による陰関数定理を使えます。
+従って時間 $T$ 写像は $v_+$ に沿い $e^T>1$ 倍、$v_-$ に沿い $0<e^{-T}<1$ 倍です。双方の絶対値が $1$ でないので[双曲鞍型の定義](#def-cele6-hyperbolic)を満たします。固定点存続には $e^{\pm T}-1\ne0$ による[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を使えます。
 <!-- solution-end -->
 
 <a id="ex-cele6-b02"></a>
