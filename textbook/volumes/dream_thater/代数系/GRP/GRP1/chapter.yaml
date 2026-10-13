@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00A
+  - SET-U2
 official_scope: []
 learning_objectives:
   - 群・可換群を定義し、単位元・逆元の一意性、消去法則、積の逆元公式を群公理だけから証明できる
@@ -57,5 +58,5 @@ problem_patterns:
   - GRP1-CAYLEY-REGULAR-ACTION-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.5 }
+exercise_counts: { level_a: 6, level_b: 6, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 8.0, review: 0.5 }
