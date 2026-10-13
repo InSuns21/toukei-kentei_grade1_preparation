@@ -263,9 +263,11 @@ $$
 f^N=\sum_{i=1}^r c_i h_i
 $$
 
-と書けます。これに $a$ を掛けると $f^Na=\sum_i c_i(h_i a)=0$ です。ゆえに $a/f^n=0$ in $A_f$ となり、単射です。
+と書けます。これに $a$ を掛けると $f^Na=\sum_i c_i(h_i a)=0$ です。ゆえに $a/f^n=0$（$A_f$ 内） となり、単射です。
 
-**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。局所表示が成り立つ近傍を主開集合まで縮め、$D(f)$ との共通部分を取れば、各点の周りの $D(fg_i)$ 上で $s$ は一つの局所化元で表されます。上の準コンパクト性で有限個の $D(fg_1),\ldots,D(fg_r)$ を選びます。$B=A_f$ と置くと、これらは $\operatorname{Spec}B$ の主開被覆 $D_B(g_i)$ に対応します。局所化の順序交換により $A_{fg_i}\simeq B_{g_i}$ です。各局所表示を $s_i\in B_{g_i}$ と書きます。
+**全射の準備。** $s\in\mathcal O_X(D(f))$ を取ります。局所表示が成り立つ近傍を主開集合まで縮め、$D(f)$ との共通部分を取れば、各点の周りの $D(fg_i)$ 上で $s$ は一つの局所化元で表されます。上の準コンパクト性で有限個の $D(fg_1),\ldots,D(fg_r)$ を選びます。$B=A_f$ と置きます。ここで $\operatorname{Spec}B\simeq D_A(f)$ を確かめます。$B$ の素イデアル $\mathfrak q$ の逆像 $\mathfrak p$ は $f\notin\mathfrak p$ を満たします。逆に $f\notin\mathfrak p$ なら $\mathfrak pB$ は素イデアルです。なぜなら $B/\mathfrak pB\simeq(A/\mathfrak p)_f$ は零でない整域だからです。さらに $a/f^n\in\mathfrak q$ となる条件は $a/1\in\mathfrak q$ となる条件と同じなので、$\mathfrak q$ は逆像 $\mathfrak p$ で決まります。逆に $a/1\in\mathfrak pB$ なら $f^m a\in\mathfrak p$ となる $m$ があり、素性と $f\notin\mathfrak p$ から $a\in\mathfrak p$ です。従って両対応は逆写像です。主開集合の対応も $g_i\notin\mathfrak p$ と $g_i/1\notin\mathfrak pB$ の同値から分かります。
+
+よって選んだ $D_A(fg_i)$ は $\operatorname{Spec}B$ の主開被覆 $D_B(g_i)$ に対応します。[局所化の普遍性](../AG1-04/index.md#thm-ag1-04-universal)を二度使えば、$f$ と $g_i$ を順に逆にすることと積 $fg_i$ を逆にすることは同じなので $A_{fg_i}\simeq B_{g_i}$ です。各局所表示を $s_i\in B_{g_i}$ と書きます。
 
 重なりでの $s$ の値は等しいので、$D(fg_i g_j)$ 上の切断として一致します。すでに証明した**単射**を $fg_i g_j$ に適用すると、$s_i$ と $s_j$ の像は $B_{g_ig_j}$ で等しくなります。
 
@@ -337,14 +339,22 @@ $\mathfrak p$ を含む開近傍 $U$ 上の切断 $s$ に対し、その芽 $[U,
 
 任意の $a/g\in A_{\mathfrak p}$ は $g\notin\mathfrak p$ を満たす分母 $g$ を持ちます。$D(g)$ は $\mathfrak p$ の開近傍であり、$\mathfrak q\mapsto a/g\in A_{\mathfrak q}$ はその切断です。その芽は $a/g$ に写るので全射です。
 
-単射を示します。$s(\mathfrak p)=0$ のとき、$s$ の局所表示を $\mathfrak p$ を含む $W\subseteq U$ で $a/g$ と取り、$g\notin\mathfrak p$ とします。$a/g=0$ in $A_{\mathfrak p}$ なので、局所化での零条件により $h\notin\mathfrak p$ かつ $ha=0$ となる $h\in A$ が取れます。$W\cap D(h)$ は $\mathfrak p$ の近傍です。この上の各点 $\mathfrak q$ では $h,g\notin\mathfrak q$ なので
+単射を示します。$s(\mathfrak p)=0$ のとき、$s$ の局所表示を $\mathfrak p$ を含む $W\subseteq U$ で $a/g$ と取り、$g\notin\mathfrak p$ とします。$a/g=0$（$A_{\mathfrak p}$ 内） なので、局所化での零条件により $h\notin\mathfrak p$ かつ $ha=0$ となる $h\in A$ が取れます。$W\cap D(h)$ は $\mathfrak p$ の近傍です。この上の各点 $\mathfrak q$ では $h,g\notin\mathfrak q$ なので
 
 $$
 s(\mathfrak q)=a/g=(ha)/(hg)=0
 \quad\text{in }A_{\mathfrak q}.
 $$
 
-従って $s$ の芽は零です。二つの芽の差に同じ議論を適用すれば単射が従います。最後の局所環の性質は[点での局所化の極大イデアル](../AG1-04/index.md#thm-ag1-04-local-ring)から分かります。
+従って $s$ の芽は零です。二つの芽の差に同じ議論を適用すれば単射が従います。最後に $a/s\in A_{\mathfrak p}$ で $a\notin\mathfrak p$ なら、$s/a$ が逆元です。$a\in\mathfrak p$ の分数はイデアル $\mathfrak pA_{\mathfrak p}$ に入ります。商環は
+
+$
+A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}
+\simeq (A/\mathfrak p)_{(A/\mathfrak p)\setminus\{0\}}
+=\operatorname{Frac}(A/\mathfrak p)
+$
+
+という体なので $\mathfrak pA_{\mathfrak p}$ は極大です。それ以外の元はすべて単元だから、ほかに極大イデアルはありません。これは[点での局所環の単元判定](../AG1-04/index.md#thm-ag1-04-local-ring)を任意の素点へ広げた計算です。
 <!-- proof-end -->
 
 **手で追う例。** $A=k[t]$ では $(t)$ における茎は $k[t]_{(t)}$ です。$t+1$ は $(t)$ に属さないので $1/(t+1)$ はこの茎の元ですが、$1/t$ はそうではありません。一方、一般点 $(0)$ では分母として任意の非零多項式を許すので、茎は $k(t)$ です。
