@@ -61,7 +61,7 @@ chapters:
     title: "局所bar∂-Poincaré補題と解析的準備"
   - id: CM2-04
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-04
-    status: planned
+    status: completed
     title: "Dolbeault複体・コホモロジー"
   - id: CM2-05
     path: textbook/volumes/dream_thater/幾何系/CM/CM2-05
