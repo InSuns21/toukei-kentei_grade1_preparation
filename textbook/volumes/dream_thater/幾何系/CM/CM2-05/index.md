@@ -65,7 +65,7 @@ $$
 
 ## 3. $\bar\partial$ を各周波数で割る
 
-[Wirtinger微分の局所公式](../CM2-02/index.md#thm-cm2-02-local-formula)から、周期関数に対して
+[局所公式と座標不変性](../CM2-02/index.md#thm-cm2-02-local-formula)から、周期関数に対して
 
 $$
 D=\frac{\partial}{\partial\bar z}
@@ -307,7 +307,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$H^{0,0}$ は[零次コホモロジーの正則形式との同定](../CM2-04/index.md#prop-cm2-04-zero-degree)で大域正則関数に一致する。$\mathbb{CP}^1$ は[射影直線のコンパクト性](../CM1-10/index.md#thm-cm1-10-projective-topology)を持つので、正則関数の絶対値は最大値を取り、一変数の最大値原理により連結な $X$ 上で定数である。
+$H^{0,0}$ は[零次コホモロジーの正則形式との同定](../CM2-04/index.md#prop-cm2-04-zero-degree)で大域正則関数に一致する。$\mathbb{CP}^1$ は[射影直線のコンパクト性](../CM1-10/index.md#thm-cm1-10-projective-topology)を持つので、正則関数の絶対値は最大値を取り、[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)により連結な $X$ 上で定数である。
 
 大域正則1形式を $f(z)dz$ と書くと、無限遠点の近くでは
 
@@ -339,7 +339,7 @@ $$
 
 トーラスでは周期関数の**零周波数**が大域的な障害となる。射影直線では二つのチャートで局所解を比較したときの**Laurent係数**が障害となる。どちらも「局所的な $\bar\partial$ 原始形式を大域へ貼り合わせられるか」を計算したものであり、実のde Rhamコホモロジーをそのまま名前だけ変えたものではない。
 
-これらの計算は複素構造と $\bar\partial$ の具体的な理解を与える。続く正則線束の議論では、チャート間で正則なデータを照合する操作が、形式から遷移関数へ移る。
+これらの計算は複素構造と $\bar\partial$ の具体的な理解を与える。続く正則線束の議論では、チャート間で正則なデータを照合する操作が、形式から局所座標を結ぶ正則な係数関数へ移る。
 
 ## 7. 演習：平均値、周期、Laurent係数を使い分ける
 
@@ -362,7 +362,7 @@ $e_{1,0}=e^{2\pi ix}$、$e_{0,1}=e^{2\pi iy}$、$e_{-1,1}=e^{2\pi i(-x+y)}$ に�
 $T$ 上の滑らかな関数 $u$ で $\bar\partial u=0$ なら定数であることをFourier係数から示せ。
 
 <!-- solution-start -->
-**詳細解答**。$u=\sum_{m,n}\widehat u(m,n)e_{mn}$ を全階微分可能な級数として展開する。[滑らかなFourier展開補題](#lem-cm2-05-smooth-fourier)より $Du=\sum\lambda_{mn}\widehat u(m,n)e_{mn}$。$Du=0$ なら係数の一意性により $\lambda_{mn}\widehat u(m,n)=0$。$(m,n)\ne(0,0)$ では $\lambda_{mn}\ne0$、従って $\widehat u(m,n)=0$。ゆえに $u=\widehat u(0,0)$ は定数。
+**詳細解答**。$u=\sum_{m,n}\widehat u(m,n)e_{mn}$ を全階微分可能な級数として展開する。[滑らかな二重周期関数のFourier展開](#lem-cm2-05-smooth-fourier)より $Du=\sum\lambda_{mn}\widehat u(m,n)e_{mn}$。$Du=0$ なら係数の一意性により $\lambda_{mn}\widehat u(m,n)=0$。$(m,n)\ne(0,0)$ では $\lambda_{mn}\ne0$、従って $\widehat u(m,n)=0$。ゆえに $u=\widehat u(0,0)$ は定数。
 <!-- solution-end -->
 
 <a id="ex-cm2-05-a03"></a>
@@ -410,7 +410,7 @@ $\mathbb C^*$ 上の正則関数 $c(z)=z^{-2}+3+2z$ を $c=h_0(z)-h_\infty(1/z)$
 $T$ 上で $\alpha=(3+2e^{2\pi ix}-e^{2\pi iy})d\bar z$ とする。$\alpha$ のコホモロジー類と、その定数代表を除いた部分の原始関数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。定数項以外の周波数は $(1,0),(0,1)$ なので平均値は3。[トーラスの全群定理](#thm-cm2-05-torus-four-groups)より $[\alpha]=3[d\bar z]$。原始関数を
+**詳細解答**。定数項以外の周波数は $(1,0),(0,1)$ なので平均値は3。[正方格子トーラスの全Dolbeault群](#thm-cm2-05-torus-four-groups)より $[\alpha]=3[d\bar z]$。原始関数を
 
 $$
 u=\frac{2}{\pi i}e^{2\pi ix}+\frac{1}{\pi}e^{2\pi iy}
@@ -451,7 +451,7 @@ $$
 重なり $\mathbb C^*$ の正則1形式 $c=(z^{-3}+4z^{-1}+5z^2)dz$ が定める $H_{\bar\partial}^{1,1}(\mathbb{CP}^1)$ の類を求め、各チャートで除去する項を示せ。
 
 <!-- solution-start -->
-**詳細解答**。$5z^2dz$ は $U_0$ で正則な1形式である。$w=1/z$ とすると $dw=-z^{-2}dz$、従って $z^{-3}dz=-w\,dw$ は $U_\infty$ で正則である。商ではこの二項を引き去れる。一方 $z^{-1}dz=-w^{-1}dw$ は両側のどちらにも正則延長できない。[射影直線の全群定理](#thm-cm2-05-projective-line-four-groups)より類は標準生成元の4倍であり、零ではない。
+**詳細解答**。$5z^2dz$ は $U_0$ で正則な1形式である。$w=1/z$ とすると $dw=-z^{-2}dz$、従って $z^{-3}dz=-w\,dw$ は $U_\infty$ で正則である。商ではこの二項を引き去れる。一方 $z^{-1}dz=-w^{-1}dw$ は両側のどちらにも正則延長できない。[複素射影直線の全Dolbeault群](#thm-cm2-05-projective-line-four-groups)より類は標準生成元の4倍であり、零ではない。
 <!-- solution-end -->
 
 <a id="ex-cm2-05-b04"></a>
