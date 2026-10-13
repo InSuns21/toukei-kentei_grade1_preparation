@@ -63,7 +63,7 @@ $$
 
 Cauchy–Schwarz の等号条件は二関数が比例することなので、速さがほとんど至る所一定という条件になります。一方で [GEO15 の最短測地線の定義](../../../幾何系/GEO/GEO15/index.md#def-geo15-minimizing-geodesic)に使う距離は長さの下限だから $L(\gamma)\ge d(p,q)$ です。
 
-下限が等しいことも示します。距離の定義から、任意の $\varepsilon>0$ について区分的 $C^1$ 曲線 $\alpha$ で
+下限が等しいことも示します。$p=q$ のときは定数曲線が $E=0=d(p,q)^2/2$ を達成するので、以下では $p\ne q$ とします。距離の定義から、任意の $\varepsilon>0$ について区分的 $C^1$ 曲線 $\alpha$ で
 
 $$
 L(\alpha)<d(p,q)+\varepsilon
