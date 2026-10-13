@@ -245,3 +245,163 @@ h^1=\dim S_0-\dim S_{-5}=1.
 $$
 よって $\chi=6-1=5$。[超平面因子のRiemann–Roch等式](../AG3-11/index.md#thm-ag3-11-hyperplane-rr)では $\deg(2H)+1-g=2\cdot5+1-6=5$ で一致します。$K_C=2H$ のため $h^1=1$ が残ることを、切断数の計算と結び付けて理解します。
 <!-- solution-end -->
+
+### B2. 五次曲面の異なる最高次群
+
+$X:X_0^5+X_1^5+X_2^5+X_3^5=0\subset\mathbb P^3_{\mathbb C}$ とする。$K_X$、$h^2(\mathcal O_X)$ および $h^i(\mathcal O_X(1))$（$i=0,1,2$）を求めよ。
+
+- Level: B
+- ID: AG3-14-B2
+
+<!-- solution-start -->
+### 詳細解答
+
+偏微分は $5X_i^4$ なので $X$ は滑らかです。[構造層のコホモロジー定理](#thm-ag3-14-surface-cohomology)へ $d=5$ を入れて
+$$
+K_X\simeq\mathcal O_X(1),\qquad
+h^2(\mathcal O_X)=\binom43=4.
+$$
+ねじり層の制限列は
+$$
+0\to\mathcal O_{\mathbb P^3}(-4)
+\xrightarrow{\cdot F}\mathcal O_{\mathbb P^3}(1)
+\to i_*\mathcal O_X(1)\to0
+$$
+です。[射影空間のコホモロジー定理](../AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)より $H^0(\mathcal O(-4))=H^1(\mathcal O(-4))=0$、$h^0(\mathcal O(1))=4$ だから $h^0(\mathcal O_X(1))=4$ です。また
+$$
+H^1(\mathcal O_X(1))\simeq H^2(\mathbb P^3,\mathcal O(-4))=0
+$$
+であり、$H^2(\mathbb P^3,\mathcal O(1))=H^3(\mathbb P^3,\mathcal O(1))=0$ から
+$$
+H^2(\mathcal O_X(1))
+\simeq H^3(\mathbb P^3,\mathcal O(-4))\simeq\mathbb C.
+$$
+つまり $(h^0,h^1,h^2)$ は $(4,0,1)$ で、$\chi(\mathcal O_X(1))=5$。$h^2(\mathcal O_X)=4$ と $h^2(\mathcal O_X(1))=1$ を同一視しません。
+<!-- solution-end -->
+
+### B3. 平坦でも特異になる三次曲線族
+
+$\mathbb P^2_{\mathbb C}\times\mathbb A^1_{\mathbb C}$ 上の斉次式
+$$
+F_t=Y^2Z-X^3+XZ^2+tZ^3
+$$
+による曲線族が平坦であることを示し、特異になる $t$ を全て求めよ。各ファイバーの $h^1(\mathcal O)$ も計算せよ。
+
+- Level: B
+- ID: AG3-14-B3
+
+<!-- solution-start -->
+### 詳細解答
+
+$-X^3$ の係数は $-1$ なので、$F_t$ の係数は $\mathbb C[t]$ で共通非単元因子を持ちません。[原始的方程式の平坦性命題](#prop-ag3-14-primitive-flat)を $n=2,d=3$ へ適用すると射影族は平坦です。
+
+$Z=0$ では $-X^3=0$ から $[0:1:0]$ のみが曲線上にあります。この点の偏微分 $F_Z=Y^2+2XZ+3tZ^2$ は1であり、どの $t$ でも滑らかです。$Z=1$ の座標で
+$$
+f_t(x,y)=y^2-x^3+x+t
+$$
+と置くと、特異点では $f_t=0$ と偏微分 $(f_t)_x=-3x^2+1=0$、$(f_t)_y=2y=0$ が必要です。後二式から $y=0,x^2=1/3$。このとき $x^3=x/3$ なので $f_t=2x/3+t$ となり
+$$
+t=-\frac{2x}{3},\qquad t^2=\frac4{27}.
+$$
+逆に $x=\pm1/\sqrt3$ と $t=-2x/3$ を選べば全式を満たすので、この二値が特異ファイバーの全てです。
+
+各 $t$ で $F_t$ は零でない三次斉次式です。[制限完全列](../AG3-11/index.md#prop-ag3-11-restriction)を $m=0$ で用いると
+$$
+H^1(C_t,\mathcal O_{C_t})
+\simeq H^2(\mathbb P^2,\mathcal O(-3)).
+$$
+[射影空間の計算](../AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)により右辺は1次元なので全ファイバーで $h^1=1$ です。特異ファイバーでこの値を滑らかな曲線の幾何学的種数と呼んではいけません。
+<!-- solution-end -->
+
+### B4. 接する二次曲線と直線
+
+$C:YZ-X^2=0$ と $L:Y=0$ を $\mathbb P^2_{\mathbb C}$ 内で考える。$C$ の滑らかさ、$C\cap L$ の集合としての交点と局所交叉重複度を求めよ。
+
+- Level: B
+- ID: AG3-14-B4
+
+<!-- solution-start -->
+### 詳細解答
+
+$F_X=-2X,F_Y=Z,F_Z=Y$ の同時零は射影点にならないため、$C$ は滑らかです。$Y=0$ を代入すると $X^2=0$ で、唯一の交点は $P=[0:0:1]$ です。$Z=1$ の局所座標 $x=X/Z,y=Y/Z$ では方程式は $y-x^2=0,y=0$。従って[局所交叉重複度](../AG3-13/index.md#def-ag3-13-local-intersection)は
+$$
+I_P(C,L)=\dim_k k[x,y]_{(x,y)}/(y-x^2,y)
+=\dim_k k[x]_{(x)}/(x^2)=2.
+$$
+基底は $1,x$ です。[直線Bézout公式](../AG2-04/index.md#thm-ag2-04-line-bezout)の総和は $\deg C=2$ で一致します。一つの幾何学的交点を二度数えるのは、直線への制限式に重根があるからです。
+<!-- solution-end -->
+
+### C1. 三次曲線の全体と局所
+
+$C:Y^2Z-X^3+XZ^2=0$ と $L:Z=0$ を $\mathbb P^2_{\mathbb C}$ 内で考える。(i) $C$ の滑らかさと種数を証明し、$K_C$、$h^0(\mathcal O_C)$、$h^1(\mathcal O_C)$ を求めよ。(ii) $C\cap L$ の局所交叉重複度の総和を求め、次数と照合せよ。
+
+- Level: C
+- ID: AG3-14-C1
+
+<!-- solution-start -->
+### 詳細解答
+
+無限遠 $Z=0$ では $-X^3=0$ で、曲線上の点は $P=[0:1:0]$ だけです。そこで $F_Z=Y^2+2XZ=1$ だから非特異です。$Z=1$ では $f=y^2-x^3+x$。特異点が存在すれば
+$$
+f=0,\qquad 2y=0,\qquad -3x^2+1=0
+$$
+を同時に満たします。最後の二式から $y=0,x^2=1/3$ で、$f=-x/3+x=2x/3=0$ となるのは $x=0$ の場合だけです。これは $x^2=1/3$ に矛盾し、$C$ は滑らかです。
+
+[種数公式](../AG3-11/index.md#cor-ag3-11-plane-genus)へ $d=3$ を代入すると $g=1$。[随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)で $K_C\simeq\mathcal O_C(3-3)=\mathcal O_C$。[曲線のコホモロジー公式](../AG3-11/index.md#thm-ag3-11-curve-cohomology)へ $d=3,m=0$ を入れると
+$$
+h^0=\dim S_0-\dim S_{-3}=1,\qquad
+h^1=\dim S_0-\dim S_{-3}=1.
+$$
+次に直線上の制限は $-X^3=0$ なので交点は $P$ のみです。$Y=1$ の局所座標 $x=X/Y,z=Z/Y$ を使い
+$$
+I_P(C,L)=\dim_k k[x,z]_{(x,z)}/(z-x^3+xz^2,z)
+=\dim_k k[x]_{(x)}/(x^3)=3
+$$
+と求めます。最後の商の基底は $1,x,x^2$。[直線Bézout公式](../AG2-04/index.md#thm-ag2-04-line-bezout)の $\deg C=3$ と一致しますが、集合としての交点は一つです。
+<!-- solution-end -->
+
+### C2. 特異化する四次曲面族
+
+$k=\mathbb C$、$X_t\subset\mathbb P^3_k$ を
+$$
+X_0^4+X_1^4+X_2^4+tX_3^4=0
+$$
+で定める。$\mathbb A^1_k$ 上の平坦性を証明し、$t=0$ と $t\ne0$ の滑らかさを判定せよ。全ての $t$ に対して $h^i(X_t,\mathcal O_{X_t})$（$i=0,1,2$）を求め、滑らかなファイバーの標準束も計算せよ。
+
+- Level: C
+- ID: AG3-14-C2
+
+<!-- solution-start -->
+### 詳細解答
+
+$X_0^4$ の係数は1なので、斉次式の係数は $k[t]$ 上で互いに素です。[原始的斉次方程式の平坦性命題](#prop-ag3-14-primitive-flat)へ $n=3,d=4$ を代入して、この射影超曲面族は平坦です。
+
+$t\ne0$ では偏微分
+$$
+4X_0^3,\quad4X_1^3,\quad4X_2^3,\quad4tX_3^3
+$$
+が同時に零となる射影点は存在せず滑らかです。$t=0$ では $P=[0:0:0:1]$ で方程式も全偏微分も零になるため特異です。また偏微分が同時に零なら $X_0=X_1=X_2=0$ なので特異点は $P$ だけです。
+
+全ファイバーで $F_t$ は零でない次数4の斉次式なので、滑らかさを仮定しない[構造層コホモロジー定理](#thm-ag3-14-surface-cohomology)の前半から
+$$
+h^0(X_t,\mathcal O_{X_t})=1,\qquad
+h^1(X_t,\mathcal O_{X_t})=0,\qquad
+h^2(X_t,\mathcal O_{X_t})=\binom33=1.
+$$
+各ファイバーには
+$$
+0\to\mathcal O_{\mathbb P^3}(-4)\xrightarrow{\cdot F_t}
+\mathcal O_{\mathbb P^3}\to i_{t*}\mathcal O_{X_t}\to0
+$$
+があり、$F_t\ne0$ だから左の単射性が保たれることが根拠です。$t\ne0$ の場合には[滑らかな超曲面の随伴公式](../AG2-10/index.md#thm-ag2-10-adjunction)を使い
+$$
+K_{X_t}\simeq\mathcal O_{X_t}(4-4)=\mathcal O_{X_t}.
+$$
+$t=0$ は特異なので、この**滑らかな超曲面**を仮定した公式をそのまま使ったとは主張しません。構造層の群が一定でも滑らかさは失われ得る、という違いがこの問題の核心です。
+<!-- solution-end -->
+
+## 6. 結び
+
+斉次方程式から (1) 制限完全列、(2) 随伴公式、(3) 局所商環の長さ、(4) 係数付き環の平坦性をそれぞれ取り出せるようになりました。曲線と曲面、コホモロジーの次数、滑らかさを必要とする結論を区別することが、複数の計算を接続する鍵です。
+
+一般因子のRiemann–Roch、一般の交叉積、Grothendieck双対、任意の変形障害群はこの章で証明していません。これらが後続の理論で必要になる場合は、ここで扱った具体的な局所長・完全列から、追加の理論を導入する必要があります。
