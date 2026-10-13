@@ -239,17 +239,68 @@ $$
 |\varphi'(t)|\le\frac{|x'(t)|}{R}.
 $$
 
-北極または南極を通る曲線では、その点を通過する区間の前後へ分け、連続性により同じ評価を積分してよいので、
+ただし $x(t)=p$ または $x(t)=-p$ では $\sin\varphi=0$ なので、ここで $\varphi'$ の式をそのまま使うことはできません。極点を何度通る曲線でも扱えるよう、$0<\delta<\pi/2$ を固定して角度を切り詰めます。
 
-$$
-\theta=|\varphi(1)-\varphi(0)|
-\le\int_0^1|\varphi'|\,dt
+$
+\varphi_\delta(t)
+=
+\min\{\pi-\delta,\max\{\delta,\varphi(t)\}\}.
+$
+
+$z\in[-1,1]$ に対する関数
+
+$
+z\longmapsto
+\min\{\pi-\delta,\max\{\delta,\arccos z\}\}
+$
+
+は、両端付近では定数で、残りの閉区間では導関数が有界なので Lipschitz 連続です。従って、区分的 $C^1$ の $t\mapsto u\cdot x(t)/R$ と合成した $\varphi_\delta$ は絶対連続です。$\delta<\varphi<\pi-\delta$ の部分では先ほどの評価が成り立ち、切り詰められた部分では $\varphi_\delta'=0$ がほとんど至る所で成り立ちます。よって
+
+$
+|\varphi_\delta'(t)|
+\le\frac{|x'(t)|}{R}
+\quad\text{（ほとんど至る所）}
+$
+
+であり、絶対連続関数の基本定理から
+
+$
+|\varphi_\delta(1)-\varphi_\delta(0)|
+\le\int_0^1|\varphi_\delta'(t)|\,dt
 \le\frac1R\int_0^1|x'|\,dt.
-$$
+$
 
-これで $L(x)\ge R\theta$、すなわち距離公式が従います。
+$\delta\downarrow0$ とすれば、$\varphi_\delta$ は $\varphi$ へ一様収束し、端点では $\varphi(0)=0,\ \varphi(1)=\theta$ なので
 
-$0<\theta<\pi$ で等号になる最短曲線は、各点で $\varphi$ の増加方向の勾配に沿わなければなりません。この方向は北極からの同じ子午線方向を指定するため、上の $w$ に対応する短い大円弧に限られます。$\theta=\pi$ のとき終点 $q=-p$ は $w$ によらないので、$u$ に直交するどの単位ベクトル $w$ でも長さ $\pi R$ の最短半大円が得られます。
+$
+\theta\le\frac1R L(x).
+$
+
+これで $L(x)\ge R\theta$、すなわち距離公式が従います。この評価は任意の部分区間でも成り立つため、$\varphi$ 自身も絶対連続で $|\varphi'|\le |x'|/R$ をほとんど至る所で満たします。
+
+$0<\theta<\pi$ で長さが $R\theta$ に等しい場合、一連の評価
+
+$
+\theta=\int_0^1\varphi'\,dt
+\le\int_0^1|\varphi'|\,dt
+\le\frac1R\int_0^1|x'|\,dt=\theta
+$
+
+は全て等号です。従って $\varphi'\ge0$ かつ $|x'|=R\varphi'$ がほとんど至る所で成立します。$0<\varphi<\pi$ の区間では
+
+$
+x(t)=R\bigl(\cos\varphi(t)\,u+\sin\varphi(t)\,w(t)\bigr),
+\quad |w(t)|=1,\quad u\cdot w(t)=0
+$
+
+と書けます。$w\cdot w'=0$ と $u\cdot w'=0$ を用いて微分し、直交する項の二乗ノルムを足すと
+
+$
+|x'|^2
+=R^2\bigl(\varphi'^2+\sin^2\varphi\,|w'|^2\bigr).
+$
+
+$|x'|=R\varphi'$ だから $\sin\varphi\,|w'|=0$、つまり内部では $w'=0$ です。また $\varphi$ は減少しないので、いったん北極を離れてから戻ることはありません。従って $w$ は端点 $q$ で決まる一定方向となり、最短曲線の軌跡は先に構成した短い大円弧に限られます。$\theta=\pi$ のときは終点 $q=-p$ が $w$ によらないので、$u$ に直交するどの単位ベクトル $w$ でも長さ $\pi R$ の最短半大円が得られます。
 
 一方向の単位速大円 $\gamma(t)=R(\cos(t/R)\,u+\sin(t/R)\,w)$ で $0\le t\le\pi R$ は距離を達成します。しかし $\pi R<t<2\pi R$ なら、距離公式から
 
