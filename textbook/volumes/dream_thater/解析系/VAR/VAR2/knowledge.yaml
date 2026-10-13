@@ -5,7 +5,7 @@ prerequisites:
   - VAR1
   - AMECH3
   - OPT1
-forward_references: [GEO14, GEO17]
+forward_references: [geometry.geodesic, geometry.conjugate-point]
 
 concepts:
   - id: calculus-of-variations.second-variation
