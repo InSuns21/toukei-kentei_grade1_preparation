@@ -299,14 +299,17 @@ $$
 
 **大域では成立しない場合がある**。$\mathbb C$ から格子 $\Lambda=\mathbb Z+i\mathbb Z$ で割った複素トーラス $X=\mathbb C/\Lambda$ 上で、$d\bar z$ は平行移動で不変だから大域的な $(0,1)$ 形式 $\alpha$ に降りる。$\bar\partial\alpha=0$ だが、$\bar\partial u=\alpha$ を満たす大域的な滑らかな関数 $u$ は存在しない。
 
-その理由を見ておく。存在したと仮定し、周期関数へ持ち上げて $u_{\bar z}=1$ とすると $v=u-\bar z$ は $v_{\bar z}=0$ なので $\mathbb C$ 上正則である。周期関係から
+その理由を見ておく。存在したと仮定し、周期関数 $\widetilde u$ へ持ち上げると $\partial_{\bar z}\widetilde u=1$ となる。基本正方形 $Q=[0,1]\times[0,1]$ 上で Wirtinger 微分の定義を使えば
 
 $$
-v(z+1)-v(z)=-1,\qquad
-v(z+i)-v(z)=i.
+\begin{aligned}
+\int_Q\partial_{\bar z}\widetilde u\,dx\,dy
+&=\frac12\int_0^1\!\bigl[\widetilde u(1,y)-\widetilde u(0,y)\bigr]\,dy\\
+&\quad+\frac i2\int_0^1\!\bigl[\widetilde u(x,1)-\widetilde u(x,0)\bigr]\,dx=0.
+\end{aligned}
 $$
 
-$v'$ は二重周期を持つ整関数である。基本平行四辺形上で有界、周期性から全平面で有界であり、[Liouvilleの定理](../../CPLX/CPLX5/index.md#thm-cplx5-liouville)により定数 $a$ である。したがって $v(z)=az+b$。第一式は $a=-1$、第二式は $ia=i$ すなわち $a=1$ を要求して矛盾する。（この議論に必要な Liouville の定理は複素解析の既習結果である。）
+$\widetilde u$ の周期性から両方の境界差が零となる。一方 $\partial_{\bar z}\widetilde u=1$ なら左辺は $Q$ の面積1である。これは矛盾する。局所で作れる原始形式がトーラス全体でつながらないことが分かる。
 
 <a id="prop-cm2-03-local-kernel"></a>
 
@@ -520,7 +523,7 @@ $\Lambda=\mathbb Z+i\mathbb Z$、$X=\mathbb C/\Lambda$ とし、$\mathbb C$ 上�
 
 1. $\alpha$ が $\bar\partial$ 閉であることを示せ。
 2. $X$ の任意の点で局所 $\bar\partial$ 原始形式を明示的に構成せよ。
-3. $\bar\partial u=\alpha$ を満たす大域的な滑らかな関数 $u$ は存在しないことを示せ。整関数の有界性に関する [Liouvilleの定理](../../CPLX/CPLX5/index.md#thm-cplx5-liouville)を用いてよい。
+3. $\bar\partial u=\alpha$ を満たす大域的な滑らかな関数 $u$ は存在しないことを、基本正方形における周期関数の偏導関数の積分を用いて示せ。
 
 <!-- solution-start -->
 **詳細解答**。
@@ -533,11 +536,17 @@ $$
 \bar\partial u_{\mathrm{loc}}=d\bar w=d\bar z=\alpha.
 $$
 
-**(3)** 大域解があれば持ち上げ $\widetilde u:\mathbb C\to\mathbb C$ は $\Lambda$ 周期で $(\widetilde u)_{\bar z}=1$。従って $v(z)=\widetilde u(z)-\bar z$ は $v_{\bar z}=0$ を満たし整関数である。[正則関数の判定](../CM2-02/index.md#prop-cm2-02-holomorphic-function)を用いた。周期性は
+**(3)** 大域解があれば持ち上げ $\widetilde u:\mathbb C\to\mathbb C$ は $\widetilde u(z+1)=\widetilde u(z)$、$\widetilde u(z+i)=\widetilde u(z)$ を満たし、$\partial_{\bar z}\widetilde u=1$ である。$z=x+iy$、$Q=[0,1]^2$ とすると
 
 $$
-v(z+1)=v(z)-1,\qquad v(z+i)=v(z)+i
+\begin{aligned}
+1&=\int_Q1\,dx\,dy
+=\int_Q\partial_{\bar z}\widetilde u\,dx\,dy\\
+&=\frac12\int_0^1\bigl(\widetilde u(1,y)-\widetilde u(0,y)\bigr)\,dy
++\frac i2\int_0^1\bigl(\widetilde u(x,1)-\widetilde u(x,0)\bigr)\,dx\\
+&=0.
+\end{aligned}
 $$
 
-を与える。両辺を $z$ で微分すると $v'$ は1と $i$ を周期に持つ整関数となる。基本正方形のコンパクト性と周期性から $v'$ は全平面で有界。Liouvilleの定理より $v'=a$ は定数だから $v(z)=az+b$ である。上の二つの差分は $a=-1$ と $ia=i$（従って $a=1$）を要求して矛盾する。局所可解性から大域可解性は従わない。
+二つの境界差が零になるのは周期性からであり、各積分変形は一変数の微積分の基本定理である。$1=0$ は矛盾するため大域解は存在しない。局所可解性は大域可解性を意味しない。
 <!-- solution-end -->
