@@ -288,7 +288,7 @@ $$
 
 $f_\infty$ は原点近傍で有界なので、ある $R,M>0$ について $|z|>R$ で $|f_0(z)|\le M|z|^k$。$k<0$ なら $f_0$ は全平面で有界かつ無限遠で零になるから、前節と同じ[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)で $f_0=0$。
 
-$k\ge0$ のとき、$f_0$ のTaylor係数を $a_n$ とする。$a_n=f_0^{(n)}(0)/n!$ とおく。[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を中心 $0$、微分階数 $n$、半径 $r>R$ に適用すると
+$k\ge0$ のとき、$f_0$ のTaylor係数は $a_n=f_0^{(n)}(0)/n!$ である。[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を中心 $0$、微分階数 $n$、半径 $r>R$ に適用すると
 
 $$
 |a_n|\le\frac{\max_{|z|=r}|f_0(z)|}{r^n}
