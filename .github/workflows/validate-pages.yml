@@ -72,3 +72,7 @@ jobs:
       - name: Assemble and validate Pages site
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
+
+      - name: Smoke interactive simulation in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: npm run validate:simulation-browser
