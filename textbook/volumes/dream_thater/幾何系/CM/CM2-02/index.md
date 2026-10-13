@@ -168,7 +168,7 @@ $dz^j$ と $d\bar z^j$ 自身は閉形式なので、外微分は係数だけに
 <!-- proof-start -->
 ### 証明
 
-局所公式は定義の直前に計算した通りである。詳しくは、各基底1形式が $dz^j=d(z^j)$ または $d\bar z^j=d(\bar z^j)$ なので、[外微分の二乗零](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)によりその微分は零となり、外微分の積の公式を使うと係数の一次微分だけが残る。
+局所公式は定義の直前に計算した通りである。詳しくは、各基底1形式が $dz^j=d(z^j)$ または $d\bar z^j=d(\bar z^j)$ なので、[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)によりその微分は零となり、外微分の積の公式を使うと係数の一次微分だけが残る。
 
 $dz^k\wedge dz^I\wedge d\bar z^J$ は $(p+1,q)$ 型であり、$d\bar z^k\wedge dz^I\wedge d\bar z^J$ は $(p,q+1)$ 型である。従ってこれ以外の型成分はなく、和は $d\alpha$ に等しい。
 
@@ -214,7 +214,7 @@ d^2\alpha
 \end{aligned}
 $$
 
-を得る。一方、[外微分の二乗零](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)により左辺は零である。右辺の各成分の型は
+を得る。一方、[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)により左辺は零である。右辺の各成分の型は
 
 $$
 \begin{array}{c|c}
@@ -368,7 +368,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正則なら各座標変数で複素微分可能なので Cauchy–Riemann 条件を満たし、$f_{\bar z^j}=0$ である。逆に全ての $f_{\bar z^j}=0$ なら、各座標変数に他の変数を固定した制限は $C^1$ 級で Cauchy–Riemann 条件を満たすので正則となる。連続な偏導関数を持ち各変数で正則な関数は多変数正則である（[高次元正則性の定義と局所判定](../CM1-01/index.md#def-cm1-01-holomorphic-map)）。ゆえに $f$ は正則。最後に $\{d\bar z^j\}$ が独立な局所基底であることから、$\bar\partial f=0$ と各係数の消滅が同値となる。$\square$
+正則なら各座標変数で複素微分可能なので Cauchy–Riemann 条件を満たし、$f_{\bar z^j}=0$ である。逆に全ての $f_{\bar z^j}=0$ なら、各座標変数に他の変数を固定した制限は $C^1$ 級で Cauchy–Riemann 条件を満たすので正則となる。さらに実微分の存在と連続性により、増分 $h\in\mathbb C^n$ について $f(z+h)-f(z)=D_{\mathbb R}f(z)[h]+o(\|h\|)$ である。Cauchy–Riemann 条件はこの実微分が複素線形であることを意味するので、$f$ は複素微分可能であり、[高次元正則写像の定義](../CM1-01/index.md#def-cm1-01-holomorphic-map)を満たす。最後に $\{d\bar z^j\}$ が独立な局所基底であることから、$\bar\partial f=0$ と各係数の消滅が同値となる。$\square$
 <!-- proof-end -->
 
 なおこの判定は滑らかな関数に対する $\bar\partial$ の定義を先に構成した上での結果であり、$\bar\partial$ 方程式 $\bar\partial u=\gamma$ を任意の $\gamma$ について解けると主張しているわけではない。局所可解性の条件とその証明は次章で扱う。
