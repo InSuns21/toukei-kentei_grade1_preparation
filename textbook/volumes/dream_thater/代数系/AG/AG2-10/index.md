@@ -2,7 +2,7 @@
 
 [前章のEuler列](../AG2-09/index.md#thm-ag2-09-euler-sequence)によって射影空間の余接層と標準束が分かりました。しかし、射影空間の中に曲線や超曲面を置いたとき、周囲のすべての微分方向が部分多様体の微分方向になるわけではありません。たとえば平面内の放物線 $y=x^2$ に沿って移動できる方向は、平面の二方向のうち一本だけです。
 
-**どの方向を差し引けばよいか**を局所方程式の微分で求め、その「外向きの方向」を束として貼り合わせます。そこから部分多様体自身の標準束を計算するのが**随伴公式**です。この公式は、平面三次曲線の標準束が自明になる理由や、射影4次元空間内の五次超曲面の標準束を説明します。
+[Zariski接空間のJacobian表示](../AG1-10/index.md#prop-ag1-10-jacobian-kernel)を踏まえて、**どの方向を差し引けばよいか**を局所方程式の微分で求め、その「外向きの方向」を束として貼り合わせます。そこから部分多様体自身の標準束を計算するのが**随伴公式**です。この公式は、平面三次曲線の標準束が自明になる理由や、射影4次元空間内の五次超曲面の標準束を説明します。
 
 以下、基礎体は $k=\mathbb C$、$n\ge2$ とし、$P=\mathbb P^n_k$ と書きます。$Y\subset P$ は、次数 $d\ge1$ の非零斉次式 $F(X_0,\ldots,X_n)$ の零点集合とします。本文の主定理では $Y$ のすべての点で斉次偏微分 $\partial F/\partial X_i$ が同時に零にならないことを仮定します。これはここで扱う超曲面の滑らかさの判定条件です。
 
@@ -92,7 +92,7 @@ $$
 $U_i\cap U_j$ では $f_j=(X_i/X_j)^d f_i$ なので、商に移すと $\overline{f_j}=(X_i/X_j)^d\overline{f_i}$ です。[ $\mathcal O(-d)$ の遷移関数](../AG2-06/index.md#prop-ag2-06-od-cocycle)と一致し、三重交叉でも係数の積は $(X_i/X_k)^d$ となります。したがって各チャートの同型は貼り合わされます。
 <!-- proof-end -->
 
-**具体例。** $P=\mathbb P^2$ の二次曲線 $F=YZ-X^2$ では $U_Y$ 上で $f_Y=z-x^2$（$x=X/Y,z=Z/Y$）です。余法層の局所基底は $\overline{z-x^2}$、$U_Z$ 上では $\overline{y-x^2}$（$x=X/Z,y=Y/Z$）です。両者の比は $(Y/Z)^2$ です。局所的にはどちらも自由階数1ですが、貼り合わせ係数は定数1ではありません。
+**具体例。** $P=\mathbb P^2$ の二次曲線 $F=YZ-X^2$ では $U_Y$ 上で $f_Y=z-x^2$（$x=X/Y,z=Z/Y$）です。余法層の局所基底は $\overline{z-x^2}$、$U_Z$ 上では $\overline{y-x^2}$（$x=X/Z,y=Y/Z$）です。両者の比は $(Y/Z)^2$ です。局所的にはどちらも自由階数1ですが、貼り合わせ係数は定数1ではありません。したがって、局所自由であることと大域的に自明であることは異なります。
 
 ## 3. 微分すると何が失われるか
 
@@ -140,10 +140,10 @@ $$
 各 $Q\in Y\cap U_i$ でこの係数のどれかが非零であることを確かめます。仮にすべて零なら、$F=X_i^d f_i$ の偏微分により $F_{X_j}(Q)=0$（$j\ne i$）です。さらに斉次式のEuler恒等式
 
 $$
-dF=\sum_{j=0}^n X_jF_{X_j}
+d\,F=\sum_{j=0}^n X_jF_{X_j}
 $$
 
-で左辺を「斉次式 $F$ に次数 $d$ を掛けた $dF$」と読むと、$F(Q)=0$ から $X_i(Q)F_{X_i}(Q)=0$ です。$X_i(Q)\ne0$ なので $F_{X_i}(Q)=0$ となり仮定に矛盾します。従ってある $r\ne i$ に対し $a_r=\partial f_i/\partial z_r$ は $Q$ の近傍で単元です。
+の左辺は次数 $d$ と多項式 $F$ の積です。この式に $Q$ を代入すると、$F(Q)=0$ から $X_i(Q)F_{X_i}(Q)=0$ です。$X_i(Q)\ne0$ なので $F_{X_i}(Q)=0$ となり仮定に矛盾します。従ってある $r\ne i$ に対し $a_r=\partial f_i/\partial z_r$ は $Q$ の近傍で単元です。
 
 その主開近傍では
 
@@ -540,7 +540,7 @@ $$
 - ID: AG2-10-C1
 
 <!-- solution-start -->
-**詳細解答。** [随伴公式](#thm-ag2-10-adjunction)は $n=2$ で $\omega_C\simeq\mathcal O_C(d-3)$ を与えます。$d=2$ なら $\omega_{C_2}\simeq\mathcal O_{C_2}(-1)$、$d=3$ なら $\omega_{C_3}\simeq\mathcal O_{C_3}$ です。[二次Veronese写像](../AG2-03/index.md#thm-ag2-03-veronese-closed-immersion)は $\nu_2([S:T])=[S^2:ST:T^2]$ で、標準チャート $S\ne0$ の座標 $t=T/S$ を $\nu_2$ で送ると $[1:t:t^2]$ です。$U_X$ の超平面切断 $Z=0$ は、引き戻すと斉次二次式 $T^2=0$ になります。一般に斉次一次式 $aX+bY+cZ$ は引き戻すと $aS^2+bST+cT^2$ であるため、[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)から $\nu_2^*\mathcal O_{C_2}(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。よって
+**詳細解答。** [随伴公式](#thm-ag2-10-adjunction)は $n=2$ で $\omega_C\simeq\mathcal O_C(d-3)$ を与えます。$d=2$ なら $\omega_{C_2}\simeq\mathcal O_{C_2}(-1)$、$d=3$ なら $\omega_{C_3}\simeq\mathcal O_{C_3}$ です。[二次Veronese写像](../AG2-03/index.md#prop-ag2-03-veronese-embedding)は $\nu_2([S:T])=[S^2:ST:T^2]$ で、標準チャート $S\ne0$ の座標 $t=T/S$ を $\nu_2$ で送ると $[1:t:t^2]$ です。$U_X$ の超平面切断 $Z=0$ は、引き戻すと斉次二次式 $T^2=0$ になります。一般に斉次一次式 $aX+bY+cZ$ は引き戻すと $aS^2+bST+cT^2$ であるため、[斉次式と $\mathcal O(d)$ の対応](../AG2-06/index.md#prop-ag2-06-homogeneous-sections)から $\nu_2^*\mathcal O_{C_2}(1)\simeq\mathcal O_{\mathbb P^1}(2)$ です。よって
 
 $$
 \nu_2^*\omega_{C_2}
