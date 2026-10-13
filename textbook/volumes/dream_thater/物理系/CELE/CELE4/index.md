@@ -114,7 +114,7 @@ $$
 
 $J\dot s=(-\dot y,\dot x)$ を成分で書けば主張の二式です。
 
-回転系の正準運動量を、速度から導きます。第三天体の単位質量あたりの重力ポテンシャルを $U(s)=(1-\mu)/r_1+\mu/r_2$ と書くと、慣性系の運動エネルギーを $q=R_ts$ に代入した回転系Lagrangianは
+回転系の正準運動量を、速度から導きます。第三天体の単位質量あたりの重力ポテンシャルを $U(s)=(1-\mu)/r_1+\mu/r_2$ と書くと、慣性系の運動エネルギーを $q=R_ts$ に代入した回転系ラグランジアンは
 
 $$
 \mathcal L_{\mathrm{rot}}(s,\dot s)
@@ -122,7 +122,7 @@ $$
 =\frac12\{(\dot x-y)^2+(\dot y+x)^2\}+U(s).
 $$
 
-[AMECH5 のLegendre変換とHamilton方程式](../../AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)をこの正則なLagrangianに適用すると、正準運動量は
+[AMECH5 のLegendre変換とHamilton方程式](../../AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)をこの正則なラグランジアンに適用すると、正準運動量は
 
 $$
 p=\frac{\partial\mathcal L_{\mathrm{rot}}}{\partial\dot s}
@@ -442,7 +442,15 @@ $27\mu(1-\mu)=1$ の小さい方の根を解くと $\mu_{\mathrm R}=(1-\sqrt{1-4
 
 $\mu_{\mathrm R}\simeq0.0385209$ はしばしばRouthの限界質量比と呼ばれます。$\mu=0.01$ なら $27\mu(1-\mu)=0.2673<1$ なので三角点は線形振動型ですが、この結果から任意に大きい時間の非線形安定性を直ちに断定することはできません。
 
-ここで[零速度曲線の定義](#def-cele4-hill-region)の注意を具体的に確認します。三角点のHessianでは $A=3/4>0$、$AD-B^2=27\mu(1-\mu)/4>0$ ですから $\Omega$ のHessianは正定値で、$L_4,L_5$ はそれぞれ $\Omega$ の厳密な局所最小点です。したがって $C=C_4=C_5$ では、各三角点の十分小さい近傍全体で $2\Omega\ge C$ が成立し、中心点でのみ等号です。**この零速度点はHill領域の内点**であり、零速度集合が常に領域の境界だと考えるのは誤りです。
+ここで[零速度曲線の定義](#def-cele4-hill-region)の注意を具体的に確認します。三角点のHessianでは $A=3/4>0$、$AD-B^2=27\mu(1-\mu)/4>0$ ですから、対称行列であるHessianは正定値です。従って各三角点 $L_i$（$i=4,5$）で、適当な $c>0$ を用いて $h^{\mathsf T}D^2\Omega(L_i)h\ge c|h|^2$ と評価できます。Taylor展開により、十分小さい $h\ne0$ に対して
+
+$$
+\Omega(L_i+h)-\Omega(L_i)
+=\frac12h^{\mathsf T}D^2\Omega(L_i)h+o(|h|^2)
+>0.
+$$
+
+したがって $C=C_4=C_5$ では、各三角点の十分小さい近傍全体で $2\Omega\ge C$ が成立し、中心点でのみ等号です。**この零速度点はHill領域の内点**であり、零速度集合が常に領域の境界だと考えるのは誤りです。
 
 ## 7. Hill領域の「首」はいつ開くか
 
