@@ -323,7 +323,17 @@ $$
 =(G^\vee)^*H_i^\vee G^\vee.
 $$
 
-テンソル積では、純テンソルについての式を第一変数は共役線形、第二変数は線形に拡張する。この式は第一引数の二つの成分にはそれぞれ共役線形、第二引数の二つの成分にはそれぞれ線形である。テンソル積の普遍性（第一引数については共役を取った係数で適用する）から、和への拡張はテンソルの表示によらない。$(e_a\otimes f_b,e_c\otimes f_d)$ の内積は $H_{ac}K_{bd}$ なので、積枠 $(e_a\otimes f_b)_{a,b}$ での行列は $H\otimes K$ となる。[テンソル積遷移](../CM2-08/index.md#prop-cm2-08-tensor-cocycle)との整合は
+テンソル積の積枠 $(e_a\otimes f_b)_{a,b}$ に関する座標は一意である。たとえば $t=\sum_\nu u_\nu\otimes v_\nu$ と書くと、$(a,b)$ 成分は $t_{ab}=\sum_\nu(u_\nu)_a(v_\nu)_b$ となる。$t'=\sum_\mu u'_\mu\otimes v'_\mu$ についても $t'_{cd}$ と置く。純テンソルの公式を第一変数で共役線形、第二変数で線形に展開すると
+
+$$
+\begin{aligned}
+h_{E\otimes F}(t,t')
+&=\sum_{\nu,\mu}h_E(u_\nu,u'_\mu)h_F(v_\nu,v'_\mu)\\
+&=\sum_{a,b,c,d}\overline{t_{ab}}H_{ac}K_{bd}t'_{cd}.
+\end{aligned}
+$$
+
+右辺は積枠の一意な座標 $t_{ab},t'_{cd}$ だけで決まるから、純テンソルの和の表し方によらない。特に $(e_a\otimes f_b,e_c\otimes f_d)$ の内積は $H_{ac}K_{bd}$ なので、計量行列は $H\otimes K$ となる。[テンソル積遷移](../CM2-08/index.md#prop-cm2-08-tensor-cocycle)との整合は
 
 $$
 (G\otimes L)^*(H\otimes K)(G\otimes L)
