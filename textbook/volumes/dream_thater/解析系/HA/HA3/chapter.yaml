@@ -6,6 +6,7 @@ prerequisites:
   - HA2
   - FOU4
   - MT7
+  - CA6
 official_scope: []
 learning_objectives:
   - 通常のLebesgue積分とCauchy主値積分を区別し、滑らかな関数で消去を用いて主値の存在を証明できる
