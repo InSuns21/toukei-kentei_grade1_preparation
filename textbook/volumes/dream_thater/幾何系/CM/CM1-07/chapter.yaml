@@ -1,0 +1,38 @@
+id: "CM1-07"
+title: "Newlander–Nirenberg定理と証明境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-06
+  - CM1-01
+  - GEO5
+official_scope: []
+learning_objectives:
+  - 積分可能な概複素構造とJに適合する複素座標を定義し直接例を検証できる
+  - J正則関数による座標の判定を非退化性まで含めて証明できる
+  - Newlander–Nirenberg定理の必要性と十分性・証明境界を正確に区別できる
+  - T^{0,1}の局所枠から一次偏微分方程式と交換子整合条件を導出できる
+  - 形式的整合条件と非退化な解の存在との論理的差を説明できる
+  - 複素次元一でNijenhuisが零であることを括弧から証明できる
+  - 具体例の正則座標を検算し非積分可能な例を障害で判定できる
+definitions:
+  - { id: CM1-07-DEF-01, name: 概複素構造の積分可能性 }
+  - { id: CM1-07-DEF-02, name: Jに関する正則関数 }
+theorems:
+  - { id: CM1-07-PROP-01, name: 適合座標の関数による判定 }
+  - { id: CM1-07-THM-01, name: Newlander–Nirenberg定理 }
+  - { id: CM1-07-PROP-02, name: 局所一次方程式の交換子整合条件 }
+  - { id: CM1-07-COR-01, name: 滑らかな実二次元の概複素構造は積分可能 }
+canonical_examples:
+  - 標準Jの適合座標
+  - 非標準補助座標から得る可積分なJ
+  - 一点でのNijenhuis障害による非積分可能例
+problem_patterns:
+  - CM1-07-COMPATIBLE-CHART
+  - CM1-07-PDE-COMPATIBILITY
+  - CM1-07-LOW-DIMENSION
+  - CM1-07-NONINTEGRABILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
