@@ -1,7 +1,7 @@
 # DREAM THEATER 天体力学・三体問題・Hamiltonian chaos コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（2026-10-13。CELE1〜CELE7本文を実装。次章CELE8。系列横断の最終確認も残る）
+状態: in_progress（2026-10-13。CELE1〜CELE8の本文と詳細解答を実装。numerical lab要否判断・系列横断の数学／モデル／数値監査は残る）
 
 ## 0. 目的
 
@@ -248,7 +248,7 @@ Hamiltonian chaos
 2. CELE1--CELE2（完了）
 3. CELE3--CELE4
 4. CELE5--CELE6
-5. CELE7（本文・全演習解答実装済み）--CELE8（未実装）
+5. CELE7--CELE8（両章の本文・全演習詳細解答実装済み）
 6. numerical lab の要否判断
 7. knowledge DAG / public index / series manifest
 8. 数学的完全性・物理モデル・数値図の三系統レビュー
