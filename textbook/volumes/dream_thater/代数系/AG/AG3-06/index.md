@@ -562,7 +562,7 @@ $$
 
 ここで $x$ は重なりでは可逆ですが、$U_0$ の全体では可逆とは限りません。
 
-(3) 二つのアフィン開集合が $X$ を覆い、それぞれで $\widetilde{k[x]}$、$\widetilde{k[y]}$ なので、[準連接層の定義](#def-ag3-06-quasicoherent)を満たします。一方 [射影直線上の $\mathcal O(d)$ の大域切断定理](../AG2-06/index.md#thm-ag2-06-p1-od-sections)を $d=1$ に適用すると
+(3) 二つのアフィン開集合が $X$ を覆い、それぞれで $\widetilde{k[x]}$、$\widetilde{k[y]}$ なので、[準連接層の定義](#def-ag3-06-quasicoherent)を満たします。一方 [射影直線上の $\mathcal O(d)$ の大域切断定理](../AG2-06/index.md#thm-ag2-06-p1-sections)を $d=1$ に適用すると
 
 $$
 \dim_k\Gamma(X,\mathcal O(1))=2.
