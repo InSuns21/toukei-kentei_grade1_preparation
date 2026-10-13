@@ -8,6 +8,7 @@ prerequisites:
 forward_references:
   - geometry.distribution-local-frame
   - algebraic-geometry.line-bundle-transition
+  - algebraic-geometry.invertible-sheaf
 
 concepts:
   - id: complex-manifolds.holomorphic-line-bundle
