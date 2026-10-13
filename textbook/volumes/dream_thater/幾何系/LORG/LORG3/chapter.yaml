@@ -1,0 +1,43 @@
+id: "LORG3"
+title: "因果曲線とLorentz長さ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - GEO12
+  - GEO14
+official_scope: []
+learning_objectives:
+  - 区分的C1曲線の速度が未来向き因果・時間的・光的である条件を判定できる
+  - 因果曲線のLorentz長さと時間的曲線の固有時を計算できる
+  - 長さの有限性・加法性と光的曲線の零長さを積分から証明できる
+  - 向き保存再パラメータ化での長さ不変性を連鎖律と変数変換から導出できる
+  - Minkowski時空で端点差の因果性と直線の最大固有時を証明できる
+  - Lorentz長さと補助Riemann長さ、一般時空とMinkowskiの長さ比較を区別できる
+definitions:
+  - { id: LORG3-DEF-01, name: 区分的C1因果曲線・時間的曲線・光的曲線 }
+  - { id: LORG3-DEF-02, name: 因果曲線のLorentz長さ・固有時 }
+theorems:
+  - { id: LORG3-PROP-01, name: Lorentz長さの非負性・分割独立性・加法性 }
+  - { id: LORG3-THM-01, name: Lorentz長さの向き保存再パラメータ化不変性 }
+  - { id: LORG3-THM-02, name: Minkowski時空における端点とLorentz長さ }
+canonical_examples:
+  - Minkowskiの時間的直線・光的直線・空間的直線の速度判定
+  - 光的曲線の零Lorentz長さと正の補助Riemann長さの対比
+  - 再パラメータ化した時間的直線の積分
+  - 折れ線と端点を結ぶ直線の固有時の比較
+problem_patterns:
+  - LORG3-CAUSAL-VELOCITY
+  - LORG3-NULL-LENGTH
+  - LORG3-REPARAMETRIZATION
+  - LORG3-NONCAUSAL-COUNTEREXAMPLE
+  - LORG3-ADDITIVITY
+  - LORG3-POLYGONAL
+  - LORG3-VARIABLE-METRIC
+  - LORG3-NULL-ENDPOINT
+  - LORG3-VARIABLE-VELOCITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }

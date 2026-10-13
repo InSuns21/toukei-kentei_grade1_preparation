@@ -201,7 +201,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha2-type -->
-**定義の確認**　恒等作用素 $I$ は任意の $1\le p\le\infty$ で強型 $(p,p)$、定数1です。[弱型包含](#prop-ha2-weak-properties)から $p<\infty$ では弱型 $(p,p)$ でもあります。一方、HA1の $M$ は弱型 $(1,1)$ であっても一般には強型 $(1,1)$ ではありません。
+**定義の確認**　恒等作用素 $I$ は任意の $1\le p\le\infty$ で強型 $(p,p)$、定数1です。
+
+[弱型包含](#prop-ha2-weak-properties)から $p<\infty$ では弱型 $(p,p)$ でもあります。
+
+一方、HA1の $M$ は[弱型 $(1,1)$](../HA1/index.md#thm-ha1-weak11)ですが、[強型 $(1,1)$](../HA1/index.md#prop-ha1-no-strong11)ではありません。
 <!-- definition-example-end -->
 
 ## 3. Marcinkiewicz補間を分布関数から証明する
@@ -307,7 +311,7 @@ $|f(x)|=0$ の場所は内側を最初から0として積分し、最後の式�
 <a id="thm-ha2-marc-infinity"></a>
 <!-- formal-statement-start -->
 > **定理（Marcinkiewicz補間：L∞端点）**  
-> $1\le p_0<p<\infty$、$T:L^{p_0}(X)+L^\infty(X)\to$ 出力可測関数が劣線形とする。$T$ は弱型 $(p_0,p_0)$、定数 $A_0$、および強型 $(\infty,\infty)$、定数 $A_\infty>0$ を満たすと仮定する。このとき強型 $(p,p)$ であり、
+> $1\le p_0<p<\infty$ とし、$T$ を $L^{p_0}(X)+L^\infty(X)$ から $(Y,\nu)$ 上の可測関数へ写す劣線形作用素とする。$T$ は弱型 $(p_0,p_0)$、定数 $A_0$、および強型 $(\infty,\infty)$、定数 $A_\infty>0$ を満たすと仮定する。このとき強型 $(p,p)$ であり、
 
 $$
 \|Tf\|_p^p
@@ -354,7 +358,26 @@ $$
 $c^{-1}=2A_\infty$ を代入して結論を得ます。
 <!-- proof-end -->
 
-$A_\infty=0$ なら $T$ は $L^\infty$ 上で0であり、$f_0^\lambda$ の超水準集合を任意の閾値で評価する極限を取れば $Tf=0$ が $L^p$ 上でも成り立ちます。したがってこの場合も強型 $(p,p)$ です。
+$A_\infty=0$ の場合も確認しておきます。このとき $L^\infty$ 上では $Tg=0$ がほとんど至る所で成立します。$f\in L^p$ と $a>0$ に対して
+
+$$
+f=f\boldsymbol{1}_{\{|f|>a\}}+f\boldsymbol{1}_{\{|f|\le a\}}
+$$
+
+と分けると、後者は $L^\infty$ に属するので、その作用素値は0です。前者は $L^{p_0}$ に属し、劣線形性と弱型 $(p_0,p_0)$ により、任意の $\lambda>0$ について
+
+$$
+\begin{aligned}
+\nu(\{|Tf|>\lambda\})
+&\le\nu(\{|T(f\boldsymbol{1}_{\{|f|>a\}})|>\lambda\})\\
+&\le\frac{A_0^{p_0}}{\lambda^{p_0}}
+\int_{\{|f|>a\}}|f|^{p_0}\,d\mu\\
+&\le\frac{A_0^{p_0}}{\lambda^{p_0}}
+a^{p_0-p}\|f\|_p^p.
+\end{aligned}
+$$
+
+$p_0-p<0$ なので $a\to\infty$ で右辺は0に収束します。従って各 $\lambda>0$ で $\nu(\{|Tf|>\lambda\})=0$ となり、$Tf=0$ がほとんど至る所で成立します。この場合も強型 $(p,p)$ ですが、上の定理文では定数の表示を明確にするため $A_\infty>0$ としました。
 
 ## 4. HA1の最大作用素へ戻る
 
@@ -558,7 +581,37 @@ $$
 \le M_0^{1-\theta}M_1^\theta.
 $$
 
-まず $1<q_\theta<\infty$ なら、有限測度台の単関数を動かして積分の上限を取ります。[単関数稠密性と $L^q$ 双対](../../MT/MT7/index.md#thm-mt7-lp-duality)により、$Tf$ のノルムは同じ定数以下です。
+ここで双対性を適用する前に、$Tf\in L^{q_\theta}(Y)$ を確認します。実際、端点推定により $Tf\in L^{q_0}(Y)\cap L^{q_1}(Y)$ です。$q_\theta<\infty$ で $q_0,q_1<\infty$ なら
+
+$$
+|Tf|^{q_\theta}
+=\bigl(|Tf|^{q_0}\bigr)^{(1-\theta)q_\theta/q_0}
+\bigl(|Tf|^{q_1}\bigr)^{\theta q_\theta/q_1}
+$$
+
+であり、両指数の和が1なので [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から
+
+$$
+\|Tf\|_{q_\theta}
+\le\|Tf\|_{q_0}^{1-\theta}\|Tf\|_{q_1}^{\theta}
+<\infty
+$$
+
+を得ます。端点の一方が $\infty$ の場合も積分を直接確かめます。例えば $q_0=\infty$、$q_1<\infty$ なら指数の定義から $\theta q_\theta=q_1$ なので
+
+$$
+\begin{aligned}
+\int_Y|Tf|^{q_\theta}\,d\nu
+&=\int_Y|Tf|^{(1-\theta)q_\theta}|Tf|^{\theta q_\theta}\,d\nu\\
+&\le\|Tf\|_\infty^{(1-\theta)q_\theta}
+\int_Y|Tf|^{q_1}\,d\nu\\
+&=\|Tf\|_\infty^{(1-\theta)q_\theta}\|Tf\|_{q_1}^{q_1}<\infty.
+\end{aligned}
+$$
+
+$q_1=\infty$ の場合は左右を入れ替えて同様です。$q_\theta=\infty$ なら $q_0=q_1=\infty$ なので、やはり $Tf\in L^\infty$ です。
+
+まず $1<q_\theta<\infty$ なら、有限測度台の単関数 $h$ を動かして積分の上限を取ります。今確認した $Tf\in L^{q_\theta}$ と[単関数稠密性・$L^q$ 双対](../../MT/MT7/index.md#thm-mt7-lp-duality)により、$Tf$ のノルムは同じ定数以下です。
 
 $q_\theta=\infty$ の場合は、共役指数が1です。有限測度台の単関数 $h$ で $\|h\|_1\le1$ として上限を取ります。$\sigma$ 有限性から得られる積分表示により、やはり $Tf$ のノルムを評価できます。これは $L^\infty$ の双対全体を $L^1$ と同一視する主張ではありません。
 
@@ -661,7 +714,7 @@ $$
 ### 演習 HA2-A04（劣線形性）
 <a id="ex-ha2-a04"></a>
 - Level: A
-- 問題: 球平均を用いる中心付き最大作用素 $M$ に対し、$M(f+g)\le Mf+Mg$ と $M(af)=|a|Mf$ を定義から示せ。$T(f)=\|f\|_1^2$ が劣線形でない理由も述べよ。
+- 問題: [球平均による中心付き最大作用素](../HA1/index.md#def-ha1-centered-maximal) $M$ に対し、$M(f+g)\le Mf+Mg$ と $M(af)=|a|Mf$ を定義から示せ。$T(f)=\|f\|_1^2$ が劣線形でない理由も述べよ。
 
 <!-- solution-start -->
 **詳細解答**

@@ -1,7 +1,7 @@
 version: 1
 id: VAR
 title: "変分問題・幾何的第二変分・臨界点理論"
-plan: textbook/plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-13: 前提章とcanonical ownershipを確認し、12章を着手可能状態として登録。
