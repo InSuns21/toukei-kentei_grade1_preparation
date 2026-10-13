@@ -23,7 +23,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-var8-stability -->
-**定義の確認（平面円板）**。$X(x,y)=(x,y,0)$、$N=(0,0,1)$、$f|_{\partial D}=0$ とすると
+**定義の確認**（平面円板）。$X(x,y)=(x,y,0)$、$N=(0,0,1)$、$f|_{\partial D}=0$ とすると
 $$
 A(t)=\int_D\sqrt{1+t^2|\nabla f|^2}\,dx\,dy.
 $$
