@@ -22,9 +22,9 @@ Minkowski平面で計量を $g=-dt^2+dx^2$ から $4g$ に替えると、ベク�
 > **定義（共形再尺度と共形同値）**  
 > 滑らかな関数 $\Omega:M\to(0,\infty)$ に対して
 >
-$
+$$
 > \widetilde g=\Omega^2g
-$
+$$
 >
 > と置く操作を共形再尺度という。二つのLorentz計量 $g,\widetilde g$ がこの関係にあるとき共形同値という。両者には同じ未来錐の成分を時間向きとして指定する。
 <!-- formal-statement-end -->
@@ -47,14 +47,14 @@ $$
 > **定理（共形再尺度による因果関係の不変性）**  
 > $(M,g)$ を滑らかな時間向き付きLorentz多様体、$\Omega:M\to(0,\infty)$ を滑らかな関数、$\widetilde g=\Omega^2g$ を同じ時間向き付き計量とする。このとき任意の $p,q\in M$ と任意の部分集合 $S\subset M$ に対し、
 >
-$
+$$
 > \begin{gathered}
 > p\ll_g q\ \Longleftrightarrow\ p\ll_{\widetilde g}q,\qquad
 > p\le_g q\ \Longleftrightarrow\ p\le_{\widetilde g}q,\\
 > I_g^\pm(S)=I_{\widetilde g}^\pm(S),\qquad
 > J_g^\pm(S)=J_{\widetilde g}^\pm(S).
 > \end{gathered}
-$
+$$
 >
 > ただし、曲線のLorentz長さは一般には一致しない。
 <!-- formal-statement-end -->
@@ -103,11 +103,11 @@ $$
 > **命題（共形再尺度でのLorentz長さ）**  
 > 上の仮定のもとで、未来因果的区分的 $C^1$ 曲線 $\gamma:[a,b]\to M$ に対し、
 >
-$
+$$
 > L_{\widetilde g}(\gamma)
 > =\int_a^b\Omega(\gamma(s))
 > \sqrt{-g_{\gamma(s)}(\dot\gamma(s),\dot\gamma(s))}\,ds.
-$
+$$
 >
 > 特に、定数倍 $\Omega\equiv c>0$ なら $L_{\widetilde g}(\gamma)=cL_g(\gamma)$ である。任意の未来光的曲線の長さは両計量で零である。
 <!-- formal-statement-end -->
@@ -153,11 +153,11 @@ $$
 > **定義（因果的凸集合）**  
 > 時間向き付き時空 $(M,g)$ の部分集合 $U$ が $M$ において**因果的凸**であるとは、端点がともに $U$ に属する任意の未来因果曲線 $\gamma:[a,b]\to M$ について
 >
-$
+$$
 > \gamma(a),\gamma(b)\in U
 > \quad\Longrightarrow\quad
 > \gamma([a,b])\subset U
-$
+$$
 >
 > が成り立つことをいう。$N\subset M$ が開集合である場合、「$U\subset N$ が $N$ において因果的凸」とは、$N$ 内に全体が含まれる因果曲線だけを量化することをいう。
 <!-- formal-statement-end -->
@@ -186,9 +186,9 @@ $$
 > **定義（Alexandrovダイヤモンド）**  
 > 時間向き付き時空 $(M,g)$ の点 $a,b$ に対し、
 >
-$
+$$
 > D_M(a,b)=I_M^+(a)\cap I_M^-(b)
-$
+$$
 >
 > をAlexandrovダイヤモンドという。$a\not\ll b$ なら空集合であり得る。開部分時空 $N\subset M$ では $N$ 内の曲線による $I_N^\pm$ を用いて $D_N(a,b)$ を定義する。
 <!-- formal-statement-end -->
@@ -328,9 +328,9 @@ $$
 > **命題（時間周期円筒のAlexandrov集合）**  
 > 上の時間向き付きLorentz円筒では任意の二点 $p,q\in M$ に対し $p\ll q$ が成立する。従って
 >
-$
+$$
 > I^\pm(p)=M,\qquad D_M(a,b)=M
-$
+$$
 >
 > がすべての点 $a,b,p$ について成り立つ。特に、大域的なAlexandrovダイヤモンドは多様体位相の近傍基底をなさず、各点に任意に小さな $M$-因果的凸開近傍も存在しない。
 <!-- formal-statement-end -->
