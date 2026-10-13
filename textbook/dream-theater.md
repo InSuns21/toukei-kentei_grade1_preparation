@@ -932,6 +932,7 @@
 2. [CELE2 N体Hamilton系と三体問題](textbook/volumes/dream_thater/物理系/CELE/CELE2/index.md)
 3. [CELE3 三体問題の特殊解](textbook/volumes/dream_thater/物理系/CELE/CELE3/index.md)
 4. [CELE4 円制限三体問題](textbook/volumes/dream_thater/物理系/CELE/CELE4/index.md)
+5. [CELE5 Poincaré・摂動・非可積分性](textbook/volumes/dream_thater/物理系/CELE/CELE5/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
