@@ -102,7 +102,7 @@ $$
 
 ## 3. 外積を使った (p,q) 型の構成
 
-[GEO7で扱った微分形式と外積](../../../GEO/GEO7/index.md#def-geo7-form-wedge)は、交代的な多重線形形式を組み立てる操作だった。複素化後も外積を $\mathbb C$ 双線形に延長できる。二つの型別余接空間からそれぞれ $p$ 個と $q$ 個を選び、外積で合わせたものが次の主役である。
+[GEO7で扱った微分形式と外積](../../GEO/GEO7/index.md#def-geo7-form-wedge)は、交代的な多重線形形式を組み立てる操作だった。複素化後も外積を $\mathbb C$ 双線形に延長できる。二つの型別余接空間からそれぞれ $p$ 個と $q$ 個を選び、外積で合わせたものが次の主役である。
 
 <a id="def-cm2-01-pq-form"></a>
 
@@ -333,7 +333,7 @@ $i$ を落とした $dz\wedge d\bar z=-2i\,dx\wedge dy$ は純虚数係数なの
 
 ## 6. 正則写像による引き戻し
 
-[一般の微分形式の引き戻し](../../../GEO/GEO7/index.md#def-geo7-pullback-form)は、写像の微分へ入力ベクトルを送ってから形式で評価する。一般の滑らかな写像では型が混ざるが、正則写像では複素 Jacobi 行列が型を保存する。
+[一般の微分形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)は、写像の微分へ入力ベクトルを送ってから形式で評価する。一般の滑らかな写像では型が混ざるが、正則写像では複素 Jacobi 行列が型を保存する。
 
 <a id="prop-cm2-01-holomorphic-pullback"></a>
 
@@ -355,7 +355,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x\in X$ と $f(x)\in Y$ の正則座標をそれぞれ $z^j,w^a$ とする。$f$ の座標成分 $f^a=w^a\circ f\circ z^{-1}$ は正則である。[引き戻しの定義](../../../GEO/GEO7/index.md#def-geo7-pullback-form)より
+$x\in X$ と $f(x)\in Y$ の正則座標をそれぞれ $z^j,w^a$ とする。$f$ の座標成分 $f^a=w^a\circ f\circ z^{-1}$ は正則である。[引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)より
 
 $$
 f^*(dw^a)=d(f^a)
@@ -365,7 +365,7 @@ f^*(d\bar w^a)
 =\sum_j\overline{\frac{\partial f^a}{\partial z^j}}d\bar z^j.
 $$
 
-$\alpha$ を [局所基底表示](#thm-cm2-01-type-decomposition)で展開すると各項は係数 $a_{I\bar J}$ と $p$ 個の $dw$、$q$ 個の $d\bar w$ の外積である。[引き戻しと外積の可換性](../../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)から、引き戻しは係数を $a_{I\bar J}\circ f$ へ変え、残りを上式の外積に移す。従って $(p,q)$ 型である。定義域側に必要な1形式が不足すると、交代性により零になる。$\square$
+$\alpha$ を [局所基底表示](#thm-cm2-01-type-decomposition)で展開すると各項は係数 $a_{I\bar J}$ と $p$ 個の $dw$、$q$ 個の $d\bar w$ の外積である。[引き戻しと外積の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)から、引き戻しは係数を $a_{I\bar J}\circ f$ へ変え、残りを上式の外積に移す。従って $(p,q)$ 型である。定義域側に必要な1形式が不足すると、交代性により零になる。$\square$
 <!-- proof-end -->
 
 **具体例**。$f:\mathbb C\to\mathbb C^2$、$f(z)=(z,z^2)$、$\alpha=dw^1\wedge d\bar w^2$ とする。すると
@@ -597,7 +597,7 @@ f^*dw^1=dz,\quad f^*dw^2=2z\,dz,\quad
 f^*d\bar w^2=2\bar z\,d\bar z.
 $$
 
-[引き戻しと外積の可換性](../../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)を使うと
+[引き戻しと外積の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)を使うと
 
 $$
 f^*\alpha=dz\wedge(2\bar z\,d\bar z)
@@ -687,4 +687,4 @@ $$
 
 $(p,q)$ という二つの指数は、複素化した余接空間の「$dz$ 側から何本、$d\bar z$ 側から何本」を表す。外積は型を足し、共役は型を交換し、正則座標変換と正則写像の引き戻しは型を保存する。型そのものは係数関数の正則性を要求しない。
 
-[GEO7で定めた外微分](../../../GEO/GEO7/index.md#def-geo7-exterior-derivative)は形式の次数を一つ上げるが、一般にはその型は一つに決まらない。次章では、この章の一意な型分解を使い、外微分の出力から $(p+1,q)$ 成分と $(p,q+1)$ 成分を取り出す操作を構成する。
+[GEO7で定めた外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)は形式の次数を一つ上げるが、一般にはその型は一つに決まらない。次章では、この章の一意な型分解を使い、外微分の出力から $(p+1,q)$ 成分と $(p,q+1)$ 成分を取り出す操作を構成する。
