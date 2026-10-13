@@ -367,19 +367,19 @@ $$
 
 $\alpha$ を [型分解定理](#thm-cm2-01-type-decomposition)の局所基底で展開すると、次のように書ける。
 
-$
+$$
 \alpha=\sum_{|I|=p,\ |J|=q}a_{I\bar J}\,
 dw^I\wedge d\bar w^J.
-$
+$$
 
 [引き戻しと外積の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-wedge)を各項に適用する。係数は合成で引き戻し、外積は個々の1形式へ引き戻しを配るので、
 
-$
+$$
 f^*\alpha
 =\sum_{|I|=p,\ |J|=q}
 (a_{I\bar J}\circ f)\,
 f^*(dw^I)\wedge f^*(d\bar w^J)
-$
+$$
 
 となる。先ほど求めた1形式の式によって、右辺は必ず $p$ 個の $dz$ と $q$ 個の $d\bar z$ の外積の和である。従って $(p,q)$ 型を保つ。始域側に同じ種類の独立な1形式が足りなければ、各項が交代性により零となる。$\square$
 <!-- proof-end -->
