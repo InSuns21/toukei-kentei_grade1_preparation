@@ -278,7 +278,7 @@ $$
 $$
 S[x]=\frac12\int_0^T(\dot x^2-\omega^2x^2)\,dt
 $$
-の固定端点Hessianは $Q_{\omega^2}$ です。[Sturm模型の指数定理](#thm-var12-sturm-index)より、$T>\pi/\omega$ なら負方向が存在します。一方、初期摂動 $(x(0),\dot x(0))=(u,v)$ の解は
+の固定端点Hessianは $Q_{\omega^2}$ です。[Dirichlet Sturm模型のMorse指数と零化次数](#thm-var12-sturm-index)より、$T>\pi/\omega$ なら負方向が存在します。一方、初期摂動 $(x(0),\dot x(0))=(u,v)$ の解は
 $$
 x(t)=u\cos(\omega t)+\frac v\omega\sin(\omega t),
 \quad
