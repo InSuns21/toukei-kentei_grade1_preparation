@@ -1,0 +1,74 @@
+chapter: AG3-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-05
+  - AG3-04
+  - AG3-03
+  - AG3-02
+  - AG2-06
+  - AG1-05
+  - AG1-04
+  - LA3E
+forward_references: []
+concepts:
+  - id: algebraic-geometry.associated-sheaf
+    name: 加群に付随する層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加群に付随する層）"]
+    requires: [algebraic-geometry.spectrum-principal-sections, algebraic-geometry.localization]
+  - id: algebraic-geometry.associated-sheaf-stalks
+    name: 加群から層への構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加群から層への構成）"]
+    requires: [algebraic-geometry.associated-sheaf, algebraic-geometry.spectrum-stalk]
+  - id: algebraic-geometry.quasicoherent-sheaf
+    name: 準連接層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（準連接層）"]
+    requires: [algebraic-geometry.associated-sheaf, algebraic-geometry.scheme]
+  - id: algebraic-geometry.affine-qc-equivalence
+    name: アフィンスキーム上の準連接層と加群
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィンスキーム上の準連接層と加群）"]
+    requires: [algebraic-geometry.quasicoherent-sheaf, algebraic-geometry.associated-sheaf-stalks]
+  - id: algebraic-geometry.qc-exactness
+    name: 加群列と準連接層の完全性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（加群列と準連接層の完全性）"]
+    requires: [algebraic-geometry.associated-sheaf-stalks, algebraic-geometry.affine-qc-equivalence]
+  - id: algebraic-geometry.qc-affine-pullback
+    name: アフィン射による引戻し
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィン射による引戻し）"]
+    requires: [algebraic-geometry.quasicoherent-sheaf, algebraic-geometry.base-change]
+  - id: algebraic-geometry.qc-finite-type-presentation
+    name: 有限型・有限表示の準連接層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限型・有限表示の準連接層）"]
+    requires: [algebraic-geometry.quasicoherent-sheaf]
+  - id: algebraic-geometry.cyclic-finite-presentation
+    name: 巡回商加群の有限表示判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（巡回商加群の有限表示判定）"]
+    requires: [algebraic-geometry.qc-finite-type-presentation]
+  - id: algebraic-geometry.coherent-sheaf
+    name: 連接層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連接層）"]
+    requires: [algebraic-geometry.qc-finite-type-presentation]
+  - id: algebraic-geometry.noether-coherence
+    name: 局所Noetherスキームの有限型準連接層
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所Noetherスキームの有限型準連接層）"]
+    requires: [algebraic-geometry.coherent-sheaf, algebraic-geometry.noetherian-ring]

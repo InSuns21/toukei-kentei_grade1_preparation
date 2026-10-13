@@ -466,6 +466,9 @@ function runSelfTest() {
   if (!candidates.some((value) => normalizeAlias(value) === 'boundedlipschitz関数')) failures.push('undefined technical term extraction');
   if (extractTechnicalCandidates('# NEW1 新しい凸関数').length !== 0) failures.push('H1 title must not become undefined technical term');
 
+  if (aliasAppears('定義（準連接層）', '連接層')) failures.push('quasi-coherent must not count as coherent first-use');
+  if (!aliasAppears('準連接層と連接層の違い', '連接層')) failures.push('coherent must remain detectable when separately mentioned');
+  if (!aliasAppears('連接層', '連接層')) failures.push('standalone coherent-sheaf match');
   if (normalizeAlias('弱*位相') === normalizeAlias('弱位相')) failures.push('semantic star preservation');
   if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
   if (!isPotentiallyBroadShortAlias('階数', { name: '常微分方程式・階数' })) failures.push('broad short alias detection');
