@@ -41,7 +41,7 @@ chapters:
     title: "積分可能性の計算例・非可積分例"
   - id: CM1-09
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-09
-    status: planned
+    status: completed
     title: "高次元複素トーラス"
   - id: CM1-10
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-10

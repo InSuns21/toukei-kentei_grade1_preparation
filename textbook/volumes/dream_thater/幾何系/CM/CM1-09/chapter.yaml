@@ -1,0 +1,43 @@
+id: "CM1-09"
+title: "高次元複素トーラス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-02
+  - CA8
+official_scope: []
+learning_objectives:
+  - 実2n本の格子基底の独立性を検証し、一様離散性と閉性を導出できる
+  - 商位相から局所座標を構成し、遷移写像が格子平行移動となることを証明できる
+  - Hausdorff性・第二可算性・コンパクト性・連結性を商上で各々証明できる
+  - 格子基底の整数変換と複素線形な格子同型を区別できる
+  - 複素アフィン写像の商への降下条件を判定できる
+  - 整数倍写像の核がmの2n乗個である理由を導出できる
+  - 正則関数の剛性を一変数最大値原理から証明し、トーラス値写像と区別できる
+definitions:
+  - { id: CM1-09-DEF-01, name: 高次元複素空間の全格子 }
+  - { id: CM1-09-DEF-02, name: 高次元複素トーラス }
+theorems:
+  - { id: CM1-09-LEM-01, name: 全格子の一様離散性と閉性 }
+  - { id: CM1-09-THM-01, name: 全格子の商による複素多様体 }
+  - { id: CM1-09-PROP-01, name: 複素線形な格子同型 }
+  - { id: CM1-09-PROP-02, name: 複素アフィン写像の降下条件 }
+  - { id: CM1-09-COR-01, name: 整数倍写像とその核 }
+  - { id: CM1-09-THM-02, name: 複素トーラス上の大域正則関数の剛性 }
+canonical_examples:
+  - 座標を混合する複素二次元格子
+  - 標準格子上の正則座標遷移
+  - 複素線形剪断と異なる格子への双正則写像
+  - 複素二次元トーラスの二倍写像と16点の核
+  - 大域座標成分が商へ降りない例
+problem_patterns:
+  - CM1-09-LATTICE-SEPARATION
+  - CM1-09-QUOTIENT-ATLAS
+  - CM1-09-COMPACTNESS
+  - CM1-09-AFFINE-DESCENT
+  - CM1-09-MULTIPLICATION-KERNEL
+  - CM1-09-HOLOMORPHIC-RIGIDITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }

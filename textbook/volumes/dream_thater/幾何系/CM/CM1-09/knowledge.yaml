@@ -1,0 +1,56 @@
+chapter: CM1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-02
+  - CA8
+
+concepts:
+  - id: complex-manifolds.full-lattice
+    name: 高次元複素空間の全格子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高次元複素空間の全格子）"]
+    requires: [complex-analysis.complex-lattice]
+  - id: complex-manifolds.full-lattice-separation
+    name: 全格子の一様離散性と閉性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（全格子の一様離散性と閉性）"]
+    requires: [complex-manifolds.full-lattice, complex-analysis.lattice-discreteness]
+  - id: complex-manifolds.higher-complex-torus
+    name: 高次元複素トーラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高次元複素トーラス）"]
+    requires: [complex-manifolds.full-lattice, complex-analysis.complex-torus]
+  - id: complex-manifolds.torus-quotient-atlas
+    name: 全格子の商による複素多様体
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全格子の商による複素多様体）"]
+    requires: [complex-manifolds.higher-complex-torus, complex-manifolds.full-lattice-separation, complex-manifolds.higher-holomorphic-atlas]
+  - id: complex-manifolds.torus-linear-isomorphism
+    name: 複素線形な格子同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素線形な格子同型）"]
+    requires: [complex-manifolds.torus-quotient-atlas, complex-manifolds.biholomorphic-equivalence]
+  - id: complex-manifolds.torus-affine-descent
+    name: 複素アフィン写像の降下条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素アフィン写像の降下条件）"]
+    requires: [complex-manifolds.torus-quotient-atlas, complex-manifolds.manifold-holomorphic-map]
+  - id: complex-manifolds.torus-multiplication-kernel
+    name: 整数倍写像とその核
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（整数倍写像とその核）"]
+    requires: [complex-manifolds.torus-affine-descent]
+  - id: complex-manifolds.torus-holomorphic-rigidity
+    name: 複素トーラス上の大域正則関数の剛性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素トーラス上の大域正則関数の剛性）"]
+    requires: [complex-manifolds.torus-quotient-atlas, complex-analysis.maximum-modulus-principle]
