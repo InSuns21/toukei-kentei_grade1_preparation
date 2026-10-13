@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha6-bmo -->
-**定義の直接確認**　$f=\boldsymbol1_E$（$E$ は可測）とすると、任意の立方体 $Q$ で $\theta=|E\cap Q|/|Q|\in[0,1]$ とおけます。$f_Q=\theta$ であり、
+**定義の確認**　$f=\boldsymbol1_E$（$E$ は可測）とすると、任意の立方体 $Q$ で $\theta=|E\cap Q|/|Q|\in[0,1]$ とおけます。$f_Q=\theta$ であり、
 
 $$
 \begin{aligned}
