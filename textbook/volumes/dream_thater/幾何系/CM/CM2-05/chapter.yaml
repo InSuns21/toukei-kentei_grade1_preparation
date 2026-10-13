@@ -1,0 +1,42 @@
+id: "CM2-05"
+title: "低次元Dolbeaultコホモロジーの計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-04
+  - CM1-10
+  - FOU2
+official_scope: []
+learning_objectives:
+  - 複素トーラスの周期関数に対するFourier係数とbar∂作用素の周波数固有値を計算できる
+  - 滑らかな二重周期関数のFourier級数について微分と級数の交換を証明できる
+  - 零周波数を除く係数から滑らかなbar∂原始関数を構成できる
+  - 複素トーラスの四つのDolbeault群と各標準代表元の一意性を証明できる
+  - 複素平面上の滑らかなbar∂方程式の大域可解性をCauchy変換と正則補正から導出できる
+  - 射影直線の二つの正則チャートで局所原始形式の差を使いコホモロジーを商表示できる
+  - Laurent係数の正負分解から射影直線のH01消滅とH11の一次元性を証明できる
+  - CP1と複素トーラスの四群の違いを局所解の大域障害の観点で説明できる
+  - トーラスの整数倍正則自己写像のコホモロジー引き戻しを全次数で計算できる
+definitions: []
+theorems:
+  - { id: CM2-05-LEM-01, name: 滑らかな二重周期関数のFourier展開 }
+  - { id: CM2-05-THM-01, name: 正方格子トーラスの全Dolbeault群 }
+  - { id: CM2-05-LEM-02, name: 複素平面上の大域bar∂可解性 }
+  - { id: CM2-05-LEM-03, name: 二つの座標領域による障害の商表示 }
+  - { id: CM2-05-THM-02, name: 複素射影直線の全Dolbeault群 }
+canonical_examples:
+  - トーラスのFourier周波数ごとのbar∂固有値
+  - 非零平均を持つトーラスのbar∂閉形式の標準代表
+  - 切断関数と正則多項式による複素平面全域のbar∂解
+  - Laurent級数の正負冪分解によるH01消滅
+  - zのマイナス一次係数によるCP1のH11非零類
+problem_patterns:
+  - CM2-05-TORUS-FOURIER
+  - CM2-05-TORUS-EXACTNESS
+  - CM2-05-PROJECTIVE-LAURENT
+  - CM2-05-GLUING
+  - CM2-05-PULLBACK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
