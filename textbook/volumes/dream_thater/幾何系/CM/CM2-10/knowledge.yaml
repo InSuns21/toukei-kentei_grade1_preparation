@@ -43,10 +43,10 @@ concepts:
     introduction_aliases: ["命題（正則線束のChern接続）"]
     requires: [complex-manifolds.chern-connection-existence-uniqueness, complex-manifolds.holomorphic-line-bundle]
   - id: complex-manifolds.chern-tautological-connection
-    name: 普遍線束O(-1)のChern接続
+    name: 普遍線束のChern接続
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（普遍線束 $\mathcal O(-1)$ のChern接続）"]
+    introduction_aliases: ["命題（普遍線束のChern接続）"]
     requires: [complex-manifolds.chern-line-formula, complex-manifolds.hermitian-metric]
   - id: complex-manifolds.chern-smooth-unit-frame
     name: 非正則単位枠での接続行列
