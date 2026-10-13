@@ -136,7 +136,9 @@ $$
 立体の上下の面では $F$ の法線成分が0です。側面 $\partial U\times(0,1)$ の外向き法線は $(\nu_U,0)$、面積要素は $ds_U\,dt$ なので、3次元の公式の両辺はそれぞれ次の平面積分になります。
 
 <a id="ref-var7-planar-divergence"></a>
-$$
+#### 平面の発散公式
+
+$
 \int_U(P_u+Q_v)\,du\,dv
 =\int_{\partial U}(P,Q)\cdot\nu_U\,ds_U.
 $$
@@ -396,7 +398,7 @@ $$
 $$
 A[r]=2\pi\int r\sqrt{1+(r')^2}\,dz
 $$
-です。$F(r,r')=r\sqrt{1+(r')^2}$ に[VAR1のEuler–Lagrange方程式](../VAR1/index.md#prop-var1-first-variation-boundary)を適用すると
+です。$F(r,r')=r\sqrt{1+(r')^2}$ に[VAR1の第一変分と境界項](../VAR1/index.md#prop-var1-first-variation-boundary)を適用すると
 $$
 \frac{d}{dz}\left(\frac{rr'}{\sqrt{1+(r')^2}}\right)
 -\sqrt{1+(r')^2}=0.
