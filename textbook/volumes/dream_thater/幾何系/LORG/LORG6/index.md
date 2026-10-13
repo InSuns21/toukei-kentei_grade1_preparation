@@ -244,7 +244,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F_+(t,\mathbf x)=t-t_0-|\mathbf x-\mathbf x_0|$ は連続です。[Minkowskiの到達集合公式](#thm-lorg6-minkowski-futures)から
+$F_+(t,\mathbf x)=t-t_0-|\mathbf x-\mathbf x_0|$ は連続です。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)から
 
 $$
 I^+(p)=F_+^{-1}((0,\infty)),\qquad
@@ -289,7 +289,7 @@ $$
 \ge\left|\int_0^1\dot x(s)\,ds\right|=2
 $$
 
-で両不等号が等号です。さらに $\dot t\ge|\dot x|\ge\dot x$ で、$\int(\dot t-\dot x)=\Delta t-\Delta x=0$ なので、各滑らかな片で $\dot t=\dot x$ が成立します。積分すると $t(s)-x(s)=-1-(-1)=0$、したがって曲線の像は必ず直線 $t=x$ に含まれます。連続性と $t(0)=-1,t(1)=1$ から中間値の定理により $t=0$ の点を通り、その点は $(0,0)\notin U$。これは矛盾です。
+で両不等号が等号です。さらに $\dot t\ge|\dot x|\ge\dot x$ で、$\int(\dot t-\dot x)=\Delta t-\Delta x=0$ なので、各滑らかな片で $\dot t=\dot x$ が成立します。積分すると $t(s)-x(s)=-1-(-1)=0$、したがって曲線の像は必ず直線 $t=x$ に含まれます。連続な関数 $t(s)$ は $t(0)=-1$ から $t(1)=1$ まで動くため、途中で $t=0$ の点を通り、その点は $(0,0)\notin U$。これは矛盾です。
 
 この例が示すのは「平坦な計量でも、時空を切り取ると到達関係が変わる」という点です。LORG7で一般時空の開性や $J^\pm$ の非閉性を調べる際、**どの時空の中で曲線を探しているか**が重要になります。
 
@@ -306,7 +306,7 @@ $$
 $\mathbb R^{1+1}$ で $p=(1,-1)$ とし、$q=(4,1)$、$r=(4,2)$、$s=(2,3)$ がそれぞれ $I^+(p)$、$E^+(p)$、$J^+(p)$ のどれに入るかを判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[到達集合公式](#thm-lorg6-minkowski-futures)において $\Delta t=t-t_p$、$\rho=|x-x_p|$ を使います。$q$ では $\Delta t=3$、$\rho=2$ なので $3>2$、従って $q\in I^+(p)\subset J^+(p)$、$q\notin E^+(p)$ です。$r$ では $\Delta t=3$、$\rho=3$ なので等号、$r\in E^+(p)\subset J^+(p)$、$r\notin I^+(p)$ です。$s$ は $\Delta t=1$、$\rho=4$ で $\Delta t<\rho$、従って三集合のどれにも入りません。
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)において $\Delta t=t-t_p$、$\rho=|x-x_p|$ を使います。$q$ では $\Delta t=3$、$\rho=2$ なので $3>2$、従って $q\in I^+(p)\subset J^+(p)$、$q\notin E^+(p)$ です。$r$ では $\Delta t=3$、$\rho=3$ なので等号、$r\in E^+(p)\subset J^+(p)$、$r\notin I^+(p)$ です。$s$ は $\Delta t=1$、$\rho=4$ で $\Delta t<\rho$、従って三集合のどれにも入りません。
 <!-- solution-end -->
 
 <a id="ex-lorg6-a02"></a>
@@ -326,7 +326,7 @@ $\mathbb R^{1+2}$ の $p=(3,0,0)$ に対し、$a=(1,1,0)$ と $b=(1,2,0)$ の $I
 Minkowski時空の任意の点 $p$ について、$p\in J^+(p)$、$p\notin I^+(p)$、$p\in E^+(p)$ をそれぞれ別の理由で確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。まず $p$ に留まる定数曲線は未来因果曲線として許されるので、[定義](#def-lorg6-chronological-causal-future)から $p\in J^+(p)$。次に $p$ から $p$ への時間差・空間差はいずれも零で、[Minkowski公式](#thm-lorg6-minkowski-futures)の厳密不等式 $0>0$ は偽です。ゆえに $p\notin I^+(p)$。最後に[horismosの定義](#def-lorg6-horismos)へ代入して $p\in J^+(p)\setminus I^+(p)=E^+(p)$ です。
+**詳細解答**。まず $p$ に留まる定数曲線は未来因果曲線として許されるので、[定義](#def-lorg6-chronological-causal-future)から $p\in J^+(p)$。次に $p$ から $p$ への時間差・空間差はいずれも零で、[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)の厳密不等式 $0>0$ は偽です。ゆえに $p\notin I^+(p)$。最後に[horismosの定義](#def-lorg6-horismos)へ代入して $p\in J^+(p)\setminus I^+(p)=E^+(p)$ です。
 <!-- solution-end -->
 
 <a id="ex-lorg6-a04"></a>
@@ -336,7 +336,7 @@ Minkowski時空の任意の点 $p$ について、$p\in J^+(p)$、$p\notin I^+(p
 Minkowski平面で $p=(-2,0)$ から $q=(1,3)$ への直線 $\gamma(s)=(-2+3s,3s)$（$0\le s\le1$）について、速度の自己内積を計算し、$q$ が $E^+(p)$ に入る理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。速度は $\dot\gamma=(3,3)$、自己内積は $-3^2+3^2=0$、時間成分 $3>0$ なので未来光的曲線です。よって $q\in J^+(p)$。端点差は $\Delta t=3$、$\rho=3$ です。[Minkowski公式](#thm-lorg6-minkowski-futures)から $q\notin I^+(p)$。従って $q\in E^+(p)$ です。光的な一本の曲線があるという事実だけでは $I^+$ に入らないことまで言えないので、端点不等式も必要です。
+**詳細解答**。速度は $\dot\gamma=(3,3)$、自己内積は $-3^2+3^2=0$、時間成分 $3>0$ なので未来光的曲線です。よって $q\in J^+(p)$。端点差は $\Delta t=3$、$\rho=3$ です。[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)から $q\notin I^+(p)$。従って $q\in E^+(p)$ です。光的な一本の曲線があるという事実だけでは $I^+$ に入らないことまで言えないので、端点不等式も必要です。
 <!-- solution-end -->
 
 <a id="ex-lorg6-a05"></a>
@@ -365,7 +365,7 @@ $$
 \ge\int_0^1\sqrt{\dot x^2+\dot y^2}\,ds.
 $$
 
-次に $\mathbf v(s)=(\dot x(s),\dot y(s))$ に積分三角不等式を適用すると、
+次に $\mathbf v(s)=(\dot x(s),\dot y(s))$、$\mathbf w=\int_0^1\mathbf v(s)\,ds$ と置きます。$\mathbf w\ne0$ なら単位ベクトル $\mathbf u=\mathbf w/|\mathbf w|$ に対して $\mathbf u\cdot\mathbf v(s)\le|\mathbf v(s)|$ です。積分すると $|\mathbf w|\le\int_0^1|\mathbf v(s)|\,ds$ となり、$\mathbf w=0$ の場合もこの不等式は成立するので、
 
 $$
 \int_0^1|\mathbf v(s)|\,ds
@@ -373,7 +373,7 @@ $$
 =\sqrt{(x(1)-x(0))^2+(y(1)-y(0))^2}.
 $$
 
-従って $\Delta t\ge\sqrt{(\Delta x)^2+(\Delta y)^2}$。これに逆向きの直線構成を加えると[到達集合公式](#thm-lorg6-minkowski-futures)の $J^+$ が得られます。
+従って $\Delta t\ge\sqrt{(\Delta x)^2+(\Delta y)^2}$。これに逆向きの直線構成を加えると[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)の $J^+$ が得られます。
 <!-- solution-end -->
 
 <a id="ex-lorg6-b02"></a>
@@ -383,7 +383,7 @@ $$
 Minkowski平面で $S=\{(0,0),(1,0)\}$、$q=(2,1)$ とする。$q\in E^+((1,0))$ だが $q\notin E^+(S)$ を直接計算し、なぜ $\bigcup_{p\in S}E^+(p)$ が $E^+(S)$ と一致しないのか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$(1,0)$ から $q$ の変位は $(1,1)$ なので時間差 $1$ と空間差 $1$ が等しく、[平坦horismos公式](#prop-lorg6-minkowski-boundary)から $q\in E^+((1,0))$ です。一方 $(0,0)$ からは時間差 $2$、空間差 $1$ で $2>1$。よって $q\in I^+((0,0))$、[集合の合併の命題](#prop-lorg6-set-unions)から $q\in I^+(S)$ です。$E^+(S)=J^+(S)\setminus I^+(S)$ なので $q\notin E^+(S)$ となります。異なる始点から時間的に到達できる点まで、点ごとの光円錐境界を合併すると誤って含めてしまうのが失敗の原因です。
+**詳細解答**。$(1,0)$ から $q$ の変位は $(1,1)$ なので時間差 $1$ と空間差 $1$ が等しく、[平坦時空での開性・閉性・horismosの境界表示](#prop-lorg6-minkowski-boundary)から $q\in E^+((1,0))$ です。一方 $(0,0)$ からは時間差 $2$、空間差 $1$ で $2>1$。よって $q\in I^+((0,0))$、[集合の未来・過去は点ごとの合併](#prop-lorg6-set-unions)から $q\in I^+(S)$ です。$E^+(S)=J^+(S)\setminus I^+(S)$ なので $q\notin E^+(S)$ となります。異なる始点から時間的に到達できる点まで、点ごとの光円錐境界を合併すると誤って含めてしまうのが失敗の原因です。
 <!-- solution-end -->
 
 <a id="ex-lorg6-b03"></a>
@@ -393,7 +393,7 @@ Minkowski平面で $S=\{(0,0),(1,0)\}$、$q=(2,1)$ とする。$q\in E^+((1,0))$
 Minkowski時空で $p$ を固定し、$q_k\in J^+(p)$、$q_k\to q$ とする。$q\in J^+(p)$ を座標不等式から示し、同じ手順で $I^+(p)$ が閉集合だと主張できない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書くと、各 $k$ に対して[到達集合公式](#thm-lorg6-minkowski-futures)より
+**詳細解答**。$q_k=(t_k,\mathbf x_k)$、$p=(t_0,\mathbf x_0)$ と書くと、各 $k$ に対して[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)より
 
 $$
 t_k-t_0\ge|\mathbf x_k-\mathbf x_0|.
@@ -433,7 +433,7 @@ Minkowski平面で $S=\{(0,-1),(0,1)\}$ とする。
 4. $I^+(S)$ が開、$J^+(S)$ が閉であることを示せ。ただし有限集合であることを使ってよい。
 
 <!-- solution-start -->
-**詳細解答**。各基点からの空間距離は $|x+1|$、$|x-1|$ です。[集合の未来の合併](#prop-lorg6-set-unions)と[Minkowski公式](#thm-lorg6-minkowski-futures)から、「どちらか一方の距離より時間が大きい」ことをまとめると
+**詳細解答**。各基点からの空間距離は $|x+1|$、$|x-1|$ です。[集合の未来の合併](#prop-lorg6-set-unions)と[Minkowski時空の時間的・因果的未来と過去](#thm-lorg6-minkowski-futures)から、「どちらか一方の距離より時間が大きい」ことをまとめると
 
 $$
 \begin{aligned}
