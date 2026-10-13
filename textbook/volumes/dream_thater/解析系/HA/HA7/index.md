@@ -662,11 +662,26 @@ G_d(z)=\frac{r^{2-d}}{(d-2)|S^{d-1}|},
 G_d'(r)=-\frac{r^{1-d}}{|S^{d-1}|}
 $$
 
-と置きます。放射関数の微分を各座標で計算すると
+と置きます。$r=(z_1^2+\cdots+z_d^2)^{1/2}$ なので $\partial_{z_j}r=z_j/r$ です。連鎖律を二度使って
 
 $$
-\Delta G_d=G_d''(r)+\frac{d-1}{r}G_d'(r)=0
-\qquad (r>0)
+\begin{aligned}
+\partial_{z_j}G_d&=G_d'(r)\frac{z_j}{r},\\
+\partial_{z_j}^2G_d
+&=G_d''(r)\frac{z_j^2}{r^2}
+ +G_d'(r)\left(\frac1r-\frac{z_j^2}{r^3}\right).
+\end{aligned}
+$$
+
+$\sum_jz_j^2=r^2$ を代入して全座標で足すと
+
+$$
+\begin{aligned}
+\Delta G_d&=G_d''(r)+\frac{d-1}{r}G_d'(r)\\
+&=\frac{(d-1)r^{-d}}{|S^{d-1}|}
+-\frac{(d-1)r^{-d}}{|S^{d-1}|}=0
+\qquad (r>0).
+\end{aligned}
 $$
 
 となり、原点以外では調和的です。他方、半径 $\varepsilon$ の球面での外向き法線微分 $\partial_rG_d$ は
