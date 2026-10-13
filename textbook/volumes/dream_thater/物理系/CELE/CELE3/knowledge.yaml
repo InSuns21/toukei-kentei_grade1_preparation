@@ -1,0 +1,75 @@
+chapter: CELE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELE2
+  - GMECH8
+forward_references: []
+
+concepts:
+  - id: celestial.central-configuration
+    name: 中心配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中心配置）"]
+    aliases: []
+    requires:
+      - celestial.nbody-equations-conservation
+
+  - id: celestial.central-configuration-scaling
+    name: 中心配置の係数と縮尺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心配置の係数と縮尺）"]
+    aliases: []
+    requires:
+      - celestial.central-configuration
+
+  - id: celestial.lagrange-equilateral
+    name: Lagrangeの正三角形中心配置
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lagrangeの正三角形中心配置）"]
+    aliases: []
+    requires:
+      - celestial.central-configuration
+      - celestial.central-configuration-scaling
+
+  - id: celestial.euler-collinear
+    name: Eulerの共線中心配置
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eulerの共線中心配置）"]
+    aliases: []
+    requires:
+      - celestial.central-configuration
+      - celestial.nbody-equations-conservation
+
+  - id: celestial.homographic-motion
+    name: 相似運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相似運動）"]
+    aliases: []
+    requires:
+      - celestial.central-configuration
+
+  - id: celestial.homographic-reduction
+    name: 中心配置からの相似運動
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（中心配置からの相似運動）"]
+    aliases: []
+    requires:
+      - celestial.homographic-motion
+      - celestial.central-configuration-scaling
+
+  - id: celestial.rotating-relative-equilibrium
+    name: 中心配置と回転座標系の平衡
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心配置と回転座標系の平衡）"]
+    aliases: []
+    requires:
+      - celestial.homographic-reduction
+      - mechanics.relative-equilibrium-critical

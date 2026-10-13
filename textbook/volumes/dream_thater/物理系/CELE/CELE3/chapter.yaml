@@ -1,0 +1,45 @@
+id: "CELE3"
+title: "三体問題の特殊解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE2
+  - GMECH8
+official_scope: []
+learning_objectives:
+  - 非衝突中心配置の定義を質量重心と共通加速度係数で検証できる
+  - 中心配置の比例係数がU/Iであることと縮尺三乗則を粒子対の和から導出できる
+  - 任意の正質量に対するLagrange正三角形中心配置を重心恒等式から証明できる
+  - Euler共線解の五次方程式を加速度差から導出し正の根の存在一意性を示せる
+  - 中心配置から相似運動の動径・角度方程式と保存エネルギーを導ける
+  - 回転座標系のCoriolis項と遠心項を二階微分から導出し相対平衡を検証できる
+  - 固定形状での動径安定性と三体全体での形状摂動の安定性を区別できる
+definitions:
+  - { id: CELE3-DEF-01, name: "中心配置" }
+  - { id: CELE3-DEF-02, name: "相似運動" }
+theorems:
+  - { id: CELE3-PROP-01, name: "中心配置の係数と縮尺" }
+  - { id: CELE3-PROP-02, name: "Lagrangeの正三角形中心配置" }
+  - { id: CELE3-THM-01, name: "Eulerの共線中心配置" }
+  - { id: CELE3-THM-02, name: "中心配置からの相似運動" }
+  - { id: CELE3-PROP-03, name: "中心配置と回転座標系の平衡" }
+canonical_examples:
+  - "等質量の共線配置で中心配置の全粒子条件を直接検証"
+  - "不等質量正三角形で重心と加速度を直接計算"
+  - "Eulerの間隔比を五次方程式で決定し狭義単調性で一意性を確認"
+  - "中心配置からの相似縮尺・回転のNewton方程式への代入"
+  - "不等質量Lagrange円解でエネルギー・角運動量を求める"
+problem_patterns:
+  - CELE3-CENTRAL-CONFIGURATION-CHECK
+  - CELE3-SCALING
+  - CELE3-EQUILATERAL-UNEQUAL-MASSES
+  - CELE3-ROTATING-COORDINATES
+  - CELE3-EULER-QUINTIC
+  - CELE3-HOMOGRAPHIC-REDUCTION
+  - CELE3-HOMOGRAPHIC-INTEGRALS
+  - CELE3-RADIAL-STABILITY
+  - CELE3-LAGRANGE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
