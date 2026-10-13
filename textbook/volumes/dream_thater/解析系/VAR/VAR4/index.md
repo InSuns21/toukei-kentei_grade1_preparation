@@ -312,9 +312,9 @@ $$
 
 点 $p\in M$ と半径 $R>0$ を固定し、$B_R(0)\subset T_pM$ を接空間内の開球として
 
-$
+$$
 U=\exp_p(B_R(0)),\qquad v\in B_R(0),\qquad q=\exp_p(v)\in U
-$
+$$
 
 と置きます。$U$ は $p$ の正規球とします。$p$ から $q$ へ至る放射測地線 $\gamma(t)=\exp_p(tv)$、$0\le t\le1$ について
 
