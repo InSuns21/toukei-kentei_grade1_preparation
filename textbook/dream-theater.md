@@ -367,6 +367,11 @@
 10. [GPDE9 楕円型正則性](textbook/volumes/dream_thater/解析系/GPDE/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展 PDE の弱解](textbook/volumes/dream_thater/解析系/GPDE/GPDE10/index.md)
 
+<a id="dt-subject-variational-problems"></a>
+### 変分問題・幾何的第二変分
+
+1. [VAR1 汎関数・第一変分・Euler–Lagrange方程式](textbook/volumes/dream_thater/解析系/VAR/VAR1/index.md)
+
 <a id="dt-subject-nonlinear-pde"></a>
 ### 非線形偏微分方程式
 
