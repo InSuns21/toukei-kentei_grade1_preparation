@@ -441,7 +441,13 @@ $
 |\gamma_x|=\sqrt{1+(u')^2},\qquad
 \det(\gamma_x,\gamma_{xx})=u''.
 $
-[符号付き曲率の定義](#def-var3-signed-curvature)を一般パラメータで書き直すと $\kappa=\det(\gamma_x,\gamma_{xx})/|\gamma_x|^3$ です。従って
+[符号付き曲率の定義](#def-var3-signed-curvature)は弧長微分で書かれています。$v=|\gamma_x|>0$ とすれば、$T=\gamma_x/v$、$d/ds=v^{-1}d/dx$ なので
+$
+\frac{dT}{ds}=\frac{\gamma_{xx}}{v^2}-\frac{\gamma_xv'}{v^3},\qquad
+\det\left(T,\frac{dT}{ds}\right)
+=\frac{\det(\gamma_x,\gamma_{xx})}{v^3}
+$
+です。第二項は $\det(\gamma_x,\gamma_x)=0$ だから消えます。従って
 $
 \kappa=\frac{u''}{(1+(u')^2)^{3/2}},\qquad
 \frac12\kappa^2\,ds
