@@ -1,0 +1,64 @@
+chapter: AG3-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG3-03
+  - AG3-02
+  - AG2-05
+  - AG1-04
+forward_references: []
+concepts:
+  - id: algebraic-geometry.scheme
+    name: スキーム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スキーム）"]
+    requires: [algebraic-geometry.affine-scheme, algebraic-geometry.locally-ringed-space]
+  - id: algebraic-geometry.open-subscheme
+    name: 開部分スキーム
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（開部分スキーム）"]
+    requires: [algebraic-geometry.scheme, algebraic-geometry.principal-affine-scheme]
+  - id: algebraic-geometry.scheme-gluing-data
+    name: スキームの貼り合わせデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スキームの貼り合わせデータ）"]
+    requires: [algebraic-geometry.scheme, algebraic-geometry.lrs-morphism]
+  - id: algebraic-geometry.scheme-gluing
+    name: スキームの貼り合わせ定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スキームの貼り合わせ定理）"]
+    requires: [algebraic-geometry.scheme-gluing-data, algebraic-geometry.sheaf-of-rings-axioms]
+  - id: algebraic-geometry.projective-line-glued
+    name: 貼り合わせによる射影直線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（貼り合わせによる射影直線）"]
+    requires: [algebraic-geometry.scheme-gluing]
+  - id: algebraic-geometry.p1-global-functions
+    name: 射影直線の大域正則関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線の大域正則関数）"]
+    requires: [algebraic-geometry.projective-line-glued, algebraic-geometry.spectrum-principal-sections]
+  - id: algebraic-geometry.morphism-gluing
+    name: 射の貼り合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射の貼り合わせ）"]
+    requires: [algebraic-geometry.scheme-gluing, algebraic-geometry.lrs-morphism]
+  - id: algebraic-geometry.chartwise-morphism
+    name: アフィンチャート上の射の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィンチャート上の射の判定）"]
+    requires: [algebraic-geometry.morphism-gluing, algebraic-geometry.affine-scheme-ring-hom-bijection]
+  - id: algebraic-geometry.double-origin-line
+    name: 原点を二重に持つ直線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（原点を二重に持つ直線）"]
+    requires: [algebraic-geometry.scheme-gluing, algebraic-geometry.morphism-gluing]

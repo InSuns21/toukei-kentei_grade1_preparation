@@ -1,0 +1,48 @@
+id: "AG3-04"
+title: "スキームの貼り合わせと射"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-03
+  - AG3-02
+  - AG2-05
+  - AG1-04
+official_scope: []
+learning_objectives:
+  - スキームの局所アフィン性と開部分スキームの構成を説明・証明できる
+  - 貼り合わせデータの自己一致・逆変換・三重一致を具体例で判定できる
+  - 貼り合わせスキームの商位相・構造層・茎と一意性を証明できる
+  - 射影直線を二つのアフィン直線から構成し大域切断が体であることを証明できる
+  - 開被覆上の射を整合条件で貼り合わせアフィンチャートごとの射を判定できる
+  - 原点を二重に持つ直線を構成し大域切断では非アフィン性を復元できない例を示せる
+definitions:
+  - { id: AG3-04-DEF-01, name: スキーム }
+  - { id: AG3-04-DEF-02, name: スキームの貼り合わせデータ }
+  - { id: AG3-04-DEF-03, name: 貼り合わせによる射影直線 }
+theorems:
+  - { id: AG3-04-PROP-01, name: 開部分スキーム }
+  - { id: AG3-04-THM-01, name: スキームの貼り合わせ定理 }
+  - { id: AG3-04-PROP-02, name: 射影直線の大域正則関数 }
+  - { id: AG3-04-THM-02, name: 射の貼り合わせ }
+  - { id: AG3-04-PROP-03, name: アフィンチャート上の射の判定 }
+  - { id: AG3-04-PROP-04, name: 原点を二重に持つ直線 }
+canonical_examples:
+  - 主開集合の開部分スキームとしての確認
+  - 逆数変換による射影直線の構成と大域正則関数
+  - 射影直線のべき自己射の貼り合わせ
+  - 原点を二つ残す直線と大域関数環
+problem_patterns:
+  - AG3-04-A1
+  - AG3-04-A2
+  - AG3-04-A3
+  - AG3-04-A4
+  - AG3-04-B1
+  - AG3-04-B2
+  - AG3-04-B3
+  - AG3-04-B4
+  - AG3-04-C1
+  - AG3-04-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 18, exercises: 12, review: 6 }

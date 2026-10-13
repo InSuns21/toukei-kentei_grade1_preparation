@@ -658,6 +658,8 @@
 4. [CM1-04 (1,0)・(0,1)接空間への複素化分解](textbook/volumes/dream_thater/幾何系/CM/CM1-04/index.md)
 5. [CM1-05 複素接束の座標変換と正則性](textbook/volumes/dream_thater/幾何系/CM/CM1-05/index.md)
 6. [CM1-06 Nijenhuisテンソルと局所座標での必要条件](textbook/volumes/dream_thater/幾何系/CM/CM1-06/index.md)
+7. [CM1-07 Newlander–Nirenberg定理と証明境界](textbook/volumes/dream_thater/幾何系/CM/CM1-07/index.md)
+8. [CM1-08 積分可能性の計算例・非可積分例](textbook/volumes/dream_thater/幾何系/CM/CM1-08/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -793,6 +795,8 @@
 
 1. [AG3-01 関手的視点とSpec](textbook/volumes/dream_thater/代数系/AG/AG3-01/index.md)
 2. [AG3-02 素スペクトルの位相と構造層](textbook/volumes/dream_thater/代数系/AG/AG3-02/index.md)
+3. [AG3-03 局所環付き空間とアフィンスキーム](textbook/volumes/dream_thater/代数系/AG/AG3-03/index.md)
+4. [AG3-04 スキームの貼り合わせと射](textbook/volumes/dream_thater/代数系/AG/AG3-04/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

@@ -1,0 +1,48 @@
+id: "AG3-03"
+title: "局所環付き空間とアフィンスキーム"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-02
+  - AG3-01
+  - AG1-04
+  - AG2-05
+official_scope: []
+learning_objectives:
+  - 局所環付き空間の定義と素スペクトルの局所環性および剰余体を証明できる
+  - 局所環付き空間の射の局所性と剰余体の誘導写像を説明できる
+  - 環準同型が定めるSpecの射を構成し主開切断と茎を計算できる
+  - アフィンスキーム間の射と環準同型の全単射を完全に証明できる
+  - 主開集合のアフィン表示と商環のスペクトルおよび茎の商を計算できる
+  - 局所性を外した環の層の射の反例を構成できる
+definitions:
+  - { id: AG3-03-DEF-01, name: 局所環付き空間 }
+  - { id: AG3-03-DEF-02, name: 局所環付き空間の射 }
+  - { id: AG3-03-DEF-03, name: アフィンスキーム }
+theorems:
+  - { id: AG3-03-THM-01, name: 素スペクトルの局所環付き空間性 }
+  - { id: AG3-03-PROP-01, name: 射に伴う剰余体の準同型 }
+  - { id: AG3-03-THM-02, name: 環準同型が定める射 }
+  - { id: AG3-03-THM-03, name: アフィンスキームの射と環準同型の対応 }
+  - { id: AG3-03-PROP-02, name: 主開集合のアフィン表示 }
+  - { id: AG3-03-PROP-03, name: 商環が定める閉集合への射 }
+canonical_examples:
+  - 体と双対数の一点空間と茎の非同型性
+  - 二乗写像と分数切断の引き戻し
+  - 主開集合の局所化環による表示
+  - 冪零な厚みを持つ閉部分空間
+problem_patterns:
+  - AG3-03-A1
+  - AG3-03-A2
+  - AG3-03-A3
+  - AG3-03-A4
+  - AG3-03-B1
+  - AG3-03-B2
+  - AG3-03-B3
+  - AG3-03-B4
+  - AG3-03-C1
+  - AG3-03-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 12, review: 5 }
