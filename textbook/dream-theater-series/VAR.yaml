@@ -49,7 +49,7 @@ chapters:
     title: "Tonelli型存在論・弱Euler–Lagrange方程式と正則性"
   - id: VAR11
     path: textbook/volumes/dream_thater/解析系/VAR/VAR11
-    status: planned
+    status: completed
     title: "Palais–Smale・Ekeland・minimax"
   - id: VAR12
     path: textbook/volumes/dream_thater/解析系/VAR/VAR12
