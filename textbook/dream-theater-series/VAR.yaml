@@ -25,7 +25,7 @@ chapters:
     title: "Riemann多様体上の測地線"
   - id: VAR5
     path: textbook/volumes/dream_thater/解析系/VAR/VAR5
-    status: planned
+    status: completed
     title: "第二変分・Jacobi場・共役点"
   - id: VAR6
     path: textbook/volumes/dream_thater/解析系/VAR/VAR6
