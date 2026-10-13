@@ -1,0 +1,39 @@
+version: 1
+id: CELEV
+title: "変分的周期軌道・n体舞踏解と数値シミュレーション"
+plan: textbook/plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: CELEV1
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV1
+    status: completed
+    title: "n体の作用と周期ループ空間"
+  - id: CELEV2
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV2
+    status: planned
+    title: "最小化列と周期解の存在"
+  - id: CELEV3
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV3
+    status: planned
+    title: "特異ポテンシャル・衝突・局所変形"
+  - id: CELEV4
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV4
+    status: planned
+    title: "対称作用原理"
+  - id: CELEV5
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV5
+    status: planned
+    title: "等質量三体の8の字解"
+  - id: CELEV6
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV6
+    status: planned
+    title: "n体舞踏解・組み紐と軌道分類"
+  - id: CELEV7
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV7
+    status: planned
+    title: "周期軌道の第二変分・Floquetと安定性"
+  - id: CELEV8
+    path: textbook/volumes/dream_thater/物理系/CELEV/CELEV8
+    status: planned
+    title: "数値変分法と実際のn体シミュレーション"

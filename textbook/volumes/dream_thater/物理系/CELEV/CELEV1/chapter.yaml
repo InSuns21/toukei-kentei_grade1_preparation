@@ -1,0 +1,47 @@
+id: "CELEV1"
+title: "n体の作用と周期ループ空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELE2
+  - AMECH3
+  - VAR9
+official_scope: []
+learning_objectives:
+  - 重心零・位置周期のH1ループと衝突集合を定義し、直接例で各条件を確認できる
+  - Newton重力の負の位置エネルギーと正の拡張作用を区別し、衝突点での積分を説明できる
+  - 有限作用で衝突するH1ループを構成し、冪指数の二つの可積分条件を導出できる
+  - 周期変分の第一変分を粒子対の連鎖律と部分積分で計算できる
+  - 重心拘束下の停留性からNewton方程式と速度接合を証明し逆向きも説明できる
+  - 円運動の力学条件・作用を検算し、停留と大域最小を区別できる
+  - 重心制約だけでは強制性が失敗することを逃走列で示せる
+definitions:
+  - { id: CELEV1-DEF-01, name: "重心零の周期ループ空間" }
+  - { id: CELEV1-DEF-02, name: "Newton n体の拡張作用" }
+  - { id: CELEV1-DEF-03, name: "重心を保つ周期変分" }
+theorems:
+  - { id: CELEV1-PROP-01, name: "有限作用の衝突ループ" }
+  - { id: CELEV1-PROP-02, name: "Newton作用の周期第一変分" }
+  - { id: CELEV1-PROP-03, name: "周期停留条件とNewton方程式" }
+  - { id: CELEV1-PROP-04, name: "重心零だけでは強制性がない" }
+canonical_examples:
+  - 等質量二体の重心零円ループと軌道条件
+  - 静止配置による正の作用の確認
+  - 冪指数2/3の有限作用衝突ループ
+  - 端点で非零の周期変分
+  - 重心零の静止粒子を無限遠へ送る非強制性の例
+problem_patterns:
+  - CELEV1-CENTER-AND-TRACE
+  - CELEV1-GRAVITATIONAL-SIGN
+  - CELEV1-PERIODIC-VARIATION
+  - CELEV1-CIRCULAR-ACTION
+  - CELEV1-ENDPOINT-VELOCITY
+  - CELEV1-PAIRWISE-FIRST-VARIATION
+  - CELEV1-BOUNDARY-TERM
+  - CELEV1-COLLISION-EXPONENT
+  - CELEV1-COERCIVITY-COUNTEREXAMPLE
+  - CELEV1-UNEVEN-MASS-CIRCULAR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
