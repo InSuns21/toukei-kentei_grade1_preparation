@@ -636,7 +636,7 @@ $$
 を得ます。$p=1$ では上の議論は[弱型端点](#thm-ha7-hls-weak)までしか与えません。
 <!-- proof-end -->
 
-**Newtonポテンシャルとの対応。** $d\ge3$ なら $\alpha=2<d$ です。Gamma関数の漸化式と球面積公式を用いると
+**Newtonポテンシャルとの対応。** $d\ge3$ なら $\alpha=2<d$ です。上で確認した $\Gamma(s+1)=s\Gamma(s)$ と $|S^{d-1}|=2\pi^{d/2}/\Gamma(d/2)$ を順に代入すると
 
 $$
 \begin{aligned}
@@ -684,7 +684,7 @@ $$
 \end{aligned}
 $$
 
-となり、原点以外では調和的です。他方、半径 $\varepsilon$ の球面での外向き法線微分 $\partial_rG_d$ は
+となり、原点以外では調和的です。他方、半径 $\varepsilon$ の球面で、中心から外向きに半径 $r$ を増す方向の微分 $\partial_rG_d$ は
 
 $$
 -\int_{\partial B(0,\varepsilon)}
