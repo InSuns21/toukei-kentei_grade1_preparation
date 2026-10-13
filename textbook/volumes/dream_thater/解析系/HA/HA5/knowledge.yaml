@@ -1,0 +1,74 @@
+chapter: HA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA2
+  - HA3
+  - HA4
+  - FOU4
+  - MT7
+forward_references: []
+
+concepts:
+  - id: harmonic.ha5-standard-kernel
+    name: 標準Calderón–Zygmund核
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標準Calderón–Zygmund核）]
+    requires: []
+
+  - id: harmonic.ha5-cz-operator
+    name: L2 Calderón–Zygmund作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（L2 Calderón–Zygmund作用素）]
+    requires: [harmonic.ha5-standard-kernel]
+
+  - id: harmonic.ha5-weak11
+    name: 標準Calderón–Zygmund作用素の弱型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標準Calderón–Zygmund作用素の弱型）]
+    requires: [harmonic.ha5-cz-operator, harmonic.ha4-cz-decomposition, harmonic.ha4-off-support]
+
+  - id: harmonic.ha5-stronglp
+    name: 強型Lp有界性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（強型Lp有界性）]
+    requires: [harmonic.ha5-weak11]
+
+  - id: harmonic.ha5-truncation
+    name: 一様な切断作用素の評価と限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様な切断作用素の評価と限界）]
+    requires: [harmonic.ha5-weak11, harmonic.ha5-stronglp]
+
+  - id: harmonic.ha5-riesz
+    name: Riesz変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Riesz変換）]
+    requires: []
+
+  - id: harmonic.ha5-riesz-kernel
+    name: Riesz変換の核とLp有界性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Riesz変換の核とLp有界性）]
+    requires: [harmonic.ha5-riesz, harmonic.ha5-stronglp]
+
+  - id: harmonic.ha5-second-derivatives
+    name: Poisson方程式の二階微分評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Poisson方程式の二階微分評価）]
+    requires: [harmonic.ha5-riesz-kernel]
+
+  - id: harmonic.ha5-pressure
+    name: 圧力の非局所表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（圧力の非局所表示）]
+    requires: [harmonic.ha5-second-derivatives]
