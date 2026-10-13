@@ -1,0 +1,41 @@
+id: "HA7"
+title: "RieszポテンシャルとHardy–Littlewood–Sobolev不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA1
+  - HA2
+  - HA5
+  - MT7
+official_scope: []
+learning_objectives:
+  - Rieszポテンシャルの核・局所積分可能性・スケーリングを確認できる
+  - Hardy--Littlewood--Sobolevの指数関係と許容範囲を尺度から導ける
+  - 近方の最大関数評価と遠方のHölder評価を証明して最適半径を選べる
+  - HLSの1<p<d/alphaの強型Lp-Lq評価を再現できる
+  - p=1の弱型端点と強型不成立を区別できる
+  - 斉次Sobolev評価とNewtonポテンシャルの次元条件を説明できる
+definitions:
+  - { id: HA7-DEF-01, name: Rieszポテンシャル }
+theorems:
+  - { id: HA7-PROP-01, name: Rieszポテンシャルのスケーリング }
+  - { id: HA7-LEM-01, name: Hedberg型評価 }
+  - { id: HA7-THM-01, name: Hardy--Littlewood--Sobolev不等式 }
+  - { id: HA7-THM-02, name: 弱型端点HLS }
+  - { id: HA7-PROP-02, name: 端点の強型評価の失敗 }
+  - { id: HA7-COR-01, name: HLSの双線形評価 }
+  - { id: HA7-COR-02, name: Sobolev不等式 }
+canonical_examples:
+  - 球の指示関数に対するRieszポテンシャル
+  - 近方遠方の分割とHedberg最適半径
+  - 単位質量の集中で弱型端点を検証
+  - Newton核の次元依存と二次元の対数核
+problem_patterns:
+  - HA7-SCALING
+  - HA7-HEDBERG
+  - HA7-HLS-STRONG-WEAK
+  - HA7-SOBOLEV-NEWTON
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
