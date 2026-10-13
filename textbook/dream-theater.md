@@ -672,6 +672,7 @@
 11. [CM2-01 (p,q)形式と型分解](textbook/volumes/dream_thater/幾何系/CM/CM2-01/index.md)
 12. [CM2-02 ∂とbar∂の構成・二重複体](textbook/volumes/dream_thater/幾何系/CM/CM2-02/index.md)
 13. [CM2-03 局所bar∂-Poincaré補題と解析的準備](textbook/volumes/dream_thater/幾何系/CM/CM2-03/index.md)
+14. [CM2-04 Dolbeault複体・コホモロジー](textbook/volumes/dream_thater/幾何系/CM/CM2-04/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -813,6 +814,7 @@
 6. [AG3-06 準連接層・連接層](textbook/volumes/dream_thater/代数系/AG/AG3-06/index.md)
 7. [AG3-07 層の射と完全列・Čechコホモロジー](textbook/volumes/dream_thater/代数系/AG/AG3-07/index.md)
 8. [AG3-08 層コホモロジーの基本計算](textbook/volumes/dream_thater/代数系/AG/AG3-08/index.md)
+9. [AG3-09 射影スキームとProj](textbook/volumes/dream_thater/代数系/AG/AG3-09/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

@@ -1,0 +1,54 @@
+id: "AG3-09"
+title: "射影スキームとProj"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG3-08
+  - AG3-06
+  - AG3-04
+  - AG3-03
+  - AG2-06
+  - AG2-03
+  - AG2-02
+  - AG1-04
+official_scope: []
+learning_objectives:
+  - 正次数付き環の斉次素イデアルと無関係イデアルからProjの点と位相を定義し具体例を判定できる
+  - 次数零の局所化を計算し標準開集合D_+(f)とSpec((S_f)_0)の同相および重なりの同型を証明できる
+  - 標準開アフィンスキームを貼って構造層と構造射を作り射影空間との一致を示せる
+  - 斉次商環のProjが閉部分スキームを定めることを証明し冪零構造を計算できる
+  - 次数1有限生成環の射影空間への閉埋込みを構成できる
+  - 次数付き加群の層化と多項式環のねじりO(r)の局所基底・遷移関数を求められる
+definitions:
+  - { id: AG3-09-DEF-01, name: 斉次素イデアルとProj }
+  - { id: AG3-09-DEF-02, name: ProjのZariski位相 }
+  - { id: AG3-09-DEF-03, name: 次数零の局所化 }
+  - { id: AG3-09-DEF-04, name: Projの構造層と射影スキーム }
+  - { id: AG3-09-DEF-05, name: 次数付き加群に付随する層 }
+theorems:
+  - { id: AG3-09-THM-01, name: Projの標準開集合はアフィン }
+  - { id: AG3-09-THM-02, name: Projの存在と構造射 }
+  - { id: AG3-09-THM-03, name: 斉次商環と閉部分スキーム }
+  - { id: AG3-09-THM-04, name: 次数1生成環の射影空間への閉埋込み }
+  - { id: AG3-09-PROP-01, name: 多項式環のねじりとO(r) }
+canonical_examples:
+  - k[x0,x1]の斉次素イデアルと無関係イデアル
+  - P1の二枚の標準開集合とLaurent多項式環
+  - k[u,v]の重み1・2での次数零の局所化
+  - x0の二重構造と被約点の局所環
+  - 平面二次曲線と二次Veronese写像
+problem_patterns:
+  - AG3-09-A1
+  - AG3-09-A2
+  - AG3-09-A3
+  - AG3-09-A4
+  - AG3-09-B1
+  - AG3-09-B2
+  - AG3-09-B3
+  - AG3-09-B4
+  - AG3-09-C1
+  - AG3-09-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 21, exercises: 13, review: 8 }

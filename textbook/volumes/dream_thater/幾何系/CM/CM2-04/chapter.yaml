@@ -1,0 +1,48 @@
+id: "CM2-04"
+title: "Dolbeault複体・コホモロジー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM2-03
+  - CM1-09
+  - GEO9
+official_scope: []
+learning_objectives:
+  - 局所bar∂可解性と大域bar∂可解性の違いを説明できる
+  - 固定したpでDolbeault複体を定義し二乗零を確認できる
+  - bar∂閉形式の核とbar∂完全形式の像を定め包含を証明できる
+  - Dolbeaultコホモロジーの商と零類の判定を説明できる
+  - q=0で正則p形式と同定する証明を局所係数から再構成できる
+  - 正則写像がコホモロジーの引き戻しを誘導することを示せる
+  - 局所原始関数の差と正則補正による貼り合わせ判定を証明できる
+  - 複素トーラスの周期積分を使って非零Dolbeault類を構成できる
+  - コホモロジーの一つの非零類の発見と全類の分類を区別できる
+definitions:
+  - { id: CM2-04-DEF-01, name: Dolbeault複体 }
+  - { id: CM2-04-DEF-02, name: bar∂閉形式とbar∂完全形式 }
+  - { id: CM2-04-DEF-03, name: Dolbeaultコホモロジー }
+theorems:
+  - { id: CM2-04-PROP-01, name: 商空間と零類の判定 }
+  - { id: CM2-04-PROP-02, name: 零次コホモロジーと正則p形式 }
+  - { id: CM2-04-PROP-03, name: Dolbeaultコホモロジーの引き戻し }
+  - { id: CM2-04-THM-01, name: 局所原始関数の貼り合わせ判定 }
+  - { id: CM2-04-PROP-04, name: 複素トーラスの非零Dolbeault類 }
+canonical_examples:
+  - C上の(0,1)形式の閉性と明示的原始関数
+  - pを固定したDolbeault複体の次数端の確認
+  - q=0の正則関数および正則p形式の局所判定
+  - 正則写像t↦t²に沿った零類の引き戻し
+  - 開被覆上の局所原始関数の差と正則補正
+  - 複素トーラスのdbar zの周期積分による大域障害
+problem_patterns:
+  - CM2-04-COCYCLE-COBOUNDARY
+  - CM2-04-COHOMOLOGY-CLASS
+  - CM2-04-ZERO-DEGREE
+  - CM2-04-END-DEGREE
+  - CM2-04-FUNCTORIALITY
+  - CM2-04-LOCAL-GLUING
+  - CM2-04-TORUS-OBSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

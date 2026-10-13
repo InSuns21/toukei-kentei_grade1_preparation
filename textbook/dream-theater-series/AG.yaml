@@ -136,7 +136,7 @@ chapters:
     title: "層コホモロジーの基本計算"
   - id: AG3-09
     path: textbook/volumes/dream_thater/代数系/AG/AG3-09
-    status: planned
+    status: completed
     title: "射影スキームとProj"
   - id: AG3-10
     path: textbook/volumes/dream_thater/代数系/AG/AG3-10
