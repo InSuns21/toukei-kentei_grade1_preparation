@@ -248,7 +248,14 @@ h_{E\otimes F}(u\otimes v,u'\otimes v')
 =h_E(u,u')h_F(v,v')
 $$
 
-> として線形に延長する。最高外冪 $\det E$ の計量は $r$ 本のベクトルに対して
+> として、第一変数について共役線形、第二変数について線形に延長する。特に有限和 $t=\sum_a u_a\otimes v_a$ と $t'=\sum_b u'_b\otimes v'_b$ に対して
+
+$$
+h_{E\otimes F}(t,t')
+=\sum_{a,b}h_E(u_a,u'_b)h_F(v_a,v'_b)
+$$
+
+> と定める。最高外冪 $\det E$ の計量は $r$ 本のベクトルに対して
 
 $$
 h_{\det E}(u_1\wedge\cdots\wedge u_r,
@@ -316,14 +323,31 @@ $$
 =(G^\vee)^*H_i^\vee G^\vee.
 $$
 
-テンソル積では $(e_a\otimes f_b,e_c\otimes f_d)$ の内積が $H_{ac}K_{bd}$ なので、定義の基底順序で $H\otimes K$ となる。[テンソル積遷移](../CM2-08/index.md#prop-cm2-08-tensor-cocycle)との整合は
+テンソル積の積枠 $(e_a\otimes f_b)_{a,b}$ に関する座標は一意である。たとえば $t=\sum_\nu u_\nu\otimes v_\nu$ と書くと、$(a,b)$ 成分は $t_{ab}=\sum_\nu(u_\nu)_a(v_\nu)_b$ となる。$t'=\sum_\mu u'_\mu\otimes v'_\mu$ についても $t'_{cd}$ と置く。純テンソルの公式を第一変数で共役線形、第二変数で線形に展開すると
+
+$$
+\begin{aligned}
+h_{E\otimes F}(t,t')
+&=\sum_{\nu,\mu}h_E(u_\nu,u'_\mu)h_F(v_\nu,v'_\mu)\\
+&=\sum_{a,b,c,d}\overline{t_{ab}}H_{ac}K_{bd}t'_{cd}.
+\end{aligned}
+$$
+
+右辺は積枠の一意な座標 $t_{ab},t'_{cd}$ だけで決まるから、純テンソルの和の表し方によらない。特に $(e_a\otimes f_b,e_c\otimes f_d)$ の内積は $H_{ac}K_{bd}$ なので、計量行列は $H\otimes K$ となる。[テンソル積遷移](../CM2-08/index.md#prop-cm2-08-tensor-cocycle)との整合は
 
 $$
 (G\otimes L)^*(H\otimes K)(G\otimes L)
 =(G^*HG)\otimes(L^*KL)
 $$
 
-から分かる。正値性は各正値Hermite行列の正の固有値同士の積が正であること、または正規直交基底への合同変換から従う。行列式束では定義のGram行列が $H$ なので $h_{\det E}=\det H>0$。基底変更で
+から分かる。正値性を確認するため、可逆な $B,C$ で $H=B^*B$、$K=C^*C$ と書く（正値行列の直交化を使えば構成できる）。すると
+
+$$
+H\otimes K=(B\otimes C)^*(B\otimes C),
+\qquad \det(B\otimes C)\ne0.
+$$
+
+ゆえに任意の非零の複素係数列 $t$ に対して $t^*(H\otimes K)t=\|(B\otimes C)t\|^2>0$ である。行列式束では定義のGram行列が $H$ なので $h_{\det E}=\det H>0$。基底変更で
 
 $$
 \det(G^*HG)
@@ -396,7 +420,7 @@ $$
 
 ## 8. 滑らかな正規直交枠と正則枠を区別する
 
-任意の点の近傍で滑らかな正値行列 $H$ は、例えば滑らかなGram–Schmidt直交化により $H=B^*B$ と分解できる。枠を $\mathcal E'=\mathcal EB^{-1}$ に換えれば、新しい計量行列は
+任意の点の近傍で滑らかな正値行列 $H$ は、例えば[複素Gram–Schmidt直交化](../../../基礎科目/LA/LA5/index.md#thm-la5-complex-gram-schmidt)を局所的に滑らかな係数で行うことにより $H=B^*B$ と分解できる。枠を $\mathcal E'=\mathcal EB^{-1}$ に換えれば、新しい計量行列は
 
 $$
 H'=(B^{-1})^*HB^{-1}=I_r.
@@ -747,7 +771,7 @@ A_0=h_0^{-1}\partial h_0
 =\frac{\overline z}{1+|z|^2}\,dz.
 $$
 
-同様に $A_\infty=\overline w(1+|w|^2)^{-1}dw$。$g=z^{-1}$ を微分すると $g^{-1}\partial g=-dz/z$ だから
+$h_\infty=1+w\overline w$ に対しても $\partial_w h_\infty=\overline w$ なので、$A_\infty=\overline w(1+|w|^2)^{-1}dw$。$g=z^{-1}$ を微分すると $g^{-1}\partial g=-dz/z$ だから
 
 $$
 A_0+g^{-1}\partial g
@@ -755,7 +779,15 @@ A_0+g^{-1}\partial g
 =-\frac{dz}{z(1+|z|^2)}.
 $$
 
-$z=w^{-1}$、$dz=-w^{-2}dw$ を代入すれば、上式は $\overline w(1+|w|^2)^{-1}dw=A_\infty$ になる。[対数微分の変換則](#prop-cm2-09-log-derivative)を具体的に確認できた。
+$z=w^{-1}$、$dz=-w^{-2}dw$ および $1+|z|^2=(1+|w|^2)/|w|^2$ を代入すると
+
+$$
+-\frac{dz}{z(1+|z|^2)}
+=\frac{w^{-1}|w|^2}{1+|w|^2}\,dw
+=\frac{\overline w}{1+|w|^2}\,dw=A_\infty.
+$$
+
+この等式は重なり $w\ne0$ で成り立つ。[対数微分の変換則](#prop-cm2-09-log-derivative)を具体的に確認できた。
 
 (4) [Wirtinger微分](../CM2-02/index.md#def-cm2-02-wirtinger-operators)に従い
 
@@ -768,7 +800,15 @@ $$
 =\frac{1}{(1+|z|^2)^2}.
 $$
 
-これは全点で正であり、零ではない。正則単位枠 $e'=fe_0$ がどこかの非空開集合にあれば $|f|^2h_0=1$、かつ非零正則 $f$ について $\partial_z\partial_{\overline z}\log|f|^2=0$ である。対数を取り混合微分すると $0+1/(1+|z|^2)^2=0$ となり矛盾する。従って滑らかな計量があっても正則な単位枠は存在しない。
+混合微分の値は全点で正である。$U_0$ の非空開集合に正則単位枠 $e'=fe_0$ があると仮定すると、$f$ は零点を持たず $|f|^2h_0=1$ を満たす。非零正則関数の局所対数を取れば $\partial_z\partial_{\overline z}\log|f|^2=0$ である。一方、この等式の両辺の対数を混合微分すると
+
+$$
+0=\partial_z\partial_{\overline z}\log|f|^2
+=-\partial_z\partial_{\overline z}\log h_0
+=-\frac{1}{(1+|z|^2)^2}<0
+$$
+
+となり矛盾する。さらに、$\mathbb{CP}^1$ の任意の非空開集合 $V$ は、無限遠点を除いた稠密なチャート $U_0$ と非空の開集合で交わる。もし $V$ に正則単位枠があれば、その $V\cap U_0$ 上で今の矛盾が生じる。従って $\mathbb{CP}^1$ のどの非空開集合にも正則単位枠は存在しない。
 <!-- solution-end -->
 
 ## 10. 次章：長さを保つ微分の作り方
