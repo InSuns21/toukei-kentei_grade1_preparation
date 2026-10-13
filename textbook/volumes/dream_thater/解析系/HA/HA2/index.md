@@ -356,13 +356,13 @@ $c^{-1}=2A_\infty$ を代入して結論を得ます。
 
 $A_\infty=0$ の場合も確認しておきます。このとき $L^\infty$ 上では $Tg=0$ がほとんど至る所で成立します。$f\in L^p$ と $a>0$ に対して
 
-$
+$$
 f=f\boldsymbol{1}_{\{|f|>a\}}+f\boldsymbol{1}_{\{|f|\le a\}}
-$
+$$
 
 と分けると、後者は $L^\infty$ に属するので、その作用素値は0です。前者は $L^{p_0}$ に属し、劣線形性と弱型 $(p_0,p_0)$ により、任意の $\lambda>0$ について
 
-$
+$$
 \begin{aligned}
 \nu(\{|Tf|>\lambda\})
 &\le\nu(\{|T(f\boldsymbol{1}_{\{|f|>a\}})|>\lambda\})\\
@@ -371,7 +371,7 @@ $
 &\le\frac{A_0^{p_0}}{\lambda^{p_0}}
 a^{p_0-p}\|f\|_p^p.
 \end{aligned}
-$
+$$
 
 $p_0-p<0$ なので $a\to\infty$ で右辺は0に収束します。従って各 $\lambda>0$ で $\nu(\{|Tf|>\lambda\})=0$ となり、$Tf=0$ がほとんど至る所で成立します。この場合も強型 $(p,p)$ ですが、上の定理文では定数の表示を明確にするため $A_\infty>0$ としました。
 
@@ -579,19 +579,19 @@ $$
 
 ここで双対性を適用する前に、$Tf\in L^{q_\theta}(Y)$ を確認します。実際、端点推定により $Tf\in L^{q_0}(Y)\cap L^{q_1}(Y)$ です。$q_\theta<\infty$ で $q_0,q_1<\infty$ なら
 
-$
+$$
 |Tf|^{q_\theta}
 =\bigl(|Tf|^{q_0}\bigr)^{(1-\theta)q_\theta/q_0}
 \bigl(|Tf|^{q_1}\bigr)^{\theta q_\theta/q_1}
-$
+$$
 
 であり、両指数の和が1なので [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から
 
-$
+$$
 \|Tf\|_{q_\theta}
 \le\|Tf\|_{q_0}^{1-\theta}\|Tf\|_{q_1}^{\theta}
 <\infty
-$
+$$
 
 を得ます。端点の一方が $\infty$ なら、その因子を $\|Tf\|_\infty$ でくくって残りを積分すれば同じ結論です。$q_\theta=\infty$ なら $q_0=q_1=\infty$ なので、やはり $Tf\in L^\infty$ です。
 
