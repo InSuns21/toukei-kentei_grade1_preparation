@@ -14,7 +14,7 @@ concepts:
     name: 代数のB値点
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（代数の $B$ 値点）"]
+    introduction_aliases: ["定義（代数のB値点）"]
     requires: [algebra.ring-homomorphism, algebraic-geometry.affine-morphism-coordinate-duality]
 
   - id: algebraic-geometry.prime-spectrum
