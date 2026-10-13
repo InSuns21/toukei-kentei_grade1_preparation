@@ -130,7 +130,7 @@ try {
   // The standalone page must install and control the root-scoped Service
   // Worker itself. A prior visit to the main Docsify shell is not assumed.
   await waitFor('Boolean(navigator.serviceWorker?.controller)');
-  const shellCached = await waitFor(String.raw\`(async () => {
+  const shellCached = await waitFor(`(async () => {
     const keys = await caches.keys();
     const cacheName = keys.find((key) => key.startsWith("toukei-grade1-runtime-"));
     if (!cacheName) return false;
@@ -145,7 +145,7 @@ try {
       if (!await cache.match(new URL("/" + relative, location.origin))) return false;
     }
     return true;
-  })()\`);
+  })()`);
   assert.ok(shellCached, "Service Worker shell is not cached after direct entry");
   const asset = 'new URL("./acceptance-cache.txt", location.href).href';
   const fetchRevision = 'fetch(' + asset + ').then((r) => r.text())';
@@ -175,7 +175,7 @@ try {
   // Real Worker calculation all the way to the resource limit, without
   // allocating 100,000 DOM rows. Values are computed, not a recorded movie.
   const longStarted = Date.now();
-  const long = await evaluate(\`(async () => {
+  const long = await evaluate(`(async () => {
     const { SimulationClient } = await import("./simulation-runtime.mjs");
     const client = new SimulationClient("celev-two-body-verlet-v1",
       "celev-two-body-circular-v1", { timeoutMs: 15000 });
@@ -196,7 +196,7 @@ try {
     } finally {
       client.dispose();
     }
-  })()\`);
+  })()`);
   assert.equal(long?.stepIndex, 100000, JSON.stringify(long));
   assert.equal(long.limit, true, "step 100001 must be rejected");
   assert.equal(long.energyFinite, true, "long-run diagnostics must remain finite");
@@ -234,7 +234,7 @@ try {
   assert.ok(overflow <= 1, "360px viewport has horizontal overflow: " + overflow);
 
   // Label binding, live status, independent numeric table and keyboard action.
-  const accessibility = await evaluate(\`(() => ({
+  const accessibility = await evaluate(`(() => ({
     unlabeled: [...document.querySelectorAll("input,select")].filter((el) =>
       !el.labels?.length).map((el) => el.id),
     headings: [...document.querySelectorAll("h1,h2")].map((el) => el.tagName),
@@ -243,7 +243,7 @@ try {
     table: !!document.querySelector("#diagnostics table"),
     meaning: document.querySelector("#legend").textContent.includes("実線") &&
       document.querySelector("#legend").textContent.includes("破線"),
-  }))()\`);
+  }))()`);
   assert.deepEqual(accessibility.unlabeled, [], "form inputs need accessible names");
   assert.equal(accessibility.headings[0], "H1");
   assert.equal(accessibility.status, "polite");
