@@ -28,7 +28,7 @@ $(M,g)$ は滑らかな連結・Hausdorff・第二可算・境界なしの時間
 <!-- proof-start -->
 ### 証明
 
-$p$ から $q$ への区分的 $C^1$ 未来時間的曲線 $\gamma:[0,1]\to M$ を取ります。まず短い時間的曲線の局所的な性質を確認します。[凸正規近傍の存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)により、点 $u$ の小さな凸正規近傍 $N$ を取り、$u$ から $v$ への未来時間的曲線 $\alpha$ がすべて $N$ に含まれるとします。$w(s)=\exp_u^{-1}(\alpha(s))$ と置きます。
+$p$ から $q$ への区分的 $C^1$ 未来時間的曲線 $\gamma:[0,1]\to M$ を取ります。まず短い時間的曲線の局所的な性質を確認します。[Lorentz凸正規近傍の局所存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)により、点 $u$ の小さな凸正規近傍 $N$ を取り、$u$ から $v$ への未来時間的曲線 $\alpha$ がすべて $N$ に含まれるとします。$w(s)=\exp_u^{-1}(\alpha(s))$ と置きます。
 
 正規座標の放射光円錐の境界は $g_u(w,w)=0$ です。この境界上では、[Lorentz指数写像のGaussの補題](../LORG5/index.md#thm-lorg5-gauss-lemma)により放射ベクトル $R=(d\exp_u)_w w$ が光円錐の接ベクトルと直交する未来光的ベクトルになります。従って $F(w)=g_u(w,w)$ について、境界上の未来時間的速度を代入すると
 
@@ -38,7 +38,7 @@ $$
 =2g_{\alpha(s)}(R,\dot\alpha(s))<0
 $$
 
-です。最後の符号は[逆Cauchy–Schwarz不等式](../LORG1/index.md#thm-lorg1-reverse-cauchy-schwarz)によります。光円錐の側面では未来時間的速度が必ず内側を向くため、頂点から出発した未来時間的曲線は側面の外へ逸脱できません。正規座標の未来時間成分が増加することも合わせ、短い時間的曲線の終点 $v$ は
+です。最後の符号は[Lorentz型逆Cauchy–Schwarz不等式](../LORG1/index.md#thm-lorg1-reverse-cauchy-schwarz)によります。光円錐の側面では未来時間的速度が必ず内側を向くため、頂点から出発した未来時間的曲線は側面の外へ逸脱できません。正規座標の未来時間成分が増加することも合わせ、短い時間的曲線の終点 $v$ は
 
 $$
 \exp_u^{-1}(v)\in C_u^{\mathrm{tim},+}
