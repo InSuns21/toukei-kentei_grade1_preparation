@@ -21,7 +21,7 @@
 
 | 理論・領域 | canonical PLAN / 資産 |
 |---|---|
-| 対話型数値シミュレーションのUI・Workerプロトコル・実験記録（CELEV/ML共通） | [DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)（Phase 0着手済・Worker/UI未実装。数値アルゴリズムはCELEV/ML側の正本） |
+| 対話型数値シミュレーションのUI・Workerプロトコル・実験記録（CELEV/ML共通） | [DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)（Phase 1 Worker/UI実装・ブラウザ実機検証待ち。数値アルゴリズムはCELEV/ML側の正本） |
 | セル・オートマトン（局所更新・離散力学・可逆性・Garden of Eden・普遍計算） | `DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md`（独立15週・15章、CELL1〜CELL15・横断監査まで完了。計画は `textbook/plan_done/` に移動済み） |
 | 力学系（連続区間の反復・固定点・記号力学・カオス） | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md`（DYN1–DYN15、`textbook/plans_progress/`でDYN1から実装。CELL3/7とODE4/8–11を重複執筆しない） |
 | Hamilton--Jacobi / HJB / 粘性解 / 微分ゲーム / HJI / 確率制御 | `DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md` |

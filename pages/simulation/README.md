@@ -1,7 +1,8 @@
 # Interactive simulation — Phase 0 contracts
 
-Status: Phase 0 reference kernels and headless contract tests only. **No public
-simulation UI, active Worker host, or integration into lessons is available yet.**
+Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
+simulation page is assembled under `simulation/index.html` for GitHub Pages.
+**Browser end-to-end, cache/offline and performance verification remain open.**
 See [the in-progress PLAN](../../textbook/plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md).
 
 ## Why separate this from the Python lab?
@@ -9,7 +10,7 @@ See [the in-progress PLAN](../../textbook/plans_progress/DREAM_THEATER_INTERACTI
 The existing `pages/numerical-lab-runtime.js` and
 `numerical-lab-worker.mjs` implement one-shot student code/tests through
 Pyodide. Their input/output format and saved progress are unchanged.
-The new protocol owns repeated computation and experiment history, while each
+The new runtime owns repeated computation and experiment history, while each
 subject owns mathematical units, domain limits, and algorithms.
 
 ## Protocol version 1
@@ -50,8 +51,8 @@ parameters the future Worker host must increase `generation` and invalidate
 pending requests. A pause is honored only at a bounded batch boundary. An
 unresponsive synchronous Worker must be terminated, not assumed interruptible.
 `dispose` is terminal. Error responses need `errorCode`, `message` and
-`retryable`. UI and a real Worker state machine are **Phase 1**, not asserted
-to exist by these pure validators.
+`retryable`. Phase 1 now provides a dedicated Worker host and browser client. The protocol
+validator is still a pure function; operation ordering is enforced by the host.
 
 Default upper limits: 1,000 iterations/batch; 100,000 iterations/experiment;
 250 ms/batch target; 256 KiB serialized snapshot; 1,000 observations. These are
@@ -94,3 +95,24 @@ where exposed, transferred bytes, frame rate and tab-hidden recovery.
 Exercise online cold load, warmed cache, version migration, offline explanatory
 failure, repeated navigation and low-memory worker termination. Set actual
 thresholds based on baseline measurements rather than claiming a speedup now.
+
+## Phase 1 interactive demo
+
+The [standalone experiment UI](index.html) uses a **real module Worker** to
+integrate equal-mass two-body trajectories or sample a finite four-cell
+population. Change parameters, initialize, step/batch/auto-run, pause at batch
+boundaries, cancel/terminate, zoom the plot, and export/re-import a record.
+Imported JSON is re-run with the saved seed and settings; this is not a
+promise of identical results across unrelated software versions.
+
+CSV output escapes spreadsheet formula prefixes. JSON is versioned, rejects
+nonfinite results and is bounded to 256 KiB. Existing Python numerical labs
+remain separate and unchanged.
+
+Tests: `npm run validate:simulation-phase0` and
+`npm run validate:simulation-phase1`. Phase 1's Node tests exercise the **real
+Worker host dispatch** and the client over an async mock transport, not an
+actual browser Worker. Browser navigation, offline cache transitions, and
+accessibility require the separate end-to-end acceptance gate before calling
+the shared platform complete. This prototype's two-body kernel is JavaScript;
+the CELEV PLAN's required independent Python/NumPy engine is a Phase 2 task.
