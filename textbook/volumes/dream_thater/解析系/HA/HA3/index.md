@@ -36,7 +36,7 @@ $$
 =\lim_{\varepsilon\downarrow0}H_\varepsilon f(x)
 $$
 
-> といい、点 $x$ におけるHilbert変換と呼ぶ。二つの極限が存在することを定義に含める。
+> といい、点 $x$ における Hilbert 変換と呼ぶ。二つの極限が存在することを定義に含める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha3-principal-value -->
@@ -86,7 +86,7 @@ $$
 |f(x-t)-f(x)|\le \|f'\|_\infty |t|.
 $$
 
-したがって第一積分の被積分関数の絶対値は $\|f'\|_\infty$ 以下で、$\varepsilon\downarrow0$ の極限が存在します。第二積分は
+したがって原点付近の積分の被積分関数の絶対値は $\|f'\|_\infty$ 以下で、$\varepsilon\downarrow0$ の極限が存在します。第二積分は
 
 $$
 \int_{|t|\ge1}\left|\frac{f(x-t)}t\right|dt
@@ -178,7 +178,7 @@ $\varepsilon<|t|<R$ の切断核なら $L^1$ です。[FOU3の畳み込み定理
 
 <a id="def-ha3-l2-hilbert"></a>
 <!-- formal-statement-start -->
-> **定義（$L^2$ Hilbert変換）**  
+> **定義（L2 Hilbert変換）**  
 > $f\in L^2(\mathbb R)$ に対して、Fourier側で
 
 $$
@@ -196,7 +196,7 @@ $$
 
 <a id="thm-ha3-multiplier"></a>
 <!-- formal-statement-start -->
-> **定理（Hilbert変換のFourier乗数と$L^2$構成）**  
+> **定理（Hilbert変換のFourier乗数）**  
 > $f\in L^2(\mathbb R)$、$0<\varepsilon<R$ とする。$k_{\varepsilon,R}(t)=(\pi t)^{-1}\boldsymbol{1}_{\{\varepsilon<|t|<R\}}$ に対し、$H_{\varepsilon,R}f=k_{\varepsilon,R}*f$ は $L^2$ 上で定義される。各 $\varepsilon>0$ について $H_{\varepsilon,R}f$ は $R\to\infty$ で $L^2$ 収束し、その極限を $H_\varepsilon f$ と書く。このとき
 
 $$
@@ -282,7 +282,7 @@ $L^2$ 極限は、任意の $L^2$ 関数で各点の主値が存在すること�
 
 <a id="cor-ha3-isometry"></a>
 <!-- formal-statement-start -->
-> **系（等長性と$H$の二乗）**  
+> **系（Hilbert変換の等長性と二乗）**  
 > すべての $f\in L^2(\mathbb R)$ について
 
 $$
@@ -321,6 +321,8 @@ $$
 実数値の関数をHilbert変換すると、位相が周波数の正負により $\mp\pi/2$ だけ変わります。増幅ではなく位相の操作であることが、等長性の理由です。
 
 ## 4. Poisson核を通して境界値を見る
+
+[CA6で導入した調和関数](../../CA/CA6/index.md#def-ca6-harmonic-function)と[円板のPoisson核](../../CA/CA6/index.md#def-ca6-poisson-kernel)を思い出しましょう。そこでは円周の境界データから単位円板内部の値を作りました。ここでは舞台を上半平面に替え、実直線上の $L^2$ 関数から調和関数を作ります。核の定義域と正規化は円板の場合と異なります。
 
 Fourier乗数の不連続な符号を、$e^{-y|\xi|}$ で減衰させたらどうなるでしょうか。空間側には、積分が扱いやすい滑らかな核が現れます。上半平面の高さ $y>0$ におけるPoisson積分とその共役は、$y\downarrow0$ で元の関数とHilbert変換へ近づきます。
 
@@ -403,7 +405,7 @@ $h,Q_y\in L^2$ なので [L2反転](../../FOU/FOU4/index.md#thm-fou4-l2-inversio
 
 <a id="thm-ha3-poisson-boundary"></a>
 <!-- formal-statement-start -->
-> **定理（Poisson積分と共役Poisson積分の$L^2$境界値）**  
+> **定理（共役Poisson積分のL2境界値）**  
 > $f\in L^2(\mathbb R)$、$y>0$ とし、
 
 $$
@@ -469,7 +471,7 @@ $$
 \partial_y Q_y=-\frac{2yr}{\pi D^2}.
 $$
 
-従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ であり、二回微分すると $\Delta P_y=\Delta Q_y=0$ です。各 $y>0$ の近傍では核の任意階導関数の $L^1$（$P_y$）あるいは $L^2$（$Q_y$）の局所一様な上界が得られます。$f\in L^2$ に対して $\partial_x^a\partial_y^b K_y*f$ の絶対収束と局所一様収束を Cauchy–Schwarz により確かめられるので、積分内微分が正当化されます。ゆえに $\Delta u=\Delta v=0$ です。
+従って $\partial_xP_y=\partial_yQ_y$、$\partial_yP_y=-\partial_xQ_y$ であり、二回微分すると $\Delta P_y=\Delta Q_y=0$ です。各 $y>0$ の近傍では核の任意階導関数の $L^1$（$P_y$）あるいは $L^2$（$Q_y$）の高さ $y$ が正の範囲にある各小区間で一様な上界が得られます。$f\in L^2$ に対して $\partial_x^a\partial_y^b K_y*f$ の絶対収束と局所一様収束を Cauchy–Schwarz により確かめられるので、積分内微分が正当化されます。ゆえに $\Delta u=\Delta v=0$ です。
 <!-- proof-end -->
 
 この証明は $L^2$ ノルムにおける境界値です。全ての $L^2$ 関数について各点で $v(x,y)$ が $Hf(x)$ に収束することや、主値がほとんど至る所存在することをここで得たわけではありません。
