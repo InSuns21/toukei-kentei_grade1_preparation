@@ -5,6 +5,9 @@ prerequisites:
   - CM1-10
   - CM2-04
   - CA3
+forward_references:
+  - geometry.distribution-local-frame
+  - algebraic-geometry.line-bundle-transition
 
 concepts:
   - id: complex-manifolds.holomorphic-line-bundle
@@ -56,8 +59,8 @@ concepts:
     introduction_aliases: ["定理（普遍線束の非自明性）"]
     requires: [complex-manifolds.projective-tautological-line, complex-manifolds.line-bundle-frame-change]
   - id: complex-manifolds.ok-holomorphic-sections
-    name: O(k)の大域正則切断
+    name: 射影直線のねじれ線束の大域正則切断
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（O(k)の大域正則切断）"]
+    introduction_aliases: ["命題（射影直線のねじれ線束の大域正則切断）"]
     requires: [complex-manifolds.line-bundle-gluing, complex-manifolds.holomorphic-line-section]
