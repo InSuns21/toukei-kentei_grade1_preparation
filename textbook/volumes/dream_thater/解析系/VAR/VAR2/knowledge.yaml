@@ -1,0 +1,91 @@
+chapter: VAR2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VAR1
+  - AMECH3
+forward_references: []
+
+concepts:
+  - id: calculus-of-variations.second-variation
+    name: 第二変分
+    kind: definition
+    aliases: [second variation]
+    introduction: formal
+    introduction_aliases: ["定義（第二変分）"]
+    requires: [calculus-of-variations.stationary-curve]
+
+  - id: calculus-of-variations.second-variation-form
+    name: 第二変分の二次形式
+    kind: proposition
+    aliases: [second variation quadratic form]
+    introduction: formal
+    introduction_aliases: ["命題（第二変分の二次形式）"]
+    requires: [calculus-of-variations.second-variation]
+
+  - id: calculus-of-variations.c1-local-minimum
+    name: C1局所最小点
+    kind: definition
+    aliases: [C1 local minimizer]
+    introduction: formal
+    introduction_aliases: ["定義（$C^1$ 局所最小点）"]
+    requires: [calculus-of-variations.admissible-class]
+
+  - id: calculus-of-variations.second-necessary
+    name: 局所最小性の第一・第二必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所最小性の第一・第二必要条件）"]
+    requires: [calculus-of-variations.second-variation-form, calculus-of-variations.c1-local-minimum]
+
+  - id: calculus-of-variations.coercive-second-sufficient
+    name: 二次形式の強制評価による局所最小性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次形式の強制評価による局所最小性）"]
+    requires: [calculus-of-variations.second-variation-form, calculus-of-variations.c1-local-minimum]
+
+  - id: calculus-of-variations.legendre-necessary
+    name: Legendreの必要条件
+    kind: theorem
+    aliases: [Legendre necessary condition]
+    introduction: formal
+    introduction_aliases: ["定理（Legendreの必要条件）"]
+    requires: [calculus-of-variations.second-necessary]
+
+  - id: calculus-of-variations.legendre-coercive
+    name: Legendre条件と下界の組合せ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Legendre条件と下界の組合せ）"]
+    requires: [calculus-of-variations.coercive-second-sufficient, calculus-of-variations.second-variation-form]
+
+  - id: calculus-of-variations.wirtinger-sharp
+    name: 固定端の鋭いWirtinger不等式
+    kind: lemma
+    aliases: [sharp Wirtinger inequality for zero endpoints]
+    introduction: formal
+    introduction_aliases: ["補題（固定端の鋭いWirtinger不等式）"]
+    requires: [calculus-of-variations.second-variation-form]
+
+  - id: calculus-of-variations.sturm-threshold
+    name: Sturm型二次汎関数の最小性閾値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Sturm型二次汎関数の最小性閾値）"]
+    requires: [calculus-of-variations.wirtinger-sharp]
+
+  - id: calculus-of-variations.jacobi-equation
+    name: Jacobi方程式と零方向
+    kind: definition
+    aliases: [scalar Jacobi equation for variational problems]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobi方程式と零方向）"]
+    requires: [calculus-of-variations.second-variation-form]
+
+  - id: calculus-of-variations.jacobi-stationary
+    name: 二次形式の停留方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次形式の停留方程式）"]
+    requires: [calculus-of-variations.jacobi-equation]
