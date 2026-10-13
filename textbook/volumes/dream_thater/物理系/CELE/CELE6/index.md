@@ -374,7 +374,7 @@ $$
 =M(\tau)+O(\varepsilon)
 $$
 
-が $C^1$ 位相関数として成り立ちます。$\varepsilon=0$ で右辺を $M$ と定めて連続延長し、$\partial_\tau M(\tau_*)\ne0$ に陰関数定理を適用すれば、十分小さい非零 $\varepsilon$ ごとに $D(\tau_\varepsilon,\varepsilon)=0$ の解があり、$\tau_\varepsilon\to\tau_*$ です。
+が $\tau$ に関して $C^1$ 一様に成り立ちます。$M(\tau_*)=0$、$M'(\tau_*)\ne0$ なので、$\tau_*$ の十分小さい固定区間の両端では $M$ の符号が逆になり、区間内では $M'$ は零になりません。$\varepsilon$ が十分小さければ $D/\varepsilon$ も両端で符号が逆になり、区間内で $\partial_\tau(D/\varepsilon)$ は非零のままです。中間値の定理により一意の零点 $\tau_\varepsilon$ が存在し、$\tau_\varepsilon\to\tau_*$、かつ $\partial_\tau D(\tau_\varepsilon,\varepsilon)\ne0$ です。
 
 $q=\pi$ では $H_0(\pi,p)=p^2/2-1$ です。従って
 
