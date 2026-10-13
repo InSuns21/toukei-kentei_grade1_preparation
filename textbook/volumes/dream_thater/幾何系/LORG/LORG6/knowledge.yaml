@@ -1,0 +1,60 @@
+chapter: LORG6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+concepts:
+  - id: lorentz-geometry.chronological-causal-future
+    name: 時間的未来・過去と因果的未来・過去
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間的未来・過去と因果的未来・過去）"]
+    requires:
+      - lorentz-geometry.causal-curve
+
+  - id: lorentz-geometry.horismos
+    name: horismos
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（horismos：時間的未来を除いた因果的未来）"]
+    requires:
+      - lorentz-geometry.chronological-causal-future
+
+  - id: lorentz-geometry.causal-order-transitivity
+    name: 因果到達関係の推移性と反射性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（因果到達関係の推移性と反射性）"]
+    requires:
+      - lorentz-geometry.chronological-causal-future
+
+  - id: lorentz-geometry.future-of-subset
+    name: 集合の未来・過去は点ごとの合併
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合の未来・過去は点ごとの合併）"]
+    requires:
+      - lorentz-geometry.chronological-causal-future
+      - lorentz-geometry.horismos
+
+  - id: lorentz-geometry.minkowski-causal-future
+    name: Minkowski時空の時間的・因果的未来と過去
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Minkowski時空の時間的・因果的未来と過去）"]
+    requires:
+      - lorentz-geometry.chronological-causal-future
+      - lorentz-geometry.future-cone
+
+  - id: lorentz-geometry.minkowski-horismos-boundary
+    name: 平坦時空での開性・閉性・horismosの境界表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦時空での開性・閉性・horismosの境界表示）"]
+    requires:
+      - lorentz-geometry.minkowski-causal-future
+      - lorentz-geometry.horismos
