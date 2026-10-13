@@ -109,7 +109,7 @@ VAR9〜12の未実装部分はCELEVの先行証明とせず、直接必要な最
 
 ## 4. 実動作する数値シミュレーション（必須成果物）
 
-**共通基盤との分担：** [DREAM THEATER 対話型数値シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)を、実行/停止・Worker通信契約・世代管理・表示アダプター・実験記録の正本とする。本章以下のPython数値カーネル、物理時間刻み、離散変分探索、保存量・衝突判定、数値許容誤差は**CELEV固有**であり、共通基盤へ移さない。共通Runtimeはまだ未実装なので、既存一回実行Pythonラボが対話計算を提供すると誤認しない。
+**共通基盤との分担：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)を、実行/停止・Worker通信契約・世代管理・表示アダプター・実験記録の正本とする。本章以下のPython数値カーネル、物理時間刻み、離散変分探索、保存量・衝突判定、数値許容誤差は**CELEV固有**であり、共通基盤へ移さない。共通Runtimeはまだ未実装なので、既存一回実行Pythonラボが対話計算を提供すると誤認しない。
 
 
 ### 4.0 実装アーキテクチャ：既存Pyodide優先・JavaScript描画
