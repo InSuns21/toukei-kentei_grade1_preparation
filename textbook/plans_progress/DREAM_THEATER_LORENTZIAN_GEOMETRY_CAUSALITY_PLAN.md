@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-14（標準教科書・論文との範囲照合、証明と依存の再設計）  
-状態: in_progress（LORG1〜LORG2は本文実装・査読・公開済み、LORG3〜LORG21は未実装）
+状態: in_progress（LORG1〜LORG3は本文実装・査読・公開済み、LORG4〜LORG21は未実装）
 
 ## 中心問いと出口
 
@@ -84,9 +84,9 @@
 
 ### 初回実装・講間依存
 
-- **LORG1〜LORG2は実装済み、次の執筆対象はLORG3**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを扱う。
+- **LORG1〜LORG3は実装済み、次の執筆対象はLORG4**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを定義し、区分的C¹曲線の長さ不変性とMinkowskiでの端点長さ不等式まで証明した。
 - LORG2以降は、原則として当該講以前の必要結果のみを使用し、未完成の後続結果を証明へ逆輸入しない。とくにLORG14の限界曲線→LORG16/18の大域結果、LORG19/20の時間関数→HPDEの時間分割という直接依存を保持する。
-- `textbook/plans_progress/` に配置済み。LORG1〜LORG2の本文・系列manifest・公開導線を追加し、21講中の最初の2講を完了した。LORG3〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
+- `textbook/plans_progress/` に配置済み。LORG1〜LORG3の本文・系列manifest・公開導線を追加し、21講中の最初の3講を完了した。LORG4〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
 
 ## 必須の数学的到達・証明ゲート
 
