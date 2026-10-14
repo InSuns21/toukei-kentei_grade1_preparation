@@ -553,7 +553,7 @@ $$
 $$
 \begin{aligned}
 \|Rf\|_{L^2(S)}^2
-&=2(2\pi)^d\langle T_{-1}f,f\rangle_{L^2(\mathbb R^d)}\\
+&=2(2\pi)^d\int_{\mathbb R^d}(T_{-1}f)(x)\overline{f(x)}\,dx\\
 &\le 2(2\pi)^d\|T_{-1}f\|_{q_c}\|f\|_{p_c}\\
 &\le C_d\|f\|_{p_c}^2.
 \end{aligned}
@@ -736,7 +736,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-ha11-b02"></a>
-**演習 HA11-B02（Bessel方程式から大域的評価へ）**  
+**演習 HA11-B02（Bessel関数の二階微分方程式から大域的評価へ）**  
 - Level: B
 
 $\nu=-1/2+it$ に対し $y(r)=r^{1/2}J_\nu(r)$ が満たす積分方程式を導き、$r\ge1$ の上界が $e^{C(1+t^2)}$ でよい理由を説明せよ。
