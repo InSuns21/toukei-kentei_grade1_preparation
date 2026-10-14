@@ -148,9 +148,9 @@
 **問い：** 有限体の点数が $q+1$ から大きく離れないのはなぜか。
 
 - EC4 の次数理論を適用して
-  $
+  $$
   \deg([m]-[n]\pi_q)=m^2-a_qmn+qn^2\ge0
-  $
+  $$
   を導き、全整数 $m,n$ に対する非負性から $a_q^2\le4q$ を示す。**式の導出に必要な双対・次数の二次性を出発点から照合**する。
 - $\pi_q$ の特性多項式 $T^2-a_qT+q$、根 $\alpha,\beta$ と $\alpha+\beta=a_q,\alpha\beta=q$、$|\alpha|=|\beta|=\sqrt q$。
 - $\#E(\mathbb F_{q^n})=q^n+1-\alpha^n-\beta^n$ を示し、
