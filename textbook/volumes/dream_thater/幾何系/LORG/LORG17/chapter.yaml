@@ -22,7 +22,8 @@ learning_objectives:
   - 原点除去時空の非達成例と時間周期時空の無限時間分離を区別できる
 definitions:
   - { id: LORG17-DEF-01, name: Lorentz時間分離 }
-  - { id: LORG17-DEF-02, name: 曲線長の上半連続性 }
+  - { id: LORG17-DEF-02, name: 上半連続性と下半連続性 }
+  - { id: LORG17-DEF-03, name: Lorentz長さの上半連続性 }
 theorems:
   - { id: LORG17-THM-01, name: Minkowski時空の時間分離 }
   - { id: LORG17-PROP-01, name: 時間分離の逆三角不等式 }
