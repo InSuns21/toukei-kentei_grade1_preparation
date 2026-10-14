@@ -352,12 +352,16 @@
     },
     {
       "id": "physics",
-      "title": "数理物理コース",
-      "description": "Newton力学から解析力学・電磁気・相対論へ。",
+      "title": "数理物理コース（古典から量子まで）",
+      "description": "古典力学・電磁気・相対論から、測度論・関数解析・Fourier解析を経て数理量子力学へ進む。分野ごとの到達地点を設け、必修前提を自動補完する。",
       "stages": [
         {
-          "title": "数学と運動の基礎",
+          "title": "数学の共通基礎",
           "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "F0-00A3"
+            },
             {
               "subject": "dt-subject-linear-algebra",
               "through": "LA6"
@@ -367,18 +371,22 @@
               "through": "RA7"
             },
             {
+              "subject": "dt-subject-topology",
+              "through": "TOP6"
+            }
+          ]
+        },
+        {
+          "title": "運動の数学と古典力学",
+          "parts": [
+            {
               "subject": "dt-subject-ode-i",
               "through": "ODE7"
             },
             {
               "subject": "dt-subject-vector-calculus-i",
               "through": "VC7"
-            }
-          ]
-        },
-        {
-          "title": "力学から場の理論へ",
-          "parts": [
+            },
             {
               "subject": "dt-subject-classical-mechanics-i",
               "through": "MECH8"
@@ -386,6 +394,19 @@
             {
               "subject": "dt-subject-analytical-mechanics-i",
               "through": "AMECH8"
+            }
+          ]
+        },
+        {
+          "title": "場の方程式・電磁気学・相対論",
+          "parts": [
+            {
+              "subject": "dt-subject-pde-undergraduate",
+              "through": "PDE11"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-ii",
+              "through": "VC9"
             },
             {
               "subject": "dt-subject-electromagnetism-i",
@@ -396,14 +417,57 @@
               "through": "SREL9"
             }
           ]
+        },
+        {
+          "title": "量子力学のための解析学",
+          "parts": [
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "MT7"
+            },
+            {
+              "subject": "dt-subject-functional-analysis",
+              "through": "F0-02C6"
+            },
+            {
+              "subject": "dt-subject-functional-analysis-ii",
+              "through": "FA7"
+            },
+            {
+              "subject": "dt-subject-fourier-analysis",
+              "through": "FOU4"
+            },
+            {
+              "subject": "dt-subject-evolution-equations",
+              "through": "EVOL1"
+            }
+          ]
+        },
+        {
+          "title": "量子力学からSchrödinger作用素へ",
+          "parts": [
+            {
+              "subject": "dt-subject-quantum-foundations-i",
+              "through": "QM4"
+            },
+            {
+              "subject": "dt-subject-quantum-foundations-ii",
+              "through": "QM8"
+            },
+            {
+              "subject": "dt-subject-mathematical-quantum-mechanics",
+              "through": "MQ4"
+            }
+          ]
         }
       ],
       "electives": [
-        "dt-subject-quantum-foundations-i",
-        "dt-subject-quantum-foundations-ii",
-        "dt-subject-mathematical-quantum-mechanics",
+        "dt-subject-thermodynamics",
         "dt-subject-statistical-mechanics",
-        "dt-subject-celestial-mechanics"
+        "dt-subject-celestial-mechanics",
+        "dt-subject-operator-algebra-i",
+        "dt-subject-operator-algebra-ii",
+        "dt-subject-lorentzian-geometry"
       ]
     },
     {
@@ -453,6 +517,312 @@
       "electives": [
         "dt-subject-rkhs",
         "dt-subject-information-theory"
+      ]
+    },
+    {
+      "id": "fluid-navier-stokes",
+      "title": "流体力学・Navier–Stokes方程式コース",
+      "description": "古典的流体の保存則から弱解・正則性判定・ミレニアム問題まで、公開済みのNS系列に到達する。",
+      "stages": [
+        {
+          "title": "線形代数・解析・ベクトル場",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-topology",
+              "through": "TOP6"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            }
+          ]
+        },
+        {
+          "title": "PDEと関数空間",
+          "parts": [
+            {
+              "subject": "dt-subject-ode-i",
+              "through": "ODE7"
+            },
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "MT7"
+            },
+            {
+              "subject": "dt-subject-functional-analysis",
+              "through": "F0-02C6"
+            },
+            {
+              "subject": "dt-subject-functional-analysis-ii",
+              "through": "FA7"
+            },
+            {
+              "subject": "dt-subject-fourier-analysis",
+              "through": "FOU5"
+            },
+            {
+              "subject": "dt-subject-pde-undergraduate",
+              "through": "PDE12"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-ii",
+              "through": "VC9"
+            },
+            {
+              "subject": "dt-subject-pde-graduate",
+              "through": "GPDE10"
+            }
+          ]
+        },
+        {
+          "title": "非線形方程式からNSの主要問題へ",
+          "parts": [
+            {
+              "subject": "dt-subject-nonlinear-pde",
+              "through": "NPDE7"
+            },
+            {
+              "subject": "dt-subject-navier-stokes",
+              "through": "NS8A"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-fdm",
+        "dt-subject-fem",
+        "dt-subject-evolution-equations",
+        "dt-subject-stochastic-analysis"
+      ]
+    },
+    {
+      "id": "thermodynamics",
+      "title": "熱力学・統計力学コース",
+      "description": "熱・仕事・エントロピーから分配関数・量子統計・相転移までを学び、情報熱力学とブラックホール熱力学へ接続する。",
+      "stages": [
+        {
+          "title": "熱のための数学・力学",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-classical-mechanics-i",
+              "through": "MECH8"
+            }
+          ]
+        },
+        {
+          "title": "熱力学",
+          "parts": [
+            {
+              "subject": "dt-subject-thermodynamics",
+              "through": "TH8"
+            }
+          ]
+        },
+        {
+          "title": "確率・量子統計と統計力学",
+          "parts": [
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "F0-00D2E"
+            },
+            {
+              "subject": "dt-subject-probability",
+              "through": "F0-00P6A"
+            },
+            {
+              "subject": "dt-subject-quantum-foundations-i",
+              "through": "QM2"
+            },
+            {
+              "subject": "dt-subject-statistical-mechanics",
+              "through": "SM8"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-information-theory",
+        "dt-subject-spin-glass",
+        "dt-subject-stochastic-analysis"
+      ],
+      "upcoming": [
+        {
+          "title": "情報熱力学 I（測定・フィードバック・Landauer原理）",
+          "prefix": "ITD"
+        }
+      ]
+    },
+    {
+      "id": "spacetime-black-holes",
+      "title": "相対論・ブラックホール熱力学への道",
+      "description": "公開済みの相対論・幾何・熱統計・量子の基礎を結び、未公開の一般相対論・曲がった時空の量子場・ブラックホール熱力学へ向かう準備コース。ブラックホール熱力学本編はまだ読めない。",
+      "stages": [
+        {
+          "title": "時空を読むための力学と場",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            },
+            {
+              "subject": "dt-subject-classical-mechanics-i",
+              "through": "MECH8"
+            },
+            {
+              "subject": "dt-subject-analytical-mechanics-i",
+              "through": "AMECH8"
+            },
+            {
+              "subject": "dt-subject-pde-undergraduate",
+              "through": "PDE12"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-ii",
+              "through": "VC9"
+            },
+            {
+              "subject": "dt-subject-electromagnetism-i",
+              "through": "EMAG8"
+            },
+            {
+              "subject": "dt-subject-special-relativity-i",
+              "through": "SREL9"
+            }
+          ]
+        },
+        {
+          "title": "曲がった時空の幾何学",
+          "parts": [
+            {
+              "subject": "dt-subject-topology",
+              "through": "TOP6"
+            },
+            {
+              "subject": "dt-subject-differential-geometry-i",
+              "through": "GEO9"
+            },
+            {
+              "subject": "dt-subject-differential-geometry-ii",
+              "through": "GEO19"
+            },
+            {
+              "subject": "dt-subject-lorentzian-geometry",
+              "through": "LORG10"
+            }
+          ]
+        },
+        {
+          "title": "地平線とエントロピーに向けた熱・情報・量子",
+          "parts": [
+            {
+              "subject": "dt-subject-thermodynamics",
+              "through": "TH8"
+            },
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "MT7"
+            },
+            {
+              "subject": "dt-subject-probability",
+              "through": "F0-00P6A"
+            },
+            {
+              "subject": "dt-subject-statistical-mechanics",
+              "through": "SM8"
+            },
+            {
+              "subject": "dt-subject-information-theory",
+              "through": "INFO10"
+            },
+            {
+              "subject": "dt-subject-functional-analysis",
+              "through": "F0-02C6"
+            },
+            {
+              "subject": "dt-subject-functional-analysis-ii",
+              "through": "FA7"
+            },
+            {
+              "subject": "dt-subject-fourier-analysis",
+              "through": "FOU4"
+            },
+            {
+              "subject": "dt-subject-quantum-foundations-i",
+              "through": "QM4"
+            },
+            {
+              "subject": "dt-subject-quantum-foundations-ii",
+              "through": "QM8"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-operator-algebra-i",
+        "dt-subject-operator-algebra-ii",
+        "dt-subject-variational-problems"
+      ],
+      "upcoming": [
+        {
+          "title": "一般相対論 I・II（Einstein方程式・ブラックホール時空）",
+          "prefix": "GR"
+        },
+        {
+          "title": "量子場理論 I〜IV（必要部分から履修）",
+          "prefix": "QFT"
+        },
+        {
+          "title": "曲がった時空の量子場 I（Hawking放射）",
+          "prefix": "QCURV"
+        },
+        {
+          "title": "ブラックホール熱力学 I（地平線・温度・エントロピー）",
+          "prefix": "BHT"
+        },
+        {
+          "title": "ホログラフィー I（AdS/CFT）",
+          "prefix": "HOLO"
+        },
+        {
+          "title": "ブラックホール情報 I・II（Page曲線・island）",
+          "prefix": "BHI"
+        }
       ]
     }
   ]
