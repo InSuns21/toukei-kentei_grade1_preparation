@@ -1,0 +1,28 @@
+chapter: TRN6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN5
+forward_references: []
+
+concepts:
+  - id: transcendence.hermite-e-integral-representation
+    name: 仮定した指数関係と補助量の積分表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（仮定した指数関係と補助量の積分表示）]
+    requires: [transcendence.hermite-complex-endpoint, transcendence.hermite-e-auxiliary-polynomial]
+
+  - id: transcendence.hermite-e-factorial-bound
+    name: Hermiteの補助量の一様階乗上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Hermiteの補助量の一様階乗上界）]
+    requires: [transcendence.hermite-e-integral-representation]
+
+  - id: transcendence.hermite-e-transcendence
+    name: Hermiteの定理：eの超越性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hermiteの定理：eの超越性）]
+    requires: [transcendence.hermite-e-factorial-bound, transcendence.hermite-nonzero-integer, transcendence.integer-factorial-squeeze]

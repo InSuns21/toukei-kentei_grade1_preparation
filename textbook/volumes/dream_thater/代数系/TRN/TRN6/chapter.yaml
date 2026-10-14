@@ -1,0 +1,33 @@
+id: "TRN6"
+title: "Hermiteの定理：eの超越性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN5
+official_scope: []
+learning_objectives:
+  - 固定した整数係数のeに関する代数関係からA_pを有限個の実積分の和に変換できる
+  - [0,n]上でxの冪と各(x-k)の因子を独立に評価しp非依存のD=n^(n+1)を導ける
+  - 各積分を長さjと指数因子e^jで押さえp非依存のCを明示できる
+  - D^p/(p-1)!の連続項の比D/pから極限0を証明できる
+  - 許される素数を無限に選べることと非零整数A_pの下界を接続できる
+  - Hermiteの定理としてeの超越性を整数性・非零性・解析上界から完全証明できる
+theorems:
+  - { id: TRN6-PROP-01, name: 仮定した指数関係と補助量の積分表示 }
+  - { id: TRN6-PROP-02, name: Hermiteの補助量の一様階乗上界 }
+  - { id: TRN6-THM-01, name: Hermiteの定理：eの超越性 }
+canonical_examples:
+  - n=2での共通区間上界D=8とCの直接確認
+  - n=1の二点積分表示と条件付き評価
+  - 素数の例外集合と係数定数の依存関係
+problem_patterns:
+  - TRN6-INTEGRAL-REPRESENTATION
+  - TRN6-REAL-INTERVAL-FACTOR-BOUND
+  - TRN6-FIXED-CONSTANTS
+  - TRN6-FACTORIAL-RATIO-LIMIT
+  - TRN6-PRIME-EXCLUSIONS
+  - TRN6-E-TRANSCENDENCE-COMPLETE-PROOF
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
