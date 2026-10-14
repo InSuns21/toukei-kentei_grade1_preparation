@@ -94,7 +94,20 @@ $$
 
 ## 2. 点の和と「因子の和」を結ぶ
 
-点の加法だけでは、曲線間の射が加法を保つ理由をまだ説明できません。そこで零点・極を形式的に並べる**因子**を使います。[Weil因子](../../AG/AG2-07/index.md#def-ag2-07-weil-divisor)は $D=\sum_Pn_P(P)$（有限個を除き $n_P=0$）という形式和です。$\deg D=\sum n_P$、有理関数 $f$ の主因子は $\operatorname{div}(f)=\sum_P\operatorname{ord}_P(f)(P)$ です。差が主因子である二因子を $D\sim D'$ と書きます。
+点の加法だけでは、曲線間の射が加法を保つ理由をまだ説明できません。そこで零点・極を形式的に並べる**因子**を使います。[Weil因子](../../AG/AG2-07/index.md#def-ag2-07-weil-divisor)は、有限個の点を除き係数が零となる形式和
+
+$
+D=\sum_P n_P(P),\qquad n_P\in\mathbb Z
+$
+
+です。因子の次数と、非零有理関数 $f$ の主因子はそれぞれ
+
+$
+\deg D=\sum_P n_P,\qquad
+\operatorname{div}(f)=\sum_P\operatorname{ord}_P(f)(P)
+$
+
+と定めます。[主因子・線形同値の定義](../../AG/AG2-07/index.md#def-ag2-07-order-principal)により、差が主因子である二因子を $D\sim D'$ と書きます。
 
 一方、楕円曲線上の形式和の点を[EC2の群則](../EC2/index.md#thm-ec2-associativity)で足した $S(D)=\sum_P[n_P]P$ も考えられます。前者の $\deg D$ は**整数**、後者の $S(D)$ は**曲線上の点**であり、同じ記号の「和」でも混同しません。
 
