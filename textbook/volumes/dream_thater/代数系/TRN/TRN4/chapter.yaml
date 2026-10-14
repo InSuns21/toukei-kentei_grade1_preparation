@@ -1,0 +1,39 @@
+id: "TRN4"
+title: "Hermiteの微分和・積分恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN3
+  - CA2
+official_scope: []
+learning_objectives:
+  - 多項式の有限微分和を構成し、零多項式・定数多項式も含めてF-F'=fを証明できる
+  - 複素指数関数の積の微分からHermiteの微分恒等式を導ける
+  - 複素線分の向きとパラメータ表示を明示し、任意の複素端点で積分恒等式を証明できる
+  - a=0の特殊形と、端点を逆にした場合の符号を検算できる
+  - 線分上で指数の実部・多項式の最大値・曲線長を使った上界を導ける
+  - 階乗で正規化した補助多項式の上界と、整数性・非零性が別の証明責務であることを説明できる
+  - 二点の多重零点多項式について整数点の導関数値と合同を直接計算できる
+definitions:
+  - { id: TRN4-DEF-01, name: Hermiteの有限微分和 }
+theorems:
+  - { id: TRN4-PROP-01, name: 微分和の望遠鏡恒等式 }
+  - { id: TRN4-THM-01, name: Hermiteの複素端点積分恒等式 }
+  - { id: TRN4-PROP-02, name: 複素線分上の積分上界 }
+canonical_examples:
+  - 二次式の微分和とTRN3の実端点恒等式
+  - 三次式の微分和と端点値
+  - 虚数端点の線分パラメータと絶対値上界
+  - 階乗正規化した二点補助多項式の線分上界
+problem_patterns:
+  - TRN4-FINITE-DERIVATIVE-SUM
+  - TRN4-TELESCOPING-IDENTITY
+  - TRN4-REVERSE-ORIENTATION
+  - TRN4-COMPLEX-SEGMENT-PARAMETER
+  - TRN4-PRIMITIVE-PATH-INDEPENDENCE
+  - TRN4-FACTORIAL-BOUND
+  - TRN4-ENDPOINT-CONGRUENCES
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

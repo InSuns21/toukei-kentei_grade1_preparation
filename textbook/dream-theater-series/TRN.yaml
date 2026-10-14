@@ -19,7 +19,7 @@ chapters:
     title: "Liouville法とHermite法の違い"
   - id: TRN4
     path: textbook/volumes/dream_thater/代数系/TRN/TRN4
-    status: planned
+    status: completed
     title: "Hermiteの微分和・積分恒等式"
   - id: TRN5
     path: textbook/volumes/dream_thater/代数系/TRN/TRN5

@@ -1,0 +1,36 @@
+chapter: TRN4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN3
+  - CA2
+forward_references: []
+
+concepts:
+  - id: transcendence.hermite-derivative-sum
+    name: Hermiteの有限微分和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Hermiteの有限微分和）]
+    requires: []
+
+  - id: transcendence.hermite-telescoping
+    name: 微分和の望遠鏡恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（微分和の望遠鏡恒等式）]
+    requires: [transcendence.hermite-derivative-sum, complex-analysis.complex-exponential]
+
+  - id: transcendence.hermite-complex-endpoint
+    name: Hermiteの複素端点積分恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hermiteの複素端点積分恒等式）]
+    requires: [transcendence.hermite-telescoping, complex-analysis.line-integral-fundamental-theorem]
+
+  - id: transcendence.hermite-segment-bound
+    name: 複素線分上の積分上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（複素線分上の積分上界）]
+    requires: [transcendence.hermite-complex-endpoint, complex-analysis.reparametrization-ml-estimate]
