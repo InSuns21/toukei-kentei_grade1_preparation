@@ -1,0 +1,80 @@
+chapter: CELEV8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV7
+  - CELEV6
+  - CELEV2
+  - CELEV1
+  - CELE2
+  - CELE3
+  - NA1
+  - NA6
+concepts:
+  - id: celestial-variational.discrete-newton-action
+    name: 周期格子上の離散Newton作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期格子上の離散Newton作用）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+  - id: celestial-variational.discrete-gradient
+    name: 離散Newton作用の勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離散Newton作用の勾配）"]
+    aliases: []
+    requires:
+      - celestial-variational.discrete-newton-action
+      - celestial.nbody-equations-conservation
+  - id: celestial-variational.discrete-newton-residual
+    name: 離散Newton残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散Newton残差）"]
+    aliases: []
+    requires:
+      - celestial-variational.discrete-gradient
+  - id: celestial-variational.discrete-symmetry-projection
+    name: 三体舞踏格子の直交射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三体舞踏格子の直交射影）"]
+    aliases: []
+    requires:
+      - celestial-variational.discrete-newton-action
+      - celestial-variational.nbody-simple-choreography
+  - id: celestial-variational.discrete-projection-proof
+    name: 射影の制約保存と最小距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影の制約保存と最小距離）"]
+    aliases: []
+    requires:
+      - celestial-variational.discrete-symmetry-projection
+  - id: celestial-variational.projected-gradient-descent
+    name: 射影勾配の局所降下方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影勾配の局所降下方向）"]
+    aliases: []
+    requires:
+      - celestial-variational.discrete-gradient
+      - celestial-variational.discrete-projection-proof
+  - id: celestial-variational.velocity-verlet
+    name: 固定刻みvelocity-Verlet法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定刻みvelocity-Verlet法）"]
+    aliases: []
+    requires:
+      - celestial.nbody-equations-conservation
+  - id: celestial-variational.verlet-momentum-conservation
+    name: Verlet法の全運動量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Verlet法の全運動量保存）"]
+    aliases: []
+    requires:
+      - celestial-variational.velocity-verlet

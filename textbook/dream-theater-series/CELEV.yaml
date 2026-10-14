@@ -35,5 +35,5 @@ chapters:
     title: "周期軌道の第二変分・Floquetと安定性"
   - id: CELEV8
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV8
-    status: planned
+    status: completed
     title: "数値変分法と実際のn体シミュレーション"
