@@ -313,7 +313,20 @@ $$
 
 ## 4. $j$ 不変量は同型をどう区別するか
 
-格子を $a\Lambda$（$a\in\mathbb C^\times$）に拡大・回転させても $[z]\mapsto[az]$ が商の同型を与えます。こうした関係を格子の**相似関係**と呼び、式にすると $\Lambda'=a\Lambda$ です。曲線側でも $x,y$ をそれぞれ $a^{-2},a^{-3}$ 倍すると [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)と係数変換が一致します。
+格子を同じ複素数で拡大・回転させると、商の形も群としての性質も変わりません。この比較を正確に述べるため、次の関係を用います。
+
+<a id="def-ec3-lattice-homothety"></a>
+
+<!-- formal-statement-start -->
+> **定義（複素格子の相似）**  
+> 二つの複素格子 $\Lambda,\Lambda'\subset\mathbb C$ に対し、ある $a\in\mathbb C^\times$ が存在して $\Lambda'=a\Lambda$ となるとき、二格子は相似であるという。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ec3-lattice-homothety -->
+**定義の確認。** $\Lambda=\mathbb Z+i\mathbb Z$、$\Lambda'=2\mathbb Z+2i\mathbb Z$ なら、任意の $m,n\in\mathbb Z$ に対して $2(m+ni)=2m+2ni$ なので $2\Lambda=\Lambda'$ です。$a=2\ne0$ が定義の条件を満たします。写像 $[z]\mapsto[2z]$ は $\mathbb C/\Lambda$ から $\mathbb C/\Lambda'$ への良定義な群同型で、逆は $[w]\mapsto[w/2]$ です。
+<!-- definition-example-end -->
+
+一般に $\Lambda'=a\Lambda$ なら $[z]\mapsto[az]$ が商の同型を与えます。曲線側でも $x,y$ をそれぞれ $a^{-2},a^{-3}$ 倍すると [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)と係数変換が一致します。
 
 <a id="def-ec3-j-invariant"></a>
 
@@ -355,7 +368,27 @@ $E:y^2=x^3+1$ では $A=0,B=1$、判別式 $-432\ne0$ で $j(E)=0$ です。$\La
 <!-- proof-start -->
 ### 証明
 
-**(1) 曲線の必要性。** 原点を保つWeierstrass模型の同型は [EC1の許される座標変換](../EC1/index.md#prop-ec1-admissible-change)により記述され、$c_4^3/\Delta$ は変わりません。両方を短い形にすると、$x^2,xy,y$ の各係数が0という条件から、一般変換の平行移動成分 $r,s,t$ は0です。残るのは $x'=u^2x,\ y'=u^3y$（$u\ne0$）の尺度変換であり、$A'=u^4A,\ B'=u^6B$ です。
+**(1) 曲線の必要性。** 原点を保つ同型がどの座標変換を誘導するかを先に確かめます。第3節で曲線は $\mathbb C/\Lambda$ と同一視できます。格子類 $[0]$ 以外で極のない有理型関数のLaurent主部を考えます。[留数和が0となる定理](../../../解析系/CA/CA9/index.md#thm-ca9-residue-sum-zero)により唯一の極の $z^{-1}$ 項は零です。従って唯一の極の位数が2以下なら $\wp$ の適切な倍を引いた差は正則楕円関数、位数が3以下なら $\wp'$ と $\wp$ の適切な倍を引いた差は正則楕円関数です。[正則楕円関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)から、それぞれ
+
+$
+L(2O)=\operatorname{span}_{\mathbb C}\{1,x\},\qquad
+L(3O)=\operatorname{span}_{\mathbb C}\{1,x,y\}
+$
+
+となります。ここで $L(nO)$ は $O$ 以外に極を持たず、$O$ で高々 $n$ 位の極を持つ有理型関数の空間です。曲線同型が原点を保つなら新座標もこの空間に入るため
+
+$
+x'=\alpha x+r,\qquad
+y'=\beta y+s x+t,\qquad \alpha\beta\ne0
+$
+
+と書けます。短い形 $y'^2=x'^3+A'x'+B'$ に代入し、$y$ の一次項を比較すると $2\beta(sx+t)=0$ なので $s=t=0$。$x^3$ 係数を比較して $\beta^2=\alpha^3$、$x^2$ 係数から $3\alpha^2r=0$ なので $r=0$。残りの係数から
+
+$
+A'=\alpha^2A,\qquad B'=\alpha^3B.
+$
+
+$\mathbb C$ で $u^2=\alpha$ を選び、必要なら $u$ を $-u$ に替えれば $\beta=u^3$ とできます。従って全ての原点保存同型は $(x,y)\mapsto(u^2x,u^3y)$ という尺度変換です。これは [EC1の許される変換](../EC1/index.md#prop-ec1-admissible-change)の短い形同士の場合とも一致します。従って $c_4^3/\Delta$、すなわち $j$ は変わりません。
 
 **(2) 曲線の十分性。** $E:y^2=x^3+Ax+B$、$E':y^2=x^3+A'x+B'$ とし、$j(E)=j(E')$ と仮定します。
 
@@ -391,7 +424,7 @@ $$
 
 ## 5. 対称な格子と複素乗法の入口
 
-任意の整数 $n$ は $n\Lambda\subseteq\Lambda$ を満たし、$[z]\mapsto[nz]$ はトーラスの群自己準同型です。整数以外の複素数も格子を保つことがあり、そのとき追加の自己準同型が生まれます。この現象を複素乗法（CM）と呼びます。ここでは一般分類ではなく、手で検算できる二例を扱います。
+任意の整数 $n$ は $n\Lambda\subseteq\Lambda$ を満たし、$[z]\mapsto[nz]$ はトーラスの群自己準同型です。整数以外の複素数も格子を保つことがあり、そのとき追加の自己準同型が生まれます。これが複素乗法（CM）を考える出発点です。ここでは一般分類ではなく、手で検算できる二例を扱います。
 
 <a id="def-ec3-complex-multiplication"></a>
 
