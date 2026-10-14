@@ -26,6 +26,7 @@
       <option value="two-body">二体円運動</option>
       <option value="triangle">正三角形円運動</option>
       <option value="figure-eight" selected>等質量三体の8の字（近似初期値）</option>
+      <option value="candidate">変分探索から得た候補（G=質量=1）</option>
     </select></label>
     <label>重力定数 G <input type="number" id="G" min="0.01" max="10" step="0.1" value="1"></label>
     <label>共通質量倍率 <input type="number" id="mass" min="0.01" max="10" step="0.1" value="1"></label>
@@ -44,6 +45,7 @@
   </div>
   <div class="buttons">
     <button id="init">初期化・設定を反映</button>
+    <button id="verify">Bの探索候補をAで独立積分</button>
     <button id="step">1ステップ/1反復</button>
     <button id="batch">100物理ステップ/10変分反復</button>
     <button id="play">連続実行</button>
