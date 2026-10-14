@@ -491,12 +491,12 @@ $$
 #### LORG9-B02 識別性から因果性へ進む中間式
 - Level: B
 
-$p\le q\le p$ を仮定し、未来識別性だけで $p=q$ を示せ。$I^+(p)\subset I^+(q)$ と逆包含でpush-up補題に入力する三点をそれぞれ明示せよ。過去識別性の場合も示せ。
+$p\le q\le p$ を仮定し、未来識別性だけで $p=q$ を示せ。$I^+(p)\subset I^+(q)$ と逆包含で[LORG7のpush-up補題](../LORG7/index.md#thm-lorg7-push-up)に入力する三点をそれぞれ明示せよ。過去識別性の場合も示せ。
 
 <!-- solution-start -->
 **詳細解答**。$r\in I^+(p)$ を任意に取ると $p\ll r$ です。まず $q\le p\ll r$ という三点 $(q,p,r)$ の並びに[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を適用し、$q\ll r$、つまり $r\in I^+(q)$ を得ます。従って $I^+(p)\subset I^+(q)$。逆には $r\in I^+(q)$ を取り、$(p,q,r)$ について $p\le q\ll r$ に同補題を適用すれば $r\in I^+(p)$、すなわち $I^+(q)\subset I^+(p)$ です。よって両集合が一致し、[未来識別性](#def-lorg9-distinguishing)から $p=q$ です。
 
-過去側は任意の $r\ll p$ について $(r,p,q)$ にpush-up補題を適用して $r\ll q$、逆には $r\ll q\le p$ に適用して $r\ll p$ を得ます。これで $I^-(p)=I^-(q)$ となり、過去識別性から $p=q$ です。いずれも二方向の包含が必要です。
+過去側は任意の $r\ll p$ について $(r,p,q)$ に[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を適用して $r\ll q$、逆には $r\ll q\le p$ に適用して $r\ll p$ を得ます。これで $I^-(p)=I^-(q)$ となり、過去識別性から $p=q$ です。いずれも二方向の包含が必要です。
 <!-- solution-end -->
 
 <a id="ex-lorg9-b03"></a>
