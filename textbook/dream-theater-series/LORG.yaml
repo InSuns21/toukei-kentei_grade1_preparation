@@ -71,7 +71,7 @@ chapters:
     title: "大域双曲性の特徴付け"
   - id: LORG17
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG17
-    status: planned
+    status: completed
     title: "Lorentz時間分離と曲線長の極限"
   - id: LORG18
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG18
