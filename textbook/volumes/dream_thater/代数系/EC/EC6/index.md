@@ -411,7 +411,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず[EC1の短Weierstrass形への変換](../EC1/index.md#thm-ec1-short-form)により、任意の非特異 $E/\mathbb Q$ を $\mathbb Q$ 上で短Weierstrass形へ移せます。有理変数変換を $x=u^2X+r,\ y=u^3Y$ の形に整理して整数 $u$ を適切に選べば、その係数の分母を払って整数係数の短Weierstrass曲線になります。以下ではこの模型を固定し、対応する $h_x$ を使います。有理点群の同型は倍数写像と有限生成性を保存します。
+まず[EC1の短Weierstrass形への変換](../EC1/index.md#thm-ec1-short-form)により、任意の非特異 $E/\mathbb Q$ を $\mathbb Q$ 上で短Weierstrass形へ移せます。平方完成と平行移動で得た有理係数の短 Weierstrass 形 $y^2=x^3+Ax+B$ に対し、$d^4A,d^6B\in\mathbb Z$ となる正整数 $d$ を選び、$x=X/d^2,\ y=Y/d^3$ と置けば $Y^2=X^3+d^4AX+d^6B$ となります。以下ではこの模型を固定し、対応する $h_x$ を使います。有理点群の同型は倍数写像と有限生成性を保存します。
 
 $E(\mathbb Q)/2E(\mathbb Q)$ の有限個の代表を $R_1,\dots,R_s$ とします。任意の点 $P$ はある $i$ と $Q\in E(\mathbb Q)$ で $P=2Q+R_i$ と書けます。[固定点加法の補題](#lem-ec6-translation-height)を $-R_i$ に適用して
 $$
