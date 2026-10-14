@@ -148,7 +148,7 @@ $$
 F(p',q)=t_q-t_{p'}-|x_q-x_{p'}|
 $$
 
-は $p'=p$、$q\in K$ で負です。$K=\varnothing$ なら条件は自明なので、$K\ne\varnothing$ とします。コンパクト性から $\max_{q\in K}F(p,q)=-\eta<0$ となります。絶対値の逆三角不等式を使うと、すべての $q\in K$ に一様に
+は $p'=p$、$q\in K$ で負です。$K=\varnothing$ なら条件は自明なので、$K\ne\varnothing$ とします。コンパクト性から $\max_{q\in K}F(p,q)=-\eta<0$ となります。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)を実数の絶対値に適用すると、すべての $q\in K$ に一様に
 
 $$
 F(p',q)\le F(p,q)+|t_{p'}-t_p|+|x_{p'}-x_p|
@@ -502,7 +502,21 @@ $$
 Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overline{I^+(p)}$ かを判定し、過去側の閉包条件も確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)を二点の変位に適用します。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)をそれぞれの変位に適用します。
+
+$
+q-p=(3,3),\qquad \Delta t=3=|\Delta x|
+$
+
+なので、$q$ は $p$ の未来閉錐の境界にあり、逆向きに見ると $p$ も $q$ の過去閉錐の境界にあります。
+
+これに対し、
+
+$
+r-p=(2,4),\qquad \Delta t=2<4=|\Delta x|
+$
+
+であるため、$r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
 <!-- solution-end -->
 
 <a id="ex-lorg11-a03"></a>
