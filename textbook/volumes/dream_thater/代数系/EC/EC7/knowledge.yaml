@@ -11,7 +11,7 @@ concepts:
     kind: definition
     aliases: []
     introduction: formal
-    requires: [elliptic-curve.weierstrass-model, field.finite-field]
+    requires: [elliptic-curve.weierstrass-model, algebra.finite-field]
   - id: elliptic-curve.finite-subgroup
     name: 有限体上の点は有限部分群
     kind: proposition
@@ -23,7 +23,7 @@ concepts:
     kind: definition
     aliases: []
     introduction: formal
-    requires: [elliptic-curve.weierstrass-model, field.frobenius]
+    requires: [elliptic-curve.weierstrass-model, algebra.frobenius-map]
   - id: elliptic-curve.frobenius-isogeny
     name: Frobeniusは原点を保つ同種写像
     kind: proposition
