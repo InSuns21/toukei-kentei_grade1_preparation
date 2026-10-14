@@ -1,0 +1,53 @@
+id: "LORG16"
+title: "大域双曲性の特徴付け"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG3
+  - LORG6
+  - LORG7
+  - LORG9
+  - LORG10
+  - LORG12
+  - LORG13
+  - LORG14
+  - LORG15
+  - F0-00P1
+  - SREL2
+official_scope: []
+learning_objectives:
+  - 因果ダイヤモンドと大域双曲性の二条件を定義しMinkowskiで確認できる
+  - 点除去時空と時間周期時空が失う条件を区別できる
+  - 強因果性による非閉じ込め性とダイヤモンド内の曲線抽出を証明できる
+  - 大域双曲性から因果到達関係の閉性を証明できる
+  - 体積時間関数の連続性・厳密増加・非延長曲線沿いの発散を導出できる
+  - Cauchy面との同値の二方向と逆方向に使う領域定理の証明境界を説明できる
+definitions:
+  - { id: LORG16-DEF-01, name: 因果ダイヤモンド }
+  - { id: LORG16-DEF-02, name: 大域双曲的時空 }
+  - { id: LORG16-DEF-03, name: 過去・未来体積関数 }
+theorems:
+  - { id: LORG16-LEM-01, name: 強因果性と非閉じ込め性 }
+  - { id: LORG16-PROP-01, name: コンパクトダイヤモンド内の因果曲線の抽出 }
+  - { id: LORG16-LEM-02, name: 大域双曲的時空では因果到達関係が閉 }
+  - { id: LORG16-THM-01, name: Geroch型体積時間関数の構成 }
+  - { id: LORG16-LEM-03, name: 依存領域の大域双曲性 }
+  - { id: LORG16-THM-02, name: 大域双曲性のCauchy面による特徴付け }
+canonical_examples:
+  - Minkowskiの閉因果ダイヤモンド
+  - 原点除去によるコンパクト性の失敗
+  - 時間周期トーラスによるcausalityの失敗
+  - 有限時刻帯のCauchy面
+  - Gaussian体積密度の零レベル集合
+problem_patterns:
+  - LORG16-DIAMOND-BOUNDS
+  - LORG16-PUNCTURED-DIAMOND
+  - LORG16-TIME-PERIODIC-CAUSALITY
+  - LORG16-NONIMPRISONMENT
+  - LORG16-CAUSAL-CURVE-COMPACTNESS
+  - LORG16-VOLUME-FUNCTION
+  - LORG16-CAUCHY-EQUIVALENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 12, review: 7 }
