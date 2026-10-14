@@ -2,13 +2,13 @@
 
 [Hermiteの定理](../TRN6/index.md#thm-trn6-e-transcendental)では、整数係数の指数関係を仮定し、非零整数の下界と積分上界を衝突させました。しかし指数が $\sqrt2$ のような代数的数になり、係数にも $\sqrt2$ などが混じると、同じ整数合同式をそのまま使えません。共役をまとめて算術的な量を作る準備が必要です。
 
-例えば $K=\mathbb Q(\sqrt2)$ で $\sigma(\sqrt2)=-\sqrt2$ とします。代数的数には $\sigma$ を作用させられますが、一般に $\sigma(e^{\sqrt2})=e^{-\sqrt2}$ と書いてはいけません。左辺は通常の $K$ 上のGalois自己同型の**定義域にありません**。代わりに「代数的指数と係数を持つ**形式的な和**」を作り、そこで共役を取り、最後に指数関数で値を計算します。
+例えば $K=\mathbb Q(\sqrt2)$ で $\sigma(\sqrt2)=-\sqrt2$ とします。$\sigma$ は $K$ の代数的数に作用しますが、一般に $\sigma(e^{\sqrt2})=e^{-\sqrt2}$ と書いてはいけません。自己同型 $\sigma:K\to K$ は **$K$ の元に対してだけ定義**されており、$e^{\sqrt2}$ をその入力とする根拠も、指数関数と作用が交換できる根拠もまだありません。代わりに「代数的指数と係数を持つ**形式的な和**」を作り、そこで共役を取り、最後に指数関数で値を計算します。
 
 本章の目標は、形式的な有限積が非零であること、複素数への評価後には零にもなり得ること、そして共役不変性から言える整数性の**正確な範囲**を、一つずつ証明することです。
 
 ## 1. 指数和を先に形式的に扱う
 
-$\overline{\mathbb Q}$ は代数的複素数全体です。有限個の代数的な指数 $\alpha_j$ と代数的な係数 $a_j$ を固定すると、[分解体の存在](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence)により、それらの最小多項式の根をすべて含む有限Galois拡大 $K/\mathbb Q$ を選べます。以後 $K\subset\mathbb C$ を固定します。[有限Galois拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)とその自己同型群 $G=\operatorname{Gal}(K/\mathbb Q)$ を用います。
+$\overline{\mathbb Q}$ は代数的複素数全体です。有限個の代数的な指数 $\alpha_j$ と代数的な係数 $a_j$ を固定します。それぞれの $\mathbb Q$ 上の最小多項式を掛け合わせた多項式を $p(T)\in\mathbb Q[T]$ とし、[分解体の存在](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence)によって $p$ の分解体 $K\subset\mathbb C$ を取ります。$K/\mathbb Q$ は有限で、[分解体と有限正規拡大の関係](../../FLD/FLD2/index.md#thm-fld2-finite-splitting-equivalence)から正規、[標数0での分離性](../../FLD/FLD2/index.md#cor-fld2-char-zero-algebraic)から分離的です。ゆえに[有限Galois拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)を満たし、すべての $\alpha_j,a_j$ を含みます。以後この $K$ と自己同型群 $G=\operatorname{Gal}(K/\mathbb Q)$ を用います。
 
 実際の指数和 $\sum_j a_je^{\alpha_j}$ をいきなり共役に移す代わりに、記号 $U_\lambda$（$\lambda\in K$）を考えます。この記号は複素数 $e^\lambda$ そのものではありません。指数の足し算だけを記号の掛け算として表し、
 
