@@ -1,0 +1,70 @@
+chapter: LORG16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG3
+  - LORG6
+  - LORG7
+  - LORG9
+  - LORG10
+  - LORG12
+  - LORG13
+  - LORG14
+  - LORG15
+  - F0-00P1
+  - SREL2
+concepts:
+  - id: lorentz-geometry.causal-diamond
+    name: 因果ダイヤモンド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果ダイヤモンド）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.global-hyperbolicity
+    name: 大域双曲的時空
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（大域双曲的時空）"]
+    requires: [lorentz-geometry.causal-diamond, lorentz-geometry.strong-causality]
+  - id: lorentz-geometry.nonimprisonment
+    name: 強因果性と非閉じ込め性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（強因果性と非閉じ込め性）"]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.inextendible-causal-curve]
+  - id: lorentz-geometry.compact-causal-curves
+    name: コンパクトダイヤモンド内の因果曲線の抽出
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（コンパクトダイヤモンド内の因果曲線の抽出）"]
+    requires: [lorentz-geometry.causal-diamond, lorentz-geometry.nonimprisonment, lorentz-geometry.limit-curve-lemma]
+  - id: lorentz-geometry.past-future-volume
+    name: 過去・未来体積関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（過去・未来体積関数）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.gh-closed-causal-relation
+    name: 大域双曲的時空では因果到達関係が閉
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（大域双曲的時空では因果到達関係が閉）"]
+    requires: [lorentz-geometry.compact-causal-curves]
+  - id: lorentz-geometry.geroch-volume-time
+    name: Geroch型体積時間関数の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Geroch型体積時間関数の構成）"]
+    requires: [lorentz-geometry.past-future-volume, lorentz-geometry.closed-causal-relation, lorentz-geometry.nonimprisonment, lorentz-geometry.cauchy-hypersurface]
+  - id: lorentz-geometry.domain-global-hyperbolicity
+    name: 依存領域の大域双曲性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（依存領域の大域双曲性：標準的領域定理）"]
+    requires: [lorentz-geometry.domain-of-dependence, lorentz-geometry.limit-curve-lemma, lorentz-geometry.achronal-set]
+  - id: lorentz-geometry.gh-cauchy-equivalence
+    name: 大域双曲性のCauchy面による特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（大域双曲性のCauchy面による特徴付け）"]
+    requires: [lorentz-geometry.global-hyperbolicity, lorentz-geometry.geroch-volume-time, lorentz-geometry.domain-global-hyperbolicity, lorentz-geometry.cauchy-domain-equivalence]
