@@ -40,7 +40,7 @@ chapters:
     title: Littlewood--Paley理論と周波数局在
   - id: HA9
     path: textbook/volumes/dream_thater/解析系/HA/HA9
-    status: planned
+    status: completed
     title: Mikhlin--Hörmander型Fourier乗数
   - id: HA10
     path: textbook/volumes/dream_thater/解析系/HA/HA10
