@@ -1,0 +1,50 @@
+id: "LORG17"
+title: "Lorentz時間分離と曲線長の極限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG3
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG10
+  - LORG14
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 時間分離の定義とMinkowskiの公式を因果条件つきで導出できる
+  - 時間分離の逆三角不等式と正の時間分離の特徴付けを証明できる
+  - 一様収束する因果曲線の長さが上半連続である理由を局所分割から説明できる
+  - 任意の滑らかな時空での時間分離の下半連続性を時間的折れ線近似で導ける
+  - 大域双曲性のもとで時間分離の有限性・連続性を曲線抽出から証明できる
+  - 原点除去時空の非達成例と時間周期時空の無限時間分離を区別できる
+definitions:
+  - { id: LORG17-DEF-01, name: Lorentz時間分離 }
+  - { id: LORG17-DEF-02, name: 曲線長の上半連続性 }
+theorems:
+  - { id: LORG17-THM-01, name: Minkowski時空の時間分離 }
+  - { id: LORG17-PROP-01, name: 時間分離の逆三角不等式 }
+  - { id: LORG17-PROP-02, name: 正の時間分離と時間的到達 }
+  - { id: LORG17-LEM-01, name: 小区間の局所時間分離による長さの復元 }
+  - { id: LORG17-THM-02, name: 因果曲線のLorentz長さの上半連続性 }
+  - { id: LORG17-LEM-02, name: 正長因果曲線の時間的折れ線近似 }
+  - { id: LORG17-THM-03, name: 時間分離の下半連続性 }
+  - { id: LORG17-THM-04, name: 大域双曲的時空での時間分離の有限性と連続性 }
+canonical_examples:
+  - Minkowskiでの時間分離の公式と光的端点の零
+  - 一様収束する振動因果曲線の長さの真の上半連続性
+  - 原点除去Minkowskiの有限だが達成されない時間分離
+  - 時間周期商の無限大の時間分離
+problem_patterns:
+  - LORG17-MINKOWSKI-SEPARATION
+  - LORG17-REVERSE-TRIANGLE
+  - LORG17-CURVE-LENGTH-USC
+  - LORG17-TIME-SEPARATION-LSC
+  - LORG17-PUNCTURED-NONATTAINMENT
+  - LORG17-GH-CONTINUITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 12, review: 7 }
