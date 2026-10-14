@@ -1,0 +1,46 @@
+id: "TRN2"
+title: "共役・跡・ノルム・分母消去"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN1
+  - FLD1
+  - FLD2
+  - FLD4
+  - LA3C
+  - LA4
+official_scope: []
+learning_objectives:
+  - 有限分離拡大の埋め込みと相異なる共役根の違いを重複度付きで説明できる
+  - 乗法写像の基底行列から跡・ノルムを定義し基底独立性を示せる
+  - 最小多項式の冪として乗法写像の特性多項式を導き共役公式を証明できる
+  - 代数的整数の共役と最小多項式係数の整数性を証明できる
+  - 跡・ノルムの整数性・非零性と共役上界からの下界を示せる
+  - 有限個の代数的係数の共通分母を払う構成を途中式付きで実行できる
+  - 非正規拡大の埋め込みと有限Galois拡大の自己同型を区別できる
+definitions:
+  - { id: TRN2-DEF-01, name: 共役根と埋め込みによる共役値 }
+  - { id: TRN2-DEF-02, name: 体拡大の跡とノルム }
+theorems:
+  - { id: TRN2-THM-01, name: 共役による跡・ノルムの公式 }
+  - { id: TRN2-LEM-01, name: 代数的整数の共役と最小多項式 }
+  - { id: TRN2-THM-02, name: 代数的整数の跡・ノルムの整数性と非零性 }
+  - { id: TRN2-COR-01, name: 共役の上界から得られる下界 }
+  - { id: TRN2-LEM-02, name: 有限個の代数的数の共通分母消去 }
+canonical_examples:
+  - 二次体の乗法行列と跡ノルム
+  - 四次Galois拡大における共役値の重複
+  - 非正規三次拡大での三埋め込みとノルム
+  - 黄金比の共役積と代数的整数の整数性
+  - 分母が消えても通常の整数にならない反例
+problem_patterns:
+  - TRN2-QUADRATIC-TRACE-NORM
+  - TRN2-EMBEDDING-MULTIPLICITY
+  - TRN2-INTEGRAL-CONJUGATES
+  - TRN2-COMMON-DENOMINATOR
+  - TRN2-NON-GALOIS-EMBEDDINGS
+  - TRN2-CONJUGATE-LOWER-BOUND
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
