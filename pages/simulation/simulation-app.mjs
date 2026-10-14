@@ -27,7 +27,7 @@ function configuration() {
     mass: number("mass"), separation: number("separation"),
     gravitationalConstant: number("gravity"), dt: number("dt"),
   } : currentModel === "burrau" ? {
-    dt: number("burrau-dt"),
+    dt: number("burrau-dt"), rtol: number("burrau-rtol"),
   } : {
     probabilities: ["p00", "p01", "p10", "p11"].map(number),
     sampleCount: number("sample-count"),
@@ -223,6 +223,7 @@ async function replay(text) {
     $("dt").value = saved.params.dt;
   } else if (currentModel === "burrau") {
     $("burrau-dt").value = saved.params.dt;
+    $("burrau-rtol").value = saved.params.rtol ?? 1e-12;
   } else {
     ["p00","p01","p10","p11"].forEach((name, i) => {
       $(name).value = saved.params.probabilities[i];
@@ -235,7 +236,7 @@ async function replay(text) {
     let remaining = Math.max(0, last?.stepIndex ?? 0);
     if (remaining > 100000) throw new RangeError("再計算上限を超えました");
     while (remaining > 0) {
-      const n = Math.min(1000, remaining);
+      const n = Math.min(currentModel === "burrau" ? 20 : 1000, remaining);
       await runSteps(n); remaining -= n;
     }
   } else {
