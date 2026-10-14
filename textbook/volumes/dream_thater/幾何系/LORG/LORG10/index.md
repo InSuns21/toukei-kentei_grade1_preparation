@@ -54,7 +54,13 @@ $$
 
 <!-- definition-example-end -->
 
-なぜこれらの合併だけで位相になるかも確かめます。任意の二つのダイヤモンド $D_M(a,b)$、$D_M(c,d)$ の共通部分に $p$ があれば、$a,c\ll p\ll b,d$ です。[時間的到達関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)により $p$ のごく近くに $r\ll p\ll s$ を選んで $a,c\ll r$、$s\ll b,d$ とできます。すると $p\in D_M(r,s)$ で、[時間的関係の推移性](../LORG6/index.md#prop-lorg6-transitivity)から $D_M(r,s)\subset D_M(a,b)\cap D_M(c,d)$ です。よって二つのダイヤモンドの交わりはダイヤモンドの合併で表せます。任意の合併と有限交差で閉じ、全体 $M$ も各点を含む小ダイヤモンドの合併なので、これは位相です。
+なぜこれらの合併だけで位相になるかも確かめます。任意の二つのダイヤモンド $D_M(a,b)$、$D_M(c,d)$ の共通部分に $p$ があれば、$a,c\ll p\ll b,d$ です。
+
+[時間的到達関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)により $p$ のごく近くに $r\ll p\ll s$ を選んで $a,c\ll r$、$s\ll b,d$ とできます。
+
+すると $p\in D_M(r,s)$ で、[時間的関係の推移性](../LORG6/index.md#prop-lorg6-transitivity)から $D_M(r,s)\subset D_M(a,b)\cap D_M(c,d)$ です。よって二つのダイヤモンドの交わりはダイヤモンドの合併で表せます。
+
+任意の合併と有限交差で閉じ、全体 $M$ も各点を含む小ダイヤモンドの合併なので、これは位相です。
 
 各ダイヤモンドは開かつ因果的凸なので、それらが多様体の任意の小さい近傍に収まれば、強因果性を具体的に確認できます。逆向きも成り立ちます。
 
@@ -332,7 +338,11 @@ $$
 
 となり、同じ未来錐の向きで $g\prec\widehat g$ です。
 
-今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。さらに上で得た $T,w$ による表示から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。$\square$
+今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。
+
+$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。
+
+さらに上で得た $T,w$ による表示から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。 $\square$
 <!-- proof-end -->
 
 ## 9. 滑らかな時間関数があれば強因果的になる
@@ -455,7 +465,9 @@ $$
 時間周期円筒 $M=(\mathbb R/2\mathbb Z)\times\mathbb R$、$g=-dt^2+dx^2$ で、十分小さい座標近傍 $N$ に局所ダイヤモンドを取る。(i) $N$ 内の曲線に関して因果的凸である理由、(ii) $M$ 全体の曲線に関して同じ近傍が因果的凸とは限らない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) [相対的なAlexandrov近傍の局所基底](../LORG8/index.md#lem-lorg8-local-diamonds)により $D_N(a,b)$ は $N$ 内の任意の未来因果曲線に対し因果的凸です。(ii) $p=([0],0)$ から $t$ を未来へ2だけ増やす曲線 $\gamma(s)=([2s],0)$ は $g(\dot\gamma,\dot\gamma)=-4<0$ で始点と終点が $p$ です。この曲線は小さい $D_N(a,b)\ni p$ の外へ出ます。[大域的因果的凸性](#def-lorg10-strong-causality)なら始点・終点がその中にある曲線は出られず矛盾するので、局所相対性を大域へ読み替えられません。
+**詳細解答**。(i) [相対的なAlexandrov近傍の局所基底](../LORG8/index.md#lem-lorg8-local-diamonds)により $D_N(a,b)$ は $N$ 内の任意の未来因果曲線に対し因果的凸です。
+
+(ii) $p=([0],0)$ から $t$ を未来へ2だけ増やす曲線 $\gamma(s)=([2s],0)$ は $g(\dot\gamma,\dot\gamma)=-4<0$ で始点と終点が $p$ です。この曲線は小さい $D_N(a,b)\ni p$ の外へ出ます。[大域的因果的凸性](#def-lorg10-strong-causality)なら始点・終点がその中にある曲線は出られず矛盾するので、局所相対性を大域へ読み替えられません。
 <!-- solution-end -->
 
 <a id="ex-lorg10-a03"></a>
@@ -499,7 +511,13 @@ $t=0$ で勾配が零となり、時間的ではありません。従って $\si
 任意に小さい大域的因果的凸開近傍 $V$ が存在すると仮定し、$a\ll p\ll b$ を $V$ 内で選んで $D_M(a,b)\subset V$ を示せ。逆方向も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$V$ は開なので、$p$ を通る局所未来時間的ベクトル場の短い積分曲線上に $a,b\in V$ を取れます。任意の $z\in I^+(a)\cap I^-(b)$ を取れば、未来時間的曲線 $a\to z$ と $z\to b$ をつなげた区分的 $C^1$ 曲線の両端は $V$ 内です。$V$ の **$M$ における**因果的凸性より、その中間点 $z$ も $V$ に属します。従って $D_M(a,b)\subset V$ です。逆には[LORG8のダイヤモンドの大域的因果的凸性](../LORG8/index.md#thm-lorg8-diamond-convex)を使い、任意の小さいダイヤモンドをそのまま $V$ とします。これが[同値定理](#thm-lorg10-alexandrov-basis)の両方向です。
+**詳細解答**。$V$ は開なので、$p$ を通る局所未来時間的ベクトル場の短い積分曲線上に $a,b\in V$ を取れます。
+
+任意の $z\in I^+(a)\cap I^-(b)$ を取れば、未来時間的曲線 $a\to z$ と $z\to b$ をつなげた区分的 $C^1$ 曲線の両端は $V$ 内です。
+
+$V$ の **$M$ における**因果的凸性より、その中間点 $z$ も $V$ に属します。従って $D_M(a,b)\subset V$ です。逆には[LORG8のダイヤモンドの大域的因果的凸性](../LORG8/index.md#thm-lorg8-diamond-convex)を使い、任意の小さいダイヤモンドをそのまま $V$ とします。
+
+これが[同値定理](#thm-lorg10-alexandrov-basis)の両方向です。
 <!-- solution-end -->
 
 <a id="ex-lorg10-b02"></a>
@@ -534,7 +552,9 @@ $$
 =-\left(A^{-1}+\varepsilon\right)a^2+g(w,w).
 $$
 
-時間的 $T$ の直交補空間では[LORG1の正定値性](../LORG1/index.md#lem-lorg1-timelike-orthogonal)により $g(w,w)$ が正定値です。従って新計量の符号数は $(1,n)$ で非退化です。元の非零因果 $v$ では $a=0$ なら $g(v,v)=g(w,w)>0$ と矛盾するので $a\ne0$。新しい二次形式は $g(v,v)-\varepsilon a^2<0$ で、確かに錐が厳密に広がっています。[計量構成の定理](#thm-lorg10-temporal-implies-stable)によりこの錐でも $\tau$ は増え、causalです。
+時間的 $T$ の直交補空間では[LORG1の正定値性](../LORG1/index.md#lem-lorg1-timelike-orthogonal)により $g(w,w)$ が正定値です。従って新計量の符号数は $(1,n)$ で非退化です。
+
+元の非零因果 $v$ では $a=0$ なら $g(v,v)=g(w,w)>0$ と矛盾するので $a\ne0$。新しい二次形式は $g(v,v)-\varepsilon a^2<0$ で、確かに錐が厳密に広がっています。[計量構成の定理](#thm-lorg10-temporal-implies-stable)によりこの錐でも $\tau$ は増え、causalです。
 <!-- solution-end -->
 
 <a id="ex-lorg10-b04"></a>
@@ -544,7 +564,11 @@ $$
 $g=-dt^2+dx^2$ に対して (i) $\widetilde g=9g$、(ii) $\widehat g=-3dt^2+dx^2$ を比較せよ。$v=(1,1)$ の因果型を両方で調べ、強因果性・安定因果性への影響を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$g(v,v)=0$ です。(i) は $\widetilde g(v,v)=9g(v,v)=0$ のままで光的です。正の共形再尺度だから[LORG8の因果不変性](../LORG8/index.md#thm-lorg8-conformal-causality)により到達関係も、従って強因果性も変わりません。安定因果性も[時間関数の特徴付け](#thm-lorg10-stable-time-equivalence)により不変です。(ii) は $\widehat g(v,v)=-3+1=-2<0$ で未来時間的です。$g$-因果な非零 $(a,b)$ 全体について $\widehat g(a,b)\le-2a^2<0$ となります。$\widehat g$ は $t$ が未来で増えるためcausalで、$g$ の安定因果性の直接の証人になります。両操作は錐の境界への作用が異なります。
+**詳細解答**。$g(v,v)=0$ です。(i) は $\widetilde g(v,v)=9g(v,v)=0$ のままで光的です。正の共形再尺度だから[LORG8の因果不変性](../LORG8/index.md#thm-lorg8-conformal-causality)により到達関係も、従って強因果性も変わりません。
+
+安定因果性も[時間関数の特徴付け](#thm-lorg10-stable-time-equivalence)により不変です。(ii) は $\widehat g(v,v)=-3+1=-2<0$ で未来時間的です。$g$-因果な非零 $(a,b)$ 全体について $\widehat g(a,b)\le-2a^2<0$ となります。
+
+$\widehat g$ は $t$ が未来で増えるためcausalで、$g$ の安定因果性の直接の証人になります。両操作は錐の境界への作用が異なります。
 <!-- solution-end -->
 
 ### Level C
@@ -556,7 +580,11 @@ $g=-dt^2+dx^2$ に対して (i) $\widetilde g=9g$、(ii) $\widehat g=-3dt^2+dx^2
 (i) Minkowski平面、(ii) $C^\ast=((-1,1)\times\mathbb R/\mathbb Z)\setminus\{(0,[0])\}$、$g=-2du\,d\theta+u^2d\theta^2$、$T=\partial_u+\partial_\theta$ について、causal・強因果的・安定因果的を分類せよ。Minkowskiでは具体的な開近傍と拡大計量を提示し、$C^\ast$ では未来時間的再侵入曲線を構成して、失敗する含意とその機構を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) $g=-dt^2+dx^2$ と未来向き $dt>0$ を取ります。$a=(t_0-\varepsilon,x_0)$、$b=(t_0+\varepsilon,x_0)$ の $D_M(a,b)=\{|t-t_0|+|x-x_0|<\varepsilon\}$ は任意に小さく、[大域的に因果的凸](../LORG8/index.md#thm-lorg8-diamond-convex)ですから強因果的です。$\widehat g=-2dt^2+dx^2$ で、非零未来 $g$-因果ベクトル $v=(a,b)$ は $a\ge|b|$、$a>0$。従って $\widehat g(v,v)\le-a^2<0$ で厳密に広がり、$\widehat g$-未来因果曲線では $t$ が増えるので $\widehat g$ はcausalです。従って安定因果的であり、[強因果的時空はcausal](#prop-lorg10-strong-implies-causal)によりcausalでもあります。
+**詳細解答**。(i) $g=-dt^2+dx^2$ と未来向き $dt>0$ を取ります。$a=(t_0-\varepsilon,x_0)$、$b=(t_0+\varepsilon,x_0)$ の $D_M(a,b)=\{|t-t_0|+|x-x_0|<\varepsilon\}$ は任意に小さく、[大域的に因果的凸](../LORG8/index.md#thm-lorg8-diamond-convex)ですから強因果的です。
+
+$\widehat g=-2dt^2+dx^2$ で、非零未来 $g$-因果ベクトル $v=(a,b)$ は $a\ge|b|$、$a>0$。
+
+従って $\widehat g(v,v)\le-a^2<0$ で厳密に広がり、$\widehat g$-未来因果曲線では $t$ が増えるので $\widehat g$ はcausalです。従って安定因果的であり、[強因果的時空はcausal](#prop-lorg10-strong-implies-causal)によりcausalでもあります。
 
 (ii) [LORG9の点除去円筒の命題](../LORG9/index.md#prop-lorg9-punctured-causal-nondistinguishing)で $C^\ast$ はcausalです。一方 $p=(0,[1/4])$、$-\varepsilon\le u\le\varepsilon$ において
 
@@ -565,7 +593,13 @@ $$
 \left(u,\left[\frac14+\frac{u+\varepsilon}{2\varepsilon}\right]\right)
 $$
 
-を取ると、$b=d\theta/du=1/(2\varepsilon)$ で $g(\dot\gamma,\dot\gamma)=b(-2+u^2b)<0$、$g(\dot\gamma,T)=-1+(u^2-1)b<0$ です。$u=0$ の角度は $[3/4]$ なので穴を通りません。両端は $p$ に収束し、中点 $(0,[3/4])$ は固定なので、$p$ の任意の十分小さい近傍で因果的凸性が失敗します。[強因果性の定義](#def-lorg10-strong-causality)に反します。もし安定因果的なら[因果階層定理](#thm-lorg10-causal-ladder)で強因果的となり矛盾するので、安定因果的でもありません。したがってこの模型は「causalなら強因果的」も「causalなら安定因果的」も偽であることを示します。壊れたのは閉路の禁止そのものではなく、閉じなくても局所へ戻れる曲線の制御です。
+を取ると、$b=d\theta/du=1/(2\varepsilon)$ で $g(\dot\gamma,\dot\gamma)=b(-2+u^2b)<0$、$g(\dot\gamma,T)=-1+(u^2-1)b<0$ です。$u=0$ の角度は $[3/4]$ なので穴を通りません。
+
+両端は $p$ に収束し、中点 $(0,[3/4])$ は固定なので、$p$ の任意の十分小さい近傍で因果的凸性が失敗します。[強因果性の定義](#def-lorg10-strong-causality)に反します。
+
+もし安定因果的なら[因果階層定理](#thm-lorg10-causal-ladder)で強因果的となり矛盾するので、安定因果的でもありません。したがってこの模型は「causalなら強因果的」も「causalなら安定因果的」も偽であることを示します。
+
+壊れたのは閉路の禁止そのものではなく、閉じなくても局所へ戻れる曲線の制御です。
 <!-- solution-end -->
 
 ## 12. 次は因果集合の連続性と閉性
