@@ -18,12 +18,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（強因果性）"]
     requires: [lorentz-geometry.causal-spacetime, lorentz-geometry.alexandrov-diamond]
+  - id: lorentz-geometry.alexandrov-topology
+    name: Alexandrov位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Alexandrov位相）"]
+    requires: [lorentz-geometry.alexandrov-diamond]
   - id: lorentz-geometry.strong-alexandrov-basis
     name: 強因果性とAlexandrov近傍基底
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（強因果性とAlexandrov近傍基底）"]
-    requires: [lorentz-geometry.strong-causality, lorentz-geometry.alexandrov-diamond]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.alexandrov-topology]
   - id: lorentz-geometry.strong-implies-causal
     name: 強因果的時空はcausal
     kind: proposition
