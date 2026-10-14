@@ -1,0 +1,56 @@
+chapter: EC7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC4
+  - FLD3
+forward_references: [EC8]
+concepts:
+  - id: elliptic-curve.finite-field-rational-points
+    name: 有限体上の有理点と点数
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.weierstrass-model, field.finite-field]
+  - id: elliptic-curve.finite-subgroup
+    name: 有限体上の点は有限部分群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.finite-field-rational-points, elliptic-curve.associativity]
+  - id: elliptic-curve.q-frobenius
+    name: 楕円曲線のq-Frobenius
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.weierstrass-model, field.frobenius]
+  - id: elliptic-curve.frobenius-isogeny
+    name: Frobeniusは原点を保つ同種写像
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.q-frobenius, elliptic-curve.isogeny-homomorphism]
+  - id: elliptic-curve.frobenius-degree
+    name: Frobeniusの次数と非分離性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.q-frobenius, elliptic-curve.isogeny-degree, elliptic-curve.isogeny-separability]
+  - id: elliptic-curve.frobenius-fixed-points
+    name: 有理点とFrobenius固定点
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.q-frobenius, elliptic-curve.finite-field-rational-points]
+  - id: elliptic-curve.one-minus-frobenius-degree
+    name: 点数と差の射の次数
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.frobenius-fixed-points, elliptic-curve.frobenius-degree, elliptic-curve.torsion-structure]
+  - id: elliptic-curve.finite-field-trace
+    name: 有限体上の点数差
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.finite-field-rational-points]
