@@ -1,0 +1,38 @@
+chapter: TRN3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN2
+  - NDA6
+  - CA3
+  - RA4
+forward_references: []
+
+concepts:
+  - id: transcendence.liouville-criterion-reformulation
+    name: Liouville型の超越性判定の量化読み替え
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Liouville型の超越性判定）]
+    requires: [diophantine.liouville-transcendence, diophantine.liouville-inequality]
+
+  - id: transcendence.e-irrational-factorial
+    name: 階乗級数によるeの無理性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（階乗級数による $e$ の無理性）]
+    requires: []
+
+  - id: transcendence.integer-factorial-squeeze
+    name: 非零整数と階乗上界の矛盾
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（非零整数と階乗上界の矛盾）]
+    requires: []
+
+  - id: transcendence.hermite-endpoint-preview
+    name: 実区間での微分和の端点恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（実区間での微分和の端点恒等式）]
+    requires: [transcendence.integer-factorial-squeeze]
