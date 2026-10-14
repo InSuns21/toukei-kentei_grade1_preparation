@@ -116,7 +116,8 @@ function plotResult() {
 }
 function updatePhysics(response) {
   latest = response.snapshot;
-  latest.positions.forEach((point, index) => {
+  const snapshots = response.observations?.length ? response.observations : [latest];
+  for (const snapshot of snapshots) snapshot.positions.forEach((point, index) => {
     tracks[index] ??= [];
     tracks[index].push([...point]);
     if (tracks[index].length > 800) tracks[index].shift();
@@ -127,8 +128,12 @@ function updatePhysics(response) {
     angularMomentum: latest.diagnostics.angularMomentum,
   }, latest.diagnostics);
   plotResult();
+  const separating = currentModel === "burrau" &&
+    latest.diagnostics.escapeDistance3 > 20 &&
+    latest.diagnostics.binarySpecificEnergy45 < 0;
   show("計算完了：物理時間 " + latest.physicalTime.toFixed(4) +
-    "、離散ステップ " + latest.stepIndex);
+    "、表示フレーム " + latest.stepIndex +
+    (separating ? "。質量3の遠方移動・質量4と5の束縛状態を観察中（数値的な判定）" : ""));
 }
 async function start() {
   running = false;
@@ -178,9 +183,9 @@ async function play() {
         show("記録上限に達したため、連続実行を停止しました");
         return;
       }
-      await runSteps(25);
+      await runSteps(currentModel === "burrau" ? 2 : 25);
       if (epoch !== playEpoch || client !== active) return;
-      await new Promise((resolve) => setTimeout(resolve, 30));
+      await new Promise((resolve) => setTimeout(resolve, currentModel === "burrau" ? 40 : 30));
     }
     if (epoch === playEpoch && client === active &&
         active.state === "ready" && !running) {
