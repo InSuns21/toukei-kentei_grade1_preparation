@@ -393,7 +393,21 @@ s(y)+\eta>0,\qquad
 |\mathbf x_y|\le C(s(y)+\eta)
 $$
 
-です。$y$ が時間境界 $s=h$ にあれば $s(y)+\eta=h+\eta>2\delta$、空間境界 $|\mathbf x|=R$ にあれば $s(y)+\eta\ge R/C\ge2\delta$ です。負の時間境界 $s=-h$ には未来曲線で達しません。従っていずれも $s(y)+\eta\ge2\delta$ です。座標としての $s$ は $W$ 内だけで使いましたが、実数値関数 $s(z)=\tau(z)-\tau(p)$ は $M$ 全体で定義されています。[temporal functionの単調性](#lem-lorg10-temporal-monotone)を曲線全体へ適用すると、終点 $b$ では $s(b)=\eta$ だから
+です。$y$ が時間境界 $s=h$ にあれば
+
+$$
+s(y)+\eta=h+\eta>2\delta
+$$
+
+です。空間境界 $|\mathbf x|=R$ にあれば
+
+$$
+s(y)+\eta\ge R/C\ge2\delta
+$$
+
+です。負の時間境界 $s=-h$ には未来曲線で達しません。従っていずれも $s(y)+\eta\ge2\delta$ です。
+
+座標としての $s$ は $W$ 内だけで使いましたが、実数値関数 $s(z)=\tau(z)-\tau(p)$ は $M$ 全体で定義されています。[temporal functionの単調性](#lem-lorg10-temporal-monotone)を曲線全体へ適用すると、終点 $b$ では $s(b)=\eta$ だから
 
 $$
 s(y)+\eta\le s(b)+\eta=2\eta<\delta
