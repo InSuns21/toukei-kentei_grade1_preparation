@@ -259,8 +259,9 @@ try {
     status: document.querySelector("#status").getAttribute("aria-live"),
     plot: document.querySelector("#plot").getAttribute("aria-describedby"),
     table: !!document.querySelector("#diagnostics table"),
-    meaning: document.querySelector("#legend").textContent.includes("実線") &&
-      document.querySelector("#legend").textContent.includes("破線"),
+    meaning: document.querySelector("#legend").textContent.includes("現在位置") &&
+      document.querySelector("#legend").textContent.includes("記号") &&
+      [...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent).join("") === "12",
   }))()`);
   assert.deepEqual(accessibility.unlabeled, [], "form inputs need accessible names");
   assert.equal(accessibility.headings[0], "H1");
