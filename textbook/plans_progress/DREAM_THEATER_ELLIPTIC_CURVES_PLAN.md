@@ -1,7 +1,7 @@
 # DREAM THEATER 楕円曲線（EC1〜EC11、仮章割り）
 
 設計改訂: 2026-10-14（教科書・公開講義資料との照合）  
-状態: planned（PLANの再設計のみ。科目固有の章執筆・検証には未着手）
+状態: in_progress（EC1を実装。EC2〜EC11と横断監査は未完了）
 
 ## 0. 中心問い・到達点・科目の境界
 
@@ -18,7 +18,7 @@
 7. 良い還元・悪い還元、導手、素数別 Euler 因子を区別して $L(E,s)$ を構成する。
 8. 重さ 2 の newform との係数比較・modularity の正確な意味を述べ、**証明済み定理と未解決予想（BSD）を区別**する。
 
-**範囲：** 本PLANが所有するのは「楕円曲線の群則・有理点・isogeny/有限体・還元・L 関数とモジュラー形式への出口」。楕円関数の基礎証明は既存 CA8/CA9、モジュラー群から Hecke・newform の主理論は [MF PLAN](DREAM_THEATER_MODULAR_FORMS_PLAN.md) が所有する。一般の代数曲線・スキーム・Néron 模型・Galois 表現・modularity lifting は黙示的前提にしない。
+**範囲：** 本PLANが所有するのは「楕円曲線の群則・有理点・isogeny/有限体・還元・L 関数とモジュラー形式への出口」。楕円関数の基礎証明は既存 CA8/CA9、モジュラー群から Hecke・newform の主理論は [MF PLAN](../plans/DREAM_THEATER_MODULAR_FORMS_PLAN.md) が所有する。一般の代数曲線・スキーム・Néron 模型・Galois 表現・modularity lifting は黙示的前提にしない。
 
 **章数：** 旧 EC1〜EC8 の一章に「高さ＋descent＋Mordell--Weil」「有限体＋Hasse 証明」を詰め込みすぎないよう、**EC1〜EC11 を暫定配列**とする。章数は固定ノルマではなく、証明の閉鎖性と学習者の中心問いを基準に増減する。EC11 を終端とする参照は着手時に再確認する。
 
@@ -211,7 +211,7 @@ EC11 + MF7 → MF8（modularity theorem / FLT）
 
 この図は**学習上の概形**であり、横列を全章の自動 prerequisite にしない。例えば EC9 は EC6 の descent を使わないので依存させない。EC5 は EC4 の isogeny 一般論を待たず始められる。EC11 は MF7 を読み、MF7 は EC11 を読まない。
 
-既存 [整数論・modularity 横断ルート](DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md) の MF/EC の双方向説明は、この非循環 DAG に従って実装時に確定する。仮 ID を公開索引、knowledge DAG、chapter manifest へ設計段階で登録しない。
+既存 [整数論・modularity 横断ルート](../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md) の MF/EC の双方向説明は、この非循環 DAG に従って実装時に確定する。仮 ID を公開索引、knowledge DAG、chapter manifest へ設計段階で登録しない。
 
 ## 5. 章ごとの直接例・演習・査読の受け入れ基準
 
