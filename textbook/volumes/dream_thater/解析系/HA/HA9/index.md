@@ -20,7 +20,7 @@ $$
 \partial^\alpha=\partial_{\xi_1}^{\alpha_1}\cdots\partial_{\xi_d}^{\alpha_d}
 $$
 
-と書きます。$x^\alpha=\prod_{k=1}^d x_k^{\alpha_k}$ も同様です。$\mathcal S(\mathbb R^d)$ は、すべての多重指数 $\alpha,\beta$ について $x^\alpha\partial^\beta f(x)$ が有界な無限回微分可能関数の空間です。ここでは超関数の理論そのものは用いず、この微分の記法のみを使います。
+と書きます。$x^\alpha=\prod_{k=1}^d x_k^{\alpha_k}$ も同様です。微分記号 $\partial^\alpha$ は、作用する関数の変数が $x$ なら $x$ に関する偏微分、$\xi$ なら $\xi$ に関する偏微分を表します。$\mathcal S(\mathbb R^d)$ は、すべての多重指数 $\alpha,\beta$ について $x^\alpha\partial^\beta f(x)$ が有界な無限回微分可能関数の空間です。ここでは超関数の理論そのものは用いず、この微分の記法のみを使います。
 
 ## 1. 周波数側の掛け算を作用素にする
 
@@ -357,7 +357,14 @@ $$
 
 $f\in L^1\cap L^2$ ならFubiniによる通常の畳み込み公式 $\widehat{k*f}=\widehat k\,\widehat f$ が成立します。$L^1\cap L^2$ の $L^2$ 稠密性、上の評価および $|\widehat k|\le\|k\|_1$ により一般の $f\in L^2$ へ移せます。以上で両結果をこの章の $\mathbb R^d$ に適用する根拠が揃いました。
 
-$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持ち、その逆変換 $\sum_{j=-N}^NK_j$ は可積分です。[FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用できるので
+$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持ち、[環帯核評価](#lem-ha9-shell)を $u=2^jx$ で積分すれば
+
+$$
+\|K_j\|_1
+\le CM\int_{\mathbb R^d}(1+|u|)^{-(d+1)}\,du<\infty
+$$
+
+です。従って逆変換 $\sum_{j=-N}^NK_j$ も可積分であり、上で多次元化した[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用できるので
 
 $$
 \langle T_{m^{(N)}}f,g\rangle
