@@ -8,7 +8,7 @@
 
 複素格子 $\Lambda=\mathbb Z\omega_1+\mathbb Z\omega_2$ は $\omega_1/\omega_2\notin\mathbb R$ を満たします。商 $\mathbb C/\Lambda$ の点 $[z]$ は $z+\lambda$（$\lambda\in\Lambda$）を同じ点とみなした同値類です。その加法は $[u]+[v]=[u+v]$。$[0]$ が単位元で、$-[z]=[-z]$ です。
 
-[CA9の微分方程式](../../../解析系/CA/CA9/index.md#thm-ca9-differential-equation)は、格子の関数 $\wp=\wp_\Lambda$ と $g_2=g_2(\Lambda),g_3=g_3(\Lambda)$ について
+[CA9の微分方程式](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-differential-equation)は、格子の関数 $\wp=\wp_\Lambda$ と $g_2=g_2(\Lambda),g_3=g_3(\Lambda)$ について
 
 $$
 (\wp')^2=4\wp^3-g_2\wp-g_3
@@ -48,7 +48,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-uniformization-map -->
-**定義の確認。** $z$ を $z+\lambda$ に替えても [CA9の周期性](../../../解析系/CA/CA9/index.md#thm-ca9-parity-periodicity)により $\wp,\wp'$ は同じ値です。微分方程式への代入で像は曲線上にあり、原点類だけは $O$ と定義しました。さらに $\wp(-z)=\wp(z),\ \wp'(-z)=-\wp'(z)$ なので、反転は [EC2の反転](../EC2/index.md#def-ec2-inverse)と一致します。
+**定義の確認。** $z$ を $z+\lambda$ に替えても [CA9の周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)により $\wp,\wp'$ は同じ値です。微分方程式への代入で像は曲線上にあり、原点類だけは $O$ と定義しました。さらに $\wp(-z)=\wp(z),\ \wp'(-z)=-\wp'(z)$ なので、反転は [EC2の反転](../EC2/index.md#def-ec2-inverse)と一致します。
 
 $$
 \Phi_\Lambda(-[z])=-\Phi_\Lambda([z]).
@@ -196,7 +196,7 @@ $$
 
 格子から曲線を作るだけでは、最初から与えられた任意の曲線がトーラスなのか分かりません。これを確かめるには曲線上の微分を積分し、その**閉路積分の周期**を調べます。
 
-[EC1の短い形への変換](../EC1/index.md#thm-ec1-short-weierstrass)により、任意の非特異な複素Weierstrass曲線は
+[EC1の短い形への変換](../EC1/index.md#thm-ec1-short-form)により、任意の非特異な複素Weierstrass曲線は
 
 $$
 E:\quad y^2=f(x)=x^3+Ax+B,\qquad 4A^3+27B^2\ne0
@@ -299,7 +299,7 @@ $$
 \frac{dX}{dz}=2Y.
 $$
 
-無限遠点では $t=-x/y$ と $\omega=(1+O(t^4))dt$ だから $z=t+O(t^5)$、従って $X=z^{-2}+O(z^2)$ です。$x$ は $O$ に二重極を一つ持ち、他には極を持ちません。[$\wp$ の極構造](../../../解析系/CA/CA9/index.md#thm-ca9-parity-periodicity)も同じなので $X-\wp_{\Lambda_E}$ は極のない楕円関数です。[CA8の正則関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)により定数 $c$ です。しかも上の展開と $\wp(z)=z^{-2}+O(z^2)$ の比較から $c=0$ です。従って
+無限遠点では $t=-x/y$ と $\omega=(1+O(t^4))dt$ だから $z=t+O(t^5)$、従って $X=z^{-2}+O(z^2)$ です。$x$ は $O$ に二重極を一つ持ち、他には極を持ちません。[$\wp$ の極構造](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)も同じなので $X-\wp_{\Lambda_E}$ は極のない楕円関数です。[CA8の正則関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)により定数 $c$ です。しかも上の展開と $\wp(z)=z^{-2}+O(z^2)$ の比較から $c=0$ です。従って
 
 $$
 X(z)=\wp_{\Lambda_E}(z),\qquad
