@@ -9,7 +9,7 @@ export const initialEnergy = -769 / 60;
 export const warningDistance = 1e-10; // true numerical singularity guard, NOT a softening length
 const masses = Object.freeze([3, 4, 5]);
 const initialPositions = [[1, 3], [-2, -1], [1, -1]];
-const REL_TOL = 1e-12, ABS_TOL = 1e-14, MIN_H = 1e-13, MAX_H = 0.1;
+const DEFAULT_REL_TOL = 1e-12, MIN_H = 1e-13, MAX_H = 0.1;
 const MAX_INTERNAL_ATTEMPTS = 120000; // across one Worker batch; no indefinite blocking
 const ENERGY_ERROR_STOP = 5e-5; // absolute invariant discrepancy, not guaranteed global accuracy
 // Dormand-Prince embedded 5(4) tableau.
@@ -30,8 +30,14 @@ const E = [
 ];
 
 export function validateParameters(p) {
-  return Number.isFinite(p?.dt) && p.dt >= 0.05 && p.dt <= 0.5 ?
-    [] : ["Burrauの表示時間間隔 Δt は0.05以上0.5以下で指定してください"];
+  const errors = [];
+  if (!(Number.isFinite(p?.dt) && p.dt >= 0.05 && p.dt <= 0.5)) {
+    errors.push("Burrauの表示時間間隔 Δt は0.05以上0.5以下で指定してください");
+  }
+  if (p?.rtol !== undefined && ![1e-10, 1e-11, 1e-12].includes(p.rtol)) {
+    errors.push("許容相対誤差は1e-10、1e-11、1e-12から選んでください");
+  }
+  return errors;
 }
 function minimumSeparation(y) {
   let min = Infinity;
@@ -62,7 +68,7 @@ function derivative(y) {
   }
   return d;
 }
-function embeddedStep(y, h) {
+function embeddedStep(y, h, rtol) {
   const k = [derivative(y)];
   for (let stage = 1; stage < 7; stage++) {
     const trial = new Float64Array(12);
@@ -82,7 +88,7 @@ function embeddedStep(y, h) {
       diff += E[j] * k[j][component];
     }
     next[component] = y[component] + h * slope;
-    const allowed = ABS_TOL + REL_TOL * Math.max(
+    const allowed = rtol * 0.01 + rtol * Math.max(
       Math.abs(y[component]), Math.abs(next[component]));
     scaledError = Math.max(scaledError, Math.abs(h * diff) / allowed);
   }
@@ -154,6 +160,7 @@ export function initialize(params) {
     positions: initialPositions.map(p => [...p]),
     velocities: [[0, 0], [0, 0], [0, 0]],
     masses: [...masses], dt: params.dt,
+    rtol: params.rtol ?? DEFAULT_REL_TOL,
     stepIndex: 0, physicalTime: 0,
     internalDt: Math.min(params.dt, 0.02),
     closestEncounter: 3, acceptedSubsteps: 0, rejectedSubsteps: 0,
@@ -191,7 +198,7 @@ export function stepBatch(state, steps, limits = { maxBatchSteps: 1000 }) {
       if (trialH < MIN_H) {
         throw new RangeError("NEAR_ENCOUNTER: internal timestep exhausted; trajectory unresolved");
       }
-      const { next: candidate, scaledError } = embeddedStep(y, trialH);
+      const { next: candidate, scaledError } = embeddedStep(y, trialH, next.rtol);
       const factor = Math.min(4, Math.max(0.2,
         scaledError === 0 ? 4 : 0.9 * scaledError ** -0.2));
       if (scaledError <= 1) {
