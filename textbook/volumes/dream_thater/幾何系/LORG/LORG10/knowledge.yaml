@@ -1,0 +1,92 @@
+chapter: LORG10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+concepts:
+  - id: lorentz-geometry.strong-causality
+    name: 強因果性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（強因果性）"]
+    requires: [lorentz-geometry.causal-spacetime, lorentz-geometry.alexandrov-diamond]
+  - id: lorentz-geometry.strong-alexandrov-basis
+    name: 強因果性とAlexandrov近傍基底
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強因果性とAlexandrov近傍基底）"]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.alexandrov-diamond]
+  - id: lorentz-geometry.strong-implies-causal
+    name: 強因果的時空はcausal
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（強因果的時空はcausal）"]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.causal-spacetime]
+  - id: lorentz-geometry.strong-implies-distinguishing
+    name: 強因果性から未来・過去識別性へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強因果性から未来・過去識別性へ）"]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.distinguishing-spacetime]
+  - id: lorentz-geometry.punctured-strong-failure
+    name: 一点除去円筒はcausalだが強因果的でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一点除去円筒はcausalだが強因果的でない）"]
+    requires: [lorentz-geometry.strong-causality, lorentz-geometry.causal-nondistinguishing-cylinder]
+  - id: lorentz-geometry.stable-causality
+    name: 安定因果性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定因果性）"]
+    requires: [lorentz-geometry.causal-spacetime, lorentz-geometry.lorentz-metric]
+  - id: lorentz-geometry.time-function
+    name: 時間関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間関数とtemporal function）"]
+    requires: [lorentz-geometry.causal-curve]
+  - id: lorentz-geometry.temporal-function
+    name: temporal function
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間関数とtemporal function）"]
+    requires: [lorentz-geometry.time-function, lorentz-geometry.lorentz-metric]
+  - id: lorentz-geometry.temporal-monotone
+    name: temporal functionの厳密単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（temporal functionの厳密単調性）"]
+    requires: [lorentz-geometry.temporal-function, lorentz-geometry.causal-curve]
+  - id: lorentz-geometry.temporal-implies-stable
+    name: temporal functionの存在は安定因果性を保証する
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（temporal functionの存在は安定因果性を保証する）"]
+    requires: [lorentz-geometry.temporal-function, lorentz-geometry.stable-causality]
+  - id: lorentz-geometry.temporal-implies-strong
+    name: temporal functionがあれば強因果的
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（temporal functionがあれば強因果的）"]
+    requires: [lorentz-geometry.temporal-function, lorentz-geometry.strong-causality]
+  - id: lorentz-geometry.stable-time-equivalence
+    name: 時間関数による安定因果性の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hawking–Bernal–Sánchezの時間関数による安定因果性の特徴付け）"]
+    requires: [lorentz-geometry.stable-causality, lorentz-geometry.time-function, lorentz-geometry.temporal-function]
+  - id: lorentz-geometry.strong-stable-hierarchy
+    name: 因果階層：strong / stableの位置
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因果階層：strong / stableの位置）"]
+    requires: [lorentz-geometry.stable-time-equivalence, lorentz-geometry.temporal-implies-strong, lorentz-geometry.strong-implies-distinguishing]
