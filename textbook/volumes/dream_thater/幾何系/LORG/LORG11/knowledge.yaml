@@ -1,0 +1,87 @@
+chapter: LORG11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+concepts:
+  - id: lorentz-geometry.chronological-regular-open
+    name: 時間的未来・過去の正則開性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時間的未来・過去の正則開性）"]
+    requires: [lorentz-geometry.chronological-causal-interior-closure]
+  - id: lorentz-geometry.reflectivity
+    name: 反映性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（未来・過去反映性と反映的時空）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.pair-reflection-limit
+    name: 反映性と到達関係の極限
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（反映性と到達関係の極限）"]
+    requires: [lorentz-geometry.reflectivity, lorentz-geometry.timelike-relation-openness]
+  - id: lorentz-geometry.chronological-outer-continuity
+    name: 時間的未来・過去の外側連続性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間的未来・過去の外側連続性）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.reflecting-outer-equivalence
+    name: 反映性と両側外側連続性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反映性と両側外側連続性）"]
+    requires: [lorentz-geometry.pair-reflection-limit, lorentz-geometry.chronological-outer-continuity]
+  - id: lorentz-geometry.causal-continuity
+    name: 因果連続性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果連続性）"]
+    requires: [lorentz-geometry.reflectivity, lorentz-geometry.distinguishing-spacetime]
+  - id: lorentz-geometry.chronological-volume-continuity
+    name: 因果連続時空の未来・過去体積関数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（因果連続時空の未来・過去体積関数）"]
+    requires: [lorentz-geometry.causal-continuity, lorentz-geometry.reflecting-outer-equivalence]
+  - id: lorentz-geometry.continuity-time-function
+    name: 因果連続性から時間関数へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因果連続性から時間関数へ）"]
+    requires: [lorentz-geometry.chronological-volume-continuity, lorentz-geometry.time-function, lorentz-geometry.chronological-regular-open]
+  - id: lorentz-geometry.causal-simplicity
+    name: 因果単純性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果単純性）"]
+    requires: [lorentz-geometry.causal-spacetime, lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.closed-causal-relation
+    name: 因果関係の閉性の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因果関係の閉性の特徴付け）"]
+    requires: [lorentz-geometry.causal-simplicity, lorentz-geometry.push-up]
+  - id: lorentz-geometry.simplicity-implies-continuity
+    name: 因果単純性は因果連続性を含意する
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因果単純性は因果連続性を含意する）"]
+    requires: [lorentz-geometry.causal-simplicity, lorentz-geometry.causal-continuity, lorentz-geometry.chronological-regular-open]
+  - id: lorentz-geometry.punctured-continuous-not-simple
+    name: 一点除去Minkowski時空は因果連続的だが因果単純でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一点除去Minkowski時空は因果連続的だが因果単純でない）"]
+    requires: [lorentz-geometry.causal-continuity, lorentz-geometry.causal-simplicity, lorentz-geometry.punctured-causal-nonclosed]
