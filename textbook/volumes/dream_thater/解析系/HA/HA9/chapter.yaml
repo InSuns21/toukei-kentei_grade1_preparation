@@ -1,0 +1,43 @@
+id: "HA9"
+title: "Mikhlin–Hörmander型Fourier乗数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FOU4
+  - HA5
+  - HA8
+  - GPDE2
+  - MT7
+official_scope: []
+learning_objectives:
+  - 有界Fourier乗数のL2定義とPlancherel評価を正規化付きで説明できる
+  - 多重指数とMikhlin型微分条件を定義しRiesz乗数に対して各条件を検算できる
+  - dyadic環帯への伸縮と繰り返し部分積分から核および勾配の尺度評価を証明できる
+  - 高周波と低周波の幾何級数を分けて標準Calderón–Zygmund核条件を導ける
+  - 台外核積分表示とL2有界性を検証しMikhlin–Hörmander型定理のLp評価を導ける
+  - Riesz変換、cutoff、Besselポテンシャルの適用条件と十分条件・端点の限界を区別できる
+definitions:
+  - { id: HA9-DEF-01, name: Fourier乗数作用素 }
+  - { id: HA9-DEF-02, name: Mikhlin型微分条件 }
+theorems:
+  - { id: HA9-PROP-01, name: 有界乗数のL2評価 }
+  - { id: HA9-LEM-01, name: 環帯乗数の核評価 }
+  - { id: HA9-LEM-02, name: 全周波数核と標準核条件 }
+  - { id: HA9-THM-01, name: Mikhlin–Hörmander型Fourier乗数定理 }
+canonical_examples:
+  - 周波数指示関数によるL2定義と不連続記号
+  - Riesz変換記号の零次同次性と微分減衰
+  - 滑らかなcutoffの伸縮と一様Lp評価
+  - Besselポテンシャル記号と符号sの境界
+  - 非有界記号でのL2推定の破綻
+problem_patterns:
+  - HA9-L2-PLANCHEREL
+  - HA9-MIKHLIN-HOMOGENEITY
+  - HA9-DYADIC-KERNEL-DECAY
+  - HA9-CZ-SUM
+  - HA9-OFFSUPPORT-LP
+  - HA9-BESSEL-CUTOFF
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
