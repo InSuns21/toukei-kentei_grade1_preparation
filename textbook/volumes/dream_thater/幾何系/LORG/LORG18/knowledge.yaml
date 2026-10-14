@@ -1,0 +1,50 @@
+chapter: LORG18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG8
+  - LORG14
+  - LORG16
+  - LORG17
+  - GEO17
+concepts:
+  - id: lorentz-geometry.maximizing-causal-curve
+    name: 最大化因果曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最大化因果曲線）"]
+    requires: [lorentz-geometry.time-separation, lorentz-geometry.lorentzian-length]
+  - id: lorentz-geometry.avez-seifert
+    name: Avez–Seifert定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Avez–Seifert：最大化因果曲線の存在）"]
+    requires: [lorentz-geometry.maximizing-causal-curve, lorentz-geometry.global-hyperbolicity, lorentz-geometry.compact-causal-curves, lorentz-geometry.causal-length-usc]
+  - id: lorentz-geometry.maximizer-subarcs
+    name: 最大化曲線の任意の部分曲線も最大化する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最大化曲線の任意の部分曲線も最大化する）"]
+    requires: [lorentz-geometry.maximizing-causal-curve, lorentz-geometry.length-additivity]
+  - id: lorentz-geometry.maximizer-geodesic
+    name: 最大化曲線の測地線としての規則性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最大化曲線の測地線としての規則性）"]
+    requires: [lorentz-geometry.maximizer-subarcs, lorentz-geometry.convex-normal-neighborhood, lorentz-geometry.timelike-local-length-max]
+  - id: lorentz-geometry.conjugate-point
+    name: 測地線に沿う共役点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測地線に沿う共役点）"]
+    requires: [geometry.conjugate-point, lorentz-geometry.lorentz-exponential-local]
+  - id: lorentz-geometry.cylinder-nonmaximizer
+    name: 共役点がなくても最大化しない測地線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共役点がなくても最大化しない測地線）"]
+    requires: [lorentz-geometry.conjugate-point, lorentz-geometry.maximizing-causal-curve]

@@ -1,0 +1,48 @@
+id: "LORG18"
+title: "最大化因果曲線とAvez–Seifert"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG8
+  - LORG14
+  - LORG16
+  - LORG17
+  - GEO17
+official_scope: []
+learning_objectives:
+  - 最大化因果曲線の定義を因果性・時間分離の有限性・長さの等号で判定できる
+  - 大域双曲性・限界曲線・長さの上半連続性を接続してAvez–Seifert定理を証明できる
+  - 最大化曲線の部分曲線が最大であることを置換論法で示せる
+  - 最大化曲線の局所測地線規則性と時間的・光的の区別を説明できる
+  - 指数写像の微分から共役点を定義し、最大性・測地完備性と区別できる
+  - 点除去時空と平坦円筒で最大性を失う異なる原因を診断できる
+definitions:
+  - { id: LORG18-DEF-01, name: 最大化因果曲線 }
+  - { id: LORG18-DEF-02, name: 測地線に沿う共役点 }
+theorems:
+  - { id: LORG18-THM-01, name: Avez–Seifert定理 }
+  - { id: LORG18-PROP-01, name: 最大化曲線の部分曲線 }
+  - { id: LORG18-PROP-02, name: 最大化曲線の測地線規則性 }
+  - { id: LORG18-PROP-03, name: 平坦円筒の非最大測地線 }
+canonical_examples:
+  - Minkowskiでの直線と折れ線の長さ比較
+  - 大域双曲性から最大曲線を抽出する構成
+  - 平坦円筒の巻き付きと共役点不在
+  - 有限時刻帯での最大化と測地不完備の共存
+  - 原点除去時空で有限上限が達成されない例
+problem_patterns:
+  - LORG18-MINKOWSKI-MAXIMIZER
+  - LORG18-NULL-MAXIMIZER
+  - LORG18-AVEZ-SEIFERT-COMPACTNESS
+  - LORG18-SUBARC-REPLACEMENT
+  - LORG18-CYLINDER-NONMAXIMAL
+  - LORG18-CONJUGATE-VS-CUT
+  - LORG18-INCOMPLETE-GH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 12, review: 7 }
