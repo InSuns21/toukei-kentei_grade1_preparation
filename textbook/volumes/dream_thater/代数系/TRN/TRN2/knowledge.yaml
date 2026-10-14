@@ -1,0 +1,62 @@
+chapter: TRN2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN1
+  - FLD1
+  - FLD2
+  - FLD4
+  - LA3C
+  - LA4
+forward_references:
+  - diophantine.liouville-inequality
+
+concepts:
+  - id: transcendence.rational-conjugates
+    name: 共役根と埋め込みによる共役値
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共役根と埋め込みによる共役値）]
+    requires: [algebra.minimal-polynomial, algebra.field-embedding, algebra.characteristic-zero-separability]
+
+  - id: transcendence.field-trace-norm
+    name: 体拡大の跡とノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（体拡大の跡とノルム）]
+    requires: [algebra.extension-degree, linear.characteristic-polynomial]
+
+  - id: transcendence.conjugate-formula
+    name: 共役による跡・ノルムの公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共役による跡・ノルムの公式）]
+    requires: [transcendence.rational-conjugates, transcendence.field-trace-norm, algebra.finite-separable-embedding-count, linear.cayley-hamilton-theorem]
+
+  - id: transcendence.integral-conjugates
+    name: 代数的整数の共役と最小多項式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（代数的整数の共役と最小多項式）]
+    requires: [transcendence.rational-conjugates, transcendence.integral-ring, transcendence.rational-integral]
+
+  - id: transcendence.integral-trace-norm
+    name: 代数的整数の跡・ノルムの整数性と非零性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（代数的整数の跡・ノルムの整数性と非零性）]
+    requires: [transcendence.conjugate-formula, transcendence.integral-conjugates]
+
+  - id: transcendence.conjugate-lower-bound
+    name: 共役の上界から得られる下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [系（共役の上界から得られる下界）]
+    requires: [transcendence.integral-trace-norm]
+
+  - id: transcendence.denominator-clearing
+    name: 有限個の代数的数の共通分母消去
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限個の代数的数の共通分母消去）]
+    requires: [algebra.algebraic-element, transcendence.algebraic-integer, transcendence.integral-ring]
