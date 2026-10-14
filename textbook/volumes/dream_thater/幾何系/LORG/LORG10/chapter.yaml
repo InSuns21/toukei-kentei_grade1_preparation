@@ -1,0 +1,58 @@
+id: "LORG10"
+title: "因果階層 II：strongとstable"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+official_scope: []
+learning_objectives:
+  - 強因果性を大域的因果的凸近傍の存在として定義しMinkowskiで直接確認できる
+  - Alexandrov近傍基底と強因果性の同値を両方向で証明できる
+  - 強因果性からcausalityと両側distinguishingを導ける
+  - 点除去円筒の再侵入曲線を計量と端点から構成できる
+  - 安定因果性を厳密な光円錐拡大により定義し実例を検算できる
+  - 連続時間関数とtemporal functionの違いを説明できる
+  - temporal functionから安定因果性の証人を具体的に作り強因果性も証明できる
+  - 安定因果性と時間関数の一般同値の外部定理部分を未証明部分と区別できる
+definitions:
+  - { id: LORG10-DEF-01, name: 強因果性 }
+  - { id: LORG10-DEF-02, name: 安定因果性 }
+  - { id: LORG10-DEF-03, name: 時間関数とtemporal function }
+theorems:
+  - { id: LORG10-THM-01, name: 強因果性とAlexandrov近傍基底 }
+  - { id: LORG10-PROP-01, name: 強因果的時空はcausal }
+  - { id: LORG10-THM-02, name: 強因果性から未来・過去識別性へ }
+  - { id: LORG10-PROP-02, name: 一点除去円筒はcausalだが強因果的でない }
+  - { id: LORG10-LEM-01, name: temporal functionの厳密単調性 }
+  - { id: LORG10-THM-03, name: temporal functionの存在は安定因果性を保証する }
+  - { id: LORG10-THM-04, name: temporal functionがあれば強因果的 }
+  - { id: LORG10-THM-05, name: 時間関数による安定因果性の特徴付け（一般定理を明示引用） }
+  - { id: LORG10-THM-06, name: 因果階層：strong / stableの位置 }
+canonical_examples:
+  - Minkowski時空の小Alexandrovダイヤモンド
+  - Minkowski計量の厳密な光円錐拡大
+  - 点除去円筒の閉じない未来時間的再侵入曲線
+  - temporal functionの勾配と明示的な拡大計量
+  - 時間関数だがtemporal functionでないtの3乗
+problem_patterns:
+  - LORG10-MINKOWSKI-DIAMOND
+  - LORG10-LOCAL-GLOBAL-CONVEXITY
+  - LORG10-CONE-WIDENING
+  - LORG10-TEMPORAL-GRADIENT
+  - LORG10-ALEXANDROV-BASIS
+  - LORG10-PUNCTURED-REENTRY
+  - LORG10-METRIC-SPLITTING
+  - LORG10-CONFORMAL-VS-WIDENING
+  - LORG10-CAUSAL-LADDER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 6 }
