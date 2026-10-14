@@ -331,7 +331,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q(\gamma)=\deg\gamma$ とします。合成次数の乗法性と[倍数写像の定理](#thm-ec4-multiplication-degree)から $q([m]\gamma)=m^2q(\gamma)$ です。[平行四辺形則](#lem-ec4-x-difference)を用いて $B(u,v)=q(u+v)-q(u)-q(v)$ と置けば
+$q(\gamma)=\deg\gamma$ とします。[射の次数](#def-ec4-degree)で確認した合成則と[倍数写像の次数](#thm-ec4-multiplication-degree)から $q([m]\gamma)=m^2q(\gamma)$ です。[平行四辺形則](#lem-ec4-x-difference)を用いて $B(u,v)=q(u+v)-q(u)-q(v)$ と置けば
 
 $$
 q(u+v)+q(u-v)=2q(u)+2q(v)
@@ -558,7 +558,15 @@ $
 
 <!-- formal-statement-start -->
 > **定義（楕円曲線の自己準同型環）**  
-> $K$ 上の楕円曲線 $E$ について、$E\to E$ の原点を保つ射（零写像を含む）の集合を $\operatorname{End}(E)$ とする。和は $(\alpha+\beta)(P)=\alpha(P)+\beta(P)$、積は写像の合成 $\alpha\beta=\alpha\circ\beta$ と定める。
+> $K$ 上の楕円曲線 $E$ について、原点を保つ射 $E\to E$（零写像を含む）の集合を $\operatorname{End}(E)$ とする。和と積をそれぞれ
+
+$
+(\alpha+\beta)(P)=\alpha(P)+\beta(P),
+\qquad
+\alpha\beta=\alpha\circ\beta
+$
+
+> と定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec4-endo-ring -->
