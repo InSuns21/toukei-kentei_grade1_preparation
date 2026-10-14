@@ -102,7 +102,7 @@ try {
     return reply.result?.value;
   };
   const waitFor = async (expression) => {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 240; i++) {
       const value = await evaluate(expression);
       if (value) return value;
       await new Promise((resolve) => setTimeout(resolve, 100));
@@ -150,6 +150,14 @@ try {
 
   // The standalone page must install and control the root-scoped Service
   // Worker itself. A prior visit to the main Docsify shell is not assumed.
+  // First-visit registration does not guarantee control of the *already*
+  // loaded document. Wait for activation, then navigate under the controller.
+  // This distinguishes an activation problem from the expected first-load race.
+  if (!await evaluate('Boolean(navigator.serviceWorker?.controller)')) {
+    await waitFor('navigator.serviceWorker.getRegistration().then(r => r?.active?.state === "activated")');
+    await cdp("Page.reload", { ignoreCache: false });
+    await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+  }
   await waitFor('Boolean(navigator.serviceWorker?.controller)');
   const shellCached = await waitFor(`(async () => {
     const keys = await caches.keys();
