@@ -63,7 +63,12 @@ $$
 つまり特別に付け足した値も連続な極限と一致します。
 <!-- definition-example-end -->
 
-[CA9の三次曲線表示](../../../解析系/CA/CA9/index.md#thm-ca9-torus-cubic-parametrization)は $(\wp,\wp')$ の単射・全射を証明しています。$y$ 座標だけ2で割る変換は可逆なので、$\Phi_\Lambda$ も全単射です。正則性も局所座標で確認できます。$[0]$ では $t=-x/y=-z+O(z^5)$ が曲線の局所座標です。有限点で $\wp'(z)\ne0$ なら $x=\wp(z)$ が局所座標となり、導関数 $\wp'(z)$ は非零です。一方 $\wp'(z)=0$ は [CA9の半周期における単純零点](../../../解析系/CA/CA9/index.md#thm-ca9-half-period-critical-points)に限られ、そこで $\wp''(z)\ne0$ です。曲線側では $y=\wp'/2$ が局所座標となり、その導関数は $\wp''/2\ne0$ です。従ってどの点でも局所双正則であり、全単射性と合わせて双正則です。ただし**全単射であるだけでは、まだ群準同型とはいえません**。
+[CA9の三次曲線表示](../../../解析系/CA/CA9/index.md#thm-ca9-torus-cubic-parametrization)は $(\wp,\wp')$ の単射・全射を証明しています。$y$ 座標だけ2で割る変換は可逆なので、$\Phi_\Lambda$ も全単射です。正則性も局所座標で確認できます。
+
+$[0]$ では $t=-x/y=-z+O(z^5)$ が曲線の局所座標です。有限点で $\wp'(z)\ne0$ なら $x=\wp(z)$ が局所座標となり、導関数 $\wp'(z)$ は非零です。
+一方 $\wp'(z)=0$ は [CA9の半周期における単純零点](../../../解析系/CA/CA9/index.md#thm-ca9-half-period-critical-points)に限られ、そこで $\wp''(z)\ne0$ です。曲線側では $y=\wp'/2$ が局所座標となり、その導関数は $\wp''/2\ne0$ です。
+
+従ってどの点でも局所双正則であり、全単射性と合わせて双正則です。ただし**全単射であるだけでは、まだ群準同型とはいえません**。
 
 ## 2. 割線の傾きから加法の一致を証明する
 
@@ -308,7 +313,11 @@ H(s,t)=\left[(1-s)G_\gamma(t)+sG_\ell(t)\right]
 \qquad(0\le s,t\le1)
 $
 
-はトーラス上の端点固定ホモトピーです。[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)と[端点固定ホモトピーの終点不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)を被覆 $\mathcal A$ に適用すると、$O$ から始めた二経路 $\gamma,\ell$ の終点は一致します。$\ell$ の終点は $O$ なので $P=O$。よって $\mathcal A^{-1}([0])=\{O\}$ です。連結な標的上では被覆の枚数は一定なので全てのファイバーが一点であり、$\mathcal A$ は一対一、従って双正則です。
+はトーラス上の端点固定ホモトピーです。[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)と[端点固定ホモトピーの終点不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)を被覆 $\mathcal A$ に適用すると、 
+$O$ から始めた二経路 $\gamma,\ell$ の終点は一致します。 
+
+$\ell$ の終点は $O$ なので $P=O$。よって $\mathcal A^{-1}([0])=\{O\}$ です。
+連結な標的上では被覆の枚数は一定なので全てのファイバーが一点であり、$\mathcal A$ は一対一、従って双正則です。
 
 **(3) 逆写像と $\wp$ の一致。** $\psi=\mathcal A^{-1}$ とし、$X(z)=x(\psi([z]))$、$Y(z)=y(\psi([z]))$ と置きます。$\mathcal A$ の定義より $\psi^*\omega=dz$ なので
 
@@ -463,7 +472,21 @@ $$
 
 **(3) 格子の分類。** $\Lambda'=a\Lambda$ なら [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)から $g_2'=a^{-4}g_2$、$g_3'=a^{-6}g_3$ なので $j(\Lambda')=j(\Lambda)$。
 
-逆に $j(\Lambda)=j(\Lambda')$ なら上の曲線の結論と第3節の一様化により、$\mathbb C/\Lambda\to\mathbb C/\Lambda'$ の原点を保つ双正則な群同型 $f$ が存在します。商写像を $q_\Lambda,q_{\Lambda'}$ と書きます。$f\circ q_\Lambda:\mathbb C\to\mathbb C/\Lambda'$ を $F(0)=0$ から持ち上げるには、任意の $z$ へ至る平面内の経路を取り、[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)を $q_{\Lambda'}$ に適用します。$\mathbb C$ は単連結なので二経路は端点固定ホモトピーで結ばれ、[持ち上げ終点の不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)から得られる $F(z)$ は経路によらず一意です。$q_{\Lambda'}\circ F=f\circ q_\Lambda$ が成り立ち、局所的には被覆の正則な逆枝を使うので $F$ も正則です。加法保存から
+逆に $j(\Lambda)=j(\Lambda')$ なら上の曲線の結論と第3節の一様化により、$\mathbb C/\Lambda\to\mathbb C/\Lambda'$ の原点を保つ双正則な群同型 $f$ が存在します。商写像を $q_\Lambda,q_{\Lambda'}$ と書きます。
+
+$f\circ q_\Lambda:\mathbb C\to\mathbb C/\Lambda'$ を $F(0)=0$ から持ち上げるには、任意の $z$ へ至る平面内の経路を取り、その像へ[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)を $q_{\Lambda'}$ に適用します。
+
+平面内で $0$ から $z$ への二経路 $\gamma_0,\gamma_1$ に対して
+
+$
+H(s,t)=(1-s)\gamma_0(t)+s\gamma_1(t)
+$
+
+は両端点を固定したホモトピーです。これに $f\circ q_\Lambda$ を合成すると標的トーラス上の端点固定ホモトピーが得られるため、[持ち上げ終点の不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)から得られる $F(z)$ は経路によらず一意です。
+
+$q_{\Lambda'}\circ F=f\circ q_\Lambda$ が成り立ち、局所的には被覆の正則な逆枝を使うので $F$ も正則です。
+
+加法保存から
 
 $$
 F(u+v)-F(u)-F(v)\in\Lambda'
