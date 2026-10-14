@@ -1,4 +1,4 @@
-# LORG17 Lorentz時間分離と曲線長の極限
+# LORG17 Lorentz時間分離とLorentz長さの極限
 
 <!-- definition-example-audit: strict -->
 
@@ -164,7 +164,32 @@ $$
 逆に $p\ll q$ なら、定義上 $p$ から $q$ の未来時間的な区分的 $C^1$ 曲線が取れます。その非零時間的速度を持つ区間では被積分関数が正なので $L_g(\gamma)>0$、従って $d_g(p,q)>0$ です。$\square$
 <!-- proof-end -->
 
-## 4. なぜ「曲線列の収束」だけで長さの収束を結論できないか
+## 4. なぜ「曲線の一様収束」は長さの収束を保証しないか
+
+連続性を調べる前に、上側・下側のどちらの極限不等式を主張しているかを定義します。「曲線の集合」も、一様距離で曲線どうしの近さを測れば距離空間になります。
+
+<a id="def-lorg17-semicontinuity"></a>
+
+<!-- formal-statement-start -->
+> **定義（上半連続性と下半連続性）**  
+> 距離空間 $X$ 上の関数 $f:X\to[0,+\infty]$ を考える。任意の点列 $x_k\to x$ に対し
+>
+$
+\limsup_{k\to\infty}f(x_k)\le f(x)
+$
+>
+> が成り立つとき $f$ は**上半連続**であるという。一方、
+>
+$
+f(x)\le\liminf_{k\to\infty}f(x_k)
+$
+>
+> が成り立つとき $f$ は**下半連続**であるという。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lorg17-semicontinuity -->
+**定義の確認**。$X=\mathbb R$ 上で $f(0)=1$、$f(x)=0$（$x\ne0$）とすると、$x=0$ へ近づく任意の列で $\limsup f(x_k)\le1=f(0)$ です。他の点の近傍では恒等的に零なので $f$ は上半連続です。しかし $x_k=1/k$ なら $\liminf f(x_k)=0<1=f(0)$ で、下半連続ではありません。$h=1-f$ とすれば逆に $h$ は下半連続ですが上半連続ではありません。両方成立する場合が通常の連続性です。
+<!-- definition-example-end -->
 
 [LORG14の限界曲線補題](../LORG14/index.md#thm-lorg14-limit-curve)は、一様Lipschitzに正規化した因果曲線列から極限因果曲線を抽出する道具です。しかし曲線の位置が一様収束しても、速度が一様収束するとは限りません。
 
@@ -193,7 +218,7 @@ $$
 <a id="def-lorg17-upper-semicontinuity"></a>
 
 <!-- formal-statement-start -->
-> **定義（曲線長の上半連続性）**  
+> **定義（Lorentz長さの上半連続性）**  
 > 共通のコンパクトパラメータ区間 $[0,1]$ に定義された未来因果曲線 $\gamma_k$ が $\gamma$ に一様収束するとき、
 >
 $$
@@ -364,7 +389,7 @@ $d_g(p,q)=0$ は非負性で即座に処理できます。正の場合、ほぼ�
 <!-- proof-start -->
 ### 証明
 
-$d_g(p,q)=0$ なら、すべての $d_g(p_k,q_k)\ge0$ から成立します。$d_g(p,q)>0$ とし、任意の有限 $A<d_g(p,q)$ を取ります。上限の定義から、$p$ と $q$ を結ぶ長さ $L_g(\gamma)>A$ の未来因果曲線があります。[正の時間分離の命題](#prop-lorg17-positive)により $p\ll q$ です。
+$d_g(p,q)=0$ なら、すべての $d_g(p_k,q_k)\ge0$ から成立します。$d_g(p,q)>0$ とし、任意の有限 $A<d_g(p,q)$ を取ります。上限の定義から、$p$ と $q$ を結ぶ長さ $L_g(\gamma)>A$ の未来因果曲線があります。[正の時間分離と時間的到達](#prop-lorg17-positive)により $p\ll q$ です。
 
 [時間的折れ線近似](#lem-lorg17-timelike-approximation)を十分良い精度で行い、$L_g(\beta)>A$ を満たす時間的折れ線 $\beta$ を取ります。両端から非常に短い部分を切り落として中間端点 $a,b$ を選べば、
 
@@ -450,7 +475,7 @@ $$
 L_g(p\to r_\varepsilon\to q)=2\sqrt{1-\varepsilon^2}\longrightarrow2.
 $$
 
-一方、どの曲線も元のMinkowskiにおける[端点長さ不等式](../LORG3/index.md#thm-lorg3-minkowski-length-bound)により長さは $2$ 以下。従って
+一方、[Minkowski時空における端点とLorentz長さ](../LORG3/index.md#thm-lorg3-minkowski-length-bound)を任意の因果曲線に適用すると長さは $2$ 以下です。従って
 
 $$
 d_{M_*}(p,q)=2.
@@ -471,7 +496,7 @@ $$
 $p=(0,0)$、$q=(13,5)$ の時間分離を求め、上限を実現する具体的曲線を一本示せ。
 
 <!-- solution-start -->
-**詳細解答**。$\Delta t=13\ge5=|\Delta x|$ なので因果的です。[Minkowski時間分離公式](#thm-lorg17-minkowski-formula)により
+**詳細解答**。$\Delta t=13\ge5=|\Delta x|$ なので因果的です。[Minkowski時空の時間分離](#thm-lorg17-minkowski-formula)により
 
 $$
 d_\eta(p,q)=\sqrt{13^2-5^2}=\sqrt{169-25}=12.
@@ -681,6 +706,6 @@ $$
 
 ## 8. 次の講への接続
 
-この講で、時間分離は**曲線長の上限**であり、Minkowskiの公式、逆三角不等式、任意の滑らかな時空での下半連続性、大域双曲時空での連続性を得ました。曲線長が極限に対して上半連続なことも確認しました。
+この講で、時間分離は**Lorentz長さの上限**であり、Minkowskiの公式、逆三角不等式、任意の滑らかな時空での下半連続性、大域双曲時空での連続性を得ました。Lorentz長さが極限に対して上半連続なことも確認しました。
 
 まだ**上限が必ず実現される**とは証明していません。次のLORG18では、大域双曲性の下で長さが上限に近づく曲線列を取り、今準備したコンパクト性と上半連続性によって最大化曲線の存在を証明します。
