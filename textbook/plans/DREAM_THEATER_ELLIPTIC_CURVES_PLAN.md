@@ -179,7 +179,7 @@
 - Euler 積 $L(E,s)=\prod_pL_p(E,s)$、Hasse 評価からの **絶対収束域 $\Re(s)>3/2$**（各素数項の大きさと素数和の比較を示す）。
 - 複素 $s$ 全体への解析接続と
   $\Lambda(E,s)=N_E^{s/2}(2\pi)^{-s}\Gamma(s)L(E,s)$,
-  $\Lambda(E,s)=w_E\Lambda(E,2-s)$（$w_E\in\{\pm1\}$）を、**現代では $\mathbb Q$ 上の楕円曲線について modularity から従う定理**として記す。Euler 積の収束域から勝手に解析接続を導かない。
+  $\Lambda(E,s)=w_E\Lambda(E,2-s)$（$w_E\in\{\pm1\}$）を、**現在では $\mathbb Q$ 上の楕円曲線について modularity から従う定理**として結果先行で述べ、根拠の接続先は MF8 と明示する。Euler 積の収束域から勝手に解析接続を導かない。
 - 予想 BSD への入口として、解析的 rank と $E(\mathbb Q)$ の代数的 rank の等しさを**予想**として述べる。例で L の係数と有限体の点数を照合する。
 
 ### EC11 モジュラー形式との照合と modularity interface
@@ -195,23 +195,18 @@
 ## 4. 章間 DAG と MF との合流
 
 ~~~text
-GRP/RNG/FLD + NT1〜4
-     │
-     ↓
-EC1 → EC2 ───────────→ EC4 ──────────→ EC7 → EC8 ─┐
-        │                 ├→ EC6                    │
-        ├→ EC5 ─────────→ EC6                       │
-        │                 │                         │
-CA8→CA9└→ EC3             └─────────────────────────┤
-                                                   ↓
-                            EC1 + EC7 + EC8 → EC9 → EC10
-                                                   │
-CA8/9/12 → MF1 → MF2 → MF3 → MF4 → MF5 → MF6 → MF7 ┤
-                                                   ↓
-                                                  EC11
-                                                   ↓
-                                                  MF8
-                                         （modularity / FLT）
+GRP/RNG/FLD + NT1〜4 → EC1 → EC2
+                               ├→ EC3 ← CA8/CA9
+                               ├→ EC4 ─┬→ EC7 → EC8
+                               │       └→ EC6
+                               └→ EC5 ───→ EC6
+
+EC1 + EC7 → EC9（還元と導手）
+EC8 + EC9 → EC10（L 関数）
+
+CA8/CA9/CA12 + 必要な ANT → MF1 → ... → MF7
+EC10 + MF7 → EC11（係数・局所因子・level の比較）
+EC11 + MF7 → MF8（modularity theorem / FLT）
 ~~~
 
 この図は**学習上の概形**であり、横列を全章の自動 prerequisite にしない。例えば EC9 は EC6 の descent を使わないので依存させない。EC5 は EC4 の isogeny 一般論を待たず始められる。EC11 は MF7 を読み、MF7 は EC11 を読まない。
