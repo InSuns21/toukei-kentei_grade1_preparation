@@ -806,6 +806,11 @@
 7. [NDA7 Thue–Siegel–Rothの定理](textbook/volumes/dream_thater/代数系/NDA/NDA7/index.md)
 8. [NDA8 計量的Diophantine近似](textbook/volumes/dream_thater/代数系/NDA/NDA8/index.md)
 
+<a id="dt-subject-transcendental-number-theory"></a>
+### 超越数論Ⅰ
+
+1. [TRN1 代数的整数と有限生成加群の判定](textbook/volumes/dream_thater/代数系/TRN/TRN1/index.md)
+
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
 

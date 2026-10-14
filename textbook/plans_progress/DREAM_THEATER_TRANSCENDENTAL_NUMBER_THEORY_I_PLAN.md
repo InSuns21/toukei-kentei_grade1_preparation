@@ -2,7 +2,7 @@
 
 作成日: 2026-10-11  
 改訂日: 2026-10-14（標準教科書・自足的証明資料との照合）  
-状態: planned（PLAN設計のみ。TRN本文・manifestは未実装）
+状態: in progress（TRN1本文・manifestを実装、TRN2–TRN14および横断監査は未完了）
 
 ## 0. 中心問いと到達点
 
@@ -229,8 +229,8 @@ $$
 
 ## 6. ライフサイクル・直接参照
 
-- 本改訂は**計画の推敲のみ**であり、TRN章本文・TRN series manifest・公開索引・knowledge DAGは追加しない。したがってPLANは `textbook/plans/` に残す。
-- TRN1の実装に着手する際にPLANを `textbook/plans_progress/` へ**移動**し、TRN系列manifestの `plan` 参照を合わせる。全章・横断監査・公開導線が完了したら `textbook/plan_done/` へ移動する。
+- 2026-10-14にTRN1本文・TRN系列manifest・公開索引を追加して計画固有作業を開始したため、PLANは `textbook/plans_progress/` に置く。残るTRN2–TRN14と横断監査の完了までは移動しない。
+- TRN系列manifestの `plan` は現在の `textbook/plans_progress/` を参照する。全章・横断監査・公開導線が完了したら `textbook/plan_done/` へ移動する。
 - SQC7との既存インターフェースは**TRN11のHermite–Lindemann**のまま維持。SQCはTRN11未実装の間は証明済みの定理への実リンクと混同しない。
 - 参照先の状態は着手時に再確認する。NDA5–6は2026-10-14のGitHub上のseries manifestでcompletedである。
 
@@ -241,9 +241,11 @@ $$
 3. Sever Angel Popescu, *A simple and self-contained proof for the Lindemann-Weierstrass theorem*, arXiv:2306.14352v2 (2023), §§1–3. https://arxiv.org/abs/2306.14352
 4. Michel Waldschmidt, *Introduction to Diophantine methods: irrationality and transcendence* (2007), course notes and exercises. https://webusers.imj-prg.fr/~michel.waldschmidt/coursHCMUNS2007.html
 5. *Encyclopedia of Mathematics*, “Lindemann theorem / Lindemann–Weierstrass theorem” (定理の二つの形式・歴史上の帰属の確認). https://encyclopediaofmath.org/wiki/Lindemann%E2%80%93Weierstrass_theorem
-6. 既存の[古典円積PLAN](DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)、[整数論横断ルート](DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)および[完成済みNDA6](../volumes/dream_thater/代数系/NDA/NDA6/index.md)。
+6. 既存の[古典円積PLAN](../plans/DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)、[整数論横断ルート](../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)および[完成済みNDA6](../volumes/dream_thater/代数系/NDA/NDA6/index.md)。
 
 ## 8. 現在地
 
 - 2026-10-11：旧「超越数論の証明補講」から14章の独立科目として設計。本文・演習は未実装。
-- 2026-10-14：標準教科書とPopescuの証明を照合。NDA6の完成を反映し、TRN11の出口を保持しながら、有理係数版 → 代数的独立性 → 係数体ノルム → 一般版の証明ルートを明示。**設計のみ、実装未着手。**
+- 2026-10-14：標準教科書とPopescuの証明を照合。NDA6の完成を反映し、TRN11の出口を保持しながら、有理係数版 → 代数的独立性 → 係数体ノルム → 一般版の証明ルートを明示。**この段階では設計のみ、実装未着手。**
+
+- 2026-10-14：TRN1の本文、8演習・詳細解答、chapter/knowledge metadata、TRN系列manifest、公開目次・索引を追加。TRN2–TRN14と横断監査は未着手。

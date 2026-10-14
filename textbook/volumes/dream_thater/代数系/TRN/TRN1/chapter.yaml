@@ -1,0 +1,41 @@
+id: "TRN1"
+title: "代数的整数と有限生成加群の判定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD1
+  - LA3C
+  - LA4
+  - MOD1
+official_scope: []
+learning_objectives:
+  - 代数的数と代数的整数の違いを最高次係数と例で説明できる
+  - 有理な代数的整数がちょうど通常の整数であることを既約分数から証明できる
+  - 有限生成Z加群の乗法安定性を生成元から任意の元へ延ばして検証できる
+  - 有限生成加群判定の両方向を行列式と余因子行列を用いて証明できる
+  - 生成元が基底でなくても行列式の証明が成立する理由を説明できる
+  - 共通の有限生成加群を構成し代数的整数の和・差・積の閉性を証明できる
+definitions:
+  - { id: TRN1-DEF-01, name: モニック多項式 }
+  - { id: TRN1-DEF-02, name: 代数的整数 }
+  - { id: TRN1-DEF-04, name: 乗法に安定な有限生成加群 }
+theorems:
+  - { id: TRN1-PROP-01, name: 有理な代数的整数の特徴づけ }
+  - { id: TRN1-THM-01, name: 有限生成加群による代数的整数の判定 }
+  - { id: TRN1-THM-02, name: 代数的整数の和・差・積 }
+canonical_examples:
+  - sqrt2のモニック関係と二元生成加群
+  - 黄金比のモニック関係と乗法行列
+  - 1/2が代数的でも代数的整数ではない反例
+  - sqrt2とsqrt3の四元生成加群
+problem_patterns:
+  - TRN1-MONIC-CHECK
+  - TRN1-RATIONAL-INTEGER-ROOT
+  - TRN1-MODULE-STABILITY
+  - TRN1-ADJUGATE-CRITERION
+  - TRN1-INTEGRAL-CLOSURE
+  - TRN1-DEPENDENT-GENERATORS
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
