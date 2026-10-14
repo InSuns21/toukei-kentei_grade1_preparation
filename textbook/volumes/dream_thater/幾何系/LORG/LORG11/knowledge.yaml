@@ -12,6 +12,7 @@ prerequisites:
   - LORG8
   - LORG9
   - LORG10
+  - F0-00D2C
 concepts:
   - id: lorentz-geometry.chronological-regular-open
     name: 時間的未来・過去の正則開性
@@ -54,7 +55,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: ["補題（因果連続時空の未来・過去体積関数）"]
-    requires: [lorentz-geometry.causal-continuity, lorentz-geometry.reflecting-outer-equivalence]
+    requires: [lorentz-geometry.causal-continuity, lorentz-geometry.reflecting-outer-equivalence, measure.tonelli-theorem]
   - id: lorentz-geometry.continuity-time-function
     name: 因果連続性から時間関数へ
     kind: theorem
