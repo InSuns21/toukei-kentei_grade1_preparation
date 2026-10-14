@@ -811,6 +811,7 @@
 ### 超越数論Ⅰ
 
 1. [TRN1 代数的整数と有限生成加群の判定](textbook/volumes/dream_thater/代数系/TRN/TRN1/index.md)
+2. [TRN2 共役・跡・ノルム・分母消去](textbook/volumes/dream_thater/代数系/TRN/TRN2/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論

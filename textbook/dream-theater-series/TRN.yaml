@@ -11,7 +11,7 @@ chapters:
     title: "代数的整数と有限生成加群の判定"
   - id: TRN2
     path: textbook/volumes/dream_thater/代数系/TRN/TRN2
-    status: planned
+    status: completed
     title: "共役・跡・ノルム・分母消去"
   - id: TRN3
     path: textbook/volumes/dream_thater/代数系/TRN/TRN3
