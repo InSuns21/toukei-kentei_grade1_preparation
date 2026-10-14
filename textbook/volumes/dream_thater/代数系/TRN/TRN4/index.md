@@ -141,7 +141,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f$ と $F_f$ は多項式で、指数関数も整関数ですから、$G(z)=e^{-z}F_f(z)$ は全平面で正則です。[微分和の望遠鏡恒等式](#prop-trn4-telescoping)から $G'(z)=-e^{-z}f(z)$ であり、線分 $\gamma_{a,b}$ は区分的 $C^1$ 曲線なので、[CA2の複素線積分の基本定理](../../../解析系/CA/CA2/index.md#thm-ca2-fundamental-theorem)を $G'$ と $\gamma_{a,b}$ に適用できます。よって
+$f$ と $F_f$ は多項式で、指数関数も整関数です。従って、$G(z)=e^{-z}F_f(z)$ は全平面で正則です。
+
+[微分和の望遠鏡恒等式](#prop-trn4-telescoping)から $G'(z)=-e^{-z}f(z)$ が得られます。
+
+また線分 $\gamma_{a,b}$ は区分的 $C^1$ 曲線なので、[CA2の複素線積分の基本定理](../../../解析系/CA/CA2/index.md#thm-ca2-fundamental-theorem)を $G'$ と $\gamma_{a,b}$ に適用できます。よって
 
 $$
 \begin{aligned}
