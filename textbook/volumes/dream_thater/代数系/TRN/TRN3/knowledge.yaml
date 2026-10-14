@@ -9,13 +9,6 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: transcendence.liouville-criterion-reformulation
-    name: Liouville型の超越性判定の量化読み替え
-    kind: proposition
-    introduction: formal
-    introduction_aliases: [命題（Liouville型の超越性判定）]
-    requires: [diophantine.liouville-transcendence, diophantine.liouville-inequality]
-
   - id: transcendence.e-irrational-factorial
     name: 階乗級数によるeの無理性
     kind: theorem
