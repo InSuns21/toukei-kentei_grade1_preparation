@@ -95,7 +95,7 @@ $$
 <a id="def-ec1-invariants"></a>
 
 <!-- formal-statement-start -->
-> **定義（Weierstrass不変量・判別式・$j$ 不変量）**  
+> **定義（Weierstrass不変量と判別式）**  
 > 体 $k$ 上の一般Weierstrass方程式について、上の $b_2,b_4,b_6,b_8$ を用い、
 
 $$
