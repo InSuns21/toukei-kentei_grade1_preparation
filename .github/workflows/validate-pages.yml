@@ -82,4 +82,6 @@ jobs:
 
       - name: Smoke interactive simulation in Chromium
         if: steps.scope.outputs.full == 'true'
-        run: npm run validate:simulation-browser
+        run: |
+          npm run validate:simulation-browser
+          node scripts/validate-celev8-browser.mjs
