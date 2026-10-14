@@ -5,7 +5,7 @@
 
 ## 中心問いと直接依存
 
-CA8/9/12、GRP3、[NT2〜4](DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)。MF8のmodularityで[EC11](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)の算術との橋を扱う。MF1〜MF7へEC11を逆向きの必須前提として課さない。
+CA8/9/12、GRP3、[NT2〜4](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)。MF8のmodularityで[EC11](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)の算術との橋を扱う。MF1〜MF7へEC11を逆向きの必須前提として課さない。
 
 **本科目の正本：** modular group・q展開・Hecke作用素・L関数とmodularityの橋。
 
@@ -116,7 +116,7 @@ CA12 の theta--Mellin 構成を prototype として再利用する。
 - local Euler factor
 - conductor / level dictionary
 - weight 2 newform
-- EC7 の有限体の点数と (a_p(E)) の定義は比較対象として紹介し、実際の係数一致は EC11 / MF8 で扱う（MF7 の必須prerequisiteではない）
+- EC7 の有限体の点数と $a_p(E)$ の定義は比較対象として紹介し、実際の係数一致は EC11 / MF8 で扱う（MF7 の必須prerequisiteではない）
 
 ## MF8 Modularity Theorem と Fermat の最終定理への橋
 
