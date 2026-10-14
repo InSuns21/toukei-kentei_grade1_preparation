@@ -35,7 +35,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（正の時間分離と時間的到達）"]
-    requires: [lorentz-geometry.time-separation, lorentz-geometry.push-up-lemma]
+    requires: [lorentz-geometry.time-separation, lorentz-geometry.push-up]
   - id: lorentz-geometry.length-upper-semicontinuity
     name: 曲線長の上半連続性
     kind: definition
@@ -65,7 +65,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（時間分離の下半連続性）"]
-    requires: [lorentz-geometry.time-separation, lorentz-geometry.timelike-polygon-approximation, lorentz-geometry.chronological-open]
+    requires: [lorentz-geometry.time-separation, lorentz-geometry.timelike-polygon-approximation, lorentz-geometry.chronological-futures-open]
   - id: lorentz-geometry.gh-time-separation-continuity
     name: 大域双曲的時空での時間分離の有限性と連続性
     kind: theorem
