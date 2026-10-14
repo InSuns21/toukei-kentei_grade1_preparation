@@ -1,0 +1,45 @@
+id: "EC5"
+title: "有理数体上のtorsion・高さの入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC4
+official_scope: []
+learning_objectives:
+  - 有理torsion部分群と有理2位数点を定義から判定できる
+  - 有理点の平方・立方分母を素数指数で導き無限遠点近傍の加法を計算できる
+  - 原点近傍の整数係数形式群から有限位数点の整数性を証明できる
+  - Nagell–Lutz定理の整数性と判別式による割り切り条件を証明してtorsion候補を絞れる
+  - 整数座標の必要条件と有限位数判定の十分条件を区別し群則で候補を検査できる
+  - 有理数の対数的高さと有界高さの有限性を証明できる
+  - 倍加の同次四次式とBézout等式を用いて高さの両側評価を証明できる
+  - 正規高さの収束と倍加則および正規高さゼロとtorsionの同値を証明できる
+definitions:
+  - { id: EC5-DEF-01, name: 有理torsion部分群 }
+  - { id: EC5-DEF-02, name: 有理数の対数的高さ }
+  - { id: EC5-DEF-03, name: 正規高さ }
+theorems:
+  - { id: EC5-LEM-01, name: 分母の平方・立方形 }
+  - { id: EC5-LEM-02, name: 原点近傍の加法とtorsionの排除 }
+  - { id: EC5-THM-01, name: Nagell–Lutz定理 }
+  - { id: EC5-LEM-03, name: 有界高さの有限性 }
+  - { id: EC5-THM-02, name: x座標の倍加高さ評価 }
+  - { id: EC5-THM-03, name: 正規高さの存在とtorsion判定 }
+canonical_examples:
+  - y²=x³+1のtorsion群Z/6Zと候補の全照合
+  - y²=x³-2上の整数点(3,5)が無限位数となる反例
+  - t=-x/y,w=-1/yの原点近傍加法とp進指数による非torsion判定
+  - (3,5)の倍加点(129/100,-383/1000)と高さ誤差
+problem_patterns:
+  - EC5-A1
+  - EC5-A2
+  - EC5-A3
+  - EC5-A4
+  - EC5-B1
+  - EC5-B2
+  - EC5-B3
+  - EC5-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 10, review: 5 }
