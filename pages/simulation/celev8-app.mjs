@@ -8,6 +8,7 @@ const EXPERIMENT = "celev-variational-orbits-v1";
 const $ = (id) => document.getElementById(id);
 let client = null, record = null, latest = null, mode = "physics", playing = false;
 let epoch = 0, tracks = [], executed = 0;
+let candidateCurve = null, candidatePeriod = null;
 
 function show(message, failure = false) {
   $("status").textContent = message;
@@ -22,7 +23,7 @@ function settings() {
   } : { mode, N: num("N"), period: num("T"),
     ampX: num("ax"), ampY: num("ay"), phase: num("phase") };
   if (mode === "physics") {
-    if (!["two-body","triangle","figure-eight"].includes(params.orbit) ||
+    if (!["two-body","triangle","figure-eight","candidate"].includes(params.orbit) ||
         ![params.dt, params.G, params.massScale, params.velocityScale].every(
           (v) => Number.isFinite(v) && v > 0) ||
         params.dt > 0.05 || params.G > 10 || params.massScale > 10 ||
@@ -34,6 +35,16 @@ function settings() {
         Math.abs(params.ampX) < 0.1 || Math.abs(params.ampX) > 3 ||
         Math.abs(params.ampY) < 0.1 || Math.abs(params.ampY) > 3 ||
         Math.abs(params.phase) > Math.PI) throw new RangeError("変分パラメータの範囲を確認してください");
+  }
+  if (mode === "physics" && params.orbit === "candidate") {
+    if (!candidateCurve || !candidatePeriod) throw new Error("先にBモードで候補を探索してください");
+    if (params.G !== 1 || params.massScale !== 1 || params.velocityScale !== 1) {
+      throw new Error("候補検算ではG、質量倍率、速度倍率をすべて1にしてください");
+    }
+    const N = candidateCurve.length, shift = N / 3;
+    params.period = candidatePeriod;
+    params.candidatePath = Array.from({ length: N }, (_, k) =>
+      Array.from({ length: 3 }, (_, i) => candidateCurve[(k+i*shift)%N]));
   }
   return params;
 }
@@ -52,7 +63,7 @@ function diagnosticsRows(snapshot, diagnostics) {
 function plot() {
   if (!latest) return;
   const series = mode === "physics"
-    ? tracks.map((points) => ({ points }))
+    ? [...tracks.map((points) => ({ points })), ...(candidateCurve && $("orbit").value === "candidate" ? [{ points: candidateCurve }] : [])]
     : [{ points: latest.snapshot.curve }];
   drawPlot($("plot"), { type: "line",
     xAxis: { label: "x", unit: "距離単位" },
@@ -64,6 +75,10 @@ function plot() {
 function receive(result, increase = 0) {
   executed += increase;
   latest = result;
+  if (mode === "variational") {
+    candidateCurve = result.snapshot.curve.map((p) => [...p]);
+    candidatePeriod = num("T");
+  }
   if (mode === "physics") {
     // Observations are calculated inside Python; interpolated canvas points
     // never enter the integrator or the saved diagnostics.
@@ -148,6 +163,18 @@ const guard = (fn) => async () => {
   catch (error) { playing = false; show(error.message, true); }
 };
 $("mode").addEventListener("change", chooseMode);
+$("verify").addEventListener("click", guard(async () => {
+  if (!candidateCurve || !candidatePeriod) throw new Error("先にBモードで候補を探索してください");
+  $("mode").value = "physics";
+  $("orbit").value = "candidate";
+  $("G").value = "1";
+  $("mass").value = "1";
+  $("velocity").value = "1";
+  $("dt").value = String(Math.min(0.01, candidatePeriod/candidateCurve.length/16));
+  chooseMode();
+  await start();
+  show("変分候補の初期位置・中央差分速度から独立Newton積分を開始できます。比較する基準周期は " + candidatePeriod);
+}));
 $("init").addEventListener("click", guard(start));
 $("step").addEventListener("click", guard(() => run(1)));
 $("batch").addEventListener("click", guard(() => run(mode === "physics" ? 100 : 10)));
