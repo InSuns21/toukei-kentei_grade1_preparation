@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - EC4
   - FLD3
-forward_references: [EC8]
+forward_references: []
 concepts:
   - id: elliptic-curve.finite-field-rational-points
     name: 有限体上の有理点と点数
