@@ -182,7 +182,7 @@ export function stepBatch(state, steps, limits = { maxBatchSteps: 1000 }) {
   let closest = next.closestEncounter;
   const observations = [];
   for (let frame = 0; frame < steps; frame++) {
-    const target = (next.stepIndex + frame + 1) * next.dt;
+    const target = (state.stepIndex + frame + 1) * next.dt;
     while (t < target - 1e-12 * Math.max(1, target)) {
       if (++attempts > MAX_INTERNAL_ATTEMPTS) {
         throw new RangeError("RESOURCE_LIMIT: too many adaptive substeps in one batch; request fewer output frames");
