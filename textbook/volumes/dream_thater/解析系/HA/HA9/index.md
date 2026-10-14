@@ -332,7 +332,32 @@ $$
 
 **(1) $L^2$ の入力。**　仮定の $\alpha=0$ から $|m(\xi)|\le M$（$\xi\ne0$）です。原点は測度零なので [L2評価](#prop-ha9-l2)により $\|T_mf\|_2\le M\|f\|_2$ です。
 
-**(2) 台外核表示を確立する。**　$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持ち、その逆変換 $\sum_{j=-N}^NK_j$ は可積分です。[FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用できるので
+**(2) 台外核表示を確立する。**　まず、[FOU4の平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)と[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)は一変数で述べられているため、ここで必要な多次元版を確かめます。
+
+$g\in C_c(\mathbb R^d)$ の台と小さい平行移動後の台を同じ有界集合 $D$ に含めると、一様連続性により
+
+$$
+\|g(\cdot-z)-g\|_2
+\le |D|^{1/2}\sup_x|g(x-z)-g(x)|\longrightarrow0\quad(z\to0)
+$$
+
+です。[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から任意の $f\in L^2(\mathbb R^d)$ に対し $\|f-g\|_2<\varepsilon$ とでき、
+
+$$
+\|f(\cdot-z)-f\|_2
+\le2\|f-g\|_2+\|g(\cdot-z)-g\|_2.
+$$
+
+よって $L^2(\mathbb R^d)$ でも平行移動は連続です。さらに $k\in L^1(\mathbb R^d)$ にはMinkowski積分不等式で
+
+$$
+\|k*f\|_2\le\int |k(z)|\|f(\cdot-z)\|_2\,dz
+=\|k\|_1\|f\|_2.
+$$
+
+$f\in L^1\cap L^2$ ならFubiniによる通常の畳み込み公式 $\widehat{k*f}=\widehat k\,\widehat f$ が成立します。$L^1\cap L^2$ の $L^2$ 稠密性、上の評価および $|\widehat k|\le\|k\|_1$ により一般の $f\in L^2$ へ移せます。以上で両結果をこの章の $\mathbb R^d$ に適用する根拠が揃いました。
+
+$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持ち、その逆変換 $\sum_{j=-N}^NK_j$ は可積分です。[FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用できるので
 
 $$
 \langle T_{m^{(N)}}f,g\rangle
