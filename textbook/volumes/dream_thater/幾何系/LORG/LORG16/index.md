@@ -57,7 +57,7 @@ $$
 \qquad v^t\ge|\mathbf v|,\qquad v^t>0
 $$
 
-を満たします。従って停留片のない未来因果曲線に沿って $t$ は厳密増加します。さらに $\eta(\nabla^\eta t,v)=dt(v)$ を満たす勾配は $\nabla^\eta t=-\partial_t$ で、これは過去向き時間的です。よって $t$ は[LORG10のtemporal functionの定義](../LORG10/index.md#def-lorg10-time-function)を満たし、[temporal functionから強因果性への定理](../LORG10/index.md#thm-lorg10-temporal-implies-strong)により強因果的です。
+を満たします。従って停留片のない未来因果曲線に沿って $t$ は厳密増加します。さらに $\eta(\nabla^\eta t,v)=dt(v)$ を満たす勾配は $\nabla^\eta t=-\partial_t$ で、これは過去向き時間的です。よって $t$ は[LORG10のtemporal functionの定義](../LORG10/index.md#def-lorg10-time-function)を満たし、[temporal functionがあれば強因果的](../LORG10/index.md#thm-lorg10-temporal-implies-strong)という既習の定理により強因果的です。
 
 次に、[Minkowskiの因果錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)を $p=(t_p,\mathbf x_p)$、$q=(t_q,\mathbf x_q)$ のそれぞれに適用します。$r=(t,\mathbf x)\in K(p,q)$ なら
 
@@ -261,7 +261,13 @@ x_1\le\gamma(s)\le x_k\ll y
 \gamma(s)\in J^+(x_1)\cap J^-(y)=K(x_1,y).
 $$
 
-従って曲線の未来尾部がコンパクトなダイヤモンドに閉じ込められ、[非閉じ込め補題](#lem-lorg16-nonimprisonment)に反します。よって $\bigcap_k I^+(x_k)=\varnothing$ です。有限測度の上からの連続性により
+従って曲線の未来尾部がコンパクトなダイヤモンドに閉じ込められ、[非閉じ込め補題](#lem-lorg16-nonimprisonment)に反します。よって $\bigcap_k I^+(x_k)=\varnothing$ です。ここで $A_k:=I^+(x_k)$、$B_j:=A_j\setminus A_{j+1}$ と置くと、$B_j$ は互いに素で、$A_1=\bigsqcup_{j\ge1}B_j$ です。測度の可算加法性と $\mu(A_1)\le\mu(M)<\infty$ から
+
+$$
+\mu(A_k)=\sum_{j=k}^{\infty}\mu(B_j)\longrightarrow0
+$$
+
+となります。従って
 
 $$
 V^+(x_k)=\mu(I^+(x_k))\longrightarrow0.
