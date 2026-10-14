@@ -18,8 +18,9 @@ learning_objectives:
 definitions:
   - { id: EC3-DEF-01, name: 格子のWeierstrass写像 }
   - { id: EC3-DEF-02, name: 楕円曲線の周期格子 }
-  - { id: EC3-DEF-03, name: 楕円曲線と格子のj不変量 }
-  - { id: EC3-DEF-04, name: 格子表示における複素乗法 }
+  - { id: EC3-DEF-03, name: 複素格子の相似 }
+  - { id: EC3-DEF-04, name: 楕円曲線と格子のj不変量 }
+  - { id: EC3-DEF-05, name: 格子表示における複素乗法 }
 theorems:
   - { id: EC3-THM-01, name: 格子加法と割線・接線加法の一致 }
   - { id: EC3-THM-02, name: 複素楕円曲線の逆一様化 }
