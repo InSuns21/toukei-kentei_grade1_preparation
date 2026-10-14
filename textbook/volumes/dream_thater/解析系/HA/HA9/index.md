@@ -349,7 +349,14 @@ $$
 =\iint K(x-y)f(y)\overline{g(x)}\,dy\,dx.
 $$
 
-ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して滑らかな近似単位で畳み込むと、$f_n\in C_c^\infty$、$f_n\to f$ が $L^2$ で成立し、十分大きな $n$ で全ての $f_n$ の台を $E$ の任意に小さい近傍に収められます。特に $\operatorname{dist}(U,\operatorname{supp}f_n)\ge\varepsilon>0$ となるよう選べます。
+ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して、非負で積分1のコンパクト台平滑化核 $\rho_\varepsilon$ と畳み込み、$f_n=\rho_{1/n}*f$ とします。すると $f_n\in C_c^\infty$ で、[FOU4の $L^2$ 平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
+
+$
+\|f_n-f\|_2
+\le\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2\,dz\longrightarrow0
+$
+
+です。核の台は原点へ縮むので、十分大きな $n$ で全ての $f_n$ の台を $E$ の任意に小さい近傍に収められます。特に $\operatorname{dist}(U,\operatorname{supp}f_n)\ge\varepsilon>0$ となるよう選べます。
 
 $f_n-f$ は一つの有界集合に台を持つので、Cauchy–Schwarzから $\|f_n-f\|_1\le C_E\|f_n-f\|_2\to0$ です。$x\in U$ で[核のサイズ評価](#lem-ha9-kernel)を使えば
 
@@ -391,7 +398,7 @@ $$
 \|T_mf\|_p\le C_{p,d,\psi}M\|f\|_p
 $$
 
-を得ます。延長の一意性は [$C_c^\infty$ の $L^p$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から従います。同じ正規化を [HA5の弱型定理](../HA5/index.md#thm-ha5-weak11)にも適用すれば $T_m$ の弱型 $(1,1)$ を得ます。
+を得ます。延長の一意性は [$C_c$ の $L^p$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と、コンパクト台の連続関数を平滑化して $C_c^\infty$ で一様近似できることから従います。一様近似の誤差は全て一つの有界集合に台を持つため $L^p$ でも零に収束します。同じ正規化を [HA5の弱型定理](../HA5/index.md#thm-ha5-weak11)にも適用すれば $T_m$ の弱型 $(1,1)$ を得ます。
 <!-- proof-end -->
 
 なぜこの条件が効いたのでしょうか。$\partial^\alpha m$ の次数ごとの減衰が、環帯へ伸縮した後の**一様な導関数評価**に変わり、それが核の $|x|^{-d}$ と勾配の $|x|^{-d-1}$ へ変わったからです。単に $m$ が滑らかだというだけでは、全尺度に同じ定数を使える保証はありません。
@@ -700,7 +707,7 @@ $$
 
 **4.** $|x-y|\ge\delta>0$ の領域で上の核級数が一様絶対収束するため、台の離れた $f,g\in C_c^\infty$ では各 $m_j$ の核積分表示を足せます。
 
-周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ち、$M|\widehat f|$ が $L^2$ 支配関数となるので、Plancherelと優収束により作用素の列も $T_mf$ へ $L^2$ 収束します。これでまず滑らかなコンパクト台の入力について台外核表示が成立します。一般のコンパクト台 $f\in L^2$ については、$f_n\in C_c^\infty$ を同じ有界集合の中に台を持つよう取り $L^2$ 近似します。$\operatorname{supp}f$ から距離 $\varepsilon>0$ の小球 $U$ では
+周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ち、$M|\widehat f|$ が $L^2$ 支配関数となるので、Plancherelと優収束により作用素の列も $T_mf$ へ $L^2$ 収束します。これでまず滑らかなコンパクト台の入力について台外核表示が成立します。一般のコンパクト台 $f\in L^2$ については、$f_n=\rho_{1/n}*f\in C_c^\infty$ とし、[平行移動の $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から $\|f_n-f\|_2\le\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2dz\to0$ とします。核の台が縮むため、近似関数の台は同じ有界集合に含まれ、$U$ からも距離 $\varepsilon>0$ を保てます。$\operatorname{supp}f$ から距離 $\varepsilon>0$ の小球 $U$ では
 
 $
 \sup_{x\in U}\left|\int K(x-y)(f_n-f)(y)\,dy\right|
