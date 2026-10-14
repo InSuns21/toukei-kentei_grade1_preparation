@@ -463,7 +463,7 @@ $$
 
 **(3) 格子の分類。** $\Lambda'=a\Lambda$ なら [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)から $g_2'=a^{-4}g_2$、$g_3'=a^{-6}g_3$ なので $j(\Lambda')=j(\Lambda)$。
 
-逆に $j(\Lambda)=j(\Lambda')$ なら上の曲線の結論と第3節の一様化により、$\mathbb C/\Lambda\to\mathbb C/\Lambda'$ の原点を保つ双正則な群同型 $f$ が存在します。商への射影と [CA8の被覆写像](../../../解析系/CA/CA8/index.md#def-ca8-covering-map)により、$f$ を $F:\mathbb C\to\mathbb C$、$F(0)=0$ に持ち上げられます。加法保存から
+逆に $j(\Lambda)=j(\Lambda')$ なら上の曲線の結論と第3節の一様化により、$\mathbb C/\Lambda\to\mathbb C/\Lambda'$ の原点を保つ双正則な群同型 $f$ が存在します。商写像を $q_\Lambda,q_{\Lambda'}$ と書きます。$f\circ q_\Lambda:\mathbb C\to\mathbb C/\Lambda'$ を $F(0)=0$ から持ち上げるには、任意の $z$ へ至る平面内の経路を取り、[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)を $q_{\Lambda'}$ に適用します。$\mathbb C$ は単連結なので二経路は端点固定ホモトピーで結ばれ、[持ち上げ終点の不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)から得られる $F(z)$ は経路によらず一意です。$q_{\Lambda'}\circ F=f\circ q_\Lambda$ が成り立ち、局所的には被覆の正則な逆枝を使うので $F$ も正則です。加法保存から
 
 $$
 F(u+v)-F(u)-F(v)\in\Lambda'
