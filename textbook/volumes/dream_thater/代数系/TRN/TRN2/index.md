@@ -375,17 +375,14 @@ $B^{d-1}>0$ で割れば系の結論です。$d=1$ のとき積は空積の1と�
 $\beta_j$ は代数的なので、非零整数係数多項式で消えます。最高次係数の符号を調整して
 
 $$
-a_j\beta_j^{d_j}+b_{j,d_j-1}\beta_j^{d_j-1}
-+\cdots+b_{j,0}=0
+a_j\beta_j^{d_j}+\sum_{k=0}^{d_j-1}b_{j,k}\beta_j^k=0
 $$
 
 と書き、$a_j\in\mathbb Z_{>0}$、$b_{j,k}\in\mathbb Z$、$d_j\ge1$ とします。$\theta_j=a_j\beta_j$ と置き、上式に $a_j^{d_j-1}$ を掛けると
 
 $$
 \theta_j^{d_j}
-+b_{j,d_j-1}\theta_j^{d_j-1}
-+b_{j,d_j-2}a_j\theta_j^{d_j-2}
-+\cdots+b_{j,0}a_j^{d_j-1}=0.
++\sum_{k=0}^{d_j-1}b_{j,k}a_j^{d_j-1-k}\theta_j^k=0.
 $$
 
 ここで $0\le k<d_j$ の係数を一つ取り出すと、$\beta_j=\theta_j/a_j$ なので
