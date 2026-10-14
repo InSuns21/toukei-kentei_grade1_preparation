@@ -197,10 +197,20 @@ GitHub上の既存正本:
 **PLAN登録だけでは系列manifestを作らず、公開目次に未実装章を掲載しない。** 新しいCELEVのID・パスは執筆開始時に最新リポジトリと突き合わせて確定する。
 
 
-## 7. 着手状況（2026-10-14）
+## 7. 進捗と完了判定（2026-10-14 時点）
 
-- **CELEV1「n体の作用と周期ループ空間」**：本文第1〜10節、3つの定義と直接例、4つの命題と証明、演習A5/B4/C1の全詳細解答を追加。`textbook/dream-theater-series/CELEV.yaml` ではCELEV1だけを `completed` とし、次はCELEV2。
-- 既存正本との接続：CELE2のNewton n体Hamiltonian、AMECH3の固定端変分と基本補題、VAR9のH¹許容集合・強制性・直接法。周期端点で速度の接合を別途導出し、有限作用の衝突・重心制約下の非強制性を具体的に証明した。
-- **未着手／未完成**：CELEV3〜8の教材、衝突回避を含む存在証明、CELEV固有のPython/NumPy Newton物理積分と変分最適化、二モードの対話ブラウザ受け入れ検証。共通シミュレーション基盤のPhase 0/1 JS受け入れ模型のみでこのPLANを完了にはしない。
+**講義本文**：系列 manifest `textbook/dream-theater-series/CELEV.yaml` の CELEV1〜CELEV8 はすべて `completed`。CELEV1〜2の直接法と周期ループ、CELEV3の衝突処理、CELEV4〜6の対称性・舞踏解、CELEV7の第二変分・Floquet、CELEV8の離散作用・勾配・射影・Verlet・誤差診断を各章の本文・定義例・証明・詳細解答として実装済み。本文での成立範囲（非衝突、質量、対称制約）と数値候補の非証明性を区別する。
 
-- **CELEV2「最小化列と周期解の存在」**（2026-10-14）：半周期反転ループの定義、Poincaré評価に基づく強制性、弱逐次閉性、Fatouの補題を用いたNewton作用の弱逐次下半連続性、任意正質量での有限作用比較ループと直接法による非定数極小点の存在を証明。非衝突を追加で仮定したときに限り、対称化と重心射影からNewton周期解へ昇格することを証明。滑らかな時間周期二次ポテンシャルの一意な非定数周期最小点を具体計算。演習A5/B4/C1の詳細解答を用意。**Newton作用の極小点の衝突排除は未証明でCELEV3以降の課題**。
+**数値実装**：`pages/simulation/engines/celev/celev_kernel.py` に Python の Newton 積分・離散変分計算・保存量診断を実装。`pages/simulation/celev8-python-worker.mjs`、`celev8-app.mjs`、`celev8.html` に Pyodide Worker・操作画面・Canvas 表示を接続済み。`scripts/test-celev8-kernel.py` は有限差分勾配・投影対称性・二体解析基準値・保存量・刻み検査・変分探索を対象とする。`scripts/validate-celev8-browser.mjs` はブラウザ内の Python 物理積分と変分探索の操作、パラメータ変更時の再計算、候補の独立積分を対象とする。2026-10-14のCELEV8導入PR #1443では、`Validate textbook` と `Validate Pages assembly` などのCIチェックが成功した。
+
+**追跡監査**：CELEV8の主要結果 `prop-celev8-gradient`、`prop-celev8-projection-properties`、`prop-celev8-descent`、`prop-celev8-momentum` と演習A1〜A5・B1〜B4・C1を再読・再計算。対称射影の正規直交性と全格子非衝突の判定を補強した。証拠はCELEV8追跡監査PRの記録を参照。
+
+**PLAN全体の未確認の受け入れ事項**（第4.3節および第6節より）：
+
+1. CELEV固有Pyodideで初回オンライン／再訪／オフライン／キャッシュ更新を実ブラウザで比較し、リリース間のキャッシュ整合も確認する。
+2. 低性能の実端末、非表示タブ復帰、長時間実行、Worker再初期化時の競合・停止・メモリ・熱とUI応答を計測する。共通基盤のCPUスロットリング試験を実機測定の代用としない。
+3. CELEV Python数値実装について20/50/100ステップバッチ、1万ステップ、PyodideとCPythonの数値一致・CPU時間・メモリ・描画fps・入力遅延を所定環境・バージョン付きで記録する。
+4. 8の字と正三角形の有限時間誤差、周期閉合、刻み半減および失敗例を実測ログとして保存し、コードの存在やグリーンCIのみで受け入れ値の達成を推定しない。
+5. 第6節の横断査読、教材からラボへの公開導線と実表示、数値実験台帳と再現パラメータ、必要なPages公開確認を最終的に照合する。
+
+この一覧は **未実施と断定する一覧ではなく、このPLANの完了証拠として本記録で確認できていない事項** を明示したものである。各項目の実測・受け入れ結果を記録し、必要な最終横断監査を完了するまではこのPLANを `plans_progress/` に保持する。講義8章の `completed` とPLAN全体の `plan_done/` 移行を混同しない。
