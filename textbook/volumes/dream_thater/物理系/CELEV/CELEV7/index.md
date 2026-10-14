@@ -157,7 +157,21 @@ $$
 =\frac{Gm_2}{d^3}(2a,-b).
 $$
 
-これは第1節の対ポテンシャルHessianを質量 $m_1$ で割ったものと一致します。位置を微分する方向が**差ベクトル**であることと、Newtonの引力の符号の両方を確認しました。
+二番目の粒子では加速度が $Gm_1f(q_1-q_2)$ となるため、同じ差ベクトル $h$ に沿って
+
+$$
+\delta\ddot q_2
+=Gm_1\,Df(r)(\eta_1-\eta_2)
+=-\frac{Gm_1}{d^3}(2a,-b)
+$$
+
+です。一番目の粒子と合わせると
+
+$$
+m_1\delta\ddot q_1+m_2\delta\ddot q_2=0.
+$$
+
+この質量付きの和が零になることは、線形化した加速度が重心零空間 $X$ に留まることの二体での直接確認です。また各加速度の式は、第1節の対ポテンシャルHessianから求めた力の一次変化をそれぞれの質量で割ったものと一致します。位置を微分する方向が**差ベクトル**であることと、Newtonの引力の符号の両方を確認しました。
 <!-- definition-example-end -->
 
 ### 変分方程式と第二変分の関係
@@ -182,11 +196,38 @@ M_X=E^{\mathsf T}ME,\qquad
 H_X(t)=E^{\mathsf T}D^2U(q(t))E
 $$
 
-はともに $d\times d$ で、$M_X$ は正定値、$H_X(t)$ は対称です。Jacobi方程式を $E^{\mathsf T}$ で左から掛けると
+はともに $d\times d$ で、$M_X$ は正定値、$H_X(t)$ は対称です。
+
+この行列表示が元のJacobi方程式と同値になる理由も確かめます。$U$ は全粒子の同じ並進で変化しないので、任意の非衝突配置 $x$ と任意の方向 $h$ について
+
+$$
+\sum_i\nabla_{x_i}U(x)=0,
+\qquad
+\sum_i\bigl(D^2U(x)h\bigr)_i=0
+$$
+
+です。第二式は第一式を $x$ について方向微分して得られます。したがって $h\in X$ なら
+
+$$
+\sum_i m_i\bigl(M^{-1}D^2U(x)h\bigr)_i
+=\sum_i\bigl(D^2U(x)h\bigr)_i=0,
+$$
+
+すなわち $M^{-1}D^2U(x)$ は $X$ を $X$ に写します。
+
+$\eta=Eu$ をJacobi方程式に代入し、$E^{\mathsf T}$ で左から掛けると
 
 $$
 M_X\ddot u=H_X(t)u.
 $$
+
+逆にこの座標方程式を満たす $u$ から
+
+$$
+v=E\ddot u-M^{-1}D^2U(q)Eu
+$$
+
+を作ると、上の並進不変性から $v\in X$ であり、座標方程式から $E^{\mathsf T}Mv=0$ です。$v\in X$ なので $v=Ea$ と書け、$M_Xa=E^{\mathsf T}MEa=0$。$M_X$ の正定値性より $a=0$、従って $v=0$ です。これで単なる射影ではなく、**重心零のJacobi方程式と座標方程式が同値**であることが分かりました。
 
 その正準運動量を $p=M_X\dot u$ とすると、次の**具体的な**一次系が得られます。
 
@@ -265,7 +306,17 @@ $$
 \Omega(z,w)=\eta^{\mathsf T}\rho-\pi^{\mathsf T}\xi
 $$
 
-と置きます。これは位置・運動量空間での符号付き面積に相当する双線形形式です。$\Omega(z,w)=z^{\mathsf T}Jw$、$J=\bigl(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\bigr)$ と表示できます。
+と置きます。これは位置・運動量空間での符号付き面積に相当する双線形形式です。$\Omega(w,z)=-\Omega(z,w)$、従って $\Omega(z,z)=0$ となるので**交代的**です。また任意の $w$ に対して $\Omega(z,w)=0$ なら $z=0$ となる性質（**非退化性**）もあります。
+
+この二つの条件を行列で確かめます。位置・運動量の成分を並べると
+
+$$
+\Omega(z,w)=z^{\mathsf T}Jw,\qquad
+J=\begin{pmatrix}0&I_d\\-I_d&0\end{pmatrix},
+\qquad J^{\mathsf T}=-J,\quad J^2=-I_{2d}.
+$$
+
+$J$ は可逆なので、$z^{\mathsf T}Jw=0$ が全ての $w$ で成り立てば $z^{\mathsf T}J=0$、従って $z=0$ です。この $J$ が表しているのは**制限後の $2d$ 次元位相空間**の交代形式であり、元の $2n$ 成分の配置空間に掛ける行列ではありません。
 
 <a id="thm-celev7-symplectic"></a>
 <!-- formal-statement-start -->
@@ -286,7 +337,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\dot\eta=M^{-1}\pi$、$\dot\pi=H(t)\eta$、$\dot\xi=M^{-1}\rho$、$\dot\rho=H(t)\xi$ とします。ただし $H(t)=D^2U(q(t))$ は実対称行列です。積の微分を展開して
+$\dot\eta=M^{-1}\pi$、$\dot\pi=H(t)\eta$、$\dot\xi=M^{-1}\rho$、$\dot\rho=H(t)\xi$ とします。ただしここでの $H(t)=H_X(t)=E^{\mathsf T}D^2U(q(t))E$ は、**第3節で重心零空間に制限した $d\times d$ の実対称行列**です。積の微分を展開して
 
 $$
 \begin{aligned}
@@ -305,7 +356,7 @@ v^{\mathsf T}\Phi(t)^{\mathsf T}J\Phi(t)w
 =v^{\mathsf T}Jw.
 $$
 
-ゆえに保存式が成立します。$\Phi$ は基本解行列で可逆であり、$J$ も可逆です。行列式を取ると $(\det\Phi)^2=1$、連続性と $\det\Phi(0)=1$ から $\det\Phi(t)=1$ です。
+ゆえに保存式が成立します。$\Phi$ の可逆性は[CDYN4の正規化基本行列](../../../解析系/CDYN/CDYN4/index.md#def-cdyn4-fundamental-matrix)の初期値一意性から従い、$J$ の可逆性は上で示した $J^2=-I_{2d}$ から従います。行列式を取ると $(\det\Phi)^2=1$、連続性と $\det\Phi(0)=1$ から $\det\Phi(t)=1$ です。
 
 次に $\mathcal M^{\mathsf T}J\mathcal M=J$ の両辺を変形して
 
@@ -320,12 +371,12 @@ $$
 
 ## 5. 線形有界性、第二変分、非線形安定性は別物
 
-まず線形化方程式の解の有界性だけを判定します。実または複素Jordan標準形で、固有値の絶対値が1でも大きさ2以上のJordanブロックは $k\lambda^{k-1}$ に比例する項を生み、$\mathcal M^k$ が無界となります。
+まず線形化方程式の解の有界性だけを判定します。[LA4のJordan標準形定理](../../../基礎科目/LA/LA4/index.md#thm-la4-jordan-form)を複素行列 $\mathcal M$ に適用すると、固有値 $\lambda$ に属するブロックは $J_\lambda=\lambda I+N$（$N$ は冪零）と書けます。$N\ne0$ のブロックでは $(\lambda I+N)^k$ に $k\lambda^{k-1}N$ の項が現れるため、固有値の絶対値が1でも増幅が起こり得ます。ここで必要なのは固有値の位置だけでなくJordanブロックの大きさです。
 
 <a id="thm-celev7-floquet-criterion"></a>
 <!-- formal-statement-start -->
 > **定理（Hamilton周期線形系の有界性判定）**  
-> 第4節の重心零Jacobi方程式について、全ての初期値に対する解が $t\ge0$ で一様に有界であることと、次の二条件は同値である。
+> 第4節の重心零Jacobi方程式について、**各初期値から出発する解が $t\ge0$ にわたって有界**であること（同値に、初期値のノルムが1以下の解に共通の時間一様な上界があること）と、次の二条件は同値である。
 >
 > (i) モノドロミー行列の全てのFloquet乗数が $|\lambda|=1$ を満たす。
 >
