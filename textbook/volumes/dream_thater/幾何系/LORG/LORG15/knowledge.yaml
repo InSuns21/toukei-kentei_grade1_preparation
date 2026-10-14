@@ -1,0 +1,45 @@
+chapter: LORG15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG12
+  - LORG13
+  - LORG14
+concepts:
+  - id: lorentz-geometry.cauchy-hypersurface
+    name: Cauchy超曲面・Cauchy面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cauchy超曲面・Cauchy面）"]
+    requires: [lorentz-geometry.inextendible-causal-curve]
+  - id: lorentz-geometry.cauchy-acausal
+    name: Cauchy面はacausalかつachronal
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cauchy面はacausalかつachronal）"]
+    requires: [lorentz-geometry.cauchy-hypersurface, lorentz-geometry.achronal-set]
+  - id: lorentz-geometry.cauchy-domain-equivalence
+    name: Cauchy面と全依存領域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cauchy面と全依存領域）"]
+    requires: [lorentz-geometry.cauchy-acausal, lorentz-geometry.domain-of-dependence]
+  - id: lorentz-geometry.minkowski-full-time
+    name: Minkowskiの非延長因果曲線の全時刻通過
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Minkowskiの非延長因果曲線の全時刻通過）"]
+    requires: [lorentz-geometry.inextendible-causal-curve, lorentz-geometry.minkowski-causal-future]
+  - id: lorentz-geometry.uniform-cauchy-graph
+    name: Minkowskiの一様Lipschitzグラフ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Minkowskiの一様Lipschitzグラフ）"]
+    requires: [lorentz-geometry.minkowski-full-time, lorentz-geometry.cauchy-hypersurface]

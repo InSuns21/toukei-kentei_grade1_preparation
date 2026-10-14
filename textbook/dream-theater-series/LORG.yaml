@@ -63,7 +63,7 @@ chapters:
     title: "限界曲線補題"
   - id: LORG15
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG15
-    status: planned
+    status: completed
     title: "Cauchy超曲面の定義と具体例"
   - id: LORG16
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG16

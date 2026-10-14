@@ -1,0 +1,47 @@
+id: "LORG15"
+title: "Cauchy超曲面の定義と具体例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG12
+  - LORG13
+  - LORG14
+official_scope: []
+learning_objectives:
+  - Cauchy超曲面を両側非延長因果曲線との一意交差で定義できる
+  - Cauchy条件からacausal性とachronal性を説明し導出できる
+  - causal時空でacausal条件とD(S)=MからCauchy面を特徴付けられる
+  - Minkowski非延長因果曲線の時刻全域通過を証明できる
+  - 一様Lipschitz定数が1未満のグラフについてCauchy条件を証明できる
+  - 有限区間・点除去・光的グラフ・滑らかな双曲線の失敗を判定できる
+  - 一般のCauchy面と滑らかな空間的超曲面を区別できる
+definitions:
+  - { id: LORG15-DEF-01, name: Cauchy超曲面・Cauchy面 }
+theorems:
+  - { id: LORG15-PROP-01, name: Cauchy面はacausalかつachronal }
+  - { id: LORG15-THM-01, name: Cauchy面と全依存領域 }
+  - { id: LORG15-LEM-01, name: Minkowskiの非延長因果曲線の全時刻通過 }
+  - { id: LORG15-THM-02, name: Minkowskiの一様Lipschitzグラフ }
+canonical_examples:
+  - 時刻一定の全Minkowski面
+  - 一様に空間的なグラフと非滑らかなCauchy面
+  - 有限初期区間と点除去時空
+  - 光的グラフの非一意交差
+  - 滑らかな空間的双曲線の非Cauchy性
+problem_patterns:
+  - LORG15-CAUCHY-UNIQUE-CROSSING
+  - LORG15-ACAUSAL-DOMAIN
+  - LORG15-MINKOWSKI-TIME
+  - LORG15-GRAPH-LIPSCHITZ
+  - LORG15-COUNTEREXAMPLES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 6 }
