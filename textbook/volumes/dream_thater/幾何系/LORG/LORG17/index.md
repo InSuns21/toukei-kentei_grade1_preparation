@@ -362,7 +362,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[凸正規近傍の存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)から、$\gamma$ を有限個の小部分へ分け、それぞれを局所の因果的測地線片へ置き換えます。時間的端点では[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)により長さは減りません。光的端点の元の部分は零長なので、置換も零長です。これで因果的測地線折れ線 $\alpha$ が得られ、$L_g(\alpha)\ge L_g(\gamma)$ です。
+[LORG5で構成したLorentz凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)を使い、$\gamma$ を有限個の小部分へ分け、それぞれを局所の因果的測地線片へ置き換えます。時間的端点では[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)により長さは減りません。光的端点の元の部分は零長なので、置換も零長です。これで因果的測地線折れ線 $\alpha$ が得られ、$L_g(\alpha)\ge L_g(\gamma)$ です。
 
 $p\ll q$ なので、$\alpha$ の各小片の端点を $x_0=p,x_1,\ldots,x_m=q$ とすれば少なくとも一つの辺が時間的です。もし全辺が光的か零なら、$L_g(\alpha)=0$ ですが、$p\ll q$ でも $\gamma$ が零長であることはあり得ます。その場合にも $p$ と $q$ を時間的に結ぶ曲線を別に取れるものの、$\gamma$ の長さ零より大きいという結論は直ちに満たされます。そこで $L_g(\gamma)>0$ の場合だけ以下を考えます。
 
