@@ -149,6 +149,11 @@ function removeAuxiliaryMarkdown(chapterDir) {
 
   for (const file of walkMarkdown(chapterDir)) {
     if (path.resolve(file) === canonicalIndex) continue;
+    // DREAM THEATER supplements are standalone reader pages, not appendices
+    // to delete when consolidating the chapter's main Markdown.
+    const isDreamTheater = path.relative(targetRoot, chapterDir).split(path.sep)[0] === 'dream_thater';
+    const isSupplement = path.dirname(file) === chapterDir && /^supplement-[^.]+\.md$/i.test(path.basename(file));
+    if (isDreamTheater && isSupplement) continue;
     fs.unlinkSync(file);
     removed += 1;
   }
