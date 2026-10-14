@@ -304,7 +304,7 @@ $[2]=\widehat\phi\phi$ です。$E/\widehat\phi E'$ の類の有限性と、$\wi
 <!-- proof-start -->
 ### 証明
 
-[核の定理](#thm-ec6-descent-kernel)と群準同型の第一同型定理から
+[核の定理](#thm-ec6-descent-kernel)と群準同型の[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)から
 $$
 E(\mathbb Q)/\widehat\phi(E'(\mathbb Q))
 \simeq\operatorname{im}\alpha_E
@@ -658,7 +658,7 @@ $P=T$ なら $2T=O$、$[b]^2=[1]$、$P=O$ なら明らかに成立するので�
 <!-- solution-start -->
 ### 詳細解答
 
-第一同型定理より
+[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)より
 $$
 \#\bigl(E/\widehat\phi E'\bigr)=\#\operatorname{im}\alpha_E,\qquad
 \#\bigl(E'/\phi E\bigr)=\#\operatorname{im}\alpha_{E'}.
@@ -673,7 +673,7 @@ $$
 <!-- solution-end -->
 
 ### B3. 高さ降下の停止
-有限個の余り $R_i$ を用いて $P_n=2P_{n+1}+R_i$ とし、$h_x(P_{n+1})\le\frac34h_x(P_n)+C$ が成り立つとする。有界高さの有限性から、有限生成の式を導け。
+有限個の余り $R_i$ を用いて $P_n=2P_{n+1}+R_i$ とし、$h_x(P_{n+1})\le\frac34h_x(P_n)+C$ が成り立つとする。[EC5の有界高さの有限性](../EC5/index.md#lem-ec5-bounded-height)から、有限生成の式を導け。
 
 - Level: B
 - ID: EC6-B3
