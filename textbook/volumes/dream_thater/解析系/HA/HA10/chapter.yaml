@@ -6,6 +6,7 @@ prerequisites:
   - HA9
   - RA6A
   - VC1
+  - F0-00F1
 official_scope: []
 learning_objectives:
   - 位相・振幅・停留点・Hessian・非退化性と符号数を定義し二次関数で直接判定できる
