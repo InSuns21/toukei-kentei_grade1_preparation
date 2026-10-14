@@ -1,4 +1,4 @@
-import { access, readFile, writeFile } from 'node:fs/promises';
+import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -106,20 +106,37 @@ const synchronizedFacade = publishedFacade.replace(
 );
 await writeFile(publishedFacadePath, synchronizedFacade, 'utf8');
 
+// Supplements must be files of an indexed DREAM THEATER chapter. Do not
+// classify unknown routes merely because they share a path prefix.
+const supplementPaths = [];
+const routeParents = {};
+for (const chapterPath of expectedPaths) {
+  if (!chapterPath.startsWith('textbook/volumes/dream_thater/')) continue;
+  const chapterDirectory = path.posix.dirname(chapterPath);
+  const entries = await readdir(path.join(root, chapterDirectory), { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isFile() || !/^supplement-[^.]+\.md$/i.test(entry.name)) continue;
+    const supplementPath = path.posix.join(chapterDirectory, entry.name);
+    supplementPaths.push(supplementPath);
+    routeParents[canonicalRoute(supplementPath)] = canonicalRoute(chapterPath);
+  }
+}
+
 const routePaths = [
   'textbook/dream-theater.md',
   'textbook/dream-theater-standard-math-core.md',
   'textbook/dream-theater-courses.md',
   ...courseCatalog.courses.map((course) => `textbook/dream-theater-courses/${course.id}.md`),
   ...expectedPaths,
+  ...supplementPaths,
 ];
 const routes = [...new Set(routePaths.map(canonicalRoute))];
 const html = renderSidebar(filteredSections);
-const payload = `window.DreamTheaterNavigation = ${JSON.stringify({ routes, html })};\n`;
+const payload = `window.DreamTheaterNavigation = ${JSON.stringify({ routes, routeParents, html })};\n`;
 await writeFile(outputPath, payload, 'utf8');
 
 console.log(
-  `DREAM THEATER navigation generated: ${expectedPaths.length} indexed pages across ${filteredSections.length} section(s).`,
+  `DREAM THEATER navigation generated: ${expectedPaths.length} indexed pages and ${supplementPaths.length} supplements across ${filteredSections.length} section(s).`,
 );
 
 function stripNumberPrefix(value) {
