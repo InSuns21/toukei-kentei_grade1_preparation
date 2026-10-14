@@ -138,7 +138,7 @@ GitHub上の既存正本:
 - ブラウザの常駐Pyodide WorkerでNewtonの相互重力を固定物理刻みで実際に数値積分し、バッチ処理した状態列をJS Canvasへ送る。保存した固定軌道の再生、補間だけの擬似運動は禁止。再生中も要求量だけ積分を継続し、パラメータ変更ではPythonの積分状態を明示的に初期化して再計算する。
 - 初期値、質量、速度、積分刻みを変更するとPythonで運動方程式を**再計算**する。表示速度の変更だけでは物理`dt`を変更しない。初期値リセット、再開/停止、ステップ送り、軌跡の表示範囲と期間を用意する。
 - 方程式は q_i''=G sum_{j != i} m_j(q_j-q_i)/r_ij^3。粒子と軌跡はCanvas 2D（必要ならWebGL）で描画。SVGは静的補助図に限る。
-- 初期実装: 平面2体円軌道、Lagrange正三角形、等質量三体8の字。追加の教材受け入れ模型としてBurrauの3–4–5直角三体問題（G=1、静止初期値、軟化なし）を置き、近接時は不正確な長時間軌道を見せず停止する。詳細は[CELEV8補講](../volumes/dream_thater/物理系/CELEV/CELEV8/supplement-burrau.md)と[JS参考エンジン](../../pages/simulation/engines/celev/burrau.mjs)。このJS模型は本番Pythonカーネルの完了を意味しない。次段階で質量比/速度摂動、近接遭遇、n=4などへ拡張。
+- 初期実装: 平面2体円軌道、Lagrange正三角形、等質量三体8の字。追加の教材受け入れ模型としてBurrauの3–4–5直角三体問題（G=1、静止初期値、軟化なし）を置き、旧固定刻みVerletの停止限界を踏まえ、専用の適応刻みDormand–Prince 5(4)参考エンジンで近接遭遇を解像して脱出を可視化する。内部誤差制御・保存量検算・異なる許容誤差での定性的な一致を確認し、衝突特異性や長時間の厳密誤差を保証しない。詳細は[CELEV8補講](../volumes/dream_thater/物理系/CELEV/CELEV8/supplement-burrau.md)と[JS参考エンジン](../../pages/simulation/engines/celev/burrau.mjs)。このJS模型は本番Pythonカーネルの完了を意味しない。次段階で質量比/速度摂動、近接遭遇、n=4などへ拡張。
 - **固定時間刻みvelocity-Verlet（kick-drift-kick）**を主方式。Euler法と同精度とみなさない。dtを半減して軌道閉合・エネルギー誤差を比較。必要なら適応Runge–Kuttaを比較用とするが、可変刻みVerletを無条件にシンプレクティックと称しない。
 - 既定は**softeningなし**。近接距離r_minが警告閾値に達した場合、数値的未解決/衝突危険を明示して停止する。発散・NaN・ステップ上限・CPU/フレーム時間制限を設ける。softeningを将来許す場合は元のNewton系とは異なる模型とUIに明記する。
 

@@ -1,0 +1,52 @@
+version: 1
+id: EC
+title: "楕円曲線 I〜II"
+plan: textbook/plans_progress/DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# EC1〜EC11は暫定配列。証明責務と学習導線によって章割りを再検討する。
+chapters:
+  - id: EC1
+    path: textbook/volumes/dream_thater/代数系/EC/EC1
+    status: completed
+    title: "非特異三次曲線とWeierstrass方程式"
+  - id: EC2
+    path: textbook/volumes/dream_thater/代数系/EC/EC2
+    status: planned
+    title: "割線・接線群則と結合法則の証明"
+  - id: EC3
+    path: textbook/volumes/dream_thater/代数系/EC/EC3
+    status: planned
+    title: "複素一様化・格子・j不変量"
+  - id: EC4
+    path: textbook/volumes/dream_thater/代数系/EC/EC4
+    status: planned
+    title: "Isogeny・自己準同型・torsionの代数的基盤"
+  - id: EC5
+    path: textbook/volumes/dream_thater/代数系/EC/EC5
+    status: planned
+    title: "有理数体上のtorsion・高さの入口"
+  - id: EC6
+    path: textbook/volumes/dream_thater/代数系/EC/EC6
+    status: planned
+    title: "Descent・weak Mordell–Weil・Mordell–Weil"
+  - id: EC7
+    path: textbook/volumes/dream_thater/代数系/EC/EC7
+    status: planned
+    title: "有限体の点数とFrobenius"
+  - id: EC8
+    path: textbook/volumes/dream_thater/代数系/EC/EC8
+    status: planned
+    title: "Hasse評価・拡大体上の点数・有限体ゼータ関数"
+  - id: EC9
+    path: textbook/volumes/dream_thater/代数系/EC/EC9
+    status: planned
+    title: "整数モデル・良い／悪い還元・導手"
+  - id: EC10
+    path: textbook/volumes/dream_thater/代数系/EC/EC10
+    status: planned
+    title: "Hasse–Weil L関数と局所因子"
+  - id: EC11
+    path: textbook/volumes/dream_thater/代数系/EC/EC11
+    status: planned
+    title: "モジュラー形式との照合とmodularity interface"
