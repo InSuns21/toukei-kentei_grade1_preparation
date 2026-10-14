@@ -148,10 +148,16 @@ The optional [Burrau three-body supplement](../../textbook/volumes/dream_thater/
 sets m=(3,4,5), q=((1,3),(-2,-1),(1,-1)), v=0 and G=1. The independent
 analytic checks are E0=-769/60, zero total momentum/angular momentum and
 center of mass at the origin. A separate, **non-softened** JavaScript
-velocity-Verlet kernel demonstrates the early evolution; at pairwise distance
-<=0.15 or absolute energy drift >0.05 it throws an explicit unresolved-numerics
-error. This intentionally does not continue through the close encounters and
-cannot establish long-time escape behavior or replace the CELEV Python project.
+adaptive Dormand–Prince 5(4) kernel now traverses non-collisional close
+encounters without force softening. Its public dt is an OUTPUT FRAME INTERVAL
+(0.05..0.5), while internal accepted/rejected steps satisfy a componentwise
+relative-error estimate (default 1e-12), and stop if internal h is exhausted
+or absolute energy drift >5e-5. The diagnostic tracks separation of mass 3
+from the center of mass of masses 4/5, and their osculating two-body binding
+energy. At t=80 the independent benchmark verifies escaping mass 3 and bound
+masses 4/5; a second tolerance (1e-11) must agree qualitatively, even though
+chaotic trajectories may differ pointwise. This is not a rigorous existence
+proof or a replacement for the CELEV Python project.
 
 The Node integration checks initial energy and step halving; Chromium checks
 actual 3-body initialization, markers, and a live step.
