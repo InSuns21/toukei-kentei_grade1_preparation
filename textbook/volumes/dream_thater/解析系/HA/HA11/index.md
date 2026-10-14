@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha11-restriction -->
-**定義の確認**　$f(x)=e^{-|x|^2/2}$ では積が一変数のGauss積分に分かれ、
+**定義の確認**　$f(x)=e^{-|x|^2/2}$ では座標ごとの積に分け、[FOU3のGauss関数のFourier変換](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を各変数へ適用すると、
 
 $$
 \widehat f(\xi)=(2\pi)^{d/2}e^{-|\xi|^2/2},\qquad
