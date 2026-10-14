@@ -36,17 +36,17 @@ $$
 
 未来側を証明します。$I^+(p)$ は開なので、
 
-$
+$$
 I^+(p)\subset\operatorname{Int}\overline{I^+(p)}
-$
+$$
 
 です。逆に $q\in\operatorname{Int}\overline{I^+(p)}$ とします。この内部は開なので、$q$ の十分小さな時間的過去に $r\ll q$ を取り、$r$ もこの内部に属するようにできます。
 
 $r\in\overline{I^+(p)}$ だから、点列 $r_k\in I^+(p)$、$r_k\to r$ を取れます。[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)を $r\ll q$ に適用すると、十分大きな $k$ で $r_k\ll q$ です。従って
 
-$
+$$
 p\ll r_k\ll q\quad\Longrightarrow\quad p\ll q
-$
+$$
 
 となり、$q\in I^+(p)$ です。
 
@@ -424,10 +424,10 @@ $$
 
 まず $p\ll_{\mathbb R^{1,1}}q$ とします。Minkowski時空の直線線分 $[p,q]$ は時間的です。線分が $o$ を通らなければ、そのまま $M^\ast$ の時間的曲線です。通る場合、$p,q\ne o$ なので $o$ は線分の内部にあります。直線の速度を $(v_t,v_x)$（$v_t>|v_x|$）とし、$o$ の前後に $u=o-\delta(v_t,v_x)$、$w=o+\delta(v_t,v_x)$ を取ります。中間点 $z=(0,\varepsilon)$（$\varepsilon\ne0$）を選ぶと、$u\to z\to w$ の変位は
 
-$
+$$
 (\delta v_t,\delta v_x+\varepsilon),\qquad
 (\delta v_t,\delta v_x-\varepsilon)
-$
+$$
 
 です。$0<|\varepsilon|<\delta(v_t-|v_x|)$ とすればどちらも未来時間的で、二本とも $o$ を通りません。元の線分の残りとつなぎ、除去点を回避した区分的時間的曲線が得られます。逆に $M^\ast$ の時間的曲線は元のMinkowskiでも時間的です。よって
 $$
@@ -504,17 +504,17 @@ Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overlin
 <!-- solution-start -->
 **詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)をそれぞれの変位に適用します。
 
-$
+$$
 q-p=(3,3),\qquad \Delta t=3=|\Delta x|
-$
+$$
 
 なので、$q$ は $p$ の未来閉錐の境界にあり、逆向きに見ると $p$ も $q$ の過去閉錐の境界にあります。
 
 これに対し、
 
-$
+$$
 r-p=(2,4),\qquad \Delta t=2<4=|\Delta x|
-$
+$$
 
 であるため、$r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
 <!-- solution-end -->
