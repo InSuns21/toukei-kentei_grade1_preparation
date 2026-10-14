@@ -2,7 +2,7 @@
 
 作成日: 2026-10-11  
 改訂日: 2026-10-14（標準教科書・自足的証明資料との照合）  
-状態: in progress（TRN1–TRN3本文・manifestを実装、TRN4–TRN14および横断監査は未完了）
+状態: in progress（TRN1–TRN4本文・manifestを実装、TRN5–TRN14および横断監査は未完了）
 
 ## 0. 中心問いと到達点
 
