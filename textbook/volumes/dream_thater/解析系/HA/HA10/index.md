@@ -292,7 +292,7 @@ $$
 
 ## 5. 二次位相の積分係数を決める
 
-二次標準形の積分を評価するには、Gaussian のFourier変換を使います。実数の減衰を少し入れて絶対可積分にし、その係数を連続的に零へ近づけます。[FOU3のGaussian変換](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)が出発点です。
+二次標準形の積分を評価するには、[Gaussian のFourier変換](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を使います。実数の減衰を少し入れて絶対可積分にし、その係数を連続的に零へ近づけることで、振動積分の係数を確定します。
 
 <a id="lem-ha10-quadratic"></a>
 <!-- formal-statement-start -->
