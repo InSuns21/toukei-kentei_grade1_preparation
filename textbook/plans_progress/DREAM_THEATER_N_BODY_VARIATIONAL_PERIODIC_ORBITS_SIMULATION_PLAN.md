@@ -203,7 +203,7 @@ GitHub上の既存正本:
 
 **数値実装**：`pages/simulation/engines/celev/celev_kernel.py` に Python の Newton 積分・離散変分計算・保存量診断を実装。`pages/simulation/celev8-python-worker.mjs`、`celev8-app.mjs`、`celev8.html` に Pyodide Worker・操作画面・Canvas 表示を接続済み。`scripts/test-celev8-kernel.py` は有限差分勾配・投影対称性・二体解析基準値・保存量・刻み検査・変分探索を対象とする。`scripts/validate-celev8-browser.mjs` はブラウザ内の Python 物理積分と変分探索の操作、パラメータ変更時の再計算、候補の独立積分を対象とする。2026-10-14のCELEV8導入PR #1443では、`Validate textbook` と `Validate Pages assembly` などのCIチェックが成功した。
 
-**追跡監査**：CELEV8の主要結果 `prop-celev8-gradient`、`prop-celev8-projection-properties`、`prop-celev8-descent`、`prop-celev8-momentum` と演習A1〜A5・B1〜B4・C1を再読・再計算。対称射影の正規直交性と全格子非衝突の判定を補強した。証拠はCELEV8追跡監査PRの記録を参照。
+**追跡監査**：CELEV8の主要結果 `prop-celev8-gradient`、`prop-celev8-projection-properties`、`prop-celev8-descent`、`prop-celev8-momentum` と演習A1〜A5・B1〜B4・C1を再読・再計算。対称射影の正規直交性と全格子非衝突の判定を補強した。検算の内訳・主要中間式・初出定義の判定記録は [CELEV8追跡監査PR #1447](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1447) に記録。
 
 **PLAN全体の未確認の受け入れ事項**（第4.3節および第6節より）：
 
