@@ -24,7 +24,23 @@ $$
 =\tau\bigl(\gamma(1)-\gamma(0)\bigr).
 $$
 
-二進細分では平均速度が $v(s)$ にほとんど至るところ収束します。$\tau$ は有界な閉未来錐上で連続であり、各平均速度は共通有界なので、優収束により左辺は $L_\eta(\gamma)$ へ収束します。このためLORG3の端点長さ不等式は、本章で扱う局所Lipschitz曲線にも成り立ちます。
+**区間平均が速度に近づく理由**を確かめます。二進細分の各小区間 $I_m(s)=[a_m,b_m]$ に対し、$s$ をその内部の微分可能点とします。幅を $\delta_m=b_m-a_m$ と置くと、$\gamma$ の $s$ での微分可能性から
+
+$$
+\begin{aligned}
+\gamma(b_m)&=\gamma(s)+\dot\gamma(s)(b_m-s)+o(b_m-s),\\
+\gamma(a_m)&=\gamma(s)+\dot\gamma(s)(a_m-s)+o(s-a_m)
+\end{aligned}
+$$
+
+なので、両式を引いて $\delta_m$ で割れば
+
+$$
+v_m(s)=\frac{\gamma(b_m)-\gamma(a_m)}{\delta_m}
+=\dot\gamma(s)+o(1).
+$$
+
+局所Lipschitz曲線はほとんど至るところ微分可能なので、この収束はほとんど至るところ成り立ちます。各 $v_m$ は一様有界な閉未来錐に属し、$\tau$ はその上で連続です。[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を $\tau(v_m(s))$ に適用すると、左辺の区間和は $L_\eta(\gamma)$ へ収束します。このためLORG3の端点長さ不等式は、本章で扱う局所Lipschitz曲線にも成り立ちます。
 
 ## 2. 時間分離の定義と直接計算
 
@@ -330,7 +346,14 @@ $$
 
 したがって分割の最大幅を $|\mathcal P|$ とすれば、誤差和は高々 $C\sqrt{|\mathcal P|}\sum_i\delta_i=C\sqrt{|\mathcal P|}\to0$ です。
 
-二進細分の各区間の平均速度 $\bar v_i$ は、Lebesgueの微分定理により、ほとんど至るところ $\dot x(t)$ へ収束します。区間の始点 $x_i$ も $x(t)$ へ近づきます。計量の滑らかさと $F$ の連続性、さらに $\dot x(t)$ の未来因果性から、
+二進細分の各区間の平均速度 $\bar v_i$ は、第1節で示した微分可能点での差分の計算と同じく
+
+$$
+\bar v_i=\frac{x(t_{i+1})-x(t_i)}{\delta_i}
+=\dot x(t)+o(1)\qquad (t_i\le t\le t_{i+1})
+$$
+
+によって、ほとんど至るところ $\dot x(t)$ へ収束します。区間の始点 $x_i$ も $x(t)$ へ近づきます。計量の滑らかさと $F$ の連続性、さらに $\dot x(t)$ の未来因果性から、
 
 $$
 F_{x_i}(\bar v_i)\longrightarrow
@@ -417,7 +440,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[LORG5の凸正規近傍の存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)を使い、$\gamma$ を有限個の十分短い部分へ分け、端点間を同じ近傍内の因果的測地線片へ置き換えます。[局所時間分離の補題](#lem-lorg17-local-partition)の最初の不等式から、各置換で長さは減りません。こうして $x_0=p,x_1,\ldots,x_m=q$ を頂点とする因果的測地線折れ線 $\alpha$ を得て、$L_g(\alpha)\ge L_g(\gamma)$ です。
+[LORG5で構成したLorentz凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)を使い、$\gamma$ を有限個の十分短い部分へ分け、端点間を同じ近傍内の因果的測地線片へ置き換えます。[小区間の局所時間分離による長さの復元](#lem-lorg17-local-partition)の最初の評価から、各置換で長さは減りません。こうして $x_0=p,x_1,\ldots,x_m=q$ を頂点とする因果的測地線折れ線 $\alpha$ を得て、$L_g(\alpha)\ge L_g(\gamma)$ です。
 
 $L_g(\gamma)=0$ なら、$p\ll q$ の定義から未来時間的曲線を一本選び、コンパクトなパラメータ区間を細分して各端点間を短い時間的測地線へ置換します。各辺は時間的で正の長さを持つため、求める結論が従います。以下では $L_g(\gamma)>0$ とします。この場合 $L_g(\alpha)>0$ なので、少なくとも一つの辺 $x_{j-1}\to x_j$ が時間的です。
 
@@ -601,7 +624,7 @@ $\gamma(s)=(13s,5s)$（$0\le s\le1$）は未来時間的で、$L_\eta(\gamma)=\i
 $p=(0,0)$ として、$q=(2,2)$、$r=(1,3)$、$s=(-2,0)$ の時間分離を求め、それぞれが未来因果的に到達可能か判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$q$ は $\Delta t=2=|\Delta x|$ だから $p\le q$ で光的直線が存在しますが、[Minkowski時間分離公式](#thm-lorg17-minkowski-formula)より
+**詳細解答**。$q$ は $\Delta t=2=|\Delta x|$ だから $p\le q$ で光的直線が存在しますが、[Minkowski時空の時間分離](#thm-lorg17-minkowski-formula)より
 
 $$
 d_\eta(p,q)=\sqrt{4-4}=0.
@@ -617,7 +640,7 @@ $r$ は $1<3$ なので到達不能、$s$ は $\Delta t=-2<0$ なので過去向
 $p=(0,0)$、$q=(2,0)$、$r=(4,0)$ と、$q'=(2,1)$ の場合を比較し、時間分離の逆三角不等式を数値で確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。$p\le q\le r$ で、[Minkowski時間分離公式](#thm-lorg17-minkowski-formula)から
+**詳細解答**。$p\le q\le r$ で、[Minkowski時空の時間分離](#thm-lorg17-minkowski-formula)から
 
 $$
 d(p,q)=2,\quad d(q,r)=2,\quad d(p,r)=4,
