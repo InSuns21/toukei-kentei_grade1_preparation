@@ -485,7 +485,7 @@ $$
 <a id="lem-ec6-s-squareclasses-finite"></a>
 
 <!-- formal-statement-start -->
-> **算術補題（数体の有限$S$平方類）**  
+> **補題（数体の有限$S$平方類）**  
 > 任意の数体 $L$ と有限の $S$ に対して、$L(S,2)$ は有限集合である。この結論には、$\mathcal O_L$ のイデアル類群が有限であることと、単数群 $\mathcal O_L^\times$ が有限生成であることを算術的入力として使う。
 <!-- formal-statement-end -->
 
