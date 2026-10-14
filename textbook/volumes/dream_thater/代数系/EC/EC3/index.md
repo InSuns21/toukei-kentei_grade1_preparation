@@ -63,7 +63,7 @@ $$
 つまり特別に付け足した値も連続な極限と一致します。
 <!-- definition-example-end -->
 
-[CA9の三次曲線表示](../../../解析系/CA/CA9/index.md#thm-ca9-torus-cubic-parametrization)は $(\wp,\wp')$ の単射・全射を証明しています。$y$ 座標だけ2で割る変換は可逆なので、$\Phi_\Lambda$ も全単射です。さらに $z=0$ では $x/y=-z+O(z^5)$ が局所座標となり、有限点でも非特異性と $\wp',\wp''$ によって局所逆写像を作れます。したがって両方向が正則な対応です。ただし**全単射であるだけでは、まだ群準同型とはいえません**。
+[CA9の三次曲線表示](../../../解析系/CA/CA9/index.md#thm-ca9-torus-cubic-parametrization)は $(\wp,\wp')$ の単射・全射を証明しています。$y$ 座標だけ2で割る変換は可逆なので、$\Phi_\Lambda$ も全単射です。正則性も局所座標で確認できます。$[0]$ では $t=-x/y=-z+O(z^5)$ が曲線の局所座標です。有限点で $\wp'(z)\ne0$ なら $x=\wp(z)$ が局所座標となり、導関数 $\wp'(z)$ は非零です。一方 $\wp'(z)=0$ は [CA9の半周期における単純零点](../../../解析系/CA/CA9/index.md#thm-ca9-half-period-critical-points)に限られ、そこで $\wp''(z)\ne0$ です。曲線側では $y=\wp'/2$ が局所座標となり、その導関数は $\wp''/2\ne0$ です。従ってどの点でも局所双正則であり、全単射性と合わせて双正則です。ただし**全単射であるだけでは、まだ群準同型とはいえません**。
 
 ## 2. 割線の傾きから加法の一致を証明する
 
@@ -171,7 +171,7 @@ $$
 
 右辺は割線上の第三交点 $(X,y+m(X-x))$ を $x$ 軸に関して反転した $y$ 座標そのものです。よって一般配置では $x,y$ がともに一致します。
 
-**(3) 例外配置への延長。** $\Phi_\Lambda$ は第1節で見たようにトーラス全体で正則です。EC2の加法は、各点において局所座標から割線の傾きの極を除去して得られる正則な二変数写像です。例えば $v\to u$ なら
+**(3) 例外配置への延長。** $\Phi_\Lambda$ は第1節で見たようにトーラス全体で正則です。曲線側の加法が接線・縦線への極限でも連続であることは、[EC2の割線・接線演算の特殊化](../EC2/index.md#lem-ec2-specialization)で確認したものを使います。例えば $v\to u$ なら
 
 $$
 \frac{y(v)-y(u)}{x(v)-x(u)}
@@ -293,7 +293,22 @@ $$
 
 **(2) 積分写像は一対一の被覆。** $O$ から $P$ への二つの経路の積分差は閉路の積分であり、基本閉路によって $\mathbb Z\Omega_1+\mathbb Z\Omega_2$ に属します。従って $\mathcal A$ は良定義です。[CA8の局所正則座標](../../../解析系/CA/CA8/index.md#def-ca8-complex-chart)で $\omega=h(w)\,dw$、$h(w)\ne0$ と表せるので、積分写像の局所表示の導関数は $h(w)$ です。正則逆関数定理によって局所双正則です。
 
-$E(\mathbb C)$ はコンパクトかつ連結です。局所双正則写像の像は開で、コンパクト性により閉でもあるので、連結なトーラス $\mathbb C/\Lambda_E$ 全体へ写ります。さらにコンパクトな定義域からの局所同型は有限枚被覆です。その被覆が定める基本群の部分群は、閉路 $a,b$ の像がそれぞれ $\Omega_1,\Omega_2$ に対応するため、$\pi_1(\mathbb C/\Lambda_E)\cong\Lambda_E$ の全体です。被覆の枚数はこの部分群の指数に等しく、指数1なので $\mathcal A$ は一対一です。従って双正則写像です。
+$E(\mathbb C)$ は射影曲線なのでコンパクトであり、上記の二枚の貼り合わせから連結です。局所双正則写像の像は開で、コンパクト性により閉でもあるので、連結なトーラス $\mathbb C/\Lambda_E$ 全体へ写ります。コンパクト性と局所同型性から、各点の逆像は有限集合です。その各点の互いに交わらない局所逆写像の近傍を選び、コンパクト性でその外に逆像が現れないよう標的近傍を縮めれば、[被覆写像の定義](../../../解析系/CA/CA8/index.md#def-ca8-covering-map)の均等被覆近傍が得られます。
+
+この被覆が一枚であることは、一般の被覆空間分類を使わずに示せます。$\mathcal A(P)=[0]$ を満たす $P$ を取り、$O$ から $P$ への経路 $\gamma$ を選びます。積分が格子に属するので、ある整数 $m,n$ に対して
+
+$
+\int_\gamma\omega=m\Omega_1+n\Omega_2=:\lambda.
+$
+
+$O$ から始まり、基本閉路 $a,b$ をそれぞれ $m,n$ 回たどって $O$ に戻る閉路 $\ell$ を取れば、$\int_\ell\omega=\lambda$ です。$\gamma,\ell$ の始点から時刻 $t$ までの積分をそれぞれ $G_\gamma(t),G_\ell(t)$ とすると、両者は複素平面内の $0$ から $\lambda$ への経路であり、$\mathcal A\circ\gamma=[G_\gamma]$、$\mathcal A\circ\ell=[G_\ell]$ です。従って
+
+$
+H(s,t)=\left[(1-s)G_\gamma(t)+sG_\ell(t)\right]
+\qquad(0\le s,t\le1)
+$
+
+はトーラス上の端点固定ホモトピーです。[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)と[端点固定ホモトピーの終点不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)を被覆 $\mathcal A$ に適用すると、$O$ から始めた二経路 $\gamma,\ell$ の終点は一致します。$\ell$ の終点は $O$ なので $P=O$。よって $\mathcal A^{-1}([0])=\{O\}$ です。連結な標的上では被覆の枚数は一定なので全てのファイバーが一点であり、$\mathcal A$ は一対一、従って双正則です。
 
 **(3) 逆写像と $\wp$ の一致。** $\psi=\mathcal A^{-1}$ とし、$X(z)=x(\psi([z]))$、$Y(z)=y(\psi([z]))$ と置きます。$\mathcal A$ の定義より $\psi^*\omega=dz$ なので
 
@@ -331,6 +346,23 @@ $$
 <!-- definition-example-end -->
 
 一般に $\Lambda'=a\Lambda$ なら $[z]\mapsto[az]$ が商の同型を与えます。曲線側でも $x,y$ をそれぞれ $a^{-2},a^{-3}$ 倍すると [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)と係数変換が一致します。
+
+曲線と格子を**一つの量で比較**するには、第1節の係数 $A=-g_2/4,\ B=-g_3/4$ を[EC1の不変量](../EC1/index.md#def-ec1-invariants)へ代入します。短い形では
+
+$
+c_4=-48A,\qquad
+\Delta=-16(4A^3+27B^2),
+$
+
+なので $c_4^3/\Delta=1728\cdot4A^3/(4A^3+27B^2)$ です。格子から作った曲線なら
+
+$
+j(E_\Lambda)=
+1728\,\frac{g_2(\Lambda)^3}
+{g_2(\Lambda)^3-27g_3(\Lambda)^2}.
+$
+
+[CA9の三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)により右辺の分母は零ではありません。これは、異なる種類の量を唐突に等置したのではなく、曲線の座標係数を格子不変量で表した結果です。
 
 <a id="def-ec3-j-invariant"></a>
 
@@ -489,7 +521,7 @@ $\Lambda=\mathbb Z+i\mathbb Z$ において、$[1/2],[i/2],[(1+i)/2]$ が相異�
 <!-- solution-start -->
 **詳細解答。** 各点を2倍すると $1,i,1+i\in\Lambda$ なので $2[z]=[0]$ です。$1/2$ や $i/2$、それらの差 $(1-i)/2$ は実部・虚部の少なくとも一方が整数でありません。従って元の三点は格子点でなく、互いに異なる類です。
 
-[$\wp'$ の奇性と周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)から、$2z\in\Lambda$ なら $\wp'(z)=\wp'(-z)=-\wp'(z)$ であり、$\wp'(z)=0$。よって三像の $y$ 座標は全て零です。$x$ 座標が相異なることは [三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)から従います。
+[$\wp'$ の奇性と周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)から、$2z\in\Lambda$ なら $\wp'(z)=\wp'(-z)=-\wp'(z)$ であり、$\wp'(z)=0$。よって三像の $y$ 座標は全て零です。[CA9の三次曲線表示の単射性](../../../解析系/CA/CA9/index.md#thm-ca9-torus-cubic-parametrization)と三つの格子類が相異なることから、三像は相異なります。$y=0$ の曲線点は $4x^3-g_2x-g_3=0$ の根に対応し、[三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)からその根は相異なる三つです。従って三像はちょうどこの三点です。
 <!-- solution-end -->
 
 ### A2. $g_2,g_3$ と判別式の変換
@@ -622,14 +654,21 @@ $$
 
 で、$y$ を局所座標とすると係数 $1/f'(x)$ は正則かつ非零。$O$ では $t=-x/y$ を使い $x=t^{-2}+O(t^2)$、$y=-t^{-3}+O(t)$ だから $\omega=(1+O(t^4))dt$ です。
 
-(b) $E$ を二基本閉路 $a,b$ で切り開き、$\omega$ の原始関数 $F$ を置くと Stokes から
+(b) $E$ を二基本閉路 $a,b$ で切り開き、$\omega$ の原始関数 $F$ を置きます。$a$ 方向の対辺では $F$ の差が $\Omega_1$、$b$ 方向の対辺では $\Omega_2$ です。$d(F\overline\omega)=\omega\wedge\overline\omega$ に Stokes を適用し、向かい合う辺の積分を組み合わせると
 
-$$
+$
 \int_E\omega\wedge\overline\omega
 =\Omega_1\overline{\Omega_2}-\Omega_2\overline{\Omega_1}.
-$$
+$
 
-局所表示 $\omega=h(w)dw$ では $(i/2)\omega\wedge\overline\omega=|h|^2ds\,dt>0$。したがって左辺は非零、$\operatorname{Im}(\Omega_1\overline{\Omega_2})\ne0$ です。二周期は平行ではありません。
+局所表示 $\omega=h(w)dw$ では $dw\wedge d\overline w=-2i\,ds\wedge dt$ なので
+
+$
+\frac{i}{2}\omega\wedge\overline\omega
+=|h(w)|^2\,ds\wedge dt.
+$
+
+$h$ は非零ですから、$(i/2)$ 倍した左辺の積分は正です。よって $\Omega_1\overline{\Omega_2}-\Omega_2\overline{\Omega_1}\ne0$、すなわち $\operatorname{Im}(\Omega_1\overline{\Omega_2})\ne0$ です。二周期は平行ではありません。
 
 (c) 周期格子で積分を商に取ると、経路を変えても差は $\Lambda_E$ に入ります。[逆一様化定理](#thm-ec3-converse-uniformization)により積分写像は双正則で逆は $\wp$ による $\Phi_{\Lambda_E}$。この写像について [格子加法と割線加法の一致](#thm-ec3-group-uniformization)を適用すれば
 
