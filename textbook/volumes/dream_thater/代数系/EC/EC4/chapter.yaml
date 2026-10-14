@@ -1,0 +1,53 @@
+id: "EC4"
+title: "Isogeny・自己準同型・torsionの代数的基盤"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC3
+  - AG2-07
+  - AG3-11
+  - AG1-03
+official_scope: []
+learning_objectives:
+  - 有理関数と全域で定義された射を区別し、関数体拡大で同種写像の次数を求められる
+  - 曲線の直線因子から次数0の因子類と楕円曲線の点の対応を証明できる
+  - 原点を保つ曲線の射が群準同型となる理由を因子の押し出しから証明できる
+  - 座標関数の差から次数の平行四辺形則を導き倍数写像の次数n²を示せる
+  - 双対同種写像を重複度付き引き戻し因子で作り合成恒等式と次数を証明できる
+  - 分離性と非分離性を正則微分から判定してn-torsionの構造を導ける
+  - 自己準同型環と次数の二次性を検証しHasse評価用の二次形式を作れる
+  - 有理2位数点から次数2の同種写像を作り分母の零点を含めて正則性を調べられる
+definitions:
+  - { id: EC4-DEF-01, name: 曲線の射と同種写像 }
+  - { id: EC4-DEF-02, name: 射の次数と分離性 }
+  - { id: EC4-DEF-03, name: 双対同種写像 }
+  - { id: EC4-DEF-04, name: n-torsion }
+  - { id: EC4-DEF-05, name: 楕円曲線の自己準同型環 }
+theorems:
+  - { id: EC4-LEM-01, name: 次数0の因子と群の点 }
+  - { id: EC4-THM-01, name: 原点を保つ非定数射は準同型 }
+  - { id: EC4-LEM-02, name: 座標の差と次数の平行四辺形則 }
+  - { id: EC4-THM-02, name: 倍数写像の次数 }
+  - { id: EC4-THM-03, name: 同種写像の次数の二次性 }
+  - { id: EC4-THM-04, name: 双対同種写像の合成と次数 }
+  - { id: EC4-THM-05, name: 標数とtorsionの構造 }
+  - { id: EC4-PROP-01, name: 有理2位数点から作る次数2同種写像 }
+canonical_examples:
+  - y²=x³-xの4個の2位数点
+  - 標数2のy²+y=x³で核の点数1と倍加次数4が異なること
+  - 正方格子の指数2の包含による同種写像
+  - y²=x³-xからy²=x³+4xへの具体的2-isogeny
+  - 次数の二次形式からHasse型不等式を導く演習
+problem_patterns:
+  - EC4-A1
+  - EC4-A2
+  - EC4-A3
+  - EC4-A4
+  - EC4-B1
+  - EC4-B2
+  - EC4-B3
+  - EC4-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 17, exercises: 11, review: 6 }
