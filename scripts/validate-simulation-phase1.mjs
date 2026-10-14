@@ -7,6 +7,7 @@ import { createExperimentRecord, appendObservation, exportExperimentJson,
 import { validatePlot, drawPlot } from "../pages/simulation/plot-adapters.mjs";
 import * as celev from "../pages/simulation/engines/celev/two-body.mjs";
 import * as burrau from "../pages/simulation/engines/celev/burrau.mjs";
+import * as gallery from "../pages/simulation/engines/celev/orbit-gallery.mjs";
 import * as ml from "../pages/simulation/engines/ml/four-cell.mjs";
 
 const base = {
@@ -188,6 +189,67 @@ assert.ok(cd.escapeDistance3 > 30 && cd.binarySpecificEnergy45 < 0);
 assert.ok(Math.abs(cd.energyDrift) < 5e-5);
 console.log("Burrau adaptive full escape: t=80; escaped mass=3, bound masses=4/5; drift=" +
   ending.energyDrift + "; steps=" + ending.acceptedSubsteps);
+
+// Three-body orbit-gallery reference tests. Initial conditions are finite
+// decimals from published numerical orbits, not mathematically exact periods.
+const expectedPresets = [
+  "figure-eight", "lagrange", "euler", "butterfly-i", "butterfly-ii",
+  "moth-i", "yin-yang-i", "dragonfly",
+];
+assert.deepEqual(Object.keys(gallery.PRESETS), expectedPresets);
+for (const preset of expectedPresets) {
+  const { state: initial } = gallery.initialize({
+    preset, dt: 0.05, rtol: 1e-12,
+  });
+  const d = gallery.diagnostics(initial);
+  assert.ok(Math.abs(d.energyDrift) < 1e-12);
+  assert.ok(Math.abs(d.momentum[0]) < 1e-12 &&
+    Math.abs(d.momentum[1]) < 1e-12);
+  assert.ok(d.centerOfMass.every(x => Math.abs(x) < 1e-12));
+  const batch = gallery.stepBatch(initial, 20);
+  assert.equal(batch.state.stepIndex, 20);
+  assert.ok(Math.abs(batch.state.physicalTime - 1) < 1e-12);
+  assert.equal(batch.observations.length, 20);
+  assert.ok(Math.abs(batch.diagnostics.energyDrift) < 5e-5,
+    preset + " energy drift after t=1");
+}
+// The two analytically exact circular relative equilibria should close.
+for (const preset of ["lagrange", "euler"]) {
+  const period = gallery.PRESETS[preset].period;
+  const initial = gallery.initialize({
+    preset, dt: period / 128, rtol: 1e-12,
+  }).state;
+  let state = initial;
+  for (let i = 0; i < 8; i++) state = gallery.stepBatch(state, 16).state;
+  const d = gallery.diagnostics(state);
+  assert.ok(d.closureDistance < 5e-6, preset + " geometric closure");
+  assert.ok(d.closureVelocity < 5e-6, preset + " velocity closure");
+  assert.ok(Math.abs(d.energyDrift) < 1e-7);
+}
+const eight0 = gallery.initialize({preset:"figure-eight",
+  dt:gallery.PRESETS["figure-eight"].period/128,rtol:1e-12}).state;
+assert.ok(Math.abs(gallery.diagnostics(eight0).energy + 1.28714) < 1e-4);
+let eight = eight0;
+for(let i = 0; i < 8; i++) eight=gallery.stepBatch(eight,16).state;
+assert.ok(gallery.diagnostics(eight).closureDistance < 0.01,
+  "published truncated figure-eight initial condition should close approximately");
+assert.ok(Math.abs(gallery.diagnostics(eight).energyDrift) < 1e-7);
+const galleryResponses = [];
+const galleryHost = createSimulationHost((response) => galleryResponses.push(response));
+galleryHost.dispatch({...base,type:"initialize",generation:1,
+  engineId:gallery.engineId,experimentId:gallery.experimentId,
+  params:{preset:"figure-eight",dt:0.05,rtol:1e-12},seed:0});
+assert.equal(galleryResponses.at(-1).type,"ready");
+galleryHost.dispatch({...base,type:"runBatch",generation:1,
+  engineId:gallery.engineId,experimentId:gallery.experimentId,steps:2});
+assert.equal(galleryResponses.at(-1).type,"result");
+assert.equal(galleryResponses.at(-1).snapshot.positions.length,3);
+assert.equal(galleryResponses.at(-1).observations.length,2);
+assert.deepEqual(gallery.validateParameters({
+  preset:"not-a-preset",dt:0.05,rtol:1e-12,
+}).length,1);
+console.log("CELEV gallery: 8 presets, Newton energy/momentum, circular closure, " +
+  "figure-eight choreography and real Worker host: PASS");
 
 const markerDraw = [];
 const mockCtx = new Proxy({}, {
