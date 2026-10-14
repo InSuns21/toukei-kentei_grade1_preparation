@@ -81,6 +81,10 @@ try {
  await evalJS('document.querySelector("#orbit").value="two-body";document.querySelector("#init").click()');
  await poll('document.querySelector("#status")?.textContent.includes("Python積分完了")');
  assert.ok(Math.abs(await evalJS(value("energy"))+0.5)<1e-9);
+ const particlesTwo = await evalJS('[...document.querySelectorAll("#particle-legend .particle-icon")].map(x=>x.textContent)');
+ assert.deepEqual(particlesTwo, ["1","2"], "Python two-body must mark numbered current positions");
+ assert.ok(await evalJS('document.querySelector("#plot-help").textContent.includes("現在位置")'));
+
  await evalJS('document.querySelector("#batch").click()');
  await poll(value("累積計算ステップ/反復")+'===100',30000);
  await evalJS('document.querySelector("#mass").value="1.2";document.querySelector("#init").click()');
