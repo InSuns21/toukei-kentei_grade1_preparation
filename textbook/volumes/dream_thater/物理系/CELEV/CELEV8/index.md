@@ -500,9 +500,9 @@ $e$ を一つの格子・粒子・座標成分が1で他が0の基底方向と�
 
 $$
 f(\varepsilon)=f(0)+\varepsilon f'(0)+\frac{\varepsilon^2}{2}f''(0)+O(\varepsilon^3),
-$
+$$
 
-$
+$$
 f(-\varepsilon)=f(0)-\varepsilon f'(0)+\frac{\varepsilon^2}{2}f''(0)+O(\varepsilon^3)
 $$
 
