@@ -18,7 +18,7 @@ learning_objectives:
 definitions:
   - { id: EC1-DEF-01, name: Weierstrass三次曲線と指定点 }
   - { id: EC1-DEF-02, name: 幾何学的非特異性と楕円曲線のWeierstrass模型 }
-  - { id: EC1-DEF-03, name: Weierstrass不変量・判別式・j不変量 }
+  - { id: EC1-DEF-03, name: Weierstrass不変量と判別式 }
 theorems:
   - { id: EC1-THM-01, name: Weierstrass判別式による非特異性判定 }
   - { id: EC1-PROP-01, name: 許されるWeierstrass座標変換 }
