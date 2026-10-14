@@ -107,7 +107,7 @@ $$
 \operatorname{div}(f)=\sum_P\operatorname{ord}_P(f)(P)
 $$
 
-と定めます。[主因子](../../AG/AG2-07/index.md#def-ag2-07-order-principal)とその線形同値の定義により、差が主因子である二因子を $D\sim D'$ と書きます。
+と定めます。既出の[主因子](../../AG/AG2-07/index.md#def-ag2-07-order-principal)を用い、二つの因子の差が主因子になる場合に $D\sim D'$ と書き、**線形同値**と呼びます。
 
 一方、楕円曲線上の形式和の点を[EC2の群則](../EC2/index.md#thm-ec2-associativity)で足した $S(D)=\sum_P[n_P]P$ も考えられます。前者の $\deg D$ は**整数**、後者の $S(D)$ は**曲線上の点**であり、同じ記号の「和」でも混同しません。
 
