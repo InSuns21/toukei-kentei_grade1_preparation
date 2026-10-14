@@ -67,7 +67,7 @@ chapters:
     title: "Cauchy超曲面の定義と具体例"
   - id: LORG16
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG16
-    status: planned
+    status: completed
     title: "大域双曲性の特徴付け"
   - id: LORG17
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG17
