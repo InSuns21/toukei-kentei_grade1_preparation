@@ -30,7 +30,15 @@ $$
 
 $\eta=\sqrt2$ の最小多項式は $T^2-2$ で、相異なる共役根は $\sqrt2,-\sqrt2$ の2個です。$K=\mathbb Q(\sqrt2)$ では埋め込みは $\sqrt2\mapsto\sqrt2$ と $\sqrt2\mapsto-\sqrt2$ の2個なので、値もこの2個です。
 
-これに対し $K=\mathbb Q(\sqrt2,i)$ は $[\mathbb Q(\sqrt2):\mathbb Q]=2$ で、$\mathbb Q(\sqrt2)\subset\mathbb R$ に $i$ を加える次数も2です。[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)により $[K:\mathbb Q]=4$ です。$E=\mathbb Q(\sqrt2)$ と置くと $E\subset\mathbb R$ なので $i\notin E$ です。まず $E$ の埋め込み $\tau_\pm:E\to\mathbb C$ は $\sqrt2$ をそれぞれ $\pm\sqrt2$ へ送ります。$i$ の $E$ 上の最小多項式は $T^2+1$ であり、$\tau_\pm$ で係数を送っても $T^2+1$ のままです。そこで[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)を各 $\tau_\pm$ に適用すると、$i$ の像は $i,-i$ のどちらも選べます。実際、各元は一意に $a+bi$（$a,b\in E$）と書け、四つの写像は
+これに対し $K=\mathbb Q(\sqrt2,i)$ を考え、$E=\mathbb Q(\sqrt2)$ と置きます。$[E:\mathbb Q]=2$、$E\subset\mathbb R$ なので $i\notin E$ であり、$[K:E]=2$ です。[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から
+
+$
+[K:\mathbb Q]=[K:E][E:\mathbb Q]=2\cdot2=4.
+$
+
+まず $E$ の埋め込み $\tau_\pm:E\to\mathbb C$ は $\sqrt2$ をそれぞれ $\pm\sqrt2$ へ送ります。$i$ の $E$ 上の最小多項式は $T^2+1$ であり、係数を $\tau_\pm$ で送っても変わりません。[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)を各 $\tau_\pm$ に適用すると、$i$ の像として $i,-i$ をどちらも選べます。
+
+各元は一意に $a+bi$（$a,b\in E$）と書け、四つの埋め込みは
 
 $
 \sigma_{\varepsilon,\delta}(a+bi)
@@ -223,7 +231,16 @@ $$
 
 個です。したがって、どの共役根も拡大体 $K$ の全埋め込みで同じ回数だけ現れます。
 
-従って $\sigma(\eta)$ の並びでは各 $\eta_j$ が $r$ 回出ます。一方、特性多項式 $\det(TI-A_\eta)$ の $T^{rd-1}$ 係数は $-\operatorname{tr}(A_\eta)$ です。実際、行列式の置換展開で次数 $rd-1$ の項を作るには、対角積の中で $T$ の代わりに $-a_{ii}$ をちょうど一つ選ぶしかなく、係数は $-\sum_i a_{ii}$ になります。定数項は
+従って $\sigma(\eta)$ の並びでは、各 $\eta_j$ が $r$ 回現れます。
+
+一方、行列式の置換展開で $\det(TI-A_\eta)$ の次数 $rd-1$ の項を作るには、対角積の中で $T$ の代わりに $-a_{ii}$ を一つだけ選ぶ必要があります。よって
+
+$
+[T^{rd-1}]\det(TI-A_\eta)
+=-\sum_{i=1}^{rd}a_{ii}=-\operatorname{tr}(A_\eta).
+$
+
+ここで $[T^{rd-1}]$ は指定次数の係数を取り出す記号です。また定数項は
 
 $
 \det(-A_\eta)=(-1)^{rd}\det(A_\eta)
@@ -482,7 +499,21 @@ $\eta=\sqrt5$ の $\mathbb Q$ 上の共役根を列挙してください。さ�
 <!-- solution-start -->
 **詳細解答**
 
-$\eta$ の最小多項式は $T^2-5$ で、相異なる共役根は $\sqrt5,-\sqrt5$ です。$\mathbb Q(\sqrt5)\subset\mathbb R$ に $i$ を加える次数が2なので、[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から $[K:\mathbb Q]=4$。先に $\sqrt5$ の像を選び、次に $T^2+1$ の根として $i$ の像を選ぶ[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)が使えます。埋め込みは $\sqrt5$ の像の符号2通りと $i$ の像の符号2通りで決まり、全4通りです。従って $\sqrt5,\sqrt5,-\sqrt5,-\sqrt5$ と重複を含めて数えます。[共役の定義](#def-trn2-conjugates)では「異なる共役根」と「埋め込みを添字とする値」を区別します。
+$\eta$ の最小多項式は $T^2-5$ で、相異なる共役根は $\sqrt5,-\sqrt5$ です。
+
+$E=\mathbb Q(\sqrt5)\subset\mathbb R$ なので $i\notin E$。従って $[K:E]=2$ であり、[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から
+
+$
+[K:\mathbb Q]=[K:E][E:\mathbb Q]=2\cdot2=4.
+$
+
+先に $\sqrt5$ の像を2通りから選び、次に $T^2+1$ の根として $i$ の像を2通りから選びます。[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)によっていずれの組も実現するので、埋め込みは4個です。[共役の定義](#def-trn2-conjugates)に従って重複込みの値を並べると
+
+$
+\sqrt5,\quad\sqrt5,\quad-\sqrt5,\quad-\sqrt5
+$
+
+です。
 <!-- solution-end -->
 
 **TRN2-A3（代数的整数の共役）**  
@@ -596,7 +627,12 @@ $6$ は $T-6$、$4\sqrt2$ は $T^2-32$、$1+\sqrt5$ は $T^2-2T-4$ の根です�
 ### Level C：算術下界まで統合する
 
 **TRN2-C1（共役の上界と有理数でない小さい整数）**  
-$\eta=2-\sqrt3$ とする。(i) $\eta$ が零でない代数的整数であることを示す。(ii) $\eta$ の共役と $\mathbb Q(\sqrt3)/\mathbb Q$ のノルムを計算する。(iii) $|\eta|<1$ であっても $|N(\eta)|\ge1$ となる仕組みを説明する。(iv) 一般の非零代数的整数 $\alpha$ の相異なる共役 $\alpha_1=\alpha,\ldots,\alpha_d$ が $|\alpha_j|\le B$（$j\ge2$、$B\ge1$）を満たすときの $|\alpha|$ の下界を導いてください。
+$\eta=2-\sqrt3$ とします。次の問いに答えてください。
+
+1. $\eta$ が零でない代数的整数であることを示してください。
+2. $\eta$ の共役と $\mathbb Q(\sqrt3)/\mathbb Q$ のノルムを計算してください。
+3. $|\eta|<1$ であってもノルムの絶対値が1以上となる仕組みを説明してください。
+4. 一般の非零代数的整数 $\alpha$ の相異なる共役 $\alpha_1=\alpha,\ldots,\alpha_d$ が $|\alpha_j|\le B$（$j\ge2$、$B\ge1$）を満たすとき、$|\alpha|$ の下界を導いてください。
 
 - Level: C
 
