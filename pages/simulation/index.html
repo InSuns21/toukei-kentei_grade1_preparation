@@ -62,7 +62,11 @@
   <h2>計算結果</h2>
   <canvas id="plot" width="720" height="440" role="img" aria-label="数値計算結果の可視化" aria-describedby="legend plot-description"></canvas>
   <p id="plot-description">軌跡は横軸x・縦軸yの距離座標、標本分布は四セルの度数を示します。計算値は下の数値診断表でも確認できます。</p>
-  <p id="legend">実線＝物体0、破線＝物体1。描画間引きは計算刻みを変更しません。</p>
+  <p id="legend">線＝過去の軌跡、番号付き記号＝現在の質点位置。表示の間引きは積分刻みを変更しません。</p>
+  <div id="particle-legend" class="particle-legend" aria-label="質点の凡例">
+    <span><b class="particle-icon icon-one">1</b> 質点1（青・実線）</span>
+    <span><b class="particle-icon icon-two">2</b> 質点2（赤・破線）</span>
+  </div>
   <div id="diagnostics" aria-live="polite"></div>
 </section>
 <section class="panel">
