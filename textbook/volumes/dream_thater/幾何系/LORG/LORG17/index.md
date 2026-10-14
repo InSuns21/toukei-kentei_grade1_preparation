@@ -8,7 +8,39 @@
 
 二点 $p,q$ が決まったとき、それらを結ぶ**すべての未来向き因果曲線**の長さを比較し、得られる値を時間分離と呼びます。ただし通常の距離とは反対に、経由点を増やせば最大値の候補が増えるため、**逆三角不等式**になります。さらに「上限値が存在する」ことと「その値を実現する曲線が存在する」ことは別です。この区別を次章の最大化曲線の存在定理まで保ちます。
 
-以下、$(M,g)$ は境界のない滑らかな連結Hausdorff・第二可算の時間向き付きLorentz多様体、次元 $n+1$（$n\ge1$）、符号 $(-,+,\ldots,+)$ とします。未来向き因果曲線は区分的 $C^1$ のものに加え、[LORG14の局所Lipschitz因果曲線](../LORG14/index.md#lem-lorg14-local-closedness)も許します。後者の速度はほとんど至るところ存在し、長さはその速度の積分で定義します。区分的 $C^1$ の場合はLORG3の定義と一致します。
+以下、$(M,g)$ は境界のない滑らかな連結Hausdorff・第二可算の時間向き付きLorentz多様体、次元 $n+1$（$n\ge1$）、符号 $(-,+,\ldots,+)$ とします。未来向き因果曲線は区分的 $C^1$ のものに加え、[LORG14の局所Lipschitz因果曲線](../LORG14/index.md#lem-lorg14-local-closedness)も許します。後者の速度はほとんど至るところ存在し、長さはその速度の積分で定義します。区分的 $C^1$ の場合は[LORG3の定義](../LORG3/index.md#def-lorg3-lorentz-length)と一致します。
+
+ここで既習の[Minkowskiの端点長さ不等式](../LORG3/index.md#thm-lorg3-minkowski-length-bound)は区分的 $C^1$ 曲線について証明されていました。本章で許す局所Lipschitz曲線にも同じ上界が使えることを先に確認します。Minkowski座標で速度 $v(s)=\dot\gamma(s)$ はほとんど至るところ未来因果的で、本質的有界です。分割区間 $I_i$ 上での平均速度
+
+$$
+v_i=\frac{1}{|I_i|}\int_{I_i}v(s)\,ds
+$$
+
+も、[閉未来錐の凸性](../LORG1/index.md#prop-lorg1-cone-convex)から未来因果的です。$\tau(v)=\sqrt{-\eta(v,v)}$ と置き、[未来因果ベクトルの逆三角不等式](../LORG1/index.md#cor-lorg1-reverse-triangle)を $|I_i|v_i$ の和へ適用すると
+
+$$
+\sum_i |I_i|\tau(v_i)
+\le \tau\left(\sum_i|I_i|v_i\right)
+=\tau\bigl(\gamma(1)-\gamma(0)\bigr).
+$$
+
+**区間平均が速度に近づく理由**を確かめます。二進細分の各小区間 $I_m(s)=[a_m,b_m]$ に対し、$s$ をその内部の微分可能点とします。幅を $\delta_m=b_m-a_m$ と置くと、$\gamma$ の $s$ での微分可能性から
+
+$$
+\begin{aligned}
+\gamma(b_m)&=\gamma(s)+\dot\gamma(s)(b_m-s)+o(b_m-s),\\
+\gamma(a_m)&=\gamma(s)+\dot\gamma(s)(a_m-s)+o(s-a_m)
+\end{aligned}
+$$
+
+なので、両式を引いて $\delta_m$ で割れば
+
+$$
+v_m(s)=\frac{\gamma(b_m)-\gamma(a_m)}{\delta_m}
+=\dot\gamma(s)+o(1).
+$$
+
+局所Lipschitz曲線はほとんど至るところ微分可能なので、この収束はほとんど至るところ成り立ちます。各 $v_m$ は一様有界な閉未来錐に属し、$\tau$ はその上で連続です。[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を $\tau(v_m(s))$ に適用すると、左辺の区間和は $L_\eta(\gamma)$ へ収束します。このためLORG3の端点長さ不等式は、本章で扱う局所Lipschitz曲線にも成り立ちます。
 
 ## 2. 時間分離の定義と直接計算
 
@@ -159,7 +191,26 @@ $$
 -g(\dot\gamma,\dot\gamma)>0.
 $$
 
-その付近の短い区間の接ベクトルは未来時間的で、区間の端点 $a,b$ は $a\ll b$ を満たします。元の曲線の残りから $p\le a$、$b\le q$ です。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を二度使えば $p\ll q$ が従います。局所Lipschitz曲線の場合も、積分が正となる時間的部分を局所近似して同じ推論を行えます。
+局所Lipschitz曲線では速度が連続するとは限らないため、微分可能点 $s_0$ を直接使います。その点で $\dot\gamma(s_0)$ が未来時間的なら、局所座標で
+
+$$
+\gamma(s_0+h)-\gamma(s_0)=h\dot\gamma(s_0)+o(h)
+\qquad(h\downarrow0)
+$$
+
+です。未来時間錐は開いているので、[LORG5の局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により、十分小さい $h>0$ で
+
+$$
+\gamma(s_0)\ll\gamma(s_0+h)
+$$
+
+となります。ここで $a=\gamma(s_0)$、$b=\gamma(s_0+h)$ と置きます。元の曲線の残りから
+
+$$
+p\le a,\qquad b\le q
+$$
+
+を得ます。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を二度適用すれば $p\ll q$ です。区分的 $C^1$ 曲線も同じ議論に含まれます。
 
 逆に $p\ll q$ なら、定義上 $p$ から $q$ の未来時間的な区分的 $C^1$ 曲線が取れます。その非零時間的速度を持つ区間では被積分関数が正なので $L_g(\gamma)>0$、従って $d_g(p,q)>0$ です。$\square$
 <!-- proof-end -->
@@ -225,11 +276,11 @@ $$
 L_g(\gamma)\ge\limsup_{k\to\infty}L_g(\gamma_k)
 $$
 >
-> が成立することを、その収束に沿ったLorentz長さの**上半連続性**という。ここでは曲線が共通のコンパクト集合内にあり、補助Riemann計量のLipschitz定数が一様有界である場合を扱う。
+> が成立することを、その収束に沿ったLorentz長さの**上半連続性**という。ここでは曲線が共通のコンパクト集合内にあり、[LORG14で導入した補助Riemann計量と弧長](../LORG14/index.md#def-lorg14-h-arclength)に関するLipschitz定数が一様有界である場合を扱う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg17-upper-semicontinuity -->
-**定義の確認**。上の曲線列は $|\dot\gamma_k|_{\mathrm{Euclid}}\le\sqrt2$ だから一様Lipschitzです。画像は時空のコンパクト長方形内に入り、極限も未来因果曲線です。数値を代入すると
+**定義の確認**。上の曲線列は $|\dot\gamma_k|_{\mathrm{Euclid}}\le\sqrt2$ だから一様Lipschitzです。各曲線の像は時空のコンパクト長方形内に入り、極限も未来因果曲線です。数値を代入すると
 
 $$
 L_\eta(\gamma)=1>\frac2\pi
@@ -238,6 +289,22 @@ $$
 
 したがって不等式の向きも、等号が不要であることも直接確認できます。
 <!-- definition-example-end -->
+
+局所の長さ比較では、二点の座標差を無条件にLorentz長さへ代入するのではありません。[LORG5の凸正規近傍](../LORG5/index.md#def-lorg5-convex-normal) $U$ 内で、点 $x$ から点 $y$ への因果曲線が $U$ 内にある場合を考えます。
+
+指数写像を用いて
+
+$$
+y=\exp_x(v),\qquad v=\exp_x^{-1}(y)
+$$
+
+と書きます。[局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)によって接ベクトル $v$ は未来因果的です。従って
+
+$$
+\tau_U(x,y)=\sqrt{-g_x(v,v)}
+$$
+
+は実数となり、放射測地線の長さを表します。ここで使用するのは**接空間の計量と指数写像**です。任意の座標差に直接計量を当てはめるものではありません。
 
 <a id="lem-lorg17-local-partition"></a>
 
@@ -266,7 +333,7 @@ $$
 \tau_{U_i}(x,y)=\sqrt{-g_x(v,v)}.
 $$
 
-時間的端点では[局所最大化定理](../LORG5/index.md#thm-lorg5-local-maximization)により、同じ近傍内の因果曲線の長さは $\tau_{U_i}$ 以下です。光的端点では、凸正規近傍内の局所因果錐の判定により当該部分のLorentz長さは零です。各部分に適用し[長さの加法性](../LORG3/index.md#prop-lorg3-length-additivity)で足すと最初の不等式を得ます。
+時間的端点では[局所最大化定理](../LORG5/index.md#thm-lorg5-local-maximization)により、十分小さく取った近傍内の因果曲線の長さは $\tau_{U_i}$ 以下です。光的端点では[局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により、局所的に時間的な迂回路はありません。もし近傍内の競合因果曲線の長さが正なら、[正の長さと時間的到達の命題](#prop-lorg17-positive)をその近傍内で適用して時間的迂回路を作れてしまい、矛盾します。したがって光的端点ではどの局所因果曲線も長さは零です。各部分に適用し[長さの加法性](../LORG3/index.md#prop-lorg3-length-additivity)で足すと最初の不等式を得ます。
 
 極限の等号を確認します。曲線の像を有限個の座標近傍で覆い、各々を小分割します。座標表示 $x(t)$ はLipschitzなので $\dot x(t)$ がほとんど至るところ存在し、$\dot x$ は本質的有界です。幅 $\delta_i=t_{i+1}-t_i$ に対する平均速度は
 
@@ -275,23 +342,60 @@ $$
 =\frac1{\delta_i}\int_{t_i}^{t_{i+1}}\dot x(t)\,dt.
 $$
 
-指数写像の原点での微分が恒等で、計量も滑らかなので、$t_i$ を基点とする局所測地線の初速度は、座標上で $\delta_i\bar v_i+O(\delta_i^2)$ です。一様有界な速度集合上の連続性と平方根の連続性により
+[LORG5の正規座標](../LORG5/index.md#def-lorg5-normal-coordinates)で指数写像の原点での微分は恒等です。そこで各区間の始点 $x_i=x(t_i)$ で
 
 $$
-\frac{\tau_{U_i}(x(t_i),x(t_{i+1}))}{\delta_i}
--\sqrt{-g_{x(t_i)}(\bar v_i,\bar v_i)}
-\longrightarrow0
+w_i=\frac{1}{\delta_i}\exp_{x_i}^{-1}(x(t_{i+1}))
+=\bar v_i+O(\delta_i)
 $$
 
-が細分に沿って一様に成り立ちます（光的速度への接近でも平方根の連続性で足ります）。例えば二進細分ではLebesgueの微分定理により、区間平均 $\bar v_i$ が $\dot x(t)$ にほとんど至るところ収束します。対応する平方根は因果錐上の非負連続関数で、速度の有界性により共通の積分可能上界を持つため、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
+と置きます。誤差は速度・計量の有界性と指数写像の滑らかさから、小区間全体で一様です。$w_i$ は未来因果的ですが、座標差から作った $\bar v_i$ が **$x_i$ で因果的であるとは限りません**。従って $\sqrt{-g_{x_i}(\bar v_i,\bar v_i)}$ を直接書くのは不正確です。代わりに、任意の座標ベクトルに対して実数値となる
 
 $$
-\sum_i\delta_i\sqrt{-g_{x(t_i)}(\bar v_i,\bar v_i)}
+F_x(u)=\sqrt{\max\{0,-g_x(u,u)\}}
+$$
+
+を一時的に用います。$w_i$ は未来因果的なので、$\tau_{U_i}(x_i,x(t_{i+1}))/\delta_i=F_{x_i}(w_i)$ です。有界なベクトル集合では $g$ の二次式の差は $O(\delta_i)$ であり、
+
+$$
+\left|\sqrt{\max(0,a)}-\sqrt{\max(0,b)}\right|
+\le\sqrt{|a-b|}
+$$
+
+を用いると
+
+$$
+\left|\frac{\tau_{U_i}(x_i,x(t_{i+1}))}{\delta_i}
+-F_{x_i}(\bar v_i)\right|
+\le C\sqrt{\delta_i}.
+$$
+
+したがって分割の最大幅を $|\mathcal P|$ とすれば、誤差和は高々 $C\sqrt{|\mathcal P|}\sum_i\delta_i=C\sqrt{|\mathcal P|}\to0$ です。
+
+二進細分の各区間の平均速度 $\bar v_i$ は、第1節で示した微分可能点での差分の計算と同じく
+
+$$
+\bar v_i=\frac{x(t_{i+1})-x(t_i)}{\delta_i}
+=\dot x(t)+o(1)\qquad (t_i\le t\le t_{i+1})
+$$
+
+によって、ほとんど至るところ $\dot x(t)$ へ収束します。区間の始点 $x_i$ も $x(t)$ へ近づきます。計量の滑らかさと $F$ の連続性、さらに $\dot x(t)$ の未来因果性から、
+
+$$
+F_{x_i}(\bar v_i)\longrightarrow
+F_{x(t)}(\dot x(t))
+=\sqrt{-g_{x(t)}(\dot x(t),\dot x(t))}
+$$
+
+です。速度と計量は一様有界なので左辺には共通の積分可能上界があります。[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
+
+$$
+\sum_i\delta_i F_{x_i}(\bar v_i)
 \longrightarrow
-\int_0^1\sqrt{-g_{x(t)}(\dot x(t),\dot x(t))}\,dt.
+\int_0^1\sqrt{-g_{x(t)}(\dot x(t),\dot x(t))}\,dt=L_g(\gamma).
 $$
 
-指数写像の誤差の総和も $\sum_i\delta_i o(1)=o(1)$ です。よって右辺の局所時間分離の和が $L_g(\gamma)$ に収束します。$\square$
+先ほどの誤差評価と合わせれば、局所時間分離の和も $L_g(\gamma)$ へ収束します。$\square$
 <!-- proof-end -->
 
 <a id="thm-lorg17-length-usc"></a>
@@ -312,7 +416,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\gamma$ の像はコンパクトです。[凸正規近傍の局所存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を凸正規かつ凸正規近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
+$\gamma$ の像はコンパクトです。[凸正規近傍の局所存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を十分小さな凸正規近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
 
 各部分に[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)を適用し、局所時間分離の連続性を使うと
 
@@ -362,13 +466,32 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[LORG5で構成したLorentz凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)を使い、$\gamma$ を有限個の小部分へ分け、それぞれを局所の因果的測地線片へ置き換えます。時間的端点では[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)により長さは減りません。光的端点の元の部分は零長なので、置換も零長です。これで因果的測地線折れ線 $\alpha$ が得られ、$L_g(\alpha)\ge L_g(\gamma)$ です。
+[LORG5で構成したLorentz凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)を使い、$\gamma$ を有限個の十分短い部分へ分け、端点間を同じ近傍内の因果的測地線片へ置き換えます。[小区間の局所時間分離による長さの復元](#lem-lorg17-local-partition)の最初の評価から、各置換で長さは減りません。こうして $x_0=p,x_1,\ldots,x_m=q$ を頂点とする因果的測地線折れ線 $\alpha$ を得て、$L_g(\alpha)\ge L_g(\gamma)$ です。
 
-$p\ll q$ なので、$\alpha$ の各小片の端点を $x_0=p,x_1,\ldots,x_m=q$ とすれば少なくとも一つの辺が時間的です。もし全辺が光的か零なら、$L_g(\alpha)=0$ ですが、$p\ll q$ でも $\gamma$ が零長であることはあり得ます。その場合にも $p$ と $q$ を時間的に結ぶ曲線を別に取れるものの、$\gamma$ の長さ零より大きいという結論は直ちに満たされます。そこで $L_g(\gamma)>0$ の場合だけ以下を考えます。
+$L_g(\gamma)=0$ なら、$p\ll q$ の定義から未来時間的曲線を一本選び、コンパクトなパラメータ区間を細分して各端点間を短い時間的測地線へ置換します。各辺は時間的で正の長さを持つため、求める結論が従います。以下では $L_g(\gamma)>0$ とします。この場合 $L_g(\alpha)>0$ なので、少なくとも一つの辺 $x_{j-1}\to x_j$ が時間的です。
 
-正の長さの辺があるので、その辺の両端には時間的関係の開性による余裕があります。それ以外の光的辺に沿っては中間頂点を微小量だけ未来向き時間的にずらし、時間的辺に到達したところでそのずれを吸収できます。始点 $p$ と終点 $q$ は固定したまま、すべての隣接頂点を時間的関係にすることができます。これは各凸正規近傍の座標で「閉未来錐のベクトルに任意に小さな未来時間的ベクトルを足すと未来時間的になる」ことと、有限個の頂点に対する逐次構成によります。
+**端点を動かさずに各辺を時間的にする構成**を説明します。時空の時間向きから、頂点の近傍で滑らかな未来時間的ベクトル場を選び、その小時間の流れを $\Phi_a$ と書きます。各辺を必要ならさらに短く細分しておくと、[LORG7の局所push-up構成](../LORG7/index.md#lem-lorg7-causal-push)と開いた時間錐により、因果的な隣接端点のうち後側を前側に対して微小量だけ未来へずらすと、その辺を時間的にできます。一方、もともと時間的な辺は[時間的関係の開性](../LORG7/index.md#thm-lorg7-chronological-open)により、十分小さな両端点の移動に耐えます。
 
-摂動後の隣接点は $U_i$ 内で時間的なので、その間を時間的測地線で結びます。有限個の各局所測地線の長さは端点に連続であるため、頂点の摂動を十分小さくすれば折れ線全体の長さは $L_g(\alpha)-\varepsilon$ より大きくなります。したがって $L_g(\beta)>L_g(\gamma)-\varepsilon$ です。$\square$
+実際、$\varepsilon_0>0$ を小さく取り、頂点ごとの流れの時間を
+
+$$
+a_i=
+\begin{cases}
+i\varepsilon_0,&0\le i<j,\\
+-(m-i)\varepsilon_0,&j\le i\le m
+\end{cases}
+$$
+
+とします。$a_0=a_m=0$ なので始点・終点は固定されます。$j$ 番目以外の各辺では $a_i-a_{i-1}=\varepsilon_0>0$ で、未来向きの小摂動により光的な辺も時間的になります。$j$ 番目だけ流れの時間が減りますが、この辺は最初から時間的なので、$\varepsilon_0$ を十分小さくすれば依然時間的です。有限個の辺すべてについてこれを同時に満たすように選び、$y_i=\Phi_{a_i}(x_i)$ とします。各 $y_{i-1}\ll y_i$ で、いずれも元の凸正規近傍に入ります。
+
+各 $y_{i-1}$ と $y_i$ を時間的測地線で結んで $\beta$ とします。局所測地線の長さは端点に連続なので、$\varepsilon_0$ を十分小さく選び直せば
+
+$$
+L_g(\beta)>L_g(\alpha)-\varepsilon
+\ge L_g(\gamma)-\varepsilon.
+$$
+
+これが必要な時間的折れ線です。$\square$
 <!-- proof-end -->
 
 <a id="thm-lorg17-time-lsc"></a>
@@ -527,7 +650,7 @@ $\gamma(s)=(13s,5s)$（$0\le s\le1$）は未来時間的で、$L_\eta(\gamma)=\i
 $p=(0,0)$ として、$q=(2,2)$、$r=(1,3)$、$s=(-2,0)$ の時間分離を求め、それぞれが未来因果的に到達可能か判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$q$ は $\Delta t=2=|\Delta x|$ だから $p\le q$ で光的直線が存在しますが、公式より
+**詳細解答**。$q$ は $\Delta t=2=|\Delta x|$ だから $p\le q$ で光的直線が存在しますが、[Minkowski時空の時間分離](#thm-lorg17-minkowski-formula)より
 
 $$
 d_\eta(p,q)=\sqrt{4-4}=0.
@@ -543,7 +666,7 @@ $r$ は $1<3$ なので到達不能、$s$ は $\Delta t=-2<0$ なので過去向
 $p=(0,0)$、$q=(2,0)$、$r=(4,0)$ と、$q'=(2,1)$ の場合を比較し、時間分離の逆三角不等式を数値で確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。$p\le q\le r$ で、公式から
+**詳細解答**。$p\le q\le r$ で、[Minkowski時空の時間分離](#thm-lorg17-minkowski-formula)から
 
 $$
 d(p,q)=2,\quad d(q,r)=2,\quad d(p,r)=4,
@@ -607,7 +730,7 @@ $m\to\infty$ で長さは発散し、上限の定義から $d_g(p,p)=+\infty$ �
 $p=(0,0)$、$r=(6,0)$、$q=(3,1)$ の場合、$p\le q\le r$ を確かめた上で、逆三角不等式の余裕を計算せよ。$q=(3,a)$ に一般化して $|a|\le3$ のとき等号となる条件を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$q-p=(3,1)$ と $r-q=(3,-1)$ はいずれも時間成分3、空間成分の絶対値1なので未来時間的です。
+**詳細解答**。$q-p=(3,1)$ と $r-q=(3,-1)$ はいずれも時間成分3、空間成分の絶対値1なので、[Minkowskiの因果錐条件](../LORG6/index.md#thm-lorg6-minkowski-futures)により未来時間的です。次に[時間分離公式](#thm-lorg17-minkowski-formula)を適用します。
 
 $$
 d(p,q)=d(q,r)=\sqrt{3^2-1^2}=2\sqrt2,\qquad
