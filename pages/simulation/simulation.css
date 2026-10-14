@@ -28,3 +28,6 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .icon-2{background:#c04d3c;border-radius:3px}
 .icon-3{background:#14724d;clip-path:polygon(50% 1%,99% 99%,1% 99%);padding-top:7px}
 #burrau-params p{grid-column:1/-1;margin:0;line-height:1.7;font-size:.88rem}
+
+/* Full-width explanatory notes under the orbit gallery controls. */
+#gallery-params .full-width{grid-column:1/-1;margin:0;line-height:1.7;font-size:.9rem}
