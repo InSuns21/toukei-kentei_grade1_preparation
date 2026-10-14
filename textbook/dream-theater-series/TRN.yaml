@@ -27,7 +27,7 @@ chapters:
     title: "eに対する補助多項式と素数合同"
   - id: TRN6
     path: textbook/volumes/dream_thater/代数系/TRN/TRN6
-    status: planned
+    status: completed
     title: "Hermiteの定理：eの超越性"
   - id: TRN7
     path: textbook/volumes/dream_thater/代数系/TRN/TRN7
