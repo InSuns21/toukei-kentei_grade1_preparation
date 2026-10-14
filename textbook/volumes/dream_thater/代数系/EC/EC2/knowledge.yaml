@@ -1,0 +1,62 @@
+chapter: EC2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC1
+  - GRP1
+  - RNG3
+forward_references: []
+concepts:
+  - id: elliptic-curve.point-negation
+    name: Weierstrass曲線上の反転
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.geometric-nonsingularity
+      - elliptic-curve.weierstrass-model
+
+  - id: elliptic-curve.chord-tangent-addition
+    name: 割線・接線による加法
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.point-negation
+      - elliptic-curve.geometric-nonsingularity
+
+  - id: elliptic-curve.addition-basic-laws
+    name: 単位元・逆元・可換性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.chord-tangent-addition
+
+  - id: elliptic-curve.eight-nine-intersections
+    name: 三本の直線と八交点
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.weierstrass-model
+
+  - id: elliptic-curve.chord-tangent-specialization
+    name: 割線・接線演算の特殊化
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.chord-tangent-addition
+      - elliptic-curve.geometric-nonsingularity
+
+  - id: elliptic-curve.associativity
+    name: 割線・接線加法の結合法則
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.eight-nine-intersections
+      - elliptic-curve.chord-tangent-specialization
+      - elliptic-curve.addition-basic-laws
+      - algebra.abelian-group
