@@ -262,7 +262,7 @@ M_{a,b}(f).
 \end{aligned}
 $$
 
-第二行は複素数値積分の三角不等式で、[CA2のML評価](../../../解析系/CA/CA2/index.md#thm-ca2-reparam-ml)とも一致します。$a=b$ なら左辺と右辺の双方が0です。
+第二行では、[CA2のML評価](../../../解析系/CA/CA2/index.md#thm-ca2-reparam-ml)の基礎となる $|\int_0^1h(t)\,dt|\le\int_0^1|h(t)|\,dt$ を、$h(t)=e^{(1-t)b+ta}f(a+t(b-a))$ に適用しました。$a=b$ なら左辺と右辺の双方が0です。
 <!-- proof-end -->
 
 ### 複素端点の直接計算
