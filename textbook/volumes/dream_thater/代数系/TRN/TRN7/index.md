@@ -245,11 +245,11 @@ $$
 > **定理（共役積の非零性・不変性・評価）**  
 > $K/\mathbb Q$ を有限Galois拡大、$G$ をそのGalois群とする。次の形式和を取る。
 
-$
+$$
 F=\sum_{j=1}^m a_jU_{\alpha_j},
 \quad \alpha_j\in K,\quad
 \alpha_i\ne\alpha_j\ (i\ne j),\quad a_j\in K.
-$
+$$
 
 > ただし $m\ge1$ とし、係数 $a_j$ は少なくとも一つ非零とする。このとき以下が成立する。
 >
