@@ -101,7 +101,7 @@ export function drawPlot(canvas, plot, zoom = 1) {
     const sampled = line.filter((_, i) => i % Math.max(1, Math.ceil(line.length / 800)) === 0);
     ctx.strokeStyle = colors[index % colors.length];
     ctx.fillStyle = colors[index % colors.length];
-    ctx.setLineDash(index % 2 === 0 ? [] : [6, 4]);
+    ctx.setLineDash(index % 3 === 0 ? [] : index % 3 === 1 ? [6, 4] : [2, 4]);
     ctx.beginPath();
     sampled.forEach((p, i) => {
       const x = toX(p[0]), y = toY(p[1]);
