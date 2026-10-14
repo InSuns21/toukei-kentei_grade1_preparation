@@ -12,7 +12,7 @@ chapters:
     title: "非特異三次曲線とWeierstrass方程式"
   - id: EC2
     path: textbook/volumes/dream_thater/代数系/EC/EC2
-    status: planned
+    status: completed
     title: "割線・接線群則と結合法則の証明"
   - id: EC3
     path: textbook/volumes/dream_thater/代数系/EC/EC3

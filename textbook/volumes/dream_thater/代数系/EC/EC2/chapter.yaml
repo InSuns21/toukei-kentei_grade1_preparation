@@ -1,0 +1,45 @@
+id: "EC2"
+title: "割線・接線群則と結合法則の証明"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC1
+  - GRP1
+  - RNG3
+official_scope: []
+learning_objectives:
+  - 一般Weierstrass方程式で反転写像と縦線・無限遠点の関係を確認できる
+  - 割線・接線による点の加法を定義し標数による分母零を場合分けできる
+  - 一般係数の加法・二倍公式を三次多項式と偏微分から導ける
+  - 単位元・逆元・可換性とk-有理点集合の演算閉性を証明できる
+  - 八交点補題を多項式の因数分解から証明できる
+  - 非特異性から形式的局所パラメータ・接線と交点の特殊化を説明できる
+  - 一般配置の九交点証明を特殊配置まで延ばし結合法則を証明できる
+  - 有理数体と標数2で実際の加算順序および反例の機構を検算できる
+definitions:
+  - { id: EC2-DEF-01, name: Weierstrass曲線上の反転 }
+  - { id: EC2-DEF-02, name: 割線・接線による加法 }
+theorems:
+  - { id: EC2-PROP-01, name: 単位元・逆元・可換性 }
+  - { id: EC2-LEM-01, name: 三本の直線と八交点 }
+  - { id: EC2-LEM-02, name: 割線・接線演算の特殊化 }
+  - { id: EC2-THM-01, name: 割線・接線加法の結合法則 }
+canonical_examples:
+  - y²=x³-x+1 上の(0,1)+(1,1)=(-1,-1)
+  - y²=x³-x+1 上の(0,1)の二倍と実際の代入検算
+  - F2上のy²+y=x³で三倍するとOとなる点
+  - 一般Weierstrass形y²+xy+y=x³でのa3項
+  - 特異曲線y²=x³の原点で微分が同時に零となる反例
+problem_patterns:
+  - EC2-A1
+  - EC2-A2
+  - EC2-A3
+  - EC2-A4
+  - EC2-B1
+  - EC2-B2
+  - EC2-B3
+  - EC2-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 9, review: 5 }
