@@ -161,3 +161,49 @@ proof or a replacement for the CELEV Python project.
 
 The Node integration checks initial energy and step halving; Chromium checks
 actual 3-body initialization, markers, and a live step.
+
+## CELEV three-body periodic and choreography gallery (2026-10-15)
+
+`orbit-gallery.mjs` adds eight **computed** Newtonian models on the common
+Canvas + Worker platform. The first two are choreographies (three equal masses
+on the *same* curve, phase-shifted); the collinear Euler relative equilibrium
+has a fixed central body and is not a choreography. The others are
+equal-mass, zero-angular-momentum periodic-orbit families, *not* automatically
+shared-curve choreographies:
+
+| ID | Classification | Period / initial values |
+|---|---|---|
+| figure-eight | choreography | approx T=6.32591398; q1=(0.97000436,-0.24308753), q2=-q1, q3=0; v1=v2=(0.466203685,0.43236573), v3=-2v1 |
+| lagrange | circular choreography | equilateral radius 1, angular velocity 3^(-1/4), exact relative equilibrium |
+| euler | Euler collinear relative equilibrium | q=(-1,0),(0,0),(1,0); outer angular velocity sqrt(5/4), middle stationary |
+| butterfly-i | periodic family | v1=v2=(0.306893,0.125507), v3=-2v1; approx T=6.234671 |
+| butterfly-ii | periodic family | v1=v2=(0.392955223941802,0.0975792352080344); approx T=7.003707 |
+| moth-i | periodic family | v1=v2=(0.464445237398184,0.396059973403921); approx T=14.8939 |
+| yin-yang-i | periodic family | v1=v2=(0.51394,0.30474); approx T=17.3284 |
+| dragonfly | periodic family | v1=v2=(0.080584,0.588836); approx T=21.2710 |
+
+For the last five, q=(-1,0),(1,0),(0,0) and G=m1=m2=m3=1.
+All period values are references, **not runtime-enforced constraints**.
+The source decimals, especially for Yin-Yang / Dragonfly, may not satisfy
+periodic closure to high precision; small energy drift does not establish
+periodic closure. The UI shows distance to the initial configuration, which
+must only be interpreted as a closure check at approximately one period.
+
+Sources:
+- Chenciner & Montgomery, figure-eight orbit (Annals of Mathematics, 2000).
+- Šuvakov & Dmitrašinović, Three classes of Newtonian three-body planar periodic
+  orbits, Phys. Rev. Lett. 110, 114301 (2013),
+  https://doi.org/10.1103/PhysRevLett.110.114301
+- Published extended-precision Butterfly II / Moth I initial conditions in
+  Li et al. (2014), *On the stability of the three classes of Newtonian
+  three-body planar periodic orbits*.
+
+The shared gallery uses error-controlled Dormand-Prince RK5(4) with
+unsoftened 1/r² Newtonian gravity, finite bounds, max 120k internal attempts
+per batch, and aborts if energy drift exceeds 5e-5. Outputs are at user
+selected intervals 0.02/0.05/0.1, never the internal adaptive step.
+Node acceptance checks all 8, momentum conservation and finite t=1 energy;
+exact Euler/Lagrange closure at reference T; approximate figure-eight closure;
+the actual Worker protocol. Browser acceptance checks selection and an
+independently simulated trajectory, including a switch from figure-eight
+to Butterfly II.
