@@ -23,7 +23,7 @@ $$
 
 尺度 $2^j$ の周波数を取り出すには、半径に関して単調な滑らかな切断関数を一つ用意すれば十分です。非負性まで確保すると、各周波数帯の二乗和が消えないことも直ちに分かります。
 
-$a\le b$ について、$t\le a$ で $1$、$t\ge b$ で $0$、その間で滑らかに単調減少する $C^\infty$ 関数を取れます（例えば区間内部で $e^{-1/u}$ を使って端で全階微分が零となる補間を作れます）。これを $|\xi|^2$ に適用して、次の $\varphi$ を選びます。
+$a<b$ について、$t\le a$ で $1$、$t\ge b$ で $0$、その間で滑らかに単調減少する $C^\infty$ 関数を取れます（例えば区間内部で $e^{-1/u}$ を使って端で全階微分が零となる補間を作れます）。これを $|\xi|^2$ に適用して、次の $\varphi$ を選びます。
 
 <a id="def-ha8-dyadic"></a>
 <!-- formal-statement-start -->
@@ -41,7 +41,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha8-dyadic -->
-**定義の確認**　$|\xi|=2^k$（$k\ge2$）で考えると、$\psi_j(\xi)$ が零でない可能性があるのは $j=k-1,k,k+1$ だけです。なぜなら非零の条件 $1/2<2^{-j}|\xi|<2$ を $2^k$ に代入すると $k-1<j<k+1$（境界では滑らかcutoffの値が零）となるからです。連続的な $\xi$ についても、周波数帯の重複数は高々4で一定です。また $\varphi(\xi)-\varphi(2\xi)\ge0$ は半径についての単調性によります。単に台の包含だけで非負性を主張してはいません。
+**定義の確認**　$|\xi|=2^k$（$k\ge2$）を代入します。$\psi_j(\xi)\ne0$ なら、$\varphi$ が $|\eta|\le1$ で1、$|\eta|\ge2$ で0となるため、
+
+$$
+\frac12<2^{-j}|\xi|=2^{k-j}<2
+\quad\Longrightarrow\quad
+k-1<j<k+1.
+$$
+
+$j$ は整数なので **$j=k$ だけ**が残り、$\psi_k(\xi)=\varphi(1)-\varphi(2)=1$ です。他の添字では値が零になります。一般の $\xi\ne0$ でも、$1/2<2^{-j}|\xi|<2$ を満たす整数 $j$ は高々2個です。さらに $\varphi(\xi)\ne0$ である $|\xi|<2$ では高周波側の候補は $j=1$ だけなので、非斉次分割でも非零項は高々2個です（後の平方関数評価では緩い上界4を使います）。
+
+また $\psi_j(\xi)=\varphi(2^{-j}\xi)-\varphi(2^{1-j}\xi)\ge0$ は半径に関する単調性から従います。この例では、台の包含だけでなく、非零の添字、値の和と非負性を直接確かめました。
 <!-- definition-example-end -->
 
 分割の和は別の仮定ではなく、定義の差から導きます。整数 $M\ge1$ について
@@ -94,7 +104,17 @@ $$
 したがって $\Delta_jf=K_j*f$ です。$\psi(0)=0$ より $\int K_j(x)\,dx=0$ であり、$\varphi(0)=1$ より低周波核 $K_0=\check\varphi$ は $\int K_0=1$ です。この二つの質量条件が高周波の消去と低周波の保持を区別します。
 
 <!-- definition-example-start: def-ha8-projection -->
-**定義の確認**　$\widehat f$ が $3\le|\xi|\le4$ に台を持つSchwartz関数だとします。$\Delta_0f=0$ です。$\Delta_jf$ のFourier台は元の台と $\{2^{j-1}\le|\xi|\le2^{j+1}\}$ の共通部分ですから、重ならない $j\ge4$ と $j=1$ の外側では零になります。$j=1,2,3$ のうち重なる帯域だけが寄与し、各点で $\sum_{j\ge1}\psi_j=1$ のため和は元の $f$ です。特定の一つの帯域が必ず全体を保持するとは限りません。
+**定義の確認**　$\widehat f$ が $3\le|\xi|\le4$ に台を持つSchwartz関数だとします。定義から、$\widehat{\Delta_j f}=\psi_j\widehat f$ です。したがって出力のFourier台は入力の台と $\operatorname{supp}\psi_j$ の共通部分になります。入力の台では $\varphi(\xi)=0$ なので $\Delta_0f=0$、また $j\ge3$ では $2^{-j}|\xi|\le1/2$ なので $\psi_j(\xi)=0$ です。
+
+実際、$3\le|\xi|\le4$ 上で $\varphi(\xi/4)=1$ ですから、残る二つの乗数は
+
+$$
+\psi_1(\xi)=\varphi(\xi/2),\qquad
+\psi_2(\xi)=1-\varphi(\xi/2),\qquad
+\psi_1(\xi)+\psi_2(\xi)=1.
+$$
+
+ゆえに $\widehat{\Delta_1f+\Delta_2f}=\widehat f$、Fourier反転により $\Delta_1f+\Delta_2f=f$ です。非負性と帯域による消去だけでなく、残った成分が元の入力を復元することも確認しました。
 <!-- definition-example-end -->
 
 <a id="prop-ha8-decomposition"></a>
@@ -244,17 +264,29 @@ $$
 =\sum_j|a_j|^2=A^2.
 $$
 
-四乗を展開すると、添字が偶数回現れる積だけが残ります。四つの位置の対の組合せを数えて
+四乗を複素係数のまま展開します。$\mathbb E(\varepsilon_j\varepsilon_k\varepsilon_\ell\varepsilon_m)$ は、各添字が偶数回現れる場合だけ1となり、他では0です。
+
+$$
+\mathbb E|X|^4
+=\sum_{j,k,\ell,m}
+a_j\overline{a_k}a_\ell\overline{a_m}\,
+\mathbb E(\varepsilon_j\varepsilon_k\varepsilon_\ell\varepsilon_m).
+$$
+
+全添字が等しい項を先に取り出します。残りは二種類の異なる添字が二回ずつ現れる項で、その配置は $(j=k,\ell=m)$、$(j=m,k=\ell)$、$(j=\ell,k=m)$ の三通りです。従って
 
 $$
 \begin{aligned}
 \mathbb E|X|^4
+&=\sum_j|a_j|^4
+ +2\sum_{j\ne k}|a_j|^2|a_k|^2
+ +\sum_{j\ne k}a_j^2\overline{a_k}^2\\
 &=2A^4+\left|\sum_j a_j^2\right|^2-2\sum_j|a_j|^4\\
-&\le3A^4
+&\le3A^4.
 \end{aligned}
 $$
 
-です。実際 $|\sum_j a_j^2|\le\sum_j|a_j|^2=A^2$ を使いました。
+最後は $|\sum_j a_j^2|\le\sum_j|a_j|^2=A^2$ から従います。
 
 $E=\{|X|>A/\sqrt2\}$ とおくと $E^c$ では $|X|^2\le A^2/2$ です。そのため
 
@@ -386,6 +418,17 @@ $$
 <!-- proof-end -->
 
 この補題は全ての符号付けに対して一様に成り立つ点が重要です。ひとつの符号列についてだけ有界という主張では、次の有限平均に同じ定数を持ち込めません。
+
+ここまで平方関数を $L^2$ 入力について定義しましたが、$L^p$ 入力にも各射影の畳み込み表示を使えます。実際、$K_j\in L^1$ であり、[Minkowskiの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-02)を平行移動した $f$ の積分に適用すると
+
+$$
+\|\Delta_jf\|_p
+=\left\|\int K_j(y)f(\,\cdot-y)\,dy\right\|_p
+\le\int|K_j(y)|\|f(\,\cdot-y)\|_p\,dy
+=\|K_j\|_1\|f\|_p
+$$
+
+となります。そこで $f\in L^p$ に対しても $Sf=(\sum_{j\ge0}|\Delta_jf|^2)^{1/2}$ を非負項の単調極限として定めます。次の定理でその $L^p$ ノルムが有限であると証明します。
 
 <a id="thm-ha8-lp"></a>
 <!-- formal-statement-start -->
@@ -848,7 +891,13 @@ $$
 **演習 HA8-B03（双対を使う理由）**  
 - Level: B
 
-$f,g\in\mathcal S$ とし、$\widetilde\psi_j=1$ が $\psi_j$ の台上で成り立つ補助乗数を用いる。$\int f\overline g=\sum_j\int\Delta_jf\,\overline{\widetilde\Delta_jg}$ をFourier側で説明し、$L^p$ 平方関数の下界へ至る三つの不等式を示せ。
+$f,g\in\mathcal S$ とする。$m_0=\varphi$、$m_j=\psi_j$（$j\ge1$）と置く。実値の滑らかなコンパクト台乗数 $\widetilde m_0,\widetilde m_j$ を、それぞれ $\operatorname{supp}m_j$ 上で1となるように取り、$j\ge1$ では $\widetilde m_j(\xi)=\widetilde\psi(2^{-j}\xi)$（$\widetilde\psi$ は原点近傍で0）とする。$\widetilde\Delta_j$ を乗数 $\widetilde m_j$ の作用素とする。このとき
+
+$$
+\int f\overline g=\sum_{j\ge0}\int\Delta_jf\,\overline{\widetilde\Delta_jg}
+$$
+
+をFourier側で説明し、$L^p$ 平方関数の下界へ至る三つの不等式を示せ。
 
 <!-- solution-start -->
 **詳細解答**　[再構成命題](#prop-ha8-decomposition)とPlancherelにより
@@ -857,14 +906,14 @@ $$
 \begin{aligned}
 \sum_j\int\Delta_jf\,\overline{\widetilde\Delta_jg}
 &=(2\pi)^{-d}\int
-\sum_j\psi_j(\xi)\widetilde\psi_j(\xi)
+\sum_{j\ge0}m_j(\xi)\widetilde m_j(\xi)
 \widehat f(\xi)\overline{\widehat g(\xi)}\,d\xi\\
 &=(2\pi)^{-d}\int\widehat f\overline{\widehat g}\,d\xi
 =\int f\overline g\,dx.
 \end{aligned}
 $$
 
-二番目の等号では $\psi_j\widetilde\psi_j=\psi_j$ と $\sum_j\psi_j=1$ を使います。次に、各点でCauchy–Schwarz、その後空間でHölder、最後に補助射影の平方関数上界を使って
+二番目の等号では、$j=0$ について $\varphi\widetilde m_0=\varphi$、$j\ge1$ について $\psi_j\widetilde m_j=\psi_j$ を用い、$\varphi+\sum_{j\ge1}\psi_j=1$ と合わせました。補助乗数を実値としたため、複素共役の扱いも変わりません。次に、各点でCauchy–Schwarz、その後空間でHölder、最後に補助射影の平方関数上界を使って
 
 $$
 \begin{aligned}
