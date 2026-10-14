@@ -59,7 +59,7 @@ chapters:
     title: "依存領域とCauchy horizon"
   - id: LORG14
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG14
-    status: planned
+    status: completed
     title: "限界曲線補題"
   - id: LORG15
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG15
