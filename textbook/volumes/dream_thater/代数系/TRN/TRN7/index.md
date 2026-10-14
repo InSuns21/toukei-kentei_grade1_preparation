@@ -412,7 +412,7 @@ $$
 
 ### 証明の見取り図
 
-係数和が積と共役作用を保つことを各有限和で確かめます。その後は[共役のノルム公式](../TRN2/index.md#thm-trn2-conjugate-formula)と整数性を使います。
+係数和が積と共役作用を保つことを各有限和で確かめます。その後は[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)と整数性を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -442,7 +442,7 @@ $$
 =\prod_{\sigma\in G}\sigma(\varepsilon(F)).
 $$
 
-有限Galois拡大は分離拡大で、その $\mathbb Q$-埋め込みは $G$ の全元と一致します。[共役のノルム公式](../TRN2/index.md#thm-trn2-conjugate-formula)からこれは $N_{K/\mathbb Q}(\varepsilon(F))$ です。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
+有限Galois拡大は分離拡大で、その $\mathbb Q$-埋め込みは $G$ の全元と一致します。[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)からこれは $N_{K/\mathbb Q}(\varepsilon(F))$ です。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
 <!-- proof-end -->
 
 ただし **$F\ne0$ だけでは $\varepsilon(F)\ne0$ とは言えません**。例えば $F=U_s-U_{-s}$ は形式的に非零ですが $\varepsilon(F)=1-1=0$ です。従って補助量として係数和のノルムを選ぶ場合には、係数和の非零性を**別途**示す必要があります。後続章でどの算術量を選ぶかは、この区別が鍵になります。
@@ -574,7 +574,7 @@ $s=\sqrt2$ とし、$H=sU_s-sU_{-s}$ を考えます。$\sigma(s)=-s$ に対し�
 <!-- solution-start -->
 **詳細解答**
 
-作用の定義から
+[形式指数和のGalois共役の定義](#def-trn7-galois-action)から
 
 $$
 \begin{aligned}
