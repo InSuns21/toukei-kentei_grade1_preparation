@@ -4,7 +4,7 @@
 
 このページは **DREAM THEATER のオリエンテーション兼全体目次** です。数学的な依存関係を意識しながら、基礎科目から解析・計算・幾何・代数・応用・物理へ広がる全体像を示します。
 
-[全体の読む順](textbook/dream-theater-standard-math-core.md)
+[**学習コースから選ぶ（おすすめ）**](textbook/dream-theater-courses.md) ・ [全体の読む順](textbook/dream-theater-standard-math-core.md)
 
 **読み方**
 
@@ -1016,6 +1016,7 @@
 3. [CELEV3 特異ポテンシャル・衝突・局所変形](textbook/volumes/dream_thater/物理系/CELEV/CELEV3/index.md)
 4. [CELEV4 対称作用原理](textbook/volumes/dream_thater/物理系/CELEV/CELEV4/index.md)
 5. [CELEV5 等質量三体の8の字解](textbook/volumes/dream_thater/物理系/CELEV/CELEV5/index.md)
+6. [CELEV6 n体舞踏解・組み紐と軌道分類](textbook/volumes/dream_thater/物理系/CELEV/CELEV6/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I

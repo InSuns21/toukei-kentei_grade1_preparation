@@ -1,5 +1,7 @@
 # DREAM THEATER 全体の読む順
 
+**目的別に学ぶ方へ：** [学習コース一覧（公開章に自動追随）](textbook/dream-theater-courses.md)
+
 [DREAM THEATER 本編](textbook/dream-theater.md)
 
 このページは、DREAM THEATER を上から通読するときの標準的な学習順です。各科目名から、その科目の目次へ直接移動できます。科目別に探したいときは [DREAM THEATER 本編](textbook/dream-theater.md) も使ってください。

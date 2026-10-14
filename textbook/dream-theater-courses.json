@@ -1,0 +1,459 @@
+{
+  "version": 1,
+  "courses": [
+    {
+      "id": "foundations",
+      "title": "数学基礎コース",
+      "description": "集合・線形代数・実解析・位相の言葉を段階的に整える。",
+      "stages": [
+        {
+          "title": "集合と線形代数",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "F0-00A3"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            }
+          ]
+        },
+        {
+          "title": "解析と位相",
+          "parts": [
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-topology",
+              "through": "TOP5"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-axiomatic-set-theory",
+        "dt-subject-complex-analysis-i"
+      ]
+    },
+    {
+      "id": "statistics",
+      "title": "確率・統計コース",
+      "description": "測度から確率変数、極限定理、漸近統計へ。",
+      "stages": [
+        {
+          "title": "数学の土台",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            }
+          ]
+        },
+        {
+          "title": "確率と統計",
+          "parts": [
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "F0-00D2E"
+            },
+            {
+              "subject": "dt-subject-probability",
+              "through": "F0-00P7A"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-time-series",
+        "dt-subject-stochastic-analysis",
+        "dt-subject-information-theory",
+        "dt-subject-rkhs",
+        "dt-subject-monte-carlo"
+      ]
+    },
+    {
+      "id": "analysis-pde",
+      "title": "数学解析・PDEコース",
+      "description": "常微分方程式からFourier解析、Sobolev空間、弱解へ。",
+      "stages": [
+        {
+          "title": "解析の基礎",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-topology",
+              "through": "TOP5"
+            }
+          ]
+        },
+        {
+          "title": "微分方程式と解析の道具",
+          "parts": [
+            {
+              "subject": "dt-subject-ode-i",
+              "through": "ODE7"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            },
+            {
+              "subject": "dt-subject-measure-theory",
+              "through": "F0-00D2E"
+            },
+            {
+              "subject": "dt-subject-functional-analysis",
+              "through": "F0-02C6"
+            },
+            {
+              "subject": "dt-subject-fourier-analysis",
+              "through": "FOU5"
+            }
+          ]
+        },
+        {
+          "title": "PDEと関数解析",
+          "parts": [
+            {
+              "subject": "dt-subject-pde-undergraduate",
+              "through": "PDE12"
+            },
+            {
+              "subject": "dt-subject-functional-analysis-ii",
+              "through": "FA7"
+            },
+            {
+              "subject": "dt-subject-pde-graduate",
+              "through": "GPDE10"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-nonlinear-pde",
+        "dt-subject-navier-stokes",
+        "dt-subject-harmonic-analysis",
+        "dt-subject-evolution-equations"
+      ]
+    },
+    {
+      "id": "geometry",
+      "title": "幾何学コース",
+      "description": "多変数解析から多様体、微分形式、Riemann幾何へ。",
+      "stages": [
+        {
+          "title": "共通の数学言語",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA3E"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-topology",
+              "through": "TOP5"
+            }
+          ]
+        },
+        {
+          "title": "幾何への道",
+          "parts": [
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            },
+            {
+              "subject": "dt-subject-differential-geometry-i",
+              "through": "GEO9"
+            },
+            {
+              "subject": "dt-subject-differential-geometry-ii",
+              "through": "GEO19"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-symplectic-geometry-i",
+        "dt-subject-lorentzian-geometry",
+        "dt-subject-complex-manifolds-i",
+        "dt-subject-geometric-mechanics-i"
+      ]
+    },
+    {
+      "id": "algebra",
+      "title": "代数学・整数論コース",
+      "description": "群・環・体・Galois理論を経由して整数論へ。",
+      "stages": [
+        {
+          "title": "集合と線形代数",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "F0-00A3"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA4"
+            }
+          ]
+        },
+        {
+          "title": "代数から整数論",
+          "parts": [
+            {
+              "subject": "dt-subject-abstract-algebra",
+              "through": "FLD5"
+            },
+            {
+              "subject": "dt-subject-number-theory",
+              "through": "NT10"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-diophantine-approximation",
+        "dt-subject-analytic-number-theory",
+        "dt-subject-algebraic-geometry-i",
+        "dt-subject-lie-theory"
+      ]
+    },
+    {
+      "id": "computation",
+      "title": "計算理論コース",
+      "description": "オートマトン・計算可能性・PとNPまでをたどる。",
+      "stages": [
+        {
+          "title": "数学の記法",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            }
+          ]
+        },
+        {
+          "title": "計算と計算量",
+          "parts": [
+            {
+              "subject": "dt-subject-computation-theory-i",
+              "through": "AUT7"
+            },
+            {
+              "subject": "dt-subject-computation-theory-ii",
+              "through": "CMP8"
+            },
+            {
+              "subject": "dt-subject-complexity-theory-i",
+              "through": "CPLX11"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-complexity-theory-ii",
+        "dt-subject-cellular-automata-i",
+        "dt-subject-dynamical-systems-i"
+      ]
+    },
+    {
+      "id": "numerical",
+      "title": "数値計算・最適化コース",
+      "description": "数値解析から数値最適化、PDEの離散化へ。",
+      "stages": [
+        {
+          "title": "解析と計算の土台",
+          "parts": [
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-ode-i",
+              "through": "ODE7"
+            }
+          ]
+        },
+        {
+          "title": "数値解析と最適化",
+          "parts": [
+            {
+              "subject": "dt-subject-numerical-analysis",
+              "through": "NA12"
+            },
+            {
+              "subject": "dt-subject-convex-optimization",
+              "through": "OPT12"
+            }
+          ]
+        },
+        {
+          "title": "微分方程式の離散化",
+          "parts": [
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            },
+            {
+              "subject": "dt-subject-pde-undergraduate",
+              "through": "PDE12"
+            },
+            {
+              "subject": "dt-subject-fdm",
+              "through": "FDM4"
+            },
+            {
+              "subject": "dt-subject-fem",
+              "through": "FEM7"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-monte-carlo",
+        "dt-subject-qmc",
+        "dt-subject-discrete-optimization",
+        "dt-subject-rkhs"
+      ]
+    },
+    {
+      "id": "physics",
+      "title": "数理物理コース",
+      "description": "Newton力学から解析力学・電磁気・相対論へ。",
+      "stages": [
+        {
+          "title": "数学と運動の基礎",
+          "parts": [
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            },
+            {
+              "subject": "dt-subject-ode-i",
+              "through": "ODE7"
+            },
+            {
+              "subject": "dt-subject-vector-calculus-i",
+              "through": "VC7"
+            }
+          ]
+        },
+        {
+          "title": "力学から場の理論へ",
+          "parts": [
+            {
+              "subject": "dt-subject-classical-mechanics-i",
+              "through": "MECH8"
+            },
+            {
+              "subject": "dt-subject-analytical-mechanics-i",
+              "through": "AMECH8"
+            },
+            {
+              "subject": "dt-subject-electromagnetism-i",
+              "through": "EMAG8"
+            },
+            {
+              "subject": "dt-subject-special-relativity-i",
+              "through": "SREL9"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-quantum-foundations-i",
+        "dt-subject-quantum-foundations-ii",
+        "dt-subject-mathematical-quantum-mechanics",
+        "dt-subject-statistical-mechanics",
+        "dt-subject-celestial-mechanics"
+      ]
+    },
+    {
+      "id": "economics",
+      "title": "数理経済・ゲーム理論コース",
+      "description": "最適化と不動点から経済モデル・ゲーム理論へ。",
+      "stages": [
+        {
+          "title": "数学的基礎",
+          "parts": [
+            {
+              "subject": "dt-subject-set-theory",
+              "through": "SET-U1"
+            },
+            {
+              "subject": "dt-subject-linear-algebra",
+              "through": "LA6"
+            },
+            {
+              "subject": "dt-subject-real-analysis",
+              "through": "RA7"
+            }
+          ]
+        },
+        {
+          "title": "意思決定と均衡",
+          "parts": [
+            {
+              "subject": "dt-subject-convex-optimization",
+              "through": "OPT12"
+            },
+            {
+              "subject": "dt-subject-fixed-point",
+              "through": "FIX3"
+            },
+            {
+              "subject": "dt-subject-microeconomics",
+              "through": "MICRO14"
+            },
+            {
+              "subject": "dt-subject-game-theory",
+              "through": "GAME-D4"
+            }
+          ]
+        }
+      ],
+      "electives": [
+        "dt-subject-rkhs",
+        "dt-subject-information-theory"
+      ]
+    }
+  ]
+}
