@@ -16,6 +16,7 @@ prerequisites:
   - LORG11
   - LORG12
   - LORG13
+  - GEO10
 official_scope: []
 learning_objectives:
   - 補助Riemann計量とLorentz計量の役割を区別して弧長パラメータ化できる
