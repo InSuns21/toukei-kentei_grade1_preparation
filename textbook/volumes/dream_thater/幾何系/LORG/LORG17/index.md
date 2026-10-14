@@ -218,7 +218,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（小区間の局所時間分離による長さの復元）**  
-> $\gamma:[0,1]\to M$ を未来向き局所Lipschitz因果曲線とする。分割 $0=t_0<\cdots<t_N=1$ の各像 $\gamma([t_i,t_{i+1}])$ が因果的凸な凸正規近傍 $U_i$ に収まるとする。$U_i$ 内の測地線で計算した局所時間分離を $\tau_{U_i}$ と書けば
+> $\gamma:[0,1]\to M$ を未来向き局所Lipschitz因果曲線とする。分割 $0=t_0<\cdots<t_N=1$ の各像 $\gamma([t_i,t_{i+1}])$ が十分小さな凸正規近傍 $U_i$ に収まるとする。$U_i$ 内の測地線で計算した局所時間分離を $\tau_{U_i}$ と書けば
 >
 $$
 L_g(\gamma)\le\sum_{i=0}^{N-1}\tau_{U_i}
@@ -235,13 +235,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-因果的凸な凸正規近傍 $U_i$ 内での未来因果的端点 $x\le y$ に対し、$v=\exp_x^{-1}(y)$ を取ります。[凸正規近傍](../LORG5/index.md#def-lorg5-convex-normal)内の放射測地線の長さは
+十分小さな凸正規近傍 $U_i$ 内での未来因果的端点 $x\le y$ に対し、$v=\exp_x^{-1}(y)$ を取ります。[凸正規近傍](../LORG5/index.md#def-lorg5-convex-normal)内の放射測地線の長さは
 
 $$
 \tau_{U_i}(x,y)=\sqrt{-g_x(v,v)}.
 $$
 
-時間的端点では[局所最大化定理](../LORG5/index.md#thm-lorg5-local-maximization)により、同じ近傍内の因果曲線の長さは $\tau_{U_i}$ 以下です。光的端点では、因果的凸性と局所の錐判定により当該部分のLorentz長さは零です。各部分に適用し[長さの加法性](../LORG3/index.md#prop-lorg3-length-additivity)で足すと最初の不等式を得ます。
+時間的端点では[局所最大化定理](../LORG5/index.md#thm-lorg5-local-maximization)により、同じ近傍内の因果曲線の長さは $\tau_{U_i}$ 以下です。光的端点では、凸正規近傍内の局所因果錐の判定により当該部分のLorentz長さは零です。各部分に適用し[長さの加法性](../LORG3/index.md#prop-lorg3-length-additivity)で足すと最初の不等式を得ます。
 
 極限の等号を確認します。曲線の像を有限個の座標近傍で覆い、各々を小分割します。座標表示 $x(t)$ はLipschitzなので $\dot x(t)$ がほとんど至るところ存在し、$\dot x$ は本質的有界です。幅 $\delta_i=t_{i+1}-t_i$ に対する平均速度は
 
@@ -282,12 +282,12 @@ $$
 
 ### 証明の見取り図
 
-極限曲線を細かく分割し、各部分を因果的凸な凸正規近傍に入れます。一様収束によって近似曲線の対応する部分も同じ近傍へ入ります。局所時間分離は端点に連続であるため、「$\limsup$」を有限和の外へ出せます。
+極限曲線を細かく分割し、各部分を十分小さな凸正規近傍に入れます。一様収束によって近似曲線の対応する部分も同じ近傍へ入ります。局所時間分離は端点に連続であるため、「$\limsup$」を有限和の外へ出せます。
 
 <!-- proof-start -->
 ### 証明
 
-$\gamma$ の像はコンパクトです。[因果的凸近傍](../LORG8/index.md#def-lorg8-causal-convex)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を凸正規かつ因果的凸な近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
+$\gamma$ の像はコンパクトです。[凸正規近傍の局所存在](../LORG5/index.md#thm-lorg5-convex-normal-existence)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を凸正規かつ凸正規近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
 
 各部分に[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)を適用し、局所時間分離の連続性を使うと
 
