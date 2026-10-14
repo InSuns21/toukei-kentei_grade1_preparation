@@ -29,12 +29,10 @@ $$
 
 <!-- definition-example-start: def-lorg9-chronological -->
 **定義の確認**。平坦なMinkowski時空 $\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向き $dt>0$ を考えます。未来時間的速度 $(\dot t,\dot x)$ は $\dot t>|\dot x|$ を満たすので、非定数の未来時間的曲線 $\gamma$ では各滑らかな片で $\dot t>0$ です。区分ごとの増分を合計して積分すると
-
-$
+$$
 t(\gamma(1))-t(\gamma(0))
 =\int_0^1\dot t(s)\,ds>0
-$
-
+$$
 です。従って端点は一致できず、Minkowski時空はchronologicalです。
 <!-- definition-example-end -->
 
@@ -66,12 +64,10 @@ $$
 
 <!-- definition-example-start: def-lorg9-causal -->
 **定義の確認**。Minkowski時空の未来因果速度は $\dot t\ge|\dot x|\ge0$ を満たします。$p\le q$ と $q\le p$ なら、二本の曲線を連結して得た閉路上で時刻の増分が零なので
-
-$
+$$
 0=\int_0^1\dot t(s)\,ds
 \ge\int_0^1|\dot x(s)|\,ds\ge0
-$
-
+$$
 です。従って $\dot t=0$ と $\dot x=0$ が各滑らかな片で成立し、曲線は定数です。よって $p=q$ であり、Minkowski時空はcausalです。
 <!-- definition-example-end -->
 
@@ -129,29 +125,23 @@ $$
 で指定します。$-2\,du\,d\theta$ は対称テンソル $-(du\otimes d\theta+d\theta\otimes du)$ を意味します。角度の座標変換は平行移動なので、$d\theta$ と計量は円筒上で矛盾なく定まります。
 
 この計量が[LORG2のLorentz計量の定義](../LORG2/index.md#def-lorg2-lorentz-metric)を満たすことを、接空間の基底から確認します。$v=a\partial_u+b\partial_\theta$、$w=c\partial_u+d\partial_\theta$ と置くと、対称テンソルの双線形性から
-
-$
+$$
 \begin{aligned}
 g(v,w)&=-ad-bc+u^2bd,\\
 g(v,v)&=-2ab+u^2b^2.
 \end{aligned}
-$
-
+$$
 基底同士の値は $g(\partial_u,\partial_u)=0$、$g(\partial_u,\partial_\theta)=g(\partial_\theta,\partial_u)=-1$、$g(\partial_\theta,\partial_\theta)=u^2$ です。従って係数行列と行列式は
-
-$
+$$
 [g]_{(\partial_u,\partial_\theta)}
 =\begin{pmatrix}0&-1\\-1&u^2\end{pmatrix},
 \qquad \det[g]=0\cdot u^2-(-1)^2=-1.
-$
-
+$$
 これは実対称行列です。[双線形形式の行列判定](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)により、行列式が非零なので各点で非退化です。また実対称 $2\times2$ 行列の固有値は実数で、積が $-1$ だから正負一つずつです。[慣性指数の定義](../../../基礎科目/LA/LA6/index.md#def-la6-inertia-index)に照らせば負方向がちょうど一本、零方向がなく、滑らかなLorentz計量になっています。さらに
-
-$
+$$
 g(T,T)=g(\partial_u+\partial_\theta,\partial_u+\partial_\theta)
 =-2+u^2<0.
-$
-
+$$
 従って $T$ は大域的な時間的ベクトル場です。[LORG2の未来向き判定](../LORG2/index.md#cor-lorg2-global-future-test)により、非零の因果ベクトル $v$ では $g(v,T)<0$ の側を未来として選べます。
 
 <a id="lem-lorg9-cylinder-future"></a>
@@ -175,19 +165,15 @@ $$
 ### 証明
 
 $g(v,v)=b(u^2b-2a)\le0$ とします。$b>0$ の場合は $a\ge u^2b/2$ が必要です。これを $g(v,T)$ に代入して上から評価すると
-
-$
+$$
 g(v,T)=-a+(u^2-1)b
 \le\left(\frac{u^2}{2}-1\right)b<0
-$
-
+$$
 です。最後の負号は $|u|<1$ と $b>0$ によります。従ってこれは未来の枝です。$b<0$ なら因果条件を $b$ で割る際に不等号が逆転し、$a\le u^2b/2\le0$ です。この場合は
-
-$
+$$
 g(v,T)=-a+(u^2-1)b
 \ge\left(\frac{u^2}{2}-1\right)b>0
-$
-
+$$
 なので過去の枝です。$b=0$ の場合は $g(v,v)=0$、$g(v,T)=-a$ だから、非零で未来となる条件は $a>0$ です。時間的な場合は $g(v,v)<0$ なので $b=0$ を除外でき、上の不等式が厳密になります。
 
 最後に $a=0$ とすると $0\ge u^2b/2$ です。非零未来因果性から $b>0$ であり、$u=0$ を得ます。逆に $u=0$ で $a=0,b>0$ の場合は $g(v,v)=0$、$g(v,T)=-b<0$ です。
@@ -388,11 +374,9 @@ c\int_a^u\frac{ds}{(\varepsilon-s)^2}\right]\right)
 $$
 
 とします。$u$ が $a$ から $0$ へ増える未来向きの曲線であり、角度の増分は $D$ です。角度速度 $b(u)=c/(\varepsilon-u)^2>0$ に対して、$a\le u\le0$ なら $\varepsilon-u>|u|$ であるため、
-
-$
+$$
 0\le u^2b(u)=c\frac{u^2}{(\varepsilon-u)^2}<c<1<2.
-$
-
+$$
 従って $g(\dot\lambda,\dot\lambda)=b(u)(-2+u^2b(u))<0$ です。さらに $g(\dot\lambda,T)=-1+(u^2-1)b(u)<0$ なので、未来向きであることも直接確かめられます。$\lambda$ は終点 $p$ 以外で $u<0$ にあるため穴を避けます。よって $q\ll p$ であり、
 
 $$
