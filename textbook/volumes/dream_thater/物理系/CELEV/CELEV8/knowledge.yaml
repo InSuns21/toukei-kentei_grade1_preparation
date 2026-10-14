@@ -8,6 +8,8 @@ prerequisites:
   - CELEV1
   - CELE2
   - CELE3
+  - NA1
+  - NA6
 concepts:
   - id: celestial-variational.discrete-newton-action
     name: 周期格子上の離散Newton作用
