@@ -352,11 +352,11 @@ $$
 <!-- solution-start -->
 **詳細解答**。平坦計量なので測地線方程式と初期条件は
 
-$
+$$
 \ddot t=\ddot x=0,\qquad
 (t(0),x(0))=(0,0),\qquad
 (\dot t(0),\dot x(0))=(1,0).
-$
+$$
 
 二回積分した唯一の解は $\gamma(s)=(s,0)$ です。$s\uparrow1$ で $t(s)\to1$ となりますが、この終点は時空 $M$ の外にあるため、同じ初期条件の測地線を $s=1$ まで延長できません。
 
@@ -449,17 +449,17 @@ $$
 
 (1) [時間分離の有限性](../LORG17/index.md#thm-lorg17-gh-continuity)から $D=d_g(p,q)$ は正の有限値です。上限に近づく曲線列を
 
-$
+$$
 D-\frac1k<L_g(\gamma_k)\le D
-$
+$$
 
 となるように選びます。
 
 [コンパクトダイヤモンド内の因果曲線の抽出](../LORG16/index.md#prop-lorg16-curves-compact)で、各曲線の像を $K(p,q)$ に収めて補助弧長の共通上界 $B$ を確保します。$[0,1]$ へ定数速で再表示すると
 
-$
+$$
 d_h(\gamma_k(s),\gamma_k(t))\le B|s-t|.
-$
+$$
 
 この共通評価と[限界曲線補題](../LORG14/index.md#thm-lorg14-limit-curve)から、未来因果的な $\gamma:p\to q$ へ一様収束する部分列を得ます。そこで[Lorentz長さの上半連続性](../LORG17/index.md#thm-lorg17-length-usc)を適用すると、
 
