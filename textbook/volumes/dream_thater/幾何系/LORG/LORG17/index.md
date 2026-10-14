@@ -287,7 +287,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\gamma$ の像はコンパクトです。[因果的凸近傍](../LORG8/index.md#def-lorg8-causally-convex)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を凸正規かつ因果的凸な近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
+$\gamma$ の像はコンパクトです。[因果的凸近傍](../LORG8/index.md#def-lorg8-causal-convex)を用い、十分細かな有限分割 $0=t_0<\cdots<t_N=1$ を選び、各像を凸正規かつ因果的凸な近傍 $U_i$ に収めます。近似列は一様収束するので、大きな $k$ について $\gamma_k([t_i,t_{i+1}])\subset U_i$ です。
 
 各部分に[局所最大化](../LORG5/index.md#thm-lorg5-local-maximization)を適用し、局所時間分離の連続性を使うと
 
