@@ -271,7 +271,22 @@ $$
 
 Gamma関数を正の実部では $\Gamma(w)=\int_0^\infty e^{-t}t^{w-1}\,dt$ で定め、$\Gamma(w+1)=w\Gamma(w)$ で解析接続します。後で使うのは $\Gamma(w)$ が零点を持たず、$1/\Gamma(w)$ が整関数であること、および反射公式 $\Gamma(w)\Gamma(1-w)=\pi/\sin(\pi w)$ です。$s_+=\max(s,0)$ と書きます。
 
-球面へ集中する極限は、通常の関数としての収束では記述できません。そこで、**分布**を「試験関数 $\varphi\in C_c^\infty(\mathbb R^d)$ を入力して数 $\langle M,\varphi\rangle$ を返す連続線形汎関数」として使います。例えば球面測度は $\langle d\sigma,\varphi\rangle=\int_S\varphi\,d\sigma$、Dirac分布は $\langle\delta_0,\psi\rangle=\psi(0)$ です。分布の等式は、すべての試験関数に作用させた結果が一致することを意味します。$z$ に関して**解析的な分布族**とは、各試験関数への作用 $z\mapsto\langle M_z,\varphi\rangle$ が正則な族です。後で示す $M_z$ は台が単位閉球に含まれるため、Schwartz関数 $\widehat f$ を掛けても分布として定義でき、逆Fourier変換によって $T_zf$ を作れます。
+球面へ集中する極限は、通常の関数としての収束では記述できません。そこで、**分布**を、滑らかでコンパクト台を持つ試験関数 $\varphi\in C_c^\infty(\mathbb R^d)$ に対し連続線形に数を返すものとして使います。分布 $M$ の作用を $\langle M,\varphi\rangle$ と書きます。
+
+例えば球面測度と原点のDirac分布はそれぞれ
+
+$$
+\langle d\sigma,\varphi\rangle=\int_S\varphi\,d\sigma,
+\qquad \langle\delta_0,\psi\rangle=\psi(0)
+$$
+
+という作用で特徴付けられます。分布の等式は、すべての試験関数に作用させた結果が一致することを意味します。**解析的な分布族**とは、各試験関数を固定したときの数値関数
+
+$$
+z\longmapsto\langle M_z,\varphi\rangle
+$$
+
+が正則な族です。後で示す $M_z$ は台が単位閉球に含まれるため、Schwartz関数 $\widehat f$ を掛けても分布として定義でき、逆Fourier変換によって $T_zf$ を作れます。
 
 <a id="def-ha11-analytic-family"></a>
 <!-- formal-statement-start -->
@@ -571,7 +586,13 @@ $$
 \prod_{n=1}^\infty\left(1+\frac wn\right)e^{-w/n}
 $$
 
-を正の実数 $u$ の場合と比較すると、$\gamma$ はEuler定数なので指数の絶対値は相殺され、
+を正の実数 $u$ の場合と比較します。ここで $\gamma$ は積表示に現れる実定数で、値は
+
+$$
+\gamma=\lim_{N\to\infty}\left(\sum_{j=1}^N\frac1j-\log N\right)
+$$
+
+です。$|e^{\gamma(u+it)}|=e^{\gamma u}$ なので指数の絶対値は相殺され、
 
 $$
 \frac{|\Gamma(u+it)|^{-1}}{\Gamma(u)^{-1}}
@@ -579,7 +600,27 @@ $$
 \prod_{n=1}^\infty\left(1+\frac{t^2}{(n+u)^2}\right)^{1/2}.
 $$
 
-したがって $\log(1+v)\le v$ と $\sum_{n\ge1}(n+u)^{-2}\le\sum_{n\ge1}n^{-2}<\infty$ を使えば、$\log$ を取った右辺は $Ct^2$ 以下です。$\Gamma(u)^{-1}$ は区間 $[1/2,d/2+1]$ で有界なので、$|\Gamma(\nu+1)|^{-1}\le C_de^{C_dt^2}$ を得ます。よって $|x-y|$ が有界な範囲では、先の級数から $|K_z(x-y)|\le C_R e^{C_R(1+|\operatorname{Im}z|^2)}$。Gaussian因子の係数 $A$ を必要なら大きく取ると、補間する $\Phi(w)$ は閉帯全体で有界になり、[有界正則関数版の三線定理](../HA2/index.md#lem-ha2-three-lines)の仮定を満たします。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
+上式の対数には $\log(1+v)\le v$ を適用できます。また $u\ge1/2$ なので
+
+$$
+\sum_{n\ge1}\frac1{(n+u)^2}\le\sum_{n\ge1}\frac1{n^2}<\infty.
+$$
+
+このため上式の対数は $Ct^2$ 以下です。$\Gamma(u)^{-1}$ は区間 $[1/2,d/2+1]$ で有界なので
+
+$$
+|\Gamma(\nu+1)|^{-1}\le C_de^{C_dt^2}.
+$$
+
+よって $|x-y|$ が有界な範囲では、先の級数から
+
+$$
+|K_z(x-y)|\le C_Re^{C_R(1+|\operatorname{Im}z|^2)}
+$$
+
+を得ます。Gaussian因子の係数 $A$ を必要なら大きく取れば、補間する $\Phi(w)$ は閉帯全体で有界になります。これで[有界正則関数版の三線定理](../HA2/index.md#lem-ha2-three-lines)の仮定を満たします。
+
+$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
 
 $$
 \frac1p=\frac{1-\theta}{2}+\theta
