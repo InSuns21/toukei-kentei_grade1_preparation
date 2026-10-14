@@ -144,8 +144,8 @@ try {
   console.log("CELEV orbit gallery browser: 8 presets, figure-eight t=5, Butterfly II live Worker: PASS");
 
   await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
-  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
   const burrauEnergy = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="energy")?.cells[1]?.textContent)';
+  await waitFor('Math.abs(' + burrauEnergy + ' + 769 / 60) < 1e-10');
   assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10);
   const burrauBodies = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
   assert.deepEqual(burrauBodies, ["1", "2", "3"]);
