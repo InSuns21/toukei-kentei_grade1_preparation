@@ -30,7 +30,15 @@ $$
 
 $\eta=\sqrt2$ の最小多項式は $T^2-2$ で、相異なる共役根は $\sqrt2,-\sqrt2$ の2個です。$K=\mathbb Q(\sqrt2)$ では埋め込みは $\sqrt2\mapsto\sqrt2$ と $\sqrt2\mapsto-\sqrt2$ の2個なので、値もこの2個です。
 
-これに対し $K=\mathbb Q(\sqrt2,i)$ は $[\mathbb Q(\sqrt2):\mathbb Q]=2$ で、$\mathbb Q(\sqrt2)\subset\mathbb R$ に $i$ を加える次数も2です。[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)により $[K:\mathbb Q]=4$ です。$\sqrt2$ の像は2通り、$i$ の像も2通りあり、それぞれの符号の組は関係式 $s^2=2,\ t^2=-1$ を保ちます。よって埋め込みは4個、$\sqrt2$ の共役値は
+これに対し $K=\mathbb Q(\sqrt2,i)$ は $[\mathbb Q(\sqrt2):\mathbb Q]=2$ で、$\mathbb Q(\sqrt2)\subset\mathbb R$ に $i$ を加える次数も2です。[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)により $[K:\mathbb Q]=4$ です。$E=\mathbb Q(\sqrt2)$ と置くと $E\subset\mathbb R$ なので $i\notin E$ です。まず $E$ の埋め込み $\tau_\pm:E\to\mathbb C$ は $\sqrt2$ をそれぞれ $\pm\sqrt2$ へ送ります。$i$ の $E$ 上の最小多項式は $T^2+1$ であり、$\tau_\pm$ で係数を送っても $T^2+1$ のままです。そこで[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)を各 $\tau_\pm$ に適用すると、$i$ の像は $i,-i$ のどちらも選べます。実際、各元は一意に $a+bi$（$a,b\in E$）と書け、四つの写像は
+
+$
+\sigma_{\varepsilon,\delta}(a+bi)
+=\tau_\varepsilon(a)+\delta i\,\tau_\varepsilon(b),
+\qquad \varepsilon,\delta\in\{+1,-1\}
+$
+
+です。これは二段の最小多項式の関係を保つ埋め込みであり、他の選択肢はありません。よって埋め込みは4個、$\sqrt2$ の共役値は
 
 $$
 \sqrt2,\quad\sqrt2,\quad-\sqrt2,\quad-\sqrt2
@@ -74,7 +82,14 @@ $$
 > と定める。どちらも $\mathbb Q$ の元であり、基底に依存しない。
 <!-- formal-statement-end -->
 
-基底を変えると行列は $S^{-1}A_\eta S$ へ移ります。行列式については[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)から
+新しい基底の各ベクトルを旧基底で表した座標列を並べて行列 $S$ を作ると、基底同士の変換なので $S$ は可逆です。任意の $x\in K$ に対して
+
+$
+[x]_{\mathrm{old}}=S[x]_{\mathrm{new}},\qquad
+S[\mu_\eta(x)]_{\mathrm{new}}=A_\eta S[x]_{\mathrm{new}}
+$
+
+です。従って新基底の表現行列は $S^{-1}A_\eta S$ となります。行列式については[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)から
 
 $$
 \det(S^{-1}A_\eta S)
@@ -124,7 +139,7 @@ $$
 
 ## 3. 共役の和・積がなぜ跡・ノルムになるか
 
-これまでの定義は行列からのものです。指数関数の超越性証明では、行列でなく共役値が先に現れます。その二つの計算をつなぐため、まず $\eta$ の最小多項式を使います。
+これまでの定義は行列からのものです。指数関数の超越性証明では、行列でなく共役値が先に現れます。その二つの計算をつなぐため、まず $\eta$ の最小多項式を使います。ここでの[特性多項式](../../../基礎科目/LA/LA4/index.md#def-la4-characteristic-polynomial)は、線形写像の表現行列 $A$ に対して定める $\det(TI-A)$ です。
 
 <a id="thm-trn2-conjugate-formula"></a>
 
@@ -208,7 +223,13 @@ $$
 
 個です。したがって、どの共役根も拡大体 $K$ の全埋め込みで同じ回数だけ現れます。
 
-従って $\sigma(\eta)$ の並びでは各 $\eta_j$ が $r$ 回出ます。一方、特性多項式 $\det(TI-A_\eta)$ の $T^{rd-1}$ 係数は $-\operatorname{tr}(A_\eta)$、定数項は $(-1)^{rd}\det(A_\eta)$ です。右辺の $\prod_j(T-\eta_j)^r$ の対応する係数と比べると
+従って $\sigma(\eta)$ の並びでは各 $\eta_j$ が $r$ 回出ます。一方、特性多項式 $\det(TI-A_\eta)$ の $T^{rd-1}$ 係数は $-\operatorname{tr}(A_\eta)$ です。実際、行列式の置換展開で次数 $rd-1$ の項を作るには、対角積の中で $T$ の代わりに $-a_{ii}$ をちょうど一つ選ぶしかなく、係数は $-\sum_i a_{ii}$ になります。定数項は
+
+$
+\det(-A_\eta)=(-1)^{rd}\det(A_\eta)
+$
+
+です。右辺の $\prod_j(T-\eta_j)^r$ の対応する係数と比べると
 
 $$
 \operatorname{tr}(A_\eta)=r\sum_j\eta_j,
@@ -367,7 +388,14 @@ $$
 +\cdots+b_{j,0}a_j^{d_j-1}=0.
 $$
 
-これは $\theta_j$ を根とする整数係数モニック多項式です。従って $\theta_j$ は[代数的整数](../TRN1/index.md#def-trn1-algebraic-integer)です。
+ここで $0\le k<d_j$ の係数を一つ取り出すと、$\beta_j=\theta_j/a_j$ なので
+
+$
+a_j^{d_j-1}b_{j,k}\beta_j^k
+=b_{j,k}a_j^{d_j-1-k}\theta_j^k.
+$
+
+指数 $d_j-1-k$ は非負整数だから、各係数は整数のままです。最高次の項は $a_j^{d_j}\beta_j^{d_j}=\theta_j^{d_j}$ となり、先頭係数は1です。従って上式は $\theta_j$ を根とする整数係数モニック多項式です。従って $\theta_j$ は[代数的整数](../TRN1/index.md#def-trn1-algebraic-integer)です。
 
 $$
 D=\prod_{j=1}^s a_j
@@ -414,7 +442,7 @@ N_{L/\mathbb Q}(\eta)
 =\prod_{\sigma\in\operatorname{Gal}(L/\mathbb Q)}\sigma(\eta).
 $$
 
-各 $\sigma$ は整数係数多項式の関係を保つので、代数的整数の積は代数的整数です。しかも Galois 群の元 $\tau$ で積の各因子は置換されます。この「共役全体で不変」という構造は、後の対称化で役に立ちます。ただし $\sigma$ を勝手に $e^\eta$ へ作用させて $e^{\sigma(\eta)}$ と等置してよいわけではありません。**ここで群が作用するのは代数的な元**です。
+各 $\sigma$ は整数係数モニック多項式の関係を保つので、$\eta$ が代数的整数なら各 $\sigma(\eta)$ も代数的整数です。その有限積も[代数的整数の積の閉性](../TRN1/index.md#thm-trn1-integral-ring)で代数的整数になります。しかも Galois 群の元 $\tau$ で積の各因子は置換されます。この「共役全体で不変」という構造は、後の対称化で役に立ちます。ただし $\sigma$ を勝手に $e^\eta$ へ作用させて $e^{\sigma(\eta)}$ と等置してよいわけではありません。**ここで群が作用するのは代数的な元**です。
 
 ## 7. 演習：整数性に落ちるまでを再現する
 
@@ -457,7 +485,7 @@ $\eta=\sqrt5$ の $\mathbb Q$ 上の共役根を列挙してください。さ�
 <!-- solution-start -->
 **詳細解答**
 
-$\eta$ の最小多項式は $T^2-5$ で、相異なる共役根は $\sqrt5,-\sqrt5$ です。$\mathbb Q(\sqrt5)\subset\mathbb R$ に $i$ を加える次数が2なので、塔の公式から $[K:\mathbb Q]=4$。埋め込みは $\sqrt5$ の像の符号2通りと $i$ の像の符号2通りで決まり、全4通りです。従って $\sqrt5,\sqrt5,-\sqrt5,-\sqrt5$ と重複を含めて数えます。[共役の定義](#def-trn2-conjugates)では「異なる共役根」と「埋め込みを添字とする値」を区別します。
+$\eta$ の最小多項式は $T^2-5$ で、相異なる共役根は $\sqrt5,-\sqrt5$ です。$\mathbb Q(\sqrt5)\subset\mathbb R$ に $i$ を加える次数が2なので、[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から $[K:\mathbb Q]=4$。先に $\sqrt5$ の像を選び、次に $T^2+1$ の根として $i$ の像を選ぶ[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)が使えます。埋め込みは $\sqrt5$ の像の符号2通りと $i$ の像の符号2通りで決まり、全4通りです。従って $\sqrt5,\sqrt5,-\sqrt5,-\sqrt5$ と重複を含めて数えます。[共役の定義](#def-trn2-conjugates)では「異なる共役根」と「埋め込みを添字とする値」を区別します。
 <!-- solution-end -->
 
 **TRN2-A3（代数的整数の共役）**  
@@ -588,7 +616,7 @@ $$
 
 を満たし、$T^2-4T+1$ は整数係数モニックです。$\sqrt3<2$ なので $\eta>0$、したがって非零の代数的整数です。
 
-最小多項式の二根は $2-\sqrt3$ と $2+\sqrt3$。基底 $(1,\sqrt3)$ で乗法行列を作れば
+$\sqrt3$ は無理数なので $\eta=2-\sqrt3\notin\mathbb Q$ です。従って次数2のモニック多項式 $T^2-4T+1$ が $\eta$ の最小多項式で、その二根は $2-\sqrt3$ と $2+\sqrt3$ です。基底 $(1,\sqrt3)$ で乗法行列を作れば
 
 $$
 A_\eta=\begin{pmatrix}2&-3\\-1&2\end{pmatrix}.
