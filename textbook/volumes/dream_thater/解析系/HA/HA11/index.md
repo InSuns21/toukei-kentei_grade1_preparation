@@ -564,7 +564,22 @@ $$
 \le \frac{\Gamma(1/2)}{|\Gamma(\nu+1)|\,\Gamma(k+1/2)}.
 $$
 
-$\operatorname{Re}(\nu+1)\in[1/2,d/2+1]$ ではGammaの積表示から $|\Gamma(\nu+1)|^{-1}\le Ce^{C(1+|\operatorname{Im}z|^2)}$ です。実際、積表示の虚部による倍率は $\prod_{n\ge1}(1+t^2/(n+u)^2)^{1/2}$ 型で、対数を取れば $\log(1+v)\le v$ と $\sum_{n\ge1}(n+u)^{-2}<\infty$ によって $Ct^2$ 以下になります。よって $|x-y|$ が有界な範囲では、先の級数から $|K_z(x-y)|\le C_R e^{C_R(1+|\operatorname{Im}z|^2)}$。Gaussian因子の係数 $A$ を必要なら大きく取ると、補間する $\Phi(w)$ は閉帯全体で有界になり、[有界正則関数版の三線定理](../HA2/index.md#lem-ha2-three-lines)の仮定を満たします。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
+$w=u+it$、$1/2\le u\le d/2+1$ とします。Gamma関数の積表示
+
+$$
+\frac1{\Gamma(w)}=we^{\gamma w}
+\prod_{n=1}^\infty\left(1+\frac wn\right)e^{-w/n}
+$$
+
+を正の実数 $u$ の場合と比較すると、$\gamma$ はEuler定数なので指数の絶対値は相殺され、
+
+$$
+\frac{|\Gamma(u+it)|^{-1}}{\Gamma(u)^{-1}}
+=\left(1+\frac{t^2}{u^2}\right)^{1/2}
+\prod_{n=1}^\infty\left(1+\frac{t^2}{(n+u)^2}\right)^{1/2}.
+$$
+
+したがって $\log(1+v)\le v$ と $\sum_{n\ge1}(n+u)^{-2}\le\sum_{n\ge1}n^{-2}<\infty$ を使えば、$\log$ を取った右辺は $Ct^2$ 以下です。$\Gamma(u)^{-1}$ は区間 $[1/2,d/2+1]$ で有界なので、$|\Gamma(\nu+1)|^{-1}\le C_de^{C_dt^2}$ を得ます。よって $|x-y|$ が有界な範囲では、先の級数から $|K_z(x-y)|\le C_R e^{C_R(1+|\operatorname{Im}z|^2)}$。Gaussian因子の係数 $A$ を必要なら大きく取ると、補間する $\Phi(w)$ は閉帯全体で有界になり、[有界正則関数版の三線定理](../HA2/index.md#lem-ha2-three-lines)の仮定を満たします。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
 
 $$
 \frac1p=\frac{1-\theta}{2}+\theta
