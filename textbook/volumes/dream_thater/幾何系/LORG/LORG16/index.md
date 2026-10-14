@@ -307,7 +307,17 @@ Cauchy面 $\Sigma$ があると、[Cauchy面と全依存領域の同値](../LORG
 
 Cauchy面が**閉集合**である点も確認します。$\Sigma$ の極限点 $x$ を取り、$\Sigma$ 内の点列 $x_j\to x$ を選びます。[LORG15の両側非延長への延長構成](../LORG15/index.md#prop-lorg15-acausal)に従い、$x$ を通る局所時間的直線を両側非延長な時間的曲線へ延ばします。その曲線と $\Sigma$ との唯一の交点を $y$ とします。
 
-もし $x\ne y$ で $x\ll y$ なら、[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から大きい $j$ では $x_j\ll y$ となります。$x_j,y\in\Sigma$ は[Cauchy面のacausal性](../LORG15/index.md#prop-lorg15-acausal)に反します。$y\ll x$ の場合も $y\ll x_j$ となって同様に矛盾します。従って $x=y\in\Sigma$ であり、$\Sigma$ は閉集合です。
+もし $x\ne y$ なら、両点は一本の未来時間的曲線上にあるため、$x\ll y$ または $y\ll x$ です。
+
+まず $x\ll y$ の場合、[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から、十分大きい $j$ に対して
+
+$$
+x_j\ll y
+$$
+
+が成立します。しかし両点は $\Sigma$ に属し、[Cauchy面のacausal性](../LORG15/index.md#prop-lorg15-acausal)に矛盾します。
+
+逆に $y\ll x$ の場合も同じ端点安定性から $y\ll x_j$ が十分大きい $j$ で成立し、やはりacausal性に反します。従って $x=y\in\Sigma$ であり、$\Sigma$ は閉集合です。
 
 <a id="thm-lorg16-characterization"></a>
 
