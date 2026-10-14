@@ -51,14 +51,17 @@ const browser = spawn(chrome, [
 let ws = null;
 try {
   let port = null;
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 300; i++) {
+    if (browser.exitCode !== null) {
+      throw new Error("Chromium exited before DevTools was ready: exit code " + browser.exitCode);
+    }
     try {
       port = Number((await readFile(join(profile, "DevToolsActivePort"), "utf8")).split("\n")[0]);
       if (port) break;
     } catch { /* Chrome has not initialized yet */ }
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
-  assert.ok(port, "Chrome did not start DevTools");
+  assert.ok(port, "Chrome did not start DevTools within 30 seconds");
   let target = null;
   for (let i = 0; i < 100; i++) {
     const pages = await (await fetch("http://127.0.0.1:" + port + "/json/list")).json();
