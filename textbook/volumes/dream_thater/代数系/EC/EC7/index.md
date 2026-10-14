@@ -550,7 +550,7 @@ $$
 
 よって $P$ は位数4で群は巡回群 $\mathbb Z/4\mathbb Z$。一方 $y^2+y=x^3+x$ の点群の位数は5で巡回群 $\mathbb Z/5\mathbb Z$ でした。曲線の係数が変わると $N_2$ も変わります。
 
-[次数定理](#thm-ec7-frobenius-degree)に $q=2$ を代入すれば $C$ 上でも $\deg\pi_2=2$ です。これは $N_2(C)=4$ と一致する必要はありません。一方、[本章の差の射についての命題](#prop-ec7-one-minus-frobenius)から $\deg([1]-\pi_2)=4$ です。
+[次数定理](#thm-ec7-frobenius-degree)に $q=2$ を代入すれば $C$ 上でも $\deg\pi_2=2$ です。これは $N_2(C)=4$ と一致する必要はありません。一方、[点数と差の射の次数](#prop-ec7-one-minus-frobenius)から $\deg([1]-\pi_2)=4$ です。
 <!-- solution-end -->
 
 ## 9. 次章への接続
