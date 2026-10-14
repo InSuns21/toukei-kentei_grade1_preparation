@@ -36,7 +36,7 @@
 
 $N=\{(u,u):0\le u\le1\}$ については、二点の差が $(v-u,v-u)$ なので $|\Delta t|=|\Delta x|$ です。異なる二点を未来向きに光的に結べますが、$\Delta t>|\Delta x|$ は成立しません。よって $N$ はachronalですがacausalではありません。
 
-一方、時刻を円周として同一視した時間周期の時空では、一点 $p$ から自身へ時間的に一周できます。[時間周期円筒の曲線](../LORG6/index.md#prop-lorg6-transitivity)を使うと $\{p\}$ ですらachronalとは限りません。「一点集合だから必ず非時間的」とは判断できません。
+一方、時刻を円周として同一視した時間周期の時空では、一点 $p$ から自身へ時間的に一周できます。[LORG9で構成した時間周期円筒の閉時間的曲線](../LORG9/index.md#def-lorg9-chronological)を使うと $\{p\}$ ですらachronalとは限りません。「一点集合だから必ず非時間的」とは判断できません。
 <!-- definition-example-end -->
 
 <a id="prop-lorg12-acausal-achronal"></a>
@@ -81,7 +81,22 @@ $$
 q=(-2\varepsilon,-\varepsilon),\quad
 r=(2\varepsilon,-\varepsilon)
 $$
-と、$o$ を結ぶ二本の時間的直線分と $q$ から $r$ への垂直な時間的線分を入れられます。$q\ll_U o\ll_U r$ は、二本の斜めの速度 $(2,\varepsilon)$ に対する $-4\varepsilon^2+\varepsilon^2<0$ から従います（始点を $(-2\varepsilon,-\varepsilon)$、終点を $o$ とすれば空間変位は $\varepsilon$）。垂直線分は $x=-\varepsilon$ で時刻零を通るため $S$ に触れません。よって $o\in\operatorname{edge}(S)$ です。
+と、$o$ を結ぶ二本の直線分、および $q$ から $r$ への垂直線分を考えます。$q\ll_U o$ を確認するため、直線分を $u\in[0,1]$ で
+
+$$
+\alpha(u)=(-2\varepsilon+2\varepsilon u,\,-\varepsilon+\varepsilon u),
+\qquad \dot\alpha=(2\varepsilon,\varepsilon)
+$$
+
+とパラメータ化します。この速度の時刻成分は正であり、
+
+$$
+g(\dot\alpha,\dot\alpha)=-(2\varepsilon)^2+\varepsilon^2=-3\varepsilon^2<0
+$$
+
+なので未来時間的です。$o$ から $r$ への直線の速度は $(2\varepsilon,-\varepsilon)$ で、自己内積は同じく $-3\varepsilon^2$ です。従って $q\ll_U o\ll_U r$ です。
+
+$\varepsilon$ を十分小さくすれば、三本の線分すべてが $U$ 内に収まります。$q$ から $r$ への垂直線分は $x=-\varepsilon$ で時刻零を通り、$S$ に触れません。よって $o\in\operatorname{edge}(S)$ です。
 
 これに対し $p=(0,a)$、$a>0$ では、$|x-a|<a/2$ の小近傍内の連続曲線は、負時刻から正時刻に進む間に $t=0$ となり、そのとき $x>0$ です。必ず $S$ と交差するため $p$ はedgeに入りません。$a<0$ の点は $\overline S$ に含まれません。
 <!-- definition-example-end -->
@@ -248,7 +263,21 @@ $V$ 内の任意の時間的曲線 $\gamma$ が $q$ と $r$ を結ぶとする�
 
 Minkowski時空の点の未来光円錐は、頂点から出た光的な直線の集まりでした。曲がった時空で同じことをいうには、「曲線が極限で消えてしまわないか」を確認しなければなりません。ここでは必要な部分だけを座標箱で証明します。
 
-まず座標時刻でパラメータ化した曲線列を考え、その曲線列から一様収束する部分列を抜き出す仕組みを確かめます。閉包が小さな座標領域に収まる有界な座標箱内で $\partial_t$ が時間的であるとき、未来因果曲線を座標時刻 $t$ でパラメータ化すると、その空間成分 $\mathbf x(t)$ に $|\mathbf x'(t)|\le C$ がほとんど至る所で成り立ちます。従って同じ閉時刻区間上の曲線列は一様Lipschitzです。値域を箱のコンパクトな部分に制限すれば、時刻区間を細分した有限格子点で収束部分列を取り、Lipschitz評価で格子点間の誤差を抑える対角法によって一様収束部分列を得ます。極限はLipschitzであり、計量の連続性と各点の未来因果錐の閉性・凸性から、ほとんど至る所で未来因果速度を持ちます。この一様極限の意味で局所Lipschitz因果曲線を使います。これは後のLORG14の大域的な限界曲線補題とは異なり、**固定された小座標箱内だけ** の議論です。
+まず座標時刻でパラメータ化した曲線列を考え、その曲線列から一様収束する部分列を抜き出す仕組みを確かめます。閉包が小さな座標領域に収まる有界な座標箱内で $\partial_t$ が時間的であるとき、未来因果曲線を座標時刻 $t$ でパラメータ化すると、その空間成分 $\mathbf x(t)$ に $|\mathbf x'(t)|\le C$ がほとんど至る所で成り立ちます。従って同じ閉時刻区間上の曲線列は一様Lipschitzです。値域を箱のコンパクトな部分に制限すれば、時刻区間を細分した有限格子点で収束部分列を取り、Lipschitz評価で格子点間の誤差を抑える対角法によって一様収束部分列を得ます。極限もLipschitzであることは、$|\mathbf x_k(t)-\mathbf x_k(s)|\le C|t-s|$ の両辺を極限へ移せば分かります。
+
+**極限が因果的であること**も確認します。極限曲線の点 $z_0$ において、十分近い点 $z$ の未来因果速度 $(1,\xi)$（$|\xi|\le C$）は、計量の連続性により任意に小さい $\eta>0$ に対して
+
+$$
+g_{z_0}((1,\xi),(1,\xi))\le\eta
+$$
+
+を満たします。$\eta$ を固定すると、この条件は $z_0$ における光円錐を少し広げた閉凸な未来錐を定めます。$\mathbf x_k(t+h)-\mathbf x_k(t)$ は各速度の積分なので、凸性から $(h,\mathbf x_k(t+h)-\mathbf x_k(t))$ もこの広げた錐に属します。一様極限で $k\to\infty$、続いて $\eta\downarrow0$ とし、Lipschitz関数のほとんど至る所で存在する微分を取ると
+
+$$
+g_{\gamma(t)}((1,\mathbf x'(t)),(1,\mathbf x'(t)))\le0
+$$
+
+となり、速度は未来向きです。以後、このようにほとんど至る所で未来因果速度を持つ局所Lipschitz曲線を扱います。これは後のLORG14の大域的な限界曲線補題とは異なり、**固定された小座標箱内だけ** の議論です。
 
 <a id="thm-lorg12-null-generators"></a>
 
@@ -266,19 +295,49 @@ Minkowski時空の点の未来光円錐は、頂点から出た光的な直線�
 <!-- proof-start -->
 ### 証明
 
-$p\notin\overline S$ なので、閉包が $\overline S$ と交わらず、未来向き座標時刻を持つ小座標箱 $U$ を $p$ の周りに取れます。$p$ を時刻零、空間座標零とします。箱の内部での因果曲線について一様な速度上界 $|\mathbf x'(t)|\le C$ を選びます。
+$p\notin\overline S$ なので、$p$ の周りに閉包が $\overline S$ と交わらない小座標箱を取れます。$p=(0,\mathbf0)$ とし、外箱を $U=(-T,T)\times B_R$ と書きます。箱を縮めて $\partial_t$ を未来時間的とし、箱内の未来因果曲線の空間速度に共通の上界 $|\mathbf x'(t)|\le C$ を取ります（第5節冒頭）。さらに $0<\varepsilon<T/4$ を $2C\varepsilon<3R/4$ となるように選びます。
 
-境界点 $p$ の真上にある $q_k=(1/k,\mathbf0)$ を、大きな $k$ について選びます。前節の局所グラフの証明と同じ理由で $p\ll q_k$ なので $q_k\in I^+(S)$ です。もちろん $q_k\to p$ です。各 $q_k$ には $s_k\in S$ からの未来時間的曲線 $\gamma_k$ が存在します。$U$ の中に空間的に細い内箱を取り、さらに小さな $\varepsilon>0$ を選びます。$q_k$ は十分大きな $k$ で内箱にあり、$\gamma_k$ が $q_k$ に達するまでに時刻 $-\varepsilon$ を通過することを示します。
+$p$ の真上にある $q_k=(1/k,\mathbf0)$ は、十分大きい $k$ で $p\ll q_k$ です。$p\in\overline{I^+(S)}$ と[時間的到達の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から $q_k\in F=I^+(S)$ でもあります。従って $s_k\in S$ から $q_k$ への未来時間的曲線 $\gamma_k$ が取れます。
 
-実際、もし $\gamma_k$ が時刻 $-\varepsilon$ より後に外箱へ入ったなら、その入口は外箱の空間側面です。側面から内箱までの空間距離を $d>0$ と固定し、$\varepsilon<d/(3C)$ とすれば、残る時刻差が $2\varepsilon$ 未満の曲線は $|\Delta\mathbf x|\le2C\varepsilon<d$ により内箱へ到達できません。なお $\gamma_k$ の始点は $U$ にないので、箱内に突然始まることもありません。この議論を最後の入域部分に適用すると、$\gamma_k$ には時刻 $-\varepsilon$ から $t(q_k)$ まで $U$ 内を通る終端部分が存在します。
+**共通時間区間を取り出す。** $s_k\notin U$、$q_k\in U$ です。$\gamma_k$ の $q_k$ に至る最後の $U$ 内部分を考えます。その入域が $t>-\varepsilon$ で起こったと仮定すると、入域点は外箱の空間側面 $|\mathbf x|=R$ にあります（下側時刻面は $t=-T<-\varepsilon$）。しかし $q_k$ へ至る間の時間差は大きな $k$ で $2\varepsilon$ 未満なのに、必要な空間移動量は $R$ です。速度上界から
 
-その終端部分を各々 $t\in[-\varepsilon,0]$ に制限します。$q_k$ は時刻 $1/k>0$ にあり、曲線は必ず時刻零を通ります。時刻零の空間座標は、$q_k$ の空間座標が零で速度が $C$ 以下なので、$|\mathbf x_k(0)|\le C/k\to0$ です。値域を箱のコンパクトな部分に収めた一様Lipschitz曲線列から一様収束部分列を選ぶと、その終点は $p$ となります。極限を未来因果曲線 $\gamma$ とします。その過去端点は時刻 $-\varepsilon$ にあるため、曲線は非定数です。
+$$
+R=|\mathbf x_{\rm entry}-\mathbf0|
+\le C\bigl(1/k-t_{\rm entry}\bigr)<2C\varepsilon<3R/4
+$$
 
-$\gamma_k$ の箱内の各点は $s_k$ から時間的に到達でき、すべて $F=I^+(S)$ にあります。ゆえに $\gamma$ の各点は $\overline F$ に属します。もし $\gamma(t_0)\in F$ なら、$\gamma(t_0)\le p$ と[push-up補題](../LORG7/index.md#thm-lorg7-push-up)から $p\in F$ となり、$p\in\partial F$ と矛盾します。従って曲線全体が $\overline F\setminus F=A$ にあります。
+となり矛盾します。従って最後の入域は $t\le-\varepsilon$ で、$\gamma_k$ は $t\in[-\varepsilon,0]$ の間ずっと $U$ 内にあります。さらにこの区間で
 
-この因果曲線の二点が時間的に結ばれると $A$ の[achronal性](#thm-lorg12-boundary-achronal)に反します。凸正規近傍では、因果曲線の二点の間に時間的な短絡が存在しない場合、曲線はその二点を結ぶ光的測地線の再パラメータ化に一致します。これを確認するには、[LORG5の凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)の中の測地線で端点を結び、元の曲線に折れ・非光的部分があれば局所錐の凸性による曲線変形で時間的に結べることを用います（[LORG7の時間的変形](../LORG7/index.md#lem-lorg7-causal-push)）。従って $\gamma$ は局所的に光的測地線であり、区間を継ぎ合わせると光的測地線の一部分です。
+$$
+|\mathbf x_k(t)|\le |\mathbf x_k(0)|+C|t|
+\le C/k+C\varepsilon
+$$
 
-最後に境界内にとどまる光的測地線を過去へ極大延長します。過去端点 $r\in M\setminus\overline S$ が存在するなら、上と同じ構成で $r$ からさらに過去へ伸びる境界内の光的測地線分が得られます。接続点で方向が異なると、折れた因果曲線に時間的な短絡を作れてachronal性に矛盾するため、二つの測地線分は同じ光的方向につながります。よって $r$ で止まるのは極大性に反します。従って過去端点があるなら $\overline S$ に属し、なければ過去非延長です。$\square$
+となるので、$k$ を大きくすると曲線像は $U$ 内の一つのコンパクトな小箱に収まります。
+
+第6節冒頭で示した座標時刻パラメータ化・一様Lipschitz評価・閉凸な因果錐を使い、部分列を取って $[-\varepsilon,0]$ 上で一様収束する局所Lipschitz未来因果曲線 $\gamma$ を得ます。$|\mathbf x_k(0)|\le C/k$ より $\gamma(0)=p$ です。$\gamma(-\varepsilon)$ の時刻は $-\varepsilon$ なので、この極限曲線は非定数です。また $\gamma_k$ の各点は $s_k$ から時間的に到達できるので $F$ にあり、極限から $\gamma\subset\overline F$ です。
+
+**極限を境界にとどめる。** 仮に $z=\gamma(t_0)\in F$ とします。$z$ から $p$ への局所Lipschitz因果部分に対して、[LORG7のpush-up補題](../LORG7/index.md#thm-lorg7-push-up)をそのまま引用することはできません。この補題は区分的 $C^1$ 曲線に対するものだからです。
+
+ただし、同章の[時間的変形](../LORG7/index.md#lem-lorg7-causal-push)の速度評価は、一様Lipschitz曲線の微分可能なほとんどすべての点にも適用できます。未来時間的な流れで始点を少し過去へずらし、終点 $p$ を固定すると、変形曲線の速度は一様に時間的になります。座標箱を有限個に分割して折れ線近似すれば、時間的錐の開性により区分的 $C^1$ の未来時間的曲線が得られます。
+
+こうして、始点 $z_\delta$ について
+
+$$
+z_\delta\in I^-(z),\qquad z_\delta\ll p,\qquad z_\delta\longrightarrow z
+$$
+
+となる曲線を構成できます。$z\in F=I^+(S)$ なら、ある $s\in S$ に対して $s\ll z$ です。[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から、十分小さい $\delta$ で
+
+$$
+s\ll z_\delta\ll p\quad\Longrightarrow\quad p\in F
+$$
+
+となりますが、これは $p\in\partial F$ に矛盾します。従って極限曲線のどの点も $F$ に属さず、$\gamma\subset\overline F\setminus F=A$ です。
+
+**光的測地線であること。** $\gamma$ の二点が時間的に結ばれると $A$ の[achronal性](#thm-lorg12-boundary-achronal)に反します。各十分短い部分区間の像を[LORG5の凸正規近傍](../LORG5/index.md#thm-lorg5-convex-normal-existence)に収めて考えます。因果曲線の途中に時間的速度があれば、その部分を小さく時間的に動かして両端を時間的に結べます。また光的速度だけであっても、前後の方向が一致せず折れれば、[未来因果錐の凸性](../LORG1/index.md#prop-lorg1-cone-convex)によって二つの非平行な未来光的方向の和は未来時間的になります。局所正規座標内で折れの前後を短く取り、端点をつなぐ時間的な短絡を作れるため、やはりachronal性に反します。従って時間的部分も方向の折れも許されず、各短区間の像はその両端を結ぶ一本の未来光的測地線と一致します。隣り合う区間の測地線は共通部分で方向も一致し、[測地線の初期値一意性](../LORG4/index.md#prop-lorg4-lorentz-exponential)から同一の測地線へ継がれます。
+
+最後に、$A$ 内にとどまるこの光的測地線を過去へ極大に延ばします。過去端点 $r\in M\setminus\overline S$ があるなら、いま証明した構成を $r$ に適用して、そのさらに過去から $r$ へ至る境界内の光的測地線片が得られます。接続方向が異なれば先ほどの角の短絡が作られてachronal性に反するため、延長は元の測地線と滑らかにつながり、極大性に矛盾します。従って過去端点が存在する場合は $\overline S$ に属し、時空内に過去端点を持たない場合は過去非延長です。$\square$
 <!-- proof-end -->
 
 **何を言っていないか**：すべての境界点で過去へ非自明な光的生成子がある、とは主張していません。例えば $S=\{(0,x):x\ge0\}$ の境界の水平部分は $S$ に含まれ、光的な生成子を必要としません。また生成子の**過去**についての主張を、そのまま未来方向へ裏返すこともできません。未来へ進む生成子は、別の生成子と合流・交差する場所で境界を離れ得ます。
@@ -332,7 +391,7 @@ $N=\{(u,-u):0\le u\le3\}$ がachronalでacausalでないことを示せ。
 $S=\{(0,x):-2\le x\le1\}$ のedgeを求め、内部点がedgeでない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。[時刻一定面のedge補題](#lem-lorg12-spacelike-slice-edge)で $A=[-2,1]$ とすると $\partial_{\mathbb R} A=\{-2,1\}$ です。よって
+**詳細解答**。[Minkowski時刻一定面のedge](#lem-lorg12-spacelike-slice-edge)で $A=[-2,1]$ とすると $\partial_{\mathbb R} A=\{-2,1\}$ です。よって
 $$
 \operatorname{edge}(S)=\{(0,-2),(0,1)\}.
 $$
@@ -429,7 +488,7 @@ $p=(2,-2)$ は左側の $t=-x$ 上にあります。$\gamma(u)=(u,-u)$（$0\le u
 <!-- solution-start -->
 **詳細解答**。
 
-(1) 異なる二点の時間差は零、空間差は正なので因果的に結べず、$S$ はacausalです。自身への非定数時間的到達もないためachronalです。空間区間の境界は $\{0,2\}$ なので
+(1) 異なる二点の時間差は零、空間差は正なので因果的に結べず、$S$ はacausalです。自身への非定数時間的到達もないためachronalです。[Minkowski時刻一定面のedge](#lem-lorg12-spacelike-slice-edge)により空間区間の境界は $\{0,2\}$ なので
 $$
 \operatorname{edge}(S)=\{(0,0),(0,2)\}.
 $$

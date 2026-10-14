@@ -55,7 +55,7 @@ chapters:
     title: "achronal集合・edge・achronal境界"
   - id: LORG13
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG13
-    status: planned
+    status: completed
     title: "依存領域とCauchy horizon"
   - id: LORG14
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG14

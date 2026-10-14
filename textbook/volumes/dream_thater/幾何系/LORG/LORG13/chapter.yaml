@@ -1,0 +1,57 @@
+id: "LORG13"
+title: "依存領域とCauchy horizon"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+  - LORG12
+official_scope: []
+learning_objectives:
+  - 過去・未来非延長因果曲線の定義を時空の欠損例と照らして判定できる
+  - 未来・過去依存領域の全称条件と時間的未来との違いを説明できる
+  - Minkowski因果曲線の速度上界から時刻零の交点補題を証明できる
+  - 任意の初期集合の依存領域公式から閉区間・開区間の違いを導出できる
+  - Cauchy horizonを定義し一般時空で閉性・achronal性を証明できる
+  - 有限区間のhorizonと光的生成子を座標で検算できる
+  - 点除去時空による非延長曲線の変化と依存領域の欠損を説明できる
+  - 非連結な初期集合の未来・過去依存領域を計算できる
+definitions:
+  - { id: LORG13-DEF-01, name: 過去・未来非延長な因果曲線 }
+  - { id: LORG13-DEF-02, name: 未来・過去依存領域 }
+  - { id: LORG13-DEF-03, name: 未来・過去Cauchy horizon }
+theorems:
+  - { id: LORG13-LEM-01, name: 時刻零との交点と位置の範囲 }
+  - { id: LORG13-THM-01, name: 二次元Minkowski時空の依存領域公式 }
+  - { id: LORG13-COR-01, name: 閉じた初期区間の依存ダイヤモンド }
+  - { id: LORG13-THM-02, name: Cauchy horizonの閉性とachronal性 }
+  - { id: LORG13-PROP-01, name: 有限閉区間のCauchy horizon }
+  - { id: LORG13-PROP-02, name: 点除去時空の未来依存領域 }
+canonical_examples:
+  - Minkowski時刻零全体と空のhorizon
+  - 閉区間と開区間の依存ダイヤモンド
+  - 二本の光的horizon生成子
+  - 点除去時空の欠損領域
+problem_patterns:
+  - LORG13-INEXTENDIBILITY
+  - LORG13-POINTS
+  - LORG13-OPEN-INTERVAL
+  - LORG13-FULL-SLICE
+  - LORG13-GENERAL-S
+  - LORG13-HORIZON-PROOF
+  - LORG13-CAUSAL-ESCAPE
+  - LORG13-PUNCTURED
+  - LORG13-DISCONNECTED-S
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 11, review: 7 }

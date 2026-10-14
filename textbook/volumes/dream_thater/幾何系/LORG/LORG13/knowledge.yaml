@@ -1,0 +1,71 @@
+chapter: LORG13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+  - LORG12
+concepts:
+  - id: lorentz-geometry.inextendible-causal-curve
+    name: 過去・未来非延長な因果曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（過去・未来非延長な因果曲線）"]
+    requires: [lorentz-geometry.causal-curve]
+  - id: lorentz-geometry.domain-of-dependence
+    name: 未来・過去依存領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（未来・過去依存領域）"]
+    requires: [lorentz-geometry.inextendible-causal-curve, lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.minkowski-intersection
+    name: 時刻零との交点と位置の範囲
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（時刻零との交点と位置の範囲）"]
+    requires: [lorentz-geometry.inextendible-causal-curve, lorentz-geometry.minkowski-causal-future]
+  - id: lorentz-geometry.minkowski-dependence
+    name: 二次元Minkowski時空の依存領域公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次元Minkowski時空の依存領域公式）"]
+    requires: [lorentz-geometry.domain-of-dependence, lorentz-geometry.minkowski-intersection]
+  - id: lorentz-geometry.interval-diamond
+    name: 閉じた初期区間の依存ダイヤモンド
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（閉じた初期区間の依存ダイヤモンド）"]
+    requires: [lorentz-geometry.minkowski-dependence]
+  - id: lorentz-geometry.cauchy-horizon
+    name: 未来・過去Cauchy horizon
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（未来・過去Cauchy horizon）"]
+    requires: [lorentz-geometry.domain-of-dependence, lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.cauchy-horizon-achronal
+    name: Cauchy horizonの閉性とachronal性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cauchy horizonの閉性とachronal性）"]
+    requires: [lorentz-geometry.cauchy-horizon, lorentz-geometry.achronal-set, lorentz-geometry.chronological-futures-open, lorentz-geometry.timelike-relation-openness]
+  - id: lorentz-geometry.interval-horizon
+    name: 有限閉区間のCauchy horizon
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限閉区間のCauchy horizon）"]
+    requires: [lorentz-geometry.interval-diamond, lorentz-geometry.cauchy-horizon, lorentz-geometry.minkowski-causal-future]
+  - id: lorentz-geometry.punctured-domain
+    name: 点除去時空の未来依存領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（点除去時空の未来依存領域）"]
+    requires: [lorentz-geometry.inextendible-causal-curve, lorentz-geometry.minkowski-dependence, lorentz-geometry.minkowski-causal-future]

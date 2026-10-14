@@ -36,7 +36,7 @@ concepts:
   - id: pde.pde4-domain-dependence
     name: 後方依存区間
     kind: definition
-    aliases: [domain of dependence, 依存領域]
+    aliases: [domain of dependence]
     introduction: formal
     introduction_aliases: ["定義（一次元波動方程式の後方依存区間）"]
     requires: [pde.pde4-dalembert]
