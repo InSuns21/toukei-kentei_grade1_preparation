@@ -180,7 +180,7 @@ $x\ll_U y$ の場合は時間的測地線片が局所時間分離を実現し、
 
 [部分曲線の最大化](#prop-lorg18-subarc)により、その部分の長さは二端点の大域時間分離です。もし $U$ 内の別の因果曲線がこれより長ければ大域最大性に反します。したがってこの部分曲線は $U$ 内でも最大化します。
 
-$x=\gamma(a)$、$y=\gamma(b)$ とおきます。$x\ll_U y$ の場合、局所時間分離を実現する時間的測地線片 $\sigma_{xy}$ が一意にあります。$\gamma|_{[a,b]}$ は大域最大化から $U$ 内でも最大なので、$\sigma_{xy}$ と同じ長さです。[LORG5のGaussian座標による比較](../LORG5/index.md#thm-lorg5-local-maximization)を $\sigma_{xy}$ の周りで行い、局所Lipschitz曲線を $(t(s),z(s))$ と書くと、ほとんど至るところで
+$x=\gamma(a)$、$y=\gamma(b)$ とおきます。$x\ll_U y$ の場合、局所時間分離を実現する時間的測地線片 $\sigma_{xy}$ が一意にあります。$\gamma|_{[a,b]}$ は大域最大化から $U$ 内でも最大なので、$\sigma_{xy}$ と同じ長さです。[LORG5のGaussian座標による比較](../LORG5/index.md#thm-lorg5-local-maximization)を $\sigma_{xy}$ の周りで行い、局所Lipschitz曲線を $(t(s),z(s))$ と書きます。ここでは短区間と端点を十分縮め、[凸正規近傍の測地線の滑らかな端点依存](../LORG5/index.md#thm-lorg5-convex-normal-existence)および $\gamma$ の連続性により、比較する両曲線を同じGaussian座標領域に収めておきます。その座標ではほとんど至るところで
 
 $
 \sqrt{\dot t^{,2}-h_{ij}(t,z)\dot z^i\dot z^j}
