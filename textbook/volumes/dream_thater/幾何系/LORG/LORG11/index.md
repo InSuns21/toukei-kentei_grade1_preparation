@@ -272,7 +272,7 @@ $$
 $$
 I^-(p)\subset I^-(q),\qquad I^+(q)\subset I^+(p).
 $$
-さらに[未来・過去識別性の定義](../LORG9/index.md#def-lorg9-distinguishing)より、$p\ne q$ なら $I^+(p)\ne I^+(q)$ かつ $I^-(p)\ne I^-(q)$ です。従って両方の包含は真になります。
+さらに[LORG9の未来・過去識別性](../LORG9/index.md#def-lorg9-distinguishing)より、$p\ne q$ なら $I^+(p)\ne I^+(q)$ かつ $I^-(p)\ne I^-(q)$ です。従って両方の包含は真になります。
 
 真の包含から体積の厳密不等式が従うことを説明します。例えば $I^+(q)\subsetneq I^+(p)$ なのに $\mu(I^+(p)\setminus I^+(q))=0$ と仮定します。開集合 $I^+(p)$ が $\overline{I^+(q)}$ に含まれないなら、両者の差には非空開集合があり、$\mu$ が正なので矛盾します。従って $I^+(p)\subset\overline{I^+(q)}$ ですが、[正則開性](#lem-lorg11-regular-open)により
 $$
