@@ -123,7 +123,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共役作用と環演算）**  
-> 上の $K[K,+]$ の任意の $F,H$ と $\sigma,\tau\in G$ について、
+> $K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とする。任意の $F,H\in K[K,+]$ と $\sigma,\tau\in G$ について、
 
 $$
 \sigma\cdot(FH)=(\sigma\cdot F)(\sigma\cdot H),
@@ -176,7 +176,7 @@ $\sigma$ は $K$ の自己同型なので、$\sigma^{-1}$ が存在します。$
 
 <!-- formal-statement-start -->
 > **補題（有限形式指数和の積の非零性）**  
-> $K\subset\mathbb C$ を体とする。$F,H\in K[K,+]$ がともに非零なら $FH\ne0$ である。したがって非零な有限個の形式指数和の積も非零である。
+> $K/\mathbb Q$ を $\mathbb C$ 内の有限Galois拡大とする。$F,H\in K[K,+]$ がともに非零なら $FH\ne0$ である。したがって非零な有限個の形式指数和の積も非零である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -310,13 +310,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共役不変な形式和の係数関係）**  
-> $H=\sum_{\lambda\in T}B_\lambda U_\lambda\in K[K,+]$ が全ての $\sigma\in G$ に対して $\sigma\cdot H=H$ を満たすなら、$T$ は $G$ の作用で閉じ、全ての $\lambda\in T$ について
+> $K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とする。有限集合 $T\subset K$ と非零係数 $B_\lambda\in K$ からなる $H=\sum_{\lambda\in T}B_\lambda U_\lambda\in K[K,+]$ が全ての $\sigma\in G$ に対して $\sigma\cdot H=H$ を満たすなら、$T$ は $G$ の作用で閉じ、全ての $\lambda\in T$ について
 
 $$
 B_{\sigma(\lambda)}=\sigma(B_\lambda)
 $$
 
-> が成り立つ。ただし $B_\mu=0$ を $\mu\notin T$ にも拡張して考えてよい。とくに $\lambda$ が全ての $\sigma$ で固定される場合だけ、$B_\lambda\in\mathbb Q$ が従う。
+> が成り立つ。ただし $B_\mu=0$ を $\mu\notin T$ にも拡張して考えてよい。とくに $\lambda$ が全ての $\sigma$ で固定されるなら $B_\lambda\in\mathbb Q$ が従う。逆に、$B_\lambda\in\mathbb Q$ だからといって指数 $\lambda$ が固定されるとは限らない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -337,7 +337,7 @@ $B_\lambda\ne0$ なら $\sigma(B_\lambda)\ne0$ です。$H=\sigma\cdot H$ だか
 もし $\sigma(\lambda)=\lambda$ が全 $\sigma$ で成立すれば、同じ等式は $\sigma(B_\lambda)=B_\lambda$ となります。[Galois対応の固定体](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)によって $K^G=\mathbb Q$ なので、$B_\lambda\in\mathbb Q$ です。指数が動くときはこの推論を使えません。
 <!-- proof-end -->
 
-前節の $H=-U_0+sU_s-sU_{-s}$ を見ると、$\sigma$ は $s$ と $-s$ を交換し、係数 $s$ と $-s$ も交換します。従って $H$ は共役不変ですが、$U_s$ の係数 $s$ は**有理数ではありません**。これが「共役積だから各係数は有理数」という誤りの反例です。
+前節の $H=-U_0+sU_s-sU_{-s}$ を見ると、$\sigma$ は $s$ と $-s$ を交換し、係数 $s$ と $-s$ も交換します。従って $H$ は共役不変ですが、$U_s$ の係数 $s$ は**有理数ではありません**。これが「共役積だから各係数は有理数」という誤りの反例です。また $H'=U_s+U_{-s}$ は指数が入れ替わっても不変で、各係数は有理数です。係数の有理性だけから指数が固定されるとも推論できません。
 
 **別の操作との違い。** $P(Y)=sY+1\in K[Y]$ について係数にだけ共役を作用させれば、
 
@@ -351,7 +351,13 @@ $$
 
 [TRN2の跡・ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)は、代数的整数の共役全体から通常の整数を作る道具です。しかし本章の $H$ が共役不変だからといって、すべての $B_\lambda$ が整数にはなりません。まず共役**で動かない一つの代数的数**に対して使います。
 
-一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。ただし係数和は $\varepsilon(DF)=D\varepsilon(F)$ なので、**分母を払っても零だった係数和を非零には変えられません**。整数性と非零性の条件は独立に点検します。
+一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。しかし係数をすべて足した数は、$D$ 倍しても
+
+$
+\sum_{j=1}^m Da_j=D\sum_{j=1}^m a_j
+$
+
+と変わるだけです。**分母を払っても、零だった係数の総和を非零には変えられません**。この係数の総和を写像として定義してから、整数性と非零性を別々に検証します。
 
 <a id="lem-trn7-fixed-integer"></a>
 
@@ -444,7 +450,14 @@ $$
 =\prod_{\sigma\in G}\sigma(\varepsilon(F)).
 $$
 
-有限Galois拡大は分離拡大で、その $\mathbb Q$-埋め込みは $G$ の全元と一致します。[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)からこれは $N_{K/\mathbb Q}(\varepsilon(F))$ です。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
+[体ノルムの定義](../TRN2/index.md#def-trn2-field-trace-norm)は、$\eta\in K$ に対する $\mathbb Q$-線形写像 $x\mapsto\eta x$ の表現行列の行列式です。いま $\eta=\varepsilon(F)$ を代入します。$K/\mathbb Q$ が有限Galois拡大なので、分離性によって得られる $\mathbb Q$-埋め込みは $G$ の全元と一致します。したがって[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)をこの乗法写像に適用して
+
+$
+N_{K/\mathbb Q}(\varepsilon(F))
+=\prod_{\sigma\in G}\sigma(\varepsilon(F))
+$
+
+を得ます。ここで行列式から共役の積へ移れる理由は、この既習の公式と有限Galois性にあります。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
 <!-- proof-end -->
 
 ただし **$F\ne0$ だけでは $\varepsilon(F)\ne0$ とは言えません**。例えば $F=U_s-U_{-s}$ は形式的に非零ですが $\varepsilon(F)=1-1=0$ です。従って補助量として係数和のノルムを選ぶ場合には、係数和の非零性を**別途**示す必要があります。後続章でどの算術量を選ぶかは、この区別が鍵になります。
