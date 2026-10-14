@@ -356,7 +356,7 @@ $$
 =\iint K(x-y)f(y)\overline{g(x)}\,dy\,dx.
 $$
 
-ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して、非負で積分1のコンパクト台平滑化核 $\rho_\varepsilon$ と畳み込み、$f_n=\rho_{1/n}*f$ とします。すると $f_n\in C_c^\infty$ で、[FOU4の $L^2$ 平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
+ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込み、$f_n=\rho_{1/n}*f$ とします。すると $f_n\in C_c^\infty$ で、[FOU4の $L^2$ 平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
 
 $$
 \|f_n-f\|_2
@@ -714,7 +714,24 @@ $$
 
 **4.** $|x-y|\ge\delta>0$ の領域で上の核級数が一様絶対収束するため、台の離れた $f,g\in C_c^\infty$ では各 $m_j$ の核積分表示を足せます。
 
-周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ち、$M|\widehat f|$ が $L^2$ 支配関数となるので、Plancherelと優収束により作用素の列も $T_mf$ へ $L^2$ 収束します。これでまず滑らかなコンパクト台の入力について台外核表示が成立します。一般のコンパクト台 $f\in L^2$ については、$f_n=\rho_{1/n}*f\in C_c^\infty$ とし、[平行移動の $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から $\|f_n-f\|_2\le\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2dz\to0$ とします。$\operatorname{supp}f$ の外側の小球 $U$ を閉包ごと台から正の距離に取ると、核の台が縮むため、近似関数の台は同じ有界集合に含まれ、$U$ からも距離 $\varepsilon>0$ を保てます。従って
+周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ちます。また、$|m^{(N)}-m|\le2M$ なので
+
+$$
+|(m^{(N)}-m)\widehat f|^2
+\le4M^2|\widehat f|^2\in L^1(\mathbb R^2).
+$$
+
+[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l2-extension)と[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)によって作用素の列も $T_mf$ へ $L^2$ 収束します。これで滑らかなコンパクト台の入力について台外核表示が成立します。
+
+一般のコンパクト台 $f\in L^2$ には、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier)を使い $f_n=\rho_{1/n}*f\in C_c^\infty$ とします。[平行移動の $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から
+
+$$
+\|f_n-f\|_2\le
+\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2\,dz
+\longrightarrow0.
+$$
+
+$\operatorname{supp}f$ の外側の小球 $U$ を閉包ごと台から正の距離に取ると、核の台が縮むため、近似関数の台は同じ有界集合に含まれ、$U$ からも距離 $\varepsilon>0$ を保てます。従って
 
 $$
 \sup_{x\in U}\left|\int K(x-y)(f_n-f)(y)\,dy\right|
