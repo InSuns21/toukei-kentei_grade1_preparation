@@ -13,7 +13,7 @@ concepts:
     name: 階乗級数によるeの無理性
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（階乗級数による $e$ の無理性）]
+    introduction_aliases: [定理（階乗級数によるeの無理性）]
     requires: []
 
   - id: transcendence.integer-factorial-squeeze
