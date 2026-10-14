@@ -74,7 +74,7 @@ g(\nabla^g u,\nabla^g u)
 =-\frac1{1+x^2}<0.
 $$
 
-ゆえに $u$ はtemporalであり、[temporalの単調性補題](../LORG10/index.md#lem-lorg10-temporal-monotone)から時間関数です。
+ゆえに $u$ はtemporalであり、[temporal functionの厳密単調性](../LORG10/index.md#lem-lorg10-temporal-monotone)から時間関数です。
 
 両側非延長な未来光線 $\gamma(s)=(s,s)$（$s\in\mathbb R$）では
 
@@ -148,12 +148,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Cauchy時間関数の各レベル）**  
-> $(M,g)$ 上の連続Cauchy時間関数 $\tau$ に対し、任意の $c\in\mathbb R$ のレベル集合 $\Sigma_c=\tau^{-1}(c)$ は非空で閉なCauchy面であり、[acausal集合](../LORG12/index.md#def-lorg12-achronal-acausal)である。異なる $c$ のレベルは交わらない。
+> $(M,g)$ 上に連続Cauchy時間関数 $\tau:M\to\mathbb R$ があるとする。任意の実数 $c$ のレベル集合を
+>
+$
+\Sigma_c=\tau^{-1}(c)
+$
+>
+> と置けば、$\Sigma_c$ は非空で閉なCauchy面であり、[acausal集合](../LORG12/index.md#def-lorg12-achronal-acausal)である。異なる値のレベル集合は交わらない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-非延長因果曲線上の合成関数へ中間値の定理を使います。閉性は連続性、acausal性はCauchy面の既習命題で判定します。
+非延長因果曲線上の値域が全実数であることが交点の存在を、厳密単調性が一意性を保証します。閉性は連続性、acausal性は既習のCauchy面の性質で判定します。
 
 <!-- proof-start -->
 ### 証明
@@ -168,7 +174,7 @@ $$
 
 です。少なくとも一つ非延長曲線があるため $\Sigma_c$ は非空で、任意の非延長曲線に対する一意交差から[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。
 
-$\Sigma_c$ は連続写像 $\tau$ による閉集合 $\{c\}$ の逆像なので閉です。[Cauchy面のacausal性命題](../LORG15/index.md#prop-lorg15-acausal)から異なる二点を未来因果曲線で結べません。最後に $c\ne d$ のとき、同一点の $\tau$ 値が同時に二値であることは不可能なので $\Sigma_c\cap\Sigma_d=\varnothing$ です。$\square$
+$\Sigma_c$ は連続写像 $\tau$ による閉集合 $\{c\}$ の逆像なので閉です。[Cauchy面はacausalかつachronal](../LORG15/index.md#prop-lorg15-acausal)から異なる二点を未来因果曲線で結べません。最後に $c\ne d$ のとき、同一点の $\tau$ 値が同時に二値であることは不可能なので $\Sigma_c\cap\Sigma_d=\varnothing$ です。$\square$
 <!-- proof-end -->
 
 ## 6. 時間値を取り直せば何が保存されるか
