@@ -95,6 +95,27 @@ $$
 
 ここで局所曲線の端点関係も使います。十分小さな[LORG5の凸正規近傍](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)では、二点が近傍内の未来因果曲線で結ばれることは、始点から終点への指数写像の逆ベクトルが未来因果錐に入ることと同値です。逆指数写像は近傍内で連続、未来錐は閉なので、その近傍内の因果的到達関係は端点の極限で保存されます。**時空全体の $J^+$ が閉じる**と主張しているわけではありません。
 
+<a id="def-lorg14-local-uniform"></a>
+
+<!-- formal-statement-start -->
+> **定義（コンパクト部分区間上一様な収束）**  
+> 実数の区間 $I$ 上の曲線列 $\gamma_k:I\to M$ が $\gamma:I\to M$ に **局所一様収束**するとは、任意のコンパクト区間 $[a,b]\subset I$ に対し
+>
+> $$\sup_{s\in[a,b]}d_h(\gamma_k(s),\gamma(s))\longrightarrow0$$
+>
+> となることをいう。ここでは一つの補助計量 $h$ を固定する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lorg14-local-uniform -->
+**定義の確認**。$M=\mathbb R^{1,1}$、$h=dt^2+dx^2$ で $\gamma_k(s)=(s,1/k)$、$\gamma(s)=(s,0)$ とすると、任意の $R>0$ に対して
+
+$$
+\sup_{|s|\le R}d_h(\gamma_k(s),\gamma(s))=\frac1k\to0.
+$$
+
+従って局所一様収束します。各曲線は未来時間的、$h$-弧長パラメータ、両方向非延長です。無限のパラメータ全域で一様収束すると仮定する必要はありません。
+<!-- definition-example-end -->
+
 <a id="lem-lorg14-local-closedness"></a>
 
 <!-- formal-statement-start -->
@@ -147,26 +168,7 @@ $$
 
 基点が $p$ に収束すれば、右辺の最後の項は十分大きな $k$ で例えば $1$ 未満です。完備な有限次元Riemann多様体のHopf–Rinowの定理から、閉じた有界な $h$-球はコンパクトです。よって $[-R,R]$ 上では、1-Lipschitzで同じコンパクト集合に値を持つ曲線にArzelà–Ascoliの定理を適用できます。
 
-<a id="def-lorg14-local-uniform"></a>
 
-<!-- formal-statement-start -->
-> **定義（コンパクト部分区間上一様な収束）**  
-> 実数の区間 $I$ 上の曲線列 $\gamma_k:I\to M$ が $\gamma:I\to M$ に **局所一様収束**するとは、任意のコンパクト区間 $[a,b]\subset I$ に対し
->
-> $$\sup_{s\in[a,b]}d_h(\gamma_k(s),\gamma(s))\longrightarrow0$$
->
-> となることをいう。ここでは一つの補助計量 $h$ を固定する。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-lorg14-local-uniform -->
-**定義の確認**。$M=\mathbb R^{1,1}$、$h=dt^2+dx^2$ で $\gamma_k(s)=(s,1/k)$、$\gamma(s)=(s,0)$ とすると、任意の $R>0$ に対して
-
-$$
-\sup_{|s|\le R}d_h(\gamma_k(s),\gamma(s))=\frac1k\to0.
-$$
-
-従って局所一様収束します。各曲線は未来時間的、$h$-弧長パラメータ、両方向非延長です。無限のパラメータ全域で一様収束すると仮定する必要はありません。
-<!-- definition-example-end -->
 
 <a id="thm-lorg14-limit-curve"></a>
 
