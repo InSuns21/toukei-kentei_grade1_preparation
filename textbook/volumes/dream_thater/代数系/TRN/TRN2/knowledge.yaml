@@ -8,7 +8,8 @@ prerequisites:
   - FLD4
   - LA3C
   - LA4
-forward_references: []
+forward_references:
+  - diophantine.liouville-inequality
 
 concepts:
   - id: transcendence.rational-conjugates

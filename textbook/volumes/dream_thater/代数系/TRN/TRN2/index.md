@@ -57,7 +57,7 @@ $$
 
 となります。第 $j$ 列が $(a_{1j},\ldots,a_{nj})^{\mathsf T}$ である行列 $A_\eta=(a_{ij})$ が、掛け算を表す行列です。
 
-行列の跡は対角成分の和 $\operatorname{tr}(A)=\sum_i a_{ii}$、行列式は[LA3Cの行列式](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)で扱った量です。これを乗法写像に適用します。
+行列の対角成分の和 $\operatorname{tr}(A)=\sum_i a_{ii}$、行列式は[LA3Cの行列式](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)で扱った量です。これを乗法写像に適用します。
 
 <a id="def-trn2-field-trace-norm"></a>
 
@@ -286,7 +286,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[共役による公式](#thm-trn2-conjugate-formula)から
+[共役による跡・ノルムの公式](#thm-trn2-conjugate-formula)から
 
 $$
 \det(TI_{[K:\mathbb Q]}-A_\eta)=m_\eta(T)^r,\qquad
@@ -427,7 +427,7 @@ $$
 A_\eta=\begin{pmatrix}2&3\\1&2\end{pmatrix}.
 $$
 
-[跡・ノルムの定義](#def-trn2-field-trace-norm)から
+[体拡大の跡とノルム](#def-trn2-field-trace-norm)から
 
 $$
 \operatorname{Tr}_{K/\mathbb Q}(\eta)=2+2=4,\qquad
