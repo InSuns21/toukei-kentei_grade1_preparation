@@ -42,7 +42,7 @@ concepts:
     aliases: []
     requires:
       - celestial-variational.discrete-newton-action
-      - celestial-variational.choreography
+      - celestial-variational.nbody-simple-choreography
   - id: celestial-variational.discrete-projection-proof
     name: 射影の制約保存と最小距離
     kind: proposition
