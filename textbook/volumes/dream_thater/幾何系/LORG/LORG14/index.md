@@ -166,7 +166,7 @@ d_h(\gamma_k(s),p)
 \le R+d_h(\gamma_k(0),p).
 $$
 
-基点が $p$ に収束すれば、右辺の最後の項は十分大きな $k$ で例えば $1$ 未満です。完備な有限次元Riemann多様体のHopf–Rinowの定理から、閉じた有界な $h$-球はコンパクトです。よって $[-R,R]$ 上では、1-Lipschitzで同じコンパクト集合に値を持つ曲線にArzelà–Ascoliの定理を適用できます。
+基点が $p$ に収束すれば、右辺の最後の項は十分大きな $k$ で例えば $1$ 未満です。完備な有限次元Riemann多様体の[Hopf–Rinowの定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)から、閉じた有界な $h$-球はコンパクトです。よって $[-R,R]$ 上では、1-Lipschitzで同じコンパクト集合に値を持つ曲線にArzelà–Ascoliの定理を適用できます。
 
 
 
@@ -202,7 +202,7 @@ d_h(\gamma_k(s),p)
 \le |s|+1\le R+1,\qquad |s|\le R.
 $$
 
-$h$ の完備性とHopf–Rinowから閉球 $\overline B_h(p,R+1)$ はコンパクトです。曲線列はそこで一様に1-Lipschitzなので、Arzelà–Ascoliにより $[-R,R]$ 上一様収束する部分列があります。
+$h$ の完備性と[Hopf–Rinowの定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)から閉球 $\overline B_h(p,R+1)$ はコンパクトです。曲線列はそこで一様に1-Lipschitzなので、Arzelà–Ascoliにより $[-R,R]$ 上一様収束する部分列があります。
 
 $R=1$ で選んだ部分列から $R=2$ でさらに部分列を取り、一般に $R=m$ で前段階の部分列から抽出します。各段階の第 $m$ 項を取る対角部分列は、どの固定整数 $R=m_0$ に対しても $m\ge m_0$ 以降、第 $m_0$ 段階の部分列に属します。従ってすべての $[-R,R]$ で一様収束します。重なる区間の極限は一意なので、これらは一つの $\gamma:\mathbb R\to M$ を定め、$\gamma(0)=p$ です。
 
@@ -249,7 +249,7 @@ d_h(\alpha_k(s),\alpha_k(t))
 \le L_k|s-t|\le L|s-t|.
 $$
 
-始点 $p_k$ が $p$ に収束するため、像は十分大きい $k$ で閉球 $\overline B_h(p,L+1)$ に収まります。Hopf–RinowとArzelà–Ascoliから一様収束部分列 $\alpha_k\to\alpha$ を得ます。$L_k$ の部分列も $L_k\to L_*\in[0,L]$ とできます。
+始点 $p_k$ が $p$ に収束するため、像は十分大きい $k$ で閉球 $\overline B_h(p,L+1)$ に収まります。[Hopf–Rinowの定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)とArzelà–Ascoliから一様収束部分列 $\alpha_k\to\alpha$ を得ます。$L_k$ の部分列も $L_k\to L_*\in[0,L]$ とできます。
 
 $L_*>0$ なら、$\alpha_k$ を $L_k$ で割った弧長パラメータの局所議論（第3節の時間座標評価を係数 $L_k$ に置き換えたもの）から、$\alpha$ は未来因果的です。$L_*=0$ なら任意の $s,t$ で $d_h(\alpha_k(s),\alpha_k(t))\le L_k|s-t|\to0$ となるので $\alpha$ は定数であり、$p=q$ です。最後に $\alpha_k(0)=p_k\to p$、$\alpha_k(1)=q_k\to q$ より $\alpha(0)=p$、$\alpha(1)=q$ です。$\square$
 <!-- proof-end -->
