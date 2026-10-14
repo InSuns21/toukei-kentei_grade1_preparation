@@ -1,0 +1,76 @@
+chapter: LORG12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+concepts:
+  - id: lorentz-geometry.achronal-set
+    name: achronal集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（achronal集合とacausal集合）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.acausal-set
+    name: acausal集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（achronal集合とacausal集合）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.acausal-achronal-implication
+    name: causal時空での二条件の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（causal時空での二条件の関係）"]
+    requires: [lorentz-geometry.acausal-set, lorentz-geometry.achronal-set, lorentz-geometry.causal-spacetime]
+  - id: lorentz-geometry.achronal-edge
+    name: achronal集合のedge
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（achronal集合のedge）"]
+    requires: [lorentz-geometry.achronal-set, lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.time-slice-edge
+    name: Minkowski時刻一定面のedge
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Minkowski時刻一定面のedge）"]
+    requires: [lorentz-geometry.achronal-edge]
+  - id: lorentz-geometry.achronal-boundary
+    name: achronal境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（achronal境界）"]
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: lorentz-geometry.achronal-boundary-closed
+    name: 時間的未来の境界は閉かつachronal
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（時間的未来の境界は閉かつachronal）"]
+    requires: [lorentz-geometry.achronal-boundary, lorentz-geometry.achronal-set, lorentz-geometry.timelike-relation-openness]
+  - id: lorentz-geometry.achronal-boundary-graph
+    name: achronal境界の局所グラフ表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（achronal境界の局所グラフ表示）"]
+    requires: [lorentz-geometry.achronal-boundary-closed, lorentz-geometry.lorentz-metric]
+  - id: lorentz-geometry.achronal-boundary-edgeless
+    name: achronal境界にはedgeがない
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（achronal境界にはedgeがない）"]
+    requires: [lorentz-geometry.achronal-boundary-graph, lorentz-geometry.achronal-edge]
+  - id: lorentz-geometry.achronal-boundary-generators
+    name: 未来achronal境界の光的生成子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（未来achronal境界の光的生成子）"]
+    requires: [lorentz-geometry.achronal-boundary-closed, lorentz-geometry.achronal-boundary-graph, lorentz-geometry.push-up, lorentz-geometry.convex-normal-neighborhood]
