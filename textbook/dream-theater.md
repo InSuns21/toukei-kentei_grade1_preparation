@@ -4,7 +4,7 @@
 
 このページは **DREAM THEATER のオリエンテーション兼全体目次** です。数学的な依存関係を意識しながら、基礎科目から解析・計算・幾何・代数・応用・物理へ広がる全体像を示します。
 
-[全体の読む順](textbook/dream-theater-standard-math-core.md)
+[**学習コースから選ぶ（おすすめ）**](textbook/dream-theater-courses.md) ・ [全体の読む順](textbook/dream-theater-standard-math-core.md)
 
 **読み方**
 
