@@ -30,12 +30,12 @@ $$
 +\frac12h^{\mathsf T}H_\phi(p)h+o(|h|^2)
 $$
 
-となります。対称行列の正の固有値の個数を $n_+$、負の固有値の個数を $n_-$（重複度込み）とし、零固有値がない場合の差 $n_+-n_-$ を**符号数**と呼びます。これは実対称行列を直交基底で対角化して定めた量です。
+となります。対称行列の正の固有値と負の固有値の個数（重複度込み）の差が、二次位相の振動の向きを区別します。次の定義でこれを明示します。
 
 <a id="def-ha10-critical"></a>
 <!-- formal-statement-start -->
-> **定義（停留点・非退化臨界点と符号数）**  
-> $U\subset\mathbb R^n$ は開、$\phi\in C^2(U;\mathbb R)$ とする。$p\in U$ が $\nabla\phi(p)=0$ を満たすとき $p$ を位相の停留点（臨界点）という。さらに $\det H_\phi(p)\ne0$ のとき **非退化臨界点**という。非退化点の符号数は
+> **定義（停留点・非退化停留点と符号数）**  
+> $U\subset\mathbb R^n$ は開、$\phi\in C^2(U;\mathbb R)$ とする。$p\in U$ が $\nabla\phi(p)=0$ を満たすとき $p$ を位相の停留点（停留点）という。さらに $\det H_\phi(p)\ne0$ のとき **非退化停留点**という。非退化点の符号数は
 
 $$
 \operatorname{sgn}H_\phi(p)=n_+(H_\phi(p))-n_-(H_\phi(p))
@@ -212,8 +212,8 @@ $$
 
 <a id="lem-ha10-morse"></a>
 <!-- formal-statement-start -->
-> **補題（非退化臨界点の局所二次標準形）**  
-> $U\subset\mathbb R^n$ は開、$\phi\in C^\infty(U;\mathbb R)$ とし、$p\in U$ は非退化臨界点とする。$p$ の近傍で滑らかな座標 $z=z(x)$ を取り、$z(p)=0$、$Dz(p)$ は可逆で、
+> **補題（非退化停留点の局所二次標準形）**  
+> $U\subset\mathbb R^n$ は開、$\phi\in C^\infty(U;\mathbb R)$ とし、$p\in U$ は非退化停留点とする。$p$ の近傍で滑らかな座標 $z=z(x)$ を取り、$z(p)=0$、$Dz(p)$ は可逆で、
 
 $$
 \phi(x)=\phi(p)+\frac12\sum_{j=1}^n\varepsilon_jz_j(x)^2,
@@ -373,14 +373,14 @@ Fourier反転の $z=0$ での値は $(2\pi)^{-n}\int\widehat b=b(0)$ ですか�
 
 ここでの $n/2$ は**積分変数の次元の半分**です。$n=1$ なら $\lambda^{-1/2}$、$n=2$ なら $\lambda^{-1}$ となり、複素位相 $e^{i\pi\operatorname{sgn}J/4}$ は正負の曲率方向を区別します。
 
-## 6. 定常位相法の主定理
+## 6. 局所的な寄与を合わせる
 
-局所二次化と Gaussian 積分を組み合わせます。位相が停留しない領域は[非停留評価](#prop-ha10-nonstationary)で任意の冪より速く減衰するため、主要項は非退化臨界点に集中します。
+局所二次化と Gaussian 積分を組み合わせます。位相が停留しない領域は[非停留評価](#prop-ha10-nonstationary)で任意の冪より速く減衰するため、主要項は非退化停留点に集中します。
 
 <a id="thm-ha10-stationary-phase"></a>
 <!-- formal-statement-start -->
 > **定理（非退化停留点の定常位相公式）**  
-> $U\subset\mathbb R^n$ は開、$\phi\in C^\infty(U;\mathbb R)$、$a\in C_c^\infty(U;\mathbb C)$ とする。$\operatorname{supp}a$ と交わる $\phi$ の臨界点が有限個 $p_1,\ldots,p_m$ で、すべて $\det H_\phi(p_j)\ne0$ を満たすとする。$\lambda\to+\infty$ で
+> $U\subset\mathbb R^n$ は開、$\phi\in C^\infty(U;\mathbb R)$、$a\in C_c^\infty(U;\mathbb C)$ とする。$\operatorname{supp}a$ と交わる $\phi$ の停留点が有限個 $p_1,\ldots,p_m$ で、すべて $\det H_\phi(p_j)\ne0$ を満たすとする。$\lambda\to+\infty$ で
 
 $$
 \begin{aligned}
@@ -394,12 +394,12 @@ e^{i\pi\operatorname{sgn}H_\phi(p_j)/4}}
 \end{aligned}
 $$
 
-> 誤差定数は $a,\phi$ および臨界点近傍に依存する。臨界点がなければ積分は任意の $N$ に対し $O(\lambda^{-N})$ である。
+> 誤差定数は $a,\phi$ および停留点近傍に依存する。停留点がなければ積分は任意の $N$ に対し $O(\lambda^{-N})$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-各臨界点の近くで滑らかな分割関数を一つずつ取り、それ以外に台を持つ成分と合わせます。臨界点の周りには[局所二次標準形](#lem-ha10-morse)、その後に[二次位相公式](#lem-ha10-quadratic)を使います。座標変換の Jacobian が Hessian の行列式の平方根を分母に生みます。
+各停留点の近くで滑らかな分割関数を一つずつ取り、それ以外に台を持つ成分と合わせます。停留点の周りには[局所二次標準形](#lem-ha10-morse)、その後に[二次位相公式](#lem-ha10-quadratic)を使います。座標変換の Jacobian が Hessian の行列式の平方根を分母に生みます。
 
 <!-- proof-start -->
 ### 証明
@@ -410,7 +410,7 @@ $$
 a=\chi_0a+\sum_{j=1}^m\chi_j a.
 $$
 
-$\chi_0a$ の台には停留点がないので、コンパクト性により $|\nabla\phi|\ge c>0$ です。[非停留命題](#prop-ha10-nonstationary)からその積分は任意の $N$ について $O(\lambda^{-N})$ です。
+$\chi_0a$ の台には停留点がないので、コンパクト性により $|\nabla\phi|\ge c>0$ です。[非停留領域の速い減衰](#prop-ha10-nonstationary)からその積分は任意の $N$ について $O(\lambda^{-N})$ です。
 
 $j$ を固定し、$x\mapsto z$ を[局所二次標準形](#lem-ha10-morse)の写像とします。座標変換すると
 
@@ -457,29 +457,61 @@ $$
 
 ## 7. 球面の Fourier 変換に曲率が現れる
 
-Fourier restriction を考える際、まず曲面に分布した測度の Fourier 変換を評価します。$d\ge2$、$S^{d-1}=\{x\in\mathbb R^d:|x|=1\}$ とし、$\sigma$ を通常の**球面面積測度**とします。その Fourier 変換とは
+Fourier restriction を考える際、まず曲面に分布した測度の Fourier 変換を評価します。$d\ge2$、$S^{d-1}=\{x\in\mathbb R^d:|x|=1\}$ とします。球面に面積を割り当てるには、局所座標 $F(u)$ を動かしたときの各方向ベクトル $\partial_jF$ が張る平行多面体の体積を使います。
+
+<a id="def-ha10-sphere-measure"></a>
+<!-- formal-statement-start -->
+> **定義（球面面積測度）**  
+> $d\ge2$ の単位球面 $S^{d-1}$ を考える。局所的に滑らかな一対一のパラメータ表示 $F:V\subset\mathbb R^{d-1}\to S^{d-1}$ を取り、$\partial_1F,\ldots,\partial_{d-1}F$ が一次独立であるとする。**球面面積測度** $\sigma$ は、局所面積要素を
+
+$$
+d\sigma(F(u))=\sqrt{\det G_F(u)}\,du,\qquad
+(G_F)_{jk}(u)=\partial_jF(u)\cdot\partial_kF(u)
+$$
+
+> と定めて、重なる座標片では変数変換に従って貼り合わせた測度である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ha10-sphere-measure -->
+**定義の確認**　$d=2$ の円の局所座標 $F(\theta)=(\cos\theta,\sin\theta)$ は $F'=(-\sin\theta,\cos\theta)$ を持ち、$G_F=|F'|^2=1$ です。よって $d\sigma=d\theta$。区間を一周すると全測度は $2\pi$ になります。
+<!-- definition-example-end -->
+
+<a id="ref-ha10-area-element"></a>
+座標の貼り合わせが正しいことを確かめます。別の座標 $u=u(v)$ へ変換すると、連鎖律によって
+
+$$
+D_v(F\circ u)=D_uF\,J,\qquad
+G_{F\circ u}=J^{\mathsf T}G_FJ,\qquad J=\frac{\partial u}{\partial v}.
+$$
+
+従って
+
+$$
+\sqrt{\det G_{F\circ u}}=|\det J|\sqrt{\det G_F},
+$$
+
+となり、これは積分の変数変換の Jacobian と一致します。
+
+グラフ $F(u)=(u,h(u))$ では $\partial_jF=e_j+(\partial_jh)e_d$ なので
+
+$$
+G_F=I_{d-1}+\nabla h(\nabla h)^{\mathsf T},\qquad
+\det G_F=1+|\nabla h|^2.
+$$
+
+最後の行列式は、$\nabla h$ と直交する方向の固有値が $1$、その方向だけ固有値が $1+|\nabla h|^2$ であることから従います。ゆえに
+
+$$
+d\sigma=\sqrt{1+|\nabla h|^2}\,du.
+$$
+
+この有限測度の Fourier 変換を
 
 $$
 \widehat\sigma(\xi)=\int_{S^{d-1}}e^{-i\xi\cdot x}\,d\sigma(x)
 $$
 
-です。有限測度なので積分は定義できます。球面では曲率が零でないため、接平面方向に二次の位相変化が現れ、$d-1$ 個の接方向すべてが減衰に寄与します。
-
-<a id="ref-ha10-area-element"></a>
-局所的に曲面を $F(u)=(u,h(u))$ と表示したとき、各座標方向の接ベクトルは $\partial_jF=e_j+(\partial_jh)e_d$ です。これらの内積から作る Gram 行列は
-
-$$
-G=(\partial_jF\cdot\partial_kF)_{j,k}
-=I_{d-1}+\nabla h(\nabla h)^{\mathsf T}.
-$$
-
-曲面の小面積は接ベクトルの張る平行多面体の体積であり、$d\sigma=\sqrt{\det G}\,du$ です。$\nabla h$ に垂直な方向の $G$ の固有値は $1$、$\nabla h$ に平行な方向では $1+|\nabla h|^2$ なので、
-
-$$
-d\sigma=\sqrt{1+|\nabla h|^2}\,du
-$$
-
-と求まります。この関係を両極の座標で直接使います。
+と定めます。球面はコンパクトで面積は有限です。球面では曲率が零でないため、接方向の二次位相が $d-1$ 個の方向から減衰に寄与します。以下で極付近の座標へこの公式を適用します。
 
 <a id="thm-ha10-sphere"></a>
 <!-- formal-statement-start -->
@@ -514,7 +546,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-球面測度は回転で不変なので、$\xi\ne0$ に対し回転して $\xi=re_d$ としてよいです。球面上の位相は $\phi(x)=-x_d$ で、接ベクトル $v$ に対する方向微分は $-v_d$ です。すべての接ベクトルでこれが零になるのは、法線 $x$ が $e_d$ と平行な $x=\pm e_d$ のみです。
+球面測度は回転で不変なので、$\xi\ne0$ に対し回転して $\xi=re_d$ としてよいです。球面上の位相は $\phi(x)=-x_d$ で、方向ベクトル $v$ に対する方向微分は $-v_d$ です。すべての方向ベクトルでこれが零になるのは、法線 $x$ が $e_d$ と平行な $x=\pm e_d$ のみです。
 
 北極付近では $u=(x_1,\ldots,x_{d-1})$ を用いて
 
@@ -549,7 +581,7 @@ $$
 
 従って行列式の絶対値は $1$、符号数は $-(d-1)$、面積振幅は $1$ です。
 
-両極を囲う滑らかな切断関数を取り、球面の残りを有限個の座標パッチに分けます。残る各パッチでは接方向の位相勾配が零にならないため、座標表示で[非停留命題](#prop-ha10-nonstationary)を適用して任意の冪で減衰します。
+両極を囲う滑らかな切断関数を取り、球面の残りを有限個の座標パッチに分けます。残る各パッチでは接方向の位相勾配が零にならないため、座標表示で[非停留領域の速い減衰](#prop-ha10-nonstationary)を適用して任意の冪で減衰します。
 
 二つの極のパッチには積分変数の次元 $n=d-1$、振動の強さ $\lambda=r$ として[定常位相定理](#thm-ha10-stationary-phase)を適用します。北極から
 
@@ -650,7 +682,7 @@ $$
 \end{aligned}
 $$
 
-従って絶対値は $\lambda^{-1}\|a'\|_1$ 以下です。[非停留命題](#prop-ha10-nonstationary)の $n=N=1$ の具体形です。
+従って絶対値は $\lambda^{-1}\|a'\|_1$ 以下です。[非停留領域の速い減衰](#prop-ha10-nonstationary)の $n=N=1$ の具体形です。
 <!-- solution-end -->
 
 <a id="ex-ha10-a03"></a>
@@ -780,7 +812,7 @@ $$
 \left(\|a\|_\infty+\|a'\|_1\right)
 $$
 
-であり、右辺に $b$ は現れません。停留点は $x=-b/2$ です。もしこれが振幅の台から正の距離だけ離れるなら、その台上で $|\phi_b'|$ に正の下界があり、振幅が $C_c^\infty((u,v))$ なら[非停留命題](#prop-ha10-nonstationary)で任意冪の減衰が得られます。ただしその上界の定数は台と停留点の距離に依存し、$b$ に一様とは限りません。
+であり、右辺に $b$ は現れません。停留点は $x=-b/2$ です。もしこれが振幅の台から正の距離だけ離れるなら、その台上で $|\phi_b'|$ に正の下界があり、振幅が $C_c^\infty((u,v))$ なら[非停留領域の速い減衰](#prop-ha10-nonstationary)で任意冪の減衰が得られます。ただしその上界の定数は台と停留点の距離に依存し、$b$ に一様とは限りません。
 <!-- solution-end -->
 
 <a id="ex-ha10-b03"></a>
@@ -877,7 +909,7 @@ $d\ge2$、$\sigma$ を単位球面 $S^{d-1}\subset\mathbb R^d$ の面積測度�
 <!-- solution-start -->
 **詳細解答**
 
-**（1）停留点**　球面の点 $x$ での接ベクトル $v$ は $x\cdot v=0$ を満たします。位相 $\phi=-x_d$ の接方向微分は $-v_d$ です。これがすべての接ベクトルで零となるためには $e_d$ が法線 $x$ に平行でなければならず、$x=\pm e_d$ を得ます。
+**（1）停留点**　球面の点 $x$ での方向ベクトル $v$ は $x\cdot v=0$ を満たします。位相 $\phi=-x_d$ の接方向微分は $-v_d$ です。これがすべての方向ベクトルで零となるためには $e_d$ が法線 $x$ に平行でなければならず、$x=\pm e_d$ を得ます。
 
 **（2）局所座標と条件**　極付近で $h_\pm(u)=\pm\sqrt{1-|u|^2}$ とおきます。$dh_\pm$ の成分は $\mp u_j/\sqrt{1-|u|^2}$ です。したがってグラフの面積要素は
 
@@ -914,4 +946,4 @@ $$
 
 ## 10. 次に読むもの
 
-[定常位相定理](#thm-ha10-stationary-phase)は非退化な臨界点一つにつき $\lambda^{-n/2}$ の減衰を作り、[球面減衰定理](#thm-ha10-sphere)では接方向が $d-1$ 個あるため $|\xi|^{-(d-1)/2}$ が現れました。次章では、曲面上の Fourier extension と、その作用素の $TT^*$ を通してこの減衰を $L^p$ 評価へ接続します。
+[定常位相定理](#thm-ha10-stationary-phase)は非退化な停留点一つにつき $\lambda^{-n/2}$ の減衰を作り、[球面減衰定理](#thm-ha10-sphere)では接方向が $d-1$ 個あるため $|\xi|^{-(d-1)/2}$ が現れました。次章では、曲面上の Fourier extension と、その作用素の $TT^*$ を通してこの減衰を $L^p$ 評価へ接続します。
