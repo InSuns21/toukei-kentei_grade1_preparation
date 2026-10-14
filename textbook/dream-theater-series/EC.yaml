@@ -32,7 +32,7 @@ chapters:
     title: "Descent・weak Mordell–Weil・Mordell–Weil"
   - id: EC7
     path: textbook/volumes/dream_thater/代数系/EC/EC7
-    status: planned
+    status: completed
     title: "有限体の点数とFrobenius"
   - id: EC8
     path: textbook/volumes/dream_thater/代数系/EC/EC8
