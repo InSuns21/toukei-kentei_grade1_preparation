@@ -48,5 +48,5 @@ chapters:
     title: 振動積分と定常位相法
   - id: HA11
     path: textbook/volumes/dream_thater/解析系/HA/HA11
-    status: planned
+    status: completed
     title: Fourier restrictionとKakeyaへの入口

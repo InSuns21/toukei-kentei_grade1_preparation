@@ -217,6 +217,7 @@
 8. [HA8 Littlewood–Paley理論と周波数局在](textbook/volumes/dream_thater/解析系/HA/HA8/index.md)
 9. [HA9 Mikhlin–Hörmander型Fourier乗数](textbook/volumes/dream_thater/解析系/HA/HA9/index.md)
 10. [HA10 振動積分と定常位相法](textbook/volumes/dream_thater/解析系/HA/HA10/index.md)
+11. [HA11 Fourier restrictionとKakeyaへの入口](textbook/volumes/dream_thater/解析系/HA/HA11/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
