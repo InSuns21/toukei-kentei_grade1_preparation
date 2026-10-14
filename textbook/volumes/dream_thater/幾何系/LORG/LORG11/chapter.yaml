@@ -13,6 +13,7 @@ prerequisites:
   - LORG8
   - LORG9
   - LORG10
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - 反映性を時間的未来と過去の閉包の双方向条件で定義しMinkowskiの座標で検算できる
