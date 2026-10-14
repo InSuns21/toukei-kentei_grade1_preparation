@@ -115,7 +115,17 @@ $$
 \le C\|f\|_p\|g\|_2.
 $$
 
-[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と滑らかな近似を使えば、Schwartz関数が $L^p$ に稠密であり、上の有界汎関数が $L^p$ 全体へ一意に延びると分かります。この汎関数へ[MT7の $L^p$ 双対定理](../../MT/MT7/index.md#thm-mt7-lp-duality)を適用すると、$Eg$ を表す $L^{p'}$ 関数とそのノルム評価が従います。Schwartz関数による積分の表示と比較すれば、この関数は元の $Eg$ にほとんど至る所で一致します。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
+[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と滑らかな近似を使えば、Schwartz関数は $L^p$ に稠密です。従って上の不等式は $f\mapsto\langle f,Eg\rangle$ を $L^p$ 全体へ連続に延ばします。
+
+ここで測度空間 $\mathbb R^d$ は $\sigma$ 有限で $1<p<\infty$ なので、[σ有限Lp双対定理](../../MT/MT7/index.md#thm-mt7-lp-duality)を適用できます。ある $H\in L^{p'}$ が存在して、全てのSchwartz関数 $f$ で
+
+$$
+\int_{\mathbb R^d}f(x)\overline{H(x)}\,dx
+=\int_{\mathbb R^d}f(x)\overline{Eg(x)}\,dx,
+\qquad \|H\|_{p'}\le C\|g\|_2.
+$$
+
+Schwartz関数との積分がすべて一致するので $H=Eg$ がほとんど至る所で成り立ち、必要な評価を得ます。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
 
 $$
 \|Rf\|_2=\sup_{\|g\|_2\le1}|\langle Rf,g\rangle|
