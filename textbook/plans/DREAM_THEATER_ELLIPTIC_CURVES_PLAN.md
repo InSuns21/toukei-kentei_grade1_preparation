@@ -28,6 +28,8 @@
 |---|---|---|
 | Silverman--Tate, *Rational Points on Elliptic Curves*, 2nd ed. | 幾何と算術 → 有限位数点 → 有理点群 → 有限体 → 整数点 → 複素乗法。学部生向けの例と演習が多い。 | EC1/2、EC5/6 の具体計算と降下の導線に使う。幾何的直観の説明だけを結合法則等の厳密証明とみなさない。 |
 | J. S. Milne, *Elliptic Curves*, 2nd ed. | 代数曲線・群構造・Riemann--Roch、基本理論、複素理論、Selmer/高さ/有限体、modular forms と L 関数を区別する。 | EC2 の証明責務、EC4/6 の前提コスト、EC8〜11 の橋渡しを校正する。大学院向け一般論を黙って既習扱いしない。 |
+| J. H. Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed. | 代数曲線から群構造、形式群、有限体、局所体、大域体、Mordell--Weil、計算法へ進む。 | EC4/6 の証明依存を洗い出すための大学院レベルの基準書とする。既習扱いするのでなく、必要な定義・核心証明をEC内か先行正本に置く。 |
+| J. H. Silverman, *Advanced Topics in the Arithmetic of Elliptic Curves* | Néron 模型、Kodaira--Néron 分類、Tate のアルゴリズム、導手と判別式等の発展理論を扱う。 | EC9 で何が初等的な還元判定から出ず、何が追加理論を要するかの停止線を校正する。 |
 | L. C. Washington, *Elliptic Curves: Number Theory and Cryptography*, 2nd ed. | 一般 Weierstrass 方程式・結合法則・isogeny・有限体・Weil pairing・有理点群等を体系的に扱う。 | 小標数・加法公式・Frobenius/有限体の例、計算演習の参考にする。暗号アルゴリズム全体は主線にしない。 |
 | MIT OCW 18.783 *Elliptic Curves*（2025） | 計算に重点を置き、isogeny・endomorphism・Frobenius・Hasse・点数計算を連ねる。 | **Hasse 評価より前に isogeny と次数を置く**。具体的な有限体計算を理論と往復させる。 |
 | Diamond--Shurman, *A First Course in Modular Forms* | 複素トーラスとモジュラー曲線、Hecke、Eichler--Shimura、L 関数、Galois 表現を段階的に接続する。 | EC11 は MF7 までの正本を再利用し、Modularity Theorem 自体は MF8 に委ねる。 |
@@ -36,6 +38,8 @@
 
 - Silverman--Tate (Springer): https://link.springer.com/book/10.1007/978-3-319-18588-0
 - Milne（著者公開 PDF）: https://www.jmilne.org/math/Books/EC2.pdf
+- Silverman, *The Arithmetic of Elliptic Curves* (Springer): https://link.springer.com/book/10.1007/978-0-387-09494-6
+- Silverman, *Advanced Topics in the Arithmetic of Elliptic Curves* (Springer): https://link.springer.com/book/10.1007/978-1-4612-0851-8
 - Washington（出版社目次）: https://www.routledge.com/Elliptic-Curves-Number-Theory-and-Cryptography-Second-Edition/Rosen-Washington/p/book/9781420071467
 - MIT OCW 18.783（2025 syllabus）: https://ocw.mit.edu/courses/18-783-elliptic-curves-fall-2025/pages/syllabus/
 - Diamond--Shurman (Springer): https://link.springer.com/book/10.1007/978-0-387-27226-9
