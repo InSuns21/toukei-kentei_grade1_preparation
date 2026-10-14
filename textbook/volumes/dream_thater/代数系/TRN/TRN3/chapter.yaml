@@ -19,7 +19,6 @@ learning_objectives:
   - Hermite法の整数性・非零性・解析上界の三つの証明責務を独立に監査できる
 definitions: []
 theorems:
-  - { id: TRN3-PROP-01, name: Liouville型の超越性判定（NDA6の再定式化） }
   - { id: TRN3-THM-01, name: 階乗級数によるeの無理性 }
   - { id: TRN3-LEM-01, name: 非零整数と階乗上界の矛盾 }
   - { id: TRN3-PROP-02, name: 実区間での微分和の端点恒等式 }
