@@ -411,7 +411,7 @@ $$
 高さ $M$ 以下の有理点は有限個なので、この有限集合と $R_1,\ldots,R_s$ が $E(\mathbb Q)$ 全体を生成します。$\square$
 <!-- proof-end -->
 
-この定理を[第4節の2倍商有限性定理](#thm-ec6-special-weak-mw)と組み合わせれば、**有理2位数点を持つ非特異曲線の有理点群は有限生成**と結論できます。ここでは数体の単数定理を使っていません。
+この定理を[第4節の2倍商有限性の結果](#thm-ec6-special-weak-mw)と組み合わせれば、**有理2位数点を持つ非特異曲線の有理点群は有限生成**と結論できます。ここでは数体の単数定理を使っていません。
 
 <a id="cor-ec6-rational-two-torsion-mw"></a>
 
@@ -423,7 +423,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[第4節の2倍商有限性定理](#thm-ec6-special-weak-mw)により2倍商が有限であり、[高さ降下定理](#thm-ec6-height-descent)を適用すれば有限生成となります。[MOD2の有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)によって自由部分と有限torsion部分へ分解できます。$\square$
+[第4節の2倍商有限性の結果](#thm-ec6-special-weak-mw)により2倍商が有限であり、[高さ降下定理](#thm-ec6-height-descent)を適用すれば有限生成となります。[MOD2の有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)によって自由部分と有限torsion部分へ分解できます。$\square$
 <!-- proof-end -->
 
 ## 6. 具体例のrankとtorsionを決める
@@ -599,7 +599,7 @@ $$
 の8個です。これは像の上界であり、各類に対応する曲線上の有理点の存在は追加の問題です。$T=(0,0)$ は $[10]$ を実現します。
 <!-- solution-end -->
 
-### 演習A4：高さを下げる不等式
+### 演習A4：高さを下げる数値計算
 $h_x(2Q)\ge4h_x(Q)-7$ と、ある固定点 $R$ に対する $h_x(P-R)\le3h_x(P)+5$ があるとする。$P=2Q+R$ なら $h_x(Q)$ を評価せよ。
 
 - Level: A
