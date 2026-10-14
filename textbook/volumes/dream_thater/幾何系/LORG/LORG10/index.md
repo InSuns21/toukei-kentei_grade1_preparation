@@ -25,7 +25,7 @@
 
 <!-- definition-example-start: def-lorg10-strong-causality -->
 
-**定義の確認：Minkowski時空**。$g=-dt^2+d\mathbf x^2$、$p=(t_0,\mathbf x_0)$ とします。$a=(t_0-\varepsilon,\mathbf x_0)$、$b=(t_0+\varepsilon,\mathbf x_0)$ の[Alexandrovダイヤモンド](../LORG8/index.md#def-lorg8-alexandrov-diamond)は
+**定義の確認**（Minkowski時空）。$g=-dt^2+d\mathbf x^2$、$p=(t_0,\mathbf x_0)$ とします。$a=(t_0-\varepsilon,\mathbf x_0)$、$b=(t_0+\varepsilon,\mathbf x_0)$ の[Alexandrovダイヤモンド](../LORG8/index.md#def-lorg8-alexandrov-diamond)は
 
 $$
 D_M(a,b)=\{(t,\mathbf x):|t-t_0|+|\mathbf x-\mathbf x_0|<\varepsilon\}.
@@ -231,7 +231,7 @@ causal条件だけでは**実際に閉じた曲線**しか禁止できません�
 
 <!-- definition-example-start: def-lorg10-stable-causality -->
 
-**定義の確認：Minkowski時空**。$g=-dt^2+d\mathbf x^2$ に対し $\widehat g=-2dt^2+d\mathbf x^2$ とします。$g$-因果な非零の未来ベクトル $v=(a,\mathbf b)$ は $a\ge|\mathbf b|$、$a>0$ です。よって
+**定義の確認**（Minkowski時空）。$g=-dt^2+d\mathbf x^2$ に対し $\widehat g=-2dt^2+d\mathbf x^2$ とします。$g$-因果な非零の未来ベクトル $v=(a,\mathbf b)$ は $a\ge|\mathbf b|$、$a>0$ です。よって
 
 $$
 \widehat g(v,v)=-2a^2+|\mathbf b|^2\le-a^2<0
