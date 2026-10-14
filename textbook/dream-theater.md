@@ -875,6 +875,11 @@
 13. [AG3-13 交叉理論・変形障害への橋](textbook/volumes/dream_thater/代数系/AG/AG3-13/index.md)
 14. [AG3-14 射影曲線と超曲面の総合演習](textbook/volumes/dream_thater/代数系/AG/AG3-14/index.md)
 
+<a id="dt-subject-elliptic-curves"></a>
+### 楕円曲線
+
+1. [EC1 非特異三次曲線とWeierstrass方程式](textbook/volumes/dream_thater/代数系/EC/EC1/index.md)
+
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
 
