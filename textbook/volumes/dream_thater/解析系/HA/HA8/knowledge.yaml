@@ -1,0 +1,83 @@
+chapter: HA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU4
+  - F0-00P2A
+  - VC1
+  - HA5
+  - MT7
+forward_references: []
+concepts:
+  - id: harmonic.ha8-dyadic
+    name: dyadic周波数分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（滑らかなdyadic周波数分割）]
+    requires: []
+  - id: harmonic.ha8-projection
+    name: Littlewood–Paley射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Littlewood–Paley射影）]
+    requires: [harmonic.ha8-dyadic]
+  - id: harmonic.ha8-decomposition
+    name: 非斉次・斉次分解のL2収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非斉次・斉次分解のL2収束）]
+    requires: [harmonic.ha8-projection]
+  - id: harmonic.ha8-square
+    name: Littlewood–Paley平方関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Littlewood–Paley平方関数）]
+    requires: [harmonic.ha8-projection]
+  - id: harmonic.ha8-l2
+    name: L2平方関数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（L2平方関数評価）]
+    requires: [harmonic.ha8-square]
+  - id: harmonic.ha8-rademacher
+    name: Rademacher符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Rademacher符号）]
+    requires: []
+  - id: harmonic.ha8-khintchine
+    name: Khintchine型符号補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Rademacher符号のモーメント比較）]
+    requires: [harmonic.ha8-rademacher]
+  - id: harmonic.ha8-uniform-cz
+    name: 符号付き周波数乗数の一様Lp評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（符号付き周波数乗数の一様Lp有界性）]
+    requires: [harmonic.ha5-stronglp, harmonic.ha8-projection]
+  - id: harmonic.ha8-lp
+    name: Littlewood–PaleyのLp平方関数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Littlewood–PaleyのLp平方関数評価）]
+    requires: [harmonic.ha8-khintchine, harmonic.ha8-uniform-cz]
+  - id: harmonic.ha8-schwartz-convolution
+    name: Schwartz核の畳み込み評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Schwartz核の畳み込み評価）]
+    requires: []
+  - id: harmonic.ha8-bernstein
+    name: 周波数局在のBernstein不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（周波数局在のBernstein不等式）]
+    requires: [harmonic.ha8-projection, harmonic.ha8-schwartz-convolution]
+  - id: harmonic.ha8-sobolev
+    name: L2 Sobolevノルムのdyadic表示
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（L2 Sobolevノルムのdyadic表示）]
+    requires: [harmonic.ha8-l2]

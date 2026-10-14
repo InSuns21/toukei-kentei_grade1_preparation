@@ -36,7 +36,7 @@ chapters:
     title: RieszポテンシャルとHardy–Littlewood–Sobolev不等式
   - id: HA8
     path: textbook/volumes/dream_thater/解析系/HA/HA8
-    status: planned
+    status: completed
     title: Littlewood--Paley理論と周波数局在
   - id: HA9
     path: textbook/volumes/dream_thater/解析系/HA/HA9
