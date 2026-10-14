@@ -58,7 +58,8 @@
 <section class="panel">
   <h2>実際の計算結果</h2>
   <canvas id="plot" width="720" height="440" role="img" aria-label="時間発展で計算した粒子の軌跡、または変分的候補ループ" aria-describedby="plot-help"></canvas>
-  <p id="plot-help">横軸x・縦軸y。複数の粒子は色と実線・破線で区別します。描画の間引きは物理時間刻みを変更しません。</p>
+  <p id="plot-help">横軸x・縦軸yは同じ距離縮尺。線は過去の軌跡、大きな番号付きの丸・四角・三角は質点の現在位置です。番号と線種でも区別でき、表示の間引きは物理時間刻みを変更しません。</p>
+  <div id="particle-legend" class="particle-legend" aria-label="質点と現在位置の凡例"></div>
   <div id="diagnostics" aria-live="polite"></div>
   <p>変分モードの作用・射影勾配ノルム・制約違反・離散Newton残差と、時間発展モードの閉合残差・エネルギー誤差は**異なる数値量**です。</p>
 </section>
