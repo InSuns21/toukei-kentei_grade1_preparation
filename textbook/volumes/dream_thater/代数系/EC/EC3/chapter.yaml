@@ -1,0 +1,45 @@
+id: "EC3"
+title: "複素一様化・格子・j不変量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC2
+  - CA8
+  - CA9
+official_scope: []
+learning_objectives:
+  - CA9のwp微分方程式から非特異な短いWeierstrass模型と写像を構成し0の像を確認できる
+  - wp加法公式を割線・接線群則のx座標と照合し微分からy座標の一致も証明できる
+  - 二枚被覆上の正則微分と二つの閉路積分から周期格子を構成し逆一様化を説明できる
+  - 格子と曲線のスケーリング則からj不変量の不変性を導ける
+  - jが等しい非特異複素楕円曲線が同型であることを係数と4乗根・6乗根から証明できる
+  - 複素数体上の同型と有理数体上のtwistの区別を具体例で確認できる
+  - 正方格子・六角格子の複素乗法を格子包含で検証できる
+definitions:
+  - { id: EC3-DEF-01, name: 格子のWeierstrass写像 }
+  - { id: EC3-DEF-02, name: 楕円曲線の周期格子 }
+  - { id: EC3-DEF-03, name: 楕円曲線と格子のj不変量 }
+  - { id: EC3-DEF-04, name: 格子表示における複素乗法 }
+theorems:
+  - { id: EC3-THM-01, name: 格子加法と割線・接線加法の一致 }
+  - { id: EC3-THM-02, name: 複素楕円曲線の逆一様化 }
+  - { id: EC3-THM-03, name: 複素数上のjによる同型分類 }
+canonical_examples:
+  - 正方格子の三つの非零半周期と2位数点
+  - 正方格子でg3が0となることとj=1728
+  - 六角対称格子でg2が0となることとj=0
+  - y²=x³-x と y²=x³-4x の複素同型と有理数体上の非同型
+  - 正方格子のi倍写像と六角格子のrho倍写像
+problem_patterns:
+  - EC3-A1
+  - EC3-A2
+  - EC3-A3
+  - EC3-A4
+  - EC3-B1
+  - EC3-B2
+  - EC3-B3
+  - EC3-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 10, review: 5 }
