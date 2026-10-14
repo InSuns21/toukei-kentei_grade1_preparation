@@ -11,6 +11,7 @@ prerequisites:
   - LORG14
   - LORG16
   - LORG17
+  - GEO17
 official_scope: []
 learning_objectives:
   - 最大化因果曲線の定義を因果性・時間分離の有限性・長さの等号で判定できる
