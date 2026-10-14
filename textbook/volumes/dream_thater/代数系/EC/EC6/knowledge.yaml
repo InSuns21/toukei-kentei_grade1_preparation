@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - EC5
+  - MOD2
+  - TRN1
 forward_references: []
 concepts:
   - id: elliptic-curve.weak-mw-two-quotient
