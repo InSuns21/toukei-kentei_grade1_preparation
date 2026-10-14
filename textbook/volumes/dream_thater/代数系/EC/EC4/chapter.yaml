@@ -18,7 +18,7 @@ learning_objectives:
   - 自己準同型環と次数の二次性を検証しHasse評価用の二次形式を作れる
   - 有理2位数点から次数2の同種写像を作り分母の零点を含めて正則性を調べられる
 definitions:
-  - { id: EC4-DEF-00, name: 楕円曲線の有理関数と関数体 }
+  - { id: EC4-DEF-00, name: 有理関数 }
   - { id: EC4-DEF-01, name: 曲線の射と同種写像 }
   - { id: EC4-DEF-02, name: 射の次数と分離性 }
   - { id: EC4-DEF-03, name: 双対同種写像 }
