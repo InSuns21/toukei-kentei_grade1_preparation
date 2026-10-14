@@ -60,12 +60,36 @@ export function drawPlot(canvas, plot, zoom = 1) {
     throw new Error("Invalid or oversized plot coordinates");
   }
   const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]);
-  const xm = (Math.min(...xs) + Math.max(...xs)) / 2;
-  const ym = plot.type === "histogram" ? Math.max(...ys) / 2 :
+  const markerList = plot.markers ?? [];
+  if (!Array.isArray(markerList) || markerList.length > 16 ||
+      !markerList.every((m) => Number.isFinite(m.x) && Number.isFinite(m.y) &&
+        Number.isSafeInteger(m.id) && m.id >= 1 && m.id <= 16)) {
+    throw new TypeError("Invalid particle markers");
+  }
+  const bounds = plot.bounds;
+  if (bounds && (!Array.isArray(bounds.x) || !Array.isArray(bounds.y) ||
+      bounds.x.length !== 2 || bounds.y.length !== 2 ||
+      ![...bounds.x, ...bounds.y].every(Number.isFinite) ||
+      bounds.x[1] <= bounds.x[0] || bounds.y[1] <= bounds.y[0])) {
+    throw new RangeError("Invalid fixed plot bounds");
+  }
+  const xm = bounds ? (bounds.x[0] + bounds.x[1]) / 2 :
+    (Math.min(...xs) + Math.max(...xs)) / 2;
+  const ym = bounds ? (bounds.y[0] + bounds.y[1]) / 2 :
+    plot.type === "histogram" ? Math.max(...ys) / 2 :
     (Math.min(...ys) + Math.max(...ys)) / 2;
-  const dx = Math.max(1e-9, Math.max(...xs) - Math.min(...xs)) / zoom;
-  const dy = Math.max(1e-9, plot.type === "histogram" ? Math.max(...ys) :
+  let dx = Math.max(1e-9, bounds ? bounds.x[1] - bounds.x[0] :
+    Math.max(...xs) - Math.min(...xs)) / zoom;
+  let dy = Math.max(1e-9, bounds ? bounds.y[1] - bounds.y[0] :
+    plot.type === "histogram" ? Math.max(...ys) :
     Math.max(...ys) - Math.min(...ys)) / zoom;
+  // x and y represent physical distances: equal world units must use
+  // equal pixel lengths, irrespective of canvas aspect ratio.
+  if (bounds?.equalAspect) {
+    const scale = Math.min((w - 2 * pad) / dx, (h - 2 * pad) / dy);
+    dx = (w - 2 * pad) / scale;
+    dy = (h - 2 * pad) / scale;
+  }
   const toX = (x) => pad + (x - xm + dx / 2) * (w - 2 * pad) / dx;
   const toY = (y) => h - pad - (y - ym + dy / 2) * (h - 2 * pad) / dy;
   ctx.strokeStyle = "#68758a";
@@ -77,7 +101,7 @@ export function drawPlot(canvas, plot, zoom = 1) {
     const sampled = line.filter((_, i) => i % Math.max(1, Math.ceil(line.length / 800)) === 0);
     ctx.strokeStyle = colors[index % colors.length];
     ctx.fillStyle = colors[index % colors.length];
-    ctx.setLineDash(index % 2 === 0 ? [] : [6, 4]);
+    ctx.setLineDash(index % 3 === 0 ? [] : index % 3 === 1 ? [6, 4] : [2, 4]);
     ctx.beginPath();
     sampled.forEach((p, i) => {
       const x = toX(p[0]), y = toY(p[1]);
@@ -91,6 +115,37 @@ export function drawPlot(canvas, plot, zoom = 1) {
     if (plot.type === "line") ctx.stroke();
   });
   ctx.setLineDash([]);
+  // Draw current particles *after* trails, so they cannot disappear under
+  // a thick orbit. White outlines and shape/number are not color-dependent.
+  markerList.forEach((marker, i) => {
+    const x = toX(marker.x), y = toY(marker.y);
+    if (x < pad - 16 || x > w - pad + 16 ||
+        y < pad - 16 || y > h - pad + 16) return;
+    ctx.save();
+    ctx.setLineDash([]);
+    ctx.fillStyle = colors[i % colors.length];
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    if (i % 3 === 0) {
+      ctx.arc(x, y, 12, 0, Math.PI * 2);
+    } else if (i % 3 === 1) {
+      ctx.rect(x - 12, y - 12, 24, 24);
+    } else {
+      ctx.moveTo(x, y - 14);
+      ctx.lineTo(x + 14, y + 11);
+      ctx.lineTo(x - 14, y + 11);
+      ctx.closePath();
+    }
+    ctx.fill();
+    ctx.stroke();
+    ctx.font = "bold 13px system-ui";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#fff";
+    ctx.fillText(String(marker.id), x, y + (i % 3 === 2 ? 3 : 1));
+    ctx.restore();
+  });
 }
 
 export function renderTable(container, columns, rows) {

@@ -9,6 +9,7 @@ const $ = (id) => document.getElementById(id);
 let client = null, record = null, latest = null, mode = "physics", playing = false;
 let epoch = 0, tracks = [], executed = 0;
 let candidateCurve = null, candidatePeriod = null;
+let viewRadius = 2;
 
 function show(message, failure = false) {
   $("status").textContent = message;
@@ -65,9 +66,32 @@ function plot() {
   const series = mode === "physics"
     ? [...tracks.map((points) => ({ points })), ...(candidateCurve && $("orbit").value === "candidate" ? [{ points: candidateCurve }] : [])]
     : [{ points: latest.snapshot.curve }];
+  const physics = mode === "physics";
+  const markers = physics ? latest.snapshot.positions.map(([x, y], i) => ({
+    x, y, id: i + 1,
+  })) : [];
+  const radiusCandidates = physics
+    ? latest.snapshot.positions.flatMap(p => p.map(v => Math.abs(v)))
+    : (latest.snapshot.curve ?? []).flatMap(p => p.map(v => Math.abs(v)));
+  viewRadius = Math.max(viewRadius, ...radiusCandidates.map(x => x * 1.2));
   drawPlot($("plot"), { type: "line",
     xAxis: { label: "x", unit: "距離単位" },
-    yAxis: { label: "y", unit: "距離単位" }, series }, num("zoom"));
+    yAxis: { label: "y", unit: "距離単位" },
+    bounds: { x: [-viewRadius, viewRadius],
+      y: [-viewRadius, viewRadius], equalAspect: true },
+    series, markers }, num("zoom"));
+  const legend = $("particle-legend");
+  legend.hidden = !physics;
+  legend.replaceChildren();
+  if (physics) markers.forEach(({ id }, i) => {
+    const item = document.createElement("span");
+    const badge = document.createElement("b");
+    badge.className = "particle-icon icon-" + ((i % 3) + 1);
+    badge.textContent = String(id);
+    item.append(badge, document.createTextNode(" 質点" + id +
+      "・" + ["実線", "破線", "点線"][i % 3]));
+    legend.append(item);
+  });
   renderTable($("diagnostics"), ["診断値", "値"],
     diagnosticsRows(latest.snapshot, latest.diagnostics).map(([k, v]) =>
       [k, typeof v === "object" ? JSON.stringify(v) : v]));
@@ -112,6 +136,8 @@ async function start() {
   if (client) client.dispose();
   const params = settings();
   tracks = []; latest = null; executed = 0;
+  viewRadius = 2;
+  $("particle-legend").replaceChildren();
   client = new SimulationClient(ENGINE, EXPERIMENT, {
     timeoutMs: 120000,
     workerFactory: () => new Worker(new URL("./celev8-python-worker.mjs", import.meta.url),

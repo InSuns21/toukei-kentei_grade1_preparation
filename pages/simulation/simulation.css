@@ -19,3 +19,12 @@ button:disabled{opacity:.55;cursor:not-allowed}
 #diagnostics td,#diagnostics th{border:1px solid #b8c5d4;padding:.4rem .7rem;text-align:left}
 [hidden]{display:none!important}
 @media(max-width:600px){.app{padding:.8rem}.panel{padding:1rem}.buttons{gap:.4rem}}
+
+/* Particle identity is conveyed by number, geometry and trail pattern, not color alone. */
+.particle-legend{display:flex;gap:.75rem 1.5rem;flex-wrap:wrap;margin:.75rem 0;align-items:center}
+.particle-legend span{display:inline-flex;align-items:center;gap:.45rem}
+.particle-icon{display:inline-flex;justify-content:center;align-items:center;width:29px;height:29px;color:white;border:2px solid white;box-shadow:0 0 0 1px #2f3845;font-size:.9rem}
+.icon-1{background:#1457a2;border-radius:50%}
+.icon-2{background:#c04d3c;border-radius:3px}
+.icon-3{background:#14724d;clip-path:polygon(50% 1%,99% 99%,1% 99%);padding-top:7px}
+#burrau-params p{grid-column:1/-1;margin:0;line-height:1.7;font-size:.88rem}
