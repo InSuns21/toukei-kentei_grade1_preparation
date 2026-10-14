@@ -470,7 +470,7 @@ $$
 二次元Minkowski時空で $p=(2,-1)$ とする。$I^+(p)$、$\overline{I^+(p)}$、その内部を不等式で表せ。
 
 <!-- solution-start -->
-**詳細解答**。未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
+**詳細解答**。[LORG6のMinkowski時空での未来錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
 $$
 I^+(p)=\{(t,x):t-2>|x+1|\}.
 $$
@@ -488,7 +488,7 @@ $$
 Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overline{I^+(p)}$ かを判定し、過去側の閉包条件も確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
+**詳細解答**。[Minkowskiの閉錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)を二点の変位に適用します。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
 <!-- solution-end -->
 
 <a id="ex-lorg11-a03"></a>
@@ -498,7 +498,7 @@ Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overlin
 $M=\mathbb R^{1,1}$ に $-dt^2+dx^2$ を入れる。causality、$J^+(p)$ の閉性、$J^-(p)$ の閉性を別々に検証せよ。
 
 <!-- solution-start -->
-**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また
+**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また[LORG6のMinkowski因果未来・過去公式](../LORG6/index.md#thm-lorg6-minkowski-futures)より
 $$
 J^+(p)=\{q:t_q-t_p\ge|x_q-x_p|\},
 \quad
