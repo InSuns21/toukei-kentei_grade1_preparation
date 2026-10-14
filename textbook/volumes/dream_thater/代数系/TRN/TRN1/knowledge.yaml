@@ -1,0 +1,52 @@
+chapter: TRN1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD1
+  - LA3C
+  - LA4
+  - MOD1
+forward_references: []
+
+concepts:
+  - id: transcendence.monic-polynomial
+    name: モニック多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（モニック多項式）]
+    requires: [algebra.polynomial-ring]
+
+  - id: transcendence.algebraic-integer
+    name: 代数的整数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（代数的整数）]
+    requires: [algebra.algebraic-element, transcendence.monic-polynomial]
+
+  - id: transcendence.rational-integral
+    name: 有理な代数的整数の特徴づけ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有理な代数的整数の特徴づけ）]
+    requires: [transcendence.algebraic-integer]
+
+  - id: transcendence.stable-module
+    name: 乗法に安定な有限生成加群
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（乗法に安定な有限生成加群）]
+    requires: [algebra.finitely-generated-module]
+
+  - id: transcendence.integrality-criterion
+    name: 有限生成加群による代数的整数の判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限生成加群による代数的整数の判定）]
+    requires: [transcendence.algebraic-integer, transcendence.stable-module, linear.polynomial-adjugate-identity]
+
+  - id: transcendence.integral-ring
+    name: 代数的整数の和・差・積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（代数的整数の和・差・積）]
+    requires: [transcendence.integrality-criterion]

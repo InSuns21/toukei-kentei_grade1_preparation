@@ -1,0 +1,63 @@
+version: 1
+id: TRN
+title: "超越数論Ⅰ"
+plan: textbook/plans_progress/DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: TRN1
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN1
+    status: completed
+    title: "代数的整数と有限生成加群の判定"
+  - id: TRN2
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN2
+    status: planned
+    title: "共役・跡・ノルム・分母消去"
+  - id: TRN3
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN3
+    status: planned
+    title: "Liouville法とHermite法の違い"
+  - id: TRN4
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN4
+    status: planned
+    title: "Hermiteの微分和・積分恒等式"
+  - id: TRN5
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN5
+    status: planned
+    title: "eに対する補助多項式と素数合同"
+  - id: TRN6
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN6
+    status: planned
+    title: "Hermiteの定理：eの超越性"
+  - id: TRN7
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN7
+    status: planned
+    title: "共役に関する対称化と代数的係数"
+  - id: TRN8
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN8
+    status: planned
+    title: "Hermite–Lindemann：仮定と対称化"
+  - id: TRN9
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN9
+    status: planned
+    title: "Hermite–Lindemann：多重零点と整数性"
+  - id: TRN10
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN10
+    status: planned
+    title: "Hermite–Lindemann：算術下界と複素積分上界"
+  - id: TRN11
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN11
+    status: planned
+    title: "Hermite–Lindemann定理とπの超越性"
+  - id: TRN12
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN12
+    status: planned
+    title: "Lindemann–Weierstrass：有理係数版と共役の有限積"
+  - id: TRN13
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN13
+    status: planned
+    title: "有理係数版：補助多項式・非零性・誤差"
+  - id: TRN14
+    path: textbook/volumes/dream_thater/代数系/TRN/TRN14
+    status: planned
+    title: "Lindemann–Weierstrass完成・代数的係数版"
