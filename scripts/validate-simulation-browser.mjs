@@ -223,7 +223,7 @@ try {
   await waitFor(stepNumber + ' === 1');
   // Restore the basic circular reference before the 100000-step stress test.
   await evaluate('document.querySelector("#experiment").value="celev";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
-  await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+  await waitFor('Math.abs(' + energy + ' + 0.5) < 1e-12');
   const offlineMiss = await evaluate('fetch("./not-pre-cached.txt").then(()=>false,()=>true)');
   assert.equal(offlineMiss, true, "uncached offline resources must not appear successful");
   await cdp("Network.emulateNetworkConditions", {
