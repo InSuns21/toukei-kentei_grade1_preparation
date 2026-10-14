@@ -71,7 +71,10 @@ jobs:
 
       - name: Validate CELEV8 Python Newton and variational kernels
         if: steps.scope.outputs.full == 'true'
-        run: python3 scripts/test-celev8-kernel.py
+        run: |
+          node --check pages/simulation/celev8-python-worker.mjs
+          node --check pages/simulation/celev8-app.mjs
+          python3 scripts/test-celev8-kernel.py
 
       - name: Assemble and validate Pages site
         if: steps.scope.outputs.full == 'true'
