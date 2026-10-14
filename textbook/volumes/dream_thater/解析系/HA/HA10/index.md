@@ -30,7 +30,17 @@ $$
 +\frac12h^{\mathsf T}H_\phi(p)h+o(|h|^2)
 $$
 
-となります。対称行列の正の固有値と負の固有値の個数（重複度込み）の差が、二次位相の振動の向きを区別します。次の定義でこれを明示します。
+となります。ここで Hessian は二次形式 $h\mapsto h^{\mathsf T}H_\phi(p)h$ を標準基底で表した行列です。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を適用すると、直交行列 $P$ と実固有値 $\mu_1,\ldots,\mu_n$ を用いて
+
+$$
+\begin{aligned}
+H_\phi(p)&=P\operatorname{diag}(\mu_1,\ldots,\mu_n)P^{\mathsf T},\\
+h^{\mathsf T}H_\phi(p)h&=\sum_{j=1}^n\mu_j(P^{\mathsf T}h)_j^2,\qquad
+\det H_\phi(p)=\prod_{j=1}^n\mu_j
+\end{aligned}
+$$
+
+と書けます。したがって行列式が零でないことは、二次変化に零固有値の方向がないことと同値です。正・負の固有値の個数（重複度込み）を数えれば二次形式の向きも判定できます。非退化の場合には零固有値がないため、正の個数と負の個数の**差**を符号数と呼びます。
 
 <a id="def-ha10-critical"></a>
 <!-- formal-statement-start -->
@@ -41,7 +51,7 @@ $$
 \operatorname{sgn}H_\phi(p)=n_+(H_\phi(p))-n_-(H_\phi(p))
 $$
 
-> と定義する。$n_++n_-=n$ である。
+> と定義する。ここで $n_+(H_\phi(p))$ と $n_-(H_\phi(p))$ はそれぞれ正・負の固有値の個数（重複度込み）である。非退化なので零固有値はなく、$n_++n_-=n$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha10-critical -->
@@ -59,7 +69,13 @@ H_\phi(p)=\begin{pmatrix}2&0\\0&-6\end{pmatrix},
 \qquad \det H_\phi(p)=-12\ne0.
 $$
 
-従って $p$ は非退化です。固有値は $2,-6$ なので $n_+=n_-=1$、符号数は $0$ です。単に行列式を計算したのではなく、最初に勾配が零となる点を求め、その二次変化を表示する行列の可逆性を確認しました。
+従って $p$ は非退化です。実際に $h=(h_1,h_2)$ とおけば二次項は
+
+$$
+\frac12h^{\mathsf T}H_\phi(p)h=h_1^2-3h_2^2
+$$
+
+なので、$h_1$ 方向に正、$h_2$ 方向に負の変化があります。固有値 $2,-6$ により $n_+=n_-=1$、符号数は $0$ です。こうして一次条件、二次行列の非退化性、正負の方向数をそれぞれ確認しました。
 <!-- definition-example-end -->
 
 この定義は、一般の位相を最小例 $\phi(x)=x$（停留点なし）と $\phi(x)=x^2/2$（停留点 $0$、Hessian $1$）に分類する道具です。一方 $\phi(x)=x^4$ も停留点 $0$ を持ちますが、二階微分が零なので非退化ではありません。この差が減衰指数に現れます。
@@ -253,9 +269,25 @@ Q(x)=2\int_0^1(1-t)H_\phi(tx)\,dt,\qquad
 Q(0)=H_\phi(0).
 $$
 
-$Q(x)$ は滑らかな実対称行列です。定数の直交座標変換で $Q(0)$ を固有値がすべて非零の対角行列にします。以降その座標を $x$ と書きます。
+$Q(x)$ は滑らかな実対称行列です。[実対称行列の直交対角化](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を $Q(0)=H_\phi(0)$ に適用し、定数の直交座標変換で固有値がすべて非零の対角行列にします。以降その座標を $x$ と書きます。直交変換は行列式の絶対値を変えません。
 
-$Q(0)$ の左上からの各主小行列式は非零なので、連続性から $x$ が十分小さいときも非零です。その近傍で、通常の平方完成を第一変数から繰り返すと
+$Q(0)$ の左上からの各主小行列式は非零なので、連続性から $x$ が十分小さいときも非零です。その近傍で行列の平方完成を行います。最初の一段を
+
+$$
+Q(x)=\begin{pmatrix}q&r^{\mathsf T}\\r&B\end{pmatrix},
+\qquad q\ne0
+$$
+
+と分割すると、直接掛け算して
+
+$$
+Q(x)=
+\begin{pmatrix}1&0\\r/q&I\end{pmatrix}
+\begin{pmatrix}q&0\\0&B-rr^{\mathsf T}/q\end{pmatrix}
+\begin{pmatrix}1&r^{\mathsf T}/q\\0&I\end{pmatrix}
+$$
+
+です。右下の Schur 補行列に同じ操作を繰り返します。最初の $k$ 次主小行列式を $\Delta_k$、$\Delta_0=1$ とすれば第 $k$ ピボットは $\Delta_k/\Delta_{k-1}$ であり、仮定した非零性がすべての除算を保証します。結果は
 
 $$
 Q(x)=L(x)D(x)L(x)^{\mathsf T}
@@ -316,7 +348,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$[\,\widehat b(\eta)=\int e^{-iz\cdot\eta}b(z)\,dz\,]$ とし、[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)より
+$\widehat b(\eta)=\int e^{-iz\cdot\eta}b(z)\,dz$ とし、[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)より
 
 $$
 b(z)=(2\pi)^{-n}\int_{\mathbb R^n}e^{iz\cdot\eta}\widehat b(\eta)\,d\eta.
@@ -324,7 +356,48 @@ $$
 
 $\widehat b$ は急減少で、$\int(1+|\eta|^2)|\widehat b(\eta)|\,d\eta<\infty$ です。実際、各座標で何度も部分積分すると $\eta^\alpha\widehat b(\eta)$ が有界となるためです。
 
-まず $\epsilon>0$ とし、$\exp(-\epsilon|z|^2/2)$ を掛けた積分を考えます。絶対可積分なので Fubini を適用でき、[Gaussian の変換公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を複素係数 $\epsilon-i\lambda\varepsilon_j$ に拡張して各座標で計算すると
+まず $\epsilon>0$ とし、$\exp(-\epsilon|z|^2/2)$ を掛けた積分を考えます。絶対可積分なので Fubini を適用できます。[Gaussian の変換公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)は正の実係数から出発しますが、ここでは複素係数 $c=\epsilon-i\theta$（$\epsilon>0$、$\theta\in\mathbb R$）にも使えることを途中式で確認します。
+
+$$
+G(\theta)=\int_{\mathbb R}e^{-(\epsilon-i\theta)t^2/2}\,dt
+$$
+
+とおきます。実部が $\epsilon>0$ なので積分記号下の微分と部分積分が可能です。境界項を零へ送ると
+
+$$
+0=\int_{\mathbb R}\frac{d}{dt}
+\bigl(t e^{-ct^2/2}\bigr)\,dt
+=G(\theta)-c\int_{\mathbb R}t^2e^{-ct^2/2}\,dt.
+$$
+
+ゆえに
+
+$$
+G'(\theta)=\frac{i}{2}\int_{\mathbb R}t^2e^{-ct^2/2}\,dt
+=\frac{i}{2c}G(\theta).
+$$
+
+$\theta=0$ の実Gaussian積分 $G(0)=\sqrt{2\pi/\epsilon}$ と比べれば
+
+$$
+G(\theta)=\sqrt{2\pi}\,(\epsilon-i\theta)^{-1/2}.
+$$
+
+平方根は正の実数 $\epsilon$ から連続に選びます。さらに
+
+$$
+F_c(\eta)=\int_{\mathbb R}e^{-ct^2/2+i\eta t}\,dt
+$$
+
+とすると、部分積分から $0=\int(-ct+i\eta)e^{-ct^2/2+i\eta t}\,dt$ なので
+
+$$
+F_c'(\eta)=-\frac{\eta}{c}F_c(\eta),
+\qquad
+F_c(\eta)=\sqrt{2\pi}\,c^{-1/2}e^{-\eta^2/(2c)}.
+$$
+
+これを各座標で $c=\epsilon-i\lambda\varepsilon_j$ として掛け合わせると
 
 $$
 \begin{aligned}
@@ -457,7 +530,15 @@ $$
 
 ## 7. 球面の Fourier 変換に曲率が現れる
 
-Fourier restriction を考える際、まず曲面に分布した測度の Fourier 変換を評価します。$d\ge2$、$S^{d-1}=\{x\in\mathbb R^d:|x|=1\}$ とします。球面に面積を割り当てるには、局所座標 $F(u)$ を動かしたときの各方向ベクトル $\partial_jF$ が張る平行多面体の体積を使います。
+Fourier restriction を考える際、まず曲面に分布した測度の Fourier 変換を評価します。$d\ge2$、$S^{d-1}=\{x\in\mathbb R^d:|x|=1\}$ とします。球面に面積を割り当てるには、局所座標 $F(u)$ を動かしたときの各方向ベクトル $\partial_jF$ が張る平行多面体の体積を使います。$DF$ の列がこれらの方向ベクトルなので、内積から作る行列とその二次形式は
+
+$$
+G_F=(DF)^{\mathsf T}DF,\qquad
+v^{\mathsf T}G_Fv=|DFv|^2
+\quad(v\in\mathbb R^{d-1})
+$$
+
+です。列が一次独立なら $v\ne0$ に対して $DFv\ne0$ だから $G_F$ は正定値です。そこで、局所面積倍率を $\sqrt{\det G_F}$ として定めます。
 
 <a id="def-ha10-sphere-measure"></a>
 <!-- formal-statement-start -->
@@ -473,7 +554,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha10-sphere-measure -->
-**定義の確認**　$d=2$ の円の局所座標 $F(\theta)=(\cos\theta,\sin\theta)$ は $F'=(-\sin\theta,\cos\theta)$ を持ち、$G_F=|F'|^2=1$ です。よって $d\sigma=d\theta$。区間を一周すると全測度は $2\pi$ になります。
+**定義の確認**　$d=2$ の円では $F(\theta)=(\cos\theta,\sin\theta)$ を $-\pi<\theta<\pi$ に制限すると一対一の局所座標になります。$F'=(-\sin\theta,\cos\theta)\ne0$ なので一次独立条件を満たし、$G_F=|F'|^2=1>0$ です。よって $d\sigma=d\theta$。欠けた一点は別の座標片で覆え、重なりでの面積要素の一致は直後に確認します。一周の全測度は $2\pi$ です。
 <!-- definition-example-end -->
 
 <a id="ref-ha10-area-element"></a>
@@ -839,7 +920,15 @@ $$
 x^2+2xy=(u-v)^2+2(u-v)v=u^2-v^2.
 $$
 
-新座標の二次位相 Hessian は $\operatorname{diag}(2,-2)$ で、正負符号は一つずつ、行列式の絶対値は $4$ です。変換後の振幅は原点で $1$ なので、[二次位相公式](#lem-ha10-quadratic)で $u$ と $v$ の二つの Gaussian 係数を掛け、
+新座標の二次位相 Hessian は $\operatorname{diag}(2,-2)$ で、正負符号は一つずつ、行列式の絶対値は $4$ です。変換後の振幅は原点で $1$ です。[二次位相公式](#lem-ha10-quadratic)の位相 $\tfrac12(z_1^2-z_2^2)$ に合わせて $z_1=\sqrt2u$、$z_2=\sqrt2v$ と置けば、$du\,dv=\tfrac12dz_1\,dz_2$ となります。したがって主項は
+
+$$
+\frac12\left(\frac{2\pi}{\lambda}\right)^{2/2}
+e^{i\pi(1-1)/4}
+=\frac{\pi}{\lambda}.
+$$
+
+各座標の Gaussian 係数を直接掛けても、
 
 $$
 \left(\frac{\pi}{\lambda}\right)^{1/2}e^{i\pi/4}
