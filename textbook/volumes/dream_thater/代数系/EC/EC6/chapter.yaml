@@ -1,0 +1,50 @@
+id: "EC6"
+title: "降下法・弱Mordell–Weil定理・Mordell–Weil定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC5
+official_scope: []
+learning_objectives:
+  - 有理2倍商と平方類を定義して2-isogenyから降下写像を構成できる
+  - 降下写像の準同型性と核を非零点・2位数点の例外を含めて証明できる
+  - 素数指数の偶奇から2-isogenyの降下像の有限性を証明できる
+  - 有理2位数点を持つ曲線の弱Mordell–Weilの性質を証明できる
+  - 固定点を加える操作の高さ上界と倍加高さを結び有限生成を証明できる
+  - y²=x³-xのtorsionとrankを降下写像とNagell–Lutzで決定できる
+  - 一般の弱Mordell–Weil定理で必要となる数体の平方類・類群・単数の依存を区別できる
+  - 一般定理の引用部分と章内で完全証明した特別な場合を区別できる
+definitions:
+  - { id: EC6-DEF-01, name: 2倍商と弱Mordell–Weilの性質 }
+  - { id: EC6-DEF-02, name: 2-isogenyの降下写像 }
+  - { id: EC6-DEF-03, name: 有限集合の外で偶数指数を持つ平方類 }
+theorems:
+  - { id: EC6-PROP-01, name: 明示的な双対2-isogeny }
+  - { id: EC6-LEM-01, name: 降下写像の準同型性 }
+  - { id: EC6-THM-01, name: 降下写像の核 }
+  - { id: EC6-LEM-02, name: 降下像を支える素数 }
+  - { id: EC6-THM-02, name: 有理2位数点を持つ曲線の弱Mordell–Weil }
+  - { id: EC6-LEM-03, name: 固定点の平行移動に関する高さ上界 }
+  - { id: EC6-THM-03, name: 有限な2倍商と高さ降下 }
+  - { id: EC6-COR-01, name: 有理2位数点を持つ曲線の有限生成性 }
+  - { id: EC6-LEM-04, name: 数体の有限S平方類（算術入力あり） }
+  - { id: EC6-THM-04, name: 一般の弱Mordell–Weil定理（引用） }
+  - { id: EC6-THM-05, name: Mordell–Weil定理（一般形は引用） }
+canonical_examples:
+  - y²=x³-xとy²=x³+4xの2-isogeny
+  - 同じ曲線の降下像2元ずつの確認とrank 0の導出
+  - b=10の曲線における降下平方類8候補
+  - 有限商の代表元から高さが3/4倍に縮む反復
+problem_patterns:
+  - EC6-A1
+  - EC6-A2
+  - EC6-A3
+  - EC6-A4
+  - EC6-B1
+  - EC6-B2
+  - EC6-B3
+  - EC6-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 12, review: 6 }

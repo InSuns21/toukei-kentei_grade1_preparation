@@ -1,0 +1,91 @@
+chapter: EC6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC5
+forward_references: []
+concepts:
+  - id: elliptic-curve.weak-mw-two-quotient
+    name: 2倍商と弱Mordell–Weilの性質
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.associativity, elliptic-curve.rational-torsion]
+  - id: elliptic-curve.explicit-dual-two-isogeny
+    name: 明示的な双対2-isogeny
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.two-isogeny, elliptic-curve.chord-tangent-addition]
+  - id: elliptic-curve.descent-map
+    name: 2-isogenyの降下写像
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.explicit-dual-two-isogeny]
+  - id: elliptic-curve.descent-homomorphism
+    name: 降下写像の準同型性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.descent-map, elliptic-curve.chord-tangent-addition]
+  - id: elliptic-curve.descent-kernel
+    name: 降下写像の核
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.descent-map, elliptic-curve.explicit-dual-two-isogeny]
+  - id: elliptic-curve.descent-squareclass-support
+    name: 降下像を支える素数
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.descent-map]
+  - id: elliptic-curve.weak-mw-rational-two-torsion
+    name: 有理2位数点を持つ曲線の弱Mordell–Weil
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.descent-kernel, elliptic-curve.descent-squareclass-support]
+  - id: elliptic-curve.translation-height-bound
+    name: 固定点の平行移動に関する高さ上界
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.denominator-normal-form, elliptic-curve.rational-log-height]
+  - id: elliptic-curve.height-descent
+    name: 有限な2倍商と高さ降下
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.translation-height-bound, elliptic-curve.doubling-height-bound, elliptic-curve.bounded-height-finiteness]
+  - id: elliptic-curve.mw-rational-two-torsion
+    name: 有理2位数点を持つ曲線の有限生成性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.weak-mw-rational-two-torsion, elliptic-curve.height-descent]
+  - id: elliptic-curve.s-squareclasses
+    name: 有限集合の外で偶数指数を持つ平方類
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.descent-squareclass-support]
+  - id: elliptic-curve.numberfield-s-squareclasses-finite
+    name: 数体の有限S平方類
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.s-squareclasses]
+  - id: elliptic-curve.general-weak-mw
+    name: 一般の弱Mordell–Weil定理
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.numberfield-s-squareclasses-finite, elliptic-curve.weak-mw-two-quotient]
+  - id: elliptic-curve.general-mw
+    name: Mordell–Weil定理
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.general-weak-mw, elliptic-curve.height-descent]
