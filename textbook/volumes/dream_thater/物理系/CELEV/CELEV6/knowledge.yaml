@@ -1,0 +1,63 @@
+chapter: CELEV6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV5
+  - CELEV4
+  - CELEV1
+  - CELE2
+  - CA5
+forward_references: []
+concepts:
+  - id: celestial-variational.nbody-simple-choreography
+    name: 等質量平面n体の単純舞踏解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等質量平面n体の単純舞踏解）"]
+    aliases: []
+    requires:
+      - celestial-variational.equal-mass-choreography
+      - celestial.nbody-equations-conservation
+  - id: celestial-variational.choreography-cyclic-phase
+    name: 単純舞踏解の巡回位相と重心
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単純舞踏解の巡回位相と重心）"]
+    aliases: []
+    requires:
+      - celestial-variational.nbody-simple-choreography
+  - id: celestial-variational.regular-polygon-choreography
+    name: 等質量正多角形の円形舞踏解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（等質量正多角形の円形舞踏解）"]
+    aliases: []
+    requires:
+      - celestial-variational.nbody-simple-choreography
+      - celestial.nbody-equations-conservation
+  - id: celestial-variational.periodic-braid
+    name: ラベル付き配置空間と周期組み紐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ラベル付き配置空間と周期組み紐）"]
+    aliases: []
+    requires:
+      - celestial-variational.nbody-simple-choreography
+  - id: celestial-variational.relative-winding
+    name: 周期軌道の対ごとの相対巻き数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期軌道の対ごとの相対巻き数）"]
+    aliases: []
+    requires:
+      - celestial-variational.periodic-braid
+      - complex-analysis.winding-number
+  - id: celestial-variational.winding-invariance
+    name: 巻き数の整数性と非衝突変形不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（巻き数の整数性と非衝突変形不変性）"]
+    aliases: []
+    requires:
+      - celestial-variational.relative-winding
+      - complex-analysis.winding-homotopy-invariance
