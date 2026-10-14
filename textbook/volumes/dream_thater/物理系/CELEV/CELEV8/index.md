@@ -493,7 +493,10 @@ $$
 $e$ を一つの格子・粒子・座標成分が1で他が0の基底方向とします。最小距離 $\rho=\min_{k,i<j}|q_i^k-q_j^k|>0$ とし、$|\varepsilon|<\rho/4$ とすれば $q\pm\varepsilon e$ に衝突はありません。各方向で $f(s)=A_N(q+se)$ は $s=0$ の近傍で滑らかです。Taylor展開
 
 $$
-f(\varepsilon)=f(0)+\varepsilon f'(0)+\frac{\varepsilon^2}{2}f''(0)+O(\varepsilon^3),\\
+f(\varepsilon)=f(0)+\varepsilon f'(0)+\frac{\varepsilon^2}{2}f''(0)+O(\varepsilon^3),
+$
+
+$
 f(-\varepsilon)=f(0)-\varepsilon f'(0)+\frac{\varepsilon^2}{2}f''(0)+O(\varepsilon^3)
 $$
 
