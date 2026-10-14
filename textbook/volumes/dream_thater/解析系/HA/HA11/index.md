@@ -147,8 +147,7 @@ $$
 >
 $$
 \Theta_\delta=\{\omega(u):|u|\le\delta\},\qquad
-\mathcal T_\delta=\{(x',x_d):|x'|\le c\delta^{-1},\
-|x_d|\le c\delta^{-2}\}
+\mathcal T_\delta=\{(x',x_d):|x'|\le c\delta^{-1},\quad |x_d|\le c\delta^{-2}\}
 $$
 >
 > と定める。ただし $c>0$ は次の位相評価を満たす十分小さい固定定数とする。
@@ -359,7 +358,7 @@ $$
 
 ### 証明の見取り図
 
-最初の直線では乗数の絶対値を測り、[Plancherelの等式](../../FOU/FOU3/index.md#thm-fou3-plancherel)を使います。もう一方では核のBessel関数表示を導出し、必要な次数のBessel方程式を積分方程式へ直して上界を示します。複素パラメータ $t$ の定数が増加しても、次の補間でGaussian因子によって抑えられます。
+最初の直線では乗数の絶対値を測り、[HA9の$L^2$乗数評価](../HA9/index.md#prop-ha9-l2)を使います。もう一方では核のBessel関数表示を導出し、必要な次数のBessel方程式を積分方程式へ直して上界を示します。複素パラメータ $t$ の定数が増加しても、次の補間でGaussian因子によって抑えられます。
 
 <!-- proof-start -->
 ### 証明
@@ -370,7 +369,7 @@ $$
 |M_{it}(\xi)|\le|\Gamma(1+it)|^{-1}.
 $$
 
-[Plancherelの等式](../../FOU/FOU3/index.md#thm-fou3-plancherel)から
+[HA9の$L^2$乗数評価](../HA9/index.md#prop-ha9-l2)から
 
 $$
 \|T_{it}f\|_2\le|\Gamma(1+it)|^{-1}\|f\|_2.
