@@ -134,3 +134,24 @@ cache refreshing, keyboard interaction, narrow layout and bounded execution.
 Physical-device and screen-reader review remain separate. This prototype's
 two-body kernel is JavaScript;
 the CELEV PLAN's required independent Python/NumPy engine is a Phase 2 task.
+
+## CELEV visual identity and Burrau extension (2026-10-14)
+
+The plotted **trails** are not the particles. Their *current* positions are
+numbered, white-outlined symbols drawn on top of the trajectory: circle 1,
+square 2 and (in three-body mode) triangle 3. The legend repeats the symbols;
+solid/dashed/dotted trail patterns avoid reliance on colors alone. The world
+coordinate axes use equal x/y distance scale and retain their initial extent
+until trajectories exceed it; display zoom does not change the integration dt.
+
+The optional [Burrau three-body supplement](../../textbook/volumes/dream_thater/物理系/CELEV/CELEV8/supplement-burrau.md)
+sets m=(3,4,5), q=((1,3),(-2,-1),(1,-1)), v=0 and G=1. The independent
+analytic checks are E0=-769/60, zero total momentum/angular momentum and
+center of mass at the origin. A separate, **non-softened** JavaScript
+velocity-Verlet kernel demonstrates the early evolution; at pairwise distance
+<=0.15 or absolute energy drift >0.05 it throws an explicit unresolved-numerics
+error. This intentionally does not continue through the close encounters and
+cannot establish long-time escape behavior or replace the CELEV Python project.
+
+The Node integration checks initial energy and step halving; Chromium checks
+actual 3-body initialization, markers, and a live step.

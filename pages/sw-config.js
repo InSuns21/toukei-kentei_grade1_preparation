@@ -51,6 +51,7 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     './simulation/plot-adapters.mjs',
     './simulation/experiment-record.mjs',
     './simulation/engines/celev/two-body.mjs',
+    './simulation/engines/celev/burrau.mjs',
     './simulation/engines/ml/four-cell.mjs',
     './site-meta.json',
     './vendor/katex/katex.min.css',

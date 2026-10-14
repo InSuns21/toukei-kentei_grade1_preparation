@@ -51,14 +51,17 @@ const browser = spawn(chrome, [
 let ws = null;
 try {
   let port = null;
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 300; i++) {
+    if (browser.exitCode !== null) {
+      throw new Error("Chromium exited before DevTools was ready: exit code " + browser.exitCode);
+    }
     try {
       port = Number((await readFile(join(profile, "DevToolsActivePort"), "utf8")).split("\n")[0]);
       if (port) break;
     } catch { /* Chrome has not initialized yet */ }
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
-  assert.ok(port, "Chrome did not start DevTools");
+  assert.ok(port, "Chrome did not start DevTools within 30 seconds");
   let target = null;
   for (let i = 0; i < 100; i++) {
     const pages = await (await fetch("http://127.0.0.1:" + port + "/json/list")).json();
@@ -99,7 +102,7 @@ try {
     return reply.result?.value;
   };
   const waitFor = async (expression) => {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 240; i++) {
       const value = await evaluate(expression);
       if (value) return value;
       await new Promise((resolve) => setTimeout(resolve, 100));
@@ -115,6 +118,24 @@ try {
   await waitFor('document.querySelector("#diagnostics")?.textContent.includes("100")');
   await evaluate('document.querySelector("#separation").value="2";document.querySelector("#reset").click()');
   await waitFor('Math.abs(' + energy + ' + 0.25) < 1e-12');
+
+  // Current bodies must be distinguishable independently of the trail by
+  // three numbered shape symbols. Burrau must recompute a nontrivial initial
+  // state, rather than replay a stored image.
+  const bodiesAtTwo = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
+  assert.deepEqual(bodiesAtTwo, ["1", "2"]);
+  await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
+  const burrauEnergy = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="energy")?.cells[1]?.textContent)';
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10);
+  const burrauBodies = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
+  assert.deepEqual(burrauBodies, ["1", "2", "3"]);
+  assert.equal(await evaluate('document.querySelector("#burrau-params").hidden'), false);
+  await evaluate('document.querySelector("#step").click()');
+  await waitFor('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="stepIndex")?.cells[1]?.textContent) === 1');
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 0.001);
+  console.log("Burrau browser smoke: numbered 3-body current markers, initial energy and live step: PASS");
+
   await evaluate('document.querySelector("#experiment").value="ml";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
   await waitFor('document.querySelector("#diagnostics")?.textContent.includes("populationRisk")');
   const risk = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x => x.cells[0]?.textContent === "populationRisk")?.cells[1]?.textContent)';
@@ -129,7 +150,32 @@ try {
 
   // The standalone page must install and control the root-scoped Service
   // Worker itself. A prior visit to the main Docsify shell is not assumed.
-  await waitFor('Boolean(navigator.serviceWorker?.controller)');
+  // First-visit registration does not guarantee control of the *already*
+  // loaded document. Wait for activation, then navigate under the controller.
+  // This distinguishes an activation problem from the expected first-load race.
+  if (!await evaluate('Boolean(navigator.serviceWorker?.controller)')) {
+    try {
+      await waitFor('navigator.serviceWorker.getRegistration().then(r => r?.active?.state === "activated")');
+      await cdp("Page.reload", { ignoreCache: false });
+      await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+      await waitFor('Boolean(navigator.serviceWorker?.controller)');
+    } catch (error) {
+      const details = await evaluate(`(async () => {
+        const r = await navigator.serviceWorker.getRegistration();
+        return {
+          supported: "serviceWorker" in navigator,
+          installing: r?.installing?.state ?? null,
+          waiting: r?.waiting?.state ?? null,
+          active: r?.active?.state ?? null,
+          controlled: Boolean(navigator.serviceWorker.controller),
+          status: document.querySelector("#offline-support")?.textContent,
+          caches: await caches.keys(),
+        };
+      })()`);
+      throw new Error(error.message + "; Service Worker diagnostic: " +
+        JSON.stringify(details));
+    }
+  }
   const shellCached = await waitFor(`(async () => {
     const keys = await caches.keys();
     const cacheName = keys.find((key) => key.startsWith("toukei-grade1-runtime-"));
@@ -139,6 +185,7 @@ try {
       "simulation/index.html",
       "simulation/simulation-worker-host.mjs",
       "simulation/engines/celev/two-body.mjs",
+      "simulation/engines/celev/burrau.mjs",
       "simulation/engines/ml/four-cell.mjs",
     ];
     for (const relative of names) {
@@ -166,6 +213,17 @@ try {
   await evaluate('document.querySelector("#step").click()');
   const stepNumber = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x => x.cells[0]?.textContent === "stepIndex")?.cells[1]?.textContent)';
   await waitFor(stepNumber + ' === 1');
+  // A direct offline revisit must also be able to start the new Burrau
+  // three-body Worker module, not merely the older two-body reference.
+  await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10,
+    "offline Burrau initialization must match analytic energy");
+  await evaluate('document.querySelector("#step").click()');
+  await waitFor(stepNumber + ' === 1');
+  // Restore the basic circular reference before the 100000-step stress test.
+  await evaluate('document.querySelector("#experiment").value="celev";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('Math.abs(' + energy + ' + 0.5) < 1e-12');
   const offlineMiss = await evaluate('fetch("./not-pre-cached.txt").then(()=>false,()=>true)');
   assert.equal(offlineMiss, true, "uncached offline resources must not appear successful");
   await cdp("Network.emulateNetworkConditions", {
@@ -241,8 +299,9 @@ try {
     status: document.querySelector("#status").getAttribute("aria-live"),
     plot: document.querySelector("#plot").getAttribute("aria-describedby"),
     table: !!document.querySelector("#diagnostics table"),
-    meaning: document.querySelector("#legend").textContent.includes("実線") &&
-      document.querySelector("#legend").textContent.includes("破線"),
+    meaning: document.querySelector("#legend").textContent.includes("現在位置") &&
+      document.querySelector("#legend").textContent.includes("記号") &&
+      [...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent).join("") === "12",
   }))()`);
   assert.deepEqual(accessibility.unlabeled, [], "form inputs need accessible names");
   assert.equal(accessibility.headings[0], "H1");

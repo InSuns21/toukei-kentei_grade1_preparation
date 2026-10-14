@@ -1,8 +1,9 @@
 import { validateEnvelope, assertJsonSnapshot, DEFAULT_LIMITS } from "./protocol.mjs";
 import * as celev from "./engines/celev/two-body.mjs";
+import * as burrau from "./engines/celev/burrau.mjs";
 import * as ml from "./engines/ml/four-cell.mjs";
 
-const adapters = new Map([[celev.engineId, celev], [ml.engineId, ml]]);
+const adapters = new Map([[celev.engineId, celev], [burrau.engineId, burrau], [ml.engineId, ml]]);
 const identity = (req) => ({
   protocolVersion: 1, sessionId: req.sessionId, requestId: req.requestId,
   generation: req.generation, engineId: req.engineId, experimentId: req.experimentId,
@@ -110,7 +111,8 @@ export function createSimulationHost(post) {
       }
     } catch (cause) {
       const message = cause instanceof Error ? cause.message : String(cause);
-      const code = message.startsWith("STALE_") ? "STALE" :
+      const code = message.startsWith("NEAR_ENCOUNTER") || message.startsWith("ENERGY_DRIFT") ? "NUMERICAL_UNRESOLVED" :
+        message.startsWith("STALE_") ? "STALE" :
         message.startsWith("RESOURCE_LIMIT") ? "RESOURCE_LIMIT" :
         cause instanceof RangeError ? "INVALID_PARAMETERS" : "ENGINE_ERROR";
       error(req, code, message);

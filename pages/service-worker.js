@@ -372,7 +372,10 @@ function cssDependencyUrls(cssText, cssUrl) {
 async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   const url = new URL(rawUrl, self.registration.scope).href;
   const request = new Request(url, { cache: 'reload' });
-  const response = await fetch(request);
+  // The install event must not be held hostage by a slow or blocked CDN.
+  // Use the same bounded fetch that guards runtime network-first requests;
+  // unsuccessful optional assets are retried by the ordinary fetch handler.
+  const response = await fetchWithTimeout(request);
   if (!isCacheable(response) || !responseLooksUsable(request, response)) return false;
 
   await cache.put(cacheKeyFor(request), response.clone());
