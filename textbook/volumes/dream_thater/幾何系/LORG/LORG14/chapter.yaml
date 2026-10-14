@@ -1,0 +1,56 @@
+id: "LORG14"
+title: "限界曲線補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+  - LORG12
+  - LORG13
+official_scope: []
+learning_objectives:
+  - 補助Riemann計量とLorentz計量の役割を区別して弧長パラメータ化できる
+  - h弧長から1-Lipschitz評価を導き局所一様収束を判定できる
+  - 局所的な因果錐の閉性と時間座標の速度下界を使って極限の因果性を証明できる
+  - Hopf–RinowとArzelà–Ascoliおよび対角抽出から限界曲線を構成できる
+  - 限界曲線が非延長になるための完備性と単位弧長の役割を説明できる
+  - 補助弧長一様有界な端点列から因果的接続を得られる
+  - 点除去時空で大域Jの非閉性と長さ非有界の関係を説明できる
+definitions:
+  - { id: LORG14-DEF-01, name: 補助Riemann弧長パラメータ化 }
+  - { id: LORG14-DEF-02, name: コンパクト部分区間上一様な収束 }
+theorems:
+  - { id: LORG14-LEM-01, name: 弧長から1-Lipschitz評価へ }
+  - { id: LORG14-LEM-02, name: 因果曲線の局所一様極限 }
+  - { id: LORG14-THM-01, name: 限界曲線補題 }
+  - { id: LORG14-PROP-01, name: 補助弧長が一様有界な端点列 }
+canonical_examples:
+  - 時間的直線と光線の補助弧長
+  - Minkowski時空の垂直線の局所一様収束
+  - tanhパラメータと非延長性の差
+  - 逃げる基点による抽出失敗
+  - 点除去Minkowski時空の非閉な因果関係
+problem_patterns:
+  - LORG14-ARCLENGTH
+  - LORG14-LIPSCHITZ
+  - LORG14-LOCAL-UNIFORM
+  - LORG14-INEXTENDIBLE
+  - LORG14-ESCAPING-BASEPOINT
+  - LORG14-DIAGONAL
+  - LORG14-CONE-LIMIT
+  - LORG14-BOUNDED-LENGTH
+  - LORG14-LOCAL-VS-GLOBAL
+  - LORG14-PUNCTURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 12, review: 7 }
