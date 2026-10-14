@@ -244,7 +244,7 @@ $H^+(S)$ は閉集合から開集合 $I^-(D^+(S))$ を除いたものです。�
 <!-- proof-start -->
 ### 証明
 
-$D=D^+(S)$ と書きます。[時間的過去の開性](../LORG7/index.md#thm-lorg7-i-open)により $I^-(D)$ は開集合です。従って
+$D=D^+(S)$ と書きます。[時間的過去の開性](../LORG7/index.md#thm-lorg7-chronological-open)により $I^-(D)$ は開集合です。従って
 
 $$
 H^+(S)=\overline D\cap (M\setminus I^-(D))
