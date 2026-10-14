@@ -8,10 +8,10 @@ prerequisites:
 forward_references: []
 concepts:
   - id: harmonic.ha10-critical
-    name: 停留点・非退化臨界点と符号数
+    name: 停留点・非退化停留点と符号数
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（停留点・非退化臨界点と符号数）]
+    introduction_aliases: [定義（停留点・非退化停留点と符号数）]
     requires: []
   - id: harmonic.ha10-nonstationary
     name: 非停留領域の速い減衰
@@ -26,10 +26,10 @@ concepts:
     introduction_aliases: [補題（van der Corput の二階微分評価）]
     requires: [harmonic.ha10-critical]
   - id: harmonic.ha10-morse
-    name: 非退化臨界点の局所二次標準形
+    name: 非退化停留点の局所二次標準形
     kind: lemma
     introduction: formal
-    introduction_aliases: [補題（非退化臨界点の局所二次標準形）]
+    introduction_aliases: [補題（非退化停留点の局所二次標準形）]
     requires: [harmonic.ha10-critical]
   - id: harmonic.ha10-quadratic
     name: 二次位相の漸近公式
@@ -43,9 +43,15 @@ concepts:
     introduction: formal
     introduction_aliases: [定理（非退化停留点の定常位相公式）]
     requires: [harmonic.ha10-critical, harmonic.ha10-morse, harmonic.ha10-nonstationary, harmonic.ha10-quadratic]
+  - id: harmonic.ha10-sphere-measure
+    name: 球面面積測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面面積測度）]
+    requires: []
   - id: harmonic.ha10-sphere
     name: 球面面積測度のFourier減衰
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（球面面積測度のFourier減衰）]
-    requires: [harmonic.ha10-stationary]
+    requires: [harmonic.ha10-stationary, harmonic.ha10-sphere-measure]
