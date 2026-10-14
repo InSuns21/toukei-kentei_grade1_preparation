@@ -318,7 +318,13 @@ $$
 
 ## 5. 二つの証明方式を見分ける
 
-比較表のLiouville法で使う $P$ は、代数的無理数だと仮定した $\alpha$ の最小多項式の分母を払って得た整数係数多項式 $P(T)=\sum_{j=0}^{d}a_jT^j\in\mathbb Z[T]$（次数 $d$）です。$P$ は $\mathbb Q[T]$ 上既約で、$d\ge2$ なので有理根を持たず、$P(p/q)\ne0$ です。[NDA6の整数係数多項式の分母評価](../../NDA/NDA6/index.md#lem-nda6-integer-polynomial)の計算をこの $P$ に適用すると、
+比較表のLiouville法で使う $P$ は、代数的無理数だと仮定した $\alpha$ の最小多項式（$\mathbb Q[T]$ 上既約、次数 $d\ge2$）の分母を払って得る整数係数多項式です。これを
+
+$$
+P(T)=\sum_{j=0}^{d}a_jT^j,\qquad a_j\in\mathbb Z
+$$
+
+と書きます。既約性と $d\ge2$ から有理根がなく、任意の有理数 $p/q$ で $P(p/q)\ne0$ です。[NDA6の整数係数多項式の分母評価](../../NDA/NDA6/index.md#lem-nda6-integer-polynomial)の計算をこの $P$ に適用すると、
 
 $$
 q^dP\left(\frac pq\right)
