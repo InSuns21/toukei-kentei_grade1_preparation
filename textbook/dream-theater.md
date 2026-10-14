@@ -813,6 +813,7 @@
 
 1. [TRN1 代数的整数と有限生成加群の判定](textbook/volumes/dream_thater/代数系/TRN/TRN1/index.md)
 2. [TRN2 共役・跡・ノルム・分母消去](textbook/volumes/dream_thater/代数系/TRN/TRN2/index.md)
+3. [TRN3 Liouville法とHermite法の違い](textbook/volumes/dream_thater/代数系/TRN/TRN3/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論

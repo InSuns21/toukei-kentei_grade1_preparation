@@ -1,9 +1,10 @@
 import { validateEnvelope, assertJsonSnapshot, DEFAULT_LIMITS } from "./protocol.mjs";
 import * as celev from "./engines/celev/two-body.mjs";
 import * as burrau from "./engines/celev/burrau.mjs";
+import * as gallery from "./engines/celev/orbit-gallery.mjs";
 import * as ml from "./engines/ml/four-cell.mjs";
 
-const adapters = new Map([[celev.engineId, celev], [burrau.engineId, burrau], [ml.engineId, ml]]);
+const adapters = new Map([[celev.engineId, celev], [burrau.engineId, burrau], [gallery.engineId, gallery], [ml.engineId, ml]]);
 const identity = (req) => ({
   protocolVersion: 1, sessionId: req.sessionId, requestId: req.requestId,
   generation: req.generation, engineId: req.engineId, experimentId: req.experimentId,
