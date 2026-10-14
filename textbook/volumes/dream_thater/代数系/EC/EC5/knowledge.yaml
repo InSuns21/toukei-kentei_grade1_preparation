@@ -1,0 +1,61 @@
+chapter: EC5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC4
+forward_references: []
+concepts:
+  - id: elliptic-curve.rational-torsion
+    name: 有理torsion部分群
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.n-torsion, elliptic-curve.associativity]
+  - id: elliptic-curve.denominator-normal-form
+    name: 分母の平方・立方形
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.weierstrass-model]
+  - id: elliptic-curve.local-torsion-exclusion
+    name: 原点近傍の加法とtorsionの排除
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.denominator-normal-form, elliptic-curve.chord-tangent-addition]
+  - id: elliptic-curve.nagell-lutz
+    name: Nagell–Lutz定理
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.local-torsion-exclusion, elliptic-curve.denominator-normal-form]
+  - id: elliptic-curve.rational-log-height
+    name: 有理数の対数的高さ
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.rational-torsion]
+  - id: elliptic-curve.bounded-height-finiteness
+    name: 有界高さの有限性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.rational-log-height]
+  - id: elliptic-curve.doubling-height-bound
+    name: x座標の倍加高さ評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.rational-log-height, elliptic-curve.bounded-height-finiteness]
+  - id: elliptic-curve.canonical-height
+    name: 正規高さ
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.doubling-height-bound]
+  - id: elliptic-curve.canonical-height-torsion
+    name: 正規高さの存在とtorsion判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.canonical-height, elliptic-curve.bounded-height-finiteness]
