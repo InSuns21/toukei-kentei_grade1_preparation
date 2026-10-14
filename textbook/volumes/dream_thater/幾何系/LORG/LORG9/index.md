@@ -287,7 +287,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) causalであること**。任意の未来因果曲線では[未来速度の補題](#lem-lorg9-cylinder-future)から $\dot u\ge0$ です。閉じているなら $u(1)=u(0)$ なので、各滑らかな片で $\dot u=0$ です。非零の未来因果速度がありうるのは $u=0$、$\dot\theta>0$ の場合に限ります。従って非定数閉因果曲線の像は $u=0$ の円周に含まれるはずです。しかし $C^\ast$ の $u=0$ 部分は円周から一点を除いた開区間に同相で、正の $\theta$ 方向に進む非定数曲線はそこを一周して元へ戻れません。ゆえに非定数閉未来因果曲線は存在せず、[causalityの定義](#def-lorg9-causal)が成立します。
+**(1) causalであること**。任意の未来因果曲線では[未来速度の補題](#lem-lorg9-cylinder-future)から、各滑らかな片で $\dot u\ge0$ です。閉曲線なら始点と終点の $u$ 座標は一致するので、
+
+$
+0=u(1)-u(0)=\int_0^1\dot u(s)\,ds.
+$
+
+非負の連続な被積分関数の積分が零なので、各片で $\dot u=0$ です。[未来速度の補題](#lem-lorg9-cylinder-future)より、非零速度が残るのは $u=0$ 上の正の $\partial_\theta$ 方向に限られます。従って非定数閉因果曲線は、$u=0$ 上の円周だけをたどる必要があります。
+
+しかし $C^\ast$ のこの部分は円周から一点を除いた開区間に同相です。角度をその開区間の実数座標で表せば、未来に進む非定数曲線の角度増分は正となり、出発点へ戻れません。よって非定数閉因果曲線は存在せず、[causalityの定義](#def-lorg9-causal)が成立します。
 
 **(2) 未来集合の計算**。$p=(0,[\theta_0])$ とします。未来時間的曲線上では $\dot u>0$ だから、
 
@@ -494,7 +502,21 @@ $$
 $p\le q\le p$ を仮定し、未来識別性だけで $p=q$ を示せ。$I^+(p)\subset I^+(q)$ と逆包含で[LORG7のpush-up補題](../LORG7/index.md#thm-lorg7-push-up)に入力する三点をそれぞれ明示せよ。過去識別性の場合も示せ。
 
 <!-- solution-start -->
-**詳細解答**。$r\in I^+(p)$ を任意に取ると $p\ll r$ です。まず $q\le p\ll r$ という三点 $(q,p,r)$ の並びに[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を適用し、$q\ll r$、つまり $r\in I^+(q)$ を得ます。従って $I^+(p)\subset I^+(q)$。逆には $r\in I^+(q)$ を取り、$(p,q,r)$ について $p\le q\ll r$ に同補題を適用すれば $r\in I^+(p)$、すなわち $I^+(q)\subset I^+(p)$ です。よって両集合が一致し、[未来識別性](#def-lorg9-distinguishing)から $p=q$ です。
+**詳細解答**。任意の $r\in I^+(p)$ を取ると $p\ll r$ です。三点を $(q,p,r)$ の順に選べば
+
+$
+q\le p\ll r\quad\Longrightarrow\quad q\ll r
+$
+
+となります。含意は[LORG7のpush-up補題](../LORG7/index.md#thm-lorg7-push-up)です。従って $I^+(p)\subset I^+(q)$ です。
+
+逆に任意の $r\in I^+(q)$ を取り、三点 $(p,q,r)$ に対して同じ[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を使うと、
+
+$
+p\le q\ll r\quad\Longrightarrow\quad p\ll r.
+$
+
+よって $I^+(q)\subset I^+(p)$ も成立します。二つの包含から未来集合が一致し、[未来識別性](#def-lorg9-distinguishing)によって $p=q$ が従います。
 
 過去側は任意の $r\ll p$ について $(r,p,q)$ に[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を適用して $r\ll q$、逆には $r\ll q\le p$ に適用して $r\ll p$ を得ます。これで $I^-(p)=I^-(q)$ となり、過去識別性から $p=q$ です。いずれも二方向の包含が必要です。
 <!-- solution-end -->
@@ -551,7 +573,19 @@ $g(\dot\gamma,T)<0$ でもあり未来時間的です。途中では $u>0$ な�
 #### LORG9-C01 三つの時空を分類し共形変換の限界を述べる
 - Level: C
 
-次の三時空をそれぞれchronological、causal、future distinguishing、past distinguishingの四条件で分類せよ。(i) $(\mathbb R/2\mathbb Z)\times\mathbb R$ に $-dt^2+dx^2$ を入れた時間周期円筒、(ii) $C=(-1,1)\times(\mathbb R/\mathbb Z)$ に $g=-2\,du\,d\theta+u^2d\theta^2$ と時間向き $T=\partial_u+\partial_\theta$ を入れた円筒、(iii) (ii) から $(0,[0])$ を除いた $C^\ast$。閉路、未来・過去の集合、含意の根拠を明示し、任意の正の滑らかな $\Omega$ による $\Omega^2g$ で分類が変わるか述べよ。
+次の三時空をそれぞれchronological、causal、future distinguishing、past distinguishingの四条件で分類せよ。
+
+1. 時間周期円筒 $(\mathbb R/2\mathbb Z)\times\mathbb R$ に計量 $-dt^2+dx^2$ を入れたもの。
+2. 円筒 $C=(-1,1)\times(\mathbb R/\mathbb Z)$ に計量
+
+$
+g=-2\,du\,d\theta+u^2d\theta^2
+$
+
+および時間向き $T=\partial_u+\partial_\theta$ を入れたもの。
+3. 2から一点 $(0,[0])$ を除いた時空 $C^\ast$。
+
+閉路、未来・過去の集合、含意の根拠を明示せよ。また、任意の正の滑らかな関数 $\Omega$ による共形再尺度 $\Omega^2g$ で分類が変わるか述べよ。
 
 <!-- solution-start -->
 **詳細解答**。(i) 速度 $(2,0)$ の曲線 $s\mapsto([2s],0)$ は未来時間的な閉路なのでchronologicalでもcausalでもありません。任意の二点 $p,q$ について、覆い空間上で終点の時刻代表を十分未来へずらせば、その時刻差を空間差の絶対値より大きくできます。従って $p\ll q$ であり、$I^+(p)=M$、同様に $I^-(p)=M$ です。二点以上あるので両方向の識別性もありません。
