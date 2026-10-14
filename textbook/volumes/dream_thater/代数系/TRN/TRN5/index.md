@@ -49,7 +49,7 @@ $$
 <!-- definition-example-start: def-trn5-auxiliary-polynomial -->
 ### 直接例：$n=1,\ p=3$ で何を確かめるか
 
-この場合 $Q_1(x)=x-1$ で、
+**定義の確認**：$n=1$ は正整数で $p=3$ は素数なので、定義の対象と条件を満たします。この場合 $Q_1(x)=x-1$ で、
 
 $$
 \begin{aligned}
