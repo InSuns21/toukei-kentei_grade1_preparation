@@ -12,7 +12,7 @@
 
 ## 2. 時間的集合の境界を扱う二つの補助事実
 
-未来集合 $I^+(p)$ は[LORG7の開性](../LORG7/index.md#thm-lorg7-chronological-open)によって開です。閉包を取ると光的境界の候補が加わりますが、その内部は元の時間的未来に一致します。
+未来集合 $I^+(p)$ は[LORG7の開性](../LORG7/index.md#thm-lorg7-chronological-open)によって開です。閉包を取ると光的境界の候補が加わりますが、その内部は元の時間的未来に一致します。$I^\pm$ と $J^\pm$ が閉包を共有することは[LORG7の内部・閉包命題](../LORG7/index.md#prop-lorg7-interior-closure)で証明済みです。ここでは、その閉包の内部についてさらに確かめます。
 
 <a id="lem-lorg11-regular-open"></a>
 
@@ -34,13 +34,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-未来側を証明します。$I^+(p)$ は開なので $I^+(p)\subset\operatorname{Int}\overline{I^+(p)}$ です。逆に $q\in\operatorname{Int}\overline{I^+(p)}$ とします。$q$ の十分小さな時間的過去に $r\ll q$ を取り、しかも $r$ がこの閉包の内部に属するようにします。$r\in\overline{I^+(p)}$ だから、$r_k\in I^+(p)$ で $r_k\to r$ を取れます。時間的関係の端点に関する開性により、十分大きな $k$ で $r_k\ll q$ です。$p\ll r_k\ll q$ を推移させれば $p\ll q$ となり、$q\in I^+(p)$ です。
+未来側を証明します。$I^+(p)$ は開なので、
 
-また $I^+(p)\subset J^+(p)$ であり、任意の $q\in J^+(p)$ の直後には $q\ll q_k$ かつ $q_k\to q$ となる点列があります。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)から $p\ll q_k$ なので $q\in\overline{I^+(p)}$ です。従って
 $$
-I^+(p)\subset J^+(p)\subset\overline{I^+(p)}
+I^+(p)\subset\operatorname{Int}\overline{I^+(p)}
 $$
-であり、両端の閉包を取れば等号が従います。過去側は時間向きを逆にした同じ証明です。$\square$
+
+です。逆に $q\in\operatorname{Int}\overline{I^+(p)}$ とします。この内部は開なので、$q$ の十分小さな時間的過去に $r\ll q$ を取り、$r$ もこの内部に属するようにできます。
+
+$r\in\overline{I^+(p)}$ だから、点列 $r_k\in I^+(p)$、$r_k\to r$ を取れます。[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)を $r\ll q$ に適用すると、十分大きな $k$ で $r_k\ll q$ です。従って
+
+$$
+p\ll r_k\ll q\quad\Longrightarrow\quad p\ll q
+$$
+
+となり、$q\in I^+(p)$ です。
+
+二番目の等式 $\overline{I^+(p)}=\overline{J^+(p)}$ は、[LORG7の内部・閉包命題](../LORG7/index.md#prop-lorg7-interior-closure)を $S=\{p\}$ に適用したものです。同命題は $I^+(p)\subset J^+(p)$ と、$q\in J^+(p)$ の直後に $q\ll q_k\to q$ を取り[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を使う逆包含を証明しています。過去側も未来と過去を交換した同じ議論です。$\square$
 <!-- proof-end -->
 
 **Minkowskiで確認**。$p=(0,0)$、$g=-dt^2+dx^2$ なら
@@ -69,11 +79,22 @@ $$
 
 <!-- definition-example-start: def-lorg11-reflecting -->
 
-**定義の確認**（二次元Minkowski時空）。$p=(t_p,x_p)$、$q=(t_q,x_q)$ に対し、両辺はそれぞれ
+**定義の確認**（二次元Minkowski時空）。$p=(t_p,x_p)$、$q=(t_q,x_q)$ とします。[Minkowski時空の未来・過去公式](../LORG6/index.md#thm-lorg6-minkowski-futures)は、未来因果速度の条件 $\dot t\ge|\dot x|$ の積分と、端点を結ぶ直線経路の構成から得られます。時間的な場合には不等号が厳密になるので、
+
 $$
-t_q-t_p\ge |x_q-x_p|
+\begin{aligned}
+I^+(p)&=\{(t,x):t-t_p>|x-x_p|\},\\
+I^-(q)&=\{(t,x):t_q-t>|x_q-x|\}.
+\end{aligned}
 $$
-に同値です。実際 $I^+(p)$ は厳密不等号で定まる開錐、その閉包は非厳密不等号で定まる閉錐です。$I^-(q)$ も同じ不等式を $(t_p,x_p)$ に関して満たすので、両側の条件を直接確認できました。
+
+両集合をそれぞれ同じMinkowski時空で閉包に置き換えると不等号が $\ge$ になります。前者へ $q$、後者へ $p$ を代入すればどちらも
+
+$$
+t_q-t_p\ge|x_q-x_p|
+$$
+
+となるので、反映性の左右の条件を別々に確認できました。
 
 <!-- definition-example-end -->
 
@@ -93,7 +114,7 @@ $q$ の少し未来の点 $r$ を固定すれば、十分大きな $k$ で $q_k\
 <!-- proof-start -->
 ### 証明
 
-任意に $r\in I^+(q)$ を取ります。時間的関係の開性から $q_k\ll r$ が十分大きな $k$ で成立し、$p_k\ll q_k\ll r$ となります。従って $p_k\in I^-(r)$、極限を取ると $p\in\overline{I^-(r)}$ です。反映性から $r\in\overline{I^+(p)}$ です。$q\ll r_j$ かつ $r_j\to q$ と選ぶと、各 $r_j$ はこの閉集合に属するため $q\in\overline{I^+(p)}$ です。再度反映性を適用して $p\in\overline{I^-(q)}$ となります。$\square$
+任意に $r\in I^+(q)$ を取ります。[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)を $q\ll r$ に適用すると $q_k\ll r$ が十分大きな $k$ で成立し、$p_k\ll q_k\ll r$ となります。従って $p_k\in I^-(r)$、極限を取ると $p\in\overline{I^-(r)}$ です。反映性から $r\in\overline{I^+(p)}$ です。$q\ll r_j$ かつ $r_j\to q$ と選ぶと、各 $r_j$ はこの閉集合に属するため $q\in\overline{I^+(p)}$ です。再度反映性を適用して $p\in\overline{I^-(q)}$ となります。$\square$
 <!-- proof-end -->
 
 ### 3.1 未来・過去集合の外側連続性
@@ -121,11 +142,19 @@ $$
 
 <!-- definition-example-start: def-lorg11-outer-continuity -->
 
-**定義の確認**（Minkowski時空）。$K$ が閉錐 $\{(t,x):t-t_p\ge|x-x_p|\}$ と交わらないとき、連続関数
+**定義の確認**（二次元Minkowski時空）。[未来閉錐の公式](../LORG6/index.md#thm-lorg6-minkowski-futures)より、$K$ が $\{(t,x):t-t_p\ge|x-x_p|\}$ と交わらなければ、連続関数
+
 $$
 F(p',q)=t_q-t_{p'}-|x_q-x_{p'}|
 $$
-は $\{p\}\times K$ 上で厳密に負です。$K$ のコンパクト性から $\max_{q\in K}F(p,q)<0$ となります。$p'$ を十分 $p$ に近づければこの最大値は依然負なので、$K\cap I^+(p')=\varnothing$ です。過去側も同じ不等式の向きを変えます。
+
+は $p'=p$、$q\in K$ で負です。$K=\varnothing$ なら条件は自明なので、$K\ne\varnothing$ とします。コンパクト性から $\max_{q\in K}F(p,q)=-\eta<0$ となります。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)を実数の絶対値に適用すると、すべての $q\in K$ に一様に
+
+$$
+F(p',q)\le F(p,q)+|t_{p'}-t_p|+|x_{p'}-x_p|
+$$
+
+です。よって $|t_{p'}-t_p|+|x_{p'}-x_p|<\eta$ を満たす $p$ の開近傍 $U$ を取れば、任意の $p'\in U$、$q\in K$ で $F(p',q)<0$、従って $K\cap I^+(p')=\varnothing$ です。過去側は $F^-(p',q)=t_{p'}-t_q-|x_q-x_{p'}|$ に同じ評価を施します。
 
 <!-- definition-example-end -->
 
@@ -207,7 +236,7 @@ $I^\pm(p)$ の内部にあるコンパクト集合は $p$ を少し動かして�
 <!-- proof-start -->
 ### 証明
 
-未来側だけ示します。$p_k\to p$ とします。$L\subset I^+(p)$ をコンパクトとします。すべての $q\in L$ について $p\ll q$ であり、時間的関係の両端点に関する開性と $L$ の有限部分被覆により、十分大きな $k$ で $L\subset I^+(p_k)$ です。測度の内側正則性を用いると
+未来側だけ示します。$p_k\to p$ とします。$L\subset I^+(p)$ をコンパクトとします。すべての $q\in L$ について $p\ll q$ であり、[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)と $L$ の有限部分被覆により、十分大きな $k$ で $L\subset I^+(p_k)$ です。測度の内側正則性を用いると
 $$
 \liminf_k \mu(I^+(p_k))\ge \sup_{L\Subset I^+(p)}\mu(L)=\mu(I^+(p)).
 $$
@@ -218,7 +247,7 @@ $$
 $$
 補集合のコンパクト集合 $K$ を増やし、測度の正則性を使えば右辺の下限は $\mu(\overline{I^+(p)})$ になります。
 
-最後に境界 $E=\partial I^+(p)$ が $\mu$-零集合であると確認します。境界上の二点 $a,b$ が $a\ll b$ を満たすことはありません。実際、$a_j\in I^+(p)$ が $a$ に収束するなら、十分大きな $j$ では $a_j\ll b$、従って $p\ll b$ となり、境界点 $b$ であることと矛盾します。
+最後に境界 $E=\partial I^+(p)$ が $\mu$-零集合であると確認します。境界上の二点 $a,b$ が $a\ll b$ を満たすことはありません。実際、$a_j\in I^+(p)$ が $a$ に収束するなら、[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)により十分大きな $j$ では $a_j\ll b$、従って $p\ll b$ となり、境界点 $b$ であることと矛盾します。
 
 各点の近くで $\partial_t$ が時間的な座標を選び、座標領域を時間区間 $I$ と空間直方体 $V$ の積 $W=I\times V$ へ縮めます。同じ空間座標をもつ異なる二点は時間的に比較できるので、境界 $E$ と各時間方向の縦線の交わりは高々一点です。
 
@@ -257,7 +286,7 @@ $$
 $$
 I^-(p)\subset I^-(q),\qquad I^+(q)\subset I^+(p).
 $$
-さらに因果連続性には両側の識別性が含まれるので、これらの包含は真です。
+さらに[LORG9の未来・過去識別性](../LORG9/index.md#def-lorg9-distinguishing)より、$p\ne q$ なら $I^+(p)\ne I^+(q)$ かつ $I^-(p)\ne I^-(q)$ です。従って両方の包含は真になります。
 
 真の包含から体積の厳密不等式が従うことを説明します。例えば $I^+(q)\subsetneq I^+(p)$ なのに $\mu(I^+(p)\setminus I^+(q))=0$ と仮定します。開集合 $I^+(p)$ が $\overline{I^+(q)}$ に含まれないなら、両者の差には非空開集合があり、$\mu$ が正なので矛盾します。従って $I^+(p)\subset\overline{I^+(q)}$ ですが、[正則開性](#lem-lorg11-regular-open)により
 $$
@@ -285,11 +314,16 @@ $$
 
 <!-- definition-example-start: def-lorg11-causal-simplicity -->
 
-**定義の確認**（Minkowski時空）。時刻座標 $t$ は未来因果曲線に沿って増加するので閉因果曲線はありません。さらに
+**定義の確認**（二次元Minkowski時空）。未来因果曲線の速度は $\dot t\ge|\dot x|\ge0$ を満たし、異なる端点を結ぶ非定数曲線では $t$ は厳密に増えます。従って閉因果曲線はありません。[Minkowskiの因果未来・過去公式](../LORG6/index.md#thm-lorg6-minkowski-futures)は、この速度不等式を積分して $\Delta t\ge|\Delta x|$ を得て、逆向きは端点を結ぶ直線で実現しているため、
+
 $$
-J^+(p)=\{(t,x):t-t_p\ge|x-x_p|\}
+\begin{aligned}
+J^+(p)&=\{(t,x):t-t_p\ge|x-x_p|\},\\
+J^-(p)&=\{(t,x):t_p-t\ge|x-x_p|\}.
+\end{aligned}
 $$
-は連続関数 $t-t_p-|x-x_p|$ の非負集合として閉です。$J^-(p)$ も同様です。causality・未来閉性・過去閉性を別々に確認したので因果単純です。
+
+それぞれ連続関数 $t-t_p-|x-x_p|$、$t_p-t-|x-x_p|$ の非負集合として閉です。causality・未来閉性・過去閉性を別々に確認したので因果単純です。
 
 <!-- definition-example-end -->
 
@@ -317,7 +351,7 @@ $$
 
 逆に各 $J^\pm(p)$ が閉と仮定し、$(p_k,q_k)\in\mathcal J$ が $(p,q)$ に収束するとします。
 
-任意の $r\ll p$ を固定します。時間的関係の開性から十分大きな $k$ で $r\ll p_k$ です。$p_k\le q_k$ と[push-up補題](../LORG7/index.md#thm-lorg7-push-up)によって
+任意の $r\ll p$ を固定します。[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から十分大きな $k$ で $r\ll p_k$ です。$p_k\le q_k$ と[push-up補題](../LORG7/index.md#thm-lorg7-push-up)によって
 
 $$
 r\ll p_k\le q_k
@@ -388,7 +422,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $p\ll_{\mathbb R^{1,1}}q$ とします。Minkowski時空の直線線分 $[p,q]$ は時間的です。線分が $o$ を通らなければ、そのまま $M^\ast$ の時間的曲線です。通る場合には、$o$ のごく小さい近傍で線分を二本の短い時間的線分に置き換え、中間点を少し空間方向へ動かして $o$ を回避します。時間的錐は開なので、この変形を十分小さくすれば両線分は時間的です。逆に $M^\ast$ の時間的曲線は元のMinkowskiでも時間的です。よって
+まず $p\ll_{\mathbb R^{1,1}}q$ とします。Minkowski時空の直線線分 $[p,q]$ は時間的です。線分が $o$ を通らなければ、そのまま $M^\ast$ の時間的曲線です。通る場合、$p,q\ne o$ なので $o$ は線分の内部にあります。直線の速度を $(v_t,v_x)$（$v_t>|v_x|$）とし、$o$ の前後に $u=o-\delta(v_t,v_x)$、$w=o+\delta(v_t,v_x)$ を取ります。中間点 $z=(0,\varepsilon)$（$\varepsilon\ne0$）を選ぶと、$u\to z\to w$ の変位は
+
+$$
+(\delta v_t,\delta v_x+\varepsilon),\qquad
+(\delta v_t,\delta v_x-\varepsilon)
+$$
+
+です。$0<|\varepsilon|<\delta(v_t-|v_x|)$ とすればどちらも未来時間的で、二本とも $o$ を通りません。元の線分の残りとつなぎ、除去点を回避した区分的時間的曲線が得られます。逆に $M^\ast$ の時間的曲線は元のMinkowskiでも時間的です。よって
 $$
 I^\pm_{M^\ast}(p)=I^\pm_{\mathbb R^{1,1}}(p)\cap M^\ast.
 $$
@@ -399,7 +440,7 @@ q\in\overline{I^+_{M^\ast}(p)}
 \Longleftrightarrow t_q-t_p\ge|x_q-x_p|
 \Longleftrightarrow p\in\overline{I^-_{M^\ast}(q)}
 $$
-と計算できます。座標時刻 $t$ はtemporal functionであり、[temporal functionから強因果性](../LORG10/index.md#thm-lorg10-temporal-implies-strong)、さらに[強因果性から識別性](../LORG10/index.md#thm-lorg10-strong-implies-distinguishing)が従います。よって反映性と両側識別性を満たし、因果連続的です。[temporal functionから安定因果性](../LORG10/index.md#thm-lorg10-temporal-implies-stable)も従います。
+と計算できます。座標時刻 $t$ は $g^{-1}(dt,dt)=-1<0$、$\nabla t=-\partial_t$（過去向き）なので[LORG10のtemporal functionの定義](../LORG10/index.md#def-lorg10-time-function)を満たします。[temporal functionから強因果性](../LORG10/index.md#thm-lorg10-temporal-implies-strong)、さらに[強因果性から識別性](../LORG10/index.md#thm-lorg10-strong-implies-distinguishing)が従います。よって反映性と両側識別性を満たし、因果連続的です。[temporal functionから安定因果性](../LORG10/index.md#thm-lorg10-temporal-implies-stable)も従います。
 
 ところが $p=(-1,-1)$ と $q=(1,1)$ は $M^\ast$ に属し、
 $$
@@ -443,7 +484,7 @@ $$
 二次元Minkowski時空で $p=(2,-1)$ とする。$I^+(p)$、$\overline{I^+(p)}$、その内部を不等式で表せ。
 
 <!-- solution-start -->
-**詳細解答**。未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
 $$
 I^+(p)=\{(t,x):t-2>|x+1|\}.
 $$
@@ -461,7 +502,21 @@ $$
 Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overline{I^+(p)}$ かを判定し、過去側の閉包条件も確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)をそれぞれの変位に適用します。
+
+$$
+q-p=(3,3),\qquad \Delta t=3=|\Delta x|
+$$
+
+なので、$q$ は $p$ の未来閉錐の境界にあり、逆向きに見ると $p$ も $q$ の過去閉錐の境界にあります。
+
+これに対し、
+
+$$
+r-p=(2,4),\qquad \Delta t=2<4=|\Delta x|
+$$
+
+であるため、$r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
 <!-- solution-end -->
 
 <a id="ex-lorg11-a03"></a>
@@ -471,7 +526,7 @@ Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overlin
 $M=\mathbb R^{1,1}$ に $-dt^2+dx^2$ を入れる。causality、$J^+(p)$ の閉性、$J^-(p)$ の閉性を別々に検証せよ。
 
 <!-- solution-start -->
-**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また
+**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)より
 $$
 J^+(p)=\{q:t_q-t_p\ge|x_q-x_p|\},
 \quad
