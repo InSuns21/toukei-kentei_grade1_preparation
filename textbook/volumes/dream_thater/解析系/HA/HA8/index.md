@@ -893,16 +893,16 @@ $$
 
 $f,g\in\mathcal S$ とし、[非斉次分割](#def-ha8-dyadic)の各乗数を
 
-$
+$$
 m_0(\xi)=\varphi(\xi),\qquad
 m_j(\xi)=\psi_j(\xi)\quad(j\ge1)
-$
+$$
 
 と書く。実値の滑らかなコンパクト台乗数 $\widetilde m_0$ は $\operatorname{supp}\varphi$ 上で1となるように取る。また、原点近傍で零、$\operatorname{supp}\psi$ 上で1となる実値の $\widetilde\psi\in C_c^\infty$ を取り、
 
-$
+$$
 \widetilde m_j(\xi)=\widetilde\psi(2^{-j}\xi)\quad(j\ge1)
-$
+$$
 
 と定める。これで各 $j\ge0$ について $\widetilde m_j=1$ が $\operatorname{supp}m_j$ 上で成り立つ。$\widetilde\Delta_j$ を乗数 $\widetilde m_j$ の作用素とする。このとき
 
