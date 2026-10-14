@@ -48,7 +48,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-uniformization-map -->
-**定義の確認。** $z$ を $z+\lambda$ に替えても [CA9の周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)により $\wp,\wp'$ は同じ値です。微分方程式への代入で像は曲線上にあり、原点類だけは $O$ と定義しました。さらに $\wp(-z)=\wp(z),\ \wp'(-z)=-\wp'(z)$ なので、反転は [EC2の反転](../EC2/index.md#def-ec2-inverse)と一致します。
+**定義の確認**。 $z$ を $z+\lambda$ に替えても [CA9の周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)により $\wp,\wp'$ は同じ値です。微分方程式への代入で像は曲線上にあり、原点類だけは $O$ と定義しました。さらに $\wp(-z)=\wp(z),\ \wp'(-z)=-\wp'(z)$ なので、反転は [EC2の反転](../EC2/index.md#def-ec2-inverse)と一致します。
 
 $$
 \Phi_\Lambda(-[z])=-\Phi_\Lambda([z]).
@@ -245,7 +245,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-period-lattice -->
-**定義の確認。** 一度 $a$ を周回する積分は $\Omega_1$、逆向きなら $-\Omega_1$、$a$ のあと $b$ を周回すれば積分の加法性から $\Omega_1+\Omega_2$ です。したがって閉路を整数回組み合わせて得られる積分は全て $\Lambda_E$ に含まれます。逆に両基本閉路の積分が実際に $\Omega_1,\Omega_2$ なので、格子内の整数結合は全て周期として実現します。非平行性はまだ前提にせず、次の証明で確かめます。
+**定義の確認**。 一度 $a$ を周回する積分は $\Omega_1$、逆向きなら $-\Omega_1$、$a$ のあと $b$ を周回すれば積分の加法性から $\Omega_1+\Omega_2$ です。したがって閉路を整数回組み合わせて得られる積分は全て $\Lambda_E$ に含まれます。逆に両基本閉路の積分が実際に $\Omega_1,\Omega_2$ なので、格子内の整数結合は全て周期として実現します。非平行性はまだ前提にせず、次の証明で確かめます。
 <!-- definition-example-end -->
 
 <a id="thm-ec3-converse-uniformization"></a>
@@ -327,7 +327,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-lattice-homothety -->
-**定義の確認。** $\Lambda=\mathbb Z+i\mathbb Z$、$\Lambda'=2\mathbb Z+2i\mathbb Z$ なら、任意の $m,n\in\mathbb Z$ に対して $2(m+ni)=2m+2ni$ なので $2\Lambda=\Lambda'$ です。$a=2\ne0$ が定義の条件を満たします。写像 $[z]\mapsto[2z]$ は $\mathbb C/\Lambda$ から $\mathbb C/\Lambda'$ への良定義な群同型で、逆は $[w]\mapsto[w/2]$ です。
+**定義の確認**。 $\Lambda=\mathbb Z+i\mathbb Z$、$\Lambda'=2\mathbb Z+2i\mathbb Z$ なら、任意の $m,n\in\mathbb Z$ に対して $2(m+ni)=2m+2ni$ なので $2\Lambda=\Lambda'$ です。$a=2\ne0$ が定義の条件を満たします。写像 $[z]\mapsto[2z]$ は $\mathbb C/\Lambda$ から $\mathbb C/\Lambda'$ への良定義な群同型で、逆は $[w]\mapsto[w/2]$ です。
 <!-- definition-example-end -->
 
 一般に $\Lambda'=a\Lambda$ なら $[z]\mapsto[az]$ が商の同型を与えます。曲線側でも $x,y$ をそれぞれ $a^{-2},a^{-3}$ 倍すると [CA9のスケーリング則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)と係数変換が一致します。
@@ -349,7 +349,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-j-invariant -->
-**定義の確認。** $E:y^2=x^3-x$ では $A=-1,B=0$、判別式 $-16(-4)=64\ne0$ ですから
+**定義の確認**。 $E:y^2=x^3-x$ では $A=-1,B=0$、判別式 $-16(-4)=64\ne0$ ですから
 
 $$
 j(E)=1728\frac{-4}{-4}=1728.
@@ -460,7 +460,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec3-complex-multiplication -->
-**定義の確認。** 正方格子 $\Lambda_\square=\mathbb Z+i\mathbb Z$ では
+**定義の確認**。 正方格子 $\Lambda_\square=\mathbb Z+i\mathbb Z$ では
 
 $$
 i(m+ni)=-n+mi\in\Lambda_\square\qquad(m,n\in\mathbb Z)
