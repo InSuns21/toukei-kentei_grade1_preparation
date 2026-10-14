@@ -20,7 +20,7 @@ chapters:
     title: "複素一様化・格子・j不変量"
   - id: EC4
     path: textbook/volumes/dream_thater/代数系/EC/EC4
-    status: planned
+    status: completed
     title: "Isogeny・自己準同型・torsionの代数的基盤"
   - id: EC5
     path: textbook/volumes/dream_thater/代数系/EC/EC5
