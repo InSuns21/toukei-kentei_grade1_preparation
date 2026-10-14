@@ -77,7 +77,7 @@ $$
 
 一方、$F_f(z)=f(z)+\sum_{j=1}^{m}f^{(j)}(z)$ です。二式の対応する項を引くと $F_f-F_f'=f$ が得られます。$m=0$ の場合も $F_f=f$ は定数で $F_f'=0$ となり同じ式です。
 
-[CA1の複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から $(e^{-z})'=-e^{-z}$、[複素微分の積の法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)から
+[CA1の複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から $(e^{-z})'=-e^{-z}$、[複素微分の微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)から
 
 $$
 \begin{aligned}
@@ -152,7 +152,7 @@ e^{-b}F_f(b)-e^{-a}F_f(a)
 \end{aligned}
 $$
 
-左右に $-1$ を掛け、次に $e^{a+b}$ を掛けます。指数関数の加法公式により $e^{a+b}e^{-a}=e^b$, $e^{a+b}e^{-b}=e^a$ なので、
+左右に $-1$ を掛け、次に $e^{a+b}$ を掛けます。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)にある $e^{u+v}=e^ue^v$ を用いると $e^{a+b}e^{-a}=e^b$, $e^{a+b}e^{-b}=e^a$ なので、
 
 $$
 \begin{aligned}
@@ -210,7 +210,7 @@ $$
 a+b-z=(1-t)b+ta
 $$
 
-です。[複素指数関数の絶対値公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)により、
+です。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)により、
 
 $$
 |e^{a+b-z}|
@@ -218,7 +218,7 @@ $$
 \le e^{\max(\operatorname{Re}a,\operatorname{Re}b)}.
 $$
 
-最後の不等式では $0\le t\le1$ による実部の凸結合を使いました。曲線が実軸上にあるとは仮定していません。
+最後の不等式では $0\le t\le1$ による実部の加重平均を使いました（係数 $1-t,t$ はともに非負で和は1です）。曲線が実軸上にあるとは仮定していません。
 
 <a id="prop-trn4-segment-bound"></a>
 
@@ -332,7 +332,7 @@ $$
 C=|b-a|e^{\max(\operatorname{Re}a,\operatorname{Re}b)}M
 $$
 
-を得ます。$C$ も $p$ には依存しません。この区別があれば、[TRN3の非零整数と階乗上界の補題](../TRN3/index.md#lem-trn3-integer-squeeze)を適用するために、**さらに何を算術的に証明する必要があるか**が見えます。
+を得ます。$C$ も $p$ には依存しません。この区別があれば、[非零整数と階乗上界の矛盾](../TRN3/index.md#lem-trn3-integer-squeeze)を適用するために、**さらに何を算術的に証明する必要があるか**が見えます。
 
 ## 5. 演習：導関数、積分路、上界を一つずつ接続する
 
@@ -414,7 +414,7 @@ e^i-1-i
 =-\int_0^1t e^{i(1-t)}\,dt.
 $$
 
-$|e^{i(1-t)}|=1$ なので、積分の三角不等式から
+$|e^{i(1-t)}|=1$ なので、[CA2のML評価](../../../解析系/CA/CA2/index.md#thm-ca2-reparam-ml)を使うと
 
 $$
 |e^i-1-i|\le\int_0^1t\,dt=\frac12.
@@ -592,4 +592,4 @@ $$
 
 この章では **有限微分和 $F_f$、複素端点の積分恒等式、線分上界**を一つにつなぎました。$F_f(a),F_f(b)$ は多項式の導関数値から計算でき、他方その指数付きの差は、分母に階乗を持つ小さい積分で表せます。
 
-[TRN3の階乗上界と非零整数の補題](../TRN3/index.md#lem-trn3-integer-squeeze)を使って超越性を得るには、依然として整数性・非零性を同一の補助量で証明する必要があります。次のTRN5では多重点 $0,1,\ldots,n$ と素数 $p$ を使い、この算術側を構成します。
+[非零整数と階乗上界の矛盾](../TRN3/index.md#lem-trn3-integer-squeeze)を使って超越性を得るには、依然として整数性・非零性を同一の補助量で証明する必要があります。次のTRN5では多重点 $0,1,\ldots,n$ と素数 $p$ を使い、この算術側を構成します。
