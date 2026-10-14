@@ -882,6 +882,7 @@
 ### 楕円曲線
 
 1. [EC1 非特異三次曲線とWeierstrass方程式](textbook/volumes/dream_thater/代数系/EC/EC1/index.md)
+2. [EC2 割線・接線群則と結合法則の証明](textbook/volumes/dream_thater/代数系/EC/EC2/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
