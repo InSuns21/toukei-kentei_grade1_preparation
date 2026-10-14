@@ -289,9 +289,9 @@ $$
 
 **(1) causalであること**。任意の未来因果曲線では[未来速度の補題](#lem-lorg9-cylinder-future)から、各滑らかな片で $\dot u\ge0$ です。閉曲線なら始点と終点の $u$ 座標は一致するので、
 
-$
+$$
 0=u(1)-u(0)=\int_0^1\dot u(s)\,ds.
-$
+$$
 
 非負の連続な被積分関数の積分が零なので、各片で $\dot u=0$ です。[未来速度の補題](#lem-lorg9-cylinder-future)より、非零速度が残るのは $u=0$ 上の正の $\partial_\theta$ 方向に限られます。従って非定数閉因果曲線は、$u=0$ 上の円周だけをたどる必要があります。
 
@@ -504,17 +504,17 @@ $p\le q\le p$ を仮定し、未来識別性だけで $p=q$ を示せ。$I^+(p)\
 <!-- solution-start -->
 **詳細解答**。任意の $r\in I^+(p)$ を取ると $p\ll r$ です。三点を $(q,p,r)$ の順に選べば
 
-$
+$$
 q\le p\ll r\quad\Longrightarrow\quad q\ll r
-$
+$$
 
 となります。含意は[LORG7のpush-up補題](../LORG7/index.md#thm-lorg7-push-up)です。従って $I^+(p)\subset I^+(q)$ です。
 
 逆に任意の $r\in I^+(q)$ を取り、三点 $(p,q,r)$ に対して同じ[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を使うと、
 
-$
+$$
 p\le q\ll r\quad\Longrightarrow\quad p\ll r.
-$
+$$
 
 よって $I^+(q)\subset I^+(p)$ も成立します。二つの包含から未来集合が一致し、[未来識別性](#def-lorg9-distinguishing)によって $p=q$ が従います。
 
@@ -576,13 +576,7 @@ $g(\dot\gamma,T)<0$ でもあり未来時間的です。途中では $u>0$ な�
 次の三時空をそれぞれchronological、causal、future distinguishing、past distinguishingの四条件で分類せよ。
 
 1. 時間周期円筒 $(\mathbb R/2\mathbb Z)\times\mathbb R$ に計量 $-dt^2+dx^2$ を入れたもの。
-2. 円筒 $C=(-1,1)\times(\mathbb R/\mathbb Z)$ に計量
-
-$
-g=-2\,du\,d\theta+u^2d\theta^2
-$
-
-および時間向き $T=\partial_u+\partial_\theta$ を入れたもの。
+2. 円筒 $C=(-1,1)\times(\mathbb R/\mathbb Z)$ に計量 $g=-2\,du\,d\theta+u^2d\theta^2$ と時間向き $T=\partial_u+\partial_\theta$ を入れたもの。
 3. 2から一点 $(0,[0])$ を除いた時空 $C^\ast$。
 
 閉路、未来・過去の集合、含意の根拠を明示せよ。また、任意の正の滑らかな関数 $\Omega$ による共形再尺度 $\Omega^2g$ で分類が変わるか述べよ。
