@@ -215,6 +215,7 @@
 6. [HA6 BMOと端点の見取り図](textbook/volumes/dream_thater/解析系/HA/HA6/index.md)
 7. [HA7 RieszポテンシャルとHardy–Littlewood–Sobolev不等式](textbook/volumes/dream_thater/解析系/HA/HA7/index.md)
 8. [HA8 Littlewood–Paley理論と周波数局在](textbook/volumes/dream_thater/解析系/HA/HA8/index.md)
+9. [HA9 Mikhlin–Hörmander型Fourier乗数](textbook/volumes/dream_thater/解析系/HA/HA9/index.md)
 
 <a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
