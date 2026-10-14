@@ -1,0 +1,55 @@
+id: "LORG12"
+title: "achronal集合・edge・achronal境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+official_scope: []
+learning_objectives:
+  - achronalとacausalの定義を自己到達と光的対を区別して判定できる
+  - edgeの任意近傍条件と局所到達関係を用いて時刻一定集合の端を計算できる
+  - 未来集合とachronal境界を定義し閉性・achronal性を証明できる
+  - 境界の局所連続・Lipschitzグラフ表示の構成と傾き評価を再現できる
+  - 局所グラフの中間値の定理からachronal境界のedgeが空であることを証明できる
+  - 局所因果曲線のコンパクト性から境界の光的生成子と過去端点条件を導ける
+  - 半直線・線分の未来境界と光的生成子を座標で計算できる
+definitions:
+  - { id: LORG12-DEF-01, name: achronal集合とacausal集合 }
+  - { id: LORG12-DEF-02, name: achronal集合のedge }
+  - { id: LORG12-DEF-03, name: achronal境界 }
+theorems:
+  - { id: LORG12-PROP-01, name: causal時空での二条件の関係 }
+  - { id: LORG12-LEM-01, name: Minkowski時刻一定面のedge }
+  - { id: LORG12-THM-01, name: 時間的未来の境界は閉かつachronal }
+  - { id: LORG12-LEM-02, name: achronal境界の局所グラフ表示 }
+  - { id: LORG12-THM-02, name: achronal境界にはedgeがない }
+  - { id: LORG12-THM-03, name: 未来achronal境界の光的生成子 }
+canonical_examples:
+  - Minkowski時刻一定面と光線分のachronal/acausal判定
+  - 開閉区間・半直線のedge
+  - Minkowski未来光円錐のachronal境界
+  - 半直線の未来境界と過去端点を持つ光的生成子
+problem_patterns:
+  - LORG12-TIME-SLICE
+  - LORG12-NULL-SEGMENT
+  - LORG12-INTERVAL-EDGE
+  - LORG12-POINT-BOUNDARY
+  - LORG12-OPEN-CLOSED-EDGE
+  - LORG12-BOUNDARY-ACHRONAL-PROOF
+  - LORG12-GRAPH-EDGE-PROOF
+  - LORG12-HALFLINE-NULL-GENERATOR
+  - LORG12-SEGMENT-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 11, review: 7 }
