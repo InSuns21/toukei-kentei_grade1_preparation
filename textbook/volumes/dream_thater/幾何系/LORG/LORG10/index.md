@@ -265,9 +265,9 @@ $$
 
 さらに勾配を定義から計算します。任意の接ベクトル $v=a\partial_t+\sum_{i=1}^{n}b_i\partial_{x^i}$ に対し、計量の時間・空間成分を代入すると
 
-$
+$$
 g(-\partial_t,v)=a=d\tau(v).
-$
+$$
 
 したがって、すべての $v$ で $g(\nabla^g\tau,v)=d\tau(v)$ を満たす勾配は $\nabla^g\tau=-\partial_t$ です。その自己内積は $g(\nabla^g\tau,\nabla^g\tau)=-1<0$ です。$-\partial_t$ は過去向きなのでtemporal functionの条件も満たします。**時間関数は連続性だけが必要**であり、temporal functionの方が強い正則性と勾配条件を要求します。
 
@@ -350,10 +350,10 @@ $T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$
 
 さらに $\widehat g(T,T)=-(A^{-1}+\varepsilon)$、$\widehat g(T,w)=0$ です。任意の $v=aT+w$ に対して
 
-$
+$$
 \widehat g\left(-\frac{T}{A^{-1}+\varepsilon},v\right)
 =a=d\tau(v)
-$
+$$
 
 なので、勾配の定義と計量の非退化性から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と分かり、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。 $\square$
 <!-- proof-end -->
