@@ -1,10 +1,10 @@
 version: 1
 id: HA
 title: "調和解析"
-plan: textbook/plans_progress/DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# HA1で着手。進捗は本manifestを正本として、残りの章を順次執筆する。
+# 全11講 completed。系列全体のPLANは plan_done に保管する。
 chapters:
   - id: HA1
     path: textbook/volumes/dream_thater/解析系/HA/HA1
