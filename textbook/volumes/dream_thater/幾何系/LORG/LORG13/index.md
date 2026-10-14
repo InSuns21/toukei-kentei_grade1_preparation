@@ -281,7 +281,7 @@ $p,q\in H^+(S)$ で $p\ll q$ と仮定します。$q\in\overline D$ なので $q
 
 [閉じた初期区間の依存ダイヤモンド](#cor-lorg13-closed-interval)から $D^+(S_a)=\{t\ge0,t+|x|\le a\}$ であり閉です。$p=(t,x)$ が $t+|x|<a$ を満たし $t\ge0$ なら、$0<\varepsilon<a-t-|x|$ を選び、$q=(t+\varepsilon,x)$ とします。$p\ll q$ であり $(t+\varepsilon)+|x|<a$ より $q\in D^+(S_a)$ です。従って $p\in I^-(D^+(S_a))$ です。
 
-反対に $t+|x|=a$ の $p=(t,x)$ から $p\ll q=(u,y)$ とすると、[Minkowski到達条件](../LORG6/index.md#thm-lorg6-minkowski-futures)より $u-t>|y-x|$ です。逆三角不等式 $|y|\ge|x|-|y-x|$ により
+反対に $t+|x|=a$ の $p=(t,x)$ から $p\ll q=(u,y)$ とすると、[Minkowski到達条件](../LORG6/index.md#thm-lorg6-minkowski-futures)より $u-t>|y-x|$ です。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality) $|y|\ge|x|-|y-x|$ により
 
 $$
 u+|y|
