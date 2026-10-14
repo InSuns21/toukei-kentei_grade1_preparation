@@ -35,7 +35,9 @@ $$
 > **定義（射の次数と分離性）**  
 > 非定数な射 $\phi:E\to E'$ について、有限関数体拡大 $K(E)/\phi^*K(E')$ の次数を
 >
-> $$\deg\phi=[K(E):\phi^*K(E')]\ge1$$
+$$
+\deg\phi=[K(E):\phi^*K(E')]\ge1
+$$
 >
 > と定める。拡大が分離拡大なら $\phi$ は**分離的**、そうでなければ**非分離的**という。零写像については $\deg0=0$ と約束する。
 <!-- formal-statement-end -->
@@ -77,7 +79,9 @@ $$
 > **補題（次数0の因子と群の点）**  
 > 代数閉体 $K$ 上の非特異Weierstrass曲線 $E$ と次数0の因子 $D$ について
 >
-> $$D\sim (S(D))-(O).$$
+$$
+D\sim (S(D))-(O).
+$$
 >
 > とくに $D$ が主因子である必要十分条件は $S(D)=O$ である。従って次数0の因子を主因子で割った群 $\operatorname{Pic}^0(E)$ は、$[(P)-(O)]\leftrightarrow P$ により $E(K)$ と群同型になる。
 <!-- formal-statement-end -->
@@ -134,7 +138,9 @@ $$
 > **定理（原点を保つ非定数射は準同型）**  
 > $K$ 上の非特異Weierstrass曲線 $E,E'$ の間の非定数射 $\phi:E\to E'$ が $\phi(O)=O'$ を満たすなら、任意の $P,Q\in E(K)$ に対し
 >
-> $$\phi(P+Q)=\phi(P)+\phi(Q)$$
+$$
+\phi(P+Q)=\phi(P)+\phi(Q)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -198,7 +204,9 @@ $$
 > **補題（座標の差と次数の平行四辺形則）**  
 > 同一の楕円曲線 $E'$ を値域とする非零の同種写像 $\alpha,\beta:E\to E'$ で、$\alpha\ne\beta$ かつ $\alpha\ne-\beta$ とする。このとき
 >
-> $$\deg(\alpha+\beta)+\deg(\alpha-\beta)=2\deg\alpha+2\deg\beta.$$
+$$
+\deg(\alpha+\beta)+\deg(\alpha-\beta)=2\deg\alpha+2\deg\beta.
+$$
 >
 > $\alpha=0,\beta=0,\alpha=\pm\beta$ の場合も、倍加の次数 $\deg[2]=4$ と合成次数の乗法性を使えば同じ等式が成り立つ。
 <!-- formal-statement-end -->
@@ -243,7 +251,9 @@ $$
 > **定理（倍数写像の次数）**  
 > $K$ を任意標数の代数閉体、$E/K$ を非特異楕円曲線とする。全整数 $n$ に対して
 >
-> $$\deg[n]=n^2$$
+$$
+\deg[n]=n^2
+$$
 >
 > が成り立つ。ただし $[0]$ は零写像で、$\deg[0]=0$ とする。
 <!-- formal-statement-end -->
@@ -283,12 +293,14 @@ $$
 > **定理（同種写像の次数の二次性）**  
 > $E,E'$ を代数閉体上の楕円曲線、$\alpha,\beta:E\to E'$ を同種写像または零写像とする。整数 $m,n$ に対し
 >
-> $$
-> \deg([m]\alpha+[n]\beta)
+$
+\deg([m]\alpha+[n]\beta)
 > =m^2\deg\alpha+mn\,B(\alpha,\beta)+n^2\deg\beta,
-> $$
+$
 >
-> $$B(\alpha,\beta)=\deg(\alpha+\beta)-\deg\alpha-\deg\beta$$
+$$
+B(\alpha,\beta)=\deg(\alpha+\beta)-\deg\alpha-\deg\beta
+$$
 >
 > が成り立つ。非定数射の次数は正、零写像の次数は0である。
 <!-- formal-statement-end -->
@@ -350,10 +362,10 @@ $$
 > **定義（双対同種写像）**  
 > 代数閉体 $K$ 上の同種写像 $\phi:E\to E'$ に対し、次数0の因子 $\phi^*((Q)-(O'))$ に[因子の和](#lem-ec4-divisor-sum)を適用して得る点を $\widehat\phi(Q)\in E(K)$ と定める。すなわち
 >
-> $$
-> \widehat\phi(Q)=
-> \sum_{\phi(P)=Q}[e_P]P-\sum_{\phi(T)=O'}[e_T]T.
-> $$
+$
+\widehat\phi(Q)=
+\sum_{\phi(P)=Q}[e_P]P-\sum_{\phi(T)=O'}[e_T]T.
+$
 >
 > この写像を $\phi$ の**双対同種写像**という。
 <!-- formal-statement-end -->
@@ -368,11 +380,11 @@ $$
 > **定理（双対同種写像の合成と次数）**  
 > $K$ 上の非特異楕円曲線間の同種写像 $\phi:E\to E'$ を次数 $d\ge1$ とする。上の $\widehat\phi:E'\to E$ は原点を保つ同種写像であり
 >
-> $$
-> \widehat\phi\circ\phi=[d]_E,\qquad
-> \phi\circ\widehat\phi=[d]_{E'},\qquad
-> \deg\widehat\phi=d
-> $$
+$
+\widehat\phi\circ\phi=[d]_E,\qquad
+\phi\circ\widehat\phi=[d]_{E'},\qquad
+\deg\widehat\phi=d
+$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -427,7 +439,9 @@ $d>0$ で割れば $\deg\widehat\phi=d$ です。$\square$
 > **定義（$n$-torsion）**  
 > 代数閉体 $K$ 上の楕円曲線 $E$ と整数 $n\ge1$ に対し
 >
-> $$E[n]=\ker([n]:E(K)\to E(K))=\{P:[n]P=O\}$$
+$$
+E[n]=\ker([n]:E(K)\to E(K))=\{P:[n]P=O\}
+$$
 >
 > を $n$-torsion 部分群と呼ぶ。$E(k)[n]=E[n]\cap E(k)$ は $k$-有理な $n$-torsion 点の集合であり、$E[n]$ 全体とは一般に異なる。
 <!-- formal-statement-end -->
@@ -459,7 +473,9 @@ $$
 > **定理（標数とtorsionの構造）**  
 > $K$ を標数 $p\ge0$ の代数閉体、$E/K$ を非特異楕円曲線、$n\ge1$ とする。$p\nmid n$（標数0の場合は全ての $n$）なら
 >
-> $$E[n]\simeq(\mathbb Z/n\mathbb Z)^2,\qquad \#E[n]=n^2.$$
+$$
+E[n]\simeq(\mathbb Z/n\mathbb Z)^2,\qquad \#E[n]=n^2.
+$$
 >
 > 標数 $p>0$ では $[p]$ は非分離的で、$E[p]$ は $\{O\}$ または $\mathbb Z/p\mathbb Z$ に同型である。
 <!-- formal-statement-end -->
@@ -523,17 +539,17 @@ $$
 > **命題（有理2位数点から作る次数2同種写像）**  
 > 標数が2でない体 $k$ と $a,b\in k$、$b(a^2-4b)\ne0$ を取る。非特異曲線
 >
-> $$
+$
 > E:y^2=x^3+ax^2+bx,\qquad
 > E':Y^2=X^3-2aX^2+(a^2-4b)X
-> $$
+$
 >
 > に対し、$x\ne0$ では
 >
-> $$
-> \phi(x,y)=
-> \left(x+a+\frac b x,\quad y\left(1-\frac b{x^2}\right)\right)
-> $$
+$
+\phi(x,y)=
+\left(x+a+\frac b x,\quad y\left(1-\frac b{x^2}\right)\right)
+$
 >
 > と定め、$\phi(O)=O'$、$\phi(0,0)=O'$ と延長すると、$\phi:E\to E'$ は分離的な次数2同種写像で、$\ker\phi=\{O,(0,0)\}$ である。
 <!-- formal-statement-end -->
