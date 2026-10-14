@@ -547,7 +547,14 @@ $$
 
 です。したがって $\widetilde T_z$ の $L^2\to L^2$、$L^1\to L^\infty$ 端点ノルムはそれぞれ $t$ に一様に有界になります。しかも $\widetilde T_{-1}=T_{-1}$ です。
 
-ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$K_z$ の級数は有限の $x$ と $z$ のコンパクト集合上で正規収束するので、コンパクト台の有界関数 $u,v$ に対する $\langle T_z u,v\rangle=\iint K_z(x-y)u(y)\overline{v(x)}\,dy\,dx$ は $z$ に正則です。これにより、以下の補間用単関数から作る補助関数に[三線定理](../HA2/index.md#lem-ha2-three-lines)を適用するための解析性を確認できます。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
+ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$K_z$ の級数は有限の $x$ と $z$ のコンパクト集合上で正規収束するので、コンパクト台の有界関数 $u,v$ に対する $\langle T_z u,v\rangle=\iint K_z(x-y)u(y)\overline{v(x)}\,dy\,dx$ は $z$ に正則です。これにより、以下の補間用単関数から作る補助関数の解析性を確認できます。さらに帯の内部での有界性も確かめます。$\nu=d/2+z$ とすれば $\operatorname{Re}\nu\ge-1/2$ なので、Gammaの漸化式より
+
+$$
+\frac1{|\Gamma(k+\nu+1)|}
+\le \frac{\Gamma(1/2)}{|\Gamma(\nu+1)|\,\Gamma(k+1/2)}.
+$$
+
+$\operatorname{Re}(\nu+1)\in[1/2,d/2+1]$ ではGammaの積表示から $|\Gamma(\nu+1)|^{-1}\le Ce^{C(1+|\operatorname{Im}z|^2)}$ です。実際、積表示の虚部による倍率は $\prod_{n\ge1}(1+t^2/(n+u)^2)^{1/2}$ 型で、対数を取れば $\log(1+v)\le v$ と $\sum_{n\ge1}(n+u)^{-2}<\infty$ によって $Ct^2$ 以下になります。よって $|x-y|$ が有界な範囲では、先の級数から $|K_z(x-y)|\le C_R e^{C_R(1+|\operatorname{Im}z|^2)}$。Gaussian因子の係数 $A$ を必要なら大きく取ると、補間する $\Phi(w)$ は閉帯全体で有界になり、[有界正則関数版の三線定理](../HA2/index.md#lem-ha2-three-lines)の仮定を満たします。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
 
 $$
 \frac1p=\frac{1-\theta}{2}+\theta
