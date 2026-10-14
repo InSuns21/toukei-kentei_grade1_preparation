@@ -34,7 +34,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-未来側を証明します。$I^+(p)$ は開なので $I^+(p)\subset\operatorname{Int}\overline{I^+(p)}$ です。逆に $q\in\operatorname{Int}\overline{I^+(p)}$ とします。$q$ の十分小さな時間的過去に $r\ll q$ を取り、しかも $r$ がこの閉包の内部に属するようにします。$r\in\overline{I^+(p)}$ だから、$r_k\in I^+(p)$ で $r_k\to r$ を取れます。[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)を $r\ll q$ に適用すると、十分大きな $k$ で $r_k\ll q$ です。$p\ll r_k\ll q$ を推移させれば $p\ll q$ となり、$q\in I^+(p)$ です。
+未来側を証明します。$I^+(p)$ は開なので、
+
+$
+I^+(p)\subset\operatorname{Int}\overline{I^+(p)}
+$
+
+です。逆に $q\in\operatorname{Int}\overline{I^+(p)}$ とします。この内部は開なので、$q$ の十分小さな時間的過去に $r\ll q$ を取り、$r$ もこの内部に属するようにできます。
+
+$r\in\overline{I^+(p)}$ だから、点列 $r_k\in I^+(p)$、$r_k\to r$ を取れます。[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)を $r\ll q$ に適用すると、十分大きな $k$ で $r_k\ll q$ です。従って
+
+$
+p\ll r_k\ll q\quad\Longrightarrow\quad p\ll q
+$
+
+となり、$q\in I^+(p)$ です。
 
 二番目の等式 $\overline{I^+(p)}=\overline{J^+(p)}$ は、[LORG7の内部・閉包命題](../LORG7/index.md#prop-lorg7-interior-closure)を $S=\{p\}$ に適用したものです。同命題は $I^+(p)\subset J^+(p)$ と、$q\in J^+(p)$ の直後に $q\ll q_k\to q$ を取り[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を使う逆包含を証明しています。過去側も未来と過去を交換した同じ議論です。$\square$
 <!-- proof-end -->
@@ -470,7 +484,7 @@ $$
 二次元Minkowski時空で $p=(2,-1)$ とする。$I^+(p)$、$\overline{I^+(p)}$、その内部を不等式で表せ。
 
 <!-- solution-start -->
-**詳細解答**。[LORG6のMinkowski時空での未来錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)によれば、未来時間的な変位は $\Delta t>|\Delta x|$ を満たすので
 $$
 I^+(p)=\{(t,x):t-2>|x+1|\}.
 $$
@@ -488,7 +502,7 @@ $$
 Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overline{I^+(p)}$ かを判定し、過去側の閉包条件も確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[Minkowskiの閉錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)を二点の変位に適用します。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
+**詳細解答**。[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)を二点の変位に適用します。$q-p=(3,3)$ では $\Delta t=3=|\Delta x|$ なので $q$ は未来閉錐の境界にあります。同時に $p$ は $q$ の過去閉錐の境界です。$r-p=(2,4)$ では $2<4$ なので $r$ は未来閉錐の外側、$p$ も $r$ の過去閉錐の外側です。二組とも定義の左右で真偽が一致します。
 <!-- solution-end -->
 
 <a id="ex-lorg11-a03"></a>
@@ -498,7 +512,7 @@ Minkowski時空で $p=(1,2)$、$q=(4,5)$、$r=(3,6)$ とする。$q,r\in\overlin
 $M=\mathbb R^{1,1}$ に $-dt^2+dx^2$ を入れる。causality、$J^+(p)$ の閉性、$J^-(p)$ の閉性を別々に検証せよ。
 
 <!-- solution-start -->
-**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また[LORG6のMinkowski因果未来・過去公式](../LORG6/index.md#thm-lorg6-minkowski-futures)より
+**詳細解答**。非定数未来因果曲線では $t$ は厳密に増すから閉曲線はありません。また[Minkowski時空の時間的・因果的未来と過去](../LORG6/index.md#thm-lorg6-minkowski-futures)より
 $$
 J^+(p)=\{q:t_q-t_p\ge|x_q-x_p|\},
 \quad
