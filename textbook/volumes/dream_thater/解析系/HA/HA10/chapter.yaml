@@ -11,17 +11,18 @@ learning_objectives:
   - 位相・振幅・停留点・Hessian・非退化性と符号数を定義し二次関数で直接判定できる
   - 勾配が消えない台での繰り返し部分積分と任意冪減衰を証明できる
   - van der Corputの二階微分補題を低振動領域と部分積分に分けて証明できる
-  - 非退化臨界点の局所二次標準形を構成してJacobianの行列式を検算できる
+  - 非退化停留点の局所二次標準形を構成してJacobianの行列式を検算できる
   - Gaussian正則化とFourier反転から二次位相の主係数と誤差を証明できる
   - 一般の非退化定常位相公式を証明し次元・Hessian符号数・行列式の係数を再現できる
   - 球面面積測度のFourier変換の漸近と減衰を座標・Hessian・面積Jacobianから示せる
   - 退化位相と曲率零の例で減衰指数や非減衰の理由を説明できる
 definitions:
-  - { id: HA10-DEF-01, name: 停留点・非退化臨界点と符号数 }
+  - { id: HA10-DEF-01, name: 停留点・非退化停留点と符号数 }
+  - { id: HA10-DEF-02, name: 球面面積測度 }
 theorems:
   - { id: HA10-PROP-01, name: 非停留領域の速い減衰 }
   - { id: HA10-LEM-01, name: van der Corputの二階微分評価 }
-  - { id: HA10-LEM-02, name: 非退化臨界点の局所二次標準形 }
+  - { id: HA10-LEM-02, name: 非退化停留点の局所二次標準形 }
   - { id: HA10-LEM-03, name: 二次位相の漸近公式 }
   - { id: HA10-THM-01, name: 非退化停留点の定常位相公式 }
   - { id: HA10-THM-02, name: 球面面積測度のFourier減衰 }
