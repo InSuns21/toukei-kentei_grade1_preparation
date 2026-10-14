@@ -75,7 +75,7 @@ chapters:
     title: "Lorentz時間分離とLorentz長さの極限"
   - id: LORG18
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG18
-    status: planned
+    status: completed
     title: "最大化因果曲線とAvez–Seifert"
   - id: LORG19
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG19
