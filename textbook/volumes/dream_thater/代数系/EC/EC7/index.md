@@ -74,7 +74,7 @@ $$
 
 上で数えた曲線 $E_2:y^2+y=x^3+x$ では、$y$ の一次項が効いています。この項を消そうとして $2$ で割ると標数2で破綻します。[EC1の一般方程式](../EC1/index.md#def-ec1-weierstrass-curve)をそのまま使う理由です。
 
-逆元公式は $(x,y)\mapsto(x,y+1)$。従って $(0,0)$ の逆元は $(0,1)$、$(1,0)$ の逆元は $(1,1)$ です。群の元が5個なので、[有限群のLagrangeの定理](../../GRP/GRP2/index.md#thm-grp2-lagrange)から単位元以外の点の位数は5です。有限体のすべての楕円曲線で5が出るわけではなく、この特定の方程式に対する結論です。
+逆元公式は $(x,y)\mapsto(x,y+1)$。従って $(0,0)$ の逆元は $(0,1)$、$(1,0)$ の逆元は $(1,1)$ です。群の元が5個なので、[有限群の位数に関する定理](../../GRP/GRP2/index.md#thm-grp2-lagrange)から単位元以外の点の位数は5です。有限体のすべての楕円曲線で5が出るわけではなく、この特定の方程式に対する結論です。
 
 計算でも確かめます。$P=(0,0)$ で暗黙微分すると
 
@@ -151,7 +151,7 @@ $$
 [3]P=(4^2-0-4,\ 4(0-2)-1)=(2,1).
 $$
 
-$[3]P\ne O$ です。点群の位数は9なので、Lagrangeの定理から $P$ の位数は9（1または3ではない）です。従って $E(\mathbb F_5)$ は巡回群 $\mathbb Z/9\mathbb Z$ です。
+$[3]P\ne O$ です。点群の位数は9なので、有限群の位数に関する定理から $P$ の位数は9（1または3ではない）です。従って $E(\mathbb F_5)$ は巡回群 $\mathbb Z/9\mathbb Z$ です。
 
 ## 4. Frobeniusは体の写像から曲線の射になる
 
@@ -162,12 +162,12 @@ $$
 (uv)^q=u^qv^q
 $$
 
-が成り立ちます。また $a\in\mathbb F_q$ なら $a^q=a$ です。この二つを組み合わせると、曲線の方程式が保たれます。
+が成り立ちます。また $a\in\mathbb F_q$ なら $a^q=a$ です。この二つを組み合わせると、曲線の方程式が保たれます。この座標操作を曲線の射として扱うため、次に楕円曲線のq-Frobeniusを導入します。
 
 <a id="def-ec7-frobenius"></a>
 
 <!-- formal-statement-start -->
-> **定義（楕円曲線の$q$-Frobenius）**  
+> **定義（楕円曲線のq-Frobenius）**  
 > $\mathbb F_q$ 上の非特異 Weierstrass 曲線 $E$ について、座標を $K=\overline{\mathbb F}_q$ で取る点への写像
 
 $$
@@ -258,7 +258,7 @@ $$
 
 ## 6. 固定点から点数へ
 
-有限体の元の特徴は $u^q=u$ です。[FLD3の固定体の結果](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)を使えば、$K$ 内でこの等式を満たす元がちょうど $\mathbb F_q$ と分かります。この事実を二つの座標に同時に使います。
+有限体の元の特徴は $u^q=u$ です。[FLD3の相対Frobeniusの固定元についての結果](../../FLD/FLD3/index.md#thm-fld3-relative-frobenius)を使えば、$K$ 内でこの等式を満たす元がちょうど $\mathbb F_q$ と分かります。この事実を二つの座標に同時に使います。
 
 <a id="thm-ec7-fixed-points"></a>
 
@@ -335,6 +335,8 @@ $$
 **ここで得たもの。** $\deg\pi_q=q$ と $\deg([1]-\pi_q)=N_q(E)$ は別々の数字です。後者と [EC4の次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を合わせると、次章で $N_q(E)$ に対する強い不等式を導けます。
 
 ## 7. 点数のずれを記録する
+
+有限体上の点数が $q+1$ に一致するかどうかを毎回総点数で比較するのは手間がかかります。そこで基準値 $q+1$ との差を一つの整数で記録します。この整数を**有限体上の点数差**と名付け、後の次数の二次式にも使います。
 
 <a id="def-ec7-trace"></a>
 
@@ -450,7 +452,7 @@ $$
 x^2+x=x^3+x\quad\Longleftrightarrow\quad x^2(x+1)=0
 $$
 
-を得ます。第三交点は $(1,1)$、一般形の逆元公式 $-(x,y)=(x,y+1)$ より $[2]P=(1,0)$ です。[有限部分群の命題](#prop-ec7-finite-subgroup)と [Lagrangeの定理](../../GRP/GRP2/index.md#thm-grp2-lagrange)から $P$ の位数は5の約数です。$P\ne O$ なので位数は5です。
+を得ます。第三交点は $(1,1)$、[EC2の逆元の座標式](../EC2/index.md#def-ec2-chord-tangent-addition) $-(x,y)=(x,y+1)$ より $[2]P=(1,0)$ です。[有限部分群の命題](#prop-ec7-finite-subgroup)と [有限群の位数に関する定理](../../GRP/GRP2/index.md#thm-grp2-lagrange)から $P$ の位数は5の約数です。$P\ne O$ なので位数は5です。
 <!-- solution-end -->
 
 ### B2. $\mathbb F_3$で群の生成元を探す
@@ -548,7 +550,7 @@ $$
 
 よって $P$ は位数4で群は巡回群 $\mathbb Z/4\mathbb Z$。一方 $y^2+y=x^3+x$ の点群の位数は5で巡回群 $\mathbb Z/5\mathbb Z$ でした。曲線の係数が変わると $N_2$ も変わります。
 
-[次数定理](#thm-ec7-frobenius-degree)に $q=2$ を代入すれば $C$ 上でも $\deg\pi_2=2$ です。これは $N_2(C)=4$ と一致する必要はありません。代わりに [差の射の命題](#prop-ec7-one-minus-frobenius)から $\deg([1]-\pi_2)=4$ です。
+[次数定理](#thm-ec7-frobenius-degree)に $q=2$ を代入すれば $C$ 上でも $\deg\pi_2=2$ です。これは $N_2(C)=4$ と一致する必要はありません。一方、[本章の差の射についての命題](#prop-ec7-one-minus-frobenius)から $\deg([1]-\pi_2)=4$ です。
 <!-- solution-end -->
 
 ## 9. 次章への接続
