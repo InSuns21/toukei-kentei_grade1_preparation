@@ -16,6 +16,7 @@ prerequisites:
   - LORG12
   - LORG13
   - GEO10
+  - GEO15
 concepts:
   - id: lorentz-geometry.auxiliary-arclength
     name: 補助Riemann弧長パラメータ化
