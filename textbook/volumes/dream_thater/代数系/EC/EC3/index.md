@@ -270,7 +270,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 二周期の独立性。** $a,b$ を切り開いたトーラスの基本領域を $D$ とします。$D$ は二つの基本閉路に沿って切り開いた円板状の領域で、全ての閉路が点へ縮められるため積分の経路依存がありません。そこで $\omega$ の原始関数 $F$ を取れます。複素共役の微分を $\overline\omega$ と書き、Stokesの公式を $d(F\overline\omega)=\omega\wedge\overline\omega$ に適用します。向きの取り方を $a,b$ の正向きに合わせると、向かい合う辺における $F$ の値の差がそれぞれ $\Omega_1,\Omega_2$ となり、
+**(1) 二周期の独立性。** $a,b$ を切り開いたトーラスの基本領域を $D$ とします。二つの基本閉路に沿って切り開いた $D$ は円板状で、全ての閉路が点へ縮められます。従って正則微分 $\omega$ はこの領域で経路に依存しない原始関数 $F$ を持ちます。
+
+複素共役の微分を $\overline\omega$ とし、Stokesの公式を $d(F\overline\omega)=\omega\wedge\overline\omega$ に適用します。向きの取り方を $a,b$ の正向きに合わせると、向かい合う辺における $F$ の値の差がそれぞれ $\Omega_1,\Omega_2$ となり、
 
 $$
 \int_E\omega\wedge\overline\omega
@@ -299,7 +301,9 @@ $$
 \frac{dX}{dz}=2Y.
 $$
 
-無限遠点では $t=-x/y$ と $\omega=(1+O(t^4))dt$ だから $z=t+O(t^5)$、従って $X=z^{-2}+O(z^2)$ です。$x$ は $O$ に二重極を一つ持ち、他には極を持ちません。[$\wp$ の極構造](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)も同じなので $X-\wp_{\Lambda_E}$ は極のない楕円関数です。[CA8の正則関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)により定数 $c$ です。しかも上の展開と $\wp(z)=z^{-2}+O(z^2)$ の比較から $c=0$ です。従って
+無限遠点では $t=-x/y$ と $\omega=(1+O(t^4))dt$ だから、積分座標は $z=t+O(t^5)$。従って $X=z^{-2}+O(z^2)$ です。$x$ は $O$ に二重極を一つ持ち、他には極を持ちません。
+
+[$\wp$ の極構造](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)も同じなので $X-\wp_{\Lambda_E}$ は極のない楕円関数です。[正則関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)により定数 $c$ です。上の展開と $\wp(z)=z^{-2}+O(z^2)$ の比較から $c=0$ です。従って
 
 $$
 X(z)=\wp_{\Lambda_E}(z),\qquad
@@ -380,7 +384,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 曲線の必要性。** 原点を保つ同型がどの座標変換を誘導するかを先に確かめます。第3節で曲線は $\mathbb C/\Lambda$ と同一視できます。格子類 $[0]$ 以外で極のない有理型関数のLaurent主部を考えます。[留数和が0となる定理](../../../解析系/CA/CA9/index.md#thm-ca9-residue-sum-zero)により唯一の極の $z^{-1}$ 項は零です。従って唯一の極の位数が2以下なら $\wp$ の適切な倍を引いた差は正則楕円関数、位数が3以下なら $\wp'$ と $\wp$ の適切な倍を引いた差は正則楕円関数です。$L(nO)$ を、$O$ 以外に極を持たず、$O$ で高々 $n$ 位の極を持つ有理型関数の空間と書きます。上の主部の消去と [正則楕円関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)から、それぞれ
+**(1) 曲線の必要性。** 原点を保つ同型が誘導する座標変換を確かめます。第3節で曲線は $\mathbb C/\Lambda$ と同一視できます。格子類 $[0]$ 以外で極のない有理型関数のLaurent主部を考えます。
+
+[留数和が0となる定理](../../../解析系/CA/CA9/index.md#thm-ca9-residue-sum-zero)により唯一の極の $z^{-1}$ 項は零です。極の位数が2以下なら $\wp$ の倍数を引いた差は正則楕円関数です。位数が3以下なら $\wp'$ と $\wp$ の倍数を引いて極を消せます。
+
+$L(nO)$ を、$O$ 以外に極を持たず、$O$ で高々 $n$ 位の極を持つ有理型関数の空間と書きます。主部の消去と [正則関数の剛性](../../../解析系/CA/CA8/index.md#thm-ca8-compact-holomorphic-constant)から、次を得ます。
 
 $$
 L(2O)=\operatorname{span}_{\mathbb C}\{1,x\},\qquad
@@ -479,7 +487,9 @@ $\Lambda=\mathbb Z+i\mathbb Z$ において、$[1/2],[i/2],[(1+i)/2]$ が相異�
 - ID: EC3-A1
 
 <!-- solution-start -->
-**詳細解答。** 各点を2倍すると $1,i,1+i\in\Lambda$ なので $2[z]=[0]$ です。他方、$1/2$ や $i/2$ とその差 $(1-i)/2$ は実部・虚部の少なくとも一方が整数でなく、どれも格子点でも互いに同じ類でもありません。$\wp'$ は奇かつ格子周期的なので $2z\in\Lambda$ のとき $\wp'(z)=\wp'(-z)=-\wp'(z)$、従って $\wp'(z)=0$。三像の $y$ は零です。相異なる $x$ 座標は [CA9の三次非退化定理](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)から従い、三点とも非特異曲線上です。
+**詳細解答。** 各点を2倍すると $1,i,1+i\in\Lambda$ なので $2[z]=[0]$ です。$1/2$ や $i/2$、それらの差 $(1-i)/2$ は実部・虚部の少なくとも一方が整数でありません。従って元の三点は格子点でなく、互いに異なる類です。
+
+[$\wp'$ の奇性と周期性](../../../解析系/CA/CA9/index.md#thm-ca9-weierstrass-symmetry-periodicity)から、$2z\in\Lambda$ なら $\wp'(z)=\wp'(-z)=-\wp'(z)$ であり、$\wp'(z)=0$。よって三像の $y$ 座標は全て零です。$x$ 座標が相異なることは [三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)から従います。
 <!-- solution-end -->
 
 ### A2. $g_2,g_3$ と判別式の変換
