@@ -6,7 +6,7 @@
 
 [LORG9のcausal時空](../LORG9/index.md#def-lorg9-causal)では、非定数の閉未来因果曲線を排除しました。それでも、一点を除いた円筒では異なる点の時間的未来が一致しました。曲線が実際に閉じなくても、**小さな近傍を出て長く回り込み、ほぼ同じ場所へ戻る**ことは起こり得るのです。
 
-今回は、この再侵入を近傍ごとに排除する**強因果性**を学びます。さらに、光円錐を少し広げても因果条件を失わない**安定因果性**を定義します。後者と関係する「時空全体に通用する時計」が時間関数です。滑らかな時計の勾配を使えば、光円錐を広げたときにも時間が必ず増えることを計算で証明できます。
+今回は、この再侵入を近傍ごとに排除する条件を定義します。さらに、光円錐を少し広げても閉因果曲線が発生しない条件を調べます。後者は「時空全体に通用する時計」が存在するか、という問題と結び付きます。滑らかな時計の勾配を使えば、光円錐を広げたときにも時間が必ず増えることを計算で証明できます。
 
 以下 $(M,g)$ は滑らかな連結・Hausdorff・第二可算・境界なしの時間向き付きLorentz多様体、次元 $n+1$（$n\ge1$）、符号 $(-,+,\ldots,+)$ とします。曲線は[LORG3の未来向き区分的 $C^1$ 因果曲線](../LORG3/index.md#def-lorg3-causal-curve)で、停留片を許します。$I^\pm,J^\pm$ は[LORG6の定義](../LORG6/index.md#def-lorg6-chronological-causal-future)に従います。
 
@@ -39,7 +39,24 @@ $$
 
 ## 3. Alexandrov近傍と強因果性の同値
 
-[LORG8のAlexandrovダイヤモンド](../LORG8/index.md#def-lorg8-alexandrov-diamond)を $M$ 全体で作ったものの合併から得られる位相を**Alexandrov位相**と呼びます。各ダイヤモンドは開かつ因果的凸なので、それらが多様体の任意の小さい近傍に収まれば、強因果性を具体的に確認できます。逆向きも成り立ちます。
+[LORG8のAlexandrovダイヤモンド](../LORG8/index.md#def-lorg8-alexandrov-diamond)を、時空全体で端点を選び直しながら作ります。そのような開集合の合併によって得る「到達関係由来の位相」を、元の多様体位相と比較します。
+
+<a id="def-lorg10-alexandrov-topology"></a>
+
+<!-- formal-statement-start -->
+> **定義（Alexandrov位相）**  
+> 滑らかな時間向き付きLorentz多様体 $(M,g)$ において、大域的ダイヤモンド $D_M(a,b)=I_M^+(a)\cap I_M^-(b)$（$a,b\in M$）の任意の合併全体で定まる位相を **Alexandrov位相** という。空の合併を空集合とする。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lorg10-alexandrov-topology -->
+
+**定義の確認**。Minkowski時空で $a=(t_0-\varepsilon,\mathbf x_0)$、$b=(t_0+\varepsilon,\mathbf x_0)$ とすると、前節で計算した $D_M(a,b)$ は $p=(t_0,\mathbf x_0)$ を含みます。しかも任意の多様体開近傍 $O\ni p$ に対して $\varepsilon>0$ を十分小さく取れば $D_M(a,b)\subset O$ です。ダイヤモンドは元の位相で開だから、ここでは二つの位相が一致します。
+
+<!-- definition-example-end -->
+
+なぜこれらの合併だけで位相になるかも確かめます。任意の二つのダイヤモンド $D_M(a,b)$、$D_M(c,d)$ の共通部分に $p$ があれば、$a,c\ll p\ll b,d$ です。[時間的到達関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)により $p$ のごく近くに $r\ll p\ll s$ を選んで $a,c\ll r$、$s\ll b,d$ とできます。すると $p\in D_M(r,s)$ で、[時間的関係の推移性](../LORG6/index.md#prop-lorg6-transitivity)から $D_M(r,s)\subset D_M(a,b)\cap D_M(c,d)$ です。よって二つのダイヤモンドの交わりはダイヤモンドの合併で表せます。任意の合併と有限交差で閉じ、全体 $M$ も各点を含む小ダイヤモンドの合併なので、これは位相です。
+
+各ダイヤモンドは開かつ因果的凸なので、それらが多様体の任意の小さい近傍に収まれば、強因果性を具体的に確認できます。逆向きも成り立ちます。
 
 <a id="thm-lorg10-alexandrov-basis"></a>
 
@@ -315,7 +332,7 @@ $$
 
 となり、同じ未来錐の向きで $g\prec\widehat g$ です。
 
-今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。勾配は $\widehat g$ に関しても過去時間的となり（$\widehat g$ の計量双対が $d\tau$ で、零でない因果方向に正の値を与える）、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。$\square$
+今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。さらに上の直交分解から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。$\square$
 <!-- proof-end -->
 
 ## 9. 滑らかな時間関数があれば強因果的になる
@@ -381,7 +398,7 @@ $$
 
 ここまでで、**3→1** は[計量の明示構成](#thm-lorg10-temporal-implies-stable)、**3→2** は[単調性の補題](#lem-lorg10-temporal-monotone)、**3→強因果性**は[局所速度評価](#thm-lorg10-temporal-implies-strong)によって証明しました。未証明の **1→2** はHawkingの時間関数構成を要し、**2→3** は時間関数の滑らか化定理を要します。両者はこの講の前提だけでは閉じない高度な大域定理であるため、ここでは**外部定理を正確な仮定で掲げ、核心証明の代用とはしません**。一般の場合に単に「安定だから滑らかな時間関数がある」と書いてこの二方向を証明したことにはしません。
 
-Hawkingの構成では、計量の拡大を連続的に取り替えた族 $g_a$ と、全体で有限な正の測度 $\mu$ を使い、過去集合の体積 $\mu(I_{g_a}^-(p))$ をパラメータ $a$ で平均します。未来因果曲線に沿った厳密増加を、単一の体積関数が持たない不連続性を平均で抑えながら得ます。滑らか化の段階では時間的勾配という**開いた錐の条件**を保ったまま局所関数を調整する必要があります。どちらも局所の単なる貼り合わせでは済みません。
+Hawkingの構成では、計量の拡大を連続的に取り替えた族 $g_a$ と、全体で有限な正の測度 $\mu$ を使い、過去集合の体積 $\mu(I_{g_a}^-(p))$ をパラメータ $a$ で平均します。未来因果曲線に沿った厳密増加を、単一の体積関数が持たない不連続性を平均で抑えながら得ます。滑らか化の段階では時間的勾配という**勾配が時間的であるという厳密不等式**を保ったまま局所関数を調整する必要があります。どちらも局所の単なる貼り合わせでは済みません。
 
 一般定理の根拠と証明範囲の確認先：
 - E. Minguzzi, [Lorentzian causality theory](https://link.springer.com/article/10.1007/s41114-019-0019-x), 安定因果性と時間関数の特徴付け。
@@ -438,7 +455,7 @@ $$
 時間周期円筒 $M=(\mathbb R/2\mathbb Z)\times\mathbb R$、$g=-dt^2+dx^2$ で、十分小さい座標近傍 $N$ に局所ダイヤモンドを取る。(i) $N$ 内の曲線に関して因果的凸である理由、(ii) $M$ 全体の曲線に関して同じ近傍が因果的凸とは限らない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) [相対ダイヤモンドの補題](../LORG8/index.md#lem-lorg8-local-diamonds)により $D_N(a,b)$ は $N$ 内の任意の未来因果曲線に対し因果的凸です。(ii) $p=([0],0)$ から $t$ を未来へ2だけ増やす曲線 $\gamma(s)=([2s],0)$ は $g(\dot\gamma,\dot\gamma)=-4<0$ で始点と終点が $p$ です。この曲線は小さい $D_N(a,b)\ni p$ の外へ出ます。[大域的因果的凸性](#def-lorg10-strong-causality)なら始点・終点がその中にある曲線は出られず矛盾するので、局所相対性を大域へ読み替えられません。
+**詳細解答**。(i) [相対的なAlexandrov近傍の局所基底](../LORG8/index.md#lem-lorg8-local-diamonds)により $D_N(a,b)$ は $N$ 内の任意の未来因果曲線に対し因果的凸です。(ii) $p=([0],0)$ から $t$ を未来へ2だけ増やす曲線 $\gamma(s)=([2s],0)$ は $g(\dot\gamma,\dot\gamma)=-4<0$ で始点と終点が $p$ です。この曲線は小さい $D_N(a,b)\ni p$ の外へ出ます。[大域的因果的凸性](#def-lorg10-strong-causality)なら始点・終点がその中にある曲線は出られず矛盾するので、局所相対性を大域へ読み替えられません。
 <!-- solution-end -->
 
 <a id="ex-lorg10-a03"></a>
@@ -539,7 +556,7 @@ $g=-dt^2+dx^2$ に対して (i) $\widetilde g=9g$、(ii) $\widehat g=-3dt^2+dx^2
 (i) Minkowski平面、(ii) $C^\ast=((-1,1)\times\mathbb R/\mathbb Z)\setminus\{(0,[0])\}$、$g=-2du\,d\theta+u^2d\theta^2$、$T=\partial_u+\partial_\theta$ について、causal・強因果的・安定因果的を分類せよ。Minkowskiでは具体的な開近傍と拡大計量を提示し、$C^\ast$ では未来時間的再侵入曲線を構成して、失敗する含意とその機構を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) $g=-dt^2+dx^2$ と未来向き $dt>0$ を取ります。$a=(t_0-\varepsilon,x_0)$、$b=(t_0+\varepsilon,x_0)$ の $D_M(a,b)=\{|t-t_0|+|x-x_0|<\varepsilon\}$ は任意に小さく、[大域的に因果的凸](../LORG8/index.md#thm-lorg8-diamond-convex)ですから強因果的です。$\widehat g=-2dt^2+dx^2$ で、非零未来 $g$-因果ベクトル $v=(a,b)$ は $a\ge|b|$、$a>0$。従って $\widehat g(v,v)\le-a^2<0$ で厳密に広がり、$\widehat g$-未来因果曲線では $t$ が増えるので $\widehat g$ はcausalです。従って安定因果的であり、[強因果性からの命題](#prop-lorg10-strong-implies-causal)によりcausalでもあります。
+**詳細解答**。(i) $g=-dt^2+dx^2$ と未来向き $dt>0$ を取ります。$a=(t_0-\varepsilon,x_0)$、$b=(t_0+\varepsilon,x_0)$ の $D_M(a,b)=\{|t-t_0|+|x-x_0|<\varepsilon\}$ は任意に小さく、[大域的に因果的凸](../LORG8/index.md#thm-lorg8-diamond-convex)ですから強因果的です。$\widehat g=-2dt^2+dx^2$ で、非零未来 $g$-因果ベクトル $v=(a,b)$ は $a\ge|b|$、$a>0$。従って $\widehat g(v,v)\le-a^2<0$ で厳密に広がり、$\widehat g$-未来因果曲線では $t$ が増えるので $\widehat g$ はcausalです。従って安定因果的であり、[強因果的時空はcausal](#prop-lorg10-strong-implies-causal)によりcausalでもあります。
 
 (ii) [LORG9の点除去円筒の命題](../LORG9/index.md#prop-lorg9-punctured-causal-nondistinguishing)で $C^\ast$ はcausalです。一方 $p=(0,[1/4])$、$-\varepsilon\le u\le\varepsilon$ において
 
