@@ -350,7 +350,19 @@ $$
 時間帯 $M=(-1,1)\times\mathbb R$、$g=-dt^2+dx^2$ における $\gamma(s)=(s,0)$（$0\le s<1$）が全実数パラメータへ延長できないことと、この事実がAvez–Seifert定理に矛盾しない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**。測地線方程式は $\ddot t=\ddot x=0$ で、初期条件 $(t(0),x(0))=(0,0)$、$(\dot t(0),\dot x(0))=(1,0)$ の解は一意に $(s,0)$ です。$s\uparrow1$ で $t(s)\to1$ ですが $t=1$ は $M$ に属さず、同じ初期条件の測地線を $s=1$ まで延長できません。一方、任意の固定 $p,q\in M$ のダイヤモンドはその端点の時刻で上下を挟まれ、$(-1,1)$ の境界には触れません。強因果性もMinkowskiから継承されるので大域双曲的であり、[Avez–Seifert定理](#thm-lorg18-avez-seifert)は固定二点の最大化曲線を保証します。測地線の全実数延長は主張していません。
+**詳細解答**。平坦計量なので測地線方程式と初期条件は
+
+$
+\ddot t=\ddot x=0,\qquad
+(t(0),x(0))=(0,0),\qquad
+(\dot t(0),\dot x(0))=(1,0).
+$
+
+二回積分した唯一の解は $\gamma(s)=(s,0)$ です。$s\uparrow1$ で $t(s)\to1$ となりますが、この終点は時空 $M$ の外にあるため、同じ初期条件の測地線を $s=1$ まで延長できません。
+
+一方、固定した任意の二点 $p,q\in M$ の因果ダイヤモンドでは、時刻は両端点の時刻の間にあります。両端点が内部にある以上、ダイヤモンドは時刻境界 $t=\pm1$ に触れません。Minkowski時空の因果ダイヤモンドとの一致からコンパクト性が、時刻関数の厳密増加から強因果性が確認できます。
+
+したがってこの時空は大域双曲的です。[Avez–Seifert定理](#thm-lorg18-avez-seifert)が保証するのは**固定された二点間**の最大化曲線であり、アフィン測地線の全実数延長ではありません。
 <!-- solution-end -->
 
 <a id="ex-lorg18-b01"></a>
@@ -381,7 +393,7 @@ $$
 大域双曲的時空で $p\le q$ とする。長さが時間分離へ近づく列 $\gamma_k$ について、(i) 時間分離の有限性、(ii) 曲線の一様収束、(iii) Lorentz長さの上半連続性が、それぞれ証明のどこで必要かを数式で説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) [有限性の定理](../LORG17/index.md#thm-lorg17-gh-continuity)で $D=d_g(p,q)<\infty$ が定まり、$D-1/k<L_g(\gamma_k)\le D$ を満たす列を作れます。(ii) [LORG16の曲線抽出命題](../LORG16/index.md#prop-lorg16-curves-compact)から補助弧長を $B$ で抑え、再パラメータ化後の評価
+**詳細解答**。(i) [有限性の定理](../LORG17/index.md#thm-lorg17-gh-continuity)で $D=d_g(p,q)<\infty$ が定まり、$D-1/k<L_g(\gamma_k)\le D$ を満たす列を作れます。(ii) [コンパクトダイヤモンド内の因果曲線の抽出](../LORG16/index.md#prop-lorg16-curves-compact)から補助弧長を $B$ で抑え、再パラメータ化後の評価
 
 $$
 d_h(\gamma_k(s),\gamma_k(t))\le B|s-t|
@@ -426,10 +438,30 @@ $$
 ### LORG18-C01 コンパクト性から最大化と規則性まで
 - Level: C
 
-大域双曲的な滑らかな時空で $p\ll q$ とする。(1) 上限を実現する曲線の存在を、必要な定理と主要中間不等式を明記して証明せよ。(2) その部分曲線も最大化することを示せ。(3) 曲線が時間的測地線になる理由と、測地完備性が必要でない理由を述べよ。
+大域双曲的な滑らかな時空で $p\ll q$ とする。次の三点を示せ。
+
+1. 上限を実現する曲線の存在を、必要な定理と主要中間不等式を明記して証明する。
+2. その部分曲線も最大化することを示す。
+3. 曲線が時間的測地線になる理由と、測地完備性が必要でない理由を述べる。
 
 <!-- solution-start -->
-**詳細解答**。(1) [時間分離の有限性](../LORG17/index.md#thm-lorg17-gh-continuity)で $D=d_g(p,q)\in(0,\infty)$。上限に迫る $\gamma_k$ を $D-1/k<L_g(\gamma_k)\le D$ と取ります。[大域双曲性と曲線抽出](../LORG16/index.md#prop-lorg16-curves-compact)によってコンパクトな $K(p,q)$ に像を収め、補助弧長一様上界 $B$ を確保します。$[0,1]$ 上に付け直した曲線は $d_h(\gamma_k(s),\gamma_k(t))\le B|s-t|$ を満たし、[限界曲線補題](../LORG14/index.md#thm-lorg14-limit-curve)で $\gamma_k\to\gamma$ が一様となる部分列を得ます。端点 $p,q$ と未来因果性は極限で保存されます。[Lorentz長さの上半連続性](../LORG17/index.md#thm-lorg17-length-usc)を当てはめ、
+**詳細解答**。
+
+(1) [時間分離の有限性](../LORG17/index.md#thm-lorg17-gh-continuity)から $D=d_g(p,q)$ は正の有限値です。上限に近づく曲線列を
+
+$
+D-\frac1k<L_g(\gamma_k)\le D
+$
+
+となるように選びます。
+
+[コンパクトダイヤモンド内の因果曲線の抽出](../LORG16/index.md#prop-lorg16-curves-compact)で、各曲線の像を $K(p,q)$ に収めて補助弧長の共通上界 $B$ を確保します。$[0,1]$ へ定数速で再表示すると
+
+$
+d_h(\gamma_k(s),\gamma_k(t))\le B|s-t|.
+$
+
+この共通評価と[限界曲線補題](../LORG14/index.md#thm-lorg14-limit-curve)から、未来因果的な $\gamma:p\to q$ へ一様収束する部分列を得ます。そこで[Lorentz長さの上半連続性](../LORG17/index.md#thm-lorg17-length-usc)を適用すると、
 
 $$
 D=\lim_kL_g(\gamma_k)\le L_g(\gamma)\le d_g(p,q)=D
