@@ -21,7 +21,7 @@ $$
 
 ## 1. 停留点と非退化性をどう判定するか
 
-位相の一次変化は勾配で表せます。[VC1の勾配](../../VC/VC1/index.md#def-vc1-gradient)を使い、点 $p$ での一次項が消えることを停留点の条件とします。その点で最初に残る二次項を記録する行列が、**Hessian（Hesse行列）**です。
+位相の一次変化は勾配で表せます。[VC1の勾配](../../../幾何系/VC/VC1/index.md#def-vc1-gradient)を使い、点 $p$ での一次項が消えることを停留点の条件とします。その点で最初に残る二次項を記録する行列が、**Hessian（Hesse行列）**です。
 
 具体的に、$\phi$ が $C^2$ 級であるとき、$H_\phi(p)$ の第 $j,k$ 成分は $\partial_j\partial_k\phi(p)$ です。二階偏導関数が連続なので行列は対称で、[多変数Taylor展開](../../../基礎科目/RA/RA6/index.md#thm-ra6-second-order-taylor)により $h\to0$ で
 
@@ -468,16 +468,16 @@ $$
 <a id="ref-ha10-area-element"></a>
 局所的に曲面を $F(u)=(u,h(u))$ と表示したとき、各座標方向の接ベクトルは $\partial_jF=e_j+(\partial_jh)e_d$ です。これらの内積から作る Gram 行列は
 
-$
+$$
 G=(\partial_jF\cdot\partial_kF)_{j,k}
 =I_{d-1}+\nabla h(\nabla h)^{\mathsf T}.
-$
+$$
 
 曲面の小面積は接ベクトルの張る平行多面体の体積であり、$d\sigma=\sqrt{\det G}\,du$ です。$\nabla h$ に垂直な方向の $G$ の固有値は $1$、$\nabla h$ に平行な方向では $1+|\nabla h|^2$ なので、
 
-$
+$$
 d\sigma=\sqrt{1+|\nabla h|^2}\,du
-$
+$$
 
 と求まります。この関係を両極の座標で直接使います。
 
