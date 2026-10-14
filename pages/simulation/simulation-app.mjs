@@ -6,6 +6,7 @@ import {
 } from "./experiment-record.mjs";
 import * as celev from "./engines/celev/two-body.mjs";
 import * as burrau from "./engines/celev/burrau.mjs";
+import * as gallery from "./engines/celev/orbit-gallery.mjs";
 import * as ml from "./engines/ml/four-cell.mjs";
 
 const $ = (name) => document.getElementById(name);
@@ -28,6 +29,8 @@ function configuration() {
     gravitationalConstant: number("gravity"), dt: number("dt"),
   } : currentModel === "burrau" ? {
     dt: number("burrau-dt"), rtol: number("burrau-rtol"),
+  } : currentModel === "gallery" ? {
+    preset: $("orbit-preset").value, dt: number("orbit-dt"), rtol: number("orbit-rtol"),
   } : {
     probabilities: ["p00", "p01", "p10", "p11"].map(number),
     sampleCount: number("sample-count"),
@@ -35,7 +38,8 @@ function configuration() {
   if (!Number.isSafeInteger(seed) || seed < 0 || seed > 0xffffffff) {
     throw new RangeError("seedは0以上、2^32未満の整数を指定してください");
   }
-  const adapter = currentModel === "celev" ? celev : currentModel === "burrau" ? burrau : ml;
+  const adapter = currentModel === "celev" ? celev : currentModel === "burrau" ? burrau :
+    currentModel === "gallery" ? gallery : ml;
   const errors = adapter.validateParameters(params);
   if (errors.length) throw new RangeError(errors.join("; "));
   return { params, seed, adapter };
@@ -45,6 +49,7 @@ function setMode() {
   const physics = isPhysics();
   $("celev-params").hidden = currentModel !== "celev";
   $("burrau-params").hidden = currentModel !== "burrau";
+  $("gallery-params").hidden = currentModel !== "gallery";
   $("ml-params").hidden = physics;
   for (const id of ["step", "run", "play", "pause", "resume", "cancel"]) {
     $(id).hidden = !physics;
@@ -52,6 +57,7 @@ function setMode() {
   $("sample").hidden = physics;
   const labels = currentModel === "burrau"
     ? [[1, 3], [2, 4], [3, 5]]
+    : currentModel === "gallery" ? [[1, 1], [2, 1], [3, 1]]
     : [[1, null], [2, null]];
   $("particle-legend").hidden = !physics;
   $("particle-legend").replaceChildren();
@@ -70,6 +76,12 @@ function setMode() {
   $("legend").textContent = physics
     ? "線＝過去の軌跡、番号付きの大きな記号＝質点の現在位置。記号形状と線種でも識別します。質量に応じた実寸表示ではありません。"
     : "四セル分布の標本度数。色の強さと数値表を併用します。";
+  if (currentModel === "gallery") {
+    const r = gallery.PRESETS[$("orbit-preset").value];
+    $("orbit-details").textContent = r.label + "：参考周期 T≈" +
+      r.period.toFixed(4) + "。 " + r.info +
+      " G=1、質量すべて1。近似初期値・有限精度のため厳密な周期閉合を保証しません。";
+  }
 }
 function resultRows(values) {
   return Object.entries(values).map(([name, value]) => [
@@ -149,6 +161,7 @@ async function start() {
   });
   latest = null; tracks = [[], []];
   viewRadius = currentModel === "burrau" ? 6 :
+    currentModel === "gallery" ? 1.8 :
     currentModel === "celev" ? params.separation * 1.25 : 1;
   if (isPhysics()) {
     const response = await client.initialize(params, seed);
@@ -183,9 +196,10 @@ async function play() {
         show("記録上限に達したため、連続実行を停止しました");
         return;
       }
-      await runSteps(currentModel === "burrau" ? 2 : 25);
+      await runSteps(["burrau", "gallery"].includes(currentModel) ? 2 : 25);
       if (epoch !== playEpoch || client !== active) return;
-      await new Promise((resolve) => setTimeout(resolve, currentModel === "burrau" ? 40 : 30));
+      await new Promise((resolve) => setTimeout(resolve,
+        ["burrau", "gallery"].includes(currentModel) ? 40 : 30));
     }
     if (epoch === playEpoch && client === active &&
         active.state === "ready" && !running) {
@@ -209,11 +223,12 @@ function download(name, contents, mime) {
 }
 async function replay(text) {
   const saved = importExperimentJson(text);
-  if (![celev.engineId, burrau.engineId, ml.engineId].includes(saved.engineId)) {
+  if (![celev.engineId, burrau.engineId, gallery.engineId, ml.engineId].includes(saved.engineId)) {
     throw new Error("未対応の実験エンジンです");
   }
   $("experiment").value = saved.engineId === celev.engineId ? "celev" :
-    saved.engineId === burrau.engineId ? "burrau" : "ml";
+    saved.engineId === burrau.engineId ? "burrau" :
+    saved.engineId === gallery.engineId ? "gallery" : "ml";
   setMode();
   $("seed").value = saved.seed;
   if (currentModel === "celev") {
@@ -224,6 +239,11 @@ async function replay(text) {
   } else if (currentModel === "burrau") {
     $("burrau-dt").value = saved.params.dt;
     $("burrau-rtol").value = saved.params.rtol ?? 1e-12;
+  } else if (currentModel === "gallery") {
+    $("orbit-preset").value = saved.params.preset;
+    $("orbit-dt").value = saved.params.dt;
+    $("orbit-rtol").value = saved.params.rtol ?? 1e-12;
+    setMode();
   } else {
     ["p00","p01","p10","p11"].forEach((name, i) => {
       $(name).value = saved.params.probabilities[i];
@@ -236,7 +256,7 @@ async function replay(text) {
     let remaining = Math.max(0, last?.stepIndex ?? 0);
     if (remaining > 100000) throw new RangeError("再計算上限を超えました");
     while (remaining > 0) {
-      const n = Math.min(currentModel === "burrau" ? 20 : 1000, remaining);
+      const n = Math.min(["burrau", "gallery"].includes(currentModel) ? 20 : 1000, remaining);
       await runSteps(n); remaining -= n;
     }
   } else {
@@ -257,6 +277,9 @@ $("experiment").addEventListener("change", guard(async () => {
   setMode(); await start();
 }));
 $("reset").addEventListener("click", guard(start));
+$("orbit-preset").addEventListener("change", guard(async () => {
+  setMode(); await start();
+}));
 $("sample").addEventListener("click", guard(start));
 $("step").addEventListener("click", guard(() => runSteps(1)));
 $("run").addEventListener("click", guard(() => runSteps(100)));

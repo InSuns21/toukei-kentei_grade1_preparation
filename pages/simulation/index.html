@@ -19,6 +19,7 @@
   <label for="experiment">模型</label>
   <select id="experiment">
     <option value="celev">CELEV：Newtonの二体円運動（velocity-Verlet）</option>
+    <option value="gallery">CELEV：三体舞踏解・周期軌道ギャラリー（8模型）</option>
     <option value="burrau">CELEV補講：Burrauのピタゴラス三体問題（適応刻み・脱出観察）</option>
     <option value="ml">ML1-01：有限四セル確率分布の標本抽出</option>
   </select>
@@ -27,6 +28,40 @@
     <label>質点間距離 r <input id="separation" type="number" min="0.01" max="100" step="0.1" value="1"></label>
     <label>重力定数 G <input id="gravity" type="number" min="0.01" max="100" step="0.1" value="1"></label>
     <label>積分刻み Δt <input id="dt" type="number" min="0.001" max="0.1" step="0.001" value="0.01"></label>
+  </div>
+  <div id="gallery-params" class="controls" hidden>
+    <label>三体軌道の種類
+      <select id="orbit-preset">
+        <optgroup label="舞踏解：3質点が同じ曲線を時間差で進む">
+          <option value="figure-eight" selected>八の字（Chenciner–Montgomery）</option>
+          <option value="lagrange">Lagrange正三角形（円軌道）</option>
+        </optgroup>
+        <optgroup label="比較：相対平衡／三体周期軌道">
+          <option value="euler">Euler一直線（相対平衡）</option>
+          <option value="butterfly-i">蝶 I（Butterfly I）</option>
+          <option value="butterfly-ii">蝶 II（Butterfly II）</option>
+          <option value="moth-i">蛾 I（Moth I）</option>
+          <option value="yin-yang-i">陰陽 I（Yin–Yang I）</option>
+          <option value="dragonfly">トンボ（Dragonfly）</option>
+        </optgroup>
+      </select>
+    </label>
+    <label>描画時間間隔 Δt
+      <select id="orbit-dt">
+        <option value="0.02">0.02（細密）</option>
+        <option value="0.05" selected>0.05（標準）</option>
+        <option value="0.1">0.1（速め）</option>
+      </select>
+    </label>
+    <label>積分器の相対許容誤差
+      <select id="orbit-rtol">
+        <option value="1e-10">1e-10（概形）</option>
+        <option value="1e-11">1e-11（比較）</option>
+        <option value="1e-12" selected>1e-12（標準）</option>
+      </select>
+    </label>
+    <p id="orbit-details" class="full-width">Newton重力 G=1、3質点とも質量1。実際に毎ステップ計算します。周期値と初期速度は近似値なので、長時間では閉合しないことがあります。</p>
+    <p class="full-width"><a href="../index.html#/textbook/volumes/dream_thater/%E7%89%A9%E7%90%86%E7%B3%BB/CELEV/CELEV5/index">CELEV5：八の字舞踏解</a> ／ <a href="../index.html#/textbook/volumes/dream_thater/%E7%89%A9%E7%90%86%E7%B3%BB/CELEV/CELEV6/index">CELEV6：舞踏解と軌道分類</a>。蝶・蛾・陰陽・トンボは周期軌道であり、すべてを「同一曲線の舞踏解」と分類してはいません。</p>
   </div>
   <div id="burrau-params" class="controls" hidden>
     <label>Burrauの描画時間間隔 Δt（積分器の内部刻みではありません）

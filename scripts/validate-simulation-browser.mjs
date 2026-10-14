@@ -124,9 +124,28 @@ try {
   // state, rather than replay a stored image.
   const bodiesAtTwo = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
   assert.deepEqual(bodiesAtTwo, ["1", "2"]);
+  // The choreography gallery must run a REAL module Worker (not a film).
+  await evaluate('document.querySelector("#experiment").value="gallery";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("periodReference")');
+  const galleryLabels = await evaluate('[...document.querySelectorAll("#orbit-preset option")].map(x=>x.value)');
+  assert.deepEqual(galleryLabels, ["figure-eight","lagrange","euler","butterfly-i",
+    "butterfly-ii","moth-i","yin-yang-i","dragonfly"]);
+  assert.ok(await evaluate('document.querySelector("#orbit-details").textContent.includes("八の字")'));
+  const galleryCount = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(x=>x.textContent)');
+  assert.deepEqual(galleryCount, ["1","2","3"]);
+  await evaluate('document.querySelector("#run").click()');
+  await waitFor('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="stepIndex")?.cells[1]?.textContent) === 100',30000);
+  assert.equal(await evaluate('document.querySelector("#status").dataset.error'), "false");
+  await evaluate('document.querySelector("#orbit-preset").value="butterfly-ii";document.querySelector("#orbit-preset").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("Butterfly II")');
+  assert.ok(await evaluate('document.querySelector("#orbit-details").textContent.includes("蝶 II")'));
+  await evaluate('document.querySelector("#step").click()');
+  await waitFor('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="stepIndex")?.cells[1]?.textContent) === 1');
+  console.log("CELEV orbit gallery browser: 8 presets, figure-eight t=5, Butterfly II live Worker: PASS");
+
   await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
-  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
   const burrauEnergy = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="energy")?.cells[1]?.textContent)';
+  await waitFor('Math.abs(' + burrauEnergy + ' + 769 / 60) < 1e-10');
   assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10);
   const burrauBodies = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
   assert.deepEqual(burrauBodies, ["1", "2", "3"]);
