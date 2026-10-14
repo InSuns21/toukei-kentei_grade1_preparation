@@ -243,7 +243,7 @@ $$
 
 と書けます。ただし $\widecheck\sigma(x)=\int_S e^{ix\cdot\omega}\,d\sigma(\omega)$ と記します。[HA10の球面減衰](../HA10/index.md#thm-ha10-sphere)によって核は遠方で $|x|^{-(d-1)/2}$ 程度ですが、減衰をそのままYoungの不等式に入れるだけでは臨界の $L^p\to L^{p'}$ 評価を得られません。
 
-ここでは球面を半径方向に厚くした関数から、球面に集中する分布へ連続的に移る**解析族**を構成します。三線定理を使う考え方は[HA2の三線補題](../HA2/index.md#lem-ha2-three-lines)と共通ですが、ここでは作用素自体が複素パラメータで動きます。
+ここでは球面を半径方向に厚くした関数から、球面に集中する分布へ連続的に移る**解析族**を構成します。この発想は[三線定理](../HA2/index.md#lem-ha2-three-lines)を使うHA2の補間と共通ですが、ここでは作用素自体が複素パラメータで動きます。
 
 ### 3.1 球面測度に近付く解析族
 
@@ -539,7 +539,7 @@ $$
 (\widetilde T_{-aw}f_w)(x)\overline{h_{\bar w}(x)}\,dx
 $$
 
-を考えます（$h_{\bar w}$ の複素共役によって $w$ に関して解析的になります）。[端点評価](#lem-ha11-kernel)を境界直線上の $\Phi$ へ適用します。どちらの直線でも絶対値は定数以下なので、[HA2の三線補題](../HA2/index.md#lem-ha2-three-lines)から $|\Phi(\theta)|\le C_d$。正規化と単純関数近似を外すと
+を考えます（$h_{\bar w}$ の複素共役によって $w$ に関して解析的になります）。[端点評価](#lem-ha11-kernel)を境界直線上の $\Phi$ へ適用します。どちらの直線でも絶対値は定数以下なので、[三線定理](../HA2/index.md#lem-ha2-three-lines)から $|\Phi(\theta)|\le C_d$。正規化と単純関数近似を外すと
 
 $$
 \|T_{-1}f\|_{p'}\le C_d\|f\|_p,
@@ -629,7 +629,7 @@ $$
 $f\in\mathcal S(\mathbb R^d)$ とする。$\langle ERf,f\rangle=\|Rf\|_2^2$ を確かめ、[解析族の球面集中](#lem-ha11-distribution)を使って $T_{-1}$ の係数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**　定義を展開し、$\int|f(x)|\,dx<\infty$、$\int_S|\widehat f(\omega)|\,d\sigma<\infty$ からFubiniを使います。
+**詳細解答**　定義を展開し、$\int|f(x)|\,dx<\infty$、$\int_S|\widehat f(\omega)|\,d\sigma<\infty$ から[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用します。
 
 $$
 \begin{aligned}
@@ -817,7 +817,7 @@ $$
 $d=3$ で次を順に証明せよ。
 
 1. $z=-1$ が $\operatorname{Re}z=0$ と $\operatorname{Re}z=-2$ の補間比 $1/2$ に対応すること。
-2. [端点補題](#lem-ha11-kernel)と[三線補題](../HA2/index.md#lem-ha2-three-lines)から $T_{-1}:L^{4/3}\to L^4$ を得ること。複素パラメータに伴う成長はGaussian因子で制御すること。
+2. [端点補題](#lem-ha11-kernel)と[三線定理](../HA2/index.md#lem-ha2-three-lines)から $T_{-1}:L^{4/3}\to L^4$ を得ること。複素パラメータに伴う成長はGaussian因子で制御すること。
 3. $M_{-1}$ の係数を求めて $\|Rf\|_2\lesssim\|f\|_{4/3}$ を導き、双対性から $\|Eg\|_4\lesssim\|g\|_2$ を得ること。
 4. $d=3$ のKnapp例から $q\ge4$ が必要と分かること。
 
@@ -846,7 +846,7 @@ $$
 T_{-1}=\frac1{2(2\pi)^3}ER.
 $$
 
-よってSchwartz関数 $f$ について、FubiniとHölderから
+よってSchwartz関数 $f$ について、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から
 
 $$
 \|Rf\|_2^2
