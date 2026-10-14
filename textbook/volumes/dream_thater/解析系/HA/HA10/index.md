@@ -23,7 +23,7 @@ $$
 
 位相の一次変化は勾配で表せます。[VC1の勾配](../../VC/VC1/index.md#def-vc1-gradient)を使い、点 $p$ での一次項が消えることを停留点の条件とします。その点で最初に残る二次項を記録する行列が、**Hessian（Hesse行列）**です。
 
-具体的に、$\phi$ が $C^2$ 級であるとき、$H_\phi(p)$ の第 $j,k$ 成分は $\partial_j\partial_k\phi(p)$ です。二階偏導関数が連続なので行列は対称で、[多変数Taylor展開](../../../../基礎科目/RA/RA6/index.md#thm-ra6-multivariate-taylor)により $h\to0$ で
+具体的に、$\phi$ が $C^2$ 級であるとき、$H_\phi(p)$ の第 $j,k$ 成分は $\partial_j\partial_k\phi(p)$ です。二階偏導関数が連続なので行列は対称で、[多変数Taylor展開](../../../基礎科目/RA/RA6/index.md#thm-ra6-second-order-taylor)により $h\to0$ で
 
 $$
 \phi(p+h)=\phi(p)+\nabla\phi(p)\cdot h
@@ -230,7 +230,7 @@ $$
 
 ### 証明の見取り図
 
-Taylor の二次形式を、**点に依存する対称行列**を用いて剰余なしに書きます。その行列を局所的に三角行列と対角行列へ分解し、符号を保つ平方根を座標へ吸収します。最後は[RA6Aの逆関数定理](../../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)で本当に座標になっていることを確認します。
+Taylor の二次形式を、**点に依存する対称行列**を用いて剰余なしに書きます。その行列を局所的に三角行列と対角行列へ分解し、符号を保つ平方根を座標へ吸収します。最後は[RA6Aの逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)で本当に座標になっていることを確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -277,7 +277,7 @@ $$
 =\frac12\sum_j\varepsilon_j z_j(x)^2.
 $$
 
-$z(0)=0$ かつ $Dz(0)$ は、可逆な $L(0)^{\mathsf T}$ と正の対角行列の積ですから可逆です。[逆関数定理](../../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)の仮定（滑らかさ、Jacobianの可逆性）を満たし、$z$ は局所座標です。
+$z(0)=0$ かつ $Dz(0)$ は、可逆な $L(0)^{\mathsf T}$ と正の対角行列の積ですから可逆です。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)の仮定（滑らかさ、Jacobianの可逆性）を満たし、$z$ は局所座標です。
 
 二回微分して $H_\phi(0)=Dz(0)^{\mathsf T}J Dz(0)$（$J=\operatorname{diag}(\varepsilon_j)$）を得ます。行列式を取れば
 
@@ -465,6 +465,22 @@ $$
 
 です。有限測度なので積分は定義できます。球面では曲率が零でないため、接平面方向に二次の位相変化が現れ、$d-1$ 個の接方向すべてが減衰に寄与します。
 
+<a id="ref-ha10-area-element"></a>
+局所的に曲面を $F(u)=(u,h(u))$ と表示したとき、各座標方向の接ベクトルは $\partial_jF=e_j+(\partial_jh)e_d$ です。これらの内積から作る Gram 行列は
+
+$
+G=(\partial_jF\cdot\partial_kF)_{j,k}
+=I_{d-1}+\nabla h(\nabla h)^{\mathsf T}.
+$
+
+曲面の小面積は接ベクトルの張る平行多面体の体積であり、$d\sigma=\sqrt{\det G}\,du$ です。$\nabla h$ に垂直な方向の $G$ の固有値は $1$、$\nabla h$ に平行な方向では $1+|\nabla h|^2$ なので、
+
+$
+d\sigma=\sqrt{1+|\nabla h|^2}\,du
+$
+
+と求まります。この関係を両極の座標で直接使います。
+
 <a id="thm-ha10-sphere"></a>
 <!-- formal-statement-start -->
 > **定理（球面面積測度のFourier減衰）**  
@@ -507,7 +523,7 @@ x=(u,\sqrt{1-|u|^2}),\qquad
 \phi_N(u)=-\sqrt{1-|u|^2}.
 $$
 
-[局所グラフの面積要素](../../VC/VC4/index.md#thm-vc4-surface-area)の公式をこのグラフへ適用します。$h(u)=\sqrt{1-|u|^2}$、$\nabla h=-u/\sqrt{1-|u|^2}$ なので
+[上で導いた局所グラフの面積要素](#ref-ha10-area-element)をこのグラフへ適用します。$h(u)=\sqrt{1-|u|^2}$、$\nabla h=-u/\sqrt{1-|u|^2}$ なので
 
 $$
 \sqrt{1+|\nabla h|^2}
