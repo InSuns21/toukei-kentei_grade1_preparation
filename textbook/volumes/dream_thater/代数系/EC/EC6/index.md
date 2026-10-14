@@ -516,9 +516,9 @@ $$
 さらに、判別式の素因数の上にない素イデアルでは $v_{\mathfrak p}(x(P)-e_i)$ は偶数です。$v_{\mathfrak p}(x(P))<0$ なら三次項が支配して指数が偶数になり、$v_{\mathfrak p}(x(P))\ge0$ で $x(P)-e_i$ が $\mathfrak p$ で割れるなら、判別式が単元であることから他の二因子は単元となり、$y(P)^2=\prod_i(x(P)-e_i)$ の指数が偶数であることを使います。従って平方類は有限集合 $S$ の外で偶数指数を持ち、上の算術補題が適用されます。
 
 ただし $E(L)/2E(L)$ の有限性を $E(\mathbb Q)/2E(\mathbb Q)$ へ戻すときも一手必要です。$P\in E(\mathbb Q)$ が $L$ 上では $P=2Q$ と書けたなら、$\sigma\in\operatorname{Gal}(L/\mathbb Q)$ に対して
-$
+$$
 c_P(\sigma)=\sigma Q-Q\in E[2](L)
-$
+$$
 となります。これは $2c_P(\sigma)=\sigma P-P=O$ から従います。
 
 $Q$ の選び方を $Q+T$（$T\in E[2](L)$）へ変えると、データは $c_P(\sigma)+\sigma T-T$ へ変わります。同じデータをこの変化まで同一視したものが、有限Galois群と有限群 $E[2](L)$ による1次コホモロジー類です。有限集合間の写像は有限通りなので、こうした類も有限個です。
@@ -713,9 +713,9 @@ $$
 よってtorsionは $O,(-1,0),(0,0),(1,0)$ の4元です。二つの降下像が有限であることから2倍商も有限であり、[高さ降下定理](#thm-ec6-height-descent)から有限生成です。
 
 [MOD2の有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)を適用して
-$
+$$
 E(\mathbb Q)\simeq\mathbb Z^r\oplus(\mathbb Z/2)^2
-$
+$$
 となります。2倍商は $2^{r+2}$ 元ですが、上界は4でした。従って $2^{r+2}\le4$ から $r=0$、torsion以外の有理点はありません。
 <!-- solution-end -->
 
