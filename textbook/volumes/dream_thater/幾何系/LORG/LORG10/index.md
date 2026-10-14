@@ -332,7 +332,7 @@ $$
 
 となり、同じ未来錐の向きで $g\prec\widehat g$ です。
 
-今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。さらに上の直交分解から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。$\square$
+今度は非零の $\widehat g$-因果ベクトルについて、上式と $g(w,w)>0$ からやはり $a\ne0$ です。$T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。さらに上で得た $T,w$ による表示から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。$\square$
 <!-- proof-end -->
 
 ## 9. 滑らかな時間関数があれば強因果的になる
