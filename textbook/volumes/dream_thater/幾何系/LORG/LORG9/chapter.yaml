@@ -1,0 +1,54 @@
+id: "LORG9"
+title: "因果階層 I：chronologyとcausality"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+official_scope: []
+learning_objectives:
+  - chronologicalとcausalを閉曲線およびI+・J+の条件として定義できる
+  - causalityの反対称性と閉未来因果曲線不存在の同値を証明できる
+  - causalからchronologicalへの含意を示し逆含意の反例を検算できる
+  - future distinguishingとpast distinguishingをI±の単射性で定義できる
+  - push-up補題で片側の識別性からcausalityを導ける
+  - 円筒計量の符号数と未来因果錐を計算し光的閉路を判定できる
+  - 点除去円筒がcausalでも識別的でないことを曲線構成で証明できる
+  - 共形再尺度で三条件が不変である理由を述べられる
+definitions:
+  - { id: LORG9-DEF-01, name: chronological時空 }
+  - { id: LORG9-DEF-02, name: causal時空 }
+  - { id: LORG9-DEF-03, name: future / past distinguishing }
+theorems:
+  - { id: LORG9-PROP-01, name: 反対称性と閉因果曲線の同値 }
+  - { id: LORG9-THM-01, name: causalならchronological }
+  - { id: LORG9-LEM-01, name: 円筒模型での未来因果速度 }
+  - { id: LORG9-PROP-02, name: chronologicalだがcausalでない円筒 }
+  - { id: LORG9-THM-02, name: 片側の識別性だけでcausalityが従う }
+  - { id: LORG9-PROP-03, name: causalだがdistinguishingでない時空 }
+  - { id: LORG9-THM-03, name: 因果階層の最初の三段階 }
+canonical_examples:
+  - Minkowski時空の未来錐断面と識別性
+  - 時間周期円筒における閉未来時間的曲線
+  - 円筒上の閉未来光的曲線とchronology
+  - 一点除去円筒における未来・過去集合の一致
+problem_patterns:
+  - LORG9-TIME-PERIODIC
+  - LORG9-MINKOWSKI-FUTURE-IDENTIFICATION
+  - LORG9-CYLINDER-METRIC-SIGNATURE
+  - LORG9-NULL-LOOP
+  - LORG9-ANTISYMMETRY-LOOP
+  - LORG9-PUSH-UP-IMPLICATION
+  - LORG9-PUNCTURED-CAUSALITY
+  - LORG9-PUNCTURED-FUTURES
+  - LORG9-CAUSAL-HIERARCHY-INVARIANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }
