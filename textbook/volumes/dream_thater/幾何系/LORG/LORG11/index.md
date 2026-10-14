@@ -18,11 +18,13 @@
 
 <!-- formal-statement-start -->
 > **補題（時間的未来・過去の正則開性）**  
-> 任意の $p\in M$ について
->
-> $\operatorname{Int}_M\overline{I^\pm(p)}=I^\pm(p)$
->
-> が成り立つ。また、$\overline{I^\pm(p)}=\overline{J^\pm(p)}$ である。
+> 任意の $p\in M$ について、次の二式が成り立つ。
+
+$
+\operatorname{Int}_M\overline{I^\pm(p)}=I^\pm(p),
+\qquad
+\overline{I^\pm(p)}=\overline{J^\pm(p)}.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -102,7 +104,19 @@ $q$ の少し未来の点 $r$ を固定すれば、十分大きな $k$ で $q_k\
 
 <!-- formal-statement-start -->
 > **定義（時間的未来・過去の外側連続性）**  
-> 写像 $p\mapsto I^+(p)$ が点 $p$ で**外側連続**であるとは、任意のコンパクト集合 $K\subset M\setminus\overline{I^+(p)}$ に対して、$p$ の開近傍 $U$ が存在し、すべての $p'\in U$ で $K\cap I^+(p')=\varnothing$ となることをいう。$I^-$ についても未来と過去を交換して定義する。
+> 写像 $p\mapsto I^+(p)$ が点 $p$ で**外側連続**であるとは、次の条件を満たすことをいう。任意のコンパクト集合 $K$ が
+
+$
+K\subset M\setminus\overline{I^+(p)}
+$
+
+> を満たすとき、$p$ の開近傍 $U$ が存在し、すべての $p'\in U$ について
+
+$
+K\cap I^+(p')=\varnothing
+$
+
+> となる。$I^-$ についても未来と過去を交換して定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg11-outer-continuity -->
