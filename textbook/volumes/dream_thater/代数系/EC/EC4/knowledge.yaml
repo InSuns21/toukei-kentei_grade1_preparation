@@ -28,7 +28,7 @@ concepts:
     aliases: []
     introduction: formal
     introduction_aliases: ["定義（射の次数と分離性）"]
-    requires: [elliptic-curve.isogeny, algebra.field-extension-degree]
+    requires: [elliptic-curve.isogeny, algebra.extension-degree]
   - id: elliptic-curve.isogeny-separability
     name: 同種写像の分離性
     kind: definition
