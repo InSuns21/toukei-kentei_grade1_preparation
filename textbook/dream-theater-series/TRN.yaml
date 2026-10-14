@@ -31,7 +31,7 @@ chapters:
     title: "Hermiteの定理：eの超越性"
   - id: TRN7
     path: textbook/volumes/dream_thater/代数系/TRN/TRN7
-    status: planned
+    status: completed
     title: "共役に関する対称化と代数的係数"
   - id: TRN8
     path: textbook/volumes/dream_thater/代数系/TRN/TRN8
