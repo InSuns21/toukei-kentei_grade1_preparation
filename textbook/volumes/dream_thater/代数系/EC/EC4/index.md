@@ -13,7 +13,7 @@
 <a id="def-ec4-rational-function"></a>
 
 <!-- formal-statement-start -->
-> **定義（楕円曲線の有理関数と関数体）**  
+> **定義（有理関数）**  
 > $k$ 上の非特異Weierstrass曲線のアフィン方程式を $F(x,y)=0$ とする。座標環 $A=k[x,y]/(F)$ の分数体
 
 $
