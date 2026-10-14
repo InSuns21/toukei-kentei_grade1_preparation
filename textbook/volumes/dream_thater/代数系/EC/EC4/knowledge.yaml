@@ -1,0 +1,104 @@
+chapter: EC4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC3
+  - AG2-07
+  - AG3-11
+  - AG1-03
+forward_references: []
+concepts:
+  - id: elliptic-curve.curve-morphism
+    name: 曲線の射
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（曲線の射と同種写像）"]
+    requires: [algebraic-geometry.regular-map-affine, elliptic-curve.weierstrass-model]
+  - id: elliptic-curve.isogeny
+    name: 同種写像
+    kind: definition
+    aliases: [isogeny]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の射と同種写像）"]
+    requires: [elliptic-curve.curve-morphism, elliptic-curve.associativity]
+  - id: elliptic-curve.isogeny-degree
+    name: 射の次数
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（射の次数と分離性）"]
+    requires: [elliptic-curve.isogeny, algebra.field-extension-degree]
+  - id: elliptic-curve.isogeny-separability
+    name: 同種写像の分離性
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（射の次数と分離性）"]
+    requires: [elliptic-curve.isogeny-degree]
+  - id: elliptic-curve.pic-zero-group
+    name: 次数0の因子と群の点
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [algebraic-geometry.principal-divisor, elliptic-curve.chord-tangent-addition]
+  - id: elliptic-curve.isogeny-homomorphism
+    name: 原点を保つ非定数射は準同型
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.pic-zero-group, elliptic-curve.curve-morphism]
+  - id: elliptic-curve.degree-parallelogram
+    name: 座標の差と次数の平行四辺形則
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.isogeny-degree, elliptic-curve.isogeny-homomorphism]
+  - id: elliptic-curve.multiplication-degree
+    name: 倍数写像の次数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.degree-parallelogram, elliptic-curve.weierstrass-invariants]
+  - id: elliptic-curve.degree-quadraticity
+    name: 同種写像の次数の二次性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.degree-parallelogram, elliptic-curve.multiplication-degree]
+  - id: elliptic-curve.dual-isogeny
+    name: 双対同種写像
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.pic-zero-group, elliptic-curve.isogeny]
+  - id: elliptic-curve.dual-degree
+    name: 双対同種写像の合成と次数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.dual-isogeny, elliptic-curve.multiplication-degree]
+  - id: elliptic-curve.n-torsion
+    name: n-torsion
+    kind: definition
+    aliases: ["n-等分点"]
+    introduction: formal
+    requires: [elliptic-curve.associativity]
+  - id: elliptic-curve.torsion-structure
+    name: 標数とtorsionの構造
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.n-torsion, elliptic-curve.multiplication-degree, algebraic-geometry.cubic-nonvanishing-form]
+  - id: elliptic-curve.endomorphism-ring
+    name: 楕円曲線の自己準同型環
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.isogeny-homomorphism, elliptic-curve.degree-quadraticity]
+  - id: elliptic-curve.two-isogeny
+    name: 有理2位数点から作る次数2同種写像
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.isogeny-degree, elliptic-curve.n-torsion, elliptic-curve.isogeny-homomorphism]
