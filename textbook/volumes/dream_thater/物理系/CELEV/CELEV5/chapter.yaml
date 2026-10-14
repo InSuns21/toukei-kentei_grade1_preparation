@@ -1,0 +1,52 @@
+id: "CELEV5"
+title: "等質量三体の8の字解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELEV4
+  - CELEV3
+  - CELEV2
+  - CELEV1
+  - VAR9
+  - CELE2
+official_scope: []
+learning_objectives:
+  - 等質量三体のEuler–二等辺型基本弧を定義し端点条件と非衝突比較弧を確認できる
+  - 二つの閉錐が零だけで交わることから端点強制性を導き直接法で最小点を作れる
+  - Jacobi座標から形状球面への写像を導出し一直線配置が赤道に対応する理由を示せる
+  - 回転する許容変分で角運動量を消す二次式を導出できる
+  - 内部衝突と自由端点衝突を区別しChenciner–Montgomeryの衝突作用比較の適用範囲を説明できる
+  - 反射接合に必要な位置・速度の条件と形状閉合だけでは不足する回転復元を説明できる
+  - 三体舞踏解の時間シフト恒等式を検証し対称条件だけでは8の字形状を保証しないことを説明できる
+  - 存在証明と数値近似初期条件を区別し星型性補題の外部証明境界を示せる
+definitions:
+  - { id: CELEV5-DEF-01, name: "Euler–二等辺型の基本弧" }
+  - { id: CELEV5-DEF-02, name: "等質量三体の形状球面" }
+  - { id: CELEV5-DEF-03, name: "等質量三体の舞踏解" }
+theorems:
+  - { id: CELEV5-PROP-01, name: "基本弧の強制性と最小点の存在" }
+  - { id: CELEV5-PROP-02, name: "回転自由な端点とゼロ角運動量" }
+  - { id: CELEV5-THM-01, name: "Chenciner–Montgomeryの基本弧衝突排除（外部結果）" }
+  - { id: CELEV5-THM-02, name: "基本弧の接合と慣性系での復元（外部結果）" }
+  - { id: CELEV5-THM-03, name: "Chenciner–Montgomeryの8の字解（外部結果）" }
+canonical_examples:
+  - Euler–二等辺型の非衝突線形比較弧
+  - Jacobi座標と形状球面の赤道判定
+  - 全体の時間依存回転と角運動量零
+  - 反射接合における法線方向速度
+  - 三体のT/3シフトと近似8の字初期条件
+problem_patterns:
+  - CELEV5-EULER-ISOSCELES-ENDPOINTS
+  - CELEV5-NONCOLLISION-COMPARATOR
+  - CELEV5-SHAPE-HOPF
+  - CELEV5-ANGULAR-MOMENTUM
+  - CELEV5-CHOREOGRAPHY-SHIFT
+  - CELEV5-ENDPOINT-COERCIVITY
+  - CELEV5-ROTATING-FRAME-ACTION
+  - CELEV5-REFLECTION-GLUING
+  - CELEV5-SHAPE-CLOSURE
+  - CELEV5-PROOF-DEPENDENCY-BOUNDARIES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
