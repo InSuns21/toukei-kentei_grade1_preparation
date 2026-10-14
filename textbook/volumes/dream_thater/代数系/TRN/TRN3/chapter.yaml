@@ -1,0 +1,41 @@
+id: "TRN3"
+title: "Liouville法とHermite法の違い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN2
+  - NDA6
+  - CA3
+  - RA4
+official_scope: []
+learning_objectives:
+  - Liouville近似下界の次数とLiouville数の量化を区別し、既習の超越性判定を正しく適用できる
+  - Pell型の平方根2の近似により無限個の指数2の近似だけでは超越性を示せないと説明できる
+  - eの階乗級数の尾部を上下から評価してeの無理性を完全証明できる
+  - 階乗部分和の近似誤差が未知の代数的次数の排除に足りないことを不等式で示せる
+  - 非零整数に対する階乗上界の矛盾を比の評価で完全証明できる
+  - 代数的整数・通常の整数・ノルムの下界を区別して補助量に必要な条件を説明できる
+  - 多項式の有限微分和と指数関数の積の微分から実区間の端点積分恒等式を導ける
+  - Hermite法の整数性・非零性・解析上界の三つの証明責務を独立に監査できる
+definitions: []
+theorems:
+  - { id: TRN3-PROP-01, name: Liouville型の超越性判定（NDA6の再定式化） }
+  - { id: TRN3-THM-01, name: 階乗級数によるeの無理性 }
+  - { id: TRN3-LEM-01, name: 非零整数と階乗上界の矛盾 }
+  - { id: TRN3-PROP-02, name: 実区間での微分和の端点恒等式 }
+canonical_examples:
+  - Pell型の平方根2の無限個の二乗近似
+  - eの階乗部分和と尾部の上下界
+  - 2-平方根3の共役ノルムと整数性の区別
+  - f=x(x-1)での有限微分和と端点積分
+problem_patterns:
+  - TRN3-LIOUVILLE-QUANTIFIERS
+  - TRN3-FACTORIAL-SERIES-IRRATIONAL
+  - TRN3-FACTORIAL-VERSUS-EXPONENTIAL
+  - TRN3-INTEGER-NORM-DISTINCTION
+  - TRN3-ENDPOINT-IDENTITY
+  - TRN3-THREE-GATES
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
