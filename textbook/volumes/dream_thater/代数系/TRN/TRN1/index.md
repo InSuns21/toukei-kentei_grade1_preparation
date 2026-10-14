@@ -237,24 +237,24 @@ $$
 
 まず同じ補題を転置行列 $B(T)^{\mathsf T}$ に適用します。[行列式の転置不変性](../../../基礎科目/LA/LA3B/index.md#thm-la3b-det-transpose)の証明は Leibniz 公式に基づくため、成分が $\mathbb C[T]$ の場合も同じく成り立ちます。従って
 
-$
+$$
 B(T)^{\mathsf T}\operatorname{adj}(B(T)^{\mathsf T})
 =\det(B(T)^{\mathsf T})I_r
 =P(T)I_r.
-$
+$$
 
 両辺を転置すると、積の順序が反転して
 
-$
+$$
 \operatorname{adj}(B(T)^{\mathsf T})^{\mathsf T}B(T)
 =P(T)I_r.
-$
+$$
 
 余因子は小行列式から定義され、小行列を転置しても行列式は変わりません。ゆえに $\operatorname{adj}(B(T)^{\mathsf T})^{\mathsf T}=\operatorname{adj}(B(T))$ となり、求める向き
 
-$
+$$
 \operatorname{adj}(B(T))B(T)=P(T)I_r
-$
+$$
 
 が得られます。生成元の独立性や行列 $B(\alpha)$ の可逆性は一切用いていません。
 
@@ -606,13 +606,13 @@ $$
 
 $T^4-10T^2+1$ は整数係数モニックであり、(iii) が成立します。念のため (ii) の行列を用いて、[Laplace 展開](../../../基礎科目/LA/LA3C/index.md#thm-la3c-laplace-expansion)でも照合できます。$TI_4-A$ の第1行は $(T,-1,-1,0)$ で、対応する最初の3つの小行列式は順に $T(T^2-5)$、$-2(T^2+1)$、$3(T^2-1)$ です。よって
 
-$
+$$
 \begin{aligned}
 \det(TI_4-A)
 &=T\cdot T(T^2-5)-2(T^2+1)-3(T^2-1)\\
 &=T^4-10T^2+1.
 \end{aligned}
-$
+$$
 
 この照合とは独立に、(iii) は直前の $\gamma^2$ の計算から成立しています。加群判定に必要なのは整数係数の生成表示・$1\in M$・乗法安定性だけで、生成元の独立性や基底性は必要ありません。
 <!-- solution-end -->
