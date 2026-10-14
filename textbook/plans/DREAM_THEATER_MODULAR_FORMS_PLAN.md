@@ -5,7 +5,7 @@
 
 ## 中心問いと直接依存
 
-CA8/9/12、GRP3、[NT2〜4](DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)。MF8のmodularityで[EC8](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)の算術との橋を扱うが、基礎MF1にEC8を必須としない。
+CA8/9/12、GRP3、[NT2〜4](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)。MF8のmodularityで[EC11](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)の算術との橋を扱う。MF1〜MF7へEC11を逆向きの必須前提として課さない。
 
 **本科目の正本：** modular group・q展開・Hecke作用素・L関数とmodularityの橋。
 
@@ -18,7 +18,7 @@ CA8/9/12、GRP3、[NT2〜4](DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)。MF
 - GRP3
 - NT2--NT4
 
-MF6 以降では ANT2--ANT4、MF8 では EC1--EC8 を追加する。
+MF6以降では、Dirichlet級数・L関数の使用範囲に応じてANTの該当章を追加する。MF8ではEC10（楕円曲線L関数）とEC11（modularity interface）を追加する。
 
 ## MF1 上半平面・格子・modular group
 
@@ -116,7 +116,7 @@ CA12 の theta--Mellin 構成を prototype として再利用する。
 - local Euler factor
 - conductor / level dictionary
 - weight 2 newform
-- EC8 との係数比較
+- EC7 の有限体の点数と $a_p(E)$ の定義は比較対象として紹介し、実際の係数一致は EC11 / MF8 で扱う（MF7 の必須prerequisiteではない）
 
 ## MF8 Modularity Theorem と Fermat の最終定理への橋
 
@@ -180,4 +180,4 @@ Wiles--Taylor--Wiles の modularity lifting proof は本章では証明しない
 
 ## 章別執筆・数理査読・完了判定
 
-本PLANは設計段階であり、未実装科目・未証明定理を既習としない。実装前に章ID・実在する直接prerequisite・concept ownerを確認し、独習者が追える証明粒度と演習A4/B3/C1以上の全詳細解答を整える。完成本文の全証明・全演習を再計算し、別観点で再査読して直前完了章の追跡監査とともに記録する。科目ごとの公開・依存・リンクの横断監査を通して初めて完了扱いにする。
+本PLANは設計段階であり、未実装科目・未証明定理を既習としない。実装前に章ID・実在する直接prerequisite・concept ownerを確認し、独習者が追える証明粒度と演習A4/B3/C1以上の全詳細解答を整える。完成本文の全証明・全演習を再計算し、別観点で再査読する。変更していない別章の追跡監査はユーザーの明示指定がある場合のみ行う。科目ごとの公開・依存・リンクの横断監査を通して初めて完了扱いにする。

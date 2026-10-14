@@ -4,9 +4,9 @@
 状態: planned（横断ルート台帳のみ）
 
 - [整数論NT1〜10](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)
-- [Diophantine近似NDA1〜8](../plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md)
-- [解析的整数論ANT1〜8](../plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md)
-- [楕円曲線EC1〜8](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)
+- [Diophantine近似NDA1〜8](../plan_done/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md)
+- [解析的整数論ANT1〜8](../plan_done/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md)
+- [楕円曲線EC1〜11](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)
 - [モジュラー形式MF1〜8](DREAM_THEATER_MODULAR_FORMS_PLAN.md)
 
 ## 直接依存DAG
@@ -15,7 +15,7 @@
 RNG/GRP/FLD → NT1〜8 ─┬→ NDA1〜8 → TRN・EOM017
                          ├→ NT9〜10（＋CMP）→ EOM004
                          ├→ ANT1〜8（＋CA12）
-                         └→ EC1〜8（＋CA9） ──────────┐
+                         └→ EC1〜11（＋CA9） ──────────┐
 CA8/9/12＋NT2〜4 → MF1〜8 ─────────────────────────┴→ modularityの接続
 ~~~
 
@@ -124,7 +124,7 @@ CA12 ζ・theta・関数等式 ─────────→ モジュラー形
 - NDA1--NDA8: Diophantine近似（整数論内の独立1セメスター科目）
 - NT9--NT10: Hilbert第10問題へ進む整数論発展章
 - ANT1--ANT8: 解析的整数論
-- EC1--EC8: 楕円曲線
+- EC1--EC11: 楕円曲線
 - MF1--MF8: モジュラー形式と modularity への橋
 
 PLAN 段階では未実装 ID を public index、knowledge DAG、series manifest へ登録しない。実装開始時に衝突がないことを再確認する。
@@ -295,20 +295,19 @@ GRP2 ─┘       │
                                              ├→ ANT5 → ANT6 → ANT7 → ANT8
 CA12 ────────────────────────────────────────┘
 
-CA8 → CA9 ────────→ MF1 → MF2 → MF3 → MF4 → MF5 → MF6 → MF7 ──┐
- │      │             ↑                                ↑          │
- │      └→ EC3        │                                └── ANT ───┤
- │                    │                                            │
- └────────────────────┘                                            │
-                                                                   │
-NT1--NT4 → EC1 → EC2 → EC3 → EC4 → EC5 → EC6 → EC7 → EC8 ────────┘
-                                                                   │
-                                                                   ↓
-                                                                  MF8
-                                                                   ↓
-                                                        Modularity Theorem
-                                                                   ↓
-                                                           Frey → Ribet → FLT
+CA8 → CA9 → EC3（複素一様化）
+   └────────────→ MF1 → MF2 → MF3 → MF4 → MF5 → MF6 → MF7 ─┐
+CA12 / ANT の該当章 ───────────────────────────────→ MF6 ──┤
+                                                         │
+NT1--NT4 → EC1 → EC2 → EC4 → EC7 → EC8 → EC9 → EC10 ────┤
+                  ├────→ EC5 → EC6                     │
+                  └────→ EC3                           │
+                                                         ↓
+                                                        EC11
+                                                         ↓
+                                                        MF8
+                                                         ↓
+                                          Modularity Theorem → FLT
 ~~~
 
 実際の chapter.yaml prerequisite はこの図を機械的に転写せず、その章が直接使用する最小依存だけを登録する。
@@ -337,7 +336,7 @@ MF1--MF5 は主に複素解析・群作用・格子から開始できる。MF6--
 - adèle / idèle
 - class field theory
 
-EC4 等で不可避になった場合は proof route を点検し、実装上の都合だけで未履修理論を逆輸入しない。
+EC6 等で不可避になった場合は proof route を点検し、実装上の都合だけで未履修理論を逆輸入しない。
 
 ---
 
@@ -378,7 +377,7 @@ ANT1--ANT8 で一学期科目として完結。
 
 ## 楕円曲線
 
-EC1--EC8 で一学期科目として完結。
+EC1--EC11 は暫定の学習順であり、11講固定ではない。特に結合法則・一般 Mordell--Weil・Hasse 評価・導手の証明経路を閉じるため、必要に応じて分割する。
 
 到達点:
 
@@ -533,7 +532,7 @@ modular form
 - CA8 / CA9 / CA12 の stable result を確認。
 - GRP / RNG / FLD の再利用箇所を確定。
 - NT / ANT / EC / MF の ID 衝突を再確認。
-- EC2 associativity、EC4 Mordell--Weil、EC5 Hasse bound、ANT6 Tauberian step の proof route を実装前に確定。
+- EC2 結合法則、EC4 isogeny/degree、EC6 一般 Mordell--Weil、EC8 Hasse 評価、EC9 導手の proof route、および ANT6 Tauberian step を実装前に確定。
 
 ## Phase 1: NT1--NT8
 
@@ -547,13 +546,17 @@ modular form
 
 全面改稿はしない。EC / MF に必要な stable anchor または説明が不足する場合だけ局所補強する。
 
-## Phase 4: EC1--EC8
+## Phase 4: EC1--EC10
 
-楕円曲線を group law から Hasse--Weil L、modularity interface まで実装する。
+楕円曲線の群則・有理点・有限体・Hasse 評価・還元・Hasse--Weil L 関数まで実装する。EC6の一般証明に未履修の前提が必要なら独立に解決し、例示的な2-descentのみで完成扱いにしない。
 
-## Phase 5: MF1--MF8
+## Phase 5: MF1--MF7
 
-modular group から newform、modular L、Modularity Theorem、FLT bridge まで実装する。
+modular group から newform と modular L まで実装する。MF7からEC11へ先行依存を張らない。
+
+## Phase 5A: EC11 → MF8
+
+EC11で曲線の局所係数・導手とnewformを照合してから、MF8でModularity TheoremとFLT bridgeを接続する。
 
 ## Phase 6: 横断監査
 
