@@ -263,7 +263,13 @@ $$
 =\int_a^b\dot t(s)\,ds>0.
 $$
 
-また $g(\nabla^g\tau,\partial_t)=d\tau(\partial_t)=1$ であるため $\nabla^g\tau=-\partial_t$、$g(\nabla^g\tau,\nabla^g\tau)=-1<0$ です。$-\partial_t$ は過去向きなのでtemporal functionの条件も満たします。**時間関数は連続性だけが必要**であり、temporal functionの方が強い正則性と勾配条件を要求します。
+さらに勾配を定義から計算します。任意の接ベクトル $v=a\partial_t+\sum_{i=1}^{n}b_i\partial_{x^i}$ に対し、計量の時間・空間成分を代入すると
+
+$
+g(-\partial_t,v)=a=d\tau(v).
+$
+
+したがって、すべての $v$ で $g(\nabla^g\tau,v)=d\tau(v)$ を満たす勾配は $\nabla^g\tau=-\partial_t$ です。その自己内積は $g(\nabla^g\tau,\nabla^g\tau)=-1<0$ です。$-\partial_t$ は過去向きなのでtemporal functionの条件も満たします。**時間関数は連続性だけが必要**であり、temporal functionの方が強い正則性と勾配条件を要求します。
 
 <!-- definition-example-end -->
 
@@ -342,7 +348,14 @@ $$
 
 $T$ は $\widehat g(T,T)<0$ を満たし、$\widehat g(T,v)=-(1/A+\varepsilon)a$ より、未来向きの枝は $a>0$ です。従ってすべての未来 $\widehat g$-因果ベクトルについて $d\tau(v)>0$。
 
-さらに上で得た $T,w$ による表示から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と計算でき、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。 $\square$
+さらに $\widehat g(T,T)=-(A^{-1}+\varepsilon)$、$\widehat g(T,w)=0$ です。任意の $v=aT+w$ に対して
+
+$
+\widehat g\left(-\frac{T}{A^{-1}+\varepsilon},v\right)
+=a=d\tau(v)
+$
+
+なので、勾配の定義と計量の非退化性から $\nabla^{\widehat g}\tau=-T/(A^{-1}+\varepsilon)$ と分かり、このベクトルは過去時間的です。従って $\tau$ の勾配は $\widehat g$ に関しても過去時間的となり、[単調性の補題](#lem-lorg10-temporal-monotone)を $\widehat g$ へ適用して $(M,\widehat g)$ はcausalです。安定因果性の定義が満たされます。 $\square$
 <!-- proof-end -->
 
 ## 9. 滑らかな時間関数があれば強因果的になる
@@ -380,7 +393,7 @@ s(y)+\eta>0,\qquad
 |\mathbf x_y|\le C(s(y)+\eta)
 $$
 
-です。$y$ が時間境界 $s=h$ にあれば $s(y)+\eta=h+\eta>2\delta$、空間境界 $|\mathbf x|=R$ にあれば $s(y)+\eta\ge R/C\ge2\delta$ です。負の時間境界 $s=-h$ には未来曲線で達しません。従っていずれも $s(y)+\eta\ge2\delta$ ですが、曲線全体で $s=\tau-\tau(p)$ は増え、終点 $b$ では $s(b)=\eta$ だから
+です。$y$ が時間境界 $s=h$ にあれば $s(y)+\eta=h+\eta>2\delta$、空間境界 $|\mathbf x|=R$ にあれば $s(y)+\eta\ge R/C\ge2\delta$ です。負の時間境界 $s=-h$ には未来曲線で達しません。従っていずれも $s(y)+\eta\ge2\delta$ です。座標としての $s$ は $W$ 内だけで使いましたが、実数値関数 $s(z)=\tau(z)-\tau(p)$ は $M$ 全体で定義されています。[temporal functionの単調性](#lem-lorg10-temporal-monotone)を曲線全体へ適用すると、終点 $b$ では $s(b)=\eta$ だから
 
 $$
 s(y)+\eta\le s(b)+\eta=2\eta<\delta
@@ -524,7 +537,7 @@ $V$ の **$M$ における**因果的凸性より、その中間点 $z$ も $V$ 
 #### LORG10-B02 点除去円筒の再侵入曲線
 - Level: B
 
-$C^\ast$ 上で $p=(0,[1/4])$、$\gamma_\varepsilon(u)=(u,[1/4+(u+\varepsilon)/(2\varepsilon)])$、$-\varepsilon\le u\le\varepsilon$ とする。$0<\varepsilon<1/2$ で未来時間的、除去点を通らず、両端は $p$ に収束するが中間点は収束しないことを示せ。
+$C^\ast$ 上で $p=(0,[1/4])$、$\gamma_\varepsilon(u)=(u,[1/4+(u+\varepsilon)/(2\varepsilon)])$、$-\varepsilon\le u\le\varepsilon$ とする。$0<\varepsilon<1/2$ で未来時間的、除去点を通らず、両端は $p$ に収束するが、中間点は $p$ に収束しないことを示せ。
 
 <!-- solution-start -->
 **詳細解答**。$b=d\theta/du=1/(2\varepsilon)$ とすると
