@@ -35,4 +35,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（実区間での微分和の端点恒等式）]
-    requires: [transcendence.integer-factorial-squeeze]
+    requires: []
