@@ -260,7 +260,7 @@ $$
 \left[\int_O^P\omega\right]\in\mathbb C/\Lambda_E
 $$
 
-> は経路に依存せず、$E(\mathbb C)$ と $\mathbb C/\Lambda_E$ の間の双正則写像を与える。その逆写像は $\Phi_{\Lambda_E}$ である。ゆえに全ての複素楕円曲線は複素トーラスから得られる。
+> は経路に依存せず、$E(\mathbb C)$ と $\mathbb C/\Lambda_E$ の間の双正則写像を与える。その逆写像は $\Phi_{\Lambda_E}$ である。ゆえに全ての複素楕円曲線は[複素トーラス](../../../解析系/CA/CA8/index.md#thm-ca8-complex-torus)から得られる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
