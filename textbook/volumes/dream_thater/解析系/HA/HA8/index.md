@@ -891,7 +891,20 @@ $$
 **演習 HA8-B03（双対を使う理由）**  
 - Level: B
 
-$f,g\in\mathcal S$ とする。$m_0=\varphi$、$m_j=\psi_j$（$j\ge1$）と置く。実値の滑らかなコンパクト台乗数 $\widetilde m_0,\widetilde m_j$ を、それぞれ $\operatorname{supp}m_j$ 上で1となるように取り、$j\ge1$ では $\widetilde m_j(\xi)=\widetilde\psi(2^{-j}\xi)$（$\widetilde\psi$ は原点近傍で0）とする。$\widetilde\Delta_j$ を乗数 $\widetilde m_j$ の作用素とする。このとき
+$f,g\in\mathcal S$ とし、[非斉次分割](#def-ha8-dyadic)の各乗数を
+
+$
+m_0(\xi)=\varphi(\xi),\qquad
+m_j(\xi)=\psi_j(\xi)\quad(j\ge1)
+$
+
+と書く。実値の滑らかなコンパクト台乗数 $\widetilde m_0$ は $\operatorname{supp}\varphi$ 上で1となるように取る。また、原点近傍で零、$\operatorname{supp}\psi$ 上で1となる実値の $\widetilde\psi\in C_c^\infty$ を取り、
+
+$
+\widetilde m_j(\xi)=\widetilde\psi(2^{-j}\xi)\quad(j\ge1)
+$
+
+と定める。これで各 $j\ge0$ について $\widetilde m_j=1$ が $\operatorname{supp}m_j$ 上で成り立つ。$\widetilde\Delta_j$ を乗数 $\widetilde m_j$ の作用素とする。このとき
 
 $$
 \int f\overline g=\sum_{j\ge0}\int\Delta_jf\,\overline{\widetilde\Delta_jg}
