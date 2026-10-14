@@ -115,6 +115,24 @@ try {
   await waitFor('document.querySelector("#diagnostics")?.textContent.includes("100")');
   await evaluate('document.querySelector("#separation").value="2";document.querySelector("#reset").click()');
   await waitFor('Math.abs(' + energy + ' + 0.25) < 1e-12');
+
+  // Current bodies must be distinguishable independently of the trail by
+  // three numbered shape symbols. Burrau must recompute a nontrivial initial
+  // state, rather than replay a stored image.
+  const bodiesAtTwo = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
+  assert.deepEqual(bodiesAtTwo, ["1", "2"]);
+  await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
+  const burrauEnergy = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="energy")?.cells[1]?.textContent)';
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10);
+  const burrauBodies = await evaluate('[...document.querySelectorAll("#particle-legend .particle-icon")].map(e=>e.textContent)');
+  assert.deepEqual(burrauBodies, ["1", "2", "3"]);
+  assert.equal(await evaluate('document.querySelector("#burrau-params").hidden'), false);
+  await evaluate('document.querySelector("#step").click()');
+  await waitFor('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="stepIndex")?.cells[1]?.textContent) === 1');
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 0.001);
+  console.log("Burrau browser smoke: numbered 3-body current markers, initial energy and live step: PASS");
+
   await evaluate('document.querySelector("#experiment").value="ml";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
   await waitFor('document.querySelector("#diagnostics")?.textContent.includes("populationRisk")');
   const risk = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x => x.cells[0]?.textContent === "populationRisk")?.cells[1]?.textContent)';
