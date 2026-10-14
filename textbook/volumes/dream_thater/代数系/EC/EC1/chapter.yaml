@@ -1,0 +1,45 @@
+id: "EC1"
+title: "非特異三次曲線とWeierstrass方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-01
+  - AG2-11
+  - FLD3
+official_scope: []
+learning_objectives:
+  - 一般Weierstrass方程式を射影化して無限遠点Oが一意かつ非特異であることを証明できる
+  - 幾何学的非特異性を代数閉包上の偏微分条件で検査し特異反例を識別できる
+  - b2・b4・b6・b8・c4・c6・判別式・j不変量を定義から計算できる
+  - 判別式非零性と幾何学的非特異性の同値を標数2を含めて証明できる
+  - 可逆Weierstrass座標変換の係数と判別式の変換則を検算できる
+  - 標数が2と3以外の場合に平方完成と平行移動で短いWeierstrass形を導ける
+  - Q・R・C・F2・F3・F5の例を検算して標数による制約を説明できる
+definitions:
+  - { id: EC1-DEF-01, name: Weierstrass三次曲線と指定点 }
+  - { id: EC1-DEF-02, name: 幾何学的非特異性と楕円曲線のWeierstrass模型 }
+  - { id: EC1-DEF-03, name: Weierstrass不変量・判別式・j不変量 }
+theorems:
+  - { id: EC1-THM-01, name: Weierstrass判別式による非特異性判定 }
+  - { id: EC1-PROP-01, name: 許されるWeierstrass座標変換 }
+  - { id: EC1-THM-02, name: 短いWeierstrass形への変換 }
+canonical_examples:
+  - 一般Weierstrass三次の無限遠点OとF_Z(O)=1
+  - Q上のy²=x³-xの判別式64とj=1728
+  - 標数2で非特異なy²+y=x³
+  - F3とF5上のy²=x³+xの点数確認
+  - 尖点y²=x³の特異性と短い形の標数2での失敗
+  - 平方完成と尺度変換による判別式の不変性
+problem_patterns:
+  - EC1-A1
+  - EC1-A2
+  - EC1-A3
+  - EC1-A4
+  - EC1-B1
+  - EC1-B2
+  - EC1-B3
+  - EC1-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 4 }
