@@ -1,4 +1,4 @@
-# HA11 Fourier restriction・extensionとKakeyaへの入口
+# HA11 Fourier restrictionとKakeyaへの入口
 
 [FOU3のFourier変換](../../FOU/FOU3/index.md#def-fou3-fourier-transform)は空間全体の周波数を記録し、[HA10の球面測度のFourier減衰](../HA10/index.md#thm-ha10-sphere)は曲率のある曲面で振動が相殺されることを示しました。では、周波数を球面の上だけで観測したい場合はどうでしょうか。
 
