@@ -135,6 +135,22 @@ try {
   await waitFor('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="stepIndex")?.cells[1]?.textContent) === 1');
   assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 0.001);
   console.log("Burrau browser smoke: numbered 3-body current markers, initial energy and live step: PASS");
+  // Exercise the actual Worker beyond the near encounters and show ejection.
+  const burrauRow = (name) => 'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="' +
+    name + '")?.cells[1]?.textContent)';
+  for (const requested of [101, 201, 301]) {
+    await evaluate('document.querySelector("#run").click()');
+    await waitFor(burrauRow("stepIndex") + " === " + requested, 30000);
+  }
+  const escapeDistance = await evaluate(burrauRow("escapeDistance3"));
+  const boundEnergy = await evaluate(burrauRow("binarySpecificEnergy45"));
+  const energyDrift = await evaluate(burrauRow("energyDrift"));
+  assert.ok(escapeDistance > 25, "Burrau mass-3 body must separate from 4/5 binary");
+  assert.ok(boundEnergy < 0, "Burrau mass-4/5 pair must be bound");
+  assert.ok(Math.abs(energyDrift) < 5e-5, "late-time energy drift unacceptable");
+  assert.equal(await evaluate('document.querySelector("#status").dataset.error'), "false");
+  console.log("Burrau browser full escape, t=75.25: distance=" + escapeDistance +
+    "; drift=" + energyDrift + "; bound-pair-energy=" + boundEnergy);
 
   await evaluate('document.querySelector("#experiment").value="ml";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
   await waitFor('document.querySelector("#diagnostics")?.textContent.includes("populationRisk")');
