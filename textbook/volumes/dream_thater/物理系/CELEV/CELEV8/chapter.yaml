@@ -21,6 +21,7 @@ learning_objectives:
   - velocity-Verletの更新をNewton力から実装し全運動量保存を示せる
   - エネルギー・重心・角運動量・格子残差と閉合残差を区別できる
   - ブラウザ内Pythonの積分と変分探索を操作し初期値依存性・刻み依存性を説明できる
+  - Burrauの3-4-5三体初期条件・基準エネルギーを計算し近接遭遇時の数値破綻を判定できる
   - 数値停留点と連続周期解の厳密存在証明を混同しない
 definitions:
   - { id: CELEV8-DEF-01, name: "周期格子上の離散Newton作用" }
@@ -37,6 +38,7 @@ canonical_examples:
   - N=12の8の字型ループでの全線形拘束の直接検算
   - 二体円運動の最初のvelocity-Verletステップ
   - 等質量二体の解析的エネルギーと角運動量
+  - Burrauのピタゴラス三体初期配置と全エネルギー -769/60
 problem_patterns:
   - CELEV8-DISCRETE-ACTION
   - CELEV8-DISCRETE-GRADIENT
