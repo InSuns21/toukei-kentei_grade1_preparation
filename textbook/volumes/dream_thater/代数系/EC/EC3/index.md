@@ -21,7 +21,7 @@ E_\Lambda:\quad y^2=x^3-\frac{g_2}{4}x-\frac{g_3}{4},
 \qquad O=[0:1:0]
 $$
 
-です。短いWeierstrass形の係数は $A=-g_2/4,\ B=-g_3/4$ です。[CA9の判別式非零定理](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)から $g_2^3-27g_3^2\ne0$。実際に [EC1の短い形の判別式](../EC1/index.md#def-ec1-invariants)へ代入すると
+です。短いWeierstrass形の係数は $A=-g_2/4,\ B=-g_3/4$ です。[三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)から $g_2^3-27g_3^2\ne0$。実際に [EC1の短い形の判別式](../EC1/index.md#def-ec1-invariants)へ代入すると
 
 $$
 \begin{aligned}
@@ -111,7 +111,7 @@ $$
 m=\frac{y-b}{x-a}.
 $$
 
-[EC2の三根の和からの公式](../EC2/index.md#def-ec2-chord-tangent-addition)により、代数的に加えた点の $x$ 座標は $X=m^2-x-a$ です。一方 [CA9の加法公式](../../../解析系/CA/CA9/index.md#thm-ca9-addition-formula)に $u,v$ を代入すると
+[割線・接線による加法](../EC2/index.md#def-ec2-chord-tangent-addition)により、代数的に加えた点の $x$ 座標は $X=m^2-x-a$ です。一方 [CA9の加法公式](../../../解析系/CA/CA9/index.md#thm-ca9-addition-formula)に $u,v$ を代入すると
 
 $$
 \wp(u+v)
@@ -270,7 +270,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 二周期の独立性。** $a,b$ を切り開いたトーラスの基本領域を $D$ とします。$D$ は単連結なので $\omega$ の原始関数 $F$ を取れます。複素共役の微分を $\overline\omega$ と書き、Stokesの公式を $d(F\overline\omega)=\omega\wedge\overline\omega$ に適用します。向きの取り方を $a,b$ の正向きに合わせると、向かい合う辺における $F$ の値の差がそれぞれ $\Omega_1,\Omega_2$ となり、
+**(1) 二周期の独立性。** $a,b$ を切り開いたトーラスの基本領域を $D$ とします。$D$ は二つの基本閉路に沿って切り開いた円板状の領域で、全ての閉路が点へ縮められるため積分の経路依存がありません。そこで $\omega$ の原始関数 $F$ を取れます。複素共役の微分を $\overline\omega$ と書き、Stokesの公式を $d(F\overline\omega)=\omega\wedge\overline\omega$ に適用します。向きの取り方を $a,b$ の正向きに合わせると、向かい合う辺における $F$ の値の差がそれぞれ $\Omega_1,\Omega_2$ となり、
 
 $$
 \int_E\omega\wedge\overline\omega
@@ -331,7 +331,7 @@ $$
 <a id="def-ec3-j-invariant"></a>
 
 <!-- formal-statement-start -->
-> **定義（楕円曲線と格子の $j$ 不変量）**  
+> **定義（楕円曲線と格子のj不変量）**  
 > 非特異な複素楕円曲線 $E:y^2=x^3+Ax+B$ と、複素格子 $\Lambda$ に対し、それぞれ
 
 $$
@@ -357,7 +357,7 @@ $E:y^2=x^3+1$ では $A=0,B=1$、判別式 $-432\ne0$ で $j(E)=0$ です。$\La
 <a id="thm-ec3-j-classification"></a>
 
 <!-- formal-statement-start -->
-> **定理（複素数上の $j$ による同型分類）**  
+> **定理（複素数上のjによる同型分類）**  
 > 原点を保つ二つの複素楕円曲線 $E,E'$ が同型であるための必要十分条件は、次の等式である。
 
 $$
@@ -455,7 +455,7 @@ $$
 **定義の確認。** 正方格子 $\Lambda_\square=\mathbb Z+i\mathbb Z$ では
 
 $$
-i(m+ni)=-n+mi\in\Lambda_\square
+i(m+ni)=-n+mi\in\Lambda_\square\qquad(m,n\in\mathbb Z)
 $$
 
 なので $i\in R_{\Lambda_\square}$。$i\notin\mathbb Z$ ですから整数倍以外の自己準同型です。さらに $i^2=-1$ なので、この写像を二度適用すると反転写像になります。$\rho=e^{\pi i/3}$、$\Lambda_\triangle=\mathbb Z+\rho\mathbb Z$ では $\rho^2=\rho-1$ だから
@@ -515,7 +515,7 @@ $\mathbb C$ 上の $E_1:y^2=x^3-x$ と $E_2:y^2=x^3+1$ が非特異であるこ�
 - ID: EC3-A3
 
 <!-- solution-start -->
-**詳細解答。** $E_1$ では $A=-1,B=0$、従って $\Delta=-16(4(-1)^3)=64\ne0$。$j=1728\cdot(-4)/(-4)=1728$ です。$E_2$ では $A=0,B=1$、$\Delta=-16(27)=-432\ne0$。分母27は非零で分子0なので $j=0$ です。同じ $j$ ではないから、[複素数上の分類定理](#thm-ec3-j-classification)よりこの二曲線は $\mathbb C$ 上で同型ではありません。
+**詳細解答。** $E_1$ では $A=-1,B=0$、従って $\Delta=-16(4(-1)^3)=64\ne0$。$j=1728\cdot(-4)/(-4)=1728$ です。$E_2$ では $A=0,B=1$、$\Delta=-16(27)=-432\ne0$。分母27は非零で分子0なので $j=0$ です。同じ $j$ ではないから、[複素数上のjによる同型分類](#thm-ec3-j-classification)よりこの二曲線は $\mathbb C$ 上で同型ではありません。
 <!-- solution-end -->
 
 ### A4. 正方格子のCMを検査する
