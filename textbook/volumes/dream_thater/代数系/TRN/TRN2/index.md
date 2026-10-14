@@ -434,7 +434,15 @@ $$
 
 ## 6. 非正規拡大での注意と Galois 拡大での共役積
 
-$K=\mathbb Q(\sqrt[3]{2})$ を $\mathbb R$ の部分体として取ります。$t=\sqrt[3]{2}$ の最小多項式は $T^3-2$ です。$\omega=(-1+i\sqrt3)/2$ とすれば三根は $t,\omega t,\omega^2t$。$K/\mathbb Q$ は次数3で分離的ですが正規ではありません。実数体 $K$ の $\mathbb Q$-自己同型は $t$ を実根 $t$ にしか送れないため恒等写像だけです。それでも $K\to\mathbb C$ の埋め込みは3個あります。従って
+$t=\sqrt[3]{2}>0$、$K=\mathbb Q(t)\subset\mathbb R$ と置きます。$T^3-2$ は有理根を持たない三次多項式だから既約で、$t$ の最小多項式です。標数0なので分離的であり、$[K:\mathbb Q]=3$ です。
+
+$\omega=(-1+i\sqrt3)/2$ と置くと、最小多項式の三根は
+
+$$
+t,\qquad\omega t,\qquad\omega^2t
+$$
+
+です。$K$ は実数体の部分体なので非実根 $\omega t,\omega^2t$ は含まず、拡大は正規ではありません。$K\to K$ の $\mathbb Q$-自己同型は $t$ を唯一の実根 $t$ へ送る恒等写像だけです。一方、[有限分離拡大の埋め込み数](../../FLD/FLD4/index.md#thm-fld4-separable-embedding-count)より、$K\to\mathbb C$ の埋め込みは3個あります。従って
 
 $$
 \operatorname{Tr}_{K/\mathbb Q}(t)=t+\omega t+\omega^2t=0,
