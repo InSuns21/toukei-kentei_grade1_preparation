@@ -376,7 +376,7 @@ $$
 =b+(a+b)\varphi\in M
 $$
 
-が任意の整数 $a,b$ で成立します。従って $\varphi M\subseteq M$ です。対応する整数行列は
+が任意の整数 $a,b$ で成立します。従って $\varphi M\subseteq M$ です。生成元 $u_1=1,u_2=\varphi$ に対しては $\varphi u_1=u_2$、$\varphi u_2=u_1+u_2$ なので、この2式を $\varphi u=Au$ に並べた係数行列は
 
 $$
 A=\begin{pmatrix}0&1\\1&1\end{pmatrix},\qquad
