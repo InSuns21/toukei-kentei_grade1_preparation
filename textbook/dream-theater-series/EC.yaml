@@ -24,7 +24,7 @@ chapters:
     title: "Isogeny・自己準同型・torsionの代数的基盤"
   - id: EC5
     path: textbook/volumes/dream_thater/代数系/EC/EC5
-    status: planned
+    status: completed
     title: "有理数体上のtorsion・高さの入口"
   - id: EC6
     path: textbook/volumes/dream_thater/代数系/EC/EC6
