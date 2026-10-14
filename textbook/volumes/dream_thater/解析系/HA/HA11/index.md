@@ -115,7 +115,7 @@ $$
 \le C\|f\|_p\|g\|_2.
 $$
 
-[MT7の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と[ $L^p$ 双対定理](../../MT/MT7/index.md#thm-mt7-lp-duality)により、$f\mapsto\langle f,Eg\rangle$ は $L^p$ 上の連続汎関数へ延び、$Eg$ を表す $L^{p'}$ 関数とそのノルム評価が従います。Schwartz関数による積分の表示と比較すれば、この関数は元の $Eg$ にほとんど至る所で一致します。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
+[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と滑らかな近似を使えば、Schwartz関数が $L^p$ に稠密であり、上の有界汎関数が $L^p$ 全体へ一意に延びると分かります。この汎関数へ[MT7の $L^p$ 双対定理](../../MT/MT7/index.md#thm-mt7-lp-duality)を適用すると、$Eg$ を表す $L^{p'}$ 関数とそのノルム評価が従います。Schwartz関数による積分の表示と比較すれば、この関数は元の $Eg$ にほとんど至る所で一致します。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
 
 $$
 \|Rf\|_2=\sup_{\|g\|_2\le1}|\langle Rf,g\rangle|
@@ -135,7 +135,7 @@ $$
 d\sigma(\omega(u))=(1-|u|^2)^{-1/2}\,du
 $$
 
-と書けます。面積要素はグラフ $x_d=h(u)=\sqrt{1-|u|^2}$ の接ベクトル $\partial_{u_j}(u,h(u))=(e_j,\partial_{u_j}h)$ から求まります。[HA10の面積要素の構成](../HA10/index.md#ref-ha10-area-element)を使うと、Gram行列は $G=I_{d-1}+(\nabla h)(\nabla h)^\mathsf T$ であり、$\det G=1+|\nabla h|^2$。ここで $\nabla h=-u/\sqrt{1-|u|^2}$ なので
+と書けます。面積要素はグラフ $x_d=h(u)=\sqrt{1-|u|^2}$ の座標偏微分で得る列 $\partial_{u_j}(u,h(u))=(e_j,\partial_{u_j}h)$ から求まります。[HA10の面積要素の構成](../HA10/index.md#ref-ha10-area-element)を使うと、Gram行列は $G=I_{d-1}+(\nabla h)(\nabla h)^\mathsf T$ であり、$\det G=1+|\nabla h|^2$。ここで $\nabla h=-u/\sqrt{1-|u|^2}$ なので
 
 $$
 \sqrt{\det G}=\sqrt{1+\frac{|u|^2}{1-|u|^2}}=(1-|u|^2)^{-1/2}.
@@ -547,7 +547,7 @@ $$
 
 です。したがって $\widetilde T_z$ の $L^2\to L^2$、$L^1\to L^\infty$ 端点ノルムはそれぞれ $t$ に一様に有界になります。しかも $\widetilde T_{-1}=T_{-1}$ です。
 
-ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$K_z$ の級数は有限の $x$ と $z$ のコンパクト集合上で正規収束するので、コンパクト台の有界関数 $u,v$ に対する $\langle T_z u,v\rangle=\iint K_z(x-y)u(y)\overline{v(x)}\,dy\,dx$ は $z$ に正則です。これにより、以下の補間用単関数から作る補助関数の解析性を確認できます。さらに帯の内部での有界性も確かめます。$\nu=d/2+z$ とすれば $\operatorname{Re}\nu\ge-1/2$ なので、Gammaの漸化式より
+ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$K_z$ の級数は $x,z$ をそれぞれ有界な閉集合に制限すると絶対値の和が一様に収束するので、コンパクト台の有界関数 $u,v$ に対する $\langle T_z u,v\rangle=\iint K_z(x-y)u(y)\overline{v(x)}\,dy\,dx$ は $z$ に正則です。これにより、以下の補間用単関数から作る補助関数の解析性を確認できます。さらに帯の内部での有界性も確かめます。$\nu=d/2+z$ とすれば $\operatorname{Re}\nu\ge-1/2$ なので、Gammaの漸化式より
 
 $$
 \frac1{|\Gamma(k+\nu+1)|}
