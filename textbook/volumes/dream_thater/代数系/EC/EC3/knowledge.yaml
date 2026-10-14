@@ -48,6 +48,14 @@ concepts:
       - complex-analysis.weierstrass-symmetry-periodicity
       - complex-analysis.compact-riemann-holomorphic-rigidity
 
+  - id: elliptic-curve.lattice-homothety
+    name: 複素格子の相似
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - complex-analysis.complex-lattice
+
   - id: elliptic-curve.complex-j-invariant
     name: 楕円曲線と格子のj不変量
     kind: definition
@@ -56,6 +64,7 @@ concepts:
     requires:
       - elliptic-curve.weierstrass-model
       - complex-analysis.weierstrass-scaling
+      - elliptic-curve.lattice-homothety
 
   - id: elliptic-curve.complex-j-classification
     name: 複素数上のjによる同型分類
