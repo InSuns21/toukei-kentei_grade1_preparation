@@ -329,6 +329,39 @@ for (const relative of textbookVolumeFiles) {
   }
 }
 
+// Inspect source files as well as published files: the single-page pass must
+// not silently remove a supplement that a chapter links to.
+const dreamManifest = JSON.parse(await readFile(path.join(root, 'textbook', 'dream-theater-index.json'), 'utf8'));
+const dreamNavSource = await readFile(path.join(siteDir, 'dream-theater-navigation.js'), 'utf8');
+const dreamNavMatch = dreamNavSource.match(/^window\.DreamTheaterNavigation = (.+);$/m);
+let dreamNavigation = {};
+try {
+  dreamNavigation = JSON.parse(dreamNavMatch?.[1] ?? '{}');
+} catch (error) {
+  errors.push(`invalid DREAM THEATER navigation payload: ${error.message}`);
+}
+const dreamRouteSet = new Set(dreamNavigation.routes ?? []);
+for (const chapterPath of dreamManifest.sections.flatMap((section) => section.paths)) {
+  if (!chapterPath.startsWith('textbook/volumes/dream_thater/')) continue;
+  const chapterDirectory = path.posix.dirname(chapterPath);
+  const chapterRoute = chapterPath.replace(/\.md$/i, '').replace(/\/index$/, '');
+  const entries = await readdir(path.join(root, chapterDirectory), { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isFile() || !/^supplement-[^.]+\.md$/i.test(entry.name)) continue;
+    const supplement = path.posix.join(chapterDirectory, entry.name);
+    const route = supplement.replace(/\.md$/i, '');
+    if (!(await exists(path.join(siteDir, supplement)))) {
+      errors.push(`DREAM THEATER supplement missing from Pages: ${supplement}`);
+    }
+    if (!dreamRouteSet.has(route)) {
+      errors.push(`DREAM THEATER supplement route missing from sidebar scope: ${route}`);
+    }
+    if (dreamNavigation.routeParents?.[route] !== chapterRoute) {
+      errors.push(`DREAM THEATER supplement parent route mismatch: ${route} -> ${chapterRoute}`);
+    }
+  }
+}
+
 const expectedTextbookPages = textbookVolumeFiles
   .filter((relative) => !relative.endsWith('/index.md'))
   .map((relative) => `textbook/volumes/${relative}`);
