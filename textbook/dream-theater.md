@@ -699,6 +699,7 @@
 14. [LORG14 限界曲線補題](textbook/volumes/dream_thater/幾何系/LORG/LORG14/index.md)
 15. [LORG15 Cauchy超曲面の定義と具体例](textbook/volumes/dream_thater/幾何系/LORG/LORG15/index.md)
 16. [LORG16 大域双曲性の特徴付け](textbook/volumes/dream_thater/幾何系/LORG/LORG16/index.md)
+17. [LORG17 Lorentz時間分離とLorentz長さの極限](textbook/volumes/dream_thater/幾何系/LORG/LORG17/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
