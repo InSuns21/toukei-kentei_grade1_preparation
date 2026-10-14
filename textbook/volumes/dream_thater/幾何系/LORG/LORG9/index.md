@@ -28,7 +28,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg9-chronological -->
-**定義の確認**。平坦なMinkowski時空 $\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向き $dt>0$ を考えます。未来時間的速度 $(\dot t,\dot x)$ は $\dot t>|\dot x|$ を満たすので、非定数の未来時間的曲線 $\gamma$ では各滑らかな片で $\dot t>0$ です。積分すると $t(\gamma(1))-t(\gamma(0))=\int_0^1\dot t\,ds>0$ であり、端点は一致できません。従ってMinkowski時空はchronologicalです。
+**定義の確認**。平坦なMinkowski時空 $\mathbb R^{1+1}$、$g=-dt^2+dx^2$、未来向き $dt>0$ を考えます。未来時間的速度 $(\dot t,\dot x)$ は $\dot t>|\dot x|$ を満たすので、非定数の未来時間的曲線 $\gamma$ では各滑らかな片で $\dot t>0$ です。区分ごとの増分を合計して積分すると
+
+$
+t(\gamma(1))-t(\gamma(0))
+=\int_0^1\dot t(s)\,ds>0
+$
+
+です。従って端点は一致できず、Minkowski時空はchronologicalです。
 <!-- definition-example-end -->
 
 **反例：周期的な時間座標**。$(t,x)\in(\mathbb R/T\mathbb Z)\times\mathbb R$（$T>0$）上の $g=-dt^2+dx^2$ を考えます。$t$ は局所座標として使い、曲線を覆い空間 $\mathbb R^2$ へ持ち上げて計算します。$\gamma(s)=([Ts],0)$（$0\le s\le1$）は速度 $(T,0)$ の未来時間的曲線で、
@@ -58,7 +65,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg9-causal -->
-**定義の確認**。Minkowski時空の未来因果速度は $\dot t\ge|\dot x|\ge0$ を満たします。$p\le q$ と $q\le p$ なら、二本の曲線を連結して得た閉路上で $\int\dot t\,ds=0$ です。非負の $\dot t$ は各滑らかな片で零、従って $|\dot x|=0$ となり、曲線は定数です。よって $p=q$ であり、Minkowski時空はcausalです。
+**定義の確認**。Minkowski時空の未来因果速度は $\dot t\ge|\dot x|\ge0$ を満たします。$p\le q$ と $q\le p$ なら、二本の曲線を連結して得た閉路上で時刻の増分が零なので
+
+$
+0=\int_0^1\dot t(s)\,ds
+\ge\int_0^1|\dot x(s)|\,ds\ge0
+$
+
+です。従って $\dot t=0$ と $\dot x=0$ が各滑らかな片で成立し、曲線は定数です。よって $p=q$ であり、Minkowski時空はcausalです。
 <!-- definition-example-end -->
 
 <a id="prop-lorg9-causal-equivalence"></a>
