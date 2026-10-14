@@ -158,7 +158,7 @@ $$
 \alpha u=Au
 $$
 
-と一つにまとめられます。**ここで $u$ は抽象的な基底ベクトルではなく、複素数を並べた列**です。生成元同士が整数係数の関係を持っていても、等式そのものは成立します。$1\in M$ があるので、後で $P(\alpha)u_i=0$ が分かれば $P(\alpha)=0$ まで進めます。
+と一つにまとめられます。**ここで $u$ は抽象的な基底ベクトルではなく、複素数を並べた列**です。[加群の基底の定義](../../MOD/MOD1/index.md#def-mod1-free-module-basis)が要求する表示の一意性は仮定していません。生成元同士が整数係数の関係を持っていても、各成分の等式そのものは成立します。$1\in M$ があるので、後で $P(\alpha)u_i=0$ が分かれば $P(\alpha)=0$ まで進めます。
 
 例えば先ほどの $M=\mathbb Z+\mathbb Z\sqrt2$ に $u=(1,\sqrt2)^{\mathsf T}$ を選べば
 
@@ -204,7 +204,7 @@ $$
 M=\mathbb Z+\mathbb Z\alpha+\cdots+\mathbb Z\alpha^{d-1}
 $$
 
-と置きます。$M$ は有限生成で $1\in M$ です。生成元 $1,\alpha,\ldots,\alpha^{d-2}$ に $\alpha$ を掛ければ次の生成元になります。最後については
+と置きます。$M$ は有限生成で $1\in M$ です。$d\ge2$ のとき生成元 $1,\alpha,\ldots,\alpha^{d-2}$ に $\alpha$ を掛ければ次の生成元になります（$d=1$ のときこの部分は空です）。最後の生成元 $\alpha^{d-1}$ については
 
 $$
 \alpha\alpha^{d-1}=\alpha^d
@@ -233,11 +233,30 @@ $$
 
 の係数は整数です。実際、[行列式のLeibniz公式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)の各項は $\mathbb Z[T]$ の多項式であり、恒等置換の対角積が $T^r$ の係数1を与え、他の置換の積の次数は $r$ 未満です。従って $P(T)\in\mathbb Z[T]$ は次数 $r$ のモニック多項式です。
 
-[多項式行列の余因子行列の恒等式](../../../基礎科目/LA/LA4/index.md#lem-la4-adjugate-identity)は $\mathbb C[T]$ 上の行列に適用できます。今回の $B(T)$ は係数が $\mathbb Z[T]$ に入るため、同じ多項式等式を $\mathbb C[T]$ 上で使えます。従って
+[多項式行列の余因子行列の恒等式](../../../基礎科目/LA/LA4/index.md#lem-la4-adjugate-identity)は $\mathbb C[T]$ 上の行列に適用できます。ただし参照先で直接示されているのは $B\operatorname{adj}(B)=\det(B)I_r$ の向きです。ここでは $B(T)u=0$ に**左から**掛けるため、積の順序を逆にした等式が必要です。
 
-$$
-\operatorname{adj}(B(T))B(T)=P(T)I_r.
-$$
+まず同じ補題を転置行列 $B(T)^{\mathsf T}$ に適用します。[行列式の転置不変性](../../../基礎科目/LA/LA3B/index.md#thm-la3b-det-transpose)の証明は Leibniz 公式に基づくため、成分が $\mathbb C[T]$ の場合も同じく成り立ちます。従って
+
+$
+B(T)^{\mathsf T}\operatorname{adj}(B(T)^{\mathsf T})
+=\det(B(T)^{\mathsf T})I_r
+=P(T)I_r.
+$
+
+両辺を転置すると、積の順序が反転して
+
+$
+\operatorname{adj}(B(T)^{\mathsf T})^{\mathsf T}B(T)
+=P(T)I_r.
+$
+
+余因子は小行列式から定義され、小行列を転置しても行列式は変わりません。ゆえに $\operatorname{adj}(B(T)^{\mathsf T})^{\mathsf T}=\operatorname{adj}(B(T))$ となり、求める向き
+
+$
+\operatorname{adj}(B(T))B(T)=P(T)I_r
+$
+
+が得られます。生成元の独立性や行列 $B(\alpha)$ の可逆性は一切用いていません。
 
 各成分を $T=\alpha$ で評価し、$(\alpha I_r-A)u=0$ に左から掛けると
 
@@ -496,7 +515,7 @@ A=\begin{pmatrix}
 \qquad \sqrt2\,u=Au.
 $$
 
-$TI_3-A$ は右上の2成分が0であるため第3列で展開でき、
+$TI_3-A$ は第3列の上2成分が0であるため、[Laplace 展開](../../../基礎科目/LA/LA3C/index.md#thm-la3c-laplace-expansion)を第3列に適用でき、
 
 $$
 \det(TI_3-A)
@@ -585,7 +604,17 @@ $$
 \gamma^4-10\gamma^2+1=0.
 $$
 
-$T^4-10T^2+1$ は整数係数モニックであり、(iii) が成立します。行列式を計算してもこの多項式が得られますが、(iii) はその計算を仮定していません。加群判定に必要なのは整数係数の生成表示・$1\in M$・乗法安定性だけで、生成元の独立性や基底性は必要ありません。
+$T^4-10T^2+1$ は整数係数モニックであり、(iii) が成立します。念のため (ii) の行列を用いて、[Laplace 展開](../../../基礎科目/LA/LA3C/index.md#thm-la3c-laplace-expansion)でも照合できます。$TI_4-A$ の第1行は $(T,-1,-1,0)$ で、対応する最初の3つの小行列式は順に $T(T^2-5)$、$-2(T^2+1)$、$3(T^2-1)$ です。よって
+
+$
+\begin{aligned}
+\det(TI_4-A)
+&=T\cdot T(T^2-5)-2(T^2+1)-3(T^2-1)\\
+&=T^4-10T^2+1.
+\end{aligned}
+$
+
+この照合とは独立に、(iii) は直前の $\gamma^2$ の計算から成立しています。加群判定に必要なのは整数係数の生成表示・$1\in M$・乗法安定性だけで、生成元の独立性や基底性は必要ありません。
 <!-- solution-end -->
 
 ## 8. 次章への接続
