@@ -461,7 +461,9 @@ E:y^2=f(x),\qquad f(X)=X^3+AX+B
 $$
 で $f$ は重根を持たないとします。分解体 $L/\mathbb Q$ を取り、互いに異なる根を $e_1,e_2,e_3\in L$ とします。$L$ は有限次Galois拡大です。
 
-数体とは $\mathbb Q$ の有限次拡大をいいます。[TRN1の代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)に従い、$L$ に属する代数的整数全体の環を $\mathcal O_L$ と書きます。$\mathcal O_L$ の非零素イデアル $\mathfrak p$ に関する指数 $v_{\mathfrak p}$ は、有理素数の指数 $v_p$ と同様に、分数イデアルの素因数分解から定まります。この新しい指数を使う理由は、根 $e_i$ が有理整数とは限らないからです。
+数体とは $\mathbb Q$ の有限次拡大をいいます。[TRN1の代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)に従い、$L$ に属する代数的整数全体の環を $\mathcal O_L$ と書きます。
+
+$\mathcal O_L$ の非零素イデアル $\mathfrak p$ に関する指数 $v_{\mathfrak p}$ は、分数イデアルの素因数分解から定まります。有理素数の指数 $v_p$ を数体へ拡張する理由は、根 $e_i$ が有理整数とは限らないからです。
 
 <a id="def-ec6-s-squareclasses"></a>
 
@@ -513,7 +515,15 @@ $$
 
 さらに、判別式の素因数の上にない素イデアルでは $v_{\mathfrak p}(x(P)-e_i)$ は偶数です。$v_{\mathfrak p}(x(P))<0$ なら三次項が支配して指数が偶数になり、$v_{\mathfrak p}(x(P))\ge0$ で $x(P)-e_i$ が $\mathfrak p$ で割れるなら、判別式が単元であることから他の二因子は単元となり、$y(P)^2=\prod_i(x(P)-e_i)$ の指数が偶数であることを使います。従って平方類は有限集合 $S$ の外で偶数指数を持ち、上の算術補題が適用されます。
 
-ただし $E(L)/2E(L)$ の有限性を $E(\mathbb Q)/2E(\mathbb Q)$ の有限性へ戻すときも一手必要です。$P\in E(\mathbb Q)$ が $L$ 上では $P=2Q$ と書けたなら、$\sigma\in\operatorname{Gal}(L/\mathbb Q)$ に対して $\sigma Q-Q\in E[2](L)$。これは有限Galois群から有限2位数群への写像であり、可能な差のデータは有限通りです。従って $L$ 上で同じ2倍商の類になっている有理点の、$\mathbb Q$ 上での剰余類も有限個しかありません。この議論は本来、有限群の1次コホモロジーで整理されますが、ここで必要なのは「有限集合上の差のデータは有限通り」という部分だけです。
+ただし $E(L)/2E(L)$ の有限性を $E(\mathbb Q)/2E(\mathbb Q)$ へ戻すときも一手必要です。$P\in E(\mathbb Q)$ が $L$ 上では $P=2Q$ と書けたなら、$\sigma\in\operatorname{Gal}(L/\mathbb Q)$ に対して
+$
+c_P(\sigma)=\sigma Q-Q\in E[2](L)
+$
+となります。これは $2c_P(\sigma)=\sigma P-P=O$ から従います。
+
+$Q$ の選び方を $Q+T$（$T\in E[2](L)$）へ変えると、データは $c_P(\sigma)+\sigma T-T$ へ変わります。同じデータをこの変化まで同一視したものが、有限Galois群と有限群 $E[2](L)$ による1次コホモロジー類です。有限集合間の写像は有限通りなので、こうした類も有限個です。
+
+さらに $P_1,P_2$ の差のデータが同一の類なら、半分点の差を適切な2位数点で補正するとGalois群で固定されます。固定された点は $E(\mathbb Q)$ に属するため、$P_1-P_2$ は有理点の2倍です。この対応により、$L$ 上で零になる剰余類の個数も有限と分かります。
 
 <a id="thm-ec6-general-weak-mw"></a>
 
@@ -698,7 +708,15 @@ $$
 \#(E(\mathbb Q)/2E(\mathbb Q))\le2\cdot2=4.
 $$
 
-(iii) $A=-1,B=0$ の Nagell–Lutz 必要条件では $y=0,\pm1,\pm2$ だけが可能です。$y=\pm1,\pm2$ なら $x^3-x$ は1または4ですが、整数 $x$ では $x(x-1)(x+1)$ が6の倍数なので矛盾します。よってtorsionは $O,(-1,0),(0,0),(1,0)$ の4元です。二つの降下像が有限であることから弱Mordell–Weilが成立し、[高さ降下定理](#thm-ec6-height-descent)から有限生成です。従って $E(\mathbb Q)\simeq\mathbb Z^r\oplus(\mathbb Z/2)^2$。その2倍商は $2^{r+2}$ 元ですから $2^{r+2}\le4$、従って $r=0$ です。torsion以外の有理点はありません。
+(iii) $A=-1,B=0$ の Nagell–Lutz 必要条件では $y=0,\pm1,\pm2$ だけが可能です。$y=\pm1,\pm2$ なら $x^3-x$ は1または4ですが、整数 $x$ では $x(x-1)(x+1)$ が6の倍数なので矛盾します。
+
+よってtorsionは $O,(-1,0),(0,0),(1,0)$ の4元です。二つの降下像が有限であることから2倍商も有限であり、[高さ降下定理](#thm-ec6-height-descent)から有限生成です。
+
+[MOD2の有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)を適用して
+$
+E(\mathbb Q)\simeq\mathbb Z^r\oplus(\mathbb Z/2)^2
+$
+となります。2倍商は $2^{r+2}$ 元ですが、上界は4でした。従って $2^{r+2}\le4$ から $r=0$、torsion以外の有理点はありません。
 <!-- solution-end -->
 
 ## 9. 次章への接続
