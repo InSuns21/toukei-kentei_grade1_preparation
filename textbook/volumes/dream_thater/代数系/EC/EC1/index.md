@@ -21,7 +21,7 @@ F(X,Y,Z)=Y^2Z+a_1XYZ+a_3YZ^2
 -X^3-a_2X^2Z-a_4XZ^2-a_6Z^3
 $$
 
-になります。これを**斉次化**といいます。$Z=1$ を代入すると元の $f$ に戻るので、有限点を失っていません。
+になります。[斉次多項式](../../AG/AG2-01/index.md#def-ag2-01-homogeneous-polynomial)に次数を揃えるこの操作では、$Z=1$ を代入すると元の $f$ に戻るので、有限点を失いません。
 
 <a id="def-ec1-weierstrass-curve"></a>
 
