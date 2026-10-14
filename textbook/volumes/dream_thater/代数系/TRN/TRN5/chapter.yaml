@@ -1,0 +1,36 @@
+id: "TRN5"
+title: "eに対する補助多項式と素数合同"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN4
+official_scope: []
+learning_objectives:
+  - eが代数的だと仮定して整数係数の指数関係を両端非零の形に固定できる
+  - Hermiteの補助多項式の次数と整数点での零点の重複度を確認できる
+  - 整数係数多項式の平行移動展開と階乗比から微分値の整数性を証明できる
+  - 0と1からnまでの端点合同を全導関数について導ける
+  - 素数の選択条件を明記して非零整数A_pを構成できる
+  - TRN4の積分恒等式からA_pの積分和を求め解析上界が未証明であることを区別できる
+definitions:
+  - { id: TRN5-DEF-01, name: eに対するHermiteの補助多項式 }
+theorems:
+  - { id: TRN5-LEM-01, name: 整数係数多項式の微分値と階乗 }
+  - { id: TRN5-PROP-01, name: 補助多項式の整数点微分和と端点合同 }
+  - { id: TRN5-THM-01, name: 端点合同からの非零整数 }
+canonical_examples:
+  - n=1,p=3での補助多項式と端点微分和
+  - n=2,p=5での端点合同と零点の重複度
+  - pが小さい場合とpがa_0を割る場合の失敗機構
+problem_patterns:
+  - TRN5-TAYLOR-INTEGER-DERIVATIVES
+  - TRN5-MULTIPLICITY-AT-INTEGER-POINTS
+  - TRN5-FACTORIAL-DIVISIBILITY
+  - TRN5-ENDPOINT-CONGRUENCE
+  - TRN5-PRIME-CHOICE
+  - TRN5-NONZERO-INTEGER
+  - TRN5-INTEGRAL-BRIDGE
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []

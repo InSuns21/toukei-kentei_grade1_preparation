@@ -1,0 +1,35 @@
+chapter: TRN5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN4
+forward_references: []
+
+concepts:
+  - id: transcendence.hermite-e-auxiliary-polynomial
+    name: eに対するHermiteの補助多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（eに対するHermiteの補助多項式）]
+    requires: [transcendence.hermite-derivative-sum]
+
+  - id: transcendence.hermite-factorial-derivatives
+    name: 整数係数多項式の微分値と階乗
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（整数係数多項式の微分値と階乗）]
+    requires: []
+
+  - id: transcendence.hermite-endpoint-congruences
+    name: 補助多項式の整数点微分和と端点合同
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（補助多項式の整数点微分和と端点合同）]
+    requires: [transcendence.hermite-e-auxiliary-polynomial, transcendence.hermite-factorial-derivatives]
+
+  - id: transcendence.hermite-nonzero-integer
+    name: 端点合同からの非零整数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（端点合同からの非零整数）]
+    requires: [transcendence.hermite-endpoint-congruences]
