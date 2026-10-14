@@ -5,16 +5,19 @@ const root = process.cwd();
 const siteDir = path.join(root, '_site');
 const facadePath = path.join(root, 'textbook', 'dream-theater.md');
 const manifestPath = path.join(root, 'textbook', 'dream-theater-index.json');
+const coursesPath = path.join(root, 'textbook', 'dream-theater-courses.json');
 const outputPath = path.join(siteDir, 'dream-theater-navigation.js');
 const publishedFacadePath = path.join(siteDir, 'textbook', 'dream-theater.md');
 
 await access(siteDir);
 
-const [facade, manifestText] = await Promise.all([
+const [facade, manifestText, courseText] = await Promise.all([
   readFile(facadePath, 'utf8'),
   readFile(manifestPath, 'utf8'),
+  readFile(coursesPath, 'utf8'),
 ]);
 const manifest = JSON.parse(manifestText);
+const courseCatalog = JSON.parse(courseText);
 const expectedPaths = manifest.sections.flatMap((section) => section.paths);
 const expectedSet = new Set(expectedPaths);
 const pageTitles = new Map(await Promise.all(
@@ -106,6 +109,8 @@ await writeFile(publishedFacadePath, synchronizedFacade, 'utf8');
 const routePaths = [
   'textbook/dream-theater.md',
   'textbook/dream-theater-standard-math-core.md',
+  'textbook/dream-theater-courses.md',
+  ...courseCatalog.courses.map((course) => `textbook/dream-theater-courses/${course.id}.md`),
   ...expectedPaths,
 ];
 const routes = [...new Set(routePaths.map(canonicalRoute))];
@@ -156,6 +161,7 @@ function renderSidebar(navSections) {
     '<a class="dream-theater-back-home" data-dream-route="" href="#/" title="統計検定1級ホーム">← 統計検定1級ホーム</a>',
     '<strong>DREAM THEATER</strong>',
     '<ul class="dream-theater-sidebar-primary">',
+    renderLink({ title: '学習コース', target: 'textbook/dream-theater-courses.md' }, 'dream-theater-primary-link'),
     renderLink({ title: '全体目次', target: 'textbook/dream-theater.md' }, 'dream-theater-primary-link'),
     renderLink({ title: '全体の読む順', target: 'textbook/dream-theater-standard-math-core.md' }, 'dream-theater-primary-link'),
     '</ul>',
