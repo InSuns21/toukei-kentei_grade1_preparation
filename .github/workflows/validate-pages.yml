@@ -69,6 +69,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: python3 -m py_compile scripts/smoke-pages-live.py
 
+      - name: Validate CELEV8 Python Newton and variational kernels
+        if: steps.scope.outputs.full == 'true'
+        run: python3 scripts/test-celev8-kernel.py
+
       - name: Assemble and validate Pages site
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
