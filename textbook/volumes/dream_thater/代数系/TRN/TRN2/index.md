@@ -32,19 +32,19 @@ $\eta=\sqrt2$ の最小多項式は $T^2-2$ で、相異なる共役根は $\sqr
 
 これに対し $K=\mathbb Q(\sqrt2,i)$ を考え、$E=\mathbb Q(\sqrt2)$ と置きます。$[E:\mathbb Q]=2$、$E\subset\mathbb R$ なので $i\notin E$ であり、$[K:E]=2$ です。[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から
 
-$
+$$
 [K:\mathbb Q]=[K:E][E:\mathbb Q]=2\cdot2=4.
-$
+$$
 
 まず $E$ の埋め込み $\tau_\pm:E\to\mathbb C$ は $\sqrt2$ をそれぞれ $\pm\sqrt2$ へ送ります。$i$ の $E$ 上の最小多項式は $T^2+1$ であり、係数を $\tau_\pm$ で送っても変わりません。[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)を各 $\tau_\pm$ に適用すると、$i$ の像として $i,-i$ をどちらも選べます。
 
 各元は一意に $a+bi$（$a,b\in E$）と書け、四つの埋め込みは
 
-$
+$$
 \sigma_{\varepsilon,\delta}(a+bi)
 =\tau_\varepsilon(a)+\delta i\,\tau_\varepsilon(b),
 \qquad \varepsilon,\delta\in\{+1,-1\}
-$
+$$
 
 です。これは二段の最小多項式の関係を保つ埋め込みであり、他の選択肢はありません。よって埋め込みは4個、$\sqrt2$ の共役値は
 
@@ -92,10 +92,10 @@ $$
 
 新しい基底の各ベクトルを旧基底で表した座標列を並べて行列 $S$ を作ると、基底同士の変換なので $S$ は可逆です。任意の $x\in K$ に対して
 
-$
+$$
 [x]_{\mathrm{old}}=S[x]_{\mathrm{new}},\qquad
 S[\mu_\eta(x)]_{\mathrm{new}}=A_\eta S[x]_{\mathrm{new}}
-$
+$$
 
 です。従って新基底の表現行列は $S^{-1}A_\eta S$ となります。行列式については[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)から
 
@@ -235,16 +235,16 @@ $$
 
 一方、行列式の置換展開で $\det(TI-A_\eta)$ の次数 $rd-1$ の項を作るには、対角積の中で $T$ の代わりに $-a_{ii}$ を一つだけ選ぶ必要があります。よって
 
-$
+$$
 [T^{rd-1}]\det(TI-A_\eta)
 =-\sum_{i=1}^{rd}a_{ii}=-\operatorname{tr}(A_\eta).
-$
+$$
 
 ここで $[T^{rd-1}]$ は指定次数の係数を取り出す記号です。また定数項は
 
-$
+$$
 \det(-A_\eta)=(-1)^{rd}\det(A_\eta)
-$
+$$
 
 です。右辺の $\prod_j(T-\eta_j)^r$ の対応する係数と比べると
 
@@ -404,10 +404,10 @@ $$
 
 ここで $0\le k<d_j$ の係数を一つ取り出すと、$\beta_j=\theta_j/a_j$ なので
 
-$
+$$
 a_j^{d_j-1}b_{j,k}\beta_j^k
 =b_{j,k}a_j^{d_j-1-k}\theta_j^k.
-$
+$$
 
 指数 $d_j-1-k$ は非負整数だから、各係数は整数のままです。最高次の項は $a_j^{d_j}\beta_j^{d_j}=\theta_j^{d_j}$ となり、先頭係数は1です。従って上式は $\theta_j$ を根とする整数係数モニック多項式です。従って $\theta_j$ は[代数的整数](../TRN1/index.md#def-trn1-algebraic-integer)です。
 
@@ -503,15 +503,15 @@ $\eta$ の最小多項式は $T^2-5$ で、相異なる共役根は $\sqrt5,-\sq
 
 $E=\mathbb Q(\sqrt5)\subset\mathbb R$ なので $i\notin E$。従って $[K:E]=2$ であり、[塔の公式](../../FLD/FLD1/index.md#thm-fld1-tower-law)から
 
-$
+$$
 [K:\mathbb Q]=[K:E][E:\mathbb Q]=2\cdot2=4.
-$
+$$
 
 先に $\sqrt5$ の像を2通りから選び、次に $T^2+1$ の根として $i$ の像を2通りから選びます。[一段の埋め込み延長](../../FLD/FLD2/index.md#lem-fld2-one-step-field-map)によっていずれの組も実現するので、埋め込みは4個です。[共役の定義](#def-trn2-conjugates)に従って重複込みの値を並べると
 
-$
+$$
 \sqrt5,\quad\sqrt5,\quad-\sqrt5,\quad-\sqrt5
-$
+$$
 
 です。
 <!-- solution-end -->
