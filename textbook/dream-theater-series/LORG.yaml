@@ -51,7 +51,7 @@ chapters:
     title: "因果階層 III：continuityとsimplicity"
   - id: LORG12
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG12
-    status: planned
+    status: completed
     title: "achronal集合・edge・achronal境界"
   - id: LORG13
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG13

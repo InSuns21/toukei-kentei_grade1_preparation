@@ -694,6 +694,7 @@
 9. [LORG9 因果階層 I：chronologyとcausality](textbook/volumes/dream_thater/幾何系/LORG/LORG9/index.md)
 10. [LORG10 因果階層 II：strongとstable](textbook/volumes/dream_thater/幾何系/LORG/LORG10/index.md)
 11. [LORG11 因果階層 III：continuityとsimplicity](textbook/volumes/dream_thater/幾何系/LORG/LORG11/index.md)
+12. [LORG12 achronal集合・edge・achronal境界](textbook/volumes/dream_thater/幾何系/LORG/LORG12/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
