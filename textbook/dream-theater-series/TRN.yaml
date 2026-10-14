@@ -15,7 +15,7 @@ chapters:
     title: "共役・跡・ノルム・分母消去"
   - id: TRN3
     path: textbook/volumes/dream_thater/代数系/TRN/TRN3
-    status: planned
+    status: completed
     title: "Liouville法とHermite法の違い"
   - id: TRN4
     path: textbook/volumes/dream_thater/代数系/TRN/TRN4
