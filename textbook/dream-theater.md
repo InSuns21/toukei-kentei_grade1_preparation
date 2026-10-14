@@ -1015,6 +1015,7 @@
 3. [CELEV3 特異ポテンシャル・衝突・局所変形](textbook/volumes/dream_thater/物理系/CELEV/CELEV3/index.md)
 4. [CELEV4 対称作用原理](textbook/volumes/dream_thater/物理系/CELEV/CELEV4/index.md)
 5. [CELEV5 等質量三体の8の字解](textbook/volumes/dream_thater/物理系/CELEV/CELEV5/index.md)
+6. [CELEV6 n体舞踏解・組み紐と軌道分類](textbook/volumes/dream_thater/物理系/CELEV/CELEV6/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
