@@ -1,0 +1,44 @@
+id: "EC7"
+title: "有限体の点数とFrobenius"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC4
+  - FLD3
+official_scope: []
+learning_objectives:
+  - 有限体の有理点と代数閉包上の点を区別し無限遠点を含めて数えられる
+  - 標数2・3・5で非特異性と点数を確認し有限群の群則を計算できる
+  - q-Frobeniusを係数体の不変性から定義し曲線の準同型と証明できる
+  - Frobeniusの次数qと非分離性を関数体から導ける
+  - Frobenius固定点がE(F_q)と一致することを証明できる
+  - 1-Frobeniusが分離的で次数が有限体の点数に等しいことを証明できる
+  - 点数差a_qを計算しEC8の次数二次形式の入力を説明できる
+definitions:
+  - { id: EC7-DEF-01, name: 有限体上の有理点と点数 }
+  - { id: EC7-DEF-02, name: 楕円曲線のq-Frobenius }
+  - { id: EC7-DEF-03, name: 有限体上の点数差 }
+theorems:
+  - { id: EC7-PROP-01, name: 有限体上の点は有限部分群 }
+  - { id: EC7-PROP-02, name: Frobeniusは原点を保つ同種写像 }
+  - { id: EC7-THM-01, name: Frobeniusの次数と非分離性 }
+  - { id: EC7-THM-02, name: 有理点とFrobenius固定点 }
+  - { id: EC7-PROP-03, name: 点数と差の射の次数 }
+canonical_examples:
+  - F2上のy²+y=x³+xで全5点と位数5の群を照合
+  - F3上のy²=x³+x+1で4点と位数4の生成元を確認
+  - F5上のy²=x³+x+1で9点と位数9の生成元を確認
+  - F2上のy²+xy=x³+1で非特異性と位数4を確認
+problem_patterns:
+  - EC7-A1
+  - EC7-A2
+  - EC7-A3
+  - EC7-A4
+  - EC7-B1
+  - EC7-B2
+  - EC7-B3
+  - EC7-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 4 }
