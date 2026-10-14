@@ -92,8 +92,8 @@ x(\widehat\phi\phi(P))
 $$
 $U=(x^2+ax+b)/x$ を代入し分子を通分すると
 $$
-\frac{(x^2-ax+b)^2-4bx^2}{4x(x^2+ax+b)}
-=\frac{x^4-2bx^2-4abx+b^2}{4y^2}.
+\frac{(x^2+b)^2-4bx^2}{4x(x^2+ax+b)}
+=\frac{(x^2-b)^2}{4y^2}.
 $$
 これは $y^2=x^3+ax^2+bx$ に対する
 $$
