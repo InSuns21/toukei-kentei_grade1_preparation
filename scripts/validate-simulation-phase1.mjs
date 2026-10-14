@@ -146,7 +146,7 @@ const bHalf = burrau.stepBatch(burrau.initialize({ dt: 0.125, rtol: 1e-12 }).sta
 for (let i = 0; i < 3; i++) for (let k = 0; k < 2; k++) {
   assert.ok(Math.abs(b1.state.positions[i][k] - bHalf.state.positions[i][k]) < 1e-3);
 }
-const nearState = burrau.initialize({ dt: 0.002 }).state;
+const nearState = burrau.initialize({ dt: 0.25, rtol: 1e-12 }).state;
 nearState.positions[1] = [nearState.positions[0][0],
   nearState.positions[0][1]];
 assert.throws(() => burrau.stepBatch(nearState, 1), /NEAR_ENCOUNTER/);
