@@ -12,17 +12,17 @@
 
 ここで既習の[Minkowskiの端点長さ不等式](../LORG3/index.md#thm-lorg3-minkowski-length-bound)は区分的 $C^1$ 曲線について証明されていました。本章で許す局所Lipschitz曲線にも同じ上界が使えることを先に確認します。Minkowski座標で速度 $v(s)=\dot\gamma(s)$ はほとんど至るところ未来因果的で、本質的有界です。分割区間 $I_i$ 上での平均速度
 
-$
+$$
 v_i=\frac{1}{|I_i|}\int_{I_i}v(s)\,ds
-$
+$$
 
 も、[閉未来錐の凸性](../LORG1/index.md#prop-lorg1-cone-convex)から未来因果的です。$\tau(v)=\sqrt{-\eta(v,v)}$ と置き、[未来因果ベクトルの逆三角不等式](../LORG1/index.md#cor-lorg1-reverse-triangle)を $|I_i|v_i$ の和へ適用すると
 
-$
+$$
 \sum_i |I_i|\tau(v_i)
 \le \tau\left(\sum_i|I_i|v_i\right)
 =\tau\bigl(\gamma(1)-\gamma(0)\bigr).
-$
+$$
 
 二進細分では平均速度が $v(s)$ にほとんど至るところ収束します。$\tau$ は有界な閉未来錐上で連続であり、各平均速度は共通有界なので、優収束により左辺は $L_\eta(\gamma)$ へ収束します。このためLORG3の端点長さ不等式は、本章で扱う局所Lipschitz曲線にも成り立ちます。
 
@@ -177,10 +177,10 @@ $$
 
 局所Lipschitz曲線では速度が連続するとは限らないため、微分可能点 $s_0$ を直接使います。その点で $\dot\gamma(s_0)$ が未来時間的なら、局所座標で
 
-$
+$$
 \gamma(s_0+h)-\gamma(s_0)=h\dot\gamma(s_0)+o(h)
 \qquad(h\downarrow0)
-$
+$$
 
 です。未来時間錐は開いているので、[LORG5の局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により十分小さい $h>0$ で $\gamma(s_0)\ll\gamma(s_0+h)$ となります。$a=\gamma(s_0)$、$b=\gamma(s_0+h)$ とし、残りの曲線から $p\le a$、$b\le q$ を得ます。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を二度適用すれば $p\ll q$ です。区分的 $C^1$ 曲線も同じ議論に含まれます。
 
@@ -302,49 +302,49 @@ $$
 
 [LORG5の正規座標](../LORG5/index.md#def-lorg5-normal-coordinates)で指数写像の原点での微分は恒等です。そこで各区間の始点 $x_i=x(t_i)$ で
 
-$
+$$
 w_i=\frac{1}{\delta_i}\exp_{x_i}^{-1}(x(t_{i+1}))
 =\bar v_i+O(\delta_i)
-$
+$$
 
 と置きます。誤差は速度・計量の有界性と指数写像の滑らかさから、小区間全体で一様です。$w_i$ は未来因果的ですが、座標差から作った $\bar v_i$ が **$x_i$ で因果的であるとは限りません**。従って $\sqrt{-g_{x_i}(\bar v_i,\bar v_i)}$ を直接書くのは不正確です。代わりに、任意の座標ベクトルに対して実数値となる
 
-$
+$$
 F_x(u)=\sqrt{\max\{0,-g_x(u,u)\}}
-$
+$$
 
 を一時的に用います。$w_i$ は未来因果的なので、$\tau_{U_i}(x_i,x(t_{i+1}))/\delta_i=F_{x_i}(w_i)$ です。有界なベクトル集合では $g$ の二次式の差は $O(\delta_i)$ であり、
 
-$
+$$
 \left|\sqrt{\max(0,a)}-\sqrt{\max(0,b)}\right|
 \le\sqrt{|a-b|}
-$
+$$
 
 を用いると
 
-$
+$$
 \left|\frac{\tau_{U_i}(x_i,x(t_{i+1}))}{\delta_i}
 -F_{x_i}(\bar v_i)\right|
 \le C\sqrt{\delta_i}.
-$
+$$
 
 したがって分割の最大幅を $|\mathcal P|$ とすれば、誤差和は高々 $C\sqrt{|\mathcal P|}\sum_i\delta_i=C\sqrt{|\mathcal P|}\to0$ です。
 
 二進細分の各区間の平均速度 $\bar v_i$ は、Lebesgueの微分定理により、ほとんど至るところ $\dot x(t)$ へ収束します。区間の始点 $x_i$ も $x(t)$ へ近づきます。計量の滑らかさと $F$ の連続性、さらに $\dot x(t)$ の未来因果性から、
 
-$
+$$
 F_{x_i}(\bar v_i)\longrightarrow
 F_{x(t)}(\dot x(t))
 =\sqrt{-g_{x(t)}(\dot x(t),\dot x(t))}
-$
+$$
 
 です。速度と計量は一様有界なので左辺には共通の積分可能上界があります。[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
 
-$
+$$
 \sum_i\delta_i F_{x_i}(\bar v_i)
 \longrightarrow
 \int_0^1\sqrt{-g_{x(t)}(\dot x(t),\dot x(t))}\,dt=L_g(\gamma).
-$
+$$
 
 先ほどの誤差評価と合わせれば、局所時間分離の和も $L_g(\gamma)$ へ収束します。$\square$
 <!-- proof-end -->
@@ -425,22 +425,22 @@ $L_g(\gamma)=0$ なら、$p\ll q$ の定義から未来時間的曲線を一本�
 
 実際、$\varepsilon_0>0$ を小さく取り、頂点ごとの流れの時間を
 
-$
+$$
 a_i=
 \begin{cases}
 i\varepsilon_0,&0\le i<j,\\
 -(m-i)\varepsilon_0,&j\le i\le m
 \end{cases}
-$
+$$
 
 とします。$a_0=a_m=0$ なので始点・終点は固定されます。$j$ 番目以外の各辺では $a_i-a_{i-1}=\varepsilon_0>0$ で、未来向きの小摂動により光的な辺も時間的になります。$j$ 番目だけ流れの時間が減りますが、この辺は最初から時間的なので、$\varepsilon_0$ を十分小さくすれば依然時間的です。有限個の辺すべてについてこれを同時に満たすように選び、$y_i=\Phi_{a_i}(x_i)$ とします。各 $y_{i-1}\ll y_i$ で、いずれも元の凸正規近傍に入ります。
 
 各 $y_{i-1}$ と $y_i$ を時間的測地線で結んで $\beta$ とします。局所測地線の長さは端点に連続なので、$\varepsilon_0$ を十分小さく選び直せば
 
-$
+$$
 L_g(\beta)>L_g(\alpha)-\varepsilon
 \ge L_g(\gamma)-\varepsilon.
-$
+$$
 
 これが必要な時間的折れ線です。$\square$
 <!-- proof-end -->
