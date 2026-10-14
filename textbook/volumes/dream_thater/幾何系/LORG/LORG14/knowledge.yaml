@@ -1,0 +1,54 @@
+chapter: LORG14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - LORG11
+  - LORG12
+  - LORG13
+concepts:
+  - id: lorentz-geometry.auxiliary-arclength
+    name: 補助Riemann弧長パラメータ化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（補助Riemann弧長パラメータ化）"]
+    requires: [lorentz-geometry.causal-curve]
+  - id: lorentz-geometry.arclength-lipschitz
+    name: 弧長から1-Lipschitz評価へ
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（弧長から1-Lipschitz評価へ）"]
+    requires: [lorentz-geometry.auxiliary-arclength]
+  - id: lorentz-geometry.causal-local-limit
+    name: 因果曲線の局所一様極限
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（因果曲線の局所一様極限）"]
+    requires: [lorentz-geometry.arclength-lipschitz]
+  - id: lorentz-geometry.local-uniform-convergence
+    name: コンパクト部分区間上一様な収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（コンパクト部分区間上一様な収束）"]
+    requires: [lorentz-geometry.auxiliary-arclength]
+  - id: lorentz-geometry.limit-curve-lemma
+    name: 限界曲線補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（限界曲線補題：一点集積・両側非延長の場合）"]
+    requires: [lorentz-geometry.causal-local-limit, lorentz-geometry.local-uniform-convergence, lorentz-geometry.inextendible-causal-curve]
+  - id: lorentz-geometry.bounded-length-causal-limit
+    name: 補助弧長が一様有界な端点列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（補助弧長が一様有界な端点列）"]
+    requires: [lorentz-geometry.causal-local-limit, lorentz-geometry.limit-curve-lemma]
