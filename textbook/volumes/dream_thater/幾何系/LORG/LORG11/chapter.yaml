@@ -1,0 +1,60 @@
+id: "LORG11"
+title: "因果階層 III：continuityとsimplicity"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG4
+  - LORG5
+  - LORG6
+  - LORG7
+  - LORG8
+  - LORG9
+  - LORG10
+  - F0-00D2C
+official_scope: []
+learning_objectives:
+  - 反映性を時間的未来と過去の閉包の双方向条件で定義しMinkowskiの座標で検算できる
+  - 反映性と時間的未来・過去の外側連続性の同値をコンパクト集合と列で証明できる
+  - 因果連続性を両側distinguishingとreflectingから定義し直接確認できる
+  - 体積関数の連続性と厳密単調性を証明し時間関数を構成できる
+  - 因果単純性と積空間の因果関係の閉性の同値を証明できる
+  - 因果単純性から因果連続性への含意をcausalityの反対称性で証明できる
+  - 一点除去Minkowskiの時間的未来と光的非到達を計算し逆含意失敗を示せる
+  - 安定因果性への既習の時間関数一般定理の援用範囲を説明できる
+definitions:
+  - { id: LORG11-DEF-01, name: 反映性 }
+  - { id: LORG11-DEF-02, name: 時間的未来・過去の外側連続性 }
+  - { id: LORG11-DEF-03, name: 因果連続性 }
+  - { id: LORG11-DEF-04, name: 因果単純性 }
+theorems:
+  - { id: LORG11-LEM-01, name: 時間的未来・過去の正則開性 }
+  - { id: LORG11-LEM-02, name: 反映性と到達関係の極限 }
+  - { id: LORG11-THM-01, name: 反映性と両側外側連続性 }
+  - { id: LORG11-LEM-03, name: 因果連続時空の未来・過去体積関数 }
+  - { id: LORG11-THM-02, name: 因果連続性から時間関数へ }
+  - { id: LORG11-THM-03, name: 因果関係の閉性の特徴付け }
+  - { id: LORG11-THM-04, name: 因果単純性は因果連続性を含意する }
+  - { id: LORG11-PROP-01, name: 一点除去Minkowski時空は因果連続的だが因果単純でない }
+canonical_examples:
+  - Minkowski時空の時間的未来・過去の閉錐と反映性
+  - コンパクト集合を用いた外側連続性の直接検算
+  - 体積差による連続時間関数
+  - Minkowski時空でのcausalityとJ±の閉性
+  - 一点除去Minkowskiでの光的端点と迂回可能な時間的曲線
+problem_patterns:
+  - LORG11-CONE-REGULAR-OPEN
+  - LORG11-REFLECTING-MINKOWSKI
+  - LORG11-CAUSAL-SIMPLE-DEFINITION
+  - LORG11-PUSH-UP-INCLUSIONS
+  - LORG11-OUTER-CONTINUITY-PROOF
+  - LORG11-CLOSED-RELATION-PROOF
+  - LORG11-VOLUME-TIME-FUNCTION
+  - LORG11-PUNCTURED-MINKOWSKI
+  - LORG11-CAUSAL-LADDER-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 7 }

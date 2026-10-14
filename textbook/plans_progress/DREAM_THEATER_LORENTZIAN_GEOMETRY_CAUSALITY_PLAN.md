@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-14（標準教科書・論文との範囲照合、証明と依存の再設計）  
-状態: in_progress（LORG1〜LORG10は本文実装・査読・公開済み、LORG11〜LORG21は未実装）
+状態: in_progress（LORG1〜LORG11は本文実装・査読・公開済み、LORG12〜LORG21は未実装）
 
 ## 中心問いと出口
 
@@ -84,9 +84,9 @@
 
 ### 初回実装・講間依存
 
-- **LORG1〜LORG10は実装済み、次の執筆対象はLORG11**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを定義し、区分的C¹曲線の長さ不変性とMinkowskiでの端点長さ不等式まで証明した。LORG4では非退化性によるLevi-Civita接続の存在一意性、測地線の因果型保存、平行移動と指数写像を導き、測地完備性・大域単射性の反例を扱った。LORG5では凸正規近傍の存在、Lorentz版Gaussの補題、Gaussian正規座標からの時間的測地線の局所固有時最大化、平坦円筒の大域反例を証明した。LORG6では因果集合の定義とMinkowskiの錐を計算し、LORG7では局所摂動によるpush-up・時間的未来の開性・非閉なJの反例を扱った。LORG8では共形因果不変性と長さの変化、Alexandrovダイヤモンドの因果的凸性、相対的な局所近傍と時間周期商の反例を扱った。LORG9ではchronological・causal・distinguishingの含意と、閉光的曲線を持つ円筒・一点除去円筒での逆含意不成立を検算した。LORG10では強因果性とAlexandrov近傍基底の同値、temporal functionからの安定因果的計量の明示構成、点除去円筒での局所再侵入を扱った。
+- **LORG1〜LORG11は実装済み、次の執筆対象はLORG12**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを定義し、区分的C¹曲線の長さ不変性とMinkowskiでの端点長さ不等式まで証明した。LORG4では非退化性によるLevi-Civita接続の存在一意性、測地線の因果型保存、平行移動と指数写像を導き、測地完備性・大域単射性の反例を扱った。LORG5では凸正規近傍の存在、Lorentz版Gaussの補題、Gaussian正規座標からの時間的測地線の局所固有時最大化、平坦円筒の大域反例を証明した。LORG6では因果集合の定義とMinkowskiの錐を計算し、LORG7では局所摂動によるpush-up・時間的未来の開性・非閉なJの反例を扱った。LORG8では共形因果不変性と長さの変化、Alexandrovダイヤモンドの因果的凸性、相対的な局所近傍と時間周期商の反例を扱った。LORG9ではchronological・causal・distinguishingの含意と、閉光的曲線を持つ円筒・一点除去円筒での逆含意不成立を検算した。LORG10では強因果性とAlexandrov近傍基底の同値、temporal functionからの安定因果的計量の明示構成、点除去円筒での局所再侵入を扱った。LORG11では反映性と両側外側連続性、因果単純性から因果連続性への含意、体積関数を用いた時間関数、一点除去Minkowskiの逆含意反例を扱った。
 - LORG2以降は、原則として当該講以前の必要結果のみを使用し、未完成の後続結果を証明へ逆輸入しない。とくにLORG14の限界曲線→LORG16/18の大域結果、LORG19/20の時間関数→HPDEの時間分割という直接依存を保持する。
-- `textbook/plans_progress/` に配置済み。LORG1〜LORG10の本文・系列manifest・公開導線を追加し、21講中の最初の10講を完了した。LORG11〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
+- `textbook/plans_progress/` に配置済み。LORG1〜LORG11の本文・系列manifest・公開導線を追加し、21講中の最初の11講を完了した。LORG12〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
 
 ## 必須の数学的到達・証明ゲート
 
