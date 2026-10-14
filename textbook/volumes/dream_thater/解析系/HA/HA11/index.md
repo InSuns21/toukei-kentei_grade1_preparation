@@ -40,7 +40,13 @@ $$
 これは滑らかな関数なので点値が使えます。反対に $\widehat f$ の同値類の球面上の値だけを別の数へ変更しても $L^2(\mathbb R^d)$ 関数は変化しません。後者は点値による制限が $L^2$ 全体では未定義であることを示します。
 <!-- definition-example-end -->
 
-球面上の振幅 $g$ を与え、それぞれの方向 $\omega$ の波 $e^{ix\cdot\omega}$ を足した関数も考えます。球面の測度は有限なので、$g\in L^2(S)$ ならCauchy–Schwarzによって $g\in L^1(S)$ です。
+球面上の振幅 $g$ を与え、それぞれの方向 $\omega$ の波 $e^{ix\cdot\omega}$ を足した関数も考えます。球面の測度は有限なので、[Cauchy–Schwarzの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を $|g|$ と定数関数1に適用して
+
+$$
+\int_S|g|\,d\sigma\le\sigma(S)^{1/2}\left(\int_S|g|^2\,d\sigma\right)^{1/2}<\infty
+$$
+
+となり、$g\in L^2(S)$ なら $g\in L^1(S)$ です。
 
 <a id="def-ha11-extension"></a>
 <!-- formal-statement-start -->
@@ -65,7 +71,7 @@ $$
 を得ます。ただしこれは一つの特別な $g$ に対する評価であって、任意の $L^2(S)$ 振幅について同じ点ごとの減衰を主張するものではありません。
 <!-- definition-example-end -->
 
-$R$ と $E$ は対になる作用素です。$f\in\mathcal S(\mathbb R^d)$、$g\in L^2(S)$ について、$f\in L^1$ と $\sigma(S)<\infty$ なのでFubiniの定理を適用できます。
+$R$ と $E$ は対になる作用素です。$f\in\mathcal S(\mathbb R^d)$、$g\in L^2(S)$ について、$f\in L^1$ と $g\in L^1(S)$ なので積分の絶対値は $\|f\|_1\|g\|_{L^1(S)}<\infty$ です。ゆえに[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用できます。
 
 $$
 \begin{aligned}
@@ -109,7 +115,7 @@ $$
 \le C\|f\|_p\|g\|_2.
 $$
 
-Schwartz関数の $L^p$ 稠密性と $L^p$ 双対性により、$Eg\in L^{p'}$ とそのノルム評価が従います。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
+[MT7の稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と[ $L^p$ 双対定理](../../MT/MT7/index.md#thm-mt7-lp-duality)により、$f\mapsto\langle f,Eg\rangle$ は $L^p$ 上の連続汎関数へ延び、$Eg$ を表す $L^{p'}$ 関数とそのノルム評価が従います。Schwartz関数による積分の表示と比較すれば、この関数は元の $Eg$ にほとんど至る所で一致します。逆向きは $Rf\in L^2(S)$ のHilbert空間の双対ノルム表示を使い、
 
 $$
 \|Rf\|_2=\sup_{\|g\|_2\le1}|\langle Rf,g\rangle|
@@ -129,7 +135,13 @@ $$
 d\sigma(\omega(u))=(1-|u|^2)^{-1/2}\,du
 $$
 
-と書けます。面積要素の導出は[HA10の球面座標計算](../HA10/index.md#thm-ha10-sphere)で確認できます。小さい $\delta>0$ に対し $|u|\le\delta$ の部分を**角半径 $\delta$ のcap**（球面上の小領域）と呼びます。
+と書けます。面積要素はグラフ $x_d=h(u)=\sqrt{1-|u|^2}$ の接ベクトル $\partial_{u_j}(u,h(u))=(e_j,\partial_{u_j}h)$ から求まります。[HA10の面積要素の構成](../HA10/index.md#ref-ha10-area-element)を使うと、Gram行列は $G=I_{d-1}+(\nabla h)(\nabla h)^\mathsf T$ であり、$\det G=1+|\nabla h|^2$。ここで $\nabla h=-u/\sqrt{1-|u|^2}$ なので
+
+$$
+\sqrt{\det G}=\sqrt{1+\frac{|u|^2}{1-|u|^2}}=(1-|u|^2)^{-1/2}.
+$$
+
+この因子が先ほどの $d\sigma$ と対応します。小さい $\delta>0$ に対し $|u|\le\delta$ の部分を**角半径 $\delta$ のcap**（球面上の小領域）と呼びます。
 
 このcap上では $\sqrt{1-|u|^2}=1-|u|^2/2+O(|u|^4)$ です。したがって、$Eg(x)$ の位相から共通因子 $e^{ix_d}$ を除いた残りは
 
@@ -247,7 +259,9 @@ $$
 
 ### 3.1 球面測度に近付く解析族
 
-Gamma関数を正の実部では $\Gamma(w)=\int_0^\infty e^{-t}t^{w-1}\,dt$ で定め、$\Gamma(w+1)=w\Gamma(w)$ で解析接続します。後で使うのは $\Gamma(w)$ が零点を持たず、$1/\Gamma(w)$ が整関数であることです。$s_+=\max(s,0)$ と書きます。
+Gamma関数を正の実部では $\Gamma(w)=\int_0^\infty e^{-t}t^{w-1}\,dt$ で定め、$\Gamma(w+1)=w\Gamma(w)$ で解析接続します。後で使うのは $\Gamma(w)$ が零点を持たず、$1/\Gamma(w)$ が整関数であること、および反射公式 $\Gamma(w)\Gamma(1-w)=\pi/\sin(\pi w)$ です。$s_+=\max(s,0)$ と書きます。
+
+球面へ集中する極限は、通常の関数としての収束では記述できません。そこで、**分布**を「試験関数 $\varphi\in C_c^\infty(\mathbb R^d)$ を入力して数 $\langle M,\varphi\rangle$ を返す連続線形汎関数」として使います。例えば球面測度は $\langle d\sigma,\varphi\rangle=\int_S\varphi\,d\sigma$、Dirac分布は $\langle\delta_0,\psi\rangle=\psi(0)$ です。分布の等式は、すべての試験関数に作用させた結果が一致することを意味します。$z$ に関して**解析的な分布族**とは、各試験関数への作用 $z\mapsto\langle M_z,\varphi\rangle$ が正則な族です。後で示す $M_z$ は台が単位閉球に含まれるため、Schwartz関数 $\widehat f$ を掛けても分布として定義でき、逆Fourier変換によって $T_zf$ を作れます。
 
 <a id="def-ha11-analytic-family"></a>
 <!-- formal-statement-start -->
@@ -268,7 +282,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ha11-analytic-family -->
-**定義の確認**　$z=0$ では $M_0=\boldsymbol1_{\{|\xi|<1\}}$ であり、$T_0$ は球内への周波数射影です。$z=-1$ では下で示すように $M_{-1}=\delta(1-|\xi|^2)$ であり、球面上の積分に切り替わります。この二つの対象が同一の族につながることが構成の目的です。
+**定義の確認**　$z=0$ では $M_0=\boldsymbol1_{\{|\xi|<1\}}$ であり、$T_0$ は球内への周波数射影です。$z=-1$ では下で示すように $M_{-1}=\delta(1-|\xi|^2)$ であり、球面上の積分に切り替わります。この二つの対象が同一の族につながることが構成の目的です。$z=0$ は通常の可積分関数であり、$z=-1$ の解釈では、点値でなく試験関数への作用 $\langle M_{-1},\varphi\rangle$ を調べる必要があります。
 <!-- definition-example-end -->
 
 <a id="lem-ha11-distribution"></a>
@@ -390,7 +404,18 @@ $$
 =\frac{2\pi^{d/2}(2k)!}{4^k k!\,\Gamma(k+d/2)}
 $$
 
-を得ます。この等式は球面の二つの半球をグラフ表示し、一次元のBeta積分を繰り返すことで導けます。さらに $s=r^2$ を用いると
+を得ます。係数の由来を確かめます。$u=\omega\cdot e_1\in(-1,1)$ とし、緯度の断面を積分すると、$d=2$ の場合も $S^0$ を2点の測度として扱って
+
+$$
+\begin{aligned}
+\int_S(\omega\cdot e_1)^{2k}\,d\sigma
+&=\sigma(S^{d-2})\int_{-1}^1u^{2k}(1-u^2)^{(d-3)/2}\,du\\
+&=\frac{2\pi^{(d-1)/2}}{\Gamma((d-1)/2)}
+\frac{\Gamma(k+1/2)\Gamma((d-1)/2)}{\Gamma(k+d/2)}.
+\end{aligned}
+$$
+
+ここでは $v=u^2$ でBeta積分へ変換しました。$\Gamma(k+1/2)=\sqrt\pi\,(2k)!/(4^k k!)$ を代入すると上記の球面モーメントになります。また $e^{ir\omega\cdot x/|x|}$ の奇数次の項は対称性で零、偶数次項は $(-1)^k(r|x|)^{2k}/(2k)!$ なので、球面モーメントと分母の $(2k)!$ が相殺されます。さらに $s=r^2$ を用いると
 
 $$
 \int_0^1r^{d-1+2k}(1-r^2)^z\,dr
@@ -435,7 +460,13 @@ $$
 
 従って上の級数は $|K_z(r)|\le Ce^{C|t|}$ を与えます。級数を一回項別微分した値も $r=1$ で同様に抑えられます。
 
-$r\ge1$ の評価を示します。級数を二回微分して添字をずらすと
+$r\ge1$ の評価を示します。級数の $r^{2k+\nu}$ の係数を $c_k=(-1)^k2^{-2k-\nu}/(k!\Gamma(k+\nu+1))$ とします。$r^2J_\nu''+rJ_\nu'-\nu^2J_\nu$ による第 $k$ 項の係数は
+
+$$
+((2k+\nu)^2-\nu^2)c_k=4k(k+\nu)c_k=-c_{k-1}\quad(k\ge1)
+$$
+
+です（$k=0$ なら零）。これは $r^2J_\nu$ の一つ前の項と打ち消し合うので
 
 $$
 r^2J_\nu''+rJ_\nu'+(r^2-\nu^2)J_\nu=0
@@ -516,7 +547,7 @@ $$
 
 です。したがって $\widetilde T_z$ の $L^2\to L^2$、$L^1\to L^\infty$ 端点ノルムはそれぞれ $t$ に一様に有界になります。しかも $\widetilde T_{-1}=T_{-1}$ です。
 
-ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
+ここで $w=-z/a$ と取り、$w=0$ を $L^2\to L^2$、$w=1$ を $L^1\to L^\infty$ の端点へ対応させます。$K_z$ の級数は有限の $x$ と $z$ のコンパクト集合上で正規収束するので、コンパクト台の有界関数 $u,v$ に対する $\langle T_z u,v\rangle=\iint K_z(x-y)u(y)\overline{v(x)}\,dy\,dx$ は $z$ に正則です。これにより、以下の補間用単関数から作る補助関数に[三線定理](../HA2/index.md#lem-ha2-three-lines)を適用するための解析性を確認できます。$\theta=1/a=2/(d+1)$ とすると $z=-1$ は $w=\theta$ です。補間指数は
 
 $$
 \frac1p=\frac{1-\theta}{2}+\theta
@@ -525,7 +556,7 @@ $$
 =\frac{d-1}{2(d+1)}.
 $$
 
-複素補間を適用する手順も確かめます。まずSchwartz関数 $f,h$ を、絶対値が正で上下に有界かつコンパクト台を持つ単純関数で近似し、$\|f\|_p=\|h\|_p=1$ と規格化します。複素指数を
+複素補間を適用する手順も確かめます。まずSchwartz関数 $f,h$ を、それぞれ台上で絶対値が正の有限個の値を取り、台が有限測度に含まれる単純関数で $L^p$ 近似し、$\|f\|_p=\|h\|_p=1$ と規格化します。零集合上は次の $f_w,h_w$ を0と定めます（[MT7の単関数稠密性](../../MT/MT7/index.md#thm-mt7-simple-dense)）。複素指数を
 
 $$
 f_w=e^{i\arg f}|f|^{p((1-w)/2+w)},\qquad
@@ -559,7 +590,7 @@ $$
 \end{aligned}
 $$
 
-最初の等式は、$f\in\mathcal S$ に対して[制限と拡張の双対性](#prop-ha11-duality)で積分を交換すると $\langle ERf,f\rangle=\langle Rf,Rf\rangle$ となることから従い、$T_{-1}f$ を先に $L^2$ 関数と仮定しているわけではありません。平方根を取ってrestriction評価を得、[双対命題](#prop-ha11-duality)からextension評価を得ます。
+最初の等式は、$f\in\mathcal S$ に対して[制限と拡張の双対性](#prop-ha11-duality)と[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で積分を交換すると $\langle ERf,f\rangle=\langle Rf,Rf\rangle$ となることから従い、$T_{-1}f$ を先に $L^2$ 関数と仮定しているわけではありません。平方根を取ってrestriction評価を得、[双対命題](#prop-ha11-duality)からextension評価を得ます。
 <!-- proof-end -->
 
 **指数の検算**　$d=2$ では $(p_c,q_c)=(6/5,6)$、$d=3$ では $(p_c,q_c)=(4/3,4)$ です。[Knappの必要条件](#prop-ha11-knapp)が示した最小指数と一致しています。重要なのは、**減衰だけでは証明できなかった臨界指数の評価を、分布の解析族と補間で証明した**ことです。
@@ -704,12 +735,15 @@ $$
 =\rho^{d-1}\|h\|_2^2.
 $$
 
-従って、次のノルム評価を得ます。
+従って、単位球面で $\|Eh\|_q\le C\|h\|_2$ が成り立つなら
 
 $$
-\rho^{d-1-d/q}\|Eh\|_q
-\le C\rho^{d-1-d/q}\rho^{-(d-1)/2}\|g\|_2.
+\|E_\rho g\|_q
+=\rho^{d-1-d/q}\|Eh\|_q
+\le C\rho^{(d-1)/2-d/q}\|g\|_{L^2(S_\rho)}.
 $$
+
+出力側の変数変換と入力側の面積要素の冪が両方必要です。
 <!-- solution-end -->
 
 ### Level B：解析族と曲率を検算する
