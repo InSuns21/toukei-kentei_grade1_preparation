@@ -209,9 +209,8 @@ $$
 を得ます。中間値の定理で $F(t_*)=0$ を満たす点が存在し、狭義増加性により唯一です。等式は $t_*=f(\mathbf x(t_*))$ と同値なので $\gamma$ と $\Sigma_f$ の交点は一つです。曲線が任意なのでCauchy面です。$\square$
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-lorg15-uniform-graph -->
 **定理の適用確認**。二次元で $f(x)=\frac12\sin x$ とすると、平均値の定理から $|f(x)-f(y)|\le\frac12|x-y|$ です。$L=1/2$ を上の定理に代入できます。垂直線 $x=a$ とは $(\frac12\sin a,a)$ で一度だけ交差します。非垂直の光線も、上の増分評価で一括して制御しています。
-<!-- definition-example-end -->
+
 
 例えば $f(x)=ax+b$（$|a|<1$）は傾いたCauchy面です。また $f(x)=|x|/2$ は原点で微分できませんが、同じLipschitz条件を満たすCauchy面です。「Cauchy」と「滑らかな空間的面」は同じ定義ではありません。
 
