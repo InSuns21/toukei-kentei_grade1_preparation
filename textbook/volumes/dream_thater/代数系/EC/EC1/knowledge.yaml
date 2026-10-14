@@ -5,7 +5,8 @@ prerequisites:
   - AG2-01
   - AG2-11
   - FLD3
-forward_references: []
+forward_references:
+  - AG3-11
 concepts:
   - id: elliptic-curve.weierstrass-model
     name: Weierstrass三次曲線と指定点
@@ -29,11 +30,11 @@ concepts:
       - algebra.field-characteristic
 
   - id: elliptic-curve.weierstrass-invariants
-    name: Weierstrass不変量・判別式・j不変量
+    name: Weierstrass不変量と判別式
     kind: definition
     aliases: []
     introduction: formal
-    introduction_aliases: ["定義（Weierstrass不変量・判別式・j不変量）"]
+    introduction_aliases: ["定義（Weierstrass不変量と判別式）"]
     requires:
       - elliptic-curve.weierstrass-model
 
