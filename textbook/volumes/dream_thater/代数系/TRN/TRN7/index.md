@@ -351,6 +351,8 @@ $$
 
 [TRN2の跡・ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)は、代数的整数の共役全体から通常の整数を作る道具です。しかし本章の $H$ が共役不変だからといって、すべての $B_\lambda$ が整数にはなりません。まず共役**で動かない一つの代数的数**に対して使います。
 
+一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。ただし係数和は $\varepsilon(DF)=D\varepsilon(F)$ なので、**分母を払っても零だった係数和を非零には変えられません**。整数性と非零性の条件は独立に点検します。
+
 <a id="lem-trn7-fixed-integer"></a>
 
 <!-- formal-statement-start -->
