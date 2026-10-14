@@ -111,7 +111,8 @@ export function createSimulationHost(post) {
       }
     } catch (cause) {
       const message = cause instanceof Error ? cause.message : String(cause);
-      const code = message.startsWith("STALE_") ? "STALE" :
+      const code = message.startsWith("NEAR_ENCOUNTER") || message.startsWith("ENERGY_DRIFT") ? "NUMERICAL_UNRESOLVED" :
+        message.startsWith("STALE_") ? "STALE" :
         message.startsWith("RESOURCE_LIMIT") ? "RESOURCE_LIMIT" :
         cause instanceof RangeError ? "INVALID_PARAMETERS" : "ENGINE_ERROR";
       error(req, code, message);
