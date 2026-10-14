@@ -93,7 +93,30 @@ $$
 
 となります。左の正の下限は、極限で有限のパラメータ区間が一点につぶれないことにも効きます。
 
-ここで局所曲線の端点関係も使います。十分小さな[LORG5の凸正規近傍](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)では、二点が近傍内の未来因果曲線で結ばれることは、始点から終点への指数写像の逆ベクトルが未来因果錐に入ることと同値です。逆指数写像は近傍内で連続、未来錐は閉なので、その近傍内の因果的到達関係は端点の極限で保存されます。**時空全体の $J^+$ が閉じる**と主張しているわけではありません。
+因果的な速度条件を端点の極限へ移す理由も、局所座標で確かめます。任意の点 $p$ で、[LORG1の未来錐の定義](../LORG1/index.md#def-lorg1-future-cone)に合わせて $g_p=-d\tau^2+\sum_{i=1}^n(dx^i)^2$ となる座標を選び、$\mathbf x=(x^1,\ldots,x^n)$ と書きます。この表示は $p$ の接空間で時間向き付きLorentz正規直交基底を選んだもので、周囲の計量が一様にMinkowski計量になるという意味ではありません。
+
+計量係数の連続性から、任意の $0<\delta<1$ について $p$ を囲む座標領域 $U_\delta$ を十分小さく取ると、その中のすべてのベクトル $v=(v^0,\mathbf v)$ に対し
+
+$
+g_x(v,v)\ge -(1+\delta)(v^0)^2+(1-\delta)|\mathbf v|^2
+$
+
+とできます。実際、係数行列と $\operatorname{diag}(-1,1,\ldots,1)$ の差の作用素ノルムを $\delta$ 以下にすれば、二次形式の差の絶対値は $\delta((v^0)^2+|\mathbf v|^2)$ 以下です。さらに $U_\delta$ を縮めれば、非零の未来因果ベクトルでは $v^0=d\tau(v)>0$ となります。したがって $g_x(v,v)\le0$ を上式と組み合わせると
+
+$
+|\mathbf v|\le K_\delta v^0,\qquad
+K_\delta:=\sqrt{\frac{1+\delta}{1-\delta}}.
+$
+
+$U_\delta$ 内に像を持つ未来因果曲線 $\beta$ のほとんど至る所でこの不等式を適用し、速度を積分すれば
+
+$
+|\mathbf x(\beta(t))-\mathbf x(\beta(s))|
+\le K_\delta\bigl(\tau(\beta(t))-\tau(\beta(s))\bigr)
+\qquad(s<t)
+$
+
+となります。右辺は非負です。この**同じ座標・同じ定数**による端点不等式は、一様収束する曲線列の端点極限にも渡せます。最後に $\delta\downarrow0$ とすれば点 $p$ での元の未来錐が回復します。必要なのはこの局所評価であり、**時空全体の $J^+$ が閉じる**という仮定ではありません。
 
 <a id="def-lorg14-local-uniform"></a>
 
@@ -148,7 +171,27 @@ $$
 
 従って $\gamma$ は局所Lipschitzです。$s_0\in I$ を取り、$\gamma(s_0)$ の周りの小さな凸正規近傍 $U$ と、$s_0$ を含む十分短い閉区間 $[a,b]\subset I$ を選んで、$\gamma([a,b])$ が $U$ の内部のコンパクトな部分に入るようにします。一様収束から、大きな $k$ では $\gamma_k([a,b])$ も $U$ に収まります。
 
-任意の $a\le s<t\le b$ に対し、$\gamma_k|_{[s,t]}$ は $U$ 内の未来因果曲線です。前述の局所的な端点関係の閉性により、$\gamma(s)$ から $\gamma(t)$ も $U$ 内の未来因果曲線で結べます。これは、局所Lipschitzな $\gamma$ のほとんど至る所の微分が未来因果錐に入ることを意味します。実際、微分可能な $s$ において $t\downarrow s$ とし、正規座標で $U$ 内の因果的到達条件を $t-s$ で割ると、接ベクトル $\dot\gamma(s)$ が閉じた未来因果錐に入ります。
+$\gamma$ の微分可能な内点 $s_0\in(a,b)$ を取って $p=\gamma(s_0)$ とし、前段の任意の $0<\delta<1$ に対する座標領域 $U_\delta$ を $p$ の周りに選びます。$s_0$ の近くに区間 $[s_0-\varepsilon,s_0+\varepsilon]$ を取れば、その像は $U_\delta$ 内にあり、一様収束により十分大きな $k$ で $\gamma_k$ の対応する像も $U_\delta$ 内に収まります。前段で導いた端点不等式を $\gamma_k$ に適用して $k\to\infty$ とすると
+
+$
+|\mathbf x(\gamma(t))-\mathbf x(\gamma(s))|
+\le K_\delta\bigl(\tau(\gamma(t))-\tau(\gamma(s))\bigr)
+$
+
+です。$s=s_0$ として $t\downarrow s_0$、両辺を $t-s_0>0$ で割れば
+
+$
+|\dot{\mathbf x}(s_0)|\le K_\delta\dot\tau(s_0).
+$
+
+任意の $\delta>0$ で成り立つので $K_\delta\downarrow1$ として $|\dot{\mathbf x}(s_0)|\le\dot\tau(s_0)$ となります。$p$ では $g_p=-d\tau^2+|d\mathbf x|^2$ ですから
+
+$
+g_p(\dot\gamma,\dot\gamma)
+=-(\dot\tau)^2+|\dot{\mathbf x}|^2\le0.
+$
+
+また $\dot\tau\ge0$ なので、この速度は零または未来因果ベクトルです。これはほとんど至る所の $s_0$ で成り立ちます。
 
 さらに $[a,b]$ の近くで上の $c>0$ を固定すると、各 $k$ に対して
 
@@ -259,7 +302,14 @@ $$
 
 始点 $p_k$ が $p$ に収束するため、像は十分大きい $k$ で閉球 $\overline B_h(p,L+1)$ に収まります。[Hopf–Rinowの定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)とArzelà–Ascoliから一様収束部分列 $\alpha_k\to\alpha$ を得ます。$L_k$ の部分列も $L_k\to L_*\in[0,L]$ とできます。
 
-$L_*>0$ なら、$\alpha_k$ を $L_k$ で割った弧長パラメータの局所議論（第3節の時間座標評価を係数 $L_k$ に置き換えたもの）から、$\alpha$ は未来因果的です。$L_*=0$ なら任意の $s,t$ で $d_h(\alpha_k(s),\alpha_k(t))\le L_k|s-t|\to0$ となるので $\alpha$ は定数であり、$p=q$ です。最後に $\alpha_k(0)=p_k\to p$、$\alpha_k(1)=q_k\to q$ より $\alpha(0)=p$、$\alpha(1)=q$ です。$\square$
+$L_*>0$ なら、十分大きな $k$ で $L_k\ge L_*/2>0$ です。局所時間座標領域に入る短い区間では、$\alpha_k$ の $h$-速度が $L_k$ なので、単位弧長速度に対する第3節の評価を積分して
+
+$
+\tau(\alpha_k(t))-\tau(\alpha_k(s))
+\ge cL_k(t-s)\ge \frac{cL_*}{2}(t-s)
+$
+
+を得ます。さらに第3節の座標錐による端点不等式は速度の正規化に依存しないので、$\alpha_k\to\alpha$ の極限にも渡せます。極限の微分可能点で区間幅を零へ縮めれば $\dot\alpha$ は未来因果的であり、上の正の下界で停留片もありません。従って $\alpha$ は未来因果曲線です。$L_*=0$ なら任意の $s,t$ で $d_h(\alpha_k(s),\alpha_k(t))\le L_k|s-t|\to0$ となるので $\alpha$ は定数であり、$p=q$ です。最後に $\alpha_k(0)=p_k\to p$、$\alpha_k(1)=q_k\to q$ より $\alpha(0)=p$、$\alpha(1)=q$ です。$\square$
 <!-- proof-end -->
 
 **仮定を外したとき**。点除去Minkowski時空 $M_*=\mathbb R^{1,1}\setminus\{(0,0)\}$ の $p=(-1,-1)$ と $q=(1,1)$ を考えます。全Minkowski時空では唯一の因果経路が $t=x$ で原点を通るため、$M_*$ の中では $p\not\le q$ です。一方 $q_k=(1,1-1/k)$ は $p\ll q_k$ を満たし、原点を避ける時間的曲線で結べます。$q_k\to q$ なのに $p\not\le q$ です。
