@@ -9,6 +9,8 @@ prerequisites:
   - CELEV1
   - CELE2
   - CELE3
+  - NA1
+  - NA6
 forward_references: []
 official_scope: []
 learning_objectives:
