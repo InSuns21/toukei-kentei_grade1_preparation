@@ -6,6 +6,7 @@ import { createExperimentRecord, appendObservation, exportExperimentJson,
   importExperimentJson, exportObservationsCsv } from "../pages/simulation/experiment-record.mjs";
 import { validatePlot, drawPlot } from "../pages/simulation/plot-adapters.mjs";
 import * as celev from "../pages/simulation/engines/celev/two-body.mjs";
+import * as burrau from "../pages/simulation/engines/celev/burrau.mjs";
 import * as ml from "../pages/simulation/engines/ml/four-cell.mjs";
 
 const base = {
@@ -126,4 +127,56 @@ try {
 } finally {
   await threaded.terminate();
 }
+
+// Independent Burrau reference invariants: mass=opposite side (3,4,5),
+// zero centre of mass/momentum/angular momentum, E0=-769/60.
+const b0 = burrau.initialize({ dt: 0.002 }).state;
+const d0 = burrau.diagnostics(b0);
+assert.equal(b0.positions.length, 3);
+assert.deepEqual(b0.masses, [3, 4, 5]);
+assert.deepEqual(d0.centerOfMass, [0, 0]);
+assert.deepEqual(d0.momentum, [0, 0]);
+assert.equal(d0.angularMomentum, 0);
+assert.ok(Math.abs(d0.energy + 769 / 60) < 1e-12);
+assert.equal(d0.minimumDistance, 3);
+const b1 = burrau.stepBatch(b0, 50);
+assert.equal(b1.state.stepIndex, 50);
+assert.ok(Math.abs(b1.diagnostics.energyDrift) < 1e-3);
+const bHalf = burrau.stepBatch(burrau.initialize({ dt: 0.001 }).state, 100);
+for (let i = 0; i < 3; i++) for (let k = 0; k < 2; k++) {
+  assert.ok(Math.abs(b1.state.positions[i][k] - bHalf.state.positions[i][k]) < 1e-3);
+}
+const nearState = burrau.initialize({ dt: 0.002 }).state;
+nearState.positions[1] = [nearState.positions[0][0] + 0.01,
+  nearState.positions[0][1]];
+assert.throws(() => burrau.stepBatch(nearState, 1), /NEAR_ENCOUNTER/);
+const bReplies = [];
+createSimulationHost((m) => bReplies.push(m)).dispatch({
+  ...base, type: "initialize", generation: 1,
+  engineId: burrau.engineId, experimentId: burrau.experimentId,
+  params: { dt: 0.002 }, seed: 0,
+});
+assert.equal(bReplies.at(-1).type, "ready");
+assert.ok(Math.abs(bReplies.at(-1).diagnostics.energy + 769 / 60) < 1e-12);
+const markerDraw = [];
+const mockCtx = new Proxy({}, {
+  get(obj, key) {
+    if (!(key in obj)) obj[key] = (...args) => markerDraw.push([key, args]);
+    return obj[key];
+  },
+  set(obj, key, value) { obj[key] = value; return true; },
+});
+drawPlot({width:720,height:440,getContext:()=>mockCtx}, {
+  type:"line", xAxis:{label:"x",unit:"distance"},
+  yAxis:{label:"y",unit:"distance"},
+  bounds:{x:[-2,2],y:[-2,2],equalAspect:true},
+  series:[{points:[[-0.5,0]]},{points:[[0.5,0]]}],
+  markers:[{id:1,x:-0.5,y:0},{id:2,x:0.5,y:0}],
+}, 1);
+assert.ok(markerDraw.some(([method]) => method === "arc"), "body 1 circular marker missing");
+assert.ok(markerDraw.some(([method]) => method === "rect"), "body 2 square marker missing");
+assert.ok(markerDraw.some(([method,args]) => method === "fillText" && args[0] === "1"));
+assert.ok(markerDraw.some(([method,args]) => method === "fillText" && args[0] === "2"));
+console.log("Burrau energy/step-halving, collision guard and numbered particle markers: PASS");
+
 console.log("Simulation Phase 1 host / lifecycle / real Worker / records / plotting: PASS");
