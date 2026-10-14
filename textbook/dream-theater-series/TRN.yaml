@@ -23,7 +23,7 @@ chapters:
     title: "Hermiteの微分和・積分恒等式"
   - id: TRN5
     path: textbook/volumes/dream_thater/代数系/TRN/TRN5
-    status: planned
+    status: completed
     title: "eに対する補助多項式と素数合同"
   - id: TRN6
     path: textbook/volumes/dream_thater/代数系/TRN/TRN6

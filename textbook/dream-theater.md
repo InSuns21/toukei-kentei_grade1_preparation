@@ -817,6 +817,7 @@
 2. [TRN2 共役・跡・ノルム・分母消去](textbook/volumes/dream_thater/代数系/TRN/TRN2/index.md)
 3. [TRN3 Liouville法とHermite法の違い](textbook/volumes/dream_thater/代数系/TRN/TRN3/index.md)
 4. [TRN4 Hermiteの微分和・積分恒等式](textbook/volumes/dream_thater/代数系/TRN/TRN4/index.md)
+5. [TRN5 eに対する補助多項式と素数合同](textbook/volumes/dream_thater/代数系/TRN/TRN5/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
