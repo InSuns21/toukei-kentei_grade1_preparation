@@ -198,7 +198,19 @@ $$
 \qquad(h\downarrow0)
 $$
 
-です。未来時間錐は開いているので、[LORG5の局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により十分小さい $h>0$ で $\gamma(s_0)\ll\gamma(s_0+h)$ となります。$a=\gamma(s_0)$、$b=\gamma(s_0+h)$ とし、残りの曲線から $p\le a$、$b\le q$ を得ます。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を二度適用すれば $p\ll q$ です。区分的 $C^1$ 曲線も同じ議論に含まれます。
+です。未来時間錐は開いているので、[LORG5の局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)により、十分小さい $h>0$ で
+
+$$
+\gamma(s_0)\ll\gamma(s_0+h)
+$$
+
+となります。ここで $a=\gamma(s_0)$、$b=\gamma(s_0+h)$ と置きます。元の曲線の残りから
+
+$$
+p\le a,\qquad b\le q
+$$
+
+を得ます。[push-up補題](../LORG7/index.md#thm-lorg7-push-up)を二度適用すれば $p\ll q$ です。区分的 $C^1$ 曲線も同じ議論に含まれます。
 
 逆に $p\ll q$ なら、定義上 $p$ から $q$ の未来時間的な区分的 $C^1$ 曲線が取れます。その非零時間的速度を持つ区間では被積分関数が正なので $L_g(\gamma)>0$、従って $d_g(p,q)>0$ です。$\square$
 <!-- proof-end -->
@@ -278,7 +290,21 @@ $$
 したがって不等式の向きも、等号が不要であることも直接確認できます。
 <!-- definition-example-end -->
 
-局所の長さ比較では、二点の座標差を無条件にLorentz長さへ代入するのではありません。[LORG5の凸正規近傍](../LORG5/index.md#def-lorg5-convex-normal) $U$ 内で、$x$ から $y$ への因果曲線が $U$ 内にある場合、指数写像で $y=\exp_x(v)$ と表した接ベクトル $v$ は、[局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)によって未来因果的です。したがって $\sqrt{-g_x(v,v)}$ は実数となり、放射測地線が持つ長さを表します。これを局所時間分離 $\tau_U(x,y)$ と書きます。ここで使用するのは**接空間の計量と指数写像**であり、任意の座標差に直接計量を当てはめることではありません。
+局所の長さ比較では、二点の座標差を無条件にLorentz長さへ代入するのではありません。[LORG5の凸正規近傍](../LORG5/index.md#def-lorg5-convex-normal) $U$ 内で、点 $x$ から点 $y$ への因果曲線が $U$ 内にある場合を考えます。
+
+指数写像を用いて
+
+$$
+y=\exp_x(v),\qquad v=\exp_x^{-1}(y)
+$$
+
+と書きます。[局所因果錐の判定](../LORG5/index.md#prop-lorg5-normal-coordinate-cone)によって接ベクトル $v$ は未来因果的です。従って
+
+$$
+\tau_U(x,y)=\sqrt{-g_x(v,v)}
+$$
+
+は実数となり、放射測地線の長さを表します。ここで使用するのは**接空間の計量と指数写像**です。任意の座標差に直接計量を当てはめるものではありません。
 
 <a id="lem-lorg17-local-partition"></a>
 
