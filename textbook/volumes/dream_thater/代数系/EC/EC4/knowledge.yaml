@@ -8,6 +8,13 @@ prerequisites:
   - AG1-03
 forward_references: []
 concepts:
+  - id: elliptic-curve.rational-function-field
+    name: 楕円曲線の有理関数と関数体
+    kind: definition
+    aliases: [有理関数]
+    introduction: formal
+    introduction_aliases: ["定義（楕円曲線の有理関数と関数体）"]
+    requires: [algebraic-geometry.coordinate-domain, algebra.extension-degree]
   - id: elliptic-curve.curve-morphism
     name: 曲線の射
     kind: definition
