@@ -11,11 +11,11 @@
 
 1. 射影化、非特異性、判別式、Weierstrass 方程式の係数と標数の関係を具体例で検査する。
 2. 割線・接線の作図から加法公式を導き、**結合法則を証明**して群構造を確立する。
-3. CA9 の Weierstrass \(\wp\) 関数を用い、複素トーラスと楕円曲線の群としての対応、格子と \(j\) 不変量を説明する。
+3. CA9 の Weierstrass $\wp$ 関数を用い、複素トーラスと楕円曲線の群としての対応、格子と $j$ 不変量を説明する。
 4. torsion、isogeny（同種写像）、Frobenius の定義と適用条件を確認し、有限体で点数を計算する。
 5. 有理点群の有限生成性へ至る「有限な商＋高さによる降下」を理解する。一般の Mordell--Weil 定理の証明を、未履修の代数的整数論に丸投げしない。
 6. Hasse 評価と有限体ゼータ関数の関係を導出する。
-7. 良い還元・悪い還元、導手、素数別 Euler 因子を区別して \(L(E,s)\) を構成する。
+7. 良い還元・悪い還元、導手、素数別 Euler 因子を区別して $L(E,s)$ を構成する。
 8. 重さ 2 の newform との係数比較・modularity の正確な意味を述べ、**証明済み定理と未解決予想（BSD）を区別**する。
 
 **範囲：** 本PLANが所有するのは「楕円曲線の群則・有理点・isogeny/有限体・還元・L 関数とモジュラー形式への出口」。楕円関数の基礎証明は既存 CA8/CA9、モジュラー群から Hecke・newform の主理論は [MF PLAN](DREAM_THEATER_MODULAR_FORMS_PLAN.md) が所有する。一般の代数曲線・スキーム・Néron 模型・Galois 表現・modularity lifting は黙示的前提にしない。
@@ -48,7 +48,7 @@
 
 - 群・商群・準同型：GRP1〜GRP3。環・多項式・因数分解：RNG1〜RNG4。
 - 体・有限体・拡大：FLD0〜FLD3。初等整数論：NT1〜NT4（[NT PLAN](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)）。
-- **EC3 で初めて** CA8〜CA9（格子、複素トーラス、Weierstrass \(\wp\) 関数）を必要とする。
+- **EC3 で初めて** CA8〜CA9（格子、複素トーラス、Weierstrass $\wp$ 関数）を必要とする。
 - EC10 で Dirichlet 級数・Euler 積の基本的取り扱いを直接使用するときは、既存 CA12 / ANT の到達可能な該当章を確認する。全 ANT の一律履修は課さない。
 - **EC11 で** MF1〜MF7 のうち newform・局所係数比較に必要な章を参照する。逆向きに MF1〜MF7 の全章へ EC11 を要求しない。
 
@@ -58,10 +58,10 @@
 
 ### 証明未閉鎖を隠さない境界
 
-- **EC2 結合法則：** 複素一様化の証明だけでは \(\mathbb F_p\) 上の主張を正当化できない。一般 Weierstrass 方程式の代数的証明（全例外ケースを含む）か、**定義・証明済みの divisor / Picard 群と必要な genus 1 の補題**を用いる。実装前に採用経路と先行補題を確定する。
-- **EC4 / EC8：** Hasse の標準的な次数法を採るなら、endomorphism の次数の二次性、Frobenius の次数、\(\deg(1-\pi)=\#E(\mathbb F_q)\) を先に証明する。双対 isogeny 等を「標準事実」で省略しない。
-- **EC6 Mordell--Weil：** 有理 2-torsion を持つ曲線の明示的 2-descent は核心例として全件証明する。しかし、**それだけで任意の \(E/\mathbb Q\) の有限生成性が証明されたとはしない**。一般の場合の weak Mordell--Weil を閉じるために、有限エタール代数での descent・数体の有限性等の実際の使用箇所を棚卸しする。必要な前提の定義・補題をその章（または確認済みの先行 canonical 章）に置く。閉じられなければ一般形は明示的に引用定理として区別し、主要到達目標の証明完了とは判定しない。
-- **EC9 導手：** \(p=2,3\) の wild ramification、minimal model、一般の conductor exponent は初等判別式だけから決められない。一般形を主張するなら追加理論・証明責務を特定する。入門主線では半安定還元と明示例を完全に説明し、一般形は定義と理論上の境界を区別する。
+- **EC2 結合法則：** 複素一様化の証明だけでは $\mathbb F_p$ 上の主張を正当化できない。一般 Weierstrass 方程式の代数的証明（全例外ケースを含む）か、**定義・証明済みの divisor / Picard 群と必要な genus 1 の補題**を用いる。実装前に採用経路と先行補題を確定する。
+- **EC4 / EC8：** Hasse の標準的な次数法を採るなら、endomorphism の次数の二次性、Frobenius の次数、$\deg(1-\pi)=\#E(\mathbb F_q)$ を先に証明する。双対 isogeny 等を「標準事実」で省略しない。
+- **EC6 Mordell--Weil：** 有理 2-torsion を持つ曲線の明示的 2-descent は核心例として全件証明する。しかし、**それだけで任意の $E/\mathbb Q$ の有限生成性が証明されたとはしない**。一般の場合の weak Mordell--Weil を閉じるために、有限エタール代数での descent・数体の有限性等の実際の使用箇所を棚卸しする。必要な前提の定義・補題をその章（または確認済みの先行 canonical 章）に置く。閉じられなければ一般形は明示的に引用定理として区別し、主要到達目標の証明完了とは判定しない。
+- **EC9 導手：** $p=2,3$ の wild ramification、minimal model、一般の conductor exponent は初等判別式だけから決められない。一般形を主張するなら追加理論・証明責務を特定する。入門主線では半安定還元と明示例を完全に説明し、一般形は定義と理論上の境界を区別する。
 - **EC11：** Modularity Theorem は証明済みの外部大定理として正確に掲げ、EC11 で Wiles--Taylor--Wiles の証明を再構成したと称しない（最終の theorem と FLT 接続の正本は MF8）。BSD は予想と明記する。
 
 ## 3. 暫定章構成と章ごとの証明責務
@@ -70,34 +70,34 @@
 
 **問い：** 楕円曲線を方程式としてどう識別し、特異点をどう排除するか。
 
-- 射影平面 \(\mathbb P^2(k)\)、同次化、無限遠点 \(O=[0:1:0]\) と \(k\)-有理点の意味。
+- 射影平面 $\mathbb P^2(k)$、同次化、無限遠点 $O=[0:1:0]$ と $k$-有理点の意味。
 - 非特異性の偏微分判定。**幾何学的非特異性**は代数閉包上で判定すること、判別式の非零性との同値を導く。
-- 一般形 \(y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6\)、\(b_i,c_4,c_6,\Delta\)、許される変数変換と \(\Delta\) の変換則。
-- \(\operatorname{char}k\ne2,3\) で短い形 \(y^2=x^3+Ax+B\) に移す変換を途中式から導く。\(\operatorname{char}k=2,3\) に短い形を無条件に流用しない。
+- 一般形 $y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6$、$b_i,c_4,c_6,\Delta$、許される変数変換と $\Delta$ の変換則。
+- $\operatorname{char}k\ne2,3$ で短い形 $y^2=x^3+Ax+B$ に移す変換を途中式から導く。$\operatorname{char}k=2,3$ に短い形を無条件に流用しない。
 - smooth projective genus 1 curve + marked rational point という一般的定義との関係を述べる際、genus と Riemann--Roch が必要な同値証明の所在・停止線を明記する。
-- \(\mathbb Q,\mathbb R,\mathbb C,\mathbb F_2,\mathbb F_3,\mathbb F_5\) の非特異例・特異反例。各例で判別式または偏微分条件を実際に照合する。
+- $\mathbb Q,\mathbb R,\mathbb C,\mathbb F_2,\mathbb F_3,\mathbb F_5$ の非特異例・特異反例。各例で判別式または偏微分条件を実際に照合する。
 
-**検算点：** \(\Delta=-16(4A^3+27B^2)\) は短い形かつ標数制限の文脈で用いる。一般形との規約差・スケーリング・\(j=c_4^3/\Delta\) の意味を混同しない。
+**検算点：** $\Delta=-16(4A^3+27B^2)$ は短い形かつ標数制限の文脈で用いる。一般形との規約差・スケーリング・$j=c_4^3/\Delta$ の意味を混同しない。
 
 ### EC2 割線・接線群則と結合法則の証明
 
 **問い：** 点の図形的な加算がなぜ群の公理を満たすか。
 
-- 異なる 2 点、接点、鉛直線、無限遠点を分けて加法と逆元を定義。係数一般形の否定写像 \((x,y)\mapsto(x,-y-a_1x-a_3)\)。
-- 傾きの計算から \(P+Q\)、\(2P\) の公式を導く。公式の分母が零となる場合を正しく分岐する。
+- 異なる 2 点、接点、鉛直線、無限遠点を分けて加法と逆元を定義。係数一般形の否定写像 $(x,y)\mapsto(x,-y-a_1x-a_3)$。
+- 傾きの計算から $P+Q$、$2P$ の公式を導く。公式の分母が零となる場合を正しく分岐する。
 - 単位元・逆元・可換性の確認。**結合法則を主要定理として完結した証明を置く**。
 - 事前選択すべき証明経路：①一般係数の有理式・多項式恒等式を、分母の消失する場合も含めて検証する、または②関数・divisor の零点と極、主 divisor、次数 0 の divisor 類と点との全単射を導入・証明し、その準同型性から導く。後者で Riemann--Roch の未習の一般定理を単に引用しない。
-- 重ね合わせ順序を実際に計算する \((P+Q)+R=P+(Q+R)\) の具体例と、特異三次曲線では何が破綻するかの反例。
+- 重ね合わせ順序を実際に計算する $(P+Q)+R=P+(Q+R)$ の具体例と、特異三次曲線では何が破綻するかの反例。
 
 **禁止：** 作図が対称に見えること・複素数上で成立することだけを全体の証明にしない。
 
-### EC3 複素一様化・格子・\(j\) 不変量
+### EC3 複素一様化・格子・$j$ 不変量
 
 **問い：** 複素数上でなぜ三次曲線がトーラスになるか。
 
-- [CA8/CA9](../plans/../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md) の実在する完成本文・stable anchor を執筆時に特定し、\(\wp\) の微分方程式から \(z\mapsto(\wp(z),\wp'(z)/2)\) を作る。
-- \(z=0\) に対応する \(O\)、核が \(\Lambda\) であること、加法公式による群準同型性、全射性・正則性（または複素トーラス／曲線の同型）を確認する。
-- 格子のスケーリング、\(g_2,g_3,\Delta,j\)。\(j\) による **\(\mathbb C\) 上の**同型分類を述べる。 \(\mathbb Q\) 上の同型・twist とは区別する。
+- CA8/CA9 の実在する完成本文・stable anchor を執筆時に特定し、$\wp$ の微分方程式から $z\mapsto(\wp(z),\wp'(z)/2)$ を作る。
+- $z=0$ に対応する $O$、核が $\Lambda$ であること、加法公式による群準同型性、全射性・正則性（または複素トーラス／曲線の同型）を確認する。
+- 格子のスケーリング、$g_2,g_3,\Delta,j$。$j$ による **$\mathbb C$ 上の**同型分類を述べる。 $\mathbb Q$ 上の同型・twist とは区別する。
 - CM は自己準同型が増える具体例（正方格子・六角格子）まで。CM 一般理論は任意発展へ送る。
 
 ### EC4 Isogeny・自己準同型・torsion の代数的基盤
@@ -105,86 +105,86 @@
 **問い：** 楕円曲線間の写像をどう測り、Frobenius の評価へ備えるか。
 
 - 有理写像と正則写像（分母、極、射影点での延長）の区別。群を保つ非定数写像で原点を送る isogeny、kernel、degree、separable / inseparable。
-- multiplication-by-\(n\)、\(E[n]\) と標数による差。\(\operatorname{char}k\nmid n\) なら代数閉包上 \(E[n]\simeq(\mathbb Z/n\mathbb Z)^2\) となる証明経路を確定する。
-- endomorphism と環構造、同種写像の合成・次数の乗法性。双対 isogeny と \(\deg(m\alpha+n\beta)\) の二次性（EC8 の Hasse 証明に必要な特殊形まで）。
+- multiplication-by-$n$、$E[n]$ と標数による差。$\operatorname{char}k\nmid n$ なら代数閉包上 $E[n]\simeq(\mathbb Z/n\mathbb Z)^2$ となる証明経路を確定する。
+- endomorphism と環構造、同種写像の合成・次数の乗法性。双対 isogeny と $\deg(m\alpha+n\beta)$ の二次性（EC8 の Hasse 証明に必要な特殊形まで）。
 - 選んだ証明に必要な関数体拡大次数、divisor の引き戻し、微分・separability を定義から例で検証する。必要なら本章を2章へ分割する。
-- 具体例：\(2\)-torsion、\([2]\) の次数、複素格子の有限指数部分格子による isogeny。
+- 具体例：$2$-torsion、$[2]$ の次数、複素格子の有限指数部分格子による isogeny。
 
 ### EC5 有理数体上の torsion・高さの入口
 
 **問い：** 有理点を全部探す前に、有限位数点と点の大きさをどう制御するか。
 
-- \(E(\mathbb Q)_{\mathrm{tors}}\)、\(2\)-torsion、整数モデル上の有理点とその座標。
+- $E(\mathbb Q)_{\mathrm{tors}}$、$2$-torsion、整数モデル上の有理点とその座標。
 - **Nagell--Lutz 定理**の適用可能な整数係数短 Weierstrass 形の仮定を明記し、証明と整数解の候補絞り込みを行う。
-- 有理数 \(x=a/b\)（既約）の高さ \(h(x)=\log\max(|a|,|b|)\)、\(\mathbb Q\) 上の有界高さの有限性。
-- doubling からの \(h(x([2]P))=4h(x(P))+O_E(1)\) の主要不等式（\(x=O\) の約束と例外は明示）。標準高さと canonical height の正規化を統一する。
+- 有理数 $x=a/b$（既約）の高さ $h(x)=\log\max(|a|,|b|)$、$\mathbb Q$ 上の有界高さの有限性。
+- doubling からの $h(x([2]P))=4h(x(P))+O_E(1)$ の主要不等式（$x=O$ の約束と例外は明示）。標準高さと canonical height の正規化を統一する。
 - 実例で torsion 候補を抽出し、位数を加法で照合する。逆に座標が整数というだけで torsion と判定しない。
 
 ### EC6 Descent・weak Mordell--Weil・Mordell--Weil
 
 **問い：** 有理点が無限にあっても、なぜ有限個の生成元で足りるか。
 
-- まず有理 2-torsion を持つ曲線の 2-isogeny / 明示的 2-descent で、有限な候補集合と \(E(\mathbb Q)/2E(\mathbb Q)\) の有限性を示す。
-- 一般の weak Mordell--Weil：\(\#(E(\mathbb Q)/mE(\mathbb Q))<\infty\)（\(m\ge2\)）の正確な statement。全 \(E/\mathbb Q\) へ拡張するための Kummer/descent の補題と、必要な有限性の証明依存を棚卸しする。
+- まず有理 2-torsion を持つ曲線の 2-isogeny / 明示的 2-descent で、有限な候補集合と $E(\mathbb Q)/2E(\mathbb Q)$ の有限性を示す。
+- 一般の weak Mordell--Weil：$\#(E(\mathbb Q)/mE(\mathbb Q))<\infty$（$m\ge2$）の正確な statement。全 $E/\mathbb Q$ へ拡張するための Kummer/descent の補題と、必要な有限性の証明依存を棚卸しする。
 - EC5 の高さ評価を使う **有限商＋高さ降下（infinite descent）⇒ 有限生成** の論証を、代表元・高さを減らす反復・停止性まで記述する。
 - 具体例の rank、torsion、点の倍算と独立性。有限生成の証明と、実際に rank を計算するアルゴリズムの停止問題・Selmer 上界を混同しない。
 - 証明依存を閉じられない一般形を特別例の証明で代用しない。一般形は未証明として表示し、実装時の別の前提講座（代数的整数論など）を要する場合は DAG と根拠を更新してから扱う。
 
 ### EC7 有限体の点数と Frobenius
 
-**問い：** \(\mathbb F_q\) では曲線をどう数え、加法と Frobenius がどう働くか。
+**問い：** $\mathbb F_q$ では曲線をどう数え、加法と Frobenius がどう働くか。
 
-- \(E(\mathbb F_q)\) と \(E(\overline{\mathbb F}_q)\) の区別、無限遠点を含む総点数、\(p=2,3\) では一般 Weierstrass 形を用いる。
-- Frobenius \(\pi_q:(x,y)\mapsto(x^q,y^q)\)（\(\mathbb F_q\) 上の係数を固定すること）、固定点と \(E(\mathbb F_q)\)、\(\deg\pi_q=q\)。
-- \(\#E(\mathbb F_2),\#E(\mathbb F_3),\#E(\mathbb F_5)\) を手計算し、群演算と一致させる。\(a_q=q+1-\#E(\mathbb F_q)\) を定義する。
+- $E(\mathbb F_q)$ と $E(\overline{\mathbb F}_q)$ の区別、無限遠点を含む総点数、$p=2,3$ では一般 Weierstrass 形を用いる。
+- Frobenius $\pi_q:(x,y)\mapsto(x^q,y^q)$（$\mathbb F_q$ 上の係数を固定すること）、固定点と $E(\mathbb F_q)$、$\deg\pi_q=q$。
+- $\#E(\mathbb F_2),\#E(\mathbb F_3),\#E(\mathbb F_5)$ を手計算し、群演算と一致させる。$a_q=q+1-\#E(\mathbb F_q)$ を定義する。
 - 有限体では点群が有限であることを用いた例。計算量・Schoof 法・暗号は任意発展とし、本科目の前提へ強制しない。
 
 ### EC8 Hasse 評価・拡大体上の点数・有限体ゼータ関数
 
-**問い：** 有限体の点数が \(q+1\) から大きく離れないのはなぜか。
+**問い：** 有限体の点数が $q+1$ から大きく離れないのはなぜか。
 
 - EC4 の次数理論を適用して
-  \[
+  $
   \deg([m]-[n]\pi_q)=m^2-a_qmn+qn^2\ge0
-  \]
-  を導き、全整数 \(m,n\) に対する非負性から \(a_q^2\le4q\) を示す。**式の導出に必要な双対・次数の二次性を出発点から照合**する。
-- \(\pi_q\) の特性多項式 \(T^2-a_qT+q\)、根 \(\alpha,\beta\) と \(\alpha+\beta=a_q,\alpha\beta=q\)、\(|\alpha|=|\beta|=\sqrt q\)。
-- \(\#E(\mathbb F_{q^n})=q^n+1-\alpha^n-\beta^n\) を示し、
-  \(Z(E/\mathbb F_q,T)=(1-a_qT+qT^2)/((1-T)(1-qT))\) を指数型定義から導く。
+  $
+  を導き、全整数 $m,n$ に対する非負性から $a_q^2\le4q$ を示す。**式の導出に必要な双対・次数の二次性を出発点から照合**する。
+- $\pi_q$ の特性多項式 $T^2-a_qT+q$、根 $\alpha,\beta$ と $\alpha+\beta=a_q,\alpha\beta=q$、$|\alpha|=|\beta|=\sqrt q$。
+- $\#E(\mathbb F_{q^n})=q^n+1-\alpha^n-\beta^n$ を示し、
+  $Z(E/\mathbb F_q,T)=(1-a_qT+qT^2)/((1-T)(1-qT))$ を指数型定義から導く。
 - Hasse の定理を「曲線の一般の Weil 予想を使った」とだけ書かない。一般の曲線については証明・適用範囲を分離する。
-- 小さな有限体の計算で \(a_q\)、\(a_{q^2}\)、ゼータ関数の係数を相互照合する。
+- 小さな有限体の計算で $a_q$、$a_{q^2}$、ゼータ関数の係数を相互照合する。
 
 ### EC9 整数モデル・良い／悪い還元・導手
 
 **問い：** なぜ有限体へ簡約できない素数が L 関数で特別扱いされるか。
 
-- 整数係数 Weierstrass モデルと \(\bmod p\) の還元。判別式を用い、**選んだモデルの特異性と曲線自体の良い還元を区別**する。必要なら最小整モデルの役割を定義する。
+- 整数係数 Weierstrass モデルと $\bmod p$ の還元。判別式を用い、**選んだモデルの特異性と曲線自体の良い還元を区別**する。必要なら最小整モデルの役割を定義する。
 - good reduction / split・nonsplit multiplicative reduction / additive reduction の局所例。nodal と cuspidal の判別は特異点の局所二次項の因数分解などで検証する。
-- \(p\ge5\) の tame 事例、\(p=2,3\) の注意。一般 conductor \(N_E=\prod p^{f_p}\) に現れる \(f_p\) は、単なる \(\operatorname{ord}_p(\Delta)\) ではない。
-- 半安定例では \(f_p=0\)（good）または \(1\)（multiplicative）を実際に確認する。additive/wild の一般公式・Tate algorithm は証明範囲と未習理論を明示して分離する。
-- **導手の正確な一般的定義を与えられないまま、全モデルで \(f_p\) を判定できるとは述べない**。後続 MF の level と接続する必要な事実をラベル付きで管理する。
+- $p\ge5$ の tame 事例、$p=2,3$ の注意。一般 conductor $N_E=\prod p^{f_p}$ に現れる $f_p$ は、単なる $\operatorname{ord}_p(\Delta)$ ではない。
+- 半安定例では $f_p=0$（good）または $1$（multiplicative）を実際に確認する。additive/wild の一般公式・Tate algorithm は証明範囲と未習理論を明示して分離する。
+- **導手の正確な一般的定義を与えられないまま、全モデルで $f_p$ を判定できるとは述べない**。後続 MF の level と接続する必要な事実をラベル付きで管理する。
 
-### EC10 Hasse--Weil \(L\) 関数と局所因子
+### EC10 Hasse--Weil $L$ 関数と局所因子
 
 **問い：** 「全ての素数で点を数える」情報をどう一つの解析関数にするか。
 
-- 良い素数 \(p\) では
-  \(a_p=p+1-\#E(\mathbb F_p)\),
-  \(L_p(E,s)=(1-a_pp^{-s}+p^{1-2s})^{-1}\)。
-- 悪い素数では **同じ点数式を無条件に流用しない**。split multiplicative: \((1-p^{-s})^{-1}\)、nonsplit multiplicative: \((1+p^{-s})^{-1}\)、additive: \(1\)。EC9 で局所型を実際に判定できた例について検算する。
-- Euler 積 \(L(E,s)=\prod_pL_p(E,s)\)、Hasse 評価からの **絶対収束域 \(\Re(s)>3/2\)**（各素数項の大きさと素数和の比較を示す）。
-- 複素 \(s\) 全体への解析接続と
-  \(\Lambda(E,s)=N_E^{s/2}(2\pi)^{-s}\Gamma(s)L(E,s)\),
-  \(\Lambda(E,s)=w_E\Lambda(E,2-s)\)（\(w_E\in\{\pm1\}\)）を、**現代では \(\mathbb Q\) 上の楕円曲線について modularity から従う定理**として記す。Euler 積の収束域から勝手に解析接続を導かない。
-- 予想 BSD への入口として、解析的 rank と \(E(\mathbb Q)\) の代数的 rank の等しさを**予想**として述べる。例で L の係数と有限体の点数を照合する。
+- 良い素数 $p$ では
+  $a_p=p+1-\#E(\mathbb F_p)$,
+  $L_p(E,s)=(1-a_pp^{-s}+p^{1-2s})^{-1}$。
+- 悪い素数では **同じ点数式を無条件に流用しない**。split multiplicative: $(1-p^{-s})^{-1}$、nonsplit multiplicative: $(1+p^{-s})^{-1}$、additive: $1$。EC9 で局所型を実際に判定できた例について検算する。
+- Euler 積 $L(E,s)=\prod_pL_p(E,s)$、Hasse 評価からの **絶対収束域 $\Re(s)>3/2$**（各素数項の大きさと素数和の比較を示す）。
+- 複素 $s$ 全体への解析接続と
+  $\Lambda(E,s)=N_E^{s/2}(2\pi)^{-s}\Gamma(s)L(E,s)$,
+  $\Lambda(E,s)=w_E\Lambda(E,2-s)$（$w_E\in\{\pm1\}$）を、**現代では $\mathbb Q$ 上の楕円曲線について modularity から従う定理**として記す。Euler 積の収束域から勝手に解析接続を導かない。
+- 予想 BSD への入口として、解析的 rank と $E(\mathbb Q)$ の代数的 rank の等しさを**予想**として述べる。例で L の係数と有限体の点数を照合する。
 
 ### EC11 モジュラー形式との照合と modularity interface
 
-**問い：** 曲線の \(L\) 関数がなぜ重さ 2 の newform によって表されるか。
+**問い：** 曲線の $L$ 関数がなぜ重さ 2 の newform によって表されるか。
 
-- MF1〜MF7 の定義と証明済み結果を実際の使用箇所で参照し、newform、Fourier 係数 \(a_p(f)\)、Euler 因子の規約を揃える。
-- 導手 \(N_E\) と level \(N\) の一致、good prime での \(a_p(E)=a_p(f)\)、bad prime の局所因子を含む **\(L(E,s)=L(f,s)\)** の意味を説明する。
-- 同値な modularity の表現：ある重さ 2 の newform の L 関数に一致すること、\(X_0(N_E)\to E\) の非定数 \(\mathbb Q\)-上の射が存在すること。射の意味・対象・基点・未導入の modular curve／Jacobian を区別する。
+- MF1〜MF7 の定義と証明済み結果を実際の使用箇所で参照し、newform、Fourier 係数 $a_p(f)$、Euler 因子の規約を揃える。
+- 導手 $N_E$ と level $N$ の一致、good prime での $a_p(E)=a_p(f)$、bad prime の局所因子を含む **$L(E,s)=L(f,s)$** の意味を説明する。
+- 同値な modularity の表現：ある重さ 2 の newform の L 関数に一致すること、$X_0(N_E)\to E$ の非定数 $\mathbb Q$-上の射が存在すること。射の意味・対象・基点・未導入の modular curve／Jacobian を区別する。
 - **Modularity Theorem の最終 statement と Fermat 最終定理への接続は MF8 が canonical owner**。EC11 では入力データと比較の論理を仕上げ、MF8 の結果を EC11 の前提に逆流させない。
 - 自由研究分岐として CM、BSD（rank 0/1 の既知の部分結果と一般予想の境界）、暗号や計算機実験を案内するが、未証明大定理を授業内で証明済み扱いしない。
 
@@ -217,7 +217,7 @@ CA8/9/12 → MF1 → MF2 → MF3 → MF4 → MF5 → MF6 → MF7 ┤
 ## 5. 章ごとの直接例・演習・査読の受け入れ基準
 
 - 各章の入口に「今できること → 足りないこと → 新しい道具 → 何が判定・計算できるか」を通常文で示す。専門語を formal statement より先に紹介し、その語の定義を実際に検査する**直接例**を付ける。
-- 理論の**異なる体・標数・モデル**を必ず区別する。少なくとも「短 Weierstrass の \(\mathbb Q\) 例」「\(\mathbb F_2,\mathbb F_3\) の一般形」「特異曲線の反例」「悪い還元の局所型」を全体で網羅する。
+- 理論の**異なる体・標数・モデル**を必ず区別する。少なくとも「短 Weierstrass の $\mathbb Q$ 例」「$\mathbb F_2,\mathbb F_3$ の一般形」「特異曲線の反例」「悪い還元の局所型」を全体で網羅する。
 - 各章 Level A **4題以上**、B **3題以上**、C **1題以上**（理由付き例外は規約に従う）。これは下限であり、主要結果・典型誤答・仮定の使用・複数概念の結合の演習が足りなければ追加する。全問の**詳細解答**に開始点・条件・中間計算・結論を残す。
 - 特に EC2 は結合法則の証明経路、EC4 は degree/isogeny の正当化、EC6 は weak Mordell--Weil の有限性、EC8 は Hasse の証明、EC9 は conductor の定義可能範囲、EC10 は収束域と悪い素数の因子、EC11 は MF7/MF8 との非循環性を**個別ゲート**とする。
 - 変更章の全主要定理・証明・全演習と詳細解答について、本文完成後に出発点から再計算する自己査読と、読者順・定義使用順・前提・stable anchor を確認する別観点再査読を分ける。**同じ担当者の再読を第三者独立査読とは称しない**。変更していない別章の追跡監査はユーザーから章IDの明示依頼があった場合のみ実施する。
