@@ -1,0 +1,77 @@
+chapter: EC3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC2
+  - CA8
+  - CA9
+forward_references: []
+concepts:
+  - id: elliptic-curve.complex-uniformization-map
+    name: 格子のWeierstrass写像
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - complex-analysis.complex-torus
+      - complex-analysis.weierstrass-p
+      - complex-analysis.weierstrass-differential-equation
+      - elliptic-curve.weierstrass-model
+
+  - id: elliptic-curve.complex-uniformization-group-law
+    name: 格子加法と割線・接線加法の一致
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.complex-uniformization-map
+      - elliptic-curve.chord-tangent-addition
+      - complex-analysis.weierstrass-addition-formula
+
+  - id: elliptic-curve.period-lattice
+    name: 楕円曲線の周期格子
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - complex-analysis.complex-lattice
+      - elliptic-curve.weierstrass-model
+
+  - id: elliptic-curve.inverse-uniformization
+    name: 複素楕円曲線の逆一様化
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.period-lattice
+      - elliptic-curve.complex-uniformization-map
+      - complex-analysis.weierstrass-symmetry-periodicity
+      - complex-analysis.compact-riemann-holomorphic-rigidity
+
+  - id: elliptic-curve.complex-j-invariant
+    name: 楕円曲線と格子のj不変量
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.weierstrass-model
+      - complex-analysis.weierstrass-scaling
+
+  - id: elliptic-curve.complex-j-classification
+    name: 複素数上のjによる同型分類
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.complex-j-invariant
+      - elliptic-curve.inverse-uniformization
+      - complex-analysis.weierstrass-scaling
+
+  - id: elliptic-curve.complex-multiplication
+    name: 格子表示における複素乗法
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires:
+      - elliptic-curve.complex-uniformization-group-law
+      - complex-analysis.complex-lattice
