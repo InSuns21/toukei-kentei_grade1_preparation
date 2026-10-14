@@ -1,0 +1,64 @@
+chapter: HA11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HA10
+  - HA2
+  - FOU4
+  - MT7
+forward_references: []
+concepts:
+  - id: harmonic.ha11-restriction
+    name: 球面へのFourier制限
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面へのFourier制限）]
+    requires: []
+  - id: harmonic.ha11-extension
+    name: 球面Fourier拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面Fourier拡張）]
+    requires: [harmonic.ha11-restriction]
+  - id: harmonic.ha11-duality
+    name: 制限と拡張の双対性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（制限と拡張の双対性）]
+    requires: [harmonic.ha11-restriction, harmonic.ha11-extension]
+  - id: harmonic.ha11-cap-tube
+    name: capと対応するtube
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（capと対応するtube）]
+    requires: [harmonic.ha11-extension]
+  - id: harmonic.ha11-knapp
+    name: Knapp型の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Knapp型の必要条件）]
+    requires: [harmonic.ha11-cap-tube, harmonic.ha11-extension]
+  - id: harmonic.ha11-analytic-family
+    name: 球面集中型の解析族
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面集中型の解析族）]
+    requires: [harmonic.ha11-restriction]
+  - id: harmonic.ha11-distribution
+    name: 解析接続と球面集中
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（解析接続と球面集中）]
+    requires: [harmonic.ha11-analytic-family]
+  - id: harmonic.ha11-kernel
+    name: 解析族の端点評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（解析族の端点評価）]
+    requires: [harmonic.ha11-analytic-family]
+  - id: harmonic.ha11-stein-tomas
+    name: 球面のStein–Tomas型restriction・extension
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（球面のStein–Tomas型restriction・extension）]
+    requires: [harmonic.ha11-duality, harmonic.ha11-distribution, harmonic.ha11-kernel]

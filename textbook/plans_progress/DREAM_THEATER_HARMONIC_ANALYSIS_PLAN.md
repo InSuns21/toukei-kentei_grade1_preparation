@@ -1,8 +1,8 @@
 # DREAM THEATER 調和解析 計画
 
 作成日: 2026-10-07
-改訂日: 2026-10-14（HA10の定常位相・球面減衰の証明と演習を追加）
-状態: in_progress（HA1--HA10完了、HA11未着手。系列manifestを正本として進捗管理）
+改訂日: 2026-10-14（HA11のrestriction・Stein–Tomas型定理・Kakeya入口を実装）
+状態: in_progress（HA1--HA11の章本文を実装。PLAN全体の終了処理は公開・査読・検証の結果で判断）
 
 ## 0. 中心問いと科目の位置付け
 

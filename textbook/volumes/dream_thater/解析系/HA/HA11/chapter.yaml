@@ -1,0 +1,49 @@
+id: "HA11"
+title: "Fourier restrictionとKakeyaへの入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HA10
+  - HA2
+  - FOU4
+  - MT7
+official_scope: []
+learning_objectives:
+  - 球面上の点値制限が一般のL2同値類では定義できないことを例で示しrestrictionとextensionを定義できる
+  - restrictionとextensionの双対性をFubiniとL^p双対から証明できる
+  - 球面capと対応するtubeの尺度を求めKnapp型必要指数を導出できる
+  - Gamma正規化した解析族の球面への集中とFourier逆変換の係数を導ける
+  - 核のBessel級数・微分方程式・補間端点評価を証明できる
+  - 複素補間とTT*から球面Stein–Tomas型評価を再構成できる
+  - 球面半径のscalingと曲率ゼロの反例を検算できる
+  - wave packetのcap/tube幾何とKakeya問題への接続を射程を混同せず説明できる
+definitions:
+  - { id: HA11-DEF-01, name: 球面へのFourier制限 }
+  - { id: HA11-DEF-02, name: 球面Fourier拡張 }
+  - { id: HA11-DEF-03, name: capと対応するtube }
+  - { id: HA11-DEF-04, name: 球面集中型の解析族 }
+theorems:
+  - { id: HA11-PROP-01, name: 制限と拡張の双対性 }
+  - { id: HA11-PROP-02, name: Knapp型の必要条件 }
+  - { id: HA11-LEM-01, name: 解析接続と球面集中 }
+  - { id: HA11-LEM-02, name: 解析族の端点評価 }
+  - { id: HA11-THM-01, name: 球面のStein–Tomas型restriction・extension }
+canonical_examples:
+  - Fourier像が薄い球殻へ集中してもL2制限が連続でない例
+  - Gauss関数の球面制限と定数振幅の拡張
+  - capとtubeの位相差およびKnapp型必要指数
+  - 解析族の球面集中・Bessel核の二端点
+  - 半径変更による定数のscaling
+  - 平坦超平面での非減衰
+problem_patterns:
+  - HA11-L2-TRACE
+  - HA11-RESTRICTION-DUALITY
+  - HA11-KNAPP-TUBE
+  - HA11-ANALYTIC-FAMILY
+  - HA11-BESSEL-BOUND
+  - HA11-TTSTAR-INTERPOLATION
+  - HA11-FLAT-CURVATURE
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
