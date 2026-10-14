@@ -52,7 +52,7 @@ concepts:
     name: Lorentz長さの上半連続性
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（曲線長の上半連続性）"]
+    introduction_aliases: ["定義（Lorentz長さの上半連続性）"]
     requires: [lorentz-geometry.lorentzian-length, lorentz-geometry.local-uniform-convergence, lorentz-geometry.upper-semicontinuity]
   - id: lorentz-geometry.local-length-partitions
     name: 小区間の局所時間分離による長さの復元
