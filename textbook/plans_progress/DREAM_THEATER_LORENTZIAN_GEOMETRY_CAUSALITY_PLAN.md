@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-14（標準教科書・論文との範囲照合、証明と依存の再設計）  
-状態: in_progress（LORG1〜LORG16は本文実装・査読・公開済み、LORG17〜LORG21は未実装）
+状態: in_progress（LORG1〜LORG17は本文実装・査読・公開済み、LORG18〜LORG21は未実装）
 
 ## 中心問いと出口
 
@@ -71,7 +71,7 @@
 | LORG14 | 限界曲線補題 | 補助Riemann計量による曲線の再パラメータ化、局所コンパクト性・部分列収束を積み上げ、適用の因果仮定を整理する。 |
 | LORG15 | Cauchy超曲面の定義と具体例 | すべての非延長因果曲線との一意交差を検証し、Minkowskiの時刻一定面・非例を計算する。 |
 | LORG16 | 大域双曲性の特徴付け | Cauchy面存在と因果ダイヤモンドのコンパクト性の特徴付けを、causality等の仮定付きで接続し、点除去時空を反例にする。 |
-| LORG17 | Lorentz時間分離と曲線長の極限 | 時間分離d(p,q)、逆三角不等式・連続性/半連続性の必要仮定を調べ、Minkowskiで距離公式を算出する。 |
+| LORG17 | Lorentz時間分離とLorentz長さの極限 | 時間分離d(p,q)、逆三角不等式・連続性/半連続性の必要仮定を調べ、Minkowskiで距離公式を算出する。 |
 | LORG18 | 最大化因果曲線とAvez–Seifert | 大域双曲性・限界曲線・長さ半連続性から最大曲線の存在を追い、共役点と極大性・完備性の違いを説明する。 |
 | LORG19 | Cauchy時間関数の存在 | Geroch型時間関数の狙いと連続Cauchy時間関数の構成の核を示し、時間関数の単調性・Cauchy性を区別する。 |
 | LORG20 | 滑らかな時空分割 | Bernal–SánchezのCauchy temporal function・g=-βdt²+h_t の定理を正確な条件で提示し、滑らかな面・単位法線をHPDEへ渡す。 |
@@ -84,9 +84,9 @@
 
 ### 初回実装・講間依存
 
-- **LORG1〜LORG16は実装済み、次の執筆対象はLORG17**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを定義し、区分的C¹曲線の長さ不変性とMinkowskiでの端点長さ不等式まで証明した。LORG4では非退化性によるLevi-Civita接続の存在一意性、測地線の因果型保存、平行移動と指数写像を導き、測地完備性・大域単射性の反例を扱った。LORG5では凸正規近傍の存在、Lorentz版Gaussの補題、Gaussian正規座標からの時間的測地線の局所固有時最大化、平坦円筒の大域反例を証明した。LORG6では因果集合の定義とMinkowskiの錐を計算し、LORG7では局所摂動によるpush-up・時間的未来の開性・非閉なJの反例を扱った。LORG8では共形因果不変性と長さの変化、Alexandrovダイヤモンドの因果的凸性、相対的な局所近傍と時間周期商の反例を扱った。LORG9ではchronological・causal・distinguishingの含意と、閉光的曲線を持つ円筒・一点除去円筒での逆含意不成立を検算した。LORG10では強因果性とAlexandrov近傍基底の同値、temporal functionからの安定因果的計量の明示構成、点除去円筒での局所再侵入を扱った。LORG11では反映性と両側外側連続性、因果単純性から因果連続性への含意、体積関数を用いた時間関数、一点除去Minkowskiの逆含意反例を扱った。LORG12ではachronal/acausalの区別、edgeの局所検算、achronal境界のグラフ・edge不在と光的生成子を扱った。LORG13では依存領域の全称条件、Minkowski交点補題、有限区間のCauchy horizon、点除去時空を検算した。LORG16では因果ダイヤモンドのコンパクト性とGeroch型体積関数の構成、依存領域定理を用いたCauchy面の特徴付けを扱った。LORG14では補助Riemann弧長、局所因果錐の閉性、コンパクト抽出と対角法、非延長な限界曲線、有界弧長の端点収束を証明した。
+- **LORG1〜LORG17は実装済み、次の執筆対象はLORG18**。LORG1ではLorentz内積・未来錐を、LORG2では滑らかなLorentz計量・時間向きの大域選択・時間反転商の障害を導出した。LORG3ではLORG2の時間向きを前提に因果曲線とLorentz長さを定義し、区分的C¹曲線の長さ不変性とMinkowskiでの端点長さ不等式まで証明した。LORG4では非退化性によるLevi-Civita接続の存在一意性、測地線の因果型保存、平行移動と指数写像を導き、測地完備性・大域単射性の反例を扱った。LORG5では凸正規近傍の存在、Lorentz版Gaussの補題、Gaussian正規座標からの時間的測地線の局所固有時最大化、平坦円筒の大域反例を証明した。LORG6では因果集合の定義とMinkowskiの錐を計算し、LORG7では局所摂動によるpush-up・時間的未来の開性・非閉なJの反例を扱った。LORG8では共形因果不変性と長さの変化、Alexandrovダイヤモンドの因果的凸性、相対的な局所近傍と時間周期商の反例を扱った。LORG9ではchronological・causal・distinguishingの含意と、閉光的曲線を持つ円筒・一点除去円筒での逆含意不成立を検算した。LORG10では強因果性とAlexandrov近傍基底の同値、temporal functionからの安定因果的計量の明示構成、点除去円筒での局所再侵入を扱った。LORG11では反映性と両側外側連続性、因果単純性から因果連続性への含意、体積関数を用いた時間関数、一点除去Minkowskiの逆含意反例を扱った。LORG12ではachronal/acausalの区別、edgeの局所検算、achronal境界のグラフ・edge不在と光的生成子を扱った。LORG13では依存領域の全称条件、Minkowski交点補題、有限区間のCauchy horizon、点除去時空を検算した。LORG16では因果ダイヤモンドのコンパクト性とGeroch型体積関数の構成、依存領域定理を用いたCauchy面の特徴付けを扱った。LORG14では補助Riemann弧長、局所因果錐の閉性、コンパクト抽出と対角法、非延長な限界曲線、有界弧長の端点収束を証明した。
 - LORG2以降は、原則として当該講以前の必要結果のみを使用し、未完成の後続結果を証明へ逆輸入しない。とくにLORG14の限界曲線→LORG16/18の大域結果、LORG19/20の時間関数→HPDEの時間分割という直接依存を保持する。
-- `textbook/plans_progress/` に配置済み。LORG1〜LORG15の本文・系列manifest・公開導線を追加し、21講中の最初の16講を完了した。LORG17〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
+- `textbook/plans_progress/` に配置済み。LORG1〜LORG17の本文・系列manifest・公開導線を追加し、21講中の最初の17講を完了した。LORG18〜LORG21、横断監査は残るため、計画全体をcompletedとはしない。
 
 ## 必須の数学的到達・証明ゲート
 
