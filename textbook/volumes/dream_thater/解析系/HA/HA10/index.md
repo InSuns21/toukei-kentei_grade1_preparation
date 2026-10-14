@@ -324,7 +324,7 @@ $$
 
 $\widehat b$ は急減少で、$\int(1+|\eta|^2)|\widehat b(\eta)|\,d\eta<\infty$ です。実際、各座標で何度も部分積分すると $\eta^\alpha\widehat b(\eta)$ が有界となるためです。
 
-まず $\epsilon>0$ とし、$\exp(-\epsilon|z|^2/2)$ を掛けた積分を考えます。絶対可積分なので Fubini を適用でき、Gaussian の変換公式を複素係数 $\epsilon-i\lambda\varepsilon_j$ に拡張して各座標で計算すると
+まず $\epsilon>0$ とし、$\exp(-\epsilon|z|^2/2)$ を掛けた積分を考えます。絶対可積分なので Fubini を適用でき、[Gaussian の変換公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を複素係数 $\epsilon-i\lambda\varepsilon_j$ に拡張して各座標で計算すると
 
 $$
 \begin{aligned}
@@ -477,6 +477,8 @@ $$
 <!-- definition-example-end -->
 
 <a id="ref-ha10-area-element"></a>
+### 座標に依存しない面積要素
+
 座標の貼り合わせが正しいことを確かめます。別の座標 $u=u(v)$ へ変換すると、連鎖律によって
 
 $$
