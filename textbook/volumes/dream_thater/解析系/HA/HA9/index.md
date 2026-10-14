@@ -11,7 +11,16 @@ $$
 \mathcal F^{-1}h(x)=(2\pi)^{-d}\int_{\mathbb R^d}e^{ix\cdot\xi}h(\xi)\,d\xi
 $$
 
-です。[FOU4のPlancherel定理](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を各座標に適用すれば $\|f\|_2^2=(2\pi)^{-d}\|\widehat f\|_2^2$ となります。$\mathcal S(\mathbb R^d)$ は、すべての多重指数 $\alpha,\beta$ について $x^\alpha\partial^\beta f(x)$ が有界な滑らかな関数の空間です。[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_d)$ は非負整数の組で、$|\alpha|=\sum_k\alpha_k$、$\partial^\alpha=\partial_{\xi_1}^{\alpha_1}\cdots\partial_{\xi_d}^{\alpha_d}$ と書きます。ここでは超関数の理論そのものは用いず、この微分の記法のみを使います。
+です。[FOU4のPlancherel定理](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を各座標に適用すれば $\|f\|_2^2=(2\pi)^{-d}\|\widehat f\|_2^2$ となります。
+
+まず[多重指数の定義](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)を使います。非負整数の組 $\alpha=(\alpha_1,\ldots,\alpha_d)$ に対し
+
+$$
+|\alpha|=\sum_{k=1}^d\alpha_k,\qquad
+\partial^\alpha=\partial_{\xi_1}^{\alpha_1}\cdots\partial_{\xi_d}^{\alpha_d}
+$$
+
+と書きます。$x^\alpha=\prod_{k=1}^d x_k^{\alpha_k}$ も同様です。微分記号 $\partial^\alpha$ は、作用する関数の変数が $x$ なら $x$ に関する偏微分、$\xi$ なら $\xi$ に関する偏微分を表します。$\mathcal S(\mathbb R^d)$ は、すべての多重指数 $\alpha,\beta$ について $x^\alpha\partial^\beta f(x)$ が有界な無限回微分可能関数の空間です。ここでは超関数の理論そのものは用いず、この微分の記法のみを使います。
 
 ## 1. 周波数側の掛け算を作用素にする
 
@@ -91,7 +100,19 @@ $$
 \partial_{\xi_2}m=-\xi_1\xi_2r^{-3}.
 $$
 
-従って $|m|\le1$、$|\partial_{\xi_1}m|\le2r^{-1}$、$|\partial_{\xi_2}m|\le r^{-1}$ です。これが $N=1$ の条件を直接確認したものです。より高階の微分は、$m(t\xi)=m(\xi)$ を微分して $\partial^\alpha m(t\xi)=t^{-|\alpha|}\partial^\alpha m(\xi)$ を得て、単位球面上での連続性・有界性を組み合わせれば検証できます。原点での滑らかさは一切主張していません。
+従って $|m|\le1$、$|\partial_{\xi_1}m|\le2r^{-1}$、$|\partial_{\xi_2}m|\le r^{-1}$ です。これが $N=1$ の条件を直接確認したものです。高階でも同じ尺度評価になる理由を確かめます。零次同次性 $m(t\xi)=m(\xi)$（$t>0$）の両辺を $\xi_k$ で微分すると、左辺には連鎖律から $t$ が掛かり、
+
+$$
+t(\partial_{\xi_k}m)(t\xi)=(\partial_{\xi_k}m)(\xi)
+$$
+
+となります。これを各座標について繰り返せば
+
+$$
+(\partial^\alpha m)(t\xi)=t^{-|\alpha|}(\partial^\alpha m)(\xi)
+$$
+
+です。$\xi=r\omega$（$r=|\xi|>0$、$|\omega|=1$）と取ると右辺は $r^{-|\alpha|}\partial^\alpha m(\omega)$ となり、球面上の連続関数の最大値によって各次数の条件を確認できます。原点での滑らかさは一切主張していません。
 <!-- definition-example-end -->
 
 ## 3. 一つの周波数環帯から核の減衰へ
@@ -136,6 +157,15 @@ $$
 (\partial^\beta m)(2^j\eta)\,
 (\partial^{\gamma-\beta}\psi)(\eta).
 $$
+
+この多重指数版は[一変数の積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を各座標で反復したものです。たとえば $\partial_{\eta_k}$ をさらに作用させると、$m$ 側と $\psi$ 側を微分する二種類の項が現れます。同じ微分の型の係数は
+
+$$
+{\gamma\choose\beta}+{\gamma\choose\beta-e_k}
+={\gamma+e_k\choose\beta}
+$$
+
+にまとまります（範囲外の項は零）。$|\gamma|=0$ から帰納して上式を得ます。
 
 環帯上で微分条件に $\xi=2^j\eta$ を代入すると
 
@@ -302,7 +332,39 @@ $$
 
 **(1) $L^2$ の入力。**　仮定の $\alpha=0$ から $|m(\xi)|\le M$（$\xi\ne0$）です。原点は測度零なので [L2評価](#prop-ha9-l2)により $\|T_mf\|_2\le M\|f\|_2$ です。
 
-**(2) 台外核表示を確立する。**　$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持つので
+**(2) 台外核表示を確立する。**　まず、[FOU4で証明した $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)と[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)は一変数で述べられているため、ここで必要な多次元版を確かめます。
+
+$g\in C_c(\mathbb R^d)$ の台と小さい平行移動後の台を同じ有界集合 $D$ に含めると、一様連続性により
+
+$$
+\|g(\cdot-z)-g\|_2
+\le |D|^{1/2}\sup_x|g(x-z)-g(x)|\longrightarrow0\quad(z\to0)
+$$
+
+です。[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)から任意の $f\in L^2(\mathbb R^d)$ に対し $\|f-g\|_2<\varepsilon$ とでき、
+
+$$
+\|f(\cdot-z)-f\|_2
+\le2\|f-g\|_2+\|g(\cdot-z)-g\|_2.
+$$
+
+よって $L^2(\mathbb R^d)$ でも平行移動は連続です。さらに $k\in L^1(\mathbb R^d)$ にはMinkowski積分不等式で
+
+$$
+\|k*f\|_2\le\int |k(z)|\|f(\cdot-z)\|_2\,dz
+=\|k\|_1\|f\|_2.
+$$
+
+$f\in L^1\cap L^2$ ならFubiniによる通常の畳み込み公式 $\widehat{k*f}=\widehat k\,\widehat f$ が成立します。$L^1\cap L^2$ の $L^2$ 稠密性、上の評価および $|\widehat k|\le\|k\|_1$ により一般の $f\in L^2$ へ移せます。以上で両結果をこの章の $\mathbb R^d$ に適用する根拠が揃いました。
+
+$f,g\in C_c^\infty(\mathbb R^d)$ を台が交わらないように取ります。両台はコンパクトであり、距離 $\delta=\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)>0$ です。有限和 $m^{(N)}=\sum_{j=-N}^{N}m_j$ は滑らかでコンパクトな周波数台を持ち、[環帯核評価](#lem-ha9-shell)を $u=2^jx$ で積分すれば
+
+$$
+\|K_j\|_1
+\le CM\int_{\mathbb R^d}(1+|u|)^{-(d+1)}\,du<\infty
+$$
+
+です。従って逆変換 $\sum_{j=-N}^NK_j$ も可積分であり、上で多次元化した[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)を適用できるので
 
 $$
 \langle T_{m^{(N)}}f,g\rangle
@@ -326,7 +388,38 @@ $$
 =\iint K(x-y)f(y)\overline{g(x)}\,dy\,dx.
 $$
 
-任意の $g$ の台を $\operatorname{supp}f$ の外の小球に取れるので、これはほとんど至る所、台外で $T_mf(x)=\int K(x-y)f(y)\,dy$ が成立することを意味します。ここでは $K$ の原点における通常積分の存在を仮定していません。
+ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)は任意のコンパクト台 $L^2$ 入力での台外表示を要求するため、近似によって拡張します。
+
+$E=\operatorname{supp}f$ とします。閉包が $E$ と交わらない小球 $U$ を固定します。[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier)を $\rho_\varepsilon$ とし、$f$ を零延長して
+
+$$
+f_n=\rho_{1/n}*f
+$$
+
+と置きます。$f_n\in C_c^\infty$ です。上で多次元に拡張した[FOU4の $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
+
+$$
+\|f_n-f\|_2
+\le\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2\,dz\longrightarrow0
+$$
+
+です。核の台は原点へ縮むので、十分大きな $n$ で全ての $f_n$ の台を $E$ の任意に小さい近傍に収められます。特に $\operatorname{dist}(U,\operatorname{supp}f_n)\ge\varepsilon>0$ となるよう選べます。
+
+$f_n-f$ は一つの有界集合に台を持つので、Cauchy–Schwarzから $\|f_n-f\|_1\le C_E\|f_n-f\|_2\to0$ です。$x\in U$ で[核のサイズ評価](#lem-ha9-kernel)を使えば
+
+$$
+\sup_{x\in U}\left|\int K(x-y)(f_n(y)-f(y))\,dy\right|
+\le CM\varepsilon^{-d}\|f_n-f\|_1\longrightarrow0.
+$$
+
+他方、[有界乗数のL2評価](#prop-ha9-l2)により $T_mf_n\to T_mf$ が $L^2$ で成り立ちます。$U$ に台を持つ任意の $g\in C_c^\infty(U)$ と組にして極限を取ると
+
+$$
+\langle T_mf,g\rangle
+=\int_U\left(\int K(x-y)f(y)\,dy\right)\overline{g(x)}\,dx.
+$$
+
+従って $U$ 上でほとんど至る所、台外核表示が成立します。$E^c$ は可算個のこのような小球で覆えるため、任意のコンパクト台 $L^2$ 入力についてHA5の定義の台外表示を得ました。ここでは $K$ の原点における通常積分の存在を仮定していません。
 
 **(3) 標準核と既習定理の適用。**　[核補題](#lem-ha9-kernel)から
 
@@ -352,7 +445,7 @@ $$
 \|T_mf\|_p\le C_{p,d,\psi}M\|f\|_p
 $$
 
-を得ます。延長の一意性は [$L^p$ における稠密性](../../MT/MT7/index.md#thm-mt7-simple-dense)から従います。同じ正規化を [HA5の弱型定理](../HA5/index.md#thm-ha5-weak11)にも適用すれば $T_m$ の弱型 $(1,1)$ を得ます。
+を得ます。延長の一意性は [$C_c$ の $L^p$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)と、コンパクト台の連続関数を平滑化して $C_c^\infty$ で一様近似できることから従います。一様近似の誤差は全て一つの有界集合に台を持つため $L^p$ でも零に収束します。同じ正規化を [HA5の弱型定理](../HA5/index.md#thm-ha5-weak11)にも適用すれば $T_m$ の弱型 $(1,1)$ を得ます。
 <!-- proof-end -->
 
 なぜこの条件が効いたのでしょうか。$\partial^\alpha m$ の次数ごとの減衰が、環帯へ伸縮した後の**一様な導関数評価**に変わり、それが核の $|x|^{-d}$ と勾配の $|x|^{-d-1}$ へ変わったからです。単に $m$ が滑らかだというだけでは、全尺度に同じ定数を使える保証はありません。
@@ -398,7 +491,15 @@ $$
 \partial_{\xi_k}b_s(\xi)=-s\xi_k(1+|\xi|^2)^{-s/2-1}
 $$
 
-です。繰り返し微分すると、各項はある $0\le \ell\le|\alpha|$ と次数 $2\ell-|\alpha|$ 以下の多項式 $P(\xi)$ を用いた $P(\xi)(1+|\xi|^2)^{-s/2-\ell}$ の形になります。例えば二階微分は $\partial_{\xi_\ell}\partial_{\xi_k}b_s=-s\delta_{k\ell}(1+|\xi|^2)^{-s/2-1}+s(s+2)\xi_k\xi_\ell(1+|\xi|^2)^{-s/2-2}$ です。一回微分するたびに多項式の微分（次数が1減る）か $\xi_k$ を掛けて分母の指数を1増やす操作が生じるため、帰納的に上の形が保たれます。$|\xi|\ge1$ では各項を $C_{s,\alpha}|\xi|^{-s-|\alpha|}\le C_{s,\alpha}|\xi|^{-|\alpha|}$ と評価でき、$0<|\xi|\le1$ では滑らかさから導関数が有界で $|\xi|^{-|\alpha|}\ge1$ です。したがって主定理の条件を満たします。
+です。繰り返し微分すると、各項はある $0\le \ell\le|\alpha|$ と次数 $2\ell-|\alpha|$ 以下の多項式 $P(\xi)$ を用いた $P(\xi)(1+|\xi|^2)^{-s/2-\ell}$ の形になります。例えば二階微分は
+
+$$
+\partial_{\xi_\ell}\partial_{\xi_k}b_s
+=-s\delta_{k\ell}(1+|\xi|^2)^{-s/2-1}
++s(s+2)\xi_k\xi_\ell(1+|\xi|^2)^{-s/2-2}
+$$
+
+です。一回微分するたびに多項式の微分（次数が1減る）か $\xi_k$ を掛けて分母の指数を1増やす操作が生じるため、帰納的に上の形が保たれます。$|\xi|\ge1$ では各項を $C_{s,\alpha}|\xi|^{-s-|\alpha|}\le C_{s,\alpha}|\xi|^{-|\alpha|}$ と評価でき、$0<|\xi|\le1$ では滑らかさから導関数が有界で $|\xi|^{-|\alpha|}\ge1$ です。したがって主定理の条件を満たします。
 
 一方 $s<0$ なら $b_s(\xi)\to\infty$（$|\xi|\to\infty$）なので、$\alpha=0$ の条件すら満たしません。実際、遠い周波数環帯に $\widehat f$ を集中させれば $L^2$ 作用素ノルムが無限大になることは[命題](#prop-ha9-l2)の計算を逆に用いて確認できます。$s\ge0$ と $s<0$ を同じ有界乗数として扱ってはいけません。
 
@@ -561,7 +662,7 @@ $x$ を $x'$ に変えるときも $z_t=x-y+t(x'-x)$ とおけば同じ下限と
 $m(\xi)=|\xi|$（$\xi\ne0$）について、Mikhlin条件のどの次数が失敗するか述べよ。$\widehat f_R$ を $R\le|\xi|\le2R$ に台を持つ非零関数として、$L^2$ 有界性が成立しないことを示せ。
 
 <!-- solution-start -->
-**詳細解答**　$\alpha=0$ で $|m(\xi)|=|\xi|$ は無限遠で有界ではありません。従って微分条件の最初の段階が破れ、[L2評価](#prop-ha9-l2)に入力できません。Plancherelを直接使うと
+**詳細解答**　$\alpha=0$ で $|m(\xi)|=|\xi|$ は無限遠で有界ではありません。従って微分条件の最初の段階が破れ、[L2評価](#prop-ha9-l2)に入力できません。そもそも[定義](#def-ha9-multiplier)は有界記号のみを $L^2$ 全体で定めています。ここでは周波数台が有限環帯にある入力 $f_R$ に限り、$\widehat{T_mf_R}=m\widehat f_R\in L^2$ と定義して反証します。Plancherelを直接使うと
 
 $$
 \|T_mf_R\|_2^2=(2\pi)^{-d}
@@ -653,7 +754,31 @@ $$
 
 **4.** $|x-y|\ge\delta>0$ の領域で上の核級数が一様絶対収束するため、台の離れた $f,g\in C_c^\infty$ では各 $m_j$ の核積分表示を足せます。
 
-周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ち、$M|\widehat f|$ が $L^2$ 支配関数となるので、Plancherelと優収束により作用素の列も $T_mf$ へ $L^2$ 収束します。従って $T_m$ の台外核表示が成立します。
+周波数側では $\sum_{-N}^Nm_j\to m$ が原点以外で成り立ちます。また、$|m^{(N)}-m|\le2M$ なので
+
+$$
+|(m^{(N)}-m)\widehat f|^2
+\le4M^2|\widehat f|^2\in L^1(\mathbb R^2).
+$$
+
+[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l2-extension)と[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)によって作用素の列も $T_mf$ へ $L^2$ 収束します。これで滑らかなコンパクト台の入力について台外核表示が成立します。
+
+一般のコンパクト台 $f\in L^2$ には、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier)を使い $f_n=\rho_{1/n}*f\in C_c^\infty$ とします。[FOU4で証明した $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から
+
+$$
+\|f_n-f\|_2\le
+\int\rho_{1/n}(z)\|f(\cdot-z)-f\|_2\,dz
+\longrightarrow0.
+$$
+
+$\operatorname{supp}f$ の外側の小球 $U$ を閉包ごと台から正の距離に取ると、核の台が縮むため、近似関数の台は同じ有界集合に含まれ、$U$ からも距離 $\varepsilon>0$ を保てます。従って
+
+$$
+\sup_{x\in U}\left|\int K(x-y)(f_n-f)(y)\,dy\right|
+\le CM\varepsilon^{-2}\|f_n-f\|_1\longrightarrow0.
+$$
+
+一方 $T_mf_n\to T_mf$ は $L^2$ 収束するため、$U$ 内の試験関数との積分を極限へ送って台外表示を得ます。このような小球で台の外を覆えば、[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)に必要な全てのコンパクト台 $L^2$ 入力が扱えます。
 
 さらに勾配評価 $|\nabla K(z)|\le CM|z|^{-3}$ を線分上で積分すれば、$|y-y'|\le|x-y|/2$ に対して
 
