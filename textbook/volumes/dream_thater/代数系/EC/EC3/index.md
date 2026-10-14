@@ -302,16 +302,16 @@ $E(\mathbb C)$ は射影曲線なのでコンパクトであり、上記の二�
 
 この被覆が一枚であることは、一般の被覆空間分類を使わずに示せます。$\mathcal A(P)=[0]$ を満たす $P$ を取り、$O$ から $P$ への経路 $\gamma$ を選びます。積分が格子に属するので、ある整数 $m,n$ に対して
 
-$
+$$
 \int_\gamma\omega=m\Omega_1+n\Omega_2=:\lambda.
-$
+$$
 
 $O$ から始まり、基本閉路 $a,b$ をそれぞれ $m,n$ 回たどって $O$ に戻る閉路 $\ell$ を取れば、$\int_\ell\omega=\lambda$ です。$\gamma,\ell$ の始点から時刻 $t$ までの積分をそれぞれ $G_\gamma(t),G_\ell(t)$ とすると、両者は複素平面内の $0$ から $\lambda$ への経路であり、$\mathcal A\circ\gamma=[G_\gamma]$、$\mathcal A\circ\ell=[G_\ell]$ です。従って
 
-$
+$$
 H(s,t)=\left[(1-s)G_\gamma(t)+sG_\ell(t)\right]
 \qquad(0\le s,t\le1)
-$
+$$
 
 はトーラス上の端点固定ホモトピーです。[CA8の経路持ち上げ](../../../解析系/CA/CA8/index.md#thm-ca8-path-lifting)と[端点固定ホモトピーの終点不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)を被覆 $\mathcal A$ に適用すると、 
 $O$ から始めた二経路 $\gamma,\ell$ の終点は一致します。 
@@ -358,18 +358,18 @@ $$
 
 曲線と格子を**一つの量で比較**するには、第1節の係数 $A=-g_2/4,\ B=-g_3/4$ を[EC1の不変量](../EC1/index.md#def-ec1-invariants)へ代入します。短い形では
 
-$
+$$
 c_4=-48A,\qquad
 \Delta=-16(4A^3+27B^2),
-$
+$$
 
 なので $c_4^3/\Delta=1728\cdot4A^3/(4A^3+27B^2)$ です。格子から作った曲線なら
 
-$
+$$
 j(E_\Lambda)=
 1728\,\frac{g_2(\Lambda)^3}
 {g_2(\Lambda)^3-27g_3(\Lambda)^2}.
-$
+$$
 
 [CA9の三次多項式の非退化](../../../解析系/CA/CA9/index.md#thm-ca9-discriminant-nonzero)により右辺の分母は零ではありません。これは、異なる種類の量を唐突に等置したのではなく、曲線の座標係数を格子不変量で表した結果です。
 
@@ -478,9 +478,9 @@ $f\circ q_\Lambda:\mathbb C\to\mathbb C/\Lambda'$ を $F(0)=0$ から持ち上�
 
 平面内で $0$ から $z$ への二経路 $\gamma_0,\gamma_1$ に対して
 
-$
+$$
 H(s,t)=(1-s)\gamma_0(t)+s\gamma_1(t)
-$
+$$
 
 は両端点を固定したホモトピーです。これに $f\circ q_\Lambda$ を合成すると標的トーラス上の端点固定ホモトピーが得られるため、[持ち上げ終点の不変性](../../../解析系/CA/CA8/index.md#cor-ca8-lifted-homotopy-endpoint)から得られる $F(z)$ は経路によらず一意です。
 
@@ -679,17 +679,17 @@ $$
 
 (b) $E$ を二基本閉路 $a,b$ で切り開き、$\omega$ の原始関数 $F$ を置きます。$a$ 方向の対辺では $F$ の差が $\Omega_1$、$b$ 方向の対辺では $\Omega_2$ です。$d(F\overline\omega)=\omega\wedge\overline\omega$ に Stokes を適用し、向かい合う辺の積分を組み合わせると
 
-$
+$$
 \int_E\omega\wedge\overline\omega
 =\Omega_1\overline{\Omega_2}-\Omega_2\overline{\Omega_1}.
-$
+$$
 
 局所表示 $\omega=h(w)dw$ では $dw\wedge d\overline w=-2i\,ds\wedge dt$ なので
 
-$
+$$
 \frac{i}{2}\omega\wedge\overline\omega
 =|h(w)|^2\,ds\wedge dt.
-$
+$$
 
 $h$ は非零ですから、$(i/2)$ 倍した左辺の積分は正です。よって $\Omega_1\overline{\Omega_2}-\Omega_2\overline{\Omega_1}\ne0$、すなわち $\operatorname{Im}(\Omega_1\overline{\Omega_2})\ne0$ です。二周期は平行ではありません。
 
