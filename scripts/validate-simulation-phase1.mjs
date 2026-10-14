@@ -130,7 +130,7 @@ try {
 
 // Independent Burrau reference invariants: mass=opposite side (3,4,5),
 // zero centre of mass/momentum/angular momentum, E0=-769/60.
-const b0 = burrau.initialize({ dt: 0.002 }).state;
+const b0 = burrau.initialize({ dt: 0.25, rtol: 1e-12 }).state;
 const d0 = burrau.diagnostics(b0);
 assert.equal(b0.positions.length, 3);
 assert.deepEqual(b0.masses, [3, 4, 5]);
@@ -142,22 +142,53 @@ assert.equal(d0.minimumDistance, 3);
 const b1 = burrau.stepBatch(b0, 50);
 assert.equal(b1.state.stepIndex, 50);
 assert.ok(Math.abs(b1.diagnostics.energyDrift) < 1e-3);
-const bHalf = burrau.stepBatch(burrau.initialize({ dt: 0.001 }).state, 100);
+const bHalf = burrau.stepBatch(burrau.initialize({ dt: 0.125, rtol: 1e-12 }).state, 100);
 for (let i = 0; i < 3; i++) for (let k = 0; k < 2; k++) {
   assert.ok(Math.abs(b1.state.positions[i][k] - bHalf.state.positions[i][k]) < 1e-3);
 }
 const nearState = burrau.initialize({ dt: 0.002 }).state;
-nearState.positions[1] = [nearState.positions[0][0] + 0.01,
+nearState.positions[1] = [nearState.positions[0][0],
   nearState.positions[0][1]];
 assert.throws(() => burrau.stepBatch(nearState, 1), /NEAR_ENCOUNTER/);
 const bReplies = [];
 createSimulationHost((m) => bReplies.push(m)).dispatch({
   ...base, type: "initialize", generation: 1,
   engineId: burrau.engineId, experimentId: burrau.experimentId,
-  params: { dt: 0.002 }, seed: 0,
+  params: { dt: 0.25, rtol: 1e-12 }, seed: 0,
 });
 assert.equal(bReplies.at(-1).type, "ready");
 assert.ok(Math.abs(bReplies.at(-1).diagnostics.energy + 769 / 60) < 1e-12);
+// Full Burrau close encounters and late escape: the 1967 qualitative
+// reference is mass 3 escaping while masses 4 and 5 remain bound.
+// This checks observable structure, not pointwise chaotic-trajectory accuracy.
+let far = burrau.initialize({ dt: 0.25, rtol: 1e-12 }).state;
+for (let i = 0; i < 16; i++) {
+  const batch = burrau.stepBatch(far, 20);
+  assert.equal(batch.observations.length, 20);
+  assert.equal(batch.state.stepIndex, (i + 1) * 20);
+  far = batch.state;
+  assert.ok(Math.abs(batch.diagnostics.energyDrift) < 5e-5,
+    "adaptive solver energy drift should remain bounded at t=" + far.physicalTime);
+}
+const ending = burrau.diagnostics(far);
+assert.ok(Math.abs(far.physicalTime - 80) < 1e-9);
+assert.ok(ending.escapeDistance3 > 30, "body of mass 3 did not escape");
+assert.ok(ending.binarySpecificEnergy45 < 0, "masses 4 and 5 are not bound");
+assert.ok(ending.acceptedSubsteps > far.stepIndex * 10,
+  "near encounters must use many adaptive solver substeps");
+assert.ok(Math.abs(ending.momentum[0]) < 1e-7 &&
+  Math.abs(ending.momentum[1]) < 1e-7);
+assert.ok(Math.abs(ending.angularMomentum) < 1e-7);
+// At late time, two tolerances need not agree pointwise in a chaotic orbit,
+// but must agree on the breakup into an escaper and a bound pair.
+let comparison = burrau.initialize({ dt: 0.25, rtol: 1e-11 }).state;
+for (let i = 0; i < 16; i++) comparison = burrau.stepBatch(comparison, 20).state;
+const cd = burrau.diagnostics(comparison);
+assert.ok(cd.escapeDistance3 > 30 && cd.binarySpecificEnergy45 < 0);
+assert.ok(Math.abs(cd.energyDrift) < 5e-5);
+console.log("Burrau adaptive full escape: t=80; escaped mass=3, bound masses=4/5; drift=" +
+  ending.energyDrift + "; steps=" + ending.acceptedSubsteps);
+
 const markerDraw = [];
 const mockCtx = new Proxy({}, {
   get(obj, key) {
