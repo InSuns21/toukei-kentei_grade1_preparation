@@ -1,0 +1,47 @@
+chapter: HA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU4
+  - HA5
+  - HA8
+  - GPDE2
+  - MT7
+forward_references: []
+concepts:
+  - id: harmonic.ha9-multiplier
+    name: Fourier乗数作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Fourier乗数作用素）]
+    requires: []
+  - id: harmonic.ha9-l2
+    name: 有界乗数のL2評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有界乗数のL2評価）]
+    requires: [harmonic.ha9-multiplier]
+  - id: harmonic.ha9-mikhlin-condition
+    name: Mikhlin型微分条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Mikhlin型微分条件）]
+    requires: []
+  - id: harmonic.ha9-shell-kernel
+    name: 環帯乗数の核評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（環帯乗数の核評価）]
+    requires: [harmonic.ha9-mikhlin-condition, harmonic.ha8-dyadic]
+  - id: harmonic.ha9-cz-kernel
+    name: 全周波数核と標準核条件
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（全周波数核と標準核条件）]
+    requires: [harmonic.ha9-shell-kernel, harmonic.ha5-standard-kernel]
+  - id: harmonic.ha9-mikhlin-theorem
+    name: Mikhlin–Hörmander型Fourier乗数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Mikhlin–Hörmander型Fourier乗数定理：整数階版）]
+    requires: [harmonic.ha9-l2, harmonic.ha9-cz-kernel, harmonic.ha5-stronglp]
