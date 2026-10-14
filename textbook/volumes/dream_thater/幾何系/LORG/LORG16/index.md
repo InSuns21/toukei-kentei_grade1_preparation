@@ -52,10 +52,10 @@ $$
 <!-- definition-example-start: def-lorg16-global-hyperbolicity -->
 **定義の確認**。$\mathbb R^{1,n}$ では、標準座標の時刻関数 $t$ に関して強因果性とダイヤモンドのコンパクト性を別々に確かめます。非零の未来因果ベクトル $v=(v^t,\mathbf v)$ は、Minkowski計量 $\eta=-dt^2+|d\mathbf x|^2$ の定義から
 
-$
+$$
 \eta(v,v)=-(v^t)^2+|\mathbf v|^2\le0,
 \qquad v^t\ge|\mathbf v|,\qquad v^t>0
-$
+$$
 
 を満たします。従って停留片のない未来因果曲線に沿って $t$ は厳密増加します。さらに $\eta(\nabla^\eta t,v)=dt(v)$ を満たす勾配は $\nabla^\eta t=-\partial_t$ で、これは過去向き時間的です。よって $t$ は[LORG10のtemporal functionの定義](../LORG10/index.md#def-lorg10-time-function)を満たし、[temporal functionから強因果性への定理](../LORG10/index.md#thm-lorg10-temporal-implies-strong)により強因果的です。
 
@@ -255,11 +255,11 @@ $$
 
 もし $y\in\bigcap_k I^+(x_k)$ なら、すべての $k$ について $x_k\ll y$ です。任意の $s\ge s_1$ に対し $s\le s_k$ となる $k$ を選ぶと、
 
-$
+$$
 x_1\le\gamma(s)\le x_k\ll y
 \quad\Longrightarrow\quad
 \gamma(s)\in J^+(x_1)\cap J^-(y)=K(x_1,y).
-$
+$$
 
 従って曲線の未来尾部がコンパクトなダイヤモンドに閉じ込められ、[非閉じ込め補題](#lem-lorg16-nonimprisonment)に反します。よって $\bigcap_k I^+(x_k)=\varnothing$ です。有限測度の上からの連続性により
 
