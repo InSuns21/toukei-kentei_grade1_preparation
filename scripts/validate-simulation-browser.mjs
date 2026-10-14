@@ -154,11 +154,28 @@ try {
   // loaded document. Wait for activation, then navigate under the controller.
   // This distinguishes an activation problem from the expected first-load race.
   if (!await evaluate('Boolean(navigator.serviceWorker?.controller)')) {
-    await waitFor('navigator.serviceWorker.getRegistration().then(r => r?.active?.state === "activated")');
-    await cdp("Page.reload", { ignoreCache: false });
-    await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+    try {
+      await waitFor('navigator.serviceWorker.getRegistration().then(r => r?.active?.state === "activated")');
+      await cdp("Page.reload", { ignoreCache: false });
+      await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
+      await waitFor('Boolean(navigator.serviceWorker?.controller)');
+    } catch (error) {
+      const details = await evaluate(`(async () => {
+        const r = await navigator.serviceWorker.getRegistration();
+        return {
+          supported: "serviceWorker" in navigator,
+          installing: r?.installing?.state ?? null,
+          waiting: r?.waiting?.state ?? null,
+          active: r?.active?.state ?? null,
+          controlled: Boolean(navigator.serviceWorker.controller),
+          status: document.querySelector("#offline-support")?.textContent,
+          caches: await caches.keys(),
+        };
+      })()`);
+      throw new Error(error.message + "; Service Worker diagnostic: " +
+        JSON.stringify(details));
+    }
   }
-  await waitFor('Boolean(navigator.serviceWorker?.controller)');
   const shellCached = await waitFor(`(async () => {
     const keys = await caches.keys();
     const cacheName = keys.find((key) => key.startsWith("toukei-grade1-runtime-"));
@@ -168,6 +185,7 @@ try {
       "simulation/index.html",
       "simulation/simulation-worker-host.mjs",
       "simulation/engines/celev/two-body.mjs",
+      "simulation/engines/celev/burrau.mjs",
       "simulation/engines/ml/four-cell.mjs",
     ];
     for (const relative of names) {
@@ -195,6 +213,17 @@ try {
   await evaluate('document.querySelector("#step").click()');
   const stepNumber = 'Number([...document.querySelectorAll("#diagnostics tr")].find(x => x.cells[0]?.textContent === "stepIndex")?.cells[1]?.textContent)';
   await waitFor(stepNumber + ' === 1');
+  // A direct offline revisit must also be able to start the new Burrau
+  // three-body Worker module, not merely the older two-body reference.
+  await evaluate('document.querySelector("#experiment").value="burrau";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("initialEnergy")');
+  assert.ok(Math.abs(await evaluate(burrauEnergy) + 769 / 60) < 1e-10,
+    "offline Burrau initialization must match analytic energy");
+  await evaluate('document.querySelector("#step").click()');
+  await waitFor(stepNumber + ' === 1');
+  // Restore the basic circular reference before the 100000-step stress test.
+  await evaluate('document.querySelector("#experiment").value="celev";document.querySelector("#experiment").dispatchEvent(new Event("change"))');
+  await waitFor('document.querySelector("#diagnostics td")?.textContent === "stepIndex"');
   const offlineMiss = await evaluate('fetch("./not-pre-cached.txt").then(()=>false,()=>true)');
   assert.equal(offlineMiss, true, "uncached offline resources must not appear successful");
   await cdp("Network.emulateNetworkConditions", {
