@@ -20,9 +20,9 @@
 > **定義（chronological時空）**  
 > 時間向き付きLorentz多様体 $(M,g)$ が **chronological（時間的因果条件を満たす）** とは、任意の $p\in M$ について
 >
-> $$
+$$
 > p\notin I^+(p)
-> $$
+$$
 >
 > が成り立つことをいう。同値に、非定数の閉じた未来向き時間的な区分的 $C^1$ 曲線が存在しないことをいう。
 <!-- formal-statement-end -->
@@ -50,9 +50,9 @@ chronologyは**時間的**な閉路だけを禁じ、光的な閉路までは禁
 > **定義（causal時空）**  
 > 時間向き付きLorentz多様体 $(M,g)$ が **causal（因果条件を満たす）** とは、任意の $p,q\in M$ に対して
 >
-> $$
+$$
 > (p\le q\ \text{かつ}\ q\le p)\ \Longrightarrow\ p=q
-> $$
+$$
 >
 > が成り立つことをいう。これは非定数の閉じた未来向き因果曲線が存在しないことと同値である。$p\le p$ 自体は定数曲線により常に成り立つ。
 <!-- formal-statement-end -->
@@ -137,9 +137,9 @@ $$
 > **補題（円筒模型での未来因果速度）**  
 > 上記の円筒 $(C,g,T)$ では、非零の未来因果ベクトル $v=a\partial_u+b\partial_\theta$ は
 >
-> $$
+$$
 > b\ge0,\qquad a\ge\frac{u^2}{2}b\ge0
-> $$
+$$
 >
 > を満たす。未来時間的ベクトルでは $b>0$ かつ $a>\frac{u^2}{2}b$ である。$a=0$ の非零の未来因果ベクトルは $u=0$ 上の正の $\partial_\theta$ 方向に限られる。
 <!-- formal-statement-end -->
@@ -206,15 +206,15 @@ $$
 > **定義（future / past distinguishing）**  
 > 時間向き付きLorentz多様体 $(M,g)$ が **future distinguishing（未来識別的）** であるとは、任意の $p,q\in M$ について
 >
-> $$
+$$
 > I^+(p)=I^+(q)\ \Longrightarrow\ p=q
-> $$
+$$
 >
 > が成り立つことをいう。**past distinguishing（過去識別的）** とは、同様に
 >
-> $$
+$$
 > I^-(p)=I^-(q)\ \Longrightarrow\ p=q
-> $$
+$$
 >
 > が成り立つことをいう。両方を満たす時空を **distinguishing（識別的）** と呼ぶ。
 <!-- formal-statement-end -->
@@ -272,10 +272,10 @@ $$
 > **命題（causalだがdistinguishingでない時空）**  
 > 上記の点除去円筒 $C^\ast$ はcausalである。しかし、$u=0$ に残った異なる二点 $p,q$ は
 >
-> $$
+$$
 > I^+(p)=I^+(q)=\{u>0\},\qquad
 > I^-(p)=I^-(q)=\{u<0\}
-> $$
+$$
 >
 > を満たす（集合は $C^\ast$ の部分集合）。従って未来識別的でも過去識別的でもない。
 <!-- formal-statement-end -->
@@ -381,11 +381,11 @@ $$
 > **定理（因果階層の最初の三段階）**  
 > 滑らかな時間向き付きLorentz多様体に対して、次の含意が成り立つ。
 >
-> $$
+$$
 > \text{distinguishing}
 > \Longrightarrow\text{causal}
 > \Longrightarrow\text{chronological}.
-> $$
+$$
 >
 > いずれの逆含意も、一般には成立しない。またfuture distinguishing、past distinguishingのいずれか一方だけでもcausalが従う。
 <!-- formal-statement-end -->
