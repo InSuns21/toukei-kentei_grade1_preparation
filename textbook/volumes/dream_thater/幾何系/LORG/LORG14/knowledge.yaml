@@ -15,13 +15,14 @@ prerequisites:
   - LORG11
   - LORG12
   - LORG13
+  - GEO10
 concepts:
   - id: lorentz-geometry.auxiliary-arclength
     name: 補助Riemann弧長パラメータ化
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（補助Riemann弧長パラメータ化）"]
-    requires: [lorentz-geometry.causal-curve]
+    requires: [lorentz-geometry.causal-curve, geometry.arc-length-parameter]
   - id: lorentz-geometry.arclength-lipschitz
     name: 弧長から1-Lipschitz評価へ
     kind: lemma
