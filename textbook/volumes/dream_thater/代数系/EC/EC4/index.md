@@ -16,9 +16,9 @@
 > **定義（有理関数）**  
 > $k$ 上の非特異Weierstrass曲線のアフィン方程式を $F(x,y)=0$ とする。座標環 $A=k[x,y]/(F)$ の分数体
 
-$
+$$
 k(E)=\operatorname{Frac}(A)
-$
+$$
 
 > の元を楕円曲線 $E$ の有理関数と呼ぶ。商 $f/g$ は、$g(P)\ne0$ となる点で正則な値を持ち、分母が零の点では局所的に位数を調べる。
 <!-- formal-statement-end -->
@@ -247,20 +247,20 @@ $$
 
 が成り立ちます。この因子恒等式を局所的に確かめましょう。まず $E'$ の有限点では、Weierstrass方程式を $y$ の二次式として見ると
 
-$
+$$
 x(U)=x(V)
 \quad\Longleftrightarrow\quad
 U=V\ \text{または}\ U=-V
-$
+$$
 
 です。二つの枝が重なる点では、枝ごとの零点位数を足して数えます。
 
 無限遠点 $O'$ の近くでは局所パラメータ $t=-x/y$ を用います。座標関数の先頭の極は $x=t^{-2}+\cdots$ です。群の差と和を局所パラメータで展開すると、座標差の分子・分母に寄与する因子はそれぞれ
 
-$
+$$
 t(U-V)t(U+V),\qquad
 t(U)^2t(V)^2
-$
+$$
 
 になります。従って両者の零点・極の位数は、上に記した四つの引き戻し因子で数えられます。標数2で二枝が合流するときも、零点の重複度を加えます。
 
@@ -329,10 +329,10 @@ $$
 > **定理（同種写像の次数の二次性）**  
 > $E,E'$ を代数閉体上の楕円曲線、$\alpha,\beta:E\to E'$ を同種写像または零写像とする。整数 $m,n$ に対し
 >
-$
+$$
 \deg([m]\alpha+[n]\beta)
 > =m^2\deg\alpha+mn\,B(\alpha,\beta)+n^2\deg\beta,
-$
+$$
 >
 $$
 B(\alpha,\beta)=\deg(\alpha+\beta)-\deg\alpha-\deg\beta
@@ -398,10 +398,10 @@ $$
 > **定義（双対同種写像）**  
 > 代数閉体 $K$ 上の同種写像 $\phi:E\to E'$ に対し、次数0の因子 $\phi^*((Q)-(O'))$ に[因子の和](#lem-ec4-divisor-sum)を適用して得る点を $\widehat\phi(Q)\in E(K)$ と定める。すなわち
 >
-$
+$$
 \widehat\phi(Q)=
 \sum_{\phi(P)=Q}[e_P]P-\sum_{\phi(T)=O'}[e_T]T.
-$
+$$
 >
 > この写像を $\phi$ の**双対同種写像**という。
 <!-- formal-statement-end -->
@@ -416,11 +416,11 @@ $
 > **定理（双対同種写像の合成と次数）**  
 > $K$ 上の非特異楕円曲線間の同種写像 $\phi:E\to E'$ を次数 $d\ge1$ とする。上の $\widehat\phi:E'\to E$ は原点を保つ同種写像であり
 >
-$
+$$
 \widehat\phi\circ\phi=[d]_E,\qquad
 \phi\circ\widehat\phi=[d]_{E'},\qquad
 \deg\widehat\phi=d
-$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -537,28 +537,28 @@ $$
 
 $r\ge2$ に対し、$[\ell]:H_r\to H_{r-1}$ の核は $H_1$ です。従って像の点数は
 
-$
+$$
 \frac{\#H_r}{\#H_1}=\frac{\ell^{2r}}{\ell^2}
 =\ell^{2(r-1)}=\#H_{r-1}.
-$
+$$
 
 ゆえに $[\ell]$ は全射です。この全射性を $r-1$ 回使って、$P_r,Q_r\in H_r$ を
 
-$
+$$
 [\ell^{r-1}]P_r=P_1,\qquad [\ell^{r-1}]Q_r=Q_1
-$
+$$
 
 となるように選べます。二点は共に位数 $\ell^r$ です。関係 $[a]P_r+[b]Q_r=O$ を仮定して $[\ell^{r-1}]$ を作用させると
 
-$
+$$
 [a]P_1+[b]Q_1=O
-$
+$$
 
 です。一次独立性から $a,b$ は共に $\ell$ で割り切れます。$a=\ell a_1,b=\ell b_1$ として元の関係へ $[\ell^{r-2}]$ を作用させると $[a_1]P_1+[b_1]Q_1=O$、従って $a_1,b_1$ も $\ell$ で割り切れます。この操作を繰り返せば $a,b$ は $\ell^r$ で割り切れます。よって $P_r,Q_r$ は $\ell^{2r}$ 個の相異なる和を作り、それが $H_r$ の全点です。
 
-$
+$$
 E[\ell^r]\simeq(\mathbb Z/\ell^r\mathbb Z)^2.
-$
+$$
 
 互いに素な素数冪ごとの成分を整数のBézout等式で射影し、中国剰余定理で合わせれば $(\mathbb Z/n\mathbb Z)^2$ になります。
 
@@ -577,11 +577,11 @@ $
 > **定義（楕円曲線の自己準同型環）**  
 > $K$ 上の楕円曲線 $E$ について、原点を保つ射 $E\to E$（零写像を含む）の集合を $\operatorname{End}(E)$ とする。和と積をそれぞれ
 
-$
+$$
 (\alpha+\beta)(P)=\alpha(P)+\beta(P),
 \qquad
 \alpha\beta=\alpha\circ\beta
-$
+$$
 
 > と定める。
 <!-- formal-statement-end -->
@@ -605,23 +605,23 @@ $$
 > **命題（有理2位数点から作る次数2同種写像）**  
 > 体 $k$ の標数は2ではないとし、$a,b\in k$ は次を満たすとする。
 
-$
+$$
 b(a^2-4b)\ne0
-$
+$$
 
 > 次の非特異曲線を考える。
 >
-$
+$$
 > E:y^2=x^3+ax^2+bx,\qquad
 > E':Y^2=X^3-2aX^2+(a^2-4b)X
-$
+$$
 >
 > に対し、$x\ne0$ では
 >
-$
+$$
 \phi(x,y)=
 \left(x+a+\frac b x,\quad y\left(1-\frac b{x^2}\right)\right)
-$
+$$
 >
 > と定め、$\phi(O)=O'$、$\phi(0,0)=O'$ と延長すると、$\phi:E\to E'$ は分離的な次数2同種写像で、$\ker\phi=\{O,(0,0)\}$ である。
 <!-- formal-statement-end -->
