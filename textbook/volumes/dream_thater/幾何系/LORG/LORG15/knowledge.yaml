@@ -30,7 +30,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Cauchy面と全依存領域）"]
-    requires: [lorentz-geometry.cauchy-acausal, lorentz-geometry.domain-of-dependence]
+    requires: [lorentz-geometry.cauchy-acausal, lorentz-geometry.domain-of-dependence, lorentz-geometry.causal-spacetime]
   - id: lorentz-geometry.minkowski-full-time
     name: Minkowskiの非延長因果曲線の全時刻通過
     kind: lemma
