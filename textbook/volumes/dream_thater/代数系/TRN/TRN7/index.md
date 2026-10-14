@@ -243,7 +243,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（共役積の非零性・不変性・評価）**  
-> $K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とし、相異なる $\alpha_1,\ldots,\alpha_m\in K$、$a_1,\ldots,a_m\in K$ が少なくとも一つ非零であるとする。$F=\sum_{j=1}^m a_jU_{\alpha_j}$ とおけば、以下が成立する。
+> $K/\mathbb Q$ を有限Galois拡大、$G$ をそのGalois群とする。次の形式和を取る。
+
+$
+F=\sum_{j=1}^m a_jU_{\alpha_j},
+\quad \alpha_j\in K,\quad
+\alpha_i\ne\alpha_j\ (i\ne j),\quad a_j\in K.
+$
+
+> ただし $m\ge1$ とし、係数 $a_j$ は少なくとも一つ非零とする。このとき以下が成立する。
 >
 > 1. $\mathcal N_G(F)\ne0$（形式和として）。
 > 2. どの $\tau\in G$ に対しても $\tau\cdot\mathcal N_G(F)=\mathcal N_G(F)$。
