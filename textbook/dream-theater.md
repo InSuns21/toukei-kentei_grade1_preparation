@@ -885,6 +885,7 @@
 1. [EC1 非特異三次曲線とWeierstrass方程式](textbook/volumes/dream_thater/代数系/EC/EC1/index.md)
 2. [EC2 割線・接線群則と結合法則の証明](textbook/volumes/dream_thater/代数系/EC/EC2/index.md)
 3. [EC3 複素一様化・格子・j不変量](textbook/volumes/dream_thater/代数系/EC/EC3/index.md)
+4. [EC4 Isogeny・自己準同型・torsionの代数的基盤](textbook/volumes/dream_thater/代数系/EC/EC4/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
