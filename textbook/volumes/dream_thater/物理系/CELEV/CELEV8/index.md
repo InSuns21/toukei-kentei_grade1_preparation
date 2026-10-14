@@ -162,7 +162,7 @@ $$
 
 添字はすべて $N$ を法として読みます。第1式は時刻反転と原点反転、第2・3式は半周期の鏡映条件、最後は各時刻の重心零です。これは8の字型の候補を探すための**数値的な制限**で、8の字解の存在をこれだけで断言するものではありません。
 
-これらを毎反復手で満たす代わりに、任意の三体位置列を近い許容列へ写す演算を使います。
+これらを毎反復手で満たす代わりに、任意の三体位置列を近い許容列へ写す演算を使います。[CELEV4の群平均の射影性](../CELEV4/index.md#prop-celev4-reynolds)と同様に、時間・粒子の対称操作を平均して固定点を作る方法ですが、以下では有限格子の標準内積に関する最短距離性も確認します。
 
 <a id="def-celev8-projection"></a>
 <!-- formal-statement-start -->
@@ -203,48 +203,55 @@ $$
 
 残る制約を格子列の直交射影として導きます。$S(x,y)=(-x,y)$ とし、$\ell=N/3$ を用いて三つの線形演算子を
 
-$
+$$
 (J\gamma)^k=-\gamma^{-k},\qquad
 (K\gamma)^k=S\gamma^{k+N/2},\qquad
 (M\gamma)^k=\frac13(\gamma^k+\gamma^{k+\ell}+\gamma^{k+2\ell})
-$
+$$
 
 と置きます。$J$ と $K$ は添字の置換と座標の符号変更なので内積を保ちます。また $J^2=K^2=I$ です。したがって逆写像が自分自身であり、内積を保つことから $J^*=J$、$K^*=K$ です。
 
 一方、$M$ は巡回シフトを三つ平均するので、$M\gamma$ は $\ell$ だけずらしても変わりません。従って $M^2=M$ です。格子和の添字を付け替えると
 
-$
+$$
 \langle M\gamma,\eta\rangle
 =\frac13\sum_k(\gamma^k+\gamma^{k+\ell}+\gamma^{k+2\ell})\cdot\eta^k
 =\langle\gamma,M\eta\rangle
-$
+$$
 
 となるため $M^*=M$ でもあります。求める三つの演算子は
 
-$
+$$
 F=\frac{I+J}{2},\qquad H=\frac{I+K}{2},\qquad C=I-M
-$
+$$
 
 です。例えば $F^2=(I+2J+J^2)/4=F$、$F^*=F$ で、$H$ と $C$ もそれぞれ $K^2=I$、$M^2=M$ から冪等・自己共役になります。各像は順に $J\gamma=\gamma$（反転）、$K\gamma=\gamma$（半周期鏡映）、$M\gamma=0$（三つの時刻シフトの和が零）を満たす列です。
 
 可換性も添字で確かめます。反転と半周期シフトの順序を変えても、$-N/2\equiv N/2\pmod N$ なので $JK=KJ$ です。$M$ の平均には $0,\ell,2\ell$ の三つのシフトがすべて入るため、反転によるシフト順序の交換で $JM=MJ$、半周期シフトとの交換で $KM=MK$ となります。よって $F,H,C$ は互いに可換です。その積 $Q=FHC$ は
 
-$
+$$
 Q^*=C^*H^*F^*=FHC=Q,\qquad
 Q^2=F^2H^2C^2=FHC=Q
-$
+$$
 
 を満たし、像は三制約の共通部分です。
 
-最初の舞踏平均については上の平方和の恒等式を全 $k$ で足せば、任意の舞踏候補の最短距離となる生成列が $\widetilde\gamma$ だと分かります。残る最小化は $3\sum_k|\gamma^k-\widetilde\gamma^k|^2$ なので、$Q\widetilde\gamma$ が三制約を同時に満たす唯一の最短距離の生成列です。これを舞踏表示に戻すと $P_Nq$ になります。直交射影なので $P_N^2=P_N$、$v\in V_N$ で $P_Nv=v$ です。さらに
+最初の舞踏平均については上の平方和の恒等式を全 $k$ で足せば、任意の舞踏候補の最短距離となる生成列が $\widetilde\gamma$ だと分かります。残る最小化は $3\sum_k|\gamma^k-\widetilde\gamma^k|^2$ なので、$Q\widetilde\gamma$ が三制約を同時に満たす唯一の最短距離の生成列です。これを舞踏表示に戻すと $P_Nq$ になります。この写像は線形で、$V_N$ 上の点をそのまま保ちます。よって $P_N^2=P_N$ です。
 
-$
+最後に直交性を添字から確認します。$v\in V_N$ の生成列を $\eta$ とすると $Q\eta=\eta$ であり、舞踏平均の定義によって
+
+$$
+\begin{aligned}
 \langle q-P_Nq,v\rangle
-=\langle q,v\rangle-\langle q,P_Nv\rangle=0
-\qquad(v\in V_N)
-$
+&=\sum_{k,i}\left(q_i^k-(Q\widetilde\gamma)^{k+(i-1)\ell}\right)
+\cdot\eta^{k+(i-1)\ell}\\
+&=3\sum_k\left(\widetilde\gamma^k-(Q\widetilde\gamma)^k\right)\cdot\eta^k\\
+&=3\langle\widetilde\gamma-Q\widetilde\gamma,Q\eta\rangle\\
+&=3\langle Q\widetilde\gamma-Q^2\widetilde\gamma,\eta\rangle=0.
+\end{aligned}
+$$
 
-より残差の直交性も直接確認できました。$\square$
+ここでは $Q^*=Q$ と $Q^2=Q$ を用いました。したがって $P_Nq$ は $V_N$ への直交射影であり、命題の三性質がすべて従います。$\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-celev8-projection -->
@@ -274,10 +281,10 @@ $$
 
 この例は残りの時刻でも非衝突です。粒子1と2が同じ位置になると仮定すると、$a,b>0$ より二成分それぞれについて
 
-$
+$$
 \sin\theta=\sin(\theta+2\pi/3),\qquad
 \sin2\theta=\sin(2\theta+4\pi/3)
-$
+$$
 
 が必要です。第一式から $\cos(\theta+\pi/3)=0$、すなわち $\theta=\pi/6+\pi r$（整数 $r$）です。第二式から $\cos(2\theta+2\pi/3)=0$、すなわち $\theta=-\pi/12+\pi s/2$（整数 $s$）です。両者が同時に成立するなら $s=2r+1/2$ となり整数性に反します。残る粒子対も $\theta$ を $2\pi/3$ または $4\pi/3$ ずらした同じ計算で否定できます。したがって全格子点が非衝突です。
 
@@ -453,19 +460,19 @@ $$
 
 最初の検証模型は、前節の二体の円運動です。二粒子の間隔は1、各粒子が描く円の半径は $1/2$ です。各粒子に働くNewton加速度の大きさは1なので、円運動の向心加速度と照合すると
 
-$
+$$
 \omega^2\frac12=1,\qquad
 \omega=\sqrt2,\qquad
 v=\omega\frac12=\frac1{\sqrt2},\qquad
 T=\frac{2\pi}{\sqrt2}
-$
+$$
 
 となります。これを質量1の二体の運動・位置エネルギーへ代入すると
 
-$
+$$
 K=2\cdot\frac12\cdot\frac12=\frac12,\qquad
 U=-\frac1{1}=-1
-$
+$$
 
 です。従って
 
