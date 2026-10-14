@@ -894,6 +894,7 @@
 4. [EC4 Isogeny・自己準同型・torsionの代数的基盤](textbook/volumes/dream_thater/代数系/EC/EC4/index.md)
 5. [EC5 有理数体上のtorsion・高さの入口](textbook/volumes/dream_thater/代数系/EC/EC5/index.md)
 6. [EC6 降下法・弱Mordell–Weil定理・Mordell–Weil定理](textbook/volumes/dream_thater/代数系/EC/EC6/index.md)
+7. [EC7 有限体の点数とFrobenius](textbook/volumes/dream_thater/代数系/EC/EC7/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
