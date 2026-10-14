@@ -1,0 +1,77 @@
+chapter: TRN7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN2
+  - TRN6
+  - FLD4
+  - CA1
+forward_references: []
+
+concepts:
+  - id: transcendence.formal-exponential-sum
+    name: 有限形式指数和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限形式指数和）]
+    requires: []
+  - id: transcendence.exponential-evaluation
+    name: 指数評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（指数評価）]
+    requires: [transcendence.formal-exponential-sum]
+  - id: transcendence.formal-galois-action
+    name: 形式指数和のGalois共役
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式指数和のGalois共役）]
+    requires: [transcendence.formal-exponential-sum]
+  - id: transcendence.galois-ring-action
+    name: 共役作用と環演算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共役作用と環演算）]
+    requires: [transcendence.formal-galois-action]
+  - id: transcendence.formal-product-nonzero
+    name: 有限形式指数和の積の非零性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限形式指数和の積の非零性）]
+    requires: [transcendence.formal-exponential-sum]
+  - id: transcendence.formal-conjugate-product
+    name: 形式指数和の共役積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式指数和の共役積）]
+    requires: [transcendence.formal-galois-action]
+  - id: transcendence.formal-conjugate-symmetrization
+    name: 共役積の非零性・不変性・評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共役積の非零性・不変性・評価）]
+    requires: [transcendence.formal-conjugate-product, transcendence.formal-product-nonzero, transcendence.exponential-evaluation]
+  - id: transcendence.formal-coefficient-orbits
+    name: 共役不変な形式和の係数関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共役不変な形式和の係数関係）]
+    requires: [transcendence.formal-galois-action]
+  - id: transcendence.fixed-integral-integer
+    name: 共役不変な代数的整数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（共役不変な代数的整数）]
+    requires: []
+  - id: transcendence.formal-augmentation
+    name: 係数和写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（係数和写像）]
+    requires: [transcendence.formal-exponential-sum]
+  - id: transcendence.formal-augmentation-norm
+    name: 係数和で得る体ノルム
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（係数和で得る体ノルム）]
+    requires: [transcendence.formal-augmentation, transcendence.formal-conjugate-product]

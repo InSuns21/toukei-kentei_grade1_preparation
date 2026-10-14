@@ -1,0 +1,39 @@
+id: "TRN7"
+title: "共役に関する対称化と代数的係数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN2
+  - TRN6
+  - FLD4
+  - CA1
+official_scope: []
+learning_objectives:
+  - "相異なる代数的指数から有限形式指数和を作り重複指数の係数を統合できる"
+  - "有限Galois拡大での係数と指数の共役作用を指数評価と区別できる"
+  - "辞書式最大指数を用いて形式指数和の非零積を証明できる"
+  - "共役積の形式的非零性・不変性・複素指数評価での零性を別々に示せる"
+  - "共役不変形式和の係数がGalois軌道に沿って変化することを説明できる"
+  - "固定された代数的整数の整数性と係数和ノルムの非零条件を検証できる"
+theorems:
+  - { id: TRN7-PROP-01, name: 共役作用と環演算 }
+  - { id: TRN7-LEM-01, name: 有限形式指数和の積の非零性 }
+  - { id: TRN7-THM-01, name: 共役積の非零性・不変性・評価 }
+  - { id: TRN7-PROP-02, name: 共役不変な形式和の係数関係 }
+  - { id: TRN7-LEM-02, name: 共役不変な代数的整数 }
+  - { id: TRN7-PROP-03, name: 係数和で得る体ノルム }
+canonical_examples:
+  - "Q(sqrt(2))での二つの共役作用と指数衝突"
+  - "共役不変でも係数が無理数となる反例"
+  - "二つの評価写像と係数和のノルムの相違"
+problem_patterns:
+  - TRN7-COLLIDING-EXPONENTS
+  - TRN7-GALOIS-ACTION
+  - TRN7-FORMAL-PRODUCT-NONZERO
+  - TRN7-CONJUGATE-PRODUCT
+  - TRN7-INVARIANCE-COEFFICIENT-ORBIT
+  - TRN7-AUGMENTATION-NORM
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []

@@ -820,6 +820,7 @@
 4. [TRN4 Hermiteの微分和・積分恒等式](textbook/volumes/dream_thater/代数系/TRN/TRN4/index.md)
 5. [TRN5 eに対する補助多項式と素数合同](textbook/volumes/dream_thater/代数系/TRN/TRN5/index.md)
 6. [TRN6 Hermiteの定理：eの超越性](textbook/volumes/dream_thater/代数系/TRN/TRN6/index.md)
+7. [TRN7 共役に関する対称化と代数的係数](textbook/volumes/dream_thater/代数系/TRN/TRN7/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
