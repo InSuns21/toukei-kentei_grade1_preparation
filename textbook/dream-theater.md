@@ -1021,6 +1021,7 @@
 5. [CELEV5 等質量三体の8の字解](textbook/volumes/dream_thater/物理系/CELEV/CELEV5/index.md)
 6. [CELEV6 n体舞踏解・組み紐と軌道分類](textbook/volumes/dream_thater/物理系/CELEV/CELEV6/index.md)
 7. [CELEV7 周期軌道の第二変分・Floquetと安定性](textbook/volumes/dream_thater/物理系/CELEV/CELEV7/index.md)
+8. [CELEV8 数値変分法と実際のn体シミュレーション](textbook/volumes/dream_thater/物理系/CELEV/CELEV8/index.md)
 
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
