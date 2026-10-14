@@ -32,6 +32,13 @@
     <label>Burrauの描画時間間隔 Δt（積分器の内部刻みではありません）
       <input id="burrau-dt" type="number" min="0.05" max="0.5" step="0.05" value="0.25">
     </label>
+    <label>適応刻みの相対許容誤差
+      <select id="burrau-rtol">
+        <option value="1e-10">1e-10（高速・概形）</option>
+        <option value="1e-11">1e-11（比較用）</option>
+        <option value="1e-12" selected>1e-12（標準・高精度）</option>
+      </select>
+    </label>
     <p>質量3・4・5、初速度0、G=1。内部ではDormand–Prince 5(4)法で刻みを自動調整し、近接遭遇も軟化せず解き進めます。「連続実行」で物理時刻60以降まで進め、質点1の脱出と質点2・3の連星形成を観察してください。保存量偏差と数値解の収束は別途検査が必要です。</p>
     <p>手計算と精度の見方は <a href="../index.html#/textbook/volumes/dream_thater/%E7%89%A9%E7%90%86%E7%B3%BB/CELEV/CELEV8/supplement-burrau">CELEV8のBurrau補講</a> を参照してください。</p>
   </div>
