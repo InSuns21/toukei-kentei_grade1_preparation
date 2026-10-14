@@ -188,11 +188,12 @@ $\sigma$ は $K$ の自己同型なので、$\sigma^{-1}$ が存在します。$
 
 $F$ の非零係数を持つ有限集合を $S$、$H$ のそれを $T$ とします。辞書式順序で最大の指数を $\lambda_*=\max S$、$\mu_*=\max T$ とし、その係数を $a_*\ne0$、$b_*\ne0$ とします。
 
-任意の $(\lambda,\mu)\in S\times T$ について $\lambda\preceq\lambda_*$、$\mu\preceq\mu_*$ です。加法と順序の両立性より、
+任意の $(\lambda,\mu)\in S\times T$ について $\lambda\preceq\lambda_*$、$\mu\preceq\mu_*$ です。まず前者に $\mu$ を、次に後者に $\lambda_*$ を加え、順序が平行移動で保たれることを使うと
 
-$$
-\lambda+\mu\preceq\lambda_*+\mu_*.
-$$
+$
+\lambda+\mu\preceq\lambda_*+\mu
+\preceq\lambda_*+\mu_*.
+$
 
 等号が成り立つには $\lambda=\lambda_*$ かつ $\mu=\mu_*$ が必要です。実際、どちらか一方が真に小さければ、他方が最大以下なので和も真に小さくなります。よって積 $FH$ における $U_{\lambda_*+\mu_*}$ の係数はただ一組から来る
 
