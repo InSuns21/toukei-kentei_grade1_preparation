@@ -83,16 +83,16 @@ r=(2\varepsilon,-\varepsilon)
 $$
 と、$o$ を結ぶ二本の直線分、および $q$ から $r$ への垂直線分を考えます。$q\ll_U o$ を確認するため、直線分を $u\in[0,1]$ で
 
-$
+$$
 \alpha(u)=(-2\varepsilon+2\varepsilon u,\,-\varepsilon+\varepsilon u),
 \qquad \dot\alpha=(2\varepsilon,\varepsilon)
-$
+$$
 
 とパラメータ化します。この速度の時刻成分は正であり、
 
-$
+$$
 g(\dot\alpha,\dot\alpha)=-(2\varepsilon)^2+\varepsilon^2=-3\varepsilon^2<0
-$
+$$
 
 なので未来時間的です。$o$ から $r$ への直線の速度は $(2\varepsilon,-\varepsilon)$ で、自己内積は同じく $-3\varepsilon^2$ です。従って $q\ll_U o\ll_U r$ です。
 
@@ -267,15 +267,15 @@ Minkowski時空の点の未来光円錐は、頂点から出た光的な直線�
 
 **極限が因果的であること**も確認します。極限曲線の点 $z_0$ において、十分近い点 $z$ の未来因果速度 $(1,\xi)$（$|\xi|\le C$）は、計量の連続性により任意に小さい $\eta>0$ に対して
 
-$
+$$
 g_{z_0}((1,\xi),(1,\xi))\le\eta
-$
+$$
 
 を満たします。$\eta$ を固定すると、この条件は $z_0$ における光円錐を少し広げた閉凸な未来錐を定めます。$\mathbf x_k(t+h)-\mathbf x_k(t)$ は各速度の積分なので、凸性から $(h,\mathbf x_k(t+h)-\mathbf x_k(t))$ もこの広げた錐に属します。一様極限で $k\to\infty$、続いて $\eta\downarrow0$ とし、Lipschitz関数のほとんど至る所で存在する微分を取ると
 
-$
+$$
 g_{\gamma(t)}((1,\mathbf x'(t)),(1,\mathbf x'(t)))\le0
-$
+$$
 
 となり、速度は未来向きです。以後、このようにほとんど至る所で未来因果速度を持つ局所Lipschitz曲線を扱います。これは後のLORG14の大域的な限界曲線補題とは異なり、**固定された小座標箱内だけ** の議論です。
 
@@ -323,15 +323,15 @@ $$
 
 こうして、始点 $z_\delta$ について
 
-$
+$$
 z_\delta\in I^-(z),\qquad z_\delta\ll p,\qquad z_\delta\longrightarrow z
-$
+$$
 
 となる曲線を構成できます。$z\in F=I^+(S)$ なら、ある $s\in S$ に対して $s\ll z$ です。[端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から、十分小さい $\delta$ で
 
-$
+$$
 s\ll z_\delta\ll p\quad\Longrightarrow\quad p\in F
-$
+$$
 
 となりますが、これは $p\in\partial F$ に矛盾します。従って極限曲線のどの点も $F$ に属さず、$\gamma\subset\overline F\setminus F=A$ です。
 
