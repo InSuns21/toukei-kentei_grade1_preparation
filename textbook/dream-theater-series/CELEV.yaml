@@ -1,7 +1,7 @@
 version: 1
 id: CELEV
 title: "変分的周期軌道・n体舞踏解と数値シミュレーション"
-plan: textbook/plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 chapters:

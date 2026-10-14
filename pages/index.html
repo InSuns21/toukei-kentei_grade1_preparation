@@ -420,10 +420,12 @@
         });
       }
 
+      // Show and expand the owning chapter while reading its supplement.
+      var activeRoute = (config.routeParents && config.routeParents[currentRoute]) || currentRoute;
       nav.querySelectorAll('a[data-dream-route]').forEach(function (link) {
         link.classList.toggle(
           'active',
-          canonicalNavigationRoute(link.getAttribute('data-dream-route')) === currentRoute
+          canonicalNavigationRoute(link.getAttribute('data-dream-route')) === activeRoute
         );
       });
 
