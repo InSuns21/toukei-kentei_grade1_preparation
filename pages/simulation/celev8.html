@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CELEV8 Newton n体・離散変分ラボ</title>
+<link rel="stylesheet" href="./simulation.css">
+</head>
+<body>
+<main class="app">
+<header>
+  <a href="../index.html">← DREAM THEATER</a>
+  <h1>CELEV8：n体のNewton積分と周期軌道の変分探索</h1>
+  <p>ブラウザ内のPython（Pyodide）で毎回再計算します。数値的な閉合や勾配収束は、厳密な周期解の存在証明ではありません。</p>
+</header>
+<section class="panel">
+  <h2>実験の選択と条件</h2>
+  <div class="controls">
+    <label>モード <select id="mode">
+      <option value="physics">A：Newton方程式の時間発展</option>
+      <option value="variational">B：離散作用の対称拘束付き最小化</option>
+    </select></label>
+  </div>
+  <div id="physics-controls" class="controls">
+    <label>出発軌道 <select id="orbit">
+      <option value="two-body">二体円運動</option>
+      <option value="triangle">正三角形円運動</option>
+      <option value="figure-eight" selected>等質量三体の8の字（近似初期値）</option>
+    </select></label>
+    <label>重力定数 G <input type="number" id="G" min="0.01" max="10" step="0.1" value="1"></label>
+    <label>共通質量倍率 <input type="number" id="mass" min="0.01" max="10" step="0.1" value="1"></label>
+    <label>速度倍率 <input type="number" id="velocity" min="0.01" max="4" step="0.05" value="1"></label>
+    <label>物理刻み dt <input type="number" id="dt" min="0.0001" max="0.05" step="0.0001" value="0.002"></label>
+  </div>
+  <div id="variational-controls" class="controls" hidden>
+    <label>格子数 N（6の倍数） <input type="number" id="N" min="12" max="120" step="6" value="60"></label>
+    <label>探索する周期 T <input type="number" id="T" min="1" max="20" step="0.001" value="6.3259"></label>
+    <label>候補曲線のx振幅 <input type="number" id="ax" min="0.1" max="3" step="0.05" value="1"></label>
+    <label>候補曲線のy振幅 <input type="number" id="ay" min="0.1" max="3" step="0.05" value="0.35"></label>
+    <label>初期位相 <input type="number" id="phase" min="-3.14" max="3.14" step="0.1" value="0"></label>
+  </div>
+  <div class="controls">
+    <label>表示倍率 <input type="range" id="zoom" min="0.5" max="3" step="0.25" value="1"></label>
+  </div>
+  <div class="buttons">
+    <button id="init">初期化・設定を反映</button>
+    <button id="step">1ステップ/1反復</button>
+    <button id="batch">100物理ステップ/10変分反復</button>
+    <button id="play">連続実行</button>
+    <button id="pause">バッチ境界で停止</button>
+    <button id="resume">再開</button>
+    <button id="cancel">中断・Worker破棄</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">未実行。Pyodideの初回起動にはオンライン接続が必要です。</p>
+</section>
+<section class="panel">
+  <h2>実際の計算結果</h2>
+  <canvas id="plot" width="720" height="440" role="img" aria-label="時間発展で計算した粒子の軌跡、または変分的候補ループ" aria-describedby="plot-help"></canvas>
+  <p id="plot-help">横軸x・縦軸y。複数の粒子は色と実線・破線で区別します。描画の間引きは物理時間刻みを変更しません。</p>
+  <div id="diagnostics" aria-live="polite"></div>
+  <p>変分モードの作用・射影勾配ノルム・制約違反・離散Newton残差と、時間発展モードの閉合残差・エネルギー誤差は**異なる数値量**です。</p>
+</section>
+<section class="panel">
+  <h2>実験ログと限界</h2>
+  <div class="buttons"><button id="save-json">設定とログをJSON出力</button><button id="save-csv">ログCSV出力</button></div>
+  <p>変分モードは既知の数値初期値を呼び出さず、曲線から勾配法で探索します。非凸性・衝突危険のため局所停留点に止まるか、更新できず終了する場合があります。</p>
+  <p>Newtonモードは選んだ初期値から独立の運動方程式積分を行います。近接衝突ではsofteningで結果を隠さず停止します。初期値や周期を変更した実験では基準軌道の周期性を保証しません。</p>
+</section>
+</main>
+<script>
+if ("serviceWorker" in navigator) window.addEventListener("load", () => {
+  navigator.serviceWorker.register("../service-worker.js", {scope:"../",updateViaCache:"none"}).catch(() => {});
+});
+</script>
+<script type="module" src="./celev8-app.mjs"></script>
+</body>
+</html>
