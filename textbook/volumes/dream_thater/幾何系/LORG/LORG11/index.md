@@ -62,7 +62,7 @@ q\in\overline{I^+(p)}
 \quad\Longleftrightarrow\quad
 p\in\overline{I^-(q)}
 $$
-> が成り立つことをいう。左から右への含意を未来側の反映性、右から左への含意を過去側の反映性と呼ぶ。
+> が成り立つことをいう。右から左への含意を未来反映性、左から右への含意を過去反映性と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg11-reflecting -->
@@ -310,7 +310,7 @@ $$
 
 ## 6. 一点除去で破れるのは「連続性」ではなく「閉性」
 
-二次元Minkowski時空から原点を除いた
+[LORG7で既に見た点除去Minkowskiの因果的未来の非閉性](../LORG7/index.md#prop-lorg7-punctured-nonclosed)を、因果連続性の観点から詳しく調べ直します。二次元Minkowski時空から原点を除いた
 $$
 M^\ast=\mathbb R^{1,1}\setminus\{o\},\qquad
 o=(0,0),\quad g=-dt^2+dx^2
