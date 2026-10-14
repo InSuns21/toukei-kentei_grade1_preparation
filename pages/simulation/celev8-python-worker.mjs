@@ -20,9 +20,11 @@ _type = _req["type"]
 if _type == "initialize":
     _p = _req["params"]
     if _p["mode"] == "physics":
-        _state = ce.initialize(kind=_p["orbit"], dt=_p["dt"],
+        _state = ce.candidate_initial_state(_p["candidatePath"], _p["period"]) if _p["orbit"] == "candidate" else ce.initialize(kind=_p["orbit"], dt=_p["dt"],
             mass_scale=_p["massScale"], velocity_scale=_p["velocityScale"],
             gravitational_constant=_p["G"])
+        if _p["orbit"] == "candidate":
+            _state["dt"] = _p["dt"]
         _diag = ce.diagnostics(_state)
         _diag["energyDrift"] = 0.0
         _diag["closurePosition"] = 0.0
@@ -92,9 +94,13 @@ function error(req, cause) {
 function checkParams(p) {
   if (!p || !["physics", "variational"].includes(p.mode)) throw new RangeError("invalid mode");
   if (p.mode === "physics") {
-    if (!["two-body", "triangle", "figure-eight"].includes(p.orbit)) throw new RangeError("orbit");
+    if (!["two-body", "triangle", "figure-eight", "candidate"].includes(p.orbit)) throw new RangeError("orbit");
     for (const name of ["dt", "G", "massScale", "velocityScale"]) {
       if (!Number.isFinite(p[name]) || p[name] <= 0) throw new RangeError(name);
+    }
+    if (p.orbit === "candidate" && (!Array.isArray(p.candidatePath) ||
+        !Number.isFinite(p.period) || p.period <= 0 || p.period > 20)) {
+      throw new RangeError("candidate path and period required");
     }
     if (p.dt > 0.05 || p.G > 10 || p.massScale > 10 || p.velocityScale > 4) {
       throw new RangeError("parameter exceeds safety bound");
