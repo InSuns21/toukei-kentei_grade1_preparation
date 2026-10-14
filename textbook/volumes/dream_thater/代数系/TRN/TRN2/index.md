@@ -63,7 +63,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（体拡大の跡とノルム）**  
-> $K/\mathbb Q$ を次数 $n<\infty$ の体拡大、$\eta\in K$ とする。$\mathbb Q$-線形写像 $\mu_\eta(x)=\eta x$ の任意の $\mathbb Q$-基底での行列を $A_\eta$ とするとき、**跡**と**ノルム**を
+> $K/\mathbb Q$ を次数 $n<\infty$ の体拡大、$\eta\in K$ とする。$\mathbb Q$-線形写像 $\mu_\eta(x)=\eta x$ の任意の $\mathbb Q$-基底での行列を $A_\eta$ とするとき、跡とノルムを
 
 $$
 \operatorname{Tr}_{K/\mathbb Q}(\eta)=\operatorname{tr}(A_\eta),
@@ -91,7 +91,9 @@ $$
 なので $\operatorname{tr}(S^{-1}A_\eta S)=\operatorname{tr}(A_\eta SS^{-1})=\operatorname{tr}(A_\eta)$ です。これで定義がどの基底でも同じ数を与えると分かります。
 
 <!-- definition-example-start: def-trn2-field-trace-norm -->
-**定義の確認：二次拡大で行列の意味から計算する**
+**定義の確認**
+
+二次拡大で行列の意味から計算します。
 
 $K=\mathbb Q(\sqrt2)$、$\eta=a+b\sqrt2$（$a,b\in\mathbb Q$）を取り、$\mathbb Q$-基底 $(1,\sqrt2)$ を使います。
 
