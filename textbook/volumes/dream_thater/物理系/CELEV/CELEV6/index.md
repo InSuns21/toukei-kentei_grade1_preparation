@@ -263,8 +263,18 @@ $$
 
 $$
 \dot z=\dot r(\cos\theta,\sin\theta)
-+r\dot\theta(-\sin\theta,\cos\theta),\quad
-z\wedge\dot z=r^2\dot\theta.
++r\dot\theta(-\sin\theta,\cos\theta).
+$$
+
+外積を座標で展開すると、半径の変化を含む交差項が打ち消し合います。
+
+$$
+\begin{aligned}
+z\wedge\dot z
+&=r\cos\theta(\dot r\sin\theta+r\dot\theta\cos\theta)
+-r\sin\theta(\dot r\cos\theta-r\dot\theta\sin\theta)\\
+&=r^2(\cos^2\theta+\sin^2\theta)\dot\theta
+=r^2\dot\theta.\end{aligned}
 $$
 
 したがって積分の被積分関数は角度の増加率 $\dot\theta$ そのものであり、半径の変化には依存しません。
