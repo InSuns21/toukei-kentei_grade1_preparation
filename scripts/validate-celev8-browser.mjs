@@ -74,7 +74,10 @@ try {
  };
  const value=name=>'Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="'+name+'")?.cells[1]?.textContent)';
  await cmd("Runtime.enable");await cmd("Page.enable");
- await poll('Boolean(document.querySelector("#init"))',15000);
+ // The button can exist before the deferred module binds its click handler.
+ // The document becomes "complete" only after module evaluation, so a click
+ // here tests the real Pyodide worker instead of silently doing nothing.
+ await poll('document.readyState === "complete" && Boolean(document.querySelector("#init"))',30000);
  await evalJS('document.querySelector("#orbit").value="two-body";document.querySelector("#init").click()');
  await poll('document.querySelector("#status")?.textContent.includes("Python積分完了")');
  assert.ok(Math.abs(await evalJS(value("energy"))+0.5)<1e-9);
