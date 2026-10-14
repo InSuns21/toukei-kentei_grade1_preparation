@@ -15,9 +15,12 @@ function parse(facade,paths){
   m=line.match(/^###\s+(.+)$/);
   if(m){if(!key||subjects.has(key))throw Error('Missing/duplicate subject anchor '+line);
    subject={title:m[1],chapters:[]};subjects.set(key,subject);key=null;continue;}
-  if(!subject||!/^\d+\.\s/.test(line))continue;
-  m=line.match(/\]\((textbook\/volumes\/[^)]+\/index\.md)\)/);
-  if(m&&valid.has(m[1])){found.push(m[1]);subject.chapters.push({id:id(m[1]),path:m[1]});}
+  if(!subject)continue;
+  for(const match of line.matchAll(/\]\((textbook\/volumes\/[^)]+\/index\.md)\)/g)){
+   if(!valid.has(match[1]))continue;
+   found.push(match[1]);
+   subject.chapters.push({id:id(match[1]),path:match[1]});
+  }
  }
  if(paths.length!==found.length||found.some((p,i)=>p!==paths[i]))throw Error('Index and facade not synchronized');
  return subjects;
