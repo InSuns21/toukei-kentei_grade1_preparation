@@ -50,7 +50,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg16-global-hyperbolicity -->
-**定義の確認**。$\mathbb R^{1,n}$ の時刻 $t$ は未来因果曲線上で厳密増加するので、[時間関数に関する既習結果](../LORG10/index.md#thm-lorg10-stable-time-equivalence)から強因果的です。$p=(t_p,\mathbf x_p)$、$q=(t_q,\mathbf x_q)$ に対し、$r=(t,\mathbf x)\in K(p,q)$ なら
+**定義の確認**。$\mathbb R^{1,n}$ では、標準座標の時刻関数 $t$ に関して強因果性とダイヤモンドのコンパクト性を別々に確かめます。非零の未来因果ベクトル $v=(v^t,\mathbf v)$ は、Minkowski計量 $\eta=-dt^2+|d\mathbf x|^2$ の定義から
+
+$
+\eta(v,v)=-(v^t)^2+|\mathbf v|^2\le0,
+\qquad v^t\ge|\mathbf v|,\qquad v^t>0
+$
+
+を満たします。従って停留片のない未来因果曲線に沿って $t$ は厳密増加します。さらに $\eta(\nabla^\eta t,v)=dt(v)$ を満たす勾配は $\nabla^\eta t=-\partial_t$ で、これは過去向き時間的です。よって $t$ は[LORG10のtemporal functionの定義](../LORG10/index.md#def-lorg10-time-function)を満たし、[temporal functionから強因果性への定理](../LORG10/index.md#thm-lorg10-temporal-implies-strong)により強因果的です。
+
+次に、[Minkowskiの因果錐公式](../LORG6/index.md#thm-lorg6-minkowski-futures)を $p=(t_p,\mathbf x_p)$、$q=(t_q,\mathbf x_q)$ のそれぞれに適用します。$r=(t,\mathbf x)\in K(p,q)$ なら
 
 $$
 t_p\le t\le t_q,\qquad
@@ -242,13 +251,25 @@ $$
 
 です。よって非定数の未来因果曲線上で厳密増加します。
 
-**（3）両端の発散**。未来非延長な $\gamma$ に沿い、未来方向へ進む点列 $x_k$ を取ります。$I^+(x_{k+1})\subset I^+(x_k)$ です。もし $\bigcap_k I^+(x_k)$ に点 $y$ があれば、曲線の未来尾部がコンパクト集合 $K(x_1,y)$ に閉じ込められ、[非閉じ込め補題](#lem-lorg16-nonimprisonment)に反します。従って交わりは空です。有限測度の上からの連続性により
+**（3）両端の発散**。未来非延長な $\gamma:I\to M$ について、パラメータ $s_k\in I$ を厳密増加させ、**未来端に共終**となるよう選びます。つまり、任意の $s\in I$ に対し十分大きな $k$ で $s\le s_k$ とし、$x_k=\gamma(s_k)$ と置きます。[因果集合の推移性](../LORG6/index.md#prop-lorg6-transitivity)から $I^+(x_{k+1})\subset I^+(x_k)$ です。
+
+もし $y\in\bigcap_k I^+(x_k)$ なら、すべての $k$ について $x_k\ll y$ です。任意の $s\ge s_1$ に対し $s\le s_k$ となる $k$ を選ぶと、
+
+$
+x_1\le\gamma(s)\le x_k\ll y
+\quad\Longrightarrow\quad
+\gamma(s)\in J^+(x_1)\cap J^-(y)=K(x_1,y).
+$
+
+従って曲線の未来尾部がコンパクトなダイヤモンドに閉じ込められ、[非閉じ込め補題](#lem-lorg16-nonimprisonment)に反します。よって $\bigcap_k I^+(x_k)=\varnothing$ です。有限測度の上からの連続性により
 
 $$
 V^+(x_k)=\mu(I^+(x_k))\longrightarrow0.
 $$
 
-他方 $V^-(x_k)\ge V^-(x_1)>0$ なので $T(x_k)\to+\infty$ です。過去非延長側では $I^-(x_k)$ の減少列が空に収束する同じ議論で、$T\to-\infty$ です。
+他方 $V^-(x_k)\ge V^-(x_1)>0$ なので $T(x_k)\to+\infty$ です。（2）の単調性と点列の共終性により、$T\circ\gamma$ は曲線の未来端で $+\infty$ に発散します。
+
+過去非延長側では、過去端に共始となる $s_k$ の減少列を選び、$x_k=\gamma(s_k)$ と置きます。このとき $I^-(x_{k+1})\subset I^-(x_k)$ であり、共通部分に $y$ があれば、過去尾部がコンパクトな $K(y,x_1)$ に含まれて非閉じ込め性に反します。従って $V^-(x_k)\to0$ です。一方、$V^+(x_k)\ge V^+(x_1)>0$ なので $T(x_k)\to-\infty$ となり、単調性と共始性から過去端での発散も従います。
 
 **（4）各レベルの一意交差**。両側非延長因果曲線のパラメータ域は連結区間です。（1）と（3）で $T\circ\gamma$ は連続かつ両端で $-\infty,+\infty$ に向かうので、中間値の定理により任意の $c$ を取ります。（2）の厳密増加から同じ値を二度取れません。従って $T^{-1}(c)$ との交点がちょうど一つで、[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。$\square$
 <!-- proof-end -->
@@ -270,11 +291,9 @@ Cauchy面 $\Sigma$ があると、[Cauchy面と全依存領域の同値](../LORG
 
 **証明の境界**：この段落は標準的領域定理の核心の見取り図であり、極限曲線二者択一と領域内部の強因果性に関する補助定理を全件再証明したものではありません。正確な証明は Minguzzi, *Lorentzian causality theory* (2019), Theorem 3.45 および直前の Proposition 3.42–3.44 を参照してください。後続のLORG17–20の定理を逆輸入してはいません。
 
-Cauchy面が**閉集合**である点も確認します。$\Sigma$ の極限点 $x$ を取り、$x$ を通る局所時間的直線を両側非延長にします。
+Cauchy面が**閉集合**である点も確認します。$\Sigma$ の極限点 $x$ を取り、$\Sigma$ 内の点列 $x_j\to x$ を選びます。[LORG15の両側非延長への延長構成](../LORG15/index.md#prop-lorg15-acausal)に従い、$x$ を通る局所時間的直線を両側非延長な時間的曲線へ延ばします。その曲線と $\Sigma$ との唯一の交点を $y$ とします。
 
-その唯一の $\Sigma$ との交点が $x$ と異なり未来にあるなら、$x$ 近くの $\Sigma$ の点はその交点へ時間的に到達してしまいます。過去にある場合も逆向きに同じことが起き、[Cauchy面のacausal性](../LORG15/index.md#prop-lorg15-acausal)に反します。
-
-従って交点は $x$ であり、$x\in\Sigma$ です。
+もし $x\ne y$ で $x\ll y$ なら、[時間的関係の端点安定性](../LORG7/index.md#lem-lorg7-timelike-endpoints)から大きい $j$ では $x_j\ll y$ となります。$x_j,y\in\Sigma$ は[Cauchy面のacausal性](../LORG15/index.md#prop-lorg15-acausal)に反します。$y\ll x$ の場合も $y\ll x_j$ となって同様に矛盾します。従って $x=y\in\Sigma$ であり、$\Sigma$ は閉集合です。
 
 <a id="thm-lorg16-characterization"></a>
 
