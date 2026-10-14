@@ -1,0 +1,75 @@
+chapter: CELEV7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELEV6
+  - CELEV4
+  - CELEV1
+  - CELE2
+  - CELE7
+  - CDYN4
+  - VAR11
+forward_references:
+  - calculus-of-variations.morse-index
+concepts:
+  - id: celestial-variational.periodic-second-variation
+    name: 周期軌道における第二変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期軌道における第二変分）"]
+    aliases: []
+    requires:
+      - celestial-variational.extended-newton-action
+      - celestial-variational.newton-first-variation
+  - id: celestial-variational.minimum-second-variation
+    name: 周期作用の局所極小の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期作用の局所極小の必要条件）"]
+    aliases: []
+    requires:
+      - celestial-variational.periodic-second-variation
+      - calculus-of-variations.critical-point
+  - id: celestial-variational.jacobi-linearization
+    name: 周期軌道に沿うJacobi型変分方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期軌道に沿うJacobi型変分方程式）"]
+    aliases: []
+    requires:
+      - celestial-variational.periodic-second-variation
+      - celestial.nbody-equations-conservation
+  - id: celestial-variational.floquet-monodromy
+    name: 基本解行列・モノドロミー行列・Floquet乗数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基本解行列・モノドロミー行列・Floquet乗数）"]
+    aliases: []
+    requires:
+      - celestial-variational.jacobi-linearization
+      - continuous-dynamical-systems.monodromy-floquet-multiplier
+  - id: celestial-variational.floquet-symplectic-pairs
+    name: Jacobi流の交代形式保存と乗数の逆数対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Jacobi流の交代形式保存と乗数の逆数対称性）"]
+    aliases: []
+    requires:
+      - celestial-variational.floquet-monodromy
+  - id: celestial-variational.floquet-boundedness
+    name: Hamilton周期線形系の有界性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hamilton周期線形系の有界性判定）"]
+    aliases: []
+    requires:
+      - celestial-variational.floquet-symplectic-pairs
+  - id: celestial-variational.periodic-neutral-modes
+    name: 時間移動・回転による中立モード
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間移動・回転による中立モード）"]
+    aliases: []
+    requires:
+      - celestial-variational.jacobi-linearization
+      - celestial-variational.floquet-monodromy

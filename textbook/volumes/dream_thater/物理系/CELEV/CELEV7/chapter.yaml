@@ -1,0 +1,54 @@
+id: "CELEV7"
+title: "周期軌道の第二変分・Floquetと安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELEV6
+  - CELEV4
+  - CELEV1
+  - CELE2
+  - CELE7
+  - CDYN4
+  - VAR11
+forward_references:
+  - VAR12
+official_scope: []
+learning_objectives:
+  - 非衝突周期Newton解の第二変分を逆距離のHessianから導出できる
+  - 重心拘束と周期方向を明示して作用極小の必要条件を証明できる
+  - Newton方程式をJacobi型変分方程式へ線形化し重心零座標で一階系に変換できる
+  - 基本解行列とモノドロミー行列を定義し一周期ごとの増幅を説明できる
+  - 交代形式の保存からFloquet乗数の逆数対称性を証明できる
+  - 単位円上の乗数とJordan構造から線形有界性を判定できる
+  - 時間移動と回転による中立モードと拘束・縮約の違いを説明できる
+  - 作用極小性と線形安定性と非線形安定性を反例で区別できる
+definitions:
+  - { id: CELEV7-DEF-01, name: "周期軌道における第二変分" }
+  - { id: CELEV7-DEF-02, name: "周期軌道に沿うJacobi型変分方程式" }
+  - { id: CELEV7-DEF-03, name: "基本解行列・モノドロミー行列・Floquet乗数" }
+theorems:
+  - { id: CELEV7-PROP-01, name: "周期作用の局所極小の必要条件" }
+  - { id: CELEV7-THM-01, name: "Jacobi流の交代形式保存と乗数の逆数対称性" }
+  - { id: CELEV7-THM-02, name: "Hamilton周期線形系の有界性判定" }
+  - { id: CELEV7-PROP-02, name: "時間移動・回転による中立モード" }
+canonical_examples:
+  - 二粒子の逆距離Hessianの半径方向と直交方向
+  - 調和振動子の基本解行列とFloquet乗数
+  - Jordanブロックのべきによる線形増大
+  - 作用の厳密極小と指数的不安定が両立する一自由度模型
+  - 等質量二体円運動の回転と時間位相の一致
+problem_patterns:
+  - CELEV7-INVERSE-DISTANCE-HESSIAN
+  - CELEV7-SCALAR-SECOND-VARIATION
+  - CELEV7-TIME-NEUTRAL
+  - CELEV7-OSCILLATOR-FLOQUET
+  - CELEV7-RECIPROCAL-MULTIPLIERS
+  - CELEV7-SYMPLECTIC-WRONSKIAN
+  - CELEV7-RESTRICTED-HESSIAN
+  - CELEV7-STRICT-MINIMUM-UNSTABLE
+  - CELEV7-LINEARLY-STABLE-NONMINIMUM
+  - CELEV7-CIRCULAR-ORBIT-HESSIAN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }

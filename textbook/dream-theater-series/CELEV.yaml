@@ -31,7 +31,7 @@ chapters:
     title: "n体舞踏解・組み紐と軌道分類"
   - id: CELEV7
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV7
-    status: planned
+    status: completed
     title: "周期軌道の第二変分・Floquetと安定性"
   - id: CELEV8
     path: textbook/volumes/dream_thater/物理系/CELEV/CELEV8
