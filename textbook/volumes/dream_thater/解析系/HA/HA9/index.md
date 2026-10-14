@@ -332,7 +332,7 @@ $$
 
 **(1) $L^2$ の入力。**　仮定の $\alpha=0$ から $|m(\xi)|\le M$（$\xi\ne0$）です。原点は測度零なので [L2評価](#prop-ha9-l2)により $\|T_mf\|_2\le M\|f\|_2$ です。
 
-**(2) 台外核表示を確立する。**　まず、[FOU4の平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)と[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)は一変数で述べられているため、ここで必要な多次元版を確かめます。
+**(2) 台外核表示を確立する。**　まず、[FOU4の $L^2$ 平行移動補題](../../FOU/FOU4/index.md#lem-fou4-l2-translation)と[畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)は一変数で述べられているため、ここで必要な多次元版を確かめます。
 
 $g\in C_c(\mathbb R^d)$ の台と小さい平行移動後の台を同じ有界集合 $D$ に含めると、一様連続性により
 
@@ -388,7 +388,7 @@ $$
 =\iint K(x-y)f(y)\overline{g(x)}\,dy\,dx.
 $$
 
-ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込み、$f_n=\rho_{1/n}*f$ とします。すると $f_n\in C_c^\infty$ で、[FOU4の $L^2$ 平行移動連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
+ここまでは $f\in C_c^\infty$ についての議論です。[HA5の作用素の定義](../HA5/index.md#def-ha5-cz-operator)が要求する任意のコンパクト台 $f\in L^2$ に拡張します。$E=\operatorname{supp}f$ とし、その外側の閉包が $E$ と交わらない小球 $U$ を固定します。$f$ を零延長して、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込み、$f_n=\rho_{1/n}*f$ とします。すると $f_n\in C_c^\infty$ で、[FOU4の $L^2$ 平行移動補題](../../FOU/FOU4/index.md#lem-fou4-l2-translation)を用いれば
 
 $$
 \|f_n-f\|_2
@@ -755,7 +755,7 @@ $$
 
 [Plancherel](../../FOU/FOU4/index.md#thm-fou4-l2-extension)と[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)によって作用素の列も $T_mf$ へ $L^2$ 収束します。これで滑らかなコンパクト台の入力について台外核表示が成立します。
 
-一般のコンパクト台 $f\in L^2$ には、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier)を使い $f_n=\rho_{1/n}*f\in C_c^\infty$ とします。[平行移動の $L^2$ 連続性](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から
+一般のコンパクト台 $f\in L^2$ には、[GPDE2の平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier)を使い $f_n=\rho_{1/n}*f\in C_c^\infty$ とします。[FOU4の $L^2$ 平行移動補題](../../FOU/FOU4/index.md#lem-fou4-l2-translation)から
 
 $$
 \|f_n-f\|_2\le
