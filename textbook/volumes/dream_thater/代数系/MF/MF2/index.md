@@ -596,20 +596,20 @@ $$
 
 #### B1. カスプ形式の積
 
-$f\in S_4$ と $g\in M_6$ がそれぞれ $f=a_1q+a_2q^2+\cdots$、$g=b_0+b_1q+\cdots$ と展開されるとき、$fg$ の重さと初項を求め、$fg\in S_{10}$ を証明せよ。
+$f\in S_{12}$ と $g\in M_6$ がそれぞれ $f=a_1q+a_2q^2+\cdots$、$g=b_0+b_1q+\cdots$ と展開されるとき、$fg$ の重さと初項を求め、$fg\in S_{18}$ を証明せよ。また $f=\Delta$ のとき零関数でない例になる理由を述べよ。
 
 - Level: B
 - ID: MF2-B1
 
 <!-- solution-start -->
-**詳細解答**　[積の命題](#prop-mf2-basic-properties)の仮定 $f\in M_4$ と $g\in M_6$ が成立するので $fg\in M_{10}$ です。Cauchy積を定数項から計算すると
+**詳細解答**　[積の命題](#prop-mf2-basic-properties)の仮定 $f\in M_{12}$ と $g\in M_6$ が成立するので $fg\in M_{18}$ です。Cauchy積を定数項から計算すると
 
 $$
 fg=(a_1q+a_2q^2+\cdots)(b_0+b_1q+\cdots)
 =a_1b_0q+(a_1b_1+a_2b_0)q^2+\cdots.
 $$
 
-定数項が零なので $fg\in S_{10}$ です。実際に $S_4=\{0\}$ かどうかは、この形式的な積の命題の適用には不要です。
+定数項が零なので $fg\in S_{18}$ です。特に $f=\Delta$ と $g=E_6$ はどちらも本章で構成済みです。積の $q$ 展開は $(q+O(q^2))(1+O(q))=q+O(q^2)$ となるため零関数ではありません。
 <!-- solution-end -->
 
 #### B2. 収束の臨界指数
