@@ -47,7 +47,7 @@ chapters:
     title: "Hermite–Lindemann：算術下界と複素積分上界"
   - id: TRN11
     path: textbook/volumes/dream_thater/代数系/TRN/TRN11
-    status: planned
+    status: completed
     title: "Hermite–Lindemann定理とπの超越性"
   - id: TRN12
     path: textbook/volumes/dream_thater/代数系/TRN/TRN12
