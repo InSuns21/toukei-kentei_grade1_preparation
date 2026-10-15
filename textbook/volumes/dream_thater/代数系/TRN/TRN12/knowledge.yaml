@@ -3,9 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - TRN11
-forward_references:
-  - TRN13
-  - TRN14
+forward_references: []
 
 concepts:
   - id: transcendence.lw-two-exponents-rational-independence
@@ -19,4 +17,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（有理係数の指数関係の対称化）]
-    requires: [transcendence.formal-exponential-sum, transcendence.exponential-evaluation, transcendence.formal-galois-action, transcendence.formal-product-nonzero, transcendence.hl-positive-zero-coefficient]
+    requires: [transcendence.formal-exponential-sum, transcendence.exponential-evaluation, transcendence.formal-galois-action, transcendence.formal-product-nonzero, transcendence.positive-zero-exponent-coefficient]
