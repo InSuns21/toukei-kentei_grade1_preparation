@@ -17,7 +17,7 @@ learning_objectives:
 definitions:
   - { id: EC9-DEF-01, name: 整数Weierstrassモデルと還元 }
   - { id: EC9-DEF-02, name: 良い還元・悪い還元 }
-  - { id: EC9-DEF-03, name: p-最小整モデル・最小判別式指数 }
+  - { id: EC9-DEF-03, name: 局所最小整モデルと最小判別式指数 }
   - { id: EC9-DEF-04, name: 乗法的還元・加法的還元・分裂性 }
   - { id: EC9-DEF-05, name: 導手指数・導手 }
 theorems:
