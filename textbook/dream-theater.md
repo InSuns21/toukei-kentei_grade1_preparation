@@ -734,6 +734,7 @@
 ### Kähler幾何学
 
 1. [KAH1-01 複素構造とHermite計量の出会い](textbook/volumes/dream_thater/幾何系/KAH/KAH1-01/index.md)
+2. [KAH1-02 基本(1,1)形式とKähler条件](textbook/volumes/dream_thater/幾何系/KAH/KAH1-02/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -835,6 +836,7 @@
 11. [TRN11 Hermite–Lindemann定理とπの超越性](textbook/volumes/dream_thater/代数系/TRN/TRN11/index.md)
 12. [TRN12 Lindemann–Weierstrass：有理係数版と共役の有限積](textbook/volumes/dream_thater/代数系/TRN/TRN12/index.md)
 13. [TRN13 有理係数版：補助多項式・非零性・誤差](textbook/volumes/dream_thater/代数系/TRN/TRN13/index.md)
+14. [TRN14 Lindemann–Weierstrass完成・代数的係数版](textbook/volumes/dream_thater/代数系/TRN/TRN14/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
