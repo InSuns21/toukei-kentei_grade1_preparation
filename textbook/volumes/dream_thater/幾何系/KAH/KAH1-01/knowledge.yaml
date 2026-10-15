@@ -1,0 +1,51 @@
+chapter: KAH1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-03
+  - CM2-01
+  - CM2-09
+  - GEO7
+concepts:
+  - id: kahler.compatible-riemannian-metric
+    name: 複素構造と両立するRiemann計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素構造と両立するRiemann計量）"]
+    requires: [complex-manifolds.almost-complex-structure, complex-manifolds.hermitian-metric]
+  - id: kahler.compatibility-skew
+    name: 両立条件と交代性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（両立条件と交代性）"]
+    requires: [kahler.compatible-riemannian-metric]
+  - id: kahler.averaging-compatible-metric
+    name: 平均による両立計量の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均による両立計量の構成）"]
+    requires: [kahler.compatible-riemannian-metric]
+  - id: kahler.fundamental-form
+    name: 基本2形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基本2形式）"]
+    requires: [kahler.compatible-riemannian-metric, geometry.form-wedge-product]
+  - id: kahler.fundamental-form-reconstruction
+    name: 基本2形式の性質と計量の復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基本2形式の性質と計量の復元）"]
+    requires: [kahler.fundamental-form, kahler.compatibility-skew]
+  - id: kahler.hermitian-inner-product-recovery
+    name: 実計量と基本2形式からのHermite内積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実計量と基本2形式からのHermite内積）"]
+    requires: [kahler.fundamental-form, complex-manifolds.hermitian-metric]
+  - id: kahler.kahler-structure
+    name: Hermite構造・Kähler構造・概Kähler構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hermite構造・Kähler構造・概Kähler構造）"]
+    requires: [kahler.fundamental-form, complex-manifolds.canonical-almost-complex-structure]
