@@ -284,7 +284,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（算術下界と複素積分上界の矛盾）**  
-> $K/\mathbb Q$ を $\mathbb C$ 内の有限Galois拡大とし、有限集合 $T\subset K$ と整数 $(c_t)_{t\in T}$ は [TRN9の非零整数定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)の仮定を満たし、さらに
+> $K/\mathbb Q$ を $\mathbb C$ 内の有限Galois拡大とし、有限集合 $T\subset K$ と整数 $(c_t)_{t\in T}$ は [TRN9の補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)の仮定を満たし、さらに
 
 $$
 \sum_{t\in T}c_te^t=0
@@ -306,7 +306,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[TRN9の算術非零定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)により、すべての素数 $p$ について $A_p\in\mathbb Z$ です。$c_0DQ(0)\in\mathbb Z\setminus\{0\}$ は $p$ を選ぶ前に固定した整数です。従ってこれを割らない素数では
+[TRN9の補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)により、すべての素数 $p$ について $A_p\in\mathbb Z$ です。$c_0DQ(0)\in\mathbb Z\setminus\{0\}$ は $p$ を選ぶ前に固定した整数です。従ってこれを割らない素数では
 
 $$
 A_p\equiv c_0D^{p-1}Q(0)^p\not\equiv0\pmod p,
@@ -506,7 +506,7 @@ $$
 A_p\equiv6\cdot2^{p-1}(-5)^p\not\equiv0\pmod p.
 $$
 
-ここで $p$ は $6,2,5$ のいずれも割らないので、積も $p$ で割り切れません。[TRN9の非零整数定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)から $A_p\in\mathbb Z\setminus\{0\}$、従って $|A_p|\ge1$ です。指数関係はこの算術下界の証明には使いません。
+ここで $p$ は $6,2,5$ のいずれも割らないので、積も $p$ で割り切れません。[TRN9の補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)から $A_p\in\mathbb Z\setminus\{0\}$、従って $|A_p|\ge1$ です。指数関係はこの算術下界の証明には使いません。
 <!-- solution-end -->
 
 **TRN10-B4（依存する定数を選んだ失敗例）**  
@@ -550,7 +550,7 @@ $$
 
 [TRN9の整数化補題](../TRN9/index.md#lem-trn9-integerized-roots)に従い、全指数を代数的整数へ移す $D>0$ と $Q(Z)=\prod_{v\in T^\ast}(Z-Dv)\in\mathbb Z[Z]$ を固定します。$m=|T^\ast|$、$f_p(z)=(Dz)^{p-1}Q(Dz)^p/(p-1)!$、$F_p=\sum_{k=0}^{(p-1)+mp}f_p^{(k)}$ とします。$A_p=\sum c_tF_p(t)$ です。
 
-[TRN9の非零整数定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)から $A_p\in\mathbb Z$、さらに
+[TRN9の補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)から $A_p\in\mathbb Z$、さらに
 
 $$
 A_p\equiv c_0D^{p-1}Q(0)^p\pmod p
