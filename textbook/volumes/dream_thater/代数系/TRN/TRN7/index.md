@@ -198,10 +198,10 @@ $F$ の非零係数を持つ有限集合を $S$、$H$ のそれを $T$ としま
 
 任意の $(\lambda,\mu)\in S\times T$ について $\lambda\preceq\lambda_*$、$\mu\preceq\mu_*$ です。まず前者に $\mu$ を、次に後者に $\lambda_*$ を加え、順序が平行移動で保たれることを使うと
 
-$
+$$
 \lambda+\mu\preceq\lambda_*+\mu
 \preceq\lambda_*+\mu_*.
-$
+$$
 
 等号が成り立つには $\lambda=\lambda_*$ かつ $\mu=\mu_*$ が必要です。実際、どちらか一方が真に小さければ、他方が最大以下なので和も真に小さくなります。よって積 $FH$ における $U_{\lambda_*+\mu_*}$ の係数はただ一組から来る
 
@@ -364,9 +364,9 @@ $$
 
 一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。しかし係数をすべて足した数は、$D$ 倍しても
 
-$
+$$
 \sum_{j=1}^m Da_j=D\sum_{j=1}^m a_j
-$
+$$
 
 と変わるだけです。**分母を払っても、零だった係数の総和を非零には変えられません**。この係数の総和を写像として定義してから、整数性と非零性を別々に検証します。
 
@@ -465,10 +465,10 @@ $$
 
 いま $\eta=\varepsilon(F)$ を代入します。$K/\mathbb Q$ が有限Galois拡大なので、分離性によって得られる $\mathbb Q$-埋め込みは $G$ の全元と一致します。したがって[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)をこの乗法写像に適用して
 
-$
+$$
 N_{K/\mathbb Q}(\varepsilon(F))
 =\prod_{\sigma\in G}\sigma(\varepsilon(F))
-$
+$$
 
 を得ます。ここで行列式から共役の積へ移れる理由は、この既習の公式と有限Galois性にあります。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
 <!-- proof-end -->
