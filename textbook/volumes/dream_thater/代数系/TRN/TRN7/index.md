@@ -2,13 +2,21 @@
 
 [Hermiteの定理](../TRN6/index.md#thm-trn6-e-transcendental)では、整数係数の指数関係を仮定し、非零整数の下界と積分上界を衝突させました。しかし指数が $\sqrt2$ のような代数的数になり、係数にも $\sqrt2$ などが混じると、同じ整数合同式をそのまま使えません。共役をまとめて算術的な量を作る準備が必要です。
 
-例えば $K=\mathbb Q(\sqrt2)$ で $\sigma(\sqrt2)=-\sqrt2$ とします。代数的数には $\sigma$ を作用させられますが、一般に $\sigma(e^{\sqrt2})=e^{-\sqrt2}$ と書いてはいけません。左辺は通常の $K$ 上のGalois自己同型の**定義域にありません**。代わりに「代数的指数と係数を持つ**形式的な和**」を作り、そこで共役を取り、最後に指数関数で値を計算します。
+例えば $K=\mathbb Q(\sqrt2)$ で $\sigma(\sqrt2)=-\sqrt2$ とします。$\sigma$ は $K$ の代数的数に作用しますが、一般に $\sigma(e^{\sqrt2})=e^{-\sqrt2}$ と書いてはいけません。自己同型 $\sigma:K\to K$ は **$K$ の元に対してだけ定義**されており、$e^{\sqrt2}$ をその入力とする根拠も、指数関数と作用が交換できる根拠もまだありません。
+
+代わりに「代数的指数と係数を持つ**形式的な和**」を作り、そこで共役を取り、最後に指数関数で値を計算します。
 
 本章の目標は、形式的な有限積が非零であること、複素数への評価後には零にもなり得ること、そして共役不変性から言える整数性の**正確な範囲**を、一つずつ証明することです。
 
 ## 1. 指数和を先に形式的に扱う
 
-$\overline{\mathbb Q}$ は代数的複素数全体です。有限個の代数的な指数 $\alpha_j$ と代数的な係数 $a_j$ を固定すると、[分解体の存在](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence)により、それらの最小多項式の根をすべて含む有限Galois拡大 $K/\mathbb Q$ を選べます。以後 $K\subset\mathbb C$ を固定します。[有限Galois拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)とその自己同型群 $G=\operatorname{Gal}(K/\mathbb Q)$ を用います。
+$\overline{\mathbb Q}$ は代数的複素数全体です。有限個の代数的な指数 $\alpha_j$ と代数的な係数 $a_j$ を固定します。
+
+それぞれの $\mathbb Q$ 上の最小多項式を掛け合わせた多項式を $p(T)\in\mathbb Q[T]$ とし、[分解体の存在](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence)によって $p$ の分解体 $K\subset\mathbb C$ を取ります。
+
+$K/\mathbb Q$ は有限で、[分解体と有限正規拡大の関係](../../FLD/FLD2/index.md#thm-fld2-finite-splitting-equivalence)から正規、[標数0での分離性](../../FLD/FLD2/index.md#cor-fld2-char-zero-algebraic)から分離的です。
+
+ゆえに[有限Galois拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)を満たし、すべての $\alpha_j,a_j$ を含みます。以後この $K$ と自己同型群 $G=\operatorname{Gal}(K/\mathbb Q)$ を用います。
 
 実際の指数和 $\sum_j a_je^{\alpha_j}$ をいきなり共役に移す代わりに、記号 $U_\lambda$（$\lambda\in K$）を考えます。この記号は複素数 $e^\lambda$ そのものではありません。指数の足し算だけを記号の掛け算として表し、
 
@@ -123,7 +131,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共役作用と環演算）**  
-> 上の $K[K,+]$ の任意の $F,H$ と $\sigma,\tau\in G$ について、
+> $K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とする。任意の $F,H\in K[K,+]$ と $\sigma,\tau\in G$ について、
 
 $$
 \sigma\cdot(FH)=(\sigma\cdot F)(\sigma\cdot H),
@@ -176,7 +184,7 @@ $\sigma$ は $K$ の自己同型なので、$\sigma^{-1}$ が存在します。$
 
 <!-- formal-statement-start -->
 > **補題（有限形式指数和の積の非零性）**  
-> $K\subset\mathbb C$ を体とする。$F,H\in K[K,+]$ がともに非零なら $FH\ne0$ である。したがって非零な有限個の形式指数和の積も非零である。
+> $K/\mathbb Q$ を $\mathbb C$ 内の有限Galois拡大とする。$F,H\in K[K,+]$ がともに非零なら $FH\ne0$ である。したがって非零な有限個の形式指数和の積も非零である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -188,10 +196,11 @@ $\sigma$ は $K$ の自己同型なので、$\sigma^{-1}$ が存在します。$
 
 $F$ の非零係数を持つ有限集合を $S$、$H$ のそれを $T$ とします。辞書式順序で最大の指数を $\lambda_*=\max S$、$\mu_*=\max T$ とし、その係数を $a_*\ne0$、$b_*\ne0$ とします。
 
-任意の $(\lambda,\mu)\in S\times T$ について $\lambda\preceq\lambda_*$、$\mu\preceq\mu_*$ です。加法と順序の両立性より、
+任意の $(\lambda,\mu)\in S\times T$ について $\lambda\preceq\lambda_*$、$\mu\preceq\mu_*$ です。まず前者に $\mu$ を、次に後者に $\lambda_*$ を加え、順序が平行移動で保たれることを使うと
 
 $$
-\lambda+\mu\preceq\lambda_*+\mu_*.
+\lambda+\mu\preceq\lambda_*+\mu
+\preceq\lambda_*+\mu_*.
 $$
 
 等号が成り立つには $\lambda=\lambda_*$ かつ $\mu=\mu_*$ が必要です。実際、どちらか一方が真に小さければ、他方が最大以下なので和も真に小さくなります。よって積 $FH$ における $U_{\lambda_*+\mu_*}$ の係数はただ一組から来る
@@ -310,13 +319,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共役不変な形式和の係数関係）**  
-> $H=\sum_{\lambda\in T}B_\lambda U_\lambda\in K[K,+]$ が全ての $\sigma\in G$ に対して $\sigma\cdot H=H$ を満たすなら、$T$ は $G$ の作用で閉じ、全ての $\lambda\in T$ について
+> $K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とする。有限集合 $T\subset K$ と非零係数 $B_\lambda\in K$ からなる $H=\sum_{\lambda\in T}B_\lambda U_\lambda\in K[K,+]$ が全ての $\sigma\in G$ に対して $\sigma\cdot H=H$ を満たすなら、$T$ は $G$ の作用で閉じ、全ての $\lambda\in T$ について
 
 $$
 B_{\sigma(\lambda)}=\sigma(B_\lambda)
 $$
 
-> が成り立つ。ただし $B_\mu=0$ を $\mu\notin T$ にも拡張して考えてよい。とくに $\lambda$ が全ての $\sigma$ で固定される場合だけ、$B_\lambda\in\mathbb Q$ が従う。
+> が成り立つ。ただし $B_\mu=0$ を $\mu\notin T$ にも拡張して考えてよい。とくに $\lambda$ が全ての $\sigma$ で固定されるなら $B_\lambda\in\mathbb Q$ が従う。逆に、$B_\lambda\in\mathbb Q$ だからといって指数 $\lambda$ が固定されるとは限らない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -339,6 +348,8 @@ $B_\lambda\ne0$ なら $\sigma(B_\lambda)\ne0$ です。$H=\sigma\cdot H$ だか
 
 前節の $H=-U_0+sU_s-sU_{-s}$ を見ると、$\sigma$ は $s$ と $-s$ を交換し、係数 $s$ と $-s$ も交換します。従って $H$ は共役不変ですが、$U_s$ の係数 $s$ は**有理数ではありません**。これが「共役積だから各係数は有理数」という誤りの反例です。
 
+また $H'=U_s+U_{-s}$ は指数が入れ替わっても不変で、各係数は有理数です。係数の有理性だけから指数が固定されるとも推論できません。
+
 **別の操作との違い。** $P(Y)=sY+1\in K[Y]$ について係数にだけ共役を作用させれば、
 
 $$
@@ -351,7 +362,13 @@ $$
 
 [TRN2の跡・ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)は、代数的整数の共役全体から通常の整数を作る道具です。しかし本章の $H$ が共役不変だからといって、すべての $B_\lambda$ が整数にはなりません。まず共役**で動かない一つの代数的数**に対して使います。
 
-一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。ただし係数和は $\varepsilon(DF)=D\varepsilon(F)$ なので、**分母を払っても零だった係数和を非零には変えられません**。整数性と非零性の条件は独立に点検します。
+一般の代数的係数 $a_1,\ldots,a_m$ が最初から代数的整数とは限りません。その場合は[TRN2の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)で正整数 $D$ を選び、$Da_j$ をすべて代数的整数にできます。しかし係数をすべて足した数は、$D$ 倍しても
+
+$$
+\sum_{j=1}^m Da_j=D\sum_{j=1}^m a_j
+$$
+
+と変わるだけです。**分母を払っても、零だった係数の総和を非零には変えられません**。この係数の総和を写像として定義してから、整数性と非零性を別々に検証します。
 
 <a id="lem-trn7-fixed-integer"></a>
 
@@ -444,7 +461,16 @@ $$
 =\prod_{\sigma\in G}\sigma(\varepsilon(F)).
 $$
 
-有限Galois拡大は分離拡大で、その $\mathbb Q$-埋め込みは $G$ の全元と一致します。[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)からこれは $N_{K/\mathbb Q}(\varepsilon(F))$ です。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
+[体ノルムの定義](../TRN2/index.md#def-trn2-field-trace-norm)は、$\eta\in K$ に対する $\mathbb Q$-線形写像 $x\mapsto\eta x$ の表現行列の行列式です。
+
+いま $\eta=\varepsilon(F)$ を代入します。$K/\mathbb Q$ が有限Galois拡大なので、分離性によって得られる $\mathbb Q$-埋め込みは $G$ の全元と一致します。したがって[共役による跡・ノルムの公式](../TRN2/index.md#thm-trn2-conjugate-formula)をこの乗法写像に適用して
+
+$$
+N_{K/\mathbb Q}(\varepsilon(F))
+=\prod_{\sigma\in G}\sigma(\varepsilon(F))
+$$
+
+を得ます。ここで行列式から共役の積へ移れる理由は、この既習の公式と有限Galois性にあります。係数が代数的整数なら[和の閉性](../TRN1/index.md#thm-trn1-integral-ring)により $\varepsilon(F)$ も代数的整数なので、[ノルムの整数性](../TRN2/index.md#thm-trn2-integral-trace-norm)で整数となります。$\varepsilon(F)\ne0$ なら各 $\sigma$ は単射なので共役値も非零であり、積は非零です。
 <!-- proof-end -->
 
 ただし **$F\ne0$ だけでは $\varepsilon(F)\ne0$ とは言えません**。例えば $F=U_s-U_{-s}$ は形式的に非零ですが $\varepsilon(F)=1-1=0$ です。従って補助量として係数和のノルムを選ぶ場合には、係数和の非零性を**別途**示す必要があります。後続章でどの算術量を選ぶかは、この区別が鍵になります。
