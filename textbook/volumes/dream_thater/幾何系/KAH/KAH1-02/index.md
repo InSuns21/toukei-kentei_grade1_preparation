@@ -99,7 +99,7 @@ $$
 \end{aligned}
 $$
 
-実性から $\omega$ は実交代形式、$(1,1)$ 型から $\omega(Ju,Jv)=\omega(u,v)$ となる。最後の不変性は $dz(Ju)=i\,dz(u)$ と $d\bar z(Ju)=-i\,d\bar z(u)$ を各外積に代入しても確かめられる。そこで $g_{\mathbb R}(u,v)=\omega(u,Jv)$ と置けば、[復元命題](../KAH1-01/index.md#prop-kah1-01-reconstruction)により対称・正定値・$J$ 両立となり、その基本形式は元の $\omega$ である。係数の滑らかさは $g_{\mathbb R}$ にも受け継がれる。一意性も復元公式から従う。$\square$
+実性から $\omega$ は実交代形式、$(1,1)$ 型から $\omega(Ju,Jv)=\omega(u,v)$ となる。最後の不変性は $dz(Ju)=i\,dz(u)$ と $d\bar z(Ju)=-i\,d\bar z(u)$ を各外積に代入しても確かめられる。そこで $g_{\mathbb R}(u,v)=\omega(u,Jv)$ と置けば、[復元命題](../KAH1-01/index.md#prop-kah1-01-reconstruction)により対称・正定値・$J$ 両立となり、その基本形式は元の $\omega$ である。係数の滑らかさは $g_{\mathbb R}$ にも受け継がれる。復元式 $g_{\mathbb R}(u,v)=\omega(u,Jv)$ は $\omega,J$ が与えられれば値を一つに定めるから、計量の一意性も従う。$\square$
 <!-- proof-end -->
 
 この復元式を正則座標で書けば、$a^i=dz^i(u)$、$b^j=dz^j(v)$ に対して
