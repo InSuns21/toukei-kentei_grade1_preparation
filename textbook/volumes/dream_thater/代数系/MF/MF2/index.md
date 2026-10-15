@@ -128,6 +128,10 @@ $$
 > と置く。ここで $\zeta(k)=\sum_{n\ge1}n^{-k}$ である。$E_k$ を正規化 Eisenstein 級数という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mf2-eisenstein-series -->
+**定義の確認**。$\tau=i$、$k=4$ を選ぶと $(m,n)=(0,1),(0,-1),(1,0)$ の項はそれぞれ $1,1,1$ です。また全ての非零整数対で $mi+n\ne0$ です。絶対値について、$r=\max(|m|,|n|)$ の殻は $8r$ 点で、$|mi+n|^4=(m^2+n^2)^2\ge r^4$ なので、絶対値の総和は $8\sum_{r\ge1}r^{-3}$ 以下で有限です。分母の非零性と収束の両方を直接確認しました。
+<!-- definition-example-end -->
+
 定義が実際に成立するには、分母が零にならないことと収束することの両方が必要です。$\tau\in\mathbb H$ では $m\tau+n=0$ が整数 $m,n$ について成立するのは $(m,n)=(0,0)$ の場合だけです。
 
 <a id="thm-mf2-eisenstein-modularity"></a>
