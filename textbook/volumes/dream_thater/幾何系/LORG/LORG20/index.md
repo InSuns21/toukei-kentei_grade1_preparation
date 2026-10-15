@@ -169,15 +169,15 @@ $$
 > **定理（滑らかな直交時空分割）**  
 > 境界のない連結Hausdorff・第二可算の滑らかな時間向き付き大域双曲Lorentz時空 $(M,g)$ には、滑らかな空間的Cauchy超曲面 $\Sigma$ と微分同相
 >
-> $$
+$
 > F:\mathbb R\times\Sigma\longrightarrow M
-> $$
+$
 >
 > が存在し、$T(F(c,x))=c$ を満たすCauchy temporal function $T$ に対し、引戻し計量が
 >
-> $$
+$
 > F^*g=-\beta(c,x)\,dc^2+h_c
-> $$
+$
 >
 > と書ける。$\beta>0$ は滑らかな関数、$h_c$ は各 $\{c\}\times\Sigma$ 上の正定値な滑らかな計量で、時間方向と空間方向の交差項は零である。
 <!-- formal-statement-end -->
@@ -250,16 +250,16 @@ $$
 > **命題（lapseと単位法線）**  
 > 滑らかなCauchy temporal function $T$ が与える直交分割において、各時刻面の未来向き単位法線ベクトル場 $N$ は
 >
-> $$
+$
 > N=-\frac{\nabla^gT}{\sqrt{-g(\nabla^gT,\nabla^gT)}}
-> $$
+$
 >
 > である。正のlapse関数を $\alpha=\sqrt\beta$ とすると、
 >
-> $$
+$
 > \partial_c=X=\alpha N,\qquad
 > g(N,N)=-1,\qquad dT(N)=\frac1\alpha
-> $$
+$
 >
 > が成り立つ。ここで $\beta=-1/g(\nabla^gT,\nabla^gT)$ である。
 <!-- formal-statement-end -->
