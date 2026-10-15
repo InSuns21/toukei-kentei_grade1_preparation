@@ -20,6 +20,7 @@ definitions:
   - { id: EC9-DEF-03, name: 局所最小整モデルと最小判別式指数 }
   - { id: EC9-DEF-04, name: 乗法的還元・加法的還元・分裂性 }
   - { id: EC9-DEF-05, name: 導手指数・導手 }
+  - { id: EC9-DEF-06, name: 半安定楕円曲線 }
 theorems:
   - { id: EC9-PROP-01, name: 最小判別式による良い還元判定 }
   - { id: EC9-THM-01, name: 還元型と局所導手指数の対応（引用定理） }
