@@ -195,7 +195,7 @@ $$
 
 $$
 \sum_{j=1}^{m}a_je^{\alpha_j}=0.
-$
+$$
 
 > このとき有限Galois拡大 $K/\mathbb Q$ と $K$ の有限集合 $T$、整数 $c_t\in\mathbb Z\setminus\{0\}$（$t\in T$）が存在し、次のすべてを満たす。
 >
