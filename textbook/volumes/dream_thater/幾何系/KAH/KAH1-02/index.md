@@ -101,18 +101,18 @@ $$
 
 実性から $\omega$ は実交代形式となる。また $(1,1)$ 型から $J$ 不変性が従う。これは
 
-$
+$$
 dz^i(Ju)=i\,dz^i(u),\qquad
 d\bar z^j(Ju)=-i\,d\bar z^j(u)
-$
+$$
 
 を各外積に代入して、$\omega(Ju,Jv)=\omega(u,v)$ と直接確かめてもよい。
 
 そこで次の実双線形形式を作る。
 
-$
+$$
 g_{\mathbb R}(u,v)=\omega(u,Jv).
-$
+$$
 
 [基本2形式の性質と計量の復元](../KAH1-01/index.md#prop-kah1-01-reconstruction)により、これは対称・正定値・$J$ 両立となり、その基本形式は元の $\omega$ である。係数の滑らかさも受け継がれる。さらにこの復元式は与えられた $\omega,J$ に対して値を一つに定めるため、計量の一意性も従う。$\square$
 <!-- proof-end -->
@@ -235,11 +235,11 @@ $$
 
 となる。一方 $\partial_{\bar1}(1+|z^1|^2)=z^1$ を使うと
 
-$
+$$
 \bar\partial\omega
 =i z^1\,d\bar z^1\wedge dz^2\wedge d\bar z^2
 =-i z^1\,dz^2\wedge d\bar z^1\wedge d\bar z^2.
-$
+$$
 
 二つの項はそれぞれ $(2,1)$ 型と $(1,2)$ 型なので相殺できない。**正値であっても閉性は破れる**。
 
