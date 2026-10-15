@@ -20,7 +20,7 @@ $$
 
 指数は集合 $T$ の元なので相異なります。この仮定は[TRN12の命題](../TRN12/index.md#prop-trn12-rational-symmetric-reduction)の結論そのものです。以後、$T,K,(c_t)$ は素数 $p$ を選ぶ**前**に固定します。
 
-各 $t$ は代数的です。[代数的数の共通分母消去](../TRN2/index.md#prop-trn2-common-denominator)により、正整数 $D$ を選んで全 $u_t=Dt$ を代数的整数にできます。以下の $D$ も固定したままにします。
+各 $t$ は代数的です。[代数的数の共通分母消去](../TRN2/index.md#lem-trn2-denominator-clearing)により、正整数 $D$ を選んで全 $u_t=Dt$ を代数的整数にできます。以下の $D$ も固定したままにします。
 
 <a id="lem-trn13-integer-root-polynomial"></a>
 
@@ -253,7 +253,7 @@ $$
 A_{p,a}=\sum_{t\in T}c_tF_{p,a}(t)\in\mathcal O_K
 $$
 
-を作ります。一般の $a$ では $f_{p,a}$ の係数が有理数でないため、$A_{p,a}$ がただちに通常の整数とは限りません。ここで[TRN2のノルムと共役積](../TRN2/index.md#thm-trn2-trace-norm-integral)を使います。
+を作ります。一般の $a$ では $f_{p,a}$ の係数が有理数でないため、$A_{p,a}$ がただちに通常の整数とは限りません。ここで[TRN2のノルムと共役積](../TRN2/index.md#thm-trn2-integral-trace-norm)を使います。
 
 $a$ を固定して $\Delta_a=H_a(u_a)=\prod_{t\ne a}(u_a-u_t)$ と置けば、$\Delta_a\in\mathcal O_K\setminus\{0\}$ です。$K/\mathbb Q$ のノルム $N_{K/\mathbb Q}(\Delta_a)$ は非零整数となります。
 
@@ -295,7 +295,7 @@ A_{p,a}
 \pmod{p\mathcal O_K}.
 $$
 
-右辺の代表を $S_{p,a}=c_aD^{p-1}\Delta_a^p$ とします。これも代数的整数です。$d=[K:\mathbb Q]=|G|$ とすると、[ノルムの乗法性](../TRN2/index.md#prop-trn2-norm-multiplicative)から
+右辺の代表を $S_{p,a}=c_aD^{p-1}\Delta_a^p$ とします。これも代数的整数です。$d=[K:\mathbb Q]=|G|$ とすると、[ノルムの乗法性](../TRN2/index.md#thm-trn2-conjugate-formula)から
 
 $$
 N_{K/\mathbb Q}(S_{p,a})
@@ -314,7 +314,7 @@ $$
 
 となり矛盾します。したがって $A_{p,a}\ne0$ です。
 
-$A_{p,a}\in\mathcal O_K$ であり、[代数的整数の共役とノルム](../TRN2/index.md#thm-trn2-trace-norm-integral)により $B_{p,a}$ は整数です。さらに $A_{p,a}\ne0$ なので各 $\sigma(A_{p,a})\ne0$、有限積 $B_{p,a}\ne0$ です。非零整数の絶対値は1以上です。$\square$
+$A_{p,a}\in\mathcal O_K$ であり、[代数的整数の共役とノルム](../TRN2/index.md#thm-trn2-integral-trace-norm)により $B_{p,a}$ は整数です。さらに $A_{p,a}\ne0$ なので各 $\sigma(A_{p,a})\ne0$、有限積 $B_{p,a}\ne0$ です。非零整数の絶対値は1以上です。$\square$
 <!-- proof-end -->
 
 ここでは $A_{p,a}$ のノルムを使いました。**指数関数値 $e^t$ にGalois自己同型を作用させたわけではありません。** 評価した複素指数和と、代数的整数を共役で掛ける操作は別です。
@@ -583,7 +583,7 @@ $\operatorname{Re}t=-1$ より $|e^{(1-s)t}|=e^{-(1-s)}\le1$、線分長は $|t|
 ### Level B：合同・共役・積分を接続する
 
 **TRN13-B1（高階微分の $p$ 可除性）**  
-$P(Z)\in\mathcal O_K[Z]$、$u\in\mathcal O_K$、$D\in\mathbb Z$ とし、$f(z)=P(Dz)/(p-1)!$ とする。$k\ge p$ のとき $f^{(k)}(u/D)\in p\mathcal O_K$ を示せ。
+$P(Z)\in\mathcal O_K[Z]$、$u\in\mathcal O_K$、$D\in\mathbb Z_{>0}$ とし、$f(z)=P(Dz)/(p-1)!$ とする。$k\ge p$ のとき $f^{(k)}(u/D)\in p\mathcal O_K$ を示せ。
 
 - Level: B
 
@@ -730,7 +730,7 @@ $$
 \Delta_a=\prod_{t\ne a}D(a-t)\ne0
 $$
 
-です。各差は代数的整数であり、$\Delta_a\in\mathcal O_K$ です。従って [TRN2のノルム](../TRN2/index.md#thm-trn2-trace-norm-integral)から $N(\Delta_a)\in\mathbb Z\setminus\{0\}$ です。固定整数 $E_a=c_aD N(\Delta_a)$ を割る素数を除外します。
+です。各差は代数的整数であり、$\Delta_a\in\mathcal O_K$ です。従って [TRN2のノルム](../TRN2/index.md#thm-trn2-integral-trace-norm)から $N(\Delta_a)\in\mathbb Z\setminus\{0\}$ です。固定整数 $E_a=c_aD N(\Delta_a)$ を割る素数を除外します。
 
 このとき合同
 
