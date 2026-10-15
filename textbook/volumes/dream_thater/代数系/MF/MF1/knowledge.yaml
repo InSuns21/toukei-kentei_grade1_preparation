@@ -1,0 +1,72 @@
+chapter: MF1
+scope: dream-theater
+coverage: complete
+prerequisites: [CA8, CA9, CA12, GRP3, NT2, NT3, NT4]
+forward_references: []
+concepts:
+  - id: modular-forms.upper-half-plane
+    name: 上半平面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上半平面）"]
+    requires: []
+  - id: modular-forms.oriented-lattice-parameter
+    name: 正向き格子パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正向き格子パラメータ）"]
+    requires: [modular-forms.upper-half-plane, complex-analysis.complex-lattice]
+  - id: modular-forms.modular-group
+    name: 整数モジュラー群と射影モジュラー群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数モジュラー群と射影モジュラー群）"]
+    requires: []
+  - id: modular-forms.fractional-action
+    name: 一次分数変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次分数変換）"]
+    requires: [modular-forms.modular-group, modular-forms.upper-half-plane]
+  - id: modular-forms.imaginary-action
+    name: 上半平面への群作用と虚部公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（上半平面への群作用と虚部公式）"]
+    requires: [modular-forms.fractional-action, algebra.group-action]
+  - id: modular-forms.generators
+    name: モジュラー群の生成元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（モジュラー群の生成元）"]
+    requires: [modular-forms.modular-group]
+  - id: modular-forms.lattice-orbit
+    name: 格子の相似類とモジュラー群の軌道
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（格子の相似類とモジュラー群の軌道）"]
+    requires: [modular-forms.oriented-lattice-parameter, modular-forms.imaginary-action, complex-analysis.complex-lattice]
+  - id: modular-forms.standard-domain
+    name: 標準基本領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準基本領域）"]
+    requires: [modular-forms.upper-half-plane, modular-forms.fractional-action]
+  - id: modular-forms.fundamental-domain
+    name: 基本領域の存在と内部での一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基本領域の存在と内部での一意性）"]
+    requires: [modular-forms.standard-domain, modular-forms.imaginary-action, modular-forms.generators]
+  - id: modular-forms.rational-boundary
+    name: 拡張有理境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（拡張有理境界）"]
+    requires: [modular-forms.modular-group]
+  - id: modular-forms.one-cusp-orbit
+    name: 拡張有理境界は一つの軌道
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（拡張有理境界は一つの軌道）"]
+    requires: [modular-forms.rational-boundary]

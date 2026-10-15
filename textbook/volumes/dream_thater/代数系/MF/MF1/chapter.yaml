@@ -1,0 +1,44 @@
+id: "MF1"
+title: "上半平面・格子・モジュラー群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA8
+  - CA9
+  - CA12
+  - GRP3
+  - NT2
+  - NT3
+  - NT4
+official_scope: []
+learning_objectives:
+  - 正向きの格子基底を周期比で表し、上半平面に入る条件を直接確認できる
+  - SL_2(Z)の一次分数変換と虚部公式を導き、作用の核を証明できる
+  - Euclid互除法によってSとTがSL_2(Z)を生成することを再現できる
+  - 格子の複素相似とモジュラー群の軌道が一致することを両方向に証明できる
+  - 基本領域の存在と内部の一意性を虚部最大化から証明でき、境界での注意を説明できる
+  - 有理境界と無限遠の軌道からカスプへの入口を説明できる
+definitions:
+  - { id: MF1-DEF-01, name: 上半平面 }
+  - { id: MF1-DEF-02, name: 正向き格子パラメータ }
+  - { id: MF1-DEF-03, name: 整数モジュラー群と射影モジュラー群 }
+  - { id: MF1-DEF-04, name: 一次分数変換 }
+  - { id: MF1-DEF-05, name: 標準基本領域 }
+  - { id: MF1-DEF-06, name: 拡張有理境界 }
+theorems:
+  - { id: MF1-THM-01, name: 上半平面への群作用と虚部公式 }
+  - { id: MF1-THM-02, name: モジュラー群の生成元 }
+  - { id: MF1-THM-03, name: 格子の相似類とモジュラー群の軌道 }
+  - { id: MF1-THM-04, name: 基本領域の存在と内部での一意性 }
+  - { id: MF1-THM-05, name: 拡張有理境界は一つの軌道 }
+canonical_examples:
+  - 正方格子の基底変換TとS
+  - iと2iの基本領域の判定
+  - iを固定する四つの整数行列
+  - 格子Z+ZiとZ+Z(1+i)/2の相似
+  - 無限遠から有理境界2/3への作用
+problem_patterns: [MF1-A1, MF1-A2, MF1-A3, MF1-A4, MF1-B1, MF1-B2, MF1-B3, MF1-B4, MF1-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 6, review: 3 }
