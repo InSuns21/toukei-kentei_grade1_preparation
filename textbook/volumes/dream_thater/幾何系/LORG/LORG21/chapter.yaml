@@ -1,0 +1,48 @@
+id: "LORG21"
+title: "時空模型の総合演習とHPDE接続"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG3
+  - LORG6
+  - LORG10
+  - LORG11
+  - LORG12
+  - LORG13
+  - LORG15
+  - LORG16
+  - LORG17
+  - LORG18
+  - LORG20
+official_scope: []
+learning_objectives:
+  - Minkowski平面のI±・J±・依存領域・時間分離を端点条件付きで再計算できる
+  - 空間周期の静的積の因果関係と時間分離を被覆空間への持ち上げから導ける
+  - 静的積のCauchy面と大域双曲性を因果速度の評価から証明できる
+  - 点除去模型で非延長曲線の逃避と依存領域の厳密境界を判定できる
+  - 点除去模型で因果単純性と最大化の失敗を曲線列で説明できる
+  - 時間周期商の閉時間的曲線・全域的未来・無限時間分離を証明できる
+  - Cauchy時間分割と逆計量・法線をHPDEへの入力として計算できる
+  - 大域双曲性を用いる幾何学定理とHPDEの解析的証明責務を区別できる
+definitions: []
+theorems:
+  - { id: LORG21-PROP-01, name: 空間周期の静的積の因果構造 }
+  - { id: LORG21-PROP-02, name: 原点除去時空の全初期スライスの依存領域 }
+  - { id: LORG21-PROP-03, name: 時間周期商の全域時間的未来 }
+canonical_examples:
+  - Minkowski平面の未来錐と閉初期区間の依存ダイヤモンド
+  - 空間円周の最短弧と長さを最大化する二本の曲線
+  - 点除去模型の光的境界の欠落と上限非達成
+  - 時間周期商の閉時間的曲線と無限時間分離
+  - 静的積の逆計量・Cauchy面・単位法線
+problem_patterns:
+  - LORG21-CAUSAL-SET-DIAGNOSIS
+  - LORG21-DEPENDENCE-DOMAIN
+  - LORG21-SPATIAL-COVERING-LIFT
+  - LORG21-PUNCTURE-AND-NONATTAINMENT
+  - LORG21-TIMELIKE-CLOSED-CURVES
+  - LORG21-HPDE-GEOMETRIC-DATA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 12, review: 9 }
