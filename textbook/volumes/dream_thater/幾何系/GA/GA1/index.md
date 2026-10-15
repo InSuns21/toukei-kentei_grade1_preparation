@@ -1,4 +1,4 @@
-# GA1 Laplace--Beltrami作用素からGreen公式・弱形式へ
+# GA1 Laplace--Beltrami作用素・Green公式・弱形式
 
 [微分幾何学で導入したRiemann計量](../../GEO/GEO12/index.md#def-geo12-riemannian-metric)は長さと体積を決め、[Laplace--Beltrami作用素](../../GEO/GEO12/index.md#def-geo12-div-laplacian)も定めました。しかし作用素の座標式だけでは、方程式を解く際に境界で何が必要か、解が一意になるか、なぜ「弱い意味の解」が登場するかは分かりません。
 
