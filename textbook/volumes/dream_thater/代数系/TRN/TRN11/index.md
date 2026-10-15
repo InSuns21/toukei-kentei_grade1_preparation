@@ -392,7 +392,15 @@ $\pi$ が代数的と仮定した場合に $i\pi$ が [Hermite–Lindemannの定
 <!-- solution-start -->
 **詳細解答**
 
-$i^2+1=0$ だから $i$ は整数係数の非零多項式 $X^2+1$ の根、すなわち代数的数です。仮定により $\pi$ も代数的なので、$\mathbb Q(i,\pi)/\mathbb Q$ は有限拡大です。その体に属する $i\pi$ は [有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic) により代数的です。さらに $i\ne0$ と $\pi>0$ から $i\pi\ne0$ です。したがって主定理の二つの仮定を満たします。しかし $e^{i\pi}=\cos\pi+i\sin\pi=-1$ は $Y+1$ の根で代数的です。これが矛盾となります。
+$i^2+1=0$ だから $i$ は整数係数の非零多項式 $X^2+1$ の根、すなわち代数的数です。仮定により $\pi$ も代数的なので、$\mathbb Q(i,\pi)/\mathbb Q$ は有限拡大です。その体に属する $i\pi$ は [有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic) により代数的です。
+
+また $i\ne0$ と $\pi>0$ から $i\pi\ne0$ です。したがって、主定理の「指数が非零かつ代数的」という二条件を満たします。一方、複素指数のEuler表示により
+
+$$
+e^{i\pi}=\cos\pi+i\sin\pi=-1,\qquad (-1)+1=0
+$$
+
+です。$-1$ は $Y+1\in\mathbb Q[Y]$ の根で代数的なので、主定理の結論と矛盾します。
 <!-- solution-end -->
 
 ### Level B：証明の仕組みを自力でつなぐ
