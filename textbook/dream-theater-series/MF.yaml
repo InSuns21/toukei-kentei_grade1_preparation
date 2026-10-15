@@ -16,7 +16,7 @@ chapters:
     title: "モジュラー形式・q展開・Eisenstein級数"
   - id: MF3
     path: textbook/volumes/dream_thater/代数系/MF/MF3
-    status: planned
+    status: completed
     title: "valence formulaと環構造"
   - id: MF4
     path: textbook/volumes/dream_thater/代数系/MF/MF4
