@@ -1,0 +1,37 @@
+id: "KAH1-02"
+title: "基本(1,1)形式とKähler条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-01
+  - CM2-02
+official_scope: []
+learning_objectives:
+  - 正の実(1,1)形式を定義し直接例で実性・型・正値性を検証できる
+  - 基本形式のHermite係数行列と実計量の復元公式を導出できる
+  - 外微分の型分解からKähler閉性の局所係数条件を証明できる
+  - 複素次元1の特殊性と正だが非閉な二次元の例を説明できる
+  - 局所ポテンシャルの複素Hessianから正値性と閉性を証明できる
+  - 行列のパラメータ条件と閉性条件を同時に分類できる
+definitions:
+  - { id: KAH1-02-DEF-01, name: 正の実(1,1)形式 }
+theorems:
+  - { id: KAH1-02-PROP-01, name: 正の基本形式とHermite行列 }
+  - { id: KAH1-02-THM-01, name: Kähler閉性の局所係数条件 }
+  - { id: KAH1-02-PROP-02, name: 局所ポテンシャルからのKähler形式 }
+canonical_examples:
+  - Euclid計量と複素正規化の係数1/2
+  - 非対角定数Hermite行列の平方完成
+  - 複素二次元の正値だが非Kählerとなる局所計量
+  - 混合項を持つ正の局所ポテンシャル
+problem_patterns:
+  - KAH1-02-POSITIVE-ELEVEN
+  - KAH1-02-HERMITIAN-MATRIX
+  - KAH1-02-LOCAL-CLOSEDNESS
+  - KAH1-02-NON-KAHLER
+  - KAH1-02-POTENTIAL
+  - KAH1-02-PARAMETER-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
