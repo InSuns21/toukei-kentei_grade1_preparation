@@ -61,7 +61,15 @@ R=\sum_{t\in T}c_tU_t,\qquad
 c_0=\sum_{\lambda\in S}B_\lambda^2>0
 $$
 
-が得られます。$T\subset K$ は有限な相異なる指数の集合で $0\in T$、各 $c_t\in\mathbb Z\setminus\{0\}$ です。$R$ は共役不変なので、全 $\sigma\in G$ に対して
+が得られます。$T\subset K$ は有限な相異なる指数の集合で $0\in T$、各 $c_t\in\mathbb Z\setminus\{0\}$ です。ここで0以外の指数も含めた係数を展開すると、任意の $u\in K$ に対して
+
+$
+c_u=\sum_{\substack{\lambda,\mu\in S\\\lambda-\mu=u}}B_\lambda B_\mu
+$
+
+です。組 $(\lambda,\mu)$ を $(\mu,\lambda)$ と入れ替えると、指数は $u$ から $-u$ へ変わり積 $B_\lambda B_\mu$ は変わりません。よって $c_{-u}=c_u$、従って $T=-T$ です。
+
+また $H$ は [TRN8の整数係数共役積](../TRN8/index.md#prop-trn8-integral-conjugate-product) により共役不変で、$\sigma(-\lambda)=-\sigma(\lambda)$ です。そのため $\sigma\cdot H^\vee=(\sigma\cdot H)^\vee=H^\vee$ となり、$R=HH^\vee$ も共役不変です。従って全 $\sigma\in G$ に対して
 
 $$
 \sigma(T)=T,\qquad c_{\sigma(t)}=c_t
@@ -246,7 +254,7 @@ $$
 であり、$-1$ は $Y+1\in\mathbb Q[Y]$ の根です。超越性と代数性が矛盾するため、$\pi$ は超越数です。$\square$
 <!-- proof-end -->
 
-この帰結から、任意の零でない有理数 $r$ に対して $r\pi$ も超越数だと分かります。もし $r\pi$ が代数的なら、代数的数の積の閉性から $\pi=r^{-1}(r\pi)$ も代数的になるためです。特に $2\pi$ も超越数です。
+この帰結から、任意の零でない有理数 $r$ に対して $r\pi$ も超越数だと分かります。もし $r\pi$ が代数的なら $\mathbb Q(r\pi)/\mathbb Q$ は有限拡大です。$r^{-1}\in\mathbb Q$ なので $\pi=r^{-1}(r\pi)\in\mathbb Q(r\pi)$ となり、[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic) により $\pi$ も代数的になるためです。特に $2\pi$ も超越数です。
 
 ## 3. 指数関数はどこで単射になるか
 
@@ -384,7 +392,7 @@ $\pi$ が代数的と仮定した場合に $i\pi$ が [Hermite–Lindemannの定
 <!-- solution-start -->
 **詳細解答**
 
-$i^2+1=0$ だから $i$ は整数係数の非零多項式 $X^2+1$ の根、すなわち代数的数です。仮定により $\pi$ も代数的なので、代数的数の積の閉性から $i\pi$ は代数的です。さらに $i\ne0$ と $\pi>0$ から $i\pi\ne0$ です。したがって主定理の二つの仮定を満たします。しかし $e^{i\pi}=\cos\pi+i\sin\pi=-1$ は $Y+1$ の根で代数的です。これが矛盾となります。
+$i^2+1=0$ だから $i$ は整数係数の非零多項式 $X^2+1$ の根、すなわち代数的数です。仮定により $\pi$ も代数的なので、$\mathbb Q(i,\pi)/\mathbb Q$ は有限拡大です。その体に属する $i\pi$ は [有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic) により代数的です。さらに $i\ne0$ と $\pi>0$ から $i\pi\ne0$ です。したがって主定理の二つの仮定を満たします。しかし $e^{i\pi}=\cos\pi+i\sin\pi=-1$ は $Y+1$ の根で代数的です。これが矛盾となります。
 <!-- solution-end -->
 
 ### Level B：証明の仕組みを自力でつなぐ
@@ -441,7 +449,7 @@ $\alpha,\beta\in\overline{\mathbb Q}$ で $e^\alpha=e^\beta$ と仮定したと�
 <!-- solution-start -->
 **詳細解答**
 
-複素指数の積公式で $e^{\alpha-\beta}=e^\alpha/e^\beta=1$ です。$\alpha-\beta$ は代数的数です。もし差が非零なら [主定理](#thm-trn11-hermite-lindemann)からその指数値は超越数となり、代数的数1と矛盾します。従って $\alpha=\beta$ です。
+[複素指数関数の積公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential) と $e^\beta\ne0$ から $e^{\alpha-\beta}=e^\alpha/e^\beta=1$ です。$\mathbb Q(\alpha,\beta)/\mathbb Q$ は有限拡大で、差 $\alpha-\beta$ はその体に属するため、[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic) により代数的数です。もし差が非零なら [主定理](#thm-trn11-hermite-lindemann)からその指数値は超越数となり、代数的数1と矛盾します。従って $\alpha=\beta$ です。
 
 一方 $2\pi i\ne0$ ですが $e^{2\pi i}=(e^{i\pi})^2=(-1)^2=1=e^0$ です。ただし $\pi$ は[上の系](#cor-trn11-pi-transcendental)により超越数であり、$2\pi i$ も代数的ではありません。この反例は代数的数に限定した命題には反しません。
 <!-- solution-end -->
