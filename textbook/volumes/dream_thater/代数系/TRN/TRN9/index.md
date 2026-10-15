@@ -553,7 +553,15 @@ $K/\mathbb Q$ を有限Galois拡大、$T\subset K$ を相異なる代数的数�
 <!-- solution-start -->
 **詳細解答**
 
-[分母消去補題](../TRN2/index.md#lem-trn2-denominator-clearing)を有限個の $t\in T$ に適用し、$Dt$ が全て代数的整数となる $D>0$ を取ります。$u_t=Dt$ とします。$G$ は $u_t$ を $u_{\sigma(t)}$ へ送るので、$Q(Z)=\prod_{t\in T^\ast}(Z-u_t)$ は共役不変で有理係数です。係数は代数的整数の和と積でもあるため、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から $Q\in\mathbb Z[Z]$ です。非0点の $u_t$ は全て0でないので $Q(0)\ne0$ です。
+[分母消去補題](../TRN2/index.md#lem-trn2-denominator-clearing)を有限個の $t\in T$ に適用し、$Dt$ が全て代数的整数となる正整数 $D$ を取ります。$u_t=Dt$ と置きます。
+
+$G$ は $u_t$ を $u_{\sigma(t)}$ へ送るため、次の多項式は共役で不変です。
+
+$
+Q(Z)=\prod_{t\in T^\ast}(Z-u_t).
+$
+
+従って $Q$ は有理係数です。他方、その係数は代数的整数の和と積なので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)により $Q\in\mathbb Z[Z]$ です。非零の $t$ に対する $u_t$ は0でないため、$Q(0)\ne0$ です。
 
 $s=|T^\ast|$ とし、$H_p(Z)=Z^{p-1}Q(Z)^p$ を置きます。$f_p(X)=H_p(DX)/(p-1)!$ の次数は $N_p=p-1+sp$ です。$Q(0)\ne0$ より0点の零点重複度は $p-1$、$T^\ast$ の根は相異なるので各 $t\ne0$ では $Q(DX)^p$ によりちょうど $p$ です。従って $f_p^{(k)}(0)=0$ ($k<p-1$)、$f_p^{(k)}(t)=0$ ($t\ne0,k<p$) です。
 
