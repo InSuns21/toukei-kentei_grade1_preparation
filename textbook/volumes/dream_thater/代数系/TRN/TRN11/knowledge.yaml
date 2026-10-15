@@ -1,0 +1,32 @@
+chapter: TRN11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN10
+forward_references: []
+
+concepts:
+  - id: transcendence.hermite-lindemann-theorem
+    name: Hermite–Lindemannの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hermite–Lindemannの定理）]
+    requires: [transcendence.balanced-algebraic-exponential-relation, transcendence.hl-arithmetic-nonzero, transcendence.hl-arithmetic-analytic-clash]
+  - id: transcendence.pi-transcendence
+    name: πの超越性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（πの超越性）]
+    requires: [transcendence.hermite-lindemann-theorem]
+  - id: transcendence.algebraic-exponential-injectivity
+    name: 代数的指数上の単射性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（代数的指数上の単射性）]
+    requires: [transcendence.hermite-lindemann-theorem]
+  - id: transcendence.algebraic-logarithm-transcendence
+    name: 代数的数の対数値
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（代数的数の対数値）]
+    requires: [transcendence.hermite-lindemann-theorem]

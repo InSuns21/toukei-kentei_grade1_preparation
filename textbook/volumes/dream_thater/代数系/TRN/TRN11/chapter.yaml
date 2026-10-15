@@ -1,0 +1,41 @@
+id: "TRN11"
+title: "Hermite–Lindemann定理とπの超越性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN10
+official_scope: []
+learning_objectives:
+  - "零でない代数的指数の指数関数値が代数的だという仮定から整数係数の形式指数和を構成できる"
+  - "Galois共役積と指数反転積から正整数の0係数と共役不変な有限指数関係を導出できる"
+  - "非零整数の素数合同下界と複素線分積分の階乗上界を同じ微分和で接続してHermite–Lindemannを証明できる"
+  - "例外素数を避ける手順と評価定数の素数非依存性を説明できる"
+  - "Eulerの恒等式を用いてπの超越性を仮定から証明できる"
+  - "指数関数の代数的指数上の単射性と複素数全体での非単射性を区別できる"
+  - "非零かつ1でない代数的数の任意の複素対数値の超越性を説明できる"
+theorems:
+  - { id: TRN11-THM-01, name: Hermite–Lindemannの定理 }
+  - { id: TRN11-COR-01, name: πの超越性 }
+  - { id: TRN11-PROP-01, name: 代数的指数上の単射性 }
+  - { id: TRN11-COR-02, name: 代数的数の対数値の超越性 }
+canonical_examples:
+  - "0の指数を除外する必要性と形式和の非零性"
+  - "平方和で得る0係数：2U0+Us+U−s"
+  - "c0=6, D=1, Q(0)=−1 のp=5合同"
+  - "e^{iπ}=−1とπの超越性"
+  - "0と2πiは複素指数関数の非単射性を示す"
+problem_patterns:
+  - TRN11-POLYNOMIAL-RELATION
+  - TRN11-REFLECTION-ZERO-COEFFICIENT
+  - TRN11-EXCEPTIONAL-PRIME
+  - TRN11-EULER-PI
+  - TRN11-GALOIS-SYMMETRIZATION
+  - TRN11-FACTORIAL-BOUND
+  - TRN11-ALGEBRAIC-INJECTIVITY
+  - TRN11-LOGARITHMS
+  - TRN11-ARITHMETIC-ANALYTIC-FULL
+  - TRN11-HERMITE-LINDEMANN-FULL
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []

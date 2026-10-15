@@ -827,6 +827,7 @@
 8. [TRN8 Hermite–Lindemann：仮定と対称化](textbook/volumes/dream_thater/代数系/TRN/TRN8/index.md)
 9. [TRN9 Hermite–Lindemann：多重零点と整数性](textbook/volumes/dream_thater/代数系/TRN/TRN9/index.md)
 10. [TRN10 Hermite–Lindemann：算術下界と複素積分上界](textbook/volumes/dream_thater/代数系/TRN/TRN10/index.md)
+11. [TRN11 Hermite–Lindemann定理とπの超越性](textbook/volumes/dream_thater/代数系/TRN/TRN11/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
