@@ -621,7 +621,14 @@ $\mathbb F_2$ 上の $E:y^2+y=x^3+x$ は $N_1=5$ である。$a_2$、$N_2$、$N_
 <!-- solution-start -->
 ### 詳細解答
 
-[EC7の全点列挙](../EC7/index.md#def-ec7-trace)により $a_2=2+1-5=-2$ です。[拡大体上の点数公式の漸化式](#thm-ec8-extension-counts) $s_0=2,s_1=-2,s_n=-2s_{n-1}-2s_{n-2}$ より
+[EC7の全点列挙](../EC7/index.md#def-ec7-trace)により $a_2=2+1-5=-2$ です。[拡大体上の点数公式の漸化式](#thm-ec8-extension-counts)に $q=2,a_q=-2$ を入れると
+
+$$
+s_0=2,\qquad s_1=-2,\qquad
+s_n=-2s_{n-1}-2s_{n-2}\quad(n\ge2)
+$$
+
+となるので、
 
 $$
 s_2=(-2)(-2)-2(2)=0,\qquad
@@ -665,7 +672,21 @@ $$
 
 ゆえに $B(1,v^2)=-2d$、$D(v^2+d1)=d^2-2d^2+d^2=0$。非零の元の次数は正なので $v^2=-d1$ です。展開して $u^2-\tau(u)u+D(u)1=0$ を得ます。$u=\pi$ では $D(\pi)=q$、$\tau(\pi)=a_q$ だから求める二次関係式となります。
 
-**(iii)** $t_n=B(1,\pi^n)$ とすると $t_0=2$、$t_1=a_q$。二次関係式に $\pi^{n-2}$ を掛け、$B$ の線形性から $t_n=a_qt_{n-1}-qt_{n-2}$ です。一方 $U^2-a_qU+q$ の根 $\alpha,\beta$ の冪和は同じ漸化式・初期値を満たすので $t_n=\alpha^n+\beta^n$。[EC7の固定点定理](../EC7/index.md#thm-ec7-fixed-points)で $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$d(\pi^n)_O=0$ なので $d(1-\pi^n)_O=1$、従って $1-\pi^n$ は分離的です。[EC7の差の射の次数の証明](../EC7/index.md#prop-ec7-one-minus-frobenius)と同じく核の点数が次数に等しいため
+**(iii)** $t_n=B(1,\pi^n)$ とすると $t_0=2$、$t_1=a_q$ です。[Frobeniusの二次関係式](#thm-ec8-frobenius-polynomial)に $\pi^{n-2}$ を合成し、$B(1,\cdot)$ の加法性を適用すると
+
+$$
+t_n=a_qt_{n-1}-qt_{n-2}\qquad(n\ge2)
+$$
+
+を得ます。$U^2-a_qU+q$ の根 $\alpha,\beta$ の冪和も同じ漸化式と初期値を満たすため、$t_n=\alpha^n+\beta^n$ です。
+
+[EC7の固定点定理](../EC7/index.md#thm-ec7-fixed-points)から $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は $q^n$ 乗Frobeniusなので原点での微分が零となり、
+
+$$
+d(1-\pi^n)_O=1-d(\pi^n)_O=1\ne0
+$$
+
+です。よって $1-\pi^n$ は分離的であり、[EC7の差の射の次数の証明](../EC7/index.md#prop-ec7-one-minus-frobenius)と同じく核の点数が次数に等しいため
 
 $$
 N_n=\deg(1-\pi^n)=1+q^n-t_n
