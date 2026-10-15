@@ -1,0 +1,38 @@
+id: "TRN9"
+title: "Hermite–Lindemann：多重零点と整数性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN8
+official_scope: []
+learning_objectives:
+  - "共役不変な代数的指数集合の分母を払い整数係数消滅多項式を構成できる"
+  - "多重零点の補助多項式を作り0点と非0点での重複度を証明できる"
+  - "階乗で割った微分値が代数的整数となることを二項係数から導出できる"
+  - "特別微分値と非特別微分値をpを法として区別できる"
+  - "Galois不変性を用いて重み付き微分和が通常の整数であることを証明できる"
+  - "例外素数を有限個に限定して算術的非零性を確定できる"
+theorems:
+  - { id: TRN9-LEM-01, name: 整数化した指数の消滅多項式 }
+  - { id: TRN9-PROP-01, name: 評価点の零点重複度 }
+  - { id: TRN9-LEM-02, name: 代数的整数点での階乗可除性 }
+  - { id: TRN9-PROP-02, name: 端点微分和の合同 }
+  - { id: TRN9-THM-01, name: 補助微分和から作る非零整数 }
+canonical_examples:
+  - "共役な非整数指数からZ^2-2を得る"
+  - "二点・三点のp=3における零点と特別微分値"
+  - "代数的整数値の共役和が通常の整数になること"
+problem_patterns:
+  - TRN9-INTEGERIZED-ROOTS
+  - TRN9-ZERO-MULTIPLICITY
+  - TRN9-FACTORIAL-DERIVATIVES
+  - TRN9-SPECIAL-ENDPOINT
+  - TRN9-THREE-POINT-CONGRUENCE
+  - TRN9-ALGEBRAIC-CONJUGATES
+  - TRN9-GALOIS-INTEGER
+  - TRN9-EXCEPTIONAL-PRIMES
+  - TRN9-FULL-ARITHMETIC-CONSTRUCTION
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []

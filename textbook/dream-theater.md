@@ -824,6 +824,7 @@
 6. [TRN6 Hermiteの定理：eの超越性](textbook/volumes/dream_thater/代数系/TRN/TRN6/index.md)
 7. [TRN7 共役に関する対称化と代数的係数](textbook/volumes/dream_thater/代数系/TRN/TRN7/index.md)
 8. [TRN8 Hermite–Lindemann：仮定と対称化](textbook/volumes/dream_thater/代数系/TRN/TRN8/index.md)
+9. [TRN9 Hermite–Lindemann：多重零点と整数性](textbook/volumes/dream_thater/代数系/TRN/TRN9/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論

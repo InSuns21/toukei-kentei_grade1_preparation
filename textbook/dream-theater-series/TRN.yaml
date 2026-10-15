@@ -39,7 +39,7 @@ chapters:
     title: "Hermite–Lindemann：仮定と対称化"
   - id: TRN9
     path: textbook/volumes/dream_thater/代数系/TRN/TRN9
-    status: planned
+    status: completed
     title: "Hermite–Lindemann：多重零点と整数性"
   - id: TRN10
     path: textbook/volumes/dream_thater/代数系/TRN/TRN10
