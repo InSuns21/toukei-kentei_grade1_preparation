@@ -192,14 +192,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（有理係数の指数関係の対称化）**  
 > $\alpha_1,\ldots,\alpha_m\in\overline{\mathbb Q}$ は相異なり、$a_1,\ldots,a_m\in\mathbb Z$ はすべて非零で、次を満たすと仮定する。
->
-$
+
+$$
 \sum_{j=1}^{m}a_je^{\alpha_j}=0.
-$
+$$
+
 >
 > このとき有限Galois拡大 $K/\mathbb Q$ と $K$ の有限集合 $T$、整数 $c_t\in\mathbb Z\setminus\{0\}$（$t\in T$）が存在し、次のすべてを満たす。
 >
- > 1. $0\in T$ かつ $c_0>0$。
+> 1. $0\in T$ かつ $c_0>0$。
 > 2. 任意の $\sigma\in\operatorname{Gal}(K/\mathbb Q)$ に対し $\sigma(T)=T$、$c_{\sigma(t)}=c_t$。
 > 3. $T\setminus\{0\}\ne\varnothing$ であり、指数は相異なる。
 > 4. 指数評価で次の等式が成立する。
