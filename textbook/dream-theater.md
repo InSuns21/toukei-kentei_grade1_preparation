@@ -703,6 +703,7 @@
 18. [LORG18 最大化因果曲線とAvez–Seifert](textbook/volumes/dream_thater/幾何系/LORG/LORG18/index.md)
 19. [LORG19 Cauchy時間関数の存在](textbook/volumes/dream_thater/幾何系/LORG/LORG19/index.md)
 20. [LORG20 滑らかな時空分割](textbook/volumes/dream_thater/幾何系/LORG/LORG20/index.md)
+21. [LORG21 時空模型の総合演習とHPDE接続](textbook/volumes/dream_thater/幾何系/LORG/LORG21/index.md)
 
 <a id="dt-subject-complex-manifolds-i"></a>
 ### 複素多様体論 I
