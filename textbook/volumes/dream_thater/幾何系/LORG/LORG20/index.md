@@ -57,12 +57,12 @@ $
 
 ### 証明の見取り図
 
-時間的勾配は零になりません。従ってレベル集合定理で滑らかな面を作り、その接空間を時間的勾配の直交補空間と同定します。Lorentz空間で時間的方向に直交する部分空間が正定値になることと、非延長曲線上の全射・単調性を別々に使います。
+時間的勾配は零になりません。従って[正則値定理](../../GEO/GEO3/index.md#thm-geo3-regular-value)で滑らかな面を作り、その接空間を時間的勾配の直交補空間と同定します。Lorentz空間で時間的方向に直交する部分空間が正定値になることと、非延長曲線上の全射・単調性を別々に使います。
 
 <!-- proof-start -->
 ### 証明
 
-$g(\nabla^gT,\nabla^gT)<0$ なので $\nabla^gT\neq0$ です。非退化な $g$ により、もし $dT_p=0$ なら $\nabla^gT(p)=0$ となるので、$dT_p\neq0$ です。したがってすべての $c$ は正則値であり、レベル集合定理から $\Sigma_c$ は滑らかな余次元1の埋め込み部分多様体で、
+$g(\nabla^gT,\nabla^gT)<0$ なので $\nabla^gT\neq0$ です。非退化な $g$ により、もし $dT_p=0$ なら $\nabla^gT(p)=0$ となるので、$dT_p\neq0$ です。したがってすべての $c$ は正則値であり、[正則値定理](../../GEO/GEO3/index.md#thm-geo3-regular-value)から $\Sigma_c$ は滑らかな余次元1の埋め込み部分多様体で、
 
 $$
 T_p\Sigma_c=\ker dT_p
@@ -76,7 +76,7 @@ $$
 
 この命題は**時計が存在すれば**言えることです。次の存在定理の証明と混ぜて、滑らかさを連続性から当然に得たことにはしません。
 
-## 4. Bernal–Sánchezの滑らかな分割定理
+## 4. 大域双曲性から滑らかな時計を得る
 
 連続Cauchy時計を得た[LORG19の存在定理](../LORG19/index.md#thm-lorg19-existence)では、滑らかな勾配はまだ使えませんでした。大域双曲性があれば、そのギャップを実際に埋められるというのが重要な存在定理です。
 
@@ -408,7 +408,7 @@ $$
 g(\nabla^g\sigma,\nabla^g\sigma)=-\frac1{(1+t^2)^2}<0.
 $$
 
-どちらも過去時間的勾配を持つのでtemporalです。[Minkowski全時刻補題](../LORG15/index.md#lem-lorg15-full-time)により両側非延長因果曲線上で $t$ の値域は $\mathbb R$、一方 $\arctan t$ の値域は $(-\pi/2,\pi/2)$ です。従って[定義](#def-lorg20-cauchy-temporal)の第二条件を満たすのは $T$ だけです。$\sigma$ はCauchy temporalではありません。
+どちらも過去時間的勾配を持つのでtemporalです。[Minkowskiの非延長因果曲線の全時刻通過](../LORG15/index.md#lem-lorg15-full-time)により両側非延長因果曲線上で $t$ の値域は $\mathbb R$、一方 $\arctan t$ の値域は $(-\pi/2,\pi/2)$ です。従って[定義](#def-lorg20-cauchy-temporal)の第二条件を満たすのは $T$ だけです。$\sigma$ はCauchy temporalではありません。
 <!-- solution-end -->
 
 <a id="ex-lorg20-a02"></a>
@@ -476,7 +476,7 @@ $a=1$ の場合は零（光的）で、$\{T=0\}$ の接ベクトル $(-1,1)$ の
 $g=-dt^2+dx^2$ で $T=t$ とし、$u=f(T)$ を $f(s)=s+s^3$ で定める。temporal性、Cauchy性と新しい $\beta_u$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$f'(t)=1+3t^2>0$、$f(\pm\infty)=\pm\infty$ なので $f$ は $\mathbb R$ の滑らかな増加微分同相です。[Cauchy時間関数の再目盛り命題](../LORG19/index.md#prop-lorg19-reparam)からCauchy性は保たれます。勾配は
+**詳細解答**。$f'(t)=1+3t^2>0$、$f(\pm\infty)=\pm\infty$ なので $f$ は $\mathbb R$ の滑らかな増加微分同相です。[時間目盛りの変更](../LORG19/index.md#prop-lorg19-reparam)からCauchy性は保たれます。勾配は
 
 $$
 \nabla^g u=f'(t)\nabla^gT=-(1+3t^2)\partial_t
@@ -558,7 +558,7 @@ $$
 $T$ をCauchy temporal functionとし、$f(s)=s^3$、$q(s)=\arctan s$ をそれぞれ合成する。滑らかさ、時間的勾配、非延長曲線上の値域を調べ、「単調全射」と「temporalを保つ」の違いを示せ。
 
 <!-- solution-start -->
-**詳細解答**。$f$ は滑らかで厳密増加かつ全射です。[時間目盛り変更命題](../LORG19/index.md#prop-lorg19-reparam)により $f\circ T$ はCauchy時間関数ですが、
+**詳細解答**。$f$ は滑らかで厳密増加かつ全射です。[時間目盛りの変更](../LORG19/index.md#prop-lorg19-reparam)により $f\circ T$ はCauchy時間関数ですが、
 
 $$
 \nabla^g(f\circ T)=3T^2\nabla^gT
