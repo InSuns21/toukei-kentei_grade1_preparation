@@ -557,9 +557,9 @@ $K/\mathbb Q$ を有限Galois拡大、$T\subset K$ を相異なる代数的数�
 
 $G$ は $u_t$ を $u_{\sigma(t)}$ へ送るため、次の多項式は共役で不変です。
 
-$
+$$
 Q(Z)=\prod_{t\in T^\ast}(Z-u_t).
-$
+$$
 
 従って $Q$ は有理係数です。他方、その係数は代数的整数の和と積なので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)により $Q\in\mathbb Z[Z]$ です。非零の $t$ に対する $u_t$ は0でないため、$Q(0)\ne0$ です。
 
