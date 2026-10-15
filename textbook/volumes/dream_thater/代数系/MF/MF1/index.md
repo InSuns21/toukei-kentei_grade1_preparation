@@ -419,7 +419,11 @@ $$
 =\begin{pmatrix}ap+bq\\cp+dq\end{pmatrix}
 $$
 
-です。$\det\gamma=1$ なら $\gamma^{-1}$ も整数行列なので、$p',q'$ に共通の約数があれば元の $p,q$ にも共通の約数が存在します。よって既約な整数対は既約な整数対へ移り、$q'=0$ なら $\infty$、そうでなければ $p'/q'$ という規則が意味を持ちます。出力の分母の符号を正に直すため整数対を同時に $-1$ 倍しても比は変わらず、$\infty$ も同じです。行列積で作用させた結果は行列を順に作用させた結果と一致し、単位行列も各点を固定します。したがって[群作用の定義](../../GRP/GRP3/index.md#def-grp3-group-action)を満たします。この計算が有限の分数式と無限遠での場合分けを支えます。
+です。行列式が $1$ なので、$\gamma^{-1}$ も整数行列です。もし $p',q'$ に共通の正の約数があれば、逆行列を掛けて元の $p,q$ にもその約数が存在します。これは元の整数対が既約であることに矛盾します。
+
+したがって既約な整数対は既約な整数対に移り、$q'=0$ なら無限遠に、それ以外なら $p'/q'$ に対応します。分母の符号を正にするため両成分に $-1$ を掛けても点は変わりません。
+
+行列積と整数対への逐次作用は一致し、単位行列は各点を固定します。よって[群作用の定義](../../GRP/GRP3/index.md#def-grp3-group-action)を満たします。この計算が有限の分数式と無限遠での場合分けを支えます。
 
 <a id="def-mf1-rational-boundary"></a>
 <!-- formal-statement-start -->
@@ -635,70 +639,58 @@ $$
 この行列は行列式 $1$ なので、[格子の相似類と軌道の定理](#thm-mf1-lattice-orbit)の十分性とも一致します。単に $\tau'\ne i$ を理由に別の相似類と判断してはいけません。
 <!-- solution-end -->
 
-#### B4. 有理境界の行列を作る
+#### B4. 有理境界と生成元の具体的な接続
 
-$\infty$ を $2/3$ に送る $SL_2(\mathbb Z)$ の行列を一つ作れ。また $T$ が $\infty$ を固定する理由を答えよ。
+$\infty$ を $2/3$ に送る $SL_2(\mathbb Z)$ の行列 $\gamma$ を一つ作れ。さらにその行列を $S,T$ の有限積へ分解し、行列積で検算せよ。$T$ が $\infty$ を固定する理由も述べよ。
 
 - Level: B
 - ID: MF1-B4
 
 <!-- solution-start -->
-**詳細解答**　[拡張有理境界の定義](#def-mf1-rational-boundary)によると、$\gamma\cdot\infty=a/c$ です。したがって整数行列の第一列を $(a,c)=(2,3)$ と選びます。行列式条件は
+**詳細解答**　[拡張有理境界の定義](#def-mf1-rational-boundary)によると、$\gamma\cdot\infty=a/c$ です。整数行列の第一列を $(a,c)=(2,3)$ と選びます。行列式条件
 
 $$
 ad-bc=2d-3b=1
 $$
 
-です。$d=2,b=1$ は $4-3=1$ を満たすので、
+には $d=2,b=1$ が解なので、
 
 $$
 \gamma=\begin{pmatrix}2&1\\3&2\end{pmatrix},
-\quad \det\gamma=4-3=1,
-\quad\gamma\cdot\infty=\frac23.
+\qquad
+\det\gamma=4-3=1,
+\qquad
+\gamma\cdot\infty=\frac23.
 $$
 
-一方 $T$ の下段は $(0,1)$ で $c=0$ だから、[拡張有理境界の定義](#def-mf1-rational-boundary)より $T\cdot\infty=\infty$ です。
-<!-- solution-end -->
-
-#### B5. Euclid 操作を生成元の積に戻す
-
-$\gamma=\begin{pmatrix}2&1\\3&2\end{pmatrix}\in SL_2(\mathbb Z)$ とする。第一列に整数の基本行操作を施して $(\pm1,0)^t$ へ変え、その行操作を逆向きに戻して $\gamma$ を $S,T$ の積だけで表せ。最後に行列積で検算せよ。
-
-- Level: B
-- ID: MF1-B5
-
-<!-- solution-start -->
-**詳細解答**　行列式は $2\cdot2-1\cdot3=1$ なので $\gamma\in SL_2(\mathbb Z)$ です。第一列 $(2,3)^t$ に対し、第一行から第二行を引いて $(-1,3)^t$ にし、次に第二行へ第一行の3倍を加えて $(-1,0)^t$ を得ます。対応する左からの行操作は
+次に[生成元の定理](#thm-mf1-generators)のEuclid操作をこの第一列へ適用します。第一行から第二行を引くと $(2,3)^t$ は $(-1,3)^t$ に、次いで第二行へ第一行の3倍を足すと $(-1,0)^t$ になります。行列全体では
 
 $$
 T^{-1}\gamma
 =\begin{pmatrix}1&-1\\0&1\end{pmatrix}
 \begin{pmatrix}2&1\\3&2\end{pmatrix}
-=\begin{pmatrix}-1&-1\\3&2\end{pmatrix}
+=\begin{pmatrix}-1&-1\\3&2\end{pmatrix},
 $$
-
-と
 
 $$
 E_{21}(3)T^{-1}\gamma
 =\begin{pmatrix}1&0\\3&1\end{pmatrix}
 \begin{pmatrix}-1&-1\\3&2\end{pmatrix}
-=\begin{pmatrix}-1&-1\\0&-1\end{pmatrix}
-=-T
+=\begin{pmatrix}-1&-1\\0&-1\end{pmatrix}=-T.
 $$
 
-です。$E_{21}(3)=ST^{-3}S^{-1}$ を使って逆に戻すと
+ここで $E_{21}(3)=ST^{-3}S^{-1}$ を用いて行操作を逆に戻すと
 
 $$
 \begin{aligned}
 \gamma
 &=T\,E_{21}(-3)(-T)\\
 &=T\,S T^3 S^{-1}(-I)T\\
-&=T S T^3 S T,
+&=T S T^3 S T.
 \end{aligned}
 $$
 
-となります。最後の変形では $S^2=-I$ から $S^{-1}(-I)=S$ を使いました。検算として右側から順に掛けると
+最後の等号には $S^{-1}(-I)=S$（$S^2=-I$）を使いました。右辺を右から掛けて確かめると
 
 $$
 \begin{aligned}
@@ -709,7 +701,7 @@ TST^3ST&=\begin{pmatrix}2&1\\3&2\end{pmatrix}=\gamma.
 \end{aligned}
 $$
 
-よって [生成元の定理](#thm-mf1-generators)のEuclid操作が、この具体例で確かに $S,T$ の有限積へ戻せました。
+また $T$ の下段は $(0,1)$ なので、[拡張有理境界の定義](#def-mf1-rational-boundary)から $T\cdot\infty=\infty$ です。
 <!-- solution-end -->
 
 **Level C：作用・基本領域・境界の接続**
