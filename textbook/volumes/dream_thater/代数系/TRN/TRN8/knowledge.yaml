@@ -1,0 +1,38 @@
+chapter: TRN8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN7
+forward_references: []
+
+concepts:
+  - id: transcendence.exponential-polynomial-relation
+    name: 指数関係への変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（指数関係への変換）]
+    requires: [transcendence.formal-exponential-sum, transcendence.exponential-evaluation]
+  - id: transcendence.integral-coefficient-conjugate-product
+    name: 整数係数の共役積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（整数係数の共役積）]
+    requires: [transcendence.formal-conjugate-symmetrization, transcendence.exponential-polynomial-relation]
+  - id: transcendence.exponent-reflection
+    name: 指数反転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（指数反転）]
+    requires: [transcendence.formal-exponential-sum]
+  - id: transcendence.positive-zero-exponent-coefficient
+    name: 指数反転積の0係数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（指数反転積の0係数）]
+    requires: [transcendence.exponent-reflection]
+  - id: transcendence.balanced-algebraic-exponential-relation
+    name: Hermite–Lindemannの仮定から作る対称関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hermite–Lindemannの仮定から作る対称関係）]
+    requires: [transcendence.exponential-polynomial-relation, transcendence.integral-coefficient-conjugate-product, transcendence.positive-zero-exponent-coefficient]
