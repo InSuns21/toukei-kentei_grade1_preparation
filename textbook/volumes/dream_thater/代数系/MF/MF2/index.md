@@ -1,6 +1,6 @@
 # MF2 モジュラー形式・q展開・Eisenstein級数
 
-[MF1の整数モジュラー群](../MF1/index.md#def-mf1-modular-group)は、格子の基底を取り替えても同じ格子を表すという事実から現れました。しかし格子ごとに関数や不変量を割り当てる場合、その値は基底変換で不変とは限りません。たとえば [Weierstrass不変量の相似則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)では、格子を $\alpha$ 倍すると $g_2$ は $\alpha^{-4}$ 倍、$g_3$ は $\alpha^{-6}$ 倍されます。**変換のたびに決まった累乗だけ変わる関数を、一つの理論として扱えないでしょうか。**
+[MF1の整数モジュラー群](../MF1/index.md#def-mf1-modular-group)は、格子の基底を取り替えても同じ格子を表すという事実から現れました。しかし格子ごとに関数や不変量を割り当てる場合、その値は格子基底の取り替えで不変とは限りません。たとえば [Weierstrass不変量の相似則](../../../解析系/CA/CA9/index.md#prop-ca9-scaling)では、格子を $\alpha$ 倍すると $g_2$ は $\alpha^{-4}$ 倍、$g_3$ は $\alpha^{-6}$ 倍されます。**変換のたびに決まった累乗だけ変わる関数を、一つの理論として扱えないでしょうか。**
 
 その問いから「重さ（weight）」を持つモジュラー形式を定義します。さらに、[基本領域の無限遠の端](../MF1/index.md#thm-mf1-fundamental-domain)での振る舞いを、通常の冪級数に翻訳します。この翻訳によって格子の不変量が整数の約数和と結び付き、最後には楕円曲線の判別式と $j$ 不変量が同じ関数から現れます。
 
@@ -8,7 +8,7 @@
 
 <!-- definition-example-audit: strict -->
 
-## 1. 基底変換と重さ
+## 1. 格子基底の取り替えと重さ
 
 $\tau\in\mathbb H$ に対し $\Lambda_\tau=\mathbb Z+\tau\mathbb Z$ とします。[格子の相似と群作用](../MF1/index.md#thm-mf1-lattice-orbit)より、$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ について
 
@@ -24,7 +24,7 @@ $$
 
 を満たします。この指数 $k$ が「重さ」です。しかし変換則だけでは無限遠で発散する関数も許してしまいます。そこで正則性と無限遠の条件を追加します。
 
-まず $T\cdot\tau=\tau+1$ なので、整数 $k$ について上の変換則を満たす関数は $f(\tau+1)=f(\tau)$ です。周期1の正則関数を調べるには、指数写像
+まず $T\cdot\tau=\tau+1$ なので、整数 $k$ について上の変換則を満たす関数は $f(\tau+1)=f(\tau)$ です。周期1の正則関数を調べるには、複素指数関数
 
 $$
 q=e^{2\pi i\tau},\qquad |q|=e^{-2\pi\operatorname{Im}\tau}<1
@@ -34,7 +34,7 @@ $$
 
 <a id="def-mf2-modular-form"></a>
 <!-- formal-statement-start -->
-> **定義（重さ $k$ のモジュラー形式）**  
+> **定義（重さkのモジュラー形式）**  
 > 整数 $k\ge0$ に対し、正則関数 $f:\mathbb H\to\mathbb C$ が $SL_2(\mathbb Z)$ に関する重さ $k$ のモジュラー形式であるとは、次の二条件を満たすことである。
 >
 > (i) 全ての $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ と $\tau\in\mathbb H$ に対し
@@ -56,7 +56,7 @@ $$
 
 <a id="thm-mf2-q-coordinate"></a>
 <!-- formal-statement-start -->
-> **定理（周期正則関数の $q$ 表示）**  
+> **定理（周期正則関数のq表示）**  
 > $f:\mathbb H\to\mathbb C$ が正則で $f(\tau+1)=f(\tau)$ を満たすなら、穿孔円板 $0<|q|<1$ 上の一意的な正則関数 $F$ が存在し、$f(\tau)=F(e^{2\pi i\tau})$ となる。また、$F$ が $q=0$ に正則に延長することと、$\operatorname{Im}\tau\to\infty$ で $f(\tau)$ が一様に有界となることは同値である。このとき
 >
 $$
@@ -68,7 +68,7 @@ $$
 
 ### 証明の見取り図
 
-指数写像で同じ値を取る二点の差は整数です。これで $F$ が一意に定まり、局所的な対数を使って正則性を確認できます。零点 $q=0$ は除去可能特異点の定理で扱います。
+複素指数関数で同じ値を取る二点の差は整数です。これで $F$ が一意に定まり、局所的な対数を使って正則性を確認できます。零点 $q=0$ は除去可能特異点の定理で扱います。
 
 <!-- proof-start -->
 ### 証明
@@ -84,7 +84,7 @@ $$
 
 <a id="def-mf2-q-expansion"></a>
 <!-- formal-statement-start -->
-> **定義（$q$ 展開とカスプ形式）**  
+> **定義（q展開とカスプ形式）**  
 > $f\in M_k$ の上記冪級数を $q$ 展開といい、$a_0$ を定数項という。$a_0=0$ を満たすモジュラー形式をカスプ形式と呼び、その空間を $S_k$ と記す。
 <!-- formal-statement-end -->
 
@@ -116,7 +116,7 @@ $$
 
 <a id="def-mf2-eisenstein-series"></a>
 <!-- formal-statement-start -->
-> **定義（重さ $k$ の Eisenstein 級数）**  
+> **定義（重さkのEisenstein級数）**  
 > 偶数 $k\ge4$ に対し
 >
 $$
@@ -173,7 +173,7 @@ $$
 
 で抑えられます。整数対を $\max(|m|,|n|)=r$ ごとの殻に分けると各殻に $8r$ 個の点があるので、右辺は $8A_K^{-k}\sum_{r\ge1}r^{1-k}<\infty$ です。これで正則関数の局所一様極限として $G_k$ の正則性も得られます。
 
-[格子の基底変換](../MF1/index.md#thm-mf1-lattice-orbit)から $\Lambda_{\gamma\tau}=(c\tau+d)^{-1}\Lambda_\tau$ です。$\gamma$ の行列式が1なので整数基底は全単射に移り、絶対収束により順序を入れ替えられます。各格子点が $(c\tau+d)^{-1}$ 倍されるため、逆数の $k$ 乗を足すと変換則が成立します。
+[格子の格子基底の取り替え](../MF1/index.md#thm-mf1-lattice-orbit)から $\Lambda_{\gamma\tau}=(c\tau+d)^{-1}\Lambda_\tau$ です。$\gamma$ の行列式が1なので整数基底は全単射に移り、絶対収束により順序を入れ替えられます。各格子点が $(c\tau+d)^{-1}$ 倍されるため、逆数の $k$ 乗を足すと変換則が成立します。
 
 次に $m=0$ の項は、$k$ が偶数なので
 
@@ -272,7 +272,7 @@ $$
 
 <a id="thm-mf2-eisenstein-q"></a>
 <!-- formal-statement-start -->
-> **定理（Eisenstein 級数の $q$ 展開）**  
+> **定理（Eisenstein級数のq展開）**  
 > 偶数 $k\ge4$ に対し、約数和
 >
 $$
@@ -439,7 +439,7 @@ $E_4^3$ と $\Delta$ はともに重さ12です。したがって商の重さは
 
 <a id="def-mf2-j-invariant"></a>
 <!-- formal-statement-start -->
-> **定義（$j$ 不変量）**  
+> **定義（j不変量）**  
 > $\tau\in\mathbb H$ に対し
 >
 $$
@@ -456,7 +456,7 @@ $$
 
 <a id="thm-mf2-j-properties"></a>
 <!-- formal-statement-start -->
-> **定理（$j$ の不変性・カスプでの極・格子との対応）**  
+> **定理（jの不変性・カスプでの極・格子との対応）**  
 > $j$ は $\mathbb H$ 上正則で、任意の $\gamma\in SL_2(\mathbb Z)$ に対し $j(\gamma\cdot\tau)=j(\tau)$ を満たす。また
 >
 $$
@@ -576,7 +576,7 @@ $$
 \sigma_5(2)=1^5+2^5=33.
 $$
 
-[Fourier係数の定理](#thm-mf2-eisenstein-q)より $E_4$ の係数は $240\cdot9=2160$、$240\cdot28=6720$、$E_6$ の係数は $-504\cdot33=-16632$ です。
+[Eisenstein級数のq展開](#thm-mf2-eisenstein-q)より $E_4$ の係数は $240\cdot9=2160$、$240\cdot28=6720$、$E_6$ の係数は $-504\cdot33=-16632$ です。
 <!-- solution-end -->
 
 #### A4. 奇数重さが消える理由
