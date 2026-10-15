@@ -355,7 +355,7 @@ $q$ 展開を計算しても、無限個の係数を一致させることはで�
 <!-- proof-start -->
 ### 証明
 
-[モジュラー形式の積・線形性](../MF2/index.md#def-mf2-modular-form)から $h=f-g\in M_k$ です。もし $h\not\equiv0$ なら、仮定により $h$ の初めての非零係数の次数は
+[重さ $k$ のモジュラー形式の定義](../MF2/index.md#def-mf2-modular-form)を $f$ と $g$ に適用すると、両者の差 $h=f-g$ は $\mathbb H$ 上正則で、$h(\gamma\tau)=(c\tau+d)^k h(\tau)$ を満たします。さらに二つの $q$ 展開の差は $q=0$ で正則なので $h\in M_k$ です。もし $h\not\equiv0$ なら、仮定により $h$ の初めての非零係数の次数は
 $$
 v_\infty(h)\ge B+1
 =\left\lfloor\frac{k}{12}\right\rfloor+1>\frac{k}{12}.
