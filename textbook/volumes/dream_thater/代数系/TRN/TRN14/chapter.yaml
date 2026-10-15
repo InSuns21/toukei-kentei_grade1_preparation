@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - TRN13
+  - AG1-06
 official_scope: []
 learning_objectives:
   - "TRN12の共役対称化とTRN13の非零整数・階乗上界を同じ素数で接続し、Lindemann–Weierstrassの有理係数版を完成できる"
