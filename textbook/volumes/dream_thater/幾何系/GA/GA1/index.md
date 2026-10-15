@@ -164,7 +164,7 @@ $v\nabla_g u$ に発散定理を適用します。発散の積の法則を先に
 <!-- proof-start -->
 ### 証明
 
-局所座標で $X^i=g^{ij}\partial_ju$、$\rho=\sqrt{\det G}$ とします。[発散の座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)から
+局所座標で $X^i=g^{ij}\partial_ju$、$\rho=\sqrt{\det G}$ とします。[Riemannian 発散の座標表示](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)から
 
 $$
 \begin{aligned}
