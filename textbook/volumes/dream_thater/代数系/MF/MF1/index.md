@@ -12,17 +12,17 @@
 
 二つの複素数 $\omega_1,\omega_2$ が実線形独立である条件は $\operatorname{Im}(\overline{\omega_1}\omega_2)\ne0$ です。実際、$\omega_1=u+iv,\ \omega_2=s+it$ と実部・虚部へ分けると、実ベクトル $(u,v),(s,t)$ が作る行列の行列式は
 
-$
+$$
 \det\begin{pmatrix}u&s\\v&t\end{pmatrix}
 =ut-vs=\operatorname{Im}(\overline{\omega_1}\omega_2).
-$
+$$
 
 独立なら $\omega_1\ne0$ であり、周期比には
 
-$
+$$
 \operatorname{Im}\left(\frac{\omega_2}{\omega_1}\right)
 =\frac{\operatorname{Im}(\overline{\omega_1}\omega_2)}{|\omega_1|^2}
-$
+$$
 
 が成り立ちます。したがって周期比の虚部の符号が基底の向きを表します。基底の順序を必要なら入れ替え、虚部を正にします。
 
@@ -66,28 +66,28 @@ $$
 
 二つの格子基底を $(\omega_1,\omega_2)$ と $(\omega'_1,\omega'_2)$ とし、後者を前者の整数線形結合で表すと、ある整数行列 $M$ により
 
-$
+$$
 \begin{pmatrix}\omega'_1\\\omega'_2\end{pmatrix}
 =M\begin{pmatrix}\omega_1\\\omega_2\end{pmatrix},
 \qquad
 M=\begin{pmatrix}r&s\\t&u\end{pmatrix}
-$
+$$
 
 となります。両者が**同じ格子の基底**であるためには、逆向きの係数行列 $M^{-1}$ も整数成分を持つことが必要十分です。必要性は両基底を互いに整数線形結合で表せることから従います。逆に $M,M^{-1}$ がともに整数なら、各基底が張る整数係数の集合は互いを含むので一致します。
 
 整数行列 $M$ と $M^{-1}$ の行列式はともに整数で、その積が $1$ だから $\det M=\pm1$ です。逆に $\det M=\pm1$ なら
 
-$
+$$
 M^{-1}=\frac1{ru-st}
 \begin{pmatrix}u&-s\\-t&r\end{pmatrix}
-$
+$$
 
 も整数行列です。さらに周期の向きは
 
-$
+$$
 \operatorname{Im}(\overline{\omega'_1}\omega'_2)
 =(ru-st)\operatorname{Im}(\overline{\omega_1}\omega_2)
-$
+$$
 
 と変わるため、正向き基底同士では $\det M=1$ に限られます。これが行列式を使って基底の取り替えを判定する理由です。
 
@@ -117,10 +117,10 @@ $$
 
 向きと周期比の関係を計算します。先ほどの基底変換行列を $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ と書き直すと、$\det M=ad-bc=1$ なので $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応します。この添字の配置で書く理由は、第二周期と第一周期の比が次の一次分数式になるためです。
 
-$
+$$
 \omega_1'=d\omega_1+c\omega_2,\qquad
 \omega_2'=b\omega_1+a\omega_2
-$
+$$
 
 整数係数の逆行列も存在するので、両組が張る格子は同一で、向きも保たれます。さらに
 
@@ -250,11 +250,11 @@ $$
 
 です。後者は $S^{-1}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ と
 
-$
+$$
 ST^{-n}=\begin{pmatrix}0&-1\\1&-n\end{pmatrix},
 \qquad
 (ST^{-n})S^{-1}=\begin{pmatrix}1&0\\n&1\end{pmatrix}
-$
+$$
 
 を順に掛けて確認できます。これらは第一列の片方から他方の整数倍を引く操作を実行します。[整数の Euclid の互除法](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)で、非零の成分を他方で割った余りへ変える操作を繰り返すと、非零の絶対値が真に減少し、有限回で $(\pm1,0)^t$ になります。必要な行の入れ替えは $S$ または $S^{-1}$ で行えます。$c=0$ の場合は初めから第一列は $(\pm1,0)^t$ です。
 
@@ -301,26 +301,26 @@ $$
 
 逆に $\Lambda_{\tau'}=\alpha\Lambda_\tau$（$\alpha\ne0$）とします。$\Lambda_{\tau'}$ の $(1,\tau')$ と $(\alpha,\alpha\tau)$ はいずれも正向きの整数基底です。実際、後者の向きは
 
-$
+$$
 \operatorname{Im}(\overline\alpha\,\alpha\tau)
 =|\alpha|^2\operatorname{Im}\tau>0
-$
+$$
 
 です。先に導いた基底変換の判定を使うと、整数 $a,b,c,d$ で $ad-bc=1$ を満たすものが存在して
 
-$
+$$
 1=d\alpha+c\alpha\tau=\alpha(c\tau+d),
 \qquad
 \tau'=b\alpha+a\alpha\tau=\alpha(a\tau+b)
-$
+$$
 
 となります。第一式から $c\tau+d=1/\alpha\ne0$、$\alpha=1/(c\tau+d)$ です。これを第二式に代入して
 
-$
+$$
 \tau'=\frac{a\tau+b}{c\tau+d}=\gamma\cdot\tau,
 \qquad
 \gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)
-$
+$$
 
 を得ます。
 <!-- proof-end -->
@@ -413,11 +413,11 @@ $\mathcal F$ は上へいくらでも伸びます。たとえば $\tau=iy$、$y\
 
 整数行列 $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ をこの整数対に作用させると
 
-$
+$$
 \begin{pmatrix}p'\\q'\end{pmatrix}
 =\gamma\begin{pmatrix}p\\q\end{pmatrix}
 =\begin{pmatrix}ap+bq\\cp+dq\end{pmatrix}
-$
+$$
 
 です。$\det\gamma=1$ なら $\gamma^{-1}$ も整数行列なので、$p',q'$ に共通の約数があれば元の $p,q$ にも共通の約数が存在します。よって既約な整数対は既約な整数対へ移り、$q'=0$ なら $\infty$、そうでなければ $p'/q'$ という規則が意味を持ちます。出力の分母の符号を正に直すため整数対を同時に $-1$ 倍しても比は変わらず、$\infty$ も同じです。行列積で作用させた結果は行列を順に作用させた結果と一致し、単位行列も各点を固定します。したがって[群作用の定義](../../GRP/GRP3/index.md#def-grp3-group-action)を満たします。この計算が有限の分数式と無限遠での場合分けを支えます。
 
@@ -439,9 +439,9 @@ $$
 <!-- definition-example-start: def-mf1-rational-boundary -->
 **定義の確認**。 $T\cdot\infty=\infty$（$c=0$）、$S\cdot\infty=0$（$a=0,c=1$）です。また $S\cdot0=\infty$ は有限点でも分母が零になる場合です。分母が零にならない有限点では
 
-$
+$$
 T\cdot\frac23=\frac{2+3}{3}=\frac53
-$
+$$
 
 であり、行列を整数対に作用させる計算 $T(2,3)^t=(5,3)^t$ と一致します。これで有限点・無限遠の両場合を直接確かめました。
 <!-- definition-example-end -->
@@ -499,26 +499,26 @@ $\Lambda=\mathbb Z+\mathbb Zi$ の $(1,i)$ と $(1,1+i)$ がいずれも正向�
 <!-- solution-start -->
 **詳細解答**　向きの条件を各基底で調べると
 
-$
+$$
 \operatorname{Im}(\overline1\,i)=1>0,
 \qquad
 \operatorname{Im}(\overline1(1+i))=1>0
-$
+$$
 
 なので、どちらも正向きです。第二組を第一組で表す係数は
 
-$
+$$
 \begin{pmatrix}\omega'_1\\\omega'_2\end{pmatrix}
 =\begin{pmatrix}1&0\\1&1\end{pmatrix}
 \begin{pmatrix}1\\i\end{pmatrix}
 =\begin{pmatrix}1\\1+i\end{pmatrix}.
-$
+$$
 
 これは本文の対応 $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ で $a=d=1,b=1,c=0$ の場合なので、周期比に作用するのは $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ です。したがって周期比は $i$ から $T\cdot i=i+1$ に変わります。一方、$i=(1+i)-1$ により
 
-$
+$$
 \mathbb Z+\mathbb Z(1+i)=\mathbb Z+\mathbb Zi
-$
+$$
 
 なので、張る格子は変わりません。
 <!-- solution-end -->
@@ -565,23 +565,23 @@ $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ で $\gamma\cdo
 <!-- solution-start -->
 **詳細解答**　$(ai+b)/(ci+d)=i$ を両辺に $ci+d$ を掛けます。分母は $i\in\mathbb H$ で非零です。
 
-$
+$$
 ai+b=i(ci+d)=-c+di.
-$
+$$
 
 実部・虚部を比較して $b=-c,\ a=d$ を得ます。これを行列式条件に代入すると
 
-$
+$$
 1=ad-bc=a^2+c^2.
-$
+$$
 
 整数平方の和が $1$ となる組は $(a,c)=(1,0),(-1,0),(0,1),(0,-1)$ の四つです。それぞれに $b=-c,d=a$ を代入すると、行列は $I,-I,S,-S$ です。いずれも上の等式を満たすため、実際に $i$ を固定します。
 
 ただし [作用の核](#thm-mf1-imaginary-action)は**全て**の $\tau$ を固定する行列の集合なので $\{I,-I\}$ だけです。たとえば
 
-$
+$$
 S\cdot(2i)=-\frac1{2i}=\frac i2\ne2i
-$
+$$
 
 であるため、$S$ は点 $i$ の固定群には属しても作用の核には入りません。
 <!-- solution-end -->
@@ -645,9 +645,9 @@ $\infty$ を $2/3$ に送る $SL_2(\mathbb Z)$ の行列を一つ作れ。また
 <!-- solution-start -->
 **詳細解答**　[拡張有理境界の定義](#def-mf1-rational-boundary)によると、$\gamma\cdot\infty=a/c$ です。したがって整数行列の第一列を $(a,c)=(2,3)$ と選びます。行列式条件は
 
-$
+$$
 ad-bc=2d-3b=1
-$
+$$
 
 です。$d=2,b=1$ は $4-3=1$ を満たすので、
 
@@ -670,44 +670,44 @@ $\gamma=\begin{pmatrix}2&1\\3&2\end{pmatrix}\in SL_2(\mathbb Z)$ とする。第
 <!-- solution-start -->
 **詳細解答**　行列式は $2\cdot2-1\cdot3=1$ なので $\gamma\in SL_2(\mathbb Z)$ です。第一列 $(2,3)^t$ に対し、第一行から第二行を引いて $(-1,3)^t$ にし、次に第二行へ第一行の3倍を加えて $(-1,0)^t$ を得ます。対応する左からの行操作は
 
-$
+$$
 T^{-1}\gamma
 =\begin{pmatrix}1&-1\\0&1\end{pmatrix}
 \begin{pmatrix}2&1\\3&2\end{pmatrix}
 =\begin{pmatrix}-1&-1\\3&2\end{pmatrix}
-$
+$$
 
 と
 
-$
+$$
 E_{21}(3)T^{-1}\gamma
 =\begin{pmatrix}1&0\\3&1\end{pmatrix}
 \begin{pmatrix}-1&-1\\3&2\end{pmatrix}
 =\begin{pmatrix}-1&-1\\0&-1\end{pmatrix}
 =-T
-$
+$$
 
 です。$E_{21}(3)=ST^{-3}S^{-1}$ を使って逆に戻すと
 
-$
+$$
 \begin{aligned}
 \gamma
 &=T\,E_{21}(-3)(-T)\\
 &=T\,S T^3 S^{-1}(-I)T\\
 &=T S T^3 S T,
 \end{aligned}
-$
+$$
 
 となります。最後の変形では $S^2=-I$ から $S^{-1}(-I)=S$ を使いました。検算として右側から順に掛けると
 
-$
+$$
 \begin{aligned}
 ST&=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\\
 T^3ST&=\begin{pmatrix}3&2\\1&1\end{pmatrix},\\
 ST^3ST&=\begin{pmatrix}-1&-1\\3&2\end{pmatrix},\\
 TST^3ST&=\begin{pmatrix}2&1\\3&2\end{pmatrix}=\gamma.
 \end{aligned}
-$
+$$
 
 よって [生成元の定理](#thm-mf1-generators)のEuclid操作が、この具体例で確かに $S,T$ の有限積へ戻せました。
 <!-- solution-end -->
