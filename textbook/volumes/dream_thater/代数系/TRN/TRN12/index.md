@@ -43,7 +43,15 @@ qe^{\alpha-\beta}+r=0,
 \qquad e^{\alpha-\beta}=-\frac rq\in\mathbb Q
 $$
 
-を得ます。[代数的数の有限拡大での閉性](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から $\delta=\alpha-\beta$ も代数的であり、$\alpha\ne\beta$ だから $\delta\ne0$ です。従って[Hermite–Lindemannの定理](../TRN11/index.md#thm-trn11-hermite-lindemann)は $e^\delta$ を超越数としますが、上式はこれが有理数だと主張しています。矛盾です。ゆえに $q=r=0$ となります。$\square$
+を得ます。ここで差の代数性を確認します。[単純代数拡大の次数公式](../../FLD/FLD1/index.md#cor-fld1-simple-extension-degree)により $\mathbb Q(\alpha)/\mathbb Q$ は有限拡大です。$\beta$ は $\mathbb Q$ 上代数的なので、同じ多項式を $\mathbb Q(\alpha)$ 上で見ても代数的です。したがって $\mathbb Q(\alpha,\beta)/\mathbb Q(\alpha)$ も有限で、[塔の法則](../../FLD/FLD1/index.md#thm-fld1-tower-law)から
+
+$$
+[\mathbb Q(\alpha,\beta):\mathbb Q]
+=[\mathbb Q(\alpha,\beta):\mathbb Q(\alpha)]
+ [\mathbb Q(\alpha):\mathbb Q]<\infty.
+$$
+
+$\delta=\alpha-\beta$ はこの有限拡大に属するので、[有限拡大の元の代数性](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)により代数的です。また $\alpha\ne\beta$ から $\delta\ne0$ です。従って[Hermite–Lindemannの定理](../TRN11/index.md#thm-trn11-hermite-lindemann)は $e^\delta$ を超越数としますが、上式はこれが有理数だと主張しています。矛盾です。ゆえに $q=r=0$ となります。$\square$
 <!-- proof-end -->
 
 二項では比一つに帰着できます。しかし三項以上では、例えば $ae^\alpha+be^\beta=-ce^\gamma$ を一項で割っても**二つの指数関数値の和**が残ります。ここに新しい構成が必要な理由があります。
@@ -137,7 +145,7 @@ $$
 =H.
 $$
 
-二つ目の等号では $\sigma\mapsto\tau\sigma$ が群 $G$ 上の置換であることを使いました。最後に $\operatorname{ev}$ の乗法性を使うと
+二つ目の等号では $\sigma\mapsto\tau\sigma$ が群 $G$ 上の置換であることを使いました。最後に[指数評価の乗法性](../TRN7/index.md#def-trn7-exponential-evaluation)を使うと
 
 $$
 \operatorname{ev}(H)
@@ -170,14 +178,14 @@ $$
 [U_0]R=\sum_{\lambda\in S}B_\lambda^2>0
 $$
 
-です。平方和を取る理由は、整数係数の符号による相殺を0係数に起こさせないためです。指数反転は $G$ の作用と可換であり、$\sigma(-\lambda)=-\sigma(\lambda)$ です。よって
+です。平方和を取る理由は、整数係数の符号による相殺を0係数に起こさせないためです。[形式指数和のGalois作用](../TRN7/index.md#def-trn7-galois-action)では指数と係数を別々に写します。指数反転は指数の加法逆元だけを取るので $\sigma(-\lambda)=-\sigma(\lambda)$、つまり $G$ の作用と可換です。[共役作用と環演算](../TRN7/index.md#prop-trn7-galois-ring-action)を用いると
 
 $$
 \sigma\cdot H^\vee=(\sigma\cdot H)^\vee=H^\vee,
 \qquad \sigma\cdot R=R.
 $$
 
-また指数評価の乗法性により
+また[指数評価の乗法性](../TRN7/index.md#def-trn7-exponential-evaluation)により
 
 $$
 \operatorname{ev}(R)
@@ -262,7 +270,22 @@ R=H^2
 =6U_0-4U_s-4U_{-s}+U_{2s}+U_{-2s}.
 $$
 
-$0$ 係数は $2^2+(-1)^2+(-1)^2=6$ で、実際の展開と一致します。$\sigma$ は $s$ と $-s$、$2s$ と $-2s$ を交換し、各組の係数は等しいため $R$ は不変です。なお、この例では $\operatorname{ev}(F)=1-e^s\ne0$ であり、**計算例だけから指数関係が存在するとは主張していません**。
+0係数は、先ほどの平方和と一致します。
+
+$$
+2^2+(-1)^2+(-1)^2=6.
+$$
+
+また、$\sigma$ は $s$ と $-s$、$2s$ と $-2s$ を交換します。交換される各組の係数は等しいので、$R$ はGalois作用で不変です。
+
+一方、$0$ と $s=\sqrt2$ は相異なる代数的数です。[代数的指数上の単射性](../TRN11/index.md#prop-trn11-algebraic-injectivity)をこれらの指数に適用すると
+
+$$
+e^0=1\ne e^s,\qquad
+\operatorname{ev}(F)=1-e^s\ne0.
+$$
+
+従って、**形式演算の計算例だけから指数関係が存在するとは主張していません**。
 
 ## 6. 単射性が保証すること、保証しないこと
 
@@ -409,7 +432,13 @@ $$
 e^{\alpha-\beta}=-r/q\in\mathbb Q.
 $$
 
-[有限拡大の元の代数性](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から $\alpha-\beta$ は代数的であり、相異なる仮定より $\alpha-\beta\ne0$ です。[Hermite–Lindemannの定理](../TRN11/index.md#thm-trn11-hermite-lindemann)をこの差に適用すると左辺は超越数ですが、右辺は有理数です。矛盾するので両係数は0です。相異なる仮定を落とすと $\alpha=\beta$、$q=1,r=-1$ が反例になります。
+$L=\mathbb Q(\alpha,\beta)$ と置きます。$\alpha$ が代数的なので $[\mathbb Q(\alpha):\mathbb Q]<\infty$ です。$\beta$ は $\mathbb Q(\alpha)$ 上でも代数的であり、まず[単純代数拡大の次数公式](../../FLD/FLD1/index.md#cor-fld1-simple-extension-degree)により $[L:\mathbb Q(\alpha)]<\infty$ です。続いて[塔の法則](../../FLD/FLD1/index.md#thm-fld1-tower-law)により
+
+$$
+[L:\mathbb Q]=[L:\mathbb Q(\alpha)] [\mathbb Q(\alpha):\mathbb Q]<\infty.
+$$
+
+この体に属する $\alpha-\beta$ は[有限拡大の元の代数性](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的であり、相異なる仮定より $\alpha-\beta\ne0$ です。[Hermite–Lindemannの定理](../TRN11/index.md#thm-trn11-hermite-lindemann)をこの差に適用すると左辺は超越数ですが、右辺は有理数です。矛盾するので両係数は0です。相異なる仮定を落とすと $\alpha=\beta$、$q=1,r=-1$ が反例になります。
 <!-- solution-end -->
 
 **TRN12-B4（不変性の係数を確認する）**  
@@ -446,7 +475,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-共通分母 $D>0$ を取り $a_j=Dq_j\in\mathbb Z\setminus\{0\}$ とします。$\alpha_j$ の最小多項式すべての分解体 $K$ は標数0の有限分離正規拡大なので有限Galois拡大です。$G=\operatorname{Gal}(K/\mathbb Q)$ と置きます。
+共通分母 $D>0$ を取り $a_j=Dq_j\in\mathbb Z\setminus\{0\}$ とします。$\alpha_j$ の最小多項式を掛けた多項式の[分解体](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence) $K$ を取ります。これは[有限分解体の正規性](../../FLD/FLD2/index.md#thm-fld2-finite-splitting-equivalence)と[標数0の分離性](../../FLD/FLD2/index.md#cor-fld2-char-zero-algebraic)を満たすので、[有限Galois拡大](../../FLD/FLD4/index.md#def-fld4-finite-galois)です。$G=\operatorname{Gal}(K/\mathbb Q)$ と置きます。
 
 $$
 F=\sum_ja_jU_{\alpha_j}
@@ -460,7 +489,7 @@ $$
 
 を作ります。$\sigma$ は指数集合上で単射なので $\sigma\cdot F\ne0$ です。[TRN7の非零積補題](../TRN7/index.md#lem-trn7-no-zero-divisors)を有限回適用して $H\ne0$ となります。積の係数は整数の積の和なので、すべて整数です。
 
-$\tau\in G$ を固定します。$\sigma\mapsto\tau\sigma$ は $G$ の置換であり、各因子の順序を入れ替えるだけです。従って $\tau\cdot H=H$ です。
+$\tau\in G$ を固定します。[共役作用と環演算](../TRN7/index.md#prop-trn7-galois-ring-action)により $\tau\cdot H=\prod_{\sigma\in G}(\tau\sigma)\cdot F$ です。$\sigma\mapsto\tau\sigma$ は $G$ の置換であり、各因子の順序を入れ替えるだけなので $\tau\cdot H=H$ です。
 
 [指数評価の乗法性](../TRN7/index.md#def-trn7-exponential-evaluation)を適用します。恒等自己同型に対応する因子は $F$ 自身であり、その評価が0なので
 

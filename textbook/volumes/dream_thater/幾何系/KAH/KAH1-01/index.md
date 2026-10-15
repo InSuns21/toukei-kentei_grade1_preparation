@@ -4,7 +4,7 @@
 
 ## 1. 複素構造だけでは長さが測れない
 
-複素多様体には、実接空間で複素数 $i$ の作用を表す[複素構造 $J$](../../CM/CM1-03/index.md#thm-cm1-03-induced-j) がある。点ごとに $J^2=-I$ が成り立ち、$J$ は実方向を四分の一回転した方向へ送る。しかし $J$ だけからベクトルの長さや二つの方向の角度は決まらない。例えば同じ複素平面でも、どこを長く測るかは自由に決められる。
+複素多様体には、実接空間で複素数 $i$ の作用を表す[複素構造 $J$](../../CM/CM1-03/index.md#thm-cm1-03-induced-j) がある。点ごとに $J^2=-I$ が成り立ち、複素座標の各実座標対では $J$ は四分の一回転として表される。しかし $J$ だけからベクトルの長さや二つの方向の角度は決まらない。例えば同じ複素平面でも、どこを長く測るかは自由に決められる。
 
 一方、実接束へRiemann計量を勝手に入れると、$J$ が長さを変えてしまうことがある。複素構造を回転として尊重する計量が必要である。本章では **複素構造 → 両立する実計量 → 面積を表す2形式** の順に構成し、最後に閉性を追加すると何が変わるかを確かめる。
 
@@ -26,6 +26,15 @@ $$
 
 > 特に $M$ が複素多様体で $J$ がその複素構造のとき、組 $(J,g)$ をHermite構造と呼ぶ。
 <!-- formal-statement-end -->
+
+**定義から座標判定へ**。一点の実接空間で基底 $(e_1,\ldots,e_{2n})$ を選ぶ。双線形形式 $g$ の基底値を $G_{ij}=g(e_i,e_j)$、$J$ の基底表示を $J_{ij}$ とすると、座標列ベクトル $u,v$ について
+
+$$
+g(u,v)=\sum_{i,j}u_iG_{ij}v_j=u^{\mathsf T}Gv,\qquad
+g(Ju,Jv)=u^{\mathsf T}J^{\mathsf T}GJv.
+$$
+
+したがって定義の両立条件は $J^{\mathsf T}GJ=G$ と同値である。逆向きも、行列の各成分が標準基底対 $(e_i,e_j)$ での双線形形式の値になることから分かる。この判定は基底を固定した点ごとの式であり、計量としてはさらに正定値性と点に関する滑らかさを調べる。
 
 <!-- definition-example-start: def-kah1-01-compatible-metric -->
 **定義の確認**。$\mathbb C$ を実座標 $(x,y)$ で表し、$J(a,b)=(-b,a)$、$g(u,v)=u_1v_1+u_2v_2$ とする。$J$ は滑らかな定数行列、$J^2=-I$ である。任意の $u=(a,b)$、$v=(c,d)$ について
@@ -118,7 +127,7 @@ $$
 
 ## 3. 長さを面積へ変換する基本2形式
 
-両立計量があると、$Ju$ と $v$ の内積を取ることができる。二方向を入力とするこの値が、向き付きの微小面積を表す。
+両立計量があると、$Ju$ と $v$ の内積を取ることができる。二方向を入力とするこの値が、向き付きの微小面積を表す。既習の[微分2形式](../../GEO/GEO7/index.md#def-geo7-differential-form)は、各点の接空間で、二つの引数を入れ替えると符号が反転する双線形形式が滑らかに変化するものである。したがって $g(Ju,v)$ が2形式になるかは、交代性を実際に導いて確かめなければならない。
 
 <a id="def-kah1-01-fundamental-form"></a>
 
@@ -142,7 +151,13 @@ $$
 \omega(u,v)=g((-b,a),(c,d))=ad-bc.
 $$
 
-従って $\omega=dx\wedge dy$。交換すれば $cb-da=-(ad-bc)$ で交代性を満たし、係数は滑らかで実数値である。また $u\ne0$ なら $\omega(u,Ju)=a^2+b^2>0$ なので非退化である。単に式を書いただけでなく、2形式の各条件を確認した。
+[微分形式の外積](../../GEO/GEO7/index.md#def-geo7-form-wedge)の評価式でも
+
+$$
+(dx\wedge dy)(u,v)=dx(u)dy(v)-dx(v)dy(u)=ad-cb
+$$
+
+となるから、$\omega=dx\wedge dy$ である。交換すれば $cb-da=-(ad-bc)$ で交代性を満たし、係数は滑らかで実数値である。また $u\ne0$ なら $\omega(u,Ju)=a^2+b^2>0$ なので非退化である。微分2形式の条件と、基本2形式に固有の非退化性を区別して確認した。
 <!-- definition-example-end -->
 
 <a id="prop-kah1-01-reconstruction"></a>
@@ -279,7 +294,7 @@ $$
 \omega=dx\wedge dy=\frac{i}{2}\,dz\wedge d\bar z.
 $$
 
-今後 $\omega=i\,g_{i\bar j}\,dz^i\wedge d\bar z^j$ と書く場合、標準Euclid計量では $g_{i\bar j}=\delta_{ij}/2$ である。**ここでの $1/2$ は規約に不可欠**であり、複素内積 $h$ の実接ベクトルに対する係数行列と無断で同一視しない。
+今後 $\omega=i\,g_{i\bar j}\,dz^i\wedge d\bar z^j$ と書く場合、$g_{i\bar j}$ は基本2形式を複素座標の外積基底で展開した**係数**を表す。上の計算を座標対ごとに適用すれば、標準Euclid計量では $\omega=\frac{i}{2}\sum_j dz^j\wedge d\bar z^j$ だから $g_{i\bar j}=\delta_{ij}/2$ である。**ここでの $1/2$ は規約に不可欠**であり、複素内積 $h$ の実接ベクトルに対する係数行列と無断で同一視しない。
 
 ## 5. 閉性を要求したときがKähler幾何の入口
 
@@ -313,7 +328,14 @@ $$
 \omega_0=\sum_{j=1}^n dx^j\wedge dy^j.
 $$
 
-各係数は定数で、$d(dx^j)=d(dy^j)=0$ なので $d\omega_0=0$。また $u\ne0$ に対し $\omega_0(u,Ju)=g(u,u)>0$。従って閉性と非退化性を別々に検証でき、これはKähler多様体である。
+各係数は定数で、[外微分の二乗は0](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から
+
+$$
+d(dx^j)=d^2x^j=0,\qquad
+d(dy^j)=d^2y^j=0
+$$
+
+が成り立つ。[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項に適用すると $d\omega_0=0$。一方、非零の $u$ に対し $\omega_0(u,Ju)=g(u,u)>0$ である。閉性と非退化性を別々に検証できたので、これはKähler多様体である。
 <!-- definition-example-end -->
 
 可積分な複素構造の下では、KählerならHermiteであり概Kählerでもある。ただし **Hermiteであるだけでは閉性は保証されない**。また概Kählerの定義はそもそも複素アトラスの存在を仮定しない。両者を同義語として扱うことはできない。
@@ -330,7 +352,7 @@ $$
 \omega=f(dx^1\wedge dy^1+dx^2\wedge dy^2)
 $$
 
-となり、積の外微分則を使うと
+となり、[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使うと
 
 $$
 \begin{aligned}
@@ -357,7 +379,7 @@ $$
 $J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$G=\operatorname{diag}(a,b)$（$a,b>0$）とする。$g(u,v)=u^{\mathsf T}Gv$ が $J$ と両立する条件を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。両立条件はすべての $u,v$ に対し $u^{\mathsf T}J^{\mathsf T}GJv=u^{\mathsf T}Gv$、すなわち $J^{\mathsf T}GJ=G$ である。積を順に計算すると
+**詳細解答**。[両立条件](#def-kah1-01-compatible-metric)はすべての $u,v$ に対し $u^{\mathsf T}J^{\mathsf T}GJv=u^{\mathsf T}Gv$、すなわち $J^{\mathsf T}GJ=G$ である（両辺を各標準基底ベクトルの組に作用させれば行列の各成分が一致する）。積を順に計算すると
 
 $$
 GJ=\begin{pmatrix}0&-a\\b&0\end{pmatrix},\qquad
@@ -374,7 +396,7 @@ $$
 $\mathbb R^2$ の $J(a,b)=(-b,a)$ と $g(u,v)=u\cdot v$ で $\omega(e_1,e_2)$、$\omega(e_2,e_1)$、$\omega(u,Ju)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$Je_1=e_2$、$Je_2=-e_1$ より
+**詳細解答**。[基本2形式の定義](#def-kah1-01-fundamental-form)に $Je_1=e_2$、$Je_2=-e_1$ を代入すると
 
 $$
 \omega(e_1,e_2)=g(e_2,e_2)=1,\qquad
@@ -439,7 +461,7 @@ J_a^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix},\qquad
 J_a^{\mathsf T}J_a=\operatorname{diag}(a^{-2},a^2).
 $$
 
-平均で
+[平均による両立計量の構成](#prop-kah1-01-averaging)を用いると
 
 $$
 G=\frac12(I+J_a^{\mathsf T}J_a)
@@ -460,16 +482,16 @@ $$
 #### KAH1-01-B02 閉性と次元の違い
 - Level: B
 
-$\mathbb C^2$ で $g=f\sum_{j=1}^2((dx^j)^2+(dy^j)^2)$、$f=2+x_1^2$ とする。正値性・両立性を確認し、$d\omega$ を計算してKählerか判定せよ。$\mathbb C$ 上の同様の計量との違いも述べよ。
+$\mathbb C^2$ で $g=f\sum_{j=1}^2((dx^j)^2+(dy^j)^2)$、$f=2+(x^1)^2$ とする。正値性・両立性を確認し、$d\omega$ を計算してKählerか判定せよ。$\mathbb C$ 上の同様の計量との違いも述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$f\ge2>0$ で、標準Euclid計量の正値性を保つ。$J_0$ は各座標対で直交するので $g(J_0u,J_0v)=f\,g_0(J_0u,J_0v)=f\,g_0(u,v)=g(u,v)$。基本形式は $\omega=f(dx^1\wedge dy^1+dx^2\wedge dy^2)$ である。$df=2x_1dx^1$ を代入すると
+**詳細解答**。$f\ge2>0$ で、標準Euclid計量の正値性を保つ。$J_0$ は各座標対で直交するので $g(J_0u,J_0v)=f\,g_0(J_0u,J_0v)=f\,g_0(u,v)=g(u,v)$。基本形式は $\omega=f(dx^1\wedge dy^1+dx^2\wedge dy^2)$ である。$df=2x^1dx^1$ を代入すると
 
 $$
-d\omega=2x_1dx^1\wedge dx^2\wedge dy^2.
+d\omega=2x^1dx^1\wedge dx^2\wedge dy^2.
 $$
 
-$x_1\ne0$ では非零なので全体として $d\omega\ne0$、Kählerではない。$\mathbb C$ は実次元2だから、同じ形の2形式 $\omega=f\,dx\wedge dy$ には $d\omega$ が3形式として自動的に零となる。次元が変わると判定結果が変わる。
+$x^1\ne0$ では非零なので全体として $d\omega\ne0$、[Kähler多様体の定義](#def-kah1-01-kahler-structure)を満たさない。$\mathbb C$ は実次元2だから、同じ形の2形式 $\omega=f\,dx\wedge dy$ には $d\omega$ が3形式として自動的に零となる。次元が変わると判定結果が変わる。
 <!-- solution-end -->
 
 <a id="ex-kah1-01-b03"></a>
@@ -516,7 +538,7 @@ $$
 \omega(u,v)=A(u_1v_2-u_2v_1)+B(u_3v_4-u_4v_3).
 $$
 
-$Ju=(-u_2,u_1,-u_4,u_3)$、$Jv=(-v_2,v_1,-v_4,v_3)$ を代入すると、それぞれの括弧は $u_1v_2-u_2v_1$ と $u_3v_4-u_4v_3$ に戻る。従って $\omega(Ju,Jv)=\omega(u,v)$。また
+$Ju=(-u_2,u_1,-u_4,u_3)$、$Jv=(-v_2,v_1,-v_4,v_3)$ を代入すると、第一座標対の項は $(-u_2)v_1-u_1(-v_2)=u_1v_2-u_2v_1$、第二座標対も $(-u_4)v_3-u_3(-v_4)=u_3v_4-u_4v_3$ となる。従って $\omega(Ju,Jv)=\omega(u,v)$。また
 
 $$
 \begin{aligned}
