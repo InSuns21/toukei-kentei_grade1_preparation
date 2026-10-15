@@ -234,7 +234,7 @@ $\pi$ を代数的と仮定すると、$i$ も代数的だから積 $i\pi$ は�
 <!-- proof-start -->
 ### 証明
 
-$\pi$ が代数的であると仮定します。$i$ はモニック多項式 $X^2+1\in\mathbb Z[X]$ の根なので代数的数です。[代数的数の四則演算に関する閉性](../../FLD/FLD1/index.md#thm-fld1-algebraic-closure-operations)から $\alpha=i\pi$ も代数的数です。また $i\ne0$ かつ $\pi>0$ より $\alpha\ne0$ です。
+$\pi$ が代数的であると仮定します。$i$ はモニック多項式 $X^2+1\in\mathbb Z[X]$ の根なので代数的数です。$i$ と $\pi$ を添加した体 $\mathbb Q(i,\pi)$ は二つの代数的数で生成される有限拡大です。[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)をこの体の元 $\alpha=i\pi$ に適用すると、$\alpha$ も代数的です。また $i\ne0$ かつ $\pi>0$ より $\alpha\ne0$ です。
 
 したがって [Hermite–Lindemannの定理](#thm-trn11-hermite-lindemann)をこの $\alpha=i\pi$ に適用すると $e^{i\pi}$ は超越数となるはずです。一方で
 
@@ -274,7 +274,7 @@ e^{\alpha-\beta}
 =\frac{e^\alpha}{e^\beta}=1.
 $$
 
-[代数的数の差の閉性](../../FLD/FLD1/index.md#thm-fld1-algebraic-closure-operations)により $\delta=\alpha-\beta$ は代数的数です。もし $\delta\ne0$ なら [Hermite–Lindemannの定理](#thm-trn11-hermite-lindemann)から $e^\delta$ は超越数ですが、$e^\delta=1$ は代数的数です。従って $\delta=0$、すなわち $\alpha=\beta$ です。$\square$
+$\alpha,\beta$ が代数的なので $\mathbb Q(\alpha,\beta)/\mathbb Q$ は有限拡大です。[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)をこの体の元 $\delta=\alpha-\beta$ に適用すると、$\delta$ は代数的数です。もし $\delta\ne0$ なら [Hermite–Lindemannの定理](#thm-trn11-hermite-lindemann)から $e^\delta$ は超越数ですが、$e^\delta=1$ は代数的数です。従って $\delta=0$、すなわち $\alpha=\beta$ です。$\square$
 <!-- proof-end -->
 
 具体例として $\alpha=0,\beta=1$ はともに代数的ですが $e^0=1$、$e^1=e$ で一致しません。反対に $z=0$ と $w=2\pi i$ は相異なり、$e^z=e^w=1$ です。後者で $w$ が代数的だとすると $\pi=w/(2i)$ も代数的になり、[上の系](#cor-trn11-pi-transcendental)に反します。**単射性の定義域を $\mathbb C$ と書いてしまう誤り**は、この例で区別できます。
