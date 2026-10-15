@@ -1,0 +1,58 @@
+chapter: EC10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC8
+  - EC9
+  - ANT2
+  - EC6
+forward_references: []
+concepts:
+  - id: elliptic-curve.good-euler-polynomial
+    name: 良い素数の局所係数とEuler多項式
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.good-reduction, elliptic-curve.zeta-rationality]
+  - id: elliptic-curve.bad-euler-polynomial
+    name: 悪い素数の局所Euler多項式
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.reduction-types, elliptic-curve.conductor]
+  - id: elliptic-curve.singular-smooth-counts
+    name: 節点・尖点の非特異部分の点数
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.reduction-types]
+  - id: elliptic-curve.hasse-weil-l
+    name: Hasse–Weil L関数・局所Euler因子
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.good-euler-polynomial, elliptic-curve.bad-euler-polynomial, analytic-number-theory.euler-product]
+  - id: elliptic-curve.l-absolute-convergence
+    name: Euler積の絶対収束と正則性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.hasse-weil-l, elliptic-curve.hasse-bound, analytic-number-theory.dirichlet-holomorphic]
+  - id: elliptic-curve.l-dirichlet-coefficients
+    name: 素数冪係数と乗法性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.hasse-weil-l, analytic-number-theory.euler-product]
+  - id: elliptic-curve.l-functional-equation
+    name: 解析接続と関数等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.hasse-weil-l, elliptic-curve.conductor]
+  - id: elliptic-curve.analytic-rank
+    name: 解析的rank
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.l-functional-equation]

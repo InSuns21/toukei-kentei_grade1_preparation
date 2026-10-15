@@ -44,7 +44,7 @@ chapters:
     title: "整数モデル・良い／悪い還元・導手"
   - id: EC10
     path: textbook/volumes/dream_thater/代数系/EC/EC10
-    status: planned
+    status: completed
     title: "Hasse–Weil L関数と局所因子"
   - id: EC11
     path: textbook/volumes/dream_thater/代数系/EC/EC11
