@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - EC5
+  - GRP2
   - MOD2
   - TRN1
 official_scope: []
