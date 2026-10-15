@@ -63,7 +63,7 @@ T_p\Sigma_c=\ker dT_p
 =\{V\in T_pM:g_p(\nabla^gT,V)=0\}
 $$
 
-となります。時間的ベクトル $\nabla^gT(p)$ を第一基底ベクトルに取るLorentz直交基底では $g_p$ の符号は $(-,+,\ldots,+)$ であり、第一成分が零の非零ベクトルは $g_p(V,V)>0$ を満たします。従って $g|_{T\Sigma_c}$ は正定値です。
+となります。[時間的ベクトルの直交補空間が正定値になる補題](../LORG1/index.md#lem-lorg1-timelike-orthogonal)を適用します。時間的ベクトル $\nabla^gT(p)$ を第一基底ベクトルに取るLorentz直交基底では $g_p$ の符号は $(-,+,\ldots,+)$ であり、第一成分が零の非零ベクトルは $g_p(V,V)>0$ を満たします。従って $g|_{T\Sigma_c}$ は正定値です。
 
 また、$T$ は連続なので $\Sigma_c$ は閉です。[Cauchy時間関数のレベル命題](../LORG19/index.md#prop-lorg19-level-cauchy)を、今回の定義の第二条件とtemporalな関数の単調性に適用すると、すべての非延長未来因果曲線が各 $\Sigma_c$ とちょうど一度交差し、特に $\Sigma_c$ は非空です。従って[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。$\square$
 <!-- proof-end -->
@@ -100,10 +100,10 @@ $$
 > **命題（temporal stepの大域合成）**  
 > 連続Cauchy時間関数 $\tau_0$ と上記二条件を満たす滑らかな関数族 $(s_k)_{k\in\mathbb Z}$ が与えられたとする。基準点 $p_0\in M$ を固定したとき、
 >
-> $$ 
-> T(p)=\sum_{k\in\mathbb Z}\bigl(s_k(p)-s_k(p_0)\bigr)
-> $$
->
+$
+T(p)=\sum_{k\in\mathbb Z}\bigl(s_k(p)-s_k(p_0)\bigr)
+$
+
 > は滑らかなCauchy temporal functionである。
 <!-- formal-statement-end -->
 
@@ -116,7 +116,7 @@ $$
 
 $p\in M$ の小さな相対コンパクト近傍 $U$ を選びます。$\tau_0(\overline U)$ と $\tau_0(p_0)$ は有限区間 $[a,b]$ に含まれるように取れます。$k>b+1$ ではすべての $q\in U\cup\{p_0\}$ が $\tau_0(q)\le k-1$ を満たすので $s_k(q)=-1$ です。$k<a-2$ では逆に $s_k(q)=1$ です。従って差の和で零でないのは有限個の $k$ だけであり、$T$ は滑らかで項別微分できます。
 
-任意の $p$ について整数 $k$ を $\tau_0(p)\in[k,k+1]$ となるよう選ぶと、少なくとも $\nabla^g s_k(p)$ は過去時間的です。それ以外の各 $\nabla^g s_j(p)$ は零または過去時間的です。過去時間的錐の凸性は[LORG1の未来錐の凸性](../LORG1/index.md#thm-lorg1-future-cone-convexity)を時間反転したものなので、有限和
+任意の $p$ について整数 $k$ を $\tau_0(p)\in[k,k+1]$ となるよう選ぶと、少なくとも $\nabla^g s_k(p)$ は過去時間的です。それ以外の各 $\nabla^g s_j(p)$ は零または過去時間的です。過去時間的錐の凸性は[LORG1の未来錐の凸性](../LORG1/index.md#prop-lorg1-cone-convex)を時間反転したものなので、有限和
 
 $$
 \nabla^gT(p)=\sum_j\nabla^g s_j(p)
