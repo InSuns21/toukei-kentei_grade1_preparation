@@ -1,0 +1,44 @@
+chapter: TRN9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN8
+forward_references: []
+
+concepts:
+  - id: transcendence.integerized-exponent-polynomial
+    name: 整数化した指数の消滅多項式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（整数化した指数の消滅多項式）]
+    requires: [transcendence.denominator-clearing, transcendence.balanced-algebraic-exponential-relation]
+  - id: transcendence.hl-auxiliary-polynomial
+    name: 多重零点を持つHermite–Lindemann補助多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多重零点を持つHermite–Lindemann補助多項式）]
+    requires: [transcendence.integerized-exponent-polynomial, transcendence.hermite-derivative-sum]
+  - id: transcendence.hl-zero-multiplicity
+    name: 評価点の零点重複度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（評価点の零点重複度）]
+    requires: [transcendence.hl-auxiliary-polynomial]
+  - id: transcendence.hl-factorial-integrality
+    name: 代数的整数点での階乗可除性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（代数的整数点での階乗可除性）]
+    requires: [transcendence.hl-auxiliary-polynomial, transcendence.integral-ring, transcendence.hermite-factorial-derivatives]
+  - id: transcendence.hl-endpoint-congruences
+    name: 端点微分和の合同
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（端点微分和の合同）]
+    requires: [transcendence.hl-zero-multiplicity, transcendence.hl-factorial-integrality]
+  - id: transcendence.hl-arithmetic-nonzero
+    name: 補助微分和から作る非零整数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（補助微分和から作る非零整数）]
+    requires: [transcendence.hl-endpoint-congruences, transcendence.integral-ring, transcendence.rational-integral, transcendence.balanced-algebraic-exponential-relation]
