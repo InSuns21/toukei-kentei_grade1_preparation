@@ -455,8 +455,14 @@ $$
 =t\int_0^1 e^{(1-s)t}f_{p,a}(st)\,ds.
 $$
 
-ここで $|e^{(1-s)t}|=e^{(1-s)\operatorname{Re}t}
-\le e^{\max(0,\operatorname{Re}t)}$ です。従って
+ここで指数関数の絶対値は
+
+$
+|e^{(1-s)t}|=e^{(1-s)\operatorname{Re}t}
+\le e^{\max(0,\operatorname{Re}t)}
+$
+
+です。従って
 
 $$
 \left|\int_0^t e^{t-z}f_{p,a}(z)\,dz\right|
