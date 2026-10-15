@@ -1,8 +1,8 @@
 # DREAM THEATER 超越数論Ⅰ：Hermite–LindemannからLindemann–Weierstrassへ
 
 作成日: 2026-10-11  
-改訂日: 2026-10-16（TRN12実装）  
-状態: in progress（TRN1–TRN12本文・manifestを実装、TRN13–TRN14および横断監査は未完了）
+改訂日: 2026-10-16（TRN13実装）  
+状態: in progress（TRN1–TRN13本文・manifestを実装、TRN14および横断監査は未完了）
 
 ## 0. 中心問いと到達点
 
@@ -251,3 +251,5 @@ $$
 - 2026-10-14：TRN1の本文、8演習・詳細解答、chapter/knowledge metadata、TRN系列manifest、公開目次・索引を追加。TRN2–TRN14と横断監査は未着手。
 
 - 2026-10-15：TRN11の主定理と円周率の超越性、単射性と対数値の帰結、詳細解答10題を実装。次章はTRN12、横断監査は未着手。
+
+- 2026-10-16：TRN13の評価点付き補助多項式、代数的整数環での合同、共役ノルムの非零性、全特別点に一様な複素積分上界と10演習を実装。TRN14と系列横断監査は残作業。
