@@ -125,6 +125,29 @@ $$
 
 とくに標準Euclid計量なら $g_{i\bar j}=\delta_{ij}/2$。この係数は実計量の長さと上記の正値判定をつなぐ変換から決まり、任意に選んだ正規化ではない。
 
+<a id="calc-kah1-02-two-by-two"></a>
+
+**2次Hermite行列を行列式で判定できる理由**。複素次元2で実性の条件を満たす係数行列を
+
+$$
+H=\begin{pmatrix}A&B\\\overline B&D\end{pmatrix},
+\qquad A,D\in\mathbb R,\quad B\in\mathbb C
+$$
+
+と書く。これは上の正値性の式 $c^{\mathsf T}H\bar c$ を二変数で表したものにすぎない。$A>0$ なら平方完成により
+
+$$
+\begin{aligned}
+c^{\mathsf T}H\bar c
+&=A|c^1|^2+B c^1\overline{c^2}
+ +\overline B c^2\overline{c^1}+D|c^2|^2\\
+&=A\left|c^1+\frac{\overline B}{A}c^2\right|^2
+ +\frac{AD-|B|^2}{A}|c^2|^2.
+\end{aligned}
+$$
+
+従って $A>0$ かつ $\det H=AD-|B|^2>0$ なら、零でないすべての $c$ に対して正となる。逆に正値なら $c=(1,0)$ を代入して $A>0$、さらに $c=(-\overline B/A,1)$ を代入して $(AD-|B|^2)/A>0$ を得る。したがって **$A>0$ と $\det H>0$ が正値性の必要十分条件**である。この判定は実性・$(1,1)$ 型を確認した後に使うもので、外微分の閉性までは保証しない。
+
 **行列による直接例**。$\mathbb C^2$ 上で $g_{1\bar1}=2$、$g_{2\bar2}=3$、$g_{1\bar2}=i$、$g_{2\bar1}=-i$ とする。共役対称性を満たし、
 
 $$
@@ -266,7 +289,13 @@ $$
 =1+t(|z^1|^2+|z^2|^2)>0
 $$
 
-から正定値となる。[局所閉性定理](#thm-kah1-02-local-closedness)を確かめるため、$j=1,2$ ごとに
+から、係数行列の対応は
+
+$$
+A=1+t|z^2|^2,\qquad B=t\bar z^1z^2,\qquad D=1+t|z^1|^2
+$$
+
+である。[2次Hermite行列の平方完成](#calc-kah1-02-two-by-two)にこれらを代入して正定値となる。[局所閉性定理](#thm-kah1-02-local-closedness)を確かめるため、$j=1,2$ ごとに
 
 $$
 \begin{aligned}
@@ -423,7 +452,24 @@ t z^1\bar z^2&1+t|z^1|^2
 \end{pmatrix}.
 $$
 
-第一対角成分が正、$\det H=1+t(|z^1|^2+|z^2|^2)>0$ より正定値。閉性は $\partial_2 H_{1\bar1}=t\bar z^2=\partial_1H_{2\bar1}$ と $\partial_1H_{2\bar2}=t\bar z^1=\partial_2H_{1\bar2}$ で検算する。$H$ はHermite対称なので、共役側の条件も従い $d\omega=0$。
+第一対角成分 $A=1+t|z^2|^2$ が正であり、行列式は
+
+$$
+\det H=1+t(|z^1|^2+|z^2|^2)>0
+$$
+
+である。[2次Hermite行列の平方完成](#calc-kah1-02-two-by-two)により、すべての零でない $c$ で $c^{\mathsf T}H\bar c>0$、すなわち正定値となる。
+
+閉性は、添字の異なる二組について
+
+$$
+\begin{aligned}
+\partial_2H_{1\bar1}&=t\bar z^2=\partial_1H_{2\bar1},\\
+\partial_1H_{2\bar2}&=t\bar z^1=\partial_2H_{1\bar2}
+\end{aligned}
+$$
+
+と検算できる。$H$ はHermite対称なので、共役側の条件も従い $d\omega=0$。
 <!-- solution-end -->
 
 <a id="ex-kah1-02-b03"></a>
@@ -484,7 +530,13 @@ $$
 \det H\ge1+a(|z^1|^2+|z^2|^2)>0
 $$
 
-なので、Hermite行列の平方完成（または二次の主座小行列式判定）で正定値となる。これが (1) の必要十分条件である。
+なので、ここで
+
+$$
+A=1+a|z^2|^2,\qquad B=b\bar z^1z^2,\qquad D=1+a|z^1|^2
+$$
+
+として[2次Hermite行列の平方完成](#calc-kah1-02-two-by-two)に代入すれば、零でないすべての $c$ に対して $c^{\mathsf T}H\bar c>0$ となる。これが (1) の必要十分条件である。
 
 閉性の非自明な式を計算すると
 
