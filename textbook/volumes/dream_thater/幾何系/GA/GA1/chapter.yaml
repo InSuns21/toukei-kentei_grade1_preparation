@@ -1,0 +1,33 @@
+id: "GA1"
+title: "Laplace--Beltrami作用素・Green公式・弱形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO8
+  - GEO12
+  - GPDE2
+official_scope: []
+learning_objectives:
+  - Riemann計量と体積密度からLaplace--Beltrami作用素の局所座標表示を再構成できる
+  - 円・球面・平坦トーラスでLaplacianの符号と具体式を計算できる
+  - Stokesの定理から外向き法線と面積要素を用いた発散定理を導ける
+  - Green第一・第二公式を積の発散から証明し境界項を正しく扱える
+  - Dirichletエネルギーの第一変分から滑らかな試験関数による弱形式を導ける
+  - Poisson方程式の積分適合条件とNeumann解の定数までの一意性を証明できる
+definitions:
+  - { id: GA1-DEF-01, name: "Dirichletエネルギー" }
+  - { id: GA1-DEF-02, name: "Poisson方程式の滑らかな試験関数による弱形式" }
+theorems:
+  - { id: GA1-PROP-01, name: "座標表示の解析的読み方" }
+  - { id: GA1-THM-01, name: "Riemann多様体の発散定理" }
+  - { id: GA1-THM-02, name: "Greenの第一公式" }
+  - { id: GA1-THM-03, name: "Greenの第二公式" }
+  - { id: GA1-PROP-02, name: "古典解と弱形式の一致" }
+  - { id: GA1-PROP-03, name: "Poisson方程式の積分適合条件" }
+  - { id: GA1-PROP-04, name: "連結な多様体での定数までの一意性" }
+canonical_examples: [円のLaplacian, 球面の高さ関数, 平坦トーラスの周期関数, 円環の法線向き, 円板のNeumann問題]
+problem_patterns: [GA1-CIRCLE, GA1-SPHERE, GA1-TORUS, GA1-ANNULUS, GA1-CONFORMAL, GA1-GREEN-DISK, GA1-NEUMANN-COMPATIBILITY, GA1-NEUMANN-WEAK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }

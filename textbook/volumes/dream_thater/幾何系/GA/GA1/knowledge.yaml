@@ -1,0 +1,56 @@
+chapter: GA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO8
+  - GEO12
+  - GPDE2
+concepts:
+  - id: geometric-analysis.divergence-theorem
+    name: Riemann多様体の発散定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Riemann多様体の発散定理）"]
+    requires: [geometry.riemannian-divergence, geometry.general-stokes-theorem, geometry.boundary-orientation]
+  - id: geometric-analysis.green-first
+    name: Greenの第一公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Greenの第一公式）"]
+    requires: [geometric-analysis.divergence-theorem, geometry.laplace-beltrami]
+  - id: geometric-analysis.green-second
+    name: Greenの第二公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Greenの第二公式）"]
+    requires: [geometric-analysis.green-first]
+  - id: geometric-analysis.dirichlet-energy
+    name: Dirichletエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichletエネルギー）"]
+    requires: [geometry.riemannian-gradient, geometry.riemannian-volume-form]
+  - id: geometric-analysis.smooth-weak-poisson
+    name: Poisson方程式の滑らかな試験関数による弱形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson方程式の滑らかな試験関数による弱形式）"]
+    requires: [geometric-analysis.green-first, geometric-analysis.dirichlet-energy]
+  - id: geometric-analysis.weak-classical
+    name: 古典解と弱形式の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（古典解と弱形式の一致）"]
+    requires: [geometric-analysis.smooth-weak-poisson, geometric-analysis.green-first]
+  - id: geometric-analysis.poisson-compatibility
+    name: Poisson方程式の積分適合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson方程式の積分適合条件）"]
+    requires: [geometric-analysis.divergence-theorem]
+  - id: geometric-analysis.neumann-uniqueness
+    name: 連結な多様体での定数までの一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連結な多様体での定数までの一意性）"]
+    requires: [geometric-analysis.green-first]
