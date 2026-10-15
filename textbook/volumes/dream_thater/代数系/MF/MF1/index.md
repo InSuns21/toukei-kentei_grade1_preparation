@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-upper-half-plane -->
-**定義の確認。** $\tau=i$ では $\operatorname{Im}\tau=1>0$ です。一方 $\tau=-i$ は虚部が負なので $\mathbb H$ に入りません。境界の実軸も含めません。
+**定義の確認**。 $\tau=i$ では $\operatorname{Im}\tau=1>0$ です。一方 $\tau=-i$ は虚部が負なので $\mathbb H$ に入りません。境界の実軸も含めません。
 <!-- definition-example-end -->
 
 基底の向きを正にした後、第一の周期 $\omega_1$ で全体を割れば、基底は $(1,\tau)$ の形になります。$\tau$ は単なる座標ではなく、格子の二つの周期の比率です。
@@ -43,7 +43,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-oriented-parameter -->
-**定義の確認。** $\omega_1=1,\omega_2=i$ なら $\operatorname{Im}(\overline1 i)=1>0$ で、$\tau=i$ です。$\omega_1=i,\omega_2=1$ の順では $\operatorname{Im}(\overline i\,1)=-1$ となり正向きではありません。実線形独立性だけでなく向きまで調べる点が重要です。
+**定義の確認**。 $\omega_1=1,\omega_2=i$ なら $\operatorname{Im}(\overline1 i)=1>0$ で、$\tau=i$ です。$\omega_1=i,\omega_2=1$ の順では $\operatorname{Im}(\overline i\,1)=-1$ となり正向きではありません。実線形独立性だけでなく向きまで調べる点が重要です。
 <!-- definition-example-end -->
 
 ここで $\mathbb Z+\tau\mathbb Z$ を $\Lambda_\tau$ と記します。同じ複素格子の異なる基底を正規化すると $\tau$ の値が変わり得ます。その変化を次で正確に求めます。
@@ -73,7 +73,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-modular-group -->
-**定義の確認。** $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ と $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は整数成分で行列式がそれぞれ $0-(-1)=1$ と $1-0=1$ です。逆行列も整数成分であり、$S,T\in SL_2(\mathbb Z)$ です。一方 $\begin{pmatrix}2&0\\0&1\end{pmatrix}$ の行列式は $2$ なので入りません。
+**定義の確認**。 $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ と $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は整数成分で行列式がそれぞれ $0-(-1)=1$ と $1-0=1$ です。逆行列も整数成分であり、$S,T\in SL_2(\mathbb Z)$ です。一方 $\begin{pmatrix}2&0\\0&1\end{pmatrix}$ の行列式は $2$ なので入りません。
 <!-- definition-example-end -->
 
 向きと周期比の関係を計算します。$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応して
@@ -106,7 +106,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-fractional-action -->
-**定義の確認。** $T\cdot i=i+1$、$S\cdot i=-1/i=i$ です。$T$ は周期 $1$ を他方の周期へ加える操作、$S$ は二周期の入れ替えと符号変更に対応します。どちらも $\mathbb H$ に値を持ちます。
+**定義の確認**。 $T\cdot i=i+1$、$S\cdot i=-1/i=i$ です。$T$ は周期 $1$ を他方の周期へ加える操作、$S$ は二周期の入れ替えと符号変更に対応します。どちらも $\mathbb H$ に値を持ちます。
 <!-- definition-example-end -->
 
 <a id="thm-mf1-imaginary-action"></a>
@@ -277,7 +277,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-standard-domain -->
-**定義の確認。** $2i$ は実部 $0$、絶対値 $2$ なので二条件を満たし、しかも不等号は厳密なので内部に入ります。$i$ は絶対値 $1$ で境界上です。$i/2$ は絶対値 $1/2$ なので入りません。$1/2+i$ は縦辺上です。二つの不等式を別々に検査する必要があります。
+**定義の確認**。 $2i$ は実部 $0$、絶対値 $2$ なので二条件を満たし、しかも不等号は厳密なので内部に入ります。$i$ は絶対値 $1$ で境界上です。$i/2$ は絶対値 $1/2$ なので入りません。$1/2+i$ は縦辺上です。二つの不等式を別々に検査する必要があります。
 <!-- definition-example-end -->
 
 <a id="thm-mf1-fundamental-domain"></a>
@@ -357,7 +357,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-rational-boundary -->
-**定義の確認。** $T\cdot\infty=\infty$（$c=0$）、$S\cdot\infty=0$（$a=0,c=1$）です。逆に $S\cdot0=\infty$ です。実軸上の有理点と無限遠が同じ変換群で結び付いていることを具体的に確認できます。
+**定義の確認**。 $T\cdot\infty=\infty$（$c=0$）、$S\cdot\infty=0$（$a=0,c=1$）です。逆に $S\cdot0=\infty$ です。実軸上の有理点と無限遠が同じ変換群で結び付いていることを具体的に確認できます。
 <!-- definition-example-end -->
 
 <a id="thm-mf1-one-cusp-orbit"></a>
