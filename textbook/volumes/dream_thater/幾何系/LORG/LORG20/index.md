@@ -12,9 +12,9 @@
 
 $g$ による勾配 $\nabla^gf$ は、任意の接ベクトル $V$ に対する条件
 
-$
+$$
 g(\nabla^gf,V)=df(V)
-$
+$$
 
 で定まります。$g$ は非退化なのでこのベクトルは一意です。
 
@@ -56,9 +56,9 @@ $$
 > **命題（Cauchy temporal functionのレベル）**  
 > 滑らかな時間向き付きLorentz時空 $(M,g)$ にCauchy temporal function $T:M\to\mathbb R$ があるとする。任意の $c\in\mathbb R$ に対し、レベル集合
 
-$
+$$
 \Sigma_c=T^{-1}(c)
-$
+$$
 
 > は非空で閉な滑らかな埋め込み超曲面である。その接空間への誘導計量は正定値であり、$\Sigma_c$ はCauchy面である。
 <!-- formal-statement-end -->
@@ -114,9 +114,9 @@ $$
 > **命題（temporal stepの大域合成）**  
 > 連続Cauchy時間関数 $\tau_0$ と上記二条件を満たす滑らかな関数族 $(s_k)_{k\in\mathbb Z}$ が与えられたとする。基準点 $p_0\in M$ を固定したとき、
 >
-$
+$$
 T(p)=\sum_{k\in\mathbb Z}\bigl(s_k(p)-s_k(p_0)\bigr)
-$
+$$
 
 > は滑らかなCauchy temporal functionである。
 <!-- formal-statement-end -->
@@ -183,15 +183,15 @@ $$
 > **定理（滑らかな直交時空分割）**  
 > 境界のない連結Hausdorff・第二可算の滑らかな時間向き付き大域双曲Lorentz時空 $(M,g)$ には、滑らかな空間的Cauchy超曲面 $\Sigma$ と微分同相
 >
-$
+$$
 > F:\mathbb R\times\Sigma\longrightarrow M
-$
+$$
 >
 > が存在し、$T(F(c,x))=c$ を満たすCauchy temporal function $T$ に対し、引戻し計量が
 >
-$
+$$
 > F^*g=-\beta(c,x)\,dc^2+h_c
-$
+$$
 >
 > と書ける。$\beta>0$ は滑らかな関数、$h_c$ は各 $\{c\}\times\Sigma$ 上の正定値な滑らかな計量で、時間方向と空間方向の交差項は零である。
 <!-- formal-statement-end -->
@@ -264,16 +264,16 @@ $$
 > **命題（lapseと単位法線）**  
 > 滑らかなCauchy temporal function $T$ が与える直交分割において、各時刻面の未来向き単位法線ベクトル場 $N$ は
 >
-$
+$$
 > N=-\frac{\nabla^gT}{\sqrt{-g(\nabla^gT,\nabla^gT)}}
-$
+$$
 >
 > である。正のlapse関数を $\alpha=\sqrt\beta$ とすると、
 >
-$
+$$
 > \partial_c=X=\alpha N,\qquad
 > g(N,N)=-1,\qquad dT(N)=\frac1\alpha
-$
+$$
 >
 > が成り立つ。ここで $\beta=-1/g(\nabla^gT,\nabla^gT)$ である。
 <!-- formal-statement-end -->
@@ -558,9 +558,9 @@ $$
 
 は未来時間的曲線です。未来端 $s\to0$ の極限 $(0,0)$ が $M_*$ にないので、その端で $M_*$ 内の連続因果曲線として延長できません。過去端も非延長です。この曲線上で時計の値域を計算すると
 
-$
+$$
 (t\circ\gamma)((-\infty,0))=(-\infty,0)
-$
+$$
 
 となり、[Cauchy temporalの定義](#def-lorg20-cauchy-temporal)の第二条件が失敗します。$t=0$ では $x\ne0$ の点だけが残りますが、この曲線は一度も交わりません。
 
