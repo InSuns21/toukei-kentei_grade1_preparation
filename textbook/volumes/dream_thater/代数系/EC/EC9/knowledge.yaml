@@ -48,6 +48,12 @@ concepts:
     aliases: []
     introduction: formal
     requires: [elliptic-curve.conductor, elliptic-curve.reduction-types]
+  - id: elliptic-curve.semistable
+    name: 半安定楕円曲線
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.reduction-types]
   - id: elliptic-curve.semistable-conductor
     name: 半安定曲線の導手
     kind: proposition
