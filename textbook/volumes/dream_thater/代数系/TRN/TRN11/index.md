@@ -61,11 +61,11 @@ R=\sum_{t\in T}c_tU_t,\qquad
 c_0=\sum_{\lambda\in S}B_\lambda^2>0
 $$
 
-が得られます。$T\subset K$ は有限な相異なる指数の集合で $0\in T$、各 $c_t\in\mathbb Z\setminus\{0\}$ です。ここで0以外の指数も含めた係数を展開すると、任意の $u\in K$ に対して
+が得られます。$T\subset K$ は有限な相異なる指数の集合で $0\in T$、各 $c_t\in\mathbb Z\setminus\{0\}$ です。ここで $T$ の外の指数 $u$ については $c_u=0$ と約束します。係数を展開すると、任意の $u\in K$ に対して
 
-$
+$$
 c_u=\sum_{\substack{\lambda,\mu\in S\\\lambda-\mu=u}}B_\lambda B_\mu
-$
+$$
 
 です。組 $(\lambda,\mu)$ を $(\mu,\lambda)$ と入れ替えると、指数は $u$ から $-u$ へ変わり積 $B_\lambda B_\mu$ は変わりません。よって $c_{-u}=c_u$、従って $T=-T$ です。
 
