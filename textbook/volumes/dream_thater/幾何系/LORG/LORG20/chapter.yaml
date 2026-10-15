@@ -1,0 +1,50 @@
+id: "LORG20"
+title: "滑らかな時空分割"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG10
+  - LORG13
+  - LORG14
+  - LORG15
+  - LORG16
+  - LORG19
+  - GEO15
+official_scope: []
+learning_objectives:
+  - Cauchy temporal functionの二条件を勾配と非延長曲線上の値域から判定できる
+  - 時間的勾配に直交する時刻レベルが滑らかで空間的なCauchy面になることを証明できる
+  - Bernal–Sánchezの存在定理とtemporal stepの外部構成の証明境界を説明できる
+  - 局所有限な段差関数の合成がtemporal性とCauchy性を保つことを検算できる
+  - 完全時間的な流れと陰関数定理から滑らかな直交分割を構成できる
+  - g=-βdT²+h_Tのlapse・正規化法線・誘導計量を導出できる
+  - 時間再目盛りと点除去の反例から必要仮定の破綻を説明できる
+definitions:
+  - { id: LORG20-DEF-01, name: Cauchy temporal function }
+theorems:
+  - { id: LORG20-PROP-01, name: Cauchy temporal functionのレベル }
+  - { id: LORG20-THM-01, name: Bernal–SánchezのCauchy temporal function存在定理 }
+  - { id: LORG20-PROP-02, name: temporal stepの大域合成 }
+  - { id: LORG20-THM-02, name: 滑らかな直交時空分割 }
+  - { id: LORG20-PROP-03, name: lapseと単位法線 }
+canonical_examples:
+  - Minkowskiの標準時刻のCauchy temporal性
+  - 時間依存対角計量のlapseとCauchyレベル
+  - 斜めのMinkowski時計からの直交座標
+  - 原点除去MinkowskiでtemporalだがCauchyでない時計
+  - s³とarctan sによる再目盛りの差
+problem_patterns:
+  - LORG20-CAUCHY-TEMPORAL
+  - LORG20-LAPSE-NORMAL
+  - LORG20-SPACELIKE-LEVELS
+  - LORG20-TEMPORAL-STEPS
+  - LORG20-ORTHOGONAL-SPLITTING
+  - LORG20-REPARAMETERIZATION
+  - LORG20-GLOBAL-HYPERBOLICITY-FAILURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 12, review: 8 }

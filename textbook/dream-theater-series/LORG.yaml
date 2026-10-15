@@ -83,7 +83,7 @@ chapters:
     title: "Cauchy時間関数の存在"
   - id: LORG20
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG20
-    status: planned
+    status: completed
     title: "滑らかな時空分割"
   - id: LORG21
     path: textbook/volumes/dream_thater/幾何系/LORG/LORG21
