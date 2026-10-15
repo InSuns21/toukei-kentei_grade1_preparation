@@ -79,7 +79,7 @@ $$
 F(q)=f\left(\frac{\log q}{2\pi i}\right)
 $$
 
-と局所表示できるため $F$ は正則です。$\operatorname{Im}\tau\ge Y$ と $0<|q|\le e^{-2\pi Y}$ は同値です。$f$ の一様有界性は、したがって $F$ の零点近くでの有界性と同値です。[除去可能特異点の定理](../../../解析系/CA/CA5/index.md#thm-ca5-removable-singularity)により、これは $F$ が零点へ正則延長できることと同値です。最後に正則関数の Taylor 展開を $q=0$ に適用すると $F(q)=\sum_{n\ge0}a_nq^n$ が得られます。係数の一意性は Taylor 係数の一意性です。
+と局所表示できるため $F$ は正則です。$\operatorname{Im}\tau\ge Y$ と $0<|q|\le e^{-2\pi Y}$ は同値です。$f$ の一様有界性は、したがって $F$ の零点近くでの有界性と同値です。[有界な孤立特異点は可除](../../../解析系/CA/CA4/index.md#cor-ca4-removable-bounded)により、これは $F$ が零点へ正則延長できることと同値です。最後に正則関数の Taylor 展開を $q=0$ に適用すると $F(q)=\sum_{n\ge0}a_nq^n$ が得られます。係数の一意性は Taylor 係数の一意性です。
 <!-- proof-end -->
 
 <a id="def-mf2-q-expansion"></a>
@@ -223,7 +223,7 @@ $$
 
 ### 証明の見取り図
 
-$\pi\cot(\pi z)$ は各整数で留数1を持ちます。この関数の高階導関数が $H_k$ を与えることを留数定理で確認し、上半平面では等比級数から $\cot$ の指数展開を得ます。
+$\pi\cot(\pi z)$ は各整数で留数1を持ちます。この関数の高階導関数が $H_k$ を与えることを[留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)で確認し、上半平面では等比級数から $\cot$ の指数展開を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -314,12 +314,29 @@ $$
 
 $|q|<1$ のもと、二重級数の絶対収束は、たとえば $\sum_{m,r\ge1}r^{k-1}|q|^{mr}\le \sum_{r\ge1}r^{k-1}|q|^r/(1-|q|^r)<\infty$ から従います。$N=mr$ と置けば、$r$ が $N$ の正の約数をちょうど一巡するので係数は $\sigma_{k-1}(N)$ です。
 
-正規化の定数を具体化します。$\pi\cot(\pi z)$ の $z=0$ 近傍の展開（$\sin,\cos$ の Taylor 展開を割って求める）と部分分数展開の係数比較から
+正規化の定数を具体化します。$\sin,\cos$ の Taylor 展開を割ると
 
-$$
+$
+\pi\cot(\pi z)=\frac1z-\frac{\pi^2}{3}z-\frac{\pi^4}{45}z^3-\frac{2\pi^6}{945}z^5+O(z^7).
+$
+
+一方、整数の極を対称に足した部分分数表示は、$|z|<1$ で幾何級数を展開すると
+
+$
+\begin{aligned}
+\pi\cot(\pi z)
+&=\frac1z+\sum_{n\ge1}\left(\frac1{z-n}+\frac1{z+n}\right)\\
+&=\frac1z-2\sum_{n\ge1}\sum_{j\ge1}\frac{z^{2j-1}}{n^{2j}}
+=\frac1z-2\sum_{j\ge1}\zeta(2j)z^{2j-1}.
+\end{aligned}
+$
+
+この部分分数表示は上の留数計算と同じ正方形積分を $\pi\cot(\pi w)/(w-z)$ に直接用いる代わりに、収束を保証するよう $1/(w-z)-1/w$ と差を取って適用して得られます。係数 $z^3,z^5$ の比較から
+
+$
 2\zeta(4)=\frac{\pi^4}{45},\qquad
 2\zeta(6)=\frac{2\pi^6}{945}.
-$$
+$
 
 従って $k=4$ では $2(2\pi i)^4/3!=16\pi^4/3$ なので、その値を $\pi^4/45$ で割って $240$。$k=6$ では $2(2\pi i)^6/5!=-16\pi^6/15$ なので、$2\pi^6/945$ で割って $-504$ です。
 <!-- proof-end -->
@@ -430,7 +447,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf2-j-invariant -->
-**定義の確認**。$\Delta(\tau)\ne0$ は[判別式非零定理](#thm-mf2-discriminant-nonzero)で保証されるため全ての $\tau\in\mathbb H$ で定義されます。たとえば $S\cdot i=i$ であり、後述の $E_6(i)=0$ を用いると $j(i)=1728$ です。分母の非零性と重さの打ち消しが重要な条件です。
+**定義の確認**。$\Delta(\tau)\ne0$ は[判別式非零定理](#thm-mf2-discriminant-nonzero)で保証されるため全ての $\tau\in\mathbb H$ で定義されます。たとえば $S\cdot i=i$ に重さ6の変換則を適用すると $E_6(i)=i^6E_6(i)=-E_6(i)$ で、$E_6(i)=0$ です。判別式非零性から $E_4(i)\ne0$ なので、$j(i)=1728$ と直接判定できます。分母の非零性と重さの打ち消しが重要な条件です。
 <!-- definition-example-end -->
 
 <a id="thm-mf2-j-properties"></a>
