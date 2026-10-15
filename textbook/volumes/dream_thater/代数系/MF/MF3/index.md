@@ -344,10 +344,10 @@ $q$ 展開を計算しても、無限個の係数を一致させることはで�
 > **命題（レベル1の有限q係数による同一性判定）**  
 > 整数 $k\ge0$、$f,g\in M_k(SL_2(\mathbb Z))$ に対し、
 >
-> $
-> f=\sum_{n\ge0}a_nq^n,\qquad
-> g=\sum_{n\ge0}b_nq^n
-> $
+$$
+f=\sum_{n\ge0}a_nq^n,\qquad
+g=\sum_{n\ge0}b_nq^n
+$$
 >
 > と書く。$B=\lfloor k/12\rfloor$ とすると、$a_n=b_n$ が $0\le n\le B$ の全てで成立すれば $f=g$ である。
 <!-- formal-statement-end -->
