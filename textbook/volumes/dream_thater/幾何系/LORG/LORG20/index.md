@@ -267,7 +267,7 @@ $$
 \partial_sK(s,q)=-dT_{\Phi_{-s}(q)}(Y)<0
 $$
 
-です。再び陰関数定理を適用すると $\sigma(q)$ は局所的に滑らかで、一意性により全域で滑らかです。実際、
+です。再び[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を適用すると $\sigma(q)$ は局所的に滑らかで、一意性により全域で滑らかです。実際、
 
 $$
 F^{-1}(q)=\bigl(T(q),\Phi_{-\sigma(q)}(q)\bigr)
