@@ -1,7 +1,7 @@
 # DREAM THEATER モジュラー形式（MF1〜MF8、章割り暫定）
 
 設計改訂: 2026-10-16（標準教科書・公開講義との照合）  
-状態: planned（PLAN設計のみ。MFの章本文・series manifest・公開は未着手）
+状態: in_progress（MF1〜MF3実装・公開済み。MF4〜MF8と系列横断監査は未完了）
 
 ## 0. 中心問い・到達点・停止線
 
@@ -22,7 +22,7 @@
 
 **停止線：** 一般の代数曲線・スキーム・Jacobian／Abelian varietyの一般理論・Galois表現・Ribetのlevel lowering・Wiles–Taylor–Wilesのmodularity liftingは本系列で完全証明しない。MF8では必要な**外部大定理**を対象・仮定・結論とともに明示し、証明済み扱いにしない。
 
-**章数：** MF1〜MF8は後続参照のため当面保つ**仮ID**であり、8講の上限・ノルマではない。MF3（零点と環構造）、MF4（モジュラー曲線）、MF5（Hecke）、MF7（newform）が独立した学習サイクルを複数要する場合は実装前に分割し、直接参照を同期する。既存のMF8の役割は維持する。
+**章数：** MF1〜MF3は実装済み。MF4〜MF8は系列manifestでplannedとして管理する。現行8章は上限・ノルマではない。MF4（モジュラー曲線）、MF5（Hecke）、MF7（newform）が独立した学習サイクルを複数要する場合は実装前に分割し、直接参照を同期する。既存のMF8の役割は維持する。
 
 ## 1. 教科書・講義資料との比較
 
@@ -64,7 +64,7 @@ MF7 ─────────────────────────�
 MF7 ─────────────────────────────────────────→ MF8
 ~~~
 
-現行EC PLANは ../plans_progress/DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md （EC11は準備原稿のみ・未公開）。元の整数論横断ルート ../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
+現行EC PLANは [楕円曲線PLAN](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)（EC1〜EC10は完了、EC11は準備原稿のみ・未公開）。元の整数論横断ルート ../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
 
 ## 3. 記号の統一と共通注意点
 
@@ -200,6 +200,6 @@ MF7 ─────────────────────────�
 - 詳細解答は出発点・適用定理・条件・主要中間式・結論を再現できる粒度にし、有限係数の一致から恒等性を言うときはSturm型上界の前提・根拠を明示。
 - 新規本文は変更区分Cとして全主要証明・全演習と解答を棚卸し・再計算し、独習者目線で別観点の再査読を行う。同じ担当者の再読を第三者独立査読とは呼ばない。**別の完了章の追跡監査は明示依頼時のみ**。
 - 使う箇所の既習結果名から実在stable anchorへリンクし、CA9・ANT2・EC10/11という章名だけで未証明の核心を飛ばさない。外部大定理は「この科目では引用する」と本文にも明示。
-- 実装開始時に初めてMF系列manifestを作り、本PLANを plans_progress/ に**移動**してmanifestのplanパスと直接参照を同期する。設計推敲だけで着手・公開扱いにしない。対象章のchapter.yaml／knowledge.yaml・公開indexは本文実装時に整合させる。
+- MF1着手時に系列manifestの作成と本PLANの plans_progress/ への**移動**は完了した。MF4以降の実装時にも、系列manifest、chapter.yaml／knowledge.yaml、公開indexと直接参照を変更内容に合わせて整合させる。
 - MF7の成立後にEC11を正式章として閉じ、MF8へ進む。最後にカスプ・Hecke・L関数・導手/level・EC11の係数比較・FLTの論理・公開導線の横断監査を行う。全成果物と直接必要な索引・manifest・検証が完了して初めて plan_done/ へ**移動**する。
 - 通常は changed-only validationを使い、共通規約・knowledge DAG・global indexなど未変更部分へ波及する作業はfull validationへ昇格。本PLANのみの改訂では数学本文やCIの全件検証が完了したとは主張しない。

@@ -1,0 +1,40 @@
+version: 1
+id: MF
+title: "モジュラー形式"
+plan: textbook/plans_progress/DREAM_THEATER_MODULAR_FORMS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開索引へは完了済みの章だけを登録する。
+chapters:
+  - id: MF1
+    path: textbook/volumes/dream_thater/代数系/MF/MF1
+    status: completed
+    title: "上半平面・格子・モジュラー群"
+  - id: MF2
+    path: textbook/volumes/dream_thater/代数系/MF/MF2
+    status: completed
+    title: "モジュラー形式・q展開・Eisenstein級数"
+  - id: MF3
+    path: textbook/volumes/dream_thater/代数系/MF/MF3
+    status: completed
+    title: "valence formulaと環構造"
+  - id: MF4
+    path: textbook/volumes/dream_thater/代数系/MF/MF4
+    status: planned
+    title: "合同部分群・カスプ・モジュラー曲線"
+  - id: MF5
+    path: textbook/volumes/dream_thater/代数系/MF/MF5
+    status: planned
+    title: "Hecke作用素・固有形式"
+  - id: MF6
+    path: textbook/volumes/dream_thater/代数系/MF/MF6
+    status: planned
+    title: "モジュラー形式のL関数"
+  - id: MF7
+    path: textbook/volumes/dream_thater/代数系/MF/MF7
+    status: planned
+    title: "oldform・newform・levelと算術"
+  - id: MF8
+    path: textbook/volumes/dream_thater/代数系/MF/MF8
+    status: planned
+    title: "Modularity TheoremとFermatの最終定理への橋"

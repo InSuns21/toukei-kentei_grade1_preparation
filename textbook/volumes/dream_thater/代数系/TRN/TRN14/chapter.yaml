@@ -1,0 +1,47 @@
+id: "TRN14"
+title: "Lindemann–Weierstrass完成・代数的係数版"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN13
+  - AG1-06
+official_scope: []
+learning_objectives:
+  - "TRN12の共役対称化とTRN13の非零整数・階乗上界を同じ素数で接続し、Lindemann–Weierstrassの有理係数版を完成できる"
+  - "有理一次独立性と代数的独立性の量化条件を比較し、非零多項式を代入して定義を確認できる"
+  - "有理一次独立な代数的指数の異なる単項式が相異なる指数を与えると証明し、指数関数値のQ上代数的独立性を導ける"
+  - "係数体を含む有限Galois拡大と非零多項式の共役積から、Qbar上の代数的独立性への昇格を証明できる"
+  - "任意の有限な代数的指数集合を共通分母を払った整数座標で表し、ベクトルの相異性を確認できる"
+  - "負冪を除去し、非零係数の一次関係から非零多項式を構成して一般のLindemann–Weierstrass定理を証明できる"
+  - "eの指数値、π、代数的数の対数の各帰結を正確な除外条件と枝の扱いで説明できる"
+  - "形式的な係数共役と指数関数値への不正なGalois作用を区別できる"
+theorems:
+  - { id: TRN14-THM-01, name: Lindemann–Weierstrassの有理係数版 }
+  - { id: TRN14-DEF-01, name: 体上の代数的独立性 }
+  - { id: TRN14-THM-02, name: 有理一次独立な代数的指数の像の代数的独立性 }
+  - { id: TRN14-LEM-01, name: 係数体の有限共役積 }
+  - { id: TRN14-THM-03, name: 代数的係数に対する代数的独立性 }
+  - { id: TRN14-LEM-02, name: 有限個の代数的指数の整数座標 }
+  - { id: TRN14-THM-04, name: Lindemann–Weierstrassの定理：代数的係数版 }
+  - { id: TRN14-COR-01, name: 非零代数的指数の像と円周率 }
+  - { id: TRN14-COR-02, name: 代数的数の複素対数値 }
+canonical_examples:
+  - "P(Y1,Y2)=3Y1²Y2-5Y2³+7と指数1,sqrt(2)の単項式・指数対応"
+  - "Q(sqrt(2))で(Y-sqrt(2))(Y+sqrt(2))=Y²-2となる多項式ノルム"
+  - "代数的指数0,1/2,sqrt(2)/3の整数指数ベクトル表示"
+  - "負の整数指数を持つLaurent和から通常の非零多項式への変換"
+problem_patterns:
+  - TRN14-ALGEBRAIC-INDEPENDENCE-DEFINED
+  - TRN14-MONOMIAL-EXPONENT-DISTINCTNESS
+  - TRN14-INTEGER-EXPONENT-COORDINATES
+  - TRN14-LAURENT-DENOMINATOR-CLEARING
+  - TRN14-QUADRATIC-POLYNOMIAL-NORM
+  - TRN14-COEFFICIENT-DESCENT-PROOF
+  - TRN14-PRIME-SELECTION-ORDER
+  - TRN14-RATIONAL-VS-ALGEBRAIC-INDEPENDENCE
+  - TRN14-THREE-EXPONENT-SYNTHESIS
+  - TRN14-HYPOTHESIS-COUNTEREXAMPLES
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []

@@ -1,0 +1,31 @@
+chapter: KAH1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-01
+  - CM2-02
+concepts:
+  - id: kahler.positive-real-eleven-form
+    name: 正の実(1,1)形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の実(1,1)形式）"]
+    requires: [kahler.fundamental-form, complex-manifolds.pq-differential-forms, complex-manifolds.real-eleven-form-criterion]
+  - id: kahler.positive-form-matrix-criterion
+    name: 正の基本形式とHermite行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正の基本形式とHermite行列）"]
+    requires: [kahler.positive-real-eleven-form, kahler.fundamental-form-reconstruction, complex-manifolds.real-eleven-form-criterion]
+  - id: kahler.local-closedness-condition
+    name: Kähler閉性の局所係数条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler閉性の局所係数条件）"]
+    requires: [kahler.kahler-structure, kahler.positive-form-matrix-criterion, complex-manifolds.dolbeault-local-formula, complex-manifolds.pq-form-decomposition]
+  - id: kahler.local-potential-suffices
+    name: 局所ポテンシャルからのKähler形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所ポテンシャルからのKähler形式）"]
+    requires: [kahler.local-closedness-condition, kahler.positive-form-matrix-criterion, complex-manifolds.dolbeault-local-formula]
