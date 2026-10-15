@@ -680,6 +680,11 @@
 9. [GEO18 比較幾何入門](textbook/volumes/dream_thater/幾何系/GEO/GEO18/index.md)
 10. [GEO19 Gauss--Bonnet と二次元大域幾何](textbook/volumes/dream_thater/幾何系/GEO/GEO19/index.md)
 
+<a id="dt-subject-geometric-analysis"></a>
+### 幾何解析
+
+1. [GA1 Laplace--Beltrami作用素・Green公式・弱形式](textbook/volumes/dream_thater/幾何系/GA/GA1/index.md)
+
 <a id="dt-subject-lorentzian-geometry"></a>
 ### ローレンツ幾何と大域因果構造
 
