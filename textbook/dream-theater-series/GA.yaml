@@ -1,0 +1,44 @@
+version: 1
+id: GA
+title: "幾何解析"
+plan: textbook/plans_progress/DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 完成章のみを本文・公開索引へ登録する。
+chapters:
+  - id: GA1
+    path: textbook/volumes/dream_thater/幾何系/GA/GA1
+    status: completed
+    title: "Laplace--Beltrami作用素・Green公式・弱形式"
+  - id: GA2
+    path: textbook/volumes/dream_thater/幾何系/GA/GA2
+    status: planned
+    title: "多様体Sobolev空間・貼り合わせ・コンパクト性"
+  - id: GA3
+    path: textbook/volumes/dream_thater/幾何系/GA/GA3
+    status: planned
+    title: "楕円型方程式・弱解・最大値原理"
+  - id: GA4
+    path: textbook/volumes/dream_thater/幾何系/GA/GA4
+    status: planned
+    title: "Laplace作用素のスペクトル理論"
+  - id: GA5
+    path: textbook/volumes/dream_thater/幾何系/GA/GA5
+    status: planned
+    title: "熱方程式・熱半群・熱核"
+  - id: GA6
+    path: textbook/volumes/dream_thater/幾何系/GA/GA6
+    status: planned
+    title: "Hodge Laplacian・調和形式・de Rham"
+  - id: GA7
+    path: textbook/volumes/dream_thater/幾何系/GA/GA7
+    status: planned
+    title: "Bochner--Weitzenböck公式・曲率と解析"
+  - id: GA8
+    path: textbook/volumes/dream_thater/幾何系/GA/GA8
+    status: planned
+    title: "調和写像・非線形幾何変分"
+  - id: GA9
+    path: textbook/volumes/dream_thater/幾何系/GA/GA9
+    status: planned
+    title: "幾何的非線形楕円PDEと臨界現象"
