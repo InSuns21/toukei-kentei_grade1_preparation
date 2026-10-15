@@ -218,7 +218,15 @@ $$
 \partial\omega=i\bar z^1\,dz^1\wedge dz^2\wedge d\bar z^2,
 $$
 
-となり、$\bar\partial\omega$ には別の型の項が現れるため相殺できない。**正値であっても閉性は破れる**。
+となる。一方 $\partial_{\bar1}(1+|z^1|^2)=z^1$ を使うと
+
+$
+\bar\partial\omega
+=i z^1\,d\bar z^1\wedge dz^2\wedge d\bar z^2
+=-i z^1\,dz^2\wedge d\bar z^1\wedge d\bar z^2.
+$
+
+二つの項はそれぞれ $(2,1)$ 型と $(1,2)$ 型なので相殺できない。**正値であっても閉性は破れる**。
 
 **閉じた非定数の局所例**。$t\ge0$ として $\mathbb C^2$ 上で
 
