@@ -457,10 +457,10 @@ $$
 
 ここで指数関数の絶対値は
 
-$
+$$
 |e^{(1-s)t}|=e^{(1-s)\operatorname{Re}t}
 \le e^{\max(0,\operatorname{Re}t)}
-$
+$$
 
 です。従って
 
