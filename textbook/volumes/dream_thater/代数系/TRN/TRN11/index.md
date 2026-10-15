@@ -2,11 +2,11 @@
 
 [TRN6の $e$ の超越性](../TRN6/index.md#thm-trn6-e-transcendental)では、$e=e^1$ が有理係数多項式の根にならないことを証明しました。指数を $1$ から任意の非零代数的数に替えても結論は成り立つでしょうか。例えば $\sqrt2$ や $i\sqrt2$ は代数的ですが、$e^{\sqrt2}$ や $e^{i\sqrt2}$ に同じ議論を適用するには、指数の共役と複素線分を扱わねばなりません。
 
-ここまでに準備した三つの道具には異なる役割があります。[TRN8の対称化定理](../TRN8/index.md#thm-trn8-balanced-relation)は仮定した代数関係から、零指数の係数が**正の整数**となる有限指数関係を作ります。[TRN9の非零整数定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)は高重複零点を用いて通常の非零整数を作ります。[TRN10の矛盾定理](../TRN10/index.md#thm-trn10-arithmetic-analytic-clash)は、その同じ整数の絶対値を階乗分母の式で上から押さえます。この章では三段階を最初の仮定まで遡って接続し、そこから円周率 $\pi$ の超越性を導きます。
+ここまでに準備した三つの道具には異なる役割があります。[TRN8の対称化定理](../TRN8/index.md#thm-trn8-balanced-relation)は仮定した代数関係から、零指数の係数が**正の整数**となる有限指数関係を作ります。[補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)は高重複零点を用いて通常の非零整数を作ります。[TRN10の矛盾定理](../TRN10/index.md#thm-trn10-arithmetic-analytic-clash)は、その同じ整数の絶対値を階乗分母の式で上から押さえます。この章では三段階を最初の仮定まで遡って接続し、そこから円周率 $\pi$ の超越性を導きます。
 
 ## 1. 非零代数的指数に対する結論
 
-有理数係数の零でない多項式の根を**代数的数**といい、その全体を $\overline{\mathbb Q}$ と書きます（[代数的数の定義](../../FLD/FLD1/index.md#def-fld1-algebraic-element)）。どのような零でない有理係数多項式の根にもならない複素数を**超越数**といいます。指数が代数的であることと指数関数の値が代数的であることは、まったく別の条件です。
+[代数的元・超越的元の定義](../../FLD/FLD1/index.md#def-fld1-algebraic-element)を振り返ると、$\overline{\mathbb Q}$ は有理係数の非零多項式の根からなる集合で、その外にある複素数が超越数です。指数が代数的であることと指数関数の値が代数的であることは、まったく別の条件です。
 
 <a id="thm-trn11-hermite-lindemann"></a>
 
@@ -26,7 +26,7 @@ $\alpha=0$ なら $e^\alpha=1$ は $Y-1\in\mathbb Q[Y]$ の根であり、結論
 <!-- proof-start -->
 ### 証明
 
-**第1段階：代数関係から正の0係数を持つ指数関係へ。** $\alpha\in\overline{\mathbb Q}\setminus\{0\}$ で $y=e^\alpha$ が代数的と仮定します。[複素指数の積公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から $y e^{-\alpha}=1$ であり、$y\ne0$ です。[TRN8の指数関係への変換](../TRN8/index.md#prop-trn8-polynomial-relation)を使い、整数 $m\ge1$ と $b_0,\ldots,b_m\in\mathbb Z$ を選んで
+**第1段階：代数関係から正の0係数を持つ指数関係へ。** $\alpha\in\overline{\mathbb Q}\setminus\{0\}$ で $y=e^\alpha$ が代数的と仮定します。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から $y e^{-\alpha}=1$ であり、$y\ne0$ です。[TRN8の指数関係への変換](../TRN8/index.md#prop-trn8-polynomial-relation)を使い、整数 $m\ge1$ と $b_0,\ldots,b_m\in\mathbb Z$ を選んで
 
 $$
 b_0b_m\ne0,\qquad
@@ -54,7 +54,7 @@ $$
 
 と書きます。形式和の積が零因子を持たないことから $H\ne0$、その係数 $B_\lambda$ は非零整数であり、$\operatorname{ev}(H)=0$ です。最後の等式に必要なのは、積のうち恒等自己同型 $\sigma=1$ に対応する**一つの因子**の評価が0であることだけです。$e^{\sigma(\alpha)}=\sigma(e^\alpha)$ という主張はしていません。
 
-[指数反転の定義](../TRN8/index.md#def-trn8-reflection)に従い、$H^\vee=\sum_{\lambda\in S}B_\lambda U_{-\lambda}$ として $R=HH^\vee$ を取ります。[反転積の0係数の補題](../TRN8/index.md#lem-trn8-positive-zero-coefficient)から、指数が重なる項を統合して
+[指数反転の定義](../TRN8/index.md#def-trn8-reflection)に従い、$H^\vee=\sum_{\lambda\in S}B_\lambda U_{-\lambda}$ として $R=HH^\vee$ を取ります。[指数反転積の0係数](../TRN8/index.md#lem-trn8-positive-zero-coefficient)から、指数が重なる項を統合して
 
 $$
 R=\sum_{t\in T}c_tU_t,\qquad
@@ -116,7 +116,7 @@ $$
 
 を得ます。最初の式は、$H_p(Dz)$ の $z^{p-1}$ の係数が $D^{p-1}Q(0)^p$ で、$k=p-1$ 以外の残る微分階数 $k\ge p$ には $k!/(p-1)!$ の中に因子 $p$ が入ることから出ます。
 
-[TRN9の非零整数定理](../TRN9/index.md#thm-trn9-arithmetic-nonzero)により、$A_p$ は通常の整数であり
+[補助微分和から作る非零整数](../TRN9/index.md#thm-trn9-arithmetic-nonzero)により、$A_p$ は通常の整数であり
 
 $$
 A_p\equiv c_0D^{p-1}Q(0)^p\pmod p.
@@ -223,7 +223,7 @@ $$
 <a id="cor-trn11-pi-transcendental"></a>
 
 <!-- formal-statement-start -->
-> **系（$\pi$ の超越性）**  
+> **系（πの超越性）**  
 > 円周率 $\pi$ は $\mathbb Q$ 上の超越数である。
 <!-- formal-statement-end -->
 
@@ -250,7 +250,7 @@ $$
 
 ## 3. 指数関数はどこで単射になるか
 
-[複素指数の積公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)によれば、任意の複素数 $z$ について $e^{z+2\pi i}=e^z$ です。従って指数関数は**複素平面全体では単射ではありません**。一方、入力を代数的数のみに制限すれば事情が変わります。
+[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)によれば、任意の複素数 $z$ について $e^{z+2\pi i}=e^z$ です。従って指数関数は**複素平面全体では単射ではありません**。一方、入力を代数的数のみに制限すれば事情が変わります。
 
 <a id="prop-trn11-algebraic-injectivity"></a>
 
@@ -266,7 +266,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$e^\alpha=e^\beta$ とします。$e^\beta\ne0$ なので、[複素指数の積公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
+$e^\alpha=e^\beta$ とします。$e^\beta\ne0$ なので、[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
 
 $$
 e^{\alpha-\beta}
@@ -475,7 +475,7 @@ $$
 
 (1) 各 $Dt$ は代数的整数です。$T^\ast$ がGalois不変だから、$\sigma$ は $Q$ の一次因子を置換し、$Q$ の各係数を固定します。係数は有理数かつ代数的整数なので整数です。$D>0$ と $t\ne0$ より根 $Dt$ は0でなく、従って $Q(0)=\prod_{t\in T^\ast}(-Dt)\ne0$ です。
 
-(2) $q=|T^\ast|$ とすれば $\deg f_p=(p-1)+qp$ です。$z=0$ では $(Dz)^{p-1}$ が、$z=t\ne0$ では $Q(Dz)^p$ が零点を作ります。よって $k<p-1$ の $f_p^{(k)}(0)$ と $k<p$ の $f_p^{(k)}(t)$ は0です。$k\ge p$ の導関数には整数 $k!/(p-1)!$ に因子 $p$ が入るので、[階乗可除性補題](../TRN9/index.md#lem-trn9-integral-derivatives)から評価値は $p\mathcal O_K$ に属します。一方、$k=p-1$ の0点の値は
+(2) $q=|T^\ast|$ とすれば $\deg f_p=(p-1)+qp$ です。$z=0$ では $(Dz)^{p-1}$ が、$z=t\ne0$ では $Q(Dz)^p$ が零点を作ります。よって $k<p-1$ の $f_p^{(k)}(0)$ と $k<p$ の $f_p^{(k)}(t)$ は0です。$k\ge p$ の導関数には整数 $k!/(p-1)!$ に因子 $p$ が入るので、[代数的整数点での階乗可除性](../TRN9/index.md#lem-trn9-integral-derivatives)から評価値は $p\mathcal O_K$ に属します。一方、$k=p-1$ の0点の値は
 
 $$
 f_p^{(p-1)}(0)
