@@ -1,0 +1,78 @@
+chapter: MF2
+scope: dream-theater
+coverage: complete
+prerequisites: [MF1, CA8, CA9, CA12, GRP3, NT2, NT3, NT4]
+forward_references: [MF3]
+concepts:
+  - id: modular-forms.modular-form
+    name: 重さkのモジュラー形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ $k$ のモジュラー形式）"]
+    requires: [modular-forms.modular-group, modular-forms.fractional-action, modular-forms.upper-half-plane]
+  - id: modular-forms.q-coordinate
+    name: 周期正則関数のq表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期正則関数の $q$ 表示）"]
+    requires: [modular-forms.upper-half-plane]
+  - id: modular-forms.q-expansion
+    name: q展開とカスプ形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$q$ 展開とカスプ形式）"]
+    requires: [modular-forms.modular-form, modular-forms.q-coordinate]
+  - id: modular-forms.basic-properties
+    name: 重さ・積・奇数重さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重さ・積・奇数重さ）"]
+    requires: [modular-forms.modular-form, modular-forms.q-expansion, modular-forms.imaginary-action]
+  - id: modular-forms.eisenstein-series
+    name: 重さkのEisenstein級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ $k$ の Eisenstein 級数）"]
+    requires: [complex-analysis.complex-lattice]
+  - id: modular-forms.eisenstein-modularity
+    name: Eisenstein級数の収束とモジュラー性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eisenstein 級数の収束とモジュラー性）"]
+    requires: [modular-forms.eisenstein-series, modular-forms.lattice-orbit, modular-forms.modular-form]
+  - id: modular-forms.periodic-lattice-sum
+    name: 周期方向の格子和
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（周期方向の格子和）"]
+    requires: [modular-forms.eisenstein-series]
+  - id: modular-forms.eisenstein-q
+    name: Eisenstein級数のq展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eisenstein 級数の $q$ 展開）"]
+    requires: [modular-forms.periodic-lattice-sum, modular-forms.q-expansion]
+  - id: modular-forms.discriminant
+    name: モジュラー判別式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モジュラー判別式）"]
+    requires: [modular-forms.eisenstein-q, modular-forms.basic-properties]
+  - id: modular-forms.discriminant-nonzero
+    name: 判別式の非零性と格子判別式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（判別式の非零性と格子判別式）"]
+    requires: [modular-forms.discriminant, complex-analysis.weierstrass-discriminant]
+  - id: modular-forms.j-invariant
+    name: j不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$j$ 不変量）"]
+    requires: [modular-forms.discriminant-nonzero]
+  - id: modular-forms.j-properties
+    name: jの不変性・カスプでの極・格子との対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（$j$ の不変性・カスプでの極・格子との対応）"]
+    requires: [modular-forms.j-invariant, modular-forms.eisenstein-q, modular-forms.lattice-orbit]
