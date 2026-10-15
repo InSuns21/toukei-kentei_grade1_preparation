@@ -1,0 +1,39 @@
+id: "TRN12"
+title: "Lindemann–Weierstrass：有理係数版と共役の有限積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN11
+official_scope: []
+learning_objectives:
+  - "相異なる代数的指数に対する有理係数版と代数的係数版を区別し、二項の場合をHermite–Lindemannから証明できる"
+  - "有理係数の指数関係を零係数削除と共通分母消去で非零整数係数の形式和にできる"
+  - "代数的指数の共役を含む有限Galois拡大を構成し、形式作用と指数評価を区別できる"
+  - "共役有限積の多重添字展開と整数係数・形式的非零性を検証できる"
+  - "辞書式最大指数が積で相殺しない理由を証明できる"
+  - "共役有限積の不変性と恒等因子に由来する評価零性を別々に示せる"
+  - "指数反転積から0係数が正の平方和となる対称な指数関係を構成できる"
+  - "本章の対称化が有理係数版の完成証明ではなくTRN13–14へ引き渡す中間段階であると説明できる"
+theorems:
+  - { id: TRN12-COR-01, name: 二つの代数的指数の有理一次独立性 }
+  - { id: TRN12-PROP-01, name: 有理係数の指数関係の対称化 }
+canonical_examples:
+  - "二次体Q(sqrt(2))の共役積と指数0の衝突"
+  - "反転積での平方和6と係数衝突"
+  - "辞書式最大指数の一意性を複素指数で確認"
+  - "形式的非零性と評価零性を区別する仮定例"
+problem_patterns:
+  - TRN12-RATIONAL-DENOMINATOR-CLEARING
+  - TRN12-COMPLEX-LEXICOGRAPHIC-ORDER
+  - TRN12-GALOIS-CONJUGATE-PRODUCT
+  - TRN12-REFLECTION-ZERO-COEFFICIENT
+  - TRN12-NONZERO-LEADING-EXPONENT
+  - TRN12-IDENTITY-FACTOR-EVALUATION
+  - TRN12-TWO-TERM-INDEPENDENCE
+  - TRN12-GALOIS-ORBIT-COEFFICIENTS
+  - TRN12-FULL-RATIONAL-SYMMETRIZATION
+  - TRN12-NONIMPLICATIONS
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
