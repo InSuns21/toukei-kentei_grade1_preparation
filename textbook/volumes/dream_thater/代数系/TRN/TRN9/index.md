@@ -6,7 +6,7 @@
 
 ## 1. まず指数を整数化する
 
-[TRN8の定理](../TRN8/index.md#thm-trn8-balanced-relation)から、有限Galois拡大 $K/\mathbb Q$、$G=\operatorname{Gal}(K/\mathbb Q)$、相異なる元からなる有限集合 $T\subset K$、整数 $c_t\ne0$ があり、
+[TRN8の対称関係](../TRN8/index.md#thm-trn8-balanced-relation)から、有限Galois拡大 $K/\mathbb Q$、$G=\operatorname{Gal}(K/\mathbb Q)$、相異なる元からなる有限集合 $T\subset K$、整数 $c_t\ne0$ があり、
 
 $$
 0\in T,\quad c_0>0,\quad
@@ -336,7 +336,7 @@ $D>0$、$Q(0)\ne0$、$c_0\ne0$ なので $c_0DQ(0)\ne0$ です。これを割る
 
 ### 例：代数的数を評価しても和は整数
 
-$T=\{0,\pm\sqrt2/2\}$、$K=\mathbb Q(\sqrt2)$、$D=2$、$Q(Z)=Z^2-2$ とし、$c_0=2$、$c_{\sqrt2/2}=c_{-\sqrt2/2}=-1$ とします。重みはGalois共役で交換しても変わりません。$p=3$ では特別微分値は
+$T=\{0,\pm\sqrt2/2\}$、$K=\mathbb Q(\sqrt2)$、$D=2$、$Q(Z)=Z^2-2$ とし、$c_0=2$、$c_{\sqrt2/2}=c_{-\sqrt2/2}=-1$ とします。ここは形式的な整数性の計算例であり、重みが指数関係 $\sum c_te^t=0$ を満たすとは仮定しません。重みはGalois共役で交換しても変わりません。$p=3$ では特別微分値は
 
 $$
 f_3^{(2)}(0)=2^2(-2)^3=-32.
