@@ -1,0 +1,51 @@
+chapter: LORG19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG2
+  - LORG3
+  - LORG6
+  - LORG10
+  - LORG12
+  - LORG13
+  - LORG14
+  - LORG15
+  - LORG16
+  - GEO15
+concepts:
+  - id: lorentz-geometry.cauchy-time-function
+    name: Cauchy時間関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cauchy時間関数）"]
+    requires: [lorentz-geometry.time-function, lorentz-geometry.inextendible-causal-curve]
+  - id: lorentz-geometry.temporal-not-cauchy
+    name: temporalでもCauchyとは限らない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（temporalでもCauchyとは限らない）"]
+    requires: [lorentz-geometry.temporal-function, lorentz-geometry.cauchy-time-function]
+  - id: lorentz-geometry.cauchy-time-existence
+    name: 連続Cauchy時間関数の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続Cauchy時間関数の存在）"]
+    requires: [lorentz-geometry.geroch-volume-time, lorentz-geometry.cauchy-time-function]
+  - id: lorentz-geometry.cauchy-time-levels
+    name: Cauchy時間関数の各レベル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cauchy時間関数の各レベル）"]
+    requires: [lorentz-geometry.cauchy-time-function, lorentz-geometry.cauchy-hypersurface]
+  - id: lorentz-geometry.cauchy-time-reparam
+    name: 時間目盛りの変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間目盛りの変更）"]
+    requires: [lorentz-geometry.cauchy-time-function]
+  - id: lorentz-geometry.cauchy-topological-splitting
+    name: 連続Cauchy時間関数による位相的分割
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続Cauchy時間関数による位相的分割）"]
+    requires: [lorentz-geometry.cauchy-time-levels, lorentz-geometry.cauchy-time-function, lorentz-geometry.cauchy-acausal]

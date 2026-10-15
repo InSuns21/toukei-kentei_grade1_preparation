@@ -1,0 +1,49 @@
+id: "LORG19"
+title: "Cauchy時間関数の存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LORG2
+  - LORG3
+  - LORG6
+  - LORG10
+  - LORG12
+  - LORG13
+  - LORG14
+  - LORG15
+  - LORG16
+  - GEO15
+official_scope: []
+learning_objectives:
+  - 時間関数・temporal function・Cauchy時間関数の違いと非延長曲線上の全射条件を定義例で判定できる
+  - temporalだがCauchyでないMinkowskiの時計を勾配と光線の極限から示せる
+  - Geroch型体積時計に既習のLORG16定理を適用しCauchy性の証明を再現できる
+  - Cauchy時間関数の各レベルが閉なacausal Cauchy面であることを示せる
+  - 時間の再目盛りで保存される性質と全射性の失敗を区別できる
+  - 完全時間的ベクトル場の流線を使いR×Σから時空への同相を構成できる
+  - 位相的分割と滑らかな直交計量分割の証明境界を説明できる
+definitions:
+  - { id: LORG19-DEF-01, name: Cauchy時間関数 }
+theorems:
+  - { id: LORG19-PROP-01, name: temporalでもCauchyとは限らない }
+  - { id: LORG19-THM-01, name: 連続Cauchy時間関数の存在 }
+  - { id: LORG19-PROP-02, name: Cauchy時間関数の各レベル }
+  - { id: LORG19-PROP-03, name: 時間目盛りの変更 }
+  - { id: LORG19-THM-02, name: 連続Cauchy時間関数による位相的分割 }
+canonical_examples:
+  - Minkowskiの標準時刻はCauchy時間関数
+  - t-sqrt(1+x²)はtemporalだが非延長光線上で値域が欠ける
+  - arctan(t)は非空レベルがCauchyでも全射ではない
+  - 有界時刻帯をlogitで全実数へ再目盛り
+  - 完全時間的流線を用いた連続時計の位相的分割
+problem_patterns:
+  - LORG19-MINKOWSKI-TIME
+  - LORG19-TEMPORAL-NONCAUCHY
+  - LORG19-GEROCH-VOLUME
+  - LORG19-LEVEL-CAUCHY
+  - LORG19-TIME-REPARAM
+  - LORG19-FLOW-SPLITTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 11, review: 7 }
