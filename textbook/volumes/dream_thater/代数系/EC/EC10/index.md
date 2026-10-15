@@ -126,7 +126,14 @@ $$
 =(q-r_q(c))+1=q+1-r_q(c).
 $$
 
-$c$ が $\mathbb F_p$ で平方なら $\mathbb F_q$ でも平方で $r_q(c)=2$、(i) が従います。非平方の場合は、[有限体の乗法群の巡回性](../../FLD/FLD3/index.md#thm-fld3-multiplicative-group-cyclic)から平方判定を導きます。奇数 $q$ に対し $\mathbb F_q^\times=\langle g\rangle$ と書くと、$g^{q-1}=1$ かつ $g^{(q-1)/2}=-1$ です。$z=g^j$ が平方であることと $j$ が偶数であることは同値なので、
+$c$ が $\mathbb F_p$ で平方なら $\mathbb F_q$ でも平方で $r_q(c)=2$、(i) が従います。非平方の場合は、[有限体の乗法群の巡回性](../../FLD/FLD3/index.md#thm-fld3-multiplicative-group-cyclic)から平方判定を導きます。奇数 $q$ の乗法群の生成元を $g$ とすると、
+
+$$
+\mathbb F_q^\times=\langle g\rangle,\quad
+g^{q-1}=1,\quad g^{(q-1)/2}=-1.
+$$
+
+任意の $z=g^j$ が平方であることと $j$ が偶数であることは同値なので、
 
 $$
 z\text{ が平方}\quad\Longleftrightarrow\quad z^{(q-1)/2}=1
@@ -437,7 +444,13 @@ $$
 **定義の確認**。$w_E=-1$ なら上の関数等式から $\Lambda(E,1+u)=-\Lambda(E,1-u)$ です。$\Lambda$ を $u=0$ でTaylor展開すると、偶数次係数はすべて0で、最初の非零係数の次数は奇数です。完成因子は $s=1$ で正則かつ零でないので、$r_{\mathrm{an}}(E)$ も奇数、特に1以上です。ここでは符号を仮定した**条件付きの直接確認**であり、具体的な曲線の $w_E$ を無計算で決定したわけではありません。
 <!-- definition-example-end -->
 
-[EC6のMordell–Weil定理](../EC6/index.md#thm-ec6-general-mw)では、一般の弱Mordell–Weil定理を外部から引用し、そこから高さ降下によって有理点群の有限生成性を導いています。この結果と[有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)から $E(\mathbb Q)\simeq\mathbb Z^r\oplus(\text{有限群})$ と書けます。この整数 $r$ を代数的rankといいます。
+[EC6のMordell–Weil定理](../EC6/index.md#thm-ec6-general-mw)では、一般の弱Mordell–Weil定理を外部から引用し、そこから高さ降下によって有理点群の有限生成性を導いています。この結果と[有限生成Abel群の構造定理](../../MOD/MOD2/index.md#thm-mod2-fg-abelian)から
+
+$$
+E(\mathbb Q)\simeq\mathbb Z^r\oplus T,\qquad T\text{ は有限アーベル群}
+$$
+
+と書けます。この整数 $r$ を代数的rankといいます。
 
 **Birch–Swinnerton-Dyer予想（BSD予想）のrankに関する主張**は
 
