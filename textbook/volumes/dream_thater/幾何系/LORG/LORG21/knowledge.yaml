@@ -1,0 +1,34 @@
+chapter: LORG21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG3
+  - LORG6
+  - LORG10
+  - LORG11
+  - LORG12
+  - LORG13
+  - LORG15
+  - LORG16
+  - LORG17
+  - LORG18
+  - LORG20
+concepts:
+  - id: lorentz-geometry.static-spatial-circle-causality
+    name: 空間周期の静的積の因果構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空間周期の静的積の因果構造）"]
+    requires: [lorentz-geometry.chronological-causal-future, lorentz-geometry.time-separation, lorentz-geometry.cauchy-hypersurface]
+  - id: lorentz-geometry.punctured-full-slice-domain
+    name: 原点除去時空の全初期スライスの依存領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（原点除去時空の全初期スライスの依存領域）"]
+    requires: [lorentz-geometry.domain-of-dependence, lorentz-geometry.inextendible-causal-curve, lorentz-geometry.punctured-domain]
+  - id: lorentz-geometry.time-periodic-all-chronological
+    name: 時間周期商の全域時間的未来
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間周期商の全域時間的未来）"]
+    requires: [lorentz-geometry.chronological-causal-future, lorentz-geometry.time-separation, lorentz-geometry.achronal-set, lorentz-geometry.time-function]
