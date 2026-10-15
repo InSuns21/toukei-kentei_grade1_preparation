@@ -730,6 +730,11 @@
 20. [CM2-10 Chern接続の存在・一意性](textbook/volumes/dream_thater/幾何系/CM/CM2-10/index.md)
 21. [CM2-11 Chern曲率の計算と正則束の総合演習](textbook/volumes/dream_thater/幾何系/CM/CM2-11/index.md)
 
+<a id="dt-subject-kahler-geometry"></a>
+### Kähler幾何学
+
+1. [KAH1-01 複素構造とHermite計量の出会い](textbook/volumes/dream_thater/幾何系/KAH/KAH1-01/index.md)
+
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
 
