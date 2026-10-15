@@ -660,6 +660,58 @@ $$
 一方 $T$ の下段は $(0,1)$ で $c=0$ だから、[拡張有理境界の定義](#def-mf1-rational-boundary)より $T\cdot\infty=\infty$ です。
 <!-- solution-end -->
 
+#### B5. Euclid 操作を生成元の積に戻す
+
+$\gamma=\begin{pmatrix}2&1\\3&2\end{pmatrix}\in SL_2(\mathbb Z)$ とする。第一列に整数の基本行操作を施して $(\pm1,0)^t$ へ変え、その行操作を逆向きに戻して $\gamma$ を $S,T$ の積だけで表せ。最後に行列積で検算せよ。
+
+- Level: B
+- ID: MF1-B5
+
+<!-- solution-start -->
+**詳細解答**　行列式は $2\cdot2-1\cdot3=1$ なので $\gamma\in SL_2(\mathbb Z)$ です。第一列 $(2,3)^t$ の下側から上側を引く代わりに、上側から下側を一度引いて $(-1,3)^t$ にし、次に下側へ上側の3倍を足して $(-1,0)^t$ を得ます。対応する左からの行操作は
+
+$
+T^{-1}\gamma
+=\begin{pmatrix}1&-1\\0&1\end{pmatrix}
+\begin{pmatrix}2&1\\3&2\end{pmatrix}
+=\begin{pmatrix}-1&-1\\3&2\end{pmatrix}
+$
+
+と
+
+$
+E_{21}(3)T^{-1}\gamma
+=\begin{pmatrix}1&0\\3&1\end{pmatrix}
+\begin{pmatrix}-1&-1\\3&2\end{pmatrix}
+=\begin{pmatrix}-1&-1\\0&-1\end{pmatrix}
+=-T
+$
+
+です。$E_{21}(3)=ST^{-3}S^{-1}$ を使って逆に戻すと
+
+$
+\begin{aligned}
+\gamma
+&=T\,E_{21}(-3)(-T)\\
+&=T\,S T^3 S^{-1}(-I)T\\
+&=T S T^3 S T,
+\end{aligned}
+$
+
+となります。最後の変形では $S^2=-I$ から $S^{-1}(-I)=S$ を使いました。検算として右側から順に掛けると
+
+$
+\begin{aligned}
+ST&=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\\
+T^3ST&=\begin{pmatrix}3&2\\1&1\end{pmatrix},\\
+ST^3ST&=\begin{pmatrix}-1&-1\\3&2\end{pmatrix},\\
+TST^3ST&=\begin{pmatrix}2&1\\3&2\end{pmatrix}=\gamma.
+\end{aligned}
+$
+
+よって [生成元の定理](#thm-mf1-generators)のEuclid操作が、この具体例で確かに $S,T$ の有限積へ戻せました。
+<!-- solution-end -->
+
 **Level C：作用・基本領域・境界の接続**
 
 #### C1. 格子の周期の取り替えから基本領域とカスプへ
