@@ -184,7 +184,7 @@
 
 ### EC11 モジュラー形式との照合と modularity interface
 
-**2026-10-16 先行執筆：** [EC11 の未公開原稿](../volumes/dream_thater/代数系/EC/EC11/DRAFT.md)を作成。EC10から直接導ける局所多項式一致から Euler 積・Dirichlet 係数一致への証明と、導手11の具体計算、演習A4/B3/C1を含む。MF1〜MF7（とくに MF7）の正本が未存在のため、newform の正確な定義・Hecke 理論・局所因子公式・モジュラー曲線への stable anchor 接続は未着手であり、系列manifestの EC11 は planned のまま、公開索引にも追加しない。MF7 実装後に本文を正式章化して区分Cの全件査読・表示確認・CIを実施する。
+**2026-10-16 先行執筆：** [EC11 の未公開原稿](drafts/EC11_MODULARITY_INTERFACE.md)を作成。EC10から直接導ける局所多項式一致から Euler 積・Dirichlet 係数一致への証明と、導手11の具体計算、演習A4/B3/C1を含む。MF1〜MF7（とくに MF7）の正本が未存在のため、newform の正確な定義・Hecke 理論・局所因子公式・モジュラー曲線への stable anchor 接続は未着手であり、系列manifestの EC11 は planned のまま、公開索引にも追加しない。MF7 実装後に本文を正式章化して区分Cの全件査読・表示確認・CIを実施する。
 
 
 **問い：** 曲線の $L$ 関数がなぜ重さ 2 の newform によって表されるか。
