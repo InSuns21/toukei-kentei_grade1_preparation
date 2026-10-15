@@ -127,7 +127,7 @@ $$
 
 ## 3. 長さを面積へ変換する基本2形式
 
-両立計量があると、$Ju$ と $v$ の内積を取ることができる。二方向を入力とするこの値が、向き付きの微小面積を表す。既習の[微分2形式](../../GEO/GEO7/index.md#def-geo7-differential-form)は、各点の接空間上の交代双線形形式が滑らかに変化するものである。したがって $g(Ju,v)$ が2形式になるかは、交代性を実際に導いて確かめなければならない。
+両立計量があると、$Ju$ と $v$ の内積を取ることができる。二方向を入力とするこの値が、向き付きの微小面積を表す。既習の[微分2形式](../../GEO/GEO7/index.md#def-geo7-differential-form)は、各点の接空間で、二つの引数を入れ替えると符号が反転する双線形形式が滑らかに変化するものである。したがって $g(Ju,v)$ が2形式になるかは、交代性を実際に導いて確かめなければならない。
 
 <a id="def-kah1-01-fundamental-form"></a>
 
@@ -328,7 +328,7 @@ $$
 \omega_0=\sum_{j=1}^n dx^j\wedge dy^j.
 $$
 
-各係数は定数で、[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から $d(dx^j)=d^2x^j=0$、$d(dy^j)=d^2y^j=0$ である。[外微分の積の法則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項に適用すると $d\omega_0=0$。また $u\ne0$ に対し $\omega_0(u,Ju)=g(u,u)>0$。従って閉性と非退化性を別々に検証でき、これはKähler多様体である。
+各係数は定数で、[外微分の二乗は0](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から $d(dx^j)=d^2x^j=0$、$d(dy^j)=d^2y^j=0$ である。[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項に適用すると $d\omega_0=0$。また $u\ne0$ に対し $\omega_0(u,Ju)=g(u,u)>0$。従って閉性と非退化性を別々に検証でき、これはKähler多様体である。
 <!-- definition-example-end -->
 
 可積分な複素構造の下では、KählerならHermiteであり概Kählerでもある。ただし **Hermiteであるだけでは閉性は保証されない**。また概Kählerの定義はそもそも複素アトラスの存在を仮定しない。両者を同義語として扱うことはできない。
@@ -345,7 +345,7 @@ $$
 \omega=f(dx^1\wedge dy^1+dx^2\wedge dy^2)
 $$
 
-となり、[外微分の積の法則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使うと
+となり、[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使うと
 
 $$
 \begin{aligned}
@@ -454,7 +454,7 @@ J_a^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix},\qquad
 J_a^{\mathsf T}J_a=\operatorname{diag}(a^{-2},a^2).
 $$
 
-[平均による構成命題](#prop-kah1-01-averaging)を用いると
+[平均による両立計量の構成](#prop-kah1-01-averaging)を用いると
 
 $$
 G=\frac12(I+J_a^{\mathsf T}J_a)
