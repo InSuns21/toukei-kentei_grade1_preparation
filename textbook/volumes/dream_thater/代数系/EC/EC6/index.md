@@ -412,21 +412,21 @@ $$
 ### 証明
 
 まず[EC1の短Weierstrass形への変換](../EC1/index.md#thm-ec1-short-form)により、任意の非特異な有理楕円曲線を $\mathbb Q$ 上で短Weierstrass形
-$
+$$
 y^2=x^3+Ax+B,\qquad A,B\in\mathbb Q
-$
+$$
 へ移せます。正整数 $d$ を選んで次の2つを整数にします。
-$
+$$
 d^4A\in\mathbb Z,\qquad d^6B\in\mathbb Z.
-$
+$$
 座標を
-$
+$$
 x=\frac{X}{d^2},\qquad y=\frac{Y}{d^3}
-$
+$$
 と変換し、両辺に $d^6$ を掛けると
-$
+$$
 Y^2=X^3+d^4AX+d^6B
-$
+$$
 となり、整数係数の短Weierstrass形が得られます。
 
 以下ではこの模型を固定し、対応する高さ $h_x$ を使います。有理点群の同型は倍数写像と有限生成性を保存します。
