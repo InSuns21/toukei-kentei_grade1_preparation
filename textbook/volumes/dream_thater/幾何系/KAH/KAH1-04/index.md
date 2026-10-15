@@ -13,7 +13,7 @@ g_{i\bar j}=\frac{\partial^2\varphi}
 {\partial z^i\partial\bar z^j}
 $$
 
-と表せれば、混合偏微分を交換するだけで閉性が従う。前章までで示したのはこの構成がKähler形式を**作る十分条件**になることだった。本章の第一の問いは、その逆、すなわち**あらゆるKähler形式が点の近くではこの形に戻るか**である。
+と表せれば、混合偏微分を交換するだけで閉性が従う。前章まででは、この作り方で確かにKähler形式が得られることを示した。本章の第一の問いは、その逆、すなわち**あらゆるKähler形式が点の近くではこの形に戻るか**である。
 
 以下 $X$ は複素次元 $n\ge1$ の複素多様体とし、実 $(1,1)$ 形式はすべて滑らかとする。正則座標 $z^j=x^j+iy^j$ 上で [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を使う。添字の反復は $1,\ldots,n$ にわたる総和を表し、基本形式の係数の約束は
 
@@ -64,7 +64,7 @@ i\partial\bar\partial\varphi_0
 =\sum_jdx^j\wedge dy^j.
 $$
 
-係数行列は $I_n/2$ なので任意の $v\ne0$ に対して $\sum g_{i\bar j}v^i\overline{v^j}=\lVert v\rVert^2/2>0$。[正の実(1,1)形式の判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)より正値である。また[型別外微分の恒等式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)を用いると
+係数行列は $I_n/2$ なので任意の $v\ne0$ に対して $\sum g_{i\bar j}v^i\overline{v^j}=\lVert v\rVert^2/2>0$。[正の実(1,1)形式の判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)より正値である。また[型別外微分の三つの恒等式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)を用いると
 
 $$
 \partial(i\partial\bar\partial\varphi_0)=0,
@@ -75,7 +75,7 @@ $$
 となるので $d\omega=0$。実性、型、正値性、閉性をそれぞれ確認した。
 <!-- definition-example-end -->
 
-## 2. 閉形式から実ポテンシャルへ：二つのPoincaré補題
+## 2. 閉形式から実ポテンシャルへ：二段階の局所解法
 
 通常の[Poincaré補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)は、閉じた実2形式から局所的な実1形式 $\alpha$ を作り、$\omega=d\alpha$ と表す。しかし、欲しいのは「1形式の外微分」ではなく「**一つの実関数への二種類の微分**」である。この段差を埋めるのに、形式の $(1,0)+(0,1)$ 分解と[局所bar∂-Poincaré補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)を使う。
 
@@ -160,7 +160,7 @@ $$
 最後の第二項は $\bar\partial\partial=-\partial\bar\partial$ と $\bar\partial^2=0$ で消える。$\square$
 <!-- proof-end -->
 
-この定理は、閉性の**局所的な必要十分条件**を与える。正値性はまだ別問題で、得られた関数の複素Hessianを調べなければならない。例えば $\varphi=-|z|^2$ も閉実 $(1,1)$ 形式を作るが、正値ではない。
+この定理によって、閉実 $(1,1)$ 形式であることと、各点の近くで実ポテンシャルを持つことが同値だと分かった。正値性はまだ別問題で、得られた関数の複素Hessianを調べなければならない。例えば $\varphi=-|z|^2$ も閉実 $(1,1)$ 形式を作るが、正値ではない。
 
 ## 3. ポテンシャルは一意ではない
 
@@ -233,7 +233,7 @@ $$
 
 $u=\varphi-\psi$ とする。演算子の線形性により、最初の二条件はともに $\partial\bar\partial u=0$ と同値である。
 
-$p$ を固定し、$U$ 内の小さい凸座標球 $V$ を取る。$\theta=\partial u$ は滑らかな複素数値1形式であり、[型別外微分の恒等式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)を使えば
+$p$ を固定し、$U$ 内の小さい凸座標球 $V$ を取る。$\theta=\partial u$ は滑らかな複素数値1形式であり、[型別外微分の三つの恒等式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)を使えば
 
 $$
 \begin{aligned}
@@ -262,7 +262,7 @@ $V$ は連結だから $u-(F+\bar F)$ は実定数 $c$ である。そこで $h=
 逆向きには $h$ が正則なら $\bar\partial h=0$、$\partial\bar h=0$ であり、$\partial\bar\partial(h+\bar h)=0$。よって $\operatorname{Re}h$ を加えても形式は不変である。$\square$
 <!-- proof-end -->
 
-局所座標の重なり $U_a\cap U_b$ では、ポテンシャル $\varphi_a,\varphi_b$ の差は必ず多重調和となる。したがってポテンシャルそのものが一致しなくても、**二階微分で作った形式は一致できる**。この事実が後のFubini–Study形式の貼り合わせで働く。
+局所座標の重なり $U_a\cap U_b$ では、ポテンシャル $\varphi_a,\varphi_b$ の差は必ず多重調和となる。したがってポテンシャルそのものが一致しなくても、**二階微分で作った形式は一致できる**。この事実が後の射影空間における形式の貼り合わせで働く。
 
 ## 4. 正値性を関数の二階微分で判定する
 
@@ -382,7 +382,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（平坦複素トーラスに大域ポテンシャルはない）**  
-> 複素トーラス $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上のKähler形式 $\omega=dx\wedge dy$ に対して、$T$ 全体で定義された滑らかな実関数 $\varphi$ で $\omega=i\partial\bar\partial\varphi$ を満たすものは存在しない。
+> 次の平坦複素トーラス $T$ と、その上のKähler形式 $\omega$ を考える。
+
+$
+T=\mathbb C/(\mathbb Z+i\mathbb Z),
+\qquad \omega=dx\wedge dy.
+$
+
+> $T$ 全体で定義された滑らかな実関数 $\varphi$ で、次の等式を満たすものは存在しない。
+
+$
+\omega=i\partial\bar\partial\varphi.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -411,7 +422,7 @@ d\eta
 \end{aligned}
 $$
 
-[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)は、向き付けられたコンパクトで境界のない $T$ に対して $\int_Td\eta=0$ を与える。ところが標準基本領域 $[0,1]\times[0,1]$ で
+[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)は、向き付けられたコンパクトで境界のない $T$ に対して $\int_Td\eta=0$ を与える。ところが辺長1の正方形 $[0,1]\times[0,1]$ で
 
 $$
 \int_T\omega
@@ -451,7 +462,7 @@ $$
 \end{aligned}
 $$
 
-が $v\ne0$ で成立する。よって[正値性の同値命題](#prop-kah1-04-positive-equivalence)よりKähler形式である。閉性も同命題に含まれ、混合微分から作ったことが理由である。
+が $v\ne0$ で成立する。よって[強多重劣調和性と局所Kähler形式](#prop-kah1-04-positive-equivalence)よりKähler形式である。閉性も同命題に含まれ、混合微分から作ったことが理由である。
 <!-- solution-end -->
 
 <a id="ex-kah1-04-a02"></a>
@@ -547,7 +558,7 @@ d\alpha=\frac i4(2\,dz\wedge d\bar z)
 =\frac i2\,dz\wedge d\bar z=\omega.
 $$
 
-$\beta=(i/4)z\,d\bar z$ は $(0,1)$ 形式である。$f=(i/4)z\bar z$ と置けば、$z$ を $\bar z$ に関して定数として微分する[Wirtinger公式](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)により
+$\beta=(i/4)z\,d\bar z$ は $(0,1)$ 形式である。$f=(i/4)z\bar z$ と置けば、[関数に作用する偏微分作用素](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を用い、$z$ を固定して $\bar z$ で微分すれば
 
 $$
 \bar\partial f=\frac i4 z\,d\bar z=\beta.
@@ -681,7 +692,7 @@ F''(s)=-\frac1{(1+s)^2},\qquad
 F'(s)+sF''(s)=\frac1{(1+s)^2}>0.
 $$
 
-従って全 $\mathbb C^n$ 上で強多重劣調和である。[正値性の同値命題](#prop-kah1-04-positive-equivalence)から $i\partial\bar\partial\varphi$ はKähler形式になる。最後に、正則 $h$ について
+従って全 $\mathbb C^n$ 上で強多重劣調和である。[強多重劣調和性と局所Kähler形式](#prop-kah1-04-positive-equivalence)から $i\partial\bar\partial\varphi$ はKähler形式になる。最後に、正則 $h$ について
 
 $$
 \partial\bar\partial(\varphi+\operatorname{Re}h)
