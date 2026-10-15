@@ -1,0 +1,45 @@
+id: "MF3"
+title: "valence formulaと環構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF2
+  - MF1
+  - CA8
+  - CA9
+  - CA12
+  - GRP3
+  - NT2
+  - NT3
+  - NT4
+official_scope: []
+learning_objectives:
+  - 零点位数とカスプ位数を定義し、境界の楕円固定点の重みを説明できる
+  - 基本領域と偏角原理からvalence formulaの主要積分と角度補正を導ける
+  - E4とE6の零点軌道・位数をvalence formulaで決定できる
+  - Δでカスプ形式を割って重さを12下げ、次元公式を証明できる
+  - 定数項除去と単項式計数からM*がC[E4,E6]と同型であることを示せる
+  - モジュラー関数の定義を判定し、jの一意的軌道対応とC(j)を説明できる
+definitions:
+  - { id: MF3-DEF-01, name: 基本領域とカスプでの零点の位数 }
+  - { id: MF3-DEF-02, name: 重み付き零点数 }
+  - { id: MF3-DEF-03, name: 重さ付きモジュラー形式環 }
+  - { id: MF3-DEF-04, name: モジュラー関数 }
+theorems:
+  - { id: MF3-THM-01, name: valence formula：零点計数公式 }
+  - { id: MF3-COR-01, name: E4とE6の零点 }
+  - { id: MF3-THM-02, name: カスプ形式のΔによる割り算 }
+  - { id: MF3-THM-03, name: full modular groupの次元公式 }
+  - { id: MF3-THM-04, name: モジュラー形式環の多項式環構造 }
+  - { id: MF3-THM-05, name: モジュラー関数体 }
+canonical_examples:
+  - ΔとE4のカスプ位数の直接確認
+  - iとrhoの重み付き零点数
+  - E4とE6の零点軌道・位数の決定
+  - 重さ12と24の基底の構成
+  - jと1/(j-1728)のモジュラー関数判定
+problem_patterns: [MF3-A1, MF3-A2, MF3-A3, MF3-A4, MF3-B1, MF3-B2, MF3-B3, MF3-B4, MF3-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 4 }
