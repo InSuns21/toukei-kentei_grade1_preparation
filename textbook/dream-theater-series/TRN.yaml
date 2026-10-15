@@ -43,7 +43,7 @@ chapters:
     title: "Hermite–Lindemann：多重零点と整数性"
   - id: TRN10
     path: textbook/volumes/dream_thater/代数系/TRN/TRN10
-    status: planned
+    status: completed
     title: "Hermite–Lindemann：算術下界と複素積分上界"
   - id: TRN11
     path: textbook/volumes/dream_thater/代数系/TRN/TRN11

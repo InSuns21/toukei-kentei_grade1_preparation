@@ -1,0 +1,38 @@
+chapter: TRN10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN9
+forward_references: []
+
+concepts:
+  - id: transcendence.hl-integral-representation
+    name: 微分和の重み付き線分積分表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（微分和の重み付き線分積分表示）]
+    requires: [transcendence.hl-auxiliary-polynomial, transcendence.hermite-derivative-sum, transcendence.balanced-algebraic-exponential-relation]
+  - id: transcendence.hl-uniform-constants
+    name: 複素線分の共通評価定数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（複素線分の共通評価定数）]
+    requires: [transcendence.integerized-exponent-polynomial, transcendence.hl-auxiliary-polynomial]
+  - id: transcendence.hl-uniform-polynomial-bound
+    name: 補助多項式の全線分一様上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（補助多項式の全線分一様上界）]
+    requires: [transcendence.hl-uniform-constants, transcendence.hl-auxiliary-polynomial]
+  - id: transcendence.hl-complex-integral-bound
+    name: 各複素端点の積分上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（各複素端点の積分上界）]
+    requires: [transcendence.hl-uniform-polynomial-bound, transcendence.hl-integral-representation]
+  - id: transcendence.hl-arithmetic-analytic-clash
+    name: 算術下界と複素積分上界の矛盾
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（算術下界と複素積分上界の矛盾）]
+    requires: [transcendence.hl-complex-integral-bound, transcendence.hl-arithmetic-nonzero, transcendence.hl-integral-representation]
