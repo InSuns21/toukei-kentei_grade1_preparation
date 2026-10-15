@@ -12,7 +12,7 @@ chapters:
     title: "上半平面・格子・モジュラー群"
   - id: MF2
     path: textbook/volumes/dream_thater/代数系/MF/MF2
-    status: planned
+    status: completed
     title: "モジュラー形式・q展開・Eisenstein級数"
   - id: MF3
     path: textbook/volumes/dream_thater/代数系/MF/MF3
