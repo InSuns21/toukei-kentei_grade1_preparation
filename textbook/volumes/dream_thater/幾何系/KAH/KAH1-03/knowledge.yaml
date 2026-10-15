@@ -1,0 +1,26 @@
+chapter: KAH1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-02
+  - CM2-10
+  - GEO13
+concepts:
+  - id: kahler.chern-tangent-torsion-local
+    name: 接束のChern接続と捩率の局所式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接束のChern接続と捩率の局所式）"]
+    requires: [kahler.local-closedness-condition, complex-manifolds.chern-connection-existence-uniqueness]
+  - id: kahler.closedness-chern-torsion
+    name: Kähler閉性とChern捩率の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler閉性とChern捩率の同値性）"]
+    requires: [kahler.chern-tangent-torsion-local, kahler.local-closedness-condition]
+  - id: kahler.connection-equivalences
+    name: Kähler条件の接続による同値判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler条件の接続による同値判定）"]
+    requires: [kahler.closedness-chern-torsion, kahler.kahler-structure]

@@ -16,7 +16,7 @@ chapters:
     title: "基本(1,1)形式とKähler条件"
   - id: KAH1-03
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-03
-    status: planned
+    status: completed
     title: "Kähler条件の同値性"
   - id: KAH1-04
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-04
