@@ -1,0 +1,46 @@
+id: "KAH1-04"
+title: "局所Kählerポテンシャル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-03
+  - CM2-03
+  - GEO9
+official_scope: []
+learning_objectives:
+  - 局所ポテンシャルの定義と複素Hessianの局所表示を導出できる
+  - 実Poincaré補題と局所bar∂-Poincaré補題を順に用いて閉実(1,1)形式の局所ポテンシャルを構成できる
+  - 二つの局所ポテンシャルの差が多重調和であることと局所的な正則関数の実部との同値を証明できる
+  - 強多重劣調和性を複素Hessianの正値性で判定しKähler形式との同値を証明できる
+  - 正則座標変換での複素Hessianの変換を中間式から再現できる
+  - 複素トーラスの局所ポテンシャルを比較しStokesの定理で大域非存在を証明できる
+  - 放射対称ポテンシャルの半径方向と横方向の固有値を導出できる
+definitions:
+  - { id: KAH1-04-DEF-01, name: 局所Kählerポテンシャル }
+  - { id: KAH1-04-DEF-02, name: 多重調和関数 }
+  - { id: KAH1-04-DEF-03, name: 強多重劣調和関数 }
+theorems:
+  - { id: KAH1-04-THM-01, name: 閉実(1,1)形式の局所ポテンシャル定理 }
+  - { id: KAH1-04-THM-02, name: ポテンシャルの差と正則関数の実部 }
+  - { id: KAH1-04-PROP-01, name: 強多重劣調和性と局所Kähler形式 }
+  - { id: KAH1-04-PROP-02, name: 平坦複素トーラスに大域ポテンシャルはない }
+canonical_examples:
+  - 複素Euclid空間の二次ポテンシャルと係数1/2
+  - 正則関数の実部によるポテンシャルの変更
+  - 調和だが多重調和でない二変数関数
+  - 四次ポテンシャルの強多重劣調和性
+  - 格子商での局所ポテンシャルの差とStokesによる大域障害
+  - 放射対称ポテンシャルの複素Hessian
+problem_patterns:
+  - KAH1-04-HESSIAN-POSITIVE
+  - KAH1-04-PLURIHARMONIC-GAUGE
+  - KAH1-04-HARMONIC-NOT-PLURI
+  - KAH1-04-STRICT-PSH-DOMAIN
+  - KAH1-04-POINCARE-PRIMITIVE
+  - KAH1-04-HOLOMORPHIC-REAL-PART
+  - KAH1-04-LOCAL-GLOBAL
+  - KAH1-04-RADIAL-POTENTIAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
