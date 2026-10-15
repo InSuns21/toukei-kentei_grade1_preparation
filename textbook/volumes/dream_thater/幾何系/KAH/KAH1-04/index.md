@@ -384,16 +384,16 @@ $$
 > **命題（平坦複素トーラスに大域ポテンシャルはない）**  
 > 次の平坦複素トーラス $T$ と、その上のKähler形式 $\omega$ を考える。
 
-$
+$$
 T=\mathbb C/(\mathbb Z+i\mathbb Z),
 \qquad \omega=dx\wedge dy.
-$
+$$
 
 > $T$ 全体で定義された滑らかな実関数 $\varphi$ で、次の等式を満たすものは存在しない。
 
-$
+$$
 \omega=i\partial\bar\partial\varphi.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
