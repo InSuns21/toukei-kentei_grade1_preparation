@@ -164,7 +164,7 @@ H^\vee=\sum_{\lambda\in S}B_\lambda U_{-\lambda},
 \qquad R=HH^\vee
 $$
 
-と置きます。積の一項 $B_\lambda B_\mu U_{\lambda-\mu}$ が指数0を持つ条件は $\lambda=\mu$ です。したがって[指数反転積の平方和補題](../TRN8/index.md#lem-trn8-positive-zero-coefficient)から
+と置きます。積の一項 $B_\lambda B_\mu U_{\lambda-\mu}$ が指数0を持つ条件は $\lambda=\mu$ です。したがって[指数反転積の0係数](../TRN8/index.md#lem-trn8-positive-zero-coefficient)から
 
 $$
 [U_0]R=\sum_{\lambda\in S}B_\lambda^2>0
@@ -227,7 +227,7 @@ $$
 
 において、各共役因子は非零であり、[形式和の積の非零性](../TRN7/index.md#lem-trn7-no-zero-divisors)により $H\ne0$ です。展開式の係数は整数の積の和だから $H$ は整数係数、共役因子を置換することから $G$ 不変です。恒等自己同型の因子で評価が0になるため $\operatorname{ev}(H)=0$ です。
 
-$H$ を非零係数を持つ相異なる項にまとめ、反転積 $R=HH^\vee$ を作ります。[指数反転積の平方和補題](../TRN8/index.md#lem-trn8-positive-zero-coefficient)を $H$ に適用すると、その0係数は $\sum_{\lambda\in S}B_\lambda^2$ であり、$S$ が有限非空、各 $B_\lambda$ が非零整数なので**正の整数**です。$R$ は整数係数で $G$ 不変、評価は
+$H$ を非零係数を持つ相異なる項にまとめ、反転積 $R=HH^\vee$ を作ります。[指数反転積の0係数](../TRN8/index.md#lem-trn8-positive-zero-coefficient)を $H$ に適用すると、その0係数は $\sum_{\lambda\in S}B_\lambda^2$ であり、$S$ が有限非空、各 $B_\lambda$ が非零整数なので**正の整数**です。$R$ は整数係数で $G$ 不変、評価は
 
 $$
 \operatorname{ev}(R)
@@ -281,7 +281,7 @@ $$
 
 ## 7. 次の章で何を証明するか
 
-本章の還元命題により、任意の反例候補は正の整数 $c_0$ を持つ共役不変な有限指数関係になります。次のTRN13ではこの固定した指数集合から、整数係数の消滅多項式と高重複零点の補助多項式を作り、素数合同による**非零の整数**と複素積分による**階乗分母の上界**を得る準備をします。その後TRN14で両者を矛盾させ、有理係数版を完成させます。
+前節の命題により、任意の反例候補は正の整数 $c_0$ を持つ共役不変な有限指数関係になります。次のTRN13ではこの固定した指数集合から、整数係数の消滅多項式と高重複零点の補助多項式を作り、素数合同による**非零の整数**と複素積分による**階乗分母の上界**を得る準備をします。その後TRN14で両者を矛盾させ、有理係数版を完成させます。
 
 注意すべき点は、この段階の $c_0>0$ は整数ではありますが、それだけで矛盾にはならないことです。$\sum c_te^t=0$ の他の指数項を抑えるための新しい補助多項式が必要です。
 
@@ -482,7 +482,7 @@ $$
 
 （b）[形式和の共役作用](../TRN7/index.md#def-trn7-galois-action)は、代数的係数・指数へ $\sigma$ を作用させます。一方、評価値 $\operatorname{ev}(F)$ は一般に $K$ の元でなく、$\sigma(\operatorname{ev}(F))$ は定義されないことがあります。従って $\operatorname{ev}(\sigma\cdot F)=\sigma(\operatorname{ev}(F))$ とする根拠はありません。共役積の評価が0なのは**恒等因子の評価値だけが0**だからです。
 
-（c）形式和 $H=U_s$（$s\ne0$）は非零ですが0係数は0です。$H=-U_0$ は非零ですが0係数は負です。どちらも（c）の反例です。[指数反転積の平方和補題](../TRN8/index.md#lem-trn8-positive-zero-coefficient)を使って $HH^\vee$ に取り替えて初めて
+（c）形式和 $H=U_s$（$s\ne0$）は非零ですが0係数は0です。$H=-U_0$ は非零ですが0係数は負です。どちらも（c）の反例です。[指数反転積の0係数](../TRN8/index.md#lem-trn8-positive-zero-coefficient)を使って $HH^\vee$ に取り替えて初めて
 
 $$
 [U_0](HH^\vee)=\sum_{\lambda\in S}B_\lambda^2>0
