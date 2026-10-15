@@ -1,0 +1,50 @@
+chapter: TRN13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN12
+forward_references: []
+
+concepts:
+  - id: transcendence.lw-integer-root-polynomial
+    name: 整数係数の消滅多項式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（整数係数の消滅多項式）]
+    requires: [transcendence.denominator-clearing, transcendence.rational-integral, transcendence.lw-rational-symmetric-reduction]
+  - id: transcendence.lw-indexed-auxiliary-polynomial
+    name: 評価点付き補助多項式と微分和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（評価点付き補助多項式と微分和）]
+    requires: [transcendence.lw-integer-root-polynomial, transcendence.hermite-derivative-sum]
+  - id: transcendence.lw-indexed-zero-multiplicity
+    name: 特別点とそれ以外の零点重複度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（特別点とそれ以外の零点重複度）]
+    requires: [transcendence.lw-indexed-auxiliary-polynomial]
+  - id: transcendence.lw-indexed-integral-derivatives
+    name: 全端点での代数的整数性と合同
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（全端点での代数的整数性と合同）]
+    requires: [transcendence.lw-indexed-zero-multiplicity, transcendence.hl-factorial-integrality]
+  - id: transcendence.lw-indexed-arithmetic-norm
+    name: 共役ノルムによる非零整数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共役ノルムによる非零整数）]
+    requires: [transcendence.lw-indexed-integral-derivatives, transcendence.integral-trace-norm]
+  - id: transcendence.lw-indexed-integral-identity
+    name: 全特別点に対する積分恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（全特別点に対する積分恒等式）]
+    requires: [transcendence.lw-indexed-auxiliary-polynomial, transcendence.hermite-complex-endpoint, transcendence.lw-rational-symmetric-reduction]
+  - id: transcendence.lw-indexed-uniform-error
+    name: 微分和と共役ノルムの一様誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（微分和と共役ノルムの一様誤差上界）]
+    requires: [transcendence.lw-indexed-integral-identity, transcendence.lw-indexed-arithmetic-norm, transcendence.hl-complex-integral-bound]
