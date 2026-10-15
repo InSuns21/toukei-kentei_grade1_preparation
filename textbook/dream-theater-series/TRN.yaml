@@ -55,7 +55,7 @@ chapters:
     title: "Lindemann–Weierstrass：有理係数版と共役の有限積"
   - id: TRN13
     path: textbook/volumes/dream_thater/代数系/TRN/TRN13
-    status: planned
+    status: completed
     title: "有理係数版：補助多項式・非零性・誤差"
   - id: TRN14
     path: textbook/volumes/dream_thater/代数系/TRN/TRN14
