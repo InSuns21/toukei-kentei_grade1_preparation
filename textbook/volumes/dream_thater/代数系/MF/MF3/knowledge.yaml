@@ -1,0 +1,66 @@
+chapter: MF3
+scope: dream-theater
+coverage: complete
+prerequisites: [MF2, MF1, CA8, CA9, CA12, GRP3, NT2, NT3, NT4]
+forward_references: []
+concepts:
+  - id: modular-forms.zero-orders
+    name: 基本領域とカスプでの零点の位数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基本領域とカスプでの零点の位数）"]
+    requires: [modular-forms.modular-form, modular-forms.q-expansion]
+  - id: modular-forms.weighted-zero-count
+    name: 重み付き零点数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き零点数）"]
+    requires: [modular-forms.zero-orders, modular-forms.standard-domain]
+  - id: modular-forms.valence
+    name: valence formula：零点計数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（valence formula：零点計数公式）"]
+    requires: [modular-forms.weighted-zero-count, modular-forms.modular-form]
+  - id: modular-forms.elliptic-zeros
+    name: E4とE6の零点
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（E4とE6の零点）"]
+    requires: [modular-forms.valence, modular-forms.eisenstein-q]
+  - id: modular-forms.cusp-ideal
+    name: カスプ形式のΔによる割り算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（カスプ形式のΔによる割り算）"]
+    requires: [modular-forms.discriminant-nonzero, modular-forms.q-expansion, modular-forms.valence]
+  - id: modular-forms.dimension
+    name: full modular groupの次元公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（full modular groupの次元公式）"]
+    requires: [modular-forms.cusp-ideal, modular-forms.basic-properties, modular-forms.valence]
+  - id: modular-forms.graded-ring
+    name: 重さ付きモジュラー形式環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さ付きモジュラー形式環）"]
+    requires: [modular-forms.basic-properties]
+  - id: modular-forms.polynomial-ring
+    name: モジュラー形式環の多項式環構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（モジュラー形式環の多項式環構造）"]
+    requires: [modular-forms.graded-ring, modular-forms.dimension, modular-forms.cusp-ideal]
+  - id: modular-forms.modular-function
+    name: モジュラー関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モジュラー関数）"]
+    requires: [modular-forms.j-properties]
+  - id: modular-forms.j-field
+    name: モジュラー関数体
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（モジュラー関数体）"]
+    requires: [modular-forms.modular-function, modular-forms.elliptic-zeros, modular-forms.valence]
