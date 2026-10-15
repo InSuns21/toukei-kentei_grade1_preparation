@@ -124,7 +124,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（複素線分の共通評価定数）**  
-> $T,D$ を上記のように固定し、$m=|T^\ast|$、$R=\max_{t\in T}|t|$ とする。実定数
+> $T\subset\mathbb C$ を $0\in T$、$T^\ast=T\setminus\{0\}\ne\varnothing$ を満たす有限集合とし、$D>0$ とする。$m=|T^\ast|$、$R=\max_{t\in T}|t|$ として、実定数
 
 $$
 M=\max\{1,DR\},\qquad
