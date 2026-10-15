@@ -8,19 +8,19 @@ concepts:
     name: 重さkのモジュラー形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（重さ $k$ のモジュラー形式）"]
+    introduction_aliases: ["定義（重さkのモジュラー形式）"]
     requires: [modular-forms.modular-group, modular-forms.fractional-action, modular-forms.upper-half-plane]
   - id: modular-forms.q-coordinate
     name: 周期正則関数のq表示
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（周期正則関数の $q$ 表示）"]
+    introduction_aliases: ["定理（周期正則関数のq表示）"]
     requires: [modular-forms.upper-half-plane]
   - id: modular-forms.q-expansion
     name: q展開とカスプ形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$q$ 展開とカスプ形式）"]
+    introduction_aliases: ["定義（q展開とカスプ形式）"]
     requires: [modular-forms.modular-form, modular-forms.q-coordinate]
   - id: modular-forms.basic-properties
     name: 重さ・積・奇数重さ
@@ -32,7 +32,7 @@ concepts:
     name: 重さkのEisenstein級数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（重さ $k$ の Eisenstein 級数）"]
+    introduction_aliases: ["定義（重さkのEisenstein級数）"]
     requires: [complex-analysis.complex-lattice]
   - id: modular-forms.eisenstein-modularity
     name: Eisenstein級数の収束とモジュラー性
@@ -50,7 +50,7 @@ concepts:
     name: Eisenstein級数のq展開
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（Eisenstein 級数の $q$ 展開）"]
+    introduction_aliases: ["定理（Eisenstein級数のq展開）"]
     requires: [modular-forms.periodic-lattice-sum, modular-forms.q-expansion]
   - id: modular-forms.discriminant
     name: モジュラー判別式
@@ -68,11 +68,11 @@ concepts:
     name: j不変量
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$j$ 不変量）"]
+    introduction_aliases: ["定義（j不変量）"]
     requires: [modular-forms.discriminant-nonzero]
   - id: modular-forms.j-properties
     name: jの不変性・カスプでの極・格子との対応
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（$j$ の不変性・カスプでの極・格子との対応）"]
+    introduction_aliases: ["定理（jの不変性・カスプでの極・格子との対応）"]
     requires: [modular-forms.j-invariant, modular-forms.eisenstein-q, modular-forms.lattice-orbit]
