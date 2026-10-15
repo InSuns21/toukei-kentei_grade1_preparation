@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - TRN13
+  - AG1-06
 forward_references: []
 
 concepts:
@@ -17,7 +18,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（体上の代数的独立性）]
-    requires: []
+    requires: [algebraic-geometry.algebraic-independence]
   - id: transcendence.lw-algebraic-independence-q
     name: 有理一次独立な代数的指数の像の代数的独立性
     kind: theorem
