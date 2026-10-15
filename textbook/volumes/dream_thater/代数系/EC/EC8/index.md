@@ -2,7 +2,7 @@
 
 [EC7の有限体上の点数](../EC7/index.md#def-ec7-trace)では、曲線の点を一つずつ数えて $a_q=q+1-\#E(\mathbb F_q)$ を求めました。しかし体が大きくなるたびに全点を列挙するのは大変です。しかも点数の「基準値」$q+1$ からのずれが、どこまで大きくなり得るかはまだ分かりません。
 
-そこで、[EC4の同種写像の次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を整数の二次形式として使います。この方法は、個々の点を列挙せずにずれの上限を与えます。さらに次数の性質からFrobeniusの二次関係式を導けば、$\mathbb F_{q^2},\mathbb F_{q^3},\ldots$ の点数が二項の漸化式で決まり、全拡大体の情報を一つの有理関数へまとめられます。
+そこで、[EC4の同種写像の次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を整数の二次形式として使います。この方法は、個々の点を列挙せずにずれの上限を与えます。さらに次数の性質からFrobeniusを満たす二次式を導けば、$\mathbb F_{q^2},\mathbb F_{q^3},\ldots$ の点数が二項の漸化式で決まり、全拡大体の情報を一つの有理関数へまとめられます。
 
 以下、$q=p^r$（$p$ は素数、$r\ge1$）、$K=\overline{\mathbb F}_q$ とし、$E/\mathbb F_q$ は非特異な一般Weierstrass曲線とします。$\pi=\pi_q$ は[EC7の$q$-Frobenius](../EC7/index.md#def-ec7-frobenius)で、$\deg\pi=q$、$\deg([1]-\pi)=N_1:=\#E(\mathbb F_q)$ です。$\deg0=0$ の約束を含め、以下の次数は代数閉包上の同種写像について考えます。標数2、3も排除しません。
 
@@ -13,7 +13,7 @@
 <a id="def-ec8-degree-trace"></a>
 
 <!-- formal-statement-start -->
-> **定義（次数によるトレース）**  
+> **定義（同種写像の次数によるトレース）**  
 > 楕円曲線 $E/K$ の自己準同型 $\varphi$（零写像を含む）に対し、整数
 
 $$
@@ -243,7 +243,7 @@ $$
 **定義の確認**。$\mathbb F_3$ の $E:y^2=x^3+x+1$ では[EC7の計数](../EC7/index.md#def-ec7-trace)から $N_1=4$、$a_3=0$ です。よって $P_3(U)=U^2+3$、$\alpha=i\sqrt3$、$\beta=-i\sqrt3$ となります。代入すると $P_3(\alpha)=P_3(\beta)=0$、和は0、積は3です。複素数の根は $\mathbb F_3$ にあると主張していません。
 <!-- definition-example-end -->
 
-[Hasse評価](#thm-ec8-hasse)から $a_q^2-4q\le0$ です。従って $\alpha,\beta$ は互いに複素共役（等しい実根の場合を含む）で、Vièteの公式から
+[Hasse評価](#thm-ec8-hasse)から $a_q^2-4q\le0$ です。従って $\alpha,\beta$ は互いに複素共役（等しい実根の場合を含む）で、二次式を $(U-\alpha)(U-\beta)$ と展開して係数を比較すれば
 
 $$
 \alpha+\beta=a_q,\qquad \alpha\beta=q,\qquad
@@ -285,7 +285,7 @@ $\pi^n$ は $q^n$ 乗Frobeniusなので、$\deg\pi^n=q^n$ です。$\#E(\mathbb 
 <!-- proof-start -->
 ### 証明
 
-[EC7の固定点定理](../EC7/index.md#thm-ec7-fixed-points)により $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は座標の $q^n$ 乗写像であり、原点の微分は零です。従って $1-\pi^n$ の微分は恒等となって分離的です。[EC7で使った分離的射の次数と核の対応](../EC7/index.md#prop-ec7-one-minus-frobenius)の議論をそのまま適用し
+[有理点とFrobenius固定点の定理](../EC7/index.md#thm-ec7-fixed-points)により $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は座標の $q^n$ 乗写像であり、原点の微分は零です。従って $1-\pi^n$ の微分は恒等となって分離的です。[EC7で使った分離的射の次数と核の対応](../EC7/index.md#prop-ec7-one-minus-frobenius)の議論をそのまま適用し
 
 $$
 N_n=\deg(1-\pi^n)
@@ -352,7 +352,7 @@ $$
 N_2=1+3\cdot2+3\cdot1+3\cdot2=16.
 $$
 
-一方 $a_3=0$ なので公式から $N_2=9+1-(0-6)=16$ です。直接計数とFrobeniusの漸化式が一致しました。
+点数公式に $a_3=0$ を代入すると $N_2=9+1-(0-6)=16$ です。直接計数とFrobeniusの漸化式が一致しました。
 
 ## 5. 無限個の点数を一つの関数へまとめる
 
@@ -584,7 +584,7 @@ $$
 [点数公式](#thm-ec8-extension-counts)から $s_2=a_3^2-2\cdot3=-6$、よって $N_2=9+1-(-6)=16$ となり一致します。
 <!-- solution-end -->
 
-### B3. 標数2でも公式を使う
+### B3. 標数2での拡大体点数
 
 $\mathbb F_2$ 上の $E:y^2+y=x^3+x$ は $N_1=5$ である。$a_2$、$N_2$、$N_3$、ゼータ関数を求め、標数2の短いWeierstrass形を持ち込んでいないことを確認せよ。
 
