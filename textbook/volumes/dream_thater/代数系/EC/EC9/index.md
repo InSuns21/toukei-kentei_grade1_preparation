@@ -20,7 +20,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec9-integral-model -->
-**定義の確認。** $y^2=x^3+x+1$ は $a_1=a_2=a_3=0,a_4=a_6=1$ の整数モデルです。[EC1の短い形の判別式](../EC1/index.md#def-ec1-invariants)から
+**定義の確認**。 $y^2=x^3+x+1$ は $a_1=a_2=a_3=0,a_4=a_6=1$ の整数モデルです。[EC1の短い形の判別式](../EC1/index.md#def-ec1-invariants)から
 
 $$
 \Delta=-16(4\cdot1^3+27\cdot1^2)=-496=-16\cdot31\ne0.
@@ -56,7 +56,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec9-good-reduction -->
-**定義の確認。** 上の $E:y^2=x^3+x+1$ では $\Delta=-496$ が5で割れないので、実際に良いモデルが存在し、$p=5$ は良い還元です。ところが同じ $E$ と同型な
+**定義の確認**。 上の $E:y^2=x^3+x+1$ では $\Delta=-496$ が5で割れないので、実際に良いモデルが存在し、$p=5$ は良い還元です。ところが同じ $E$ と同型な
 
 $$
 E':\quad y^2=x^3+5^4x+5^6
@@ -87,7 +87,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec9-minimal-model -->
-**定義の確認。** $E:y^2=x^3+x+1$ は $p=5$ で $v_5(\Delta)=0$ です。任意の $p$-整モデルの判別式は $\mathbb Z_{(p)}$ の元なので $v_5(\Delta')\ge0$。従ってこの式は5-最小です。対して $E'$ は $v_5(\Delta')=12>0$ で、上の変換で指数0の式へ戻るため5-最小ではありません。
+**定義の確認**。 $E:y^2=x^3+x+1$ は $p=5$ で $v_5(\Delta)=0$ です。任意の $p$-整モデルの判別式は $\mathbb Z_{(p)}$ の元なので $v_5(\Delta')\ge0$。従ってこの式は5-最小です。対して $E'$ は $v_5(\Delta')=12>0$ で、上の変換で指数0の式へ戻るため5-最小ではありません。
 <!-- definition-example-end -->
 
 最小値は存在します。非零の $p$-整判別式の指数は非負整数であり、元の曲線には分母を払って作った $p$-整モデルが少なくとも一つ存在するからです。候補集合が非空な非負整数集合なので、整列性により最小値を取るモデルが存在します。
@@ -135,7 +135,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec9-reduction-types -->
-**定義の確認。** $p=5$ で
+**定義の確認**。 $p=5$ で
 
 $$
 E_{\mathrm{sp}}:\ y^2=x^3+x^2+5,\qquad
@@ -258,7 +258,7 @@ $
 ここでの「引用定理」は、楕円曲線のTate加群の慣性作用についての外部理論を明示したものです。特に乗法的還元で固定空間が一次元になる事実はTate曲線の局所一様化などから導かれ、節点の接線計算だけで証明できたと扱いません。一方、**この定理を仮定してから導手指数を計算する部分**は以下で一段ずつ確認できます。
 
 <!-- definition-example-start: def-ec9-conductor -->
-**定義の確認。** $E_{\mathrm{sp}}$ と $E_{\mathrm{ns}}$ の $p=5$ での還元は第4節で節点と確かめたので、[引用定理](#thm-ec9-local-conductor-types)の(ii)より
+**定義の確認**。 $E_{\mathrm{sp}}$ と $E_{\mathrm{ns}}$ の $p=5$ での還元は第4節で節点と確かめたので、[引用定理](#thm-ec9-local-conductor-types)の(ii)より
 
 $$
 \dim V_\ell(E)^{I_5}=1,\quad
@@ -281,7 +281,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec9-semistable -->
-**定義の確認。** $E:y^2+y=x^3-x^2$ を使います。この整数モデルでは $a_1=0,a_2=-1,a_3=1,a_4=a_6=0$ で、[EC1の不変量](../EC1/index.md#def-ec1-invariants)から $b_2=-4,b_4=0,b_6=1,b_8=-1$、ゆえに
+**定義の確認**。 $E:y^2+y=x^3-x^2$ を使います。この整数モデルでは $a_1=0,a_2=-1,a_3=1,a_4=a_6=0$ で、[EC1の不変量](../EC1/index.md#def-ec1-invariants)から $b_2=-4,b_4=0,b_6=1,b_8=-1$、ゆえに
 
 $
 \Delta=-b_2^2b_8-27b_6^2=16-27=-11.
@@ -404,7 +404,23 @@ $p=5$ とし $C_c:y^2=x^2(x+c)$（$c\in\{1,2\}$）の非特異な $\mathbb F_5$-
 <!-- solution-start -->
 ### 詳細解答
 
-偏微分は $F_x=-3x^2-2cx,F_y=2y$。$\bar F=\bar F_x=\bar F_y=0$ を満たすのは $(0,0)$ で、$c\ne0$ なのでほかにありません。非特異なアフィン点は $x\ne0$ です。このとき $t=y/x$ は $t^2=x+c$ を満たし、逆に $x=t^2-c\ne0,y=t(t^2-c)$ で一意に復元できます。$c=1$ の場合 $t=\pm1$ を除き $5-2=3$ 点、$c=2$ では $t^2=2$ を満たす値がなく5点です。無限遠点 $O$ をそれぞれ加え、4点と6点になります。$(0,0)$ は特異なので、[EC7の非特異楕円曲線の点数](../EC7/index.md#def-ec7-rational-points)と同じ条件で数えるには除外が必要です。
+偏微分は
+
+$
+F_x=-3x^2-2cx,\qquad F_y=2y.
+$
+
+$\bar F=\bar F_x=\bar F_y=0$ を満たすのは $(0,0)$ で、$c\ne0$ なのでほかにありません。非特異なアフィン点は $x\ne0$ です。
+
+このとき $t=y/x$ は $t^2=x+c$ を満たします。逆に
+
+$
+x=t^2-c\ne0,\qquad y=t(t^2-c)
+$
+
+で一意に復元できます。$c=1$ なら $t=\pm1$ を除き $5-2=3$ 点、$c=2$ なら $t^2=2$ の解がなく5点です。無限遠点 $O$ をそれぞれ加え、4点と6点になります。
+
+$(0,0)$ は特異なので、[EC7の非特異楕円曲線の点数](../EC7/index.md#def-ec7-rational-points)と同じ条件で数えるには除外が必要です。
 <!-- solution-end -->
 
 ### B2. 尖点と最小性を組み合わせる
@@ -417,7 +433,24 @@ $E:y^2=x^3+5$ の5での還元型、$v_5(\Delta_{\min})$、$f_5$ を求め、最
 <!-- solution-start -->
 ### 詳細解答
 
-短い形で $A=0,B=5$ として[判別式公式](../EC1/index.md#def-ec1-invariants)へ代入し $\Delta=-16(27\cdot25)=-10800$、よって $v_5(\Delta)=2$ です。$2<12$ なので[最小性判定](#prop-ec9-minimal-criterion)によりこれは5-最小、$v_5(\Delta_{\min})=2$ です。還元は $y^2=x^3$、原点の偏微分は0で二次部分は $y^2$、接線が重なるので加法的還元です。$p=5\ge5$ なので[局所導手定理](#thm-ec9-local-conductor-types)の(iii)を援用し、$\dim V^{I_5}=0$ かつSwan導手0、従って $f_5=2-0+0=2$ です。最後は偏微分や $v_5(\Delta)=2$ のみからは出ません。
+短い形で $A=0,B=5$ として[判別式公式](../EC1/index.md#def-ec1-invariants)へ代入すると
+
+$
+\Delta=-16(27\cdot25)=-10800,\qquad v_5(\Delta)=2.
+$
+
+指数 $2<12$ なので[最小性判定](#prop-ec9-minimal-criterion)からこのモデルは5-最小です。従って $v_5(\Delta_{\min})=2$ です。
+
+還元は $y^2=x^3$、原点の偏微分は0で二次部分は $y^2$ だけです。接線が重なるため加法的還元です。
+
+$p=5\ge5$ なので[局所導手定理](#thm-ec9-local-conductor-types)の(iii)を援用します。この例での入力値は
+
+$
+\dim V_\ell(E)^{I_5}=0,\qquad
+\operatorname{Swan}_5(V_\ell(E))=0.
+$
+
+従って $f_5=2-0+0=2$ です。最後の等号は偏微分や $v_5(\Delta)=2$ のみからは出ません。
 <!-- solution-end -->
 
 ### B3. モデルの指数と導手指数を切り離す
