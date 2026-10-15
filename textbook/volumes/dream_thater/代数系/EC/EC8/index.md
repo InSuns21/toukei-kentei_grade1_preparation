@@ -504,7 +504,7 @@ $q=5$、$a_q=-3$ となる楕円曲線について $\alpha+\beta$、$\alpha\beta
 <!-- solution-start -->
 ### 詳細解答
 
-[Frobeniusの根の定義](#def-ec8-frobenius-roots)より $\alpha+\beta=-3,\alpha\beta=5$ です。従って
+[Frobeniusの二つの根](#def-ec8-frobenius-roots)より $\alpha+\beta=-3,\alpha\beta=5$ です。従って
 
 $$
 s_2=\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta
@@ -680,7 +680,7 @@ $$
 
 を得ます。$U^2-a_qU+q$ の根 $\alpha,\beta$ の冪和も同じ漸化式と初期値を満たすため、$t_n=\alpha^n+\beta^n$ です。
 
-[EC7の固定点定理](../EC7/index.md#thm-ec7-fixed-points)から $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は $q^n$ 乗Frobeniusなので原点での微分が零となり、
+[有理点とFrobenius固定点](../EC7/index.md#thm-ec7-fixed-points)から $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は $q^n$ 乗Frobeniusなので原点での微分が零となり、
 
 $$
 d(1-\pi^n)_O=1-d(\pi^n)_O=1\ne0
