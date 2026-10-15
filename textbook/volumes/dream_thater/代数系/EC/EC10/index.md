@@ -128,9 +128,9 @@ $$
 
 $c$ が $\mathbb F_p$ で平方なら $\mathbb F_q$ でも平方で $r_q(c)=2$、(i) が従います。非平方の場合は、[有限体の乗法群の巡回性](../../FLD/FLD3/index.md#thm-fld3-multiplicative-group-cyclic)から平方判定を導きます。奇数 $q$ に対し $\mathbb F_q^\times=\langle g\rangle$ と書くと、$g^{q-1}=1$ かつ $g^{(q-1)/2}=-1$ です。$z=g^j$ が平方であることと $j$ が偶数であることは同値なので、
 
-$
+$$
 z\text{ が平方}\quad\Longleftrightarrow\quad z^{(q-1)/2}=1
-$
+$$
 
 となります。特に $c$ が $\mathbb F_p$ で非平方なら $c^{(p-1)/2}=-1$。この判定を $\mathbb F_{p^n}$ に適用すると
 
@@ -171,15 +171,15 @@ $$
 
 **論理の境界と行列式の意味**：この数え上げは、特異モデルでの局所符号を確かめる初等的な説明です。一般の楕円曲線の局所因子には、[EC9のTate加群・慣性群の定義](../EC9/index.md#def-ec9-conductor)で導入した二次元空間 $V_\ell(E)$（$\ell\ne p$）を使います。$W_p=V_\ell(E)^{I_p}$ は慣性群で固定されるベクトルの部分空間です。この空間上に誘導される算術的Frobeniusの作用を $A_p$ と書くと、局所多項式を表す行列式は
 
-$
+$$
 P_p(E,T)=\det(I-T A_p\mid W_p)
-$
+$$
 
 です。右辺の $I$ は $W_p$ 上の恒等写像であり、基底を選ぶと通常の行列式になります。例えば $\dim W_p=2$ の場合、基底で表した $2\times2$ 行列を $A$ とすれば
 
-$
+$$
 \det(I_2-TA)=1-(\operatorname{tr}A)T+(\det A)T^2.
-$
+$$
 
 良い還元では $\dim W_p=2$ で、Frobeniusのトレースが $a_p$、行列式が $p$ となるため、[EC8のFrobeniusの二次関係式](../EC8/index.md#thm-ec8-frobenius-polynomial)と一致する二次式を得ます。乗法的還元では $\dim W_p=1$ で、Frobeniusの固有値が分裂時 $+1$、非分裂時 $-1$ となるので $1-T$、$1+T$ です。加法的還元では $\dim W_p=0$ で、零次元空間の行列式を1と約束します。
 
