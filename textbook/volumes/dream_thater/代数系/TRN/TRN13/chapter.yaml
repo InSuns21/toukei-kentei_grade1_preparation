@@ -1,0 +1,44 @@
+id: "TRN13"
+title: "有理係数版：補助多項式・非零性・誤差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN12
+official_scope: []
+learning_objectives:
+  - "TRN12のGalois不変な有限指数関係の条件を正確に固定し、指数を代数的整数にする共通分母を選べる"
+  - "整数係数の消滅多項式Hと、各特別点aで一因子を取り除くP_{p,a}の多項式性・次数を示せる"
+  - "特別点と他の根で異なる重複度を検査し、p-1階微分の係数D^{p-1}H_a(u_a)^pを導ける"
+  - "全評価点の微分値が代数的整数であることと、p O_Kでの合同を区別して証明できる"
+  - "非零性をノルムで判定し、例外素数が固定の非零整数の素因子に限られることを証明できる"
+  - "共役作用がA_{p,a}をA_{p,sigma(a)}へ移すことを式で確認し、通常の非零整数を構成できる"
+  - "複素線分の積分恒等式に元の指数関係を代入し、全特別点に一様なC B^p/(p-1)!上界を得られる"
+  - "算術下界と階乗による誤差上界の衝突を証明し、TRN14に渡す論理を整理できる"
+theorems:
+  - { id: TRN13-LEM-01, name: 整数係数の消滅多項式 }
+  - { id: TRN13-DEF-01, name: 評価点付き補助多項式と微分和 }
+  - { id: TRN13-PROP-01, name: 特別点とそれ以外の零点重複度 }
+  - { id: TRN13-LEM-02, name: 全端点での代数的整数性と合同 }
+  - { id: TRN13-THM-01, name: 共役ノルムによる非零整数 }
+  - { id: TRN13-PROP-02, name: 全特別点に対する積分恒等式 }
+  - { id: TRN13-THM-02, name: 微分和と共役ノルムの一様誤差上界 }
+canonical_examples:
+  - "Q(sqrt(2))でH(Z)=Z(Z^2-2)と共役により有理整数係数になる過程"
+  - "二点T={0,1/2}でp=3の特別微分値-4と4"
+  - "複素線分の負の実部による指数因子の上界"
+  - "二次体の仮定指数関係から非零整数と階乗上界の衝突"
+problem_patterns:
+  - TRN13-INTEGER-ROOT-POLYNOMIAL
+  - TRN13-INDEXED-SPECIAL-DERIVATIVE
+  - TRN13-TWO-POINT-FACTORIAL-CONGRUENCE
+  - TRN13-COMPLEX-SEGMENT-PARAMETRIZATION
+  - TRN13-HIGH-DERIVATIVE-PRIME-DIVISIBILITY
+  - TRN13-GALOIS-INDEX-PERMUTATION
+  - TRN13-INTEGRAL-IDENTITY-HYPOTHESES
+  - TRN13-UNIFORM-FACTORIAL-BOUND
+  - TRN13-QUADRATIC-FIELD-SYNTHESIS
+  - TRN13-GENERAL-NORM-SYNTHESIS
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
