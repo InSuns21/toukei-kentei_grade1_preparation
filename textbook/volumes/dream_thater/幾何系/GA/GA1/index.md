@@ -10,21 +10,17 @@
 
 [GEO12の勾配座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)に従うと、勾配の成分は $\left(\nabla_g u\right)^i=g^{ij}\partial_j u$ です。また[体積密度](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)は $\rho=\sqrt{\det G}$ です。
 
-<a id="prop-ga1-coordinate"></a>
-<!-- formal-statement-start -->
-> **命題（座標表示の解析的読み方）**  
-> $u\in C^\infty(M)$ とし、上の滑らかな局所座標を取る。このとき
->
+既習の[座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)を本章の符号規約で書くと、
+
 $$
 \Delta_g u
 =\frac1{\sqrt{\det G}}\partial_i
-\left(\sqrt{\det G}\,g^{ij}\partial_j u\right).
+\left(\sqrt{\det G}\,g^{ij}\partial_j u\right)
 $$
->
-> ここで反復する添字 $i,j$ は $1$ から $d$ まで総和する。特に最高階部分の係数は正定値行列 $(g^{ij})$ である。
-<!-- formal-statement-end -->
 
-これは[GEO12で証明した発散・Laplacianの座標表示](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)を解析のために読み直したものです。新しい定義ではありません。
+です。反復する添字 $i,j$ は $1$ から $d$ まで総和します。二階微分に掛かる係数は正定値行列 $(g^{ij})$ です。
+
+これは座標公式の再導出ではなく、どの部分が解析で用いられるかを整理したものです。
 
 ### 式が現れる順序
 
@@ -42,7 +38,7 @@ $$
 =\rho^{-1}\partial_i(\rho\,g^{ij}\partial_j u)
 $$
 
-となり、命題の式を得ます。これは定理の適用対象と代入を省かずに追った計算です。
+となり、上の式を得ます。これは定理の適用対象と代入を省かずに追った計算です。
 
 $g^{ij}$ が正定値であるのは、$G$ が正定値なら $v^{\mathsf T}G^{-1}v=(G^{-1}v)^{\mathsf T}G(G^{-1}v)>0$ （$v\ne0$）だからです。従って作用素の二階項は、符号を含めてEuclidのLaplacianに対応する楕円型の形です。
 
@@ -264,7 +260,7 @@ $$
 $S^1$ は境界がないので、任意の実数 $c$ に対して $E_g[u+c]=E_g[u]$ です。エネルギーが定数の違いを区別できないことが、次の可解性と一意性に現れます。
 <!-- definition-example-end -->
 
-$a,b$ を実数として $u+\varepsilon v$ を代入し、積を展開すれば
+$u+\varepsilon v$ を代入し、積を展開すれば
 
 $$
 \begin{aligned}
@@ -494,7 +490,7 @@ $$
 \rho g^{ij}=e^{2\psi}e^{-2\psi}\delta^{ij}=\delta^{ij}.
 $$
 
-[座標公式](#prop-ga1-coordinate)へ代入すると
+[座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)へ代入すると
 
 $$
 \Delta_gu=e^{-2\psi}\partial_i(\delta^{ij}\partial_ju)
