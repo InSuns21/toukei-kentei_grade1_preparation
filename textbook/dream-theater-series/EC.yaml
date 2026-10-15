@@ -40,7 +40,7 @@ chapters:
     title: "Hasse評価・拡大体上の点数・有限体ゼータ関数"
   - id: EC9
     path: textbook/volumes/dream_thater/代数系/EC/EC9
-    status: planned
+    status: completed
     title: "整数モデル・良い／悪い還元・導手"
   - id: EC10
     path: textbook/volumes/dream_thater/代数系/EC/EC10
