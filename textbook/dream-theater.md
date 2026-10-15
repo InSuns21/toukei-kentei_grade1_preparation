@@ -834,6 +834,7 @@
 10. [TRN10 Hermite–Lindemann：算術下界と複素積分上界](textbook/volumes/dream_thater/代数系/TRN/TRN10/index.md)
 11. [TRN11 Hermite–Lindemann定理とπの超越性](textbook/volumes/dream_thater/代数系/TRN/TRN11/index.md)
 12. [TRN12 Lindemann–Weierstrass：有理係数版と共役の有限積](textbook/volumes/dream_thater/代数系/TRN/TRN12/index.md)
+13. [TRN13 有理係数版：補助多項式・非零性・誤差](textbook/volumes/dream_thater/代数系/TRN/TRN13/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
