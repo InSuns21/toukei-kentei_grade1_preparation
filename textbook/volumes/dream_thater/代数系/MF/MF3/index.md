@@ -147,7 +147,11 @@ $$
 <a id="cor-mf3-elliptic-zeros"></a>
 <!-- formal-statement-start -->
 > **系（E4とE6の零点）**  
-> $E_4$ は基本領域で $\rho$ の軌道に1位の零点だけを持ち、$E_6$ は $i$ の軌道に1位の零点だけを持つ。$E_4^3-E_6^2=1728\Delta$ は上半平面で零にならない。
+> $E_4$ は基本領域で $\rho$ の軌道に1位の零点だけを持ち、$E_6$ は $i$ の軌道に1位の零点だけを持つ。また上半平面全域で次の式の値は零にならない。
+>
+$
+E_4^3-E_6^2=1728\Delta\ne0.
+$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -322,7 +326,19 @@ $$
 <a id="def-mf3-modular-function"></a>
 <!-- formal-statement-start -->
 > **定義（モジュラー関数）**  
-> 関数 $h:\mathbb H\to\mathbb P^1(\mathbb C)$ が $SL_2(\mathbb Z)$ に関するモジュラー関数であるとは、上半平面で有理型（孤立した極以外は正則）で、$h(\gamma\tau)=h(\tau)$ を満たし、周期性から得られる穿孔円板上の関数が $q=0$ でも高々極を持つことをいう。このような関数の体を $\mathcal M$ と記す。
+> 関数 $h:\mathbb H\to\mathbb P^1(\mathbb C)$ がモジュラー関数であるとは、次の三条件を満たすことをいう。
+>
+> (i) 上半平面で有理型（孤立した極以外は正則）である。
+>
+> (ii) 全ての $\gamma\in SL_2(\mathbb Z)$ と $\tau\in\mathbb H$ に対し、次の群不変性が成立する。
+>
+$
+h(\gamma\tau)=h(\tau).
+$
+>
+> (iii) 周期性から得られる穿孔円板上の関数は $q=0$ でも高々極を持つ。
+>
+> 全体のなす体を $\mathcal M$ と記す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf3-modular-function -->
@@ -437,7 +453,9 @@ $$
 g=\frac{q^2(3+O(q))}{q(1+O(q))}=q(3+O(q)),
 $$
 
-ゆえに $v_\infty(g)=1$ です。そこで、この $g$ に [次元公式](#thm-mf3-dimension)を適用すると $\dim M_8=1$、[環構造](#thm-mf3-polynomial-ring)から基底は $E_4^2$ で定数項1です。従って $g$ が非零のカスプ形式となることは不可能です。$S_{20}=\Delta M_8$ の基底は $\Delta E_4^2$。この基底のカスプ位数は1なので、指定された非零 $f$ は存在しません。
+ゆえに $v_\infty(g)=1$ です。
+
+[full modular groupの次元公式](#thm-mf3-dimension)を $k=8$ について読むと $\dim M_8=1$ です。[環構造の定理](#thm-mf3-polynomial-ring)から基底は $E_4^2$ であり、定数項は1です。従って $g$ が非零のカスプ形式となることは不可能です。$S_{20}=\Delta M_8$ の基底は $\Delta E_4^2$。この基底のカスプ位数は1なので、指定された非零 $f$ は存在しません。
 <!-- solution-end -->
 
 #### B2. 固定点の零点を完全に決める
