@@ -348,8 +348,14 @@ $q$ 展開を計算しても、無限個の係数を一致させることはで�
 > と書く。$B=\lfloor k/12\rfloor$ とすると、$a_n=b_n$ が $0\le n\le B$ の全てで成立すれば $f=g$ である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+差 $h=f-g$ を同じ重さのモジュラー形式として考えます。係数一致の仮定が与えるカスプ位数の下限を、零点計数公式が与える上限と比較します。
+
 <!-- proof-start -->
-**証明。** [モジュラー形式の積・線形性](../MF2/index.md#def-mf2-modular-form)から $h=f-g\in M_k$ です。もし $h\not\equiv0$ なら、仮定により $h$ の初めての非零係数の次数は
+### 証明
+
+[モジュラー形式の積・線形性](../MF2/index.md#def-mf2-modular-form)から $h=f-g\in M_k$ です。もし $h\not\equiv0$ なら、仮定により $h$ の初めての非零係数の次数は
 $
 v_\infty(h)\ge B+1
 =\left\lfloor\frac{k}{12}\right\rfloor+1>\frac{k}{12}.
