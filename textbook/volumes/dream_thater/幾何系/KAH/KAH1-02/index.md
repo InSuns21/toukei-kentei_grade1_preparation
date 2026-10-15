@@ -114,7 +114,7 @@ $$
 
 $$
 2|c^1|^2+3|c^2|^2+i c^1\overline{c^2}-i c^2\overline{c^1}
-=2\left|c^1+\frac i2c^2\right|^2+\frac52|c^2|^2>0
+=2\left|c^1-\frac i2c^2\right|^2+\frac52|c^2|^2>0
 $$
 
 （$c\neq0$）。したがって正の実(1,1)形式となる。係数が定数なので、この例ではさらに $d\omega=0$ が成り立つ。
@@ -323,7 +323,7 @@ $\omega=i(2\,dz^1\wedge d\bar z^1+i\,dz^1\wedge d\bar z^2-i\,dz^2\wedge d\bar z^
 $$
 c^TH\bar c
 =2|c^1|^2+3|c^2|^2+ic^1\bar c^2-ic^2\bar c^1
-=2\left|c^1+\frac i2c^2\right|^2+\frac52|c^2|^2.
+=2\left|c^1-\frac i2c^2\right|^2+\frac52|c^2|^2.
 $$
 
 どちらかの $c^j$ が非零なら右辺は正だから正値。$H$ は定数なので閉性も成り立つ。
