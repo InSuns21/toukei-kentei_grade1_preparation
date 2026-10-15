@@ -17,6 +17,7 @@ learning_objectives:
   - Euclid互除法によってSとTがSL_2(Z)を生成することを再現できる
   - 格子の複素相似とモジュラー群の軌道が一致することを両方向に証明できる
   - 基本領域の存在と内部の一意性を虚部最大化から証明でき、境界での注意を説明できる
+  - SとTによる還元の停止性、rhoと無限遠の安定化群を証明できる
   - 有理境界と無限遠の軌道からカスプへの入口を説明できる
 definitions:
   - { id: MF1-DEF-01, name: 上半平面 }
@@ -37,8 +38,9 @@ canonical_examples:
   - iを固定する四つの整数行列
   - 格子Z+ZiとZ+Z(1+i)/2の相似
   - 無限遠から有理境界2/3への作用
-problem_patterns: [MF1-A1, MF1-A2, MF1-A3, MF1-A4, MF1-B1, MF1-B2, MF1-B3, MF1-B4, MF1-C1]
+  - 2+iとi/2の還元、rhoの安定化群
+problem_patterns: [MF1-A1, MF1-A2, MF1-A3, MF1-A4, MF1-B1, MF1-B2, MF1-B3, MF1-B4, MF1-B5, MF1-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 10, exercises: 6, review: 3 }

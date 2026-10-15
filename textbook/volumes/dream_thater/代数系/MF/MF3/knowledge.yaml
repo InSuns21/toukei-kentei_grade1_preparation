@@ -52,6 +52,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（モジュラー形式環の多項式環構造）"]
     requires: [modular-forms.graded-ring, modular-forms.dimension, modular-forms.cusp-ideal]
+  - id: modular-forms.finite-q-identity
+    name: レベル1の有限q係数による同一性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（レベル1の有限q係数による同一性判定）"]
+    requires: [modular-forms.valence, modular-forms.q-expansion]
   - id: modular-forms.modular-function
     name: モジュラー関数
     kind: definition
