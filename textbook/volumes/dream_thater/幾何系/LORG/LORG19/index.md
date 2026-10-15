@@ -45,9 +45,9 @@ $$
 > **命題（temporalでもCauchyとは限らない）**  
 > Minkowski平面 $(\mathbb R^{1,1},-dt^2+dx^2)$ の関数
 >
-> $$
-> u(t,x)=t-\sqrt{1+x^2}
-> $$
+$$
+u(t,x)=t-\sqrt{1+x^2}
+$$
 >
 > は[LORG10のtemporal function](../LORG10/index.md#def-lorg10-time-function)であるが、Cauchy時間関数ではない。
 <!-- formal-statement-end -->
@@ -105,9 +105,9 @@ $$
 > **定理（連続Cauchy時間関数の存在）**  
 > 滑らかで時間向き付きの大域双曲的Lorentz時空 $(M,g)$ には、連続Cauchy時間関数 $\tau:M\to\mathbb R$ が存在する。具体的に、有限で滑らかな正密度 $\mu$ を任意に選べば
 >
-> $$
-> \tau(p)=\log\frac{V^-(p)}{V^+(p)}
-> $$
+$$
+\tau(p)=\log\frac{V^-(p)}{V^+(p)}
+$$
 >
 > はそのような関数である。
 <!-- formal-statement-end -->
@@ -187,9 +187,9 @@ $\Sigma_c$ は連続写像 $\tau$ による閉集合 $\{c\}$ の逆像なので�
 > **命題（時間目盛りの変更）**  
 > $\tau:M\to\mathbb R$ が連続Cauchy時間関数、$f:\mathbb R\to\mathbb R$ が厳密増加する連続関数とする。$f\circ\tau$ は時間関数であり、これがCauchy時間関数となるための必要十分条件は $f(\mathbb R)=\mathbb R$ である。このとき
 >
-> $$
-> (f\circ\tau)^{-1}(f(c))=\tau^{-1}(c)
-> $$
+$$
+(f\circ\tau)^{-1}(f(c))=\tau^{-1}(c)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -235,9 +235,9 @@ $$
 > **定理（連続Cauchy時間関数による位相的分割）**  
 > 滑らかな時間向き付きLorentz時空 $(M,g)$ に連続Cauchy時間関数 $\tau$ があるとする。$\Sigma=\tau^{-1}(0)$ とおけば、$\Sigma$ は閉なacausal位相的超曲面であり、同相写像
 >
-> $$
-> F:\mathbb R\times\Sigma\longrightarrow M
-> $$
+$$
+F:\mathbb R\times\Sigma\longrightarrow M
+$$
 >
 > が存在して、任意の $(c,p)$ に対し $\tau(F(c,p))=c$ となる。特にすべてのレベル集合は $\Sigma$ と同相である。
 <!-- formal-statement-end -->
