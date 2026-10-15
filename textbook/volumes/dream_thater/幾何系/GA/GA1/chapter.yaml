@@ -18,7 +18,6 @@ definitions:
   - { id: GA1-DEF-01, name: "Dirichletエネルギー" }
   - { id: GA1-DEF-02, name: "Poisson方程式の滑らかな試験関数による弱形式" }
 theorems:
-  - { id: GA1-PROP-01, name: "座標表示の解析的読み方" }
   - { id: GA1-THM-01, name: "Riemann多様体の発散定理" }
   - { id: GA1-THM-02, name: "Greenの第一公式" }
   - { id: GA1-THM-03, name: "Greenの第二公式" }
