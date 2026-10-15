@@ -123,7 +123,7 @@ $$
 P(e)=\sum_{k\in S}b_ke^k.
 $$
 
-添字 $k$ は相異なる代数的数（整数）で、$b_k$ はすべて非零有理数です。[Lindemann–Weierstrassの有理係数版](#thm-trn14-rational-lw)により、この和は0にはなりません。$P$ を任意に取ったので、定義の「すべての非零多項式」という量化条件まで確認でき、$e$ は $\mathbb Q$ 上代数的独立です。
+各単項式 $Y^k$ の指数 $k$ は重複のない非負整数、従って相異なる代数的数です。また $S$ は非零係数だけの集合なので、$b_k$ はすべて非零有理数です。[Lindemann–Weierstrassの有理係数版](#thm-trn14-rational-lw)により、この和は0にはなりません。$P$ を任意に取ったので、定義の「すべての非零多項式」という量化条件まで確認でき、$e$ は $\mathbb Q$ 上代数的独立です。
 <!-- definition-example-end -->
 
 <a id="thm-trn14-exp-algebraic-independent-q"></a>
