@@ -352,7 +352,7 @@ $$
 \end{aligned}
 $$
 
-この式により、ノルムの各因子を**同じ形の別の評価点付き微分和**として解析的に評価できます。特に $a=0$ はすべての $\sigma$ に固定されるため、$A_{p,0}$ 自身がGalois不変な代数的整数です。$K^G=\mathbb Q$ であることと[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から、$A_{p,0}\in\mathbb Z$ と結論できます。この $a=0$ の選択は[TRN9の非零整数の構成](../TRN9/index.md#thm-trn9-arithmetic-nonzero)と一致します。
+この式により、ノルムの各因子を**同じ形の別の評価点付き微分和**として解析的に評価できます。特に $a=0$ はすべての $\sigma$ に固定されるため、$A_{p,0}$ 自身がGalois不変な代数的整数です。[有限Galois理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)による $K^G=\mathbb Q$ と[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から、$A_{p,0}\in\mathbb Z$ と結論できます。この $a=0$ の選択は[TRN9の非零整数の構成](../TRN9/index.md#thm-trn9-arithmetic-nonzero)と一致します。
 
 ## 5. 複素線分積分から全添字に共通する上界を作る
 
