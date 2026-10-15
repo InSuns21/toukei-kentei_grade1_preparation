@@ -118,13 +118,13 @@ Hasse評価は $a_q$ の大きさを教えます。しかし拡大体の点数�
 
 自己準同型環 $A=\operatorname{End}_K(E)$ には整数倍はありますが、通常の射のままでは有理数倍 $\varphi/n$ を扱えません。そこで $\varphi\in A$ と零でない整数 $n$ の組を形式分数 $\varphi/n$ と書き、$\varphi/n=\psi/m$ を $m\varphi=n\psi$ で定めます。和と積は
 
-$
+$$
 \frac{\varphi}{n}+\frac{\psi}{m}
 =\frac{m\varphi+n\psi}{nm},
 \qquad
 \frac{\varphi}{n}\frac{\psi}{m}
 =\frac{\varphi\psi}{nm}
-$
+$$
 
 です。こうして得る有理数係数の環を $A_{\mathbb Q}$（通常は $A\otimes_{\mathbb Z}\mathbb Q$ とも書く）と呼びます。[EC4の倍数写像の次数](../EC4/index.md#thm-ec4-multiplication-degree)と[次数の乗法性](../EC4/index.md#def-ec4-degree)から、$n\ne0$ かつ $\varphi\ne0$ なら $\deg([n]\varphi)=n^2\deg\varphi>0$ です。したがって非零の自己準同型が整数倍で零になることはなく、$A$ を分母1の元として $A_{\mathbb Q}$ に埋め込めます。
 
@@ -150,11 +150,11 @@ $$
 
 $A$ 上の $D(u)=\deg u$ は[次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を満たし、非零で正、$D(1)=1$、[次数の合成則](../EC4/index.md#def-ec4-degree)により $D(uv)=D(u)D(v)$ です。$u=\varphi/n$（$n\ne0$）に対して $D(u)=\deg\varphi/n^2$ と定めればこれらの性質は有理数係数へ延長されます。$\varphi/n=\psi/m$ なら $m\varphi=n\psi$ です。次数の二次性を両辺へ適用すると
 
-$
+$$
 m^2\deg\varphi=n^2\deg\psi
 \quad\Longrightarrow\quad
 \frac{\deg\varphi}{n^2}=\frac{\deg\psi}{m^2}
-$
+$$
 
 なので $D$ は分数表示の取り方によらず定まります。
 
@@ -376,12 +376,12 @@ $$
 
 $N_1,N_2,\ldots$ を順番に記録する代わりに、これらが係数として復元できる形式的な級数を考えます。ここでは $T$ は**形式変数**であり、収束半径を仮定しません。$\mathbb Q[[T]]$ は有理数係数の形式的冪級数の環、$T\mathbb Q[[T]]$ は定数項0の級数全体です。$X,Y\in T\mathbb Q[[T]]$ に対し
 
-$
+$$
 \exp X=\sum_{k=0}^{\infty}\frac{X^k}{k!},
 \qquad
 \log(1+Y)=\sum_{k=1}^{\infty}
 \frac{(-1)^{k+1}Y^k}{k}
-$
+$$
 
 と定義できます。各 $T^j$ の係数を求める際には有限個の項だけを使うため、解析的収束は不要です。以下、$O(T^j)$ は次数 $j$ 以上の項だけからなる級数を表します。
 
