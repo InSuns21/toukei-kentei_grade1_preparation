@@ -36,7 +36,7 @@ chapters:
     title: "有限体の点数とFrobenius"
   - id: EC8
     path: textbook/volumes/dream_thater/代数系/EC/EC8
-    status: planned
+    status: completed
     title: "Hasse評価・拡大体上の点数・有限体ゼータ関数"
   - id: EC9
     path: textbook/volumes/dream_thater/代数系/EC/EC9
