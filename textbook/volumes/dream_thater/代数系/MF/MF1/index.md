@@ -10,7 +10,21 @@
 
 ## 1. 上半平面はなぜ格子のパラメータになるか
 
-二つの複素数 $\omega_1,\omega_2$ が実線形独立である条件は $\operatorname{Im}(\overline{\omega_1}\omega_2)\ne0$ です。$\omega_1\ne0$ なので、$\omega_2/\omega_1$ の虚部の符号を見れば、基底の向きが分かります。基底の順序を必要なら入れ替え、虚部を正にします。
+二つの複素数 $\omega_1,\omega_2$ が実線形独立である条件は $\operatorname{Im}(\overline{\omega_1}\omega_2)\ne0$ です。実際、$\omega_1=u+iv,\ \omega_2=s+it$ と実部・虚部へ分けると、実ベクトル $(u,v),(s,t)$ が作る行列の行列式は
+
+$$
+\det\begin{pmatrix}u&s\\v&t\end{pmatrix}
+=ut-vs=\operatorname{Im}(\overline{\omega_1}\omega_2).
+$$
+
+独立なら $\omega_1\ne0$ であり、周期比には
+
+$$
+\operatorname{Im}\left(\frac{\omega_2}{\omega_1}\right)
+=\frac{\operatorname{Im}(\overline{\omega_1}\omega_2)}{|\omega_1|^2}
+$$
+
+が成り立ちます。したがって周期比の虚部の符号が基底の向きを表します。基底の順序を必要なら入れ替え、虚部を正にします。
 
 <a id="def-mf1-upper-half-plane"></a>
 <!-- formal-statement-start -->
@@ -50,7 +64,32 @@ $$
 
 ## 2. 整数行列と一次分数変換
 
-格子の二つの基底が張る整数係数の集合が一致するには、基底の変換と逆変換の係数がともに整数でなければなりません。これは基底変換行列の行列式が $\pm1$ であることと同値です。正向き基底同士なら行列式は $+1$ に限られます。
+二つの格子基底を $(\omega_1,\omega_2)$ と $(\omega'_1,\omega'_2)$ とし、後者を前者の整数線形結合で表すと、ある整数行列 $M$ により
+
+$$
+\begin{pmatrix}\omega'_1\\\omega'_2\end{pmatrix}
+=M\begin{pmatrix}\omega_1\\\omega_2\end{pmatrix},
+\qquad
+M=\begin{pmatrix}r&s\\t&u\end{pmatrix}
+$$
+
+となります。両者が**同じ格子の基底**であるためには、逆向きの係数行列 $M^{-1}$ も整数成分を持つことが必要十分です。必要性は両基底を互いに整数線形結合で表せることから従います。逆に $M,M^{-1}$ がともに整数なら、各基底が張る整数係数の集合は互いを含むので一致します。
+
+整数行列 $M$ と $M^{-1}$ の行列式はともに整数で、その積が $1$ だから $\det M=\pm1$ です。逆に $\det M=\pm1$ なら
+
+$$
+M^{-1}=\frac1{ru-st}
+\begin{pmatrix}u&-s\\-t&r\end{pmatrix}
+$$
+
+も整数行列です。さらに周期の向きは
+
+$$
+\operatorname{Im}(\overline{\omega'_1}\omega'_2)
+=(ru-st)\operatorname{Im}(\overline{\omega_1}\omega_2)
+$$
+
+と変わるため、正向き基底同士では $\det M=1$ に限られます。これが行列式を使って基底の取り替えを判定する理由です。
 
 <a id="def-mf1-modular-group"></a>
 <!-- formal-statement-start -->
@@ -69,21 +108,21 @@ $$
 PSL_2(\mathbb Z)=SL_2(\mathbb Z)/\{I,-I\}
 $$
 >
-> とする。
+> とする。$I,-I$ は全行列と可換なので、$\{I,-I\}$ は正規部分群であり、この商群が定義できる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-modular-group -->
 **定義の確認**。 $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ と $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は整数成分で行列式がそれぞれ $0-(-1)=1$ と $1-0=1$ です。逆行列も整数成分であり、$S,T\in SL_2(\mathbb Z)$ です。一方 $\begin{pmatrix}2&0\\0&1\end{pmatrix}$ の行列式は $2$ なので入りません。
 <!-- definition-example-end -->
 
-向きと周期比の関係を計算します。$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応して
+向きと周期比の関係を計算します。先ほどの基底変換行列を $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ と書き直すと、$\det M=ad-bc=1$ なので $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応します。この添字の配置で書く理由は、第二周期と第一周期の比が次の一次分数式になるためです。
 
 $$
 \omega_1'=d\omega_1+c\omega_2,\qquad
 \omega_2'=b\omega_1+a\omega_2
 $$
 
-と置きます。整数係数の逆行列も存在するので、両組が張る格子は同一です。さらに
+整数係数の逆行列も存在するので、両組が張る格子は同一で、向きも保たれます。さらに
 
 $$
 \frac{\omega_2'}{\omega_1'}
@@ -209,7 +248,15 @@ E_{21}(n)=\begin{pmatrix}1&0\\n&1\end{pmatrix}
 =ST^{-n}S^{-1}
 $$
 
-です。後者は実際に三行列を掛けると右の形になります。これらは第一列の片方から他方の整数倍を引く操作を実行します。[整数の Euclid の互除法](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)で、非零の成分を他方で割った余りへ変える操作を繰り返すと、非零の絶対値が真に減少し、有限回で $(\pm1,0)^t$ になります。必要な行の入れ替えは $S$ または $S^{-1}$ で行えます。$c=0$ の場合は初めから第一列は $(\pm1,0)^t$ です。
+です。後者は $S^{-1}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ と
+
+$$
+ST^{-n}=\begin{pmatrix}0&-1\\1&-n\end{pmatrix},
+\qquad
+(ST^{-n})S^{-1}=\begin{pmatrix}1&0\\n&1\end{pmatrix}
+$$
+
+を順に掛けて確認できます。これらは第一列の片方から他方の整数倍を引く操作を実行します。[整数の Euclid の互除法](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)で、非零の成分を他方で割った余りへ変える操作を繰り返すと、非零の絶対値が真に減少し、有限回で $(\pm1,0)^t$ になります。必要な行の入れ替えは $S$ または $S^{-1}$ で行えます。$c=0$ の場合は初めから第一列は $(\pm1,0)^t$ です。
 
 よって $S,T$ の積 $U$ が存在して $U\gamma=\begin{pmatrix}\varepsilon&k\\0&\varepsilon\end{pmatrix}$、$\varepsilon\in\{1,-1\}$ となります。ここで
 
@@ -252,7 +299,30 @@ $$
 
 右辺の二つの生成元は $(1,\tau)$ の整数係数変換であり、行列式が $ad-bc=1$ なので逆変換も整数係数です。したがって右辺は $\Lambda_\tau$ に等しく、両格子は相似です。
 
-逆に $\Lambda_{\tau'}=\alpha\Lambda_\tau$ とする。両格子で $(1,\tau')$ と $(\alpha,\alpha\tau)$ はいずれも正向き基底です。二つの正向き整数基底の変換行列は整数成分・行列式 $1$ なので、先に示した格子基底の式を使って、一方の周期比 $\tau'$ は他方の周期比 $\tau$ の $\gamma$ による一次分数変換となります。
+逆に $\Lambda_{\tau'}=\alpha\Lambda_\tau$（$\alpha\ne0$）とします。$\Lambda_{\tau'}$ の $(1,\tau')$ と $(\alpha,\alpha\tau)$ はいずれも正向きの整数基底です。実際、後者の向きは
+
+$$
+\operatorname{Im}(\overline\alpha\,\alpha\tau)
+=|\alpha|^2\operatorname{Im}\tau>0
+$$
+
+です。先に導いた基底変換の判定を使うと、整数 $a,b,c,d$ で $ad-bc=1$ を満たすものが存在して
+
+$$
+1=d\alpha+c\alpha\tau=\alpha(c\tau+d),
+\qquad
+\tau'=b\alpha+a\alpha\tau=\alpha(a\tau+b)
+$$
+
+となります。第一式から $c\tau+d=1/\alpha\ne0$、$\alpha=1/(c\tau+d)$ です。これを第二式に代入して
+
+$$
+\tau'=\frac{a\tau+b}{c\tau+d}=\gamma\cdot\tau,
+\qquad
+\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)
+$$
+
+を得ます。
 <!-- proof-end -->
 
 たとえば $\tau=i$ に $\gamma=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ を作用させると
@@ -283,8 +353,8 @@ $$
 <a id="thm-mf1-fundamental-domain"></a>
 <!-- formal-statement-start -->
 > **定理（基本領域の存在と内部での一意性）**  
-> (i) 全ての $\tau\in\mathbb H$ の $SL_2(\mathbb Z)$ 軌道は $\mathcal F$ と交わる。  
-> (ii) $\tau,\tau'\in\mathcal F^\circ$ かつ $\tau'=\gamma\cdot\tau$ なら $\tau'=\tau$ であり、$\gamma=\pm I$ である。ここで $\mathcal F^\circ=\{\tau:|\operatorname{Re}\tau|<1/2,\ |\tau|>1\}$ は $\mathbb H$ 内の内部を表す。
+> 1. 全ての $\tau\in\mathbb H$ の $SL_2(\mathbb Z)$ 軌道は $\mathcal F$ と交わる。
+> 2. $\tau,\tau'\in\mathcal F^\circ$ かつ $\tau'=\gamma\cdot\tau$ なら $\tau'=\tau$ であり、$\gamma=\pm I$ である。ここで $\mathcal F^\circ=\{\tau:|\operatorname{Re}\tau|<1/2,\ |\tau|>1\}$ は $\mathbb H$ 内の内部を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -300,7 +370,21 @@ $$
 |c\tau+d|^2=(cx+d)^2+c^2y^2
 $$
 
-です。この二次形式は正定値なので、任意の正の上界より小さい値を持つ整数対は有限個です。また $(c,d)=(0,1)$ で値 $1$ が得られます。したがって正の最小値を達成する整数対が存在します。
+です。この値は $(c,d)\ne(0,0)$ で正です。固定した正数 $R$ について $|c\tau+d|^2\le R$ とすると
+
+$$
+c^2y^2\le R
+\quad\Longrightarrow\quad
+|c|\le\frac{\sqrt R}{y},
+$$
+
+$$
+|cx+d|\le\sqrt R
+\quad\Longrightarrow\quad
+|d|\le\sqrt R+|c||x|
+$$
+
+です。したがって上界 $R$ 以下の値を与える整数対は有限個です。特に $(c,d)=(0,1)$ で値 $1$ が得られるため、$R=1$ とした有限集合の中から正の最小値を達成する整数対を選べます。
 
 最小対 $(c,d)$ が $\gcd(c,d)=g>1$ を持てば、$(c/g,d/g)$ の値は元の値の $1/g^2$ となり最小性に矛盾します。よって $\gcd(c,d)=1$ です。[Bézout 等式](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)により $ad-bc=1$ を満たす整数 $a,b$ を取れます。$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすれば
 
@@ -339,7 +423,21 @@ $c=0$ かつ行列式 $1$ なら $a=d=\pm1$ で、$\gamma\cdot\tau=\tau+n$（$n\
 
 $\mathcal F$ は上へいくらでも伸びます。たとえば $\tau=iy$、$y\ge1$ は全て $\mathcal F$ にあり、$y\to\infty$ では平行四辺形が縦長になります。有限の高さではなく「無限遠の端」を一つ加えることが、後の q 展開へつながります。
 
-この端は行列の変換で有理数の境界点にも移ります。その対応を記すため、$\mathbb Q\cup\{\infty\}$ を、実軸上の有理点に記号 $\infty$ を付けた集合とし、一次分数変換を分母が零なら $\infty$ となるよう拡張します。
+この端は行列の変換で有理数の境界点にも移ります。その対応を記すため、$\mathbb Q\cup\{\infty\}$ を、実軸上の有理点に記号 $\infty$ を付けた集合とします。ここで既約な有理数 $p/q$（$\gcd(p,q)=1$、$q>0$）には整数対 $(p,q)$ を、$\infty$ には $(1,0)$ を対応させます。$\infty$ の整数対は $(1,0)$ と $(-1,0)$ のどちらで表しても同じものとします。
+
+整数行列 $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ をこの整数対に作用させると
+
+$$
+\begin{pmatrix}p'\\q'\end{pmatrix}
+=\gamma\begin{pmatrix}p\\q\end{pmatrix}
+=\begin{pmatrix}ap+bq\\cp+dq\end{pmatrix}
+$$
+
+です。行列式が $1$ なので、$\gamma^{-1}$ も整数行列です。もし $p',q'$ に共通の正の約数があれば、逆行列を掛けて元の $p,q$ にもその約数が存在します。これは元の整数対が既約であることに矛盾します。
+
+したがって既約な整数対は既約な整数対に移り、$q'=0$ なら無限遠に、それ以外なら $p'/q'$ に対応します。分母の符号を正にするため両成分に $-1$ を掛けても点は変わりません。
+
+行列積と整数対への逐次作用は一致し、単位行列は各点を固定します。よって[群作用の定義](../../GRP/GRP3/index.md#def-grp3-group-action)を満たします。この計算が有限の分数式と無限遠での場合分けを支えます。
 
 <a id="def-mf1-rational-boundary"></a>
 <!-- formal-statement-start -->
@@ -357,7 +455,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf1-rational-boundary -->
-**定義の確認**。 $T\cdot\infty=\infty$（$c=0$）、$S\cdot\infty=0$（$a=0,c=1$）です。逆に $S\cdot0=\infty$ です。実軸上の有理点と無限遠が同じ変換群で結び付いていることを具体的に確認できます。
+**定義の確認**。 $T\cdot\infty=\infty$（$c=0$）、$S\cdot\infty=0$（$a=0,c=1$）です。また $S\cdot0=\infty$ は有限点でも分母が零になる場合です。分母が零にならない有限点では
+
+$$
+T\cdot\frac23=\frac{2+3}{3}=\frac53
+$$
+
+であり、行列を整数対に作用させる計算 $T(2,3)^t=(5,3)^t$ と一致します。これで有限点・無限遠の両場合を直接確かめました。
 <!-- definition-example-end -->
 
 <a id="thm-mf1-one-cusp-orbit"></a>
@@ -411,7 +515,30 @@ $\Lambda=\mathbb Z+\mathbb Zi$ の $(1,i)$ と $(1,1+i)$ がいずれも正向�
 - ID: MF1-A2
 
 <!-- solution-start -->
-**詳細解答**　第一組は $\operatorname{Im}(\overline1\,i)=1>0$。第二組も $\operatorname{Im}(\overline1(1+i))=1>0$ です。$1+i=1+i$ なので第二組は $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ により $\omega_1'=1,\omega_2'=1+i$ と書けます。周期比は $i$ から $T\cdot i=i+1$ に変わりますが、張る格子は $\mathbb Z+\mathbb Z(1+i)=\mathbb Z+\mathbb Zi$ のままです。
+**詳細解答**　向きの条件を各基底で調べると
+
+$$
+\operatorname{Im}(\overline1\,i)=1>0,
+\qquad
+\operatorname{Im}(\overline1(1+i))=1>0
+$$
+
+なので、どちらも正向きです。第二組を第一組で表す係数は
+
+$$
+\begin{pmatrix}\omega'_1\\\omega'_2\end{pmatrix}
+=\begin{pmatrix}1&0\\1&1\end{pmatrix}
+\begin{pmatrix}1\\i\end{pmatrix}
+=\begin{pmatrix}1\\1+i\end{pmatrix}.
+$$
+
+これは本文の対応 $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ で $a=d=1,b=1,c=0$ の場合なので、周期比に作用するのは $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ です。したがって周期比は $i$ から $T\cdot i=i+1$ に変わります。一方、$i=(1+i)-1$ により
+
+$$
+\mathbb Z+\mathbb Z(1+i)=\mathbb Z+\mathbb Zi
+$$
+
+なので、張る格子は変わりません。
 <!-- solution-end -->
 
 #### A3. 行列式と作用
@@ -454,13 +581,27 @@ $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ で $\gamma\cdo
 - ID: MF1-B1
 
 <!-- solution-start -->
-**詳細解答**　$(ai+b)/(ci+d)=i$ を両辺に $ci+d$ を掛けて
+**詳細解答**　$(ai+b)/(ci+d)=i$ を両辺に $ci+d$ を掛けます。分母は $i\in\mathbb H$ で非零です。
 
 $$
-ai+b=i(ci+d)=-c+di
+ai+b=i(ci+d)=-c+di.
 $$
 
-と書けるので、実部と虚部の比較から $b=-c,\ a=d$ です。行列式条件は $a^2+c^2=1$ です。整数平方の和が $1$ となるのは $(a,c)=(\pm1,0),(0,\pm1)$ のみで、行列は $I,-I,S,-S$ です。これらは確かに $i$ を固定します。一方 [作用の核](#thm-mf1-imaginary-action)は全ての $\tau$ を固定する行列なので $\pm I$ だけです。$S$ は $i$ は固定しますが、たとえば $2i$ を $i/2$ に送るため核ではありません。
+実部・虚部を比較して $b=-c,\ a=d$ を得ます。これを行列式条件に代入すると
+
+$$
+1=ad-bc=a^2+c^2.
+$$
+
+整数平方の和が $1$ となる組は $(a,c)=(1,0),(-1,0),(0,1),(0,-1)$ の四つです。それぞれに $b=-c,d=a$ を代入すると、行列は $I,-I,S,-S$ です。いずれも上の等式を満たすため、実際に $i$ を固定します。
+
+ただし [作用の核](#thm-mf1-imaginary-action)は**全て**の $\tau$ を固定する行列の集合なので $\{I,-I\}$ だけです。たとえば
+
+$$
+S\cdot(2i)=-\frac1{2i}=\frac i2\ne2i
+$$
+
+であるため、$S$ は点 $i$ の固定群には属しても作用の核には入りません。
 <!-- solution-end -->
 
 #### B2. 具体的な点を基本領域へ
@@ -512,23 +653,69 @@ $$
 この行列は行列式 $1$ なので、[格子の相似類と軌道の定理](#thm-mf1-lattice-orbit)の十分性とも一致します。単に $\tau'\ne i$ を理由に別の相似類と判断してはいけません。
 <!-- solution-end -->
 
-#### B4. 有理境界の行列を作る
+#### B4. 有理境界と生成元の具体的な接続
 
-$\infty$ を $2/3$ に送る $SL_2(\mathbb Z)$ の行列を一つ作れ。また $T$ が $\infty$ を固定する理由を答えよ。
+$\infty$ を $2/3$ に送る $SL_2(\mathbb Z)$ の行列 $\gamma$ を一つ作れ。さらにその行列を $S,T$ の有限積へ分解し、行列積で検算せよ。$T$ が $\infty$ を固定する理由も述べよ。
 
 - Level: B
 - ID: MF1-B4
 
 <!-- solution-start -->
-**詳細解答**　$\gamma\cdot\infty=a/c$ なので第一列を $(a,c)=(2,3)$ と選びます。行列式条件 $2d-3b=1$ には $d=2,b=1$ が解です。ゆえに
+**詳細解答**　[拡張有理境界の定義](#def-mf1-rational-boundary)によると、$\gamma\cdot\infty=a/c$ です。整数行列の第一列を $(a,c)=(2,3)$ と選びます。行列式条件
+
+$$
+ad-bc=2d-3b=1
+$$
+
+には $d=2,b=1$ が解なので、
 
 $$
 \gamma=\begin{pmatrix}2&1\\3&2\end{pmatrix},
-\quad \det\gamma=4-3=1,
-\quad\gamma\cdot\infty=\frac23.
+\qquad
+\det\gamma=4-3=1,
+\qquad
+\gamma\cdot\infty=\frac23.
 $$
 
-一方 $T$ の下段は $(0,1)$ で $c=0$ だから、[拡張有理境界の定義](#def-mf1-rational-boundary)より $T\cdot\infty=\infty$ です。
+次に[生成元の定理](#thm-mf1-generators)のEuclid操作をこの第一列へ適用します。第一行から第二行を引くと $(2,3)^t$ は $(-1,3)^t$ に、次いで第二行へ第一行の3倍を足すと $(-1,0)^t$ になります。行列全体では
+
+$$
+T^{-1}\gamma
+=\begin{pmatrix}1&-1\\0&1\end{pmatrix}
+\begin{pmatrix}2&1\\3&2\end{pmatrix}
+=\begin{pmatrix}-1&-1\\3&2\end{pmatrix},
+$$
+
+$$
+E_{21}(3)T^{-1}\gamma
+=\begin{pmatrix}1&0\\3&1\end{pmatrix}
+\begin{pmatrix}-1&-1\\3&2\end{pmatrix}
+=\begin{pmatrix}-1&-1\\0&-1\end{pmatrix}=-T.
+$$
+
+ここで $E_{21}(3)=ST^{-3}S^{-1}$ を用いて行操作を逆に戻すと
+
+$$
+\begin{aligned}
+\gamma
+&=T\,E_{21}(-3)(-T)\\
+&=T\,S T^3 S^{-1}(-I)T\\
+&=T S T^3 S T.
+\end{aligned}
+$$
+
+最後の等号には $S^{-1}(-I)=S$（$S^2=-I$）を使いました。右辺を右から掛けて確かめると
+
+$$
+\begin{aligned}
+ST&=\begin{pmatrix}0&-1\\1&1\end{pmatrix},\\
+T^3ST&=\begin{pmatrix}3&2\\1&1\end{pmatrix},\\
+ST^3ST&=\begin{pmatrix}-1&-1\\3&2\end{pmatrix},\\
+TST^3ST&=\begin{pmatrix}2&1\\3&2\end{pmatrix}=\gamma.
+\end{aligned}
+$$
+
+また $T$ の下段は $(0,1)$ なので、[拡張有理境界の定義](#def-mf1-rational-boundary)から $T\cdot\infty=\infty$ です。
 <!-- solution-end -->
 
 **Level C：作用・基本領域・境界の接続**
@@ -564,7 +751,7 @@ $$
 =\mathbb Z+\mathbb Zi=\Lambda_i.
 $$
 
-最後の等号は $1=(1+i)-i$ と $1+i=1+i$ が両方向に整数線形結合として表せることから従います。[格子と軌道の定理](#thm-mf1-lattice-orbit)とも合致します。
+最後の等号では $1=(1+i)-i$ により $1,i$ は $(1+i),i$ から作れます。逆に $(1+i),i$ は $1,i$ の整数線形結合であるため、格子が両方向に包含されます。[格子と軌道の定理](#thm-mf1-lattice-orbit)とも合致します。
 
 (4) 互いに素な $2,3$ について $2\cdot2-3\cdot1=1$ です。したがって
 
