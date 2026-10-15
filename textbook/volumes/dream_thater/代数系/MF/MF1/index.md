@@ -370,7 +370,21 @@ $$
 |c\tau+d|^2=(cx+d)^2+c^2y^2
 $$
 
-です。この値は $(c,d)\ne(0,0)$ で正です。さらに $|c\tau+d|^2\le R$ なら $c^2y^2\le R$ から $|c|\le\sqrt R/y$ であり、$|cx+d|\le\sqrt R$ から $|d|\le\sqrt R+|c||x|$ です。したがって一定の上界 $R$ 以下の値を与える整数対は有限個です。$(c,d)=(0,1)$ で値 $1$ が得られるので、その有限集合の中から正の最小値を達成する整数対を選べます。
+です。この値は $(c,d)\ne(0,0)$ で正です。固定した正数 $R$ について $|c\tau+d|^2\le R$ とすると
+
+$$
+c^2y^2\le R
+\quad\Longrightarrow\quad
+|c|\le\frac{\sqrt R}{y},
+$$
+
+$$
+|cx+d|\le\sqrt R
+\quad\Longrightarrow\quad
+|d|\le\sqrt R+|c||x|
+$$
+
+です。したがって上界 $R$ 以下の値を与える整数対は有限個です。特に $(c,d)=(0,1)$ で値 $1$ が得られるため、$R=1$ とした有限集合の中から正の最小値を達成する整数対を選べます。
 
 最小対 $(c,d)$ が $\gcd(c,d)=g>1$ を持てば、$(c/g,d/g)$ の値は元の値の $1/g^2$ となり最小性に矛盾します。よって $\gcd(c,d)=1$ です。[Bézout 等式](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)により $ad-bc=1$ を満たす整数 $a,b$ を取れます。$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすれば
 
