@@ -345,7 +345,7 @@ $$
 \omega=f(dx^1\wedge dy^1+dx^2\wedge dy^2)
 $$
 
-となり、積の外微分則を使うと
+となり、[外微分の積の法則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を使うと
 
 $$
 \begin{aligned}
@@ -372,7 +372,7 @@ $$
 $J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$G=\operatorname{diag}(a,b)$（$a,b>0$）とする。$g(u,v)=u^{\mathsf T}Gv$ が $J$ と両立する条件を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。両立条件はすべての $u,v$ に対し $u^{\mathsf T}J^{\mathsf T}GJv=u^{\mathsf T}Gv$、すなわち $J^{\mathsf T}GJ=G$ である。積を順に計算すると
+**詳細解答**。[両立条件](#def-kah1-01-compatible-metric)はすべての $u,v$ に対し $u^{\mathsf T}J^{\mathsf T}GJv=u^{\mathsf T}Gv$、すなわち $J^{\mathsf T}GJ=G$ である（両辺を各標準基底ベクトルの組に作用させれば行列の各成分が一致する）。積を順に計算すると
 
 $$
 GJ=\begin{pmatrix}0&-a\\b&0\end{pmatrix},\qquad
@@ -389,7 +389,7 @@ $$
 $\mathbb R^2$ の $J(a,b)=(-b,a)$ と $g(u,v)=u\cdot v$ で $\omega(e_1,e_2)$、$\omega(e_2,e_1)$、$\omega(u,Ju)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$Je_1=e_2$、$Je_2=-e_1$ より
+**詳細解答**。[基本2形式の定義](#def-kah1-01-fundamental-form)に $Je_1=e_2$、$Je_2=-e_1$ を代入すると
 
 $$
 \omega(e_1,e_2)=g(e_2,e_2)=1,\qquad
@@ -454,7 +454,7 @@ J_a^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix},\qquad
 J_a^{\mathsf T}J_a=\operatorname{diag}(a^{-2},a^2).
 $$
 
-平均で
+[平均による構成命題](#prop-kah1-01-averaging)を用いると
 
 $$
 G=\frac12(I+J_a^{\mathsf T}J_a)
@@ -484,7 +484,7 @@ $$
 d\omega=2x^1dx^1\wedge dx^2\wedge dy^2.
 $$
 
-$x^1\ne0$ では非零なので全体として $d\omega\ne0$、Kählerではない。$\mathbb C$ は実次元2だから、同じ形の2形式 $\omega=f\,dx\wedge dy$ には $d\omega$ が3形式として自動的に零となる。次元が変わると判定結果が変わる。
+$x^1\ne0$ では非零なので全体として $d\omega\ne0$、[Kähler多様体の定義](#def-kah1-01-kahler-structure)を満たさない。$\mathbb C$ は実次元2だから、同じ形の2形式 $\omega=f\,dx\wedge dy$ には $d\omega$ が3形式として自動的に零となる。次元が変わると判定結果が変わる。
 <!-- solution-end -->
 
 <a id="ex-kah1-01-b03"></a>
