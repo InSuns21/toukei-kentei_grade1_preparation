@@ -218,7 +218,16 @@ Minkowskiの $t$ に対して $f(s)=s+s^3$ を選べばCauchy時間関数のま�
 
 定義と定理の結論から、空間を固定した「各点を時間方向へ運ぶ」モデルを作れます。ここで**位相的超曲面**とは、各点の近傍で適切な局所座標 $(s,y^1,\ldots,y^n)$ を選んだとき、$s=\sigma(y)$ という連続関数のグラフとして表せる部分集合です。滑らかな接空間があるとはまだ仮定しません。目指すのは微分幾何学的な計量分解ではなく、まず**位相空間としての積**です。
 
-[LORG2の大域的未来時間的ベクトル場](../LORG2/index.md#thm-lorg2-time-orientability) $Y$ を選び、[LORG14の補助Riemann計量](../LORG14/index.md#def-lorg14-h-arclength)を完備にして $h$ とします。$X=Y/(1+|Y|_h)$ は未来時間的で $|X|_h<1$ です。[LORG15のCauchy面とacausal性の証明](../LORG15/index.md#prop-lorg15-acausal)にあるように、有限のパラメータ区間上で積分曲線が走る $h$-距離はその区間長以下であり、[Hopf–Rinow定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)によって $X$ の流れ $\Phi_s$ がすべての $s\in\mathbb R$ に存在します。また $X$ は各点で非零であり、流線が未来・過去に収束するなら局所座標の一成分の導関数を正の定数で下から抑えられ矛盾するため、流線は両側非延長な時間的曲線です。
+[LORG2の大域的未来時間的ベクトル場](../LORG2/index.md#thm-lorg2-time-orientability) $Y$ を選び、[LORG14の補助Riemann計量](../LORG14/index.md#def-lorg14-h-arclength)を完備にして $h$ とします。未来時間的ベクトル場を次のように正の関数倍で縮めます。
+
+$
+X=\frac{Y}{1+|Y|_h},
+\qquad |X|_h=\frac{|Y|_h}{1+|Y|_h}<1.
+$
+
+[LORG15のCauchy面とacausal性の証明](../LORG15/index.md#prop-lorg15-acausal)にあるように、有限のパラメータ区間上で積分曲線が走る $h$-距離はその区間長以下です。[Hopf–Rinow定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)により、$X$ の流れ $\Phi_s$ はすべての実数パラメータに存在します。
+
+ただし無限の流れパラメータだけで非延長性が得られるとは限りません。$X$ はどの点でも非零です。仮に流線が未来に点 $q$ へ収束すれば、$q$ 近傍の座標の一成分で $dz_q(X_q)>0$ となるものを選べます。流線に沿う $z$ の増分が下から正の定数で抑えられ、$z$ の収束に矛盾します。過去側も同じ議論で、流線は両側非延長です。
 
 <a id="thm-lorg19-topological-splitting"></a>
 
@@ -271,7 +280,15 @@ $$
 
 は連続です。$F$ は全単射で連続な逆写像を持つので同相です。
 
-最後に各 $p\in\Sigma$ の近傍で、非零の滑らかな $X$ の流れと $X_p$ に横断的な局所空間座標 $y$ を用いて点を $(s,y)$ と表します。$s$ を小さく負・正にした位置で $\tau-c$ の符号がそれぞれ負・正なので、近い $y$ でも符号が保たれ、各固定 $y$ には唯一の零点 $s=\sigma(y)$ があります。前段と同じ挟み撃ちで $\sigma$ は連続です。ゆえにレベル集合は局所的に連続グラフとなり、位相的超曲面です。閉性とacausal性は[各レベルの命題](#prop-lorg19-level-cauchy)に従います。$\square$
+最後に $\Sigma_c=\tau^{-1}(c)$ の任意の点 $p$ で、非零で滑らかな $X$ の流れに沿う局所座標 $(s,y)$ を取ります。ここで $y$ は $X_p$ に横断的な空間座標です。
+
+$p$ を通る流線の時刻 $s=0$ で $\tau=c$ となり、十分小さい $\varepsilon>0$ に対して
+
+$
+\tau(-\varepsilon,y_p)<c<\tau(\varepsilon,y_p)
+$
+
+です。連続性により、近い $y$ に対してもこの両側の不等式が成り立ちます。各固定 $y$ に対し $\tau(s,y)$ は厳密増加なので、零点 $s=\sigma(y)$ は存在して一意です。前段と同じ挟み撃ちで $\sigma$ は連続となり、$\Sigma_c$ は局所連続グラフです。閉性とacausal性は[各レベルの命題](#prop-lorg19-level-cauchy)に従います。$\square$
 <!-- proof-end -->
 
 ここでは $F$ が同相であると示しただけです。$\tau$ が滑らかとは限らず、$F$ が微分同相、$\Sigma$ が滑らかな空間的超曲面、あるいは計量が $-\,\beta\,d\tau^2+h_\tau$ と書けるとは**まだ主張できません**。LORG20ではBernal–Sánchezの滑らか化定理を用いて、この差を埋めます。
@@ -299,7 +316,16 @@ $$
 $g=-dt^2+dx^2$ とする。$t$ がCauchy時間関数であることを、速度不等式と非延長性から示せ。
 
 <!-- solution-start -->
-**詳細解答**。[因果曲線の定義](../LORG3/index.md#def-lorg3-causal-curve)から未来因果曲線は $t'\ge|x'|$ を満たし、停留片を除けば $t$ が厳密増加します。二点間で積分すると $|x(t_2)-x(t_1)|\le t_2-t_1$ です。もし未来端で $t\to b<\infty$ なら、$t$ がCauchyであるときこの評価から $x$ もCauchyで $x\to a$。$(b,a)$ へ曲線を延長できるので非延長性に反します。過去端も同様に $-\infty$、未来端は $+\infty$ です。$t$ は連続で値域 $\mathbb R$ を全非延長曲線上で持つため[定義](#def-lorg19-cauchy-time)を満たします。
+**詳細解答**。[因果曲線の定義](../LORG3/index.md#def-lorg3-causal-curve)から、未来因果速度は $t'\ge|x'|$ を満たします。停留片を除けば $t$ は厳密増加します。任意の二つの時刻で積分すれば
+
+$
+|x(t_2)-x(t_1)|\le t_2-t_1
+\qquad(t_1<t_2)
+$
+
+を得ます。もし未来端で $t\to b<+\infty$ なら、$t$ が有限極限を持つことと上の不等式から $x(t)$ もCauchyとなり、$x\to a$ です。$(b,a)$ は時空内にあり、そこから曲線を未来へ延長できて非延長性に反します。
+
+過去側では同じ不等式を時間反転して、時刻が $-\infty$ へ向かうことを示します。未来端は $+\infty$ なので、時刻の値域は $\mathbb R$ です。連続性も満たし、[定義](#def-lorg19-cauchy-time)の全条件が成立します。
 <!-- solution-end -->
 
 <a id="ex-lorg19-a02"></a>
@@ -309,7 +335,25 @@ $g=-dt^2+dx^2$ とする。$t$ がCauchy時間関数であることを、速度�
 $u=t-\sqrt{1+x^2}$ の勾配とLorentzノルムを計算し、temporal性だけではCauchy性が従わないことを示せ。
 
 <!-- solution-start -->
-**詳細解答**。$du=dt-x(1+x^2)^{-1/2}dx$ であり、$g^{tt}=-1$、$g^{xx}=1$ から $\nabla^g u=-\partial_t-x(1+x^2)^{-1/2}\partial_x$ です。よって $g(\nabla^g u,\nabla^g u)=-1+x^2/(1+x^2)=-1/(1+x^2)<0$。時間成分が負なので過去時間的で、[temporalの厳密単調性](../LORG10/index.md#lem-lorg10-temporal-monotone)が使えます。一方 $\gamma(s)=(s,s)$ に沿って $u\circ\gamma=s-\sqrt{1+s^2}\to0$。$u=1$ の非空レベルはこの非延長光線と交わらないので、[Cauchy性](#def-lorg19-cauchy-time)を欠きます。
+**詳細解答**。まず $du=dt-x(1+x^2)^{-1/2}dx$ と $g^{tt}=-1$、$g^{xx}=1$ から
+
+$
+\nabla^g u=-\partial_t-\frac{x}{\sqrt{1+x^2}}\partial_x,
+\qquad
+g(\nabla^g u,\nabla^g u)=-\frac1{1+x^2}<0
+$
+
+です。勾配の時間成分が負なので過去時間的です。よって[temporal functionの厳密単調性](../LORG10/index.md#lem-lorg10-temporal-monotone)が適用できます。
+
+一方、両側非延長の未来光線 $\gamma(s)=(s,s)$ に沿って
+
+$
+(u\circ\gamma)(s)=s-\sqrt{1+s^2}
+=-\frac1{s+\sqrt{1+s^2}}\longrightarrow0
+\quad(s\to+\infty)
+$
+
+です。$u(2,0)=1$ でレベル $u=1$ は非空ですが、この光線とは交わりません。[Cauchy性](#def-lorg19-cauchy-time)を欠きます。
 <!-- solution-end -->
 
 <a id="ex-lorg19-a03"></a>
@@ -349,7 +393,15 @@ $(0,1)\times\mathbb R$ で $t$ が時間関数だが本講のCauchy時間関数�
 連続Cauchy時間関数の各レベルが非空のCauchy面となることを、全射性と厳密単調性を分けて証明せよ。
 
 <!-- solution-start -->
-**詳細解答**。非延長未来因果曲線 $\gamma:I\to M$ を任意に固定します。[Cauchy時間関数の定義](#def-lorg19-cauchy-time)により $\tau\circ\gamma$ の値域は $\mathbb R$ なので、任意の $c$ に対し $s_c$ が存在して $\tau(\gamma(s_c))=c$。さらに $s_1<s_2$ なら $\tau(\gamma(s_1))<\tau(\gamma(s_2))$ だから二つの交点はありません。こうして各非延長曲線とちょうど一度交わり、[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)が成立します。連続性から $\tau^{-1}(c)$ は閉、[Cauchy面のacausal性](../LORG15/index.md#prop-lorg15-acausal)からacausalです。
+**詳細解答**。非延長未来因果曲線 $\gamma:I\to M$ を任意に固定します。[Cauchy時間関数の定義](#def-lorg19-cauchy-time)により、$\tau\circ\gamma$ の値域は $\mathbb R$ です。よって任意の $c$ に対してある $s_c$ が存在して
+
+$
+\tau(\gamma(s_c))=c.
+$
+
+さらに $s_1<s_2$ なら $\tau(\gamma(s_1))<\tau(\gamma(s_2))$ なので、二つの交点はありません。各非延長曲線と一度だけ交わり、[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。
+
+連続性から $\tau^{-1}(c)$ は閉集合です。[Cauchy面はacausalかつachronal](../LORG15/index.md#prop-lorg15-acausal)という既習命題を適用すれば、acausal性も従います。
 <!-- solution-end -->
 
 <a id="ex-lorg19-b02"></a>
@@ -379,14 +431,39 @@ $H:\mathbb R\times S\to\mathbb R$ が連続で、各 $p\in S$ について $H(\,
 完全な補助Riemann計量 $h$ と滑らかな未来時間的場 $Y$ から $X=Y/(1+|Y|_h)$ を作る。$X$ の流線が全実数パラメータで存在する理由と、パラメータが無限であるだけでは非延長性を証明したことにならない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$Y$ の縮尺は正なので $X$ は未来時間的で、$|X|_h=|Y|_h/(1+|Y|_h)<1$。積分曲線 $c:[0,b)\to M$ の $b<\infty$ に対し $d_h(c(s),c(0))\le\int_0^s|X|_h\,du\le b$。[Hopf–Rinow定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)でこの閉球はコンパクトなので、局所ODE延長により $b$ が最大存在端点にはなれません。過去側も同様です。さらに $s\to+\infty$ で $c(s)\to q$ と仮定すると、$X_q\ne0$ なので局所座標関数 $z$ を $dz_q(X_q)>0$ と選べます。十分大きい $s$ で $d(z\circ c)/ds\ge\delta>0$、よって $z(c(s))\to+\infty$ となり $z(c(s))\to z(q)$ に矛盾します。過去端も同様。これで真の両側非延長性を確認しました。
+**詳細解答**。$Y$ の正の関数倍である $X$ は未来時間的で、補助計量の速さは
+
+$
+|X|_h=\frac{|Y|_h}{1+|Y|_h}<1
+$
+
+です。積分曲線 $c:[0,b)\to M$ が有限の $b$ で止まると仮定すると、
+
+$
+d_h(c(s),c(0))\le\int_0^s|X|_h\,du\le b
+$
+
+となります。[Hopf–Rinow定理](../../GEO/GEO15/index.md#thm-geo15-hopf-rinow)からこの閉球はコンパクトなので局所ODEを延長でき、最大存在端点が $b$ であることに反します。過去向きも同じです。
+
+しかし全実数パラメータの存在だけでは、流線が無限パラメータで時空内の終点へ収束する可能性をまだ排除していません。$c(s)\to q$ を仮定すると、$X_q\ne0$ から $dz_q(X_q)>0$ となる局所座標関数 $z$ を取れます。連続性によって十分大きい $s$ で
+
+$
+\frac{d}{ds}z(c(s))\ge\delta>0
+$
+
+となり、積分すると $z(c(s))\to+\infty$ ですが、同時に $z(c(s))\to z(q)$ のはずなので矛盾です。過去端にも同じ論法を適用して両側非延長性を得ます。
 <!-- solution-end -->
 
 <a id="ex-lorg19-c01"></a>
 ### LORG19-C01 連続Cauchy時計から位相的分割へ
 - Level: C
 
-$(M,g)$ を滑らかな大域双曲的時間向き付きLorentz時空とする。(1) 連続Cauchy時間関数の存在、(2) 任意の実数レベルのCauchy性、(3) あるレベル $\Sigma$ と $\mathbb R\times\Sigma$ の同相、(4) この結論だけでは滑らかな直交計量分割が従わない理由、を示せ。
+$(M,g)$ を滑らかな大域双曲的時間向き付きLorentz時空とする。次を示せ。
+
+1. 連続Cauchy時間関数の存在。
+2. 任意の実数レベルのCauchy性。
+3. あるレベル $\Sigma$ と $\mathbb R\times\Sigma$ の同相。
+4. これらから滑らかな直交計量分割はまだ従わない理由。
 
 <!-- solution-start -->
 **詳細解答**。(1) [Geroch型体積時間関数](../LORG16/index.md#thm-lorg16-geroch-volume)の仮定は大域双曲性と一致します。$\tau=\log(V^-/V^+)$ は連続で因果順序上厳密増加、未来非延長曲線で $V^+\to0$、過去非延長曲線で $V^-\to0$ です。正のもう一方を下から抑えれば $\tau\to+\infty$ と $\tau\to-\infty$ が従い[定義](#def-lorg19-cauchy-time)を満たします。
