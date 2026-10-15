@@ -1,0 +1,50 @@
+chapter: KAH1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-03
+  - CM2-03
+  - GEO9
+concepts:
+  - id: kahler.local-kahler-potential
+    name: 局所Kählerポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所Kählerポテンシャル）"]
+    requires: [kahler.local-potential-suffices, complex-manifolds.dolbeault-local-formula]
+  - id: kahler.local-ddbar-potential
+    name: 閉実(1,1)形式の局所ポテンシャル定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉実(1,1)形式の局所ポテンシャル定理）"]
+    requires: [kahler.local-kahler-potential, geometry.poincare-lemma, complex-manifolds.local-dbar-poincare]
+  - id: kahler.pluriharmonic-function
+    name: 多重調和関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多重調和関数）"]
+    requires: [complex-manifolds.dolbeault-identities, kahler.local-kahler-potential]
+  - id: kahler.local-potential-gauge
+    name: ポテンシャルの差と正則関数の実部
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ポテンシャルの差と正則関数の実部）"]
+    requires: [kahler.pluriharmonic-function, geometry.poincare-lemma, complex-manifolds.dolbeault-holomorphic-function]
+  - id: kahler.strictly-plurisubharmonic
+    name: 強多重劣調和関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（強多重劣調和関数）"]
+    requires: [kahler.positive-form-matrix-criterion, kahler.local-kahler-potential]
+  - id: kahler.strict-psh-kahler-form
+    name: 強多重劣調和性と局所Kähler形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（強多重劣調和性と局所Kähler形式）"]
+    requires: [kahler.strictly-plurisubharmonic, kahler.local-ddbar-potential, kahler.positive-form-matrix-criterion]
+  - id: kahler.torus-no-global-potential
+    name: 平坦複素トーラスに大域ポテンシャルはない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦複素トーラスに大域ポテンシャルはない）"]
+    requires: [kahler.local-potential-gauge, kahler.local-ddbar-potential, geometry.general-stokes-theorem]

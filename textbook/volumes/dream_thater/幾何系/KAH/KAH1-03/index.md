@@ -6,7 +6,7 @@
 
 前章では、複素多様体のHermite計量について、基本形式の閉性 $d\omega=0$ を[係数の微分対称性](../KAH1-02/index.md#thm-kah1-02-local-closedness)に直した。しかし閉性だけを見ても、「曲線に沿って長さと複素構造を同時に運べるのか」はまだ分からない。そこで、[Levi–Civita接続](../../GEO/GEO13/index.md#def-geo13-levi-civita)と[正則束のChern接続](../../CM/CM2-10/index.md#thm-cm2-10-chern-existence-uniqueness)を比較する。
 
-Levi–Civita接続は実計量を保ち、捩率（torsion）が零になるよう選ばれる。一方Chern接続は、正則束の正則構造とHermite計量を保つよう選ばれる。**一般には、両接続に同じ条件を課していない**。Kähler条件の重要な意味は、この二種類の接続が一致することにある。
+Levi–Civita接続は実計量を保ち、[接続の捩率](../../GEO/GEO13/index.md#def-geo13-torsion)（torsion）が零になるよう選ばれる。一方Chern接続は、正則束の正則構造とHermite計量を保つよう選ばれる。**一般には、両接続に同じ条件を課していない**。Kähler条件の重要な意味は、この二種類の接続が一致することにある。
 
 以下、$X$ は複素次元 $n\ge1$ の複素多様体、$J$ は正則座標から得られる可積分複素構造、$g=g_{\mathbb R}$ は滑らかな正定値で $J$ と両立する実Riemann計量とする。基本形式は[基本2形式の定義](../KAH1-01/index.md#def-kah1-01-fundamental-form)に従い $\omega(U,V)=g(JU,V)$ とする。正則座標 $z^1,\ldots,z^n$ では
 
@@ -29,6 +29,33 @@ g(\partial_i,\partial_{\bar j})=g_{i\bar j}
 $$
 
 となる。例えば標準複素直線では $g(\partial_z,\partial_{\bar z})=1/2$ であり、前章の係数と一致する。これは実計量を複素双線形に延長した値であって、正値性を調べるHermite形式の「第一変数共役線形」と混同しない。
+
+**実計量から正則接束の計量行列への橋渡し**。正則接束のベクトル $S,T\in T^{1,0}X$ に対し、上の複素双線形延長を使って
+
+$$
+h_T(S,T):=g(T,\overline S)
+$$
+
+と定める。共役が第一変数にあるので $h_T$ は第一変数共役線形であり、$h_T(S,S)>0$ は計量 $g$ の正値性から従う。正則座標枠 $e_j=\partial_j$ を取れば
+
+$$
+H_{\ell j}:=h_T(e_\ell,e_j)
+=g(\partial_j,\partial_{\bar\ell})=g_{j\bar\ell}.
+$$
+
+これは[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)の成分規則であり、後でChern接続の係数を求めるための行列である。$G=(g_{j\bar\ell})$ と書く場合は $H=G^{\mathsf T}$ なので、逆行列の添字の向きにも注意する。
+
+この正規化と[実接空間上のHermite内積](../KAH1-01/index.md#prop-kah1-01-hermitian-inner-product)の関係も確認する。実ベクトル $u$ に対し $u^{1,0}=(u-iJu)/2$ と置くと、$g(Ju,Jv)=g(u,v)$ と $g(Ju,v)=-g(u,Jv)$ から
+
+$$
+\begin{aligned}
+h_T(u^{1,0},v^{1,0})
+&=\frac14 g(v-iJv,u+iJu)\\
+&=\frac12\{g(u,v)+i\,g(Ju,v)\}.
+\end{aligned}
+$$
+
+したがって $g(u,v)=2\operatorname{Re}h_T(u^{1,0},v^{1,0})$ である。実接空間での $h=g+i\omega$ と正則接束での $h_T$ は、この $1/2$ を挟んで対応する。定数倍はChern接続を変えないが、両方を同じ係数として扱ってはいけない。
 
 [捩率の定義](../../GEO/GEO13/index.md#def-geo13-torsion)は接続 $\nabla$ に対して
 
@@ -74,9 +101,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正則枠では[正則構造と両立するChern接続](../../CM/CM2-10/index.md#def-cm2-10-compatible-conditions)の $(0,1)$ 部分が $\bar\partial$ なので $D_{\partial_{\bar i}}\partial_j=0$。$T^{1,0}$ 上のHermite計量は、第一変数共役線形の規約では $h(\partial_\ell,\partial_j)=g_{j\bar\ell}$ である。実際、$g_{j\bar\ell}=\overline{g_{\ell\bar j}}$ に注意すれば、これは前節の実計量と同じ長さを表している。
+正則枠では[正則構造と両立するChern接続](../../CM/CM2-10/index.md#def-cm2-10-compatible-conditions)の $(0,1)$ 部分が $\bar\partial$ なので $D_{\partial_{\bar i}}\partial_j=0$。前節で定めた $h_T$ の行列は $H_{\ell j}=g_{j\bar\ell}$ である。[計量両立性の行列方程式](../../CM/CM2-10/index.md#prop-cm2-10-metric-equation)の $(1,0)$ 成分は
 
-接続の計量両立式を $\partial_i$ 方向へ適用すると、第一変数の接続係数は $(0,1)$ 形式の共役となってこの方向では寄与しない。従って
+$$
+\partial H=HA,\qquad
+(\partial_iH)_{\ell j}
+=\sum_kH_{\ell k}(A_i)^k{}_j
+=\sum_k g_{k\bar\ell}\Gamma^k_{ij}.
+$$
+
+ここで $(A_i)^k{}_j$ は $D_{\partial_i}e_j$ の $e_k$ 成分である。正則枠では $A^{0,1}=0$ だから、第一変数側の項 $A^*H$ は $(0,1)$ 型にしか現れない。従って
 
 $$
 \begin{aligned}
@@ -118,7 +152,7 @@ $$
 反正則方向同士は複素共役を取れば得られる。$\square$
 <!-- proof-end -->
 
-**座標から元の定義への橋**。上の係数 $\Gamma^k_{ij}$ は単なる行列の値ではない。座標基底 $\partial_j$ を $\partial_i$ 方向へ接続で微分した成分であり、捩率は順序を入れ替えたときの差である。捩率が零かどうかはテンソルの性質だから、この局所計算を全座標で調べれば座標に依存しない結論となる。
+**座標から元の定義への橋**。上の係数 $\Gamma^k_{ij}$ は単なる行列の値ではない。座標基底 $\partial_j$ を $\partial_i$ 方向へ接続で微分した成分であり、捩率は順序を入れ替えたときの差である。[捩率のテンソル性と座標表示](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)により、座標基底で捩率が零なら任意のベクトル場に対して零となる。各座標領域でこれを確かめれば、座標に依存しない結論となる。
 
 **直接例：非定数でも捩率が零**。$\mathbb C^2$ 上で
 
@@ -186,7 +220,7 @@ $$
 
 ## 4. Levi–Civita接続との一致、そして $\nabla J=0$
 
-実接束上の[Levi–Civita接続の存在・一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)は、計量両立性と捩率零の両方で接続を一意に指定する。前節の $\widetilde D$ は最初から実計量と両立する。従って捩率が消えれば同じ接続になる。
+実接束上の[Levi–Civita接続の存在・一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)は、[計量両立性](../../GEO/GEO13/index.md#def-geo13-metric-compatibility)と捩率零の両方で接続を一意に指定する。前節の $\widetilde D$ は最初から実計量と両立する。従って捩率が消えれば同じ接続になる。
 
 さらに「$J$ を平行に保つ」とは、接続が $J$ による回転と可換であること、つまり $(\nabla_UJ)V=\nabla_U(JV)-J\nabla_UV=0$ をいう。これは[テンソルの共変微分](../../GEO/GEO13/index.md#def-geo13-tensor-covariant-derivative)の $J$ への適用である。
 
@@ -217,10 +251,22 @@ $$
 
 **(1) $\Longleftrightarrow$ (4)** は[Kähler閉性とChern捩率の同値性](#thm-kah1-03-closed-torsion)による。
 
-**(4) $\Longrightarrow$ (3)**。$\widetilde D$ は $D$ と $\bar D$ の直和であり、Chern接続がHermite計量を保つから実部の $g$ も保つ。実際、実ベクトル場 $U,V,W$ に対し、複素化したHermite計量の計量両立式の実部を取れば
+**(4) $\Longrightarrow$ (3)**。$\widetilde D$ は $D$ と $\bar D$ の直和であり、Chern接続が正則接束のHermite計量 $h_T$ を保つ。第2節で導出した
 
 $$
-U\,g(V,W)=g(\widetilde D_UV,W)+g(V,\widetilde D_UW).
+g(V,W)=2\operatorname{Re}h_T(V^{1,0},W^{1,0})
+$$
+
+を使う。$\widetilde D$ は型分解を保つので、実ベクトル場 $U,V,W$ に対して $(\widetilde D_UV)^{1,0}=D_U(V^{1,0})$ となる。これと $D h_T=0$ の実部から
+
+$$
+\begin{aligned}
+U\,g(V,W)
+&=2\operatorname{Re}\!\left\{
+h_T(D_UV^{1,0},W^{1,0})
++h_T(V^{1,0},D_UW^{1,0})\right\}\\
+&=g(\widetilde D_UV,W)+g(V,\widetilde D_UW).
+\end{aligned}
 $$
 
 (4) の捩率零と合わせると、[Levi–Civita接続の一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)から $\widetilde D=\nabla^{\mathrm{LC}}$。
@@ -252,14 +298,25 @@ $$
 \nabla_{\partial_{\bar i}}\partial_j=0.
 $$
 
-この式は任意の正則局所枠の各基底について成立するので、$\nabla$ の $T^{1,0}$ への制限の $(0,1)$ 部分は $\bar\partial$ である。また $\nabla g=0$ と $\nabla J=0$ から、$h(U,V)=g(U,V)+i\,g(JU,V)$（実ベクトルへの[Hermite内積の復元](../KAH1-01/index.md#prop-kah1-01-hermitian-inner-product)）について
+この計算は座標枠 $\partial_j$ で行った。一般の正則局所枠の切断 $s=\sum_j f^j(z)\partial_j$ についても、係数 $f^j$ は正則なので $\partial_{\bar i}f^j=0$ であり、
 
 $$
-\nabla h=(\nabla g)+i\,(\nabla g)(J\cdot,\cdot)
+\nabla_{\partial_{\bar i}}s
+=\sum_j\left\{(\partial_{\bar i}f^j)\partial_j
++f^j\nabla_{\partial_{\bar i}}\partial_j\right\}=0.
+$$
+
+従って $\nabla$ の $T^{1,0}$ への制限の $(0,1)$ 部分は $\bar\partial$ である。
+
+また $\nabla g=0$ と $\nabla J=0$ から、実接空間上の[Hermite内積の復元](../KAH1-01/index.md#prop-kah1-01-hermitian-inner-product)で定めた $h_{\mathbb R}(U,V)=g(U,V)+i\,g(JU,V)$ について
+
+$$
+\nabla h_{\mathbb R}
+=(\nabla g)+i\,(\nabla g)(J\cdot,\cdot)
 +i\,g((\nabla J)\cdot,\cdot)=0.
 $$
 
-よって $T^{1,0}$ 上で正則構造とHermite計量を同時に保つ。[Chern接続の存在・一意性](../../CM/CM2-10/index.md#thm-cm2-10-chern-existence-uniqueness)から、その制限は $D$ と一致する。共役側も一致するため実接続として $\nabla=\widetilde D$。以上ですべてが同値。$\square$
+第2節の $h_T(u^{1,0},v^{1,0})=\frac12h_{\mathbb R}(u,v)$ と型保存性により、これは正則接束の $h_T$ も保つことを意味する。よって $T^{1,0}$ 上で正則構造とHermite計量を同時に保つ。[Chern接続の存在・一意性](../../CM/CM2-10/index.md#thm-cm2-10-chern-existence-uniqueness)から、その制限は $D$ と一致する。共役側も一致するため実接続として $\nabla=\widetilde D$。以上ですべてが同値。$\square$
 <!-- proof-end -->
 
 **もう一つの直接確認**。計量と捩率零の関係を使わず、(2) から (1) も見える。$\omega(U,V)=g(JU,V)$ と計量両立性から
@@ -293,7 +350,7 @@ $$
 \end{pmatrix}
 $$
 
-を考える。[閉性の反例](../KAH1-02/index.md#thm-kah1-02-local-closedness)と同じ計量である。係数微分と逆行列から
+を考える。前章の[局所閉性の判定](../KAH1-02/index.md#thm-kah1-02-local-closedness)で非Kählerと分かった同じ計量である。係数微分と逆行列から
 
 $$
 \Gamma^2_{12}=\frac{\bar z^1}{1+|z^1|^2},
@@ -315,7 +372,7 @@ $$
 
 捩率が消えることは接続係数が消えることとも違う。前節の非定数ポテンシャル例は、$\Gamma$ が非零でも $\Gamma^k_{ij}=\Gamma^k_{ji}$ となる。
 
-**可積分性を外した場合**。概複素多様体 $(M,J)$ に正の $J$ 両立計量 $g$ と閉じた基本形式があれば概Kählerではある。しかし正則座標や正則接束のChern接続へ無条件に戻れない。可積分性が失われると、(2) から (1) への含意はなお成り立つ一方、(1) から (2) は一般には導けない。これは正則座標における $\nabla_{\partial_{\bar i}}\partial_j=0$ の議論が使えないことに対応する。
+**可積分性を外した場合**。概複素多様体 $(M,J)$ に正の $J$ 両立計量 $g$ と閉じた基本形式があれば、[概Kähler構造の定義](../KAH1-01/index.md#def-kah1-01-kahler-structure)を満たす。しかし正則座標や正則接束のChern接続へ無条件に戻れない。可積分性が失われると、(2) から (1) への含意はなお成り立つ一方、(1) から (2) は一般には導けない。これは正則座標における $\nabla_{\partial_{\bar i}}\partial_j=0$ の議論が使えないことに対応する。
 
 ## 6. 演習：局所微分から接続の同一性まで
 
