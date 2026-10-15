@@ -1,0 +1,46 @@
+id: "MF2"
+title: "モジュラー形式・q展開・Eisenstein級数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF1
+  - CA8
+  - CA9
+  - CA12
+  - GRP3
+  - NT2
+  - NT3
+  - NT4
+official_scope: []
+learning_objectives:
+  - 上半平面の正則関数についてモジュラー形式の変換則とカスプ正則性を別々に判定できる
+  - 周期性からq座標を構成し、q展開とカスプ形式の条件を証明できる
+  - Eisenstein級数の局所一様絶対収束、重さkの変換則、カスプ正則性を検算できる
+  - 周期方向の格子和から約数和係数を導き、E4とE6の最初の係数を計算できる
+  - 格子のg2・g3とモジュラー判別式を結び、上半平面での非零性を証明できる
+  - j不変量の群不変性とカスプでの極を求め、格子相似の不変量と説明できる
+definitions:
+  - { id: MF2-DEF-01, name: 重さkのモジュラー形式 }
+  - { id: MF2-DEF-02, name: q展開とカスプ形式 }
+  - { id: MF2-DEF-03, name: Eisenstein級数 }
+  - { id: MF2-DEF-04, name: モジュラー判別式 }
+  - { id: MF2-DEF-05, name: j不変量 }
+theorems:
+  - { id: MF2-THM-01, name: 周期正則関数のq表示 }
+  - { id: MF2-PROP-01, name: 重さ・積・奇数重さ }
+  - { id: MF2-THM-02, name: Eisenstein級数の収束とモジュラー性 }
+  - { id: MF2-LEM-01, name: 周期方向の格子和 }
+  - { id: MF2-THM-03, name: Eisenstein級数のq展開 }
+  - { id: MF2-THM-04, name: 判別式の非零性と格子判別式 }
+  - { id: MF2-THM-05, name: jの不変性・カスプでの極・格子との対応 }
+canonical_examples:
+  - 重さ0の定数モジュラー形式と非例qの負べき
+  - E4とE6のq係数から約数和を直接検算
+  - Δの定数項消去と一次係数
+  - 固定点iおよびrhoにおけるEisenstein級数の零点
+  - j(i)とj(rho)、jのq展開
+problem_patterns: [MF2-A1, MF2-A2, MF2-A3, MF2-A4, MF2-B1, MF2-B2, MF2-B3, MF2-B4, MF2-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 7, review: 3 }
