@@ -46,7 +46,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Cauchy temporal functionのレベル）**  
-> 滑らかな時間向き付きLorentz時空 $(M,g)$ 上にCauchy temporal function $T:M\to\mathbb R$ があるなら、任意の $c\in\mathbb R$ に対し $\Sigma_c=T^{-1}(c)$ は非空で閉な滑らかな埋め込み超曲面であり、誘導計量 $g|_{T\Sigma_c}$ は正定値である。さらに $\Sigma_c$ はCauchy面である。
+> 滑らかな時間向き付きLorentz時空 $(M,g)$ にCauchy temporal function $T:M\to\mathbb R$ があるとする。任意の $c\in\mathbb R$ に対し、レベル集合
+
+$
+\Sigma_c=T^{-1}(c)
+$
+
+> は非空で閉な滑らかな埋め込み超曲面である。その接空間への誘導計量は正定値であり、$\Sigma_c$ はCauchy面である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
