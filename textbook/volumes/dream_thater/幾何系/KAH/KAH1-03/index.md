@@ -6,7 +6,7 @@
 
 前章では、複素多様体のHermite計量について、基本形式の閉性 $d\omega=0$ を[係数の微分対称性](../KAH1-02/index.md#thm-kah1-02-local-closedness)に直した。しかし閉性だけを見ても、「曲線に沿って長さと複素構造を同時に運べるのか」はまだ分からない。そこで、[Levi–Civita接続](../../GEO/GEO13/index.md#def-geo13-levi-civita)と[正則束のChern接続](../../CM/CM2-10/index.md#thm-cm2-10-chern-existence-uniqueness)を比較する。
 
-Levi–Civita接続は実計量を保ち、捩率（torsion）が零になるよう選ばれる。一方Chern接続は、正則束の正則構造とHermite計量を保つよう選ばれる。**一般には、両接続に同じ条件を課していない**。Kähler条件の重要な意味は、この二種類の接続が一致することにある。
+Levi–Civita接続は実計量を保ち、[接続の捩率](../../GEO/GEO13/index.md#def-geo13-torsion)（torsion）が零になるよう選ばれる。一方Chern接続は、正則束の正則構造とHermite計量を保つよう選ばれる。**一般には、両接続に同じ条件を課していない**。Kähler条件の重要な意味は、この二種類の接続が一致することにある。
 
 以下、$X$ は複素次元 $n\ge1$ の複素多様体、$J$ は正則座標から得られる可積分複素構造、$g=g_{\mathbb R}$ は滑らかな正定値で $J$ と両立する実Riemann計量とする。基本形式は[基本2形式の定義](../KAH1-01/index.md#def-kah1-01-fundamental-form)に従い $\omega(U,V)=g(JU,V)$ とする。正則座標 $z^1,\ldots,z^n$ では
 
