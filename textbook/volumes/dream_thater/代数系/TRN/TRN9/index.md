@@ -1,12 +1,12 @@
 # TRN9 Hermite–Lindemann：多重零点と整数性
 
-[TRN8の対称関係](../TRN8/index.md#thm-trn8-balanced-relation)により、零指数の係数が正で、Galois共役を取っても変わらない有限指数関係が得られました。そこに含まれる指数は代数的数ですが、必ずしも代数的整数ではありません。例えば $1/2$ を整数点と同じように微分評価すると、分母が残る危険があります。
+[TRN8の対称関係](../TRN8/index.md#thm-trn8-balanced-relation)により、零指数の係数が正で、Galois共役を取っても変わらない有限指数関係が得られました。そこに含まれる指数は代数的数ですが、必ずしも[代数的整数](../TRN1/index.md#def-trn1-algebraic-integer)ではありません。例えば $1/2$ を整数点と同じように微分評価すると、分母が残る危険があります。
 
 今回の中心課題は、**どこで高い重複度の零点を作り、どこで分母を払えば、特別な微分値だけを素数合同で残せるか**です。[TRN5の階乗と微分値の議論](../TRN5/index.md#lem-trn5-factorial-derivatives)を、任意の有限な代数的指数集合へ拡張します。解析的に小さい量を作る積分評価は次章に回し、本章では非零整数の構成を終えます。
 
 ## 1. まず指数を整数化する
 
-[TRN8の対称関係](../TRN8/index.md#thm-trn8-balanced-relation)から、有限Galois拡大 $K/\mathbb Q$、$G=\operatorname{Gal}(K/\mathbb Q)$、相異なる元からなる有限集合 $T\subset K$、整数 $c_t\ne0$ があり、
+[TRN8の対称関係](../TRN8/index.md#thm-trn8-balanced-relation)から、[有限Galois拡大](../../FLD/FLD4/index.md#def-fld4-finite-galois) $K/\mathbb Q$、$G=\operatorname{Gal}(K/\mathbb Q)$、相異なる元からなる有限集合 $T\subset K$、整数 $c_t\ne0$ があり、
 
 $$
 0\in T,\quad c_0>0,\quad
@@ -47,7 +47,7 @@ $$
 =Q(Z).
 $$
 
-各係数は $K$ に属し、すべての $G$ に固定されます。有限Galois拡大の固定体は $\mathbb Q$ なので $Q\in\mathbb Q[Z]$ です。他方、係数は $u_t$ の積の有限和です。[代数的整数の加法・乗法の閉性](../TRN1/index.md#thm-trn1-integral-ring)によって全て代数的整数です。[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)を係数ごとに適用すると $Q\in\mathbb Z[Z]$ です。
+各係数は $K$ に属し、すべての $G$ に固定されます。[有限Galois理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)より $K^G=\mathbb Q$ なので $Q\in\mathbb Q[Z]$ です。他方、係数は $u_t$ の積の有限和です。[代数的整数の加法・乗法の閉性](../TRN1/index.md#thm-trn1-integral-ring)によって全て代数的整数です。[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)を係数ごとに適用すると $Q\in\mathbb Z[Z]$ です。
 
 $0\notin T^\ast$ かつ $D\ne0$ より全 $u_t\ne0$ なので
 
@@ -60,7 +60,15 @@ $$
 
 ### 例：$1/\sqrt2$ を含む三点
 
-$s=\sqrt2/2$、$T=\{0,s,-s\}$、$K=\mathbb Q(\sqrt2)$ とします。$s$ 自身は代数的整数とは限りませんが、$D=2$ なら $u_s=\sqrt2$、$u_{-s}=-\sqrt2$ は $Z^2-2$ の根なので代数的整数です。非自明なGalois自己同型は二つを交換します。ゆえに
+$s=\sqrt2/2$、$T=\{0,s,-s\}$、$K=\mathbb Q(\sqrt2)$ とします。$s$ 自身は代数的整数ではありません。実際、$s$ が代数的整数なら[積の閉性](../TRN1/index.md#thm-trn1-integral-ring)から
+
+$$
+s^2=\left(\frac{\sqrt2}{2}\right)^2=\frac12
+$$
+
+も代数的整数となります。しかしこれは[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)に反します。
+
+一方、$D=2$ とすると $u_s=\sqrt2$、$u_{-s}=-\sqrt2$ で、いずれも整数係数モニック多項式 $Z^2-2$ の根です。非自明なGalois自己同型は二つを交換します。ゆえに
 
 $$
 Q(Z)=(Z-\sqrt2)(Z+\sqrt2)=Z^2-2,
@@ -145,6 +153,28 @@ $t\ne0$ かつ $D\ne0$、$Q_t(u_t)\ne0$ なので $(X-t)^p$ を取り除いた�
 
 [TRN5の階乗微分補題](../TRN5/index.md#lem-trn5-factorial-derivatives)では、整数係数多項式を整数点で微分した値を調べました。ここでは評価点 $u_t$ は必ずしも通常の整数ではありませんが、**代数的整数**です。各係数をそのまま代入すれば、同じ階乗可除性を代数的整数環の中で得られます。
 
+この節以降、$K$ に属する代数的整数全体を
+
+$$
+\mathcal O_K=\{\eta\in K:\eta\text{ は代数的整数}\}
+$$
+
+と書きます。[代数的整数の和・積の閉性](../TRN1/index.md#thm-trn1-integral-ring)により、これは環です。素数 $p$ に対して
+
+$$
+p\mathcal O_K=\{p\eta:\eta\in\mathcal O_K\}
+$$
+
+と置きます。これ以降の合同は
+
+$$
+a\equiv b\pmod{p\mathcal O_K}
+\quad\Longleftrightarrow\quad
+ a-b\in p\mathcal O_K
+$$
+
+という意味であり、通常の整数の合同とは区別します。
+
 <a id="lem-trn9-integral-derivatives"></a>
 
 <!-- formal-statement-start -->
@@ -193,7 +223,7 @@ $$
 \in p\mathbb Z.
 $$
 
-よって $f_p^{(k)}(t)\in p\mathcal O_K$ です。ここで $\mathcal O_K$ は $K$ に属する代数的整数全体を表します。$f_p$ の係数と $u_t$ は $K$ に属するので、右辺の代数的整数も $K$ に属します。
+よって $f_p^{(k)}(t)\in p\mathcal O_K$ です。$f_p$ の係数と $u_t$ は $K$ に属するので、上の階乗商は $\mathcal O_K$ に属します。
 <!-- proof-end -->
 
 ## 4. 特別項とそれ以外を素数合同で分離する
@@ -204,7 +234,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（端点微分和の合同）**  
-> $K,T,D,Q,p,f_p,F_p$ を前節までの条件の下で固定し、$\mathcal O_K$ を $K$ の代数的整数環とする。全 $t\in T$ に対して $F_p(t)\in\mathcal O_K$ であり、次の合同が成立する。
+> $K,T,D,Q,p,f_p,F_p$ を前節までの条件の下で固定し、$\mathcal O_K$ を前節で定義した代数的整数環とする。全 $t\in T$ に対して $F_p(t)\in\mathcal O_K$ であり、次の合同が成立する。
 
 $$
 F_p(0)\equiv D^{p-1}Q(0)^p\pmod{p\mathcal O_K},
@@ -323,7 +353,7 @@ $$
 \end{aligned}
 $$
 
-固定体が $\mathbb Q$ なので $A_p\in\mathbb Q$ です。すでに $A_p\in\mathcal O_K$ と示したので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から $A_p\in\mathbb Z$ です。
+[有限Galois理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)によって $K^G=\mathbb Q$ なので $A_p\in\mathbb Q$ です。すでに $A_p\in\mathcal O_K$ と示したので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から $A_p\in\mathbb Z$ です。
 
 [端点合同](#prop-trn9-endpoint-congruences)を $c_t$ 倍して足すと、
 
@@ -495,7 +525,13 @@ $3$ は $D Q(0)=-4$ を割らず、この値も3で割り切れません。一�
 <!-- solution-end -->
 
 **TRN9-B3（重み付き和の整数性）**  
-$K/\mathbb Q$ を有限Galois拡大とし、$T$ が共役で保たれ、$c_{\sigma(t)}=c_t$ であるとします。$f\in\mathbb Q[X]$ の各導関数評価値 $f^{(k)}(t)$ が代数的整数なら、$A=\sum_{t\in T}c_t\sum_kf^{(k)}(t)$ が通常の整数であることを示してください。
+$K/\mathbb Q$ を有限Galois拡大、$G=\operatorname{Gal}(K/\mathbb Q)$ とし、$T\subset K$ を有限な $G$-不変集合とします。各 $t\in T$ に整数 $c_t$ を割り当て、$c_{\sigma(t)}=c_t$ とします。零でない $f\in\mathbb Q[X]$ の次数を $m$ とし、全 $t\in T$ と $0\le k\le m$ に対して $f^{(k)}(t)$ が代数的整数だと仮定します。このとき
+
+$$
+A=\sum_{t\in T}c_t\sum_{k=0}^m f^{(k)}(t)
+$$
+
+が通常の整数であることを示してください。
 
 - Level: B
 
@@ -505,19 +541,19 @@ $K/\mathbb Q$ を有限Galois拡大とし、$T$ が共役で保たれ、$c_{\sig
 各 $f^{(k)}(t)$ が代数的整数で $c_t\in\mathbb Z$ なので、[整数の閉性](../TRN1/index.md#thm-trn1-integral-ring)から $A$ は代数的整数です。$f$ は有理係数だから
 
 $$
-\sigma(f^{(k)}(t))=f^{(k)}(\sigma(t)).
+\sigma(f^{(k)}(t))=f^{(k)}(\sigma(t))
 $$
 
 $u=\sigma(t)$ と置き換えると
 
 $$
 \sigma(A)
-=\sum_{t\in T}c_t\sum_kf^{(k)}(\sigma(t))
-=\sum_{u\in T}c_{\sigma^{-1}(u)}\sum_kf^{(k)}(u)
+=\sum_{t\in T}c_t\sum_{k=0}^m f^{(k)}(\sigma(t))
+=\sum_{u\in T}c_{\sigma^{-1}(u)}\sum_{k=0}^m f^{(k)}(u)
 =A.
 $$
 
-Galois不変な $A\in K$ は有理数です。[有理な代数的整数は整数](../TRN1/index.md#prop-trn1-rational-integers)なので $A\in\mathbb Z$ です。評価点が一つずつ整数である必要はありません。
+[有限Galois理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)により、Galois不変な $A\in K$ は有理数です。[有理な代数的整数は整数](../TRN1/index.md#prop-trn1-rational-integers)なので $A\in\mathbb Z$ です。ここで重み $c_t$ が通常の整数であることは、最初に $A$ の代数的整数性を得るために使いました。重みのGalois不変性だけから整数性は導けません。評価点が一つずつ整数である必要はありません。
 <!-- solution-end -->
 
 **TRN9-B4（例外素数と環の合同）**  
@@ -561,7 +597,7 @@ $$
 Q(Z)=\prod_{t\in T^\ast}(Z-u_t).
 $$
 
-従って $Q$ は有理係数です。他方、その係数は代数的整数の和と積なので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)により $Q\in\mathbb Z[Z]$ です。非零の $t$ に対する $u_t$ は0でないため、$Q(0)\ne0$ です。
+従って $Q$ は有理係数です。他方、その係数は[代数的整数の和と積の閉性](../TRN1/index.md#thm-trn1-integral-ring)により代数的整数なので、[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)により $Q\in\mathbb Z[Z]$ です。非零の $t$ に対する $u_t$ は0でないため、$Q(0)\ne0$ です。
 
 $s=|T^\ast|$ とし、$H_p(Z)=Z^{p-1}Q(Z)^p$ を置きます。$f_p(X)=H_p(DX)/(p-1)!$ の次数は $N_p=p-1+sp$ です。$Q(0)\ne0$ より0点の零点重複度は $p-1$、$T^\ast$ の根は相異なるので各 $t\ne0$ では $Q(DX)^p$ によりちょうど $p$ です。従って $f_p^{(k)}(0)=0$ ($k<p-1$)、$f_p^{(k)}(t)=0$ ($t\ne0,k<p$) です。
 
@@ -594,7 +630,24 @@ f_p^{(p-1)}(0)=D^{p-1}Q(0)^p,\quad
 F_p(0)\equiv D^{p-1}Q(0)^p\pmod{p\mathcal O_K}.
 $$
 
-係数 $c_t$ も整数なので $A_p\in\mathcal O_K$ です。また $f_p\in\mathbb Q[X]$ により $\sigma(F_p(t))=F_p(\sigma(t))$。$G$ が $T$ を置換し、重み $c_t$ を保つため $\sigma(A_p)=A_p$ です。従って $A_p\in\mathbb Q\cap\mathcal O_K=\mathbb Z$ です。上の合同を重み付きで足すと
+係数 $c_t$ は整数なので、各 $F_p(t)\in\mathcal O_K$ の重み付き和も $A_p\in\mathcal O_K$ です。
+
+$f_p\in\mathbb Q[X]$ のため $\sigma(F_p(t))=F_p(\sigma(t))$ が成立します。$G$ は $T$ を置換し、重み $c_t$ を保ちます。$u=\sigma(t)$ と添字を取り直すと
+
+$$
+\sigma(A_p)
+=\sum_{u\in T}c_{\sigma^{-1}(u)}F_p(u)
+=\sum_{u\in T}c_uF_p(u)
+=A_p.
+$$
+
+[有限Galois理論の基本定理](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois)から $A_p\in\mathbb Q$、さらに[有理な代数的整数の判定](../TRN1/index.md#prop-trn1-rational-integers)から
+
+$$
+A_p\in\mathbb Q\cap\mathcal O_K=\mathbb Z
+$$
+
+と分かります。上の合同を重み付きで足すと
 
 $$
 A_p-c_0D^{p-1}Q(0)^p\in p\mathcal O_K\cap\mathbb Z=p\mathbb Z.
