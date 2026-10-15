@@ -898,6 +898,7 @@
 5. [EC5 有理数体上のtorsion・高さの入口](textbook/volumes/dream_thater/代数系/EC/EC5/index.md)
 6. [EC6 降下法・弱Mordell–Weil定理・Mordell–Weil定理](textbook/volumes/dream_thater/代数系/EC/EC6/index.md)
 7. [EC7 有限体の点数とFrobenius](textbook/volumes/dream_thater/代数系/EC/EC7/index.md)
+8. [EC8 Hasse評価・拡大体上の点数・有限体ゼータ関数](textbook/volumes/dream_thater/代数系/EC/EC8/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

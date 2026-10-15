@@ -1,0 +1,56 @@
+chapter: EC8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC7
+  - EC4
+forward_references: []
+concepts:
+  - id: elliptic-curve.degree-trace
+    name: 同種写像の次数によるトレース
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.degree-quadraticity, elliptic-curve.endomorphism-ring]
+  - id: elliptic-curve.hasse-bound
+    name: Hasse評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.degree-quadraticity, elliptic-curve.one-minus-frobenius-degree, elliptic-curve.frobenius-degree]
+  - id: elliptic-curve.quadratic-norm-identity
+    name: 次数ノルムによる二次消去恒等式
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.degree-quadraticity, elliptic-curve.dual-degree]
+  - id: elliptic-curve.frobenius-polynomial
+    name: Frobeniusの二次関係式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.quadratic-norm-identity, elliptic-curve.degree-trace]
+  - id: elliptic-curve.frobenius-roots
+    name: Frobeniusの二つの根
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.frobenius-polynomial, elliptic-curve.hasse-bound]
+  - id: elliptic-curve.extension-field-count
+    name: 拡大体上の点数公式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.frobenius-roots, elliptic-curve.frobenius-fixed-points, elliptic-curve.degree-trace]
+  - id: elliptic-curve.finite-field-zeta
+    name: 有限体上の楕円曲線のゼータ関数
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.extension-field-count]
+  - id: elliptic-curve.zeta-rationality
+    name: 楕円曲線ゼータ関数の有理表示
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.finite-field-zeta, elliptic-curve.frobenius-roots]
