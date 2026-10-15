@@ -88,13 +88,13 @@ $$
 
 $\gamma_1,\ldots,\gamma_r$ が $\mathbb Q$ 上一次独立であるとは、有理数 $q_i$ に対する $\sum_iq_i\gamma_i=0$ が全 $q_i=0$ を強制することです。指数関数では単項式の積が指数の和になります。これを利用すると、異なる単項式を異なる指数へ対応させられます。
 
-そこでまず、複数の数の「代数的独立」を導入します。体 $L\subset\mathbb C$ 上で代数的独立とは、複数の変数の**非零多項式**を代入して0にできないことです。一次独立は次数1の特殊な関係しか禁じませんが、代数的独立は任意の次数の関係を禁じます。
+そこでまず、複数の数について「零でない多項式を代入して0にできない」という条件を定義します。体 $L\subset\mathbb C$ を固定してこの条件を考えます。一次独立性が禁じるのは次数1の特定の関係ですが、新しい条件は任意の次数の多項式関係を禁じます。
 
 <a id="def-trn14-algebraic-independence"></a>
 
 <!-- formal-statement-start -->
 > **定義（体上の代数的独立性）**  
-> 部分体 $L\subset\mathbb C$ と数 $y_1,\ldots,y_r\in\mathbb C$ を取る。$y_1,\ldots,y_r$ が $L$ 上**代数的独立**であるとは、各多重指数 $\nu=(\nu_1,\ldots,\nu_r)\in\mathbb Z_{\ge0}^r$ のうち有限個だけを用いた非零多項式
+> 部分体 $L\subset\mathbb C$ と数 $y_1,\ldots,y_r\in\mathbb C$ を取る。$y_1,\ldots,y_r$ が $L$ 上**代数的独立**であるとは、各添字ベクトル $\nu=(\nu_1,\ldots,\nu_r)\in\mathbb Z_{\ge0}^r$ のうち有限個だけを用いた非零多項式
 
 $$
 P(Y_1,\ldots,Y_r)
@@ -131,7 +131,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P=\sum_{\nu\in S}b_\nu Y_1^{\nu_1}\cdots Y_r^{\nu_r}\in\mathbb Q[Y_1,\ldots,Y_r]\setminus\{0\}$ を取り、$S$ は係数 $b_\nu\ne0$ の多重指数だけからなる有限非空集合とします。$y_i=e^{\gamma_i}$ とおきます。[複素指数の加法公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
+$P=\sum_{\nu\in S}b_\nu Y_1^{\nu_1}\cdots Y_r^{\nu_r}\in\mathbb Q[Y_1,\ldots,Y_r]\setminus\{0\}$ を取り、$S$ は係数 $b_\nu\ne0$ の添字ベクトルだけからなる有限非空集合とします。$y_i=e^{\gamma_i}$ とおきます。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
 
 $$
 \prod_{i=1}^r y_i^{\nu_i}
@@ -339,7 +339,7 @@ $$
 
 $r=0$ の場合は $m=1,\alpha_1=0$ であり、関係式は $\beta_1e^0=\beta_1=0$ となるので、非零係数の仮定に反します。従って $r\ge1$ とします。
 
-$y_i=e^{\gamma_i}$ とおけば、[複素指数の加法公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)と $e^{-\gamma_i}e^{\gamma_i}=1$ から、負冪も含めて
+$y_i=e^{\gamma_i}$ とおけば、[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)と $e^{-\gamma_i}e^{\gamma_i}=1$ から、負冪も含めて
 
 $$
 e^{\alpha_j}
@@ -405,7 +405,19 @@ $$
 
 は二つの係数のうち1が非零である代数的係数関係となり矛盾します。
 
-(ii) [複素指数のEuler表示](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から $e^{i\pi}=-1$ です。$\pi$ が代数的なら $i\pi$ も代数的で、$\pi>0$ より $i\pi\ne0$ なので (i) は $e^{i\pi}$ の超越性を要求します。しかし $-1$ は有理数です。矛盾します。この帰結は[TRN11の円周率の超越性](../TRN11/index.md#cor-trn11-pi-transcendental)を別経路で再確認するものです。$\square$
+(ii) [複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)のEuler表示を実数の円周率に適用すると
+
+$
+e^{i\pi}=\cos\pi+i\sin\pi=-1
+$
+
+です。もし $\pi$ が代数的なら、代数的な $i$ との積も代数的です。また $\pi>0$ よりこの積は零ではないので
+
+$
+i\pi\in\overline{\mathbb Q}\setminus\{0\}.
+$
+
+従って (i) は $e^{i\pi}$ が超越数であることを要求します。一方、実際の値 $-1$ は有理数なので矛盾します。この帰結は[TRN11の円周率の超越性](../TRN11/index.md#cor-trn11-pi-transcendental)を別経路で再確認します。$\square$
 <!-- proof-end -->
 
 <a id="cor-trn14-algebraic-logarithms"></a>
@@ -545,7 +557,7 @@ $\gamma_1=1,\gamma_2=2$ が $\mathbb Q$ 上一次従属であること、およ�
 <!-- solution-start -->
 **詳細解答**
 
-$(-2)\gamma_1+1\gamma_2=-2+2=0$ は非自明な有理一次関係です。[指数の加法公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)により $e^2=e\cdot e$ なので
+$(-2)\gamma_1+1\gamma_2=-2+2=0$ は非自明な有理一次関係です。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)により $e^2=e\cdot e$ なので
 
 $$
 P(Y_1,Y_2)=Y_2-Y_1^2
@@ -576,14 +588,14 @@ $$
 \beta_1y_1^{-3}+\beta_2y_2^2+\beta_3y_1^3=0.
 $$
 
-$y_1^3$ を掛け、$P(Y_1,Y_2)=\beta_1+\beta_2Y_1^3Y_2^2+\beta_3Y_1^6$ と置きます。三つの多重指数 $(0,0),(3,2),(6,0)$ は異なるので、もし非零の $\beta_j$ があれば $P$ は非零多項式です。係数を含む有限Galois拡大 $K$ を選び、[係数体の共役積](#lem-trn14-polynomial-norm)により
+$y_1^3$ を掛け、$P(Y_1,Y_2)=\beta_1+\beta_2Y_1^3Y_2^2+\beta_3Y_1^6$ と置きます。三つの添字ベクトル $(0,0),(3,2),(6,0)$ は異なるので、もし非零の $\beta_j$ があれば $P$ は非零多項式です。係数を含む有限Galois拡大 $K$ を選び、[係数体の共役積](#lem-trn14-polynomial-norm)により
 
 $$
 Q=\prod_{\sigma\in\operatorname{Gal}(K/\mathbb Q)}\sigma(P)
 \in\mathbb Q[Y_1,Y_2]\setminus\{0\}
 $$
 
-を作ります。恒等自己同型の因子は $P(y_1,y_2)=0$ なので $Q(y_1,y_2)=0$ です。一方、[有理一次独立な指数の定理](#thm-trn14-exp-algebraic-independent-q)から $y_1,y_2$ は $\mathbb Q$ 上代数的独立であり、$Q(y)\ne0$ のはずです。矛盾するため $\beta_1=\beta_2=\beta_3=0$ です。
+を作ります。恒等自己同型の因子は $P(y_1,y_2)=0$ なので $Q(y_1,y_2)=0$ です。一方、[有理一次独立な代数的指数の像の代数的独立性](#thm-trn14-exp-algebraic-independent-q)から $y_1,y_2$ は $\mathbb Q$ 上代数的独立であり、$Q(y)\ne0$ のはずです。矛盾するため $\beta_1=\beta_2=\beta_3=0$ です。
 <!-- solution-end -->
 
 **TRN14-C2（証明の条件を逆向きに検査する）**  
