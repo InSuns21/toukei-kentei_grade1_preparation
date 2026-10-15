@@ -116,7 +116,27 @@ $$
 
 Hasse評価は $a_q$ の大きさを教えます。しかし拡大体の点数を計算するには、$\pi^2$ を $\pi$ と恒等写像で表す関係式が必要です。これも双対の加法性を別に仮定せず、[EC4の次数の乗法性](../EC4/index.md#def-ec4-degree)と二次性だけから示せます。
 
-整数係数の自己準同型環 $A=\operatorname{End}_K(E)$ を、有理数係数まで拡張した $A_{\mathbb Q}=A\otimes_{\mathbb Z}\mathbb Q$ を考えます。これは自己準同型の有理数倍を扱うための環です。非零の $\varphi$ に対して $\deg([n]\varphi)=n^2\deg\varphi>0$ なので整数倍で非零が零になることはなく、$A$ はこの環に埋め込めます。
+自己準同型環 $A=\operatorname{End}_K(E)$ には整数倍はありますが、通常の射のままでは有理数倍 $\varphi/n$ を扱えません。そこで $\varphi\in A$ と零でない整数 $n$ の組を形式分数 $\varphi/n$ と書き、$\varphi/n=\psi/m$ を $m\varphi=n\psi$ で定めます。和と積は
+
+$$
+\frac{\varphi}{n}+\frac{\psi}{m}
+=\frac{m\varphi+n\psi}{nm},
+\qquad
+\frac{\varphi}{n}\frac{\psi}{m}
+=\frac{\varphi\psi}{nm}
+$$
+
+です。演算が代表元の選び方によらないことも、分数の同一視から確認できます。例えば $\varphi/n=\varphi'/n'$ なら $n'\varphi=n\varphi'$ なので、任意の $\psi/m$ について
+
+$$
+n'(m\varphi+n\psi)=n(m\varphi'+n'\psi),
+\qquad
+n'(\varphi\psi)=n(\varphi'\psi)
+$$
+
+が成り立ちます。これが、それぞれ通分した和と積の分子が同じ分数を表す理由です。もう一方の分数の代表元を替えても同様です。
+
+こうして得る有理数係数の環を $A_{\mathbb Q}$（通常は $A\otimes_{\mathbb Z}\mathbb Q$ とも書く）と呼びます。[EC4の倍数写像の次数](../EC4/index.md#thm-ec4-multiplication-degree)と[次数の乗法性](../EC4/index.md#def-ec4-degree)から、$n\ne0$ かつ $\varphi\ne0$ なら $\deg([n]\varphi)=n^2\deg\varphi>0$ です。したがって非零の自己準同型が整数倍で零になることはなく、$A$ を分母1の元として $A_{\mathbb Q}$ に埋め込めます。
 
 <a id="lem-ec8-quadratic-norm"></a>
 
@@ -138,7 +158,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A$ 上の $D(u)=\deg u$ は[次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を満たし、非零で正、$D(1)=1$、[次数の合成則](../EC4/index.md#def-ec4-degree)により $D(uv)=D(u)D(v)$ です。$u=\varphi/n$（$n\ne0$）に対して $D(u)=\deg\varphi/n^2$ と定めればこれらの性質は有理数係数へ延長されます。$\varphi/n=\psi/m$ なら $m\varphi=n\psi$ であり、両辺の次数を取って定義の一致を確認できます。
+$A$ 上の $D(u)=\deg u$ は[次数の二次性](../EC4/index.md#thm-ec4-degree-quadratic)を満たし、非零で正、$D(1)=1$、[次数の合成則](../EC4/index.md#def-ec4-degree)により $D(uv)=D(u)D(v)$ です。$u=\varphi/n$（$n\ne0$）に対して $D(u)=\deg\varphi/n^2$ と定めればこれらの性質は有理数係数へ延長されます。$\varphi/n=\psi/m$ なら $m\varphi=n\psi$ です。次数の二次性を両辺へ適用すると
+
+$$
+m^2\deg\varphi=n^2\deg\psi
+\quad\Longrightarrow\quad
+\frac{\deg\varphi}{n^2}=\frac{\deg\psi}{m^2}
+$$
+
+なので $D$ は分数表示の取り方によらず定まります。
 
 $B(u,w)=D(u+w)-D(u)-D(w)$ と置きます。これは対称双線形で $B(1,1)=2$、$\tau(u)=B(1,u)$ です。$v=u-\tau(u)1/2$ とすれば
 
@@ -356,7 +384,16 @@ $$
 
 ## 5. 無限個の点数を一つの関数へまとめる
 
-$N_1,N_2,\ldots$ を順番に記録する代わりに、これらが係数として復元できる形式的な級数を考えます。ここでは $T$ は**形式変数**であり、収束半径を仮定しないで計算します。形式的指数と対数は有理数係数の冪級数で、定数項がそれぞれ0、1の式に適用できます。
+$N_1,N_2,\ldots$ を順番に記録する代わりに、これらが係数として復元できる形式的な級数を考えます。ここでは $T$ は**形式変数**であり、収束半径を仮定しません。$\mathbb Q[[T]]$ は有理数係数の形式的冪級数の環、$T\mathbb Q[[T]]$ は定数項0の級数全体です。$X,Y\in T\mathbb Q[[T]]$ に対し
+
+$$
+\exp X=\sum_{k=0}^{\infty}\frac{X^k}{k!},
+\qquad
+\log(1+Y)=\sum_{k=1}^{\infty}
+\frac{(-1)^{k+1}Y^k}{k}
+$$
+
+と定義できます。各 $T^j$ の係数を求める際には有限個の項だけを使うため、解析的収束は不要です。以下、$O(T^j)$ は次数 $j$ 以上の項だけからなる級数を表します。
 
 <a id="def-ec8-zeta"></a>
 
@@ -477,7 +514,7 @@ $q=5$、$a_q=-3$ となる楕円曲線について $\alpha+\beta$、$\alpha\beta
 <!-- solution-start -->
 ### 詳細解答
 
-根の定義より $\alpha+\beta=-3,\alpha\beta=5$ です。従って
+[Frobeniusの二つの根](#def-ec8-frobenius-roots)より $\alpha+\beta=-3,\alpha\beta=5$ です。従って
 
 $$
 s_2=\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta
@@ -497,7 +534,7 @@ $q=3,a_q=0$ のとき $s_0,s_1,s_2,s_3$ と $N_3$ を求めよ。
 <!-- solution-start -->
 ### 詳細解答
 
-初期値 $s_0=2,s_1=0$ から
+[拡大体上の点数公式の漸化式](#thm-ec8-extension-counts)の初期値 $s_0=2,s_1=0$ から
 
 $$
 s_2=0\cdot s_1-3s_0=-6,\qquad
@@ -517,7 +554,7 @@ $N_1=5,N_2=5$ の場合、ゼータ関数の $T,T^2$ の係数を定義から計
 <!-- solution-start -->
 ### 詳細解答
 
-指数の中身を二次で切ると
+[ゼータ関数の定義](#def-ec8-zeta)の指数の中身を二次で切ると
 
 $$
 X=N_1T+\frac{N_2}{2}T^2+O(T^3)
@@ -594,14 +631,21 @@ $\mathbb F_2$ 上の $E:y^2+y=x^3+x$ は $N_1=5$ である。$a_2$、$N_2$、$N_
 <!-- solution-start -->
 ### 詳細解答
 
-[EC7の全点列挙](../EC7/index.md#def-ec7-trace)により $a_2=2+1-5=-2$ です。漸化式 $s_0=2,s_1=-2,s_n=-2s_{n-1}-2s_{n-2}$ より
+[EC7の全点列挙](../EC7/index.md#def-ec7-trace)により $a_2=2+1-5=-2$ です。[拡大体上の点数公式の漸化式](#thm-ec8-extension-counts)に $q=2,a_q=-2$ を入れると
+
+$$
+s_0=2,\qquad s_1=-2,\qquad
+s_n=-2s_{n-1}-2s_{n-2}\quad(n\ge2)
+$$
+
+となるので、
 
 $$
 s_2=(-2)(-2)-2(2)=0,\qquad
 s_3=(-2)\cdot0-2(-2)=4.
 $$
 
-従って $N_2=4+1-0=5$、$N_3=8+1-4=5$。ゼータ関数は
+従って $N_2=4+1-0=5$、$N_3=8+1-4=5$。[ゼータ関数の有理表示](#thm-ec8-zeta-rational)は
 
 $$
 Z(T)=\frac{1-(-2)T+2T^2}{(1-T)(1-2T)}
@@ -638,14 +682,28 @@ $$
 
 ゆえに $B(1,v^2)=-2d$、$D(v^2+d1)=d^2-2d^2+d^2=0$。非零の元の次数は正なので $v^2=-d1$ です。展開して $u^2-\tau(u)u+D(u)1=0$ を得ます。$u=\pi$ では $D(\pi)=q$、$\tau(\pi)=a_q$ だから求める二次関係式となります。
 
-**(iii)** $t_n=B(1,\pi^n)$ とすると $t_0=2$、$t_1=a_q$。二次関係式に $\pi^{n-2}$ を掛け、$B$ の線形性から $t_n=a_qt_{n-1}-qt_{n-2}$ です。一方 $U^2-a_qU+q$ の根 $\alpha,\beta$ の冪和は同じ漸化式・初期値を満たすので $t_n=\alpha^n+\beta^n$。$\pi^n$ の微分は0で、$1-\pi^n$ は分離的だから
+**(iii)** $t_n=B(1,\pi^n)$ とすると $t_0=2$、$t_1=a_q$ です。[Frobeniusの二次関係式](#thm-ec8-frobenius-polynomial)に $\pi^{n-2}$ を合成し、$B(1,\cdot)$ の加法性を適用すると
+
+$$
+t_n=a_qt_{n-1}-qt_{n-2}\qquad(n\ge2)
+$$
+
+を得ます。$U^2-a_qU+q$ の根 $\alpha,\beta$ の冪和も同じ漸化式と初期値を満たすため、$t_n=\alpha^n+\beta^n$ です。
+
+[有理点とFrobenius固定点](../EC7/index.md#thm-ec7-fixed-points)から $E(\mathbb F_{q^n})=\ker(1-\pi^n)$ です。$\pi^n$ は $q^n$ 乗Frobeniusなので原点での微分が零となり、
+
+$$
+d(1-\pi^n)_O=1-d(\pi^n)_O=1\ne0
+$$
+
+です。よって $1-\pi^n$ は分離的であり、[EC7の差の射の次数の証明](../EC7/index.md#prop-ec7-one-minus-frobenius)と同じく核の点数が次数に等しいため
 
 $$
 N_n=\deg(1-\pi^n)=1+q^n-t_n
 =1+q^n-\alpha^n-\beta^n.
 $$
 
-**(iv)** 定義の指数に代入して
+**(iv)** [ゼータ関数の定義](#def-ec8-zeta)の指数に代入して
 
 $$
 \begin{aligned}
