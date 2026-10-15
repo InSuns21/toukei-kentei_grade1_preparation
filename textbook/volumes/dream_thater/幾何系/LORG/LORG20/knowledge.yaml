@@ -1,0 +1,51 @@
+chapter: LORG20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LORG1
+  - LORG2
+  - LORG3
+  - LORG10
+  - LORG13
+  - LORG14
+  - LORG15
+  - LORG16
+  - LORG19
+  - GEO15
+concepts:
+  - id: lorentz-geometry.cauchy-temporal-function
+    name: Cauchy temporal function
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cauchy temporal function）"]
+    requires: [lorentz-geometry.temporal-function, lorentz-geometry.cauchy-time-function]
+  - id: lorentz-geometry.smooth-cauchy-levels
+    name: Cauchy temporal functionのレベル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cauchy temporal functionのレベル）"]
+    requires: [lorentz-geometry.cauchy-temporal-function, lorentz-geometry.cauchy-hypersurface]
+  - id: lorentz-geometry.bernal-sanchez
+    name: Bernal–SánchezのCauchy temporal function存在定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bernal–SánchezのCauchy temporal function存在定理）"]
+    requires: [lorentz-geometry.global-hyperbolicity, lorentz-geometry.cauchy-temporal-function]
+  - id: lorentz-geometry.temporal-step-sum
+    name: temporal stepの大域合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（temporal stepの大域合成）"]
+    requires: [lorentz-geometry.cauchy-time-function, lorentz-geometry.cauchy-temporal-function]
+  - id: lorentz-geometry.orthogonal-splitting
+    name: 滑らかな直交時空分割
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな直交時空分割）"]
+    requires: [lorentz-geometry.bernal-sanchez, lorentz-geometry.smooth-cauchy-levels]
+  - id: lorentz-geometry.lapse-normal
+    name: lapseと単位法線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（lapseと単位法線）"]
+    requires: [lorentz-geometry.orthogonal-splitting]
