@@ -1,0 +1,56 @@
+chapter: EC9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EC1
+  - EC7
+forward_references: []
+concepts:
+  - id: elliptic-curve.integral-model
+    name: 整数Weierstrassモデルと還元
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.weierstrass-model, elliptic-curve.admissible-transformation, elliptic-curve.weierstrass-invariants]
+  - id: elliptic-curve.good-reduction
+    name: 良い還元・悪い還元
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.integral-model, elliptic-curve.discriminant-criterion]
+  - id: elliptic-curve.minimal-model
+    name: p-最小整モデル・最小判別式指数
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.integral-model, elliptic-curve.admissible-transformation]
+  - id: elliptic-curve.minimal-good-criterion
+    name: 最小判別式による良い還元判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.good-reduction, elliptic-curve.minimal-model]
+  - id: elliptic-curve.reduction-types
+    name: 乗法的還元・加法的還元・分裂性
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.minimal-model, elliptic-curve.good-reduction]
+  - id: elliptic-curve.conductor
+    name: 導手指数・導手
+    kind: definition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.reduction-types, elliptic-curve.torsion-structure]
+  - id: elliptic-curve.local-conductor-types
+    name: 還元型と局所導手指数の対応
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.conductor, elliptic-curve.reduction-types]
+  - id: elliptic-curve.semistable-conductor
+    name: 半安定曲線の導手
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [elliptic-curve.local-conductor-types]
