@@ -16,7 +16,9 @@ learning_objectives:
   - 上半平面の正則関数についてモジュラー形式の変換則とカスプ正則性を別々に判定できる
   - 周期性からq座標を構成し、q展開とカスプ形式の条件を証明できる
   - Eisenstein級数の局所一様絶対収束、重さkの変換則、カスプ正則性を検算できる
+  - E2の周期性・正則性とSでの重さ2変換則の破れを具体的に判定できる
   - 周期方向の格子和から約数和係数を導き、E4とE6の最初の係数を計算できる
+  - Bernoulli数の母関数とcotの部分分数表示からEisenstein級数の一般係数を導ける
   - 格子のg2・g3とモジュラー判別式を結び、上半平面での非零性を証明できる
   - j不変量の群不変性とカスプでの極を求め、格子相似の不変量と説明できる
 definitions:
@@ -37,10 +39,11 @@ canonical_examples:
   - 重さ0の定数モジュラー形式と非例qの負べき
   - E4とE6のq係数から約数和を直接検算
   - Δの定数項消去と一次係数
+  - Δの三次係数252とE2の非例
   - 固定点iおよびrhoにおけるEisenstein級数の零点
   - j(i)とj(rho)、jのq展開
-problem_patterns: [MF2-A1, MF2-A2, MF2-A3, MF2-A4, MF2-B1, MF2-B2, MF2-B3, MF2-B4, MF2-C1]
+problem_patterns: [MF2-A1, MF2-A2, MF2-A3, MF2-A4, MF2-B1, MF2-B2, MF2-B3, MF2-B4, MF2-B5, MF2-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 11, exercises: 7, review: 3 }
