@@ -244,15 +244,15 @@ $X_0(N)$ は合同部分群 $\Gamma_0(N)$ に対応するモジュラー曲線�
 > **定理（Modularity Theorem：外部引用）**  
 > $E/\mathbb Q$ を導手 $N_E$ の楕円曲線とする。レベル $N_E$ の正規化された重さ 2 の newform $f$（自明な指標）が存在し、その L 関数は一致する。
 
-$
+$$
 L(E,s)=L(f,s).
-$
+$$
 
 > またモジュラー曲線からの非定数の $\mathbb Q$ 上の射 $\phi$ が存在し、尖点 $\infty$ を単位元 $O$ へ送るよう選べる。
 
-$
+$$
 \phi:X_0(N_E)\longrightarrow E,\qquad \phi(\infty)=O.
-$
+$$
 
 > これらは外部の大定理であり、ここでは証明しない。
 <!-- formal-statement-end -->
