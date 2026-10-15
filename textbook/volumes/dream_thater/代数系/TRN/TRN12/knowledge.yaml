@@ -1,0 +1,20 @@
+chapter: TRN12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN11
+forward_references: []
+
+concepts:
+  - id: transcendence.lw-two-exponents-rational-independence
+    name: 二つの代数的指数の有理一次独立性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（二つの代数的指数の有理一次独立性）]
+    requires: [transcendence.hermite-lindemann-theorem]
+  - id: transcendence.lw-rational-symmetric-reduction
+    name: 有理係数の指数関係の対称化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有理係数の指数関係の対称化）]
+    requires: [transcendence.formal-exponential-sum, transcendence.exponential-evaluation, transcendence.formal-galois-action, transcendence.formal-product-nonzero, transcendence.positive-zero-exponent-coefficient]

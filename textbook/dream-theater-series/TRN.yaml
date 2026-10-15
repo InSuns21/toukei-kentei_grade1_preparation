@@ -51,7 +51,7 @@ chapters:
     title: "Hermite–Lindemann定理とπの超越性"
   - id: TRN12
     path: textbook/volumes/dream_thater/代数系/TRN/TRN12
-    status: planned
+    status: completed
     title: "Lindemann–Weierstrass：有理係数版と共役の有限積"
   - id: TRN13
     path: textbook/volumes/dream_thater/代数系/TRN/TRN13

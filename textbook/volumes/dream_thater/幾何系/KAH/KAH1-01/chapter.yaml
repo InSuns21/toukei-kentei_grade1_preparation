@@ -1,0 +1,41 @@
+id: "KAH1-01"
+title: "複素構造とHermite計量の出会い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-03
+  - CM2-01
+  - CM2-09
+  - GEO7
+official_scope: []
+learning_objectives:
+  - 複素構造Jと両立する実計量の条件を直接例から検証できる
+  - 任意のRiemann計量をJについて平均し両立する計量を構成できる
+  - 基本2形式の交代性・非退化性・J不変性と復元公式を証明できる
+  - 実計量と基本2形式から第一変数共役線形のHermite内積を作れる
+  - 複素座標の係数1/2とiの符号を検算できる
+  - Hermite・Kähler・概Kählerの仮定の違いを閉性の計算で説明できる
+definitions:
+  - { id: KAH1-01-DEF-01, name: 複素構造と両立するRiemann計量 }
+  - { id: KAH1-01-DEF-02, name: 基本2形式 }
+  - { id: KAH1-01-DEF-03, name: Hermite構造・Kähler構造・概Kähler構造 }
+theorems:
+  - { id: KAH1-01-PROP-01, name: 両立条件と交代性 }
+  - { id: KAH1-01-PROP-02, name: 平均による両立計量の構成 }
+  - { id: KAH1-01-PROP-03, name: 基本2形式の性質と計量の復元 }
+  - { id: KAH1-01-PROP-04, name: 実計量と基本2形式からのHermite内積 }
+canonical_examples:
+  - 複素平面の標準J・計量・面積形式
+  - 計量の平均と非標準J
+  - 複素座標での基本2形式の係数1/2
+  - 複素二次元のHermiteだが非Kählerとなる共形計量
+problem_patterns:
+  - KAH1-01-COMPATIBLE-METRIC
+  - KAH1-01-FUNDAMENTAL-FORM
+  - KAH1-01-AVERAGING
+  - KAH1-01-HERMITIAN-RECOVERY
+  - KAH1-01-CLOSEDNESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 3 }
