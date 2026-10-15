@@ -458,7 +458,18 @@ $$
 H=\prod_{\sigma\in G}(\sigma\cdot F)
 $$
 
-を作ります。$\sigma$ は指数集合上で単射なので $\sigma\cdot F\ne0$ です。[TRN7の非零積補題](../TRN7/index.md#lem-trn7-no-zero-divisors)を有限回適用して $H\ne0$。積を多重添字で展開すると係数は整数の積の和です。$\tau\in G$ に対し $\sigma\mapsto\tau\sigma$ は $G$ の置換なので $\tau\cdot H=H$ です。[指数評価の乗法性](../TRN7/index.md#def-trn7-exponential-evaluation)と恒等自己同型の因子から $\operatorname{ev}(H)=0$ です。
+を作ります。$\sigma$ は指数集合上で単射なので $\sigma\cdot F\ne0$ です。[TRN7の非零積補題](../TRN7/index.md#lem-trn7-no-zero-divisors)を有限回適用して $H\ne0$ となります。積の係数は整数の積の和なので、すべて整数です。
+
+$\tau\in G$ を固定します。$\sigma\mapsto\tau\sigma$ は $G$ の置換であり、各因子の順序を入れ替えるだけです。従って $\tau\cdot H=H$ です。
+
+[指数評価の乗法性](../TRN7/index.md#def-trn7-exponential-evaluation)を適用します。恒等自己同型に対応する因子は $F$ 自身であり、その評価が0なので
+
+$$
+\operatorname{ev}(H)
+=\prod_{\sigma\in G}\operatorname{ev}(\sigma\cdot F)=0
+$$
+
+となります。
 
 $H=\sum_{\lambda\in S}B_\lambda U_\lambda$ を相異なる指数・非零整数係数で書くと $S$ は有限非空です。反転積 $R=HH^\vee$ の0係数は、$\lambda-\mu=0$ が $\lambda=\mu$ と同値なので
 
