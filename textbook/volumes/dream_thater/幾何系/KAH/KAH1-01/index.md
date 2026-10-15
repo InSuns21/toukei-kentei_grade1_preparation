@@ -328,7 +328,14 @@ $$
 \omega_0=\sum_{j=1}^n dx^j\wedge dy^j.
 $$
 
-各係数は定数で、[外微分の二乗は0](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から $d(dx^j)=d^2x^j=0$、$d(dy^j)=d^2y^j=0$ である。[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項に適用すると $d\omega_0=0$。また $u\ne0$ に対し $\omega_0(u,Ju)=g(u,u)>0$。従って閉性と非退化性を別々に検証でき、これはKähler多様体である。
+各係数は定数で、[外微分の二乗は0](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から
+
+$$
+d(dx^j)=d^2x^j=0,\qquad
+d(dy^j)=d^2y^j=0
+$$
+
+が成り立つ。[外微分の次数付き Leibniz 則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を各項に適用すると $d\omega_0=0$。一方、非零の $u$ に対し $\omega_0(u,Ju)=g(u,u)>0$ である。閉性と非退化性を別々に検証できたので、これはKähler多様体である。
 <!-- definition-example-end -->
 
 可積分な複素構造の下では、KählerならHermiteであり概Kählerでもある。ただし **Hermiteであるだけでは閉性は保証されない**。また概Kählerの定義はそもそも複素アトラスの存在を仮定しない。両者を同義語として扱うことはできない。
