@@ -2,7 +2,7 @@ chapter: MF2
 scope: dream-theater
 coverage: complete
 prerequisites: [MF1, CA8, CA9, CA12, GRP3, NT2, NT3, NT4]
-forward_references: [MF3]
+forward_references: []
 concepts:
   - id: modular-forms.modular-form
     name: 重さkのモジュラー形式
