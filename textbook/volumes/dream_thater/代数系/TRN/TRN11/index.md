@@ -274,7 +274,11 @@ e^{\alpha-\beta}
 =\frac{e^\alpha}{e^\beta}=1.
 $$
 
-$\alpha,\beta$ が代数的なので $\mathbb Q(\alpha,\beta)/\mathbb Q$ は有限拡大です。[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)をこの体の元 $\delta=\alpha-\beta$ に適用すると、$\delta$ は代数的数です。もし $\delta\ne0$ なら [Hermite–Lindemannの定理](#thm-trn11-hermite-lindemann)から $e^\delta$ は超越数ですが、$e^\delta=1$ は代数的数です。従って $\delta=0$、すなわち $\alpha=\beta$ です。$\square$
+$\alpha,\beta$ が代数的なので、拡大 $\mathbb Q(\alpha,\beta)/\mathbb Q$ は有限です。[有限拡大の元は代数的](../../FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)をこの体の元に適用します。
+
+差 $\delta=\alpha-\beta$ もその体に属するため、代数的数です。仮に $\delta\ne0$ なら [Hermite–Lindemannの定理](#thm-trn11-hermite-lindemann)から $e^\delta$ は超越数になります。
+
+しかし、既に $e^\delta=1$ と示しており、1は代数的数です。ゆえに $\delta=0$、すなわち $\alpha=\beta$ です。$\square$
 <!-- proof-end -->
 
 具体例として $\alpha=0,\beta=1$ はともに代数的ですが $e^0=1$、$e^1=e$ で一致しません。反対に $z=0$ と $w=2\pi i$ は相異なり、$e^z=e^w=1$ です。後者で $w$ が代数的だとすると $\pi=w/(2i)$ も代数的になり、[上の系](#cor-trn11-pi-transcendental)に反します。**単射性の定義域を $\mathbb C$ と書いてしまう誤り**は、この例で区別できます。
