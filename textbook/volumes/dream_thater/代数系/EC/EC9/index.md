@@ -98,9 +98,9 @@ $$
 > **命題（最小判別式による良い還元判定）**  
 > $E/\mathbb Q$ と素数 $p$ について
 >
-> $$
-> E\text{ は }p\text{ で良い還元}\quad\Longleftrightarrow\quad v_p(\Delta_{\min})=0.
-> $$
+$$
+E\text{ は }p\text{ で良い還元}\quad\Longleftrightarrow\quad v_p(\Delta_{\min})=0.
+$$
 >
 > さらに、ある $p$-整モデルが $0\le v_p(\Delta)<12$ を満たすなら、そのモデルは $p$-最小である。
 <!-- formal-statement-end -->
@@ -213,23 +213,23 @@ $$
 > **定義（導手指数・導手）**  
 > $E/\mathbb Q$、素数 $p$、$\ell\ne p$ に対し、上記の二次元 $\mathbb Q_\ell$-表現 $V_\ell(E)$ の局所導手指数を
 >
-> $$
-> f_p(E)=\dim V_\ell(E)-\dim V_\ell(E)^{I_p}
-> +\operatorname{Swan}_p(V_\ell(E))
-> $$
+$$
+f_p(E)=\dim V_\ell(E)-\dim V_\ell(E)^{I_p}
++\operatorname{Swan}_p(V_\ell(E))
+$$
 >
 > と定める。ここで野分岐項（Swan導手）は、高次分岐群の固定空間を用いた
 >
-> $$
-> \operatorname{Swan}_p(V)
-> =\int_0^\infty\bigl(\dim V-\dim V^{I_p^u}\bigr)\,du
-> $$
+$$
+\operatorname{Swan}_p(V)
+=\int_0^\infty\bigl(\dim V-\dim V^{I_p^u}\bigr)\,du
+$$
 >
 > である（$I_p^u$ は上番号付き分岐群、積分はその区分的定数関数の有限和を意味する）。各 $f_p(E)$ は非負整数となり、$\ell\ne p$ の選択に依らない。**導手**とは
 >
-> $$
-> N_E=\prod_p p^{f_p(E)}
-> $$
+$$
+N_E=\prod_p p^{f_p(E)}
+$$
 >
 > である。良い還元の素数では $f_p=0$ で、積に非自明に現れる素数は有限個だけである。
 <!-- formal-statement-end -->
