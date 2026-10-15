@@ -18,10 +18,10 @@ $$
 
 で定まります。$g$ は非退化なので、各点の線形写像 $W\mapsto g(W,\cdot)$ は可逆であり、このベクトルは一意です。局所座標 $(x^0,\ldots,x^n)$ で $\nabla^gf=W^j\partial_j$ と書くと、上の定義を各 $\partial_i$ に適用して
 
-$
+$$
 g_{ij}W^j=\partial_i f,\qquad
 W^i=g^{ij}\partial_jf
-$
+$$
 
 を得ます。ここで $(g^{ij})$ は計量の成分行列 $(g_{ij})$ の逆行列です。**逆計量による勾配計算は、この定義の連立一次方程式を解く操作**です。計算した勾配については、さらにその自己内積の符号と時間向きを別々に調べます。
 
@@ -42,10 +42,10 @@ $
 <!-- definition-example-start: def-lorg20-cauchy-temporal -->
 **定義の確認**。Minkowski平面 $(\mathbb R^{1,1},g=-dt^2+dx^2)$ の $T(t,x)=t$ を取ります。$W=A\partial_t+B\partial_x$ とおけば、$dT(\partial_t)=1$、$dT(\partial_x)=0$ です。勾配の定義を座標基底の二方向に適用すると
 
-$
+$$
 g(W,\partial_t)=-A=1,\qquad
 g(W,\partial_x)=B=0
-$
+$$
 
 より $A=-1$、$B=0$、従って $\nabla^gT=-\partial_t$ です。これは逆計量の $g^{tt}=-1$ を用いる計算とも一致します。自己内積 $g(\nabla^gT,\nabla^gT)=-1<0$ で、$-\partial_t$ は選んだ未来方向 $\partial_t$ と逆向きなので過去時間的です。これで条件1を確認しました。
 
@@ -160,25 +160,25 @@ $$
 
 です。$k\le r-2$ では両方が $1$、$k>r+2$ では $s_k(p_0)=-1$ なのでそれらの差は非負です。残る $r-2<k\le r+2$ は $N$ に依存しない有限個で、各差は $-2$ 以上です。よって正方向には
 
-$
+$$
 T(q)\ge 2\,\#\{k\in\mathbb Z:r+2<k\le N\}-C_r
 \longrightarrow+\infty
-$
+$$
 
 となります。ここで $C_r$ は中央の有限個の項から定めた定数です。
 
 負方向も項を実際に数えます。$\tau_0(q)\le-N-2$ のとき、$-N\le k\le r-2$ の各整数について $\tau_0(q)\le k-1$ と $r\ge k+2$ が同時に成立するので、
 
-$
+$$
 s_k(q)-s_k(p_0)=-1-1=-2
-$
+$$
 
 です。$k\le r-2$ の残りの差は非正、$k>r+2$ では両方が $-1$ で差は零です。中央の有限個の差は高々 $2$ なので
 
-$
+$$
 T(q)\le -2\,\#\{k\in\mathbb Z:-N\le k\le r-2\}+C'_r
 \longrightarrow-\infty
-$
+$$
 
 が従います。
 
@@ -257,21 +257,21 @@ $$
 
 逆写像の滑らかさも確認します。任意の $q\in M$ に対し、流線を時刻零へ戻す唯一のパラメータを $\sigma(q)$ とし、
 
-$
+$$
 K(s,q)=T(\Phi_{-s}(q)),\qquad K(\sigma(q),q)=0
-$
+$$
 
 と置きます。$K$ は滑らかで、零点に限らず
 
-$
+$$
 \partial_sK(s,q)=-dT_{\Phi_{-s}(q)}(Y)<0
-$
+$$
 
 です。再び陰関数定理を適用すると $\sigma(q)$ は局所的に滑らかで、一意性により全域で滑らかです。実際、
 
-$
+$$
 F^{-1}(q)=\bigl(T(q),\Phi_{-\sigma(q)}(q)\bigr)
-$
+$$
 
 となり、右辺の第二成分は $\Sigma$ 上にあります。従って $F$ は滑らかな逆写像を持つ微分同相です。
 
@@ -420,10 +420,10 @@ $$
 
 さらに任意の基準時刻 $t_0$ に対して $|x(t)-x(t_0)|\le|t-t_0|$ です。$C=|a|(|x(t_0)|+|t_0|)$ と置くと
 
-$
+$$
 (1-|a|)t-C\le T(t,x(t))\le(1+|a|)t+C
 \qquad(t\ge0)
-$
+$$
 
 です。$t\le0$ では同様に $T(t,x(t))\le(1-|a|)t+C$ と評価できます。$1-|a|>0$ なので、[Minkowskiの全時刻通過補題](../LORG15/index.md#lem-lorg15-full-time)と合わせて非延長曲線上で $T\to\pm\infty$ と分かり、$T$ はCauchyです。
 
@@ -523,9 +523,9 @@ $$
 
 よって誘導計量は $h=\frac34dx^2+dy^2$ です。非零の接ベクトル $V=u\partial_x+v\partial_y$ に対して
 
-$
+$$
 h(V,V)=\frac34u^2+v^2>0
-$
+$$
 
 なので正定値です。[空間的レベル命題](#prop-lorg20-spacelike-levels)の抽象条件を成分ごとに確認しました。
 <!-- solution-end -->
