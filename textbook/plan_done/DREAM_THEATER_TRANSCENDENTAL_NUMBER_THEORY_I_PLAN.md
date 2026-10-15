@@ -1,8 +1,8 @@
 # DREAM THEATER 超越数論Ⅰ：Hermite–LindemannからLindemann–Weierstrassへ
 
 作成日: 2026-10-11  
-改訂日: 2026-10-16（TRN14実装）  
-状態: in progress（TRN1–TRN14本文・manifestを実装、系列横断監査は未完了）
+改訂日: 2026-10-16（TRN14追跡監査・系列横断検証・PLAN完了）  
+状態: completed（TRN1–TRN14実装・個別査読・Phase E横断照合・公開組立完了）
 
 ## 0. 中心問いと到達点
 
@@ -229,8 +229,8 @@ $$
 
 ## 6. ライフサイクル・直接参照
 
-- 2026-10-14にTRN1本文・TRN系列manifest・公開索引を追加して計画固有作業を開始したため、PLANは `textbook/plans_progress/` に置く。残るTRN2–TRN14と横断監査の完了までは移動しない。
-- TRN系列manifestの `plan` は現在の `textbook/plans_progress/` を参照する。全章・横断監査・公開導線が完了したら `textbook/plan_done/` へ移動する。
+- 2026-10-14にTRN1本文・TRN系列manifest・公開索引を追加して計画固有作業を開始したため、当時のPLANは `textbook/plans_progress/` に置いた（履歴）。
+- TRN系列manifestの `plan` は2026-10-16の完了時に `textbook/plan_done/DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md` へ更新する。
 - SQC7との既存インターフェースは**TRN11のHermite–Lindemann**のまま維持。SQCはTRN11未実装の間は証明済みの定理への実リンクと混同しない。
 - 参照先の状態は着手時に再確認する。NDA5–6は2026-10-14のGitHub上のseries manifestでcompletedである。
 
@@ -255,3 +255,10 @@ $$
 - 2026-10-16：TRN13の評価点付き補助多項式、代数的整数環での合同、共役ノルムの非零性、全特別点に一様な複素積分上界と10演習を実装。TRN14と系列横断監査は残作業。
 
 - 2026-10-16：TRN14に有理係数版の矛盾、代数的独立性、係数体多項式ノルム、整数指数座標、一般の代数的係数版、詳細解答10題を追加。14章本文の執筆は完了、Phase Eの系列横断監査・最終公開確認は未完了。
+
+- 2026-10-16：TRN14の明示追跡監査で定義の判定導線と成立例を補正し、[PR #1535](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1535) を必要なCI 5系統の成功後にマージ。TRN14主要結果9件、証明8件、演習・詳細解答10題を全文再検算した。
+- 2026-10-16：**Phase Eの系列横断照合完了**。TRN1–TRN14の章構造と全 `chapter.yaml`／`knowledge.yaml` のprerequisite一致を確認。全14章のformal statement 76件、proof block 58組、演習126題・詳細解答126組が揃い、系列manifestでは14章連続して `completed` である。数の一致だけで数学的完全性を証明済みとは扱わない。
+  - **既存の数学・読者粒度査読**：TRN1–TRN13は各章のマージ済み追跡監査PR #1458、#1465、#1472、#1479、#1482、#1489、#1492、#1498、#1507、#1510、#1515、#1523、#1527を確認。全主要証明・全演習解答の再導出、初出定義と定義判定の橋渡し、添字・係数・符号・リンクの査読は各PRの個別記録を根拠とする。TRN14は上記#1535。今回、新たに14章を別担当が全件再計算したとは主張しない。
+  - **系列横断の論証接点**：TRN4の微分和と複素端点積分→TRN5–6の合同と階乗上界→TRN7–11の共役形式和・非零性・Hermite–Lindemann→TRN12–14の対称化・算術ノルム・積分上界・多項式ノルム・負冪除去の順序、定理anchorとprerequisiteの到達性を照合。
+  - **参照・公開**：14章のanchor参照475件（章内／TRN間357件、他分野118件）を、実ファイルの相手先（他分野13ファイル・38種類のanchor）に照合し、欠落0件。`textbook/dream-theater-index.json`にTRN1–TRN14の14ページが掲載され、系列manifestと整合する。TRN14最終PRのtextbook・concept・exercise・terminology・Pages assemblyの5系統はすべてsuccess。Pages自動組立・Chromium smokeと、人手での公開画面逐語目視は区別する。
+  - **完了判定**：Phase A–Dの実装と個別追跡監査の既存完了記録、Phase Eの系列横断構造・参照・公開確認を統合した。既知のfatal/major数学的欠陥と未実装・未解答の残件なし。外部第三者による独立査読、人手による全14章の公開画面目視は実施していない。PLANを完了済み履歴へ移し、発見された将来の欠陥は通常の修正プロセスで扱う。
