@@ -1,0 +1,47 @@
+id: "EC10"
+title: "Hasse–Weil L関数と局所因子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC8
+  - EC9
+  - ANT2
+  - EC6
+official_scope: []
+learning_objectives:
+  - 良い素数の点数差a_pから二次局所Euler多項式を導出できる
+  - 悪い素数の分裂乗法的・非分裂乗法的・加法的還元を区別して局所因子を選べる
+  - 節点・尖点の非特異部分の拡大体点数をパラメータ表示から証明できる
+  - Hasse評価を使いEuler積の絶対・局所一様収束域Re s>3/2を証明できる
+  - 局所因子の冪級数展開から素数冪のDirichlet係数と乗法性を導ける
+  - 解析接続と関数等式をmodularityに依存する引用定理として正確に区別できる
+  - 解析的rankと代数的rankの定義を区別しBSDのrank予想を未解決と説明できる
+definitions:
+  - { id: EC10-DEF-01, name: 良い素数の局所係数とEuler多項式 }
+  - { id: EC10-DEF-02, name: 悪い素数の局所Euler多項式 }
+  - { id: EC10-DEF-03, name: Hasse–Weil L関数・局所Euler因子 }
+  - { id: EC10-DEF-04, name: 解析的rank }
+theorems:
+  - { id: EC10-PROP-01, name: 節点・尖点の非特異部分の点数 }
+  - { id: EC10-THM-01, name: Euler積の絶対収束と正則性 }
+  - { id: EC10-THM-02, name: 素数冪係数と乗法性 }
+  - { id: EC10-THM-03, name: 解析接続と関数等式（modularityによる引用定理） }
+canonical_examples:
+  - F5上のy²=x³+x+1で9点とa5=-3
+  - F5上の分裂・非分裂節点と尖点の局所Euler多項式
+  - 良い素数5のb25=4と拡大体のトレース-1の区別
+  - y²+y=x³-x²での2と3の点数と11の悪い局所因子
+problem_patterns:
+  - EC10-A1
+  - EC10-A2
+  - EC10-A3
+  - EC10-A4
+  - EC10-B1
+  - EC10-B2
+  - EC10-B3
+  - EC10-B4
+  - EC10-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 6 }
