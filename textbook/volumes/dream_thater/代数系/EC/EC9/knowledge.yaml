@@ -19,7 +19,7 @@ concepts:
     introduction: formal
     requires: [elliptic-curve.integral-model, elliptic-curve.discriminant-criterion]
   - id: elliptic-curve.minimal-model
-    name: p-最小整モデル・最小判別式指数
+    name: 局所最小整モデルと最小判別式指数
     kind: definition
     aliases: []
     introduction: formal
