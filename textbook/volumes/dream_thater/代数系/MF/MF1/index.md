@@ -115,7 +115,7 @@ $$
 **定義の確認**。 $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ と $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ は整数成分で行列式がそれぞれ $0-(-1)=1$ と $1-0=1$ です。逆行列も整数成分であり、$S,T\in SL_2(\mathbb Z)$ です。一方 $\begin{pmatrix}2&0\\0&1\end{pmatrix}$ の行列式は $2$ なので入りません。
 <!-- definition-example-end -->
 
-向きと周期比の関係を計算します。先ほどの基底変換行列を $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ と書き直すと、$\det M=ad-bc=1$ なので $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応します。この添字の配置で書く理由は、第二周期と第一周期の比が次の一次分数式になるためです。
+向きと周期比の関係を計算します。先ほどの格子基底の取り替えに使う行列を $M=\begin{pmatrix}d&c\\b&a\end{pmatrix}$ と書き直すと、$\det M=ad-bc=1$ なので $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ に対応します。この添字の配置で書く理由は、第二周期と第一周期の比が次の一次分数式になるためです。
 
 $$
 \omega_1'=d\omega_1+c\omega_2,\qquad
@@ -306,7 +306,7 @@ $$
 =|\alpha|^2\operatorname{Im}\tau>0
 $$
 
-です。先に導いた基底変換の判定を使うと、整数 $a,b,c,d$ で $ad-bc=1$ を満たすものが存在して
+です。先に導いた格子基底の取り替えの判定を使うと、整数 $a,b,c,d$ で $ad-bc=1$ を満たすものが存在して
 
 $$
 1=d\alpha+c\alpha\tau=\alpha(c\tau+d),
@@ -423,11 +423,11 @@ $c=0$ かつ行列式 $1$ なら $a=d=\pm1$ で、$\gamma\cdot\tau=\tau+n$（$n\
 
 [基本領域の存在証明](#thm-mf1-fundamental-domain)は虚部の最大値を使いました。実際の計算では、次の操作を交互に実行します。まず $T^n$ で実部を $[-1/2,1/2]$ に入れます。続いて $|\tau|<1$ なら $S\tau=-1/\tau$ を作用させ、再び実部を調整します。$|\tau|\ge1$ となったら停止します。
 
-この手順が**有限回で停止**することを証明します。出発点を $\tau_0=x+iy$ と固定します。$T^n$ は虚部を変えず、$|z|<1$ での $S$ は[虚部公式](#thm-mf1-imaginary-action)により虚部を $\operatorname{Im}z/|z|^2$ に厳密に増やします。途中の点 $\gamma\tau_0$ の虚部は元の $y$ 以上なので、$\gamma$ の下段 $(c,d)$ は
-$
+この手順が**有限回で停止**することを証明します。出発点を $\tau_0=x+iy$ と固定します。$T^n$ は虚部を変えず、$|z|<1$ で $S$ を作用させると、[虚部公式](#thm-mf1-imaginary-action)により虚部が $\operatorname{Im}z/|z|^2$ に厳密に増えます。途中の点 $\gamma\tau_0$ の虚部は元の $y$ 以上なので、$\gamma$ の下段 $(c,d)$ は
+$$
 \frac{y}{|c\tau_0+d|^2}\ge y
 \quad\Longrightarrow\quad |c\tau_0+d|^2\le1
-$
+$$
 を満たします。存在証明で計算した $|c\tau_0+d|^2=(cx+d)^2+c^2y^2$ の評価により、この条件を満たす整数対 $(c,d)$ は有限個です。虚部は $(c,d)$ だけで定まり、$S$ のたび厳密に増えるので、$S$ は有限回しか実行できません。平行移動は各回一度で完了するため、全体も停止します。
 
 例えば $\tau_0=2+i$ は $T^{-2}(2+i)=i$ となり、$|i|=1$ の境界で停止します。$\tau_0=i/2$ は $|i/2|<1$ なので $S(i/2)=2i$ となり、$|2i|=2>1$ の内部で停止します。いずれも実部と絶対値という**二条件**を確認しました。
@@ -504,11 +504,11 @@ $\infty$ 自身は単位行列で到達します。従って $\mathbb P^1(\mathb
 $\infty$ の固定条件は[拡張有理境界の作用](#def-mf1-rational-boundary)の下段 $c=0$ です。行列式 $ad-bc=1$ と整数係数から $a=d=\pm1$、したがって $\gamma=\pm T^n$（$n\in\mathbb Z$）です。射影モジュラー群での $\infty$ の安定化群は無限巡回群 $\langle T\rangle$ となります。
 
 一方 $\rho=e^{2\pi i/3}$ は $\rho^2+\rho+1=0$ を満たし、
-$
+$$
 (ST)\rho=-\frac1{\rho+1}=\rho,\qquad
 ST=\begin{pmatrix}0&-1\\1&1\end{pmatrix},
 \qquad (ST)^3=-I
-$
+$$
 となります。$PSL_2(\mathbb Z)$ では $ST$ の位数は3です。$i$ を固定する $S$ の位数は同じ射影群で2です（下の演習 B1 で全行列を調べます）。これらは**上半平面内の楕円固定点**であり、無限遠のカスプとは別物です。
 
 ## 6. 演習と詳細解答
@@ -752,16 +752,16 @@ $\rho=e^{2\pi i/3}$ を固定する $SL_2(\mathbb Z)$ の行列を全て列挙�
 
 <!-- solution-start -->
 **詳細解答**　$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とすると、$\gamma\rho=\rho$ は
-$
+$$
 c\rho^2+(d-a)\rho-b=0
 \quad\Longleftrightarrow\quad
 (d-a-c)\rho-(b+c)=0
-$
+$$
 です。$\rho\notin\mathbb Q$ なので、整数係数の両項はそれぞれ零、すなわち $d=a+c$、$b=-c$ です。行列式条件は
-$
+$$
 1=ad-bc=a^2+ac+c^2
 =\left(a+\frac c2\right)^2+\frac{3c^2}4.
-$
+$$
 よって $|c|\le1$。$c=0$ なら $a=\pm1$、$c=1$ なら $a=0,-1$、$c=-1$ なら $a=0,1$。得られる6行列は $\pm I,\pm ST,\pm(ST)^2$ です。$(ST)^3=-I$ により射影群では3元になります。しかし $ST$ は全ての点を固定しないので、[作用の核](#thm-mf1-imaginary-action)の $\{\pm I\}$ には属しません。
 <!-- solution-end -->
 
