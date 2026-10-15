@@ -1,0 +1,44 @@
+id: "EC9"
+title: "整数モデル・良い／悪い還元・導手"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC1
+  - EC7
+official_scope: []
+learning_objectives:
+  - 整数およびp-整Weierstrassモデルと係数の還元を説明し判別式を計算できる
+  - 選んだモデルの特異性と楕円曲線の良い還元を反例で区別できる
+  - p-最小整モデルと最小判別式指数の存在および基本判定を証明できる
+  - pが5以上の節点と尖点を接線の二次部分と偏微分から判定できる
+  - 分裂・非分裂乗法的還元の非特異部分を直接数え上げられる
+  - Tate加群と慣性群による導手指数の定義と引用する局所理論の境界を説明できる
+  - 半安定還元の導手指数とpが2,3の野分岐の限界を区別できる
+definitions:
+  - { id: EC9-DEF-01, name: 整数Weierstrassモデルと還元 }
+  - { id: EC9-DEF-02, name: 良い還元・悪い還元 }
+  - { id: EC9-DEF-03, name: 局所最小整モデルと最小判別式指数 }
+  - { id: EC9-DEF-04, name: 乗法的還元・加法的還元・分裂性 }
+  - { id: EC9-DEF-05, name: 導手指数・導手 }
+  - { id: EC9-DEF-06, name: 半安定楕円曲線 }
+theorems:
+  - { id: EC9-PROP-01, name: 最小判別式による良い還元判定 }
+  - { id: EC9-THM-01, name: 還元型と局所導手指数の対応（引用定理） }
+  - { id: EC9-PROP-02, name: 半安定曲線の導手 }
+canonical_examples:
+  - Q上のy²=x³+x+1と5での非最小整数モデル
+  - y²=x³+x²+5とy²=x³+2x²+5のF5上の分裂・非分裂節点
+  - y²=x³+5のF5上の尖点と導手指数
+problem_patterns:
+  - EC9-A1
+  - EC9-A2
+  - EC9-A3
+  - EC9-A4
+  - EC9-B1
+  - EC9-B2
+  - EC9-B3
+  - EC9-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 9, review: 5 }
