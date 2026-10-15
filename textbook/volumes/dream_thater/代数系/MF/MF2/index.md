@@ -130,7 +130,19 @@ $$
 
 ## 2. 格子の Eisenstein 級数
 
-変換則を満たす非零関数を実際に作りましょう。CA9で登場した[格子 Eisenstein 級数](../../../解析系/CA/CA9/index.md#def-ca9-eisenstein-invariants)を正規化格子 $\Lambda_\tau$ に適用します。整数対 $(m,n)\ne(0,0)$ と格子点 $m\tau+n$ は一対一に対応します。
+変換則を満たす非零関数を実際に作りましょう。CA9で登場した[格子 Eisenstein 級数](../../../解析系/CA/CA9/index.md#def-ca9-eisenstein-invariants)を正規化格子 $\Lambda_\tau$ に適用します。整数対 $(m,n)\ne(0,0)$ と格子点 $m\tau+n$ は一対一に対応します。これは記号上の対応ではなく、基底 $1,\tau$ による一意な座標表示です。$\tau=x+iy$、$y>0$ とすると、$\omega=m\tau+n$ の実部・虚部は
+
+$$
+\begin{pmatrix}\operatorname{Re}\omega\\ \operatorname{Im}\omega\end{pmatrix}
+=
+\begin{pmatrix}x&1\\y&0\end{pmatrix}
+\begin{pmatrix}m\\n\end{pmatrix},
+\qquad
+m=\frac{\operatorname{Im}\omega}{y},\quad
+n=\operatorname{Re}\omega-\frac{x}{y}\operatorname{Im}\omega.
+$$
+
+座標変換の行列式は $-y\ne0$ なので、異なる整数対が同じ格子点を表すことはありません。また $\omega=0$ なら $m=n=0$ です。したがって、格子の非零点を足す操作は非零整数対を足す操作と同じであり、以下の級数で分母が零にならない理由もこの座標表示から分かります。
 
 <a id="def-mf2-eisenstein-series"></a>
 <!-- formal-statement-start -->
@@ -150,7 +162,7 @@ $$
 **定義の確認**。$\tau=i$、$k=4$ を選ぶと $(m,n)=(0,1),(0,-1),(1,0)$ の項はそれぞれ $1,1,1$ です。また全ての非零整数対で $mi+n\ne0$ です。絶対値について、$r=\max(|m|,|n|)$ の殻は $8r$ 点で、$|mi+n|^4=(m^2+n^2)^2\ge r^4$ なので、絶対値の総和は $8\sum_{r\ge1}r^{-3}$ 以下で有限です。分母の非零性と収束の両方を直接確認しました。
 <!-- definition-example-end -->
 
-定義が実際に成立するには、分母が零にならないことと収束することの両方が必要です。$\tau\in\mathbb H$ では $m\tau+n=0$ が整数 $m,n$ について成立するのは $(m,n)=(0,0)$ の場合だけです。
+定義が実際に成立するには、分母が零にならないことと収束することの両方が必要です。$\tau\in\mathbb H$ での分母の非零性は、上の座標表示から従います。さらに $k\ge4$ なら $1<\zeta(k)<\infty$ であるため、正規化の分母 $2\zeta(k)$ も零になりません。一般の $\tau$ における絶対収束は次の定理で示します。
 
 <a id="thm-mf2-eisenstein-modularity"></a>
 <!-- formal-statement-start -->
@@ -199,15 +211,25 @@ $$
 \sum_{n\ne0}n^{-k}=2\sum_{n\ge1}n^{-k}=2\zeta(k).
 $$
 
-残りを見積もります。$A=|m|y$（$y\ge1$）とすると、横軸上の整数を $-mx$ からの距離順に並べた積分比較によって
+残りを見積もります。$m\ne0$、$y\ge1$ とし、$A=|m|y\ge1$ と置きます。関数 $h_A(t)=(t^2+A^2)^{-k/2}$ は $t\ge0$ で単調減少です。各整数 $j\ge0$ について、距離 $|mx+n|$ が区間 $[j,j+1)$ に入る整数 $n$ は高々2個です。よって
 
 $$
+\begin{aligned}
 \sum_{n\in\mathbb Z}\frac1{\big((mx+n)^2+A^2\big)^{k/2}}
-\le A^{-k}+2\int_0^\infty(t^2+A^2)^{-k/2}\,dt+C_k A^{-k}
-\le C'_k A^{1-k}
+&=\sum_{n\in\mathbb Z}h_A(|mx+n|)\\
+&\le 2h_A(0)+2\sum_{j\ge1}h_A(j)\\
+&\le2A^{-k}+2\int_0^\infty(t^2+A^2)^{-k/2}\,dt.
+\end{aligned}
 $$
 
-となります。最後の不等式は $t=Au$ と置き、$A\ge1$ を使いました。従って $m\ne0$ の項の絶対値の総和は
+最後の不等式は単調減少性による積分比較です。積分で $t=Au$ と置けば
+
+$$
+\int_0^\infty(t^2+A^2)^{-k/2}\,dt
+=A^{1-k}\int_0^\infty(1+u^2)^{-k/2}\,du.
+$$
+
+右端の積分は $k>1$ で有限です。また $A\ge1$ なら $A^{-k}\le A^{1-k}$ なので、$x,m,y$ に依らない定数 $C_k>0$ を用いて元の和は $C_kA^{1-k}$ 以下となります。従って $m\ne0$ の項の絶対値の総和は
 
 $$
 \sum_{m\ne0}\sum_{n\in\mathbb Z}|m\tau+n|^{-k}
@@ -258,7 +280,7 @@ $$
 
 を積分します。辺上の $\cot(\pi w)$ は $N$ に依存しない定数で有界です（縦辺は半整数の実部、横辺は虚部の絶対値が大きい）。分母の絶対値は辺上で $cN^k$ 以上、周長は $O(N)$ なので、積分は $O(N^{1-k})\to0$ です。
 
-$w=n$（整数）での留数は $(n-z)^{-k}$ です。$w=z$ は $k$ 位の極で、留数は
+$w=n$（整数）での留数は $(n-z)^{-k}$ です。$w=z$ は $k$ 位の極で、[高位の極の留数公式](../../../解析系/CA/CA4/index.md#prop-ca4-residue-formulas)を分子 $g(w)=\pi\cot(\pi w)$ に適用すると、留数は
 
 $$
 \frac1{(k-1)!}\left(\frac{d}{dz}\right)^{k-1}\bigl(\pi\cot(\pi z)\bigr).
@@ -353,7 +375,27 @@ $$
 \end{aligned}
 $$
 
-この部分分数表示は上の留数計算と同じ正方形積分を $\pi\cot(\pi w)/(w-z)$ に直接用いる代わりに、収束を保証するよう $1/(w-z)-1/w$ と差を取って適用して得られます。係数 $z^3,z^5$ の比較から
+この部分分数表示も、[留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)から確かめられます。$z\notin\mathbb Z$ を固定して、先ほどと同じ正方形上で
+
+$$
+\pi\cot(\pi w)\left(\frac1{w-z}-\frac1w\right)
+=\frac{z\pi\cot(\pi w)}{w(w-z)}
+$$
+
+を積分します。辺上の $\cot$ は一様に有界で、括弧内は $O(N^{-2})$、周長は $O(N)$ なので積分は $O(N^{-1})\to0$ です。囲む極での留数は $w=z$ で $\pi\cot(\pi z)$、整数 $n\ne0$ で $(n-z)^{-1}-n^{-1}$ です。$w=0$ では $\pi\cot(\pi w)=w^{-1}+O(w)$ と
+
+$$
+\frac1{w-z}-\frac1w=-\frac1w-\frac1z+O(w)
+$$
+
+から留数は $-1/z$ です。従って積分の極限を取ると
+
+$$
+0=\pi\cot(\pi z)-\frac1z+
+\sum_{n\ne0}\left(\frac1{n-z}-\frac1n\right).
+$$
+
+$n$ と $-n$ の項を組にすれば、上に記した部分分数表示が得られます。ここで係数 $z^3,z^5$ を比較すると
 
 $$
 2\zeta(4)=\frac{\pi^4}{45},\qquad
