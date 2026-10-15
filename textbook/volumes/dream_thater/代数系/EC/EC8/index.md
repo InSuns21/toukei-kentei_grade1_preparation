@@ -126,7 +126,17 @@ $$
 =\frac{\varphi\psi}{nm}
 $$
 
-です。こうして得る有理数係数の環を $A_{\mathbb Q}$（通常は $A\otimes_{\mathbb Z}\mathbb Q$ とも書く）と呼びます。[EC4の倍数写像の次数](../EC4/index.md#thm-ec4-multiplication-degree)と[次数の乗法性](../EC4/index.md#def-ec4-degree)から、$n\ne0$ かつ $\varphi\ne0$ なら $\deg([n]\varphi)=n^2\deg\varphi>0$ です。したがって非零の自己準同型が整数倍で零になることはなく、$A$ を分母1の元として $A_{\mathbb Q}$ に埋め込めます。
+です。演算が代表元の選び方によらないことも、分数の同一視から確認できます。例えば $\varphi/n=\varphi'/n'$ なら $n'\varphi=n\varphi'$ なので、任意の $\psi/m$ について
+
+$$
+n'(m\varphi+n\psi)=n(m\varphi'+n'\psi),
+\qquad
+n'(\varphi\psi)=n(\varphi'\psi)
+$$
+
+が成り立ちます。これが、それぞれ通分した和と積の分子が同じ分数を表す理由です。もう一方の分数の代表元を替えても同様です。
+
+こうして得る有理数係数の環を $A_{\mathbb Q}$（通常は $A\otimes_{\mathbb Z}\mathbb Q$ とも書く）と呼びます。[EC4の倍数写像の次数](../EC4/index.md#thm-ec4-multiplication-degree)と[次数の乗法性](../EC4/index.md#def-ec4-degree)から、$n\ne0$ かつ $\varphi\ne0$ なら $\deg([n]\varphi)=n^2\deg\varphi>0$ です。したがって非零の自己準同型が整数倍で零になることはなく、$A$ を分母1の元として $A_{\mathbb Q}$ に埋め込めます。
 
 <a id="lem-ec8-quadratic-norm"></a>
 
