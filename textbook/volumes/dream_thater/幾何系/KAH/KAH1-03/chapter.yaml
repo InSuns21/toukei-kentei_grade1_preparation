@@ -1,0 +1,36 @@
+id: "KAH1-03"
+title: "Kähler条件の同値性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-02
+  - CM2-10
+  - GEO13
+official_scope: []
+learning_objectives:
+  - 正則接束のChern接続を実接束へ延長し局所係数を計量から導出できる
+  - Chern捩率と基本(1,1)形式の閉性が同値であることを両方向に証明できる
+  - dω=0、Levi–Civita接続による∇J=0、Chern接続との一致を同値として証明できる
+  - 可積分性を使う箇所を特定し概Kählerへの無条件適用を避けられる
+  - 複素次元1の特別性と非Kähler計量の捩率を直接計算できる
+  - 非定数Kähler計量で接続係数が非零でも捩率が零になることを確認できる
+definitions: []
+theorems:
+  - { id: KAH1-03-PROP-01, name: 接束のChern接続と捩率の局所式 }
+  - { id: KAH1-03-THM-01, name: Kähler閉性とChern捩率の同値性 }
+  - { id: KAH1-03-THM-02, name: Kähler条件の接続による同値判定 }
+canonical_examples:
+  - 定数対角Hermite計量のChern接続
+  - 非定数局所ポテンシャルの捩率消滅
+  - 正値だが非閉な対角Hermite計量の捩率
+  - 複素次元1での非零接続係数と捩率零
+problem_patterns:
+  - KAH1-03-CHERN-CONNECTION
+  - KAH1-03-TORSION
+  - KAH1-03-DIAGONAL-CLASSIFICATION
+  - KAH1-03-LC-EQUIVALENCE
+  - KAH1-03-INTEGRABILITY-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
