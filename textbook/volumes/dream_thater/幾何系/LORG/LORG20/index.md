@@ -8,7 +8,15 @@
 
 今回ほしいのは、**すべての非延長因果曲線を一度だけ横切り、どの点でも空間的な滑らかな面を作る時計**です。これが存在すれば、面の正定値計量と時間に沿う単位法線を分け、後続の初期値問題で何を「時刻一定」と呼ぶかを明確にできます。
 
-以下、$(M,g)$ は境界のない連結Hausdorff・第二可算の滑らかな時間向き付きLorentz多様体、次元 $n+1$（$n\ge1$）、符号 $(-,+,\ldots,+)$ です。[未来因果曲線](../LORG3/index.md#def-lorg3-causal-curve)は停留片を除いた局所Lipschitz曲線を許し、[両側非延長性](../LORG13/index.md#def-lorg13-inextendible)は時空内で因果曲線として継ぎ足せないことを意味します。$g$ による勾配 $\nabla^g f$ は $g(\nabla^g f,V)=df(V)$ で定義します。$g$ は非退化なのでこのベクトルは一意です。
+以下、$(M,g)$ は境界のない連結Hausdorff・第二可算の滑らかな時間向き付きLorentz多様体とします。次元は $n+1$（$n\ge1$）、符号は $(-,+,\ldots,+)$ です。[未来因果曲線](../LORG3/index.md#def-lorg3-causal-curve)は停留片を除いた局所Lipschitz曲線を許します。[両側非延長性](../LORG13/index.md#def-lorg13-inextendible)とは、時空内で因果曲線として継ぎ足せないことです。
+
+$g$ による勾配 $\nabla^gf$ は、任意の接ベクトル $V$ に対する条件
+
+$
+g(\nabla^gf,V)=df(V)
+$
+
+で定まります。$g$ は非退化なのでこのベクトルは一意です。
 
 ## 2. 滑らかなCauchy temporal functionとは
 
@@ -548,7 +556,15 @@ $$
 \gamma:(-\infty,0)\to M_*,\qquad \gamma(s)=(s,0)
 $$
 
-は未来時間的曲線で、未来端 $s\to0$ の極限 $(0,0)$ が $M_*$ にないので、その端で $M_*$ 内の連続因果曲線として延長できません。過去端も非延長であり、$t(\gamma(s))=s$ の値域は $(-\infty,0)$ です。[Cauchy temporalの定義](#def-lorg20-cauchy-temporal)の第二条件が失敗します。$t=0$ で $x\ne0$ の点は残りますが、この曲線はそこに一度も交わりません。点除去により[大域双曲性のコンパクトダイヤモンド条件](../LORG16/index.md#def-lorg16-global-hyperbolicity)が壊れ、すべての流線とレベルを交差させる論証を失うのです。
+は未来時間的曲線です。未来端 $s\to0$ の極限 $(0,0)$ が $M_*$ にないので、その端で $M_*$ 内の連続因果曲線として延長できません。過去端も非延長です。この曲線上で時計の値域を計算すると
+
+$
+(t\circ\gamma)((-\infty,0))=(-\infty,0)
+$
+
+となり、[Cauchy temporalの定義](#def-lorg20-cauchy-temporal)の第二条件が失敗します。$t=0$ では $x\ne0$ の点だけが残りますが、この曲線は一度も交わりません。
+
+点除去により[大域双曲性のコンパクトダイヤモンド条件](../LORG16/index.md#def-lorg16-global-hyperbolicity)が壊れ、すべての流線とレベルを交差させる論証を失うのです。
 <!-- solution-end -->
 
 <a id="ex-lorg20-b04"></a>
