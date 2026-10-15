@@ -1,0 +1,36 @@
+id: "TRN8"
+title: "Hermite–Lindemann：仮定と対称化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN7
+official_scope: []
+learning_objectives:
+  - "e^alphaの代数性を整数係数多項式関係に直しalpha非零による指数の相異を検証できる"
+  - "共役積の各指数と係数を多重添字で展開し指数衝突後も整数係数であることを証明できる"
+  - "共役積の形式的非零性と指数評価零性を別々に検証できる"
+  - "指数反転を導入して積の零指数係数が整数平方和となり正であることを示せる"
+  - "反転積のGalois不変性・反転対称性・零係数除去を検算できる"
+  - "形式的非零性と係数和の非零性と解析的超越性の最終矛盾を区別できる"
+theorems:
+  - { id: TRN8-PROP-01, name: 指数関係への変換 }
+  - { id: TRN8-PROP-02, name: 整数係数の共役積 }
+  - { id: TRN8-LEM-01, name: 指数反転積の0係数 }
+  - { id: TRN8-THM-01, name: Hermite–Lindemannの仮定から作る対称関係 }
+canonical_examples:
+  - "sqrt(2)の共役積による指数0の衝突"
+  - "指数反転で負係数を平方和に変換する例"
+  - "係数和が0でも反転積の零指数係数が正となる例"
+problem_patterns:
+  - TRN8-POLYNOMIAL-RELATION
+  - TRN8-ALPHA-NONZERO-NECESSITY
+  - TRN8-CONJUGATE-EXPONENT-COLLISIONS
+  - TRN8-INTEGER-COEFFICIENTS
+  - TRN8-REFLECTION-ZERO-COEFFICIENT
+  - TRN8-GALOIS-INVARIANCE
+  - TRN8-FORMAL-VS-ANALYTIC-NONZERO
+  - TRN8-FULL-SYMMETRIZATION
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
