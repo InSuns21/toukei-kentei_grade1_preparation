@@ -220,7 +220,6 @@ $$
 右辺のうち $\sigma=\mathrm{id}$ の因子は $P(y)=0$ であるため、積全体が0です。他の因子の値を計算する必要はありません。$\square$
 <!-- proof-end -->
 
-<!-- definition-example-start: lem-trn14-polynomial-norm -->
 **具体例：二次体で係数を消す**
 
 $K=\mathbb Q(\sqrt2)$、$P(Y)=Y-\sqrt2$ とします。非自明な共役 $\sigma$ は $\sqrt2$ を $-\sqrt2$ に替え、$Y$ はそのままです。従って
@@ -231,7 +230,6 @@ N_K(P)=(Y-\sqrt2)(Y+\sqrt2)=Y^2-2
 $$
 
 $y=\sqrt2$ なら $P(y)=0$、$N_K(P)(y)=0$ も成り立ちます。一方、$y=e$ に $\sigma$ を作用させる必要はありません。あくまで係数の共役である点を区別します。
-<!-- definition-example-end -->
 
 <a id="thm-trn14-exp-algebraic-independent-qbar"></a>
 
