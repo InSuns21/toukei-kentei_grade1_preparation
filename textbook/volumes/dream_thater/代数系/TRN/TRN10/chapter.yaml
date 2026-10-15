@@ -1,0 +1,38 @@
+id: "TRN10"
+title: "Hermite–Lindemann：算術下界と複素積分上界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TRN9
+official_scope: []
+learning_objectives:
+  - "Hermiteの複素端点積分恒等式を微分和へ適用し重み付き指数関係による相殺と符号を証明できる"
+  - "複素線分を実パラメータ化し指数因子の実部に基づく上界を計算できる"
+  - "有限指数集合の全線分で一様なBを素数pと独立に構成できる"
+  - "非零整数A_pの算術下界とCB^p/(p-1)!の解析上界を結合できる"
+  - "階乗の比を使って収束を示し有限個の例外素数を避けた矛盾を証明できる"
+  - "指数関係・Galois不変性・固定定数の仮定を失う反例と証明の破綻箇所を特定できる"
+definitions:
+  - { id: TRN10-DEF-01, name: 複素線分の共通評価定数 }
+theorems:
+  - { id: TRN10-PROP-01, name: 微分和の重み付き線分積分表示 }
+  - { id: TRN10-PROP-02, name: 補助多項式の全線分一様上界 }
+  - { id: TRN10-PROP-03, name: 各複素端点の積分上界 }
+  - { id: TRN10-THM-01, name: 算術下界と複素積分上界の矛盾 }
+canonical_examples:
+  - "複素端点1+2iと負実部の指数因子の絶対値"
+  - "T={0,±1}の一様定数とT={0,±i}の積分評価"
+  - "B_n=nとしたとき階乗の収束が失敗する例"
+problem_patterns:
+  - TRN10-COMPLEX-SEGMENT
+  - TRN10-SIGN-CANCELLATION
+  - TRN10-UNIFORM-CONSTANTS
+  - TRN10-NEGATIVE-REAL-PART
+  - TRN10-FACTORIAL-DECAY
+  - TRN10-GALOIS-INTEGER-BOUND
+  - TRN10-FINITE-EXCEPTIONAL-PRIMES
+  - TRN10-FULL-CONTRADICTION
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []

@@ -1,8 +1,8 @@
 # DREAM THEATER 超越数論Ⅰ：Hermite–LindemannからLindemann–Weierstrassへ
 
 作成日: 2026-10-11  
-改訂日: 2026-10-15（TRN9実装）  
-状態: in progress（TRN1–TRN9本文・manifestを実装、TRN10–TRN14および横断監査は未完了）
+改訂日: 2026-10-15（TRN10実装）  
+状態: in progress（TRN1–TRN10本文・manifestを実装、TRN11–TRN14および横断監査は未完了）
 
 ## 0. 中心問いと到達点
 
