@@ -1,0 +1,62 @@
+chapter: TRN14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TRN13
+forward_references: []
+
+concepts:
+  - id: transcendence.lw-rational-theorem
+    name: Lindemann–Weierstrassの有理係数版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lindemann–Weierstrassの有理係数版）]
+    requires: [transcendence.lw-rational-symmetric-reduction, transcendence.lw-indexed-arithmetic-norm, transcendence.lw-indexed-uniform-error]
+  - id: transcendence.algebraic-independence-definition
+    name: 体上の代数的独立性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（体上の代数的独立性）]
+    requires: []
+  - id: transcendence.lw-algebraic-independence-q
+    name: 有理一次独立な代数的指数の像の代数的独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有理一次独立な代数的指数の像の代数的独立性）]
+    requires: [transcendence.lw-rational-theorem, transcendence.algebraic-independence-definition]
+  - id: transcendence.lw-polynomial-coefficient-norm
+    name: 係数体の有限共役積
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（係数体の有限共役積）]
+    requires: [transcendence.lw-algebraic-independence-q]
+  - id: transcendence.lw-algebraic-independence-qbar
+    name: 代数的係数に対する代数的独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（代数的係数に対する代数的独立性）]
+    requires: [transcendence.lw-polynomial-coefficient-norm, transcendence.lw-algebraic-independence-q]
+  - id: transcendence.lw-integral-exponent-coordinates
+    name: 有限個の代数的指数の整数座標
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限個の代数的指数の整数座標）]
+    requires: []
+  - id: transcendence.lw-algebraic-coefficients
+    name: Lindemann–Weierstrassの定理：代数的係数版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lindemann–Weierstrassの定理：代数的係数版）]
+    requires: [transcendence.lw-algebraic-independence-qbar, transcendence.lw-integral-exponent-coordinates]
+  - id: transcendence.lw-corollary-transcendence-pi
+    name: 非零代数的指数の像と円周率
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（非零代数的指数の像と円周率）]
+    requires: [transcendence.lw-algebraic-coefficients, transcendence.pi-transcendence]
+  - id: transcendence.lw-corollary-algebraic-logarithms
+    name: 代数的数の複素対数値
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（代数的数の複素対数値）]
+    requires: [transcendence.lw-corollary-transcendence-pi]
