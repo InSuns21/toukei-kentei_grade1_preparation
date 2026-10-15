@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - EC5
+  - GRP2
   - MOD2
   - TRN1
 forward_references: []

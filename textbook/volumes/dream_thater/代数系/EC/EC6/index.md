@@ -25,7 +25,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec6-weak-mw -->
-**定義の確認**。$E:y^2=x^3-x$ の $T=(0,0)$ は $T=-T$ なので $2T=O$ です。ただし $T\in2E(\mathbb Q)$ かどうかは別問題です。商の元 $[T]$ は「$T$ に2倍点を足して得られる点すべて」を表します。有限位数点の個数と商の個数を同じものとして数えてはいけません。
+**定義の確認**。まず加法群 $G=\mathbb Z$ では $2G=2\mathbb Z$ であり、商 $\mathbb Z/2\mathbb Z$ の類は偶数類と奇数類の2つです。これが「2倍点で割った商が有限」という条件の直接の検査です。楕円曲線 $E:y^2=x^3-x$ の $T=(0,0)$ は $T=-T$ なので $2T=O$ です。ただし $T\in2E(\mathbb Q)$ かどうかは別問題です。商の元 $[T]$ は「$T$ に2倍点を足して得られる点すべて」を表します。有限位数点の個数と商の個数を同じものとして数えてはいけません。
 <!-- definition-example-end -->
 
 有理点群が有限生成なら、この商は有限です。逆向きの証明には、高さという楕円曲線固有の道具が必要になります。
@@ -99,15 +99,30 @@ $$
 $$
 x(2P)=\left(\frac{3x^2+2ax+b}{2y}\right)^2-2x-a
 $$
-を展開した結果と一致します。$y$ 座標についても $V= y(1-b/x^2)$ を
+を展開した結果と一致します。$y$ 座標については、途中式を省略せずに比べます。$F=x^2+ax+b$ と置くと
 $$
-y(\widehat\phi\phi(P))=\frac{V}{8}\left(1-\frac{b'}{U^2}\right)
+U=\frac F x,\qquad
+V=\frac{y(x^2-b)}{x^2},\qquad
+1-\frac{b'}{U^2}=\frac{F^2-b'x^2}{F^2}.
 $$
-に代入し、$y^2=x(x^2+ax+b)$ で約分すると、倍加公式の
+従って双対写像の合成の $y$ 座標は
 $$
-y(2P)=-y+\frac{3x^2+2ax+b}{2y}\bigl(x-x(2P)\bigr)
+y(\widehat\phi\phi(P))
+=\frac{y(x^2-b)(F^2-b'x^2)}{8x^2F^2}.
 $$
-に一致します。従って分母が非零となる点で合成は $[2]$ です。両辺は曲線上の射なので一致は $O$ や有限個の例外点へも延長します。$E'$ 側も同じ構成を施して係数を置換すれば成立します。$\square$
+一方、[倍加公式](../EC2/index.md#def-ec2-chord-tangent-addition)に
+$$
+\lambda=\frac{3x^2+2ax+b}{2y},\qquad
+x(2P)=\frac{(x^2-b)^2}{4xF}
+$$
+を代入すると、$y^2=xF$ より
+$$
+\frac{y(2P)}y
+=-1+\frac{3x^2+2ax+b}{2xF}
+\left(x-\frac{(x^2-b)^2}{4xF}\right)
+=\frac{(x^2-b)(F^2-b'x^2)}{8x^2F^2}.
+$$
+これで $y$ 座標の**符号も**一致します。ここで計算したのは $xyF\ne0$ の点ですが、両辺は[EC4で定義した曲線の射](../EC4/index.md#def-ec4-isogeny)なので、稠密な開集合での一致は例外点にも延長します。$E'$ 側でも $(a,b)$ を $(a',b')$ に置き換えて同じ計算を行います。二回目の係数 $(4a,16b)$ の曲線から $E$ への $(U,V)\mapsto(U/4,V/8)$ は群同型なので、対応する合成は $\phi\circ\widehat\phi=[2]_{E'}$ です。$\square$
 <!-- proof-end -->
 
 *計算例*。$E:y^2=x^3-x$ では $a=0,b=-1$ ですから
@@ -148,7 +163,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec6-descent-map -->
-**定義の確認**。$E:y^2=x^3-x$ の $(1,0),(-1,0),T$ はいずれも曲線上にあり、$\alpha_E(1,0)=[1]$、$\alpha_E(-1,0)=[-1]$、$\alpha_E(T)=[b]=[-1]$ となります。$x(T)=0$ を $[0]$ として代入しないのは、平方類の群に零が含まれないからです。
+**定義の確認**。$E:y^2=x^3-x$ の $(1,0),(-1,0),T$ はいずれも曲線上にあり、$\alpha_E(O)=[1]$、$\alpha_E(1,0)=[1]$、$\alpha_E(-1,0)=[-1]$、$\alpha_E(T)=[b]=[-1]$ となります。この例では定義の三つの場合（$O$、$T$、その他の点）を全て確認しました。$x(T)=0$ を $[0]$ として代入しないのは、平方類の群に零が含まれないからです。
 <!-- definition-example-end -->
 
 <a id="lem-ec6-descent-hom"></a>
@@ -208,7 +223,11 @@ $$
 x(\widehat\phi(Q'))=\frac{X+a'+b'/X}{4}
 =\frac{Y^2}{4X^2},
 $$
-従って像の有限点で $x\ne0$ なら平方類は $[1]$ です。$O'$ と $(0,0)$ は $O$ に移ります。$Y=0$ の別の有理2位数点があれば、その像は $T$ で、この存在から $b$ は平方になります。ゆえに $\widehat\phi(E'(\mathbb Q))\subseteq\ker\alpha_E$。
+従って像の有限点で $x\ne0$ なら平方類は $[1]$ です。$O'$ と $(0,0)$ は $O$ に移ります。$Y=0$ かつ $X\ne0$ の別の有理2位数点では $X^2-2aX+b'=0$ であり、その判別式は
+$$
+(2a)^2-4b'=4a^2-4(a^2-4b)=16b.
+$$
+したがって有理根 $X$ の存在から $b$ は有理数の平方と分かります。この点の像の $x$ 座標は $0$ であり $T$ に移るので、$\alpha_E(T)=[b]=[1]$ です。ゆえに $\widehat\phi(E'(\mathbb Q))\subseteq\ker\alpha_E$。
 
 逆に $\alpha_E(P)=[1]$ とします。$P=(t^2,y)$、$t\in\mathbb Q^\times$ の場合、$\widehat\phi$ の前像の $X$ 座標に必要なのは
 $$
@@ -231,7 +250,11 @@ $$
 
 $P=O$ なら $O'$ が前像です。$P=T$ で $[b]=[1]$ なら $b=s^2$（$s\in\mathbb Q^\times$）と書けます。このとき $X=a+2s$ または $a-2s$ の少なくとも一方は零でなく、$Q'=(X,0)\in E'(\mathbb Q)$ です。実際 $X^2-2aX+b'=(X-a)^2-4s^2=0$ であり、この点は $\widehat\phi(Q')=T$ を満たします。
 
-$\ker\alpha_{E'}=\phi(E(\mathbb Q))$ は $(a,b)$ を $(a',b')$ に置き換え、二回目の同種写像を $4,8$ で縮める同じ計算です。$\square$
+第二の等式も具体的に確かめられます。$E'$ に同じ核の計算を適用すると、$E'$ から係数 $(4a,16b)$ の曲線 $E''$ への2-isogeny $\psi$ の双対像が $\ker\alpha_{E'}$ です。$E''\to E$ の群同型
+$$
+\iota(U,V)=(U/4,V/8)
+$$
+を用いると、$\iota\circ\psi=\widehat\phi$ であり、上の2-isogenyの座標式を逆向きにスケーリングしたものは $\phi\circ\iota$ となります。ゆえに $\ker\alpha_{E'}=(\phi\circ\iota)(E''(\mathbb Q))=\phi(E(\mathbb Q))$ です。$\square$
 <!-- proof-end -->
 
 ## 4. なぜ平方類の候補が有限になるか
@@ -304,7 +327,7 @@ $[2]=\widehat\phi\phi$ です。$E/\widehat\phi E'$ の類の有限性と、$\wi
 <!-- proof-start -->
 ### 証明
 
-[核の定理](#thm-ec6-descent-kernel)と群準同型の[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)から
+[核の定理](#thm-ec6-descent-kernel)を用います。ここで使うのは線形写像ではなく群準同型に関する[群の第一同型定理](../../GRP/GRP2/index.md#thm-grp2-first-isomorphism)です。実際、剰余類 $P+\ker\alpha_E$ を $\alpha_E(P)$ へ送る対応は、代表元の差が核に入るとき・そのときに限り像が同じになるため良定義かつ全単射です。従って
 $$
 E(\mathbb Q)/\widehat\phi(E'(\mathbb Q))
 \simeq\operatorname{im}\alpha_E
@@ -367,7 +390,7 @@ $$
 $$
 h_x(P+R)\le\log(K_RH^3)=3h_x(P)+\log K_R.
 $$
-$x(P)=u$ となるのは $P=R,-R$ の二点だけです。これらでは $P+R=2R,O$ なので、定数 $D_R$ を必要な分だけ大きくして処理できます。$R=O$ なら $P+R=P$ だから $D_O=0$ とできます。$\square$
+$x(P)=u$ となるのは $P=R,-R$ の二点だけです。これらでは $P+R=2R,O$ なので、定数 $D_R$ を必要な分だけ大きくして処理できます。さらに $P=O$ の場合は $h_x(O)=0$、$P+R=R$ なので $D_R\ge h_x(R)$ として処理できます（$R=O$ なら $D_O=0$）。これで無限遠点を含む全ての有理点について評価が成り立ちます。$\square$
 <!-- proof-end -->
 
 <a id="thm-ec6-height-descent"></a>
@@ -387,6 +410,26 @@ $$
 
 <!-- proof-start -->
 ### 証明
+
+まず[EC1の短Weierstrass形への変換](../EC1/index.md#thm-ec1-short-form)により、任意の非特異な有理楕円曲線を $\mathbb Q$ 上で短Weierstrass形
+$$
+y^2=x^3+Ax+B,\qquad A,B\in\mathbb Q
+$$
+へ移せます。正整数 $d$ を選んで次の2つを整数にします。
+$$
+d^4A\in\mathbb Z,\qquad d^6B\in\mathbb Z.
+$$
+座標を
+$$
+x=\frac{X}{d^2},\qquad y=\frac{Y}{d^3}
+$$
+と変換し、両辺に $d^6$ を掛けると
+$$
+Y^2=X^3+d^4AX+d^6B
+$$
+となり、整数係数の短Weierstrass形が得られます。
+
+以下ではこの模型を固定し、対応する高さ $h_x$ を使います。有理点群の同型は倍数写像と有限生成性を保存します。
 
 $E(\mathbb Q)/2E(\mathbb Q)$ の有限個の代表を $R_1,\dots,R_s$ とします。任意の点 $P$ はある $i$ と $Q\in E(\mathbb Q)$ で $P=2Q+R_i$ と書けます。[固定点加法の補題](#lem-ec6-translation-height)を $-R_i$ に適用して
 $$
@@ -463,7 +506,20 @@ $$
 
 数体とは $\mathbb Q$ の有限次拡大をいいます。[TRN1の代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)に従い、$L$ に属する代数的整数全体の環を $\mathcal O_L$ と書きます。
 
-$\mathcal O_L$ の非零素イデアル $\mathfrak p$ に関する指数 $v_{\mathfrak p}$ は、分数イデアルの素因数分解から定まります。有理素数の指数 $v_p$ を数体へ拡張する理由は、根 $e_i$ が有理整数とは限らないからです。
+ここで数体の算術に必要な語を順に導入します。$\mathcal O_L$ の**イデアル**とは加法で閉じ、$\mathcal O_L$ の元を掛けても閉じる部分集合です。**素イデアル** $\mathfrak p\ne(0)$ は、$uv\in\mathfrak p$ なら $u\in\mathfrak p$ または $v\in\mathfrak p$ を満たすイデアルです。例えば $\mathcal O_{\mathbb Q}=\mathbb Z$ では $(p)=p\mathbb Z$ が素数 $p$ に対応します。
+
+**分数イデアル**は、ある零でない $d\in\mathcal O_L$ を掛けると整イデアルに含まれるような有限生成 $\mathcal O_L$ 部分加群です。これらの非零元の積には、数体の整数環に対する**素イデアルの一意分解**があります（この深い算術的事実は本章の既習結果からは証明しません）。特に非零 $u\in L$ の主分数イデアルは
+$$
+(u)=\prod_{\mathfrak p}\mathfrak p^{v_{\mathfrak p}(u)}
+$$
+と一意に書け、指数は有限個を除き0です。有理数の $v_p$ と同じ役割を持ち、乗法に対して指数が加算されます。**イデアル類群**は非零分数イデアルを主分数イデアルで割った群、**単数群** $\mathcal O_L^\times$ は $\mathcal O_L$ の乗法逆元も $\mathcal O_L$ に属する元の群です。
+
+この表示と条件の関係を確認します。$[u]=[uw^2]$ と代表を変えても
+$$
+v_{\mathfrak p}(uw^2)
+=v_{\mathfrak p}(u)+2v_{\mathfrak p}(w)
+$$
+で偶奇は不変です。$L=\mathbb Q$ なら $(u)$ の各指数は普通の素因数指数であり、$S$ の外の偶奇を記録するだけなので、第4節の平方類判定と一致します。
 
 <a id="def-ec6-s-squareclasses"></a>
 
@@ -498,7 +554,16 @@ $$
 (u)=\mathfrak a^2\prod_{\mathfrak p\in S}\mathfrak p^{\varepsilon_{\mathfrak p}},
 \qquad \varepsilon_{\mathfrak p}\in\{0,1\}.
 $$
-右端の積は有限通りです。イデアル類群の有限性から、可能な $\mathfrak a$ の類も有限通りです。類と余りの積を固定した二つの $u$ の比は、ある単数と数体元の平方との積になります。単数群が有限生成なら、その平方類の個数は有限です。
+右端の積は有限通りです。イデアル類群の有限性から、可能な $\mathfrak a$ の類も有限通りです。この最後の一手も確かめます。同じ指数列 $(\varepsilon_{\mathfrak p})$ を持つ $u_1,u_2$ について
+$$
+(u_j)=\mathfrak a_j^2\prod_{\mathfrak p\in S}\mathfrak p^{\varepsilon_{\mathfrak p}}
+\quad (j=1,2)
+$$
+と表し、同じイデアル類の $\mathfrak a_1,\mathfrak a_2$ を選べたとします。すると $\mathfrak a_1=(w)\mathfrak a_2$ となる $w\in L^\times$ があり、
+$$
+(u_1/u_2)=(w)^2
+$$
+です。よって $u_1/u_2w^2$ は主イデアルが $(1)$ である元、すなわち $\mathcal O_L^\times$ の単数です。単数群が有限生成なら、その2倍商 $\mathcal O_L^\times/(\mathcal O_L^\times)^2$ は有限です。指数列は有限通り、イデアル類も有限通りなので、$L(S,2)$ は有限です。
 
 **ここで使った算術的入力の位置付け**。イデアル類群の有限性はMinkowskiの幾何学的数論、単数群の有限生成はDirichletの単数定理という別個の深い定理です。本章の前提EC5まででは両定理を証明していません。この段落は両者を仮定した有限性の導出であり、両定理そのものの証明ではありません。
 
@@ -568,7 +633,17 @@ $[72],[{-18}],[1/50]$ を、符号と平方因子を除いた代表元で表せ�
 <!-- solution-start -->
 ### 詳細解答
 
-$72=2^3 3^2=6^2\cdot2$ より $[72]=[2]$。$-18=-2\cdot3^2$ より $[-18]=[-2]$。$1/50=2/100$ より $[1/50]=[2]$ です。分母の素因数の指数も、平方を掛ければ偶奇だけで表せます。
+平方因子を一つずつ取り除くと、
+$$
+72=6^2\cdot2,\qquad
+-18=3^2\cdot(-2),\qquad
+\frac1{50}=\left(\frac1{10}\right)^2\cdot2.
+$$
+したがって
+$$
+[72]=[2],\qquad [-18]=[-2],\qquad [1/50]=[2].
+$$
+分母の素因数の指数も、平方を掛ければ偶奇だけで表せます。
 <!-- solution-end -->
 
 ### A2. 2-isogenyの行先
@@ -650,7 +725,7 @@ $P=T$ なら $2T=O$、$[b]^2=[1]$、$P=O$ なら明らかに成立するので�
 <!-- solution-end -->
 
 ### B2. 2倍商の有限性
-第3・4節の二つの核の等式と、$\widehat\phi\phi=[2]$ を使い、$\#E(\mathbb Q)/2E(\mathbb Q)$ が二つの降下像の個数の積以下であることを示せ。
+第3・4節の二つの核の等式と、$\widehat\phi\phi=[2]$ を使い、$\#(E(\mathbb Q)/2E(\mathbb Q))$ が二つの降下像の個数の積以下であることを示せ。
 
 - Level: B
 - ID: EC6-B2
@@ -658,7 +733,7 @@ $P=T$ なら $2T=O$、$[b]^2=[1]$、$P=O$ なら明らかに成立するので�
 <!-- solution-start -->
 ### 詳細解答
 
-[第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)より
+第4節で構成した剰余類と像の対応、すなわち[群の第一同型定理](../../GRP/GRP2/index.md#thm-grp2-first-isomorphism)より
 $$
 \#\bigl(E/\widehat\phi E'\bigr)=\#\operatorname{im}\alpha_E,\qquad
 \#\bigl(E'/\phi E\bigr)=\#\operatorname{im}\alpha_{E'}.
@@ -708,7 +783,7 @@ $$
 \#(E(\mathbb Q)/2E(\mathbb Q))\le2\cdot2=4.
 $$
 
-(iii) $A=-1,B=0$ の Nagell–Lutz 必要条件では $y=0,\pm1,\pm2$ だけが可能です。$y=\pm1,\pm2$ なら $x^3-x$ は1または4ですが、整数 $x$ では $x(x-1)(x+1)$ が6の倍数なので矛盾します。
+(iii) [EC5のNagell–Lutz定理](../EC5/index.md#thm-ec5-nagell-lutz)を整数係数短Weierstrass曲線の $A=-1,B=0$ に適用します。有限位数点の座標は整数であり、$y\ne0$ なら $y^2\mid(4A^3+27B^2)=-4$ です。従って $y=0,\pm1,\pm2$ だけが可能です。$y=\pm1,\pm2$ なら $x^3-x$ は1または4ですが、整数 $x$ では $x(x-1)(x+1)$ が6の倍数なので矛盾します。
 
 よってtorsionは $O,(-1,0),(0,0),(1,0)$ の4元です。二つの降下像が有限であることから2倍商も有限であり、[高さ降下定理](#thm-ec6-height-descent)から有限生成です。
 
