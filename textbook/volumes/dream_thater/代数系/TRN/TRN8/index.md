@@ -6,7 +6,7 @@
 
 ## 1. 代数関係を指数の異なる形式和へ移す
 
-[代数的数の定義](../../FLD/FLD1/index.md#def-fld1-algebraic-element)により、$y=e^\alpha$ が代数的なら、零でない有理係数多項式 $P_0(Y)$ が $P_0(y)=0$ を満たします。複素指数関数は値0を取らないため、$y\ne0$ です。この性質は後で定数項を残すために必要です。
+[代数的数の定義](../../FLD/FLD1/index.md#def-fld1-algebraic-element)により、$y=e^\alpha$ が代数的なら、零でない有理係数多項式 $P_0(Y)$ が $P_0(y)=0$ を満たします。[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)により $e^\alpha e^{-\alpha}=e^0=1$ です。したがって $y\ne0$ であり、これが後で多項式の定数項を非零にするために必要です。
 
 <a id="prop-trn8-polynomial-relation"></a>
 
@@ -19,7 +19,7 @@ b_0b_m\ne0,\qquad
 \sum_{j=0}^{m}b_je^{j\alpha}=0
 $$
 
-> を満たす。さらに任意の $\alpha$ を含む体 $K\subset\mathbb C$ において、
+> を満たす。さらに $\alpha$ を含む任意の有限Galois拡大 $K/\mathbb Q$（$K\subset\mathbb C$）において、
 
 $$
 F=\sum_{j=0}^{m}b_jU_{j\alpha}\in K[K,+]
@@ -44,7 +44,7 @@ $$
 
 $Q$ が零でない定数なら $Q(y)\ne0$ となるので、$m=\deg Q\ge1$ です。$Q$ の係数の共通分母 $D\in\mathbb Z_{>0}$ を掛けて $P(Y)=DQ(Y)=\sum_{j=0}^mb_jY^j$ とすれば、$b_j\in\mathbb Z$、$b_0=DQ(0)\ne0$、$b_m\ne0$、$P(y)=0$ を得ます。
 
-[複素指数関数の加法公式](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)を帰納的に適用すると $y^j=e^{j\alpha}$ なので、$P(y)=\sum_jb_je^{j\alpha}=0$ です。
+[複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)を帰納的に適用すると $y^j=e^{j\alpha}$ なので、$P(y)=\sum_jb_je^{j\alpha}=0$ です。
 
 また $j\ne k$ なら $(j-k)\alpha\ne0$ です。従って $j\alpha\ne k\alpha$ であり、$F$ の $U_0$ と $U_{m\alpha}$ の係数はそれぞれ $b_0,b_m\ne0$ です。[形式指数和の零判定](../TRN7/index.md#def-trn7-formal-exponential-sum)によって $F\ne0$ です。最後に指数評価の定義から $\operatorname{ev}(F)=P(y)=0$ となります。
 <!-- proof-end -->
@@ -53,7 +53,11 @@ $Q$ が零でない定数なら $Q(y)\ne0$ となるので、$m=\deg Q\ge1$ で�
 
 ## 2. 共役積は非零で、しかも整数係数を持つ
 
-有限個の代数的数を含む有限Galois拡大を取る方法は [FLD4の分解体とGalois作用](../../FLD/FLD4/index.md#thm-fld4-fundamental-galois) に従います。ここでは指数 $\alpha$ を含む有限Galois拡大 $K/\mathbb Q$ を一つ固定し、そのGalois群を $G$ とします。$b_j$ は通常の整数なので全ての $\sigma\in G$ に固定されます。
+指数 $\alpha$ の $\mathbb Q$ 上の最小多項式 $p(X)$ を取ります。[分解体の存在](../../FLD/FLD2/index.md#thm-fld2-splitting-field-existence)により、$p$ の全根を含む分解体 $K\subset\mathbb C$ が存在します。$p$ は有限次なので、この $K/\mathbb Q$ は有限拡大です。
+
+さらに、[分解体と有限正規拡大の関係](../../FLD/FLD2/index.md#thm-fld2-finite-splitting-equivalence)により $K/\mathbb Q$ は正規、[標数0における分離性](../../FLD/FLD2/index.md#cor-fld2-char-zero-algebraic)により分離的です。この二条件がそろうので、[有限Galois拡大の定義](../../FLD/FLD4/index.md#def-fld4-finite-galois)を満たします。
+
+以後、$\alpha\in K$ として $G=\operatorname{Gal}(K/\mathbb Q)$ を用います。$b_j$ は通常の整数なので全ての $\sigma\in G$ に固定されます。
 
 [形式和への共役作用](../TRN7/index.md#def-trn7-galois-action)を $F$ に使うと、
 
@@ -184,7 +188,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（指数反転積の0係数）**  
-> $K\subset\mathbb C$ を体、$H=\sum_{\lambda\in S}B_\lambda U_\lambda\in K[K,+]$ とする。$S$ は相異なる指数からなる有限集合で、$B_\lambda\in\mathbb Z\setminus\{0\}$ とする。$H\ne0$ なら $R=HH^\vee$ は非零であり、その $U_0$ の係数は
+> $K/\mathbb Q$ を $\mathbb C$ 内の有限Galois拡大とし、$H=\sum_{\lambda\in S}B_\lambda U_\lambda\in K[K,+]$ とする。$S$ は相異なる指数からなる有限集合で、$B_\lambda\in\mathbb Z\setminus\{0\}$ とする。$H\ne0$ なら $R=HH^\vee$ は非零であり、その $U_0$ の係数は
 
 $$
 c_0=\sum_{\lambda\in S}B_\lambda^2\in\mathbb Z_{>0}.
@@ -226,7 +230,25 @@ $$
 であり、$\lambda,\mu$ を交換すると $c_{-\nu}=c_\nu$ です。従って $R^\vee=R$ です。
 <!-- proof-end -->
 
-**なぜ整数係数が大事か。** 複素数係数なら $\sum B_\lambda^2$ が0になることがあります。例えば $H=U_s+iU_{-s}$ では $1^2+i^2=0$ です。平方和の正値性は、係数が実数であるだけでなく、この章では**整数**であることから保証されます。複素係数を扱うときに同じ補題を条件なしに使うことはできません。
+**なぜ整数係数が大事か。** 非零の実数係数なら平方和は正ですが、正**整数**になるとは限りません。例えば
+
+$$
+H=U_s+\frac12U_{-s},
+\qquad
+c_0=1^2+\left(\frac12\right)^2=\frac54
+$$
+
+では $c_0>0$ でも整数ではありません。後続の整数論的な議論につながる正整数の特別係数を得るため、この章では $B_\lambda\in\mathbb Z$ とします。
+
+一方、複素係数では正値性自体が失われます。例えば
+
+$$
+H=U_s+iU_{-s},
+\qquad
+c_0=1^2+i^2=0
+$$
+
+です。指数反転は係数の複素共役を取らないので、これを $|B_\lambda|^2$ の和と取り違えてはいけません。
 
 ### 例：負の係数も平方にすれば相殺しない
 
@@ -358,7 +380,7 @@ $0$ の係数は $6=2^2+1^2+1^2$ です。また $\sigma(s)=-s$ と反転 $\nu\m
 
 - **$\alpha\ne0$**：$j\alpha$ が相異なることを保証し、$F\ne0$ の出発点になります。
 - **$e^\alpha$ の代数性**：整数係数の多項式関係 $P(e^\alpha)=0$ を与えます。これがなければ指数評価零を主張できません。
-- **係数が整数**：共役積でも整数係数が残り、$c_0=\sum B_\lambda^2>0$ と言えます。一般の代数的係数で平方の和の正値性を使うのは誤りです。
+- **係数が整数**：共役積でも整数係数が残り、$c_0=\sum B_\lambda^2>0$ と言えます。一般の代数的係数で平方の和が常に正だとするのは誤りです。実係数なら正ですが、正整数性には別の根拠が必要です。
 - **有限Galois拡大**：指数集合を有限個の共役の下で閉じさせ、共役積を不変にします。$\sigma(e^\lambda)=e^{\sigma(\lambda)}$ は使いません。
 - **零係数を削除する順番**：まず全組の指数をまとめて $B_\lambda$ を決め、次に差指数をまとめて $c_\nu$ を決めます。衝突項を先に捨ててはいけません。
 
@@ -369,7 +391,7 @@ $0$ の係数は $6=2^2+1^2+1^2$ です。また $\sigma(s)=-s$ と反転 $\nu\m
 ### Level A：出発点と形式演算
 
 **TRN8-A1（多項式関係の準備）**  
-$\alpha\ne0$、$y=e^\alpha$ が代数的で、$(Y^2-3Y+2)(y)=0$ と仮定します。$F$ を作り、指数が相異なる理由と $\operatorname{ev}(F)$ を述べてください。
+$0\ne\alpha\in\overline{\mathbb Q}$、$y=e^\alpha$ が代数的で、$(Y^2-3Y+2)(y)=0$ と仮定します。$F$ を作り、指数が相異なる理由と $\operatorname{ev}(F)$ を述べてください。
 
 - Level: A
 

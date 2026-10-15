@@ -1,0 +1,42 @@
+id: "EC8"
+title: "Hasse評価・拡大体上の点数・有限体ゼータ関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC7
+  - EC4
+official_scope: []
+learning_objectives:
+  - 同種写像の次数の二次性とFrobeniusの固定点公式からHasse評価を証明できる
+  - 正整数係数の次数二次形式の非負性を用いて判別式の符号を説明できる
+  - 次数の乗法性と二次性からFrobeniusの二次関係式を証明できる
+  - Frobeniusの根の絶対値と拡大体上の点数の漸化式を導ける
+  - 有限体ゼータ関数の指数型定義を有理関数へ変形できる
+  - 標数2・3・5の例で直接計数と公式を突き合わせられる
+definitions:
+  - { id: EC8-DEF-01, name: 同種写像の次数によるトレース }
+  - { id: EC8-DEF-02, name: Frobeniusの二つの根 }
+  - { id: EC8-DEF-03, name: 有限体上の楕円曲線のゼータ関数 }
+theorems:
+  - { id: EC8-THM-01, name: Hasse評価 }
+  - { id: EC8-LEM-01, name: 次数ノルムによる二次消去恒等式 }
+  - { id: EC8-THM-02, name: Frobeniusの二次関係式 }
+  - { id: EC8-THM-03, name: 拡大体上の点数公式 }
+  - { id: EC8-THM-04, name: 楕円曲線ゼータ関数の有理表示 }
+canonical_examples:
+  - F3上のy²=x³+x+1のF9への拡大と16点の直接計数
+  - F5上のy²=x³+x+1のa5=-3とF25上の27点
+  - F2上のy²+y=x³+xでa2=-2とF4上の5点
+problem_patterns:
+  - EC8-A1
+  - EC8-A2
+  - EC8-A3
+  - EC8-A4
+  - EC8-B1
+  - EC8-B2
+  - EC8-B3
+  - EC8-C1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 9, review: 5 }

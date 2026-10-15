@@ -24,7 +24,14 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lorg19-cauchy-time -->
-**定義の確認**。Minkowski平面 $M=\mathbb R^{1,1}$、$g=-dt^2+dx^2$ で $\tau(t,x)=t$ とします。未来因果速度 $(t',x')$ は $t'\ge|x'|$ を満たすため、停留片を除けば $t$ は厳密増加します。また二時刻 $t_1<t_2$ に対し
+**定義の確認**。Minkowski平面 $M=\mathbb R^{1,1}$、$g=-dt^2+dx^2$ で $\tau(t,x)=t$ とします。なぜ時刻座標で非延長曲線を判定できるか、[因果曲線の定義](../LORG3/index.md#def-lorg3-causal-curve)から確認します。未来因果曲線 $\gamma(s)=(t(s),x(s))$ の速度は、ほとんど至る所で
+
+$$
+0\ge g(\dot\gamma,\dot\gamma)=-(t')^2+(x')^2,
+\qquad t'\ge0
+$$
+
+を満たします。従って $|x'|\le t'$ です。時刻が一定の区間では $x'=0$ も成り立ち、その区間の曲線は停留します。停留片を除いた非定数部分では $t$ が厳密増加するので、$t$ をパラメータに選べます。この速度不等式を二時刻 $t_1<t_2$ の間で積分すると
 
 $$
 |x(t_2)-x(t_1)|\le t_2-t_1
@@ -59,7 +66,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の接ベクトル $v=a\partial_t+b\partial_x$ について
+[temporal functionの定義](../LORG10/index.md#def-lorg10-time-function)では、勾配は $g(\nabla^g u,v)=du(v)$ がすべての接ベクトル $v$ で成立するように決まります。ここでは $g(\partial_t,\partial_t)=-1$、$g(\partial_x,\partial_x)=1$、$g(\partial_t,\partial_x)=0$ です。従って任意の $v=a\partial_t+b\partial_x$ について
 
 $$
 du(v)=a-\frac{x}{\sqrt{1+x^2}}b
@@ -172,7 +179,7 @@ s<s_c\Longrightarrow \tau(\gamma(s))<c,\qquad
 s>s_c\Longrightarrow\tau(\gamma(s))>c
 $$
 
-です。少なくとも一つ非延長曲線があるため $\Sigma_c$ は非空で、任意の非延長曲線に対する一意交差から[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。
+です。非延長曲線が少なくとも一つ存在することは、[LORG15のCauchy面の性質の証明](../LORG15/index.md#prop-lorg15-acausal)で使った構成でも分かります。滑らかな未来時間的ベクトル場を完備な補助計量に関して有界な速さに縮め、その両側非延長な積分曲線を取ればよいのです。この曲線にも上の全射性が適用されるので $\Sigma_c$ は非空です。任意の非延長曲線に対する一意交差から[Cauchy面の定義](../LORG15/index.md#def-lorg15-cauchy)を満たします。
 
 $\Sigma_c$ は連続写像 $\tau$ による閉集合 $\{c\}$ の逆像なので閉です。[Cauchy面はacausalかつachronal](../LORG15/index.md#prop-lorg15-acausal)から異なる二点を未来因果曲線で結べません。最後に $c\ne d$ のとき、同一点の $\tau$ 値が同時に二値であることは不可能なので $\Sigma_c\cap\Sigma_d=\varnothing$ です。$\square$
 <!-- proof-end -->
@@ -218,7 +225,7 @@ Minkowskiの $t$ に対して $f(s)=s+s^3$ を選べばCauchy時間関数のま�
 
 定義と定理の結論から、空間を固定した「各点を時間方向へ運ぶ」モデルを作れます。ここで**位相的超曲面**とは、各点の近傍で適切な局所座標 $(s,y^1,\ldots,y^n)$ を選んだとき、$s=\sigma(y)$ という連続関数のグラフとして表せる部分集合です。滑らかな接空間があるとはまだ仮定しません。目指すのは微分幾何学的な計量分解ではなく、まず**位相空間としての積**です。
 
-[LORG2の大域的未来時間的ベクトル場](../LORG2/index.md#thm-lorg2-time-orientability) $Y$ を選び、[LORG14の補助Riemann計量](../LORG14/index.md#def-lorg14-h-arclength)を完備にして $h$ とします。未来時間的ベクトル場を次のように正の関数倍で縮めます。
+[LORG2の大域的未来時間的ベクトル場](../LORG2/index.md#thm-lorg2-time-orientability) $Y$ を選びます。[LORG14の補助Riemann計量の導入](../LORG14/index.md#def-lorg14-h-arclength)で確認したとおり、滑らかな第二可算多様体では完備な補助Riemann計量を選べるので、それを $h$ とします。未来時間的ベクトル場を次のように正の関数倍で縮めます。
 
 $$
 X=\frac{Y}{1+|Y|_h},
@@ -271,7 +278,25 @@ $$
 
 を得ます。$\varepsilon$ は任意なので $u$ は連続です。
 
-そこで $F(c,p)=\Phi_{u(c,p)}(p)$ と定めます。$F$ は連続で $\tau(F(c,p))=c$ です。任意の $x\in M$ の流線には $\Sigma$ との唯一の交点があるので、ある一意の $s(x)\in\mathbb R$ により $p(x)=\Phi_{-s(x)}(x)\in\Sigma$ となります。同様の挟み撃ちを関数 $\tau(\Phi_{-s}(x))$ に行うと $s(x)$ は連続です。従って
+そこで $F(c,p)=\Phi_{u(c,p)}(p)$ と定めます。$F$ は連続で $\tau(F(c,p))=c$ です。任意の $x\in M$ の流線には $\Sigma$ との唯一の交点があるので、ある一意の $s(x)\in\mathbb R$ により $p(x)=\Phi_{-s(x)}(x)\in\Sigma$ となります。逆向きの流れで時刻零に戻る条件を
+
+$$
+K(s,x):=\tau(\Phi_{-s}(x)),\qquad K(s(x),x)=0
+$$
+
+と書きます。固定した $x$ に対し $s\mapsto K(s,x)$ は連続で厳密減少し、その値域は $\mathbb R$ です。任意の $x_0$ で $s_0=s(x_0)$ とし、$\varepsilon>0$ を取れば
+
+$$
+K(s_0-\varepsilon,x_0)>0>K(s_0+\varepsilon,x_0).
+$$
+
+$K$ の連続性により $x$ が $x_0$ に近いときにも両側の不等式は保たれます。厳密減少性と $K(s(x),x)=0$ から
+
+$$
+s_0-\varepsilon<s(x)<s_0+\varepsilon
+$$
+
+となり、$s(x)$ は連続です。従って
 
 $$
 F^{-1}(x)=\big(\tau(x),p(x)\big)
@@ -313,7 +338,7 @@ $$
 ### LORG19-A01 Minkowskiの時計と因果錐
 - Level: A
 
-$g=-dt^2+dx^2$ とする。$t$ がCauchy時間関数であることを、速度不等式と非延長性から示せ。
+Minkowski平面 $M=\mathbb R^{1,1}$ に $g=-dt^2+dx^2$ を入れる。$t$ がCauchy時間関数であることを、速度不等式と非延長性から示せ。
 
 <!-- solution-start -->
 **詳細解答**。[因果曲線の定義](../LORG3/index.md#def-lorg3-causal-curve)から、未来因果速度は $t'\ge|x'|$ を満たします。停留片を除けば $t$ は厳密増加します。任意の二つの時刻で積分すれば
@@ -470,14 +495,30 @@ $(M,g)$ を滑らかな大域双曲的時間向き付きLorentz時空とする�
 
 (2) $\gamma$ を任意の両側非延長因果曲線とすると $\tau\circ\gamma$ は連続な厳密増加全射です。任意の $c$ の原像は一点なので $\Sigma_c=\tau^{-1}(c)$ は各 $\gamma$ と一度だけ交わります。従って[各レベルの命題](#prop-lorg19-level-cauchy)から閉なacausal Cauchy面です。
 
-(3) 完全な補助計量 $h$ と未来時間的場 $Y$ を選び $X=Y/(1+|Y|_h)$ とすると、有限時間での流線の逃避が起きず、流れ $\Phi_s$ は全実数で定義されます。$\Sigma=\Sigma_0$ とし、各 $p\in\Sigma$ の流線で $\tau(\Phi_{u(c,p)}(p))=c$ を満たす $u$ を一意に取ります。$\varepsilon>0$ について
+(3) 完全な補助計量 $h$ と未来時間的場 $Y$ を選び $X=Y/(1+|Y|_h)$ とすると、有限時間での流線の逃避が起きず、流れ $\Phi_s$ は全実数で定義されます。$X$ は非零なので、流線 $c(s)=\Phi_s(p)$ が $s\to+\infty$ で点 $q$ に収束すると仮定すると、$dz_q(X_q)>0$ となる局所座標成分 $z$ に対して十分大きい $s$ で $(z\circ c)'(s)\ge\delta>0$ となり、$z(c(s))\to z(q)$ に反します。過去側も同じで、両側非延長性が確認できました。
+
+$\Sigma=\Sigma_0$ とし、各 $p\in\Sigma$ の流線で $\tau(\Phi_{u(c,p)}(p))=c$ を満たす $u$ を一意に取ります。$\varepsilon>0$ について
 
 $$
 \tau(\Phi_{u_0-\varepsilon}(p_0))<c_0<
 \tau(\Phi_{u_0+\varepsilon}(p_0))
 $$
 
-を使う挟み撃ちで $u$ は連続です。$F(c,p)=\Phi_{u(c,p)}(p)$ は全単射で、逆写像は各 $x$ をその流線上の唯一の $\Sigma$ 交点へ戻すことで定まり、同じ挟み撃ちで連続です。従って $F:\mathbb R\times\Sigma\to M$ は同相です。
+を使う挟み撃ちで $u$ は連続です。$F(c,p)=\Phi_{u(c,p)}(p)$ は、各流線が $\Sigma$ に一度だけ交わることから全単射です。
+
+逆写像には $K(s,x)=\tau(\Phi_{-s}(x))$ と置き、$K(s(x),x)=0$ を満たす唯一の $s(x)$ を用います。$K$ は $s$ に関して厳密減少であり、$s_0=s(x_0)$ とすれば
+
+$$
+K(s_0-\varepsilon,x_0)>0>K(s_0+\varepsilon,x_0).
+$$
+
+$K$ の連続性で近い $x$ に対してもこの不等式が成り立ち、$s_0-\varepsilon<s(x)<s_0+\varepsilon$ です。従って $s(x)$ は連続で、
+
+$$
+F^{-1}(x)=\bigl(\tau(x),\Phi_{-s(x)}(x)\bigr)
+$$
+
+も連続です。ゆえに $F:\mathbb R\times\Sigma\to M$ は同相です。
 
 (4) 得られた $\tau$ と $\Sigma$ の正則性は連続と位相的でしかありません。$d\tau$、時間的勾配、滑らかな接超平面はまだ定義できず、$g=-\beta\,d\tau^2+h_\tau$ の式は導けません。滑らか化に別の議論が必要であり、この区別が次章の出発点です。
 <!-- solution-end -->
