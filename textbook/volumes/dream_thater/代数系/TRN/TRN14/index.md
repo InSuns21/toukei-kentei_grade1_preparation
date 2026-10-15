@@ -106,7 +106,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-trn14-algebraic-independence -->
-**定義の確認：一次独立との相違**
+**定義の確認**：一次独立との相違
 
 $y_1=2$ とすると、$Y_1-2\in\mathbb Q[Y_1]$ は係数1が非零で、$P(2)=0$ です。よって $2$ は $\mathbb Q$ 上代数的独立ではありません。一方、$\gamma$ が非零なら $\gamma$ 一つの族は $\mathbb Q$ 上一次独立です。例えば $\gamma=1$ に対して $q\gamma=0$ は $q=0$ だけを許します。この二つの定義がまったく異なる条件を検査していることが分かります。
 <!-- definition-example-end -->
@@ -407,15 +407,15 @@ $$
 
 (ii) [複素指数関数の基本性質](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)のEuler表示を実数の円周率に適用すると
 
-$
+$$
 e^{i\pi}=\cos\pi+i\sin\pi=-1
-$
+$$
 
 です。もし $\pi$ が代数的なら、代数的な $i$ との積も代数的です。また $\pi>0$ よりこの積は零ではないので
 
-$
+$$
 i\pi\in\overline{\mathbb Q}\setminus\{0\}.
-$
+$$
 
 従って (i) は $e^{i\pi}$ が超越数であることを要求します。一方、実際の値 $-1$ は有理数なので矛盾します。この帰結は[TRN11の円周率の超越性](../TRN11/index.md#cor-trn11-pi-transcendental)を別経路で再確認します。$\square$
 <!-- proof-end -->
