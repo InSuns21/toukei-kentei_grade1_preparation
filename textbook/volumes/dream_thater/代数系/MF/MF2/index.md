@@ -79,7 +79,25 @@ $$
 F(q)=f\left(\frac{\log q}{2\pi i}\right)
 $$
 
-と局所表示できるため $F$ は正則です。$\operatorname{Im}\tau\ge Y$ と $0<|q|\le e^{-2\pi Y}$ は同値です。$f$ の一様有界性は、したがって $F$ の零点近くでの有界性と同値です。[有界な孤立特異点は可除](../../../解析系/CA/CA4/index.md#cor-ca4-removable-bounded)により、これは $F$ が零点へ正則延長できることと同値です。最後に正則関数の Taylor 展開を $q=0$ に適用すると $F(q)=\sum_{n\ge0}a_nq^n$ が得られます。係数の一意性は Taylor 係数の一意性です。
+と局所表示できるため、$F$ は穿孔円板上で正則です。
+
+上半平面で虚部が大きい領域は、$q$ 座標では原点近くの領域に対応します。実際、任意の実数 $Y>0$ に対して
+
+$
+\operatorname{Im}\tau\ge Y
+\quad\Longleftrightarrow\quad
+0<|q|\le e^{-2\pi Y}.
+$
+
+従って、虚部を十分大きくした領域で $f$ が一様に有界であることと、$F$ が原点近くで有界であることは同値です。[有界な孤立特異点は可除](../../../解析系/CA/CA4/index.md#cor-ca4-removable-bounded)を $q=0$ に適用すれば、これは $F$ が原点へ正則延長できることと同値です。
+
+延長した正則関数の Taylor 展開を $q=0$ で行うと
+
+$
+F(q)=\sum_{n=0}^{\infty}a_nq^n
+$
+
+が得られます。係数の一意性は Taylor 係数の一意性によります。
 <!-- proof-end -->
 
 <a id="def-mf2-q-expansion"></a>
