@@ -228,7 +228,7 @@ $p=2$ の場合、有限個の $W^{k,2}$ 内積を足したものがこのノル
 
 ## 4. 多様体へ移るSobolev埋め込みとRellichの定理
 
-局所座標上では、切断した関数 $w_i$ の台がコンパクトです。ゆえに、少し大きいEuclidの**滑らかな有界球** $B_i\Subset\Omega_i$ を選んで $w_i\in H^1_0(B_i)$ とできます（必要なら座標近傍と1の分割をさらに細分して各台を一つの球に収めます）。この準備が、既習のEuclid定理を使う仮定確認です。
+局所座標上では切断した関数 $w_i$ の台がコンパクトです。最初の座標近傍を必要なだけ細分し、各座標像 $\Omega_i=B_i$ を有界なEuclid球に選んでおけば、$w_i\in H^1_0(B_i)$ です。これは台が球の境界から正の距離だけ離れており、零延長の弱微分に境界項が生じないためです。この準備が既習のEuclid定理の仮定確認です。
 
 <a id="thm-ga2-embedding"></a>
 <!-- formal-statement-start -->
@@ -251,14 +251,16 @@ $\chi_i u$ を座標へ移し、[有界Lipschitz領域のSobolev埋め込み](..
 <!-- proof-start -->
 ### 証明
 
-$u=\sum_i\chi_i u$ とし、$w_i$ を第1節の切断座標とします。各 $B_i$ は有界滑らかでLipschitz領域です。[Euclidの埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)より、$d\ge2$ の上記の指数について
+$u=\sum_i\chi_i u$ とし、$w_i$ を第1節の切断座標とします。各 $B_i$ は有界滑らかでLipschitz領域です。$d\ge3$ では、[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)に $p=2$ を代入すると指数 $2d/(d-2)$ の評価を得ます。球は有限測度なので、$2\le q\le2d/(d-2)$ への評価はHölder不等式で従います。
 
-$$
+$d=2$ で $q>2$ を固定し、$p=2q/(q+2)$ と選ぶと $1<p<2$、$p^*=2p/(2-p)=q$ です。有限測度の球ではHölder不等式により $\|w\|_{W^{1,p}(B_i)}\le C_{i,p}\|w\|_{H^1(B_i)}$ ですから、同じ[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)を今度はこの $p$ へ適用できます。$q=2$ は元の $L^2$ 項そのものです。従っていずれの次元でも
+
+$
 \|w_i\|_{L^q(B_i)}
 \le C_i\|w_i\|_{H^1(B_i)}
-$$
+$
 
-です。座標上の体積密度 $\rho_i$ には正の上下界があるので、$\|\chi_i u\|_{L^q(M)}\le C'_i\|w_i\|_{L^q(B_i)}$ です。よって
+となります。座標上の体積密度 $\rho_i$ には正の上下界があるので、$\|\chi_i u\|_{L^q(M)}\le C'_i\|w_i\|_{L^q(B_i)}$ です。よって
 
 $$
 \|u\|_{L^q(M)}
@@ -267,7 +269,7 @@ $$
 \le C_q\|u\|_{H^1(M)}.
 $$
 
-$d=1$ では、区間の[絶対連続代表元](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-absolute-continuous)に対し、任意の $x,y$ で $|w(x)-w(y)|\le\int|w'|$ です。$y$ を $|w(y)|\le |B|^{-1/2}\|w\|_{L^2}$ を満たす点として選べば
+$d=1$ では、区間の[絶対連続代表元](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-w11-ac)に対し、任意の $x,y$ で $|w(x)-w(y)|\le\int|w'|$ です。$y$ を $|w(y)|\le |B|^{-1/2}\|w\|_{L^2}$ を満たす点として選べば
 
 $$
 |w(x)|\le |B|^{-1/2}\|w\|_{L^2(B)}
@@ -406,12 +408,12 @@ $$
 
 ### 証明の見取り図
 
-境界座標の平坦化で半球を得て、[EuclidのLipschitz領域のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-lipschitz-trace)を各半球へ適用します。境界面の面積密度を比較し、有限枚の1の分割で貼り合わせます。
+境界座標の平坦化で半球を得て、[EuclidのLipschitz領域のトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を各半球へ適用します。境界面の面積密度を比較し、有限枚の1の分割で貼り合わせます。
 
 <!-- proof-start -->
 ### 証明
 
-境界近傍を有限枚の滑らかな半球型座標で覆い、切断関数 $\chi_i$ を選びます。滑らかな $u$ に対し $w_i=(\chi_i u)\circ\kappa_i^{-1}$ は有界Lipschitz領域の $H^1$ 関数です。各座標で[Euclidのトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-lipschitz-trace)を適用し、
+境界近傍を有限枚の滑らかな半球型座標で覆い、切断関数 $\chi_i$ を選びます。滑らかな $u$ に対し $w_i=(\chi_i u)\circ\kappa_i^{-1}$ は有界Lipschitz領域の $H^1$ 関数です。各座標で[Euclidのトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を適用し、
 
 $$
 \|\operatorname{Tr} w_i\|_{L^2(\partial B_i^+)}
