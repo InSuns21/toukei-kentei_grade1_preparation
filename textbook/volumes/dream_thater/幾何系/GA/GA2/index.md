@@ -41,7 +41,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga2-sobolev -->
-**定義の確認**。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ 上の $u(\theta)=|\sin\theta|$ を考えます。各座標で $u$ はLipschitz連続、弱微分は $\cos\theta\,\operatorname{sgn}(\sin\theta)$（零点での値は任意）です。$u$ とこの微分は有界ですから、各 $\chi_i u$ の値・弱微分は切断関数の積の法則によって $L^2$ に入り、$u\in H^1(S^1)$ です。一方、$\theta=0,\pi$ では古典微分は存在しません。古典微分が存在しない関数まで扱えることが分かります。
+**定義の確認**。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ 上の $u(\theta)=|\sin\theta|$ を考えます。各座標で $u$ はLipschitz連続です。弱微分の候補は $\cos\theta\,\operatorname{sgn}(\sin\theta)$（零点での値は任意）です。この候補が正しいことを積分で確かめます。円を $\theta=0,\pi$ で分け、各開弧上で滑らかな試験関数 $\varphi$ に対し部分積分すると
+
+$
+\int_{S^1}u\,\partial_\theta\varphi\,d\theta
+=-\int_{S^1}
+\cos\theta\,\operatorname{sgn}(\sin\theta)\,\varphi\,d\theta
+$
+
+が成立します。弧を貼り合わせた際の境界項は、$u(0)=u(\pi)=0$ により消えます。この恒等式で弱微分が確認され、$u$ とその弱微分は共に有界です。[滑らかな乗数の弱微分積の法則](../../../解析系/GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)を各 $\chi_i$ に適用すると、切断座標の関数とその弱微分が $L^2$ に入り、$u\in H^1(S^1)$ です。一方、$\theta=0,\pi$ では古典微分は存在しません。古典微分が存在しない関数まで扱えることが分かります。
 <!-- definition-example-end -->
 
 式の右辺には計量が直接見えません。しかしコンパクトな座標の上では、計量はEuclidの長さと体積を上下から比較できるので、計量を使った自然なノルムと同値になります。
