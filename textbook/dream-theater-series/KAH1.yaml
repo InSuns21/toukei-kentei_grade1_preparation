@@ -24,7 +24,7 @@ chapters:
     title: "局所Kählerポテンシャル"
   - id: KAH1-05
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-05
-    status: planned
+    status: completed
     title: "平坦模型と構成操作"
   - id: KAH1-06
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-06

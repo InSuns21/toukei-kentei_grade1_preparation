@@ -1,0 +1,38 @@
+chapter: KAH1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-04
+  - CM1-09
+  - GEO16
+concepts:
+  - id: kahler.constant-hermitian-flat-model
+    name: 定数Hermite行列から作る平坦Kähler構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数Hermite行列から作る平坦Kähler構造）"]
+    requires: [kahler.local-potential-suffices, kahler.positive-form-matrix-criterion]
+  - id: kahler.flat-torus-kahler
+    name: 平坦複素トーラスのKähler構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦複素トーラスのKähler構造）"]
+    requires: [kahler.constant-hermitian-flat-model, kahler.torus-no-global-potential]
+  - id: kahler.kahler-product
+    name: Kähler多様体の積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler多様体の積）"]
+    requires: [kahler.kahler-structure, kahler.constant-hermitian-flat-model]
+  - id: kahler.holomorphic-induced-structure
+    name: 正則はめ込みに沿う誘導Kähler構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則はめ込みに沿う誘導Kähler構造）"]
+    requires: [kahler.kahler-structure, kahler.positive-real-eleven-form]
+  - id: kahler.holomorphic-immersion-pullback
+    name: 正則はめ込みによるKähler構造の引き戻し
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則はめ込みによるKähler構造の引き戻し）"]
+    requires: [kahler.holomorphic-induced-structure, kahler.positive-form-matrix-criterion]

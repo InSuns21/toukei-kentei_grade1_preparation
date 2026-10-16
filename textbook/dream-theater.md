@@ -742,6 +742,7 @@
 2. [KAH1-02 基本(1,1)形式とKähler条件](textbook/volumes/dream_thater/幾何系/KAH/KAH1-02/index.md)
 3. [KAH1-03 Kähler条件の同値性](textbook/volumes/dream_thater/幾何系/KAH/KAH1-03/index.md)
 4. [KAH1-04 局所Kählerポテンシャル](textbook/volumes/dream_thater/幾何系/KAH/KAH1-04/index.md)
+5. [KAH1-05 平坦模型と構成操作](textbook/volumes/dream_thater/幾何系/KAH/KAH1-05/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
