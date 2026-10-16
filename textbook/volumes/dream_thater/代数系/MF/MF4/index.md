@@ -449,7 +449,7 @@ $$
 
 ## 7. 複素格子から $(E,C)$ を読む
 
-[CA8の複素トーラス](../../../解析系/CA/CA8/index.md#thm-ca8-complex-torus)を $E_\tau=\mathbb C/(\mathbb Z\tau+\mathbb Z)$ と書きます。[GRP1の巡回群の定義](../../GRP/GRP1/index.md#def-grp1-cyclic-group)により、一つの元から生成される群は巡回群です。ここではその部分群がちょうど $N$ 個の点を持つ場合を扱います。例えば $1/N$ の剰余類が生成する部分群
+[CA8の複素トーラス](../../../解析系/CA/CA8/index.md#thm-ca8-complex-torus)を $E_\tau=\mathbb C/(\mathbb Z\tau+\mathbb Z)$ と書きます。[巡回群](../../GRP/GRP1/index.md#def-grp1-cyclic-group)により、一つの元から生成される群は巡回群です。ここではその部分群がちょうど $N$ 個の点を持つ場合を扱います。例えば $1/N$ の剰余類が生成する部分群
 
 $$
 C_\tau=\left\{\frac{r}{N}+\Lambda_\tau:0\le r<N\right\}
@@ -646,7 +646,7 @@ $t=w^3$ を微分すると $dt=3w^2dw$。よって $A(w)dw=\frac13B(t)dt$ とな
 <!-- solution-start -->
 **詳細解答**　[$X_0(N)$ の局所次数](#thm-mf4-compactification)により、$i$ 上は $e_2$ 個が局所次数1、残る $(\mu-e_2)/2$ 個が次数2です。よって寄与は $(\mu-e_2)/2$。$\rho$ 上は $e_3$ 個が次数1、残る $(\mu-e_3)/3$ 個が次数3です。寄与は $2(\mu-e_3)/3$ です。カスプは $\sum_s h_s=\mu$ なので $\sum_s(h_s-1)=\mu-a$ です。
 
-分岐を頂点に取る三角形分割の持ち上げで Euler 標数は次数 $\mu$ 倍から分岐寄与を引いたものとなります。従って
+分岐を頂点に取る三角形分割を持ち上げると、頂点数・辺数・面数の交代和は基底の $\mu$ 倍から分岐寄与を引いたものになります。従って
 
 $$
 2-2g=2\mu-\frac{\mu-e_2}{2}-\frac{2(\mu-e_3)}3-(\mu-a)
