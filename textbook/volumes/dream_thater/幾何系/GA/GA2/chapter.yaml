@@ -21,7 +21,7 @@ definitions:
   - { id: GA2-DEF-01, name: "多様体上のSobolev空間" }
 theorems:
   - { id: GA2-THM-01, name: "切断座標ノルムの同値性" }
-  - { id: GA2-PROP-01, name: "共変微分によるH1ノルム" }
+  - { id: GA2-PROP-01, name: "共変微分によるSobolevノルム" }
   - { id: GA2-THM-02, name: "多様体Sobolev空間の完備性と滑らかな関数の密度" }
   - { id: GA2-THM-03, name: "コンパクト多様体上のSobolev埋め込み" }
   - { id: GA2-THM-04, name: "コンパクト多様体上のRellichの定理" }
