@@ -92,12 +92,12 @@ $N=1$ では空積を1とし、全ての群が $\Gamma(1)$ です。
 
 [MF1の拡張有理境界](../MF1/index.md#def-mf1-rational-boundary)は $\mathbb P^1(\mathbb Q)=\mathbb Q\cup\{\infty\}$ と書けます。ここで $\mathbb P^1(\mathbb Q)$ とは既約分数 $a/c$（$\gcd(a,c)=1$、$c=0$ なら $\infty$）を一点と見る集合です。全群はこの集合に推移的に作用しますが、部分群 $\Gamma$ では違う軌道になることがあります。その軌道が一つの**カスプ**です。
 
-カスプ $s=a/c$ に対して $\sigma_s=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ を選ぶと、$\sigma_s\infty=s$ です。この行列を**スケーリング行列**と呼びます。存在は互いに素な $a,c$ の Bézout 等式 $ad-bc=1$ によります。カスプへ近づく座標は、先に $\sigma_s$ の逆で $\infty$ に移して作ります。
+カスプ $s=a/c$ に対して $\sigma_s=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\mathbb Z)$ を選ぶと、$\sigma_s\infty=s$ です。この行列でカスプを通常の無限遠へ移し直せます。存在は互いに素な $a,c$ の Bézout 等式 $ad-bc=1$ によります。カスプへ近づく座標は、先に $\sigma_s$ の逆で $\infty$ に移して作ります。
 
 <a id="def-mf4-cusp-width"></a>
 <!-- formal-statement-start -->
 > **定義（カスプ、スケーリング行列、幅）**  
-> $\Gamma$ を $\Gamma(1)$ の有限指数部分群で、$-I\in\Gamma$ とする。カスプとは $\Gamma$ の $\mathbb P^1(\mathbb Q)$ 上の軌道である。代表 $s=\sigma_s\infty$ を選び、$T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ とする。正整数 $h_s$ で
+> $\Gamma$ を $\Gamma(1)$ の有限指数部分群で、$-I\in\Gamma$ とする。カスプとは $\Gamma$ の $\mathbb P^1(\mathbb Q)$ 上の軌道である。代表 $s=\sigma_s\infty$ を選び、この $\sigma_s$ をスケーリング行列と呼ぶ。$T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ とする。正整数 $h_s$ で
 
 $$
 \sigma_s T^{h_s}\sigma_s^{-1}\in\Gamma
@@ -449,7 +449,7 @@ $$
 
 ## 7. 複素格子から $(E,C)$ を読む
 
-[CA8の複素トーラス](../../../解析系/CA/CA8/index.md#thm-ca8-complex-torus)を $E_\tau=\mathbb C/(\mathbb Z\tau+\mathbb Z)$ と書きます。複素数の加法から得られる点の群のうち、ちょうど $N$ 個の点からなり一つの点の倍数で生成できる部分群を、**位数 $N$ の巡回部分群**と呼びます。例えば $1/N$ の剰余類が生成する部分群
+[CA8の複素トーラス](../../../解析系/CA/CA8/index.md#thm-ca8-complex-torus)を $E_\tau=\mathbb C/(\mathbb Z\tau+\mathbb Z)$ と書きます。[GRP1の巡回群の定義](../../GRP/GRP1/index.md#def-grp1-cyclic-group)により、一つの元から生成される群は巡回群です。ここではその部分群がちょうど $N$ 個の点を持つ場合を扱います。例えば $1/N$ の剰余類が生成する部分群
 
 $$
 C_\tau=\left\{\frac{r}{N}+\Lambda_\tau:0\le r<N\right\}
