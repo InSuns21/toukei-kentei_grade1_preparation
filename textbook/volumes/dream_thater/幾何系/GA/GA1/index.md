@@ -44,7 +44,14 @@ $g^{ij}$ が正定値であるのは、$G$ が正定値なら $v^{\mathsf T}G^{-
 
 ### 円・球面・トーラスで確認
 
-円 $S^1=\mathbb R/(2\pi\mathbb Z)$ で角度 $\theta$、計量 $d\theta^2$ を使うと $\rho=1$、$g^{\theta\theta}=1$ なので
+円 $S^1=\mathbb R/(2\pi\mathbb Z)$ で角度 $\theta$ を使います。単位円への表示とその接ベクトルは
+
+$$
+F(\theta)=(\cos\theta,\sin\theta),\qquad
+F'(\theta)=(-\sin\theta,\cos\theta)
+$$
+
+で、Euclid内積による長さの二乗は $1$ です。従って誘導計量は $g_{\theta\theta}=F'\cdot F'=1$、すなわち $d\theta^2$ です。$\rho=1$、$g^{\theta\theta}=1$ なので
 
 $$
 \Delta_{S^1}u=\frac{d^2u}{d\theta^2}.
@@ -52,10 +59,36 @@ $$
 
 周期関数 $u(\theta)=\cos(2\theta)$ では $\Delta u=-4u$ です。座標の端点 $0,2\pi$ は同一点であり、円には境界がありません。
 
-単位球面 $S^2$ では、北極・南極を除く座標 $(\theta,\varphi)$ （$0<\theta<\pi$、経度 $\varphi$）で標準計量は
+単位球面 $S^2$ では、極を避けて経度 $\varphi$ の区間も選んだ局所座標 $(\theta,\varphi)$（$0<\theta<\pi$）を用います。Euclid空間への埋め込みを
 
 $$
-g=d\theta^2+\sin^2\theta\,d\varphi^2,\quad
+F(\theta,\varphi)
+=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta)
+$$
+
+と置くと、接ベクトルは
+
+$$
+\begin{aligned}
+F_\theta&=(\cos\theta\cos\varphi,\cos\theta\sin\varphi,-\sin\theta),\\
+F_\varphi&=(-\sin\theta\sin\varphi,\sin\theta\cos\varphi,0)
+\end{aligned}
+$$
+
+です。誘導計量の係数は座標接ベクトルのEuclid内積 $g_{ij}=F_i\cdot F_j$ なので、
+
+$$
+\begin{aligned}
+g_{\theta\theta}&=\cos^2\theta+\sin^2\theta=1,\\
+g_{\theta\varphi}&=0,\\
+g_{\varphi\varphi}&=\sin^2\theta(\sin^2\varphi+\cos^2\varphi)=\sin^2\theta.
+\end{aligned}
+$$
+
+従って標準球面計量とその座標行列は
+
+$$
+g=d\theta^2+\sin^2\theta\,d\varphi^2,\qquad
 G=\begin{pmatrix}1&0\\0&\sin^2\theta\end{pmatrix}.
 $$
 
@@ -74,7 +107,7 @@ $$
 
 見かけ上の $\sin\theta=0$ は極におけるこの座標の破綻です。滑らかな球面関数に対する $\Delta_{S^2}$ 自体がそこで発散することを意味しません。たとえば高さ関数 $u=\cos\theta$ は球面上で滑らかで、上式から $\Delta_{S^2}u=-2\cos\theta$ が成り立ち、両辺の連続性により極でも同じです。
 
-平坦トーラス $T^2=(\mathbb R/2\pi\mathbb Z)^2$ には周期座標 $(x,y)$ に対応する平坦計量を入れます。行列 $G=I_2$ なので
+平坦トーラス $T^2=(\mathbb R/2\pi\mathbb Z)^2$ には、$\mathbb R^2$ のEuclid計量 $dx^2+dy^2$ を周期同一視で降ろした平坦計量を入れます。周期平行移動の微分は恒等写像なので、この計量は同一視と矛盾しません。局所座標基底 $\partial_x,\partial_y$ の内積行列は $G=I_2$ であり、従って
 
 $$
 \Delta_{T^2}u=u_{xx}+u_{yy}.
@@ -238,10 +271,12 @@ $$
 
 方程式 $-\Delta_gu=f$ を考えるとき、$u$ が二階微分可能とは限りません。それでも第一公式の左辺なら一階微分だけで意味があります。まず滑らかな関数で積分式を作り、次章で関数空間を拡張します。
 
+勾配の計量ノルムの二乗を体積にわたって積分すると、関数の変化を測る量が得られます。この量を次で定義します。先頭に $1/2$ を付けるのは、関数 $u$ を $u+\varepsilon v$ に変えた際に二乗を微分すると現れる係数 $2$ を相殺するためです。
+
 <a id="def-ga1-dirichlet-energy"></a>
 <!-- formal-statement-start -->
 > **定義（Dirichletエネルギー）**  
-> コンパクトRiemann多様体 $(M,g)$ と $u\in C^1(M)$ に対し、
+> 第2節と同様に向き付けられた滑らかなコンパクトRiemann多様体 $(M,g)$ と $u\in C^1(M)$ に対し、
 >
 $$
 E_g[u]:=\frac12\int_M|\nabla_gu|_g^2\,dV_g
@@ -260,7 +295,7 @@ $$
 $S^1$ は境界がないので、任意の実数 $c$ に対して $E_g[u+c]=E_g[u]$ です。エネルギーが定数の違いを区別できないことが、次の可解性と一意性に現れます。
 <!-- definition-example-end -->
 
-$u+\varepsilon v$ を代入し、積を展開すれば
+$u,v\in C^1(M)$ と $\varepsilon\in\mathbb R$ に対し、$u+\varepsilon v$ を代入し、積を展開すれば
 
 $$
 \begin{aligned}
@@ -274,6 +309,8 @@ E_g[u+\varepsilon v]
 $$
 
 ここでは積分する関数がコンパクトな $M$ 上で連続なので、係数を積分した二次多項式を微分してよく、積分と極限の交換に新しい定理は要りません。
+
+上で求めたエネルギーの変化率の式に、滑らかな試験関数 $\varphi$ を入れます。まず $u$ が滑らかな場合は、境界が空なら[Greenの第一公式](#thm-ga1-green-first)で $-\Delta_g u$ の積分に書き換えられます。一方、$u\in C^1(M)$ にとどまっても勾配の積分は定義できます。そこで二階微分を最初から要求する代わりに、**すべての滑らかな $\varphi$ に対して積分恒等式を課す**のがここで扱う弱形式です。境界がある場合は法線微分の積分も残り、これがNeumann条件を表します。
 
 <a id="def-ga1-smooth-weak-form"></a>
 <!-- formal-statement-start -->
@@ -303,12 +340,31 @@ $$
 $$
 
 端点の寄与がゼロなのは $u'$ と $\varphi$ が周期的であるためです。従って、任意の試験関数について定義の恒等式が成立します。
+
+境界を持つ場合も直接確認します。Euclid計量の単位閉円板 $D$ で
+
+$$
+u=x^2+y^2,\qquad f=-4,\qquad h=2
+$$
+
+とします。内部では $-\Delta u=-4$ です。境界の外向き法線は $\nu=(x,y)$ なので、$\partial_\nu u=(2x,2y)\cdot(x,y)=2$ です。[Greenの第一公式](#thm-ga1-green-first)を任意の $\varphi\in C^\infty(D)$ に適用すると
+
+$$
+\int_D\nabla u\cdot\nabla\varphi\,dA
+=-4\int_D\varphi\,dA+2\int_{\partial D}\varphi\,dS
+$$
+
+を得ます。これは、定義中の**内部の積分項とNeumann境界項の双方**を満たす例です。
 <!-- definition-example-end -->
 
 <a id="prop-ga1-weak-classical"></a>
 <!-- formal-statement-start -->
 > **命題（古典解と弱形式の一致）**  
-> $M$ を第2節の多様体とし、$u\in C^2(M)$、$f\in C(M)$ とする。境界が空なら、$u$ が第4節の弱形式を満たすことと $-\Delta_gu=f$ が点ごとに成立することは同値である。境界がある場合、$u$ がNeumann型弱形式を満たすことと、内部で $-\Delta_gu=f$、境界で $\partial_\nu u=h$ が成立することは同値である。
+> $M$ を第2節の多様体とし、$u\in C^2(M)$、$f\in C(M)$ とする。
+>
+> **(i) 境界なし**：$u$ が[第4節の弱形式](#def-ga1-smooth-weak-form)を満たすことと、$-\Delta_gu=f$ が全点で成立することは同値である。
+>
+> **(ii) 境界あり**：さらに $h\in C(\partial M)$ を指定する。$u$ が[Neumann型弱形式](#def-ga1-smooth-weak-form)を満たすことと、内部で $-\Delta_gu=f$、境界で $\partial_\nu u=h$ が成立することは同値である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -329,7 +385,13 @@ $$
 \int_{\partial M}(\partial_\nu u-h)\varphi\,dS_g=0.
 $$
 
-境界の任意の滑らかな関数は境界の管状近傍（局所的には半空間座標）で法線方向に一定に延長し、1の分割で貼り合わせれば $M$ 上の滑らかな試験関数の境界値として実現できます。従って境界上でも同じ非負局在関数の議論が使え、$\partial_\nu u=h$ です。
+境界上の試験関数を取れる理由も確認します。滑らかな境界関数 $b$ に対して、境界座標 $(y,t)$（$t\ge0$ が内部側）を取り、境界を覆う有限個の座標近傍に従属する[1の分割](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity) $\{\eta_j\}$ を選びます。各座標近傍で $\eta_j(y)b(y)$ を内側へ延長し、$\chi(0)=1$ で台が十分小さい滑らかな関数 $\chi(t)$ を掛けて
+
+$$
+\varphi_j(y,t)=\eta_j(y)b(y)\chi(t)
+$$
+
+とします。座標近傍外へ $0$ で延長して足し合わせた $\varphi=\sum_j\varphi_j$ は $M$ 上滑らかで、境界では $\varphi|_{\partial M}=\sum_j\eta_jb=b$ です。そこで $b$ を、$\partial_\nu u-h$ がある点で正（または負）ならその符号の近傍に台を持つ非負・非零の滑らかな関数として選べます。境界上の積分が正（または負）になって矛盾するので、$\partial_\nu u=h$ です。
 <!-- proof-end -->
 
 ## 5. 境界・定数・適合条件
@@ -466,7 +528,7 @@ $$
 Euclid平面の閉円環 $A=\{(x,y):a\le r\le b\}$ （$0<a<b$、$r=\sqrt{x^2+y^2}$）で $u=\log r$ とする。$\Delta u$ と内外境界の $\partial_\nu u$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。極座標の計量は $dr^2+r^2d\theta^2$ です。$\rho=r$、$g^{rr}=1$、$u_r=r^{-1}$ より
+**詳細解答**。[Riemann計量の座標表示](../../GEO/GEO12/index.md#def-geo12-riemannian-metric)に従い、極座標 $x=r\cos\theta,y=r\sin\theta$ の微分から $dx^2+dy^2=dr^2+r^2d\theta^2$ です。従って $G=\operatorname{diag}(1,r^2)$、$\rho=\sqrt{\det G}=r$、$g^{rr}=1$、$u_r=r^{-1}$ であり、
 
 $$
 \Delta u=\frac1r\partial_r(ru_r)=\frac1r\partial_r(1)=0.
