@@ -97,7 +97,21 @@ $$
 
 を得ます。導関数の上界・Jacobianの下界・切断関数の導関数の上界はすべて $C_{ij}$ に含めています。座標の境界近くでは各関数が零なので、零延長による余分な弱微分はありません。
 
-$k\ge2$ では連鎖律をさらに微分すると、次数 $|\alpha|\le k$ の導関数は
+$k=2$ の場合も中間計算を確かめます。上の一階の式を $y^c$ でさらに微分すると、元の関数の二階微分から生じる項と、座標変換の二階微分から生じる項に分かれます。
+
+$
+\begin{aligned}
+\partial_{y^c}\partial_{y^a}(f\circ\Phi)
+={}&\sum_{b,e=1}^d
+(\partial_{x^e}\partial_{x^b}f)(\Phi(y))\,
+\partial_{y^c}\Phi^e\,\partial_{y^a}\Phi^b\\
+&+\sum_{b=1}^d
+(\partial_{x^b}f)(\Phi(y))\,
+\partial_{y^c}\partial_{y^a}\Phi^b.
+\end{aligned}
+$
+
+両項の係数は座標重なりのコンパクトな台上で有界です。$k\ge2$ ではこの操作を繰り返すことで、次数 $|\alpha|\le k$ の導関数は
 
 $$
 D_y^\alpha(f\circ\Phi)
