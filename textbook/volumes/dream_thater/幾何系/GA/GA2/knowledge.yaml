@@ -58,4 +58,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（滑らかな境界を持つ多様体のトレース）"]
-    requires: [geometric-analysis.manifold-sobolev, sobolev.lipschitz-trace, sobolev.extension-lipschitz]
+    requires: [geometric-analysis.manifold-sobolev, sobolev.trace-lipschitz, sobolev.extension-lipschitz]
