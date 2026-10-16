@@ -18,10 +18,10 @@ concepts:
     introduction_aliases: ["定理（切断座標ノルムの同値性）"]
     requires: [geometric-analysis.manifold-sobolev, sobolev.local-mollification]
   - id: geometric-analysis.intrinsic-h1
-    name: 共変微分によるH1ノルム
+    name: 共変微分によるSobolevノルム
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（共変微分による $H^1$ ノルム）"]
+    introduction_aliases: ["命題（共変微分によるSobolevノルム）"]
     requires: [geometric-analysis.chart-norm-equivalence, geometry.riemannian-gradient, geometry.riemannian-volume-form]
   - id: geometric-analysis.sobolev-complete-density
     name: 多様体Sobolev空間の完備性と滑らかな関数の密度
