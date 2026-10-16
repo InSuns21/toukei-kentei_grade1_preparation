@@ -270,7 +270,7 @@ $V$ は連結だから $u-(F+\bar F)$ は実定数 $c$ である。そこで $h=
 
 閉形式を作れるだけではKähler計量にならない。[正の実(1,1)形式](../KAH1-02/index.md#def-kah1-02-positive-form)は、任意の零でない $(1,0)$ ベクトルに対して正の値を取る必要がある。なぜ二階微分の行列でこれを判定できるのか、座標基底で確認しよう。
 
-正則座標の接ベクトルを $v=\sum_i v^i\partial/\partial z^i$ と書けば、$dz^i(v)=v^i$、$d\bar z^j(\bar v)=\overline{v^j}$、交差する二つの評価は零となる。[型別外微分の局所公式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)を用いて $\omega_\varphi=i\partial\bar\partial\varphi$ と置くと
+正則座標の接ベクトルを $v=\sum_i v^i\partial/\partial z^i$ と書けば、$dz^i(v)=v^i$、$d\bar z^j(\bar v)=\overline{v^j}$、交差する二つの評価は零となる。[局所公式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)を用いて $\omega_\varphi=i\partial\bar\partial\varphi$ と置くと
 
 $$
 \begin{aligned}
