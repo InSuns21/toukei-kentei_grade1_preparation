@@ -1,0 +1,72 @@
+chapter: MF4
+scope: dream-theater
+coverage: complete
+prerequisites: [MF3, MF2, MF1, CA8]
+forward_references: []
+concepts:
+  - id: modular-forms.gamma-subgroups
+    name: 主要な合同部分群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主要な合同部分群）"]
+    requires: [modular-forms.modular-group]
+  - id: modular-forms.subgroup-index
+    name: 主要合同部分群の指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（主要合同部分群の指数）"]
+    requires: [modular-forms.gamma-subgroups]
+  - id: modular-forms.cusp-width
+    name: カスプ、スケーリング行列、幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（カスプ、スケーリング行列、幅）"]
+    requires: [modular-forms.gamma-subgroups, modular-forms.fractional-action]
+  - id: modular-forms.cusp-width-formula
+    name: Γ0(N)のカスプ幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Γ0(N) のカスプ幅）"]
+    requires: [modular-forms.cusp-width]
+  - id: modular-forms.prime-cusps
+    name: 素数レベルのカスプ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（素数レベルのカスプ）"]
+    requires: [modular-forms.cusp-width-formula]
+  - id: modular-forms.level-form
+    name: Γ0(N)のモジュラー形式・カスプ形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Γ0(N) のモジュラー形式・カスプ形式）"]
+    requires: [modular-forms.modular-form, modular-forms.q-expansion, modular-forms.cusp-width]
+  - id: modular-forms.modular-curve
+    name: 複素モジュラー曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素モジュラー曲線）"]
+    requires: [modular-forms.cusp-width, complex-analysis.riemann-surface]
+  - id: modular-forms.compactification
+    name: 複素モジュラー曲線のコンパクト化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素モジュラー曲線のコンパクト化）"]
+    requires: [modular-forms.modular-curve, modular-forms.subgroup-index]
+  - id: modular-forms.genus
+    name: X0(N)の種数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（X0(N) の種数公式）"]
+    requires: [modular-forms.compactification, modular-forms.j-field]
+  - id: modular-forms.weight-two-differentials
+    name: 重さ2のカスプ形式と正則微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重さ2のカスプ形式と正則微分）"]
+    requires: [modular-forms.level-form, modular-forms.compactification, complex-analysis.holomorphic-one-form]
+  - id: modular-forms.complex-moduli
+    name: 巡回部分群付き複素楕円曲線とΓ0(N)軌道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Γ0(N) と巡回部分群付き複素楕円曲線）"]
+    requires: [modular-forms.gamma-subgroups, complex-analysis.complex-torus]
