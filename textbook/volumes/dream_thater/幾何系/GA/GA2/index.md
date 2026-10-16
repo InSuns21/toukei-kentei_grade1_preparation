@@ -172,7 +172,7 @@ $$
 \nabla_g(\chi_iu)=\chi_i\nabla_gu+u\nabla_g\chi_i
 $$
 
-より、$\|\chi_i u\|_{H^1_g}\le C_i\|u\|_{H^1_g}$ を得ます。逆に $\sum_i\chi_i=1$ から $u=\sum_i\chi_i u$、$\nabla_gu=\sum_i\nabla_g(\chi_i u)$ ですから、Cauchy--Schwarz不等式により
+より、$\|\chi_i u\|_{H^1_g}\le C_i\|u\|_{H^1_g}$ を得ます。逆に $\sum_i\chi_i=1$ から $u=\sum_i\chi_i u$、$\nabla_gu=\sum_i\nabla_g(\chi_i u)$ ですから、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \|u\|_{H^1_g}
@@ -251,9 +251,9 @@ $\chi_i u$ を座標へ移し、[有界Lipschitz領域のSobolev埋め込み](..
 <!-- proof-start -->
 ### 証明
 
-$u=\sum_i\chi_i u$ とし、$w_i$ を第1節の切断座標とします。各 $B_i$ は有界滑らかでLipschitz領域です。$d\ge3$ では、[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)に $p=2$ を代入すると指数 $2d/(d-2)$ の評価を得ます。球は有限測度なので、$2\le q\le2d/(d-2)$ への評価はHölder不等式で従います。
+$u=\sum_i\chi_i u$ とし、$w_i$ を第1節の切断座標とします。各 $B_i$ は有界滑らかでLipschitz領域です。$d\ge3$ では、[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)に $p=2$ を代入すると指数 $2d/(d-2)$ の評価を得ます。球は有限測度なので、$2\le q\le2d/(d-2)$ への評価は[Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)で従います。
 
-$d=2$ で $q>2$ を固定し、$p=2q/(q+2)$ と選ぶと $1<p<2$、$p^*=2p/(2-p)=q$ です。有限測度の球ではHölder不等式により $\|w\|_{W^{1,p}(B_i)}\le C_{i,p}\|w\|_{H^1(B_i)}$ ですから、同じ[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)を今度はこの $p$ へ適用できます。$q=2$ は元の $L^2$ 項そのものです。従っていずれの次元でも
+$d=2$ で $q>2$ を固定し、$p=2q/(q+2)$ と選ぶと $1<p<2$、$p^*=2p/(2-p)=q$ です。有限測度の球では[Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)により $\|w\|_{W^{1,p}(B_i)}\le C_{i,p}\|w\|_{H^1(B_i)}$ ですから、同じ[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)を今度はこの $p$ へ適用できます。$q=2$ は元の $L^2$ 項そのものです。従っていずれの次元でも
 
 $
 \|w_i\|_{L^q(B_i)}
@@ -379,7 +379,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[平均零Poincaré不等式](#thm-ga2-poincare)から
+[本章で証明した平均零関数の勾配評価](#thm-ga2-poincare)から
 
 $$
 \|u\|_{H^1_g}^2
@@ -631,7 +631,7 @@ $$
 \le(1+C_P^2)K^2.
 $$
 
-**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[GPDE5で証明した有界列から弱収束部分列を取る結果](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $u_{n_j}\rightharpoonup u$ in $H^1$ の部分列を取れます。この部分列に[本章のコンパクト埋め込み](#thm-ga2-rellich)を適用すると、さらに $u_{n_{j_\ell}}\to v$ in $L^2$ が成立します。$H^1\to L^2$ は連続だから同じ部分列は $L^2$ で $u$ に弱収束し、強収束極限の一意性より $v=u$ です。最後に
+**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[GPDE5で証明した有界列から弱収束部分列を取る結果](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $u_{n_j}\rightharpoonup u$ in $H^1$ の部分列を取れます。この部分列に[本章のコンパクト埋め込み](#thm-ga2-rellich)を適用すると、さらに $u_{n_{j_\ell}}\to v$ in $L^2$ が成立します。$H^1\to L^2$ は連続だから同じ部分列は $L^2$ で $u$ に弱収束し、[距離空間における極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)より $v=u$ です。最後に
 
 $$
 \left|\int_M(u_{n_{j_\ell}}-u)\,dV_g\right|
