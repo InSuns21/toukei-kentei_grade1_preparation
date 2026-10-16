@@ -1,0 +1,46 @@
+id: "MF4"
+title: "合同部分群・カスプ・モジュラー曲線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF3
+  - MF2
+  - MF1
+  - CA8
+official_scope: []
+learning_objectives:
+  - Γ(N), Γ1(N), Γ0(N) の合同条件と包含関係を例で判定できる
+  - 有限群の数え上げから合同部分群の指数公式を導ける
+  - カスプ軌道・スケーリング行列・幅を定義し、Γ0(N)の幅を計算できる
+  - 全カスプのq展開で正則性・カスプ条件を判定し、無限遠だけでは不十分な反例を作れる
+  - Y0(N)から楕円点とカスプの局所座標を通じてX0(N)を構成できる
+  - 分岐の数え上げで種数公式を導き、レベル2と11を計算できる
+  - 重さ2のカスプ形式とX0(N)の正則微分の対応を局所座標で双方向に証明できる
+  - 巡回部分群付き複素楕円曲線とΓ0(N)軌道の対応を格子から導ける
+  - 複素モジュラー曲線とQ上の代数モデル、古典種数次元定理の論証範囲を区別できる
+definitions:
+  - { id: MF4-DEF-01, name: 主要な合同部分群 }
+  - { id: MF4-DEF-02, name: カスプ・スケーリング行列・幅 }
+  - { id: MF4-DEF-03, name: Γ0(N)のモジュラー形式・カスプ形式 }
+  - { id: MF4-DEF-04, name: 複素モジュラー曲線 }
+theorems:
+  - { id: MF4-THM-01, name: 主要合同部分群の指数 }
+  - { id: MF4-PROP-01, name: Γ0(N)のカスプ幅 }
+  - { id: MF4-PROP-02, name: 素数レベルのカスプ }
+  - { id: MF4-THM-02, name: 複素モジュラー曲線のコンパクト化 }
+  - { id: MF4-THM-03, name: X0(N)の種数公式 }
+  - { id: MF4-THM-04, name: 重さ2のカスプ形式と正則微分 }
+  - { id: MF4-PROP-03, name: 巡回部分群付き複素楕円曲線 }
+canonical_examples:
+  - Γ(2)とΓ1(2)とΓ0(2)の合同条件の直接確認
+  - Γ0(2)とΓ0(11)の指数
+  - Γ0(2)とΓ0(11)の∞および0のカスプ幅
+  - E4とE4(2τ)による全カスプの定数項の差
+  - 固定点の局所座標t=w^eと不変微分
+  - レベル2とレベル11の種数
+  - 巡回部分群Cτの生成元とその基底変換
+problem_patterns: [MF4-A1, MF4-A2, MF4-A3, MF4-A4, MF4-B1, MF4-B2, MF4-B3, MF4-B4, MF4-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 8, review: 4 }
