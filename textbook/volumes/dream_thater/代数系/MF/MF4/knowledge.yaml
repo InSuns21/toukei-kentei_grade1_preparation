@@ -23,10 +23,10 @@ concepts:
     introduction_aliases: ["定義（カスプ、スケーリング行列、幅）"]
     requires: [modular-forms.gamma-subgroups, modular-forms.fractional-action]
   - id: modular-forms.cusp-width-formula
-    name: Γ0(N)のカスプ幅
+    name: カスプ幅の公式
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（Γ0(N) のカスプ幅）"]
+    introduction_aliases: ["命題（カスプ幅の公式）"]
     requires: [modular-forms.cusp-width]
   - id: modular-forms.prime-cusps
     name: 素数レベルのカスプ
@@ -35,10 +35,10 @@ concepts:
     introduction_aliases: ["命題（素数レベルのカスプ）"]
     requires: [modular-forms.cusp-width-formula]
   - id: modular-forms.level-form
-    name: Γ0(N)のモジュラー形式・カスプ形式
+    name: 合同部分群に関するモジュラー形式・カスプ形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（Γ0(N) のモジュラー形式・カスプ形式）"]
+    introduction_aliases: ["定義（合同部分群に関するモジュラー形式・カスプ形式）"]
     requires: [modular-forms.modular-form, modular-forms.q-expansion, modular-forms.cusp-width]
   - id: modular-forms.modular-curve
     name: 複素モジュラー曲線
@@ -53,10 +53,10 @@ concepts:
     introduction_aliases: ["定理（複素モジュラー曲線のコンパクト化）"]
     requires: [modular-forms.modular-curve, modular-forms.subgroup-index]
   - id: modular-forms.genus
-    name: X0(N)の種数公式
+    name: モジュラー曲線の種数公式
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（X0(N) の種数公式）"]
+    introduction_aliases: ["定理（モジュラー曲線の種数公式）"]
     requires: [modular-forms.compactification, modular-forms.j-field]
   - id: modular-forms.weight-two-differentials
     name: 重さ2のカスプ形式と正則微分
@@ -65,8 +65,8 @@ concepts:
     introduction_aliases: ["定理（重さ2のカスプ形式と正則微分）"]
     requires: [modular-forms.level-form, modular-forms.compactification, complex-analysis.holomorphic-one-form]
   - id: modular-forms.complex-moduli
-    name: 巡回部分群付き複素楕円曲線とΓ0(N)軌道
+    name: 巡回部分群付き複素楕円曲線の分類
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（Γ0(N) と巡回部分群付き複素楕円曲線）"]
+    introduction_aliases: ["命題（巡回部分群付き複素楕円曲線の分類）"]
     requires: [modular-forms.gamma-subgroups, complex-analysis.complex-torus]
