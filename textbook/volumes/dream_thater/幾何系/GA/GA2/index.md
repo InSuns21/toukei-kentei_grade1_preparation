@@ -8,7 +8,7 @@
 
 以下、まず $(M,g)$ を**滑らかな、連結な、コンパクトで境界のない $d$ 次元Riemann多様体**（$d\ge1$）とします。実数値関数を扱います。[GEO1の座標近傍](../../GEO/GEO1/index.md#def-geo1-chart)は $\kappa_i:U_i\to\Omega_i\subset\mathbb R^d$ という微分同相写像で、その逆像によって座標関数 $u_i=u\circ\kappa_i^{-1}$ を得ます。
 
-コンパクト性と[1の分割定理](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity)により、有限個の座標近傍 $U_1,\ldots,U_N$ と滑らかな非負関数 $\chi_i$ を選べます。ここで
+$M$ がコンパクトであることと、[GEO4で証明した滑らかな1の分割の存在](../../GEO/GEO4/index.md#thm-geo4-partition-of-unity)を組み合わせ、有限個の座標近傍 $U_1,\ldots,U_N$ と滑らかな非負関数 $\chi_i$ を選べます。ここで
 
 $$
 \operatorname{supp}\chi_i\Subset U_i,\qquad
@@ -24,7 +24,7 @@ $$
 
 と置き、$\Omega_i$ の外では $0$ に延長します。台が $\Omega_i$ の内部に収まるため、延長後に人工的な境界ジャンプは生じません。
 
-局所的に $L^p$ の弱微分が存在するかは、座標関数へ[GPDE3の弱微分の定義](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)を適用して判定できます。別々の座標で計算しても矛盾しないことは第2節で証明します。
+局所的に $L^p$ の弱微分が存在するかは、座標関数が[GPDE3のSobolev空間の定義](../../../解析系/GPDE/GPDE3/index.md#def-gpde3-sobolev-space)の弱微分条件を満たすかどうかで判定できます。別々の座標で計算しても矛盾しないことは第2節で証明します。
 
 <a id="def-ga2-sobolev"></a>
 <!-- formal-statement-start -->
@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga2-sobolev -->
-**定義の確認**。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ 上の $u(\theta)=|\sin\theta|$ を考えます。各座標で $u$ はLipschitz連続、弱微分は $\cos\theta\,\operatorname{sgn}(\sin\theta)$（零点での値は任意）です。$u$ とこの微分は有界ですから、各 $\chi_i u$ の値・弱微分は切断関数の積の法則によって $L^2$ に入り、$u\in H^1(S^1)$ です。一方、$\theta=0,\pi$ では古典微分は存在しません。滑らかな関数だけの空間とは異なることが分かります。
+**定義の確認**。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ 上の $u(\theta)=|\sin\theta|$ を考えます。各座標で $u$ はLipschitz連続、弱微分は $\cos\theta\,\operatorname{sgn}(\sin\theta)$（零点での値は任意）です。$u$ とこの微分は有界ですから、各 $\chi_i u$ の値・弱微分は切断関数の積の法則によって $L^2$ に入り、$u\in H^1(S^1)$ です。一方、$\theta=0,\pi$ では古典微分は存在しません。古典微分が存在しない関数まで扱えることが分かります。
 <!-- definition-example-end -->
 
 式の右辺には計量が直接見えません。しかしコンパクトな座標の上では、計量はEuclidの長さと体積を上下から比較できるので、計量を使った自然なノルムと同値になります。
@@ -74,7 +74,7 @@ $$
 
 ### 証明の見取り図
 
-$\eta_j u=\sum_i\eta_j\chi_i u$ と分けます。一つ一つの項を、台がコンパクトな座標の重なりで座標変換し、連鎖律・積の法則・変数変換公式を使って古いノルムで評価します。定数が有限個しかないことが重要です。
+$\eta_j u=\sum_i\eta_j\chi_i u$ と分けます。一つ一つの項を、台がコンパクトな座標の重なりで座標変換し、座標変換の連鎖律で微分を展開し、切断関数の積を微分してからJacobianを含めて変数を取り替え、元のノルムで評価します。定数が有限個しかないことが重要です。
 
 <!-- proof-start -->
 ### 証明
@@ -121,7 +121,7 @@ $$
 
 ### 計量と体積が入る場所
 
-[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)により、座標では
+[GEO12で計算したRiemann体積密度](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)を座標へ代入すると、
 
 $$
 dV_g=\rho(x)\,dx,\qquad
@@ -148,7 +148,7 @@ $$
 
 <a id="prop-ga2-intrinsic-h1"></a>
 <!-- formal-statement-start -->
-> **命題（共変微分による $H^1$ ノルム）**  
+> **命題（共変微分によるSobolevノルム）**  
 > 第1節の $M$ で、滑らかな関数 $u$ に対し
 
 $$
@@ -226,7 +226,7 @@ $$
 $p=2$ の場合、有限個の $W^{k,2}$ 内積を足したものがこのノルムの二乗を与え、完備性と合わせてHilbert空間になります。
 <!-- proof-end -->
 
-## 4. 多様体へ移るSobolev埋め込みとRellichの定理
+## 4. Sobolev埋め込みとRellichのコンパクト性を多様体へ移す
 
 局所座標上では切断した関数 $w_i$ の台がコンパクトです。最初の座標近傍を必要なだけ細分し、各座標像 $\Omega_i=B_i$ を有界なEuclid球に選んでおけば、$w_i\in H^1_0(B_i)$ です。これは台が球の境界から正の距離だけ離れており、零延長の弱微分に境界項が生じないためです。この準備が既習のEuclid定理の仮定確認です。
 
@@ -292,7 +292,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-定義のノルムから、各 $i$ の $w_{i,n}$ は $H_0^1(B_i)$ で有界です。$B_i$ は有界開集合なので、[EuclidのRellich--Kondrachov定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-rellich-h01-l2)より、$w_{1,n}$ から $L^2(B_1)$ 強収束部分列を選べます。その部分列に対し $i=2$ を適用し、これを $i=N$ まで繰り返して共通部分列 $n_\ell$ を得ます。
+定義のノルムから、各 $i$ の $w_{i,n}$ は $H_0^1(B_i)$ で有界です。$B_i$ は有界開集合なので、[GPDE5で証明した有界領域でのコンパクト埋め込み](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-rellich-h01-l2)を適用すると、$w_{1,n}$ から $L^2(B_1)$ 強収束部分列を選べます。その部分列に対し $i=2$ を適用し、これを $i=N$ まで繰り返して共通部分列 $n_\ell$ を得ます。
 
 元の関数の差には、各座標に戻した切断部分の和を用い、
 
@@ -345,7 +345,7 @@ $$
 
 とできます。実際、元の反例 $u_n$ から平均 $\bar u_n$ を引き、$\|u_n-\bar u_n\|_{L^2}$ で割ればよく、分母は不等式に反するため0ではありません。
 
-$\|v_n\|_{H^1_g}^2=1+\|\nabla_gv_n\|_{L^2}^2$ は有界です。[Rellich定理](#thm-ga2-rellich)から部分列（同じ添字で書く）が $v_n\to v$ in $L^2(M)$ で収束します。したがって
+$\|v_n\|_{H^1_g}^2=1+\|\nabla_gv_n\|_{L^2}^2$ は有界です。[本章の $H^1$ から $L^2$ へのコンパクト埋め込み](#thm-ga2-rellich)によって部分列（同じ添字で書く）が $v_n\to v$ in $L^2(M)$ で収束します。したがって
 
 $$
 \int_Mv\,dV_g=0,\qquad\|v\|_{L^2(M)}=1
@@ -353,7 +353,7 @@ $$
 
 です。最初の等式はCauchy--Schwarzにより $|\int(v_n-v)|\le\operatorname{Vol}_g(M)^{1/2}\|v_n-v\|_{L^2}\to0$ だからです。
 
-任意の座標近傍の内部に台を持つ滑らかな試験関数 $\varphi$ に対して、座標で積分した弱微分の恒等式を使います。$v_n\to v$ in $L^2$、$\partial_av_n\to0$ in $L^2$（計量比較による）なので
+任意の座標近傍の内部に台を持つ滑らかな試験関数 $\varphi$ に対して、弱微分の定義に従って試験関数を積分に代入します。$v_n\to v$ in $L^2$、$\partial_av_n\to0$ in $L^2$（計量比較による）なので
 
 $$
 \int v\,\partial_a\varphi\,dx
@@ -476,7 +476,7 @@ $$
 \int_0^{2\pi}4\cos^2(2\theta)d\theta=4\pi.
 $$
 
-従って[共変勾配ノルムの定義](#prop-ga2-intrinsic-h1)より $\|u\|_{H^1_g}^2=5\pi$ です。
+従って[第2節の計量からのノルム表示](#prop-ga2-intrinsic-h1)に代入して $\|u\|_{H^1_g}^2=5\pi$ です。
 <!-- solution-end -->
 
 <a id="ex-ga2-a02"></a>
@@ -552,7 +552,7 @@ $$
 \end{aligned}
 $$
 
-Cauchy--Schwarzにより最後は $\bigl(\sum_{i=1}^3(D_iK_i)^2\bigr)^{1/2}\bigl(\sum_{i=1}^3\|w_i\|_{H^1}^2\bigr)^{1/2}$ 以下です。[切断座標ノルムの定義](#def-ga2-sobolev)から目的の大域的 $H^1$ ノルム評価になります。
+Cauchy--Schwarzにより最後は $\bigl(\sum_{i=1}^3(D_iK_i)^2\bigr)^{1/2}\bigl(\sum_{i=1}^3\|w_i\|_{H^1}^2\bigr)^{1/2}$ 以下です。[多様体Sobolev空間の定義](#def-ga2-sobolev)から目的の大域的 $H^1$ ノルム評価になります。
 <!-- solution-end -->
 
 <a id="ex-ga2-b02"></a>
@@ -631,7 +631,7 @@ $$
 \le(1+C_P^2)K^2.
 $$
 
-**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[Hilbert空間の有界列の弱収束部分列定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $u_{n_j}\rightharpoonup u$ in $H^1$ の部分列を取れます。この部分列へ[多様体Rellich定理](#thm-ga2-rellich)を使うと、さらに $u_{n_{j_\ell}}\to v$ in $L^2$ が成立します。$H^1\to L^2$ は連続だから同じ部分列は $L^2$ で $u$ に弱収束し、強収束極限の一意性より $v=u$ です。最後に
+**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[GPDE5で証明した有界列から弱収束部分列を取る結果](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $u_{n_j}\rightharpoonup u$ in $H^1$ の部分列を取れます。この部分列に[本章のコンパクト埋め込み](#thm-ga2-rellich)を適用すると、さらに $u_{n_{j_\ell}}\to v$ in $L^2$ が成立します。$H^1\to L^2$ は連続だから同じ部分列は $L^2$ で $u$ に弱収束し、強収束極限の一意性より $v=u$ です。最後に
 
 $$
 \left|\int_M(u_{n_{j_\ell}}-u)\,dV_g\right|
