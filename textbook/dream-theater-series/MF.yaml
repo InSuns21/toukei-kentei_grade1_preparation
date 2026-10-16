@@ -20,7 +20,7 @@ chapters:
     title: "valence formulaと環構造"
   - id: MF4
     path: textbook/volumes/dream_thater/代数系/MF/MF4
-    status: planned
+    status: completed
     title: "合同部分群・カスプ・モジュラー曲線"
   - id: MF5
     path: textbook/volumes/dream_thater/代数系/MF/MF5
