@@ -1,0 +1,61 @@
+chapter: GA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA1
+  - GPDE5
+concepts:
+  - id: geometric-analysis.manifold-sobolev
+    name: 多様体上のSobolev空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多様体上のSobolev空間）"]
+    requires: [sobolev.wkp, geometry.partition-of-unity-existence]
+  - id: geometric-analysis.chart-norm-equivalence
+    name: 切断座標ノルムの同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（切断座標ノルムの同値性）"]
+    requires: [geometric-analysis.manifold-sobolev, sobolev.local-mollification]
+  - id: geometric-analysis.intrinsic-h1
+    name: 共変微分によるSobolevノルム
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共変微分によるSobolevノルム）"]
+    requires: [geometric-analysis.chart-norm-equivalence, geometry.riemannian-gradient, geometry.riemannian-volume-form]
+  - id: geometric-analysis.sobolev-complete-density
+    name: 多様体Sobolev空間の完備性と滑らかな関数の密度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多様体Sobolev空間の完備性と滑らかな関数の密度）"]
+    requires: [geometric-analysis.chart-norm-equivalence, sobolev.wkp-complete, sobolev.local-mollification]
+  - id: geometric-analysis.sobolev-embedding
+    name: コンパクト多様体上のSobolev埋め込み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト多様体上のSobolev埋め込み）"]
+    requires: [geometric-analysis.chart-norm-equivalence, sobolev.embedding-lipschitz]
+  - id: geometric-analysis.rellich
+    name: コンパクト多様体上のRellichの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト多様体上のRellichの定理）"]
+    requires: [geometric-analysis.manifold-sobolev, sobolev.rellich-h01-l2]
+  - id: geometric-analysis.mean-zero-poincare
+    name: 平均零Poincare不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平均零Poincaré不等式）"]
+    requires: [geometric-analysis.rellich, geometric-analysis.intrinsic-h1]
+  - id: geometric-analysis.mean-zero-gradient
+    name: 平均零空間での勾配ノルム
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均零空間での勾配ノルム）"]
+    requires: [geometric-analysis.mean-zero-poincare]
+  - id: geometric-analysis.boundary-trace
+    name: 滑らかな境界を持つ多様体のトレース
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな境界を持つ多様体のトレース）"]
+    requires: [geometric-analysis.manifold-sobolev, sobolev.trace-lipschitz, sobolev.extension-lipschitz]
