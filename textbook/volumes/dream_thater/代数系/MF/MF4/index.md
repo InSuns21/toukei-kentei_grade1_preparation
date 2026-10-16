@@ -200,10 +200,10 @@ $$
 <!-- definition-example-start: def-mf4-level-form -->
 **定義の確認**。レベル1の $E_4$ は [MF2のEisenstein級数のモジュラー性](../MF2/index.md#thm-mf2-eisenstein-modularity)により、任意の整数モジュラー群の行列で変換しても重さ4のslash作用で不変です。
 
-$
+$$
 E_4|_4\sigma=E_4
 \qquad(\sigma\in SL_2(\mathbb Z)).
-$
+$$
 
 従って $\Gamma_0(2)$ の変換則も満たします。さらに $\infty$ と $0$ では、ともに $E_4=1+240q+\cdots$ がスケーリング後の関数になります。ただし $0$ では局所変数を $q_0=e^{\pi i\tau}$ とするので、展開は $1+240q_0^2+\cdots$ です。
 
