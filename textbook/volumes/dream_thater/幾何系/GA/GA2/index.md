@@ -43,11 +43,11 @@ $$
 <!-- definition-example-start: def-ga2-sobolev -->
 **定義の確認**。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ 上の $u(\theta)=|\sin\theta|$ を考えます。各座標で $u$ はLipschitz連続です。弱微分の候補は $\cos\theta\,\operatorname{sgn}(\sin\theta)$（零点での値は任意）です。この候補が正しいことを積分で確かめます。円を $\theta=0,\pi$ で分け、各開弧上で滑らかな試験関数 $\varphi$ に対し部分積分すると
 
-$
+$$
 \int_{S^1}u\,\partial_\theta\varphi\,d\theta
 =-\int_{S^1}
 \cos\theta\,\operatorname{sgn}(\sin\theta)\,\varphi\,d\theta
-$
+$$
 
 が成立します。弧を貼り合わせた際の境界項は、$u(0)=u(\pi)=0$ により消えます。この恒等式で弱微分が確認され、$u$ とその弱微分は共に有界です。[滑らかな乗数の弱微分積の法則](../../../解析系/GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)を各 $\chi_i$ に適用すると、切断座標の関数とその弱微分が $L^2$ に入り、$u\in H^1(S^1)$ です。一方、$\theta=0,\pi$ では古典微分は存在しません。古典微分が存在しない関数まで扱えることが分かります。
 <!-- definition-example-end -->
@@ -107,7 +107,7 @@ $$
 
 $k=2$ の場合も中間計算を確かめます。上の一階の式を $y^c$ でさらに微分すると、元の関数の二階微分から生じる項と、座標変換の二階微分から生じる項に分かれます。
 
-$
+$$
 \begin{aligned}
 \partial_{y^c}\partial_{y^a}(f\circ\Phi)
 ={}&\sum_{b,e=1}^d
@@ -117,7 +117,7 @@ $
 (\partial_{x^b}f)(\Phi(y))\,
 \partial_{y^c}\partial_{y^a}\Phi^b.
 \end{aligned}
-$
+$$
 
 両項の係数は座標重なりのコンパクトな台上で有界です。$k\ge2$ ではこの操作を繰り返すことで、次数 $|\alpha|\le k$ の導関数は
 
@@ -235,9 +235,17 @@ $$
 
 $u_n$ を $W^{k,p}(M)$ のCauchy列とします。各 $i$ で $w_{i,n}=(\chi_iu_n)\circ\kappa_i^{-1}$ は $W^{k,p}(\mathbb R^d)$ のCauchy列です。[Euclidの完備性](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-wkp-complete)により $w_{i,n}\to w_i$ が $W^{k,p}$ で成立します。
 
-局所座標の小さい開集合 $O\Subset U_i$ 上では、$\sum_j\chi_j=1$ を用い、$u_n$ の $L^p$ 極限を局所的に構成できます。具体的には $u_n=\sum_j\chi_j u_n$ で、右辺の各項は座標変換の零階の場合の評価から $L^p(O,dV_g)$ で収束するため、右辺の和の極限を $u$ と置きます。どの $O$ でも同じ $u_n$ の $L^p$ 極限なので重なりで一致します。$\chi_i u_n\to\chi_i u$ も $L^p$、一方 $\chi_i u_n\to w_i\circ\kappa_i$ も $L^p$ ですから $\chi_i u=w_i\circ\kappa_i$ がほとんど至る所で成立します。従って各 $w_i$ は $u$ の切断座標表示であり、$u_n\to u$ が定義のノルムで成立します。
+局所座標の小さい開集合 $O\Subset U_i$ を選びます。1の分割の等式から $u_n=\sum_j\chi_j u_n$ です。
 
-密度については、各 $w_i$ の台が $\Omega_i$ の内部にコンパクトに含まれる点を使います。[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)によって、$w_i$ を $\Omega_i$ 内に台を持つ滑らかな関数 $w_{i,\varepsilon}$ で $W^{k,p}$ 近似できます（平滑化半径を台と境界の距離より小さく取る）。これらを座標から戻して $M$ 上に零延長したものの和を $u_\varepsilon$ とすれば滑らかです。また $u=\sum_i\chi_i u$ なので、第2節のノルム比較により
+右辺の各切断部分は、前節の座標変換で得た零階の評価を使うと $L^p(O,dV_g)$ で収束します。従ってその有限和も同じ空間で収束し、極限を $u$ と定めます。異なる $O$ の重なりでも元の列は同じなので、極限の一意性によりこの定義は一致します。
+
+さらに $\chi_i u_n\to\chi_i u$ が $L^p$ で成立します。一方、切断座標では $\chi_i u_n\to w_i\circ\kappa_i$ です。二つの極限が一致するため $\chi_i u=w_i\circ\kappa_i$ がほとんど至る所で成立します。すべての $i$ についてこの等式が成立するので、定義したノルムで $u_n\to u$ です。
+
+密度の証明では各 $w_i$ の台が $\Omega_i$ の内部にコンパクトに含まれることを使います。[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)を用い、平滑化半径を台から座標像の境界までの距離より小さく選びます。
+
+すると $w_i$ を $\Omega_i$ 内にコンパクト台を持つ滑らかな関数 $w_{i,\varepsilon}$ で $W^{k,p}$ 近似できます。各近似関数を座標から多様体へ戻して零延長し、その有限和を $u_\varepsilon$ と置きます。この関数は滑らかです。
+
+もとの関数は $u=\sum_i\chi_i u$ です。第2節のノルム比較を各差分に用いると
 
 $$
 \|u_\varepsilon-u\|_{W^{k,p}(M)}
@@ -275,12 +283,29 @@ $\chi_i u$ を座標へ移し、[有界Lipschitz領域のSobolev埋め込み](..
 
 $u=\sum_i\chi_i u$ とし、$w_i$ を第1節の切断座標とします。各 $B_i$ は有界滑らかでLipschitz領域です。$d\ge3$ では、[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)に $p=2$ を代入すると指数 $2d/(d-2)$ の評価を得ます。球は有限測度なので、$2\le q\le2d/(d-2)$ への評価は[Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)で従います。
 
-$d=2$ で $q>2$ を固定し、$p=2q/(q+2)$ と選ぶと $1<p<2$、$p^*=2p/(2-p)=q$ です。有限測度の球では[Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)により $\|w\|_{W^{1,p}(B_i)}\le C_{i,p}\|w\|_{H^1(B_i)}$ ですから、同じ[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)を今度はこの $p$ へ適用できます。$q=2$ は元の $L^2$ 項そのものです。従っていずれの次元でも
+$d=2$ では任意の有限指数 $q>2$ を固定します。次の指数を選びます。
 
-$
+$$
+p=\frac{2q}{q+2},\qquad
+1<p<2,\qquad
+p^*=\frac{2p}{2-p}=q.
+$$
+
+有限測度の球 $B_i$ では[Hölderの不等式](../../../解析系/F0/F0-00D2D/index.md#thm-f0-00d2d-01)によって
+
+$$
+\|w\|_{W^{1,p}(B_i)}
+\le C_{i,p}\|w\|_{H^1(B_i)}
+$$
+
+となります。これに[有界Lipschitz領域のSobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)を指数 $p$ で適用すると、目的の $L^q$ 評価が従います。$q=2$ は最初から $H^1$ ノルムの $L^2$ 項で評価できます。
+
+従って、いずれの次元でも
+
+$$
 \|w_i\|_{L^q(B_i)}
 \le C_i\|w_i\|_{H^1(B_i)}
-$
+$$
 
 となります。座標上の体積密度 $\rho_i$ には正の上下界があるので、$\|\chi_i u\|_{L^q(M)}\le C'_i\|w_i\|_{L^q(B_i)}$ です。よって
 
@@ -653,7 +678,21 @@ $$
 \le(1+C_P^2)K^2.
 $$
 
-**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[GPDE5で証明した有界列から弱収束部分列を取る結果](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により $u_{n_j}\rightharpoonup u$ in $H^1$ の部分列を取れます。この部分列に[本章のコンパクト埋め込み](#thm-ga2-rellich)を適用すると、さらに $u_{n_{j_\ell}}\to v$ in $L^2$ が成立します。$H^1\to L^2$ は連続だから同じ部分列は $L^2$ で $u$ に弱収束し、[距離空間における極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)より $v=u$ です。最後に
+**2.** $H^1(M)$ は[完備なHilbert空間](#thm-ga2-complete-density)です。[GPDE5の弱収束部分列の結果](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を有界列に適用すると、部分列 $u_{n_j}$ と $u\in H^1(M)$ を取り、
+
+$$
+u_{n_j}\rightharpoonup u
+\quad\text{in }H^1(M)
+$$
+
+とできます。この部分列に[本章のコンパクト埋め込み](#thm-ga2-rellich)を適用すると、さらに部分列と $v\in L^2(M)$ が存在して
+
+$$
+u_{n_{j_\ell}}\to v
+\quad\text{in }L^2(M)
+$$
+
+となります。連続な埋め込み $H^1(M)\to L^2(M)$ により同じ部分列は $L^2$ で $u$ に弱収束します。一方、強収束は弱収束も含むため、[距離空間の極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)を用いて $v=u$ と分かります。最後に
 
 $$
 \left|\int_M(u_{n_{j_\ell}}-u)\,dV_g\right|
