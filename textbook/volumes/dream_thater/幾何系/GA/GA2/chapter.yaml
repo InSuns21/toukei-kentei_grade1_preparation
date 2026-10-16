@@ -1,0 +1,36 @@
+id: "GA2"
+title: "多様体Sobolev空間・貼り合わせ・コンパクト性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA1
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 有限の切断座標と1の分割から多様体W^{k,p}を定義し具体例の所属を確認できる
+  - 重なりの連鎖律・Jacobianとコンパクト台の一様界から座標ノルムの同値性を証明できる
+  - 計量と体積密度を使ったH1ノルムと局所座標ノルムの同値性を計算できる
+  - Euclidの完備性と平滑化から多様体Sobolev空間の完備性と滑らかな関数の密度を証明できる
+  - 局所Sobolev埋め込みを有限枚貼り合わせ大域評価へ移せる
+  - EuclidのRellich定理を有限座標の共通部分列抽出で多様体へ移せる
+  - Rellichと連結性から平均零Poincare不等式を背理法で証明できる
+  - 勾配ノルムと通常H1ノルムの平均零空間での同値性を導ける
+  - 滑らかな境界の半球座標とEuclid trace定理から多様体traceを構成できる
+  - 非コンパクトで平行移動や拡大縮小により大域Rellich/Poincareが失敗する例を計算できる
+definitions:
+  - { id: GA2-DEF-01, name: "多様体上のSobolev空間" }
+theorems:
+  - { id: GA2-THM-01, name: "切断座標ノルムの同値性" }
+  - { id: GA2-PROP-01, name: "共変微分によるH1ノルム" }
+  - { id: GA2-THM-02, name: "多様体Sobolev空間の完備性と滑らかな関数の密度" }
+  - { id: GA2-THM-03, name: "コンパクト多様体上のSobolev埋め込み" }
+  - { id: GA2-THM-04, name: "コンパクト多様体上のRellichの定理" }
+  - { id: GA2-THM-05, name: "平均零Poincare不等式" }
+  - { id: GA2-PROP-02, name: "平均零空間での勾配ノルム" }
+  - { id: GA2-PROP-03, name: "滑らかな境界を持つ多様体のトレース" }
+canonical_examples: [絶対値を持つ円のH1関数, 伸縮円の計量比較, 平坦トーラスのH1ノルム, 非コンパクト平行移動列]
+problem_patterns: [GA2-CIRCLE-H1, GA2-CONFORMAL-METRIC, GA2-TORUS-H1, GA2-TRACE-MEAN, GA2-GLUING, GA2-TRANSLATE, GA2-VARIATIONAL, GA2-POINCARE-COMPACTNESS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.5 }
