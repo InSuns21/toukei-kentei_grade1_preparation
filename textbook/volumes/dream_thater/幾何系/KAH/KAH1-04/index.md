@@ -23,6 +23,8 @@ $$
 
 とする。このとき実Euclid計量の係数は $g_{i\bar j}=\delta_{ij}/2$ である。
 
+ここで「正」は[正の実(1,1)形式の定義](../KAH1-02/index.md#def-kah1-02-positive-form)の $-i\omega(v,\bar v)>0$ を指し、「閉」は $d\omega=0$ を指す。二つは別々に確認する条件である。
+
 関数から作る形を先に定める。[型別外微分の局所公式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)によると、滑らかな関数 $\varphi$ に対して
 
 $$
@@ -266,7 +268,20 @@ $V$ は連結だから $u-(F+\bar F)$ は実定数 $c$ である。そこで $h=
 
 ## 4. 正値性を関数の二階微分で判定する
 
-閉形式を作れるだけではKähler計量にならない。[正の実(1,1)形式](../KAH1-02/index.md#def-kah1-02-positive-form)は、任意の零でない $(1,0)$ ベクトルに対して正の値を取る必要がある。ポテンシャル表示を代入すると、これは行列 $(\varphi_{i\bar j})$ の正定値性となる。この関数側の条件を強多重劣調和性と呼ぶ。
+閉形式を作れるだけではKähler計量にならない。[正の実(1,1)形式](../KAH1-02/index.md#def-kah1-02-positive-form)は、任意の零でない $(1,0)$ ベクトルに対して正の値を取る必要がある。なぜ二階微分の行列でこれを判定できるのか、座標基底で確認しよう。
+
+正則座標の接ベクトルを $v=\sum_i v^i\partial/\partial z^i$ と書けば、$dz^i(v)=v^i$、$d\bar z^j(\bar v)=\overline{v^j}$、交差する二つの評価は零となる。[型別外微分の局所公式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)を用いて $\omega_\varphi=i\partial\bar\partial\varphi$ と置くと
+
+$
+\begin{aligned}
+\omega_\varphi
+&=i\sum_{i,j}\varphi_{i\bar j}\,dz^i\wedge d\bar z^j,\\
+-i\omega_\varphi(v,\bar v)
+&=\sum_{i,j}\varphi_{i\bar j}v^i\overline{v^j}.
+\end{aligned}
+$
+
+したがって、この二階微分の配列は形式の係数行列そのものである。$\varphi$ が実関数なら、混合偏微分の交換と複素共役から $\varphi_{i\bar j}=\overline{\varphi_{j\bar i}}$ が成立する。[Hermite行列の正値性判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、**全ての**零でない $v$ で上式が正であることと形式の正値性が同値になる。この関数側の条件を強多重劣調和性と呼ぶ。
 
 <a id="def-kah1-04-strict-psh"></a>
 
@@ -317,7 +332,14 @@ $$
 \frac{\partial^2\varphi}{\partial z^i\partial\bar z^j}.
 $$
 
-Jacobianは正則座標変換のため可逆であり、零でないベクトルを零でないベクトルへ移す。従って複素Hessianの正定値性は座標に依存しない。
+$J^i{}_a=\partial z^i/\partial w^a$ とし、$w$ 座標での任意のベクトル $v=(v^a)$ に対して $u^i=\sum_aJ^i{}_av^a$ と置く。直前の変換式を二次形式へ代入すると
+
+$
+\sum_{a,b}\varphi_{a\bar b}^{(w)}v^a\overline{v^b}
+=\sum_{i,j}\varphi_{i\bar j}^{(z)}u^i\overline{u^j}.
+$
+
+$J$ は正則座標変換の複素Jacobianで可逆なので、$v\ne0$ と $u\ne0$ は同値である。よってどちらの正則座標でも正値性の真偽は一致する。
 
 <a id="prop-kah1-04-positive-equivalence"></a>
 
@@ -366,7 +388,7 @@ $$
 \omega=\frac i2\,dz\wedge d\bar z=dx\wedge dy
 $$
 
-は $T$ に降りる。$\varphi_0(z)=|z|^2/2$ は被覆空間上のポテンシャルだが、格子ベクトル $\lambda$ に対して
+は $T$ に降りる。実際、格子平行移動 $\tau_\lambda(z)=z+\lambda$ の下で $\tau_\lambda^*dz=dz$、$\tau_\lambda^*d\bar z=d\bar z$ なので、形式の係数と外積は変わらない。$\varphi_0(z)=|z|^2/2$ は被覆空間上のポテンシャルだが、格子ベクトル $\lambda$ に対して
 
 $$
 \begin{aligned}
