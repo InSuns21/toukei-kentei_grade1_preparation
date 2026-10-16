@@ -1,7 +1,7 @@
 # DREAM THEATER モジュラー形式（MF1〜MF8、章割り暫定）
 
 設計改訂: 2026-10-16（標準教科書・公開講義との照合）  
-状態: in_progress（MF1〜MF3実装・公開済み。MF4〜MF8と系列横断監査は未完了）
+状態: in_progress（MF1〜MF4実装・公開済み。MF5〜MF8と系列横断監査は未完了）
 
 ## 0. 中心問い・到達点・停止線
 
@@ -22,7 +22,7 @@
 
 **停止線：** 一般の代数曲線・スキーム・Jacobian／Abelian varietyの一般理論・Galois表現・Ribetのlevel lowering・Wiles–Taylor–Wilesのmodularity liftingは本系列で完全証明しない。MF8では必要な**外部大定理**を対象・仮定・結論とともに明示し、証明済み扱いにしない。
 
-**章数：** MF1〜MF3は実装済み。MF4〜MF8は系列manifestでplannedとして管理する。現行8章は上限・ノルマではない。MF4（モジュラー曲線）、MF5（Hecke）、MF7（newform）が独立した学習サイクルを複数要する場合は実装前に分割し、直接参照を同期する。既存のMF8の役割は維持する。
+**章数：** MF1〜MF4は実装済み。MF5〜MF8は系列manifestでplannedとして管理する。現行8章は上限・ノルマではない。MF4（モジュラー曲線）、MF5（Hecke）、MF7（newform）が独立した学習サイクルを複数要する場合は実装前に分割し、直接参照を同期する。既存のMF8の役割は維持する。
 
 ## 1. 教科書・講義資料との比較
 
