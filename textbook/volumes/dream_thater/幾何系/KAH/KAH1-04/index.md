@@ -444,7 +444,17 @@ d\eta
 \end{aligned}
 $$
 
-[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)は、向き付けられたコンパクトで境界のない $T$ に対して $\int_Td\eta=0$ を与える。ところが辺長1の正方形 $[0,1]\times[0,1]$ で
+[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)は、向き付けられたコンパクトで境界のない $T$ に対して $\int_Td\eta=0$ を与える。ところが $dz=dx+i\,dy$、$d\bar z=dx-i\,dy$ の外積を展開すると
+
+$$
+\begin{aligned}
+dz\wedge d\bar z
+&=(dx+i\,dy)\wedge(dx-i\,dy)\\
+&=-2i\,dx\wedge dy,
+\end{aligned}
+$$
+
+であり、$\omega=(i/2)dz\wedge d\bar z=dx\wedge dy$ を確認できる。複素構造の向きに沿う辺長1の基本正方形 $[0,1]\times[0,1]$ では
 
 $$
 \int_T\omega
