@@ -1,0 +1,40 @@
+id: "KAH1-05"
+title: "平坦模型と構成操作"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-04
+  - CM1-09
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 標準複素Euclid計量と定数正定値Hermite行列からKähler形式を構成し正値性・閉性・曲率零を証明できる
+  - 全格子の平行移動不変性を使い複素トーラスへ平坦Kähler構造を降下できる
+  - トーラスの大域Kähler形式と大域ポテンシャルの非存在を区別できる
+  - Kähler多様体の積の正値性・閉性と曲率直和を証明できる
+  - 正則はめ込みによる引き戻しの正値性・閉性と単射微分の必要性を証明できる
+  - 平坦な周囲から誘導される曲線の非零Gauss曲率を具体計算できる
+definitions:
+  - { id: KAH1-05-DEF-01, name: 正則はめ込みに沿う誘導Kähler構造 }
+theorems:
+  - { id: KAH1-05-PROP-01, name: 定数Hermite行列から作る平坦Kähler構造 }
+  - { id: KAH1-05-PROP-02, name: 平坦複素トーラスのKähler構造 }
+  - { id: KAH1-05-THM-01, name: Kähler多様体の積 }
+  - { id: KAH1-05-THM-02, name: 正則はめ込みによるKähler構造の引き戻し }
+canonical_examples:
+  - 標準複素Euclid模型と係数1/2
+  - 非対角定数Hermite行列の平方完成
+  - 標準複素トーラスの平行移動不変性とポテンシャルの非周期性
+  - 複素直線と平坦トーラスの積
+  - 正則放物線の誘導Kähler計量と負Gauss曲率
+  - 原点で微分が退化する正則写像
+problem_patterns:
+  - KAH1-05-FLAT-HERMITIAN
+  - KAH1-05-LATTICE-DESCENT
+  - KAH1-05-PRODUCT
+  - KAH1-05-IMMERSION
+  - KAH1-05-CURVATURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
