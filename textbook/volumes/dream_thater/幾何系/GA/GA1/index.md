@@ -347,7 +347,7 @@ $$
 u=x^2+y^2,\qquad f=-4,\qquad h=2
 $$
 
-とします。内部では $-\Delta u=-4$ です。境界の外向き法線は $\nu=(x,y)$ なので、$\partial_\nu u=(2x,2y)\cdot(x,y)=2$ です。[Greenの第一公式](#thm-ga1-green-first)を任意の $\varphi\in C^\infty(D)$ に適用すると
+とします。内部では $-\Delta u=-4$ です。境界上では $x^2+y^2=1$ なので、外向きのベクトル $(x,y)$ は長さ1です。従って単位法線は $\nu=(x,y)$ となり、$\partial_\nu u=2(x^2+y^2)=2$ です。[Greenの第一公式](#thm-ga1-green-first)を任意の $\varphi\in C^\infty(D)$ に適用すると
 
 $$
 \int_D\nabla u\cdot\nabla\varphi\,dA
