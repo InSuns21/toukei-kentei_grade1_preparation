@@ -48,11 +48,11 @@ $$
 
 点 $z$ と $\gamma z$ における位数は等しくなります。[重さ $k$ の変換則](../MF2/index.md#def-mf2-modular-form)に現れる $(c\tau+d)^k$ は $\mathbb H$ で零になりません。また $\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ の行列式が1なので、局所座標の変換は
 
-$
+$$
 \gamma\tau-\gamma z
 =\frac{\tau-z}{(c\tau+d)(cz+d)},\qquad
 \frac{d(\gamma\tau)}{d\tau}=\frac{1}{(c\tau+d)^2}\ne0
-$
+$$
 
 を満たします。$f(\tau)=(\tau-z)^m u(\tau)$ を変換則へ代入すれば、$\gamma z$ の近くでも非零の正則因子を掛けた $m$ 乗の形になります。[零点位数の座標不変性](../../../解析系/CA/CA8/index.md#thm-ca8-order-coordinate-invariance)にも一致し、軌道ごとに数えられる理由が分かります。
 
@@ -63,10 +63,10 @@ $
 > **定義（重み付き零点数）**  
 > 非零 $f\in M_k$ に対し、上半平面の零点を $SL_2(\mathbb Z)$ の軌道ごとに数え、次の量を重み付き零点数 $Z_{\mathcal F}(f)$ という。
 >
-$
+$$
 Z_{\mathcal F}(f)=\frac{v_i(f)}2+\frac{v_\rho(f)}3+
 \sum_{[z]\ne[i],[\rho]}v_z(f),\qquad \rho=e^{2\pi i/3}.
-$
+$$
 >
 > 最後の和は $i$ と $\rho$ の軌道を除いた和であり、基本領域の内点では代表を一つ、通常の境界上では貼り合わされた二点から一つ選ぶ。$i$ と $\rho$ の軌道に限り、それぞれ位数の $1/2$ と $1/3$ を加える。カスプはこの $Z_{\mathcal F}(f)$ に含めない。
 <!-- formal-statement-end -->
@@ -123,17 +123,17 @@ $$
 
 下の単位円弧を $\rho$ から $\rho+1$ へ（角度 $2\pi/3$ から $\pi/3$ へ）たどる積分を $I$ とします。$S\tau=-1/\tau$ は円弧の両端を交換して向きを逆転させます。[モジュラー形式の変換則](../MF2/index.md#def-mf2-modular-form)を $S$ に適用すると $f(S\tau)=\tau^k f(\tau)$ です。両辺を $\tau$ で微分して連鎖律を展開すると
 
-$
+$$
 f'(S\tau)\frac1{\tau^2}
 =k\tau^{k-1}f(\tau)+\tau^kf'(\tau).
-$
+$$
 
 境界上で $f\ne0$ であるため、$\tau^kf(\tau)=f(S\tau)$ で割って
 
-$
+$$
 \frac{f'(S\tau)}{f(S\tau)}\,\frac1{\tau^2}
 =\frac{k}{\tau}+\frac{f'(\tau)}{f(\tau)}
-$
+$$
 
 を得ます。
 
@@ -189,16 +189,16 @@ $$
 
 [MF2のEisenstein級数のモジュラー性](../MF2/index.md#thm-mf2-eisenstein-modularity)から、重さ4の $E_4$ と重さ6の $E_6$ に変換則を使えます。$ST\rho=\rho$ かつ $\rho+1=e^{\pi i/3}$ なので
 
-$
+$$
 E_4(\rho)=(\rho+1)^4E_4(\rho)
 =e^{4\pi i/3}E_4(\rho).
-$
+$$
 
 係数は1でないため $E_4(\rho)=0$ です。一方 $Si=i$ より
 
-$
+$$
 E_6(i)=i^6 E_6(i)=-E_6(i)
-$
+$$
 
 なので $E_6(i)=0$ です。$E_4,E_6$ の定数項は1だから、いずれもカスプ位数は0です。
 
@@ -467,26 +467,26 @@ $\alpha=0$ なら $F_0=E_4^3$ で $\rho$ に3位の零点を持ち、これだ�
 
 $i$ の近くでは $w_i=(\tau-i)/(\tau+i)$ を取ります。分母は $i$ で $2i\ne0$ なので局所座標です。$S\tau=-1/\tau$ を代入すると $w_i(S\tau)=-w_i(\tau)$ です。群不変な $h$ をこの座標で Laurent 展開すると奇数乗の係数は消え、$w_i^2$ の Laurent 級数になります。[固定点での零点](#cor-mf3-elliptic-zeros)より $E_6$ は $i$ で1位、$\Delta$ は非零なので
 
-$
+$$
 j-1728=\frac{E_6^2}{\Delta}=c_iw_i^2+O(w_i^4),\qquad c_i\ne0.
-$
+$$
 
 従って $j-1728$ は商空間の局所座標です。
 
 $\rho$ では $\bar\rho=e^{-2\pi i/3}$ として $w_\rho=(\tau-\rho)/(\tau-\bar\rho)$ を取ります。$ST\tau=-1/(\tau+1)$ を代入し、$\rho^2+\rho+1=0$ を使って分子・分母を整理すると
 
-$
+$$
 w_\rho(ST\tau)
 =\frac{\bar\rho+1}{\rho+1}\,w_\rho(\tau)
 =e^{-2\pi i/3}w_\rho(\tau).
-$
+$$
 
 従って $ST$ 不変な $h$ の Laurent 展開には $w_\rho^{3n}$ の項しか現れません。また $E_4$ は $\rho$ で1位、$\Delta$ は非零なので
 
-$
+$$
 j=\frac{E_4^3}{\Delta}
 =c_\rho w_\rho^3+O(w_\rho^6),\qquad c_\rho\ne0.
-$
+$$
 
 つまり $j$ は $\rho$ の軌道についても商空間の局所座標です。
 
