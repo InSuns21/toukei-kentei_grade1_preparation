@@ -69,7 +69,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf8-local-match -->
-**定義の確認。** $E_{11}$ と $f_{11}$ に対し、良い素数2、3で点数と係数をすでに求めました。よって
+**定義の確認**。 $E_{11}$ と $f_{11}$ に対し、良い素数2、3で点数と係数をすでに求めました。よって
 
 $$
 \begin{aligned}
@@ -172,7 +172,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf8-modular-parametrization -->
-**定義の確認。** $E_{11}$ は導手11です。[MF4の種数公式](../../volumes/dream_thater/代数系/MF/MF4/index.md#thm-mf4-genus)から $X_0(11)$ は種数1であり、$E_{11}$ に対する $\mathbb Q$ 上のmodular parametrizationが存在することは以下の外部定理の具体例となります。ただし「両者が種数1だから、任意の複素同型が$\mathbb Q$ 上の射である」という議論は成立しません。存在は $\mathbb Q$ 上の代数モデルとmodularityを使う定理から保証します。
+**定義の確認**。 $E_{11}$ は導手11です。[MF4の種数公式](../../volumes/dream_thater/代数系/MF/MF4/index.md#thm-mf4-genus)から $X_0(11)$ は種数1であり、$E_{11}$ に対する $\mathbb Q$ 上のmodular parametrizationが存在することは以下の外部定理の具体例となります。ただし「両者が種数1だから、任意の複素同型が$\mathbb Q$ 上の射である」という議論は成立しません。存在は $\mathbb Q$ 上の代数モデルとmodularityを使う定理から保証します。
 <!-- definition-example-end -->
 
 <a id="thm-mf8-parametrization"></a>
@@ -215,7 +215,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf8-frey-curve -->
-**定義の確認。** $A=a^\ell$ と $B=b^\ell$ を置いた方程式の右辺は
+**定義の確認**。 $A=a^\ell$ と $B=b^\ell$ を置いた方程式の右辺は
 
 $$
 x^3+(B-A)x^2-ABx
