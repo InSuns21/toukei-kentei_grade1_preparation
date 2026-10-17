@@ -19,6 +19,8 @@ $$
 
 を満たす $u\in H^1(M)$ を取ります。[GA3の存在一意性定理](../GA3/index.md#thm-ga3-shifted-poisson)の $\lambda=1$ への適用により、$u$ はただ一つあります。外力 $f$ から解 $u$ を返す写像を $R$ とすれば、有界作用素を出発点にできます。
 
+ここで写像が**単射**であるとは、$Rf=Rh$ から $f=h$ が従うことです。単射なら同じ解に異なる外力が対応しないため、像 $\operatorname{Ran}R=\{Rf:f\in L^2(M)\}$ 上で逆写像 $R^{-1}$ を定められます。次の定義ではこの性質を用い、その成立を第2節で証明します。
+
 <a id="def-ga4-l2-realization"></a>
 <!-- formal-statement-start -->
 > **定義（LaplacianのL2実現とレゾルベント）**  
@@ -49,15 +51,21 @@ $$
 定義式に逆写像が現れますが、全空間で $R^{-1}$ を定義したわけではありません。その定義域は $\operatorname{Ran}R$ に限定されます。単射性は次節で証明します。また、滑らかな $u$ では[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)により $R(-\Delta_g u+u)=u$ となるので、$Lu=-\Delta_gu$ が回復します。
 
 <!-- definition-example-start: def-ga4-l2-realization -->
-**定義の確認**：円の余弦関数。 標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ では $\Delta_g=d^2/d\theta^2$ です。$f(\theta)=\cos\theta$、$u(\theta)=\tfrac12\cos\theta$ とすると、
+**定義の確認**：円の余弦関数。標準円 $S^1=\mathbb R/(2\pi\mathbb Z)$ の角度座標では計量係数 $g_{\theta\theta}=1$ です。[Laplacianの座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)に $g^{\theta\theta}=1$ と体積密度 $\rho=1$ を代入すると、$\Delta_gu=\rho^{-1}\partial_\theta(\rho g^{\theta\theta}\partial_\theta u)=u''$ となります。$f(\theta)=\cos\theta$、$u(\theta)=\tfrac12\cos\theta$ とすると、
 
 $$
 -u''+u=\tfrac12\cos\theta+\tfrac12\cos\theta=f.
 $$
 
-$u$ は滑らかで $H^1$ に属し、周期境界項は相殺されるので任意の滑らかな $v$ に対して弱形式が成り立ちます。
+$u$ は滑らかで $H^1$ に属します。滑らかな周期試験関数 $v$ に対して部分積分すると、端点では $u'(0)v(0)=u'(2\pi)v(2\pi)$ なので境界項が消え、
 
-[GA2の滑らかな関数の密度](../GA2/index.md#thm-ga2-complete-density)からすべての $H^1$ 試験関数にも拡張でき、[反応Poisson解の一意性](../GA3/index.md#thm-ga3-shifted-poisson)から $Rf=\frac12f$ です。$f\in\operatorname{Ran}R$ であることも $R(2f)=f$ から分かり、$Lf=R^{-1}f-f=2f-f=f=-f''$ と直接確かめられます。
+$$
+\int_0^{2\pi}(u'v'+uv)\,d\theta
+=\int_0^{2\pi}(-u''+u)v\,d\theta
+=\int_0^{2\pi}fv\,d\theta
+$$
+
+です。[GA2の滑らかな関数の密度](../GA2/index.md#thm-ga2-complete-density)からすべての $H^1$ 試験関数にも拡張でき、[反応Poisson解の一意性](../GA3/index.md#thm-ga3-shifted-poisson)から $Rf=\frac12f$ です。$f\in\operatorname{Ran}R$ であることも $R(2f)=f$ から分かり、$Lf=R^{-1}f-f=2f-f=f=-f''$ と直接確かめられます。
 <!-- definition-example-end -->
 
 ## 2. レゾルベントに残る対称性
@@ -203,7 +211,13 @@ $$
 \sum_j\lambda_j^2|c_j|^2<\infty,
 $$
 
-なぜなら $\lambda_j\ge0$ で $1+\lambda_j^2\le(1+\lambda_j)^2\le2(1+\lambda_j^2)$ かつ $\sum|c_j|^2<\infty$ だからです。従って記した $D(L)$ と $Lu$ の式が得られます。この対角表示は対称性 $(Lu,v)_2=(u,Lv)_2$ だけでなく、随伴領域の一致も示します。実際 $v=\sum b_j\phi_j$ が $L^*$ の領域に入る条件は、$u=\phi_j$ を試して得る係数列 $(\lambda_jb_j)$ が $\ell^2$ に属することであり、これはちょうど $v\in D(L)$ です。$\sum\lambda_j|c_j|^2\ge0$ なので非負性も従います。
+なぜなら $\lambda_j\ge0$ で $1+\lambda_j^2\le(1+\lambda_j)^2\le2(1+\lambda_j^2)$ かつ $\sum|c_j|^2<\infty$ だからです。従って記した $D(L)$ と $Lu$ の式が得られます。この対角表示は対称性 $(Lu,v)_2=(u,Lv)_2$ だけでなく、随伴領域の一致も示します。実際、$v=\sum_jb_j\phi_j\in D(L^*)$ ならある $w\in L^2$ が存在して $(Lu,v)_2=(u,w)_2$ がすべての $u\in D(L)$ で成り立ちます。$u=\phi_j$ を代入すると $(w,\phi_j)_2=\lambda_jb_j$ であり、Parsevalにより
+
+$$
+\sum_j\lambda_j^2|b_j|^2=\|w\|_2^2<\infty.
+$$
+
+逆にこの級数が有限なら $w=\sum_j\lambda_jb_j\phi_j\in L^2$ を作れ、任意の $u=\sum_jc_j\phi_j\in D(L)$ についてCauchy--Schwarz不等式と部分和の極限から $(Lu,v)_2=(u,w)_2$ が従います。従って $D(L^*)=D(L)$、$L^*=L$ です。また $(Lu,u)_2=\sum_j\lambda_j|c_j|^2\ge0$ なので非負性も従います。
 <!-- proof-end -->
 
 $0$ が $R$ のスペクトルに入っても、単射である以上 $R$ の固有値ではありません。一方 $L$ の $0$ は正規化定数関数を持つ固有値です。**$R$ と $L$ の「零」を取り違えない**ようにしましょう。
@@ -278,7 +292,15 @@ $$
 
 ゆえに $a_1(w,Rf)=\lim_Na_1(w,Rf_N)=0$。$Rf$ の弱形式で試験関数 $w$ を用いると $a_1(w,Rf)=(w,f)_2$ です。任意の $f\in L^2$ に対して $(w,f)_2=0$ だから $w=0$ です。$H^1$ はHilbert空間であり、$E$ の $a_1$ 直交補が零なので $E$ は $H^1$ で稠密です。
 
-各 $u\in H^1$ を $E$ の部分和で近似すると、$a_1$ 直交基底 $\phi_j/\sqrt{1+\lambda_j}$ の係数は $\sqrt{1+\lambda_j}c_j$ です。Hilbert空間の直交展開から
+各 $u\in H^1$ について固有関数の弱形式から
+
+$$
+a_1\!\left(u,\frac{\phi_j}{\sqrt{1+\lambda_j}}\right)
+=\sqrt{1+\lambda_j}\,(u,\phi_j)_2
+=\sqrt{1+\lambda_j}\,c_j
+$$
+
+となります。$E$ は $H^1$ で稠密なので $\phi_j/\sqrt{1+\lambda_j}$ は $a_1$ に関する完全正規直交系であり、Hilbert空間の直交展開から
 
 $$
 \|u\|_{H^1_g}^2=\sum_j(1+\lambda_j)|c_j|^2
@@ -323,7 +345,7 @@ $$
 
 従って $\mathcal R(u)\ge\lambda_k$ で、$u=\phi_k$ と選べば等号です。これで右端の最小値が確定します。
 
-次に任意の $(k+1)$ 次元部分空間 $E\subset H^1$ を考えます。線形写像 $T:E\to\mathbb R^k$ を $T(u)=((u,\phi_0)_2,\ldots,(u,\phi_{k-1})_2)$ と置くと $\dim\ker T\ge(k+1)-k=1$ です。$0\ne u\in\ker T$ を取れば上の評価により $\max_{0\ne v\in E}\mathcal R(v)\ge\mathcal R(u)\ge\lambda_k$ です。ここで有限次元の単位球上でRayleigh商は連続なので最大値は存在します。
+次に任意の $(k+1)$ 次元部分空間 $E\subset H^1$ を考えます。線形写像 $T:E\to\mathbb R^k$ を $T(u)=((u,\phi_0)_2,\ldots,(u,\phi_{k-1})_2)$ と置くと $\dim\ker T\ge(k+1)-k=1$ です。$0\ne u\in\ker T$ を取れば上の評価により $\max_{0\ne v\in E}\mathcal R(v)\ge\mathcal R(u)\ge\lambda_k$ です。ここで $E$ の $L^2$ 単位球面 $\{v\in E:\|v\|_2=1\}$ は有限次元ゆえコンパクトで、$\mathcal R(v)=Q(v)$ はその上で連続なので最大値が存在します。
 
 逆向きには $E_k=\operatorname{span}\{\phi_0,\ldots,\phi_k\}$ を選びます。$v=\sum_{j=0}^kc_j\phi_j$ なら
 
@@ -369,7 +391,7 @@ L1=0,\quad L\cos(n\theta)=n^2\cos(n\theta),\quad
 L\sin(n\theta)=n^2\sin(n\theta)\quad(n=1,2,\ldots).
 $$
 
-[Fourier級数の完全性](#thm-ga4-spectral-basis)を利用するまでもなく候補が確認でき、他に固有値がないことは二階常微分方程式から確認できます。固有値 $\lambda$ の固有関数 $u\ne0$ では $\lambda=Q(u)/\|u\|_2^2\ge0$ です。$\lambda=0$ では $u''=0$ と周期性から定数、$\lambda>0$ では $u=A\cos(\sqrt\lambda\theta)+B\sin(\sqrt\lambda\theta)$ です。
+[固有関数展開定理](#thm-ga4-spectral-basis)によらず候補を直接確認でき、他に固有値がないことは二階常微分方程式から確認できます。固有値 $\lambda$ の固有関数 $u\ne0$ では $\lambda=Q(u)/\|u\|_2^2\ge0$ です。$\lambda=0$ では $u''=0$ と周期性から定数、$\lambda>0$ では $u=A\cos(\sqrt\lambda\theta)+B\sin(\sqrt\lambda\theta)$ です。
 
 $u(0)=u(2\pi)$ と $u'(0)=u'(2\pi)$ が同時に成り立つ非零係数 $(A,B)$ が存在するには、回転角 $2\pi\sqrt\lambda$ が $2\pi$ の整数倍でなくてはならず、$\sqrt\lambda\in\mathbb Z$ です。
 
@@ -383,12 +405,16 @@ $$
 e_{m,n}(x,y)=\exp\!\left(2\pi i\left(\frac{mx}{a}+\frac{ny}{b}\right)\right)
 $$
 
-は両方向で周期的で、
+は両方向で周期的です。[Laplacianの座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)で $g_{ij}=\operatorname{diag}(1,1)$、$\sqrt{\det G}=1$ とすれば $\Delta_g=\partial_x^2+\partial_y^2$ です。二回微分して
 
 $$
--Le_{m,n}=\Delta_ge_{m,n}
-=-4\pi^2\left(\frac{m^2}{a^2}+\frac{n^2}{b^2}\right)e_{m,n},
-\qquad
+\partial_x^2e_{m,n}=-\frac{4\pi^2m^2}{a^2}e_{m,n},\qquad
+\partial_y^2e_{m,n}=-\frac{4\pi^2n^2}{b^2}e_{m,n},
+$$
+
+$$
+Le_{m,n}=-\Delta_ge_{m,n}
+=4\pi^2\left(\frac{m^2}{a^2}+\frac{n^2}{b^2}\right)e_{m,n},\qquad
 \lambda_{m,n}=4\pi^2\left(\frac{m^2}{a^2}+\frac{n^2}{b^2}\right).
 $$
 
@@ -396,7 +422,7 @@ $a\ne b$ では横と縦の第一振動の固有値が異なり、$a=b$ では�
 
 ### 単位球面 $S^2$
 
-標準球面の球座標 $(\theta,\varphi)$（極を除く）で計量は $d\theta^2+\sin^2\theta\,d\varphi^2$ です。$z=\cos\theta$ を $\mathbb R^3$ の第三座標の球面制限とします。[GA1の局所Laplacian公式](../GA1/index.md#thm-ga1-green-first)をこの計量へ代入すると
+標準球面の球座標 $(\theta,\varphi)$（極を除く）で計量は $d\theta^2+\sin^2\theta\,d\varphi^2$ です。$z=\cos\theta$ を $\mathbb R^3$ の第三座標の球面制限とします。この座標では $G=\operatorname{diag}(1,\sin^2\theta)$ なので $\sqrt{\det G}=\sin\theta$、$g^{\theta\theta}=1$ です。[GEO12のLaplacian座標公式](../../GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)に代入すると
 
 $$
 \Delta_g z
@@ -410,7 +436,9 @@ $$
 
 ## 7. 非コンパクトだとどこで失敗するか
 
-実直線 $\mathbb R$ の標準計量を考えます。非零の滑らかなコンパクト台関数 $u$ を取り、$f=-u''+u$ とします。$u$ は $(-d^2/dx^2+1)u=f$ の解です。整数 $n$ を十分離して取り、$u_n(x)=u(x-n)$、$f_n(x)=f(x-n)$ と平行移動すれば、$\|f_n\|_2=\|f\|_2$ で一様に有界ですが、互いに台が交わらない $u_n$ の間には
+実直線 $\mathbb R$ の標準計量を考えます。ここではコンパクト多様体用のGA3の存在定理をそのまま適用するのではなく、$H^1(\mathbb R)$ 上の形式 $a_1(v,w)=\int_{\mathbb R}(v'w'+vw)\,dx$ が連続で $a_1(v,v)=\|v\|_{H^1}^2$ と強圧的であることから、[Lax--Milgram定理](../../../解析系/GPDE/GPDE7/index.md#thm-gpde7-lax-milgram)を適用します。このため $L^2(\mathbb R)$ から $H^1(\mathbb R)$ への一意な反応Poisson解写像 $R$ が存在します。
+
+非零の滑らかなコンパクト台関数 $u$ を取り、$f=-u''+u$ とします。$u$ は $(-d^2/dx^2+1)u=f$ の解です。整数 $n$ を十分離して取り、$u_n(x)=u(x-n)$、$f_n(x)=f(x-n)$ と平行移動すれば、$\|f_n\|_2=\|f\|_2$ で一様に有界ですが、互いに台が交わらない $u_n$ の間には
 
 $$
 \|u_n-u_m\|_2^2=2\|u\|_2^2\quad(n\ne m)
@@ -441,7 +469,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$-\Delta_g\cos(2\theta)=4\cos(2\theta)$ だから、$(-\Delta_g+I)(c\cos2\theta)=5c\cos2\theta$ です。$5c=6$ と置いて $u=\frac65\cos2\theta$ を得ます。$R\cos2\theta=\frac15\cos2\theta$ は[レゾルベントの定義](#def-ga4-l2-realization)での $\mu=(1+\lambda)^{-1}=1/5$（$\lambda=4$）と一致します。さらに $Ru=\frac65 R\cos2\theta=\frac6{25}\cos2\theta$ です。滑らかな周期関数なので弱形式も満たし、[反応Poisson一意性](../GA3/index.md#thm-ga3-shifted-poisson)から解は唯一です。
+$-\Delta_g\cos(2\theta)=4\cos(2\theta)$ なので
+
+$$
+(-\Delta_g+I)(c\cos2\theta)=5c\cos2\theta=6\cos2\theta.
+$$
+
+よって $c=6/5$ で $u=(6/5)\cos2\theta$ です。[レゾルベントの定義](#def-ga4-l2-realization)と固有値 $\lambda=4$ により $R\cos2\theta=(1+4)^{-1}\cos2\theta$ です。したがって
+
+$$
+Ru=\frac65R\cos2\theta=\frac6{25}\cos2\theta.
+$$
+
+滑らかな周期関数なので弱形式も満たし、[反応Poisson一意性](../GA3/index.md#thm-ga3-shifted-poisson)から解は唯一です。
 <!-- solution-end -->
 
 <a id="ex-ga4-a02"></a>
@@ -453,7 +493,13 @@ $-\Delta_g\cos(2\theta)=4\cos(2\theta)$ だから、$(-\Delta_g+I)(c\cos2\theta)
 <!-- solution-start -->
 **詳細解答**
 
-$Lu=0$ を弱形式で試験関数 $v=u$ とすると、[Greenの弱形式](../GA3/index.md#def-ga3-h1-weak-poisson)により $\int_M|\nabla_gu|^2\,dV_g=0$ です。[GA2の平均零Poincaré不等式](../GA2/index.md#thm-ga2-poincare)を $u-\bar u$ に適用すると $\|u-\bar u\|_2=0$、従って $u$ は定数です。
+$Lu=0$ は[作用素の定義](#def-ga4-l2-realization)より $R^{-1}u=u$、つまり $Ru=u$ を意味します。[反応Poissonの弱形式](../GA3/index.md#thm-ga3-shifted-poisson)に $f=u$、解も $u$、試験関数 $v=u$ を入れると
+
+$$
+\|\nabla_gu\|_2^2+\|u\|_2^2=(u,u)_2=\|u\|_2^2,
+$$
+
+従って $\int_M|\nabla_gu|^2\,dV_g=0$ です。[GA2の平均零Poincaré不等式](../GA2/index.md#thm-ga2-poincare)を $u-\bar u$ に適用すると $\|u-\bar u\|_2=0$、従って $u$ は定数です。
 
 逆に定数関数は $-\Delta_g u=0$ で $D(L)$ に入ります。直交条件は $(f,1)_2=\int_Mf\,dV_g=0$ であり、正規化 $\phi_0=V^{-1/2}$ との直交条件 $(f,\phi_0)_2=0$ と同値です。
 <!-- solution-end -->
@@ -567,12 +613,40 @@ $a=0$ で $(b,c)\ne(0,0)$ なら等号です。固有値1に独立な $\cos\thet
 #### GA4-C01 非コンパクトでの二つの破綻を構成する
 - Level: C
 
-$\mathbb R$ 上の $L=-d^2/dx^2$ を考える。(i) 非零 $w\in C_c^\infty(\mathbb R)$ を用い、$R=(L+I)^{-1}$ が $L^2(\mathbb R)$ 上でコンパクトでないことを示せ。(ii) 非零 $\eta\in C_c^\infty(\mathbb R)$ と $u_R(x)=R^{-1/2}\eta(x/R)$ ($R>0$) で $\inf_{u\ne0}\int|u'|^2/\int|u|^2=0$ を示せ。(iii) この下限が非零 $L^2$ 固有関数で達成されない理由を述べよ。
+$\mathbb R$ 上の $L=-d^2/dx^2$ を考える。
+
+1. 非零 $w\in C_c^\infty(\mathbb R)$ を用い、$R=(L+I)^{-1}$ が $L^2(\mathbb R)$ 上でコンパクトでないことを示せ。
+2. 非零 $\eta\in C_c^\infty(\mathbb R)$ と $u_R(x)=R^{-1/2}\eta(x/R)$（$R>0$）を用い、Rayleigh商の下限が零であることを示せ。
+3. この下限が非零 $L^2$ 固有関数で達成されない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-(i) $w$ の台が区間 $[-A,A]$ に入るように $A>0$ を取ります。整数 $n$ を $2A+1$ の間隔で選び、$w_n(x)=w(x-n)$、$f_n(x)=-w_n''(x)+w_n(x)$ とします。平行移動は $L^2$ ノルムを変えないので $\|f_n\|_2=\|-w''+w\|_2$ は一定です。各 $w_n$ は滑らかな弱解であり、$(-d^2/dx^2+I)w_n=f_n$ です。弱解の一意性は二解の差 $v$ に $v$ を試して $\|v'\|_2^2+\|v\|_2^2=0$ とすれば確かめられます。従って $Rf_n=w_n$。異なる $n,m$ の台は交わらないので
+**(1)** $w$ の台が区間 $[-A,A]$ に含まれるように $A>0$ を取ります。整数 $N>2A$ を固定し、$n=kN$（$k=1,2,\ldots$）を選びます。平行移動した関数とその外力を
+
+$$
+w_n(x)=w(x-n),\qquad f_n(x)=-w_n''(x)+w_n(x)
+$$
+
+と定めます。平行移動は $L^2$ ノルムを変えないので
+
+$$
+\|f_n\|_2=\|-w''+w\|_2
+$$
+
+は $n$ に依存せず一定です。各 $w_n$ は滑らかな弱解であり、
+
+$$
+(-d^2/dx^2+I)w_n=f_n
+$$
+
+です。[Lax--Milgram定理](../../../解析系/GPDE/GPDE7/index.md#thm-gpde7-lax-milgram)の適用条件は第7節で確認したため、$R$ は存在します。弱解の一意性も二解の差 $v$ を試験関数に取って
+
+$$
+\|v'\|_2^2+\|v\|_2^2=0
+$$
+
+とすれば確かめられます。従って $Rf_n=w_n$ です。異なる $n,m$ の台は交わらないので
 
 $$
 \|Rf_n-Rf_m\|_2^2
@@ -582,7 +656,7 @@ $$
 
 これは収束部分列を持たず、[コンパクト作用素の定義](../../../解析系/FA/FA6/index.md#thm-fa6-unit-ball-characterization)に反します。
 
-(ii) $y=x/R$ と変数変換すると $dx=R\,dy$ です。微分は $u_R'(x)=R^{-3/2}\eta'(x/R)$ なので
+**(2)** $y=x/R$ と変数変換すると $dx=R\,dy$ です。微分は $u_R'(x)=R^{-3/2}\eta'(x/R)$ なので
 
 $$
 \int_{\mathbb R}|u_R|^2dx
@@ -597,7 +671,16 @@ $$
 
 商は $R^{-2}\|\eta'\|_2^2/\|\eta\|_2^2\to0$ です。商自体は非負なので下限は0です。
 
-(iii) もし非零の $u\in H^1(\mathbb R)$ が下限0を達成すれば $\|u'\|_2^2=0$ で、弱微分零の関数はほとんど至る所定数です。しかし $\mathbb R$ 上の非零定数は $L^2$ に入らず矛盾します。失われた仮定は多様体のコンパクト性であり、(i)では平行移動がRellich型の大域コンパクト性を壊し、(ii)(iii)では最小化列が $L^2$ の強収束部分列を持たないことが原因です。
+**(3)** もし非零の $u\in H^1(\mathbb R)$ が下限0を達成すれば $\|u'\|_2^2=0$ で、弱微分零の関数はほとんど至る所定数です。しかし $\mathbb R$ 上の非零定数は $L^2$ に入らず矛盾します。
+
+(2) の列で強収束が起こらないことも直接確認できます。任意の $K>0$ に対して
+
+$$
+\int_{-K}^K|u_R(x)|^2\,dx
+\le\frac{2K}{R}\|\eta\|_\infty^2\longrightarrow0
+$$
+
+ですが、$\|u_R\|_2=\|\eta\|_2>0$ は一定です。もし $R\to\infty$ に沿う強収束部分列があれば、その極限は各有限区間で零、従って $L^2(\mathbb R)$ 全体でも零となり、ノルム一定に矛盾します。失われた仮定は多様体のコンパクト性であり、(1)では平行移動がRellich型の大域コンパクト性を壊し、(2)(3)ではこの拡大列が $L^2$ の強収束部分列を持たないことが原因です。
 <!-- solution-end -->
 
 本章の固有関数展開を使えば、次章では各成分を $e^{-t\lambda_j}$ 倍することによって熱方程式の解を組み立てられます。**固有値の存在と列挙を証明する段階**と、**熱核の滑らかさ・正値性を証明する段階**は区別します。
