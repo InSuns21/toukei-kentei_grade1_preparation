@@ -198,13 +198,13 @@ $$
 
 oldspaceの正規直交基底を $e_1,\ldots,e_r$ とする。任意の $f\in S_k(\Gamma_0(N))$ に対して、内積の第1変数が線形であることに合わせて
 
-$
+$$
 u=\sum_{j=1}^r\langle f,e_j\rangle_N e_j
-$
+$$
 
 と置く。$u$ はoldspaceに属する。また各 $1\le i\le r$ で、正規直交性を使うと
 
-$
+$$
 \begin{aligned}
 \langle f-u,e_i\rangle_N
 &=\langle f,e_i\rangle_N
@@ -212,7 +212,7 @@ $
   \langle e_j,e_i\rangle_N\\
 &=\langle f,e_i\rangle_N-\langle f,e_i\rangle_N=0.
 \end{aligned}
-$
+$$
 
 よって $f-u$ はnewspaceに属し、$f=u+(f-u)$ と分解できる。両方に属する $v$ は $\langle v,v\rangle_N=0$ なので、内積の正定値性より $v=0$。従って和は直交直和である。
 <!-- proof-end -->
@@ -356,9 +356,9 @@ $$
 
 [モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)に $N=11$ を代入する。指数は $\mu=11(1+1/11)=12$、位数2・3の楕円点はともに0個、カスプは2個なので
 
-$
-g(X_0(11))=1+\frac{12}{12}-\frac04-\frac03-\frac22=1.
-$
+$$
+g(X_0(11))=1+\frac{12}{12}-\frac{0}{4}-\frac{0}{3}-\frac{2}{2}=1.
+$$
 
 また[重さ2カスプ形式と正則微分の対応](../MF4/index.md#thm-mf4-weight-two-differentials)より $\dim S_2(\Gamma_0(11))=1$。[MF2のレベル1の重さ2の消失](../MF2/index.md#def-mf2-modular-form)により $S_2(\Gamma_0(1))=0$ です。レベル11は素数なので真の低レベルは1だけです。従って定義から
 
@@ -369,13 +369,13 @@ $$
 
 この空間の非零元を具体的に書くにはDedekindの $\eta$ 関数を用いると便利です。$\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$ と置きます。ここでは次の **$\eta$ 商のモジュラー性判定を外部補題として引用**します。$F(\tau)=\prod_{\delta\mid N}\eta(\delta\tau)^{r_\delta}$（$r_\delta\in\mathbb Z$）について、$k=\tfrac12\sum_\delta r_\delta$ が整数で、
 
-$
+$$
 \sum_{\delta\mid N}\delta r_\delta\equiv0\pmod{24},
 \qquad
 \sum_{\delta\mid N}(N/\delta)r_\delta\equiv0\pmod{24}
-$
+$$
 
-ならば、$F$ は $\Gamma_0(N)$ 上で重さ $k$、指標 $\chi(d)=\left(\frac{(-1)^k\prod_\delta\delta^{r_\delta}}{d}\right)$ の変換則を満たします（ここで括弧はKronecker記号、$(d,N)=1$）。この判定は**変換則**についてのもので、全カスプでの正則性・消失は別に検査します。一般の判定法の証明は本章では引用します。
+ならば、$F$ は $\Gamma_0(N)$ 上で重さ $k$、ある二次指標の変換則を満たします。さらに $(-1)^k\prod_\delta\delta^{r_\delta}$ が整数の平方数であれば、この指標は自明です。この判定は**変換則**についてのもので、全カスプでの正則性・消失は別に検査します。一般の判定法の証明は本章では引用します。
 
 <a id="prop-mf7-level-eleven"></a>
 <!-- formal-statement-start -->
