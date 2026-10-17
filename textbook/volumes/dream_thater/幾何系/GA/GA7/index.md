@@ -174,7 +174,7 @@ $$
 
 ### 証明の見取り図
 
-$\delta d$ と $d\delta$ を座標で展開します。一方は接続Laplacianになり、残った微分交換子に先ほどの補題を適用するとRicci曲率になります。
+$\delta d$ と $d\delta$ を座標で展開します。一方は接続Laplacianになり、残った微分交換子に[1形式の共変微分交換公式](#lem-ga7-covector-commutator)を適用するとRicci曲率になります。
 
 <!-- proof-start -->
 ### 証明
@@ -281,7 +281,7 @@ $$
 となります。これをノルムの二階微分の式に代入し、$V$ と内積を取れば結論です。
 <!-- proof-end -->
 
-**例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=x_{d+1}$ を考えます。単位球面では[定断面曲率の縮約公式](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$、また球面の接ベクトル成分を微分すると
+**例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=x_{d+1}$ を考えます。単位球面では[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$、また球面の接ベクトル成分を微分すると
 
 $$
 \nabla^2u=-u g,\quad
@@ -364,15 +364,40 @@ $$
 
 ## 5. 曲率下界が第一固有値を押し上げる
 
-関数についてもBochner恒等式を積分します。実数の対称行列の固有値 $\mu_i$ にCauchy--Schwarz不等式を適用すると、HessianのトレースがLaplacianであることから
+関数についてもBochner恒等式を積分します。そこではHessianの二乗ノルムとLaplacianの二乗を比べる必要があります。なぜ次元で割るのかを、先に行列の不等式として確かめます。
+
+<a id="lem-ga7-hessian-trace"></a>
+
+<!-- formal-statement-start -->
+> **補題（Hessianのトレース不等式）**  
+> $(M^d,g)$ を $d\ge2$ 次元Riemann多様体とし、$u\in C^\infty(M)$ とする。任意の点で
 
 $$
-|\nabla^2u|^2=\sum_i\mu_i^2
-\ge\frac1d\left(\sum_i\mu_i\right)^2
-=\frac{(\Delta_gu)^2}{d}.
+|\nabla^2u|^2\ge\frac{(\Delta_gu)^2}{d}
 $$
 
-等号はHessianが計量のスカラー倍である場合に限ります。これが解析と曲率の間に次元 $d$ を入れる箇所です。
+> が成り立つ。等号はその点で $\nabla^2u=cg$ を満たす実数 $c$ がある場合に限る。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+計量で正規直交基底を取るとHessianは実対称行列になります。固有値の和がトレース、固有値の二乗和が二乗ノルムです。
+
+<!-- proof-start -->
+### 証明
+
+その点でのHessian行列を直交対角化し、固有値を $\mu_1,\ldots,\mu_d$ とします。実数ベクトル $(\mu_1,\ldots,\mu_d)$ と $(1,\ldots,1)$ のCauchy--Schwarz不等式から
+
+$$
+\left(\sum_i\mu_i\right)^2
+\le\left(\sum_i\mu_i^2\right)\left(\sum_i1^2\right)
+=d\sum_i\mu_i^2.
+$$
+
+Hessianのトレースは $\sum_i\mu_i=\Delta_gu$、二乗ノルムは $\sum_i\mu_i^2=|\nabla^2u|^2$ です。割り算して結論です。等号は全固有値が等しい場合、すなわちHessianが計量のスカラー倍になる場合に限ります。
+<!-- proof-end -->
+
+この補題が、解析と曲率の間に次元 $d$ を入れる箇所です。
 
 <a id="thm-ga7-lichnerowicz"></a>
 
@@ -416,7 +441,7 @@ $$
 +\int_M\operatorname{Ric}(\nabla u,\nabla u)\,dV_g.
 $$
 
-Hessianのトレース不等式と曲率下界を代入して
+[Hessianのトレース不等式](#lem-ga7-hessian-trace)と曲率下界を代入して
 
 $$
 0\ge\frac1d\int_M(\Delta_gu)^2\,dV_g
@@ -558,7 +583,7 @@ $$
 \int_M\operatorname{Ric}(\nabla u,\nabla u).
 $$
 
-ここでは各積分の測度を $dV_g$ とします。[Hessianのトレース不等式](#thm-ga7-lichnerowicz)から第一項は $\lambda^2\int u^2/d$ 以上です。[Green公式](../GA1/index.md#thm-ga1-green-first)により $\int|\nabla u|^2=\lambda\int u^2$ です。最後のRicci項は $(d-1)K\lambda\int u^2$ 以上なので
+ここでは各積分の測度を $dV_g$ とします。[Hessianのトレース不等式](#lem-ga7-hessian-trace)から第一項は $\lambda^2\int u^2/d$ 以上です。[Green公式](../GA1/index.md#thm-ga1-green-first)により $\int|\nabla u|^2=\lambda\int u^2$ です。最後のRicci項は $(d-1)K\lambda\int u^2$ 以上なので
 
 $$
 0\ge\left(\frac{\lambda^2}{d}-\lambda^2+(d-1)K\lambda\right)\int_Mu^2
@@ -577,7 +602,7 @@ $d-1>0$、$\lambda>0$、$\int_Mu^2>0$ により $K-\lambda/d\le0$、すなわち
 <!-- solution-start -->
 **詳細解答**
 
-大域1形式 $dx,dy$ は各点で平行であり、$d(dx)=d(dy)=0$ です。平坦座標では成分が定数なので $\delta(dx)=\delta(dy)=0$ も成立します。[Hodgeエネルギー恒等式](../GA6/index.md#thm-ga6-energy)から両方は調和です。例えば $dx$ が零でないことは $\partial_x$ へ評価して $dx(\partial_x)=1$ で分かります。また $dx,dy$ は独立です。
+大域1形式 $dx,dy$ は各点で平行であり、$d(dx)=d(dy)=0$ です。平坦座標では成分が定数なので $\delta(dx)=\delta(dy)=0$ も成立します。[GA6のエネルギー恒等式と調和性の判定](../GA6/index.md#thm-ga6-energy)から両方は調和です。例えば $dx$ が零でないことは $\partial_x$ へ評価して $dx(\partial_x)=1$ で分かります。また $dx,dy$ は独立です。
 
 平坦だから $\operatorname{Ric}=0$。積分Weitzenböck式は $\|\nabla\alpha\|^2=0$ しか強制せず、平行形式の値を零にはしません。[Hodge--de Rham同型](../GA6/index.md#thm-ga6-hodge-de-rham)によって独立な二つの調和1形式が独立なコホモロジー類を与えます。
 <!-- solution-end -->
@@ -591,7 +616,7 @@ $d-1>0$、$\lambda>0$、$\int_Mu^2>0$ により $K-\lambda/d\le0$、すなわち
 <!-- solution-start -->
 **詳細解答**
 
-[GEO16の定曲率のRicci公式](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から断面曲率 $1/a^2$ の球面のRicciは $(d-1)a^{-2}g$ です。球面の法線は $x/a$ なので、接ベクトル $X$ に沿った座標関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル）を二回微分すると $\nabla^2u=-(u/a^2)g$ となります。トレースを取れば
+[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から断面曲率 $1/a^2$ の球面のRicciは $(d-1)a^{-2}g$ です。球面の法線は $x/a$ なので、接ベクトル $X$ に沿った座標関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル）を二回微分すると $\nabla^2u=-(u/a^2)g$ となります。トレースを取れば
 
 $$
 \Delta_gu=\operatorname{tr}_g\nabla^2u=-\frac d{a^2}u.
