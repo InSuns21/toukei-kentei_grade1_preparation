@@ -252,7 +252,17 @@ $$
 \operatorname{Var}(L_i)=E[L_i^2]-E[L_i]^2=q-q^2=q(1-q).
 $$
 
-$Z_i$ が独立で、$L_i$ は $Z_i$ の関数だから、$L_i$ も独立である。[独立性と期待値の因数分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)を $L_i,L_j$ に使うと $i\ne j$ で $E[L_iL_j]=E[L_i]E[L_j]$。よって[共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)から $\operatorname{Cov}(L_i,L_j)=0$ となる。
+$Z_i$ は独立であり、$L_i$ は $Z_i$ の関数だから $L_i$ も独立である。異なる添字 $i\ne j$ について、[独立性と期待値の因数分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から
+
+$
+E[L_iL_j]=E[L_i]E[L_j]=q^2.
+$
+
+[共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)へ代入すると
+
+$
+\operatorname{Cov}(L_i,L_j)=E[L_iL_j]-E[L_i]E[L_j]=q^2-q^2=0.
+$
 
 $$
 \begin{aligned}
