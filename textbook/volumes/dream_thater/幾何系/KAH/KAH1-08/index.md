@@ -253,12 +253,29 @@ $$
 
 ### 証明の見取り図
 
-Kählerなら正規座標定理で十分。逆は正規座標の一点で捩率が零となることを確認し、捩率のテンソル性で任意座標へ戻してから既習のKähler同値性を使う。
+Kählerなら直前の局所存在定理を使う。逆は各点の座標で接続係数がすべて零となることを確認し、捩率のテンソル性と既習のKähler同値性を適用する。
 
 <!-- proof-start -->
 ### 証明
 
-Kählerなら前定理で正規座標を取れる。逆に各点 $p$ で $\partial_cg_{a\bar b}(p)=0$ なら、そこで[接束Chern係数式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)の $\Gamma^k_{ij}(p)=0$。したがって $T(\partial_i,\partial_j)(p)=(\Gamma^k_{ij}-\Gamma^k_{ji})(p)\partial_k=0$。混合および反正則成分も既習公式で零である。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)から点 $p$ での捩率は座標に依存せず零。$p$ は任意だから捩率は全域で零となり、[Kähler閉性との同値性](../KAH1-03/index.md#thm-kah1-03-closed-torsion)で $d\omega=0$。$\square$
+Kählerなら直前の局所存在定理により、すべての点で指定された座標を取れる。
+
+逆に各点 $p$ で命題の条件を満たす正則座標を取る。その座標では全ての $\partial_i g_{j\bar\ell}(p)$ が零だから、[接束Chern係数式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)より
+
+$
+\Gamma^k_{ij}(p)
+=\sum_{\ell}g^{k\bar\ell}(p)\partial_i g_{j\bar\ell}(p)
+=0.
+$
+
+そこで正則方向の捩率は
+
+$
+T(\partial_i,\partial_j)(p)
+=(\Gamma^k_{ij}-\Gamma^k_{ji})(p)\partial_k=0.
+$
+
+[接束の捩率の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)では混合成分は常に零で、反正則成分は正則成分の複素共役だから、ともに消える。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)により、この結論は座標に依存しない。点 $p$ は任意なので捩率は全域で零となり、[Kähler閉性との同値性](../KAH1-03/index.md#thm-kah1-03-closed-torsion)で $d\omega=0$。$\square$
 <!-- proof-end -->
 
 **反例：正値Hermite計量でも正規化できない点。** $\mathbb C^2$ 上で
