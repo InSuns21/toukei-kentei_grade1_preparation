@@ -1,0 +1,69 @@
+chapter: GA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA2
+  - GEO13
+  - VAR1
+concepts:
+  - id: geometric-analysis.map-dirichlet-energy
+    name: 写像のDirichletエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（写像のDirichletエネルギー）"]
+    requires: [geometric-analysis.dirichlet-energy, geometry.riemannian-metric]
+  - id: geometric-analysis.pullback-connection
+    name: 引き戻し接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（引き戻し接続）"]
+    requires: [geometry.levi-civita-connection, geometry.tensor-covariant-derivative]
+  - id: geometric-analysis.tension-field
+    name: 張力場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（張力場と調和写像）"]
+    requires: [geometric-analysis.pullback-connection, geometric-analysis.map-dirichlet-energy]
+  - id: geometric-analysis.harmonic-map
+    name: 調和写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（張力場と調和写像）"]
+    requires: [geometric-analysis.tension-field]
+  - id: geometric-analysis.harmonic-map-first-variation
+    name: 調和写像エネルギーの第一変分
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.harmonic-map, calculus-of-variations.stationary-curve, geometric-analysis.green-first]
+  - id: geometric-analysis.sphere-harmonic-equation
+    name: 球面値調和写像の方程式
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.tension-field, geometry.riemannian-metric]
+  - id: geometric-analysis.sphere-sobolev-map
+    name: 球面値Sobolev写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（球面値Sobolev写像）"]
+    requires: [geometric-analysis.manifold-sobolev]
+  - id: geometric-analysis.weak-harmonic-map
+    name: 球面値弱調和写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（球面値弱調和写像）"]
+    requires: [geometric-analysis.sphere-sobolev-map, geometric-analysis.sphere-harmonic-equation]
+  - id: geometric-analysis.weak-harmonic-variation
+    name: 制約を保つ弱第一変分
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.weak-harmonic-map]
+  - id: geometric-analysis.harmonic-energy-scaling
+    name: Dirichletエネルギーのスケーリング
+    kind: proposition
+    introduction: formal
+    requires: [geometric-analysis.sphere-sobolev-map]
+  - id: geometric-analysis.harmonic-map-heat-dissipation
+    name: 滑らかな調和写像熱流のエネルギー散逸
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.harmonic-map-first-variation]
