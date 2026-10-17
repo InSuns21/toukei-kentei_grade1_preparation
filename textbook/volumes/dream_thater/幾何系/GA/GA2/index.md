@@ -160,19 +160,19 @@ $$
 
 です。勾配を座標で判定する理由も確認します。座標基底 $(\partial_{x^1},\ldots,\partial_{x^d})$ に関する計量の行列を $G=(g_{ab})$ とすると、$G$ は各点で対称正定値です。[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)は $g(\nabla_gw,\partial_{x^a})=\partial_aw$ を基底ごとに解いたものであり、
 
-$
+$$
 \nabla_gw=\sum_{a,b}g^{ab}(\partial_bw)\partial_{x^a},
 \qquad
 |\nabla_gw|_g^2=(\partial w)^TG^{-1}(\partial w)
-$
+$$
 
 となります。ここで $G^{-1}=(g^{ab})$ です。$G^{-1}$ の最小・最大固有値は正で、コンパクトな切断台上でそれぞれ正の下界と有限な上界を持つため、
 
-$
+$$
 c_0|\partial w|^2
 \le \sum_{a,b}g^{ab}\partial_aw\partial_bw
 \le C_0|\partial w|^2
-$
+$$
 
 となります。体積密度の比較と合わせて、局所の計量による $H^1$ ノルムとEuclidの $H^1$ ノルムを双方向に比較できます。
 
@@ -215,26 +215,26 @@ $$
 
 **具体例：角度によって伸縮する円**。$S^1$ に滑らかな正の周期関数 $a(\theta)$（$0<m\le a\le M_0$）から計量 $g=a(\theta)^2d\theta^2$ を入れます。座標基底 $\partial_\theta$ では $g(\partial_\theta,\partial_\theta)=a^2>0$ なので、$G=(a^2)$ は計量の正定値性を満たします。その逆行列は $(a^{-2})$ です。[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)と[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)にこの一行一列の行列を代入すると、
 
-$
+$$
 dV_g=\sqrt{\det G}\,d\theta=a\,d\theta,\qquad
 \nabla_gu=a^{-2}u'\partial_\theta,\qquad
 |\nabla_gu|_g^2=a^{-2}(u')^2
-$
+$$
 
 です。最後の等号では $g(\partial_\theta,\partial_\theta)=a^2$ を使いました。したがって
 
-$
+$$
 \|u\|_{H^1_g}^2
 =\int_0^{2\pi}\left(a\,u^2+\frac{(u')^2}{a}\right)d\theta.
-$
+$$
 
 $a$ と $a^{-1}$ に上記の上下界があるため、各非負項の係数を比較すると
 
-$
+$$
 \min(m,M_0^{-1})\|u\|_{H^1_{\rm flat}}^2
 \le\|u\|_{H^1_g}^2
 \le\max(M_0,m^{-1})\|u\|_{H^1_{\rm flat}}^2
-$
+$$
 
 です。計量の正定値性、体積密度、勾配ノルムの各条件を別々に確認したので、「同じ円」でも数値は変わる一方、$H^1$ への所属は変わらないと分かります。
 
@@ -492,25 +492,25 @@ $$
 
 境界近傍を有限枚の滑らかな半球型座標で覆い、切断関数 $\chi_i$ を選びます。滑らかな $u$ に対し $w_i=(\chi_i u)\circ\kappa_i^{-1}\in H^1(B_i^+)$ です。各 $B_i^+$ は有界Lipschitz領域なので、[Euclidのトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を適用できます。
 
-$
+$$
 \|\operatorname{Tr}w_i\|_{L^2(\partial B_i^+)}
 \le C_i\|w_i\|_{H^1(B_i^+)}.
-$
+$$
 
 $M$ の真の境界に対応するのは $\partial B_i^+$ の平らな面 $F_i=\{x^d=0\}\cap B_i$ です。したがって左辺を $F_i$ に制限しても同じ上界が成り立ちます。境界面積要素 $dS_g$ は $F_i$ 上で滑らかな正の密度 $\sigma_i(x')\,dx'$ を持ち、切断台上で $\sigma_i\le C_i'$ です。よって
 
-$
+$$
 \|\chi_i u|_{\partial M}\|_{L^2(\partial M)}^2
 \le C_i'\|\operatorname{Tr}w_i\|_{L^2(F_i)}^2
 \le C_i'C_i^2\|w_i\|_{H^1(B_i^+)}^2.
-$
+$$
 
 境界上でも $u=\sum_i\chi_i u$ が成り立ち、内部座標の切断関数は境界で0です。有限和の三角不等式と上で定義した $H^1(M)$ ノルムを使えば、
 
-$
+$$
 \|u|_{\partial M}\|_{L^2(\partial M)}
 \le C\|u\|_{H^1(M)}
-$
+$$
 
 を得ます。
 
