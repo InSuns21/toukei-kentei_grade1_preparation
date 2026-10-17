@@ -377,14 +377,14 @@ $U_0$ の円盤 $|z|\le R$ におけるFubini–Study面積を求め、円盤外
 <!-- solution-start -->
 **詳細解答**。$\omega_{\mathrm{FS}}=2(1+r^2)^{-2}r\,dr\wedge d\theta$ だから
 
-$
+$$
 \begin{aligned}
 I(R)
 &=4\pi\int_0^R\frac{r}{(1+r^2)^2}\,dr\\
 &=2\pi\left[-\frac1{1+r^2}\right]_0^R\\
 &=2\pi\left(1-\frac1{1+R^2}\right).
 \end{aligned}
-$
+$$
 
 全体の面積は $R\to\infty$ で $2\pi$ となるため、外側は
 
@@ -466,18 +466,18 @@ $$
 
 包含写像は局所的に $u\mapsto(z^1,z^2)=(0,u)$ と表される。従って $dz^1=d\bar z^1=0$、$dz^2=du$、$d\bar z^2=d\bar u$ となり、[局所Fubini–Study形式](../KAH1-06/index.md#def-kah1-06-local-fs)の引き戻しには $(2,\bar2)$ 成分だけが残る。制限ポテンシャルから直接確かめても
 
-$
+$$
 \partial_u\partial_{\bar u}\log(1+u\bar u)
 =\partial_{\bar u}\left(\frac{\bar u}{1+u\bar u}\right)
 =\frac{1}{(1+|u|^2)^2}
-$
+$$
 
 なので
 
-$
+$$
 \omega_{\mathrm{FS}}|_L
 =\frac{i}{(1+|u|^2)^2}du\wedge d\bar u.
-$
+$$
 
 $L$ は $[0:0:1]$ を一点追加した $\mathbb C$ であり、射影直線の二チャートと同じである。従って[射影直線の面積定理](#thm-kah1-07-area)を同じ座標式に適用して $\int_L\omega_{\mathrm{FS}}=2\pi$。
 <!-- solution-end -->
@@ -519,11 +519,11 @@ $$
 
 両パラメータが正なので、$U_0$ ではこの係数が正である。残る点 $[0:1]$ は $U_1$ の $w=0$ に当たる。$T=\lambda_1+\lambda_0|w|^2$ と置いて同様に微分すると
 
-$
+$$
 \partial_{\bar w}\partial_w\Phi_1
 =\frac{\lambda_0}{T}-\frac{\lambda_0^2|w|^2}{T^2}
 =\frac{\lambda_0\lambda_1}{T^2}>0.
-$
+$$
 
 従って $U_0\cup U_1=\mathbb{CP}^1$ の全点で正値である。両チャートで滑らかな実 $(1,1)$ 形式をポテンシャルから構成しており、$d=\partial+\bar\partial$ と $\partial^2=\bar\partial^2=0$ より $d\Omega=0$ である。実座標では $\Omega=2\lambda_0\lambda_1S^{-2}\,dx\wedge dy$。極座標積分で
 
