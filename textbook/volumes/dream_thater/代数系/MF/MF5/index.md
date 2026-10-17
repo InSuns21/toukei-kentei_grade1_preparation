@@ -161,11 +161,11 @@ $$
 $$
 E_4=1+240q+2160q^2+\cdots
 $$
-です。重さ4では[レベル1の次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim M_4=1$ です。定数項を比べると $T_2E_4$ の固有値は $1+2^3=9$ なので
+です。重さ4では[full modular groupの次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim M_4=1$ です。定数項を比べると $T_2E_4$ の固有値は $1+2^3=9$ なので
 $$
 T_2E_4=9E_4.
 $$
-一方、$\Delta=q-24q^2+252q^3+\cdots$ は重さ12のカスプ形式です。同じ[次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim S_{12}=1$ なので、$q$ の一次係数を比較して
+一方、$\Delta=q-24q^2+252q^3+\cdots$ は重さ12のカスプ形式です。同じ[full modular groupの次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim S_{12}=1$ なので、$q$ の一次係数を比較して
 $$
 T_2\Delta=-24\Delta
 $$
@@ -447,7 +447,7 @@ a_pa_{p^r}f
 $$
 よって所望の漸化式を得る。
 
-最後に $S_k$ の有限次元性は[次元公式](../MF3/index.md#thm-mf3-dimension)から従います。[Hecke合成則](#thm-mf5-hecke-algebra)によって作用素 $T_n$ は可換であり、[Petersson自己随伴性](#thm-mf5-self-adjoint)によって自己随伴です。
+最後に $S_k$ の有限次元性は[full modular groupの次元公式](../MF3/index.md#thm-mf3-dimension)から従います。[Hecke合成則](#thm-mf5-hecke-algebra)によって作用素 $T_n$ は可換であり、[Petersson自己随伴性](#thm-mf5-self-adjoint)によって自己随伴です。
 
 まず有限次元複素内積空間 $W$ 上の自己随伴作用素 $T$ の固有ベクトルの存在を導きます。単位球面はコンパクトなので、実数値の連続関数 $\langle Tv,v\rangle$ はある単位ベクトル $v$ で最大値 $\lambda$ を取ります。$w\perp v$ を取り、実数 $t$ で次の変分を計算します。
 $$
@@ -604,7 +604,7 @@ $\Delta=q-24q^2+252q^3+\cdots\in S_{12}(SL_2(\mathbb Z))$ と $\dim S_{12}=1$ �
 - ID: MF5-C1
 
 <!-- solution-start -->
-**詳細解答**　(i) [次元公式](../MF3/index.md#thm-mf3-dimension)から $S_{12}$ は1次元であり、[Hecke作用素がカスプ形式を保つ](#thm-mf5-coefficient)ので、各 $T_n$ は $\Delta$ を定数倍する。先頭係数 $a_1=1$ だから [同時固有形式と乗法的Fourier係数](#thm-mf5-eigenforms)により固有値は $a_n$ である。
+**詳細解答**　(i) [full modular groupの次元公式](../MF3/index.md#thm-mf3-dimension)から $S_{12}$ は1次元であり、[Hecke作用素がカスプ形式を保つ](#thm-mf5-coefficient)ので、各 $T_n$ は $\Delta$ を定数倍する。先頭係数 $a_1=1$ だから [同時固有形式と乗法的Fourier係数](#thm-mf5-eigenforms)により固有値は $a_n$ である。
 
 (ii) $k-1=11$、$2^{11}=2048$ である。素数冪の漸化式と互いに素な添字の乗法性から
 $$
