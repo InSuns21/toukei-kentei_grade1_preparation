@@ -57,7 +57,7 @@ $$
 \operatorname{Hol}_x^0(g)=\{P_\gamma:\gamma\text{ は基点を保って零ホモトピックな閉路}\}
 $$
 >
-> を制限ホロノミー群という。以下ではこの定義に従い、零ホモトピックな閉路の平行移動だけを取り扱う。
+> を制限ホロノミー群という。この群は、全閉路によるホロノミー群の中で零ホモトピックな閉路に由来する変換だけを集めたものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-16-restricted -->
