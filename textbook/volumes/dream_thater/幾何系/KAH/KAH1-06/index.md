@@ -53,21 +53,21 @@ $$
 
 逆写像を添字の順序まで明示する。$z=(z^1,\ldots,z^n)$ から代表元 $\sigma_a(z)$ を
 
-$
+$$
 (\sigma_a(z))_j=
 \begin{cases}
 z^{j+1} & (0\le j<a),\\
 1 & (j=a),\\
 z^j & (a<j\le n)
 \end{cases}
-$
+$$
 
 で作る。$\sigma_a$ は連続で零ベクトルを取らないので、$q\circ\sigma_a$ も連続である。さらに
 
-$
+$$
 \varphi_a(q(\sigma_a(z)))=z,\qquad
 q(\sigma_a(\varphi_a([Z])))=[Z/Z_a]=[Z]
-$
+$$
 
 となるから、$\varphi_a$ は $\mathbb C^n$ への同相写像である。
 
@@ -82,10 +82,10 @@ $$
 
 一般の $a\ne b$ に対しても遷移を式で確かめる。$U_a$ の同次比を $t_j=Z_j/Z_a$（$j\ne a$）、便宜上 $t_a=1$ と書く。重なりでは $t_b\ne0$ であり、$U_b$ 側の各座標は
 
-$
+$$
 s_k=\frac{Z_k}{Z_b}=\frac{t_k}{t_b}
 \qquad(k\ne b)
-$
+$$
 
 である。分母は零にならず、成分は正則関数の商だから正則。逆方向も $s_a\ne0$ の下で $t_j=s_j/s_a$（$j\ne a$、ただし $s_b=1$）と書けるため正則である。
 
@@ -93,10 +93,10 @@ $
 
 ここで商像が**開**である理由も必要である。$V\subset S^{2n+1}$ が開かつ $S^1$ 不変なら、
 
-$
+$$
 q^{-1}(q(V))
 =\{rw:r>0,\ w\in V\}
-$
+$$
 
 は $\mathbb C^{n+1}\setminus\{0\}$ における開集合である（$Z\mapsto Z/\lVert Z\rVert$ の逆像である）。ゆえに $q(V)$ は商位相で開。さらに $V_u,V_v$ は $S^1$ 不変で交わらないから商像も交わらず、Hausdorff性が従う。最後に、有限個の開チャート $U_a$ が各々第二可算な $\mathbb C^n$ と同相なので、それらの可算基底の和集合が全体の可算基底となる。[複素多様体の定義](../../CM/CM1-01/index.md#def-cm1-01-manifold)の条件が全て満たされた。$\square$
 <!-- proof-end -->
@@ -203,7 +203,7 @@ $$
 
 [Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $z,v\in\mathbb C^n$ に適用すると
 
-$
+$$
 \left|\sum_i\bar z^i v^i\right|^2
 \le\left(\sum_i|z^i|^2\right)
 \left(\sum_i|v^i|^2\right)
@@ -277,38 +277,38 @@ $$
 
 §4で得た係数を、通常の複素行列としてまとめ直す。$z$ を列ベクトルとし、$\bar z$ をその成分ごとの共役列とすれば、
 
-$
+$$
 H=\frac1S I_n-\frac1{S^2}\bar z\,z^{\mathsf T},
 \qquad
 (Hv)^i=\frac{v^i}S-\frac{\bar z^i}{S^2}
 \sum_j z^jv^j.
-$
+$$
 
 ここで $z^{\mathsf T}\bar z=\sum_j|z^j|^2=S-1$。したがって行列作用での特別な直線は $\mathbb C\bar z$ であり、その標準Hermite直交補は $\{v:z^{\mathsf T}v=0\}$ である。一方、正値性の定義で評価した二次形式は
 
-$
+$$
 Q_z(v)=v^{\mathsf T}H\bar v
 =(\bar v)^*H(\bar v)
-$
+$$
 
 なので、**二次形式の入力 $v$** における対応する直線は $\mathbb Cz$、直交条件は $\sum_j\bar z^jv^j=0$ となる。行列の固有ベクトルと二次形式の入力を混同してはならない。
 
 この二つの空間に作用を制限すると、
 
-$
+$$
 \begin{aligned}
 H\bar z
 &=\left(\frac1S-\frac{S-1}{S^2}\right)\bar z
 =\frac1{S^2}\bar z,\\
 Hv&=\frac1S v\qquad(z^{\mathsf T}v=0).
 \end{aligned}
-$
+$$
 
 $z\ne0$ では前者の次元が1、後者の次元が $n-1$ である。$z=0$ なら $S=1$ で $H(0)=I_n$。固有値の積を取ると
 
-$
+$$
 \det H=S^{-2}(S^{-1})^{n-1}=S^{-(n+1)}
-$
+$$
 
 となる。$n=1$ なら直交補の重複度は0で同じ結論になる。$\square$
 <!-- proof-end -->
