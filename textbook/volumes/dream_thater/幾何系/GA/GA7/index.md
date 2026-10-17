@@ -393,7 +393,14 @@ $$
 \end{aligned}
 $$
 
-両辺はスカラーなので各点で成立します。コンパクト・境界なしの仮定をここで使い、発散定理により $\int_M\operatorname{div}_gW\,dV_g=0$ と置けば
+両辺はスカラーなので各点で成立します。ここで $M$ は向き付け可能・コンパクト・境界なしであり、$W$ は滑らかなベクトル場です。この仮定の下で[Riemann多様体の発散定理](../GA1/index.md#thm-ga1-divergence)を $X=W$ に適用すると
+
+$$
+\int_M\operatorname{div}_gW\,dV_g
+=\int_{\partial M}g(W,\nu)\,dS_g=0
+$$
+
+です。従って
 
 $$
 (\nabla^*\nabla\alpha,\alpha)_2
