@@ -93,7 +93,7 @@ $$
 
 ## 3. Ricci縮約と対数行列式の一致
 
-前章では $R_{i\bar j k\bar\ell}$ を一度計算してから縮約した。ここでは縮約を**接続係数の跡**へ移す。Kähler条件の下では[正則接続係数の式](../KAH1-08/index.md#prop-kah1-08-connection-coefficients)から
+前章では $R_{i\bar j k\bar\ell}$ を一度計算してから縮約した。ここでは縮約を**接続係数の跡**へ移す。Kähler条件の下では[正則接続係数の式](../KAH1-08/index.md#prop-kah1-08-coordinate-change)から
 
 $$
 \Gamma^k_{i m}=g^{k\bar\ell}\partial_i g_{m\bar\ell},
@@ -231,7 +231,7 @@ $$
 
 ### 証明の見取り図
 
-行列式は正則Jacobi行列式の絶対値二乗だけ変わる。しかし零でない正則関数 $h$ について $\partial\bar\partial\log|h|^2=0$ である。[局所Kählerポテンシャルの差](../KAH1-04/index.md#thm-kah1-04-potential-ambiguity)で使ったのと同じ機構によって、行列式の変化分は二階の混合微分で消える。
+行列式は正則Jacobi行列式の絶対値二乗だけ変わる。しかし零でない正則関数 $h$ について $\partial\bar\partial\log|h|^2=0$ である。[局所Kählerポテンシャルの差](../KAH1-04/index.md#thm-kah1-04-gauge)で使ったのと同じ機構によって、行列式の変化分は二階の混合微分で消える。
 
 <!-- proof-start -->
 ### 証明
