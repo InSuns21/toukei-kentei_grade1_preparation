@@ -1,0 +1,60 @@
+chapter: GR1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL2
+  - SREL8
+# GR1では定理として援用しない。GR2/GR3への明示的な学習予告。
+forward_references:
+  - lorentz-geometry.lorentz-metric
+  - geometry.geodesic-equation
+
+concepts:
+  - id: gravity.weak-equivalence-principle
+    name: 弱い等価原理
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（弱い等価原理）]
+    requires: [relativity.proper-time]
+
+  - id: gravity.local-freefall-lab
+    name: 局所自由落下実験室
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所自由落下実験室）]
+    requires: [gravity.weak-equivalence-principle]
+
+  - id: gravity.einstein-equivalence-principle
+    name: Einstein等価原理
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（Einstein等価原理）]
+    requires: [gravity.weak-equivalence-principle, gravity.local-freefall-lab]
+
+  - id: gravity.rindler-metric-gr-sign
+    name: GR符号規約でのRindler計量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（GR符号規約でのRindler計量）]
+    requires: [relativity.rindler-chart, relativity.minkowski-metric]
+
+  - id: gravity.rindler-static-proper-accel
+    name: 静止Rindler時計の固有加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（静止Rindler時計の固有加速度）]
+    requires: [gravity.rindler-metric-gr-sign, relativity.rindler-proper-acceleration]
+
+  - id: gravity.rindler-free-particle-accel
+    name: 瞬間静止の自由粒子が示す座標加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（瞬間静止の自由粒子が示す座標加速度）]
+    requires: [gravity.rindler-static-proper-accel, gravity.rindler-metric-gr-sign]
+
+  - id: gravity.rindler-two-particle-test
+    name: 平坦Rindler領域の二粒子試験
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平坦Rindler領域の二粒子試験）]
+    requires: [gravity.rindler-free-particle-accel]
