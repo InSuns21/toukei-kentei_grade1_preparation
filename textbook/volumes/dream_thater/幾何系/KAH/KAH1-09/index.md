@@ -253,7 +253,7 @@ $$
 
 この交換則が成立する理由はKähler閉性である。単に計量がHermiteであるだけでは正則二添字の交換は証明できない。
 
-## 5. 正規座標では二階微分が残る
+## 5. Kähler正規座標では二階微分が残る
 
 [点におけるKähler正規座標](../KAH1-08/index.md#def-kah1-08-normal-coordinates)とは、$p$ で $g_{i\bar j}(p)=\delta_{ij}$、すべての一階微分 $\partial_k g_{i\bar j}(p)$ と $\partial_{\bar k}g_{i\bar j}(p)$ が零となる正則座標である。これを局所曲率公式へ代入する。
 
@@ -292,7 +292,7 @@ g^{m\bar q}(p)\underbrace{\partial_i g_{k\bar q}(p)}_{0}
                  \underbrace{\partial_{\bar j}g_{m\bar\ell}(p)}_{0}=0.
 $$
 
-従って最初の式を得る。[局所Kählerポテンシャルの定理](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
+従って最初の式を得る。[閉実(1,1)形式の局所ポテンシャル定理](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
 <!-- proof-end -->
 
 **二変数の直接計算。** 原点付近の $\mathbb C^2$ で実数 $\lambda$ に対して
@@ -311,7 +311,7 @@ $$
 \end{pmatrix}.
 $$
 
-原点で $g(0)=I$、全一階微分は零、$z(0)=0$ である。正定値行列の集合は開集合なので、任意の固定した実数 $\lambda$ に対し十分小さい近傍で正値が保たれる。$\omega=i\partial\bar\partial\varphi$ は閉じているので、その近傍でKählerとなる。原点では正規座標の公式から
+原点で $g(0)=I$、全一階微分は零、$z(0)=0$ である。正定値行列の集合は開集合なので、任意の固定した実数 $\lambda$ に対し十分小さい近傍で正値が保たれる。$\omega=i\partial\bar\partial\varphi$ は閉じているので、その近傍でKählerとなる。原点では[命題（Kähler正規座標での曲率）](#prop-kah1-09-normal-curvature)から
 
 $$
 \begin{aligned}
