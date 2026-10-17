@@ -1,0 +1,43 @@
+chapter: KAH1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-11
+  - CM2-11
+concepts:
+  - id: kahler.canonical-bundle
+    name: 標準束と反標準束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準束と反標準束）"]
+    requires: []
+  - id: kahler.tangent-determinant-curvature
+    name: 接束の行列式接続と曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接束の行列式接続と曲率）"]
+    requires: [kahler.canonical-bundle, kahler.jacobi-determinant-derivative]
+  - id: kahler.ricci-chern-identification
+    name: Ricci形式と反標準束の第一Chern形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ricci形式と反標準束の第一Chern形式）"]
+    requires: [kahler.tangent-determinant-curvature, kahler.ricci-determinant-formula]
+  - id: kahler.integral-first-chern
+    name: 整数係数の第一Chern類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数係数の第一Chern類）"]
+    requires: [kahler.canonical-bundle]
+  - id: kahler.first-chern-integrality
+    name: 第一Chern形式は整数係数類の実像を表す
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（第一Chern形式は整数係数類の実像を表す）"]
+    requires: [kahler.integral-first-chern]
+  - id: kahler.canonical-first-chern-sign
+    name: 標準束の符号と第一Chern類
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（標準束の符号と第一Chern類）"]
+    requires: [kahler.ricci-chern-identification, kahler.first-chern-integrality]
