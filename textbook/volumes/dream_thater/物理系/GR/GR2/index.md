@@ -43,10 +43,10 @@ $$
 
 です。成分の列ベクトルを $[u]=(u^\mu)$、$[v]=(v^\nu)$ と書けば、係数行列 $G=(g_{\mu\nu})$ により次のように計算できます。
 
-$
+$$
 g(u,v)=[u]^{\mathsf T}G[v],\qquad
 g(u,\cdot)=0\ \Longleftrightarrow\ G[u]=0.
-$
+$$
 
 二つ目の同値は、全ての基底ベクトル $e_\nu$ を $v$ に代入して $g(u,e_\nu)=0$ を並べ、$G$ の対称性を使ったものです。したがって、非退化性（$g(u,\cdot)=0$ なら $u=0$）は $\ker G=\{0\}$、すなわち $G$ の可逆性と同値です。これは[GR1での非退化性の基底判定](../GR1/index.md#prop-gr1-rindler-metric)でも使った考え方です。
 
@@ -94,26 +94,26 @@ $$
 
 この模型で $H$ が静止観測者の物差しになる理由も、計量から直接確認できます。座標静止世界線の接方向を、自己二乗が $-c^2$ になるよう規格化すると
 
-$
+$$
 U_{\mathrm{stat}}=\frac1N\partial_t,\qquad
 g(U_{\mathrm{stat}},U_{\mathrm{stat}})=-c^2,\qquad
 g(U_{\mathrm{stat}},\partial_i)=\frac{g_{ti}}N=0
-$
+$$
 
 です。したがって $\partial_i$ が張る同時刻の空間方向は、この観測者の時間方向に直交します。その空間方向のベクトル $X=X^i\partial_i$ に対して
 
-$
+$$
 g(X,X)=h_{ij}X^iX^j>0\qquad(X\ne0)
-$
+$$
 
 なので、$H$ は観測者の局所静止空間における正の長さを与えます。一方、静止世界線では $dx^i=0$ だから $-c^2d\tau^2=-N^2c^2dt^2$ となり、$dt>0$ で $d\tau=Ndt$ です。これが時間の換算係数 $N$ と、空間の換算係数 $H$ を区別する理由です。
 
 <!-- definition-example-start: def-gr2-static-clock-model -->
 **定義の確認**。前節の模型では $N=1+\lambda x$、$H=\operatorname{diag}((1+\beta x)^2,1,1)$ です。指定した領域で $N>0$ です。任意の非零空間ベクトル $X=X^x\partial_x+X^y\partial_y+X^z\partial_z$ に対して
 
-$
+$$
 g(X,X)=(1+\beta x)^2(X^x)^2+(X^y)^2+(X^z)^2>0
-$
+$$
 
 であり、これは $H$ の対角固有値 $(1+\beta x)^2,1,1$ が全て正であることに対応します。全ての係数は滑らかで時間に依存せず、時間と空間の交差成分 $g_{ti}$ は全て零です。前節で非退化性と慣性指数も直接確認しました。静止世界線の接ベクトル $\partial_t$ の自己二乗は $-N^2c^2<0$ なので、実際に時間的な観測者を定めます。
 <!-- definition-example-end -->
