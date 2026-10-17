@@ -215,7 +215,23 @@ $$
 
 存在定理は $H^1$ の元を与えるだけです。滑らかな $f$ から作った弱解を、どの条件で二階、さらに高階微分できるように戻せるでしょうか。
 
-座標写像 $\kappa:U\to\Omega\subset\mathbb R^d$ を固定し、$\tilde u=u\circ\kappa^{-1}$、$\tilde f=f\circ\kappa^{-1}$ と書きます。[GA1のLaplace--Beltramiの座標表示](../GA1/index.md#thm-ga1-green-first)と体積密度 $\rho(x)=\sqrt{\det(g_{ij}(x))}>0$ を使えば、座標での方程式は
+座標写像 $\kappa:U\to\Omega\subset\mathbb R^d$ を固定し、$\tilde u=u\circ\kappa^{-1}$、$\tilde f=f\circ\kappa^{-1}$ と書きます。計量行列 $G=(g_{ij})$ は正定値なので逆行列 $(g^{ij})=G^{-1}$ が存在します。[GEO12の計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)と[体積密度の公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)から
+
+$$
+\nabla_g u=g^{ij}(\partial_j\tilde u)\,\partial_i,\qquad
+\langle\nabla_gu,\nabla_gv\rangle_g
+=g^{ij}(\partial_i\tilde u)(\partial_j\tilde v),\qquad
+dV_g=\rho(x)\,dx,\quad \rho=\sqrt{\det G}>0
+$$
+
+です。これを[GA1のGreenの第一公式](../GA1/index.md#thm-ga1-green-first)に由来する弱形式へ代入すると、座標内に台を持つ試験関数 $\tilde v$ について
+
+$$
+\int_\Omega \rho g^{ij}(\partial_i\tilde u)(\partial_j\tilde v)\,dx
+=\int_\Omega\rho\tilde f\tilde v\,dx.
+$$
+
+従って分布の意味で
 
 $$
 -\partial_i\bigl(A^{ij}(x)\partial_j\tilde u\bigr)
@@ -223,7 +239,7 @@ $$
 A^{ij}(x)=\rho(x)g^{ij}(x)
 $$
 
-です（添字 $i,j$ を $1,\ldots,d$ で和を取る）。この $A$ は突然選んだ行列ではありません。**計量の逆行列が勾配を、$\rho$ が積分体積を表す**ため、弱形式の係数行列として現れます。
+です（添字 $i,j$ は $1,\ldots,d$ で総和）。つまり **$A$ は試験関数の一次微分どうしを結ぶ二次形式の係数**であり、勝手に選んだ行列ではありません。$G^{-1}$ が勾配の座標成分を、$\rho$ が積分体積を表すため、この積が現れます。
 
 座標像の中のコンパクト集合 $K$ を取ります。$g_{ij}$ は連続で各点で正定値、$\rho>0$ です。$K$ 上の最小・最大固有値の連続性とコンパクト性により、定数 $0<c_K\le C_K<\infty$ があり
 
@@ -319,6 +335,15 @@ $$
 > を満たすとき、$u$ は $D$ 上で弱劣調和である。$u\in C^2(D)$ なら、この条件は $\Delta_gu\ge0$ と同値である。
 <!-- formal-statement-end -->
 
+$u\in C^2(D)$ の場合、[GA1のGreenの第一公式](../GA1/index.md#thm-ga1-green-first)をコンパクト台の $\varphi$ に適用すると
+
+$$
+\int_D\langle\nabla_gu,\nabla_g\varphi\rangle_g\,dV_g
+=-\int_D(\Delta_gu)\varphi\,dV_g.
+$$
+
+従って $\Delta_gu\ge0$ なら定義の不等式が成立します。逆にある点で $\Delta_gu<0$ なら、連続性によりその近傍で負となり、そこに台を持つ非零の非負 $\varphi$ では右辺が正になって定義に反します。これが古典的な符号条件と弱い定義が同値になる理由です。
+
 <!-- definition-example-start: def-ga3-weak-subharmonic -->
 **定義の確認**：区間の二次関数。 $D=(0,1)$、$u(x)=x^2$ とし、任意の非負 $\varphi\in C_c^\infty(D)$ を取ります。部分積分すると
 
@@ -334,7 +359,7 @@ $u\in H^1_{\mathrm{loc}}$ で、全非負試験関数に対する必要な不等
 <a id="thm-ga3-weak-maximum"></a>
 <!-- formal-statement-start -->
 > **定理（弱最大値原理）**  
-> $D$ を連結で比較的コンパクトな滑らかな境界 $\partial D\ne\varnothing$ を持つRiemann多様体の領域とする。$u\in H^1(D)$ が弱劣調和で、境界トレースがほとんど至る所で $u\le K$（定数 $K\in\mathbb R$）なら、$u\le K$ が $D$ 内でほとんど至る所成立する。特に $u\in C^2(D)\cap C^0(\overline D)$ かつ $\Delta_gu\ge0$ の場合、
+> $D$ を連結で比較的コンパクトな滑らかな境界 $\partial D\ne\varnothing$ を持つRiemann多様体の領域とする。$u\in H^1(D)$ が弱劣調和で、境界トレースがほとんど至る所で $u\le K$（定数 $K\in\mathbb R$）なら、$u\le K$ が $D$ 内でほとんど至る所成立する。特に $u\in H^1(D)\cap C^2(D)\cap C^0(\overline D)$ かつ $\Delta_gu\ge0$ の場合、
 
 $$
 \max_{\overline D}u=\max_{\partial D}u
@@ -480,7 +505,26 @@ Dirichletでは試験空間 $H^1_0(D)$ が定数を含まず、[GPDE4のPoincar�
 
 (i) 零Dirichletの試行空間を $H^1_0(D)$ とします。滑らかな境界の有限個の局所座標で[GPDE4の $H^1_0$ Poincaré不等式](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-poincare)を比較すれば、$\|v\|_{L^2(D)}\le C_D\|\nabla_gv\|_2$ となります。勾配双線形形式は有界かつ強圧的で、$v\mapsto\int_Dfv$ は連続です。[Lax--Milgram定理](../../../解析系/GPDE/GPDE7/index.md#thm-gpde7-lax-milgram)で一意解が得られます。$v=1$ は $H^1_0(D)$ に属さないため、$\int_Df=0$ は必要ありません。
 
-(ii) $v=1$ をNeumann弱形式に代入すると左辺は0で、必要条件 $\int_Df+\int_{\partial D}h=0$ が得られます。境界のある $D$ の平均零空間 $H^1_\perp(D)$ でも $\|v\|_2\le C\|\nabla_gv\|_2$ が成り立つことを確認します。これが偽なら平均零・$L^2$ ノルム1・勾配が零へ向かう列が取れます。滑らかな境界の有限の内側球・半球座標で[GPDE5の有界領域拡張](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)とRellichの有限枚貼り合わせ（[GA2の多様体Rellich](../GA2/index.md#thm-ga2-rellich)と同じ部分列抽出）を用いると、$L^2(D)$ で強収束する部分列が取れます。極限は勾配零だから連結性で定数、平均零だから0なのにノルム1という矛盾です。
+(ii) $v=1$ をNeumann弱形式に代入すると左辺は0で、必要条件 $\int_Df+\int_{\partial D}h=0$ が得られます。境界のある $D$ の平均零空間
+
+$$
+H^1_\perp(D)=\left\{v\in H^1(D):\int_Dv\,dV_g=0\right\}
+$$
+
+でも $\|v\|_2\le C\|\nabla_gv\|_2$ が成り立つことを確認します。これが偽なら各 $n$ について $v_n\in H^1_\perp(D)$ を選び、定数倍して
+
+$$
+\|v_n\|_2=1,\qquad \int_Dv_n\,dV_g=0,\qquad
+\|\nabla_gv_n\|_2<\frac1n
+$$
+
+とできます。従って $(v_n)$ は $H^1(D)$ で有界です。滑らかな境界の有限の内側球・半球座標で[GPDE5の有界領域拡張](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)とRellichの有限枚貼り合わせ（[GA2の多様体Rellich](../GA2/index.md#thm-ga2-rellich)と同じ部分列抽出）を用いると、ある部分列は $L^2(D)$ で $v$ へ強収束します。弱微分の極限を試験関数で確かめれば $\nabla_gv=0$ であり、連結性から $v$ は定数です。一方、強収束により
+
+$$
+\int_Dv\,dV_g=0,\qquad \|v\|_2=\lim_{n\to\infty}\|v_n\|_2=1
+$$
+
+なので $v=0$ と $\|v\|_2=1$ が同時に必要となり、矛盾します。
 
 従って平均零空間上で $a(w,v)=\int_D\langle\nabla_gw,\nabla_gv\rangle_g$ は強圧的です。[GA2のトレース定理](../GA2/index.md#prop-ga2-boundary-trace)による連続性から
 
