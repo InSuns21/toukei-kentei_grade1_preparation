@@ -5,9 +5,6 @@ prerequisites:
   - GR2
   - SREL4
   - LORG4
-forward_references:
-  - gravity.local-observer-frame
-
 concepts:
   - id: gravity.curved-free-particle-action
     name: 曲がった時空における自由質点の固有時作用
