@@ -432,7 +432,13 @@ $$
 $\mathbb C^2$ で $g_{i\bar j}=\operatorname{diag}(2,3)$ とする。正値性・Kähler閉性・接続係数・曲率成分をすべて確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** 行列はHermite対称であり、任意の $c=(c^1,c^2)\ne0$ について $g(c,\bar c)=2|c^1|^2+3|c^2|^2>0$。従って[正値の行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)を満たす（対角成分・固有値も $2,3$）。すべての計量係数は一定だから $\partial_i g_{k\bar\ell}=\partial_{\bar j}g_{k\bar\ell}=0$、よって基本形式は閉じ、Kähler計量である。$\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}=0$。曲率公式の二階微分項も一階微分の積もすべて零なので $R_{i\bar j k\bar\ell}=0$。単位行列でないことは平坦性を妨げない。
+**詳細解答。** 行列はHermite対称である。任意の $c=(c^1,c^2)\ne0$ に対し
+
+$$
+g(c,\bar c)=2|c^1|^2+3|c^2|^2>0.
+$$
+
+従って[正値の行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)を満たす（対角成分・固有値も $2,3$）。すべての計量係数は一定だから $\partial_i g_{k\bar\ell}=\partial_{\bar j}g_{k\bar\ell}=0$、よって基本形式は閉じ、Kähler計量である。$\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}=0$。曲率公式の二階微分項も一階微分の積もすべて零なので $R_{i\bar j k\bar\ell}=0$。単位行列でないことは平坦性を妨げない。
 <!-- solution-end -->
 
 <a id="ex-kah1-09-a02"></a>
@@ -557,7 +563,15 @@ $$
 \partial_{\bar z}\Gamma^z_{zz}=0.
 $$
 
-従って $R_{z\bar z z\bar z}=-g\partial_{\bar z}\Gamma=0$。別法として[局所曲率公式](#prop-kah1-09-local-curvature)を一次元に適用しても、$\log g=az+\bar a\bar z$ の混合微分が零なので $-g\partial_z\partial_{\bar z}\log g=0$。$a\ne0$ では係数は非零だが曲率零である。
+従って $R_{z\bar z z\bar z}=-g\partial_{\bar z}\Gamma=0$。別法として[局所曲率公式](#prop-kah1-09-local-curvature)を一次元に適用すると、
+
+$$
+R_{z\bar z z\bar z}
+=-g\partial_z\partial_{\bar z}\log g
+=-g\partial_z\partial_{\bar z}(az+\bar a\bar z)=0.
+$$
+
+$a\ne0$ では接続係数は非零だが曲率は零である。
 <!-- solution-end -->
 
 ### Level C
