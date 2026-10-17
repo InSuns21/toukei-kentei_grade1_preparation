@@ -440,7 +440,7 @@ $$
 Rindlerの光的アフィン測地線 $x^\mu(s)$ について $N^2dt/ds=K>0$ から、$dx/ds=\pm cK/N$ を導け。$s$ が固有時でないことも確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[光的二次作用](#prop-gr3-null-affine-action)の測地線方程式を用いると $t$ 成分は時間的の場合と同じ $t''+2(N'/N)t'x'=0$ です（ここではプライムは $s$ 微分、$dN/dx=a_0/c^2$）。積の微分で $d(N^2t')/ds=0$、従って $t'=K/N^2$。光的条件は
+**詳細解答**。[GEO14の測地線方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)と[光的二次作用の変分](#prop-gr3-null-affine-action)を適用すると $t$ 成分は時間的の場合と同じ $t''+2(N'/N)t'x'=0$ です（ここではプライムは $s$ 微分、$dN/dx=a_0/c^2$）。積の微分で $d(N^2t')/ds=0$、従って $t'=K/N^2$。光的条件は
 
 $$
 0=-c^2N^2(t')^2+(x')^2
