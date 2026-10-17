@@ -45,7 +45,7 @@ $$
 \end{aligned}
 $$
 
-各入力で $0\le\eta_y(x)\le1$、$\eta_0(x)+\eta_1(x)=1$ を確認した。これは二つの条件付き分布であって、同じ分布とは限らない。
+各入力で $0\le\eta_y(x)\le1$、$\eta_0(x)+\eta_1(x)=1$ を確認した。これは二つの条件付き分布であって、入力によって値が異なり得る。
 <!-- definition-example-end -->
 
 次に、予測値を出す代わりに一般の行動 $a\in\mathcal A$ を選び、真のラベル $y$ に応じた損失 $\ell(a,y)$ を支払う。$\ell:\mathcal A\times\mathcal Y\to[0,\infty)$ は有限値とする。[前章の損失関数](../ML1-01/index.md#def-ml1-01-loss)を、行動集合へ拡張しただけである。入力が固定されたとき、期待される損失は条件付き確率による有限和になる。
@@ -125,7 +125,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p_x=0$ なら非負の $p_{xy}$ の和が0なので、すべての $y$ で $p_{xy}=0$ である。よってその $x$ を有限和から除いても値は変わらない。$p_x>0$ では[条件付き確率の定義](#def-ml1-02-conditional-label)より $p_{xy}=p_x\eta_y(x)$。これを[母集団リスクの定義](../ML1-01/index.md#def-ml1-01-risks)の有限和に入れると
+$p_x=0$ なら非負の $p_{xy}$ の和が0なので、すべての $y$ で $p_{xy}=0$ である。よってその $x$ を有限和から除いても値は変わらない。$p_x>0$ では[条件付きラベル確率](#def-ml1-02-conditional-label)より $p_{xy}=p_x\eta_y(x)$。これを[母集団リスクの定義](../ML1-01/index.md#def-ml1-01-risks)の有限和に入れると
 
 $$
 \begin{aligned}
@@ -291,7 +291,7 @@ $\eta(x)=t_c$ では0と1がどちらも最適であり、同点規則を一つ�
 
 ## 6. 事前確率とクラス別分布で同じ則を書く
 
-真値ごとの発生割合を先に指定できることもある。$Y\in\{0,1\}$ で $\pi_y=P(Y=y)>0$、$\pi_0+\pi_1=1$ とし、$q_y(x)=P(X=x\mid Y=y)$ を有限集合 $\mathcal X$ 上の条件付き確率とする。各 $y$ で $q_y(x)\ge0$、$\sum_xq_y(x)=1$ を仮定する。このとき積の定義から $p_{xy}=\pi_yq_y(x)$、$p_x=\pi_0q_0(x)+\pi_1q_1(x)$ である。
+真値ごとの発生割合を先に指定できることもある。$Y\in\{0,1\}$ で $\pi_y=P(Y=y)>0$、$\pi_0+\pi_1=1$ とし、$q_y(x)=P(X=x\mid Y=y)$ を有限集合 $\mathcal X$ 上の条件付き確率とする。各 $y$ で $q_y(x)\ge0$、$\sum_xq_y(x)=1$ を仮定する。この有限模型では同時確率は $p_{xy}=\pi_yq_y(x)$、$p_x=\pi_0q_0(x)+\pi_1q_1(x)$ である。
 
 <a id="prop-ml1-02-likelihood-ratio"></a>
 
@@ -363,9 +363,9 @@ for i, x in enumerate(["a", "b"]):
     risk0 = ___
     # ヒント: 行動1の損失が発生するのは、真値がどちらのラベルの場合か。
     risk1 = ___
-    action = int(risk1 < risk0)  # 同点は0
+    choice = int(risk1 < risk0)  # 同点は0
     risk_total += px * min(risk0, risk1)
-    print(x, "posterior=", round(eta, 4), "decision=", action)
+    print(x, "posterior=", round(eta, 4), "decision=", choice)
 print("threshold=", round(threshold, 4), "Bayes risk=", round(risk_total, 4))
 ~~~
 
@@ -389,9 +389,9 @@ for i, x in enumerate(["a", "b"]):
     eta = px1 / px
     risk0 = c_fn * eta
     risk1 = c_fp * (1.0 - eta)
-    action = int(risk1 < risk0)
+    choice = int(risk1 < risk0)
     risk_total += px * min(risk0, risk1)
-    print(x, "posterior=", round(eta, 4), "decision=", action)
+    print(x, "posterior=", round(eta, 4), "decision=", choice)
 print("threshold=", round(threshold, 4), "Bayes risk=", round(risk_total, 4))
 ~~~
 
@@ -471,7 +471,7 @@ $P(X=a,Y=0)=0.7,P(X=a,Y=1)=0.3$、入力 $b$ に関する同時確率は両方0�
 <!-- solution-start -->
 #### 詳細解答
 
-$p_b=0+0=0$ だから式は $0/0$ になり、[条件付き確率の定義](#def-ml1-02-conditional-label)では定まらない。決定則の母集団リスクの $b$ に対応する二項は $0\cdot\ell(g(b),0)+0\cdot\ell(g(b),1)=0$ なので、$g(b)$ の変更でリスクは変わらない。
+$p_b=0+0=0$ だから式は $0/0$ になり、[条件付きラベル確率](#def-ml1-02-conditional-label)では定まらない。決定則の母集団リスクの $b$ に対応する二項は $0\cdot\ell(g(b),0)+0\cdot\ell(g(b),1)=0$ なので、$g(b)$ の変更でリスクは変わらない。
 <!-- solution-end -->
 
 ### ML1-02-B01 リスク最小性を数値で検証する
