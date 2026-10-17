@@ -12,7 +12,7 @@ $$
 g_0=\sum_{j=1}^n\bigl((dx^j)^2+(dy^j)^2\bigr)
 $$
 
-とする。以下、$g$ は実Riemann計量、$J$ は複素構造、$\omega(u,v)=g(Ju,v)$ とする。複素座標の規約は
+とする。以下、$g$ は実Riemann計量、$J$ は複素構造、$\omega(u,v)=g(Ju,v)$ とする。この対応は既習の[基本2形式の定義](../KAH1-01/index.md#def-kah1-01-fundamental-form)による。複素座標の規約は
 
 $$
 \omega=i\sum_{i,j}g_{i\bar j}\,dz^i\wedge d\bar z^j,
@@ -42,7 +42,19 @@ $$
 \qquad (v\in\mathbb C^n,\ v\ne0)
 $$
 
-を課す。これによって作る実計量は、実接ベクトル $u,v$ に対して
+を課す。まず次の実 $(1,1)$ 形式を候補として作る。
+
+$$
+\omega_H=i\sum_{i,j}H_{i\bar j}\,dz^i\wedge d\bar z^j.
+$$
+
+ここで $H$ は、正則座標の基底 $dz^i$ で基本形式を展開したときの係数行列であり、行列の正定値性は[基本形式の正値性判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と同値である。実接ベクトル $u$ の複素座標成分を $a^i=dz^i(u)$ とすると、$u\ne0$ なら $a=(a^i)\ne0$ であり、
+
+$$
+\omega_H(u,J_0u)=2\sum_{i,j}H_{i\bar j}a^i\overline{a^j}>0
+$$
+
+となる。この条件を満たす基本形式から復元される実計量を、実接ベクトル $u,v$ に対して
 
 $$
 g_H(u,v)=2\operatorname{Re}
@@ -125,7 +137,7 @@ v^iH_{i\bar j}\bar v^j
 =2\left|v^1+\frac{v^2}2\right|^2+\frac52|v^2|^2>0
 $$
 
-である。ここでは **Hermite行列であること、正定値であること、閉性、曲率零**を別々に確認できる。
+である。$H$ は実対称なのでHermite性を満たし、平方完成はすべての零でない $v$ に対する正値性を示す。また全係数が定数なので $d\omega_H=0$、実計量のChristoffel係数が零なので $R=0$ である。このように **Hermite性、正値性、閉性、曲率零**はそれぞれ別の条件として確かめられる。
 
 ## 3. 複素トーラス：平坦計量は商へ降りる
 
@@ -235,9 +247,33 @@ $$
 \partial_{x^a}g^Y_{\mu\nu}=0.
 $$
 
-これらを[曲率作用素の座標表示](../../GEO/GEO16/index.md#prop-geo16-tensoriality-coordinate)で使うLevi–Civita接続の係数公式へ代入すると、各因子内のChristoffel係数だけが残り、混合成分は零になる。
+ここで[Levi–Civita接続の係数公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)へ積計量を代入する。
 
-従って共変微分も曲率作用素も因子ごとに分かれる。積の曲率が零なら、一方の因子に接するベクトルだけを選んで各因子の曲率が零と分かる。逆に両因子の曲率が零なら直和も零である。$\square$
+$$
+\Gamma^A_{BC}
+=\frac12g^{AD}
+(\partial_Bg_{CD}+\partial_Cg_{BD}-\partial_Dg_{BC}).
+$$
+
+逆計量もブロック対角だから、例えば混合した添字について
+
+$$
+\Gamma^a_{b\mu}
+=\frac12(g_X)^{ac}\partial_{y^\mu}g^X_{bc}=0,
+\qquad
+\Gamma^\mu_{ab}
+=-\frac12(g_Y)^{\mu\nu}\partial_{y^\nu}g^X_{ab}=0
+$$
+
+となる。$X,Y$ を入れ替えた成分も同じ理由で零となり、同一因子に属する添字だけが残る：
+
+$$
+\Gamma^a_{bc}=\Gamma^{X,a}_{bc},
+\qquad
+\Gamma^\mu_{\nu\rho}=\Gamma^{Y,\mu}_{\nu\rho}.
+$$
+
+これらを[曲率作用素の座標表示](../../GEO/GEO16/index.md#prop-geo16-tensoriality-coordinate)に代入すると、交差項は消え、残りは各因子の曲率成分そのものである。従って共変微分も曲率作用素も因子ごとに分かれる。積の曲率が零なら、一方の因子に接するベクトルだけを選んで各因子の曲率が零と分かる。逆に両因子の曲率が零なら直和も零である。$\square$
 <!-- proof-end -->
 
 例えば $\mathbb C$ と一次元平坦トーラスの積は、複素次元二の平坦Kähler多様体である。一方、積の片方が曲がっていれば積全体にもその曲率が残る。積を取ることと平坦化することは同じではない。
@@ -246,7 +282,15 @@ $$
 
 複素多様体 $X,Y$ の間の滑らかな写像 $f:X\to Y$ が**正則**なら、その微分は $df\circ J_X=J_Y\circ df$ を満たす。さらに各点で $df_x:T_xX\to T_{f(x)}Y$ が単射なら、$f$ を**正則はめ込み**という。埋め込みはこれに加え、像への位相同型であることを要求する。ここでは局所構成に必要な単射微分の条件だけを使う。
 
-$f$ が正則はめ込みなら $f^*\omega_Y$ を $X$ 上へ引き戻せる。形式の閉性は一般の滑らかな写像でも保たれるが、**正値性は微分の単射性がなければ失われ得る**。
+$f$ が正則はめ込みなら $f^*\omega_Y$ を $X$ 上へ引き戻せる。引き戻しは接ベクトルの像で評価する操作であり、
+
+$$
+(f^*g_Y)_x(u,v)=g_{Y,f(x)}(df_xu,df_xv),
+\qquad
+(f^*\omega_Y)_x(u,v)=\omega_{Y,f(x)}(df_xu,df_xv)
+$$
+
+と定める。形式の閉性は一般の滑らかな写像でも保たれるが、**正値性は微分の単射性がなければ失われ得る**。
 
 <a id="def-kah1-05-induced-form"></a>
 
@@ -268,19 +312,36 @@ $$
 df_z(v)=(v,2zv)
 $$
 
-だから、$df_z(v)=0$ なら第一成分より $v=0$。従って全点で単射で、成分は多項式なので正則。誘導実計量は
+だから、$df_z(v)=0$ なら第一成分より $v=0$。従って全点で単射で、成分は多項式なので正則。標準実計量 $g_0$ は二つの複素座標の長さの二乗の和だから、任意の実接ベクトル $v$ について
+
+$$
+(f^*g_0)_z(v,v)
+=|dz(v)|^2+|2z\,dz(v)|^2
+=(1+4|z|^2)|dz(v)|^2.
+$$
+
+$|dz(v)|^2=dx(v)^2+dy(v)^2$ なので、これは実計量の表示
 
 $$
 g_X=(1+4|z|^2)(dx^2+dy^2)
 $$
 
-で正定値、誘導形式は
+を意味する。係数が正であり、$v\ne0$ なら $dz(v)\ne0$ だから正定値である。形式についても、標準形式 $\omega_0=\frac i2(dz^1\wedge d\bar z^1+dz^2\wedge d\bar z^2)$ の各微分形式を引き戻すと
 
 $$
+f^*dz^1=dz,\quad f^*dz^2=2z\,dz,
+\qquad
 \omega_X=\frac i2(1+4|z|^2)\,dz\wedge d\bar z.
 $$
 
-この形式は実 $(1,1)$ 型であり、実二次元では任意の3形式が零なので $d\omega_X=0$ である。$g_X(Ju,v)=\omega_X(u,v)$ も標準形式の引き戻しから、あるいは $J\partial_x=\partial_y$ を代入して確認できる。定義の全条件を満たした。
+この表示は実 $(1,1)$ 型であり、実二次元では任意の3形式が零なので $d\omega_X=0$ である。さらに正則性の $df_z(Jv)=J_0df_z(v)$ により
+
+$$
+\omega_X(u,v)=g_0(J_0df_z(u),df_z(v))
+=g_X(Ju,v)
+$$
+
+である。これで定義の誘導関係とKähler性を、判定方法の由来も含めて確認した。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-05-holomorphic-immersion"></a>
@@ -318,7 +379,15 @@ $$
 引き戻しは滑らかで対称性を保つため、$f^*g_Y$ はRiemann計量である。また $d(f^*\omega_Y)=f^*(d\omega_Y)=0$。$X$ の複素構造は正則アトラス由来なので可積分であり、以上でKählerの条件が全て成立する。$\square$
 <!-- proof-end -->
 
-正則座標でこの構成の係数を自力で確かめよう。$f=(f^1,\ldots,f^N)$ とし、$Y$ のHermite係数を $h_{i\bar j}$ とすれば、連鎖律より
+正則座標でこの構成の係数を自力で確かめよう。$f=(f^1,\ldots,f^N)$ とし、$w^i$ を $Y$ の正則座標、$h_{i\bar j}$ をそのHermite係数とする。$z^a$ を $X$ の正則座標とすると、$f$ の正則性と連鎖律から
+
+$$
+f^*(dw^i)=d(f^i)=\sum_a\frac{\partial f^i}{\partial z^a}dz^a,
+\qquad
+f^*(d\bar w^j)=\sum_b\overline{\frac{\partial f^j}{\partial z^b}}d\bar z^b.
+$$
+
+したがって $\omega_Y=i\sum h_{i\bar j}\,dw^i\wedge d\bar w^j$ の両方の1形式を引き戻し、$i\,dz^a\wedge d\bar z^b$ の係数を比較すると
 
 $$
 (f^*\omega_Y)_{a\bar b}
@@ -408,7 +477,7 @@ $$
 =2|v^1+v^2/2|^2+\frac52|v^2|^2>0.
 $$
 
-[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)から閉性が従い、正値と閉性は異なる検証である。
+$H$ の全成分が定数なので $\partial_kH_{i\bar j}=0=\partial_iH_{k\bar j}$ が成り立つ。[Kähler閉性の局所係数条件](../KAH1-02/index.md#thm-kah1-02-local-closedness)から $d\omega_H=0$ と判定でき、正値と閉性は異なる検証である。
 <!-- solution-end -->
 
 <a id="ex-kah1-05-a03"></a>
@@ -436,7 +505,7 @@ $$
 $a\in\mathbb C$ を定数とし、$f(z)=(z,az):\mathbb C\to\mathbb C^2$ に標準Kähler計量を引き戻せ。誘導計量の正値性とGauss曲率を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$df_z(v)=(v,av)$ であり、第一成分が $v$ なので単射。さらに
+**詳細解答**。$df_z(v)=(v,av)$ であり、第一成分が $v$ なので単射。$f$ の第一座標への射影は逆写像 $f(\mathbb C)\to\mathbb C$ を与えるため、像への位相同型でもあり正則埋め込みである。さらに
 
 $$
 f^*g_0(v,v)=|v|^2+|a v|^2=(1+|a|^2)|v|^2.
@@ -472,7 +541,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-kah1-05-b02"></a>
-#### KAH1-05-B02 非直交格子でも平坦
+#### KAH1-05-B02 非対角計量でも平坦
 - Level: B
 
 $\Lambda=\mathbb Z(1,0)+\mathbb Z(i,0)+\mathbb Z(0,1)+\mathbb Z(0,i)\subset\mathbb C^2$ とし、定数Hermite行列 $H=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ を用いる。$\omega_H$ が商へ降りること、正値性、曲率を説明せよ。直交計量である必要があるか。
@@ -492,7 +561,14 @@ $$
 =|v^1+v^2|^2+|v^1|^2+|v^2|^2>0
 $$
 
-となる。定数係数なので閉性と曲率零が成り立つ。非対角係数 $H_{1\bar2}=1$ は零でなく、座標について直交計量ではない。それでもKählerかつ平坦である。
+となる。定数係数なので閉性と曲率零が成り立つ。与えられた格子の生成元は標準Euclid計量について直交する。一方、今回の計量では実座標方向の内積が
+
+$$
+g_H(\partial_{x^1},\partial_{x^2})
+=2\operatorname{Re}H_{1\bar2}=2\ne0
+$$
+
+だから、この座標方向は直交しない。**格子基底の直交性**と**選んだHermite計量の直交性**は別の条件である。どちらにせよ平行移動不変性・正値性・閉性が成立し、曲率は零である。
 <!-- solution-end -->
 
 <a id="ex-kah1-05-b03"></a>
@@ -534,7 +610,7 @@ $$
 df_{a,z}(v)=(v,2azv).
 $$
 
-第一成分が $v$ なので $df_{a,z}$ はどの $a,z$ でも単射、従って正則はめ込みである。誘導係数を
+第一成分が $v$ なので $df_{a,z}$ はどの $a,z$ でも単射である。$f_a$ 自体も第一座標で逆写像が連続となるため像への位相同型であり、正則埋め込みである。誘導係数を
 
 $$
 \lambda_a(z)=1+4|a|^2|z|^2
@@ -547,7 +623,7 @@ g_a=\lambda_a(dx^2+dy^2),\qquad
 \omega_a=\frac i2\lambda_a\,dz\wedge d\bar z.
 $$
 
-$\lambda_a\ge1>0$ なので正定値。形式は標準形式の引き戻しであり $d\omega_a=f_a^*(d\omega_0)=0$。基本形式と誘導計量の両立性は $df_{a,z}(iv)=i,df_{a,z}(v)$ を引き戻しの式へ代入して確認できる。これは[正則はめ込みによるKähler構造の引き戻し](#thm-kah1-05-holomorphic-immersion)に対応し、全 $a$ についてKählerである。
+$\lambda_a\ge1>0$ なので正定値。形式は標準形式の引き戻しであり $d\omega_a=f_a^*(d\omega_0)=0$。基本形式と誘導計量の両立性は $df_{a,z}(iv)=i\,df_{a,z}(v)$ を引き戻しの式へ代入して確認できる。これは[正則はめ込みによるKähler構造の引き戻し](#thm-kah1-05-holomorphic-immersion)に対応し、全 $a$ についてKählerである。
 
 曲率を求めるため $r^2=x^2+y^2$、$c=4|a|^2\ge0$ と置き、$\lambda_a=1+cr^2$ とする。共形曲率公式の $u=(1/2)\log\lambda_a$ を使う。まず
 
