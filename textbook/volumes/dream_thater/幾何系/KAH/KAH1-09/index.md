@@ -135,10 +135,10 @@ $$
 
 [Chern曲率の $(1,1)$ 型定理](../../CM/CM2-11/index.md#thm-cm2-11-chern-type)をこの束へ適用すると、曲率の純正則型と純反正則型の成分が零である。具体的には
 
-$
+$$
 R(\partial_i,\partial_j)|_{T^{1,0}X}=0,\qquad
 R(\partial_{\bar i},\partial_{\bar j})|_{T^{1,0}X}=0.
-$
+$$
 
 混合方向の曲率は先に導出した局所式により、正則接ベクトルを正則接ベクトルへ写す。以上で命題を示した。$\square$
 <!-- proof-end -->
@@ -154,8 +154,15 @@ R_{z\bar z z\bar z}
 \end{aligned}
 $$
 
-実際 $\partial_{\bar z}(g^{-1}\partial_z g)
-=-g^{-2}(\partial_{\bar z}g)(\partial_z g)+g^{-1}\partial_{\bar z}\partial_zg$ を使った。計量 $g=1+|z|^2$ は正値で、複素次元1の実 $(1,1)$ 形式は閉じているためKähler計量を与える。このとき
+実際、接続係数の微分に積の微分則を適用すると
+
+$$
+\partial_{\bar z}(g^{-1}\partial_z g)
+=-g^{-2}(\partial_{\bar z}g)(\partial_z g)
+ +g^{-1}\partial_{\bar z}\partial_zg
+$$
+
+である。計量 $g=1+|z|^2$ は正値で、複素次元1の実 $(1,1)$ 形式は閉じているためKähler計量を与える。このとき
 
 $$
 \Gamma^z_{zz}=\frac{\bar z}{1+|z|^2},\quad
