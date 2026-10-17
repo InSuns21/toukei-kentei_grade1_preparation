@@ -4,7 +4,21 @@
 
 本章の流れは **固有値ごとの時間発展 → 解の滑らかさと一意性 → 熱核の構成 → 正値性・質量保存 → 長時間と短時間** です。熱核の存在を仮定して半群を定義するのではなく、その逆順で構成します。
 
-以下、特記しない限り $(M,g)$ は**滑らか・連結・コンパクト・境界なし**の $d\ge1$ 次元Riemann多様体、$V=\operatorname{Vol}_g(M)>0$ とし、実数値関数を考えます。[GA1の符号規約](../GA1/index.md#thm-ga1-green-first)により $\Delta_g=\operatorname{div}_g\nabla_g$、$L=-\Delta_g\ge0$ です。[GA4](../GA4/index.md#thm-ga4-spectral-basis)の正規直交固有関数を $(\phi_j)_{j\ge0}$、固有値を $0=\lambda_0<\lambda_1\le\cdots$、$\phi_0=V^{-1/2}$ と固定します。内積とノルムは $L^2(M,dV_g)$ のものです。
+以下、特記しない限り $(M,g)$ は滑らか・連結・コンパクト・境界なしのRiemann多様体とし、実数値関数を考えます。次元は $d\ge1$、体積は $V=\operatorname{Vol}_g(M)>0$ とします。
+
+[GA1の符号規約](../GA1/index.md#thm-ga1-green-first)に従い、Laplacianと非負作用素の関係は次の通りです。
+
+$$
+\Delta_g=\operatorname{div}_g\nabla_g,\qquad L=-\Delta_g\ge0.
+$$
+
+[GA4の固有関数展開](../GA4/index.md#thm-ga4-spectral-basis)の正規直交固有関数を $(\phi_j)_{j\ge0}$ とします。固有値列と定数固有関数は
+
+$$
+0=\lambda_0<\lambda_1\le\cdots,\qquad \phi_0=V^{-1/2}.
+$$
+
+内積とノルムは $L^2(M,dV_g)$ のものを使います。
 
 ## 1. 固有振動が時間とともに消える
 
@@ -133,7 +147,11 @@ $$
 \quad(v\in D(L^k))
 $$
 
-という評価を得ます。具体的には一回目の $H^2$ 評価に $Lv$、二回目の $H^4$ 評価に $L(Lv)$ を入力し、有限被覆と[GA2の局所ノルム比較](../GA2/index.md#prop-ga2-intrinsic-h1)で定数をまとめます。[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で $2k>r+d/2$ となる $k$ を選べば $v$ の $C^r$ ノルムを抑えられます。時間微分は $-L$ をさらに作用させるので、$t\ge\varepsilon>0$ の各階微分まで連続になり、$u$ は $(0,\infty)\times M$ で滑らかです。
+という評価を得ます。一回目の $H^2$ 評価には $Lv$ を、二回目の $H^4$ 評価には $L(Lv)$ を入力します。有限被覆と[GA2の局所ノルム比較](../GA2/index.md#prop-ga2-intrinsic-h1)で定数をまとめます。
+
+次に[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)を適用します。整数 $k$ を $2k>r+d/2$ と選べば、$H^{2k}$ 評価から $v$ の $C^r$ ノルムを抑えられます。
+
+時間微分を一回取ることは作用素 $-L$ をさらに一回作用させることです。$t\ge\varepsilon>0$ で各階微分が連続になるため、$u$ は $(0,\infty)\times M$ 上で滑らかです。
 
 $w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ です。空間積分について $(w,\Delta_gw)_2=-\|\nabla_gw\|_2^2$ が成り立ちます（[GA1の積分公式の証明](../GA1/index.md#thm-ga1-green-first)）。これを用いると
 
@@ -310,7 +328,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず滑らかな $f\ge0$ を取ります。$u=T_tf$ は $t=0$ まで滑らかです（$f$ が滑らかなら各 $L^mf\in L^2$ であり、[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)から高階の級数も $t=0$ で収束します）。$u_-=\max\{-u,0\}$ とします。弱微分の連鎖律では $u<0$ の集合上で $\nabla u_-=-\nabla u$ なので、[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)により
+まず滑らかな非負関数 $f$ を取り、$u=T_tf$ と置きます。滑らかな初期値は $L^mf\in L^2$ を各整数 $m$ で満たします。[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)により、高階微分まで時間 $0$ で収束し、$u$ は初期時刻まで滑らかです。
+
+負部分を $u_-=\max\{-u,0\}$ と置きます。弱微分の連鎖律から、$u<0$ の集合上で $\nabla u_-=-\nabla u$、それ以外では $\nabla u_-=0$ です。
+
+これを[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)へ代入して、
 
 $$
 \frac{d}{dt}\|u_-(t)\|_2^2
