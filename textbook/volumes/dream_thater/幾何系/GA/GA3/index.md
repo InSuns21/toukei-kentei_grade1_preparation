@@ -335,7 +335,7 @@ $$
 > を満たすとき、$u$ は $D$ 上で弱劣調和である。$u\in C^2(D)$ なら、この条件は $\Delta_gu\ge0$ と同値である。
 <!-- formal-statement-end -->
 
-$u\in C^2(D)$ の場合、[GA1のGreenの第一公式](../GA1/index.md#thm-ga1-green-first)をコンパクト台の $\varphi$ に適用すると
+$u\in C^2(D)$ の場合、[GA1のGreenの第一公式](../GA1/index.md#thm-ga1-green-first)の導出と同じ部分積分（ここでは $C^2$ 正則性で十分）を、コンパクト台の $\varphi$ に適用すると
 
 $$
 \int_D\langle\nabla_gu,\nabla_g\varphi\rangle_g\,dV_g
@@ -435,7 +435,7 @@ $$
 
 です。$r\ge R/2$ と $\Delta_g(r^2)$ の有界性から、$\alpha$ を十分大きくすれば 環状領域の閉包 $\overline A$ 上で $\Delta_gw>0$ です。
 
-$v$ は $B_R(q)$ で正なので、内側の球面 $r=R/2$ で正の最小値を持ちます。$\varepsilon>0$ を十分小さく取り、内側の球面では $v-\varepsilon w\ge0$、外側では $w=0$、$v\ge0$ とします。$\psi=v-\varepsilon w$ は $\Delta_g\psi=-\varepsilon\Delta_gw<0$、すなわち $-\psi$ が劣調和です。[弱最大値原理](#thm-ga3-weak-maximum)を $-\psi$ に適用すると、環状領域の全体で $\psi\ge0$、したがって $v\ge\varepsilon w$ です。
+$v$ は $B_R(q)$ で正なので、内側の球面 $r=R/2$ で正の最小値を持ちます。$\varepsilon>0$ を十分小さく取り、内側の球面では $v-\varepsilon w\ge0$、外側では $w=0$、$v\ge0$ とします。$\psi=v-\varepsilon w$ は $\Delta_g\psi=-\varepsilon\Delta_gw<0$、すなわち $-\psi$ が劣調和です。[弱最大値原理](#thm-ga3-weak-maximum)を $-\psi$ に適用します。$d=1$ では環状領域が二つの連結成分に分かれるので各成分に適用し、それ以外でも必要なら各連結成分ごとに適用します。いずれも $\partial A$ で $-\psi\le0$ だから、環状領域全体で $\psi\ge0$、したがって $v\ge\varepsilon w$ です。
 
 $z$ は外球面上の零点です。$z$ から測地線に沿って球の内部へ距離 $t>0$ 進むと、$v(z)=w(z)=0$ から
 
