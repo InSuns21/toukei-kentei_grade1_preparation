@@ -518,9 +518,20 @@ g(v,\bar v)
 \end{aligned}
 $$
 
-ここで $AD-|B|^2$ は直前に計算した正の行列式である。$v^2\ne0$ なら第二項が正、$v^2=0$ なら第一項が正なので、[Hermite計量の正値条件](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)を全非零ベクトルについて確認できた。また $\omega=i\partial\bar\partial\varphi$ なので $\partial^2=\bar\partial^2=0$ と型別微分の反交換則から $d\omega=0$。全域でKählerである。
+ここで $AD-|B|^2$ は直前に計算した正の行列式である。$v^2\ne0$ なら第二項が正、$v^2=0$ なら第一項が正なので、[Hermite計量の正値条件](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)を全非零ベクトルについて確認できた。
 
-次に $p$ では $g(p)=\operatorname{diag}(1,d)$。$\partial_1g_{2\bar2}(p)=\lambda\bar a$、$\partial_2g_{1\bar2}(p)=\lambda\bar a$、それ以外の $\partial_i g_{j\bar\ell}(p)$ は零（添字対称性により二つの表示を含む）。[Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)から
+また $\omega=i\partial\bar\partial\varphi$ であり、$\partial^2=\bar\partial^2=0$ と型別微分の反交換則から $d\omega=0$ が従う。したがって全域でKähler計量である。
+
+次に $p=(a,0)$ で計量と一階微分を調べる。零階の計量行列と、零でない正則一階微分は
+
+$$
+g(p)=\operatorname{diag}(1,d),\qquad
+\partial_1g_{2\bar2}(p)
+=\partial_2g_{1\bar2}(p)
+=\lambda\bar a.
+$$
+
+それ以外の $\partial_i g_{j\bar\ell}(p)$ は零である。[Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)から
 
 $$
 \Gamma^2_{12}(p)=\Gamma^2_{21}(p)
