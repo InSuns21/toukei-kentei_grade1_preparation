@@ -238,7 +238,7 @@ $X_0(N)(\mathbb C)$ は[MF4で構成したモジュラー曲線](../../MF/MF4/in
 
 ここで $E$ の正則微分を $\omega_E$ とすると、射 $\phi:X_0(N)\to E$ の引き戻し $\phi^*\omega_E$ は[MF4の重さ2のカスプ形式と正則微分の同型](../../MF/MF4/index.md#thm-mf4-weight-two-differentials)によって $f(\tau)\,d\tau$ の形に対応します。ただしこの**複素解析的な微分形式の同型**だけでは、$\phi$ が $\mathbb Q$ 上で存在することは証明できません。Jacobianの有理構造と対応形式を結ぶ別の深い算術的入力が必要です。
 
-<a id="ref-ec11-modularity-interface"></a>
+<a id="thm-ec11-modularity-interface"></a>
 
 <!-- formal-statement-start -->
 > **定理（曲線とnewformの対応：外部引用）**  
