@@ -48,5 +48,5 @@ chapters:
     title: "Hasse–Weil L関数と局所因子"
   - id: EC11
     path: textbook/volumes/dream_thater/代数系/EC/EC11
-    status: planned
+    status: completed
     title: "モジュラー形式との照合とmodularity interface"
