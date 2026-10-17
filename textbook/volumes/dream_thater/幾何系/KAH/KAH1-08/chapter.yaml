@@ -1,0 +1,43 @@
+id: "KAH1-08"
+title: "Kähler接続と正則座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-07
+  - KAH1-03
+  - CM2-10
+  - GEO13
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 正則接束のChern接続を既習の行列公式から成分表示へ戻せる
+  - 正則方向と反正則方向の共変微分および混合成分を正しく区別できる
+  - Kähler条件下でChern接続とLevi–Civita接続が一致する条件を説明できる
+  - 二階偏微分を含む正則座標変更による接続係数の変換則を導出できる
+  - 正規座標の定義を計量の零階・一階条件として検証できる
+  - Hermite正値行列の線形正規化と二次正則補正で正規座標を構成できる
+  - Kähler捩率の対称性が正規化を可能にする理由を証明できる
+  - 非Kähler計量の捩率非零と正規化失敗を具体的に計算できる
+  - 正規座標で一次係数が消えても曲率を決める二階微分が残ることを説明できる
+definitions:
+  - { id: KAH1-08-DEF-01, name: 点におけるKähler正規座標 }
+theorems:
+  - { id: KAH1-08-PROP-01, name: 正則座標変更による接続係数の変換 }
+  - { id: KAH1-08-THM-01, name: Kähler正規座標の局所存在 }
+  - { id: KAH1-08-PROP-02, name: Kähler条件と正則一階正規化 }
+canonical_examples:
+  - 一次元非定数Kähler計量の接続と混合微分
+  - 平坦計量の非線形座標による非零係数
+  - 定数計量の正規座標定義の全条件確認
+  - 非Kähler対角Hermite計量の捩率障害
+  - 二変数Kählerポテンシャルの明示的二次正規化
+problem_patterns:
+  - KAH1-08-CHERN-COMPONENTS
+  - KAH1-08-CONNECTION-COORDINATE-LAW
+  - KAH1-08-HOLOMORPHIC-NORMALIZATION
+  - KAH1-08-TORSION-OBSTRUCTION
+  - KAH1-08-NONFLAT-NORMAL-COORDINATES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
