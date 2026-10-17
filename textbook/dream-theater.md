@@ -761,6 +761,7 @@
 13. [KAH1-13 Kähler classと正値性](textbook/volumes/dream_thater/幾何系/KAH/KAH1-13/index.md)
 14. [KAH1-14 射影多様体と整数Kähler類](textbook/volumes/dream_thater/幾何系/KAH/KAH1-14/index.md)
 15. [KAH1-15 Kähler–Einstein・Ricci平坦への入口](textbook/volumes/dream_thater/幾何系/KAH/KAH1-15/index.md)
+16. [KAH1-16 ホロノミーと総合演習](textbook/volumes/dream_thater/幾何系/KAH/KAH1-16/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

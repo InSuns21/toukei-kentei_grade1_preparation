@@ -1,0 +1,51 @@
+chapter: KAH1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-15
+  - GRP1
+  - LIE3
+  - GEO18
+concepts:
+  - id: kahler.holonomy-group
+    name: ホロノミー群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ホロノミー群）"]
+    requires: [kahler.connection-equivalences]
+  - id: kahler.restricted-holonomy
+    name: 制限ホロノミー群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（制限ホロノミー群）"]
+    requires: [kahler.holonomy-group]
+  - id: kahler.holonomy-unitary
+    name: Kählerホロノミーのユニタリ性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kählerホロノミーのユニタリ性）"]
+    requires: [kahler.restricted-holonomy, kahler.connection-equivalences]
+  - id: kahler.holonomy-determinant
+    name: 行列式表現と曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（行列式表現と曲率）"]
+    requires: [kahler.holonomy-unitary, kahler.tangent-determinant-curvature]
+  - id: kahler.ricci-flat-su-restricted
+    name: Ricci平坦性と制限ホロノミー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ricci平坦性と制限ホロノミー）"]
+    requires: [kahler.restricted-holonomy, kahler.holonomy-determinant, kahler.ricci-flat-kahler]
+  - id: kahler.flat-quotient-full-holonomy
+    name: 平坦商における非特殊ユニタリ全ホロノミー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦商における非特殊ユニタリ全ホロノミー）"]
+    requires: [kahler.ricci-flat-su-restricted]
+  - id: kahler.parallel-holomorphic-volume
+    name: 単連結Ricci平坦Kähler多様体の平行正則体積形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単連結Ricci平坦Kähler多様体の平行正則体積形式）"]
+    requires: [kahler.ricci-flat-su-restricted, kahler.canonical-bundle]

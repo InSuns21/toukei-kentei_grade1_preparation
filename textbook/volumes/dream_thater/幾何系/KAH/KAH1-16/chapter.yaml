@@ -1,0 +1,43 @@
+id: "KAH1-16"
+title: "ホロノミーと総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-15
+  - GRP1
+  - LIE3
+  - GEO18
+official_scope: []
+learning_objectives:
+  - 平行移動からホロノミー群と制限ホロノミー群を定義し具体例で判定できる
+  - Kähler条件の平行な複素構造からホロノミーがU(n)に含まれることを証明できる
+  - 接束の行列式接続とRicci形式の曲率の符号を検算できる
+  - 円板上のStokes公式からRicci平坦性と制限SU(n)ホロノミーの同値を証明できる
+  - 単連結性が全ホロノミーと平行正則体積形式に与える帰結を導ける
+  - 平坦な位数2商の全ホロノミーがSU(2)に入らないことを直接計算できる
+  - Ricci平坦性・実係数第一Chern類の消滅・標準束の正則自明性を論理的に区別できる
+definitions:
+  - { id: KAH1-16-DEF-01, name: ホロノミー群 }
+  - { id: KAH1-16-DEF-02, name: 制限ホロノミー群 }
+theorems:
+  - { id: KAH1-16-THM-01, name: Kählerホロノミーのユニタリ性 }
+  - { id: KAH1-16-PROP-01, name: 行列式表現と曲率 }
+  - { id: KAH1-16-THM-02, name: Ricci平坦性と制限ホロノミー }
+  - { id: KAH1-16-PROP-02, name: 平坦商における非特殊ユニタリ全ホロノミー }
+  - { id: KAH1-16-PROP-03, name: 単連結Ricci平坦Kähler多様体の平行正則体積形式 }
+canonical_examples:
+  - 複素Euclid空間と平坦複素トーラスの自明ホロノミー
+  - CP1のFubini–Study計量と非自明な制限ホロノミー
+  - (E×E)/〈(z,w)↦(z+1/2,-w)〉の非自明な全ホロノミー
+  - 第一Chern類が零だがRicci形式が零でないトーラス計量
+problem_patterns:
+  - KAH1-16-PARALLEL-J
+  - KAH1-16-DETERMINANT-CURVATURE
+  - KAH1-16-STOKES-HOLONOMY
+  - KAH1-16-SU-RESTRICTED-EQUIVALENCE
+  - KAH1-16-FLAT-FINITE-QUOTIENT
+  - KAH1-16-CANONICAL-BUNDLE-MONODROMY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
