@@ -106,7 +106,7 @@ $$
 g(X,X)=h_{ij}X^iX^j>0\qquad(X\ne0)
 $$
 
-なので、$H$ は観測者の局所静止空間における正の長さを与えます。一方、静止世界線では $dx^i=0$ だから $-c^2d\tau^2=-N^2c^2dt^2$ となり、$dt>0$ で $d\tau=Ndt$ です。これが時間の換算係数 $N$ と、空間の換算係数 $H$ を区別する理由です。
+なので、$H$ は観測者の局所静止空間における長さの二乗を与え、その正の平方根が物差しの長さです。一方、静止世界線では $dx^i=0$ だから $-c^2d\tau^2=-N^2c^2dt^2$ となり、$dt>0$ で $d\tau=Ndt$ です。これが時間の換算係数 $N$ と、空間の換算係数 $H$ を区別する理由です。
 
 <!-- definition-example-start: def-gr2-static-clock-model -->
 **定義の確認**。前節の模型では $N=1+\lambda x$、$H=\operatorname{diag}((1+\beta x)^2,1,1)$ です。指定した領域で $N>0$ です。任意の非零空間ベクトル $X=X^x\partial_x+X^y\partial_y+X^z\partial_z$ に対して
