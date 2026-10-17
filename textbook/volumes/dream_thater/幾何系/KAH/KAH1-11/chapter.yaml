@@ -1,0 +1,38 @@
+id: "KAH1-11"
+title: "Ricci形式の局所導出"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-10
+official_scope: []
+learning_objectives:
+  - Jacobiの行列式微分公式を余因子展開から導出し正値Hermite計量に適用できる
+  - Kähler接続係数の跡と曲率縮約からRicci成分の対数行列式公式を証明できる
+  - 一次元共形計量でRicci形式の符号と係数を直接検算できる
+  - 正則座標変換のJacobi行列式による計量行列式の変化を導ける
+  - 正則対数の局所存在によってRicci形式の座標不変性と実性を証明できる
+  - 型別微分の反交換則からd rho=0を証明できる
+  - Fubini–Study計量の行列式を固有方向から計算しRicci縮約と照合できる
+  - 行列式の局所値と大域Ricci形式を区別し第一Chern類との関係を次章に接続できる
+definitions: []
+theorems:
+  - { id: KAH1-11-LEM-01, name: Jacobiの行列式微分公式 }
+  - { id: KAH1-11-THM-01, name: Ricci形式の局所行列式公式 }
+  - { id: KAH1-11-PROP-01, name: Ricci形式の座標不変性 }
+  - { id: KAH1-11-THM-02, name: Ricci形式の閉性 }
+canonical_examples:
+  - 対角Hermite計量に対するJacobi公式の両辺比較
+  - 指数共形計量のRicci形式と四階曲率の縮約
+  - 変数の一定倍率と非線形正則変換による対数行列式の変化
+  - 二変数の非定数Kählerポテンシャルと原点のRicci行列
+  - Fubini–Study計量の二種類の固有方向と行列式
+problem_patterns:
+  - KAH1-11-JACOBI-TRACE
+  - KAH1-11-RICCI-DETERMINANT
+  - KAH1-11-HOLOMORPHIC-CHART-INVARIANCE
+  - KAH1-11-CLOSED-RICCI-FORM
+  - KAH1-11-FUBINI-STUDY-DET
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
