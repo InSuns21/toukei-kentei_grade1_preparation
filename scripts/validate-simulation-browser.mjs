@@ -180,6 +180,26 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("抽出完了")');
   assert.equal(await evaluate(risk), 0.2);
   assert.equal(await evaluate('document.querySelector("#diagnostics")?.textContent'), before);
+  // ML1-01: live Worker reruns when predictor/seed/n/repetitions change.
+  await evaluate('document.querySelector("#sample-count").value="200";document.querySelector("#repetitions").value="50";document.querySelector("#classifier-id").value="flip";document.querySelector("#reset").click()');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("meanEmpiricalRisk") && document.querySelector("#status")?.textContent.includes("抽出完了")');
+  const flippedRisk = await evaluate(risk);
+  assert.ok(Math.abs(flippedRisk - 0.8) < 1e-12);
+  assert.equal(await evaluate('document.querySelector("#ml-risk-table tbody")?.rows.length'), 11);
+  const histogramTotal = await evaluate('[...document.querySelector("#ml-risk-table tbody").rows].reduce((s,r)=>s+Number(r.cells[1].textContent),0)');
+  assert.equal(histogramTotal, 50);
+  assert.equal(await evaluate('document.querySelector("#ml-cell-table tbody")?.rows.length'), 4);
+  const flippedRiskSameSample = await evaluate('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="empiricalRisk")?.cells[1]?.textContent)');
+  await evaluate('document.querySelector("#classifier-id").value="identity";document.querySelector("#reset").click()');
+  await waitFor('document.querySelector("#diagnostics")?.textContent.includes("h(x)=x")');
+  const normalSampleRisk = await evaluate('Number([...document.querySelectorAll("#diagnostics tr")].find(x=>x.cells[0]?.textContent==="empiricalRisk")?.cells[1]?.textContent)');
+  assert.ok(Math.abs(normalSampleRisk + flippedRiskSameSample - 1) < 1e-12);
+  await evaluate('document.querySelector("#p00").value="2";document.querySelector("#p01").value="1";document.querySelector("#p10").value="1";document.querySelector("#p11").value="0";document.querySelector("#normalize-probabilities").click()');
+  await waitFor('Math.abs(Number(document.querySelector("#p00").value)-0.5)<1e-14');
+  await waitFor('Math.abs(' + risk + ' - 0.5) < 1e-12');
+  assert.equal(await evaluate(risk), 0.5);
+  assert.equal(await evaluate('document.querySelector("#status").dataset.error'), "false");
+  console.log("ML four-cell browser: repeated histogram, classifier, fixed seed and normalization: PASS");
   await cdp("Page.reload", { ignoreCache: false });
   await waitFor('document.querySelector("#status")?.textContent.includes("計算完了")');
 

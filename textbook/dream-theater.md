@@ -977,6 +977,11 @@
 9. [INFO9 微分エントロピーと連続変数の情報量](textbook/volumes/dream_thater/応用系/INFO/INFO9/index.md)
 10. [INFO10 対数損失・統計的推測と相対エントロピー](textbook/volumes/dream_thater/応用系/INFO/INFO10/index.md)
 
+<a id="dt-subject-machine-learning"></a>
+### 機械学習 I
+
+1. [ML1-01 学習問題・標本・予測器](textbook/volumes/dream_thater/応用系/ML/ML1-01/index.md)
+
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
 

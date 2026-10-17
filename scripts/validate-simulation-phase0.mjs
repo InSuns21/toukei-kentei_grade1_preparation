@@ -89,5 +89,22 @@ assert.equal(changed.populationRisk, 0);
 assert.deepEqual(changed.counts, [10000, 0, 0, 0]);
 assert.throws(() => ml.computeOnce(mp, -1), /seed/);
 assertJsonSnapshot(a);
+const repeatedParams = { probabilities: [...ml.DEFAULT_PROBABILITIES],
+  sampleCount: 200, repetitions: 100, classifierId: "identity" };
+const repeated = ml.computeOnce(repeatedParams, 123).result;
+assert.deepEqual(repeated, ml.computeOnce(repeatedParams, 123).result);
+assert.equal(repeated.histogram.reduce((a,b) => a+b, 0), 100);
+assert.equal(repeated.counts.reduce((a,b) => a+b, 0), 200);
+assert.ok(Math.abs(repeated.meanEmpiricalRisk-0.2) < 0.04);
+assert.equal(repeated.theoreticalVariance, 0.2*0.8/200);
+const flipped = ml.computeOnce({ ...repeatedParams, classifierId:"flip" },123).result;
+assert.equal(flipped.populationRisk, 0.8);
+assert.equal(flipped.empiricalRisk, 1-repeated.empiricalRisk);
+const alwaysZero = ml.computeOnce({ ...repeatedParams, classifierId:"zero" },123).result;
+assert.equal(alwaysZero.populationRisk, 0.5);
+assert.throws(() => ml.computeOnce({ ...repeatedParams, repetitions: 201 },123), /repetitions/);
+assert.throws(() => ml.computeOnce({ ...repeatedParams, sampleCount: 10000 },123), /200000/);
+assert.deepEqual(ml.normalizeProbabilities([2,1,1,0]), [0.5,0.25,0.25,0]);
+assert.throws(() => ml.normalizeProbabilities([0,0,0,0]), /positive/);
 console.log("Simulation Phase 0 contracts / CELEV / ML fixtures: PASS (" +
   REQUEST_TYPES.length + " request types)");
