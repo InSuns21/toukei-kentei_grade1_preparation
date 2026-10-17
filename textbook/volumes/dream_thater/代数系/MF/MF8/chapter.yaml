@@ -1,0 +1,39 @@
+id: "MF8"
+title: "Modularity TheoremとFermatの最終定理への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF7
+  - EC10
+  - EC11
+official_scope: []
+learning_objectives:
+  - 良い素数で有限体の点数からnewformの係数を計算し、二次Euler因子を照合できる
+  - 悪い素数で還元型に応じた一次因子または自明因子を比較できる
+  - Modularity Theoremの重さ・レベル・指標・係数体・全局所因子一致の仮定と結論を説明できる
+  - 局所因子の一致から共通収束半平面のL関数とDirichlet係数の一致を証明できる
+  - 複素モジュラー曲線とQ上のmodular parametrizationを区別できる
+  - 仮想的Fermat解からFrey曲線の判別式とc4を計算し、奇素数での乗法的還元を検証できる
+  - Frey–Ribetの外部入力とレベル2の形式の消失をつないでFLTへの条件付き論証を再構成できる
+definitions:
+  - { id: MF8-DEF-01, name: 楕円曲線とnewformの局所因子の一致 }
+  - { id: MF8-DEF-02, name: modular parametrization }
+  - { id: MF8-DEF-03, name: Frey曲線 }
+theorems:
+  - { id: MF8-PROP-01, name: 全局所因子の一致がL関数の一致を与える }
+  - { id: MF8-THM-01, name: Modularity Theorem（引用） }
+  - { id: MF8-THM-02, name: modular parametrizationの存在（引用） }
+  - { id: MF8-PROP-02, name: Frey曲線の判別式と奇素数での還元 }
+  - { id: MF8-THM-03, name: Frey–Ribetの帰結（引用） }
+  - { id: MF8-PROP-03, name: レベル2の重さ2カスプ形式は存在しない }
+  - { id: MF8-COR-01, name: Fermatの最終定理への論理的帰結 }
+canonical_examples:
+  - 導手11の楕円曲線とf11のp=2,3,7の係数照合
+  - p=11での節点と分裂乗法的還元の判定
+  - Frey曲線の判別式とc4の計算
+  - X0(2)の種数0とS2の消失
+problem_patterns: [MF8-A1, MF8-A2, MF8-A3, MF8-A4, MF8-B1, MF8-B2, MF8-B3, MF8-B4, MF8-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 11, review: 5 }
