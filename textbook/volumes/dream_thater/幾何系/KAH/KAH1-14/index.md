@@ -109,7 +109,16 @@ $$
 \int_\Sigma u^*\eta\in\mathbb Z
 $$
 
-となる。これは整数性の必要条件である。さらに代表を完全形式だけ変えて $\eta'=\eta+d\alpha$ とすると、閉曲面での積分は[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
+となる。ここで $[\Sigma]\in H_2(\Sigma;\mathbb Z)$ は向きで決まる基本類であり、$u_*[\Sigma]$ はその $X$ への像である。整数コホモロジー類と整数ホモロジー類の評価値は整数なので、
+
+$
+\int_\Sigma u^*\eta
+=\langle r(\gamma),u_*[\Sigma]\rangle_{\mathbb R}
+=\langle\gamma,u_*[\Sigma]\rangle_{\mathbb Z}
+\in\mathbb Z
+$
+
+と導かれる。最初の等号は微分形式の積分とde Rham類の評価の対応、次の等号は係数を整数から実数へ写したことによる。このため周期の整数性は必要条件である。さらに代表を完全形式だけ変えて $\eta'=\eta+d\alpha$ とすると、閉曲面での積分は[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
 $$
 \int_\Sigma u^*\eta'-\int_\Sigma u^*\eta
