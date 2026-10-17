@@ -106,7 +106,14 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-母集団リスクは分布 $P$ に基づく誤りの平均、経験リスクは手元のデータに基づく誤りの平均である。前者の等号は有限集合における[期待値の分布表示](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-lotus)を各セルへ適用したものだ。
+母集団リスクは分布 $P$ に基づく誤りの平均、経験リスクは手元のデータに基づく誤りの平均である。母集団リスクの和の根拠を、実数値の損失 $L=\ell(h(X),Y)$ から確かめよう。セルは互いに排反であり、ちょうど一つのセルが実現するので
+
+$
+L=\sum_{x\in\mathcal X}\sum_{y\in\mathcal Y}
+\ell(h(x),y)\boldsymbol{1}_{\{X=x,Y=y\}}.
+$
+
+[期待値の定義](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)と有限和の線形性により、各指示関数の期待値をそのセルの確率に置き換えると定義中の有限和が得られる。これは実数値確率変数のLOTUSを観測対 $(X,Y)$ に直接適用するのとは異なる、有限セル上の導出である。
 
 <!-- definition-example-start: def-ml1-01-risks -->
 **定義の確認**。 第1節の分布と $h_{\mathrm{id}}$ について、誤りはセル $(0,1)$ と $(1,0)$ に限られる。したがって
@@ -159,7 +166,7 @@ $h_{\mathrm{id}}(x)=x$ は $x\ne y$ の2セルで誤り、$R_P(h_{\mathrm{id}})=
 
 ## 4. 訓練標本に要求する独立性
 
-複数の観測が同じ分布から得られることと、観測が互いに影響しないことは別の仮定である。既習の[確率変数の独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)を用い、学習の基本模型を定める。
+複数の観測が同じ分布から得られることと、観測が互いに影響しないことは別の仮定である。3個以上なら二つずつ独立では足りず、既習の[相互独立](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-pairwise-mutual-independence)を使う。[独立性と積分布の対応](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)を有限個の観測対へ繰り返すと、観測列の確率が各観測対の確率の積になる。
 
 <a id="def-ml1-01-iid-sample"></a>
 
@@ -171,7 +178,15 @@ $$
 S=(Z_1,\ldots,Z_n)\sim P^{\otimes n}
 $$
 >
-> を独立同分布（i.i.d.）訓練標本と呼ぶ。$Z_i$ の二つの成分 $X_i,Y_i$ が独立であることは要求しない。
+> を独立同分布（i.i.d.）訓練標本と呼ぶ。ここで $P^{\otimes n}$ は $n$ 個の分布 $P$ の積分布であり、任意の $z_i=(x_i,y_i)\in\mathcal X\times\mathcal Y$ について
+>
+$
+P(Z_1=z_1,\ldots,Z_n=z_n)
+=\prod_{i=1}^n P(Z_i=z_i)
+=\prod_{i=1}^n P(X=x_i,Y=y_i)
+$
+>
+> が成り立つことを表す。$Z_i$ の二つの成分 $X_i,Y_i$ が独立であることは要求しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-01-iid-sample -->
@@ -206,11 +221,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$L_i=\ell(h(X_i),Y_i)$ とおく。有限集合で $\ell$ は有限値なので各 $L_i$ は可積分である。[分布による期待値計算](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-lotus)を $Z_i$ と関数 $(x,y)\mapsto\ell(h(x),y)$ に適用すると、すべての $i$ で
+$L_i=\ell(h(X_i),Y_i)$ とおく。有限集合で $\ell$ は有限値なので各 $L_i$ は可積分である。$p_{xy}=P(X=x,Y=y)$ と書けば、同分布性から各 $i$ について $P(Z_i=(x,y))=p_{xy}$ である。§3のセルごとの指示関数展開と[期待値の定義](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)を使って
 
-$$
-E[L_i]=\sum_{x,y}p_{xy}\ell(h(x),y)=R_P(h).
-$$
+$
+\begin{aligned}
+E[L_i]
+&=E\left[\sum_{x,y}\ell(h(x),y)\boldsymbol{1}_{\{Z_i=(x,y)\}}\right]\\
+&=\sum_{x,y}\ell(h(x),y)P(Z_i=(x,y))\\
+&=\sum_{x,y}p_{xy}\ell(h(x),y)=R_P(h).
+\end{aligned}
+$
+
+ここでは実数値変数用LOTUSを対 $Z_i$ に適用せず、有限和と指示関数の期待値で正当化した。
 
 [経験リスクの定義](#def-ml1-01-risks)と有限和の期待値の線形性から
 
