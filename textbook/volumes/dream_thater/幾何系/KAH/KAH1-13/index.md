@@ -269,7 +269,7 @@ $$
 \quad\text{in }H^2_{\mathrm{dR}}(X;\mathbb R).
 $$
 
-> さらに $\omega+i\partial\bar\partial\varphi$ が正値である場合には、二つは**同じKähler類の異なるKähler代表**を与える。正値性は $\varphi$ を任意に取っただけでは従わない。
+> さらに **$\omega$ と $\omega+i\partial\bar\partial\varphi$ の両方が正値**なら、両者は同じKähler類のKähler代表となる（形式として一致することもある）。後者だけが正値でも、元の $\omega$ をKähler代表とは呼べない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -286,10 +286,10 @@ $$
 =i\partial\bar\partial\varphi=d\alpha_\varphi.
 $$
 
-[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)により両者の類は一致する。$d(\omega+i\partial\bar\partial\varphi)=d\omega+d^2\alpha_\varphi=0$ で、型と実性も保たれる。さらに正値という仮定があれば[Kähler類の定義](#def-kah1-13-class)を満たす。$\square$
+[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)により両者の類は一致する。$d(\omega+i\partial\bar\partial\varphi)=d\omega+d^2\alpha_\varphi=0$ で、型と実性も保たれる。さらに両者が正値なら、それぞれ[Kähler類の定義](#def-kah1-13-class)を満たし、同じ類のKähler代表である。$\square$
 <!-- proof-end -->
 
-トーラスの $\omega_\varepsilon$ はまさにこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。なお二つの**同じ類**のKähler形式の差がいつも大域的 $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は、本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
+トーラスの $\omega_\varepsilon$ はまさにこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。例えば $|\varepsilon|\ge1/\pi^2$ では $\omega_\varepsilon$ は正値でないが、$\varphi=-\varepsilon\cos(2\pi x)$ を足すと $\omega_\varepsilon+i\partial\bar\partial\varphi=\omega_0$ は正値である。この例は、同じ類のすべての代表をKähler形式とみなせないことを示す。なお二つの**同じ類**のKähler形式の差がいつも大域的 $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は、本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
 
 ## 6. コンパクト多様体で類が消えない理由
 
