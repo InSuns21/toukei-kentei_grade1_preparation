@@ -182,6 +182,16 @@ $$
 
 と置く。三重重なりで $t_{\alpha\beta}t_{\beta\gamma}t_{\gamma\alpha}=1$ である。可縮な重なりでは零を持たない正則関数に正則対数があるので、$\ell_{\alpha\beta}$ を選んで $e^{\ell_{\alpha\beta}}=t_{\alpha\beta}$ とできる。逆向きの対数は $\ell_{\beta\alpha}=-\ell_{\alpha\beta}$ とそろえておく。
 
+ここで整数値Čech 2-コチェインとは、三重重なり $U_\alpha\cap U_\beta\cap U_\gamma$ ごとに整数 $m_{\alpha\beta\gamma}$ を割り当て、添字交換で符号が変わるものをいう。四重重なりで
+
+$$
+(\delta m)_{\alpha\beta\gamma\delta}
+=m_{\beta\gamma\delta}-m_{\alpha\gamma\delta}
++m_{\alpha\beta\delta}-m_{\alpha\beta\gamma}
+$$
+
+が零なら **2-コサイクル** と呼ぶ。整数値1-コチェイン $k_{\alpha\beta}$ から作る $(\delta k)_{\alpha\beta\gamma}=k_{\beta\gamma}-k_{\alpha\gamma}+k_{\alpha\beta}$ を **境界（コバウンダリー）** と呼び、これだけ異なる2-コサイクルを同一視する。良い被覆では、この商が整数係数コホモロジー $H^2(X;\mathbb Z)$ を計算する（良い被覆の比較定理）。この準備をしてから、正則線束の遷移関数がどの整数2-コサイクルを与えるかを定義する。
+
 <a id="def-kah1-12-integral-first-chern"></a>
 
 <!-- formal-statement-start -->
@@ -190,7 +200,7 @@ $$
 
 $$
 m_{\alpha\beta\gamma}
-=-\frac{\ell_{\alpha\beta}+\ell_{\beta\gamma}
+=\frac{\ell_{\alpha\beta}+\ell_{\beta\gamma}
 +\ell_{\gamma\alpha}}{2\pi i}
 $$
 
@@ -199,7 +209,7 @@ $$
 
 「整数」となるのは $\exp(\ell_{\alpha\beta}+\ell_{\beta\gamma}+\ell_{\gamma\alpha})=1$ なので、和が $2\pi i$ の整数倍だからである。四重重なりで交代和を取ると、それぞれの $\ell_{\alpha\beta}$ が相殺し2-コサイクル条件を満たす。対数を $2\pi i k_{\alpha\beta}$ だけ変えた場合の $m$ の変化は整数値1-コチェイン $k$ の境界で、同値類に影響しない。正則枠変更 $s'_\alpha=s_\alpha f_\alpha$ でも遷移の対数に $\log f_\beta-\log f_\alpha$ が加わるだけで、三重重なりでは相殺する。良い被覆の取り替えは共通細分で照合する。
 
-ここでの $H^2(X;\mathbb Z)$ は良い被覆における整数値Čech 2-コサイクルの同値類であり、通常の整数係数特異コホモロジーと一致する（良い被覆の比較定理）。以後の式は、その整数類の実係数への写像とde Rham対応を意味する。この比較を**微分計算だけで当然としたのではなく**、対応の局所データを以下で具体的に検算する。
+良い被覆のČech 2-コサイクルから得た整数係数類を、先に説明した同定により通常の整数係数コホモロジー類として読む。以後の式は、その実係数への写像とde Rham対応を意味する。単に「局所で閉形式が得られた」だけで整数性を推論するのではなく、対応の局所データを以下で具体的に検算する。
 
 <!-- definition-example-start: def-kah1-12-integral-first-chern -->
 **定義の確認**（大域枠がある場合）。 $L=X\times\mathbb C$ で同じ非零正則枠 $s$ をすべての $U_\alpha$ に使えば $t_{\alpha\beta}=1$、$\ell_{\alpha\beta}=0$。三重重なりのすべてで $m_{\alpha\beta\gamma}=0$ だから $c_1(L)=0$ となる。これは線束が自明という条件を直接反映する。逆に $c_1(L)=0$ だけから**大域非零正則枠**が存在すると主張することはできない。
@@ -222,7 +232,7 @@ $$
 
 ### 証明の見取り図
 
-局所Chern接続の係数は枠変更で $\partial\log t$ だけずれる。$i/(2\pi)$ を掛けると、その差は対数に由来する局所関数の外微分になる。三重重なりの局所関数のずれが上の**整数** $m_{\alpha\beta\gamma}$ である。良い被覆上のČech–de Rham比較は、まさにこの「局所1形式 → 局所関数 → 三重重なりの定数」を同じ2次コホモロジー類として読む。
+局所Chern接続の係数は枠変更で $\partial\log t$ だけずれる。$i/(2\pi)=-1/(2\pi i)$ を掛けると、その差は対数に由来する局所関数の外微分の**負号付き**になる。三重重なりの局所関数のずれが上の**整数** $m_{\alpha\beta\gamma}$ である。良い被覆上のČech–de Rham比較は、まさにこの「局所1形式 → 局所関数 → 三重重なりの定数」を同じ2次コホモロジー類として読む。
 
 <!-- proof-start -->
 ### 証明
@@ -238,13 +248,13 @@ $$
 
 $$
 \alpha_\alpha:=\frac{i}{2\pi}a_\alpha,\qquad
-b_{\alpha\beta}:=-\frac{\ell_{\alpha\beta}}{2\pi i}
+b_{\alpha\beta}:=\frac{\ell_{\alpha\beta}}{2\pi i}
 $$
 
-と書く。$i=-1/i$ なので
+と書く。$i=-1/i$ なので、接続形式の枠変更は
 
 $$
-\alpha_\beta-\alpha_\alpha=db_{\alpha\beta},\qquad
+\alpha_\beta-\alpha_\alpha=-db_{\alpha\beta},\qquad
 b_{\alpha\beta}+b_{\beta\gamma}+b_{\gamma\alpha}
 =m_{\alpha\beta\gamma}.
 $$
@@ -255,7 +265,7 @@ $$
 
 $$
 \gamma_\alpha
-=\alpha_\alpha+\sum_\beta\chi_\beta\,db_{\alpha\beta}
+=\alpha_\alpha-\sum_\beta\chi_\beta\,db_{\alpha\beta}
 $$
 
 と置く（各項は $U_\alpha\cap U_\beta$ で計算し、$\chi_\beta$ の台の外で零とする）。三重重なりの $dm_{\alpha\beta\gamma}=0$ から
@@ -269,8 +279,8 @@ $$
 $$
 \begin{aligned}
 \gamma_\beta-\gamma_\alpha
-&=db_{\alpha\beta}-(\sum_\gamma\chi_\gamma)db_{\alpha\beta}\\
-&=db_{\alpha\beta}-db_{\alpha\beta}=0.
+&=-db_{\alpha\beta}+(\sum_\gamma\chi_\gamma)db_{\alpha\beta}\\
+&=-db_{\alpha\beta}+db_{\alpha\beta}=0.
 \end{aligned}
 $$
 
@@ -278,7 +288,7 @@ $$
 
 $$
 \frac{i}{2\pi}F_D
-=d\gamma-\sum_\beta d\chi_\beta\wedge db_{\alpha\beta}
+=d\gamma+\sum_\beta d\chi_\beta\wedge db_{\alpha\beta}
 \qquad\text{on }U_\alpha.
 $$
 
@@ -290,7 +300,43 @@ b_{\alpha\beta}
 -q_\beta+q_\alpha
 $$
 
-だから、最後の和は整数 $m_{\alpha\beta\gamma}$ と分割 $\chi$ だけの項、および $d(\sum_\beta\chi_\beta dq_\beta)$ という完全形式に分かれる。よってそのde Rham類は $m$ の同値類で定まる。これで整数2-コサイクルと曲率の局所データの対応を確かめた。
+である。これを微分して $\sum_\beta d\chi_\beta=0$ を用いると
+
+$$
+\begin{aligned}
+\sum_\beta d\chi_\beta\wedge db_{\alpha\beta}
+&=\sum_{\beta,\gamma}m_{\alpha\beta\gamma}
+ d\chi_\beta\wedge d\chi_\gamma
+ -\sum_\beta d\chi_\beta\wedge dq_\beta\\
+&=\sum_{\beta,\gamma}m_{\alpha\beta\gamma}
+ d\chi_\beta\wedge d\chi_\gamma
+ -d\left(\sum_\beta\chi_\beta\,dq_\beta\right).
+\end{aligned}
+$$
+
+四重重なりのコサイクル条件は、任意の添字 $\alpha,\delta$ について
+
+$$
+m_{\alpha\beta\gamma}-m_{\delta\beta\gamma}
+=-m_{\delta\alpha\gamma}+m_{\delta\alpha\beta}
+$$
+
+を与える。これを上式の第1項へ代入し、$\sum_\beta d\chi_\beta=\sum_\gamma d\chi_\gamma=0$ を使うと、その第1項は $\alpha$ に依存しない。したがって大域2形式
+
+$$
+M:=\sum_{\alpha,\beta,\gamma}
+\chi_\alpha m_{\alpha\beta\gamma}\,
+d\chi_\beta\wedge d\chi_\gamma
+$$
+
+が得られる。ここで各 $U_\alpha$ 上で
+
+$$
+M=\sum_{\beta,\gamma}m_{\alpha\beta\gamma}\,
+d\chi_\beta\wedge d\chi_\gamma
+$$
+
+であり、曲率のde Rham類は $[M]$ に等しい。これは良い被覆の整数値2-コサイクルをde Rham形式へ移すČech–de Rham比較写像の局所表示であり、**整数類の実像が $[iF_D/(2\pi)]$ と一致する符号**まで確かめた。
 
 さらに同じ正則線束に二つの計量を入れた場合、[第一Chern形式の計量変更公式](../../CM/CM2-11/index.md#prop-cm2-11-chern-closed)によって差は完全2形式になる。ゆえにde Rham類は計量の選択に依存しない。$\square$
 <!-- proof-end -->
@@ -429,7 +475,7 @@ $$
 良い被覆の三重重なりで $\ell_{\alpha\beta}+\ell_{\beta\gamma}+\ell_{\gamma\alpha}=4\pi i$ が得られた線束 $L$ を考える。局所整数 $m_{\alpha\beta\gamma}$ と双対 $L^\vee$ の値を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [整数第一Chern類の定義](#def-kah1-12-integral-first-chern)に代入すると $m_{\alpha\beta\gamma}=-(4\pi i)/(2\pi i)=-2$。双対の遷移は $t_{\alpha\beta}^{-1}$ なので、その対数は $-\ell_{\alpha\beta}$ と選べる。三重和は $-4\pi i$、従って $m^\vee_{\alpha\beta\gamma}=2$。これは局所のコサイクル値の計算であって、**一つの三重重なりの値だけで全体の類が非零と判定できるわけではない**。
+**詳細解答。** [整数第一Chern類の定義](#def-kah1-12-integral-first-chern)に代入すると $m_{\alpha\beta\gamma}=(4\pi i)/(2\pi i)=2$。双対の遷移は $t_{\alpha\beta}^{-1}$ なので、その対数は $-\ell_{\alpha\beta}$ と選べる。三重和は $-4\pi i$、従って $m^\vee_{\alpha\beta\gamma}=-2$。これは局所のコサイクル値の計算であって、**一つの三重重なりの値だけで全体の類が非零と判定できるわけではない**。
 <!-- solution-end -->
 
 ### Level B
@@ -451,7 +497,19 @@ $$
 を与える。正値Hermite性、$\operatorname{tr}A$、第一Chern形式を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $H$ はHermite対称。$1+|z|^2>0$、$\det H=(1+|z|^2)-z\bar z=1>0$ なのでSylvester判定により正値である。[行列式接続の命題](#prop-kah1-12-determinant-curvature)を一般Hermite束の[誘導接続](../../CM/CM2-10/index.md#prop-cm2-10-induced-connections)として適用すると
+**詳細解答。** $H$ はHermite対称。正値性の判定には、[2次Hermite行列の平方完成](../KAH1-02/index.md#calc-kah1-02-two-by-two)をこの計量行列に適用する。$a=1+|z|^2>0$ とおくと、任意の $v=(v_1,v_2)^{\mathsf T}\in\mathbb C^2$ に対し
+
+$$
+\begin{aligned}
+v^*Hv
+&=a|v_1|^2+2\operatorname{Re}(\bar v_1zv_2)+|v_2|^2\\
+&=a\left|v_1+\frac{z}{a}v_2\right|^2
+  +\left(1-\frac{|z|^2}{a}\right)|v_2|^2\\
+&=a\left|v_1+\frac{z}{a}v_2\right|^2+\frac{1}{a}|v_2|^2.
+\end{aligned}
+$$
+
+右辺は $v\ne0$ なら正である。実際、第2項が零なら $v_2=0$、第1項も零なら $v_1=0$ である。これで定義の全ての非零ベクトルに対する正値性を直接確認した。行列式も $\det H=a-|z|^2=1$ と求まる。[行列式接続の命題](#prop-kah1-12-determinant-curvature)を一般Hermite束の[誘導接続](../../CM/CM2-10/index.md#prop-cm2-10-induced-connections)として適用すると
 
 $$
 \operatorname{tr}A=\partial\log\det H=\partial\log1=0,
