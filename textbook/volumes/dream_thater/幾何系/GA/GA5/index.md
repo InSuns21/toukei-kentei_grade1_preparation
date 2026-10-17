@@ -237,9 +237,9 @@ $$
 >
 > と定める。これを $L=-\Delta_g$ の**多様体熱核**と呼ぶ。級数が滑らかな二変数関数を定めることと、次の積分表示が成立することを後続の定理で証明する。
 
-$
+$$
 T_tf(x)=\int_Mp_t(x,y)f(y)\,dV_g(y).
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga5-heat-kernel -->
