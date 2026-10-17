@@ -353,7 +353,21 @@ $$
 $ds^2=-c^2dt^2+dx^2$ とし、$x=vt+x_0$（$|v|<c$）を考える。固有時による表示と四元加速度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$-c^2d\tau^2=(-c^2+v^2)dt^2$ より $d\tau/dt=\sqrt{1-v^2/c^2}=1/\gamma$、$\gamma=(1-v^2/c^2)^{-1/2}>0$ です。$t(0)=0$ とすれば $t(\tau)=\gamma\tau$、$x(\tau)=v\gamma\tau+x_0$ となります。成分微分で $d^2t/d\tau^2=d^2x/d\tau^2=0$、計量が定数なので[Levi-Civita接続の構成定理](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)に現れる係数行列の偏微分が消え、 $\Gamma=0$ です。よって[四元加速度の定義](#def-gr3-four-acceleration)で $a^\mu=0$、未来向きで $g(u,u)=-c^2$ です。
+**詳細解答**。世界線上で $-c^2d\tau^2=(-c^2+v^2)dt^2$ です。従って
+
+$
+\frac{d\tau}{dt}=\sqrt{1-\frac{v^2}{c^2}}
+=\frac1\gamma,\qquad
+\gamma=\left(1-\frac{v^2}{c^2}\right)^{-1/2}>0.
+$
+
+$t(0)=0$ とすれば $t(\tau)=\gamma\tau$、$x(\tau)=v\gamma\tau+x_0$ です。よって
+
+$
+\frac{d^2t}{d\tau^2}=\frac{d^2x}{d\tau^2}=0.
+$
+
+[Levi-Civita接続の構成定理](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では、係数行列が定数なら全成分の偏微分は零です。従って $\Gamma^\rho_{\mu\nu}=0$ となり、[四元加速度の定義](#def-gr3-four-acceleration)から $a^\mu=0$。また未来向きで $g(u,u)=-c^2$ です。
 <!-- solution-end -->
 
 <a id="ex-gr3-a02"></a>
