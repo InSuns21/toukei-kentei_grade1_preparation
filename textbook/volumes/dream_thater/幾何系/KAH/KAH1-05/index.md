@@ -42,7 +42,13 @@ $$
 \qquad (v\in\mathbb C^n,\ v\ne0)
 $$
 
-を課す。ここで $H$ は、正則座標の基底 $dz^i$ で基本形式を展開したときの係数行列であり、行列の正定値性は[基本形式の正値性判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と同値である。実接ベクトル $u$ の複素座標成分を $a^i=dz^i(u)$ とすると、$u\ne0$ なら $a=(a^i)\ne0$ であり、
+を課す。まず次の実 $(1,1)$ 形式を候補として作る。
+
+$$
+\omega_H=i\sum_{i,j}H_{i\bar j}\,dz^i\wedge d\bar z^j.
+$$
+
+ここで $H$ は、正則座標の基底 $dz^i$ で基本形式を展開したときの係数行列であり、行列の正定値性は[基本形式の正値性判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と同値である。実接ベクトル $u$ の複素座標成分を $a^i=dz^i(u)$ とすると、$u\ne0$ なら $a=(a^i)\ne0$ であり、
 
 $$
 \omega_H(u,J_0u)=2\sum_{i,j}H_{i\bar j}a^i\overline{a^j}>0
