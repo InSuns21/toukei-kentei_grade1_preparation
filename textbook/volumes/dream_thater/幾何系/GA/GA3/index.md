@@ -215,7 +215,7 @@ $$
 
 存在定理は $H^1$ の元を与えるだけです。滑らかな $f$ から作った弱解を、どの条件で二階、さらに高階微分できるように戻せるでしょうか。
 
-座標写像 $\kappa:U\to\Omega\subset\mathbb R^d$ を固定し、$\tilde u=u\circ\kappa^{-1}$、$\tilde f=f\circ\kappa^{-1}$ と書きます。計量行列 $G=(g_{ij})$ は正定値なので逆行列 $(g^{ij})=G^{-1}$ が存在します。[GEO12の計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)と[体積密度の公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)から
+座標写像 $\kappa:U\to\Omega\subset\mathbb R^d$ を固定し、$\tilde u=u\circ\kappa^{-1}$、$\tilde f=f\circ\kappa^{-1}$ と書きます。計量行列 $G=(g_{ij})$ は正定値なので逆行列 $(g^{ij})=G^{-1}$ が存在します。[Riemannian 勾配の座標表示](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)を使います。また、[Riemann 体積形式の座標表示](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)を使うと
 
 $$
 \nabla_g u=g^{ij}(\partial_j\tilde u)\,\partial_i,\qquad
