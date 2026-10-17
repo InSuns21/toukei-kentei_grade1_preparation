@@ -8,7 +8,7 @@
 
 この章の問いは「射影空間の標準座標で、どんなポテンシャルがKähler計量を作るか」である。別の座標との貼り合わせと面積の規格化は次章で扱う。ここでは局所式の正値性を最後まで証明する。
 
-以後 $n\ge1$ とし、$z=(z^1,\ldots,z^n)\in\mathbb C^n$、$r^2=\sum_j|z^j|^2$、$S=1+r^2$ とする。複素偏微分では $z^j$ と $\bar z^j$ を独立変数として微分する。
+以後 $n\ge1$ とし、$z=(z^1,\ldots,z^n)\in\mathbb C^n$、$r^2=\sum_j|z^j|^2$、$S=1+r^2$ とする。複素偏微分は[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)に従い、$z^j$ と $\bar z^j$ を独立変数として微分する。例えば $\partial_i z^j=\delta_{ij}$、$\partial_{\bar i}\bar z^j=\delta_{ij}$、$\partial_i\bar z^j=0$ である。
 
 ## 2. 射影空間の点と標準チャート
 
@@ -33,6 +33,8 @@ $$
 **定義の確認**。$\mathbb{CP}^1$ の点 $[2:2i]=[1:i]$ は $U_0$ に属し、座標は $z=Z_1/Z_0=i$ である。同じ点は $U_1$ にも属し、そちらの座標は $w=Z_0/Z_1=1/i=-i$。$[0:1]$ は $U_1$ には属するが $U_0$ に属さない。任意の非零代表元には非零成分があるから、$U_0,\ldots,U_n$ は全射影空間を覆う。$U_0$ の逆座標は $z\mapsto[1:z^1:\cdots:z^n]$ である。
 <!-- definition-example-end -->
 
+ここで確認するのは、[複素 $n$ 次元座標近傍](../../CM/CM1-01/index.md#def-cm1-01-chart)の条件である「開集合から複素空間の開集合への同相性」と、[正則アトラス](../../CM/CM1-01/index.md#def-cm1-01-atlas)の条件である「重なり上の正則な座標変換」である。[複素多様体の定義](../../CM/CM1-01/index.md#def-cm1-01-manifold)には、さらにHausdorff性と第二可算性が必要になる。
+
 <a id="prop-kah1-06-projective-atlas"></a>
 
 <!-- formal-statement-start -->
@@ -47,7 +49,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-商写像を $q:\mathbb C^{n+1}\setminus\{0\}\to\mathbb{CP}^n$ とする。$q^{-1}(U_a)=\{Z_a\ne0\}$ は開集合である。比の写像 $Z\mapsto(Z_j/Z_a)_{j\ne a}$ はこの開集合で連続であり、同値類上で一定だから、商位相の定義によって $U_a$ 上の連続写像を誘導する。逆写像は $z\mapsto q(z^0,\ldots,1,\ldots,z^n)$ で、これも連続。両合成は恒等である。
+商写像を $q:\mathbb C^{n+1}\setminus\{0\}\to\mathbb{CP}^n$ とする。$q^{-1}(U_a)=\{Z_a\ne0\}$ は開集合なので、商位相の定義から $U_a$ は開である。また、開集合への商写像の制限 $q|_{\{Z_a\ne0\}}:\{Z_a\ne0\}\to U_a$ は再び商写像である。比の写像 $Z\mapsto(Z_j/Z_a)_{j\ne a}$ は連続で、各同値類上で一定だから、$U_a$ 上の連続な座標写像 $\varphi_a$ を誘導する。
+
+逆写像を添字の順序まで明示する。$z=(z^1,\ldots,z^n)$ から代表元 $\sigma_a(z)$ を
+
+$
+(\sigma_a(z))_j=
+\begin{cases}
+z^{j+1} & (0\le j<a),\\
+1 & (j=a),\\
+z^j & (a<j\le n)
+\end{cases}
+$
+
+で作る。$\sigma_a$ は連続で零ベクトルを取らないので、$q\circ\sigma_a$ も連続である。さらに
+
+$
+\varphi_a(q(\sigma_a(z)))=z,\qquad
+q(\sigma_a(\varphi_a([Z])))=[Z/Z_a]=[Z]
+$
+
+となるから、$\varphi_a$ は $\mathbb C^n$ への同相写像である。
 
 例えば $U_0\cap U_1$ で $z^j=Z_j/Z_0$ と置くと $z^1\ne0$ であり、$U_1$ 座標は
 
@@ -58,7 +80,25 @@ $$
 
 となる。これらは $z^1\ne0$ で正則である。逆は $z^1=1/w^0$、$z^j=w^j/w^0$ であり、同じく正則。任意の $U_a\cap U_b$ でも分母を $Z_b/Z_a$ に替えた同じ比の計算が成り立つ。
 
-また商はHausdorff・第二可算であることも確認しておく。$\mathbb{CP}^n$ の各方向は単位球面 $S^{2n+1}\subset\mathbb C^{n+1}$ に代表元を持つので、球面からの連続全射により商はコンパクトである。異なる方向を表す単位ベクトル $u,v$ では円軌道 $S^1u$ と $S^1v$ が交わらない。二つは球面内のコンパクト集合なので、その間のEuclid距離の最小値は正である。その値の3分の1未満の距離にある二つの開近傍は互いに交わらず、同時位相倍に関して不変である。したがって各近傍の商像は互いに交わらない開集合であり、二点を分離できるのでHausdorffである。有限個のチャートがそれぞれ第二可算な $\mathbb C^n$ と同相であるため、全体も第二可算である。[複素多様体の定義](../../CM/CM1-01/index.md#def-cm1-01-manifold)の条件が満たされた。$\square$
+一般の $a\ne b$ に対しても遷移を式で確かめる。$U_a$ の同次比を $t_j=Z_j/Z_a$（$j\ne a$）、便宜上 $t_a=1$ と書く。重なりでは $t_b\ne0$ であり、$U_b$ 側の各座標は
+
+$
+s_k=\frac{Z_k}{Z_b}=\frac{t_k}{t_b}
+\qquad(k\ne b)
+$
+
+である。分母は零にならず、成分は正則関数の商だから正則。逆方向も $s_a\ne0$ の下で $t_j=s_j/s_a$（$j\ne a$、ただし $s_b=1$）と書けるため正則である。
+
+残る位相条件も確認する。各方向は単位球面 $S^{2n+1}\subset\mathbb C^{n+1}$ に代表元を持つので、$q$ を球面に制限した連続全射により $\mathbb{CP}^n$ はコンパクトである。$S^1=\{c\in\mathbb C:|c|=1\}$ とおく。異なる方向を表す単位ベクトル $u,v$ の円軌道 $S^1u,S^1v$ は互いに交わらないコンパクト集合だから、両者のEuclid距離の最小値 $\delta$ は正である。それぞれの軌道からの距離が $\delta/3$ 未満の球面内の集合 $V_u,V_v$ は、開かつ $S^1$ の作用で不変であり、互いに交わらない。
+
+ここで商像が**開**である理由も必要である。$V\subset S^{2n+1}$ が開かつ $S^1$ 不変なら、
+
+$
+q^{-1}(q(V))
+=\{rw:r>0,\ w\in V\}
+$
+
+は $\mathbb C^{n+1}\setminus\{0\}$ における開集合である（$Z\mapsto Z/\lVert Z\rVert$ の逆像である）。ゆえに $q(V)$ は商位相で開。さらに $V_u,V_v$ は $S^1$ 不変で交わらないから商像も交わらず、Hausdorff性が従う。最後に、有限個の開チャート $U_a$ が各々第二可算な $\mathbb C^n$ と同相なので、それらの可算基底の和集合が全体の可算基底となる。[複素多様体の定義](../../CM/CM1-01/index.md#def-cm1-01-manifold)の条件が全て満たされた。$\square$
 <!-- proof-end -->
 
 $\mathbb{CP}^1$ の重なりでは単に $w=1/z$ である。ここでは**座標変換が正則であること**だけを確かめた。計量や2形式が一致することは、まだ示していない。
@@ -161,9 +201,9 @@ Q_z(v)
 \end{aligned}
 $$
 
-Cauchy–Schwarz不等式によって
+[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $z,v\in\mathbb C^n$ に適用すると
 
-$$
+$
 \left|\sum_i\bar z^i v^i\right|^2
 \le\left(\sum_i|z^i|^2\right)
 \left(\sum_i|v^i|^2\right)
@@ -235,16 +275,42 @@ $$
 <!-- proof-start -->
 ### 証明
 
-成分表示から、任意の $v\in\mathbb C^n$ に対するHermite行列の作用は、添字の組を対応させると
+§4で得た係数を、通常の複素行列としてまとめ直す。$z$ を列ベクトルとし、$\bar z$ をその成分ごとの共役列とすれば、
 
-$$
-Hv=\frac1S v-\frac1{S^2}\bar z\,
-\left(\sum_j z^j v^j\right)
-$$
+$
+H=\frac1S I_n-\frac1{S^2}\bar z\,z^{\mathsf T},
+\qquad
+(Hv)^i=\frac{v^i}S-\frac{\bar z^i}{S^2}
+\sum_j z^jv^j.
+$
 
-と書ける（ここで $\bar z$ を成分に持つ列とみなした）。実際、$H_{i\bar j}=(S\delta_{ij}-\bar z^i z^j)/S^2$ なので、通常の行列としての固有空間は $\mathbb C\bar z$ とその直交補 $\{v:\sum_j z^jv^j=0\}$ に分かれる。先ほどの二次形式 $Q_z(v)=v^T H\bar v$ では複素共役の対応によって $z$ 方向が半径方向になる。
+ここで $z^{\mathsf T}\bar z=\sum_j|z^j|^2=S-1$。したがって行列作用での特別な直線は $\mathbb C\bar z$ であり、その標準Hermite直交補は $\{v:z^{\mathsf T}v=0\}$ である。一方、正値性の定義で評価した二次形式は
 
-$H\bar z=(1/S-(S-1)/S^2)\bar z=S^{-2}\bar z$ であり、$\sum_jz^jv^j=0$ なら $Hv=S^{-1}v$。$z\ne0$ では前者の次元が1、後者の次元が $n-1$ である。$z=0$ なら式から $H(0)=I_n$。固有値の積を計算すると $S^{-2}(S^{-1})^{n-1}=S^{-(n+1)}$。$n=1$ なら直交補の重複度は0で同じ結論になる。$\square$
+$
+Q_z(v)=v^{\mathsf T}H\bar v
+=(\bar v)^*H(\bar v)
+$
+
+なので、**二次形式の入力 $v$** における対応する直線は $\mathbb Cz$、直交条件は $\sum_j\bar z^jv^j=0$ となる。行列の固有ベクトルと二次形式の入力を混同してはならない。
+
+この二つの空間に作用を制限すると、
+
+$
+\begin{aligned}
+H\bar z
+&=\left(\frac1S-\frac{S-1}{S^2}\right)\bar z
+=\frac1{S^2}\bar z,\\
+Hv&=\frac1S v\qquad(z^{\mathsf T}v=0).
+\end{aligned}
+$
+
+$z\ne0$ では前者の次元が1、後者の次元が $n-1$ である。$z=0$ なら $S=1$ で $H(0)=I_n$。固有値の積を取ると
+
+$
+\det H=S^{-2}(S^{-1})^{n-1}=S^{-(n+1)}
+$
+
+となる。$n=1$ なら直交補の重複度は0で同じ結論になる。$\square$
 <!-- proof-end -->
 
 ここでの注意点は、$h_{i\bar j}$ を通常の複素行列として作用させると、二次形式 $\sum h_{i\bar j}v^i\bar v^j$ における変数の共役が関わることである。**「$z$ に沿う」と記すときは、行列作用の固有ベクトルか二次形式の変数かを明確にする**。具体計算では二次形式の分解を使えば曖昧さがない。
