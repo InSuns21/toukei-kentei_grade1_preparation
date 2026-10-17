@@ -691,6 +691,7 @@
 6. [GA6 Hodge Laplacian・調和形式・de Rham](textbook/volumes/dream_thater/幾何系/GA/GA6/index.md)
 7. [GA7 Bochner--Weitzenböck公式・曲率と解析](textbook/volumes/dream_thater/幾何系/GA/GA7/index.md)
 8. [GA8 調和写像・非線形幾何変分](textbook/volumes/dream_thater/幾何系/GA/GA8/index.md)
+9. [GA9 幾何的非線形楕円PDEと臨界現象](textbook/volumes/dream_thater/幾何系/GA/GA9/index.md)
 
 <a id="dt-subject-lorentzian-geometry"></a>
 ### ローレンツ幾何と大域因果構造

@@ -1,0 +1,37 @@
+id: "GA9"
+title: "幾何的非線形楕円PDEと臨界現象"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA8
+  - GA2
+  - VAR7
+  - VAR8
+  - GEO16
+  - GPDE8
+official_scope: []
+learning_objectives:
+  - 極小グラフ流束のJacobianを計算し平行方向と直交方向の固有値から一様楕円性の成立範囲を判定できる
+  - 極小グラフ作用素の線形化と非発散形を区別し定数勾配解で検算できる
+  - 弱形式とDirichlet・自然境界条件を区別し厳密単調性から弱解の一意性を証明できる
+  - 面積汎関数の一次成長が線形H1存在論の強制性を保証しない理由を説明できる
+  - d>=3のSobolev臨界指数をスケーリングから導き多様体上の集中列で端点の非コンパクト性を証明できる
+  - Yamabe型変分商の倍率不変性を検算しEuler--Lagrange方程式の臨界べき乗を導出できる
+  - 平均曲率流の主係数とRicci流の座標自由度の意味を述べ存在・正則性を無証明に断定しない
+definitions:
+  - { id: GA9-DEF-01, name: "極小グラフ流束の線形化係数" }
+  - { id: GA9-DEF-02, name: "極小グラフの弱解" }
+  - { id: GA9-DEF-03, name: "Sobolev臨界指数" }
+  - { id: GA9-DEF-04, name: "Yamabe型変分商" }
+theorems:
+  - { id: GA9-THM-01, name: "極小グラフ流束の楕円性" }
+  - { id: GA9-THM-02, name: "極小グラフ方程式の線形化" }
+  - { id: GA9-PROP-01, name: "同じDirichlet値を持つ弱極小グラフの一意性" }
+  - { id: GA9-THM-03, name: "多様体上の臨界集中列の構成" }
+  - { id: GA9-PROP-02, name: "Yamabe型変分商の停留方程式" }
+canonical_examples: [傾いた平面での係数行列, 自然境界を満たさない平面, Euclid集中列, 閉多様体の正規座標集中列, 定数関数のYamabe型商]
+problem_patterns: [GA9-FLUX-JACOBIAN, GA9-AFFINE-LINEARIZATION, GA9-BOUNDARY-FLUX, GA9-SCALE-THREE, GA9-WEAK-UNIQUENESS, GA9-NONLINEAR-VS-LAPLACE, GA9-CONCENTRATION, GA9-YAMABE-VARIATION, GA9-INTEGRATED-OBSTRUCTIONS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }
