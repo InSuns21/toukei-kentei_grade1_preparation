@@ -1,0 +1,42 @@
+chapter: GR3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR2
+  - SREL4
+  - LORG4
+concepts:
+  - id: gravity.curved-free-particle-action
+    name: 曲がった時空における自由質点の固有時作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲がった時空における自由質点の固有時作用）"]
+    requires: [relativity.free-particle-action, lorentz-geometry.lorentz-metric, gravity.metric-coordinate-invariance]
+
+  - id: gravity.proper-time-geodesic-variation
+    name: 固有時作用の停留条件と自由落下
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固有時作用の停留条件と自由落下）"]
+    requires: [gravity.curved-free-particle-action, lorentz-geometry.lorentz-levi-civita-extension, lorentz-geometry.geodesic-causal-type-conservation]
+
+  - id: gravity.four-acceleration
+    name: 四元加速度と自由落下判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四元加速度と自由落下判定）"]
+    requires: [gravity.proper-time-geodesic-variation, lorentz-geometry.geodesic-causal-type-conservation]
+
+  - id: gravity.rindler-freefall-static-acceleration
+    name: Rindler自由粒子と静止観測者の加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Rindler自由粒子と静止観測者の加速度）"]
+    requires: [gravity.rindler-metric-gr-sign, gravity.four-acceleration, gravity.proper-time-geodesic-variation]
+
+  - id: gravity.null-affine-quadratic-action
+    name: 光的測地線のアフィンパラメータと二次作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（光的測地線のアフィンパラメータと二次作用）"]
+    requires: [gravity.four-acceleration, lorentz-geometry.geodesic-causal-type-conservation, lorentz-geometry.causal-type]
