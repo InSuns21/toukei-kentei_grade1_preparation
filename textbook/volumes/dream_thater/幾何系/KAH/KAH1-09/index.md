@@ -383,7 +383,15 @@ $$
 (g_{i\bar j})=\begin{pmatrix}1&0\\0&1+|z^1|^2\end{pmatrix}
 $$
 
-とする。$\partial_1g_{2\bar2}=\bar z^1$ に対し $\partial_2g_{1\bar2}=0$ だから、この計量はKählerではない。Chern曲率には一般の束の計算を使えるが、原点で
+とする。$\partial_1g_{2\bar2}=\bar z^1$ に対し $\partial_2g_{1\bar2}=0$ だから、この計量はKählerではない。ここで $D$ を正則接束のChern接続、その曲率を $F_D$ とし、Levi–Civita曲率とは区別して
+
+$$
+R^{\mathrm{Ch}}_{i\bar j k\bar\ell}
+:=g\bigl(F_D(\partial_i,\partial_{\bar j})\partial_k,
+              \partial_{\bar\ell}\bigr)
+$$
+
+と書く。[Chern曲率の定義](../../CM/CM2-11/index.md#def-cm2-11-curvature)を座標基底へ適用した四階成分である。この例では原点で
 
 $$
 R^{\mathrm{Ch}}_{1\bar1 2\bar2}(0)=-1,\qquad
@@ -398,15 +406,14 @@ $$
 \Gamma^m_{21}=g^{m\bar q}\partial_2g_{1\bar q}=0.
 $$
 
-$\nabla^{\mathrm{Ch}}_{\partial_{\bar1}}\partial_2=0$ と座標基底の可換性から、先の曲率演算子の定義と同じ順序で
+$D_{\partial_{\bar1}}\partial_2=0$ と座標基底の可換性から、先の曲率演算子の定義と同じ順序で
 
 $$
 \begin{aligned}
 R^{\mathrm{Ch}}_{1\bar1 2\bar2}
 &=-g_{2\bar2}\partial_{\bar1}\Gamma^2_{12}\\
 &=-f\,\frac{f-|z^1|^2}{f^2}
-=-\frac1f,
-\\
+=-\frac1f,\\
 R^{\mathrm{Ch}}_{2\bar1 1\bar2}
 &=-g_{m\bar2}\partial_{\bar1}\Gamma^m_{21}=0.
 \end{aligned}
