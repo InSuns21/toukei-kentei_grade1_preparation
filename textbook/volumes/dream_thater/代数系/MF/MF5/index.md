@@ -225,7 +225,13 @@ $$
 =2^{-12}(q_0-24q_0^2+\cdots),
 \qquad q_0=e^{\pi i\tau}
 $$
-となります。よって両カスプで定数項が零で、レベル2のカスプ形式の条件をすべて満たします。[素数作用素の係数公式](#prop-mf5-level-q)により $U_2(\Delta(2\tau))=\Delta(\tau)$ です。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
+となります。よって両カスプで定数項が零で、レベル2のカスプ形式の条件をすべて満たします。定義から直接計算しても、
+$$
+U_2(\Delta(2\tau))
+=\frac12\left(\Delta(\tau)+\Delta(\tau+1)\right)
+=\Delta(\tau)
+$$
+です。最後の等号には [レベル1形式の周期性](../MF2/index.md#thm-mf2-q-coordinate)を用いました。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
 <!-- definition-example-end -->
 
 <a id="prop-mf5-level-q"></a>
