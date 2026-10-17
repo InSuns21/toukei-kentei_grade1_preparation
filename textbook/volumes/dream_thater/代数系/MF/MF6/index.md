@@ -217,7 +217,7 @@ $$
 \qquad q_s=e^{2\pi i\tau/h_s}.
 $$
 
-と展開されます。左辺は虚部を無限大へ送ると零になるため、$b_0(s)=0$ です。任意のカスプ $s$ でこの結論が成立するので、[MF4の全カスプでの定義](../MF4/index.md#def-mf4-level-form)により $g\in S_k(\Gamma_0(N))$ と分かります。
+と展開されます。左辺は虚部を無限大へ送ると零になるため、$b_0(s)=0$ です。任意のカスプ $s$ でこの結論が成立するため、[カスプ形式の定義](../MF4/index.md#def-mf4-level-form)の変換則と全カスプでの消失という両条件が揃い、$g\in S_k(\Gamma_0(N))$ が示されました。
 
 <!-- definition-example-start: def-mf6-fricke -->
 **定義の確認**。$N=1$ なら $W_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は[MF1の生成元](../MF1/index.md#thm-mf1-generators) $S$ そのもので、レベル1の変換則により $f|_kW_1=f$ です。一般の $N$ では
