@@ -4,7 +4,7 @@
 
 鍵になるのは、[EC10のHasse–Weil $L$ 関数](../../EC/EC10/index.md#def-ec10-hasse-weil-l)と[MF7のnewformの局所因子](../MF7/index.md#prop-mf7-local-factor)を同じ素数ごとに比較することです。係数の一致を実例で検算し、全素数にわたる一致を保証する一般の対応定理の正確な内容を述べます。その後、仮にFermat方程式に反例があれば構成できる曲線が、なぜこの定理とRibetの結果に矛盾するのかを追います。
 
-**この章の証明範囲。** 導手11の点数・還元、仮想的なFermat解から構成する曲線の判別式・不変量、レベル2のカスプ形式の消失、そして外部定理からの論理的帰結を証明します。局所因子からのEuler積の一致は[EC11の既出定理](../../EC/EC11/index.md#thm-ec11-euler-factor-identity)を使います。楕円曲線とnewformの一般対応、Ribetのlevel lowering、一般のGalois表現・Jacobianの構成は外部大定理として**証明せず**、必要な対象・仮定・結論を明示します。
+**この章の証明範囲。** 導手11の点数・還元、仮想的なFermat解から構成する曲線の判別式・不変量、レベル2のカスプ形式の消失、外部から引用する結果を組み合わせた論理的帰結を証明します。局所因子からのEuler積の一致は[EC11の既出定理](../../EC/EC11/index.md#thm-ec11-euler-factor-identity)を使います。楕円曲線とnewformの一般対応、Ribetのlevel lowering、一般のGalois表現・Jacobianの構成は外部大定理として**証明せず**、必要な対象・仮定・結論を明示します。
 
 <!-- definition-example-audit: strict -->
 
@@ -126,7 +126,7 @@ $$
 > $p\mid N_E$ では良い素数の二次因子ではなく、還元型に応じた一次因子または自明因子が一致する。
 <!-- formal-statement-end -->
 
-**証明の所在。** これは本講義の既習定理からは導かれません。半安定楕円曲線のmodularityを示したWilesとTaylor–Wilesの仕事から始まり、全ての $E/\mathbb Q$ への拡張はBreuil–Conrad–Diamond–Taylorらによって達成されました。Galois表現、変形環とHecke環の比較、modularity liftingなどが核心で、この章では証明しません。
+**証明の所在。** これは本講義の既習定理からは導かれません。半安定楕円曲線のmodularityを示したWilesとTaylor–Wilesの研究成果から始まり、全ての $E/\mathbb Q$ への拡張はBreuil–Conrad–Diamond–Taylorらによって達成されました。Galois表現、変形環とHecke環の比較、modularity liftingなどが核心で、この章では証明しません。
 
 この定理の各条件は独立に重要です。重さは2、指標は自明、レベルは曲線の**導手** $N_E$ であり、単に判別式の絶対値ではありません。[MF7の係数体の定義](../MF7/index.md#def-mf7-coefficient-field)の意味で係数体が $\mathbb Q$ です。全ての重さ2newformに逆向きの楕円曲線対応を無条件に主張しているわけでもありません。
 
@@ -161,7 +161,7 @@ $$
 
 $E_{11}$ は導手11です。
 
-[$X_0(N)$ の種数を計算する公式](../MF4/index.md#thm-mf4-genus)から $X_0(11)$ は種数1であり、$E_{11}$ に対する $\mathbb Q$ 上のmodular parametrizationが存在することは以下の外部定理の具体例となります。
+[モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)から $X_0(11)$ は種数1であり、$E_{11}$ に対する $\mathbb Q$ 上のmodular parametrizationが存在することは以下の外部定理の具体例となります。
 
 ただし「両者が種数1だから、任意の複素同型が$\mathbb Q$ 上の射である」という議論は成立しません。
 
@@ -343,7 +343,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[合同部分群の指数を求める公式](../MF4/index.md#thm-mf4-subgroup-index)から
+[主要合同部分群の指数](../MF4/index.md#thm-mf4-subgroup-index)から
 
 $$
 \mu=[SL_2(\mathbb Z):\Gamma_0(2)]
@@ -407,7 +407,7 @@ $n$ が3または4で割り切れれば、前述の冪への置換でそれぞ�
 
 左辺は $y=0$ でも $y=1$ でも0なので、アフィン解は $(0,0),(0,1),(1,0),(1,1)$ の4点。
 
-[有限体上の有理点の定義](../../EC/EC7/index.md#def-ec7-rational-points)により無限遠点1点を加えて5点となる。
+[有限体上の有理点と点数](../../EC/EC7/index.md#def-ec7-rational-points)により無限遠点1点を加えて5点となる。
 
 [EC10の良い素数の係数](../../EC/EC10/index.md#def-ec10-good-local-polynomial)から $a_2=2+1-5=-2$。
 
@@ -551,7 +551,7 @@ $c_4$ が単元の整数モデルは $r$-最小で、判別式は $r$ で消え�
 - Level: B
 - 問題：$\Gamma_0(2)$ の指数が3、カスプ数が2、位数2の楕円点軌道が1、位数3の軌道が0であるとする。
 
-[$X_0(N)$ の種数を計算する公式](../MF4/index.md#thm-mf4-genus)を使って $S_2(\Gamma_0(2))=\{0\}$ を示せ。
+[モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)を使って $S_2(\Gamma_0(2))=\{0\}$ を示せ。
 
 この結果は $S_2(\Gamma_0(11))$ の次元1と矛盾するか。
 
@@ -567,7 +567,7 @@ $$
 
 ### B5. 複素曲線と有理数体上の射を区別する
 - Level: B
-[$X_0(N)$ の種数を計算する公式](../MF4/index.md#thm-mf4-genus)から $g(X_0(11))=1$、[MF7のレベル11のnewform](../MF7/index.md#prop-mf7-level-eleven)は有理係数と分かる。次に答えよ。
+[モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)から $g(X_0(11))=1$、[MF7のレベル11のnewform](../MF7/index.md#prop-mf7-level-eleven)は有理係数と分かる。次に答えよ。
 
 1. この二事実だけで、$X_0(11)$ から $E_{11}/\mathbb Q$ への非定数 $\mathbb Q$-射を初等的に作れたといえるか。
 2. 存在を確定するために本章で引用した定理を挙げよ。
