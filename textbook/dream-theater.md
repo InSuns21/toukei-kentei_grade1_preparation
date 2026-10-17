@@ -932,6 +932,7 @@
 2. [MF2 モジュラー形式・q展開・Eisenstein級数](textbook/volumes/dream_thater/代数系/MF/MF2/index.md)
 3. [MF3 valence formulaと環構造](textbook/volumes/dream_thater/代数系/MF/MF3/index.md)
 4. [MF4 合同部分群・カスプ・モジュラー曲線](textbook/volumes/dream_thater/代数系/MF/MF4/index.md)
+5. [MF5 Hecke作用素・固有形式](textbook/volumes/dream_thater/代数系/MF/MF5/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

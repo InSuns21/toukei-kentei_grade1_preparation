@@ -24,7 +24,7 @@ chapters:
     title: "合同部分群・カスプ・モジュラー曲線"
   - id: MF5
     path: textbook/volumes/dream_thater/代数系/MF/MF5
-    status: planned
+    status: completed
     title: "Hecke作用素・固有形式"
   - id: MF6
     path: textbook/volumes/dream_thater/代数系/MF/MF6
