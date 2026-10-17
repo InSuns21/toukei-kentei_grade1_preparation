@@ -946,6 +946,7 @@
 5. [MF5 Hecke作用素・固有形式](textbook/volumes/dream_thater/代数系/MF/MF5/index.md)
 6. [MF6 モジュラー形式のL関数](textbook/volumes/dream_thater/代数系/MF/MF6/index.md)
 7. [MF7 oldform・newform・レベルと算術](textbook/volumes/dream_thater/代数系/MF/MF7/index.md)
+8. [MF8 Modularity TheoremとFermatの最終定理への橋](textbook/volumes/dream_thater/代数系/MF/MF8/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

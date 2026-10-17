@@ -1,0 +1,54 @@
+chapter: MF8
+scope: dream-theater
+coverage: complete
+prerequisites: [MF7, EC11]
+forward_references: []
+concepts:
+  - id: modular-forms.modularity-theorem
+    name: Modularity Theorem
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Modularity Theorem：外部大定理）"]
+    requires: [elliptic-curve.modularity-interface, modular-forms.newform-theory, elliptic-curve.modular-euler-factor-identity]
+  - id: modular-forms.modular-parametrization
+    name: modular parametrization
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（modular parametrization）"]
+    requires: [modular-forms.modular-curve, elliptic-curve.modularity-interface]
+  - id: modular-forms.modular-parametrization-exists
+    name: modular parametrizationの存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（modular parametrizationの存在：外部大定理）"]
+    requires: [modular-forms.modularity-theorem, modular-forms.modular-parametrization]
+  - id: modular-forms.frey-curve
+    name: Frey曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Frey曲線）"]
+    requires: [elliptic-curve.weierstrass-model, elliptic-curve.discriminant-criterion]
+  - id: modular-forms.frey-invariants
+    name: Frey曲線の判別式と奇素数での還元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Frey曲線の判別式と奇素数での還元）"]
+    requires: [modular-forms.frey-curve, elliptic-curve.weierstrass-invariants, elliptic-curve.local-conductor-types]
+  - id: modular-forms.ribet-frey-result
+    name: Frey–Ribetの帰結
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Frey–Ribetの帰結：外部大定理）"]
+    requires: [modular-forms.modularity-theorem, modular-forms.frey-invariants]
+  - id: modular-forms.level-two-zero
+    name: レベル2の重さ2カスプ形式の消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（レベル2の重さ2カスプ形式は存在しない）"]
+    requires: [modular-forms.weight-two-differentials, modular-forms.modular-curve]
+  - id: modular-forms.flt-bridge
+    name: Fermatの最終定理への論理的帰結
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Fermatの最終定理への論理的帰結）"]
+    requires: [modular-forms.frey-curve, modular-forms.ribet-frey-result, modular-forms.level-two-zero]

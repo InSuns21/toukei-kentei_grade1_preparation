@@ -36,5 +36,5 @@ chapters:
     title: "oldform・newform・レベルと算術"
   - id: MF8
     path: textbook/volumes/dream_thater/代数系/MF/MF8
-    status: planned
+    status: completed
     title: "Modularity TheoremとFermatの最終定理への橋"
