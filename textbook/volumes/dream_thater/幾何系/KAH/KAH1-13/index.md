@@ -17,7 +17,22 @@ $$
 -i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}v^j\overline{v^k}
 $$
 
-と約束する。この右辺が非零な $v\in T^{1,0}_pX$ のすべてに対して正となることが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の定義であり、単なる「閉形式」とは独立の条件である。
+と約束する。なぜこの係数行列で正値性を判定できるかを、基底展開から確かめる。局所ベクトルを
+
+$$
+v=\sum_jv^j\frac{\partial}{\partial z^j}
+$$
+
+と書くと、正則座標の双対基底について
+
+$$
+dz^j(v)=v^j,\qquad
+d\bar z^k(\bar v)=\overline{v^k}
+$$
+
+が成立し、交差する評価は零である。従って外積を $(v,\bar v)$ に作用させると、第1式の二次形式になる。
+
+[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、すべての非零ベクトルに対してその値が正であることと、係数行列 $G=(g_{j\bar k})$ が正値であることは同値である。これが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の判定法であり、閉性 $d\omega=0$ は別に確認する。
 
 ## 2. Kähler類を定義する
 
@@ -39,7 +54,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-class -->
-**定義の確認**（複素平面）。 $X=\mathbb C$ の $z=x+iy$ に対して $\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ と置く。$-i\omega_0(v,\bar v)=|v|^2>0$ であり、実2次元上の3形式は零だから $d\omega_0=0$。よって確かにKähler形式である。ただし
+**定義の確認**（複素平面）。$X=\mathbb C$ の $z=x+iy$ について
+
+$$
+\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy
+$$
+
+と置く。$dz\wedge d\bar z$ は $(1,1)$ 型であり、複素共役を取ると
+
+$$
+\overline{i\,dz\wedge d\bar z}
+=-i\,d\bar z\wedge dz
+=i\,dz\wedge d\bar z
+$$
+
+なので実形式である。また $v=v^z\partial_z\ne0$ に対して
+
+$$
+-i\omega_0(v,\bar v)=|v^z|^2>0.
+$$
+
+実2次元上の3形式は零なので $d\omega_0=0$。こうして型・実性・正値性・閉性の全条件を満たすKähler形式である。ただし
 
 $$
 \alpha=x\,dy-y\,dx,\qquad
@@ -49,19 +84,18 @@ $$
 なので、[完全形式とde Rham類](../../GEO/GEO9/index.md#def-geo9-closed-exact)から $[\omega_0]=0$ である。したがって**非コンパクトな $\mathbb C$ では零類もKähler類になり得る**。この段階で「Kähler類は常に零ではない」と一般化してはいけない。
 <!-- definition-example-end -->
 
-上の例で必要な「型」の確認もしておく。$dz$ と $d\bar z$ の外積は $(1,1)$ 型であり、共役を取ると $\overline{i\,dz\wedge d\bar z}=(-i)\,d\bar z\wedge dz=i\,dz\wedge d\bar z$。従って $\omega_0$ は実形式である。
-
 ## 3. Kähler cone とその凸性
 
-異なるKähler形式の係数を足すと、各点で正のHermite行列を足すことになる。二つの正値行列 $G_1,G_2$ に対し、非零ベクトル $v$ について
+異なるKähler形式を足すと、同じ正則座標での係数行列も足される。$\omega_r=i\sum_{j,k}(G_r)_{j\bar k}\,dz^j\wedge d\bar z^k$ ($r=1,2$) なら、外積を $(v,\bar v)$ に評価する第1節の計算から
 
 $$
-v^*(aG_1+bG_2)v
-=a\,v^*G_1v+b\,v^*G_2v>0
-\qquad(a,b>0)
+-i(a\omega_1+b\omega_2)(v,\bar v)
+=v^{\mathsf T}(aG_1+bG_2)\bar v
+=a\,v^{\mathsf T}G_1\bar v+b\,v^{\mathsf T}G_2\bar v>0
+\qquad(a,b>0,\;v\ne0)
 $$
 
-となる。この点ごとの性質と、外微分の線形性を同時に使う。
+となる。係数行列による[正値判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と、元の形式の定義が対応している。閉性は別に外微分の線形性から従う。
 
 <a id="def-kah1-13-cone"></a>
 
@@ -144,11 +178,27 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（実閉(1,1)形式で表せる部分空間）**  
-> 複素多様体 $(X,J)$ に対し、上式の $V_J$ を、実閉 $(1,1)$ 形式で代表できるde Rham類の部分空間とする。「$\mathcal K_X$ が相対的に開」とは、$V_J$ を実有限次元ベクトル空間として通常の位相を入れたとき、$\mathcal K_X\subset V_J$ が開集合であることをいう。
+> 複素多様体 $(X,J)$ に対し、上式の $V_J$ を、実閉 $(1,1)$ 形式で代表できるde Rham類の部分空間とする。$V_J$ が有限次元の場合、「$\mathcal K_X$ が $V_J$ に相対的に開」とは、その通常の実有限次元ベクトル空間位相で $\mathcal K_X\subset V_J$ が開集合であることをいう。有限次元性をまだ仮定しない場合は、次の定理のように有限次元方向ごとに述べる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-representable-subspace -->
-**定義の確認**。 上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取れば、$s\eta_1+t\eta_2$ も同じ型・実性・閉性を保つから、$s[\eta_1]+t[\eta_2]\in V_J$。しかし $\eta_1=-\omega_{\mathrm{FS}}$ とするとその類は $V_J$ に属する一方、**この負の代表は正ではない**。型で代表できることとKähler類であることは別条件である。
+**定義の確認**。上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取ると、その実線形結合も同じ型・実性・閉性を満たす。従って
+
+$$
+s[\eta_1]+t[\eta_2]=[s\eta_1+t\eta_2]\in V_J.
+$$
+
+一方 $-\omega_{\mathrm{FS}}$ も実閉 $(1,1)$ 形式なので $-[\omega_{\mathrm{FS}}]\in V_J$ だが、この類はKähler類ではない。
+
+仮に正の代表 $\theta$ があれば、$\mathbb{CP}^1$ の正の面積形式だから $\int_{\mathbb{CP}^1}\theta>0$。しかし同じde Rham類なら $\theta+\omega_{\mathrm{FS}}=d\gamma$ と書け、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\int_{\mathbb{CP}^1}\theta
+=-\int_{\mathbb{CP}^1}\omega_{\mathrm{FS}}
+=-2\pi<0
+$$
+
+となって矛盾する。型で代表できることと、**正の代表が存在すること**は別条件である。
 <!-- definition-example-end -->
 
 正値性の開性は次の形で証明できる。有限次元性の前提を明示するため、まず任意の有限次元部分空間に対して述べる。
@@ -269,7 +319,7 @@ $$
 \quad\text{in }H^2_{\mathrm{dR}}(X;\mathbb R).
 $$
 
-> さらに $\omega+i\partial\bar\partial\varphi$ が正値である場合には、二つは**同じKähler類の異なるKähler代表**を与える。正値性は $\varphi$ を任意に取っただけでは従わない。
+> さらに **$\omega$ と $\omega+i\partial\bar\partial\varphi$ の両方が正値**なら、両者は同じKähler類のKähler代表となる（形式として一致することもある）。後者だけが正値でも、元の $\omega$ をKähler代表とは呼べない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -286,16 +336,33 @@ $$
 =i\partial\bar\partial\varphi=d\alpha_\varphi.
 $$
 
-[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)により両者の類は一致する。$d(\omega+i\partial\bar\partial\varphi)=d\omega+d^2\alpha_\varphi=0$ で、型と実性も保たれる。さらに正値という仮定があれば[Kähler類の定義](#def-kah1-13-class)を満たす。$\square$
+[de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)により両者の類は一致する。$d(\omega+i\partial\bar\partial\varphi)=d\omega+d^2\alpha_\varphi=0$ で、型と実性も保たれる。さらに両者が正値なら、それぞれ[Kähler類の定義](#def-kah1-13-class)を満たし、同じ類のKähler代表である。$\square$
 <!-- proof-end -->
 
-トーラスの $\omega_\varepsilon$ はまさにこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。なお二つの**同じ類**のKähler形式の差がいつも大域的 $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は、本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
+トーラスの $\omega_\varepsilon$ はこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。
+
+例えば $|\varepsilon|\ge1/\pi^2$ では $\omega_\varepsilon$ は正値でない。一方、大域関数 $\varphi=-\varepsilon\cos(2\pi x)$ を足すと
+
+$$
+\omega_\varepsilon+i\partial\bar\partial\varphi=\omega_0
+$$
+
+は正値となる。この例は、同じ類のすべての代表をKähler形式とみなせないことを示す。
+
+なお、同じ類の二つのKähler形式の差が常に大域的な $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
 
 ## 6. コンパクト多様体で類が消えない理由
 
 [一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使うと、境界のないコンパクト多様体上では、完全な最高次数形式の積分は零となる。一方、Kähler形式の最高外冪は正の体積形式となる。この二つは両立しない。
 
-局所正則座標で正値Hermite行列 $G=(g_{j\bar k})$ を用いると、外積の交代性により
+局所正則座標での係数行列 $G=(g_{j\bar k})$ を考える。$n$ 回の外積を展開すると、同じ $dz^j$ または $d\bar z^k$ を二度選んだ項は交代性により零になる。残る項の二組の添字はそれぞれ $1,\ldots,n$ の置換であり、符号を整理すると係数は
+
+$$
+\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)
+\prod_{j=1}^n g_{j\overline{\sigma(j)}}=\det(G)
+$$
+
+となる。各2形式は互いに可換で、同じ項が $n!$ 回現れるから、
 
 $$
 \frac{\omega^n}{n!}
@@ -313,6 +380,24 @@ $$
 $$
 
 $\det(G)>0$ なので、これは各点で正の体積形式である。ここで正値性を行列式に移したのは、[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)による。
+
+この後の $[\omega]^k$ は $[\omega^k]$ を意味する。この記号が代表の選び方に依存しないことも確かめる。$\omega$ と $\omega'=\omega+d\alpha$ が閉2形式なら、2形式同士の外積は可換だから、差の積の因数分解ができる。
+
+$$
+\omega'^k-\omega^k
+=d\alpha\wedge\sum_{j=0}^{k-1}
+\omega'^j\wedge\omega^{k-1-j}.
+$$
+
+和の各項は閉形式なので、[外微分のLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)から
+
+$$
+\omega'^k-\omega^k
+=d\left(\alpha\wedge\sum_{j=0}^{k-1}
+\omega'^j\wedge\omega^{k-1-j}\right).
+$$
+
+従って $[\omega'^k]=[\omega^k]$ である。これは一般のコホモロジー環の理論を前提にしない、この章で必要な代表の独立性の確認である。
 
 <a id="thm-kah1-13-compact-nonzero"></a>
 
@@ -398,7 +483,7 @@ $$
 $\mathbb C$ で $\varphi=|z|^2$ とする。$i\partial\bar\partial\varphi$ の実座標式を求め、正値性、閉性、完全性をそれぞれ確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $z=x+iy$ とすると $\partial_z\varphi=\bar z$、$\partial_{\bar z}\varphi=z$ である。よって $\partial_z\partial_{\bar z}\varphi=1$ であり、
+**詳細解答。** [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を $z=x+iy$ に適用すると $\partial_z\varphi=\bar z$、$\partial_{\bar z}\varphi=z$ である。よって $\partial_z\partial_{\bar z}\varphi=1$ であり、
 
 $$
 i\partial\bar\partial\varphi
@@ -423,7 +508,7 @@ $$
 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ に $\omega_0=i\,dz\wedge d\bar z$ を入れる。正の実閉 $(1,1)$ 形式であること、$\int_T\omega_0=2$、$[\omega_0]\ne0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 格子平行移動は $dz$ を変えないので $\omega_0$ は商に降りる。共役をとると実形式で、$(1,1)$ 型、$-i\omega_0(v,\bar v)=|v|^2>0$。複素一次元では外微分は3形式で零となる。基本領域 $0\le x,y\le1$ で
+**詳細解答。** [複素トーラスへの降下](../KAH1-05/index.md#prop-kah1-05-torus)のとおり、格子平行移動は $dz$ を変えないので $\omega_0$ は商に降りる。共役をとると実形式で、$(1,1)$ 型、$-i\omega_0(v,\bar v)=|v|^2>0$。複素一次元では外微分は3形式で零となる。基本領域 $0\le x,y\le1$ で
 
 $$
 \int_T\omega_0=\int_0^1\!\int_0^1 2\,dx\,dy=2.
@@ -447,7 +532,7 @@ $$
 =\frac{11\pi}{2}.
 $$
 
-類も $[\tau]=\frac14[\omega_1]+\frac34[\omega_2]$ で、Kähler cone の凸性を具体化している。
+類も $[\tau]=\frac14[\omega_1]+\frac34[\omega_2]$ で、[Kähler cone の凸性](#prop-kah1-13-convex)を具体化している。
 <!-- solution-end -->
 
 <a id="ex-kah1-13-a04"></a>
@@ -457,7 +542,7 @@ $$
 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $\omega_\varepsilon=\omega_0+i\partial\bar\partial(\varepsilon\cos2\pi x)$ を考える。正値性の必要十分条件とde Rham類を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ なので
+**詳細解答。** [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)の定義から $\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ なので
 
 $$
 \partial_z\partial_{\bar z}(\varepsilon\cos2\pi x)
@@ -476,7 +561,7 @@ $$
 コンパクトで境界のない複素次元3のKähler多様体 $(X,\omega)$ について、$[\omega]^2=0$ と仮定して矛盾を導け。使う微分形式の次数とStokesの適用条件を明示せよ。
 
 <!-- solution-start -->
-**詳細解答。** $[\omega]^2=0$ なら、[de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)から実3形式 $\beta$ が存在して $\omega^2=d\beta$。$\omega$ は閉2形式で、外微分のLeibniz則より
+**詳細解答。** $[\omega]^2=0$ なら、[de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)から実3形式 $\beta$ が存在して $\omega^2=d\beta$。$\omega$ は閉2形式で、[外微分のLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)より
 
 $$
 d(\beta\wedge\omega)
@@ -484,7 +569,7 @@ d(\beta\wedge\omega)
 =\omega^2\wedge\omega=\omega^3.
 $$
 
-$\beta\wedge\omega$ は実5形式なので、実6次元の $X$ にStokesを適用できる。境界なし・コンパクトだから
+$\beta\wedge\omega$ は実5形式なので、実6次元の $X$ に[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用できる。境界なし・コンパクトだから
 
 $$
 \int_X\omega^3=\int_Xd(\beta\wedge\omega)
@@ -532,7 +617,7 @@ $$
 =2ab\,\alpha\wedge\beta.
 $$
 
-[射影直線の面積](../KAH1-07/index.md#thm-kah1-07-area)とA02のトーラス積分を使えば
+[射影直線の面積](../KAH1-07/index.md#thm-kah1-07-area)と[A02のトーラス積分](#ex-kah1-13-a02)を使えば
 
 $$
 \int_X\omega_{a,b}^2
@@ -566,7 +651,7 @@ $$
 4. $ab>0$ という積分の正値条件だけではKähler性を導けない具体的な組を挙げよ。
 
 <!-- solution-start -->
-**詳細解答。** 第1問。$\varphi_T=\varepsilon\cos2\pi x$ なら、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)とA04の計算から
+**詳細解答。** 第1問。$\varphi_T=\varepsilon\cos2\pi x$ なら、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)と[A04の計算](#ex-kah1-13-a04)から
 
 $$
 i\partial\bar\partial(\varphi_T\circ\pi_2)
