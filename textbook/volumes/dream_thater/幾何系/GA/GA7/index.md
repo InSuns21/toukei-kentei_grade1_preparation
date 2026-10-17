@@ -365,7 +365,33 @@ $$
 +\int_M\operatorname{Ric}(\alpha^\sharp,\alpha^\sharp)\,dV_g
 $$
 
-とします。[GA6の随伴関係](../GA6/index.md#prop-ga6-adjoint)から左辺は $\|d\alpha\|_2^2+\|\delta\alpha\|_2^2$ です。右辺の第一項は、$\nabla$ の計量両立性と発散定理によって $\|\nabla\alpha\|_2^2$ に等しくなります。具体的には局所正規直交標構で $\operatorname{div}\bigl(\sum_i\langle\nabla_{e_i}\alpha,\alpha\rangle e_i\bigr)$ を積分し、境界積分を零と置くと二階微分項が $\nabla^*\nabla$ に変わります。従って表示式を得ます。
+とします。[GA6の随伴関係](../GA6/index.md#prop-ga6-adjoint)から左辺は $\|d\alpha\|_2^2+\|\delta\alpha\|_2^2$ です。右辺の第一項を計算します。局所正規直交標構で、1形式の計量からベクトル場
+
+$
+W=\sum_i\langle\nabla_{e_i}\alpha,\alpha\rangle e_i
+$
+
+を作ります。点 $p$ で $\nabla_{e_i}e_j(p)=0$ となる標構を選び、計量両立性と積の微分規則を使うと
+
+$
+\begin{aligned}
+\operatorname{div}_gW
+&=\sum_i e_i\langle\nabla_{e_i}\alpha,\alpha\rangle\\
+&=\sum_i\langle\nabla_{e_i}\nabla_{e_i}\alpha,\alpha\rangle
+  +\sum_i|\nabla_{e_i}\alpha|^2\\
+&=-\langle\nabla^*\nabla\alpha,\alpha\rangle
+  +|\nabla\alpha|^2.
+\end{aligned}
+$
+
+両辺はスカラーなので各点で成立します。コンパクト・境界なしの仮定をここで使い、発散定理により $\int_M\operatorname{div}_gW\,dV_g=0$ と置けば
+
+$
+(\nabla^*\nabla\alpha,\alpha)_2
+=\int_M|\nabla\alpha|^2\,dV_g
+$
+
+を得ます。これを先ほどの式へ代入して表示式が成立します。
 <!-- proof-end -->
 
 <a id="thm-ga7-bochner-vanishing"></a>
