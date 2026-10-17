@@ -263,7 +263,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mf4-modular-curve -->
-**定義の確認**。$\Gamma_0(2)$ にはカスプ軌道 $\infty,0$ があり、幅はそれぞれ $1,2$。$\infty$ へは $q_\infty=e^{2\pi i\tau}$、$0$ へは $q_0=e^{\pi i\tau}$ の各原点を加えます。これは $\tau=\infty$ と $\tau=0$ を上半平面の通常点として扱う操作ではありません。各穿孔円板の $q_s=0$ を一つずつ充填する操作です。楕円固定点も具体的に調べます。$\Gamma_0(2)$ の行列
+**定義の確認**。$\Gamma_0(2)$ にはカスプ軌道 $\infty,0$ があり、幅はそれぞれ $1,2$。$\infty$ へは $q_\infty=e^{2\pi i\tau}$、$0$ へは $q_0=e^{\pi i\tau}$ の各原点を加えます。これは $\tau=\infty$ と $\tau=0$ を上半平面の通常点として扱う操作ではありません。各穿孔円板の $q_s=0$ を一つずつ充填する操作です。
+
+楕円固定点も具体的に調べます。$\Gamma_0(2)$ の行列
 
 $$
 A=\begin{pmatrix}1&1\\-2&-1\end{pmatrix},\qquad A^2=-I
