@@ -67,7 +67,7 @@ A=\sigma_{s'}^{-1}D\sigma_s
 \qquad \alpha,\delta>0,\quad \alpha\delta=d.
 $$
 
-$A$ が上三角なのは $A\cdot\infty=\infty$ だからである。$\sigma_s,\sigma_{s'}$ は整数行列で行列式1なので、$\alpha,\beta,\delta$ は整数である。カスプ幅の定義から $\sigma_sT^{h_s}\sigma_s^{-1}\in\Gamma_0(N)$ であり、先ほど証明した $D\Gamma_0(N)D^{-1}\subseteq\Gamma_0(M)$ を使うと
+$\sigma_{s'}$ の符号は必要なら $-1$ 倍して $\alpha,\delta>0$ とできる。$A$ が上三角なのは $A\cdot\infty=\infty$ だからである。$\sigma_s,\sigma_{s'}$ は整数行列で行列式1なので、$\alpha,\beta,\delta$ は整数である。カスプ幅の定義から $\sigma_sT^{h_s}\sigma_s^{-1}\in\Gamma_0(N)$ であり、先ほど証明した $D\Gamma_0(N)D^{-1}\subseteq\Gamma_0(M)$ を使うと
 
 $$
 AT^{h_s}A^{-1}=T^{\alpha h_s/\delta}
@@ -375,7 +375,7 @@ $$
 \sum_{\delta\mid N}(N/\delta)r_\delta\equiv0\pmod{24}
 $$
 
-ならば、$F$ は $\Gamma_0(N)$ 上で重さ $k$、ある二次指標の変換則を満たします。さらに $(-1)^k\prod_\delta\delta^{r_\delta}$ が整数の平方数であれば、この指標は自明です。この判定は**変換則**についてのもので、全カスプでの正則性・消失は別に検査します。一般の判定法の証明は本章では引用します。
+ならば、$F$ は $\Gamma_0(N)$ 上で重さ $k$、ある二次指標の変換則を満たします。さらに $(-1)^k\prod_\delta\delta^{r_\delta}$ が整数の平方数であれば、この指標は自明です。この判定は**変換則**についてのもので、全カスプでの正則性・消失は別に検査します。一般の判定法は Ken Ono, *The Web of Modularity* (2004), Theorem 1.64 を参照し、本章では証明を引用します。
 
 <a id="prop-mf7-level-eleven"></a>
 <!-- formal-statement-start -->
@@ -422,7 +422,16 @@ f_{11}\!\left(-\frac1{11\tau}\right)
 \end{aligned}
 $$
 
-[MF6のFricke作用](../MF6/index.md#def-mf6-fricke)の行列式因子を含めると $f_{11}|_2W_{11}=-f_{11}$ です。従ってカスプ $0$ でも、無限遠での正の $q$ 冪展開と同じく定数項が0です。これで全カスプの消失を確認しました。
+[MF6のFricke作用](../MF6/index.md#def-mf6-fricke)の行列式因子を含めると $f_{11}|_2W_{11}=-f_{11}$ です。ただし、これはFricke正規化の座標での式です。[MF4のカスプ幅](../MF4/index.md#prop-mf4-prime-cusps)によれば $0$ の幅は $11$ なので、$S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ で無限遠へ移した後の局所変数は $q_0=e^{2\pi i\tau/11}$ です。$W_{11}$ の引数を $z=\tau/11$ と取ると
+
+$$
+(f_{11}|_2S)(\tau)
+=\frac1{11}(f_{11}|_2W_{11})(\tau/11)
+=-\frac1{11}f_{11}(\tau/11)
+=-\frac1{11}q_0+O(q_0^2).
+$$
+
+従ってカスプ $0$ でも負冪・定数項がなく、幅11の局所変数で正則かつ消失します。これで全カスプの消失を確認しました。
 
 $q$ 展開は $\eta$ の積から
 
@@ -616,7 +625,14 @@ $$
 (f|_2W_{11})(\tau)=\frac{1}{11\tau^2}(-11\tau^2f(\tau))=-f(\tau).
 $$
 
-[MF4の素数レベルのカスプ分類](../MF4/index.md#prop-mf4-prime-cusps)では $\infty,0$ の2カスプだけなので、$\infty$ で $q$ から始まることと $0$ での変換後の展開が $-q+O(q^2)$ となることから、両カスプで定数項が0です。ただし、これだけでは上半平面での正則性と $\Gamma_0(11)$ 変換則を示していないため、モジュラー形式性の証明を省いてよいわけではありません。
+[MF4の素数レベルのカスプ分類](../MF4/index.md#prop-mf4-prime-cusps)では $\infty,0$ の2カスプだけです。Fricke正規化では $-q+O(q^2)$ ですが、カスプ $0$ の本来の幅は11です。$q_0=e^{2\pi i\tau/11}$ として
+
+$$
+(f|_2S)(\tau)=\frac1{11}(f|_2W_{11})(\tau/11)
+=-\frac1{11}q_0+O(q_0^2)
+$$
+
+なので、無限遠でもカスプ $0$ でも定数項が0です。ただし、これだけでは上半平面での正則性と $\Gamma_0(11)$ 変換則を示していないため、モジュラー形式性の証明を省いてよいわけではありません。
 <!-- solution-end -->
 
 ### C1. レベル2のoldformからレベル11のnewformまで
