@@ -199,16 +199,13 @@ $$
 
 全カスプの正則性は、[MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で確かめます。入力側のカスプを $s=\sigma_s\infty$ とし、行列 $A$ の像と同じ軌道にある代表を $s'=\sigma_{s'}\infty$ とします。
 
-ある $\gamma\in\Gamma_0(N)$ について $\gamma A\sigma_s\infty=s'$ です。従って
-$
+ある $\gamma\in\Gamma_0(N)$ について $\gamma A\sigma_s\infty=s'$ です。従って次の行列は $\infty$ を固定します。
+$$
 B=\sigma_{s'}^{-1}\gamma A\sigma_s
-$
-は $\infty$ を固定するので、
+=\begin{pmatrix}u&v\\0&w\end{pmatrix},
+\qquad u/w>0.
 $$
-B=\begin{pmatrix}u&v\\0&w\end{pmatrix},
-\qquad u/w>0
-$$
-と書けます。既習の全カスプ展開は
+既習の全カスプ展開は
 $$
 (f|_k\sigma_{s'})(\tau)
 =\sum_{m\ge0}a_m(s')e^{2\pi i m\tau/h_{s'}}
