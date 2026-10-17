@@ -292,7 +292,7 @@ g^{m\bar q}(p)\underbrace{\partial_i g_{k\bar q}(p)}_{0}
                  \underbrace{\partial_{\bar j}g_{m\bar\ell}(p)}_{0}=0.
 $$
 
-従って最初の式を得る。[局所Kählerポテンシャルの定理](../KAH1-04/index.md#thm-kah1-04-local-potential)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
+従って最初の式を得る。[局所Kählerポテンシャルの定理](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
 <!-- proof-end -->
 
 **二変数の直接計算。** 原点付近の $\mathbb C^2$ で実数 $\lambda$ に対して
