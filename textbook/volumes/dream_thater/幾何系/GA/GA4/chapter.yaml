@@ -1,0 +1,33 @@
+id: "GA4"
+title: "Laplace作用素のスペクトル理論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA3
+  - FA7
+official_scope: []
+learning_objectives:
+  - 反応Poisson問題を使ってL2上の非負自己共役Laplacianの作用素領域とレゾルベントを具体的に構成できる
+  - 弱形式からレゾルベントの有界性・自己共役性・正値性・単射性を検証できる
+  - 多様体Rellichの定理からレゾルベントのコンパクト性を示せる
+  - コンパクト自己共役スペクトル定理を適用して固有関数系と離散固有値・定数核を構成できる
+  - H1上のエネルギー級数表示を密度の論証で導ける
+  - Rayleigh商とmin--max原理を証明し第一正固有値とPoincare定数を結び付けられる
+  - 円・平坦トーラス・球面で固有関数と固有値の符号・多重度を点検できる
+  - 非コンパクトではcompact resolventと正のスペクトルギャップが失敗しうる理由を例で説明できる
+definitions:
+  - { id: GA4-DEF-01, name: "LaplacianのL2実現とレゾルベント" }
+  - { id: GA4-DEF-02, name: "多様体LaplacianのRayleigh商" }
+theorems:
+  - { id: GA4-THM-01, name: "レゾルベントの有界自己共役性と正値性" }
+  - { id: GA4-THM-02, name: "コンパクトなレゾルベント" }
+  - { id: GA4-THM-03, name: "Laplacianの固有関数展開と自己共役性" }
+  - { id: GA4-LEM-01, name: "H1の固有関数展開とエネルギー恒等式" }
+  - { id: GA4-THM-04, name: "Rayleigh--Ritzとmin--max原理" }
+  - { id: GA4-COR-01, name: "第一正固有値と平均零Poincare不等式" }
+canonical_examples: [円のFourier固有関数, 平坦トーラスの波数, 球面の座標関数, 実直線上の平行移動反例]
+problem_patterns: [GA4-RESOLVENT-CIRCLE, GA4-KERNEL, GA4-TORUS, GA4-SPHERE, GA4-RELLICH, GA4-POINCARE, GA4-MINMAX-CIRCLE, GA4-NONCOMPACT]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 1.5 }
