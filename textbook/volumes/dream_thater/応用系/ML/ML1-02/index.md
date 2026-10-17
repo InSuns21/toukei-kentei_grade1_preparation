@@ -346,6 +346,8 @@ q1 = [0.14 / 0.48, 0.34 / 0.48]
 c_fp = 3.0
 c_fn = 2.0
 assert 0 < pi1 < 1
+assert c_fp > 0 and c_fn > 0
+assert all(0 <= v <= 1 for v in q0 + q1)
 assert abs(sum(q0) - 1) < 1e-12 and abs(sum(q1) - 1) < 1e-12
 pi0 = 1.0 - pi1
 
@@ -376,6 +378,8 @@ q1 = [0.14 / 0.48, 0.34 / 0.48]
 c_fp = 3.0
 c_fn = 2.0
 assert 0 < pi1 < 1
+assert c_fp > 0 and c_fn > 0
+assert all(0 <= v <= 1 for v in q0 + q1)
 assert abs(sum(q0) - 1) < 1e-12 and abs(sum(q1) - 1) < 1e-12
 pi0 = 1.0 - pi1
 threshold = c_fp / (c_fp + c_fn)
@@ -399,7 +403,7 @@ print("threshold=", round(threshold, 4), "Bayes risk=", round(risk_total, 4))
 assert abs(threshold - c_fp / (c_fp + c_fn)) < 1e-12
 expected = sum(min(c_fn * pi1 * q1[i], c_fp * pi0 * q0[i]) for i in range(2))
 assert abs(risk_total - expected) < 1e-12
-assert abs(risk_total - 0.76) < 1e-12
+assert 0 < threshold < 1  # 変更した正の費用にも対応する
 ~~~
 
 模範値は $t_c=0.6$、行動 $(0,1)$、Bayesリスク $0.76$。$c_{\mathrm{FP}}=4,c_{\mathrm{FN}}=1$ に変更すると、二つの入力とも行動0、リスク $0.48$ になる。クラス1の事前確率 $\pi_1$ を変えた場合は**両クラスの条件付き入力分布 $q_0,q_1$ を固定**するので、入力分布と事後確率も変わる。費用を変えた場合は分布は固定のまま、最小化すべき量だけが変わる。この二つの実験を区別しよう。
