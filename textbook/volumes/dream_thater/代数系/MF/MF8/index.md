@@ -236,7 +236,9 @@ $$
 <a id="prop-mf8-frey-invariants"></a>
 <!-- formal-statement-start -->
 > **命題（Frey曲線の判別式と奇素数での還元）**  
-> 上記の仮想的原始解に対応するFrey曲線の判別式と $c_4$ は
+> 奇素数 $\ell\ge5$ と互いに素な非零整数 $a,b,c$ で $a^\ell+b^\ell=c^\ell$ を満たし、$a$ は偶数、$b,c$ は奇数とする。
+>
+> $A=a^\ell$、$B=b^\ell$ と置く。[Frey曲線](#def-mf8-frey-curve) $E:y^2=x(x-A)(x+B)$ の判別式と $c_4$ は
 
 $$
 \Delta=16(abc)^{2\ell},\qquad
@@ -319,7 +321,9 @@ Frey曲線の「多くの素数で判別式の付値が $\ell$ の倍数」と�
 <a id="thm-mf8-ribet-frey"></a>
 <!-- formal-statement-start -->
 > **定理（Frey–Ribetの帰結：外部大定理）**  
-> 奇素数 $\ell\ge5$ に対して、原始非零整数解 $a^\ell+b^\ell=c^\ell$ が存在すると仮定し、上記のFrey曲線 $E_{a,b,\ell}$ を作る。この曲線が[Modularity Theorem](#thm-mf8-modularity)によりモジュラーであるなら、Frey曲線の残余Galois表現に対するRibetのlevel lowering（その適用に必要な既約性・局所条件の検証を含む）から、レベル2・重さ2・自明指標の非零newformが存在する。
+> 奇素数 $\ell\ge5$ に対し、非零整数で互いに素な $a,b,c$ が $a^\ell+b^\ell=c^\ell$ を満たすと仮定する。
+>
+> この解から[Frey曲線](#def-mf8-frey-curve) $E_{a,b,\ell}:y^2=x(x-a^\ell)(x+b^\ell)$ を作る。曲線が[Modularity Theorem](#thm-mf8-modularity)によりモジュラーであるなら、Ribetのlevel loweringと、残余Galois表現の既約性・必要な局所条件に関する深い結果を組み合わせることで、レベル2・重さ2・自明指標の非零newformが存在する。
 <!-- formal-statement-end -->
 
 この外部定理には、残余表現の既約性、素数2の最小モデル・導手、$\ell$ における局所条件、level loweringを適用するための算術的検証が**すべて含まれます**。これらを判別式の計算だけで証明したとは主張しません。[前節の判別式と $c_4$ の命題](#prop-mf8-frey-invariants)は深い定理の適用条件を理解する重要な入口ですが、その全条件を証明したことにはなりません。
@@ -367,7 +371,7 @@ $$
 <a id="cor-mf8-flt-bridge"></a>
 <!-- formal-statement-start -->
 > **系（Fermatの最終定理への論理的帰結）**  
-> Modularity Theorem、上記Frey–Ribetの帰結、指数3と4の場合の古典的なFermat定理を外部定理として認めると、任意の整数 $n>2$ に対し、非零整数 $x,y,z$ で $x^n+y^n=z^n$ を満たすものは存在しない。
+> [Modularity Theorem](#thm-mf8-modularity)、[Frey–Ribetの帰結](#thm-mf8-ribet-frey)、指数3と4の場合の古典的なFermat定理を外部定理として認める。すると任意の整数 $n>2$ に対し、非零整数 $x,y,z$ で $x^n+y^n=z^n$ を満たすものは存在しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
