@@ -52,7 +52,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-15-ricci-flat -->
-**定義の確認**（複素トーラス）。 実階数 $2n$ の格子 $\Lambda\subset\mathbb C^n$ による商 $T=\mathbb C^n/\Lambda$ を取り、$\omega_0=i\sum_jdz^j\wedge d\bar z^j$ を降ろす。[平坦トーラスの曲率計算](../KAH1-10/index.md#prop-kah1-10-flat-torus)により平行移動で局所係数が変わらず、$\omega_0$ は大域的な正の実閉 $(1,1)$ 形式となる。各商チャートで $\det g=1$、よって $\rho=0$。この例では強い意味で全曲率も零だが、Ricci平坦の**定義**は全曲率消失を要求しない。
+**定義の確認**（複素トーラス）。実階数 $2n$ の格子 $\Lambda\subset\mathbb C^n$ による商を $T=\mathbb C^n/\Lambda$ とする。標準計量の基本形式は
+
+$
+\omega_0=i\sum_jdz^j\wedge d\bar z^j
+$
+
+である。[平坦トーラスの曲率計算](../KAH1-10/index.md#prop-kah1-10-flat-torus)により、格子の平行移動でこの形式と正値性は変わらず、$T$ 上へ降りる。係数一定なので閉じた実 $(1,1)$ 形式である。
+
+各商チャートでの計量行列は単位行列だから
+
+$
+\det g=1,\qquad
+\rho=-i\partial\bar\partial\log1=0.
+$
+
+したがってRicci平坦の定義を直接満たす。この例は全曲率も零だが、Ricci平坦の定義が要求するのはRicci形式の消失だけである。
 <!-- definition-example-end -->
 
 行列で検算すると、$\rho=\lambda\omega$ は次の成分ごとの関係と同値になる。
@@ -498,7 +513,22 @@ $$
 
 最後の等号は $\alpha$ の局所ポテンシャル式から従い、両辺は大域形式なのでこの計算を各チャートで照合できる。
 
-第3問。$C_1=\mathbb{CP}^1\times\{t_0\}$ へ制限すると、$C_1$ では $\beta=0$ なので $2\alpha=\lambda a\alpha$。$\alpha$ は正値・非零だから $\lambda a=2$。一方、$C_2=\{p_0\}\times T$ へ制限すると $\alpha=0$、$\beta$ は正値・非零なので $0=\lambda b\beta$ から $\lambda b=0$。$b>0$ により $\lambda=0$ となり、$\lambda a=2$ と矛盾する。どの $a,b>0$ もEinstein計量にならない。
+第3問。$C_1=\mathbb{CP}^1\times\{t_0\}$ に制限すると $\beta=0$ であり、$\alpha$ は非零なので
+
+$
+2\alpha=\lambda a\alpha
+\quad\Longrightarrow\quad \lambda a=2.
+$
+
+一方、$C_2=\{p_0\}\times T$ に制限すると $\alpha=0$ であり、$\beta$ は非零なので
+
+$
+0=\lambda b\beta
+\quad\Longrightarrow\quad \lambda b=0
+\quad\Longrightarrow\quad \lambda=0
+$
+
+となる。最後は $b>0$ を使った。すると $\lambda a=2$ に矛盾するから、どの $a,b>0$ に対してもこの積計量はEinsteinではない。
 
 第4問。[Ricci–Chern対応](../KAH1-12/index.md#thm-kah1-12-ricci-chern)を既に構成した計量に適用すると $2\pi c_1(X)_{\mathbb R}=[2\alpha]$。$C_1$ 上の周期は
 
