@@ -1,0 +1,40 @@
+id: "KAH1-10"
+title: "曲率の具体計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-09
+  - VC7
+official_scope: []
+learning_objectives:
+  - 前章の符号規約から正則断面曲率とRicci縮約の定義を具体例で検算できる
+  - 一定係数Kähler計量を格子商へ降ろし平坦性とRicci消失を導ける
+  - 複素一次元の共形計量で接続と曲率とGauss曲率を途中式から計算できる
+  - 正規座標で一階微分が消えても曲率が残る模型を説明できる
+  - Fubini–Studyの原点で二階微分と四階曲率を直接計算できる
+  - 射影ユニタリ変換による等長性から原点の曲率を全点へ延長できる
+  - Fubini–StudyのRicci縮約と定正則断面曲率を規格化込みで説明できる
+  - 計量の定数倍および平坦因子との積で曲率がどう変わるか計算できる
+definitions:
+  - { id: KAH1-10-DEF-01, name: 正則断面曲率 }
+  - { id: KAH1-10-DEF-02, name: Kähler曲率のRicci縮約 }
+theorems:
+  - { id: KAH1-10-PROP-01, name: 平坦トーラスの全曲率の消失 }
+  - { id: KAH1-10-PROP-02, name: 複素一次元の共形曲率公式 }
+  - { id: KAH1-10-THM-01, name: Fubini–Study曲率とRicci縮約 }
+  - { id: KAH1-10-PROP-03, name: 定数倍による曲率の変化 }
+canonical_examples:
+  - 定数Hermite行列と平坦複素トーラス
+  - 指数型共形計量の正負曲率と正規座標で残る曲率
+  - Fubini–Study計量の原点および非原点の具体成分
+  - 射影計量の定数倍と平坦トーラスとの積
+problem_patterns:
+  - KAH1-10-RICCI-CONTRACTION
+  - KAH1-10-CONFORMAL-SIGN
+  - KAH1-10-FUBINI-STUDY-ORIGIN
+  - KAH1-10-PROJECTIVE-UNITARY
+  - KAH1-10-SCALING-PRODUCT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
