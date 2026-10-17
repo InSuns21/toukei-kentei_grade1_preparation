@@ -24,15 +24,15 @@ $$
 
 たとえば標準円で初期値を $f(\theta)=2+3\cos\theta+\sin(2\theta)$ とすると、$\Delta_g\cos\theta=-\cos\theta$、$\Delta_g\sin2\theta=-4\sin2\theta$ です。ここで $u(t,\theta)=a_0(t)+a_1(t)\cos\theta+b_2(t)\sin(2\theta)$ と置き、熱方程式へ代入して各固有関数の係数を比較すると
 
-$
+$$
 a_0'(t)=0,\qquad a_1'(t)=-a_1(t),\qquad b_2'(t)=-4b_2(t)
-$
+$$
 
 です。初期条件 $a_0(0)=2$、$a_1(0)=3$、$b_2(0)=1$ から、各係数を解いて
 
-$
+$$
 u(t,\theta)=2+3e^{-t}\cos\theta+e^{-4t}\sin(2\theta)
-$
+$$
 
 となり、$\partial_tu=\Delta_gu$ を満たします。定数成分だけは減衰しません。無限個の固有関数でも同じ操作をするため、まず時間発展を作用素として定義します。
 
@@ -209,26 +209,26 @@ $$
 
 小立方体 $Q$ で $\bar v_Q=|Q|^{-1}\int_Qv$ とおきます。まず一辺の区間 $(0,h)$ で $w\in H^1(0,h)$、$\bar w=h^{-1}\int_0^h w(a)\,da$ なら、二重積分による分散の恒等式とCauchy--Schwarzから
 
-$
+$$
 \int_0^h|w-\bar w|^2\,da
 =\frac1{2h}\int_0^h\int_0^h|w(a)-w(b)|^2\,da\,db
-$
+$$
 
-$
+$$
 |w(a)-w(b)|^2
 =\left|\int_b^a w'(c)\,dc\right|^2
 \le |a-b|\int_0^h|w'(c)|^2\,dc
-$
+$$
 
 が成立します。さらに $\int_0^h\int_0^h|a-b|\,da\,db=h^3/3$ なので、左辺は $(h^2/6)\int_0^h|w'|^2$ 以下です。
 
 $d$ 次元では、$v_0=v$ とし、$v_i$ を $v_{i-1}$ の第 $i$ 座標での平均とします。すると $v_d=\bar v_Q$ であり、各方向に今の一次元評価を適用できます。平均と残りの座標の微分は交換し、Jensen不等式で $\|\partial_i v_{i-1}\|_2\le\|\partial_i v\|_2$ です。望む評価は、$v-\bar v_Q=\sum_{i=1}^d(v_{i-1}-v_i)$ と二乗和のCauchy--Schwarzを使って
 
-$
+$$
 \int_Q|v-\bar v_Q|^2\,dz
 \le C_d h^2\sum_{i=1}^d\int_Q|\partial_i v|^2\,dz
 =C_dh^2\int_Q|\nabla_zv|^2\,dz
-$
+$$
 
 となります。有限個の $\alpha$ と立方体について和を取り、$\sum_\alpha\chi_\alpha u=u$ と $\nabla(\chi_\alpha u)=\chi_\alpha\nabla u+u\nabla\chi_\alpha$ を使えば
 
@@ -367,9 +367,9 @@ $$
 
 $\|f_-\|_2=0$ なので $u_-=0$ です。一般の $f\in L^2$、$f\ge0$ に対しては、[GA2の滑らかな関数の密度の証明](../GA2/index.md#thm-ga2-complete-density)を符号も保つ形で使います。非負の1の分割 $\chi_\alpha$ で切った $\chi_\alpha f\ge0$ を各座標で非負の平滑化核と畳み込めば、座標内で非負の滑らかな関数が得られます。これらを零延長して有限和を取った $f_n\ge0$ は $L^2$ で $f$ に収束します。縮小性
 
-$
+$$
 \|T_tf_n-T_tf\|_2\le\|f_n-f\|_2\longrightarrow0
-$
+$$
 
 から $T_tf\ge0$ が従います。さらに、もし $p_t(x_0,y_0)<0$ なら連続性により $y_0$ の近くで負です。その近傍に台を持つ非零の滑らかな $f\ge0$ を取れば $T_tf(x_0)=\int p_t(x_0,y)f(y)dV_g(y)<0$ となり矛盾します。よって $p_t\ge0$ です。
 
@@ -513,11 +513,11 @@ $$
 
 最後のGaussian Fourier積分を確かめます。一変数で $G_t(z)=(4\pi t)^{-1/2}e^{-z^2/(4t)}$、$I_t(a)=\int_{\mathbb R}G_t(z)e^{-iaz}\,dz$ とすると $G_t'(z)=-zG_t(z)/(2t)$ です。Gaussianの減衰により微分と部分積分ができ、
 
-$
+$$
 I_t'(a)=-i\int_{\mathbb R}zG_t(z)e^{-iaz}\,dz
 =2ti\int_{\mathbb R}G_t'(z)e^{-iaz}\,dz
 =-2taI_t(a)
-$
+$$
 
 となります。$I_t(0)=1$ なので $I_t(a)=e^{-ta^2}$ です。$d$ 次元の積分は座標ごとのこの積に分かれ、$\int_{\mathbb R^d}G_t(z)e^{-in\cdot z}\,dz=e^{-t|n|^2}$ を得ます。従って二表示のFourier係数がすべて一致し、滑らかな周期関数の一意なFourier展開から一致します。
 
@@ -556,11 +556,11 @@ $$
 <!-- definition-example-start: def-ga5-stochastic-completeness -->
 **定義の確認**（実直線）：[PDE3の熱核表示](../../../解析系/PDE/PDE3/index.md#thm-pde3-whole-line)によれば、標準計量の $\mathbb R$ 上では $G_t(x-y)=(4\pi t)^{-1/2}e^{-(x-y)^2/(4t)}$ が非負基本解です。このGaussianが最小熱核でもあることは、[PDE3の最大原理](../../../解析系/PDE/PDE3/index.md#thm-pde3-maximum-principle)で確認できます。非負の別の基本解が作る解 $v(t,x)$ と、コンパクト台の非負初期値 $f$ に対する区間 $(-R,R)$ の零Dirichlet解 $w_R$ を比べると、側面で $v\ge0=w_R$ なので $v\ge w_R$ です。一方、全空間解 $G_t*f$ と $w_R$ の差は初期値が零で、側面では $G_t*f$ に等しく、
 
-$
+$$
 0\le G_t*f-w_R
 \le\sup_{\substack{0<s\le t\\z=\pm R}}(G_s*f)(z)
 \longrightarrow0\qquad(R\to\infty)
-$
+$$
 
 と評価できます（最後は $f$ の台が固定され、Gaussianの裾が一様に減衰するため）。よって $v\ge G_t*f$、任意の非負 $f$ について成り立つので、Gaussianが非負熱核の中で最小です。
 
