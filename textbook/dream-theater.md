@@ -685,6 +685,7 @@
 
 1. [GA1 Laplace--Beltrami作用素・Green公式・弱形式](textbook/volumes/dream_thater/幾何系/GA/GA1/index.md)
 2. [GA2 多様体Sobolev空間・貼り合わせ・コンパクト性](textbook/volumes/dream_thater/幾何系/GA/GA2/index.md)
+3. [GA3 楕円型方程式・弱解・最大値原理](textbook/volumes/dream_thater/幾何系/GA/GA3/index.md)
 
 <a id="dt-subject-lorentzian-geometry"></a>
 ### ローレンツ幾何と大域因果構造

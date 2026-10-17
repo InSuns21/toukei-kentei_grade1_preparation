@@ -1,0 +1,36 @@
+id: "GA3"
+title: "楕円型方程式・弱解・最大値原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA2
+  - GPDE9
+  - GEO14
+official_scope: []
+learning_objectives:
+  - コンパクト連結境界なし多様体のPoisson弱解をH1の試験関数で定義し、必要な平均零適合条件を示せる
+  - 平均零H1上のPoincare不等式とLax--Milgram定理から弱解の存在・一意性・安定性を証明できる
+  - 正の零次項を持つ反応Poisson方程式では定数核が消え適合条件が不要になることを証明できる
+  - 局所座標の係数行列と体積密度から一様楕円性を点検し、Euclidの内部H2正則性を多様体へ移せる
+  - 滑らかな係数と外力による局所高階正則性の反復が境界なしの滑らかな解につながる筋道を説明できる
+  - 弱最大値原理を正部分試験関数と境界トレースから証明し、符号の違いを区別できる
+  - 調和関数の強最大値原理を測地球上の障壁関数から証明できる
+  - 境界なしとDirichletおよびNeumann条件の可解性・一意性の違いを検証できる
+definitions:
+  - { id: GA3-DEF-01, name: "多様体Poisson方程式のH1弱解" }
+  - { id: GA3-DEF-02, name: "多様体上の弱劣調和関数" }
+theorems:
+  - { id: GA3-PROP-01, name: "Poisson弱解の積分適合条件" }
+  - { id: GA3-THM-01, name: "コンパクト境界なしPoisson問題の存在一意性" }
+  - { id: GA3-THM-02, name: "正の反応項を持つPoisson問題" }
+  - { id: GA3-THM-03, name: "Poisson方程式の局所正則性" }
+  - { id: GA3-THM-04, name: "弱最大値原理" }
+  - { id: GA3-THM-05, name: "強最大値原理" }
+  - { id: GA3-PROP-02, name: "境界なし調和関数の定数性" }
+  - { id: GA3-PROP-03, name: "DirichletとNeumann問題の比較" }
+canonical_examples: [円のsinによる弱解検証, 定数外力と反応項, 測地球上の一様楕円係数, 区間DirichletとNeumannの符号]
+problem_patterns: [GA3-WEAK-CIRCLE, GA3-COMPATIBILITY, GA3-REACTION, GA3-POSITIVE-PART, GA3-GENERAL-STABILITY, GA3-ELLIPTIC-COORD, GA3-NEUMANN-FLUX, GA3-SYNTHESIS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.5 }

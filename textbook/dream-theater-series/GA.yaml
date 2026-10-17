@@ -16,7 +16,7 @@ chapters:
     title: "多様体Sobolev空間・貼り合わせ・コンパクト性"
   - id: GA3
     path: textbook/volumes/dream_thater/幾何系/GA/GA3
-    status: planned
+    status: completed
     title: "楕円型方程式・弱解・最大値原理"
   - id: GA4
     path: textbook/volumes/dream_thater/幾何系/GA/GA4

@@ -1,0 +1,68 @@
+chapter: GA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA2
+  - GPDE9
+  - GEO14
+concepts:
+  - id: geometric-analysis.h1-weak-poisson
+    name: 多様体Poisson方程式のH1弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多様体Poisson方程式のH1弱解）"]
+    requires: [geometric-analysis.manifold-sobolev, geometric-analysis.green-first]
+  - id: geometric-analysis.poisson-mean-condition
+    name: Poisson弱解の積分適合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson弱解の積分適合条件）"]
+    requires: [geometric-analysis.h1-weak-poisson]
+  - id: geometric-analysis.poisson-existence
+    name: コンパクト境界なしPoisson問題の存在一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト境界なしPoisson問題の存在一意性）"]
+    requires: [geometric-analysis.poisson-mean-condition, geometric-analysis.mean-zero-gradient]
+  - id: geometric-analysis.shifted-poisson
+    name: 正の反応項を持つPoisson問題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の反応項を持つPoisson問題）"]
+    requires: [geometric-analysis.h1-weak-poisson]
+  - id: geometric-analysis.poisson-regularity
+    name: Poisson方程式の局所正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Poisson方程式の局所正則性）"]
+    requires: [geometric-analysis.h1-weak-poisson]
+  - id: geometric-analysis.weak-subharmonic
+    name: 多様体上の弱劣調和関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多様体上の弱劣調和関数）"]
+    requires: [geometric-analysis.manifold-sobolev, geometric-analysis.green-first]
+  - id: geometric-analysis.weak-maximum
+    name: 弱最大値原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（弱最大値原理）"]
+    requires: [geometric-analysis.weak-subharmonic, geometric-analysis.boundary-trace]
+  - id: geometric-analysis.strong-maximum
+    name: 強最大値原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強最大値原理）"]
+    requires: [geometric-analysis.weak-maximum]
+  - id: geometric-analysis.harmonic-constant
+    name: 境界なし調和関数の定数性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界なし調和関数の定数性）"]
+    requires: [geometric-analysis.poisson-existence]
+  - id: geometric-analysis.boundary-compare
+    name: DirichletとNeumann問題の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（DirichletとNeumann問題の比較）"]
+    requires: [geometric-analysis.poisson-mean-condition, geometric-analysis.boundary-trace]
