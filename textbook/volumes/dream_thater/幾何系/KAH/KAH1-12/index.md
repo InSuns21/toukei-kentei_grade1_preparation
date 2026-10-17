@@ -45,7 +45,7 @@ $$
 つまり「反標準束」は単なる逆数記号ではなく、標準束の**双対線束**を意味する。
 
 <!-- definition-example-start: def-kah1-12-canonical -->
-**定義の確認：複素直線と座標変換。** $\mathbb C$ の $z$ 座標では $dz$ が標準束の大域正則枠、$\partial_z$ が反標準束の大域正則枠で、$dz(\partial_z)=1$。局所座標 $w=2z$ を取ると
+**定義の確認**（複素直線と座標変換）。 $\mathbb C$ の $z$ 座標では $dz$ が標準束の大域正則枠、$\partial_z$ が反標準束の大域正則枠で、$dz(\partial_z)=1$。局所座標 $w=2z$ を取ると
 
 $$
 dw=2\,dz,\qquad \partial_w=\frac12\partial_z.
@@ -202,7 +202,7 @@ $$
 ここでの $H^2(X;\mathbb Z)$ は良い被覆における整数値Čech 2-コサイクルの同値類であり、通常の整数係数特異コホモロジーと一致する（良い被覆の比較定理）。以後の式は、その整数類の実係数への写像とde Rham対応を意味する。この比較を**微分計算だけで当然としたのではなく**、対応の局所データを以下で具体的に検算する。
 
 <!-- definition-example-start: def-kah1-12-integral-first-chern -->
-**定義の確認：大域枠がある場合。** $L=X\times\mathbb C$ で同じ非零正則枠 $s$ をすべての $U_\alpha$ に使えば $t_{\alpha\beta}=1$、$\ell_{\alpha\beta}=0$。三重重なりのすべてで $m_{\alpha\beta\gamma}=0$ だから $c_1(L)=0$ となる。これは線束が自明という条件を直接反映する。逆に $c_1(L)=0$ だけから**大域非零正則枠**が存在すると主張することはできない。
+**定義の確認**（大域枠がある場合）。 $L=X\times\mathbb C$ で同じ非零正則枠 $s$ をすべての $U_\alpha$ に使えば $t_{\alpha\beta}=1$、$\ell_{\alpha\beta}=0$。三重重なりのすべてで $m_{\alpha\beta\gamma}=0$ だから $c_1(L)=0$ となる。これは線束が自明という条件を直接反映する。逆に $c_1(L)=0$ だけから**大域非零正則枠**が存在すると主張することはできない。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-12-integrality"></a>
