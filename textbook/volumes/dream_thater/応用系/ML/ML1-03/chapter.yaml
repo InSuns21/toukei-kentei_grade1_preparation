@@ -1,0 +1,48 @@
+id: "ML1-03"
+title: "経験リスク最小化と正則化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-02
+  - OPT1
+official_scope: []
+learning_objectives:
+  - 有限仮説クラスでERM解の存在と同点規則を確認できる
+  - 訓練リスクと母集団リスクの差を過適合の具体例で計算できる
+  - ERM過剰リスクを一様偏差の二倍で抑える決定論的不等式を証明できる
+  - 非負ペナルティと係数を用いた正則化目的を構成できる
+  - 正則化係数を変えたときのペナルティと訓練リスクの単調性を証明できる
+  - 制約付きERMと正則化付きERMの正しい含意と逆向きの反例を説明できる
+  - 一変数二次模型を平方完成し解の縮小・存在・一意性を証明できる
+  - 未知の母集団リスクと正則化目的値を混同せず実験結果を解釈できる
+  - Pythonラボで係数を変えて最小解・損失・ペナルティを再計算できる
+definitions:
+  - { id: ML1-03-DEF-01, name: 経験リスク最小化 }
+  - { id: ML1-03-DEF-02, name: 正則化付き経験リスク最小化 }
+  - { id: ML1-03-DEF-03, name: 複雑さ制約付き経験リスク最小化 }
+theorems:
+  - { id: ML1-03-PROP-01, name: ERMの母集団リスク比較 }
+  - { id: ML1-03-THM-01, name: 正則化係数に対する単調性 }
+  - { id: ML1-03-PROP-02, name: 正則化解は対応する制約問題の解 }
+  - { id: ML1-03-THM-02, name: 一変数二次模型の正則化解 }
+canonical_examples:
+  - 未観測入力で異なる二候補の同点ERMと母集団リスク
+  - 有限候補のペナルティと閾値で最小解が切り替わる例
+  - 制約付きERM解がいかなる係数の正則化解でもない三候補反例
+  - 二次模型での平方完成による縮小と目的値の検算
+  - 係数の実験でERM・正則化目的・母集団リスクを区別
+problem_patterns:
+  - ML1-03-A01
+  - ML1-03-A02
+  - ML1-03-A03
+  - ML1-03-A04
+  - ML1-03-A05
+  - ML1-03-B01
+  - ML1-03-B02
+  - ML1-03-B03
+  - ML1-03-B04
+  - ML1-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
