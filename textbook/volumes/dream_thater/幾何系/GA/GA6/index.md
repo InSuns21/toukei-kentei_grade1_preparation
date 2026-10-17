@@ -4,7 +4,7 @@
 
 到達順序は、**計量から形式の内積を作る → 外微分の随伴を作る → 微分形式のLaplacianを作る → 楕円型評価とスペクトル分解 → 調和・完全・余完全への直交分解 → de Rhamとの同型**です。関数の場合の固有関数展開を引用するだけでは、形式の作用素が楕円型かどうかも、その核が有限次元かどうかも分かりません。必要な橋渡しを本章で証明します。
 
-以下、特に断らない限り $(M,g)$ は**滑らか・連結・向き付けられた・コンパクト・境界なし**の $n$ 次元Riemann多様体（$n\ge1$）です。実数値の滑らかな $k$ 次[微分形式](../../GEO/GEO7/index.md#def-geo7-differential-form)全体を $\Omega^k(M)$ とし、$0\le k\le n$ とします。[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)を $d:\Omega^k\to\Omega^{k+1}$ と書きます。$k<0$ または $k>n$ の形式は $0$ と約束します。計量の[体積形式](../../GEO/GEO12/index.md#def-geo12-riemannian-volume-form)は $dV_g$、実数値 $L^2$ 内積は $(\cdot,\cdot)_2$ とします。
+以下、特に断らない限り $(M,g)$ は**滑らか・連結・向き付けられた・コンパクト・境界なし**の $n$ 次元Riemann多様体（$n\ge1$）です。実数値の滑らかな $k$ 次[微分形式](../../GEO/GEO7/index.md#def-geo7-differential-form)全体を $\Omega^k(M)$ とし、$0\le k\le n$ とします。[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)を $d:\Omega^k\to\Omega^{k+1}$ と書きます。$k<0$ または $k>n$ の形式は $0$ と約束します。計量の[体積形式](../../GEO/GEO12/index.md#def-geo12-volume)は $dV_g$、実数値 $L^2$ 内積は $(\cdot,\cdot)_2$ とします。
 
 ## 1. 外微分を内積の側から逆向きにする
 
@@ -32,7 +32,7 @@ $$
 $$
 
 <!-- definition-example-start: def-ga6-hodge-star -->
-**定義の確認**（平坦二次元トーラス）：$\mathbb T^2=\mathbb R^2/(2\pi\mathbb Z)^2$ に計量 $dx^2+dy^2$ と向き $dx\wedge dy$ を入れます。$\langle dx,dx\rangle=\langle dy,dy\rangle=1$、$\langle dx,dy\rangle=0$ で、$dx\wedge dy=dV_g$ です。したがって $*dx=dy$、$*dy=-dx$、$*1=dx\wedge dy$、$*(dx\wedge dy)=1$ です。例えば $dy\wedge*(-dx)=dy\wedge dx=-dV_g$ は $\langle dy,-dx\rangle=0$ とは一致しないので、ここで気を付けます。正しい確認は $dy\wedge*dy=dy\wedge(-dx)=dV_g$、$dx\wedge*dy=dx\wedge(-dx)=0$ です。各基底で内積・向き・符号の三条件を検証でき、$*^2=-1$ が1形式で成立します。
+**定義の確認**（平坦二次元トーラス）：$\mathbb T^2=\mathbb R^2/(2\pi\mathbb Z)^2$ に計量 $dx^2+dy^2$ と向き $dx\wedge dy$ を入れます。$\langle dx,dx\rangle=\langle dy,dy\rangle=1$、$\langle dx,dy\rangle=0$ で、$dx\wedge dy=dV_g$ です。したがって $*dx=dy$、$*dy=-dx$、$*1=dx\wedge dy$、$*(dx\wedge dy)=1$ です。具体的には $dy\wedge*dy=dy\wedge(-dx)=dV_g$、$dx\wedge*dy=dx\wedge(-dx)=0$ です。各基底で内積・向き・符号の三条件を検証でき、$*^2=-1$ が1形式で成立します。
 <!-- definition-example-end -->
 
 積分した形式の内積は
@@ -189,7 +189,7 @@ $$
 
 ### なぜ零固有空間は有限次元か
 
-[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。ここでの **主記号** は、局所的な微分作用素の最高階部分で $\partial_j$ を共変数 $\xi_j$ に置き換えた線形写像です。形式 $v$ に対して、外微分 $d$ の主記号は $\xi\wedge v$、余微分 $\delta$ の主記号は $-\iota_{\xi^\sharp}v$ です。$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-flat-sharp)で得るベクトルを表します。
+[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。ここでの **主記号** は、局所的な微分作用素の最高階部分で $\partial_j$ を共変数 $\xi_j$ に置き換えた線形写像です。形式 $v$ に対して、外微分 $d$ の主記号は $\xi\wedge v$、余微分 $\delta$ の主記号は $-\iota_{\xi^\sharp}v$ です。$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
 
 <a id="lem-ga6-elliptic"></a>
 
@@ -267,7 +267,7 @@ $$
 a(u,v)=(u,v)_2+(du,dv)_2+(\delta u,\delta v)_2
 $$
 
-を置きます。$d,\delta$ は滑らかな係数の一階作用素なので $a$ は有界です。[楕円型評価](#lem-ga6-elliptic)と $(A+B+C)^2\le3(A^2+B^2+C^2)$ により $a(u,u)\ge c\|u\|_{H^1}^2$。よって[GA3で用いたLax--Milgramの定理](../GA3/index.md#thm-ga3-poisson-mean-zero)と同じ弱形式の論法で、任意の $f\in L^2$ に一意の $u=Rf\in H^1$ が存在し
+を置きます。$d,\delta$ は滑らかな係数の一階作用素なので $a$ は有界です。[楕円型評価](#lem-ga6-elliptic)と $(A+B+C)^2\le3(A^2+B^2+C^2)$ により $a(u,u)\ge c\|u\|_{H^1}^2$。よって[GA3で用いたLax--Milgramの定理](../GA3/index.md#thm-ga3-poisson-existence)と同じ弱形式の論法で、任意の $f\in L^2$ に一意の $u=Rf\in H^1$ が存在し
 
 $$
 a(Rf,v)=(f,v)_2\quad\text{for all }v\in H^1\Omega^k
@@ -445,3 +445,294 @@ $$
 **球面 $S^2$**：$0$ 形式は連結性とエネルギーから定数だけです。$2$ 形式は $f\,dV_g$ と書け、$d(f\,dV_g)=0$ は次数のため自動的に成り立ち、$\delta(f\,dV_g)=\pm*df$ です。$\delta=0$ なら $df=0$ なので $f$ は定数。従って $\dim\mathcal H^0=\dim\mathcal H^2=1$。1次については、北極と南極を除いた二つの開集合 $U_N,U_S$ はそれぞれ $\mathbb R^2$ に微分同相です。[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)で閉1形式はそれぞれ $df_N,df_S$ と書けます。共通部分は連結なので $d(f_N-f_S)=0$ から $f_N-f_S$ は定数、片方に定数を足して二つの原始関数を一致させられます。大域的に $\omega=df$ となり $H^1_{\mathrm{dR}}(S^2)=0$。[Hodge--de Rham同型](#thm-ga6-hodge-de-rham)より $b(S^2)=(1,0,1)$ です。
 
 **仮定を外すと**：境界がある場合は $\int_Md(\alpha\wedge*\beta)=\int_{\partial M}\alpha\wedge*\beta$ という項が残るので、前節の随伴関係を境界条件なしで用いることはできません。形式には絶対型・相対型など、次数に合わせた境界条件が必要です。非コンパクトでは、局所楕円型評価は残っても有限被覆による大域定数とRellichのコンパクト性が失われることがあります。$\mathbb R$ 上の $dx$ は形式的には調和ですが $L^2(\mathbb R)$ には属しません。従って「すべての調和形式が有限次元の $L^2$ 核を作る」「すべてのde Rham類が $L^2$ 調和代表を持つ」という結論を無条件に拡張してはいけません。
+
+## 7. 演習
+
+### Level A：符号と定義を自分の手で検証する
+
+<a id="ex-ga6-a01"></a>
+#### GA6-A01 Hodge星と余微分を平坦座標で確かめる
+- Level: A
+
+標準平坦トーラス $\mathbb T^2$ に向き $dx\wedge dy$ を入れる。1形式 $\alpha=\cos x\,dx+\sin y\,dy$ に対し、$*\alpha$、$d\alpha$、$\delta\alpha$、$\Delta_H\alpha$ を求めよ。$*\alpha$ について定義式を内積から確認すること。
+
+<!-- solution-start -->
+**詳細解答**
+
+[星作用素の定義](#def-ga6-hodge-star)より $*dx=dy$、$*dy=-dx$。よって
+
+$$
+*\alpha=\cos x\,dy-\sin y\,dx,
+$$
+
+$$
+\alpha\wedge*\alpha
+=(\cos^2x+\sin^2y)\,dx\wedge dy
+=\langle\alpha,\alpha\rangle_g\,dV_g.
+$$
+
+これで定義式を確認しました。[外微分の定義](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)では
+
+$$
+d\alpha=d(\cos x)\wedge dx+d(\sin y)\wedge dy
+=-\sin x\,dx\wedge dx+\cos y\,dy\wedge dy=0.
+$$
+
+[余微分の定義](#def-ga6-codifferential)で $n=2,k=1$ の符号は $-1$ なので
+
+$$
+\delta\alpha=-*d*\alpha
+=-(\partial_x\cos x+\partial_y\sin y)
+=\sin x-\cos y.
+$$
+
+従って $d\delta\alpha=\cos x\,dx+\sin y\,dy$、$\delta d\alpha=0$。結局 $\Delta_H\alpha=\alpha$ です。$d\alpha=0$ でも $\delta\alpha\ne0$ なので調和とは限らないことも確認できました。
+<!-- solution-end -->
+
+<a id="ex-ga6-a02"></a>
+#### GA6-A02 円上の調和・完全成分
+- Level: A
+
+標準円の1形式 $\omega=(2+\cos\theta)\,d\theta$ について $d\omega$、$\delta\omega$、$\Delta_H\omega$ を計算し、調和成分と完全成分を明示せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+円は1次元なので2形式がなく $d\omega=0$。向き $d\theta$、計量 $d\theta^2$ なら $*(a\,d\theta)=a$、$*f=f\,d\theta$ です。$n=k=1$ の符号 $(-1)^3=-1$ により
+
+$$
+\delta(a\,d\theta)=-*d(a)=-a'(\theta).
+$$
+
+$a=2+\cos\theta$ を代入して $\delta\omega=\sin\theta$、さらに
+
+$$
+\Delta_H\omega=d\delta\omega+\delta d\omega
+=d(\sin\theta)=\cos\theta\,d\theta.
+$$
+
+$\omega=2\,d\theta+d(\sin\theta)$ です。$d(2\,d\theta)=0$、$\delta(2\,d\theta)=0$ なので $2\,d\theta$ が調和、$d(\sin\theta)$ が完全です。円上で2形式は零なので余完全1形式は零です。
+<!-- solution-end -->
+
+<a id="ex-ga6-a03"></a>
+#### GA6-A03 星作用素は形式の長さを保存する
+- Level: A
+
+平坦 $\mathbb T^2$ 上で $\alpha=dx+2dy$ とする。$*\alpha$、$*(*\alpha)$、$\|\alpha\|_2^2$ を求め、$\alpha\wedge*\alpha=\langle\alpha,\alpha\rangle_gdV_g$ を確認せよ。各座標の周期は $2\pi$ とする。
+
+<!-- solution-start -->
+**詳細解答**
+
+[星作用素の基底表示](#def-ga6-hodge-star)から $*\alpha=dy-2dx$ です。もう一度星作用素をかけると
+
+$$
+*(*\alpha)=*dy-2*dx=-dx-2dy=-\alpha,
+$$
+
+これは $k=1,n=2$ の $*^2=(-1)^{1\cdot1}=-1$ と一致します。また
+
+$$
+\alpha\wedge*\alpha=(dx+2dy)\wedge(dy-2dx)
+=dx\wedge dy-4dy\wedge dx=5\,dx\wedge dy.
+$$
+
+従って点ごとのノルム平方は $5$ です。体積は $(2\pi)^2$ なので
+
+$$
+\|\alpha\|_2^2=\int_0^{2\pi}\int_0^{2\pi}5\,dx\,dy=20\pi^2.
+$$
+
+この計算では交差項が消え、$dy\wedge dx=-dx\wedge dy$ の符号に注意が必要です。
+<!-- solution-end -->
+
+<a id="ex-ga6-a04"></a>
+#### GA6-A04 零次形式では非負符号になる
+- Level: A
+
+標準円上の関数 $f(\theta)=2+\cos\theta$ に対し、$\Delta_Hf$、$\|df\|_2^2$、$(\Delta_Hf,f)_2$ を求め、[エネルギー恒等式](#thm-ga6-energy)を直接確認せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$df=-\sin\theta\,d\theta$、$\delta f=0$ です。先ほどの1形式の式 $\delta(a\,d\theta)=-a'$ を $a=-\sin\theta$ に適用すると
+
+$$
+\Delta_Hf=\delta df=-\frac{d}{d\theta}(-\sin\theta)=\cos\theta.
+$$
+
+一方
+
+$$
+\|df\|_2^2=\int_0^{2\pi}\sin^2\theta\,d\theta=\pi.
+$$
+
+内積も
+
+$$
+(\Delta_Hf,f)_2=\int_0^{2\pi}\cos\theta(2+\cos\theta)\,d\theta
+=2\cdot0+\pi=\pi.
+$$
+
+両辺が一致し、$\Delta_H=-\partial_\theta^2\ge0$ です。通常の[関数Laplacianの符号](../GA1/index.md#thm-ga1-green-first) $\Delta_g=\partial_\theta^2\le0$ とは反対になります。
+<!-- solution-end -->
+
+### Level B：解析的道具とコホモロジーをつなぐ
+
+<a id="ex-ga6-b01"></a>
+#### GA6-B01 三成分の直交性を基礎から証明する
+- Level: B
+
+向き付けられたコンパクト境界なし多様体で、滑らかな $(k-1)$ 形式 $\alpha$、$(k+1)$ 形式 $\beta$、調和 $k$ 形式 $h$ に対し、$d\alpha$、$\delta\beta$、$h$ が二つずつ $L^2$ 直交することを証明せよ。境界ありで同じ計算を無条件に使えない箇所も示せ。
+
+<!-- solution-start -->
+**詳細解答**
+
+[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)と[随伴関係](#prop-ga6-adjoint)を順に使うと
+
+$$
+(d\alpha,\delta\beta)_2=(d(d\alpha),\beta)_2=(0,\beta)_2=0.
+$$
+
+ここで $\delta\beta$ は $d$ の随伴を $\beta$ 側へ移した結果であり、次数もそれぞれ $k,k+1$ で合っています。
+
+また[調和性の判定](#thm-ga6-energy)から $dh=\delta h=0$。従って
+
+$$
+(h,d\alpha)_2=(\delta h,\alpha)_2=0,\qquad
+(h,\delta\beta)_2=(dh,\beta)_2=0.
+$$
+
+三つの内積が零になりました。境界があれば[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で積分したときの境界項が残り、$(d\alpha,\beta)=(\alpha,\delta\beta)$ が任意の形式では成立しません。そのため境界条件・作用素領域の指定が必要です。
+<!-- solution-end -->
+
+<a id="ex-ga6-b02"></a>
+#### GA6-B02 Green作用素を固有値ごとに使う
+- Level: B
+
+標準円上の1形式 $\omega=(3+2\sin\theta+\cos2\theta)\,d\theta$ について、調和射影 $P_1\omega$、$G_1\omega$、$\Delta_HG_1\omega$ を計算せよ。固有値ごとに係数を割る理由も明記せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+円上の $\Delta_H(a\,d\theta)=-a''\,d\theta$ なので、定数・$\sin\theta$・$\cos2\theta$ の固有値はそれぞれ $0,1,4$ です。異なる波数は円で直交するので、零固有空間への射影は
+
+$$
+P_1\omega=3\,d\theta.
+$$
+
+[Green作用素の定義](#def-ga6-green-operator)では正固有値 $\lambda$ の固有成分に $\lambda^{-1}$ を掛けるため
+
+$$
+G_1\omega=\left(2\sin\theta+\frac14\cos2\theta\right)d\theta.
+$$
+
+実際、$\Delta_H$ を作用させると
+
+$$
+\Delta_HG_1\omega
+=\left(2\sin\theta+\frac44\cos2\theta\right)d\theta
+=\omega-P_1\omega.
+$$
+
+定数成分へ $1/0$ を掛けてはいけません。正固有値部分のみ逆にして調和成分は零へ送ることが定義上の要点です。
+<!-- solution-end -->
+
+<a id="ex-ga6-b03"></a>
+#### GA6-B03 球面の閉1形式には原始関数がある
+- Level: B
+
+$S^2$ の任意の滑らかな閉1形式 $\omega$ は完全であることを、北極・南極をそれぞれ除いた二つの開集合と[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から示せ。これと[Hodge--de Rham同型](#thm-ga6-hodge-de-rham)から調和1形式の次元を求めよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$U_N=S^2\setminus\{N\}$ と $U_S=S^2\setminus\{S\}$ はそれぞれ立体射影で $\mathbb R^2$ と微分同相であり、星型な座標へ移せます。$d\omega=0$ だから、[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)を各開集合に適用し、$\omega|_{U_N}=df_N$、$\omega|_{U_S}=df_S$ を得ます。
+
+交わり $U_N\cap U_S=S^2\setminus\{N,S\}$ は連結です。そこで
+
+$$
+d(f_N-f_S)=df_N-df_S=\omega-\omega=0
+$$
+
+です。関数の微分が零で連結なら定数なので $f_N-f_S=c$。$f_S$ を $f_S+c$ に置き換えれば二つの原始関数が交わりで一致します。よって一つの滑らかな大域関数 $f$ へ貼り合わさり、$\omega=df$。すべての閉1形式が完全なので $H_{\mathrm{dR}}^1(S^2)=0$、同型から $\mathcal H^1(S^2)=\{0\}$、次元は $0$ です。ここではまだBochner公式や球面の曲率は使っていません。
+<!-- solution-end -->
+
+<a id="ex-ga6-b04"></a>
+#### GA6-B04 楕円性を保証する外積と内部積
+- Level: B
+
+Euclid空間の正規直交余標構 $(e^1,e^2,e^3)$ を取り、$\xi=a e^1$（$a\ne0$）、2形式 $v=b\,e^1\wedge e^2+c\,e^2\wedge e^3$ とする。$\xi\wedge v$、$\iota_{\xi^\sharp}v$、そのノルムの二乗和を求め、$\Delta_H$ の主記号が非退化になる理由を説明せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$\xi\wedge(e^1\wedge e^2)=0$ は $e^1\wedge e^1=0$ によります。もう一つの項は
+
+$$
+\xi\wedge v=ac\,e^1\wedge e^2\wedge e^3.
+$$
+
+内部積では $\iota_{\partial_1}(e^1\wedge e^2)=e^2$、$\iota_{\partial_1}(e^2\wedge e^3)=0$ なので
+
+$$
+\iota_{\xi^\sharp}v=ab\,e^2.
+$$
+
+それぞれの基底形式はノルム1、$v$ の二つの項も直交します。従って
+
+$$
+|\xi\wedge v|^2+|\iota_{\xi^\sharp}v|^2
+=a^2(c^2+b^2)=|\xi|^2|v|^2.
+$$
+
+$\xi\ne0$ なら右辺は $v\ne0$ で正です。一般の形式も $\xi$ 方向を含む項と含まない項に直交分解できるため、[楕円型評価の証明](#lem-ga6-elliptic)と同じ等式が成り立ちます。$d$ だけでは $b$ 成分を検出できませんが、$\delta$ の主記号がその成分を検出します。この補完が楕円性の本質です。
+<!-- solution-end -->
+
+### Level C：分解・位相・作用素を統合する
+
+<a id="ex-ga6-c01"></a>
+#### GA6-C01 トーラスのHodge分解を実際に構成する
+- Level: C
+
+平坦 $\mathbb T^2$（周期 $2\pi$）で
+
+$$
+\omega=(2+\cos x)\,dx+(3+\sin x)\,dy
+$$
+
+を考える。(i) $d\omega,\delta\omega$ を求める。(ii) 調和・完全・余完全の直交分解を具体的な原始形式を添えて作る。(iii) $\omega$ がde Rham類を定めるか判定する。(iv) 閉形式 $\widetilde\omega=(2+\cos x)\,dx+3\,dy$ の調和代表と類を求め、Betti数との関係を述べよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+(i) [外微分の座標公式](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)と[余微分の座標公式](#def-ga6-codifferential)を適用すると
+
+$$
+d\omega=d(3+\sin x)\wedge dy=\cos x\,dx\wedge dy,
+$$
+
+$$
+\delta\omega=-\partial_x(2+\cos x)-\partial_y(3+\sin x)=\sin x.
+$$
+
+(ii) 調和成分は係数の定数部分 $h=2dx+3dy$ です。$d h=\delta h=0$ が直接確認できます。残りを
+
+$$
+d(\sin x)=\cos x\,dx,\qquad
+\delta(\cos x\,dx\wedge dy)=\sin x\,dy
+$$
+
+と書けるため
+
+$$
+\omega=(2dx+3dy)+d(\sin x)+\delta(\cos x\,dx\wedge dy).
+$$
+
+最初は調和、次は完全、最後は余完全です。[三成分の直交性](#thm-ga6-hodge-decomposition)で互いに直交することも保証され、例えば調和1形式との積分では正弦・余弦の積分が零です。
+
+(iii) $d\omega=\cos x\,dx\wedge dy$ は恒等的に零ではありません。従って $\omega$ は閉形式でなく、[de Rham類の定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)から $[\omega]$ を作ることはできません。Hodge分解は非閉形式にも成立する点を区別します。
+
+(iv) $\widetilde\omega=2dx+3dy+d(\sin x)$ なので閉形式であり、[Hodge--de Rham同型](#thm-ga6-hodge-de-rham)による一意な調和代表は $2dx+3dy$。従って $[\widetilde\omega]=2[dx]+3[dy]$ です。$dx,dy$ は直交する非零の調和形式で、他の調和1形式は係数の調和関数性から定数係数に限られるので、$b_1(\mathbb T^2)=2$。零次・二次も定数係数だけで $b_0=b_2=1$ です。
+<!-- solution-end -->
+
+ここで得たのは、計量に依存して選ばれる調和形式の空間と、計量によらないde Rhamコホモロジーが**自然な代表元の対応で同型になる**という事実です。次のGA7では、調和形式が存在するかどうかに曲率がどう介入するかを、Bochner--Weitzenböck公式で調べます。
