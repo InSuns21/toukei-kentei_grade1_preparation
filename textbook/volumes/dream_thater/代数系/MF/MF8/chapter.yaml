@@ -32,8 +32,8 @@ canonical_examples:
   - p=11での節点と分裂乗法的還元の判定
   - Frey曲線の判別式とc4の計算
   - X0(2)の種数0とS2の消失
-problem_patterns: [MF8-A1, MF8-A2, MF8-A3, MF8-A4, MF8-B1, MF8-B2, MF8-B3, MF8-B4, MF8-C1]
+problem_patterns: [MF8-A1, MF8-A2, MF8-A3, MF8-A4, MF8-B1, MF8-B2, MF8-B3, MF8-B4, MF8-B5, MF8-B6, MF8-C1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 6, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 15, exercises: 11, review: 5 }
