@@ -116,7 +116,7 @@ g(V,W)=V^{\mathsf T}GW,\qquad
 g(V,\cdot)=0\ \Longleftrightarrow\ GV=0
 $$
 
-となります。従って非退化性は $\det G\ne0$ と同値です。これは[SREL2で行った標準基底による非退化性の確認](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を、基底表示一般へ拡張した判定です。
+となります。対称性から、すべての $W$ に対する $V^{\mathsf T}GW=0$ は $GV=0$ と同値です。さらに有限次元の行列 $G$ で $GV=0$ の解が $V=0$ だけであることは $\det G\ne0$ と同値です。これは[SREL2で行った標準基底による非退化性の確認](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を、基底表示一般へ拡張した判定です。
 
 <a id="prop-gr1-rindler-metric"></a>
 
