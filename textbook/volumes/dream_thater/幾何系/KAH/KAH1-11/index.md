@@ -250,7 +250,7 @@ $$
 
 $G_w=B^TG_z\overline B$ の3行列について順に行列式を取る。$\det(B^T)=\det B$、$\det(\overline B)=\overline{\det B}$ なので
 
-$
+$$
 \det G_w=(\det B)(\det G_z)\overline{\det B}
 =|\det B|^2\det G_z.
 $$
