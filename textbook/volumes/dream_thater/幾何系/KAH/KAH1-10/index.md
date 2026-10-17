@@ -133,7 +133,7 @@ $$
 
 ### 証明の見取り図
 
-[既習の接続係数式](../KAH1-08/index.md#prop-kah1-08-coordinate-transform)を直接使うか、[曲率の局所公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)へ $g=e^f$ を代入する。$f$ の一階微分の積が打ち消し合い、二階混合微分だけが残る。Gauss曲率との比較では、実計量の係数が $e^f$ ではなく $2e^f$ である点が重要である。
+[前章で用いた接続係数式](../KAH1-09/index.md#def-kah1-09-curvature-components)を直接使うか、[曲率の局所公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)へ $g=e^f$ を代入する。$f$ の一階微分の積が打ち消し合い、二階混合微分だけが残る。Gauss曲率との比較では、実計量の係数が $e^f$ ではなく $2e^f$ である点が重要である。
 
 <!-- proof-start -->
 ### 証明
@@ -162,7 +162,26 @@ $$
 
 二つの式を[四階曲率公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)へ代入して $R=-e^ff_{z\bar z}$。その後、Ricci縮約は一次元なので $g^{-1}R=-f_{z\bar z}$、正則断面曲率も一次元なので $H=R/g^2=-e^{-f}f_{z\bar z}$ となる。
 
-最後に $z=x+iy$ とし、$g_{\mathbb R}=e^{2u}(dx^2+dy^2)$ の形へ直す。$e^{2u}=2e^f$ なので $u=(\log 2+f)/2$ である。既習の実二次元共形計量のGauss曲率計算、またはLevi–Civita係数から直接求めた式 $K=-e^{-2u}(u_{xx}+u_{yy})$ により、
+最後に $z=x+iy$ とし、$g_{\mathbb R}=e^{2u}(dx^2+dy^2)$ の形へ直す。$e^{2u}=2e^f$ なので $u=(\log 2+f)/2$ である。実座標でLevi–Civita接続を計算すると、$g_{ab}=e^{2u}\delta_{ab}$、$g^{ab}=e^{-2u}\delta^{ab}$ をChristoffelの公式に入れて
+
+$
+\Gamma^a_{bc}=\delta^a_bu_c+\delta^a_cu_b-\delta_{bc}u_a
+$
+
+となる。とくに $\Gamma^x_{yy}=-u_x$、$\Gamma^x_{xy}=u_y$、$\Gamma^x_{xx}=u_x$、$\Gamma^y_{yy}=u_y$、$\Gamma^y_{xy}=u_x$ であり、
+
+$
+\begin{aligned}
+(R(\partial_x,\partial_y)\partial_y)^x
+&=\partial_x\Gamma^x_{yy}-\partial_y\Gamma^x_{xy}
+ +\Gamma^x_{xa}\Gamma^a_{yy}-\Gamma^x_{ya}\Gamma^a_{xy}\\
+&=-u_{xx}-u_{yy}
+ +(-u_x^2+u_y^2)-(u_y^2-u_x^2)\\
+&=-(u_{xx}+u_{yy}).
+\end{aligned}
+$
+
+従って $K=g_{\mathbb R}(R(\partial_x,\partial_y)\partial_y,\partial_x)/e^{4u}=-e^{-2u}(u_{xx}+u_{yy})$ であり、
 
 $$
 K=-\frac1{2e^f}\frac12(f_{xx}+f_{yy})
