@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GA4
+  - PDE3
 concepts:
   - id: geometric-analysis.heat-semigroup
     name: 熱半群
@@ -28,18 +29,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["補題（固有値の多項式計数評価）"]
     requires: [geometric-analysis.eigenform-energy, geometric-analysis.manifold-sobolev]
-  - id: geometric-analysis.heat-kernel
-    name: 熱核
+  - id: geometric-analysis.manifold-heat-kernel
+    name: 多様体熱核
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（熱核）"]
-    requires: [geometric-analysis.heat-eigenvalue-count, geometric-analysis.laplacian-spectral]
+    introduction_aliases: ["定義（多様体熱核）"]
+    requires: [geometric-analysis.heat-eigenvalue-count, geometric-analysis.laplacian-spectral, pde.pde3-heat-kernel]
   - id: geometric-analysis.heat-kernel-regularity
     name: 熱核の存在・滑らかさ・対称性・半群性
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（熱核の存在・滑らかさ・対称性・半群性）"]
-    requires: [geometric-analysis.heat-kernel, geometric-analysis.poisson-regularity]
+    requires: [geometric-analysis.manifold-heat-kernel, geometric-analysis.poisson-regularity]
   - id: geometric-analysis.heat-kernel-positivity
     name: 熱核の非負性・厳密正値性・質量保存
     kind: theorem
@@ -57,4 +58,10 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（平坦トーラスの周期化Gaussian熱核）"]
-    requires: [geometric-analysis.heat-kernel, geometric-analysis.laplacian-spectral]
+    requires: [geometric-analysis.manifold-heat-kernel, geometric-analysis.laplacian-spectral]
+  - id: geometric-analysis.stochastic-completeness
+    name: 確率的完備性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率的完備性）"]
+    requires: [geometric-analysis.manifold-heat-kernel, pde.pde3-heat-kernel]
