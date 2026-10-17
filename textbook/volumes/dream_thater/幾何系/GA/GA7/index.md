@@ -63,7 +63,7 @@ $$
 各補正項と符号を定義から確認できました。平坦だから曲率項は零で、[GA6の同じ形式のHodge計算](../GA6/index.md#def-ga6-hodge-laplacian)とも一致します。
 <!-- definition-example-end -->
 
-閉多様体（コンパクト・境界なし）上では積の微分を積分し、[GA1のGreen公式](../GA1/index.md#thm-ga1-green-first)と同じ発散定理の議論を各成分へ適用すると
+閉多様体（コンパクト・境界なし）上では積の微分を積分し、[GA1のGreen第一公式](../GA1/index.md#thm-ga1-green-first)と同じ発散定理の議論を各成分へ適用すると
 
 $$
 (\nabla^*\nabla\alpha,\beta)_2
@@ -386,7 +386,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-その点でのHessian行列を直交対角化し、固有値を $\mu_1,\ldots,\mu_d$ とします。実数ベクトル $(\mu_1,\ldots,\mu_d)$ と $(1,\ldots,1)$ のCauchy--Schwarz不等式から
+その点でのHessian行列を直交対角化し、固有値を $\mu_1,\ldots,\mu_d$ とします。実数ベクトル $(\mu_1,\ldots,\mu_d)$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left(\sum_i\mu_i\right)^2
@@ -420,12 +420,12 @@ $$
 
 ### 証明の見取り図
 
-[GA4のスペクトル定理](../GA4/index.md#thm-ga4-spectral-basis)から第一固有関数を取ります。積分したBochner恒等式で $|\nabla^2u|^2$ をトレースの二乗で下から評価し、$\int|\nabla u|^2=\lambda_1\int u^2$ を代入します。
+[GA4のLaplacian固有関数展開](../GA4/index.md#thm-ga4-spectral-basis)から第一固有関数を取ります。積分したBochner恒等式で $|\nabla^2u|^2$ をトレースの二乗で下から評価し、$\int|\nabla u|^2=\lambda_1\int u^2$ を代入します。
 
 <!-- proof-start -->
 ### 証明
 
-[GA4の固有関数展開](../GA4/index.md#thm-ga4-spectral-basis)により実数値の非零で滑らかな固有関数 $u$ が存在し、$-\Delta_gu=\lambda_1u$、$\lambda_1>0$ です。[GA1のGreen公式](../GA1/index.md#thm-ga1-green-first)から
+[GA4の固有関数展開](../GA4/index.md#thm-ga4-spectral-basis)により実数値の非零で滑らかな固有関数 $u$ が存在し、$-\Delta_gu=\lambda_1u$、$\lambda_1>0$ です。[GA1のGreen第一公式](../GA1/index.md#thm-ga1-green-first)から
 
 $$
 \int_M|\nabla u|^2\,dV_g
@@ -536,7 +536,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-実対称行列の直交対角化により固有値 $\mu_1,\ldots,\mu_d$ を取れます。Cauchy--Schwarz不等式から
+実対称行列の直交対角化により固有値 $\mu_1,\ldots,\mu_d$ を取れます。[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left(\sum_i\mu_i\right)^2
@@ -583,7 +583,7 @@ $$
 \int_M\operatorname{Ric}(\nabla u,\nabla u).
 $$
 
-ここでは各積分の測度を $dV_g$ とします。[Hessianのトレース不等式](#lem-ga7-hessian-trace)から第一項は $\lambda^2\int u^2/d$ 以上です。[Green公式](../GA1/index.md#thm-ga1-green-first)により $\int|\nabla u|^2=\lambda\int u^2$ です。最後のRicci項は $(d-1)K\lambda\int u^2$ 以上なので
+ここでは各積分の測度を $dV_g$ とします。[Hessianのトレース不等式](#lem-ga7-hessian-trace)から第一項は $\lambda^2\int u^2/d$ 以上です。[GA1のGreen第一公式](../GA1/index.md#thm-ga1-green-first)により $\int|\nabla u|^2=\lambda\int u^2$ です。最後のRicci項は $(d-1)K\lambda\int u^2$ 以上なので
 
 $$
 0\ge\left(\frac{\lambda^2}{d}-\lambda^2+(d-1)K\lambda\right)\int_Mu^2
@@ -689,7 +689,7 @@ $$
 H^1_{\mathrm{dR}}(M)\simeq\mathcal H^1(M)=\{0\}.
 $$
 
-**3.** [GA4の離散スペクトル定理](../GA4/index.md#thm-ga4-spectral-basis)により $\lambda_1>0$ とその滑らかな固有関数が存在します。関数のBochner恒等式を積分し、Hessianのトレース不等式とGreen公式を代入する[本章の計算](#thm-ga7-lichnerowicz)から
+**3.** [GA4のLaplacian固有関数展開](../GA4/index.md#thm-ga4-spectral-basis)により $\lambda_1>0$ とその滑らかな固有関数が存在します。関数のBochner恒等式を積分し、[Hessianのトレース不等式](#lem-ga7-hessian-trace)と[GA1のGreen第一公式](../GA1/index.md#thm-ga1-green-first)を代入する[本章の計算](#thm-ga7-lichnerowicz)から
 
 $$
 0\ge(d-1)\lambda_1\left(K-\frac{\lambda_1}{d}\right)\|u\|_2^2
