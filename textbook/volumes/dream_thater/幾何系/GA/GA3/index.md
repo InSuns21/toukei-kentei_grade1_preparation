@@ -435,7 +435,22 @@ $$
 
 です。$r\ge R/2$ と $\Delta_g(r^2)$ の有界性から、$\alpha$ を十分大きくすれば 環状領域の閉包 $\overline A$ 上で $\Delta_gw>0$ です。
 
-$v$ は $B_R(q)$ で正なので、内側の球面 $r=R/2$ で正の最小値を持ちます。$\varepsilon>0$ を十分小さく取り、内側の球面では $v-\varepsilon w\ge0$、外側では $w=0$、$v\ge0$ とします。$\psi=v-\varepsilon w$ は $\Delta_g\psi=-\varepsilon\Delta_gw<0$、すなわち $-\psi$ が劣調和です。[弱最大値原理](#thm-ga3-weak-maximum)を $-\psi$ に適用します。$d=1$ では環状領域が二つの連結成分に分かれるので各成分に適用し、それ以外でも必要なら各連結成分ごとに適用します。いずれも $\partial A$ で $-\psi\le0$ だから、環状領域全体で $\psi\ge0$、したがって $v\ge\varepsilon w$ です。
+$v$ は $B_R(q)$ で正なので、内側の球面 $r=R/2$ で正の最小値を持ちます。その最小値を $m_0>0$ とし、$w$ の内球面上の最大値を $W_0>0$ とします。$0<\varepsilon\le m_0/W_0$ と選べば、内側の球面では $v-\varepsilon w\ge0$ です。外側の球面では $w=0$、$v\ge0$ です。
+
+$\psi=v-\varepsilon w$ とすると、調和性と上の計算から
+
+$$
+\Delta_g\psi=-\varepsilon\Delta_gw<0,\qquad
+-\psi\le0\quad\text{on }\partial A
+$$
+
+が成り立ちます。つまり $-\psi$ は劣調和です。[弱最大値原理](#thm-ga3-weak-maximum)を適用すると、環状領域全体で
+
+$$
+-\psi\le0,\qquad v\ge\varepsilon w
+$$
+
+を得ます。次元 $d=1$ では環状領域が二つの連結成分に分かれるので、各成分に同じ原理を適用します。
 
 $z$ は外球面上の零点です。$z$ から測地線に沿って球の内部へ距離 $t>0$ 進むと、$v(z)=w(z)=0$ から
 
