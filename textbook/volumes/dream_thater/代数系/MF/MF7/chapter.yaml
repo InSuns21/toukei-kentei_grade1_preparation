@@ -1,0 +1,41 @@
+id: "MF7"
+title: "oldform・newform・レベルと算術"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF6
+  - MF5
+  - MF4
+official_scope: []
+learning_objectives:
+  - 退化写像Vdの変換則と全カスプでの消失を確かめられる
+  - oldspaceとnewspaceを定義し直交直和を構成できる
+  - newformの外部引用定理と章内で証明した範囲を区別できる
+  - 良い素数と悪い素数のHecke作用から局所Euler因子を導ける
+  - p||Nとp^2|Nの自明指標newformの係数を正しく判定できる
+  - レベル11のeta商の変換・カスプ・係数を検査しnewform性を確かめられる
+  - 有理係数newformと一般の係数体および楕円曲線への接続条件を区別できる
+definitions:
+  - { id: MF7-DEF-01, name: 退化写像 }
+  - { id: MF7-DEF-02, name: レベルNのPetersson内積 }
+  - { id: MF7-DEF-03, name: oldspace・newspace }
+  - { id: MF7-DEF-04, name: newformの係数体 }
+theorems:
+  - { id: MF7-PROP-01, name: 退化写像はカスプ形式を保つ }
+  - { id: MF7-PROP-02, name: old/newの直交直和 }
+  - { id: MF7-THM-01, name: Atkin–Lehner–Liのnewform理論（引用） }
+  - { id: MF7-COR-01, name: 固有値と第一係数の一致 }
+  - { id: MF7-PROP-03, name: newformの局所Euler因子 }
+  - { id: MF7-THM-02, name: 自明指標newformの悪い素数の係数（引用） }
+  - { id: MF7-PROP-04, name: レベル11の重さ2のnewform }
+canonical_examples:
+  - DeltaとDelta(2tau)のoldspace所属と線形独立性
+  - レベル1と2のold/newの直接判定
+  - p||Nとp^2|NのEuler因子
+  - eta(tau)^2 eta(11tau)^2のFricke変換とq展開
+  - レベル11の二次と一次の局所因子
+problem_patterns: [MF7-A1, MF7-A2, MF7-A3, MF7-A4, MF7-B1, MF7-B2, MF7-B3, MF7-B4, MF7-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 5 }

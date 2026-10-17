@@ -936,6 +936,7 @@
 4. [MF4 合同部分群・カスプ・モジュラー曲線](textbook/volumes/dream_thater/代数系/MF/MF4/index.md)
 5. [MF5 Hecke作用素・固有形式](textbook/volumes/dream_thater/代数系/MF/MF5/index.md)
 6. [MF6 モジュラー形式のL関数](textbook/volumes/dream_thater/代数系/MF/MF6/index.md)
+7. [MF7 oldform・newform・レベルと算術](textbook/volumes/dream_thater/代数系/MF/MF7/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
