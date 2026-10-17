@@ -8,6 +8,7 @@ prerequisites:
   - VAR7
   - VAR8
   - GEO16
+  - GPDE8
 official_scope: []
 learning_objectives:
   - 極小グラフ流束のJacobianを計算し平行方向と直交方向の固有値から一様楕円性の成立範囲を判定できる
@@ -26,7 +27,7 @@ theorems:
   - { id: GA9-THM-01, name: "極小グラフ流束の楕円性" }
   - { id: GA9-THM-02, name: "極小グラフ方程式の線形化" }
   - { id: GA9-PROP-01, name: "同じDirichlet値を持つ弱極小グラフの一意性" }
-  - { id: GA9-THM-03, name: "臨界Sobolev埋め込みの非コンパクト性" }
+  - { id: GA9-THM-03, name: "多様体上の臨界集中列の構成" }
   - { id: GA9-PROP-02, name: "Yamabe型変分商の停留方程式" }
 canonical_examples: [傾いた平面での係数行列, 自然境界を満たさない平面, Euclid集中列, 閉多様体の正規座標集中列, 定数関数のYamabe型商]
 problem_patterns: [GA9-FLUX-JACOBIAN, GA9-AFFINE-LINEARIZATION, GA9-BOUNDARY-FLUX, GA9-SCALE-THREE, GA9-WEAK-UNIQUENESS, GA9-NONLINEAR-VS-LAPLACE, GA9-CONCENTRATION, GA9-YAMABE-VARIATION, GA9-INTEGRATED-OBSTRUCTIONS]

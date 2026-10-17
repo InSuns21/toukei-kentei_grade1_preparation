@@ -7,6 +7,7 @@ prerequisites:
   - VAR7
   - VAR8
   - GEO16
+  - GPDE8
 concepts:
   - id: geometric-analysis.minimal-graph-flux-jacobian
     name: 極小グラフ流束の線形化係数
@@ -18,7 +19,7 @@ concepts:
     name: 極小グラフ流束の楕円性
     kind: theorem
     introduction: formal
-    requires: [geometric-analysis.minimal-graph-flux-jacobian]
+    requires: [geometric-analysis.minimal-graph-flux-jacobian, pde.uniform-ellipticity]
   - id: geometric-analysis.minimal-graph-linearization
     name: 極小グラフ方程式の線形化
     kind: theorem
@@ -42,7 +43,7 @@ concepts:
     introduction_aliases: ["定義（Sobolev臨界指数）"]
     requires: [geometric-analysis.sobolev-embedding]
   - id: geometric-analysis.critical-sobolev-concentration
-    name: 臨界Sobolev埋め込みの非コンパクト性
+    name: 多様体上の臨界集中列の構成
     kind: theorem
     introduction: formal
     requires: [geometric-analysis.critical-sobolev-exponent, geometric-analysis.manifold-sobolev]
