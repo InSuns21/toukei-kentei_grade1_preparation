@@ -195,7 +195,15 @@ $$
 
 この分岐は名前だけではありません。行列式 $p$ の二重剰余類を $\Gamma_0(N)$ で分解すると、$p\nmid N$ の場合は $p$ 個の $\begin{pmatrix}1&b\\0&p\end{pmatrix}$ と1個の $\begin{pmatrix}p&0\\0&1\end{pmatrix}$、$p\mid N$ の場合は前者の $p$ 個だけが現れます。後者では下左成分に $N$ の倍数を要求すると、後半の行列類を移せないためです。定義の $1/p$ は $p^{k/2-1}$ と slash 因子 $p^{-k/2}$ の積であり、恣意的な係数ではありません。
 
-実際にこれらが形式を保つことも確認しておきます。各代表に右から $\gamma\in\Gamma_0(N)$ を掛けると、同じ二重剰余類の左 $\Gamma_0(N)$-類へ並べ替えられるので変換則を満たします。各カスプでは [MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で調べます。入力側のカスプ $s=\sigma_s\infty$ を取り、行列 $A$ の像 $As$ と同じ $\Gamma_0(N)$-軌道にある代表を $s'=\sigma_{s'}\infty$ とします。ある $\gamma\in\Gamma_0(N)$ について $\gamma A\sigma_s\infty=s'$ となるので、$B=\sigma_{s'}^{-1}\gamma A\sigma_s$ は $\infty$ を固定し、
+実際にこれらが形式を保つことも確認しておきます。各代表に右から $\gamma\in\Gamma_0(N)$ を掛けると、同じ二重剰余類の左剰余類へ並べ替えられます。従って変換則が保たれます。
+
+全カスプの正則性は、[MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で確かめます。入力側のカスプを $s=\sigma_s\infty$ とし、行列 $A$ の像と同じ軌道にある代表を $s'=\sigma_{s'}\infty$ とします。
+
+ある $\gamma\in\Gamma_0(N)$ について $\gamma A\sigma_s\infty=s'$ です。従って
+$
+B=\sigma_{s'}^{-1}\gamma A\sigma_s
+$
+は $\infty$ を固定するので、
 $$
 B=\begin{pmatrix}u&v\\0&w\end{pmatrix},
 \qquad u/w>0
