@@ -37,7 +37,16 @@ $$
 > と定める。これを1形式上の**接続Laplacian**（粗Laplacian）と呼ぶ。0形式（関数）に対しては $\nabla^*\nabla f=-\Delta_g f$ とする。
 <!-- formal-statement-end -->
 
-この式は二階共変微分の計量による縮約に負号を付けたものです。したがって正規直交標構を替えても変わりません。座標 $(x^i)$ では二階共変微分の成分を $\nabla_i\nabla_j\alpha$ と書くと
+式中の補正項が必要な理由を確認します。1形式 $\alpha$ の二階共変微分は、二つのベクトル $X,Y$ に対して
+
+$
+(\nabla^2\alpha)(X,Y)
+=\nabla_X(\nabla_Y\alpha)-\nabla_{\nabla_XY}\alpha
+$
+
+と定める1形式値の双線形テンソルです。第二項がなければ、$\nabla_{fY}\alpha=f\nabla_Y\alpha$ をさらに $X$ で微分した際の $(Xf)\nabla_Y\alpha$ が残り、$Y$ に関する線形性を失います。第二項の $\nabla_X(fY)=(Xf)Y+f\nabla_XY$ がちょうどこの余分な項を打ち消します。
+
+接続Laplacianは、この二つの入力を計量で縮約して負号を付けた $-\sum_i(\nabla^2\alpha)(e_i,e_i)$ です。正規直交標構の変更 $e'_a=\sum_iO_{ai}e_i$ では $\sum_aO_{ai}O_{aj}=\delta_{ij}$ だから、縮約は標構によらず定まります。座標 $(x^i)$ で二階共変微分の成分を $\nabla_i\nabla_j\alpha$ と書くと
 
 $$
 (\nabla^*\nabla\alpha)_k=-g^{ij}(\nabla_i\nabla_j\alpha)_k.
@@ -146,7 +155,14 @@ $$
 を得ます。
 <!-- proof-end -->
 
-この交換子は、単純に二階微分を入れ替えたときの「ずれ」を記録しています。縮約した形も導いておきます。$p$ で正規直交標構を使い、$\alpha^\sharp$ を1形式の計量双対とすると
+この交換子は、単純に二階微分を入れ替えたときの「ずれ」を記録しています。縮約した形も導いておきます。上で選んだ、点 $p$ で $\nabla_{e_i}e_j(p)=0$ となる正規直交標構を用います。Levi-Civita接続は捩率零なので
+
+$
+[e_i,e_j](p)
+=\nabla_{e_i}e_j(p)-\nabla_{e_j}e_i(p)=0.
+$
+
+従って交換公式の $\nabla_{[e_i,e_j]}\alpha$ はこの点で消えます。$\alpha^\sharp$ を1形式の計量双対とすると
 
 $$
 \begin{aligned}
@@ -281,13 +297,26 @@ $$
 となります。これをノルムの二階微分の式に代入し、$V$ と内積を取れば結論です。
 <!-- proof-end -->
 
-**例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=x_{d+1}$ を考えます。単位球面では[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$、また球面の接ベクトル成分を微分すると
+**例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル、例えば最後の座標軸方向）を考えます。[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$ です。点 $x$ での単位法線は $x$ なので、$v$ の接成分が勾配です。
 
-$$
-\nabla^2u=-u g,\quad
-\Delta_gu=-d\,u,\quad
-|\nabla u|^2=1-u^2.
-$$
+$
+\nabla_gu=v-\langle v,x\rangle x=v-ux,\qquad
+|\nabla_gu|^2=|v|^2-u^2=1-u^2.
+$
+
+Euclid空間の微分を $D$ と書くと、接ベクトル $X$ について $D_Xx=X$、$Xu=\langle X,v\rangle$ です。従って
+
+$
+D_X(\nabla_gu)=-(Xu)x-uX.
+$
+
+第一項は法線方向なので接成分への射影で消え、Levi-Civita接続の共変微分は $\nabla_X\nabla_gu=-uX$ となります。任意の接ベクトル $Y$ と内積を取ってから正規直交基底でトレースすれば
+
+$
+\nabla^2u(X,Y)=-u\,g(X,Y),\qquad
+\nabla^2u=-u g,\qquad
+\Delta_gu=-d\,u.
+$
 
 左辺を直接計算すれば
 
@@ -364,7 +393,23 @@ $$
 
 ## 5. 曲率下界が第一固有値を押し上げる
 
-関数についてもBochner恒等式を積分します。そこではHessianの二乗ノルムとLaplacianの二乗を比べる必要があります。なぜ次元で割るのかを、先に行列の不等式として確かめます。
+関数についてもBochner恒等式を積分します。そこではHessianの二乗ノルムとLaplacianの二乗を比べる必要があります。なぜ次元で割るのかを、Hessianと行列の対応から確かめます。
+
+点 $p$ の接空間で正規直交基底 $e_1,\ldots,e_d$ を取り、$H_{ij}=(\nabla^2u)_p(e_i,e_j)$ と置きます。[テンソルの共変微分](../../GEO/GEO13/index.md#def-geo13-tensor-covariant-derivative)の定義により、Levi-Civita接続の捩率が零なので
+
+$
+\nabla^2u(X,Y)-\nabla^2u(Y,X)
+=[X,Y]u-(\nabla_XY-\nabla_YX)u=0.
+$
+
+従って $H$ は実対称行列です。正規直交基底のため計量行列は単位行列となり、LaplacianはHessianの縮約、二乗ノルムは全成分の二乗和です。
+
+$
+\Delta_gu(p)=\sum_iH_{ii},\qquad
+|\nabla^2u|_p^2=\sum_{i,j}H_{ij}^2.
+$
+
+この対応を使えば、固有値の計算を経由せずに必要な不等式と等号条件を判定できます。
 
 <a id="lem-ga7-hessian-trace"></a>
 
@@ -381,20 +426,22 @@ $$
 
 ### 証明の見取り図
 
-計量で正規直交基底を取るとHessianは実対称行列になります。固有値の和がトレース、固有値の二乗和が二乗ノルムです。
+直前に作ったHessianの成分行列で対角成分の和と全成分の二乗和を比較します。対角成分へのCauchy--Schwarzの不等式と、非対角成分の二乗が非負であることだけを使います。
 
 <!-- proof-start -->
 ### 証明
 
-その点でのHessian行列を直交対角化し、固有値を $\mu_1,\ldots,\mu_d$ とします。実数ベクトル $(\mu_1,\ldots,\mu_d)$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+点 $p$ での行列 $H_{ij}=(\nabla^2u)_p(e_i,e_j)$ に対し、実数ベクトル $(H_{11},\ldots,H_{dd})$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
 
-$$
-\left(\sum_i\mu_i\right)^2
-\le\left(\sum_i\mu_i^2\right)\left(\sum_i1^2\right)
-=d\sum_i\mu_i^2.
-$$
+$
+(\Delta_gu(p))^2
+=\left(\sum_iH_{ii}\right)^2
+\le d\sum_iH_{ii}^2
+\le d\sum_{i,j}H_{ij}^2
+=d|\nabla^2u|_p^2.
+$
 
-Hessianのトレースは $\sum_i\mu_i=\Delta_gu$、二乗ノルムは $\sum_i\mu_i^2=|\nabla^2u|^2$ です。割り算して結論です。等号は全固有値が等しい場合、すなわちHessianが計量のスカラー倍になる場合に限ります。
+第一の不等号で等号が成り立つのは全対角成分が共通の値 $c$ に等しい場合です。第二の等号には全非対角成分が零であることが必要十分です。従って両方の等号は $H=cI$、すなわち正規直交基底で計量行列が $I$ であることから $\nabla^2u=cg$ と同値です。
 <!-- proof-end -->
 
 この補題が、解析と曲率の間に次元 $d$ を入れる箇所です。
@@ -536,15 +583,24 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-実対称行列の直交対角化により固有値 $\mu_1,\ldots,\mu_d$ を取れます。[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+$H=(H_{ij})$ は実対称なので、行列積の対角成分は $(H^2)_{ii}=\sum_jH_{ij}H_{ji}=\sum_jH_{ij}^2$ です。従って
 
-$$
-\left(\sum_i\mu_i\right)^2
-=\langle(\mu_i),(1,\ldots,1)\rangle^2
-\le\left(\sum_i\mu_i^2\right)d.
-$$
+$
+\operatorname{tr}(H)=\sum_iH_{ii},\qquad
+\operatorname{tr}(H^2)=\sum_{i,j}H_{ij}^2.
+$
 
-$\operatorname{tr}(H)=\sum_i\mu_i$、$\operatorname{tr}(H^2)=\sum_i\mu_i^2$ を代入して結論です。等号は $(\mu_i)$ が $(1,\ldots,1)$ と比例する場合、すなわち全固有値が等しく $H=cI$ の場合に限ります。
+実数ベクトル $(H_{11},\ldots,H_{dd})$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+
+$
+(\operatorname{tr}H)^2
+=\left(\sum_iH_{ii}\right)^2
+\le d\sum_iH_{ii}^2
+\le d\sum_{i,j}H_{ij}^2
+=d\operatorname{tr}(H^2).
+$
+
+第一の等号は全対角成分が等しいとき、第二の等号は全非対角成分が零のときに限ります。両方が成立する条件は $H=cI$ です。
 <!-- solution-end -->
 
 <a id="ex-ga7-a04"></a>
@@ -616,7 +672,20 @@ $d-1>0$、$\lambda>0$、$\int_Mu^2>0$ により $K-\lambda/d\le0$、すなわち
 <!-- solution-start -->
 **詳細解答**
 
-[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から断面曲率 $1/a^2$ の球面のRicciは $(d-1)a^{-2}g$ です。球面の法線は $x/a$ なので、接ベクトル $X$ に沿った座標関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル）を二回微分すると $\nabla^2u=-(u/a^2)g$ となります。トレースを取れば
+[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から断面曲率 $1/a^2$ の球面のRicciは $(d-1)a^{-2}g$ です。$u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル）と置くと、半径 $a$ の球面の単位法線は $x/a$ なので、勾配は $v$ の接成分
+
+$
+\nabla_gu=v-\frac{u}{a^2}x
+$
+
+です。接ベクトル $X$ に沿ってEuclid空間で微分すると
+
+$
+D_X(\nabla_gu)
+=-\frac{Xu}{a^2}x-\frac{u}{a^2}X.
+$
+
+第一項は法線方向であり、接空間への射影で消えます。従って $\nabla_X\nabla_gu=-(u/a^2)X$、つまり $\nabla^2u=-(u/a^2)g$ です。正規直交基底でトレースを取れば
 
 $$
 \Delta_gu=\operatorname{tr}_g\nabla^2u=-\frac d{a^2}u.
@@ -629,12 +698,19 @@ $$
 #### GA7-B04 余微分の交換子の添字と符号
 - Level: B
 
-任意のRiemann多様体で、点 $p$ の正規直交標構 $e_i$ と滑らかな1形式 $\alpha$ について、$\sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)$ を曲率テンソルを経由してRicci曲率で表せ。なぜ最終式が負号でなく正号になるか説明せよ。
+任意のRiemann多様体で、点 $p$ において $\nabla_{e_i}e_j(p)=0$ を満たす局所正規直交標構 $e_i$ と滑らかな1形式 $\alpha$ について、$\sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)$ を曲率テンソルを経由してRicci曲率で表せ。一般の正規直交標構に置き換えた場合に必要な補正項にも触れ、なぜ正規標構での最終式が負号でなく正号になるか説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-[1形式の微分交換公式](#lem-ga7-covector-commutator)を用い、点 $p$ で $\nabla_{[e_i,e_j]}\alpha$ の項は正規標構を取ったとき零であることを確認します。したがって
+Levi-Civita接続は捩率零なので、指定された標構では
+
+$
+[e_i,e_j](p)
+=\nabla_{e_i}e_j(p)-\nabla_{e_j}e_i(p)=0.
+$
+
+[1形式の微分交換公式](#lem-ga7-covector-commutator)により、点 $p$ で $\nabla_{[e_i,e_j]}\alpha=0$ となります。一般の正規直交標構ではこの項は残り得るため、ここでの指定が必要です。従って
 
 $$
 \sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)
@@ -648,7 +724,15 @@ $$
 =\langle R(e_i,e_j)\alpha^\sharp,e_i\rangle.
 $$
 
-和を取れば、[Ricci曲率の定義](../../GEO/GEO16/index.md#def-geo16-ricci-scalar)より $\operatorname{Ric}(e_j,\alpha^\sharp)$ です。共変ベクトルの交換式に最初の負号があり、曲率の計量反対称性でもう一度負号が生じるため、結果は正です。
+和を取れば、[Ricci曲率の定義](../../GEO/GEO16/index.md#def-geo16-ricci-scalar)より $\operatorname{Ric}(e_j,\alpha^\sharp)$ です。共変ベクトルの交換式に最初の負号があり、曲率の計量反対称性でもう一度負号が生じるため、結果は正です。任意の正規直交標構で同じ計算をするなら、交換子そのものの和は
+
+$
+\sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)
+=\operatorname{Ric}(e_j,\alpha^\sharp)
++\sum_i(\nabla_{[e_i,e_j]}\alpha)(e_i)
+$
+
+となり、補正項を落とせません。
 <!-- solution-end -->
 
 ### Level C：位相とスペクトルを同時に理解する
