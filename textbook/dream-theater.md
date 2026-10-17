@@ -754,6 +754,7 @@
 8. [KAH1-08 Kähler接続と正則座標](textbook/volumes/dream_thater/幾何系/KAH/KAH1-08/index.md)
 9. [KAH1-09 Kähler曲率テンソル](textbook/volumes/dream_thater/幾何系/KAH/KAH1-09/index.md)
 10. [KAH1-10 曲率の具体計算](textbook/volumes/dream_thater/幾何系/KAH/KAH1-10/index.md)
+11. [KAH1-11 Ricci形式の局所導出](textbook/volumes/dream_thater/幾何系/KAH/KAH1-11/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
