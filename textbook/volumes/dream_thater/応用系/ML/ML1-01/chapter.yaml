@@ -1,0 +1,44 @@
+id: "ML1-01"
+title: "学習問題・標本・予測器"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P2A
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 有限特徴量・目的変数と母集団の同時確率分布を構成できる
+  - 予測器・仮説クラス・損失関数を定義し有限二値の全候補を列挙できる
+  - 母集団リスクと経験リスクを区別し四セル分布で計算できる
+  - 標本の独立同分布性と観測対内部の依存を区別できる
+  - 固定予測器の経験リスクの不偏性と0–1損失の分散を証明できる
+  - 標本の従属性・標本依存の予測器によって保証が壊れる理由を示せる
+  - 対話実験で分布・標本数・seed・予測器・反復数を変更し結果を再現できる
+definitions:
+  - { id: ML1-01-DEF-01, name: 教師あり学習問題 }
+  - { id: ML1-01-DEF-02, name: 予測器と仮説クラス }
+  - { id: ML1-01-DEF-03, name: 損失関数と0–1損失 }
+  - { id: ML1-01-DEF-04, name: 母集団リスク・経験リスク }
+  - { id: ML1-01-DEF-05, name: 独立同分布訓練標本 }
+theorems:
+  - { id: ML1-01-PROP-01, name: 4種類の二値予測器のリスク }
+  - { id: ML1-01-THM-01, name: 固定予測器の経験リスクの不偏性 }
+  - { id: ML1-01-THM-02, name: 固定予測器の0–1経験リスクの分散 }
+canonical_examples:
+  - 四セル確率表の正規化・周辺確率・誤分類リスク
+  - 独立標本と単一標本を複製した従属標本
+  - 観測標本から選択した予測器の経験リスクと母集団リスク
+  - seed固定・標本数変更・予測器変更による反復実験
+problem_patterns:
+  - ML1-01-A01
+  - ML1-01-A02
+  - ML1-01-A03
+  - ML1-01-A04
+  - ML1-01-B01
+  - ML1-01-B02
+  - ML1-01-B03
+  - ML1-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.0, review: 1.5 }

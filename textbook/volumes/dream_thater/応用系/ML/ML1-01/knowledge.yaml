@@ -1,0 +1,119 @@
+chapter: ML1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P2A
+  - F0-00P3
+
+concepts:
+  - id: learning.supervised-learning-problem
+    name: 教師あり学習問題
+    kind: definition
+    aliases: [教師あり学習問題]
+    introduction: formal
+    introduction_aliases: ["定義（教師あり学習問題）"]
+    requires:
+      - prob.distribution-law
+
+  - id: learning.predictor
+    name: 予測器
+    kind: definition
+    aliases: [予測器]
+    introduction: formal
+    introduction_aliases: ["定義（予測器と仮説クラス）"]
+    requires: []
+
+  - id: learning.hypothesis-class
+    name: 仮説クラス
+    kind: definition
+    aliases: [仮説クラス]
+    introduction: formal
+    introduction_aliases: ["定義（予測器と仮説クラス）"]
+    requires:
+      - learning.predictor
+
+  - id: learning.learning-algorithm
+    name: 学習算法
+    kind: term
+    aliases: [学習算法]
+    requires:
+      - learning.hypothesis-class
+
+  - id: learning.loss-function
+    name: 損失関数
+    kind: definition
+    aliases: [損失関数]
+    introduction: formal
+    introduction_aliases: ["定義（損失関数と0–1損失）"]
+    requires: []
+
+  - id: learning.zero-one-loss
+    name: 0–1損失
+    kind: definition
+    aliases: ["0–1損失"]
+    introduction: formal
+    introduction_aliases: ["定義（損失関数と0–1損失）"]
+    requires:
+      - learning.loss-function
+
+  - id: learning.population-risk
+    name: 母集団リスク
+    kind: definition
+    aliases: [母集団リスク]
+    introduction: formal
+    introduction_aliases: ["定義（母集団リスク・経験リスク）"]
+    requires:
+      - learning.predictor
+      - learning.loss-function
+      - prob.expectation
+
+  - id: learning.empirical-risk
+    name: 経験リスク
+    kind: definition
+    aliases: [経験リスク]
+    introduction: formal
+    introduction_aliases: ["定義（母集団リスク・経験リスク）"]
+    requires:
+      - learning.loss-function
+
+  - id: learning.four-predictor-risk
+    name: 4種類の二値予測器のリスク
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（4種類の二値予測器のリスク）"]
+    requires:
+      - learning.population-risk
+      - learning.zero-one-loss
+
+  - id: learning.iid-training-sample
+    name: 独立同分布訓練標本
+    kind: definition
+    aliases: [独立同分布訓練標本]
+    introduction: formal
+    introduction_aliases: ["定義（独立同分布訓練標本）"]
+    requires:
+      - prob.independent-random-variables
+      - prob.distribution-law
+
+  - id: learning.empirical-risk-unbiasedness
+    name: 固定予測器の経験リスクの不偏性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（固定予測器の経験リスクの不偏性）"]
+    requires:
+      - learning.iid-training-sample
+      - learning.empirical-risk
+      - learning.population-risk
+
+  - id: learning.empirical-risk-variance
+    name: 固定予測器の0–1経験リスクの分散
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（固定予測器の0–1経験リスクの分散）"]
+    requires:
+      - learning.empirical-risk-unbiasedness
+      - learning.zero-one-loss
+      - prob.covariance

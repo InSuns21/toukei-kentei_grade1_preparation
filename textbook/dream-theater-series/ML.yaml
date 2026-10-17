@@ -9,7 +9,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: ML1-01
     path: textbook/volumes/dream_thater/応用系/ML/ML1-01
-    status: planned
+    status: completed
     title: "学習問題・標本・予測器"
   - id: ML1-02
     path: textbook/volumes/dream_thater/応用系/ML/ML1-02
