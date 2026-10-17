@@ -390,6 +390,15 @@ $$
 
 第2積分は $|du|^2\in L^1$、$|u|=1$、$\varphi$ が有界なので有限です。これは $\Delta_g u+|du|^2u=0$ を分布の意味で読むことに相当します。分布のLaplacianは試験場への作用を $-\int\langle du,d\varphi\rangle$ で定めるため、符号も合っています。
 
+**開領域での局所的な弱調和性。** 後で使う Euclid 球 $B^d$ は、上の定義で仮定した閉多様体ではありません。一般の開集合 $\Omega\subset\mathbb R^d$ では、$u\in W^{1,2}_{\mathrm{loc}}(\Omega,S^{q-1})$ に対し、すべての $\varphi\in C_c^\infty(\Omega,\mathbb R^q)$ について
+
+$$
+\int_\Omega Du:D\varphi\,dx
+-\int_\Omega|Du|^2(u\cdot\varphi)\,dx=0
+$$
+
+が成り立つとき **局所弱調和写像** と呼びます。試験場は領域内部にコンパクトな台を持つため、ここでは境界値を指定しません。$u\in W^{1,2}(B^d,S^{q-1})$ の例について「球内で弱調和」と述べる場合は、この局所的な意味です。
+
 <!-- definition-example-start: def-ga8-weak-harmonic -->
 **定義の確認**（平坦トーラスから円への巻き付け）：$M=(\mathbb R/2\pi\mathbb Z)^2$ を平坦トーラス、$k\in\mathbb Z$ とし、$u(x,y)=(\cos kx,\sin kx)$ とします。これは滑らかで $|u|=1$ なので、各成分が $W^{1,2}(M)$ に属し、球面値Sobolev写像の条件を満たします。さらに
 
