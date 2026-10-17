@@ -158,15 +158,23 @@ m\int|w|^pdx
 \le M_0\int|w|^pdx
 $$
 
-です。勾配についても[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)と正定値行列の固有値上下界から
+です。勾配を座標で判定する理由も確認します。座標基底 $(\partial_{x^1},\ldots,\partial_{x^d})$ に関する計量の行列を $G=(g_{ab})$ とすると、$G$ は各点で対称正定値です。[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)は $g(\nabla_gw,\partial_{x^a})=\partial_aw$ を基底ごとに解いたものであり、
 
-$$
+$
+\nabla_gw=\sum_{a,b}g^{ab}(\partial_bw)\partial_{x^a},
+\qquad
+|\nabla_gw|_g^2=(\partial w)^TG^{-1}(\partial w)
+$
+
+となります。ここで $G^{-1}=(g^{ab})$ です。$G^{-1}$ の最小・最大固有値は正で、コンパクトな切断台上でそれぞれ正の下界と有限な上界を持つため、
+
+$
 c_0|\partial w|^2
-\le g^{ab}\partial_aw\partial_bw
+\le \sum_{a,b}g^{ab}\partial_aw\partial_bw
 \le C_0|\partial w|^2
-$$
+$
 
-となります。これで局所の計量による $H^1$ ノルムとEuclidの $H^1$ ノルムを比較できます。
+となります。体積密度の比較と合わせて、局所の計量による $H^1$ ノルムとEuclidの $H^1$ ノルムを双方向に比較できます。
 
 <a id="prop-ga2-intrinsic-h1"></a>
 <!-- formal-statement-start -->
@@ -205,14 +213,30 @@ $$
 前向きの評価と合わせれば結論です。滑らかな関数の密度は次節で確認します。
 <!-- proof-end -->
 
-**具体例：角度によって伸縮する円**。$S^1$ に計量 $g=a(\theta)^2d\theta^2$（$0<m\le a\le M_0$）を入れると、$dV_g=a\,d\theta$、$|\nabla_gu|_g^2=(u')^2/a^2$ なので
+**具体例：角度によって伸縮する円**。$S^1$ に滑らかな正の周期関数 $a(\theta)$（$0<m\le a\le M_0$）から計量 $g=a(\theta)^2d\theta^2$ を入れます。座標基底 $\partial_\theta$ では $g(\partial_\theta,\partial_\theta)=a^2>0$ なので、$G=(a^2)$ は計量の正定値性を満たします。その逆行列は $(a^{-2})$ です。[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)と[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)にこの一行一列の行列を代入すると、
 
-$$
+$
+dV_g=\sqrt{\det G}\,d\theta=a\,d\theta,\qquad
+\nabla_gu=a^{-2}u'\partial_\theta,\qquad
+|\nabla_gu|_g^2=a^{-2}(u')^2
+$
+
+です。最後の等号では $g(\partial_\theta,\partial_\theta)=a^2$ を使いました。したがって
+
+$
 \|u\|_{H^1_g}^2
 =\int_0^{2\pi}\left(a\,u^2+\frac{(u')^2}{a}\right)d\theta.
-$$
+$
 
-従って $\min(m,M_0^{-1})\|u\|_{H^1_{\rm flat}}^2\le\|u\|_{H^1_g}^2\le\max(M_0,m^{-1})\|u\|_{H^1_{\rm flat}}^2$ です。「同じ円」でも計量によって数値は変わり、空間としての所属は変わらないと分かります。
+$a$ と $a^{-1}$ に上記の上下界があるため、各非負項の係数を比較すると
+
+$
+\min(m,M_0^{-1})\|u\|_{H^1_{\rm flat}}^2
+\le\|u\|_{H^1_g}^2
+\le\max(M_0,m^{-1})\|u\|_{H^1_{\rm flat}}^2
+$
+
+です。計量の正定値性、体積密度、勾配ノルムの各条件を別々に確認したので、「同じ円」でも数値は変わる一方、$H^1$ への所属は変わらないと分かります。
 
 二階では共変Hessianの成分が $\nabla_a\nabla_bu=\partial_a\partial_bu-\Gamma^c_{ab}\partial_cu$ です。$g^{ab}$、$\Gamma^c_{ab}$ とその必要な導関数がコンパクトな座標台上で有界なので、$k$ 階共変微分による平方積分ノルムも、同じ局所連鎖律を反復すると $H^k(M)$ のノルムと同値になります。$k=1$ では関数の共変微分は通常の微分 $du$ です。
 
@@ -423,6 +447,8 @@ $$
 > では $\|\nabla_gu\|_{L^2}$ はノルムとなり、通常の $H^1$ ノルムと同値である。
 <!-- formal-statement-end -->
 
+体積が有限なので、$|\int_Mu\,dV_g|\le\operatorname{Vol}_g(M)^{1/2}\|u\|_{L^2}$ です。ゆえに平均零条件は $H^1$ 上の連続線形汎関数の核を定め、上の部分空間は閉じています。
+
 <!-- proof-start -->
 ### 証明
 
@@ -439,7 +465,11 @@ $$
 
 ## 6. 境界と非コンパクト性では何が変わるか
 
-ここまでは境界がありませんでした。境界付きのコンパクトな滑らかな多様体には、内部座標のほかに、境界を半空間 $x^d\ge0$ の一部へ写す**境界座標**が必要です。境界の近くで $H^1$ の元へ境界値を割り当てるには、古典的な点値ではなくトレースを使います。
+ここまでは境界がありませんでした。境界付きのコンパクトな滑らかな多様体には、内部座標のほかに、境界を半空間 $x^d\ge0$ の一部へ写す**境界座標**が必要です。境界の近くで $H^1$ の元へ境界値を割り当てるには、古典的な点値ではなく[トレース](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を使います。
+
+**境界付きの場合の $H^1(M)$ の意味**もここで確定します。有限枚の内部座標（球）と境界座標（半球 $B_i^+=B_i\cap\{x^d>0\}$）を取り、その被覆に従属する滑らかな1の分割 $\chi_i$ を選びます。内部では第1節と同じ球上の切断関数、境界では $(\chi_i u)\circ\kappa_i^{-1}\in H^1(B_i^+)$ を要求し、これらの $H^1$ ノルムの二乗和で $H^1(M)$ を定義します。半球の**平らな境界面をまたぐ零延長はしません**。そのような延長は一般にジャンプを作るからです。一方、切断関数の台は半球の曲面側の人工的な境界から離して選びます。
+
+第2節と同じ連鎖律・積の法則およびコンパクト台上でのJacobian比較を、境界を境界へ写す滑らかな座標変換に適用すれば、この定義は座標選択によらず、$\int_M(|u|^2+|\nabla_gu|_g^2)\,dV_g$ によるノルムとも同値になります。この準備の下で初めて、$H^1$ 関数の境界値を問えます。
 
 <a id="prop-ga2-boundary-trace"></a>
 <!-- formal-statement-start -->
@@ -460,21 +490,31 @@ $$
 <!-- proof-start -->
 ### 証明
 
-境界近傍を有限枚の滑らかな半球型座標で覆い、切断関数 $\chi_i$ を選びます。滑らかな $u$ に対し $w_i=(\chi_i u)\circ\kappa_i^{-1}$ は有界Lipschitz領域の $H^1$ 関数です。各座標で[Euclidのトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を適用し、
+境界近傍を有限枚の滑らかな半球型座標で覆い、切断関数 $\chi_i$ を選びます。滑らかな $u$ に対し $w_i=(\chi_i u)\circ\kappa_i^{-1}\in H^1(B_i^+)$ です。各 $B_i^+$ は有界Lipschitz領域なので、[Euclidのトレース定理](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-trace-lipschitz)を適用できます。
 
-$$
-\|\operatorname{Tr} w_i\|_{L^2(\partial B_i^+)}
-\le C_i\|w_i\|_{H^1(B_i^+)}
-$$
+$
+\|\operatorname{Tr}w_i\|_{L^2(\partial B_i^+)}
+\le C_i\|w_i\|_{H^1(B_i^+)}.
+$
 
-を得ます。境界の面積要素は座標面上で滑らかで正の密度を持ち、切断関数の台上で上下界を持ちます。したがって境界へ戻し有限和を取ると
+$M$ の真の境界に対応するのは $\partial B_i^+$ の平らな面 $F_i=\{x^d=0\}\cap B_i$ です。したがって左辺を $F_i$ に制限しても同じ上界が成り立ちます。境界面積要素 $dS_g$ は $F_i$ 上で滑らかな正の密度 $\sigma_i(x')\,dx'$ を持ち、切断台上で $\sigma_i\le C_i'$ です。よって
 
-$$
+$
+\|\chi_i u|_{\partial M}\|_{L^2(\partial M)}^2
+\le C_i'\|\operatorname{Tr}w_i\|_{L^2(F_i)}^2
+\le C_i'C_i^2\|w_i\|_{H^1(B_i^+)}^2.
+$
+
+境界上でも $u=\sum_i\chi_i u$ が成り立ち、内部座標の切断関数は境界で0です。有限和の三角不等式と上で定義した $H^1(M)$ ノルムを使えば、
+
+$
 \|u|_{\partial M}\|_{L^2(\partial M)}
 \le C\|u\|_{H^1(M)}
-$$
+$
 
-です。滑らかな関数の $H^1$ 稠密性（半球の境界での平滑化は[Euclidの拡張定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)と平滑化を用いる）により連続延長が存在し、稠密性から一意です。
+を得ます。
+
+最後に定義域の稠密性を示します。境界座標の各 $w_i\in H^1(B_i^+)$ を[有界Lipschitz領域の拡張定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)で $\mathbb R^d$ の $H^1$ 関数へ延長し、[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)で近似します。曲面側の人工境界から離れる滑らかな切断関数を掛け、半球へ制限して多様体へ戻します。内部座標では第3節の平滑化を使い、有限個の近似を足せば、境界まで滑らかな関数が $H^1(M)$ に稠密と分かります。したがって上の有界線形な境界制限は $H^1(M)$ 全体へ一意に連続延長されます。
 <!-- proof-end -->
 
 例えば区間 $M=[0,1]$ で $u(x)=x$ は、$\operatorname{Tr}u=(0,1)$ ですが、平均を引いた $x-\frac12$ は平均0でもトレースは $(-\frac12,\frac12)$ です。境界のない場合の[平均零Poincaré不等式](#thm-ga2-poincare)を、零トレースの定理と混同できません。
