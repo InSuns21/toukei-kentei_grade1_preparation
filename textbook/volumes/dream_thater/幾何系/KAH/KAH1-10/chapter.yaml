@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - KAH1-09
+  - VC7
 official_scope: []
 learning_objectives:
   - 前章の符号規約から正則断面曲率とRicci縮約の定義を具体例で検算できる
