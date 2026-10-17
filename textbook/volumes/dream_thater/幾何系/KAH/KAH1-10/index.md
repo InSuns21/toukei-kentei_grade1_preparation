@@ -59,10 +59,54 @@ $$
 > この定義では $R_{i\bar j k\bar\ell}$ の第3・第4添字を縮約する。$\rho$ の大域性および行列式との関係は次章で詳しく証明する。
 <!-- formal-statement-end -->
 
-基底の変換で逆計量を挿入する理由を確かめよう。ある点で正規直交基底に取り直したときは $g^{k\bar\ell}=\delta_{k\ell}$ なので縮約は対角成分の和である。一般の基底では、基底の伸縮による見かけの変化を逆計量が打ち消す。各項を変換則に代入しても同じ二階テンソルになる。
+逆計量が必要な理由を、曲率作用素の成分から確かめよう。[前章で定義した曲率作用素](../KAH1-09/index.md#def-kah1-09-curvature-components)について、正則接ベクトルへの作用を
+
+$$
+R(\partial_i,\partial_{\bar j})\partial_k
+=\mathcal R^m{}_{i\bar j k}\partial_m
+$$
+
+と書く。これは正則接空間上の線形写像の基底表示である。四階成分の定義から
+
+$$
+R_{i\bar j k\bar\ell}
+=g_{m\bar\ell}\mathcal R^m{}_{i\bar j k},
+\qquad
+g^{k\bar\ell}R_{i\bar j k\bar\ell}
+=\underbrace{g^{k\bar\ell}g_{m\bar\ell}}_{\delta^k_m}
+\mathcal R^m{}_{i\bar j k}
+=\sum_{k=1}^n\mathcal R^k{}_{i\bar j k}.
+$$
+
+すなわちRicci縮約は、固定した $i,\bar j$ に対する曲率作用素の**跡**である。基底変更で線形写像の行列は $A\mapsto B^{-1}AB$ と変わるが、$\operatorname{tr}(B^{-1}AB)=\operatorname{tr}A$ なので、この縮約は基底の選び方に依存しない。ここで縮約するのは作用先・作用元の添字 $m,k$ であり、二階成分の添字 $i,\bar j$ は残る。ある点で正規直交基底を選んで $g^{k\bar\ell}=\delta_{k\ell}$ とすれば、上式は四階成分の対角和に戻る。
+
+さらに、[曲率成分の共役対称性](../KAH1-09/index.md#thm-kah1-09-kahler-symmetries)と逆計量のHermite対称性から
+
+$$
+\overline{\operatorname{Ric}_{i\bar j}}
+=g^{\ell\bar k}R_{j\bar i\ell\bar k}
+=\operatorname{Ric}_{j\bar i}
+$$
+
+を得る。したがって係数はHermite対称である。外積の反対称性も使えば
+
+$$
+\overline{\rho}
+=-i\operatorname{Ric}_{j\bar i}\,d\bar z^i\wedge dz^j
+=i\operatorname{Ric}_{j\bar i}\,dz^j\wedge d\bar z^i
+=\rho
+$$
+
+となり、$\rho$ は実 $(1,1)$ 形式であることも定義から確認できる。
 
 <!-- definition-example-start: def-kah1-10-ricci-contraction -->
-**定義の確認**。 $g_{i\bar j}=\operatorname{diag}(2,3)$ とする $\mathbb C^2$ では、逆計量は $\operatorname{diag}(1/2,1/3)$。全ての一次・二次微分が零だから四階成分も零であり、
+**定義の確認**。 $\mathbb C^2$ の標準正則基底で $g_{i\bar j}=\operatorname{diag}(2,3)$ とする。これは計量 $g$ の基底成分で、任意の $v=a\partial_1+b\partial_2\ne0$ に対し
+
+$$
+g(v,\bar v)=2|a|^2+3|b|^2>0
+$$
+
+となる。行列は実対角なのでHermite対称であり、基本形式は一定係数だから閉じている。従って確かにKähler計量である。逆計量は $\operatorname{diag}(1/2,1/3)$。全ての一次・二次微分が零だから[曲率局所成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)の各項が零であり、
 
 $$
 \operatorname{Ric}_{i\bar j}
@@ -74,13 +118,13 @@ $$
 
 ## 3. 平坦複素トーラスには曲率が残らない
 
-[格子商への計量の降下](../KAH1-05/index.md#prop-kah1-05-torus)によれば、$\mathbb C^n$ の一定の正値Hermite行列 $G=(G_{i\bar j})$ は、複素階数 $n$ の格子 $\Lambda\subset\mathbb C^n$ による商 $T=\mathbb C^n/\Lambda$ へ降りる。なぜなら平行移動 $z\mapsto z+\lambda$ の微分は恒等写像で、係数 $G$ を保存するからである。基本形式は一定係数なので閉じており、$T$ 上でKähler計量となる。
+[格子商への計量の降下](../KAH1-05/index.md#prop-kah1-05-torus)によれば、$\mathbb C^n$ の一定の正値Hermite行列 $G=(G_{i\bar j})$ は、実階数 $2n$ の全格子 $\Lambda\subset\mathbb C^n$ による商 $T=\mathbb C^n/\Lambda$ へ降りる。なぜなら平行移動 $z\mapsto z+\lambda$ の微分は恒等写像で、係数 $G$ を保存するからである。基本形式は一定係数なので閉じており、$T$ 上でKähler計量となる。
 
 <a id="prop-kah1-10-flat-torus"></a>
 
 <!-- formal-statement-start -->
 > **命題（平坦トーラスの全曲率の消失）**  
-> $\Lambda\subset\mathbb C^n$ を格子、$G$ を一定の正値Hermite行列とする。$T=\mathbb C^n/\Lambda$ 上の誘導Kähler計量は、四階曲率、Ricci成分および全ての正則断面曲率が零である。
+> $\Lambda\subset\mathbb C^n$ を全格子（$\mathbb Z$ 上の階数 $2n$）、$G$ を一定の正値Hermite行列とする。$T=\mathbb C^n/\Lambda$ 上の誘導Kähler計量は、四階曲率、Ricci成分および全ての正則断面曲率が零である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -382,10 +426,30 @@ $H'(v)$ の分子は $c$ 倍、分母は $(cg(v,\bar v))^2=c^2g(v,\bar v)^2$ だ
 #### KAH1-10-A01 定数計量と格子商
 - Level: A
 
-$\mathbb C^2$ に $g_{i\bar j}=\operatorname{diag}(2,3)$ を与え、任意の格子 $\Lambda$ による商へ降ろす。Kähler条件、四階曲率、$\operatorname{Ric}_{1\bar1}$、$H(\partial_2)$ を求めよ。
+$\mathbb C^2$ に $g_{i\bar j}=\operatorname{diag}(2,3)$ を与え、任意の全格子 $\Lambda$ による商へ降ろす。Kähler条件、四階曲率、$\operatorname{Ric}_{1\bar1}$、$H(\partial_2)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 固有値 $2,3$ は正である。成分が一定なので基本形式の微分は零。平行移動で計量は不変だから商に降りる。[曲率局所成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)へ $\partial_i g_{k\bar\ell}=0$、$\partial_i\partial_{\bar j}g_{k\bar\ell}=0$ を入れ、$R_{i\bar j k\bar\ell}=0$。逆計量は $\operatorname{diag}(1/2,1/3)$ だから $\operatorname{Ric}_{1\bar1}=\frac12R_{1\bar1 1\bar1}+\frac13R_{1\bar1 2\bar2}=0$。$\partial_2$ の長さの二乗は $3>0$ であるから $H(\partial_2)=0/3^2=0$。
+**詳細解答。** 標準正則座標基底で計量は実対角行列となるから、Hermite対称である。非零ベクトル $v=a\partial_1+b\partial_2$ に対して
+
+$$
+g(v,\bar v)=2|a|^2+3|b|^2>0
+$$
+
+となり、正値性を確認できる。成分が一定なので基本形式の外微分は零。平行移動も計量を保存するから、[格子商への降下](../KAH1-05/index.md#prop-kah1-05-torus)により商へ降り、Kähler条件を満たす。
+
+[曲率局所成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)の二つの項にはそれぞれ一次微分と二次微分が現れるが、定数計量では全て零である。従って四階曲率は $R_{i\bar j k\bar\ell}=0$。逆計量とRicci縮約を具体的に書けば
+
+$$
+(g^{i\bar j})=\operatorname{diag}(1/2,1/3),\qquad
+\operatorname{Ric}_{1\bar1}
+=\frac12R_{1\bar1 1\bar1}+\frac13R_{1\bar1 2\bar2}=0.
+$$
+
+また $g(\partial_2,\partial_{\bar2})=3>0$ だから、正則断面曲率の定義に代入して
+
+$$
+H(\partial_2)=\frac{R_{2\bar2 2\bar2}}{3^2}=0.
+$$
 <!-- solution-end -->
 
 <a id="ex-kah1-10-a02"></a>
