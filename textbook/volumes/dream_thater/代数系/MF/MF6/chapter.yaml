@@ -1,0 +1,39 @@
+id: "MF6"
+title: "モジュラー形式のL関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF5
+  - MF4
+  - MF2
+  - ANT2
+  - CA12
+official_scope: []
+learning_objectives:
+  - カスプ形式の係数成長評価を導きDirichlet級数の絶対収束半平面を確認できる
+  - Gamma積分によりMellin表示を絶対収束から導ける
+  - Fricke行列の正規化と共役計算を検証できる
+  - 積分分割と変数変換から完成L関数の整解析接続を証明できる
+  - Fricke変換の相手を区別して関数等式と中心符号を導ける
+  - Hecke固有係数の漸化式からEuler積の二次因子を導ける
+  - レベルを割る素数のUp固有性とnewform理論の役割を区別できる
+definitions:
+  - { id: MF6-DEF-01, name: カスプ形式のL関数 }
+  - { id: MF6-DEF-02, name: Fricke作用 }
+  - { id: MF6-DEF-03, name: 完成L関数 }
+theorems:
+  - { id: MF6-LEM-01, name: カスプ形式の係数と端点での減衰 }
+  - { id: MF6-THM-01, name: カスプ形式のMellin表現 }
+  - { id: MF6-THM-02, name: Fricke変換と完成L関数の関数等式 }
+  - { id: MF6-THM-03, name: Hecke固有形式のEuler積 }
+  - { id: MF6-COR-01, name: 中心値が強制的に零になる条件 }
+canonical_examples:
+  - DeltaのL関数の絶対収束半平面
+  - Fricke作用の二乗とレベル1での固定性
+  - Deltaの素数2のEuler因子とa4の検算
+  - 中心符号が正負で異なる結論
+problem_patterns: [MF6-A1, MF6-A2, MF6-A3, MF6-A4, MF6-B1, MF6-B2, MF6-B3, MF6-B4, MF6-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 9, review: 4 }

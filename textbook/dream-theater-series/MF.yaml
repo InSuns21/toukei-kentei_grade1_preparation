@@ -28,7 +28,7 @@ chapters:
     title: "Hecke作用素・固有形式"
   - id: MF6
     path: textbook/volumes/dream_thater/代数系/MF/MF6
-    status: planned
+    status: completed
     title: "モジュラー形式のL関数"
   - id: MF7
     path: textbook/volumes/dream_thater/代数系/MF/MF7
