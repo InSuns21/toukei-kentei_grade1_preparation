@@ -189,7 +189,7 @@ $$
 
 ### なぜ零固有空間は有限次元か
 
-[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。ここでの **主記号** は、局所的な微分作用素の最高階部分で $\partial_j$ を共変数 $\xi_j$ に置き換えた線形写像です。形式 $v$ に対して、外微分 $d$ の主記号は $\xi\wedge v$、余微分 $\delta$ の主記号は $-\iota_{\xi^\sharp}v$ です。$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
+[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。ここでの **主記号** は、局所的な微分作用素の最高階部分で、Fourier変換の規約に従い $\partial_j$ を $i\xi_j$ に置き換えた線形写像です。形式 $v$ に対して、外微分 $d$ の主記号は $i\xi\wedge v$、余微分 $\delta$ の主記号は $-i\iota_{\xi^\sharp}v$ です。従って二つの合成 $d\delta+\delta d$ の主記号は $|\xi|_g^2I$ になります。$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
 
 <a id="lem-ga6-elliptic"></a>
 
