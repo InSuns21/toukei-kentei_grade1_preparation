@@ -1,0 +1,39 @@
+id: "GA6"
+title: "Hodge Laplacian・調和形式・de Rham"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO9
+  - GEO12
+  - GA2
+  - GA4
+official_scope: []
+learning_objectives:
+  - Hodge星作用素の定義と符号を正規直交余標構・平坦トーラスで検証できる
+  - 余微分の符号と随伴関係をStokes公式から導き、0形式上のHodge Laplacianの符号を確認できる
+  - エネルギー恒等式と調和形式のd・deltaによる判定を証明できる
+  - 主記号の外積・内部積の恒等式から楕円型評価を導き、局所化とコンパクト性の役割を説明できる
+  - 弱形式とコンパクト自己共役レゾルベントから有限次元の調和空間・スペクトルギャップを構成できる
+  - Green作用素を使って滑らかな形式のHodge直交分解と三成分の一意性を証明できる
+  - 閉形式の余完全成分が消えることからHodge--de Rham同型を証明できる
+  - 円・トーラス・球面の次数別調和形式と境界・非コンパクトの仮定の相違を検証できる
+definitions:
+  - { id: GA6-DEF-01, name: "Hodge星作用素" }
+  - { id: GA6-DEF-02, name: "余微分" }
+  - { id: GA6-DEF-03, name: "Hodge Laplacian" }
+  - { id: GA6-DEF-04, name: "調和形式" }
+  - { id: GA6-DEF-05, name: "余完全形式" }
+  - { id: GA6-DEF-06, name: "Hodge Green作用素" }
+theorems:
+  - { id: GA6-PROP-01, name: "余微分の随伴関係と二乗零" }
+  - { id: GA6-THM-01, name: "エネルギー恒等式と調和性の判定" }
+  - { id: GA6-LEM-01, name: "Hodge作用素の楕円型評価" }
+  - { id: GA6-THM-02, name: "Hodge Laplacianの非負自己共役実現と有限次元核" }
+  - { id: GA6-THM-03, name: "閉多様体のHodge直交分解" }
+  - { id: GA6-THM-04, name: "Hodge--de Rham同型" }
+canonical_examples: [平坦トーラスのHodge星と余微分, 円の調和1形式, トーラスのHodge分解, 球面の次数別調和形式]
+problem_patterns: [GA6-STAR-SIGN, GA6-CIRCLE-DECOMPOSITION, GA6-STAR-NORM, GA6-ENERGY, GA6-ORTHOGONALITY, GA6-GREEN-SPECTRUM, GA6-SPHERE-COHOMOLOGY, GA6-ELLIPTIC-SYMBOL, GA6-TORUS-SYNTHESIS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }

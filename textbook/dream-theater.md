@@ -688,6 +688,7 @@
 3. [GA3 楕円型方程式・弱解・最大値原理](textbook/volumes/dream_thater/幾何系/GA/GA3/index.md)
 4. [GA4 Laplace作用素のスペクトル理論](textbook/volumes/dream_thater/幾何系/GA/GA4/index.md)
 5. [GA5 熱方程式・熱半群・熱核](textbook/volumes/dream_thater/幾何系/GA/GA5/index.md)
+6. [GA6 Hodge Laplacian・調和形式・de Rham](textbook/volumes/dream_thater/幾何系/GA/GA6/index.md)
 
 <a id="dt-subject-lorentzian-geometry"></a>
 ### ローレンツ幾何と大域因果構造

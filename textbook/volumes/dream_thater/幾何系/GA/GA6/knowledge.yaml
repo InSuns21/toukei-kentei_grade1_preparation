@@ -1,0 +1,81 @@
+chapter: GA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO9
+  - GEO12
+  - GA2
+  - GA4
+concepts:
+  - id: geometric-analysis.hodge-star
+    name: Hodge星作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodge星作用素）"]
+    requires: [geometry.differential-form, geometry.form-wedge-product, geometry.riemannian-metric]
+  - id: geometric-analysis.codifferential
+    name: 余微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余微分）"]
+    requires: [geometric-analysis.hodge-star, geometry.exterior-derivative]
+  - id: geometric-analysis.codifferential-adjoint
+    name: 余微分の随伴関係と二乗零
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余微分の随伴関係と二乗零）"]
+    requires: [geometric-analysis.codifferential, geometry.general-stokes-theorem, geometry.exterior-derivative-square-zero]
+  - id: geometric-analysis.hodge-laplacian
+    name: Hodge Laplacian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodge Laplacian）"]
+    requires: [geometric-analysis.codifferential, geometry.exterior-derivative]
+  - id: geometric-analysis.hodge-energy
+    name: エネルギー恒等式と調和性の判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（エネルギー恒等式と調和性の判定）"]
+    requires: [geometric-analysis.hodge-laplacian, geometric-analysis.codifferential-adjoint, geometric-analysis.green-first]
+  - id: geometric-analysis.harmonic-form
+    name: 調和形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（調和形式）"]
+    requires: [geometric-analysis.hodge-laplacian]
+  - id: geometric-analysis.hodge-elliptic-estimate
+    name: Hodge作用素の楕円型評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Hodge作用素の楕円型評価）"]
+    requires: [geometric-analysis.hodge-laplacian, geometric-analysis.chart-norm-equivalence, geometry.form-interior-product]
+  - id: geometric-analysis.hodge-spectral-kernel
+    name: Hodge Laplacianの非負自己共役実現と有限次元核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodge Laplacianの非負自己共役実現と有限次元核）"]
+    requires: [geometric-analysis.hodge-elliptic-estimate, geometric-analysis.rellich, geometric-analysis.laplacian-spectral]
+  - id: geometric-analysis.coexact-form
+    name: 余完全形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余完全形式）"]
+    requires: [geometric-analysis.codifferential]
+  - id: geometric-analysis.hodge-green
+    name: Hodge Green作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodge Green作用素）"]
+    requires: [geometric-analysis.hodge-spectral-kernel]
+  - id: geometric-analysis.hodge-decomposition
+    name: 閉多様体のHodge直交分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉多様体のHodge直交分解）"]
+    requires: [geometric-analysis.hodge-green, geometric-analysis.coexact-form, geometric-analysis.hodge-energy]
+  - id: geometric-analysis.hodge-de-rham
+    name: Hodge--de Rham同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodge--de Rham同型）"]
+    requires: [geometric-analysis.hodge-decomposition, geometry.de-rham-cohomology, geometric-analysis.harmonic-form]
