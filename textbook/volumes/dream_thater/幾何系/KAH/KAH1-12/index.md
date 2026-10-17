@@ -314,7 +314,29 @@ $$
 \end{aligned}
 $$
 
-したがって曲率のde Rham類は、整数値2-コサイクル $m$ から従属分割で作る最初の2形式の類に等しい。四重重なりのコサイクル条件を使えば、この最初の2形式も $\alpha$ に依存しない。これがČech–de Rham比較写像の局所表示であり、**整数類の実像が $[iF_D/(2\pi)]$ と一致する符号**まで確かめた。
+四重重なりのコサイクル条件は、任意の添字 $\alpha,\delta$ について
+
+$$
+m_{\alpha\beta\gamma}-m_{\delta\beta\gamma}
+=-m_{\delta\alpha\gamma}+m_{\delta\alpha\beta}
+$$
+
+を与える。これを上式の第1項へ代入し、$\sum_\beta d\chi_\beta=\sum_\gamma d\chi_\gamma=0$ を使うと、その第1項は $\alpha$ に依存しない。したがって大域2形式
+
+$$
+M:=\sum_{\alpha,\beta,\gamma}
+\chi_\alpha m_{\alpha\beta\gamma}\,
+d\chi_\beta\wedge d\chi_\gamma
+$$
+
+が得られる。ここで各 $U_\alpha$ 上で
+
+$$
+M=\sum_{\beta,\gamma}m_{\alpha\beta\gamma}\,
+d\chi_\beta\wedge d\chi_\gamma
+$$
+
+であり、曲率のde Rham類は $[M]$ に等しい。これは良い被覆の整数値2-コサイクルをde Rham形式へ移すČech–de Rham比較写像の局所表示であり、**整数類の実像が $[iF_D/(2\pi)]$ と一致する符号**まで確かめた。
 
 さらに同じ正則線束に二つの計量を入れた場合、[第一Chern形式の計量変更公式](../../CM/CM2-11/index.md#prop-cm2-11-chern-closed)によって差は完全2形式になる。ゆえにde Rham類は計量の選択に依存しない。$\square$
 <!-- proof-end -->
