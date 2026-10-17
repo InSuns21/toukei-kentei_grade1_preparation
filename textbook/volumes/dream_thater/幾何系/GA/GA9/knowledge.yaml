@@ -1,0 +1,59 @@
+chapter: GA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA8
+  - GA2
+  - VAR7
+  - VAR8
+  - GEO16
+concepts:
+  - id: geometric-analysis.minimal-graph-flux-jacobian
+    name: 極小グラフ流束の線形化係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小グラフ流束の線形化係数）"]
+    requires: [calculus-of-variations.minimal-graph-equation]
+  - id: geometric-analysis.minimal-graph-ellipticity
+    name: 極小グラフ流束の楕円性
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.minimal-graph-flux-jacobian]
+  - id: geometric-analysis.minimal-graph-linearization
+    name: 極小グラフ方程式の線形化
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.minimal-graph-ellipticity, calculus-of-variations.minimal-graph-equation]
+  - id: geometric-analysis.weak-minimal-graph
+    name: 極小グラフの弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極小グラフの弱解）"]
+    requires: [calculus-of-variations.minimal-graph-equation, sobolev.wkp]
+  - id: geometric-analysis.weak-minimal-graph-uniqueness
+    name: 同じDirichlet値を持つ弱極小グラフの一意性
+    kind: proposition
+    introduction: formal
+    requires: [geometric-analysis.weak-minimal-graph, geometric-analysis.minimal-graph-ellipticity]
+  - id: geometric-analysis.critical-sobolev-exponent
+    name: Sobolev臨界指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Sobolev臨界指数）"]
+    requires: [geometric-analysis.sobolev-embedding]
+  - id: geometric-analysis.critical-sobolev-concentration
+    name: 臨界Sobolev埋め込みの非コンパクト性
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.critical-sobolev-exponent, geometric-analysis.manifold-sobolev]
+  - id: geometric-analysis.yamabe-type-quotient
+    name: Yamabe型変分商
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Yamabe型変分商）"]
+    requires: [geometric-analysis.critical-sobolev-exponent, geometry.scalar-curvature]
+  - id: geometric-analysis.yamabe-type-euler
+    name: Yamabe型変分商の停留方程式
+    kind: proposition
+    introduction: formal
+    requires: [geometric-analysis.yamabe-type-quotient, geometric-analysis.green-first]

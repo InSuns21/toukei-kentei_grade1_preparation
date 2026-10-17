@@ -40,5 +40,5 @@ chapters:
     title: "調和写像・非線形幾何変分"
   - id: GA9
     path: textbook/volumes/dream_thater/幾何系/GA/GA9
-    status: planned
+    status: completed
     title: "幾何的非線形楕円PDEと臨界現象"
