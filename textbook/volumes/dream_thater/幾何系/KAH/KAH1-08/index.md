@@ -175,7 +175,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-08-normal-coordinates -->
-**定義の確認（直接例）。** $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
+**定義の確認**。直接例として、 $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-08-normal-existence"></a>
