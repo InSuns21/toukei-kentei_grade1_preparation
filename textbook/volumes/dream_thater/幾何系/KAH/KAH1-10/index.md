@@ -431,25 +431,25 @@ $\mathbb C^2$ に $g_{i\bar j}=\operatorname{diag}(2,3)$ を与え、任意の�
 <!-- solution-start -->
 **詳細解答。** 標準正則座標基底で計量は実対角行列となるから、Hermite対称である。非零ベクトル $v=a\partial_1+b\partial_2$ に対して
 
-$
+$$
 g(v,\bar v)=2|a|^2+3|b|^2>0
-$
+$$
 
 となり、正値性を確認できる。成分が一定なので基本形式の外微分は零。平行移動も計量を保存するから、[格子商への降下](../KAH1-05/index.md#prop-kah1-05-torus)により商へ降り、Kähler条件を満たす。
 
 [曲率局所成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)の二つの項にはそれぞれ一次微分と二次微分が現れるが、定数計量では全て零である。従って四階曲率は $R_{i\bar j k\bar\ell}=0$。逆計量とRicci縮約を具体的に書けば
 
-$
+$$
 (g^{i\bar j})=\operatorname{diag}(1/2,1/3),\qquad
 \operatorname{Ric}_{1\bar1}
 =\frac12R_{1\bar1 1\bar1}+\frac13R_{1\bar1 2\bar2}=0.
-$
+$$
 
 また $g(\partial_2,\partial_{\bar2})=3>0$ だから、正則断面曲率の定義に代入して
 
-$
+$$
 H(\partial_2)=\frac{R_{2\bar2 2\bar2}}{3^2}=0.
-$
+$$
 <!-- solution-end -->
 
 <a id="ex-kah1-10-a02"></a>
