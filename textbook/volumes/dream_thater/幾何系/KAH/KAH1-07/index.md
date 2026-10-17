@@ -256,7 +256,7 @@ $$
 =\frac{\omega_a}{2\pi}.
 $$
 
-左辺は[曲率の枠変更則](../../CM/CM2-11/index.md#prop-cm2-11-curvature-local)により大域的、右辺は[大域貼り合わせ定理](#thm-kah1-07-global-fs)により大域的だから、全空間で等しい。最後は[射影直線の面積定理](#thm-kah1-07-area)を使い $\int_{\mathbb{CP}^1}c_1(\mathcal O(1),h)=2\pi/(2\pi)=1$。$\square$
+左辺は[曲率の枠変更則](../../CM/CM2-11/index.md#prop-cm2-11-curvature-local)により大域的、右辺は[大域貼り合わせ定理](#thm-kah1-07-global-fs)により大域的だから、全空間で等しい。最後は[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)を使い $\int_{\mathbb{CP}^1}c_1(\mathcal O(1),h)=2\pi/(2\pi)=1$。$\square$
 <!-- proof-end -->
 
 **定義と公式の具体照合（$n=1$）。** $U_0$ では
@@ -305,7 +305,7 @@ $$
 =\int_{\partial\mathbb{CP}^1}d^c\Phi=0.
 $$
 
-しかし[射影直線の面積定理](#thm-kah1-07-area)で左辺は $2\pi$。矛盾する。$\square$
+しかし[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)で左辺は $2\pi$。矛盾する。$\square$
 <!-- proof-end -->
 
 つまりチャート間の差は局所形式の貼り合わせを許す一方、非零の面積が単一の大域ポテンシャルを妨げる。これは後で扱うKähler classの最も簡単な模型になる。
@@ -448,7 +448,7 @@ F_D^-=-\frac{1}{(1+|z|^2)^2}dz\wedge d\bar z,\qquad
 \frac{i}{2\pi}F_D^-=-\frac{\omega_{\mathrm{FS}}}{2\pi}.
 $$
 
-[射影直線の面積定理](#thm-kah1-07-area)より積分は $-2\pi/(2\pi)=-1$。[双対束の誘導曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)で線束の曲率が負になることとも一致する。
+[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)より積分は $-2\pi/(2\pi)=-1$。[双対束の誘導曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)で線束の曲率が負になることとも一致する。
 <!-- solution-end -->
 
 <a id="ex-kah1-07-b03"></a>
@@ -479,7 +479,7 @@ $$
 =\frac{i}{(1+|u|^2)^2}du\wedge d\bar u.
 $$
 
-$L$ は $[0:0:1]$ を一点追加した $\mathbb C$ であり、射影直線の二チャートと同じである。従って[射影直線の面積定理](#thm-kah1-07-area)を同じ座標式に適用して $\int_L\omega_{\mathrm{FS}}=2\pi$。
+$L$ は $[0:0:1]$ を一点追加した $\mathbb C$ であり、射影直線の二チャートと同じである。従って[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)を同じ座標式に適用して $\int_L\omega_{\mathrm{FS}}=2\pi$。
 <!-- solution-end -->
 
 ### Level C
