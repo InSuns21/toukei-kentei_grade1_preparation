@@ -36,7 +36,7 @@ chapters:
     title: "Fubini–Study形式II（貼り合わせと規格化）"
   - id: KAH1-08
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-08
-    status: planned
+    status: completed
     title: "Kähler接続と正則座標"
   - id: KAH1-09
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-09
