@@ -1,0 +1,60 @@
+chapter: GA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA4
+concepts:
+  - id: geometric-analysis.heat-semigroup
+    name: 熱半群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱半群）"]
+    requires: [geometric-analysis.laplacian-spectral]
+  - id: geometric-analysis.heat-semigroup-properties
+    name: 熱半群の縮小性・強連続性・生成作用素
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（熱半群の縮小性・強連続性・生成作用素）"]
+    requires: [geometric-analysis.heat-semigroup]
+  - id: geometric-analysis.heat-equation-smoothing
+    name: 熱方程式の平滑化・一意性・エネルギー恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（熱方程式の平滑化・一意性・エネルギー恒等式）"]
+    requires: [geometric-analysis.heat-semigroup-properties, geometric-analysis.poisson-regularity]
+  - id: geometric-analysis.heat-eigenvalue-count
+    name: 固有値の多項式計数評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固有値の多項式計数評価）"]
+    requires: [geometric-analysis.eigenform-energy, geometric-analysis.manifold-sobolev]
+  - id: geometric-analysis.heat-kernel
+    name: 熱核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱核）"]
+    requires: [geometric-analysis.heat-eigenvalue-count, geometric-analysis.laplacian-spectral]
+  - id: geometric-analysis.heat-kernel-regularity
+    name: 熱核の存在・滑らかさ・対称性・半群性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（熱核の存在・滑らかさ・対称性・半群性）"]
+    requires: [geometric-analysis.heat-kernel, geometric-analysis.poisson-regularity]
+  - id: geometric-analysis.heat-kernel-positivity
+    name: 熱核の非負性・厳密正値性・質量保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（熱核の非負性・厳密正値性・質量保存）"]
+    requires: [geometric-analysis.heat-kernel-regularity, geometric-analysis.green-first]
+  - id: geometric-analysis.heat-longtime
+    name: スペクトルギャップと長時間均一化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スペクトルギャップと長時間均一化）"]
+    requires: [geometric-analysis.heat-kernel-regularity, geometric-analysis.first-positive-eigenvalue]
+  - id: geometric-analysis.heat-torus-gaussian
+    name: 平坦トーラスの周期化Gaussian熱核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦トーラスの周期化Gaussian熱核）"]
+    requires: [geometric-analysis.heat-kernel, geometric-analysis.laplacian-spectral]
