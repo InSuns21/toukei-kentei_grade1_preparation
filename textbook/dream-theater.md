@@ -1146,6 +1146,7 @@
 ### 一般相対論 I
 
 1. [GR1 等価原理と局所自由落下](textbook/volumes/dream_thater/物理系/GR/GR1/index.md)
+2. [GR2 Lorentz計量・固有時・光円錐](textbook/volumes/dream_thater/物理系/GR/GR2/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
