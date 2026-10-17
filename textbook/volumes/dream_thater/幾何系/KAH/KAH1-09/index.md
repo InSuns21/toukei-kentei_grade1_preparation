@@ -337,14 +337,14 @@ $$
 従って最初の式を得る。[局所ポテンシャルの存在](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
 <!-- proof-end -->
 
-**二変数の直接計算。** [局所ポテンシャルと計量成分の関係](../KAH1-04/index.md#prop-kah1-04-positive-equivalence)を使い、$g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$ で係数行列を作る。例えば $|z^1|^2|z^2|^2=z^1\bar z^1z^2\bar z^2$ だから
+**二変数の直接計算。** 実数 $\lambda$ を固定する。[局所ポテンシャルと計量成分の関係](../KAH1-04/index.md#prop-kah1-04-positive-equivalence)を使い、$g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$ で係数行列を作る。例えば $|z^1|^2|z^2|^2=z^1\bar z^1z^2\bar z^2$ だから
 
 $$
 \partial_1\partial_{\bar2}(\lambda |z^1|^2|z^2|^2)
 =\partial_1(\lambda z^1\bar z^1z^2)=\lambda\bar z^1z^2.
 $$
 
-原点付近の $\mathbb C^2$ で実数 $\lambda$ に対して
+原点付近の $\mathbb C^2$ で、この $\lambda$ を使って
 
 $$
 \varphi=|z^1|^2+|z^2|^2+\lambda|z^1|^2|z^2|^2
