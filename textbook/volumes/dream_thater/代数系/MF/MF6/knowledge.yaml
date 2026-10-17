@@ -1,0 +1,54 @@
+chapter: MF6
+scope: dream-theater
+coverage: complete
+prerequisites: [MF5, MF4, MF2, ANT2, CA12]
+forward_references: []
+concepts:
+  - id: modular-forms.cusp-coefficient-bound
+    name: カスプ形式の係数と端点での減衰
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（カスプ形式の係数と端点での減衰）"]
+    requires: [modular-forms.level-form, modular-forms.q-expansion]
+  - id: modular-forms.l-series
+    name: カスプ形式のL関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（カスプ形式のL関数）"]
+    requires: [modular-forms.cusp-coefficient-bound, analytic-number-theory.complex-dirichlet-series]
+  - id: modular-forms.mellin-l
+    name: カスプ形式のMellin表現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（カスプ形式のMellin表現）"]
+    requires: [modular-forms.l-series, complex-analysis.zeta-mellin-representation]
+  - id: modular-forms.fricke-action
+    name: Fricke作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fricke作用）"]
+    requires: [modular-forms.det-slash, modular-forms.level-form]
+  - id: modular-forms.completed-l
+    name: 完成L関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完成L関数）"]
+    requires: [modular-forms.mellin-l, modular-forms.fricke-action]
+  - id: modular-forms.l-functional-equation
+    name: Fricke変換と完成L関数の関数等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fricke変換と完成L関数の関数等式）"]
+    requires: [modular-forms.completed-l, modular-forms.fricke-action]
+  - id: modular-forms.l-euler-product
+    name: Hecke固有形式のEuler積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hecke固有形式のEuler積）"]
+    requires: [modular-forms.l-series, modular-forms.eigenforms, analytic-number-theory.euler-product]
+  - id: modular-forms.l-central-sign
+    name: 中心値が強制的に零になる条件
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（中心値が強制的に零になる条件）"]
+    requires: [modular-forms.l-functional-equation]
