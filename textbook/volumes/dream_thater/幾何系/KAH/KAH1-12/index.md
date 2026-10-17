@@ -266,13 +266,13 @@ $$
 
 したがって
 
-$
+$$
 \begin{aligned}
 \gamma_\beta-\gamma_\alpha
 &=db_{\alpha\beta}-(\sum_\gamma\chi_\gamma)db_{\alpha\beta}\\
 &=db_{\alpha\beta}-db_{\alpha\beta}=0.
 \end{aligned}
-$
+$$
 
 ゆえに $\gamma_\alpha$ は大域1形式 $\gamma$ に貼り合い、
 
