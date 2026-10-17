@@ -22,7 +22,7 @@ $$
 基底を取り替えても、この和は線形写像のノルムの二乗（計量による縮約）なので変わりません。以下では $|du|^2$ と略記します。$N=\mathbb R$ なら既習のDirichletエネルギーに一致します。
 
 <!-- definition-example-start: def-ga8-map-energy -->
-**定義の確認：同じ空間でも定数写像と恒等写像は違う。** 単位球面 $S^2$ からそれ自身への定数写像 $u(x)=p$ は $du=0$ なので $E(u)=0$ です。一方、恒等写像 $u(x)=x$ では接ベクトル $e_i$ がそのまま写り、各点で $|du|^2=2$ です。従って $E(u)=\frac12\cdot2\cdot\operatorname{Area}(S^2)=4\pi$。エネルギーが正であっても変分に対して停留する写像は存在します。
+**定義の確認**（定数写像と恒等写像）： 単位球面 $S^2$ からそれ自身への定数写像 $u(x)=p$ は $du=0$ なので $E(u)=0$ です。一方、恒等写像 $u(x)=x$ では接ベクトル $e_i$ がそのまま写り、各点で $|du|^2=2$ です。従って $E(u)=\frac12\cdot2\cdot\operatorname{Area}(S^2)=4\pi$。エネルギーが正であっても変分に対して停留する写像は存在します。
 <!-- definition-example-end -->
 
 ## 2. 異なる接空間をどう微分するか
@@ -70,7 +70,7 @@ $$
 も成り立ちます。これは後の部分積分で不可欠です。
 
 <!-- definition-example-start: def-ga8-pullback-connection -->
-**定義の確認：平坦な値域。** $N=\mathbb R^q$ の標準座標では $\Gamma^\alpha_{\beta\gamma}=0$。$M=\mathbb T^2$、$u(x,y)=(\cos x,\sin x)$、$V(x,y)=(-\sin x,\cos x)$ とすると
+**定義の確認**（平坦な値域）： $N=\mathbb R^q$ の標準座標では $\Gamma^\alpha_{\beta\gamma}=0$。$M=\mathbb T^2$、$u(x,y)=(\cos x,\sin x)$、$V(x,y)=(-\sin x,\cos x)$ とすると
 
 $$
 \nabla^u_{\partial_x}V=(-\cos x,-\sin x),\qquad
@@ -117,7 +117,7 @@ $$
 張力場は値域の接ベクトルです。座標式の $\Gamma^k_{ij}(g)$ を落とすと始域の座標変更に不変でなく、$\Gamma^\alpha_{\beta\gamma}(h)$ を落とすと値域の曲率を無視してしまいます。
 
 <!-- definition-example-start: def-ga8-tension -->
-**定義の確認：恒等写像。** $u=\operatorname{id}:(S^2,g)\to(S^2,g)$ では $\partial_i u^\alpha=\delta_i^\alpha$、$\partial_i\partial_j u^\alpha=0$ です。上の式へ代入すると
+**定義の確認**（恒等写像）： $u=\operatorname{id}:(S^2,g)\to(S^2,g)$ では $\partial_i u^\alpha=\delta_i^\alpha$、$\partial_i\partial_j u^\alpha=0$ です。上の式へ代入すると
 
 $$
 (\nabla du)^\alpha_{ij}
@@ -314,7 +314,7 @@ $$
 一般の値域 $N$ についても、$N$ が $\mathbb R^Q$ の滑らかな閉部分多様体として与えられている場合には、同じ考え方で $u(x)\in N$ をほとんど至る所で課せます。ただし異なる埋め込みの比較や一般の弱調和写像の正則性まで、ここで自動的に結論してはいけません。本章の弱形式の証明は球面値の場合に固定します。
 
 <!-- definition-example-start: def-ga8-sphere-sobolev -->
-**定義の確認：連続とは限らないが制約は保てる。** $B^3\subset\mathbb R^3$ 上の $u(x)=x/|x|$（$x\ne0$）を原点では任意の単位ベクトルに定めます。$|u|=1$ は至る所（原点を除けば点ごと）で成立し、
+**定義の確認**（連続性を持たない有限エネルギー写像）： $B^3\subset\mathbb R^3$ 上の $u(x)=x/|x|$（$x\ne0$）を原点では任意の単位ベクトルに定めます。$|u|=1$ は至る所（原点を除けば点ごと）で成立し、
 
 $$
 Du=\frac1r(I-u\otimes u),\qquad
@@ -347,6 +347,30 @@ $$
 <!-- formal-statement-end -->
 
 第2積分は $|du|^2\in L^1$、$|u|=1$、$\varphi$ が有界なので有限です。これは $\Delta_g u+|du|^2u=0$ を分布の意味で読むことに相当します。分布のLaplacianは試験場への作用を $-\int\langle du,d\varphi\rangle$ で定めるため、符号も合っています。
+
+<!-- definition-example-start: def-ga8-weak-harmonic -->
+**定義の確認**（平坦トーラスから円への巻き付け）：$M=(\mathbb R/2\pi\mathbb Z)^2$ を平坦トーラス、$k\in\mathbb Z$ とし、$u(x,y)=(\cos kx,\sin kx)$ とします。これは滑らかで $|u|=1$ なので、各成分が $W^{1,2}(M)$ に属し、球面値Sobolev写像の条件を満たします。さらに
+
+$$
+|du|^2=k^2,\qquad
+\partial_x^2u=-k^2u,\qquad
+\partial_yu=0.
+$$
+
+任意の滑らかな試験場 $\varphi:M\to\mathbb R^2$ に対して、周期境界での部分積分（[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)）により
+
+$$
+\begin{aligned}
+\int_M\langle du,d\varphi\rangle\,dV_g
+&=-\int_M(\Delta_gu)\cdot\varphi\,dV_g\\
+&=k^2\int_Mu\cdot\varphi\,dV_g\\
+&=\int_M|du|^2(u\cdot\varphi)\,dV_g.
+\end{aligned}
+$$
+
+従って定義にある全ての試験場で弱方程式が成り立ち、この $u$ は弱調和写像です。滑らかであることだけで弱調和性を判定したのではなく、**定義の積分等式**を実際に確認しています。
+<!-- definition-example-end -->
+
 
 <a id="thm-ga8-weak-variation"></a>
 
