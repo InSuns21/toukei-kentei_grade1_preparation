@@ -1,0 +1,95 @@
+chapter: ML1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-01
+  - F0-00P2A
+
+concepts:
+  - id: learning.conditional-label-probability
+    name: 条件付きラベル確率
+    kind: definition
+    aliases: [条件付きラベル確率]
+    introduction: formal
+    introduction_aliases: ["定義（条件付きラベル確率）"]
+    requires:
+      - learning.supervised-learning-problem
+      - prob.distribution-law
+
+  - id: learning.conditional-risk
+    name: 条件付きリスク
+    kind: definition
+    aliases: [条件付きリスク]
+    introduction: formal
+    introduction_aliases: ["定義（条件付きリスク）"]
+    requires:
+      - learning.conditional-label-probability
+      - learning.loss-function
+
+  - id: learning.bayes-decision-rule
+    name: Bayes決定則
+    kind: definition
+    aliases: [ベイズ決定則]
+    introduction: formal
+    introduction_aliases: ["定義（Bayes決定則とBayesリスク）"]
+    requires:
+      - learning.conditional-risk
+
+  - id: learning.bayes-risk
+    name: Bayesリスク
+    kind: definition
+    aliases: [ベイズリスク]
+    introduction: formal
+    introduction_aliases: ["定義（Bayes決定則とBayesリスク）"]
+    requires:
+      - learning.bayes-decision-rule
+      - learning.population-risk
+
+  - id: learning.bayes-risk-decomposition
+    name: 条件付きリスク分解とBayes最適性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（条件付きリスク分解とBayes最適性）"]
+    requires:
+      - learning.bayes-risk
+      - learning.conditional-risk
+
+  - id: learning.zero-one-bayes-rule
+    name: 0–1損失に対するBayes分類則
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（0–1損失に対するBayes分類則）"]
+    requires:
+      - learning.bayes-risk-decomposition
+      - learning.zero-one-loss
+
+  - id: learning.asymmetric-binary-loss
+    name: 二値非対称誤分類損失
+    kind: definition
+    aliases: [二値非対称誤分類損失]
+    introduction: formal
+    introduction_aliases: ["定義（二値非対称誤分類損失）"]
+    requires:
+      - learning.loss-function
+
+  - id: learning.cost-sensitive-bayes-threshold
+    name: 誤分類費用によるBayes閾値
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（誤分類費用によるBayes閾値）"]
+    requires:
+      - learning.asymmetric-binary-loss
+      - learning.bayes-risk-decomposition
+
+  - id: learning.bayes-likelihood-ratio
+    name: 二値Bayes決定の尤度比表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（二値Bayes決定の尤度比表示）"]
+    requires:
+      - learning.cost-sensitive-bayes-threshold
+      - learning.conditional-label-probability

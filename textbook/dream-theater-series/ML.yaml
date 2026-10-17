@@ -13,7 +13,7 @@ chapters:
     title: "学習問題・標本・予測器"
   - id: ML1-02
     path: textbook/volumes/dream_thater/応用系/ML/ML1-02
-    status: planned
+    status: completed
     title: "Bayes決定則と損失関数"
   - id: ML1-03
     path: textbook/volumes/dream_thater/応用系/ML/ML1-03
