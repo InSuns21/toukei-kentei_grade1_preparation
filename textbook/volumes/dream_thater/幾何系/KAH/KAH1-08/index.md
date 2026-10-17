@@ -134,7 +134,7 @@ $$
 \frac{\partial z^j}{\partial w^b}.
 $$
 
-ここで $i,j$ のダミー添字を交換して第二項をまとめた。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)と整合する。$\square$
+ここで和を取る添字 $i,j$ を交換して第二項をまとめた。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)と整合する。$\square$
 <!-- proof-end -->
 
 **直接例：平坦なのに係数は非零になる。** $\mathbb C$ に $g_{z\bar z}=1$ を入れ、原点付近で $w=z+az^2$（$a\in\mathbb C$）とする。$dw/dz=1+2az$ は原点で非零なので局所正則座標である。逆写像の二階微分は $d^2z/dw^2|_0=-2a$、元の $\Gamma^z_{zz}=0$。変換公式から $\Gamma^w_{ww}(0)=-2a$。曲がっていない計量でも、曲がった座標を使えば係数が現れる。係数そのものを曲率と呼んではならない。
@@ -151,7 +151,7 @@ $$
 
 とできれば、$\Gamma^c_{ab}(p)=0$ が従う。こうした座標を**Kähler正規座標**（本章では一階正規座標）と呼ぶ。これは一点での条件であり、開集合全域で係数が消えるという条件ではない。
 
-まず正値Hermite行列 $H(p)$ は、[正値行列の基底変換](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)により正則線形座標変換で単位行列にできる。その後、原点を $p$ に移し、この線形正規化後の座標を $u$ として $u(p)=0$, $g_{a\bar b}(p)=\delta_{ab}$ とする。
+まず正値Hermite行列 $H(p)$ は、[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)により正則線形座標変換で単位行列にできる。その後、原点を $p$ に移し、この線形正規化後の座標を $u$ として $u(p)=0$, $g_{a\bar b}(p)=\delta_{ab}$ とする。
 
 残る一階微分は二次の座標変換で消す。Kähler条件から $\Gamma^k_{ij}(p)=\Gamma^k_{ji}(p)$ なので、$w$ の各成分を
 
@@ -167,13 +167,15 @@ $$
 > **定義（点におけるKähler正規座標）**  
 > 複素多様体 $X$ 上の滑らかなKähler計量 $g$ と点 $p\in X$ に対し、$p$ の正則座標 $w$ が $w(p)=0$、$g_{a\bar b}(p)=\delta_{ab}$、かつすべての $a,b,c$ について
 >
-> $\partial_cg_{a\bar b}(p)=\partial_{\bar c}g_{a\bar b}(p)=0$
->
-> を満たすとき、$w$ を $p$ における（一階の）**Kähler正規座標**という。
+$
+\partial_cg_{a\bar b}(p)=\partial_{\bar c}g_{a\bar b}(p)=0.
+$
+
+> この条件を満たす $w$ を $p$ における（一階の）**Kähler正規座標**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-08-normal-coordinates -->
-**定義の直接例。** $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g_{w\bar w}=1$ となる（$dz/dw=\sqrt2$）。正規座標は実座標の直交規格化とは係数が異なり得る。
+**定義の直接例。** $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g_{w\bar w}=1$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-08-normal-existence"></a>
@@ -240,7 +242,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Kähler条件と正則一階正規化）**  
-> $X$ を複素多様体、$g$ を滑らかな正値Hermite計量とする。各点 $p$ において、ある正則座標で $g_{a\bar b}(p)=\delta_{ab}$ かつすべての一階微分 $\partial_cg_{a\bar b}(p)$ が零になることと、$g$ がKähler計量であることは同値である。
+> $X$ を複素多様体、$g$ を滑らかな正値Hermite計量とする。各点 $p$ において、ある正則座標が存在して次の条件を満たすことと、$g$ がKähler計量であることは同値である。
+
+$
+g_{a\bar b}(p)=\delta_{ab},\qquad
+\partial_cg_{a\bar b}(p)=0
+\quad(1\le a,b,c\le n).
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
