@@ -1,0 +1,55 @@
+chapter: KAH1-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-12
+  - GEO9
+concepts:
+  - id: kahler.kahler-class
+    name: Kähler類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler類）"]
+    requires: [kahler.positive-real-eleven-form, geometry.de-rham-cohomology]
+  - id: kahler.kahler-cone
+    name: Kähler cone
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler cone）"]
+    requires: [kahler.kahler-class]
+  - id: kahler.cone-convexity
+    name: Kähler coneの凸錐性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler cone の凸錐性）"]
+    requires: [kahler.kahler-cone, kahler.positive-real-eleven-form]
+  - id: kahler.representable-eleven-subspace
+    name: 実閉(1,1)形式で表せる部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実閉(1,1)形式で表せる部分空間）"]
+    requires: [geometry.de-rham-cohomology, kahler.positive-real-eleven-form]
+  - id: kahler.relative-cone-openness
+    name: Kähler coneの有限次元方向での開性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler cone の有限次元方向での開性）"]
+    requires: [kahler.kahler-cone, kahler.representable-eleven-subspace, kahler.positive-form-matrix-criterion]
+  - id: kahler.global-potential-class-invariance
+    name: 大域ポテンシャルによる類の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（大域ポテンシャルによる類の不変性）"]
+    requires: [kahler.kahler-class, geometry.de-rham-cohomology, complex-manifolds.dolbeault-local-formula]
+  - id: kahler.compact-class-nonzero
+    name: コンパクトKähler多様体のKähler類は非零
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクトKähler多様体のKähler類は非零）"]
+    requires: [kahler.kahler-class, geometry.de-rham-cohomology, geometry.general-stokes-theorem, kahler.positive-form-matrix-criterion]
+  - id: kahler.no-global-kahler-potential
+    name: コンパクト正次元では大域単一Kählerポテンシャルはない
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（コンパクト正次元では大域単一Kählerポテンシャルはない）"]
+    requires: [kahler.global-potential-class-invariance, kahler.compact-class-nonzero, kahler.local-ddbar-potential]

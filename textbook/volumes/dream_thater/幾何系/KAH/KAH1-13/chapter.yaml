@@ -1,0 +1,43 @@
+id: "KAH1-13"
+title: "Kähler classと正値性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-12
+  - GEO9
+official_scope: []
+learning_objectives:
+  - Kähler類を正の実閉(1,1)形式の代表の存在によって定義しde Rham類と区別できる
+  - 複素平面・複素トーラス・射影直線のKähler類の零非零と面積を判定できる
+  - Kähler coneの凸錐性を型・実性・閉性・正値性に分けて証明できる
+  - 実閉(1,1)形式で代表できる部分空間を定義し有限次元方向での開性を一様評価から証明できる
+  - 大域i∂bar∂ポテンシャルから実1形式の原始形式を構成できる
+  - コンパクトKähler多様体の体積積分を用いて[omega]^kの非零性と大域単一ポテンシャルの不可能性を証明できる
+  - 同一コホモロジー類の異なる代表と正値性の失敗を具体例で計算できる
+definitions:
+  - { id: KAH1-13-DEF-01, name: Kähler類 }
+  - { id: KAH1-13-DEF-02, name: Kähler cone }
+  - { id: KAH1-13-DEF-03, name: 実閉(1,1)形式で表せる部分空間 }
+theorems:
+  - { id: KAH1-13-PROP-01, name: Kähler coneの凸錐性 }
+  - { id: KAH1-13-THM-01, name: Kähler coneの有限次元方向での開性 }
+  - { id: KAH1-13-PROP-02, name: 大域ポテンシャルによる類の不変性 }
+  - { id: KAH1-13-THM-02, name: コンパクトKähler多様体のKähler類は非零 }
+  - { id: KAH1-13-COR-01, name: コンパクト正次元では大域単一Kählerポテンシャルはない }
+canonical_examples:
+  - Cで正の完全(1,1)形式と零Kähler類
+  - CP1でFubini–Study形式と積分2πの規格化
+  - 複素トーラスで周期ポテンシャルによる同類の正値・非正値代表
+  - 任意の有限次元の閉実(1,1)代表への一様摂動評価
+  - CP1とトーラスの積でKähler正値性と体積積分を比較
+problem_patterns:
+  - KAH1-13-KAHLER-CLASS-REPRESENTATIVE
+  - KAH1-13-CONE-CONVEXITY
+  - KAH1-13-RELATIVE-OPENNESS
+  - KAH1-13-GLOBAL-DD-BAR-EXACT
+  - KAH1-13-COMPACT-VOLUME-OBSTRUCTION
+  - KAH1-13-PRODUCT-KAHLER-VOLUME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
