@@ -135,7 +135,7 @@ $$
 
 という評価を得ます。具体的には一回目の $H^2$ 評価に $Lv$、二回目の $H^4$ 評価に $L(Lv)$ を入力し、有限被覆と[GA2の局所ノルム比較](../GA2/index.md#prop-ga2-intrinsic-h1)で定数をまとめます。[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で $2k>r+d/2$ となる $k$ を選べば $v$ の $C^r$ ノルムを抑えられます。時間微分は $-L$ をさらに作用させるので、$t\ge\varepsilon>0$ の各階微分まで連続になり、$u$ は $(0,\infty)\times M$ で滑らかです。
 
-$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ なので [GA1のGreen公式](../GA1/index.md#thm-ga1-green-first)から
+$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ なので [GA1の勾配の部分積分公式](../GA1/index.md#thm-ga1-green-first)から
 
 $$
 \frac{d}{dt}\|w(t)\|_2^2
@@ -145,7 +145,7 @@ $$
 $0<s<t$ に積分して $\|w(t)\|_2\le\|w(s)\|_2$、$s\downarrow0$ で右辺は $0$ です。よって一意性が従います。同じ計算を $u$ に適用して指定したエネルギー恒等式を得ます。
 <!-- proof-end -->
 
-**保存される量と減る量は別です。** 滑らかな $u$ について[GA1の境界なし発散定理](../GA1/index.md#thm-ga1-divergence)から
+**保存される量と減る量は別です。** 滑らかな $u$ について[GA1の境界なし積分公式](../GA1/index.md#thm-ga1-divergence)から
 
 $$
 \frac{d}{dt}\int_Mu\,dV_g=\int_M\Delta_gu\,dV_g=0,
@@ -288,7 +288,7 @@ $$
 
 ### どうして正の温度が負にならないか
 
-定義の級数は各項 $\phi_j(x)\phi_j(y)$ が負になることもあるため、**級数の各項が正だから熱核が正**という説明は誤りです。熱方程式の比較原理を使います。
+定義の級数は各項 $\phi_j(x)\phi_j(y)$ が負になることもあるため、**級数の各項が正だから熱核が正**という説明は誤りです。ここでは負部分のエネルギーを直接調べます。
 
 <a id="thm-ga5-positivity-mass"></a>
 
@@ -310,7 +310,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず滑らかな $f\ge0$ を取ります。$u=T_tf$ は $t=0$ まで滑らかです（$f$ が滑らかなら各 $L^mf\in L^2$ であり、[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)から高階の級数も $t=0$ で収束します）。$u_-=\max\{-u,0\}$ とします。弱微分の連鎖律では $u<0$ の集合上で $\nabla u_-=-\nabla u$ なので、[Green公式](../GA1/index.md#thm-ga1-green-first)により
+まず滑らかな $f\ge0$ を取ります。$u=T_tf$ は $t=0$ まで滑らかです（$f$ が滑らかなら各 $L^mf\in L^2$ であり、[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)から高階の級数も $t=0$ で収束します）。$u_-=\max\{-u,0\}$ とします。弱微分の連鎖律では $u<0$ の集合上で $\nabla u_-=-\nabla u$ なので、[GA1の勾配の部分積分公式](../GA1/index.md#thm-ga1-green-first)により
 
 $$
 \frac{d}{dt}\|u_-(t)\|_2^2
@@ -617,7 +617,7 @@ $0\le1-e^{-a}\le a$（$a\ge0$）より $|(e^{-t\lambda_j}-1)/t|\le\lambda_j$。�
 #### GA5-B02 スペクトルギャップとエネルギー
 - Level: B
 
-$f\in L^2(M)$、$\bar f=V^{-1}\int_Mf\,dV_g$ とする。$u(t)=T_tf$ の平均零部分 $w(t)=u(t)-\bar f$ について、$t>0$ で $E(t)=\|w(t)\|_2^2$ と置く。[GA4のPoincaré不等式](../GA4/index.md#cor-ga4-poincare-gap)から微分不等式を導き、解いて指数減衰を示せ。
+$f\in L^2(M)$、$\bar f=V^{-1}\int_Mf\,dV_g$ とする。$u(t)=T_tf$ の平均零部分 $w(t)=u(t)-\bar f$ について、$t>0$ で $E(t)=\|w(t)\|_2^2$ と置く。[GA4の第一正固有値に基づく平均零評価](../GA4/index.md#cor-ga4-poincare-gap)から微分不等式を導き、解いて指数減衰を示せ。
 
 <!-- solution-start -->
 **詳細解答**
