@@ -299,7 +299,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\Gamma_0(N)$ の有限指数を $\mu$ とし、左剰余類の代表 $\gamma_1,\ldots,\gamma_\mu$ を取ります。[MF1の標準基本領域](../MF1/index.md#def-mf1-standard-domain)の $\mu$ 個の像で $\Gamma_0(N)$ の基本領域を構成できます。ただし高さの切断は元の $\tau$ 座標で一律に行うのではありません。各カスプ $s$ を $\sigma_s^{-1}$ で無限遠へ移し、そこで $\operatorname{Im}\tau>Y_s$ を切り取ります。各カスプの端を除いた領域は、有限枚の基本領域を貼り合わせたコンパクト部分になります。
+$\Gamma_0(N)$ の有限指数を $\mu$ とし、左剰余類の代表 $\gamma_1,\ldots,\gamma_\mu$ を取ります。[MF1の標準基本領域](../MF1/index.md#def-mf1-standard-domain)の $\mu$ 個の像で $\Gamma_0(N)$ の基本領域を構成できます。
+
+ただし高さの切断は元の $\tau$ 座標で一律に行うのではありません。各カスプ $s$ を $\sigma_s^{-1}$ で無限遠へ移し、そこで $\operatorname{Im}\tau>Y_s$ を切り取ります。
+
+各カスプの端を除いた領域は、有限枚の基本領域を貼り合わせたコンパクト部分になります。
 
 境界の有理点は有限個のカスプ軌道へ分かれます。カスプ $s$ で $\sigma_s^{-1}$ により $\infty$ に移し、共役群 $G_s=\sigma_s^{-1}\Gamma_0(N)\sigma_s\subset SL_2(\mathbb Z)$ を考えます。$g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G_s$ が $c\ne0$ なら、$y=\operatorname{Im}\tau$ に対し
 
