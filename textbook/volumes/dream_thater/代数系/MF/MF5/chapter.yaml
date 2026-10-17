@@ -1,0 +1,44 @@
+id: "MF5"
+title: "Hecke作用素・固有形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF4
+  - MF3
+  - MF2
+  - MF1
+official_scope: []
+learning_objectives:
+  - 正の行列式を持つslash作用の行列式因子と右作用を定義・検算できる
+  - 左剰余類代表を整数行基本変形から導き、レベル1のTnを構成できる
+  - 二重剰余類と全行列式nの和を区別し、q係数公式とカスプ保存を証明できる
+  - レベルNでpがNを割る場合のUpと割らない場合のTpを区別し、係数を計算できる
+  - 係数操作UpVpの関係からHecke作用素の可換性と素数冪漸化式を証明できる
+  - Petersson内積のカスプでの収束とレベル1のHecke自己随伴性を説明できる
+  - 正規化同時固有カスプ形式の固有値とq係数の一致と乗法性を導ける
+  - Deltaの複数のFourier係数を素数係数と漸化式から再計算できる
+definitions:
+  - { id: MF5-DEF-01, name: 正の行列式を持つ行列のslash作用 }
+  - { id: MF5-DEF-02, name: レベル1のHecke作用素 }
+  - { id: MF5-DEF-03, name: 自明指標でのTpとUp }
+  - { id: MF5-DEF-04, name: レベル1のPetersson内積 }
+theorems:
+  - { id: MF5-LEM-01, name: 行列式nの左剰余類代表 }
+  - { id: MF5-THM-01, name: Hecke作用素のq係数公式 }
+  - { id: MF5-PROP-01, name: レベルNの素数作用素の係数 }
+  - { id: MF5-PROP-02, name: 係数操作の恒等式 }
+  - { id: MF5-THM-02, name: レベル1のHecke合成則 }
+  - { id: MF5-THM-03, name: レベル1のHecke作用素の自己随伴性 }
+  - { id: MF5-THM-04, name: 同時固有形式と乗法的Fourier係数 }
+canonical_examples:
+  - 行列式pの2種類の三角行列でslash因子を直接確認
+  - nが2のときの左剰余類代表を数えT2の作用式を構成
+  - E4に対するT2の固有値と係数の対比
+  - Deltaに対するT2およびRamanujan係数の再帰計算
+  - レベル2のDelta(2tau)へU2を作用させる比較
+  - カスプ形式とE4でPetersson積分の収束を区別
+problem_patterns: [MF5-A1, MF5-A2, MF5-A3, MF5-A4, MF5-B1, MF5-B2, MF5-B3, MF5-B4, MF5-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 8, review: 4 }
