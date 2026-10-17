@@ -23,6 +23,16 @@ $$
 
 で定める（左辺の $\ell$ は総和）。この複素座標表示と実座標表示の添字を混同しない。
 
+ここで行列 $(g_{i\bar j})$ は、正則座標基底 $\partial_i$ と反正則座標基底 $\partial_{\bar j}$ に関する**計量の成分表示**である。実際、$v=c^i\partial_i\in T^{1,0}_xX$ に対して複素双線形性から
+
+$$
+g(v,\bar v)
+=g(c^i\partial_i,\overline{c^j}\partial_{\bar j})
+=g_{i\bar j}c^i\overline{c^j}
+$$
+
+となる。[正の基本形式とHermite行列](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、計量の正値性をこの二次形式で判定できる。特に対角行列なら各対角成分が正であることを $g(v,\bar v)$ の和から直接確認できる。以下の行列計算は、抽象的な計量条件をこの座標表示へ移したものである。
+
 ## 2. 曲率の符号と四階成分
 
 本章では[既習の曲率演算子](../../GEO/GEO16/index.md#def-geo16-curvature)と同じ符号を用いる。
@@ -59,7 +69,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-09-curvature-components -->
-**定義の確認**。 $\mathbb C^n$ に $g_{i\bar j}=\delta_{ij}$ を入れる。固有値はすべて $1$ なので正値であり、計量成分は一定だから基本形式は閉じ、Kähler計量である。接続係数 $\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}$ はすべて零で、混合方向も零である。よって $R(\partial_i,\partial_{\bar j})\partial_k=0$。これを計量で縮約すると、定義した成分 $R_{i\bar j k\bar\ell}=0$ がすべての添字で確認できる。行列を見ただけで曲率を推測したのではなく、定義の操作を実行した。
+**定義の確認**。 $\mathbb C^n$ の標準正則座標で $g_{i\bar j}=\delta_{ij}$ とする。任意の $v=c^i\partial_i\ne0$ に対し
+
+$$
+g(v,\bar v)=\delta_{ij}c^i\overline{c^j}
+=\sum_{i=1}^n|c^i|^2>0.
+$$
+
+従って[正値Hermite行列の判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)を満たす。また $\overline{\delta_{ji}}=\delta_{ij}$ なので実性があり、係数が定数であるため[閉性の局所条件](../KAH1-02/index.md#thm-kah1-02-local-closedness)の両辺はすべて零になる。よって実・正値・閉性の各条件を満たすKähler計量である。
+
+接続係数は $\Gamma^m_{ik}=\delta_{mq}\partial_i\delta_{kq}=0$、反正則方向の正則座標基底への接続作用も零である。さらに $[\partial_i,\partial_{\bar j}]=0$ なので、曲率の定義に三つの基底を代入すると
+
+$$
+R(\partial_i,\partial_{\bar j})\partial_k
+=\nabla_{\partial_i}0-\nabla_{\partial_{\bar j}}0-\nabla_0\partial_k=0.
+$$
+
+最後に $g(0,\partial_{\bar\ell})=0$ より、定義した $R_{i\bar j k\bar\ell}=0$ がすべての添字について確かめられた。行列を見ただけで曲率を推測したのではなく、定義の操作を実行した。
 <!-- definition-example-end -->
 
 ## 3. 二階微分から曲率を導く
@@ -311,7 +337,14 @@ $$
 従って最初の式を得る。[局所ポテンシャルの存在](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
 <!-- proof-end -->
 
-**二変数の直接計算。** 原点付近の $\mathbb C^2$ で実数 $\lambda$ に対して
+**二変数の直接計算。** 実数 $\lambda$ を固定する。[局所ポテンシャルと計量成分の関係](../KAH1-04/index.md#prop-kah1-04-positive-equivalence)を使い、$g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$ で係数行列を作る。例えば $|z^1|^2|z^2|^2=z^1\bar z^1z^2\bar z^2$ だから
+
+$$
+\partial_1\partial_{\bar2}(\lambda |z^1|^2|z^2|^2)
+=\partial_1(\lambda z^1\bar z^1z^2)=\lambda\bar z^1z^2.
+$$
+
+原点付近の $\mathbb C^2$ で、この $\lambda$ を使って
 
 $$
 \varphi=|z^1|^2+|z^2|^2+\lambda|z^1|^2|z^2|^2
@@ -350,14 +383,43 @@ $$
 (g_{i\bar j})=\begin{pmatrix}1&0\\0&1+|z^1|^2\end{pmatrix}
 $$
 
-とする。$\partial_1g_{2\bar2}=\bar z^1$ に対し $\partial_2g_{1\bar2}=0$ だから、この計量はKählerではない。Chern曲率には一般の束の計算を使えるが、原点で
+とする。$\partial_1g_{2\bar2}=\bar z^1$ に対し $\partial_2g_{1\bar2}=0$ だから、この計量はKählerではない。ここで $D$ を正則接束のChern接続、その曲率を $F_D$ とし、Levi–Civita曲率とは区別して
+
+$$
+R^{\mathrm{Ch}}_{i\bar j k\bar\ell}
+:=g\bigl(F_D(\partial_i,\partial_{\bar j})\partial_k,
+              \partial_{\bar\ell}\bigr)
+$$
+
+と書く。[Chern曲率の定義](../../CM/CM2-11/index.md#def-cm2-11-curvature)を座標基底へ適用した四階成分である。この例では原点で
 
 $$
 R^{\mathrm{Ch}}_{1\bar1 2\bar2}(0)=-1,\qquad
 R^{\mathrm{Ch}}_{2\bar1 1\bar2}(0)=0
 $$
 
-となる。前者は $\partial_1\partial_{\bar1}g_{2\bar2}(0)=1$ から、後者は $g_{1\bar2}=0$ かつ $\partial_2g_{1\bar q}=0$ から得る。**ここで計算したのは非Kähler計量のChern曲率であってLevi–Civita曲率ではない。** 一般Hermite計量で両者を同一視しないことが重要である。
+となる。これを曲率として判定できるのは、一般Hermite計量でも正則接束の[Chern接続係数公式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)と[Chern曲率の型・局所公式](../../CM/CM2-11/index.md#thm-cm2-11-chern-type)が使えるためである。$f=1+|z^1|^2$ とおくと
+
+$$
+\Gamma^2_{12}=f^{-1}\partial_1g_{2\bar2}
+=\frac{\bar z^1}{f},\qquad
+\Gamma^m_{21}=g^{m\bar q}\partial_2g_{1\bar q}=0.
+$$
+
+$D_{\partial_{\bar1}}\partial_2=0$ と座標基底の可換性から、先の曲率演算子の定義と同じ順序で
+
+$$
+\begin{aligned}
+R^{\mathrm{Ch}}_{1\bar1 2\bar2}
+&=-g_{2\bar2}\partial_{\bar1}\Gamma^2_{12}\\
+&=-f\,\frac{f-|z^1|^2}{f^2}
+=-\frac1f,\\
+R^{\mathrm{Ch}}_{2\bar1 1\bar2}
+&=-g_{m\bar2}\partial_{\bar1}\Gamma^m_{21}=0.
+\end{aligned}
+$$
+
+原点で前者が $-1$、後者が $0$ であることを直接確かめられる。ここで二階微分の簡約に使ったのはChern接続の公式であり、Kähler閉性を仮定したのではない。**計算したのは非Kähler計量のChern曲率であってLevi–Civita曲率ではない。** 一般Hermite計量で両者を同一視しないことが重要である。
 
 ## 7. 演習：符号・微分・対称性
 
@@ -370,7 +432,13 @@ $$
 $\mathbb C^2$ で $g_{i\bar j}=\operatorname{diag}(2,3)$ とする。正値性・Kähler閉性・接続係数・曲率成分をすべて確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** 固有値は $2,3$ で正。すべての計量係数は一定だから $\partial_i g_{k\bar\ell}=\partial_{\bar j}g_{k\bar\ell}=0$、よって基本形式は閉じ、Kähler計量である。$\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}=0$。曲率公式の二階微分項も一階微分の積もすべて零なので $R_{i\bar j k\bar\ell}=0$。単位行列でないことは平坦性を妨げない。
+**詳細解答。** 行列はHermite対称である。任意の $c=(c^1,c^2)\ne0$ に対し
+
+$$
+g(c,\bar c)=2|c^1|^2+3|c^2|^2>0.
+$$
+
+従って[正値の行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)を満たす（対角成分・固有値も $2,3$）。すべての計量係数は一定だから $\partial_i g_{k\bar\ell}=\partial_{\bar j}g_{k\bar\ell}=0$、よって基本形式は閉じ、Kähler計量である。$\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}=0$。曲率公式の二階微分項も一階微分の積もすべて零なので $R_{i\bar j k\bar\ell}=0$。単位行列でないことは平坦性を妨げない。
 <!-- solution-end -->
 
 <a id="ex-kah1-09-a02"></a>
@@ -422,7 +490,7 @@ $$
 複素次元 $n\ge4$ で $R_{1\bar2 3\bar4}$ と等しい成分を別に三つ挙げ、その複素共役も一つの成分で書け。
 
 <!-- solution-start -->
-**詳細解答。** 正則二添字の交換で $R_{3\bar2 1\bar4}$、反正則二添字の交換で $R_{1\bar4 3\bar2}$、両方の交換で $R_{3\bar4 1\bar2}$。共役関係は
+**詳細解答。** [Kähler曲率の複素添字対称性](#thm-kah1-09-kahler-symmetries)より、正則二添字の交換で $R_{3\bar2 1\bar4}$、反正則二添字の交換で $R_{1\bar4 3\bar2}$、両方の交換で $R_{3\bar4 1\bar2}$。共役関係は
 
 $$
 \overline{R_{1\bar2 3\bar4}}=R_{2\bar1 4\bar3}.
@@ -495,7 +563,15 @@ $$
 \partial_{\bar z}\Gamma^z_{zz}=0.
 $$
 
-従って $R_{z\bar z z\bar z}=-g\partial_{\bar z}\Gamma=0$。別法でも $\log g=az+\bar a\bar z$ の混合微分が零なので $-g\partial_z\partial_{\bar z}\log g=0$。$a\ne0$ では係数は非零だが曲率零である。
+従って $R_{z\bar z z\bar z}=-g\partial_{\bar z}\Gamma=0$。別法として[局所曲率公式](#prop-kah1-09-local-curvature)を一次元に適用すると、
+
+$$
+R_{z\bar z z\bar z}
+=-g\partial_z\partial_{\bar z}\log g
+=-g\partial_z\partial_{\bar z}(az+\bar a\bar z)=0.
+$$
+
+$a\ne0$ では接続係数は非零だが曲率は零である。
 <!-- solution-end -->
 
 ### Level C
@@ -532,7 +608,7 @@ $$
 
 $g(0)=I$ であるため、$a,b,c$ の符号を問わず正定値性は十分小さな近傍で保たれる。$\omega=i\partial\bar\partial\varphi$ は $\partial^2=\bar\partial^2=0$ と反交換則により閉じている。(2) 成分は定数項と二次項のみなので、一階微分は原点で全部零。$z(0)=0$、$g(0)=I$ と併せてKähler正規座標の全条件が成立する。
 
-(3) Kähler正規座標の成分公式は $R_{i\bar j k\bar\ell}(0)=-\partial_i\partial_{\bar j}g_{k\bar\ell}(0)$。直接微分して
+(3) [Kähler正規座標での曲率命題](#prop-kah1-09-normal-curvature)より、成分公式は $R_{i\bar j k\bar\ell}(0)=-\partial_i\partial_{\bar j}g_{k\bar\ell}(0)$。直接微分して
 
 $$
 R_{1\bar1 1\bar1}(0)=-4a,\qquad
