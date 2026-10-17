@@ -37,7 +37,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（比較用の Fourier 係数データ）**  
-> $N$ を正整数とし、$f$ を[MF7で定義・特徴付けられた正規化newform](../../MF/MF7/index.md#thm-mf7-newform)のうち、レベル $N$・重さ2・自明指標のものとする。その $q$ 展開の $q^n$ の係数を $a_n(f)$ と書く。比較に用いる素数係数は $a_p(f)$ とし、係数 $a_n(f)$ と、曲線の局所因子を展開して得る Dirichlet 係数 $b_E(n)$ は別々に定義された数列として区別する。
+> $N$ を正整数とし、$f$ を[MF7の正規化newform](../../MF/MF7/index.md#thm-mf7-newform)のうち、レベル $N$・重さ2・自明指標のものとする。
+>
+> $f$ の $q$ 展開の $q^n$ の係数を $a_n(f)$ と書き、特に素数に対応する係数を $a_p(f)$ と書く。
+>
+> 曲線の局所多項式の逆数を展開して得る Dirichlet 係数は $b_E(n)$ と書く。$a_n(f)$ と $b_E(n)$ は異なる出発点から定義されるため、等しさを仮定せず区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec11-modular-coefficient-data -->
@@ -60,7 +64,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所 Euler 因子の照合）**  
-> $E/\mathbb Q$ を導手 $N_E$ の楕円曲線、$f$ をレベル $N_E$・重さ2・自明指標の正規化newformとする。素数 $p$ において、[EC10の曲線側の局所多項式](../EC10/index.md#def-ec10-good-local-polynomial)（悪い素数では[別の規則](../EC10/index.md#def-ec10-bad-local-polynomial)） $P_p(E,T)$ と、[MF7に基づく形式側の多項式](../../MF/MF7/index.md#prop-mf7-local-factor) $P_p(f,T)$ が等しいとき、$p$ で局所因子が一致するという。
+> $E/\mathbb Q$ を導手 $N_E$ の楕円曲線、$f$ をレベル $N_E$・重さ2・自明指標の正規化newformとする。
+>
+> 曲線側の多項式 $P_p(E,T)$ は、[EC10の良い素数の定義](../EC10/index.md#def-ec10-good-local-polynomial)と[悪い素数の定義](../EC10/index.md#def-ec10-bad-local-polynomial)に従う。形式側の多項式 $P_p(f,T)$ は[MF7の局所因子](../../MF/MF7/index.md#prop-mf7-local-factor)に従う。
+>
+> 素数 $p$ において $P_p(E,T)=P_p(f,T)$ が多項式として成立するとき、$p$ で局所因子が一致するという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ec11-local-match -->
@@ -429,13 +437,30 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-（i）$3\nmid N_E$ なので[良い素数の局所多項式](../EC10/index.md#def-ec10-good-local-polynomial)は $1-a_3T+3T^2=1+T+3T^2$ です。形式側も[MF7の局所因子](../../MF/MF7/index.md#prop-mf7-local-factor)により一致します。（ii）[悪い素数の還元型別多項式](../EC10/index.md#def-ec10-bad-local-polynomial)で非分裂乗法的還元の符号は $-1$ なので、曲線側は $1+T$。形式側は $1-a_7(f)T=1+T$ です。（iii）加法的還元の曲線側は $1$ であり、[MF7の悪い素数係数定理](../../MF/MF7/index.md#thm-mf7-bad-eigenvalues)では $a_5(f)=0$ なので形式側も $1$ です。二次式が適用されるのは（i）の良い素数だけです。悪い素数に二次項を残すと誤ったEuler因子になります。
+（i）$3\nmid N_E$ なので[良い素数の局所多項式](../EC10/index.md#def-ec10-good-local-polynomial)を使います。係数を代入すると
+
+$$
+P_3(E,T)=1-(-1)T+3T^2=1+T+3T^2.
+$$
+
+形式側も[MF7の局所因子](../../MF/MF7/index.md#prop-mf7-local-factor)によって同じ多項式です。
+
+（ii）[悪い素数の還元型別多項式](../EC10/index.md#def-ec10-bad-local-polynomial)で非分裂乗法的還元の符号は $-1$ です。従って曲線側は $1+T$、形式側も $a_7(f)=-1$ を代入して $1-a_7(f)T=1+T$ となります。
+
+（iii）加法的還元の曲線側は $1$ です。[MF7の悪い素数係数定理](../../MF/MF7/index.md#thm-mf7-bad-eigenvalues)でも $a_5(f)=0$ なので形式側は $1$ です。
+
+二次式が適用されるのは（i）の良い素数だけです。悪い素数に二次項を残すと誤ったEuler因子になります。
 <!-- solution-end -->
 
 ### C1. 導手 11 での局所・大域照合
 - Level: C
 
-$E:y^2+y=x^3-x^2$ の判別式を $-11$ とする。次を順に説明せよ。（1）$p=2,3$ での点数から局所多項式を求める。（2）$p=11$ の還元型と局所多項式を求める。（3）$b_E(4),b_E(6),b_E(9)$ を計算する。（4）有限個の係数一致と、すべての素数での L 関数一致を論理的に区別する。
+$E:y^2+y=x^3-x^2$ の判別式を $-11$ とする。次を順に説明せよ。
+
+1. $p=2,3$ での点数から局所多項式を求める。
+2. $p=11$ の還元型と局所多項式を求める。
+3. $b_E(4),b_E(6),b_E(9)$ を計算する。
+4. 有限個の係数一致と、すべての素数での $L$ 関数一致を論理的に区別する。
 
 <!-- solution-start -->
 ### 詳細解答
