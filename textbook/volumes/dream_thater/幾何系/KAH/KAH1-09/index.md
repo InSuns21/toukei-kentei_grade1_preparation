@@ -59,7 +59,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-09-curvature-components -->
-**定義の確認。** $\mathbb C^n$ に $g_{i\bar j}=\delta_{ij}$ を入れる。固有値はすべて $1$ なので正値であり、計量成分は一定だから基本形式は閉じ、Kähler計量である。接続係数 $\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}$ はすべて零で、混合方向も零である。よって $R(\partial_i,\partial_{\bar j})\partial_k=0$。これを計量で縮約すると、定義した成分 $R_{i\bar j k\bar\ell}=0$ がすべての添字で確認できる。行列を見ただけで曲率を推測したのではなく、定義の操作を実行した。
+**定義の確認**。 $\mathbb C^n$ に $g_{i\bar j}=\delta_{ij}$ を入れる。固有値はすべて $1$ なので正値であり、計量成分は一定だから基本形式は閉じ、Kähler計量である。接続係数 $\Gamma^m_{ik}=g^{m\bar q}\partial_i g_{k\bar q}$ はすべて零で、混合方向も零である。よって $R(\partial_i,\partial_{\bar j})\partial_k=0$。これを計量で縮約すると、定義した成分 $R_{i\bar j k\bar\ell}=0$ がすべての添字で確認できる。行列を見ただけで曲率を推測したのではなく、定義の操作を実行した。
 <!-- definition-example-end -->
 
 ## 3. 二階微分から曲率を導く
@@ -280,7 +280,7 @@ $$
 
 ### 証明の見取り図
 
-零になるのは二次項の各一階微分因子であり、二階微分そのものではない。局所ポテンシャルの公式は既習の結果を正規座標の点に適用する。
+零になるのは二次項の各一階微分因子であり、二階微分そのものではない。局所ポテンシャルの公式は既習の結果をKähler正規座標の点に適用する。
 
 <!-- proof-start -->
 ### 証明
@@ -292,7 +292,7 @@ g^{m\bar q}(p)\underbrace{\partial_i g_{k\bar q}(p)}_{0}
                  \underbrace{\partial_{\bar j}g_{m\bar\ell}(p)}_{0}=0.
 $$
 
-従って最初の式を得る。[閉実(1,1)形式の局所ポテンシャル定理](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
+従って最初の式を得る。[局所ポテンシャルの存在](../KAH1-04/index.md#thm-kah1-04-local-existence)から、$p$ を含む十分小さな近傍に $\varphi$ が存在する。そこでは $g_{k\bar\ell}=\partial_k\partial_{\bar\ell}\varphi$。この表示を二階微分項へ代入すると第二の式になる。滑らかな $\varphi$ の四階までの微分は交換できる。任意の座標で二次項が消えるとは主張していない。$\square$
 <!-- proof-end -->
 
 **二変数の直接計算。** 原点付近の $\mathbb C^2$ で実数 $\lambda$ に対して
