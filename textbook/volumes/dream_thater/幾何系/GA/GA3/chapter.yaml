@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - GA2
   - GPDE9
+  - GEO14
 official_scope: []
 learning_objectives:
   - コンパクト連結境界なし多様体のPoisson弱解をH1の試験関数で定義し、必要な平均零適合条件を示せる
