@@ -254,15 +254,15 @@ $$
 
 $Z_i$ は独立であり、$L_i$ は $Z_i$ の関数だから $L_i$ も独立である。異なる添字 $i\ne j$ について、[独立性と期待値の因数分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)から
 
-$
+$$
 E[L_iL_j]=E[L_i]E[L_j]=q^2.
-$
+$$
 
 [共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)へ代入すると
 
-$
+$$
 \operatorname{Cov}(L_i,L_j)=E[L_iL_j]-E[L_i]E[L_j]=q^2-q^2=0.
-$
+$$
 
 $$
 \begin{aligned}
