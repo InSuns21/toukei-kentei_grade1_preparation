@@ -137,7 +137,14 @@ $$
 ここで和を取る添字 $i,j$ を交換して第二項をまとめた。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)と整合する。$\square$
 <!-- proof-end -->
 
-**直接例：平坦なのに係数は非零になる。** $\mathbb C$ に $g_{z\bar z}=1$ を入れ、原点付近で $w=z+az^2$（$a\in\mathbb C$）とする。$dw/dz=1+2az$ は原点で非零なので局所正則座標である。逆写像の二階微分は $d^2z/dw^2|_0=-2a$、元の $\Gamma^z_{zz}=0$。変換公式から $\Gamma^w_{ww}(0)=-2a$。曲がっていない計量でも、曲がった座標を使えば係数が現れる。係数そのものを曲率と呼んではならない。
+**直接例：平坦なのに係数は非零になる。** $\mathbb C$ に $g_{z\bar z}=1$ を入れ、原点付近で $w=z+az^2$（$a\in\mathbb C$）とする。$dw/dz|_0=1$ なので、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により局所正則逆写像 $z=z(w)$ が存在する。合成 $w(z(w))=w$ を二回微分すると
+
+$$
+0=\left.\frac{d^2}{dw^2}(z(w)+az(w)^2)\right|_{0}
+=\left.\frac{d^2z}{dw^2}\right|_0+2a,
+$$
+
+したがって $d^2z/dw^2|_0=-2a$。元の $\Gamma^z_{zz}=0$ を[接続係数の変換公式](#prop-kah1-08-coordinate-change)に入れると $\Gamma^w_{ww}(0)=-2a$。曲がっていない計量でも、曲がった座標を使えば係数が現れる。係数そのものを曲率と呼んではならない。
 
 ## 4. 一点で計量と一階微分を標準化する
 
@@ -151,7 +158,22 @@ $$
 
 とできれば、$\Gamma^c_{ab}(p)=0$ が従う。こうした座標を**Kähler正規座標**（本章では一階の条件を満たす座標）と呼ぶ。これは一点での条件であり、開集合全域で係数が消えるという条件ではない。
 
-まず正値Hermite行列 $H(p)$ は、[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)により正則線形座標変換で単位行列にできる。その後、原点を $p$ に移し、この線形正規化後の座標を $u$ として $u(p)=0$, $g_{a\bar b}(p)=\delta_{ab}$ とする。
+この線形正規化を、行列が何を表すかまで確認しておく。$p$ の正則座標 $z$ の基底 $\partial_j$ に対する[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)は
+
+$$
+H_{\ell j}(p)=g_{j\bar\ell}(p),\qquad
+v^*H(p)v>0\quad(v\ne0)
+$$
+
+を満たす。有限次元の正値Hermite行列なので、既習の[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から正値で可逆な平方根が得られる。定数行列 $B=H(p)^{-1/2}$ を使い、座標を次のように取り直す。
+
+$$
+z^i=z^i(p)+B^i{}_a u^a,\qquad
+H^{(u)}(p)=B^*H(p)B=I,\qquad
+g^{(u)}_{a\bar b}(p)=\delta_{ab}.
+$$
+
+二つ目の等式は、$e^{(u)}_a=B^i{}_a\partial_i$ という基底展開に内積を適用した結果である。$B$ は可逆な定数複素行列なので $u=B^{-1}(z-z(p))$ は正則座標で、$u(p)=0$ となる。正値性の定義から座標行列による標準化まで、これでつながった。
 
 残る一階微分は二次の座標変換で消す。Kähler条件から $\Gamma^k_{ij}(p)=\Gamma^k_{ji}(p)$ なので、$w$ の各成分を
 
@@ -175,7 +197,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-08-normal-coordinates -->
-**定義の確認**。直接例として、 $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
+**定義の確認**。直接例として $\mathbb C^n$ 上の定数計量 $g_{i\bar j}=\delta_{ij}$ と、正則な平行移動 $w=z-p$ を取る。Jacobian は $I$ なので引き戻した計量も定数であり、
+
+$$
+w(p)=0,\quad
+g^{(w)}_{a\bar b}(p)=\delta_{ab},\quad
+\partial_cg^{(w)}_{a\bar b}(p)
+=\partial_{\bar c}g^{(w)}_{a\bar b}(p)=0.
+$$
+
+さらに $g(v,\bar v)=\sum_a|v^a|^2>0$（$v\ne0$）で、正値という元の仮定も満たす。定義の位置・零階・両側の一階条件をすべて直接確認できた。
+
+定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とする。$dz/dw=\sqrt2\,I$ のため、引き戻し成分は $g^{(w)}_{a\bar b}=(1/2)(\sqrt2)^2\delta_{ab}=\delta_{ab}$ となり、一階微分も零である。この係数規約は、元の実Euclid座標での係数と異なり得る。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-08-normal-existence"></a>
@@ -192,7 +225,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-最初に任意の正則座標 $z$ を平行移動して $z(p)=0$ とし、正値Hermite行列 $g(p)$ に対し可逆複素線形変換を選んで $g(p)=I$ とする。その座標を $u$ と書く。[接束Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)と[Kähler閉性の局所条件](../KAH1-02/index.md#thm-kah1-02-local-closedness)より $\Gamma^k_{ij}(p)=\Gamma^k_{ji}(p)$。
+まず前段で構成した正値Hermite行列の平方根による定数正則線形座標 $u$ を取り、$u(p)=0$ かつ $g^{(u)}_{a\bar b}(p)=\delta_{ab}$ とする。[接束Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)と[Kähler閉性の局所条件](../KAH1-02/index.md#thm-kah1-02-local-closedness)より $\Gamma^k_{ij}(p)=\Gamma^k_{ji}(p)$。
 
 上で述べた二次正則変換 $w^k=u^k+\tfrac12\Gamma^k_{ij}(p)u^iu^j$ を取る。そのJacobianは $p$ で $I$ なので正則逆写像が存在し、逆写像のTaylor展開は
 
@@ -258,7 +291,7 @@ Kählerなら直前の局所存在定理を使う。逆は各点の座標で接�
 <!-- proof-start -->
 ### 証明
 
-Kählerなら直前の局所存在定理により、すべての点で指定された座標を取れる。
+Kählerなら直前の[正規座標の局所存在定理](#thm-kah1-08-normal-existence)により、すべての点で指定された座標を取れる。
 
 逆に各点 $p$ で命題の条件を満たす正則座標を取る。その座標では全ての $\partial_i g_{j\bar\ell}(p)$ が零だから、[接束Chern係数式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)より
 
@@ -331,7 +364,16 @@ $$
 正則座標で $g_{1\bar1}=2,g_{2\bar2}=3,g_{1\bar2}=g_{2\bar1}=0$ がある点で成立し、さらに同点で $\partial_1g_{2\bar2}=6$、他の $\partial_1g_{2\bar\ell}$ は零とする。$\Gamma^k_{12}$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。Chern係数の成分式 $\partial_1g_{2\bar\ell}=\sum_k g_{k\bar\ell}\Gamma^k_{12}$ を使う。$\ell=1$ では $0=2\Gamma^1_{12}$ より $\Gamma^1_{12}=0$。$\ell=2$ では $6=3\Gamma^2_{12}$ より $\Gamma^2_{12}=2$。逆行列を掛ける方法でも $g^{2\bar2}=1/3$ だから $\Gamma^2_{12}=(1/3)6=2$ である。計量行列に成分の並びの規約が必要な理由も確認できた。
+**詳細解答**。[接束Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)を $\partial_1g_{2\bar\ell}=\sum_k g_{k\bar\ell}\Gamma^k_{12}$ として使う。与えられた対角行列の値を $\ell=1,2$ に代入すると、
+
+$$
+0=2\Gamma^1_{12},\qquad
+6=3\Gamma^2_{12},
+\quad\Longrightarrow\quad
+\Gamma^1_{12}=0,\quad \Gamma^2_{12}=2.
+$$
+
+逆行列を掛ける方法でも $g^{2\bar2}=1/3$ だから $\Gamma^2_{12}=(1/3)\cdot6=2$ となる。計量行列に成分の並びの規約が必要な理由も確認できた。
 <!-- solution-end -->
 
 <a id="ex-kah1-08-a03"></a>
@@ -359,7 +401,7 @@ $\lambda>0$ なので $g>0$。$\omega=i\partial\bar\partial\varphi$ は閉であ
 $\mathbb C$ の $g_{z\bar z}=1$ について $w=z+az^2$（$a\ne0$）を原点付近で使い、$\Gamma^w_{ww}(0)$ を求めよ。元の計量が平坦でも係数が非零になる理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$dw/dz=1+2az$ は原点で1。従って局所逆写像 $z(w)$ があり、$z=w-aw^2+O(w^3)$。ゆえに $d^2z/dw^2|_0=-2a$。元の接続係数は $\Gamma^z_{zz}=0$ であり、変換公式は
+**詳細解答**。$dw/dz=1+2az$ は原点で1。従って局所逆写像 $z(w)$ があり、$z=w-aw^2+O(w^3)$。ゆえに $d^2z/dw^2|_0=-2a$。元の接続係数は $\Gamma^z_{zz}=0$ であり、[接続係数の変換公式](#prop-kah1-08-coordinate-change)は
 
 $$
 \Gamma^w_{ww}(0)
@@ -389,7 +431,7 @@ $$
 T^2_{12}=\Gamma^2_{12}-\Gamma^2_{21}.
 $$
 
-$p$ で $T^2_{12}=1/2\ne0$。正則座標変更の二階微分は添字 $1,2$ に対称であり、捩率のテンソル変換則は非零のテンソルを零にできない。もし全一階微分が消える正則座標があればその座標では全Chern係数が零になり、捩率も零となって矛盾する。
+$p$ で $T^2_{12}=1/2\ne0$。正則座標変更の二階微分は添字 $1,2$ に対称であり、[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)により、非零のテンソルを座標変更で零にはできない。もし全一階微分が消える正則座標があればその座標では全Chern係数が零になり、捩率も零となって矛盾する。
 <!-- solution-end -->
 
 <a id="ex-kah1-08-b02"></a>
@@ -399,7 +441,7 @@ $p$ で $T^2_{12}=1/2\ne0$。正則座標変更の二階微分は添字 $1,2$ �
 $\mathbb C$ 上で $g_{z\bar z}=e^{z+\bar z}$ とする。原点での接続係数を求め、$w=z+bz^2$ により $\Gamma^w_{ww}(0)=0$ となる $b$ を計算し、変換後の計量の一階微分が零であることを別法で確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。$g(0)=1$、$\partial_zg=g$ だから $\Gamma^z_{zz}=g^{-1}\partial_zg=1$。変換公式で $d^2z/dw^2|_0=-2b$ なので $\Gamma^w_{ww}(0)=1-2b$、従って $b=1/2$。
+**詳細解答**。$g(0)=1$、$\partial_zg=g$ だから $\Gamma^z_{zz}=g^{-1}\partial_zg=1$。[接続係数の変換公式](#prop-kah1-08-coordinate-change)で $d^2z/dw^2|_0=-2b$ なので $\Gamma^w_{ww}(0)=1-2b$、従って $b=1/2$。
 
 逆写像は $z=w-\tfrac12w^2+O(w^3)$、$dz/dw=1-w+O(w^2)$。よって新しい成分は
 
@@ -464,9 +506,32 @@ $$
 =1+\lambda(|z^1|^2+|z^2|^2)>0.
 $$
 
-従ってHermite行列は正定値。また $\omega=i\partial\bar\partial\varphi$ なので $\partial^2=\bar\partial^2=0$ と型別微分の反交換則から $d\omega=0$。全域でKählerである。
+行列式と左上成分から正値を判定できる理由も、元の内積の定義に戻って確かめる。$A=g_{1\bar1}>0$、$B=g_{1\bar2}$、$D=g_{2\bar2}$ と置くと、任意の $(v^1,v^2)\ne(0,0)$ について
 
-次に $p$ では $g(p)=\operatorname{diag}(1,d)$。$\partial_1g_{2\bar2}(p)=\lambda\bar a$、$\partial_2g_{1\bar2}(p)=\lambda\bar a$、それ以外の $\partial_i g_{j\bar\ell}(p)$ は零（添字対称性により二つの表示を含む）。[Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)から
+$$
+\begin{aligned}
+g(v,\bar v)
+&=A|v^1|^2+Bv^1\overline{v^2}
+ +\overline Bv^2\overline{v^1}+D|v^2|^2\\
+&=A\left|v^1+\frac{\overline B}{A}v^2\right|^2
+ +\frac{AD-|B|^2}{A}|v^2|^2>0.
+\end{aligned}
+$$
+
+ここで $AD-|B|^2$ は直前に計算した正の行列式である。$v^2\ne0$ なら第二項が正、$v^2=0$ なら第一項が正なので、[Hermite計量の正値条件](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)を全非零ベクトルについて確認できた。
+
+また $\omega=i\partial\bar\partial\varphi$ であり、$\partial^2=\bar\partial^2=0$ と型別微分の反交換則から $d\omega=0$ が従う。したがって全域でKähler計量である。
+
+次に $p=(a,0)$ で計量と一階微分を調べる。零階の計量行列と、零でない正則一階微分は
+
+$$
+g(p)=\operatorname{diag}(1,d),\qquad
+\partial_1g_{2\bar2}(p)
+=\partial_2g_{1\bar2}(p)
+=\lambda\bar a.
+$$
+
+それ以外の $\partial_i g_{j\bar\ell}(p)$ は零である。[Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)から
 
 $$
 \Gamma^2_{12}(p)=\Gamma^2_{21}(p)
@@ -474,7 +539,7 @@ $$
 \Gamma^k_{ij}(p)=0\quad\text{（その他）}.
 $$
 
-$u^1=z^1-a,\ u^2=\sqrt d\,z^2$ は定数正則線形変換であり、新しい計量は $g_u(p)=I$。その接続係数は変換公式の二階項が零だから
+$u^1=z^1-a,\ u^2=\sqrt d\,z^2$ は定数正則線形変換であり、新しい計量は $g_u(p)=I$。その接続係数は[変換公式](#prop-kah1-08-coordinate-change)の二階項が零だから
 
 $$
 (\Gamma_u)^2_{12}(p)=(\Gamma_u)^2_{21}(p)
@@ -485,14 +550,36 @@ $$
 =\frac{\lambda\bar a}{d};
 $$
 
-他の成分は零である。したがって二次補正を
+他の成分は零である。なお $u$ 座標での計量は $g^{(u)}_{1\bar1}(p)=1$、$g^{(u)}_{2\bar2}(p)=g_{2\bar2}(p)/d=1$、非対角成分零で、正規化の零階条件を直接満たす。したがって二次補正を
 
 $$
 w^1=u^1,\qquad
 w^2=u^2+\frac{\lambda\bar a}{d}u^1u^2
 $$
 
-とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。前述した局所存在定理の積の微分計算により $g_w(p)=I$ かつ全一階微分が零となる。ここで $\bar a$ は**固定した点の定数**であり、変数 $u$ の共役を座標変換へ混入させていないから、$w(u)$ は正則である。
+とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると二次項は $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。
+
+一階条件も成分で確かめる。$q=\lambda\bar a/d$ と略記する。逆写像とそのJacobian $J^i_a=\partial u^i/\partial w^a$ は原点付近で
+
+$$
+u^1=w^1,\qquad
+u^2=w^2-qw^1w^2+O(|w|^3)
+$$
+
+を満たすから、原点での非零一階微分は
+
+$$
+\partial_{w^1}J^2_2(0)=\partial_{w^2}J^2_1(0)=-q.
+$$
+
+元の $u$ 座標で非零となり得る正則一階微分は $\partial_{u^1}g^{(u)}_{2\bar2}(p)=\partial_{u^2}g^{(u)}_{1\bar2}(p)=q$ だけである。引き戻し式 $g^{(w)}_{a\bar b}=g^{(u)}_{i\bar j}J^i_a\overline{J^j_b}$ を微分すると
+
+$$
+\partial_{w^1}g^{(w)}_{2\bar2}(p)=q-q=0,\qquad
+\partial_{w^2}g^{(w)}_{1\bar2}(p)=q-q=0.
+$$
+
+他の正則一階微分も零で、Hermite対称性から反正則一階微分も零になる。これで $w(p)=0$、$g^{(w)}(p)=I$、全一階微分零という定義の条件を直接確認した。ここで $\bar a$ は**固定した点の定数**であり、変数 $u$ の共役を座標変換へ混入させていないから、$w(u)$ は正則である。
 <!-- solution-end -->
 
 ## 7. 次章への橋
