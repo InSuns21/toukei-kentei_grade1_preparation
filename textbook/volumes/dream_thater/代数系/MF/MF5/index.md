@@ -65,7 +65,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Bezout の等式で $ru+sv=a$ を満たす $r,s\in\mathbb Z$ を取る。行列
+[Bézout 等式](../../RNG/RNG3/index.md#thm-rng3-euclidean-algorithm)で $ru+sv=a$ を満たす $r,s\in\mathbb Z$ を取る。行列
 $$
 \gamma=\begin{pmatrix}r&s\\-v/a&u/a\end{pmatrix}\in SL_2(\mathbb Z)
 $$
@@ -195,10 +195,36 @@ $$
 
 この分岐は名前だけではありません。行列式 $p$ の二重剰余類を $\Gamma_0(N)$ で分解すると、$p\nmid N$ の場合は $p$ 個の $\begin{pmatrix}1&b\\0&p\end{pmatrix}$ と1個の $\begin{pmatrix}p&0\\0&1\end{pmatrix}$、$p\mid N$ の場合は前者の $p$ 個だけが現れます。後者では下左成分に $N$ の倍数を要求すると、後半の行列類を移せないためです。定義の $1/p$ は $p^{k/2-1}$ と slash 因子 $p^{-k/2}$ の積であり、恣意的な係数ではありません。
 
-実際にこれらが形式を保つことも確認しておきます。各代表に右から $\gamma\in\Gamma_0(N)$ を掛けると、同じ二重剰余類の左 $\Gamma_0(N)$-類へ並べ替えられるので変換則を満たします。各カスプでは [MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で調べます。行列 $A$ がカスプを別のカスプへ送るとき、局所座標は根付きの正の冪 $q_s\mapsto \zeta q_{s'}^{\,r}$（$r>0$）の形で対応します。全カスプで負の冪を持たない関数の有限和は、対応する各幅での周期性も使えば再び負の冪を持ちません。定数項が零なら各項の定数項も零であり、カスプ形式も保たれます。$\infty$ の係数だけを見て全カスプの保存を主張しているわけではありません。
+実際にこれらが形式を保つことも確認しておきます。各代表に右から $\gamma\in\Gamma_0(N)$ を掛けると、同じ二重剰余類の左 $\Gamma_0(N)$-類へ並べ替えられるので変換則を満たします。各カスプでは [MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で調べます。入力側のカスプ $s=\sigma_s\infty$ を取り、行列 $A$ の像 $As$ のカスプ代表を $s'=\sigma_{s'}\infty$ とします。$A\sigma_s\infty=s'$ なので、$B=\sigma_{s'}^{-1}A\sigma_s$ は $\infty$ を固定し、
+$
+B=\begin{pmatrix}u&v\\0&w\end{pmatrix},
+\qquad u/w>0
+$
+と書けます。既習の全カスプ展開 $(f|_k\sigma_{s'})(\tau)=\sum_{m\ge0}a_m(s')e^{2\pi i m\tau/h_{s'}}$ を代入すると、$w\ne0$ より
+$
+((f|_k A)|_k\sigma_s)(\tau)
+=(\det B)^{k/2}w^{-k}
+\sum_{m\ge0}a_m(s')
+e^{2\pi i m v/(wh_{s'})}
+e^{2\pi i m u\tau/(wh_{s'})}.
+$
+ここで用いたのは [slash作用の右作用](#def-mf5-slash)と $u/w>0$ です。各項の指数は入力側の $q_s=e^{2\pi i\tau/h_s}$ で $m(u/w)(h_s/h_{s'})\ge0$ に対応し、$m=0$ の項は入力がカスプ形式なら消えます。個々の項は分数冪を持ち得ますが、**左剰余類の有限和全体**は先ほど証明した $\Gamma_0(N)$ 不変性から周期 $h_s$ を持ちます。したがって [周期関数の $q$ 表示](../MF2/index.md#thm-mf2-q-coordinate)を適用すれば、和は非負整数冪だけに整理され、カスプ形式の場合は定数項も零です。$\infty$ の係数だけを見て全カスプの保存を主張しているわけではありません。
 
 <!-- definition-example-start: def-mf5-level-operators -->
-**定義の確認**。$N=2,p=2$ なら $p\mid N$ なので $T_2$ の最初の項は使わず、$U_2$ を適用します。例えば $\Delta(2\tau)=q^2-24q^4+252q^6+\cdots$ は重さ12のレベル2のカスプ形式です。$\Delta(\tau)$ の[レベル1変換則](../MF2/index.md#def-mf2-modular-form)から、$\gamma=\begin{pmatrix}a&b\\2c&d\end{pmatrix}\in\Gamma_0(2)$ について $2\gamma\tau=\begin{pmatrix}a&2b\\c&d\end{pmatrix}(2\tau)$ と書けるので変換則も確認できます。第3節で導く係数の式により $U_2(\Delta(2\tau))=\Delta(\tau)$ です。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
+**定義の確認**。$N=2,p=2$ なら $p\mid N$ なので $T_2$ の最初の項は使わず、$U_2$ を適用します。例えば $\Delta(2\tau)=q^2-24q^4+252q^6+\cdots$ は重さ12のレベル2のカスプ形式です。$\Delta(\tau)$ の[レベル1変換則](../MF2/index.md#def-mf2-modular-form)から、$\gamma=\begin{pmatrix}a&b\\2c&d\end{pmatrix}\in\Gamma_0(2)$ について
+$
+2\gamma\tau=\begin{pmatrix}a&2b\\c&d\end{pmatrix}(2\tau),
+\qquad \det\begin{pmatrix}a&2b\\c&d\end{pmatrix}=ad-2bc=1
+$
+なので、$\Delta(2\gamma\tau)=(2c\tau+d)^{12}\Delta(2\tau)$ と変換則を確認できます。[レベル2のカスプは $\infty$ と $0$ の二つ](../MF4/index.md#prop-mf4-prime-cusps)です。前者では $q^2$ から始まり、後者では幅 $h_0=2$、スケーリング行列 $S$ を使って
+$
+(\Delta(2\tau)|_{12}S)(\tau)
+=\tau^{-12}\Delta(-2/\tau)
+=2^{-12}\Delta(\tau/2)
+=2^{-12}(q_0-24q_0^2+\cdots),
+\qquad q_0=e^{\pi i\tau}
+$
+となります。よって両カスプで定数項が零で、レベル2のカスプ形式の条件をすべて満たします。[素数作用素の係数公式](#prop-mf5-level-q)により $U_2(\Delta(2\tau))=\Delta(\tau)$ です。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
 <!-- definition-example-end -->
 
 <a id="prop-mf5-level-q"></a>
@@ -262,7 +288,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[係数公式](#thm-mf5-coefficient)の $n=p^r$ では、$d=p^j$、$0\le j\le\min(r,v_p(m))$ の項だけが残り、$q^m$ 係数は $p^{j(k-1)}a_{p^{r-2j}m}$ である。右辺の $V_p^jU_p^{r-j}F$ の $q^m$ 係数も、$p^j\mid m$ のとき
+[係数公式](#thm-mf5-coefficient)の $n=p^r$ では、$d=p^j$、$0\le j\le r$、$p^j\mid m$ の項だけが残り、$q^m$ 係数への寄与は $p^{j(k-1)}a_{p^{r-j}(m/p^j)}$ である。$m=0$ のときも $p^j\mid0$ はすべての $j$ で成立する。右辺の $V_p^jU_p^{r-j}F$ の $q^m$ 係数も、$p^j\mid m$ のとき
 $$
 [q^m]V_p^jU_p^{r-j}F
 =a_{p^{r-j}(m/p^j)}
@@ -312,13 +338,31 @@ $$
 &=T_{p^{r+1}}+cT_{p^{r-1}}.
 \end{aligned}
 $$
-従って素数冪の漸化式が出る。また異なる素数の $U,V$ は可換なので、$(m,n)=1$ のときは [係数公式](#thm-mf5-coefficient)を素因数ごとに分けて $T_{mn}=T_mT_n$ を得る。厳密には $m,n$ の各素因数に関する $U,V$ を並び替えると、各 $d\mid(mn,r)$ の項が $m$ 側と $n$ 側の一意の積に対応する。
+従って素数冪の漸化式が出る。異なる素数の $U,V$ は可換です。任意の $n=\prod_p p^{r_p}$ に対し、[係数公式](#thm-mf5-coefficient)の約数 $d=\prod_p p^{j_p}$（$0\le j_p\le r_p$）ごとの項は、[補助操作の表示](#prop-mf5-uv-identities)を展開した
+$
+\prod_{p\mid n}
+\left(p^{j_p(k-1)}V_p^{j_p}U_p^{r_p-j_p}\right)
+$
+の係数作用と一致します。従って $T_n=\prod_{p\mid n}T_{p^{r_p}}$ です。特に $(m,n)=1$ なら素因数が重ならず、$T_mT_n=T_{mn}$ が従います。
 
-一般の素数冪について、上の漸化式から $a,b$ に関する帰納法をすると
-$$
-T_{p^a}T_{p^b}=\sum_{j=0}^{\min(a,b)}c^jT_{p^{a+b-2j}}
-$$
-となる。基底 $b=0,1$ は $T_1=I$ と今証明した漸化式である。$b+1$ の場合は $T_{p^{b+1}}=T_pT_{p^b}-cT_{p^{b-1}}$ を代入すると、中間項が相殺され、端の和だけが残る。素因数ごとの式を掛け合わせると、各素数の $p^j$ の積が $d\mid\gcd(m,n)$ を一意に走り、係数の積は $d^{k-1}$ である。これで最初の式が従い、右辺は $m,n$ を交換しても同じなので可換性も従う。
+一般の素数冪については、$a\ge b\ge0$ として $b$ に関する帰納法で
+$
+T_{p^a}T_{p^b}=\sum_{j=0}^{b}c^jT_{p^{a+b-2j}}
+$
+を示します。$b=0$ は $T_1=I$、$b=1$ は今証明した漸化式です。$a\ge b+1$ で $b+1$ の場合は
+$
+\begin{aligned}
+T_{p^a}T_{p^{b+1}}
+&=T_{p^a}T_pT_{p^b}-cT_{p^a}T_{p^{b-1}}\\
+&=(T_{p^{a+1}}+cT_{p^{a-1}})T_{p^b}
+-c\sum_{j=0}^{b-1}c^jT_{p^{a+b-1-2j}}\\
+&=\sum_{j=0}^{b}c^jT_{p^{a+b+1-2j}}
++\sum_{j=1}^{b+1}c^jT_{p^{a+b+1-2j}}
+-\sum_{j=1}^{b}c^jT_{p^{a+b+1-2j}}\\
+&=\sum_{j=0}^{b+1}c^jT_{p^{a+b+1-2j}}.
+\end{aligned}
+$
+第3行の中央2つの和は相殺されます（$a=b+1$ の場合も $T_{p^0}=I$ で同じです）。$a<b$ なら可換な $U,V$ の式で得られた素数冪作用素同士の対称性、または積の役割交換を用います。各素数の式を掛け合わせると、指数 $p^{j_p}$ の積がちょうど $d\mid\gcd(m,n)$ を走り、係数の積は $d^{k-1}$ です。これで主張が従い、右辺からすべての $T_m,T_n$ の可換性も分かります。
 <!-- proof-end -->
 
 係数での反証テストとして $T_p^2$ を計算すると
@@ -389,19 +433,63 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\det A>0$ のとき、$A\tau=w$ とおく。$\operatorname{Im}w=(\det A)y/|c\tau+d|^2$ と双曲面積要素の不変性から
+まず $\det A>0$、$w=A\tau$ のとき、[虚部公式](../MF1/index.md#thm-mf1-imaginary-action)の行列式を含む形と双曲面積要素の不変性から
 $$
-|(f|_k A)(\tau)|^2y^k\,d\mu(\tau)
-=|f(w)|^2(\operatorname{Im}w)^k\,d\mu(w),
-\qquad d\mu=\frac{dx\,dy}{y^2}.
+\operatorname{Im}w=\frac{(\det A)y}{|c\tau+d|^2},
+\qquad d\mu=\frac{dx\,dy}{y^2}=d\mu(w)
 $$
-同様に異なる二関数の積についても成り立つ。$\mathcal M_n$ の左剰余類を用いて積分を展開し、それぞれの領域 $A\mathcal F$ へ変数変換する。積分の左右で使う領域の重なりは $\Gamma$ による同一視で処理でき、各対応項は $A^{-1}$ を用いる逆向きの作用と対応する。$\det A=n$ のとき $A^\vee=nA^{-1}$ は整数行列かつ行列式 $n$ である。写像
+です。$A^{-1}$ も正の行列式を持つので、[slash作用の右作用](#def-mf5-slash)から
 $$
-A\longmapsto A^\vee
+\bigl((f|_k A)(\tau)\bigr)\overline{g(\tau)}\,y^k\,d\mu(\tau)
+=f(w)\overline{(g|_k A^{-1})(w)}
+(\operatorname{Im}w)^k\,d\mu(w)
 $$
-は積の順序を逆にし、左剰余類と右剰余類を交換する。また $(A^\vee)^\vee=A$ である。よって対応する有限和は同じ $\mathcal M_n$ の代表全体を走り、共通の係数 $n^{k/2-1}$ を掛けても等式を保つ。
+が得られます。これは $f|_k A$ と $g$ の積についての変数変換式であり、二つの関数が同一である必要はありません。
 
-正当化を明記する。まず高さ $y\le Y$ で積分し、有限個の対応する領域を変数変換する。カスプでの $q$ 展開から両関数は指数的に減少し、境界の切断位置を戻すときの差は $Y\to\infty$ で零へ収束する。従って極限後に示した随伴等式が成立する。
+以下で $\Gamma=SL_2(\mathbb Z)$ とし、$\mathcal M_n$ を二重剰余類 $\Gamma\alpha\Gamma$ に分けて、その各部分和を調べます。$\alpha\in\mathcal M_n$ に対して
+$$
+\Gamma'=\Gamma\cap\alpha^{-1}\Gamma\alpha,
+\qquad \Gamma''=\Gamma\cap\alpha\Gamma\alpha^{-1}
+=\alpha\Gamma'\alpha^{-1}
+$$
+と置きます。$\Gamma'\backslash\Gamma$ の代表を $\gamma_1,\ldots,\gamma_h$ とすれば、$\Gamma\alpha\Gamma$ の**左** $\Gamma$ 類は $\Gamma\alpha\gamma_j$（$1\le j\le h$）です。各 $\gamma_j$ で基本領域を移すと、$g|_k\gamma_j=g$ より
+$$
+\begin{aligned}
+\left\langle\sum_{j=1}^{h}f|_k(\alpha\gamma_j),g\right\rangle_{\mathrm{Pet}}
+&=\sum_{j=1}^{h}\int_{\mathcal F}
+((f|_k\alpha)|_k\gamma_j)(\tau)\,
+\overline{g(\tau)}\,y^k\,d\mu(\tau)\\
+&=\int_{\mathcal F_{\Gamma'}}
+(f|_k\alpha)(\tau)\overline{g(\tau)}\,y^k\,d\mu(\tau),
+\end{aligned}
+$$
+ただし $\mathcal F_{\Gamma'}=\bigcup_j\gamma_j\mathcal F$ は $\Gamma'$ の基本領域です。さらに $w=\alpha\tau$ と変数変換すると
+$$
+=\int_{\alpha\mathcal F_{\Gamma'}}
+f(w)\overline{(g|_k\alpha^{-1})(w)}
+(\operatorname{Im}w)^k\,d\mu(w).
+$$
+$\alpha\mathcal F_{\Gamma'}$ は $\Gamma''$ の基本領域です。ここから $\Gamma''\backslash\Gamma$ の代表を使って $\mathcal F$ へ折り畳むと、右側は
+$$
+\left\langle f,\sum_{[B]\in\Gamma\backslash\Gamma\alpha^{-1}\Gamma}
+g|_kB\right\rangle_{\mathrm{Pet}}
+$$
+になります。$\alpha^\vee=n\alpha^{-1}$ は整数行列で $\det\alpha^\vee=n$、かつ正のスカラー倍はslash作用を変えません。よって最後の和は $\Gamma\alpha^\vee\Gamma$ の左剰余類に関する和と同じです。
+
+また $\alpha\mapsto\alpha^\vee$ は $\mathcal M_n$ 上の対合で、
+$$
+(\gamma_1\alpha\gamma_2)^\vee
+=\gamma_2^{-1}\alpha^\vee\gamma_1^{-1}
+\qquad(\gamma_1,\gamma_2\in\Gamma)
+$$
+です。従って $\mathcal M_n$ を構成する二重剰余類全体を入れ替えるだけです。各部分和の随伴関係を足して共通の正規化係数 $n^{k/2-1}$ を掛ければ
+$$
+\langle T_nf,g\rangle_{\mathrm{Pet}}
+=\langle f,T_ng\rangle_{\mathrm{Pet}}
+$$
+が従います。
+
+積分の収束も確認します。$\Gamma'$ と $\Gamma''$ は有限指数部分群で、その各カスプは $\Gamma$ の有理境界カスプの上にあります。$f,g\in S_k$ の [全カスプでの消失](../MF4/index.md#def-mf4-level-form)と、それを引き戻した $q$ 展開による指数減衰から、上記の各領域で被積分式は絶対可積分です。厳密には基本領域を高さで切断して有限和・変数変換を行い、各カスプ近傍の指数減衰を使って切断を外します。したがってこの等式は形式的な領域交換ではありません。
 <!-- proof-end -->
 
 レベル $N$ の $p\mid N$ における $U_p$ には、ここで使った二重剰余類の逆向きの対称性が一般にはありません。**すべての $U_p$ まで自己随伴だと結論してはいけません。** 非自明指標の随伴性も別の条件を必要とします。
