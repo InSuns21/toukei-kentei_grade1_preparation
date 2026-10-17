@@ -1,0 +1,46 @@
+id: "GR2"
+title: "Lorentz計量・固有時・光円錐"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR1
+  - SREL2
+  - LORG1
+  - LORG2
+  - LORG3
+official_scope: []
+learning_objectives:
+  - SRELの(+---)からGRの(-+++)へ符号を読み替え因果型と固有時を計算できる
+  - Lorentz計量の非退化性と慣性指数を座標行列から検査できる
+  - 静的直交座標模型の時計係数と空間計量の定義を具体例で検査できる
+  - 静止時計と移動時計の固有時率を計量から導出できる
+  - 光的方向の座標速度と局所光速を区別して導出できる
+  - 時間と空間の交差項を含む座標の光的条件を正しく計算できる
+  - 計量の座標変換から線素・固有時・因果型の不変性を証明できる
+definitions:
+  - { id: GR2-DEF-01, name: 静的直交座標模型の時計係数 }
+theorems:
+  - { id: GR2-PROP-01, name: 静的直交座標における固有時率 }
+  - { id: GR2-PROP-02, name: 静的直交座標の光円錐と局所光速 }
+  - { id: GR2-PROP-03, name: 座標変換に対する線素・固有時・因果型の不変性 }
+canonical_examples:
+  - Minkowski符号規約の換算と因果型
+  - 静的直交座標模型の慣性指数と時計係数の直接確認
+  - 二地点の静止時計と移動時計の固有時率
+  - 静的対角計量の光円錐と局所光速
+  - 時刻の再目盛りと交差項を含む座標変換
+problem_patterns:
+  - GR2-SIGN-CONVERSION
+  - GR2-STATIC-CLOCK
+  - GR2-TIMELIKE-RATE
+  - GR2-NULL-SPEED
+  - GR2-TIME-RESCALING
+  - GR2-NULL-TRAVEL-TIME
+  - GR2-SHIFT-CROSS-TERM
+  - GR2-SPATIAL-SCALE-TRAVEL
+  - GR2-PROPER-TIME-INVARIANCE
+  - GR2-RINDLER-INTEGRATED-CLOCK-LIGHT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

@@ -1,0 +1,40 @@
+chapter: GR2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR1
+  - SREL2
+  - LORG1
+  - LORG2
+  - LORG3
+forward_references:
+  - geometry.geodesic-equation
+
+concepts:
+  - id: gravity.static-clock-factor
+    name: 静的直交座標模型の時計係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静的直交座標模型の時計係数）"]
+    requires: [lorentz-geometry.lorentz-metric, lorentz-geometry.time-orientation]
+
+  - id: gravity.static-proper-time-rate
+    name: 静的直交座標における固有時率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的直交座標における固有時率）"]
+    requires: [gravity.static-clock-factor, lorentz-geometry.lorentzian-length]
+
+  - id: gravity.static-null-cone
+    name: 静的直交座標の光円錐と局所光速
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的直交座標の光円錐と局所光速）"]
+    requires: [gravity.static-clock-factor, gravity.static-proper-time-rate, lorentz-geometry.causal-type]
+
+  - id: gravity.metric-coordinate-invariance
+    name: 座標変換に対する線素・固有時・因果型の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（座標変換に対する線素・固有時・因果型の不変性）"]
+    requires: [lorentz-geometry.lorentz-metric, lorentz-geometry.causal-type, lorentz-geometry.lorentzian-length]
