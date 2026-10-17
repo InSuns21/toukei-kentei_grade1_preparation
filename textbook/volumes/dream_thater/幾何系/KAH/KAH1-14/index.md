@@ -109,7 +109,7 @@ $$
 \int_\Sigma u^*\eta\in\mathbb Z
 $$
 
-となる。これは**整数性の必要条件**である。逆向きの一般的な判定は積分サイクルやde Rham定理を使うので、ここではこの条件だけから一般の整数類の存在を推論しない。
+となる。これは整数性の必要条件である。逆向きの一般的な判定は積分サイクルやde Rham定理を使うので、ここではこの条件だけから一般の整数類の存在を推論しない。
 
 <a id="def-kah1-14-integral-normalized-class"></a>
 
@@ -268,7 +268,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[埋め込みへの制限命題](#prop-kah1-14-projective-restriction)から $\omega_X=f^*\omega_{\mathrm{FS}}$ は正の実閉 $(1,1)$ 形式であり、$X$ はコンパクトになる。[超平面束のChern形式](../KAH1-07/index.md#prop-kah1-07-chern)と前段の局所計算から
+[Fubini–Study形式の正則埋め込みへの制限](#prop-kah1-14-projective-restriction)から $\omega_X=f^*\omega_{\mathrm{FS}}$ は正の実閉 $(1,1)$ 形式であり、$X$ はコンパクトになる。[超平面束のChern形式](../KAH1-07/index.md#prop-kah1-07-chern)と前段の局所計算から
 
 $$
 c_1(f^*\mathcal O(1),f^*h)
@@ -298,7 +298,7 @@ $$
 \int_{\mathbb{CP}^1}\frac{\omega_t}{2\pi}=t
 $$
 
-であるから、整数型なら $t$ は整数でなければならない。逆に $t=m\in\mathbb Z_{>0}$ なら、[テンソル冪の曲率公式](#prop-kah1-14-positive-curvature)により $\mathcal O(m)=\mathcal O(1)^{\otimes m}$ が $\omega_m/(2\pi)$ を第一Chern形式として実現する。したがって
+であるから、整数型なら $t$ は整数でなければならない。逆に $t=m\in\mathbb Z_{>0}$ なら、[正の線束から整数型Kähler類へ](#prop-kah1-14-positive-curvature)により $\mathcal O(m)=\mathcal O(1)^{\otimes m}$ が $\omega_m/(2\pi)$ を第一Chern形式として実現する。したがって
 
 $$
 \boxed{\ t\omega_{\mathrm{FS}}\ \text{がKähler}\iff t>0,\qquad
@@ -468,7 +468,7 @@ $$
 =\frac{s}{\pi}.
 $$
 
-整数類なら周期は整数なので $s=1$ では $1/\pi\notin\mathbb Z$ となり整数型ではない。$s=\pi$ とすれば周期は $1$ になる。ここで計算したのは必要な**周期条件**であり、それだけで線束の存在を証明したことにはならない。後続の整数 $(1,1)$ 類と正則線束の対応を必要とする。なおこの特定の実2次元トーラスで整数性が十分となること自体は、後続理論から得られる。
+整数類なら周期は整数なので $s=1$ では $1/\pi\notin\mathbb Z$ となり整数型ではない。$s=\pi$ とすれば周期は $1$ になる。ここで計算したのは必要な周期条件であり、それだけで線束の存在を証明したことにはならない。後続の整数 $(1,1)$ 類と正則線束の対応を必要とする。なおこの特定の実2次元トーラスで整数性が十分となること自体は、後続理論から得られる。
 <!-- solution-end -->
 
 ### Level B
@@ -518,7 +518,7 @@ $$
 -i(f^*\omega_{\mathrm{FS}})(\partial_w,\partial_{\bar w})=0.
 $$
 
-正値性は失われる。実際、$df(\partial_w)=0$ で微分は単射でない。正則写像という仮定だけでなく、[埋め込みへの制限命題](#prop-kah1-14-projective-restriction)の微分単射性が必要だった。
+正値性は失われる。実際、$df(\partial_w)=0$ で微分は単射でない。正則写像という仮定だけでなく、[Fubini–Study形式の正則埋め込みへの制限](#prop-kah1-14-projective-restriction)の微分単射性が必要だった。
 <!-- solution-end -->
 
 <a id="ex-kah1-14-b03"></a>
@@ -615,7 +615,7 @@ $$
 \int_X(2\pi\Theta_L)^2=16\pi^2.}
 $$
 
-第4問。推論できない。第1問は特定のKähler形式 $\Omega$ の整数性の否定にすぎず、第2問では同じ $X$ に**別の整数型Kähler形式**を実際に構成した。さらに $X$ はSegre写像
+第4問。推論できない。第1問は特定のKähler形式 $\Omega$ の整数性の否定にすぎず、第2問では同じ $X$ に**別の整数型Kähler形式**を実際に構成した。さらに $X$ は次の具体的な写像
 
 $$
 ([u_0:u_1],[v_0:v_1])
@@ -630,4 +630,4 @@ $$
 
 この章で得たのは、射影的な多様体から正の線束と整数型Kähler類が作れるという**具体的な構成方向**である。逆向きの定理には大域理論を使う必要があり、Kähler形式の実係数類と整数係数第一Chern類は最初から同一視できない。
 
-次章では、これまで導いた[Ricci形式と第一Chern類](../KAH1-12/index.md#thm-kah1-12-ricci-chern)を使い、Kähler–Einstein条件 $\rho=\lambda\omega$ やRicci平坦条件 $\rho=0$ がコホモロジーに課す**必要条件**を導く。存在定理を必要条件の計算と混同しないことが次の焦点になる。
+次章では、これまで導いた[Ricci形式と第一Chern類](../KAH1-12/index.md#thm-kah1-12-ricci-chern)を使い、Kähler–Einstein条件 $\rho=\lambda\omega$ やRicci平坦条件 $\rho=0$ がコホモロジーに課す必要条件を導く。存在定理を必要条件の計算と混同しないことが次の焦点になる。
