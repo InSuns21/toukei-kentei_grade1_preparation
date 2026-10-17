@@ -24,7 +24,7 @@ chapters:
     title: "Laplace作用素のスペクトル理論"
   - id: GA5
     path: textbook/volumes/dream_thater/幾何系/GA/GA5
-    status: planned
+    status: completed
     title: "熱方程式・熱半群・熱核"
   - id: GA6
     path: textbook/volumes/dream_thater/幾何系/GA/GA6
