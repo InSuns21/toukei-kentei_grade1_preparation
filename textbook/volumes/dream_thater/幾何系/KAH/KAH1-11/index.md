@@ -226,7 +226,7 @@ $$
 =-i\,\partial\bar\partial\log\det G_z.
 $$
 
-> よって局所行列式公式から得られる $\rho$ は重なりで一致し、大域的な実 $(1,1)$ 形式になる。
+> よって[Ricci形式の局所行列式公式](#thm-kah1-11-local-ricci)から得られる $\rho$ は重なりで一致し、大域的な実 $(1,1)$ 形式になる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -248,9 +248,9 @@ $$
 \end{aligned}
 $$
 
-行列式の積法則から
+$G_w=B^TG_z\overline B$ の3行列について順に行列式を取る。$\det(B^T)=\det B$、$\det(\overline B)=\overline{\det B}$ なので
 
-$$
+$
 \det G_w=(\det B)(\det G_z)\overline{\det B}
 =|\det B|^2\det G_z.
 $$
@@ -274,7 +274,7 @@ $$
 
 ## 6. Ricci形式が閉じる理由
 
-曲率の縮約を通して定義した $\rho$ の閉性を、四階曲率のBianchi恒等式から直接追いかけることもできる。しかし局所行列式公式まで導けば、複素微分の基本法則だけで閉性が得られる。
+曲率成分の微分関係から $\rho$ の閉性を調べることも考えられる。しかし[Ricci形式の局所行列式公式](#thm-kah1-11-local-ricci)まで導けば、複素微分の基本法則だけで閉性が得られる。
 
 <a id="thm-kah1-11-closed"></a>
 
@@ -465,7 +465,7 @@ $$
 \frac{\lambda^2\bar z^i z^j}{A^2}.
 $$
 
-原点で $A=1,z=0$ なので $\operatorname{Ric}_{i\bar j}(0)=-\lambda\delta_{ij}$。[Ricciの局所行列式公式](#thm-kah1-11-local-ricci)を使い、四階曲率の全成分を計算せず結論を得た。
+原点で $A=1,z=0$ なので $\operatorname{Ric}_{i\bar j}(0)=-\lambda\delta_{ij}$。[Ricci形式の局所行列式公式](#thm-kah1-11-local-ricci)を使い、四階曲率の全成分を計算せず結論を得た。
 <!-- solution-end -->
 
 <a id="ex-kah1-11-b02"></a>
@@ -545,7 +545,7 @@ $$
 
 第2問ではトーラスの商局所座標における係数行列は一定の正値Hermite行列 $G_T$。$\partial_i\partial_{\bar j}\log\det G_T=0$ なので $\rho_T=0$ である。
 
-第3問では積計量の行列式の積法則を適用する。複素次元 $m$ の $T$ について、$\mathbb{CP}^n$ 側の $n$ 行列を定数倍すれば $\det(cG_{\mathrm{FS}})=c^n\det G_{\mathrm{FS}}$。従って
+第3問では積計量の係数行列がブロック対角になるので、各ブロックの行列式を掛け合わせる。複素次元 $m$ の $T$ について、$\mathbb{CP}^n$ 側の $n$ 行列を定数倍すれば $\det(cG_{\mathrm{FS}})=c^n\det G_{\mathrm{FS}}$。従って
 
 $$
 \log\det(g_T\oplus cG_{\mathrm{FS}})
