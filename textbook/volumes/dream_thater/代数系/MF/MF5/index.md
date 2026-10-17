@@ -49,7 +49,7 @@ $$
 
 <a id="lem-mf5-hermite"></a>
 <!-- formal-statement-start -->
-> **補題（行列式$n$の左剰余類代表）**  
+> **補題（整数行列の左剰余類代表）**  
 > $n\ge1$ と $\mathcal M_n=\{A\in M_2(\mathbb Z):\det A=n\}$ に対し、$\Gamma\backslash\mathcal M_n$ の完全代表系は
 >
 $$
@@ -113,7 +113,7 @@ $f=1$、$k=0$ なら $T_2(1)=\tfrac12+\tfrac12(1+1)=\tfrac32$ となり、定数
 
 <a id="thm-mf5-coefficient"></a>
 <!-- formal-statement-start -->
-> **定理（Hecke作用素の$q$係数公式）**  
+> **定理（Hecke作用素のFourier係数公式）**  
 > $k\ge0$、$n\ge1$、$f(\tau)=\sum_{m\ge0}a_mq^m\in M_k$、$q=e^{2\pi i\tau}$ とする。このとき $T_nf\in M_k$ で、その $q^m$ 係数は
 >
 $$
@@ -165,7 +165,7 @@ $$
 
 <a id="def-mf5-level-operators"></a>
 <!-- formal-statement-start -->
-> **定義（自明指標での$T_p$と$U_p$）**  
+> **定義（レベル付きHecke作用素）**  
 > $N\ge1$、$k\ge0$、$f\in M_k(\Gamma_0(N))$ とする。素数 $p\nmid N$ に対して
 >
 $$
@@ -186,12 +186,12 @@ $$
 実際にこれらが形式を保つことも確認しておきます。各代表に右から $\gamma\in\Gamma_0(N)$ を掛けると、同じ二重剰余類の左 $\Gamma_0(N)$-類へ並べ替えられるので変換則を満たします。各カスプでは [MF4 のスケーリング座標](../MF4/index.md#def-mf4-cusp-width)で調べます。行列 $A$ がカスプを別のカスプへ送るとき、局所座標は根付きの正の冪 $q_s\mapsto \zeta q_{s'}^{\,r}$（$r>0$）の形で対応します。全カスプで負の冪を持たない関数の有限和は、対応する各幅での周期性も使えば再び負の冪を持ちません。定数項が零なら各項の定数項も零であり、カスプ形式も保たれます。$\infty$ の係数だけを見て全カスプの保存を主張しているわけではありません。
 
 <!-- definition-example-start: def-mf5-level-operators -->
-**定義の確認**。$N=2,p=2$ なら $p\mid N$ なので $T_2$ の最初の項は使わず、$U_2$ を適用します。例えば $\Delta(2\tau)=q^2-24q^4+252q^6+\cdots$ は重さ12のレベル2のカスプ形式です。$\Delta(\tau)$ の[レベル1変換則](../MF2/index.md#def-mf2-modular-form)から、$\gamma=\begin{pmatrix}a&b\\2c&d\end{pmatrix}\in\Gamma_0(2)$ について $2\gamma\tau=\begin{pmatrix}a&2b\\c&d\end{pmatrix}(2\tau)$ と書けるので変換則も確認できます。後述の係数公式により $U_2(\Delta(2\tau))=\Delta(\tau)$ です。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
+**定義の確認**。$N=2,p=2$ なら $p\mid N$ なので $T_2$ の最初の項は使わず、$U_2$ を適用します。例えば $\Delta(2\tau)=q^2-24q^4+252q^6+\cdots$ は重さ12のレベル2のカスプ形式です。$\Delta(\tau)$ の[レベル1変換則](../MF2/index.md#def-mf2-modular-form)から、$\gamma=\begin{pmatrix}a&b\\2c&d\end{pmatrix}\in\Gamma_0(2)$ について $2\gamma\tau=\begin{pmatrix}a&2b\\c&d\end{pmatrix}(2\tau)$ と書けるので変換則も確認できます。第3節で導く係数の式により $U_2(\Delta(2\tau))=\Delta(\tau)$ です。$T_2$ と誤って同じ式を使えば余計な $2^{11}\Delta(4\tau)$ が現れます。
 <!-- definition-example-end -->
 
 <a id="prop-mf5-level-q"></a>
 <!-- formal-statement-start -->
-> **命題（レベル$N$の素数作用素の係数）**  
+> **命題（合同部分群上の素数作用素の係数）**  
 > $f=\sum_{m\ge0}a_mq^m\in M_k(\Gamma_0(N))$、素数 $p$ とする。$p\nmid N$ なら
 >
 $$
@@ -266,7 +266,7 @@ $$
 
 <a id="thm-mf5-hecke-algebra"></a>
 <!-- formal-statement-start -->
-> **定理（レベル1の Hecke 合成則）**  
+> **定理（レベル1のHecke合成則）**  
 > $k\ge0$、$m,n\ge1$ に対する $M_k$ 上の作用素について
 >
 $$
@@ -460,7 +460,7 @@ $tA$ では $\det(tA)=t^2\det A$、下行も $t$ 倍なので、因子は $(t^2\
 
 ### A2. $T_2$の係数表
 
-$k=4$ と $F=1+2q+3q^2+4q^3+5q^4+\cdots$ を形式的級数とする。$T_2$ の定数項、$q$、$q^2$ 係数を係数公式から計算せよ。この $F$ がモジュラー形式だと仮定してよいかも答えよ。
+$k=4$ と $F=1+2q+3q^2+4q^3+5q^4+\cdots$ を形式的級数とする。$T_2$ の定数項、$q$、$q^2$ 係数を定理で導いた式から計算せよ。この $F$ がモジュラー形式だと仮定してよいかも答えよ。
 
 - Level: A
 - ID: MF5-A2
@@ -477,7 +477,7 @@ $k=4$ と $F=1+2q+3q^2+4q^3+5q^4+\cdots$ を形式的級数とする。$T_2$ の
 - ID: MF5-A3
 
 <!-- solution-start -->
-**詳細解答**　$p=3$ はレベルを割るため、[レベルの係数公式](#prop-mf5-level-q)からそれぞれ $a_0,a_3,a_6$ である。形式的級数 $F$ では $a_3=1,a_6=2$、他の係数は0なので $U_3F=q+2q^2$。追加の $3^{k-1}F(3\tau)$ は $U_3$ の定義に存在しない。
+**詳細解答**　$p=3$ はレベルを割るため、[合同部分群上の素数作用素の係数](#prop-mf5-level-q)からそれぞれ $a_0,a_3,a_6$ である。形式的級数 $F$ では $a_3=1,a_6=2$、他の係数は0なので $U_3F=q+2q^2$。追加の $3^{k-1}F(3\tau)$ は $U_3$ の定義に存在しない。
 <!-- solution-end -->
 
 ### A4. 内積の収束条件
@@ -513,7 +513,7 @@ $$
 +\mathbf1_{2\mid m}2^{k-1}a_m+2^{2(k-1)}a_{m/4}.
 \end{aligned}
 $$
-ただし割り切れない添字の係数は零とする。一方 [一般係数公式](#thm-mf5-coefficient)から
+ただし割り切れない添字の係数は零とする。一方 [Hecke作用素のFourier係数公式](#thm-mf5-coefficient)から
 $$
 [q^m]T_4f=a_{4m}+\mathbf1_{2\mid m}2^{k-1}a_m+2^{2(k-1)}a_{m/4}.
 $$
@@ -570,7 +570,7 @@ $\Delta=q-24q^2+252q^3+\cdots\in S_{12}(SL_2(\mathbb Z))$ と $\dim S_{12}=1$ �
 - ID: MF5-C1
 
 <!-- solution-start -->
-**詳細解答**　(i) [次元公式](../MF3/index.md#thm-mf3-dimension)から $S_{12}$ は1次元であり、[Hecke作用素がカスプ形式を保つ](#thm-mf5-coefficient)ので、各 $T_n$ は $\Delta$ を定数倍する。先頭係数 $a_1=1$ だから [同時固有形式の定理](#thm-mf5-eigenforms)により固有値は $a_n$ である。
+**詳細解答**　(i) [次元公式](../MF3/index.md#thm-mf3-dimension)から $S_{12}$ は1次元であり、[Hecke作用素がカスプ形式を保つ](#thm-mf5-coefficient)ので、各 $T_n$ は $\Delta$ を定数倍する。先頭係数 $a_1=1$ だから [同時固有形式と乗法的Fourier係数](#thm-mf5-eigenforms)により固有値は $a_n$ である。
 
 (ii) $k-1=11$、$2^{11}=2048$ である。素数冪の漸化式と互いに素な添字の乗法性から
 $$
@@ -591,4 +591,4 @@ $$
 
 ## 7. 次章への接続
 
-正規化同時固有形式の係数は、互いに素な添字で乗法的であり、同じ素数の冪では2項漸化式を満たします。次章MF6ではこの事実から Dirichlet 級数の Euler 因子を組み立て、Mellin 変換を通じた解析的性質へ進みます。レベルを割る素数の因子が別扱いになる点も保持します。
+正規化同時固有形式の係数は、互いに素な添字で乗法的であり、同じ素数の冪では2項漸化式を満たします。次章MF6ではこの事実から素数ごとの Euler 因子を組み立て、Mellin 変換を通じた解析的性質へ進みます。レベルを割る素数の因子が別扱いになる点も保持します。
