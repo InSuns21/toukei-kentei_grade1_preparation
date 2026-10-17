@@ -1,7 +1,7 @@
 version: 1
 id: EC
 title: "楕円曲線 I〜II"
-plan: textbook/plans_progress/DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # EC1〜EC11は暫定配列。証明責務と学習導線によって章割りを再検討する。
