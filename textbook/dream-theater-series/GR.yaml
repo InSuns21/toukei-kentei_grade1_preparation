@@ -9,7 +9,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: GR1
     path: textbook/volumes/dream_thater/物理系/GR/GR1
-    status: planned
+    status: completed
     title: "等価原理と局所自由落下"
   - id: GR2
     path: textbook/volumes/dream_thater/物理系/GR/GR2
