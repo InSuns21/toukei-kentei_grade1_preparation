@@ -1,0 +1,34 @@
+chapter: KAH1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-08
+  - KAH1-02
+  - KAH1-04
+  - CM2-11
+  - GEO16
+concepts:
+  - id: kahler.curvature-complex-components
+    name: Kähler曲率テンソルの成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler曲率テンソルの成分）"]
+    requires: [geometry.riemann-curvature-operator, kahler.connection-equivalences]
+  - id: kahler.curvature-local-formula
+    name: Kähler曲率の局所成分公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler曲率の局所成分公式）"]
+    requires: [kahler.curvature-complex-components, kahler.chern-tangent-torsion-local, complex-manifolds.chern-curvature-type]
+  - id: kahler.curvature-complex-symmetries
+    name: Kähler曲率の複素添字対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler曲率の複素添字対称性）"]
+    requires: [kahler.curvature-local-formula, kahler.local-closedness-condition]
+  - id: kahler.curvature-normal-form
+    name: Kähler正規座標での曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler正規座標での曲率）"]
+    requires: [kahler.curvature-local-formula, kahler.holomorphic-normal-existence, kahler.local-ddbar-potential]
