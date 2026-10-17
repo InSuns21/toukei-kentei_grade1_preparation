@@ -372,7 +372,7 @@ $s_0=c^2/a$ として $\xi=0,\xi=s_0$ の固有加速度と、同じ座標時間
 <!-- solution-start -->
 #### 詳細解答
 
-$\xi=0$ では $h=1$、$\xi=s_0$ では $h=2$ です。[固有加速度の命題](#prop-gr1-static-accel)から $\alpha_0=a$、$\alpha_{s_0}=a/2$。固有時は $\Delta\tau=h\Delta\eta$ なので $\Delta\tau_0=\Delta\eta$、$\Delta\tau_{s_0}=2\Delta\eta$。固有時の比は後者が前者の2倍、加速度の比は後者が前者の1/2倍です。
+$\xi=0$ では $h=1$、$\xi=s_0$ では $h=2$ です。[静止Rindler時計の固有加速度](#prop-gr1-static-accel)から $\alpha_0=a$、$\alpha_{s_0}=a/2$。固有時は $\Delta\tau=h\Delta\eta$ なので $\Delta\tau_0=\Delta\eta$、$\Delta\tau_{s_0}=2\Delta\eta$。固有時の比は後者が前者の2倍、加速度の比は後者が前者の1/2倍です。
 <!-- solution-end -->
 
 ### Level B

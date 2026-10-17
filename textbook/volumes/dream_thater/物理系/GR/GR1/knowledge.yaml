@@ -4,7 +4,10 @@ coverage: complete
 prerequisites:
   - SREL2
   - SREL8
-forward_references: []
+# GR1では定理として援用しない。GR2/GR3への明示的な学習予告。
+forward_references:
+  - lorentz-geometry.lorentz-metric
+  - geometry.geodesic-equation
 
 concepts:
   - id: gravity.weak-equivalence-principle
