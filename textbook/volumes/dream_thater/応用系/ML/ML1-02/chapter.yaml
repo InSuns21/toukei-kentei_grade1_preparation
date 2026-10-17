@@ -1,0 +1,46 @@
+id: "ML1-02"
+title: "Bayes決定則と損失関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-01
+  - F0-00P2A
+official_scope: []
+learning_objectives:
+  - 有限同時分布から入力ごとの条件付きラベル確率を計算しゼロ確率点を区別できる
+  - 有限行動集合上の条件付きリスクを定義し入力ごとに比較できる
+  - 母集団リスクの条件付きリスク分解とBayes決定則の最適性・等号条件を証明できる
+  - 0–1損失の最大事後確率則とBayesリスクを導出できる
+  - 非対称誤分類損失の閾値と同点規則を導出できる
+  - クラス別分布と事前確率による尤度比判定を条件付き確率から構成できる
+  - 予測器の仮説クラス制約と全決定則に対するBayes最適性を区別できる
+  - 計算ラボで事前確率・誤分類費用を変更し判定領域とリスクを再現できる
+definitions:
+  - { id: ML1-02-DEF-01, name: 条件付きラベル確率 }
+  - { id: ML1-02-DEF-02, name: 条件付きリスク }
+  - { id: ML1-02-DEF-03, name: Bayes決定則とBayesリスク }
+  - { id: ML1-02-DEF-04, name: 二値非対称誤分類損失 }
+theorems:
+  - { id: ML1-02-THM-01, name: 条件付きリスク分解とBayes最適性 }
+  - { id: ML1-02-THM-02, name: 0–1損失に対するBayes分類則 }
+  - { id: ML1-02-THM-03, name: 誤分類費用によるBayes閾値 }
+  - { id: ML1-02-PROP-01, name: 二値Bayes決定の尤度比表示 }
+canonical_examples:
+  - 二入力・二値ラベルの同時確率表と事後確率
+  - 0–1損失の全決定則比較とBayesリスク
+  - 偽陽性と偽陰性の費用を変えた判定閾値
+  - ゼロ確率入力と同点規則・制限された仮説クラス
+  - Python計算ラボによる事前確率・費用の変更
+problem_patterns:
+  - ML1-02-A01
+  - ML1-02-A02
+  - ML1-02-A03
+  - ML1-02-A04
+  - ML1-02-B01
+  - ML1-02-B02
+  - ML1-02-B03
+  - ML1-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }
