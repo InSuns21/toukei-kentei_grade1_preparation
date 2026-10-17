@@ -1,0 +1,40 @@
+id: "KAH1-12"
+title: "Chern類と標準束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-11
+  - CM2-11
+official_scope: []
+learning_objectives:
+  - 標準束と反標準束を正則接束の最高外冪と双対から定義し座標遷移を計算できる
+  - 接束の誘導Chern接続から行列式束の接続形式と曲率を証明できる
+  - Ricci形式と第一Chern形式の一致を符号と2πの係数まで再導出できる
+  - 局所正則対数の三重重なりから整数第一Chern類を構成できる
+  - 第一Chern形式のde Rham類と整数係数類の実像を局所データで照合できる
+  - 標準束の双対と第一Chern類の負符号を整数と実の両方で確認できる
+  - 射影直線と複素トーラスの具体例で曲率と大域正則枠を区別できる
+definitions:
+  - { id: KAH1-12-DEF-01, name: 標準束と反標準束 }
+  - { id: KAH1-12-DEF-02, name: 整数係数の第一Chern類 }
+theorems:
+  - { id: KAH1-12-PROP-01, name: 接束の行列式接続と曲率 }
+  - { id: KAH1-12-THM-01, name: Ricci形式と反標準束の第一Chern形式 }
+  - { id: KAH1-12-THM-02, name: 第一Chern形式は整数係数類の実像を表す }
+  - { id: KAH1-12-COR-01, name: 標準束の符号と第一Chern類 }
+canonical_examples:
+  - 複素直線での標準枠と反標準枠の逆倍率
+  - 平坦二次元計量の行列式曲率の零
+  - 正則自明束の三重重なり整数コサイクルの零
+  - 射影直線の接束O(2)と標準束O(-2)の符号
+  - 複素トーラスの降下する大域正則体積枠
+problem_patterns:
+  - KAH1-12-DETERMINANT-CONNECTION
+  - KAH1-12-TRANSITION-COCYCLE
+  - KAH1-12-RICCI-CHERN
+  - KAH1-12-CANONICAL-DUAL
+  - KAH1-12-GLOBAL-CLASS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
