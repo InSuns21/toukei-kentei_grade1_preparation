@@ -39,7 +39,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-class -->
-**定義の確認**（複素平面）。 $X=\mathbb C$ の $z=x+iy$ に対して $\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ と置く。$-i\omega_0(v,\bar v)=|v|^2>0$ であり、実2次元上の3形式は零だから $d\omega_0=0$。よって確かにKähler形式である。ただし
+**定義の確認**（複素平面）。$X=\mathbb C$ の $z=x+iy$ について $\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ と置く。$dz\wedge d\bar z$ は $(1,1)$ 型であり、共役を取ると $\overline{i\,dz\wedge d\bar z}=-i\,d\bar z\wedge dz=i\,dz\wedge d\bar z$ なので実形式である。また $v=v^z\partial_z\ne0$ には $-i\omega_0(v,\bar v)=|v^z|^2>0$。実2次元上の3形式は零なので $d\omega_0=0$。従って型・実性・正値性・閉性のすべてを満たすKähler形式である。ただし
 
 $$
 \alpha=x\,dy-y\,dx,\qquad
@@ -48,8 +48,6 @@ $$
 
 なので、[完全形式とde Rham類](../../GEO/GEO9/index.md#def-geo9-closed-exact)から $[\omega_0]=0$ である。したがって**非コンパクトな $\mathbb C$ では零類もKähler類になり得る**。この段階で「Kähler類は常に零ではない」と一般化してはいけない。
 <!-- definition-example-end -->
-
-上の例で必要な「型」の確認もしておく。$dz$ と $d\bar z$ の外積は $(1,1)$ 型であり、共役を取ると $\overline{i\,dz\wedge d\bar z}=(-i)\,d\bar z\wedge dz=i\,dz\wedge d\bar z$。従って $\omega_0$ は実形式である。
 
 ## 3. Kähler cone とその凸性
 
@@ -149,7 +147,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-representable-subspace -->
-**定義の確認**。 上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取れば、$s\eta_1+t\eta_2$ も同じ型・実性・閉性を保つから、$s[\eta_1]+t[\eta_2]\in V_J$。しかし $\eta_1=-\omega_{\mathrm{FS}}$ とするとその類は $V_J$ に属する一方、**この負の代表は正ではない**。型で代表できることとKähler類であることは別条件である。
+**定義の確認**。 上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取れば、$s\eta_1+t\eta_2$ も同じ型・実性・閉性を保つから、$s[\eta_1]+t[\eta_2]\in V_J$。一方 $-\omega_{\mathrm{FS}}$ も実閉 $(1,1)$ 形式なので $-[\omega_{\mathrm{FS}}]\in V_J$ であるが、この類はKähler類ではない。仮に正の代表 $\theta$ があれば、$\mathbb{CP}^1$ 上では $\int\theta>0$。しかし $\theta+\omega_{\mathrm{FS}}=d\gamma$ と[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\int_{\mathbb{CP}^1}\theta
+=-\int_{\mathbb{CP}^1}\omega_{\mathrm{FS}}
+=-2\pi<0
+$$
+
+となって矛盾する。型で代表できることと、**正の代表が存在すること**は別条件である。
 <!-- definition-example-end -->
 
 正値性の開性は次の形で証明できる。有限次元性の前提を明示するため、まず任意の有限次元部分空間に対して述べる。
@@ -296,7 +302,14 @@ $$
 
 [一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使うと、境界のないコンパクト多様体上では、完全な最高次数形式の積分は零となる。一方、Kähler形式の最高外冪は正の体積形式となる。この二つは両立しない。
 
-局所正則座標で正値Hermite行列 $G=(g_{j\bar k})$ を用いると、外積の交代性により
+局所正則座標での係数行列 $G=(g_{j\bar k})$ を考える。$n$ 回の外積を展開すると、同じ $dz^j$ または $d\bar z^k$ を二度選んだ項は交代性により零になる。残る項の二組の添字はそれぞれ $1,\ldots,n$ の置換であり、符号を整理すると係数は
+
+$$
+\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)
+\prod_{j=1}^n g_{j\overline{\sigma(j)}}=\det(G)
+$$
+
+となる。各2形式は互いに可換で、同じ項が $n!$ 回現れるから、
 
 $$
 \frac{\omega^n}{n!}
@@ -448,7 +461,7 @@ $$
 =\frac{11\pi}{2}.
 $$
 
-類も $[\tau]=\frac14[\omega_1]+\frac34[\omega_2]$ で、Kähler cone の凸性を具体化している。
+類も $[\tau]=\frac14[\omega_1]+\frac34[\omega_2]$ で、[Kähler cone の凸性](#prop-kah1-13-convex)を具体化している。
 <!-- solution-end -->
 
 <a id="ex-kah1-13-a04"></a>
@@ -477,7 +490,7 @@ $$
 コンパクトで境界のない複素次元3のKähler多様体 $(X,\omega)$ について、$[\omega]^2=0$ と仮定して矛盾を導け。使う微分形式の次数とStokesの適用条件を明示せよ。
 
 <!-- solution-start -->
-**詳細解答。** $[\omega]^2=0$ なら、[de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)から実3形式 $\beta$ が存在して $\omega^2=d\beta$。$\omega$ は閉2形式で、外微分のLeibniz則より
+**詳細解答。** $[\omega]^2=0$ なら、[de Rham コホモロジーの定義](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)から実3形式 $\beta$ が存在して $\omega^2=d\beta$。$\omega$ は閉2形式で、[外微分のLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)より
 
 $$
 d(\beta\wedge\omega)
@@ -533,7 +546,7 @@ $$
 =2ab\,\alpha\wedge\beta.
 $$
 
-[射影直線の面積](../KAH1-07/index.md#thm-kah1-07-area)とA02のトーラス積分を使えば
+[射影直線の面積](../KAH1-07/index.md#thm-kah1-07-area)と[A02のトーラス積分](#ex-kah1-13-a02)を使えば
 
 $$
 \int_X\omega_{a,b}^2
@@ -567,7 +580,7 @@ $$
 4. $ab>0$ という積分の正値条件だけではKähler性を導けない具体的な組を挙げよ。
 
 <!-- solution-start -->
-**詳細解答。** 第1問。$\varphi_T=\varepsilon\cos2\pi x$ なら、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)とA04の計算から
+**詳細解答。** 第1問。$\varphi_T=\varepsilon\cos2\pi x$ なら、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)と[A04の計算](#ex-kah1-13-a04)から
 
 $$
 i\partial\bar\partial(\varphi_T\circ\pi_2)
