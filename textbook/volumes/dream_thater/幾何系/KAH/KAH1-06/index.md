@@ -179,7 +179,7 @@ $$
 
 したがって[正の実 $(1,1)$ 形式のHermite行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、局所Fubini–Study形式は正である。
 
-ポテンシャルが実で滑らかであることから、[ポテンシャルからKähler形式が得られる命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)を適用できる。そのため、この形式は実 $(1,1)$ 型かつ閉である。閉性は微分の恒等式からも確認できる。
+ポテンシャルが実で滑らかであることから、[ポテンシャルからKähler形式が得られる命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)を適用できる。そのため、この形式は実 $(1,1)$ 型かつ閉である。次のように、外微分が零になることを計算でも確かめよう。
 
 $
 \partial^2=\bar\partial^2=0,
