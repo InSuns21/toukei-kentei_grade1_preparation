@@ -475,7 +475,7 @@ c_1(h_1)-c_1(h_0)
 =d\left(\frac{i}{2\pi}\bar z\,dz\right).
 $$
 
-原始1形式は複素表示でもよいが、差の2形式は実である。$z=x+iy$ と書けば $d(\bar z\,dz)=-2i\,dx\wedge dy$、差は $(1/\pi)\,dx\wedge dy$。両計量のde Rham類はともに零。
+原始1形式は複素表示でもよいが、差の2形式は実である。$z=x+iy$ と書けば $d(\bar z\,dz)=d\bar z\wedge dz=2i\,dx\wedge dy$、差は $-(1/\pi)\,dx\wedge dy$。負号は $h_1/h_0=e^{|z|^2}$ の対数が増えると、$\bar\partial\partial\log(h_1/h_0)$ が $-dz\wedge d\bar z$ になることとも一致する。両計量のde Rham類はともに零。
 <!-- solution-end -->
 
 <a id="ex-kah1-12-b03"></a>
