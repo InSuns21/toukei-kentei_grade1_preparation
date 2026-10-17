@@ -56,7 +56,7 @@ chapters:
     title: "Chern類と標準束"
   - id: KAH1-13
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-13
-    status: planned
+    status: completed
     title: "Kähler classと正値性"
   - id: KAH1-14
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-14
