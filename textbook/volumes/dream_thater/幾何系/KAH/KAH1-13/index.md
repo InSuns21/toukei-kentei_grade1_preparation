@@ -356,6 +356,24 @@ $$
 
 $\det(G)>0$ なので、これは各点で正の体積形式である。ここで正値性を行列式に移したのは、[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)による。
 
+この後の $[\omega]^k$ は $[\omega^k]$ を意味する。この記号が代表の選び方に依存しないことも確かめる。$\omega$ と $\omega'=\omega+d\alpha$ が閉2形式なら、2形式同士の外積は可換だから、差の積の因数分解ができる。
+
+$$
+\omega'^k-\omega^k
+=d\alpha\wedge\sum_{j=0}^{k-1}
+\omega'^j\wedge\omega^{k-1-j}.
+$$
+
+和の各項は閉形式なので、[外微分のLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)から
+
+$$
+\omega'^k-\omega^k
+=d\left(\alpha\wedge\sum_{j=0}^{k-1}
+\omega'^j\wedge\omega^{k-1-j}\right).
+$$
+
+従って $[\omega'^k]=[\omega^k]$ である。これは一般のコホモロジー環の理論を前提にしない、この章で必要な代表の独立性の確認である。
+
 <a id="thm-kah1-13-compact-nonzero"></a>
 
 <!-- formal-statement-start -->
