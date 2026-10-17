@@ -24,7 +24,7 @@ $$
 > と置く。$V_d:S_k(\Gamma_0(M))\to S_k(\Gamma_0(N))$ を退化写像という。ここでは $d^{k/2}$ を掛けない規約を採る。
 <!-- formal-statement-end -->
 
-なぜこれが元の定義の条件を満たすかを、行列の基底変更から確かめます。
+ここで行列を使うのは基底を変えるためではなく、分数線形変換 $\tau\mapsto d\tau$ を $D=\operatorname{diag}(d,1)$ で表し、既習の[合同部分群の変換則](../MF4/index.md#def-mf4-level-form)と照合するためです。以下では変換則・上半平面での正則性・全カスプでの消失を順に確認します。
 
 <a id="prop-mf7-degeneracy"></a>
 <!-- formal-statement-start -->
@@ -59,25 +59,46 @@ $$
 
 上半平面上で正則なのは、正の整数 $d$ による引数の変換と $f$ の正則性から従う。
 
-カスプでも消失を確かめる。行列 $D$ は有理カスプを有理カスプへ送る。[MF4のカスプ局所座標](../MF4/index.md#def-mf4-cusp-width)は幅 $h$ に対し
+全カスプでの消失を、[スケーリング行列と幅の定義](../MF4/index.md#def-mf4-cusp-width)に戻って確かめる。レベル $N$ の任意のカスプ $s$ を取り、$\sigma_s\in SL_2(\mathbb Z)$ を $\sigma_s\infty=s$ となる行列、その幅を $h_s$ とする。$D$ が分数線形変換として送る $s'=D\cdot s$ は有理カスプなので、レベル $M$ のスケーリング行列 $\sigma_{s'}\in SL_2(\mathbb Z)$ が取れる。その幅を $h'$ と記す。
 
 $$
-q_h=e^{2\pi i\tau/h}
+A=\sigma_{s'}^{-1}D\sigma_s
+=\begin{pmatrix}\alpha&\beta\\0&\delta\end{pmatrix},
+\qquad \alpha,\delta>0,\quad \alpha\delta=d.
 $$
 
-である。有限指数部分群への引き戻しでは、安定化群の平行移動の幅が整数倍になる。従って適切な局所座標 $u$ を取ると、ある正整数 $r$ により次の関係が成り立つ。
+$A$ が上三角なのは $A\cdot\infty=\infty$ だからである。$\sigma_s,\sigma_{s'}$ は整数行列で行列式1なので、$\alpha,\beta,\delta$ は整数である。カスプ幅の定義から $\sigma_sT^{h_s}\sigma_s^{-1}\in\Gamma_0(N)$ であり、先ほど証明した $D\Gamma_0(N)D^{-1}\subseteq\Gamma_0(M)$ を使うと
 
 $$
-q_h=u^r.
+AT^{h_s}A^{-1}=T^{\alpha h_s/\delta}
+\in \sigma_{s'}^{-1}\Gamma_0(M)\sigma_{s'}.
 $$
 
-元のカスプ展開が $\sum_{n\ge1}b_nq_h^n$ なら、引き戻しは
+左辺は整数行列であり、右辺の群の無限遠での平行移動の最小正周期は $h'$ である。従って $\alpha h_s/\delta=rh'$ を満たす正整数 $r$ が存在する。これは**元のカスプ変数を引き戻したときの冪指数**を決める関係である。
+
+[正の行列式のslash作用](../MF5/index.md#def-mf5-slash)では $f|_kD=d^{k/2}V_df$ であり、右作用の合成から
 
 $$
-\sum_{n\ge1}b_nu^{rn}
+\begin{aligned}
+((V_df)|_k\sigma_s)(\tau)
+&=d^{-k/2}(f|_kD\sigma_s)(\tau)\\
+&=d^{-k/2}((f|_k\sigma_{s'})|_kA)(\tau)\\
+&=\delta^{-k}(f|_k\sigma_{s'})
+  \left(\frac{\alpha\tau+\beta}{\delta}\right).
+\end{aligned}
 $$
 
-となる。負冪も定数項も生じない。$D$ が誘導するカスプ写像でも局所座標を同様に選べるので、各カスプでの消失が保たれる。
+$f$ はカスプ形式なので、$q'=e^{2\pi iz/h'}$ により
+$(f|_k\sigma_{s'})(z)=\sum_{n\ge1}b_n(q')^n$ と展開できる。これに上の表示を代入して、$q_s=e^{2\pi i\tau/h_s}$ と置けば
+
+$$
+((V_df)|_k\sigma_s)(\tau)
+=\delta^{-k}\sum_{n\ge1}
+b_n\exp\left(\frac{2\pi i n\beta}{\delta h'}\right)
+q_s^{rn}.
+$$
+
+$r\ge1$ だから負冪も定数項も現れず、$q_s=0$ に正則延長してそこで消える。$s$ は任意だったので、全てのカスプで消失する。
 
 もし $V_df=0$ なら、任意の $z\in\mathbb H$ を $z=d\tau$ と表せるので $f(z)=0$。従って単射である。最後に $V_a(V_bf)(\tau)=f(ab\tau)=V_{ab}f(\tau)$ である。
 <!-- proof-end -->
@@ -175,7 +196,25 @@ $$
 
 [MF4の重さ2と正則微分の対応](../MF4/index.md#thm-mf4-weight-two-differentials)は重さ2の場合の有限次元性を与える。一般の偶数重さでもコンパクトなモジュラー曲線上の正則な線束の切断空間として $S_k(\Gamma_0(N))$ は有限次元である（この有限次元性の一般論はここでは既習の重さ2の証明からの類推だけで証明したとはしない）。$S_k^{\mathrm{old}}(N)$ は有限次元線形空間の部分空間なので閉である。
 
-その正規直交基底を $e_1,\ldots,e_r$ とし、任意の $f\in S_k(\Gamma_0(N))$ に対して $u=\sum_{j=1}^r\langle f,e_j\rangle e_j$ と置く（内積は第1変数線形とする）。すると $u$ はoldspaceに属し、各 $i$ について $\langle f-u,e_i\rangle=0$ だから $f-u$ はnewspaceに属する。よって $f=u+(f-u)$ と分解できる。両方に属する $v$ は $\langle v,v\rangle=0$ なので正定値性より $v=0$。従って和は直和である。
+oldspaceの正規直交基底を $e_1,\ldots,e_r$ とする。任意の $f\in S_k(\Gamma_0(N))$ に対して、内積の第1変数が線形であることに合わせて
+
+$
+u=\sum_{j=1}^r\langle f,e_j\rangle_N e_j
+$
+
+と置く。$u$ はoldspaceに属する。また各 $1\le i\le r$ で、正規直交性を使うと
+
+$
+\begin{aligned}
+\langle f-u,e_i\rangle_N
+&=\langle f,e_i\rangle_N
+-\sum_{j=1}^r\langle f,e_j\rangle_N
+  \langle e_j,e_i\rangle_N\\
+&=\langle f,e_i\rangle_N-\langle f,e_i\rangle_N=0.
+\end{aligned}
+$
+
+よって $f-u$ はnewspaceに属し、$f=u+(f-u)$ と分解できる。両方に属する $v$ は $\langle v,v\rangle_N=0$ なので、内積の正定値性より $v=0$。従って和は直交直和である。
 <!-- proof-end -->
 
 **ここまでで分かったこと、まだ分からないこと。** 直交直和は内積空間の一般定理であり、newspaceに固有形式があるか、正規化できるか、レベルを割る素数で $a_p$ が何になるかは証明していません。これらに必要なのが次の定理です。なお、レベル $N$ の全ての $U_p$ が自己随伴だという主張は使いません。
@@ -222,7 +261,7 @@ $$
 <a id="cor-mf7-first-coefficient"></a>
 <!-- formal-statement-start -->
 > **系（固有値と第一係数の一致）**  
-> 上の引用定理の正規化newform $f=\sum_{n\ge1}a_nq^n$ に対し、$\ell\nmid N$ では $T_\ell f=a_\ell f$、$p\mid N$ では $U_pf=a_pf$ である。
+> 偶数 $k\ge2$、$N\ge1$、自明指標のレベル $N$ の正規化newform $f=\sum_{n\ge1}a_nq^n$（$a_1=1$）に対し、素数 $\ell\nmid N$ では $T_\ell f=a_\ell f$、素数 $p\mid N$ では $U_pf=a_pf$ である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -315,14 +354,28 @@ $$
 
 ## 5. レベル11を自分の手で追う
 
-[モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)によれば $X_0(11)$ の種数は1です。また[重さ2カスプ形式と正則微分の対応](../MF4/index.md#thm-mf4-weight-two-differentials)より $\dim S_2(\Gamma_0(11))=1$。[MF2のレベル1の重さ2の消失](../MF2/index.md#def-mf2-modular-form)により $S_2(\Gamma_0(1))=0$ です。レベル11は素数なので真の低レベルは1だけです。従って定義から
+[モジュラー曲線の種数公式](../MF4/index.md#thm-mf4-genus)に $N=11$ を代入する。指数は $\mu=11(1+1/11)=12$、位数2・3の楕円点はともに0個、カスプは2個なので
+
+$
+g(X_0(11))=1+\frac{12}{12}-\frac04-\frac03-\frac22=1.
+$
+
+また[重さ2カスプ形式と正則微分の対応](../MF4/index.md#thm-mf4-weight-two-differentials)より $\dim S_2(\Gamma_0(11))=1$。[MF2のレベル1の重さ2の消失](../MF2/index.md#def-mf2-modular-form)により $S_2(\Gamma_0(1))=0$ です。レベル11は素数なので真の低レベルは1だけです。従って定義から
 
 $$
 S_2^{\mathrm{old}}(11)=\{0\},\qquad
 S_2^{\mathrm{new}}(11)=S_2(\Gamma_0(11)).
 $$
 
-この空間の非零元を具体的に書くにはDedekindの $\eta$ 関数を用いると便利です。$\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$ と置きます。その変換則から導く「$\eta$ 商のモジュラー性判定」（$\sum_{\delta\mid N}\delta r_\delta\equiv\sum_{\delta\mid N}(N/\delta)r_\delta\equiv0\pmod{24}$ などの条件）をここでは外部補題として利用します。この判定法自体の一般証明は本章の対象ではありません。
+この空間の非零元を具体的に書くにはDedekindの $\eta$ 関数を用いると便利です。$\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$ と置きます。ここでは次の **$\eta$ 商のモジュラー性判定を外部補題として引用**します。$F(\tau)=\prod_{\delta\mid N}\eta(\delta\tau)^{r_\delta}$（$r_\delta\in\mathbb Z$）について、$k=\tfrac12\sum_\delta r_\delta$ が整数で、
+
+$
+\sum_{\delta\mid N}\delta r_\delta\equiv0\pmod{24},
+\qquad
+\sum_{\delta\mid N}(N/\delta)r_\delta\equiv0\pmod{24}
+$
+
+ならば、$F$ は $\Gamma_0(N)$ 上で重さ $k$、指標 $\chi(d)=\left(\frac{(-1)^k\prod_\delta\delta^{r_\delta}}{d}\right)$ の変換則を満たします（ここで括弧はKronecker記号、$(d,N)=1$）。この判定は**変換則**についてのもので、全カスプでの正則性・消失は別に検査します。一般の判定法の証明は本章では引用します。
 
 <a id="prop-mf7-level-eleven"></a>
 <!-- formal-statement-start -->
@@ -461,7 +514,7 @@ $\Gamma_0(2)$ と $\Gamma_0(3)$ の中に既にレベル1由来の像が含ま�
 
 ### A3. $U_2V_2$ の係数を調べる
 
-$f=\sum_{n\ge1}a_nq^n$ とする。$V_2f$ の係数と $U_2V_2f$ を求めよ。$U_2V_2f=V_2f$ か。
+偶数 $k\ge2$ とし、$f=\sum_{n\ge1}a_nq^n\in S_k(\Gamma_0(1))$ とする。レベル2の $V_2f$ の係数と、レベル2で定義された $U_2V_2f$ を求めよ。$U_2V_2f=V_2f$ か。
 
 - Level: A
 - ID: MF7-A3
@@ -483,7 +536,7 @@ $f=\sum_{n\ge1}a_nq^n$ とする。$V_2f$ の係数と $U_2V_2f$ を求めよ。
 
 ### B1. oldspaceのHecke不変性を係数から示す
 
-$p\nmid N$、$d\mid N/M$ とする。$T_pV_df=V_dT_pf$ を $q^n$ 係数で検証せよ。$p\mid d$ の場合に同じ計算ができない箇所を示せ。
+偶数 $k\ge2$、$f\in S_k(\Gamma_0(M))$、$M\mid N$、$d\mid N/M$、素数 $p\nmid N$ とする。$T_pV_df=V_dT_pf$ を $q^n$ 係数で検証せよ。また、この仮定の下で $p\mid d$ は起こり得るか。$p\mid N$ へ条件を変えると、レベル $N$ でどの作用素を使い、どの割り切りの推論が使えなくなるか説明せよ。
 
 - Level: B
 - ID: MF7-B1
@@ -500,7 +553,7 @@ $$
 \end{aligned}
 $$
 
-ただし $a_x=0$ は $x$ が正整数でない場合の規約とします。もし $p\mid d$ なら $d\mid pn$ から $d\mid n$ は従わず、第2行へ進めません。これは $U_p$ と退化写像の相互作用が別になる原因の一つです。
+ただし $a_x=0$ は $x$ が正整数でない場合の規約とします。現行の仮定では $d\mid N/M$ と $p\nmid N$ から $p\nmid d$ が必ず成り立ち、$p\mid d$ は**起こり得ません**。仮に $p\mid d$ とするには $p\mid N$ へ条件を変更する必要があり、そのときレベル $N$ で作用するのは $T_p$ ではなく[定義された $U_p$](../MF5/index.md#def-mf5-level-operators) です。例えば $d=p$、$n=1$ では $d\mid pn$ でも $d\nmid n$ なので、第2行の指示関数への置き換えは使えません。
 <!-- solution-end -->
 
 ### B2. newformの局所生成関数を再構成する
