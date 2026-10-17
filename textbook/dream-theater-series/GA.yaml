@@ -20,7 +20,7 @@ chapters:
     title: "楕円型方程式・弱解・最大値原理"
   - id: GA4
     path: textbook/volumes/dream_thater/幾何系/GA/GA4
-    status: planned
+    status: completed
     title: "Laplace作用素のスペクトル理論"
   - id: GA5
     path: textbook/volumes/dream_thater/幾何系/GA/GA5

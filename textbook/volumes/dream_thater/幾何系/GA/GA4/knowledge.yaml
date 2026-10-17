@@ -1,0 +1,55 @@
+chapter: GA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA3
+  - FA7
+concepts:
+  - id: geometric-analysis.laplacian-l2-resolvent
+    name: LaplacianのL2実現とレゾルベント
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（LaplacianのL2実現とレゾルベント）"]
+    requires: [geometric-analysis.shifted-poisson, functional.compact-self-adjoint-spectral-theorem]
+  - id: geometric-analysis.resolvent-positive
+    name: レゾルベントの有界自己共役性と正値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（レゾルベントの有界自己共役性と正値性）"]
+    requires: [geometric-analysis.laplacian-l2-resolvent, geometric-analysis.green-first]
+  - id: geometric-analysis.compact-resolvent
+    name: コンパクトなレゾルベント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクトなレゾルベント）"]
+    requires: [geometric-analysis.resolvent-positive, geometric-analysis.rellich]
+  - id: geometric-analysis.laplacian-spectral
+    name: Laplacianの固有関数展開と自己共役性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Laplacianの固有関数展開と自己共役性）"]
+    requires: [geometric-analysis.compact-resolvent, functional.compact-self-adjoint-spectral-theorem, geometric-analysis.poisson-regularity]
+  - id: geometric-analysis.laplacian-rayleigh
+    name: 多様体LaplacianのRayleigh商
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多様体LaplacianのRayleigh商）"]
+    requires: [geometric-analysis.manifold-sobolev, geometric-analysis.dirichlet-energy]
+  - id: geometric-analysis.eigenform-energy
+    name: H1の固有関数展開とエネルギー恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（H1の固有関数展開とエネルギー恒等式）"]
+    requires: [geometric-analysis.laplacian-spectral, geometric-analysis.laplacian-rayleigh]
+  - id: geometric-analysis.laplacian-minmax
+    name: Rayleigh--Ritzとmin--max原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Rayleigh--Ritzとmin--max原理）"]
+    requires: [geometric-analysis.eigenform-energy]
+  - id: geometric-analysis.first-positive-eigenvalue
+    name: 第一正固有値と平均零Poincare不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（第一正固有値と平均零Poincaré不等式）"]
+    requires: [geometric-analysis.laplacian-minmax, geometric-analysis.mean-zero-poincare]
