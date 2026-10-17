@@ -54,6 +54,7 @@ function setMode() {
   $("gallery-params").hidden = currentModel !== "gallery";
   $("ml-params").hidden = physics;
   $("ml-cell-table").hidden = physics;
+  $("ml-sample-preview").hidden = physics;
   $("ml-histogram-container").hidden = physics;
   for (const id of ["step", "run", "play", "pause", "resume", "cancel"]) {
     $(id).hidden = !physics;
@@ -128,6 +129,8 @@ function plotResult() {
     renderTable($("ml-cell-table"), ["(X,Y)", "母集団確率 P", "標本度数（第1回）"], 
       ["00","01","10","11"].map((cell, j) =>
         [cell, latest.probabilities[j], counts[j]]));
+    renderTable($("ml-sample-preview"), ["第1回標本の抽出順", "X", "Y", "0–1損失"],
+      latest.firstObservations.map((z, i) => [i + 1, z.x, z.y, z.loss]));
     renderTable($("diagnostics"), ["数値診断", "値"], resultRows({
       classifier: latest.classifier, sampleCount: latest.sampleCount,
       repetitions: latest.repetitions,

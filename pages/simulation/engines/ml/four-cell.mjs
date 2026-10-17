@@ -70,6 +70,7 @@ export function computeOnce(params, seed) {
   }
   const histogram = Array(11).fill(0);
   let firstCounts = null, firstRisk = null, sumRisk = 0, sumRisk2 = 0;
+  const firstObservations = [];
   for (let repetition = 0; repetition < repetitions; repetition++) {
     const counts = [0, 0, 0, 0];
     for (let i = 0; i < n; i++) {
@@ -80,6 +81,10 @@ export function computeOnce(params, seed) {
         if (u < cdf) { cell = j; break; }
       }
       counts[cell]++;
+      if (repetition === 0 && i < 16) {
+        firstObservations.push({ x: Math.floor(cell / 2), y: cell % 2,
+          loss: mistakes[cell] ? 1 : 0 });
+      }
     }
     const errorsInSample = counts.reduce((sum, count, j) =>
       sum + (mistakes[j] ? count : 0), 0);
@@ -92,7 +97,7 @@ export function computeOnce(params, seed) {
   const meanEmpiricalRisk = sumRisk / repetitions;
   return {
     result: {
-      counts: firstCounts, probabilities: [...p], sampleCount: n,
+      counts: firstCounts, firstObservations, probabilities: [...p], sampleCount: n,
       repetitions, histogram, classifierId, classifier: classifier.name,
       populationRisk, empiricalRisk: firstRisk, meanEmpiricalRisk,
       // Finite empirical distribution of repeated risk values; divisor B.
