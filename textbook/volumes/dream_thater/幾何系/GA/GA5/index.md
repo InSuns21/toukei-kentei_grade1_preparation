@@ -135,7 +135,7 @@ $$
 
 という評価を得ます。具体的には一回目の $H^2$ 評価に $Lv$、二回目の $H^4$ 評価に $L(Lv)$ を入力し、有限被覆と[GA2の局所ノルム比較](../GA2/index.md#prop-ga2-intrinsic-h1)で定数をまとめます。[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で $2k>r+d/2$ となる $k$ を選べば $v$ の $C^r$ ノルムを抑えられます。時間微分は $-L$ をさらに作用させるので、$t\ge\varepsilon>0$ の各階微分まで連続になり、$u$ は $(0,\infty)\times M$ で滑らかです。
 
-$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ なので [Greenの第一公式](../GA1/index.md#thm-ga1-green-first)から
+$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ です。空間積分について $(w,\Delta_gw)_2=-\|\nabla_gw\|_2^2$ が成り立ちます（[GA1の積分公式の証明](../GA1/index.md#thm-ga1-green-first)）。これを用いると
 
 $$
 \frac{d}{dt}\|w(t)\|_2^2
