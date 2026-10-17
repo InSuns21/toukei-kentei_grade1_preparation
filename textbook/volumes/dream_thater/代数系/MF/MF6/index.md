@@ -169,14 +169,46 @@ g(\tau)=N^{-k/2}\tau^{-k}f\left(-\frac1{N\tau}\right).
 $$
 <!-- formal-statement-end -->
 
-$W_N$ は $\Gamma_0(N)$ を共役で保つことを確かめられます。$\gamma=\begin{pmatrix}a&b\\Nc&d\end{pmatrix}\in\Gamma_0(N)$ とすると
+まず $W_N$ が変換則を保つことを行列で確かめます。$\gamma=\begin{pmatrix}a&b\\Nc&d\end{pmatrix}\in\Gamma_0(N)$ に対し、
 
-$$
-W_N^{-1}\gamma W_N
+$
+W_N^{-1}=\begin{pmatrix}0&1/N\\-1&0\end{pmatrix},
+\qquad
+W_N\gamma W_N^{-1}
 =\begin{pmatrix}d&-c\\-Nb&a\end{pmatrix}\in\Gamma_0(N).
-$$
+$
 
-従って $g|_k\gamma=f|_kW_N\gamma=f|_k(W_N\gamma W_N^{-1})W_N=g$ です。さらに $W_N$ はカスプ集合を置換し、各カスプでの正則性と定数項の消失を保つので $g\in S_k(\Gamma_0(N))$ です。この最後の主張は[MF4の全カスプでの定義](../MF4/index.md#def-mf4-level-form)に関するもので、$\infty$ のみを調べた結論ではありません。
+下左成分は $N$ の倍数であり、行列式は $ad-Nbc=1$ のままです。逆向きの共役 $W_N^{-1}\gamma W_N$ も同じ形なので、$W_N$ は $\Gamma_0(N)$ を正規化します。[slash作用の右作用](../MF5/index.md#def-mf5-slash)を用いると
+
+$
+g|_k\gamma=f|_k(W_N\gamma)
+=f|_k(W_N\gamma W_N^{-1})W_N=f|_kW_N=g
+$
+
+となり、$g$ の変換則が従います。上半平面での正則性は $W_N\tau=-1/(N\tau)\in\mathbb H$ とslashの式から従います。
+
+残るのは **全カスプでの定数項の消失** です。[MF4のスケーリング行列・幅](../MF4/index.md#def-mf4-cusp-width)に従い、任意のカスプ $s=\sigma_s\infty$ を取ります。$W_N$ が有理境界を有理境界へ写し、群を正規化するので、ある $\delta\in\Gamma_0(N)$ とカスプ代表 $s'=\sigma_{s'}\infty$ を選んで $\delta W_Ns=s'$ とできます。このとき
+
+$
+B=\sigma_{s'}^{-1}\delta W_N\sigma_s
+=\begin{pmatrix}u&v\\0&w\end{pmatrix},
+\qquad \det B=N>0,\quad \frac{u}{w}>0.
+$
+
+$f$ は $s'$ でカスプ形式なので、幅 $h_{s'}$ の展開は $n\ge1$ から始まります。$f|_k\delta=f$ と右作用を使えば
+
+$
+\begin{aligned}
+(g|_k\sigma_s)(\tau)
+&=(f|_k\sigma_{s'})|_k B(\tau)\\
+&=(\det B)^{k/2}w^{-k}
+\sum_{n\ge1}a_n(s')
+\exp\left(\frac{2\pi i n v}{w h_{s'}}\right)
+\exp\left(\frac{2\pi i n (u/w)\tau}{h_{s'}}\right).
+\end{aligned}
+$
+
+$u/w>0$ なので $\operatorname{Im}\tau\to\infty$ で各項が減衰し、展開全体も零へ収束します。一方、先に示した $\Gamma_0(N)$ 不変性により $g|_k\sigma_s$ は幅 $h_s$ で周期的です。従って[周期正則関数の$q$表示](../MF2/index.md#thm-mf2-q-coordinate)は $q_s=e^{2\pi i\tau/h_s}$ の非負整数冪であり、その定数項は極限が零なので消えます。$s$ は任意でしたから、[全カスプでの定義](../MF4/index.md#def-mf4-level-form)の両条件を満たし $g\in S_k(\Gamma_0(N))$ が示されました。
 
 <!-- definition-example-start: def-mf6-fricke -->
 **定義の確認**。$N=1$ なら $W_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は[MF1の生成元](../MF1/index.md#thm-mf1-generators) $S$ そのもので、レベル1の変換則により $f|_kW_1=f$ です。一般の $N$ では
@@ -186,6 +218,27 @@ W_N^2=-NI,\qquad (f|_kW_N)|_kW_N=f|_k(-NI)=(-1)^kf=f
 $$
 
 です。最後の等号には $k$ が偶数であることを使いました。従ってFricke作用はこの空間上の線形な対合であり、固有値は $\varepsilon=1$ または $-1$ に限られます。ただし**全ての形式が固有形式という意味ではありません**。
+
+レベル2の直接例も確認します。$f(\tau)=\Delta(\tau)$ はレベル1のカスプ形式なので、レベル2の両カスプでも消失します。$\Delta(-1/z)=z^{12}\Delta(z)$ を $z=2\tau$ へ適用すると
+
+$
+\begin{aligned}
+g(\tau)=(\Delta|_{12}W_2)(\tau)
+&=2^{-6}\tau^{-12}\Delta\left(-\frac1{2\tau}\right)\\
+&=2^{-6}\tau^{-12}(2\tau)^{12}\Delta(2\tau)
+=2^6\Delta(2\tau).
+\end{aligned}
+$
+
+[レベル2のカスプは $\infty$ と $0$](../MF4/index.md#prop-mf4-prime-cusps) で、$0$ のスケーリング行列は $S$、幅は2です。[MF5で確認した $\Delta(2\tau)$ のカスプ展開](../MF5/index.md#def-mf5-level-operators)を使えば
+
+$
+g(\tau)=2^6q^2+O(q^4),\qquad
+(g|_{12}S)(\tau)=2^{-6}\Delta(\tau/2)
+=2^{-6}q_0+O(q_0^2),\quad q_0=e^{\pi i\tau}.
+$
+
+両方とも負冪と定数項がなく、$g\in S_{12}(\Gamma_0(2))$ を直接確認できました。さらに $(g|_{12}W_2)=f$ も上の対合計算から従います。
 <!-- definition-example-end -->
 
 虚軸上で上の定義に $\tau=it$ を代入すると
