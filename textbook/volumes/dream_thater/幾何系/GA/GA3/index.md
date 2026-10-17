@@ -6,7 +6,7 @@
 
 ## 1. 一階微分しか使わずにPoisson方程式を読む
 
-滑らかな解の候補 $u$ が $-\Delta_gu=f$ を満たすなら、境界がないとき[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)から、任意の滑らかな $v$ に対して
+滑らかな解の候補 $u$ が $-\Delta_gu=f$ を満たすなら、境界がないとき[GA1で証明した積分恒等式](../GA1/index.md#thm-ga1-green-first)から、任意の滑らかな $v$ に対して
 
 $$
 \int_M\langle\nabla_gu,\nabla_gv\rangle_g\,dV_g
@@ -112,14 +112,14 @@ a(w,v)=\int_M\langle\nabla_gw,\nabla_gv\rangle_g\,dV_g,
 \qquad F(v)=\int_Mfv\,dV_g
 $$
 
-と置きます。まずCauchy--Schwarz不等式から
+と置きます。まず[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |a(w,v)|\le\|\nabla_gw\|_2\|\nabla_gv\|_2
 \le\|w\|_{H^1_g}\|v\|_{H^1_g}
 $$
 
-なので有界です。[GA2のPoincaré不等式](../GA2/index.md#thm-ga2-poincare)より
+なので有界です。[GA2の平均零勾配評価](../GA2/index.md#thm-ga2-poincare)より
 
 $$
 a(v,v)=\|\nabla_gv\|_2^2
@@ -153,7 +153,7 @@ $$
 \le C_P\|f\|_2\|\nabla_gu\|_2
 $$
 
-とします。勾配ノルムが零の場合は評価が直ちに成立し、正なら両辺をそれで割って第一の評価を得ます。第二は再びPoincaré不等式を用いて得られます。
+とします。勾配ノルムが零の場合は評価が直ちに成立し、正なら両辺をそれで割って第一の評価を得ます。第二は再び[GA2の平均零勾配評価](../GA2/index.md#thm-ga2-poincare)を用いて得られます。
 <!-- proof-end -->
 
 **何が証明できたか。** 外力の平均零は単に必要条件でなく、コンパクト連結境界なしの設定では十分条件でもあります。[平均零空間の勾配ノルム](../GA2/index.md#prop-ga2-gradient-norm)が存在証明の鍵でした。この解構成は次章でLaplacianの固有値を調べる出発点になります。
@@ -345,7 +345,7 @@ $$
 
 ## 7. 強最大値原理：内部の一箇所で等号になったら
 
-弱最大値原理は境界全体との比較でした。さらに調和関数なら、内部の一点が全体の最大値に一致するだけで定数になることを示せます。その核心は、測地球の環状部分に具体的な**比較用の補助関数**を作ることです。
+弱最大値原理は境界全体との比較でした。さらに調和関数なら、内部の一点が全体の最大値に一致するだけで定数になることを示せます。その核心は、測地球の環状部分に指数関数を使って内側への増加を定量化することです。
 
 <a id="thm-ga3-strong-maximum"></a>
 <!-- formal-statement-start -->
@@ -361,14 +361,14 @@ $
 
 ### 証明の見取り図
 
-$v=\sup_Du-u$ は非負の調和関数です。零になる集合が真の部分集合だと仮定し、正の部分から零集合へ接する小さな測地球を取ります。球の環状部分に $\exp(-\alpha r^2)$ 型の比較関数を作り、[弱最大値原理](#thm-ga3-weak-maximum)で $v$ の**内向き微分**を正に強制します。しかし零点は内部最小なので勾配が零であり矛盾します。
+$v=\sup_Du-u$ は非負の調和関数です。零になる集合が真の部分集合だと仮定し、正の部分から零集合へ接する小さな測地球を取ります。球の環状部分で $\exp(-\alpha r^2)$ 型の具体的な関数を取り、[弱最大値原理](#thm-ga3-weak-maximum)で $v$ の**内向き微分**を正に強制します。しかし零点は内部最小なので勾配が零であり矛盾します。
 
 <!-- proof-start -->
 ### 証明
 
 $m=\sup_Du$、$v=m-u$ とおきます。$v\ge0$、$\Delta_gv=0$、$v(p)=0$ です。零集合 $Z=\{x\in D:v(x)=0\}$ は空でない閉集合です。$Z\ne D$ と仮定します。$D$ は連結なので $Z$ の境界に属する点 $z_0\in D$ があり、その近くの正の点 $q$ を選べます。$q$ を十分近く選び、$R=\operatorname{dist}_g(q,Z)$ が正で、閉測地球 $\overline B_R(q)$ が $D$ の内部の正規座標球に入るようにします。距離の最小値はこの小さなコンパクト球内で実現されるので、ある $z\in Z$ に対し $\operatorname{dist}_g(q,z)=R$ です。$B_R(q)$ には零点がありません。
 
-[GEO14の正規球における距離公式](../../GEO/GEO14/index.md#cor-geo14-normal-distance)を用いて $r(x)=\operatorname{dist}_g(q,x)$ とすると、正規座標球の内部で $r^2$ は滑らかで、$|\nabla_gr|_g=1$ ($r>0$)、$\Delta_g(r^2)$ は閉球上で有界です。環状領域 $A=\{R/2<r<R\}$ 上で
+[正規球での基点からの距離](../../GEO/GEO14/index.md#cor-geo14-normal-distance)の公式を用いて $r(x)=\operatorname{dist}_g(q,x)$ とすると、正規座標球の内部で $r^2$ は滑らかで、$|\nabla_gr|_g=1$ ($r>0$)、$\Delta_g(r^2)$ は閉球上で有界です。環状領域 $A=\{R/2<r<R\}$ 上で
 
 $$
 w(x)=e^{-\alpha r(x)^2}-e^{-\alpha R^2}
@@ -643,9 +643,9 @@ $(M,g)$ を滑らかで連結・コンパクト・境界なしのRiemann多様�
 <!-- solution-start -->
 **詳細解答**
 
-(1) [積分適合条件](#prop-ga3-compatibility)より $\int_Mf=0$ は必要です。逆に平均零なら[存在一意性定理](#thm-ga3-poisson-existence)が唯一の平均零 $H^1$ 弱解を与えます。計量は滑らか、$f$ も滑らか、境界はないので[局所正則性定理](#thm-ga3-local-regularity)を全点の有限座標近傍で適用して $u\in C^\infty(M)$ と分かります。従って弱形式に限らず古典的な $-\Delta_gu=f$ が成立します。これで必要十分性が示されました。
+(1) [積分適合条件](#prop-ga3-compatibility)より $\int_Mf=0$ は必要です。逆に平均零なら[コンパクト境界なしPoisson問題の存在一意性](#thm-ga3-poisson-existence)が唯一の平均零 $H^1$ 弱解を与えます。計量は滑らか、$f$ も滑らか、境界はないので[局所正則性定理](#thm-ga3-local-regularity)を全点の有限座標近傍で適用して $u\in C^\infty(M)$ と分かります。従って弱形式に限らず古典的な $-\Delta_gu=f$ が成立します。これで必要十分性が示されました。
 
-(2) 平均零解に対して $v=u$ を代入し、[Poincaré不等式](../GA2/index.md#thm-ga2-poincare)を用いると
+(2) 平均零解に対して $v=u$ を代入し、[GA2の平均零勾配評価](../GA2/index.md#thm-ga2-poincare)を用いると
 
 $$
 \|\nabla_gu\|_2^2
