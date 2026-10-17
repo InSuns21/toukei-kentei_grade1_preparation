@@ -554,7 +554,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga5-stochastic-completeness -->
-**定義の確認**（実直線）：[PDE3の熱核表示](../../../解析系/PDE/PDE3/index.md#thm-pde3-whole-line)によれば、標準計量の $\mathbb R$ 上では $G_t(x-y)=(4\pi t)^{-1/2}e^{-(x-y)^2/(4t)}$ が非負基本解です。このGaussianが最小熱核でもあることは、[PDE3の最大原理](../../../解析系/PDE/PDE3/index.md#thm-pde3-maximum-principle)で確認できます。非負の別の基本解が作る解 $v(t,x)$ と、コンパクト台の非負初期値 $f$ に対する区間 $(-R,R)$ の零Dirichlet解 $w_R$ を比べると、側面で $v\ge0=w_R$ なので $v\ge w_R$ です。一方、全空間解 $G_t*f$ と $w_R$ の差は初期値が零で、側面では $G_t*f$ に等しく、
+**定義の確認**（実直線）：[PDE3の熱核表示](../../../解析系/PDE/PDE3/index.md#thm-pde3-whole-line)によれば、標準計量の実直線上で次のGaussianは非負の基本解です。
+
+$$
+G_t(x-y)=(4\pi t)^{-1/2}e^{-(x-y)^2/(4t)}.
+$$
+
+このGaussianの最小性は[PDE3の最大原理](../../../解析系/PDE/PDE3/index.md#thm-pde3-maximum-principle)で確認できます。別の非負基本解がコンパクト台の非負初期値 $f$ から作る解を $v(t,x)$ とします。
+
+同じ初期値を持つ区間 $(-R,R)$ の零Dirichlet解を $w_R(t,x)$ とします。側面で $v\ge0=w_R$ なので、最大原理から $v\ge w_R$ です。
+
+一方、全空間解 $G_t*f$ と $w_R$ の差は初期値が零で、側面では $G_t*f$ に等しいため、
 
 $$
 0\le G_t*f-w_R
