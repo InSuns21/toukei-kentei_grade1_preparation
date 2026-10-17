@@ -933,6 +933,7 @@
 8. [EC8 Hasse評価・拡大体上の点数・有限体ゼータ関数](textbook/volumes/dream_thater/代数系/EC/EC8/index.md)
 9. [EC9 整数モデル・良い／悪い還元・導手](textbook/volumes/dream_thater/代数系/EC/EC9/index.md)
 10. [EC10 Hasse–Weil L関数と局所因子](textbook/volumes/dream_thater/代数系/EC/EC10/index.md)
+11. [EC11 モジュラー形式との照合とmodularity interface](textbook/volumes/dream_thater/代数系/EC/EC11/index.md)
 
 <a id="dt-subject-modular-forms"></a>
 ### モジュラー形式
