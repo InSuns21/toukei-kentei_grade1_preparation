@@ -374,14 +374,14 @@ $$
 w(x)=e^{-\alpha r(x)^2}-e^{-\alpha R^2}
 $$
 
-とおきます。$w>0$ on $A$、外側の球面で $w=0$ であり、連鎖律を二回用いて
+とおきます。$A$ の内部では $w>0$、外側の球面では $w=0$ です。また、連鎖律を二回用いて
 
 $$
 \Delta_gw
 =e^{-\alpha r^2}\bigl(4\alpha^2r^2-\alpha\Delta_g(r^2)\bigr)
 $$
 
-です。$r\ge R/2$ と $\Delta_g(r^2)$ の有界性から、$\alpha$ を十分大きくすれば $\Delta_gw>0$ on $\overline A$ です。
+です。$r\ge R/2$ と $\Delta_g(r^2)$ の有界性から、$\alpha$ を十分大きくすれば 環状領域の閉包 $\overline A$ 上で $\Delta_gw>0$ です。
 
 $v$ は $B_R(q)$ で正なので、内側の球面 $r=R/2$ で正の最小値を持ちます。$\varepsilon>0$ を十分小さく取り、内側の球面では $v-\varepsilon w\ge0$、外側では $w=0$、$v\ge0$ とします。$\psi=v-\varepsilon w$ は $\Delta_g\psi=-\varepsilon\Delta_gw<0$、すなわち $-\psi$ が劣調和です。[弱最大値原理](#thm-ga3-weak-maximum)を $-\psi$ に適用すると、環状領域の全体で $\psi\ge0$、したがって $v\ge\varepsilon w$ です。
 
