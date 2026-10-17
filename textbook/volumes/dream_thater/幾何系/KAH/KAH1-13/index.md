@@ -458,7 +458,7 @@ $$
 $\mathbb C$ で $\varphi=|z|^2$ とする。$i\partial\bar\partial\varphi$ の実座標式を求め、正値性、閉性、完全性をそれぞれ確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $z=x+iy$ とすると $\partial_z\varphi=\bar z$、$\partial_{\bar z}\varphi=z$ である。よって $\partial_z\partial_{\bar z}\varphi=1$ であり、
+**詳細解答。** [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を $z=x+iy$ に適用すると $\partial_z\varphi=\bar z$、$\partial_{\bar z}\varphi=z$ である。よって $\partial_z\partial_{\bar z}\varphi=1$ であり、
 
 $$
 i\partial\bar\partial\varphi
@@ -483,7 +483,7 @@ $$
 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ に $\omega_0=i\,dz\wedge d\bar z$ を入れる。正の実閉 $(1,1)$ 形式であること、$\int_T\omega_0=2$、$[\omega_0]\ne0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 格子平行移動は $dz$ を変えないので $\omega_0$ は商に降りる。共役をとると実形式で、$(1,1)$ 型、$-i\omega_0(v,\bar v)=|v|^2>0$。複素一次元では外微分は3形式で零となる。基本領域 $0\le x,y\le1$ で
+**詳細解答。** [複素トーラスへの降下](../KAH1-05/index.md#prop-kah1-05-torus)のとおり、格子平行移動は $dz$ を変えないので $\omega_0$ は商に降りる。共役をとると実形式で、$(1,1)$ 型、$-i\omega_0(v,\bar v)=|v|^2>0$。複素一次元では外微分は3形式で零となる。基本領域 $0\le x,y\le1$ で
 
 $$
 \int_T\omega_0=\int_0^1\!\int_0^1 2\,dx\,dy=2.
@@ -517,7 +517,7 @@ $$
 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $\omega_\varepsilon=\omega_0+i\partial\bar\partial(\varepsilon\cos2\pi x)$ を考える。正値性の必要十分条件とde Rham類を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ なので
+**詳細解答。** [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)の定義から $\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ なので
 
 $$
 \partial_z\partial_{\bar z}(\varepsilon\cos2\pi x)
@@ -544,7 +544,7 @@ d(\beta\wedge\omega)
 =\omega^2\wedge\omega=\omega^3.
 $$
 
-$\beta\wedge\omega$ は実5形式なので、実6次元の $X$ にStokesを適用できる。境界なし・コンパクトだから
+$\beta\wedge\omega$ は実5形式なので、実6次元の $X$ に[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用できる。境界なし・コンパクトだから
 
 $$
 \int_X\omega^3=\int_Xd(\beta\wedge\omega)
