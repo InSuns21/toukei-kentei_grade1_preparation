@@ -367,7 +367,7 @@ $
 \frac{d^2t}{d\tau^2}=\frac{d^2x}{d\tau^2}=0.
 $
 
-[Levi-Civita接続の構成定理](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では、係数行列が定数なら全成分の偏微分は零です。従って $\Gamma^\rho_{\mu\nu}=0$ となり、[四元加速度の定義](#def-gr3-four-acceleration)から $a^\mu=0$。また未来向きで $g(u,u)=-c^2$ です。
+[Levi-Civita接続の構成定理](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では、係数行列が定数なら全成分の偏微分は零です。従って $\Gamma^\rho_{\mu\nu}=0$ となり、[四元加速度と自由落下判定](#def-gr3-four-acceleration)から $a^\mu=0$。また未来向きで $g(u,u)=-c^2$ です。
 <!-- solution-end -->
 
 <a id="ex-gr3-a02"></a>
