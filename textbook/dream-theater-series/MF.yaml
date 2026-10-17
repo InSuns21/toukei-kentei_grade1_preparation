@@ -1,7 +1,7 @@
 version: 1
 id: MF
 title: "モジュラー形式"
-plan: textbook/plans_progress/DREAM_THEATER_MODULAR_FORMS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_MODULAR_FORMS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開索引へは完了済みの章だけを登録する。
