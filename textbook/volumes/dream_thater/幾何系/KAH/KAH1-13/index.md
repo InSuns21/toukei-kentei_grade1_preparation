@@ -17,7 +17,22 @@ $$
 -i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}v^j\overline{v^k}
 $$
 
-と約束する。実際、$v=\sum_jv^j\partial/\partial z^j$ に対し $dz^j(v)=v^j$、$d\bar z^k(\bar v)=\overline{v^k}$ で、交差する評価は零だから、外積を $(v,\bar v)$ に作用させると表示した二次形式になる。[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、すべての非零 $v$ でこの値が正であることと、係数行列 $G=(g_{j\bar k})$ の正値性は同値である。これが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の判定法であり、閉性 $d\omega=0$ は独立に確認する。
+と約束する。なぜこの係数行列で正値性を判定できるかを、基底展開から確かめる。局所ベクトルを
+
+$$
+v=\sum_jv^j\frac{\partial}{\partial z^j}
+$$
+
+と書くと、正則座標の双対基底について
+
+$$
+dz^j(v)=v^j,\qquad
+d\bar z^k(\bar v)=\overline{v^k}
+$$
+
+が成立し、交差する評価は零である。従って外積を $(v,\bar v)$ に作用させると、第1式の二次形式になる。
+
+[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、すべての非零ベクトルに対してその値が正であることと、係数行列 $G=(g_{j\bar k})$ が正値であることは同値である。これが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の判定法であり、閉性 $d\omega=0$ は別に確認する。
 
 ## 2. Kähler類を定義する
 
@@ -324,7 +339,17 @@ $$
 [de Rham コホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)により両者の類は一致する。$d(\omega+i\partial\bar\partial\varphi)=d\omega+d^2\alpha_\varphi=0$ で、型と実性も保たれる。さらに両者が正値なら、それぞれ[Kähler類の定義](#def-kah1-13-class)を満たし、同じ類のKähler代表である。$\square$
 <!-- proof-end -->
 
-トーラスの $\omega_\varepsilon$ はまさにこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。例えば $|\varepsilon|\ge1/\pi^2$ では $\omega_\varepsilon$ は正値でないが、$\varphi=-\varepsilon\cos(2\pi x)$ を足すと $\omega_\varepsilon+i\partial\bar\partial\varphi=\omega_0$ は正値である。この例は、同じ類のすべての代表をKähler形式とみなせないことを示す。なお二つの**同じ類**のKähler形式の差がいつも大域的 $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は、本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
+トーラスの $\omega_\varepsilon$ はこの命題の適用例である。代表の係数は $x$ により変化しても、類は $[\omega_0]$ のままである。
+
+例えば $|\varepsilon|\ge1/\pi^2$ では $\omega_\varepsilon$ は正値でない。一方、大域関数 $\varphi=-\varepsilon\cos(2\pi x)$ を足すと
+
+$$
+\omega_\varepsilon+i\partial\bar\partial\varphi=\omega_0
+$$
+
+は正値となる。この例は、同じ類のすべての代表をKähler形式とみなせないことを示す。
+
+なお、同じ類の二つのKähler形式の差が常に大域的な $i\partial\bar\partial\varphi$ と書けるという逆向きの主張は本章では行わない。後続の大域 $\partial\bar\partial$ 補題の問題である。
 
 ## 6. コンパクト多様体で類が消えない理由
 
