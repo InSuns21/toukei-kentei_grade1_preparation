@@ -2,15 +2,42 @@
 
 ## 1. 幾何から生まれた方程式はどこで線形理論を離れるか
 
-[VAR7の極小グラフ方程式](../../../解析系/VAR/VAR7/index.md#thm-var7-minimal-graph-equation)では、グラフの面積を停留させると未知関数の勾配が係数にも現れました。一方、[GA8の調和写像](../GA8/index.md#def-ga8-tension)では値域制約が非線形性を作りました。どちらも「二階微分を含む」というだけでは、線形Poisson方程式の存在・正則性定理をそのまま適用できません。
+[VAR7の二変数の極小グラフ方程式](../../../解析系/VAR/VAR7/index.md#thm-var7-minimal-graph-equation)では、グラフの面積を停留させると未知関数の勾配が係数にも現れました。一方、[GA8の調和写像](../GA8/index.md#def-ga8-tension)では値域制約が非線形性を作りました。どちらも「二階微分を含む」というだけでは、線形Poisson方程式の存在・正則性定理をそのまま適用できません。
 
 本章では、まず係数行列を自分で計算して楕円性を判定します。次に、[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)の指数が最大値に達すると、収束するはずの列が一点へ集中してしまう様子を計算します。最後に、その臨界指数を持つYamabe型の変分方程式を導きます。
 
-極小グラフの議論では $d\ge2$、$\Omega\subset\mathbb R^d$ を有界な連結Lipschitz領域とし、$u$ は指定した箇所では $C^2(\Omega)$、境界を論じるときは必要に応じて $C^1(\overline\Omega)$ とします。$D$ はEuclid勾配、$\operatorname{div}$ はEuclid発散です。多様体の集中列を扱う節では別に滑らかなコンパクト・境界なし $d$ 次元Riemann多様体を指定します。
+極小グラフの議論では $d\ge2$、$\Omega\subset\mathbb R^d$ を有界な連結Lipschitz領域とします。$u$ は指定した箇所では $C^2(\Omega)$、境界を論じるときは必要に応じて $C^1(\overline\Omega)$ とします。
+
+Euclid領域で $D$ は勾配、$\operatorname{div}$ は発散を表します。多様体上では計量による勾配 $\nabla_g$ を使い、その座標表示への対応を第4節で導きます。
+
+多様体の集中列を扱う節では、滑らかなコンパクト・境界なしの $d$ 次元Riemann多様体 $(M,g)$ を別に指定します。
 
 ## 2. 極小グラフの線形化と楕円性
 
-高さ関数 $u$ のグラフの面積密度は $\sqrt{1+|Du|^2}$ です。ここでは面積変分そのものは再証明せず、上記の[VAR7の定理](../../../解析系/VAR/VAR7/index.md#thm-var7-minimal-graph-equation)を出発点とします。微分方程式は
+[VAR7の極小グラフ方程式](../../../解析系/VAR/VAR7/index.md#thm-var7-minimal-graph-equation)は二変数の高さ関数について証明されました。本章では $d\ge2$ を扱うため、その式が一般次元でも成り立つことを第一変分から確認します。
+
+高さ関数 $u:\Omega\to\mathbb R$ のグラフを $X(x)=(x,u(x))\in\mathbb R^{d+1}$ で表すと、接ベクトルは $\partial_iX=(e_i,\partial_i u)$ です。従って誘導計量の行列は
+
+$$
+G_{ij}=\langle\partial_iX,\partial_jX\rangle
+=\delta_{ij}+(\partial_i u)(\partial_j u).
+$$
+
+$Du\ne0$ なら、$Du$ に平行な方向で $G$ の固有値は $1+|Du|^2$、直交方向では $1$ です。$Du=0$ なら $G=I$ です。ゆえに $\det G=1+|Du|^2$ であり、グラフの面積密度は $\sqrt{1+|Du|^2}$ です。この固有値の確認により、行列式が面積密度に現れる理由も追えます。
+
+$\varphi\in C_c^\infty(\Omega)$ の台を含む滑らかな相対コンパクト領域 $U\Subset\Omega$ を取り、$\mathcal A_U(u)=\int_U\sqrt{1+|Du|^2}\,dx$ とします。$u\in C^2(\Omega)$ なら $\overline U$ 上で微分を積分内に移せるので、
+
+$$
+\begin{aligned}
+\left.\frac{d}{dt}\mathcal A_U(u+t\varphi)\right|_{t=0}
+&=\int_U\frac{Du\cdot D\varphi}{\sqrt{1+|Du|^2}}\,dx\\
+&=-\int_U\operatorname{div}\!\left(\frac{Du}{\sqrt{1+|Du|^2}}\right)\varphi\,dx.
+\end{aligned}
+$$
+
+境界項は $\varphi$ の台が $U$ の内部にあるので零です。発散 $\operatorname{div}F(Du)$ は連続です。もしある点で正なら、その近傍の小球でも正となるため、その小球に台を持つ非負で零でない滑らかな試験関数を選ぶと積分は負になり、第一変分が零であることに矛盾します。負の場合も同様です。逆に発散が各点で零ならすべての試験変分も零です。従って任意のコンパクト台変分に関する停留条件は、局所的に次の方程式を満たすことと同値です。
+
+
 
 $$
 \operatorname{div}F(Du)=0,\qquad
@@ -239,7 +266,7 @@ $$
 0=\int_\Omega \bigl(F(Du)-F(Dv)\bigr)\cdot(Du-Dv)\,dx.
 $$
 
-被積分関数は非負、しかも $Du\ne Dv$ なら正です。よって $Du=Dv$ がほとんど至る所で成り立ちます。$w\in H_0^1(\Omega)$ に[GPDE5のPoincaré不等式](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-poincare)を適用すれば $\|w\|_{L^2}\le C\|Dw\|_{L^2}=0$。従って $u=v$ です。
+被積分関数は非負、しかも $Du\ne Dv$ なら正です。よって $Du=Dv$ がほとんど至る所で成り立ちます。$w\in H_0^1(\Omega)$ に[GPDE4のPoincaré不等式](../../../解析系/GPDE/GPDE4/index.md#thm-gpde4-poincare)を適用すれば $\|w\|_{L^2}\le C\|Dw\|_{L^2}=0$。従って $u=v$ です。
 <!-- proof-end -->
 
 一意性と存在は別です。面積の被積分関数は $|p|\to\infty$ で $\sqrt{1+|p|^2}\sim|p|$ と**一次成長**します。そのため $\int_\Omega\sqrt{1+|Du|^2}$ の有界性だけから $\|Du\|_{L^2}$ の一様有界性は得られません。線形楕円問題で使った $H^1$ の強制性を、何も確認せず流用するのは誤りです。存在論には別の関数空間・障害の検討が必要になります。
@@ -330,11 +357,18 @@ $$
 
 とし、球外は零に延長します。$\eta$ の台は $B_1$ の内部にコンパクトに含まれるため、延長後も $M$ 上滑らかです。
 
-座標式 $|Dv|_g^2=g^{ij}\partial_i v\,\partial_jv$、$dV_g=\sqrt{\det g(x)}\,dx$ と上の連鎖律を代入して
+ここでEuclid勾配 $D$ をそのまま多様体へ持ち込むのではなく、計量の定義から勾配を座標表示します。$dv(\partial_i)=\partial_i v$ と $g(\nabla_gv,\partial_i)=dv(\partial_i)$ より、$\nabla_g v$ の成分は逆計量で求まり、
+
+$$
+\nabla_g v=\sum_{i,j}g^{ij}(\partial_jv)\,\partial_i,\qquad
+|\nabla_gv|_g^2=\sum_{i,j}g^{ij}(\partial_i v)(\partial_jv).
+$$
+
+体積要素も $dV_g=\sqrt{\det g(x)}\,dx$ です。これらとEuclid座標での連鎖律を代入して
 
 $$
 \begin{aligned}
-\int_M|Dv_\varepsilon|_g^2\,dV_g
+\int_M|\nabla_gv_\varepsilon|_g^2\,dV_g
 &=\int_{B_1}g^{ij}(\varepsilon y)
 \,\partial_i\eta(y)\partial_j\eta(y)
 \sqrt{\det g(\varepsilon y)}\,dy,\\
@@ -351,7 +385,7 @@ $g^{ij}$ と $\sqrt{\det g}$ は座標球上で連続であり、小球で一様
 
 $$
 \begin{aligned}
-\int_M|Dv_\varepsilon|_g^2\,dV_g&\longrightarrow\int_{B_1}|D\eta|^2\,dy,\\
+\int_M|\nabla_gv_\varepsilon|_g^2\,dV_g&\longrightarrow\int_{B_1}|D\eta|^2\,dy,\\
 \int_M|v_\varepsilon|^{2^*}\,dV_g&\longrightarrow\int_{B_1}|\eta|^{2^*}\,dy>0,\\
 \int_M|v_\varepsilon|^2\,dV_g&\longrightarrow0.
 \end{aligned}
@@ -379,7 +413,7 @@ $d=2$ では $2^*$ を有限の数として定義できません。第4節の振
 $$
 Q_g(v)=
 \frac{\displaystyle\int_M
-\left(c_d|Dv|_g^2+R_gv^2\right)\,dV_g}
+\left(c_d|\nabla_gv|_g^2+R_gv^2\right)\,dV_g}
 {\displaystyle\left(\int_Mv^{2^*}\,dV_g\right)^{2/2^*}},
 \qquad c_d=\frac{4(d-1)}{d-2}
 $$
@@ -390,7 +424,7 @@ $$
 分母は $v>0$ なので正です。$R_g$ は符号を変えることがあるため、$Q_g(v)\ge0$ と一般には断定しません。$Q_g(av)=Q_g(v)$（$a>0$）なので、この商は関数の全体的な倍率に依存しません。
 
 <!-- definition-example-start: def-ga9-yamabe-quotient -->
-**定義の確認**（定数関数）：$v(x)=a>0$ なら $Dv=0$ です。$V=\operatorname{Vol}_g(M)$、$S=\int_MR_g\,dV_g$ と置くと
+**定義の確認**（定数関数）：$v(x)=a>0$ なら $dv=0$、従って $\nabla_gv=0$ です。$V=\operatorname{Vol}_g(M)$、$S=\int_MR_g\,dV_g$ と置くと
 
 $$
 Q_g(a)=\frac{a^2S}{(a^{2^*}V)^{2/2^*}}
@@ -420,12 +454,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$N(v)=\int_M(c_d|Dv|^2+R_gv^2)\,dV_g$、$I(v)=\int_Mv^{2^*}\,dV_g>0$ と置き、任意の $\varphi\in C^\infty(M)$ に対する $v+t\varphi$ を考えます。$v$ は正、$M$ はコンパクトなので十分小さい $t$ では $v+t\varphi>0$ が保たれます。直接微分して
+$N(v)=\int_M(c_d|\nabla_gv|_g^2+R_gv^2)\,dV_g$、$I(v)=\int_Mv^{2^*}\,dV_g>0$ と置き、任意の $\varphi\in C^\infty(M)$ に対する $v+t\varphi$ を考えます。$v$ は正、$M$ はコンパクトなので十分小さい $t$ では $v+t\varphi>0$ が保たれます。直接微分して
 
 $$
 \begin{aligned}
 N'(v)[\varphi]
-&=2\int_M(c_d\langle Dv,D\varphi\rangle_g+R_gv\varphi)\,dV_g\\
+&=2\int_M(c_d\langle\nabla_gv,\nabla_g\varphi\rangle_g+R_gv\varphi)\,dV_g\\
 &=2\int_M(-c_d\Delta_gv+R_gv)\varphi\,dV_g,\\
 I'(v)[\varphi]
 &=2^*\int_Mv^{2^*-1}\varphi\,dV_g.
@@ -465,9 +499,16 @@ $$
 \operatorname{div}\left(\frac{Du}{\sqrt{1+|Du|^2}}\right).
 $$
 
-二階微分の主係数は $wA(Du)$（$w=\sqrt{1+|Du|^2}$）となるため、方向 $Du$ に平行な固有値は $(1+|Du|^2)^{-1}$、直交方向の固有値は $1$ です。$|Du|$ を一様に抑えられれば放物型の一様性が得られますが、大勾配では退化し得ます。この計算だけでは流れの一般短時間存在や特異点分類は証明できません。
+右辺に第2節の連鎖律を適用します。$w=\sqrt{1+|Du|^2}$ と置くと、二階微分の主係数は
 
-Ricci流は高さ関数でなく計量テンソル $g(t)$ を未知量とし、$\partial_tg=-2\operatorname{Ric}(g)$ を考えます。座標変換（微分同相）で同じ幾何を異なる成分として表せるため、楕円方程式の係数計算だけでは解決しないゲージの問題が生じます。完全なRicci流の存在理論も本章では扱いません。
+$$
+w\,\operatorname{div}F(Du)=\sum_{i,j}wA_{ij}(Du)u_{ij},\qquad
+wA_{ij}(Du)=\delta_{ij}-\frac{u_i u_j}{1+|Du|^2}.
+$$
+
+従って $Du$ に平行な方向では $1-|Du|^2/(1+|Du|^2)=(1+|Du|^2)^{-1}$、直交方向では $1$ が固有値です。これは[第2節の流束係数](#def-ga9-flux-jacobian)を用いて得た判定であり、単に行列式を計算した結果ではありません。$|Du|$ を一様に抑えられれば放物型の一様性が得られますが、大勾配では退化し得ます。この計算だけでは流れの一般短時間存在や特異点分類は証明できません。
+
+Ricci流は高さ関数でなく計量テンソル $g(t)$ を未知量とし、$\partial_tg=-2\operatorname{Ric}(g)$ を考えます。右辺の $\operatorname{Ric}(g)$ は、各時刻の計量から定まる[GEO16のRicci曲率](../../GEO/GEO16/index.md#def-geo16-ricci-scalar)です。座標変換（微分同相）で同じ幾何を異なる成分として表せるため、楕円方程式の係数計算だけでは解決しないゲージの問題が生じます。完全なRicci流の存在理論も本章では扱いません。
 
 ここまでの区別は三つです。極小グラフは**勾配依存の主係数**、Yamabe型問題は**臨界べき乗と非コンパクト性**、幾何学的流れは**時間発展と座標自由度**が、線形の楕円型方程式にはない新しい障害です。
 
