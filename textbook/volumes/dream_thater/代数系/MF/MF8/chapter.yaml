@@ -1,0 +1,36 @@
+id: "MF8"
+title: "Modularity TheoremとFermatの最終定理への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MF7
+  - EC11
+official_scope: []
+learning_objectives:
+  - 導手11の楕円曲線を有限体で数えnewformのFourier係数と照合できる
+  - EC11で証明した局所因子からEuler積への比較と一般の存在定理を区別できる
+  - Modularity Theoremの重さ2・レベル・係数体・悪い素数の仮定と結論を正確に述べられる
+  - 複素モジュラー曲線とQ上のmodular parametrizationの違いを説明できる
+  - Frey曲線の判別式とc4を求め奇素数での乗法的還元を証明できる
+  - 外部定理として引用するRibetの帰結とレベル2のカスプ形式の消失を組み合わせFLTへ帰着できる
+  - 深い外部定理と本科目で自力証明した計算・論理を区別できる
+definitions:
+  - { id: MF8-DEF-01, name: modular parametrization }
+  - { id: MF8-DEF-02, name: Frey曲線 }
+theorems:
+  - { id: MF8-THM-01, name: Modularity Theorem（外部大定理） }
+  - { id: MF8-THM-02, name: modular parametrizationの存在（外部大定理） }
+  - { id: MF8-PROP-01, name: Frey曲線の判別式と奇素数での還元 }
+  - { id: MF8-THM-03, name: Frey–Ribetの帰結（外部大定理） }
+  - { id: MF8-PROP-02, name: レベル2の重さ2カスプ形式の消失 }
+  - { id: MF8-COR-01, name: Fermatの最終定理への論理的帰結 }
+canonical_examples:
+  - y²+y=x³-x²-10x-20の判別式-11^5と素数2,3,11の局所因子
+  - 根0 A -BのFrey曲線に対する判別式16(abc)^(2ell)とc4
+  - レベル2の種数0とS2(Gamma0(2))の消失
+  - Q上のmodular parametrizationと複素解析上の正則写像の区別
+problem_patterns: [MF8-A1, MF8-A2, MF8-A3, MF8-A4, MF8-B1, MF8-B2, MF8-B3, MF8-B4, MF8-B5, MF8-B6, MF8-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 6, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 12, review: 7 }
