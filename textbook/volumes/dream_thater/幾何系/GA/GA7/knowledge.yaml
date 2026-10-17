@@ -1,0 +1,48 @@
+chapter: GA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA6
+  - GEO16
+concepts:
+  - id: geometric-analysis.rough-laplacian
+    name: 接続Laplacian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接続Laplacian）"]
+    requires: [geometry.tensor-covariant-derivative, geometry.riemannian-metric]
+  - id: geometric-analysis.covector-commutator
+    name: 1形式の共変微分交換公式
+    kind: lemma
+    introduction: formal
+    requires: [geometry.riemann-curvature-operator, geometry.tensor-covariant-derivative]
+  - id: geometric-analysis.weitzenbock-one-form
+    name: 1形式のBochner--Weitzenböck公式
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.rough-laplacian, geometric-analysis.covector-commutator, geometric-analysis.hodge-laplacian, geometry.ricci-curvature]
+  - id: geometric-analysis.scalar-bochner
+    name: 関数のBochner恒等式
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.weitzenbock-one-form, geometry.ricci-curvature]
+  - id: geometric-analysis.integrated-weitzenbock
+    name: 積分Weitzenböck恒等式
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.weitzenbock-one-form, geometric-analysis.hodge-energy]
+  - id: geometric-analysis.bochner-vanishing
+    name: Bochnerの調和1形式消滅定理
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.integrated-weitzenbock, geometric-analysis.hodge-de-rham]
+  - id: geometric-analysis.hessian-trace
+    name: Hessianのトレース不等式
+    kind: lemma
+    introduction: formal
+    requires: [geometry.riemannian-metric]
+  - id: geometric-analysis.lichnerowicz-bound
+    name: Lichnerowiczの第一固有値下界
+    kind: theorem
+    introduction: formal
+    requires: [geometric-analysis.scalar-bochner, geometric-analysis.hessian-trace, geometric-analysis.laplacian-spectral, geometry.ricci-curvature]
