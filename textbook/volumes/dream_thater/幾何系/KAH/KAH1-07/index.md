@@ -190,9 +190,9 @@ $$
 
 ## 4. $\mathcal O(1)$ の計量と第一Chern形式
 
-幾何の面積形式が、なぜ線束の曲率と同じになるのだろうか。[普遍部分線束 $\mathcal O(-1)$](../../CM/CM2-08/index.md#def-cm2-08-standard-quotient)は、点 $[Z]$ が表す直線そのものを繊維とする。$\mathcal O(1)=\mathcal O(-1)^\vee$ はその[双対線束](../../CM/CM2-08/index.md#def-cm2-08-dual-bundle)である。普遍部分線束には $\mathbb C^{n+1}$ の標準Hermite計量を制限し、双対束には[誘導Hermite計量](../../CM/CM2-09/index.md#def-cm2-09-induced-metrics)を入れる。
+幾何の面積形式が、なぜ線束の曲率と同じになるのだろうか。[普遍部分線束 $\mathcal O(-1)$](../../CM/CM2-08/index.md#def-cm2-08-standard-quotient)は、点 $[Z]$ が表す直線そのものを繊維とする。$\mathcal O(1)=\mathcal O(-1)^\vee$ はその[双対線束](../../CM/CM2-08/index.md#def-cm2-08-dual-bundle)である。普遍部分線束には $\mathbb C^{n+1}$ の標準Hermite計量を制限し、双対束には[誘導Hermite計量](../../CM/CM2-09/index.md#def-cm2-09-induced-metrics)を入れる。曲率から定める[第一Chern形式](../../CM/CM2-11/index.md#def-cm2-11-first-chern-form)は、正則枠でのChern接続を計算して確かめる。
 
-$U_a$ の普遍部分線束の正則枠を $s_a=Z/Z_a$ とする。その長さの二乗は $\|s_a\|^2=e^{\varphi_a}$。双対枠 $\epsilon_a$ は $\epsilon_a(s_a)=1$ を満たす線形汎関数であり、双対計量では長さの二乗が逆数になる。
+$U_a$ で同次代表 $Z$ を $cZ$（$c\ne0$）に取り替えても、$cZ/(cZ_a)=Z/Z_a$ だから $s_a=Z/Z_a$ は代表の選択によらない。各点 $[Z]$ の繊維 $\mathbb CZ$ に属する非零ベクトルで、局所座標に正則に依存するため、これは普遍部分線束の正則枠である。その長さの二乗は $\|s_a\|^2=e^{\varphi_a}$。双対枠 $\epsilon_a$ は $\epsilon_a(s_a)=1$ を満たす線形汎関数であり、一次元の双対計量ではこの枠の長さの二乗が $\|s_a\|^{-2}$ となる。
 
 $$
 h_a=\|\epsilon_a\|^2
@@ -256,7 +256,7 @@ $$
 =\frac{\omega_a}{2\pi}.
 $$
 
-左辺は[曲率の枠変更則](../../CM/CM2-11/index.md#prop-cm2-11-curvature-local)により大域的、右辺は貼り合わせ定理により大域的だから、全空間で等しい。最後は面積定理を使い $\int_{\mathbb{CP}^1}c_1(\mathcal O(1),h)=2\pi/(2\pi)=1$。$\square$
+左辺は[曲率の枠変更則](../../CM/CM2-11/index.md#prop-cm2-11-curvature-local)により大域的、右辺は[大域貼り合わせ定理](#thm-kah1-07-global-fs)により大域的だから、全空間で等しい。最後は[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)を使い $\int_{\mathbb{CP}^1}c_1(\mathcal O(1),h)=2\pi/(2\pi)=1$。$\square$
 <!-- proof-end -->
 
 **定義と公式の具体照合（$n=1$）。** $U_0$ では
@@ -305,7 +305,7 @@ $$
 =\int_{\partial\mathbb{CP}^1}d^c\Phi=0.
 $$
 
-しかし面積定理で左辺は $2\pi$。矛盾する。$\square$
+しかし[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)で左辺は $2\pi$。矛盾する。$\square$
 <!-- proof-end -->
 
 つまりチャート間の差は局所形式の貼り合わせを許す一方、非零の面積が単一の大域ポテンシャルを妨げる。これは後で扱うKähler classの最も簡単な模型になる。
@@ -378,8 +378,12 @@ $U_0$ の円盤 $|z|\le R$ におけるFubini–Study面積を求め、円盤外
 **詳細解答**。$\omega_{\mathrm{FS}}=2(1+r^2)^{-2}r\,dr\wedge d\theta$ だから
 
 $$
-I(R)=\int_0^{2\pi}\int_0^R\frac{2r}{(1+r^2)^2}dr\,d\theta
-=2\pi\left(1-\frac1{1+R^2}\right).
+\begin{aligned}
+I(R)
+&=4\pi\int_0^R\frac{r}{(1+r^2)^2}\,dr\\
+&=2\pi\left[-\frac1{1+r^2}\right]_0^R\\
+&=2\pi\left(1-\frac1{1+R^2}\right).
+\end{aligned}
 $$
 
 全体の面積は $R\to\infty$ で $2\pi$ となるため、外側は
@@ -444,7 +448,7 @@ F_D^-=-\frac{1}{(1+|z|^2)^2}dz\wedge d\bar z,\qquad
 \frac{i}{2\pi}F_D^-=-\frac{\omega_{\mathrm{FS}}}{2\pi}.
 $$
 
-面積定理より積分は $-2\pi/(2\pi)=-1$。[双対束の誘導曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)で線束の曲率が負になることとも一致する。
+[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)より積分は $-2\pi/(2\pi)=-1$。[双対束の誘導曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)で線束の曲率が負になることとも一致する。
 <!-- solution-end -->
 
 <a id="ex-kah1-07-b03"></a>
@@ -460,14 +464,22 @@ $$
 \varphi_0|_L=\log(1+|0|^2+|u|^2)=\log(1+|u|^2).
 $$
 
-包含は正則なので $\partial,\bar\partial$ と引き戻しが可換である。よって
+包含写像は局所的に $u\mapsto(z^1,z^2)=(0,u)$ と表される。従って $dz^1=d\bar z^1=0$、$dz^2=du$、$d\bar z^2=d\bar u$ となり、[局所Fubini–Study形式](../KAH1-06/index.md#def-kah1-06-local-fs)の引き戻しには $(2,\bar2)$ 成分だけが残る。制限ポテンシャルから直接確かめても
+
+$$
+\partial_u\partial_{\bar u}\log(1+u\bar u)
+=\partial_{\bar u}\left(\frac{\bar u}{1+u\bar u}\right)
+=\frac{1}{(1+|u|^2)^2}
+$$
+
+なので
 
 $$
 \omega_{\mathrm{FS}}|_L
 =\frac{i}{(1+|u|^2)^2}du\wedge d\bar u.
 $$
 
-$L$ は $[0:0:1]$ を一点追加した $\mathbb C$ であり、射影直線の二チャートと同じである。従って極座標積分で $\int_L\omega_{\mathrm{FS}}=2\pi$。
+$L$ は $[0:0:1]$ を一点追加した $\mathbb C$ であり、射影直線の二チャートと同じである。従って[Fubini–Study形式の射影直線上の面積](#thm-kah1-07-area)を同じ座標式に適用して $\int_L\omega_{\mathrm{FS}}=2\pi$。
 <!-- solution-end -->
 
 ### Level C
@@ -505,7 +517,26 @@ $$
 =\frac{\lambda_0\lambda_1}{S^2}.
 $$
 
-両パラメータが正なのでこれは正であり、実 $(1,1)$ 形式は正値。ポテンシャルから構成したので $d\Omega=0$。実座標では $\Omega=2\lambda_0\lambda_1S^{-2}\,dx\wedge dy$。極座標積分で
+両パラメータが正なので、$U_0$ ではこの係数が正である。残る点 $[0:1]$ は $U_1$ の $w=0$ に当たる。$T=\lambda_1+\lambda_0|w|^2$ と置いて同様に微分すると
+
+$$
+\partial_{\bar w}\partial_w\Phi_1
+=\frac{\lambda_0}{T}-\frac{\lambda_0^2|w|^2}{T^2}
+=\frac{\lambda_0\lambda_1}{T^2}>0.
+$$
+
+従って $U_0\cup U_1=\mathbb{CP}^1$ の全点で正値である。閉性も、両チャートで滑らかな実 $(1,1)$ 形式をポテンシャルから作ったことに基づく。実際、$d=\partial+\bar\partial$、$\partial^2=\bar\partial^2=0$、$\bar\partial\partial=-\partial\bar\partial$ を順に使うと
+
+$$
+\begin{aligned}
+d\Omega
+&=i(\partial+\bar\partial)\partial\bar\partial\Phi_a\\
+&=i\bigl(\partial^2\bar\partial\Phi_a
+ -\partial\bar\partial^2\Phi_a\bigr)=0
+\end{aligned}
+$$
+
+となり、大域形式も閉じている。実座標では $\Omega=2\lambda_0\lambda_1S^{-2}\,dx\wedge dy$。極座標積分で
 
 $$
 \begin{aligned}
