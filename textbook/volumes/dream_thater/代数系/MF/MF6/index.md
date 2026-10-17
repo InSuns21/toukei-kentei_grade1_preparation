@@ -2,7 +2,7 @@
 
 [MF5 の正規化Hecke固有形式](../MF5/index.md#thm-mf5-eigenforms)では、Fourier係数が互いに素な添字で乗法的になることを証明しました。一方、[ANT2 のDirichlet級数](../../ANT/ANT2/index.md#def-ant2-complex-dirichlet-series)は係数列を複素変数の関数へ変えます。これらを合わせると素数ごとのEuler積を作れますが、それだけでは級数が収束する右半平面の外を説明できません。
 
-本章では、変換則を積分の変数変換へ読み替えます。[CA12 のtheta Mellin表現](../../../解析系/CA/CA12/index.md#thm-ca12-mellin-representation)と同じ「係数列→Mellin積分→対称性」の道筋です。ただし、theta関数の半整数重さの変換則を、整数重さのカスプ形式の変換則と取り違えません。まずカスプでの指数減衰を確認し、次にFricke作用で積分の小さい高さを大きい高さへ移し、最後に固有形式の場合だけEuler積を組み立てます。
+本章では、変換則を積分の変数変換へ読み替えます。[CA12 のtheta Mellin表現](../../../解析系/CA/CA12/index.md#thm-ca12-mellin-representation)と同じ「係数列→Mellin積分→対称性」の道筋です。ただし、theta関数の半整数重さの変換則を、整数重さのカスプ形式の変換則と取り違えません。まずカスプでの指数減衰を確認し、次に上半平面の反転行列で積分の小さい高さを大きい高さへ移し、最後に固有形式の場合だけEuler積を組み立てます。
 
 <!-- definition-example-audit: strict -->
 
@@ -94,7 +94,7 @@ $$
 \le C\sum_{n\ge1}n^{k/2-\sigma}<\infty.
 $$
 
-したがって[ANT2の正則性定理](../../ANT/ANT2/index.md#thm-ant2-holomorphic-halfplane)により、この右半平面で $L(f,s)$ は正則です。
+したがって[Dirichlet級数の絶対収束半平面での正則性](../../ANT/ANT2/index.md#thm-ant2-holomorphic-halfplane)により、この右半平面で $L(f,s)$ は正則です。
 
 ## 2. Mellin変換とGamma因子
 
@@ -202,9 +202,9 @@ $$
 
 ここでは $i^k$ を落としてはいけません。例えば重さ2なら $i^2=-1$、重さ12なら $i^{12}=1$ です。
 
-## 4. 完成L関数の解析接続と関数等式
+## 4. Mellin積分の整解析接続と対称性
 
-Dirichlet級数自体は十分右側だけで定義しました。Mellin積分に $N^{s/2}$ を掛けたものを新しい関数として考えると、$s$ と $k-s$ が同じ式の中に現れます。これが**完成L関数**です。
+Dirichlet級数自体は十分右側だけで定義しました。Mellin積分に $N^{s/2}$ を掛けたものを新しい関数として考えると、$s$ と $k-s$ が同じ式の中に現れます。この補正を次の定義にまとめます。
 
 <a id="def-mf6-completed"></a>
 <!-- formal-statement-start -->
@@ -338,7 +338,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[MF5の固有係数の定理](../MF5/index.md#thm-mf5-eigenforms)から、$(m,n)=1$ なら $a_{mn}=a_ma_n$、また $r\ge1$ に対し
+[同時固有形式と乗法的Fourier係数](../MF5/index.md#thm-mf5-eigenforms)から、$(m,n)=1$ なら $a_{mn}=a_ma_n$、また $r\ge1$ に対し
 
 $$
 a_{p^{r+1}}=a_pa_{p^r}-p^{k-1}a_{p^{r-1}},
@@ -359,7 +359,7 @@ $$
 ここで $a_1=1$ を使った。従って $A_p(X)=(1-a_pX+p^{k-1}X^2)^{-1}$。元のDirichlet級数は[係数上界](#lem-mf6-growth)により $\operatorname{Re}s>1+k/2$ で絶対収束する。[ANT2のEuler積定理](../../ANT/ANT2/index.md#thm-ant2-euler-product)の乗法性と絶対収束の仮定が両方満たされるので、$X=p^{-s}$ を代入した各局所級数の積を取れて、結論を得る。
 <!-- proof-end -->
 
-**レベル $N$ の素数の区別。** $p\nmid N$ で $T_p f=a_pf$ なら[MF5の係数公式](../MF5/index.md#prop-mf5-level-q)から、$m=p^r$ を代入して同じ2項漸化式を得ます。一方 $p\mid N$ で **さらに** $U_pf=a_pf$ が成り立つ場合は
+**レベル $N$ の素数の区別。** $p\nmid N$ で $T_p f=a_pf$ なら[合同部分群上の素数作用素の係数](../MF5/index.md#prop-mf5-level-q)から、$m=p^r$ を代入して同じ2項漸化式を得ます。一方 $p\mid N$ で **さらに** $U_pf=a_pf$ が成り立つ場合は
 
 $$
 a_{pm}=a_pa_m\quad(m\ge1),
