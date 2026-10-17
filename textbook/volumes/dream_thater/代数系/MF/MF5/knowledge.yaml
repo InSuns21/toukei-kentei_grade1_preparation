@@ -11,10 +11,10 @@ concepts:
     introduction_aliases: ["定義（正の行列式を持つ行列のslash作用）"]
     requires: [modular-forms.fractional-action, modular-forms.modular-form]
   - id: modular-forms.hermite-representatives
-    name: 行列式nの左剰余類代表
+    name: 整数行列の左剰余類代表
     kind: lemma
     introduction: formal
-    introduction_aliases: ["補題（行列式nの左剰余類代表）"]
+    introduction_aliases: ["補題（整数行列の左剰余類代表）"]
     requires: [modular-forms.modular-group, modular-forms.det-slash]
   - id: modular-forms.hecke-level-one
     name: レベル1のHecke作用素
@@ -23,22 +23,22 @@ concepts:
     introduction_aliases: ["定義（レベル1のHecke作用素）"]
     requires: [modular-forms.det-slash, modular-forms.hermite-representatives, modular-forms.modular-form]
   - id: modular-forms.hecke-coefficient
-    name: Hecke作用素のq係数公式
+    name: Hecke作用素のFourier係数公式
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（Hecke作用素のq係数公式）"]
+    introduction_aliases: ["定理（Hecke作用素のFourier係数公式）"]
     requires: [modular-forms.hecke-level-one, modular-forms.q-coordinate]
   - id: modular-forms.level-hecke
-    name: 自明指標でのTpとUp
+    name: レベル付きHecke作用素
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（自明指標でのTpとUp）"]
+    introduction_aliases: ["定義（レベル付きHecke作用素）"]
     requires: [modular-forms.level-form, modular-forms.det-slash]
   - id: modular-forms.level-hecke-coefficient
-    name: レベルNの素数作用素の係数
+    name: 合同部分群上の素数作用素の係数
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（レベルNの素数作用素の係数）"]
+    introduction_aliases: ["命題（合同部分群上の素数作用素の係数）"]
     requires: [modular-forms.level-hecke, modular-forms.q-expansion]
   - id: modular-forms.uv-identities
     name: 係数操作の恒等式
