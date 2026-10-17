@@ -1,0 +1,42 @@
+chapter: KAH1-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-13
+concepts:
+  - id: kahler.projective-complex-manifold
+    name: 射影的複素多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影的複素多様体）"]
+    requires: []
+  - id: kahler.projective-fs-restriction
+    name: Fubini–Study形式の正則埋め込みへの制限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fubini–Study形式の正則埋め込みへの制限）"]
+    requires: [kahler.projective-complex-manifold, kahler.positive-real-eleven-form]
+  - id: kahler.integral-normalized-class
+    name: 整数型に規格化されたKähler類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数型に規格化されたKähler類）"]
+    requires: [kahler.kahler-class, kahler.integral-first-chern]
+  - id: kahler.positive-holomorphic-line-bundle
+    name: 正の正則線束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の正則線束）"]
+    requires: [kahler.integral-first-chern, kahler.positive-real-eleven-form]
+  - id: kahler.positive-line-curvature-integral
+    name: 正の線束から整数型Kähler類へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正の線束から整数型Kähler類へ）"]
+    requires: [kahler.positive-holomorphic-line-bundle, kahler.integral-normalized-class]
+  - id: kahler.projective-integral-class
+    name: 射影的複素多様体の整数型Kähler類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影的複素多様体の整数型Kähler類）"]
+    requires: [kahler.projective-complex-manifold, kahler.projective-fs-restriction, kahler.positive-line-curvature-integral]
