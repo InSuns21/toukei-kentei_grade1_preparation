@@ -39,10 +39,10 @@ $$
 
 式中の補正項が必要な理由を確認します。1形式 $\alpha$ の二階共変微分は、二つのベクトル $X,Y$ に対して
 
-$
+$$
 (\nabla^2\alpha)(X,Y)
 =\nabla_X(\nabla_Y\alpha)-\nabla_{\nabla_XY}\alpha
-$
+$$
 
 と定める1形式値の双線形テンソルです。第二項がなければ、$\nabla_{fY}\alpha=f\nabla_Y\alpha$ をさらに $X$ で微分した際の $(Xf)\nabla_Y\alpha$ が残り、$Y$ に関する線形性を失います。第二項の $\nabla_X(fY)=(Xf)Y+f\nabla_XY$ がちょうどこの余分な項を打ち消します。
 
@@ -96,10 +96,10 @@ $$
 
 GA6では向き付けられた多様体上でHodge星作用素から $\delta$ を定義しました。ここで扱う点ごとの公式は、向き付けられない多様体でも意味を持ちます。実際、任意の $k\ge1$ 次形式 $\omega$ への余微分は局所正規直交標構を使って
 
-$
+$$
 (\delta\omega)(Y_2,\ldots,Y_k)
 =-\sum_i(\nabla_{e_i}\omega)(e_i,Y_2,\ldots,Y_k)
-$
+$$
 
 と表せます。これは計量による縮約であり、直交標構を替えても値は変わらず、向きの選択も現れません。向き付けがある場合はGA6のHodge星作用素による定義と一致します。従って以下の局所公式では一般のRiemann多様体に $\delta$ を用い、第4節の積分公式ではGA6と同じく向き付け可能・コンパクト・境界なしを仮定します。
 
@@ -166,10 +166,10 @@ $$
 
 この交換子は、単純に二階微分を入れ替えたときの「ずれ」を記録しています。縮約した形も導いておきます。上で選んだ、点 $p$ で $\nabla_{e_i}e_j(p)=0$ となる正規直交標構を用います。Levi-Civita接続は捩率零なので
 
-$
+$$
 [e_i,e_j](p)
 =\nabla_{e_i}e_j(p)-\nabla_{e_j}e_i(p)=0.
-$
+$$
 
 従って交換公式の $\nabla_{[e_i,e_j]}\alpha$ はこの点で消えます。$\alpha^\sharp$ を1形式の計量双対とすると
 
@@ -300,35 +300,35 @@ $$
 
 双方を計量双対でベクトルに直して移項すれば、$p$ において
 
-$
+$$
 \sum_i\nabla_{e_i}\nabla_{e_i}V
 =\nabla_g\Delta_gu+
 \bigl(\operatorname{Ric}^{\sharp}(du)\bigr)^\sharp
-$
+$$
 
 となります。右辺の最後の項は、先に1形式に対して定義した $\operatorname{Ric}^{\sharp}$ の値を計量でベクトルに戻したものです。これをノルムの二階微分の式に代入し、$V$ と内積を取れば結論です。
 <!-- proof-end -->
 
 **例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル、例えば最後の座標軸方向）を考えます。[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$ です。点 $x$ での単位法線は $x$ なので、$v$ の接成分が勾配です。
 
-$
+$$
 \nabla_gu=v-\langle v,x\rangle x=v-ux,\qquad
 |\nabla_gu|^2=|v|^2-u^2=1-u^2.
-$
+$$
 
 Euclid空間の微分を $D$ と書くと、接ベクトル $X$ について $D_Xx=X$、$Xu=\langle X,v\rangle$ です。従って
 
-$
+$$
 D_X(\nabla_gu)=-(Xu)x-uX.
-$
+$$
 
 第一項は法線方向なので接成分への射影で消え、Levi-Civita接続の共変微分は $\nabla_X\nabla_gu=-uX$ となります。任意の接ベクトル $Y$ と内積を取ってから正規直交基底でトレースすれば
 
-$
+$$
 \nabla^2u(X,Y)=-u\,g(X,Y),\qquad
 \nabla^2u=-u g,\qquad
 \Delta_gu=-d\,u.
-$
+$$
 
 左辺を直接計算すれば
 
@@ -376,13 +376,13 @@ $$
 
 とします。[GA6の随伴関係](../GA6/index.md#prop-ga6-adjoint)から左辺は $\|d\alpha\|_2^2+\|\delta\alpha\|_2^2$ です。右辺の第一項を計算します。局所正規直交標構で、1形式の計量からベクトル場
 
-$
+$$
 W=\sum_i\langle\nabla_{e_i}\alpha,\alpha\rangle e_i
-$
+$$
 
 を作ります。点 $p$ で $\nabla_{e_i}e_j(p)=0$ となる標構を選び、計量両立性と積の微分規則を使うと
 
-$
+$$
 \begin{aligned}
 \operatorname{div}_gW
 &=\sum_i e_i\langle\nabla_{e_i}\alpha,\alpha\rangle\\
@@ -391,14 +391,14 @@ $
 &=-\langle\nabla^*\nabla\alpha,\alpha\rangle
   +|\nabla\alpha|^2.
 \end{aligned}
-$
+$$
 
 両辺はスカラーなので各点で成立します。コンパクト・境界なしの仮定をここで使い、発散定理により $\int_M\operatorname{div}_gW\,dV_g=0$ と置けば
 
-$
+$$
 (\nabla^*\nabla\alpha,\alpha)_2
 =\int_M|\nabla\alpha|^2\,dV_g
-$
+$$
 
 を得ます。これを先ほどの式へ代入して表示式が成立します。
 <!-- proof-end -->
@@ -433,19 +433,19 @@ $$
 
 関数についてもBochner恒等式を積分します。そこではHessianの二乗ノルムとLaplacianの二乗を比べる必要があります。なぜ次元で割るのかを、Hessianと行列の対応から確かめます。
 
-点 $p$ の接空間で正規直交基底 $e_1,\ldots,e_d$ を取り、$H_{ij}=(\nabla^2u)_p(e_i,e_j)$ と置きます。[テンソルの共変微分](../../GEO/GEO13/index.md#def-geo13-tensor-covariant-derivative)の定義により、Levi-Civita接続の捩率が零なので
+点 $p$ の接空間で正規直交基底 $e_1,\ldots,e_d$ を取り、$H_{ij}=(\nabla^2u)_p(e_i,e_j)$ と置きます。[テンソル場の共変微分](../../GEO/GEO13/index.md#def-geo13-tensor-covariant-derivative)を適用した式により、Levi-Civita接続の捩率が零なので
 
-$
+$$
 \nabla^2u(X,Y)-\nabla^2u(Y,X)
 =[X,Y]u-(\nabla_XY-\nabla_YX)u=0.
-$
+$$
 
 従って $H$ は実対称行列です。正規直交基底のため計量行列は単位行列となり、LaplacianはHessianの縮約、二乗ノルムは全成分の二乗和です。
 
-$
+$$
 \Delta_gu(p)=\sum_iH_{ii},\qquad
 |\nabla^2u|_p^2=\sum_{i,j}H_{ij}^2.
-$
+$$
 
 この対応を使えば、固有値の計算を経由せずに必要な不等式と等号条件を判定できます。
 
@@ -471,13 +471,13 @@ $$
 
 点 $p$ での行列 $H_{ij}=(\nabla^2u)_p(e_i,e_j)$ に対し、実数ベクトル $(H_{11},\ldots,H_{dd})$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
 
-$
+$$
 (\Delta_gu(p))^2
 =\left(\sum_iH_{ii}\right)^2
 \le d\sum_iH_{ii}^2
 \le d\sum_{i,j}H_{ij}^2
 =d|\nabla^2u|_p^2.
-$
+$$
 
 第一の不等号で等号が成り立つのは全対角成分が共通の値 $c$ に等しい場合です。第二の等号には全非対角成分が零であることが必要十分です。従って両方の等号は $H=cI$、すなわち正規直交基底で計量行列が $I$ であることから $\nabla^2u=cg$ と同値です。
 <!-- proof-end -->
@@ -623,20 +623,20 @@ $$
 
 $H=(H_{ij})$ は実対称なので、行列積の対角成分は $(H^2)_{ii}=\sum_jH_{ij}H_{ji}=\sum_jH_{ij}^2$ です。従って
 
-$
+$$
 \operatorname{tr}(H)=\sum_iH_{ii},\qquad
 \operatorname{tr}(H^2)=\sum_{i,j}H_{ij}^2.
-$
+$$
 
 実数ベクトル $(H_{11},\ldots,H_{dd})$ と $(1,\ldots,1)$ の[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
-$
+$$
 (\operatorname{tr}H)^2
 =\left(\sum_iH_{ii}\right)^2
 \le d\sum_iH_{ii}^2
 \le d\sum_{i,j}H_{ij}^2
 =d\operatorname{tr}(H^2).
-$
+$$
 
 第一の等号は全対角成分が等しいとき、第二の等号は全非対角成分が零のときに限ります。両方が成立する条件は $H=cI$ です。
 <!-- solution-end -->
@@ -712,16 +712,16 @@ $d-1>0$、$\lambda>0$、$\int_Mu^2>0$ により $K-\lambda/d\le0$、すなわち
 
 [定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から断面曲率 $1/a^2$ の球面のRicciは $(d-1)a^{-2}g$ です。$u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル）と置くと、半径 $a$ の球面の単位法線は $x/a$ なので、勾配は $v$ の接成分
 
-$
+$$
 \nabla_gu=v-\frac{u}{a^2}x
-$
+$$
 
 です。接ベクトル $X$ に沿ってEuclid空間で微分すると
 
-$
+$$
 D_X(\nabla_gu)
 =-\frac{Xu}{a^2}x-\frac{u}{a^2}X.
-$
+$$
 
 第一項は法線方向であり、接空間への射影で消えます。従って $\nabla_X\nabla_gu=-(u/a^2)X$、つまり $\nabla^2u=-(u/a^2)g$ です。正規直交基底でトレースを取れば
 
@@ -743,12 +743,12 @@ $$
 
 [Levi-Civita接続の捩率零](../../GEO/GEO13/index.md#def-geo13-levi-civita)から、指定された標構では
 
-$
+$$
 [e_i,e_j](p)
 =\nabla_{e_i}e_j(p)-\nabla_{e_j}e_i(p)=0.
-$
+$$
 
-[1形式の微分交換公式](#lem-ga7-covector-commutator)により、点 $p$ で $\nabla_{[e_i,e_j]}\alpha=0$ となります。一般の正規直交標構ではこの項は残り得るため、ここでの指定が必要です。従って
+[1形式の共変微分交換公式](#lem-ga7-covector-commutator)により、点 $p$ で $\nabla_{[e_i,e_j]}\alpha=0$ となります。一般の正規直交標構ではこの項は残り得るため、ここでの指定が必要です。従って
 
 $$
 \sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)
@@ -764,11 +764,11 @@ $$
 
 和を取れば、[Ricci曲率の定義](../../GEO/GEO16/index.md#def-geo16-ricci-scalar)より $\operatorname{Ric}(e_j,\alpha^\sharp)$ です。共変ベクトルの交換式に最初の負号があり、曲率の計量反対称性でもう一度負号が生じるため、結果は正です。任意の正規直交標構で同じ計算をするなら、交換子そのものの和は
 
-$
+$$
 \sum_i([\nabla_{e_i},\nabla_{e_j}]\alpha)(e_i)
 =\operatorname{Ric}(e_j,\alpha^\sharp)
 +\sum_i(\nabla_{[e_i,e_j]}\alpha)(e_i)
-$
+$$
 
 となり、補正項を落とせません。
 <!-- solution-end -->
