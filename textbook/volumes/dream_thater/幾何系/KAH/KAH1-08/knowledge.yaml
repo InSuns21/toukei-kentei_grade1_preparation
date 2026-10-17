@@ -1,0 +1,33 @@
+chapter: KAH1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-07
+  - KAH1-03
+  - CM2-10
+  - GEO13
+concepts:
+  - id: kahler.chern-coordinate-change
+    name: 正則座標変更による接続係数の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則座標変更による接続係数の変換）"]
+    requires: [kahler.chern-tangent-torsion-local, complex-manifolds.connection-definition, geometry.connection-torsion-tensoriality]
+  - id: kahler.holomorphic-normal-coordinates
+    name: 点におけるKähler正規座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点におけるKähler正規座標）"]
+    requires: [kahler.positive-form-matrix-criterion, kahler.chern-tangent-torsion-local]
+  - id: kahler.holomorphic-normal-existence
+    name: Kähler正規座標の局所存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler正規座標の局所存在）"]
+    requires: [kahler.holomorphic-normal-coordinates, kahler.chern-coordinate-change, kahler.closedness-chern-torsion]
+  - id: kahler.normal-coordinate-kahler-characterization
+    name: Kähler条件と正則一階正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler条件と正則一階正規化）"]
+    requires: [kahler.holomorphic-normal-existence, kahler.closedness-chern-torsion, geometry.connection-torsion-tensoriality]
