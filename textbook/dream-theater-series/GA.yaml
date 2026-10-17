@@ -28,7 +28,7 @@ chapters:
     title: "熱方程式・熱半群・熱核"
   - id: GA6
     path: textbook/volumes/dream_thater/幾何系/GA/GA6
-    status: planned
+    status: completed
     title: "Hodge Laplacian・調和形式・de Rham"
   - id: GA7
     path: textbook/volumes/dream_thater/幾何系/GA/GA7
