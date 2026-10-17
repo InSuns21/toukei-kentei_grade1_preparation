@@ -308,10 +308,13 @@ $$
 二次形式が零となる非零接方向 $w=dx/dt'$ を求めると
 
 $$
--c^2+2\varepsilon cw+(1-\varepsilon^2)w^2=0
+\begin{aligned}
+0&=-c^2+2\varepsilon cw+(1-\varepsilon^2)w^2\\
+&=((1+\varepsilon)w-c)((1-\varepsilon)w+c).
+\end{aligned}
 $$
 
-であり、
+したがって二つの因子のどちらかが零であり、
 
 $$
 w_+=\frac{c}{1+\varepsilon},\qquad
