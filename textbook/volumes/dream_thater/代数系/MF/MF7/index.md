@@ -567,7 +567,17 @@ $$
 \end{aligned}
 $$
 
-ただし $a_x=0$ は $x$ が正整数でない場合の規約とします。現行の仮定では $d\mid N/M$ と $p\nmid N$ から $p\nmid d$ が必ず成り立ち、$p\mid d$ は**起こり得ません**。仮に $p\mid d$ とするには $p\mid N$ へ条件を変更する必要があり、そのときレベル $N$ で作用するのは $T_p$ ではなく[定義された $U_p$](../MF5/index.md#def-mf5-level-operators) です。例えば $d=p$、$n=1$ では $d\mid pn$ でも $d\nmid n$ なので、第2行の指示関数への置き換えは使えません。
+ただし $a_x=0$ は $x$ が正整数でない場合の規約とします。
+
+現行の仮定 $d\mid N/M$ と $p\nmid N$ からは $p\nmid d$ が従います。従って $p\mid d$ は**起こり得ません**。
+
+仮に $p\mid d$ とするには $p\mid N$ へ条件を変える必要があります。そのときレベル $N$ で作用するのは $T_p$ ではなく[定義された $U_p$](../MF5/index.md#def-mf5-level-operators) です。例えば
+
+$$
+d=p,\qquad n=1:\qquad d\mid pn,\qquad d\nmid n
+$$
+
+なので、第2行の指示関数への置き換えは使えません。
 <!-- solution-end -->
 
 ### B2. newformの局所生成関数を再構成する
