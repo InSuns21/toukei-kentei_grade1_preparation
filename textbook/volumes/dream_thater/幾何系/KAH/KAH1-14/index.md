@@ -39,7 +39,7 @@ $$
 f([u:v])=[u:v:0]
 $$
 
-で定める。同次座標を $[cu:cv]$ に替えても像は変わらず、像は閉集合 $\{Z_2=0\}$ である。$u\ne0$ のチャートで $z=v/u$ を使えば $f$ は $z\mapsto(z,0)$、微分は $\xi\mapsto(\xi,0)$ で単射。$v\ne0$ のチャートでも同じ検証ができ、射影座標の最初の2成分から逆写像を構成できる。したがって同相性も成立し、$\mathbb{CP}^1$ は定義の条件を満たす。
+で定める。同次座標を $[cu:cv]$ に替えても像は変わらず、像は閉集合 $\{Z_2=0\}$ である。$u\ne0$ では $z=v/u$、像の $Z_0\ne0$ では $(Z_1/Z_0,Z_2/Z_0)$ を使う。この二つの正則座標で $f$ は $z\mapsto(z,0)$、微分は $\xi\mapsto(\xi,0)$ で単射となる。残る $v\ne0$ では $w=u/v$、像の $Z_1\ne0$ では $(Z_0/Z_1,Z_2/Z_1)$ を使うと、やはり $w\mapsto(w,0)$ で微分は単射である。いずれのチャートでも像は第二座標が零の複素部分多様体で、第一座標を取り出す逆写像は正則である。これらの局所逆写像は重なりで一致し、像への同相性と局所的な埋め込み条件がすべて成立する。したがって $\mathbb{CP}^1$ は定義を満たす。
 <!-- definition-example-end -->
 
 射影的な空間には既に正の形式がある。これを正則部分多様体に制限するとき、どの条件が保存されるかを確認する。写像 $f$ の微分に接ベクトル $v$ を入れ、形式の評価を
@@ -168,7 +168,22 @@ F_{D_h}=\partial\bar\partial\varphi_a,\qquad
 c_1(L,h)=\frac{i}{2\pi}\partial\bar\partial\varphi_a.
 $$
 
-この式で、曲率の実 $(1,1)$ 形式が正であることは、局所関数 $\varphi_a$ の複素Hessianが正値であることに言い換えられる。枠を換えると $\varphi_a$ 自体は変わるが、曲率は大域的に貼り合う。
+ここで「複素Hessianで判定できる」理由を、定義の接ベクトルによる評価に戻しておく。正則座標 $(z^1,\ldots,z^n)$ で $v=\sum_jv^j\partial/\partial z^j$ と書けば、
+
+$$
+\begin{aligned}
+\frac{i}{2\pi}F_{D_h}
+&=\frac{i}{2\pi}\sum_{j,k=1}^n
+\frac{\partial^2\varphi_a}{\partial z^j\partial\bar z^k}
+\,dz^j\wedge d\bar z^k,\\
+-i\left(\frac{i}{2\pi}F_{D_h}\right)(v,\bar v)
+&=\frac1{2\pi}\sum_{j,k=1}^n
+\frac{\partial^2\varphi_a}{\partial z^j\partial\bar z^k}
+v^j\overline{v^k}.
+\end{aligned}
+$$
+
+したがって、[正の実 $(1,1)$ 形式とHermite行列の判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)をこの係数行列に適用できる。実数値の $\varphi_a$ に対する複素HessianはHermite行列であり、すべての非零 $v$ に対する上の値の正値性と行列の正定値性が同値となる。枠を換えると $\varphi_a$ 自体は変わるが、Chern曲率は大域的に貼り合うので判定結果は枠によらない。
 
 <a id="def-kah1-14-positive-line-bundle"></a>
 
@@ -184,14 +199,33 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-14-positive-line-bundle -->
-**定義の確認**（超平面束）。$\mathbb{CP}^n$ の $\mathcal O(1)$ に対し、標準チャートの計量 $h_a=e^{-\varphi_a}$ では、上式と[Fubini–Study形式のChern計算](../KAH1-07/index.md#prop-kah1-07-chern)から
+**定義の確認**（超平面束）。$\mathbb{CP}^n$ の $\mathcal O(1)$ で、標準チャート上の $Q=1+\sum_j|z^j|^2$ と $\varphi=\log Q$ を取る。[Fubini–Study形式のChern計算](../KAH1-07/index.md#prop-kah1-07-chern)により、局所計量 $h=Q^{-1}=e^{-\varphi}$ は重なりで正しく変換され、大域的な滑らかな正値Hermite計量となる。その第一Chern形式は
 
 $$
 \Theta_{\mathcal O(1),h}
 =\frac{\omega_{\mathrm{FS}}}{2\pi}.
 $$
 
-[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、$v\ne0$ について $-i\omega_{\mathrm{FS}}(v,\bar v)>0$。$2\pi>0$ だから $\Theta$ も正値で、局所公式は実 $(1,1)$ 型・閉性も満たす。したがって $\mathcal O(1)$ は正の正則線束である。
+この等式だけで正値性を宣言せず、接ベクトルで検算する。複素Hessianの成分は
+
+$$
+\frac{\partial^2\log Q}{\partial z^j\partial\bar z^k}
+=\frac{Q\delta_{jk}-\bar z^jz^k}{Q^2}
+$$
+
+である。$v=\sum_jv^j\partial/\partial z^j\ne0$ に対してCauchy–Schwarzの不等式を用いると、
+
+$$
+\begin{aligned}
+-i\Theta_{\mathcal O(1),h}(v,\bar v)
+&=\frac{Q\sum_j|v^j|^2
+-\left|\sum_j\bar z^jv^j\right|^2}{2\pi Q^2}\\
+&\ge\frac{Q\|v\|^2-(Q-1)\|v\|^2}{2\pi Q^2}\\
+&=\frac{\|v\|^2}{2\pi Q^2}>0.
+\end{aligned}
+$$
+
+これは先に導いた[Hermite行列による正値判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)の具体的な適用である。第一Chern形式の実 $(1,1)$ 型と閉性は[第一Chern形式の閉性](../../CM/CM2-11/index.md#prop-cm2-11-chern-closed)にも整合する。定義が要求する計量の大域性・滑らかさ・正値性と曲率の正値性を確認できたので、$\mathcal O(1)$ は正の正則線束である。
 <!-- definition-example-end -->
 
 正の線束は、少なくとも**整数型のKähler類を作る装置**になる。これを命題として確認する。
@@ -251,7 +285,19 @@ c_1(f^*\mathcal O(1),f^*h)
 \end{aligned}
 $$
 
-中間の等号は $f$ が**正則**であることを使う。この局所計算と、整数Chern類の遷移関数が引き戻しで合成される事実を合わせると、実像の整数性まで確かめられる。
+中間の等号は $f$ が**正則**であることを使う。実際、$f=(f^1,\ldots,f^N)$ を局所正則座標で表すと、$\partial_{\bar z^k}f^a=0$ なので連鎖律は
+
+$$
+\frac{\partial^2(\varphi_a\circ f)}
+{\partial z^j\partial\bar z^k}
+=\sum_{r,s}
+\left(\frac{\partial^2\varphi_a}
+{\partial w^r\partial\bar w^s}\circ f\right)
+\frac{\partial f^r}{\partial z^j}
+\overline{\frac{\partial f^s}{\partial z^k}}
+$$
+
+を与える。右辺は元の $(1,1)$ 形式を $df$ で引き戻した係数そのものである。この局所計算と、整数Chern類の遷移関数が引き戻しで合成される事実を合わせると、実像の整数性まで確かめられる。
 
 <a id="thm-kah1-14-projective-integral"></a>
 
@@ -633,20 +679,39 @@ $$
 
 で $\mathbb{CP}^3$ へ埋め込める。これを局所座標で確かめる。
 
-まず $u_0v_0\ne0$ で $z=u_1/u_0$、$w=v_1/v_0$ と取ると、像の座標は
+写像の成分を $Z_{2a+b}=u_av_b$（$a,b\in\{0,1\}$）と書く。まず $u_0v_0\ne0$ で $z=u_1/u_0$、$w=v_1/v_0$ と取ると、像は
 
 $$
 (z,w)\longmapsto(w,z,zw)
 $$
 
-となる。像は $Z_0Z_3=Z_1Z_2$ を満たす。$Z_0\ne0$ の部分では、逆に $(Z_1/Z_0,Z_2/Z_0)=(w,z)$ から元の点を復元できる。微分を接方向 $(\delta z,\delta w)$ に作用させると
+で、微分は $(\delta z,\delta w)\mapsto(\delta w,\delta z,w\delta z+z\delta w)$ となる。この計算を他のチャートでも正当化する。任意の $a,b\in\{0,1\}$ について $u_av_b\ne0$ なら、
 
 $$
-(\delta z,\delta w)\longmapsto
-(\delta w,\delta z,w\delta z+z\delta w)
+x=\frac{u_{1-a}}{u_a},\qquad y=\frac{v_{1-b}}{v_b}
 $$
 
-であり、最初の二成分が同時に零となるのは $\delta z=\delta w=0$ のときだけなので単射である。他の三つの標準チャートでも、非零な同次座標の組を選び直して同じ計算を行える。
+を取る。像の $Z_{2a+b}\ne0$ チャートで、順に
+
+$$
+\left(
+\frac{Z_{2a+1-b}}{Z_{2a+b}},
+\frac{Z_{2(1-a)+b}}{Z_{2a+b}},
+\frac{Z_{2(1-a)+1-b}}{Z_{2a+b}}
+\right)
+=(y,x,xy)
+$$
+
+となる。したがって四つのチャートすべてで、微分は
+
+$$
+(\delta x,\delta y)\longmapsto
+(\delta y,\delta x,x\delta y+y\delta x)
+$$
+
+であり、最初の二成分から単射性が従う。同時に $(y,x,xy)$ の最初の二座標を取り出す写像が正則な局所逆写像となる。
+
+さらに像の各点は $Z_0Z_3-Z_1Z_2=0$ を満たし、逆にこの式を満たす零でない $2\times2$ 行列 $(Z_{2a+b})_{a,b}$ は階数1なので、$Z_{2a+b}=u_av_b$ と分解できる。よって像はこの方程式の零点集合全体であり、射影空間内で閉じている。局所表示 $(y,x,xy)$ によって像が滑らかな複素部分多様体であることも分かる。従って射影的という定義の条件をすべて満たす。
 
 この具体例では射影性の障害は生じない。一方、一般の正の線束から**大域切断によって射影埋め込みを構成する**のがKodaira埋め込み定理の核心であり、局所曲率から直ちに得られる事実ではない。また、整数型Kähler類から線束を構成する逆向きにはHodge理論の大域的結果が必要となる。
 <!-- solution-end -->
