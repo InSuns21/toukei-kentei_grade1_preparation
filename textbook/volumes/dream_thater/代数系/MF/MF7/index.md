@@ -601,7 +601,7 @@ $11$ の因子に $+11X^2$ を加えないのが重要です。
 
 ### B3. 直交補の構成が何を証明したか区別する
 
-レベル $N$ でoldspaceが $\langle u_1,u_2\rangle$、$\langle u_i,u_j\rangle=\delta_{ij}$ とする。$f$ のnewspaceへの直交射影を書き、これだけでその射影がHecke同時固有形式になると言えるか理由を述べよ。
+偶数 $k\ge2$、$N\ge1$ とし、$f\in S_k(\Gamma_0(N))$ を任意に取る。oldspaceが $\langle u_1,u_2\rangle$、Petersson内積で $\langle u_i,u_j\rangle_N=\delta_{ij}$ とする。$f$ のnewspaceへの直交射影を書き、これだけでその射影がHecke同時固有形式になると言えるか理由を述べよ。
 
 - Level: B
 - ID: MF7-B3
@@ -618,7 +618,7 @@ $$
 
 ### B4. レベル11のカスプ0での判定
 
-$f=\eta(\tau)^2\eta(11\tau)^2$ について $\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau)$ を仮定する。$f|_2W_{11}=-f$ を導出し、$\infty$ における $f=q+O(q^2)$ と合わせて何が結論できるか説明せよ。
+$f=\eta(\tau)^2\eta(11\tau)^2$ について $\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau)$ を仮定する。$f|_2W_{11}=-f$ を導出し、$\infty$ における $f=q+O(q^2)$ と合わせて両カスプでの消失を確認せよ。特に $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$q_0=e^{2\pi i\tau/11}$ に対する $f|_2S$ の初項を求め、Fricke正規化と区別せよ。
 
 - Level: B
 - ID: MF7-B4
