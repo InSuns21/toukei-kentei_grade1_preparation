@@ -1,0 +1,32 @@
+id: "EC11"
+title: "モジュラー形式との照合とmodularity interface"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EC10
+  - MF7
+official_scope: []
+learning_objectives:
+  - EC10とMF7の定義に戻り重さ・レベル・指標・係数体・良い還元での素数係数を照合できる
+  - 導手指数0・1・2以上の場合ごとに曲線とnewformの局所Euler多項式を比較できる
+  - 局所因子の一致から絶対収束域でのL関数と全Dirichlet係数の一致を証明できる
+  - 導手11の具体例で判別式・還元型・素数別点数・eta積を独立に検算できる
+  - 重さ2の微分の複素解析的対応とQ上のmodular parametrizationの違いを説明できる
+  - Modularity Theoremを引用結果としBSD予想との論理的境界を説明できる
+definitions:
+  - { id: EC11-DEF-01, name: 比較用のFourier係数データ }
+  - { id: EC11-DEF-02, name: 局所Euler因子の照合 }
+theorems:
+  - { id: EC11-PROP-01, name: 導手・レベルと局所係数の照合表 }
+  - { id: EC11-THM-01, name: 局所因子の一致からL関数の一致へ }
+  - { id: EC11-REF-01, name: Modularity Theoremとモジュラー媒介写像の存在（外部引用） }
+canonical_examples:
+  - 導手11の曲線の判別式-11と法11の分裂節点
+  - 有限体F2・F3・F5・F7での点数とeta積の係数照合
+  - 良い素数の二次と悪い素数の一次・自明な局所多項式
+  - 重さ2の形式の微分不変性とQ上の射の区別
+problem_patterns: [EC11-A1, EC11-A2, EC11-A3, EC11-A4, EC11-B1, EC11-B2, EC11-B3, EC11-B4, EC11-B5, EC11-C1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 11, review: 6 }

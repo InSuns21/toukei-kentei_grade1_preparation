@@ -1,0 +1,36 @@
+chapter: EC11
+scope: dream-theater
+coverage: complete
+prerequisites: [EC10, MF7]
+forward_references: []
+concepts:
+  - id: elliptic-curve.modular-coefficient-data
+    name: 比較用のFourier係数データ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比較用の Fourier 係数データ）"]
+    requires: [modular-forms.newform-theory, modular-forms.coefficient-field, elliptic-curve.good-euler-polynomial]
+  - id: elliptic-curve.modular-local-match
+    name: 局所Euler因子の照合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所 Euler 因子の照合）"]
+    requires: [elliptic-curve.modular-coefficient-data, elliptic-curve.hasse-weil-l, modular-forms.newform-local-factor]
+  - id: elliptic-curve.modular-primewise-dictionary
+    name: 導手・レベルと局所係数の照合表
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（導手・レベルと局所係数の照合表）"]
+    requires: [elliptic-curve.modular-local-match, elliptic-curve.local-conductor-types, modular-forms.newform-bad-coefficient]
+  - id: elliptic-curve.modular-euler-factor-identity
+    name: 局所因子の一致からL関数の一致へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所因子の一致から L 関数の一致へ）"]
+    requires: [elliptic-curve.modular-local-match, elliptic-curve.l-absolute-convergence, elliptic-curve.l-dirichlet-coefficients]
+  - id: elliptic-curve.modularity-interface
+    name: Modularity Theoremとモジュラー媒介写像の存在（外部入力）
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["外部入力（Modularity Theorem とモジュラー媒介写像の存在）"]
+    requires: [elliptic-curve.modular-euler-factor-identity, modular-forms.modular-curve, modular-forms.weight-two-differentials]

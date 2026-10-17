@@ -752,6 +752,7 @@
 7. [KAH1-07 Fubini–Study形式II（貼り合わせと規格化）](textbook/volumes/dream_thater/幾何系/KAH/KAH1-07/index.md)
 8. [KAH1-08 Kähler接続と正則座標](textbook/volumes/dream_thater/幾何系/KAH/KAH1-08/index.md)
 9. [KAH1-09 Kähler曲率テンソル](textbook/volumes/dream_thater/幾何系/KAH/KAH1-09/index.md)
+10. [KAH1-10 曲率の具体計算](textbook/volumes/dream_thater/幾何系/KAH/KAH1-10/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -931,6 +932,7 @@
 8. [EC8 Hasse評価・拡大体上の点数・有限体ゼータ関数](textbook/volumes/dream_thater/代数系/EC/EC8/index.md)
 9. [EC9 整数モデル・良い／悪い還元・導手](textbook/volumes/dream_thater/代数系/EC/EC9/index.md)
 10. [EC10 Hasse–Weil L関数と局所因子](textbook/volumes/dream_thater/代数系/EC/EC10/index.md)
+11. [EC11 モジュラー形式との照合とmodularity interface](textbook/volumes/dream_thater/代数系/EC/EC11/index.md)
 
 <a id="dt-subject-modular-forms"></a>
 ### モジュラー形式
