@@ -1,0 +1,42 @@
+id: "KAH1-14"
+title: "射影多様体と整数Kähler類"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-13
+official_scope: []
+learning_objectives:
+  - 射影的複素多様体の定義を接空間の微分単射性まで具体例で確認できる
+  - 射影埋め込みによるFubini–Study形式の引き戻しがKähler形式になることを証明できる
+  - 規格化したKähler類の整数性を2πと実係数の第一Chern類の区別付きで判定できる
+  - 正の正則線束をChern曲率の正値性で定義し直接例で検証できる
+  - 正の線束の曲率とテンソル冪から整数型Kähler類を構成できる
+  - 射影多様体が正の線束と整数型Kähler類を持つ一方向の定理を導出できる
+  - CP1やCP1×CP1の正値性・整数周期・体積積分を計算し論理的逆を誤用しない
+  - Kodaira埋め込みとHodge理論が必要な逆向きを証明済みの結果と区別できる
+definitions:
+  - { id: KAH1-14-DEF-01, name: 射影的複素多様体 }
+  - { id: KAH1-14-DEF-02, name: 整数型に規格化されたKähler類 }
+  - { id: KAH1-14-DEF-03, name: 正の正則線束 }
+theorems:
+  - { id: KAH1-14-PROP-01, name: Fubini–Study形式の正則埋め込みへの制限 }
+  - { id: KAH1-14-PROP-02, name: 正の線束から整数型Kähler類へ }
+  - { id: KAH1-14-THM-01, name: 射影的複素多様体の整数型Kähler類 }
+canonical_examples:
+  - CP1からCP2への線形埋め込みと微分単射性
+  - CP1のFubini–Study形式と平方根倍の非整数Kähler類
+  - O(1)とO(m)の局所Hermite計量とChern形式
+  - CP1×CP1の二因子周期と正の線束
+  - 非コンパクトCで正の自明線束と零de Rham類
+  - 正則写像の退化によって正値性を失う例
+problem_patterns:
+  - KAH1-14-PROJECTIVE-PULLBACK
+  - KAH1-14-INTEGRAL-PERIOD
+  - KAH1-14-POSITIVE-LINE-CURVATURE
+  - KAH1-14-PRODUCT-INTEGRAL-CLASS
+  - KAH1-14-COMPACTNESS-BOUNDARY
+  - KAH1-14-PROJECTIVITY-CONVERSE-LOGIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
