@@ -1,0 +1,35 @@
+id: "GA8"
+title: "調和写像・非線形幾何変分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA2
+  - GEO13
+  - VAR1
+official_scope: []
+learning_objectives:
+  - 写像のDirichletエネルギーを計量による縮約から定義し恒等写像と定数写像で確認できる
+  - 引き戻し接続と張力場の座標式を導き始域・値域の接続補正を区別できる
+  - 閉多様体上の第一変分を完全に計算し調和性と停留性の同値性を証明できる
+  - 球面への射影と単位長制約から球面値調和写像方程式を導き具体例で検証できる
+  - 球面値Sobolev写像と許容弱変分を区別し弱Euler--Lagrange方程式を導出できる
+  - 2次元のエネルギー臨界スケールと3次元以上の特異な有限エネルギー弱解を比較できる
+  - 滑らかな調和写像熱流の散逸恒等式を導き一般の存在・正則性と混同しない
+definitions:
+  - { id: GA8-DEF-01, name: "写像のDirichletエネルギー" }
+  - { id: GA8-DEF-02, name: "引き戻し接続" }
+  - { id: GA8-DEF-03, name: "張力場と調和写像" }
+  - { id: GA8-DEF-04, name: "球面値Sobolev写像" }
+  - { id: GA8-DEF-05, name: "球面値弱調和写像" }
+theorems:
+  - { id: GA8-THM-01, name: "調和写像エネルギーの第一変分" }
+  - { id: GA8-THM-02, name: "球面値調和写像の方程式" }
+  - { id: GA8-THM-03, name: "制約を保つ弱第一変分" }
+  - { id: GA8-PROP-01, name: "Dirichletエネルギーのスケーリング" }
+  - { id: GA8-THM-04, name: "滑らかな調和写像熱流のエネルギー散逸" }
+canonical_examples: [球面恒等写像の張力場, 平坦トーラスから円への巻き付け写像, 球面への直交射影, 三次元球の特異弱調和写像, 二次元と高次元のスケール比較]
+problem_patterns: [GA8-FLAT-TARGET, GA8-TANGENT-PROJECTION, GA8-WINDING, GA8-SCALING, GA8-PULLBACK, GA8-WEAK-VARIATION, GA8-HEDGEHOG, GA8-FLOW, GA8-SINGULAR-INTEGRATION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }
