@@ -29,8 +29,8 @@ concepts:
     introduction_aliases: ["定理（局所因子の一致から L 関数の一致へ）"]
     requires: [elliptic-curve.modular-local-match, elliptic-curve.l-absolute-convergence, elliptic-curve.l-dirichlet-coefficients]
   - id: elliptic-curve.modularity-interface
-    name: Modularity Theoremとモジュラー媒介写像の存在（外部入力）
+    name: 曲線とnewformの対応（外部引用）
     kind: theorem
     introduction: formal
-    introduction_aliases: ["外部入力（Modularity Theorem とモジュラー媒介写像の存在）"]
+    introduction_aliases: ["定理（曲線とnewformの対応：外部引用）"]
     requires: [elliptic-curve.modular-euler-factor-identity, modular-forms.modular-curve, modular-forms.weight-two-differentials]
