@@ -107,45 +107,43 @@ $$
 <!-- proof-start -->
 ### 証明
 
-テンソルの共変微分の定義を一度適用すると
+座標 $(x^i)$ でLevi-Civita接続の係数を $\Gamma^m_{ik}$ と記します。[GEO13の共変微分の座標表示](../../GEO/GEO13/index.md#prop-geo13-tensor-coordinate)に従って
 
 $$
-(\nabla_Y\alpha)(Z)=Y(\alpha(Z))-\alpha(\nabla_YZ).
+\nabla_i\alpha_k=\partial_i\alpha_k-\Gamma^m_{ik}\alpha_m,
 $$
 
-これへ $\nabla_X$ を作用させれば
+さらに微分添字 $j$ 自体も共変に微分するので
 
 $$
-\begin{aligned}
-(\nabla_X\nabla_Y\alpha)(Z)
-={}&X\bigl(Y(\alpha(Z))-\alpha(\nabla_YZ)\bigr)\\
-&-(\nabla_Y\alpha)(\nabla_XZ)\\
-={}&XY(\alpha(Z))-X(\alpha(\nabla_YZ))
--Y(\alpha(\nabla_XZ))\\
-&+\alpha(\nabla_Y\nabla_XZ)+\alpha(\nabla_X\nabla_YZ)
--\alpha(\nabla_X\nabla_YZ).
-\end{aligned}
+(\nabla_i\nabla_j\alpha)_k
+=\partial_i(\nabla_j\alpha_k)
+-\Gamma^m_{ij}\nabla_m\alpha_k
+-\Gamma^m_{ik}\nabla_j\alpha_m.
 $$
 
-最後の表示は、$\nabla_Y\alpha$ を二階テンソルとして微分する際、添字 $Y$ 自身の変化を明示するのが安全です。実際、微分する方向を固定せずに展開すると正しい式は
+この式と $i,j$ を交換した式の差を取ります。$\Gamma^m_{ij}=\Gamma^m_{ji}$（捩率零）なので、方向添字の補正項は相殺されます。残る $\partial_i\partial_j\alpha_k-\partial_j\partial_i\alpha_k$ も零です。従って
 
 $$
 \begin{aligned}
-(\nabla_X\nabla\alpha)(Y,Z)
-={}&X\{Y(\alpha(Z))-\alpha(\nabla_YZ)\}\\
-&-(\nabla\alpha)(\nabla_XY,Z)
--(\nabla\alpha)(Y,\nabla_XZ).
+(\nabla_i\nabla_j-\nabla_j\nabla_i)\alpha_k
+={}&-\bigl(
+\partial_i\Gamma^m_{jk}-\partial_j\Gamma^m_{ik}\\
+&\quad+\Gamma^m_{i\ell}\Gamma^\ell_{jk}
+-\Gamma^m_{j\ell}\Gamma^\ell_{ik}
+\bigr)\alpha_m\\
+={}&-R^m{}_{kij}\alpha_m.
 \end{aligned}
 $$
 
-これと $X,Y$ を入れ替えた式の差を取ると、スカラーの交換子 $XY-YX=[X,Y]$、および $Z$ に作用する接続の交換子が残ります。$\nabla\alpha$ の方向添字に関する補正も合わせて差を取ることで
+最後の係数は[GEO16の曲率作用素の座標式](../../GEO/GEO16/index.md#prop-geo16-tensoriality-coordinate)です。座標方向は可換なので $[\,\partial_i,\partial_j\,]=0$ です。一般のベクトル場 $X,Y$ では $-\nabla_{[X,Y]}\alpha$ を加えた左辺がテンソルになり、各点で座標基底へ展開すれば
 
 $$
 ([\nabla_X,\nabla_Y]\alpha-\nabla_{[X,Y]}\alpha)(Z)
-=-\alpha\{(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X,Y]})Z\}.
+=-\alpha(R(X,Y)Z)
 $$
 
-右辺の括弧は[GEO16の曲率作用素の定義](../../GEO/GEO16/index.md#def-geo16-curvature)そのものです。従って結論を得ます。
+を得ます。
 <!-- proof-end -->
 
 この交換子は、単純に二階微分を入れ替えたときの「ずれ」を記録しています。縮約した形も導いておきます。$p$ で正規直交標構を使い、$\alpha^\sharp$ を1形式の計量双対とすると
@@ -287,7 +285,7 @@ $$
 
 $$
 \nabla^2u=-u g,\quad
-\Delta_gu=-du,\quad
+\Delta_gu=-d\,u,\quad
 |\nabla u|^2=1-u^2.
 $$
 
@@ -296,10 +294,10 @@ $$
 $$
 \frac12\Delta_g(1-u^2)
 =-u\Delta_gu-|\nabla u|^2
-=du^2-(1-u^2).
+=d\,u^2-(1-u^2).
 $$
 
-右辺では $|\nabla^2u|^2=du^2$、$\langle\nabla u,\nabla\Delta_gu\rangle=-d|\nabla u|^2$、Ricci項は $(d-1)|\nabla u|^2$ です。合計は $du^2-|\nabla u|^2$ と一致します。ここでは次元を表す $d$ と外微分記号 $d$ が紛らわしくならないよう、$du^2$ は **$d\cdot u^2$（次元と関数値の積）** を表しています。
+右辺では $|\nabla^2u|^2=d\,u^2$、$\langle\nabla u,\nabla\Delta_gu\rangle=-d|\nabla u|^2$、Ricci項は $(d-1)|\nabla u|^2$ です。合計は $d\,u^2-|\nabla u|^2$ と一致します。この段落の $d\,u^2$ は次元と関数値の二乗の積であり、外微分 $du$ と区別しています。
 
 ## 4. 曲率から調和形式の消滅へ
 
@@ -480,7 +478,7 @@ $$
 #### GA7-A02 球面の高さ関数でBochner恒等式を確かめる
 - Level: A
 
-単位球面 $S^d$（$d\ge2$）の高さ関数 $u=x_{d+1}$ について、$\nabla^2u=-ug$、$\Delta_gu=-du$、$|\nabla u|^2=1-u^2$ を用い、Bochner恒等式の両辺を計算せよ。
+単位球面 $S^d$（$d\ge2$）の高さ関数 $u=x_{d+1}$ について、$\nabla^2u=-ug$、$\Delta_gu=-d\,u$、$|\nabla u|^2=1-u^2$ を用い、Bochner恒等式の両辺を計算せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -491,14 +489,14 @@ $$
 \frac12\Delta_g|\nabla u|^2
 =-\frac12\Delta_g(u^2)
 =-u\Delta_gu-|\nabla u|^2
-=du^2-(1-u^2)
+=d\,u^2-(1-u^2)
 $$
 
-となります。ここで $du^2$ は次元 $d$ と $u^2$ の積です。右辺は $|\nabla^2u|^2=du^2$、$\nabla\Delta_gu=-d\nabla u$、$\operatorname{Ric}=(d-1)g$ なので
+となります。ここで $d\,u^2$ は次元 $d$ と $u^2$ の積です。右辺は $|\nabla^2u|^2=d\,u^2$、$\nabla\Delta_gu=-d\,\nabla u$、$\operatorname{Ric}=(d-1)g$ なので
 
 $$
-du^2-d|\nabla u|^2+(d-1)|\nabla u|^2
-=du^2-(1-u^2).
+d\,u^2-d|\nabla u|^2+(d-1)|\nabla u|^2
+=d\,u^2-(1-u^2).
 $$
 
 両辺は一致し、Ricci項の符号が正であることも確認できました。
