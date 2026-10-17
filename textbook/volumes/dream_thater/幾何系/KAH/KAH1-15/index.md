@@ -445,7 +445,20 @@ $$
 \partial_{\bar z}\bar z=1.
 $$
 
-ゆえに $\rho=-i\,dz\wedge d\bar z$。等式 $\rho=\lambda\omega$ が成り立つなら各点で $\lambda e^{|z|^2}=-1$、すなわち $\lambda=-e^{-|z|^2}$ となるが、これは定数でない。Kähler–Einsteinではない。正の**定数倍**と非定数倍を混同しない。
+したがってRicci形式は
+
+$$
+\rho=-i\,dz\wedge d\bar z
+$$
+
+となる。もし定数 $\lambda$ が $\rho=\lambda\omega$ を満たすなら、同じ基底 $i\,dz\wedge d\bar z$ の係数を比較して
+
+$$
+\lambda e^{|z|^2}=-1,\qquad
+\lambda=-e^{-|z|^2}
+$$
+
+が全点で必要となる。右辺は $z=0$ では $-1$、$|z|=1$ では $-e^{-1}$ であるから定数ではなく、Kähler–Einsteinではない。正の**定数倍**と非定数倍を混同しない。
 <!-- solution-end -->
 
 <a id="ex-kah1-15-b03"></a>
