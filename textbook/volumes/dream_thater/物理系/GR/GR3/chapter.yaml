@@ -1,0 +1,44 @@
+id: "GR3"
+title: "自由落下の測地線方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR2
+  - SREL4
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 時間的自由質点の固有時作用をLorentz計量から定め、固定端点の変分の仮定を説明できる
+  - 位置と速度の双方に依存する作用を変分し、接続係数を経て測地線方程式を再導出できる
+  - 四元加速度の定義から自由落下と座標加速度の違いを判断できる
+  - Rindler計量のChristoffel係数を計算し静止観測者と自由粒子の加速度を区別できる
+  - 光的曲線では固有時作用が使用できない理由を述べ、二次作用と光的初期値からアフィン測地線を導ける
+  - RindlerとMinkowskiの座標変換を検算し、自由粒子の世界線を両座標で追跡できる
+definitions:
+  - { id: GR3-DEF-01, name: 曲がった時空における自由質点の固有時作用 }
+  - { id: GR3-DEF-02, name: 四元加速度と自由落下判定 }
+theorems:
+  - { id: GR3-THM-01, name: 固有時作用の停留条件と自由落下 }
+  - { id: GR3-PROP-01, name: Rindler自由粒子と静止観測者の加速度 }
+  - { id: GR3-PROP-02, name: 光的測地線のアフィンパラメータと二次作用 }
+canonical_examples:
+  - Minkowski自由世界線の固有時作用と四元加速度
+  - Rindler計量から接続係数を成分計算
+  - 自由落下粒子の瞬間的な座標加速度と静止観測者の固有加速度
+  - 光的二次作用の変分と光的初期値
+  - RindlerとMinkowski座標を用いた自由粒子の積分軌道
+problem_patterns:
+  - GR3-INERTIAL-FREE-PARTICLE
+  - GR3-RINDLER-CHRISTOFFEL
+  - GR3-STATIC-PROPER-ACCELERATION
+  - GR3-NULL-PROPER-TIME-FAILURE
+  - GR3-NONAFFINE-REPARAMETERIZATION
+  - GR3-RINDLER-CONSERVED-TIME
+  - GR3-NULL-AFFINE-RINDLER
+  - GR3-RINDLER-FLAT-COORDINATES
+  - GR3-NULL-QUADRATIC-ACTION
+  - GR3-INTEGRATED-FREE-FALL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
