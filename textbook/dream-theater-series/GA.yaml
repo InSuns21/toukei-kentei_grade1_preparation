@@ -1,7 +1,7 @@
 version: 1
 id: GA
 title: "幾何解析"
-plan: textbook/plans_progress/DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 完成章のみを本文・公開索引へ登録する。
