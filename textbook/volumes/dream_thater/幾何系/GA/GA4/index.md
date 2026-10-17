@@ -24,25 +24,21 @@ $$
 > **定義（LaplacianのL2実現とレゾルベント）**  
 > $(M,g)$ を滑らかなコンパクト境界なしRiemann多様体とする。
 > 各 $f\in L^2(M)$ に対して、方程式
->
 $$
 (-\Delta_g+I)u=f
 $$
 >
 > の $H^1$ 弱解 $u$ を対応させる線形写像を $R$ とする。
->
 $$
 R:L^2(M)\longrightarrow L^2(M),\qquad Rf=u.
 $$
 >
 > $R$ は次節で証明するように有界かつ単射である。その像上の逆写像を用いて次のように定める。
->
 $$
 D(L)=\operatorname{Ran}R,\qquad Lu=R^{-1}u-u\quad(u\in D(L)).
 $$
 >
 > これを $-\Delta_g$ の $L^2$ 実現と呼び、そのレゾルベントを
->
 $$
 R=(L+I)^{-1}
 $$
@@ -73,9 +69,9 @@ $u$ は滑らかで $H^1$ に属し、周期境界項は相殺されるので任
 > **定理（レゾルベントの有界自己共役性と正値性）**  
 > 滑らかなコンパクト境界なしRiemann多様体 $(M,g)$ において、上で定義した $R=(-\Delta_g+I)^{-1}:L^2(M)\to L^2(M)$ は有界線形で $\|R\|_{2\to2}\le1$、自己共役、正値かつ単射である。さらに
 >
-> $$
+$$
 > \|Rf\|_{H^1_g}\le\|f\|_2,\qquad (Rf,f)_2=\|Rf\|_{H^1_g}^2.
-> $$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -153,26 +149,26 @@ $$
 > **定理（Laplacianの固有関数展開と自己共役性）**  
 > $(M,g)$ を滑らか・連結・コンパクト・境界なしの $d\ge1$ 次元Riemann多様体とする。$L$ を[定義](#def-ga4-l2-realization)の $L^2$ 実現とする。このとき実数値の滑らかな関数からなる $L^2$ 正規直交基底 $(\phi_j)_{j\ge0}$ と、重複度込みの固有値列
 >
-> $$
+$$
 > 0=\lambda_0<\lambda_1\le\lambda_2\le\cdots,\qquad
 > \lambda_j\longrightarrow+\infty
-> $$
+$$
 >
 > が存在し、$L\phi_j=\lambda_j\phi_j$、$\phi_0=V^{-1/2}$ である。各固有値の重複度は有限で、$\lambda=0$ の固有空間は定数関数全体である。任意の $f\in L^2(M)$ は
 >
-> $$
+$$
 > f=\sum_{j=0}^\infty (f,\phi_j)_2\phi_j
 > \quad\text{in }L^2,\qquad
 > \|f\|_2^2=\sum_{j=0}^\infty |(f,\phi_j)_2|^2
-> $$
+$$
 >
 > を満たす。さらに
 >
-> $$
+$$
 > D(L)=\left\{u=\sum_jc_j\phi_j:
 > \sum_j\lambda_j^2|c_j|^2<\infty\right\},\quad
 > Lu=\sum_j\lambda_jc_j\phi_j.
-> $$
+$$
 >
 > この領域上で $L$ は非負自己共役作用素であり、$R=(L+I)^{-1}$ はコンパクトである。
 <!-- formal-statement-end -->
@@ -221,10 +217,10 @@ $0$ が $R$ のスペクトルに入っても、単射である以上 $R$ の固
 > **定義（多様体LaplacianのRayleigh商）**  
 > $(M,g)$ を滑らかなコンパクト境界なしRiemann多様体とする。零でない $u\in H^1(M)$ に対し
 >
-> $$
+$$
 > Q(u)=\int_M|\nabla_gu|_g^2\,dV_g,\qquad
 > \mathcal R(u)=\frac{Q(u)}{\int_M|u|^2\,dV_g}
-> $$
+$$
 >
 > と定め、$\mathcal R(u)$ を $-\Delta_g$ の **Rayleigh商** と呼ぶ。$u\in D(L)$ なら[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)の弱形式によって $Q(u)=(Lu,u)_2$ である。
 <!-- formal-statement-end -->
@@ -252,10 +248,10 @@ $$
 > **補題（H1の固有関数展開とエネルギー恒等式）**  
 > 上記定理の固有関数 $(\phi_j)$ と固有値 $(\lambda_j)$ について、$u\in H^1(M)$ と $c_j=(u,\phi_j)_2$ を与えると
 >
-> $$
+$$
 > \|u\|_{H^1_g}^2=\sum_{j=0}^\infty(1+\lambda_j)|c_j|^2,\qquad
 > Q(u)=\sum_{j=0}^\infty\lambda_j|c_j|^2.
-> $$
+$$
 >
 > また部分和 $\sum_{j=0}^Nc_j\phi_j$ は $H^1$ でも $u$ に収束する。
 <!-- formal-statement-end -->
@@ -296,18 +292,18 @@ $$
 > **定理（Rayleigh--Ritzとmin--max原理）**  
 > $(M,g)$ を滑らか・連結・コンパクト・境界なしのRiemann多様体とし、$-\Delta_g$ の固有値を重複度込みで $0=\lambda_0<\lambda_1\le\cdots$ とする。任意の $k\ge0$ について
 >
-> $$
+$$
 > \lambda_k=\min_{\substack{E\subset H^1(M)\\\dim E=k+1}}
 > \ \max_{0\ne u\in E}\mathcal R(u)
 > =\min_{\substack{u\in H^1(M),\ u\ne0\\
 > (u,\phi_0)_2=\cdots=(u,\phi_{k-1})_2=0}}\mathcal R(u).
-> $$
+$$
 >
 > $k=0$ では右端の直交条件は空とする。特に
 >
-> $$
+$$
 > \lambda_1=\min_{\substack{u\in H^1(M),\ u\ne0\\\int_Mu\,dV_g=0}}\frac{\int_M|\nabla_gu|_g^2\,dV_g}{\int_Mu^2\,dV_g}.
-> $$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -344,10 +340,10 @@ $$
 > **系（第一正固有値と平均零Poincaré不等式）**  
 > $(M,g)$ を滑らか・連結・コンパクト・境界なしのRiemann多様体とする。このとき $\lambda_1>0$ であり、任意の $u\in H^1(M)$ について
 >
-> $$
+$$
 > \|u-\bar u\|_2^2\le\lambda_1^{-1}\|\nabla_gu\|_2^2,
 > \qquad \bar u=V^{-1}\int_Mu\,dV_g.
-> $$
+$$
 >
 > この不等式における最良の係数は $\lambda_1^{-1}$ である。
 <!-- formal-statement-end -->
