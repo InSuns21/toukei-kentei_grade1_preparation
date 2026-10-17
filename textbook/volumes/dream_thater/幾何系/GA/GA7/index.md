@@ -94,6 +94,15 @@ $$
 
 と書けます。前者は[Levi-Civita接続の捩率零という条件](../../GEO/GEO13/index.md#def-geo13-levi-civita)、後者は[GA6の余微分](../GA6/index.md#def-ga6-codifferential)の局所式によります。上付き添字は計量による縮約、反復添字は和を表します。
 
+GA6では向き付けられた多様体上でHodge星作用素から $\delta$ を定義しました。ここで扱う点ごとの公式は、向き付けられない多様体でも意味を持ちます。実際、任意の $k\ge1$ 次形式 $\omega$ への余微分は局所正規直交標構を使って
+
+$
+(\delta\omega)(Y_2,\ldots,Y_k)
+=-\sum_i(\nabla_{e_i}\omega)(e_i,Y_2,\ldots,Y_k)
+$
+
+と表せます。これは計量による縮約であり、直交標構を替えても値は変わらず、向きの選択も現れません。向き付けがある場合はGA6のHodge星作用素による定義と一致します。従って以下の局所公式では一般のRiemann多様体に $\delta$ を用い、第4節の積分公式ではGA6と同じく向き付け可能・コンパクト・境界なしを仮定します。
+
 <a id="lem-ga7-covector-commutator"></a>
 
 <!-- formal-statement-start -->
