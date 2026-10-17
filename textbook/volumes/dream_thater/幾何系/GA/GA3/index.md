@@ -249,17 +249,17 @@ $$
 
 $p\in M$ の周りで、閉包が内側に収まる二つの座標球を選びます。
 
-$
+$$
 \Omega'\Subset\Omega
-$
+$$
 
 切断関数で弱形式を局所化すると、座標関数 $\tilde u$ は $\Omega$ 上で発散形方程式を満たします。係数 $A^{ij}$ は滑らかなので、$\overline{\Omega'}$ の近傍で有界かつLipschitz連続です。また第5節で確認した局所一様楕円性も使えます。
 
 右辺は $\rho\tilde f\in L^2_{\mathrm{loc}}$ です。この条件を[GPDE9の一般係数内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)に代入すると
 
-$
+$$
 \tilde u\in H^2(\Omega')
-$
+$$
 
 を得ます。
 
@@ -275,16 +275,16 @@ $$
 
 ここで和の添字は $0<|\beta|\le m$ です。各係数は滑らかで、右辺の最も高い $\tilde u$ の微分階数は
 
-$
+$$
 1+|\alpha-\beta|+1=m-|\beta|+2\le m+1
-$
+$$
 
 です。帰納仮定から右辺は局所 $L^2$ に属します。差分商近似の極限を取って[内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)を $D^\alpha\tilde u$ に適用します。その結果
 
-$
+$$
 D^\alpha\tilde u\in H^2_{\mathrm{loc}},
 \qquad \tilde u\in H^{m+2}_{\mathrm{loc}}
-$
+$$
 
 です。最初の $m=1$ では、既に得た $H^2$ 正則性を帰納法の出発点にします。
 
@@ -379,9 +379,9 @@ $$
 > **定理（強最大値原理）**  
 > $(N,g)$ を滑らかなRiemann多様体、$D\subset N$ を連結開集合とする。$u\in C^2(D)$ は $\Delta_gu=0$ を満たすと仮定する。ある内部点 $p\in D$ で
 
-$
+$$
 u(p)=\sup_Du<\infty
-$
+$$
 
 > となれば、$u$ は $D$ 全体で定数である。内部点で最小値を取る場合も同じ結論が成立する。
 <!-- formal-statement-end -->
