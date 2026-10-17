@@ -217,7 +217,7 @@ $$
 
 座標基底 $\partial_\theta$ による計量行列は $G=(a^2)$ です。成分 $g(\partial_\theta,\partial_\theta)=a^2>0$ より正定値で、その逆行列は $(a^{-2})$ となります。
 
-この表示に[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)と[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)を適用すると、
+まず体積密度には[既習の局所座標表示](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)を使います。また、勾配には[既習の計量勾配の表示](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)を用います。行列 $G$ とその逆行列をそれぞれ代入すると、
 
 $$
 dV_g=\sqrt{\det G}\,d\theta=a\,d\theta,\qquad
