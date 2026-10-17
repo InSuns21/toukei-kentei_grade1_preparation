@@ -43,21 +43,21 @@ $$
 
 まず、始域の $u\ne0$ と像の $Z_0\ne0$ の正則チャートを対応させると、
 
-$
+$$
 z=\frac vu,\qquad
 \left(\frac{Z_1}{Z_0},\frac{Z_2}{Z_0}\right)=(z,0),
 \qquad df_z(\xi)=(\xi,0).
-$
+$$
 
 接ベクトルの第一成分がそのまま残るので、微分は単射である。
 
 次に、始域の $v\ne0$ と像の $Z_1\ne0$ でも、
 
-$
+$$
 w=\frac uv,\qquad
 \left(\frac{Z_0}{Z_1},\frac{Z_2}{Z_1}\right)=(w,0),
 \qquad df_w(\xi)=(\xi,0)
-$
+$$
 
 となる。これら二つのチャートが始域全体を覆い、どちらの像も第二座標が零の滑らかな複素部分多様体である。像から第一座標を取り出す局所逆写像は正則で、重なりで一致する。よって像への同相性、閉像、局所的な微分単射性がすべて成立し、$\mathbb{CP}^1$ は定義を満たす。
 <!-- definition-example-end -->
@@ -131,12 +131,12 @@ $$
 
 となる。ここで $[\Sigma]\in H_2(\Sigma;\mathbb Z)$ は向きで決まる基本類であり、$u_*[\Sigma]$ はその $X$ への像である。整数コホモロジー類と整数ホモロジー類の評価値は整数なので、
 
-$
+$$
 \int_\Sigma u^*\eta
 =\langle r(\gamma),u_*[\Sigma]\rangle_{\mathbb R}
 =\langle\gamma,u_*[\Sigma]\rangle_{\mathbb Z}
 \in\mathbb Z
-$
+$$
 
 と導かれる。最初の等号は微分形式の積分とde Rham類の評価の対応、次の等号は係数を整数から実数へ写したことによる。このため周期の整数性は必要条件である。さらに代表を完全形式だけ変えて $\eta'=\eta+d\alpha$ とすると、閉曲面での積分は[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
@@ -244,17 +244,17 @@ $$
 
 である。$v=\sum_jv^j\partial/\partial z^j\ne0$ を取る。$z\ne0$ なら
 
-$
+$$
 \lambda=\frac{\sum_j\bar z^jv^j}{\sum_j|z^j|^2}
-$
+$$
 
 と置いて二乗和を展開すると
 
-$
+$$
 0\le\sum_j|v^j-\lambda z^j|^2
 =\|v\|^2-
 \frac{\left|\sum_j\bar z^jv^j\right|^2}{\|z\|^2}
-$
+$$
 
 である。従って $\left|\sum_j\bar z^jv^j\right|^2\le\|z\|^2\|v\|^2$ を得る。$z=0$ のときも同じ評価が成立する。これを用いれば、
 
