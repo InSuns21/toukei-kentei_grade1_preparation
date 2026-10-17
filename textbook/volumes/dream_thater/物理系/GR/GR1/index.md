@@ -107,7 +107,16 @@ $$
 
 と置きます。$\eta$ は時間、$\xi$ は長さで、$y,z$ はそのままです。対象は $X>|cT|$ というMinkowski時空の右くさびだけです。$s>0$ と $\cosh A>|\sinh A|$ から、確かにこの領域に入ります。
 
-SREL8では線素が $+c^2(1+a\xi/c^2)^2d\eta^2-d\xi^2-dy^2-dz^2$ でした。[SREL2のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を全体としてマイナス倍した本章の約束に揃えると、次の式になるはずです。計量が**非退化**であるとは、接ベクトル $V$ がすべての接ベクトル $W$ と $g(V,W)=0$ を満たすなら $V=0$ になることです。有限次元の基底に関する計量行列 $G$ を作れば、$g(V,W)=V^{\mathsf T}GW$ なので、非退化性は $\det G\ne0$ と同値です。この判定は[SREL2で行った標準基底による非退化性の確認](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を、任意の可逆な基底表示に一般化したものです。
+SREL8では線素が $+c^2(1+a\xi/c^2)^2d\eta^2-d\xi^2-dy^2-dz^2$ でした。[SREL2のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を全体としてマイナス倍した本章の約束に揃えると、次の式になるはずです。
+
+計量が**非退化**であるとは、接ベクトル $V$ がすべての接ベクトル $W$ と $g(V,W)=0$ を満たすなら $V=0$ になることです。有限次元の基底で、計量成分を並べた行列を $G$ とすると
+
+$$
+g(V,W)=V^{\mathsf T}GW,\qquad
+g(V,\cdot)=0\ \Longleftrightarrow\ GV=0
+$$
+
+となります。従って非退化性は $\det G\ne0$ と同値です。これは[SREL2で行った標準基底による非退化性の確認](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)を、基底表示一般へ拡張した判定です。
 
 <a id="prop-gr1-rindler-metric"></a>
 
@@ -176,7 +185,13 @@ $$
 
 ## 5. 加速しているのは誰の時計か
 
-$h(\xi)=1+a\xi/c^2>0$ と置きましょう。[SREL8で定義したRindler静止観測者](../../SREL/SREL8/index.md#def-srel8-static-observer)と同じく、$\xi=\xi_*$、$y,z$ 一定の時計は、線素から $d\tau=h_*d\eta$、$h_*=h(\xi_*)$ だけ固有時を刻みます。しかし同じ時計は慣性系では双曲線 $X^2-c^2T^2=(s_0+\xi_*)^2$ を描く**加速する時計**です。時計の四元加速度は、[SREL3の定義](../../SREL/SREL3/index.md#def-srel3-four-acceleration)のように世界線を固有時で二度微分して得る量で、座標加速度とは区別します。
+$h(\xi)=1+a\xi/c^2>0$ と置きましょう。[SREL8で定義したRindler静止観測者](../../SREL/SREL8/index.md#def-srel8-static-observer)と同じく、$\xi=\xi_*$、$y,z$ 一定の時計は、線素から $d\tau=h_*d\eta$、$h_*=h(\xi_*)$ だけ固有時を刻みます。一方、慣性系では
+
+$$
+X^2-c^2T^2=(s_0+\xi_*)^2
+$$
+
+という双曲線を描く**加速する時計**です。時計の四元加速度は、[SREL3の定義](../../SREL/SREL3/index.md#def-srel3-four-acceleration)のように世界線を固有時で二度微分して得る量で、座標加速度とは区別します。
 
 <a id="prop-gr1-static-accel"></a>
 
