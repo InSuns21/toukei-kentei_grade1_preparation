@@ -141,16 +141,23 @@ $$
 
 ここで $g^{m\bar\ell}$ は縮約のために値を掛けているだけであり、微分の外側にある。$\partial_{\bar j}(g^{m\bar\ell}\cdots)$ という別の式に変形してはいけない。
 
-続いて接続係数を代入する。行列 $G$ の $m$ 行 $\ell$ 列の成分が $g_{m\bar\ell}$ なので、
+続いて接続係数を代入する。行列 $G$ の $m$ 行 $\ell$ 列の成分は $g_{m\bar\ell}$ である。逆計量の定義 $\sum_\ell g_{m\bar\ell}g^{k\bar\ell}=\delta_m^k$ は、通常の行列積 $GG^{-1}=I$ と比較すると
 
-$$
+$
+(G^{-1})_{\ell k}=g^{k\bar\ell}
+$
+
+を意味する。したがって接続係数の添字を行列の行・列に移し替えると、
+
+$
 \begin{aligned}
 \sum_k\Gamma^k_{ik}
 &=\sum_{k,\ell}g^{k\bar\ell}\partial_i g_{k\bar\ell}\\
+&=\sum_{k,\ell}(G^{-1})_{\ell k}(\partial_iG)_{k\ell}\\
 &=\operatorname{tr}(G^{-1}\partial_i G)\\
 &=\partial_i\log\det G.
 \end{aligned}
-$$
+$
 
 最後の等号は $G$ が正値で可逆なことを確認して[Jacobiの行列式微分公式](#lem-kah1-11-jacobi)を用いた。従って
 
@@ -255,7 +262,13 @@ $$
 =|\det B|^2\det G_z.
 $$
 
-両方の計量行列式は正なので実対数を取れ、命題の第二式を得る。$h=\det B$ は重なり上で零を持たない正則関数である。任意の一点の十分小さい近傍で正則対数 $L$ を選べば $e^L=h$ なので
+両方の計量行列式は正なので実対数を取れ、命題の第二式を得る。$h=\det B$ は重なり上で零を持たない正則関数である。正則対数を局所的に選べる理由も確かめよう。任意の点 $p$ の近傍を十分小さく取れば $h(w)=h(p)(1+u(w))$、$|u(w)|<1$ と書ける。$e^{L_p}=h(p)$ となる定数 $L_p$ を選び、
+
+$
+L(w)=L_p+\sum_{r=1}^{\infty}\frac{(-1)^{r+1}}r u(w)^r
+$
+
+と置く。級数は小さい近傍で局所一様収束して正則関数を定め、$e^L=h$ を満たす。こうして得た $L$ に対して
 
 $$
 \log|h|^2=L+\overline L,\qquad
@@ -457,7 +470,18 @@ $$
 \end{aligned}
 $$
 
-先頭主座小行列式 $1+\lambda r_2>0$ と $\det G>0$ からHermite行列は正値。$\omega=i\partial\bar\partial\varphi$ なので $d\omega=0$。$A=1+\lambda(r_1+r_2)$ と置けば
+$G$ は非対角成分が互いに共役だからHermite行列である。行列式だけでなく、なぜ正値と判定できるかを[2次Hermite行列の平方完成](../KAH1-02/index.md#calc-kah1-02-two-by-two)に沿って直接確認する。$a=1+\lambda r_2>0$、$b=1+\lambda r_1$、$c=\lambda\bar z^1z^2$ とすると $\det G=ab-|c|^2>0$ で、任意の $v=(v_1,v_2)^{\mathsf T}\ne0$ に対し
+
+$
+\begin{aligned}
+v^*Gv
+&=a|v_1|^2+\overline{v_1}cv_2+\overline{v_2}\overline c v_1+b|v_2|^2\\
+&=a\left|v_1+\frac ca v_2\right|^2
+  +\frac{\det G}{a}|v_2|^2>0.
+\end{aligned}
+$
+
+最後の不等号は、$v_2\ne0$ なら第二項が正、$v_2=0$ なら第一項が正となるためである。さらに $\varphi$ は滑らかな実関数で、$\omega=i\partial\bar\partial\varphi$ だから $d\omega=0$（[ポテンシャルからKähler形式を得る命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)）。従って正値性と閉性の両方を満たす。$A=1+\lambda(r_1+r_2)$ と置けば
 
 $$
 \partial_i\partial_{\bar j}\log A
