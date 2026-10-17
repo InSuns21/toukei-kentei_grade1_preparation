@@ -19,7 +19,17 @@ E(u)=\frac12\int_M|du|_{g,h}^2\,dV_g.
 $$
 <!-- formal-statement-end -->
 
-基底を取り替えても、この和は線形写像のノルムの二乗（計量による縮約）なので変わりません。以下では $|du|^2$ と略記します。$N=\mathbb R$ なら既習のDirichletエネルギーに一致します。
+この量が基底によらない理由も確認します。別の正規直交基底を $e'_a=\sum_iQ_{ia}e_i$ と書くと、基底変換行列は $QQ^{\mathsf T}=I$ を満たします。$du$ の線形性と $h$ の双線形性から
+
+$$
+\begin{aligned}
+\sum_a h(du(e'_a),du(e'_a))
+&=\sum_{i,j}\Bigl(\sum_aQ_{ia}Q_{ja}\Bigr)h(du(e_i),du(e_j))\\
+&=\sum_i h(du(e_i),du(e_i)).
+\end{aligned}
+$$
+
+すなわち計量による縮約であり、任意の正規直交基底で同じ値を与えます。以下では $|du|^2$ と略記します。$N=\mathbb R$ なら既習のDirichletエネルギーに一致します。
 
 <!-- definition-example-start: def-ga8-map-energy -->
 **定義の確認**（定数写像と恒等写像）： 単位球面 $S^2$ からそれ自身への定数写像 $u(x)=p$ は $du=0$ なので $E(u)=0$ です。一方、恒等写像 $u(x)=x$ では接ベクトル $e_i$ がそのまま写り、各点で $|du|^2=2$ です。従って $E(u)=\frac12\cdot2\cdot\operatorname{Area}(S^2)=4\pi$。エネルギーが正であっても変分に対して停留する写像は存在します。
@@ -87,7 +97,19 @@ $$
 =\nabla^u_X(du(Y))-du(\nabla^M_XY)
 $$
 
-と定めます。最後の項は $Y$ 自身が動く分を補正しています。座標では
+と定めます。最後の項は $Y$ 自身が動く分を補正しています。実際、局所座標基底について $du(\partial_j)=\partial_ju^\alpha\partial_{y^\alpha}|_u$ を先ほどの引き戻し接続へ代入すると
+
+$$
+\begin{aligned}
+\nabla^u_{\partial_i}(du(\partial_j))
+&=\bigl(\partial_i\partial_j u^\alpha+
+\Gamma^\alpha_{\beta\gamma}(h)(u)\partial_iu^\beta\partial_ju^\gamma\bigr)\partial_{y^\alpha}|_u,\\
+du(\nabla^M_{\partial_i}\partial_j)
+&=\Gamma^k_{ij}(g)\partial_ku^\alpha\partial_{y^\alpha}|_u.
+\end{aligned}
+$$
+
+両者の差が二階共変微分です。従ってその成分は
 
 $$
 (\nabla du)^\alpha_{ij}
@@ -221,7 +243,27 @@ T_{u(x)}S^{q-1}=\{w\in\mathbb R^q:u(x)\cdot w=0\},
 P_u w=w-(u\cdot w)u
 $$
 
-です。ここで後者は任意の $w$ を接空間へ直交射影する式です。実際、$u\cdot P_uw=u\cdot w-(u\cdot w)|u|^2=0$、接ベクトル $w$ には $P_uw=w$ です。値域の共変微分は外側の通常微分を接空間へ射影する操作なので、張力場は $P_u\Delta_g u$ になります。
+です。ここで後者は任意の $w$ を接空間へ直交射影する式です。実際、$u\cdot P_uw=u\cdot w-(u\cdot w)|u|^2=0$、接ベクトル $w$ には $P_uw=w$ です。
+
+この射影がなぜ張力場の計算に使えるかも導きます。$W$ を $u$ に沿う球面への接ベクトル場とすると、$u\cdot W=0$ を始域方向 $X$ で微分して
+
+$$
+u\cdot D_XW=-du(X)\cdot W,\qquad
+P_uD_XW=D_XW+(du(X)\cdot W)u
+$$
+
+を得ます。後者は外側の微分から法線成分だけを除いたものです。この接方向の微分は球面の誘導計量と両立し、接ベクトル場の捩率も零なので、[Levi-Civita接続の一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)により球面の接続と一致します。従って始域の正規直交標構を使えば
+
+$$
+\begin{aligned}
+\tau(u)
+&=\sum_i\bigl(P_uD_{e_i}(du(e_i))-du(\nabla^M_{e_i}e_i)\bigr)\\
+&=P_u\sum_i\bigl(D_{e_i}(du(e_i))-du(\nabla^M_{e_i}e_i)\bigr)
+=P_u\Delta_g u.
+\end{aligned}
+$$
+
+始域側の接続補正まで含めた各成分のLaplacianを射影するから、張力場になるのです。
 
 <a id="thm-ga8-sphere-equation"></a>
 
@@ -711,7 +753,7 @@ $$
 =-\frac{2x^a}{r^3}=-\frac2{r^2}u^a.
 $$
 
-一方 $Du=r^{-1}(I-u\otimes u)$、$\operatorname{tr}(I-u\otimes u)=2$ なので $|Du|^2=2/r^2$。従って球を除く領域で方程式が成立します。$B^3\setminus B_\varepsilon$ で滑らかなコンパクト台試験場 $\varphi$ に部分積分すると、内境界の項は $\partial_\nu u=O(1/\varepsilon)$、面積 $4\pi\varepsilon^2$ から $O(\varepsilon)$、$u\,\partial_\nu\varphi$ の項は $O(\varepsilon^2)$ です。どちらも零へ行きます。$|Du|^2\in L^1$ なので体積積分も極限へ移れ、分布方程式が全 $B^3$ で成立します。
+一方 $P=I-u\otimes u$ は $P^{\mathsf T}P=P$ を満たし、$\operatorname{tr}P=3-|u|^2=2$ なので、$Du=r^{-1}P$ から $|Du|^2=r^{-2}\operatorname{tr}(P^{\mathsf T}P)=2/r^2$。従って球を除く領域で方程式が成立します。$B^3\setminus B_\varepsilon$ で滑らかなコンパクト台試験場 $\varphi$ に部分積分すると、内境界の項は $\partial_\nu u=O(1/\varepsilon)$、面積 $4\pi\varepsilon^2$ から $O(\varepsilon)$、$u\,\partial_\nu\varphi$ の項は $O(\varepsilon^2)$ です。どちらも零へ行きます。$|Du|^2\in L^1$ なので体積積分も極限へ移れ、分布方程式が全 $B^3$ で成立します。
 <!-- solution-end -->
 
 <a id="ex-ga8-b04"></a>
@@ -755,13 +797,38 @@ $$
 Du=\frac1r(I-u\otimes u).
 $$
 
-射影 $I-u\otimes u$ は固有値 $1$ が $d-1$ 個、$0$ が1個なので、Frobeniusノルムの二乗は $d-1$ です。従って
+ここで $P=I-u\otimes u$ は、$|u|=1$ より $P^{\mathsf T}=P$ かつ $P^2=P$ を満たす直交射影です。$Du=r^{-1}P$ のFrobeniusノルム（全成分の二乗和）は
+
+$$
+\begin{aligned}
+\|P\|_F^2
+&=\operatorname{tr}(P^{\mathsf T}P)
+=\operatorname{tr}(P)
+=\operatorname{tr}(I)-\operatorname{tr}(u\otimes u)\\
+&=d-\sum_{a=1}^d(u^a)^2=d-1.
+\end{aligned}
+$$
+
+これが微分のノルムを射影行列で判定できる理由です。従って
 
 $$
 |Du|^2=\frac{d-1}{r^2}.
 $$
 
-成分ごとに $\partial_i(x^a/r)=\delta_{ia}/r-x^ax_i/r^3$ をさらに微分し縮約すると
+成分ごとに $\partial_i(x^a/r)=\delta_{ia}/r-x^ax_i/r^3$ をさらに微分します。$r^2=\sum_i x_i^2$ を用い、$i$ について和を取ると
+
+$$
+\begin{aligned}
+\sum_i\partial_i\left(\frac{\delta_{ia}}r\right)
+&=-\frac{x^a}{r^3},\\
+\sum_i\partial_i\left(\frac{x^ax_i}{r^3}\right)
+&=\frac{x^a}{r^3}+\frac{d x^a}{r^3}
+-\frac{3x^a\sum_i x_i^2}{r^5}
+=\frac{(d-2)x^a}{r^3}.
+\end{aligned}
+$$
+
+従って
 
 $$
 \Delta u^a
@@ -769,7 +836,7 @@ $$
 =-\frac{d-1}{r^2}u^a.
 $$
 
-よって $\Delta u+|Du|^2u=0$ です。
+よって[球面値調和写像の方程式](#thm-ga8-sphere-equation)の左辺は $\Delta u+|Du|^2u=0$ です。
 
 **2.** $S^{d-1}$ の面積を $\omega_{d-1}$ とすると球座標の体積要素は $r^{d-1}dr\,d\sigma$ です。
 
