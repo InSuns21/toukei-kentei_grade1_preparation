@@ -1,0 +1,42 @@
+chapter: KAH1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-09
+concepts:
+  - id: kahler.holomorphic-sectional-curvature
+    name: 正則断面曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則断面曲率）"]
+    requires: [kahler.curvature-complex-components, kahler.curvature-complex-symmetries]
+  - id: kahler.ricci-contraction
+    name: Kähler曲率のRicci縮約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler曲率のRicci縮約）"]
+    requires: [kahler.curvature-complex-components, kahler.curvature-complex-symmetries]
+  - id: kahler.flat-torus-curvature
+    name: 平坦トーラスの全曲率の消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦トーラスの全曲率の消失）"]
+    requires: [kahler.constant-hermitian-flat-model, kahler.flat-torus-kahler, kahler.holomorphic-sectional-curvature, kahler.ricci-contraction]
+  - id: kahler.conformal-curvature-complex-one
+    name: 複素一次元の共形曲率公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素一次元の共形曲率公式）"]
+    requires: [kahler.curvature-local-formula, kahler.holomorphic-sectional-curvature, kahler.ricci-contraction]
+  - id: kahler.fubini-study-curvature
+    name: Fubini–Study曲率とRicci縮約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fubini–Study曲率とRicci縮約）"]
+    requires: [kahler.curvature-normal-form, kahler.global-fubini-study-gluing, kahler.holomorphic-sectional-curvature, kahler.ricci-contraction]
+  - id: kahler.curvature-scaling
+    name: 定数倍による曲率の変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数倍による曲率の変化）"]
+    requires: [kahler.curvature-local-formula, kahler.holomorphic-sectional-curvature, kahler.ricci-contraction]
