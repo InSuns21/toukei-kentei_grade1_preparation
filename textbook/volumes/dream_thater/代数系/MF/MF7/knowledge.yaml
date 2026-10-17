@@ -1,0 +1,72 @@
+chapter: MF7
+scope: dream-theater
+coverage: complete
+prerequisites: [MF6, MF5, MF4]
+forward_references: []
+concepts:
+  - id: modular-forms.degeneracy-map
+    name: 退化写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（退化写像）"]
+    requires: [modular-forms.level-form]
+  - id: modular-forms.degeneracy-cusps
+    name: 退化写像はカスプ形式を保つ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（退化写像はカスプ形式を保つ）"]
+    requires: [modular-forms.degeneracy-map, modular-forms.cusp-width]
+  - id: modular-forms.level-petersson
+    name: レベルNのPetersson内積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（レベルNのPetersson内積）"]
+    requires: [modular-forms.level-form, modular-forms.petersson-product]
+  - id: modular-forms.old-new-space
+    name: oldspaceとnewspace
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（oldspace・newspace）"]
+    requires: [modular-forms.degeneracy-map, modular-forms.level-petersson]
+  - id: modular-forms.old-new-orthogonal
+    name: old/newの直交直和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（old/newの直交直和）"]
+    requires: [modular-forms.old-new-space]
+  - id: modular-forms.newform-theory
+    name: Atkin–Lehner–Liのnewform理論
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Atkin–Lehner–Li のnewform理論：引用・自明指標の場合）"]
+    requires: [modular-forms.old-new-space, modular-forms.level-hecke]
+  - id: modular-forms.newform-first-coefficient
+    name: 固有値と第一係数の一致
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（固有値と第一係数の一致）"]
+    requires: [modular-forms.newform-theory, modular-forms.level-hecke-coefficient]
+  - id: modular-forms.newform-local-factor
+    name: newformの局所Euler因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（newform の良い素数と悪い素数の局所因子）"]
+    requires: [modular-forms.newform-first-coefficient, modular-forms.l-euler-product]
+  - id: modular-forms.newform-bad-coefficient
+    name: 自明指標newformの悪い素数の係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自明指標newformの悪い素数の係数：引用）"]
+    requires: [modular-forms.newform-theory]
+  - id: modular-forms.level-eleven-form
+    name: レベル11の重さ2のnewform
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（レベル11の重さ2のnewform）"]
+    requires: [modular-forms.newform-theory, modular-forms.weight-two-differentials]
+  - id: modular-forms.coefficient-field
+    name: newformの係数体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（newform の係数体）"]
+    requires: [modular-forms.newform-theory]

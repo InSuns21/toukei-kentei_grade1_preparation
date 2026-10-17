@@ -32,8 +32,8 @@ chapters:
     title: "モジュラー形式のL関数"
   - id: MF7
     path: textbook/volumes/dream_thater/代数系/MF/MF7
-    status: planned
-    title: "oldform・newform・levelと算術"
+    status: completed
+    title: "oldform・newform・レベルと算術"
   - id: MF8
     path: textbook/volumes/dream_thater/代数系/MF/MF8
     status: planned
