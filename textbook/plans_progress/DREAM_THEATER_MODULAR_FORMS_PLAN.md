@@ -53,7 +53,7 @@
 - **MF5：** MF2〜4、群論と線形代数。非自明なDirichlet文字を用いる節を置く場合、ANT3の実在結果を直接前提に追加する。
 - **MF6：** MF2/5、ANT2（Dirichlet級数・Euler積）、CA12（theta–Mellin）、必要ならANT3。CA12のtheta関数には半整数重さ／multiplierがあるため、レベル1の整数重さ形式だと混同しない。
 - **MF7：** MF4〜6（特にHeckeとMellin）。**EC11を要求しない**。
-- **MF8：** MF7と**EC10／EC11**を合流。EC11はMF1〜MF7までの成立済み結果を使って曲線側の係数比較を行う。EC11の先行原稿はMF7の既習結果の代わりにならない。
+- **MF8：** MF7と**EC10／EC11**を合流。EC11はMF1〜MF7までの成立済み結果を使って曲線側の係数比較を行う。EC11は正規章として完成しており、MF7の既習結果へ使用箇所からリンクされている。MF8はここで確立した局所因子の比較を直接前提にする。
 
 ~~~text
 CA8/CA9 + GRP + 必要な複素解析 → MF1 → MF2 → MF3
@@ -64,7 +64,7 @@ MF7 ─────────────────────────�
 MF7 ─────────────────────────────────────────→ MF8
 ~~~
 
-現行EC PLANは [楕円曲線PLAN](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)（EC1〜EC10は完了、EC11は準備原稿のみ・未公開）。元の整数論横断ルート ../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
+現行EC PLANは [楕円曲線PLAN](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)（EC1〜EC11は完成・公開済み）。元の整数論横断ルート ../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
 
 ## 3. 記号の統一と共通注意点
 
@@ -201,5 +201,5 @@ MF7 ─────────────────────────�
 - 新規本文は変更区分Cとして全主要証明・全演習と解答を棚卸し・再計算し、独習者目線で別観点の再査読を行う。同じ担当者の再読を第三者独立査読とは呼ばない。**別の完了章の追跡監査は明示依頼時のみ**。
 - 使う箇所の既習結果名から実在stable anchorへリンクし、CA9・ANT2・EC10/11という章名だけで未証明の核心を飛ばさない。外部大定理は「この科目では引用する」と本文にも明示。
 - MF1着手時に系列manifestの作成と本PLANの plans_progress/ への**移動**は完了した。MF4以降の実装時にも、系列manifest、chapter.yaml／knowledge.yaml、公開indexと直接参照を変更内容に合わせて整合させる。
-- MF7の成立後にEC11を正式章として閉じ、MF8へ進む。最後にカスプ・Hecke・L関数・導手/level・EC11の係数比較・FLTの論理・公開導線の横断監査を行う。全成果物と直接必要な索引・manifest・検証が完了して初めて plan_done/ へ**移動**する。
+- MF7の成立後にEC11を正式章として閉じる工程は完了。次はMF8の正式執筆・全件査読へ進む。最後にカスプ・Hecke・L関数・導手/level・EC11の係数比較・FLTの論理・公開導線の横断監査を行う。全成果物と直接必要な索引・manifest・検証が完了して初めて plan_done/ へ**移動**する。
 - 通常は changed-only validationを使い、共通規約・knowledge DAG・global indexなど未変更部分へ波及する作業はfull validationへ昇格。本PLANのみの改訂では数学本文やCIの全件検証が完了したとは主張しない。
