@@ -687,6 +687,7 @@
 2. [GA2 多様体Sobolev空間・貼り合わせ・コンパクト性](textbook/volumes/dream_thater/幾何系/GA/GA2/index.md)
 3. [GA3 楕円型方程式・弱解・最大値原理](textbook/volumes/dream_thater/幾何系/GA/GA3/index.md)
 4. [GA4 Laplace作用素のスペクトル理論](textbook/volumes/dream_thater/幾何系/GA/GA4/index.md)
+5. [GA5 熱方程式・熱半群・熱核](textbook/volumes/dream_thater/幾何系/GA/GA5/index.md)
 
 <a id="dt-subject-lorentzian-geometry"></a>
 ### ローレンツ幾何と大域因果構造
@@ -749,6 +750,7 @@
 6. [KAH1-06 Fubini–Study形式I（局所構成）](textbook/volumes/dream_thater/幾何系/KAH/KAH1-06/index.md)
 7. [KAH1-07 Fubini–Study形式II（貼り合わせと規格化）](textbook/volumes/dream_thater/幾何系/KAH/KAH1-07/index.md)
 8. [KAH1-08 Kähler接続と正則座標](textbook/volumes/dream_thater/幾何系/KAH/KAH1-08/index.md)
+9. [KAH1-09 Kähler曲率テンソル](textbook/volumes/dream_thater/幾何系/KAH/KAH1-09/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

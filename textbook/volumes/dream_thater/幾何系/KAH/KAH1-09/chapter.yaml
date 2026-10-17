@@ -1,0 +1,41 @@
+id: "KAH1-09"
+title: "Kähler曲率テンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-08
+  - KAH1-02
+  - KAH1-04
+  - CM2-11
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 曲率演算子の符号規約を固定し複素四階成分を定義から計算できる
+  - 正則接続係数の反正則微分から二階微分項と一階微分の二次項を導出できる
+  - Chern曲率の型定理を接束に適用して純正則・純反正則の曲率消失を確認できる
+  - Kähler閉性から正則二添字と反正則二添字の独立な交換則を証明できる
+  - Hermite対称性と逆行列の共役から曲率成分の共役関係を再現できる
+  - Kähler正規座標で二次項が消える一方で二階微分が残る理由を説明できる
+  - 一次元計量および二変数ポテンシャルで曲率を手計算できる
+  - 非KählerのChern曲率では添字対称性が崩れ得る機構を計算で示せる
+definitions:
+  - { id: KAH1-09-DEF-01, name: Kähler曲率テンソルの成分 }
+theorems:
+  - { id: KAH1-09-PROP-01, name: Kähler曲率の局所成分公式 }
+  - { id: KAH1-09-THM-01, name: Kähler曲率の複素添字対称性 }
+  - { id: KAH1-09-PROP-02, name: Kähler正規座標での曲率 }
+canonical_examples:
+  - 一定だが非単位のHermite計量は平坦
+  - 一次元非定数Kähler計量では原点の接続係数零でも曲率非零
+  - 二変数の交差ポテンシャルで複素添字対称性を実計算
+  - 非KählerのHermite計量ではChern曲率の正則添字交換が破れる
+problem_patterns:
+  - KAH1-09-SIGN-ORDER
+  - KAH1-09-CURVATURE-LOCAL-COMPONENTS
+  - KAH1-09-KAHLER-SYMMETRIES
+  - KAH1-09-NORMAL-COORDINATES
+  - KAH1-09-HERMITIAN-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
