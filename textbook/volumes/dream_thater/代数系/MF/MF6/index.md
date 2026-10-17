@@ -179,7 +179,7 @@ $$
 従って $g|_k\gamma=f|_kW_N\gamma=f|_k(W_N\gamma W_N^{-1})W_N=g$ です。さらに $W_N$ はカスプ集合を置換し、各カスプでの正則性と定数項の消失を保つので $g\in S_k(\Gamma_0(N))$ です。この最後の主張は[MF4の全カスプでの定義](../MF4/index.md#def-mf4-level-form)に関するもので、$\infty$ のみを調べた結論ではありません。
 
 <!-- definition-example-start: def-mf6-fricke -->
-**定義の確認**。$N=1$ なら $W_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は[MF1の生成元](../MF1/index.md#thm-mf1-st-generation) $S$ そのもので、レベル1の変換則により $f|_kW_1=f$ です。一般の $N$ では
+**定義の確認**。$N=1$ なら $W_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は[MF1の生成元](../MF1/index.md#thm-mf1-generators) $S$ そのもので、レベル1の変換則により $f|_kW_1=f$ です。一般の $N$ では
 
 $$
 W_N^2=-NI,\qquad (f|_kW_N)|_kW_N=f|_k(-NI)=(-1)^kf=f
