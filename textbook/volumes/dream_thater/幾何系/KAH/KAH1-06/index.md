@@ -181,19 +181,19 @@ $$
 
 ポテンシャルが実で滑らかであることから、[ポテンシャルからKähler形式が得られる命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)を適用できる。そのため、この形式は実 $(1,1)$ 型かつ閉である。次のように、外微分が零になることを計算でも確かめよう。
 
-$
+$$
 \partial^2=\bar\partial^2=0,
 \qquad
 \partial\bar\partial+\bar\partial\partial=0.
-$
+$$
 
 これを基本形式へ適用すると
 
-$
+$$
 \partial(i\partial\bar\partial\varphi)=0,
 \qquad
 \bar\partial(i\partial\bar\partial\varphi)=0
-$
+$$
 
 であり、両者の和は $d\omega_{\mathrm{FS}}=0$ を与える。複素座標は正則であるから複素構造は可積分である。$\square$
 <!-- proof-end -->
