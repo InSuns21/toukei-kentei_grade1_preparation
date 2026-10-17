@@ -73,7 +73,7 @@ $$
 
 [大域Fubini–Study形式の構成](../KAH1-07/index.md#thm-kah1-07-global-fs)より $\omega_{\mathrm{FS}}$ は実閉 $(1,1)$ 形式で正値である。引き戻しと共役は可換なので $f^*\omega_{\mathrm{FS}}$ も実形式である。正則性から $df(T^{1,0}X)\subset T^{1,0}\mathbb{CP}^N$、$df(T^{0,1}X)\subset T^{0,1}\mathbb{CP}^N$ だから引き戻しは $(1,1)$ 型を保つ。
 
-[引き戻しと外微分の可換性](../../GEO/GEO7/index.md#prop-geo7-pullback-commute-d)を $f$ と2形式 $\omega_{\mathrm{FS}}$ に適用すれば
+[引き戻しと外微分の可換性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を $f$ と2形式 $\omega_{\mathrm{FS}}$ に適用すれば
 
 $$
 d(f^*\omega_{\mathrm{FS}})
