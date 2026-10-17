@@ -1,0 +1,41 @@
+id: "KAH1-06"
+title: "Fubini–Study形式I（局所構成）"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-05
+  - CM1-01
+official_scope: []
+learning_objectives:
+  - 複素射影空間の同値類と標準チャートの座標を定義し遷移写像の正則性を証明できる
+  - 各チャートで対数ポテンシャルから局所Fubini–Study形式を構成できる
+  - 複素Hessianを全添字で微分し正のHermite行列を得られる
+  - Cauchy–Schwarz不等式から正値性を定量的に示し閉性を別々に検証できる
+  - 二次形式の半径方向と直交方向から固有値と行列式を導ける
+  - 複素一次元の実計量係数2を正しく扱い局所座標への引き戻しを計算できる
+  - 局所構成とチャート間貼り合わせ・大域規格化を区別できる
+definitions:
+  - { id: KAH1-06-DEF-01, name: 複素射影空間と標準チャート }
+  - { id: KAH1-06-DEF-02, name: 標準チャート上の局所Fubini–Study形式 }
+theorems:
+  - { id: KAH1-06-PROP-01, name: 標準チャートは複素アトラスを与える }
+  - { id: KAH1-06-THM-01, name: 局所Fubini–Study形式の正値性 }
+  - { id: KAH1-06-PROP-02, name: 局所Fubini–Study行列の固有値と行列式 }
+canonical_examples:
+  - CP1の代表元・二つの標準チャート・逆数座標
+  - CP2の三つの標準チャートと重なりの比
+  - 次元一のポテンシャルと実Riemann計量の係数2
+  - 次元二の軸上での二種類の固有値
+  - 正則線形写像による局所形式の引き戻し
+  - 対数型・二次型の混合ポテンシャルの全域正値性分類
+problem_patterns:
+  - KAH1-06-PROJECTIVE-CHARTS
+  - KAH1-06-HESSIAN-COEFFICIENTS
+  - KAH1-06-FS-POSITIVITY
+  - KAH1-06-EIGEN-DETERMINANT
+  - KAH1-06-COORDINATE-PULLBACK
+  - KAH1-06-RADIAL-PARAMETERS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
