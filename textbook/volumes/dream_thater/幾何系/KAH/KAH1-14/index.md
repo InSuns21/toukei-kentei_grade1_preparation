@@ -213,7 +213,21 @@ $$
 =\frac{Q\delta_{jk}-\bar z^jz^k}{Q^2}
 $$
 
-である。$v=\sum_jv^j\partial/\partial z^j\ne0$ に対してCauchy–Schwarzの不等式を用いると、
+である。$v=\sum_jv^j\partial/\partial z^j\ne0$ を取る。$z\ne0$ なら
+
+$
+\lambda=\frac{\sum_j\bar z^jv^j}{\sum_j|z^j|^2}
+$
+
+と置いて二乗和を展開すると
+
+$
+0\le\sum_j|v^j-\lambda z^j|^2
+=\|v\|^2-
+\frac{\left|\sum_j\bar z^jv^j\right|^2}{\|z\|^2}
+$
+
+である。従って $\left|\sum_j\bar z^jv^j\right|^2\le\|z\|^2\|v\|^2$ を得る。$z=0$ のときも同じ評価が成立する。これを用いれば、
 
 $$
 \begin{aligned}
