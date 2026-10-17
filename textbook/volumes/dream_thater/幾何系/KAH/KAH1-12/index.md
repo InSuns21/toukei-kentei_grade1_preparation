@@ -87,7 +87,7 @@ $$
 
 ### 証明の見取り図
 
-行列式束の接続は接束の接続行列の跡。正値行列のJacobi公式で跡を対数行列式に直し、$D^2$ を計算する。係数は一次元になったので接続1形式の自乗外積は零になる。
+行列式束の接続は接束の接続行列の跡。正値行列のJacobi公式で跡を対数行列式に直し、$D^2$ を計算する。行列式線束は階数一なので、そのChern接続の局所係数である1形式 $a_L$ の自乗外積は零になる。
 
 <!-- proof-start -->
 ### 証明
@@ -117,7 +117,7 @@ F_L&=d a_L+a_L\wedge a_L\\
 \end{aligned}
 $$
 
-最後に[行列式束の誘導曲率公式](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)より $F_L=\operatorname{tr}F_{T^{1,0}X}$ が得られる。曲率は枠変更の下で共役変換され、その跡は変わらない。ゆえに局所式は大域に貼り合う。$\square$
+[CM2-11の双対・テンソル積・行列式束の曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)を $E=T^{1,0}X$ に適用して $F_L=\operatorname{tr}F_{T^{1,0}X}$ が得られる。曲率は枠変更の下で共役変換され、その跡は変わらない。ゆえに局所式は大域に貼り合う。$\square$
 <!-- proof-end -->
 
 **直接例：平坦な二次元模型。** $\mathbb C^2$ で $G=\operatorname{diag}(2,3)$ とする。$g(v,\bar v)=2|v^1|^2+3|v^2|^2>0$ で正値、係数は定数なので基本形式は閉じておりKählerである。誘導行列は $\det H=6$、$a_L=\partial\log6=0$、$F_L=0$。大きさ $6$ は曲率ではない。曲率に寄与するのはその**変化率**である。
@@ -147,7 +147,7 @@ $F_L=\bar\partial\partial\log\det G$ と、$\rho=-i\partial\bar\partial\log\det 
 <!-- proof-start -->
 ### 証明
 
-[行列式束の同型](../../CM/CM2-08/index.md#prop-cm2-08-determinant-identities)で $L=\det T^{1,0}X\cong K_X^{-1}$。上の[行列式曲率公式](#prop-kah1-12-determinant-curvature)を用いると、
+[行列式束の同型](../../CM/CM2-08/index.md#prop-cm2-08-determinant-identities)で $L=\det T^{1,0}X\cong K_X^{-1}$。[本章の接束の行列式接続と曲率](#prop-kah1-12-determinant-curvature)を用いると、
 
 $$
 \begin{aligned}
@@ -328,7 +328,7 @@ $$
 c_1(K_X)=-c_1(\det T^{1,0}X)=-c_1(X).
 $$
 
-実形式については、[双対の曲率公式](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)より
+実形式については、[CM2-11の双対・テンソル積・行列式束の曲率](../../CM/CM2-11/index.md#prop-cm2-11-induced-curvature)を $L=K_X^{-1}$ に適用すると
 
 $$
 F_{K_X}=-F_{K_X^{-1}},\qquad
@@ -354,7 +354,7 @@ $$
 
 **平坦な複素トーラス**では一定計量の $\det G$ は定数だから $\rho=0$。さらに一定座標 $dz^1\wedge\cdots\wedge dz^n$ は格子平行移動で不変なので、標準束は大域非零正則枠を持ち、整数係数の $c_1(K_X)$ も零である。ここでは曲率消滅だけで標準束自明と結論しているのではなく、**枠を実際に構成**している。
 
-**射影空間**では $\rho=(n+1)\omega_{\mathrm{FS}}$ であり、$\mathbb{CP}^1$ 上の評価は $n+1$。従って $c_1(X)_{\mathbb R}\ne0$ である。これはコンパクトKähler多様体全般について「Ricci形式はいつも正」という意味ではない。
+**複素射影空間 $\mathbb{CP}^n$** では $\rho=(n+1)\omega_{\mathrm{FS}}$ であり、$\mathbb{CP}^1$ 上の評価は $n+1$。従って $c_1(X)_{\mathbb R}\ne0$ である。これはコンパクトKähler多様体全般について「Ricci形式はいつも正」という意味ではない。
 
 本章の結論は、Ricci形式が表すのは計量の局所的な二階微分だけでなく、正則接束の行列式束の**大域的な貼り合わせ障害**であるということだ。ただし $[\rho]=0$ から特定の計量で $\rho=0$ とは言えず、Ricci平坦計量の存在はさらに深い問題となる。
 
@@ -404,7 +404,7 @@ $$
 $\mathbb C$ 上のKähler計量 $g_{z\bar z}=e^{-|z|^2}$ のRicci形式と、反標準束の第一Chern形式を求めよ。実2形式としての符号も確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** $g_{z\bar z}>0$、複素一次元では基本実2形式の外微分は次数3なので零。したがってKähler計量である。$\log G=-z\bar z$ より $\partial_z\partial_{\bar z}\log G=-1$。[Ricci公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)を使い
+**詳細解答。** $g_{z\bar z}>0$、複素一次元では基本実2形式の外微分は次数3なので零。したがってKähler計量である。$\log G=-z\bar z$ より $\partial_z\partial_{\bar z}\log G=-1$。[Ricci形式の局所行列式公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)を使い
 
 $$
 \rho=i\,dz\wedge d\bar z=2\,dx\wedge dy.
@@ -503,7 +503,7 @@ $$
 
 $X=\mathbb{CP}^n$ ($n\ge1$) のFubini–Study計量と、$T=\mathbb C^m/\Lambda$ ($m\ge1$、$\Lambda$ は複素ベクトル空間の格子) の一定係数Kähler計量を考える。
 
-1. $X$ のRicci形式と、任意の標準埋め込み $\mathbb{CP}^1\hookrightarrow X$ 上の $\int c_1(K_X^{-1})$ を求めよ。
+1. $X$ のRicci形式と、最初の2つの斉次座標以外を零にして得る包含 $\mathbb{CP}^1\hookrightarrow X$ 上の $\int c_1(K_X^{-1})$ を求めよ。
 2. $T$ の標準束が正則に自明であることを、枠の降下から示せ。
 3. 積 $X\times T$ の標準束の第一Chern形式を積計量で求めよ。
 4. 「$[\rho]=0$ なら標準束に非零大域正則枠がある」と結論してよいか、必要な区別を答えよ。
@@ -523,7 +523,7 @@ $$
 
 第2問：$\mathbb C^m$ の正則 $m$ 形式 $\kappa=dz^1\wedge\cdots\wedge dz^m$ は非零で、格子平行移動 $z\mapsto z+\lambda$ のJacobianが $I_m$ なので不変。したがって商 $T$ に非零の大域正則枠として降りる。ゆえに $K_T$ は正則に自明であり、整数係数の第一Chern類も零である。
 
-第3問：積の正則接束とその計量はブロック対角。$\det G_{X\times T}=(\det G_X)(\det G_T)$ で $\det G_T$ は正の定数。[Ricci公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)より
+第3問：積の正則接束とその計量はブロック対角。$\det G_{X\times T}=(\det G_X)(\det G_T)$ で $\det G_T$ は正の定数。[Ricci形式の局所行列式公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)より
 
 $$
 \rho_{X\times T}
