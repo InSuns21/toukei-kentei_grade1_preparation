@@ -167,9 +167,9 @@ $$
 > **定義（点におけるKähler正規座標）**  
 > 複素多様体 $X$ 上の滑らかなKähler計量 $g$ と点 $p\in X$ に対し、$p$ の正則座標 $w$ が $w(p)=0$、$g_{a\bar b}(p)=\delta_{ab}$、かつすべての $a,b,c$ について
 >
-$
+$$
 \partial_cg_{a\bar b}(p)=\partial_{\bar c}g_{a\bar b}(p)=0.
-$
+$$
 
 > この条件を満たす $w$ を $p$ における（一階の）**Kähler正規座標**という。
 <!-- formal-statement-end -->
@@ -244,11 +244,11 @@ $$
 > **命題（Kähler条件と正則一階正規化）**  
 > $X$ を複素多様体、$g$ を滑らかな正値Hermite計量とする。各点 $p$ において、ある正則座標が存在して次の条件を満たすことと、$g$ がKähler計量であることは同値である。
 
-$
+$$
 g_{a\bar b}(p)=\delta_{ab},\qquad
 \partial_cg_{a\bar b}(p)=0
 \quad(1\le a,b,c\le n).
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
