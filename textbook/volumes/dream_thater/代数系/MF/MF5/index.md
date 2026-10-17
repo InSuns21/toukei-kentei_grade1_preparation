@@ -157,7 +157,19 @@ $$
 となる。指数は非負の整数であり、負の $q$ 冪は現れないから $\infty$ で正則である。レベル1には[カスプ軌道がただ一つ](../MF1/index.md#thm-mf1-one-cusp-orbit)なので全カスプで正則、すなわち $T_nf\in M_k$。$m=0$ では $\gcd(0,n)=n$ と定め、定数項の公式を得る。$a_0=0$ ならその定数項も0なので $S_k$ も保たれる。
 <!-- proof-end -->
 
-**使用例：$E_4$ と $\Delta$**。[Eisenstein級数の展開](../MF2/index.md#thm-mf2-eisenstein-q)から $E_4=1+240q+2160q^2+\cdots$ です。定数項と$q$係数を比べると、重さ4で $T_2E_4=(1+2^3)E_4=9E_4$ となります。これは[レベル1の次元公式](../MF3/index.md#thm-mf3-dimension)で $\dim M_4=1$ であることとも整合します。一方 $\Delta=q-24q^2+252q^3+\cdots$ は重さ12のカスプ形式で、[同じ次元公式](../MF3/index.md#thm-mf3-dimension)より $\dim S_{12}=1$ ですから $T_2\Delta=-24\Delta$ です。この係数の意味は第6節で導きます。
+**使用例：$E_4$ と $\Delta$**。[Eisenstein級数の展開](../MF2/index.md#thm-mf2-eisenstein-q)から
+$$
+E_4=1+240q+2160q^2+\cdots
+$$
+です。重さ4では[レベル1の次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim M_4=1$ です。定数項を比べると $T_2E_4$ の固有値は $1+2^3=9$ なので
+$$
+T_2E_4=9E_4.
+$$
+一方、$\Delta=q-24q^2+252q^3+\cdots$ は重さ12のカスプ形式です。同じ[次元公式](../MF3/index.md#thm-mf3-dimension)から $\dim S_{12}=1$ なので、$q$ の一次係数を比較して
+$$
+T_2\Delta=-24\Delta
+$$
+が従います。後の第5節では、この係数と固有値の一致を一般に証明します。
 
 ## 3. レベルがあるとき：$T_p$ と $U_p$ を区別する
 
@@ -334,7 +346,20 @@ $$
 > と定める。第1変数を線形、第2変数を共役線形とする。
 <!-- formal-statement-end -->
 
-[MF1 の上半平面作用](../MF1/index.md#thm-mf1-imaginary-action)を使うと $\operatorname{Im}(\gamma\tau)=y/|c\tau+d|^2$ であり、$dx\,dy/y^2$ は不変です。両者の変換則で生じる $|c\tau+d|^{2k}$ と $y^k$ の変化が打ち消し合うため、積分は基本領域の取り方に依存しません。カスプ形式では $f,g=O(e^{-2\pi y})$（$y$ が大きい領域）であり、積分の絶対値は $O(e^{-4\pi y}y^{k-2})$ の積分で抑えられるので収束します。$f\ne0$ なら開集合で $|f|>0$ なので $\langle f,f\rangle>0$ です。一般の Eisenstein 級数までこの収束論法で扱ってはいけません。
+[MF1 の上半平面作用](../MF1/index.md#thm-mf1-imaginary-action)によれば、$\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\Gamma$ に対して
+$$
+\operatorname{Im}(\gamma\tau)=\frac{y}{|c\tau+d|^2},
+\qquad d\mu=\frac{dx\,dy}{y^2}
+$$
+であり、$d\mu$ は不変です。$f,g$ の重さ $k$ の変換則が生む $|c\tau+d|^{2k}$ と $y^k$ の変化は打ち消し合います。そのため被積分式は $\Gamma$ 不変で、積分値は基本領域の選択に依存しません。
+
+カスプ形式では、上半平面の高さ $y$ が大きいとき $f,g=O(e^{-2\pi y})$ です。したがって絶対値で評価した被積分式は
+$$
+O(e^{-4\pi y}y^{k-2})\,dx\,dy
+$$
+となり、カスプで積分可能です。また $f\ne0$ なら正則性から $|f|>0$ となる開集合があるため $\langle f,f\rangle>0$ です。
+
+一般の Eisenstein 級数には定数項があり、同じ収束論法は使えません。
 
 <!-- definition-example-start: def-mf5-petersson -->
 **定義の確認**。$\Delta\in S_{12}$ なら
@@ -422,11 +447,13 @@ a_pa_{p^r}f
 $$
 よって所望の漸化式を得る。
 
-最後に $S_k$ は有限次元であり、[Hecke合成則](#thm-mf5-hecke-algebra)により $T_n$ は可換、[Petersson自己随伴性](#thm-mf5-self-adjoint)により各 $T_n$ は自己随伴である。ここで必要な有限次元の固有ベクトルの存在を確認する。任意の非零な有限次元複素内積空間 $W$ 上の自己随伴作用素 $T$ に対し、単位球面はコンパクトであり、実数値の連続関数 $\langle Tv,v\rangle$ は最大値 $\lambda$ を単位ベクトル $v$ で取る。$w\perp v$ として実数 $t$ に沿って
-$
+最後に $S_k$ の有限次元性は[次元公式](../MF3/index.md#thm-mf3-dimension)から従います。[Hecke合成則](#thm-mf5-hecke-algebra)によって作用素 $T_n$ は可換であり、[Petersson自己随伴性](#thm-mf5-self-adjoint)によって自己随伴です。
+
+まず有限次元複素内積空間 $W$ 上の自己随伴作用素 $T$ の固有ベクトルの存在を導きます。単位球面はコンパクトなので、実数値の連続関数 $\langle Tv,v\rangle$ はある単位ベクトル $v$ で最大値 $\lambda$ を取ります。$w\perp v$ を取り、実数 $t$ で次の変分を計算します。
+$$
 R(t)=\frac{\langle T(v+tw),v+tw\rangle}{\|v+tw\|^2}
 =\frac{\lambda+2t\operatorname{Re}\langle Tw,v\rangle+t^2\langle Tw,w\rangle}{1+t^2\|w\|^2}
-$
+$$
 を考える。最大点 $t=0$ で $R'(0)=2\operatorname{Re}\langle Tw,v\rangle=0$。$w$ を $iw$ に置き換えると虚部も零である。従って $\langle w,Tv\rangle=0$ がすべての $w\perp v$ について成り立ち、$Tv=\lambda v$。自己随伴性より $v^\perp$ は $T$ で不変なので、次元に関する帰納法で $T$ の直交固有基底を構成できる。
 
 次に可換族を同時対角化する。$T_2$ の固有空間へ直交分解すると、可換性から各固有空間はすべての $T_n$ で不変であり、制限作用素も自己随伴である。固有空間が次元2以上なら、その内部で別の $T_n$ の固有空間分解を行う。各段階で共通不変部分空間が真に分割される場合は次元が減るから、有限次元性により有限回で止まる。最後にすべての $T_n$ がスカラー倍として作用する共通固有空間だけが残り、同時固有ベクトルから成る直交基底が得られる。
