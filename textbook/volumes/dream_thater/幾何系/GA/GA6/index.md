@@ -16,7 +16,7 @@ $k<0$ または $k>n$ の形式は $0$ と約束します。
 
 ## 1. 外微分を内積の側から逆向きにする
 
-外微分は次数を $1$ 上げます。直交分解を考えるには、次数を $1$ 下げる演算も要ります。まず各接空間の内積が外積空間 $\Lambda^kT_x^*M$ に誘導する内積を使います。向きに整合した正規直交余標構 $(e^1,\ldots,e^n)$ を選ぶと、添字が昇順の $e^{i_1}\wedge\cdots\wedge e^{i_k}$ はこの内積の正規直交基底です。
+外微分は次数を $1$ 上げます。直交分解を考えるには、次数を $1$ 下げる演算も要ります。まず[既習のRiemann計量](../../GEO/GEO12/index.md#def-geo12-riemannian-metric)が各余接空間に定める内積を外積空間へ延長し $\Lambda^kT_x^*M$ に誘導する内積を使います。向きに整合した正規直交余標構 $(e^1,\ldots,e^n)$ を選ぶと、添字が昇順の $e^{i_1}\wedge\cdots\wedge e^{i_k}$ はこの内積の正規直交基底です。
 
 ある $k$ 形式に残りの $(n-k)$ 個の余標構を符号付きで補い、体積形式にする演算が必要です。これは[外積の交代性](../../GEO/GEO7/index.md#prop-geo7-wedge-laws)と向き、計量の三者から決まります。
 
@@ -207,19 +207,38 @@ $d(dx)=0$ は[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-z
 
 [GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。
 
-ここでの **主記号** は、局所的な微分作用素の最高階部分で、Fourier変換の規約に従い $\partial_j$ を $i\xi_j$ に置き換えた線形写像です。
+ここでの **主記号** は、局所的な微分作用素の最高階部分で、Fourier変換の規約に従い微分を $i\xi$ に置き換えて得る線形写像です。$\iota_X$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で共変ベクトル $\xi$ から得るベクトルを表します。
 
-形式 $v$ に対して、外微分 $d$ の主記号は $i\xi\wedge v$、余微分 $\delta$ の主記号は $-i\iota_{\xi^\sharp}v$ です。
+なぜ形式の作用素を外積と内部積で判定できるのでしょうか。局所正規直交余標構 $e^1,\ldots,e^n$ と双対標構 $e_1,\ldots,e_n$ を取り、$u=\sum_Iu_Ie^I$ と書きます。外微分では
 
-従って二つの合成 $d\delta+\delta d$ の主記号は $|\xi|_g^2I$ になります。
+$
+du=\sum_{j,I}e_j(u_I)e^j\wedge e^I+\sum_Iu_I\,de^I.
+$
 
-$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
+後の和は係数 $u_I$ の微分を含まない零階項です。一方、基底形式について $\langle e^j\wedge a,b\rangle=\langle a,\iota_{e_j}b\rangle$ が成立します。これを[余微分の随伴関係](#prop-ga6-adjoint)へ入れて部分積分すると、$\delta$ の最高階部分は $-\sum_j\iota_{e_j}e_j(u_I)$ の形になります。つまり各微分方向の外積と内部積は互いの随伴であり、負号は部分積分から出ます。
+
+従って $\xi=\sum_j\xi_je^j$ に沿う主記号はそれぞれ
+
+$
+\sigma_d(\xi)v=i\,\xi\wedge v,\qquad
+\sigma_\delta(\xi)v=-i\,\iota_{\xi^\sharp}v.
+$
+
+これらを合成した $\Delta_H=d\delta+\delta d$ の主記号は
+
+$
+\sigma_{\Delta_H}(\xi)v
+=\iota_{\xi^\sharp}(\xi\wedge v)+\xi\wedge\iota_{\xi^\sharp}v
+=|\xi|_g^2v.
+$
+
+最後の恒等式は直後の補題で、正規直交基底に分けて確かめます。これにより、抽象的な[Hodge Laplacianの定義](#def-ga6-hodge-laplacian)から楕円型判定に使う主記号までの対応が明示されました。
 
 <a id="lem-ga6-elliptic"></a>
 
 <!-- formal-statement-start -->
 > **補題（Hodge作用素の楕円型評価）**  
-> $M$ を滑らかなコンパクト境界なしRiemann多様体とする。各次数の滑らかな形式 $\omega$ に対し定数 $C_m$ が存在して
+> $M$ を滑らかな向き付けられたコンパクト境界なしRiemann多様体とする。各次数の滑らかな形式 $\omega$ に対し定数 $C_m$ が存在して
 >
 $$
 \|\omega\|_{H^1}\le C_0\bigl(\|d\omega\|_2+\|\delta\omega\|_2+\|\omega\|_2\bigr),
@@ -239,14 +258,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\xi\ne0$ で $\xi^\sharp$ を第一軸とする正規直交基底を選び、$v=e^1\wedge a+b$ と書きます。$a,b$ は互いに直交し、$\xi\wedge v=|\xi|e^1\wedge b$、$\iota_{\xi^\sharp}v=|\xi|a$ なので
+$\xi\ne0$ で $\xi^\sharp$ を第一軸とする正規直交基底を選び、$v=e^1\wedge a+b$ と書きます。ここで $a$ は第一軸を含まない $(k-1)$ 形式、$b$ は第一軸を含まない $k$ 形式です。互いに直交するのは $e^1\wedge a$ と $b$ で、$|v|^2=|a|^2+|b|^2$ です。$\xi\wedge v=|\xi|e^1\wedge b$、$\iota_{\xi^\sharp}v=|\xi|a$ なので
 
 $$
 |\xi\wedge v|^2+|\iota_{\xi^\sharp}v|^2
 =|\xi|^2(|b|^2+|a|^2)=|\xi|^2|v|^2.
 $$
 
-これは $\iota_{\xi^\sharp}(\xi\wedge v)+\xi\wedge\iota_{\xi^\sharp}v=|\xi|^2v$ も示します。従って $d\delta+\delta d$ の二階主記号は $|\xi|^2I$ です。
+主記号の作用素恒等式も個々の成分で確かめます。上の分解について
+
+$
+\iota_{\xi^\sharp}(\xi\wedge v)=|\xi|^2b,\qquad
+\xi\wedge\iota_{\xi^\sharp}v=|\xi|^2e^1\wedge a
+$
+
+なので、その和は $|\xi|^2v$ です。従って $d\delta+\delta d$ の二階主記号は $|\xi|^2I$ で、$\xi\ne0$ なら可逆です。
 
 まずEuclid座標の**定数係数**の場合を確認します。コンパクト台をもつ係数ベクトル $u$ のFourier変換に上の等式を $\xi$ ごとに適用し、Parsevalで積分すると
 
@@ -276,7 +302,15 @@ $$
 
 これを一階低いノルムへ帰着して $m$ を帰納させると二番目の評価が得られます。
 
-弱解の場合は差分商でこの操作を行ってから極限を取り、同じ評価で弱 $H^{m+2}$ 正則性を得ます。
+弱解にも適用できることを確かめます。$u\in H^1$ が $(I+\Delta_H)u=f\in L^2$ を弱い意味で満たすとし、座標内で $D_hu(x)=(u(x+he_j)-u(x))/h$ を取ります。滑らかな切断関数 $\chi$ を掛けた差分商に対し、弱形式の試験形式として $-D_{-h}(\chi^2D_hu)$ を代入します。差分商の部分積分と、最高階係数の一様正値性から
+
+$
+c\|\chi\nabla D_hu\|_2^2
+\le C(\|f\|_2+\|u\|_{H^1})
+\bigl(\|\chi\nabla D_hu\|_2+\|u\|_{H^1}\bigr)
+$
+
+を得ます。係数や $\chi$ に微分が当たる交換項は、滑らかさと $\|D_hu\|_2\le\|\nabla u\|_2$ で抑えています。Youngの不等式で右辺の勾配項を吸収すると $D_hu$ の局所 $H^1$ ノルムが $h$ に依らず有界になります。弱収束部分列を取り $h\to0$ とすると二階弱微分が $L^2$ に入り、$u\in H^2_{\mathrm{loc}}$ です。有限個の座標と1の分割で大域の $H^2$ 評価に移ります。$f\in H^m$ なら、係数との交換項を明示した前段の微分計算にこの議論を繰り返し、$u\in H^{m+2}$ を帰納的に得ます。
 
 コンパクト性による有限近傍と係数の有界性が全体の定数を保証します。
 <!-- proof-end -->
