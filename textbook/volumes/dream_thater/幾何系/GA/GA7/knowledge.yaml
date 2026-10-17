@@ -36,8 +36,13 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [geometric-analysis.integrated-weitzenbock, geometric-analysis.hodge-de-rham]
+  - id: geometric-analysis.hessian-trace
+    name: Hessianのトレース不等式
+    kind: lemma
+    introduction: formal
+    requires: [geometry.riemannian-metric]
   - id: geometric-analysis.lichnerowicz-bound
     name: Lichnerowiczの第一固有値下界
     kind: theorem
     introduction: formal
-    requires: [geometric-analysis.scalar-bochner, geometric-analysis.laplacian-spectral, geometry.ricci-curvature]
+    requires: [geometric-analysis.scalar-bochner, geometric-analysis.hessian-trace, geometric-analysis.laplacian-spectral, geometry.ricci-curvature]
