@@ -39,7 +39,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-class -->
-**定義の確認**（複素平面）。$X=\mathbb C$ の $z=x+iy$ について $\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ と置く。$dz\wedge d\bar z$ は $(1,1)$ 型であり、共役を取ると $\overline{i\,dz\wedge d\bar z}=-i\,d\bar z\wedge dz=i\,dz\wedge d\bar z$ なので実形式である。また $v=v^z\partial_z\ne0$ には $-i\omega_0(v,\bar v)=|v^z|^2>0$。実2次元上の3形式は零なので $d\omega_0=0$。従って型・実性・正値性・閉性のすべてを満たすKähler形式である。ただし
+**定義の確認**（複素平面）。$X=\mathbb C$ の $z=x+iy$ について
+
+$$
+\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy
+$$
+
+と置く。$dz\wedge d\bar z$ は $(1,1)$ 型であり、複素共役を取ると
+
+$$
+\overline{i\,dz\wedge d\bar z}
+=-i\,d\bar z\wedge dz
+=i\,dz\wedge d\bar z
+$$
+
+なので実形式である。また $v=v^z\partial_z\ne0$ に対して
+
+$$
+-i\omega_0(v,\bar v)=|v^z|^2>0.
+$$
+
+実2次元上の3形式は零なので $d\omega_0=0$。こうして型・実性・正値性・閉性の全条件を満たすKähler形式である。ただし
 
 $$
 \alpha=x\,dy-y\,dx,\qquad
@@ -147,7 +167,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-representable-subspace -->
-**定義の確認**。 上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取れば、$s\eta_1+t\eta_2$ も同じ型・実性・閉性を保つから、$s[\eta_1]+t[\eta_2]\in V_J$。一方 $-\omega_{\mathrm{FS}}$ も実閉 $(1,1)$ 形式なので $-[\omega_{\mathrm{FS}}]\in V_J$ であるが、この類はKähler類ではない。仮に正の代表 $\theta$ があれば、$\mathbb{CP}^1$ 上では $\int\theta>0$。しかし $\theta+\omega_{\mathrm{FS}}=d\gamma$ と[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+**定義の確認**。上の $\mathbb{CP}^1$ では $[\omega_{\mathrm{FS}}]\in V_J$ である。二つの閉実 $(1,1)$ 形式 $\eta_1,\eta_2$ と実数 $s,t$ を取ると、その実線形結合も同じ型・実性・閉性を満たす。従って
+
+$$
+s[\eta_1]+t[\eta_2]=[s\eta_1+t\eta_2]\in V_J.
+$$
+
+一方 $-\omega_{\mathrm{FS}}$ も実閉 $(1,1)$ 形式なので $-[\omega_{\mathrm{FS}}]\in V_J$ だが、この類はKähler類ではない。
+
+仮に正の代表 $\theta$ があれば、$\mathbb{CP}^1$ の正の面積形式だから $\int_{\mathbb{CP}^1}\theta>0$。しかし同じde Rham類なら $\theta+\omega_{\mathrm{FS}}=d\gamma$ と書け、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
 
 $$
 \int_{\mathbb{CP}^1}\theta
