@@ -282,7 +282,7 @@ $p=2$ の場合、有限個の $W^{k,2}$ 内積を足したものがこのノル
 
 ## 4. Sobolev埋め込みとRellichのコンパクト性を多様体へ移す
 
-局所座標上では切断した関数 $w_i$ の台がコンパクトです。最初の座標近傍を必要なだけ細分し、各座標像 $\Omega_i=B_i$ を有界なEuclid球に選んでおけば、$w_i\in H^1_0(B_i)$ です。これは台が球の境界から正の距離だけ離れており、零延長の弱微分に境界項が生じないためです。この準備が既習のEuclid定理の仮定確認です。
+局所座標上では切断した関数 $w_i$ の台がコンパクトです。最初の座標近傍を必要なだけ細分し、各座標像 $\Omega_i=B_i$ を有界なEuclid球に選んでおけば、$w_i\in H^1_0(B_i)$ です。これは $\operatorname{supp}w_i\Subset B_i$ のため、[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)により $w_i$ を $C_c^\infty(B_i)$ の関数で $H^1$ 近似でき、[GPDE5の $H_0^1$ の定義](../../../解析系/GPDE/GPDE5/index.md#def-gpde5-w01p)を満たすからです。零延長でも球の境界にジャンプを作りません。この準備が既習のEuclid定理の仮定確認です。
 
 <a id="thm-ga2-embedding"></a>
 <!-- formal-statement-start -->
