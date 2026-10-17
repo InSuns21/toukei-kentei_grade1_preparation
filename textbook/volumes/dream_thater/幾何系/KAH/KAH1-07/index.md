@@ -525,7 +525,18 @@ $$
 =\frac{\lambda_0\lambda_1}{T^2}>0.
 $$
 
-従って $U_0\cup U_1=\mathbb{CP}^1$ の全点で正値である。両チャートで滑らかな実 $(1,1)$ 形式をポテンシャルから構成しており、$d=\partial+\bar\partial$ と $\partial^2=\bar\partial^2=0$ より $d\Omega=0$ である。実座標では $\Omega=2\lambda_0\lambda_1S^{-2}\,dx\wedge dy$。極座標積分で
+従って $U_0\cup U_1=\mathbb{CP}^1$ の全点で正値である。閉性も、両チャートで滑らかな実 $(1,1)$ 形式をポテンシャルから作ったことに基づく。実際、$d=\partial+\bar\partial$、$\partial^2=\bar\partial^2=0$、$\bar\partial\partial=-\partial\bar\partial$ を順に使うと
+
+$$
+\begin{aligned}
+d\Omega
+&=i(\partial+\bar\partial)\partial\bar\partial\Phi_a\\
+&=i\bigl(\partial^2\bar\partial\Phi_a
+ -\partial\bar\partial^2\Phi_a\bigr)=0
+\end{aligned}
+$$
+
+となり、大域形式も閉じている。実座標では $\Omega=2\lambda_0\lambda_1S^{-2}\,dx\wedge dy$。極座標積分で
 
 $$
 \begin{aligned}
