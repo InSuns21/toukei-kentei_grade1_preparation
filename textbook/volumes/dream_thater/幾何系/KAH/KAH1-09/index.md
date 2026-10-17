@@ -131,7 +131,16 @@ $$
 
 二階微分の順序を交換できるのは成分関数が滑らかだからである。
 
-[Kähler接続とChern接続の一致](../KAH1-03/index.md#thm-kah1-03-main-equivalence)により、$\nabla$ の $T^{1,0}X$ 上の作用は正則Hermite束 $T^{1,0}X$ のChern接続に等しい。[Chern曲率の $(1,1)$ 型定理](../../CM/CM2-11/index.md#thm-cm2-11-chern-type)をこの正則Hermite束へ適用すると、曲率の $(2,0)$ 型と $(0,2)$ 型の成分は零である。すなわち $R(\partial_i,\partial_j)$ と $R(\partial_{\bar i},\partial_{\bar j})$ は $T^{1,0}$ 上で零となる。混合方向の結果は上の式から $T^{1,0}$ にとどまる。$\square$
+[Kähler接続とChern接続の一致](../KAH1-03/index.md#thm-kah1-03-main-equivalence)により、$\nabla$ の $T^{1,0}X$ 上の作用は正則Hermite束のChern接続に等しい。適用先は正則接束 $E=T^{1,0}X$ である。
+
+[Chern曲率の $(1,1)$ 型定理](../../CM/CM2-11/index.md#thm-cm2-11-chern-type)をこの束へ適用すると、曲率の純正則型と純反正則型の成分が零である。具体的には
+
+$
+R(\partial_i,\partial_j)|_{T^{1,0}X}=0,\qquad
+R(\partial_{\bar i},\partial_{\bar j})|_{T^{1,0}X}=0.
+$
+
+混合方向の曲率は先に導出した局所式により、正則接ベクトルを正則接ベクトルへ写す。以上で命題を示した。$\square$
 <!-- proof-end -->
 
 **一次元での符号確認。** $n=1$ として $g=g_{z\bar z}>0$ と書くと
@@ -390,7 +399,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-kah1-09-a03"></a>
-#### KAH1-09-A03 正規座標で消えるもの
+#### KAH1-09-A03 Kähler正規座標で消えるもの
 - Level: A
 
 点 $p$ で $g_{i\bar j}(p)=\delta_{ij}$ と全一階微分零を仮定する。曲率公式のどの項が消えるか、二階微分も零と結論できるか説明せよ。
