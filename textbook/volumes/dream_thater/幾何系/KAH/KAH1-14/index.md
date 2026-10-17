@@ -111,11 +111,11 @@ $$
 
 となる。これは整数性の必要条件である。さらに代表を完全形式だけ変えて $\eta'=\eta+d\alpha$ とすると、閉曲面での積分は[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
-$
+$$
 \int_\Sigma u^*\eta'-\int_\Sigma u^*\eta
 =\int_\Sigma d(u^*\alpha)
 =\int_{\partial\Sigma}u^*\alpha=0
-$
+$$
 
 となる。したがって周期は代表の選び方ではなく、de Rham類の値である。逆向きの一般的な判定は積分サイクルやde Rham定理を使うので、ここではこの条件だけから一般の整数類の存在を推論しない。
 
@@ -635,16 +635,16 @@ $$
 
 まず $u_0v_0\ne0$ で $z=u_1/u_0$、$w=v_1/v_0$ と取ると、像の座標は
 
-$
+$$
 (z,w)\longmapsto(w,z,zw)
-$
+$$
 
 となる。像は $Z_0Z_3=Z_1Z_2$ を満たす。$Z_0\ne0$ の部分では、逆に $(Z_1/Z_0,Z_2/Z_0)=(w,z)$ から元の点を復元できる。微分を接方向 $(\delta z,\delta w)$ に作用させると
 
-$
+$$
 (\delta z,\delta w)\longmapsto
 (\delta w,\delta z,w\delta z+z\delta w)
-$
+$$
 
 であり、最初の二成分が同時に零となるのは $\delta z=\delta w=0$ のときだけなので単射である。他の三つの標準チャートでも、非零な同次座標の組を選び直して同じ計算を行える。
 
