@@ -1,0 +1,30 @@
+chapter: KAH1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-10
+concepts:
+  - id: kahler.jacobi-determinant-derivative
+    name: Jacobiの行列式微分公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Jacobiの行列式微分公式）"]
+    requires: []
+  - id: kahler.ricci-determinant-formula
+    name: Ricci形式の局所行列式公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ricci形式の局所行列式公式）"]
+    requires: [kahler.jacobi-determinant-derivative, kahler.ricci-contraction, kahler.curvature-local-formula]
+  - id: kahler.ricci-coordinate-invariance
+    name: Ricci形式の座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Ricci形式の座標不変性）"]
+    requires: [kahler.ricci-determinant-formula]
+  - id: kahler.ricci-closedness
+    name: Ricci形式の閉性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ricci形式の閉性）"]
+    requires: [kahler.ricci-coordinate-invariance, kahler.ricci-determinant-formula]

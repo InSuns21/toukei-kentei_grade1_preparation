@@ -48,7 +48,7 @@ chapters:
     title: "曲率の具体計算"
   - id: KAH1-11
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-11
-    status: planned
+    status: completed
     title: "Ricci形式の局所導出"
   - id: KAH1-12
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-12
