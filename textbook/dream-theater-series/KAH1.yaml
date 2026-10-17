@@ -60,8 +60,8 @@ chapters:
     title: "Kähler classと正値性"
   - id: KAH1-14
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-14
-    status: planned
-    title: "射影多様体・整数classとの境界"
+    status: completed
+    title: "射影多様体と整数Kähler類"
   - id: KAH1-15
     path: textbook/volumes/dream_thater/幾何系/KAH/KAH1-15
     status: planned
