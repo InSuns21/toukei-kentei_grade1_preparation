@@ -17,7 +17,7 @@ $$
 -i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}v^j\overline{v^k}
 $$
 
-と約束する。この右辺が非零な $v\in T^{1,0}_pX$ のすべてに対して正となることが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の定義であり、単なる「閉形式」とは独立の条件である。
+と約束する。実際、$v=\sum_jv^j\partial/\partial z^j$ に対し $dz^j(v)=v^j$、$d\bar z^k(\bar v)=\overline{v^k}$ で、交差する評価は零だから、外積を $(v,\bar v)$ に作用させると表示した二次形式になる。[正値Hermite行列との対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、すべての非零 $v$ でこの値が正であることと、係数行列 $G=(g_{j\bar k})$ の正値性は同値である。これが[正の実 $(1,1)$ 形式](../KAH1-02/index.md#def-kah1-02-positive-form)の判定法であり、閉性 $d\omega=0$ は独立に確認する。
 
 ## 2. Kähler類を定義する
 
@@ -53,15 +53,16 @@ $$
 
 ## 3. Kähler cone とその凸性
 
-異なるKähler形式の係数を足すと、各点で正のHermite行列を足すことになる。二つの正値行列 $G_1,G_2$ に対し、非零ベクトル $v$ について
+異なるKähler形式を足すと、同じ正則座標での係数行列も足される。$\omega_r=i\sum_{j,k}(G_r)_{j\bar k}\,dz^j\wedge d\bar z^k$ ($r=1,2$) なら、外積を $(v,\bar v)$ に評価する第1節の計算から
 
 $$
-v^*(aG_1+bG_2)v
-=a\,v^*G_1v+b\,v^*G_2v>0
-\qquad(a,b>0)
+-i(a\omega_1+b\omega_2)(v,\bar v)
+=v^{\mathsf T}(aG_1+bG_2)\bar v
+=a\,v^{\mathsf T}G_1\bar v+b\,v^{\mathsf T}G_2\bar v>0
+\qquad(a,b>0,\;v\ne0)
 $$
 
-となる。この点ごとの性質と、外微分の線形性を同時に使う。
+となる。係数行列による[正値判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と、元の形式の定義が対応している。閉性は別に外微分の線形性から従う。
 
 <a id="def-kah1-13-cone"></a>
 
@@ -144,7 +145,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（実閉(1,1)形式で表せる部分空間）**  
-> 複素多様体 $(X,J)$ に対し、上式の $V_J$ を、実閉 $(1,1)$ 形式で代表できるde Rham類の部分空間とする。「$\mathcal K_X$ が相対的に開」とは、$V_J$ を実有限次元ベクトル空間として通常の位相を入れたとき、$\mathcal K_X\subset V_J$ が開集合であることをいう。
+> 複素多様体 $(X,J)$ に対し、上式の $V_J$ を、実閉 $(1,1)$ 形式で代表できるde Rham類の部分空間とする。$V_J$ が有限次元の場合、「$\mathcal K_X$ が $V_J$ に相対的に開」とは、その通常の実有限次元ベクトル空間位相で $\mathcal K_X\subset V_J$ が開集合であることをいう。有限次元性をまだ仮定しない場合は、次の定理のように有限次元方向ごとに述べる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-13-representable-subspace -->
