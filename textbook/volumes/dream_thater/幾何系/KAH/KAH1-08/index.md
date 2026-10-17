@@ -153,11 +153,11 @@ $$
 
 この線形正規化を、行列が何を表すかまで確認しておく。$p$ の正則座標 $z$ の基底 $\partial_j$ に対する[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)は $H_{\ell j}(p)=g_{j\bar\ell}(p)$ であり、任意の非零係数列 $v$ について $v^*H(p)v>0$ を満たす。有限次元の正値Hermite行列なので、既習の[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から正値で可逆な平方根が得られる。定数行列 $B=H(p)^{-1/2}$ を使い、座標を次のように取り直す。
 
-$
+$$
 z^i=z^i(p)+B^i{}_a u^a,\qquad
 H^{(u)}(p)=B^*H(p)B=I,\qquad
 g^{(u)}_{a\bar b}(p)=\delta_{ab}.
-$
+$$
 
 二つ目の等式は、$e^{(u)}_a=B^i{}_a\partial_i$ という基底展開に内積を適用した結果である。$B$ は可逆な定数複素行列なので $u=B^{-1}(z-z(p))$ は正則座標で、$u(p)=0$ となる。正値性の定義から座標行列による標準化まで、これでつながった。
 
@@ -474,7 +474,7 @@ $$
 
 行列式と左上成分から正値を判定できる理由も、元の内積の定義に戻って確かめる。$A=g_{1\bar1}>0$、$B=g_{1\bar2}$、$D=g_{2\bar2}$ と置くと、任意の $(v^1,v^2)\ne(0,0)$ について
 
-$
+$$
 \begin{aligned}
 g(v,\bar v)
 &=A|v^1|^2+Bv^1\overline{v^2}
@@ -482,7 +482,7 @@ g(v,\bar v)
 &=A\left|v^1+\frac{\overline B}{A}v^2\right|^2
  +\frac{AD-|B|^2}{A}|v^2|^2>0.
 \end{aligned}
-$
+$$
 
 ここで $AD-|B|^2$ は直前に計算した正の行列式である。$v^2\ne0$ なら第二項が正、$v^2=0$ なら第一項が正なので、[Hermite計量の正値条件](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)を全非零ベクトルについて確認できた。また $\omega=i\partial\bar\partial\varphi$ なので $\partial^2=\bar\partial^2=0$ と型別微分の反交換則から $d\omega=0$。全域でKählerである。
 
@@ -514,16 +514,16 @@ $$
 
 とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。一階条件も成分で確かめる。$q=\lambda\bar a/d$ と略記すれば、逆写像では $u^1=w^1$、$u^2=w^2-qw^1w^2+O(|w|^3)$ であり、Jacobian $J^i_a=\partial u^i/\partial w^a$ の原点での非零一階微分は
 
-$
+$$
 \partial_{w^1}J^2_2(0)=\partial_{w^2}J^2_1(0)=-q.
-$
+$$
 
 元の $u$ 座標で非零となり得る正則一階微分は $\partial_{u^1}g^{(u)}_{2\bar2}(p)=\partial_{u^2}g^{(u)}_{1\bar2}(p)=q$ だけである。引き戻し式 $g^{(w)}_{a\bar b}=g^{(u)}_{i\bar j}J^i_a\overline{J^j_b}$ を微分すると
 
-$
+$$
 \partial_{w^1}g^{(w)}_{2\bar2}(p)=q-q=0,\qquad
 \partial_{w^2}g^{(w)}_{1\bar2}(p)=q-q=0.
-$
+$$
 
 他の正則一階微分も零で、Hermite対称性から反正則一階微分も零になる。これで $w(p)=0$、$g^{(w)}(p)=I$、全一階微分零という定義の条件を直接確認した。ここで $\bar a$ は**固定した点の定数**であり、変数 $u$ の共役を座標変換へ混入させていないから、$w(u)$ は正則である。
 <!-- solution-end -->
