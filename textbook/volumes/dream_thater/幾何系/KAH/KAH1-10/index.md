@@ -78,7 +78,7 @@ g^{k\bar\ell}R_{i\bar j k\bar\ell}
 =\sum_{k=1}^n\mathcal R^k{}_{i\bar j k}.
 $$
 
-すなわちRicci縮約は、固定した $i,\bar j$ に対する曲率作用素の**跡**である。基底変更で線形写像の行列は $A\mapsto B^{-1}AB$ と変わるが、$\operatorname{tr}(B^{-1}AB)=\operatorname{tr}A$ なので、この縮約は基底の選び方に依存しない。ある点で正規直交基底を選んで $g^{k\bar\ell}=\delta_{k\ell}$ とすれば、上式は四階成分の対角和に戻る。
+すなわちRicci縮約は、固定した $i,\bar j$ に対する曲率作用素の**跡**である。基底変更で線形写像の行列は $A\mapsto B^{-1}AB$ と変わるが、$\operatorname{tr}(B^{-1}AB)=\operatorname{tr}A$ なので、この縮約は基底の選び方に依存しない。ここで縮約するのは作用先・作用元の添字 $m,k$ であり、二階成分の添字 $i,\bar j$ は残る。ある点で正規直交基底を選んで $g^{k\bar\ell}=\delta_{k\ell}$ とすれば、上式は四階成分の対角和に戻る。
 
 さらに、[曲率成分の共役対称性](../KAH1-09/index.md#thm-kah1-09-kahler-symmetries)と逆計量のHermite対称性から
 
