@@ -196,6 +196,7 @@ try {
   assert.ok(Math.abs(normalSampleRisk + flippedRiskSameSample - 1) < 1e-12);
   await evaluate('document.querySelector("#p00").value="2";document.querySelector("#p01").value="1";document.querySelector("#p10").value="1";document.querySelector("#p11").value="0";document.querySelector("#normalize-probabilities").click()');
   await waitFor('Math.abs(Number(document.querySelector("#p00").value)-0.5)<1e-14');
+  await waitFor('Math.abs(' + risk + ' - 0.5) < 1e-12');
   assert.equal(await evaluate(risk), 0.5);
   assert.equal(await evaluate('document.querySelector("#status").dataset.error'), "false");
   console.log("ML four-cell browser: repeated histogram, classifier, fixed seed and normalization: PASS");
