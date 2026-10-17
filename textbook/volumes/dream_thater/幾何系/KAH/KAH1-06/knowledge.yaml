@@ -1,0 +1,37 @@
+chapter: KAH1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-05
+  - CM1-01
+concepts:
+  - id: kahler.projective-space-charts
+    name: 複素射影空間と標準チャート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素射影空間と標準チャート）"]
+    requires: [complex-manifolds.complex-n-chart, complex-manifolds.complex-n-manifold]
+  - id: kahler.projective-standard-atlas
+    name: 標準チャートは複素アトラスを与える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準チャートは複素アトラスを与える）"]
+    requires: [kahler.projective-space-charts, complex-manifolds.higher-holomorphic-atlas]
+  - id: kahler.local-fubini-study-form
+    name: 標準チャート上の局所Fubini–Study形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準チャート上の局所Fubini–Study形式）"]
+    requires: [kahler.projective-standard-atlas, kahler.local-kahler-potential]
+  - id: kahler.local-fubini-study-positive
+    name: 局所Fubini–Study形式の正値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所Fubini–Study形式の正値性）"]
+    requires: [kahler.local-fubini-study-form, kahler.positive-form-matrix-criterion, kahler.local-potential-suffices]
+  - id: kahler.local-fubini-study-eigensystem
+    name: 局所Fubini–Study行列の固有値と行列式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所Fubini–Study行列の固有値と行列式）"]
+    requires: [kahler.local-fubini-study-positive]
