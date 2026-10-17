@@ -208,7 +208,7 @@ $$
 \end{aligned}
 $$
 
-$u/w>0$ なので $\operatorname{Im}\tau\to\infty$ で各項が減衰し、展開全体も零へ収束します。一方、先に示した $\Gamma_0(N)$ 不変性により $g|_k\sigma_s$ は幅 $h_s$ で周期的です。従って[周期正則関数の$q$表示](../MF2/index.md#thm-mf2-q-coordinate)は $q_s=e^{2\pi i\tau/h_s}$ の非負整数冪であり、その定数項は極限が零なので消えます。$s$ は任意でしたから、[全カスプでの定義](../MF4/index.md#def-mf4-level-form)の両条件を満たし $g\in S_k(\Gamma_0(N))$ が示されました。
+$u/w>0$ であり、$f|_k\sigma_{s'}$ の級数は $q_{s'}=0$ で正則かつ定数項0なので、十分大きい $\operatorname{Im}\tau$ で絶対一様収束し、展開全体が零へ収束します。一方、先に示した $\Gamma_0(N)$ 不変性により $g|_k\sigma_s$ は幅 $h_s$ で周期的です。従って[周期正則関数の$q$表示](../MF2/index.md#thm-mf2-q-coordinate)は $q_s=e^{2\pi i\tau/h_s}$ の非負整数冪であり、その定数項は極限が零なので消えます。$s$ は任意でしたから、[全カスプでの定義](../MF4/index.md#def-mf4-level-form)の両条件を満たし $g\in S_k(\Gamma_0(N))$ が示されました。
 
 <!-- definition-example-start: def-mf6-fricke -->
 **定義の確認**。$N=1$ なら $W_1=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は[MF1の生成元](../MF1/index.md#thm-mf1-generators) $S$ そのもので、レベル1の変換則により $f|_kW_1=f$ です。一般の $N$ では
