@@ -1,0 +1,74 @@
+chapter: ML1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-02
+  - OPT1
+
+concepts:
+  - id: learning.empirical-risk-minimization
+    name: 経験リスク最小化
+    kind: definition
+    aliases: [ERM]
+    introduction: formal
+    introduction_aliases: ["定義（経験リスク最小化）"]
+    requires:
+      - learning.empirical-risk
+      - learning.hypothesis-class
+
+  - id: learning.erm-population-risk-comparison
+    name: ERMの母集団リスク比較
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（ERMの母集団リスク比較）"]
+    requires:
+      - learning.empirical-risk-minimization
+      - learning.population-risk
+
+  - id: learning.regularized-erm
+    name: 正則化付き経験リスク最小化
+    kind: definition
+    aliases: [正則化付きERM]
+    introduction: formal
+    introduction_aliases: ["定義（正則化付き経験リスク最小化）"]
+    requires:
+      - learning.empirical-risk-minimization
+
+  - id: learning.regularization-monotonicity
+    name: 正則化係数に対する単調性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（正則化係数に対する単調性）"]
+    requires:
+      - learning.regularized-erm
+
+  - id: learning.complexity-constrained-erm
+    name: 複雑さ制約付き経験リスク最小化
+    kind: definition
+    aliases: [複雑さ制約付きERM]
+    introduction: formal
+    introduction_aliases: ["定義（複雑さ制約付き経験リスク最小化）"]
+    requires:
+      - learning.empirical-risk-minimization
+
+  - id: learning.regularized-constrained-implication
+    name: 正則化解は対応する制約問題の解
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（正則化解は対応する制約問題の解）"]
+    requires:
+      - learning.regularized-erm
+      - learning.complexity-constrained-erm
+
+  - id: learning.quadratic-regularization-shrinkage
+    name: 一変数二次模型の正則化解
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（一変数二次模型の正則化解）"]
+    requires:
+      - learning.regularized-erm
+      - convex.strictly-convex-function
