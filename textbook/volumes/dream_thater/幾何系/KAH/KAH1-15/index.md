@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-15-ke -->
-**定義の確認（平坦模型）。** $\mathbb C^n$ の座標計量 $g_{j\bar k}=\delta_{jk}$ は正値で、対応する $\omega_0=i\sum_j dz^j\wedge d\bar z^j$ は係数一定だから $d\omega_0=0$。上の行列式計算により $\rho_0=0=0\cdot\omega_0$。正値性・閉性・定数倍の等式のすべてを確認したので、Einstein定数 $0$ のKähler–Einstein計量である。
+**定義の確認**（平坦模型）。 $\mathbb C^n$ の座標計量 $g_{j\bar k}=\delta_{jk}$ は正値で、対応する $\omega_0=i\sum_j dz^j\wedge d\bar z^j$ は係数一定だから $d\omega_0=0$。上の行列式計算により $\rho_0=0=0\cdot\omega_0$。正値性・閉性・定数倍の等式のすべてを確認したので、Einstein定数 $0$ のKähler–Einstein計量である。
 <!-- definition-example-end -->
 
 <a id="def-kah1-15-ricci-flat"></a>
@@ -48,11 +48,11 @@ $$
 \rho=0.
 $$
 
-> これはEinstein定数が $0$ のKähler–Einstein条件と同値であり、Riemann曲率テンソル全体が零であるという条件とは区別する。
+> これはEinstein定数が $0$ のKähler–Einstein条件と同値であり、Riemann曲率テンソル全体が零となることとは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-15-ricci-flat -->
-**定義の確認（複素トーラス）。** 格子 $\Lambda\subset\mathbb C^n$ による商 $T=\mathbb C^n/\Lambda$ を取り、$\omega_0=i\sum_jdz^j\wedge d\bar z^j$ を降ろす。[平坦トーラスの曲率計算](../KAH1-10/index.md#prop-kah1-10-flat-torus)により平行移動で局所係数が変わらず、$\omega_0$ は大域的な正の実閉 $(1,1)$ 形式となる。各商チャートで $\det g=1$、よって $\rho=0$。この例では強い意味で全曲率も零だが、Ricci平坦の**定義**は全曲率消失を要求しない。
+**定義の確認**（複素トーラス）。 実階数 $2n$ の格子 $\Lambda\subset\mathbb C^n$ による商 $T=\mathbb C^n/\Lambda$ を取り、$\omega_0=i\sum_jdz^j\wedge d\bar z^j$ を降ろす。[平坦トーラスの曲率計算](../KAH1-10/index.md#prop-kah1-10-flat-torus)により平行移動で局所係数が変わらず、$\omega_0$ は大域的な正の実閉 $(1,1)$ 形式となる。各商チャートで $\det g=1$、よって $\rho=0$。この例では強い意味で全曲率も零だが、Ricci平坦の**定義**は全曲率消失を要求しない。
 <!-- definition-example-end -->
 
 行列で検算すると、$\rho=\lambda\omega$ は次の成分ごとの関係と同値になる。
@@ -74,7 +74,7 @@ $$
 \quad\text{in }H^2_{\mathrm{dR}}(X;\mathbb R).
 $$
 
-ここで $c_1(X)_{\mathbb R}$ は反標準束 $K_X^{-1}$ の**整数係数**第一Chern類を実係数へ写したものを指す。$[\omega]$ は[Kähler類](../KAH1-13/index.md#def-kah1-13-class)である。二つの閉形式の等号をde Rham類に送ると、右辺の $\lambda$ は定数なので外へ出せる。この一歩は形式の等号から得る**必要条件**であって、逆向きに計量の存在を構成する操作ではない。
+ここで $c_1(X)_{\mathbb R}$ は反標準束 $K_X^{-1}$ の**整数係数**第一Chern類を実係数へ写したものを指す。$[\omega]$ は[Kähler類](../KAH1-13/index.md#def-kah1-13-class)である。二つの閉形式の等号をde Rham類に送ると、右辺の $\lambda$ は定数なので外へ出せる。この一歩は形式の等号から得る必要条件であって、逆向きに計量の存在を構成する操作ではない。
 
 <a id="thm-kah1-15-cohomology"></a>
 
@@ -163,7 +163,7 @@ $$
 
 この比は**所与のKähler類がもしKähler–Einstein計量を含むなら**その定数がどう定まるかを表す。例えば $c_1(X)_{\mathbb R}=0$ なら分子は零となり、候補となる $\lambda$ は零以外ありえない。
 
-さらに $\lambda>0$ なら $c_1(X)_{\mathbb R}=(\lambda/2\pi)[\omega]$ 自身がKähler類となり、$\lambda<0$ なら $-c_1(X)_{\mathbb R}$ がKähler類となる。いずれも**必要条件**であって、その符号だけから与えた計量のEinstein性は得られない。
+さらに $\lambda>0$ なら $c_1(X)_{\mathbb R}=(\lambda/2\pi)[\omega]$ 自身がKähler類となり、$\lambda<0$ なら $-c_1(X)_{\mathbb R}$ がKähler類となる。いずれも必要条件であって、その符号だけから与えた計量のEinstein性は得られない。
 
 ## 5. Fubini–Study計量を自分で確かめる
 
@@ -183,7 +183,7 @@ $$
 =(1+r^2)^{-(n+1)}.
 $$
 
-この分解は、行列が単位行列の定数倍から階数1の項を引いた形であることを使っている。座標 $z=0$ においても同じ式に連続的に一致する。
+この分解を確かめるには $u=(\overline{z^1},\ldots,\overline{z^n})^T$ と置く。$z^T u=r^2$ なので $gu=((1+r^2)^{-1}-r^2(1+r^2)^{-2})u=(1+r^2)^{-2}u$。また $z^Tv=0$ となる $v$ では階数1項が消えて $gv=(1+r^2)^{-1}v$。二種類の固有空間の次元はそれぞれ1と $n-1$ である。座標 $z=0$ においても同じ式に連続的に一致する。
 
 <a id="thm-kah1-15-fs"></a>
 
@@ -212,7 +212,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前段の計算と[局所Ricci公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)により
+[Ricci形式の局所行列式公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)に、上で計算した行列式を代入する。
 
 $$
 \begin{aligned}
@@ -343,7 +343,7 @@ $$
 =2\omega_{\mathrm{FS}}.
 $$
 
-[射影直線の面積公式](../KAH1-07/index.md#thm-kah1-07-area)から $\int\rho/(2\pi)=2(2\pi)/(2\pi)=2$。
+[射影直線の面積積分](../KAH1-07/index.md#thm-kah1-07-area)を用いて $\int\rho/(2\pi)=2(2\pi)/(2\pi)=2$。
 <!-- solution-end -->
 
 <a id="ex-kah1-15-a03"></a>
