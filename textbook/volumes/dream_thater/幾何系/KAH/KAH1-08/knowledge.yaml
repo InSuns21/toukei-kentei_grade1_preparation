@@ -6,6 +6,7 @@ prerequisites:
   - KAH1-03
   - CM2-10
   - GEO13
+  - RA6A
 concepts:
   - id: kahler.chern-coordinate-change
     name: 正則座標変更による接続係数の変換
