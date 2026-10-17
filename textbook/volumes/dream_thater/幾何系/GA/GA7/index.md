@@ -92,7 +92,7 @@ $$
 \delta\alpha=-\nabla^i\alpha_i
 $$
 
-と書けます。前者は接続の捩率が零であること、後者は[GA6の余微分](../GA6/index.md#def-ga6-codifferential)の局所式によります。上付き添字は計量による縮約、反復添字は和を表します。
+と書けます。前者は[Levi-Civita接続の捩率零という条件](../../GEO/GEO13/index.md#def-geo13-levi-civita)、後者は[GA6の余微分](../GA6/index.md#def-ga6-codifferential)の局所式によります。上付き添字は計量による縮約、反復添字は和を表します。
 
 <a id="lem-ga7-covector-commutator"></a>
 
@@ -289,12 +289,13 @@ $$
 
 双方を計量双対でベクトルに直して移項すれば、$p$ において
 
-$$
+$
 \sum_i\nabla_{e_i}\nabla_{e_i}V
-=\nabla_g\Delta_gu+\operatorname{Ric}^{\sharp}(V)
-$$
+=\nabla_g\Delta_gu+
+\bigl(\operatorname{Ric}^{\sharp}(du)\bigr)^\sharp
+$
 
-となります。これをノルムの二階微分の式に代入し、$V$ と内積を取れば結論です。
+となります。右辺の最後の項は、先に1形式に対して定義した $\operatorname{Ric}^{\sharp}$ の値を計量でベクトルに戻したものです。これをノルムの二階微分の式に代入し、$V$ と内積を取れば結論です。
 <!-- proof-end -->
 
 **例：標準単位球面。** $S^d\subset\mathbb R^{d+1}$ 上の高さ関数 $u(x)=\langle x,v\rangle$（$v$ は固定の単位ベクトル、例えば最後の座標軸方向）を考えます。[定断面曲率空間の Ricci 曲率とスカラー曲率](../../GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Ric}=(d-1)g$ です。点 $x$ での単位法線は $x$ なので、$v$ の接成分が勾配です。
@@ -703,7 +704,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Levi-Civita接続は捩率零なので、指定された標構では
+[Levi-Civita接続の捩率零](../../GEO/GEO13/index.md#def-geo13-levi-civita)から、指定された標構では
 
 $
 [e_i,e_j](p)
