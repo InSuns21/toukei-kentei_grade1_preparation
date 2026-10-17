@@ -1,0 +1,41 @@
+id: "KAH1-15"
+title: "Kähler–Einstein・Ricci平坦への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-14
+official_scope: []
+learning_objectives:
+  - Kähler–Einstein計量とRicci平坦Kähler計量を定義し局所行列式で判定できる
+  - Ricci形式と第一Chern類の対応から必要なコホモロジー制約を証明できる
+  - コンパクト正次元Kähler多様体で第一Chern類の実像が零ならEinstein定数が零になることを導ける
+  - Einstein定数を楔積と積分から再導出できる
+  - Fubini–Study計量の行列式を求めてRicci形式が(n+1)倍になることを証明できる
+  - Kähler形式の正の定数倍とRicci形式・Einstein定数の変化を計算できる
+  - Ricci平坦性と整数第一Chern類・標準束の正則自明性の論理的な違いを説明できる
+  - 積多様体での必要条件の不整合を調べ存在の逆推論を避けられる
+definitions:
+  - { id: KAH1-15-DEF-01, name: Kähler–Einstein計量 }
+  - { id: KAH1-15-DEF-02, name: Ricci平坦Kähler計量 }
+theorems:
+  - { id: KAH1-15-THM-01, name: Kähler–Einstein計量の第一Chern類制約 }
+  - { id: KAH1-15-PROP-01, name: Einstein定数の積分公式 }
+  - { id: KAH1-15-THM-02, name: Fubini–Study計量のKähler–Einstein性 }
+  - { id: KAH1-15-PROP-02, name: 定数倍によるEinstein定数の変化 }
+canonical_examples:
+  - C^n上の正定値定数係数Kähler計量
+  - 複素トーラス上の平坦Ricci平坦計量
+  - CP^nのFubini–Study計量とn+1のEinstein定数
+  - 単位円板の負のEinstein定数
+  - CP1と複素トーラスの積での非Einstein型積計量
+problem_patterns:
+  - KAH1-15-RICCI-DETERMINANT
+  - KAH1-15-COHOMOLOGY-NECESSITY
+  - KAH1-15-INTEGRATED-EINSTEIN-CONSTANT
+  - KAH1-15-SCALING
+  - KAH1-15-TOPOLOGICAL-LOGIC
+  - KAH1-15-PRODUCT-OBSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }

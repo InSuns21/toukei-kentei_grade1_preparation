@@ -1,0 +1,42 @@
+chapter: KAH1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-14
+concepts:
+  - id: kahler.kahler-einstein-metric
+    name: Kähler–Einstein計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler–Einstein計量）"]
+    requires: [kahler.kahler-class]
+  - id: kahler.ricci-flat-kahler
+    name: Ricci平坦Kähler計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ricci平坦Kähler計量）"]
+    requires: [kahler.kahler-einstein-metric]
+  - id: kahler.ke-cohomology-obstruction
+    name: Kähler–Einstein計量の第一Chern類制約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler–Einstein計量の第一Chern類制約）"]
+    requires: [kahler.kahler-einstein-metric, kahler.integral-first-chern, kahler.kahler-class]
+  - id: kahler.ke-integrated-constant
+    name: Einstein定数の積分公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Einstein定数の積分公式）"]
+    requires: [kahler.ke-cohomology-obstruction]
+  - id: kahler.fs-kahler-einstein
+    name: Fubini–Study計量のKähler–Einstein性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fubini–Study計量のKähler–Einstein性）"]
+    requires: [kahler.kahler-einstein-metric]
+  - id: kahler.ke-scaling
+    name: 定数倍によるEinstein定数の変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数倍によるEinstein定数の変化）"]
+    requires: [kahler.kahler-einstein-metric]
