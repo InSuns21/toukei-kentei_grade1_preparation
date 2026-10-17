@@ -13,7 +13,7 @@ chapters:
     title: "等価原理と局所自由落下"
   - id: GR2
     path: textbook/volumes/dream_thater/物理系/GR/GR2
-    status: planned
+    status: completed
     title: "Lorentz計量・固有時・光円錐"
   - id: GR3
     path: textbook/volumes/dream_thater/物理系/GR/GR3

@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[GR1の局所自由落下実験室](../GR1/index.md#def-gr1-local-freefall-lab)と[Rindler計量](../GR1/index.md#prop-gr1-rindler-metric)から、重力のように見える座標効果を学びました。しかし計量を与えられたとき、時計はいくら進み、光はどの方向に進めるのでしょうか。必要なのは**計量の二次形式から測定量を読み取る手順**です。
+[GR1の局所自由落下実験室](../GR1/index.md#def-gr1-freefall-lab)と[Rindler計量](../GR1/index.md#prop-gr1-rindler-metric)から、重力のように見える座標効果を学びました。しかし計量を与えられたとき、時計はいくら進み、光はどの方向に進めるのでしょうか。必要なのは**計量の二次形式から測定量を読み取る手順**です。
 
 [LORG2のLorentz計量](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)と[LORG1の因果型](../../../幾何系/LORG/LORG1/index.md#def-lorg1-causal-type)、[LORG3の因果曲線とLorentz長さ](../../../幾何系/LORG/LORG3/index.md#def-lorg3-lorentz-length)は数学的に既習です。本章では定義を重複させず、時計・光の物理的な解釈と具体計算を行います。
 
