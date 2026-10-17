@@ -215,7 +215,7 @@ $$
 du=\sum_{j,I}e_j(u_I)e^j\wedge e^I+\sum_Iu_I\,de^I.
 $$
 
-後の和は係数 $u_I$ の微分を含まない零階項です。一方、基底形式について $\langle e^j\wedge a,b\rangle=\langle a,\iota_{e_j}b\rangle$ が成立します。これを[余微分の随伴関係](#prop-ga6-adjoint)へ入れて部分積分すると、$\delta$ の最高階部分は $-\sum_j\iota_{e_j}e_j(u_I)$ の形になります。つまり各微分方向の外積と内部積は互いの随伴であり、負号は部分積分から出ます。
+後の和は係数 $u_I$ の微分を含まない零階項です。一方、基底形式について $\langle e^j\wedge a,b\rangle=\langle a,\iota_{e_j}b\rangle$ が成立します。これを[余微分の随伴関係](#prop-ga6-adjoint)へ入れて部分積分すると、$\delta u$ の一階主部は $-\sum_{j,I}e_j(u_I)\,\iota_{e_j}e^I$ となります。つまり各微分方向の外積と内部積は互いの随伴であり、負号は部分積分から出ます。
 
 従って $\xi=\sum_j\xi_je^j$ に沿う主記号はそれぞれ
 
