@@ -19,7 +19,13 @@ $$
 
 ## 2. Kähler–Einstein条件とRicci平坦条件
 
-Ricci形式とKähler形式の等号は、単なる実数の等号でなく、各点のあらゆる接方向での2形式の等号を意味する。既習の正則座標式を用いると、同じ基底 $i\,dz^j\wedge d\bar z^k$ に展開して係数を比較できる。
+Ricci形式とKähler形式の等号は、単なる実数の等号でなく、各点のあらゆる接方向での2形式の等号を意味する。[正の基本形式とHermite行列の対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、正則座標での $g_{j\bar k}$ は計量の係数である。$(1,0)$ 接ベクトル $v=\sum_jv^j\partial_j$ に対して
+
+$$
+-i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}v^j\overline{v^k}
+$$
+
+であり、この量がすべての $v\ne0$ で正であることが計量の正値性に対応する。一方、Ricci形式は[局所行列式公式](../KAH1-11/index.md#thm-kah1-11-local-ricci)でこの同じ係数行列から計算される。両形式を共通の基底 $i\,dz^j\wedge d\bar z^k$ に展開すれば、係数の等号によってEinstein条件を判定できる。
 
 <a id="def-kah1-15-ke"></a>
 
@@ -37,6 +43,8 @@ $$
 <!-- definition-example-start: def-kah1-15-ke -->
 **定義の確認**（平坦模型）。 $\mathbb C^n$ の座標計量 $g_{j\bar k}=\delta_{jk}$ は正値で、対応する $\omega_0=i\sum_j dz^j\wedge d\bar z^j$ は係数一定だから $d\omega_0=0$。上の行列式計算により $\rho_0=0=0\cdot\omega_0$。正値性・閉性・定数倍の等式のすべてを確認したので、Einstein定数 $0$ のKähler–Einstein計量である。
 <!-- definition-example-end -->
+
+特にEinstein定数が零のとき、比較する相手の $\omega$ は正値のままだが、Ricci形式のすべての係数が零になる。この条件を**Ricci平坦**と呼ぶ。「曲率テンソルの全成分が零」という条件より弱い。
 
 <a id="def-kah1-15-ricci-flat"></a>
 
@@ -128,7 +136,7 @@ $\rho=0$ なら左辺が零なので $2\pi c_1(X)_{\mathbb R}=0$。$2\pi\ne0$ �
 
 ## 4. コンパクト性が与える数値的な判定
 
-コンパクトなKähler多様体では、$\omega^n$ は正の体積形式で、その積分は正である。[Kähler類の非零性の証明](../KAH1-13/index.md#thm-kah1-13-compact-nonzero)と同じく、閉形式の類と積分を組み合わせて $\lambda$ を取り出せる。
+コンパクトなKähler多様体では、$\omega^n$ は正の体積形式で、その積分は正である。[Kähler類の非零性の証明](../KAH1-13/index.md#thm-kah1-13-compact-nonzero)と同じく、閉形式の類と積分を組み合わせて $\lambda$ を取り出せる。ここで $\smile$ は既習の閉形式の楔積から誘導されるde Rham類の積であり、$[X]$ は向きをもつコンパクト多様体 $X$ の基本類である。最高次の類の基本類への評価 $\langle[\eta],[X]\rangle$ は $\int_X\eta$ を意味する。従って次の分母は、抽象的な記号ではなく正の体積積分である。
 
 <a id="prop-kah1-15-lambda"></a>
 
@@ -190,7 +198,7 @@ g_{j\bar k}
 -\frac{\bar z^j z^k}{(1+r^2)^2}.
 $$
 
-このHermite行列の行列式は、$z=0$ では $1$ である。$z\ne0$ では ベクトル $(\overline{z^1},\ldots,\overline{z^n})$ の張る一次元方向とその直交補空間へ分け、前者の固有値が $(1+r^2)^{-2}$、後者の $n-1$ 個の固有値が $(1+r^2)^{-1}$ となる。よって
+この計量行列の[固有値と行列式](../KAH1-06/index.md#prop-kah1-06-eigenvalues)は既習だが、Ricci形式の計算に必要な行列式の由来をここでも確認する。$z=0$ では行列式は $1$ である。$z\ne0$ では ベクトル $(\overline{z^1},\ldots,\overline{z^n})$ の張る一次元方向とその直交補空間へ分け、前者の固有値が $(1+r^2)^{-2}$、後者の $n-1$ 個の固有値が $(1+r^2)^{-1}$ となる。よって
 
 $$
 \det g
@@ -382,12 +390,17 @@ $$
 #### KAH1-15-A04 零の意味を分ける
 - Level: A
 
-次の推論のうち、本章の結果だけで正しいものを理由付きで選べ。(i) $\rho=0\Rightarrow c_1(X)_{\mathbb R}=0$。(ii) $c_1(X)_{\mathbb R}=0\Rightarrow$ 手元の任意のKähler計量の $\rho=0$。(iii) $c_1(X)_{\mathbb R}=0\Rightarrow c_1(X)=0$（整数係数）。(iv) $\rho=0\Rightarrow K_X$ の大域非零正則枠が存在する。
+次の推論のうち、本章の結果だけで正しいものを理由付きで選べ。
+
+1. $\rho=0\Rightarrow c_1(X)_{\mathbb R}=0$。
+2. $c_1(X)_{\mathbb R}=0\Rightarrow$ 手元の任意のKähler計量の $\rho=0$。
+3. $c_1(X)_{\mathbb R}=0\Rightarrow c_1(X)=0$（整数係数）。
+4. $\rho=0\Rightarrow K_X$ の大域非零正則枠が存在する。
 
 <!-- solution-start -->
-**詳細解答。** (i) のみが無条件に正しい。[Ricci–Chern対応](../KAH1-12/index.md#thm-kah1-12-ricci-chern)から $2\pi c_1(X)_{\mathbb R}=[\rho]=0$。
+**詳細解答。** 第1項のみが無条件に正しい。[Ricci–Chern対応](../KAH1-12/index.md#thm-kah1-12-ricci-chern)から $2\pi c_1(X)_{\mathbb R}=[\rho]=0$。
 
-(ii) は類の消滅を**与えた代表の消滅**と取り違えている。局所で計量を変えると $\rho$ の代表は変わりうる。(iii) は整数係数から実係数への写像で捩れが失われうるため、逆推論ができない。(iv) は曲率零を平坦接続の大域平行枠の存在と取り違えている。閉路に沿う平行移動や正則線束としての大域的な貼り合わせを別に確認する必要がある。
+第2項は類の消滅を**与えた代表の消滅**と取り違えている。局所で計量を変えると $\rho$ の代表は変わりうる。第3項は整数係数から実係数への写像で捩れが失われうるため、逆推論ができない。第4項は曲率零を平坦接続の大域平行枠の存在と取り違えている。閉路に沿う平行移動や正則線束としての大域的な貼り合わせを別に確認する必要がある。
 <!-- solution-end -->
 
 ### Level B
@@ -487,7 +500,15 @@ $$
 
 $a,b>0$ と $v$ の少なくとも一成分が非零であることを使った。従ってKähler形式である。
 
-第2問。局所計量行列とその行列式は
+第2問。[局所Fubini–Study形式](../KAH1-06/index.md#def-kah1-06-local-fs)を第一因子へ、トーラスの定数係数形式を第二因子へ引き戻すと、積座標 $(z,w)$ で
+
+$$
+\alpha=\frac{i\,dz\wedge d\bar z}{(1+|z|^2)^2},
+\qquad
+\beta=i\,dw\wedge d\bar w.
+$$
+
+したがって $\omega_{a,b}=i\bigl(a(1+|z|^2)^{-2}dz\wedge d\bar z+b\,dw\wedge d\bar w\bigr)$ である。この形式を[正の基本形式とHermite行列の対応](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により基底 $(dz,dw)$ で表示すると、混合項がないため非対角成分は零になる。よって局所計量行列とその行列式は
 
 $$
 (g_{j\bar k})=
@@ -530,7 +551,7 @@ $$
 
 となる。最後は $b>0$ を使った。すると $\lambda a=2$ に矛盾するから、どの $a,b>0$ に対してもこの積計量はEinsteinではない。
 
-第4問。[Ricci–Chern対応](../KAH1-12/index.md#thm-kah1-12-ricci-chern)を既に構成した計量に適用すると $2\pi c_1(X)_{\mathbb R}=[2\alpha]$。$C_1$ 上の周期は
+第4問。[Ricci–Chern対応](../KAH1-12/index.md#thm-kah1-12-ricci-chern)を既に構成した計量に適用すると $2\pi c_1(X)_{\mathbb R}=[2\alpha]$。[射影直線の面積規格化](../KAH1-07/index.md#thm-kah1-07-area)を使えば、$C_1$ 上の周期は
 
 $$
 \int_{C_1}\frac{\rho}{2\pi}
