@@ -4,7 +4,15 @@
 
 到達順序は、**計量から形式の内積を作る → 外微分の随伴を作る → 微分形式のLaplacianを作る → 楕円型評価とスペクトル分解 → 調和・完全・余完全への直交分解 → de Rhamとの同型**です。関数の場合の固有関数展開を引用するだけでは、形式の作用素が楕円型かどうかも、その核が有限次元かどうかも分かりません。必要な橋渡しを本章で証明します。
 
-以下、特に断らない限り $(M,g)$ は**滑らか・連結・向き付けられた・コンパクト・境界なし**の $n$ 次元Riemann多様体（$n\ge1$）です。実数値の滑らかな $k$ 次[微分形式](../../GEO/GEO7/index.md#def-geo7-differential-form)全体を $\Omega^k(M)$ とし、$0\le k\le n$ とします。[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)を $d:\Omega^k\to\Omega^{k+1}$ と書きます。$k<0$ または $k>n$ の形式は $0$ と約束します。計量の[体積形式](../../GEO/GEO12/index.md#def-geo12-volume)は $dV_g$、実数値 $L^2$ 内積は $(\cdot,\cdot)_2$ とします。
+以下、特に断らない限り $(M,g)$ は**滑らか・連結・向き付けられた・コンパクト・境界なし**の $n$ 次元Riemann多様体（$n\ge1$）です。
+
+実数値の滑らかな $k$ 次[微分形式](../../GEO/GEO7/index.md#def-geo7-differential-form)全体を $\Omega^k(M)$ とし、$0\le k\le n$ とします。
+
+[外微分](../../GEO/GEO7/index.md#def-geo7-exterior-derivative)を $d:\Omega^k\to\Omega^{k+1}$ と書きます。
+
+$k<0$ または $k>n$ の形式は $0$ と約束します。
+
+計量の[体積形式](../../GEO/GEO12/index.md#def-geo12-volume)は $dV_g$、実数値 $L^2$ 内積は $(\cdot,\cdot)_2$ とします。
 
 ## 1. 外微分を内積の側から逆向きにする
 
@@ -184,12 +192,28 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga6-harmonic-form -->
-**定義の確認**（トーラスの座標形式）：平坦 $\mathbb T^2$ で $dx$ は大域的な1形式です。$d(dx)=0$ は[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から、$\delta(dx)=-\partial_x1-\partial_y0=0$ は前節の座標式から出ます。[エネルギー判定](#thm-ga6-energy)を使うまでもなく $\Delta_Hdx=d0+\delta0=0$。同じく $dy$ と $dx\wedge dy$ も調和形式です。ただし $x$ という角度座標そのものは大域的な実数値関数ではないので、$dx=d(x)$ と大域的に書けると考えてはいけません。
+**定義の確認**（トーラスの座標形式）：平坦 $\mathbb T^2$ で $dx$ は大域的な1形式です。
+
+$d(dx)=0$ は[外微分の二乗零](../../GEO/GEO7/index.md#thm-geo7-d-square-zero)から、$\delta(dx)=-\partial_x1-\partial_y0=0$ は前節の座標式から出ます。
+
+[エネルギー判定](#thm-ga6-energy)を使うまでもなく $\Delta_Hdx=d0+\delta0=0$。
+
+同じく $dy$ と $dx\wedge dy$ も調和形式です。
+
+ただし $x$ という角度座標そのものは大域的な実数値関数ではないので、$dx=d(x)$ と大域的に書けると考えてはいけません。
 <!-- definition-example-end -->
 
 ### なぜ零固有空間は有限次元か
 
-[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。ここでの **主記号** は、局所的な微分作用素の最高階部分で、Fourier変換の規約に従い $\partial_j$ を $i\xi_j$ に置き換えた線形写像です。形式 $v$ に対して、外微分 $d$ の主記号は $i\xi\wedge v$、余微分 $\delta$ の主記号は $-i\iota_{\xi^\sharp}v$ です。従って二つの合成 $d\delta+\delta d$ の主記号は $|\xi|_g^2I$ になります。$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
+[GA4で使ったコンパクトレゾルベント](../GA4/index.md#thm-ga4-compact-resolvent)を形式にも適用するには、まず $\Delta_H$ が楕円型であることを確認します。
+
+ここでの **主記号** は、局所的な微分作用素の最高階部分で、Fourier変換の規約に従い $\partial_j$ を $i\xi_j$ に置き換えた線形写像です。
+
+形式 $v$ に対して、外微分 $d$ の主記号は $i\xi\wedge v$、余微分 $\delta$ の主記号は $-i\iota_{\xi^\sharp}v$ です。
+
+従って二つの合成 $d\delta+\delta d$ の主記号は $|\xi|_g^2I$ になります。
+
+$\iota$ は[内部積](../../GEO/GEO7/index.md#def-geo7-interior-product)、$\xi^\sharp$ は[計量による同型](../../GEO/GEO12/index.md#def-geo12-musical)で得るベクトルを表します。
 
 <a id="lem-ga6-elliptic"></a>
 
@@ -244,7 +268,17 @@ $$
 \|u\|_{H^2}\le C\bigl(\|-\sum_i\partial_i^2u\|_2+\|u\|_2\bigr).
 $$
 
-一般係数を小近傍で凍結すると二階係数の誤差は $\varepsilon\|u\|_{H^2}$、一次以下の項は $C\|u\|_{H^1}$ です。前述の一次評価と、Fourier係数ごとの $1+|\xi|^2\le \eta(1+|\xi|^2)^2+C_\eta$ による補間で、$\|u\|_{H^1}\le\eta\|u\|_{H^2}+C_\eta\|u\|_2$ として吸収します。滑らかな可変係数に対し $\partial^\gamma$ を作用させると、最高階項は $\Delta_H(\partial^\gamma u)$、残りは係数の微分と $u$ の高々 $|\gamma|+1$ 階微分の積です。これを一階低いノルムへ帰着して $m$ を帰納させると二番目の評価が得られます。弱解の場合は差分商でこの操作を行ってから極限を取り、同じ評価で弱 $H^{m+2}$ 正則性を得ます。コンパクト性による有限近傍と係数の有界性が全体の定数を保証します。
+一般係数を小近傍で凍結すると二階係数の誤差は $\varepsilon\|u\|_{H^2}$、一次以下の項は $C\|u\|_{H^1}$ です。
+
+前述の一次評価と、Fourier係数ごとの $1+|\xi|^2\le \eta(1+|\xi|^2)^2+C_\eta$ による補間で、$\|u\|_{H^1}\le\eta\|u\|_{H^2}+C_\eta\|u\|_2$ として吸収します。
+
+滑らかな可変係数に対し $\partial^\gamma$ を作用させると、最高階項は $\Delta_H(\partial^\gamma u)$、残りは係数の微分と $u$ の高々 $|\gamma|+1$ 階微分の積です。
+
+これを一階低いノルムへ帰着して $m$ を帰納させると二番目の評価が得られます。
+
+弱解の場合は差分商でこの操作を行ってから極限を取り、同じ評価で弱 $H^{m+2}$ 正則性を得ます。
+
+コンパクト性による有限近傍と係数の有界性が全体の定数を保証します。
 <!-- proof-end -->
 
 <a id="thm-ga6-finite-harmonic"></a>
@@ -281,9 +315,27 @@ $$
 
 ゆえに $R$ は自己共役かつ非負です。$Rf=0$ なら上の弱形式より $(f,v)_2=0$ がすべての $H^1$ 形式で成り立ち、滑らかな形式の $L^2$ 密度から $f=0$。つまり $R$ は単射です。
 
-$f$ の有界列に対して $Rf$ は $H^1$ で有界です。[GA2のRellich埋め込み](../GA2/index.md#thm-ga2-rellich)を有限個の局所係数に適用すると $L^2$ で収束部分列が取れるので $R$ はコンパクトです。[FA7のコンパクト自己共役作用素のスペクトル定理](../../../解析系/FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral)と同様、$R$ は正の固有値 $\mu_j\downarrow0$ と完全正規直交固有形式を持ちます。$R^{-1}-I$ を $D(R^{-1})=\operatorname{Ran}R$ 上で定義すると、固有値は $\lambda_j=\mu_j^{-1}-1\ge0$。この作用素が非負自己共役実現であり、滑らかな形式では随伴公式によって $\Delta_H=d\delta+\delta d$ と一致します。
+$f$ の有界列に対して $Rf$ は $H^1$ で有界です。
 
-$Ru=\mu u$ なら弱い意味で $\Delta_Hu=(\mu^{-1}-1)u$ です。[楕円型評価](#lem-ga6-elliptic)の弱解版を $m=0,2,\ldots$ と繰り返すと $u\in H^s$ がすべての $s$ で成立し、[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で滑らかです。$\lambda_j=0$ は $\mu_j=1$ に相当し、正の非零固有値の重複度はコンパクト作用素では有限です。従って零固有空間は有限次元。次の正固有値は $0$ より離れます。零固有空間が滑らかな[調和形式の定義](#def-ga6-harmonic-form)と一致することもここで確定しました。
+[GA2のRellich埋め込み](../GA2/index.md#thm-ga2-rellich)を有限個の局所係数に適用すると $L^2$ で収束部分列が取れるので $R$ はコンパクトです。
+
+[FA7のコンパクト自己共役作用素のスペクトル定理](../../../解析系/FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral)と同様、$R$ は正の固有値 $\mu_j\downarrow0$ と完全正規直交固有形式を持ちます。
+
+$R^{-1}-I$ を $D(R^{-1})=\operatorname{Ran}R$ 上で定義すると、固有値は $\lambda_j=\mu_j^{-1}-1\ge0$。
+
+この作用素が非負自己共役実現であり、滑らかな形式では随伴公式によって $\Delta_H=d\delta+\delta d$ と一致します。
+
+$Ru=\mu u$ なら弱い意味で $\Delta_Hu=(\mu^{-1}-1)u$ です。
+
+[楕円型評価](#lem-ga6-elliptic)の弱解版を $m=0,2,\ldots$ と繰り返すと $u\in H^s$ がすべての $s$ で成立し、[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で滑らかです。
+
+$\lambda_j=0$ は $\mu_j=1$ に相当し、正の非零固有値の重複度はコンパクト作用素では有限です。
+
+従って零固有空間は有限次元。
+
+次の正固有値は $0$ より離れます。
+
+零固有空間が滑らかな[調和形式の定義](#def-ga6-harmonic-form)と一致することもここで確定しました。
 <!-- proof-end -->
 
 ここまでで、形式のLaplacianにも関数の場合と同じスペクトル上の道具が使えるようになりました。ただし、形式には外微分 $d$ と余微分 $\delta$ という**二種類の方向**があるため、得たい分解は単なる固有空間分解より細かいものです。
@@ -442,7 +494,23 @@ $$
 
 次数ごとのBetti数は $(1,2,1)$ です。円と異なり、独立な1形式が二つあるため1次の次元が2になります。
 
-**球面 $S^2$**：$0$ 形式は連結性とエネルギーから定数だけです。$2$ 形式は $f\,dV_g$ と書け、$d(f\,dV_g)=0$ は次数のため自動的に成り立ち、$\delta(f\,dV_g)=\pm*df$ です。$\delta=0$ なら $df=0$ なので $f$ は定数。従って $\dim\mathcal H^0=\dim\mathcal H^2=1$。1次については、北極と南極を除いた二つの開集合 $U_N,U_S$ はそれぞれ $\mathbb R^2$ に微分同相です。[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)で閉1形式はそれぞれ $df_N,df_S$ と書けます。共通部分は連結なので $d(f_N-f_S)=0$ から $f_N-f_S$ は定数、片方に定数を足して二つの原始関数を一致させられます。大域的に $\omega=df$ となり $H^1_{\mathrm{dR}}(S^2)=0$。[Hodge--de Rham同型](#thm-ga6-hodge-de-rham)より $b(S^2)=(1,0,1)$ です。
+**球面 $S^2$**：$0$ 形式は連結性とエネルギーから定数だけです。
+
+$2$ 形式は $f\,dV_g$ と書け、$d(f\,dV_g)=0$ は次数のため自動的に成り立ち、$\delta(f\,dV_g)=\pm*df$ です。
+
+$\delta=0$ なら $df=0$ なので $f$ は定数。
+
+従って $\dim\mathcal H^0=\dim\mathcal H^2=1$。
+
+1次については、北極と南極を除いた二つの開集合 $U_N,U_S$ はそれぞれ $\mathbb R^2$ に微分同相です。
+
+[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)で閉1形式はそれぞれ $df_N,df_S$ と書けます。
+
+共通部分は連結なので $d(f_N-f_S)=0$ から $f_N-f_S$ は定数、片方に定数を足して二つの原始関数を一致させられます。
+
+大域的に $\omega=df$ となり $H^1_{\mathrm{dR}}(S^2)=0$。
+
+[Hodge--de Rham同型](#thm-ga6-hodge-de-rham)より $b(S^2)=(1,0,1)$ です。
 
 **仮定を外すと**：境界がある場合は $\int_Md(\alpha\wedge*\beta)=\int_{\partial M}\alpha\wedge*\beta$ という項が残るので、前節の随伴関係を境界条件なしで用いることはできません。形式には絶対型・相対型など、次数に合わせた境界条件が必要です。非コンパクトでは、局所楕円型評価は残っても有限被覆による大域定数とRellichのコンパクト性が失われることがあります。$\mathbb R$ 上の $dx$ は形式的には調和ですが $L^2(\mathbb R)$ には属しません。従って「すべての調和形式が有限次元の $L^2$ 核を作る」「すべてのde Rham類が $L^2$ 調和代表を持つ」という結論を無条件に拡張してはいけません。
 
