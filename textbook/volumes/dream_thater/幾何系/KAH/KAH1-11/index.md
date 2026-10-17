@@ -93,7 +93,7 @@ $$
 
 ## 3. Ricci縮約と対数行列式の一致
 
-前章では $R_{i\bar j k\bar\ell}$ を一度計算してから縮約した。ここでは縮約を**接続係数の跡**へ移す。Kähler条件の下では[正則接続係数の式](../KAH1-08/index.md#prop-kah1-08-coordinate-change)から
+前章では $R_{i\bar j k\bar\ell}$ を一度計算してから縮約した。ここでは縮約を**接続係数の跡**へ移す。Kähler条件の下では[既習のKähler曲率の局所導出](../KAH1-09/index.md#prop-kah1-09-local-curvature)から
 
 $$
 \Gamma^k_{i m}=g^{k\bar\ell}\partial_i g_{m\bar\ell},
