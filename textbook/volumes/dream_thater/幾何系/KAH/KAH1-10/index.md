@@ -38,7 +38,7 @@ $$
 複素共役と添字の交換によって分子は実数になる。実際、$Q=R_{i\bar j k\bar\ell}v^i\bar v^jv^k\bar v^\ell$ を共役にすると、前章の対称性によって添字を付け替えて $\overline Q=Q$ を得る。$v$ を $cv$ に置き換えると分子も分母も $|c|^4$ 倍される。
 
 <!-- definition-example-start: def-kah1-10-holomorphic-sectional -->
-**定義の確認。** $n=1$、$g_{z\bar z}=2$ の平坦な計量を取る。係数が一定だから[曲率成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)の二つの項は零であり、$R_{z\bar z z\bar z}=0$。$v=a\partial_z$ ($a\ne0$) に対して分子は $0\cdot|a|^4=0$、分母は $(2|a|^2)^2=4|a|^4>0$ だから $H(v)=0$。計量が非単位でも、定義の分母と分子を確かめれば零曲率である。
+**定義の確認**。 $n=1$、$g_{z\bar z}=2$ の平坦な計量を取る。係数が一定だから[曲率成分公式](../KAH1-09/index.md#prop-kah1-09-local-curvature)の二つの項は零であり、$R_{z\bar z z\bar z}=0$。$v=a\partial_z$ ($a\ne0$) に対して分子は $0\cdot|a|^4=0$、分母は $(2|a|^2)^2=4|a|^4>0$ だから $H(v)=0$。計量が非単位でも、定義の分母と分子を確かめれば零曲率である。
 <!-- definition-example-end -->
 
 Ricci成分の名前にある[縮約](../../VC/VC7/index.md#def-vc7-contraction)とは、一組の添字を和にまとめる操作である。ここでは同じ点の逆計量を使い、どの基底で計算しても同じ二階成分になるようにする。正規直交な正則座標基底では、単に $R_{i\bar j k\bar k}$ を $k$ について足したものになる。
@@ -62,7 +62,7 @@ $$
 基底の変換で逆計量を挿入する理由を確かめよう。ある点で正規直交基底に取り直したときは $g^{k\bar\ell}=\delta_{k\ell}$ なので縮約は対角成分の和である。一般の基底では、基底の伸縮による見かけの変化を逆計量が打ち消す。各項を変換則に代入しても同じ二階テンソルになる。
 
 <!-- definition-example-start: def-kah1-10-ricci-contraction -->
-**定義の確認。** $g_{i\bar j}=\operatorname{diag}(2,3)$ とする $\mathbb C^2$ では、逆計量は $\operatorname{diag}(1/2,1/3)$。全ての一次・二次微分が零だから四階成分も零であり、
+**定義の確認**。 $g_{i\bar j}=\operatorname{diag}(2,3)$ とする $\mathbb C^2$ では、逆計量は $\operatorname{diag}(1/2,1/3)$。全ての一次・二次微分が零だから四階成分も零であり、
 
 $$
 \operatorname{Ric}_{i\bar j}
