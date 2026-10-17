@@ -213,7 +213,11 @@ $$
 前向きの評価と合わせれば結論です。滑らかな関数の密度は次節で確認します。
 <!-- proof-end -->
 
-**具体例：角度によって伸縮する円**。$S^1$ に滑らかな正の周期関数 $a(\theta)$（$0<m\le a\le M_0$）から計量 $g=a(\theta)^2d\theta^2$ を入れます。座標基底 $\partial_\theta$ では $g(\partial_\theta,\partial_\theta)=a^2>0$ なので、$G=(a^2)$ は計量の正定値性を満たします。その逆行列は $(a^{-2})$ です。[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)と[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)にこの一行一列の行列を代入すると、
+**具体例：角度によって伸縮する円**。$S^1$ に滑らかな正の周期関数 $a(\theta)$ を取り、計量 $g=a(\theta)^2d\theta^2$ を入れます。ここでは正数 $m,M_0$ があり $0<m\le a\le M_0$ とします。
+
+座標基底 $\partial_\theta$ による計量行列は $G=(a^2)$ です。成分 $g(\partial_\theta,\partial_\theta)=a^2>0$ より正定値で、その逆行列は $(a^{-2})$ となります。
+
+この表示に[体積密度の座標公式](../../GEO/GEO12/index.md#prop-geo12-volume-coordinate)と[計量勾配の座標公式](../../GEO/GEO12/index.md#prop-geo12-gradient-coordinate)を適用すると、
 
 $$
 dV_g=\sqrt{\det G}\,d\theta=a\,d\theta,\qquad
@@ -282,7 +286,13 @@ $p=2$ の場合、有限個の $W^{k,2}$ 内積を足したものがこのノル
 
 ## 4. Sobolev埋め込みとRellichのコンパクト性を多様体へ移す
 
-局所座標上では切断した関数 $w_i$ の台がコンパクトです。最初の座標近傍を必要なだけ細分し、各座標像 $\Omega_i=B_i$ を有界なEuclid球に選んでおけば、$w_i\in H^1_0(B_i)$ です。これは $\operatorname{supp}w_i\Subset B_i$ のため、[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)により $w_i$ を $C_c^\infty(B_i)$ の関数で $H^1$ 近似でき、[GPDE5の $H_0^1$ の定義](../../../解析系/GPDE/GPDE5/index.md#def-gpde5-w01p)を満たすからです。零延長でも球の境界にジャンプを作りません。この準備が既習のEuclid定理の仮定確認です。
+局所座標上では切断した関数 $w_i$ の台がコンパクトです。座標近傍を細分し、座標像を有界なEuclid球 $B_i$ に選びます。このとき切断の台は次を満たします。
+
+$$
+\operatorname{supp}w_i\Subset B_i.
+$$
+
+そこで[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)を用いると、$w_i$ は $C_c^\infty(B_i)$ の関数で $H^1$ 近似できます。[GPDE5の $H_0^1$ の定義](../../../解析系/GPDE/GPDE5/index.md#def-gpde5-w01p)によって $w_i\in H^1_0(B_i)$ です。零延長でも球の境界にジャンプを作りません。これで既習のEuclid定理の適用条件が揃います。
 
 <a id="thm-ga2-embedding"></a>
 <!-- formal-statement-start -->
@@ -514,7 +524,11 @@ $$
 
 を得ます。
 
-最後に定義域の稠密性を示します。境界座標の各 $w_i\in H^1(B_i^+)$ を[有界Lipschitz領域の拡張定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)で $\mathbb R^d$ の $H^1$ 関数へ延長し、[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)で近似します。曲面側の人工境界から離れる滑らかな切断関数を掛け、半球へ制限して多様体へ戻します。内部座標では第3節の平滑化を使い、有限個の近似を足せば、境界まで滑らかな関数が $H^1(M)$ に稠密と分かります。したがって上の有界線形な境界制限は $H^1(M)$ 全体へ一意に連続延長されます。
+最後に定義域の稠密性を示します。境界座標の関数 $w_i\in H^1(B_i^+)$ を[有界Lipschitz領域の拡張定理](../../../解析系/GPDE/GPDE5/index.md#thm-gpde5-extension-lipschitz)により全空間の $H^1$ 関数へ延長します。その延長を[局所平滑化](../../../解析系/GPDE/GPDE3/index.md#thm-gpde3-local-mollification)で近似します。
+
+近似関数には曲面側の人工境界から離れる滑らかな切断関数を掛け、半球へ制限して多様体へ戻します。内部座標には第3節の平滑化を使います。有限個の近似を足すことで、境界まで滑らかな関数が $H^1(M)$ に稠密と分かります。
+
+したがって上の有界線形な境界制限は、稠密な滑らかな関数の空間から $H^1(M)$ 全体へ一意に連続延長されます。
 <!-- proof-end -->
 
 例えば区間 $M=[0,1]$ で $u(x)=x$ は、$\operatorname{Tr}u=(0,1)$ ですが、平均を引いた $x-\frac12$ は平均0でもトレースは $(-\frac12,\frac12)$ です。境界のない場合の[平均零Poincaré不等式](#thm-ga2-poincare)を、零トレースの定理と混同できません。
