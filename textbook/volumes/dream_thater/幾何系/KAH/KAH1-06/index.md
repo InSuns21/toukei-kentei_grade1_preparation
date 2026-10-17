@@ -177,7 +177,25 @@ Q_z(v)\ge\frac{\lVert v\rVert^2}{S^2}>0
 \qquad (v\ne0).
 $$
 
-したがって[正の実 $(1,1)$ 形式のHermite行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により $\omega_{\mathrm{FS}}$ は正である。ポテンシャルは実で滑らかなので $i\partial\bar\partial\varphi$ は実 $(1,1)$ 型であり、[ポテンシャルからKähler形式が得られる命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)により $d\omega_{\mathrm{FS}}=0$。具体的にも $\partial^2=\bar\partial^2=0$、$\partial\bar\partial+\bar\partial\partial=0$ から $\partial(i\partial\bar\partial\varphi)=0$、$\bar\partial(i\partial\bar\partial\varphi)=0$ が従う。複素座標は正則であるから複素構造は可積分である。$\square$
+したがって[正の実 $(1,1)$ 形式のHermite行列判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、局所Fubini–Study形式は正である。
+
+ポテンシャルが実で滑らかであることから、[ポテンシャルからKähler形式が得られる命題](../KAH1-02/index.md#prop-kah1-02-potential-suffices)を適用できる。そのため、この形式は実 $(1,1)$ 型かつ閉である。閉性は微分の恒等式からも確認できる。
+
+$
+\partial^2=\bar\partial^2=0,
+\qquad
+\partial\bar\partial+\bar\partial\partial=0.
+$
+
+これを基本形式へ適用すると
+
+$
+\partial(i\partial\bar\partial\varphi)=0,
+\qquad
+\bar\partial(i\partial\bar\partial\varphi)=0
+$
+
+であり、両者の和は $d\omega_{\mathrm{FS}}=0$ を与える。複素座標は正則であるから複素構造は可積分である。$\square$
 <!-- proof-end -->
 
 実Riemann計量を求めたい場合、係数行列 $H$ をそのまま実計量成分と読んではいけない。前章の[Hermite行列から実計量を作る構成](../KAH1-05/index.md#prop-kah1-05-constant-model)と同じ点ごとの対応を使い、実接ベクトル $u,v$ に
