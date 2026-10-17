@@ -80,7 +80,7 @@ $$
 も成り立ちます。これは後の部分積分で不可欠です。
 
 <!-- definition-example-start: def-ga8-pullback-connection -->
-**定義の確認**（平坦な値域）： $N=\mathbb R^q$ の標準座標では $\Gamma^\alpha_{\beta\gamma}=0$。$M=\mathbb T^2$、$u(x,y)=(\cos x,\sin x)$、$V(x,y)=(-\sin x,\cos x)$ とすると
+**定義の確認**（平坦な値域）： $N=\mathbb R^2$ の標準座標では $\Gamma^\alpha_{\beta\gamma}=0$。$M=\mathbb T^2$、$u(x,y)=(\cos x,\sin x)$、$V(x,y)=(-\sin x,\cos x)$ とすると
 
 $$
 \nabla^u_{\partial_x}V=(-\cos x,-\sin x),\qquad
