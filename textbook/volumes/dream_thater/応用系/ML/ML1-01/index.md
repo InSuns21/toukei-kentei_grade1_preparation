@@ -14,7 +14,7 @@
 
 <!-- formal-statement-start -->
 > **定義（教師あり学習問題）**  
-> 有限の非空集合 $\mathcal X,\mathcal Y$、その直積 $\mathcal X\times\mathcal Y$ 上の確率分布 $P$、そして予測規則の候補集合 $\mathcal H$ と損失関数 $\ell$ を指定した組を、本章では教師あり学習問題と呼ぶ。$X\in\mathcal X$ を特徴量、$Y\in\mathcal Y$ を目的変数、$(X,Y)$ の分布 $P$ を母集団分布と呼ぶ。$\mathcal H$ と $\ell$ は以下で定義する。
+> 有限の非空集合 $\mathcal X,\mathcal Y$、その直積 $\mathcal X\times\mathcal Y$ 上の確率分布 $P$、写像 $h:\mathcal X\to\mathcal Y$ からなる非空集合 $\mathcal H$、非負値の写像 $\ell:\mathcal Y\times\mathcal Y\to[0,\infty)$ を指定した組を、本章では教師あり学習問題と呼ぶ。$X\in\mathcal X$ を特徴量、$Y\in\mathcal Y$ を目的変数、$(X,Y)$ の分布 $P$ を母集団分布と呼ぶ。$\mathcal H$ を仮説クラス、$\ell$ を損失関数と呼び、次節以降で詳しく定義する。
 <!-- formal-statement-end -->
 
 この定義で与える $P$ は「真の分布」であり、通常は学習者が知らない。本章の4セル例では比較のために値を明示しておく。
@@ -40,7 +40,9 @@
 > **定義（予測器と仮説クラス）**  
 > 有限集合 $\mathcal X,\mathcal Y$ に対し、写像 $h:\mathcal X\to\mathcal Y$ を予測器と呼ぶ。予測器の非空集合
 >
-> $\mathcal H\subseteq\{h\mid h:\mathcal X\to\mathcal Y\}$
+$$
+\mathcal H\subseteq\{h\mid h:\mathcal X\to\mathcal Y\}
+$$
 >
 > を仮説クラスと呼ぶ。観測標本を入力として $\mathcal H$ の要素を返す規則を学習算法と呼び、その出力を $\widehat h_S$ と書く。
 <!-- formal-statement-end -->
@@ -70,7 +72,9 @@
 > **定義（損失関数と0–1損失）**  
 > 予測値 $\widehat y\in\mathcal Y$ と真の値 $y\in\mathcal Y$ に対して非負の実数を返す写像 $\ell:\mathcal Y\times\mathcal Y\to[0,\infty)$ を損失関数と呼ぶ。有限ラベル集合での0–1損失は
 >
-> $$\ell(\widehat y,y)=\boldsymbol{1}_{\{\widehat y\ne y\}}$$
+$$
+\ell(\widehat y,y)=\boldsymbol{1}_{\{\widehat y\ne y\}}
+$$
 >
 > であり、予測と真値が異なれば1、一致すれば0となる。
 <!-- formal-statement-end -->
@@ -87,11 +91,15 @@
 > **定義（母集団リスク・経験リスク）**  
 > 有限集合 $\mathcal X,\mathcal Y$、同時分布 $P$、非負損失 $\ell$、予測器 $h:\mathcal X\to\mathcal Y$ を固定する。母集団リスクを
 >
-> $$R_P(h)=E_P[\ell(h(X),Y)]=\sum_{x\in\mathcal X}\sum_{y\in\mathcal Y}P(X=x,Y=y)\ell(h(x),y)$$
+$$
+R_P(h)=E_P[\ell(h(X),Y)]=\sum_{x\in\mathcal X}\sum_{y\in\mathcal Y}P(X=x,Y=y)\ell(h(x),y)
+$$
 >
 > と定める。また $n\ge1$ 個の観測対 $S=((x_1,y_1),\ldots,(x_n,y_n))$ に対する経験リスクを
 >
-> $$\widehat R_S(h)=\frac1n\sum_{i=1}^n\ell(h(x_i),y_i)$$
+$$
+\widehat R_S(h)=\frac1n\sum_{i=1}^n\ell(h(x_i),y_i)
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -123,14 +131,14 @@ $$
 > **命題（4種類の二値予測器のリスク）**  
 > $\mathcal X=\mathcal Y=\{0,1\}$、0–1損失、$p_{xy}=P(X=x,Y=y)$ とする。第2節の四つの予測器の母集団リスクは
 >
-> $$
-> \begin{aligned}
-> R_P(h_0)&=p_{01}+p_{11},&
-> R_P(h_1)&=p_{00}+p_{10},\\
-> R_P(h_{\mathrm{id}})&=p_{01}+p_{10},&
-> R_P(h_{\mathrm{flip}})&=p_{00}+p_{11}.
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+R_P(h_0)&=p_{01}+p_{11},&
+R_P(h_1)&=p_{00}+p_{10},\\
+R_P(h_{\mathrm{id}})&=p_{01}+p_{10},&
+R_P(h_{\mathrm{flip}})&=p_{00}+p_{11}.
+\end{aligned}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -157,7 +165,9 @@ $h_{\mathrm{id}}(x)=x$ は $x\ne y$ の2セルで誤り、$R_P(h_{\mathrm{id}})=
 > **定義（独立同分布訓練標本）**  
 > 有限集合 $\mathcal X\times\mathcal Y$ 上の分布 $P$ と整数 $n\ge1$ を固定する。観測対 $Z_i=(X_i,Y_i)$ が相互に独立で、それぞれ同じ分布 $P$ に従うとき、
 >
-> $$S=(Z_1,\ldots,Z_n)\sim P^{\otimes n}$$
+$$
+S=(Z_1,\ldots,Z_n)\sim P^{\otimes n}
+$$
 >
 > を独立同分布（i.i.d.）訓練標本と呼ぶ。$Z_i$ の二つの成分 $X_i,Y_i$ が独立であることは要求しない。
 <!-- formal-statement-end -->
@@ -182,7 +192,9 @@ $$
 > **定理（固定予測器の経験リスクの不偏性）**  
 > $\mathcal X,\mathcal Y$ を有限集合、$P$ をその直積上の分布、$\ell$ を非負有限値の損失関数、$h:\mathcal X\to\mathcal Y$ を標本に依存しない固定予測器とする。$S=(Z_1,\ldots,Z_n)\sim P^{\otimes n}$、$n\ge1$ なら
 >
-> $$E_{P^{\otimes n}}[\widehat R_S(h)]=R_P(h).$$
+$$
+E_{P^{\otimes n}}[\widehat R_S(h)]=R_P(h).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -220,7 +232,9 @@ $$
 > **定理（固定予測器の0–1経験リスクの分散）**  
 > 有限二値分類で0–1損失を用い、$h$ を標本と独立に固定する。$S\sim P^{\otimes n}$、$n\ge1$ とし、$q=R_P(h)$ とおく。このとき
 >
-> $$\operatorname{Var}(\widehat R_S(h))=\frac{q(1-q)}{n}.$$
+$$
+\operatorname{Var}(\widehat R_S(h))=\frac{q(1-q)}{n}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -259,7 +273,7 @@ $$
 
 ## 6. 四セル分布の対話実験
 
-[有限四セルの対話ラボ](../../../../../../simulation/index.html)で、模型の選択を「ML1-01」に変更する。確率4セルを入力したら和が1であることを確かめる。合計が違うときは「確率を正規化」で非負の各値を合計で割る。零だけの入力は分布を定義できないので拒否される。
+[有限四セルの対話ラボ](../../../../../../simulation/index.html?model=ml)で、模型の選択を「ML1-01」に変更する。確率4セルを入力したら和が1であることを確かめる。合計が違うときは「確率を正規化」で非負の各値を合計で割る。零だけの入力は分布を定義できないので拒否される。
 
 予測器を4種類から選び、$n$ と反復回数、seedを設定して「標本を抽出」を押す。再抽出時も**同じseed・同じ設定なら同じ結果**となるので、違う標本が必要ならseedを変える。確率を変える操作とseedを変える操作は別である。
 
