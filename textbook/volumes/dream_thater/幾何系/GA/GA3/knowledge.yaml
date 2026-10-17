@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GA2
   - GPDE9
+  - GEO14
 concepts:
   - id: geometric-analysis.h1-weak-poisson
     name: 多様体Poisson方程式のH1弱解
