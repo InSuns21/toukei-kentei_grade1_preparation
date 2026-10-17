@@ -102,7 +102,7 @@ $$
 
 $$
 ([\nabla_X,\nabla_Y]\alpha)(Z)
--\nabla_{[X,Y]}\alpha(Z)
+-(\nabla_{[X,Y]}\alpha)(Z)
 =-\alpha(R(X,Y)Z)
 $$
 
@@ -174,6 +174,8 @@ $$
 $$
 
 二行目では[曲率の計量反対称性](../../GEO/GEO16/index.md#thm-geo16-curvature-symmetries)を、三行目では[Ricci曲率の定義](../../GEO/GEO16/index.md#def-geo16-ricci-scalar)を使いました。これはRicci項の正号を確定する最重要計算です。
+
+この縮約を、1形式に作用する曲率項としてまとめます。$\alpha$ の計量双対を $\alpha^\sharp$ とし、各接ベクトル $X$ へ $\operatorname{Ric}(X,\alpha^\sharp)$ を対応させる1形式を $\operatorname{Ric}^\sharp(\alpha)$ と書きます。これで「1形式に二階微分を二通り施した差」を、同じ1形式の等式として述べられます。
 
 <a id="thm-ga7-weitzenbock"></a>
 
