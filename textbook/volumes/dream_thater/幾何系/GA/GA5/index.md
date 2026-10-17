@@ -32,7 +32,7 @@ $$
 定義域は $L^2(M)$ 全体です。係数の二乗和は[Parseval等式](../GA4/index.md#thm-ga4-spectral-basis)で $\sum_j|c_j|^2=\|f\|_2^2<\infty$ です。$|e^{-t\lambda_j}|\le1$ だから級数は確かに $L^2$ で収束します。
 
 <!-- definition-example-start: def-ga5-heat-semigroup -->
-**定義の確認（円の二つの波数）**：上記の $f$ は滑らかな周期関数で $L^2$ に属します。定数・$\cos\theta$・$\sin2\theta$ は互いに直交する固有関数で、固有値は順に $0,1,4$。したがって定義の各成分を $1,e^{-t},e^{-4t}$ 倍した結果が上の $u$ です。さらに成分ごとに $e^{-(t+s)\lambda}=e^{-t\lambda}e^{-s\lambda}$ を確かめれば、$T_{t+s}f=T_t(T_sf)$ となります。正規化を変えても線形結合全体の値は同じです。
+**定義の確認**（円の二つの波数）：上記の $f$ は滑らかな周期関数で $L^2$ に属します。定数・$\cos\theta$・$\sin2\theta$ は互いに直交する固有関数で、固有値は順に $0,1,4$。したがって定義の各成分を $1,e^{-t},e^{-4t}$ 倍した結果が上の $u$ です。さらに成分ごとに $e^{-(t+s)\lambda}=e^{-t\lambda}e^{-s\lambda}$ を確かめれば、$T_{t+s}f=T_t(T_sf)$ となります。正規化を変えても線形結合全体の値は同じです。
 <!-- definition-example-end -->
 
 <a id="thm-ga5-semigroup"></a>
@@ -135,7 +135,7 @@ $$
 
 という評価を得ます。具体的には一回目の $H^2$ 評価に $Lv$、二回目の $H^4$ 評価に $L(Lv)$ を入力し、有限被覆と[GA2の局所ノルム比較](../GA2/index.md#prop-ga2-intrinsic-h1)で定数をまとめます。[GA2のSobolev埋め込み](../GA2/index.md#thm-ga2-embedding)で $2k>r+d/2$ となる $k$ を選べば $v$ の $C^r$ ノルムを抑えられます。時間微分は $-L$ をさらに作用させるので、$t\ge\varepsilon>0$ の各階微分まで連続になり、$u$ は $(0,\infty)\times M$ で滑らかです。
 
-$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ なので [GA1の勾配の部分積分公式](../GA1/index.md#thm-ga1-green-first)から
+$w$ を初期値 $0$ の同じクラスの解とすると、$w(t)\in D(L)$ なので [Greenの第一公式](../GA1/index.md#thm-ga1-green-first)から
 
 $$
 \frac{d}{dt}\|w(t)\|_2^2
@@ -145,7 +145,7 @@ $$
 $0<s<t$ に積分して $\|w(t)\|_2\le\|w(s)\|_2$、$s\downarrow0$ で右辺は $0$ です。よって一意性が従います。同じ計算を $u$ に適用して指定したエネルギー恒等式を得ます。
 <!-- proof-end -->
 
-**保存される量と減る量は別です。** 滑らかな $u$ について[GA1の境界なし積分公式](../GA1/index.md#thm-ga1-divergence)から
+**保存される量と減る量は別です。** 滑らかな $u$ について[Riemann多様体の発散定理](../GA1/index.md#thm-ga1-divergence)から
 
 $$
 \frac{d}{dt}\int_Mu\,dV_g=\int_M\Delta_gu\,dV_g=0,
@@ -225,7 +225,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga5-heat-kernel -->
-**定義の確認（標準円）**：$S^1=\mathbb R/(2\pi\mathbb Z)$ の正規直交基底を $\phi_0=(2\pi)^{-1/2}$、$\pi^{-1/2}\cos(n\theta)$、$\pi^{-1/2}\sin(n\theta)$（$n\ge1$）とします。固有値は $n^2$ です。三角恒等式 $\cos a\cos b+\sin a\sin b=\cos(a-b)$ により、定義の級数は
+**定義の確認**（標準円）：$S^1=\mathbb R/(2\pi\mathbb Z)$ の正規直交基底を $\phi_0=(2\pi)^{-1/2}$、$\pi^{-1/2}\cos(n\theta)$、$\pi^{-1/2}\sin(n\theta)$（$n\ge1$）とします。固有値は $n^2$ です。三角恒等式 $\cos a\cos b+\sin a\sin b=\cos(a-b)$ により、定義の級数は
 
 $$
 p_t(\theta,\eta)=\frac1{2\pi}+\frac1\pi\sum_{n=1}^{\infty}e^{-tn^2}\cos(n(\theta-\eta)).
@@ -310,7 +310,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず滑らかな $f\ge0$ を取ります。$u=T_tf$ は $t=0$ まで滑らかです（$f$ が滑らかなら各 $L^mf\in L^2$ であり、[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)から高階の級数も $t=0$ で収束します）。$u_-=\max\{-u,0\}$ とします。弱微分の連鎖律では $u<0$ の集合上で $\nabla u_-=-\nabla u$ なので、[GA1の勾配の部分積分公式](../GA1/index.md#thm-ga1-green-first)により
+まず滑らかな $f\ge0$ を取ります。$u=T_tf$ は $t=0$ まで滑らかです（$f$ が滑らかなら各 $L^mf\in L^2$ であり、[GA4の固有値展開](../GA4/index.md#thm-ga4-spectral-basis)から高階の級数も $t=0$ で収束します）。$u_-=\max\{-u,0\}$ とします。弱微分の連鎖律では $u<0$ の集合上で $\nabla u_-=-\nabla u$ なので、[Greenの第一公式](../GA1/index.md#thm-ga1-green-first)により
 
 $$
 \frac{d}{dt}\|u_-(t)\|_2^2
@@ -493,7 +493,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga5-stochastic-completeness -->
-**定義の確認（実直線）**：[PDE3の熱核表示](../../../解析系/PDE/PDE3/index.md#thm-pde3-whole-line)によれば、標準計量の $\mathbb R$ 上では $p_t(x,y)=(4\pi t)^{-1/2}e^{-(x-y)^2/(4t)}$ です。$z=(y-x)/(2\sqrt t)$ と置くと
+**定義の確認**（実直線）：[PDE3の熱核表示](../../../解析系/PDE/PDE3/index.md#thm-pde3-whole-line)によれば、標準計量の $\mathbb R$ 上では $p_t(x,y)=(4\pi t)^{-1/2}e^{-(x-y)^2/(4t)}$ です。$z=(y-x)/(2\sqrt t)$ と置くと
 
 $$
 \int_{\mathbb R}p_t(x,y)\,dy
