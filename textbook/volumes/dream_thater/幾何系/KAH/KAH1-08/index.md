@@ -149,7 +149,7 @@ g_{a\bar b}(p)=\delta_{ab},\qquad
 \partial_{\bar c}g_{a\bar b}(p)=0
 $$
 
-とできれば、$\Gamma^c_{ab}(p)=0$ が従う。こうした座標を**Kähler正規座標**（本章では一階正規座標）と呼ぶ。これは一点での条件であり、開集合全域で係数が消えるという条件ではない。
+とできれば、$\Gamma^c_{ab}(p)=0$ が従う。こうした座標を**Kähler正規座標**（本章では一階の条件を満たす座標）と呼ぶ。これは一点での条件であり、開集合全域で係数が消えるという条件ではない。
 
 まず正値Hermite行列 $H(p)$ は、[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)により正則線形座標変換で単位行列にできる。その後、原点を $p$ に移し、この線形正規化後の座標を $u$ として $u(p)=0$, $g_{a\bar b}(p)=\delta_{ab}$ とする。
 
@@ -175,7 +175,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-08-normal-coordinates -->
-**定義の直接例。** $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
+**定義の確認（直接例）。** $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-08-normal-existence"></a>
@@ -262,18 +262,18 @@ Kählerなら直前の局所存在定理により、すべての点で指定さ�
 
 逆に各点 $p$ で命題の条件を満たす正則座標を取る。その座標では全ての $\partial_i g_{j\bar\ell}(p)$ が零だから、[接束Chern係数式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)より
 
-$
+$$
 \Gamma^k_{ij}(p)
 =\sum_{\ell}g^{k\bar\ell}(p)\partial_i g_{j\bar\ell}(p)
 =0.
-$
+$$
 
 そこで正則方向の捩率は
 
-$
+$$
 T(\partial_i,\partial_j)(p)
 =(\Gamma^k_{ij}-\Gamma^k_{ji})(p)\partial_k=0.
-$
+$$
 
 [接束の捩率の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)では混合成分は常に零で、反正則成分は正則成分の複素共役だから、ともに消える。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)により、この結論は座標に依存しない。点 $p$ は任意なので捩率は全域で零となり、[Kähler閉性との同値性](../KAH1-03/index.md#thm-kah1-03-closed-torsion)で $d\omega=0$。$\square$
 <!-- proof-end -->
@@ -335,7 +335,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-kah1-08-a03"></a>
-#### KAH1-08-A03 一点で既に正規座標
+#### KAH1-08-A03 一点で既にKähler正規座標
 - Level: A
 
 $\lambda>0$、$\varphi=|z|^2+\lambda|z|^4$ とし、$g_{z\bar z}=\partial_z\partial_{\bar z}\varphi$ とする。原点で $z$ がKähler正規座標か、定義の各条件を確かめよ。
@@ -417,26 +417,26 @@ $$
 <!-- solution-end -->
 
 <a id="ex-kah1-08-b03"></a>
-#### KAH1-08-B03 正規座標なら平坦か
+#### KAH1-08-B03 Kähler正規座標なら平坦か
 - Level: B
 
-$\lambda>0$ の一次元計量 $g_{z\bar z}=1+4\lambda|z|^2$ について、原点で一階正規座標の条件と $\partial_z\partial_{\bar z}g_{z\bar z}(0)$ を計算せよ。なぜ正規座標の存在から近傍平坦性を結論できないか説明せよ。
+$\lambda>0$ の一次元計量 $g_{z\bar z}=1+4\lambda|z|^2$ について、原点で一階正規座標の条件と $\partial_z\partial_{\bar z}g_{z\bar z}(0)$ を計算せよ。なぜKähler正規座標の存在から近傍平坦性を結論できないか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$g(0)=1$ であり、$\partial_zg=4\lambda\bar z$、$\partial_{\bar z}g=4\lambda z$ だから両方とも原点で零。従って原点の一階正規座標である。一方、
+**詳細解答**。$g(0)=1$ であり、$\partial_zg=4\lambda\bar z$、$\partial_{\bar z}g=4\lambda z$ だから両方とも原点で零。従って原点におけるKähler正規座標である。一方、
 
 $$
 \partial_z\partial_{\bar z}g_{z\bar z}
 =\partial_z(4\lambda z)=4\lambda\ne0.
 $$
 
-正規座標で制約されるのは計量の0階・1階の値であり、2階微分が零になるとは定義されていない。曲率の計算では二階微分と一次項の積が現れるので、この非零値は平坦性を導く根拠にならない。実際この例の原点では接続係数が零だが $\partial_{\bar z}\Gamma^z_{zz}(0)=4\lambda$ であり、接続の一階変化が残る。
+Kähler正規座標で制約されるのは計量の0階・1階の値であり、2階微分が零になるとは定義されていない。曲率の計算では二階微分と一次項の積が現れるので、この非零値は平坦性を導く根拠にならない。実際この例の原点では接続係数が零だが $\partial_{\bar z}\Gamma^z_{zz}(0)=4\lambda$ であり、接続の一階変化が残る。
 <!-- solution-end -->
 
 ### Level C
 
 <a id="ex-kah1-08-c01"></a>
-#### KAH1-08-C01 二変数ポテンシャルから正規座標を構成する
+#### KAH1-08-C01 二変数ポテンシャルからKähler正規座標を構成する
 - Level: C
 
 $\lambda>0$、$\varphi(z)=|z^1|^2+|z^2|^2+\lambda|z^1|^2|z^2|^2$ とする。$g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$、点 $p=(a,0)$（$a\ne0$）、$d=1+\lambda|a|^2$ とおく。
@@ -492,9 +492,9 @@ w^1=u^1,\qquad
 w^2=u^2+\frac{\lambda\bar a}{d}u^1u^2
 $$
 
-とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。正規座標存在定理の積の微分計算により $g_w(p)=I$ かつ全一階微分が零となる。ここで $\bar a$ は**固定した点の定数**であり、変数 $u$ の共役を座標変換へ混入させていないから、$w(u)$ は正則である。
+とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。前述した局所存在定理の積の微分計算により $g_w(p)=I$ かつ全一階微分が零となる。ここで $\bar a$ は**固定した点の定数**であり、変数 $u$ の共役を座標変換へ混入させていないから、$w(u)$ は正則である。
 <!-- solution-end -->
 
 ## 7. 次章への橋
 
-正則座標でのChern接続、Levi–Civita接続との一致、混合成分の消失、接続係数の非テンソル的な変換、そして**Kähler条件に支えられた一階正規座標**を確認した。次章では、正規座標で接続係数を一点で零にしても残る二階の計量変化を、曲率テンソルとして取り出す。
+正則座標でのChern接続、Levi–Civita接続との一致、混合成分の消失、接続係数の非テンソル的な変換、そして**Kähler条件に支えられた一階正規座標**を確認した。次章では、Kähler正規座標で接続係数を一点で零にしても残る二階の計量変化を、曲率テンソルとして取り出す。
