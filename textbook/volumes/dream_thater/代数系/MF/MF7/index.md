@@ -261,7 +261,12 @@ $$
 <a id="cor-mf7-first-coefficient"></a>
 <!-- formal-statement-start -->
 > **系（固有値と第一係数の一致）**  
-> 偶数 $k\ge2$、$N\ge1$、自明指標のレベル $N$ の正規化newform $f=\sum_{n\ge1}a_nq^n$（$a_1=1$）に対し、素数 $\ell\nmid N$ では $T_\ell f=a_\ell f$、素数 $p\mid N$ では $U_pf=a_pf$ である。
+> 偶数 $k\ge2$、$N\ge1$、自明指標のレベル $N$ の正規化newform $f=\sum_{n\ge1}a_nq^n$（$a_1=1$）に対し、素数ごとの固有値は次の通りである。
+>
+$$
+T_\ell f=a_\ell f\quad(\ell\nmid N),\qquad
+U_pf=a_pf\quad(p\mid N).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
