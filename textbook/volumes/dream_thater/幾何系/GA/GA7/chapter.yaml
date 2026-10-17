@@ -1,0 +1,32 @@
+id: "GA7"
+title: "Bochner--Weitzenböck公式・曲率と解析"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA6
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 接続Laplacianを定義し平坦トーラスの1形式で正符号を検算できる
+  - 共変微分の交換子とRicci縮約の符号を出発式から追える
+  - 1形式のBochner--Weitzenböck公式と関数のBochner恒等式を証明できる
+  - 積分Weitzenböck恒等式から非負Ricci下で調和1形式が平行であると示せる
+  - 正Ricciなら調和1形式と第一de Rhamコホモロジーが消滅することを証明できる
+  - Hessianのトレース不等式からLichnerowicz第一固有値下界を導出できる
+  - 球面で固有値下界の等号を確認し平坦トーラスで非負Ricciの限界を説明できる
+  - 境界・非コンパクトで積分恒等式を無条件に使用できない理由を示せる
+definitions:
+  - { id: GA7-DEF-01, name: "接続Laplacian" }
+theorems:
+  - { id: GA7-LEM-01, name: "1形式の共変微分交換公式" }
+  - { id: GA7-THM-01, name: "1形式のBochner--Weitzenböck公式" }
+  - { id: GA7-THM-02, name: "関数のBochner恒等式" }
+  - { id: GA7-THM-03, name: "積分Weitzenböck恒等式" }
+  - { id: GA7-THM-04, name: "Bochnerの調和1形式消滅定理" }
+  - { id: GA7-THM-05, name: "Lichnerowiczの第一固有値下界" }
+canonical_examples: [平坦トーラスの接続Laplacian, 単位球面の高さ関数, 半径aの球面の第一固有値, Ricci非負の平坦トーラス反例]
+problem_patterns: [GA7-FLAT-ONE-FORM, GA7-SPHERE-BOCHNER, GA7-HESSIAN-TRACE, GA7-PARALLEL, GA7-EIGEN-BOUND, GA7-FLAT-COHOMOLOGY, GA7-SHARP-SPHERE, GA7-COMMUTATOR-SIGN, GA7-INTEGRATION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.0, review: 2.0 }
