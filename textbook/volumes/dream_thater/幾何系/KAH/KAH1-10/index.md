@@ -164,13 +164,13 @@ $$
 
 最後に $z=x+iy$ とし、$g_{\mathbb R}=e^{2u}(dx^2+dy^2)$ の形へ直す。$e^{2u}=2e^f$ なので $u=(\log 2+f)/2$ である。実座標でLevi–Civita接続を計算すると、$g_{ab}=e^{2u}\delta_{ab}$、$g^{ab}=e^{-2u}\delta^{ab}$ をChristoffelの公式に入れて
 
-$
+$$
 \Gamma^a_{bc}=\delta^a_bu_c+\delta^a_cu_b-\delta_{bc}u_a
-$
+$$
 
 となる。とくに $\Gamma^x_{yy}=-u_x$、$\Gamma^x_{xy}=u_y$、$\Gamma^x_{xx}=u_x$、$\Gamma^y_{yy}=u_y$、$\Gamma^y_{xy}=u_x$ であり、
 
-$
+$$
 \begin{aligned}
 (R(\partial_x,\partial_y)\partial_y)^x
 &=\partial_x\Gamma^x_{yy}-\partial_y\Gamma^x_{xy}
@@ -179,7 +179,7 @@ $
  +(-u_x^2+u_y^2)-(u_y^2-u_x^2)\\
 &=-(u_{xx}+u_{yy}).
 \end{aligned}
-$
+$$
 
 従って $K=g_{\mathbb R}(R(\partial_x,\partial_y)\partial_y,\partial_x)/e^{4u}=-e^{-2u}(u_{xx}+u_{yy})$ であり、
 
