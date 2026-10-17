@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - KAH1-09
+  - VC7
 concepts:
   - id: kahler.holomorphic-sectional-curvature
     name: 正則断面曲率
@@ -15,7 +16,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Kähler曲率のRicci縮約）"]
-    requires: [kahler.curvature-complex-components, kahler.curvature-complex-symmetries]
+    requires: [kahler.curvature-complex-components, kahler.curvature-complex-symmetries, vector-calculus.contraction]
   - id: kahler.flat-torus-curvature
     name: 平坦トーラスの全曲率の消失
     kind: proposition
