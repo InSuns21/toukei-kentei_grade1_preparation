@@ -834,6 +834,9 @@ function runAliasMatcherSelfTest() {
     ['Banach空間', 'Banach', true],
     ['群Gは', '群', true],
     ['2次の微分係数は', '微分係数', true],
+    ['Fubini–Study形式', 'Fubini', false],
+    ['Fubini-Study metric', 'Fubini', false],
+    ['Fubini の定理', 'Fubini', true],
   ];
   for (const [line, alias, expected] of japaneseAliasCases) {
     if (aliasAppears(line, alias) !== expected) {
@@ -1024,7 +1027,7 @@ function aliasAppears(line, alias) {
   const needle = String(alias).trim();
   if (!needle) return false;
   if (/^[A-Za-z][A-Za-z0-9.^+-]*$/u.test(needle)) {
-    return new RegExp(`(?<![A-Za-z0-9_])${escapeRegExp(needle)}(?![A-Za-z0-9_])`, 'u').test(line);
+    return new RegExp(`(?<![A-Za-z0-9_])${escapeRegExp(needle)}(?![A-Za-z0-9_]|[–—−-][A-Za-z])`, 'u').test(line);
   }
   // Japanese compounds have no spaces between their constituents. Do not treat
   // a registered alias as a standalone concept when it occurs only inside a
