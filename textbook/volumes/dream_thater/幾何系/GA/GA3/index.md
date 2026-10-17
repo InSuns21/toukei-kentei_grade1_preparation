@@ -247,7 +247,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in M$ の周りで比較的コンパクトな二つの座標球 $\Omega'\Subset\Omega$ を取ります。切断関数を使った弱形式の局所化により、$\tilde u$ は $\Omega$ 内で上記の発散形方程式を満たします。滑らかな $A^{ij}$ は $\overline{\Omega'}$ の周りで有界かつ局所Lipschitzで、上で示した通り一様楕円的です。右辺 $\rho\tilde f$ は局所 $L^2$ です。したがって[GPDE9の一般係数内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)を局所球の組に適用して、$\tilde u\in H^2(\Omega')$ を得ます。
+$p\in M$ の周りで、閉包が内側に収まる二つの座標球を選びます。
+
+$
+\Omega'\Subset\Omega
+$
+
+切断関数で弱形式を局所化すると、座標関数 $\tilde u$ は $\Omega$ 上で発散形方程式を満たします。係数 $A^{ij}$ は滑らかなので、$\overline{\Omega'}$ の近傍で有界かつLipschitz連続です。また第5節で確認した局所一様楕円性も使えます。
+
+右辺は $\rho\tilde f\in L^2_{\mathrm{loc}}$ です。この条件を[GPDE9の一般係数内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)に代入すると
+
+$
+\tilde u\in H^2(\Omega')
+$
+
+を得ます。
 
 高階の場合は入れ子の座標球をもう一段用意します。$\tilde u\in H^{m+1}_{\mathrm{loc}}$、$\tilde f\in H^m_{\mathrm{loc}}$ を仮定し、$|\alpha|=m$ の弱導関数に差分商近似を使います。滑らかな係数の積の微分則は
 
@@ -259,7 +273,20 @@ $$
 \partial_jD^{\alpha-\beta}\tilde u\bigr).
 $$
 
-ここで各和の項の係数は滑らかで、$0<|\beta|$ なので $D^{\alpha-\beta}\tilde u$ に必要な最高微分階数は高々 $m+1$ です。帰納仮定から右辺は局所 $L^2$ に属します。差分商近似の極限を取った上で再び[内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)を $D^\alpha\tilde u$ に適用すれば $D^\alpha\tilde u\in H^2_{\mathrm{loc}}$、すなわち $\tilde u\in H^{m+2}_{\mathrm{loc}}$ です。初期段階 $m=1$ は先に得た $H^2$ が出発点です。
+ここで和の添字は $0<|\beta|\le m$ です。各係数は滑らかで、右辺の最も高い $\tilde u$ の微分階数は
+
+$
+1+|\alpha-\beta|+1=m-|\beta|+2\le m+1
+$
+
+です。帰納仮定から右辺は局所 $L^2$ に属します。差分商近似の極限を取って[内部H2定理](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-lipschitz-coefficient-h2)を $D^\alpha\tilde u$ に適用します。その結果
+
+$
+D^\alpha\tilde u\in H^2_{\mathrm{loc}},
+\qquad \tilde u\in H^{m+2}_{\mathrm{loc}}
+$
+
+です。最初の $m=1$ では、既に得た $H^2$ 正則性を帰納法の出発点にします。
 
 $f$ が滑らかなら任意の $m$ で同様の議論ができます。固定した次元 $d$ に対して $s>r+d/2$ を選べば、[GPDE5の局所Sobolev埋め込み](../../../解析系/GPDE/GPDE5/index.md#cor-gpde5-lipschitz-embedding)により $H^s_{\mathrm{loc}}$ の関数は $C^r$ 代表元を持ちます。$r$ が任意だから滑らかな代表元が得られます。座標変換は滑らかなので、それらは多様体上で一致します。
 <!-- proof-end -->
@@ -638,7 +665,12 @@ $$
 #### GA3-C01 平均零Poisson・正則性・最大値の統合
 - Level: C
 
-$(M,g)$ を滑らかで連結・コンパクト・境界なしのRiemann多様体とし、$f\in C^\infty(M)$ とする。(1) $-\Delta_gu=f$ に平均零の滑らかな解が存在する条件を必要十分で証明せよ。(2) その解について $\|u\|_{H^1_g}$ の外力評価を導け。(3) $f\ge0$ なら $f\equiv0$ と $u\equiv0$ が必ず成り立つことを示せ。(4) なぜ同じ結論を零Dirichlet境界条件の領域に持ち込めないか具体例を示せ。
+$(M,g)$ を滑らかで連結・コンパクト・境界なしのRiemann多様体とし、$f\in C^\infty(M)$ とする。次の問いに答えよ。
+
+1. $-\Delta_gu=f$ に平均零の滑らかな解が存在する条件を必要十分で証明せよ。
+2. その解について $\|u\|_{H^1_g}$ の外力評価を導け。
+3. $f\ge0$ なら $f\equiv0$ と $u\equiv0$ が必ず成り立つことを示せ。
+4. なぜ同じ結論を零Dirichlet境界条件の領域に持ち込めないか、具体例を示せ。
 
 <!-- solution-start -->
 **詳細解答**
