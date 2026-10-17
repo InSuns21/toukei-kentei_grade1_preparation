@@ -1,0 +1,42 @@
+id: "KAH1-07"
+title: "Fubini–Study形式II（貼り合わせと規格化）"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-06
+  - CM2-11
+official_scope: []
+learning_objectives:
+  - 同次座標の二つの正規化から標準チャート間のポテンシャル変換公式を導出できる
+  - log|t|²の混合微分が零となることを示し局所Fubini–Study形式を大域へ貼り合わせられる
+  - 射影直線の二チャートで形式を直接引き戻し一致を再計算できる
+  - 実座標・極座標からCP1のFubini–Study面積2πを積分できStokesでも検算できる
+  - O(1)の双対Hermite計量の枠変更とChern曲率の符号を確認できる
+  - 第一Chern形式がomegaFS/(2π)と一致することを導きO(-1)の逆符号を区別できる
+  - 正の面積とStokesから大域ポテンシャルの非存在を証明できる
+  - 重み付きポテンシャルでも貼り合わせと面積の規格化を自力計算できる
+definitions: []
+theorems:
+  - { id: KAH1-07-THM-01, name: Fubini–Study形式の大域貼り合わせ }
+  - { id: KAH1-07-THM-02, name: Fubini–Study形式の射影直線上の面積 }
+  - { id: KAH1-07-PROP-01, name: O(1)の第一Chern形式とFubini–Study形式 }
+  - { id: KAH1-07-PROP-02, name: 射影直線のFubini–Study形式に大域ポテンシャルはない }
+canonical_examples:
+  - CP1の逆数チャート上のポテンシャル差と混合微分の消滅
+  - CP1の二チャート間の2形式の引き戻し
+  - 射影直線の極座標積分とStokes境界積分による面積照合
+  - O(1)の双対局所枠とChern曲率の符号
+  - O(-1)への双対前の曲率と積分の逆符号
+  - CP2内の座標射影直線への制限
+  - 重み付き対数ポテンシャルの大域貼り合わせと規格化
+problem_patterns:
+  - KAH1-07-POTENTIAL-GLUING
+  - KAH1-07-COORDINATE-PULLBACK
+  - KAH1-07-AREA-NORMALIZATION
+  - KAH1-07-LINE-BUNDLE-CHERN
+  - KAH1-07-NO-GLOBAL-POTENTIAL
+  - KAH1-07-WEIGHTED-FS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

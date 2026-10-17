@@ -746,6 +746,7 @@
 4. [KAH1-04 局所Kählerポテンシャル](textbook/volumes/dream_thater/幾何系/KAH/KAH1-04/index.md)
 5. [KAH1-05 平坦模型と構成操作](textbook/volumes/dream_thater/幾何系/KAH/KAH1-05/index.md)
 6. [KAH1-06 Fubini–Study形式I（局所構成）](textbook/volumes/dream_thater/幾何系/KAH/KAH1-06/index.md)
+7. [KAH1-07 Fubini–Study形式II（貼り合わせと規格化）](textbook/volumes/dream_thater/幾何系/KAH/KAH1-07/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

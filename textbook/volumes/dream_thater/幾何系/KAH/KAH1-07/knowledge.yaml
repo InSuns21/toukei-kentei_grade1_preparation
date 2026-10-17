@@ -1,0 +1,31 @@
+chapter: KAH1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-06
+  - CM2-11
+concepts:
+  - id: kahler.global-fubini-study-gluing
+    name: Fubini–Study形式の大域貼り合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fubini–Study形式の大域貼り合わせ）"]
+    requires: [kahler.local-fubini-study-positive, kahler.local-potential-gauge, kahler.projective-standard-atlas]
+  - id: kahler.projective-line-fs-area
+    name: Fubini–Study形式の射影直線上の面積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fubini–Study形式の射影直線上の面積）"]
+    requires: [kahler.global-fubini-study-gluing, kahler.local-fubini-study-form]
+  - id: kahler.fs-chern-o1
+    name: O(1)の第一Chern形式とFubini–Study形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（O(1)の第一Chern形式とFubini–Study形式）"]
+    requires: [kahler.global-fubini-study-gluing, kahler.projective-line-fs-area, complex-manifolds.holomorphic-dual-bundle, complex-manifolds.first-chern-form, complex-manifolds.chern-line-formula]
+  - id: kahler.projective-no-global-fs-potential
+    name: 射影直線のFubini–Study形式に大域ポテンシャルはない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線のFubini–Study形式に大域ポテンシャルはない）"]
+    requires: [kahler.projective-line-fs-area, kahler.local-kahler-potential, geometry.general-stokes-theorem]
