@@ -34,6 +34,8 @@ function configuration() {
   } : {
     probabilities: ["p00", "p01", "p10", "p11"].map(number),
     sampleCount: number("sample-count"),
+    repetitions: number("repetitions"),
+    classifierId: $("classifier-id").value,
   };
   if (!Number.isSafeInteger(seed) || seed < 0 || seed > 0xffffffff) {
     throw new RangeError("seedは0以上、2^32未満の整数を指定してください");
@@ -51,6 +53,8 @@ function setMode() {
   $("burrau-params").hidden = currentModel !== "burrau";
   $("gallery-params").hidden = currentModel !== "gallery";
   $("ml-params").hidden = physics;
+  $("ml-cell-table").hidden = physics;
+  $("ml-histogram-container").hidden = physics;
   for (const id of ["step", "run", "play", "pause", "resume", "cancel"]) {
     $(id).hidden = !physics;
   }
@@ -75,7 +79,10 @@ function setMode() {
   }
   $("legend").textContent = physics
     ? "線＝過去の軌跡、番号付きの大きな記号＝質点の現在位置。記号形状と線種でも識別します。質量に応じた実寸表示ではありません。"
-    : "四セル分布の標本度数。色の強さと数値表を併用します。";
+    : "四セル分布の標本度数。下の表は母集団確率と実抽出度数を区別して示します。";
+  $("plot-description").textContent = physics
+    ? "軌跡の横軸と縦軸は距離座標。番号記号が物体の現在位置です。"
+    : "四セルから独立に抽出した最初の標本の度数。4セルの母集団確率は数値表も参照。";
   if (currentModel === "gallery") {
     const r = gallery.PRESETS[$("orbit-preset").value];
     $("orbit-details").textContent = r.label + "：参考周期 T≈" +
@@ -118,12 +125,40 @@ function plotResult() {
       yAxis: { label: "X", unit: "0/1" },
       grid: [[counts[0], counts[1]], [counts[2], counts[3]]],
     }, 1);
+    renderTable($("ml-cell-table"), ["(X,Y)", "母集団確率 P", "標本度数（第1回）"], 
+      ["00","01","10","11"].map((cell, j) =>
+        [cell, latest.probabilities[j], counts[j]]));
     renderTable($("diagnostics"), ["数値診断", "値"], resultRows({
-      counts, sampleCount: latest.sampleCount,
+      classifier: latest.classifier, sampleCount: latest.sampleCount,
+      repetitions: latest.repetitions,
       populationRisk: latest.populationRisk,
       empiricalRisk: latest.empiricalRisk,
+      meanEmpiricalRisk: latest.meanEmpiricalRisk,
+      varianceAcrossRepetitions: latest.varianceAcrossRepetitions,
+      theoreticalVariance: latest.theoreticalVariance,
       rngAlgorithm: latest.rngAlgorithm, seed: latest.seed,
     }));
+    const histogramCanvas = $("ml-risk-plot");
+    const points = latest.histogram.map((frequency, i) => [(i + 0.5) / 11, frequency]);
+    const maxFrequency = Math.max(1, ...latest.histogram);
+    drawPlot(histogramCanvas, {
+      type: "histogram",
+      xAxis: { label: "経験リスク", unit: "0〜1" },
+      yAxis: { label: "反復度数", unit: "回" },
+      bounds: { x: [-0.05, 1.05], y: [0, maxFrequency * 1.12] },
+      series: [{ points }],
+    }, 1);
+    // Dashed vertical line = exact R_P(h), not a sample estimate.
+    const g = histogramCanvas.getContext("2d");
+    const x = 55 + (latest.populationRisk + 0.05) / 1.10 * (histogramCanvas.width - 110);
+    g.save();
+    g.setLineDash([7, 4]); g.strokeStyle = "#be3429"; g.lineWidth = 2;
+    g.beginPath(); g.moveTo(x, 55); g.lineTo(x, histogramCanvas.height - 55); g.stroke();
+    g.restore();
+    renderTable($("ml-risk-table"), ["経験リスクの区間", "反復度数"],
+      latest.histogram.map((frequency, j) =>
+        [j === 10 ? "[10/11, 1]" : "[" + j + "/11, " + (j + 1) + "/11)",
+          frequency]));
   }
 }
 function updatePhysics(response) {
@@ -249,6 +284,8 @@ async function replay(text) {
       $(name).value = saved.params.probabilities[i];
     });
     $("sample-count").value = saved.params.sampleCount;
+    $("repetitions").value = saved.params.repetitions ?? 1;
+    $("classifier-id").value = saved.params.classifierId ?? "identity";
   }
   await start();
   if (isPhysics()) {
@@ -281,6 +318,12 @@ $("orbit-preset").addEventListener("change", guard(async () => {
   setMode(); await start();
 }));
 $("sample").addEventListener("click", guard(start));
+$("normalize-probabilities").addEventListener("click", guard(async () => {
+  const weights = ["p00", "p01", "p10", "p11"].map(number);
+  const normalized = ml.normalizeProbabilities(weights);
+  ["p00", "p01", "p10", "p11"].forEach((id, j) => { $(id).value = normalized[j]; });
+  await start();
+}));
 $("step").addEventListener("click", guard(() => runSteps(1)));
 $("run").addEventListener("click", guard(() => runSteps(100)));
 $("play").addEventListener("click", guard(play));
@@ -316,6 +359,9 @@ $("load-json").addEventListener("change", guard(async () => {
   $("load-json").value = "";
 }));
 window.addEventListener("pagehide", () => { running = false; playEpoch++; client?.dispose(); });
+if (new URLSearchParams(window.location.search).get("model") === "ml") {
+  $("experiment").value = "ml";
+}
 setMode();
 if (typeof Worker === "undefined") show("このブラウザではWorkerを使用できません", true);
 else guard(start)();

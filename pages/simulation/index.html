@@ -82,7 +82,12 @@
     <label>P(01) <input id="p01" type="number" min="0" max="1" step="0.01" value="0.1"></label>
     <label>P(10) <input id="p10" type="number" min="0" max="1" step="0.01" value="0.1"></label>
     <label>P(11) <input id="p11" type="number" min="0" max="1" step="0.01" value="0.4"></label>
-    <label>標本数 <input id="sample-count" type="number" min="1" max="100000" step="1" value="10000"></label>
+    <label>標本数 n <input id="sample-count" type="number" min="1" max="100000" step="1" value="200"></label>
+    <label>独立に標本を繰り返す回数 B <input id="repetitions" type="number" min="1" max="200" step="1" value="100"></label>
+    <label>予測器 h(x) <select id="classifier-id"><option value="identity">そのまま x</option><option value="flip">反転 1−x</option><option value="zero">常に 0</option><option value="one">常に 1</option></select></label>
+    <button type="button" id="normalize-probabilities">4セルの確率を正規化</button>
+    <p class="full-width" id="probability-explanation">確率の和は1である必要があります。合計が1でない場合は正規化を押してください。全セル0は無効です。</p>
+    <p class="full-width">上限：n×B ≤ 200,000抽出。固定seedは完全に同じ標本を再現します。別標本はseedを変更してください。</p>
   </div>
   <div class="controls">
     <label>乱数seed <input id="seed" type="number" min="0" max="4294967295" step="1" value="123"></label>
@@ -110,7 +115,14 @@
     <span><b class="particle-icon icon-one">1</b> 質点1（青・実線）</span>
     <span><b class="particle-icon icon-two">2</b> 質点2（赤・破線）</span>
   </div>
+  <div id="ml-cell-table" hidden></div>
   <div id="diagnostics" aria-live="polite"></div>
+  <div id="ml-histogram-container" hidden>
+    <h3>経験リスクの反復分布</h3>
+    <canvas id="ml-risk-plot" width="720" height="360" role="img" aria-label="経験リスクのヒストグラムと理論母集団リスクの破線" aria-describedby="ml-risk-description"></canvas>
+    <p id="ml-risk-description">横軸は0から1の経験リスク、縦軸は反復の度数。縦の破線は理論上の母集団リスクです。階級は幅1/11の11区間（最後のみ右端1を含む）。</p>
+    <div id="ml-risk-table"></div>
+  </div>
 </section>
 <section class="panel">
   <h2>実験の再現・持ち出し</h2>
