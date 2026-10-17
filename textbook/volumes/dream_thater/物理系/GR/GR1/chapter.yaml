@@ -1,0 +1,44 @@
+id: "GR1"
+title: "等価原理と局所自由落下"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL2
+  - SREL8
+official_scope: []
+learning_objectives:
+  - 弱い等価原理が実験的主張であり運動方程式の自明な帰結ではないことを説明できる
+  - 自由落下実験室で一様な加速度が消えることと潮汐相対加速度の残存を計算できる
+  - Einstein等価原理の非重力的・局所的適用範囲と重力の動力学との違いを説明できる
+  - SRELの(+---)からGRの(-+++)への換算を踏まえてRindler計量を導出できる
+  - Rindler静止時計の固有時・固有加速度を導出し位置依存性を示せる
+  - 慣性自由粒子のRindler座標加速度を計算して加速系の見かけの重力を説明できる
+  - 二粒子の相対運動から座標加速度と曲率を混同せず区別できる
+definitions:
+  - { id: GR1-PRINCIPLE-01, name: 弱い等価原理 }
+  - { id: GR1-DEF-01, name: 局所自由落下実験室 }
+  - { id: GR1-PRINCIPLE-02, name: Einstein等価原理 }
+theorems:
+  - { id: GR1-PROP-01, name: GR符号規約でのRindler計量 }
+  - { id: GR1-PROP-02, name: 静止Rindler時計の固有加速度 }
+  - { id: GR1-PROP-03, name: 瞬間静止の自由粒子が示す座標加速度 }
+  - { id: GR1-PROP-04, name: 平坦Rindler領域の二粒子試験 }
+canonical_examples:
+  - 異なる重力質量と慣性質量の比による自由落下普遍性の反証テスト
+  - 一様重力場の自由落下座標と位置依存場で残る相対加速度
+  - Rindler静止時計の座標時刻と固有時と固有加速度の差
+  - 二慣性粒子でRindler座標相対加速度が曲率でないことを確認
+problem_patterns:
+  - GR1-WEP-MASS-RATIO
+  - GR1-FREE-FALL-FRAME
+  - GR1-RINDLER-SIGN-AND-CLOCK
+  - GR1-RINDLER-WEDGE
+  - GR1-STATIC-OBSERVER-ACCEL
+  - GR1-FREE-PARTICLE-ACCEL
+  - GR1-TIDAL-RELATIVE-MOTION
+  - GR1-METRIC-DERIVATIVE-FLATNESS
+  - GR1-INTEGRATED-ROCKET-FREE-PARTICLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
