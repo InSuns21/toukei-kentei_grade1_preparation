@@ -251,8 +251,13 @@ $\sigma$ の微分は複素行列 $\operatorname{diag}(1,-1)$。積の基本形�
 > **命題（平坦商における非特殊ユニタリ全ホロノミー）**  
 > 上記の自由な位数2の等長正則作用による商 $X=(E\times E)/\langle\sigma\rangle$ はコンパクト連結Kähler曲面であり、誘導計量について
 >
-> $\rho=0,\qquad \operatorname{Hol}_x^0(g)=\{I\},\qquad
-> \operatorname{Hol}_x(g)=\{I,\operatorname{diag}(1,-1)\}$
+$$
+\begin{aligned}
+\rho&=0,\\
+\operatorname{Hol}_x^0(g)&=\{I\},\\
+\operatorname{Hol}_x(g)&=\{I,\operatorname{diag}(1,-1)\}.
+\end{aligned}
+$$
 >
 > がユニタリ基底の取り方を適切に選べば成立する。従って全ホロノミーは $SU(2)$ に含まれない。
 <!-- formal-statement-end -->
@@ -295,16 +300,16 @@ $Y$ のすべての閉路では平行移動が $I$、商における任意の閉
 
 [標準束と双対接続](../KAH1-12/index.md#def-kah1-12-canonical)により、標準束は行列式線束の双対である。曲率は双対化で符号を変えるから、
 
-$
+$$
 K_X=L^*,\qquad
 F_{K_X}=-F_L=i\rho=0.
-$
+$$
 
 基点 $x$ のファイバー $K_{X,x}$ から非零ベクトル $\eta_x$ を選ぶ。任意の点 $y\in X$ への曲線 $\gamma$ に沿って $\eta_x$ を平行移動し、次のように置く。
 
-$
+$$
 \eta_y=P_\gamma\eta_x.
-$
+$$
 
 二つの曲線の違いは閉路である。単連結性と前節の円板上の[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)による計算から、曲率零の線束ではその閉路の平行移動係数は $1$。従って $\eta_y$ は曲線 $\gamma$ の選択によらない。局所平行移動方程式の滑らかなパラメータ依存性より、$\eta$ は滑らかな平行切断になる。
 
