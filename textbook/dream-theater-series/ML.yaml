@@ -17,7 +17,7 @@ chapters:
     title: "Bayes決定則と損失関数"
   - id: ML1-03
     path: textbook/volumes/dream_thater/応用系/ML/ML1-03
-    status: planned
+    status: completed
     title: "経験リスク最小化と正則化"
   - id: ML1-04
     path: textbook/volumes/dream_thater/応用系/ML/ML1-04
