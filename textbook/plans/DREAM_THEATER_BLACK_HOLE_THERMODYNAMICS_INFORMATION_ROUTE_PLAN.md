@@ -11,7 +11,7 @@
 - [情報熱力学 I（ITD1〜15）](DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md)
 - [量子情報 I〜III（QINF1〜33・3部構成）](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)
 - [特殊相対論 I（SREL1〜15）](../plan_done/DREAM_THEATER_SPECIAL_RELATIVITY_I_PLAN.md)
-- [一般相対論 I・II（GR1〜30）](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
+- [一般相対論 I・II（GR1〜46）](../plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
 - [量子場理論 I〜IV（QFT系列・仮章数可変）](DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)
 - [曲がった時空の量子場 I（QCURV1〜15）](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
 - [ブラックホール熱力学 I（BHT1〜15）](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
@@ -63,8 +63,8 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 熱・情報 | 情報熱力学 I：測定・フィードバック・消去 | 新規 ITD1–ITD15 | 独立モデルによる収支総合演習 |
 | 熱・情報 | 量子情報 I〜III：I＝状態・測定・チャネル、II＝エンタングルメント・エントロピー・通信、III＝誤り訂正・情報回復・Page型模型 | 新規 QINF1–13 / QINF14–24 / QINF25–33 | 有限次元の量子情報操作から情報収支を導き、蒸発問題への適用限界を説明 |
 | 時空・量子場 | 特殊相対論 I：Minkowski時空と相対論的場 | 新規 SREL1–SREL15 | 因果構造と一般相対論への橋 |
-| 時空・量子場 | 一般相対論 I：幾何とEinstein方程式 | 新規 GR1–GR15 | 解・仮定・座標不変量の総合演習 |
-| 時空・量子場 | 一般相対論 II：因果構造とブラックホール時空 | 新規 GR16–GR30 | ブラックホール摂動・熱力学への橋 |
+| 時空・量子場 | 一般相対論 I：幾何とEinstein方程式 | 新規 GR1–GR24 | 解・仮定・座標不変量の総合演習 |
+| 時空・量子場 | 一般相対論 II：ブラックホール・大域構造・初期値・宇宙論 | 新規 GR25–GR46 | ブラックホール・FLRWと熱力学への橋 |
 | 時空・量子場 | 量子場理論 I：自由場・作用・量子化・散乱 | 新規 QFT I（仮IDは着手時に確定） | 自由場・LSZ・木レベル散乱を再計算 |
 | 時空・量子場 | 量子場理論 II：QED・ループ・くりこみ・Yang–Mills | 新規 QFT II（仮IDは着手時に確定） | 代表1ループ・Ward恒等式・RG・ゲージ固定 |
 | 時空・量子場 | 量子場理論 III：標準模型・対称性の破れ・有効理論 | 新規 QFT III（仮IDは着手時に確定） | Higgs・電弱・QCDの模型計算（HOLOに必須ではない） |

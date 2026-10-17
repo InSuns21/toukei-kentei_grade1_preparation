@@ -1,0 +1,193 @@
+version: 1
+id: GR
+title: "一般相対論 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 章本文は未作成。各章が完成したときだけstatusをcompletedにし、公開索引に追加する。
+# I: GR1–GR24 / II: GR25–GR46。次章は先頭の連続completedの直後のplanned。
+chapters:
+  - id: GR1
+    path: textbook/volumes/dream_thater/物理系/GR/GR1
+    status: planned
+    title: "等価原理と局所自由落下"
+  - id: GR2
+    path: textbook/volumes/dream_thater/物理系/GR/GR2
+    status: planned
+    title: "Lorentz計量・固有時・光円錐"
+  - id: GR3
+    path: textbook/volumes/dream_thater/物理系/GR/GR3
+    status: planned
+    title: "自由落下の測地線方程式"
+  - id: GR4
+    path: textbook/volumes/dream_thater/物理系/GR/GR4
+    status: planned
+    title: "観測者の局所直交枠と測定"
+  - id: GR5
+    path: textbook/volumes/dream_thater/物理系/GR/GR5
+    status: planned
+    title: "潮汐力と測地線偏差"
+  - id: GR6
+    path: textbook/volumes/dream_thater/物理系/GR/GR6
+    status: planned
+    title: "Riemann・Ricci・スカラー曲率"
+  - id: GR7
+    path: textbook/volumes/dream_thater/物理系/GR/GR7
+    status: planned
+    title: "Bianchi恒等式とEinsteinテンソル"
+  - id: GR8
+    path: textbook/volumes/dream_thater/物理系/GR/GR8
+    status: planned
+    title: "塵・完全流体とエネルギー運動量"
+  - id: GR9
+    path: textbook/volumes/dream_thater/物理系/GR/GR9
+    status: planned
+    title: "物質作用と電磁場の応力テンソル"
+  - id: GR10
+    path: textbook/volumes/dream_thater/物理系/GR/GR10
+    status: planned
+    title: "Einstein–Hilbert作用の変分"
+  - id: GR11
+    path: textbook/volumes/dream_thater/物理系/GR/GR11
+    status: planned
+    title: "境界条件とGibbons–Hawking–York項"
+  - id: GR12
+    path: textbook/volumes/dream_thater/物理系/GR/GR12
+    status: planned
+    title: "Einstein場の方程式と保存則"
+  - id: GR13
+    path: textbook/volumes/dream_thater/物理系/GR/GR13
+    status: planned
+    title: "Newton極限とPoisson方程式"
+  - id: GR14
+    path: textbook/volumes/dream_thater/物理系/GR/GR14
+    status: planned
+    title: "Killing場と測地線上の保存量"
+  - id: GR15
+    path: textbook/volumes/dream_thater/物理系/GR/GR15
+    status: planned
+    title: "球対称計量の選択とゲージ自由度"
+  - id: GR16
+    path: textbook/volumes/dream_thater/物理系/GR/GR16
+    status: planned
+    title: "Schwarzschild真空解の導出"
+  - id: GR17
+    path: textbook/volumes/dream_thater/物理系/GR/GR17
+    status: planned
+    title: "重力赤方偏移と静止時計"
+  - id: GR18
+    path: textbook/volumes/dream_thater/物理系/GR/GR18
+    status: planned
+    title: "Schwarzschild光線軌道と光の屈曲"
+  - id: GR19
+    path: textbook/volumes/dream_thater/物理系/GR/GR19
+    status: planned
+    title: "近日点移動と有効ポテンシャル"
+  - id: GR20
+    path: textbook/volumes/dream_thater/物理系/GR/GR20
+    status: planned
+    title: "Shapiro時間遅延"
+  - id: GR21
+    path: textbook/volumes/dream_thater/物理系/GR/GR21
+    status: planned
+    title: "線形化重力とゲージ変換"
+  - id: GR22
+    path: textbook/volumes/dream_thater/物理系/GR/GR22
+    status: planned
+    title: "重力波のTT成分と検出器応答"
+  - id: GR23
+    path: textbook/volumes/dream_thater/物理系/GR/GR23
+    status: planned
+    title: "四重極放射の近似とエネルギー流"
+  - id: GR24
+    path: textbook/volumes/dream_thater/物理系/GR/GR24
+    status: planned
+    title: "GR I 総合演習：計量から観測まで"
+  - id: GR25
+    path: textbook/volumes/dream_thater/物理系/GR/GR25
+    status: planned
+    title: "Schwarzschild地平線と曲率特異性"
+  - id: GR26
+    path: textbook/volumes/dream_thater/物理系/GR/GR26
+    status: planned
+    title: "Eddington–Finkelstein座標と光線"
+  - id: GR27
+    path: textbook/volumes/dream_thater/物理系/GR/GR27
+    status: planned
+    title: "Kruskal座標と最大解析延長"
+  - id: GR28
+    path: textbook/volumes/dream_thater/物理系/GR/GR28
+    status: planned
+    title: "共形コンパクト化とPenrose図"
+  - id: GR29
+    path: textbook/volumes/dream_thater/物理系/GR/GR29
+    status: planned
+    title: "事象・見かけ・Killing地平線"
+  - id: GR30
+    path: textbook/volumes/dream_thater/物理系/GR/GR30
+    status: planned
+    title: "球対称重力崩壊模型"
+  - id: GR31
+    path: textbook/volumes/dream_thater/物理系/GR/GR31
+    status: planned
+    title: "Reissner–Nordström解"
+  - id: GR32
+    path: textbook/volumes/dream_thater/物理系/GR/GR32
+    status: planned
+    title: "Kerr時空の計量と回転"
+  - id: GR33
+    path: textbook/volumes/dream_thater/物理系/GR/GR33
+    status: planned
+    title: "Ergoregion・Penrose過程・超放射"
+  - id: GR34
+    path: textbook/volumes/dream_thater/物理系/GR/GR34
+    status: planned
+    title: "Raychaudhuri方程式"
+  - id: GR35
+    path: textbook/volumes/dream_thater/物理系/GR/GR35
+    status: planned
+    title: "各種エネルギー条件と集束"
+  - id: GR36
+    path: textbook/volumes/dream_thater/物理系/GR/GR36
+    status: planned
+    title: "地平線の面積非減少の仮定"
+  - id: GR37
+    path: textbook/volumes/dream_thater/物理系/GR/GR37
+    status: planned
+    title: "特異点定理と測地不完備性"
+  - id: GR38
+    path: textbook/volumes/dream_thater/物理系/GR/GR38
+    status: planned
+    title: "宇宙検閲仮説の論理と既知の限界"
+  - id: GR39
+    path: textbook/volumes/dream_thater/物理系/GR/GR39
+    status: planned
+    title: "3+1分解と初期データの意味"
+  - id: GR40
+    path: textbook/volumes/dream_thater/物理系/GR/GR40
+    status: planned
+    title: "Hamiltonian・運動量制約"
+  - id: GR41
+    path: textbook/volumes/dream_thater/物理系/GR/GR41
+    status: planned
+    title: "FLRW計量と対称性"
+  - id: GR42
+    path: textbook/volumes/dream_thater/物理系/GR/GR42
+    status: planned
+    title: "Friedmann方程式と流体保存"
+  - id: GR43
+    path: textbook/volumes/dream_thater/物理系/GR/GR43
+    status: planned
+    title: "宇宙赤方偏移と膨張の測定"
+  - id: GR44
+    path: textbook/volumes/dream_thater/物理系/GR/GR44
+    status: planned
+    title: "宇宙論的地平線とde Sitter"
+  - id: GR45
+    path: textbook/volumes/dream_thater/物理系/GR/GR45
+    status: planned
+    title: "Killing地平線の表面重力"
+  - id: GR46
+    path: textbook/volumes/dream_thater/物理系/GR/GR46
+    status: planned
+    title: "GR II総合演習と後続科目への接続"
