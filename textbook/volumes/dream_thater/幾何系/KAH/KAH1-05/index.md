@@ -44,9 +44,9 @@ $$
 
 を課す。ここで $H$ は、正則座標の基底 $dz^i$ で基本形式を展開したときの係数行列であり、行列の正定値性は[基本形式の正値性判定](../KAH1-02/index.md#prop-kah1-02-matrix-criterion)と同値である。実接ベクトル $u$ の複素座標成分を $a^i=dz^i(u)$ とすると、$u\ne0$ なら $a=(a^i)\ne0$ であり、
 
-$
+$$
 \omega_H(u,J_0u)=2\sum_{i,j}H_{i\bar j}a^i\overline{a^j}>0
-$
+$$
 
 となる。この条件を満たす基本形式から復元される実計量を、実接ベクトル $u,v$ に対して
 
@@ -243,29 +243,29 @@ $$
 
 ここで[Levi–Civita接続の係数公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)へ積計量を代入する。
 
-$
+$$
 \Gamma^A_{BC}
 =\frac12g^{AD}
 (\partial_Bg_{CD}+\partial_Cg_{BD}-\partial_Dg_{BC}).
-$
+$$
 
 逆計量もブロック対角だから、例えば混合した添字について
 
-$
+$$
 \Gamma^a_{b\mu}
 =\frac12(g_X)^{ac}\partial_{y^\mu}g^X_{bc}=0,
 \qquad
 \Gamma^\mu_{ab}
 =-\frac12(g_Y)^{\mu\nu}\partial_{y^\nu}g^X_{ab}=0
-$
+$$
 
 となる。$X,Y$ を入れ替えた成分も同じ理由で零となり、同一因子に属する添字だけが残る：
 
-$
+$$
 \Gamma^a_{bc}=\Gamma^{X,a}_{bc},
 \qquad
 \Gamma^\mu_{\nu\rho}=\Gamma^{Y,\mu}_{\nu\rho}.
-$
+$$
 
 これらを[曲率作用素の座標表示](../../GEO/GEO16/index.md#prop-geo16-tensoriality-coordinate)に代入すると、交差項は消え、残りは各因子の曲率成分そのものである。従って共変微分も曲率作用素も因子ごとに分かれる。積の曲率が零なら、一方の因子に接するベクトルだけを選んで各因子の曲率が零と分かる。逆に両因子の曲率が零なら直和も零である。$\square$
 <!-- proof-end -->
@@ -278,11 +278,11 @@ $
 
 $f$ が正則はめ込みなら $f^*\omega_Y$ を $X$ 上へ引き戻せる。引き戻しは接ベクトルの像で評価する操作であり、
 
-$
+$$
 (f^*g_Y)_x(u,v)=g_{Y,f(x)}(df_xu,df_xv),
 \qquad
 (f^*\omega_Y)_x(u,v)=\omega_{Y,f(x)}(df_xu,df_xv)
-$
+$$
 
 と定める。形式の閉性は一般の滑らかな写像でも保たれるが、**正値性は微分の単射性がなければ失われ得る**。
 
@@ -308,32 +308,32 @@ $$
 
 だから、$df_z(v)=0$ なら第一成分より $v=0$。従って全点で単射で、成分は多項式なので正則。標準実計量 $g_0$ は二つの複素座標の長さの二乗の和だから、任意の実接ベクトル $v$ について
 
-$
+$$
 (f^*g_0)_z(v,v)
 =|dz(v)|^2+|2z\,dz(v)|^2
 =(1+4|z|^2)|dz(v)|^2.
-$
+$$
 
 $|dz(v)|^2=dx(v)^2+dy(v)^2$ なので、これは実計量の表示
 
-$
+$$
 g_X=(1+4|z|^2)(dx^2+dy^2)
-$
+$$
 
 を意味する。係数が正であり、$v\ne0$ なら $dz(v)\ne0$ だから正定値である。形式についても、標準形式 $\omega_0=\frac i2(dz^1\wedge d\bar z^1+dz^2\wedge d\bar z^2)$ の各微分形式を引き戻すと
 
-$
+$$
 f^*dz^1=dz,\quad f^*dz^2=2z\,dz,
 \qquad
 \omega_X=\frac i2(1+4|z|^2)\,dz\wedge d\bar z.
-$
+$$
 
 この表示は実 $(1,1)$ 型であり、実二次元では任意の3形式が零なので $d\omega_X=0$ である。さらに正則性の $df_z(Jv)=J_0df_z(v)$ により
 
-$
+$$
 \omega_X(u,v)=g_0(J_0df_z(u),df_z(v))
 =g_X(Ju,v)
-$
+$$
 
 である。これで定義の誘導関係とKähler性を、判定方法の由来も含めて確認した。
 <!-- definition-example-end -->
@@ -373,13 +373,13 @@ $$
 引き戻しは滑らかで対称性を保つため、$f^*g_Y$ はRiemann計量である。また $d(f^*\omega_Y)=f^*(d\omega_Y)=0$。$X$ の複素構造は正則アトラス由来なので可積分であり、以上でKählerの条件が全て成立する。$\square$
 <!-- proof-end -->
 
-正則座標でこの構成の係数を自力で確かめよう。$f=(f^1,\ldots,f^N)$ とし、$Y$ のHermite係数を $h_{i\bar j}$ とする。$z^a$ を $X$ の正則座標とすると、$f$ の正則性と連鎖律から
+正則座標でこの構成の係数を自力で確かめよう。$f=(f^1,\ldots,f^N)$ とし、$w^i$ を $Y$ の正則座標、$h_{i\bar j}$ をそのHermite係数とする。$z^a$ を $X$ の正則座標とすると、$f$ の正則性と連鎖律から
 
-$
+$$
 f^*(dw^i)=d(f^i)=\sum_a\frac{\partial f^i}{\partial z^a}dz^a,
 \qquad
 f^*(d\bar w^j)=\sum_b\overline{\frac{\partial f^j}{\partial z^b}}d\bar z^b.
-$
+$$
 
 したがって $\omega_Y=i\sum h_{i\bar j}\,dw^i\wedge d\bar w^j$ の両方の1形式を引き戻し、$i\,dz^a\wedge d\bar z^b$ の係数を比較すると
 
