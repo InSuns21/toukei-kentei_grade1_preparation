@@ -1,0 +1,66 @@
+chapter: MF8
+scope: dream-theater
+coverage: partial
+prerequisites: [MF7, EC10, EC11]
+forward_references: []
+concepts:
+  - id: modular-forms.modularity-local-match
+    name: 楕円曲線とnewformの局所因子の一致
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（楕円曲線とnewformの局所因子の一致）"]
+    requires: [elliptic-curve.good-euler-polynomial, elliptic-curve.bad-euler-polynomial, modular-forms.newform-local-factor]
+  - id: modular-forms.modularity-euler-comparison
+    name: 全局所因子の一致がL関数の一致を与える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全局所因子の一致がL関数の一致を与える）"]
+    requires: [modular-forms.modularity-local-match, elliptic-curve.hasse-weil-l, modular-forms.newform-local-factor]
+  - id: modular-forms.modularity-theorem
+    name: Modularity Theorem
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Modularity Theorem：外部大定理）"]
+    requires: [modular-forms.modularity-local-match, elliptic-curve.conductor, modular-forms.coefficient-field]
+  - id: modular-forms.modular-parametrization
+    name: modular parametrization
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（modular parametrization）"]
+    requires: [modular-forms.modular-curve, elliptic-curve.weierstrass-model]
+  - id: modular-forms.modular-parametrization-existence
+    name: modular parametrizationの存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（modular parametrizationの存在：外部大定理）"]
+    requires: [modular-forms.modular-parametrization, modular-forms.modularity-theorem]
+  - id: modular-forms.frey-curve
+    name: Frey曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Frey曲線）"]
+    requires: [elliptic-curve.weierstrass-model]
+  - id: modular-forms.frey-invariants
+    name: Frey曲線の判別式と奇素数での還元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Frey曲線の判別式と奇素数での還元）"]
+    requires: [modular-forms.frey-curve, elliptic-curve.reduction-types, elliptic-curve.conductor]
+  - id: modular-forms.ribet-frey
+    name: Frey–Ribetの帰結
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Frey–Ribetの帰結：外部大定理）"]
+    requires: [modular-forms.frey-curve, modular-forms.modularity-theorem]
+  - id: modular-forms.weight-two-level-two-zero
+    name: レベル2の重さ2カスプ形式は存在しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（レベル2の重さ2カスプ形式は存在しない）"]
+    requires: [modular-forms.weight-two-differentials]
+  - id: modular-forms.fermat-bridge
+    name: Fermatの最終定理への論理的帰結
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Fermatの最終定理への論理的帰結）"]
+    requires: [modular-forms.ribet-frey, modular-forms.weight-two-level-two-zero]
