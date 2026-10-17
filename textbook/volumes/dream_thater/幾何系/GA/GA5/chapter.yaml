@@ -1,0 +1,33 @@
+id: "GA5"
+title: "熱方程式・熱半群・熱核"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA4
+official_scope: []
+learning_objectives:
+  - GA4の固有関数展開から熱半群を構成し縮小性・半群性・強連続性・生成作用素を証明できる
+  - 初期値がL2のときの熱方程式の平滑化・一意性とエネルギー恒等式を導ける
+  - 固有値計数の多項式上界を局所立方体の平均値とPoincare評価から証明できる
+  - 固有関数級数から滑らかな熱核を構成し対称性と半群積分公式を証明できる
+  - 負部分のエネルギーから非負性を証明し半群性と時間解析性で厳密正値性を導ける
+  - 定数零固有値と第一正固有値から質量保存と長時間の指数的均一化を示せる
+  - 平坦トーラスでFourier級数と周期化Gaussianを照合し短時間の距離指数を計算できる
+  - 境界条件と非コンパクト空間で質量保存・離散スペクトル・長時間極限が変わる理由を説明できる
+definitions:
+  - { id: GA5-DEF-01, name: "熱半群" }
+  - { id: GA5-DEF-02, name: "熱核" }
+theorems:
+  - { id: GA5-THM-01, name: "熱半群の縮小性・強連続性・生成作用素" }
+  - { id: GA5-THM-02, name: "熱方程式の平滑化・一意性・エネルギー恒等式" }
+  - { id: GA5-LEM-01, name: "固有値の多項式計数評価" }
+  - { id: GA5-THM-03, name: "熱核の存在・滑らかさ・対称性・半群性" }
+  - { id: GA5-THM-04, name: "熱核の非負性・厳密正値性・質量保存" }
+  - { id: GA5-THM-05, name: "スペクトルギャップと長時間均一化" }
+  - { id: GA5-THM-06, name: "平坦トーラスの周期化Gaussian熱核" }
+canonical_examples: [標準円の二周波数熱伝導, 標準円のFourier熱核, 平坦トーラスの周期化Gaussian, DirichletとNeumannの質量比較]
+problem_patterns: [GA5-CIRCLE, GA5-NORM-EQUALITY, GA5-KERNEL-MASS, GA5-GAUSSIAN-VARIANCE, GA5-GENERATOR, GA5-ENERGY-GAP, GA5-PERIODIZATION, GA5-SYNTHESIS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 2.0 }
