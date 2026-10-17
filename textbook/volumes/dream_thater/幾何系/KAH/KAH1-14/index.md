@@ -109,7 +109,15 @@ $$
 \int_\Sigma u^*\eta\in\mathbb Z
 $$
 
-となる。これは整数性の必要条件である。逆向きの一般的な判定は積分サイクルやde Rham定理を使うので、ここではこの条件だけから一般の整数類の存在を推論しない。
+となる。これは整数性の必要条件である。さらに代表を完全形式だけ変えて $\eta'=\eta+d\alpha$ とすると、閉曲面での積分は[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
+
+$
+\int_\Sigma u^*\eta'-\int_\Sigma u^*\eta
+=\int_\Sigma d(u^*\alpha)
+=\int_{\partial\Sigma}u^*\alpha=0
+$
+
+となる。したがって周期は代表の選び方ではなく、de Rham類の値である。逆向きの一般的な判定は積分サイクルやde Rham定理を使うので、ここではこの条件だけから一般の整数類の存在を推論しない。
 
 <a id="def-kah1-14-integral-normalized-class"></a>
 
