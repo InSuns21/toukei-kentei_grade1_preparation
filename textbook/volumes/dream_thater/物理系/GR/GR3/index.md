@@ -187,7 +187,7 @@ g^{tt}=-\frac1{c^2N^2},\qquad
 \partial_xg_{tt}=-2c^2NN',\qquad N'=\frac{a_0}{c^2}.
 $$
 
-[LORG4の接続係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)により、時間・$x$ の添字を含む非零成分は
+[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)により、時間・$x$ の添字を含む非零成分は
 
 $$
 \begin{aligned}
@@ -301,7 +301,7 @@ $$
 +\Gamma^\rho_{\mu\nu}\frac{dx^\mu}{ds}\frac{dx^\nu}{ds}=0
 $$
 
-> である。この方程式の解で、初速度が非零・光的なら、その全存在区間で非零・光的な測地線となる。この $s$ は固有時ではない。光的条件は停留条件とは別に初期値へ課す。
+> である。この方程式の解で、初速度が非零・光的なら、その全存在区間で非零・光的な測地線となる。この $s$ は固有時ではない。光的条件は、上の二次作用の変分から得る運動方程式とは別に初期値へ課す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -353,7 +353,7 @@ $$
 $ds^2=-c^2dt^2+dx^2$ とし、$x=vt+x_0$（$|v|<c$）を考える。固有時による表示と四元加速度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$-c^2d\tau^2=(-c^2+v^2)dt^2$ より $d\tau/dt=\sqrt{1-v^2/c^2}=1/\gamma$、$\gamma=(1-v^2/c^2)^{-1/2}>0$ です。$t(0)=0$ とすれば $t(\tau)=\gamma\tau$、$x(\tau)=v\gamma\tau+x_0$ となります。成分微分で $d^2t/d\tau^2=d^2x/d\tau^2=0$、計量が定数なので[LORG4の係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から $\Gamma=0$ です。よって[四元加速度の定義](#def-gr3-four-acceleration)で $a^\mu=0$、未来向きで $g(u,u)=-c^2$ です。
+**詳細解答**。$-c^2d\tau^2=(-c^2+v^2)dt^2$ より $d\tau/dt=\sqrt{1-v^2/c^2}=1/\gamma$、$\gamma=(1-v^2/c^2)^{-1/2}>0$ です。$t(0)=0$ とすれば $t(\tau)=\gamma\tau$、$x(\tau)=v\gamma\tau+x_0$ となります。成分微分で $d^2t/d\tau^2=d^2x/d\tau^2=0$、計量が定数なので[Levi-Civita接続の構成定理](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)に現れる係数行列の偏微分が消え、 $\Gamma=0$ です。よって[四元加速度の定義](#def-gr3-four-acceleration)で $a^\mu=0$、未来向きで $g(u,u)=-c^2$ です。
 <!-- solution-end -->
 
 <a id="ex-gr3-a02"></a>
