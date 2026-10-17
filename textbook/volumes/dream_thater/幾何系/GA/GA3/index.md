@@ -6,7 +6,7 @@
 
 ## 1. 一階微分しか使わずにPoisson方程式を読む
 
-滑らかな解の候補 $u$ が $-\Delta_gu=f$ を満たすなら、境界がないとき[GA1で証明した積分恒等式](../GA1/index.md#thm-ga1-green-first)から、任意の滑らかな $v$ に対して
+滑らかな解の候補 $u$ が $-\Delta_gu=f$ を満たすなら、境界がないとき[GA1の積分計算](../GA1/index.md#thm-ga1-green-first)から、任意の滑らかな $v$ に対して
 
 $$
 \int_M\langle\nabla_gu,\nabla_gv\rangle_g\,dV_g
@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga3-h1-weak-poisson -->
-**定義の確認：円の正弦関数。** 円 $S^1=\mathbb R/(2\pi\mathbb Z)$ に標準計量 $d\theta^2$ を入れ、$u(\theta)=\sin\theta$、$f(\theta)=\sin\theta$ とします。周期性から滑らかな $v$ について
+**定義の確認**：円の正弦関数。 円 $S^1=\mathbb R/(2\pi\mathbb Z)$ に標準計量 $d\theta^2$ を入れ、$u(\theta)=\sin\theta$、$f(\theta)=\sin\theta$ とします。周期性から滑らかな $v$ について
 
 $$
 \int_0^{2\pi}u'v'\,d\theta
@@ -293,7 +293,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ga3-weak-subharmonic -->
-**定義の確認：区間の二次関数。** $D=(0,1)$、$u(x)=x^2$ とし、任意の非負 $\varphi\in C_c^\infty(D)$ を取ります。部分積分すると
+**定義の確認**：区間の二次関数。 $D=(0,1)$、$u(x)=x^2$ とし、任意の非負 $\varphi\in C_c^\infty(D)$ を取ります。部分積分すると
 
 $$
 \int_0^1u'(x)\varphi'(x)\,dx
