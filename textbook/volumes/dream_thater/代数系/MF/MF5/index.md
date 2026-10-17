@@ -200,7 +200,12 @@ $$
 B=\begin{pmatrix}u&v\\0&w\end{pmatrix},
 \qquad u/w>0
 $$
-と書けます。既習の全カスプ展開 $(f|_k\sigma_{s'})(\tau)=\sum_{m\ge0}a_m(s')e^{2\pi i m\tau/h_{s'}}$ を代入すると、$w\ne0$ より
+と書けます。既習の全カスプ展開は
+$$
+(f|_k\sigma_{s'})(\tau)
+=\sum_{m\ge0}a_m(s')e^{2\pi i m\tau/h_{s'}}
+$$
+です。これを代入すると、$w\ne0$ より
 $$
 ((f|_k A)|_k\sigma_s)(\tau)
 =((f|_k\sigma_{s'})|_k B)(\tau)
@@ -209,7 +214,11 @@ $$
 e^{2\pi i m v/(wh_{s'})}
 e^{2\pi i m u\tau/(wh_{s'})}.
 $$
-ここで用いたのは $f|_k\gamma=f$、[slash作用の右作用](#def-mf5-slash)と $u/w>0$ です。各項の指数は入力側の $q_s=e^{2\pi i\tau/h_s}$ で $m(u/w)(h_s/h_{s'})\ge0$ に対応し、$m=0$ の項は入力がカスプ形式なら消えます。個々の項は分数冪を持ち得ますが、**左剰余類の有限和全体**は先ほど証明した $\Gamma_0(N)$ 不変性から周期 $h_s$ を持ちます。したがって [周期関数の $q$ 表示](../MF2/index.md#thm-mf2-q-coordinate)を適用すれば、和は非負整数冪だけに整理され、カスプ形式の場合は定数項も零です。$\infty$ の係数だけを見て全カスプの保存を主張しているわけではありません。
+ここで用いたのは $f|_k\gamma=f$、[slash作用の右作用](#def-mf5-slash)と $u/w>0$ です。入力側の局所座標 $q_s=e^{2\pi i\tau/h_s}$ では、各項の指数は
+$$
+m\,\frac{u}{w}\,\frac{h_s}{h_{s'}}\ge0
+$$
+に対応します。$m=0$ の項は入力がカスプ形式なら消えます。個々の項は分数冪を持ち得ますが、**左剰余類の有限和全体**は先ほど証明した $\Gamma_0(N)$ 不変性から周期 $h_s$ を持ちます。したがって [周期関数の $q$ 表示](../MF2/index.md#thm-mf2-q-coordinate)を適用すれば、和は非負整数冪だけに整理され、カスプ形式の場合は定数項も零です。$\infty$ の係数だけを見て全カスプの保存を主張しているわけではありません。
 
 <!-- definition-example-start: def-mf5-level-operators -->
 **定義の確認**。$N=2,p=2$ なら $p\mid N$ なので $T_2$ の最初の項は使わず、$U_2$ を適用します。例えば $\Delta(2\tau)=q^2-24q^4+252q^6+\cdots$ は重さ12のレベル2のカスプ形式です。$\Delta(\tau)$ の[レベル1変換則](../MF2/index.md#def-mf2-modular-form)から、$\gamma=\begin{pmatrix}a&b\\2c&d\end{pmatrix}\in\Gamma_0(2)$ について
@@ -474,9 +483,13 @@ $$
 $$
 ただし $\mathcal F_{\Gamma'}=\bigcup_j\gamma_j\mathcal F$ は $\Gamma'$ の基本領域です。さらに $w=\alpha\tau$ と変数変換すると
 $$
-=\int_{\alpha\mathcal F_{\Gamma'}}
+\begin{aligned}
+&\int_{\mathcal F_{\Gamma'}}
+(f|_k\alpha)(\tau)\overline{g(\tau)}\,y^k\,d\mu(\tau)\\
+&\quad=\int_{\alpha\mathcal F_{\Gamma'}}
 f(w)\overline{(g|_k\alpha^{-1})(w)}
 (\operatorname{Im}w)^k\,d\mu(w).
+\end{aligned}
 $$
 $\alpha\mathcal F_{\Gamma'}$ は $\Gamma''$ の基本領域です。ここから $\Gamma''\backslash\Gamma$ の代表を使って $\mathcal F$ へ折り畳むと、右側は
 $$
