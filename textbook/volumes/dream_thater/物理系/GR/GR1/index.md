@@ -152,16 +152,16 @@ $$
 
 $s=c^2(1+a\xi/c^2)/a$ を代入し、$dy^2+dz^2$ を足せば式を得ます。$h(\xi)=1+a\xi/c^2$ と書くと、基底 $(\partial_\eta,\partial_\xi,\partial_y,\partial_z)$ での線素の各二次項が表す計量成分は
 
-$
+$$
 G=(g_{\mu\nu})=\operatorname{diag}(-c^2h(\xi)^2,1,1,1),
 \qquad g(V,W)=V^{\mathsf T}GW.
-$
+$$
 
 $\xi>-s_0$ より $h(\xi)>0$ なので
 
-$
+$$
 \det G=(-c^2h(\xi)^2)\cdot1\cdot1\cdot1<0.
-$
+$$
 
 従って $G$ は可逆で、定義どおり $g(V,W)=0$ がすべての $W$ で成り立つなら $V=0$ です。これは非退化性の確認であって、正定値性の主張ではありません。逆変換は
 
@@ -318,21 +318,21 @@ $$
 
 $k=a/c$ と置き、$\operatorname{sech}(k\eta)$ を二度微分します。
 
-$
+$$
 \begin{aligned}
 \frac{d}{d\eta}\operatorname{sech}(k\eta)
 &=-k\operatorname{sech}(k\eta)\tanh(k\eta),\\
 \frac{d^2}{d\eta^2}\operatorname{sech}(k\eta)
 &=k^2\operatorname{sech}(k\eta)\bigl(2\tanh^2(k\eta)-1\bigr).
 \end{aligned}
-$
+$$
 
 $\eta=0$ では $\tanh0=0$、$\operatorname{sech}0=1$ だから
 
-$
+$$
 \left.\frac{d^2\Delta\xi}{d\eta^2}\right|_{\eta=0}
 =-\frac{a^2}{c^2}\Delta X.
-$
+$$
 
 $\Delta X\ne0$ なら非零です。しかしRindler領域は[可逆な座標変換](#prop-gr1-rindler-metric)でMinkowski空間に戻るため、曲率は零です。これは物理的な潮汐を新たに生じさせるものではありません。
 <!-- proof-end -->
