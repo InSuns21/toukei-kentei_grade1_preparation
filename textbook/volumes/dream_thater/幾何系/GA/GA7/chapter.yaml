@@ -18,6 +18,7 @@ learning_objectives:
 definitions:
   - { id: GA7-DEF-01, name: "接続Laplacian" }
 theorems:
+  - { id: GA7-LEM-02, name: "Hessianのトレース不等式" }
   - { id: GA7-LEM-01, name: "1形式の共変微分交換公式" }
   - { id: GA7-THM-01, name: "1形式のBochner--Weitzenböck公式" }
   - { id: GA7-THM-02, name: "関数のBochner恒等式" }
