@@ -108,10 +108,10 @@ $$
 
 母集団リスクは分布 $P$ に基づく誤りの平均、経験リスクは手元のデータに基づく誤りの平均である。母集団リスクの和の根拠を、実数値の損失 $L=\ell(h(X),Y)$ から確かめよう。セルは互いに排反であり、ちょうど一つのセルが実現するので
 
-$
+$$
 L=\sum_{x\in\mathcal X}\sum_{y\in\mathcal Y}
 \ell(h(x),y)\boldsymbol{1}_{\{X=x,Y=y\}}.
-$
+$$
 
 [期待値の定義](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)と有限和の線形性により、各指示関数の期待値をそのセルの確率に置き換えると定義中の有限和が得られる。これは実数値確率変数のLOTUSを観測対 $(X,Y)$ に直接適用するのとは異なる、有限セル上の導出である。
 
@@ -180,11 +180,11 @@ $$
 >
 > を独立同分布（i.i.d.）訓練標本と呼ぶ。ここで $P^{\otimes n}$ は $n$ 個の分布 $P$ の積分布であり、任意の $z_i=(x_i,y_i)\in\mathcal X\times\mathcal Y$ について
 >
-$
+$$
 P(Z_1=z_1,\ldots,Z_n=z_n)
 =\prod_{i=1}^n P(Z_i=z_i)
 =\prod_{i=1}^n P(X=x_i,Y=y_i)
-$
+$$
 >
 > が成り立つことを表す。$Z_i$ の二つの成分 $X_i,Y_i$ が独立であることは要求しない。
 <!-- formal-statement-end -->
@@ -223,14 +223,14 @@ $$
 
 $L_i=\ell(h(X_i),Y_i)$ とおく。有限集合で $\ell$ は有限値なので各 $L_i$ は可積分である。$p_{xy}=P(X=x,Y=y)$ と書けば、同分布性から各 $i$ について $P(Z_i=(x,y))=p_{xy}$ である。§3のセルごとの指示関数展開と[期待値の定義](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)を使って
 
-$
+$$
 \begin{aligned}
 E[L_i]
 &=E\left[\sum_{x,y}\ell(h(x),y)\boldsymbol{1}_{\{Z_i=(x,y)\}}\right]\\
 &=\sum_{x,y}\ell(h(x),y)P(Z_i=(x,y))\\
 &=\sum_{x,y}p_{xy}\ell(h(x),y)=R_P(h).
 \end{aligned}
-$
+$$
 
 ここでは実数値変数用LOTUSを対 $Z_i$ に適用せず、有限和と指示関数の期待値で正当化した。
 
@@ -351,14 +351,14 @@ $$
 
 $h_{\mathrm{id}}$ は2番目と3番目、$h_0$ は2番目、4番目、5番目を誤答する。[経験リスクの定義](#def-ml1-01-risks)を損失列に適用すると
 
-$
+$$
 \begin{aligned}
 (\ell(h_{\mathrm{id}}(x_i),y_i))_{i=1}^5&=(0,1,1,0,0),\\
 \widehat R_S(h_{\mathrm{id}})&=\frac{0+1+1+0+0}{5}=\frac25,\\
 (\ell(h_0(x_i),y_i))_{i=1}^5&=(0,1,0,1,1),\\
 \widehat R_S(h_0)&=\frac{0+1+0+1+1}{5}=\frac35.
 \end{aligned}
-$
+$$
 <!-- solution-end -->
 
 ### ML1-01-A03 分布を構成して確かめる
@@ -398,10 +398,10 @@ A03の分布と0–1損失で、仮説クラスを $\mathcal H=\{h_0,h_1\}$ に�
 
 [4予測器の命題](#prop-ml1-01-four-hypothesis-risk)から、$h_0$ は $Y=1$、$h_1$ は $Y=0$ のときだけ誤る。A03の周辺確率を代入すると
 
-$
+$$
 R_P(h_0)=P(Y=1)=0.6,\qquad
 R_P(h_1)=P(Y=0)=0.4.
-$
+$$
 
 したがって $0.4<0.6$ より $h_1$ が唯一の最良候補である。仮説クラスを狭めたので、入力によって予測を変える規則は比較対象外となる。
 <!-- solution-end -->
@@ -433,9 +433,9 @@ $$
 
 [二次モーメントと分散の定義](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-moment)に従い、期待値の二乗を引く。
 
-$
+$$
 \operatorname{Var}(\widehat R)=0.12-(0.20)^2=0.08.
-$
+$$
 
 これは[分散定理](#thm-ml1-01-risk-variance)の $0.2(0.8)/2=0.08$ と一致する。
 <!-- solution-end -->
@@ -475,26 +475,26 @@ $P(X=0)=P(X=1)=1/2$、$Y=0$ が確率1で成り立ち、標本は1個とする�
 
 $X=0$ の観測なら $h_{\mathrm{id}}$、$X=1$ なら $h_{\mathrm{flip}}$ を選ぶ。選ばれた方は観測入力に対して0を返すので
 
-$
+$$
 h_{\mathrm{id}}(0)=0,\qquad h_{\mathrm{flip}}(1)=0,
 \qquad \widehat R_S(\widehat h_S)=0.
-$
+$$
 
 一方、母集団では $Y=0$ が確実である。[母集団リスクの定義](#def-ml1-01-risks)から、両予測器の誤答する入力の確率は
 
-$
+$$
 \begin{aligned}
 R_P(h_{\mathrm{id}})&=P(X=1)=\frac12,\\
 R_P(h_{\mathrm{flip}})&=P(X=0)=\frac12.
 \end{aligned}
-$
+$$
 
 したがってどちらを選んでも母集団リスクは $1/2$ である。標本について期待値を取ると
 
-$
+$$
 E[\widehat R_S(\widehat h_S)]=0,\qquad
 E[R_P(\widehat h_S)]=\frac12.
-$
+$$
 
 矛盾はない。[不偏性定理](#thm-ml1-01-unbiased-risk)は標本を**見ずに固定した** $h$ に対する主張であり、$\widehat h_S$ は標本の関数なのでその仮定を満たさない。
 <!-- solution-end -->
@@ -515,20 +515,20 @@ $
 
 **1.** 標本の2点での損失列は
 
-$
+$$
 \begin{aligned}
 h_0 &: (0,1),& h_1 &: (1,0),\\
 h_{\mathrm{id}} &: (0,0),& h_{\mathrm{flip}} &: (1,1).
 \end{aligned}
-$
+$$
 
 [経験リスクの定義](#def-ml1-01-risks)で各列の平均を取ると
 
-$
+$$
 (\widehat R_S(h_0),\widehat R_S(h_1),
 \widehat R_S(h_{\mathrm{id}}),\widehat R_S(h_{\mathrm{flip}}))
 =\left(\frac12,\frac12,0,1\right).
-$
+$$
 
 したがって $h_{\mathrm{id}}$ が一意の経験リスク最小候補である。
 
@@ -542,15 +542,15 @@ $$
 
 **3.** $h_{\mathrm{id}}$ の1回の損失が0となる確率は $1-0.2=0.8$。固定予測器と独立な観測対から計算した損失も独立であり、経験リスクが0になるのは2回とも損失0のときに限る。ゆえに
 
-$
+$$
 P(\widehat R_S(h_{\mathrm{id}})=0)=0.8\cdot0.8=0.64.
-$
+$$
 
 **4.** 同一観測を複製すれば損失はともに $L$ で、経験リスクは $(L+L)/2=L$ となる。したがって
 
-$
+$$
 P(\widehat R_S(h_{\mathrm{id}})=0)=P(L=0)=0.8.
-$
+$$
 
 $0.64$ と異なるのは独立性がないためで、[不偏性定理](#thm-ml1-01-unbiased-risk)の期待値の等式はなお成立しても[分散定理](#thm-ml1-01-risk-variance)の独立性に基づく結論は適用できない。
 <!-- solution-end -->
