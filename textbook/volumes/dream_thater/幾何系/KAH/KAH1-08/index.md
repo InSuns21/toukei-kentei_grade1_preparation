@@ -137,7 +137,14 @@ $$
 ここで和を取る添字 $i,j$ を交換して第二項をまとめた。[捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)と整合する。$\square$
 <!-- proof-end -->
 
-**直接例：平坦なのに係数は非零になる。** $\mathbb C$ に $g_{z\bar z}=1$ を入れ、原点付近で $w=z+az^2$（$a\in\mathbb C$）とする。$dw/dz=1+2az$ は原点で非零なので局所正則座標である。逆写像の二階微分は $d^2z/dw^2|_0=-2a$、元の $\Gamma^z_{zz}=0$。変換公式から $\Gamma^w_{ww}(0)=-2a$。曲がっていない計量でも、曲がった座標を使えば係数が現れる。係数そのものを曲率と呼んではならない。
+**直接例：平坦なのに係数は非零になる。** $\mathbb C$ に $g_{z\bar z}=1$ を入れ、原点付近で $w=z+az^2$（$a\in\mathbb C$）とする。$dw/dz|_0=1$ なので、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により局所正則逆写像 $z=z(w)$ が存在する。合成 $w(z(w))=w$ を二回微分すると
+
+$$
+0=\left.\frac{d^2}{dw^2}(z(w)+az(w)^2)\right|_{0}
+=\left.\frac{d^2z}{dw^2}\right|_0+2a,
+$$
+
+したがって $d^2z/dw^2|_0=-2a$。元の $\Gamma^z_{zz}=0$ を[接続係数の変換公式](#prop-kah1-08-coordinate-change)に入れると $\Gamma^w_{ww}(0)=-2a$。曲がっていない計量でも、曲がった座標を使えば係数が現れる。係数そのものを曲率と呼んではならない。
 
 ## 4. 一点で計量と一階微分を標準化する
 
@@ -151,7 +158,14 @@ $$
 
 とできれば、$\Gamma^c_{ab}(p)=0$ が従う。こうした座標を**Kähler正規座標**（本章では一階の条件を満たす座標）と呼ぶ。これは一点での条件であり、開集合全域で係数が消えるという条件ではない。
 
-この線形正規化を、行列が何を表すかまで確認しておく。$p$ の正則座標 $z$ の基底 $\partial_j$ に対する[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)は $H_{\ell j}(p)=g_{j\bar\ell}(p)$ であり、任意の非零係数列 $v$ について $v^*H(p)v>0$ を満たす。有限次元の正値Hermite行列なので、既習の[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から正値で可逆な平方根が得られる。定数行列 $B=H(p)^{-1/2}$ を使い、座標を次のように取り直す。
+この線形正規化を、行列が何を表すかまで確認しておく。$p$ の正則座標 $z$ の基底 $\partial_j$ に対する[Hermite計量の局所行列](../../CM/CM2-09/index.md#def-cm2-09-metric-matrix)は
+
+$$
+H_{\ell j}(p)=g_{j\bar\ell}(p),\qquad
+v^*H(p)v>0\quad(v\ne0)
+$$
+
+を満たす。有限次元の正値Hermite行列なので、既習の[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)から正値で可逆な平方根が得られる。定数行列 $B=H(p)^{-1/2}$ を使い、座標を次のように取り直す。
 
 $$
 z^i=z^i(p)+B^i{}_a u^a,\qquad
@@ -183,7 +197,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-kah1-08-normal-coordinates -->
-**定義の確認**。直接例として、 $\mathbb C^n$ 上で $g_{i\bar j}=\delta_{ij}$ を取れば $w=z-p$ は $w(p)=0$、$g(p)=I$、すべての一階偏微分は零である。これは定数行列を計算しただけではなく、定義の位置・正値・一階微分の全条件を実際に満たす例である。定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とすると $g^{(w)}_{a\bar b}=\delta_{ab}$ となる（$dz/dw=\sqrt2$）。このKähler正規座標の係数規約は、元の実Euclid座標での係数と異なり得る。
+**定義の確認**。直接例として $\mathbb C^n$ 上の定数計量 $g_{i\bar j}=\delta_{ij}$ と、正則な平行移動 $w=z-p$ を取る。Jacobian は $I$ なので引き戻した計量も定数であり、
+
+$$
+w(p)=0,\quad
+g^{(w)}_{a\bar b}(p)=\delta_{ab},\quad
+\partial_cg^{(w)}_{a\bar b}(p)
+=\partial_{\bar c}g^{(w)}_{a\bar b}(p)=0.
+$$
+
+さらに $g(v,\bar v)=\sum_a|v^a|^2>0$（$v\ne0$）で、正値という元の仮定も満たす。定義の位置・零階・両側の一階条件をすべて直接確認できた。
+
+定数を $1/2$ に取った標準実Euclid計量なら $w=(z-p)/\sqrt2$ とする。$dz/dw=\sqrt2\,I$ のため、引き戻し成分は $g^{(w)}_{a\bar b}=(1/2)(\sqrt2)^2\delta_{ab}=\delta_{ab}$ となり、一階微分も零である。この係数規約は、元の実Euclid座標での係数と異なり得る。
 <!-- definition-example-end -->
 
 <a id="thm-kah1-08-normal-existence"></a>
@@ -339,7 +364,16 @@ $$
 正則座標で $g_{1\bar1}=2,g_{2\bar2}=3,g_{1\bar2}=g_{2\bar1}=0$ がある点で成立し、さらに同点で $\partial_1g_{2\bar2}=6$、他の $\partial_1g_{2\bar\ell}$ は零とする。$\Gamma^k_{12}$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。Chern係数の成分式 $\partial_1g_{2\bar\ell}=\sum_k g_{k\bar\ell}\Gamma^k_{12}$ を使う。$\ell=1$ では $0=2\Gamma^1_{12}$ より $\Gamma^1_{12}=0$。$\ell=2$ では $6=3\Gamma^2_{12}$ より $\Gamma^2_{12}=2$。逆行列を掛ける方法でも $g^{2\bar2}=1/3$ だから $\Gamma^2_{12}=(1/3)6=2$ である。計量行列に成分の並びの規約が必要な理由も確認できた。
+**詳細解答**。[接束Chern係数の局所式](../KAH1-03/index.md#prop-kah1-03-chern-coefficients)を $\partial_1g_{2\bar\ell}=\sum_k g_{k\bar\ell}\Gamma^k_{12}$ として使う。与えられた対角行列の値を $\ell=1,2$ に代入すると、
+
+$$
+0=2\Gamma^1_{12},\qquad
+6=3\Gamma^2_{12},
+\quad\Longrightarrow\quad
+\Gamma^1_{12}=0,\quad \Gamma^2_{12}=2.
+$$
+
+逆行列を掛ける方法でも $g^{2\bar2}=1/3$ だから $\Gamma^2_{12}=(1/3)\cdot6=2$ となる。計量行列に成分の並びの規約が必要な理由も確認できた。
 <!-- solution-end -->
 
 <a id="ex-kah1-08-a03"></a>
@@ -512,7 +546,16 @@ w^1=u^1,\qquad
 w^2=u^2+\frac{\lambda\bar a}{d}u^1u^2
 $$
 
-とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。一階条件も成分で確かめる。$q=\lambda\bar a/d$ と略記すれば、逆写像では $u^1=w^1$、$u^2=w^2-qw^1w^2+O(|w|^3)$ であり、Jacobian $J^i_a=\partial u^i/\partial w^a$ の原点での非零一階微分は
+とすればよい。$dw/du|_p=I$ なので局所正則逆写像を持つ。係数の対称性を用いると二次項は $\tfrac12((\Gamma_u)^2_{12}+(\Gamma_u)^2_{21})u^1u^2=(\lambda\bar a/d)u^1u^2$ になる。
+
+一階条件も成分で確かめる。$q=\lambda\bar a/d$ と略記する。逆写像とそのJacobian $J^i_a=\partial u^i/\partial w^a$ は原点付近で
+
+$$
+u^1=w^1,\qquad
+u^2=w^2-qw^1w^2+O(|w|^3)
+$$
+
+を満たすから、原点での非零一階微分は
 
 $$
 \partial_{w^1}J^2_2(0)=\partial_{w^2}J^2_1(0)=-q.
