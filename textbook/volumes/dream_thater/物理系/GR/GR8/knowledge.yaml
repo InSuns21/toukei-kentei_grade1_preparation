@@ -1,0 +1,55 @@
+chapter: GR8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR7
+  - SREL7
+concepts:
+  - id: gravity.fluid-spatial-projector
+    name: Lorentz時空の流体直交射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz時空の流体直交射影）"]
+    requires: [relativity.fluid-orthogonal-projector, gravity.observer-orthonormal-frame, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.curved-perfect-fluid-stress
+    name: 曲がった時空の完全流体エネルギー運動量テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲がった時空の完全流体エネルギー運動量テンソル）"]
+    requires: [relativity.perfect-fluid-energy-momentum, gravity.fluid-spatial-projector]
+  - id: gravity.rest-fluid-tensor-equivalence
+    name: 完全流体テンソルの静止系との同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全流体テンソルの静止系との同値性）"]
+    requires: [gravity.curved-perfect-fluid-stress, gravity.observer-orthonormal-frame]
+  - id: gravity.dust-matter
+    name: 圧力零の塵
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧力零の塵）"]
+    requires: [gravity.curved-perfect-fluid-stress, relativity.dust-geodesic-motion]
+  - id: gravity.curved-particle-continuity
+    name: 曲がった時空の粒子数連続の式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲がった時空の粒子数連続の式）"]
+    requires: [relativity.particle-number-current, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.fluid-euler-curved
+    name: 曲がった時空の完全流体のエネルギー方程式とEuler方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（曲がった時空の完全流体のエネルギー方程式とEuler方程式）"]
+    requires: [gravity.curved-perfect-fluid-stress, gravity.fluid-spatial-projector, gravity.four-acceleration]
+  - id: gravity.dust-geodesic-curved
+    name: 保存する塵の測地線運動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（保存する塵の測地線運動）"]
+    requires: [gravity.dust-matter, gravity.curved-particle-continuity, gravity.four-acceleration]
+  - id: gravity.hydrostatic-lapse
+    name: 静的lapse時空の完全流体の圧力平衡
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的lapse時空の完全流体の圧力平衡）"]
+    requires: [gravity.fluid-euler-curved, gravity.four-acceleration, lorentz-geometry.lorentz-levi-civita-extension]

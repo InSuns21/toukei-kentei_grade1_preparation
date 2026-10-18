@@ -37,7 +37,7 @@ chapters:
     title: "Bianchi恒等式とEinsteinテンソル"
   - id: GR8
     path: textbook/volumes/dream_thater/物理系/GR/GR8
-    status: planned
+    status: completed
     title: "塵・完全流体とエネルギー運動量"
   - id: GR9
     path: textbook/volumes/dream_thater/物理系/GR/GR9
