@@ -25,8 +25,8 @@ chapters:
     title: "最小二乗法・正規方程式・非一意性"
   - id: ML1-05
     path: textbook/volumes/dream_thater/応用系/ML/ML1-05
-    status: planned
-    title: "Ridge回帰・縮小・bias–variance"
+    status: completed
+    title: "Ridge回帰・縮小・偏りと分散"
   - id: ML1-06
     path: textbook/volumes/dream_thater/応用系/ML/ML1-06
     status: planned
