@@ -107,7 +107,7 @@ $$
 P(u_x)=f_x-q_xu
 $$
 
-であり、$q_xu$ を落とすと誤りです。空間計量が変動すると主部にも同じ現象が起きます。交換子を $[P,D^\alpha]=PD^\alpha-D^\alpha P$ と約束します。
+であり、$q_xu$ を落とすと誤りです。空間計量が変動すると二階微分の係数にも同じ現象が起きます。交換子を $[P,D^\alpha]=PD^\alpha-D^\alpha P$ と約束します。
 
 <a id="prop-hpde9-commutator"></a>
 <!-- formal-statement-start -->
@@ -235,7 +235,7 @@ $$
 
 となります。定数 $C$ は $w$ や $f$ に依存しません。
 
-**(2) 交換子を同じエネルギーで支配する。** $w_\alpha=D^\alpha u$ と置くと[交換子命題](#prop-hpde9-commutator)から
+**(2) 交換子を同じエネルギーで支配する。** $w_\alpha=D^\alpha u$ と置きます。[空間微分と波動作用素の交換子](#prop-hpde9-commutator)を適用すると
 
 $$
 Pw_\alpha=D^\alpha f+[P,D^\alpha]u.
@@ -303,7 +303,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-曲率の交換恒等式から
+この節で符号規約とともに示した1-形式の微分交換式を整理すると
 
 $$
 -\Box_g^{(1)}(du)=-d(\Box_g u)-\operatorname{Ric}(du).
@@ -373,7 +373,7 @@ $$
 
 に $H^m$ で極限を通すと $u(t)=u(s)+\int_s^t v(\tau)d\tau$ なので $\partial_tu=v$ です。
 
-方程式の左辺は係数が滑らかな二階線形微分作用素であり、分布収束で連続です。すなわち試験関数 $\phi$ に対し[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)で
+方程式の左辺は係数が滑らかな二階線形微分作用素であり、超関数として収束する列の極限と交換できます。すなわち試験関数 $\phi$ に対し[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)で
 
 $$
 \langle Pu_\ell,\phi\rangle=\langle u_\ell,P^{\mathrm t}\phi\rangle
