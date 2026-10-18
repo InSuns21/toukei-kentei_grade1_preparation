@@ -1,0 +1,38 @@
+chapter: GR12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR11
+  - GR8
+  - GR7
+concepts:
+  - id: gravity.coupled-action
+    name: 重力と物質の全作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重力と物質の全作用）"]
+    requires: [gravity.ghy-boundary-action, gravity.einstein-hilbert-action, gravity.local-matter-action]
+  - id: gravity.einstein-field-equation
+    name: Einstein場の方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Einstein場の方程式）"]
+    requires: [gravity.coupled-action, gravity.hilbert-stress-tensor, gravity.ghy-dirichlet-variation, gravity.einstein-hilbert-variation]
+  - id: gravity.field-conservation-compatibility
+    name: 場の方程式と共変保存の整合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（場の方程式と共変保存の整合条件）"]
+    requires: [gravity.einstein-field-equation, gravity.einstein-divergence-free, gravity.cosmological-term-divergence]
+  - id: gravity.matter-diffeomorphism-conservation
+    name: 物質作用の微分同相不変性と局所保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（物質作用の微分同相不変性と局所保存）"]
+    requires: [gravity.hilbert-stress-tensor, gravity.inverse-metric-variation-identity, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.trace-reversed-einstein
+    name: 4次元場の方程式の跡とRicci表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（4次元場の方程式の跡とRicci表示）"]
+    requires: [gravity.einstein-field-equation, gravity.einstein-tensor]

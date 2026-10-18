@@ -53,7 +53,7 @@ chapters:
     title: "境界条件とGibbons–Hawking–York項"
   - id: GR12
     path: textbook/volumes/dream_thater/物理系/GR/GR12
-    status: planned
+    status: completed
     title: "Einstein場の方程式と保存則"
   - id: GR13
     path: textbook/volumes/dream_thater/物理系/GR/GR13
