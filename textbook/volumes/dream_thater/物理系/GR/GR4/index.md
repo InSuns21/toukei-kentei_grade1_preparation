@@ -34,7 +34,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr4-observer-frame -->
-**定義の確認：Minkowskiの静止観測者。** 座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で $g=\operatorname{diag}(-1,1,1,1)$ とし、$u=c\partial_0$、$e_{(0)}=\partial_0$、$e_{(i)}=\partial_i$ と取ります。時間軸は未来向きで $g(u,u)=-c^2$、各空間軸は $g(u,e_{(i)})=0$、$g(e_{(i)},e_{(j)})=\delta_{ij}$ です。四本は座標基底なので一次独立で、定義の全条件を満たします。時刻と距離の単位を混ぜないため、$\partial_0=\partial/\partial(ct)$ としたことに注意してください。
+**定義の確認**：Minkowskiの静止観測者。座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で計量を $g=\operatorname{diag}(-1,1,1,1)$ とし、
+
+$
+u=c\partial_0,\qquad e_{(0)}=\partial_0,\qquad
+e_{(i)}=\partial_i\quad (i=1,2,3)
+$
+
+を選びます。$u^0=c>0$ だから未来向きで、$g(u,u)=-c^2$ です。時間軸は $e_{(0)}=u/c$、空間軸との交差内積は零です。また
+
+$
+g(e_{(0)},e_{(0)})=-1,\qquad
+g(e_{(i)},e_{(j)})=\delta_{ij}
+$
+
+となります。四本は座標基底なので一次独立で、定義の全条件を満たします。$\partial_0=\partial/\partial(ct)$ としたため、時刻と距離の単位も混ざりません。
 <!-- definition-example-end -->
 
 <a id="prop-gr4-frame-existence"></a>
@@ -113,7 +127,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr4-measured-components -->
-**定義の確認：速度 $3c/5$ の粒子。** 前節のMinkowski静止枠を用い、四元速度と運動量を
+**定義の確認**：速度 $3c/5$ の粒子。 前節のMinkowski静止枠を用い、四元速度と運動量を
 
 $
 U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
