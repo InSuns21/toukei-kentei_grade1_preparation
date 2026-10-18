@@ -172,6 +172,22 @@ jobs:
           npm run validate:svg-quality -- --self-test
           npm run audit:svg-quality:existing
 
+      - name: Render mobile SVG contact sheets for visual inspection
+        if: github.event_name == 'pull_request'
+        run: |
+          python3 -m venv /tmp/svg-render-venv
+          /tmp/svg-render-venv/bin/python -m pip install --quiet cairosvg Pillow
+          /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py --emit-contact-sheets
+
+      - name: Attach existing SVG rendering review images
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: svg-render-review
+          path: _svg_render_review/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Validate textbook knowledge DAG
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:textbook-knowledge
