@@ -22,9 +22,9 @@ $$
 そこで実際の方程式の $q$ と、エネルギーを作るための**正の定数** $\lambda$ を分けます。$\lambda$ を足しても方程式を変更するのではなく、差 $\lambda-q$ を右辺の誤差として数えます。
 
 スライス接方向への微分 $D_{\Sigma_t}u$ は、[HPDE6で導入した制限計量 $h_t$](../HPDE6/index.md#def-hpde6-cauchy-slice)で長さを測ります。各点で $h_t$-正規直交基底 $(e_1,\ldots,e_n)$ を選べば
-$
+$$
 |D_{\Sigma_t}u|_{h_t}^2=\sum_{i=1}^n(e_i u)^2
-$
+$$
 です。基底を直交変換しても右辺の二乗和は変わりません。つまり以下の密度は、特定の座標成分ではなく、法線微分・接方向微分・関数値を測る量です。
 
 <a id="def-hpde8-shifted-energy"></a>
@@ -45,14 +45,14 @@ $$
 ### 直接例：負ポテンシャルと正の測定量を分ける
 
 **定義の確認**。$1+1$ 次元Minkowski時空で $u(t,x)=e^{3t}\cos x$、$\lambda=2$、$N=\partial_t$ とします。$h_t=dx^2$ の単位接ベクトルは $e_1=\partial_x$ なので $Nu=3e^{3t}\cos x$、$|D_{\Sigma_t}u|_{h_t}^2=e^{6t}\sin^2x$ です。定義の三項を順に代入すると
-$
+$$
 e_2[u]=\frac12\left(9e^{6t}\cos^2x+e^{6t}\sin^2x+2e^{6t}\cos^2x\right)
 =\frac{e^{6t}}2(11\cos^2x+\sin^2x)\ge0.
-$
+$$
 さらに $K_t=[0,2\pi]$ と選ぶと、$\int_0^{2\pi}\cos^2x\,dx=\int_0^{2\pi}\sin^2x\,dx=\pi$ より
-$
+$$
 E_2(t;K_t)=\frac{e^{6t}}2(11\pi+\pi)=6\pi e^{6t}.
-$
+$$
 各二乗項が非負であり、密度が零なら $u=Nu=D_{\Sigma_t}u=0$ と分かります。この $u$ は例えば $q=-9$ の方程式では $Pu=e^{3t}\cos x$ を源として満たしますが、正の密度と積分の計算は $q$ の符号に依存しません。
 <!-- definition-example-end -->
 
@@ -271,38 +271,38 @@ $$
 ## 5. 束値作用素にも同じ構造がある
 
 [HPDE5の接続による作用素分解](../HPDE5/index.md#thm-hpde5-unique-connection)によって一般のnormally hyperbolic作用素を扱えますが、その接続 $\nabla^P$ は[HPDE4の計量両立性](../HPDE4/index.md#def-hpde4-metric-compatible-connection)を自動的には持ちません。ここでは[HPDE4の正定値Hermite束計量](../HPDE4/index.md#def-hpde4-hermitian-bundle-metric)（実束では対称正定値内積）を選び、それと両立する補助接続 $D$ を**別に構成**します。局所正規直交枠では接続行列を零とする局所的な計量両立接続 $D^\alpha$ が作れます。従属する開被覆の分割関数 $\chi_\alpha$ によって
-$
+$$
 D_Xu=\sum_\alpha\chi_\alpha D_X^\alpha u,\qquad
 \sum_\alpha\chi_\alpha=1
-$
+$$
 と貼り合わせれば、Leibniz則も計量両立の恒等式も保たれます。これは局所枠そのものを大域的に貼り合わせるという主張ではありません。
 
 なぜ $D$ でも同じ二階の方程式を扱えるのでしょうか。二つの接続の差を自己準同型値一形式 $A$ と書くと
-$
+$$
 \nabla_i^P=D_i+A_i.
-$
+$$
 [接続波動作用素の局所展開](../HPDE5/index.md#thm-hpde5-unique-connection)へ代入し、$\nabla^{D,\mathrm{End}\otimes T^*}A$ を $D$ とLevi-Civita接続から誘導される $A$ の共変微分とすると
-$
+$$
 \begin{aligned}
 -\Box_g^{\nabla^P}u
 ={}&-\Box_g^D u-2g^{ij}A_iD_ju\\
 &-g^{ij}\bigl((\nabla_i^{D,\mathrm{End}\otimes T^*}A)_j+A_iA_j\bigr)u.
 \end{aligned}
-$
+$$
 二階微分の係数は変わらず、接続の差は一階と零階へ移りました。HPDE5の分解 $P=-\Box_g^{\nabla^P}+V$ と比較すると
-$
+$$
 B^j=-2g^{ij}A_i,\qquad
 C=V-g^{ij}\bigl((\nabla_i^{D,\mathrm{End}\otimes T^*}A)_j+A_iA_j\bigr)
-$
+$$
 となり、
-$
+$$
 P=-\Box_g^D+B^aD_a+C
-$
+$$
 と表示できます。$B^a,C$ は滑らかな束自己準同型の係数で、$B$ が零と仮定する必要はありません。$Pu=f$ なら
-$
+$$
 (-\Box_g^D+\lambda)u
 =f-B^aD_au+(\lambda I-C)u
-$
+$$
 です。以下では $B^aD_au$ を一次エネルギーで、$(\lambda I-C)u$ を正にずらした零次エネルギーで抑えます。
 
 <a id="prop-hpde8-bundle-energy"></a>
@@ -358,26 +358,26 @@ $$
 \nabla_aJ_E^a\le c_E e_\lambda^E+d_E\|f\|^2
 $$
 となります。光的側面の符号も確かめます。各点で未来向き単位法線 $N$ と接方向正規直交基底 $(e_i)$ を取り、外向き過去光的ベクトルを $K=b(-N+e_1)$（$b>0$）とします。$v_0=D_Nu$、$v_i=D_{e_i}u$ とおくと、[HPDE7で構成した束値応力テンソル](../HPDE7/index.md#prop-hpde7-bundle-divergence)を成分表示すると
-$
+$$
 \begin{aligned}
 g(J_E,K)
 &=-T_E(N,K)=b\bigl(T_E(N,N)-T_E(N,e_1)\bigr)\\
 &=\frac b2\left(\|v_0-v_1\|^2+
 \sum_{i=2}^n\|v_i\|^2+\lambda\|u\|^2\right)\ge0.
 \end{aligned}
-$
+$$
 したがって側面フラックスを落としてStokesを適用でき、$dV_g=\beta\,dt\,d\mu_h$ と[積分型Grönwall補題](#lem-hpde8-gronwall)によって表示した評価を得ます。
 
 最後に初期データとの対応を確かめます。[HPDE6のCauchyデータ](../HPDE6/index.md#def-hpde6-cauchy-data)では初期速度を作用素固有の接続 $\nabla^P$ で測ります。一方、ここでのエネルギーは $D$ によるものです。二解の差 $w=u-v$ に対して、上の $A=\nabla^P-D$ から
-$
+$$
 D_Nw=\nabla_N^Pw-A_Nw,\qquad
 D_{\Sigma_s}w=D_{\Sigma_s}(w|_{\Sigma_s})
-$
+$$
 です。初期変位と $\nabla_N^P$ による初期速度がともに一致すれば、$w|_{\Sigma_s}=0$ と $\nabla_N^Pw|_{\Sigma_s}=0$ なので $D_Nw|_{\Sigma_s}=D_{\Sigma_s}w=0$、よって $\mathcal E_\lambda[w](s)=0$ です。さらに一般の初期差についても
-$
+$$
 \|D_Nw\|^2\le 2\|\nabla_N^Pw\|^2+
 2\|A_N\|_{\mathrm{op}}^2\|w\|^2
-$
+$$
 であり、コンパクトな初期切り口上で $\|A_N\|_{\mathrm{op}}$ は有界です。したがって初期エネルギーは初期変位の $H^1_D$ 型の大きさと、$\nabla_N^P$ による初期速度の $L^2$ 型の大きさで制御されます。[スカラーの場合の一意性の証明](#thm-hpde8-uniqueness-stability)と同様に差分へエネルギー評価を適用すれば、作用素固有のCauchyデータについても一意性・連続依存が従います。$\square$
 <!-- proof-end -->
 
