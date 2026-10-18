@@ -11,7 +11,7 @@ chapters:
     title: "1+1次元波動方程式の初期値解"
   - id: HPDE2
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE2
-    status: planned
+    status: completed
     title: "高次元平坦波動とHuygens現象"
   - id: HPDE3
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE3

@@ -1,0 +1,52 @@
+chapter: HPDE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE1
+  - PDE4
+  - PDE9
+  - LORG6
+forward_references: []
+concepts:
+  - id: hpde.time-spherical-mean
+    name: 時間に沿った球面平均の記法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間に沿った球面平均の記法）"]
+    requires: [pde.pde9-spherical-mean]
+  - id: hpde.spherical-mean-identity
+    name: 波速付き球面平均の微分恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（波速付き球面平均の微分恒等式）"]
+    requires: [hpde.time-spherical-mean, pde.pde9-epd]
+  - id: hpde.kirchhoff-formula
+    name: 三次元Kirchhoff公式とエネルギー一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三次元Kirchhoff公式とエネルギー一意性）"]
+    requires: [hpde.spherical-mean-identity, pde.pde9-kirchhoff]
+  - id: hpde.strong-huygens
+    name: 強いHuygens性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（強いHuygens性：初期値問題の形式）"]
+    requires: [lorentz-geometry.minkowski-causal-future, hpde.kirchhoff-formula]
+  - id: hpde.three-dimensional-huygens
+    name: 三次元massless波動の強いHuygens性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元massless波動の強いHuygens性）"]
+    requires: [hpde.strong-huygens, hpde.kirchhoff-formula]
+  - id: hpde.poisson-descent
+    name: 二次元Poisson公式とコンパクト支持解の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次元Poisson公式とコンパクト支持解の一意性）"]
+    requires: [hpde.kirchhoff-formula, pde.pde9-poisson-wave]
+  - id: hpde.massive-tail
+    name: 質量項が作る三次元の内部残響
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（質量項が作る三次元の内部残響）"]
+    requires: [hpde.three-dimensional-huygens, hpde.kirchhoff-formula]
