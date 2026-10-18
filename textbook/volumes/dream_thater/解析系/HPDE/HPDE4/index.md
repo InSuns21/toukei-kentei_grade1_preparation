@@ -51,9 +51,9 @@ $$
 > **命題（接続係数の枠変換則）**  
 > $U$ 上の二つの滑らかな枠が $e'=eA$（$A:U\to GL_r(\mathbb K)$）を満たすとき、同じ接続の行列係数は
 >
-> $$
-> \Gamma'_i=A^{-1}\Gamma_iA+A^{-1}\partial_iA
-> $$
+$$
+\Gamma'_i=A^{-1}\Gamma_iA+A^{-1}\partial_iA
+$$
 >
 > を満たす。逆に、この規則に従う局所係数族は重なり上で同じ大域接続を定める。
 <!-- formal-statement-end -->
@@ -91,7 +91,7 @@ $$
 <!-- definition-example-start: def-hpde4-connection -->
 ### 直接例：同じ接続でも係数は零とは限らない
 
-$M=\mathbb R$、$E=\mathbb R\times\mathbb R$ の標準枠 $e$ で $\nabla_{\partial_x}(fe)=f'e$ とします。$X=a(x)\partial_x$ なら $\nabla_X(fe)=af'e$ と定めれば、$a$ について $C^\infty$ 線形、$f$ について積の微分規則を満たすので、[接続の定義](#def-hpde4-connection)を満たします。
+**定義の確認**。$M=\mathbb R$、$E=\mathbb R\times\mathbb R$ の標準枠 $e$ で $\nabla_{\partial_x}(fe)=f'e$ とします。$X=a(x)\partial_x$ なら $\nabla_X(fe)=af'e$ と定めれば、$a$ について $C^\infty$ 線形、$f$ について積の微分規則を満たすので、[接続の定義](#def-hpde4-connection)を満たします。
 
 新枠 $e'=e^{x}e$ は各点で非零なので枠であり、$A=e^x$ として[枠変換則](#prop-hpde4-gauge-rule)に代入すると
 
@@ -118,10 +118,10 @@ $$
 > **定義（双対接続）**  
 > $E$ 上の接続 $\nabla^E$ と双対束 $E^*$ に対し、双対接続 $\nabla^{E^*}$ は任意の滑らかな実ベクトル場 $X$、双対切断 $\ell$、切断 $s$ について
 >
-> $$
-> (\nabla_X^{E^*}\ell)(s)
-> =X\bigl(\ell(s)\bigr)-\ell(\nabla_X^E s)
-> $$
+$$
+(\nabla_X^{E^*}\ell)(s)
+=X\bigl(\ell(s)\bigr)-\ell(\nabla_X^E s)
+$$
 >
 > を満たす接続である。双対束はHPDE3と同じく代数的（複素線形）双対であり、ここでは複素共役を取らない。
 <!-- formal-statement-end -->
@@ -147,7 +147,7 @@ $$
 <!-- definition-example-start: def-hpde4-dual-connection -->
 ### 直接例：縮約を微分して検算する
 
-$E=\mathbb R\times\mathbb R^2$ の固定枠において $\Gamma_x=\operatorname{diag}(1,2)$、$u=(x,x^2)^{\mathsf T}$、$\ell=(2,3)^{\mathsf T}$ とします。この係数による接続は $\partial_x+\Gamma_x$ の形で積の微分規則を満たします。
+**定義の確認**。$E=\mathbb R\times\mathbb R^2$ の固定枠において $\Gamma_x=\operatorname{diag}(1,2)$、$u=(x,x^2)^{\mathsf T}$、$\ell=(2,3)^{\mathsf T}$ とします。この係数による接続は $\partial_x+\Gamma_x$ の形で積の微分規則を満たします。
 
 $$
 \nabla_x^E u=(1+x,\,2x+2x^2)^{\mathsf T},\qquad
@@ -175,10 +175,10 @@ $$
 > **定義（有限階線形微分作用素）**  
 > $E,F\to M$ を有限ランクの滑らかなベクトル束とする。$\mathbb K$ 線形写像 $P:\Gamma(M,E)\to\Gamma(M,F)$ が **$m$ 階以下の線形微分作用素**であるとは、ある非負整数 $m$ があり、任意の局所座標と局所枠において滑らかな係数行列 $A_\alpha(x)$ を用いて
 >
-> $$
-> (Ps)^b=\sum_{a=1}^{\operatorname{rank}E}
-> \sum_{|\alpha|\le m}(A_\alpha)^b{}_a\,\partial^\alpha s^a
-> $$
+$$
+(Ps)^b=\sum_{a=1}^{\operatorname{rank}E}
+\sum_{|\alpha|\le m}(A_\alpha)^b{}_a\,\partial^\alpha s^a
+$$
 >
 > と書けることをいう。ある有限の $m$ についてこの条件を満たすとき **有限階線形微分作用素**と呼ぶ。
 <!-- formal-statement-end -->
@@ -188,7 +188,7 @@ $$
 <!-- definition-example-start: def-hpde4-differential-operator -->
 ### 直接例：有限階性と座標・枠変換
 
-$\mathbb R$ の自明な実直線束で $Pu=xu'+2u$ と置きます。標準座標・標準枠では $m=1$、$A_1=x$、$A_0=2$ は滑らかです。$y=2x$ に取り替えると $\partial_x=2\partial_y$ と $x=y/2$ より
+**定義の確認**。$\mathbb R$ の自明な実直線束で $Pu=xu'+2u$ と置きます。標準座標・標準枠では $m=1$、$A_1=x$、$A_0=2$ は滑らかです。$y=2x$ に取り替えると $\partial_x=2\partial_y$ と $x=y/2$ より
 
 $$
 Pu=y\partial_yu+2u.
@@ -208,16 +208,16 @@ $$
 > **定義（密度値の形式的双対）**  
 > $E,F$ を有限ランクの滑らかな実または複素束、$M$ を境界のない多様体とし、$P:\Gamma(M,E)\to\Gamma(M,F)$ を有限階線形微分作用素とする。形式的双対 $P^t$ は
 >
-> $$
-> P^t:\Gamma_c(M,F^*\otimes|\Lambda^dT^*M|)
-> \longrightarrow\Gamma_c(M,E^*\otimes|\Lambda^dT^*M|)
-> $$
+$$
+P^t:\Gamma_c(M,F^*\otimes|\Lambda^dT^*M|)
+\longrightarrow\Gamma_c(M,E^*\otimes|\Lambda^dT^*M|)
+$$
 >
 > であって、すべての $s\in\Gamma(M,E)$ と $\psi\in\Gamma_c(M,F^*\otimes|\Lambda^dT^*M|)$ について
 >
-> $$
-> \int_M\psi(Ps)=\int_M(P^t\psi)(s)
-> $$
+$$
+\int_M\psi(Ps)=\int_M(P^t\psi)(s)
+$$
 >
 > を満たす有限階線形微分作用素をいう。$t$ は代数的双対を表し、複素の場合も **$P^t$ は複素線形**であって係数を共役しない。
 <!-- formal-statement-end -->
@@ -231,18 +231,18 @@ $$
 >
 > 同一の局所座標と局所枠で $P$ と試験切断 $\psi$ を次のように表す。
 >
-> $$
-> P=\sum_{|\alpha|\le m}A_\alpha\partial^\alpha,
-> \qquad \psi=(\psi_b)_{b}\otimes|dx|
-> $$
+$$
+P=\sum_{|\alpha|\le m}A_\alpha\partial^\alpha,
+\qquad \psi=(\psi_b)_{b}\otimes|dx|
+$$
 >
 > このとき、形式的双対の密度係数列は
 >
-> $$
-> (P^t\psi)_a
-> =\sum_{|\alpha|\le m}(-1)^{|\alpha|}
-> \partial^\alpha\!\left(\sum_b(A_\alpha)^b{}_a\psi_b\right).
-> $$
+$$
+(P^t\psi)_a
+=\sum_{|\alpha|\le m}(-1)^{|\alpha|}
+\partial^\alpha\!\left(\sum_b(A_\alpha)^b{}_a\psi_b\right).
+$$
 >
 > とくに $\operatorname{supp}(P^t\psi)\subseteq\operatorname{supp}\psi$ である。
 <!-- formal-statement-end -->
@@ -283,7 +283,7 @@ $$
 <!-- definition-example-start: def-hpde4-formal-transpose -->
 ### 直接例：複素係数も共役しない
 
-$\mathbb R$ 上の複素直線束で $P=(2+i x)\partial_x+3$ とします。$\psi=\varphi(x)|dx|$（$\varphi$ は滑らかなコンパクト台関数）なら[局所公式](#thm-hpde4-transpose-formula)より
+**定義の確認**。$\mathbb R$ 上の複素直線束で $P=(2+i x)\partial_x+3$ とします。$\psi=\varphi(x)|dx|$（$\varphi$ は滑らかなコンパクト台関数）なら[局所公式](#thm-hpde4-transpose-formula)より
 
 $$
 \begin{aligned}
@@ -305,10 +305,10 @@ $\varphi$ を複素数値にしても作用は $\varphi$ に線形です。特�
 > **定義（密度に関する発散）**  
 > $M$ 上の正の滑らかな密度 $\mu$ と実ベクトル場 $X$ に対し、局所座標で $\mu=\rho|dx|$ と書き
 >
-> $$
-> \operatorname{div}_{\mu}X
-> =\frac1\rho\sum_{i=1}^d\partial_i(\rho X^i)
-> $$
+$$
+\operatorname{div}_{\mu}X
+=\frac1\rho\sum_{i=1}^d\partial_i(\rho X^i)
+$$
 >
 > と定める。これは座標によらない滑らかな実関数である。
 <!-- formal-statement-end -->
@@ -324,7 +324,7 @@ $$
 <!-- definition-example-start: def-hpde4-divergence -->
 ### 直接例：密度によって発散は変わる
 
-$M=\mathbb R$、$X=\partial_x$、$\mu=e^{2x}|dx|$ とすると $\rho=e^{2x}>0$ で
+**定義の確認**。$M=\mathbb R$、$X=\partial_x$、$\mu=e^{2x}|dx|$ とすると $\rho=e^{2x}>0$ で
 
 $$
 \operatorname{div}_{\mu}X
@@ -339,11 +339,11 @@ $$
 > **命題（接続の微分の形式的双対）**  
 > $E\to M$ に接続 $\nabla^E$、$M$ に正の滑らかな密度 $\mu$、実ベクトル場 $X$ を与える。$\psi=\ell\otimes\mu$（$\ell$ はコンパクト台の双対切断）と書けば、$P=\nabla_X^E$ の形式的双対は
 >
-> $$
-> P^t(\ell\otimes\mu)
-> =-\bigl(\nabla_X^{E^*}\ell+
-> (\operatorname{div}_\mu X)\ell\bigr)\otimes\mu.
-> $$
+$$
+P^t(\ell\otimes\mu)
+=-\bigl(\nabla_X^{E^*}\ell+
+(\operatorname{div}_\mu X)\ell\bigr)\otimes\mu.
+$$
 >
 > 一般の零次束写像 $B:E\to E$ を加えた $P=\nabla_X^E+B$ ではさらに $B^t\ell$ が加わる。$B^t:E^*\to E^*$ は $(B^t\ell)(s)=\ell(Bs)$ で定義する。
 <!-- formal-statement-end -->
@@ -389,10 +389,10 @@ $$
 > **定義（正定値Hermite束計量）**  
 > 複素滑らかなベクトル束 $E\to M$ 上の正定値Hermite束計量 $h_E$ は各点 $p$ に写像 $h_{E,p}:E_p\times E_p\to\mathbb C$ を滑らかに与え、すべての $u,v\in E_p$ と $a,b\in\mathbb C$ について
 >
-> $$
-> h_E(au,bv)=a\overline b\,h_E(u,v),\qquad
-> h_E(v,u)=\overline{h_E(u,v)}
-> $$
+$$
+h_E(au,bv)=a\overline b\,h_E(u,v),\qquad
+h_E(v,u)=\overline{h_E(u,v)}
+$$
 >
 > を満たし、$u\ne0$ なら $h_E(u,u)>0$ とするものをいう。
 <!-- formal-statement-end -->
@@ -402,7 +402,7 @@ $$
 <!-- definition-example-start: def-hpde4-hermitian-bundle-metric -->
 ### 直接例：標準内積と非対角表示
 
-$E=\mathbb R\times\mathbb C^2$、$h(u,v)=\overline{v_1}u_1+\overline{v_2}u_2$ とします。各成分に定数を掛ければ第一引数の線形性、第二の共役線形性が分かり、$h(v,u)=\overline{h(u,v)}$、$h(u,u)=|u_1|^2+|u_2|^2>0$（$u\ne0$）です。
+**定義の確認**。$E=\mathbb R\times\mathbb C^2$、$h(u,v)=\overline{v_1}u_1+\overline{v_2}u_2$ とします。各成分に定数を掛ければ第一引数の線形性、第二の共役線形性が分かり、$h(v,u)=\overline{h(u,v)}$、$h(u,u)=|u_1|^2+|u_2|^2>0$（$u\ne0$）です。
 
 枠を $e'=eA$、$A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ に替えると
 
@@ -421,10 +421,10 @@ Hermite束計量と正の密度を選ぶと、切断 $t$ を使って密度値�
 > **定義（束計量・密度に関する形式的随伴）**  
 > 有限ランク滑らかな複素束 $E,F\to M$ に正定値Hermite束計量 $h_E,h_F$、$M$ に正の滑らかな密度 $\mu$ を指定する。有限階線形微分作用素 $P:\Gamma(M,E)\to\Gamma(M,F)$ の**形式的随伴** $P^*:\Gamma(M,F)\to\Gamma(M,E)$ は、任意のコンパクト台の切断 $s\in\Gamma_c(M,E)$ と $t\in\Gamma_c(M,F)$ について
 >
-> $$
-> \int_M h_F(Ps,t)\,\mu
-> =\int_M h_E(s,P^*t)\,\mu
-> $$
+$$
+\int_M h_F(Ps,t)\,\mu
+=\int_M h_E(s,P^*t)\,\mu
+$$
 >
 > を満たす線形微分作用素である。第一引数線形の規約を用いる。実束は実対称正定値束計量で同じ定義とする。
 <!-- formal-statement-end -->
@@ -434,16 +434,16 @@ Hermite束計量と正の密度を選ぶと、切断 $t$ を使って密度値�
 > **命題（形式的双対と随伴の関係）**  
 > [形式的随伴の定義](#def-hpde4-formal-adjoint)の仮定の下で $P^*$ は一意に存在する。$j_h(t)\in E^*$ を $j_h(t)(s)=h_E(s,t)$ で定める共役線形な束同型とすると
 >
-> $$
-> P^t\bigl(j_{h_F}(t)\otimes\mu\bigr)
-> =j_{h_E}(P^*t)\otimes\mu.
-> $$
+$$
+P^t\bigl(j_{h_F}(t)\otimes\mu\bigr)
+=j_{h_E}(P^*t)\otimes\mu.
+$$
 >
 > 零次の束写像 $A:E\to F$ の随伴を $A^\dagger$ と書く。局所枠での束計量行列を $H_E,H_F$ とすれば
 >
-> $$
-> A^\dagger=H_E^{-1}A^*H_F
-> $$
+$$
+A^\dagger=H_E^{-1}A^*H_F
+$$
 >
 > である。右辺の $A^*$ は行列の共役転置を表す。
 <!-- formal-statement-end -->
@@ -489,7 +489,7 @@ $$
 <!-- definition-example-start: def-hpde4-formal-adjoint -->
 ### 直接例：共役と密度の導関数を確かめる
 
-$M=\mathbb R$、自明複素直線束に標準内積 $h(u,v)=u\overline v$、$\mu=\rho(x)|dx|$（$\rho>0$）を与え、$P=a(x)\partial_x+b(x)$ とします。コンパクト台の $u,v$ について
+**定義の確認**。$M=\mathbb R$、自明複素直線束に標準内積 $h(u,v)=u\overline v$、$\mu=\rho(x)|dx|$（$\rho>0$）を与え、$P=a(x)\partial_x+b(x)$ とします。コンパクト台の $u,v$ について
 
 $$
 \begin{aligned}
@@ -529,10 +529,10 @@ $$
 > **定義（Hermite束計量と両立する接続）**  
 > $E$ 上の正定値Hermite束計量 $h_E$ と接続 $\nabla^E$ を与える。$\nabla^E$ が **計量両立**であるとは、任意の滑らかな切断 $s,t$ と滑らかな実ベクトル場 $X$ について
 >
-> $$
-> X(h_E(s,t))
-> =h_E(\nabla_X^Es,t)+h_E(s,\nabla_X^Et)
-> $$
+$$
+X(h_E(s,t))
+=h_E(\nabla_X^Es,t)+h_E(s,\nabla_X^Et)
+$$
 >
 > が成り立つことをいう。これは接続だけからは保証されない条件である。
 <!-- formal-statement-end -->
@@ -540,7 +540,7 @@ $$
 <!-- definition-example-start: def-hpde4-metric-compatible-connection -->
 ### 直接例：Hermite束計量を保つ通常微分
 
-$\mathbb R$ 上の自明な複素直線束で $h(u,v)=u\overline v$、$\nabla_Xu=a(x)u'$ とします（$X=a(x)\partial_x$ は滑らかな実ベクトル場）。これは[束接続の定義](#def-hpde4-connection)を満たし、すべての滑らかな $u,v$ に対し
+**定義の確認**。$\mathbb R$ 上の自明な複素直線束で $h(u,v)=u\overline v$、$\nabla_Xu=a(x)u'$ とします（$X=a(x)\partial_x$ は滑らかな実ベクトル場）。これは[束接続の定義](#def-hpde4-connection)を満たし、すべての滑らかな $u,v$ に対し
 
 $$
 X(h(u,v))=a(u'\overline v+u\overline{v'})
@@ -555,10 +555,10 @@ $$
 > **命題（計量両立な接続の形式的随伴）**  
 > 複素束 $E$ の接続 $\nabla^E$ が正定値Hermite束計量 $h_E$ と両立し、$\mu$ が正の滑らかな密度、$X$ が実ベクトル場なら
 >
-> $$
-> (\nabla_X^E)^*
-> =-\nabla_X^E-(\operatorname{div}_\mu X)\operatorname{id}_E.
-> $$
+$$
+(\nabla_X^E)^*
+=-\nabla_X^E-(\operatorname{div}_\mu X)\operatorname{id}_E.
+$$
 >
 > 一般の束写像 $B$ に対して $(\nabla_X^E+B)^*$ は右辺に $B^\dagger$ を加えたものになる。
 <!-- formal-statement-end -->
@@ -636,11 +636,11 @@ $$
 > **命題（線形微分作用素の超関数への延長）**  
 > $P:\Gamma(M,E)\to\Gamma(M,F)$ を有限階線形微分作用素とする。$T\in\mathcal D'(M,E)$ に対し
 >
-> $$
-> \langle PT,\psi\rangle
-> :=\langle T,P^t\psi\rangle,\qquad
-> \psi\in\Gamma_c(M,F^*\otimes|\Lambda^dT^*M|)
-> $$
+$$
+\langle PT,\psi\rangle
+:=\langle T,P^t\psi\rangle,\qquad
+\psi\in\Gamma_c(M,F^*\otimes|\Lambda^dT^*M|)
+$$
 >
 > は $F$ 値超関数を定める。この延長は複素線形で、滑らかな切断 $s$ には $PT_s=T_{Ps}$ と一致し、$\operatorname{supp}(PT)\subseteq\operatorname{supp}T$ を満たす。
 <!-- formal-statement-end -->
