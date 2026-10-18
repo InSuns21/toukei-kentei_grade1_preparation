@@ -4,11 +4,11 @@
 
 ## 1. 係数を小さくするだけでなく、0にしたい
 
-[前講のRidge回帰](../ML1-05/index.md#def-ml1-05-ridge)は係数の二乗和を罰し、階数欠損でも一意な解を与えた。一方、たくさんの特徴量を入れたとき「使わない特徴量の係数を**厳密に0**にする」ことには別の価値がある。係数が0なら、その特徴量を線形予測の和から取り除ける。ただし0になったことは、その特徴量と目的変数に因果関係がないことや、真の係数が0であることの証明ではない。
+[前講のRidge回帰](../ML1-05/index.md#def-ml1-05-ridge)は係数の二乗和を罰し、階数欠損でも一意な解を与えた。一方、たくさんの特徴量を入れたとき「使わない特徴量の係数を**厳密に0**にする」ことには別の価値がある。係数が0なら、その特徴量を線形予測の和から取り除ける。0成分が多い係数を**疎な係数**といい、その性質を**疎性**と呼ぶ。ただし0になったことは、その特徴量と目的変数に因果関係がないことや、真の係数が0であることの証明ではない。
 
 二乗罰則は原点で滑らかだが、絶対値には原点で角がある。この角が0を最適解として許す範囲を作る。すでに学んだ[劣勾配・劣微分](../../OPT/OPT3/index.md#def-opt3-subgradient)は微分できない点でも最適性を判定できる道具であり、[近接作用素](../../OPT/OPT8/index.md#def-opt8-proximal-mapping)はその判定を反復計算に移す。本章ではこれらを**学習標本の二乗損失**へ代入し、正規化係数を保ったまま疎性の仕組みを求める。
 
-まず $n,p\ge1$、$X\in\mathbb R^{n\times p}$、$y\in\mathbb R^n$ は観測後に固定した値とする。$X$ の第 $j$ 列を $x_j$ と書く。切片は当面含めず、最後に切片を罰しない場合を考える。確率模型や正規誤差は最適化の議論には必要ない。
+まず $n,p\ge1$、$X\in\mathbb R^{n\times p}$、$y\in\mathbb R^n$ は観測後に固定した値とする。[設計行列と線形予測](../ML1-04/index.md#def-ml1-04-design-matrix)に従い、$X$ の第 $j$ 列を特徴量の観測ベクトル $x_j\in\mathbb R^n$ と書く。係数 $\beta=(\beta_1,\ldots,\beta_p)^{\mathsf T}\in\mathbb R^p$ のとき、予測値は $X\beta=\sum_{j=1}^p x_j\beta_j$ となる。切片は当面含めず、最後に切片を罰しない場合を考える。確率模型や正規誤差は最適化の議論には必要ない。
 
 ## 2. Lasso目的と絶対値の角
 
@@ -162,7 +162,17 @@ $$
 
 ## 5. 直交デザインのLassoをすべての座標で解く
 
-線形予測の各列が直交するとは、$i\ne j$ で $x_i^{\mathsf T}x_j=0$ ということである。各列の長さは同じでなくてよい。$d_j=\|x_j\|_2^2/n$、$c_j=x_j^{\mathsf T}y/n$ と定めると、直交性はGram行列 $X^{\mathsf T}X/n=\operatorname{diag}(d_1,\ldots,d_p)$ を意味する。この基底表示への橋渡しは残差平方を直接展開して得る。
+線形予測の各列が直交するとは、$i\ne j$ で $x_i^{\mathsf T}x_j=0$ ということである。各列の長さは同じでなくてよい。$d_j=\|x_j\|_2^2/n$、$c_j=x_j^{\mathsf T}y/n$ と定める。Gram行列の第 $(i,j)$ 成分は $(X^{\mathsf T}X/n)_{ij}=x_i^{\mathsf T}x_j/n$ だから、列の直交性によって $X^{\mathsf T}X/n=\operatorname{diag}(d_1,\ldots,d_p)$ となる。
+
+目的関数が座標ごとに分かれる理由も、予測値 $X\beta=\sum_jx_j\beta_j$ から確認できる。まず
+
+$$
+\|X\beta-y\|_2^2
+=\|y\|_2^2-2\sum_j\beta_j x_j^{\mathsf T}y
++\sum_i\sum_j\beta_i\beta_j x_i^{\mathsf T}x_j.
+$$
+
+直交条件で最後の二重和の $i\ne j$ の項が消えるため、
 
 $$
 \frac1{2n}\|X\beta-y\|^2
@@ -234,12 +244,12 @@ Ridgeは $\lambda>0$ なら全方向で二次の曲率を与えた。しかしLa
 
 ### 証明の見取り図
 
-存在は $\lambda\|\beta\|_1$ が係数を無限遠へ逃がさないこと、一意性はフルランクの二乗損失が狭義凸であることから示す。適合値の一意性は、二つの異なる適合値の中点で二乗誤差が厳密に減ることから証明する。
+存在は[強圧性](../../OPT/OPT3/index.md#def-opt3-coercivity)により $\lambda\|\beta\|_1$ が係数を無限遠へ逃がさないこと、一意性はフルランクの二乗損失が狭義凸であることから示す。適合値の一意性は、二つの異なる適合値の中点で二乗誤差が厳密に減ることから証明する。
 
 <!-- proof-start -->
 ### 証明
 
-$\lambda>0$ なら $J_\lambda(\beta)\ge\lambda\|\beta\|_1\ge\lambda\|\beta\|_2$ であり、$\|\beta\|_2\to\infty$ で目的値も無限大へ向かう。連続関数なので、十分大きな閉球内で最小値を取り、その点は全空間でも最小点である。
+$\lambda>0$ なら $J_\lambda(\beta)\ge\lambda\|\beta\|_1\ge\lambda\|\beta\|_2$ であり、$\|\beta\|_2\to\infty$ で目的値も無限大へ向かう。特に $R>J_\lambda(0)/\lambda$ とすれば、$\|\beta\|_2\ge R$ では $J_\lambda(\beta)\ge\lambda R>J_\lambda(0)$ となる。連続性と閉球のコンパクト性から $\|\beta\|_2\le R$ の範囲で最小値を取り、球の外では $J_\lambda(0)$ より大きいので、この点は全空間でも最小点である。
 
 $X$ の列が一次独立なら任意の $\beta\ne\gamma$ に対し $X\beta\ne X\gamma$。$0<t<1$ と置き、$u=X\beta-y$、$v=X\gamma-y$ とすると
 
@@ -270,16 +280,33 @@ $$
 
 ## 7. 切片と近接勾配法：実際に反復して求める
 
-切片 $\alpha$ を罰しない線形予測 $\alpha\mathbf 1+Z\theta$ では、$\theta$ のみに $\lambda\|\theta\|_1$ を課す。$\alpha$ に関する微分は
+切片 $\alpha\in\mathbb R$ を罰しない線形予測 $\alpha\mathbf1+Z\theta$ を考える。ここで $Z\in\mathbb R^{n\times p}$、$\theta\in\mathbb R^p$、$\mathbf1\in\mathbb R^n$ は成分がすべて1のベクトルとする。各列と応答の標本平均を
+
+$$
+\bar z=\frac1nZ^{\mathsf T}\mathbf1\in\mathbb R^p,
+\qquad
+\bar y=\frac1n\mathbf1^{\mathsf T}y
+$$
+
+と定める。目的関数は二乗損失と $\lambda\|\theta\|_1$ の和なので、罰則は $\alpha$ に依存しない。固定した $\theta$ に対し、$\alpha$ に関する停留条件は
 
 $$
 \frac{\partial J}{\partial\alpha}
-=\frac1n\mathbf1^{\mathsf T}(\alpha\mathbf1+Z\theta-y)=0
+=\frac1n\mathbf1^{\mathsf T}(\alpha\mathbf1+Z\theta-y)
+=\alpha+\bar z^{\mathsf T}\theta-\bar y=0.
 $$
 
-なので $\widehat\alpha=\bar y-\bar z^{\mathsf T}\widehat\theta$。これを残差へ代入すれば $Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ に対するLassoが得られる。これは前講の[切片を罰しないRidge](../ML1-05/index.md#thm-ml1-05-unique)と同じ中心化の考えだが、**傾き側の罰則は絶対値**である。標準化（列のスケール変更）は $d_j,c_j$ と罰則の相対的な効果を変えるため、学習用データだけで決めた尺度を後の検証データにも適用する。
+$\alpha$ についての二階微分は1なので、この停留点が唯一の最小切片 $\widehat\alpha(\theta)=\bar y-\bar z^{\mathsf T}\theta$ である。これを残差へ代入すると
 
-非直交デザインの近似解には[近接勾配法](../../OPT/OPT8/index.md#def-opt8-proximal-gradient)を使える。$f(\beta)=\|X\beta-y\|^2/(2n)$ と $g(\beta)=\lambda\|\beta\|_1$ に分けると、$\nabla f(\beta)=X^{\mathsf T}(X\beta-y)/n$。$X\ne0$ なら勾配は $L=\|X^{\mathsf T}X/n\|_2>0$ に対して $L$-Lipschitzである。[ℓ¹ノルムの近接作用素とソフト閾値処理](../../OPT/OPT8/index.md#thm-opt8-l1-prox)から、一段の更新は次になる。
+$$
+\widehat\alpha(\theta)\mathbf1+Z\theta-y
+=(Z-\mathbf1\bar z^{\mathsf T})\theta-(y-\bar y\mathbf1)
+=Z_c\theta-y_c
+$$
+
+となる。従って $Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ に対するLassoを解けばよい。前講の[Ridge回帰](../ML1-05/index.md#def-ml1-05-ridge)でも切片非罰則なら同じ中心化を使うが、**傾き側の罰則は絶対値**となる。標準化（列のスケール変更）は $d_j,c_j$ と罰則の相対的な効果を変えるため、学習用データだけで決めた尺度を後の検証データにも適用する。
+
+非直交デザインの近似解には[近接勾配法](../../OPT/OPT8/index.md#def-opt8-proximal-gradient)を使える。正則化付き最小二乗に適用する反復は[ISTA](../../OPT/OPT8/index.md#def-opt8-ista)と呼ぶ。$f(\beta)=\|X\beta-y\|^2/(2n)$ と $g(\beta)=\lambda\|\beta\|_1$ に分けると、$\nabla f(\beta)=X^{\mathsf T}(X\beta-y)/n$。$X\ne0$ なら勾配は $L=\|X^{\mathsf T}X/n\|_2>0$ に対して $L$-Lipschitzである。[ℓ¹ノルムの近接作用素とソフト閾値処理](../../OPT/OPT8/index.md#thm-opt8-l1-prox)から、一段の更新は次になる。
 
 <a id="prop-ml1-06-ista"></a>
 
@@ -330,7 +357,7 @@ $$
 
 ## 8. 計算ラボ：小さい相関が0になる境界
 
-次のPythonラボでは正規直交デザイン $X^{\mathsf T}X/n=\operatorname{diag}(d_1,d_2,d_3)$（$d_j>0$）を仮定し、$z_j=c_j/d_j$ を使ってLassoとRidgeの係数・目的値を同時に計算する。乱数は用いず、係数を変更すれば再実行した値も変わる。損失のうち $\beta$ に依存しない定数は除き、$\frac12\sum_jd_j(\beta_j-z_j)^2$ を用いる。
+次のPythonラボでは列の長さが異なってもよい直交デザイン $X^{\mathsf T}X/n=\operatorname{diag}(d_1,d_2,d_3)$（$d_j>0$）を仮定し、$z_j=c_j/d_j$ を使ってLassoとRidgeの係数・目的値を同時に計算する。乱数は用いず、係数を変更すれば再実行した値も変わる。損失のうち $\beta$ に依存しない定数は除き、$\frac12\sum_jd_j(\beta_j-z_j)^2$ を用いる。
 
 ~~~python-lab
 # lab-id: ml1-06-sparse-path
