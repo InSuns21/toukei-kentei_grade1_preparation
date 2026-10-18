@@ -550,11 +550,11 @@ u_j\to u\text{ in }C^0(I;H^3),\qquad
 \partial_tu_j\to\partial_tu\text{ in }C^0(I;H^2).
 $$
 
-(ii) $u_j\to u$ は分布収束も含みます。任意の試験関数 $\phi$ に対して $\langle Pu_j,\phi\rangle=\langle u_j,P^{\mathrm t}\phi\rangle$ を極限に通せるため、$Pu=f$ です。(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から何階の連続微分まで従うかは次元に依存し、任意階の時空微分を得るにはすべての $m$ の推定と滑らかな $f$ が必要です。
+(ii) $u_j\to u$ は超関数の意味でも収束します。任意の試験関数 $\phi$ に対して $\langle Pu_j,\phi\rangle=\langle u_j,P^{\mathrm t}\phi\rangle$ を極限に通せるため、$Pu=f$ です。(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から何階の連続微分まで従うかは次元に依存し、任意階の時空微分を得るにはすべての $m$ の推定と滑らかな $f$ が必要です。
 <!-- solution-end -->
 
 <a id="ex-hpde9-c01"></a>
-### C1. 非自明な主部とポテンシャルを一緒に見積もる
+### C1. 変動する二階微分係数とポテンシャルを一緒に見積もる
 - Level: C
 - 問題：一次元トーラス上で $g=-dt^2+e^{2\varphi(x)}dx^2$、$\varphi$ と実数値 $q(x)$ は滑らかとする。$P=-\Box_g+q$、$Pu=f$ とする。(i) $P$ を座標表示し、$[P,\partial_x]u$ を計算せよ。(ii) $u_x$ のエネルギー恒等式へ交換子を代入し、$\mathcal E_1'[u]\le C\mathcal E_1[u]+C\|f\|_{H^1}^2$ を証明せよ。(iii) $q$ と $\varphi$ のどの階数の導関数に定数が依存するか説明せよ。
 
@@ -601,7 +601,16 @@ $$
 \le C\mathcal E_1.
 $$
 
-$f u_t$、$f_xu_{xt}$ には同じ不等式を適用して $C\|f\|_{H^1}^2+C\mathcal E_1$ とします。他の低階積も $u,u_x,u_t,u_{xt}$ の二乗で評価され、すべて $\mathcal E_1$ に含まれます。よって指定の不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。(iii) $q$ は一階まで、$\varphi$ は二階までと $\sup|\varphi|$ に依存します。変形によっては係数の組を別の形で上界評価しても構いませんが、$u_{xx}$ の項を無視してはなりません。
+源と時間微分の積にはYoungの不等式を適用します。例えば
+
+$
+\left|\int e^\varphi(fu_t+f_xu_{xt})\,dx\right|
+\le C\|f\|_{H^1}^2+C\mathcal E_1.
+$
+
+他の低階の積も同じように、関数とその一階微分の二乗で制御できます。したがって指定のエネルギー不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。
+
+(iii) 定数に必要な係数界を確認します。$q$ は一階まで、$\varphi$ は二階までの導関数と $\sup|\varphi|$ への依存で足ります。係数を異なる表示で評価しても構いませんが、二階空間微分 $u_{xx}$ の項を無視してはなりません。
 <!-- solution-end -->
 
 ## 7. ここで得たものと次の仕事
