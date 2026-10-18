@@ -704,7 +704,7 @@ $n=2$、$z_1=(1,0)^{\mathsf T}$、$z_2=(1,1)^{\mathsf T}$、任意のラベル $
 <!-- solution-start -->
 #### 詳細解答
 
-$\theta=0$ では各 $q_i=1/2$、重み $q_i(1-q_i)=1/4$。よって[Hessian公式](#thm-ml1-08-binary-derivatives)から
+$\theta=0$ では各 $q_i=1/2$、重み $q_i(1-q_i)=1/4$。よって[二値logistic損失の勾配とHessian](#thm-ml1-08-binary-derivatives)から
 
 $$
 \nabla^2L_2(0)
@@ -807,7 +807,7 @@ Z=\begin{pmatrix}1&-1\\1&1\end{pmatrix},
 \det Z=2\ne0
 $$
 
-は列フルランクである。任意の有限 $\theta_1$ では二つの重み $q_i(1-q_i)>0$。従って[二値Hessian公式](#thm-ml1-08-binary-derivatives)の二次形式は非零方向に対して正となる。正定値と最小点存在は矛盾しない。
+は列フルランクである。任意の有限 $\theta_1$ では二つの重み $q_i(1-q_i)>0$。従って[二値logistic損失の勾配とHessian](#thm-ml1-08-binary-derivatives)の二次形式は非零方向に対して正となる。正定値と最小点存在は矛盾しない。
 
 **（3）** $\lambda>0$、罰則は切片も含む $\lambda\|\theta_1\|^2/2$ で、損失は非負・連続、罰則は係数ノルムを無限大へ送ると発散する。したがって最小点が存在する。Hessianには $\lambda I_2$ が加わり全方向で正となるので厳密凸であり、最小点は一意である。[二乗罰則付き定理](#thm-ml1-08-ridge-existence)の仮定をすべて満たす。ここでは基準クラスの係数を固定し、softmaxの共通シフトの曖昧さも取り除いた。
 
