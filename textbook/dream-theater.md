@@ -388,7 +388,6 @@
 1. [HPDE1 1+1次元波動方程式の初期値解](textbook/volumes/dream_thater/解析系/HPDE/HPDE1/index.md)
 2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
 3. [HPDE3 時空上の分布・試験切断・密度](textbook/volumes/dream_thater/解析系/HPDE/HPDE3/index.md)
-4. [HPDE4 ベクトル束・接続・形式的随伴](textbook/volumes/dream_thater/解析系/HPDE/HPDE4/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
@@ -1169,6 +1168,7 @@
 6. [GR6 Riemann・Ricci・スカラー曲率](textbook/volumes/dream_thater/物理系/GR/GR6/index.md)
 7. [GR7 Bianchi恒等式とEinsteinテンソル](textbook/volumes/dream_thater/物理系/GR/GR7/index.md)
 8. [GR8 塵・完全流体とエネルギー運動量](textbook/volumes/dream_thater/物理系/GR/GR8/index.md)
+9. [GR9 物質作用と電磁場の応力テンソル](textbook/volumes/dream_thater/物理系/GR/GR9/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
