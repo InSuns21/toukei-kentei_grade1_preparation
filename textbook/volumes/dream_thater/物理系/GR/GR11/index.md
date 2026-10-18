@@ -61,17 +61,17 @@ $$
 
 ここで「非光的な面なら誘導計量が非退化」という判定も確かめます。各点 $p\in\Sigma$ で $n$ は非光的かつ接空間に直交するので、
 
-$
+$$
 T_pM=T_p\Sigma\oplus\mathbb Rn
-$
+$$
 
 と直和に分かれます。$v\in T_p\Sigma$ がすべての $w\in T_p\Sigma$ に対して $\gamma(v,w)=g(v,w)=0$ を満たせば、$g(v,n)=0$ でもあるため $v$ は $T_pM$ の全ベクトルに直交します。[Lorentz内積の非退化性](../../../幾何系/LORG/LORG1/index.md#def-lorg1-lorentz-inner-product)から $v=0$ です。従って誘導計量は非退化です。
 
 接基底 $e_a$ に関して $v=v^ae_a$、$w=w^be_b$ と展開すると
 
-$
+$$
 \gamma(v,w)=v^a\gamma_{ab}w^b
-$
+$$
 
 です。これは[双線形形式の行列表示と非退化性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)を三次元の実ベクトル空間 $T_p\Sigma$ に適用した形です。従って $\det(\gamma_{ab})\ne0$ が非退化性と同値で、逆行列 $\gamma^{ab}$ と正の密度 $\sqrt{|\det\gamma|}$ を使えます。
 
@@ -132,14 +132,14 @@ $$
 
 の $x=R$ を領域 $x\le R$ の境界とします。法線は再び $n=\partial_x$、$\varepsilon=1$、誘導計量は $\gamma=\operatorname{diag}(-N(R)^2,1,1)$ です。$g_{00}=-N(x)^2$、$g^{xx}=1$ なので、[Levi-Civita接続の座標表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
 
-$
+$$
 \Gamma^x_{00}=-\frac12g^{xx}\partial_xg_{00}
 =-\frac12(-2NN')=NN'
-$
+$$
 
 です。これを第二基本形式の定義へ代入して
 
-$
+$$
 K_{00}=\nabla_0 n_0=-\Gamma^x_{00}n_x=-NN',
 \qquad K_{yy}=K_{zz}=0,
 $$
@@ -185,15 +185,15 @@ $$
 
 境界の小領域で接座標 $y^a$ と埋め込み $X(y)$ を選び、法線方向の測地線から
 
-$
+$$
 F(r,y)=\exp_{X(y)}\bigl(rn_{X(y)}\bigr)
-$
+$$
 
 を作ります。[Lorentz測地線の局所存在と指数写像](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-lorentz-exponential)により、小さい $r$ で $F$ は滑らかです。$r=0$ では $\partial_rF=n$、$\partial_aF=e_a$ であり、非光的法線は接空間に属さないのでこの4本は一次独立です。逆関数定理から、$F$ は十分小さな境界近傍で座標を定めます。$r$ の正方向を領域外へ取り、境界を $r=0$、領域を $r\le0$ とします。
 
 この座標で $\partial_r$ はアフィンパラメータ測地線の速度なので $\nabla_{\partial_r}\partial_r=0$ です。計量両立性から $\partial_rg_{rr}=0$、初期値 $g_{rr}|_{r=0}=\varepsilon$ により $g_{rr}=\varepsilon$ です。また座標ベクトル場の交換性と捩率零を使えば
 
-$
+$$
 \begin{aligned}
 \partial_rg_{ra}
 &=g(\nabla_{\partial_r}\partial_r,\partial_a)
@@ -201,16 +201,16 @@ $
 &=g(\partial_r,\nabla_{\partial_a}\partial_r)
  =\frac12\partial_ag_{rr}=0.
 \end{aligned}
-$
+$$
 
 初期値 $g_{ra}|_{r=0}=g(n,e_a)=0$ より $g_{ra}=0$ です。従ってGaussian法線座標の表示は
 
-$
+$$
 ds^2=\varepsilon\,dr^2+\gamma_{ab}(r,y)\,dy^a dy^b,
 \qquad
 \det g=\varepsilon\det\gamma,
 \qquad n_r=\varepsilon.
-$
+$$
 
 4次元計量はLorentz符号なので $\det g<0$ です。よって $\sqrt{-g}=\sqrt{|\det\gamma|}$ が成り立ちます。
 
@@ -457,17 +457,17 @@ Minkowski計量 $ds^2=-(dx^0)^2+dx^2+dy^2+dz^2$ に対し、領域 $x\le R$ の�
 <!-- solution-start -->
 **詳細解答。** [境界幾何の定義](#def-gr11-boundary-geometry)で、接基底同士の計量の値を並べます。$x=R$ では外向き $n=\partial_x$、$g(n,n)=+1$ で、接基底 $(\partial_{x^0},\partial_y,\partial_z)$ を取ると
 
-$
+$$
 (\gamma_{ab})=\operatorname{diag}(-1,1,1),
 \qquad \det\gamma=-1.
-$
+$$
 
 負方向1本、正方向2本です。$x^0=T$ では外向き $n=\partial_0$、$g(n,n)=-1$ で、接基底 $(\partial_x,\partial_y,\partial_z)$ から
 
-$
+$$
 (\gamma_{ab})=\operatorname{diag}(1,1,1),
 \qquad \det\gamma=1.
-$
+$$
 
 正方向3本で、両面とも $\det\gamma\ne0$ です。
 <!-- solution-end -->
@@ -491,17 +491,17 @@ $U=[0,T]\times\mathbb T^3$ の平坦計量について、二つの時刻面の $
 <!-- solution-start -->
 **詳細解答。** 誘導計量を $s$ で微分すると
 
-$
+$$
 \gamma_{ij}(s)=(1+sf)^2\delta_{ij},
 \qquad q_{ij}=2f\delta_{ij},
 \qquad \partial_0q_{ij}=2f'\delta_{ij}
-$
+$$
 
 です。$f(x^0)=x^0(T-x^0)$ では
 
-$
+$$
 f(0)=f(T)=0,\qquad f'(0)=T,\qquad f'(T)=-T.
-$
+$$
 
 従って両端で $q_{ij}=0$ ですが、$\partial_0q_{ij}$ は過去側で $2T\delta_{ij}$、未来側で $-2T\delta_{ij}$ です。値を固定しても導関数は自由です。
 <!-- solution-end -->
@@ -595,19 +595,19 @@ $ds^2=dx^2-N(x)^2(dx^0)^2+dy^2+dz^2$、$N(x)=1+\alpha x>0$ とし、$x=R$ での
 <!-- solution-start -->
 **詳細解答。** 接基底 $(\partial_{x^0},\partial_y,\partial_z)$ から
 
-$
+$$
 \gamma=\operatorname{diag}(-N(R)^2,1,1),
 \qquad \sqrt{|\gamma|}=N(R)
-$
+$$
 
 です。$N(R)>0$ を使いました。どちらの法線も空間的で $\varepsilon=+1$ です。[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標公式で $\Gamma^x_{00}=NN'$ となり、[第二基本形式の定義](#def-gr11-extrinsic-curvature)に代入すると $n=\partial_x$ の場合、
 
-$
+$$
 K_{00}=-NN',\qquad
 K=\gamma^{00}K_{00}
 =\left(-\frac1{N^2}\right)(-NN')
 =\frac{\alpha}{N}.
-$
+$$
 
 従って $2\varepsilon K\sqrt{|\gamma|}=2\alpha$ です。$n=-\partial_x$ に換えると $K_{00}$ と $K$ がともに逆符号なので、密度は $-2\alpha$ です。領域 $x\le R$ から外へ進むのは正の $x$ 方向だから、GHY積分に使えるのは $n=\partial_x$ です。
 <!-- solution-end -->
