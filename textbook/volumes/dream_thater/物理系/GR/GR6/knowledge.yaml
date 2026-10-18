@@ -1,0 +1,50 @@
+chapter: GR6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR5
+  - GEO16
+  - LORG4
+concepts:
+  - id: gravity.curvature-components-lorentz
+    name: 曲率作用素の成分と計量による添字下げ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率作用素の成分と計量による添字下げ）"]
+    requires: [geometry.riemann-curvature-operator, geometry.curvature-tensoriality-coordinate, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.lorentz-ricci-curvature
+    name: Lorentz時空のRicci曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz時空のRicci曲率・スカラー曲率）"]
+    requires: [geometry.riemann-curvature-tensor, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.lorentz-scalar-curvature
+    name: Lorentz時空のスカラー曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz時空のRicci曲率・スカラー曲率）"]
+    requires: [gravity.lorentz-ricci-curvature]
+  - id: gravity.lorentz-ricci-contraction-symmetry
+    name: Lorentz直交枠における縮約とRicciの対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz直交枠における縮約とRicciの対称性）"]
+    requires: [gravity.lorentz-ricci-curvature, gravity.lorentz-scalar-curvature, geometry.riemann-curvature-symmetries, gravity.observer-orthonormal-frame]
+  - id: gravity.lorentz-constant-curvature-contraction
+    name: 一定の曲率形を持つLorentz時空の縮約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定の曲率形を持つLorentz時空の縮約）"]
+    requires: [gravity.lorentz-ricci-curvature, gravity.lorentz-scalar-curvature, geometry.constant-curvature-tensor]
+  - id: gravity.static-lapse-ricci-scalar
+    name: 静的lapse計量のRiemann・Ricci・スカラー曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的lapse計量のRiemann・Ricci・スカラー曲率）"]
+    requires: [gravity.curvature-components-lorentz, gravity.lorentz-ricci-curvature, gravity.lorentz-scalar-curvature, gravity.static-lapse-tidal-curvature]
+  - id: gravity.scalar-zero-nonflat-example
+    name: スカラー曲率零だがRiemann曲率非零の局所模型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スカラー曲率零だがRiemann曲率非零の局所模型）"]
+    requires: [gravity.static-lapse-ricci-scalar]

@@ -1,0 +1,45 @@
+id: "GR6"
+title: "Riemann・Ricci・スカラー曲率"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR5
+  - GEO16
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 曲率作用素とRiemann曲率の座標成分の添字順を宣言してChristoffel係数の四項式を導出できる
+  - 非退化Lorentz計量の逆行列によるRicci縮約とスカラー縮約を区別し時間方向の負符号を説明できる
+  - 計量両立性に基づく曲率対称性からRicciの対称性と潮汐行列の跡を再導出できる
+  - n次元の一定曲率形からRicciとスカラーの係数n-1およびn(n-1)を検算できる
+  - 平坦な極座標と静的lapse計量を比較し非零Christoffel係数と非零曲率を区別できる
+  - スカラー曲率が零でもRicciとRiemannが非零の具体的模型を示し縮約による情報の損失を説明できる
+definitions:
+  - { id: GR6-DEF-01, name: Lorentz時空のRicci曲率・スカラー曲率 }
+theorems:
+  - { id: GR6-PROP-01, name: 曲率作用素の成分と計量による添字下げ }
+  - { id: GR6-PROP-02, name: Lorentz直交枠における縮約とRicciの対称性 }
+  - { id: GR6-PROP-03, name: 一定の曲率形を持つLorentz時空の縮約 }
+  - { id: GR6-PROP-04, name: 静的lapse計量のRiemann・Ricci・スカラー曲率 }
+  - { id: GR6-PROP-05, name: スカラー曲率零だがRiemann曲率非零の局所模型 }
+canonical_examples:
+  - Minkowski時空でLevi-Civita接続からRicciとスカラーがともに零であることを直接確認
+  - 4次元一定曲率形の符号と潮汐行列の跡を確認
+  - Minkowski時空の極座標でChristoffel係数の非零性と曲率の零性を比較
+  - 静的lapse計量のRicci成分とスカラーを全項で計算
+  - 空間調和lapseからスカラー零でも非零Riemannの反例を作る
+problem_patterns:
+  - GR6-CURVATURE-INDEX-ORDER
+  - GR6-LORENTZ-ORTHONORMAL-TRACE
+  - GR6-CONSTANT-CURVATURE-CONTRACTION
+  - GR6-POLAR-COORDINATE-CANCELLATION
+  - GR6-TIDAL-RICCI-TRACE
+  - GR6-N-DIMENSION-CONTRACTION
+  - GR6-LAPSE-HESSIAN-RICCI
+  - GR6-RICCI-SYMMETRY
+  - GR6-RINDLER-VERSUS-CURVED
+  - GR6-SCALAR-ZERO-NONFLAT-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
