@@ -25,7 +25,7 @@ definitions:
   - { id: HPDE4-DEF-05, name: 密度に関する発散 }
   - { id: HPDE4-DEF-06, name: 正定値Hermite束計量 }
   - { id: HPDE4-DEF-07, name: 束計量・密度に関する形式的随伴 }
-  - { id: HPDE4-DEF-08, name: 計量両立接続 }
+  - { id: HPDE4-DEF-08, name: Hermite束計量と両立する接続 }
 theorems:
   - { id: HPDE4-PROP-01, name: 接続係数の枠変換則 }
   - { id: HPDE4-THM-01, name: 形式的双対の存在・一意性と局所公式 }
