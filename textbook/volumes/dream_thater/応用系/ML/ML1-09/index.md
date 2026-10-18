@@ -68,7 +68,13 @@ $
 
 ## 3. 最小二乗損失：設計行列が学習率を決める
 
-[最小二乗の設計行列](../ML1-04/index.md#def-ml1-04-design-matrix)を使った平均二乗誤差のHessianは、係数によらない。従って滑らかさ定数をデータから一度だけ計算できる。
+[最小二乗の設計行列](../ML1-04/index.md#def-ml1-04-design-matrix)を使った平均二乗誤差のHessianは、係数によらない。従って滑らかさ定数をデータから一度だけ計算できる。以下で行列に書く $\|X\|_2$ は、ベクトルのEuclidノルムから作る[2-作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)
+
+$
+\|X\|_2=\sup_{h\ne0}\frac{\|Xh\|_2}{\|h\|_2}
+$
+
+を意味する。
 
 <a id="def-ml1-09-quadratic-loss"></a>
 
@@ -156,7 +162,7 @@ $
 
 ## 4. Logistic損失：確率が曲率を重み付けする
 
-二値の[logistic経験負対数尤度](../ML1-08/index.md#def-ml1-08-log-loss)では、各標本の予測確率 $q_i$ が曲率を決める。これを最小二乗と比べよう。
+二値の[logistic経験負対数尤度](../ML1-08/index.md#def-ml1-08-log-loss)では、[logistic関数 $\sigma$](../ML1-08/index.md#def-ml1-08-sigmoid)から得る予測確率 $q_i=\sigma(z_i^{\mathsf T}w)$ が曲率を決める。これを最小二乗と比べよう。
 
 <a id="thm-ml1-09-logistic-smooth"></a>
 
@@ -428,7 +434,14 @@ $$
 f(w)=\frac12(w-w^*)^{\mathsf T}H(w-w^*)
 $$
 
-を考える。$H$ の固有値を $0<m\le\lambda_j\le L$ とし、単位固有ベクトルを $v_j$ とする。$w_k-w^*=\sum_j c_{k,j}v_j$ と展開すると、$\nabla f(w_k)=H(w_k-w^*)=\sum_j\lambda_jc_{k,j}v_j$。更新式より
+を考える。$H$ は実対称正定値なので、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)から正規直交固有基底 $v_j$ を選べる。固有値が $0<m\le\lambda_j\le L$ と仮定し、係数 $c_{k,j}$ を次のように定める。
+
+$
+w_k-w^*=\sum_j c_{k,j}v_j,\qquad
+\nabla f(w_k)=H(w_k-w^*)=\sum_j\lambda_jc_{k,j}v_j.
+$
+
+更新式 $w_{k+1}-w^*=(w_k-w^*)-\alpha\nabla f(w_k)$ の両辺で、同じ $v_j$ の係数を比較すると
 
 $$
 c_{k+1,j}=(1-\alpha\lambda_j)c_{k,j},
@@ -506,7 +519,7 @@ $f(w)=2w^2$、$w_0=1$ に $\alpha=1/4$ と $\alpha=3/4$ をそれぞれ適用し
 <!-- solution-start -->
 #### 詳細解答
 
-$f'(w)=4w$、$L=4$ である。$\alpha=1/4$ なら $w_1=1-(1/4)4=0$、$f(w_1)=0$。$\alpha=3/4$ なら $w_1=1-3=-2$、$f(w_1)=8>f(w_0)=2$。$2/L=1/2$ を超えた歩幅では降下保証がなく、実際この例は損失を増やす。
+$f'(w)=4w$、$L=4$ である。$\alpha=1/4$ なら $w_1=1-(1/4)4=0$、$f(w_1)=0$。$\alpha=3/4$ なら $w_1=1-3=-2$、$f(w_1)=8>f(w_0)=2$。[一段降下定理](#thm-ml1-09-learning-rate)の保証範囲 $0<\alpha<2/L=1/2$ を超えた歩幅では減少を保証できず、実際この例では損失が増える。
 <!-- solution-end -->
 
 ### ML1-09-B01 正則化による定数の変化
@@ -517,7 +530,7 @@ $F(w)=\|Xw-y\|_2^2/(2n)$ に $\lambda\|w\|_2^2/2$（$\lambda>0$）を加えた�
 <!-- solution-start -->
 #### 詳細解答
 
-目的を $F_\lambda$ とすると
+[本講の二乗損失の微分公式](#thm-ml1-09-least-squares-smooth)を使い、目的を $F_\lambda$ とすると
 
 $$
 \nabla F_\lambda(w)=X^{\mathsf T}(Xw-y)/n+\lambda w,
@@ -552,7 +565,7 @@ $f(w)=\tfrac L2 w^2$、$w_0\ne0$ の勾配法を解き、$\alpha=2/L$ と $\alph
 <!-- solution-start -->
 #### 詳細解答
 
-$w_{k+1}=w_k-\alpha Lw_k=(1-\alpha L)w_k$ より
+[本講の二次損失の固定歩幅更新](#prop-ml1-09-sharp-quadratic)を初期値 $w_0$ に適用し、$w_{k+1}=w_k-\alpha Lw_k=(1-\alpha L)w_k$ より
 
 $$
 w_k=(1-\alpha L)^kw_0,\quad
