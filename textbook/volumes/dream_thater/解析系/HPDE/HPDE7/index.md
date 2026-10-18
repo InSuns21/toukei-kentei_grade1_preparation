@@ -243,7 +243,7 @@ $$
 
 ## 4. 初期面のエネルギーはなぜ非負か
 
-[HPDE6の未来向き単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を $N$、誘導Riemann計量を $h$ とします。$\nabla u$ を法線方向の微分 $Nu$ と、面に接する微分 $D_\Sigma u$ に分けます。$g(N,N)=-1$ と $g(N,Y)=0$（$Y$ は面に接する）より
+[LORG20の未来向き単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を $N$、誘導Riemann計量を $h$ とします。$\nabla u$ を法線方向の微分 $Nu$ と、面に接する微分 $D_\Sigma u$ に分けます。$g(N,N)=-1$ と $g(N,Y)=0$（$Y$ は面に接する）より
 $$
 \nabla^a u\,\nabla_a u=-(Nu)^2+|D_\Sigma u|_h^2.
 $$
@@ -369,7 +369,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各点で $X=a e_0$（$a>0$、$e_0$ は未来向き単位時間的）となるLorentz直交基底 $(e_0,e_1,\dots,e_n)$ を取ります。過去向き光的な $K$ は、空間方向を回転して $K=b(-e_0+e_1)$（$b>0$）と書けます。$v_j=e_j(u)$ と書くと
+[時間的ベクトルの直交補空間の正定値性](../../../幾何系/LORG/LORG1/index.md#lem-lorg1-timelike-orthogonal)により、各点で $X=a e_0$（$a>0$、$e_0$ は未来向き単位時間的）となるLorentz直交基底 $(e_0,e_1,\dots,e_n)$ を取れます。過去向き光的な $K$ は、空間方向を回転して $K=b(-e_0+e_1)$（$b>0$）と書けます。$v_j=e_j(u)$ と書くと
 $$
 \begin{aligned}
 -T(X,K)
