@@ -1,0 +1,46 @@
+id: "HPDE3"
+title: "時空上の分布・試験切断・密度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE2
+  - GPDE1
+  - LORG2
+official_scope: []
+learning_objectives:
+  - 密度と密度束を定義し座標変換のJacobian絶対値を導出できる
+  - Lorentz計量の体積密度が座標不変で向きを必要としないことを証明できる
+  - 双対束と密度値双対試験切断の局所成分変換を説明できる
+  - 既習のSchwartz超関数を束値分布へ拡張し連続性を局所評価で確認できる
+  - 滑らかな切断の分布埋め込みの単射性を証明できる
+  - 正の基準密度を指定して点源を定義し座標不変性と台を検算できる
+  - 源の台と波動方程式の解の台を区別できる
+definitions:
+  - { id: HPDE3-DEF-01, name: 密度束と滑らかな密度 }
+  - { id: HPDE3-DEF-02, name: 密度値双対試験切断 }
+  - { id: HPDE3-DEF-03, name: 束値超関数 }
+  - { id: HPDE3-DEF-04, name: 基準密度に関する点源 }
+  - { id: HPDE3-DEF-05, name: 超関数切断の台 }
+theorems:
+  - { id: HPDE3-PROP-01, name: Lorentz体積密度の座標不変性 }
+  - { id: HPDE3-PROP-02, name: 滑らかな切断の埋め込みと局所判定 }
+  - { id: HPDE3-PROP-03, name: 滑らかな切断と点源の台 }
+canonical_examples:
+  - 1次元の座標伸縮と密度積分の一致
+  - Minkowski計量の非等方座標変換と密度
+  - ランク2束の局所枠変換と縮約不変性
+  - 局所有限階評価による滑らかな切断の分布化
+  - 基準密度を固定した点源の座標変換
+problem_patterns:
+  - HPDE3-DENSITY-JACOBIAN
+  - HPDE3-METRIC-DENSITY
+  - HPDE3-DUAL-FRAME
+  - HPDE3-POINT-REFERENCE-DENSITY
+  - HPDE3-JOINT-TRANSFORMATION
+  - HPDE3-DIRAC-SUPPORT
+  - HPDE3-REGULAR-SUPPORT
+  - HPDE3-INTEGRATED-DISTRIBUTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
