@@ -17,7 +17,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（二値対数損失と経験負対数尤度）"]
-    requires: [learning.logistic-regression, learning.empirical-risk]
+    requires: [learning.logistic-regression, learning.empirical-risk-minimization]
   - id: learning.log-loss-conditional-optimality
     name: 二値対数損失の条件付き最適性
     kind: theorem
@@ -29,7 +29,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（二値logistic損失の勾配とHessian）"]
-    requires: [learning.binary-log-loss, opt.convex-function]
+    requires: [learning.binary-log-loss, convex.hessian-convexity]
   - id: learning.softmax-regression
     name: softmax回帰模型
     kind: definition
@@ -47,7 +47,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（softmax損失の勾配・Hessian・凸性）"]
-    requires: [learning.softmax-log-loss, opt.convex-function]
+    requires: [learning.softmax-log-loss, convex.hessian-convexity]
   - id: learning.softmax-common-shift
     name: softmaxの共通シフト不変性と二値logisticへの還元
     kind: proposition
