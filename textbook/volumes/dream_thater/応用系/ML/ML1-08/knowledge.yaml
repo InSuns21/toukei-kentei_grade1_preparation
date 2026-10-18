@@ -4,13 +4,20 @@ coverage: complete
 prerequisites:
   - ML1-07
   - ML1-03
+  - F0-00P7
 concepts:
+  - id: learning.logistic-sigmoid
+    name: logistic関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（logistic関数）"]
+    requires: []
   - id: learning.logistic-regression
     name: logistic回帰模型
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（logistic回帰模型）"]
-    requires: [learning.generative-posterior]
+    requires: [learning.logistic-sigmoid, learning.generative-posterior]
   - id: learning.binary-log-loss
     name: 二値対数損失と経験負対数尤度
     kind: definition
