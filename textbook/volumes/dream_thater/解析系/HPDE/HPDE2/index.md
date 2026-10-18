@@ -349,13 +349,13 @@ $g:\mathbb R^2\to\mathbb R$ に対し、三次元への拡張を $\tilde g(x_1,x
 
 単位球面を $(z_1,z_2)$ 平面へ投影すると、上下半球のそれぞれは $z_3=\pm\sqrt{1-|z|^2}$（$|z|<1$）と書けます。各グラフの勾配は
 
-$
+$$
 \nabla_z z_3=\mp\frac{z}{\sqrt{1-|z|^2}}
-$
+$$
 
 なので、グラフ面積の倍率は
 
-$
+$$
 \sqrt{1+|\nabla_z z_3|^2}
 =\sqrt{1+\frac{|z|^2}{1-|z|^2}}
 =\frac1{\sqrt{1-|z|^2}}
@@ -363,7 +363,7 @@ $$
 
 です。赤道 $|z|=1$ は球面上で面積零であり、倍率の境界での特異性は積分可能です。上下二枚を足すので
 
-$
+$$
 \int_{S^2}g(x+ct(\omega_1,\omega_2))\,d\omega
 =2\int_{|z|<1}\frac{g(x+ctz)}{\sqrt{1-|z|^2}}\,dz.
 $$
@@ -529,11 +529,11 @@ $$
 
 であり、上のノルム評価と $\|u_m\|\le\|u_0\|/(1-m^2t_*^2/2)$ から、末項は $m\downarrow0$ で $O(m^4)$ です。ここで縮小写像による連続解が滑らかであることも確かめます。球面積分の領域を $S^2$ に固定してあるので、非負整数の組 $\alpha=(\alpha_1,\alpha_2,\alpha_3)$ に対し $\partial_x^\alpha=\partial_{x_1}^{\alpha_1}\partial_{x_2}^{\alpha_2}\partial_{x_3}^{\alpha_3}$ と記せば
 
-$
+$$
 \partial_x^\alpha(Tw)=T(\partial_x^\alpha w),\qquad
 \|\partial_x^\alpha u_m\|_\infty
 \le\frac{\|\partial_x^\alpha u_0\|_\infty}{1-m^2t_*^2/2}.
-$
+$$
 
 実際、滑らかな $u_0$ から作る反復列の各空間微分は同じ縮小評価で一様収束するため、極限 $u_m$ は空間変数について任意回微分できます。さらに $T$ の積分を時間で微分すると、上で導いた $(Tw)_{tt}=w+c^2\Delta_x(Tw)$ と初期値零が使えます。従ってまず $u_m$ の時間二階微分が連続で、方程式 $u_{m,tt}=c^2\Delta_xu_m-m^2u_m$ と空間微分の評価を繰り返せば、混合微分を含めて滑らかになります。
 
