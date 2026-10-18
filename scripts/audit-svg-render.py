@@ -40,8 +40,18 @@ def audit_candidate(source):
 
 
 def render(path, width):
+    # The CI environment has Noto CJK installed, but CairoSVG's CSS font fallback
+    # may still select a Latin-only font for SVGs that declare Segoe UI or Noto Sans JP.
+    # Apply a review-only font override; do NOT rewrite the textbook's SVG source.
+    source = path.read_text("utf-8")
+    source = re.sub(
+        r'(<svg\\b[^>]*>)',
+        lambda match: match.group(1) +
+            '<style>text,tspan{font-family:"Noto Sans CJK JP",sans-serif !important}</style>',
+        source, count=1
+    )
     return Image.open(io.BytesIO(
-        cairosvg.svg2png(url=str(path), output_width=width)
+        cairosvg.svg2png(bytestring=source.encode("utf-8"), output_width=width)
     )).convert("RGBA")
 
 
