@@ -49,7 +49,7 @@ chapters:
     title: "Einstein–Hilbert作用の変分"
   - id: GR11
     path: textbook/volumes/dream_thater/物理系/GR/GR11
-    status: planned
+    status: completed
     title: "境界条件とGibbons–Hawking–York項"
   - id: GR12
     path: textbook/volumes/dream_thater/物理系/GR/GR12

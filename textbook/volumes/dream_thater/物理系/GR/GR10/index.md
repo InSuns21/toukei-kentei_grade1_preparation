@@ -95,7 +95,16 @@ g_{\mu\nu}(\epsilon)=\operatorname{diag}(-(1+\epsilon)^2,1,1,1),
 \qquad |\epsilon|<1
 $$
 
-とします。この範囲では $g_{00}(\epsilon)<0$、空間方向の固有値は正なので非退化なLorentz計量です。逆計量の $00$ 成分は $-(1+\epsilon)^{-2}$ なので
+とします。ここで対角行列は座標基底 $e_\mu=\partial/\partial x^\mu$ に対する $g_{\mu\nu}(\epsilon)=g_\epsilon(e_\mu,e_\nu)$ の値を並べたものです。任意の接ベクトル $v=v^\mu e_\mu$ について双線形性から
+
+$$
+g_\epsilon(v,v)
+=-(1+\epsilon)^2(v^0)^2+(v^1)^2+(v^2)^2+(v^3)^2
+$$
+
+です。対称性はこの成分行列が対称であることから分かります。また $|\epsilon|<1$ では $(1+\epsilon)^2>0$ で、対角行列の固有値は $-(1+\epsilon)^2,1,1,1$、行列式は $-(1+\epsilon)^2\ne0$ です。従って[既習のLorentz内積の定義](../../../幾何系/LORG/LORG1/index.md#def-lorg1-lorentz-inner-product)における非退化性と慣性指数（負1本・正3本・零0本）の条件をともに満たします。
+
+同じ座標基底で逆行列を取れば $g^{\mu\alpha}(\epsilon)g_{\alpha\nu}(\epsilon)=\delta^\mu_\nu$ です。対角行列なので逆計量の $00$ 成分は $-(1+\epsilon)^{-2}$ となります。この成分をパラメータで微分すると、
 
 $$
 h^{00}=\left.\frac{d}{d\epsilon}[-(1+\epsilon)^{-2}]\right|_0=2,
@@ -127,7 +136,30 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr10-lorentz-density -->
-**定義の確認**：Minkowski直交座標の $g=\operatorname{diag}(-1,1,1,1)$ では $\det g=-1$、従って $\sqrt{-\det g}=1>0$ です。前例の変分族では $\det g(\epsilon)=-(1+\epsilon)^2<0$、$\sqrt{-\det g(\epsilon)}=1+\epsilon$（$|\epsilon|<1$）であり、計量の時間軸を伸ばすと体積密度も伸びます。任意の座標変換 $x=x(y)$ では $g_y=J^{\mathsf T}g_xJ$ なので $\det g_y=(\det J)^2\det g_x$、$d^4x=|\det J|d^4y$ となり、積分密度全体は座標によらず一致します。
+**定義の確認**：Minkowski直交座標の $g=\operatorname{diag}(-1,1,1,1)$ では $\det g=-1$、従って $\sqrt{-\det g}=1>0$ です。前例の変分族では $\det g(\epsilon)=-(1+\epsilon)^2<0$、$\sqrt{-\det g(\epsilon)}=1+\epsilon$（$|\epsilon|<1$）であり、計量の時間軸を伸ばすと体積密度も伸びます。座標を $y^a$ に取り替える場合にも、なぜ行列式が体積密度の判定に使えるのかを確かめます。滑らかな可逆座標変換 $x^\mu=x^\mu(y)$ のJacobian行列を $J^\mu{}_a:=\partial x^\mu/\partial y^a$ とします。接ベクトルの座標基底が
+
+$$
+\frac{\partial}{\partial y^a}
+=J^\mu{}_a\frac{\partial}{\partial x^\mu}
+$$
+
+と変わるため、双線形性を使えば
+
+$$
+(g_y)_{ab}
+=g\!\left(\frac{\partial}{\partial y^a},\frac{\partial}{\partial y^b}\right)
+=J^\mu{}_a(g_x)_{\mu\nu}J^\nu{}_b,
+\qquad g_y=J^{\mathsf T}g_xJ.
+$$
+
+可逆性から $\det J\ne0$ です。行列式の積の公式と座標積分の変数変換をそれぞれ適用すると
+
+$$
+\sqrt{-\det g_y}=|\det J|\sqrt{-\det g_x},
+\qquad d^4x=|\det J|\,d^4y.
+$$
+
+従って $\sqrt{-\det g_x}\,d^4x=\sqrt{-\det g_y}\,d^4y$ です。座標変換が向きを反転しても、正の密度であるため絶対値を用います。
 <!-- definition-example-end -->
 
 <a id="prop-gr10-volume-variation"></a>
@@ -381,7 +413,7 @@ $$
 \end{aligned}
 $$
 
-Levi-Civita接続の計量両立性 $\nabla g=0$ より、
+[Levi-Civita接続の計量両立性](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita) $\nabla g=0$ より、
 
 $$
 g^{\mu\nu}\delta R_{\mu\nu}
@@ -399,12 +431,14 @@ g^{\mu\nu}C^\rho_{\mu\nu}
 -\nabla_\sigma k_{\mu\nu})\\
 &=-\nabla_\mu h^{\rho\mu}+\frac12\nabla^\rho h,\\
 C^\nu_{\mu\nu}
+&=\frac12g^{\nu\sigma}
+(\nabla_\mu k_{\nu\sigma}+\nabla_\nu k_{\mu\sigma}-\nabla_\sigma k_{\mu\nu})\\
 &=\frac12g^{\nu\sigma}\nabla_\mu k_{\nu\sigma}
 =-\frac12\nabla_\mu h.
 \end{aligned}
 $$
 
-従って
+後半の縮約では、$g^{\nu\sigma}$ が対称であり、第二項と第三項はダミー添字 $\nu,\sigma$ の交換で相殺することを使いました。さらに $\nabla g=0$ により $g^{\nu\sigma}\nabla_\mu k_{\nu\sigma}=\nabla_\mu(g^{\nu\sigma}k_{\nu\sigma})=-\nabla_\mu h$ です。従って
 
 $$
 V^\rho
