@@ -45,7 +45,7 @@ def render(path, width):
     # Apply a review-only font override; do NOT rewrite the textbook's SVG source.
     source = path.read_text("utf-8")
     source = re.sub(
-        r'(<svg\\b[^>]*>)',
+        r'(<svg\b[^>]*>)',
         lambda match: match.group(1) +
             '<style>text,tspan{font-family:"Noto Sans CJK JP",sans-serif !important}</style>',
         source, count=1
