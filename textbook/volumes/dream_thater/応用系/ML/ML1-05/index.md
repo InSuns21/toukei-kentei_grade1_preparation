@@ -317,12 +317,12 @@ $$
 
 ここで $G^{\mathsf T}=G$ なので $(G+n\lambda I_p)^{\mathsf T}=G+n\lambda I_p$。逆行列の転置を取れば $A_\lambda^{\mathsf T}=A_\lambda$ となることを使った。また先の固定デザイン条件から
 
-$
+$$
 \mathbb E[\varepsilon\varepsilon^{\mathsf T}]
 =\operatorname{Cov}(\varepsilon)
 +\mathbb E[\varepsilon]\mathbb E[\varepsilon]^{\mathsf T}
 =\sigma^2I_n
-$
+$$
 
 である。$\widehat\beta_\lambda-\beta_\star=b_\lambda+\eta$、$\mathbb E[\eta]=0$ と置くと
 
