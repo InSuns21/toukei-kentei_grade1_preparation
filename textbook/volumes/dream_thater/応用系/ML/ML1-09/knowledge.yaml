@@ -10,7 +10,7 @@ concepts:
     name: 機械学習損失のL-滑らかさ
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（機械学習損失の $L$-滑らかさ）"]
+    introduction_aliases: ["定義（機械学習損失のL-滑らかさ）"]
     requires: [optimization.lipschitz-gradient]
   - id: learning.empirical-squared-loss
     name: 標本平均二乗損失
