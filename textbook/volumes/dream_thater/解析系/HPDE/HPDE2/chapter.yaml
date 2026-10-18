@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - HPDE1
   - PDE4
+  - PDE9
   - LORG6
 official_scope: []
 learning_objectives:
@@ -16,13 +17,13 @@ learning_objectives:
   - 三次元massive方程式の内部残響をDuhamel表示と小質量展開で示せる
   - 曲率・質量項・空間次元によるHuygens性の成立条件を区別できる
 definitions:
-  - { id: HPDE2-DEF-01, name: 球面平均 }
+  - { id: HPDE2-DEF-01, name: 時間に沿った球面平均の記法 }
   - { id: HPDE2-DEF-02, name: 強いHuygens性 }
 theorems:
-  - { id: HPDE2-LEM-01, name: 球面平均の微分恒等式 }
-  - { id: HPDE2-THM-01, name: 三次元Kirchhoff公式 }
+  - { id: HPDE2-LEM-01, name: 波速付き球面平均の微分恒等式 }
+  - { id: HPDE2-THM-01, name: 三次元Kirchhoff公式とエネルギー一意性 }
   - { id: HPDE2-PROP-01, name: 三次元massless波動の強いHuygens性 }
-  - { id: HPDE2-THM-02, name: 二次元Poisson公式 }
+  - { id: HPDE2-THM-02, name: 二次元Poisson公式とコンパクト支持解の一意性 }
   - { id: HPDE2-PROP-02, name: 質量項が作る三次元の内部残響 }
 canonical_examples:
   - 二次関数での球面平均恒等式の直接検算
