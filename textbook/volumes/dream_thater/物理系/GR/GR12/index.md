@@ -236,8 +236,12 @@ $$
 $$
 
 です。[Levi-Civita接続の座標式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)により
-$2g_{\lambda\rho}\Gamma^\lambda_{\mu\nu}
-=\partial_\mu g_{\nu\rho}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu}$
+
+$$
+2g_{\lambda\rho}\Gamma^\lambda_{\mu\nu}
+=\partial_\mu g_{\nu\rho}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu}
+$$
+
 なので、
 
 $$
