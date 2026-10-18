@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - ML1-02
   - ML1-07
+# RKHS と確率収束は比較・適用範囲の限定としてのみ予告し、本章の証明では援用しない。
+forward_references:
+  - rkhs.rkhs
+  - prob.probability-convergence
 concepts:
   - id: learning.knn-neighborhood
     name: k近傍集合
