@@ -29,7 +29,7 @@ chapters:
     title: "潮汐力と測地線偏差"
   - id: GR6
     path: textbook/volumes/dream_thater/物理系/GR/GR6
-    status: planned
+    status: completed
     title: "Riemann・Ricci・スカラー曲率"
   - id: GR7
     path: textbook/volumes/dream_thater/物理系/GR/GR7
