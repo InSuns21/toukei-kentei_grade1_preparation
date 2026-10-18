@@ -1153,6 +1153,7 @@
 2. [GR2 Lorentz計量・固有時・光円錐](textbook/volumes/dream_thater/物理系/GR/GR2/index.md)
 3. [GR3 自由落下の測地線方程式](textbook/volumes/dream_thater/物理系/GR/GR3/index.md)
 4. [GR4 観測者の局所直交枠と測定](textbook/volumes/dream_thater/物理系/GR/GR4/index.md)
+5. [GR5 潮汐力と測地線偏差](textbook/volumes/dream_thater/物理系/GR/GR5/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

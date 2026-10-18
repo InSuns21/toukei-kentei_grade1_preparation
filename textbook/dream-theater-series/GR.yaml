@@ -25,7 +25,7 @@ chapters:
     title: "観測者の局所直交枠と測定"
   - id: GR5
     path: textbook/volumes/dream_thater/物理系/GR/GR5
-    status: planned
+    status: completed
     title: "潮汐力と測地線偏差"
   - id: GR6
     path: textbook/volumes/dream_thater/物理系/GR/GR6
