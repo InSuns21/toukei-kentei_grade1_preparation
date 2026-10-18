@@ -1,0 +1,62 @@
+chapter: ML1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-03
+  - ML1-10
+  - ML1-11
+concepts:
+  - id: learning.train-validation-test-split
+    name: 訓練・検証・テスト分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（訓練・検証・テスト分割）"]
+    requires: [learning.empirical-risk-minimization]
+  - id: learning.holdout-model-selection
+    name: 検証損失によるモデル選択
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（検証損失によるモデル選択）"]
+    requires: [learning.train-validation-test-split]
+  - id: learning.independent-holdout-unbiasedness
+    name: 独立保留標本の条件付き不偏性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（独立保留標本の条件付き不偏性）"]
+    requires: [learning.train-validation-test-split, learning.population-risk]
+  - id: learning.validation-selection-optimism
+    name: 選択された検証最小値の楽観性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（選択された検証最小値の楽観性）"]
+    requires: [learning.holdout-model-selection, learning.independent-holdout-unbiasedness]
+  - id: learning.kfold-cross-validation
+    name: K分割交差検証
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（K分割交差検証）"]
+    requires: [learning.train-validation-test-split]
+  - id: learning.cv-training-size-risk
+    name: 固定設定値のCVが推定する訓練サイズ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定設定値のCVが推定する訓練サイズ）"]
+    requires: [learning.kfold-cross-validation, learning.independent-holdout-unbiasedness]
+  - id: learning.nested-cross-validation
+    name: 入れ子交差検証
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入れ子交差検証）"]
+    requires: [learning.kfold-cross-validation, learning.holdout-model-selection]
+  - id: learning.nested-cv-estimand
+    name: 入れ子CVの評価対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（入れ子CVの評価対象）"]
+    requires: [learning.nested-cross-validation, learning.cv-training-size-risk]
+  - id: learning.evaluation-label-leakage
+    name: 評価ラベルを用いた選択は独立評価でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（評価ラベルを用いた選択は独立評価でない：反例）"]
+    requires: [learning.independent-holdout-unbiasedness, learning.validation-selection-optimism]
