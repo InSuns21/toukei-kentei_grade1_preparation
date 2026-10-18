@@ -29,7 +29,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（物質作用の微分同相不変性と局所保存）"]
-    requires: [gravity.hilbert-stress-tensor, gravity.inverse-metric-variation-identity, gravity.field-conservation-compatibility]
+    requires: [gravity.hilbert-stress-tensor, gravity.inverse-metric-variation-identity, lorentz-geometry.lorentz-levi-civita-extension]
   - id: gravity.trace-reversed-einstein
     name: 4次元場の方程式の跡とRicci表示
     kind: proposition
