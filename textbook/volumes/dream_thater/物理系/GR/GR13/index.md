@@ -259,8 +259,17 @@ R_{ij}&=\partial_k\Gamma^k_{ij}
 \end{aligned}
 $$
 
-そこで $\mathcal R=g^{00}R_{00}+g^{ij}R_{ij}
-=-\Delta\varphi+3\Delta\varphi+O(\epsilon^2/L^2)=2\Delta\varphi+O(\epsilon^2/L^2)$。さらに[Einsteinテンソルの定義](../GR7/index.md#def-gr7-einstein-tensor)から
+そこで逆計量とRicciテンソルを縮約すると、スカラー曲率は
+
+$$
+\begin{aligned}
+\mathcal R&=g^{00}R_{00}+g^{ij}R_{ij}\\
+&=-\Delta\varphi+3\Delta\varphi+O(\epsilon^2/L^2)\\
+&=2\Delta\varphi+O(\epsilon^2/L^2).
+\end{aligned}
+$$
+
+さらに[Einsteinテンソルの定義](../GR7/index.md#def-gr7-einstein-tensor)から
 
 $$
 G_{00}=R_{00}-\frac12g_{00}\mathcal R
@@ -273,11 +282,11 @@ $\kappa\rho c^2=(8\pi G/c^2)\rho$ を右辺と比較すると $2\Delta\Phi/c^2=8
 
 もし $g_{ij}=\delta_{ij}$ を一次まで**厳密に固定**すると、一般の $\Phi$ に対して $R_{ij}$ が変わり、$G_{00}$ の係数も変わります。[GR6の静的lapse計量](../GR6/index.md#prop-gr6-static-lapse-ricci)で $N=1+\Phi/c^2+O(\epsilon^2)$ と置くと、その公式から
 
-$
+$$
 R_{00}=\frac{\Delta\Phi}{c^2}+O(\epsilon^2/L^2),
 \qquad
 \mathcal R=-\frac{2\Delta\Phi}{c^2}+O(\epsilon^2/L^2)
-$
+$$
 
 です。この模型では $g_{00}=-1+O(\epsilon)$ なので、$G_{00}=R_{00}-g_{00}\mathcal R/2=0+O(\epsilon^2/L^2)$。実際、静的lapse模型の $G_{00}$ は厳密に零です。$T_{00}=\rho c^2$ の物質がある場合、通常のEinstein方程式を満たす計量にはなりません。「$g_{00}$ のみから加速度が出る」ことと「時空の全場の方程式を満たす」ことは別です。
 
