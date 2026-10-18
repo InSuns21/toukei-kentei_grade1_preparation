@@ -43,7 +43,7 @@ $\lambda>0$ でも**訓練損失そのもの**を最小にするとは限らな�
 
 ## 3. 正規方程式に正の対角項を加える
 
-二乗誤差の勾配は[前講の偏微分と正規方程式](../ML1-04/index.md#thm-ml1-04-normal-equations)により $X^{\mathsf T}(X\beta-y)/n$ である。罰則の第 $j$ 成分の微分は $\lambda\beta_j$ なので、全勾配は
+[最小二乗の正規方程式](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-normal-equations)の基礎となる二乗誤差の勾配は、[前講の偏微分の導出](../ML1-04/index.md#thm-ml1-04-normal-equations)により $X^{\mathsf T}(X\beta-y)/n$ である。罰則の第 $j$ 成分の微分は $\lambda\beta_j$ なので、全勾配は
 
 $$
 \nabla J_\lambda(\beta)
@@ -323,7 +323,7 @@ $\lambda\ge0$ では $\lambda=1/4$ で最小値 $4/5$ を取り、最小二乗�
 
 ## 7. 計算実験：縮小経路と反復時の偏り・分散
 
-[ML1-05 Ridge回帰の対話ラボ](../../../../../../simulation/ml1-05.html)では、固定された設計行列の特徴間相関、$\lambda$、雑音標準偏差、反復回数、seedを変更できる。入力に合わせてRidge係数を**新たに数値計算**し、真の係数との差、理論上の偏り・分散、反復標本から求める平均と標本分散を比較する。
+[ML1-05 Ridge回帰の対話ラボ](../../../../../../simulation/ml1-05.html)では、固定された設計行列の特徴間相関、$\lambda$、雑音標準偏差、反復回数、乱数列を再現するための初期値を変更できる。入力に合わせてRidge係数を**新たに数値計算**し、真の係数との差、理論上の偏り・分散、反復標本から求める平均と標本分散を比較する。
 
 まず相関を0、雑音標準偏差を0にすると、$\lambda=0$ で真値に一致する。$\lambda$ を大きくすると標本上の予測も縮み、偏りが生まれる。次に雑音を大きくし、特徴間相関を1に近づけると、弱く観測される方向で最小二乗係数が揺れやすくなる。Ridgeではその方向ほど強い縮小が起きる。反復回数は有限なので経験的な値は理論値から多少ずれる。これは有限回のMonte Carloの揺れであって定理への反例ではない。
 
@@ -344,7 +344,7 @@ G = X.T @ X
 A = np.linalg.inv(G + n * lam * np.eye(2))
 bias = ___
 cov = ___
-risk = bias @ bias + np.trace(cov)
+risk = bias @ bias + cov[0, 0] + cov[1, 1]
 print("bias", bias, "variance", np.diag(cov), "risk", risk)
 ~~~
 
@@ -359,7 +359,7 @@ G = X.T @ X
 A = np.linalg.inv(G + n * lam * np.eye(2))
 bias = -n * lam * A @ truth
 cov = sigma2 * A @ G @ A
-risk = bias @ bias + np.trace(cov)
+risk = bias @ bias + cov[0, 0] + cov[1, 1]
 print("bias", bias, "variance", np.diag(cov), "risk", risk)
 ~~~
 
@@ -480,7 +480,7 @@ R_{\rm coef}(\lambda)
 =\frac{1+4\lambda^2}{(1+\lambda)^2}.
 $$
 
-分子を微分して商の微分公式を使うと
+分子 $1+4\lambda^2$ の導関数は $8\lambda$、分母 $(1+\lambda)^2$ の導関数は $2(1+\lambda)$ である。これらを商の微分に代入すると
 
 $$
 R_{\rm coef}'(\lambda)
@@ -520,7 +520,7 @@ $Y=X\beta_\star+\varepsilon$、$\mathbb E\varepsilon=0$、$\operatorname{Cov}(\v
 <!-- solution-start -->
 #### 詳細解答
 
-**(1)** $G=X^{\mathsf T}X$、$A=(G+n\lambda I)^{-1}$ と置く。[Ridge公式](#thm-ml1-05-unique)から
+**(1)** $G=X^{\mathsf T}X$、$A=(G+n\lambda I)^{-1}$ と置く。[正のRidge係数と一意な最小解](#thm-ml1-05-unique)から
 
 $$
 \widehat\beta_\lambda-\beta_\star
