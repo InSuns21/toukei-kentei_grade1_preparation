@@ -5,6 +5,7 @@ prerequisites:
   - ML1-09
   - ML1-03
   - OPT1
+  - OPT7
 concepts:
   - id: learning.stochastic-gradient-estimator
     name: 確率的勾配推定量

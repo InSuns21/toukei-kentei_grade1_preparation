@@ -6,6 +6,7 @@ prerequisites:
   - ML1-09
   - ML1-03
   - OPT1
+  - OPT7
 official_scope: []
 learning_objectives:
   - 固定有限標本から一様に選んだ勾配の不偏性と分散を直接計算できる

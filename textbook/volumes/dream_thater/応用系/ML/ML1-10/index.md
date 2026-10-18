@@ -282,7 +282,7 @@ $$
 になる。同じノルムの係数をまとめて主張の不等式を得る。$\alpha\le1/L$ なら $1-L\alpha/2\ge1/2$。$\square$
 <!-- proof-end -->
 
-ここで使う**強凸性**は[OPT1の強凸関数の定義](../../OPT/OPT1/index.md#def-opt1-strong-convexity)に従う。$F$ が $\mu>0$-強凸で有限な最小点 $w^*$ を持つとき、一次支持不等式を強めた式
+ここで使う**強凸性**は[OPT1の強凸関数の定義](../../OPT/OPT7/index.md#def-opt7-strong-convexity)に従う。$F$ が $\mu>0$-強凸で有限な最小点 $w^*$ を持つとき、一次支持不等式を強めた式
 
 $$
 F(w^*)\ge F(w)+\langle g(w),w^*-w\rangle
