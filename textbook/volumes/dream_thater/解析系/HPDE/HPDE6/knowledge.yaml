@@ -12,17 +12,12 @@ concepts:
     name: 滑らかな空間的Cauchy初期面
     kind: definition
     introduction: formal
-    requires: [hpde.normally-hyperbolic]
-  - id: hpde.normal-lapse-data
-    name: 未来単位法線とlapse
-    kind: proposition
-    introduction: formal
-    requires: [hpde.smooth-spacelike-cauchy-slice]
+    requires: []
   - id: hpde.cauchy-data-source
     name: 滑らかなCauchyデータと源
     kind: definition
     introduction: formal
-    requires: [hpde.normal-lapse-data, hpde.bundle-connection]
+    requires: [hpde.smooth-spacelike-cauchy-slice, hpde.bundle-connection]
   - id: hpde.first-jet-cauchy
     name: 法線データは一階の全微分を決める
     kind: proposition
