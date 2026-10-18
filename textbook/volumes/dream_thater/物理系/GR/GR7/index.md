@@ -740,7 +740,11 @@ $\kappa\ne0$ より $\nabla^\mu T_{\mu\nu}=0$ です。しかしこれは仮定�
 #### GR7-C01 静的lapseの発散を独立に再導出する
 - Level: C
 
-滑らかな正関数 $N(x,y,z)$ に対して $g=-c^2N^2dt^2+dx^2+dy^2+dz^2$ とする。(1) Ricciとスカラーから $G_{\mu\nu}$ を求めよ。(2) 定義式を用いて各自由添字 $\nu=t,x,y,z$ の $\nabla^\mu G_{\mu\nu}=0$ を証明せよ。(3) $N=1+\frac{\beta}{2}(x^2+y^2)$（$\beta>0$）の原点で $G_{\mu\nu}$ の非零成分を求めよ。
+滑らかな正関数 $N(x,y,z)$ に対して $g=-c^2N^2dt^2+dx^2+dy^2+dz^2$ とする。次の問いに答えよ。
+
+1. Ricciとスカラーから $G_{\mu\nu}$ を求めよ。
+2. 定義式を用いて各自由添字 $\nu=t,x,y,z$ の $\nabla^\mu G_{\mu\nu}=0$ を証明せよ。
+3. $N=1+\frac{\beta}{2}(x^2+y^2)$（$\beta>0$）の原点で $G_{\mu\nu}$ の非零成分を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** (1) [GR6の静的lapse縮約](../GR6/index.md#prop-gr6-static-lapse-ricci)より $\operatorname{Ric}_{tt}=c^2N\Delta N$、$\operatorname{Ric}_{ij}=-N_{ij}/N$、$\operatorname{Ric}_{ti}=0$、$\mathcal R=-2\Delta N/N$ です。[Einsteinテンソルの定義](#def-gr7-einstein-tensor)に計量成分を代入すると
