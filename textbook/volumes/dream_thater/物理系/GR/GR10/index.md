@@ -409,7 +409,7 @@ V^\rho
 =\nabla^\rho h-\nabla_\mu h^{\rho\mu}.
 $$
 
-体積密度には[その変分公式](#prop-gr10-volume-variation)を使います。$\Lambda$ は固定なので $\delta\Lambda=0$ です。
+体積密度には[体積密度の変分](#prop-gr10-volume-variation)を使います。$\Lambda$ は固定なので $\delta\Lambda=0$ です。
 
 $$
 \begin{aligned}
@@ -691,13 +691,13 @@ $$
 滑らかな4次元Lorentz計量 $g$、固定した $\Lambda$、内部にコンパクト台を持つ対称逆計量変分 $h^{\mu\nu}$ を考える。(1) $\delta g_{\mu\nu}$ と $\delta\sqrt{-g}$、(2) 接続変分とPalatini恒等式、(3) $\delta\mathcal R$ と全微分項、(4) $\delta S_{\mathrm{EH}}$ を順に導け。さらにすべてのコンパクト台対称 $h$ に対する停留条件を述べ、境界上で $h=0$ とするだけでは同じ導出ができない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ を微分して逆計量を右から掛けると、[逆計量の変分命題](#prop-gr10-inverse-identity)より
+**詳細解答。** (1) $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ を微分して逆計量を右から掛けると、[計量と逆計量の変分](#prop-gr10-inverse-identity)より
 
 $$
 \delta g_{\mu\nu}=-g_{\mu\alpha}g_{\nu\beta}h^{\alpha\beta}=-h_{\mu\nu}.
 $$
 
-行列式微分の公式 $\delta\det g=(\det g)g^{\mu\nu}\delta g_{\nu\mu}$ より
+行列式の一次変化 $\delta\det g=(\det g)g^{\mu\nu}\delta g_{\nu\mu}$ を使うと
 
 $$
 \delta\sqrt{-g}
