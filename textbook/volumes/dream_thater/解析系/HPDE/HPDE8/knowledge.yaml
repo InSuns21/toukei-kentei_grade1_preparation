@@ -1,0 +1,40 @@
+chapter: HPDE8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - LORG20
+forward_references: []
+concepts:
+  - id: hpde.shifted-first-energy
+    name: 正にずらした一次エネルギー
+    kind: definition
+    introduction: formal
+    requires: [hpde.energy-current, hpde.cauchy-data-source]
+  - id: hpde.local-energy-divergence-bound
+    name: 局所エネルギー誤差の点ごとの評価
+    kind: proposition
+    introduction: formal
+    requires: [hpde.shifted-first-energy, hpde.current-divergence]
+  - id: hpde.finite-slab-energy-inequality
+    name: 有限時間領域の一次エネルギー不等式
+    kind: theorem
+    introduction: formal
+    requires: [hpde.local-energy-divergence-bound, hpde.null-flux, hpde.energy-stokes-balance]
+  - id: hpde.gronwall-integral
+    name: 積分型Grönwall不等式
+    kind: lemma
+    introduction: formal
+    requires: []
+  - id: hpde.local-uniqueness-stability
+    name: 滑らかな解の局所一意性と連続依存
+    kind: theorem
+    introduction: formal
+    requires: [hpde.finite-slab-energy-inequality, hpde.gronwall-integral]
+  - id: hpde.bundle-finite-energy
+    name: 束値normally hyperbolic作用素の有限時間評価
+    kind: proposition
+    introduction: formal
+    requires: [hpde.bundle-curvature-energy, hpde.local-uniqueness-stability, hpde.normally-hyperbolic]
