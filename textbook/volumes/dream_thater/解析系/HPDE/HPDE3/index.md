@@ -157,16 +157,16 @@ $$
 
 **定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$、$\psi=(3e^1+5e^2)\otimes h(x)|dx|$ とします。ここで $h$ は非零の滑らかなコンパクト台関数です。枠変換の係数を列に並べると
 
-$
+$$
 A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
-$
+$$
 
 よって枠変換は可逆で、切断と双対試験切断の新成分は
 
-$
+$$
 s'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
 \psi'=A^{\mathsf T}\begin{pmatrix}3\\5\end{pmatrix}=\begin{pmatrix}8\\5\end{pmatrix}
-$
+$$
 
 です。従って
 
@@ -203,10 +203,10 @@ $$
 
 **定義の確認**。$s\in\Gamma(M,E)$ に対して $\langle T_s,\psi\rangle=\int_M\psi(s)$ と置きます。局所的には $\psi(s)=(\sum_as^a\psi_a)|dx|$ です。コンパクト $K$ を有限個の枠近傍 $U_i$ で覆い、$K$ の近傍で和が $1$ となる滑らかな1の分割 $\chi_i$ を取ります。各 $\chi_i$ の台を $U_i$ 内のコンパクト集合 $K_i$ に収めて $\psi=\sum_i\chi_i\psi$ と分けます。$K_i$ の座標像の体積 $V_i$ は有限なので、局所成分に対して
 
-$
+$$
 \left|\int_{U_i}\chi_i s^a\psi_a\,|dx|\right|
 \le V_i\sup_{K_i}|s^a|\sup_{K_i}|\chi_i|\sup_{K_i}|\psi_a|.
-$
+$$
 
 成分と領域について有限和を取れば、固定コンパクト台の上のゼロ階係数上限で抑えられます。線形性は積分から、連続性はこの評価から従うため $T_s\in\mathcal D'(M,E)$ です。非コンパクトな $s$ でも、試験切断の台がコンパクトなので積分は有限です。
 <!-- definition-example-end -->
@@ -381,17 +381,17 @@ $$
 
 [密度値双対試験切断で導いた枠変換](#def-hpde3-test-dual-density)を用います。新枠の係数行列とその逆行列は
 
-$
+$$
 A=\begin{pmatrix}2&1\\0&1\end{pmatrix},\qquad
 A^{-1}=\begin{pmatrix}1/2&-1/2\\0&1\end{pmatrix}
-$
+$$
 
 です。切断と双対の新成分を別々に求めると
 
-$
+$$
 s'=A^{-1}\begin{pmatrix}3\\4\end{pmatrix}=\begin{pmatrix}-1/2\\4\end{pmatrix},\qquad
 \ell'=A^{\mathsf T}\begin{pmatrix}5\\7\end{pmatrix}=\begin{pmatrix}10\\12\end{pmatrix}.
-$
+$$
 
 よって
 
@@ -430,16 +430,16 @@ $$
 
 [双対枠の変換](#def-hpde3-test-dual-density)と[密度の変換則](#def-hpde3-density)をそれぞれ適用します。枠変換の行列は
 
-$
+$$
 A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
-$
+$$
 
 従って新成分は
 
-$
+$$
 s'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
 \psi'=A^{\mathsf T}\begin{pmatrix}3\\5\end{pmatrix}=\begin{pmatrix}8\\5\end{pmatrix}.
-$
+$$
 
 また $|dx|=\frac12|dy|$、$x=y/2$ なので
 
@@ -499,16 +499,16 @@ $$
 
 [双対枠の変換](#def-hpde3-test-dual-density)を用います。枠変換の係数行列は
 
-$
+$$
 A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
-$
+$$
 
 したがって、$v$ と双対係数の新表示は
 
-$
+$$
 v'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
 \psi'=A^{\mathsf T}\begin{pmatrix}f\\g\end{pmatrix}=\begin{pmatrix}f+g\\g\end{pmatrix}.
-$
+$$
 
 また $x=y/3$、$|dx|=\frac13|dy|$ なので
 
