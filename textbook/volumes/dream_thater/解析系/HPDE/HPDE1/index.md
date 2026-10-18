@@ -272,3 +272,257 @@ $$
 
 各問では $P_cu=u_{tt}-c^2u_{xx}$、$t\ge0$、$x\in\mathbb R$、$c>0$ とします。初期変位は $f$、初速度は $h$ です。
 
+### HPDE1-A1：初期変位から余弦波へ
+
+- Level: A
+- 問題：$f(x)=\cos(kx)$、$h(x)=0$（$k\in\mathbb R$）の古典解を求め、波動方程式と二つの初期条件を直接検算せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)から
+
+$$
+u(t,x)=\frac{\cos(k(x-ct))+\cos(k(x+ct))}2
+=\cos(kx)\cos(kct).
+$$
+
+加法定理で最後の等式を得ました。二階微分すると
+
+$$
+u_{tt}=-c^2k^2\cos(kx)\cos(kct),\qquad
+u_{xx}=-k^2\cos(kx)\cos(kct)
+$$
+
+ですから $P_cu=0$ です。また $u(0,x)=\cos(kx)$、$u_t(0,x)=-ck\cos(kx)\sin0=0$ です。$k=0$ の定数解についても同じ計算が成立します。
+<!-- solution-end -->
+
+### HPDE1-A2：初速度が正弦波のとき
+
+- Level: A
+- 問題：$f=0$、$h(x)=\sin(kx)$（$k\ne0$）の解を求め、初速度を確かめよ。$h\equiv1$ とした場合の解も求めよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+初期速度の積分を端点で評価すると
+
+$$
+\begin{aligned}
+u(t,x)
+&=\frac1{2c}\int_{x-ct}^{x+ct}\sin(ky)\,dy\\
+&=\frac{\cos(k(x-ct))-\cos(k(x+ct))}{2ck}\\
+&=\frac{\sin(kx)\sin(kct)}{ck}.
+\end{aligned}
+$$
+
+従って $u(0,x)=0$、$u_t(0,x)=\sin(kx)\cos0=\sin(kx)$ です。$h\equiv1$ なら同じ積分が $2ct$ になるため $u(t,x)=t$ です。$k=0$ と置いた $\sin(kx)$ は恒等的零であり、$h\equiv1$ とは異なるデータです。
+<!-- solution-end -->
+
+### HPDE1-A3：後方依存区間を数値で求める
+
+- Level: A
+- 問題：$c=2$、$(t,x)=(3,5)$ の後方依存区間を求めよ。初期点 $(0,12)$ は $(3,5)$ に因果的に到達できるか。
+
+<!-- solution-start -->
+**詳細解答**
+
+[PDE4の後方依存区間](../../PDE/PDE4/index.md#def-pde4-domain-dependence)により
+
+$$
+I_0(3,5)=[5-2\cdot3,5+2\cdot3]=[-1,11].
+$$
+
+$(0,12)$ からの空間差は $|5-12|=7$ で、時間差 $3$ の間に光が進める最大距離は $2\cdot3=6$ です。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures) $|\Delta x|\le c\Delta t$ に反するので、到達できません。
+<!-- solution-end -->
+
+### HPDE1-A4：未来向き光的ベクトルと波形
+
+- Level: A
+- 問題：$g_c=-dt^2+c^{-2}dx^2$ に対し $v_\pm=(1,\pm c)$ が未来向き光的であることを示せ。また $u(t,x)=F(x-ct)$（$F\in C^2$）が $P_cu=0$ を満たすことを確かめよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$v_\pm$ は時間成分が $1>0$ であり、
+
+$$
+g_c(v_\pm,v_\pm)=-1+c^{-2}(\pm c)^2=0
+$$
+
+ですから[LORG1の未来錐](../../../幾何系/LORG/LORG1/index.md#def-lorg1-future-cone)の境界にあります。$z=x-ct$ とすると
+
+$$
+u_t=-cF'(z),\quad u_{tt}=c^2F''(z),\quad
+u_x=F'(z),\quad u_{xx}=F''(z)
+$$
+
+なので $P_cu=c^2F''-c^2F''=0$ です。
+<!-- solution-end -->
+
+### HPDE1-A5：支持区間の広がり
+
+- Level: A
+- 問題：$f\in C_c^2$、$h\in C_c^1$ の支持がともに $[2,3]$ に入るとき、$c=2$、$t=2$ で $u$ が必ず零になる $x$ の範囲を求めよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+[初期支持の因果的包含](#prop-hpde1-causal-support)に $a=2$、$b=3$、$ct=4$ を代入します。解の時刻2の支持は
+
+$$
+[2-4,3+4]=[-2,7]
+$$
+
+に含まれます。従って $x<-2$ または $x>7$ で必ず $u(2,x)=0$ です。ただし、この区間の内側で常に非零とは限りません。
+<!-- solution-end -->
+
+### HPDE1-B1：一方向の進行波になる初速度
+
+- Level: B
+- 問題：$f(x)=e^{-x^2}$、$h(x)=2cx\,e^{-x^2}$ とする。d'Alembert公式を使って $u(t,x)=e^{-(x-ct)^2}$ を導き、初速度を直接検算せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$f'(x)=-2xe^{-x^2}$ なので $h=-cf'$ です。[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)の積分項を変形すると
+
+$$
+\begin{aligned}
+\frac1{2c}\int_{x-ct}^{x+ct}h(y)\,dy
+&=-\frac12\int_{x-ct}^{x+ct}f'(y)\,dy\\
+&=-\frac12\{f(x+ct)-f(x-ct)\}.
+\end{aligned}
+$$
+
+変位の平均の項と足せば $u(t,x)=f(x-ct)=e^{-(x-ct)^2}$ です。微分すると
+
+$$
+u_t(t,x)=-cf'(x-ct)=2c(x-ct)e^{-(x-ct)^2}
+$$
+
+なので $u_t(0,x)=2cx e^{-x^2}=h(x)$ です。ガウス関数はコンパクト台ではないため、[初期支持の因果的包含](#prop-hpde1-causal-support)から有界支持を結論してはいけません。
+<!-- solution-end -->
+
+### HPDE1-B2：円錐内部に残る初速度の効果
+
+- Level: B
+- 問題：$c=1$、$f=0$、$|x|<1$ で $h(x)=(1-x^2)^3$、外では $h=0$ とする。$u(t,0)$ を $0\le t\le1$ と $t\ge1$ で計算し、「光円錐の境界にしか解はない」という主張を判定せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+$h$ は偶関数です。$0\le t\le1$ のとき $[-t,t]\subset[-1,1]$ なので、
+
+$$
+\begin{aligned}
+u(t,0)
+&=\frac12\int_{-t}^t(1-3y^2+3y^4-y^6)\,dy\\
+&=t-t^3+\frac35t^5-\frac17t^7.
+\end{aligned}
+$$
+
+$t\ge1$ では積分区間が支持全体を含みますから
+
+$$
+u(t,0)=1-1+\frac35-\frac17=\frac{16}{35}.
+$$
+
+$t=1$ の値は両式で一致します。$t>1$ の $(t,0)$ は初期支持の未来円錐の内部にありますが解は正です。よって境界上でしか値を持たないという主張は偽です。
+<!-- solution-end -->
+
+### HPDE1-B3：一部分の初期情報から解が決まる領域
+
+- Level: B
+- 問題：二組の初期データ $(f_1,h_1)$、$(f_2,h_2)$ が $[a,b]$（$a<b$）上で一致し、それぞれ $C^2\times C^1$ とする。対応する古典解が $0\le t\le(b-a)/(2c)$、$a+ct\le x\le b-ct$ の範囲で一致することを示せ。
+
+<!-- solution-start -->
+**詳細解答**
+
+差 $w=u_1-u_2$ の初期変位・初速度は $[a,b]$ 上で零です。指定された点では
+
+$$
+x-ct\ge a,\qquad x+ct\le b
+$$
+
+となるため $[x-ct,x+ct]\subset[a,b]$ です。差に[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)を適用すれば、両端の初期変位も区間上の初速度も零なので $w(t,x)=0$ です。さらに $a+ct\le b-ct$ を $t$ について解いて $t\le(b-a)/(2c)$ を得ます。これは[LORG13の依存領域](../../../幾何系/LORG/LORG13/index.md#thm-lorg13-domain-formula)と整合します。
+<!-- solution-end -->
+
+### HPDE1-B4：同じ支持でも残響は異なる
+
+- Level: B
+- 問題：$\operatorname{supp}f\subset[-R,R]$（$R>0$）、$h=0$ のとき、各固定点 $x$ で十分時間が経てば解が零になることを示せ。次に $f=0$、$h\in C_c^1$、$h\ge0$、$h\not\equiv0$、$\operatorname{supp}h\subset[-R,R]$ ではどうなるか。
+
+<!-- solution-start -->
+**詳細解答**
+
+$h=0$ なら[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)は $u(t,x)=\{f(x-ct)+f(x+ct)\}/2$ です。$t>(|x|+R)/c$ と取れば $x-ct<-R$、$x+ct>R$ となり、二項とも零になります。
+
+次に $f=0$ とすると、同じ時刻条件の下で
+
+$$
+u(t,x)=\frac1{2c}\int_{-R}^R h(y)\,dy>0
+$$
+
+となります。$h$ が連続・非負で非零なら、正である点の近傍にも正の値があるため積分は正です。両者とも有限伝播に従いますが、後者は光円錐の内部に残響を生みます。
+<!-- solution-end -->
+
+### HPDE1-C1：平坦時空のCauchyデータと二種類の領域
+
+- Level: C
+- 問題：$c=1$ とし、$|x|<1$ で $f(x)=(1-x^2)^3$、$h(x)=(1-x^2)^2$、その他では両者を零とする。(1) d'Alembert公式で解を与え、古典解に必要な滑らかさを確認せよ。(2) 時刻 $t$ における支持の上界を求めよ。(3) $t\ge1$ の $u(t,0)$ と、特に $u(2,7/2)$ を計算せよ。(4) 時刻零の区間 $[-1,1]$ だけの初期情報から値が確定する未来依存領域を求め、(2)の支持上界と比較せよ。
+
+<!-- solution-start -->
+**詳細解答**
+
+(1) $f$ は端点で関数値・一階・二階導関数が零なので $C^2$、$h$ は端点で関数値・一階導関数が零なので $C^1$ です。[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)の仮定を満たし、
+
+$$
+u(t,x)=\frac{f(x-t)+f(x+t)}2+\frac12\int_{x-t}^{x+t}h(y)\,dy
+$$
+
+が古典解です。二階微分に現れるのは連続な $f''$ と $h'$ までであり、初期条件の検算は第3節の手順で成立します。
+
+(2) $K=\operatorname{supp}f\cup\operatorname{supp}h=[-1,1]$ です。[初期支持の因果的包含](#prop-hpde1-causal-support)により、
+
+$$
+\operatorname{supp}u(t,\cdot)\subset[-1-t,1+t]
+$$
+
+となります。包含なので区間内の全点で非零という意味ではありません。
+
+(3) $t\ge1$ では $f(-t)=f(t)=0$、積分区間が支持全体を含むので、
+
+$$
+\begin{aligned}
+u(t,0)
+&=\frac12\int_{-1}^1(1-2y^2+y^4)\,dy\\
+&=1-\frac23+\frac15=\frac8{15}.
+\end{aligned}
+$$
+
+一方 $(t,x)=(2,7/2)$ の後方依存区間は $[3/2,11/2]$ で、$[-1,1]$ と交わりません。従って $u(2,7/2)=0$ です。
+
+(4) 区間 $[-1,1]$ 上の初期値だけで $u(t,x)$ が定まるには
+
+$$
+[x-t,x+t]\subset[-1,1]
+\iff x-t\ge-1,\quad x+t\le1.
+$$
+
+よって[LORG13の依存領域](../../../幾何系/LORG/LORG13/index.md#thm-lorg13-domain-formula)の未来側は
+
+$$
+D^+([-1,1])=\{(t,x):0\le t\le1,\ -1+t\le x\le1-t\}.
+$$
+
+(2) は初期擾乱の影響が**外へ広がる上界**、(4) は初期区間だけで値を決められる範囲が**内へ縮む領域**です。前者は初期支持から因果的に到達できるか、後者は過去光円錐の初期断面が全部既知区間に含まれるかという、異なる問いから生じました。
+<!-- solution-end -->
+
+---
+
+## 7. 曲がった時空への接続
+
+平坦な模型では光的方向が二本の直線になり、d'Alembert公式の積分区間と過去光円錐の初期断面が一致しました。これにより、古典解の存在・一意性、有限伝播、初期区間の依存領域を実際に計算できました。
+
+曲がったLorentz時空では特性方向は単純な直線でなく、同じ公式をそのまま使うことはできません。幾何学的には[Cauchy超曲面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)と[大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)が初期値問題の舞台を支え、解析的にはエネルギー評価と局所解の構成を新たに要します。まず次章では高次元の平坦波動へ進み、ここで見た円錐内部の残響とHuygens現象を比較します。
