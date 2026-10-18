@@ -1,0 +1,37 @@
+chapter: HPDE9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE8
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - GPDE3
+forward_references: []
+concepts:
+  - id: hpde.high-order-slice-energy
+    name: 高階スライスエネルギー
+    kind: definition
+    introduction: formal
+    requires: [hpde.shifted-first-energy]
+  - id: hpde.spatial-derivative-commutator
+    name: 空間微分と波動作用素の交換子
+    kind: proposition
+    introduction: formal
+    requires: [hpde.high-order-slice-energy]
+  - id: hpde.high-order-sobolev-estimate
+    name: コンパクト有限時間帯の高階Sobolev評価
+    kind: theorem
+    introduction: formal
+    requires: [hpde.high-order-slice-energy, hpde.spatial-derivative-commutator, hpde.gronwall-integral]
+  - id: hpde.covariant-curvature-commutator
+    name: スカラー波動の共変微分と曲率補正
+    kind: proposition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic, hpde.spatial-derivative-commutator]
+  - id: hpde.smooth-approximation-limit
+    name: 滑らかな近似解のSobolev極限
+    kind: proposition
+    introduction: formal
+    requires: [hpde.high-order-sobolev-estimate]
