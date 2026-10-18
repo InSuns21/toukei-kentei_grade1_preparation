@@ -133,7 +133,7 @@ $$
 先行する[GEO16のRicci曲率・スカラー曲率](../../../幾何系/GEO/GEO16/index.md#def-geo16-ricci-scalar)はRiemann計量上の同じ縮約です。Lorentz計量でも逆行列を使うという仕組みは変わりませんが、正規直交基底での符号が変わります。
 
 <!-- definition-example-start: def-gr6-ricci-scalar -->
-**定義の確認：Minkowski時空。** 座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で計量行列を $\operatorname{diag}(-1,1,1,1)$ とします。行列は非退化で逆行列も同じです。計量成分は定数です。[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式に代入すると $\Gamma^\rho_{\mu\nu}=0$。四項の曲率公式の各項が零だから $R^\rho{}_{\sigma\mu\nu}=0$、従って縮約した $\operatorname{Ric}_{\sigma\nu}=0$、さらに $\mathcal R=0$ です。これは座標行列の値を言うだけでなく、曲率から二段階で縮約する定義を確認したものです。
+**定義の確認**：Minkowski時空。 座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で計量行列を $\operatorname{diag}(-1,1,1,1)$ とします。行列は非退化で逆行列も同じです。計量成分は定数です。[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式に代入すると $\Gamma^\rho_{\mu\nu}=0$。四項の曲率公式の各項が零だから $R^\rho{}_{\sigma\mu\nu}=0$、従って縮約した $\operatorname{Ric}_{\sigma\nu}=0$、さらに $\mathcal R=0$ です。これは座標行列の値を言うだけでなく、曲率から二段階で縮約する定義を確認したものです。
 <!-- definition-example-end -->
 
 <a id="prop-gr6-orthonormal-contraction"></a>
