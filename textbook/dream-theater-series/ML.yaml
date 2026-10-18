@@ -49,7 +49,7 @@ chapters:
     title: "確率的勾配法・ミニバッチ"
   - id: ML1-11
     path: textbook/volumes/dream_thater/応用系/ML/ML1-11
-    status: planned
+    status: completed
     title: "k近傍法・核密度推定"
   - id: ML1-12
     path: textbook/volumes/dream_thater/応用系/ML/ML1-12

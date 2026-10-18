@@ -1,0 +1,55 @@
+chapter: ML1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-02
+  - ML1-07
+concepts:
+  - id: learning.knn-neighborhood
+    name: k近傍集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（k近傍集合）"]
+    requires: [learning.predictor]
+  - id: learning.knn-predictor
+    name: k近傍回帰・分類予測器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（k近傍回帰・分類予測器）"]
+    requires: [learning.knn-neighborhood]
+  - id: learning.knn-local-risk
+    name: 局所的な二乗損失・0–1損失の最小化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所的な二乗損失・0–1損失の最小化）"]
+    requires: [learning.knn-predictor]
+  - id: learning.density-kernel
+    name: 密度推定用の核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度推定用の核）"]
+    requires: []
+  - id: learning.kernel-density-estimator
+    name: 核密度推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（核密度推定量）"]
+    requires: [learning.density-kernel]
+  - id: learning.kde-normalization
+    name: 核密度推定量の非負性と正規化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（核密度推定量の非負性と正規化）"]
+    requires: [learning.kernel-density-estimator]
+  - id: learning.kde-expectation
+    name: 核密度推定の期待値と箱型核の局所収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（核密度推定の期待値と箱型核の局所収束）"]
+    requires: [learning.kernel-density-estimator]
+  - id: learning.binary-cube-distance-concentration
+    name: 二値立方体模型の距離集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二値立方体模型の距離集中）"]
+    requires: []
