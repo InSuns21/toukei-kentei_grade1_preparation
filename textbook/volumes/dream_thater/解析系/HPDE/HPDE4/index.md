@@ -526,7 +526,7 @@ $$
 
 <a id="def-hpde4-metric-compatible-connection"></a>
 <!-- formal-statement-start -->
-> **定義（計量両立接続）**  
+> **定義（Hermite束計量と両立する接続）**  
 > $E$ 上の正定値Hermite束計量 $h_E$ と接続 $\nabla^E$ を与える。$\nabla^E$ が **計量両立**であるとは、任意の滑らかな切断 $s,t$ と滑らかな実ベクトル場 $X$ について
 >
 > $$
@@ -538,7 +538,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde4-metric-compatible-connection -->
-### 直接例：通常微分は標準内積を保つ
+### 直接例：Hermite束計量を保つ通常微分
 
 $\mathbb R$ 上の自明な複素直線束で $h(u,v)=u\overline v$、$\nabla_Xu=a(x)u'$ とします（$X=a(x)\partial_x$ は滑らかな実ベクトル場）。これは[束接続の定義](#def-hpde4-connection)を満たし、すべての滑らかな $u,v$ に対し
 
