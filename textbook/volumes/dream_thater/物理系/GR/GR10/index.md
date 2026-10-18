@@ -631,7 +631,7 @@ $$
 4次元で $R_{\mu\nu}=3Kg_{\mu\nu}$、$K$ は定数とする。$h^{\mu\nu}=-2fg^{\mu\nu}$、$f\in C_c^\infty(U)$ としたとき、Einstein–Hilbert作用の変分を $\Lambda$ を含めて求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [GR6の一定曲率の縮約](../GR6/index.md#prop-gr6-constant-curvature-contraction)から $\mathcal R=g^{\mu\nu}R_{\mu\nu}=12K$ です。[GR7のEinsteinテンソル](../GR7/index.md#def-gr7-einstein-tensor)は
+**詳細解答。** [GR6の一定曲率の縮約](../GR6/index.md#prop-gr6-constant-curvature)から $\mathcal R=g^{\mu\nu}R_{\mu\nu}=12K$ です。[GR7のEinsteinテンソル](../GR7/index.md#def-gr7-einstein-tensor)は
 
 $$
 G_{\mu\nu}=3Kg_{\mu\nu}-\tfrac12(12K)g_{\mu\nu}
