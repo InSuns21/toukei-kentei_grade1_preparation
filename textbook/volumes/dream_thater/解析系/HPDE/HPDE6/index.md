@@ -8,13 +8,13 @@
 
 ## 1. 初期面を時空の時計で指定する
 
-一般のCauchy面には滑らかさが保証されません。そこで標準的な波動初期値問題では、**滑らかで空間的なCauchy面**を選びます。[LORG16の大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)を仮定すれば、[LORG20のCauchy temporal function存在定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-bernal-sanchez)により、滑らかな時計 $T:M\to\mathbb R$ を選べます。その各レベル
+一般のCauchy面には滑らかさが保証されません。そこで標準的な波動初期値問題では、**滑らかで空間的なCauchy面**を選びます。[LORG16の大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)を仮定すれば、[Bernal–SánchezのCauchy temporal function存在定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-bernal-sanchez)により、滑らかな時計 $T:M\to\mathbb R$ を選べます。その各レベル
 $$
 \Sigma_t=T^{-1}(t)
 $$
 は滑らかで空間的なCauchy超曲面です。本章では時刻 $t_0$ を固定して $\Sigma=\Sigma_{t_0}$ と書きます。
 
-[LORG20の直交分割定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、適切な大域座標 $(t,y)$ において
+[滑らかな直交時空分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、適切な大域座標 $(t,y)$ において
 $$
 g=-\alpha(t,y)^2dt^2+h_t(y),\qquad \alpha>0
 $$
@@ -42,7 +42,7 @@ $$
 
 面上で「速度」を測るには、面に直交した未来向き時間的ベクトルを長さ $-1$ に規格化します。$\nabla^gT$ は $g(\nabla^gT,X)=dT(X)$ を満たす勾配です。レベル面に接する $X$ には $dT(X)=0$ なので、勾配は面に直交します。$T$ は未来へ増加するため、その勾配は過去向きです。
 
-[LORG20の単位法線命題](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を初期値の記法で使います。$Q=-g(\nabla^gT,\nabla^gT)>0$ とおけば
+[lapseと単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を初期値の記法で使います。$Q=-g(\nabla^gT,\nabla^gT)>0$ とおけば
 $$
 N=-Q^{-1/2}\nabla^gT,\qquad
 \alpha=Q^{-1/2},\qquad
@@ -248,7 +248,7 @@ $$
 <a id="def-hpde6-local-sobolev-data"></a>
 <!-- formal-statement-start -->
 > **定義（局所Sobolev初期データ）**  
-> $\Sigma$ を滑らかな $n$ 次元多様体、$F=E|_\Sigma$ を有限ランク滑らかな束、$k\in\mathbb N_0$ とする。束値分布 $v$ が $H^k_{\mathrm{loc}}(\Sigma,F)$ に属するとは、各座標近傍 $U\subset\Sigma$ と局所枠における成分ベクトルが、任意の相対コンパクトな小領域 $K\Subset U$ 上で、次数 $|\beta|\le k$ の全ての弱偏微分を局所 $L^2$ 関数として持つことをいう。初期データの一つの自然な正則性クラスは
+> $\Sigma$ を滑らかな $n$ 次元多様体、$F=E|_\Sigma$ を有限ランク滑らかな束、$k\in\mathbb N_0$ とする。束値分布 $v$ が $H^k_{\mathrm{loc}}(\Sigma,F)$ に属するとは、各座標近傍 $U\subset\Sigma$ と局所枠における成分ベクトルが、任意の閉包が $U$ の中でコンパクトな小領域 $K\Subset U$ 上で、次数 $|\beta|\le k$ の全ての弱偏微分を局所 $L^2$ 関数として持つことをいう。初期データの一つの自然な正則性クラスは
 $$
 (u_0,u_1)\in H^{k+1}_{\mathrm{loc}}(\Sigma,F)
 \times H^k_{\mathrm{loc}}(\Sigma,F)
@@ -266,7 +266,7 @@ $$
 なので $u_0\notin H^0(\mathbb R)$ であり、通常の大域 $H^k(\mathbb R)$ にも入りません。
 <!-- definition-example-end -->
 
-局所枠を $e'=eS$ と替えると成分は $v'=S^{-1}v$ に変わります。相対コンパクトな小領域では $S^{-1}$ とその $k$ 階までの導関数が有界です。[GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。局所座標の変更も、相対コンパクトな小領域では滑らかな微分同相のJacobianとその導関数が有界であることを使って同様に確かめます。
+局所枠を $e'=eS$ と替えると成分は $v'=S^{-1}v$ に変わります。閉包が座標近傍内でコンパクトな小領域では $S^{-1}$ とその $k$ 階までの導関数が有界です。[GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。局所座標の変更も、閉包が座標近傍内でコンパクトな小領域では滑らかな微分同相のJacobianとその導関数が有界であることを使って同様に確かめます。
 
 <a id="prop-hpde6-smooth-in-local-sobolev"></a>
 <!-- formal-statement-start -->
@@ -285,7 +285,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の座標・局所枠近傍内の相対コンパクトな集合 $K$ を選びます。$v$ の各成分 $v^\ell$ は滑らかなので、各 $|\beta|\le k$ に対して $\partial^\beta v^\ell$ は $K$ 上有界です。$K$ のEuclid体積は有限であるから
+任意の座標・局所枠近傍内の閉包が座標近傍内でコンパクトな集合 $K$ を選びます。$v$ の各成分 $v^\ell$ は滑らかなので、各 $|\beta|\le k$ に対して $\partial^\beta v^\ell$ は $K$ 上有界です。$K$ のEuclid体積は有限であるから
 $$
 \int_K|\partial^\beta v^\ell|^2\,dy
 \le |K|\sup_K|\partial^\beta v^\ell|^2<\infty.
@@ -438,7 +438,7 @@ $$
 \partial_su=\tfrac12,\qquad
 \nabla_Nu=2\partial_su=1.
 $$
-$lapse$ は時計の目盛りに依存しますが、幾何学的な単位法線とその微分は変わりません。[LORG20の単位法線命題](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)とも一致します。
+$lapse$ は時計の目盛りに依存しますが、幾何学的な単位法線とその微分は変わりません。[lapseと単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)とも一致します。
 <!-- solution-end -->
 
 <a id="ex-hpde6-c01"></a>
