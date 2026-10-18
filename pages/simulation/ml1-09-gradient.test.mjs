@@ -38,6 +38,11 @@ test("初期値・固有値・歩幅の変更で演算結果が変わる", () =>
   assert.notEqual(run({ ...base, alpha: 0.1 }, 1)[1].f, run(base, 1)[1].f);
 });
 
+test("発散時の安全停止が数学模型を壊さずに機能する", () => {
+  const unstable = { ...base, m: 1, L: 100, alpha: 20, x0: 0, y0: 5 };
+  assert.throws(() => run(unstable, 3), /数値発散/);
+});
+
 test("パラメータ範囲、上限、非有限の結果を検出する", () => {
   assert.throws(() => validateConfig({ ...base, m: 5 }), RangeError);
   assert.throws(() => validateConfig({ ...base, alpha: NaN }), RangeError);
