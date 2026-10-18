@@ -118,15 +118,15 @@ $P$ の新枠での行列作用素は $S^{-1}PS$ なので、二階係数は $S^
 
 **定義の確認**。共変ベクトル $d\varphi$ は局所座標 $(t,x)$ では $(\partial_t\varphi)dt+(\partial_x\varphi)dx$ と表され、その成分を主シンボルへ代入します。任意の実定数 $c$ に対して $\varphi_c=t-x-c$ と置くと、零点集合は $S_c=\{t-x=c\}$ で、各点で $d\varphi_c=dt-dx\ne0$ です。したがって
 
-$
+$$
 \sigma_2(P)(d\varphi_c)=1^2-(-1)^2=0
-$
+$$
 
 となり、$S_c$ は特性超曲面です。一方 $\psi_c=t-c$ の零点集合 $\{t=c\}$ では $d\psi_c=dt\ne0$ であり、
 
-$
+$$
 \sigma_2(P)(d\psi_c)=1^2-0^2=1
-$
+$$
 
 なので非特性です。いずれも実直線束の自己準同型であり、局所枠での $1\times1$ 行列はスカラー倍です。よって値が零なら非可逆、非零なら逆数によって可逆となり、定義の二つの条件（非零法共変ベクトルと主シンボルの非可逆性）を直接確認できました。
 <!-- definition-example-end -->
@@ -248,14 +248,14 @@ $$
 
 この補正によって座標に依存しないことも確かめます。[束接続](../HPDE4/index.md#def-hpde4-connection)と[Lorentz計量のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)を使い、
 
-$
+$$
 H^\nabla(X,Y)u
 :=\nabla_X^E(\nabla_Y^Eu)-\nabla_{\nabla_X^{LC}Y}^Eu
-$
+$$
 
 と定めます。滑らかな関数 $f$ に対して
 
-$
+$$
 \begin{aligned}
 H^\nabla(X,fY)u
 &=\nabla_X^E(f\nabla_Y^Eu)
@@ -264,7 +264,7 @@ H^\nabla(X,fY)u
 -X(f)\nabla_Y^Eu-f\nabla_{\nabla_X^{LC}Y}^Eu\\
 &=fH^\nabla(X,Y)u
 \end{aligned}
-$
+$$
 
 です。第一変数についても $H^\nabla(fX,Y)u=fH^\nabla(X,Y)u$ となるので、$H^\nabla$ は二つのベクトル場についてテンソル的です。座標基底では $H^\nabla(\partial_i,\partial_j)u=\nabla_i\nabla_ju-\Gamma^k{}_{ij}\nabla_ku$ となり、逆計量による縮約 $g^{ij}H^\nabla(\partial_i,\partial_j)u$ は座標に依存しません。
 
@@ -293,21 +293,21 @@ $$
 
 局所座標と枠を固定し、最初の節の対称な二階係数を $B^{ij}=B^{ji}$ とします。[normally hyperbolic性](#def-hpde5-normally-hyperbolic)から、どの共変ベクトル $\xi$ に対しても
 
-$
+$$
 (B^{ij}+g^{ij}I_r)\xi_i\xi_j=0
-$
+$$
 
 です。$D^{ij}=B^{ij}+g^{ij}I_r$ と置き、まず $\xi=dx^i$ を代入すると $D^{ii}=0$、異なる $i,j$ に対して $\xi=dx^i+dx^j$ を代入すると
 
-$
+$$
 0=D^{ii}+D^{ij}+D^{ji}+D^{jj}=2D^{ij}
-$
+$$
 
 となります。実数体・複素数体のいずれでも $2$ は可逆なので $D^{ij}=0$ です。つまり全二階係数が $B^{ij}=-g^{ij}I_r$ と決まり、作用素は
 
-$
+$$
 Pu=-g^{ij}\partial_i\partial_j u+A^k\partial_k u+Cu
-$
+$$
 
 と書けます。$\omega_i$ を未知の接続係数として上の展開と一階係数を比較すると
 
@@ -377,13 +377,13 @@ $$
 
 $g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、$g_{ij}=e^{2\phi}\eta_{ij}$、$g^{ij}=e^{-2\phi}\eta^{ij}$ です。[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の局所係数公式に
 
-$
+$$
 \partial_i g_{j\ell}=2e^{2\phi}(\partial_i\phi)\eta_{j\ell}
-$
+$$
 
 を代入し、$e^{2\phi}$ と $e^{-2\phi}$ を相殺すると
 
-$
+$$
 \Gamma^k{}_{ij}
 =\delta_i^k\partial_j\phi+\delta_j^k\partial_i\phi
 -\eta_{ij}\eta^{k\ell}\partial_\ell\phi.
