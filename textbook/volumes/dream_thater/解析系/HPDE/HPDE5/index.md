@@ -116,7 +116,13 @@ $P$ の新枠での行列作用素は $S^{-1}PS$ なので、二階係数は $S^
 <!-- definition-example-start: def-hpde5-characteristic -->
 ### 直接例：特性面と非特性面
 
-**定義の確認**。共変ベクトル $d\varphi$ は局所座標 $(t,x)$ では $(\partial_t\varphi)dt+(\partial_x\varphi)dx$ と表され、その成分を主シンボルへ代入します。任意の実定数 $c$ に対して $\varphi_c=t-x-c$ と置くと、零点集合は $S_c=\{t-x=c\}$ で、各点で $d\varphi_c=dt-dx\ne0$ です。したがって
+**定義の確認**。局所座標 $(t,x)$ において、法共変ベクトルの成分は
+
+$$
+d\varphi=(\partial_t\varphi)dt+(\partial_x\varphi)dx
+$$
+
+であり、これを主シンボルに代入します。任意の実定数 $c$ に対して $\varphi_c=t-x-c$ と置くと、零点集合は $S_c=\{t-x=c\}$ です。各点で $d\varphi_c=dt-dx\ne0$ となり、主シンボルの値は
 
 $$
 \sigma_2(P)(d\varphi_c)=1^2-(-1)^2=0
