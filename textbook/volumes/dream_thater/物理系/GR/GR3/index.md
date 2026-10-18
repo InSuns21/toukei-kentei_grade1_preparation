@@ -37,7 +37,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr3-proper-time-action -->
-**定義の確認**。Minkowski座標 $(ct,x,y,z)$ で $\eta=\operatorname{diag}(-1,1,1,1)$、$\lambda=t$、$\boldsymbol x(t)=\boldsymbol v t+\boldsymbol b$、$|\boldsymbol v|<c$、$t_1>t_0$ とします。接ベクトルは $(c,\boldsymbol v)$ で、$q=\sqrt{c^2-|\boldsymbol v|^2}>0$ です。従って
+**定義の確認**。Minkowski座標 $(ct,x,y,z)$ では、座標基底 $\partial/\partial x^\mu$ の内積を並べた計量行列が $\eta=\operatorname{diag}(-1,1,1,1)$ です（[GR2の計量の座標表示と変換](../GR2/index.md#prop-gr2-coordinate-invariance)）。$\lambda=t$、$\boldsymbol x(t)=\boldsymbol v t+\boldsymbol b$、$|\boldsymbol v|<c$、$t_1>t_0$ とすると、接ベクトルは $v^\mu=(c,\boldsymbol v)$ です。時間座標は増加するので未来向きであり、基底成分から
+
+$
+g(v,v)=\eta_{\mu\nu}v^\mu v^\nu=-c^2+|\boldsymbol v|^2<0,
+\qquad q=\sqrt{c^2-|\boldsymbol v|^2}>0
+$
+
+と分かります。従って
 
 $$
 S=-mc\sqrt{c^2-|\boldsymbol v|^2}(t_1-t_0)
@@ -265,13 +272,22 @@ X^0=\frac{c^2}{a_0}N(x)\sinh\!\left(\frac{a_0t}{c}\right),
 X^1=\frac{c^2}{a_0}N(x)\cosh\!\left(\frac{a_0t}{c}\right).
 $$
 
-実際、$dX^0=cN\cosh(a_0t/c)\,dt+\sinh(a_0t/c)\,dx$、$dX^1=cN\sinh(a_0t/c)\,dt+\cosh(a_0t/c)\,dx$ なので、双曲線関数の $\cosh^2-\sinh^2=1$ と交差項の相殺から
+実際、$\theta=a_0t/c$ と置いて座標変換を微分すると
 
-$$
+$
+\begin{aligned}
+dX^0&=cN\cosh\theta\,dt+\sinh\theta\,dx,\\
+dX^1&=cN\sinh\theta\,dt+\cosh\theta\,dx.
+\end{aligned}
+$
+
+$\cosh^2\theta-\sinh^2\theta=1$ により、$dt\,dx$ の交差項は打ち消し合い、
+
+$
 -(dX^0)^2+(dX^1)^2=-c^2N^2dt^2+dx^2.
-$$
+$
 
-従って接続係数が非零であること**だけ**を曲率が非零である証拠にはできません。
+また座標変換のJacobi行列式は $cN(\cosh^2\theta-\sinh^2\theta)=cN>0$ であり、$N>0$ の領域で局所的に可逆です。[GR2の計量の座標変換](../GR2/index.md#prop-gr2-coordinate-invariance)を適用できるため、この表示は平坦なMinkowski計量そのものです。従って接続係数が非零であること**だけ**を曲率が非零である証拠にはできません。
 
 ## 5. 光はなぜ固有時でパラメータ化しないのか
 
@@ -326,7 +342,20 @@ $$
 -\frac12\partial_\sigma g_{\mu\nu}w^\mu w^\nu=0.
 $$
 
-第2節と同様に積の微分、添字の対称化、逆計量との縮約を順に行うと $d^2x^\rho/ds^2+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。これで必要十分性が出ます。
+積の微分を行い、$w^\mu w^\nu$ の対称性を用いて係数を対称化すると
+
+$
+\begin{aligned}
+0={}&g_{\sigma\nu}\frac{dw^\nu}{ds}
++\partial_\mu g_{\sigma\nu}w^\mu w^\nu
+-\frac12\partial_\sigma g_{\mu\nu}w^\mu w^\nu\\
+={}&g_{\sigma\nu}\frac{dw^\nu}{ds}
++\frac12(\partial_\mu g_{\sigma\nu}
++\partial_\nu g_{\sigma\mu}-\partial_\sigma g_{\mu\nu})w^\mu w^\nu.
+\end{aligned}
+$
+
+計量の非退化性による逆行列 $g^{\rho\sigma}$ を掛けると、[LORG4の接続係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から $d^2x^\rho/ds^2+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。逆向きも一次変分式へ戻せるので必要十分性が出ます。
 
 計量両立性を速度へ使えば
 
@@ -436,15 +465,17 @@ Minkowski直線 $X^\mu(s)=P^\mu+V^\mu s$（$V\ne0$）を $s=u^2$、$u>0$ で表�
 Rindlerの時間的測地線について $N^2dt/d\tau$ が一定であることを示せ。
 
 <!-- solution-start -->
-**詳細解答**。[Rindler測地線方程式](#prop-gr3-rindler-motion)の $t$ 成分は $t''+2(N'/N)t'x'=0$ です（プライムはここだけ $\tau$ 微分）。積の微分を逐一行うと
+**詳細解答**。$\dot t=dt/d\tau$、$\dot x=dx/d\tau$ は固有時微分、$N_x=dN/dx=a_0/c^2$ は座標微分と区別します。[Rindler測地線方程式](#prop-gr3-rindler-motion)の $t$ 成分は $\ddot t+2(N_x/N)\dot t\dot x=0$ です。連鎖律 $dN/d\tau=N_x\dot x$ を用い、積を微分すると
 
-$$
-\frac d{d\tau}(N^2t')
-=2NN'x't'+N^2t''
-=N^2\left(t''+2\frac{N'}N t'x'\right)=0.
-$$
+$
+\begin{aligned}
+\frac d{d\tau}(N^2\dot t)
+&=2NN_x\dot x\dot t+N^2\ddot t\\
+&=N^2\left(\ddot t+2\frac{N_x}N\dot t\dot x\right)=0.
+\end{aligned}
+$
 
-従って連結な存在区間で $N^2t'=K$ が定数です。未来向きで $t'>0$、$N>0$ だから $K>0$ です。ここで $N'=dN/dx$ と $t'=dt/d\tau$ は別の微分であり、上の最初の $N'$ は $x$ 微分です。
+従って連結な存在区間で $N^2\dot t=K$ が定数です。未来向きで $\dot t>0$、$N>0$ だから $K>0$ です。
 <!-- solution-end -->
 
 <a id="ex-gr3-b02"></a>
@@ -454,14 +485,22 @@ $$
 Rindlerの光的アフィン測地線 $x^\mu(s)$ について $N^2dt/ds=K>0$ から、$dx/ds=\pm cK/N$ を導け。$s$ が固有時でないことも確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。[GEO14の測地線方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)と[光的二次作用の変分](#prop-gr3-null-affine-action)を適用すると $t$ 成分は時間的の場合と同じ $t''+2(N'/N)t'x'=0$ です（ここではプライムは $s$ 微分、$dN/dx=a_0/c^2$）。積の微分で $d(N^2t')/ds=0$、従って $t'=K/N^2$。光的条件は
+**詳細解答**。[LORG4のLorentz測地線方程式](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)と[光的二次作用の変分](#prop-gr3-null-affine-action)を適用します。ここでは $\dot t=dt/ds$、$\dot x=dx/ds$、$N_x=dN/dx=a_0/c^2$ と区別します。$t$ 成分は $\ddot t+2(N_x/N)\dot t\dot x=0$ なので
 
-$$
-0=-c^2N^2(t')^2+(x')^2
-=-\frac{c^2K^2}{N^2}+(x')^2.
-$$
+$
+\frac d{ds}(N^2\dot t)
+=2NN_x\dot x\dot t+N^2\ddot t=0,
+\qquad \dot t=\frac K{N^2}.
+$
 
-平方根の二つの符号を取ると $x'=\pm cK/N$ です。$K>0$ と $N>0$ から $t'>0$ なので未来向きであり、$(t',x')$ は非零です。自己二乗零により $d\tau=0$ だから $s$ は固有時ではありません。
+光的条件は
+
+$
+0=-c^2N^2(\dot t)^2+(\dot x)^2
+=-\frac{c^2K^2}{N^2}+(\dot x)^2.
+$
+
+平方根の二つの符号を取ると $\dot x=\pm cK/N$ です。$K>0$ と $N>0$ から $\dot t>0$ なので未来向きであり、$(\dot t,\dot x)$ は非零です。自己二乗零により $d\tau=0$ だから $s$ は固有時ではありません。
 <!-- solution-end -->
 
 <a id="ex-gr3-b03"></a>
@@ -497,7 +536,15 @@ $$
 -\frac12\partial_\sigma g_{\mu\nu}w^\mu w^\nu=0.
 $$
 
-左辺を展開し $g^{\rho\sigma}$ を掛けて[LORG4の接続係数](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)と照合すると $x''^\rho+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。一方、最初からすべての候補で $g(w,w)=0$ を要求すると、どの候補でも $E=\tfrac12\int0\,ds=0$ となり、任意の光的候補の制限変分が零です。運動方程式を特定する情報が失われるため、無制限の変分で方程式を導いてから光的初期値を指定します。
+左辺を積の微分で展開すると
+
+$
+g_{\sigma\nu}\frac{dw^\nu}{ds}
++\frac12(\partial_\mu g_{\sigma\nu}+\partial_\nu g_{\sigma\mu}
+-\partial_\sigma g_{\mu\nu})w^\mu w^\nu=0.
+$
+
+$g^{\rho\sigma}$ を掛けて[LORG4の接続係数](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)と照合すると $d^2x^\rho/ds^2+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。一方、最初からすべての候補で $g(w,w)=0$ を要求すると、どの候補でも $E=\tfrac12\int0\,ds=0$ となり、光的候補に制限した変分は零です。運動方程式を特定する情報が失われるため、制限せず変分で方程式を導いてから光的初期値を指定します。
 <!-- solution-end -->
 
 ### Level C
@@ -537,7 +584,7 @@ x(\tau)=\frac{c^2}{a_0}
 t(\tau)=\frac{c}{a_0}\operatorname{artanh}\left(\frac{a_0\tau}{c}\right).
 $$
 
-ここでは $0\le\tau<c/a_0$ で $N>0$、$t$ は有限な各 $\tau$ で定義されます。$z=a_0\tau/c$ と書くと
+得られた直線がRindlerの右くさび $X^1>|X^0|$ に含まれるのは $-c/a_0<\tau<c/a_0$ です。初期値から未来へ進む部分は $0\le\tau<c/a_0$ で、ここでは $N>0$、$t$ は各有限の $\tau$ で定義されます。$z=a_0\tau/c$ と書くと
 
 $$
 \frac{dx}{d\tau}=-\frac{a_0\tau}{\sqrt{1-z^2}},
