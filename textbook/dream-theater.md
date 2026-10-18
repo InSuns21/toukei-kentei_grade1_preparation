@@ -387,6 +387,7 @@
 
 1. [HPDE1 1+1次元波動方程式の初期値解](textbook/volumes/dream_thater/解析系/HPDE/HPDE1/index.md)
 2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
+3. [HPDE3 時空上の分布・試験切断・密度](textbook/volumes/dream_thater/解析系/HPDE/HPDE3/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分

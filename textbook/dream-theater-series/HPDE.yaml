@@ -15,7 +15,7 @@ chapters:
     title: "高次元平坦波動とHuygens現象"
   - id: HPDE3
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE3
-    status: planned
+    status: completed
     title: "時空上の分布・試験切断・密度"
   - id: HPDE4
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE4
