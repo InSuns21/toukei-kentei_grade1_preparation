@@ -18,6 +18,8 @@ $$
 
 離れた事象の座標差は接ベクトルそのものではありません。そこで近くの自由落下世界線を滑らかな一変数族として並べ、中央の曲線の上で間隔の一次変化を接ベクトルにします。曲線族が交差しても、この接ベクトルは微分として定義できます。
 
+ここで「アフィン測地線」とは、[LORG4の測地線条件](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type) $\nabla_TT=0$ を満たす曲線を指します。各曲線の時間向きと $g(T,T)=-c^2$ を揃えることで、共通のパラメータ $\tau$ をそれぞれの固有時として使います。
+
 <a id="def-gr5-geodesic-family"></a>
 
 <!-- formal-statement-start -->
@@ -40,6 +42,16 @@ $$
 
 と置きます。各 $s$ で接ベクトルは $T=(c,0,0,0)$、自己内積は $-c^2$、時間成分は正です。計量は定数なのでChristoffel係数がすべて零となり、$\nabla_TT=0$ です。従って各曲線は固有時で同期した未来向き測地線です。$J=(0,L,0,0)$ は $s$ 微分として得られ、$g(J,T)=0$。初めから「座標差は物理的長さだ」と仮定せず、定義の全条件を確認しました。
 <!-- definition-example-end -->
+
+なお、固有時の同期は初期相対速度にも制約を与えます。$g(T,T)=-c^2$ を $s$ で微分し、[捩率零のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)と可換なパラメータ方向を用いると
+
+$$
+0=\left.\partial_s g(T,T)\right|_{s=0}
+=2g(\nabla_S T,u)|_{s=0}
+=2g(DJ/d\tau,u).
+$$
+
+したがって、同期した族から得た $J$ では相対速度の時間方向成分は初めから零です。一方、$g(J,u)$ 自体は初期に零とは限らず、空間的な偏差として読むには別にその条件が必要です。
 
 $J$ は一般には時間方向成分も持ちます。物差しに沿う間隔を測るための直交条件と初期の相対速度は、後で明示します。偏差ベクトルは微小な隣接世界線の **一次の差** を表し、有限に離れた二人の正確な距離を無条件に与えるものではありません。
 
@@ -120,11 +132,7 @@ $$
 > と置き、$\mathcal E=(\mathcal E_{ij})$ をこの枠の **潮汐行列** と呼ぶ。単位は長さの逆二乗である。この章では $\mathcal E$ と $c^2\mathcal E$ を区別し、後者は時間の逆二乗の単位を持つ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-gr5-tidal-matrix -->
-**定義の確認**：平坦時空。上のMinkowskiの族で $u=c\partial_0$、$e_{(0)}=\partial_0$、$e_{(i)}=\partial_i$ を取ります。各軸は接続係数が零なので平行で、内積行列は $\operatorname{diag}(-1,1,1,1)$ です。さらに $R(X,Y)Z=0$ を座標基底で直接確かめられるため、すべての $(i,j)$ で $\mathcal E_{ij}=0$。これは単なる対角化ではなく、枠の仮定も曲率の定義も確認した例です。
-<!-- definition-example-end -->
-
-座標表示で行列を突然作っているわけではありません。$J$ を空間軸で展開する場合、$J=\sum_j\xi^{(j)}e_{(j)}$ と表すと
+座標成分から潮汐行列へ移る理由を、定義そのものから確認します。$g(J,u)=0$ の偏差なら、直交枠の空間軸に沿って $J=\sum_j\xi^{(j)}e_{(j)}$ と展開できます。$u=ce_{(0)}$ と曲率の多重線形性から
 
 $$
 g(R(J,u)u,e_{(i)})
@@ -133,7 +141,11 @@ g(R(e_{(j)},e_{(0)})e_{(0)},e_{(i)})
 =c^2\sum_j\mathcal E_{ij}\xi^{(j)}.
 $$
 
-従って $\mathcal E$ は、もとの偏差方程式を観測者の三本の物差しへ写した係数行列です。
+従って $\mathcal E_{ij}$ は、曲率による偏差加速度を三本の物差しで表す際に、$j$ 方向の間隔が $i$ 方向の加速度に与える係数です。直交条件が保たれることと成分の二階微分との対応は、次の命題で証明します。
+
+<!-- definition-example-start: def-gr5-tidal-matrix -->
+**定義の確認**：平坦時空。上のMinkowskiの族で $u=c\partial_0$、$e_{(0)}=\partial_0$、$e_{(i)}=\partial_i$ を取ります。各軸は接続係数が零なので平行で、内積行列は $\operatorname{diag}(-1,1,1,1)$ です。さらに座標基底で $\nabla_{\partial_\mu}\partial_\nu=0$、$[\partial_\mu,\partial_\nu]=0$ なので、曲率の定義へ代入すれば $R(\partial_\mu,\partial_\nu)\partial_\rho=0$ です。曲率のテンソル性からすべての $(i,j)$ で $\mathcal E_{ij}=0$。これは単なる対角化ではなく、枠の仮定も曲率の定義も確認した例です。
+<!-- definition-example-end -->
 
 <a id="prop-gr5-frame-deviation"></a>
 
@@ -158,7 +170,7 @@ $$
 
 ### 証明の見取り図
 
-まず時間方向の偏差が再び混入しないことを確認します。次に平行枠の微分は零なので、共変微分を成分の普通の微分へ置き換えます。
+まず時間方向の偏差が再び混入しないことを確認します。第二の初期条件 $g(DJ/d\tau,u)=0$ は、上で見たとおり同期した測地線族では正規化から自動的に従いますが、初期値としての役割を明示するために記載しています。次に平行枠の微分は零なので、共変微分を成分の普通の微分へ置き換えます。
 
 <!-- proof-start -->
 ### 証明
@@ -209,7 +221,7 @@ $$
 \Gamma^x_{tt}=c^2NN'
 $$
 
-だけです。たとえば第一式は $\tfrac12g^{tt}\partial_xg_{tt}=\tfrac12(-1/(c^2N^2))(-2c^2NN')=N'/N$ から出ます。
+だけです。たとえば第一式は $\tfrac12g^{tt}\partial_xg_{tt}=\tfrac12(-1/(c^2N^2))(-2c^2NN')=N'/N$、第二式は $-\tfrac12g^{xx}\partial_xg_{tt}=-\tfrac12(-2c^2NN')=c^2NN'$ から出ます。
 
 <a id="prop-gr5-lapse-curvature"></a>
 
@@ -268,7 +280,16 @@ $$
 =\frac{c^2N'(x_0)}{N(x_0)}\partial_x=0
 $$
 
-となるので基準曲線は測地線です。表示した枠のGram行列は $\operatorname{diag}(-1,1,1,1)$ で、基底でもあります。$\nabla_u e_{(0)}$ と $\nabla_u e_{(1)}$ はどちらも $N'(x_0)$ に比例して零となり、残りの二軸も平行です。さらに
+となるので基準曲線は測地線です。表示した枠のGram行列は $\operatorname{diag}(-1,1,1,1)$ で、基底でもあります。平行性も接続係数から直接確認します。$N_0=N(x_0)$、$N'_0=N'(x_0)$ と書けば
+
+$$
+\nabla_u e_{(0)}=\frac{1}{cN_0^2}\Gamma^x_{tt}\partial_x
+=\frac{cN'_0}{N_0}e_{(1)},\qquad
+\nabla_u e_{(1)}=\frac{1}{N_0}\Gamma^t_{tx}\partial_t
+=\frac{cN'_0}{N_0}e_{(0)}.
+$$
+
+$N'_0=0$ だから両者は零であり、$y,z$ 方向の二軸も接続係数が零なので平行です。さらに
 
 $$
 R(e_{(1)},e_{(0)})e_{(0)}
@@ -345,14 +366,24 @@ $$
 
 これはNewton力学の二粒子の加速度差からも導けます。$a(x)=-\Phi'(x)$ とすると、$a(x+\delta x)-a(x)=-\Phi''(x)\delta x+O((\delta x)^2)$ です。したがって曲率は力そのものの大きさではなく **力の空間的な変化** と結び付いています。この比較は弱場の対応であり、ここからEinstein場の方程式を導いたわけではありません。
 
-三次元のNewtonポテンシャル $\Phi=-GM/r$（$r>0$）で単位放射方向 $\boldsymbol n=\boldsymbol x/r$ とすれば
+三次元のNewtonポテンシャル $\Phi=-GM/r$（$r>0$）で単位放射方向 $\boldsymbol n=\boldsymbol x/r$ とすれば、$\partial_i\Phi=GMx_i/r^3$ なので
 
 $$
 \partial_i\partial_j\Phi
+=GM\left(\frac{\delta_{ij}}{r^3}-\frac{3x_ix_j}{r^5}\right)
 =\frac{GM}{r^3}(\delta_{ij}-3n_in_j).
 $$
 
-放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
+ここで $H=\operatorname{Hess}\Phi$ と置きます。これは間隔 $\boldsymbol\xi$ をNewton相対加速度 $-H\boldsymbol\xi$ に写す線形写像の行列表現です。放射方向 $\boldsymbol n$ と、それに直交する任意の接線方向 $\boldsymbol t$（$\boldsymbol t\cdot\boldsymbol n=0$）に作用させると
+
+$$
+\begin{aligned}
+H\boldsymbol n&=\frac{GM}{r^3}(\boldsymbol n-3(\boldsymbol n\cdot\boldsymbol n)\boldsymbol n)=-\frac{2GM}{r^3}\boldsymbol n,\\
+H\boldsymbol t&=\frac{GM}{r^3}(\boldsymbol t-3(\boldsymbol n\cdot\boldsymbol t)\boldsymbol n)=\frac{GM}{r^3}\boldsymbol t.
+\end{aligned}
+$$
+
+したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
 
 ## 7. 演習：初期条件と曲率符号を自分で判断する
 
@@ -367,7 +398,7 @@ $$
 $F(s,\tau)=(c\tau,sL,0,0)$、$L>0$ の測地線条件・偏差・初期相対速度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$T=\partial_\tau F=(c,0,0,0)$ は未来向きで $g(T,T)=-c^2$、MinkowskiのCartesian座標では $\Gamma^\rho_{\mu\nu}=0$ なので $\nabla_TT=0$。$J=\partial_sF|_0=(0,L,0,0)$ で $g(J,T)=0$、$DJ/d\tau=0$、$g(DJ/d\tau,T)=0$。平行枠 $e_{(1)}=\partial_x$ で $\xi^{(1)}=L$、$\dot\xi^{(1)}=0$。曲率が零なので偏差方程式の両辺とも零です。
+**詳細解答**。$T=\partial_\tau F=(c,0,0,0)$ は未来向きで $g(T,T)=-c^2$、MinkowskiのCartesian座標では $\Gamma^\rho_{\mu\nu}=0$ なので $\nabla_TT=0$。$J=\partial_sF|_0=(0,L,0,0)$ で $g(J,T)=0$、$DJ/d\tau=0$、$g(DJ/d\tau,T)=0$。平行枠 $e_{(1)}=\partial_x$ で $\xi^{(1)}=L$、$\dot\xi^{(1)}=0$。曲率が零なので[測地線偏差方程式](#thm-gr5-deviation)の両辺とも零です。
 <!-- solution-end -->
 
 <a id="ex-gr5-a02"></a>
@@ -377,7 +408,7 @@ $F(s,\tau)=(c\tau,sL,0,0)$、$L>0$ の測地線条件・偏差・初期相対速
 平坦時空の平行枠で初期偏差 $L$、初期相対速度 $v$ が $x$ 方向にあるとき、Jacobi方程式を解け。間隔が変化するなら曲率非零か。
 
 <!-- solution-start -->
-**詳細解答**。$\mathcal E=0$ だから $\ddot\xi^{(1)}=0$。一度積分して $\dot\xi^{(1)}=v$、さらに $\xi^{(1)}(\tau)=L+v(\tau-\tau_0)$。$v\ne0$ なら間隔の一次変化はありますが、二階微分は零です。曲率非零の根拠にはなりません。
+**詳細解答**。[潮汐相対加速度の命題](#prop-gr5-frame-deviation)で $\mathcal E=0$ を代入すると $\ddot\xi^{(1)}=0$。一度積分して $\dot\xi^{(1)}=v$、さらに $\xi^{(1)}(\tau)=L+v(\tau-\tau_0)$。$v\ne0$ なら間隔の一次変化はありますが、二階微分は零です。曲率非零の根拠にはなりません。
 <!-- solution-end -->
 
 <a id="ex-gr5-a03"></a>
@@ -387,7 +418,7 @@ $F(s,\tau)=(c\tau,sL,0,0)$、$L>0$ の測地線条件・偏差・初期相対速
 $R(J,u)u$ が $u$ に直交することを使い、$g(J,u)|_0=0$、$g(DJ/d\tau,u)|_0=0$ から $g(J,u)=0$ が保たれることを示せ。
 
 <!-- solution-start -->
-**詳細解答**。$f=g(J,u)$ と置き、基準者の自由落下条件 $Du/d\tau=0$ から $f'=g(DJ/d\tau,u)$、$f''=g(D^2J/d\tau^2,u)$。偏差方程式より $f''=-g(R(J,u)u,u)=0$。最後の等号は計量両立接続の曲率が最後の二変数について交代的なためです。$f(\tau)=A+B\tau$ に初期値 $f(0)=f'(0)=0$ を入れると $A=B=0$ です。
+**詳細解答**。$f=g(J,u)$ と置き、基準者の自由落下条件 $Du/d\tau=0$ から $f'=g(DJ/d\tau,u)$、$f''=g(D^2J/d\tau^2,u)$。[測地線偏差方程式](#thm-gr5-deviation)より $f''=-g(R(J,u)u,u)=0$。最後の等号は計量両立接続の曲率が最後の二変数について交代的なためです。$f(\tau)=A+B\tau$ に初期値 $f(0)=f'(0)=0$ を入れると $A=B=0$ です。
 <!-- solution-end -->
 
 <a id="ex-gr5-a04"></a>
@@ -407,7 +438,7 @@ $R(J,u)u$ が $u$ に直交することを使い、$g(J,u)|_0=0$、$g(DJ/d\tau,u
 $N=1+a_0x/c^2>0$ について静止者の固有加速度の $x$ 成分と、自由落下者間の共変偏差加速度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。静止者の四元速度は $u=N^{-1}\partial_t$、$\Gamma^x_{tt}=c^2NN'=a_0N$ なので $a^x=\Gamma^x_{tt}/N^2=a_0/N\ne0$。[GR3の四元加速度](../GR3/index.md#def-gr3-four-acceleration)と一致します。一方 $N''=0$ なので[曲率の命題](#prop-gr5-lapse-curvature)で $R=0$、自由落下基準者に沿う $D^2J/d\tau^2=-R(J,u)u=0$。静止者の族は測地線族ではないので、第一の値をそのまま第二に使いません。
+**詳細解答**。静止者の四元速度は $u=N^{-1}\partial_t$、$\Gamma^x_{tt}=c^2NN'=a_0N$ なので $a^x=\Gamma^x_{tt}/N^2=a_0/N\ne0$。[GR3の四元加速度](../GR3/index.md#def-gr3-four-acceleration)と一致します。一方 $N''=0$ なので[全曲率が零となるRindlerの命題](#prop-gr5-rindler-flat)から $R=0$、自由落下基準者に沿う $D^2J/d\tau^2=-R(J,u)u=0$。静止者の族は測地線族ではないので、第一の値をそのまま第二に使いません。
 <!-- solution-end -->
 
 ### Level B
@@ -439,7 +470,18 @@ $x=0$ で $N=1$、平行枠の $\mathcal E_{11}=N''/N=\alpha/c^2$ です。従�
 $ds^2=-c^2N(x,y)^2dt^2+dx^2+dy^2+dz^2$、$N=1+(\alpha x^2+\beta y^2)/(2c^2)$、$N>0$ とする。原点の静止者が測地線であることを確認し、原点での $\mathcal E_{ij}$ と初期相対加速度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$N_x=\alpha x/c^2$、$N_y=\beta y/c^2$ なので原点で勾配は零です。一般に $\Gamma^i_{tt}=c^2N\partial_iN$、$\Gamma^t_{ti}=\partial_iN/N$（$i=x,y$）だから、原点で接続係数は零、$\nabla_uu=0$。空間計量はEuclidなので $e_{(0)}=(cN)^{-1}\partial_t$、$e_{(i)}=\partial_i$ は原点で直交・平行です。$R(\partial_j,\partial_t)\partial_t=c^2N\sum_i(\partial_i\partial_jN)\partial_i$ と前節の計算を二方向へ適用できます。原点のHessianは $\operatorname{diag}(\alpha/c^2,\beta/c^2,0)$、ゆえに
+**詳細解答**。$N_x=\alpha x/c^2$、$N_y=\beta y/c^2$ なので原点で勾配は零です。一般に $\Gamma^i_{tt}=c^2N\partial_iN$、$\Gamma^t_{ti}=\partial_iN/N$（$i=x,y$）だから、原点で接続係数は零、$\nabla_uu=0$。空間計量はEuclidなので $e_{(0)}=(cN)^{-1}\partial_t$、$e_{(i)}=\partial_i$ は原点で直交・平行です。曲率式を二方向で導くには、$N_i=\partial_iN$ と置き、$\nabla_t\partial_t=c^2N\sum_iN_i\partial_i$ と $\nabla_j\partial_t=(N_j/N)\partial_t$ を使います。座標方向は可換なので
+
+$$
+\begin{aligned}
+R(\partial_j,\partial_t)\partial_t
+&=\nabla_j\nabla_t\partial_t-\nabla_t\nabla_j\partial_t\\
+&=c^2\sum_i\left[\partial_j(NN_i)-\frac{N_j}{N}NN_i\right]\partial_i\\
+&=c^2N\sum_i(\partial_j\partial_iN)\partial_i.
+\end{aligned}
+$$
+
+原点のHessianは $\operatorname{diag}(\alpha/c^2,\beta/c^2,0)$、ゆえに
 
 $$
 \mathcal E=\operatorname{diag}(\alpha/c^2,\beta/c^2,0),\quad
@@ -473,7 +515,7 @@ Newton相対加速度は $-\operatorname{Hess}\Phi\,\boldsymbol\xi$ です。$x$
 一定の $\mathcal E_{11}=k>0$ の区間で $\xi^{(1)}(0)=L$、$\dot\xi^{(1)}(0)=V$ とする。$\xi^{(1)}(\tau)$ を導き、$V=0$ の場合と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。$\omega=c\sqrt{k}>0$ を置けば $\ddot\xi+\omega^2\xi=0$。一般解 $\xi=A\cos(\omega\tau)+B\sin(\omega\tau)$ の $\tau=0$ から $A=L$、微分して $\dot\xi(0)=B\omega=V$ より $B=V/\omega$。よって
+**詳細解答**。[潮汐相対加速度の命題](#prop-gr5-frame-deviation)に $\mathcal E_{11}=k$ を代入し、$\omega=c\sqrt{k}>0$ を置けば $\ddot\xi+\omega^2\xi=0$。一般解 $\xi=A\cos(\omega\tau)+B\sin(\omega\tau)$ の $\tau=0$ から $A=L$、微分して $\dot\xi(0)=B\omega=V$ より $B=V/\omega$。よって
 
 $$
 \xi^{(1)}(\tau)=L\cos(\omega\tau)+\frac{V}{\omega}\sin(\omega\tau).
