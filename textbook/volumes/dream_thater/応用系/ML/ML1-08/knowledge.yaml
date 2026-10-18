@@ -1,0 +1,80 @@
+chapter: ML1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-07
+  - ML1-03
+  - F0-00P7
+concepts:
+  - id: learning.logistic-sigmoid
+    name: logistic関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（logistic関数）"]
+    requires: []
+  - id: learning.logistic-regression
+    name: logistic回帰模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（logistic回帰模型）"]
+    requires: [learning.logistic-sigmoid, learning.generative-posterior]
+  - id: learning.binary-log-loss
+    name: 二値対数損失と経験負対数尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値対数損失と経験負対数尤度）"]
+    requires: [learning.logistic-regression, learning.empirical-risk-minimization]
+  - id: learning.log-loss-conditional-optimality
+    name: 二値対数損失の条件付き最適性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二値対数損失の条件付き最適性）"]
+    requires: [learning.binary-log-loss]
+  - id: learning.logistic-gradient-hessian
+    name: 二値logistic損失の勾配とHessian
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二値logistic損失の勾配とHessian）"]
+    requires: [learning.binary-log-loss, convex.hessian-convexity]
+  - id: learning.softmax-regression
+    name: softmax回帰模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（softmax回帰模型）"]
+    requires: [learning.logistic-regression]
+  - id: learning.softmax-log-loss
+    name: softmaxの経験対数損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（softmaxの経験対数損失）"]
+    requires: [learning.softmax-regression, learning.binary-log-loss]
+  - id: learning.softmax-derivatives-convexity
+    name: softmax損失の勾配・Hessian・凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（softmax損失の勾配・Hessian・凸性）"]
+    requires: [learning.softmax-log-loss, convex.hessian-convexity]
+  - id: learning.softmax-common-shift
+    name: softmaxの共通シフト不変性と二値logisticへの還元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（softmaxの共通シフト不変性と二値logisticへの還元）"]
+    requires: [learning.softmax-regression, learning.logistic-regression]
+  - id: learning.complete-separation
+    name: 二値標本の完全分離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値標本の完全分離）"]
+    requires: [learning.logistic-regression]
+  - id: learning.separation-no-logistic-mle
+    name: 完全分離なら非正則化logistic最小点は存在しない
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全分離なら非正則化logistic最小点は存在しない）"]
+    requires: [learning.complete-separation, learning.binary-log-loss]
+  - id: learning.regularized-logistic-existence
+    name: 二乗罰則付きlogistic目的の一意な最小点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二乗罰則付きlogistic目的の一意な最小点）"]
+    requires: [learning.logistic-gradient-hessian, learning.regularized-erm]

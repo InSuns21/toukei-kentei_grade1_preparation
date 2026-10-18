@@ -1,0 +1,57 @@
+id: "ML1-08"
+title: "Logistic/softmax回帰・対数損失"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-07
+  - ML1-03
+  - F0-00P7
+official_scope: []
+learning_objectives:
+  - 生成的分類と判別的分類の確率のモデル化の違いを説明できる
+  - logistic関数・オッズ・二値の条件付き対数尤度から対数損失を導ける
+  - 二値対数損失の条件付き期待値が真の確率で最小になることと境界例を証明できる
+  - logistic経験負対数尤度の勾配とHessianを導き半正定値性・フルランク下の厳密凸性を証明できる
+  - LDAの共有共分散の対数事後オッズをlogistic形へ変換できる
+  - softmaxの正規化・対数損失・勾配・Hessianの分散表示を導ける
+  - softmax係数の共通シフト不変性と基準クラス固定による二値logisticへの還元を説明できる
+  - 完全分離が非正則化logistic最小点の非存在を起こすことを証明できる
+  - 全係数二乗罰則のもとで最小点の存在と一意性を保証できる
+  - 数値安定なlog-sum-expと有限差分によって式を検算できる
+definitions:
+  - { id: ML1-08-DEF-00, name: logistic関数 }
+  - { id: ML1-08-DEF-01, name: logistic回帰模型 }
+  - { id: ML1-08-DEF-02, name: 二値対数損失と経験負対数尤度 }
+  - { id: ML1-08-DEF-03, name: softmax回帰模型 }
+  - { id: ML1-08-DEF-04, name: softmaxの経験対数損失 }
+  - { id: ML1-08-DEF-05, name: 二値標本の完全分離 }
+theorems:
+  - { id: ML1-08-THM-01, name: 二値対数損失の条件付き最適性 }
+  - { id: ML1-08-THM-02, name: 二値logistic損失の勾配とHessian }
+  - { id: ML1-08-THM-03, name: softmax損失の勾配・Hessian・凸性 }
+  - { id: ML1-08-PROP-01, name: softmaxの共通シフト不変性と二値logisticへの還元 }
+  - { id: ML1-08-THM-04, name: 完全分離なら非正則化logistic最小点は存在しない }
+  - { id: ML1-08-THM-05, name: 二乗罰則付きlogistic目的の一意な最小点 }
+canonical_examples:
+  - 二値logisticのオッズと対数損失の直接計算
+  - 真のBernoulli確率に対する期待対数損失の最小化
+  - 二標本におけるHessianの正定値性と勾配
+  - 共有共分散LDAの事後オッズのlogistic表示
+  - 三クラスsoftmaxの正規化と共通シフト
+  - 二点完全分離の非正則化最適解非存在と二乗罰則
+  - log-sum-expと解析微分のPython数値検算
+problem_patterns:
+  - ML1-08-A01
+  - ML1-08-A02
+  - ML1-08-A03
+  - ML1-08-A04
+  - ML1-08-A05
+  - ML1-08-B01
+  - ML1-08-B02
+  - ML1-08-B03
+  - ML1-08-B04
+  - ML1-08-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
