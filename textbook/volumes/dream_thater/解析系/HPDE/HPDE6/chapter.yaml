@@ -22,7 +22,6 @@ definitions:
   - { id: HPDE6-DEF-02, name: 滑らかなCauchyデータと源 }
   - { id: HPDE6-DEF-03, name: 局所Sobolev初期データ }
 theorems:
-  - { id: HPDE6-PROP-01, name: 未来単位法線とlapse }
   - { id: HPDE6-PROP-02, name: 法線データは一階の全微分を決める }
   - { id: HPDE6-PROP-03, name: 空間的初期面の非特性性 }
   - { id: HPDE6-PROP-04, name: 滑らかな切断は局所Sobolev }
