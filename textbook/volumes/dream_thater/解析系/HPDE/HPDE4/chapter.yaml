@@ -1,0 +1,53 @@
+id: "HPDE4"
+title: "ベクトル束・接続・形式的随伴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE3
+  - GPDE2
+official_scope: []
+learning_objectives:
+  - 束接続を定義し接続係数の枠変換則を導出・逆向きにも検算できる
+  - 双対接続の符号と係数行列を縮約の積の規則から導出できる
+  - 密度値双対試験切断に作用する形式的双対を構成し存在一意性を証明できる
+  - 変係数微分作用素の形式的双対を部分積分で計算できる
+  - 密度付き発散を定義し接続の形式的双対に現れる項を導ける
+  - 正定値Hermite束計量から形式的随伴を構成し複素共役を追跡できる
+  - 計量両立接続の随伴を証明し非両立の反例と境界項を診断できる
+  - 束値超関数への微分作用素の延長と支持包含を証明できる
+definitions:
+  - { id: HPDE4-DEF-01, name: 束接続 }
+  - { id: HPDE4-DEF-02, name: 双対接続 }
+  - { id: HPDE4-DEF-03, name: 密度値の形式的双対 }
+  - { id: HPDE4-DEF-04, name: 密度に関する発散 }
+  - { id: HPDE4-DEF-05, name: 正定値Hermite束計量 }
+  - { id: HPDE4-DEF-06, name: 束計量・密度に関する形式的随伴 }
+theorems:
+  - { id: HPDE4-PROP-01, name: 接続係数の枠変換則 }
+  - { id: HPDE4-THM-01, name: 形式的双対の存在・一意性と局所公式 }
+  - { id: HPDE4-PROP-02, name: 接続の微分の形式的双対 }
+  - { id: HPDE4-PROP-03, name: 形式的双対と随伴の関係 }
+  - { id: HPDE4-PROP-04, name: 計量両立な接続の形式的随伴 }
+  - { id: HPDE4-PROP-05, name: 線形微分作用素の超関数への延長 }
+canonical_examples:
+  - ランク1束の枠の指数変換
+  - ランク2束の接続と双対接続の縮約
+  - 複素変係数の形式的双対と非共役性
+  - 密度の対数微分と発散
+  - Hermite行列の非対角表示
+  - 正定値束計量と密度に関する随伴計算
+  - 計量非両立接続・自己随伴でない微分作用素
+  - 点源の超関数微分
+problem_patterns:
+  - HPDE4-GAUGE-TRANSFORMATION
+  - HPDE4-DUAL-CONNECTION
+  - HPDE4-VARIABLE-TRANSPOSE
+  - HPDE4-DIVERGENCE
+  - HPDE4-SECOND-ORDER-TRANSPOSE
+  - HPDE4-HERMITIAN-ADJOINT
+  - HPDE4-NONMETRIC-CONNECTION
+  - HPDE4-INTEGRATED-DISTRIBUTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
