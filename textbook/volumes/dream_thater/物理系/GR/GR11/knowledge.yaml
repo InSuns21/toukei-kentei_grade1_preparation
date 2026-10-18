@@ -1,0 +1,37 @@
+chapter: GR11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR10
+  - LORG4
+concepts:
+  - id: gravity.boundary-induced-metric
+    name: 非光的境界の単位法線と誘導計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非光的境界の単位法線と誘導計量）"]
+    requires: [lorentz-geometry.lorentz-inner-product, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.boundary-extrinsic-curvature
+    name: 境界の第二基本形式と平均曲率の跡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界の第二基本形式と平均曲率の跡）"]
+    requires: [gravity.boundary-induced-metric, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.einstein-hilbert-boundary-flux
+    name: Einstein–Hilbert変分の境界流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Einstein–Hilbert変分の境界流束）"]
+    requires: [gravity.einstein-hilbert-variation, gravity.boundary-induced-metric]
+  - id: gravity.ghy-boundary-action
+    name: Gibbons–Hawking–York境界作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gibbons–Hawking–York境界作用）"]
+    requires: [gravity.einstein-hilbert-action, gravity.boundary-extrinsic-curvature]
+  - id: gravity.ghy-dirichlet-variation
+    name: GHY項を加えたDirichlet型計量変分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（GHY項を加えたDirichlet型計量変分）"]
+    requires: [gravity.ghy-boundary-action, gravity.einstein-hilbert-boundary-flux, gravity.inverse-metric-variation-identity]
