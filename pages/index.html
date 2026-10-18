@@ -702,7 +702,7 @@
         content.querySelectorAll('img[src]').forEach(function (img) {
           if (img.dataset.svgEnlargeReady === 'true') return;
           var src = img.getAttribute('src') || '';
-          if (!/\\.svg(?:[?#]|$)/i.test(src)) return;
+          if (!/\.svg(?:[?#]|$)/i.test(src)) return;
           img.dataset.svgEnlargeReady = 'true';
           var link = document.createElement('a');
           link.className = 'svg-enlarge-action';
