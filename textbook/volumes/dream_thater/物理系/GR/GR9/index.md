@@ -172,7 +172,7 @@ F_{\mu\nu}:=\nabla_\mu A_\nu-\nabla_\nu A_\mu
 =\partial_\mu A_\nu-\partial_\nu A_\mu
 $$
 
-と置きます。最後の等号にはLevi-Civita接続の $\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$ を使いました。$F_{\mu\nu}=-F_{\nu\mu}$ は定義から直ちに従います。さらに **閉形式条件** は反対称性だけではなく、$F$ がポテンシャルから作られたことに由来します。$A$ の二階偏微分が交換できるので、
+と置きます。最後の等号にはLevi-Civita接続の $\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$ を使いました。$F_{\mu\nu}=-F_{\nu\mu}$ は定義から直ちに従います。さらに $F$ は反対称であるだけでなく、ポテンシャルから作られたことにより、次の巡回和も零になります。$A$ の二階偏微分が交換できるので、
 
 <a id="eq-gr9-electromagnetic-closure"></a>
 
