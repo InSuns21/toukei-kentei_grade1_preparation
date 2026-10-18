@@ -37,7 +37,7 @@ chapters:
     title: "生成的分類・Naive Bayes・LDA/QDA"
   - id: ML1-08
     path: textbook/volumes/dream_thater/応用系/ML/ML1-08
-    status: planned
+    status: completed
     title: "Logistic/softmax回帰・対数損失"
   - id: ML1-09
     path: textbook/volumes/dream_thater/応用系/ML/ML1-09
