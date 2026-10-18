@@ -1,0 +1,57 @@
+chapter: GR10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR8
+  - GR7
+  - GR6
+  - AMECH2
+concepts:
+  - id: gravity.inverse-metric-variation
+    name: 逆計量変分と跡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆計量変分と跡）"]
+    requires: [lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.inverse-metric-variation-identity
+    name: 計量と逆計量の変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（計量と逆計量の変分）"]
+    requires: [gravity.inverse-metric-variation]
+  - id: gravity.lorentz-volume-density
+    name: Lorentz体積密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lorentz体積密度）"]
+    requires: [gravity.inverse-metric-variation, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.lorentz-volume-variation
+    name: 体積密度の変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積密度の変分）"]
+    requires: [gravity.lorentz-volume-density, gravity.inverse-metric-variation-identity]
+  - id: gravity.levi-civita-variation
+    name: Levi-Civita接続の変分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Levi-Civita接続の変分）"]
+    requires: [gravity.inverse-metric-variation-identity, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.palatini-identity
+    name: Palatini恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Palatini恒等式）"]
+    requires: [gravity.levi-civita-variation, gravity.curvature-components-lorentz]
+  - id: gravity.einstein-hilbert-action
+    name: Einstein–Hilbert作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Einstein–Hilbert作用）"]
+    requires: [gravity.lorentz-volume-density, gravity.lorentz-scalar-curvature]
+  - id: gravity.einstein-hilbert-variation
+    name: Einstein–Hilbert作用の計量変分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Einstein–Hilbert作用の計量変分）"]
+    requires: [gravity.einstein-hilbert-action, gravity.lorentz-volume-variation, gravity.palatini-identity, gravity.einstein-tensor]
