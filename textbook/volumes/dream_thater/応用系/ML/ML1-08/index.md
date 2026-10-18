@@ -1,7 +1,6 @@
 # ML1-08 Logistic/softmax回帰・対数損失
 
 <!-- definition-example-audit: strict -->
-<!-- DT-REVIEW: ML1-08 -->
 
 ## 1. 分布を作る分類から、条件付き確率を直接学習する分類へ
 
