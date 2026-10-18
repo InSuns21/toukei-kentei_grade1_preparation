@@ -995,6 +995,7 @@
 5. [ML1-05 Ridge回帰・縮小・偏りと分散](textbook/volumes/dream_thater/応用系/ML/ML1-05/index.md)
 6. [ML1-06 Lasso・疎性・近接写像](textbook/volumes/dream_thater/応用系/ML/ML1-06/index.md)
 7. [ML1-07 生成的分類・Naive Bayes・LDA/QDA](textbook/volumes/dream_thater/応用系/ML/ML1-07/index.md)
+8. [ML1-08 Logistic/softmax回帰・対数損失](textbook/volumes/dream_thater/応用系/ML/ML1-08/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
