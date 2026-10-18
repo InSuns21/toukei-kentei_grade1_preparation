@@ -133,7 +133,30 @@ $$
 先行する[GEO16のRicci曲率・スカラー曲率](../../../幾何系/GEO/GEO16/index.md#def-geo16-ricci-scalar)はRiemann計量上の同じ縮約です。Lorentz計量でも逆行列を使うという仕組みは変わりませんが、正規直交基底での符号が変わります。
 
 <!-- definition-example-start: def-gr6-ricci-scalar -->
-**定義の確認**：Minkowski時空。 座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で計量行列を $\operatorname{diag}(-1,1,1,1)$ とします。行列は非退化で逆行列も同じです。計量成分は定数です。[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式に代入すると $\Gamma^\rho_{\mu\nu}=0$。四項の曲率公式の各項が零だから $R^\rho{}_{\sigma\mu\nu}=0$、従って縮約した $\operatorname{Ric}_{\sigma\nu}=0$、さらに $\mathcal R=0$ です。これは座標行列の値を言うだけでなく、曲率から二段階で縮約する定義を確認したものです。
+**定義の確認**：Minkowski時空。座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で
+
+$$
+ds^2=-(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
+$$
+
+とします。計量行列の各成分は、座標基底の二つのベクトルの内積です。この線素の係数を読み取ると
+
+$$
+g_{\mu\nu}=g(\partial_\mu,\partial_\nu),\qquad
+(g_{\mu\nu})=\operatorname{diag}(-1,1,1,1)
+$$
+
+となります。行列式は $-1\ne0$ なので非退化であり、逆行列も同じ対角行列です。こうして逆計量による縮約が定義できます。
+
+また計量成分はすべて定数なので、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式の各微分は零となり、$\Gamma^\rho_{\mu\nu}=0$ です。[四項の曲率公式](#prop-gr6-coordinate-curvature)では微分項も接続係数の積も零です。従って
+
+$$
+R^\rho{}_{\sigma\mu\nu}=0,\qquad
+\operatorname{Ric}_{\sigma\nu}=R^\rho{}_{\sigma\rho\nu}=0,\qquad
+\mathcal R=g^{\sigma\nu}\operatorname{Ric}_{\sigma\nu}=0.
+$$
+
+計量から座標行列を作る理由、非退化性、接続、二段階の縮約を順に確認しました。
 <!-- definition-example-end -->
 
 <a id="prop-gr6-orthonormal-contraction"></a>
@@ -164,34 +187,40 @@ $$
 <!-- proof-start -->
 ### 証明
 
-直交基底で計量行列は $\operatorname{diag}(-1,1,1,1)$ です。各 $\varepsilon_a^2=1$ なので逆行列も $\operatorname{diag}(\varepsilon_0,\ldots,\varepsilon_3)$ です。[Ricci曲率の定義](#def-gr6-ricci-scalar)でこの逆計量を用い、各引数を成分展開すれば
+[Ricci曲率の定義](#def-gr6-ricci-scalar)の $\operatorname{Ric}_{\sigma\nu}=R^\rho{}_{\sigma\rho\nu}$ では、自由添字 $\sigma$ は曲率の「作用されるベクトル」、$\nu$ は「第二方向」を表します。従って $Y=Y^\sigma\partial_\sigma$、$Z=Z^\nu\partial_\nu$ と成分展開すると、**まだRicciの対称性を使わずに**
 
 $$
 \begin{aligned}
 \operatorname{Ric}(Y,Z)
-&=g^{\rho\alpha}
-  g(R(\partial_\rho,Y)Z,\partial_\alpha)\\
-&=\sum_a\varepsilon_a g(R(e_a,Y)Z,e_a)
+&=Y^\sigma Z^\nu g^{\rho\alpha}
+  g(R(\partial_\rho,\partial_\nu)\partial_\sigma,\partial_\alpha)\\
+&=g^{\rho\alpha}g(R(\partial_\rho,Z)Y,\partial_\alpha)
 \end{aligned}
 $$
 
-を得ます。第一行は任意の基底でのテンソル縮約だから、第二行も直交基底の取り替えに依存しません。
+を得ます。直交基底では $g(e_a,e_b)=\varepsilon_a\delta_{ab}$、$\varepsilon_a^2=1$ なので、逆計量の成分も $g^{ab}=\varepsilon_a\delta^{ab}$ です。上式をこの基底で表すと
 
-対称性には[曲率テンソルの対交換・反対称性](../../../幾何系/GEO/GEO16/index.md#thm-geo16-curvature-symmetries)を使います。各 $a$ に対して
+$$
+\operatorname{Ric}(Y,Z)
+=\sum_{a=0}^3\varepsilon_a g(R(e_a,Z)Y,e_a).
+$$
+
+この縮約は任意の基底で定義したテンソルの値なので、直交基底を取り替えても変わりません。次に[曲率テンソルの対交換・反対称性](../../../幾何系/GEO/GEO16/index.md#thm-geo16-curvature-symmetries)を使います。各 $a$ について
 
 $$
 \begin{aligned}
 g(R(e_a,Z)Y,e_a)
 &=\operatorname{Rm}(e_a,Z,Y,e_a)\\
 &=\operatorname{Rm}(Y,e_a,e_a,Z)\\
+&=-\operatorname{Rm}(e_a,Y,e_a,Z)\\
 &=\operatorname{Rm}(e_a,Y,Z,e_a)
 \end{aligned}
 $$
 
-です。最後は前二変数と後二変数の反対称性をそれぞれ一回使っています。この式に $\varepsilon_a$ を掛けて和を取れば $\operatorname{Ric}(Z,Y)=\operatorname{Ric}(Y,Z)$。最後にスカラー曲率の定義で逆計量の対角要素を掛ければ表示式になります。$\square$
+となります.第二の等号には対交換、第三・第四の等号にはそれぞれ前二変数・後二変数の反対称性を用いました。$\varepsilon_a$ を掛けて和を取ると $\operatorname{Ric}(Y,Z)=\operatorname{Ric}(Z,Y)$ が従い、同時に命題の $\sum_a\varepsilon_a g(R(e_a,Y)Z,e_a)$ という表示も得ます。最後にスカラー曲率の[定義](#def-gr6-ricci-scalar)へ逆計量 $\operatorname{diag}(-1,1,1,1)$ を代入すると、時間方向の負符号を含む表示式になります。$\square$
 <!-- proof-end -->
 
-[GR4の局所直交枠](../GR4/index.md#def-gr4-observer-frame)で未来向き四元速度を $u=ce_0$ とすると、[GR5の潮汐行列](../GR5/index.md#def-gr5-tidal-matrix)は $\mathcal E_{ij}=g(R(e_i,e_0)e_0,e_j)$ です。ここで $R(e_0,e_0)=0$ だから
+[GR4の局所直交枠](../GR4/index.md#def-gr4-observer-frame)で未来向き四元速度を $u=ce_0$ とすると、[GR5の潮汐行列](../GR5/index.md#def-gr5-tidal-matrix)は $\mathcal E_{ij}=g(R(e_j,e_0)e_0,e_i)$ です。縮約では対角成分 $i=j$ だけを使い、$R(e_0,e_0)=0$ だから
 
 $$
 \boxed{\operatorname{Ric}(u,u)
