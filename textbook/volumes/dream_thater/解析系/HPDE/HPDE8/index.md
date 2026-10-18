@@ -545,7 +545,7 @@ Pu&=(\partial_t+a)^2u-\partial_x^2u\\
 &=(\partial_t^2-\partial_x^2)u+2a\partial_tu+a^2u.
 \end{aligned}
 $$
-従って $B^t=2a$、$B^x=0$、$C=a^2$ です。(iii) 正にずらした作用素 $P_\lambda^D=\partial_t^2-\partial_x^2+\lambda$ に対して
+従って $B^t=2a$、$B^x=0$、$C=a^2$ です。ここで第5節の接続差を直接確かめると $A_t=a$、$A_x=0$、$\nabla^D A=0$ なので、一般式からも $B^t=-2g^{tt}A_t=2a$、$C=-g^{tt}A_t^2=a^2$ を得ます。これで一階・零階係数がどの接続差から生まれたかを照合できました。(iii) 正にずらした作用素 $P_\lambda^D=\partial_t^2-\partial_x^2+\lambda$ に対して
 $$
 P_\lambda^D u=f-2a\,u_t+(\lambda-a^2)u.
 $$
