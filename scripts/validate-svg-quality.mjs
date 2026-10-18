@@ -70,11 +70,17 @@ function inspect(svg, location, markdown = null) {
     if (!meaningful) error('Meaningful <' + name + '> required.');
   }
   for (const id of refs) if (!ids.has(id)) error('Missing local SVG ID reference: #' + id);
+  let minMobileFont = Infinity;
+  let mobileSmallCount = 0;
   for (const text of svg.matchAll(/<text\b([^>]*)>([\s\S]*?)<\/text\s*>/gu)) {
     const label = text[2].replace(/<[^>]*>/gu, '').trim();
     if (label.length > 36) warn('Visible label is too long; move prose to Markdown.');
     const font = /\bfont-size\s*=\s*["']([\d.]+)["']/u.exec(text[1]);
-    if (font && Number(font[1]) < 12) warn('Small SVG label (font-size < 12 user units); check mobile rendering.');
+    if (font) {
+      const mobilePx = Number(font[1]) * Math.min(1, 360 / box[2]);
+      minMobileFont = Math.min(minMobileFont, mobilePx);
+      if (mobilePx < 12) mobileSmallCount += 1;
+    }
     const x = /\bx\s*=\s*["']([-+]?\d+(?:\.\d+)?)["']/u.exec(text[1]);
     const y = /\by\s*=\s*["']([-+]?\d+(?:\.\d+)?)["']/u.exec(text[1]);
     if (box.length === 4 && box.every(Number.isFinite) && x && y && !/\btransform\s*=/u.test(text[1])) {
@@ -83,6 +89,10 @@ function inspect(svg, location, markdown = null) {
         warn('Text anchor outside viewBox; inspect clipping (transforms and glyph extents require rendered review).');
       }
     }
+  }
+  if (mobileSmallCount) {
+    warn(mobileSmallCount + ' explicitly sized text label(s) may fall below 12px at 360px width; smallest estimated ' +
+      minMobileFont.toFixed(1) + 'px. This is advisory, not a claim about final CSS scaling or text rendered from styles.');
   }
   if (markdown !== null) {
     const filename = path.basename(location).replaceAll('.', '\\.');
