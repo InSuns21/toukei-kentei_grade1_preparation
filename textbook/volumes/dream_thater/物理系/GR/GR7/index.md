@@ -4,7 +4,7 @@
 
 [GR6のRicci曲率・スカラー曲率](../GR6/index.md#def-gr6-ricci-scalar)では、Riemann曲率の情報を順に二階テンソルと一つの数へ縮約しました。では、その二つを物理的な重力場の方程式に用いるとき、任意の組合せを選べるのでしょうか。
 
-自由落下の相対加速度を記述する曲率には、各点での対称性だけでなく、隣り合う点の間で変化する仕方にも制約があります。この制約が**第二Bianchi恒等式**です。微分の順序を追い、二度縮約すると、Ricci曲率とスカラー曲率に特別な係数で結びついた、共変発散が必ず消えるテンソルに到達します。これがEinsteinテンソルです。
+自由落下の相対加速度を記述する曲率には、各点での対称性だけでなく、隣り合う点の間で変化する仕方にも制約があります。この制約が**第二Bianchi恒等式**です。微分の順序を追い、二度縮約すると、Ricci曲率とスカラー曲率に特別な係数で結びついた、共変発散が必ず消えるテンソルに到達します。この特別な組合せを第4節で定義します。
 
 以下、$(M,g)$ は滑らかな4次元Lorentz多様体で、$g$ の符号は $(-,+,+,+)$、$\nabla$ は[LORG4のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)とします。局所座標では上下で重複する添字を $0,1,2,3$ について和を取り、$x^0=ct$ を使う場合はその旨を明示します。曲率演算子はGR6と同じ
 
@@ -103,7 +103,7 @@ $$
 x^\rho=y^\rho-\frac12\Gamma^\rho_{\mu\nu}(p)y^\mu y^\nu
 $$
 
-と二次補正すると、原点でJacobianは恒等行列です。従って逆関数定理により近傍で座標を成し、接続係数の変換式に現れる二階微分が旧座標の $\Gamma(p)$ を打ち消します。よってこの座標では $\Gamma(p)=0$ です。これは正定値性を要求しません。
+と二次補正すると、原点でJacobianは恒等行列です。従って[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により近傍で座標を成し、接続係数の変換式に現れる二階微分が旧座標の $\Gamma(p)$ を打ち消します。よってこの座標では $\Gamma(p)=0$ です。これは正定値性を要求しません。
 
 [GR6の四項公式](../GR6/index.md#prop-gr6-coordinate-curvature)では、$p$ において接続係数の積は零なので
 
@@ -178,7 +178,7 @@ g^{ac}\nabla_eR_{abcd}
 +g^{ac}\nabla_dR_{abec}=0.
 $$
 
-まず[GR6のRicci定義](../GR6/index.md#def-gr6-ricci-scalar)により
+まず[Ricci曲率の定義](../GR6/index.md#def-gr6-ricci-scalar)により
 
 $$
 g^{ac}R_{abcd}=\operatorname{Ric}_{bd}.
@@ -364,7 +364,7 @@ GR6で求めた $(n-1)K$ と $n(n-1)K$ を両方定義式に代入します。
 <!-- proof-start -->
 ### 証明
 
-[GR6の定曲率縮約命題](../GR6/index.md#prop-gr6-constant-curvature)により、仮定の曲率では $\operatorname{Ric}=(n-1)Kg$、$\mathcal R=n(n-1)K$。ゆえに
+[一定の曲率形を持つLorentz時空の縮約](../GR6/index.md#prop-gr6-constant-curvature)により、仮定の曲率では $\operatorname{Ric}=(n-1)Kg$、$\mathcal R=n(n-1)K$。ゆえに
 
 $$
 \begin{aligned}
@@ -687,7 +687,7 @@ $n=2$ では $0$、$n=3$ では $-\mathcal R/2$、$n=4$ では $-\mathcal R$ で
 $N=1+\alpha xy>0$ の原点近傍で、$ds^2=-c^2N^2dt^2+dx^2+dy^2+dz^2$、$\alpha\ne0$ とする。$G_{yx}$、$\partial_yG_{yx}$、時間方向からの接続補正を求め、$\nabla^\mu G_{\mu x}=0$ を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $N_x=\alpha y$、$N_y=\alpha x$、$N_{xy}=\alpha$、$\Delta N=0$ です。[静的lapseの命題](#prop-gr7-static-lapse-einstein)により
+**詳細解答。** $N_x=\alpha y$、$N_y=\alpha x$、$N_{xy}=\alpha$、$\Delta N=0$ です。[静的lapse模型のEinsteinテンソルと発散](#prop-gr7-static-lapse-einstein)により
 
 $$
 G_{yx}=-\alpha/N,\quad
@@ -731,7 +731,7 @@ $$
 =\kappa\nabla^\mu T_{\mu\nu}.
 $$
 
-$\kappa\ne0$ より $\nabla^\mu T_{\mu\nu}=0$ です。しかしこれは**仮定した場の方程式の必要条件**であり、恒等式からその方程式の成立や結合定数の値を証明したことにはなりません。物質作用・重力作用の選択などは後続のGR9–GR12で扱います。
+$\kappa\ne0$ より $\nabla^\mu T_{\mu\nu}=0$ です。しかしこれは仮定した場の方程式からの必要条件であり、恒等式からその方程式の成立や結合定数の値を証明したことにはなりません。物質作用・重力作用の選択などは後続のGR9–GR12で扱います。
 <!-- solution-end -->
 
 ### Level C
