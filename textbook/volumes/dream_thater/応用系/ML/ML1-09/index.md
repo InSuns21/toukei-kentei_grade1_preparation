@@ -46,7 +46,7 @@ $$
 
 線分上の $w=v+t(u-v)$ で任意の $h$ に $\|\nabla^2f(w)h\|_2\le L\|h\|_2$ が成り立つとする。$a=u-v$、$b=\int_0^1\nabla^2f(v+ta)a\,dt$ と置く。$b=0$ なら $\|b\|_2\le L\|a\|_2$ は直ちに成り立つ。$b\ne0$ の場合は単位ベクトル $e=b/\|b\|_2$ を選び、Cauchy–Schwarz不等式を各被積分関数に使うと
 
-$
+$$
 \begin{aligned}
 \|b\|_2
 &=\langle e,b\rangle
@@ -54,7 +54,7 @@ $
 &\le\int_0^1\|\nabla^2f(v+ta)a\|_2\,dt
 \le\int_0^1L\|a\|_2\,dt=L\|a\|_2.
 \end{aligned}
-$
+$$
 
 最初の積分表示から $b=\nabla f(u)-\nabla f(v)$ なので、滑らかさの定義に到達した。Hessianが対称半正定値なら、最大固有値が全域で $L$ 以下であることを示せば足りる。**行列の固有値を計算する理由**は、勾配変化の最大倍率を全方向にわたって抑えるためである。
 
@@ -200,16 +200,16 @@ $$
 
 さらに $w=0$ ではすべての予測確率が $q_i=1/2$ となり、Hessianは
 
-$
+$$
 \nabla^2G(0)=\frac1{4n}Z^{\mathsf T}Z
-$
+$$
 
 である。その最大固有値に対応する単位固有ベクトル $h$ を取ると、勾配の微分可能性から
 
-$
+$$
 \lim_{t\to0}\frac{\|\nabla G(th)-\nabla G(0)\|_2}{|t|}
 =\|\nabla^2G(0)h\|_2=L_G.
-$
+$$
 
 もし $L_G$ より小さい全域Lipschitz定数が存在すればこの極限値を上から抑えられず、矛盾する。したがって求めた定数は最小である。$\square$
 <!-- proof-end -->
@@ -293,19 +293,19 @@ $0<\alpha<2/L$ なら係数は正であり、$\alpha=1/L$ を代入すれば $\a
 > **命題（二次損失で安全域が鋭い例）**  
 > $L>0$ とし、二次損失 $f(w)=Lw^2/2$ に固定歩幅更新を適用する。このとき
 
-$
+$$
 w_{k+1}=(1-\alpha L)w_k.
-$
+$$
 
 > 初期値 $w_0\ne0$ なら、歩幅に応じて次の3場合となる。
 
-$
+$$
 \begin{aligned}
 0<\alpha<2/L&:\quad w_k\longrightarrow0,\\
 \alpha=2/L&:\quad w_k=(-1)^kw_0,\quad f(w_k)=f(w_0),\\
 \alpha>2/L&:\quad |w_k|\longrightarrow\infty,\quad f(w_k)\longrightarrow\infty.
 \end{aligned}
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -549,9 +549,9 @@ $$
 
 $X=\operatorname{diag}(1,3)$、$y=0$、$n=2$、$w_0=(2,1)^{\mathsf T}$ とする。二乗損失
 
-$
+$$
 F(w)=\frac{\|Xw\|_2^2}{2n}
-$
+$$
 
 について次を求めよ。
 
