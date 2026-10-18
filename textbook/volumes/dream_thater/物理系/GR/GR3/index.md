@@ -519,7 +519,24 @@ dX^1&=cN\sinh\theta\,dt+\cosh\theta\,dx.
 \end{aligned}
 $$
 
-従って $-(dX^0)^2+(dX^1)^2$ の $dt\,dx$ 係数は $-2cN\cosh\theta\sinh\theta+2cN\sinh\theta\cosh\theta=0$。$dt^2$ の係数は $-c^2N^2(\cosh^2-\sinh^2)=-c^2N^2$、$dx^2$ の係数は $\cosh^2-\sinh^2=1$ です。よって $-(dX^0)^2+(dX^1)^2=-c^2N^2dt^2+dx^2$。領域 $N>0$ で座標変換のJacobi行列式は $cN\ne0$ なので、これは正則な座標変換です。非零Christoffel係数だけから曲率非零は結論できません。
+従って $-(dX^0)^2+(dX^1)^2$ の各項を比較すると、
+
+$$
+\begin{aligned}
+[dt\,dx]\colon&-2cN\cosh\theta\sinh\theta
++2cN\sinh\theta\cosh\theta=0,\\
+[dt^2]\colon&-c^2N^2(\cosh^2\theta-\sinh^2\theta)=-c^2N^2,\\
+[dx^2]\colon&\cosh^2\theta-\sinh^2\theta=1.
+\end{aligned}
+$$
+
+従って
+
+$$
+-(dX^0)^2+(dX^1)^2=-c^2N^2dt^2+dx^2.
+$$
+
+領域 $N>0$ では座標変換のJacobi行列式が $cN>0$ なので、これは正則な座標変換です。非零Christoffel係数だけから曲率非零は結論できません。
 <!-- solution-end -->
 
 <a id="ex-gr3-b04"></a>
