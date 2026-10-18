@@ -8,7 +8,7 @@
 
 二乗罰則は原点で滑らかだが、絶対値には原点で角がある。この角が0を最適解として許す範囲を作る。すでに学んだ[劣勾配・劣微分](../../OPT/OPT3/index.md#def-opt3-subgradient)は微分できない点でも最適性を判定できる道具であり、[近接作用素](../../OPT/OPT8/index.md#def-opt8-proximal-mapping)はその判定を反復計算に移す。本章ではこれらを**学習標本の二乗損失**へ代入し、正規化係数を保ったまま疎性の仕組みを求める。
 
-まず $n,p\ge1$、$X\in\mathbb R^{n\times p}$、$y\in\mathbb R^n$ は観測後に固定した値とする。[設計行列と線形予測](../ML1-04/index.md#def-ml1-04-design-matrix)に従い、$X$ の第 $j$ 列を特徴量の観測ベクトル $x_j\in\mathbb R^n$ と書けば、予測値は $X\beta=\sum_{j=1}^p x_j\beta_j$ である。切片は当面含めず、最後に切片を罰しない場合を考える。確率模型や正規誤差は最適化の議論には必要ない。
+まず $n,p\ge1$、$X\in\mathbb R^{n\times p}$、$y\in\mathbb R^n$ は観測後に固定した値とする。[設計行列と線形予測](../ML1-04/index.md#def-ml1-04-design-matrix)に従い、$X$ の第 $j$ 列を特徴量の観測ベクトル $x_j\in\mathbb R^n$ と書く。係数 $\beta=(\beta_1,\ldots,\beta_p)^{\mathsf T}\in\mathbb R^p$ のとき、予測値は $X\beta=\sum_{j=1}^p x_j\beta_j$ となる。切片は当面含めず、最後に切片を罰しない場合を考える。確率模型や正規誤差は最適化の議論には必要ない。
 
 ## 2. Lasso目的と絶対値の角
 
@@ -244,7 +244,7 @@ Ridgeは $\lambda>0$ なら全方向で二次の曲率を与えた。しかしLa
 
 ### 証明の見取り図
 
-存在は $\lambda\|\beta\|_1$ が係数を無限遠へ逃がさないこと、一意性はフルランクの二乗損失が狭義凸であることから示す。適合値の一意性は、二つの異なる適合値の中点で二乗誤差が厳密に減ることから証明する。
+存在は[強圧性](../../OPT/OPT3/index.md#def-opt3-coercivity)により $\lambda\|\beta\|_1$ が係数を無限遠へ逃がさないこと、一意性はフルランクの二乗損失が狭義凸であることから示す。適合値の一意性は、二つの異なる適合値の中点で二乗誤差が厳密に減ることから証明する。
 
 <!-- proof-start -->
 ### 証明
@@ -280,7 +280,15 @@ $$
 
 ## 7. 切片と近接勾配法：実際に反復して求める
 
-切片 $\alpha\in\mathbb R$ を罰しない線形予測 $\alpha\mathbf1+Z\theta$ を考える。ここで $Z\in\mathbb R^{n\times p}$、$\theta\in\mathbb R^p$、$\mathbf1\in\mathbb R^n$ は成分がすべて1のベクトルであり、$\bar z=Z^{\mathsf T}\mathbf1/n\in\mathbb R^p$、$\bar y=\mathbf1^{\mathsf T}y/n$ は標本平均とする。目的関数は二乗損失と $\lambda\|\theta\|_1$ の和なので、罰則は $\alpha$ に依存しない。固定した $\theta$ に対し、$\alpha$ に関する停留条件は
+切片 $\alpha\in\mathbb R$ を罰しない線形予測 $\alpha\mathbf1+Z\theta$ を考える。ここで $Z\in\mathbb R^{n\times p}$、$\theta\in\mathbb R^p$、$\mathbf1\in\mathbb R^n$ は成分がすべて1のベクトルとする。各列と応答の標本平均を
+
+$$
+\bar z=\frac1nZ^{\mathsf T}\mathbf1\in\mathbb R^p,
+\qquad
+\bar y=\frac1n\mathbf1^{\mathsf T}y
+$$
+
+と定める。目的関数は二乗損失と $\lambda\|\theta\|_1$ の和なので、罰則は $\alpha$ に依存しない。固定した $\theta$ に対し、$\alpha$ に関する停留条件は
 
 $$
 \frac{\partial J}{\partial\alpha}
