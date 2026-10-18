@@ -1,6 +1,7 @@
 # ML1-08 Logistic/softmax回帰・対数損失
 
 <!-- definition-example-audit: strict -->
+<!-- DT-REVIEW: ML1-08 -->
 
 ## 1. 分布を作る分類から、条件付き確率を直接学習する分類へ
 
@@ -20,13 +21,31 @@ $$
 
 二値ラベル $y_i\in\{0,1\}$ の条件付き確率がほしい。線形得点 $a\in\mathbb R$ を確率へ移すには、指数関数を使って値を常に0と1の間へ収める。
 
-**logistic関数** $\sigma(a)=1/(1+e^{-a})$ を先に観察しよう。$\sigma(0)=1/2$、$\sigma(-a)=1-\sigma(a)$、$\sigma(a)/(1-\sigma(a))=e^a$ である。この最後の比を **オッズ**（事象1の確率を事象0の確率で割った比）と呼ぶ。logistic回帰はこのオッズの対数を線形得点にする模型である。
+実数得点を確率に移す単調増加な写像を先に定義する。これを使うと、0と1の二つの事象の確率比が簡単な式になる。
+
+<a id="def-ml1-08-sigmoid"></a>
+
+<!-- formal-statement-start -->
+> **定義（logistic関数）**  
+> 実数 $a\in\mathbb R$ に対し、次の写像 $\sigma:\mathbb R\to(0,1)$ をlogistic関数という。
+
+$
+\sigma(a)=\frac1{1+e^{-a}}.
+$
+
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ml1-08-sigmoid -->
+**定義の確認**。$a=0$ で $\sigma(0)=1/2$。$a=\log3$ で $e^{-a}=1/3$ より $\sigma(\log3)=3/4$。分母 $1+e^{-a}>1$ なので任意の実数入力で $0<\sigma(a)<1$ も確認できる。
+<!-- definition-example-end -->
+
+この関数は $\sigma(-a)=1-\sigma(a)$、$\sigma(a)/(1-\sigma(a))=e^a$ を満たす。この最後の比を **オッズ**（事象1の確率を事象0の確率で割った比）と呼ぶ。logistic回帰はこのオッズの対数を線形得点にする模型である。
 
 <a id="def-ml1-08-logistic"></a>
 
 <!-- formal-statement-start -->
 > **定義（logistic回帰模型）**  
-> $d\ge2$、拡張入力 $z=(1,x^{\mathsf T})^{\mathsf T}\in\mathbb R^d$ と係数 $\theta\in\mathbb R^d$ に対し、$Y\in\{0,1\}$ の条件付き確率を次のように定める模型をlogistic回帰模型という。
+> $d\ge2$、拡張入力 $z=(1,x^{\mathsf T})^{\mathsf T}\in\mathbb R^d$ と係数 $\theta\in\mathbb R^d$ に対し、$Y\in\{0,1\}$ の条件付き確率を[logistic関数](#def-ml1-08-sigmoid)で次のように定める模型をlogistic回帰模型という。
 
 $$
 q_\theta(1\mid z)=\sigma(\theta^{\mathsf T}z)
@@ -149,7 +168,7 @@ $$
 
 ### 証明の見取り図
 
-一標本の得点を一回微分すると $q-y$、もう一回微分すると $q(1-q)$ が出る。これを線形得点へ連鎖律で戻すと、Hessianは非負の重みを付けた外積の和となる。
+一標本の得点を一回微分すると $q-y$、もう一回微分すると $q(1-q)$ が出る。これを線形得点へ連鎖律で戻すと、Hessianは非負の重みを付けた列ベクトルとその転置の積の和となる。
 
 <!-- proof-start -->
 ### 証明
@@ -415,7 +434,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（完全分離なら非正則化logistic最小点は存在しない）**  
-> $n\ge1$ の有限二値標本が[完全分離可能](#def-ml1-08-separation)なら、[経験負対数尤度](#def-ml1-08-log-loss)は非負で下限が0であるが、任意の有限 $\theta\in\mathbb R^d$ で $L_n(\theta)>0$ となる。したがって有限の最小化係数（条件付き最尤推定量）は存在しない。
+> $n\ge1$ の有限二値標本が[完全分離可能](#def-ml1-08-separation)なら、[経験負対数尤度](#def-ml1-08-log-loss)は非負で下限が0であるが、任意の有限 $\theta\in\mathbb R^d$ で $L_n(\theta)>0$ となる。したがって有限の最小化係数は存在しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -642,7 +661,7 @@ $$
 \begin{pmatrix}1&2\\2&4\end{pmatrix}.
 $$
 
-行列は $\frac14zz^{\mathsf T}$ で、$z\ne0$ なので階数1である。非負の重み付き外積だから半正定値だが、2次元で正定値ではない。
+行列は $\frac14zz^{\mathsf T}$ で、$z\ne0$ なので階数1である。非負の重み付き列ベクトルとその転置の積だから半正定値だが、2次元で正定値ではない。
 <!-- solution-end -->
 
 ### ML1-08-A04 三クラスsoftmaxと共通シフト
