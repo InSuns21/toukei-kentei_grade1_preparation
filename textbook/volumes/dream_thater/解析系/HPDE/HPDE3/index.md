@@ -280,9 +280,9 @@ $$
 
 **定義の確認**。$M=\mathbb R$、$E$ を自明な実直線束とし、$T_0$ を零切断が定める超関数とします。任意の開集合 $U\subset\mathbb R$ と任意の $\psi=h(x)|dx|$（$h\in C_c^\infty(U)$）について
 
-$
+$$
 \langle T_0,\psi\rangle=\int_{\mathbb R}0\cdot h(x)\,dx=0.
-$
+$$
 
 よって零である開集合の和集合は $\mathbb R$ 全体、補集合は空集合であり、$\operatorname{supp}T_0=\varnothing$ です。「零分布には台がない」という結論は、点ごとの値を仮定せず定義だけから得られます。
 <!-- definition-example-end -->
