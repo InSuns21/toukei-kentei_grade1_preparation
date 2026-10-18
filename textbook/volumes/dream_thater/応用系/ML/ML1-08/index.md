@@ -28,9 +28,9 @@ $$
 > **定義（logistic関数）**  
 > 実数 $a\in\mathbb R$ に対し、次の写像 $\sigma:\mathbb R\to(0,1)$ をlogistic関数という。
 
-$
+$$
 \sigma(a)=\frac1{1+e^{-a}}.
-$
+$$
 
 <!-- formal-statement-end -->
 
@@ -391,8 +391,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\exp((\theta_k+c)^{\mathsf T}z)
-=e^{c^{\mathsf T}z}\exp(\theta_k^{\mathsf T}z)$ なので、softmaxの分子・分母に現れる正の共通因子は相殺される。特に $c=-\theta_0$ と選べば、全クラスの確率を変えずに $\theta_0'=0$ とできる。$K=2$ で $\theta_0=0$ なら
+$\exp((\theta_k+c)^{\mathsf T}z)=e^{c^{\mathsf T}z}\exp(\theta_k^{\mathsf T}z)$ なので、softmaxの分子・分母に現れる正の共通因子は相殺される。特に $c=-\theta_0$ と選べば、全クラスの確率を変えずに $\theta_0'=0$ とできる。$K=2$ で $\theta_0=0$ なら
 
 $$
 q_\Theta(1\mid z)
