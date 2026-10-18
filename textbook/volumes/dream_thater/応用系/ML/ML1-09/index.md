@@ -37,7 +37,7 @@ $$
 両辺の平方根を取れば、すべての $u,v$ で定義の不等式が $L=4$ により成立する。$h=(0,1)^{\mathsf T}$ となる $u,v$ を選べば等号となるため、4より小さい値は使えない。$h$ は任意の差ベクトルを走るので、この成分ごとの評価は**すべての $u,v$** の確認になっている。
 <!-- definition-example-end -->
 
-以下のHessianを積分する判定では $f\in C^2(\mathbb R^d)$（二階偏導関数が連続）を仮定する。Hessian $\nabla^2f(w)$ は勾配をさらに微分した $d\times d$ 行列である。線分上のベクトル値関数 $g(t)=\nabla f(v+t(u-v))$ は連続微分可能で、連鎖律から $g'(t)=\nabla^2f(v+t(u-v))(u-v)$。各成分に微積分学の基本定理を適用すると
+以下のHessianを積分する判定では $f\in C^2(\mathbb R^d)$（二階偏導関数が連続）を仮定する。Hessian $\nabla^2f(w)$ は勾配をさらに微分した $d\times d$ 行列である。線分上のベクトル値関数 $g(t)=\nabla f(v+t(u-v))$ は連続微分可能で、連鎖律から $g'(t)=\nabla^2f(v+t(u-v))(u-v)$。各成分に[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を適用すると
 
 $$
 \nabla f(u)-\nabla f(v)
@@ -530,7 +530,7 @@ $F(w)=\|Xw-y\|_2^2/(2n)$ に $\lambda\|w\|_2^2/2$（$\lambda>0$）を加えた�
 <!-- solution-start -->
 #### 詳細解答
 
-[本講の二乗損失の微分公式](#thm-ml1-09-least-squares-smooth)を使い、目的を $F_\lambda$ とすると
+[本講の二乗損失の勾配と滑らかさ定数](#thm-ml1-09-least-squares-smooth)を使い、目的を $F_\lambda$ とすると
 
 $$
 \nabla F_\lambda(w)=X^{\mathsf T}(Xw-y)/n+\lambda w,
