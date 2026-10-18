@@ -175,6 +175,8 @@ jobs:
       - name: Render mobile SVG contact sheets for visual inspection
         if: github.event_name == 'pull_request'
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
           python3 -m venv /tmp/svg-render-venv
           /tmp/svg-render-venv/bin/python -m pip install --quiet cairosvg Pillow
           /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py --emit-contact-sheets
