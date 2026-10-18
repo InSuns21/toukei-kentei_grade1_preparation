@@ -212,7 +212,7 @@ Minkowski平面で $|a|<1$ とし、
 $$
 T(t,x)=t+ax,\qquad \Sigma=\{t+ax=0\}
 $$
-を選びます。この面が滑らかなCauchy面であることは[LORG20の傾いた時計の例](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)の議論で確認できます。勾配は $\nabla^gT=-\partial_t+a\partial_x$ で、
+を選びます。この面が滑らかなCauchy面であることは[LORG15の一様Lipschitzグラフ定理](../../../幾何系/LORG/LORG15/index.md#thm-lorg15-uniform-graph)を $t=-ax$ に適用して確認できます。勾配は $\nabla^gT=-\partial_t+a\partial_x$ で、
 $$
 Q=-g(\nabla^gT,\nabla^gT)=1-a^2,\qquad
 \alpha=\frac1{\sqrt{1-a^2}},\qquad
