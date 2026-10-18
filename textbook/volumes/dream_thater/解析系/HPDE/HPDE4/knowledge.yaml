@@ -62,7 +62,7 @@ concepts:
     introduction: formal
     requires: [hpde.formal-adjoint, hpde.transpose-formula]
   - id: hpde.metric-compatible-connection
-    name: 計量両立接続
+    name: Hermite束計量と両立する接続
     kind: definition
     introduction: formal
     requires: [hpde.hermitian-bundle-metric, hpde.bundle-connection]
