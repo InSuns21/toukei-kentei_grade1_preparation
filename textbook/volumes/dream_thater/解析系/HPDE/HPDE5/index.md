@@ -329,7 +329,7 @@ $$
 
 ### 曲がった計量でも確かめる
 
-$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[Lorentz計量のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
+$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
 
 $$
 \Gamma^k{}_{ij}
