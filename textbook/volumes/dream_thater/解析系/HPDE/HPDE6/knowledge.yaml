@@ -1,0 +1,45 @@
+chapter: HPDE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE5
+  - LORG15
+  - LORG20
+  - GPDE3
+forward_references: []
+concepts:
+  - id: hpde.smooth-spacelike-cauchy-slice
+    name: 滑らかな空間的Cauchy初期面
+    kind: definition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.normal-lapse-data
+    name: 未来単位法線とlapse
+    kind: proposition
+    introduction: formal
+    requires: [hpde.smooth-spacelike-cauchy-slice]
+  - id: hpde.cauchy-data-source
+    name: 滑らかなCauchyデータと源
+    kind: definition
+    introduction: formal
+    requires: [hpde.normal-lapse-data, hpde.bundle-connection]
+  - id: hpde.first-jet-cauchy
+    name: 法線データは一階の全微分を決める
+    kind: proposition
+    introduction: formal
+    requires: [hpde.cauchy-data-source]
+  - id: hpde.cauchy-noncharacteristic
+    name: 空間的初期面の非特性性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic, hpde.smooth-spacelike-cauchy-slice]
+  - id: hpde.local-sobolev-cauchy-data
+    name: 局所Sobolev初期データ
+    kind: definition
+    introduction: formal
+    requires: [hpde.cauchy-data-source]
+  - id: hpde.smooth-local-sobolev
+    name: 滑らかな切断は局所Sobolev
+    kind: proposition
+    introduction: formal
+    requires: [hpde.local-sobolev-cauchy-data]
