@@ -10,6 +10,9 @@
     <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/>
     </marker>
+    <marker id="orange-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/>
+    </marker>
   </defs>
 
   <line x1="460" y1="55" x2="460" y2="365" stroke="#D1D5DB" stroke-width="2"/>
