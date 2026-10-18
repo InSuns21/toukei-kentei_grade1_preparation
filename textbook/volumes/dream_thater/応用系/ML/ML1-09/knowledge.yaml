@@ -17,7 +17,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（標本平均二乗損失）"]
-    requires: [learning.least-squares-design-matrix]
+    requires: [learning.design-matrix]
   - id: learning.least-squares-smoothness
     name: 二乗損失の勾配と滑らかさ定数
     kind: theorem
