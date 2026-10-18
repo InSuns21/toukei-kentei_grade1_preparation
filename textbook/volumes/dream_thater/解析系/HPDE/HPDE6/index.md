@@ -9,9 +9,9 @@
 $E\to M$ は有限ランク $r\ge1$ の滑らかな実または複素ベクトル束です。作用素 $P:\Gamma(M,E)\to\Gamma(M,E)$ は[HPDE5で定義したnormally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)とします。
 
 [HPDE5の一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)による接続を $\nabla^P$ とすると、
-$
+$$
 P=-\Box_g^{\nabla^P}+V
-$
+$$
 です。法線微分にはこの接続を使います。別の接続を無断で選ぶと「初速度」の意味が変わることに注意します。
 
 ## 1. 初期面を時空の時計で指定する
@@ -98,12 +98,12 @@ $$
 ここで $\Gamma_c(\Sigma,E|_\Sigma)$ は**初期面内でコンパクトな台**を持つ滑らかなデータ、$\Gamma_c(M,E)$ は**時空内でコンパクトな台**を持つ滑らかな源を表します。[HPDE3の台](../HPDE3/index.md#def-hpde3-distribution-support)と同じく、台とは切断が零でない点の閉包です。面内でコンパクトであっても、そこから発展した解が時空内でコンパクトとは限りません。有限伝播は後の章で証明する性質です。
 
 例えば、コンパクト支持を指定する滑らかな問題では、三つのデータの所属を
-$
+$$
 (u_0,u_1,f)\in
 \Gamma_c(\Sigma,E|_\Sigma)\times
 \Gamma_c(\Sigma,E|_\Sigma)\times
 \Gamma_c(M,E)
-$
+$$
 と書けます。初期面上の二つの切断と時空上の源では、**台を測る空間が異なります**。この条件は与えるデータの性質であり、解 $u$ の時空内でのコンパクト支持を保証するものではありません。
 
 ## 4. 局所枠で「初速度」を読み替える
@@ -129,9 +129,9 @@ $$
 >
 > 切断 $u$ が $\Sigma$ の近傍で滑らかであり、二つの初期データを
 
-$
+$$
 u_0=u|_\Sigma,\qquad u_1=(\nabla_Nu)|_\Sigma
-$
+$$
 
 > と定めると、この組から任意の $X\in TM|_\Sigma$ についての $\nabla_Xu|_\Sigma$ が一意に定まる。また、任意の滑らかなデータ対は各点の近傍で滑らかな切断の初期データとして実現できる。
 <!-- formal-statement-end -->
