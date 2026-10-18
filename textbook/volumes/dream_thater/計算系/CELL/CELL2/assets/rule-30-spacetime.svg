@@ -2,9 +2,11 @@
 <title id="title">Rule 30 — 単一1からの時空間図</title>
 <desc id="desc">無限線上、初期位置0のみ1。他はすべて0。位置マイナス13から13、時刻0から12。塗りつぶしは状態1、空白のマスは0。上から下へ行を順に表示する。</desc>
 <style>
-.step{opacity:0;animation:reveal .22s linear forwards}
-@keyframes reveal{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.step{opacity:1;animation:none}}
+.step{opacity:1}
+@media (prefers-reduced-motion:no-preference){
+.step{animation:reveal .22s linear both}
+@keyframes reveal{from{opacity:0}to{opacity:1}}
+}
 </style>
 <rect width="620" height="339" rx="12" fill="#fbfdff"/>
 <text x="70" y="31" font-size="12" fill="#24384b">i=-13</text>
