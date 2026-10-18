@@ -4,7 +4,7 @@
 
 [GR7のEinsteinテンソル](../GR7/index.md#def-gr7-einstein-tensor)は、どんな滑らかなLorentz計量から作っても共変発散が零になります。一方、[GR9のHilbert応力テンソル](../GR9/index.md#def-gr9-hilbert-stress)は物質作用を計量で変分して得られます。幾何と物質は、それぞれ用意できました。しかし両者を等号で結ぶには、**作用全体を一緒に変分する**という力学上の選択が必要です。等価原理だけから結合係数も宇宙項も決まるわけではありません。
 
-[GR10の重力作用の変分](../GR10/index.md#thm-gr10-eh-variation)は内部の計量変化に対する係数を与え、[GR11のGHY項](../GR11/index.md#thm-gr11-dirichlet-variation)は適切な非光的境界で法線微分の変分を相殺しました。今度は物質作用を加え、**Einstein場の方程式**を導きます。続いて、右辺の共変発散が零になるのはなぜか、物質自身の運動方程式とはどう関係するか、局所と大域の「保存」がどこで異なるかを確かめます。
+[GR10の重力作用の変分](../GR10/index.md#thm-gr10-eh-variation)は内部の計量変化に対する係数を与え、[GR11のGHY項](../GR11/index.md#thm-gr11-dirichlet-variation)は適切な非光的境界で法線微分の変分を相殺しました。今度は物質作用を加え、**幾何と物質を結ぶ計量の方程式**を導きます。続いて、右辺の共変発散が零になるのはなぜか、物質自身の運動方程式とはどう関係するか、局所と大域の「保存」がどこで異なるかを確かめます。
 
 以下、$(M,g)$ は滑らかで向き・時間向きのある4次元Lorentz多様体です。符号は $(-,+,+,+)$、接続 $\nabla$ は[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)、座標は $x^0=ct$、添字は $0,1,2,3$ を走るものとします。$G>0$ はNewtonの重力定数、$c>0$ は光速、$\Lambda\in\mathbb R$ は**時空座標に依存しない定数**です。重力作用の $\mathcal R$ は[GR6で定めたスカラー曲率](../GR6/index.md#def-gr6-ricci-scalar)で、$G_{\mu\nu}$ は重力定数 $G$ と異なるEinsteinテンソルです。
 
@@ -40,7 +40,7 @@ $$
 **定義の確認**：$U=[0,L]\times\mathbb T^3$ の平坦計量 $ds^2=-(dx^0)^2+\sum_i(dx^i)^2$ と、$\Lambda=0$、物質作用 $S_m=0$ を取ります。曲率は零、時刻面は非光的で、その外向き法線は $\pm\partial_0$、[GR11の第二基本形式](../GR11/index.md#def-gr11-extrinsic-curvature)は両面で零です。従って $S_{\mathrm{EH}}=0$、$S_{\mathrm{GHY}}=0$、$S_{\mathrm{tot}}=0$ です。ただし作用の値が零であること**だけ**は停留性を意味しません。以下では任意の変分に対する一次変化を計算します。
 <!-- definition-example-end -->
 
-物質変分で用いる[Hilbert応力テンソルの定義](../GR9/index.md#def-gr9-hilbert-stress)は、$\psi$ を固定した $h^{\mu\nu}:=\delta g^{\mu\nu}$ に対して
+物質変分で用いる[計量変分によるHilbert応力テンソル](../GR9/index.md#def-gr9-hilbert-stress)は、$\psi$ を固定した $h^{\mu\nu}:=\delta g^{\mu\nu}$ に対して
 
 $$
 \left.\delta_g S_m\right|_\psi
@@ -75,7 +75,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$C=c^3/(16\pi G)$ と書きます。境界のない場合、または内部に台を持つ場合は発散項の積分が消えます。境界の誘導計量を固定して扱う場合も、[GHY項の変分定理](../GR11/index.md#thm-gr11-dirichlet-variation)から境界寄与は消えます。よって
+$C=c^3/(16\pi G)$ と書きます。境界のない場合、または内部に台を持つ場合は発散項の積分が消えます。境界の誘導計量を固定して扱う場合も、[GHY項を加えたDirichlet型計量変分](../GR11/index.md#thm-gr11-dirichlet-variation)から境界寄与は消えます。よって
 
 $$
 \begin{aligned}
@@ -201,9 +201,9 @@ $$
 =-(\nabla^\mu\xi^\nu+\nabla^\nu\xi^\mu)
 $$
 
-です。最初の等号は[GR10の逆計量変分公式](../GR10/index.md#prop-gr10-inverse-identity)によります。
+です。この等号は[計量と逆計量の変分](../GR10/index.md#prop-gr10-inverse-identity)を計量の両添字に適用して得ました。
 
-物質作用の一般変分には計量寄与と物質場のEuler–Lagrange寄与が含まれます。物質場がその方程式を満たし、$\xi$ が内部に台を持つため境界項がなければ、[Hilbert応力テンソルの定義](../GR9/index.md#def-gr9-hilbert-stress)から
+物質作用の一般変分には計量寄与と物質場のEuler–Lagrange寄与が含まれます。物質場がその方程式を満たし、$\xi$ が内部に台を持つため境界項がなければ、[計量変分によるHilbert応力テンソル](../GR9/index.md#def-gr9-hilbert-stress)から
 
 $$
 \begin{aligned}
@@ -411,7 +411,7 @@ $$
 $T_{\mu\nu}=0$、$g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とする。この計量がEinstein場の方程式を満たす $\Lambda$ を決定せよ。
 
 <!-- solution-start -->
-**詳細解答。** 成分が一定であるので $\Gamma^\rho_{\mu\nu}=0$ です。[GR6の曲率成分公式](../GR6/index.md#prop-gr6-coordinate-curvature)から $R_{\mu\nu}=0$、$\mathcal R=0$、従って $G_{\mu\nu}=0$ です。方程式は $\Lambda g_{\mu\nu}=0$ となります。$g_{11}=1$ の成分を取れば $\Lambda=0$ が必要で、これを代入すればすべての成分が成立するので十分でもあります。
+**詳細解答。** 成分が一定であるので $\Gamma^\rho_{\mu\nu}=0$ です。[曲率作用素の成分と計量による添字下げ](../GR6/index.md#prop-gr6-coordinate-curvature)から $R_{\mu\nu}=0$、$\mathcal R=0$、従って $G_{\mu\nu}=0$ です。方程式は $\Lambda g_{\mu\nu}=0$ となります。$g_{11}=1$ の成分を取れば $\Lambda=0$ が必要で、これを代入すればすべての成分が成立するので十分でもあります。
 <!-- solution-end -->
 
 <a id="ex-gr12-a04"></a>
@@ -478,7 +478,7 @@ $$
 内部コンパクト台のベクトル場 $\xi$ に対して $\delta_\xi g_{\mu\nu}=\nabla_\mu\xi_\nu+\nabla_\nu\xi_\mu$ とする。微分同相不変な物質作用で物質場の方程式が成立するとき、Hilbert応力の変分から $\nabla^\mu T_{\mu\nu}=0$ を導け。
 
 <!-- solution-start -->
-**詳細解答。** [逆計量の変分公式](../GR10/index.md#prop-gr10-inverse-identity)より $\delta_\xi g^{\mu\nu}=-(\nabla^\mu\xi^\nu+\nabla^\nu\xi^\mu)$。物質場のEuler–Lagrange寄与はその運動方程式で消えるので、[Hilbert応力の変分](../GR9/index.md#def-gr9-hilbert-stress)を代入すると
+**詳細解答。** [計量と逆計量の変分](../GR10/index.md#prop-gr10-inverse-identity)より $\delta_\xi g^{\mu\nu}=-(\nabla^\mu\xi^\nu+\nabla^\nu\xi^\mu)$。物質場のEuler–Lagrange寄与はその運動方程式で消えるので、[Hilbert応力の変分](../GR9/index.md#def-gr9-hilbert-stress)を代入すると
 
 $$
 0=\delta_\xi S_m
@@ -520,7 +520,7 @@ $$
 一定の $\varepsilon_v>0$ を用い、物質ラグランジアンを $\mathcal L_m=-\varepsilon_v$ とする。$\psi$ を含まない物質作用を採用する。(i) Hilbert応力 $T_{\mu\nu}$ とその跡 $T$ を求めよ。(ii) Einstein場の方程式を $G_{\mu\nu}+\Lambda_{\mathrm{eff}}g_{\mu\nu}=0$ の形に直せ。(iii) 一定曲率形 $R_{\mu\nu}=3Kg_{\mu\nu}$ を仮定し、$K$ と $\mathcal R$ を求めよ。(iv) 共変保存の条件を検算し、$\varepsilon_v$ を任意の関数に置き換えた場合になぜ同じ議論ができないか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (i) [GR9の応力変分の定義](../GR9/index.md#def-gr9-hilbert-stress)を使います。$\mathcal L_m$ は計量の成分に直接依存せず、[GR10の体積要素の変分](../GR10/index.md#prop-gr10-volume-variation)より
+**詳細解答。** (i) [計量変分によるHilbert応力テンソル](../GR9/index.md#def-gr9-hilbert-stress)を使います。$\mathcal L_m$ は計量の成分に直接依存せず、[GR10の体積要素の変分](../GR10/index.md#prop-gr10-volume-variation)より
 
 $$
 \begin{aligned}
