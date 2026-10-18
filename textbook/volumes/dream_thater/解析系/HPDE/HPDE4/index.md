@@ -168,14 +168,40 @@ $$
 
 [HPDE3の密度値双対試験切断](../HPDE3/index.md#def-hpde3-test-dual-density)は積分用の密度も含みます。局所座標で $\psi=\sum_b\psi_b f^b\otimes|dx|$ と書けることから、係数が変わるときに積分要素も変わる問題は最初から含まれています。
 
-切断の成分を有限回まで微分し、滑らかな係数を掛けて足す線形写像を考えます。具体的に、局所座標と局所枠を固定すると、写像 $P:\Gamma(M,E)\to\Gamma(M,F)$ がある非負整数 $m$ と滑らかな係数行列 $A_\alpha(x)$ により
+切断の成分を有限回まで微分し、滑らかな係数を掛けて足す線形写像を考えます。次数を有限に限定すれば、試験切断への部分積分も有限回で済みます。[GPDE2の多重添字](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ は各方向の微分回数を表します。
+
+<a id="def-hpde4-differential-operator"></a>
+<!-- formal-statement-start -->
+> **定義（有限階線形微分作用素）**  
+> $E,F\to M$ を有限ランクの滑らかなベクトル束とする。$\mathbb K$ 線形写像 $P:\Gamma(M,E)\to\Gamma(M,F)$ が **$m$ 階以下の線形微分作用素**であるとは、ある非負整数 $m$ があり、任意の局所座標と局所枠において滑らかな係数行列 $A_\alpha(x)$ を用いて
+>
+> $$
+> (Ps)^b=\sum_{a=1}^{\operatorname{rank}E}
+> \sum_{|\alpha|\le m}(A_\alpha)^b{}_a\,\partial^\alpha s^a
+> $$
+>
+> と書けることをいう。ある有限の $m$ についてこの条件を満たすとき **有限階線形微分作用素**と呼ぶ。
+<!-- formal-statement-end -->
+
+この行列は入力成分の微分が出力成分に与える係数をまとめたものです。出力添字 $b$ と入力添字 $a$ は異なる束の枠を指し、$A_\alpha$ は $\operatorname{rank}F\times\operatorname{rank}E$ 行列です。
+
+<!-- definition-example-start: def-hpde4-differential-operator -->
+### 直接例：有限階性と座標・枠変換
+
+$\mathbb R$ の自明な実直線束で $Pu=xu'+2u$ と置きます。標準座標・標準枠では $m=1$、$A_1=x$、$A_0=2$ は滑らかです。$y=2x$ に取り替えると $\partial_x=2\partial_y$ と $x=y/2$ より
 
 $$
-(Ps)^b=\sum_{a=1}^{r}\sum_{|\alpha|\le m}
-(A_\alpha)^b{}_a\,\partial^\alpha s^a
+Pu=y\partial_yu+2u.
 $$
 
-と書けるものを**有限階線形微分作用素**と呼びます。多重添字 $\alpha$ と $\partial^\alpha$ は[GPDE2の多重添字](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)を使っています。この式は**出力成分 $b$ ごとに入力の微分がどう寄与するか**を並べたもので、行列の各列は入力基底に作用させた結果から決まります。
+局所枠を $e'=e^xe$ に取り替えると、切断の係数は $u=e^xu'$ です。入力・出力とも新枠で書けば
+
+$$
+e^{-x}P(e^xu')=x\partial_xu'+(x+2)u'.
+$$
+
+座標・枠の変更後も係数が滑らかで一階以下であることを具体的に確認できました。
+<!-- definition-example-end -->
 
 <a id="def-hpde4-formal-transpose"></a>
 <!-- formal-statement-start -->
@@ -205,10 +231,10 @@ $$
 >
 > 同一の局所座標と局所枠で $P$ と試験切断 $\psi$ を次のように表す。
 >
-> $
+> $$
 > P=\sum_{|\alpha|\le m}A_\alpha\partial^\alpha,
 > \qquad \psi=(\psi_b)_{b}\otimes|dx|
-> $
+> $$
 >
 > このとき、形式的双対の密度係数列は
 >
@@ -415,9 +441,9 @@ Hermite束計量と正の密度を選ぶと、切断 $t$ を使って密度値�
 >
 > 零次の束写像 $A:E\to F$ の随伴を $A^\dagger$ と書く。局所枠での束計量行列を $H_E,H_F$ とすれば
 >
-> $
+> $$
 > A^\dagger=H_E^{-1}A^*H_F
-> $
+> $$
 >
 > である。右辺の $A^*$ は行列の共役転置を表す。
 <!-- formal-statement-end -->
@@ -496,14 +522,33 @@ $$
 
 ## 6. どのとき $\nabla_X^*=-\nabla_X-\operatorname{div}X$ か
 
-束計量を固定しても、接続がその内積を保つとは限りません。実ベクトル場 $X$ に対し
+束計量を固定しても、接続がその内積を保つとは限りません。切断の微分と内積の微分が整合するかを次の条件で確かめます。
+
+<a id="def-hpde4-metric-compatible-connection"></a>
+<!-- formal-statement-start -->
+> **定義（計量両立接続）**  
+> $E$ 上の正定値Hermite束計量 $h_E$ と接続 $\nabla^E$ を与える。$\nabla^E$ が **計量両立**であるとは、任意の滑らかな切断 $s,t$ と滑らかな実ベクトル場 $X$ について
+>
+> $$
+> X(h_E(s,t))
+> =h_E(\nabla_X^Es,t)+h_E(s,\nabla_X^Et)
+> $$
+>
+> が成り立つことをいう。これは接続だけからは保証されない条件である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-hpde4-metric-compatible-connection -->
+### 直接例：通常微分は標準内積を保つ
+
+$\mathbb R$ 上の自明な複素直線束で $h(u,v)=u\overline v$、$\nabla_Xu=a(x)u'$ とします（$X=a(x)\partial_x$ は滑らかな実ベクトル場）。これは[束接続の定義](#def-hpde4-connection)を満たし、すべての滑らかな $u,v$ に対し
 
 $$
-X(h_E(s,t))
-=h_E(\nabla_Xs,t)+h_E(s,\nabla_Xt)
+X(h(u,v))=a(u'\overline v+u\overline{v'})
+=h(\nabla_Xu,v)+h(u,\nabla_Xv)
 $$
 
-が成り立つ接続を**計量両立接続**と呼びます。これは束計量と接続を同時に与えたときに、別途確かめる性質です。
+です。$a$ が実値であり、第二引数が共役線形であることも確認しました。任意の $u,v,X$ で成り立つので、計量両立の全称条件を満たします。
+<!-- definition-example-end -->
 
 <a id="prop-hpde4-metric-connection-adjoint"></a>
 <!-- formal-statement-start -->
