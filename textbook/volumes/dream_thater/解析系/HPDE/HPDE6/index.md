@@ -16,17 +16,17 @@ $$
 
 ## 1. 初期面を時空の時計で指定する
 
-一般のCauchy面には滑らかさが保証されません。そこで標準的な波動初期値問題では、**滑らかで空間的なCauchy面**を選びます。[LORG16の大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)を仮定すれば、[Bernal–SánchezのCauchy temporal function存在定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-bernal-sanchez)により、滑らかな時計 $T:M\to\mathbb R$ を選べます。その各レベル
+一般のCauchy面には滑らかさが保証されません。そこで標準的な波動初期値問題では、**滑らかで空間的なCauchy面**を選びます。ここでは時空 $M$ が連結であり、[LORG16の大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)を仮定すれば、[Bernal–SánchezのCauchy temporal function存在定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-bernal-sanchez)により、滑らかな時計 $T:M\to\mathbb R$ を選べます。その各レベル
 $$
 \Sigma_t=T^{-1}(t)
 $$
 は滑らかで空間的なCauchy超曲面です。本章では時刻 $t_0$ を固定して $\Sigma=\Sigma_{t_0}$ と書きます。
 
-[滑らかな直交時空分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、適切な大域座標 $(t,y)$ において
+[滑らかな直交時空分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、積分解の時間変数 $t$ と面内の局所座標 $y$ において
 $$
 g=-\alpha(t,y)^2dt^2+h_t(y),\qquad \alpha>0
 $$
-と表されます。$h_t$ は各 $\Sigma_t$ 上の正定値なRiemann計量、$\alpha$ はlapse関数です。ここで時間座標 $t$ は選んだ $T$ 自身です。$dt$ は時刻の共変ベクトル、$\partial_t$ は分割によって選んだ時間方向を表し、両者は同じ対象ではありません。
+と表されます。ここで大域的なのは積分解 $M\simeq\mathbb R\times\Sigma_{t_0}$ であり、面内の $y$ は一般には局所座標です（$\Sigma_{t_0}$ に大域座標があるとは限りません）。$h_t$ は各 $\Sigma_t$ 上の正定値なRiemann計量、$\alpha$ はlapse関数です。時間座標 $t$ は選んだ $T$ 自身です。$dt$ は時刻の共変ベクトル、$\partial_t$ は分割によって選んだ時間方向を表し、両者は同じ対象ではありません。
 
 <a id="def-hpde6-cauchy-slice"></a>
 <!-- formal-statement-start -->
@@ -72,7 +72,11 @@ $\partial_t$ が面に直交し $dT(\partial_t)=1$ となる直交分割なの�
 <a id="def-hpde6-cauchy-data"></a>
 <!-- formal-statement-start -->
 > **定義（滑らかなCauchyデータと源）**  
-> $(M,g)$ を時間向き付きLorentz時空、$\Sigma\subset M$ を滑らかな空間的Cauchy初期面、$N$ を未来向き単位法線、$E\to M$ を滑らかなベクトル束、$P$ をその上のnormally hyperbolic作用素とする。滑らかな切断 $u\in\Gamma(M,E)$ の**初期変位**と**初期速度**を
+> $(M,g)$ を時間向き付きLorentz時空、$\Sigma\subset M$ を滑らかな空間的Cauchy初期面とする。$N$ は未来向き単位法線とする。
+>
+> $E\to M$ を滑らかなベクトル束、$P$ をその上のnormally hyperbolic作用素とする。[HPDE5の一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)で $P$ から一意に定まる接続を $\nabla^P$ と記す。
+>
+> $u\in\Gamma(M,E)$ を滑らかな切断とする。その**初期変位**と**初期速度**を
 $$
 u_0=u|_\Sigma\in\Gamma(\Sigma,E|_\Sigma),\qquad
 u_1=(\nabla^P_Nu)|_\Sigma\in\Gamma(\Sigma,E|_\Sigma)
@@ -108,10 +112,14 @@ $$
 
 ## 4. 局所枠で「初速度」を読み替える
 
-初期速度の式を、数値計算や局所PDEの係数と接続します。直交分割座標で局所枠を固定し、$u$ の成分を列ベクトル $v$、接続を $\nabla^P_{\partial_t}v=\partial_t v+\omega_tv$ とします。法線 $N=\alpha^{-1}\partial_t$ に対する接続はベクトル場に関して線形なので
+初期速度の式を、数値計算や局所PDEの係数と接続します。直交分割座標で局所枠 $e=(e_1,\ldots,e_r)$ を選び、切断を $u=e\,v$（$v$ は成分列ベクトル）と表します。[HPDE4の束接続](../HPDE4/index.md#def-hpde4-connection)が枠をどう微分するかを $\nabla^P_{\partial_t}e_b=\sum_a e_a(\omega_t)^a{}_b$ と書けば、積の微分規則から
 $$
-\nabla^P_Nv
-=\alpha^{-1}(\partial_t v+\omega_tv).
+\nabla^P_{\partial_t}u=e(\partial_tv+\omega_tv)
+$$
+となります。したがって $\omega_t$ は接続の時間方向成分を局所枠で並べた行列です。法線 $N=\alpha^{-1}\partial_t$ に対する接続はベクトル場に関して線形なので
+$$
+\nabla^P_Nu
+=e\,\alpha^{-1}(\partial_tv+\omega_tv).
 $$
 したがって $v_0=v(t_0,\cdot)$、$v_1=(\nabla^P_Nv)|_{t=t_0}$ は
 $$
@@ -125,7 +133,7 @@ $$
 <a id="prop-hpde6-first-jet"></a>
 <!-- formal-statement-start -->
 > **命題（法線データは一階の全微分を決める）**  
-> $\Sigma$ を滑らかな空間的超曲面、$E$ を接続 $\nabla$ を備えた滑らかな束とする。$N$ は $\Sigma$ に横断する未来向き単位法線とする。
+> $(M,g)$ を時間向き付きLorentz時空、$\Sigma\subset M$ を滑らかな空間的超曲面、$E\to M$ を接続 $\nabla$ を備えた滑らかな束とする。$N$ は $\Sigma$ 上の未来向き単位法線とする。$\Sigma$ のCauchy性は仮定しない。
 >
 > 切断 $u$ が $\Sigma$ の近傍で滑らかであり、二つの初期データを
 
@@ -153,9 +161,18 @@ $$
 (\nabla_Xu)|_x
 =(\nabla_Yu)|_x+c\,u_1(x).
 $$
-$\nabla_Yu|_\Sigma$ は誘導接続 $\nabla^\Sigma_Yu_0$ に等しく、これは $u_0$ だけから計算できます。したがって一意性が従います。
+$\nabla_Yu|_\Sigma$ は束 $E|_\Sigma$ 上の誘導接続 $\nabla^\Sigma_Yu_0$ に等しく、これは $u_0$ だけから計算できます。実際、[束接続の局所表示](../HPDE4/index.md#def-hpde4-connection)で $u=e\,v$ とすれば、接方向 $Y$ に対して
+$$
+(\nabla_Yu)|_\Sigma
+=e\bigl(Y(v_0)+\omega(Y)v_0\bigr),
+$$
+となり、面の外側での $u$ の取り方は現れません。したがって一意性が従います。
 
-次に点 $x$ の近傍を $(t,y)$ で表し、$\Sigma=\{t=0\}$ として局所枠を選びます。滑らかな成分 $v_0(y),v_1(y)$ に対し
+次に局所構成を行います。$\Sigma$ が滑らかな超曲面なので、点 $x$ の近傍で $\Sigma=\{T=0\}$ となる定義関数 $T$ を取れます。空間的面の法共変ベクトル $dT$ は時間的なので、$T$ が未来へ増加する符号を選び、
+$$
+Z=\frac{\nabla^gT}{g(\nabla^gT,\nabla^gT)}
+$$
+と置きます。$dT(Z)=1$ であり、$Y\in T\Sigma$ には $g(Z,Y)=0$ です。$Z$ の局所流線に沿って $t=T$、面内座標を $y$ とすれば、$\partial_t=Z=\alpha N$ となる直交座標が得られます。ここで $\alpha=(-g(\nabla^gT,\nabla^gT))^{-1/2}>0$ です。局所枠を選び、滑らかな成分 $v_0(y),v_1(y)$ に対し
 $$
 w(t,y)=v_0(y)+t\bigl(\alpha_0(y)v_1(y)-\omega_t(0,y)v_0(y)\bigr)
 $$
@@ -227,7 +244,22 @@ $$
 -B^t\partial_tu-B^a\partial_au-Cu\bigr)
 \quad}
 $$
-となります。右辺の初期面上の値は $u_0$、$u_1$、$f|_\Sigma$ および係数から求まります。ただし、この恒等式を使って**形式的に二階時間微分を決められること**と、全時刻にわたる解の存在とは別問題です。存在・一意性は後のエネルギー法と局所解の構成を要します。
+となります。ここで局所枠の成分について $v_0=u|_\Sigma$、$v_1=(\nabla^P_Nu)|_\Sigma$ と書き直します。$t=t_0$ を固定した面内微分なら
+$$
+(\partial_au)|_\Sigma=\partial_av_0,\qquad
+(\partial_a\partial_bu)|_\Sigma=\partial_a\partial_bv_0,
+\qquad
+(\partial_tu)|_\Sigma=\alpha_0v_1-\omega_t(t_0,\cdot)v_0
+$$
+です。これらを方程式に代入すると
+$$
+\begin{aligned}
+(\partial_t^2u)|_\Sigma=\alpha_0^2\bigl(&f|_\Sigma+h_0^{ab}\partial_a\partial_bv_0\\
+&-B_0^t(\alpha_0v_1-\omega_t(t_0,\cdot)v_0)
+-B_0^a\partial_av_0-C_0v_0\bigr).
+\end{aligned}
+$$
+ここでは $u$ と $f$ を局所枠での成分列として扱い、係数にも $t=t_0$ を代入しました。右辺は初期データ、源の初期面への制限および係数から計算できます。ただし、この恒等式を使って**形式的に二階時間微分を決められること**と、全時刻にわたる解の存在とは別問題です。存在・一意性は後のエネルギー法と局所解の構成を要します。
 
 逆にMinkowski平面の $\{t-x=0\}$ では、$g^{-1}(d(t-x),d(t-x))=0$ なので主シンボルは零となり、上のように法線方向二階微分を一意に解くことはできません。
 
@@ -265,7 +297,13 @@ $$
 <a id="def-hpde6-local-sobolev-data"></a>
 <!-- formal-statement-start -->
 > **定義（局所Sobolev初期データ）**  
-> $\Sigma$ を滑らかな $n$ 次元多様体、$F=E|_\Sigma$ を有限ランク滑らかな束、$k\in\mathbb N_0$ とする。束値分布 $v$ が $H^k_{\mathrm{loc}}(\Sigma,F)$ に属するとは、各座標近傍 $U\subset\Sigma$ と局所枠における成分ベクトルが、任意の閉包が $U$ の中でコンパクトな小領域 $K\Subset U$ 上で、次数 $|\beta|\le k$ の全ての弱偏微分を局所 $L^2$ 関数として持つことをいう。初期データの一つの自然な正則性クラスは
+> $\Sigma$ を滑らかな $n$ 次元多様体、$F\to\Sigma$ を有限ランクの滑らかな束とし、$k\in\mathbb N_0$ を固定する。Cauchy初期値問題では $F=E|_\Sigma$ を使う。
+>
+> [HPDE3で導入した束値分布](../HPDE3/index.md#def-hpde3-distribution-section) $v$ について、$v\in H^k_{\mathrm{loc}}(\Sigma,F)$ とは、次の局所条件が成り立つことをいう。
+>
+> 任意の座標近傍 $U\subset\Sigma$ と局所枠で $v$ の成分ベクトルを表す。閉包が $U$ に含まれるコンパクトな小領域 $K\Subset U$ のそれぞれで、次数 $|\beta|\le k$ の全ての弱偏微分が局所 $L^2$ 関数として表されることを要求する。
+>
+> 初期データの一つの自然な正則性クラスは
 $$
 (u_0,u_1)\in H^{k+1}_{\mathrm{loc}}(\Sigma,F)
 \times H^k_{\mathrm{loc}}(\Sigma,F)
@@ -283,11 +321,16 @@ $$
 なので $u_0\notin H^0(\mathbb R)$ であり、通常の大域 $H^k(\mathbb R)$ にも入りません。
 <!-- definition-example-end -->
 
-局所枠を $e'=eS$ と替えると成分は $v'=S^{-1}v$ に変わります。閉包が座標近傍内でコンパクトな小領域では、$S^{-1}$ とその $k$ 階までの導関数が有界です。
+同じ束の局所枠を $e'=eS$（$S$ は滑らかで各点可逆な $r\times r$ 行列）と替えると、$e\,v=e'\,v'$ から成分は $v'=S^{-1}v$ に変わります。閉包が座標近傍内でコンパクトな小領域では、$S^{-1}$ とその $k$ 階までの導関数が有界です。
 
 [GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。
 
-局所座標の変更でも、閉包が座標近傍内でコンパクトな領域に制限します。その上では滑らかな座標微分同相のJacobianと必要な階数までの導関数が有界なので、連鎖律から局所Sobolev条件の不変性が従います。
+局所座標の変更も確かめます。重なりで $y=y(z)$ と座標を変え、成分を $w(z)=v(y(z))$ とします。滑らかな $v$ なら、まず一階の連鎖律は
+$$
+\partial_{z^i}w
+=\sum_a (\partial_{y^a}v)(y(z))\,\partial_{z^i}y^a
+$$
+であり、高階もこの式と積の微分規則の反復で表せます。弱微分しかない $v$ には、コンパクト小領域ごとに[GPDE3の局所平滑化定理](../../GPDE/GPDE3/index.md#thm-gpde3-local-mollification)を適用し、$H^k$ で収束する滑らかな近似 $v_j$ を取ります。座標微分同相のJacobianの絶対値は、そのコンパクト領域で上下から正の定数で抑えられ、必要な階数の導関数も有界です。従ってこの座標変換のJacobian評価と直前の連鎖律の式を組み合わせると、$v_j\circ y$ および各階の微分が対応する $L^2$ で収束します。弱微分の定義における試験関数との積分等式も極限へ移せるため、$v\circ y$ に同じ階数の弱微分が存在します。逆座標変換にも同じ議論を適用でき、局所条件は座標によらないことが分かります。
 
 <a id="prop-hpde6-smooth-in-local-sobolev"></a>
 <!-- formal-statement-start -->
