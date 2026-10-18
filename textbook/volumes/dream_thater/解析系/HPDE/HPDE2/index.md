@@ -527,7 +527,7 @@ $$
 u_m=u_0-m^2Tu_0+m^4T^2u_m
 $$
 
-であり、上のノルム評価と $\|u_m\|\le\|u_0\|/(1-m^2t_*^2/2)$ から、末項は $m\downarrow0$ で $O(m^4)$ です。ここで縮小写像による連続解が滑らかであることも確かめます。球面積分の領域を $S^2$ に固定してあるので、空間の任意の多重指数 $\alpha$ について
+であり、上のノルム評価と $\|u_m\|\le\|u_0\|/(1-m^2t_*^2/2)$ から、末項は $m\downarrow0$ で $O(m^4)$ です。ここで縮小写像による連続解が滑らかであることも確かめます。球面積分の領域を $S^2$ に固定してあるので、非負整数の組 $\alpha=(\alpha_1,\alpha_2,\alpha_3)$ に対し $\partial_x^\alpha=\partial_{x_1}^{\alpha_1}\partial_{x_2}^{\alpha_2}\partial_{x_3}^{\alpha_3}$ と記せば
 
 $
 \partial_x^\alpha(Tw)=T(\partial_x^\alpha w),\qquad
