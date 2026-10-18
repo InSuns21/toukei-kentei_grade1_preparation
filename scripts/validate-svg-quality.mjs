@@ -12,6 +12,10 @@ function inspect(svg, location, markdown = null) {
   const error = (s) => errors.push(location + ': ' + s);
   const warn = (s) => warnings.push(location + ': ' + s);
   if (/<!DOCTYPE\b|<!ENTITY\b|javascript\s*:|@import\b/iu.test(svg)) error('Unsafe DTD, entity, script URL or @import.');
+  // A static/print renderer ignores animation keyframes. Do not hide core diagram content by default.
+  if (/\.[\w-]+\s*\{\s*opacity\s*:\s*0\s*;\s*animation\s*:/iu.test(svg)) {
+    error('Animated SVG hides core figure content at opacity:0; keep the static base visible and animate only within no-preference media.');
+  }
   const tokens = [...svg.matchAll(/<(?:"[^"]*"|'[^']*'|[^'">])*>/gu)];
   let root = null;
   for (const m of tokens) {
@@ -119,6 +123,7 @@ function test() {
     [svg('<image href="https://example.test/x.png"/>'), 'External href'],
     [svg('<text><g></text>'), 'Unbalanced'],
     [svg('<line data-layout-ignore="text-overlap"/>'), 'requires a specific reason'],
+    [svg('<style>.step{opacity:0;animation:reveal 1s forwards}</style><g class="step"><circle/></g>'), 'hides core figure'],
     [good.replace('viewBox="0 0 200 120"', 'viewBox="0 0 -1 120"'), 'viewBox'],
     [good.replace(/<desc>.*?<\/desc>/u, ''), '<desc>'],
   ];
