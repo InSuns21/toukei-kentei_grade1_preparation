@@ -329,7 +329,7 @@ $$
 
 ### 曲がった計量でも確かめる
 
-$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[LORG4のLevi-Civita公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
+$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[Lorentz計量のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
 
 $$
 \Gamma^k{}_{ij}
@@ -436,7 +436,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[主シンボルの定義](#def-hpde5-principal-symbol)で一階・零次を捨てると
+[二階主シンボル](#def-hpde5-principal-symbol)で一階・零次を捨てると
 
 $$
 \sigma_2(P)(\tau,\zeta,\upsilon)=\tau^2-4\zeta^2-\upsilon^2.
@@ -601,7 +601,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(1) [主シンボルの定義](#def-hpde5-principal-symbol)から
+(1) [二階主シンボル](#def-hpde5-principal-symbol)から
 
 $$
 \sigma_2(P_a)(\tau,\zeta)=\tau^2-\zeta^2=-g^{-1}(\xi,\xi).
