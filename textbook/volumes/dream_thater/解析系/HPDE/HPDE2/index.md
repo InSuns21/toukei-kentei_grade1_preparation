@@ -39,7 +39,7 @@ $$
 <!-- definition-example-start: def-hpde2-spherical-mean -->
 ### 直接例：二次関数の平均
 
-$g(y)=|y|^2$ とすると $g(x+r\omega)=|x|^2+2r x\cdot\omega+r^2$ です。球面の点 $\omega$ と $-\omega$ が対になり、$\int_{S^2}\omega\,d\omega=0$ となるので、
+**定義の確認**：正規化と半径の効果を手で確かめます。$g(y)=|y|^2$ とすると $g(x+r\omega)=|x|^2+2r x\cdot\omega+r^2$ です。球面の点 $\omega$ と $-\omega$ が対になり、$\int_{S^2}\omega\,d\omega=0$ となるので、
 
 $$
 A_g(r,x)=|x|^2+r^2,\qquad M_g(t,x)=|x|^2+c^2t^2.
@@ -285,7 +285,7 @@ $$
 <!-- definition-example-start: def-hpde2-strong-huygens -->
 ### 直接例：三次元では球面の外にある初期速度を変えても値は同じ
 
-$h\in C_c^\infty(\mathbb R^3)$ が $B_R(0)$ に支持され、$f=0$ とします。$ct>R$ なら、観測点 $(t,0)$ の球面 $S_{ct}(0)$ に $h$ の非零点はありません。従って[PDE9のKirchhoff公式](../../PDE/PDE9/index.md#thm-pde9-kirchhoff)から
+**定義の確認**：球面近傍のデータが零なら観測値が変わらない条件を具体的に検証します。$h\in C_c^\infty(\mathbb R^3)$ が $B_R(0)$ に支持され、$f=0$ とします。$ct>R$ なら、観測点 $(t,0)$ の球面 $S_{ct}(0)$ に $h$ の非零点はありません。従って[PDE9のKirchhoff公式](../../PDE/PDE9/index.md#thm-pde9-kirchhoff)から
 
 $$
 u(t,0)=\frac{t}{4\pi}\int_{S^2}h(ct\omega)\,d\omega=0.
