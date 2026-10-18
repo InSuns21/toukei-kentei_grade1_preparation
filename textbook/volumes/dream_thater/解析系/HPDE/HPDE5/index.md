@@ -2,7 +2,7 @@
 
 [HPDE4の有限階線形微分作用素](../HPDE4/index.md#def-hpde4-differential-operator)によって束の切断を微分でき、[形式的随伴](../HPDE4/index.md#def-hpde4-formal-adjoint)も調べられるようになりました。しかし「二階作用素である」というだけでは、拡散と波動とを区別できません。**何が波動型で、どの面が波の特性面か**を、低階項に惑わされず判定したいのです。
 
-そのために最高階微分の係数を取り出す**主シンボル**を定めます。その非可逆性から特性を定義し、[Lorentz計量](../../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)の光円錐と一致することを証明します。さらに、波動型作用素の一階係数から束接続が**一意に**復元されることを係数比較によって示します。
+そのために最高階微分の係数を取り出す**主シンボル**を定めます。その非可逆性から特性を定義し、[Lorentz計量](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)の光円錐と一致することを証明します。さらに、波動型作用素の一階係数から束接続が**一意に**復元されることを係数比較によって示します。
 
 以下、$M$ は境界のない滑らかな $d$ 次元多様体、$g$ は符号 $(-,+,\ldots,+)$ の滑らかなLorentz計量、$E\to M$ は有限ランク $r\ge1$ の滑らかな実または複素ベクトル束です。$g^{ij}$ は行列 $(g_{ij})$ の逆行列の成分を表します。添字 $i,j,k$ は $0,\ldots,d-1$ を動きます。本章の主定理に時間向き・大域双曲性・束計量は不要です。
 
@@ -123,7 +123,7 @@ $\xi=0$ を除外したのは、二次同次性によってすべての二階作
 
 ## 3. 光円錐を特性集合にする作用素
 
-[LORG2のLorentz計量](../../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)は、各点で非退化な対称行列 $g_{ij}$ を持ちます。その逆行列 $g^{ij}$ は共変ベクトル上の二次形式
+[LORG2のLorentz計量](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)は、各点で非退化な対称行列 $g_{ij}$ を持ちます。その逆行列 $g^{ij}$ は共変ベクトル上の二次形式
 
 $$
 g^{-1}(\xi,\eta)=g^{ij}\xi_i\eta_j
@@ -197,14 +197,14 @@ g(\xi^\sharp,\xi^\sharp)
 \end{aligned}
 $$
 
-従って $\xi$ の非零性を保ったまま光的条件が一致します。[LORG2の因果型](../../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)によって光的ベクトルと呼べます。超曲面については $\xi=d\varphi$ として同じ同値を適用すれば証明できます。
+従って $\xi$ の非零性を保ったまま光的条件が一致します。[LORG2の因果型](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)によって光的ベクトルと呼べます。超曲面については $\xi=d\varphi$ として同じ同値を適用すれば証明できます。
 <!-- proof-end -->
 
 Minkowski平面では特性方程式 $\tau^2-\zeta^2=(\tau-\zeta)(\tau+\zeta)=0$ が二つの光的方向を表します。ただし、主シンボルから分かるのは**特性の幾何**までです。解の存在・一意性・有限伝播は後のエネルギー法とCauchy理論で証明する必要があります。「非特性」と「Cauchy面」も同じ意味ではありません。時間的超曲面の法が空間的でも非特性であり得ます。
 
 ## 4. なぜ波動作用素に一意な接続が隠れているのか
 
-[HPDE4の束接続](../HPDE4/index.md#def-hpde4-connection)を $\nabla_i=\nabla^E_{\partial_i}$ と書き、[LORG4のLevi-Civita接続](../../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の係数を $\nabla^{LC}_{\partial_i}\partial_j=\Gamma^k{}_{ij}\partial_k$ とします。二階微分は座標ベクトル自身の変化も補正する必要があるため
+[HPDE4の束接続](../HPDE4/index.md#def-hpde4-connection)を $\nabla_i=\nabla^E_{\partial_i}$ と書き、[LORG4のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の係数を $\nabla^{LC}_{\partial_i}\partial_j=\Gamma^k{}_{ij}\partial_k$ とします。二階微分は座標ベクトル自身の変化も補正する必要があるため
 
 $$
 \Box_g^\nabla u
@@ -329,7 +329,7 @@ $$
 
 ### 曲がった計量でも確かめる
 
-$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[LORG4のLevi-Civita公式](../../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
+$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[LORG4のLevi-Civita公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
 
 $$
 \Gamma^k{}_{ij}
