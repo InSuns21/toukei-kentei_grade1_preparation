@@ -271,7 +271,15 @@ $$
 $\kappa\rho c^2=(8\pi G/c^2)\rho$ を右辺と比較すると $2\Delta\Phi/c^2=8\pi G\rho/c^2$、従って $\Delta\Phi=4\pi G\rho$ です。$\square$
 <!-- proof-end -->
 
-もし $g_{ij}=\delta_{ij}$ を一次まで**厳密に固定**すると、一般の $\Phi$ に対して $R_{ij}$ が変わり、$G_{00}$ の係数も変わります。[GR6の静的lapse計量](../GR6/index.md#prop-gr6-static-lapse-ricci)はこの警告を具体的に示します。「$g_{00}$ のみから加速度が出る」ことと「時空の全場の方程式を満たす」ことは別です。
+もし $g_{ij}=\delta_{ij}$ を一次まで**厳密に固定**すると、一般の $\Phi$ に対して $R_{ij}$ が変わり、$G_{00}$ の係数も変わります。[GR6の静的lapse計量](../GR6/index.md#prop-gr6-static-lapse-ricci)で $N=1+\Phi/c^2+O(\epsilon^2)$ と置くと、その公式から
+
+$
+R_{00}=\frac{\Delta\Phi}{c^2}+O(\epsilon^2/L^2),
+\qquad
+\mathcal R=-\frac{2\Delta\Phi}{c^2}+O(\epsilon^2/L^2)
+$
+
+です。この模型では $g_{00}=-1+O(\epsilon)$ なので、$G_{00}=R_{00}-g_{00}\mathcal R/2=0+O(\epsilon^2/L^2)$。実際、静的lapse模型の $G_{00}$ は厳密に零です。$T_{00}=\rho c^2$ の物質がある場合、通常のEinstein方程式を満たす計量にはなりません。「$g_{00}$ のみから加速度が出る」ことと「時空の全場の方程式を満たす」ことは別です。
 
 ## 4. 重力源と境界条件を確かめる
 
