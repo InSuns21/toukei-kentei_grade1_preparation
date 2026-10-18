@@ -1,0 +1,56 @@
+chapter: ML1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-08
+  - ML1-04
+  - OPT7
+concepts:
+  - id: learning.empirical-smooth-loss
+    name: 機械学習損失のL-滑らかさ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（機械学習損失のL-滑らかさ）"]
+    requires: [optimization.lipschitz-gradient]
+  - id: learning.empirical-squared-loss
+    name: 標本平均二乗損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本平均二乗損失）"]
+    requires: [learning.design-matrix]
+  - id: learning.least-squares-smoothness
+    name: 二乗損失の勾配と滑らかさ定数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二乗損失の勾配と滑らかさ定数）"]
+    requires: [learning.empirical-squared-loss, optimization.lipschitz-gradient]
+  - id: learning.logistic-smoothness-bound
+    name: logistic損失の一様な滑らかさ上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（logistic損失の一様な滑らかさ上界）"]
+    requires: [learning.logistic-gradient-hessian, optimization.lipschitz-gradient]
+  - id: learning.full-gradient-empirical-update
+    name: 全標本勾配の固定歩幅更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全標本勾配の固定歩幅更新）"]
+    requires: [optimization.fixed-step-gradient-method]
+  - id: learning.empirical-gradient-descent-inequality
+    name: 滑らかな経験損失の一段降下
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな経験損失の一段降下）"]
+    requires: [learning.full-gradient-empirical-update, optimization.descent-lemma]
+  - id: learning.quadratic-step-instability
+    name: 二次損失で安全域が鋭い例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次損失で安全域が鋭い例）"]
+    requires: [learning.empirical-gradient-descent-inequality]
+  - id: learning.empirical-convex-gradient-rate
+    name: 滑らかな凸経験損失の関数値上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな凸経験損失の関数値上界）"]
+    requires: [learning.empirical-gradient-descent-inequality, optimization.gradient-convex-sublinear-rate]
