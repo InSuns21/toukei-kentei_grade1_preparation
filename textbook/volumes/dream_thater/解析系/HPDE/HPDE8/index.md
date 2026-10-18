@@ -235,7 +235,7 @@ $$
 $$
 Pw=Pu-Pv=g.
 $$
-また[HPDE6のCauchyデータの定義](../HPDE6/index.md#def-hpde6-cauchy-data)より、時刻 $s$ の差の法線データは $Nw=N u-Nv$、接方向データは $D_{\Sigma_s}w=D_{\Sigma_s}(u-v)$ です。初期変位と初期速度が一致するならこれらは零なので
+また[滑らかなCauchyデータと源](../HPDE6/index.md#def-hpde6-cauchy-data)より、時刻 $s$ の差の法線データは $Nw=N u-Nv$、接方向データは $D_{\Sigma_s}w=D_{\Sigma_s}(u-v)$ です。初期変位と初期速度が一致するならこれらは零なので
 $$
 E_\lambda[w](s;K_s)=0.
 $$
@@ -471,6 +471,37 @@ $$
 +\tfrac12\int f^2dx.
 $$
 この係数は有限なのでGrönwallが使えます。$b$ の符号が非負と仮定されていなくても成立します。
+<!-- solution-end -->
+
+<a id="ex-hpde8-b04"></a>
+### B4. 自然な接続が計量非互換でも評価できる例
+- Level: B
+- 問題：$1+1$ 次元Minkowski空間の実1次元自明束に通常の内積を入れ、$a\ne0$ を定数とする。接続を $\nabla^{P}_t=\partial_t+a$、$\nabla^{P}_x=\partial_x$ とし、$P=-\Box_g^{\nabla^P}$ と置く。(i) $\nabla^P$ が通常の内積に両立しないことを示せ。(ii) 計量互換な $D=\partial$ を使って $P=-\Box_g^D+B^tD_t+C$ と表示し、(iii) $Pu=f$ のエネルギー評価で何を誤差へ入れるか示せ。
+
+<!-- solution-start -->
+**詳細解答**。(i) 実関数 $v,w$ を切断とみなし、計量両立条件を $t$ 方向で比較します。左辺は $\partial_t(vw)=v_tw+vw_t$、右辺は
+$
+(\nabla_t^P v)w+v(\nabla_t^P w)
+=v_tw+vw_t+2avw.
+$
+$a\ne0$ なので一般に一致せず、非互換です。(ii) $g^{tt}=-1$、$g^{xx}=1$ より
+$
+\begin{aligned}
+Pu&=(\partial_t+a)^2u-\partial_x^2u\\
+&=(\partial_t^2-\partial_x^2)u+2a\partial_tu+a^2u.
+\end{aligned}
+$
+従って $B^t=2a$、$B^x=0$、$C=a^2$ です。(iii) 正にずらした作用素 $P_\lambda^D=\partial_t^2-\partial_x^2+\lambda$ に対して
+$
+P_\lambda^D u=f-2a\,u_t+(\lambda-a^2)u.
+$
+項 $-2a\,u_t$ と $(\lambda-a^2)u$ はそれぞれ $|u_t|^2$ と $|u\,u_t|$ で評価できます。例えば
+$
+|2a\,u_t^2|\le4|a|e_\lambda,\qquad
+|(\lambda-a^2)u\,u_t|
+\le |\lambda-a^2|(1+\lambda^{-1})e_\lambda.
+$
+よって有限時間領域で[束値の有限時間評価](#prop-hpde8-bundle-energy)と同じ構造が得られます。自然な接続が非互換でも、補助互換接続へ移せることが計算で分かりました。
 <!-- solution-end -->
 
 <a id="ex-hpde8-c01"></a>
