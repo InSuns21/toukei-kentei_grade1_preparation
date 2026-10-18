@@ -72,7 +72,11 @@ $\partial_t$ が面に直交し $dT(\partial_t)=1$ となる直交分割なの�
 <a id="def-hpde6-cauchy-data"></a>
 <!-- formal-statement-start -->
 > **定義（滑らかなCauchyデータと源）**  
-> $(M,g)$ を時間向き付きLorentz時空、$\Sigma\subset M$ を滑らかな空間的Cauchy初期面、$N$ を未来向き単位法線、$E\to M$ を滑らかなベクトル束、$P$ をその上のnormally hyperbolic作用素、$\nabla^P$ を[HPDE5の一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)で $P$ から一意に定まる接続とする。滑らかな切断 $u\in\Gamma(M,E)$ の**初期変位**と**初期速度**を
+> $(M,g)$ を時間向き付きLorentz時空、$\Sigma\subset M$ を滑らかな空間的Cauchy初期面とする。$N$ は未来向き単位法線とする。
+>
+> $E\to M$ を滑らかなベクトル束、$P$ をその上のnormally hyperbolic作用素とする。[HPDE5の一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)で $P$ から一意に定まる接続を $\nabla^P$ と記す。
+>
+> $u\in\Gamma(M,E)$ を滑らかな切断とする。その**初期変位**と**初期速度**を
 $$
 u_0=u|_\Sigma\in\Gamma(\Sigma,E|_\Sigma),\qquad
 u_1=(\nabla^P_Nu)|_\Sigma\in\Gamma(\Sigma,E|_\Sigma)
@@ -293,7 +297,13 @@ $$
 <a id="def-hpde6-local-sobolev-data"></a>
 <!-- formal-statement-start -->
 > **定義（局所Sobolev初期データ）**  
-> $\Sigma$ を滑らかな $n$ 次元多様体、$F\to\Sigma$ を有限ランクの滑らかな束、$k\in\mathbb N_0$ とする（Cauchy初期値問題では $F=E|_\Sigma$）。[HPDE3で導入した束値分布](../HPDE3/index.md#def-hpde3-distribution-section) $v$ が $H^k_{\mathrm{loc}}(\Sigma,F)$ に属するとは、各座標近傍 $U\subset\Sigma$ と局所枠における成分ベクトルが、任意の閉包が $U$ の中でコンパクトな小領域 $K\Subset U$ 上で、次数 $|\beta|\le k$ の全ての弱偏微分を局所 $L^2$ 関数として持つことをいう。初期データの一つの自然な正則性クラスは
+> $\Sigma$ を滑らかな $n$ 次元多様体、$F\to\Sigma$ を有限ランクの滑らかな束とし、$k\in\mathbb N_0$ を固定する。Cauchy初期値問題では $F=E|_\Sigma$ を使う。
+>
+> [HPDE3で導入した束値分布](../HPDE3/index.md#def-hpde3-distribution-section) $v$ について、$v\in H^k_{\mathrm{loc}}(\Sigma,F)$ とは、次の局所条件が成り立つことをいう。
+>
+> 任意の座標近傍 $U\subset\Sigma$ と局所枠で $v$ の成分ベクトルを表す。閉包が $U$ に含まれるコンパクトな小領域 $K\Subset U$ のそれぞれで、次数 $|\beta|\le k$ の全ての弱偏微分が局所 $L^2$ 関数として表されることを要求する。
+>
+> 初期データの一つの自然な正則性クラスは
 $$
 (u_0,u_1)\in H^{k+1}_{\mathrm{loc}}(\Sigma,F)
 \times H^k_{\mathrm{loc}}(\Sigma,F)
