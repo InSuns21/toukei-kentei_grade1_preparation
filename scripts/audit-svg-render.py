@@ -52,8 +52,10 @@ def contact_sheet(entries, batch, font):
     for i, (label, png) in enumerate(entries):
         x, y = (i % 2) * tile_w, (i // 2) * tile_h
         draw.rectangle((x + 3, y + 3, x + tile_w - 4, y + tile_h - 4), fill="white", outline="#bfc6cf")
-        short = label.replace("textbook/volumes/", "")
-        # Two lines only; full paths are preserved in the JSON manifest.
+        # Always use ASCII for portable CI fonts; full Japanese paths stay in manifest.json.
+        pieces = Path(label).parts
+        short = "/".join(pieces[-3:])
+        short = re.sub(r"[^\\x20-\\x7E]", "", short)
         lines = [short[:60], short[60:120]]
         for j, line in enumerate(lines):
             draw.text((x + 12, y + 6 + 15*j), line, fill="#202a35", font=font)
