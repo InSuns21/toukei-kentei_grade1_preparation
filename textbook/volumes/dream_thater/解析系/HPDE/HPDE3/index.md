@@ -4,7 +4,7 @@
 
 本章では次の順で解決します。まず向きを選ばなくても積分できる密度を構成します。次に各点のベクトルを試験対象へ掛けるための双対束を作り、テスト切断への連続線形作用として、各点のベクトル値を扱える超関数を定義します。最後に滑らかな切断・点源・台を直接検算します。ここでの双対は**代数的な線形双対**です。微分作用素の接続・形式的随伴、Hermite共役はHPDE4で扱います。
 
-以下、$M$ は境界のない滑らかなHausdorff・第二可算な $d$ 次元多様体（$d\ge1$）、$E\to M$ は実または複素の有限ランク $r$ の滑らかなベクトル束とします。Lorentz時空の場合はさらに滑らかな非退化なLorentz計量 $g$ を持ちます。[LORG2のLorentz計量の定義](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を使いますが、**密度と分布切断の構成そのものには時間向きも大域双曲性も必要ありません**。
+以下、$M$ は境界のない滑らかなHausdorff・第二可算な $d$ 次元多様体（$d\ge1$）、$E\to M$ は実または複素の有限ランク $r$ の滑らかなベクトル束とします。Lorentz時空の場合は $d\ge2$ とし、さらに滑らかな非退化なLorentz計量 $g$ を持ちます。[LORG2のLorentz計量の定義](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を使いますが、**密度と分布切断の構成そのものには時間向きも大域双曲性も必要ありません**。
 
 ## 1. 積分はなぜ座標に依存しないのか
 
@@ -126,7 +126,7 @@ $$
 
 [GPDE1のテスト関数](../../GPDE/GPDE1/index.md#def-gpde1-test-function)は各点で数を返します。ところが波動作用素の未知量が $E_p$ のベクトル $s(p)$ である場合、数へ直して積分するには、同じ点でそのベクトルを**線形に評価する相手**が必要です。
 
-ベクトル束 $E\to M$ とは、各点に $r$ 次元ベクトル空間 $E_p$ があり、各小領域 $U$ で滑らかな局所枠 $e_1,\ldots,e_r$ を用いて $s=\sum_as^ae_a$ と表示できるものです。枠を変えると成分も変わります。各 $E_p$ 上の線形汎関数から成る **双対束** $E^*\to M$ の局所双対枠 $e^a$ は $e^a(e_b)=\delta^a_b$ を満たします。複素束でもここでの双対は**複素線形**であり共役線形ではありません。
+ベクトル束 $E\to M$ とは、各点に $r$ 次元ベクトル空間 $E_p$ があり、各小領域 $U$ で滑らかな局所枠 $e_1,\ldots,e_r$ を用いて $s=\sum_as^ae_a$ と表示できるものです。枠を変えると成分も変わります。各 $E_p$ 上の線形汎関数から成る **双対束** $E^*\to M$ の局所双対枠 $e^a$ は $e^a(e_b)=\delta^a_b$ を満たします。複素束でもここでの双対は**複素線形**であり共役線形ではありません。複素束の場合、以下のテンソル積では実一次元の密度束を複素化して用い、$\psi(s)$ を複素数値の密度として積分します。
 
 <a id="def-hpde3-test-dual-density"></a>
 <!-- formal-statement-start -->
@@ -142,7 +142,7 @@ $$
 
 なぜ双対と密度を**両方**掛けるのでしょうか。$\psi_p$ を切断 $s(p)$ に作用させると $E^*$ と $E$ の部分が縮約され、密度だけが残るからです。その密度には前節の座標不変な積分が使えます。
 
-枠 $e'_a=\sum_be_bA^b{}_a$ を取ると、$s'^a=(A^{-1})^a{}_bs^b$ です。一方、$\psi$ の双対成分は $\psi'_a=\sum_bA^b{}_a\psi_b$ となります（座標はまだ固定）。従って
+枠 $e'_a=\sum_be_bA^b{}_a$ を取り、各点で $A$ が可逆とします。$s=\sum_bs^be_b=\sum_as'^ae'_a$ の係数比較から $s'^a=(A^{-1})^a{}_bs^b$ です。双対枠は $e'^a=\sum_b(A^{-1})^a{}_be^b$ と解けるので、$\sum_b\psi_be^b=\sum_a\psi'_ae'^a$ を比較すると $\psi'_a=\sum_bA^b{}_a\psi_b$ となります（座標はまだ固定）。従って
 
 $$
 \sum_a\psi'_as'^a
@@ -155,7 +155,7 @@ $$
 <!-- definition-example-start: def-hpde3-test-dual-density -->
 ### 直接例：枠の変更で縮約は変わらない
 
-**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$ の新成分は $(1,1)$ です。$\psi=(3e^1+5e^2)\otimes h(x)|dx|$（$h$ は非零の滑らかなコンパクト台関数）の新成分は $(8,5)$ です。従って
+**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$ の新成分は $(1,1)$ です。$\psi=(3e^1+5e^2)\otimes h(x)|dx|$（$h$ は非零の滑らかなコンパクト台関数）の新成分は $(8,5)$ です。ここで $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ は $\det A=1$ で可逆、$s'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$、$\psi'=A^{\mathsf T}(3,5)^{\mathsf T}=(8,5)^{\mathsf T}$ です。従って
 
 $$
 \psi(s)=(3\cdot1+5\cdot2)h(x)|dx|
@@ -188,15 +188,14 @@ $$
 <!-- definition-example-start: def-hpde3-distribution-section -->
 ### 直接例：滑らかな切断から超関数を作る
 
-**定義の確認**。$s\in\Gamma(M,E)$ に対して $\langle T_s,\psi\rangle=\int_M\psi(s)$ と置きます。局所的には $\psi(s)=(\sum_as^a\psi_a)|dx|$ です。コンパクト $K$ を有限個の枠近傍で覆い、分割関数で $\psi$ を分ければ、各小領域で
+**定義の確認**。$s\in\Gamma(M,E)$ に対して $\langle T_s,\psi\rangle=\int_M\psi(s)$ と置きます。局所的には $\psi(s)=(\sum_as^a\psi_a)|dx|$ です。コンパクト $K$ を有限個の枠近傍 $U_i$ で覆い、$K$ の近傍で和が $1$ となる滑らかな1の分割 $\chi_i$ を取ります。各 $\chi_i$ の台を $U_i$ 内のコンパクト集合 $K_i$ に収めて $\psi=\sum_i\chi_i\psi$ と分けます。$K_i$ の座標像の体積 $V_i$ は有限なので、局所成分に対して
 
-$$
-\left|\int s^a\psi_a\,|dx|\right|
-\le
-\sup_K|s^a|\,\mathrm{vol}_{x}(K\cap U)\sup_K|\psi_a|
-$$
+$
+\left|\int_{U_i}\chi_i s^a\psi_a\,|dx|\right|
+\le V_i\sup_{K_i}|s^a|\sup_{K_i}|\chi_i|\sup_{K_i}|\psi_a|.
+$
 
-と評価できます（各座標部分の台を収めるコンパクト集合で体積を評価）。有限個を足せばゼロ階の係数上限で抑えられます。線形性は積分から、連続性はこの評価から従うため $T_s\in\mathcal D'(M,E)$ です。非コンパクトな $s$ でも、試験切断の台がコンパクトなので積分は有限です。
+成分と領域について有限和を取れば、固定コンパクト台の上のゼロ階係数上限で抑えられます。線形性は積分から、連続性はこの評価から従うため $T_s\in\mathcal D'(M,E)$ です。非コンパクトな $s$ でも、試験切断の台がコンパクトなので積分は有限です。
 <!-- definition-example-end -->
 
 <a id="prop-hpde3-regular-injection"></a>
@@ -258,7 +257,7 @@ $$
 <!-- definition-example-start: def-hpde3-point-source -->
 ### 直接例：座標を変えても点源の値は一致する
 
-**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R$、$\mu=|dx|$、$p=0$、$v=2$ とし、$\psi=h(x)|dx|$ とします。定義から $\langle\delta_{0,2}^{\mu},\psi\rangle=2h(0)$ です。$y=2x$ なら $\mu=\frac12|dy|$、$\psi=\frac12h(y/2)|dy|$ なので、新座標では
+**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R$、$\mu=|dx|$、$p=0$、$v=2$ とし、$h\in C_c^\infty(\mathbb R)$ に対して $\psi=h(x)|dx|$ とします。定義から $\langle\delta_{0,2}^{\mu},\psi\rangle=2h(0)$ です。$y=2x$ なら $\mu=\frac12|dy|$、$\psi=\frac12h(y/2)|dy|$ なので、新座標では
 
 $$
 \frac{2\cdot[h(0)/2]}{1/2}=2h(0).
@@ -316,7 +315,7 @@ $$
 
 $s=0$ の開集合上では $\psi(s)=0$ なので $T_s$ も零です。逆に $T_s$ が開集合 $U$ で零なら[滑らかな切断の局所判定](#prop-hpde3-regular-injection)により $s|_U=0$ です。したがって両者の最大の零開集合が一致し、その補集合である台も一致します。
 
-$\delta_{p,v}^{\mu}$ に対し $p\notin U$ なら $U$ に支持を持つ $\psi$ は $\psi_p=0$ で、作用は零です。一方 $v\ne0$ なら $E_p^*$ の線形汎関数 $\ell_p$ で $\ell_p(v)=1$ となるものがあります。$p$ の任意の近傍で局所双対枠を使い $\ell_p$ を滑らかに延長し、$p$ で1になるコンパクト台関数 $h$ を掛け、$\psi=h\ell\otimes\mu$ を作ると
+[点源の定義](#def-hpde3-point-source)による $\delta_{p,v}^{\mu}$ に対し $p\notin U$ なら $U$ に支持を持つ $\psi$ は $\psi_p=0$ で、作用は零です。一方 $v\ne0$ なら $E_p^*$ の線形汎関数 $\ell_p$ で $\ell_p(v)=1$ となるものがあります。$p$ の任意の近傍で局所双対枠を使い $\ell_p$ を滑らかに延長し、$p$ で1になるコンパクト台関数 $h$ を掛け、$\psi=h\ell\otimes\mu$ を作ると
 
 $$
 \langle\delta_{p,v}^{\mu},\psi\rangle=h(p)\ell_p(v)=1.
@@ -339,7 +338,7 @@ $\operatorname{supp}T$ がコンパクトであることは、この定義の必
 <!-- solution-start -->
 **詳細解答**
 
-$x=y^{1/3}$、$dx/dy=1/(3x^2)$ です。$x>0$ なので
+[密度の変換則](#def-hpde3-density)を使います。$x=y^{1/3}$、$dx/dy=1/(3x^2)$ です。$x>0$ なので
 
 $$
 3x^2|dx|=3x^2\frac1{3x^2}|dy|=|dy|.
@@ -356,7 +355,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$(t,z)$ 座標では $G=\operatorname{diag}(-4,9)$、$\det G=-36$ より $d\mathrm{vol}_g=6|dt\,dz|$ です。$dt=du/2$、$dz=dw/3$ なので $6|dt\,dz|=|du\,dw|$ となります。一方、変換した計量は $g=-du^2+dw^2$ です。新行列の行列式は $-1$ なので $d\mathrm{vol}_g=|du\,dw|$ となり、一致します。
+[Lorentz体積密度の命題](#prop-hpde3-metric-density)を座標 $(t,z)$ と $(u,w)$ に適用します。$(t,z)$ 座標では $G=\operatorname{diag}(-4,9)$、$\det G=-36$ より $d\mathrm{vol}_g=6|dt\,dz|$ です。$dt=du/2$、$dz=dw/3$ なので $6|dt\,dz|=|du\,dw|$ となります。一方、変換した計量は $g=-du^2+dw^2$ です。新行列の行列式は $-1$ なので $d\mathrm{vol}_g=|du\,dw|$ となり、一致します。
 <!-- solution-end -->
 
 ### A3. 双対枠の計算
@@ -367,7 +366,7 @@ $(t,z)$ 座標では $G=\operatorname{diag}(-4,9)$、$\det G=-36$ より $d\math
 <!-- solution-start -->
 **詳細解答**
 
-$A=\begin{pmatrix}2&1\\0&1\end{pmatrix}$、$A^{-1}=\begin{pmatrix}1/2&-1/2\\0&1\end{pmatrix}$ です。$s'=A^{-1}(3,4)^{\mathsf T}=(-1/2,4)^{\mathsf T}$。双対成分は $A^{\mathsf T}(5,7)^{\mathsf T}=(10,12)^{\mathsf T}$ です。よって
+[密度値双対試験切断で導いた枠変換](#def-hpde3-test-dual-density)を用います。$A=\begin{pmatrix}2&1\\0&1\end{pmatrix}$、$A^{-1}=\begin{pmatrix}1/2&-1/2\\0&1\end{pmatrix}$ です。$s'=A^{-1}(3,4)^{\mathsf T}=(-1/2,4)^{\mathsf T}$。双対成分は $A^{\mathsf T}(5,7)^{\mathsf T}=(10,12)^{\mathsf T}$ です。よって
 
 $$
 \ell(s)=5\cdot3+7\cdot4=43
@@ -384,7 +383,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-点源の局所公式では $\mu=a(x)|dx|$、$a(1)=e$ です。試験切断の係数は $(1+x^2)h(x)$ なので、点 $1$ では $2h(1)$ です。従って
+[点源の定義](#def-hpde3-point-source)の局所公式では $\mu=a(x)|dx|$、$a(1)=e$ です。試験切断の係数は $(1+x^2)h(x)$ なので、点 $1$ では $2h(1)$ です。従って
 
 $$
 \langle\delta_{1,3}^{\mu},\psi\rangle
@@ -402,7 +401,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-枠変換の行列は $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ なので、$s'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$、双対成分は $A^{\mathsf T}(3,5)^{\mathsf T}=(8,5)^{\mathsf T}$ です。また $|dx|=\frac12|dy|$、$x=y/2$ なので
+[双対枠の変換](#def-hpde3-test-dual-density)と[密度の変換則](#def-hpde3-density)をそれぞれ適用します。枠変換の行列は $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ なので、$s'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$、双対成分は $A^{\mathsf T}(3,5)^{\mathsf T}=(8,5)^{\mathsf T}$ です。また $|dx|=\frac12|dy|$、$x=y/2$ なので
 
 $$
 \psi=\left(4e'^1+\frac52e'^2\right)\otimes h(y/2)|dy|.
@@ -419,7 +418,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\psi=h(x)|dx|$ には $\langle\delta_{0,1}^{\mu},\psi\rangle=h(0)$ です。$0$ を含まない開集合 $U$ に支持された $h$ は $h(0)=0$ なので点源は $U$ 上で零です。一方、$0$ の任意の開近傍 $V$ には $h\in C_c^\infty(V)$ で $h(0)=1$ となるものが存在します。この $h$ への応答が $1$ なので $V$ 上で零でありません。最大の零開集合は $\mathbb R\setminus\{0\}$、したがって台は $\{0\}$。$v=0$ なら応答が常に零で、台は空集合です。
+[点源の定義](#def-hpde3-point-source)より、$\psi=h(x)|dx|$ には $\langle\delta_{0,1}^{\mu},\psi\rangle=h(0)$ です。$0$ を含まない開集合 $U$ に支持された $h$ は $h(0)=0$ なので点源は $U$ 上で零です。一方、$0$ の任意の開近傍 $V$ には $h\in C_c^\infty(V)$ で $h(0)=1$ となるものが存在します。この $h$ への応答が $1$ なので $V$ 上で零でありません。最大の零開集合は $\mathbb R\setminus\{0\}$、したがって台は $\{0\}$。$v=0$ なら応答が常に零で、台は空集合です。
 <!-- solution-end -->
 
 ### B3. 正則超関数の台と複素数
@@ -458,7 +457,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-枠変換 $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ より $v'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$。双対係数は $A^{\mathsf T}(f,g)^{\mathsf T}=(f+g,g)^{\mathsf T}$ です。また $x=y/3$、$|dx|=\frac13|dy|$ なので
+[双対枠の変換](#def-hpde3-test-dual-density)を用います。枠変換 $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ より $v'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$。双対係数は $A^{\mathsf T}(f,g)^{\mathsf T}=(f+g,g)^{\mathsf T}$ です。また $x=y/3$、$|dx|=\frac13|dy|$ なので
 
 $$
 \psi=\left(\frac{f(y/3)+g(y/3)}3e'^1
@@ -467,7 +466,7 @@ $$
 \mu=\frac{e^{y/3}}3|dy|.
 $$
 
-点 $y=0$ では縮約の分子が $(f(0)+g(0))/3+g(0)/3=(f(0)+2g(0))/3$、密度の係数は $1/3$。従って
+[点源の局所公式](#def-hpde3-point-source)で、点 $y=0$ では縮約の分子が $(f(0)+g(0))/3+g(0)/3=(f(0)+2g(0))/3$、密度の係数は $1/3$。従って
 
 $$
 \langle\delta_{0,v}^{\mu},\psi\rangle=f(0)+2g(0).
@@ -481,7 +480,7 @@ $$
 =\int_{\mathbb R}\frac{f(y/3)+2g(y/3)}3\,dy.
 $$
 
-点源は一点の値、正則超関数は全区間の積分を読むので一般には一致しません。$v\ne0$ より点源の台は $\{0\}$ ですが、定数切断は全点で非零なので $T_s$ の台は $\mathbb R$ です。密度 $\mu$ は点源を数に直すための基準であり、滑らかな切断から定めた作用 $\int\psi(s)$ に余分に掛けるものではありません。
+点源は一点の値、正則超関数は全区間の積分を読むので一般には一致しません。$v\ne0$ より[台の命題](#prop-hpde3-support)から点源の台は $\{0\}$ ですが、定数切断は全点で非零なので $T_s$ の台は $\mathbb R$ です。密度 $\mu$ は点源を数に直すための基準であり、滑らかな切断から定めた作用 $\int\psi(s)$ に余分に掛けるものではありません。
 <!-- solution-end -->
 
 ---
