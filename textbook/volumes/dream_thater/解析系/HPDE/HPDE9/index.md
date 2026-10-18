@@ -385,12 +385,12 @@ $$
 
 すべての $m$ で収束するなら任意の $r$ について $u\in C^0H^r$、$u_t\in C^0H^{r-1}$ です。トーラス上では $r>k+n/2$ のとき $H^r\subset C^k$ です。この包含は、三角級数の係数 $\widehat u(\ell)$ についてCauchy–Schwarzを使い、
 
-$
+$$
 \sum_{\ell\in\mathbb Z^n}|\ell|^k|\widehat u(\ell)|
 \le
 \left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^{-(r-k)}\right)^{1/2}
 \left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^r|\widehat u(\ell)|^2\right)^{1/2}
-$
+$$
 
 と評価して確認できます。第一因子は $r-k>n/2$ で収束し、第二因子は微分の $L^2$ ノルムと比較できます。したがって $k$ 階までの項別微分したFourier級数が一様収束し、空間 $k$ 階微分の連続性が得られます。さらに
 
@@ -603,10 +603,10 @@ $$
 
 源と時間微分の積にはYoungの不等式を適用します。例えば
 
-$
+$$
 \left|\int e^\varphi(fu_t+f_xu_{xt})\,dx\right|
 \le C\|f\|_{H^1}^2+C\mathcal E_1.
-$
+$$
 
 他の低階の積も同じように、関数とその一階微分の二乗で制御できます。したがって指定のエネルギー不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。
 
