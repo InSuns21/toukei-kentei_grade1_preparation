@@ -1791,7 +1791,7 @@ T_pS^n
 \{w\in\mathbb R^{n+1}:\langle p,w\rangle=0\}
 =
 p^\perp
-$
+$$
 
 を与えます。
 
