@@ -649,7 +649,7 @@ $n=1$、$z=(1,2)^{\mathsf T}$、$y=1$、$\theta=0$ とする。logistic損失の
 <!-- solution-start -->
 #### 詳細解答
 
-$q=\sigma(0)=1/2$ である。[勾配・Hessian公式](#thm-ml1-08-binary-derivatives)に $n=1$ を代入し、
+$q=\sigma(0)=1/2$ である。[二値logistic損失の勾配とHessian](#thm-ml1-08-binary-derivatives)に $n=1$ を代入し、
 
 $$
 \nabla L_1(0)=(1/2-1)(1,2)^{\mathsf T}
