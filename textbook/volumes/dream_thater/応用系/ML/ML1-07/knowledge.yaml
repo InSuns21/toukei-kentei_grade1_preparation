@@ -1,0 +1,74 @@
+chapter: ML1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-02
+  - F0-00P3
+  - LA6
+concepts:
+  - id: learning.generative-classification
+    name: 生成的分類模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（生成的分類模型）"]
+    requires: [learning.bayes-decision-rule, prob.distribution-law]
+  - id: learning.generative-posterior
+    name: 密度から事後確率と最適分類則を得る
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（密度から事後確率と最適分類則を得る）"]
+    requires: [learning.generative-classification, learning.zero-one-bayes-rule]
+  - id: learning.naive-bayes
+    name: Naive Bayes模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Naive Bayes模型）"]
+    requires: [learning.generative-classification, prob.mutual-independence]
+  - id: learning.naive-bayes-log-score
+    name: Bernoulli Naive Bayesの対数得点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bernoulli Naive Bayesの対数得点）"]
+    requires: [learning.naive-bayes, learning.generative-posterior]
+  - id: learning.nondegenerate-gaussian-density
+    name: 非退化多変量正規密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非退化多変量正規密度）"]
+    requires: [learning.generative-classification]
+  - id: learning.gaussian-normalization
+    name: 正規密度の正規化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正規密度の正規化）"]
+    requires: [learning.nondegenerate-gaussian-density]
+  - id: learning.gaussian-discriminant-score
+    name: 正規生成模型の判別得点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正規生成模型の判別得点）"]
+    requires: [learning.generative-posterior, learning.nondegenerate-gaussian-density]
+  - id: learning.lda-model
+    name: LDA生成模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（LDA生成模型）"]
+    requires: [learning.nondegenerate-gaussian-density]
+  - id: learning.lda-affine-boundary
+    name: LDA判別境界のアフィン性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（LDA判別境界のアフィン性）"]
+    requires: [learning.lda-model, learning.gaussian-discriminant-score]
+  - id: learning.qda-model
+    name: QDA生成模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（QDA生成模型）"]
+    requires: [learning.nondegenerate-gaussian-density]
+  - id: learning.qda-quadratic-boundary
+    name: QDA判別差の二次式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（QDA判別差の二次式）"]
+    requires: [learning.qda-model, learning.gaussian-discriminant-score]
