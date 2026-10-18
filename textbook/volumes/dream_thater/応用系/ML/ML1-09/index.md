@@ -17,7 +17,7 @@
 <a id="def-ml1-09-smooth-loss"></a>
 
 <!-- formal-statement-start -->
-> **定義（機械学習損失の $L$-滑らかさ）**  
+> **定義（機械学習損失のL-滑らかさ）**  
 > $f:\mathbb R^d\to\mathbb R$ を連続微分可能、$L>0$ とする。任意の $u,v\in\mathbb R^d$ について
 
 $$
@@ -44,11 +44,23 @@ $$
 =\int_0^1\nabla^2 f(v+t(u-v))(u-v)\,dt.
 $$
 
-従って線分上で任意の $h$ に $\|\nabla^2f(w)h\|_2\le L\|h\|_2$ が成り立てば、積分の三角不等式から定義の不等式が従う。Hessianが対称半正定値なら、最大固有値が全域で $L$ 以下であることを示せば足りる。**行列の固有値を計算する理由**は、勾配変化の最大倍率を全方向にわたって抑えるためである。
+線分上の $w=v+t(u-v)$ で任意の $h$ に $\|\nabla^2f(w)h\|_2\le L\|h\|_2$ が成り立つとする。$a=u-v$、$b=\int_0^1\nabla^2f(v+ta)a\,dt$ と置く。$b=0$ なら $\|b\|_2\le L\|a\|_2$ は直ちに成り立つ。$b\ne0$ の場合は単位ベクトル $e=b/\|b\|_2$ を選び、Cauchy–Schwarz不等式を各被積分関数に使うと
+
+$
+\begin{aligned}
+\|b\|_2
+&=\langle e,b\rangle
+=\int_0^1\langle e,\nabla^2f(v+ta)a\rangle\,dt\\
+&\le\int_0^1\|\nabla^2f(v+ta)a\|_2\,dt
+\le\int_0^1L\|a\|_2\,dt=L\|a\|_2.
+\end{aligned}
+$
+
+最初の積分表示から $b=\nabla f(u)-\nabla f(v)$ なので、滑らかさの定義に到達した。Hessianが対称半正定値なら、最大固有値が全域で $L$ 以下であることを示せば足りる。**行列の固有値を計算する理由**は、勾配変化の最大倍率を全方向にわたって抑えるためである。
 
 ## 3. 最小二乗損失：設計行列が学習率を決める
 
-[最小二乗の設計行列](../ML1-04/index.md#def-ml1-04-design-matrix)を使った標本平均二乗損失のHessianは、係数によらない。従って滑らかさ定数をデータから一度だけ計算できる。
+[最小二乗の設計行列](../ML1-04/index.md#def-ml1-04-design-matrix)を使った平均二乗誤差のHessianは、係数によらない。従って滑らかさ定数をデータから一度だけ計算できる。
 
 <a id="def-ml1-09-quadratic-loss"></a>
 
@@ -258,13 +270,27 @@ $$
 $0<\alpha<2/L$ なら係数は正であり、$\alpha=1/L$ を代入すれば $\alpha(1-L\alpha/2)=1/(2L)$。$\square$
 <!-- proof-end -->
 
-二乗損失なら $\alpha=1/L_X$、二値logisticなら $\alpha=1/L_G$ がデータから直接計算できる選択である。ただし後者の $L_G$ は保守的な上界なので、実際にはこれより大きい歩幅でも減少する場合がある。「上界を超えたら必ず発散」と「安全の証明がなくなる」は別の主張である。
+二乗損失なら $\alpha=1/L_X$、二値logisticなら $\alpha=1/L_G$ がデータから直接計算できる選択である。ただし後者の $L_G$ は全域では最小の滑らかさ定数であっても、個々の反復では局所曲率に比べて保守的なので、これより大きい歩幅でも減少する場合がある。「上界を超えたら必ず発散」と「安全の証明がなくなる」は別の主張である。
 
 <a id="prop-ml1-09-sharp-quadratic"></a>
 
 <!-- formal-statement-start -->
 > **命題（二次損失で安全域が鋭い例）**  
-> $f(w)=Lw^2/2$（$L>0$）に上の更新を使えば $w_{k+1}=(1-\alpha L)w_k$ となる。$w_0\ne0$ なら、$0<\alpha<2/L$ で0へ収束し、$\alpha=2/L$ で符号だけ交代して損失は一定、$\alpha>2/L$ では $|w_k|\to\infty$ かつ $f(w_k)\to\infty$ となる。
+> $L>0$ とし、二次損失 $f(w)=Lw^2/2$ に固定歩幅更新を適用する。このとき
+
+$
+w_{k+1}=(1-\alpha L)w_k.
+$
+
+> 初期値 $w_0\ne0$ なら、歩幅に応じて次の3場合となる。
+
+$
+\begin{aligned}
+0<\alpha<2/L&:\quad w_k\longrightarrow0,\\
+\alpha=2/L&:\quad w_k=(-1)^kw_0,\quad f(w_k)=f(w_0),\\
+\alpha>2/L&:\quad |w_k|\longrightarrow\infty,\quad f(w_k)\longrightarrow\infty.
+\end{aligned}
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
