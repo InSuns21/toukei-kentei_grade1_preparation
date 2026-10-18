@@ -119,11 +119,25 @@ function test() {
   console.log('SVG quality self-test passed.');
 }
 
+function collectExistingSvg(dir) {
+  if (!fs.existsSync(dir)) return [];
+  const result = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const loc = path.join(dir, entry.name);
+    if (entry.isDirectory()) result.push(...collectExistingSvg(loc));
+    else if (entry.isFile() && entry.name.endsWith('.svg')) result.push(loc.replaceAll('\\', '/'));
+  }
+  return result;
+}
+
 if (has('--self-test')) {
   test();
 } else {
   let files = [];
-  if (has('--file')) {
+  const existingAudit = has('--audit-existing');
+  if (existingAudit) {
+    files = collectExistingSvg(path.join('textbook', 'volumes')).sort();
+  } else if (has('--file')) {
     files = [val('--file')];
   } else if (has('--changed-only')) {
     const base = has('--base') ? val('--base') : process.env.TEXTBOOK_BASE_SHA;
@@ -132,7 +146,7 @@ if (has('--self-test')) {
     if (diff.status !== 0) throw new Error(diff.stderr || 'git diff failed.');
     files = diff.stdout.split(/\r?\n/u).filter((p) => chapterSvg.test(p));
   } else {
-    console.log('Use --self-test, --file <svg>, or --changed-only --base <sha>. No retroactive mass failure.');
+    console.log('Use --self-test, --file <svg>, --changed-only --base <sha>, or --audit-existing.');
     process.exit(0);
   }
   const errors = [], warnings = [];
@@ -140,14 +154,33 @@ if (has('--self-test')) {
     if (!fs.existsSync(rel)) continue;
     const svg = fs.readFileSync(rel, 'utf8');
     if (!/<svg\b[^>]*\bdata-layout-lint\s*=\s*["']strict["']/iu.test(svg)) {
-      errors.push(rel + ': missing data-layout-lint="strict".');
-      continue;
+      if (!existingAudit) {
+        errors.push(rel + ': missing data-layout-lint="strict".');
+        continue;
+      }
+      warnings.push(rel + ': legacy SVG without strict layout lint (review before converting).');
     }
-    const sibling = path.join(path.dirname(path.dirname(rel)), 'index.md');
-    const md = fs.existsSync(sibling) ? fs.readFileSync(sibling, 'utf8') : null;
+    const dir = path.dirname(rel);
+    const markdownPaths = [
+      path.join(dir, 'index.md'),
+      path.join(path.dirname(dir), 'index.md'),
+      path.join(dir, 'README.md'),
+    ];
+    const doc = markdownPaths.find((p) => fs.existsSync(p));
+    const md = doc ? fs.readFileSync(doc, 'utf8') : null;
     const result = inspect(svg, rel, md);
     errors.push(...result.errors);
     warnings.push(...result.warnings);
+  }
+  if (existingAudit) {
+    // Existing figures are inventoried, not grandfathered into a false pass/fail claim.
+    // These are migration candidates, never a blocking CI regression.
+    for (const e of errors) console.warn('EXISTING SVG error candidate: ' + e);
+    for (const w of warnings) console.warn('EXISTING SVG warning: ' + w);
+    console.log('Existing SVG audit: ' + files.length + ' figures, ' +
+      errors.length + ' structural/accessibility candidate(s), ' +
+      warnings.length + ' advisory finding(s). Result is non-blocking; mathematical semantics and rendered layout need review.');
+    process.exit(0);
   }
   for (const w of warnings) console.warn('SVG quality warning: ' + w);
   for (const e of errors) console.error('SVG quality error: ' + e);
