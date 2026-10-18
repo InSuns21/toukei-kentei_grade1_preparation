@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-07-generative -->
-**定義の確認**。$p=1,K=2$ とし、$\pi_0=2/3,\pi_1=1/3$、$f_0(x)=1$（$0\le x\le1$、それ以外0）、$f_1(x)=2x$（$0\le x\le1$、それ以外0）とする。積分はそれぞれ1であり、$P(Y=1,X\in[0,1/2])=(1/3)\int_0^{1/2}2x\,dx=1/12$。したがって $m(x)=2/3+2x/3$（$0\le x\le1$）で、その積分も1である。事前確率と条件付き密度の双方が必要なことを確認できる。
+**定義の確認**。$p=1,K=2$ とし、$\pi_0=2/3,\pi_1=1/3$、$f_0(x)=1$（$0\le x\le1$、それ以外0）、$f_1(x)=2x$（$0\le x\le1$、それ以外0）とする。積分はそれぞれ1であり、$P(Y=1,X\in[0,1/2])=(1/3)\int_0^{1/2}2x\,dx=1/12$。したがって $m(x)=2/3+2x/3$（$0\le x\le1$）である。実際、$\int_0^1m(x)\,dx=\frac23\int_0^1 1\,dx+\frac23\int_0^1x\,dx=\frac23+\frac13=1$ である。事前確率と条件付き密度の双方が必要なことを確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-07-posterior"></a>
@@ -69,13 +69,13 @@ $m=0$ の点は入力の周辺分布のもとで確率0しか持たず、そこ�
 
 ## 3. Naive Bayes：特徴ごとの積へ分解する
 
-高次元の $f_k(x_1,\ldots,x_p)$ をそのまま推定するのは難しい。[相互独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-pairwise-mutual-independence)をクラスごとの条件付き分布の内部で課せば、一次元の分布を掛けるだけで同時分布が書ける。ここではその意味を式で定義し、仮定が失敗する例も調べる。
+高次元の $f_k(x_1,\ldots,x_p)$ をそのまま推定するのは難しい。[相互独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-pairwise-mutual-independence)を、$Y=k$ で条件付けた各クラスの確率分布に課す。[独立性と積測度の同値](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)をこの条件付き分布に適用すると、二座標の同時分布は周辺分布の積になる。$p$ 座標の場合も、相互独立な確率変数について、任意の長方形 $A_1\times\cdots\times A_p$ の確率は $\prod_{j=1}^p P(X_j\in A_j\mid Y=k)$ であり、この長方形での一致が積測度としての同時分布を決める。各座標が連続ならLebesgue測度、離散なら計数測度を基準にし、その積測度に関する同時密度を考えれば、一次元密度の積が使える。ここではその意味を式で定義し、仮定が失敗する例も調べる。
 
 <a id="def-ml1-07-naive-bayes"></a>
 
 <!-- formal-statement-start -->
 > **定義（Naive Bayes模型）**  
-> クラス $k$ のもとで各特徴 $X_1,\ldots,X_p$ が相互に条件付き独立であり、共通の基準測度に関する各座標の条件付き密度（離散なら確率質量関数）を $f_{kj}$ とするとき、
+> クラス $k$ の条件付き分布のもとで各特徴 $X_1,\ldots,X_p$ が相互独立とする。各座標の基準測度 $\nu_j$（連続ならLebesgue測度、離散なら計数測度）に対する条件付き密度を $f_{kj}$ とするとき、積測度 $\nu_1\otimes\cdots\otimes\nu_p$ に対する同時密度を
 >
 $$
 f_k(x)=\prod_{j=1}^p f_{kj}(x_j)
@@ -83,6 +83,8 @@ $$
 >
 > とする生成的分類模型をNaive Bayes模型という。これはクラスで条件付けた後の独立性であって、無条件の独立性ではない。
 <!-- formal-statement-end -->
+
+$0,1$ だけを取る変数で $1$ の確率を $\theta$、$0$ の確率を $1-\theta$ とする分布をBernoulli分布という。次の例では、この二値分布を各クラス・各座標へ指定する。
 
 <!-- definition-example-start: def-ml1-07-naive-bayes -->
 **定義の確認**。$K=2,p=2$、$\pi_0=\pi_1=1/2$ とし、$Y=0$ で $P(X_1=1\mid Y=0)=0.2$、$P(X_2=1\mid Y=0)=0.6$、$Y=1$ で対応する値を $0.8,0.3$ とする。各クラス内で2特徴が独立なBernoulli変数であると**模型として仮定**する。例えば $x=(1,0)$ には
@@ -146,7 +148,25 @@ $$
 
 ## 4. 多変量正規分布をクラスの密度にする
 
-連続特徴では、平均だけでなく「どちらの方向へ散らばるか」を記す必要がある。ベクトル $\mu\in\mathbb R^p$ は中心、実対称行列 $\Sigma\in\mathbb R^{p\times p}$ は共分散を表す。任意の $v\ne0$ に $v^{\mathsf T}\Sigma v>0$ が成り立つとき、$\Sigma$ を正定値と呼ぶ。この条件なら逆行列と正の行列式が存在する。[正定値・平方根](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)の既習結果により、直交座標で正の固有値へ分解できる。具体的には $\Sigma=Q\operatorname{diag}(d_1,\ldots,d_p)Q^{\mathsf T}$、$d_j>0$ である。
+連続特徴では、平均だけでなく「どちらの方向へ散らばるか」を記す必要がある。ベクトル $\mu\in\mathbb R^p$ は中心、実対称行列 $\Sigma\in\mathbb R^{p\times p}$ は共分散を表す。成分ごとに $\Sigma_{ab}=E[(X_a-\mu_a)(X_b-\mu_b)]$ と置くと、既習の[共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)の双線形な展開から、方向 $v=(v_1,\ldots,v_p)^{\mathsf T}$ の分散は
+
+$$
+\begin{aligned}
+\operatorname{Var}(v^{\mathsf T}X)
+&=E\!\left[\left(\sum_a v_a(X_a-\mu_a)\right)^2\right]\\
+&=\sum_{a,b}v_av_b\Sigma_{ab}\\
+&=v^{\mathsf T}\Sigma v.
+\end{aligned}
+$$
+
+従って、任意の $v\ne0$ に $v^{\mathsf T}\Sigma v>0$ が成り立つという**正定値**の条件は、どの非零方向にも正の分散があることを意味する。この条件なら逆行列と正の行列式が存在する。[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)の既習の対角化を実対称行列に適用し、$\Sigma=QDQ^{\mathsf T}$、$D=\operatorname{diag}(d_1,\ldots,d_p)$、$d_j>0$ と書ける。固有方向を列に持つ $Q$ は直交行列なので、
+
+$$
+\Sigma^{-1}=QD^{-1}Q^{\mathsf T},\qquad
+\det\Sigma=\prod_{j=1}^p d_j>0.
+$$
+
+これが以下の密度式で逆行列・行列式を使用できる理由である。
 
 <a id="def-ml1-07-gaussian"></a>
 
@@ -172,7 +192,7 @@ $$
 \exp\!\left[-\frac{(x_1-1)^2}{2}-\frac{(x_2+1)^2}{8}\right].
 $$
 
-$z_1=x_1-1,z_2=(x_2+1)/2$ に変数変換するとJacobianの絶対値が2なので、積分は $(1/(4\pi))\cdot2\cdot(2\pi)=1$。中心だけでなく、二方向の標準偏差が1と2であることも確認できる。
+$z_1=x_1-1,z_2=(x_2+1)/2$ と置くと $dx_1\,dx_2=2\,dz_1\,dz_2$ だから、積分は $(1/(4\pi))\cdot2\cdot(2\pi)=1$。密度と体積要素の積は二つの標準正規密度の積となる。従って次の補題の標準正規の平均0・分散1の計算を使えば、$E[X]=(1,-1)^{\mathsf T}$、各座標の分散は $1,4$、共分散は0と確かめられ、指定した $\mu,\Sigma$ に一致する。
 <!-- definition-example-end -->
 
 <a id="lem-ml1-07-gaussian-normalization"></a>
@@ -197,14 +217,25 @@ $$
 =\sum_jz_j^2.
 $$
 
-Jacobianの絶対値は $|\det(QD^{1/2})|=\prod_j\sqrt{d_j}=\sqrt{\det\Sigma}$。よって密度と体積要素の積は $\prod_j e^{-z_j^2/2}\,dz_j/\sqrt{2\pi}$ となる。一変数積分の値を確認するため $I=\int_{\mathbb R}e^{-t^2/2}dt>0$ とおくと、非負関数の重積分を極座標に変え
+Jacobianの絶対値は $|\det(QD^{1/2})|=\prod_j\sqrt{d_j}=\sqrt{\det\Sigma}$。よって密度と体積要素の積は $\prod_j e^{-z_j^2/2}\,dz_j/\sqrt{2\pi}$ となる。一変数積分の値を確認するため $I=\int_{\mathbb R}e^{-t^2/2}dt>0$ とおく。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)により二重積分を作り、$u=r\cos\theta,v=r\sin\theta$（Jacobianの絶対値 $r$）と極座標に変えると
 
 $$
 I^2=\int_{\mathbb R^2}e^{-(u^2+v^2)/2}\,du\,dv
-=2\pi\int_0^\infty e^{-r^2/2}r\,dr=2\pi.
+=\int_0^{2\pi}\!\int_0^\infty e^{-r^2/2}r\,dr\,d\theta
+=2\pi\left[-e^{-r^2/2}\right]_{r=0}^{r=\infty}=2\pi.
 $$
 
-従って $I=\sqrt{2\pi}$ であり積分は1。標準正規の各 $Z_j$ は対称性から平均0、部分積分で $\int z_j^2e^{-z_j^2/2}\,dz_j=I$ だから分散1、異なる $i,j$ の積の期待値は0である。$X=\mu+QD^{1/2}Z$ へ戻せば
+従って $I=\sqrt{2\pi}$ であり積分は1。標準正規の各 $Z_j$ は対称性から平均0である。また、境界項 $te^{-t^2/2}\to0$（$|t|\to\infty$）を用いて部分積分すると
+
+$$
+\begin{aligned}
+\int_{\mathbb R}t^2e^{-t^2/2}\,dt
+&=\left[-te^{-t^2/2}\right]_{-\infty}^{\infty}\\
+&\quad+\int_{\mathbb R}e^{-t^2/2}\,dt=I.
+\end{aligned}
+$$
+
+従って $E[Z_j^2]=1$ であり、各 $Z_j$ は平均0・分散1である。異なる $i,j$ の積の期待値は、積密度と各平均0から0になる。$X=\mu+QD^{1/2}Z$ へ戻せば
 
 $$
 E[X]=\mu,\quad
@@ -263,7 +294,17 @@ $p\log(2\pi)/2$ はすべての $k$ に共通であるから除去でき、表�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-07-lda -->
-**定義の確認**。$p=1$、$\mu_0=0,\mu_1=2$、$\Sigma=(1)$、事前確率を各 $1/2$ とする。両密度は分散1で正定値、平均だけ異なるのでLDAの各条件を満たす。後の定理を使うと境界は $x=1$ である。$\pi_1=4/5,\pi_0=1/5$ に変えると共分散は変わらないまま境界は $x=1-\frac12\log4$ へ移る。
+**定義の確認**。$p=1$、$\mu_0=0,\mu_1=2$、$\Sigma=(1)$、事前確率を各 $1/2$ とする。$\pi_0,\pi_1>0$ で総和は1、各クラスの分布は同じ正定値共分散 $(1)$ を持つ正規分布なので、LDAの全条件を満たす。[正規生成模型の判別得点](#thm-ml1-07-gaussian-score)へそれぞれの平均・分散を代入すると
+
+$$
+\begin{aligned}
+\delta_1(x)-\delta_0(x)
+&=\log\frac{\pi_1}{\pi_0}-\frac12\{(x-2)^2-x^2\}\\
+&=2x-2+\log\frac{\pi_1}{\pi_0}.
+\end{aligned}
+$$
+
+$\pi_0=\pi_1$ なら同点境界は $x=1$、$\pi_1=4/5,\pi_0=1/5$ に変えると $x=1-\frac12\log4$ となる。ここでは定義に指定した正規密度の得点を比較しただけであり、後の定理ではこの一次式への簡約が任意の次元で起きることを証明する。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-07-lda-affine"></a>
@@ -334,7 +375,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-07-qda -->
-**定義の確認**。$p=1$、$\mu_0=\mu_1=0$、$\Sigma_0=(1)$、$\Sigma_1=(4)$、$\pi_0=\pi_1=1/2$ とする。両分散は正で共分散が異なるのでQDAの条件を満たすが、同一共分散を要するLDAの条件は満たさない。中心では分散の小さいクラス0の密度が高く、十分離れた尾部では分散の大きいクラス1が優勢となる。
+**定義の確認**。$p=1$、$\mu_0=\mu_1=0$、$\Sigma_0=(1)$、$\Sigma_1=(4)$、$\pi_0=\pi_1=1/2$ とする。事前確率は正で総和1、各共分散は $v^2>0$ と $4v^2>0$（$v\ne0$）により正定値なので、両クラスの正規密度が定義できる。共分散は異なり、QDAの条件を満たすがLDAの共通共分散条件は満たさない。ここで第4節の[非退化多変量正規密度](#def-ml1-07-gaussian)へ数値を代入すると、事前確率込みの重みの比は
+
+$$
+\begin{aligned}
+\frac{\pi_1\phi_1(x;0,(4))}{\pi_0\phi_1(x;0,(1))}
+&=\frac12\exp\!\left(-\frac{x^2}{8}+\frac{x^2}{2}\right)\\
+&=\frac12e^{3x^2/8}.
+\end{aligned}
+$$
+
+$x=0$ では比は $1/2<1$ でクラス0、$|x|=2$ では $e^{3/2}/2>1$ でクラス1を選ぶ。共分散の差が予測を変えることを、二次判別の一般定理に先立って直接確かめた。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-07-qda-quadratic"></a>
@@ -414,7 +465,18 @@ $$
 
 となり、正定値かつ可逆になる。ただしこれは**推定方法を変更**する操作であり、真の共分散を同定できた証明ではない。
 
-また、連続特徴に対するGaussian Naive Bayesは、座標がクラス内で独立な正規分布に従う模型なので、$\Sigma_k$ が対角行列であるQDAの特別な場合に一致する。多変量正規密度で対角共分散なら指数部と正規化定数が座標ごとの積へ分かれる。逆に特徴間の相関を含む非対角共分散を、分散だけの積で再現することはできない。共通の対角行列ならさらにLDAにも該当するが、Naive Bayesという名前だけでLDAともQDAとも決まるわけではない。
+また、連続特徴に対するGaussian Naive Bayesは、各クラスで座標ごとに正規分布を指定し、相互独立とする模型である。$\Sigma_k=\operatorname{diag}(\sigma_{k1}^2,\ldots,\sigma_{kp}^2)$、$\sigma_{kj}^2>0$ を[正規密度](#def-ml1-07-gaussian)に代入すると、逆行列も対角で行列式は $\prod_j\sigma_{kj}^2$ となるので
+
+$$
+\begin{aligned}
+\phi_p(x;\mu_k,\Sigma_k)
+&=\prod_{j=1}^p
+\left[\frac{1}{\sqrt{2\pi\sigma_{kj}^2}}
+\exp\!\left(-\frac{(x_j-\mu_{kj})^2}{2\sigma_{kj}^2}\right)\right].
+\end{aligned}
+$$
+
+右辺は各一変量正規密度の積なので、[独立性と積測度の同値](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)によってクラス内の相互独立性が従う。従って対角共分散のQDAはGaussian Naive Bayesとしても表せる。非対角共分散では、積密度から計算される異なる座標間の共分散が0なのに元の $\Sigma_k$ の非対角成分が0でないため、この積模型では表せない。共通の対角行列ならさらにLDAにも該当するが、Naive Bayesという名前だけでLDAともQDAとも決まるわけではない。
 
 ## 8. 計算ラボ：共分散・平均・事前確率を変える
 
