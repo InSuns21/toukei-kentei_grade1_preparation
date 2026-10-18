@@ -129,10 +129,22 @@ function draw(){
    const ry=46*Math.sqrt(2*level[i]/config.L);
    element(svg,"ellipse",{cx:260,cy:210,rx,ry,fill:"none",stroke:"#b9b4d7","stroke-width":1.2,"stroke-dasharray":"5 4"});
  }
- const visible=points.filter(p=>Math.abs(p.x)<=5&&Math.abs(p.y)<=4);
- if(visible.length>1){
-  element(svg,"polyline",{points:visible.map(p=>sx(p.x)+","+sy(p.y)).join(" "),fill:"none",stroke:"#135b96","stroke-width":2.5});
+ const inside=p=>Math.abs(p.x)<=5&&Math.abs(p.y)<=4;
+ const visible=points.filter(inside);
+ // Do not connect points across an out-of-view interval: such a line
+ // would depict a gradient step that never occurred.
+ function drawSegment(segment){
+   if(segment.length>1)element(svg,"polyline",{
+     points:segment.map(p=>sx(p.x)+","+sy(p.y)).join(" "),
+     fill:"none",stroke:"#135b96","stroke-width":2.5
+   });
  }
+ let segment=[];
+ for(const point of points){
+   if(inside(point))segment.push(point);
+   else {drawSegment(segment);segment=[];}
+ }
+ drawSegment(segment);
  for(const p of visible.slice(-35)){
   element(svg,"circle",{cx:sx(p.x),cy:sy(p.y),r:p.k===0?6:4.5,fill:p.k===0?"#dc8a2c":"#1169a9",stroke:"#fff","stroke-width":1});
   if(p.k===0||p.k===points.at(-1).k||p.k<11)
