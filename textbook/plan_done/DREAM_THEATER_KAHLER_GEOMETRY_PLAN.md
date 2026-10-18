@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-14（標準教科書・講義ノートとの照合、依存と証明責務の再設計）  
-状態: in_progress（KAH1-01〜KAH1-16を実装。系列横断監査は未完了）
+状態: completed（KAH1-01〜KAH1-16の実装・各章追跡監査・系列横断整合監査を完了）
 
 ## 中心問いと到達点
 
@@ -90,3 +90,13 @@
 | [MIT OCW 18.966, lecture 14（Denis Auroux）](https://ocw.mit.edu/courses/18-966-geometry-of-manifolds-spring-2007/resources/lect14/) | 正のポテンシャルとFubini–Studyの初学者向け導出順序 | 講義内のHodge分解の説明はHOD1 |
 
 この文献一覧は**構成・扱う範囲・定義の照合先**であり、書籍に記された定理をそのまま証明済みとして輸入する根拠ではない。本文の正式着手時には個別命題の仮定と規約を原文・一次資料まで突き合わせる。
+
+
+## 完了判定・系列横断監査（2026-10-18）
+
+- **成果物**：系列manifestのKAH1-01〜16が全件 `completed`。各章の `index.md` / `chapter.yaml` / `knowledge.yaml` を実在確認し、後者の `coverage: complete` と前提一覧を照合。第2〜16講は各直前講をprerequisiteに含み、系列内逆依存はない。
+- **演習・証明表示**：全16章にA4/B3/C1以上、合計129題（A64/B49/C16）、各題に対応する詳細解答あり。全章のformal statement・proof開始マーカーと公開anchorの存在を棚卸しした。これは数学的再計算の代用としない。
+- **既存の各章追跡監査**：KAH1-01〜15は、各章の全文・主要結果・全演習解答の追跡監査証拠を記したマージ済みPR [#1521](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1521)、[#1532](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1532)、[#1536](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1536)、[#1541](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1541)、[#1547](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1547)、[#1553](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1553)、[#1557](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1557)、[#1566](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1566)、[#1570](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1570)、[#1576](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1576)、[#1579](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1579)、[#1584](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1584)、[#1591](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1591)、[#1596](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1596)、[#1601](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/1601)で確認。この完了判定作業で15章の全証明を再度解き直したとは主張しない。KAH1-16は本PLAN完了PRで追跡監査と修正を実施。
+- **章横断の符号・適用境界**：KAH1-01の `h(u,v)=g(u,v)+i g(Ju,v)`（第一変数共役線形）、KAH1-03の `dω=0 ⇔ ∇J=0`、KAH1-07の `∫_{CP¹}ω_FS=2π`、KAH1-11/12の `ρ=−i∂bar∂logdetG`・`[ρ/(2π)]=c₁(X)_R`、KAH1-15/16の `ρ=0 ⇒ Hol⁰⊆SU(n)` を相互照合した。存在定理を後続YAU系列に残し、局所曲率と全ホロノミーを混同しない。
+- **参照・公開**：章間の明示的stable anchorリンク314件と、系列外25章への参照161件（参照先の実在anchor67種）を照合し不一致0件。公開索引JSONは構文正常、KAH1-01〜16の全ページが索引と本編目次の両方に存在。PLANは `plans_progress/` から `plan_done/` へ移動し、系列manifestの `plan` を同期する。
+- **監査主体と範囲**：この系列横断照合は同一担当AIがmetadata、索引、参照先・代表的な規約式を確認したもの。第三者独立査読ではない。各章の既往数学的追跡監査は各PRの実記録を証拠とする。公開CIおよびPages assemblyの最終結果は本PLAN完了PRで確認する。
