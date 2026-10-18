@@ -35,10 +35,10 @@ $$
 > **定義（二階主シンボル）**  
 > $P:\Gamma(M,E)\to\Gamma(M,E)$ を二階線形微分作用素とし、その局所表示の対称化された最高階係数を $A^{ij}$ とする。各 $x\in M$ と $\xi=\xi_i dx^i\in T_x^*M$ に対し
 >
-$
+$$
 > \sigma_2(P)(x,\xi)=A^{ij}(x)\xi_i\xi_j
 > \in\operatorname{End}(E_x)
-$
+$$
 >
 > を**主シンボル**と呼ぶ。この講義では $\partial_i$ を $\xi_i$ に置換する。Fourier変換での $i\xi_i$ を置換する規約とは符号が異なる。主シンボルは $\xi$ について二次同次である。
 <!-- formal-statement-end -->
@@ -136,10 +136,10 @@ $$
 > **定義（normally hyperbolic作用素）**  
 > 滑らかなLorentz多様体 $(M,g)$ 上の有限ランク実または複素ベクトル束 $E$ に対して、二階線形微分作用素 $P:\Gamma(M,E)\to\Gamma(M,E)$ が**normally hyperbolic**であるとは、すべての $x\in M$ と $\xi\in T_x^*M$ について
 >
-$
+$$
 > \sigma_2(P)(x,\xi)
 > =-g_x^{-1}(\xi,\xi)\operatorname{id}_{E_x}
-$
+$$
 >
 > を満たすことをいう。低階係数や形式的自己随伴性に条件を課さない。
 <!-- formal-statement-end -->
@@ -169,9 +169,9 @@ $$
 > **命題（光的特性の一致）**  
 > $(M,g)$ を符号 $(-,+,\ldots,+)$ の滑らかなLorentz多様体、$E$ を正の有限ランクの滑らかなベクトル束とする。$E$ 上の作用素 $P$ がnormally hyperbolicなら、非零共変ベクトル $\xi$ が特性であることと
 >
-$
+$$
 > g_x^{-1}(\xi,\xi)=0
-$
+$$
 >
 > は同値である。さらに $\xi^\sharp=g^{ij}\xi_j\partial_i$ は非零の光的接ベクトルであり、特性超曲面は法共変ベクトルが光的となる超曲面に一致する。
 <!-- formal-statement-end -->
@@ -241,11 +241,11 @@ $$
 > **定理（接続と零次自己準同型への一意分解）**  
 > $(M,g)$ を滑らかなLorentz多様体、$E\to M$ を有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ をnormally hyperbolic作用素とする。このとき $E$ 上の滑らかな接続 $\nabla^P$ と滑らかな自己準同型 $V\in\Gamma(\operatorname{End}E)$ が一意に存在し、任意の切断 $u$ に対して
 >
-$
+$$
 > Pu=-g^{ij}\bigl(\nabla_i^P\nabla_j^Pu
 > -\Gamma^k{}_{ij}\nabla_k^Pu\bigr)+Vu
 > =-\Box_g^{\nabla^P}u+Vu
-$
+$$
 >
 > が成立する。$\Gamma^k{}_{ij}$ は $g$ のLevi-Civita接続の係数である。束計量・形式的自己随伴性・大域双曲性は仮定しない。
 <!-- formal-statement-end -->
@@ -355,9 +355,9 @@ $$
 > **命題（二重交換子と逆計量）**  
 > $(M,g)$ の有限ランク束上のnormally hyperbolic作用素 $P$ と滑らかな実関数 $f,h$ に対して、任意の滑らかな切断 $u$ は
 >
-$
+$$
 > [[P,f],h]u=-2g^{-1}(df,dh)u
-$
+$$
 >
 > を満たす。右辺は零次のスカラー倍作用素で、接続と零次項の選び方には依存しない。
 <!-- formal-statement-end -->
