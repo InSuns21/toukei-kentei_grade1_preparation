@@ -369,7 +369,7 @@ $$
 [HPDE5の一意分解](../HPDE5/index.md#thm-hpde5-unique-connection)は一般のnormally hyperbolic作用素を接続と零次項へ分けました。しかしそこから自動的に正定値エネルギーは生まれません。[HPDE4の束計量](../HPDE4/index.md#def-hpde4-hermitian-bundle-metric)を**正定値**に選び、接続がその計量と互換であること、零次作用素 $W$ が自己随伴であることを、追加仮定として指定します。
 
 実束では対称正定値内積 $\langle\cdot,\cdot\rangle$、複素束では正定値Hermite内積を用います。複素束では次の積はすべて実部 $\operatorname{Re}\langle\cdot,\cdot\rangle$ を取ると約束します。[HPDE4の計量両立接続](../HPDE4/index.md#def-hpde4-metric-compatible-connection)による計量互換性とは
-$
+$$
 X\operatorname{Re}\langle v,w\rangle
 =\operatorname{Re}\langle\nabla^E_Xv,w\rangle
 +\operatorname{Re}\langle v,\nabla^E_Xw\rangle
