@@ -14,7 +14,7 @@
   <circle cx="285" cy="108" r="4" fill="#242a30"/>
   <text x="210" y="218" font-size="18" fill="#303a46">O</text>
   <text x="273" y="159" font-size="19" fill="#303a46">p</text>
-  <text x="340" y="52" font-size="19" fill="#175d9d">∇f</text>
+  <text x="340" y="52" font-size="19" fill="#175d9d">grad f</text>
   <text x="197" y="56" font-size="19" fill="#a34b12">v</text>
   <text x="106" y="70" font-size="19" fill="#485666">f = 25</text>
 </svg>
