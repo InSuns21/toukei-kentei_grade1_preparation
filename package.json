@@ -78,7 +78,8 @@
     "validate:dream-theater-courses": "node scripts/prepare-pages-dream-theater-courses.mjs --self-test && node scripts/prepare-pages-dream-theater-courses.mjs --check",
     "prepare:pages:dream-theater-courses": "node scripts/prepare-pages-dream-theater-courses.mjs --write",
     "validate:svg-quality": "node scripts/validate-svg-quality.mjs",
-    "validate:svg-quality:changed": "node scripts/validate-svg-quality.mjs --changed-only"
+    "validate:svg-quality:changed": "node scripts/validate-svg-quality.mjs --changed-only",
+    "audit:svg-quality:existing": "node scripts/validate-svg-quality.mjs --audit-existing"
   },
   "dependencies": {
     "katex": "^0.16.11",
