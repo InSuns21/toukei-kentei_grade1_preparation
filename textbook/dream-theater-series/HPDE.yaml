@@ -1,0 +1,103 @@
+version: 1
+id: HPDE
+title: "ローレンツ多様体上の双曲型PDE I"
+plan: textbook/plans_progress/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: HPDE1
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE1
+    status: completed
+    title: "1+1次元波動方程式の初期値解"
+  - id: HPDE2
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE2
+    status: planned
+    title: "高次元平坦波動とHuygens現象"
+  - id: HPDE3
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE3
+    status: planned
+    title: "時空上の分布・試験切断・密度"
+  - id: HPDE4
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE4
+    status: planned
+    title: "ベクトル束・接続・形式的随伴"
+  - id: HPDE5
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE5
+    status: planned
+    title: "主シンボルとnormally hyperbolic作用素"
+  - id: HPDE6
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE6
+    status: planned
+    title: "Cauchy超曲面・初期データ・関数空間"
+  - id: HPDE7
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE7
+    status: planned
+    title: "エネルギー流と発散恒等式"
+  - id: HPDE8
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE8
+    status: planned
+    title: "エネルギー不等式と一意性"
+  - id: HPDE9
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE9
+    status: planned
+    title: "高階Sobolev評価と正則性の伝播"
+  - id: HPDE10
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE10
+    status: planned
+    title: "有限伝播と依存領域の評価"
+  - id: HPDE11
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE11
+    status: planned
+    title: "局所Cauchy問題の存在"
+  - id: HPDE12
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE12
+    status: planned
+    title: "Minkowskiの先進・遅延基本解"
+  - id: HPDE13
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE13
+    status: planned
+    title: "Hadamard係数とtransport方程式"
+  - id: HPDE14
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE14
+    status: planned
+    title: "局所parametrixの誤差補正"
+  - id: HPDE15
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE15
+    status: planned
+    title: "局所解から大域解への貼り合わせ"
+  - id: HPDE16
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE16
+    status: planned
+    title: "大域Cauchy問題の存在一意性"
+  - id: HPDE17
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE17
+    status: planned
+    title: "大域安定性と因果的な解の支持"
+  - id: HPDE18
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE18
+    status: planned
+    title: "遅延・先進Green作用素の構成"
+  - id: HPDE19
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE19
+    status: planned
+    title: "Green作用素の恒等式と一意性"
+  - id: HPDE20
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE20
+    status: planned
+    title: "空間コンパクト・時間的支持空間"
+  - id: HPDE21
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE21
+    status: planned
+    title: "因果伝播子とexact sequenceの核"
+  - id: HPDE22
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE22
+    status: planned
+    title: "exact sequenceの全射性と切断"
+  - id: HPDE23
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE23
+    status: planned
+    title: "実Klein–Gordon解のシンプレクティック構造"
+  - id: HPDE24
+    path: textbook/volumes/dream_thater/解析系/HPDE/HPDE24
+    status: planned
+    title: "反例・模型・AQFT/MICAへの橋"
