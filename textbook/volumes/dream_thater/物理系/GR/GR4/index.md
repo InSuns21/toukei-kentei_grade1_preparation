@@ -110,11 +110,11 @@ $$
 
 例えば $(x^0,x^1)=(ct,x)$ のMinkowski座標で $\phi=(\omega_0/c)(x-x^0)$ とすれば、
 
-$
+$$
 (k_0,k_1)=\left(-\frac{\omega_0}{c},\frac{\omega_0}{c}\right),
 \qquad
 (K^0,K^1)=\left(\frac{\omega_0}{c},\frac{\omega_0}{c}\right).
-$
+$$
 
 静止観測者 $u=c\partial_0$ に対し $-k_\mu u^\mu=\omega_0$ です。$\omega$ は角周波数（単位 $\mathrm{rad/s}$、radは無次元）、通常の周波数（単位Hz）は $\nu=\omega/(2\pi)$ です。光子のエネルギーを書く際の $\hbar$ は換算Planck定数を表します。
 
@@ -371,11 +371,11 @@ $$
 
 ここでは第2節の位相 $\phi$ による波数を光線に沿って考え、$k_\mu=\partial_\mu\phi$、$K^\mu=g^{\mu\nu}k_\nu$ とします。光的条件と勾配の対称性から
 
-$
+$$
 K^\nu\nabla_\nu k_\mu
 =K^\nu\nabla_\mu k_\nu
 =\frac12\nabla_\mu(g^{\alpha\beta}k_\alpha k_\beta)=0
-$
+$$
 
 となるため、$K$ はアフィン測地線の接ベクトルです。従って光線パラメータ $\lambda$ を $K^\mu=dx^\mu/d\lambda$ となるよう選べます。ここでの大きさは位相の規格化によって定まり、任意のアフィンパラメータの取り替えで物理的な周波数を変えるわけではありません。$t$ に依存しない計量では、[GR3の光的二次作用の停留条件](../GR3/index.md#prop-gr3-null-affine-action)から
 
