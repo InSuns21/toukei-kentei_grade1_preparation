@@ -270,7 +270,7 @@ $$
 
 ## 5. 束値作用素にも同じ構造がある
 
-[HPDE5の接続による作用素分解](../HPDE5/index.md#thm-hpde5-unique-connection)によって一般のnormally hyperbolic作用素を扱えますが、その接続 $\nabla^P$ は[HPDE4の計量両立性](../HPDE4/index.md#def-hpde4-metric-compatible-connection)を自動的には持ちません。ここでは滑らかな正定値束計量を選び、それと両立する補助接続 $D$ を**別に構成**します。局所正規直交枠では接続行列を零とする局所的な計量両立接続 $D^\alpha$ が作れます。従属する開被覆の分割関数 $\chi_\alpha$ によって
+[HPDE5の接続による作用素分解](../HPDE5/index.md#thm-hpde5-unique-connection)によって一般のnormally hyperbolic作用素を扱えますが、その接続 $\nabla^P$ は[HPDE4の計量両立性](../HPDE4/index.md#def-hpde4-metric-compatible-connection)を自動的には持ちません。ここでは[HPDE4の正定値Hermite束計量](../HPDE4/index.md#def-hpde4-hermitian-bundle-metric)（実束では対称正定値内積）を選び、それと両立する補助接続 $D$ を**別に構成**します。局所正規直交枠では接続行列を零とする局所的な計量両立接続 $D^\alpha$ が作れます。従属する開被覆の分割関数 $\chi_\alpha$ によって
 $
 D_Xu=\sum_\alpha\chi_\alpha D_X^\alpha u,\qquad
 \sum_\alpha\chi_\alpha=1
