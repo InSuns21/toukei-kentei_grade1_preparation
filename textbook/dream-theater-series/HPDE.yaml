@@ -35,7 +35,7 @@ chapters:
     title: "エネルギー流と発散恒等式"
   - id: HPDE8
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE8
-    status: planned
+    status: completed
     title: "エネルギー不等式と一意性"
   - id: HPDE9
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE9
