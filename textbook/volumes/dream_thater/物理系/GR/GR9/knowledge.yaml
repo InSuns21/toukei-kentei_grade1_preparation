@@ -1,0 +1,50 @@
+chapter: GR9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR8
+  - EMAG8
+  - AMECH2
+concepts:
+  - id: gravity.local-matter-action
+    name: 局所物質作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所物質作用）"]
+    requires: [analytical-mechanics.lagrange-equations, lorentz-geometry.lorentz-metric]
+  - id: gravity.hilbert-stress-tensor
+    name: 計量変分によるHilbert応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計量変分によるHilbert応力テンソル）"]
+    requires: [gravity.local-matter-action, gravity.curved-perfect-fluid-stress]
+  - id: gravity.algebraic-metric-variation-stress
+    name: 計量の微分を含まない作用の応力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（計量の微分を含まない作用の応力）"]
+    requires: [gravity.hilbert-stress-tensor]
+  - id: gravity.curved-maxwell-action
+    name: 曲がった時空の真空Maxwell作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲がった時空の真空Maxwell作用）"]
+    requires: [gravity.local-matter-action, electromagnetism.charged-particle-lagrangian, electromagnetism.energy-density-poynting]
+  - id: gravity.maxwell-hilbert-stress
+    name: Maxwell作用からのHilbert応力テンソル
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maxwell作用からのHilbert応力テンソル）"]
+    requires: [gravity.curved-maxwell-action, gravity.hilbert-stress-tensor]
+  - id: gravity.maxwell-potential-variation
+    name: 電磁ポテンシャル変分とMaxwell方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（電磁ポテンシャル変分とMaxwell方程式）"]
+    requires: [gravity.curved-maxwell-action, electromagnetism.ampere-maxwell-physical]
+  - id: gravity.electromagnetic-force-balance
+    name: 電磁場と荷電物質の局所運動量交換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（電磁場と荷電物質の局所運動量交換）"]
+    requires: [gravity.maxwell-hilbert-stress, gravity.maxwell-potential-variation, electromagnetism.lorentz-force]
