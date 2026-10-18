@@ -266,7 +266,19 @@ H^\nabla(X,fY)u
 \end{aligned}
 $$
 
-です。第一変数についても $H^\nabla(fX,Y)u=fH^\nabla(X,Y)u$ となるので、$H^\nabla$ は二つのベクトル場についてテンソル的です。座標基底では $H^\nabla(\partial_i,\partial_j)u=\nabla_i\nabla_ju-\Gamma^k{}_{ij}\nabla_ku$ となり、逆計量による縮約 $g^{ij}H^\nabla(\partial_i,\partial_j)u$ は座標に依存しません。
+です。第一変数についても
+
+$$
+H^\nabla(fX,Y)u=fH^\nabla(X,Y)u
+$$
+
+となります。よって $H^\nabla$ は二つのベクトル場についてテンソル的です。座標基底では
+
+$$
+H^\nabla(\partial_i,\partial_j)u=\nabla_i\nabla_j u-\Gamma^k{}_{ij}\nabla_k u
+$$
+
+となり、逆計量による縮約 $g^{ij}H^\nabla(\partial_i,\partial_j)u$ は座標に依存しません。
 
 最高階の係数は $\omega_i$ と無関係です。逆に一階の係数が与えられたとき、ここから $\omega_i$ を解けることが本章の主結果です。
 
