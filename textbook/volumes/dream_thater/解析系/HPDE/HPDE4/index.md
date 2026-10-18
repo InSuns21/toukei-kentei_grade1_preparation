@@ -455,7 +455,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $j_h$ がどのような束同型かを基底で確かめます。$s=e\,u$、$t=e\,v$ とすると、[Hermite束計量の定義](#def-hpde4-hermitian-bundle-metric)から
+まず $j_h$ がどのような束同型かを基底で確かめます。$s=e\,u$、$t=e\,v$ とすると、[正定値Hermite束計量](#def-hpde4-hermitian-bundle-metric)から
 
 $$
 j_h(t)(s)=h_E(s,t)=v^*H_Eu
