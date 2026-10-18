@@ -40,7 +40,7 @@
 - https://books.google.com/books?id=RDmpajLTw1oC
 - https://arxiv.org/abs/1310.0738
 
-**構成上の判断**：Bär–Ginoux–Pfäffleに合わせて「局所基本解/Hadamardの古典的入口→大域解」を証明上の主線に追加する。ただし一つの大定理を定義だけで済ませず、Minkowskiと局所模型で計算を閉じてから一般論へ進む。MICAの波面集合によるHadamard状態論までHPDEへ取り込まない。
+**構成上の判断**：エネルギー法による局所Cauchy存在（経路A）と、Riesz–Hadamard型局所基本解の構成（経路B）を区別し、両者の証明依存・大域化を照合する。Bär–Ginoux–Pfäffleの局所基本解→大域理論に相当する学習内容は保持するが、既証の局所存在による補正は独立な証明と称しない。Minkowski模型で正規化と支持を検算してから一般論へ進み、MICAのHadamard二点関数や波面集合は導入しない。
 
 ## 現行の前提・数学的依存の検証（2026-10-18）
 
