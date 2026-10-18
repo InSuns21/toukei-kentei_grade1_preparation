@@ -8,7 +8,9 @@
 
 ただしスカラー曲率は計量の二階微分を含みます。作用を変分すると計量の変化の**微分**も出るので、それを境界へ移す操作を隠せません。ここでの目標は、体積要素、接続、曲率の変分を一つずつ導き、コンパクト台の変分のもとでEinsteinテンソルを得ることです。境界で計量だけを固定した変分問題はGR11で扱います。
 
-以下、$M$ は滑らかな時間向き付き4次元Lorentz多様体、$g$ は符号 $(-,+,+,+)$ の滑らかな計量、$\nabla$ は[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)です。局所座標を $x^\mu=(ct,x^1,x^2,x^3)$、$\mu,\nu=0,1,2,3$ とします。重力定数 $G>0$、光速 $c>0$、宇宙定数 $\Lambda\in\mathbb R$ は固定です。曲率規約は[GR6の成分公式](../GR6/index.md#prop-gr6-coordinate-curvature)に従い、
+以下、$M$ は滑らかな時間向き付き4次元Lorentz多様体です。計量 $g$ の符号は $(-,+,+,+)$ とし、接続 $\nabla$ には[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)を用います。
+
+局所座標は $x^\mu=(ct,x^1,x^2,x^3)$ とし、添字は $0$ から $3$ までを走ります。重力定数 $G>0$、光速 $c>0$、宇宙定数 $\Lambda$ は固定された実数です。[GR6の曲率成分公式](../GR6/index.md#prop-gr6-coordinate-curvature)と同じ規約に従い、
 
 $$
 R^\rho{}_{\sigma\mu\nu}
