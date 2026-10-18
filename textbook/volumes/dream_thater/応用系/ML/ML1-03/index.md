@@ -36,7 +36,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-03-erm -->
-**定義の確認**。[0–1損失](../ML1-01/index.md#def-ml1-01-loss)を用いる。$\mathcal X=\{a,b\}$、$\mathcal Y=\{0,1\}$、0–1損失とし、$h_{\mathrm{flat}}(a)=h_{\mathrm{flat}}(b)=0$、$h_{\mathrm{split}}(a)=0,h_{\mathrm{split}}(b)=1$ の二つだけを候補とする。訓練標本 $S=((a,0))$ では
+**定義の確認**。[0–1損失](../ML1-01/index.md#def-ml1-01-loss)を用いる。$\mathcal X=\{a,b\}$、$\mathcal Y=\{0,1\}$ とし、$h_{\mathrm{flat}}(a)=h_{\mathrm{flat}}(b)=0$、$h_{\mathrm{split}}(a)=0,h_{\mathrm{split}}(b)=1$ の二つだけを候補とする。訓練標本 $S=((a,0))$ では
 
 $$
 \widehat R_S(h_{\mathrm{flat}})=0,\qquad
@@ -209,7 +209,7 @@ $\lambda_2-\lambda_1>0$ なので $W_2\le W_1$ である。さらに最初の不
 
 <!-- formal-statement-start -->
 > **定義（複雑さ制約付き経験リスク最小化）**  
-> 有限非空の仮説クラス $\mathcal H$、標本 $S$、有限値非負損失 $\ell$、非負有限値ペナルティ $\Omega:\mathcal H\to[0,\infty)$、上限 $\rho\ge0$ に対して、許される候補の集合を
+> 有限非空の仮説クラス $\mathcal H$、標本 $S=((x_i,y_i))_{i=1}^n$（$n\ge1$）、有限値非負損失 $\ell$、非負有限値ペナルティ $\Omega:\mathcal H\to[0,\infty)$、上限 $\rho\ge0$ に対して、許される候補の集合を
 
 $$
 \mathcal H_\rho=\{h\in\mathcal H:\Omega(h)\le\rho\}
@@ -226,7 +226,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正則化解は対応する制約問題の解）**  
-> $\lambda\ge0$ に対し、$\widehat h_{\lambda,S}$ が $\widehat R_S(h)+\lambda\Omega(h)$ の最小解であるとする。上限を
+> 非空の仮説クラス $\mathcal H$ 上に、実数値の経験リスク $\widehat R_S$ と非負のペナルティ $\Omega$ が定義されているとする。$\lambda\ge0$ に対し、$\widehat h_{\lambda,S}\in\mathcal H$ が $\widehat R_S(h)+\lambda\Omega(h)$ の最小解であるとする。上限を
 
 $$
 \rho=\Omega(\widehat h_{\lambda,S})
