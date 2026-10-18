@@ -483,7 +483,7 @@ $$
 $U=[0,T]\times\mathbb T^3$ に $a_s=1+sf(x^0)$、$f(0)=f(T)=0$ とする。$\Lambda=0$ として、$\delta S_{\mathrm{EH}}$ と $\delta S_{\mathrm{GHY}}$ を独立に求め、両者が打ち消すことを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $s=0$ は平坦だから内部のEinsteinテンソルは零です。計量変分は $h^{ij}=-2f\delta^{ij}$、跡 $h=-6f$、$h^{0\mu}=0$ なので、[GR10の変分公式](../GR10/index.md#thm-gr10-eh-variation)から $V^0=6f'$ です。[境界流束](#prop-gr11-boundary-flux)では未来から過去を差し引くため
+**詳細解答。** $s=0$ は平坦だから内部のEinsteinテンソルは零です。計量変分は $h^{ij}=-2f\delta^{ij}$、跡 $h=-6f$、$h^{0\mu}=0$ なので、[Einstein–Hilbert作用の計量変分](../GR10/index.md#thm-gr10-eh-variation)から $V^0=6f'$ です。[境界流束](#prop-gr11-boundary-flux)では未来から過去を差し引くため
 
 $$
 \delta S_{\mathrm{EH}}
