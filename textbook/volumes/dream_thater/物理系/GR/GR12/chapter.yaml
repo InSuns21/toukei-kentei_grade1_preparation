@@ -1,0 +1,47 @@
+id: "GR12"
+title: "Einstein場の方程式と保存則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR11
+  - GR8
+  - GR7
+official_scope: []
+learning_objectives:
+  - 重力作用と物質作用を区別して全作用を定義し物質変数固定の計量変分を実行できる
+  - Einstein場の方程式を符号と8πG/c⁴の係数を追って導出できる
+  - GHY項と誘導計量固定が変分原理で果たす範囲を説明できる
+  - 縮約Bianchi恒等式と定数宇宙項から共変保存の整合条件を証明できる
+  - 微分同相不変な物質作用と物質の運動方程式から保存則を再導出できる
+  - Einstein方程式の跡とRicci表示を計算し真空Ricci零と平坦性を区別できる
+  - Minkowski真空と一定曲率真空に必要なΛの条件を検算できる
+  - 共変保存の座標表示を使って静的流体の圧力平衡を導ける
+  - 局所共変保存則と大域エネルギー保存を混同せず適用範囲を述べられる
+definitions:
+  - { id: GR12-DEF-01, name: 重力と物質の全作用 }
+theorems:
+  - { id: GR12-THM-01, name: Einstein場の方程式 }
+  - { id: GR12-PROP-01, name: 場の方程式と共変保存の整合条件 }
+  - { id: GR12-PROP-02, name: 物質作用の微分同相不変性と局所保存 }
+  - { id: GR12-PROP-03, name: 4次元場の方程式の跡とRicci表示 }
+canonical_examples:
+  - 平坦な有限時間スラブで全作用とGHY項を検算
+  - 作用変分から結合係数と物理次元を検算
+  - Minkowski真空はΛが零のときに限り解となる
+  - 4次元定曲率真空でK=Λ/3を導く
+  - 静的lapse背景の完全流体で接続補正と圧力勾配を計算
+  - 真空エネルギーを有効宇宙項へ吸収する条件を検算
+problem_patterns:
+  - GR12-ACTION-VARIATION-COEFFICIENT
+  - GR12-TRACE-OF-EINSTEIN-EQUATION
+  - GR12-MINKOWSKI-VACUUM-CHECK
+  - GR12-COUPLING-DIMENSION
+  - GR12-VARIABLE-LAMBDA-COMPATIBILITY
+  - GR12-CONSTANT-CURVATURE-VACUUM
+  - GR12-DIFFEOMORPHISM-NOETHER-DERIVATION
+  - GR12-STATIC-FLUID-CONSERVATION
+  - GR12-VACUUM-ENERGY-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
