@@ -41,7 +41,7 @@ chapters:
     title: "Logistic/softmax回帰・対数損失"
   - id: ML1-09
     path: textbook/volumes/dream_thater/応用系/ML/ML1-09
-    status: planned
+    status: completed
     title: "滑らかな凸損失と勾配法"
   - id: ML1-10
     path: textbook/volumes/dream_thater/応用系/ML/ML1-10

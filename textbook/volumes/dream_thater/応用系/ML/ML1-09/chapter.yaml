@@ -1,0 +1,48 @@
+id: "ML1-09"
+title: "滑らかな凸損失と勾配法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-08
+  - ML1-04
+  - OPT7
+official_scope: []
+learning_objectives:
+  - L-Lipschitz連続勾配を有限次元の二次損失で定義から判定できる
+  - 二乗経験損失の勾配・Hessianから最小の滑らかさ定数を算出できる
+  - 二値logistic損失のHessianから設計行列に基づく一様な滑らかさ上界を導ける
+  - 全標本勾配法に降下補題を適用し歩幅0<alpha<2/Lの単調性を証明できる
+  - 二次模型の安全域外で損失が発散する反例を説明できる
+  - 凸性・最小点の存在の仮定の下でO(1/k)関数値上界を再導出できる
+  - 完全分離による最小点非存在時に収束定理を誤適用しない
+  - 固有値方向の更新を計算し等高線と反復軌道を数値ラボで照合できる
+definitions:
+  - { id: ML1-09-DEF-01, name: 機械学習損失のL-滑らかさ }
+  - { id: ML1-09-DEF-02, name: 標本平均二乗損失 }
+  - { id: ML1-09-DEF-03, name: 全標本勾配の固定歩幅更新 }
+theorems:
+  - { id: ML1-09-THM-01, name: 二乗損失の勾配と滑らかさ定数 }
+  - { id: ML1-09-THM-02, name: logistic損失の一様な滑らかさ上界 }
+  - { id: ML1-09-THM-03, name: 滑らかな経験損失の一段降下 }
+  - { id: ML1-09-PROP-01, name: 二次損失で安全域が鋭い例 }
+  - { id: ML1-09-THM-04, name: 滑らかな凸経験損失の関数値上界 }
+canonical_examples:
+  - 二次損失の勾配差と滑らかさ定数の定義確認
+  - 設計行列のGram行列と最大固有値による曲率計算
+  - logistic確率の曲率重みとLの全域上界
+  - 固定歩幅の安全域と境界での損失増大
+  - 完全分離の最小点非存在による定理適用失敗
+  - 二次Hessianの固有方向と勾配軌道の対話計算
+problem_patterns:
+  - ML1-09-A01
+  - ML1-09-A02
+  - ML1-09-A03
+  - ML1-09-A04
+  - ML1-09-B01
+  - ML1-09-B02
+  - ML1-09-B03
+  - ML1-09-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 1.5 }
