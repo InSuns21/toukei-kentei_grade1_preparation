@@ -375,7 +375,7 @@ X\operatorname{Re}\langle v,w\rangle
 +\operatorname{Re}\langle v,\nabla^E_Xw\rangle
 $$
 です。二方向の束接続微分を交換した差として現れる作用素を $R^E$ と書き、
-$
+$$
 R^E(X,Y)s
 =\nabla^E_X\nabla^E_Ys-\nabla^E_Y\nabla^E_Xs-\nabla^E_{[X,Y]}s
 $$
