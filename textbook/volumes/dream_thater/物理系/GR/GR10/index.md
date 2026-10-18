@@ -104,7 +104,7 @@ $$
 
 です。対称性はこの成分行列が対称であることから分かります。また $|\epsilon|<1$ では $(1+\epsilon)^2>0$ で、対角行列の固有値は $-(1+\epsilon)^2,1,1,1$、行列式は $-(1+\epsilon)^2\ne0$ です。従って[既習のLorentz内積の定義](../../../幾何系/LORG/LORG1/index.md#def-lorg1-lorentz-inner-product)における非退化性と慣性指数（負1本・正3本・零0本）の条件をともに満たします。
 
-同じ座標基底で逆行列を取れば $g^{\mu\alpha}(\epsilon)g_{\alpha\nu}(\epsilon)=\delta^\mu_\nu$ です。対角行列なので逆計量の $00$ 成分は $-(1+\epsilon)^{-2}$ となり、
+同じ座標基底で逆行列を取れば $g^{\mu\alpha}(\epsilon)g_{\alpha\nu}(\epsilon)=\delta^\mu_\nu$ です。対角行列なので逆計量の $00$ 成分は $-(1+\epsilon)^{-2}$ となります。この成分をパラメータで微分すると、
 
 $$
 h^{00}=\left.\frac{d}{d\epsilon}[-(1+\epsilon)^{-2}]\right|_0=2,
