@@ -47,7 +47,27 @@ $$
 負号が二つあるのは $S$ が共変添字を二つ持つからです。発散は偏微分だけの総和ではありません。
 
 <!-- definition-example-start: def-gr7-covariant-divergence -->
-**定義の確認**：Minkowski座標。 $x^\mu=(ct,x,y,z)$、$g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とします。行列式は $-1\ne0$ だから非退化で、逆計量は同じ対角行列です。[Levi-Civita接続公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では計量の偏微分がすべて零なので $\Gamma^\rho_{\mu\nu}=0$ です。$S_{00}=f(x^0)$ 以外の成分が零なら、$S$ は対称な二階共変テンソルで、
+**定義の確認**：Minkowski座標。 $x^\mu=(ct,x,y,z)$ を使います。まず座標基底での計量の値 $g(\partial_\mu,\partial_\nu)$ を成分として並べると
+
+$$
+g_{\mu\nu}=g(\partial_\mu,\partial_\nu),\qquad
+(g_{\mu\nu})=\operatorname{diag}(-1,1,1,1)
+$$
+
+となります。なぜこの行列で非退化性を判定できるのでしょうか。任意の接ベクトル $v=v^\mu\partial_\mu$ について、すべての $w$ に対し $g(v,w)=0$ となる条件は、座標基底 $w=\partial_\nu$ を順に代入すれば
+
+$$
+g(v,\partial_\nu)=\sum_\mu v^\mu g_{\mu\nu}=0
+\quad(\nu=0,1,2,3)
+$$
+
+に等しいからです。この行列では4本の条件を成分ごとに読むと
+
+$$
+-v^0=0,\qquad v^1=0,\qquad v^2=0,\qquad v^3=0
+$$
+
+となり、$v=0$ しかありません。すなわち非退化です。これは行列式が $-1\ne0$ で可逆であるという判定と同じ内容で、逆計量は同じ対角行列です。[Levi-Civita接続公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では計量の偏微分がすべて零なので $\Gamma^\rho_{\mu\nu}=0$ です。$S_{00}=f(x^0)$ 以外の成分が零なら、$S$ は対称な二階共変テンソルで、
 
 $$
 \begin{aligned}
@@ -71,7 +91,7 @@ $$
 R_{abcd}=g_{a\rho}R^\rho{}_{bcd}
 $$
 
-と書きます。[GR6の曲率対称性](../GR6/index.md#prop-gr6-orthonormal-contraction)で使った反対称性および対交換対称性はLorentz計量でも成り立ちます。$\nabla g=0$ により、添字を下げる操作と共変微分は交換します。
+と書きます。[GEO16の曲率対称性](../../../幾何系/GEO/GEO16/index.md#thm-geo16-curvature-symmetries)の反対称性と対交換対称性は、正定値性ではなく捩率零と計量両立性から従うので、Lorentz計量でも成り立ちます。[GR6のRicci対称性の証明](../GR6/index.md#prop-gr6-orthonormal-contraction)もこの性質を使っています。$\nabla g=0$ により、添字を下げる操作と共変微分は交換します。
 
 <a id="thm-gr7-lorentz-second-bianchi"></a>
 
@@ -467,13 +487,35 @@ G_{ti}&=0.
 \end{aligned}
 $$
 
-ここで $\Gamma^t_{ti}=N_i/N$、$\Gamma^i_{tt}=c^2NN_i$ 以外の接続係数は零です。[発散の定義](#def-gr7-covariant-divergence)と共変微分の座標式を適用すると、時間成分について
+非零になり得る接続係数は、[GR6の静的lapse計量の計算](../GR6/index.md#prop-gr6-static-lapse-ricci)により
 
 $$
-\nabla^\mu G_{\mu t}=0.
+\Gamma^t_{ti}=\Gamma^t_{it}=\frac{N_i}{N},
+\qquad \Gamma^i_{tt}=c^2NN_i
 $$
 
-これは $G_{tt}=G_{it}=0$ であり、残る接続補正も $G_{ti}$ を掛けるものだけだからです。
+です。捩率零による下二添字の対称性も含めて列挙しました。[発散の定義](#def-gr7-covariant-divergence)と共変微分の座標式を適用します。時間成分では $G_{tt}=G_{it}=0$ であり、各空間添字 $i$ を固定すると
+
+$$
+\begin{aligned}
+\nabla_tG_{tt}
+&=\partial_tG_{tt}-2\Gamma^k_{tt}G_{kt}=0,\\
+\nabla_iG_{it}
+&=\partial_iG_{it}
+-\Gamma^\lambda_{ii}G_{\lambda t}
+-\Gamma^\lambda_{it}G_{i\lambda}
+=-\frac{N_i}{N}G_{it}=0.
+\end{aligned}
+$$
+
+従って、逆計量の対角性から
+
+$$
+\nabla^\mu G_{\mu t}
+=g^{tt}\nabla_tG_{tt}+\sum_i\nabla_iG_{it}=0.
+$$
+
+ここで $G_{it}=0$ であっても、共変微分を計算する前に接続補正を捨ててはいけません。
 
 空間成分 $\nu=j$ については、逆計量の対角性から
 
