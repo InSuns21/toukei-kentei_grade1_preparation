@@ -1,0 +1,50 @@
+chapter: GR5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR3
+  - GR4
+  - GEO17
+  - LORG4
+concepts:
+  - id: gravity.timelike-geodesic-family-deviation
+    name: 固有時で同期した測地線族と偏差ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固有時で同期した測地線族と偏差ベクトル）"]
+    requires: [geometry.curve-variation, lorentz-geometry.geodesic-causal-type-conservation, gravity.four-acceleration]
+
+  - id: gravity.lorentz-geodesic-deviation-equation
+    name: Lorentz時空の測地線偏差方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz時空の測地線偏差方程式）"]
+    requires: [gravity.timelike-geodesic-family-deviation, geometry.geodesic-variation-jacobi, lorentz-geometry.lorentz-levi-civita-extension]
+
+  - id: gravity.freefall-tidal-matrix
+    name: 自由落下観測者の潮汐行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自由落下観測者の潮汐行列）"]
+    requires: [gravity.lorentz-geodesic-deviation-equation, gravity.observer-orthonormal-frame, geometry.riemann-curvature-operator]
+
+  - id: gravity.measured-tidal-relative-acceleration
+    name: 測定される潮汐相対加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（測定される潮汐相対加速度）"]
+    requires: [gravity.freefall-tidal-matrix, gravity.lorentz-geodesic-deviation-equation, geometry.riemann-curvature-tensor]
+
+  - id: gravity.static-lapse-tidal-curvature
+    name: 静的なlapse計量の曲率と潮汐
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的なlapse計量の曲率と潮汐）"]
+    requires: [gravity.measured-tidal-relative-acceleration, lorentz-geometry.lorentz-levi-civita-extension, gravity.four-acceleration]
+
+  - id: gravity.rindler-zero-tidal-deviation
+    name: Rindlerの曲率零と自由落下者の偏差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Rindlerの曲率零と自由落下者の偏差）"]
+    requires: [gravity.static-lapse-tidal-curvature, gravity.lorentz-geodesic-deviation-equation, gravity.rindler-freefall-static-acceleration]
