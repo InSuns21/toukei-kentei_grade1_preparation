@@ -1,0 +1,68 @@
+chapter: HPDE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE3
+  - GPDE2
+forward_references: []
+concepts:
+  - id: hpde.bundle-connection
+    name: 束接続
+    kind: definition
+    introduction: formal
+    requires: [hpde.test-dual-density]
+  - id: hpde.connection-gauge-rule
+    name: 接続係数の枠変換則
+    kind: proposition
+    introduction: formal
+    requires: [hpde.bundle-connection]
+  - id: hpde.dual-connection
+    name: 双対接続
+    kind: definition
+    introduction: formal
+    requires: [hpde.bundle-connection, hpde.test-dual-density]
+  - id: hpde.formal-transpose
+    name: 密度値の形式的双対
+    kind: definition
+    introduction: formal
+    requires: [hpde.test-dual-density, hpde.dual-connection]
+  - id: hpde.transpose-formula
+    name: 形式的双対の存在・一意性と局所公式
+    kind: theorem
+    introduction: formal
+    requires: [hpde.formal-transpose]
+  - id: hpde.density-divergence
+    name: 密度に関する発散
+    kind: definition
+    introduction: formal
+    requires: [hpde.density-bundle]
+  - id: hpde.connection-transpose
+    name: 接続の微分の形式的双対
+    kind: proposition
+    introduction: formal
+    requires: [hpde.transpose-formula, hpde.dual-connection, hpde.density-divergence]
+  - id: hpde.hermitian-bundle-metric
+    name: 正定値Hermite束計量
+    kind: definition
+    introduction: formal
+    requires: [hpde.bundle-connection]
+  - id: hpde.formal-adjoint
+    name: 束計量・密度に関する形式的随伴
+    kind: definition
+    introduction: formal
+    requires: [hpde.hermitian-bundle-metric, hpde.formal-transpose, hpde.density-bundle]
+  - id: hpde.adjoint-from-transpose
+    name: 形式的双対と随伴の関係
+    kind: proposition
+    introduction: formal
+    requires: [hpde.formal-adjoint, hpde.transpose-formula]
+  - id: hpde.metric-connection-adjoint
+    name: 計量両立な接続の形式的随伴
+    kind: proposition
+    introduction: formal
+    requires: [hpde.formal-adjoint, hpde.density-divergence, hpde.bundle-connection]
+  - id: hpde.distribution-extension
+    name: 線形微分作用素の超関数への延長
+    kind: proposition
+    introduction: formal
+    requires: [hpde.distribution-section, hpde.transpose-formula]
