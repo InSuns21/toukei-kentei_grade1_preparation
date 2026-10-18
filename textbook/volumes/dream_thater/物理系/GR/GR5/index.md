@@ -43,11 +43,11 @@ $$
 
 なお、固有時の同期は初期相対速度にも制約を与えます。$g(T,T)=-c^2$ を $s$ で微分し、[捩率零のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)と可換なパラメータ方向を用いると
 
-$
+$$
 0=\left.\partial_s g(T,T)\right|_{s=0}
 =2g(\nabla_S T,u)|_{s=0}
 =2g(DJ/d\tau,u).
-$
+$$
 
 したがって、同期した族から得た $J$ では相対速度の時間方向成分は初めから零です。一方、$g(J,u)$ 自体は初期に零とは限らず、空間的な偏差として読むには別にその条件が必要です。
 
@@ -132,12 +132,12 @@ $$
 
 座標成分から潮汐行列へ移る理由を、定義そのものから確認します。$g(J,u)=0$ の偏差なら、直交枠の空間軸に沿って $J=\sum_j\xi^{(j)}e_{(j)}$ と展開できます。$u=ce_{(0)}$ と曲率の多重線形性から
 
-$
+$$
 g(R(J,u)u,e_{(i)})
 =c^2\sum_j\xi^{(j)}
 g(R(e_{(j)},e_{(0)})e_{(0)},e_{(i)})
 =c^2\sum_j\mathcal E_{ij}\xi^{(j)}.
-$
+$$
 
 従って $\mathcal E_{ij}$ は、曲率による偏差加速度を三本の物差しで表す際に、$j$ 方向の間隔が $i$ 方向の加速度に与える係数です。直交条件が保たれることと成分の二階微分との対応は、次の命題で証明します。
 
@@ -280,12 +280,12 @@ $$
 
 となるので基準曲線は測地線です。表示した枠のGram行列は $\operatorname{diag}(-1,1,1,1)$ で、基底でもあります。平行性も接続係数から直接確認します。$N_0=N(x_0)$、$N'_0=N'(x_0)$ と書けば
 
-$
+$$
 \nabla_u e_{(0)}=\frac{1}{cN_0^2}\Gamma^x_{tt}\partial_x
 =\frac{cN'_0}{N_0}e_{(1)},\qquad
 \nabla_u e_{(1)}=\frac{1}{N_0}\Gamma^t_{tx}\partial_t
 =\frac{cN'_0}{N_0}e_{(0)}.
-$
+$$
 
 $N'_0=0$ だから両者は零であり、$y,z$ 方向の二軸も接続係数が零なので平行です。さらに
 
@@ -366,11 +366,11 @@ $$
 
 三次元のNewtonポテンシャル $\Phi=-GM/r$（$r>0$）で単位放射方向 $\boldsymbol n=\boldsymbol x/r$ とすれば、$\partial_i\Phi=GMx_i/r^3$ なので
 
-$
+$$
 \partial_i\partial_j\Phi
 =GM\left(\frac{\delta_{ij}}{r^3}-\frac{3x_ix_j}{r^5}\right)
 =\frac{GM}{r^3}(\delta_{ij}-3n_in_j).
-$
+$$
 
 このHessianは、空間的な間隔 $\boldsymbol\xi$ に相対加速度 $-\operatorname{Hess}\Phi\,\boldsymbol\xi$ を与える線形写像の行列表現です。$\boldsymbol n$ を代入すると $H\boldsymbol n=(GM/r^3)(1-3)\boldsymbol n=-2GM\boldsymbol n/r^3$、$\boldsymbol t\cdot\boldsymbol n=0$ の接線方向では $H\boldsymbol t=(GM/r^3)\boldsymbol t$ となります。したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
 
@@ -461,14 +461,14 @@ $ds^2=-c^2N(x,y)^2dt^2+dx^2+dy^2+dz^2$、$N=1+(\alpha x^2+\beta y^2)/(2c^2)$、$
 <!-- solution-start -->
 **詳細解答**。$N_x=\alpha x/c^2$、$N_y=\beta y/c^2$ なので原点で勾配は零です。一般に $\Gamma^i_{tt}=c^2N\partial_iN$、$\Gamma^t_{ti}=\partial_iN/N$（$i=x,y$）だから、原点で接続係数は零、$\nabla_uu=0$。空間計量はEuclidなので $e_{(0)}=(cN)^{-1}\partial_t$、$e_{(i)}=\partial_i$ は原点で直交・平行です。曲率式を二方向で導くには、$N_i=\partial_iN$ と置き、$\nabla_t\partial_t=c^2N\sum_iN_i\partial_i$ と $\nabla_j\partial_t=(N_j/N)\partial_t$ を使います。座標方向は可換なので
 
-$
+$$
 \begin{aligned}
 R(\partial_j,\partial_t)\partial_t
 &=\nabla_j\nabla_t\partial_t-\nabla_t\nabla_j\partial_t\\
 &=c^2\sum_i\left[\partial_j(NN_i)-\frac{N_j}{N}NN_i\right]\partial_i\\
 &=c^2N\sum_i(\partial_j\partial_iN)\partial_i.
 \end{aligned}
-$
+$$
 
 原点のHessianは $\operatorname{diag}(\alpha/c^2,\beta/c^2,0)$、ゆえに
 
