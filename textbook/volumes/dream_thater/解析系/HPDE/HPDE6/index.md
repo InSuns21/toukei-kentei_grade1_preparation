@@ -22,11 +22,11 @@ $$
 $$
 は滑らかで空間的なCauchy超曲面です。本章では時刻 $t_0$ を固定して $\Sigma=\Sigma_{t_0}$ と書きます。
 
-[滑らかな直交時空分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、適切な大域座標 $(t,y)$ において
+[滑らかな直交時空分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を使うと、積分解の時間変数 $t$ と面内の局所座標 $y$ において
 $$
 g=-\alpha(t,y)^2dt^2+h_t(y),\qquad \alpha>0
 $$
-と表されます。$h_t$ は各 $\Sigma_t$ 上の正定値なRiemann計量、$\alpha$ はlapse関数です。ここで時間座標 $t$ は選んだ $T$ 自身です。$dt$ は時刻の共変ベクトル、$\partial_t$ は分割によって選んだ時間方向を表し、両者は同じ対象ではありません。
+と表されます。ここで大域的なのは積分解 $M\simeq\mathbb R\times\Sigma_{t_0}$ であり、面内の $y$ は一般には局所座標です（$\Sigma_{t_0}$ に大域座標があるとは限りません）。$h_t$ は各 $\Sigma_t$ 上の正定値なRiemann計量、$\alpha$ はlapse関数です。時間座標 $t$ は選んだ $T$ 自身です。$dt$ は時刻の共変ベクトル、$\partial_t$ は分割によって選んだ時間方向を表し、両者は同じ対象ではありません。
 
 <a id="def-hpde6-cauchy-slice"></a>
 <!-- formal-statement-start -->
