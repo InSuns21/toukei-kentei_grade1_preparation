@@ -116,7 +116,25 @@ $P$ の新枠での行列作用素は $S^{-1}PS$ なので、二階係数は $S^
 <!-- definition-example-start: def-hpde5-characteristic -->
 ### 直接例：特性面と非特性面
 
-**定義の確認**。先ほどの作用素 $P$ で $\varphi=t-x$ とすると $d\varphi=dt-dx\ne0$ です。$\sigma_2(P)(d\varphi)=1-(-1)^2=0$ なので $t-x=c$ は特性超曲面です。一方 $t=c$ は $d\varphi=dt$、$\sigma_2(P)(dt)=1$ であり非特性です。どちらも直線束なので、作用する行列がスカラー $0$ か非零かで可逆性を判定できます。
+**定義の確認**。局所座標 $(t,x)$ において、法共変ベクトルの成分は
+
+$$
+d\varphi=(\partial_t\varphi)dt+(\partial_x\varphi)dx
+$$
+
+であり、これを主シンボルに代入します。任意の実定数 $c$ に対して $\varphi_c=t-x-c$ と置くと、零点集合は $S_c=\{t-x=c\}$ です。各点で $d\varphi_c=dt-dx\ne0$ となり、主シンボルの値は
+
+$$
+\sigma_2(P)(d\varphi_c)=1^2-(-1)^2=0
+$$
+
+となり、$S_c$ は特性超曲面です。一方 $\psi_c=t-c$ の零点集合 $\{t=c\}$ では $d\psi_c=dt\ne0$ であり、
+
+$$
+\sigma_2(P)(d\psi_c)=1^2-0^2=1
+$$
+
+なので非特性です。いずれも実直線束の自己準同型であり、局所枠での $1\times1$ 行列はスカラー倍です。よって値が零なら非可逆、非零なら逆数によって可逆となり、定義の二つの条件（非零法共変ベクトルと主シンボルの非可逆性）を直接確認できました。
 <!-- definition-example-end -->
 
 $\xi=0$ を除外したのは、二次同次性によってすべての二階作用素で $\sigma_2(P)(x,0)=0$ となるからです。一般の行列値作用素では「非可逆」と「零行列」は同値ではありません。例えば $\operatorname{diag}(1,0)$ は零行列ではないのに非可逆です。
@@ -197,7 +215,7 @@ g(\xi^\sharp,\xi^\sharp)
 \end{aligned}
 $$
 
-従って $\xi$ の非零性を保ったまま光的条件が一致します。[LORG2の因果型](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)によって光的ベクトルと呼べます。超曲面については $\xi=d\varphi$ として同じ同値を適用すれば証明できます。
+従って $\xi$ の非零性を保ったまま光的条件が一致します。[LORG1の因果型](../../../幾何系/LORG/LORG1/index.md#def-lorg1-causal-type)によって光的ベクトルと呼べます。超曲面については $\xi=d\varphi$ として同じ同値を適用すれば証明できます。
 <!-- proof-end -->
 
 Minkowski平面では特性方程式 $\tau^2-\zeta^2=(\tau-\zeta)(\tau+\zeta)=0$ が二つの光的方向を表します。ただし、主シンボルから分かるのは**特性の幾何**までです。解の存在・一意性・有限伝播は後のエネルギー法とCauchy理論で証明する必要があります。「非特性」と「Cauchy面」も同じ意味ではありません。時間的超曲面の法が空間的でも非特性であり得ます。
@@ -234,6 +252,40 @@ $$
 \end{aligned}
 $$
 
+この補正によって座標に依存しないことも確かめます。[束接続](../HPDE4/index.md#def-hpde4-connection)と[Lorentz計量のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)を使い、
+
+$$
+H^\nabla(X,Y)u
+:=\nabla_X^E(\nabla_Y^Eu)-\nabla_{\nabla_X^{LC}Y}^Eu
+$$
+
+と定めます。滑らかな関数 $f$ に対して
+
+$$
+\begin{aligned}
+H^\nabla(X,fY)u
+&=\nabla_X^E(f\nabla_Y^Eu)
+-\nabla_{X(f)Y+f\nabla_X^{LC}Y}^Eu\\
+&=X(f)\nabla_Y^Eu+f\nabla_X^E\nabla_Y^Eu
+-X(f)\nabla_Y^Eu-f\nabla_{\nabla_X^{LC}Y}^Eu\\
+&=fH^\nabla(X,Y)u
+\end{aligned}
+$$
+
+です。第一変数についても
+
+$$
+H^\nabla(fX,Y)u=fH^\nabla(X,Y)u
+$$
+
+となります。よって $H^\nabla$ は二つのベクトル場についてテンソル的です。座標基底では
+
+$$
+H^\nabla(\partial_i,\partial_j)u=\nabla_i\nabla_j u-\Gamma^k{}_{ij}\nabla_k u
+$$
+
+となり、逆計量による縮約 $g^{ij}H^\nabla(\partial_i,\partial_j)u$ は座標に依存しません。
+
 最高階の係数は $\omega_i$ と無関係です。逆に一階の係数が与えられたとき、ここから $\omega_i$ を解けることが本章の主結果です。
 
 <a id="thm-hpde5-unique-connection"></a>
@@ -257,7 +309,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所座標と枠を固定するとnormally hyperbolic性から
+局所座標と枠を固定し、最初の節の対称な二階係数を $B^{ij}=B^{ji}$ とします。[normally hyperbolic性](#def-hpde5-normally-hyperbolic)から、どの共変ベクトル $\xi$ に対しても
+
+$$
+(B^{ij}+g^{ij}I_r)\xi_i\xi_j=0
+$$
+
+です。$D^{ij}=B^{ij}+g^{ij}I_r$ と置き、まず $\xi=dx^i$ を代入すると $D^{ii}=0$、異なる $i,j$ に対して $\xi=dx^i+dx^j$ を代入すると
+
+$$
+0=D^{ii}+D^{ij}+D^{ji}+D^{jj}=2D^{ij}
+$$
+
+となります。実数体・複素数体のいずれでも $2$ は可逆なので $D^{ij}=0$ です。つまり全二階係数が $B^{ij}=-g^{ij}I_r$ と決まり、作用素は
 
 $$
 Pu=-g^{ij}\partial_i\partial_j u+A^k\partial_k u+Cu
@@ -294,7 +358,7 @@ $$
 
 **局所一意性**を証明します。同じ $P$ を与える二つの接続係数の差を $\Theta_i=\widehat\omega_i-\omega_i$ とすると、一階係数の差は $-2g^{ik}\Theta_i$ です。同じ作用素だからすべての $k$ で $-2g^{ik}\Theta_i=0$。$g_{\ell k}$ を掛けて縮約すると $\Theta_\ell=0$ です。従って二つの接続は一致し、零次係数比較から $\widehat V=V$ も従います。
 
-**貼り合わせ**を確かめます。異なる座標・枠の重なる領域で、一方から作った接続を他方の枠に移すと[HPDE4の接続の枠変換則](../HPDE4/index.md#prop-hpde4-gauge-rule)を満たします。二階共変微分の縮約は座標不変なので、変換後も同じ大域的作用素 $P$ の接続分解となります。ここに局所一意性を適用すると、変換後の接続・零次項は他方で構成したものに一致します。よって局所解は貼り合わさり、大域的な $\nabla^P,V$ を定めます。大域一意性も局所一意性から従います。
+**貼り合わせ**を確かめます。異なる座標・枠の重なる領域で、一方から作った接続を他方の枠に移すと[HPDE4の接続の枠変換則](../HPDE4/index.md#prop-hpde4-gauge-rule)を満たします。先に $H^\nabla$ の両変数について確認したテンソル性により、その逆計量との縮約は座標不変です。従って変換後も同じ大域的作用素 $P$ の接続分解となります。ここに局所一意性を適用すると、変換後の接続・零次項は他方で構成したものに一致します。よって局所解は貼り合わさり、大域的な $\nabla^P,V$ を定めます。大域一意性も局所一意性から従います。
 <!-- proof-end -->
 
 ### 定義と係数公式の直接計算
@@ -329,7 +393,13 @@ $$
 
 ### 曲がった計量でも確かめる
 
-$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
+$g=e^{2\phi(t,x)}(-dt^2+dx^2)$ とおきます。$\phi$ は滑らかな実関数です。$\eta=\operatorname{diag}(-1,1)$ とすると、$g_{ij}=e^{2\phi}\eta_{ij}$、$g^{ij}=e^{-2\phi}\eta^{ij}$ です。[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の局所係数公式に
+
+$$
+\partial_i g_{j\ell}=2e^{2\phi}(\partial_i\phi)\eta_{j\ell}
+$$
+
+を代入し、$e^{2\phi}$ と $e^{-2\phi}$ を相殺すると
 
 $$
 \Gamma^k{}_{ij}
@@ -417,7 +487,7 @@ $$
 P^*=\partial_t^2-\partial_x^2-2\partial_t+3\ne P.
 $$
 
-また $\nabla_t$ が標準束計量と両立しないことも
+また[HPDE4の計量両立条件](../HPDE4/index.md#def-hpde4-metric-compatible-connection)に照らし、$\nabla_t$ が標準束計量と両立しないことも
 
 $$
 (\nabla_tu)v+u(\nabla_tv)
@@ -510,7 +580,7 @@ $dt$ では $\tau=1,\zeta=0$ なので行列は $\operatorname{diag}(1,0)$ で�
 <!-- solution-start -->
 **詳細解答**
 
-一階係数は $A^t=D$、$A^x=0$ です。従って
+一階係数は $A^t=D$、$A^x=0$ です。[接続の一意分解公式](#thm-hpde5-unique-connection)に $g_{tt}=-1$、$g_{xx}=1$、$\Gamma^k{}_{ij}=0$ を代入すると
 
 $$
 \omega_t=\tfrac12(-1)(-D)
