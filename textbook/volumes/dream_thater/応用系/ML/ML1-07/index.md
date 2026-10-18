@@ -150,19 +150,21 @@ $$
 
 連続特徴では、平均だけでなく「どちらの方向へ散らばるか」を記す必要がある。ベクトル $\mu\in\mathbb R^p$ は中心、実対称行列 $\Sigma\in\mathbb R^{p\times p}$ は共分散を表す。成分ごとに $\Sigma_{ab}=E[(X_a-\mu_a)(X_b-\mu_b)]$ と置くと、既習の[共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)の双線形な展開から、方向 $v=(v_1,\ldots,v_p)^{\mathsf T}$ の分散は
 
-$
+$$
+\begin{aligned}
 \operatorname{Var}(v^{\mathsf T}X)
-=E\!\left[\left(\sum_a v_a(X_a-\mu_a)\right)^2\right]
-=\sum_{a,b}v_av_b\Sigma_{ab}
-=v^{\mathsf T}\Sigma v.
-$
+&=E\!\left[\left(\sum_a v_a(X_a-\mu_a)\right)^2\right]\\
+&=\sum_{a,b}v_av_b\Sigma_{ab}\\
+&=v^{\mathsf T}\Sigma v.
+\end{aligned}
+$$
 
 従って、任意の $v\ne0$ に $v^{\mathsf T}\Sigma v>0$ が成り立つという**正定値**の条件は、どの非零方向にも正の分散があることを意味する。この条件なら逆行列と正の行列式が存在する。[Hermitian半正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)の既習の対角化を実対称行列に適用し、$\Sigma=QDQ^{\mathsf T}$、$D=\operatorname{diag}(d_1,\ldots,d_p)$、$d_j>0$ と書ける。固有方向を列に持つ $Q$ は直交行列なので、
 
-$
+$$
 \Sigma^{-1}=QD^{-1}Q^{\mathsf T},\qquad
 \det\Sigma=\prod_{j=1}^p d_j>0.
-$
+$$
 
 これが以下の密度式で逆行列・行列式を使用できる理由である。
 
@@ -225,11 +227,13 @@ $$
 
 従って $I=\sqrt{2\pi}$ であり積分は1。標準正規の各 $Z_j$ は対称性から平均0である。また、境界項 $te^{-t^2/2}\to0$（$|t|\to\infty$）を用いて部分積分すると
 
-$
+$$
+\begin{aligned}
 \int_{\mathbb R}t^2e^{-t^2/2}\,dt
-=\left[-te^{-t^2/2}\right]_{-\infty}^{\infty}
-+\int_{\mathbb R}e^{-t^2/2}\,dt=I.
-$
+&=\left[-te^{-t^2/2}\right]_{-\infty}^{\infty}\\
+&\quad+\int_{\mathbb R}e^{-t^2/2}\,dt=I.
+\end{aligned}
+$$
 
 従って $E[Z_j^2]=1$ であり、各 $Z_j$ は平均0・分散1である。異なる $i,j$ の積の期待値は、積密度と各平均0から0になる。$X=\mu+QD^{1/2}Z$ へ戻せば
 
@@ -292,14 +296,13 @@ $p\log(2\pi)/2$ はすべての $k$ に共通であるから除去でき、表�
 <!-- definition-example-start: def-ml1-07-lda -->
 **定義の確認**。$p=1$、$\mu_0=0,\mu_1=2$、$\Sigma=(1)$、事前確率を各 $1/2$ とする。$\pi_0,\pi_1>0$ で総和は1、各クラスの分布は同じ正定値共分散 $(1)$ を持つ正規分布なので、LDAの全条件を満たす。[正規生成模型の判別得点](#thm-ml1-07-gaussian-score)へそれぞれの平均・分散を代入すると
 
-$
+$$
 \begin{aligned}
 \delta_1(x)-\delta_0(x)
-&=\log\frac{\pi_1}{\pi_0}
--\frac12\{(x-2)^2-x^2\}\\
+&=\log\frac{\pi_1}{\pi_0}-\frac12\{(x-2)^2-x^2\}\\
 &=2x-2+\log\frac{\pi_1}{\pi_0}.
 \end{aligned}
-$
+$$
 
 $\pi_0=\pi_1$ なら同点境界は $x=1$、$\pi_1=4/5,\pi_0=1/5$ に変えると $x=1-\frac12\log4$ となる。ここでは定義に指定した正規密度の得点を比較しただけであり、後の定理ではこの一次式への簡約が任意の次元で起きることを証明する。
 <!-- definition-example-end -->
@@ -374,11 +377,13 @@ $$
 <!-- definition-example-start: def-ml1-07-qda -->
 **定義の確認**。$p=1$、$\mu_0=\mu_1=0$、$\Sigma_0=(1)$、$\Sigma_1=(4)$、$\pi_0=\pi_1=1/2$ とする。事前確率は正で総和1、各共分散は $v^2>0$ と $4v^2>0$（$v\ne0$）により正定値なので、両クラスの正規密度が定義できる。共分散は異なり、QDAの条件を満たすがLDAの共通共分散条件は満たさない。このとき[正規密度の定義](#def-ml1-07-gaussian)から、事前確率込みの重みの比は
 
-$
+$$
+\begin{aligned}
 \frac{\pi_1\phi_1(x;0,(4))}{\pi_0\phi_1(x;0,(1))}
-=\frac12\exp\!\left(-\frac{x^2}{8}+\frac{x^2}{2}\right)
-=\frac12e^{3x^2/8}.
-$
+&=\frac12\exp\!\left(-\frac{x^2}{8}+\frac{x^2}{2}\right)\\
+&=\frac12e^{3x^2/8}.
+\end{aligned}
+$$
 
 $x=0$ では比は $1/2<1$ でクラス0、$|x|=2$ では $e^{3/2}/2>1$ でクラス1を選ぶ。共分散の差が予測を変えることを、二次判別の一般定理に先立って直接確かめた。
 <!-- definition-example-end -->
@@ -462,12 +467,14 @@ $$
 
 また、連続特徴に対するGaussian Naive Bayesは、各クラスで座標ごとに正規分布を指定し、相互独立とする模型である。$\Sigma_k=\operatorname{diag}(\sigma_{k1}^2,\ldots,\sigma_{kp}^2)$、$\sigma_{kj}^2>0$ を[正規密度](#def-ml1-07-gaussian)に代入すると、逆行列も対角で行列式は $\prod_j\sigma_{kj}^2$ となるので
 
-$
+$$
+\begin{aligned}
 \phi_p(x;\mu_k,\Sigma_k)
-=\prod_{j=1}^p
-\frac{1}{\sqrt{2\pi\sigma_{kj}^2}}
-\exp\!\left[-\frac{(x_j-\mu_{kj})^2}{2\sigma_{kj}^2}\right].
-$
+&=\prod_{j=1}^p
+\left[\frac{1}{\sqrt{2\pi\sigma_{kj}^2}}
+\exp\!\left(-\frac{(x_j-\mu_{kj})^2}{2\sigma_{kj}^2}\right)\right].
+\end{aligned}
+$$
 
 右辺は各一変量正規密度の積なので、[独立性と積測度の同値](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)によってクラス内の相互独立性が従う。従って対角共分散のQDAはGaussian Naive Bayesとしても表せる。非対角共分散では、積密度から計算される異なる座標間の共分散が0なのに元の $\Sigma_k$ の非対角成分が0でないため、この積模型では表せない。共通の対角行列ならさらにLDAにも該当するが、Naive Bayesという名前だけでLDAともQDAとも決まるわけではない。
 
