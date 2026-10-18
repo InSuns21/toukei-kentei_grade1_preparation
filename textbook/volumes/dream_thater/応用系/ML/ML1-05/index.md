@@ -515,7 +515,17 @@ $$
 - Level: C
 - 目安時間: 35分
 
-$Y=X\beta_\star+\varepsilon$、$\mathbb E\varepsilon=0$、$\operatorname{Cov}(\varepsilon)=\sigma^2I_n$、$n,p\ge1$、$\lambda>0$ とする。$X=U\Sigma V^{\mathsf T}$ の正の特異値を $s_1,\ldots,s_q$、$\theta_j=v_j^{\mathsf T}\beta_\star$ とする。(1) 係数の偏りと分散共分散行列を求めよ。(2) $R_{\rm coef}$ を特異値ごとの和にし、零方向の寄与を説明せよ。(3) $R_{\rm fit}=\mathbb E\|X\widehat\beta_\lambda-X\beta_\star\|^2/n$ の和を求め、(2)と相違する理由を述べよ。(4) $\sigma^2=0$ で列フルランクの場合、正則化は必ず改善するか判定せよ。
+$Y=X\beta_\star+\varepsilon$、$\mathbb E\varepsilon=0$、$\operatorname{Cov}(\varepsilon)=\sigma^2I_n$、$n,p\ge1$、$\lambda>0$ とする。$X=U\Sigma V^{\mathsf T}$ の正の特異値を $s_1,\ldots,s_q$、$\theta_j=v_j^{\mathsf T}\beta_\star$ とする。次を解答せよ。
+
+1. 係数の偏りと分散共分散行列を求めよ。
+2. $R_{\rm coef}$ を特異値ごとの和にし、零方向の寄与を説明せよ。
+3. 固定デザイン上の予測リスク $R_{\rm fit}$ を次の式で定め、その特異値表示を求め、係数リスクとの違いを説明せよ。
+
+$
+R_{\rm fit}=\frac1n\mathbb E\|X\widehat\beta_\lambda-X\beta_\star\|_2^2.
+$
+
+4. $\sigma^2=0$ かつ列フルランクの場合、正則化は必ず改善するか判定せよ。
 
 <!-- solution-start -->
 #### 詳細解答
