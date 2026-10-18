@@ -1,0 +1,48 @@
+id: "GR8"
+title: "塵・完全流体とエネルギー運動量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR7
+  - SREL7
+official_scope: []
+learning_objectives:
+  - 流体の静止局所直交枠におけるエネルギー密度と等方圧力から完全流体テンソルを導出し符号規約を検算できる
+  - Lorentz時空における流体直交射影を定義し規格化・直交性・冪等性を確認できる
+  - 完全流体テンソルの共変保存則を四元速度への時間射影と直交射影へ分解しエネルギー式とEuler式を再導出できる
+  - 粒子数連続の式と物質の状態方程式を混同せず密度の流れに沿う変化を計算できる
+  - 保存する正密度の塵の質量連続と測地線条件を証明し密度零では割れないことを説明できる
+  - Minkowskiの運動系で圧力がエネルギー・運動量流束へ寄与することを計算できる
+  - 静的lapse計量の接続と加速度から静水圧式を導き静止塵の不可能性を検査できる
+definitions:
+  - { id: GR8-DEF-01, name: Lorentz時空の流体直交射影 }
+  - { id: GR8-DEF-02, name: 曲がった時空の完全流体エネルギー運動量テンソル }
+  - { id: GR8-DEF-03, name: 圧力零の塵 }
+theorems:
+  - { id: GR8-PROP-01, name: 完全流体テンソルの静止系との同値性 }
+  - { id: GR8-PROP-02, name: 曲がった時空の粒子数連続の式 }
+  - { id: GR8-THM-01, name: 曲がった時空の完全流体のエネルギー方程式とEuler方程式 }
+  - { id: GR8-PROP-03, name: 保存する塵の測地線運動 }
+  - { id: GR8-PROP-04, name: 静的lapse時空の完全流体の圧力平衡 }
+canonical_examples:
+  - 静止局所直交枠で射影テンソルの直交性と冪等性を確認
+  - Minkowski静止系でエネルギー密度と圧力の成分を確認
+  - 正の固有静止質量密度を持つ塵の静止系応力を検査
+  - 一様な運動系のT00・T01・T11と圧力の寄与
+  - 静的lapse計量の四元加速度と圧力勾配の釣合い
+  - 静的lapse中に静止する塵が保存則に反する例
+problem_patterns:
+  - GR8-PROJECTOR-IDEMPOTENCE
+  - GR8-REST-STRESS-SIGN
+  - GR8-MOVING-DUST-FLUX
+  - GR8-PARTICLE-EXPANSION
+  - GR8-VACUUM-DENSITY-CAUTION
+  - GR8-ENERGY-PROJECTION
+  - GR8-EULER-PROJECTION
+  - GR8-HYDROSTATIC-BAROTROPIC
+  - GR8-DUST-GEODESIC
+  - GR8-STATIC-LAPSE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
