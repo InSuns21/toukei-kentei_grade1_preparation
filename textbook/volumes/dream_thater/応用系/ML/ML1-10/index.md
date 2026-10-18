@@ -52,11 +52,15 @@ $$
 > **定理（一様抽出の不偏性と分散）**  
 > $f_i:\mathbb R^d\to\mathbb R$ がすべて微分可能で、$I$ が一様なら、任意の固定点 $w$ について
 >
-> $$ E_I[G(w,I)]=g(w). $$
+$$
+E_I[G(w,I)]=g(w).
+$$
 >
 > また、推定誤差の二乗ノルムの期待値は
 >
-> $$ V(w):=E_I\|G(w,I)-g(w)\|_2^2=\frac1n\sum_{i=1}^n\|g_i(w)-g(w)\|_2^2. $$
+$$
+V(w):=E_I\|G(w,I)-g(w)\|_2^2=\frac1n\sum_{i=1}^n\|g_i(w)-g(w)\|_2^2.
+$$
 >
 > $V(w)=0$ とすべての標本勾配が $g(w)$ に等しいことは同値である。
 <!-- formal-statement-end -->
@@ -95,7 +99,9 @@ $$
 > **定義（復元抽出ミニバッチ勾配）**  
 > 整数 $b\ge1$ に対し、独立で一様な $I_1,\ldots,I_b$ から
 >
-> $$ G_b(w)=\frac1b\sum_{j=1}^b g_{I_j}(w) $$
+$$
+G_b(w)=\frac1b\sum_{j=1}^b g_{I_j}(w)
+$$
 >
 > と置く。復元抽出であるため $b>n$ も許され、同じ番号が複数回出てもよい。
 <!-- formal-statement-end -->
@@ -110,7 +116,9 @@ $$
 > **定理（ミニバッチの不偏性と分散の縮小）**  
 > 上の復元抽出が独立であれば、任意の固定した $w$ について
 >
-> $$ E[G_b(w)]=g(w),\qquad E\|G_b(w)-g(w)\|_2^2=\frac{V(w)}b. $$
+$$
+E[G_b(w)]=g(w),\qquad E\|G_b(w)-g(w)\|_2^2=\frac{V(w)}b.
+$$
 >
 > これは期待二乗ノルムの等式であり、各抽出結果が真の勾配に必ず近づくという主張ではない。
 <!-- formal-statement-end -->
@@ -155,7 +163,9 @@ $$
 > **命題（非復元抽出の有限母集団補正）**  
 > $n\ge2$、$1\le b\le n$ とし、$n$ 番号から重複なく一様な $b$ 個を順序付き抽出する。その平均勾配を $\widetilde G_b(w)$ とすると
 >
-> $$ E[\widetilde G_b(w)]=g(w),\qquad E\|\widetilde G_b(w)-g(w)\|_2^2=\frac{n-b}{b(n-1)}V(w). $$
+$$
+E[\widetilde G_b(w)]=g(w),\qquad E\|\widetilde G_b(w)-g(w)\|_2^2=\frac{n-b}{b(n-1)}V(w).
+$$
 >
 > 特に $b=n$ なら推定量は常に全勾配に等しい。
 <!-- formal-statement-end -->
@@ -208,7 +218,9 @@ $$
 
 > この勾配を使い、
 >
-> $$ w_{k+1}=w_k-\alpha_kG_k,\qquad k=0,1,\ldots $$
+$$
+w_{k+1}=w_k-\alpha_kG_k,\qquad k=0,1,\ldots
+$$
 >
 > で更新する。新しい番号は抽出時点の $w_k$ を固定して選ぶ。
 <!-- formal-statement-end -->
@@ -225,10 +237,10 @@ $$
 > **補題（新しいミニバッチの条件付き二次モーメント）**  
 > 各 $k$ の新しい番号が履歴 $\mathcal H_k$ と独立で一様な復元抽出であり、$w_k$ が $\mathcal H_k$ から定まるなら、
 >
-> $$
-> E[G_k\mid\mathcal H_k]=g(w_k),\qquad
-> E[\|G_k\|_2^2\mid\mathcal H_k]=\|g(w_k)\|_2^2+\frac{V(w_k)}b.
-> $$
+$$
+E[G_k\mid\mathcal H_k]=g(w_k),\qquad
+E[\|G_k\|_2^2\mid\mathcal H_k]=\|g(w_k)\|_2^2+\frac{V(w_k)}b.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -260,11 +272,11 @@ $$
 > **定理（SGDの一段期待降下）**  
 > $F:\mathbb R^d\to\mathbb R$ が $L$-滑らか（$L>0$）で、SGDの抽出が上記補題の仮定を満たし、定数歩幅 $\alpha>0$ とする。各 $k$ で
 >
-> $$
-> E[F(w_{k+1})\mid\mathcal H_k]
-> \le F(w_k)-\alpha\left(1-\frac{L\alpha}{2}\right)\|g(w_k)\|_2^2
-> +\frac{L\alpha^2}{2b}V(w_k).
-> $$
+$$
+E[F(w_{k+1})\mid\mathcal H_k]
+\le F(w_k)-\alpha\left(1-\frac{L\alpha}{2}\right)\|g(w_k)\|_2^2
++\frac{L\alpha^2}{2b}V(w_k).
+$$
 >
 > 特に $0<\alpha\le1/L$ であれば負の勾配項は少なくとも $-\alpha\|g(w_k)\|_2^2/2$ となる。
 <!-- formal-statement-end -->
@@ -333,10 +345,10 @@ $$
 >
 > $D_k=E[F(w_k)-F(w^*)]$ は、任意の $k\ge0$ について
 >
-> $$
-> 0\le D_k\le(1-\alpha\mu)^kD_0+
-> \frac{L\alpha\sigma^2}{2\mu b}\left(1-(1-\alpha\mu)^k\right).
-> $$
+$$
+0\le D_k\le(1-\alpha\mu)^kD_0+
+\frac{L\alpha\sigma^2}{2\mu b}\left(1-(1-\alpha\mu)^k\right).
+$$
 >
 > 従って $\limsup_{k\to\infty}D_k\le L\alpha\sigma^2/(2\mu b)$ である。
 <!-- formal-statement-end -->
@@ -403,14 +415,14 @@ $$
 > **定理（二標本二次模型の正確な二乗誤差）**  
 > 上の二標本模型で、$w_0\in\mathbb R$ を固定、復元抽出のバッチサイズ $b\ge1$、定数歩幅 $0<\alpha<2$ とし、各反復の抽出は過去と独立とする。このとき
 >
-> $$
-> E[w_k]=(1-\alpha)^kw_0,
-> $$
+$$
+E[w_k]=(1-\alpha)^kw_0,
+$$
 >
-> $$
-> E[w_k^2]=(1-\alpha)^{2k}w_0^2+
-> \frac{\alpha}{b(2-\alpha)}\left(1-(1-\alpha)^{2k}\right).
-> $$
+$$
+E[w_k^2]=(1-\alpha)^{2k}w_0^2+
+\frac{\alpha}{b(2-\alpha)}\left(1-(1-\alpha)^{2k}\right).
+$$
 >
 > 従って期待損失差の極限は $\alpha/[2b(2-\alpha)]$ となる。
 <!-- formal-statement-end -->
