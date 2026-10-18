@@ -6,15 +6,15 @@
 
 時間を $t\ge0$、空間を $x\in\mathbb R^n$、波速を $c>0$ とします。平坦時空の計量は
 
-$
+$$
 -dt^2+c^{-2}\sum_{j=1}^n dx_j^2
-$
+$$
 
 です。[LORG6のMinkowski因果条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)によれば、初期点 $(0,y)$ から $(t,x)$ に光またはそれ以下の速度で到達できる条件は
 
-$
+$$
 |x-y|\le ct
-$
+$$
 
 です。等号部分が半径 $ct$ の球面、不等号全体が閉球を表します。
 
@@ -75,9 +75,9 @@ $$
 
 > が成り立つ。さらに $\partial_rA_g(0,x)=0$ である。$M_g(t,x)=A_g(ct,x)$ と置くと $t>0$ で
 
-$
+$$
 \partial_t^2M_g+\frac2t\partial_tM_g=c^2\Delta_xM_g
-$
+$$
 
 > も成り立つ。
 <!-- formal-statement-end -->
@@ -136,11 +136,11 @@ $$
 
 です。最後に $M_g(t,x)=A_g(ct,x)$ へ連鎖律を適用すると
 
-$
+$$
 \partial_tM_g=cA_{g,r}(ct,x),\quad
 \partial_t^2M_g=c^2A_{g,rr}(ct,x),\quad
 \frac2t\partial_tM_g=c^2\frac2{ct}A_{g,r}(ct,x).
-$
+$$
 
 この三つを先ほどの半径に関する等式へ代入して、波速付きの時間微分恒等式を得ます。
 <!-- proof-end -->
