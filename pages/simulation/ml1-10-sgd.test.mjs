@@ -36,3 +36,18 @@ test("invalid inputs rejected",()=>{
   assert.throws(()=>trace(c,201),RangeError);
   assert.equal(typeof rng(3)(),"number");
 });
+
+
+test("minibatch b=4 variance matches exact enumeration of all 16 draws",()=>{
+  const batch={...c,b:4};
+  let squaredSum=0,meanSum=0;
+  for(let mask=0;mask<16;mask++){
+    let j=0;
+    const state=step(0,0.5,4,()=>((mask>>(j++))&1)?0.9:0.1);
+    meanSum+=state.w/16;
+    squaredSum+=state.w**2/16;
+  }
+  assert.equal(meanSum,0);
+  assert.equal(squaredSum,0.5**2/4);
+  assert.equal(theory({...batch,w0:0},1).ew2,squaredSum);
+});
