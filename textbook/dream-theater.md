@@ -985,6 +985,7 @@
 1. [ML1-01 学習問題・標本・予測器](textbook/volumes/dream_thater/応用系/ML/ML1-01/index.md)
 2. [ML1-02 Bayes決定則と損失関数](textbook/volumes/dream_thater/応用系/ML/ML1-02/index.md)
 3. [ML1-03 経験リスク最小化と正則化](textbook/volumes/dream_thater/応用系/ML/ML1-03/index.md)
+4. [ML1-04 最小二乗法・正規方程式・非一意性](textbook/volumes/dream_thater/応用系/ML/ML1-04/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
