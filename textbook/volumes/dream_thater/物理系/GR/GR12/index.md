@@ -48,19 +48,19 @@ $$
 
 座標基底 $\partial_\mu$ で $g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ と表されます。各時刻面 $x^0=0,L$ の接基底は $\partial_1,\partial_2,\partial_3$ で、[GR11の境界の定義](../GR11/index.md#def-gr11-boundary-geometry)を直接確認すると、
 
-$
+$$
 g(\pm\partial_0,\pm\partial_0)=-1,\qquad
 \gamma_{ij}=g(\partial_i,\partial_j)=\delta_{ij},\qquad
 \varepsilon=-1.
-$
+$$
 
 つまり両面は非光的で、外向き単位法線はそれぞれ $-\partial_0,+\partial_0$ です。計量成分が定数なので、[Levi-Civita接続の座標式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の全偏微分が零となり $\Gamma^\rho_{\mu\nu}=0$ です。[曲率の座標式](../GR6/index.md#prop-gr6-coordinate-curvature)でも曲率は零です。さらに、各面で $n_\nu$ は定数だから、[第二基本形式の定義](../GR11/index.md#def-gr11-extrinsic-curvature)に代入して
 
-$
+$$
 K_{ij}=e_i^\mu e_j^\nu\nabla_\mu n_\nu
 =e_i^\mu e_j^\nu(\partial_\mu n_\nu-\Gamma^\rho_{\mu\nu}n_\rho)=0,
 \qquad K=\gamma^{ij}K_{ij}=0
-$
+$$
 
 と分かります。境界成分はこの二面だけで、トーラスの周期方向に新たな境界はありません。従って各作用を別々に計算すると、
 
@@ -228,19 +228,19 @@ $$
 
 $\xi^\mu$ を領域内部にコンパクトな台を持つ任意の滑らかなベクトル場とします。その流れで全場を引き戻す微小変換について、まず計量の座標成分を一次まで展開します。引き戻しの変分は
 
-$
+$$
 \delta_\xi g_{\mu\nu}
 =\xi^\rho\partial_\rho g_{\mu\nu}
 +g_{\rho\nu}\partial_\mu\xi^\rho
 +g_{\mu\rho}\partial_\nu\xi^\rho
-$
+$$
 
 です。[Levi-Civita接続の座標式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)により
 $2g_{\lambda\rho}\Gamma^\lambda_{\mu\nu}
 =\partial_\mu g_{\nu\rho}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu}$
 なので、
 
-$
+$$
 \begin{aligned}
 \nabla_\mu\xi_\nu+\nabla_\nu\xi_\mu
 ={}&g_{\nu\rho}\partial_\mu\xi^\rho
@@ -250,7 +250,7 @@ $
 -2g_{\lambda\rho}\Gamma^\lambda_{\mu\nu})\\
 ={}&\delta_\xi g_{\mu\nu}.
 \end{aligned}
-$
+$$
 
 このように $\delta_\xi g_{\mu\nu}=\nabla_\mu\xi_\nu+\nabla_\nu\xi_\mu$ を導けます。これは逆計量の変分とは**逆符号**で、
 
@@ -402,15 +402,15 @@ $$
 
 成分表示は座標基底の内積 $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ から作ったもので、その逆行列と非零の計量微分は
 
-$
+$$
 g^{00}=-\frac1{N^2},\qquad
 g^{xx}=1,\qquad
 \partial_xg_{00}=-2NN'
-$
+$$
 
 です。[Levi-Civita接続の座標式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)にこの三式を代入すると、
 
-$
+$$
 \begin{aligned}
 \Gamma^0_{0x}
 &=\frac12g^{00}\partial_xg_{00}
@@ -422,7 +422,7 @@ $
 &=\Gamma^0_{0x}
 =\frac{N'}N.
 \end{aligned}
-$
+$$
 
 最後の等式では、空間成分の $\Gamma^i_{ix}$ がすべて零であることを用いました。
 
@@ -559,10 +559,10 @@ $$
 
 真空の[Einstein場の方程式](#thm-gr12-einstein-equation)は $(\Lambda-3K)g_{\mu\nu}=0$。逆計量で縮約すれば座標に依らず
 
-$
+$$
 0=(\Lambda-3K)g^{\mu\nu}g_{\mu\nu}
 =4(\Lambda-3K)
-$
+$$
 
 だから、$\Lambda-3K=0$、従って $K=\Lambda/3$ です。非退化な計量でも座標によって対角成分がすべて零になる場合があるため、対角成分の非零性を仮定しません。$\Lambda=0$ なら $K=0$、$\mathcal R=12K=0$、$G_{\mu\nu}=0$ となります。**ただし計算したのは一定曲率という強い仮定の下だけ**で、一般のRicci平坦時空の分類ではありません。
 <!-- solution-end -->
