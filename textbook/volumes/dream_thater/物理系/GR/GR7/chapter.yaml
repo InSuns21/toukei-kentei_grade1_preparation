@@ -1,0 +1,45 @@
+id: "GR7"
+title: "Bianchi恒等式とEinsteinテンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR6
+  - GEO16
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 二階共変テンソルの共変発散を逆計量とLevi-Civita接続で成分計算できる
+  - 正定値性を仮定しない第二Bianchi恒等式の証明で捩率零と混合偏微分の交換が必要な箇所を説明できる
+  - 第二Bianchi恒等式を二段階縮約しRicciの発散がスカラーの勾配の半分になる式を再導出できる
+  - Einsteinテンソルの定義から共変発散零を証明し物質場の保存則との論理的な区別を説明できる
+  - 次元nでの跡と定曲率模型の係数を求め宇宙項の定数性を検査できる
+  - 静的lapse計量で偏微分項と接続補正の相殺を計算できる
+definitions:
+  - { id: GR7-DEF-01, name: 二階共変テンソルの共変発散 }
+  - { id: GR7-DEF-02, name: Einsteinテンソル }
+theorems:
+  - { id: GR7-THM-01, name: Lorentz時空の第二Bianchi恒等式 }
+  - { id: GR7-THM-02, name: 縮約Bianchi恒等式 }
+  - { id: GR7-THM-03, name: Einsteinテンソルの共変発散零 }
+  - { id: GR7-PROP-01, name: 一定曲率形のEinsteinテンソル }
+  - { id: GR7-PROP-02, name: 定数宇宙項を加えても発散は零 }
+  - { id: GR7-PROP-03, name: 静的lapse模型のEinsteinテンソルと発散 }
+canonical_examples:
+  - Minkowski座標で二階共変テンソルの発散を直接計算
+  - 4次元一定曲率形でEinsteinテンソルをRicciとスカラーから構成
+  - 空間調和lapse N=1+αxyの偏微分発散と接続補正の相殺
+problem_patterns:
+  - GR7-COVARIANT-DIVERGENCE-DEFINITION
+  - GR7-MINKOWSKI-DIVERGENCE
+  - GR7-CONSTANT-CURVATURE-EINSTEIN
+  - GR7-ORTHONORMAL-TRACE
+  - GR7-COSMOLOGICAL-TERM
+  - GR7-FIRST-CONTRACTION
+  - GR7-DIMENSION-TRACE
+  - GR7-LAPSE-CONNECTION-CANCELLATION
+  - GR7-FIELD-EQUATION-COMPATIBILITY
+  - GR7-LAPSE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

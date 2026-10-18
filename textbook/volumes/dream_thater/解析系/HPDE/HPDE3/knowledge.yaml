@@ -1,0 +1,57 @@
+chapter: HPDE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE2
+  - GPDE1
+  - LORG2
+forward_references: []
+concepts:
+  - id: hpde.density-bundle
+    name: 密度束と滑らかな密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度束と滑らかな密度）"]
+    requires: [distribution.test-function, lorentz-geometry.lorentz-metric]
+  - id: hpde.metric-density
+    name: Lorentz体積密度の座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lorentz体積密度の座標不変性）"]
+    requires: [hpde.density-bundle, lorentz-geometry.lorentz-metric]
+  - id: hpde.test-dual-density
+    name: 密度値双対試験切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度値双対試験切断）"]
+    requires: [hpde.density-bundle, distribution.test-function]
+  - id: hpde.distribution-section
+    name: 束値超関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（束値超関数）"]
+    requires: [hpde.test-dual-density, distribution.schwartz-distribution]
+  - id: hpde.regular-injection
+    name: 滑らかな切断の埋め込みと局所判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな切断の埋め込みと局所判定）"]
+    requires: [hpde.distribution-section]
+  - id: hpde.point-source
+    name: 基準密度に関する点源
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準密度に関する点源）"]
+    requires: [hpde.distribution-section, hpde.density-bundle, distribution.dirac-delta]
+  - id: hpde.distribution-support
+    name: 超関数切断の台
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（超関数切断の台）"]
+    requires: [hpde.distribution-section]
+  - id: hpde.support
+    name: 滑らかな切断と点源の台
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな切断と点源の台）"]
+    requires: [hpde.regular-injection, hpde.point-source, hpde.distribution-support]

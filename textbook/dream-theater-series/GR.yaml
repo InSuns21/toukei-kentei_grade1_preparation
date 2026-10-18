@@ -33,7 +33,7 @@ chapters:
     title: "Riemann・Ricci・スカラー曲率"
   - id: GR7
     path: textbook/volumes/dream_thater/物理系/GR/GR7
-    status: planned
+    status: completed
     title: "Bianchi恒等式とEinsteinテンソル"
   - id: GR8
     path: textbook/volumes/dream_thater/物理系/GR/GR8

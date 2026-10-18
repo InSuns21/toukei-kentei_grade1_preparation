@@ -1,0 +1,56 @@
+chapter: GR7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR6
+  - GEO16
+  - LORG4
+concepts:
+  - id: gravity.covariant-divergence-rank-two
+    name: 二階共変テンソルの共変発散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二階共変テンソルの共変発散）"]
+    requires: [geometry.tensor-covariant-derivative, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.lorentz-second-bianchi
+    name: Lorentz時空の第二Bianchi恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz時空の第二Bianchi恒等式）"]
+    requires: [geometry.second-bianchi-identity, gravity.curvature-components-lorentz, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.contracted-bianchi
+    name: 縮約Bianchi恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縮約Bianchi恒等式）"]
+    requires: [gravity.lorentz-second-bianchi, gravity.lorentz-ricci-curvature, gravity.lorentz-scalar-curvature]
+  - id: gravity.einstein-tensor
+    name: Einsteinテンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Einsteinテンソル）"]
+    requires: [gravity.lorentz-ricci-curvature, gravity.lorentz-scalar-curvature, gravity.contracted-bianchi]
+  - id: gravity.einstein-divergence-free
+    name: Einsteinテンソルの共変発散零
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Einsteinテンソルの共変発散零）"]
+    requires: [gravity.einstein-tensor, gravity.contracted-bianchi, gravity.covariant-divergence-rank-two]
+  - id: gravity.constant-curvature-einstein
+    name: 一定曲率形のEinsteinテンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定曲率形のEinsteinテンソル）"]
+    requires: [gravity.einstein-tensor, gravity.lorentz-constant-curvature-contraction]
+  - id: gravity.cosmological-term-divergence
+    name: 定数宇宙項を加えても発散は零
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数宇宙項を加えても発散は零）"]
+    requires: [gravity.einstein-divergence-free, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.static-lapse-einstein
+    name: 静的lapse模型のEinsteinテンソルと発散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的lapse模型のEinsteinテンソルと発散）"]
+    requires: [gravity.einstein-tensor, gravity.static-lapse-ricci-scalar, gravity.covariant-divergence-rank-two]
