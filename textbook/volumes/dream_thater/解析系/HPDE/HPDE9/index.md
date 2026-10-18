@@ -282,7 +282,7 @@ $$
 (\operatorname{Ric}(du))_c=\operatorname{Ric}_c{}^d\nabla_du
 $$
 
-となるものに固定します。これは二回微分した1-形式の交換で、導関数の順序を変えると曲率が生じる恒等式です。
+となるものに固定します。ここでRicciテンソルは時空のRiemann曲率テンソルの縮約 $\operatorname{Ric}_{cd}=R^{a}{}_{cad}$ であり、上の恒等式を曲率の符号規約とします。これは二回微分した1-形式の交換で、導関数の順序を変えると曲率が生じる恒等式です。
 
 <a id="prop-hpde9-covariant-commutator"></a>
 <!-- formal-statement-start -->
@@ -383,7 +383,16 @@ $$
 
 となり、$f_\ell\to f$ の分布収束から $Pu=f$ です。高階評価もノルム収束で極限へ移せます。
 
-すべての $m$ で収束するなら任意の $r$ について $u\in C^0H^r$、$u_t\in C^0H^{r-1}$ です。トーラス上のSobolev埋込み（$r>k+n/2$）から空間 $k$ 階までの微分は連続です。さらに
+すべての $m$ で収束するなら任意の $r$ について $u\in C^0H^r$、$u_t\in C^0H^{r-1}$ です。トーラス上では $r>k+n/2$ のとき $H^r\subset C^k$ です。この包含は、三角級数の係数 $\widehat u(\ell)$ についてCauchy–Schwarzを使い、
+
+$
+\sum_{\ell\in\mathbb Z^n}|\ell|^k|\widehat u(\ell)|
+\le
+\left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^{-(r-k)}\right)^{1/2}
+\left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^r|\widehat u(\ell)|^2\right)^{1/2}
+$
+
+と評価して確認できます。第一因子は $r-k>n/2$ で収束し、第二因子は微分の $L^2$ ノルムと比較できます。したがって $k$ 階までの項別微分したFourier級数が一様収束し、空間 $k$ 階微分の連続性が得られます。さらに
 
 $$
 u_{tt}=\Delta_{h_t}u-a u_t-q u+f
