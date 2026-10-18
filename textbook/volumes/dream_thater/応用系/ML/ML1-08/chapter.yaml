@@ -5,7 +5,6 @@ status: supplementary
 prerequisites:
   - ML1-07
   - ML1-03
-  - OPT1
 official_scope: []
 learning_objectives:
   - 生成的分類と判別的分類の確率のモデル化の違いを説明できる
