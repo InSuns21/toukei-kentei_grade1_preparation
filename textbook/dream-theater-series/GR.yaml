@@ -4,7 +4,7 @@ title: "一般相対論 I・II"
 plan: textbook/plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 章本文は未作成。各章が完成したときだけstatusをcompletedにし、公開索引に追加する。
+# 章が完成したときだけstatusをcompletedにし、公開索引に追加する。
 # I: GR1–GR24 / II: GR25–GR46。次章は先頭の連続completedの直後のplanned。
 chapters:
   - id: GR1
@@ -21,7 +21,7 @@ chapters:
     title: "自由落下の測地線方程式"
   - id: GR4
     path: textbook/volumes/dream_thater/物理系/GR/GR4
-    status: planned
+    status: completed
     title: "観測者の局所直交枠と測定"
   - id: GR5
     path: textbook/volumes/dream_thater/物理系/GR/GR5

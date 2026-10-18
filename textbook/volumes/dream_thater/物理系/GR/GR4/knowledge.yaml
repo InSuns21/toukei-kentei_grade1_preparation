@@ -1,0 +1,64 @@
+chapter: GR4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR2
+  - GR3
+  - SREL3
+  - LORG1
+concepts:
+  - id: gravity.observer-orthonormal-frame
+    name: 観測者に付随する局所直交枠
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測者に付随する局所直交枠）"]
+    requires: [lorentz-geometry.timelike-orthogonal-positive, gravity.metric-coordinate-invariance]
+
+  - id: gravity.observer-frame-existence
+    name: 局所直交枠の存在と空間軸の自由度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所直交枠の存在と空間軸の自由度）"]
+    requires: [gravity.observer-orthonormal-frame, lorentz-geometry.timelike-orthogonal-positive]
+
+  - id: gravity.observer-measured-components
+    name: 観測者の測定成分・エネルギー・周波数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測者の測定成分・エネルギー・周波数）"]
+    requires: [gravity.observer-orthonormal-frame, relativity.four-momentum, lorentz-geometry.causal-type]
+
+  - id: gravity.observer-measured-invariance
+    name: 測定値の座標不変性と空間回転
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（測定値の座標不変性と空間回転）"]
+    requires: [gravity.observer-measured-components, gravity.metric-coordinate-invariance, gravity.observer-frame-existence]
+
+  - id: gravity.observer-relative-speed
+    name: 相対Lorentz因子・測定速度・質量殻
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対Lorentz因子・測定速度・質量殻）"]
+    requires: [gravity.observer-measured-components, lorentz-geometry.reverse-cauchy-schwarz, relativity.mass-shell-relation]
+
+  - id: gravity.observer-photon-direction
+    name: 局所光線方向と観測周波数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所光線方向と観測周波数）"]
+    requires: [gravity.observer-measured-components, lorentz-geometry.causal-type]
+
+  - id: gravity.observer-doppler
+    name: 同一事象での観測者間Doppler公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一事象での観測者間Doppler公式）"]
+    requires: [gravity.observer-relative-speed, gravity.observer-photon-direction]
+
+  - id: gravity.rindler-observer-frequency
+    name: Rindlerの局所周波数と自由落下時のDoppler因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Rindlerの局所周波数と自由落下時のDoppler因子）"]
+    requires: [gravity.observer-doppler, gravity.rindler-freefall-static-acceleration, gravity.null-affine-quadratic-action]

@@ -1,0 +1,47 @@
+id: "GR4"
+title: "観測者の局所直交枠と測定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR2
+  - GR3
+  - SREL3
+  - LORG1
+official_scope: []
+learning_objectives:
+  - 正規化された四元速度から局所直交枠を構成し、時間的直交補空間の正定値性と空間軸の回転自由度を説明できる
+  - 座標成分から観測者の測定エネルギー・空間運動量・光の周波数へ計量による射影を行える
+  - 相対Lorentz因子・測定速度・質量殻関係を局所直交枠から証明できる
+  - 光的方向の単位性と同一事象におけるDoppler公式を導出できる
+  - Rindlerの静止観測者と自由落下観測者の周波数測定を比較し静止・自由落下・座標・曲率を区別できる
+definitions:
+  - { id: GR4-DEF-01, name: 観測者に付随する局所直交枠 }
+  - { id: GR4-DEF-02, name: 観測者の測定成分・エネルギー・周波数 }
+theorems:
+  - { id: GR4-PROP-01, name: 局所直交枠の存在と空間軸の自由度 }
+  - { id: GR4-PROP-02, name: 測定値の座標不変性と空間回転 }
+  - { id: GR4-PROP-03, name: 相対Lorentz因子・測定速度・質量殻 }
+  - { id: GR4-PROP-04, name: 局所光線方向と観測周波数 }
+  - { id: GR4-PROP-05, name: 同一事象での観測者間Doppler公式 }
+  - { id: GR4-PROP-06, name: Rindlerの局所周波数と自由落下時のDoppler因子 }
+canonical_examples:
+  - Minkowski静止観測者の局所直交枠の全条件を直接検算
+  - 速度3c/5の質量正粒子の測定エネルギー・空間運動量
+  - Minkowski光線の光的条件と周波数射影
+  - Rindlerの静止観測者と右向き光線の局所周波数
+  - Rindlerの自由落下観測者による同一点Doppler測定
+problem_patterns:
+  - GR4-MINKOWSKI-TETRAD-CHECK
+  - GR4-ENERGY-SIGN-CHECK
+  - GR4-PHOTON-DOPPLER-DIRECT
+  - GR4-PHOTON-DIRECTION-UNIT
+  - GR4-SPATIAL-ROTATION-INVARIANCE
+  - GR4-MASS-SHELL-INVERSION
+  - GR4-STATIC-DIAGONAL-TETRAD
+  - GR4-RINDLER-LOCAL-AND-REMOTE
+  - GR4-COORDINATE-INVARIANCE
+  - GR4-RINDLER-INTEGRATED-OBSERVER-MEASUREMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
