@@ -4,7 +4,19 @@
 
 この章では[PDE9で導入した球面平均](../../PDE/PDE9/index.md#def-pde9-spherical-mean)からKirchhoff公式を導き直し、初期情報が**球面**だけに現れることを証明します。さらに、二次元へ次元降下させて**円板内部**が寄与するPoisson公式を得ます。最後に、空間次元・質量項・時空の曲率を別の要因として整理します。
 
-時間を $t\ge0$、空間を $x\in\mathbb R^n$、波速を $c>0$ とします。平坦時空の計量は $-dt^2+c^{-2}\sum_{j=1}^n dx_j^2$ で、[LORG6のMinkowski因果条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)によれば、初期点 $(0,y)$ から $(t,x)$ に光またはそれ以下の速度で到達できる条件は $|x-y|\le ct$ です。この不等式の等号部分が半径 $ct$ の球面、不等号全体が閉球です。
+時間を $t\ge0$、空間を $x\in\mathbb R^n$、波速を $c>0$ とします。平坦時空の計量は
+
+$
+-dt^2+c^{-2}\sum_{j=1}^n dx_j^2
+$
+
+です。[LORG6のMinkowski因果条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)によれば、初期点 $(0,y)$ から $(t,x)$ に光またはそれ以下の速度で到達できる条件は
+
+$
+|x-y|\le ct
+$
+
+です。等号部分が半径 $ct$ の球面、不等号全体が閉球を表します。
 
 以下の主要な公式では初期変位 $f\in C_c^\infty(\mathbb R^n)$、初速度 $h\in C_c^\infty(\mathbb R^n)$ とします。これは積分・微分を交換できるようにする十分な仮定です。一般のベクトル束値作用素や曲がった計量のGreen作用素は、後続の章で構成します。
 
