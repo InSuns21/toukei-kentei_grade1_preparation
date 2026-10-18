@@ -21,11 +21,16 @@ concepts:
     kind: definition
     introduction: formal
     requires: [hpde.bundle-connection, hpde.test-dual-density]
+  - id: hpde.differential-operator
+    name: 有限階線形微分作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.test-dual-density]
   - id: hpde.formal-transpose
     name: 密度値の形式的双対
     kind: definition
     introduction: formal
-    requires: [hpde.test-dual-density, hpde.dual-connection]
+    requires: [hpde.test-dual-density, hpde.dual-connection, hpde.differential-operator]
   - id: hpde.transpose-formula
     name: 形式的双対の存在・一意性と局所公式
     kind: theorem
@@ -56,11 +61,16 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [hpde.formal-adjoint, hpde.transpose-formula]
+  - id: hpde.metric-compatible-connection
+    name: 計量両立接続
+    kind: definition
+    introduction: formal
+    requires: [hpde.hermitian-bundle-metric, hpde.bundle-connection]
   - id: hpde.metric-connection-adjoint
     name: 計量両立な接続の形式的随伴
     kind: proposition
     introduction: formal
-    requires: [hpde.formal-adjoint, hpde.density-divergence, hpde.bundle-connection]
+    requires: [hpde.formal-adjoint, hpde.density-divergence, hpde.metric-compatible-connection]
   - id: hpde.distribution-extension
     name: 線形微分作用素の超関数への延長
     kind: proposition
