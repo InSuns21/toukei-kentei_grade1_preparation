@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-09-smooth-loss -->
-**定義の確認**。$f(w)=\tfrac12(w_1^2+4w_2^2)$ は $\mathbb R^2$ 上の多項式なので連続微分可能であり、$\nabla f(w)=(w_1,4w_2)^{\mathsf T}$ である。差を $h=u-v$ と書けば、勾配差は $\operatorname{diag}(1,4)h=(h_1,4h_2)^{\mathsf T}$ と表せる。ここで対角行列は**勾配の各成分が $h_1,h_2$ を何倍するか**を記録したものである。従って
+**定義の確認**。$f(w)=\tfrac12(w_1^2+4w_2^2)$ は $\mathbb R^2$ 上の多項式なので連続微分可能であり、$\nabla f(w)=(w_1,4w_2)^{\mathsf T}$ である。差を $h=u-v$ と書けば、勾配差は $\operatorname{diag}(1,4)h=(h_1,4h_2)^{\mathsf T}$ と表せる。ここで対角行列は、標準基底 $e_1,e_2$ について $e_1$ を $e_1$ へ、$e_2$ を $4e_2$ へ写す線形写像の表現である。したがって勾配差の第一成分は $h_1$、第二成分は $4h_2$ となる。従って
 
 $$
 \|\nabla f(u)-\nabla f(v)\|_2^2=h_1^2+16h_2^2\le16(h_1^2+h_2^2).
