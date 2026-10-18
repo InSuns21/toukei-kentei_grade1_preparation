@@ -57,7 +57,23 @@ P_{\mu\nu}e_a^\mu e_b^\nu
 =\gamma_{ab}.
 $$
 
-また $P_{\mu\nu}n^\nu=n_\mu-\varepsilon n_\mu g(n,n)=0$ です。従って接方向だけを測り、法線方向を消します。$\Sigma$ が非光的なら接空間上の $\gamma$ は非退化であり、逆行列 $\gamma^{ab}$ を使えます。
+また $P_{\mu\nu}n^\nu=n_\mu-\varepsilon n_\mu g(n,n)=0$ です。従って接方向だけを測り、法線方向を消します。
+
+ここで「非光的な面なら誘導計量が非退化」という判定も確かめます。各点 $p\in\Sigma$ で $n$ は非光的かつ接空間に直交するので、
+
+$
+T_pM=T_p\Sigma\oplus\mathbb Rn
+$
+
+と直和に分かれます。$v\in T_p\Sigma$ がすべての $w\in T_p\Sigma$ に対して $\gamma(v,w)=g(v,w)=0$ を満たせば、$g(v,n)=0$ でもあるため $v$ は $T_pM$ の全ベクトルに直交します。[Lorentz内積の非退化性](../../../幾何系/LORG/LORG1/index.md#def-lorg1-lorentz-inner-product)から $v=0$ です。従って誘導計量は非退化です。
+
+接基底 $e_a$ に関して $v=v^ae_a$、$w=w^be_b$ と展開すると
+
+$
+\gamma(v,w)=v^a\gamma_{ab}w^b
+$
+
+です。これは[双線形形式の行列表示と非退化性](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)を三次元の実ベクトル空間 $T_p\Sigma$ に適用した形です。従って $\det(\gamma_{ab})\ne0$ が非退化性と同値で、逆行列 $\gamma^{ab}$ と正の密度 $\sqrt{|\det\gamma|}$ を使えます。
 
 <!-- definition-example-start: def-gr11-boundary-geometry -->
 **定義の確認**：Minkowski計量 $ds^2=-(dx^0)^2+dx^2+dy^2+dz^2$ で領域 $x\le R$ の壁 $x=R$ を取ります。外向き法線は $n=\partial_x$ で $g(n,n)=1$、壁の接方向は $\partial_{x^0},\partial_y,\partial_z$ です。従って
@@ -68,7 +84,7 @@ $$
 \det\gamma=-1.
 $$
 
-$\gamma$ は非退化でLorentz符号、$\sqrt{|\det\gamma|}=1$ です。$P_{xx}=g_{xx}-n_x^2=0$ で、それ以外の接方向の成分は $\gamma$ と一致します。反対に時刻一定の面 $x^0=T$ では法線が時間的で $\varepsilon=-1$、$\gamma=\operatorname{diag}(1,1,1)$ です。**同じ4次元計量でも境界の種類によって符号が反転する**ことを全条件で確認できます。
+この行列の各成分は、例えば $\gamma_{00}=g(\partial_{x^0},\partial_{x^0})=-1$、$\gamma_{yy}=g(\partial_y,\partial_y)=1$ と接基底の内積を取って得たものです。行列式が $-1\ne0$ なので $\gamma$ は非退化でLorentz符号、$\sqrt{|\det\gamma|}=1$ です。$P_{xx}=g_{xx}-n_x^2=0$ で、それ以外の接方向の成分は $\gamma$ と一致します。反対に時刻一定の面 $x^0=T$ では法線が時間的で $\varepsilon=-1$、$\gamma=\operatorname{diag}(1,1,1)$ です。**同じ4次元計量でも境界の種類によって符号が反転する**ことを全条件で確認できます。
 <!-- definition-example-end -->
 
 ## 2. 境界が時空の中でどう曲がるか
@@ -90,7 +106,7 @@ $$
 > と定める。ここではこの符号を固定する。$K$ は $\gamma$ の符号にかかわらず定義できるが、正定値空間における曲率の直感をそのまま適用しない。
 <!-- formal-statement-end -->
 
-法線の規格化を接方向に微分すると、$\nabla_\mu[g(n,n)]=2n^\nu\nabla_\mu n_\nu=0$ です。従って $\nabla_{e_a}n$ は接方向にあり、$K_{ab}$ は接ベクトルのみに依存します。さらに$g(n,e_b)=0$ を微分すれば
+法線を境界の近傍へ $g(n,n)=\varepsilon$ を保つよう滑らかに延長します。法線の規格化を微分すると、$\nabla_\mu[g(n,n)]=2n^\nu\nabla_\mu n_\nu=0$ です。従って $\nabla_{e_a}n$ は接方向にあり、$K_{ab}$ は接ベクトルのみに依存します。さらに$g(n,e_b)=0$ を微分すれば
 
 $$
 0=e_a[g(n,e_b)]
@@ -114,9 +130,16 @@ $$
 ds^2=dx^2-N(x)^2(dx^0)^2+dy^2+dz^2
 $$
 
-の $x=R$ を領域 $x\le R$ の境界とします。法線は再び $n=\partial_x$、$\varepsilon=1$、誘導計量は $\gamma=\operatorname{diag}(-N(R)^2,1,1)$ です。$\Gamma^x_{00}=NN'$ なので
+の $x=R$ を領域 $x\le R$ の境界とします。法線は再び $n=\partial_x$、$\varepsilon=1$、誘導計量は $\gamma=\operatorname{diag}(-N(R)^2,1,1)$ です。$g_{00}=-N(x)^2$、$g^{xx}=1$ なので、[Levi-Civita接続の座標表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から
 
-$$
+$
+\Gamma^x_{00}=-\frac12g^{xx}\partial_xg_{00}
+=-\frac12(-2NN')=NN'
+$
+
+です。これを第二基本形式の定義へ代入して
+
+$
 K_{00}=\nabla_0 n_0=-\Gamma^x_{00}n_x=-NN',
 \qquad K_{yy}=K_{zz}=0,
 $$
@@ -160,14 +183,36 @@ $$
 <!-- proof-start -->
 ### 証明
 
-境界の小領域で、境界を $r=0$、領域を $r\le0$、外向き法線を $n=\partial_r$ とするGaussian法線座標を取ります。この座標では
+境界の小領域で接座標 $y^a$ と埋め込み $X(y)$ を選び、法線方向の測地線から
 
-$$
+$
+F(r,y)=\exp_{X(y)}\bigl(rn_{X(y)}\bigr)
+$
+
+を作ります。[Lorentz測地線の局所存在と指数写像](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-lorentz-exponential)により、小さい $r$ で $F$ は滑らかです。$r=0$ では $\partial_rF=n$、$\partial_aF=e_a$ であり、非光的法線は接空間に属さないのでこの4本は一次独立です。逆関数定理から、$F$ は十分小さな境界近傍で座標を定めます。$r$ の正方向を領域外へ取り、境界を $r=0$、領域を $r\le0$ とします。
+
+この座標で $\partial_r$ はアフィンパラメータ測地線の速度なので $\nabla_{\partial_r}\partial_r=0$ です。計量両立性から $\partial_rg_{rr}=0$、初期値 $g_{rr}|_{r=0}=\varepsilon$ により $g_{rr}=\varepsilon$ です。また座標ベクトル場の交換性と捩率零を使えば
+
+$
+\begin{aligned}
+\partial_rg_{ra}
+&=g(\nabla_{\partial_r}\partial_r,\partial_a)
+ +g(\partial_r,\nabla_{\partial_r}\partial_a)\\
+&=g(\partial_r,\nabla_{\partial_a}\partial_r)
+ =\frac12\partial_ag_{rr}=0.
+\end{aligned}
+$
+
+初期値 $g_{ra}|_{r=0}=g(n,e_a)=0$ より $g_{ra}=0$ です。従ってGaussian法線座標の表示は
+
+$
 ds^2=\varepsilon\,dr^2+\gamma_{ab}(r,y)\,dy^a dy^b,
 \qquad
-\sqrt{-g}=\sqrt{|\gamma|},
+\det g=\varepsilon\det\gamma,
 \qquad n_r=\varepsilon.
-$$
+$
+
+4次元計量はLorentz符号なので $\det g<0$ です。よって $\sqrt{-g}=\sqrt{|\det\gamma|}$ が成り立ちます。
 
 [GR10の発散の座標式](../GR10/index.md#thm-gr10-eh-variation)を使うと
 
@@ -267,7 +312,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-非光的境界では各計量に対し、境界の法線測地線によるGaussian座標を局所的に取れます。[Lorentz指数写像の局所可逆性](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-lorentz-exponential)を用い、各計量の座標を境界上で恒等写像となる微分同相で同定します。作用および境界の誘導計量はその境界固定の座標変更で不変なので、計量族を
+非光的境界では[境界流束の証明で構成したGaussian法線座標](#prop-gr11-boundary-flux)を各計量 $g_s$ に対して局所的に取れます。境界上の座標 $y$ を共通に選んで法線測地線写像を $F_s(r,y)$ と書けば、$F_s(0,y)=X(y)$ は $s$ に依存しません。従って $F_s\circ F_0^{-1}$ は境界上で恒等となる微分同相です。作用および誘導計量はこの境界固定の座標変更で不変なので、計量族を
 
 $$
 g_s=\varepsilon dr^2+\gamma_{ab}(s,r,y)\,dy^a dy^b
@@ -410,7 +455,21 @@ $$
 Minkowski計量 $ds^2=-(dx^0)^2+dx^2+dy^2+dz^2$ に対し、領域 $x\le R$ の境界 $x=R$ と領域 $x^0\le T$ の境界 $x^0=T$ について、外向き $n$、$\varepsilon$、誘導計量の符号数を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $x=R$ では外向き $n=\partial_x$、$g(n,n)=+1$ です。接方向の基底 $(\partial_{x^0},\partial_y,\partial_z)$ で $\gamma=\mathrm{diag}(-1,1,1)$ となり、負の固有値が1個です。$x^0=T$ では外向き $n=\partial_0$、$g(n,n)=-1$。接方向 $(\partial_x,\partial_y,\partial_z)$ で $\gamma=\mathrm{diag}(1,1,1)$ となり、すべて正です。[境界幾何の定義](#def-gr11-boundary-geometry)を各面に適用しました。
+**詳細解答。** [境界幾何の定義](#def-gr11-boundary-geometry)で、接基底同士の計量の値を並べます。$x=R$ では外向き $n=\partial_x$、$g(n,n)=+1$ で、接基底 $(\partial_{x^0},\partial_y,\partial_z)$ を取ると
+
+$
+(\gamma_{ab})=\operatorname{diag}(-1,1,1),
+\qquad \det\gamma=-1.
+$
+
+負方向1本、正方向2本です。$x^0=T$ では外向き $n=\partial_0$、$g(n,n)=-1$ で、接基底 $(\partial_x,\partial_y,\partial_z)$ から
+
+$
+(\gamma_{ab})=\operatorname{diag}(1,1,1),
+\qquad \det\gamma=1.
+$
+
+正方向3本で、両面とも $\det\gamma\ne0$ です。
 <!-- solution-end -->
 
 <a id="ex-gr11-a02"></a>
@@ -430,7 +489,21 @@ $U=[0,T]\times\mathbb T^3$ の平坦計量について、二つの時刻面の $
 上の平坦な時空で $g_s=-(dx^0)^2+(1+sf(x^0))^2\sum_i(dx^i)^2$、$f(0)=f(T)=0$ とする。$q_{ij}$ と $\partial_0q_{ij}$ を $s=0$ で求め、$f(x^0)=x^0(T-x^0)$ に対して端点での値を比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** 誘導計量は $\gamma_{ij}(s)=(1+sf)^2\delta_{ij}$ なので $q_{ij}=\delta\gamma_{ij}=2f\delta_{ij}$、$\partial_0q_{ij}=2f'\delta_{ij}$ です。両端で $f=0$ のため $q_{ij}=0$ ですが、$f'(0)=T$、$f'(T)=-T$ なので法線微分の大きさはそれぞれ $2T$ です。値を固定しても導関数は自由です。
+**詳細解答。** 誘導計量を $s$ で微分すると
+
+$
+\gamma_{ij}(s)=(1+sf)^2\delta_{ij},
+\qquad q_{ij}=2f\delta_{ij},
+\qquad \partial_0q_{ij}=2f'\delta_{ij}
+$
+
+です。$f(x^0)=x^0(T-x^0)$ では
+
+$
+f(0)=f(T)=0,\qquad f'(0)=T,\qquad f'(T)=-T.
+$
+
+従って両端で $q_{ij}=0$ ですが、$\partial_0q_{ij}$ は過去側で $2T\delta_{ij}$、未来側で $-2T\delta_{ij}$ です。値を固定しても導関数は自由です。
 <!-- solution-end -->
 
 <a id="ex-gr11-a04"></a>
@@ -520,7 +593,23 @@ $a_s(0)=a_s(T)=1$ なので $s=0$ での微分は $-6C\operatorname{Vol}(\mathbb
 $ds^2=dx^2-N(x)^2(dx^0)^2+dy^2+dz^2$、$N(x)=1+\alpha x>0$ とし、$x=R$ での法線を $n=\partial_x$ と $n=-\partial_x$ の二通りで仮に計算する。$K$ と $2\varepsilon K\sqrt{|\gamma|}$ を比較し、どちらが領域 $x\le R$ のGHY積分に使えるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\gamma=\mathrm{diag}(-N(R)^2,1,1)$ なので $\sqrt{|\gamma|}=N(R)$、法線はいずれも空間的で $\varepsilon=+1$ です。$n=\partial_x$ の場合 $\Gamma^x_{00}=NN'$、$K_{00}=-NN'$ で $K=(-1/N^2)(-NN')=N'/N=\alpha/N$。従って $2\varepsilon K\sqrt{|\gamma|}=2\alpha$。$n=-\partial_x$ の場合は $K_{00}=+NN'$、$K=-\alpha/N$、密度は $-2\alpha$。領域 $x\le R$ に対して外へ進むのは正の $x$ 方向だから、使用するのは $n=\partial_x$ です。法線を反転して符号を変えた式を同じ領域に無断で代入してはいけません。
+**詳細解答。** 接基底 $(\partial_{x^0},\partial_y,\partial_z)$ から
+
+$
+\gamma=\operatorname{diag}(-N(R)^2,1,1),
+\qquad \sqrt{|\gamma|}=N(R)
+$
+
+です。$N(R)>0$ を使いました。どちらの法線も空間的で $\varepsilon=+1$ です。[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標公式で $\Gamma^x_{00}=NN'$ となり、[第二基本形式の定義](#def-gr11-extrinsic-curvature)に代入すると $n=\partial_x$ の場合、
+
+$
+K_{00}=-NN',\qquad
+K=\gamma^{00}K_{00}
+=\left(-\frac1{N^2}\right)(-NN')
+=\frac{\alpha}{N}.
+$
+
+従って $2\varepsilon K\sqrt{|\gamma|}=2\alpha$ です。$n=-\partial_x$ に換えると $K_{00}$ と $K$ がともに逆符号なので、密度は $-2\alpha$ です。領域 $x\le R$ から外へ進むのは正の $x$ 方向だから、GHY積分に使えるのは $n=\partial_x$ です。
 <!-- solution-end -->
 
 ### Level C
