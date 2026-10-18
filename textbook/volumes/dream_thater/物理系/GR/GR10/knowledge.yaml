@@ -2,7 +2,7 @@ chapter: GR10
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - GR8
+  - GR9
   - GR7
   - GR6
   - AMECH2
