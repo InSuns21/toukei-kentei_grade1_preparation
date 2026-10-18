@@ -1,7 +1,7 @@
 version: 1
 id: KAH1
 title: "Kähler幾何学"
-plan: textbook/plans_progress/DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 本文・公開索引へは完成した章のみを登録する。
