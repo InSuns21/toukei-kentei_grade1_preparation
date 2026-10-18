@@ -31,7 +31,7 @@ $$
 計量の時間成分を使うのは、遅い粒子では時間方向の速度 $dx^0/dt=c$ が空間方向の速度より大きく、測地線の時間・時間項が支配的になるためです。逆に空間計量を厳密に $\delta_{ij}$ と置く定義ではありません。**$g_{ij}$ の一次補正は、Einsteinテンソルの00成分に寄与し得ます。** $\Phi$ に定数を足す自由度は、弱場での時間座標の再規格化に対応します。境界で $\Phi\to0$ などの基準を指定して初めて零点が定まります。
 
 <!-- definition-example-start: def-gr13-newton-potential -->
-**定義の確認。** 定数 $a>0$ と $L>0$ を取り、$|az|/c^2\le\epsilon/2$ の狭い領域で[GR1のRindler計量](../GR1/index.md#prop-gr1-rindler-metric)を使います。
+**定義の確認**。 定数 $a>0$ と $L>0$ を取り、$|az|/c^2\le\epsilon/2$ の狭い領域で[GR1のRindler計量](../GR1/index.md#prop-gr1-rindler-metric)を使います。
 
 $$
 ds^2=-\left(1+\frac{az}{c^2}\right)^2(dx^0)^2+dx^2+dy^2+dz^2.
@@ -371,7 +371,7 @@ $$
 領域 $|az|/c^2\ll1$ で $\Phi=az$（$a>0$）とする。$\nabla\Phi$、$\Delta\Phi$、自由粒子の先頭加速度を求め、この $\Phi$ が真空Poisson方程式を満たすか判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_x\Phi=\partial_y\Phi=0$、$\partial_z\Phi=a$ なので $\nabla\Phi=(0,0,a)$。もう一度各方向へ微分するとすべて零なので $\Delta\Phi=0$ です。[弱場測地線の命題](#prop-gr13-newton-acceleration)から $(\ddot x,\ddot y,\ddot z)=-(0,0,a)=(0,0,-a)$。真空は $\rho=0$ だから $4\pi G\rho=0$ と $\Delta\Phi=0$ が一致します。ただし真空Poisson方程式だけで時空の平坦性を証明したわけではありません。
+**詳細解答。** $\partial_x\Phi=\partial_y\Phi=0$、$\partial_z\Phi=a$ なので $\nabla\Phi=(0,0,a)$。もう一度各方向へ微分するとすべて零なので $\Delta\Phi=0$ です。[弱場・低速測地線のNewton加速度](#prop-gr13-newton-acceleration)から $(\ddot x,\ddot y,\ddot z)=-(0,0,a)=(0,0,-a)$。真空は $\rho=0$ だから $4\pi G\rho=0$ と $\Delta\Phi=0$ が一致します。ただし真空Poisson方程式だけで時空の平坦性を証明したわけではありません。
 <!-- solution-end -->
 
 <a id="ex-gr13-a02"></a>
@@ -467,7 +467,7 @@ $r>0$ で $\Phi=-GM/r$ とする。$\partial_i(1/r)$、$\Delta\Phi$、半径 $r$
 <!-- solution-start -->
 **詳細解答。** (i) [Poisson極限定理](#thm-gr13-poisson-limit)によって内側 $(r^2\Phi')'=4\pi G\rho_0r^2$、外側 $(r^2\Phi')'=0$。中心での有限性から内側の積分定数 $r^2\Phi'$ の定数項は零、従って $\Phi'_{\rm in}=(4\pi G\rho_0/3)r=GMr/R^3$。積分して $\Phi_{\rm in}=GMr^2/(2R^3)+A$。外側は $\Phi_{\rm out}=B+D/r$、無限遠で $B=0$。境界での微分連続より $D=-GM$。値の連続から $A=-3GM/(2R)$。従って $\Phi_{\rm in}=GM(r^2-3R^2)/(2R^3)$、$\Phi_{\rm out}=-GM/r$。
 
-(ii) [弱場測地線の命題](#prop-gr13-newton-acceleration)から $\ddot{\boldsymbol x}=-\nabla\Phi$。内側で $\partial_i\Phi=(GM/R^3)x^i$ なので $\ddot{\boldsymbol x}=-(GM/R^3)\boldsymbol x$。球中心へ向かう線形の復元加速度で、中心では零です。
+(ii) [弱場・低速測地線のNewton加速度](#prop-gr13-newton-acceleration)から $\ddot{\boldsymbol x}=-\nabla\Phi$。内側で $\partial_i\Phi=(GM/R^3)x^i$ なので $\ddot{\boldsymbol x}=-(GM/R^3)\boldsymbol x$。球中心へ向かう線形の復元加速度で、中心では零です。
 
 (iii) $p'(r)=-\rho_0GMr/R^3$ を $r$ から $R$ まで積分します。
 
