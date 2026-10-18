@@ -1,0 +1,46 @@
+id: "GR5"
+title: "潮汐力と測地線偏差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR4
+  - GEO17
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 同期した時間的測地線族と偏差ベクトルを定義し、固有時・未来向き・初期条件を直接確認できる
+  - Lorentz計量の捩率なし・計量両立接続から測地線偏差方程式を曲率符号を固定して証明できる
+  - 自由落下基準観測者の平行直交枠に偏差を射影し潮汐行列と測定相対加速度を導出できる
+  - 初期偏差と初期相対速度を区別しJacobi方程式の初期値問題を解ける
+  - 静的lapse計量の接続と曲率を全中間式から計算し非零潮汐と平坦Rindlerの違いを説明できる
+  - 弱場NewtonポテンシャルのHessianと放射・接線潮汐の符号を求められる
+definitions:
+  - { id: GR5-DEF-01, name: 固有時で同期した測地線族と偏差ベクトル }
+  - { id: GR5-DEF-02, name: 自由落下観測者の潮汐行列 }
+theorems:
+  - { id: GR5-THM-01, name: Lorentz時空の測地線偏差方程式 }
+  - { id: GR5-PROP-01, name: 測定される潮汐相対加速度 }
+  - { id: GR5-PROP-02, name: 静的なlapse計量の曲率と潮汐 }
+  - { id: GR5-PROP-03, name: Rindlerの曲率零と自由落下者の偏差 }
+canonical_examples:
+  - Minkowski測地線族の同期・正規化・偏差の直接検査
+  - 平坦Minkowskiでの潮汐行列の全成分ゼロの直接検査
+  - 二次の静的lapse計量で非零曲率・潮汐圧縮の計算
+  - 線形Rindlerの非零静止固有加速度と零曲率の対比
+  - 弱場Newtonポテンシャルの放射伸長・接線圧縮
+problem_patterns:
+  - GR5-MINKOWSKI-GEODESIC-FAMILY
+  - GR5-FLAT-SEPARATION-VELOCITY
+  - GR5-TIME-ORTHOGONALITY-PRESERVATION
+  - GR5-CONSTANT-TIDAL-ODE
+  - GR5-RINDLER-FLAT-ACCELERATION
+  - GR5-QUADRATIC-LAPSE-CURVATURE
+  - GR5-TWO-DIRECTION-TIDAL-MATRIX
+  - GR5-NEWTON-RADIAL-TRANSVERSE
+  - GR5-JACOBI-NONZERO-INITIAL-VELOCITY
+  - GR5-RINDLER-VERSUS-CURVED-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

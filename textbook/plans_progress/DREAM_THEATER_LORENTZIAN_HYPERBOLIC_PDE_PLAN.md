@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-18（標準講義・教科書との再照合、局所→大域の証明依存・束値分布・支持空間を精密化）  
-状態: planned（設計のみ。本文実装・公開は未着手）
+状態: in_progress（HPDE1・HPDE2の本文・系列manifest・公開導線を実装済み。HPDE3〜HPDE24は未着手）
 
 ## 中心問いと出口
 
@@ -14,9 +14,9 @@
 
 - 必須：[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の時間向き・因果集合・Cauchy超曲面・大域双曲性・滑らかな時間分割。[GPDE1–10](../plan_done/DREAM_THEATER_ENCORE_III_GRAD_PDE_RESTRUCTURE_PLAN.md)の分布・Sobolev・弱解、PDE I、FOU、EVOLの必要節を**実在章・stable anchorで確認して**再利用する。前提PLANの未実装結果を既知としない。
 - HPDEが所有：滑らかなベクトル束と束値微分作用素の波動問題に必要な部分、normally hyperbolic作用素、エネルギー評価、Cauchy問題、有限伝播、局所/大域基本解、advanced/retarded Green作用素、因果伝播子、古典的実KG解のシンプレクティック構造。
-- [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)が所有：波面集合、擬微分・伝播の微局所理論、Hadamard**二点関数**の特異構造、点分離と応力テンソル。HPDEでは局所基本解の構成に必要な**古典的Hadamard係数・transport equationの入口**だけを扱い、二点関数のHadamard条件は先取りしない。
-- [AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)が所有：CCR代数・状態・モジュラー理論の精密な構成。HPDEの解空間は量子化に渡すデータであり、量子論としてのCCRの詳細は移さない。[QCURV](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)は粒子数・Bogoliubov係数・量子状態・物理観測を所有。
-- [GR](../plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
+- [MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)が所有：波面集合、擬微分・伝播の微局所理論、Hadamard**二点関数**の特異構造、点分離と応力テンソル。HPDEでは局所基本解の構成に必要な**古典的Hadamard係数・transport equationの入口**だけを扱い、二点関数のHadamard条件は先取りしない。
+- [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)が所有：CCR代数・状態・モジュラー理論の精密な構成。HPDEの解空間は量子化に渡すデータであり、量子論としてのCCRの詳細は移さない。[QCURV](../plans/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)は粒子数・Bogoliubov係数・量子状態・物理観測を所有。
+- [GR](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
 
 **共通の正確な設定**：時空 (M,g) は時間向き付き滑らかなLorentz多様体（符号 (-,+,…,+)）、標準定理では大域双曲・境界なし。E→M は有限ランク滑らかな実/複素ベクトル束とし、接続・束計量・向きを必要な命題で指定する。微分作用素の記号の規約を固定し、基本模型は P=-Box_g+m²（m²≥0、Box_g=g^{ab}∇_a∇_b）とする。一般のnormally hyperbolic Pの2次主シンボルは σ₂(P)(x,ξ)=-g_x^{-1}(ξ,ξ) id_{E_x} と定義する（フーリエの i による符号流儀と混同しない）。形式的自己随伴性は一般のPに自動では成立しない。
 
@@ -44,7 +44,7 @@
 
 ## 現行の前提・数学的依存の検証（2026-10-18）
 
-- LORG系列は `textbook/dream-theater-series/LORG.yaml` 上で **LORG1〜LORG21がすべてcompleted** であり、PLANは `textbook/plan_done/` に移動済み。HPDE1〜24はなお設計段階で、HPDE系列manifest・講義本文は未着手。
+- LORG系列は `textbook/dream-theater-series/LORG.yaml` 上で **LORG1〜LORG21がすべてcompleted** であり、PLANは `textbook/plan_done/` に移動済み。HPDE1・HPDE2は現行系列manifestでcompleted、HPDE3〜24はplanned。HPDE系列manifest・HPDE1/HPDE2の本文・公開導線はすでに実装済み。
 - HPDEの幾何学的入口で実在する定義と定理：LORG6 `#def-lorg6-chronological-causal-future`（因果集合）、LORG13 `#def-lorg13-dependence`（依存領域）、LORG15 `#def-lorg15-cauchy`（Cauchy面）、LORG16 `#def-lorg16-global-hyperbolicity`（大域双曲性）、LORG20 `#thm-lorg20-orthogonal-splitting` と `#prop-lorg20-unit-normal`（滑らかな時間分割と単位法線）。各実装章は、その結果の**実際の使用箇所**に本文へのstable-anchorリンクを付ける。
 - GPDEのEuclid領域上の分布・Sobolev空間を既習とする一方、**束値分布・双対束と密度・Lorentz幾何に依存する支持系**はHPDE3〜4・20で正規に導入する。FOU/PDE/EVOLの具体的既習結果は章ID・実在anchorを確かめる。未実装のPLAN内の定理を既習扱いしない。
 - 定義の初出順：密度と分布切断（HPDE3）→形式的双対と随伴（HPDE4）→主シンボル・特性（HPDE5）→非特性Cauchyデータ（HPDE6）→高階推定で必要な関数空間（HPDE9）。定理の仮定にある専門語がこの順序を先取りしないよう章本文ごとに監査する。
@@ -111,7 +111,13 @@
 
 - **HPDEの最初の章は `HPDE1`**。既存の平坦波動方程式・偏微分と初期値計算を出発点とし、LORGの幾何は必要になった箇所から厳密な結果へリンクする。科目全体としてLORGを先行数学基盤とする。
 - HPDE3〜5は分布・束・主シンボルの使用準備、HPDE6〜11はエネルギー法と局所存在、HPDE12〜17は基本解・大域解、HPDE18〜22はGreenとexactness、HPDE23以降は古典場と後続科目の受け渡し、という順を保持する。
-- `textbook/plans/` に置くのは**本文未着手の状態**を示すためであり、24講の数・順序・章IDは決定済み。着手時はPLANを `plans_progress/` へ移動して系列manifestと必要な直接依存・公開導線を追加する。実在の前提結果とstable anchorのみを引用し、後続章の証明を前提にしない。
+- `textbook/plans_progress/` に置くのは**HPDE1・HPDE2を実装済みで科目全体は未完了**のためである。全24講の章IDは確定済み。HPDE3以降も既存の系列manifestを更新し、実在の前提結果とstable anchorのみを引用し、後続章の証明を前提にしない。
+
+## 既実装HPDE1・HPDE2との整合確認（2026-10-18）
+
+- **HPDE1 completed**：光的座標からのd'Alembert公式、初期変位・初速度の代入検算、コンパクト支持からの因果的支持包含、非負初速度による光円錐**内部**の残響、部分初期データの依存領域を既存本文で確認。現行PLANの追加目標は既存本文で満たされている。
+- **HPDE2 completed**：球面平均の微分恒等式からKirchhoff公式、3次元の強いHuygens性と有限伝播の区別、球面射影Jacobianによる2次元Poisson公式、非負初速度の内部尾、質量項のDuhamel表示と小質量の非零尾を既存本文で確認。これらは大域的Green理論の先取りとせず平坦模型に限定される。
+- 既存の両章本文はこのPLAN推敲だけを理由に書き換えない。上記は新しい到達目標との**範囲・主計算の整合チェック**であって、両章の全演習詳細解答について新たに第三者独立査読を完了したとの主張ではない。後続の初出定義・形式的随伴・束値分布の講義担当はHPDE3以降に残す。
 
 ## 章群ごとの手計算・証明・演習ゲート
 
@@ -149,4 +155,4 @@
 - 定義→直接例→主要定理（対象・仮定・結論）→2〜4手の省略なしの核心論証→演習A4/B3/C1以上と全詳細解答。証明に必要なformal adjoint、Stokes、束接続、微分幾何の記号は使用箇所で導入する。
 - 図ではCauchy面、光円錐、ソースの支持、retarded/advancedの像、解の空間コンパクト支持を**異なる輪郭/線種**で識別し、座標と支持集合の包含式で照合する。SVGの図だけで存在定理や支持の包含を証明しない。
 - 既出結果を援用する使用箇所へstable anchorリンクを付け、前提PLANが未完成なら証明済みと宣言しない。新規章・実質改稿は現行DREAM THEATER standardの区分Cに従って全主要証明・全演習/解答を再計算し、別観点で再査読する。**無指定の直前章追跡監査は行わない。**
-- HPDE1〜HPDE24の全24章と数学的証明閉包、科目内の横断依存・リンク・検証・公開導線が完成して初めてPLANをcompletedとする。現時点は設計段階であり、章ID・全24講の範囲は確定済みだが、manifest・本文公開は未着手である。
+- HPDE1〜HPDE24の全24章と数学的証明閉包、科目内の横断依存・リンク・検証・公開導線が完成して初めてPLANをcompletedとする。現在はHPDE1・HPDE2の本文・manifest・公開導線が実装済みで、HPDE3〜HPDE24と系列横断監査が残る。講義の進捗はHPDE系列manifestを正本とする。

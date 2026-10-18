@@ -1,0 +1,44 @@
+id: "HPDE1"
+title: "1+1次元波動方程式の初期値解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE4
+  - LORG1
+  - LORG6
+  - LORG13
+  - LORG15
+  - LORG16
+official_scope: []
+learning_objectives:
+  - Lorentz計量と平坦波動作用素の符号および光的方向を検算できる
+  - 光的座標と連鎖律から波動作用素の因子分解を証明できる
+  - 初期変位・初速度からd'Alembert公式を再導出して二階微分まで検算できる
+  - コンパクト支持の初期データから因果的未来への支持包含を証明できる
+  - 1+1次元で光円錐内部に残る初速度の寄与を積分できる
+  - 広がる影響範囲と縮む初期区間の依存領域を区別できる
+definitions:
+  - { id: HPDE1-DEF-01, name: 1+1次元平坦波動作用素 }
+theorems:
+  - { id: HPDE1-PROP-01, name: 光的座標での波動作用素の因子分解 }
+  - { id: HPDE1-PROP-02, name: 初期支持の因果的包含 }
+canonical_examples:
+  - 進行波の偏微分と未来向き光的接ベクトルの照合
+  - 初期条件および波動方程式の直接代入検算
+  - 非負のコンパクト台初速度が円錐内部に作る残響
+  - 広がる初期擾乱の支持と縮む初期区間の依存領域
+problem_patterns:
+  - HPDE1-COSINE
+  - HPDE1-SINE-VELOCITY
+  - HPDE1-BACKWARD-INTERVAL
+  - HPDE1-NULL-VECTORS
+  - HPDE1-SUPPORT-BOUND
+  - HPDE1-TRAVELING-WAVE
+  - HPDE1-INTERIOR-TAIL
+  - HPDE1-DOMAIN-DEPENDENCE
+  - HPDE1-VELOCITY-CONTRAST
+  - HPDE1-INTEGRATED-CAUSAL-MODEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

@@ -382,6 +382,12 @@
 10. [GPDE9 楕円型正則性](textbook/volumes/dream_thater/解析系/GPDE/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展 PDE の弱解](textbook/volumes/dream_thater/解析系/GPDE/GPDE10/index.md)
 
+<a id="dt-subject-lorentz-hyperbolic-pde"></a>
+### ローレンツ時空の双曲型偏微分方程式
+
+1. [HPDE1 1+1次元波動方程式の初期値解](textbook/volumes/dream_thater/解析系/HPDE/HPDE1/index.md)
+2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
+
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
 
@@ -986,6 +992,9 @@
 2. [ML1-02 Bayes決定則と損失関数](textbook/volumes/dream_thater/応用系/ML/ML1-02/index.md)
 3. [ML1-03 経験リスク最小化と正則化](textbook/volumes/dream_thater/応用系/ML/ML1-03/index.md)
 4. [ML1-04 最小二乗法・正規方程式・非一意性](textbook/volumes/dream_thater/応用系/ML/ML1-04/index.md)
+5. [ML1-05 Ridge回帰・縮小・偏りと分散](textbook/volumes/dream_thater/応用系/ML/ML1-05/index.md)
+6. [ML1-06 Lasso・疎性・近接写像](textbook/volumes/dream_thater/応用系/ML/ML1-06/index.md)
+7. [ML1-07 生成的分類・Naive Bayes・LDA/QDA](textbook/volumes/dream_thater/応用系/ML/ML1-07/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
@@ -1153,6 +1162,8 @@
 2. [GR2 Lorentz計量・固有時・光円錐](textbook/volumes/dream_thater/物理系/GR/GR2/index.md)
 3. [GR3 自由落下の測地線方程式](textbook/volumes/dream_thater/物理系/GR/GR3/index.md)
 4. [GR4 観測者の局所直交枠と測定](textbook/volumes/dream_thater/物理系/GR/GR4/index.md)
+5. [GR5 潮汐力と測地線偏差](textbook/volumes/dream_thater/物理系/GR/GR5/index.md)
+6. [GR6 Riemann・Ricci・スカラー曲率](textbook/volumes/dream_thater/物理系/GR/GR6/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
