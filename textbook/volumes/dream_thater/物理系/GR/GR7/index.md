@@ -47,7 +47,7 @@ $$
 負号が二つあるのは $S$ が共変添字を二つ持つからです。発散は偏微分だけの総和ではありません。
 
 <!-- definition-example-start: def-gr7-covariant-divergence -->
-**定義の確認：Minkowski座標。** $x^\mu=(ct,x,y,z)$、$g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とします。行列式は $-1\ne0$ だから非退化で、逆計量は同じ対角行列です。[Levi-Civita接続公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では計量の偏微分がすべて零なので $\Gamma^\rho_{\mu\nu}=0$ です。$S_{00}=f(x^0)$ 以外の成分が零なら、$S$ は対称な二階共変テンソルで、
+**定義の確認**：Minkowski座標。 $x^\mu=(ct,x,y,z)$、$g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とします。行列式は $-1\ne0$ だから非退化で、逆計量は同じ対角行列です。[Levi-Civita接続公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)では計量の偏微分がすべて零なので $\Gamma^\rho_{\mu\nu}=0$ です。$S_{00}=f(x^0)$ 以外の成分が零なら、$S$ は対称な二階共変テンソルで、
 
 $$
 \begin{aligned}
@@ -273,7 +273,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr7-einstein-tensor -->
-**定義の確認：Minkowski時空と定曲率形。** Minkowski計量では既習の[GR6の曲率計算](../GR6/index.md#def-gr6-ricci-scalar)により $\operatorname{Ric}=0$、$\mathcal R=0$ なので、定義の二項はともに零となり $G=0$ です。次に[GR6の定曲率縮約](../GR6/index.md#prop-gr6-constant-curvature)の4次元模型では $\operatorname{Ric}=3Kg$、$\mathcal R=12K$。ゆえに
+**定義の確認**：Minkowski時空と定曲率形。 Minkowski計量では既習の[GR6の曲率計算](../GR6/index.md#def-gr6-ricci-scalar)により $\operatorname{Ric}=0$、$\mathcal R=0$ なので、定義の二項はともに零となり $G=0$ です。次に[GR6の定曲率縮約](../GR6/index.md#prop-gr6-constant-curvature)の4次元模型では $\operatorname{Ric}=3Kg$、$\mathcal R=12K$。ゆえに
 
 $$
 G_{\mu\nu}=3Kg_{\mu\nu}-\tfrac12(12K)g_{\mu\nu}
