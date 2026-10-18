@@ -180,7 +180,7 @@ $$
 =\varepsilon(\varepsilon V^r)=V^r.
 $$
 
-従って各境界領域で主張の流束が得られ、分割を足し合わせて全境界の式になります。内部の項は[GR10の変分公式](../GR10/index.md#thm-gr10-eh-variation)のままです。$\square$
+従って各境界領域で主張の流束が得られ、分割を足し合わせて全境界の式になります。内部の項は[Einstein–Hilbert作用の計量変分](../GR10/index.md#thm-gr10-eh-variation)のままです。$\square$
 <!-- proof-end -->
 
 **計量を固定しても流束が残る例。** $U=[0,T]\times\mathbb T^3$ に平坦計量 $ds^2=-(dx^0)^2+\sum_i(dx^i)^2$ を置きます。$\mathbb T^3$ は周期座標を持つ平坦な空間3トーラスで、時刻 $0,T$ の二つの面だけが境界です。$a_s(x^0)=1+s f(x^0)$ として
@@ -303,7 +303,7 @@ $$
 =-\varepsilon\bigl(\partial_rq+K^{ab}q_{ab}\bigr)
 $$
 
-となります。次に、$\partial_r\gamma^{ab}=-2K^{ab}$ と[逆行列の変分公式](../GR10/index.md#prop-gr10-inverse-identity)を使い、
+となります。次に、$\partial_r\gamma^{ab}=-2K^{ab}$ と[計量と逆計量の変分](../GR10/index.md#prop-gr10-inverse-identity)を使い、
 
 $$
 \begin{aligned}
