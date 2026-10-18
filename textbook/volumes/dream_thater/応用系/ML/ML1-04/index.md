@@ -607,7 +607,17 @@ X^{\mathsf T}(X\beta-y)
 =V\Sigma^{\mathsf T}(\Sigma b-c).
 $$
 
-$V$ は可逆なので、これが0となる必要十分条件は $\Sigma^{\mathsf T}(\Sigma b-c)=0$ である。第 $j$ 成分は $1\le j\le q$ なら $s_j(s_jb_j-c_j)$、$q<j\le p$ なら0だから、正の特異値 $s_j>0$ により $b_j=c_j/s_j$（$1\le j\le q$）を得る。残る $b_j$ は任意である。これらを目的の成分表示へ代入すると、最初の和は全て0になり、最小損失は
+$V$ は可逆なので、これが0となる必要十分条件は $\Sigma^{\mathsf T}(\Sigma b-c)=0$ である。第 $j$ 成分を具体的に書くと
+
+$$
+\bigl[\Sigma^{\mathsf T}(\Sigma b-c)\bigr]_j=
+\begin{cases}
+s_j(s_jb_j-c_j) & (1\le j\le q),\\
+0 & (q<j\le p).
+\end{cases}
+$$
+
+正の特異値 $s_j>0$ により $b_j=c_j/s_j$（$1\le j\le q$）を得る。残る $b_j$ は任意である。これらを目的の成分表示へ代入すると、最初の和は全て0になり、最小損失は
 
 $$
 L_{\min}=\frac1{2n}\sum_{j=q+1}^{n}c_j^2
