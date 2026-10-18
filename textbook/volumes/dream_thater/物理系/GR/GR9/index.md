@@ -10,7 +10,7 @@
 
 ## 1. 作用を何について変えるか
 
-作用とは、場の配置ごとに一つの実数を対応させる汎関数です。力学で位置を変えたときの作用と同様、場 $\psi$ を $\psi+s\eta$ へ動かし、$s=0$ での微分をとることができます。**場の変分**では計量を固定し、**計量変分**では物質場の共変成分を固定します。これを区別しないと電磁場の応力の符号が逆転します。
+作用とは、場の配置ごとに一つの実数を対応させる汎関数です。力学で位置を変えたときの作用と同様、場 $\psi$ を $\psi+s\eta$ へ動かし、$s=0$ での微分をとることができます。**場の変分**では計量を固定し、**計量変分**ではあらかじめ選んだ物質場の独立変数を固定します。本章の電磁場では共変ポテンシャル $A_\mu$ を独立変数とし、添字を上げた $A^\mu$ は固定しません。変分時の固定対象を取り違えると、計量に依存する項を見落として応力を誤って求めます。
 
 座標体積 $d^4x$ は座標変換で変わりますが、Lorentz計量の体積密度 $\sqrt{-g}\,d^4x$ は座標によらず積分できます。場のラグランジアン密度 $\mathcal L_m$ は本章ではエネルギー密度の単位を持ち、物理的な作用を次で書きます。
 
@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（局所物質作用）**  
-> 領域 $\Omega\subset M$ 上で物質場 $\psi$ とLorentz計量 $g$ に依存するスカラー密度の基になる $\mathcal L_m(g,\psi,\nabla\psi)$ が与えられたとき、物質作用を
+> 領域 $\Omega\subset M$ 上で物質場 $\psi$ とLorentz計量 $g$ に依存するスカラー $\mathcal L_m(g,\psi,\nabla\psi)$ が与えられたとき、$\sqrt{-g}\,\mathcal L_m$ を座標体積に掛ける積分密度として、物質作用を
 
 $$
 S_m[g,\psi]=\frac1c\int_\Omega\sqrt{-g}\,\mathcal L_m\,d^4x
@@ -46,7 +46,14 @@ $$
 +g^{\mu\alpha}\delta g_{\alpha\nu}=0.
 $$
 
-添字を上げ直せば、両変分は独立ではなく
+左辺の第一添字を $g_{\lambda\mu}$ で縮約すると
+
+$$
+g_{\lambda\mu}\delta g^{\mu\alpha}g_{\alpha\nu}
++\delta g_{\lambda\nu}=0.
+$$
+
+自由添字 $\lambda$ を $\mu$ と書き換え、対称性 $g_{\mu\nu}=g_{\nu\mu}$ を用いると、両変分は独立ではなく
 
 $$
 \boxed{\delta g_{\mu\nu}=-g_{\mu\alpha}g_{\nu\beta}\delta g^{\alpha\beta}.}
@@ -58,6 +65,8 @@ $$
 \delta g=g\,g^{\mu\nu}\delta g_{\mu\nu}
 =-g\,g_{\mu\nu}\delta g^{\mu\nu},
 $$
+
+<a id="eq-gr9-metric-volume-variation"></a>
 
 $$
 \boxed{\delta\sqrt{-g}
@@ -136,7 +145,7 @@ $$
 \delta g^{\mu\nu}.
 $$
 
-前節の $\delta\sqrt{-g}=-\sqrt{-g}g_{\mu\nu}\delta g^{\mu\nu}/2$ を代入すると
+前節の[体積要素の変分](#eq-gr9-metric-volume-variation)を代入すると
 
 $$
 \begin{aligned}
@@ -163,7 +172,22 @@ F_{\mu\nu}:=\nabla_\mu A_\nu-\nabla_\nu A_\mu
 =\partial_\mu A_\nu-\partial_\nu A_\mu
 $$
 
-と置きます。最後の等号にはLevi-Civita接続の $\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$ を使いました。$F$ は反対称であり、$\nabla_{[\alpha}F_{\mu\nu]}=0$ を満たします。電磁ポテンシャルの大域的な存在は仮定せず、この節は局所表示で議論します。
+と置きます。最後の等号にはLevi-Civita接続の $\Gamma^\lambda{}_{\mu\nu}=\Gamma^\lambda{}_{\nu\mu}$ を使いました。$F_{\mu\nu}=-F_{\nu\mu}$ は定義から直ちに従います。さらに **閉形式条件** は反対称性だけではなく、$F$ がポテンシャルから作られたことに由来します。$A$ の二階偏微分が交換できるので、
+
+<a id="eq-gr9-electromagnetic-closure"></a>
+
+$$
+\begin{aligned}
+&\partial_\alpha F_{\mu\nu}
++\partial_\mu F_{\nu\alpha}
++\partial_\nu F_{\alpha\mu}\\
+&=(\partial_\alpha\partial_\mu A_\nu-\partial_\mu\partial_\alpha A_\nu)
++(\partial_\mu\partial_\nu A_\alpha-\partial_\nu\partial_\mu A_\alpha)
++(\partial_\nu\partial_\alpha A_\mu-\partial_\alpha\partial_\nu A_\mu)=0.
+\end{aligned}
+$$
+
+捩れのない接続では、この巡回和の接続係数項も対称性によって相殺されます。従って $\nabla_{[\alpha}F_{\mu\nu]}=0$ です。電磁ポテンシャルの大域的な存在は仮定せず、この節は局所表示で議論します。
 
 <a id="def-gr9-maxwell-action"></a>
 
@@ -200,7 +224,22 @@ F_{\mu\nu}F^{\mu\nu}
 =\frac{\varepsilon_0 E^2}{2}-\frac{B^2}{2\mu_0}.
 $$
 
-これは[EMAG8の電磁エネルギー密度](../../EMAG/EMAG8/index.md#def-emag8-energy-flux)とは異なります。ラグランジアン密度はエネルギー密度そのものではありません。さらにゲージ変換 $A_\mu\mapsto A_\mu+\partial_\mu\chi$ に対して偏微分の交換から $\delta F_{\mu\nu}=0$ で、作用も変わりません。
+抽象的な成分式を具体的なポテンシャルで確かめます。Minkowski座標 $(x^0,x,y,z)$ で定数 $E_0,B_0$ を取り、
+
+$$
+A_0=\frac{E_0x}{c},\qquad A_2=B_0x,\qquad A_1=A_3=0
+$$
+
+とすれば $\phi=-E_0x$ であり、
+
+$$
+F_{01}=-\frac{E_0}{c},\qquad F_{12}=B_0,\qquad
+\mathbf E=E_0\mathbf e_x,\qquad \mathbf B=B_0\mathbf e_z.
+$$
+
+他の独立な $F_{\mu\nu}$ は零です。よって $F^2=2(B_0^2-E_0^2/c^2)$、$\mathcal L_{\rm EM}=\varepsilon_0E_0^2/2-B_0^2/(2\mu_0)$ と具体的に定義式を検算できます。
+
+これは[EMAG8の電磁エネルギー密度](../../EMAG/EMAG8/index.md#def-emag8-energy-flux)とは異なります。ラグランジアン密度はエネルギー密度そのものではありません。さらにゲージ変換 $A_\mu\mapsto A_\mu+\partial_\mu\chi$ に対して偏微分の交換から変換後の $F'_{\mu\nu}-F_{\mu\nu}=\partial_\mu\partial_\nu\chi-\partial_\nu\partial_\mu\chi=0$ で、作用も変わりません。
 <!-- definition-example-end -->
 
 ## 4. 電磁場の応力テンソルを計算する
@@ -252,7 +291,7 @@ $$
 =-\frac1{2\mu_0}F_{\mu\alpha}F_\nu{}^\alpha\delta g^{\mu\nu}.
 $$
 
-[体積要素の変分](#def-gr9-matter-action)を合わせると
+[体積要素の変分](#eq-gr9-metric-volume-variation)を合わせると
 
 $$
 \begin{aligned}
@@ -303,7 +342,17 @@ T^{0i}
 =\frac{(\mathbf E\times\mathbf B)^i}{\mu_0c}.
 $$
 
-したがって $cT^{0i}$ は[Poyntingベクトル](../../EMAG/EMAG8/index.md#def-emag8-energy-flux)です。空間成分は
+したがって $cT^{0i}$ は[Poyntingベクトル](../../EMAG/EMAG8/index.md#def-emag8-energy-flux)です。空間応力については時間添字の項と空間添字の項を分けます。$\sum_k\epsilon_{ik\ell}\epsilon_{jkm}B_\ell B_m=\delta^{ij}B^2-B_iB_j$ を用い、
+
+$$
+\begin{aligned}
+F^{i\alpha}F^j{}_\alpha
+&=F^{i0}F^j{}_0+F^{ik}F^j{}_k\\
+&=-\frac{E_iE_j}{c^2}+\delta^{ij}B^2-B_iB_j.
+\end{aligned}
+$$
+
+さらに $-\eta^{ij}F^2/4=\delta^{ij}(E^2/c^2-B^2)/2$ を足すと、空間成分は
 
 $$
 \boxed{T^{ij}
@@ -418,7 +467,7 @@ $$
 +\nabla_\lambda F_{\mu\rho}=0
 $$
 
-に $F^{\mu\lambda}$ を掛けます。第1項と第3項は反対称性とダミー添字の交換により等しくなり
+に $F^{\mu\lambda}$ を掛けます。この等式は前節で導いた[閉形式条件](#eq-gr9-electromagnetic-closure)です。第1項と第3項は反対称性とダミー添字の交換により等しくなり
 
 $$
 2F^{\mu\lambda}\nabla_\mu F_{\rho\lambda}
