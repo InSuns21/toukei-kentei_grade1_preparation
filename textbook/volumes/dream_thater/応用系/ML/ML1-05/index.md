@@ -30,7 +30,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-05-ridge -->
-**定義の確認**。$n=p=2$、$X=\operatorname{diag}(1,2)$、$y=(2,2)^{\mathsf T}$、$\lambda=1$ とする。$\beta=(a,b)^{\mathsf T}$ と置けば
+**定義の確認**。$n=p=2$、$X=\operatorname{diag}(1,2)$、$y=(2,2)^{\mathsf T}$、$\lambda=1$ とする。[設計行列による線形予測](../ML1-04/index.md#def-ml1-04-design-matrix)に従い、$\beta=(a,b)^{\mathsf T}$ と置く。対角行列を選んだので、第一の特徴量は $a$、第二の特徴量は $2b$ としてそれぞれの観測に寄与する。実際、
+
+$$
+X\beta=\begin{pmatrix}a\\2b\end{pmatrix},
+\qquad
+X\beta-y=\begin{pmatrix}a-2\\2b-2\end{pmatrix}.
+$$
+
+したがって残差の二乗和と係数の二乗和を定義へ代入すると
 
 $$
 J_1(a,b)=\frac14\{(a-2)^2+(2b-2)^2\}+\frac12(a^2+b^2).
@@ -168,7 +176,35 @@ $$
 
 訓練予測は $4/3$ になり、元の応答2からずれる。$\lambda\downarrow0$ では最小ノルム解 $(1,1)^{\mathsf T}$ に近づく。Ridgeは**学習済み予測を保ったまま非一意性だけ除去する手法ではない**のである。
 
-**切片の扱い**。通常の切片付きモデルを $\alpha\mathbf1+Z\theta$ と書き、罰則を $\lambda\|\theta\|^2/2$ にだけ課す場合は上記の「全係数へ正則化」と異なる。$\alpha$ による微分は $\mathbf1^{\mathsf T}(\alpha\mathbf1+Z\theta-y)=0$。したがって $\widehat\alpha=\bar y-\bar z^{\mathsf T}\widehat\theta$ である。$Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ と置いて代入すると、残差は $Z_c\theta-y_c$。よって $\widehat\theta=(Z_c^{\mathsf T}Z_c+n\lambda I)^{-1}Z_c^{\mathsf T}y_c$ となる。切片を罰しないためには、中心化して**傾きのみに**Ridgeをかける必要がある。
+**切片の扱い**。切片付きの予測を $\alpha\mathbf1+Z\theta$ と書く。ここで $Z\in\mathbb R^{n\times d}$、$\theta\in\mathbb R^d$、$\alpha\in\mathbb R$、$\mathbf1\in\mathbb R^n$ は成分がすべて1の列ベクトルとする。切片 $\alpha$ を罰せず傾き $\theta$ にだけ $\lambda\|\theta\|_2^2/2$ を課す場合、全係数を罰する先の定義とは区別する。
+
+$\bar y=\mathbf1^{\mathsf T}y/n$、$\bar z=Z^{\mathsf T}\mathbf1/n\in\mathbb R^d$ とする。切片に関する停留条件から
+
+$$
+0=\frac1n\mathbf1^{\mathsf T}(\alpha\mathbf1+Z\theta-y)
+=\alpha+\bar z^{\mathsf T}\theta-\bar y
+$$
+
+となるので、任意の固定した $\theta$ に対して最適な切片は $\alpha=\bar y-\bar z^{\mathsf T}\theta$ である。$Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ と置けば
+
+$$
+\begin{aligned}
+\alpha\mathbf1+Z\theta-y
+&=(\bar y-\bar z^{\mathsf T}\theta)\mathbf1+Z\theta-y\\
+&=(Z-\mathbf1\bar z^{\mathsf T})\theta-(y-\bar y\mathbf1)\\
+&=Z_c\theta-y_c.
+\end{aligned}
+$$
+
+よって $\theta$ について残る最適化は $\|Z_c\theta-y_c\|_2^2/(2n)+\lambda\|\theta\|_2^2/2$ であり、$\lambda>0$ なら[一意解の公式](#thm-ml1-05-unique)を $X=Z_c$、$y=y_c$ に適用して
+
+$$
+\widehat\theta=(Z_c^{\mathsf T}Z_c+n\lambda I_d)^{-1}Z_c^{\mathsf T}y_c,
+\qquad
+\widehat\alpha=\bar y-\bar z^{\mathsf T}\widehat\theta
+$$
+
+を得る。つまり、切片を罰しない場合は中心化して**傾きのみに**Ridgeをかける。
 
 ## 5. 固定デザイン模型で初めて「偏り」と「分散」を考える
 
@@ -180,7 +216,16 @@ Y=X\beta_\star+\varepsilon,\qquad
 \operatorname{Cov}(\varepsilon)=\sigma^2I_n,\quad \sigma^2\ge0
 $$
 
-とする。誤差の各成分には有限の二次モーメントがあり、互いの共分散が0で、分散が同じ $\sigma^2$ であると仮定する。独立性や正規分布は以下の二次モーメント計算には不要である。
+とする。[期待値](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)と[共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)は既習のスカラー量である。ここでベクトルの期待値は成分ごとに取り、**共分散行列**はその共分散を各成分に並べた行列
+
+$$
+\operatorname{Cov}(\varepsilon)_{ij}
+=\mathbb E[(\varepsilon_i-\mathbb E\varepsilon_i)
+(\varepsilon_j-\mathbb E\varepsilon_j)]
+\qquad(1\le i,j\le n)
+$$
+
+とする。誤差の各成分に有限の二次モーメントがあるとき、上記の行列条件は対角で $\operatorname{Var}(\varepsilon_i)=\sigma^2$、非対角で $\operatorname{Cov}(\varepsilon_i,\varepsilon_j)=0$（$i\ne j$）を意味する。したがって平均0なら $\mathbb E[\varepsilon\varepsilon^{\mathsf T}]=\sigma^2I_n$ である。独立性や正規分布は以下の二次モーメント計算には不要である。
 
 <a id="def-ml1-05-fixed-design"></a>
 
@@ -214,7 +259,7 @@ $$
 
 ## 6. 偏り・分散分解を行列から証明する
 
-先ほどの一変数例を一般化する。$A_\lambda=(X^{\mathsf T}X+n\lambda I_p)^{-1}$ は固定行列であり、$Y$ だけが確率変数である。
+先ほどの一変数例を一般化する。$A_\lambda=(X^{\mathsf T}X+n\lambda I_p)^{-1}$ は固定行列であり、$Y$ だけが確率変数である。以下の $\operatorname{tr}(C)$ は正方行列 $C$ の対角成分の和を表す。共分散行列の対角は各係数の分散なので、その跡は係数の分散の合計になる。
 
 <a id="thm-ml1-05-bias-variance"></a>
 
@@ -270,7 +315,16 @@ C_\lambda
 \end{aligned}
 $$
 
-$A_\lambda$ が対称であることを使った。$\widehat\beta_\lambda-\beta_\star=b_\lambda+\eta$、$\mathbb E[\eta]=0$ と置くと
+ここで $G^{\mathsf T}=G$ なので $(G+n\lambda I_p)^{\mathsf T}=G+n\lambda I_p$。逆行列の転置を取れば $A_\lambda^{\mathsf T}=A_\lambda$ となることを使った。また先の固定デザイン条件から
+
+$$
+\mathbb E[\varepsilon\varepsilon^{\mathsf T}]
+=\operatorname{Cov}(\varepsilon)
++\mathbb E[\varepsilon]\mathbb E[\varepsilon]^{\mathsf T}
+=\sigma^2I_n
+$$
+
+である。$\widehat\beta_\lambda-\beta_\star=b_\lambda+\eta$、$\mathbb E[\eta]=0$ と置くと
 
 $$
 \begin{aligned}
@@ -282,14 +336,41 @@ $$
 \end{aligned}
 $$
 
-最後に[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を適用する。$V^{\mathsf T}GV$ の対角は $s_j^2$（$j\le q$）と0（$j>q$）、$V^{\mathsf T}A_\lambda V$ の対角は $1/(s_j^2+n\lambda)$ と $1/(n\lambda)$ である。従って $v_j$ 方向の偏りは $-n\lambda\theta_j/(s_j^2+n\lambda)$（$j\le q$）、零方向では $-\theta_j$。分散の対角は前者で $\sigma^2s_j^2/(s_j^2+n\lambda)^2$、後者で0となる。これらを足せば表示式を得る。$\square$
+最後に[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を適用する。右特異ベクトルの正規直交基底で $\beta_\star=\sum_{j=1}^p\theta_jv_j$ と展開する。$V^{\mathsf T}GV$ の対角は $s_j^2$（$j\le q$）と0（$j>q$）である。したがって $A_\lambda$ の同じ基底での対角は $1/(s_j^2+n\lambda)$ と $1/(n\lambda)$ となり、偏りの座標は
+
+$$
+v_j^{\mathsf T}b_\lambda=
+\begin{cases}
+-\dfrac{n\lambda\theta_j}{s_j^2+n\lambda}&(1\le j\le q),\\
+-\theta_j&(q<j\le p).
+\end{cases}
+$$
+
+同じ基底で $C_\lambda=\sigma^2A_\lambda G A_\lambda$ の対角成分を計算すると
+
+$$
+(V^{\mathsf T}C_\lambda V)_{jj}
+=\begin{cases}
+\dfrac{\sigma^2s_j^2}{(s_j^2+n\lambda)^2}&(1\le j\le q),\\
+0&(q<j\le p).
+\end{cases}
+$$
+
+直交変換は二乗長と跡を保つので、$\|b_\lambda\|_2^2$ には最初の式を二乗して足し、$\operatorname{tr}(C_\lambda)$ には後の式を足せばよい。これにより定理の係数リスクの表示が得られる。$\square$
 <!-- proof-end -->
 
 **なぜ罰則を強くするだけではよくないか**。分散の各項 $\sigma^2s_j^2/(s_j^2+n\lambda)^2$ は $\lambda$ とともに減るが、観測できる真の係数が $\theta_j\ne0$ なら偏りの二乗 $(n\lambda)^2\theta_j^2/(s_j^2+n\lambda)^2$ は増える。$\sigma^2=0$ かつフル列ランクなら、$\lambda=0$ の最小二乗解は真値に等しくリスク0だが、$\lambda>0$ は一般に偏りを作る。Ridgeが必ず精度を改善するという主張は偽である。
 
 ### 6.1 訓練デザイン上の予測リスク
 
-学習した係数が作る予測と真の平均応答 $X\beta_\star$ の距離を、$R_{\rm fit}(\lambda)=\mathbb E\|X\widehat\beta_\lambda-X\beta_\star\|_2^2/n$ と置く。これは未知の新しい入力での汎化誤差ではない。前定理の分解に左から $X$ を掛けると
+学習した係数が作る予測と真の平均応答 $X\beta_\star$ の距離を
+
+$$
+R_{\rm fit}(\lambda)
+=\frac1n\mathbb E\|X\widehat\beta_\lambda-X\beta_\star\|_2^2
+$$
+
+と置く。これは未知の新しい入力での汎化誤差ではない。[偏り・分散の定理](#thm-ml1-05-bias-variance)の分解に左から $X$ を掛けると
 
 $$
 R_{\rm fit}(\lambda)
