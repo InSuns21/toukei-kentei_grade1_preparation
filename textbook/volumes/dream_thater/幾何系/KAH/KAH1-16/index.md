@@ -108,9 +108,9 @@ $JU$ は初期値 $Ju$ の平行延長であり、一意性によって $P_\gamm
 
 実ベクトル空間の複素数倍を $(a+ib)u=au+bJu$ と定めれば、$J$ との可換性より $P_\gamma((a+ib)u)=(a+ib)P_\gamma u$。また[実計量と基本形式から作るHermite内積](../KAH1-01/index.md#prop-kah1-01-hermitian-inner-product)は第一変数が共役線形、第二変数が線形で、
 
-$
+$$
 h(u,v)=g(u,v)+i\,g(Ju,v)
-$
+$$
 
 と表される。$P_\gamma$ が $g$ と $J$ を保存するので、この式へ代入すれば $h(P_\gamma u,P_\gamma v)=h(u,v)$。従って閉路の平行移動は $T_xX$ 上のユニタリ変換であり、全閉路について成立する。$\square$
 <!-- proof-end -->
