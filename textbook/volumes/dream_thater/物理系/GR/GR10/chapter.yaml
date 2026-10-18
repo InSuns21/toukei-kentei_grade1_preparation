@@ -3,7 +3,7 @@ title: "Einstein–Hilbert作用の変分"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - GR8
+  - GR9
   - GR7
   - GR6
   - AMECH2
