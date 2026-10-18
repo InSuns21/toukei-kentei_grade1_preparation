@@ -33,7 +33,7 @@ chapters:
     title: "Lasso・疎性・近接写像"
   - id: ML1-07
     path: textbook/volumes/dream_thater/応用系/ML/ML1-07
-    status: planned
+    status: completed
     title: "生成的分類・Naive Bayes・LDA/QDA"
   - id: ML1-08
     path: textbook/volumes/dream_thater/応用系/ML/ML1-08

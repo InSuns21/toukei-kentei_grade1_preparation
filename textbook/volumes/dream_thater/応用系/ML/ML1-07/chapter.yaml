@@ -1,0 +1,55 @@
+id: "ML1-07"
+title: "生成的分類・Naive Bayes・LDA/QDA"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-02
+  - F0-00P3
+  - LA6
+official_scope: []
+learning_objectives:
+  - クラス事前確率とクラス条件付き密度から混合密度とBayes事後確率を導ける
+  - 条件付き独立からNaive Bayesの積とBernoulli対数得点を導ける
+  - 条件付き独立が偽のときにNaive Bayesが識別情報を失う反例を説明できる
+  - 正定値共分散と多変量正規密度の正規化・平均・共分散を確認できる
+  - Gaussian生成模型の対数判別得点をBayes公式から導ける
+  - 共有共分散のLDAで二次項が相殺され線形境界になることを証明できる
+  - クラス別共分散のQDAで二次項が残ることを示し退化条件を区別できる
+  - 訓練標本の共分散が特異になる条件と正定値化の方法を検算できる
+  - 計算ラボで事前確率・平均・共分散を変えて三種類の判別境界を再現できる
+definitions:
+  - { id: ML1-07-DEF-01, name: 生成的分類模型 }
+  - { id: ML1-07-DEF-02, name: Naive Bayes模型 }
+  - { id: ML1-07-DEF-03, name: 非退化多変量正規密度 }
+  - { id: ML1-07-DEF-04, name: LDA生成模型 }
+  - { id: ML1-07-DEF-05, name: QDA生成模型 }
+theorems:
+  - { id: ML1-07-THM-01, name: 密度から事後確率と最適分類則を得る }
+  - { id: ML1-07-PROP-01, name: Bernoulli Naive Bayesの対数得点 }
+  - { id: ML1-07-LEM-01, name: 正規密度の正規化 }
+  - { id: ML1-07-THM-02, name: 正規生成模型の判別得点 }
+  - { id: ML1-07-THM-03, name: LDA判別境界のアフィン性 }
+  - { id: ML1-07-THM-04, name: QDA判別差の二次式 }
+canonical_examples:
+  - 連続二クラス模型の混合密度と事後確率
+  - 二値特徴のNaive Bayes事後確率と独立性失敗の反例
+  - 正定値二次元共分散の多変量正規密度と正規化
+  - 事前確率が動かす一次元LDA閾値
+  - 同じ平均・異なる分散が作るQDAの左右の尾
+  - 標本数不足による共分散特異性と対角正則化
+  - Gaussian Naive Bayes・LDA・QDAのPython比較
+problem_patterns:
+  - ML1-07-A01
+  - ML1-07-A02
+  - ML1-07-A03
+  - ML1-07-A04
+  - ML1-07-A05
+  - ML1-07-B01
+  - ML1-07-B02
+  - ML1-07-B03
+  - ML1-07-B04
+  - ML1-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
