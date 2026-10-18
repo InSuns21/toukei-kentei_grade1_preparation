@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-14: 教科書照合・prerequisite確認を行って46章を確定。
-# 予定章の本文、chapter.yaml、knowledge.yaml、公開indexは未登録。全章未執筆。
+# 章の状態は下記 chapters.status を正本とし、完了時に対象章のみ更新する。
 chapters:
   - id: ML1-01
     path: textbook/volumes/dream_thater/応用系/ML/ML1-01
@@ -29,7 +29,7 @@ chapters:
     title: "Ridge回帰・縮小・偏りと分散"
   - id: ML1-06
     path: textbook/volumes/dream_thater/応用系/ML/ML1-06
-    status: planned
+    status: completed
     title: "Lasso・疎性・近接写像"
   - id: ML1-07
     path: textbook/volumes/dream_thater/応用系/ML/ML1-07
