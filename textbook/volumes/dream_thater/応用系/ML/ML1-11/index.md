@@ -337,7 +337,7 @@ $$
 \frac12-\varepsilon<\frac{D_i^2}{p}<\frac12+\varepsilon
 $$
 
-が成立する。平方根は非負の増加関数なので
+が成立する。ここでは $D_i^2/p>1/2-\varepsilon>0$ なので全ての $D_i$ が正であり、$D_{\max}$ で割ってもよい。平方根は非負の増加関数なので
 
 $$
 \sqrt{\frac{1/2-\varepsilon}{1/2+\varepsilon}}
