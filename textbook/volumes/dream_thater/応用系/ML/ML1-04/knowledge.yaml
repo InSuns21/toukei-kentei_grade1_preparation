@@ -1,0 +1,61 @@
+chapter: ML1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-03
+  - F0-00F2
+
+concepts:
+  - id: learning.design-matrix
+    name: 設計行列と線形予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（設計行列と線形予測）"]
+    requires:
+      - learning.hypothesis-class
+      - linear.linear-map
+
+  - id: learning.least-squares-objective
+    name: 最小二乗問題
+    kind: definition
+    aliases: [最小二乗法]
+    introduction: formal
+    introduction_aliases: ["定義（最小二乗問題）"]
+    requires:
+      - learning.design-matrix
+      - learning.empirical-risk
+
+  - id: learning.least-squares-normal-equations
+    name: 正規方程式と最小二乗最適性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正規方程式と最小二乗最適性）"]
+    requires:
+      - learning.least-squares-objective
+
+  - id: learning.full-column-rank-least-squares
+    name: 列フルランク最小二乗解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（列フルランク最小二乗解）"]
+    requires:
+      - learning.least-squares-normal-equations
+      - linear.kernel-image
+
+  - id: learning.least-squares-fit-existence
+    name: 最小二乗解の存在と適合値の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最小二乗解の存在と適合値の一意性）"]
+    requires:
+      - learning.least-squares-normal-equations
+      - linear.singular-value-decomposition
+
+  - id: learning.minimum-norm-least-squares
+    name: 解集合と最小ノルム解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（解集合と最小ノルム解）"]
+    requires:
+      - learning.least-squares-fit-existence
+      - linear.singular-value-decomposition
