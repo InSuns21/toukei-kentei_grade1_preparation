@@ -166,15 +166,15 @@ $$
 
 目的関数が座標ごとに分かれる理由も、予測値 $X\beta=\sum_jx_j\beta_j$ から確認できる。まず
 
-$
+$$
 \|X\beta-y\|_2^2
 =\|y\|_2^2-2\sum_j\beta_j x_j^{\mathsf T}y
 +\sum_i\sum_j\beta_i\beta_j x_i^{\mathsf T}x_j.
-$
+$$
 
 直交条件で最後の二重和の $i\ne j$ の項が消えるため、
 
-$
+$$
 \frac1{2n}\|X\beta-y\|^2
 =\frac{\|y\|^2}{2n}
 -\sum_jc_j\beta_j+\frac12\sum_jd_j\beta_j^2.
@@ -282,19 +282,19 @@ $$
 
 切片 $\alpha\in\mathbb R$ を罰しない線形予測 $\alpha\mathbf1+Z\theta$ を考える。ここで $Z\in\mathbb R^{n\times p}$、$\theta\in\mathbb R^p$、$\mathbf1\in\mathbb R^n$ は成分がすべて1のベクトルであり、$\bar z=Z^{\mathsf T}\mathbf1/n\in\mathbb R^p$、$\bar y=\mathbf1^{\mathsf T}y/n$ は標本平均とする。目的関数は二乗損失と $\lambda\|\theta\|_1$ の和なので、罰則は $\alpha$ に依存しない。固定した $\theta$ に対し、$\alpha$ に関する停留条件は
 
-$
+$$
 \frac{\partial J}{\partial\alpha}
 =\frac1n\mathbf1^{\mathsf T}(\alpha\mathbf1+Z\theta-y)
 =\alpha+\bar z^{\mathsf T}\theta-\bar y=0.
-$
+$$
 
 $\alpha$ についての二階微分は1なので、この停留点が唯一の最小切片 $\widehat\alpha(\theta)=\bar y-\bar z^{\mathsf T}\theta$ である。これを残差へ代入すると
 
-$
+$$
 \widehat\alpha(\theta)\mathbf1+Z\theta-y
 =(Z-\mathbf1\bar z^{\mathsf T})\theta-(y-\bar y\mathbf1)
 =Z_c\theta-y_c
-$
+$$
 
 となる。従って $Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ に対するLassoを解けばよい。前講の[Ridge回帰](../ML1-05/index.md#def-ml1-05-ridge)でも切片非罰則なら同じ中心化を使うが、**傾き側の罰則は絶対値**となる。標準化（列のスケール変更）は $d_j,c_j$ と罰則の相対的な効果を変えるため、学習用データだけで決めた尺度を後の検証データにも適用する。
 
