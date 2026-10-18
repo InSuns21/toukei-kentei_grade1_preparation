@@ -129,7 +129,15 @@ jobs:
           TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: |
           npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
+          npm run validate:svg-quality -- --self-test
+          npm run validate:svg-quality:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed
+
+      - name: Validate changed SVG quality on full-audit PRs
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full == 'true'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: npm run validate:svg-quality:changed -- --base "$TEXTBOOK_BASE_SHA"
 
       - name: Validate PR structure and formal source invariants
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
@@ -161,6 +169,7 @@ jobs:
         run: |
           npm run validate:svg-layout -- --self-test
           npm run validate:svg-layout
+          npm run validate:svg-quality -- --self-test
 
       - name: Validate textbook knowledge DAG
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
