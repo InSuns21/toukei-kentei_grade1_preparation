@@ -4,7 +4,6 @@ coverage: complete
 prerequisites:
   - ML1-07
   - ML1-03
-  - OPT1
 concepts:
   - id: learning.logistic-regression
     name: logistic回帰模型
