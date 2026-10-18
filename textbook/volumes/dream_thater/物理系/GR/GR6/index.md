@@ -134,19 +134,15 @@ $$
 
 <!-- definition-example-start: def-gr6-ricci-scalar -->
 **定義の確認**：Minkowski時空。座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で
-
-$
+$$
 ds^2=-(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
-$
-
+$$
 とします。座標基底の内積 $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ を並べた行列が $\operatorname{diag}(-1,1,1,1)$ であり、その行列式は $-1\ne0$、逆行列も同じです。これで逆計量による縮約が定義できます。また計量成分はすべて定数なので、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式の各微分は零となり、$\Gamma^\rho_{\mu\nu}=0$ です。[四項の曲率公式](#prop-gr6-coordinate-curvature)では微分項も接続係数の積も零です。従って
-
-$
+$$
 R^\rho{}_{\sigma\mu\nu}=0,\qquad
 \operatorname{Ric}_{\sigma\nu}=R^\rho{}_{\sigma\rho\nu}=0,\qquad
 \mathcal R=g^{\sigma\nu}\operatorname{Ric}_{\sigma\nu}=0.
-$
-
+$$
 計量から座標行列を作る理由、非退化性、接続、二段階の縮約を順に確認しました。
 <!-- definition-example-end -->
 
@@ -179,26 +175,21 @@ $$
 ### 証明
 
 [Ricci曲率の定義](#def-gr6-ricci-scalar)の $\operatorname{Ric}_{\sigma\nu}=R^\rho{}_{\sigma\rho\nu}$ では、自由添字 $\sigma$ は曲率の「作用されるベクトル」、$\nu$ は「第二方向」を表します。従って $Y=Y^\sigma\partial_\sigma$、$Z=Z^\nu\partial_\nu$ と成分展開すると、**まだRicciの対称性を使わずに**
-
-$
+$$
 \begin{aligned}
 \operatorname{Ric}(Y,Z)
 &=Y^\sigma Z^\nu g^{\rho\alpha}
   g(R(\partial_\rho,\partial_\nu)\partial_\sigma,\partial_\alpha)\\
 &=g^{\rho\alpha}g(R(\partial_\rho,Z)Y,\partial_\alpha)
 \end{aligned}
-$
-
+$$
 を得ます。直交基底では $g(e_a,e_b)=\varepsilon_a\delta_{ab}$、$\varepsilon_a^2=1$ なので、逆計量の成分も $g^{ab}=\varepsilon_a\delta^{ab}$ です。上式をこの基底で表すと
-
-$
+$$
 \operatorname{Ric}(Y,Z)
 =\sum_{a=0}^3\varepsilon_a g(R(e_a,Z)Y,e_a).
-$
-
+$$
 この縮約は任意の基底で定義したテンソルの値なので、直交基底を取り替えても変わりません。次に[曲率テンソルの対交換・反対称性](../../../幾何系/GEO/GEO16/index.md#thm-geo16-curvature-symmetries)を使います。各 $a$ について
-
-$
+$$
 \begin{aligned}
 g(R(e_a,Z)Y,e_a)
 &=\operatorname{Rm}(e_a,Z,Y,e_a)\\
@@ -206,8 +197,7 @@ g(R(e_a,Z)Y,e_a)
 &=-\operatorname{Rm}(e_a,Y,e_a,Z)\\
 &=\operatorname{Rm}(e_a,Y,Z,e_a)
 \end{aligned}
-$
-
+$$
 となります。第二の等号には対交換、第三・第四の等号にはそれぞれ前二変数・後二変数の反対称性を用いました。$\varepsilon_a$ を掛けて和を取ると $\operatorname{Ric}(Y,Z)=\operatorname{Ric}(Z,Y)$ が従い、同時に命題の $\sum_a\varepsilon_a g(R(e_a,Y)Z,e_a)$ という表示も得ます。最後にスカラー曲率の[定義](#def-gr6-ricci-scalar)へ逆計量 $\operatorname{diag}(-1,1,1,1)$ を代入すると、時間方向の負符号を含む表示式になります。$\square$
 <!-- proof-end -->
 
