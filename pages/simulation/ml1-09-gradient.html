@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML1-09 勾配法・二次損失の対話ラボ</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color-scheme:light;background:#f3f6fa;color:#17243a}
+*{box-sizing:border-box}
+body{margin:0}main{max-width:1130px;margin:auto;padding:20px}
+header{margin-bottom:16px}h1{font-size:1.6rem;margin:10px 0}h2{font-size:1.13rem;margin:0 0 12px}
+a{color:#14588f}p{line-height:1.65;margin:.5rem 0}
+.panel{background:white;border:1px solid #c7d4e3;border-radius:10px;padding:18px;margin:12px 0}
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-weight:600}
+input{font:inherit;padding:7px;min-width:0;border:1px solid #7c91a7;border-radius:5px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 0}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid #1f5281;padding:9px 16px;background:white;color:#153c62}
+button.primary{background:#195b91;color:white}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ec9d36;outline-offset:2px}
+.figures{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+svg{display:block;width:100%;height:auto;background:#fff;border:1px solid #e0e7f0;border-radius:6px}
+.small{font-size:.87rem;color:#40566d}.warning{font-weight:600;color:#8c3f03}
+#notice{min-height:2.5rem}#summary{font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid #dde5ef;padding:6px 8px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+@media(max-width:700px){main{padding:10px}.figures{grid-template-columns:1fr}.panel{padding:12px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<a href="../index.html">← DREAM THEATER に戻る</a>
+<h1>ML1-09：二次損失と勾配法の対話ラボ</h1>
+<p>実際の更新式 <strong>次の点 = 現在の点 − 歩幅 × 勾配</strong> をブラウザ内で計算します。等高線と反復履歴を観察し、定理の仮定が破れる歩幅を試せます。計算実験は数学的な収束証明の代わりではありません。</p>
+</header>
+<section class="panel" aria-labelledby="settings">
+<h2 id="settings">計算条件</h2>
+<p>損失：f(x,y) = (m x² + L y²)/2、Hessian = diag(m,L)、0 &lt; m ≤ L。滑らかさ定数は L、理論上の安全域は 0 &lt; α &lt; 2/L です。</p>
+<div class="inputs">
+<label>小さい固有値 m<input id="m" type="number" min="0.01" max="100" step="0.5" value="1"></label>
+<label>大きい固有値 L<input id="L" type="number" min="0.01" max="100" step="0.5" value="4"></label>
+<label>歩幅 α<input id="alpha" type="number" min="0.001" max="20" step="0.05" value="0.25"></label>
+<label>初期座標 x₀<input id="x0" type="number" min="-5" max="5" step="0.5" value="2"></label>
+<label>初期座標 y₀<input id="y0" type="number" min="-5" max="5" step="0.5" value="2"></label>
+</div>
+<div class="actions">
+<button id="safe">歩幅を 1/L にする</button>
+<button id="boundary">境界 2/L にする</button>
+<button id="unsafe">歩幅を 2.4/L にする</button>
+</div>
+<div class="actions">
+<button class="primary" id="step">1反復進める</button>
+<button class="primary" id="play">連続実行</button>
+<button id="pause" disabled>停止</button>
+<button id="reset">リセット</button>
+</div>
+<p id="notice" role="status" aria-live="polite"></p>
+</section>
+<section class="figures" aria-label="再計算した結果">
+<div class="panel">
+<h2>等高線と実際の反復軌道</h2>
+<svg id="contours" viewBox="0 0 520 420" role="img" aria-label="x,y座標上の損失の等高線と番号付き勾配法の軌道"></svg>
+<p class="small">横軸：x（−5〜5）、縦軸：y（−4〜4）。○は開始点、番号のある点は各更新後の座標です。表示範囲外に出た点は切り取られます。</p>
+</div>
+<div class="panel">
+<h2>目的値 f(xₖ,yₖ) の履歴</h2>
+<svg id="history" viewBox="0 0 520 420" role="img" aria-label="反復回数に対する目的値を示す折れ線グラフ"></svg>
+<p class="small">横軸：反復回数 k、縦軸：f の値。縦軸の上限は履歴最大値に合わせます。青の折れ線と点ラベルは同じ計算結果です。</p>
+</div>
+</section>
+<section class="panel">
+<h2>数値の確認</h2>
+<p id="summary" aria-live="polite"></p>
+<table><thead><tr><th>反復 k</th><th>x</th><th>y</th><th>損失 f</th></tr></thead><tbody id="rows"></tbody></table>
+<p class="small">最新8点を表示。反復は最大200回、損失が10¹²を超えると数値発散として停止します。入力を変えると履歴を初期化してから再計算します。外部通信・乱数はありません。</p>
+</section>
+</main>
+<script type="module">
+import {validateConfig,initial,next,safety} from "./ml1-09-gradient-core.mjs";
+const $=id=>document.getElementById(id);
+const fields=["m","L","alpha","x0","y0"];
+const ns="http://www.w3.org/2000/svg";
+let config=null,points=[],timer=null;
+const fmt=n=>Number.isFinite(n)?(Math.abs(n)>=1e6||Math.abs(n)>0&&Math.abs(n)<1e-4?n.toExponential(3):n.toFixed(5)):"—";
+function element(svg,name,attrs,content){
+ const el=document.createElementNS(ns,name);
+ for(const [k,v] of Object.entries(attrs||{}))el.setAttribute(k,String(v));
+ if(content!==undefined)el.textContent=String(content);
+ svg.append(el);return el;
+}
+function stop(){if(timer!==null){clearInterval(timer);timer=null;} $("play").disabled=false;$("pause").disabled=true;}
+function parse(){return validateConfig(Object.fromEntries(fields.map(id=>[id,Number($(id).value)])));}
+function announce(message,isWarning=false){$("notice").textContent=message;$("notice").className=isWarning?"warning":"";}
+function restart(){
+ stop();
+ try{config=parse();points=[initial(config)];$("step").disabled=false;draw();announce(safety(config)+"。入力に応じて軌道を再計算しました。");}
+ catch(e){config=null;points=[];$("step").disabled=true;announce(e.message,true);clear();$("rows").replaceChildren();$("summary").textContent="条件を修正してください。";}
+}
+function clear(){for(const id of ["contours","history"])$(id).replaceChildren();}
+function advance(){
+ if(!config)return false;
+ try{
+   points.push(next(config,points[points.length-1]));draw();
+   const last=points.at(-1);
+   announce(safety(config)+"。反復 "+last.k+"、損失 "+fmt(last.f));
+   if(last.k>=200){stop();$("step").disabled=true;return false;}
+   return true;
+ }catch(e){stop();$("step").disabled=true;announce(e.message,true);return false;}
+}
+function draw(){
+ clear();
+ const svg=$("contours");
+ const sx=x=>260+x*46,sy=y=>210-y*46;
+ element(svg,"rect",{x:0,y:0,width:520,height:420,fill:"#fff"});
+ for(let t=-4;t<=4;t++) {
+   element(svg,"line",{x1:sx(t),y1:20,x2:sx(t),y2:400,stroke:"#e6edf5"});
+   element(svg,"line",{x1:30,y1:sy(t),x2:490,y2:sy(t),stroke:"#e6edf5"});
+ }
+ element(svg,"line",{x1:30,y1:210,x2:490,y2:210,stroke:"#333", "stroke-width":1.2});
+ element(svg,"line",{x1:260,y1:20,x2:260,y2:400,stroke:"#333","stroke-width":1.2});
+ element(svg,"text",{x:487,y:202,"text-anchor":"end",fill:"#333","font-size":13},"x");
+ element(svg,"text",{x:267,y:28,fill:"#333","font-size":13},"y");
+ const level=[.25,.5,1,2,4].map(t=>t*points[0].f);
+ for(let i=0;i<level.length;i++){
+   const rx=46*Math.sqrt(2*level[i]/config.m);
+   const ry=46*Math.sqrt(2*level[i]/config.L);
+   element(svg,"ellipse",{cx:260,cy:210,rx,ry,fill:"none",stroke:"#b9b4d7","stroke-width":1.2,"stroke-dasharray":"5 4"});
+ }
+ const visible=points.filter(p=>Math.abs(p.x)<=5&&Math.abs(p.y)<=4);
+ if(visible.length>1){
+  element(svg,"polyline",{points:visible.map(p=>sx(p.x)+","+sy(p.y)).join(" "),fill:"none",stroke:"#135b96","stroke-width":2.5});
+ }
+ for(const p of visible.slice(-35)){
+  element(svg,"circle",{cx:sx(p.x),cy:sy(p.y),r:p.k===0?6:4.5,fill:p.k===0?"#dc8a2c":"#1169a9",stroke:"#fff","stroke-width":1});
+  if(p.k===0||p.k===points.at(-1).k||p.k<11)
+    element(svg,"text",{x:sx(p.x)+8,y:sy(p.y)-7,fill:"#12334f","font-size":12},p.k===0?"開始":p.k);
+ }
+ if(visible.length!==points.length)element(svg,"text",{x:12,y:402,fill:"#9b4200","font-size":13},"※ 表示範囲外の反復があります");
+ const chart=$("history"),width=460,height=340,x0=40,y0=370;
+ const maxF=Math.max(1e-6,...points.map(p=>p.f)), count=Math.max(1,points.at(-1).k);
+ const hx=k=>x0+width*k/count,hy=f=>y0-height*f/maxF;
+ element(chart,"line",{x1:x0,y1:30,x2:x0,y2:y0,stroke:"#333"});
+ element(chart,"line",{x1:x0,y1:y0,x2:500,y2:y0,stroke:"#333"});
+ element(chart,"text",{x:10,y:22,fill:"#333","font-size":13},"f");
+ element(chart,"text",{x:480,y:393,fill:"#333","font-size":13},"k");
+ element(chart,"text",{x:44,y:26,fill:"#333","font-size":12},fmt(maxF));
+ element(chart,"text",{x:490,y:390,"text-anchor":"end",fill:"#333","font-size":12},count);
+ element(chart,"polyline",{points:points.map(p=>hx(p.k)+","+hy(p.f)).join(" "),fill:"none",stroke:"#136ca6","stroke-width":2.4});
+ const latest=points.at(-1);
+ element(chart,"circle",{cx:hx(latest.k),cy:hy(latest.f),r:5,fill:"#b24c0b"});
+ const body=$("rows");body.replaceChildren();
+ for(const p of points.slice(-8).reverse()){
+   const tr=document.createElement("tr");
+   for(const value of [p.k,fmt(p.x),fmt(p.y),fmt(p.f)]){
+     const td=document.createElement("td");td.textContent=String(value);tr.append(td);
+   }
+   body.append(tr);
+ }
+ $("summary").textContent="k="+latest.k+"、x="+fmt(latest.x)+"、y="+fmt(latest.y)+
+ "、f="+fmt(latest.f)+"。1/L="+fmt(1/config.L)+"、2/L="+fmt(2/config.L)+
+ "、α="+fmt(config.alpha)+"。";
+}
+for(const id of fields)$(id).addEventListener("change",restart);
+$("step").addEventListener("click",advance);
+$("play").addEventListener("click",()=>{
+ if(!config||timer!==null)return;
+ $("play").disabled=true;$("pause").disabled=false;
+ timer=setInterval(()=>{if(!advance())stop();},170);
+});
+$("pause").addEventListener("click",stop);
+$("reset").addEventListener("click",restart);
+$("safe").addEventListener("click",()=>{$("alpha").value=String(1/Number($("L").value));restart();});
+$("boundary").addEventListener("click",()=>{$("alpha").value=String(2/Number($("L").value));restart();});
+$("unsafe").addEventListener("click",()=>{$("alpha").value=String(2.4/Number($("L").value));restart();});
+window.addEventListener("pagehide",stop);
+restart();
+</script>
+</body>
+</html>
