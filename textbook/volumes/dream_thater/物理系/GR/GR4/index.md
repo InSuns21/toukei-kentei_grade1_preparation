@@ -36,17 +36,17 @@ $$
 <!-- definition-example-start: def-gr4-observer-frame -->
 **定義の確認**：Minkowskiの静止観測者。座標 $(x^0,x^1,x^2,x^3)=(ct,x,y,z)$ で計量を $g=\operatorname{diag}(-1,1,1,1)$ とし、
 
-$
+$$
 u=c\partial_0,\qquad e_{(0)}=\partial_0,\qquad
 e_{(i)}=\partial_i\quad (i=1,2,3)
-$
+$$
 
 を選びます。$u^0=c>0$ だから未来向きで、$g(u,u)=-c^2$ です。時間軸は $e_{(0)}=u/c$、空間軸との交差内積は零です。また
 
-$
+$$
 g(e_{(0)},e_{(0)})=-1,\qquad
 g(e_{(i)},e_{(j)})=\delta_{ij}
-$
+$$
 
 となります。四本は座標基底なので一次独立で、定義の全条件を満たします。$\partial_0=\partial/\partial(ct)$ としたため、時刻と距離の単位も混ざりません。
 <!-- definition-example-end -->
@@ -129,25 +129,25 @@ $$
 <!-- definition-example-start: def-gr4-measured-components -->
 **定義の確認**：速度 $3c/5$ の粒子。 前節のMinkowski静止枠を用い、四元速度と運動量を
 
-$
+$$
 U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
 \qquad P=mU
-$
+$$
 
 とします。[SREL3の四元速度の規格化](../../SREL/SREL3/index.md#thm-srel3-four-velocity)をGRの符号へ換えます。直接計算でも
 
-$
+$$
 g(U,U)=-\frac{25c^2}{16}+\frac{9c^2}{16}=-c^2
-$
+$$
 
 となり、$U^0>0$ なので未来向きです。成分射影により
 
-$
+$$
 P^{(0)}=\frac{5mc}{4},\qquad
 p_{(1)}=\frac{3mc}{4},\qquad
 p_{(2)}=p_{(3)}=0,
 \qquad E_{(u)}=\frac{5mc^2}{4}
-$
+$$
 
 を得ます。計量の負号を落として $E=g(P,u)$ と書くと正のエネルギーになりません。
 
