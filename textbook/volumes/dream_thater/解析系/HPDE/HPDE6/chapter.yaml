@@ -1,0 +1,48 @@
+id: "HPDE6"
+title: "Cauchy超曲面・初期データ・関数空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE5
+  - LORG15
+  - LORG20
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 滑らかな空間的Cauchy面の二条件を分離して直接例で検証できる
+  - Cauchy時間関数からlapse・未来向き単位法線・誘導計量を符号付きで計算できる
+  - 束接続を用いた初期変位・法線初期速度と時空上の源を正確に指定できる
+  - 初期データが一階jetを決めることを分解と局所構成で証明できる
+  - normally hyperbolic作用素の主シンボルから空間的初期面の非特性性を証明できる
+  - Pu=fから二階時間微分を初期データ・源・係数で表せるが存在証明にはならないと説明できる
+  - 局所H^{k+1}×H^k初期データを定義し大域Sobolevノルムとの違いを検証できる
+  - 傾いた面と時間再目盛りで裸の時間微分と法線微分を区別できる
+definitions:
+  - { id: HPDE6-DEF-01, name: 滑らかな空間的Cauchy初期面 }
+  - { id: HPDE6-DEF-02, name: 滑らかなCauchyデータと源 }
+  - { id: HPDE6-DEF-03, name: 局所Sobolev初期データ }
+theorems:
+  - { id: HPDE6-PROP-02, name: 法線データは一階の全微分を決める }
+  - { id: HPDE6-PROP-03, name: 空間的初期面の非特性性 }
+  - { id: HPDE6-PROP-04, name: 滑らかな切断は局所Sobolev }
+canonical_examples:
+  - Minkowskiの時刻零面のCauchy性と誘導計量
+  - lapseが定数3の法線規格化
+  - 平坦Klein–Gordon模型の初期データと源
+  - 接続係数付き初期jetの局所実現
+  - 傾いたMinkowski初期面の計量・単位法線・主シンボル
+  - 非コンパクト面で局所H^kだが大域L2でない定数データ
+  - 特性面・時間的非特性面・空間的Cauchy面の相違
+problem_patterns:
+  - HPDE6-NORMAL-LAPSE
+  - HPDE6-DATA-SOURCE
+  - HPDE6-LOCAL-VS-GLOBAL-SOBOLEV
+  - HPDE6-CONNECTION-INITIAL-JET
+  - HPDE6-NONCHARACTERISTIC
+  - HPDE6-SECOND-TIME-JET
+  - HPDE6-REPARAMETRIZATION
+  - HPDE6-TILTED-CAUCHY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

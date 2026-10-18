@@ -41,11 +41,11 @@ chapters:
     title: "塵・完全流体とエネルギー運動量"
   - id: GR9
     path: textbook/volumes/dream_thater/物理系/GR/GR9
-    status: planned
+    status: completed
     title: "物質作用と電磁場の応力テンソル"
   - id: GR10
     path: textbook/volumes/dream_thater/物理系/GR/GR10
-    status: planned
+    status: completed
     title: "Einstein–Hilbert作用の変分"
   - id: GR11
     path: textbook/volumes/dream_thater/物理系/GR/GR11
