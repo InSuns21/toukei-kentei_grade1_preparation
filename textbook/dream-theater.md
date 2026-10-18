@@ -1000,6 +1000,7 @@
 7. [ML1-07 生成的分類・Naive Bayes・LDA/QDA](textbook/volumes/dream_thater/応用系/ML/ML1-07/index.md)
 8. [ML1-08 Logistic/softmax回帰・対数損失](textbook/volumes/dream_thater/応用系/ML/ML1-08/index.md)
 9. [ML1-09 滑らかな凸損失と勾配法](textbook/volumes/dream_thater/応用系/ML/ML1-09/index.md)
+10. [ML1-10 確率的勾配法・ミニバッチ](textbook/volumes/dream_thater/応用系/ML/ML1-10/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

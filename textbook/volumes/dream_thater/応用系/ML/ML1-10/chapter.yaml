@@ -1,0 +1,48 @@
+id: "ML1-10"
+title: "確率的勾配法・ミニバッチ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-09
+  - ML1-03
+  - OPT1
+official_scope: []
+learning_objectives:
+  - 固定有限標本から一様に選んだ勾配の不偏性と分散を直接計算できる
+  - 復元ミニバッチの分散縮小と非復元抽出の有限母集団補正を証明できる
+  - 履歴条件付きの不偏性と二次モーメントを区別できる
+  - 滑らかな損失のSGD一段期待降下を途中式から導出できる
+  - 強凸性と一様分散上界のもと定数歩幅の誤差床上界を求められる
+  - 二標本二次模型の厳密な期待損失差と誤差床を再計算できる
+  - シード固定のSGDラボで歩幅・バッチサイズ・抽出ノイズを比較できる
+definitions:
+  - { id: ML1-10-DEF-01, name: 確率的勾配推定量 }
+  - { id: ML1-10-DEF-02, name: 復元抽出ミニバッチ勾配 }
+  - { id: ML1-10-DEF-03, name: ミニバッチ確率的勾配法 }
+theorems:
+  - { id: ML1-10-THM-01, name: 一様抽出の不偏性と分散 }
+  - { id: ML1-10-THM-02, name: ミニバッチの不偏性と分散の縮小 }
+  - { id: ML1-10-PROP-01, name: 非復元抽出の有限母集団補正 }
+  - { id: ML1-10-LEM-01, name: 新しいミニバッチの条件付き二次モーメント }
+  - { id: ML1-10-THM-03, name: SGDの一段期待降下 }
+  - { id: ML1-10-THM-04, name: 強凸・分散上界下での定数歩幅の誤差床 }
+  - { id: ML1-10-THM-05, name: 二標本二次模型の正確な二乗誤差 }
+canonical_examples:
+  - 二標本での不偏性と正の分散
+  - 復元・非復元抽出の分散比較
+  - 条件付き更新の二値例
+  - 分散の一様上界が失われる強凸模型
+  - 反復の厳密な期待二乗誤差と乱数ラボ
+problem_patterns:
+  - ML1-10-A01
+  - ML1-10-A02
+  - ML1-10-A03
+  - ML1-10-A04
+  - ML1-10-B01
+  - ML1-10-B02
+  - ML1-10-B03
+  - ML1-10-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 1.5 }

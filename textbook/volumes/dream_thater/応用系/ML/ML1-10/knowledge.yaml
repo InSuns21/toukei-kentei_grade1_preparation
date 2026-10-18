@@ -1,0 +1,56 @@
+chapter: ML1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-09
+  - ML1-03
+  - OPT1
+concepts:
+  - id: learning.stochastic-gradient-estimator
+    name: 確率的勾配推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率的勾配推定量）"]
+    requires: [learning.empirical-squared-loss]
+  - id: learning.stochastic-gradient-unbiasedness
+    name: 一様抽出の不偏性と分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一様抽出の不偏性と分散）"]
+    requires: [learning.stochastic-gradient-estimator]
+  - id: learning.minibatch-gradient
+    name: 復元抽出ミニバッチ勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（復元抽出ミニバッチ勾配）"]
+    requires: [learning.stochastic-gradient-estimator]
+  - id: learning.minibatch-variance
+    name: ミニバッチの不偏性と分散の縮小
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ミニバッチの不偏性と分散の縮小）"]
+    requires: [learning.minibatch-gradient, learning.stochastic-gradient-unbiasedness]
+  - id: learning.sgd-algorithm
+    name: ミニバッチ確率的勾配法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ミニバッチ確率的勾配法）"]
+    requires: [learning.minibatch-gradient]
+  - id: learning.sgd-expected-descent
+    name: SGDの一段期待降下
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SGDの一段期待降下）"]
+    requires: [learning.sgd-algorithm, optimization.descent-lemma]
+  - id: learning.sgd-error-floor
+    name: 強凸・分散上界下での定数歩幅の誤差床
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強凸・分散上界下での定数歩幅の誤差床）"]
+    requires: [learning.sgd-expected-descent]
+  - id: learning.sgd-exact-quadratic
+    name: 二標本二次模型の正確な二乗誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二標本二次模型の正確な二乗誤差）"]
+    requires: [learning.sgd-algorithm, learning.minibatch-variance]
