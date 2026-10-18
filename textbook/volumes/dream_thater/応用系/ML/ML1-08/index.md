@@ -14,7 +14,7 @@ $$
 z_i=(1,x_i^{\mathsf T})^{\mathsf T}\in\mathbb R^d
 $$
 
-と定める。したがって係数 $\theta\in\mathbb R^d$ の線形得点 $a_i=\theta^{\mathsf T}z_i$ は切片を含む。標本が独立同分布であると仮定すれば尤度が積に分かれるが、以下の経験損失や微分計算は、観測済み標本を固定した有限和としても定義できる。
+と定める。したがって係数 $\theta\in\mathbb R^d$ の線形得点 $a_i=\theta^{\mathsf T}z_i$ は切片を含む。標本が独立同分布であると仮定すれば、[独立標本の尤度因数分解](../../../解析系/F0/F0-00P7/index.md#prop-f0-00p7-iid-likelihood-factorization)により尤度が積に分かれる。ただし以下の経験損失や微分計算は、観測済み標本を固定した有限和としても定義できる。
 
 ## 2. 二値の場合：logistic回帰と対数損失
 
@@ -269,7 +269,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-08-softmax -->
-**定義の確認**。$K=3,p=1$、$z=(1,1)^{\mathsf T}$、$\theta_0=(0,0)^{\mathsf T}$、$\theta_1=(\log2,0)^{\mathsf T}$、$\theta_2=(0,\log3)^{\mathsf T}$ とする。基底 $\mathbb R^2$ の座標で内積を取ると得点は $(0,\log2,\log3)$。指数は $(1,2,3)$、分母は6なので
+**定義の確認**。$K=3,p=1$、$z=(1,1)^{\mathsf T}$、$\theta_0=(0,0)^{\mathsf T}$、$\theta_1=(\log2,0)^{\mathsf T}$、$\theta_2=(0,\log3)^{\mathsf T}$ とする。これらの列ベクトルは同じ $\mathbb R^2$ の標準基底で表示している。得点は係数と拡張入力の対応成分を掛けて足すので、
+
+$$
+\begin{aligned}
+a_0&=0\cdot1+0\cdot1=0,\\
+a_1&=(\log2)\cdot1+0\cdot1=\log2,\\
+a_2&=0\cdot1+(\log3)\cdot1=\log3.
+\end{aligned}
+$$
+
+したがって指数は $(1,2,3)$、共通の分母は $1+2+3=6$ となる。定義の各分子と分母へ代入して
 
 $$
 (q_\Theta(0\mid z),q_\Theta(1\mid z),q_\Theta(2\mid z))
@@ -659,7 +669,7 @@ $$
 \begin{pmatrix}1&2\\2&4\end{pmatrix}.
 $$
 
-行列は $\frac14zz^{\mathsf T}$ で、$z\ne0$ なので階数1である。非負の重み付き列ベクトルとその転置の積だから半正定値だが、2次元で正定値ではない。
+この行列は $\frac14zz^{\mathsf T}$ である。任意の $v\in\mathbb R^2$ に作用させると $zz^{\mathsf T}v=z(z^{\mathsf T}v)$ なので、像は $z$ の張る一次元空間に含まれる。一方 $v=z$ を選べば $z^{\mathsf T}z=5>0$ で像は零ではないから、階数はちょうど1である。二次形式は $v^{\mathsf T}\nabla^2L_1(0)v=(z^{\mathsf T}v)^2/4\ge0$ となるが、例えば $v=(2,-1)^{\mathsf T}\ne0$ では0なので、2次元で正定値ではない。
 <!-- solution-end -->
 
 ### ML1-08-A04 三クラスsoftmaxと共通シフト
@@ -712,7 +722,15 @@ $$
 =\frac18\begin{pmatrix}2&1\\1&1\end{pmatrix}.
 $$
 
-対角先頭成分 $2/8>0$、行列式 $(2-1)/64=1/64>0$ なので正定値。任意の有限 $\theta$ でも $q_i(1-q_i)>0$ である。$z_1,z_2$ は線形独立だから非零 $v$ に対して $(z_1^{\mathsf T}v)^2$ と $(z_2^{\mathsf T}v)^2$ の少なくとも一方が正となり、Hessian二次形式は正である。ラベルはHessianには直接現れない。
+正定値性は行列式の符号を覚えて使う代わりに、定義どおり二次形式を調べても判定できる。任意の非零 $v=(v_1,v_2)^{\mathsf T}$ に対して
+
+$$
+8v^{\mathsf T}\nabla^2L_2(0)v
+=2v_1^2+2v_1v_2+v_2^2
+=v_1^2+(v_1+v_2)^2>0
+$$
+
+だから正定値である。任意の有限 $\theta$ でも $q_i(1-q_i)>0$ である。$z_1,z_2$ は線形独立だから非零 $v$ に対して $(z_1^{\mathsf T}v)^2$ と $(z_2^{\mathsf T}v)^2$ の少なくとも一方が正となり、Hessian二次形式は正である。ラベルはHessianには直接現れない。
 <!-- solution-end -->
 
 ### ML1-08-B02 softmax勾配と二階微分の方向
@@ -802,10 +820,11 @@ $$
 $$
 Z=\begin{pmatrix}1&-1\\1&1\end{pmatrix},
 \qquad
-\det Z=2\ne0
+Zv=\begin{pmatrix}v_1-v_2\\v_1+v_2\end{pmatrix}
+\quad\bigl(v=(v_1,v_2)^{\mathsf T}\bigr)
 $$
 
-は列フルランクである。任意の有限 $\theta_1$ では二つの重み $q_i(1-q_i)>0$。従って[二値logistic損失の勾配とHessian](#thm-ml1-08-binary-derivatives)の二次形式は非零方向に対して正となる。正定値と最小点存在は矛盾しない。
+について、$Zv=0$ なら $v_1-v_2=0$ かつ $v_1+v_2=0$ であり、加減すると $v_1=v_2=0$ となる。ゆえに $Z$ の核は $\{0\}$ で、二列は線形独立、つまり列フルランクである。任意の有限 $\theta_1$ では二つの重み $q_i(1-q_i)>0$。従って[二値logistic損失の勾配とHessian](#thm-ml1-08-binary-derivatives)の二次形式は非零方向に対して正となる。正定値と最小点存在は矛盾しない。
 
 **（3）** $\lambda>0$、罰則は切片も含む $\lambda\|\theta_1\|^2/2$ で、損失は非負・連続、罰則は係数ノルムを無限大へ送ると発散する。したがって最小点が存在する。Hessianには $\lambda I_2$ が加わり全方向で正となるので厳密凸であり、最小点は一意である。[二乗罰則付き定理](#thm-ml1-08-ridge-existence)の仮定をすべて満たす。ここでは基準クラスの係数を固定し、softmaxの共通シフトの曖昧さも取り除いた。
 
