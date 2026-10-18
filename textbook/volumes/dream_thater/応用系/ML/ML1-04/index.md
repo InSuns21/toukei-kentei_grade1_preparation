@@ -10,7 +10,7 @@
 
 この章では、実数の有限標本を固定して、行列による計算から最小二乗解の存在・最適性・一意性を調べる。標本の独立同分布性や雑音の正規性は仮定しない。ここでの結論は**観測されたデータを固定した最適化の定理**であり、推定量の統計的性質とは区別する。
 
-使う線形代数は、[実行列の特異値分解](../../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)、[階数と非零特異値の関係](../../../../基礎科目/F0/F0-00F2/index.md#prop-f0-00f2-rank-singular-values)、および[実対称行列のスペクトル定理](../../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)である。以下の行列はすべて有限次元実行列とする。
+使う線形代数は、[実行列の特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)、[階数と非零特異値の関係](../../../基礎科目/F0/F0-00F2/index.md#prop-f0-00f2-rank-singular-values)、および[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)である。以下の行列はすべて有限次元実行列とする。
 
 ## 2. 設計行列と平方損失
 
@@ -81,13 +81,12 @@ $$
 \frac{\partial L}{\partial\beta_j}
 &=\frac1{2n}\sum_{i=1}^n
 2\left(\sum_{k=1}^pX_{ik}\beta_k-y_i\right)X_{ij}\\
-&=\frac1n\sum_{i=1}^p0
-+\frac1n\sum_{i=1}^nX_{ij}(X\beta-y)_i\\
+&=\frac1n\sum_{i=1}^nX_{ij}(X\beta-y)_i\\
 &=\frac1n\bigl[X^{\mathsf T}(X\beta-y)\bigr]_j.
 \end{aligned}
 $$
 
-ここで第2行の零和は導出には不要なので、要するに各 $j$ に対して最後の有限和だけが残る。$X^{\mathsf T}$ は $p\times n$、$X\beta-y$ は $n\times1$ で、勾配は $p\times1$ である。
+したがって各 $j$ に対して勾配の成分は最後の有限和である。$X^{\mathsf T}$ は $p\times n$、$X\beta-y$ は $n\times1$ で、勾配は $p\times1$ である。
 
 <a id="thm-ml1-04-normal-equations"></a>
 
@@ -212,12 +211,12 @@ $$
 
 ### 証明の見取り図
 
-[特異値分解](../../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)で、$X$ を「入力側の座標変更・方向別の伸縮・出力側の座標変更」に分ける。非零特異値に対応する方向では最適な係数を割り算で決められ、零特異値の方向は予測に全く影響しない。こうして一つ解を構成する。適合値の一意性は、二つの最小点の差が $X$ の核に入ることから従う。
+[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)で、$X$ を「入力側の座標変更・方向別の伸縮・出力側の座標変更」に分ける。非零特異値に対応する方向では最適な係数を割り算で決められ、零特異値の方向は予測に全く影響しない。こうして一つ解を構成する。適合値の一意性は、二つの最小点の差が $X$ の核に入ることから従う。
 
 <!-- proof-start -->
 ### 証明
 
-$X$ の階数を $q$ とし、[実特異値分解](../../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を $X=U\Sigma V^{\mathsf T}$ と取る。$U\in\mathbb R^{n\times n}$、$V\in\mathbb R^{p\times p}$ は直交行列、$\Sigma\in\mathbb R^{n\times p}$ の対角に正の値 $s_1,\ldots,s_q$ があり、残りは0である。$c=U^{\mathsf T}y$、$b=V^{\mathsf T}\beta$ と置くと、直交行列は長さを保つので
+$X$ の階数を $q$ とし、[実特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を $X=U\Sigma V^{\mathsf T}$ と取る。$U\in\mathbb R^{n\times n}$、$V\in\mathbb R^{p\times p}$ は直交行列、$\Sigma\in\mathbb R^{n\times p}$ の対角に正の値 $s_1,\ldots,s_q$ があり、残りは0である。$c=U^{\mathsf T}y$、$b=V^{\mathsf T}\beta$ と置くと、直交行列は長さを保つので
 
 $$
 \begin{aligned}
