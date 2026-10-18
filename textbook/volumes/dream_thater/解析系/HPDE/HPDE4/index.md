@@ -2,7 +2,7 @@
 
 [HPDE3の束値超関数](../HPDE3/index.md#def-hpde3-distribution-section)では、滑らかな切断を積分によって超関数と見なし、[密度値双対試験切断](../HPDE3/index.md#def-hpde3-test-dual-density)を相手にしました。しかし「超関数を微分する」とき、元のベクトルと試験側の双対ベクトルはどのように微分されるのでしょうか。平坦な実数値関数の $u'(\varphi)=-u(\varphi')$ をそのまま時空上の束値関数に書くと、枠の変化、密度のJacobian、複素共役の有無が見えなくなります。
 
-本章では、各点の異なるベクトルを比較する**接続**を局所表示から作り、微分を密度値双対試験切断へ移す**形式的双対**をまず定義します。その後、正定値Hermite束計量と正の密度を加えた場合に限り、複素共役を伴う**形式的随伴**を定義します。「双対」と「随伴」を一つの記号で済ませないことが、後のnormally hyperbolic作用素・Green作用素に必要な出発点です。
+本章では、各点の異なるベクトルを比較する**接続**を局所表示から作り、微分を密度値双対試験切断へ移す**形式的双対**をまず定義します。その後、各点のベクトルに内積を与える道具と正の密度を加えた場合に限り、複素共役を伴う**形式的随伴**を定義します。「双対」と「随伴」を一つの記号で済ませないことが、後のnormally hyperbolic作用素・Green作用素に必要な出発点です。
 
 以下、$M$ は境界のない滑らかなHausdorff・第二可算な $d$ 次元多様体、$E,F\to M$ は有限ランクの滑らかな実または複素ベクトル束とします。[HPDE3の束と双対束の局所表示](../HPDE3/index.md#def-hpde3-test-dual-density)を使います。時空としてはLorentz計量を入れてよいですが、**形式的双対自体には計量・時間向き・大域双曲性を要求しません**。
 
@@ -168,14 +168,14 @@ $$
 
 [HPDE3の密度値双対試験切断](../HPDE3/index.md#def-hpde3-test-dual-density)は積分用の密度も含みます。局所座標で $\psi=\sum_b\psi_b f^b\otimes|dx|$ と書けることから、係数が変わるときに積分要素も変わる問題は最初から含まれています。
 
-$P:\Gamma(M,E)\to\Gamma(M,F)$ を**有限階線形微分作用素**といいます。これは局所座標と局所枠を固定すると、ある非負整数 $m$ と滑らかな係数行列 $A_\alpha(x)$ により
+切断の成分を有限回まで微分し、滑らかな係数を掛けて足す線形写像を考えます。具体的に、局所座標と局所枠を固定すると、写像 $P:\Gamma(M,E)\to\Gamma(M,F)$ がある非負整数 $m$ と滑らかな係数行列 $A_\alpha(x)$ により
 
 $$
 (Ps)^b=\sum_{a=1}^{r}\sum_{|\alpha|\le m}
 (A_\alpha)^b{}_a\,\partial^\alpha s^a
 $$
 
-と書ける写像です。多重添字 $\alpha$ と $\partial^\alpha$ は[GPDE2の多重添字](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)を使っています。この式は**出力成分 $b$ ごとに入力の微分がどう寄与するか**を並べたもので、行列の各列は入力基底に作用させた結果から決まります。
+と書けるものを**有限階線形微分作用素**と呼びます。多重添字 $\alpha$ と $\partial^\alpha$ は[GPDE2の多重添字](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)を使っています。この式は**出力成分 $b$ ごとに入力の微分がどう寄与するか**を並べたもので、行列の各列は入力基底に作用させた結果から決まります。
 
 <a id="def-hpde4-formal-transpose"></a>
 <!-- formal-statement-start -->
@@ -201,7 +201,16 @@ $$
 <a id="thm-hpde4-transpose-formula"></a>
 <!-- formal-statement-start -->
 > **定理（形式的双対の存在・一意性と局所公式）**  
-> [形式的双対の定義](#def-hpde4-formal-transpose)の仮定を満たす任意の $m$ 階作用素 $P$ に対し、形式的双対 $P^t$ は一意に存在する。同一の局所座標・枠で $P=\sum_{|\alpha|\le m}A_\alpha\partial^\alpha$、$\psi=(\psi_b)_{b}\otimes|dx|$ と書くと、その密度係数列は
+> [形式的双対の定義](#def-hpde4-formal-transpose)の仮定を満たす任意の有限階線形微分作用素 $P$ に対し、形式的双対 $P^t$ は一意に存在する。
+>
+> 同一の局所座標と局所枠で $P$ と試験切断 $\psi$ を次のように表す。
+>
+> $
+> P=\sum_{|\alpha|\le m}A_\alpha\partial^\alpha,
+> \qquad \psi=(\psi_b)_{b}\otimes|dx|
+> $
+>
+> このとき、形式的双対の密度係数列は
 >
 > $$
 > (P^t\psi)_a
@@ -284,7 +293,7 @@ $$
 \int_M X(f)\mu=-\int_M f\,\operatorname{div}_\mu X\,\mu
 $$
 
-が、各座標で積分の変数変換に対して不変であることを用います。右辺の係数を同じ恒等式から一意に復元できるため、上の表示も座標によらないと分かります。$\mu=d\mathrm{vol}_g$ の選択は[HPDE3のLorentz体積密度](../HPDE3/index.md#prop-hpde3-metric-density)から得られます。
+が、各座標で積分の変数変換に対して不変であることを用います。すべてのコンパクト台関数 $f$ に対する積分恒等式を満たす滑らかな係数は一意なので、上の表示も座標によらないと分かります。$\mu=d\mathrm{vol}_g$ の選択は[HPDE3のLorentz体積密度](../HPDE3/index.md#prop-hpde3-metric-density)から得られます。
 
 <!-- definition-example-start: def-hpde4-divergence -->
 ### 直接例：密度によって発散は変わる
@@ -404,7 +413,13 @@ Hermite束計量と正の密度を選ぶと、切断 $t$ を使って密度値�
 > =j_{h_E}(P^*t)\otimes\mu.
 > $$
 >
-> 零次の束写像 $A:E\to F$ の随伴を $A^\dagger$ と書けば、局所枠での束計量行列 $H_E,H_F$ に対し $A^\dagger=H_E^{-1}A^*H_F$ である（ここで右辺の $A^*$ は行列の共役転置）。 
+> 零次の束写像 $A:E\to F$ の随伴を $A^\dagger$ と書く。局所枠での束計量行列を $H_E,H_F$ とすれば
+>
+> $
+> A^\dagger=H_E^{-1}A^*H_F
+> $
+>
+> である。右辺の $A^*$ は行列の共役転置を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -476,7 +491,7 @@ P^*v=-(1-ix)v'+(-1+ix+i-2i)v
 =-(1-ix)v'+(-1+ix-i)v.
 $$
 
-対照的に[形式的双対の局所公式](#thm-hpde4-transpose-formula)からは $P^t\varphi=-\partial_x((1+ix)\varphi)+2i\varphi$（標準密度の係数として）であり、共役も $\rho$ への依存も現れ方が異なります。
+対照的に[形式的双対の存在・一意性と局所公式](#thm-hpde4-transpose-formula)からは $P^t\varphi=-\partial_x((1+ix)\varphi)+2i\varphi$（標準密度の係数として）であり、共役も $\rho$ への依存も現れ方が異なります。
 <!-- definition-example-end -->
 
 ## 6. どのとき $\nabla_X^*=-\nabla_X-\operatorname{div}X$ か
@@ -488,7 +503,7 @@ X(h_E(s,t))
 =h_E(\nabla_Xs,t)+h_E(s,\nabla_Xt)
 $$
 
-が成り立つ接続を**計量両立接続**と呼びます。これは束計量と接続を同時に与えたときの**追加条件**です。
+が成り立つ接続を**計量両立接続**と呼びます。これは束計量と接続を同時に与えたときに、別途確かめる性質です。
 
 <a id="prop-hpde4-metric-connection-adjoint"></a>
 <!-- formal-statement-start -->
@@ -565,7 +580,7 @@ $$
 -\int_a^b u(x)\overline{v'(x)}\,dx.
 $$
 
-したがって境界値を制約しない関数全体では $\partial_x^*=-\partial_x$ という**積分恒等式は成立しません**。さらに、形式的随伴と、作用域・境界条件を指定したHilbert空間上の随伴作用素は同じ概念ではありません。後者の議論では関数空間・作用域が不可欠であり、ここでは混同しません。
+したがって境界値を制約しない関数全体では $\partial_x^*=-\partial_x$ という**積分恒等式は成立しません**。この形式的な部分積分恒等式と、関数空間・作用域・境界条件を決めたあとの積分恒等式とを無条件に同一視してはいけません。ここでは境界条件付きの問題は扱いません。
 
 ## 7. 束値超関数へ作用素を拡張する
 
@@ -840,7 +855,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-まず一階係数 $1+i$ は定数なので、[形式的双対の局所公式](#thm-hpde4-transpose-formula)から
+まず一階係数 $1+i$ は定数なので、[形式的双対の存在・一意性と局所公式](#thm-hpde4-transpose-formula)から
 
 $$
 P^t(\varphi|dx|)
@@ -866,7 +881,7 @@ $$
 
 微分係数が $1+i$ と $-(1-i)$ で異なるので $P\ne P^*$ です。この違いは形式的双対との共役だけでなく、密度 $e^x$ の導関数からも生じています。
 
-最後に[超関数への延長](#prop-hpde4-distribution-extension)と[基準密度付き点源の定義](../HPDE3/index.md#def-hpde3-point-source)を使います。$\mu_0=e^0|dx|=|dx|$ なので
+最後に[線形微分作用素の超関数への延長](#prop-hpde4-distribution-extension)と[基準密度に関する点源](../HPDE3/index.md#def-hpde3-point-source)の定義を使います。$\mu_0=e^0|dx|=|dx|$ なので
 
 $$
 \begin{aligned}
