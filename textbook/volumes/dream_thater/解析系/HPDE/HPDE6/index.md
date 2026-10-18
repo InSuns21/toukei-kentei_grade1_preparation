@@ -42,40 +42,18 @@ $$
 
 面上で「速度」を測るには、面に直交した未来向き時間的ベクトルを長さ $-1$ に規格化します。$\nabla^gT$ は $g(\nabla^gT,X)=dT(X)$ を満たす勾配です。レベル面に接する $X$ には $dT(X)=0$ なので、勾配は面に直交します。$T$ は未来へ増加するため、その勾配は過去向きです。
 
-<a id="prop-hpde6-normal-lapse"></a>
-<!-- formal-statement-start -->
-> **命題（未来単位法線とlapse）**  
-> $T$ を滑らかなCauchy temporal function、$\Sigma_t=T^{-1}(t)$ をそのレベル面とする。$Q=-g(\nabla^gT,\nabla^gT)>0$ とおくと、未来向き単位法線 $N$ とlapse $\alpha$ は
+[LORG20の単位法線命題](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を初期値の記法で使います。$Q=-g(\nabla^gT,\nabla^gT)>0$ とおけば
 $$
-N=-Q^{-1/2}\nabla^gT,\qquad \alpha=Q^{-1/2}
+N=-Q^{-1/2}\nabla^gT,\qquad
+\alpha=Q^{-1/2},\qquad
+\partial_t=\alpha N.
 $$
-> で与えられる。直交分割座標では $\partial_t=\alpha N$、$g(N,N)=-1$、$dT(N)=1/\alpha$ が成り立つ。
-<!-- formal-statement-end -->
-
-これは[LORG20の単位法線命題](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を初期値の記法へ移したものです。ここでは後の速度データに必要な規格化をもう一度計算します。
-
-### 計算の見取り図
-
-勾配は過去向きなので負号で未来向きにし、$-g(\nabla^gT,\nabla^gT)$ の平方根で割って規格化します。さらに時間座標に沿った微分と法線微分は、lapseだけ異なります。
-
-<!-- proof-start -->
-### 証明
-
-$Q>0$ より $N$ は定義でき、$N$ は未来向きです。法線長は
+符号と規格化を確認すると
 $$
-g(N,N)=Q^{-1}g(\nabla^gT,\nabla^gT)=-1.
+g(N,N)=Q^{-1}(-Q)=-1,\qquad
+dT(N)=g(\nabla^gT,N)=Q^{1/2}=\alpha^{-1}.
 $$
-また
-$$
-dT(N)=g(\nabla^gT,N)=-Q^{-1/2}(-Q)=Q^{1/2}=\alpha^{-1}.
-$$
-[LORG20の直交分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)で $\partial_t$ は法線方向を向き $dT(\partial_t)=1$ です。したがって $\partial_t=cN$ と置けば
-$$
-1=dT(\partial_t)=c\,dT(N)=c/\alpha
-\quad\Longrightarrow\quad c=\alpha.
-$$
-これで全ての式が従います。
-<!-- proof-end -->
+$\partial_t$ が面に直交し $dT(\partial_t)=1$ となる直交分割なので、$\partial_t=cN$ と置いたとき $1=c/\alpha$、すなわち $c=\alpha$ です。ここでの導出は既習の命題を初期データの用途へ当てはめた検算です。
 
 例えば $g=-4dt^2+9dx^2$ なら $g^{tt}=-1/4$ から $Q=1/4$、$\alpha=2$、$N=\tfrac12\partial_t$ です。$\partial_t$ を単位法線と思い込むと、初速度が二倍ずれます。
 
@@ -334,7 +312,7 @@ $$
 - 問題：$g=-9dt^2+4dx^2$、$T=t$、$u=t^2+x$（自明実直線束・通常接続）とする。未来単位法線 $N$、lapse $\alpha$、$u_0,u_1$ を $t=0$ で求めよ。
 
 <!-- solution-start -->
-**詳細解答**。逆計量の時刻成分は $g^{tt}=-1/9$ なので $\nabla^gT=-\tfrac19\partial_t$、$Q=1/9$ です。[単位法線命題](#prop-hpde6-normal-lapse)により
+**詳細解答**。逆計量の時刻成分は $g^{tt}=-1/9$ なので $\nabla^gT=-\tfrac19\partial_t$、$Q=1/9$ です。[単位法線命題](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)により
 $$
 \alpha=Q^{-1/2}=3,\qquad
 N=-Q^{-1/2}\nabla^gT=\tfrac13\partial_t.
@@ -475,7 +453,7 @@ $$
 $$
 Q=-g(\nabla^gT,\nabla^gT)=1-a^2
 $$
-とすると、[法線公式](#prop-hpde6-normal-lapse)より
+とすると、[法線公式](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)より
 $$
 \alpha=(1-a^2)^{-1/2},\qquad
 N=\frac{\partial_t-a\partial_x}{\sqrt{1-a^2}}.
