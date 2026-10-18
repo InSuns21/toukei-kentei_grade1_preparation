@@ -69,7 +69,7 @@ $m=0$ の点は入力の周辺分布のもとで確率0しか持たず、そこ�
 
 ## 3. Naive Bayes：特徴ごとの積へ分解する
 
-高次元の $f_k(x_1,\ldots,x_p)$ をそのまま推定するのは難しい。[相互独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-pairwise-mutual-independence)を、$Y=k$ で条件付けた各クラスの確率分布に課す。[独立性と積測度の同値](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)をこの条件付き分布に適用すると、二座標の同時分布は周辺分布の積になる。三座標以上でも相互独立性を用いて同様に積へ分けられる。各座標が連続ならLebesgue測度、離散なら計数測度を基準にし、その積測度に関する同時密度を考えれば、一次元密度の積が使える。ここではその意味を式で定義し、仮定が失敗する例も調べる。
+高次元の $f_k(x_1,\ldots,x_p)$ をそのまま推定するのは難しい。[相互独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-pairwise-mutual-independence)を、$Y=k$ で条件付けた各クラスの確率分布に課す。[独立性と積測度の同値](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)をこの条件付き分布に適用すると、二座標の同時分布は周辺分布の積になる。$p$ 座標の場合も、相互独立性の定義から任意の長方形 $A_1\times\cdots\times A_p$ の確率は $\prod_{j=1}^p P(X_j\in A_j\mid Y=k)$ であり、この長方形での一致が積測度としての同時分布を決める。各座標が連続ならLebesgue測度、離散なら計数測度を基準にし、その積測度に関する同時密度を考えれば、一次元密度の積が使える。ここではその意味を式で定義し、仮定が失敗する例も調べる。
 
 <a id="def-ml1-07-naive-bayes"></a>
 
@@ -215,14 +215,23 @@ $$
 =\sum_jz_j^2.
 $$
 
-Jacobianの絶対値は $|\det(QD^{1/2})|=\prod_j\sqrt{d_j}=\sqrt{\det\Sigma}$。よって密度と体積要素の積は $\prod_j e^{-z_j^2/2}\,dz_j/\sqrt{2\pi}$ となる。一変数積分の値を確認するため $I=\int_{\mathbb R}e^{-t^2/2}dt>0$ とおくと、非負関数の重積分を極座標に変え
+Jacobianの絶対値は $|\det(QD^{1/2})|=\prod_j\sqrt{d_j}=\sqrt{\det\Sigma}$。よって密度と体積要素の積は $\prod_j e^{-z_j^2/2}\,dz_j/\sqrt{2\pi}$ となる。一変数積分の値を確認するため $I=\int_{\mathbb R}e^{-t^2/2}dt>0$ とおく。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)により二重積分を作り、$u=r\cos\theta,v=r\sin\theta$（Jacobianの絶対値 $r$）と極座標に変えると
 
 $$
 I^2=\int_{\mathbb R^2}e^{-(u^2+v^2)/2}\,du\,dv
-=2\pi\int_0^\infty e^{-r^2/2}r\,dr=2\pi.
+=\int_0^{2\pi}\!\int_0^\infty e^{-r^2/2}r\,dr\,d\theta
+=2\pi\left[-e^{-r^2/2}\right]_{r=0}^{r=\infty}=2\pi.
 $$
 
-従って $I=\sqrt{2\pi}$ であり積分は1。標準正規の各 $Z_j$ は対称性から平均0、部分積分で $\int z_j^2e^{-z_j^2/2}\,dz_j=I$ だから分散1、異なる $i,j$ の積の期待値は0である。$X=\mu+QD^{1/2}Z$ へ戻せば
+従って $I=\sqrt{2\pi}$ であり積分は1。標準正規の各 $Z_j$ は対称性から平均0である。また、境界項 $te^{-t^2/2}\to0$（$|t|\to\infty$）を用いて部分積分すると
+
+$
+\int_{\mathbb R}t^2e^{-t^2/2}\,dt
+=\left[-te^{-t^2/2}\right]_{-\infty}^{\infty}
++\int_{\mathbb R}e^{-t^2/2}\,dt=I.
+$
+
+従って $E[Z_j^2]=1$ であり、各 $Z_j$ は平均0・分散1である。異なる $i,j$ の積の期待値は、積密度と各平均0から0になる。$X=\mu+QD^{1/2}Z$ へ戻せば
 
 $$
 E[X]=\mu,\quad
