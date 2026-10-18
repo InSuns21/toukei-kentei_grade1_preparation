@@ -113,7 +113,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr4-measured-components -->
-**定義の確認：速度 $3c/5$ の粒子。** 前節のMinkowski静止枠を用い、$U=(5c/4,3c/4,0,0)$、$P=mU$ とします。[SREL3の四元速度の規格化](../../SREL/SREL3/index.md#thm-srel3-four-velocity)をGRの符号へ換えると $g(U,U)=-c^2$ です。実際、$-25c^2/16+9c^2/16=-c^2$、$U^0>0$ で未来向きです。$P^{(0)}=5mc/4$、$p_{(1)}=3mc/4$、$p_{(2)}=p_{(3)}=0$ なので $E_{(u)}=5mc^2/4$ となります。計量の負号を落として $E=g(P,u)$ と書くと正のエネルギーになりません。
+**定義の確認：速度 $3c/5$ の粒子。** 前節のMinkowski静止枠を用い、四元速度と運動量を
+
+$
+U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
+\qquad P=mU
+$
+
+とします。[SREL3の四元速度の規格化](../../SREL/SREL3/index.md#thm-srel3-four-velocity)をGRの符号へ換えます。直接計算でも
+
+$
+g(U,U)=-\frac{25c^2}{16}+\frac{9c^2}{16}=-c^2
+$
+
+となり、$U^0>0$ なので未来向きです。成分射影により
+
+$
+P^{(0)}=\frac{5mc}{4},\qquad
+p_{(1)}=\frac{3mc}{4},\qquad
+p_{(2)}=p_{(3)}=0,
+\qquad E_{(u)}=\frac{5mc^2}{4}
+$
+
+を得ます。計量の負号を落として $E=g(P,u)$ と書くと正のエネルギーになりません。
 
 **光の直接例。** 同じ枠で $K=(\omega_0/c,\omega_0/c,0,0)$（$\omega_0>0$）なら $g(K,K)=0$ かつ未来向き・非零です。$-g(K,u)=-g(K,(c,0,0,0))=\omega_0$ となり、周波数の正値性と単位が確認できます。
 <!-- definition-example-end -->
