@@ -594,7 +594,52 @@ $\mathbf E=0$、$\mathbf B=B\mathbf e_z$ のMinkowski枠で $T^{\mu\nu}$ の対�
 $S=S_{\rm EM}+(1/c)\int\sqrt{-g}J^\nu A_\nu d^4x$ を考える。$J$ を固定し、コンパクト台の $\delta A_\nu$ によって運動方程式を再導出せよ。さらに $\nabla_\nu J^\nu=0$ が必要な理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\delta F_{\mu\nu}=2\nabla_{[\mu}\delta A_{\nu]}$ より反対称性で $\delta S_{\rm EM}=-(\mu_0c)^{-1}\int\sqrt{-g}F^{\mu\nu}\nabla_\mu\delta A_\nu d^4x$。部分積分し、境界項を消すと $(\mu_0c)^{-1}\int\sqrt{-g}(\nabla_\mu F^{\mu\nu})\delta A_\nu d^4x$。相互作用から $c^{-1}\int\sqrt{-g}J^\nu\delta A_\nu d^4x$ を足し、任意変分の係数を零とすると $\nabla_\mu F^{\mu\nu}=-\mu_0J^\nu$ です。さらに $\nabla_\nu\nabla_\mu F^{\mu\nu}=\tfrac12[\nabla_\nu,\nabla_\mu]F^{\mu\nu}=0$（Ricciテンソルの対称性と $F$ の反対称性）だから、発散をとって $-\mu_0\nabla_\nu J^\nu=0$。$\mu_0>0$ により電流保存を得ます。
+**詳細解答。** 計量と $J^\nu$ は固定し、$A_\nu$ のみを動かします。まず
+
+$$
+\delta F_{\mu\nu}
+=\nabla_\mu\delta A_\nu-\nabla_\nu\delta A_\mu
+$$
+
+なので、$F^{\mu\nu}$ の反対称性から
+
+$$
+\delta S_{\rm EM}
+=-\frac1{\mu_0c}\int_\Omega\sqrt{-g}\,
+F^{\mu\nu}\nabla_\mu\delta A_\nu\,d^4x.
+$$
+
+コンパクト台の変分に対して共変発散の積の微分を積分し、境界項を消すと
+
+$$
+\delta S_{\rm EM}
+=\frac1{\mu_0c}\int_\Omega\sqrt{-g}\,
+(\nabla_\mu F^{\mu\nu})\delta A_\nu\,d^4x.
+$$
+
+相互作用は $c^{-1}\int\sqrt{-g}J^\nu\delta A_\nu d^4x$ を与えます。任意の $\delta A_\nu$ の係数が零となる条件は
+
+$$
+\nabla_\mu F^{\mu\nu}=-\mu_0J^\nu
+$$
+
+です。さらに $F^{\mu\nu}=-F^{\nu\mu}$ とダミー添字交換から
+
+$$
+\nabla_\nu\nabla_\mu F^{\mu\nu}
+=\frac12(\nabla_\nu\nabla_\mu-\nabla_\mu\nabla_\nu)F^{\mu\nu}=0.
+$$
+
+最後の零は共変微分の交換子の曲率項を縮約すると、対称なRicciテンソルと反対称な $F$ の縮約になり消えるためです。よって
+
+$$
+-\mu_0\nabla_\nu J^\nu
+=\nabla_\nu\nabla_\mu F^{\mu\nu}=0,
+\qquad
+\nabla_\nu J^\nu=0
+$$
+
+を得ます。最後の等号には $\mu_0>0$ を使いました。
 <!-- solution-end -->
 
 <a id="ex-gr9-b04"></a>
