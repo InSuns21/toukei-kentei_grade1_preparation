@@ -1,0 +1,46 @@
+id: "HPDE7"
+title: "エネルギー流と発散恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE6
+  - HPDE4
+  - LORG20
+official_scope: []
+learning_objectives:
+  - 実スカラー波動の応力エネルギーテンソルを構成し初期面上の非負性を検算できる
+  - 源と変動ポテンシャルを含む応力テンソル発散を積の微分から導ける
+  - 乗数と変形テンソルを定義しエネルギー電流の発散恒等式を証明できる
+  - 区分的滑らかな時空領域でStokes公式の上面・下面・側面の符号を検算できる
+  - 過去光的な外向き側面のフラックスを二乗和に分解して符号を説明できる
+  - 正定値束計量・互換接続・自己随伴ポテンシャルの追加仮定と曲率補正を導ける
+  - 時間的側面や負ポテンシャルに無条件の非負性を主張できない理由を示せる
+definitions:
+  - { id: HPDE7-DEF-01, name: 実スカラー場の応力エネルギーテンソル }
+  - { id: HPDE7-DEF-02, name: 乗数とエネルギー電流 }
+  - { id: HPDE7-DEF-03, name: 乗数の変形テンソル }
+theorems:
+  - { id: HPDE7-PROP-01, name: 応力エネルギーテンソルの発散 }
+  - { id: HPDE7-THM-01, name: 乗数電流の発散恒等式 }
+  - { id: HPDE7-THM-02, name: エネルギーの境界収支 }
+  - { id: HPDE7-PROP-02, name: 光的側面の非負フラックス }
+  - { id: HPDE7-PROP-03, name: 束値応力テンソルの曲率補正 }
+canonical_examples:
+  - Minkowskiの応力成分と正のエネルギー密度
+  - u=txの保存電流と時間的側面の負フラックス
+  - 時間依存ポテンシャルと時間伸縮乗数の誤差項
+  - 縮む光円錐の過去向き光的外法線と二乗和
+  - 束計量互換接続における曲率交換子
+problem_patterns:
+  - HPDE7-STRESS
+  - HPDE7-SOURCE
+  - HPDE7-POTENTIAL
+  - HPDE7-DEFORMATION
+  - HPDE7-STOKES
+  - HPDE7-NULL-FLUX
+  - HPDE7-BUNDLE-CURVATURE
+  - HPDE7-DIAMOND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 6 }

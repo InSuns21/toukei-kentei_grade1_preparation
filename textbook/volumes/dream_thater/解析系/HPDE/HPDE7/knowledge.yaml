@@ -1,0 +1,49 @@
+chapter: HPDE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE6
+  - HPDE4
+  - LORG20
+forward_references: []
+concepts:
+  - id: hpde.scalar-stress-energy
+    name: 実スカラー場の応力エネルギーテンソル
+    kind: definition
+    introduction: formal
+    requires: [hpde.cauchy-data-source]
+  - id: hpde.stress-divergence
+    name: 応力エネルギーテンソルの発散
+    kind: proposition
+    introduction: formal
+    requires: [hpde.scalar-stress-energy]
+  - id: hpde.energy-current
+    name: 乗数とエネルギー電流
+    kind: definition
+    introduction: formal
+    requires: [hpde.scalar-stress-energy]
+  - id: hpde.deformation-tensor
+    name: 乗数の変形テンソル
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: hpde.current-divergence
+    name: 乗数電流の発散恒等式
+    kind: theorem
+    introduction: formal
+    requires: [hpde.stress-divergence, hpde.energy-current, hpde.deformation-tensor]
+  - id: hpde.energy-stokes-balance
+    name: エネルギーの境界収支
+    kind: theorem
+    introduction: formal
+    requires: [hpde.current-divergence, hpde.cauchy-data-source]
+  - id: hpde.null-flux
+    name: 光的側面の非負フラックス
+    kind: proposition
+    introduction: formal
+    requires: [hpde.energy-current, hpde.scalar-stress-energy]
+  - id: hpde.bundle-curvature-energy
+    name: 束値応力テンソルの曲率補正
+    kind: proposition
+    introduction: formal
+    requires: [hpde.bundle-connection, hpde.energy-current]
