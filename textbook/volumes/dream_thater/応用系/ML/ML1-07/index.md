@@ -112,7 +112,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Bernoulli確率質量関数は $P(X_j=x_j\mid Y=k)=\theta_{kj}^{x_j}(1-\theta_{kj})^{1-x_j}$ である。条件付き独立と[事後確率の定理](#thm-ml1-07-posterior)より最大化すべき重みは
+Bernoulli確率質量関数は $P(X_j=x_j\mid Y=k)=\theta_{kj}^{x_j}(1-\theta_{kj})^{1-x_j}$ である。条件付き独立からクラス内の同時確率は各Bernoulli確率の積になる。[事後確率の定理](#thm-ml1-07-posterior)によれば、最大化すべき重みは
 
 $$
 w_k(x)=\pi_k\prod_{j=1}^p
@@ -378,7 +378,7 @@ $$
 
 QDAには $S_k$ を、LDAには同じクラス内散布をまとめた $\widehat\Sigma_{\rm pool}=\sum_kn_kS_k/n$ を使う（いずれも逆行列が存在する場合）。これは不偏共分散の $1/(n_k-1)$ と**同じ正規化ではない**。$n_k$ 個の中心化ベクトルは和が0なので、$S_k$ の階数は高々 $\min(p,n_k-1)$。例えば $n_k\le p$ なら必ず特異で、[正規判別得点](#thm-ml1-07-gaussian-score)の行列式の対数と逆行列がそのままでは定義できない。プール行列も階数は高々 $n-K$ である。
 
-この問題を避ける簡単な方法は、正則化 $S_k+\tau I_p$（$\tau>0$）を使うことだ。$S_k$ は外積の和だから任意の $v$ で $v^{\mathsf T}S_kv=\sum_i[v^{\mathsf T}(x_i-\widehat\mu_k)]^2/n_k\ge0$。したがって $v\ne0$ なら
+この問題を避ける簡単な方法は、正則化 $S_k+\tau I_p$（$\tau>0$）を使うことだ。$S_k$ は列ベクトルとその転置の積の和だから任意の $v$ で $v^{\mathsf T}S_kv=\sum_i[v^{\mathsf T}(x_i-\widehat\mu_k)]^2/n_k\ge0$。したがって $v\ne0$ なら
 
 $$
 v^{\mathsf T}(S_k+\tau I_p)v\ge\tau\|v\|_2^2>0
@@ -417,7 +417,7 @@ labels = ["Gaussian Naive Bayes", "LDA", "QDA"]
 xx, yy = np.meshgrid(np.linspace(-4, 4, 150), np.linspace(-3, 3, 120))
 grid = np.stack([xx.ravel(), yy.ravel()], axis=1)
 
-def score(x, mu, cov, log_prior):
+def gaussian_log_weight(x, mu, cov, log_prior):
     sign, logdet = np.linalg.slogdet(cov)
     assert sign > 0
     z = x - mu
@@ -427,7 +427,7 @@ def score(x, mu, cov, log_prior):
 fig, axes = plt.subplots(1, 3, figsize=(12, 3.5), sharex=True, sharey=True)
 for ax, cov_pair, label in zip(axes, model_covs, labels):
     values = np.column_stack([
-        score(grid, means[k], cov_pair[k], np.log(prior[k]))
+        gaussian_log_weight(grid, means[k], cov_pair[k], np.log(prior[k]))
         for k in range(2)
     ])
     # 学習課題: 得点を最大化したクラスを各格子点へ割り当てる
@@ -456,7 +456,7 @@ model_covs = [np.array([np.diag(np.diag(c)) for c in covs]),
 labels = ["Gaussian Naive Bayes", "LDA", "QDA"]
 xx, yy = np.meshgrid(np.linspace(-4, 4, 150), np.linspace(-3, 3, 120))
 grid = np.stack([xx.ravel(), yy.ravel()], axis=1)
-def score(x, mu, cov, log_prior):
+def gaussian_log_weight(x, mu, cov, log_prior):
     sign, logdet = np.linalg.slogdet(cov)
     assert sign > 0
     z = x - mu
@@ -465,7 +465,7 @@ def score(x, mu, cov, log_prior):
 fig, axes = plt.subplots(1, 3, figsize=(12, 3.5), sharex=True, sharey=True)
 for ax, cov_pair, label in zip(axes, model_covs, labels):
     values = np.column_stack([
-        score(grid, means[k], cov_pair[k], np.log(prior[k]))
+        gaussian_log_weight(grid, means[k], cov_pair[k], np.log(prior[k]))
         for k in range(2)
     ])
     prediction = np.argmax(values, axis=1)
@@ -482,7 +482,7 @@ assert len(model_covs) == 3
 assert all(np.all(np.linalg.eigvalsh(c) > 0)
            for pair in model_covs for c in pair)
 for pair in model_covs:
-    s = np.column_stack([score(grid, means[k], pair[k], np.log(prior[k]))
+    s = np.column_stack([gaussian_log_weight(grid, means[k], pair[k], np.log(prior[k]))
                          for k in range(2)])
     assert s.shape == (len(grid), 2) and np.all(np.isfinite(s))
     assert np.all((np.argmax(s, axis=1) == 0) |
@@ -600,7 +600,7 @@ $\Sigma$ は正定値で $\Sigma^{-1}=\operatorname{diag}(1,1/4)$。従って $\
 <!-- solution-start -->
 #### 詳細解答
 
-$n_k=2$、平均は $(1/2,1/2)$、中心化ベクトルは $(-1/2,-1/2)$ と $(1/2,1/2)$。外積はどちらも全成分 $1/4$ の行列だから
+$n_k=2$、平均は $(1/2,1/2)$、中心化ベクトルは $(-1/2,-1/2)$ と $(1/2,1/2)$。列ベクトルとその転置の積はどちらも全成分 $1/4$ の行列だから
 
 $$
 S_k=\frac12\left[
