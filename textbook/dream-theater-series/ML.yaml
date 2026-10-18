@@ -21,7 +21,7 @@ chapters:
     title: "経験リスク最小化と正則化"
   - id: ML1-04
     path: textbook/volumes/dream_thater/応用系/ML/ML1-04
-    status: planned
+    status: completed
     title: "最小二乗法・正規方程式・非一意性"
   - id: ML1-05
     path: textbook/volumes/dream_thater/応用系/ML/ML1-05

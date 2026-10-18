@@ -9,6 +9,7 @@ import * as celev from "../pages/simulation/engines/celev/two-body.mjs";
 import * as burrau from "../pages/simulation/engines/celev/burrau.mjs";
 import * as gallery from "../pages/simulation/engines/celev/orbit-gallery.mjs";
 import * as ml from "../pages/simulation/engines/ml/four-cell.mjs";
+import "../pages/simulation/ml1-04-model.test.mjs";
 
 const base = {
   protocolVersion: 1, sessionId: "session-a", requestId: "request-a",

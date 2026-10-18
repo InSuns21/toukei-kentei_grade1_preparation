@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ML1-04 最小二乗・階数・非一意性の対話ラボ</title>
+<style>
+:root { font-family: system-ui,-apple-system,"Yu Gothic",sans-serif; color-scheme:light dark; }
+body { margin:0; background:Canvas; color:CanvasText; }
+main { max-width:1000px; margin:0 auto; padding:20px 16px 55px; }
+h1 {font-size:1.55rem;} h2 {font-size:1.17rem;}
+p,li {line-height:1.65;} a {color:LinkText;}
+section {margin:16px 0;padding:16px;border:1px solid #8996a5;border-radius:10px;}
+fieldset {display:flex; flex-wrap:wrap; gap:12px;border:1px solid #8996a5;border-radius:7px;}
+legend {font-weight:700;} label {display:flex; align-items:center; gap:6px;}
+input[type=number] {width:5.6rem; padding:5px;}
+select,button {font:inherit;padding:7px 10px;}
+button {cursor:pointer;}
+button:focus-visible,input:focus-visible,select:focus-visible {outline:3px solid #2879c3;outline-offset:2px;}
+.buttons {display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px;}
+table {width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+th,td {border:1px solid #8996a5;padding:6px;text-align:right;}
+th:first-child,td:first-child {text-align:left;}
+#plot {width:100%;height:auto;border:1px solid #8996a5;background:#fff;}
+#status {white-space:pre-wrap;line-height:1.7; font-variant-numeric:tabular-nums;}
+.note {font-size:.94rem;}
+@media(max-width:550px){main{padding:10px;}section{padding:10px;} th,td{padding:4px;font-size:.82rem;}}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML1-04/index">← ML1-04 本文に戻る</a></nav>
+<h1>ML1-04｜最小二乗・階数・非一意性</h1>
+<p>観測点の座標と特徴量の構成を変更すると、その場で最小二乗解を再計算します。すべての演算はブラウザ内で完結し、入力したデータは送信しません。</p>
+<section>
+<h2>1. データと特徴量を操作</h2>
+<div class="buttons" aria-label="例題を選択">
+<button type="button" data-preset="straight">完全な直線</button>
+<button type="button" data-preset="outlier">外れ値あり</button>
+<button type="button" data-preset="duplicate">列が重複</button>
+<button type="button" data-preset="zero">階数0</button>
+</div>
+<label for="mode">設計行列の2列</label>
+<select id="mode">
+<option value="intercept">[1, x]：切片と傾き</option>
+<option value="duplicate">[x, x]：同じ特徴量を二度使う</option>
+</select>
+<fieldset>
+<legend>観測座標（3点）</legend>
+<label>点1 x <input type="number" step="0.1" id="x0" value="-1"></label>
+<label>y <input type="number" step="0.1" id="y0" value="-1"></label>
+<label>点2 x <input type="number" step="0.1" id="x1" value="0"></label>
+<label>y <input type="number" step="0.1" id="y1" value="0"></label>
+<label>点3 x <input type="number" step="0.1" id="x2" value="1"></label>
+<label>y <input type="number" step="0.1" id="y2" value="1"></label>
+</fieldset>
+<p class="note">数値を変更するたびに自動で再計算します。空欄や非有限値では計算を止めてエラーを表示します。例題ボタンは初期値を再設定します。</p>
+</section>
+<section>
+<h2>2. 観測と適合直線</h2>
+<canvas id="plot" width="860" height="400" role="img" aria-label="観測点は丸印、最小二乗予測は実線、残差は破線で表示する座標グラフ" aria-describedby="plot-details"></canvas>
+<p id="plot-details" class="note">横軸 x、縦軸 y。丸印が3点の観測、実線が予測、縦破線が残差です。色が区別できなくても線種と点記号で読み取れます。</p>
+<div id="obs-table" aria-live="polite"></div>
+</section>
+<section>
+<h2>3. 数値診断</h2>
+<div id="status" role="status" aria-live="polite"></div>
+<p>ランク判定はGram行列の固有値に相対閾値 10⁻¹⁰ を使用します。列が厳密に従属する例では階数の理論値と一致しますが、ほぼ従属する列の数値判定は許容誤差に依存します。係数は最小ノルム解、適合値は最小二乗予測です。</p>
+</section>
+<section>
+<h2>4. 何を比べるか</h2>
+<ul>
+<li>「完全な直線」から「外れ値あり」に切り替えると、切片0・傾き1から切片1・傾き2.5へ変わります。</li>
+<li>「列が重複」では、各予測が (β₁＋β₂)×x の形になり、別々の係数は同定できません。最小ノルムでは二係数が等しくなります。</li>
+<li>「階数0」では、どの係数でも訓練点の予測が0です。最小ノルム解は零ベクトル、残差は元の応答になります。</li>
+<li>適合値と係数の一意性は異なります。訓練点外の予測を一意に決めるには、追加の仮定や選択規則が必要です。</li>
+</ul>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML1-04/index">証明と演習へ戻る</a></p>
+</section>
+</main>
+<script type="module" src="./ml1-04-app.mjs"></script>
+</body>
+</html>

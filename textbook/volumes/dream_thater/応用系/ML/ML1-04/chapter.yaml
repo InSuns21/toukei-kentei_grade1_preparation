@@ -1,0 +1,44 @@
+id: "ML1-04"
+title: "最小二乗法・正規方程式・非一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-03
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 特徴ベクトルから設計行列を構成し、形状と平方残差目的を計算できる
+  - 全成分の偏微分を行って正規方程式を導き、その必要十分性を証明できる
+  - 列フルランク条件を核から判定し、解の一意性と逆行列公式を正当化できる
+  - 特異値分解から階数欠損の場合も最小二乗解が存在すると証明できる
+  - 適合値・残差の一意性と列空間への直交射影を説明できる
+  - 解集合を一つの解と核の和で記述し、最小ノルム解を構成できる
+  - 重複する特徴量で係数の非一意性と標本外予測の相違を実例計算できる
+  - 対話ラボでデータ点・外れ値・列の従属性を変更し階数・予測・残差を再検算できる
+definitions:
+  - { id: ML1-04-DEF-01, name: 設計行列と線形予測 }
+  - { id: ML1-04-DEF-02, name: 最小二乗問題 }
+theorems:
+  - { id: ML1-04-THM-01, name: 正規方程式と最小二乗最適性 }
+  - { id: ML1-04-THM-02, name: 列フルランク最小二乗解 }
+  - { id: ML1-04-THM-03, name: 最小二乗解の存在と適合値の一意性 }
+  - { id: ML1-04-THM-04, name: 解集合と最小ノルム解 }
+canonical_examples:
+  - 切片と傾きの設計行列、寸法、残差の手計算
+  - 三点の列フルランクな正規方程式と直交残差
+  - 重複列の全解集合、唯一の適合値、最小ノルム解
+  - 訓練点で同じでも未観測点で異なる多項式予測
+  - ブラウザ対話ラボによる外れ値、重複列、階数0の比較
+problem_patterns:
+  - ML1-04-A01
+  - ML1-04-A02
+  - ML1-04-A03
+  - ML1-04-A04
+  - ML1-04-B01
+  - ML1-04-B02
+  - ML1-04-B03
+  - ML1-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
