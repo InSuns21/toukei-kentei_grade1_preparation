@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML1-05 Ridge回帰・偏りと分散の対話ラボ</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Yu Gothic",sans-serif;color-scheme:light dark}
+body{margin:0;background:Canvas;color:CanvasText}
+main{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.55rem}h2{font-size:1.17rem}
+p,li{line-height:1.65}a{color:LinkText}
+section{border:1px solid #8996a5;border-radius:10px;padding:15px;margin:18px 0}
+.controls{display:flex;flex-wrap:wrap;gap:12px}label{display:flex;flex-direction:column;gap:5px}
+input{padding:6px;width:6.5rem;font:inherit}button{padding:8px;font:inherit;cursor:pointer}
+.buttons{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+input:focus-visible,button:focus-visible{outline:3px solid #2879c3;outline-offset:2px}
+canvas{max-width:100%;height:auto;background:#fff;border:1px solid #8996a5}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{border:1px solid #8996a5;padding:8px;text-align:right}
+th:first-child{text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.7}
+.note{font-size:.94rem}#error{font-weight:700}
+@media(max-width:550px){section{padding:9px}main{padding:10px}th,td{padding:5px;font-size:.85rem}}
+</style>
+</head>
+<body><main>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML1-05/index">← ML1-05 本文へ</a></nav>
+<h1>ML1-05｜Ridge回帰・偏りと分散</h1>
+<p>固定された24点・2特徴量のデータでRidge係数を実計算します。同じ真の係数 (1.5, −0.5) に独立な正規雑音を何度も与え、反復平均と理論上の偏り・分散を比較します。データはブラウザ内だけで生成します。</p>
+<section>
+<h2>1. 条件を変更して再計算</h2>
+<div class="buttons">
+<button data-preset="orthogonal" type="button">無相関・雑音あり</button>
+<button data-preset="correlated" type="button">強い特徴相関</button>
+<button data-preset="noiseless" type="button">雑音なし</button>
+<button data-preset="highnoise" type="button">強相関・大きな雑音</button>
+</div>
+<div class="controls">
+<label for="rho">特徴間相関 ρ（−0.99〜0.99）<input type="number" id="rho" value="0" min="-0.99" max="0.99" step="0.01"></label>
+<label for="lambda">正則化係数 λ（0〜10）<input type="number" id="lambda" value="0.2" min="0" max="10" step="0.05"></label>
+<label for="sigma">雑音標準偏差 σ（0〜10）<input type="number" id="sigma" value="1" min="0" max="10" step="0.1"></label>
+<label for="repetitions">反復回数 R（2〜2000）<input type="number" id="repetitions" value="100" min="2" max="2000" step="1"></label>
+<label for="seed">乱数seed（0以上の整数）<input type="number" id="seed" value="42" min="0" max="2147483647" step="1"></label>
+</div>
+<p id="error" role="alert"></p>
+<p class="note">入力変更時に係数と図を再計算します。λ=0は設計行列が列フルランクである範囲でのみ計算します。ρが±1の退化デザインは対象外です。理論式は雑音が平均0、共分散 σ²I のとき成立し、ここでは標準正規乱数を使用します。</p>
+</section>
+<section>
+<h2>2. 係数経路と真値</h2>
+<canvas id="path" width="860" height="420" role="img" aria-label="最初の観測標本から計算された二係数のRidge経路。係数1は丸印、係数2は四角印、真値は破線" aria-describedby="plot-description"></canvas>
+<p class="note" id="plot-description">係数経路。下の表は全点の正確な表示値です。</p>
+<div id="path-table"></div>
+<p>横軸は表示された離散的なλの系列（等間隔配置）であり、λに比例した距離ではありません。図の線は実計算した各係数を結んだものです。</p>
+</section>
+<section>
+<h2>3. 理論式と反復計算</h2>
+<div id="diagnostics" aria-live="polite"></div>
+<pre id="summary" aria-live="polite"></pre>
+<p class="note">反復分散は反復回数Rで割った平均二乗偏差です。有限Rでの理論分散の不偏推定量ではありませんが、反復平均の偏り二乗と足すと反復平均二乗誤差に一致します。再現性は乱数アルゴリズムとseedを固定して確保します。</p>
+</section>
+<section>
+<h2>4. 読み取るべき違い</h2>
+<ul>
+<li>λを上げると、同一標本の係数の絶対値が単調に減るとは一般には限りません。Ridgeの縮小とはGram行列の固有方向についての縮小です。</li>
+<li>ρを1に近づけると、設計行列の一方向が弱くなります。λ=0と正のλで推定値の揺れを比較してください。</li>
+<li>σ=0のとき、正のλによる偏りは雑音が無くても残ります。</li>
+<li>係数の平均二乗誤差と、固定された24点での予測リスクは異なる指標です。</li>
+</ul>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML1-05/index">証明と演習に戻る</a></p>
+</section>
+</main>
+<script type="module" src="./ml1-05-app.mjs"></script>
+</body></html>

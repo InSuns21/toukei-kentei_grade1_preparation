@@ -1,0 +1,46 @@
+id: "ML1-05"
+title: "Ridge回帰・縮小・偏りと分散"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-04
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 最小二乗損失にL2罰則を加え、正則化係数とnの正規化を一貫させられる
+  - lambda>0でGram行列の正定値性と唯一の最小解を平方差から証明できる
+  - 特異値分解により方向ごとの係数・適合値の縮小率を求められる
+  - lambdaが0に下がると最小ノルム最小二乗解へ収束することを証明できる
+  - 切片を罰しない場合は中心化した特徴に正則化を行うと説明できる
+  - 固定デザイン模型の平均ゼロ・等分散無相関の条件下で偏りと分散を再計算できる
+  - 係数リスクと固定デザイン上の予測リスクの違いを特異値方向で導出できる
+  - 雑音分散と真の係数により最適な正則化係数が変わる反例を計算できる
+  - 対話ラボで雑音・相関・正則化・反復回数を変更して経験的な偏りと分散を検証できる
+definitions:
+  - { id: ML1-05-DEF-01, name: Ridge回帰 }
+  - { id: ML1-05-DEF-02, name: 固定デザインでの偏り・分散・平均二乗誤差 }
+theorems:
+  - { id: ML1-05-THM-01, name: 正のRidge係数と一意な最小解 }
+  - { id: ML1-05-THM-02, name: 特異値方向の縮小と零正則化極限 }
+  - { id: ML1-05-THM-03, name: Ridge推定量の偏り・分散と係数リスク }
+canonical_examples:
+  - 対角行列のridge目的・係数・残差の検算
+  - 重複列の最小二乗非一意性とridge一意解
+  - 切片非罰則の場合の中心化による推定
+  - 一変数固定デザイン模型の偏り・分散・MSE
+  - 固定デザイン予測リスクと係数リスクの零特異値方向の違い
+  - 対話ラボの相関・雑音・反復回数による係数経路と偏り分散
+problem_patterns:
+  - ML1-05-A01
+  - ML1-05-A02
+  - ML1-05-A03
+  - ML1-05-A04
+  - ML1-05-A05
+  - ML1-05-B01
+  - ML1-05-B02
+  - ML1-05-B03
+  - ML1-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
