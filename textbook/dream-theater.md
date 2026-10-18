@@ -393,6 +393,7 @@
 6. [HPDE6 Cauchy超曲面・初期データ・関数空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE6/index.md)
 7. [HPDE7 エネルギー流と発散恒等式](textbook/volumes/dream_thater/解析系/HPDE/HPDE7/index.md)
 8. [HPDE8 エネルギー不等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE8/index.md)
+9. [HPDE9 高階Sobolev評価と正則性の伝播](textbook/volumes/dream_thater/解析系/HPDE/HPDE9/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
