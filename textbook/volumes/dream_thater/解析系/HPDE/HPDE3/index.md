@@ -155,7 +155,20 @@ $$
 <!-- definition-example-start: def-hpde3-test-dual-density -->
 ### 直接例：枠の変更で縮約は変わらない
 
-**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$ の新成分は $(1,1)$ です。$\psi=(3e^1+5e^2)\otimes h(x)|dx|$（$h$ は非零の滑らかなコンパクト台関数）の新成分は $(8,5)$ です。ここで $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ は $\det A=1$ で可逆、$s'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$、$\psi'=A^{\mathsf T}(3,5)^{\mathsf T}=(8,5)^{\mathsf T}$ です。従って
+**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$、$\psi=(3e^1+5e^2)\otimes h(x)|dx|$ とします。ここで $h$ は非零の滑らかなコンパクト台関数です。枠変換の係数を列に並べると
+
+$
+A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
+$
+
+よって枠変換は可逆で、切断と双対試験切断の新成分は
+
+$
+s'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+\psi'=A^{\mathsf T}\begin{pmatrix}3\\5\end{pmatrix}=\begin{pmatrix}8\\5\end{pmatrix}
+$
+
+です。従って
 
 $$
 \psi(s)=(3\cdot1+5\cdot2)h(x)|dx|
@@ -366,7 +379,21 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[密度値双対試験切断で導いた枠変換](#def-hpde3-test-dual-density)を用います。$A=\begin{pmatrix}2&1\\0&1\end{pmatrix}$、$A^{-1}=\begin{pmatrix}1/2&-1/2\\0&1\end{pmatrix}$ です。$s'=A^{-1}(3,4)^{\mathsf T}=(-1/2,4)^{\mathsf T}$。双対成分は $A^{\mathsf T}(5,7)^{\mathsf T}=(10,12)^{\mathsf T}$ です。よって
+[密度値双対試験切断で導いた枠変換](#def-hpde3-test-dual-density)を用います。新枠の係数行列とその逆行列は
+
+$
+A=\begin{pmatrix}2&1\\0&1\end{pmatrix},\qquad
+A^{-1}=\begin{pmatrix}1/2&-1/2\\0&1\end{pmatrix}
+$
+
+です。切断と双対の新成分を別々に求めると
+
+$
+s'=A^{-1}\begin{pmatrix}3\\4\end{pmatrix}=\begin{pmatrix}-1/2\\4\end{pmatrix},\qquad
+\ell'=A^{\mathsf T}\begin{pmatrix}5\\7\end{pmatrix}=\begin{pmatrix}10\\12\end{pmatrix}.
+$
+
+よって
 
 $$
 \ell(s)=5\cdot3+7\cdot4=43
@@ -401,7 +428,20 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[双対枠の変換](#def-hpde3-test-dual-density)と[密度の変換則](#def-hpde3-density)をそれぞれ適用します。枠変換の行列は $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ なので、$s'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$、双対成分は $A^{\mathsf T}(3,5)^{\mathsf T}=(8,5)^{\mathsf T}$ です。また $|dx|=\frac12|dy|$、$x=y/2$ なので
+[双対枠の変換](#def-hpde3-test-dual-density)と[密度の変換則](#def-hpde3-density)をそれぞれ適用します。枠変換の行列は
+
+$
+A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
+$
+
+従って新成分は
+
+$
+s'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+\psi'=A^{\mathsf T}\begin{pmatrix}3\\5\end{pmatrix}=\begin{pmatrix}8\\5\end{pmatrix}.
+$
+
+また $|dx|=\frac12|dy|$、$x=y/2$ なので
 
 $$
 \psi=\left(4e'^1+\frac52e'^2\right)\otimes h(y/2)|dy|.
@@ -457,7 +497,20 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[双対枠の変換](#def-hpde3-test-dual-density)を用います。枠変換 $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ より $v'=A^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$。双対係数は $A^{\mathsf T}(f,g)^{\mathsf T}=(f+g,g)^{\mathsf T}$ です。また $x=y/3$、$|dx|=\frac13|dy|$ なので
+[双対枠の変換](#def-hpde3-test-dual-density)を用います。枠変換の係数行列は
+
+$
+A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad \det A=1\ne0.
+$
+
+したがって、$v$ と双対係数の新表示は
+
+$
+v'=A^{-1}\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+\psi'=A^{\mathsf T}\begin{pmatrix}f\\g\end{pmatrix}=\begin{pmatrix}f+g\\g\end{pmatrix}.
+$
+
+また $x=y/3$、$|dx|=\frac13|dy|$ なので
 
 $$
 \psi=\left(\frac{f(y/3)+g(y/3)}3e'^1
