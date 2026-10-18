@@ -134,7 +134,7 @@ $$
 <!-- definition-example-start: def-hpde7-energy-current -->
 ### 直接例：保存電流でも空間フラックスは非零
 
-**定義の確認**。Minkowski平面で $X=\partial_t$ とすると $X^t=1$、$T^t{}_t=-T_{tt}$、$T^x{}_t=T_{xt}$ です。従って定義から
+**定義の確認**。Minkowski平面で $X=\partial_t$ とすると $X^t=1$ です。添字を上げる操作は $T^a{}_b=g^{ac}T_{cb}$ であり、逆計量の成分 $g^{tt}=-1$、$g^{xx}=1$、$g^{tx}=0$ を代入すると $T^t{}_t=-T_{tt}$、$T^x{}_t=T_{xt}$ です。従って定義から
 $$
 J^t=T_{tt},\qquad J^x=-T_{xt}=-u_tu_x.
 $$
@@ -149,7 +149,26 @@ $$
 $-g(J,\partial_t)=J^t=T(\partial_t,\partial_t)$ という符号条件も直接確かめられます。
 <!-- definition-example-end -->
 
-$X$ が場所によって変わると、$T$ の発散が零でも電流の発散が零とは限りません。乗数の変形を測る量を導入します。
+$X$ が場所によって変わると、$T$ の発散が零でも電流の発散が零とは限りません。そこで、**$X$ に沿って計量 $g$ がどう変わるか**を測ります。ベクトル場 $Y,Z$ に対する計量の **Lie微分** は
+$$
+(\mathcal L_Xg)(Y,Z)
+=X\bigl(g(Y,Z)\bigr)-g([X,Y],Z)-g(Y,[X,Z])
+$$
+で定まり、$X$ の局所的な流れで計量を引き戻したときの変化率です。ここで $[X,Y]$ はベクトル場のLie括弧です。[Levi-Civita接続の計量互換性と無捩率性](../../../幾何系/GEO/GEO13/index.md#def-geo13-levi-civita)を使うと、
+$$
+\begin{aligned}
+X\bigl(g(Y,Z)\bigr)
+&=g(\nabla_XY,Z)+g(Y,\nabla_XZ),\\
+[X,Y]&=\nabla_XY-\nabla_YX,\\
+[X,Z]&=\nabla_XZ-\nabla_ZX
+\end{aligned}
+$$
+ですから、これらを上の定義へ代入し
+$$
+(\mathcal L_Xg)(Y,Z)
+=g(\nabla_YX,Z)+g(Y,\nabla_ZX)
+$$
+を得ます。すなわち座標成分では $(\mathcal L_Xg)_{ab}=\nabla_aX_b+\nabla_bX_a$ です。右辺が零なら $X$ に沿う計量の変化も零です。計量の変化を応力テンソルと縮約するため、次の記号を導入します。
 
 <a id="def-hpde7-deformation-tensor"></a>
 <!-- formal-statement-start -->
@@ -171,7 +190,7 @@ $$
 \pi^X_{tt}=2\partial_t(-t)=-2,\qquad
 \pi^X_{tx}=\pi^X_{xx}=0.
 $$
-例えば $t>0$ の領域では $t\partial_t$ も未来時間的ですが、Killingではありません。定義の全成分を計算することで、乗数の変形項が必要になる例を得ました。
+例えば $t>0$ の領域では $t\partial_t$ も未来時間的ですが、$\mathcal L_Xg=\pi^X$ の $tt$ 成分が $-2$ なので計量を保たず、Killingではありません。定義の全成分を計算することで、乗数の変形項が必要になる例を得ました。
 <!-- definition-example-end -->
 
 <a id="thm-hpde7-current-divergence"></a>
@@ -224,7 +243,7 @@ $$
 
 ## 4. 初期面のエネルギーはなぜ非負か
 
-[HPDE6の未来向き単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を $N$、誘導Riemann計量を $h$ とします。$\nabla u$ を法線方向の微分 $Nu$ と、面に接する微分 $D_\Sigma u$ に分けます。$g(N,N)=-1$ と $g(N,Y)=0$（$Y$ は面に接する）より
+[LORG20の未来向き単位法線](../../../幾何系/LORG/LORG20/index.md#prop-lorg20-unit-normal)を $N$、誘導Riemann計量を $h$ とします。$\nabla u$ を法線方向の微分 $Nu$ と、面に接する微分 $D_\Sigma u$ に分けます。$g(N,N)=-1$ と $g(N,Y)=0$（$Y$ は面に接する）より
 $$
 \nabla^a u\,\nabla_a u=-(Nu)^2+|D_\Sigma u|_h^2.
 $$
@@ -350,7 +369,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各点で $X=a e_0$（$a>0$、$e_0$ は未来向き単位時間的）となるLorentz直交基底 $(e_0,e_1,\dots,e_n)$ を取ります。過去向き光的な $K$ は、空間方向を回転して $K=b(-e_0+e_1)$（$b>0$）と書けます。$v_j=e_j(u)$ と書くと
+[時間的ベクトルの直交補空間の正定値性](../../../幾何系/LORG/LORG1/index.md#lem-lorg1-timelike-orthogonal)により、各点で $X=a e_0$（$a>0$、$e_0$ は未来向き単位時間的）となるLorentz直交基底 $(e_0,e_1,\dots,e_n)$ を取れます。過去向き光的な $K$ は、空間方向を回転して $K=b(-e_0+e_1)$（$b>0$）と書けます。$v_j=e_j(u)$ と書くと
 $$
 \begin{aligned}
 -T(X,K)
@@ -380,6 +399,18 @@ R^E(X,Y)s
 =\nabla^E_X\nabla^E_Ys-\nabla^E_Y\nabla^E_Xs-\nabla^E_{[X,Y]}s
 $$
 で定まります。
+
+ここで $W$ の**自己随伴性**は各点の束内積について
+$$
+\langle Wv,w\rangle=\langle v,Ww\rangle
+\qquad(v,w\in E_p)
+$$
+となる条件です。これは[HPDE4での零次束写像の随伴](../HPDE4/index.md#prop-hpde4-adjoint-from-transpose)を同じ束に適用した条件であり、一般の接続の計量互換性とは別です。また $W$ 自身が場所によって変わる量を表すため、自己準同型束上の誘導接続を
+$$
+(\nabla_b^{\mathrm{End}}W)u
+:=\nabla_b^E(Wu)-W(\nabla_b^Eu)
+$$
+によって定義します。これは $\nabla_b^E(Wu)=(\nabla_b^{\mathrm{End}}W)u+W\nabla_b^Eu$ という積の微分公式を意味します。$W$ が自己随伴で接続が計量互換なら、$\nabla_b^{\mathrm{End}}W$ も自己随伴です。
 
 この仮定の下で二階束微分の交換による補正項を計算します。スカラーでの二階微分の交換可能性は失われるので、曲率を残した式そのものを次の命題で確認します。
 
@@ -416,7 +447,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\nabla^{\mathrm{End}}W$ は $\nabla_b(Wu)=(\nabla_b^{\mathrm{End}}W)u+W\nabla_bu$ で定めます。$\nabla g=0$ と束計量互換性から、第一項と運動項の発散をまとめると
+$\nabla g=0$ と[束接続の計量互換性](../HPDE4/index.md#def-hpde4-metric-compatible-connection)を使い、まず応力テンソルの第一項を微分します。
+$$
+\begin{aligned}
+\nabla^a\operatorname{Re}\langle\nabla_a^Eu,\nabla_b^Eu\rangle
+&=\operatorname{Re}\langle\Box_g^{\nabla^E}u,\nabla_b^Eu\rangle\\
+&\quad+\operatorname{Re}\langle\nabla^{a,E}u,\nabla_a^E\nabla_b^Eu\rangle.
+\end{aligned}
+$$
+計量の逆行列も接続で保存されるので、運動項を微分すると
+$$
+\frac12\nabla_b\operatorname{Re}\langle\nabla^{c,E}u,\nabla_c^Eu\rangle
+=\operatorname{Re}\langle\nabla^{a,E}u,\nabla_b^E\nabla_a^Eu\rangle
+$$
+です。この二式を差し引くと
 $$
 \begin{aligned}
 \nabla^aT_{ab}
