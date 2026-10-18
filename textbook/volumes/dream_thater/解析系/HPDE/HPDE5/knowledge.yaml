@@ -1,0 +1,43 @@
+chapter: HPDE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE4
+  - LORG4
+forward_references: []
+concepts:
+  - id: hpde.principal-symbol
+    name: 二階主シンボル
+    kind: definition
+    introduction: formal
+    requires: [hpde.differential-operator]
+  - id: hpde.symbol-invariance
+    name: 主シンボルの座標・枠不変性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.principal-symbol, hpde.connection-gauge-rule]
+  - id: hpde.characteristic
+    name: 特性共変ベクトルと特性超曲面
+    kind: definition
+    introduction: formal
+    requires: [hpde.principal-symbol]
+  - id: hpde.normally-hyperbolic
+    name: normally hyperbolic作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.principal-symbol]
+  - id: hpde.null-characteristics
+    name: 光的特性の一致
+    kind: proposition
+    introduction: formal
+    requires: [hpde.characteristic, hpde.normally-hyperbolic]
+  - id: hpde.unique-connection
+    name: 接続と零次自己準同型への一意分解
+    kind: theorem
+    introduction: formal
+    requires: [hpde.normally-hyperbolic, hpde.bundle-connection]
+  - id: hpde.double-commutator
+    name: 二重交換子と逆計量
+    kind: proposition
+    introduction: formal
+    requires: [hpde.unique-connection]

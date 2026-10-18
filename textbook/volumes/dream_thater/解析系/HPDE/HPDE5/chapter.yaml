@@ -1,0 +1,44 @@
+id: "HPDE5"
+title: "主シンボルとnormally hyperbolic作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE4
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 二階主シンボルを構成し座標・枠の変換則を証明できる
+  - 特性共変ベクトル・特性超曲面を可逆性から判定できる
+  - normally hyperbolic作用素の符号規約を固定し特性集合と光円錐の一致を証明できる
+  - 接続Laplace型作用素を局所係数で展開できる
+  - 一階係数と逆計量から接続を一意に復元し零次項の補正と大域的貼り合わせを証明できる
+  - 二重交換子を計算して逆計量を回収できる
+  - 接続の一意性と形式的自己随伴性が別条件であることを反例で示せる
+definitions:
+  - { id: HPDE5-DEF-01, name: 二階主シンボル }
+  - { id: HPDE5-DEF-02, name: 特性共変ベクトルと特性超曲面 }
+  - { id: HPDE5-DEF-03, name: normally hyperbolic作用素 }
+theorems:
+  - { id: HPDE5-PROP-01, name: 主シンボルの座標・枠不変性 }
+  - { id: HPDE5-PROP-02, name: 光的特性の一致 }
+  - { id: HPDE5-THM-01, name: 接続と零次自己準同型への一意分解 }
+  - { id: HPDE5-PROP-03, name: 二重交換子と逆計量 }
+canonical_examples:
+  - Minkowski空間の主シンボルの符号判定
+  - 特性面と非特性面
+  - Klein–Gordon作用素と任意の低階摂動
+  - 一階係数からの接続復元と零次項の展開検算
+  - 二次元共形計量のChristoffel縮約
+  - 非自己随伴なnormally hyperbolic作用素
+problem_patterns:
+  - HPDE5-SYMBOL
+  - HPDE5-CHARACTERISTIC
+  - HPDE5-CONNECTION-DECOMPOSITION
+  - HPDE5-MATRIX-SYMBOL
+  - HPDE5-DOUBLE-COMMUTATOR
+  - HPDE5-CONFORMAL
+  - HPDE5-ADJOINT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

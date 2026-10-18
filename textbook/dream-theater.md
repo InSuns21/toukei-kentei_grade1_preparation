@@ -389,6 +389,7 @@
 2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
 3. [HPDE3 時空上の分布・試験切断・密度](textbook/volumes/dream_thater/解析系/HPDE/HPDE3/index.md)
 4. [HPDE4 ベクトル束・接続・形式的随伴](textbook/volumes/dream_thater/解析系/HPDE/HPDE4/index.md)
+5. [HPDE5 主シンボルとnormally hyperbolic作用素](textbook/volumes/dream_thater/解析系/HPDE/HPDE5/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分

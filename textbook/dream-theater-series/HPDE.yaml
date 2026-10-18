@@ -23,7 +23,7 @@ chapters:
     title: "ベクトル束・接続・形式的随伴"
   - id: HPDE5
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE5
-    status: planned
+    status: completed
     title: "主シンボルとnormally hyperbolic作用素"
   - id: HPDE6
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE6
