@@ -357,7 +357,7 @@ $\lambda>0$ であるため $\|u\|^2\le2e_\lambda^E/\lambda$、$|Du|_{\mathrm{fr
 $$
 \nabla_aJ_E^a\le c_E e_\lambda^E+d_E\|f\|^2
 $$
-となります。光的側面の符号も確かめます。各点で未来向き単位法線 $N$ と接方向正規直交基底 $(e_i)$ を取り、外向き過去光的ベクトルを $K=b(-N+e_1)$（$b>0$）とします。$v_0=D_Nu$、$v_i=D_{e_i}u$ とおくと、束値応力テンソルの定義から
+となります。光的側面の符号も確かめます。各点で未来向き単位法線 $N$ と接方向正規直交基底 $(e_i)$ を取り、外向き過去光的ベクトルを $K=b(-N+e_1)$（$b>0$）とします。$v_0=D_Nu$、$v_i=D_{e_i}u$ とおくと、[HPDE7で構成した束値応力テンソル](../HPDE7/index.md#prop-hpde7-bundle-divergence)を成分表示すると
 $
 \begin{aligned}
 g(J_E,K)
