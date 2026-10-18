@@ -285,7 +285,7 @@ $$
 <!-- definition-example-start: def-hpde2-strong-huygens -->
 ### 直接例：三次元では球面の外にある初期速度を変えても値は同じ
 
-$h\in C_c^\infty(\mathbb R^3)$ が $B_R(0)$ に支持され、$f=0$ とします。$ct>R$ なら、観測点 $(t,0)$ の球面 $S_{ct}(0)$ に $h$ の非零点はありません。従ってKirchhoff公式から
+$h\in C_c^\infty(\mathbb R^3)$ が $B_R(0)$ に支持され、$f=0$ とします。$ct>R$ なら、観測点 $(t,0)$ の球面 $S_{ct}(0)$ に $h$ の非零点はありません。従って[PDE9のKirchhoff公式](../../PDE/PDE9/index.md#thm-pde9-kirchhoff)から
 
 $$
 u(t,0)=\frac{t}{4\pi}\int_{S^2}h(ct\omega)\,d\omega=0.
@@ -316,7 +316,7 @@ $$
 
 [Kirchhoff公式](#thm-hpde2-kirchhoff)とその直後に展開した $\partial_t(tM_f)$ の式より、$u(t,x)$ は $S_{ct}(x)$ 上の $f$、$\nabla f$、$h$ から決まります。球面の近傍で二組の初期データが一致すれば、そこで差の $f,\nabla f,h$ が零となるため、解の差も零です。
 
-次に $t>(|x|+R)/c$ なら、球面上の任意の $y=x+ct\omega$ に対して逆三角不等式から
+次に $t>(|x|+R)/c$ なら、球面上の任意の $y=x+ct\omega$ に対して[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から
 
 $$
 |y|=|x+ct\omega|\ge ct-|x|>R.
@@ -599,7 +599,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$t>4$ のとき $ct=2t>8=|x|+R$ です。[三次元のHuygens命題](#prop-hpde2-three-dimensional-huygens)から $u(t,x)=0$ です。$t<1$ なら $ct<2=|x|-R$ となるので、球面上の任意の $y=x+ct\omega$ は
+$t>4$ のとき $ct=2t>8=|x|+R$ です。[三次元massless波動の強いHuygens性](#prop-hpde2-three-dimensional-huygens)から $u(t,x)=0$ です。$t<1$ なら $ct<2=|x|-R$ となるので、球面上の任意の $y=x+ct\omega$ は
 
 $$
 |y|\ge|x|-ct>3.
@@ -690,7 +690,7 @@ $$
 
 $h$ は正となる開区間を持つので積分は正です。固定点で内部尾が残ります。
 
-(2) [二次元Poisson公式](#thm-hpde2-poisson-descent)より
+(2) [二次元Poisson公式とコンパクト支持解の一意性](#thm-hpde2-poisson-descent)より
 
 $$
 u(t,0)=\frac1{2\pi}\int_{|y|\le R}
