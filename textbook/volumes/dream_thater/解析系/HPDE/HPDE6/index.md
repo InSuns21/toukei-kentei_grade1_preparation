@@ -4,7 +4,15 @@
 
 平坦時空で与えていた「時刻零での変位と速度」を、曲がった時空のベクトル束へ移します。[LORG15のCauchy超曲面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)は因果曲線を一度だけ横切るという大域的な条件です。それとは別に、[HPDE5の特性](../HPDE5/index.md#def-hpde5-characteristic)を使って、その面から法線方向の二階微分を取り出せるかを調べます。この二条件を混同しないことが本章の核心です。
 
-以下、$(M,g)$ は境界のない、時間向き付きの滑らかな $(n+1)$ 次元Lorentz多様体（$n\ge1$、符号 $(-,+,\ldots,+)$）、$E\to M$ は有限ランク $r\ge1$ の滑らかな実または複素ベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ は[HPDE5で定義したnormally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)とします。$P=-\Box_g^{\nabla^P}+V$ の接続 $\nabla^P$ は[一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)で得られます。法線微分にはこの接続を使います。別の接続を無断で選ぶと「初速度」の意味が変わることに注意します。
+以下、$(M,g)$ は境界のない時間向き付きの滑らかなLorentz多様体で、次元は $n+1$（$n\ge1$）、符号は $(-,+,\ldots,+)$ とします。
+
+$E\to M$ は有限ランク $r\ge1$ の滑らかな実または複素ベクトル束です。作用素 $P:\Gamma(M,E)\to\Gamma(M,E)$ は[HPDE5で定義したnormally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)とします。
+
+[HPDE5の一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)による接続を $\nabla^P$ とすると、
+$
+P=-\Box_g^{\nabla^P}+V
+$
+です。法線微分にはこの接続を使います。別の接続を無断で選ぶと「初速度」の意味が変わることに注意します。
 
 ## 1. 初期面を時空の時計で指定する
 
@@ -275,7 +283,11 @@ $$
 なので $u_0\notin H^0(\mathbb R)$ であり、通常の大域 $H^k(\mathbb R)$ にも入りません。
 <!-- definition-example-end -->
 
-局所枠を $e'=eS$ と替えると成分は $v'=S^{-1}v$ に変わります。閉包が座標近傍内でコンパクトな小領域では $S^{-1}$ とその $k$ 階までの導関数が有界です。[GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。局所座標の変更も、閉包が座標近傍内でコンパクトな小領域では滑らかな微分同相のJacobianとその導関数が有界であることを使って同様に確かめます。
+局所枠を $e'=eS$ と替えると成分は $v'=S^{-1}v$ に変わります。閉包が座標近傍内でコンパクトな小領域では、$S^{-1}$ とその $k$ 階までの導関数が有界です。
+
+[GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。
+
+局所座標の変更でも、閉包が座標近傍内でコンパクトな領域に制限します。その上では滑らかな座標微分同相のJacobianと必要な階数までの導関数が有界なので、連鎖律から局所Sobolev条件の不変性が従います。
 
 <a id="prop-hpde6-smooth-in-local-sobolev"></a>
 <!-- formal-statement-start -->
