@@ -310,7 +310,7 @@ $$
 \operatorname{prox}_{tg}\bigl(\beta^{(k)}-t\nabla f(\beta^{(k)})\bigr).
 $$
 
-[絶対値罰則の近接公式](../../OPT/OPT8/index.md#thm-opt8-l1-prox)へ $tg=t\lambda\|\cdot\|_1$ を代入すると $S_{t\lambda}$ になる。勾配の式を入れれば表示の更新を得る。[Lassoの存在定理](#thm-ml1-06-existence)で $\lambda>0$ の最小点は存在する。$\lambda=0$ でも[最小二乗解の存在](../ML1-04/index.md#thm-ml1-04-existence-fitted-values)により最小点がある。以上でOPT8の凸性・滑らかさ・最小点存在条件を満たし、$t=1/L$ の評価を適用できる。$\square$
+[絶対値罰則の近接公式](../../OPT/OPT8/index.md#thm-opt8-l1-prox)へ $tg=t\lambda\|\cdot\|_1$ を代入すると $S_{t\lambda}$ になる。勾配の式を入れれば表示の更新を得る。[Lassoの存在定理](#thm-ml1-06-existence)で $\lambda>0$ の最小点は存在する。$\lambda=0$ でも[最小二乗解の存在](../ML1-04/index.md#thm-ml1-04-existence-fit-uniqueness)により最小点がある。以上でOPT8の凸性・滑らかさ・最小点存在条件を満たし、$t=1/L$ の評価を適用できる。$\square$
 <!-- proof-end -->
 
 **一段の計算**。$X=\sqrt2 I_2$、$y=\sqrt2(2,1/2)^{\mathsf T}$、$n=2$ なら $L=1$。$\beta^{(0)}=0$、$\lambda=3/4$、$t=1$ では勾配ステップが $(2,1/2)$ となり、閾値 $3/4$ によって $\beta^{(1)}=(5/4,0)$。列が直交するこの例では一段で最小点へ達するが、一般には複数回の更新が必要になる。$X=0$ なら $L=0$ で上の歩幅指定は使わず、$\lambda>0$ の場合は直接 $\beta=0$ と解けばよい。
