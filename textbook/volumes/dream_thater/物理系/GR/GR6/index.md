@@ -139,7 +139,16 @@ $$
 ds^2=-(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
 $$
 
-とします。座標基底の内積 $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ を並べた行列が $\operatorname{diag}(-1,1,1,1)$ であり、その行列式は $-1\ne0$、逆行列も同じです。これで逆計量による縮約が定義できます。また計量成分はすべて定数なので、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式の各微分は零となり、$\Gamma^\rho_{\mu\nu}=0$ です。[四項の曲率公式](#prop-gr6-coordinate-curvature)では微分項も接続係数の積も零です。従って
+とします。計量行列の各成分は、座標基底の二つのベクトルの内積です。この線素の係数を読み取ると
+
+$$
+g_{\mu\nu}=g(\partial_\mu,\partial_\nu),\qquad
+(g_{\mu\nu})=\operatorname{diag}(-1,1,1,1)
+$$
+
+となります。行列式は $-1\ne0$ なので非退化であり、逆行列も同じ対角行列です。こうして逆計量による縮約が定義できます。
+
+また計量成分はすべて定数なので、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)の座標式の各微分は零となり、$\Gamma^\rho_{\mu\nu}=0$ です。[四項の曲率公式](#prop-gr6-coordinate-curvature)では微分項も接続係数の積も零です。従って
 
 $$
 R^\rho{}_{\sigma\mu\nu}=0,\qquad
