@@ -168,7 +168,7 @@ $$
 (\mathcal L_Xg)(Y,Z)
 =g(\nabla_YX,Z)+g(Y,\nabla_ZX)
 $$
-を得ます。すなわち座標成分では $(\mathcal L_Xg)_{ab}=\nabla_aX_b+\nabla_bX_a$ です。これが零なら $X$ に沿う計量の変化がなく、そのようなベクトル場を **Killingベクトル場** と呼びます。計量の変化を応力テンソルと縮約するため、次の記号を導入します。
+を得ます。すなわち座標成分では $(\mathcal L_Xg)_{ab}=\nabla_aX_b+\nabla_bX_a$ です。右辺が零なら $X$ に沿う計量の変化も零です。計量の変化を応力テンソルと縮約するため、次の記号を導入します。
 
 <a id="def-hpde7-deformation-tensor"></a>
 <!-- formal-statement-start -->
