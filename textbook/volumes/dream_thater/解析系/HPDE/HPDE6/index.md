@@ -109,13 +109,13 @@ $$
 ## 4. 局所枠で「初速度」を読み替える
 
 初期速度の式を、数値計算や局所PDEの係数と接続します。直交分割座標で局所枠 $e=(e_1,\ldots,e_r)$ を選び、切断を $u=e\,v$（$v$ は成分列ベクトル）と表します。[HPDE4の束接続](../HPDE4/index.md#def-hpde4-connection)が枠をどう微分するかを $\nabla^P_{\partial_t}e_b=\sum_a e_a(\omega_t)^a{}_b$ と書けば、積の微分規則から
-$
+$$
 \nabla^P_{\partial_t}u=e(\partial_tv+\omega_tv)
-$
+$$
 となります。したがって $\omega_t$ は接続の時間方向成分を局所枠で並べた行列です。法線 $N=\alpha^{-1}\partial_t$ に対する接続はベクトル場に関して線形なので
 $$
-\nabla^P_Nv
-=\alpha^{-1}(\partial_t v+\omega_tv).
+\nabla^P_Nu
+=e\,\alpha^{-1}(\partial_tv+\omega_tv).
 $$
 したがって $v_0=v(t_0,\cdot)$、$v_1=(\nabla^P_Nv)|_{t=t_0}$ は
 $$
@@ -158,16 +158,16 @@ $$
 =(\nabla_Yu)|_x+c\,u_1(x).
 $$
 $\nabla_Yu|_\Sigma$ は束 $E|_\Sigma$ 上の誘導接続 $\nabla^\Sigma_Yu_0$ に等しく、これは $u_0$ だけから計算できます。実際、[束接続の局所表示](../HPDE4/index.md#def-hpde4-connection)で $u=e\,v$ とすれば、接方向 $Y$ に対して
-$
+$$
 (\nabla_Yu)|_\Sigma
 =e\bigl(Y(v_0)+\omega(Y)v_0\bigr),
-$
+$$
 となり、面の外側での $u$ の取り方は現れません。したがって一意性が従います。
 
 次に局所構成を行います。$\Sigma$ が滑らかな超曲面なので、点 $x$ の近傍で $\Sigma=\{T=0\}$ となる定義関数 $T$ を取れます。空間的面の法共変ベクトル $dT$ は時間的なので、$T$ が未来へ増加する符号を選び、
-$
+$$
 Z=\frac{\nabla^gT}{g(\nabla^gT,\nabla^gT)}
-$
+$$
 と置きます。$dT(Z)=1$ であり、$Y\in T\Sigma$ には $g(Z,Y)=0$ です。$Z$ の局所流線に沿って $t=T$、面内座標を $y$ とすれば、$\partial_t=Z=\alpha N$ となる直交座標が得られます。ここで $\alpha=(-g(\nabla^gT,\nabla^gT))^{-1/2}>0$ です。局所枠を選び、滑らかな成分 $v_0(y),v_1(y)$ に対し
 $$
 w(t,y)=v_0(y)+t\bigl(\alpha_0(y)v_1(y)-\omega_t(0,y)v_0(y)\bigr)
@@ -241,20 +241,20 @@ $$
 \quad}
 $$
 となります。ここで局所枠の成分について $v_0=u|_\Sigma$、$v_1=(\nabla^P_Nu)|_\Sigma$ と書き直します。$t=t_0$ を固定した面内微分なら
-$
+$$
 (\partial_au)|_\Sigma=\partial_av_0,\qquad
 (\partial_a\partial_bu)|_\Sigma=\partial_a\partial_bv_0,
 \qquad
 (\partial_tu)|_\Sigma=\alpha_0v_1-\omega_t(t_0,\cdot)v_0
-$
+$$
 です。これらを方程式に代入すると
-$
+$$
 \begin{aligned}
 (\partial_t^2u)|_\Sigma=\alpha_0^2\bigl(&f|_\Sigma+h_0^{ab}\partial_a\partial_bv_0\\
 &-B_0^t(\alpha_0v_1-\omega_t(t_0,\cdot)v_0)
 -B_0^a\partial_av_0-C_0v_0\bigr).
 \end{aligned}
-$
+$$
 ここでは $u$ と $f$ を局所枠での成分列として扱い、係数にも $t=t_0$ を代入しました。右辺は初期データ、源の初期面への制限および係数から計算できます。ただし、この恒等式を使って**形式的に二階時間微分を決められること**と、全時刻にわたる解の存在とは別問題です。存在・一意性は後のエネルギー法と局所解の構成を要します。
 
 逆にMinkowski平面の $\{t-x=0\}$ では、$g^{-1}(d(t-x),d(t-x))=0$ なので主シンボルは零となり、上のように法線方向二階微分を一意に解くことはできません。
@@ -316,10 +316,10 @@ $$
 [GPDE3の滑らかな乗法作用](../../GPDE/GPDE3/index.md#prop-gpde3-smooth-multiplier)と積の微分公式を成分ごとに適用すると、$v$ が局所 $H^k$ なら $v'$ も局所 $H^k$ です。逆変換 $v=Sv'$ にも同じ議論を適用でき、局所条件は枠の取り方によらなくなります。
 
 局所座標の変更も確かめます。重なりで $y=y(z)$ と座標を変え、成分を $w(z)=v(y(z))$ とします。滑らかな $v$ なら、まず一階の連鎖律は
-$
+$$
 \partial_{z^i}w
 =\sum_a (\partial_{y^a}v)(y(z))\,\partial_{z^i}y^a
-$
+$$
 であり、高階もこの式と積の微分規則の反復で表せます。弱微分しかない $v$ には、コンパクト小領域ごとに[GPDE3の局所平滑化定理](../../GPDE/GPDE3/index.md#thm-gpde3-local-mollification)を適用し、$H^k$ で収束する滑らかな近似 $v_j$ を取ります。座標微分同相のJacobianの絶対値は、そのコンパクト領域で上下から正の定数で抑えられ、必要な階数の導関数も有界です。従って変数変換と上の微分公式から $v_j\circ y$ および各階の微分が対応する $L^2$ で収束します。弱微分の定義における試験関数との積分等式も極限へ移せるため、$v\circ y$ に同じ階数の弱微分が存在します。逆座標変換にも同じ議論を適用でき、局所条件は座標によらないことが分かります。
 
 <a id="prop-hpde6-smooth-in-local-sobolev"></a>
