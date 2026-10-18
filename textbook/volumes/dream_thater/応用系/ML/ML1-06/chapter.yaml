@@ -1,0 +1,49 @@
+id: "ML1-06"
+title: "Lasso・疎性・近接写像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-05
+  - OPT8
+official_scope: []
+learning_objectives:
+  - 正規化した二乗損失と絶対値罰則からLassoを定義しRidgeと区別できる
+  - 劣微分のFermat条件からLassoの座標別必要十分最適性条件を導ける
+  - 原点における絶対値の劣微分を確認し厳密なゼロ係数の閾値を求められる
+  - 一変数と直交デザインにおけるソフト閾値解を導出し列の長さの違いを反映できる
+  - Lasso最小点の存在と列フルランク時の一意性を証明し重複列の非一意性を説明できる
+  - Lasso最小点の適合値は一意であることを凸性から証明できる
+  - 切片に罰則を課さない場合の中心化を導出できる
+  - 近接勾配法からLassoのISTA更新式と正しい歩幅条件を説明できる
+  - 計算ラボで正則化係数と直交列の規模を変え係数消滅とRidgeの差を再計算できる
+definitions:
+  - { id: ML1-06-DEF-01, name: Lasso回帰 }
+theorems:
+  - { id: ML1-06-THM-01, name: Lassoの座標別最適性条件 }
+  - { id: ML1-06-THM-02, name: 一変数Lassoのソフト閾値解 }
+  - { id: ML1-06-THM-03, name: 直交デザインのLasso解 }
+  - { id: ML1-06-THM-04, name: Lasso解の存在・一意性の十分条件 }
+  - { id: ML1-06-PROP-01, name: Lassoに対するISTA更新 }
+canonical_examples:
+  - 2変数直交デザインでのLasso目的値と厳密なゼロ係数
+  - 一変数の劣微分によるソフト閾値処理とRidgeとの対照
+  - 長さの異なる直交列と正則化係数で消滅する座標の変化
+  - 重複列に対するLassoの係数非一意性と適合値一意性
+  - 非罰則切片の中心化と二点標本
+  - 非直交デザインに対する残差相関による最適性検証
+  - 正規直交デザインに対するISTA一段計算とPythonラボ
+problem_patterns:
+  - ML1-06-A01
+  - ML1-06-A02
+  - ML1-06-A03
+  - ML1-06-A04
+  - ML1-06-A05
+  - ML1-06-B01
+  - ML1-06-B02
+  - ML1-06-B03
+  - ML1-06-B04
+  - ML1-06-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
