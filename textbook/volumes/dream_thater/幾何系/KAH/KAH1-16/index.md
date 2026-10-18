@@ -106,14 +106,20 @@ $$
 
 $JU$ は初期値 $Ju$ の平行延長であり、一意性によって $P_\gamma(Ju)=J(P_\gamma u)$。従って平行移動は $J$ と可換な実等長変換である。
 
-実ベクトル空間の複素数倍を $(a+ib)u=au+bJu$ と定めれば、$J$ との可換性より $P_\gamma((a+ib)u)=(a+ib)P_\gamma u$。また $h(u,v)=g(u,v)+i\,g(Ju,v)$ は $J,g$ によるHermite内積（第一変数・第二変数の線形規約を必要なら共役して同値に扱う）である。双方の保存より $h(P_\gamma u,P_\gamma v)=h(u,v)$。閉路の平行移動は $T_xX$ 上のユニタリ変換であり、全閉路について成立する。$\square$
+実ベクトル空間の複素数倍を $(a+ib)u=au+bJu$ と定めれば、$J$ との可換性より $P_\gamma((a+ib)u)=(a+ib)P_\gamma u$。また[実計量と基本形式から作るHermite内積](../KAH1-01/index.md#prop-kah1-01-hermitian-inner-product)は第一変数が共役線形、第二変数が線形で、
+
+$$
+h(u,v)=g(u,v)+i\,g(Ju,v)
+$$
+
+と表される。$P_\gamma$ が $g$ と $J$ を保存するので、この式へ代入すれば $h(P_\gamma u,P_\gamma v)=h(u,v)$。従って閉路の平行移動は $T_xX$ 上のユニタリ変換であり、全閉路について成立する。$\square$
 <!-- proof-end -->
 
 **一つ注意。** $U(n)$ に属する行列は必ず絶対値1の複素行列式を持つが、その値が必ず $1$ とは限らない。$SU(n)$ へ絞るには、行列式の平行移動を追加で調べる必要がある。
 
 ## 4. 接束の行列式とRicci形式
 
-正則接束 $E=T^{1,0}X$ の最高外冪 $L=\det E$ を考える。この線束は[標準束と反標準束の定義](../KAH1-12/index.md#def-kah1-12-canonical)に従う $K_X^{-1}$ である。接束のChern接続 $D$ はKähler条件下でLevi–Civita接続と一致するので、$L$ にも誘導接続を与える。正則枠 $e_1,\ldots,e_n$ に沿い $De_j=\sum_k e_k A^k{}_j$ と書くと、
+正則接束 $E=T^{1,0}X$ の最高外冪 $L=\det E$ を考える。この線束は[標準束と反標準束の定義](../KAH1-12/index.md#def-kah1-12-canonical)に従う $K_X^{-1}$ である。接束のChern接続 $D$ は[Kähler条件の接続による同値判定](../KAH1-03/index.md#thm-kah1-03-main-equivalence)によってLevi–Civita接続と一致するので、$L$ にも誘導接続を与える。正則枠 $e_1,\ldots,e_n$ に沿い $De_j=\sum_k e_k A^k{}_j$ と書くと、
 
 $$
 D(e_1\wedge\cdots\wedge e_n)
@@ -181,7 +187,7 @@ $$
 =\exp\left(i\int_{D^2}f^*\rho\right).
 $$
 
-中央の等号にはStokesの定理を使った。上式は、単位円板内の枠の選び方には依存しない。反時計回りを境界向きとしたときの符号である。
+中央の等号には[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使った。上式は、単位円板内の枠の選び方には依存しない。反時計回りを境界向きとしたときの符号である。
 
 <a id="thm-kah1-16-su-restricted"></a>
 
@@ -210,7 +216,7 @@ $$
 =\exp(0)=1.
 $$
 
-[Kählerホロノミーのユニタリ性](#thm-kah1-16-unitary)からも $P_\gamma\in U(n)$。二つを合わせて $P_\gamma\in SU(n)$ となる。区分的に滑らかな零ホモトピック閉路は滑らかな円板による近似で同じ結論を得る。
+[Kählerホロノミーのユニタリ性](#thm-kah1-16-unitary)からも $P_\gamma\in U(n)$。二つを合わせて $P_\gamma\in SU(n)$ となる。区分的に滑らかな零ホモトピック閉路は、基点を固定して滑らかな零ホモトピック閉路で区分的 $C^1$ 近似できる。平行移動は係数をもつ線形常微分方程式の解なので、この近似の下で終端の平行移動行列も収束する。$SU(n)$ は $U(n)$ の閉部分群だから、近似閉路で得た行列式 $1$ の条件は極限でも保たれる。
 
 逆向きに、制限ホロノミーが $SU(n)$ に入るとする。任意の点 $y\in X$ と実接ベクトル $u,v\in T_yX$ を選ぶ。小さい座標円板 $f_\varepsilon:[0,\varepsilon]^2\to X$ を $f_\varepsilon(s,t)=\varphi^{-1}(\varphi(y)+su+tv)$ と構成する（座標表示の $u,v$ を使用する）。その境界は零ホモトピックである。基点を $x$ から $y$ へ変えても平行移動の行列は共役され、行列式は変わらないので、
 
@@ -269,7 +275,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Y$ はコンパクト連結であり、有限群の自由作用による商 $X$ もコンパクト連結かつ滑らかである。上の計量の降下によって $X$ はKählerで、局所平坦性から $\rho=0$。このため[制限ホロノミー定理](#thm-kah1-16-su-restricted)で $\operatorname{Hol}^0\subseteq SU(2)$ は既に言えるが、より強く局所平坦な座標枠を円板に沿って運べば、縮まる閉路の移動は $I$ である。
+$Y$ はコンパクト連結であり、有限群の自由作用による商 $X$ もコンパクト連結かつ滑らかである。上の計量の降下によって $X$ はKählerで、局所平坦性から $\rho=0$。このため[制限ホロノミー定理](#thm-kah1-16-su-restricted)で $\operatorname{Hol}^0\subseteq SU(2)$ は既に言える。より強い自明性は、零ホモトピック閉路を被覆 $Y$ に持ち上げると閉路になり、その上の定数係数枠での平行移動が $I$ になることから、以下で直接確かめる。
 
 $x=[(0,0)]$ とし、$Y$ で $(0,0)$ から $(1/2,0)$ へ進む曲線を取る。両端は $\sigma$ により $X$ で同じ点を表すので、商への射影は $x$ を基点とする閉路になる。$Y$ でこの曲線に沿う平行移動は定数係数枠で $I$。終点 $(1/2,0)=\sigma(0,0)$ の接ベクトルを始点に戻して比較すると $d\sigma^{-1}=\operatorname{diag}(1,-1)$ が掛かる。従ってこの閉路のホロノミーは同じ対角行列で、その行列式は $-1$。
 
@@ -412,7 +418,7 @@ $Y=E\times E$ の $\sigma(z,w)=(z+1/2,-w)$ について (i) 固定点がない�
 #### KAH1-16-B04 必要条件と与えられた計量を区別
 - Level: B
 
-複素トーラス $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上に、平坦Kähler形式 $\omega_0$ と滑らかな実関数 $\varphi=\varepsilon\cos(2\pi\operatorname{Re}z)$ を用いて $\omega=\omega_0+i\partial\bar\partial\varphi$ を入れる。十分小さい $\varepsilon\ne0$ に対し $\omega$ はKählerであるが一般にRicci平坦でないことを示せ。これが $c_1(T)_{\mathbb R}=0$ と矛盾しない理由を述べよ。
+複素トーラス $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上に、標準の平坦Kähler形式 $\omega_0=i\,dz\wedge d\bar z$ と滑らかな実関数 $\varphi=\varepsilon\cos(2\pi\operatorname{Re}z)$ を用いて $\omega=\omega_0+i\partial\bar\partial\varphi$ を入れる。十分小さい $\varepsilon\ne0$ に対し $\omega$ はKählerであるが一般にRicci平坦でないことを示せ。これが $c_1(T)_{\mathbb R}=0$ と矛盾しない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答。** $\varphi$ は $z\mapsto z+m+in$ の下で不変なので $T$ 上の実関数である。$x=\operatorname{Re}z$ とすると $\partial_z\partial_{\bar z}\varphi=(1/4)\partial_x^2\varphi=-\pi^2\varepsilon\cos(2\pi x)$。従って
