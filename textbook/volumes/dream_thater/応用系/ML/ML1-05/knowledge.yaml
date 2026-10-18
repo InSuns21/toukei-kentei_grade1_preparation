@@ -1,0 +1,54 @@
+chapter: ML1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-04
+  - F0-00F2
+
+concepts:
+  - id: learning.ridge-regression
+    name: Ridge回帰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ridge回帰）"]
+    requires:
+      - learning.least-squares-objective
+      - learning.regularized-erm
+
+  - id: learning.ridge-unique-solution
+    name: 正のRidge係数と一意な最小解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正のRidge係数と一意な最小解）"]
+    requires:
+      - learning.ridge-regression
+      - learning.least-squares-normal-equations
+
+  - id: learning.ridge-svd-shrinkage
+    name: 特異値方向の縮小と零正則化極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（特異値方向の縮小と零正則化極限）"]
+    requires:
+      - learning.ridge-unique-solution
+      - linear.singular-value-decomposition
+      - learning.minimum-norm-least-squares
+
+  - id: learning.fixed-design-bias-variance
+    name: 固定デザインでの偏り・分散・平均二乗誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定デザインでの偏り・分散・平均二乗誤差）"]
+    requires:
+      - learning.ridge-regression
+      - prob.covariance
+      - prob.expectation
+
+  - id: learning.ridge-bias-variance-risk
+    name: Ridge推定量の偏り・分散と係数リスク
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ridge推定量の偏り・分散と係数リスク）"]
+    requires:
+      - learning.fixed-design-bias-variance
+      - learning.ridge-svd-shrinkage
