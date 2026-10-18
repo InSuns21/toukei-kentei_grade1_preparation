@@ -453,6 +453,9 @@ assert all(0 <= crossval[name] <= 1 for name in names)
 assert selected_holdout in names and selected_cv in names
 assert abs(cv_score("zero") - sum(y for _, y in train)/36) < 1e-12
 assert abs(cv_score("one") - (1 - sum(y for _, y in train)/36)) < 1e-12
+# 固定閾値予測器は折ごとの再学習で変化しないため、CV値と訓練集合上の損失が一致する。
+assert abs(cv_score("threshold-0.3") - risk(fit("threshold-0.3", train), train)) < 1e-12
+assert abs(cv_score("threshold-0.7") - risk(fit("threshold-0.7", train), train)) < 1e-12
 ~~~
 
 最終テストは24件しかないので、たまたま選ばれた候補が一度よく当たっただけで一般的な優劣は確定できない。乱数種を繰り返して試す場合も、テストで良かった試行だけを選んで報告すると新たな選択バイアスが生じる。
