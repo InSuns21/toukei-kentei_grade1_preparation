@@ -1,0 +1,30 @@
+chapter: HPDE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE4
+  - LORG1
+  - LORG6
+  - LORG13
+  - LORG15
+  - LORG16
+forward_references: []
+concepts:
+  - id: hpde.flat-wave-operator
+    name: 1+1次元平坦波動作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1+1次元平坦波動作用素）"]
+    requires: [pde.pde4-wave-equation, lorentz-geometry.lorentz-inner-product]
+  - id: hpde.null-factorization
+    name: 光的座標での波動作用素の因子分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（光的座標での波動作用素の因子分解）"]
+    requires: [hpde.flat-wave-operator, pde.pde4-classical-solution]
+  - id: hpde.causal-support
+    name: 初期支持の因果的包含
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（初期支持の因果的包含）"]
+    requires: [pde.pde4-finite-propagation, lorentz-geometry.minkowski-causal-future]
