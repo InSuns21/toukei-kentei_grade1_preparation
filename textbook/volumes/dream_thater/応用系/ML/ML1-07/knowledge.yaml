@@ -23,7 +23,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Naive Bayes模型）"]
-    requires: [learning.generative-classification, prob.independence]
+    requires: [learning.generative-classification, prob.mutual-independence]
   - id: learning.naive-bayes-log-score
     name: Bernoulli Naive Bayesの対数得点
     kind: proposition
