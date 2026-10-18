@@ -55,7 +55,7 @@ def contact_sheet(entries, batch, font):
         # Always use ASCII for portable CI fonts; full Japanese paths stay in manifest.json.
         pieces = Path(label).parts
         short = "/".join(pieces[-3:])
-        short = re.sub(r"[^\\x20-\\x7E]", "", short)
+        short = re.sub(r"[^\x20-\x7E]", "", short)
         lines = [short[:60], short[60:120]]
         for j, line in enumerate(lines):
             draw.text((x + 12, y + 6 + 15*j), line, fill="#202a35", font=font)
