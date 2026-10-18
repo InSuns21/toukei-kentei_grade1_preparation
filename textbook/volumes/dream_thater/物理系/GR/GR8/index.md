@@ -136,7 +136,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（完全流体テンソルの静止系との同値性）**  
-> 符号 $(-,+,+,+)$ の四次元Lorentz多様体 $(M,g)$ の点 $q$ で、$g(u,u)=-c^2$ を満たす未来向き速度 $u\in T_qM$、$\varepsilon\ge0$、$p\in\mathbb R$ および二階反変テンソル $S$ を考える。時間軸を $e_{(0)}=u/c$ とする任意の局所直交枠で
+> 符号 $(-,+,+,+)$ の四次元Lorentz多様体 $(M,g)$ の点 $q$ と、未来向き速度 $u\in T_qM$、固有エネルギー密度 $\varepsilon$、固有圧力 $p$ および二階反変テンソル $S$ を取る。これらには
+
+$
+g(u,u)=-c^2,\qquad \varepsilon\ge0,\qquad p\in\mathbb R
+$
+
+> を仮定する。時間軸を $e_{(0)}=u/c$ とする任意の局所直交枠で
 
 $
 S^{(a)(b)}=\operatorname{diag}(\varepsilon,p,p,p)
@@ -165,7 +171,19 @@ T^{(0)(i)}=0,\quad
 T^{(i)(j)}=p\delta^{ij}.
 $$
 
-逆に $S^{(a)(b)}=\operatorname{diag}(\varepsilon,p,p,p)$ となるテンソル $S$ があるとします。$Q^{\mu\nu}=(\varepsilon+p)u^\mu u^\nu/c^2+pg^{\mu\nu}$ と置くと、上の直接計算により $Q^{(a)(b)}=S^{(a)(b)}$ です。差 $S-Q$ は基底のすべての成分が零なので、基底変換後の座標成分も零です。従って $S=Q$ です。$\square$
+逆に静止枠で指定の対角成分を持つテンソル $S$ があるとします。右辺のテンソルを
+
+$
+Q^{\mu\nu}:=(\varepsilon+p)\frac{u^\mu u^\nu}{c^2}+p\,g^{\mu\nu}
+$
+
+と置くと、上の直接計算から同じ基底で
+
+$
+Q^{(a)(b)}=S^{(a)(b)}=\operatorname{diag}(\varepsilon,p,p,p)
+$
+
+です。差 $S-Q$ は基底のすべての成分が零なので、基底変換後の座標成分も零です。従って $S=Q$ です。$\square$
 <!-- proof-end -->
 
 曲がった時空の式を平坦時空へ戻すとき、SREL7は $(+,-,-,-)$、本章は $(-,+,+,+)$ という違いがあります。[SREL7の定義](../../SREL/SREL7/index.md#def-srel7-perfect-fluid)を符号換算すると $-p\eta^{\mu\nu}_{(+---)}$ が $+p g^{\mu\nu}_{(-+++)}$ となり、観測値は変わりません。
@@ -184,7 +202,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr8-dust -->
-**定義の確認**：Minkowski静止系で $u=(c,0,0,0)$、$\rho_0=2\,\mathrm{kg/m^3}$ とすると $\varepsilon=2c^2\,\mathrm{J/m^3}$、$T^{00}=2c^2$、$T^{0i}=T^{ij}=0$ です。したがって静止系で圧力が零であり、指定した密度に対応します。動く座標系で $T^{ij}$ が非零でも、それは粒子の一方向の運動量流束であって静止系の**固有圧力**ではありません。
+**定義の確認**：Minkowski静止系で $u=(c,0,0,0)$、$\rho_0=2\,\mathrm{kg/m^3}>0$ とします。規格化を満たすこの速度を塵の式へ代入すると
+
+$
+\begin{aligned}
+\varepsilon&=\rho_0c^2=2c^2\,\mathrm{J/m^3}>0,\\
+T^{00}&=\rho_0(u^0)^2=2c^2\,\mathrm{J/m^3},\\
+T^{0i}&=T^{ij}=0.
+\end{aligned}
+$
+
+静止系で空間応力がすべて零なので固有圧力 $p=0$ であり、質量密度とエネルギー密度の対応も確かめられました。動く座標系で $T^{ij}$ が非零でも、それは粒子の一方向の運動量流束であって静止系の**固有圧力**ではありません。
 <!-- definition-example-end -->
 
 ## 3. 保存則を時間方向と空間方向へ分ける
@@ -355,7 +383,21 @@ $c>0$ なので連続の式を得ます。これを最初の展開式へ戻す�
 
 ### 5.1 一様に動く完全流体
 
-Minkowski時空で流体が $x$ 方向に速さ $v$、$|v|<c$ で動くとき、$x^0=ct$ として $u^\mu=\gamma(c,v,0,0)$、$\gamma=(1-v^2/c^2)^{-1/2}$ です。規格化は $-\gamma^2c^2+\gamma^2v^2=-c^2$。完全流体テンソルの定義に代入すると
+Minkowski時空で流体が $x$ 方向に速さ $v$（$|v|<c$）で動くとき、$x^0=ct$ として
+
+$
+\gamma=(1-v^2/c^2)^{-1/2},\qquad
+u^\mu=\gamma(c,v,0,0)
+$
+
+と置きます。この速度は
+
+$
+g(u,u)=-\gamma^2c^2+\gamma^2v^2
+=-\gamma^2(c^2-v^2)=-c^2
+$
+
+と規格化されています。[完全流体テンソルの定義](#def-gr8-perfect-fluid-stress)に代入すると
 
 $$
 \begin{aligned}
@@ -453,7 +495,15 @@ $$
 =0,
 $$
 
-つまり $\partial_i p=-(\varepsilon+p)\partial_i\ln N$ です。時間方向は $a^0=0$、$h^{0\nu}=0$ なので自動的に成立し、[射影との同値性](#thm-gr8-fluid-projections)により元の保存則も満たします。$p=0$、$\varepsilon>0$ なら $0=-\varepsilon N_i/N$ から各 $N_i=0$ です。$\square$
+つまり $\partial_i p=-(\varepsilon+p)\partial_i\ln N$ です。時間方向は $a^0=0$、$h^{0\nu}=0$ なので自動的に成立し、[射影との同値性](#thm-gr8-fluid-projections)により元の保存則も満たします。
+
+静止塵の $p=0$ と正密度 $\varepsilon>0$ を代入すれば
+
+$
+0=-\varepsilon\frac{N_i}{N}.
+$
+
+$N>0$ かつ $\varepsilon>0$ より各 $N_i=0$ です。$\square$
 <!-- proof-end -->
 
 この結果は、流体が「重力によって動かない」のではなく、静止するには圧力差が必要であることを示します。例えば $N(z)=1+gz/c^2>0$（ここで $g>0$ は加速度の大きさ）なら
@@ -658,7 +708,20 @@ $$
 0=D(u_\nu u^\nu)=2u_\nu Du^\nu=2u_\nu a^\nu.
 $$
 
-$J:=\nabla_\mu(\rho_0u^\mu)$ とおけば $\nabla_\mu T^{\mu\nu}=u^\nu J+\rho_0a^\nu=0$。$u_\nu$ で縮約して $-c^2J=0$ なので $J=0$。したがって $\rho_0a^\nu=0$ となります。$\rho_0>0$ より $a^\nu=0$。ここで密度の正性を使用したことが重要です。
+質量流束の発散を $J:=\nabla_\mu(\rho_0u^\mu)$ と置きます。積の微分則から
+
+$
+0=\nabla_\mu T^{\mu\nu}=u^\nu J+\rho_0a^\nu
+$
+
+を得ます。$u_\nu$ で縮約し、直前に示した直交性を使うと
+
+$
+0=u_\nu(u^\nu J+\rho_0a^\nu)
+=-c^2J+0.
+$
+
+$c>0$ より $J=0$ です。元の式へ戻すと $\rho_0a^\nu=0$ となり、正密度 $\rho_0>0$ を使って初めて $a^\nu=0$ と結論できます。
 <!-- solution-end -->
 
 ### Level C
