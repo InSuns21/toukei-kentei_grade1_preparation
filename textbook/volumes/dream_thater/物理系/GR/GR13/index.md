@@ -487,7 +487,33 @@ $$
 
 $p(R)=0$ なので $p(r)=\rho_0 GM(R^2-r^2)/(2R^3)$、特に $p(0)/(\rho_0c^2)=GM/(2Rc^2)=\eta/2$ です。
 
-(iv) $\eta\ll1$ は $|\Phi|/c^2=O(\eta)$ を保証し、$p/(\rho_0c^2)=O(\eta)$ なので $T_{ij}/T_{00}$ は一段小さくなります。したがって先頭次数では $T_{00}\simeq\rho_0c^2$、$T\simeq-\rho_0c^2$ となり、[Ricci表示](../GR12/index.md#prop-gr12-trace-reverse)の00成分は $R_{00}\simeq4\pi G\rho_0/c^2$。左辺の幾何学的近似 $R_{00}\simeq\Delta\Phi/c^2$ に (i) の内側 $\Delta\Phi=4\pi G\rho_0$ を代入すると一致します。圧力の相対補正は $O(\eta)$、曲率方程式の捨てた項は先頭項に対し $O(\eta)$ です。この計算だけで有限 $\eta$ の厳密な相対論的静止星の解を得たとは主張しません。
+(iv) $\eta\ll1$ は $|\Phi|/c^2=O(\eta)$ を保証します。上で求めた圧力は質量エネルギー密度に比べて小さく、
+
+$$
+\frac{p}{\rho_0c^2}=O(\eta),
+\qquad
+\frac{T_{ij}}{T_{00}}=O(\eta)
+$$
+
+となります。先頭次数では
+
+$$
+T_{00}\simeq\rho_0c^2,\qquad T\simeq-\rho_0c^2
+$$
+
+です。よって[GR12のRicci表示](../GR12/index.md#prop-gr12-trace-reverse)の00成分の右辺は
+
+$$
+R_{00}\simeq\frac{4\pi G\rho_0}{c^2}.
+$$
+
+一方、左辺の幾何学的近似は $R_{00}\simeq\Delta\Phi/c^2$ で、(i) の内側の式は
+
+$$
+\Delta\Phi=4\pi G\rho_0
+$$
+
+ですから、両者は一致します。圧力による相対補正と、曲率方程式で捨てた高次項はいずれも先頭項に比べて $O(\eta)$ です。この計算だけで有限の $\eta$ に対する厳密な相対論的静止星の解を得たとは主張しません。
 <!-- solution-end -->
 
 ## 6. 次章への接続
