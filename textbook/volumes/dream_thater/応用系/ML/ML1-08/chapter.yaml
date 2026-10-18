@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - ML1-07
   - ML1-03
+  - F0-00P7
 official_scope: []
 learning_objectives:
   - 生成的分類と判別的分類の確率のモデル化の違いを説明できる
@@ -18,6 +19,7 @@ learning_objectives:
   - 全係数二乗罰則のもとで最小点の存在と一意性を保証できる
   - 数値安定なlog-sum-expと有限差分によって式を検算できる
 definitions:
+  - { id: ML1-08-DEF-00, name: logistic関数 }
   - { id: ML1-08-DEF-01, name: logistic回帰模型 }
   - { id: ML1-08-DEF-02, name: 二値対数損失と経験負対数尤度 }
   - { id: ML1-08-DEF-03, name: softmax回帰模型 }
