@@ -355,7 +355,7 @@ $$
 \end{aligned}
 $$
 
-計量の非退化性による逆行列 $g^{\rho\sigma}$ を掛けると、[LORG4の接続係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から $d^2x^\rho/ds^2+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。逆向きも一次変分式へ戻せるので必要十分性が出ます。
+計量の非退化性による逆行列 $g^{\rho\sigma}$ を掛けると、[Lorentz計量のLevi-Civita接続とKoszul表示](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)から $d^2x^\rho/ds^2+\Gamma^\rho_{\mu\nu}w^\mu w^\nu=0$ です。逆向きも一次変分式へ戻せるので必要十分性が出ます。
 
 計量両立性を速度へ使えば
 
