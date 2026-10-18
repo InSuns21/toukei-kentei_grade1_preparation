@@ -391,6 +391,7 @@
 4. [HPDE4 ベクトル束・接続・形式的随伴](textbook/volumes/dream_thater/解析系/HPDE/HPDE4/index.md)
 5. [HPDE5 主シンボルとnormally hyperbolic作用素](textbook/volumes/dream_thater/解析系/HPDE/HPDE5/index.md)
 6. [HPDE6 Cauchy超曲面・初期データ・関数空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE6/index.md)
+7. [HPDE7 エネルギー流と発散恒等式](textbook/volumes/dream_thater/解析系/HPDE/HPDE7/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
@@ -1176,6 +1177,7 @@
 8. [GR8 塵・完全流体とエネルギー運動量](textbook/volumes/dream_thater/物理系/GR/GR8/index.md)
 9. [GR9 物質作用と電磁場の応力テンソル](textbook/volumes/dream_thater/物理系/GR/GR9/index.md)
 10. [GR10 Einstein–Hilbert作用の変分](textbook/volumes/dream_thater/物理系/GR/GR10/index.md)
+11. [GR11 境界条件とGibbons–Hawking–York項](textbook/volumes/dream_thater/物理系/GR/GR11/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

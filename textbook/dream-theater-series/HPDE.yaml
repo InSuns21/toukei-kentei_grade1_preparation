@@ -31,7 +31,7 @@ chapters:
     title: "Cauchy超曲面・初期データ・関数空間"
   - id: HPDE7
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE7
-    status: planned
+    status: completed
     title: "エネルギー流と発散恒等式"
   - id: HPDE8
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE8
