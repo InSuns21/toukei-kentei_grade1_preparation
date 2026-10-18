@@ -151,3 +151,79 @@ $$
 
 この問題は候補の数だけでは決まらず、候補と評価集合の関係に依存する。設定候補を検証データで何度も比較するほど、検証データに偶然合う候補を拾う機会は増え得る。ここで別の独立なテストが必要になる。
 
+## 5. K分割交差検証：検証役を持ち回る
+
+一つの検証集合だけで判断すると、分割の偶然に左右されやすい。訓練部分集合を順番に入れ替え、全ての観測を一回ずつ保留評価へ使う方法が交差検証である。各回の予測器は、その回の訓練集合で **学習し直す**。特に乱数を使う算法では、評価折の情報から乱数・停止条件を決めてはならない。
+
+<a id="def-ml1-12-kfold"></a>
+
+<!-- formal-statement-start -->
+> **定義（K分割交差検証）**  
+> 独立同分布な $n$ 観測と整数 $2\le K\le n$、固定した設定値 $\lambda$ を考える。添字を、標本値に依存しない非空な $K$ 個の折 $F_1,\ldots,F_K$ に分割する。第 $r$ 回には $F_r$ を保留し、それ以外の観測で $h_{\lambda,-r}=\mathcal A_\lambda((Z_i)_{i\notin F_r})$ を学習する。交差検証損失を
+
+$$
+\widehat R_{\mathrm{CV},K}(\lambda)
+=\frac1n\sum_{r=1}^K\sum_{i\in F_r}
+\ell(h_{\lambda,-r}(X_i),Y_i)
+$$
+
+> とする。各回の算法乱数は評価折と独立に生成する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ml1-12-kfold -->
+**定義の確認**。$n=6,K=3$、$F_1=\{1,2\}$、$F_2=\{3,4\}$、$F_3=\{5,6\}$ は空でなく互いに交わらず、6添字を全て覆う。各回の訓練サイズは4、検証サイズは2である。各折の損失が $(0,1),(0,0),(1,0)$ なら全6観測の損失和は2、交差検証値は $2/6=1/3$。設定値を変えれば、この全手順を設定値ごとにやり直して比較する。
+<!-- definition-example-end -->
+
+<a id="thm-ml1-12-cv-target"></a>
+
+<!-- formal-statement-start -->
+> **定理（固定設定値のCVが推定する訓練サイズ）**  
+> [K分割交差検証](#def-ml1-12-kfold)において、算法 $\mathcal A_\lambda$ は $m$ 個の独立同分布訓練観測とそれに独立な算法乱数から予測器を作り、損失は可積分とする。$\mathcal R_m(\mathcal A_\lambda)$ を、この算法を $m$ 観測で訓練し、新しい独立な一観測で測った期待損失とする。このとき
+
+$$
+\mathbb E[\widehat R_{\mathrm{CV},K}(\lambda)]
+=\frac1n\sum_{r=1}^K|F_r|\,
+\mathcal R_{n-|F_r|}(\mathcal A_\lambda).
+$$
+
+> 全折が等サイズ $q=n/K$ の場合、右辺は $\mathcal R_{n-q}(\mathcal A_\lambda)$ である。一般に $n$ 件で学習した算法の期待リスクとは一致しない。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+第 $r$ 回で訓練に使った $n-|F_r|$ 件と、保留した $|F_r|$ 件は独立である。各保留項の期待値は、その訓練サイズでの算法の期待リスクになる。折ごとに評価件数だけ重みを付けて足す。
+
+<!-- proof-start -->
+### 証明
+
+$r$ を固定し、$H_r=h_{\lambda,-r}$ とおく。$i\in F_r$ の観測 $Z_i$ と $H_r$ は独立なので、[独立保留標本の定理](#thm-ml1-12-independent-holdout)から
+
+$$
+\mathbb E[\ell(H_r(X_i),Y_i)\mid H_r]=R_P(H_r).
+$$
+
+訓練観測が $n-|F_r|$ 件であるから、さらに期待値を取ると
+
+$$
+\mathbb E[\ell(H_r(X_i),Y_i)]
+=\mathbb E[R_P(H_r)]
+=\mathcal R_{n-|F_r|}(\mathcal A_\lambda).
+$$
+
+よって
+
+$$
+\begin{aligned}
+\mathbb E[\widehat R_{\mathrm{CV},K}(\lambda)]
+&=\frac1n\sum_{r=1}^K\sum_{i\in F_r}
+\mathbb E[\ell(H_r(X_i),Y_i)]\\
+&=\frac1n\sum_{r=1}^K|F_r|\,
+\mathcal R_{n-|F_r|}(\mathcal A_\lambda).
+\end{aligned}
+$$
+
+全ての $|F_r|=q$ なら $n=Kq$ より係数の和は1になり、結論を得る。$\square$
+<!-- proof-end -->
+
+折ごとの学習集合は重なるので、各折の評価損失を互いに独立とはみなせない。期待値の線形性はこの重なりに影響されないが、分散や標準誤差の計算では注意が要る。またCV値を最小にした設定値を選び、その**最小CV値**を選択手順の独立な性能評価とすることもできない。
+
