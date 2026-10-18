@@ -1,0 +1,63 @@
+chapter: ML1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-05
+  - OPT8
+
+concepts:
+  - id: learning.lasso-regression
+    name: Lasso回帰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lasso回帰）"]
+    requires:
+      - learning.ridge-regression
+      - convex.subgradient
+
+  - id: learning.lasso-coordinate-optimality
+    name: Lassoの座標別最適性条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lassoの座標別最適性条件）"]
+    requires:
+      - learning.lasso-regression
+      - convex.fermat-subgradient-condition
+      - convex.subdifferential-sum-rule
+
+  - id: learning.lasso-scalar-soft-threshold
+    name: 一変数Lassoのソフト閾値解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一変数Lassoのソフト閾値解）"]
+    requires:
+      - learning.lasso-coordinate-optimality
+      - optimization.soft-thresholding
+
+  - id: learning.lasso-orthogonal-solution
+    name: 直交デザインのLasso解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直交デザインのLasso解）"]
+    requires:
+      - learning.lasso-scalar-soft-threshold
+      - learning.least-squares-objective
+
+  - id: learning.lasso-existence-uniqueness
+    name: Lasso解の存在・一意性の十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lasso解の存在・一意性の十分条件）"]
+    requires:
+      - learning.lasso-regression
+      - convex.coercivity
+
+  - id: learning.lasso-ista
+    name: Lassoに対するISTA更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lassoに対するISTA更新）"]
+    requires:
+      - learning.lasso-existence-uniqueness
+      - optimization.l1-proximal-soft-threshold
+      - optimization.proximal-gradient-method
