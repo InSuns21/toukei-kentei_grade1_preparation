@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - ML1-02
   - ML1-07
+  - F0-00P4
 official_scope: []
 learning_objectives:
   - Euclid距離・近傍数kと二種類の同点規則を固定し近傍集合を計算できる
