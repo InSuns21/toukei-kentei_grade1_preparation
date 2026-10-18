@@ -253,7 +253,7 @@ Lorentz計量での発散定理では、外向き**共法線**を使います。
 <a id="thm-hpde7-stokes-balance"></a>
 <!-- formal-statement-start -->
 > **定理（エネルギーの境界収支）**  
-> $(-\Box_g+q)u=f$ を満たす滑らかな実関数 $u$ と滑らかな乗数 $X$ を取る。上記の相対コンパクトな区分的滑らかな領域 $\Omega$ において、$E_i=\int_{\Sigma_i}T(N,X)\,d\mu_{h_i}$、時間的側面フラックスを
+> $(-\Box_g+q)u=f$ を満たす滑らかな実関数 $u$ と滑らかな乗数 $X$ を取る。上記の閉包がコンパクトな区分的滑らかな領域 $\Omega$ において、$E_i=\int_{\Sigma_i}T(N,X)\,d\mu_{h_i}$、時間的側面フラックスを
 
 $$
 F_B=\int_B g(J,\nu)\,d\mu_B
