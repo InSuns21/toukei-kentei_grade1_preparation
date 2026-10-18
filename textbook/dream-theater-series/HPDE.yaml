@@ -27,7 +27,7 @@ chapters:
     title: "主シンボルとnormally hyperbolic作用素"
   - id: HPDE6
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE6
-    status: planned
+    status: completed
     title: "Cauchy超曲面・初期データ・関数空間"
   - id: HPDE7
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE7
