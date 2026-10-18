@@ -19,7 +19,7 @@ $$
 <a id="def-hpde3-density"></a>
 <!-- formal-statement-start -->
 > **定義（密度束と滑らかな密度）**  
-> $d$ 次元滑らかな多様体 $M$ の各点 $p$ で、$T_pM$ の順序付き基底 $(v_1,\ldots,v_d)$ に非負の数を与え、基底変換 $v'_i=\sum_jv_jA^j{}_i$ に対し
+> $d$ 次元滑らかな多様体 $M$ の各点 $p$ で、$T_pM$ の順序付き基底 $(v_1,\ldots,v_d)$ に実数を与え、基底変換 $v'_i=\sum_jv_jA^j{}_i$ に対し
 
 $$
 \rho_p(v'_1,\ldots,v'_d)=|\det A|\rho_p(v_1,\ldots,v_d)
