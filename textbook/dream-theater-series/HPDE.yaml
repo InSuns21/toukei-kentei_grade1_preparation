@@ -39,7 +39,7 @@ chapters:
     title: "エネルギー不等式と一意性"
   - id: HPDE9
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE9
-    status: planned
+    status: completed
     title: "高階Sobolev評価と正則性の伝播"
   - id: HPDE10
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE10
