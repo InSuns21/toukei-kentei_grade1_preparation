@@ -61,16 +61,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-04-least-squares -->
-**定義の確認**。上の直線模型で $\beta=(1,1/2)^{\mathsf T}$ を選ぶと $X\beta=(1,3/2,2)^{\mathsf T}$、残差は $(0,1/2,0)^{\mathsf T}$ なので
+**定義の確認**。上の直線模型で $\beta=(1,1/2)^{\mathsf T}$ を選ぶと $X\beta=(1,3/2,2)^{\mathsf T}$ となる。この候補の予測を観測値から引いた誤差ベクトルは $(0,1/2,0)^{\mathsf T}$ なので
 
 $$
 L(\beta)=\frac1{2\cdot3}\left(0^2+(1/2)^2+0^2\right)=\frac1{24}.
 $$
 
-三つの観測が固定されているので、この値に独立性や確率分布は関与しない。定義の残差 $r$ は $y-X\widehat\beta$ であるが、目的に現れる $X\beta-y$ はその符号を反転したものである。二乗のため値は変わらない。
+三つの観測が固定されているので、この値に独立性や確率分布は関与しない。任意の候補 $\beta$ に対して、観測値から予測を引いた誤差を $e(\beta)$ と書けば
+
+$$
+e(\beta)=y-X\beta,\qquad X\beta-y=-e(\beta)
+$$
+
+である。目的に現れる誤差は符号が反対でも、二乗値は変わらない。定義の残差 $r=e(\widehat\beta)$ は、最小二乗解 $\widehat\beta$ に対応する誤差を指す。上で選んだ候補が最適だとはまだ主張していない。
 <!-- definition-example-end -->
 
-最小二乗法は通常の[正則化付きERM](../ML1-03/index.md#def-ml1-03-regularized-erm)で $\lambda=0$ とした場合に当たるが、候補空間は有限集合ではなく $\mathbb R^p$ である。したがって前講の「候補が有限だから最小値がある」という議論は使えない。
+平方残差の平均を最小化する点では[前講の正則化付きERM](../ML1-03/index.md#def-ml1-03-regularized-erm)の $\lambda=0$ と目的の形が対応する。ただし、前講の形式的な定義は有限非空の仮説クラスに対するものであり、ここでは候補が $\mathbb R^p$ と無限にある。そのため有限性による最小値の存在証明を転用できず、最小解の存在は第5節で別に証明する。
 
 ## 3. 微分から正規方程式を導く
 
@@ -98,7 +104,7 @@ $$
 X^{\mathsf T}X\widehat\beta=X^{\mathsf T}y.
 $$
 
-> 正規方程式の解が存在することは次節で証明する。
+> 正規方程式の解が任意の実行列について存在することは第5節で証明する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -165,7 +171,7 @@ $$
 h^{\mathsf T}Gh=h^{\mathsf T}X^{\mathsf T}Xh=(Xh)^{\mathsf T}(Xh)=\|Xh\|_2^2.
 $$
 
-$\operatorname{rank}X=p$ なら $Xh=0$ から $h=0$ が従うため、$h\ne0$ では右辺が正になる。もし $Gh=0$ なら $0=h^{\mathsf T}Gh=\|Xh\|_2^2$ だから $h=0$。したがって正方行列 $G$ の核は0であり、有限次元の可逆性判定により逆行列を持つ。
+$\operatorname{rank}X=p$ なら $Xh=0$ から $h=0$ が従うため、$h\ne0$ では右辺が正になる。もし $Gh=0$ なら $0=h^{\mathsf T}Gh=\|Xh\|_2^2$ だから $h=0$。したがって正方行列 $G$ の核は0である。$G:\mathbb R^p\to\mathbb R^p$ は単射であり、定義域と値域側の空間が同じ有限次元 $p$ だから全射でもある。よって $G$ は逆行列を持つ。
 
 正規方程式 $G\beta=X^{\mathsf T}y$ は $\widehat\beta=G^{-1}X^{\mathsf T}y$ をただ一つの解として持つ。[正規方程式と最適性](#thm-ml1-04-normal-equations)から、これがただ一つの最小二乗解である。$\square$
 <!-- proof-end -->
@@ -252,7 +258,9 @@ $$
 
 ## 6. 解集合と最小ノルム解
 
-適合値が決まっても、それを作る係数は多数あるかもしれない。最小ノルム解は、その中から係数のEuclidノルムが最も小さい一つを選ぶ規則である。これは追加の選択基準であって、母集団リスクが最小になるという主張ではない。 特異値分解で正の特異値にだけ逆数を対応させ、零特異値に対応する方向には0を与えることで、この選択を行列として表せる。単純に正規方程式へ逆行列を適用する方法とは違い、階数が落ちても定義できる。
+適合値が決まっても、それを作る係数は多数あるかもしれない。最小ノルム解は、その中から係数のEuclidノルムが最も小さい一つを選ぶ規則である。これは追加の選択基準であって、母集団リスクが最小になるという主張ではない。
+
+特異値分解で正の特異値にだけ逆数を対応させ、零特異値に対応する方向には0を与えると、最小ノルム解を行列として表せる。この行列をMoore–Penrose擬似逆と呼ぶ。通常の逆行列とは異なり、階数が落ちても構成できる。
 
 <a id="thm-ml1-04-solution-set-minimum-norm"></a>
 
@@ -265,13 +273,16 @@ $$
 =\{\beta_0+v:v\in\mathbb R^p,\ Xv=0\}
 $$
 
-> である。その中で $\|\beta\|_2$ を最小化する係数 $\beta^\dagger$ は一意に存在する。$X=U\Sigma V^{\mathsf T}$、正の特異値 $s_1,\ldots,s_q$ と $c=U^{\mathsf T}y$ を用いれば
+> である。その中で $\|\beta\|_2$ を最小化する係数 $\beta^\dagger$ は一意に存在する。$X=U\Sigma V^{\mathsf T}$、階数 $q$、正の特異値 $s_1,\ldots,s_q$ と $c=U^{\mathsf T}y$ を用い、$b^\dagger\in\mathbb R^p$ を次のように定めれば
 
 $$
-\beta^\dagger=V
-\begin{pmatrix}
-c_1/s_1\\ \vdots\\ c_q/s_q\\0\\ \vdots\\0
-\end{pmatrix}.
+b_j^\dagger=
+\begin{cases}
+c_j/s_j & (1\le j\le q),\\
+0 & (q<j\le p)
+\end{cases},
+\qquad
+\beta^\dagger=Vb^\dagger.
 $$
 
 > これは $X$ のMoore–Penrose擬似逆を $X^\dagger=V\Sigma^\dagger U^{\mathsf T}$ と置いたときの $X^\dagger y$ に等しい。$\Sigma^\dagger\in\mathbb R^{p\times n}$ は非零特異値だけを逆数にした行列である。
@@ -301,7 +312,15 @@ $$
 
 ## 7. 重複する特徴量で何が起きるか
 
-列が互いに同じ $X=\begin{pmatrix}1&1\\2&2\end{pmatrix}$、応答 $y=(1,3)^{\mathsf T}$ を考える。この模型では予測は $\beta_1+\beta_2=t$ だけに依存する。したがって二変数の最小化は一変数の
+入力 $u=1,2$ に同じ特徴を二つ並べた $\phi(u)=(u,u)^{\mathsf T}$ を取り、応答を $y=(1,3)^{\mathsf T}$ とする。[設計行列の定義](#def-ml1-04-design-matrix)から各行は $(u_i,u_i)$ であり、
+
+$$
+X=\begin{pmatrix}1&1\\2&2\end{pmatrix},
+\qquad
+X\beta=\begin{pmatrix}1\\2\end{pmatrix}(\beta_1+\beta_2).
+$$
+
+このため予測は係数の和 $t=\beta_1+\beta_2$ だけに依存する。実際、$X(1,-1)^{\mathsf T}=0$ なので列は従属している。したがって二変数の最小化は一変数の
 
 $$
 2nL(\beta)=(t-1)^2+(2t-3)^2
@@ -581,7 +600,30 @@ $$
 +\sum_{j=q+1}^n c_j^2.
 $$
 
-**2.** 最初の和の各項は非負で、$b_j=c_j/s_j$（$j\le q$）とすれば全て0にできる。$j>q$ の $b_j$ は目的に現れないから任意でよい。最小損失は $\sum_{j=q+1}^{n}c_j^2/(2n)$。この条件の係数は最小値を達成するため[正規方程式と最適性](#thm-ml1-04-normal-equations)から正規方程式の全解でもある。
+**2.** 正規方程式の両辺の差をSVD座標で書くと、$X^{\mathsf T}=V\Sigma^{\mathsf T}U^{\mathsf T}$ より
+
+$$
+X^{\mathsf T}(X\beta-y)
+=V\Sigma^{\mathsf T}(\Sigma b-c).
+$$
+
+$V$ は可逆なので、これが0となる必要十分条件は $\Sigma^{\mathsf T}(\Sigma b-c)=0$ である。第 $j$ 成分を具体的に書くと
+
+$$
+\bigl[\Sigma^{\mathsf T}(\Sigma b-c)\bigr]_j=
+\begin{cases}
+s_j(s_jb_j-c_j) & (1\le j\le q),\\
+0 & (q<j\le p).
+\end{cases}
+$$
+
+正の特異値 $s_j>0$ により $b_j=c_j/s_j$（$1\le j\le q$）を得る。残る $b_j$ は任意である。これらを目的の成分表示へ代入すると、最初の和は全て0になり、最小損失は
+
+$$
+L_{\min}=\frac1{2n}\sum_{j=q+1}^{n}c_j^2
+$$
+
+となる。十分性は[正規方程式と最適性](#thm-ml1-04-normal-equations)により保証され、これで正規方程式の全解を尽くした。
 
 **3.** 全解では $\Sigma b=(c_1,\ldots,c_q,0,\ldots,0)^{\mathsf T}$ が共通なので、適合値 $X\beta=U\Sigma b$ も同じ。ノルムは
 
