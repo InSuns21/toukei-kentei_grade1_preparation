@@ -170,6 +170,7 @@ jobs:
           npm run validate:svg-layout -- --self-test
           npm run validate:svg-layout
           npm run validate:svg-quality -- --self-test
+          npm run audit:svg-quality:existing
 
       - name: Validate textbook knowledge DAG
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
