@@ -386,6 +386,7 @@
 ### ローレンツ時空の双曲型偏微分方程式
 
 1. [HPDE1 1+1次元波動方程式の初期値解](textbook/volumes/dream_thater/解析系/HPDE/HPDE1/index.md)
+2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
