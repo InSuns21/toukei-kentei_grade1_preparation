@@ -472,8 +472,8 @@ $$
 これは定義の積分恒等式をすべてのコンパクト台関数で満たし、正定値内積と正の密度の仮定も満たします。例えば $a=1+i x$、$b=2i$、$\rho=e^{x}$ なら
 
 $$
-P^*v=-(1-ix)v'+(-1+ix-i-2i)v
-=-(1-ix)v'+(-1+ix-3i)v.
+P^*v=-(1-ix)v'+(-1+ix+i-2i)v
+=-(1-ix)v'+(-1+ix-i)v.
 $$
 
 対照的に[形式的双対の局所公式](#thm-hpde4-transpose-formula)からは $P^t\varphi=-\partial_x((1+ix)\varphi)+2i\varphi$（標準密度の係数として）であり、共役も $\rho$ への依存も現れ方が異なります。
@@ -704,7 +704,7 @@ $\partial_x(x^2\varphi)=2x\varphi+x^2\varphi'$ の積の微分を省略できま
 ### A4. 密度付き発散
 
 - Level: A
-- 問題：$\mathbb R$ 上で $\mu=(1+x^2)|dx|$、$X=x\partial_x$ とする。$\operatorname{div}_\mu X$ と、標準内積での $(X\partial_x)^*$ に対応する演算子（つまり $(x\partial_x)^*$）を求めよ。
+- 問題：$\mathbb R$ 上で $\mu=(1+x^2)|dx|$、$X=x\partial_x$ とする。$\operatorname{div}_\mu X$ と、標準内積を持つ自明複素直線束上の $P=\nabla_X=x\partial_x$ の形式的随伴 $P^*$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
