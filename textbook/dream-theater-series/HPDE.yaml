@@ -19,7 +19,7 @@ chapters:
     title: "時空上の分布・試験切断・密度"
   - id: HPDE4
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE4
-    status: planned
+    status: completed
     title: "ベクトル束・接続・形式的随伴"
   - id: HPDE5
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE5
