@@ -179,7 +179,7 @@ jobs:
           sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
           python3 -m venv /tmp/svg-render-venv
           /tmp/svg-render-venv/bin/python -m pip install --quiet cairosvg Pillow
-          /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py --emit-contact-sheets
+          /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py
 
       - name: Attach existing SVG rendering review images
         if: github.event_name == 'pull_request' && always()
