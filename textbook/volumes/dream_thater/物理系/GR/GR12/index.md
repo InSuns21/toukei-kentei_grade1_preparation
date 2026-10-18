@@ -6,7 +6,9 @@
 
 [GR10の重力作用の変分](../GR10/index.md#thm-gr10-eh-variation)は内部の計量変化に対する係数を与え、[GR11のGHY項](../GR11/index.md#thm-gr11-dirichlet-variation)は適切な非光的境界で法線微分の変分を相殺しました。今度は物質作用を加え、**幾何と物質を結ぶ計量の方程式**を導きます。続いて、右辺の共変発散が零になるのはなぜか、物質自身の運動方程式とはどう関係するか、局所と大域の「保存」がどこで異なるかを確かめます。
 
-以下、$(M,g)$ は滑らかで向き・時間向きのある4次元Lorentz多様体です。符号は $(-,+,+,+)$、接続 $\nabla$ は[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)、座標は $x^0=ct$、添字は $0,1,2,3$ を走るものとします。$G>0$ はNewtonの重力定数、$c>0$ は光速、$\Lambda\in\mathbb R$ は**時空座標に依存しない定数**です。重力作用の $\mathcal R$ は[GR6で定めたスカラー曲率](../GR6/index.md#def-gr6-ricci-scalar)で、$G_{\mu\nu}$ は重力定数 $G$ と異なるEinsteinテンソルです。
+以下、$(M,g)$ は滑らかで向き・時間向きのある4次元Lorentz多様体です。符号は $(-,+,+,+)$、接続 $\nabla$ は[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)とします。座標には $x^0=ct$ を用い、添字は $0,1,2,3$ を走ります。
+
+$G>0$ はNewtonの重力定数、$c>0$ は光速、$\Lambda\in\mathbb R$ は時空座標に依存しない定数です。重力作用に現れる $\mathcal R$ は[スカラー曲率](../GR6/index.md#def-gr6-ricci-scalar)、$G_{\mu\nu}$ は[Einsteinテンソル](../GR7/index.md#def-gr7-einstein-tensor)を指します。テンソル $G_{\mu\nu}$ と重力定数 $G$ は別の量です。
 
 計量と物質場は必要な次数だけ滑らかとし、応力テンソルは少なくとも $C^1$ 級とします。領域内部にコンパクトな台を持つ変分で方程式を導出します。境界付き作用を扱う際は、GR11と同じく滑らかで角のない非光的境界を持ち、境界の誘導計量を固定する場合に限ります。
 
@@ -37,7 +39,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr12-coupled-action -->
-**定義の確認**：$U=[0,L]\times\mathbb T^3$ の平坦計量 $ds^2=-(dx^0)^2+\sum_i(dx^i)^2$ と、$\Lambda=0$、物質作用 $S_m=0$ を取ります。曲率は零、時刻面は非光的で、その外向き法線は $\pm\partial_0$、[GR11の第二基本形式](../GR11/index.md#def-gr11-extrinsic-curvature)は両面で零です。従って $S_{\mathrm{EH}}=0$、$S_{\mathrm{GHY}}=0$、$S_{\mathrm{tot}}=0$ です。ただし作用の値が零であること**だけ**は停留性を意味しません。以下では任意の変分に対する一次変化を計算します。
+**定義の確認**：領域 $U=[0,L]\times\mathbb T^3$ と平坦計量を用い、宇宙項と物質作用を零に設定します。
+
+$$
+ds^2=-(dx^0)^2+\sum_{i=1}^{3}(dx^i)^2,\qquad
+\Lambda=0,\qquad S_m=0.
+$$
+
+この直交座標ではChristoffel係数が零だから曲率も零です。時刻面は非光的で、外向き法線は $\pm\partial_0$、[GR11の第二基本形式](../GR11/index.md#def-gr11-extrinsic-curvature)は両面で零です。従って各作用を別々に計算すると、
+
+$$
+S_{\mathrm{EH}}=0,\qquad
+S_{\mathrm{GHY}}=0,\qquad
+S_{\mathrm{tot}}=0.
+$$
+
+ただし作用の値が零であることだけでは停留性を意味しません。以下では任意の変分に対する一次変化を計算します。
 <!-- definition-example-end -->
 
 物質変分で用いる[計量変分によるHilbert応力テンソル](../GR9/index.md#def-gr9-hilbert-stress)は、$\psi$ を固定した $h^{\mu\nu}:=\delta g^{\mu\nu}$ に対して
@@ -283,7 +300,19 @@ $$
 
 ### 4.1 二つの真空の検算
 
-**Minkowski時空。** 直交座標で $g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ は定数です。[GR6の曲率成分式](../GR6/index.md#prop-gr6-coordinate-curvature)ではChristoffel係数が零だから $R_{\mu\nu}=0$、$\mathcal R=0$、$G_{\mu\nu}=0$。よって **$T_{\mu\nu}=0$ なら $\Lambda=0$ の場合に限って**場の方程式を満たします。$\Lambda\ne0$ なら $\Lambda g_{\mu\nu}=0$ は非退化計量に反するので、平坦な真空Minkowskiは解になりません。
+**Minkowski時空。** 直交座標で計量を
+
+$$
+g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)
+$$
+
+とすると、すべての成分が定数です。[曲率作用素の成分表示](../GR6/index.md#prop-gr6-coordinate-curvature)ではChristoffel係数が零だから、次が成り立ちます。
+
+$$
+R_{\mu\nu}=0,\qquad \mathcal R=0,\qquad G_{\mu\nu}=0.
+$$
+
+従って $T_{\mu\nu}=0$ のとき、場の方程式が成立するのは $\Lambda=0$ の場合に限ります。もし $\Lambda\ne0$ なら $\Lambda g_{\mu\nu}=0$ が必要となり、非退化計量に反します。すなわち宇宙項が零でない理論で、平坦な真空Minkowski時空は解になりません。
 
 **一定曲率の真空模型。** 全断面の曲率が同じ定数 $K$ を持つという仮定は[GR7の一定曲率の命題](../GR7/index.md#prop-gr7-constant-curvature)で定式化されています。4次元なら
 
