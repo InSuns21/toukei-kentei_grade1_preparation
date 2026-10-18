@@ -28,16 +28,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-09-smooth-loss -->
-**定義の確認**。$f(w)=\tfrac12(w_1^2+4w_2^2)$ では $\nabla f(w)=(w_1,4w_2)^{\mathsf T}$。差を $h=u-v$ と書くと
+**定義の確認**。$f(w)=\tfrac12(w_1^2+4w_2^2)$ は $\mathbb R^2$ 上の多項式なので連続微分可能であり、$\nabla f(w)=(w_1,4w_2)^{\mathsf T}$ である。差を $h=u-v$ と書けば、勾配差は $\operatorname{diag}(1,4)h=(h_1,4h_2)^{\mathsf T}$ と表せる。ここで対角行列は**勾配の各成分が $h_1,h_2$ を何倍するか**を記録したものである。従って
 
 $$
 \|\nabla f(u)-\nabla f(v)\|_2^2=h_1^2+16h_2^2\le16(h_1^2+h_2^2).
 $$
 
-よって $L=4$ は使用可能である。$h=(0,1)^{\mathsf T}$ では等号となるから、この二次損失では4より小さい値は使えない。ここで行列 $\operatorname{diag}(1,4)$ は勾配差 $Ah$ を表す係数行列である。成分表示の各二乗を比較することが、**定義のすべての $u,v$** を調べる操作に対応する。
+両辺の平方根を取れば、すべての $u,v$ で定義の不等式が $L=4$ により成立する。$h=(0,1)^{\mathsf T}$ となる $u,v$ を選べば等号となるため、4より小さい値は使えない。$h$ は任意の差ベクトルを走るので、この成分ごとの評価は**すべての $u,v$** の確認になっている。
 <!-- definition-example-end -->
 
-二階微分可能な $f$ のHessianは、勾配を一度さらに微分した $d\times d$ 行列である。Hessianの作用によって勾配差を評価するには、線分 $v+t(u-v)$ 上で微積分学の基本定理を各勾配成分に適用する。
+以下のHessianを積分する判定では $f\in C^2(\mathbb R^d)$（二階偏導関数が連続）を仮定する。Hessian $\nabla^2f(w)$ は勾配をさらに微分した $d\times d$ 行列である。線分上のベクトル値関数 $g(t)=\nabla f(v+t(u-v))$ は連続微分可能で、連鎖律から $g'(t)=\nabla^2f(v+t(u-v))(u-v)$。各成分に微積分学の基本定理を適用すると
 
 $$
 \nabla f(u)-\nabla f(v)
@@ -56,7 +56,15 @@ $$
 \end{aligned}
 $$
 
-最初の積分表示から $b=\nabla f(u)-\nabla f(v)$ なので、滑らかさの定義に到達した。Hessianが対称半正定値なら、最大固有値が全域で $L$ 以下であることを示せば足りる。**行列の固有値を計算する理由**は、勾配変化の最大倍率を全方向にわたって抑えるためである。
+最初の積分表示から $b=\nabla f(u)-\nabla f(v)$ なので、滑らかさの定義に到達した。Hessianが各点で実対称半正定値なら、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により固有値 $\lambda_j(w)$ が非負で、任意の $h=\sum_jc_jv_j$ に対し次が成り立つ。
+
+$
+\|\nabla^2f(w)h\|_2^2
+=\sum_j\lambda_j(w)^2c_j^2
+\le\lambda_{\max}(w)^2\|h\|_2^2.
+$
+
+従って全点で $\lambda_{\max}(w)\le L$ なら定義の不等式が従う。**固有値を調べる理由**は、勾配変化の最大倍率を全方向で抑えるためであり、半正定値性がない場合は最大固有値だけでなく固有値の絶対値も調べる必要がある。
 
 ## 3. 最小二乗損失：設計行列が学習率を決める
 
@@ -124,7 +132,7 @@ h^{\mathsf T}\nabla^2 F(w)h
 =\frac1n\|Xh\|_2^2\ge0.
 $$
 
-従って[Hessianによる凸性判定](../../OPT/OPT1/index.md#thm-opt1-hessian-convexity)の仮定が満たされ、$F$ は凸である。対称行列 $X^{\mathsf T}X$ の固有ベクトルからなる正規直交基底 $v_j$ に $h=\sum_j c_jv_j$ と展開すれば
+従って[Hessianによる凸性判定](../../OPT/OPT1/index.md#thm-opt1-hessian-convexity)の仮定が満たされ、$F$ は凸である。$X^{\mathsf T}X$ は実対称半正定値なので、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)から非負の固有値 $\lambda_j$ と正規直交固有基底 $v_j$ が存在する。$h=\sum_j c_jv_j$ と展開すれば
 
 $$
 \left\|\frac1nX^{\mathsf T}Xh\right\|_2^2
@@ -132,7 +140,14 @@ $$
 \le \left(\frac{\lambda_{\max}}n\right)^2\|h\|_2^2.
 $$
 
-$\nabla F(u)-\nabla F(v)=(X^{\mathsf T}X/n)(u-v)$ なので $L_X$ が滑らかさ定数である。最大固有値の単位固有ベクトルを $u-v$ とすれば等号となり、これより小さくはできない。$\square$
+$\nabla F(u)-\nabla F(v)=(X^{\mathsf T}X/n)(u-v)$ なので $L_X=\lambda_{\max}/n$ が滑らかさ定数である。また、同じ固有基底で
+
+$
+\|Xh\|_2^2=h^{\mathsf T}X^{\mathsf T}Xh
+=\sum_j\lambda_j c_j^2\le\lambda_{\max}\|h\|_2^2
+$
+
+となり、最大固有値の単位固有ベクトルでは等号が成り立つ。[2-作用素ノルムの定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)から $\|X\|_2^2=\lambda_{\max}$ も確かめられる。最大固有値の単位固有ベクトルを $u-v$ に選べば勾配差の不等式も等号となり、$L_X$ より小さくはできない。$\square$
 <!-- proof-end -->
 
 前の定義例では $X^{\mathsf T}X/n=\operatorname{diag}(1/2,2)$、従って $L_X=2$。$n$ で平均したのに $X^{\mathsf T}X$ をそのまま使うと安全な学習率を必要以上に小さく見積もることになる。
@@ -196,7 +211,7 @@ $$
 \end{aligned}
 $$
 
-対称半正定値Hessianの最大固有値は $L_G$ 以下である。第2節の線分積分を勾配差へ適用すれば $L_G$-滑らかさが従う。凸性も[OPT1のHessian判定](../../OPT/OPT1/index.md#thm-opt1-hessian-convexity)から従う。
+上の二次形式の不等式を、単位固有ベクトル $h$ に適用すれば、どの固有値も $[0,L_G]$ に入る。Hessianは各 $w$ で実対称半正定値かつ連続なので、第2節の線分積分と固有基底による評価を適用でき、$L_G$-滑らかさが従う。凸性も[OPT1のHessian判定](../../OPT/OPT1/index.md#thm-opt1-hessian-convexity)から従う。
 
 さらに $w=0$ ではすべての予測確率が $q_i=1/2$ となり、Hessianは
 
@@ -246,7 +261,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-09-full-gradient-step -->
-**定義の確認**。$f(w_1,w_2)=\tfrac12(w_1^2+4w_2^2)$、$w_0=(1,1)^{\mathsf T}$、$\alpha=1/4$ を取れば $\nabla f(w_0)=(1,4)^{\mathsf T}$ だから $w_1=(3/4,0)^{\mathsf T}$。初期損失 $5/2$ に対して更新後は $9/32$。一方 $\alpha=3/5$ なら $w_1=(2/5,-7/5)^{\mathsf T}$、損失は $4/50+98/25=4$ で増えてしまう。
+**定義の確認**。$f(w_1,w_2)=\tfrac12(w_1^2+4w_2^2)$、$w_0=(1,1)^{\mathsf T}$ とする。$\nabla f(w_0)=(1,4)^{\mathsf T}$ を上の更新式に代入すると、
+
+$
+\begin{aligned}
+\alpha=\frac14&:\quad w_1=(3/4,0)^{\mathsf T},
+&f(w_1)&=\frac9{32}<f(w_0)=\frac52,\\
+\alpha=\frac35&:\quad w_1=(2/5,-7/5)^{\mathsf T},
+&f(w_1)&=\frac12\left(\frac4{25}+\frac{196}{25}\right)=4>\frac52.
+\end{aligned}
+$
+
+初期値・勾配・正の歩幅・反復式の全条件を実際に確認できた。安全域を超えた後者は、負の勾配へ進んでも損失が増える例である。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-09-learning-rate"></a>
@@ -285,7 +311,7 @@ $$
 $0<\alpha<2/L$ なら係数は正であり、$\alpha=1/L$ を代入すれば $\alpha(1-L\alpha/2)=1/(2L)$。$\square$
 <!-- proof-end -->
 
-二乗損失なら $\alpha=1/L_X$、二値logisticなら $\alpha=1/L_G$ がデータから直接計算できる選択である。ただし後者の $L_G$ は全域では最小の滑らかさ定数であっても、個々の反復では局所曲率に比べて保守的なので、これより大きい歩幅でも減少する場合がある。「上界を超えたら必ず発散」と「安全の証明がなくなる」は別の主張である。
+二乗損失では $X\ne0$ なら $\alpha=1/L_X$、二値logisticでは $Z\ne0$ なら $\alpha=1/L_G$ がデータから直接計算できる選択である。いずれも設計行列が零なら損失の勾配は恒等的に0であり、$1/L_X$ や $1/L_G$ は定義されない。ただし後者の $L_G$ は全域では最小の滑らかさ定数であっても、個々の反復では局所曲率に比べて保守的なので、これより大きい歩幅でも減少する場合がある。「上界を超えたら必ず発散」と「安全の証明がなくなる」は別の主張である。
 
 <a id="prop-ml1-09-sharp-quadratic"></a>
 
@@ -446,7 +472,7 @@ $X=\operatorname{diag}(2,4)$、$n=2$、$y=0$ に対する $F(w)=\|Xw\|_2^2/(2n)$
 <!-- solution-start -->
 #### 詳細解答
 
-$X^{\mathsf T}X=\operatorname{diag}(4,16)$、従って
+[本講の二乗損失のHessian公式](#thm-ml1-09-least-squares-smooth)に代入する。$X^{\mathsf T}X=\operatorname{diag}(4,16)$ だから、
 
 $$
 \nabla^2F=X^{\mathsf T}X/2=\operatorname{diag}(2,8).
@@ -463,7 +489,7 @@ $n=2$、$d=1$、$z_1=1,z_2=3$ の二値logistic損失の全域で使える $L$ �
 <!-- solution-start -->
 #### 詳細解答
 
-$Z^{\mathsf T}Z=1^2+3^2=10$ なので $L=10/(4\cdot2)=5/4$。Hessianは
+[本講のlogistic損失の曲率上界](#thm-ml1-09-logistic-smooth)を適用すると、$Z^{\mathsf T}Z=1^2+3^2=10$ なので $L=10/(4\cdot2)=5/4$。Hessianは
 
 $$
 G''(w)=\tfrac12[q_1(1-q_1)+9q_2(1-q_2)]\le\tfrac12(1+9)/4=5/4.
@@ -505,7 +531,17 @@ $$
 h^{\mathsf T}\nabla^2F_\lambda h=\|Xh\|_2^2/n+\lambda\|h\|_2^2>0.
 $$
 
-従って厳密凸であり、Hessianの最大固有値 $L_\lambda=\lambda_{\max}(X^{\mathsf T}X)/n+\lambda$ が滑らかさ定数（$X=0$ でも $L_\lambda=\lambda>0$）になる。$\lambda\|w\|^2/2$ が無限遠で発散する一方、二乗損失は非負なので最小点は存在する。厳密凸性からそれは一意である。
+任意の非零方向にHessianの二次形式が正なので、各直線への制限の二階微分は正となり $F_\lambda$ は厳密凸である。固有方向で二次形式を評価すれば、最小の滑らかさ定数は $L_\lambda=\lambda_{\max}(X^{\mathsf T}X)/n+\lambda$（$X=0$ でも $L_\lambda=\lambda>0$）である。
+
+存在も確認する。$F(w)\ge0$ より、$F_\lambda(w)\le F_\lambda(0)+1$ を満たす点では
+
+$
+\frac\lambda2\|w\|_2^2\le F_\lambda(w)\le F_\lambda(0)+1,
+\qquad
+\|w\|_2^2\le\frac{2(F_\lambda(0)+1)}\lambda.
+$
+
+従って最小化列は十分先で有界に選べ、収束部分列の極限に連続性から最小値を与えられる。最後に[厳密凸関数の最小点の一意性](../../OPT/OPT1/index.md#thm-opt1-strict-unique)を適用すれば最小点は一つだけである。
 <!-- solution-end -->
 
 ### ML1-09-B02 二次関数の境界歩幅
@@ -541,7 +577,7 @@ G(w)=\log(1+e^{-w}),\qquad
 G'(w)=-\frac1{1+e^w}<0.
 $$
 
-有限の $w$ では $G(w)>0$ だが $w\to+\infty$ で $G(w)\to0$。従って下限は0でも有限の最小点は存在しない。$Z^{\mathsf T}Z=2$、$n=2$ から滑らかさ上界 $L=1/4$ は有効だが、収束定理が仮定する $w^*$ を定義できない。勾配法の降下評価そのものは使える。
+有限の $w$ では $G(w)>0$ だが $w\to+\infty$ で $G(w)\to0$。従って下限は0でも有限の最小点は存在しない。[logistic損失の滑らかさ公式](#thm-ml1-09-logistic-smooth)に $Z^{\mathsf T}Z=2$、$n=2$ を代入すると $L=1/4$ は有効だが、[凸関数値収束定理](#thm-ml1-09-convex-rate)が仮定する $w^*$ を定義できない。勾配法の降下評価そのものは使える。
 <!-- solution-end -->
 
 ### ML1-09-C01 データの尺度・安全な歩幅・収束上界
@@ -563,7 +599,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$X^{\mathsf T}X/n=\operatorname{diag}(1/2,9/2)$ なので $L=9/2$、最小点は $w^*=0$、$F(w)=w_1^2/4+9w_2^2/4$ である。$\alpha=2/9$ に対する更新行列は
+[二乗損失のHessianと滑らかさ定数](#thm-ml1-09-least-squares-smooth)を計算する。$X^{\mathsf T}X/n=\operatorname{diag}(1/2,9/2)$ なので $L=9/2$、最小点は $w^*=0$、$F(w)=w_1^2/4+9w_2^2/4$ である。$\alpha=2/9$ に対する更新行列は
 
 $$
 I-\alpha\nabla^2F
@@ -578,7 +614,7 @@ F(w_2)-F(0)=\frac14\left(\frac{128}{81}\right)^2
 =\frac{4096}{6561}.
 $$
 
-一般定理は初期距離 $\|w_0\|_2^2=5$ から
+[本講の凸関数値収束定理](#thm-ml1-09-convex-rate)の条件は、$F$ が凸で、$w^*=0$ が最小点として存在し、$\alpha=1/L$ であることから満たされる。初期距離 $\|w_0\|_2^2=5$ を用いると
 
 $$
 F(w_2)-F(0)
