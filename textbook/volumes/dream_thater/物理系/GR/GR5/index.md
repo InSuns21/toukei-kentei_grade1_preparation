@@ -16,7 +16,9 @@ $$
 
 ## 1. 二人の自由落下を一本の式で比べる
 
-離れた事象の座標差は接ベクトルそのものではありません。そこで近くの自由落下世界線を滑らかな一変数族として並べ、中央の曲線の上で間隔の一次変化を接ベクトルにします。曲線族が交差しても、この接ベクトルは微分として定義できます。ここで「アフィン測地線」とは、[LORG4の測地線条件](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type) $\nabla_TT=0$ を満たす曲線を指します。各曲線の時間向きと $g(T,T)=-c^2$ を揃えることで、共通のパラメータ $\tau$ をそれぞれの固有時として使います。
+離れた事象の座標差は接ベクトルそのものではありません。そこで近くの自由落下世界線を滑らかな一変数族として並べ、中央の曲線の上で間隔の一次変化を接ベクトルにします。曲線族が交差しても、この接ベクトルは微分として定義できます。
+
+ここで「アフィン測地線」とは、[LORG4の測地線条件](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type) $\nabla_TT=0$ を満たす曲線を指します。各曲線の時間向きと $g(T,T)=-c^2$ を揃えることで、共通のパラメータ $\tau$ をそれぞれの固有時として使います。
 
 <a id="def-gr5-geodesic-family"></a>
 
@@ -372,7 +374,7 @@ $$
 =\frac{GM}{r^3}(\delta_{ij}-3n_in_j).
 $$
 
-このHessianは、空間的な間隔 $\boldsymbol\xi$ に相対加速度 $-\operatorname{Hess}\Phi\,\boldsymbol\xi$ を与える線形写像の行列表現です。$\boldsymbol n$ を代入すると $H\boldsymbol n=(GM/r^3)(1-3)\boldsymbol n=-2GM\boldsymbol n/r^3$、$\boldsymbol t\cdot\boldsymbol n=0$ の接線方向では $H\boldsymbol t=(GM/r^3)\boldsymbol t$ となります。したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
+ここで $H=\operatorname{Hess}\Phi$ と置きます。このHessianは、空間的な間隔 $\boldsymbol\xi$ に相対加速度 $-\operatorname{Hess}\Phi\,\boldsymbol\xi$ を与える線形写像の行列表現です。$\boldsymbol n$ を代入すると $H\boldsymbol n=(GM/r^3)(1-3)\boldsymbol n=-2GM\boldsymbol n/r^3$、$\boldsymbol t\cdot\boldsymbol n=0$ の接線方向では $H\boldsymbol t=(GM/r^3)\boldsymbol t$ となります。したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
 
 ## 7. 演習：初期条件と曲率符号を自分で判断する
 
