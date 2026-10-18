@@ -1174,6 +1174,7 @@
 7. [GR7 Bianchi恒等式とEinsteinテンソル](textbook/volumes/dream_thater/物理系/GR/GR7/index.md)
 8. [GR8 塵・完全流体とエネルギー運動量](textbook/volumes/dream_thater/物理系/GR/GR8/index.md)
 9. [GR9 物質作用と電磁場の応力テンソル](textbook/volumes/dream_thater/物理系/GR/GR9/index.md)
+10. [GR10 Einstein–Hilbert作用の変分](textbook/volumes/dream_thater/物理系/GR/GR10/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
