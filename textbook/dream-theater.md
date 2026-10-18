@@ -987,6 +987,7 @@
 3. [ML1-03 経験リスク最小化と正則化](textbook/volumes/dream_thater/応用系/ML/ML1-03/index.md)
 4. [ML1-04 最小二乗法・正規方程式・非一意性](textbook/volumes/dream_thater/応用系/ML/ML1-04/index.md)
 5. [ML1-05 Ridge回帰・縮小・偏りと分散](textbook/volumes/dream_thater/応用系/ML/ML1-05/index.md)
+6. [ML1-06 Lasso・疎性・近接写像](textbook/volumes/dream_thater/応用系/ML/ML1-06/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
