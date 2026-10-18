@@ -279,7 +279,7 @@ $$
 
 なので $\widehat\alpha=\bar y-\bar z^{\mathsf T}\widehat\theta$。これを残差へ代入すれば $Z_c=Z-\mathbf1\bar z^{\mathsf T}$、$y_c=y-\bar y\mathbf1$ に対するLassoが得られる。これは前講の[切片を罰しないRidge](../ML1-05/index.md#thm-ml1-05-unique)と同じ中心化の考えだが、**傾き側の罰則は絶対値**である。標準化（列のスケール変更）は $d_j,c_j$ と罰則の相対的な効果を変えるため、学習用データだけで決めた尺度を後の検証データにも適用する。
 
-非直交デザインの近似解には[近接勾配法](../../OPT/OPT8/index.md#def-opt8-proximal-gradient)を使える。$f(\beta)=\|X\beta-y\|^2/(2n)$ と $g(\beta)=\lambda\|\beta\|_1$ に分けると、$\nabla f(\beta)=X^{\mathsf T}(X\beta-y)/n$。$X\ne0$ なら勾配は $L=\|X^{\mathsf T}X/n\|_2>0$ に対して $L$-Lipschitzである。[近接作用素の絶対値公式](../../OPT/OPT8/index.md#thm-opt8-l1-prox)から、一段の更新は次になる。
+非直交デザインの近似解には[近接勾配法](../../OPT/OPT8/index.md#def-opt8-proximal-gradient)を使える。$f(\beta)=\|X\beta-y\|^2/(2n)$ と $g(\beta)=\lambda\|\beta\|_1$ に分けると、$\nabla f(\beta)=X^{\mathsf T}(X\beta-y)/n$。$X\ne0$ なら勾配は $L=\|X^{\mathsf T}X/n\|_2>0$ に対して $L$-Lipschitzである。[ℓ¹ノルムの近接作用素とソフト閾値処理](../../OPT/OPT8/index.md#thm-opt8-l1-prox)から、一段の更新は次になる。
 
 <a id="prop-ml1-06-ista"></a>
 
@@ -294,7 +294,14 @@ $$
 \right)
 $$
 >
-> である。$S_{t\lambda}$ は各座標へ施す。[近接勾配法の収束評価](../../OPT/OPT8/index.md#thm-opt8-proximal-gradient-rate)は、Lassoの最小点 $\beta^\ast$ と歩幅 $t=1/L$ に対して $J_\lambda(\beta^{(k)})-J_\lambda(\beta^\ast)\le L\|\beta^{(0)}-\beta^\ast\|^2/(2k)$（$k\ge1$）を与える。
+> である。$S_{t\lambda}$ は各座標へ施す。[近接勾配法の収束評価](../../OPT/OPT8/index.md#thm-opt8-proximal-gradient-rate)から、Lassoの最小点 $\beta^\ast$ と歩幅 $t=1/L$ に対し、すべての $k\ge1$ について
+>
+$$
+J_\lambda(\beta^{(k)})-J_\lambda(\beta^\ast)
+\le\frac{L}{2k}\|\beta^{(0)}-\beta^\ast\|_2^2
+$$
+>
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -304,13 +311,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f$ の勾配差は $X^{\mathsf T}X(\beta-\gamma)/n$ で、作用素ノルムの定義から $\|\nabla f(\beta)-\nabla f(\gamma)\|\le L\|\beta-\gamma\|$。$f$ は有限値凸、$g=\lambda\|\cdot\|_1$ は閉真凸である。近接勾配法の一段は
+$f$ の勾配差は $X^{\mathsf T}X(\beta-\gamma)/n$ である。$G=X^{\mathsf T}X/n$ と置くと、$L=\|G\|_2=\sup_{\|u\|_2=1}\|Gu\|_2$ である。$v\ne0$ なら $u=v/\|v\|_2$ は単位ベクトルなので
+
+$$
+\|Gv\|_2=\|v\|_2\|Gu\|_2\le L\|v\|_2.
+$$
+
+$v=0$ でも同じ不等式が成立する。従って $v=\beta-\gamma$ を代入すると $\|\nabla f(\beta)-\nabla f(\gamma)\|_2\le L\|\beta-\gamma\|_2$。$f$ は有限値凸、$g=\lambda\|\cdot\|_1$ は閉真凸である。近接勾配法の一段は
 
 $$
 \operatorname{prox}_{tg}\bigl(\beta^{(k)}-t\nabla f(\beta^{(k)})\bigr).
 $$
 
-[絶対値罰則の近接公式](../../OPT/OPT8/index.md#thm-opt8-l1-prox)へ $tg=t\lambda\|\cdot\|_1$ を代入すると $S_{t\lambda}$ になる。勾配の式を入れれば表示の更新を得る。[Lassoの存在定理](#thm-ml1-06-existence)で $\lambda>0$ の最小点は存在する。$\lambda=0$ でも[最小二乗解の存在](../ML1-04/index.md#thm-ml1-04-existence-fit-uniqueness)により最小点がある。以上でOPT8の凸性・滑らかさ・最小点存在条件を満たし、$t=1/L$ の評価を適用できる。$\square$
+[ℓ¹ノルムの近接作用素とソフト閾値処理](../../OPT/OPT8/index.md#thm-opt8-l1-prox)へ $tg=t\lambda\|\cdot\|_1$ を代入すると $S_{t\lambda}$ になる。勾配の式を入れれば表示の更新を得る。[Lassoの存在定理](#thm-ml1-06-existence)で $\lambda>0$ の最小点は存在する。$\lambda=0$ でも[最小二乗解の存在](../ML1-04/index.md#thm-ml1-04-existence-fit-uniqueness)により最小点がある。以上でOPT8の凸性・滑らかさ・最小点存在条件を満たし、$t=1/L$ の評価を適用できる。$\square$
 <!-- proof-end -->
 
 **一段の計算**。$X=\sqrt2 I_2$、$y=\sqrt2(2,1/2)^{\mathsf T}$、$n=2$ なら $L=1$。$\beta^{(0)}=0$、$\lambda=3/4$、$t=1$ では勾配ステップが $(2,1/2)$ となり、閾値 $3/4$ によって $\beta^{(1)}=(5/4,0)$。列が直交するこの例では一段で最小点へ達するが、一般には複数回の更新が必要になる。$X=0$ なら $L=0$ で上の歩幅指定は使わず、$\lambda>0$ の場合は直接 $\beta=0$ と解けばよい。
@@ -422,7 +435,7 @@ $X^{\mathsf T}X/n=I_3$、$X^{\mathsf T}y/n=(1,0.2,-2)^{\mathsf T}$、$\lambda=0.
 <!-- solution-start -->
 #### 詳細解答
 
-各列の $d_j=1$、相関 $c=(1,0.2,-2)^{\mathsf T}$ なので[直交デザインの定理](#thm-ml1-06-orthogonal)を適用できる。第一座標は $1-0.5=0.5$、第二座標は $|0.2|\le0.5$ だから0、第三座標は $-2+0.5=-1.5$。よって
+各列の $d_j=1$、相関 $c=(1,0.2,-2)^{\mathsf T}$ なので[直交デザインのLasso解](#thm-ml1-06-orthogonal)を適用できる。第一座標は $1-0.5=0.5$、第二座標は $|0.2|\le0.5$ だから0、第三座標は $-2+0.5=-1.5$。よって
 
 $$
 \widehat\beta=(0.5,0,-1.5)^{\mathsf T}.
@@ -471,7 +484,7 @@ $X^{\mathsf T}X/n=\operatorname{diag}(1,4)$、$c=(1.5,-0.5)^{\mathsf T}$、$\lam
 <!-- solution-start -->
 #### 詳細解答
 
-列が直交し $d_1=1,d_2=4$ はともに正なので、[直交デザインの定理](#thm-ml1-06-orthogonal)から
+列が直交し $d_1=1,d_2=4$ はともに正なので、[直交デザインのLasso解](#thm-ml1-06-orthogonal)から
 
 $$
 \widehat\beta_1=\frac{1.5-0.5}{1}=1,
@@ -572,7 +585,7 @@ $n=p=2$、$X=\sqrt2 I_2$、$y=\sqrt2(2,1/2)^{\mathsf T}$、$\lambda\ge0$ とす�
 <!-- solution-start -->
 #### 詳細解答
 
-（1）$X^{\mathsf T}X/n=I_2$、$c=X^{\mathsf T}y/n=(2,1/2)^{\mathsf T}$ であり、$d_1=d_2=1$。したがって[直交デザインの定理](#thm-ml1-06-orthogonal)で
+（1）$X^{\mathsf T}X/n=I_2$、$c=X^{\mathsf T}y/n=(2,1/2)^{\mathsf T}$ であり、$d_1=d_2=1$。したがって[直交デザインのLasso解](#thm-ml1-06-orthogonal)で
 
 $$
 \widehat\beta(\lambda)
