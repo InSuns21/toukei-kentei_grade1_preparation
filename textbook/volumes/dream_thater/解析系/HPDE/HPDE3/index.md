@@ -2,9 +2,9 @@
 
 [HPDE2の球面平均](../HPDE2/index.md#def-hpde2-spherical-mean)は、滑らかな初期データから解を作りました。しかし点源を入れると、右辺は普通の関数ではなくなります。[GPDE1のSchwartz超関数](../../GPDE/GPDE1/index.md#def-gpde1-distribution)はEuclid領域では点評価を扱えます。曲がった時空で同じことをしたいとき、二つの新しい問題があります。**座標を変えると積分の係数が変わること**と、**未知量が一点ごとに異なるベクトル空間の元であること**です。
 
-本章では次の順で解決します。まず向きを選ばなくても積分できる密度を構成します。次に各点のベクトルを試験対象へ掛けるための双対束を作り、テスト切断の連続線形汎関数として束値超関数を定義します。最後に滑らかな切断・点源・台を直接検算します。ここでの双対は**代数的な線形双対**です。微分作用素の接続・形式的随伴、Hermite共役はHPDE4で扱います。
+本章では次の順で解決します。まず向きを選ばなくても積分できる密度を構成します。次に各点のベクトルを試験対象へ掛けるための双対束を作り、テスト切断への連続線形作用として、各点のベクトル値を扱える超関数を定義します。最後に滑らかな切断・点源・台を直接検算します。ここでの双対は**代数的な線形双対**です。微分作用素の接続・形式的随伴、Hermite共役はHPDE4で扱います。
 
-以下、$M$ は境界のない滑らかなHausdorff・第二可算な $d$ 次元多様体（$d\ge1$）、$E\to M$ は実または複素の有限ランク $r$ の滑らかなベクトル束とします。Lorentz時空の場合はさらに滑らかな非退化なLorentz計量 $g$ を持ちます。[LORG2のLorentz多様体の定義](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を使いますが、**密度と分布切断の構成そのものには時間向きも大域双曲性も必要ありません**。
+以下、$M$ は境界のない滑らかなHausdorff・第二可算な $d$ 次元多様体（$d\ge1$）、$E\to M$ は実または複素の有限ランク $r$ の滑らかなベクトル束とします。Lorentz時空の場合はさらに滑らかな非退化なLorentz計量 $g$ を持ちます。[LORG2のLorentz計量の定義](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を使いますが、**密度と分布切断の構成そのものには時間向きも大域双曲性も必要ありません**。
 
 ## 1. 積分はなぜ座標に依存しないのか
 
@@ -19,7 +19,7 @@ $$
 <a id="def-hpde3-density"></a>
 <!-- formal-statement-start -->
 > **定義（密度束と滑らかな密度）**  
-> $d$ 次元滑らかな多様体 $M$ の各点 $p$ で、$T_pM$ の順序付き基底 $(v_1,\ldots,v_d)$ に実数を与え、基底変換 $v'_i=\sum_jv_jA^j{}_i$ に対し
+> $d$ 次元滑らかな多様体 $M$ の各点 $p$ で、$T_pM$ の順序付き基底 $(v_1,\ldots,v_d)$ に実数を与え、基底の取り替え $v'_i=\sum_jv_jA^j{}_i$ に対し
 
 $$
 \rho_p(v'_1,\ldots,v'_d)=|\det A|\rho_p(v_1,\ldots,v_d)
@@ -46,7 +46,7 @@ $$
 <!-- definition-example-start: def-hpde3-density -->
 ### 直接例：二倍に引き伸ばした座標
 
-$M=\mathbb R$、$\mu=|dx|$、$y=2x$ とします。$dx/dy=1/2$ だから $\mu=\frac12|dy|$ です。区間 $0\le x\le1$ で
+**定義の確認**。$M=\mathbb R$、$\mu=|dx|$、$y=2x$ とします。$dx/dy=1/2$ だから $\mu=\frac12|dy|$ です。区間 $0\le x\le1$ で
 
 $$
 \int_0^1|dx|=1,\qquad
@@ -155,7 +155,7 @@ $$
 <!-- definition-example-start: def-hpde3-test-dual-density -->
 ### 直接例：枠の変更で縮約は変わらない
 
-$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$ の新成分は $(1,1)$ です。$\psi=(3e^1+5e^2)\otimes h(x)|dx|$（$h$ は非零の滑らかなコンパクト台関数）の新成分は $(8,5)$ です。従って
+**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R^2$ とし、$e'_1=e_1+e_2$、$e'_2=e_2$ と取ります。$s=e_1+2e_2$ の新成分は $(1,1)$ です。$\psi=(3e^1+5e^2)\otimes h(x)|dx|$（$h$ は非零の滑らかなコンパクト台関数）の新成分は $(8,5)$ です。従って
 
 $$
 \psi(s)=(3\cdot1+5\cdot2)h(x)|dx|
@@ -188,7 +188,7 @@ $$
 <!-- definition-example-start: def-hpde3-distribution-section -->
 ### 直接例：滑らかな切断から超関数を作る
 
-$s\in\Gamma(M,E)$ に対して $\langle T_s,\psi\rangle=\int_M\psi(s)$ と置きます。局所的には $\psi(s)=(\sum_as^a\psi_a)|dx|$ です。コンパクト $K$ を有限個の枠近傍で覆い、分割関数で $\psi$ を分ければ、各小領域で
+**定義の確認**。$s\in\Gamma(M,E)$ に対して $\langle T_s,\psi\rangle=\int_M\psi(s)$ と置きます。局所的には $\psi(s)=(\sum_as^a\psi_a)|dx|$ です。コンパクト $K$ を有限個の枠近傍で覆い、分割関数で $\psi$ を分ければ、各小領域で
 
 $$
 \left|\int s^a\psi_a\,|dx|\right|
@@ -258,7 +258,7 @@ $$
 <!-- definition-example-start: def-hpde3-point-source -->
 ### 直接例：座標を変えても点源の値は一致する
 
-$M=\mathbb R$、$E=M\times\mathbb R$、$\mu=|dx|$、$p=0$、$v=2$ とし、$\psi=h(x)|dx|$ とします。定義から $\langle\delta_{0,2}^{\mu},\psi\rangle=2h(0)$ です。$y=2x$ なら $\mu=\frac12|dy|$、$\psi=\frac12h(y/2)|dy|$ なので、新座標では
+**定義の確認**。$M=\mathbb R$、$E=M\times\mathbb R$、$\mu=|dx|$、$p=0$、$v=2$ とし、$\psi=h(x)|dx|$ とします。定義から $\langle\delta_{0,2}^{\mu},\psi\rangle=2h(0)$ です。$y=2x$ なら $\mu=\frac12|dy|$、$\psi=\frac12h(y/2)|dy|$ なので、新座標では
 
 $$
 \frac{2\cdot[h(0)/2]}{1/2}=2h(0).
@@ -274,6 +274,18 @@ $$
 > **定義（超関数切断の台）**  
 > $T\in\mathcal D'(M,E)$ とする。開集合 $U\subset M$ で、$\operatorname{supp}\psi\subset U$ のすべての密度値双対試験切断に対して $\langle T,\psi\rangle=0$ が成り立つとき、$T$ は $U$ 上で零という。$T$ が零である開集合すべての和集合の補集合を **台** $\operatorname{supp}T$ と定める。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-hpde3-distribution-support -->
+### 直接例：零分布の台
+
+**定義の確認**。$M=\mathbb R$、$E$ を自明な実直線束とし、$T_0$ を零切断が定める超関数とします。任意の開集合 $U\subset\mathbb R$ と任意の $\psi=h(x)|dx|$（$h\in C_c^\infty(U)$）について
+
+$
+\langle T_0,\psi\rangle=\int_{\mathbb R}0\cdot h(x)\,dx=0.
+$
+
+よって零である開集合の和集合は $\mathbb R$ 全体、補集合は空集合であり、$\operatorname{supp}T_0=\varnothing$ です。「零分布には台がない」という結論は、点ごとの値を仮定せず定義だけから得られます。
+<!-- definition-example-end -->
 
 定義では $\operatorname{supp}\psi$ 自体がコンパクトであることも要求されています。開集合の和で零という性質が保たれるのは、コンパクトな試験切断の台を有限個の開集合で覆い、滑らかな1の分割で切断を有限和へ分けられるからです。この議論により $\operatorname{supp}T$ は閉集合になります。
 
@@ -465,7 +477,7 @@ $$
 =\int_{\mathbb R}\frac{f(y/3)+2g(y/3)}3\,dy.
 $$
 
-点源は一点の値、正則超関数は全区間の積分を読むので一般には一致しません。$v\ne0$ より点源の台は $\{0\}$ ですが、定数切断は全点で非零なので $T_s$ の台は $\mathbb R$ です。密度 $\mu$ は点源を数に直すための基準であり、正則切断の定義 $\int\psi(s)$ に余分に掛けるものではありません。
+点源は一点の値、正則超関数は全区間の積分を読むので一般には一致しません。$v\ne0$ より点源の台は $\{0\}$ ですが、定数切断は全点で非零なので $T_s$ の台は $\mathbb R$ です。密度 $\mu$ は点源を数に直すための基準であり、滑らかな切断から定めた作用 $\int\psi(s)$ に余分に掛けるものではありません。
 <!-- solution-end -->
 
 ---
