@@ -228,7 +228,7 @@ $$
 $$
 \nabla^a u\,\nabla_a u=-(Nu)^2+|D_\Sigma u|_h^2.
 $$
-この式を[応力テンソルの定義](#def-hpde7-stress-energy)に代入すると
+この式を[実スカラー場の応力エネルギーテンソル](#def-hpde7-stress-energy)に代入すると
 $$
 \boxed{T(N,N)=\frac12\bigl((Nu)^2+|D_\Sigma u|_h^2+qu^2\bigr).}
 $$
@@ -359,7 +359,7 @@ $$
 \sum_{i=2}^n v_i^2+qu^2\right\}\ge0.
 \end{aligned}
 $$
-二行目は[応力テンソルの定義](#def-hpde7-stress-energy)の $T(e_0,e_0)=\tfrac12(v_0^2+\sum_{i\ge1}v_i^2+qu^2)$ および $T(e_0,e_1)=v_0v_1$ を代入したものです。$\square$
+二行目は[実スカラー場の応力エネルギーテンソル](#def-hpde7-stress-energy)の $T(e_0,e_0)=\tfrac12(v_0^2+\sum_{i\ge1}v_i^2+qu^2)$ および $T(e_0,e_1)=v_0v_1$ を代入したものです。$\square$
 <!-- proof-end -->
 
 この非負性は $q<0$ の場合にはそのまま使えません。また側面が**外向き未来光的**なら $g(J,K)$ は一般に非正です。どの領域の内外を選んだかを先に確定することが、後の有限伝播の議論に不可欠です。
@@ -374,14 +374,14 @@ X\operatorname{Re}\langle v,w\rangle
 =\operatorname{Re}\langle\nabla^E_Xv,w\rangle
 +\operatorname{Re}\langle v,\nabla^E_Xw\rangle
 $$
-です。接続の曲率は
-$$
+です。二方向の束接続微分を交換した差として現れる作用素を $R^E$ と書き、
+$
 R^E(X,Y)s
 =\nabla^E_X\nabla^E_Ys-\nabla^E_Y\nabla^E_Xs-\nabla^E_{[X,Y]}s
 $$
 で定まります。
 
-この仮定の下で**束値応力テンソルの曲率補正**を計算します。スカラーでの二階微分の交換可能性は失われるので、曲率を残した式そのものを次の命題で確認します。
+この仮定の下で二階束微分の交換による補正項を計算します。スカラーでの二階微分の交換可能性は失われるので、曲率を残した式そのものを次の命題で確認します。
 
 <a id="prop-hpde7-bundle-divergence"></a>
 <!-- formal-statement-start -->
@@ -452,7 +452,7 @@ $$
 - 問題：$1+2$ 次元Minkowskiで実関数 $u(t,x,y)=t^2+xy$、ポテンシャル $q=4$ とする。$T_{tt}$ と $T_{tx}$ を求め、$T_{tt}\ge0$ を確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$u_t=2t$、$u_x=y$、$u_y=x$、$\nabla^cu\nabla_cu=-4t^2+x^2+y^2$ です。[応力テンソルの定義](#def-hpde7-stress-energy)から
+**詳細解答**。$u_t=2t$、$u_x=y$、$u_y=x$、$\nabla^cu\nabla_cu=-4t^2+x^2+y^2$ です。[実スカラー場の応力エネルギーテンソル](#def-hpde7-stress-energy)から
 $$
 \begin{aligned}
 T_{tt}&=(2t)^2+\tfrac12(-4t^2+x^2+y^2+4(t^2+xy)^2)\\
