@@ -500,7 +500,7 @@ $$
 $T_{\mu\nu}=0$、$g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とする。この計量がEinstein場の方程式を満たす $\Lambda$ を決定せよ。
 
 <!-- solution-start -->
-**詳細解答。** 成分が一定であるので $\Gamma^\rho_{\mu\nu}=0$ です。[曲率作用素の成分と計量による添字下げ](../GR6/index.md#prop-gr6-coordinate-curvature)から $R_{\mu\nu}=0$、$\mathcal R=0$、従って $G_{\mu\nu}=0$ です。方程式は $\Lambda g_{\mu\nu}=0$ となります。$g_{11}=1$ の成分を取れば $\Lambda=0$ が必要で、これを代入すればすべての成分が成立するので十分でもあります。
+**詳細解答。** 成分が一定であるので $\Gamma^\rho_{\mu\nu}=0$ です。[曲率作用素の成分と計量による添字下げ](../GR6/index.md#prop-gr6-coordinate-curvature)から $R_{\mu\nu}=0$、$\mathcal R=0$、従って $G_{\mu\nu}=0$ です。[Einstein場の方程式](#thm-gr12-einstein-equation)は $\Lambda g_{\mu\nu}=0$ となります。$g_{11}=1$ の成分を取れば $\Lambda=0$ が必要で、これを代入すればすべての成分が成立するので十分でもあります。
 <!-- solution-end -->
 
 <a id="ex-gr12-a04"></a>
