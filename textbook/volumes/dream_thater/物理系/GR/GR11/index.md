@@ -189,7 +189,7 @@ $$
 F(r,y)=\exp_{X(y)}\bigl(rn_{X(y)}\bigr)
 $$
 
-を作ります。[Lorentz測地線の局所存在と指数写像](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-lorentz-exponential)により、小さい $r$ で $F$ は滑らかです。$r=0$ では $\partial_rF=n$、$\partial_aF=e_a$ であり、非光的法線は接空間に属さないのでこの4本は一次独立です。逆関数定理から、$F$ は十分小さな境界近傍で座標を定めます。$r$ の正方向を領域外へ取り、境界を $r=0$、領域を $r\le0$ とします。
+を作ります。[Lorentz測地線の局所存在と指数写像](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-lorentz-exponential)により、小さい $r$ で $F$ は滑らかです。$r=0$ では $\partial_rF=n$、$\partial_aF=e_a$ であり、非光的法線は接空間に属さないのでこの4本は一次独立です。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を4次元の座標写像 $F$ に適用すると、$F$ は十分小さな境界近傍で座標を定めます。$r$ の正方向を領域外へ取り、境界を $r=0$、領域を $r\le0$ とします。
 
 この座標で $\partial_r$ はアフィンパラメータ測地線の速度なので $\nabla_{\partial_r}\partial_r=0$ です。計量両立性から $\partial_rg_{rr}=0$、初期値 $g_{rr}|_{r=0}=\varepsilon$ により $g_{rr}=\varepsilon$ です。また座標ベクトル場の交換性と捩率零を使えば
 
