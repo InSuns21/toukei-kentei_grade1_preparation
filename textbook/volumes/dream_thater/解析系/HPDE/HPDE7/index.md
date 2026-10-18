@@ -150,24 +150,24 @@ $-g(J,\partial_t)=J^t=T(\partial_t,\partial_t)$ という符号条件も直接�
 <!-- definition-example-end -->
 
 $X$ が場所によって変わると、$T$ の発散が零でも電流の発散が零とは限りません。そこで、**$X$ に沿って計量 $g$ がどう変わるか**を測ります。ベクトル場 $Y,Z$ に対する計量の **Lie微分** は
-$
+$$
 (\mathcal L_Xg)(Y,Z)
 =X\bigl(g(Y,Z)\bigr)-g([X,Y],Z)-g(Y,[X,Z])
-$
+$$
 で定まり、$X$ の局所的な流れで計量を引き戻したときの変化率です。ここで $[X,Y]$ はベクトル場のLie括弧です。[Levi-Civita接続の計量互換性と無捩率性](../../../幾何系/GEO/GEO13/index.md#def-geo13-levi-civita)を使うと、
-$
+$$
 \begin{aligned}
 X\bigl(g(Y,Z)\bigr)
 &=g(\nabla_XY,Z)+g(Y,\nabla_XZ),\\
 [X,Y]&=\nabla_XY-\nabla_YX,\\
 [X,Z]&=\nabla_XZ-\nabla_ZX
 \end{aligned}
-$
+$$
 ですから、これらを上の定義へ代入し
-$
+$$
 (\mathcal L_Xg)(Y,Z)
 =g(\nabla_YX,Z)+g(Y,\nabla_ZX)
-$
+$$
 を得ます。すなわち座標成分では $(\mathcal L_Xg)_{ab}=\nabla_aX_b+\nabla_bX_a$ です。これが零なら $X$ に沿う計量の変化がなく、そのようなベクトル場を **Killingベクトル場** と呼びます。計量の変化を応力テンソルと縮約するため、次の記号を導入します。
 
 <a id="def-hpde7-deformation-tensor"></a>
@@ -401,15 +401,15 @@ $$
 で定まります。
 
 ここで $W$ の**自己随伴性**は各点の束内積について
-$
+$$
 \langle Wv,w\rangle=\langle v,Ww\rangle
 \qquad(v,w\in E_p)
-$
+$$
 となる条件です。これは[HPDE4での零次束写像の随伴](../HPDE4/index.md#prop-hpde4-adjoint-from-transpose)を同じ束に適用した条件であり、一般の接続の計量互換性とは別です。また $W$ 自身が場所によって変わる量を表すため、自己準同型束上の誘導接続を
-$
+$$
 (\nabla_b^{\mathrm{End}}W)u
 :=\nabla_b^E(Wu)-W(\nabla_b^Eu)
-$
+$$
 によって定義します。これは $\nabla_b^E(Wu)=(\nabla_b^{\mathrm{End}}W)u+W\nabla_b^Eu$ という積の微分公式を意味します。$W$ が自己随伴で接続が計量互換なら、$\nabla_b^{\mathrm{End}}W$ も自己随伴です。
 
 この仮定の下で二階束微分の交換による補正項を計算します。スカラーでの二階微分の交換可能性は失われるので、曲率を残した式そのものを次の命題で確認します。
@@ -448,20 +448,20 @@ $$
 ### 証明
 
 $\nabla g=0$ と[束接続の計量互換性](../HPDE4/index.md#def-hpde4-metric-compatible-connection)を使い、まず応力テンソルの第一項を微分します。
-$
+$$
 \begin{aligned}
 \nabla^a\operatorname{Re}\langle\nabla_a^Eu,\nabla_b^Eu\rangle
 &=\operatorname{Re}\langle\Box_g^{\nabla^E}u,\nabla_b^Eu\rangle\\
 &\quad+\operatorname{Re}\langle\nabla^{a,E}u,\nabla_a^E\nabla_b^Eu\rangle.
 \end{aligned}
-$
+$$
 計量の逆行列も接続で保存されるので、運動項を微分すると
-$
+$$
 \frac12\nabla_b\operatorname{Re}\langle\nabla^{c,E}u,\nabla_c^Eu\rangle
 =\operatorname{Re}\langle\nabla^{a,E}u,\nabla_b^E\nabla_a^Eu\rangle
-$
+$$
 です。この二式を差し引くと
-$
+$$
 \begin{aligned}
 \nabla^aT_{ab}
 &=\operatorname{Re}\langle\Box_g^{\nabla^E}u,\nabla_b^Eu\rangle\\
