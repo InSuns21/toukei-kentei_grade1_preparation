@@ -374,7 +374,16 @@ $$
 =\frac{GM}{r^3}(\delta_{ij}-3n_in_j).
 $$
 
-ここで $H=\operatorname{Hess}\Phi$ と置きます。このHessianは、空間的な間隔 $\boldsymbol\xi$ に相対加速度 $-\operatorname{Hess}\Phi\,\boldsymbol\xi$ を与える線形写像の行列表現です。$\boldsymbol n$ を代入すると $H\boldsymbol n=(GM/r^3)(1-3)\boldsymbol n=-2GM\boldsymbol n/r^3$、$\boldsymbol t\cdot\boldsymbol n=0$ の接線方向では $H\boldsymbol t=(GM/r^3)\boldsymbol t$ となります。したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
+ここで $H=\operatorname{Hess}\Phi$ と置きます。これは間隔 $\boldsymbol\xi$ をNewton相対加速度 $-H\boldsymbol\xi$ に写す線形写像の行列表現です。放射方向 $\boldsymbol n$ と、それに直交する任意の接線方向 $\boldsymbol t$（$\boldsymbol t\cdot\boldsymbol n=0$）に作用させると
+
+$$
+\begin{aligned}
+H\boldsymbol n&=\frac{GM}{r^3}(\boldsymbol n-3(\boldsymbol n\cdot\boldsymbol n)\boldsymbol n)=-\frac{2GM}{r^3}\boldsymbol n,\\
+H\boldsymbol t&=\frac{GM}{r^3}(\boldsymbol t-3(\boldsymbol n\cdot\boldsymbol t)\boldsymbol n)=\frac{GM}{r^3}\boldsymbol t.
+\end{aligned}
+$$
+
+したがって放射方向の固有値は $-2GM/r^3$、二つの接線方向は $+GM/r^3$。よって初期相対速度が零なら、放射方向は伸び、接線方向は縮みます。これは非相対論的な **弱場の潮汐の向き** の例であり、Schwarzschild解をまだ導入せずに理解できます。
 
 ## 7. 演習：初期条件と曲率符号を自分で判断する
 
