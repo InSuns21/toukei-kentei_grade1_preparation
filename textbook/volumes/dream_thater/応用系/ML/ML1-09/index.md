@@ -58,11 +58,11 @@ $$
 
 最初の積分表示から $b=\nabla f(u)-\nabla f(v)$ なので、滑らかさの定義に到達した。Hessianが各点で実対称半正定値なら、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により固有値 $\lambda_j(w)$ が非負で、任意の $h=\sum_jc_jv_j$ に対し次が成り立つ。
 
-$
+$$
 \|\nabla^2f(w)h\|_2^2
 =\sum_j\lambda_j(w)^2c_j^2
 \le\lambda_{\max}(w)^2\|h\|_2^2.
-$
+$$
 
 従って全点で $\lambda_{\max}(w)\le L$ なら定義の不等式が従う。**固有値を調べる理由**は、勾配変化の最大倍率を全方向で抑えるためであり、半正定値性がない場合は最大固有値だけでなく固有値の絶対値も調べる必要がある。
 
@@ -70,9 +70,9 @@ $
 
 [最小二乗の設計行列](../ML1-04/index.md#def-ml1-04-design-matrix)を使った平均二乗誤差のHessianは、係数によらない。従って滑らかさ定数をデータから一度だけ計算できる。以下で行列に書く $\|X\|_2$ は、ベクトルのEuclidノルムから作る[2-作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)
 
-$
+$$
 \|X\|_2=\sup_{h\ne0}\frac{\|Xh\|_2}{\|h\|_2}
-$
+$$
 
 を意味する。
 
@@ -148,10 +148,10 @@ $$
 
 $\nabla F(u)-\nabla F(v)=(X^{\mathsf T}X/n)(u-v)$ なので $L_X=\lambda_{\max}/n$ が滑らかさ定数である。また、同じ固有基底で
 
-$
+$$
 \|Xh\|_2^2=h^{\mathsf T}X^{\mathsf T}Xh
 =\sum_j\lambda_j c_j^2\le\lambda_{\max}\|h\|_2^2
-$
+$$
 
 となり、最大固有値の単位固有ベクトルでは等号が成り立つ。[2-作用素ノルムの定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)から $\|X\|_2^2=\lambda_{\max}$ も確かめられる。最大固有値の単位固有ベクトルを $u-v$ に選べば勾配差の不等式も等号となり、$L_X$ より小さくはできない。$\square$
 <!-- proof-end -->
@@ -269,14 +269,14 @@ $$
 <!-- definition-example-start: def-ml1-09-full-gradient-step -->
 **定義の確認**。$f(w_1,w_2)=\tfrac12(w_1^2+4w_2^2)$、$w_0=(1,1)^{\mathsf T}$ とする。$\nabla f(w_0)=(1,4)^{\mathsf T}$ を上の更新式に代入すると、
 
-$
+$$
 \begin{aligned}
 \alpha=\frac14&:\quad w_1=(3/4,0)^{\mathsf T},
 &f(w_1)&=\frac9{32}<f(w_0)=\frac52,\\
 \alpha=\frac35&:\quad w_1=(2/5,-7/5)^{\mathsf T},
 &f(w_1)&=\frac12\left(\frac4{25}+\frac{196}{25}\right)=4>\frac52.
 \end{aligned}
-$
+$$
 
 初期値・勾配・正の歩幅・反復式の全条件を実際に確認できた。安全域を超えた後者は、負の勾配へ進んでも損失が増える例である。
 <!-- definition-example-end -->
@@ -436,10 +436,10 @@ $$
 
 を考える。$H$ は実対称正定値なので、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)から正規直交固有基底 $v_j$ を選べる。固有値が $0<m\le\lambda_j\le L$ と仮定し、係数 $c_{k,j}$ を次のように定める。
 
-$
+$$
 w_k-w^*=\sum_j c_{k,j}v_j,\qquad
 \nabla f(w_k)=H(w_k-w^*)=\sum_j\lambda_jc_{k,j}v_j.
-$
+$$
 
 更新式 $w_{k+1}-w^*=(w_k-w^*)-\alpha\nabla f(w_k)$ の両辺で、同じ $v_j$ の係数を比較すると
 
@@ -548,11 +548,11 @@ $$
 
 存在も確認する。$F(w)\ge0$ より、$F_\lambda(w)\le F_\lambda(0)+1$ を満たす点では
 
-$
+$$
 \frac\lambda2\|w\|_2^2\le F_\lambda(w)\le F_\lambda(0)+1,
 \qquad
 \|w\|_2^2\le\frac{2(F_\lambda(0)+1)}\lambda.
-$
+$$
 
 従って最小化列は十分先で有界に選べ、収束部分列の極限に連続性から最小値を与えられる。最後に[厳密凸関数の最小点の一意性](../../OPT/OPT1/index.md#thm-opt1-strict-unique)を適用すれば最小点は一つだけである。
 <!-- solution-end -->
