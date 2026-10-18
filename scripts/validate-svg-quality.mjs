@@ -70,9 +70,19 @@ function inspect(svg, location, markdown = null) {
     if (!meaningful) error('Meaningful <' + name + '> required.');
   }
   for (const id of refs) if (!ids.has(id)) error('Missing local SVG ID reference: #' + id);
-  for (const text of svg.matchAll(/<text\b[^>]*>([\s\S]*?)<\/text\s*>/gu)) {
-    const label = text[1].replace(/<[^>]*>/gu, '').trim();
+  for (const text of svg.matchAll(/<text\b([^>]*)>([\s\S]*?)<\/text\s*>/gu)) {
+    const label = text[2].replace(/<[^>]*>/gu, '').trim();
     if (label.length > 36) warn('Visible label is too long; move prose to Markdown.');
+    const font = /\bfont-size\s*=\s*["']([\d.]+)["']/u.exec(text[1]);
+    if (font && Number(font[1]) < 12) warn('Small SVG label (font-size < 12 user units); check mobile rendering.');
+    const x = /\bx\s*=\s*["']([-+]?\d+(?:\.\d+)?)["']/u.exec(text[1]);
+    const y = /\by\s*=\s*["']([-+]?\d+(?:\.\d+)?)["']/u.exec(text[1]);
+    if (box.length === 4 && box.every(Number.isFinite) && x && y && !/\btransform\s*=/u.test(text[1])) {
+      const tx = Number(x[1]), ty = Number(y[1]);
+      if (tx < box[0] || tx > box[0] + box[2] || ty < box[1] || ty > box[1] + box[3]) {
+        warn('Text anchor outside viewBox; inspect clipping (transforms and glyph extents require rendered review).');
+      }
+    }
   }
   if (markdown !== null) {
     const filename = path.basename(location).replaceAll('.', '\\.');
