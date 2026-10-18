@@ -375,8 +375,54 @@ for label, name in (("validation", selected_holdout), ("CV", selected_cv)):
 ~~~
 
 ~~~python-solution
-# demoモードの完成コードは上のセル全体。
-# 乱数種と候補を変更しても、テストの結果を設定選択へ戻さない。
+import random
+rng = random.Random(314159)
+
+def draw():
+    x = rng.random()
+    y = int(x >= 0.5)
+    if rng.random() < 0.1:
+        y = 1 - y
+    return (x, y)
+
+data = [draw() for _ in range(72)]
+train, valid, test = data[:36], data[36:48], data[48:]
+names = ("zero", "one", "majority", "threshold-0.3", "threshold-0.7")
+
+def fit(name, samples):
+    if name == "majority":
+        rate = sum(y for _, y in samples) / len(samples)
+        return lambda x: int(rate > 0.5)
+    if name == "zero":
+        return lambda x: 0
+    if name == "one":
+        return lambda x: 1
+    threshold = 0.3 if name == "threshold-0.3" else 0.7
+    return lambda x: int(x >= threshold)
+
+def risk(model, samples):
+    return sum(model(x) != y for x, y in samples) / len(samples)
+
+folds = [tuple(range(r, 36, 3)) for r in range(3)]
+def cv_score(name):
+    errors = 0
+    for fold in folds:
+        held = set(fold)
+        fit_samples = [train[i] for i in range(36) if i not in held]
+        eval_samples = [train[i] for i in fold]
+        model = fit(name, fit_samples)
+        errors += sum(model(x) != y for x, y in eval_samples)
+    return errors / len(train)
+
+holdout = {name: risk(fit(name, train), valid) for name in names}
+crossval = {name: cv_score(name) for name in names}
+selected_holdout = min(names, key=lambda s: (holdout[s], names.index(s)))
+selected_cv = min(names, key=lambda s: (crossval[s], names.index(s)))
+print("validation:", holdout, "choice:", selected_holdout)
+print("3-fold CV:", crossval, "choice:", selected_cv)
+for label, name in (("validation", selected_holdout), ("CV", selected_cv)):
+    final_model = fit(name, train + valid)
+    print(label, "independent test:", risk(final_model, test))
 ~~~
 
 ~~~python-test
