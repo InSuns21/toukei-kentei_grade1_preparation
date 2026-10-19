@@ -16,11 +16,11 @@ $$
 
 を定めます。これはlapseが $1$、shiftが $0$ の時間分割です。ここで使う行列と行列式の意味を確かめます。座標接ベクトル $\partial_i$ に関する誘導計量のGram行列が $(h_{ij})$ です。その逆行列を $(h^{ij})$ とすると、接方向の1-形式 $d_xw=(\partial_iw)\,dx^i$ の二乗長とスライスの体積密度は、それぞれ
 
-$
+$$
 |d_xw|_{h_t}^2=h^{ij}\partial_iw\,\partial_jw,
 \qquad
 d\mu_{h_t}=\sqrt{\det(h_{ij})}\,dx
-$
+$$
 
 です。前者は逆計量による1-形式の二乗長であり、後者は座標単位立方体の体積倍率です。$\mu=\sqrt{\det(h_{ij})}$ と置きます。$(h_{ij})$ の正定値性から逆行列も正定値で、行列式は正です。$I\times\mathbb T^n$ はコンパクトであり、$h$ は滑らかなので、ある $c,C>0$ に対して
 
@@ -284,38 +284,38 @@ $$
 
 ここで使う曲率作用素は、接続の二重微分を交換した差として
 
-$
+$$
 R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z
-$
+$$
 
 で定めます。この定義は正定値性を使わないためLorentz計量の接続にも適用できます。その曲率作用素を縮約して得るRicci曲率の成分を $\operatorname{Ric}_{cd}=R^a{}_{cad}$ と置きます。Lorentz符号では縮約に逆計量 $g^{ab}$ が入るので、正規直交基底の全成分を正符号で足してはいけません。
 
 $\Box_g^{(1)}\omega=\nabla^a\nabla_a\omega$ を1-形式への粗い波動作用素とします。スカラーの二階微分は交換できるので、$\nabla_a\nabla_cu=\nabla_c\nabla_au$ から
 
-$
+$$
 \begin{aligned}
 \nabla^a\nabla_a(\nabla_cu)
 &=\nabla^a\nabla_c(\nabla_au)\\
 &=\nabla_c(\nabla^a\nabla_au)
   +g^{ab}[\nabla_b,\nabla_c]\,(\nabla_au)
 \end{aligned}
-$
+$$
 
 を得ます。一方、1-形式 $\omega_a$ への曲率の作用は $[\nabla_b,\nabla_c]\omega_a=-R^d{}_{abc}\omega_d$ です。したがって添字を縮約すると
 
-$
+$$
 g^{ab}[\nabla_b,\nabla_c]\,(\nabla_au)
 =-g^{ab}R^d{}_{abc}\nabla_du
 =\operatorname{Ric}_c{}^d\nabla_du.
-$
+$$
 
 よって、関数と1-形式の作用素を取り違えないための交換式は
 
-$
+$$
 \nabla^a\nabla_a(du)-d(\Box_g u)=\operatorname{Ric}(du),
 \qquad
 (\operatorname{Ric}(du))_c=\operatorname{Ric}_c{}^d\nabla_du
-$
+$$
 
 です。ここでは曲率の定義から交換式へ進んだのであり、成立させたい式を符号規約として仮定したのではありません。
 
@@ -410,11 +410,11 @@ $$
 
 方程式の左辺は係数が滑らかな二階線形微分作用素であり、超関数として収束する列の極限と交換できます。正確には、時間帯の内部 $I^\circ\times\mathbb T^n$ でコンパクト支持の試験密度 $\psi=\phi\,|dt\,dx|$ を取ります。[HPDE4の密度値の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)は試験**関数**ではなく試験**密度**に作用するので、
 
-$
+$$
 \langle Pu_\ell,\psi\rangle=\langle u_\ell,P^{\mathrm t}\psi\rangle
 \longrightarrow\langle u,P^{\mathrm t}\psi\rangle
 =\langle Pu,\psi\rangle
-$
+$$
 
 となり、$f_\ell\to f$ が超関数の意味でも成立するため $Pu=f$ です。高階評価もノルム収束で極限へ移せます。
 
@@ -565,10 +565,10 @@ $$
 
 係数の各導関数が有界なら、まず $|A+B|^2\le2|A|^2+2|B|^2$ と有限個の項に対するCauchy–Schwarzを適用します。右辺の二乗積分は、係数の上界に依存する $C>0$ を用いて
 
-$
+$$
 \|P(u_x)\|_2^2
 \le2\|f_x\|_2^2+C\bigl(\|u_t\|_2^2+\|u_{xx}\|_2^2+\|u_x\|_2^2+\|u\|_2^2\bigr)
-$
+$$
 
 と評価できます。$\mathcal E_1[u]$ には $u_t,u_{xt},u_{xx},u_x,u$ の二乗がすべて含まれるため、源 $\|f\|_{H^1}$ と $\mathcal E_1$ で閉じます。$u_{xx}$ を一階エネルギー $\mathcal E_0$ だけで制御しようとするのが誤りです。
 <!-- solution-end -->
@@ -588,12 +588,12 @@ $$
 
 (ii) $u_j\to u$ は超関数の意味でも収束します。任意のコンパクト支持の試験密度 $\psi$ を固定し、[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を用いると
 
-$
+$$
 \langle Pu_j,\psi\rangle
 =\langle u_j,P^{\mathrm t}\psi\rangle
 \longrightarrow\langle u,P^{\mathrm t}\psi\rangle
 =\langle Pu,\psi\rangle
-$
+$$
 
 です。同時に源も $L^2(I;H^2)$ で収束するため、超関数として $f_j\to f$ が成り立ち、$Pu=f$ が従います。
 
@@ -657,11 +657,11 @@ $$
 
 残る低階項も確認します。$B=(-\varphi''+2(\varphi')^2)e^{-2\varphi}+(\lambda-q)$ と置くと、$B$ と $q'$ は有界で、
 
-$
+$$
 \left|\int e^\varphi u_{xt}(Bu_x-q'u)\,dx\right|
 \le C\int e^\varphi(u_{xt}^2+u_x^2+u^2)\,dx
 \le C\mathcal E_1
-$
+$$
 
 です。また $\left|\int e^\varphi(\lambda-q)u_tu\,dx\right|\le C\mathcal E_1$ です。したがって指定のエネルギー不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。
 
