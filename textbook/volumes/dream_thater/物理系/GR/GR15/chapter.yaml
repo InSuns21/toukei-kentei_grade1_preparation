@@ -1,0 +1,48 @@
+id: "GR15"
+title: "球対称計量の選択とゲージ自由度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR6
+  - GR12
+  - GR13
+  - GR14
+official_scope: []
+learning_objectives:
+  - 球面軌道とSO(3)不変性から球対称計量の局所一般形と交差項の制限を証明できる
+  - 球面誘導計量の面積から面積半径を直接計算し任意半径座標と区別できる
+  - 面積半径が座標として使えるJacobian条件と破綻する具体例を示せる
+  - 静的時間並進と時間半径交差項の除去を中間式から導ける
+  - 面積半径ゲージにおける二つの計量関数と残る時間規格化自由度を説明できる
+  - 静的球対称計量の全非零Christoffel係数と独立Ricci成分を直接計算できる
+  - 真空かつ宇宙定数零でEinstein方程式をRicci零条件に帰着し二階微分消去を実行できる
+  - 球対称と静的の違い、座標失敗と幾何の特異性の違いを判定できる
+definitions:
+  - { id: GR15-DEF-01, name: 面積半径 }
+theorems:
+  - { id: GR15-PROP-01, name: 球対称計量の局所一般形 }
+  - { id: GR15-PROP-02, name: 面積半径を座標にできる条件 }
+  - { id: GR15-PROP-03, name: 静的球対称計量の対角化と面積半径ゲージ }
+  - { id: GR15-PROP-04, name: 静的球対称計量の接続係数 }
+  - { id: GR15-PROP-05, name: 静的球対称計量の独立Ricci成分 }
+canonical_examples:
+  - 平坦時空を非線形半径座標で表し面積とJacobianを直接確認
+  - 面積半径が停留する球対称静的計量で座標化が失敗する条件を検証
+  - 定数交差項を時間座標変換で除きLorentz符号と角度部分を確認
+  - Minkowski球座標のRicci零と非零Christoffel係数の違いを検算
+  - 定数半径係数の曲率と独立方程式の不足を確認
+problem_patterns:
+  - GR15-SO3-NONSTATIC-COUNTEREXAMPLE
+  - GR15-AREAL-RADIUS-JACOBIAN
+  - GR15-CROSS-TERM-DIAGONALIZATION
+  - GR15-CONNECTION-SIGN
+  - GR15-FLAT-RICCI-CHECK
+  - GR15-THROAT-AREAL-FAILURE
+  - GR15-VACUUM-EQUATION-COMBINATION
+  - GR15-ANGULAR-RICCI-CONSTRAINT
+  - GR15-RESIDUAL-TIME-SCALE
+  - GR15-COMPREHENSIVE-METRIC-GAUGE-VACUUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
