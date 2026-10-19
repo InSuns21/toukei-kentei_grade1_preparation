@@ -69,7 +69,7 @@ chapters:
     title: "球対称計量の選択とゲージ自由度"
   - id: GR16
     path: textbook/volumes/dream_thater/物理系/GR/GR16
-    status: planned
+    status: completed
     title: "Schwarzschild真空解の導出"
   - id: GR17
     path: textbook/volumes/dream_thater/物理系/GR/GR17
