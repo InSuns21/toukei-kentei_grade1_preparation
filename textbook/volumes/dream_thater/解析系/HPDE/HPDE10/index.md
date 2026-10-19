@@ -418,7 +418,16 @@ $p\in J^+(\Sigma)$ で $p\notin J^+(K_\Sigma\cup(K_f\cap J^+(\Sigma)))$ とし�
 
 同じく $r\in C_p$ で $f(r)\ne0$ なら $r\in K_f\cap J^+(\Sigma)$、$r\le p$ となり仮定に反するので、$f=0$ が $C_p$ 上で成立します。[因果的な依存評価](#thm-hpde10-causal-dependence)により $u(p)=0$ です。時間を反転して、$\Sigma$ 以前にも同様の包含を得ます。両側を合わせれば $u=0$ が $M\setminus J(K)$ で成立します。
 
-さらに $K$ がコンパクトで $M$ が大域双曲的なため、因果関係の閉性とコンパクトな始集合から、$J^+(K)$ と $J^-(K)$ は閉集合です。具体的には $p_j\in J^+(K)$、$p_j\to p$ とすると、$k_j\in K$ を選べ、コンパクト性により部分列 $k_j\to k\in K$ です。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から $k\le p$、ゆえに $p\in J^+(K)$。過去側も同じです。したがって $J(K)$ は閉であり、$u=0$ となる開集合 $M\setminus J(K)$ を持つので、支持の定義から $\operatorname{supp}u\subset J(K)$ が従います。$\square$
+さらに、$K$ がコンパクトで $M$ が大域双曲的なため、因果的未来・過去が閉集合になることを示します。任意の収束列 $p_j\in J^+(K)$、$p_j\to p$ を取ります。各点から始点 $k_j\in K$ を選ぶと、$k_j\le p_j$ です。
+
+コンパクト性によって部分列を選び、$k_j\to k\in K$ とできます。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)を端点列に適用すると
+
+$$
+k_j\le p_j,\qquad k_j\to k,\qquad p_j\to p
+\quad\Longrightarrow\quad k\le p,
+$$
+
+となります。従って $p\in J^+(K)$ で、$J^+(K)$ は閉です。過去側でも向きを逆にして同じ議論が成立し、$J^-(K)$ も閉になります。ゆえに $J(K)$ は閉で、$u=0$ が成り立つ $M\setminus J(K)$ は開集合です。支持の定義から $\operatorname{supp}u\subset J(K)$ を得ます。$\square$
 <!-- proof-end -->
 
 ここで初期データ $K_\Sigma$ だけを見て、源 $f$ の支持を忘れてはなりません。初期データが全て零でも、後から源を加えれば解はその因果的未来に生じ得ます。
