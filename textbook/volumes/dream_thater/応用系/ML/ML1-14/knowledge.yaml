@@ -1,0 +1,61 @@
+chapter: ML1-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-12
+  - ML1-13
+concepts:
+  - id: learning.tree-node-empirical-frequencies
+    name: 節点の経験ラベル分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（節点の経験ラベル分布）"]
+    requires: [learning.classification-rates]
+  - id: learning.binary-tree-impurities
+    name: 二値Gini不純度とエントロピー不純度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値Gini不純度とエントロピー不純度）"]
+    requires: [learning.tree-node-empirical-frequencies]
+  - id: learning.tree-impurity-reduction
+    name: 二分割の加重不純度と減少量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二分割の加重不純度と減少量）"]
+    requires: [learning.binary-tree-impurities]
+  - id: learning.binary-gini-gain-identity
+    name: 二分割のGini不純度減少
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二分割のGini不純度減少）"]
+    requires: [learning.tree-impurity-reduction]
+  - id: learning.tree-entropy-split-monotonicity
+    name: エントロピー不純度は分割で増えない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（エントロピー不純度は分割で増えない）"]
+    requires: [learning.tree-impurity-reduction]
+  - id: learning.binary-classification-tree
+    name: 二値分類木と葉の予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値分類木と葉の予測）"]
+    requires: [learning.tree-impurity-reduction]
+  - id: learning.tree-refinement-training-monotonicity
+    name: 葉の細分と訓練誤分類件数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（葉の細分と訓練誤分類件数）"]
+    requires: [learning.binary-classification-tree]
+  - id: learning.regression-tree-leaf-loss
+    name: 回帰木の葉と分割損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回帰木の葉と分割損失）"]
+    requires: [learning.binary-classification-tree]
+  - id: learning.regression-tree-mean-optimality
+    name: 標本平均の二乗損失最小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標本平均の二乗損失最小性）"]
+    requires: [learning.regression-tree-leaf-loss]
