@@ -8,7 +8,9 @@
 
 時間向き付きの滑らかなLorentz多様体 $(M,g)$（符号 $(-,+,\ldots,+)$）上の、有限ランクの実または複素ベクトル束 $E\to M$ と滑らかな [normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic) $P:\Gamma(E)\to\Gamma(E)$ を扱います。$\Sigma$ は滑らかな空間的超曲面、$N$ は未来向き単位法線です。必要なのは局所的な非特性性であり、現段階で大域双曲性を要求しません。
 
-局所存在を定式化する前に、係数がどこから現れるかを確かめます。$p\in\Sigma$ を固定し、$\Sigma$ 内の座標 $x=(x^1,\ldots,x^n)$ を選びます。各点から初速度 $N$ の時間的測地線を出し、その固有時間を $t$ とします。測地線の局所存在と[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $p$ の近くで $(t,x)$ は座標になります。$\partial_t$ は測地線の接ベクトルなので $\nabla_{\partial_t}\partial_t=0$ かつ $g(\partial_t,\partial_t)=-1$。さらに座標ベクトル場が可換であることから
+局所存在を定式化する前に、係数がどこから現れるかを確かめます。$p\in\Sigma$ を固定し、$\Sigma$ 内の座標 $x=(x^1,\ldots,x^n)$ を選びます。各点から初速度 $N$ の時間的測地線を出し、その固有時間を $t$ とします。測地線の局所存在と[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $p$ の近くで $(t,x)$ は座標になります。
+
+この座標の時間方向を確認します。$\partial_t$ は測地線の接ベクトルなので $\nabla_{\partial_t}\partial_t=0$ かつ $g(\partial_t,\partial_t)=-1$。さらに座標ベクトル場が可換であることから
 
 $$
 \begin{aligned}
