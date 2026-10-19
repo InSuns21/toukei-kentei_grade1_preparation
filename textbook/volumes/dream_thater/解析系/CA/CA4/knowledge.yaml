@@ -20,7 +20,7 @@ concepts:
   - id: complex-analysis.laurent-series
     name: Laurent級数
     kind: definition
-    aliases: [Laurent級数, Laurent series, 主部, principal part]
+    aliases: [Laurent級数, Laurent series]
     requires: [analysis.uniform-convergence]
 
   - id: complex-analysis.laurent-expansion
