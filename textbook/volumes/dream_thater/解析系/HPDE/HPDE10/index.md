@@ -204,20 +204,37 @@ g^{-1}(dF,dF)=-\frac{c^2}{\beta^2}
 \frac{x_j-x_{0j}}{|x-x_0|}.
 $$
 
-$c>\sup\beta\sqrt{\lambda_{\max}(h^{ij})}$ とすれば $g^{-1}(dF,dF)<0$ で、$g^{-1}(dF,\cdot)$ は過去向き時間的です。**光より少し速く縮む座標球**の側面はエネルギーにとって流入境界ではありません。これは局所一意性を証明するための補助領域であり、物理的に信号が光速を超えるという意味ではありません。
+ここで $\xi_i=(x_i-x_{0i})/|x-x_0|$ はEuclidノルムが $1$ の共ベクトル成分です。空間逆計量の行列 $H=(h^{ij})$ は実対称正定値なので、直交行列 $U$ により $H=U\operatorname{diag}(\lambda_1,\ldots,\lambda_n)U^{\mathsf T}$ と対角化できます。$v=U^{\mathsf T}\xi$ とおけば $|v|_{\mathrm E}=|\xi|_{\mathrm E}=1$ なので
+
+$
+h^{ij}\xi_i\xi_j=\xi^{\mathsf T}H\xi
+=\sum_{j=1}^n\lambda_jv_j^2
+\le\lambda_{\max}(H)\sum_{j=1}^nv_j^2
+=\lambda_{\max}(H).
+$
+
+逆計量で外向き共法線をベクトルに移すと
+
+$
+K=g^{-1}(dF,\cdot)
+=-\frac{c}{\beta^2}\partial_t+h^{ij}\xi_j\partial_i
+=-\frac c\beta N+h^{ij}\xi_j\partial_i,
+\qquad N=\beta^{-1}\partial_t.
+$
+
+従って $c>\sup\beta\sqrt{\lambda_{\max}(H)}$ と選べば $g(K,K)<0$ であり、$K$ の未来向き時間軸 $N$ に沿う係数 $-c/\beta$ は負です。ゆえに $K$ は**過去向き時間的**です。**光より少し速く縮む座標球**の側面はエネルギーにとって流入境界ではありません。これは局所一意性を証明するための補助領域であり、物理的に信号が光速を超えるという意味ではありません。
 
 <a id="lem-hpde10-local-cone"></a>
 <!-- formal-statement-start -->
 > **補題（局所的な後方領域の零データ一意性）**  
-> $P$ を滑らかなnormally hyperbolic束値作用素とする。空間的スライス上の一点の近傍で、コンパクト閉包を持つ時間座標を選ぶ。定数 $c>0$ と半径 $R>0$ を固定し、縮む座標球の外向き共法線が過去向き時間的であり、領域が座標近傍内に収まると仮定する。
->
-> 滑らかな切断 $u$ が次の閉領域で方程式を満たすとする。
+> $P$ を滑らかなnormally hyperbolic束値作用素とする。空間的スライス上の一点 $(t_0,x_0)$ の近傍で、コンパクト閉包を持つ時間座標 $(t,x)$ を選ぶ。定数 $c,R>0$ と $t_0\le t_1<t_0+R/c$ に対し、閉領域
 
-$$
-t_0\le t\le t_1<t_0+R/c,\qquad Pu=0.
-$$
+$
+\Omega=\{(t,x):t_0\le t\le t_1,\
+|x-x_0|\le R-c(t-t_0)\}
+$
 
-> さらに底面球で $u$ と未来向き単位法線 $N$ に沿う微分がともに零なら、領域全体で $u=0$ である。
+> が座標近傍に収まり、その側面の外向き共法線が過去向き時間的であると仮定する。滑らかな切断 $u$ が $\Omega$ 上で $Pu=0$ を満たし、底面球 $B_{t_0}$ で $u=0$ と $\nabla_Nu=0$ がともに成立するなら、$\Omega$ 全体で $u=0$ である。ここで $N$ は未来向き単位法線、$\nabla$ は固定した滑らかな束接続とする。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -253,7 +270,7 @@ $$
 
 ## 5. 因果的な過去全体での依存領域
 
-局所補題をつなぐ際に要る幾何を確認します。大域双曲時空で $p\in J^+(\Sigma)$ とすると、$\Sigma$ と $p$ の間にある因果的な過去は
+局所で確かめたフラックス計算を、大域の因果領域へ適用するための幾何を確認します。大域双曲時空で $p\in J^+(\Sigma)$ とすると、$\Sigma$ と $p$ の間にある因果的な過去は
 
 $$
 Q_p=J^-(p)\cap\Sigma,\qquad
@@ -263,7 +280,7 @@ $$
 
 です。$Q_p$ はコンパクトで、$C_p$ もコンパクトです。このコンパクト性は一般のLorentz多様体では成立しません。[LORG16の大域双曲性の特徴付け](../../../幾何系/LORG/LORG16/index.md#thm-lorg16-characterization)と、$\Sigma$ がCauchy面であることから従います。特に $C_p$ の各点に至る過去因果曲線を $\Sigma$ まで延長すると交点が $Q_p$ に属し、上の二集合の一致が分かります。
 
-この事実は、一点 $p$ までの議論を**有限個の局所時間帯**で覆えることを保証します。$Q_p$ の外側から勝手にデータを持ち込む必要はありません。
+この事実は、一点 $p$ までの議論に必要な時空領域を**有限個の局所座標近傍**で覆い、係数上界を共通の有限定数で制御できることを保証します。$Q_p$ の外側から勝手にデータを持ち込む必要はありません。
 
 <a id="thm-hpde10-causal-dependence"></a>
 <!-- formal-statement-start -->
@@ -356,7 +373,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$w=u-v$ とすると線形性により $Pw=f_u-f_v$ です。初期変位と法線速度は $S$ で一致するので $w=\nabla_Nw=0$ が $Q_p\subset S$ 上で成り立ちます。さらに源差は $C_p$ 上で零と仮定しているため、[因果的な依存評価](#thm-hpde10-causal-dependence)を $w$ に適用して $w(p)=0$ を得ます。過去側でも同じです。$\square$
+まず $Q_p\subset S$ を依存領域の定義から確認します。任意の $q\in Q_p$ に対し、$q$ から $p$ への未来因果曲線を選び、$q$ より過去へ因果的に延長して過去非延長曲線にします。$p\in D^+(S)$ なので、この曲線は $S$ と交わります。一方 $S\subset\Sigma$ で、[Cauchy面のacausal性](../../../幾何系/LORG/LORG15/index.md#prop-lorg15-acausal)により曲線と $\Sigma$ の交点は $q$ だけです。従って $q\in S$、すなわち $Q_p\subset S$ です。
+
+$w=u-v$ とすると線形性により $Pw=f_u-f_v$ です。初期変位と法線速度は $S$ で一致するので $w=\nabla_Nw=0$ が $Q_p$ 上で成り立ちます。さらに源差は $C_p$ 上で零と仮定しているため、[因果的な依存評価](#thm-hpde10-causal-dependence)を $w$ に適用して $w(p)=0$ を得ます。過去側でも同じです。$\square$
 <!-- proof-end -->
 
 幾何学的な[未来・過去依存領域](../../../幾何系/LORG/LORG13/index.md#def-lorg13-dependence)を使って $Q_p\subset S$ を確かめられる状況では、この系が幾何学的な $D(S)$ を「解の一意性」の領域に変えます。$S$ が不規則な部分集合でも定理の仮定を飛ばさず、実際に必要な因果的足跡 $Q_p$ を確認します。
@@ -379,7 +398,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde10-data-source-support -->
-**定義の確認**。二次元Minkowskiで、$u_0$ が $[-1,1]$ 上に支持され、$u_1=f=0$ とします。$K$ は時刻零のコンパクト区間です。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)により、時刻 $t$ の $J(K)$ の切断は
+**定義の確認**。二次元Minkowskiで、初期変位を
+
+$
+u_0(x)=
+\begin{cases}
+\exp\!\left(-1/(1-x^2)\right),&|x|<1,\\
+0,&|x|\ge1
+\end{cases}
+$
+
+とし、$u_1=f=0$ とします。$u_0$ は $|x|<1$ のすべての点で非零で、$|x|\ge1$ では零です。従ってその支持は**ちょうど** $[-1,1]$、零切断 $u_1,f$ の支持は空集合で、三つの支持はすべてコンパクトです。$K=\{0\}\times[-1,1]$ となります。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)により、時刻 $t$ の $J(K)$ の切断は
 
 $$
 |x|\le1+|t|
@@ -416,7 +445,17 @@ $p$ が因果的到達集合の外側なら、$p$ の過去とデータ支持・
 
 $p\in J^+(\Sigma)$ で $p\notin J^+(K_\Sigma\cup(K_f\cap J^+(\Sigma)))$ とします。$q\in Q_p=J^-(p)\cap\Sigma$ に $u_0(q)\ne0$ または $u_1(q)\ne0$ があれば、$q\in K_\Sigma$ かつ $q\le p$ となって $p\in J^+(K_\Sigma)$ に反します。従って $Q_p$ 上で両データが零です。
 
-同じく $r\in C_p$ で $f(r)\ne0$ なら $r\in K_f\cap J^+(\Sigma)$、$r\le p$ となり仮定に反するので、$f=0$ が $C_p$ 上で成立します。[因果的な依存評価](#thm-hpde10-causal-dependence)により $u(p)=0$ です。時間を反転して、$\Sigma$ 以前にも同様の包含を得ます。両側を合わせれば $u=0$ が $M\setminus J(K)$ で成立します。
+同じく $r\in C_p$ で $f(r)\ne0$ なら $r\in K_f\cap J^+(\Sigma)$、$r\le p$ となり仮定に反するので、$f=0$ が $C_p$ 上で成立します。[因果的な依存評価](#thm-hpde10-causal-dependence)により $u(p)=0$ です。
+
+主張した**片側の支持包含**には、点ごとの零条件だけでなく閉性も必要です。[LORG20の時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)では $J^+(\Sigma)=\{t\ge0\}$ は閉集合なので
+
+$
+K_+=K_\Sigma\cup(K_f\cap J^+(\Sigma))
+$
+
+はコンパクトです。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と、以下に示すコンパクト始点列の部分列議論により、$J^+(K_+)$ は閉です。$t>0$ の点がこの閉集合の外側にあれば、その点の近傍の未来側で $u=0$ なので支持に入りません。$p\in\Sigma\setminus J^+(K_+)$ では、$p\notin K_\Sigma\cup K_f$ です。支持の閉性から $p$ の小近傍で $f=0$、$\Sigma$ 上の小球で $u=\nabla_Nu=0$ となり、[局所的な零データ一意性](#lem-hpde10-local-cone)を時間の正負両側に適用すれば $u=0$ が $p$ の時空近傍で成り立ちます。従って $\operatorname{supp}u\cap J^+(\Sigma)\subset J^+(K_+)$ が得られます。
+
+時間を反転して、$\Sigma$ 以前にも同様の包含を得ます。両側を合わせれば $u=0$ が $M\setminus J(K)$ で成立します。
 
 さらに、$K$ がコンパクトで $M$ が大域双曲的なため、因果的未来・過去が閉集合になることを示します。任意の収束列 $p_j\in J^+(K)$、$p_j\to p$ を取ります。各点から始点 $k_j\in K$ を選ぶと、$k_j\le p_j$ です。
 
@@ -434,7 +473,7 @@ $$
 
 ## 7. 有限伝播は強Huygens性ではない
 
-有限伝播は**円錐の外側に影響が出ない**ことです。円錐の**内側に残響がない**ことまでは要求しません。[HPDE1のd'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)に戻って、初期変位を零、初期速度をコンパクト支持の非負関数 $g$ とした一次元波動の解は
+有限伝播は**円錐の外側に影響が出ない**ことです。円錐の**内側に残響がない**ことまでは要求しません。既習の[d'Alembert公式](../../PDE/PDE4/index.md#thm-pde4-dalembert)に戻って、初期変位を零、初期速度をコンパクト支持の非負関数 $g$ とした一次元波動の解は
 
 $$
 u(t,x)=\frac12\int_{x-t}^{x+t}g(y)\,dy\qquad(t>0)
