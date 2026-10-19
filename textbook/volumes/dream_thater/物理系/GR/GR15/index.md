@@ -390,7 +390,7 @@ $$
 
 になります。球面上で回転不変な対称テンソルは $d\Omega^2$ に比例し、Ricciも計量から自然に作られるテンソルなので $R_{\phi\phi}=\sin^2\theta R_{\theta\theta}$、球面との混合成分は零です。
 
-残る二次元部分の非対角成分 $R_{0r}$ もRicci公式から確認します。$\Gamma^\alpha_{0r}$ の非零候補は $\Gamma^0_{0r}=\Phi'$ だけであり、時間微分は零です。また $\Gamma^\alpha_{\alpha0}=0$ なので、Ricci公式の第一項から第三項までは零になります。第四項についても、非零になり得る $\Gamma^0_{0r}$ と $\Gamma^r_{00}$ の相手側はそれぞれ $\Gamma^r_{0r}=0$ と $\Gamma^0_{rr}=0$ です。従って $R_{0r}=0$ であり、対称性によって $R_{r0}=0$ も従います。
+残る二次元部分の非対角成分 $R_{0r}$ も、先ほどの四項を直接代入して確認します。$\Gamma^\alpha_{0r}$ の非零候補は $\Gamma^0_{0r}=\Phi'$ だけであり、時間微分は零です。また $\Gamma^\alpha_{\alpha0}=0$ なので、Ricci公式の第一項から第三項までは零になります。第四項についても、非零になり得る $\Gamma^0_{0r}$ と $\Gamma^r_{00}$ の相手側はそれぞれ $\Gamma^r_{0r}=0$ と $\Gamma^0_{rr}=0$ です。従って $R_{0r}=0$ であり、対称性によって $R_{r0}=0$ も従います。
 
 最後に[GR12のEinstein場の方程式](../GR12/index.md#thm-gr12-einstein-equation)で真空 $T_{\mu\nu}=0$、$\Lambda=0$ とすると、 $R_{\mu\nu}-\tfrac12\mathcal Rg_{\mu\nu}=0$ です。逆計量で縮約すると $\mathcal R-2\mathcal R=-\mathcal R=0$（4次元）なので $\mathcal R=0$、よって $R_{\mu\nu}=0$ です。$\square$
 <!-- proof-end -->
