@@ -396,6 +396,7 @@
 9. [HPDE9 高階Sobolev評価と正則性の伝播](textbook/volumes/dream_thater/解析系/HPDE/HPDE9/index.md)
 10. [HPDE10 有限伝播と依存領域の評価](textbook/volumes/dream_thater/解析系/HPDE/HPDE10/index.md)
 11. [HPDE11 局所Cauchy問題の存在](textbook/volumes/dream_thater/解析系/HPDE/HPDE11/index.md)
+12. [HPDE12 Minkowskiの先進・遅延基本解](textbook/volumes/dream_thater/解析系/HPDE/HPDE12/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分

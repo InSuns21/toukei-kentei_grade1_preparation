@@ -1,0 +1,47 @@
+id: "HPDE12"
+title: "Minkowskiの先進・遅延基本解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE1
+  - HPDE2
+  - HPDE3
+  - HPDE4
+  - ODE5
+  - HPDE10
+official_scope: []
+learning_objectives:
+  - 時空点源と初期速度の違いを説明し遅延・先進基本解を分布と台の条件で定義できる
+  - 時間断面分布の初期値と時間跳躍から点源方程式を証明できる
+  - 1+1次元の内部支持核の係数と先進・遅延支持を検算できる
+  - 3+1次元の球面平均から光円錐面上の分布と4πrの正規化を導出できる
+  - 点源基本解と二変数の畳み込み核の違いを示しPGf=GPf=fを証明できる
+  - 強いHuygens性と因果支持の包含を空間次元別に区別できる
+definitions:
+  - { id: HPDE12-DEF-01, name: 点源基本解と遅延・先進支持 }
+  - { id: HPDE12-DEF-02, name: Minkowski模型の遅延・先進畳み込み作用素 }
+theorems:
+  - { id: HPDE12-LEM-01, name: 時間境界の跳躍と点源 }
+  - { id: HPDE12-THM-01, name: 1+1次元の遅延・先進点源基本解 }
+  - { id: HPDE12-LEM-02, name: 三次元球面平均の波動恒等式 }
+  - { id: HPDE12-THM-02, name: 3+1次元の遅延・先進点源基本解 }
+  - { id: HPDE12-THM-03, name: 平坦波動作用素の畳み込み逆と因果的支持 }
+canonical_examples:
+  - 点源自身が基本解でないことの試験関数による検証
+  - 一次元の時間断面の端点微分と内部の尾
+  - 三次元球面積と分布の正規化
+  - 衝撃時間源と初期速度データの関係
+problem_patterns:
+  - HPDE12-ONE-DIM-TIME-JUMP
+  - HPDE12-THREE-DIM-NORMALIZATION
+  - HPDE12-TIME-REFLECTION
+  - HPDE12-SUPPORT-DIMENSION
+  - HPDE12-POLAR-DELTA
+  - HPDE12-CONVOLUTION-INVERSE
+  - HPDE12-IMPULSE-VELOCITY
+  - HPDE12-HUYGENS-TAIL
+  - HPDE12-CAUSAL-OPERATOR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 6 }

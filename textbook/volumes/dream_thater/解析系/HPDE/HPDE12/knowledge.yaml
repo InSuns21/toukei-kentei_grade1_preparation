@@ -1,0 +1,47 @@
+chapter: HPDE12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE1
+  - HPDE2
+  - HPDE3
+  - HPDE4
+  - ODE5
+  - HPDE10
+forward_references: []
+concepts:
+  - id: hpde.point-fundamental-solution
+    name: 点源基本解と遅延・先進支持
+    kind: definition
+    introduction: formal
+    requires: [hpde.point-source, hpde.distribution-support, hpde.flat-wave-operator]
+  - id: hpde.time-jump-source
+    name: 時間境界の跳躍と点源
+    kind: lemma
+    introduction: formal
+    requires: [hpde.point-fundamental-solution, ode.ode5-unit-step]
+  - id: hpde.one-dimensional-fundamental
+    name: 1+1次元の遅延・先進点源基本解
+    kind: theorem
+    introduction: formal
+    requires: [hpde.time-jump-source, hpde.flat-wave-operator]
+  - id: hpde.radial-mean-wave
+    name: 三次元球面平均の波動恒等式
+    kind: lemma
+    introduction: formal
+    requires: [hpde.time-spherical-mean]
+  - id: hpde.three-dimensional-fundamental
+    name: 3+1次元の遅延・先進点源基本解
+    kind: theorem
+    introduction: formal
+    requires: [hpde.time-jump-source, hpde.radial-mean-wave]
+  - id: hpde.flat-retarded-advanced-convolution
+    name: Minkowski模型の遅延・先進畳み込み作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.one-dimensional-fundamental, hpde.three-dimensional-fundamental]
+  - id: hpde.flat-green-inverse
+    name: 平坦波動作用素の畳み込み逆と因果的支持
+    kind: theorem
+    introduction: formal
+    requires: [hpde.flat-retarded-advanced-convolution, hpde.point-fundamental-solution]

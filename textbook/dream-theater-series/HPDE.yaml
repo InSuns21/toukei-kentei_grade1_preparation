@@ -51,7 +51,7 @@ chapters:
     title: "局所Cauchy問題の存在"
   - id: HPDE12
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE12
-    status: planned
+    status: completed
     title: "Minkowskiの先進・遅延基本解"
   - id: HPDE13
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE13
