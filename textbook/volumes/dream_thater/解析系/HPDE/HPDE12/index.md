@@ -137,8 +137,14 @@ F_{\mathrm{ret}}^{(1)}(t,x)=\frac12H(t-|x|),\qquad
 F_{\mathrm{adv}}^{(1)}(t,x)=\frac12H(-t-|x|).
 $$
 
-> すなわち $PF_{\mathrm{ret}}^{(1)}=PF_{\mathrm{adv}}^{(1)}
-=\delta_0(t)\delta_0(x)$ であり、支持はそれぞれ $J^+(0)$、$J^-(0)$ に等しい。
+> すなわち両者の波動作用素による像は、どちらも原点の点源である。
+
+$
+PF_{\mathrm{ret}}^{(1)}=PF_{\mathrm{adv}}^{(1)}
+=\delta_0(t)\delta_0(x).
+$
+
+> 支持はそれぞれ $J^+(0)$、$J^-(0)$ に等しい。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
