@@ -1,0 +1,54 @@
+id: "ML1-13"
+title: "分類評価・適切なスコア・校正"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-02
+  - ML1-08
+  - ML1-12
+official_scope: []
+learning_objectives:
+  - 混同行列から正解率・再現率・適合率・偽陽性率を定義域と分母を確認して計算できる
+  - 母集団陽性率が適合率へ与える影響を条件付き確率で導出できる
+  - 得点閾値を動かしてROC・PRの点と同点半点のAUCを計算できる
+  - 二値の適切なスコアの定義とBrier損失の厳密適切性を証明できる
+  - 対数損失の超過リスクを二点の和から再導出し境界条件を説明できる
+  - 有限値の確率予測に対する校正を条件付き陽性率で判定できる
+  - Brier期待損失の不確実性・分離度・校正誤差分解を証明できる
+  - 非対称費用の閾値と独立評価を結び付けて指標の使い分けを説明できる
+  - 不均衡なテスト標本の混同行列・AUC・確率損失・校正を統合計算できる
+definitions:
+  - { id: ML1-13-DEF-01, name: 二値混同行列 }
+  - { id: ML1-13-DEF-02, name: 正解率・再現率・適合率・偽陽性率 }
+  - { id: ML1-13-DEF-03, name: ROC・PRの閾値点 }
+  - { id: ML1-13-DEF-04, name: 有限標本のROC AUC }
+  - { id: ML1-13-DEF-05, name: 二値の適切な損失スコア }
+  - { id: ML1-13-DEF-06, name: 二値Brierスコア }
+  - { id: ML1-13-DEF-07, name: 二値予測確率の校正 }
+theorems:
+  - { id: ML1-13-PROP-01, name: 適合率と陽性率の関係 }
+  - { id: ML1-13-PROP-03, name: 順位式とROC台形面積の一致 }
+  - { id: ML1-13-THM-01, name: Brier損失は厳密に適切 }
+  - { id: ML1-13-PROP-02, name: 対数損失の超過リスク }
+  - { id: ML1-13-THM-02, name: 二値Brier損失の校正・分離分解 }
+canonical_examples:
+  - 不均衡100件の混同行列と全件陰性分類器
+  - ROC・PR閾値点と四標本のAUC順位比較
+  - 真の確率0.6と報告0.8のBrier期待損失
+  - 二群の校正とBrier損失の分解検算
+  - 非対称費用による陽性判定閾値
+  - 手計算AUC・Brier照合のPython数値ラボ
+problem_patterns:
+  - ML1-13-A01
+  - ML1-13-A02
+  - ML1-13-A03
+  - ML1-13-A04
+  - ML1-13-B01
+  - ML1-13-B02
+  - ML1-13-B03
+  - ML1-13-B04
+  - ML1-13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }

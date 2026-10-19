@@ -14,7 +14,15 @@ $$
 g=-dt^2+h_{ij}(t,x)\,dx^i dx^j
 $$
 
-を定めます。これはlapseが $1$、shiftが $0$ の時間分割です。$h^{ij}$ は逆行列、$\mu=\sqrt{\det(h_{ij})}$、$d\mu_{h_t}=\mu\,dx$ と置きます。$I\times\mathbb T^n$ はコンパクトであり、$h$ は滑らかで正定値なので、ある $c,C>0$ に対して
+を定めます。これはlapseが $1$、shiftが $0$ の時間分割です。ここで使う行列と行列式の意味を確かめます。座標接ベクトル $\partial_i$ に関する誘導計量のGram行列が $(h_{ij})$ です。その逆行列を $(h^{ij})$ とすると、接方向の1-形式 $d_xw=(\partial_iw)\,dx^i$ の二乗長とスライスの体積密度は、それぞれ
+
+$$
+|d_xw|_{h_t}^2=h^{ij}\partial_iw\,\partial_jw,
+\qquad
+d\mu_{h_t}=\sqrt{\det(h_{ij})}\,dx
+$$
+
+です。前者は逆計量による1-形式の二乗長であり、後者は座標単位立方体の体積倍率です。$\mu=\sqrt{\det(h_{ij})}$ と置きます。$(h_{ij})$ の正定値性から逆行列も正定値で、行列式は正です。$I\times\mathbb T^n$ はコンパクトであり、$h$ は滑らかなので、ある $c,C>0$ に対して
 
 $$
 c|\xi|^2\le h^{ij}(t,x)\xi_i\xi_j\le C|\xi|^2,
@@ -85,7 +93,7 @@ $$
 \mathcal E_1=\frac{\pi}{2}\left(5A'^2+(20+5\lambda)A^2\right).
 $$
 
-**定義の確認**：$u_x$ だけでなく $u_{xx}$、$u_{xt}$ も数えており、各積分項は正です。これが「初期変位は $H^{m+1}$、初期速度は $H^m$」という一階のずれを生みます。
+**定義の確認**：$u_x$ だけでなく $u_{xx}$、$u_{xt}$ も数えており、各積分項は非負です。$\lambda>0$ と正定値計量により、エネルギーが零となるのは $u$ と $u_t$ がともに零のときに限ります。これが「初期変位は $H^{m+1}$、初期速度は $H^m$」という一階のずれを生みます。
 <!-- definition-example-end -->
 
 トーラス上の $H^r$ ノルムは、整数 $r\ge0$ に対し $\|v\|_{H^r}^2=\sum_{|\gamma|\le r}\|D^\gamma v\|_{L^2(dx)}^2$ と置きます。正定値性、$\mu$ の上下界、$\lambda>0$ により、$t$ によらない定数 $c_m,C_m>0$ が存在して
@@ -100,14 +108,14 @@ $$
 
 ## 2. 係数を微分した瞬間、交換子が発生する
 
-$Pu=f$ を空間方向に一度微分した場合でも、$P(Du)=Df$ ではありません。例えば $q=q(x)$ なら
+$Pu=f$ を空間方向に一度微分しても、一般には $P(Du)=Df$ ではありません。まず平坦な空間計量 $h_{ij}=\delta_{ij}$ と $a=b^j=0$ を仮定し、$q=q(x)$ とした場合でさえ
 
 $$
 \partial_x(qu)=q\,u_x+q_xu,\qquad
 P(u_x)=f_x-q_xu
 $$
 
-であり、$q_xu$ を落とすと誤りです。空間計量が変動すると二階微分の係数にも同じ現象が起きます。交換子を $[P,D^\alpha]=PD^\alpha-D^\alpha P$ と約束します。
+であり、$q_xu$ を落とすと誤りです。この表示は空間計量が平坦で一定な場合の式です。空間計量が変動する一般の場合には、さらに $a,h^{ij},b^j$ の空間微分からも項が生じます。交換子を $[P,D^\alpha]=PD^\alpha-D^\alpha P$ と約束します。
 
 <a id="prop-hpde9-commutator"></a>
 <!-- formal-statement-start -->
@@ -272,9 +280,36 @@ $$
 
 ## 4. 共変微分では曲率が交換子へ入る
 
-局所座標の $\partial_i$ だけでは、ベクトル束や時空の接続を持った方程式を扱いにくくなります。[HPDE4の接続](../HPDE4/index.md#def-hpde4-connection)を使うと、スカラー関数 $u$ の一階微分は1-形式 $du$ です。ここで「関数へ作用する波動作用素」と「1-形式へ作用する波動作用素」の違いを明示します。
+局所座標の $\partial_i$ だけでは、ベクトル束や時空の接続を持った方程式を扱いにくくなります。[HPDE4の束接続](../HPDE4/index.md#def-hpde4-connection)と[LORG4のLorentz計量のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)を使います。スカラー関数 $u$ の一階微分は1-形式 $du$ ですが、$du$ への二階作用には1-形式の接続が必要です。
 
-$\Box_g^{(1)}\omega=\nabla^a\nabla_a\omega$（1-形式への粗い波動作用素）を定め、曲率規約を
+ここで使う曲率作用素は、接続の二重微分を交換した差として
+
+$$
+R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z
+$$
+
+で定めます。この定義は正定値性を使わないためLorentz計量の接続にも適用できます。その曲率作用素を縮約して得るRicci曲率の成分を $\operatorname{Ric}_{cd}=R^a{}_{cad}$ と置きます。Lorentz符号では縮約に逆計量 $g^{ab}$ が入るので、正規直交基底の全成分を正符号で足してはいけません。
+
+$\Box_g^{(1)}\omega=\nabla^a\nabla_a\omega$ を1-形式への粗い波動作用素とします。スカラーの二階微分は交換できるので、$\nabla_a\nabla_cu=\nabla_c\nabla_au$ から
+
+$$
+\begin{aligned}
+\nabla^a\nabla_a(\nabla_cu)
+&=\nabla^a\nabla_c(\nabla_au)\\
+&=\nabla_c(\nabla^a\nabla_au)
+  +g^{ab}[\nabla_b,\nabla_c]\,(\nabla_au)
+\end{aligned}
+$$
+
+を得ます。一方、1-形式 $\omega_a$ への曲率の作用は $[\nabla_b,\nabla_c]\omega_a=-R^d{}_{abc}\omega_d$ です。したがって添字を縮約すると
+
+$$
+g^{ab}[\nabla_b,\nabla_c]\,(\nabla_au)
+=-g^{ab}R^d{}_{abc}\nabla_du
+=\operatorname{Ric}_c{}^d\nabla_du.
+$$
+
+よって、関数と1-形式の作用素を取り違えないための交換式は
 
 $$
 \nabla^a\nabla_a(du)-d(\Box_g u)=\operatorname{Ric}(du),
@@ -282,7 +317,7 @@ $$
 (\operatorname{Ric}(du))_c=\operatorname{Ric}_c{}^d\nabla_du
 $$
 
-となるものに固定します。ここでRicciテンソルは時空のRiemann曲率テンソルの縮約 $\operatorname{Ric}_{cd}=R^{a}{}_{cad}$ であり、上の恒等式を曲率の符号規約とします。これは二回微分した1-形式の交換で、導関数の順序を変えると曲率が生じる恒等式です。
+です。ここでは曲率の定義から交換式へ進んだのであり、成立させたい式を符号規約として仮定したのではありません。
 
 <a id="prop-hpde9-covariant-commutator"></a>
 <!-- formal-statement-start -->
@@ -303,7 +338,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-この節で符号規約とともに示した1-形式の微分交換式を整理すると
+1-形式の曲率交換式を、直前に $\nabla_a\nabla_cu=\nabla_c\nabla_au$ と曲率の縮約から導きました。これを移項すると
 
 $$
 -\Box_g^{(1)}(du)=-d(\Box_g u)-\operatorname{Ric}(du).
@@ -373,12 +408,12 @@ $$
 
 に $H^m$ で極限を通すと $u(t)=u(s)+\int_s^t v(\tau)d\tau$ なので $\partial_tu=v$ です。
 
-方程式の左辺は係数が滑らかな二階線形微分作用素であり、超関数として収束する列の極限と交換できます。すなわち試験関数 $\phi$ に対し[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)で
+方程式の左辺は係数が滑らかな二階線形微分作用素であり、超関数として収束する列の極限と交換できます。正確には、時間帯の内部 $I^\circ\times\mathbb T^n$ でコンパクト支持の試験密度 $\psi=\phi\,|dt\,dx|$ を取ります。[HPDE4の密度値の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)は試験**関数**ではなく試験**密度**に作用するので、
 
 $$
-\langle Pu_\ell,\phi\rangle=\langle u_\ell,P^{\mathrm t}\phi\rangle
-\longrightarrow\langle u,P^{\mathrm t}\phi\rangle
-=\langle Pu,\phi\rangle
+\langle Pu_\ell,\psi\rangle=\langle u_\ell,P^{\mathrm t}\psi\rangle
+\longrightarrow\langle u,P^{\mathrm t}\psi\rangle
+=\langle Pu,\psi\rangle
 $$
 
 となり、$f_\ell\to f$ が超関数の意味でも成立するため $Pu=f$ です。高階評価もノルム収束で極限へ移せます。
@@ -386,13 +421,13 @@ $$
 すべての $m$ で収束するなら任意の $r$ について $u\in C^0H^r$、$u_t\in C^0H^{r-1}$ です。トーラス上では $r>k+n/2$ のとき $H^r\subset C^k$ です。この包含は、三角級数の係数 $\widehat u(\ell)$ についてCauchy–Schwarzを使い、
 
 $$
-\sum_{\ell\in\mathbb Z^n}|\ell|^k|\widehat u(\ell)|
+\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^{k/2}|\widehat u(\ell)|
 \le
 \left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^{-(r-k)}\right)^{1/2}
 \left(\sum_{\ell\in\mathbb Z^n}(1+|\ell|^2)^r|\widehat u(\ell)|^2\right)^{1/2}
 $$
 
-と評価して確認できます。第一因子は $r-k>n/2$ で収束し、第二因子は微分の $L^2$ ノルムと比較できます。したがって $k$ 階までの項別微分したFourier級数が一様収束し、空間 $k$ 階微分の連続性が得られます。さらに
+と評価して確認できます。左辺の重みは零周波数も含め、$|\ell^\gamma|\le(1+|\ell|^2)^{k/2}$（$|\gamma|\le k$）を同時に支配します。第一因子は $r-k>n/2$ で収束し、第二因子は微分の $L^2$ ノルムと比較できます。したがって $k$ 階までの項別微分したFourier級数が一様収束し、空間 $k$ 階微分の連続性が得られます。さらに
 
 $$
 u_{tt}=\Delta_{h_t}u-a u_t-q u+f
@@ -528,13 +563,14 @@ $$
 P(u_x)=f_x-a'u_t+h'u_{xx}+b'u_x-q'u.
 $$
 
-係数の各導関数が有界なら右辺の二乗積分は
+係数の各導関数が有界なら、まず $|A+B|^2\le2|A|^2+2|B|^2$ と有限個の項に対するCauchy–Schwarzを適用します。右辺の二乗積分は、係数の上界に依存する $C>0$ を用いて
 
 $$
-\|f_x\|_2^2+C\bigl(\|u_t\|_2^2+\|u_{xx}\|_2^2+\|u_x\|_2^2+\|u\|_2^2\bigr)
+\|P(u_x)\|_2^2
+\le2\|f_x\|_2^2+C\bigl(\|u_t\|_2^2+\|u_{xx}\|_2^2+\|u_x\|_2^2+\|u\|_2^2\bigr)
 $$
 
-以下です。$\mathcal E_1[u]$ には $u_t,u_{xt},u_{xx},u_x,u$ の二乗がすべて含まれるため、源 $\|f\|_{H^1}$ と $\mathcal E_1$ で閉じます。$u_{xx}$ を一階エネルギー $\mathcal E_0$ だけで制御しようとするのが誤りです。
+と評価できます。$\mathcal E_1[u]$ には $u_t,u_{xt},u_{xx},u_x,u$ の二乗がすべて含まれるため、源 $\|f\|_{H^1}$ と $\mathcal E_1$ で閉じます。$u_{xx}$ を一階エネルギー $\mathcal E_0$ だけで制御しようとするのが誤りです。
 <!-- solution-end -->
 
 <a id="ex-hpde9-b03"></a>
@@ -550,7 +586,18 @@ u_j\to u\text{ in }C^0(I;H^3),\qquad
 \partial_tu_j\to\partial_tu\text{ in }C^0(I;H^2).
 $$
 
-(ii) $u_j\to u$ は超関数の意味でも収束します。任意の試験関数 $\phi$ に対して $\langle Pu_j,\phi\rangle=\langle u_j,P^{\mathrm t}\phi\rangle$ を極限に通せるため、$Pu=f$ です。(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から何階の連続微分まで従うかは次元に依存し、任意階の時空微分を得るにはすべての $m$ の推定と滑らかな $f$ が必要です。
+(ii) $u_j\to u$ は超関数の意味でも収束します。任意のコンパクト支持の試験密度 $\psi$ を固定し、[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を用いると
+
+$$
+\langle Pu_j,\psi\rangle
+=\langle u_j,P^{\mathrm t}\psi\rangle
+\longrightarrow\langle u,P^{\mathrm t}\psi\rangle
+=\langle Pu,\psi\rangle
+$$
+
+です。同時に源も $L^2(I;H^2)$ で収束するため、超関数として $f_j\to f$ が成り立ち、$Pu=f$ が従います。
+
+(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から従う連続微分の階数は次元に依存します。任意階の時空微分には、すべての $m$ の推定と滑らかな $f$ が必要です。
 <!-- solution-end -->
 
 <a id="ex-hpde9-c01"></a>
@@ -608,7 +655,15 @@ $$
 \le C\|f\|_{H^1}^2+C\mathcal E_1.
 $$
 
-他の低階の積も同じように、関数とその一階微分の二乗で制御できます。したがって指定のエネルギー不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。
+残る低階項も確認します。$B=(-\varphi''+2(\varphi')^2)e^{-2\varphi}+(\lambda-q)$ と置くと、$B$ と $q'$ は有界で、
+
+$$
+\left|\int e^\varphi u_{xt}(Bu_x-q'u)\,dx\right|
+\le C\int e^\varphi(u_{xt}^2+u_x^2+u^2)\,dx
+\le C\mathcal E_1
+$$
+
+です。また $\left|\int e^\varphi(\lambda-q)u_tu\,dx\right|\le C\mathcal E_1$ です。したがって指定のエネルギー不等式が成立し、[Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)で時間積分できます。
 
 (iii) 定数に必要な係数界を確認します。$q$ は一階まで、$\varphi$ は二階までの導関数と $\sup|\varphi|$ への依存で足ります。係数を異なる表示で評価しても構いませんが、二階空間微分 $u_{xx}$ の項を無視してはなりません。
 <!-- solution-end -->

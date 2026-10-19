@@ -57,7 +57,7 @@ chapters:
     title: "検証分割・交差検証・モデル選択"
   - id: ML1-13
     path: textbook/volumes/dream_thater/応用系/ML/ML1-13
-    status: planned
+    status: completed
     title: "分類評価・適切なスコア・校正"
   - id: ML1-14
     path: textbook/volumes/dream_thater/応用系/ML/ML1-14
