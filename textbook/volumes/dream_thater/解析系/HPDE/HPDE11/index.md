@@ -8,7 +8,7 @@
 
 時間向き付きの滑らかなLorentz多様体 $(M,g)$（符号 $(-,+,\ldots,+)$）上の、有限ランクの実または複素ベクトル束 $E\to M$ と滑らかな [normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic) $P:\Gamma(E)\to\Gamma(E)$ を扱います。$\Sigma$ は滑らかな空間的超曲面、$N$ は未来向き単位法線です。必要なのは局所的な非特性性であり、現段階で大域双曲性を要求しません。
 
-局所存在を定式化する前に、係数がどこから現れるかを確かめます。$p\in\Sigma$ を固定し、$\Sigma$ 内の座標 $x=(x^1,\ldots,x^n)$ を選びます。各点から初速度 $N$ の時間的測地線を出し、その固有時間を $t$ とします。測地線の局所存在と逆関数定理により $p$ の近くで $(t,x)$ は座標になります。$\partial_t$ は測地線の接ベクトルなので $\nabla_{\partial_t}\partial_t=0$ かつ $g(\partial_t,\partial_t)=-1$。さらに座標ベクトル場が可換であることから
+局所存在を定式化する前に、係数がどこから現れるかを確かめます。$p\in\Sigma$ を固定し、$\Sigma$ 内の座標 $x=(x^1,\ldots,x^n)$ を選びます。各点から初速度 $N$ の時間的測地線を出し、その固有時間を $t$ とします。測地線の局所存在と[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $p$ の近くで $(t,x)$ は座標になります。$\partial_t$ は測地線の接ベクトルなので $\nabla_{\partial_t}\partial_t=0$ かつ $g(\partial_t,\partial_t)=-1$。さらに座標ベクトル場が可換であることから
 
 $$
 \begin{aligned}
@@ -268,7 +268,7 @@ $$
 \sup_N\|\partial_tV_N\|_{C^0(I;H^s)}<\infty
 $$
 
-も成り立ちます。トーラス上で $H^{s+1}\hookrightarrow H^s$ はコンパクト埋込みです。各時刻の集合の相対コンパクト性と時間方向の等連続性から、Ascoliの定理により部分列は $C^0(I;H^s)$ で収束します。$s=0,1,\ldots$ に順次部分列を取り対角部分列を選べば、同じ極限 $V$ は全 $s$ について $C^0(I;H^s)$ に属します。
+も成り立ちます。トーラス上で $H^{s+1}\hookrightarrow H^s$ はコンパクト埋込みです。各時刻の集合の相対コンパクト性と時間方向の等連続性から、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)の距離空間値版により部分列は $C^0(I;H^s)$ で収束します。RA8では実数値関数族を扱いましたが、有限個の時刻を選んで等連続性でその間を補う証明は、値域が距離空間 $H^s$ で各時刻の値集合が相対コンパクトな場合にも適用できます。$s=0,1,\ldots$ に順次部分列を取り対角部分列を選べば、同じ極限 $V$ は全 $s$ について $C^0(I;H^s)$ に属します。
 
 任意の固定 $s$ に対し $\Pi_N(C^j\partial_jV_N)\to C^j\partial_jV$ が $C^0(I;H^s)$ で成り立ちます。実際、$V_N\to V$ を $H^{s+1}$ で使って積を評価し、残差 $(\Pi_N-I)(C^j\partial_jV)$ はコンパクトな時刻集合上で一様に零へ収束します。$D,G$ 項も同じです。近似式を時間積分して極限に移し
 
@@ -315,7 +315,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-上記の方法で $\widetilde a,\widetilde b,\widetilde c,\widetilde F$ と初期データをトーラス上へ延長します。滑らかな正定値平方根による[対称化](#prop-hpde11-positive-symmetrizer)を行い、[対称双曲系の存在定理](#thm-hpde11-torus-symmetric-system)から $V$ を得て、$U=S^{-1}V$ に戻します。
+上記の方法で $\widetilde a,\widetilde b,\widetilde c,\widetilde F$ と初期データをトーラス上へ延長します。滑らかな正定値平方根による[対称化](#prop-hpde11-positive-symmetrizer)を行い、[滑らかな対称双曲系の存在一意性](#thm-hpde11-torus-symmetric-system)から $V$ を得て、$U=S^{-1}V$ に戻します。
 
 初期状態を
 
@@ -337,7 +337,7 @@ $$
 
 $u_t(0,x)=\psi(x)$ であることは積分端点を微分して確認できます。周期延長の違いは、$x\pm2t$ が元の初期区間内にある限り、この式へ現れません。ここでも「局所」とは任意の $t,x$ ではなく、過去の足跡が元の箱に収まる範囲を意味します。
 
-## 5. 幾何学的な局所Cauchy存在定理
+## 5. 幾何学的な局所Cauchy存在
 
 <a id="thm-hpde11-local-cauchy"></a>
 <!-- formal-statement-start -->
@@ -527,7 +527,7 @@ $$
 \|w_N-w_M\|_2^2=\|w_N\|_2^2+\|w_M\|_2^2=2,
 $$
 
-でありCauchy部分列が存在しません。局所存在の証明では $H^{s+1}$ での一様評価と、コンパクト埋込み $H^{s+1}\hookrightarrow H^s$ を使って空間的な相対コンパクト性を得ます。さらに $\partial_tV_N$ の $H^s$ 一様上界で等連続性を作り、Ascoliの定理により時間一様の強収束部分列を取ります。
+でありCauchy部分列が存在しません。局所存在の証明では $H^{s+1}$ での一様評価と、コンパクト埋込み $H^{s+1}\hookrightarrow H^s$ を使って空間的な相対コンパクト性を得ます。さらに $\partial_tV_N$ の $H^s$ 一様上界で等連続性を作り、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)の距離空間値版により時間一様の強収束部分列を取ります。
 <!-- solution-end -->
 
 <a id="ex-hpde11-c01"></a>
