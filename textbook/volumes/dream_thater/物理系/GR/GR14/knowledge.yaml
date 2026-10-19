@@ -1,0 +1,62 @@
+chapter: GR14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR3
+  - GR4
+  - LORG4
+concepts:
+  - id: gravity.killing-field
+    name: Killing場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Killing場）"]
+    requires: [lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.killing-coordinate-test
+    name: Killing方程式の座標表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Killing方程式の座標表示）"]
+    requires: [gravity.killing-field, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.killing-geodesic-charge
+    name: Killing場による測地線保存量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Killing場による測地線保存量）"]
+    requires: [gravity.killing-field, gravity.proper-time-geodesic-variation, gravity.null-affine-quadratic-action]
+  - id: gravity.killing-force-nonaffine
+    name: 外力と非アフィンパラメータ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外力と非アフィンパラメータ）"]
+    requires: [gravity.killing-geodesic-charge]
+  - id: gravity.killing-energy-angular-momentum
+    name: Killingエネルギーと軸角運動量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Killingエネルギーと軸角運動量）"]
+    requires: [gravity.killing-geodesic-charge]
+  - id: gravity.killing-cyclic-momentum
+    name: 循環座標の正準運動量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（循環座標の正準運動量）"]
+    requires: [gravity.killing-coordinate-test, gravity.killing-energy-angular-momentum]
+  - id: gravity.killing-local-energy-lapse
+    name: 静止観測者の局所エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止観測者の局所エネルギー）"]
+    requires: [gravity.killing-energy-angular-momentum, gravity.observer-measured-components]
+  - id: gravity.killing-radial-first-integral
+    name: 対角静的計量の一階軌道式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角静的計量の一階軌道式）"]
+    requires: [gravity.killing-energy-angular-momentum, lorentz-geometry.geodesic-causal-type-conservation]
+  - id: gravity.stationary-static-killing
+    name: 定常Killing場と静的Killing場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定常Killing場と静的Killing場）"]
+    requires: [gravity.killing-field]

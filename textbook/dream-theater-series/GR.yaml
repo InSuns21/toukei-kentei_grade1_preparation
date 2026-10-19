@@ -61,7 +61,7 @@ chapters:
     title: "Newton極限とPoisson方程式"
   - id: GR14
     path: textbook/volumes/dream_thater/物理系/GR/GR14
-    status: planned
+    status: completed
     title: "Killing場と測地線上の保存量"
   - id: GR15
     path: textbook/volumes/dream_thater/物理系/GR/GR15

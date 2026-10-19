@@ -1,0 +1,50 @@
+id: "GR14"
+title: "Killing場と測地線上の保存量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR4
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 局所流れによる計量の不変性とKilling方程式の座標表示を導出できる
+  - 計量と座標ベクトルを使いKilling場の定義条件を直接確認できる
+  - 自由粒子と光子のアフィン測地線でKilling縮約が保存することを証明できる
+  - 非アフィン表示と外力の下で保存が失敗する機構を計算できる
+  - 時間並進・軸回転のKilling量をエネルギーと角運動量へ換算し符号・単位・規格化を追える
+  - 正規化された静止観測者の局所エネルギーとKillingエネルギーの違いを導ける
+  - 対角静的計量の時間的軌道の一階積分式を構成できる
+  - 定常Killing場と静的Killing場を区別し回転座標の例を検算できる
+definitions:
+  - { id: GR14-DEF-01, name: Killing場 }
+  - { id: GR14-DEF-02, name: Killingエネルギーと軸角運動量 }
+  - { id: GR14-DEF-03, name: 定常Killing場と静的Killing場 }
+theorems:
+  - { id: GR14-PROP-01, name: Killing方程式の座標表示 }
+  - { id: GR14-THM-01, name: Killing場による測地線保存量 }
+  - { id: GR14-PROP-02, name: 外力と非アフィンパラメータ }
+  - { id: GR14-PROP-03, name: 循環座標の正準運動量 }
+  - { id: GR14-PROP-04, name: 静止観測者の局所エネルギー }
+  - { id: GR14-PROP-05, name: 対角静的計量の一階軌道式 }
+canonical_examples:
+  - Minkowski円柱座標で二つのKilling場の全条件を直接確認
+  - 非アフィン再パラメータ化で保存量の失敗を確認
+  - 時間並進と軸回転でEとLの符号・次元を確認
+  - 静的lapse計量で局所エネルギーとKillingエネルギーを比較
+  - 回転Minkowski座標の定常場と静的場を判別
+problem_patterns:
+  - GR14-KILLING-COORDINATE-TEST
+  - GR14-ENERGY-SIGN-UNITS
+  - GR14-ANGULAR-MOMENTUM-INDEX
+  - GR14-LOCAL-LAPSE-ENERGY
+  - GR14-NONAFFINE-COUNTEREXAMPLE
+  - GR14-KILLING-PROOF
+  - GR14-RADIAL-FIRST-INTEGRAL
+  - GR14-ROTATING-COORDINATE-ENERGY
+  - GR14-TIME-DEPENDENT-METRIC
+  - GR14-SHIFTED-STATIONARY-METRIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
