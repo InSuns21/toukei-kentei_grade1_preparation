@@ -65,7 +65,7 @@ chapters:
     title: "決定木・分割不純度"
   - id: ML1-15
     path: textbook/volumes/dream_thater/応用系/ML/ML1-15
-    status: planned
+    status: completed
     title: "Bagging・random forest・bootstrap"
   - id: ML1-16
     path: textbook/volumes/dream_thater/応用系/ML/ML1-16
