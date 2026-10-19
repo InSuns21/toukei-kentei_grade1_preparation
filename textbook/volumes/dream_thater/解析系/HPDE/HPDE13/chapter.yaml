@@ -1,0 +1,53 @@
+id: "HPDE13"
+title: "Hadamard係数とtransport方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE12
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - LORG5
+official_scope: []
+learning_objectives:
+  - 凸正規近傍で世界関数を定義しアイコナール恒等式を導出できる
+  - 2次元と4次元のRiesz分布を構成し再帰・正規化・光円錐の支持を検算できる
+  - van Vleck因子が測地線の体積Jacobianを補正することを説明し先頭輸送式を証明できる
+  - 束接続の平行移動を用い先頭Hadamard係数の存在と一意性を示せる
+  - Riesz分布との積公式からHadamard係数の輸送再帰と測地線積分表示を導ける
+  - 平坦質量模型の最初の内部尾の符号を検算し有限和の残差を計算できる
+  - 形式Hadamard展開と真の局所点源基本解を区別できる
+definitions:
+  - { id: HPDE13-DEF-01, name: Syngeの世界関数と放射ベクトル場 }
+  - { id: HPDE13-DEF-02, name: 平坦時空の未来向きRiesz分布 }
+  - { id: HPDE13-DEF-03, name: van Vleck–Morette因子 }
+  - { id: HPDE13-DEF-04, name: 先頭Hadamard係数 }
+  - { id: HPDE13-DEF-05, name: Hadamard係数と輸送再帰 }
+theorems:
+  - { id: HPDE13-LEM-01, name: 世界関数のアイコナール恒等式 }
+  - { id: HPDE13-THM-01, name: 4次元のRiesz再帰 }
+  - { id: HPDE13-PROP-01, name: 次元依存と一般のRiesz再帰 }
+  - { id: HPDE13-LEM-02, name: 体積Jacobianと先頭の輸送方程式 }
+  - { id: HPDE13-THM-02, name: 束値先頭係数の輸送と一意性 }
+  - { id: HPDE13-LEM-03, name: Riesz分布への波動作用素の積公式 }
+  - { id: HPDE13-THM-03, name: 輸送方程式の解の存在・一意性 }
+  - { id: HPDE13-PROP-02, name: 有限和の残差恒等式 }
+canonical_examples:
+  - 世界関数と放射ベクトル場の平坦直接例
+  - van Vleck因子と先頭係数の平坦束による全条件検証
+  - 定数質量のHadamard係数と内部尾の符号
+  - 正規座標の曲率展開と対角係数
+problem_patterns:
+  - HPDE13-WORLD-EIKONAL
+  - HPDE13-RIESZ-RECURRENCE
+  - HPDE13-FLAT-TRANSPORT
+  - HPDE13-DIAGONAL-COEFFICIENT
+  - HPDE13-JACOBIAN-TRANSPORT
+  - HPDE13-MASS-COEFFICIENT
+  - HPDE13-DIMENSION-SUPPORT
+  - HPDE13-TRUNCATION-DEFECT
+  - HPDE13-CURVATURE-TAIL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 7 }
