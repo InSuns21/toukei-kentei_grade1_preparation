@@ -39,12 +39,12 @@ $$
 
 線素の $(dx^0)^2$ の係数が $g_{00}$ です。定義の $g_{00}+1=-2\Phi/c^2+O(\epsilon^2)$ と突き合わせると
 
-$
+$$
 g_{00}+1=-\frac{2az}{c^2}-\left(\frac{az}{c^2}\right)^2,
 \qquad
 -\frac{c^2}{2}(g_{00}+1)
 =az+\frac{a^2z^2}{2c^2}.
-$
+$$
 
 よって一次の項から $\Phi=az$ を選べ、残りの $(az/c^2)^2$ が二次誤差です。交差項がないので $g_{0i}=0$、空間方向の各係数が1なので $g_{ij}=\delta_{ij}$ です。また $\partial_z\Phi=a$、他の一階微分とすべての二階微分は零です。$aL/c^2=O(\epsilon)$ とすれば $|\partial_z\Phi|/c^2=O(\epsilon/L)$ であり、二次誤差の一階・二階微分もそれぞれ $O(\epsilon^2/L)$、$O(\epsilon^2/L^2)$ に収まります。例えば静止していない粒子で $|v|/c=O(\sqrt\epsilon)$ を選べば速度の条件も満たします。計量がLorentz型であることは $1+az/c^2>0$ と対角成分の符号から分かります。
 
@@ -319,22 +319,22 @@ $$
 
 球対称関数 $f(r)$ のLaplacianは、$r>0$ で連鎖律を二回使って導けます。$r^2=\sum_i(x^i)^2$ から $\partial_i r=x^i/r$ なので、
 
-$
+$$
 \begin{aligned}
 \partial_i f&=f'(r)\frac{x^i}{r},\\
 \partial_i^2 f
 &=f''(r)\frac{(x^i)^2}{r^2}
 +f'(r)\left(\frac1r-\frac{(x^i)^2}{r^3}\right).
 \end{aligned}
-$
+$$
 
 $i=1,2,3$ で和を取り、$\sum_i(x^i)^2=r^2$ を代入すると
 
-$
+$$
 \Delta f=f''(r)+\left(\frac3r-\frac{r^2}{r^3}\right)f'(r)
 =f''(r)+\frac2r f'(r)
 =\frac1{r^2}\frac{d}{dr}\left(r^2f'(r)\right).
-$
+$$
 
 従って $r>0$ では $\Delta(-GM/r)=0$ です。原点は計算の定義域外なので、真空といっても原点を含む領域の滑らかな真空解を得たことにはなりません。半径 $r$ の球面での外向き流束は
 
@@ -371,11 +371,11 @@ $$
 
 内側では球対称Laplacianにより $(r^2\Phi')'=4\pi G\rho_0r^2$ です。$0<r<R$ で積分すると
 
-$
+$$
 r^2\Phi'=\frac{4\pi G\rho_0}{3}r^3+C,
 \qquad
 \Phi(r)=\frac{2\pi G\rho_0}{3}r^2-\frac{C}{r}+A.
-$
+$$
 
 もし $C\ne0$ なら $-C/r$ が中心で発散するので、$\Phi(0)$ が有限であるという条件から $C=0$ です。$\rho_0=3M/(4\pi R^3)$ を代入して $\Phi'=(4\pi G\rho_0/3)r=(GM/R^3)r$ となり、
 
@@ -388,11 +388,11 @@ $$
 
 この球模型では物質を静止させる圧力勾配が必要です。[GR8の完全流体の静的つり合い](../GR8/index.md#prop-gr8-hydrostatic-lapse)では、時計係数 $N>0$ の静止流体について $p'=-(\varepsilon_m+p)(\ln N)'$ が得られます。静止四元速度 $u^\mu=(c/N,0,0,0)$ に対して $u^\nu\nabla_\nu u_i/c^2=\partial_i\ln N$ となるため、$\nabla_\mu T^{\mu i}=0$ の空間成分を空間計量で添字を下げると同じ式になります。したがって空間計量の一次補正を含む場合も、この平衡式の形は変わりません。弱場では
 
-$
+$$
 N=\sqrt{-g_{00}}=1+\frac{\Phi}{c^2}+O(\epsilon^2),
 \qquad
 (\ln N)'=\frac{\Phi'}{c^2}+O(\epsilon^2/L).
-$
+$$
 
 $\varepsilon_m=\rho_0c^2\{1+O(\epsilon)\}$、$p/(\rho_0c^2)=O(\epsilon)$ として一次の運動方程式を抜き出せば、$p'=-\rho_0\Phi'+O(\epsilon^2\rho_0c^2/L)$ です。したがって $p(R)=0$ から $p(r)\simeq\rho_0GM(R^2-r^2)/(2R^3)$ となります。最大圧力比は $p(0)/(\rho_0c^2)=GM/(2Rc^2)\ll1$ なら小さく、低圧近似と矛盾しません。
 
@@ -489,7 +489,7 @@ $r>0$ で $\Phi=-GM/r$ とする。$\partial_i(1/r)$、$\Delta\Phi$、半径 $r$
 <!-- solution-start -->
 **詳細解答。** [Levi-Civita接続の成分公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)に $\partial_i g_{jk}=-2(\partial_i\varphi)\delta_{jk}$ と $g^{k\ell}=\delta^{k\ell}+O(\epsilon)$ を入れます。$\varphi_i:=\partial_i\varphi$ と略記すると、
 
-$
+$$
 \begin{aligned}
 \Gamma^k_{ij}
 &=\frac12\delta^{k\ell}
@@ -502,11 +502,11 @@ $
 &=\Gamma^0_{i0}+\sum_k\Gamma^k_{ik}
 =\varphi_i-3\varphi_i+O(\epsilon^2/L)=-2\varphi_i+O(\epsilon^2/L).
 \end{aligned}
-$
+$$
 
 [GR6のRicci成分の式](../GR6/index.md#prop-gr6-coordinate-curvature)で一次の接続積を捨てると、
 
-$
+$$
 \begin{aligned}
 R_{ij}
 &=\partial_k\Gamma^k_{ij}-\partial_j\Gamma^\alpha_{i\alpha}
@@ -515,7 +515,7 @@ R_{ij}
 -(-2\varphi_{ij})+O(\epsilon^2/L^2)\\
 &=\delta_{ij}\Delta\varphi+O(\epsilon^2/L^2).
 \end{aligned}
-$
+$$
 
 一方 $R_{00}=\Delta\varphi+O(\epsilon^2/L^2)$ なので、$\mathcal R=g^{00}R_{00}+g^{ij}R_{ij}=-\Delta\varphi+3\Delta\varphi+O(\epsilon^2/L^2)=2\Delta\varphi+O(\epsilon^2/L^2)$。[Einsteinテンソルの定義](../GR7/index.md#def-gr7-einstein-tensor)に代入し、$G_{00}=R_{00}-g_{00}\mathcal R/2=2\Delta\varphi+O(\epsilon^2/L^2)$ と得ます。
 <!-- solution-end -->
