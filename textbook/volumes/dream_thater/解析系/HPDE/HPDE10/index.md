@@ -412,7 +412,11 @@ $$
 
 とし、$u_1=f=0$ とします。$u_0$ は $|x|<1$ のすべての点で非零で、$|x|\ge1$ では零です。従ってその支持は**ちょうど** $[-1,1]$、零切断 $u_1,f$ の支持は空集合で、三つの支持はすべてコンパクトです。
 
-$K=\{0\}\times[-1,1]$ となります。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から、時刻 $t$ の点 $(t,x)$ が $J(K)$ に入る必要十分条件は、$|y|\le1$ を満たすある $y$ について $|x-y|\le|t|$ となることです。ここで既習の[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を実数 $x-y$ と $y$ に適用すると
+$K=\{0\}\times[-1,1]$ となります。
+
+[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)より、時刻 $t$ の点 $(t,x)$ が $J(K)$ に入るのは、$|y|\le1$ を満たすある $y$ について $|x-y|\le|t|$ となる場合、かつその場合に限ります。
+
+ここで既習の[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を実数 $x-y$ と $y$ に適用すると
 
 $$
 |x|\le|x-y|+|y|\le|t|+1
