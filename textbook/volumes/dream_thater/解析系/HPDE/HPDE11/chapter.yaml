@@ -1,0 +1,50 @@
+id: "HPDE11"
+title: "局所Cauchy問題の存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE10
+  - HPDE9
+  - HPDE8
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - GPDE3
+  - LORG20
+  - RA8
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 時間的法線座標を導出し波動作用素の主係数の正定値性と幾何学的初速度の座標表示を確認できる
+  - 二階波動方程式を一次還元し拘束の伝播と正定値対称化を証明できる
+  - Fourier-Galerkin近似を有限次元ODEとして構成し射影を含む一様エネルギー評価を導出できる
+  - 高階交換子の微分次数を数えコンパクト埋込みと時間等連続性で滑らかな極限を構成できる
+  - 局所係数を正定値のまま周期延長し局所一意性で延長の選択に依存しない解を得られる
+  - 束の初期法線データを保ち滑らかな局所Cauchy存在を証明できる
+  - 局所存在と大域存在および滑らかな源と分布源を混同しない
+definitions:
+  - { id: HPDE11-DEF-01, name: 波動方程式の一次還元 }
+theorems:
+  - { id: HPDE11-PROP-01, name: 正定値時間行列と対称化 }
+  - { id: HPDE11-THM-01, name: 滑らかな対称双曲系の存在一意性 }
+  - { id: HPDE11-PROP-02, name: 局所係数の周期延長による解の構成 }
+  - { id: HPDE11-THM-02, name: normally hyperbolic作用素の滑らかな局所Cauchy解 }
+canonical_examples:
+  - 法線測地線による局所Gaussian座標と局所枠の接続項
+  - 定数速度二の対称化と拘束の伝播
+  - Fourier-Galerkin射影のエネルギー計算と高階交換子
+  - 正定値係数の周期延長とd'Alembert公式による局所性
+problem_patterns:
+  - HPDE11-NORMAL-VELOCITY
+  - HPDE11-SYMMETRIZER
+  - HPDE11-CONSTRAINT
+  - HPDE11-SPEED
+  - HPDE11-GALERKIN-ENERGY
+  - HPDE11-COMMUTATOR
+  - HPDE11-ELLIPTIC-EXTENSION
+  - HPDE11-COMPACTNESS
+  - HPDE11-LOCAL-CAUCHY-EXISTENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 7 }
