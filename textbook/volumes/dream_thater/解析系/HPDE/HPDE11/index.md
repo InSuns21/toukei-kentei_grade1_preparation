@@ -80,23 +80,23 @@ $$
 
 定数係数 $a=4$、$b^\mu=c=0$、源 $F=-6$ の一次元模型を考えます。次の滑らかな関数とその微分を使います。
 
-$
+$$
 u(t,x)=t^2+tx+x^2,\qquad
 v_0=2t+x,\qquad v_1=t+2x.
-$
+$$
 
 <!-- definition-example-start: def-hpde11-first-order-reduction -->
 **定義の確認**。一次還元系の三つの条件を、上から順番に代入して確かめます。まず
 
-$
+$$
 \partial_t v_0-4\partial_xv_1=2-4\cdot2=-6=F.
-$
+$$
 
 次に $\partial_t v_1=1=\partial_xv_0$ なので第二式も成立し、最後に $\partial_tu=2t+x=v_0$ なので第三式も成立します。元の二階方程式も別に計算すると
 
-$
+$$
 \partial_t^2u-4\partial_x^2u=2-4\cdot2=-6=F
-$
+$$
 
 です。また初期面では $u(0,x)=x^2$、$v_1(0,x)=2x=\partial_xu(0,x)$ で拘束が満たされます。これで**一次系の全三式、元の二階方程式、初期拘束**が直接結び付いたことが確認できます。
 <!-- definition-example-end -->
