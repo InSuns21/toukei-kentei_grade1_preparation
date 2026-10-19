@@ -373,7 +373,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $Q_p\subset S$ を依存領域の定義から確認します。任意の $q\in Q_p$ に対し、$q$ から $p$ への未来因果曲線を選び、$q$ より過去へ因果的に延長して過去非延長曲線にします。$p\in D^+(S)$ なので、この曲線は $S$ と交わります。一方 $S\subset\Sigma$ で、[Cauchy面のacausal性](../../../幾何系/LORG/LORG15/index.md#prop-lorg15-acausal)により曲線と $\Sigma$ の交点は $q$ だけです。従って $q\in S$、すなわち $Q_p\subset S$ です。
+まず $Q_p\subset S$ を依存領域の定義から確認します。任意の $q\in Q_p$ に対し、$q$ から $p$ への未来因果曲線を選び、$q$ より過去へ因果的に延長して過去非延長曲線にします。
+
+$p\in D^+(S)$ なので、この曲線は $S$ と交わります。一方、$S\subset\Sigma$ であり、[Cauchy面のacausal性](../../../幾何系/LORG/LORG15/index.md#prop-lorg15-acausal)により曲線と $\Sigma$ の交点は $q$ だけです。従って $q\in S$、すなわち $Q_p\subset S$ です。
 
 $w=u-v$ とすると線形性により $Pw=f_u-f_v$ です。初期変位と法線速度は $S$ で一致するので $w=\nabla_Nw=0$ が $Q_p$ 上で成り立ちます。さらに源差は $C_p$ 上で零と仮定しているため、[因果的な依存評価](#thm-hpde10-causal-dependence)を $w$ に適用して $w(p)=0$ を得ます。過去側でも同じです。$\square$
 <!-- proof-end -->
@@ -408,7 +410,9 @@ u_0(x)=
 \end{cases}
 $$
 
-とし、$u_1=f=0$ とします。$u_0$ は $|x|<1$ のすべての点で非零で、$|x|\ge1$ では零です。従ってその支持は**ちょうど** $[-1,1]$、零切断 $u_1,f$ の支持は空集合で、三つの支持はすべてコンパクトです。$K=\{0\}\times[-1,1]$ となります。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から、時刻 $t$ の点 $(t,x)$ が $J(K)$ に入る必要十分条件は、$|y|\le1$ を満たすある $y$ について $|x-y|\le|t|$ となることです。ここから三角不等式を使えば
+とし、$u_1=f=0$ とします。$u_0$ は $|x|<1$ のすべての点で非零で、$|x|\ge1$ では零です。従ってその支持は**ちょうど** $[-1,1]$、零切断 $u_1,f$ の支持は空集合で、三つの支持はすべてコンパクトです。
+
+$K=\{0\}\times[-1,1]$ となります。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から、時刻 $t$ の点 $(t,x)$ が $J(K)$ に入る必要十分条件は、$|y|\le1$ を満たすある $y$ について $|x-y|\le|t|$ となることです。ここで既習の[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を実数 $x-y$ と $y$ に適用すると
 
 $$
 |x|\le|x-y|+|y|\le|t|+1
@@ -465,7 +469,11 @@ $$
 K_+=K_\Sigma\cup(K_f\cap J^+(\Sigma))
 $$
 
-はコンパクトです。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と、以下に示すコンパクト始点列の部分列議論により、$J^+(K_+)$ は閉です。$t>0$ の点がこの閉集合の外側にあれば、その点の近傍の未来側で $u=0$ なので支持に入りません。$p\in\Sigma\setminus J^+(K_+)$ では、$p\notin K_\Sigma\cup K_f$ です。支持の閉性から $p$ の小近傍で $f=0$、$\Sigma$ 上の小球で $u=\nabla_Nu=0$ となり、[局所的な零データ一意性](#lem-hpde10-local-cone)を時間の正負両側に適用すれば $u=0$ が $p$ の時空近傍で成り立ちます。従って $\operatorname{supp}u\cap J^+(\Sigma)\subset J^+(K_+)$ が得られます。
+はコンパクトです。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と、以下に示すコンパクト始点列の部分列議論により、$J^+(K_+)$ は閉です。
+
+$t>0$ の点がこの閉集合の外側にあれば、その点の近傍の未来側で $u=0$ なので支持に入りません。一方、$p\in\Sigma\setminus J^+(K_+)$ では、$p\notin K_\Sigma\cup K_f$ です。支持の閉性から $p$ の小近傍で $f=0$、$\Sigma$ 上の小球で $u=\nabla_Nu=0$ となります。
+
+ここで[局所的な零データ一意性](#lem-hpde10-local-cone)を時間の正負両側に適用すれば、$u=0$ は $p$ の時空近傍で成り立ちます。従って $\operatorname{supp}u\cap J^+(\Sigma)\subset J^+(K_+)$ が得られます。
 
 時間を反転して、$\Sigma$ 以前にも同様の包含を得ます。両側を合わせれば $u=0$ が $M\setminus J(K)$ で成立します。
 
