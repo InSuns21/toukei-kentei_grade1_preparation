@@ -98,7 +98,7 @@ $$
 \Phi''=\frac{f''}{2f}-\frac{(f')^2}{2f^2}.
 $$
 
-[GR15のRicci公式](../GR15/index.md#prop-gr15-static-ricci)の $00$ 成分の括弧内は
+[静的球対称計量の独立Ricci成分](../GR15/index.md#prop-gr15-static-ricci)の $00$ 成分の括弧内は
 
 $$
 \begin{aligned}
@@ -321,7 +321,7 @@ $M\ne0$ なら $\sin\theta\ne0$ の局所座標域で非零です。曲率テン
 #### GR16-A01 二階微分の消去
 - Level: A
 
-[GR15のRicci公式](../GR15/index.md#prop-gr15-static-ricci)から、真空領域で $\Phi+\Lambda_r$ が定数になる過程を示せ。
+[静的球対称計量の独立Ricci成分](../GR15/index.md#prop-gr15-static-ricci)から、真空領域で $\Phi+\Lambda_r$ が定数になる過程を示せ。
 
 <!-- solution-start -->
 **詳細解答。** $R_{00}$ に $e^{2(\Lambda_r-\Phi)}$ を掛けると、括弧の指数因子が消え、
@@ -340,7 +340,7 @@ $$
 $\Phi+\Lambda_r=C_t$ と $f=e^{-2\Lambda_r}$ を用い、$R_{\theta\theta}=0$ から $f$ を決定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\Phi'=-\Lambda_r'$ と $f'/f=-2\Lambda_r'$ なので $\Phi'-\Lambda_r'=f'/f$。[角度Ricci公式](../GR15/index.md#prop-gr15-static-ricci)へ代入すると $0=1-f(1+rf'/f)=1-f-rf'$。よって $(rf)'=1$ です。積分すれば $rf=r-a$（定数 $a$）、従って $f=1-a/r$。この段階では $a$ は未同定です。
+**詳細解答。** $\Phi'=-\Lambda_r'$ と $f'/f=-2\Lambda_r'$ なので $\Phi'-\Lambda_r'=f'/f$。[静的球対称計量の独立Ricci成分](../GR15/index.md#prop-gr15-static-ricci)へ代入すると $0=1-f(1+rf'/f)=1-f-rf'$。よって $(rf)'=1$ です。積分すれば $rf=r-a$（定数 $a$）、従って $f=1-a/r$。この段階では $a$ は未同定です。
 <!-- solution-end -->
 
 <a id="ex-gr16-a03"></a>
@@ -370,7 +370,7 @@ $g_{00}=-(1-a/r)$ の $a$ を、$\Phi_N=-GM/r$ のNewton極限から求め、長
 $M=0$ のとき計量とRicciの四つの独立成分を求め、曲線座標のChristoffel係数が零でなくてもよい理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $M=0$ なら $f=1$、$\Phi=0$、$\Lambda_r=0$ です。線素は $-c^2dt^2+dr^2+r^2d\Omega^2$。[GR15のRicci公式](../GR15/index.md#prop-gr15-static-ricci)で $\Phi'=\Phi''=\Lambda_r'=0$ より $R_{00}=R_{rr}=0$、$R_{\theta\theta}=1-1=0$、$R_{\phi\phi}=\sin^2\theta\,R_{\theta\theta}=0$。一方 $\Gamma^\theta_{r\theta}=1/r$ などは球座標の変化を表すため非零であり、曲率テンソルの非零性を意味しません。
+**詳細解答。** $M=0$ なら $f=1$、$\Phi=0$、$\Lambda_r=0$ です。線素は $-c^2dt^2+dr^2+r^2d\Omega^2$。[静的球対称計量の独立Ricci成分](../GR15/index.md#prop-gr15-static-ricci)で $\Phi'=\Phi''=\Lambda_r'=0$ より $R_{00}=R_{rr}=0$、$R_{\theta\theta}=1-1=0$、$R_{\phi\phi}=\sin^2\theta\,R_{\theta\theta}=0$。一方 $\Gamma^\theta_{r\theta}=1/r$ などは球座標の変化を表すため非零であり、曲率テンソルの非零性を意味しません。
 <!-- solution-end -->
 
 ### Level B
