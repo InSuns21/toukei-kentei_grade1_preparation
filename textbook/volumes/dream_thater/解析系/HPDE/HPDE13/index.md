@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde13-world-function -->
-最小例としてMinkowski時空の $y=0$ を取れば
+**定義の確認**。最小例としてMinkowski時空の $y=0$ を取れば
 
 $$
 \sigma(t,x;0)=\frac12(-t^2+|x|^2),\qquad
@@ -239,7 +239,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde13-van-vleck -->
-**定義の確認と判定への橋渡し**。混合二階微分の行列は、指数写像の微分が始点の初速度の変化を終点の変化へ写すことの双対表示です。したがって行列式の分子を計算する意味は、測地線束の広がりを体積で比較することにあります。凸正規近傍では指数写像の微分が可逆なので、行列式は零になりません。終点 $x$ を固定して測地線のエネルギーを始点 $y$ で変分すると、前の終点変分と同じ部分積分の始点境界項から
+**定義の確認**（判定への橋渡し）。混合二階微分の行列は、指数写像の微分が始点の初速度の変化を終点の変化へ写すことの双対表示です。したがって行列式の分子を計算する意味は、測地線束の広がりを体積で比較することにあります。凸正規近傍では指数写像の微分が可逆なので、行列式は零になりません。終点 $x$ を固定して測地線のエネルギーを始点 $y$ で変分すると、前の終点変分と同じ部分積分の始点境界項から
 
 $$
 \partial_{y^{b'}}\sigma(x,y)=-g_{b'c'}(y)v^{c'}
@@ -361,7 +361,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-hpde13-leading-coefficient -->
-**直接例**。平坦時空、$E=\mathbb R^r\times M$、通常微分接続なら $\Pi=\operatorname{id}$、$J=1$ なので $V_0=\operatorname{id}$。$Z$ に沿う導関数は零、$\Box\sigma=d$、対角値も恒等写像です。定義と輸送方程式の条件をすべて確認できます。
+**定義の確認**。平坦時空、$E=\mathbb R^r\times M$、通常微分接続なら $\Pi=\operatorname{id}$、$J=1$ なので $V_0=\operatorname{id}$。$Z$ に沿う導関数は零、$\Box\sigma=d$、対角値も恒等写像です。定義と輸送方程式の条件をすべて確認できます。
 <!-- definition-example-end -->
 
 ## 5. なぜ係数に輸送方程式が必要になるのか
