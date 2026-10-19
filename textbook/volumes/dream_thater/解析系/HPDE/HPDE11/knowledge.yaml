@@ -10,6 +10,8 @@ prerequisites:
   - HPDE4
   - GPDE3
   - LORG20
+  - RA8
+  - RA6A
 forward_references: []
 concepts:
   - id: hpde.first-order-wave-reduction
@@ -26,7 +28,7 @@ concepts:
     name: 滑らかな対称双曲系の存在一意性
     kind: theorem
     introduction: formal
-    requires: [hpde.positive-symmetrizer, hpde.gronwall-integral]
+    requires: [hpde.positive-symmetrizer, hpde.gronwall-integral, analysis.arzela-ascoli]
   - id: hpde.local-periodic-extension
     name: 局所係数の周期延長による解の構成
     kind: proposition
