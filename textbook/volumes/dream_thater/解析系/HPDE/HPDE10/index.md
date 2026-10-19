@@ -204,7 +204,7 @@ g^{-1}(dF,dF)=-\frac{c^2}{\beta^2}
 \frac{x_j-x_{0j}}{|x-x_0|}.
 $$
 
-ここで $\xi_i=(x_i-x_{0i})/|x-x_0|$ はEuclidノルムが $1$ の共ベクトル成分です。空間逆計量の行列 $H=(h^{ij})$ は実対称正定値なので、直交行列 $U$ により $H=U\operatorname{diag}(\lambda_1,\ldots,\lambda_n)U^{\mathsf T}$ と対角化できます。$v=U^{\mathsf T}\xi$ とおけば $|v|_{\mathrm E}=|\xi|_{\mathrm E}=1$ なので
+ここで $\xi_i=(x_i-x_{0i})/|x-x_0|$ はEuclidノルムが $1$ の共ベクトル成分です。空間逆計量の行列 $H=(h^{ij})$ は実対称正定値なので、既習の[Hermitian作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を実対称行列に適用し、直交行列 $U$ により $H=U\operatorname{diag}(\lambda_1,\ldots,\lambda_n)U^{\mathsf T}$ と対角化できます。$v=U^{\mathsf T}\xi$ とおけば $|v|_{\mathrm E}=|\xi|_{\mathrm E}=1$ なので
 
 $$
 h^{ij}\xi_i\xi_j=\xi^{\mathsf T}H\xi
