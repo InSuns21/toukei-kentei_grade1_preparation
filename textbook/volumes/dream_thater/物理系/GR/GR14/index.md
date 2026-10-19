@@ -20,6 +20,17 @@ Minkowski時空の計量が時間に依存しないことは、同じ時間だ�
 
 滑らかなベクトル場 $\xi$ を使って各点を少し動かす局所的な流れを $\Phi_s$ とします。流れは微分方程式 $d\Phi_s(x)/ds=\xi(\Phi_s(x))$、$\Phi_0(x)=x$ から局所的に定まります。ベクトル場による計量の**Lie微分**は、計量を流れで引き戻した値の変化率です。
 
+座標基底 $\partial_\mu$ で計量成分を $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ と書くと、ベクトル場 $\xi=\xi^\rho\partial_\rho$ の計量双対の成分は
+
+$$
+\xi_\nu
+=g(\partial_\nu,\xi)
+=\xi^\rho g(\partial_\nu,\partial_\rho)
+=g_{\nu\rho}\xi^\rho
+$$
+
+となります。この基底展開により、座標に依存しない定義を具体的な成分の条件に翻訳できます。
+
 $$
 (\mathcal L_\xi g)_x
 =\left.\frac{d}{ds}\right|_{s=0}(\Phi_s^*g)_x.
@@ -89,7 +100,20 @@ $$
 \frac{\partial\Phi_s^\beta}{\partial x^\nu}.
 $$
 
-第一因子を $g_{\alpha\beta}(x)+s\xi^\rho\partial_\rho g_{\alpha\beta}+O(s^2)$ と展開し、他の二因子と掛けて $s$ の係数を集めると、命題の第一の等式を得ます。
+第一因子を $g_{\alpha\beta}(x)+s\xi^\rho\partial_\rho g_{\alpha\beta}+O(s^2)$ と展開します。三因子を掛けた一次の項は、計量自身の変化から一項、二つの基底のJacobianから各一項です。したがって
+
+$$
+\begin{aligned}
+(\Phi_s^*g)_{\mu\nu}
+={}&g_{\mu\nu}+s\bigl(
+\xi^\rho\partial_\rho g_{\mu\nu}
++g_{\rho\nu}\partial_\mu\xi^\rho
++g_{\mu\rho}\partial_\nu\xi^\rho
+\bigr)+O(s^2).
+\end{aligned}
+$$
+
+$s=0$ で微分すると命題の第一の等式を得ます。
 
 次に $\xi_\nu=g_{\nu\rho}\xi^\rho$ を微分して
 
@@ -123,7 +147,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-gr14-killing-field -->
-**定義の確認**（時間並進と回転）。** $r>0$ のMinkowski円柱座標
+**定義の確認**（時間並進と回転）。$r>0$ のMinkowski円柱座標
 
 $$
 ds^2=-(dx^0)^2+dr^2+r^2d\phi^2+dz^2,
@@ -239,7 +263,7 @@ $$
 $E$ の前の負号は未来向き時間的 $\xi$ と未来向き因果的 $p$ について $g(\xi,p)<0$ となる計量符号から来ます。$\xi$ が空間的になる領域では、同じ式でも $E$ が正とは限りません。時間座標を $y^0=a x^0$（定数 $a>0$）へ再規格化すると $\partial_{y^0}=\xi/a$、従って新しい生成場で定める $E$ は $E/a$ です。無限遠で $g(\xi,\xi)\to-1$ とするなど、物理的な規格化条件が別に要ります。
 
 <!-- definition-example-start: def-gr14-energy-angular-momentum -->
-**定義の確認**（Minkowski円柱座標）。** 先ほどの計量で、質量 $m>0$ の時間的自由粒子が $u^\mu=(\dot x^0,\dot r,\dot\phi,\dot z)$（点は $d/d\tau$）を持つとき
+**定義の確認**（Minkowski円柱座標）。先ほどの計量で、質量 $m>0$ の時間的自由粒子が $u^\mu=(\dot x^0,\dot r,\dot\phi,\dot z)$（点は $d/d\tau$）を持つとき
 
 $$
 p_0=g_{00}p^0=-m\dot x^0,\qquad
@@ -411,7 +435,13 @@ ds^2=-(1-\Omega^2r^2)(dx^0)^2
 +dr^2+r^2d\varphi^2+dz^2.
 $$
 
-$\xi=\partial_{x^0}$ はKilling場で、$0<r<1/|\Omega|$ では $g(\xi,\xi)<0$ なので定常です。しかしこの $\xi$ に直交する超曲面は存在しません。実際、$\xi$ の計量双対1形式を
+$\xi=\partial_{x^0}$ はKilling場で、$0<r<1/|\Omega|$ では $g(\xi,\xi)<0$ なので定常です。しかしこの $\xi$ に直交する超曲面は存在しません。座標1形式 $dx^0,dr,d\varphi$ の反対称積を $\wedge$ と書きます。例えば $dr\wedge dx^0=-dx^0\wedge dr$、$dr\wedge dr=0$ です。また1形式 $\alpha=\alpha_\mu dx^\mu$ の**外微分**とは
+
+$$
+d\alpha=\partial_\nu\alpha_\mu\,dx^\nu\wedge dx^\mu
+$$
+
+で作る2形式で、係数の微分と反対称積を組み合わせたものです。この道具で、時間方向に直交する超曲面があり得るかを確かめます。実際、$\xi$ の計量双対1形式を
 
 $$
 \alpha=g(\xi,\cdot)=-(1-\Omega^2r^2)dx^0+\Omega r^2d\varphi
@@ -429,7 +459,13 @@ d\alpha&=2\Omega^2r\,dr\wedge dx^0
 \end{aligned}
 $$
 
-ここで $d\alpha$ は1形式の係数を偏微分して作る反対称な2形式、$\wedge$ は反対称積です。もし $\xi$ に直交する超曲面が局所的に $T=\text{定数}$ で表せるなら、$\alpha=h\,dT$（零でない関数 $h$）であり、積の微分から
+後の積では、同じ1形式を二回含む項は零です。残りを $dx^0\wedge dr\wedge d\varphi$ の順にそろえると、係数は
+
+$$
+-2\Omega r(1-\Omega^2r^2)-2\Omega^3r^3=-2\Omega r
+$$
+
+となります。もし $\xi$ に直交する超曲面が局所的に $T=\text{定数}$ で表せるなら、$\alpha=h\,dT$（零でない関数 $h$）であり、積の微分から
 
 $$
 \alpha\wedge d\alpha
@@ -568,7 +604,13 @@ $ds^2=-a(x^0)^2(dx^0)^2+b(x^0)^2dx^2+dy^2+dz^2$（$a,b>0$、$b'\ne0$ の領域�
 
 よってこの $\xi$ はKilling場でなく、[Killing保存量の定理](#thm-gr14-killing-charge)は適用できません。
 
-$y^0=\int a(x^0)\,dx^0$ で時間計量係数を一定にしても、$b$ の時間依存は消えないため、対応する時間座標ベクトルがKilling場になるとはいえません。なお別のKilling場が存在するかはこの検査だけで確定できません。
+$y^0=\int a(x^0)\,dx^0$ と置けば $dy^0/dx^0=a(x^0)>0$ なので局所的に可逆で、時間成分は $-(dy^0)^2$ となります。しかし連鎖律で
+
+$$
+\frac{db}{dy^0}=\frac{b'(x^0)}{a(x^0)}\ne0
+$$
+
+ですから、空間成分 $g_{xx}=b^2$ の時間依存は消えません。したがって新しい $\partial_{y^0}$ もKilling場ではありません。なお別のKilling場が存在するかはこの検査だけで確定できません。
 <!-- solution-end -->
 
 ### Level C
