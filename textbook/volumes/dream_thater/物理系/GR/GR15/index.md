@@ -80,7 +80,7 @@ $$
 $$
 
 <!-- definition-example-start: def-gr15-areal-radius -->
-**定義の確認（平坦時空の非線形な半径座標）。** Minkowski時空の通常の球座標で $r=\rho^2/L$（$L>0,\rho>0$）と置き換えます。これは $dr/d\rho=2\rho/L>0$ により、対象領域では正則な座標変換です。
+**定義の確認**（平坦時空の非線形な半径座標）。 Minkowski時空の通常の球座標で $r=\rho^2/L$（$L>0,\rho>0$）と置き換えます。これは $dr/d\rho=2\rho/L>0$ により、対象領域では正則な座標変換です。
 
 $$
 ds^2=-(dx^0)^2+\frac{4\rho^2}{L^2}d\rho^2
