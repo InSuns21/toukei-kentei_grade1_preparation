@@ -26,7 +26,14 @@ $x\le2.5$ なら左、$x>2.5$ なら右と問えば、左の2件は陰性のみ�
 
 <!-- formal-statement-start -->
 > **定義（節点の経験ラベル分布）**  
-> 二値ラベルを持つ非空の節点 $S$ に対して、$N_k=|\{i\in S:y_i=k\}|$（$k=0,1$）を件数、$\widehat p_k=N_k/N$ を経験比率とする。二値の場合は $p=\widehat p_1$ と書き、$\widehat p_0=1-p$ である。
+> 二値ラベルを持つ非空の節点 $S$ の件数を $N=|S|>0$ とする。ラベル $k=0,1$ の件数と経験比率を
+
+$
+N_k=|\{i\in S:y_i=k\}|,\qquad
+\widehat p_k=\frac{N_k}{N}
+$
+
+> と定める。二値の場合は $p=\widehat p_1$ と書く。このとき $\widehat p_0=1-p$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-14-node-frequencies -->
@@ -240,7 +247,7 @@ N_0=\sum_{r=1}^mN_{0r},\qquad
 N_1=\sum_{r=1}^mN_{1r}.
 $$
 
-[葉の多数決の定義](#def-ml1-14-tree-leaf)から細分後の最小誤り件数は $\sum_r\min(N_{0r},N_{1r})$ である。各 $r$ について $\min(N_{0r},N_{1r})\le N_{0r}$ と $\min(N_{0r},N_{1r})\le N_{1r}$ が成立するので、両辺を足せば
+[二値分類木と葉の予測](#def-ml1-14-tree-leaf)の定義から細分後の最小誤り件数は $\sum_r\min(N_{0r},N_{1r})$ である。各 $r$ について $\min(N_{0r},N_{1r})\le N_{0r}$ と $\min(N_{0r},N_{1r})\le N_{1r}$ が成立するので、両辺を足せば
 
 $$
 \sum_r\min(N_{0r},N_{1r})\le N_0,\qquad
@@ -268,7 +275,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（回帰木の葉と分割損失）**  
-> 非空の節点 $S$ に数値応答 $z_i\in\mathbb R$ があるとき、その標本平均を $\bar z_S=N^{-1}\sum_{i\in S}z_i$ とし、葉の二乗誤差和を $Q(S)=\sum_{i\in S}(z_i-\bar z_S)^2$ とする。非空の二分割 $S=S_L\cup S_R$ に対して、減少量を $Q(S)-Q(S_L)-Q(S_R)$ と定める。
+> 非空の節点 $S$ に実数の応答 $z_i$ が与えられているとする。$N=|S|>0$ と置き、標本平均と葉の二乗誤差和を
+
+$
+\bar z_S=\frac1N\sum_{i\in S}z_i,\qquad
+Q(S)=\sum_{i\in S}(z_i-\bar z_S)^2
+$
+
+> と定める。非空の二分割 $S=S_L\cup S_R$ に対して、分割による二乗誤差和の減少量を
+
+$
+Q(S)-Q(S_L)-Q(S_R)
+$
+
+> と定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-14-regression-criterion -->
