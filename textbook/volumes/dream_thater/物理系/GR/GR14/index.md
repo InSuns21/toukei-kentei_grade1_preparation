@@ -117,7 +117,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-gr14-killing-field -->
-**定義の確認（時間並進と回転）。** $r>0$ のMinkowski円柱座標
+**定義の確認**（時間並進と回転）。** $r>0$ のMinkowski円柱座標
 
 $$
 ds^2=-(dx^0)^2+dr^2+r^2d\phi^2+dz^2,
@@ -231,7 +231,7 @@ $$
 $E$ の前の負号は未来向き時間的 $\xi$ と未来向き因果的 $p$ について $g(\xi,p)<0$ となる計量符号から来ます。$\xi$ が空間的になる領域では、同じ式でも $E$ が正とは限りません。時間座標を $y^0=a x^0$（定数 $a>0$）へ再規格化すると $\partial_{y^0}=\xi/a$、従って新しい生成場で定める $E$ は $E/a$ です。無限遠で $g(\xi,\xi)\to-1$ とするなど、物理的な規格化条件が別に要ります。
 
 <!-- definition-example-start: def-gr14-energy-angular-momentum -->
-**定義の確認（Minkowski円柱座標）。** 先ほどの計量で、質量 $m>0$ の時間的自由粒子が $u^\mu=(\dot x^0,\dot r,\dot\phi,\dot z)$（点は $d/d\tau$）を持つとき
+**定義の確認**（Minkowski円柱座標）。** 先ほどの計量で、質量 $m>0$ の時間的自由粒子が $u^\mu=(\dot x^0,\dot r,\dot\phi,\dot z)$（点は $d/d\tau$）を持つとき
 
 $$
 p_0=g_{00}p^0=-m\dot x^0,\qquad
@@ -392,7 +392,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr14-stationary-static -->
-**定義の確認。** $N(r),A(r)>0$ を持つ前節の時間非依存対角計量では、$\xi=\partial_{x^0}$ の自己内積は $-N^2<0$、計量成分は時間非依存であり、$x^0=\text{定数}$ の接ベクトル $\partial_r,\partial_\phi,\partial_z$ と $\xi$ の内積は全部零です。この超曲面の誘導計量は $\operatorname{diag}(A^2,r^2,1)$ で、$r>0$ において正定値です。よって定常性と静的性の両方を直接確認できました。
+**定義の確認**。 $N(r),A(r)>0$ を持つ前節の時間非依存対角計量では、$\xi=\partial_{x^0}$ の自己内積は $-N^2<0$、計量成分は時間非依存であり、$x^0=\text{定数}$ の接ベクトル $\partial_r,\partial_\phi,\partial_z$ と $\xi$ の内積は全部零です。この超曲面の誘導計量は $\operatorname{diag}(A^2,r^2,1)$ で、$r>0$ において正定値です。よって定常性と静的性の両方を直接確認できました。
 <!-- definition-example-end -->
 
 回転する座標に移るだけでも、「時間座標で変わらない」と「その時間方向に直交する空間面がある」を区別できます。Minkowski円柱座標の角度を $\phi=\varphi+\Omega x^0$（定数 $\Omega\ne0$、長さの逆数）で書き直すと
