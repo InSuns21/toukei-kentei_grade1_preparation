@@ -1,0 +1,45 @@
+id: "GR16"
+title: "Schwarzschild真空解の導出"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR15
+  - GR13
+official_scope: []
+learning_objectives:
+  - 静的球対称真空方程式をRicci零条件に帰着し二階微分を消去できる
+  - PhiとLambda_rの和が一定になることを導き角度方程式を一次方程式として積分できる
+  - 局所真空解が二定数族を成しその定数が局所方程式だけでは固定されないと説明できる
+  - 得た解を独立な全Ricci成分に再代入して十分性を検算できる
+  - 漸近平坦性による時計規格化とNewton極限による質量同定を区別できる
+  - Schwarzschild半径の定義と次元・球面積・静的正則域を実際に確認できる
+  - MゼロのMinkowski極限と正質量の静的座標域を比較できる
+  - Ricci零でもRiemann曲率が残ることを角度成分の接続から示せる
+  - 局所静的解の一意性とBirkhoff定理の主張を混同しない
+definitions:
+  - { id: GR16-DEF-01, name: Schwarzschild半径 }
+theorems:
+  - { id: GR16-THM-01, name: 静的球対称真空の局所解 }
+  - { id: GR16-THM-02, name: 漸近平坦な静的球対称真空解のSchwarzschild表示 }
+  - { id: GR16-PROP-01, name: 静的Schwarzschild座標の適用域 }
+  - { id: GR16-PROP-02, name: Schwarzschild真空の角度方向Riemann曲率 }
+canonical_examples:
+  - 正質量のr=2r_sの球面積・符号・単位の直接確認
+  - 質量ゼロでMinkowski球座標へ厳密に戻る極限
+  - Schwarzschild半径の内外で時間・半径の因果型が入れ替わる形式的検査
+  - Ricci零と非零Riemann角度成分の比較
+problem_patterns:
+  - GR16-VACUUM-COMBINATION
+  - GR16-ANGULAR-ODE-INTEGRATION
+  - GR16-ASYMPTOTIC-TIME-NORMALIZATION
+  - GR16-NEWTON-MASS-UNITS
+  - GR16-MINKOWSKI-LIMIT
+  - GR16-RICCI-ALL-COMPONENT-CHECK
+  - GR16-ANGULAR-RIEMANN-CHECK
+  - GR16-STATIC-DOMAIN
+  - GR16-EXTERIOR-VACUUM-VS-MASS
+  - GR16-SCHWARZSCHILD-INTEGRATED-DERIVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }

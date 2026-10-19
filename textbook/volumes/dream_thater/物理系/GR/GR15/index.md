@@ -37,13 +37,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-軌道の一点で、接空間を球面の接方向 $V$ と、計量によるその直交補空間 $W$ に分けます。球面の誘導計量は回転不変かつ正定値な2次元計量なので、$V$ は非退化、従って $W$ は2次元Lorentz計量を持ちます。
+軌道の一点で、その接方向を $V$ とします。点を固定する等方回転 $SO(2)$ は $V$ 上では通常の平面回転です。$V$ の基底における誘導計量の対称行列を $A$ とし、四分の一回転の行列を $J$ とすると、不変性は
 
-軌道の一点を固定する $SO(2)$ は $V$ を平面回転として動かし、$W$ を固定します。$V$ 上の回転不変な対称双線形形式は単位円行列のスカラー倍です。
+$$
+A=\begin{pmatrix}a&b\\b&d\end{pmatrix},
+\qquad
+J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad J^{\mathsf T}AJ=A
+$$
 
-さらに各 $w\in W$ に対し $v\mapsto g(w,v)$ は $V$ 上の回転不変な線形形式ですから零です。このため球面方向との混合項はありません。
+を与えます。行列の両辺を比較すると $a=d$、$b=0$、すなわち $A=aI_2$ です。$a<0$ ならLorentz計量に負方向が二つ生じ、$a=0$ なら二次元の全等方部分空間が生じます。いずれも符号 $(-,+,+,+)$ の非退化Lorentz計量では不可能なので $a>0$ です。従って $V$ は正定値で非退化、その直交補空間 $W=V^{\perp_g}$ は二次元Lorentz部分空間になります。
 
-球面上では全回転で各点を移し合えるので係数は角度に依存しません。正の係数を $R(y)^2$ と書き、残りの二方向の成分を $h_{ab}(y)$ と書けば主張の形です。直交分解と座標分解は球面軌道の局所的な自明化を使い、特別な軌道が現れる中心点や座標極は主張の領域から除きます。$\square$
+球面軌道の局所積表示では、球面を識別する商座標 $y^a$ を固定して回転させます。この表示の商方向の座標ベクトル $\partial_{y^a}$ は軌道上の点を固定する回転で不変です。従って $V$ 上の線形形式
+
+$$
+v\longmapsto g(\partial_{y^a},v)
+$$
+
+も平面回転で不変です。半回転は $v\mapsto-v$ なので、この値は自身の負に等しく、必ず零になります。これが座標表示での $dy^a d\theta$、$dy^a d\phi$ の係数を消す理由です。残る商方向の計量は $h_{ab}(y)$ と書けます。
+
+球面上では全回転で各点を移し合えるので、軌道方向の係数は角度に依存しません。正の係数を $R(y)^2$ と書けば、商方向に残った $h_{ab}(y)$ と合わせて命題の形です。この構成は通常の球面軌道を持つ開領域の局所積表示に基づくため、中心点のような特別な軌道や球座標の極を含める主張ではありません。$\square$
 <!-- proof-end -->
 
 球対称性が角度に関する自由度を消しただけで、二次元部分の座標変換
@@ -375,9 +388,11 @@ R_{\theta\theta}
 +re^{-2\Lambda_r}(\Lambda_r'-\Phi')
 $$
 
-になります。球面上で回転不変な対称テンソルは $d\Omega^2$ に比例し、Ricciも計量から自然に作られるテンソルなので $R_{\phi\phi}=\sin^2\theta R_{\theta\theta}$、球面との混合成分は零です。二次元部分は静的な対角表示なので $R_{0r}=0$、他の非対角成分も零です。
+になります。球面上で回転不変な対称テンソルは $d\Omega^2$ に比例し、Ricciも計量から自然に作られるテンソルなので $R_{\phi\phi}=\sin^2\theta R_{\theta\theta}$、球面との混合成分は零です。
 
-最後に真空 $T_{\mu\nu}=0$、$\Lambda=0$ なら場の方程式は $R_{\mu\nu}-\tfrac12\mathcal Rg_{\mu\nu}=0$ です。逆計量で縮約すると $\mathcal R-2\mathcal R=-\mathcal R=0$（4次元）なので $\mathcal R=0$、よって $R_{\mu\nu}=0$ です。$\square$
+残る二次元部分の非対角成分 $R_{0r}$ も、先ほどの四項を直接代入して確認します。$\Gamma^\alpha_{0r}$ の非零候補は $\Gamma^0_{0r}=\Phi'$ だけであり、時間微分は零です。また $\Gamma^\alpha_{\alpha0}=0$ なので、Ricci公式の第一項から第三項までは零になります。第四項についても、非零になり得る $\Gamma^0_{0r}$ と $\Gamma^r_{00}$ の相手側はそれぞれ $\Gamma^r_{0r}=0$ と $\Gamma^0_{rr}=0$ です。従って $R_{0r}=0$ であり、対称性によって $R_{r0}=0$ も従います。
+
+最後に[GR12のEinstein場の方程式](../GR12/index.md#thm-gr12-einstein-equation)で真空 $T_{\mu\nu}=0$、$\Lambda=0$ とすると、 $R_{\mu\nu}-\tfrac12\mathcal Rg_{\mu\nu}=0$ です。逆計量で縮約すると $\mathcal R-2\mathcal R=-\mathcal R=0$（4次元）なので $\mathcal R=0$、よって $R_{\mu\nu}=0$ です。$\square$
 <!-- proof-end -->
 
 **式の独立性を先に確認する。** 最初の二式を次のように重み付けすると二階微分項が消えます。
@@ -427,7 +442,7 @@ $g_{00}=-A^2$ の微分は $-2AA'$、$g_{\rho\rho}=B^2$ の微分は $2BB'$ な�
 $ds^2=-(dx^0)^2+9\rho^4/L^4\,d\rho^2+\rho^6/L^4\,d\Omega^2$（$L>0,\rho>0$）における面積半径と、その微分 $dr_{\mathrm{area}}/d\rho$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 誘導球面の面積要素は $(\rho^6/L^4)\sin\theta\,d\theta\,d\phi$。したがって $\mathcal A=4\pi\rho^6/L^4$ です。[面積半径の定義](#def-gr15-areal-radius)から $r_{\mathrm{area}}=\rho^3/L^2>0$。微分は $3\rho^2/L^2>0$ なので $r_{\mathrm{area}}$ は $\rho>0$ で局所座標にできます。実際 $dr_{\mathrm{area}}^2=(9\rho^4/L^4)d\rho^2$ で、通常のMinkowski球座標に戻ります。
+**詳細解答。** 誘導球面の面積要素は $(\rho^6/L^4)\sin\theta\,d\theta\,d\phi$。したがって $\mathcal A=4\pi\rho^6/L^4$ です。[面積半径の定義](#def-gr15-areal-radius)から $r_{\mathrm{area}}=\rho^3/L^2>0$。微分は $3\rho^2/L^2>0$ なので $r_{\mathrm{area}}$ は $\rho>0$ で局所座標にできます。実際 $(dr_{\mathrm{area}})^2=(9\rho^4/L^4)(d\rho)^2$ で、通常のMinkowski球座標に戻ります。
 <!-- solution-end -->
 
 <a id="ex-gr15-a03"></a>
@@ -474,7 +489,7 @@ $$
 $\Phi(r)=\Lambda_r(r)=0$ の場合に、本章の独立なRicci成分をすべて評価せよ。$\Gamma^\theta_{\phi\phi}\ne0$ と矛盾するか。
 
 <!-- solution-start -->
-**詳細解答。** $\Phi'=\Phi''=\Lambda_r'=0$ なので $R_{00}=R_{rr}=0$。角度成分は $R_{\theta\theta}=1-e^0(1+0)=0$、$R_{\phi\phi}=\sin^2\theta R_{\theta\theta}=0$ です。一方 $\Gamma^\theta_{\phi\phi}=-\sin\theta\cos\theta$ は一般に非零です。Ricciは接続係数の微分と二次項が打ち消し合うため零になり、これは曲線座標が曲率を作らないことの検算です。
+**詳細解答。** [独立Ricci成分の命題](#prop-gr15-static-ricci)に $\Phi'=\Phi''=\Lambda_r'=0$ を代入すると $R_{00}=R_{rr}=0$。角度成分は $R_{\theta\theta}=1-e^0(1+0)=0$、$R_{\phi\phi}=\sin^2\theta R_{\theta\theta}=0$ です。一方 $\Gamma^\theta_{\phi\phi}=-\sin\theta\cos\theta$ は一般に非零です。Ricciは接続係数の微分と二次項が打ち消し合うため零になり、これは曲線座標が曲率を作らないことの検算です。
 <!-- solution-end -->
 
 ### Level B
@@ -486,7 +501,7 @@ $\Phi(r)=\Lambda_r(r)=0$ の場合に、本章の独立なRicci成分をすべ�
 $b>0$ として $ds^2=-(dx^0)^2+d\rho^2+(b^2+\rho^2)d\Omega^2$ を考える。$\rho=0$ で $r=\sqrt{b^2+\rho^2}$ を新しい座標とできないこと、$\rho>0$ では $g_{rr}$ がどうなるかを求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 面積半径は $r=\sqrt{b^2+\rho^2}$ であり $dr/d\rho=\rho/r$。$\rho=0$ ではJacobianが零（$\rho$ の両符号も同じ $r$ を与える）なので、この点を含む座標としては使えません。$\rho>0$ では逆微分 $d\rho/dr=r/\sqrt{r^2-b^2}$ を使えて
+**詳細解答。** [面積半径の定義](#def-gr15-areal-radius)から $r=\sqrt{b^2+\rho^2}$ であり $dr/d\rho=\rho/r$。$\rho=0$ ではJacobianが零（$\rho$ の両符号も同じ $r$ を与える）なので、この点を含む座標としては使えません。$\rho>0$ では逆微分 $d\rho/dr=r/\sqrt{r^2-b^2}$ を使えて
 
 $$
 d\rho^2=\frac{r^2}{r^2-b^2}\,dr^2,\qquad
@@ -520,7 +535,7 @@ $r>0$ かつ真空・宇宙定数零なら $R_{00}=R_{rr}=0$ であり $\Phi'+\L
 $\Phi=0$、$e^{2\Lambda_r}=k^2$（定数 $k>0$）とした計量の独立Ricci成分を求め、真空・$\Lambda=0$ となる $k$ を判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\Phi'=\Phi''=\Lambda_r'=0$ だから $R_{00}=R_{rr}=0$。一方、角度成分には球面の内在的曲率に由来する定数項が残り、
+**詳細解答。** [独立Ricci成分の命題](#prop-gr15-static-ricci)に $\Phi'=\Phi''=\Lambda_r'=0$ を代入すると $R_{00}=R_{rr}=0$。一方、角度成分には球面の内在的曲率に由来する定数項が残り、
 
 $$
 R_{\theta\theta}=1-e^{-2\Lambda_r}=1-\frac1{k^2},

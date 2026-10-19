@@ -1,0 +1,37 @@
+chapter: GR16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR15
+  - GR13
+concepts:
+  - id: gravity.schwarzschild-local-vacuum-family
+    name: 静的球対称真空の局所解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静的球対称真空の局所解）"]
+    requires: [gravity.static-spherical-ricci, gravity.einstein-field-equation]
+  - id: gravity.schwarzschild-vacuum-metric
+    name: 漸近平坦な静的球対称真空解のSchwarzschild表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（漸近平坦な静的球対称真空解のSchwarzschild表示）"]
+    requires: [gravity.schwarzschild-local-vacuum-family, gravity.newtonian-weak-field-potential]
+  - id: gravity.schwarzschild-radius
+    name: Schwarzschild半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Schwarzschild半径）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.areal-radius]
+  - id: gravity.schwarzschild-static-domain
+    name: 静的Schwarzschild座標の適用域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的Schwarzschild座標の適用域）"]
+    requires: [gravity.schwarzschild-radius, gravity.static-spherical-diagonal-gauge]
+  - id: gravity.schwarzschild-angular-riemann
+    name: Schwarzschild真空の角度方向Riemann曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild真空の角度方向Riemann曲率）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.static-spherical-christoffels, gravity.lorentz-ricci-curvature]
