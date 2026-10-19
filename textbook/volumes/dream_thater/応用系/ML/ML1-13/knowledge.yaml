@@ -1,0 +1,74 @@
+chapter: ML1-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-02
+  - ML1-08
+  - ML1-12
+concepts:
+  - id: learning.binary-confusion-matrix
+    name: 二値混同行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値混同行列）"]
+    requires: [learning.population-risk]
+  - id: learning.classification-rates
+    name: 正解率・再現率・適合率・偽陽性率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正解率・再現率・適合率・偽陽性率）"]
+    requires: [learning.binary-confusion-matrix]
+  - id: learning.precision-prevalence-relation
+    name: 適合率と陽性率の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（適合率と陽性率の関係）"]
+    requires: [learning.classification-rates]
+  - id: learning.roc-pr-threshold-points
+    name: ROC・PRの閾値点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ROC・PRの閾値点）"]
+    requires: [learning.classification-rates]
+  - id: learning.roc-auc-finite-ranking
+    name: 有限標本のROC AUC
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限標本のROC AUC）"]
+    requires: [learning.roc-pr-threshold-points]
+  - id: learning.binary-proper-scoring-rule
+    name: 二値の適切な損失スコア
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値の適切な損失スコア）"]
+    requires: [learning.binary-log-loss]
+  - id: learning.binary-brier-score
+    name: 二値Brierスコア
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値Brierスコア）"]
+    requires: [learning.binary-proper-scoring-rule]
+  - id: learning.brier-strict-properness
+    name: Brier損失は厳密に適切
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Brier損失は厳密に適切）"]
+    requires: [learning.binary-brier-score]
+  - id: learning.binary-log-excess-risk
+    name: 対数損失の超過リスク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数損失の超過リスク）"]
+    requires: [learning.log-loss-conditional-optimality, learning.binary-proper-scoring-rule]
+  - id: learning.binary-probability-calibration
+    name: 二値予測確率の校正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二値予測確率の校正）"]
+    requires: [learning.binary-proper-scoring-rule]
+  - id: learning.brier-reliability-resolution
+    name: 二値Brier損失の校正・分離分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二値Brier損失の校正・分離分解）"]
+    requires: [learning.brier-strict-properness, learning.binary-probability-calibration]
