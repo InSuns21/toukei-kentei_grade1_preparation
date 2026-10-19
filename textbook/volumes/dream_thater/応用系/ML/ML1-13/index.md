@@ -402,7 +402,7 @@ for threshold in (0.9, 0.8, 0.7, 0.1):
 ~~~python-test
 assert pairs == [1.0, 1.0, 0.0, 1.0]
 assert abs(auc - 0.75) < 1e-12
-assert abs(brier - 0.2375) < 1e-12
+assert abs(brier - 0.1875) < 1e-12
 ~~~
 
 ## 演習
