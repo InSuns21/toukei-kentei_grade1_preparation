@@ -47,15 +47,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（二値Gini不純度とエントロピー不純度）**  
 > 節点の陽性比率が $p\in[0,1]$ のとき、Gini不純度 $G(p)$ とエントロピー不純度 $H(p)$ を
->
-> $$
-> G(p)=1-\{p^2+(1-p)^2\}=2p(1-p),
-> $$
->
-> $$
-> H(p)=-p\log p-(1-p)\log(1-p)
-> $$
->
+
+$$
+G(p)=1-\{p^2+(1-p)^2\}=2p(1-p),
+$$
+
+$$
+H(p)=-p\log p-(1-p)\log(1-p)
+$$
+
 > と定める。$p=0,1$ では $H(p)=0$ とする。
 <!-- formal-statement-end -->
 
@@ -78,24 +78,24 @@ $G(p)=2p(1-p)$ は $p=1/2$ で最大 $1/2$ を取る。エントロピーも $H'
 <!-- formal-statement-start -->
 > **定義（二分割の加重不純度と減少量）**  
 > $N=N_L+N_R>0$、$N_L,N_R>0$、$p=w_Lp_L+w_Rp_R$ とする。不純度関数 $I$ が $G$ または $H$ のとき、分割後の加重不純度と利得を
->
-> $$
-> I_{\mathrm{after}}=w_LI(p_L)+w_RI(p_R),\qquad
-> \Delta_I=I(p)-I_{\mathrm{after}}
-> $$
->
+
+$$
+I_{\mathrm{after}}=w_LI(p_L)+w_RI(p_R),\qquad
+\Delta_I=I(p)-I_{\mathrm{after}}
+$$
+
 > と定める。訓練標本で最大の $\Delta_I$ を与える許容分割を選ぶ方法を貪欲な分割選択と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-14-split-gain -->
 **定義の確認**。8件の表を $t=2.5$ で分けると $w_L=2/8=1/4,p_L=0$、$w_R=6/8=3/4,p_R=5/6$、全体 $p=5/8$。親のGiniは $G(5/8)=2(5/8)(3/8)=15/32$、左は $G(0)=0$、右は $G(5/6)=2(5/6)(1/6)=5/18$。したがって
->
-> $$
-> G_{\mathrm{after}}=\frac14\cdot0+\frac34\cdot\frac5{18}=\frac5{24},
-> \qquad
-> \Delta_G=\frac{15}{32}-\frac5{24}=\frac{25}{96}>0.
-> $$
->
+
+$$
+G_{\mathrm{after}}=\frac14\cdot0+\frac34\cdot\frac5{18}=\frac5{24},
+\qquad
+\Delta_G=\frac{15}{32}-\frac5{24}=\frac{25}{96}>0.
+$$
+
 > 空の子はなく、重みの和も1である。子の不純度を単純平均せず、2件と6件で重み付けした点に注意する。
 <!-- definition-example-end -->
 
@@ -106,11 +106,11 @@ $G(p)=2p(1-p)$ は $p=1/2$ で最大 $1/2$ を取る。エントロピーも $H'
 <!-- formal-statement-start -->
 > **定理（二分割のGini不純度減少）**  
 > 非空の二群への分割について $p=w_Lp_L+w_Rp_R$、$w_L,w_R>0$、$w_L+w_R=1$ とする。このとき
->
-> $$
-> \Delta_G=2w_Lw_R(p_L-p_R)^2\ge0.
-> $$
->
+
+$$
+\Delta_G=2w_Lw_R(p_L-p_R)^2\ge0.
+$$
+
 > 等号が成り立つのは $p_L=p_R$ のとき、かつそのときに限る。
 <!-- formal-statement-end -->
 
@@ -156,11 +156,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（エントロピー不純度は分割で増えない）**  
 > $p_L,p_R\in[0,1]$、$w_L,w_R>0$、$w_L+w_R=1$、$p=w_Lp_L+w_Rp_R$ のとき
->
-> $$
-> H(p)-w_LH(p_L)-w_RH(p_R)\ge0.
-> $$
->
+
+$$
+H(p)-w_LH(p_L)-w_RH(p_R)\ge0.
+$$
+
 > 等号は $p_L=p_R$ のとき、かつそのときに限る。
 <!-- formal-statement-end -->
 
@@ -200,15 +200,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（二値分類木と葉の予測）**  
 > 非空の訓練標本から始め、各内部節点で一成分 $x_j$ と閾値 $t$ の比較 $x_j\le t$ によって左右の非空の子へ分割する有限木を二値分類木という。終端の葉 $A$ に到着した入力には、葉に含まれる訓練ラベルの多数決
->
-> $$
-> \widehat y_A=
-> \begin{cases}
-> 1,&N_1(A)>N_0(A),\\
-> 0,&N_1(A)\le N_0(A)
-> \end{cases}
-> $$
->
+
+$$
+\widehat y_A=
+\begin{cases}
+1,&N_1(A)>N_0(A),\\
+0,&N_1(A)\le N_0(A)
+\end{cases}
+$$
+
 > を返す。この葉での訓練誤分類件数は $\min(N_0(A),N_1(A))$ である。
 <!-- formal-statement-end -->
 
@@ -304,12 +304,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（標本平均の二乗損失最小性）**  
 > 任意の非空な有限標本 $z_1,\ldots,z_N\in\mathbb R$ の平均を $\bar z=N^{-1}\sum_i z_i$ とする。全ての $a\in\mathbb R$ について
->
-> $$
-> \sum_{i=1}^N(z_i-a)^2
-> =\sum_{i=1}^N(z_i-\bar z)^2+N(a-\bar z)^2.
-> $$
->
+
+$$
+\sum_{i=1}^N(z_i-a)^2
+=\sum_{i=1}^N(z_i-\bar z)^2+N(a-\bar z)^2.
+$$
+
 > 従って、葉での二乗誤差和は $a=\bar z$ のとき一意に最小となり、葉を細分して各子の平均を取り直しても訓練二乗誤差和は増えない。
 <!-- formal-statement-end -->
 
