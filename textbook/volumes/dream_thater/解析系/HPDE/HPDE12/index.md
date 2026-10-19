@@ -58,10 +58,10 @@ $$
 
 [ODE5の単位階段関数](../../ODE/ODE5/index.md#def-ode5-unit-step) $H(t)$ は $t>0$ で $1$、$t<0$ で $0$ とします。$t=0$ の値は分布には影響しません。まず $t\ge0$ で空間変数の分布 $K_t$ を作り、$t<0$ では零にして時空分布へ組み立てます。ここで「空間分布として二回連続微分可能」とは、各空間試験関数 $\psi$ に対して $t\mapsto\langle K_t,\psi\rangle$ が $t=0$ を含めて二回連続微分可能という意味です。零へ延長した時空分布 $F$ は、時空試験関数 $\varphi$ に
 
-$
+$$
 \langle F,\varphi\rangle
 =\int_0^\infty\langle K_t,\varphi(t,\cdot)\rangle\,dt
-$
+$$
 
 で作用します。以下の二模型ではこの積分表示を直接構成します。この方法なら、光円錐の頂点にある $r=|x|=0$ でも曖昧な $1/r$ を直接掛けずに済みます。
 
@@ -352,17 +352,17 @@ $$
 
 先進核では時間反転により、一次元と三次元でそれぞれ
 
-$
+$$
 (G_{\mathrm{adv}}f)(t,x)
 =\frac12\int_t^\infty\int_{x-(s-t)}^{x+(s-t)}
 f(s,y)\,dy\,ds,
-$
+$$
 
-$
+$$
 (G_{\mathrm{adv}}f)(t,x)
 =\int_0^\infty\frac{\tau}{4\pi}
 \int_{S^2}f(t+\tau,x-\tau\omega)\,d\omega\,d\tau
-$
+$$
 
 となります。遅延側は $s\le t$ かつ $|x-y|\le t-s$（三次元では等号）の源のみ、先進側は $s\ge t$ かつ $|x-y|\le s-t$（三次元では等号）の源のみを使います。これで定義の**両方の因果方向**を積分範囲から確認できます。
 <!-- definition-example-end -->
@@ -421,13 +421,13 @@ $$
 
 ここで各次元の[点源基本解定理](#thm-hpde12-one-dimensional)または[三次元の定理](#thm-hpde12-three-dimensional)を使いました。従って $PGf=GPf=f$ です。
 
-遅延側について、$(t,x)\notin J^+(\operatorname{supp}f)$ とします。この因果未来が閉集合であることも確認できます。$K=\operatorname{supp}f$ とし、$J^+(K)$ 内の点列 $(t_j,x_j)\to(t,x)$ に対して、[Minkowski因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から $(s_j,y_j)\in K$ を選ぶと
+遅延側について、$(t,x)\notin J^+(\operatorname{supp}f)$ とします。この因果未来が閉集合であることも確認できます。$K=\operatorname{supp}f$ とし、$J^+(K)$ 内の点列 $(t_j,x_j)\to(T,X)$ に対して、[Minkowski因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から $(s_j,y_j)\in K$ を選ぶと
 
-$
+$$
 t_j-s_j\ge|x_j-y_j|.
-$
+$$
 
-$K$ のコンパクト性により部分列で $(s_j,y_j)\to(s,y)\in K$ とでき、不等式の極限は $t-s\ge|x-y|$ です。従って $(t,x)\in J^+(K)$ であり、$J^+(K)$ は閉集合です。よって $(t,x)$ の小近傍は $J^+(K)$ と交わりません。遅延核の支持には $\tau\ge|z|$ が必要ですが、$f(t-\tau,x-z)\ne0$ と両立するなら $(t,x)$ はその源点から因果未来にあるはずで、矛盾します。従ってその近傍で $G_{\mathrm{ret}}f=0$。先進側も時間向きを逆にして同じです。$\square$
+$K$ のコンパクト性により部分列で $(s_j,y_j)\to(s,y)\in K$ とでき、不等式の極限は $T-s\ge|X-y|$ です。従って $(T,X)\in J^+(K)$ であり、$J^+(K)$ は閉集合です。よって $(t,x)$ の小近傍は $J^+(K)$ と交わりません。遅延核の支持には $\tau\ge|z|$ が必要ですが、$f(t-\tau,x-z)\ne0$ と両立するなら $(t,x)$ はその源点から因果未来にあるはずで、矛盾します。従ってその近傍で $G_{\mathrm{ret}}f=0$。先進側も時間向きを逆にして同じです。$\square$
 <!-- proof-end -->
 
 この逆の等式は、$G_{\mathrm{ret}}$ を**任意の非コンパクト源**へそのまま定義したことを意味しません。因果支持を保つ作用素の大域的な定義域はHPDE18–20で調べます。
