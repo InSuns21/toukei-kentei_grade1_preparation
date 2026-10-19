@@ -1,0 +1,54 @@
+chapter: HPDE10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE9
+  - HPDE8
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - ODE8
+  - VC4
+  - F0-00D2D
+  - LORG13
+  - LORG16
+  - LORG20
+forward_references: []
+concepts:
+  - id: hpde.flat-cone-balance
+    name: 平坦な縮小円錐のエネルギー収支
+    kind: proposition
+    introduction: formal
+    requires: [hpde.shifted-first-energy, hpde.null-flux]
+  - id: hpde.flat-cone-dependence
+    name: 平坦な円錐の依存領域評価
+    kind: theorem
+    introduction: formal
+    requires: [hpde.flat-cone-balance, hpde.gronwall-integral]
+  - id: hpde.local-cone-uniqueness
+    name: 局所的な後方領域の零データ一意性
+    kind: lemma
+    introduction: formal
+    requires: [hpde.bundle-finite-energy, hpde.flat-cone-dependence]
+  - id: hpde.causal-dependence
+    name: 大域双曲時空の因果的な依存評価
+    kind: theorem
+    introduction: formal
+    requires: [hpde.local-cone-uniqueness, lorentz-geometry.global-hyperbolicity, lorentz-geometry.cauchy-hypersurface]
+  - id: hpde.domain-uniqueness
+    name: 依存領域での一致
+    kind: corollary
+    introduction: formal
+    requires: [hpde.causal-dependence, lorentz-geometry.domain-of-dependence]
+  - id: hpde.data-source-causal-support
+    name: 初期データ・源の因果的な影響範囲
+    kind: definition
+    introduction: formal
+    requires: [hpde.distribution-support, lorentz-geometry.chronological-causal-future]
+  - id: hpde.finite-propagation
+    name: 有限伝播・支持の因果的包含
+    kind: theorem
+    introduction: formal
+    requires: [hpde.data-source-causal-support, hpde.causal-dependence, lorentz-geometry.gh-closed-causal-relation]

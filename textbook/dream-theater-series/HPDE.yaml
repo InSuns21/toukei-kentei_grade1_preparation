@@ -43,7 +43,7 @@ chapters:
     title: "高階Sobolev評価と正則性の伝播"
   - id: HPDE10
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE10
-    status: planned
+    status: completed
     title: "有限伝播と依存領域の評価"
   - id: HPDE11
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE11

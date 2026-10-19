@@ -1,0 +1,56 @@
+id: "HPDE10"
+title: "有限伝播と依存領域の評価"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE9
+  - HPDE8
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - ODE8
+  - VC4
+  - F0-00D2D
+  - LORG13
+  - LORG16
+  - LORG20
+official_scope: []
+learning_objectives:
+  - 影響集合J(K)と依存領域D(S)の異なる因果量化を説明し平坦模型で計算できる
+  - 縮小過去円錐の外向き共法線を取り側面フラックスを非負平方和で計算できる
+  - 負ポテンシャルも許す正にずらしたエネルギーの収支とGrönwall評価を導出できる
+  - 局所座標で補助的な非流入側面を作り束値normally hyperbolic作用素の局所零解一意性を証明できる
+  - Cauchy面への因果的足跡とコンパクト性を用い点ごとの依存領域評価を再構成できる
+  - コンパクトな初期データと源を持つ既存の滑らかな解の支持がJ(K)に含まれることを示せる
+  - 有限伝播と強Huygens性の違い及び存在定理との違いを具体例で説明できる
+definitions:
+  - { id: HPDE10-DEF-01, name: 初期データ・源の因果的な影響範囲 }
+theorems:
+  - { id: HPDE10-PROP-01, name: 平坦な縮小円錐のエネルギー収支 }
+  - { id: HPDE10-THM-01, name: 平坦な円錐の依存領域評価 }
+  - { id: HPDE10-LEM-01, name: 局所的な後方領域の零データ一意性 }
+  - { id: HPDE10-THM-02, name: 大域双曲時空の因果的な依存評価 }
+  - { id: HPDE10-COR-01, name: 依存領域での一致 }
+  - { id: HPDE10-THM-03, name: 有限伝播・支持の因果的包含 }
+canonical_examples:
+  - Minkowski時空の縮む初期足跡と広がる因果的影響
+  - 負ポテンシャルに対する正にずらしたエネルギーと光的側面平方和
+  - lapseが変動する座標球の過去向き時間的な外法線の判定
+  - コンパクト支持データの因果的な支持上界と源の寄与
+  - 1+1次元massless波動の円錐内部tail
+problem_patterns:
+  - HPDE10-BACKWARD-FOOTPRINT
+  - HPDE10-NULL-SIDE-FLUX
+  - HPDE10-NEGATIVE-POTENTIAL
+  - HPDE10-CAUSAL-SUPPORT
+  - HPDE10-MOVING-BOUNDARY
+  - HPDE10-DEPENDENCE-VS-INFLUENCE
+  - HPDE10-SOURCE-SUPPORT
+  - HPDE10-COORDINATE-CONE
+  - HPDE10-CAUSAL-SUPPORT-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
