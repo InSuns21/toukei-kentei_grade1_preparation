@@ -69,7 +69,7 @@ $G(p)=2p(1-p)$ は $p=1/2$ で最大 $1/2$ を取る。エントロピーも $H'
 
 一つの節点 $S$ を非空の二群 $S_L,S_R$ へ分ける。群内陽性率を $p_L,p_R$、件数を $N_L,N_R$ とし、重み $w_L=N_L/N,w_R=N_R/N$ を定める。$w_L,w_R>0$ かつ $w_L+w_R=1$ である。左右が互いに重ならず親の全標本を含むので、陽性件数について $N_1=N_{1,L}+N_{1,R}$ が成り立ち、[節点の経験ラベル分布](#def-ml1-14-node-frequencies)から
 
-$
+$$
 \begin{aligned}
 p=\frac{N_1}{N}
 &=\frac{N_{1,L}+N_{1,R}}{N}\\
@@ -77,7 +77,7 @@ p=\frac{N_1}{N}
  +\frac{N_R}{N}\frac{N_{1,R}}{N_R}
  =w_Lp_L+w_Rp_R.
 \end{aligned}
-$
+$$
 
 これが子の陽性率を件数で重み付けする根拠になる。
 
@@ -196,16 +196,16 @@ $H''(u)<0$ なので $H'$ は $(0,1)$ で厳密に減少する。また $u\log u
 
 端点を含めて厳密な不等式を確かめる。任意の $0\le a<c<b\le1$ について、$H$ は $[a,c]$ と $[c,b]$ で連続かつ内部で微分可能である。[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)により、$\xi\in(a,c)$、$\eta\in(c,b)$ が存在する。$\xi<\eta$ と $H'$ の厳密単調減少から
 
-$
+$$
 \frac{H(c)-H(a)}{c-a}=H'(\xi)
 >H'(\eta)=\frac{H(b)-H(c)}{b-c}.
-$
+$$
 
 $c=(1-t)a+tb$（$0<t<1$）なら $c-a=t(b-a)$、$b-c=(1-t)(b-a)$ である。上の不等式を正の分母で払えば
 
-$
+$$
 H((1-t)a+tb)>(1-t)H(a)+tH(b)
-$
+$$
 
 となる。$p_L\ne p_R$ なら $a,b$ を二つの陽性率の小さい方と大きい方に取り、$t$ を大きい方に対応する正の重みとすれば利得は正。$p_L=p_R$ なら $p=p_L=p_R$ を代入して利得0となる。$\square$
 <!-- proof-end -->
@@ -321,26 +321,26 @@ $$
 <!-- definition-example-start: def-ml1-14-regression-criterion -->
 **定義の確認**。応答値 $(1,2,5)$ の3件はすべて実数で、親の件数は $N=3>0$。標本平均から
 
-$
+$$
 \bar z_S=\frac{1+2+5}{3}=\frac83,\qquad
 Q(S)=\frac{25+4+49}{9}=\frac{26}{3}.
-$
+$$
 
 最初の2件と最後の1件は互いに重ならず、親の3件を尽くす非空の二子である。各子の平均を使うと
 
-$
+$$
 \begin{aligned}
 \bar z_{S_L}&=\frac{1+2}{2}=\frac32,&
 Q(S_L)&=\left(1-\frac32\right)^2+\left(2-\frac32\right)^2=\frac12,\\
 \bar z_{S_R}&=5,&Q(S_R)&=(5-5)^2=0.
 \end{aligned}
-$
+$$
 
 したがって分割による二乗誤差和の減少量は
 
-$
+$$
 Q(S)-Q(S_L)-Q(S_R)=\frac{26}{3}-\frac12-0=\frac{49}{6}.
-$
+$$
 <!-- definition-example-end -->
 
 <a id="prop-ml1-14-regression-mean"></a>
@@ -480,7 +480,7 @@ assert stump(5.2)==1 and depth_three(5.2)==0
 
 利得の[定義](#def-ml1-14-split-gain)と $G(q)=2q-2q^2$ から
 
-$
+$$
 \begin{aligned}
 \Delta_G
 &=2p-2p^2-a(2u-2u^2)-b(2v-2v^2)\\
@@ -488,7 +488,7 @@ $
 &=2\{a(1-a)u^2+b(1-b)v^2-2abuv\}\\
 &=2ab(u^2-2uv+v^2)=2ab(u-v)^2.
 \end{aligned}
-$
+$$
 
 二行目では $p=au+bv$ により一次項が消える。三行目で平方を展開し、最後に $1-a=b$、$1-b=a$ を代入した。$a,b>0$ なので利得は非負で、0となるのは $u=v$ のとき、かつそのときに限る。
 <!-- solution-end -->
@@ -541,10 +541,10 @@ Gini利得 $25/96\simeq0.2604167$ は異なる関数の値である。数値の�
 
 例えば $t=1.5$ では、左のGiniは0、右のGiniは $2(2/3)(1/3)=4/9$ だから
 
-$
+$$
 G_{\mathrm{after}}=\frac14\cdot0+\frac34\cdot\frac49=\frac13,
 \qquad \Delta_G=\frac12-\frac13=\frac16.
-$
+$$
 
 同点規則から $t=1.5$ を採る。入力 $x=2.5$ は右の陽性多数の葉へ行き、1を予測する。
 
