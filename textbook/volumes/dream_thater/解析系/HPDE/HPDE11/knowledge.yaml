@@ -1,0 +1,41 @@
+chapter: HPDE11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE10
+  - HPDE9
+  - HPDE8
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - GPDE3
+  - LORG20
+  - RA8
+  - RA6A
+forward_references: []
+concepts:
+  - id: hpde.first-order-wave-reduction
+    name: 波動方程式の一次還元
+    kind: definition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.positive-symmetrizer
+    name: 正定値時間行列と対称化
+    kind: proposition
+    introduction: formal
+    requires: [hpde.first-order-wave-reduction]
+  - id: hpde.symmetric-hyperbolic-torus-existence
+    name: 滑らかな対称双曲系の存在一意性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.positive-symmetrizer, hpde.gronwall-integral, analysis.arzela-ascoli]
+  - id: hpde.local-periodic-extension
+    name: 局所係数の周期延長による解の構成
+    kind: proposition
+    introduction: formal
+    requires: [hpde.symmetric-hyperbolic-torus-existence, hpde.local-cone-uniqueness]
+  - id: hpde.local-cauchy-existence
+    name: normally hyperbolic作用素の滑らかな局所Cauchy解
+    kind: theorem
+    introduction: formal
+    requires: [hpde.local-periodic-extension, hpde.normally-hyperbolic, hpde.local-cone-uniqueness]
