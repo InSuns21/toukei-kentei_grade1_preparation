@@ -1,0 +1,51 @@
+id: "ML1-15"
+title: "Bagging・random forest・bootstrap"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-14
+  - ML1-12
+official_scope: []
+learning_objectives:
+  - 一様復元抽出によるブートストラップ標本と重複度・袋の外の添字を構成できる
+  - ブートストラップ重複度の期待値・分散・異なる重複度間の共分散を導ける
+  - 再標本化の異なる観測数と袋の外確率を導出できる
+  - 固定データに対するブートストラップ標本平均の条件付き期待値と分散を示せる
+  - Baggingの回帰平均・二値分類多数決を同点規則付きで計算できる
+  - 平均予測の分散公式を共分散から導出し相関に由来する分散床を説明できる
+  - 条件付き独立と共通元標本に由来する無条件相関を全分散公式で区別できる
+  - random forestの節点特徴量部分集合とBaggingとの違いを具体例で説明できる
+  - OOB評価の対象と分母・予測不能例・最終テストとの違いを説明できる
+  - seedと木数・特徴数・相関を変更する計算ラボで予測と分散を再計算できる
+definitions:
+  - { id: ML1-15-DEF-01, name: 経験分布からのブートストラップ標本 }
+  - { id: ML1-15-DEF-02, name: Bagging予測器 }
+  - { id: ML1-15-DEF-03, name: 特徴量部分集合を用いるrandom forest }
+  - { id: ML1-15-DEF-04, name: 袋の外予測と誤分類率 }
+theorems:
+  - { id: ML1-15-PROP-01, name: ブートストラップの重複度 }
+  - { id: ML1-15-PROP-02, name: ブートストラップ平均の条件付き分散 }
+  - { id: ML1-15-THM-01, name: 予測平均の分散と共分散 }
+  - { id: ML1-15-PROP-03, name: 再標本化による変動と元データによる変動 }
+  - { id: ML1-15-PROP-04, name: 袋の外予測が得られる本数 }
+canonical_examples:
+  - 4観測のブートストラップ重複度と袋の外の直接確認
+  - 元の4数値標本の抽出平均と条件付き分散
+  - 8本の木の相関付き予測分散の計算
+  - 特徴3個から2個を選ぶrandom forestの候補選択
+  - 3本の木によるOOB集合と欠測評価例
+  - 復元抽出・実決定株学習と相関分散床の2つのPython計算ラボ
+problem_patterns:
+  - ML1-15-A01
+  - ML1-15-A02
+  - ML1-15-A03
+  - ML1-15-A04
+  - ML1-15-B01
+  - ML1-15-B02
+  - ML1-15-B03
+  - ML1-15-B04
+  - ML1-15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }

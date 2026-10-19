@@ -1,0 +1,61 @@
+chapter: ML1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-14
+  - ML1-12
+concepts:
+  - id: learning.bootstrap-resampling
+    name: 経験分布からのブートストラップ標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（経験分布からのブートストラップ標本）"]
+    requires: [learning.binary-classification-tree]
+  - id: learning.bootstrap-count-moments
+    name: ブートストラップの重複度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ブートストラップの重複度）"]
+    requires: [learning.bootstrap-resampling]
+  - id: learning.bootstrap-mean-variance
+    name: ブートストラップ平均の条件付き分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ブートストラップ平均の条件付き分散）"]
+    requires: [learning.bootstrap-resampling]
+  - id: learning.bagging-predictor
+    name: Bagging予測器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bagging予測器）"]
+    requires: [learning.bootstrap-resampling, learning.binary-classification-tree]
+  - id: learning.ensemble-covariance-variance
+    name: 予測平均の分散と共分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（予測平均の分散と共分散）"]
+    requires: [learning.bagging-predictor]
+  - id: learning.bagging-total-variance
+    name: 再標本化による変動と元データによる変動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再標本化による変動と元データによる変動）"]
+    requires: [learning.ensemble-covariance-variance]
+  - id: learning.random-forest-feature-subsampling
+    name: 特徴量部分集合を用いるrandom forest
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特徴量部分集合を用いるrandom forest）"]
+    requires: [learning.bagging-predictor, learning.tree-impurity-reduction]
+  - id: learning.out-of-bag-prediction
+    name: 袋の外予測と誤分類率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（袋の外予測と誤分類率）"]
+    requires: [learning.bootstrap-resampling, learning.bagging-predictor]
+  - id: learning.oob-tree-count
+    name: 袋の外予測が得られる本数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（袋の外予測が得られる本数）"]
+    requires: [learning.out-of-bag-prediction, learning.bootstrap-count-moments]
