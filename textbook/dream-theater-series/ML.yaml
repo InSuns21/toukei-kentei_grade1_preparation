@@ -61,7 +61,7 @@ chapters:
     title: "分類評価・適切なスコア・校正"
   - id: ML1-14
     path: textbook/volumes/dream_thater/応用系/ML/ML1-14
-    status: planned
+    status: completed
     title: "決定木・分割不純度"
   - id: ML1-15
     path: textbook/volumes/dream_thater/応用系/ML/ML1-15

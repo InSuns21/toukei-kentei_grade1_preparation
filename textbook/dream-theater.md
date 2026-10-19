@@ -1010,6 +1010,7 @@
 11. [ML1-11 k近傍法・核密度推定](textbook/volumes/dream_thater/応用系/ML/ML1-11/index.md)
 12. [ML1-12 検証分割・交差検証・モデル選択](textbook/volumes/dream_thater/応用系/ML/ML1-12/index.md)
 13. [ML1-13 分類評価・適切なスコア・校正](textbook/volumes/dream_thater/応用系/ML/ML1-13/index.md)
+14. [ML1-14 決定木・分割不純度](textbook/volumes/dream_thater/応用系/ML/ML1-14/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

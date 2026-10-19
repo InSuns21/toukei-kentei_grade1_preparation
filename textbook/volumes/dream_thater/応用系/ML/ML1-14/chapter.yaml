@@ -1,0 +1,50 @@
+id: "ML1-14"
+title: "決定木・分割不純度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-12
+  - ML1-13
+official_scope: []
+learning_objectives:
+  - 二値節点の件数と経験ラベル比率を定義域を確かめて算出できる
+  - Gini不純度・エントロピー不純度と葉の誤分類率を区別できる
+  - 非空二分割の件数加重不純度と利得を各候補について再計算できる
+  - Gini利得の二乗差恒等式と等号条件を証明できる
+  - エントロピーの凹性を使い分割利得の非負性を示せる
+  - 軸に平行な質問を選んで深さ制限付き二値分類木を構成できる
+  - 葉の細分による訓練誤分類件数の非増加を証明できる
+  - 深さの増加による過学習と一点変更による不安定性を反例で説明できる
+  - 回帰葉の標本平均の二乗誤差最小性を平方展開から導出できる
+  - 独立な検証標本で木の深さを選びテストの独立性を守れる
+definitions:
+  - { id: ML1-14-DEF-01, name: 節点の経験ラベル分布 }
+  - { id: ML1-14-DEF-02, name: 二値Gini不純度とエントロピー不純度 }
+  - { id: ML1-14-DEF-03, name: 二分割の加重不純度と減少量 }
+  - { id: ML1-14-DEF-04, name: 二値分類木と葉の予測 }
+  - { id: ML1-14-DEF-05, name: 回帰木の葉と分割損失 }
+theorems:
+  - { id: ML1-14-THM-01, name: 二分割のGini不純度減少 }
+  - { id: ML1-14-PROP-01, name: エントロピー不純度は分割で増えない }
+  - { id: ML1-14-THM-02, name: 葉の細分と訓練誤分類件数 }
+  - { id: ML1-14-PROP-02, name: 標本平均の二乗損失最小性 }
+canonical_examples:
+  - 八標本の全閾値候補とGini/entropy利得
+  - 深さ1・深さ2・深さ3での訓練誤りと独立検証の対照
+  - 四標本での一点ラベル変更と最良分割の変化
+  - 数値応答1・2・5の回帰葉と二乗誤差の分割減少
+  - 全閾値比較と訓練・保留予測のPython計算ラボ
+problem_patterns:
+  - ML1-14-A01
+  - ML1-14-A02
+  - ML1-14-A03
+  - ML1-14-A04
+  - ML1-14-B01
+  - ML1-14-B02
+  - ML1-14-B03
+  - ML1-14-B04
+  - ML1-14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }
