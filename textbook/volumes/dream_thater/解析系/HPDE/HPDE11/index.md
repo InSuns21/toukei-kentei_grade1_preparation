@@ -8,6 +8,8 @@
 
 時間向き付きの滑らかなLorentz多様体 $(M,g)$（符号 $(-,+,\ldots,+)$）上の、有限ランクの実または複素ベクトル束 $E\to M$ と滑らかな [normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic) $P:\Gamma(E)\to\Gamma(E)$ を扱います。$\Sigma$ は滑らかな空間的超曲面、$N$ は未来向き単位法線です。必要なのは局所的な非特性性であり、現段階で大域双曲性を要求しません。
 
+[HPDE5の接続と零次項への一意分解定理](../HPDE5/index.md#thm-hpde5-unique-connection)で $P$ から一意に定まる接続を $\nabla^P$ と記します。以下の初期法線速度には常にこの接続を用い、任意に選んだ別の束接続とは区別します。局所的な初期一階データの読み方は[HPDE6の法線データ命題](../HPDE6/index.md#prop-hpde6-first-jet)で確認できます。
+
 局所存在を定式化する前に、係数がどこから現れるかを確かめます。$p\in\Sigma$ を固定し、$\Sigma$ 内の座標 $x=(x^1,\ldots,x^n)$ を選びます。各点から初速度 $N$ の時間的測地線を出し、その固有時間を $t$ とします。測地線の局所存在と[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $p$ の近くで $(t,x)$ は座標になります。
 
 この座標の時間方向を確認します。$\partial_t$ は測地線の接ベクトルなので $\nabla_{\partial_t}\partial_t=0$ かつ $g(\partial_t,\partial_t)=-1$。さらに座標ベクトル場が可換であることから
@@ -49,7 +51,7 @@ $$
 
 ### 初期速度の枠による読み替え
 
-[HPDE6のCauchyデータ](../HPDE6/index.md#def-hpde6-cauchy-data)は幾何学的に $u|_\Sigma=u_0,\ \nabla_Nu|_\Sigma=u_1$ でした。選んだ局所枠では $\nabla_{\partial_t}u=\partial_tu+\omega_tu$ なので、一次系に渡す速度は
+[HPDE6のCauchyデータ](../HPDE6/index.md#def-hpde6-cauchy-data)に従い、初期値を幾何学的に $u|_\Sigma=u_0,\ \nabla^P_Nu|_\Sigma=u_1$ と与えます。選んだ局所枠では $\nabla^P_{\partial_t}u=\partial_tu+\omega_tu$ なので、一次系に渡す速度は
 
 $$
 \partial_tu(0,x)=u_1(x)-\omega_t(0,x)u_0(x).
@@ -125,7 +127,14 @@ $$
 H=\operatorname{diag}(I_r,\ a^{ik}I_r,\ I_r)
 $$
 
-は、真ん中が $n\times n$ のブロック行列を意味します。$a$ が正定値なので $H$ は正定値Hermite行列です。積 $HA^j$ の $0k$ 成分は $-a^{jk}I_r$、$i0$ 成分は $-a^{ij}I_r$ で、$a^{ij}=a^{ji}$ から
+は、真ん中が $n\times n$ のブロック行列を意味します。これは一次系のエネルギーを成分で量るための重みです。各 $v_i\in\mathbb K^r$ に対して
+
+$$
+U^*HU=|v_0|^2+\sum_{i,k=1}^n a^{ik}v_i^*v_k+|u|^2
+\ge |v_0|^2+\lambda\sum_{i=1}^n|v_i|^2+|u|^2
+$$
+
+です。複素成分でも $a^{ik}$ は実対称なので中央の和は実数です。$U\ne0$ なら右辺は正であり、したがって $H$ は正定値Hermite行列です。積 $HA^j$ の $0k$ 成分は $-a^{jk}I_r$、$i0$ 成分は $-a^{ij}I_r$ で、$a^{ij}=a^{ji}$ から
 
 $$
 (HA^j)^*=HA^j
@@ -153,7 +162,13 @@ $H$ を使って直接Galerkin投影すると、変係数の $H$ と投影が可
 <!-- proof-start -->
 ### 証明
 
-$H$ は各対角ブロックが正定値であり、$a^{ij}$ の一様正定値性から固有値は正の範囲にあります。実対称正定値行列の滑らかな平方根 $S$ とその逆を局所的に取り、$U=S^{-1}V$ を元の系へ代入します。
+先ほどの二次形式の評価から、$H$ の固有値は一様に正の範囲にあります。平方根の滑らかさも確かめます。小さい閉座標箱で $\lambda I\le a\le\Lambda I$ とし、$\mu>\Lambda$ を選ぶと、$Q=I-a/\mu$ は $\|Q\|_{\mathrm{op}}\le1-\lambda/\mu<1$ を満たします。したがって行列の冪級数
+
+$$
+a^{1/2}=\sqrt\mu\sum_{m=0}^{\infty}{1/2\choose m}(-Q)^m
+$$
+
+は局所一様に収束し、各階の係数微分後の級数も収束します。実対称行列の固有値ごとにスカラーの二項級数を適用すれば、その二乗が $a$ になることと正定値性が分かります。これを真ん中のブロックに用いて滑らかな正定値平方根 $S=H^{1/2}$ と逆行列を作り、$U=S^{-1}V$ を元の系へ代入します。
 
 $$
 S^{-1}\partial_tV-S^{-1}(\partial_tS)S^{-1}V
@@ -297,7 +312,24 @@ $$
 \sup_N\|\partial_tV_N\|_{C^0(I;H^s)}<\infty
 $$
 
-も成り立ちます。トーラス上で $H^{s+1}\hookrightarrow H^s$ はコンパクト埋込みです。各時刻の集合の相対コンパクト性と時間方向の等連続性から、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)の距離空間値版により部分列は $C^0(I;H^s)$ で収束します。RA8では実数値関数族を扱いましたが、有限個の時刻を選んで等連続性でその間を補う証明は、値域が距離空間 $H^s$ で各時刻の値集合が相対コンパクトな場合にも適用できます。$s=0,1,\ldots$ に順次部分列を取り対角部分列を選べば、同じ極限 $V$ は全 $s$ について $C^0(I;H^s)$ に属します。
+も成り立ちます。ここで使う $H^{s+1}\hookrightarrow H^s$ のコンパクト性を、トーラスのFourier係数から導きます。上で定義した導関数ノルムは、整数 $s$ について
+
+$$
+\|w\|_{H^s}^2\asymp_s
+\sum_{k\in\mathbb Z^n}(1+|k|^2)^s|\widehat w(k)|^2
+$$
+
+です。これは各 $\partial^\alpha$ のFourier係数が $(ik)^\alpha\widehat w(k)$ であり、多項式 $\sum_{|\alpha|\le s}|k^\alpha|^2$ と $(1+|k|^2)^s$ が定数倍の範囲で一致するためです。$\|w\|_{H^{s+1}}\le M$ なら、$R$ より高い周波数の尾部は
+
+$$
+\|(I-\Pi_R)w\|_{H^s}^2
+\le \frac{c_s}{1+R^2}\|w\|_{H^{s+1}}^2
+\le\frac{c_sM^2}{1+R^2}.
+$$
+
+低周波部分 $\Pi_Rw$ は有限次元の有界集合にあるので相対コンパクトです。先に $R$ を大きくして尾部を一様に小さくし、有限次元部分の収束部分列を対角的に取ると、$H^{s+1}$ 有界集合が $H^s$ で相対コンパクトであると分かります。
+
+また $\|\partial_tV_N\|_{H^s}$ の共通上界を $M_s$ とすると、$\|V_N(t)-V_N(t')\|_{H^s}\le M_s|t-t'|$ です。有限個の時刻を細かく選び、そこで相対コンパクト性から共通の収束部分列を取ります。任意の中間時刻の差は、両端からの等連続性と選んだ時刻での差の和で抑えられます。このように[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)の証明を距離空間 $H^s$ に適用すれば、部分列は $C^0(I;H^s)$ で収束します。$s=0,1,\ldots$ に順次部分列を取り対角部分列を選べば、同じ極限 $V$ は全 $s$ について $C^0(I;H^s)$ に属します。
 
 任意の固定 $s$ に対し $\Pi_N(C^j\partial_jV_N)\to C^j\partial_jV$ が $C^0(I;H^s)$ で成り立ちます。実際、$V_N\to V$ を $H^{s+1}$ で使って積を評価し、残差 $(\Pi_N-I)(C^j\partial_jV)$ はコンパクトな時刻集合上で一様に零へ収束します。$D,G$ 項も同じです。近似式を時間積分して極限に移し
 
@@ -306,7 +338,15 @@ V(t)=V_{\mathrm{in}}+
 \int_0^t[-C^j\partial_jV+DV+G](\tau)\,d\tau
 $$
 
-を得ます。右辺は各 $H^s$ で連続なので $V\in C^1(I;H^s)$、式を繰り返し時間微分しSobolev埋込みを用いれば時空の滑らかさが従います。$V(0)=V_{\mathrm{in}}$ も極限から成立します。
+を得ます。右辺は各 $H^s$ で連続なので $V\in C^1(I;H^s)$ です。ここで任意の空間微分階数 $m$ に対し $s>m+n/2$ を選ぶと、Cauchy–Schwarzにより
+
+$$
+\sum_{k\in\mathbb Z^n}|k|^m|\widehat V(t,k)|
+\le\left(\sum_k(1+|k|^2)^{m-s}\right)^{1/2}
+\left(\sum_k(1+|k|^2)^s|\widehat V(t,k)|^2\right)^{1/2}<\infty.
+$$
+
+従って空間微分のFourier級数は時刻について一様に収束し、$V$ は空間変数について任意階微分可能です。さらに方程式 $\partial_tV=-C^j\partial_jV+DV+G$ を時間微分すれば、各段階の右辺は既に得た空間・時間微分と滑らかな係数から構成されます。帰納的に混合微分もすべて連続となり、時空の滑らかさが従います。$V(0)=V_{\mathrm{in}}$ も極限から成立します。
 
 **(5) 一意性。** 二解の差 $W$ は零初期値・零源の同じ対称系を満たします。(2)を $W$ に直接適用すると $\|W(t)\|_2=0$ なので $W=0$。極限にも一様評価が移り、結論の不等式を得ます。$\square$
 <!-- proof-end -->
@@ -371,12 +411,12 @@ $u_t(0,x)=\psi(x)$ であることは積分端点を微分して確認できま�
 <a id="thm-hpde11-local-cauchy"></a>
 <!-- formal-statement-start -->
 > **定理（normally hyperbolic作用素の滑らかな局所Cauchy解）**  
-> $(M,g)$ は境界のない滑らかな時間向き付きLorentz多様体、$E\to M$ は有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(E)\to\Gamma(E)$ は滑らかなnormally hyperbolic作用素とする。$\Sigma\subset M$ は滑らかな空間的超曲面、$N$ はその未来向き単位法線とする。任意の $p\in\Sigma$、$p$ の周囲で滑らかな初期切断 $u_0,u_1$、$p$ の時空近傍で滑らかな源 $f$ に対し、$p$ の時空近傍 $W$ と滑らかな切断 $u\in\Gamma(W,E)$ が存在して
+> $(M,g)$ は境界のない滑らかな時間向き付きLorentz多様体、$E\to M$ は有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(E)\to\Gamma(E)$ は滑らかなnormally hyperbolic作用素とする。$P$ により[一意に定まる接続](../HPDE5/index.md#thm-hpde5-unique-connection)を $\nabla^P$ とする。$\Sigma\subset M$ は滑らかな空間的超曲面、$N$ はその未来向き単位法線とする。任意の $p\in\Sigma$、$p$ の周囲で滑らかな初期切断 $u_0,u_1$、$p$ の時空近傍で滑らかな源 $f$ に対し、$p$ の時空近傍 $W$ と滑らかな切断 $u\in\Gamma(W,E)$ が存在して
 
 $$
 Pu=f\quad\text{on }W,\qquad
 u|_{W\cap\Sigma}=u_0,\qquad
-\nabla_Nu|_{W\cap\Sigma}=u_1
+\nabla^P_Nu|_{W\cap\Sigma}=u_1
 $$
 
 > を満たす。さらに二つの局所解は、両方が定義されている共通の十分小さい初期面近傍の依存領域で一致する。大域存在や非コンパクト超曲面全体に一様な存在時間は、この定理からは主張しない。
@@ -395,7 +435,7 @@ $$
 \partial_tu(0,x)=u_1(x)-\omega_t(0,x)u_0(x)
 $$
 
-とします。[周期延長による局所構成](#prop-hpde11-torus-localization)をこの座標データと $f$ の座標成分へ適用すると、ある箱内で $Lu=F$ を満たす滑らかな $\mathbb K^r$ 値関数が得られます。逆に枠 $e_A$ を用いて $u=u^Ae_A$ と読み直せば $Pu=f$ が成立します。また $\nabla_Nu=\partial_tu+\omega_tu=u_1$ が $t=0$ で成り立ちます。
+とします。[周期延長による局所構成](#prop-hpde11-torus-localization)をこの座標データと $f$ の座標成分へ適用すると、ある箱内で $Lu=F$ を満たす滑らかな $\mathbb K^r$ 値関数が得られます。逆に枠 $e_A$ を用いて $u=u^Ae_A$ と読み直せば $Pu=f$ が成立します。また $\nabla^P_Nu=\partial_tu+\omega_tu=u_1$ が $t=0$ で成り立ちます。
 
 任意の別の局所解との差は共通箱で同じ斉次方程式の解です。初期変位・法線速度の差は零なので、[HPDE10の局所後方領域一意性](../HPDE10/index.md#lem-hpde10-local-cone)を正負両方向へ適用して一致します。局所枠や座標選択による違いも同じ理由で消えます。$\square$
 <!-- proof-end -->
