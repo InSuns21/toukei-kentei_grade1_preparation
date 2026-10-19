@@ -155,7 +155,11 @@ $t>0$ における $K_t^{(1)}$ は、空間変数で値 $1/2$ を区間 $[-t,t]$
 $R(t,x)=(-t,x)$ とし、時間反転で引き戻した $F_{\mathrm{adv}}^{(1)}(t,x)=F_{\mathrm{ret}}^{(1)}(-t,x)$ を考えます。$\partial_t^2$ と $\partial_x^2$ は時間反転に可換で、原点のデルタも不変です。従って $PF_{\mathrm{adv}}^{(1)}=\delta_0(t)\delta_0(x)$。支持は $R(J^+(0))=J^-(0)$ です。$\square$
 <!-- proof-end -->
 
-**直接検算**。$t=2$ の断面は $-2\le x\le2$ で $1/2$、外では零です。$t=1$ と $x=0$ で値が $1/2$ なのは誤差ではなく、**一次元では光円錐の内部にも応答がある**という性質です。[HPDE2の強いHuygens性](../HPDE2/index.md#def-hpde2-strong-huygens)と区別してください。
+<!-- definition-example-start: def-hpde12-point-fundamental -->
+**定義の確認：1+1次元の点源基本解。** $t>0$ で $K_t(\psi)=\frac12\int_{-t}^{t}\psi(x)\,dx$ とすると、先ほどの端点微分から $K_0=0$、$K'_0=\delta_0$、$K_t''=\partial_x^2K_t$ です。したがって[時間境界の跳躍と点源](#lem-hpde12-time-jump)の三条件により $PF_{\mathrm{ret}}^{(1)}=\delta_0(t)\delta_0(x)$ が成立します。さらに $F_{\mathrm{ret}}^{(1)}=1/2$ となる開集合 $t>|x|$ は非零、$t<|x|$ で零なので、台はちょうど $J^+(0)$ です。これで**方程式と支持条件の両方**を直接確認しました。
+
+$t=2$ の断面は $-2\le x\le2$ で $1/2$、外では零です。$t=1$ と $x=0$ で値が $1/2$ なのは誤差ではなく、**一次元では光円錐の内部にも応答がある**という性質です。[HPDE2の強いHuygens性](../HPDE2/index.md#def-hpde2-strong-huygens)と区別してください。
+<!-- definition-example-end -->
 
 ## 4. 3+1次元：球面上だけが応答する
 
@@ -316,6 +320,7 @@ $$
 
 コンパクト台の $f$ を固定したとき、$(\tau,z)\mapsto f(t-\tau,x-z)$ は試験関数です。従って定義域は明確です。この核の引数の順番を逆にすると、遅延と先進が入れ替わります。
 
+<!-- definition-example-start: def-hpde12-convolution-operators -->
 **定義の直接例**。$1+1$ 次元では未来円錐の指示関数を代入して
 
 $$
@@ -333,6 +338,7 @@ $$
 $$
 
 どちらも $s\le t$ の源だけを使い、しかも $|x-y|\le t-s$（三次元では等号）が必要です。これで定義の「遅延」の条件を実際に確認できました。先進側の対応する式は $t+\tau$ を使います。
+<!-- definition-example-end -->
 
 <a id="thm-hpde12-convolution-inverses"></a>
 <!-- formal-statement-start -->
