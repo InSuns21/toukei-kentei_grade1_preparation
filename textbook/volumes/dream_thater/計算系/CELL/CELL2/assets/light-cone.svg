@@ -2,9 +2,11 @@
 <title id="title">半径1・時刻5・位置0の後方光円錐</title>
 <desc id="desc">時刻0の初期位置マイナス5から5の範囲が、時刻5の位置0へ影響できる。時間は下向き。塗りつぶした三角形は可能な因果範囲の上界であり、必ず影響することを意味しない。</desc>
 <style>
-.cone{opacity:0;animation:show 2.5s ease-out .2s forwards}
-@keyframes show{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.cone{opacity:1;animation:none}}
+.cone{opacity:1}
+@media (prefers-reduced-motion:no-preference){
+.cone{animation:show 2.5s ease-out .2s both}
+@keyframes show{from{opacity:0}to{opacity:1}}
+}
 </style>
 <rect width="640" height="380" rx="12" fill="#fbfdff"/>
 <text x="32" y="63" font-size="17" fill="#24384b">t=0</text>
