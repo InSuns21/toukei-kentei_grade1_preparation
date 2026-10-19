@@ -586,7 +586,18 @@ u_j\to u\text{ in }C^0(I;H^3),\qquad
 \partial_tu_j\to\partial_tu\text{ in }C^0(I;H^2).
 $$
 
-(ii) $u_j\to u$ は超関数の意味でも収束します。任意のコンパクト支持の試験密度 $\psi$ に対し、[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)による $\langle Pu_j,\psi\rangle=\langle u_j,P^{\mathrm t}\psi\rangle$ を極限に通せるため、$Pu=f$ です。(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から何階の連続微分まで従うかは次元に依存し、任意階の時空微分を得るにはすべての $m$ の推定と滑らかな $f$ が必要です。
+(ii) $u_j\to u$ は超関数の意味でも収束します。任意のコンパクト支持の試験密度 $\psi$ を固定し、[HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を用いると
+
+$
+\langle Pu_j,\psi\rangle
+=\langle u_j,P^{\mathrm t}\psi\rangle
+\longrightarrow\langle u,P^{\mathrm t}\psi\rangle
+=\langle Pu,\psi\rangle
+$
+
+です。同時に源も $f_j\to f$ と分布収束するので、$Pu=f$ が従います。
+
+(iii) $H^3$ は全階数を意味しません。一般次元では $H^3$ から従う連続微分の階数は次元に依存します。任意階の時空微分には、すべての $m$ の推定と滑らかな $f$ が必要です。
 <!-- solution-end -->
 
 <a id="ex-hpde9-c01"></a>
