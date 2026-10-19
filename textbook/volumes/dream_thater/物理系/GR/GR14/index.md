@@ -6,7 +6,13 @@
 
 一方、[GR4の観測者が測るエネルギー](../GR4/index.md#def-gr4-measured-components)は観測者の四元速度にも依存しました。「ある座標で一定の数」と「実験室で測る数」が常に等しいわけではありません。本章では、計量の**対称性**をベクトル場の条件として捉え、測地線上の保存量を証明し、局所測定値と区別します。
 
-以後、滑らかな時間向き付き4次元Lorentz時空 $(M,g)$、符号 $(-,+,+,+)$、$x^0=ct$、$c>0$ を使用します。$\nabla$ は[計量両立・捩率零のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)です。時間的粒子の四元速度 $u=dx/d\tau$ は $g(u,u)=-c^2$、四元運動量は $p=mu$（$m>0$）とします。光子ではアフィンパラメータで運ばれる物理的四元運動量 $p=\hbar k$ を使い、$g(p,p)=0$ とします。時間並進生成場 $\xi=\partial_{x^0}$ は長さの次元を持つ座標での生成場なので、$-g(p,\xi)$ の単位は運動量、$-c\,g(p,\xi)$ はエネルギーです。$x^0$ の規格化を変えるとこのエネルギーも変わります。
+以後、滑らかな時間向き付き4次元Lorentz時空 $(M,g)$、符号 $(-,+,+,+)$、$x^0=ct$、$c>0$ を使用します。$\nabla$ は[計量両立・捩率零のLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)です。
+
+時間的粒子の四元速度 $u=dx/d\tau$ は $g(u,u)=-c^2$、四元運動量は $p=mu$（$m>0$）とします。
+
+光子ではアフィンパラメータで運ばれる物理的四元運動量 $p=\hbar k$ を使い、$g(p,p)=0$ とします。
+
+時間並進生成場 $\xi=\partial_{x^0}$ は長さの次元を持つ座標での生成場なので、$-g(p,\xi)$ の単位は運動量、$-c\,g(p,\xi)$ はエネルギーです。$x^0$ の規格化を変えるとこのエネルギーも変わります。
 
 ## 1. 対称性を座標に頼らず言い表す
 
@@ -124,7 +130,9 @@ ds^2=-(dx^0)^2+dr^2+r^2d\phi^2+dz^2,
 \qquad \phi\sim\phi+2\pi
 $$
 
-では、$g_{\mu\nu}$ のどの成分も $x^0$ と $\phi$ に依存しません。$\xi=\partial_{x^0}$、$\psi=\partial_\phi$ はともに座標成分が定数なので、[座標表示の命題](#prop-gr14-killing-coordinate-test)に $\partial_0g_{\mu\nu}=\partial_\phi g_{\mu\nu}=0$ を代入するとKilling方程式の全成分が零と確認できます。$\xi$ は $g(\xi,\xi)=-1$ の時間的場、$\psi$ は $g(\psi,\psi)=r^2>0$ の空間的場です。$\psi$ の軌道は角度を $2\pi$ 増やすと同じ点へ戻ります。回転対称は時間的対称でなくてもよい、という直接例です。
+では、$g_{\mu\nu}$ のどの成分も $x^0$ と $\phi$ に依存しません。$\xi=\partial_{x^0}$、$\psi=\partial_\phi$ はともに座標成分が定数なので、[座標表示の命題](#prop-gr14-killing-coordinate-test)に $\partial_0g_{\mu\nu}=\partial_\phi g_{\mu\nu}=0$ を代入するとKilling方程式の全成分が零と確認できます。
+
+$\xi$ は $g(\xi,\xi)=-1$ の時間的場、$\psi$ は $g(\psi,\psi)=r^2>0$ の空間的場です。$\psi$ の軌道は角度を $2\pi$ 増やすと同じ点へ戻ります。回転対称は時間的対称でなくてもよい、という直接例です。
 <!-- definition-example-end -->
 
 この例で $\xi$ がどこでも時間的だったことは特殊な性質です。**Killing場一般が時間的とは限らず**、時間的という条件を付けないまま「保存量は正のエネルギー」と呼ぶのは危険です。
@@ -451,7 +459,11 @@ $$
 $ds^2=-(dx^0)^2+a(x)^2dx^2+dy^2+dz^2$（$a(x)>0$ が滑らか）について $\partial_{x^0}$ と $\partial_x$ がKilling場となるか、各条件を述べて判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_{x^0}$ の座標成分は定数で、$\partial_{x^0}g_{\mu\nu}=0$ だから[座標表示の判定](#prop-gr14-killing-coordinate-test)の右辺三項は全て零です。一方 $\partial_x$ では $\partial_xg_{xx}=2aa'$ が残り、他の成分の微分は零です。従って $\partial_x$ がKilling場である必要十分条件は対象領域で $a'(x)=0$ です。$a>0$ なので $aa'=0$ と $a'=0$ は同値です。$\partial_x$ がKillingでなくても、別の形のKilling場が存在しないとまでは言えません。
+**詳細解答。** $\partial_{x^0}$ の座標成分は定数で、$\partial_{x^0}g_{\mu\nu}=0$ だから[座標表示の判定](#prop-gr14-killing-coordinate-test)の右辺三項は全て零です。
+
+一方 $\partial_x$ では $\partial_xg_{xx}=2aa'$ が残り、他の成分の微分は零です。従って $\partial_x$ がKilling場である必要十分条件は対象領域で $a'(x)=0$ です。$a>0$ なので $aa'=0$ と $a'=0$ は同値です。
+
+$\partial_x$ がKillingでなくても、別の形のKilling場が存在しないとまでは言えません。
 <!-- solution-end -->
 
 <a id="ex-gr14-a02"></a>
@@ -552,7 +564,11 @@ $$
 $ds^2=-a(x^0)^2(dx^0)^2+b(x^0)^2dx^2+dy^2+dz^2$（$a,b>0$、$b'\ne0$ の領域）で $\xi=\partial_{x^0}$ に対する $\mathcal L_\xi g$ を求めよ。$\xi$ に由来する測地線保存量の定理を適用できるか。座標変換で $a$ を定数にしても結論が変わるか。
 
 <!-- solution-start -->
-**詳細解答。** $\xi$ の座標成分は定数なので $\mathcal L_\xi g=\partial_0g$ です。非零候補は $(\mathcal L_\xi g)_{00}=-2aa'$、$(\mathcal L_\xi g)_{xx}=2bb'$ で、仮定 $b'\ne0$ と $b>0$ から少なくとも後者が非零です。よってこの $\xi$ はKilling場でなく、[Killing保存量の定理](#thm-gr14-killing-charge)は適用できません。$y^0=\int a(x^0)\,dx^0$ で時間計量係数を一定にしても、$b$ の時間依存は消えないため、対応する時間座標ベクトルがKilling場になるとはいえません。なお別のKilling場が存在するかはこの検査だけで確定できません。
+**詳細解答。** $\xi$ の座標成分は定数なので $\mathcal L_\xi g=\partial_0g$ です。非零候補は $(\mathcal L_\xi g)_{00}=-2aa'$、$(\mathcal L_\xi g)_{xx}=2bb'$ で、仮定 $b'\ne0$ と $b>0$ から少なくとも後者が非零です。
+
+よってこの $\xi$ はKilling場でなく、[Killing保存量の定理](#thm-gr14-killing-charge)は適用できません。
+
+$y^0=\int a(x^0)\,dx^0$ で時間計量係数を一定にしても、$b$ の時間依存は消えないため、対応する時間座標ベクトルがKilling場になるとはいえません。なお別のKilling場が存在するかはこの検査だけで確定できません。
 <!-- solution-end -->
 
 ### Level C
