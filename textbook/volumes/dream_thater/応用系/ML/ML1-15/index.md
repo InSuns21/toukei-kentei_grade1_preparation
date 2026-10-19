@@ -341,8 +341,8 @@ $$
 # lab-mode: demo
 # timeout-ms: 10000
 import random
-seed, B, mtry = 20261020, 101, 1  # mtry=2 は全特徴を調べるBagging
-rng = random.Random(seed)
+random_state, B, mtry = 20261020, 101, 1  # mtry=2 は全特徴を調べるBagging
+rng = random.Random(random_state)
 xs = [(i/11, ((5*i+3) % 13)/12) for i in range(12)]
 ys = [int(i >= 6) for i in range(12)]
 n = len(ys)
@@ -382,7 +382,7 @@ probe = (0.60, 0.20)
 votes = [predict(tree,probe) for tree in trees]
 covered = [i for i in range(n) if oob[i]]
 oob_errors = [int(2*sum(oob[i]) > len(oob[i])) != ys[i] for i in covered]
-print("settings:",seed,B,mtry)
+print("settings:",random_state,B,mtry)
 print("first 10 trees at probe:",votes[:10])
 print("probe positive-vote fraction:",sum(votes)/B)
 print("OOB coverage:",len(covered),"/",n)
@@ -397,7 +397,7 @@ assert 0<=sum(votes)/B<=1
 assert len(covered)>0
 ~~~
 
-この一回の訓練だけから母集団の予測分散は分からない。元データを固定してseedを変えた変動、元データそのものを新たに生成して変えた変動、未知の独立検証点での誤りは異なる。次に、理論上の相関項だけを切り出して再現する。
+この一回の訓練だけから母集団の予測分散は分からない。元データを固定して乱数種を変えた変動、元データそのものを新たに生成して変えた変動、未知の独立検証点での誤りは異なる。次に、理論上の相関項だけを切り出して再現する。
 
 ~~~python-lab
 # lab-id: ml1-15-correlation-lab
@@ -405,10 +405,10 @@ assert len(covered)>0
 # lab-mode: demo
 # timeout-ms: 10000
 import random, math
-rho, B2, repeats, seed2 = 0.25, 20, 4000, 41
+rho, B2, repeats, random_state2 = 0.25, 20, 4000, 41
 # 0 <= rho <= 1; 予測値 Z_b = sqrt(rho) U + sqrt(1-rho) eps_b
 assert 0 <= rho <= 1 and B2 >= 1
-rng2 = random.Random(seed2)
+rng2 = random.Random(random_state2)
 means = []
 for _ in range(repeats):
     common = rng2.gauss(0,1)
