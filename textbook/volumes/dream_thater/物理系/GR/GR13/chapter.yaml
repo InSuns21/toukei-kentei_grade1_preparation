@@ -1,0 +1,44 @@
+id: "GR13"
+title: "Newton極限とPoisson方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR12
+  - GR3
+official_scope: []
+learning_objectives:
+  - 静的弱場の計量・空間微分・低速・低圧の近似仮定を明示できる
+  - Newtonポテンシャルの定義をRindler計量で直接確認し一様加速度と曲率を区別できる
+  - 測地線を固有時から座標時刻へ変換しNewton加速度と誤差次数を導ける
+  - Ricciの00成分と応力テンソルの跡からPoisson方程式と4πGを再導出できる
+  - 空間計量の一次補正を含めたEinsteinテンソル00成分で結合係数を独立検算できる
+  - 点質量外部の調和性と球面流束を原点の除外を明示して検算できる
+  - 一様密度球の内外ポテンシャルを境界条件から導き低圧条件を検査できる
+  - 圧力や宇宙項を捨てられる条件を述べられる
+definitions:
+  - { id: GR13-DEF-01, name: 静的弱場のNewtonポテンシャル }
+theorems:
+  - { id: GR13-PROP-01, name: 弱場・低速測地線のNewton加速度 }
+  - { id: GR13-THM-01, name: Newton極限のPoisson方程式 }
+  - { id: GR13-PROP-02, name: 等方的な弱場計量による00成分の検算 }
+  - { id: GR13-PROP-03, name: 一様密度球のPoissonポテンシャル }
+canonical_examples:
+  - Rindlerの弱い一様勾配と曲率零
+  - 点質量外部のLaplace方程式と球面流束
+  - 一様密度球の内外接合・静水圧
+  - 圧力項および宇宙項の00成分への寄与
+problem_patterns:
+  - GR13-UNIFORM-GRADIENT
+  - GR13-TRACE-SOURCE
+  - GR13-QUADRATIC-POTENTIAL
+  - GR13-POINT-MASS-FLUX
+  - GR13-PRESSURE-SUPPRESSION
+  - GR13-NONAFFINE-TIME
+  - GR13-SPATIAL-METRIC-CORRECTION
+  - GR13-UNIFORM-BALL-MATCHING
+  - GR13-COSMOLOGICAL-CONTRIBUTION
+  - GR13-SELF-GRAVITATING-BALL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }

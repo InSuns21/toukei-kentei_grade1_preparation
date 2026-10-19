@@ -129,7 +129,15 @@ jobs:
           TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: |
           npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
+          npm run validate:svg-quality -- --self-test
+          npm run validate:svg-quality:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed
+
+      - name: Validate changed SVG quality on full-audit PRs
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full == 'true'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: npm run validate:svg-quality:changed -- --base "$TEXTBOOK_BASE_SHA"
 
       - name: Validate PR structure and formal source invariants
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
@@ -161,6 +169,26 @@ jobs:
         run: |
           npm run validate:svg-layout -- --self-test
           npm run validate:svg-layout
+          npm run validate:svg-quality -- --self-test
+          npm run audit:svg-quality:existing
+
+      - name: Render mobile SVG contact sheets for visual inspection
+        if: github.event_name == 'pull_request'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
+          python3 -m venv /tmp/svg-render-venv
+          /tmp/svg-render-venv/bin/python -m pip install --quiet cairosvg Pillow
+          /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py
+
+      - name: Attach existing SVG rendering review images
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: svg-render-review
+          path: _svg_render_review/
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: Validate textbook knowledge DAG
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'

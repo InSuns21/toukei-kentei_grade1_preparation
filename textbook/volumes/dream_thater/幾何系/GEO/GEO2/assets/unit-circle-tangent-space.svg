@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" width="500" height="310" data-layout-lint="strict">
+  <title>単位円の接空間と半径方向</title>
+  <desc>平面に埋め込まれた単位円の点 p=(0,1) で、接空間を表す水平線と、pに垂直に向かう半径方向を描いている。接ベクトル w は接線上にある。</desc>
+  <defs>
+    <marker id="geo2-arrow-tangent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#175d9d"/></marker>
+  </defs>
+  <rect x="0" y="0" width="500" height="310" fill="#fff"/>
+  <circle cx="210" cy="184" r="100" stroke="#485666" stroke-width="2.5" fill="none"/>
+  <line x1="210" y1="184" x2="210" y2="84" stroke="#a34b12" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <line x1="60" y1="84" x2="385" y2="84" stroke="#7893ae" stroke-width="2"/>
+  <line data-series-group="directions" data-series-label="tangent" x1="210" y1="84" x2="330" y2="84" stroke="#175d9d" stroke-width="4" marker-end="url(#geo2-arrow-tangent)"/>
+  <circle cx="210" cy="184" r="3.5" fill="#485666"/>
+  <circle cx="210" cy="84" r="4" fill="#242a30"/>
+  <text x="196" y="209" font-size="18" fill="#303a46">O</text>
+  <text x="209" y="47" font-size="18" fill="#303a46">p</text>
+  <text x="338" y="70" font-size="19" fill="#175d9d">w</text>
+  <text x="405" y="92" font-size="18" fill="#303a46">TₚS¹</text>
+  <text x="322" y="261" font-size="18" fill="#303a46">S¹</text>
+</svg>

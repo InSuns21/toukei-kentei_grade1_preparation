@@ -14,6 +14,8 @@
     .markdown-section { max-width: 980px; }
     .markdown-section table { display: table; width: 100%; }
     .markdown-section pre { overflow-x: auto; }
+    .markdown-section .svg-enlarge-action { display: block; width: fit-content; margin: 0.05rem 0 1.2rem; font-size: 0.83rem; line-height: 1.4; }
+    .markdown-section .svg-enlarge-action:focus-visible { outline: 2px solid var(--theme-color); outline-offset: 3px; }
     .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
     .toukei-math-display { display: block; }
     .formal-statement { margin: 1rem 0 1.4rem; border-left: 5px solid var(--formal-statement-rule); padding: 0.12rem 0 0.12rem 1.3rem; }
@@ -693,6 +695,27 @@
       });
     }
 
+    function svgEnlargePlugin(hook) {
+      hook.doneEach(function () {
+        var content = document.querySelector('.markdown-section');
+        if (!content) return;
+        content.querySelectorAll('img[src]').forEach(function (img) {
+          if (img.dataset.svgEnlargeReady === 'true') return;
+          var src = img.getAttribute('src') || '';
+          if (!/\.svg(?:[?#]|$)/i.test(src)) return;
+          img.dataset.svgEnlargeReady = 'true';
+          var link = document.createElement('a');
+          link.className = 'svg-enlarge-action';
+          link.href = img.src;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = '図を原寸で拡大表示 ↗';
+          link.setAttribute('aria-label', (img.alt || 'SVG 図') + 'を別タブで拡大表示');
+          img.insertAdjacentElement('afterend', link);
+        });
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -706,7 +729,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, window.ToukeiNumericalLab.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, window.ToukeiNumericalLab.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin, svgEnlargePlugin]
     };
   </script>
   <!--

@@ -57,7 +57,7 @@ chapters:
     title: "Einstein場の方程式と保存則"
   - id: GR13
     path: textbook/volumes/dream_thater/物理系/GR/GR13
-    status: planned
+    status: completed
     title: "Newton極限とPoisson方程式"
   - id: GR14
     path: textbook/volumes/dream_thater/物理系/GR/GR14
