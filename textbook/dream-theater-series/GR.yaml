@@ -65,7 +65,7 @@ chapters:
     title: "Killing場と測地線上の保存量"
   - id: GR15
     path: textbook/volumes/dream_thater/物理系/GR/GR15
-    status: planned
+    status: completed
     title: "球対称計量の選択とゲージ自由度"
   - id: GR16
     path: textbook/volumes/dream_thater/物理系/GR/GR16
