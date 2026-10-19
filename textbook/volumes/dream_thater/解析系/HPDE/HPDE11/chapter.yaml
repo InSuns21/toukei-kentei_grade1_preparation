@@ -11,6 +11,8 @@ prerequisites:
   - HPDE4
   - GPDE3
   - LORG20
+  - RA8
+  - RA6A
 official_scope: []
 learning_objectives:
   - 時間的法線座標を導出し波動作用素の主係数の正定値性と幾何学的初速度の座標表示を確認できる
