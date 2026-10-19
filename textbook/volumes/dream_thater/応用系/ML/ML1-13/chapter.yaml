@@ -27,6 +27,7 @@ definitions:
   - { id: ML1-13-DEF-07, name: 二値予測確率の校正 }
 theorems:
   - { id: ML1-13-PROP-01, name: 適合率と陽性率の関係 }
+  - { id: ML1-13-PROP-03, name: 順位式とROC台形面積の一致 }
   - { id: ML1-13-THM-01, name: Brier損失は厳密に適切 }
   - { id: ML1-13-PROP-02, name: 対数損失の超過リスク }
   - { id: ML1-13-THM-02, name: 二値Brier損失の校正・分離分解 }
