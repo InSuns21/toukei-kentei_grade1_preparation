@@ -206,21 +206,21 @@ $$
 
 ここで $\xi_i=(x_i-x_{0i})/|x-x_0|$ はEuclidノルムが $1$ の共ベクトル成分です。空間逆計量の行列 $H=(h^{ij})$ は実対称正定値なので、直交行列 $U$ により $H=U\operatorname{diag}(\lambda_1,\ldots,\lambda_n)U^{\mathsf T}$ と対角化できます。$v=U^{\mathsf T}\xi$ とおけば $|v|_{\mathrm E}=|\xi|_{\mathrm E}=1$ なので
 
-$
+$$
 h^{ij}\xi_i\xi_j=\xi^{\mathsf T}H\xi
 =\sum_{j=1}^n\lambda_jv_j^2
 \le\lambda_{\max}(H)\sum_{j=1}^nv_j^2
 =\lambda_{\max}(H).
-$
+$$
 
 逆計量で外向き共法線をベクトルに移すと
 
-$
+$$
 K=g^{-1}(dF,\cdot)
 =-\frac{c}{\beta^2}\partial_t+h^{ij}\xi_j\partial_i
 =-\frac c\beta N+h^{ij}\xi_j\partial_i,
 \qquad N=\beta^{-1}\partial_t.
-$
+$$
 
 従って $c>\sup\beta\sqrt{\lambda_{\max}(H)}$ と選べば $g(K,K)<0$ であり、$K$ の未来向き時間軸 $N$ に沿う係数 $-c/\beta$ は負です。ゆえに $K$ は**過去向き時間的**です。**光より少し速く縮む座標球**の側面はエネルギーにとって流入境界ではありません。これは局所一意性を証明するための補助領域であり、物理的に信号が光速を超えるという意味ではありません。
 
@@ -229,10 +229,10 @@ $
 > **補題（局所的な後方領域の零データ一意性）**  
 > $P$ を滑らかなnormally hyperbolic束値作用素とする。空間的スライス上の一点 $(t_0,x_0)$ の近傍で、コンパクト閉包を持つ時間座標 $(t,x)$ を選ぶ。定数 $c,R>0$ と $t_0\le t_1<t_0+R/c$ に対し、閉領域
 
-$
-\Omega=\{(t,x):t_0\le t\le t_1,\
+$$
+\Omega=\{(t,x):t_0\le t\le t_1,\qquad
 |x-x_0|\le R-c(t-t_0)\}
-$
+$$
 
 > が座標近傍に収まり、その側面の外向き共法線が過去向き時間的であると仮定する。滑らかな切断 $u$ が $\Omega$ 上で $Pu=0$ を満たし、底面球 $B_{t_0}$ で $u=0$ と $\nabla_Nu=0$ がともに成立するなら、$\Omega$ 全体で $u=0$ である。ここで $N$ は未来向き単位法線、$\nabla$ は固定した滑らかな束接続とする。
 <!-- formal-statement-end -->
@@ -400,13 +400,13 @@ $$
 <!-- definition-example-start: def-hpde10-data-source-support -->
 **定義の確認**。二次元Minkowskiで、初期変位を
 
-$
+$$
 u_0(x)=
 \begin{cases}
 \exp\!\left(-1/(1-x^2)\right),&|x|<1,\\
 0,&|x|\ge1
 \end{cases}
-$
+$$
 
 とし、$u_1=f=0$ とします。$u_0$ は $|x|<1$ のすべての点で非零で、$|x|\ge1$ では零です。従ってその支持は**ちょうど** $[-1,1]$、零切断 $u_1,f$ の支持は空集合で、三つの支持はすべてコンパクトです。$K=\{0\}\times[-1,1]$ となります。[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)により、時刻 $t$ の $J(K)$ の切断は
 
@@ -449,9 +449,9 @@ $p\in J^+(\Sigma)$ で $p\notin J^+(K_\Sigma\cup(K_f\cap J^+(\Sigma)))$ とし�
 
 主張した**片側の支持包含**には、点ごとの零条件だけでなく閉性も必要です。[LORG20の時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)では $J^+(\Sigma)=\{t\ge0\}$ は閉集合なので
 
-$
+$$
 K_+=K_\Sigma\cup(K_f\cap J^+(\Sigma))
-$
+$$
 
 はコンパクトです。[LORG16の因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と、以下に示すコンパクト始点列の部分列議論により、$J^+(K_+)$ は閉です。$t>0$ の点がこの閉集合の外側にあれば、その点の近傍の未来側で $u=0$ なので支持に入りません。$p\in\Sigma\setminus J^+(K_+)$ では、$p\notin K_\Sigma\cup K_f$ です。支持の閉性から $p$ の小近傍で $f=0$、$\Sigma$ 上の小球で $u=\nabla_Nu=0$ となり、[局所的な零データ一意性](#lem-hpde10-local-cone)を時間の正負両側に適用すれば $u=0$ が $p$ の時空近傍で成り立ちます。従って $\operatorname{supp}u\cap J^+(\Sigma)\subset J^+(K_+)$ が得られます。
 
