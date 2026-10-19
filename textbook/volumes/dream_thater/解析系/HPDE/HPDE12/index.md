@@ -15,7 +15,7 @@ $$
 
 初期時刻に与えられる速度データ $h(x)$ と、時空の源 $f(t,x)$ は別の対象です。一点 $(s,y)$ に置いた時空点源 $\delta_{(s,y)}$ は試験関数 $\varphi$ へ $\varphi(s,y)$ を返します。基準点 $0=(0,0)$ の点源は $\delta_0(t)\delta_0(x)$ です。ここで二つのデルタは時間と空間にそれぞれ作用します。
 
-点源の**未来**でだけ応答するものを遅延、点源の**過去**でだけ応答するものを先進と呼ぶことにします。名前は観測の立場で紛らわしくなるため、支持条件を同時に書いて定義します。[LORG6の因果集合](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)によれば、基準点からの未来・過去は
+点源の**未来**でだけ応答するものを遅延、点源の**過去**でだけ応答するものを先進と呼ぶことにします。名前は観測の立場で紛らわしくなるため、支持条件を同時に書いて定義します。[LORG6のMinkowski因果集合の定理](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)によれば、基準点からの未来・過去は
 
 $$
 J^+(0)=\{(t,x):t\ge |x|\},\qquad
@@ -56,7 +56,14 @@ $$
 
 ## 2. 時間断面の分布から時空基本解を作る
 
-[ODE5の単位階段関数](../../ODE/ODE5/index.md#def-ode5-unit-step) $H(t)$ は $t>0$ で $1$、$t<0$ で $0$ とします。$t=0$ の値は分布には影響しません。まず $t\ge0$ で空間変数の分布 $K_t$ を作り、$t<0$ では零にして時空分布へ組み立てます。この操作なら、光円錐の頂点にある $r=|x|=0$ でも曖昧な $1/r$ を直接掛けずに済みます。
+[ODE5の単位階段関数](../../ODE/ODE5/index.md#def-ode5-unit-step) $H(t)$ は $t>0$ で $1$、$t<0$ で $0$ とします。$t=0$ の値は分布には影響しません。まず $t\ge0$ で空間変数の分布 $K_t$ を作り、$t<0$ では零にして時空分布へ組み立てます。ここで「空間分布として二回連続微分可能」とは、各空間試験関数 $\psi$ に対して $t\mapsto\langle K_t,\psi\rangle$ が $t=0$ を含めて二回連続微分可能という意味です。零へ延長した時空分布 $F$ は、時空試験関数 $\varphi$ に
+
+$
+\langle F,\varphi\rangle
+=\int_0^\infty\langle K_t,\varphi(t,\cdot)\rangle\,dt
+$
+
+で作用します。以下の二模型ではこの積分表示を直接構成します。この方法なら、光円錐の頂点にある $r=|x|=0$ でも曖昧な $1/r$ を直接掛けずに済みます。
 
 <a id="lem-hpde12-time-jump"></a>
 <!-- formal-statement-start -->
@@ -68,7 +75,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
-ここで「二回連続微分可能」は、任意の空間試験関数 $\psi$ に対する数値関数 $t\mapsto\langle K_t,\psi\rangle$ が二回連続微分可能という意味です。実際の二模型はこの条件を満たします。
+補題の仮定には、空間微分の等式だけでなく、時間境界での二つの値 $K_0$ と $K'_0$ が含まれます。以下で三条件を別々に検算します。
 
 ### 証明の見取り図
 
@@ -343,7 +350,21 @@ $$
   \int_{S^2}f(t-\tau,x-\tau\omega)\,d\omega\,d\tau.
 $$
 
-どちらも $s\le t$ の源だけを使い、しかも $|x-y|\le t-s$（三次元では等号）が必要です。これで定義の「遅延」の条件を実際に確認できました。先進側の対応する式は $t+\tau$ を使います。
+先進核では時間反転により、一次元と三次元でそれぞれ
+
+$
+(G_{\mathrm{adv}}f)(t,x)
+=\frac12\int_t^\infty\int_{x-(s-t)}^{x+(s-t)}
+f(s,y)\,dy\,ds,
+$
+
+$
+(G_{\mathrm{adv}}f)(t,x)
+=\int_0^\infty\frac{\tau}{4\pi}
+\int_{S^2}f(t+\tau,x-\tau\omega)\,d\omega\,d\tau
+$
+
+となります。遅延側は $s\le t$ かつ $|x-y|\le t-s$（三次元では等号）の源のみ、先進側は $s\ge t$ かつ $|x-y|\le s-t$（三次元では等号）の源のみを使います。これで定義の**両方の因果方向**を積分範囲から確認できます。
 <!-- definition-example-end -->
 
 <a id="thm-hpde12-convolution-inverses"></a>
@@ -400,7 +421,13 @@ $$
 
 ここで各次元の[点源基本解定理](#thm-hpde12-one-dimensional)または[三次元の定理](#thm-hpde12-three-dimensional)を使いました。従って $PGf=GPf=f$ です。
 
-遅延側について、$(t,x)\notin J^+(\operatorname{supp}f)$ とします。Minkowski時空ではコンパクト集合の因果未来は閉集合なので、その点の小近傍は $J^+(\operatorname{supp}f)$ と交わりません。遅延核の支持には $\tau\ge|z|$ が必要ですが、$f(t-\tau,x-z)\ne0$ と両立するなら $(t,x)$ はその源点から因果未来にあるはずで、矛盾します。従ってその近傍で $G_{\mathrm{ret}}f=0$。先進側も時間向きを逆にして同じです。$\square$
+遅延側について、$(t,x)\notin J^+(\operatorname{supp}f)$ とします。この因果未来が閉集合であることも確認できます。$K=\operatorname{supp}f$ とし、$J^+(K)$ 内の点列 $(t_j,x_j)\to(t,x)$ に対して、[Minkowski因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)から $(s_j,y_j)\in K$ を選ぶと
+
+$
+t_j-s_j\ge|x_j-y_j|.
+$
+
+$K$ のコンパクト性により部分列で $(s_j,y_j)\to(s,y)\in K$ とでき、不等式の極限は $t-s\ge|x-y|$ です。従って $(t,x)\in J^+(K)$ であり、$J^+(K)$ は閉集合です。よって $(t,x)$ の小近傍は $J^+(K)$ と交わりません。遅延核の支持には $\tau\ge|z|$ が必要ですが、$f(t-\tau,x-z)\ne0$ と両立するなら $(t,x)$ はその源点から因果未来にあるはずで、矛盾します。従ってその近傍で $G_{\mathrm{ret}}f=0$。先進側も時間向きを逆にして同じです。$\square$
 <!-- proof-end -->
 
 この逆の等式は、$G_{\mathrm{ret}}$ を**任意の非コンパクト源**へそのまま定義したことを意味しません。因果支持を保つ作用素の大域的な定義域はHPDE18–20で調べます。
@@ -417,7 +444,7 @@ u(t,x)=
 \end{cases}
 $$
 
-$t<0$ では零、$t=0$ の右極限で $u(0,x)=0$、$\partial_tu(0+,x)=h(x)$ です。これは[HPDE1の初期速度項](../HPDE1/index.md#def-hpde1-flat-wave-operator)および[HPDE2のKirchhoff公式](../HPDE2/index.md#thm-hpde2-kirchhoff)と一致します。点源核の正規化を初期値問題からもう一度確かめたことになります。
+三次元の表示では、$f(t-\tau,x-\tau\omega)=\delta_0(t-\tau)h(x-\tau\omega)$ を代入し、球面の変数を $\omega\mapsto-\omega$ と置き換えて $h(x+t\omega)$ にしました。$t<0$ では零、$t=0$ の右極限で $u(0,x)=0$、$\partial_tu(0+,x)=h(x)$ です。これは[HPDE1のd'Alembert公式の導出](../HPDE1/index.md#prop-hpde1-null-factorization)および[HPDE2のKirchhoff公式](../HPDE2/index.md#thm-hpde2-kirchhoff)と一致します。点源核の正規化を初期値問題からもう一度確かめたことになります。
 
 ## 6. 光円錐面と内部、二つの支持の違い
 
@@ -530,7 +557,7 @@ $$
 P(F*f)=F*(Pf).
 $$
 
-ここで $P$ の係数が定数なので、$(\tau,z)$ 側にも同じ $P$ を使えます。各二階微分で二つの負号が相殺し、分布の微分による部分積分でも二階の符号は正となるため
+ここで $P$ の係数が定数なので、$(\tau,z)$ 側にも同じ $P$ を使えます。各二階微分で二つの負号が相殺し、分布の微分による部分積分でも二階の符号は正となります。[一次元](#thm-hpde12-one-dimensional)または[三次元](#thm-hpde12-three-dimensional)の点源基本解定理によって $PF=\delta_{(0,0)}$ だから
 
 $$
 F*(Pf)=(PF)*f=\delta_{(0,0)}*f=f.
