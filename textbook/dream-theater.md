@@ -1186,6 +1186,7 @@
 12. [GR12 Einstein場の方程式と保存則](textbook/volumes/dream_thater/物理系/GR/GR12/index.md)
 13. [GR13 Newton極限とPoisson方程式](textbook/volumes/dream_thater/物理系/GR/GR13/index.md)
 14. [GR14 Killing場と測地線上の保存量](textbook/volumes/dream_thater/物理系/GR/GR14/index.md)
+15. [GR15 球対称計量の選択とゲージ自由度](textbook/volumes/dream_thater/物理系/GR/GR15/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
