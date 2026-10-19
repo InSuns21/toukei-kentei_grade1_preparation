@@ -23,7 +23,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（適合率と陽性率の関係）"]
-    requires: [learning.classification-rates]
+    requires: [learning.classification-rates, learning.conditional-label-probability]
   - id: learning.roc-pr-threshold-points
     name: ROC・PRの閾値点
     kind: definition
