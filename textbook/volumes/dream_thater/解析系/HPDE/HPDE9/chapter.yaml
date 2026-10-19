@@ -1,0 +1,47 @@
+id: "HPDE9"
+title: "高階Sobolev評価と正則性の伝播"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE8
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - HPDE4
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 時間依存する空間計量から波動作用素の局所座標式を計算できる
+  - 高階スライスエネルギーとH^{m+1}×H^mノルムの比較を証明できる
+  - 変動主係数・一階係数・ポテンシャルの空間多重微分交換子を導出できる
+  - 交換子の最高階微分がエネルギーで制御でき微分損失しないことを説明できる
+  - 係数正則性とコンパクト有限時間の条件付きで高階Sobolev評価を証明できる
+  - 共変微分と波動作用素の交換に現れるRicci曲率とポテンシャル微分を計算できる
+  - 滑らかな近似解の存在を仮定したCauchy極限と正則性の伝播を検証できる
+  - 弱解の自動平滑化や非コンパクト無条件一様評価を主張しない
+definitions:
+  - { id: HPDE9-DEF-01, name: 高階スライスエネルギー }
+theorems:
+  - { id: HPDE9-PROP-01, name: 空間微分と波動作用素の交換子 }
+  - { id: HPDE9-THM-01, name: コンパクト有限時間帯の高階Sobolev評価 }
+  - { id: HPDE9-PROP-02, name: スカラー波動の共変微分と曲率補正 }
+  - { id: HPDE9-PROP-03, name: 滑らかな近似解のSobolev極限 }
+canonical_examples:
+  - 時間依存スライス体積の微分と主部の展開
+  - 周波数2の波に対する高階エネルギーの直接検算
+  - 変動空間計量での一階交換子と最高階項
+  - Ricci曲率・ポテンシャル微分の共変交換子
+  - 滑らかな近似解の差の高階評価と分布極限
+problem_patterns:
+  - HPDE9-ENERGY-ORDER
+  - HPDE9-POTENTIAL-COMMUTATOR
+  - HPDE9-VOLUME-FACTOR
+  - HPDE9-SECOND-COMMUTATOR
+  - HPDE9-FIRST-DERIVATIVE-ENERGY
+  - HPDE9-VARIABLE-COEFFICIENTS
+  - HPDE9-CAUCHY-PASSAGE
+  - HPDE9-CURVED-SLAB-HIGH-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 6 }

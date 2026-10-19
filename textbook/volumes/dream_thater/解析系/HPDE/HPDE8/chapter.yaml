@@ -1,0 +1,49 @@
+id: "HPDE8"
+title: "エネルギー不等式と一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - LORG20
+official_scope: []
+learning_objectives:
+  - ポテンシャルの符号に依存しない正の補助エネルギーを定義し密度の非負性を検証できる
+  - 発散恒等式から源・変形テンソル・ポテンシャル差を点ごとにエネルギーで支配できる
+  - コンパクト有限時間領域でlapseと側面フラックスを含む積分不等式を導ける
+  - 積分型Grönwall不等式を積分因子から証明して適用できる
+  - 零初期変位・法線速度と零源に対する滑らかな解の一意性を証明できる
+  - 初期データと源の差に対する連続依存をノルム評価で示せる
+  - 束値作用素の非計量互換な接続を補助互換接続と一階項で処理できる
+  - 非コンパクト全域で係数の一様上界を無断で仮定せず有限時間・領域の条件を識別できる
+definitions:
+  - { id: HPDE8-DEF-01, name: 正にずらした一次エネルギー }
+theorems:
+  - { id: HPDE8-PROP-01, name: 局所エネルギー誤差の点ごとの評価 }
+  - { id: HPDE8-THM-01, name: 有限時間領域の一次エネルギー不等式 }
+  - { id: HPDE8-LEM-01, name: 積分型Grönwall不等式 }
+  - { id: HPDE8-THM-02, name: 滑らかな解の局所一意性と連続依存 }
+  - { id: HPDE8-PROP-02, name: 束値normally hyperbolic作用素の有限時間評価 }
+canonical_examples:
+  - 負ポテンシャルに対する正のずらしとMinkowskiの密度の直接検算
+  - 時間的単位法線と変形テンソルの局所係数評価
+  - 外向き過去光的側面の非負フラックス
+  - 負質量二乗模型の非正定値保存量と正のエネルギーの対比
+  - 一階項付き周期波動の誤差項
+  - 計量非互換な自然接続を互換接続と一階項で表示する模型
+  - 変動ポテンシャルと縮む三角領域のGrönwall一意性
+problem_patterns:
+  - HPDE8-SHIFTED-ENERGY
+  - HPDE8-POTENTIAL-DIFFERENCE
+  - HPDE8-SOURCE-YOUNG
+  - HPDE8-GRONWALL
+  - HPDE8-NEGATIVE-POTENTIAL
+  - HPDE8-NULL-SIDE
+  - HPDE8-FIRST-ORDER-LOWER-ORDER
+  - HPDE8-NONMETRIC-CONNECTION
+  - HPDE8-CONE-UNIQUENESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 6 }

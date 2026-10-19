@@ -1,0 +1,41 @@
+id: "GR11"
+title: "境界条件とGibbons–Hawking–York項"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR10
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 非光的境界の外向き単位法線と誘導計量を定義し因果型ごとの符号を確かめられる
+  - 第二基本形式とその跡を接続とGaussian法線座標から計算できる
+  - Einstein–Hilbert変分の境界流束を法線と発散定理で導ける
+  - 境界の誘導計量固定と法線微分固定の違いを有限領域の計量変分で示せる
+  - GHY項の変分が法線微分を相殺する恒等式を符号と添字を追って証明できる
+  - 時間的境界と空間的境界の符号・法線の向きの違いを検算できる
+  - 光的境界・角・無限遠への無条件な拡張を避け適用範囲を説明できる
+definitions:
+  - { id: GR11-DEF-01, name: 非光的境界の単位法線と誘導計量 }
+  - { id: GR11-DEF-02, name: 境界の第二基本形式と平均曲率の跡 }
+  - { id: GR11-DEF-03, name: Gibbons–Hawking–York境界作用 }
+theorems:
+  - { id: GR11-PROP-01, name: Einstein–Hilbert変分の境界流束 }
+  - { id: GR11-THM-01, name: GHY項を加えたDirichlet型計量変分 }
+canonical_examples:
+  - Minkowskiの時間的な壁と空間的な時刻面で誘導計量の符号を対比
+  - N(x)を用いる静的壁の第二基本形式をChristoffel係数から導出
+  - 3トーラスの有限時間スラブで誘導計量を固定しつつ法線微分を変える
+  - 同じ有限時間スラブでEinstein–HilbertとGHYの境界変分の相殺を検算
+problem_patterns:
+  - GR11-BOUNDARY-CAUSAL-SIGNS
+  - GR11-FLAT-SECOND-FORM
+  - GR11-DIRICHLET-NORMAL-DERIVATIVE
+  - GR11-BOUNDARY-TRACE-DENSITY
+  - GR11-GAUSSIAN-K-VARIATION
+  - GR11-SLAB-CANCELLATION
+  - GR11-OUTWARD-NORMAL-REVERSAL
+  - GR11-MINISUPERSPACE-INTEGRATED-ACTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

@@ -389,6 +389,11 @@
 2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
 3. [HPDE3 時空上の分布・試験切断・密度](textbook/volumes/dream_thater/解析系/HPDE/HPDE3/index.md)
 4. [HPDE4 ベクトル束・接続・形式的随伴](textbook/volumes/dream_thater/解析系/HPDE/HPDE4/index.md)
+5. [HPDE5 主シンボルとnormally hyperbolic作用素](textbook/volumes/dream_thater/解析系/HPDE/HPDE5/index.md)
+6. [HPDE6 Cauchy超曲面・初期データ・関数空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE6/index.md)
+7. [HPDE7 エネルギー流と発散恒等式](textbook/volumes/dream_thater/解析系/HPDE/HPDE7/index.md)
+8. [HPDE8 エネルギー不等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE8/index.md)
+9. [HPDE9 高階Sobolev評価と正則性の伝播](textbook/volumes/dream_thater/解析系/HPDE/HPDE9/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
@@ -998,6 +1003,10 @@
 6. [ML1-06 Lasso・疎性・近接写像](textbook/volumes/dream_thater/応用系/ML/ML1-06/index.md)
 7. [ML1-07 生成的分類・Naive Bayes・LDA/QDA](textbook/volumes/dream_thater/応用系/ML/ML1-07/index.md)
 8. [ML1-08 Logistic/softmax回帰・対数損失](textbook/volumes/dream_thater/応用系/ML/ML1-08/index.md)
+9. [ML1-09 滑らかな凸損失と勾配法](textbook/volumes/dream_thater/応用系/ML/ML1-09/index.md)
+10. [ML1-10 確率的勾配法・ミニバッチ](textbook/volumes/dream_thater/応用系/ML/ML1-10/index.md)
+11. [ML1-11 k近傍法・核密度推定](textbook/volumes/dream_thater/応用系/ML/ML1-11/index.md)
+12. [ML1-12 検証分割・交差検証・モデル選択](textbook/volumes/dream_thater/応用系/ML/ML1-12/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
@@ -1169,6 +1178,10 @@
 6. [GR6 Riemann・Ricci・スカラー曲率](textbook/volumes/dream_thater/物理系/GR/GR6/index.md)
 7. [GR7 Bianchi恒等式とEinsteinテンソル](textbook/volumes/dream_thater/物理系/GR/GR7/index.md)
 8. [GR8 塵・完全流体とエネルギー運動量](textbook/volumes/dream_thater/物理系/GR/GR8/index.md)
+9. [GR9 物質作用と電磁場の応力テンソル](textbook/volumes/dream_thater/物理系/GR/GR9/index.md)
+10. [GR10 Einstein–Hilbert作用の変分](textbook/volumes/dream_thater/物理系/GR/GR10/index.md)
+11. [GR11 境界条件とGibbons–Hawking–York項](textbook/volumes/dream_thater/物理系/GR/GR11/index.md)
+12. [GR12 Einstein場の方程式と保存則](textbook/volumes/dream_thater/物理系/GR/GR12/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

@@ -1,0 +1,47 @@
+id: "GR9"
+title: "物質作用と電磁場の応力テンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR8
+  - EMAG8
+  - AMECH2
+official_scope: []
+learning_objectives:
+  - 物質作用の計量変分と場変分の独立変数を区別し体積要素の変分を再導出できる
+  - Hilbert応力テンソルの符号を逆計量と共変計量の変分で照合できる
+  - 反対称電磁場Fをポテンシャルから定義しゲージ不変性とMinkowskiでのE・B成分を検算できる
+  - 電磁作用の逆計量二つと体積密度を変分してTの各項と係数を導出できる
+  - 真空電磁場のエネルギー密度・Poynting流束・異方的応力と跡零を再計算できる
+  - ポテンシャル変分とコンパクト台部分積分からMaxwell方程式を導ける
+  - 電磁場単独と荷電物質の共変発散の交換則を閉形式条件から証明できる
+definitions:
+  - { id: GR9-DEF-01, name: 局所物質作用 }
+  - { id: GR9-DEF-02, name: 計量変分によるHilbert応力テンソル }
+  - { id: GR9-DEF-03, name: 曲がった時空の真空Maxwell作用 }
+theorems:
+  - { id: GR9-PROP-01, name: 計量の微分を含まない作用の応力 }
+  - { id: GR9-THM-01, name: Maxwell作用からのHilbert応力テンソル }
+  - { id: GR9-THM-02, name: 電磁ポテンシャル変分とMaxwell方程式 }
+  - { id: GR9-PROP-02, name: 電磁場と荷電物質の局所運動量交換 }
+canonical_examples:
+  - Minkowski計量の体積作用と物理次元の確認
+  - 定数負ラグランジアンのエネルギーと負圧
+  - 純電場のF成分とゲージ不変性の確認
+  - 純電場の縦方向張力と横方向圧力
+  - Poynting流束と磁場方向張力
+problem_patterns:
+  - GR9-INVERSE-METRIC-VARIATION
+  - GR9-VACUUM-ENERGY-STRESS
+  - GR9-GAUGE-FIELD-STRENGTH
+  - GR9-EM-LAGRANGIAN-SIGN
+  - GR9-POYNTING-UNITS
+  - GR9-EM-STRESS-METRIC-VARIATION
+  - GR9-MAGNETIC-TRACE
+  - GR9-POTENTIAL-MAXWELL-VARIATION
+  - GR9-LORENTZ-EXCHANGE
+  - GR9-ELECTROMAGNETIC-STRESS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }

@@ -1,0 +1,50 @@
+id: "ML1-12"
+title: "検証分割・交差検証・モデル選択"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-03
+  - ML1-10
+  - ML1-11
+official_scope: []
+learning_objectives:
+  - 独立同分布の仮定の下で訓練・検証・テスト分割と選択後の再学習を正確に区別できる
+  - 独立保留標本によるリスク推定の条件付き不偏性を導出できる
+  - 複数候補の検証最小損失が楽観的になる仕組みを不等式と反例で説明できる
+  - K分割交差検証の定義と不等サイズ折の重みを計算できる
+  - CVが固定設定値のどの訓練サイズの期待リスクを測るか証明できる
+  - 入れ子CVで内側の選択と外側の独立評価を分離できる
+  - テスト再利用と前処理漏洩の仮定違反を特定できる
+  - 乱数種固定の計算ラボで分割・CV・テスト損失を再計算できる
+definitions:
+  - { id: ML1-12-DEF-01, name: 訓練・検証・テスト分割 }
+  - { id: ML1-12-DEF-02, name: 検証損失によるモデル選択 }
+  - { id: ML1-12-DEF-03, name: K分割交差検証 }
+  - { id: ML1-12-DEF-04, name: 入れ子交差検証 }
+theorems:
+  - { id: ML1-12-THM-01, name: 独立保留標本の条件付き不偏性 }
+  - { id: ML1-12-THM-02, name: 選択された検証最小値の楽観性 }
+  - { id: ML1-12-THM-03, name: 固定設定値のCVが推定する訓練サイズ }
+  - { id: ML1-12-PROP-01, name: 入れ子CVの評価対象 }
+  - { id: ML1-12-PROP-02, name: 評価ラベルを用いた選択は独立評価でない }
+canonical_examples:
+  - 独立な三分割と同点規則
+  - 二つの定数予測器の検証選択楽観性
+  - 六観測のK分割と訓練サイズの違い
+  - 九観測での内側・外側折の情報遮断
+  - 中心化の前処理漏洩と評価ラベル再利用
+  - 固定seedの検証・CV・テスト数値ラボ
+problem_patterns:
+  - ML1-12-A01
+  - ML1-12-A02
+  - ML1-12-A03
+  - ML1-12-A04
+  - ML1-12-B01
+  - ML1-12-B02
+  - ML1-12-B03
+  - ML1-12-B04
+  - ML1-12-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }

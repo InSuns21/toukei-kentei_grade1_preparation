@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML1-10 ミニバッチSGD対話ラボ</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color:#162b42;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0}main{max-width:1040px;margin:auto;padding:20px}
+h1{font-size:1.65rem}h2{font-size:1.12rem}p{line-height:1.65}
+section{background:#fff;border:1px solid #c9d9e6;border-radius:9px;padding:17px;margin:12px 0}
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px}
+label{display:grid;gap:4px;font-weight:600}input{font:inherit;padding:6px;min-width:0;border:1px solid #778b9d}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+button{font:inherit;padding:8px 13px;border:1px solid #25547e;border-radius:5px;background:white;color:#1e4d78;cursor:pointer}
+button.primary{background:#195e91;color:white}button:disabled{opacity:.5}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #d88c26;outline-offset:2px}
+svg{width:100%;height:auto;border:1px solid #d7e1ea}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:7px;border-bottom:1px solid #dbe6ee;text-align:right}
+th:first-child,td:first-child{text-align:left}
+#notice{min-height:1.8rem}#notice.error{color:#9b2a12}
+.small{font-size:.87rem;color:#3d5468}
+@media(max-width:650px){main{padding:9px}section{padding:11px}}
+</style>
+</head><body><main>
+<a href="../index.html">← DREAM THEATERに戻る</a>
+<h1>ML1-10 ミニバッチSGD：乱数と誤差床</h1>
+<p>2個の固定された訓練標本 f₁(w)=(w+1)²/2、f₂(w)=(w−1)²/2 を、一様な<strong>復元抽出</strong>で読む実計算です。平均損失は F(w)=(w²+1)/2。各時刻の損失差 F(w)−F(0)=w²/2、理論期待値、試行平均を比較します。</p>
+<section aria-labelledby="setup"><h2 id="setup">設定と実行</h2>
+<div class="inputs">
+<label>歩幅 α（0〜2未満）<input id="alpha" type="number" min=".01" max="1.99" step=".05" value=".5"></label>
+<label>バッチサイズ b<input id="b" type="number" min="1" max="16" step="1" value="1"></label>
+<label>初期 w₀<input id="w0" type="number" min="-10" max="10" step=".5" value="2"></label>
+<label>seed（整数）<input id="seed" type="number" min="0" max="4294967295" step="1" value="21"></label>
+<label>比較試行数<input id="trials" type="number" min="1" max="500" step="1" value="200"></label>
+</div>
+<div class="controls"><button id="step" class="primary">1反復進める</button><button id="play" class="primary">連続実行</button><button id="pause">停止</button><button id="reset">リセット</button></div>
+<p id="notice" role="status" aria-live="polite"></p>
+</section>
+<section><h2>期待損失差（理論）と独立試行平均（実測）</h2>
+<svg id="chart" viewBox="0 0 760 360" role="img" aria-label="反復回数に対する理論損失差、複数試行平均と単一路径の折れ線グラフ"></svg>
+<p class="small">横軸：反復 k（0〜40）。縦軸：損失差 w²/2。青実線＝厳密期待値、橙点線＝試行平均、紫破線＝単一路径。すべて同じ数値カーネルで算出します。図が見えない場合も下表で数値を確認できます。</p>
+<p id="summary" aria-live="polite"></p>
+</section>
+<section><h2>最新の数値（理論 vs 実測）</h2><table><thead><tr><th>反復</th><th>単一路径 w</th><th>単一路径の損失差</th><th>試行平均</th><th>理論期待値</th></tr></thead><tbody id="rows"></tbody></table>
+<p class="small">最大40反復。乱数seedと条件が同じなら結果を再現できます。個別軌道は単調に減少するとは限りません。期待値の理論曲線は乱数実験でなく証明に基づく式です。外部へデータを送信しません。</p>
+</section></main>
+<script type="module">
+import {check,trace,average,theory} from "./ml1-10-sgd-core.mjs";
+const $=id=>document.getElementById(id);
+const keys=["alpha","b","w0","seed","trials"],NS="http://www.w3.org/2000/svg";
+let c=null,points=[],stats=[],timer=null;
+const fmt=x=>Number.isFinite(x)?x.toFixed(5):"—";
+function halt(){if(timer!==null)clearInterval(timer);timer=null;$("play").disabled=false;$("pause").disabled=true;}
+function read(){return check(Object.fromEntries(keys.map(key=>[key,Number($(key).value)])));}
+function say(s,err=false){$("notice").textContent=s;$("notice").className=err?"error":"";}
+function svgEl(name,props,parent,text){const el=document.createElementNS(NS,name);for(const [k,v] of Object.entries(props))el.setAttribute(k,v);if(text!==undefined)el.textContent=text;parent.append(el);return el;}
+function restart(){halt();try{c=read();points=trace(c,0);stats=average(c,40);$("step").disabled=false;draw();say("seedに従って再抽出しました。1反復ずつ更新できます。");}
+catch(e){c=null;points=[];stats=[];$("step").disabled=true;$("chart").replaceChildren();$("rows").replaceChildren();say(e.message,true);$("summary").textContent="正しい設定を入力してください。";}}
+function advance(){if(!c)return;try{points=trace(c,points.length);draw();say("反復 "+(points.length-1)+"： w="+fmt(points.at(-1).w));if(points.length>=41){halt();$("step").disabled=true;}}
+catch(e){halt();say(e.message,true);}}
+function draw(){
+ const k=points.length-1,actual=points.at(-1),t=theory(c,k);
+ $("summary").textContent="現在 k="+k+"、理論 E[w²]/2="+fmt(t.lossGap)+"、観測平均="+fmt(stats[k].observed)+"、厳密誤差床="+fmt(t.floor)+"。";
+ const tbody=$("rows");tbody.replaceChildren();
+ for(const p of points.slice(-9)){const a=stats[p.k];const tr=document.createElement("tr");for(const value of [p.k,fmt(p.w),fmt(p.lossGap),fmt(a.observed),fmt(a.expected)]){const td=document.createElement("td");td.textContent=value;tr.append(td);}tbody.append(tr);}
+ const root=$("chart");root.replaceChildren();
+ const all=[...stats.map(x=>x.expected),...stats.map(x=>x.observed),...points.map(x=>x.lossGap)];
+ const top=Math.max(.05,...all)*1.15;const x=k=>55+680*k/40,y=v=>320-280*v/top;
+ for(let i=0;i<=4;i++){let h=320-70*i;svgEl("line",{x1:55,y1:h,x2:735,y2:h,stroke:"#e2e9f1"},root);svgEl("text",{x:45,y:h+4,"text-anchor":"end","font-size":12},root,fmt(top*i/4));}
+ svgEl("line",{x1:55,y1:320,x2:735,y2:320,stroke:"#38465a"},root);
+ for(const tick of [0,10,20,30,40])svgEl("text",{x:x(tick),y:338,"text-anchor":"middle","font-size":12},root,String(tick));
+ const line=(data,col,dash)=>{const coords=data.map((p,i)=>(i===0?"M":"L")+x(p.k).toFixed(2)+","+y(p.v).toFixed(2)).join(" ");svgEl("path",{d:coords,fill:"none",stroke:col,"stroke-width":2.7,...(dash?{"stroke-dasharray":dash}:{})},root);};
+ line(stats.map(s=>({k:s.k,v:s.expected})),"#175caa","");
+ line(stats.map(s=>({k:s.k,v:s.observed})),"#d17500","7 5");
+ line(points.map(s=>({k:s.k,v:s.lossGap})),"#7837ad","3 5");
+ svgEl("text",{x:620,y:25,fill:"#175caa","font-size":13},root,"— 理論");
+ svgEl("text",{x:620,y:43,fill:"#aa5900","font-size":13},root,"-- 試行平均");
+ svgEl("text",{x:620,y:61,fill:"#7837ad","font-size":13},root,"·· 単一路径");
+}
+$("step").addEventListener("click",advance);
+$("play").addEventListener("click",()=>{if(!c||timer!==null)return;$("play").disabled=true;$("pause").disabled=false;timer=setInterval(advance,450);});
+$("pause").addEventListener("click",halt);
+$("reset").addEventListener("click",restart);
+keys.forEach(key=>$(key).addEventListener("change",restart));
+restart();
+</script>
+</body></html>

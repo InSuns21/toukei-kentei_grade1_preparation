@@ -1,0 +1,49 @@
+id: "GR10"
+title: "Einstein–Hilbert作用の変分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR9
+  - GR7
+  - GR6
+  - AMECH2
+official_scope: []
+learning_objectives:
+  - 逆計量と共変計量の変分の符号を逆行列の恒等式から導出できる
+  - Lorentz体積密度の座標不変性と変分公式を行列式から検算できる
+  - Levi-Civita接続の計量変分を捩率零と計量両立性から再導出できる
+  - Palatini恒等式を曲率の四項公式から示しRicci縮約の添字を追える
+  - スカラー曲率と体積の変分を統合しEinsteinテンソルと宇宙項の係数を導ける
+  - コンパクト台変分と境界での計量固定の違いを法線微分の例で説明できる
+  - 共形計量変分と一定曲率模型で係数・符号を独立に検算できる
+definitions:
+  - { id: GR10-DEF-01, name: 逆計量変分と跡 }
+  - { id: GR10-DEF-02, name: Lorentz体積密度 }
+  - { id: GR10-DEF-03, name: Einstein–Hilbert作用 }
+theorems:
+  - { id: GR10-PROP-01, name: 計量と逆計量の変分 }
+  - { id: GR10-PROP-02, name: 体積密度の変分 }
+  - { id: GR10-LEM-01, name: Levi-Civita接続の変分 }
+  - { id: GR10-LEM-02, name: Palatini恒等式 }
+  - { id: GR10-THM-01, name: Einstein–Hilbert作用の計量変分 }
+canonical_examples:
+  - Minkowski対角計量族で逆計量と体積密度の符号を直接検証
+  - Minkowskiで局所的な接続変分の添字と符号を確認
+  - コンパクト台の変分で発散項を積分消去
+  - 平坦時空の非一様な変分で局所曲率変化と全微分を区別
+  - 共形変分と一定曲率時空でEinsteinテンソルのトレースを検算
+problem_patterns:
+  - GR10-INVERSE-METRIC-SIGN
+  - GR10-LORENTZ-VOLUME-VARIATION
+  - GR10-CONNECTION-COMPONENTS
+  - GR10-PALATINI-CONTRACTION
+  - GR10-COSMOLOGICAL-SIGN
+  - GR10-CONFORMAL-TRACE
+  - GR10-BOUNDARY-DERIVATIVE
+  - GR10-CONSTANT-CURVATURE-VARIATION
+  - GR10-FLAT-LOCAL-DENSITY
+  - GR10-INTEGRATED-EH-VARIATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
