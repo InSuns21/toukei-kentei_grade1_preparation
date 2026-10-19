@@ -1,0 +1,37 @@
+chapter: GR13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR12
+  - GR3
+concepts:
+  - id: gravity.newtonian-weak-field-potential
+    name: 静的弱場のNewtonポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静的弱場のNewtonポテンシャル）"]
+    requires: [gravity.einstein-field-equation, gravity.four-acceleration]
+  - id: gravity.newtonian-slow-geodesic
+    name: 弱場・低速測地線のNewton加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（弱場・低速測地線のNewton加速度）"]
+    requires: [gravity.newtonian-weak-field-potential, gravity.proper-time-geodesic-variation]
+  - id: gravity.newtonian-poisson-limit
+    name: Newton極限のPoisson方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Newton極限のPoisson方程式）"]
+    requires: [gravity.newtonian-weak-field-potential, gravity.trace-reversed-einstein]
+  - id: gravity.newtonian-einstein-00
+    name: 等方的な弱場計量による00成分の検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等方的な弱場計量による00成分の検算）"]
+    requires: [gravity.newtonian-poisson-limit, gravity.einstein-tensor]
+  - id: gravity.newtonian-uniform-ball
+    name: 一様密度球のPoissonポテンシャル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一様密度球のPoissonポテンシャル）"]
+    requires: [gravity.newtonian-poisson-limit]

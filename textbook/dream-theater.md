@@ -1182,6 +1182,7 @@
 10. [GR10 Einstein–Hilbert作用の変分](textbook/volumes/dream_thater/物理系/GR/GR10/index.md)
 11. [GR11 境界条件とGibbons–Hawking–York項](textbook/volumes/dream_thater/物理系/GR/GR11/index.md)
 12. [GR12 Einstein場の方程式と保存則](textbook/volumes/dream_thater/物理系/GR/GR12/index.md)
+13. [GR13 Newton極限とPoisson方程式](textbook/volumes/dream_thater/物理系/GR/GR13/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
