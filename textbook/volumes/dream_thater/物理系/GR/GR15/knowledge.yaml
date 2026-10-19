@@ -1,0 +1,45 @@
+chapter: GR15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR6
+  - GR12
+  - GR13
+  - GR14
+concepts:
+  - id: gravity.spherical-local-metric
+    name: 球対称計量の局所一般形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球対称計量の局所一般形）"]
+    requires: [gravity.killing-field]
+  - id: gravity.areal-radius
+    name: 面積半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（面積半径）"]
+    requires: [gravity.spherical-local-metric]
+  - id: gravity.areal-radius-coordinate
+    name: 面積半径を座標にできる条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積半径を座標にできる条件）"]
+    requires: [gravity.areal-radius]
+  - id: gravity.static-spherical-diagonal-gauge
+    name: 静的球対称計量の対角化と面積半径ゲージ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的球対称計量の対角化と面積半径ゲージ）"]
+    requires: [gravity.areal-radius-coordinate, gravity.stationary-static-killing]
+  - id: gravity.static-spherical-christoffels
+    name: 静的球対称計量の接続係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的球対称計量の接続係数）"]
+    requires: [gravity.static-spherical-diagonal-gauge, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: gravity.static-spherical-ricci
+    name: 静的球対称計量の独立Ricci成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的球対称計量の独立Ricci成分）"]
+    requires: [gravity.static-spherical-christoffels, gravity.lorentz-ricci-curvature, gravity.einstein-field-equation]
