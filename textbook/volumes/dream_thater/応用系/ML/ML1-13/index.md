@@ -47,7 +47,24 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正解率・再現率・適合率・偽陽性率）**  
-> 二値混同行列の件数 $TP,FP,FN,TN$ と総数 $n>0$ に対し、正解率は $(TP+TN)/n$ とする。$TP+FN>0$ のとき再現率（感度）を $TP/(TP+FN)$、$TP+FP>0$ のとき適合率を $TP/(TP+FP)$、$FP+TN>0$ のとき偽陽性率を $FP/(FP+TN)$ と定める。$TN+FP>0$ のとき特異度を $TN/(TN+FP)=1-\text{偽陽性率}$ と定める。分母が0の指標はこの定義では未定義とする。
+> 二値混同行列の件数 $TP,FP,FN,TN$ と総数 $n>0$ に対し、正解率を次で定める。
+
+$$
+\text{正解率}=\frac{TP+TN}{n}.
+$$
+
+> 再現率（感度）、適合率、偽陽性率、特異度はそれぞれ次で定める。
+
+$$
+\begin{aligned}
+\text{再現率}&=\frac{TP}{TP+FN}&&(TP+FN>0),\\
+\text{適合率}&=\frac{TP}{TP+FP}&&(TP+FP>0),\\
+\text{偽陽性率}&=\frac{FP}{FP+TN}&&(FP+TN>0),\\
+\text{特異度}&=\frac{TN}{TN+FP}&&(TN+FP>0).
+\end{aligned}
+$$
+
+> 特異度は $1-\text{偽陽性率}$ に等しい。分母が0の指標はこの定義では未定義とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-13-classification-rates -->
@@ -102,7 +119,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ROC・PRの閾値点）**  
-> 二値ラベルをもつ評価標本に陽性と陰性が少なくとも1件ずつあり、固定得点 $s_i\in\mathbb R$ があるとする。各実数閾値 $t$ について $h_t(x_i)=\boldsymbol{1}_{\{s_i\ge t\}}$ で混同行列を作る。ROCの閾値点を $(FP/(FP+TN),TP/(TP+FN))$、PRの閾値点を $(TP/(TP+FN),TP/(TP+FP))$ とする。後者は $TP+FP>0$ の場合のみ定義する。
+> 二値ラベルをもつ評価標本に陽性と陰性が少なくとも1件ずつあり、各観測の固定得点 $s_i\in\mathbb R$ があるとする。実数閾値 $t$ を選び、分類器を次で定める。
+
+$$
+h_t(x_i)=\boldsymbol{1}_{\{s_i\ge t\}}.
+$$
+
+> この分類器の混同行列の件数を $TP,FP,FN,TN$ と書く。ROCの閾値点は
+
+$$
+\left(\frac{FP}{FP+TN},\frac{TP}{TP+FN}\right)
+$$
+
+> とする。$TP+FP>0$ の場合に限り、PRの閾値点を
+
+$$
+\left(\frac{TP}{TP+FN},\frac{TP}{TP+FP}\right)
+$$
+
+> とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-13-roc-pr -->
