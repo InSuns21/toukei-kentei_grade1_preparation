@@ -28,6 +28,7 @@ $$
 > と定める。微分 $\nabla_x$、$\Box_x$ は $x$ のみを動かす。$\sigma<0$、$\sigma=0$、$\sigma>0$ はそれぞれ測地線初速度の時間的・光的・空間的な因果型に対応する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-hpde13-world-function -->
 最小例としてMinkowski時空の $y=0$ を取れば
 
 $$
@@ -36,6 +37,7 @@ Z=t\partial_t+\sum_{i=1}^{d-1}x^i\partial_{x^i}.
 $$
 
 この例では $\sigma=0$ が通常の光円錐、$\sigma<0$ がその内部です。曲がった場合にも測地線の速度の因果型が保存されることは[測地線の因果型保存](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)によります。
+<!-- definition-example-end -->
 
 <a id="lem-hpde13-eikonal"></a>
 <!-- formal-statement-start -->
@@ -102,6 +104,7 @@ $$
 > を局所可積分関数が定める分布とする。$R_+(2)$ の式は円錐頂点を含め、[球面積分による分布定義](../HPDE12/index.md#thm-hpde12-three-dimensional)で解釈する。$R_-(2k)$ は時間反転した過去向きの系列である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-hpde13-riesz -->
 **定義の確認**。$k=1$ で $R_+(4)=H(t-|x|)/(8\pi)$、$k=2$ で $R_+(6)=qH(t-|x|)/(64\pi)$。前者は内部で定数、後者は内部で $q$ に比例し、いずれも円錐の内側で零ではありません。一方、$R_+(2)$ は円錐面上にしか台を持ちません。デルタの係数を確かめるには $r=|x|>0$ において
 
 $$
@@ -110,6 +113,7 @@ $$
 $$
 
 を使い、$H(t)$ により未来側だけを残します。頂点ではこの変形自体で定義したのではなく、先行章の球面積分に戻ります。
+<!-- definition-example-end -->
 
 <a id="thm-hpde13-riesz-recurrence"></a>
 <!-- formal-statement-start -->
@@ -234,29 +238,31 @@ $$
 > をvan Vleck–Morette因子とする。凸正規近傍では $\Delta>0$、対角上で $\Delta(y,y)=1$ である。$U_0(x,y)=\Delta(x,y)^{1/2}$ と書く。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-hpde13-van-vleck -->
 **定義の確認と判定への橋渡し**。混合二階微分の行列は、指数写像の微分が始点の初速度の変化を終点の変化へ写すことの双対表示です。したがって行列式の分子を計算する意味は、測地線束の広がりを体積で比較することにあります。凸正規近傍では指数写像の微分が可逆なので、行列式は零になりません。終点 $x$ を固定して測地線のエネルギーを始点 $y$ で変分すると、前の終点変分と同じ部分積分の始点境界項から
 
-$
+$$
 \partial_{y^{b'}}\sigma(x,y)=-g_{b'c'}(y)v^{c'}
-$
+$$
 
 を得ます。ここで $x$ の座標として $y$ を基点とする正規座標 $v^a$ を使えば、$\partial_{v^a}v^{c'}=\delta_a^{c'}$ です。従って混合二階微分行列は
 
-$
+$$
 -\partial_{v^a}\partial_{y^{b'}}\sigma=g_{b'a}(y),
-$
+$$
 
 その行列式の絶対値は $|\det g(y)|$ です。定義式の分母を同じ座標で評価して
 
-$
+$$
 \Delta(x,y)=\frac{|\det g(y)|}{\sqrt{|\det g(v)|}\sqrt{|\det g(y)|}}
 =J_y(v)^{-1},\qquad
 U_0(x,y)=J_y(v)^{-1/2}
-$
+$$
 
 を得ます。混合微分を「なぜ体積の逆Jacobianとして計算できるか」がここで具体的につながりました。
 
 Minkowski時空の直交座標なら $-\partial_x\partial_y\sigma=g$、$\sqrt{|\det g|}=1$、$J=1$ です。定義の分子・分母と正値性・対角値を個別に確かめると $\Delta=U_0=1$ となります。
+<!-- definition-example-end -->
 
 <a id="lem-hpde13-van-vleck-transport"></a>
 <!-- formal-statement-start -->
@@ -354,7 +360,9 @@ $$
 対角では $\Pi(y,y)=\operatorname{id}$ と $U_0(y,y)=1$。他の解 $W$ を取り、$A=V_0^{-1}W\in\operatorname{End}(E_y)$ として測地線上に制限すると、前の式を両者から引いて $s\,dA/ds=0$ が得られます。$A(0)=\operatorname{id}$ より $A(s)=\operatorname{id}$ です。$V_0$ の可逆性は $U_0>0$ と平行移動の可逆性によります。$\square$
 <!-- proof-end -->
 
+<!-- definition-example-start: def-hpde13-leading-coefficient -->
 **直接例**。平坦時空、$E=\mathbb R^r\times M$、通常微分接続なら $\Pi=\operatorname{id}$、$J=1$ なので $V_0=\operatorname{id}$。$Z$ に沿う導関数は零、$\Box\sigma=d$、対角値も恒等写像です。定義と輸送方程式の条件をすべて確認できます。
+<!-- definition-example-end -->
 
 ## 5. なぜ係数に輸送方程式が必要になるのか
 
@@ -489,6 +497,7 @@ $$
 滑らかな $W_k$ なら $s^kW_k(s)\to0$。$0$ から $1$ まで積分して表示式を得ます。逆にこの積分は滑らかな被積分関数を $s$ の固定区間で積分するので、$x,y$ に関して滑らかです。二つの解の差は $(s^kW)'=0$ を満たし、対角で有界だから積分定数は零となります。$x=y$ では $\int_0^1 s^{k-1}ds=1/k$、$T(y,y)=\operatorname{id}$ より対角公式が出ます。$\square$
 <!-- proof-end -->
 
+<!-- definition-example-start: def-hpde13-hadamard-coefficients -->
 **定義の確認**。Minkowski時空の自明な実スカラー束で $P=P_0+m^2$（$m^2\ge0$ は定数）とします。$T=1$、$\Box\sigma=4$、$P1=m^2$ なので輸送式は
 
 $$
@@ -502,6 +511,7 @@ V_k=(-m^2)^k.
 $$
 
 対角値、方程式、滑らかさをそれぞれ確認しました。質量零なら $V_k=0$（$k\ge1$）となり、平坦massless模型では内部補正が消えます。
+<!-- definition-example-end -->
 
 ## 6. 形式的Hadamard展開は、まだ基本解ではない
 
