@@ -36,6 +36,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（有限標本のROC AUC）"]
     requires: [learning.roc-pr-threshold-points]
+  - id: learning.roc-auc-trapezoid-equivalence
+    name: 順位式とROC台形面積の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（順位式とROC台形面積の一致）"]
+    requires: [learning.roc-auc-finite-ranking]
   - id: learning.binary-proper-scoring-rule
     name: 二値の適切な損失スコア
     kind: definition
