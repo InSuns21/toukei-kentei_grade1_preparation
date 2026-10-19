@@ -47,7 +47,7 @@ chapters:
     title: "有限伝播と依存領域の評価"
   - id: HPDE11
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE11
-    status: planned
+    status: completed
     title: "局所Cauchy問題の存在"
   - id: HPDE12
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE12
