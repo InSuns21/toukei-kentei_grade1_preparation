@@ -12,7 +12,11 @@ Newton理論では重力ポテンシャル $\Phi$ （単位 $\mathrm{m}^2/\mathr
 
 ある長さ $L>0$ の局所座標領域で、基準となるMinkowski計量との差が小さいとします。小ささを無次元量 $0<\epsilon\ll1$ で表し、$O(\epsilon^k)$ は $\epsilon\to0$ のとき対応する定数倍で抑えられる量を意味します。座標微分の大きさも必要です。たとえば計量のずれが $O(\epsilon)$ でも、非常に急に振動すれば曲率が小さいとは限りません。以下の $O$ 評価は、計量の一次・二次空間微分に対してそれぞれ $L^{-1},L^{-2}$ の尺度を掛けて解釈します。
 
-ここでNewtonポテンシャルを **計量の時間成分の一次のずれ**として読み取る約束を作ります。座標時刻と局所固有時の比を決めるのが $g_{00}$ であることは、[GR2の静的直交座標模型の時計係数](../GR2/index.md#def-gr2-static-clock-model)に対応します。
+ここでNewtonポテンシャルを **計量の時間成分の一次のずれ**として読み取る約束を作ります。座標基底 $\partial_\mu$ に対して $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ と書くと、$g_{00}$ は時間方向、$g_{0i}$ は時間・空間の交差項、$g_{ij}$ は空間方向の計量成分です。
+
+直交空間座標でのEuclid計量の成分を $\delta_{ij}$ と書きます。これは $i=j$ で1、それ以外で0です。したがって $g_{0i}=0$ は交差項がない条件、$g_{ij}=\delta_{ij}+O(\epsilon)$ は空間計量がEuclid計量に近い条件です。
+
+座標時刻と局所固有時の比を決める $g_{00}$ の役割は、[GR2の静的直交座標模型の時計係数](../GR2/index.md#def-gr2-static-clock-model)で既に見ました。
 
 <a id="def-gr13-newton-potential"></a>
 
@@ -31,13 +35,22 @@ $$
 計量の時間成分を使うのは、遅い粒子では時間方向の速度 $dx^0/dt=c$ が空間方向の速度より大きく、測地線の時間・時間項が支配的になるためです。逆に空間計量を厳密に $\delta_{ij}$ と置く定義ではありません。**$g_{ij}$ の一次補正は、Einsteinテンソルの00成分に寄与し得ます。** $\Phi$ に定数を足す自由度は、弱場での時間座標の再規格化に対応します。境界で $\Phi\to0$ などの基準を指定して初めて零点が定まります。
 
 <!-- definition-example-start: def-gr13-newton-potential -->
-**定義の確認**。 定数 $a>0$ と $L>0$ を取り、$|az|/c^2\le\epsilon/2$ の狭い領域で[GR1のRindler計量](../GR1/index.md#prop-gr1-rindler-metric)を使います。
+**定義の確認**。 定数 $a>0$ と $L>0$ を取り、$|az|/c^2\le\epsilon/2$ の狭い領域で[GR1のRindler計量](../GR1/index.md#prop-gr1-rindler-metric)を使います。同命題の時間座標 $\eta$ を $t$、加速方向 $\xi$ を $z$ と読み替え、残りの二つの直交方向を $x,y$ と名付けます。
 
 $$
 ds^2=-\left(1+\frac{az}{c^2}\right)^2(dx^0)^2+dx^2+dy^2+dz^2.
 $$
 
-展開すると $g_{00}=-1-2az/c^2-(az/c^2)^2$ なので $\Phi=az$ を選べます。$g_{0i}=0$、$g_{ij}=\delta_{ij}$、$\partial_z\Phi=a$、$\partial_i\partial_j\Phi=0$、$\epsilon$ の二次誤差は $(az/c^2)^2$ です。$aL/c^2=O(\epsilon)$ の範囲なら一次微分と二次微分の評価も満たします。例えば静止していない粒子で $|v|/c=O(\sqrt\epsilon)$ を選べば速度の条件も満たします。計量がLorentz型であることは $1+az/c^2>0$ と対角成分の符号から分かります。
+線素の $(dx^0)^2$ の係数が $g_{00}$ です。定義の $g_{00}+1=-2\Phi/c^2+O(\epsilon^2)$ と突き合わせると
+
+$$
+g_{00}+1=-\frac{2az}{c^2}-\left(\frac{az}{c^2}\right)^2,
+\qquad
+-\frac{c^2}{2}(g_{00}+1)
+=az+\frac{a^2z^2}{2c^2}.
+$$
+
+よって一次の項から $\Phi=az$ を選べ、残りの $(az/c^2)^2$ が二次誤差です。交差項がないので $g_{0i}=0$、空間方向の各係数が1なので $g_{ij}=\delta_{ij}$ です。また $\partial_z\Phi=a$、他の一階微分とすべての二階微分は零です。$aL/c^2=O(\epsilon)$ とすれば $|\partial_z\Phi|/c^2=O(\epsilon/L)$ であり、二次誤差の一階・二階微分もそれぞれ $O(\epsilon^2/L)$、$O(\epsilon^2/L^2)$ に収まります。例えば静止していない粒子で $|v|/c=O(\sqrt\epsilon)$ を選べば速度の条件も満たします。計量がLorentz型であることは $1+az/c^2>0$ と対角成分の符号から分かります。
 
 この例は**平坦時空の加速座標**です。$\Phi$ が空間で変化しても、曲率や物質の存在までは結論できません。ポテンシャルの勾配が加速度を生み、二階微分が潮汐と関係する違いを後で使います。
 <!-- definition-example-end -->
@@ -308,10 +321,22 @@ $$
 -\partial_i\Phi=-\frac{GMx^i}{r^3}.
 $$
 
-球対称関数 $f(r)$ のLaplacianは、$\partial_i f=f'(r)x^i/r$ をもう一度微分して足すと
+球対称関数 $f(r)$ のLaplacianは、$r>0$ で連鎖律を二回使って導けます。$r^2=\sum_i(x^i)^2$ から $\partial_i r=x^i/r$ なので、
 
 $$
-\Delta f=f''(r)+\frac2r f'(r)
+\begin{aligned}
+\partial_i f&=f'(r)\frac{x^i}{r},\\
+\partial_i^2 f
+&=f''(r)\frac{(x^i)^2}{r^2}
++f'(r)\left(\frac1r-\frac{(x^i)^2}{r^3}\right).
+\end{aligned}
+$$
+
+$i=1,2,3$ で和を取り、$\sum_i(x^i)^2=r^2$ を代入すると
+
+$$
+\Delta f=f''(r)+\left(\frac3r-\frac{r^2}{r^3}\right)f'(r)
+=f''(r)+\frac2r f'(r)
 =\frac1{r^2}\frac{d}{dr}\left(r^2f'(r)\right).
 $$
 
@@ -348,7 +373,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-内側では $(r^2\Phi')'=4\pi G\rho_0r^2$ を積分して $r^2\Phi'=4\pi G\rho_0r^3/3+C$。中心で有限であるため $C=0$ です。従って $\Phi'=(4\pi G\rho_0/3)r=(GM/R^3)r$ となり、
+内側では球対称Laplacianにより $(r^2\Phi')'=4\pi G\rho_0r^2$ です。$0<r<R$ で積分すると
+
+$$
+r^2\Phi'=\frac{4\pi G\rho_0}{3}r^3+C,
+\qquad
+\Phi(r)=\frac{2\pi G\rho_0}{3}r^2-\frac{C}{r}+A.
+$$
+
+もし $C\ne0$ なら $-C/r$ が中心で発散するので、$\Phi(0)$ が有限であるという条件から $C=0$ です。$\rho_0=3M/(4\pi R^3)$ を代入して $\Phi'=(4\pi G\rho_0/3)r=(GM/R^3)r$ となり、
 
 $$
 \Phi_{\rm in}(r)=\frac{GM}{2R^3}r^2+A.
@@ -357,7 +390,24 @@ $$
 外側では $(r^2\Phi')'=0$ なので $\Phi_{\rm out}(r)=B+C_1/r$。無限遠条件から $B=0$。$r=R$ で法線微分を合わせると $\Phi'_{\rm in}(R)=GM/R^2$ と $\Phi'_{\rm out}(R)=-C_1/R^2$ なので $C_1=-GM$。値の連続性から $GM/(2R)+A=-GM/R$、よって $A=-3GM/(2R)$ です。各領域に代入すると、内側は $\Delta\Phi=3GM/R^3=4\pi G\rho_0$、外側は $\Delta\Phi=0$ となり、条件をすべて満たします。$\square$
 <!-- proof-end -->
 
-この球模型では物質を静止させる圧力勾配が必要です。[GR8の完全流体の静的つり合い](../GR8/index.md#prop-gr8-hydrostatic-lapse)を弱場で展開すれば $dp/dr\simeq-\rho_0\Phi'(r)$。表面で $p(R)=0$ なら $p(r)\simeq \rho_0GM(R^2-r^2)/(2R^3)$ です。最大圧力比は $p(0)/(\rho_0c^2)=GM/(2Rc^2)\ll1$ なら小さく、低圧近似と矛盾しません。
+この球模型では物質を静止させる圧力勾配が必要です。[GR8の完全流体の静的つり合い](../GR8/index.md#prop-gr8-hydrostatic-lapse)では、時計係数 $N>0$ の静止流体について $p'=-(\varepsilon_m+p)(\ln N)'$ が得られます。静止四元速度 $u^\mu=(c/N,0,0,0)$ と $u_0=-Nc$ を用い、静的計量の接続係数 $\Gamma^0_{0i}=\partial_i\ln N$ を代入すると、
+
+$$
+u^\nu\nabla_\nu u_i
+=-u^0\Gamma^0_{0i}u_0
+=-\frac cN(\partial_i\ln N)(-Nc)
+=c^2\partial_i\ln N
+$$
+
+です。したがって $\nabla_\mu T^{\mu i}=0$ の空間成分を空間計量で添字を下げれば、上の圧力平衡式が得られます。空間計量に一次補正があってもこの式の形は変わりません。弱場では
+
+$$
+N=\sqrt{-g_{00}}=1+\frac{\Phi}{c^2}+O(\epsilon^2),
+\qquad
+(\ln N)'=\frac{\Phi'}{c^2}+O(\epsilon^2/L).
+$$
+
+$\varepsilon_m=\rho_0c^2\{1+O(\epsilon)\}$、$p/(\rho_0c^2)=O(\epsilon)$ として一次の運動方程式を抜き出せば、$p'=-\rho_0\Phi'+O(\epsilon^2\rho_0c^2/L)$ です。したがって $p(R)=0$ から $p(r)\simeq\rho_0GM(R^2-r^2)/(2R^3)$ となります。最大圧力比は $p(0)/(\rho_0c^2)=GM/(2Rc^2)\ll1$ なら小さく、低圧近似と矛盾しません。
 
 ### 4.1 圧力と宇宙項はいつ落とせるか
 
@@ -450,7 +500,37 @@ $r>0$ で $\Phi=-GM/r$ とする。$\partial_i(1/r)$、$\Delta\Phi$、半径 $r$
 静的計量 $g_{00}=-(1+2\varphi)$、$g_{ij}=(1-2\varphi)\delta_{ij}$、$g_{0i}=0$ を一次まで考える。$\Gamma^k_{ij}$、$R_{ij}$、$G_{00}$ を導け。ただし $\varphi=\Phi/c^2=O(\epsilon)$ で微分の積は二次として捨てる。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_i g_{jk}=-2(\partial_i\varphi)\delta_{jk}$ を接続式へ入れ、$g^{k\ell}=\delta^{k\ell}+O(\epsilon)$ として $\Gamma^k_{ij}=-\delta^k_i\varphi_j-\delta^k_j\varphi_i+\delta_{ij}\varphi_k$。その微分は $\partial_k\Gamma^k_{ij}=-2\varphi_{ij}+\delta_{ij}\Delta\varphi$ です。$\Gamma^0_{i0}=\varphi_i$、$\sum_k\Gamma^k_{ik}=-3\varphi_i$ より $\Gamma^\alpha_{i\alpha}=-2\varphi_i$。従って $R_{ij}=\partial_k\Gamma^k_{ij}-\partial_j\Gamma^\alpha_{i\alpha}=\delta_{ij}\Delta\varphi$。一方 $R_{00}=\Delta\varphi$ なので $\mathcal R=-\Delta\varphi+3\Delta\varphi=2\Delta\varphi$。よって $G_{00}=R_{00}-g_{00}\mathcal R/2=\Delta\varphi+\Delta\varphi=2\Delta\varphi$ です。二次項は一様に $O(\epsilon^2/L^2)$ として省略しました。
+**詳細解答。** [Levi-Civita接続の成分公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)に $\partial_i g_{jk}=-2(\partial_i\varphi)\delta_{jk}$ と $g^{k\ell}=\delta^{k\ell}+O(\epsilon)$ を入れます。$\varphi_i:=\partial_i\varphi$ と略記すると、
+
+$$
+\begin{aligned}
+\Gamma^k_{ij}
+&=\frac12\delta^{k\ell}
+(-2\varphi_i\delta_{j\ell}-2\varphi_j\delta_{i\ell}
++2\varphi_\ell\delta_{ij})+O(\epsilon^2/L)\\
+&=-\delta^k_i\varphi_j-\delta^k_j\varphi_i+\delta_{ij}\varphi_k+O(\epsilon^2/L),\\
+\partial_k\Gamma^k_{ij}
+&=-2\varphi_{ij}+\delta_{ij}\Delta\varphi+O(\epsilon^2/L^2),\\
+\Gamma^\alpha_{i\alpha}
+&=\Gamma^0_{i0}+\sum_k\Gamma^k_{ik}
+=\varphi_i-3\varphi_i+O(\epsilon^2/L)=-2\varphi_i+O(\epsilon^2/L).
+\end{aligned}
+$$
+
+[GR6のRicci成分の式](../GR6/index.md#prop-gr6-coordinate-curvature)で一次の接続積を捨てると、
+
+$$
+\begin{aligned}
+R_{ij}
+&=\partial_k\Gamma^k_{ij}-\partial_j\Gamma^\alpha_{i\alpha}
++O(\epsilon^2/L^2)\\
+&=(-2\varphi_{ij}+\delta_{ij}\Delta\varphi)
+-(-2\varphi_{ij})+O(\epsilon^2/L^2)\\
+&=\delta_{ij}\Delta\varphi+O(\epsilon^2/L^2).
+\end{aligned}
+$$
+
+一方 $R_{00}=\Delta\varphi+O(\epsilon^2/L^2)$ なので、$\mathcal R=g^{00}R_{00}+g^{ij}R_{ij}=-\Delta\varphi+3\Delta\varphi+O(\epsilon^2/L^2)=2\Delta\varphi+O(\epsilon^2/L^2)$。[Einsteinテンソルの定義](../GR7/index.md#def-gr7-einstein-tensor)に代入し、$G_{00}=R_{00}-g_{00}\mathcal R/2=2\Delta\varphi+O(\epsilon^2/L^2)$ と得ます。
 <!-- solution-end -->
 
 <a id="ex-gr13-b03"></a>
