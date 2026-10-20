@@ -206,12 +206,12 @@ $$
 
 線形得点 $w^{\mathsf T}x+b$ では、$x=(\pm1,\pm1)$ の4点に $y=x_1x_2$ を与えたXOR配置を正しく分類できない。本講の[同点規則](#def-ml1-17-svm-prediction)では、正例 $(1,1),(-1,-1)$ の得点が正、負例 $(1,-1),(-1,1)$ の得点が **0以下** でなければならない。しかし線形得点なら、正例2点の得点和と負例2点の得点和はともに $2b$ なので、
 
-$
+$$
 \begin{aligned}
 g(1,1)+g(-1,-1)&=2b>0,\\
 g(1,-1)+g(-1,1)&=2b\le0
 \end{aligned}
-$
+$$
 
 が同時に必要となり矛盾する。得点0の負例も含めて排除できている。
 
@@ -231,22 +231,22 @@ $$
 
 は、定数項・一次項・二次項を別々の座標に並べた6次元の特徴ベクトルである。実際にその内積を展開すると
 
-$
+$$
 \begin{aligned}
 \phi_\gamma(x)^{\mathsf T}\phi_\gamma(z)
 &=1+2\gamma(x_1z_1+x_2z_2)\\
 &\quad+\gamma^2(x_1^2z_1^2+2x_1x_2z_1z_2+x_2^2z_2^2)\\
 &=(1+\gamma x^{\mathsf T}z)^2=K_\gamma(x,z).
 \end{aligned}
-$
+$$
 
 したがって有限点列 $x_1,\ldots,x_m$ について、Gram行列 $G=(K_\gamma(x_i,x_j))_{i,j=1}^m$ は特徴ベクトル同士の内積を並べた行列である。任意の $c=(c_1,\ldots,c_m)^{\mathsf T}\in\mathbb R^m$ に対して
 
-$
+$$
 c^{\mathsf T}Gc
 =\sum_{i,j=1}^m c_ic_j\phi_\gamma(x_i)^{\mathsf T}\phi_\gamma(x_j)
 =\left\|\sum_{i=1}^m c_i\phi_\gamma(x_i)\right\|_2^2\ge0.
-$
+$$
 
 これは Gram 行列の半正定値性を定義どおり確認したもので、[カーネルトリックの定義](../../RKHS/RKHS5/index.md#def-rkhs5-kernel-trick)に必要な特徴空間内積との対応でもある。単なる類似度を根拠なく核として使ってはならない。
 
@@ -304,11 +304,11 @@ $C\ge1/(8\gamma^2)$ なら $a=1/(8\gamma^2)$ で全偏導関数が0。$C<1/(8\ga
 
 $a<C$ なら $a=1/(8\gamma^2)$ なので $t_i=1$、$\xi_i=0$ である。一方 $a=C$ なら $t_i=8C\gamma^2\le1$ で、$\xi_i=1-t_i\ge0$ となる。いずれも
 
-$
+$$
 t_i=1-\xi_i,\qquad
 \alpha_i(1-\xi_i-t_i)=0,\qquad
 \beta_i\xi_i=0
-$
+$$
 
 が成り立つ。主実行可能性、$w$ の表示、$C-\alpha_i-\beta_i=0$ も確認できたので、[RKHS5のKKT条件](../../RKHS/RKHS5/index.md#thm-rkhs5-kkt)を満たす。ここで $w=b=0$、$\xi_i=2$ を選べば $t_i=0>1-\xi_i=-1$、$\xi_i>0$ と厳密実行可能点があるため、同章の強双対性の仮定も満たす。よって主問題でも最適である。$\square$
 <!-- proof-end -->
