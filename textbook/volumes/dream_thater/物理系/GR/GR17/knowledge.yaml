@@ -1,0 +1,38 @@
+chapter: GR17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR4
+  - GR14
+  - GR16
+concepts:
+  - id: gravity.schwarzschild-static-clock-rate
+    name: Schwarzschild静止時計の固有時率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild静止時計の固有時率）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.schwarzschild-static-domain, gravity.metric-coordinate-invariance]
+  - id: gravity.schwarzschild-gravitational-redshift
+    name: Schwarzschild静止観測者間の重力赤方偏移
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschild静止観測者間の重力赤方偏移）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.killing-geodesic-charge, gravity.observer-measured-components, gravity.schwarzschild-static-domain]
+  - id: gravity.static-observer-redshift-parameter
+    name: 静止観測者間の赤方偏移量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止観測者間の赤方偏移量）"]
+    requires: [gravity.schwarzschild-gravitational-redshift]
+  - id: gravity.schwarzschild-clock-frequency-reciprocity
+    name: 静止時計と光の周波数の相反する比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止時計と光の周波数の相反する比）"]
+    requires: [gravity.schwarzschild-static-clock-rate, gravity.schwarzschild-gravitational-redshift, gravity.static-observer-redshift-parameter]
+  - id: gravity.schwarzschild-redshift-weak-field
+    name: 弱場の静止時計・重力赤方偏移
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（弱場の静止時計・重力赤方偏移）"]
+    requires: [gravity.schwarzschild-gravitational-redshift, gravity.schwarzschild-static-clock-rate, gravity.newtonian-weak-field-potential]
