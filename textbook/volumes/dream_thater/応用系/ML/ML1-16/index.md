@@ -685,7 +685,30 @@ $0<\varepsilon<1$ のとき $g(a)=(1-\varepsilon)e^{-a}+\varepsilon e^a$ の唯�
 <!-- solution-start -->
 #### 詳細解答
 
-$g'(a)=-(1-\varepsilon)e^{-a}+\varepsilon e^a$、$g''(a)=(1-\varepsilon)e^{-a}+\varepsilon e^a>0$。$g'(a)=0$ より $e^{2a}=(1-\varepsilon)/\varepsilon$、したがって $a^*=\tfrac12\log((1-\varepsilon)/\varepsilon)$ が唯一の最小点。代入すれば $(1-\varepsilon)\sqrt{\varepsilon/(1-\varepsilon)}+\varepsilon\sqrt{(1-\varepsilon)/\varepsilon}=2\sqrt{\varepsilon(1-\varepsilon)}$。$\varepsilon=3/4$ では $a^*=\tfrac12\log(1/3)<0$。符号を反転した木なら重み付き誤りは $1/4$ となる。
+導関数を計算すると
+
+$
+g'(a)=-(1-\varepsilon)e^{-a}+\varepsilon e^a,\qquad
+g''(a)=(1-\varepsilon)e^{-a}+\varepsilon e^a>0.
+$
+
+停留条件 $g'(a)=0$ を解くと
+
+$
+\varepsilon e^a=(1-\varepsilon)e^{-a}
+\iff e^{2a}=\frac{1-\varepsilon}{\varepsilon}
+\iff a^*=\frac12\log\frac{1-\varepsilon}{\varepsilon}.
+$
+
+厳密凸性により、これが唯一の大域最小点である。$e^{a^*}=\sqrt{(1-\varepsilon)/\varepsilon}$ を代入すれば
+
+$
+g(a^*)=(1-\varepsilon)\sqrt{\frac{\varepsilon}{1-\varepsilon}}
++\varepsilon\sqrt{\frac{1-\varepsilon}{\varepsilon}}
+=2\sqrt{\varepsilon(1-\varepsilon)}.
+$
+
+$\varepsilon=3/4$ では $a^*=\tfrac12\log(1/3)<0$。符号を反転した木なら重み付き誤りは $1/4$ となり、正の係数を使える。
 <!-- solution-end -->
 
 ### ML1-16-B02 2反復の重みと訓練誤り
@@ -750,7 +773,30 @@ $y=(1,3)$、初期得点0、候補回帰器の値は $h=(1,1)$、縮小係数は
 <!-- solution-start -->
 #### 詳細解答
 
-残差 $r=(1,3)$、内積 $C=1+3=4$、二乗和 $S=1+1=2$、$n=2$。よって[残差の命題](#prop-ml1-16-residual-decrease)から $\gamma=C/S=2$。更新得点は $(\nu\gamma,\nu\gamma)=(1,1)$。更新前 $R=(1^2+3^2)/(2\cdot2)=5/2$、更新後は $(0^2+2^2)/4=1$。理論上の減少量は $(2\nu-\nu^2)C^2/(2nS)=(1-1/4)\cdot16/8=3/2$。直接差 $5/2-1=3/2$ と一致する。
+$n=2$、残差は $r=(1,3)$ である。回帰器が両点で1を返すことから
+
+$
+C=1\cdot1+3\cdot1=4,\qquad
+S=1^2+1^2=2>0,\qquad
+\gamma^*=\frac CS=2.
+$
+
+最後の等式は[残差方向の最適係数](#prop-ml1-16-residual-decrease)による。縮小更新後の得点は $(\nu\gamma^*,\nu\gamma^*)=(1,1)$ なので、二つの損失を直接計算すると
+
+$
+R(F)=\frac{1^2+3^2}{2\cdot2}=\frac52,\qquad
+R(F_{\rm next})=\frac{(1-1)^2+(3-1)^2}{4}=1.
+$
+
+一方、減少公式へ代入すると
+
+$
+\frac{(2\nu-\nu^2)C^2}{2nS}
+=\frac{(1-1/4)\cdot16}{2\cdot2\cdot2}
+=\frac32=\frac52-1.
+$
+
+よって直接計算と一般公式が一致する。
 <!-- solution-end -->
 
 ### ML1-16-C01 指数損失・マージン・二乗損失を統合する
@@ -765,11 +811,50 @@ $y=(1,3)$、初期得点0、候補回帰器の値は $h=(1,1)$、縮小係数は
 <!-- solution-start -->
 #### 詳細解答
 
-**(1)** 誤り重みは第3点の $1/6$ なので $\varepsilon=1/6$。係数は $\alpha=\tfrac12\log((5/6)/(1/6))=\tfrac12\log5$、$Z=2\sqrt{(1/6)(5/6)}=\sqrt5/3$。正解点は $1/\{2(1-\varepsilon)\}=3/5$ 倍なので $(1/10,3/10,\cdot,1/10)$、誤りの第3点は $1/\{2\varepsilon\}=3$ 倍なので $1/2$。よって次の重みは $(1/10,3/10,1/2,1/10)$、和は1。
+**(1)** 第3点だけを誤るので $\varepsilon=1/6$ である。[指数損失の一段最小化](#thm-ml1-16-optimal-stage)の係数と正規化定数は
+
+$
+\alpha=\frac12\log\frac{5/6}{1/6}=\frac12\log5,\qquad
+Z=2\sqrt{\frac16\cdot\frac56}=\frac{\sqrt5}{3}.
+$
+
+正解点と誤り点の更新倍率はそれぞれ
+
+$
+\frac{e^{-\alpha}}Z=\frac1{2(1-\varepsilon)}=\frac35,\qquad
+\frac{e^\alpha}Z=\frac1{2\varepsilon}=3.
+$
+
+元の各重みに掛けて
+
+$
+w_{\rm next}
+=\left(\frac16\cdot\frac35,\frac12\cdot\frac35,
+\frac16\cdot3,\frac16\cdot\frac35\right)
+=\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right).
+$
+
+合計は $1/10+3/10+1/2+1/10=1$ となる。
 
 **(2)** [低マージン割合の命題](#prop-ml1-16-margin-bound)に $\theta=0.1,A_T=2$ を代入し、割合は $e^{0.1\cdot2}\prod_tZ_t=0.18e^{0.2}$ 以下（約0.220）である。母集団確率への上界ではない。
 
-**(3)** 残差と回帰器の内積は $C=1+2+(-1)\cdot0=3$、二乗和は $S=1+1+0=2$、$n=3$。最適 $\gamma=C/S=3/2$。縮小係数を入れた減少量は[残差の命題](#prop-ml1-16-residual-decrease)により $(2\cdot\tfrac12-\tfrac14)\cdot9/(2\cdot3\cdot2)=\tfrac34\cdot\tfrac34=9/16$。AdaBoostは符号分類器の指数損失と重み付き誤りに基づき係数を決めるのに対し、こちらは数値残差の二乗を最小化する係数を求めてから縮小する。二つの係数公式を交換して使うことはできない。
+**(3)** $n=3$ で残差 $r=(1,2,-1)$、回帰器の値 $h=(1,1,0)$ を使う。係数を計算すると
+
+$
+C=1\cdot1+2\cdot1+(-1)\cdot0=3,\qquad
+S=1^2+1^2+0^2=2>0,\qquad
+\gamma^*=\frac CS=\frac32.
+$
+
+[残差方向の減少公式](#prop-ml1-16-residual-decrease)に $\nu=1/2$ を代入すると
+
+$
+R(F)-R(F+\nu\gamma^*h)
+=\frac{(2\cdot\frac12-\frac14)\cdot3^2}{2\cdot3\cdot2}
+=\frac34\cdot\frac34=\frac9{16}.
+$
+
+AdaBoostは符号分類器の指数損失と重み付き誤りに基づいて係数を決める。これに対し、残差加法更新は数値残差の二乗を最小化する係数を求め、さらに縮小する。従って二つの係数公式を交換してはならない。
 <!-- solution-end -->
 
 ## まとめ
