@@ -399,6 +399,7 @@
 12. [HPDE12 Minkowskiの先進・遅延基本解](textbook/volumes/dream_thater/解析系/HPDE/HPDE12/index.md)
 13. [HPDE13 Hadamard係数とtransport方程式](textbook/volumes/dream_thater/解析系/HPDE/HPDE13/index.md)
 14. [HPDE14 局所parametrixの誤差補正](textbook/volumes/dream_thater/解析系/HPDE/HPDE14/index.md)
+15. [HPDE15 局所解から大域解への貼り合わせ](textbook/volumes/dream_thater/解析系/HPDE/HPDE15/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
