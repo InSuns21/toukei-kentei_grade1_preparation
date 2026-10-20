@@ -57,7 +57,7 @@ $$
 です。実際に $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ に代入すると、一次の二項が相殺します。
 
 <!-- definition-example-start: def-gr21-linear-perturbation -->
-**定義の確認（対角の小さな変化）。** 定数 $a$ について $h_{00}=-2\epsilon a$、他成分が零の例を考えます。$h_{\mu\nu}$ は対称で、微分は零、$g_{00}=-1-2\epsilon a<0$（$|\epsilon a|$ が小さいとき）なので、計量はLorentz型です。背景による跡は $h=\eta^{00}h_{00}=2\epsilon a$、上げた成分は $h^{00}=-2\epsilon a$ です。一方、厳密な逆成分は $g^{00}=-(1+2\epsilon a)^{-1}=-1+2\epsilon a+O(\epsilon^2)$。これが $\eta^{00}-h^{00}$ と一致し、定義中の「背景で添字を上げる」操作と「全計量を逆にする」操作の差が確認できます。
+**定義の確認**（対角の小さな変化）。 定数 $a$ について $h_{00}=-2\epsilon a$、他成分が零の例を考えます。$h_{\mu\nu}$ は対称で、微分は零、$g_{00}=-1-2\epsilon a<0$（$|\epsilon a|$ が小さいとき）なので、計量はLorentz型です。背景による跡は $h=\eta^{00}h_{00}=2\epsilon a$、上げた成分は $h^{00}=-2\epsilon a$ です。一方、厳密な逆成分は $g^{00}=-(1+2\epsilon a)^{-1}=-1+2\epsilon a+O(\epsilon^2)$。これが $\eta^{00}-h^{00}$ と一致し、定義中の「背景で添字を上げる」操作と「全計量を逆にする」操作の差が確認できます。
 <!-- definition-example-end -->
 
 ## 2. 接続から一次曲率まで計算する
@@ -274,7 +274,7 @@ $$
 微小座標変換の符号は、ここで $x'=x+\xi$ と約束したことによります。$x'=x-\xi$ を採れば変化の符号も反転しますが、曲率が不変という結論は同じです。
 
 <!-- definition-example-start: def-gr21-gauge-equivalence -->
-**定義の確認（揺れて見える平坦計量）。** $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。滑らかで、$\xi^1=O(\epsilon L)$、$\partial_0\xi_1=\epsilon\cos(x^0/L)$ です。$h=0$ から変換すると
+**定義の確認**（揺れて見える平坦計量）。 $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。滑らかで、$\xi^1=O(\epsilon L)$、$\partial_0\xi_1=\epsilon\cos(x^0/L)$ です。$h=0$ から変換すると
 
 $$
 h'_{01}=h'_{10}=-\epsilon\cos(x^0/L),
@@ -359,7 +359,7 @@ $$
 従って逆変換は $h_{\mu\nu}=\bar h_{\mu\nu}-\eta_{\mu\nu}\bar h/2$。**4次元ではトレース反転を二回行うと元へ戻る**という構造です。
 
 <!-- definition-example-start: def-gr21-trace-reverse -->
-**定義の確認（時間成分だけが残る例）。** $\varphi=\Phi/c^2$ を小さい静的関数とし、$h_{00}=-2\varphi$、$h_{0i}=0$、$h_{ij}=-2\varphi\delta_{ij}$ とします。跡は $h=2\varphi-6\varphi=-4\varphi$ です。すると
+**定義の確認**（時間成分だけが残る例）。 $\varphi=\Phi/c^2$ を小さい静的関数とし、$h_{00}=-2\varphi$、$h_{0i}=0$、$h_{ij}=-2\varphi\delta_{ij}$ とします。跡は $h=2\varphi-6\varphi=-4\varphi$ です。すると
 
 $$
 \bar h_{00}=-2\varphi-\frac12(-1)(-4\varphi)=-4\varphi,
@@ -455,7 +455,7 @@ $$
 条件は四つの方程式です。元の対称摂動は十成分を持ちますが、四条件を課しただけで独立な物理成分が六つと確定するわけではありません。条件を保つ変換がまだ残ります。
 
 <!-- definition-example-start: def-gr21-harmonic-gauge -->
-**定義の確認（静的Newton模型）。** 前節の $\bar h_{00}=-4\Phi/c^2$、$\bar h_{0i}=\bar h_{ij}=0$ を用い、$\partial_0\Phi=0$ とします。$\nu=0$ のとき $\partial^\mu\bar h_{\mu0}=-\partial_0\bar h_{00}=0$、$\nu=i$ のときすべての $\bar h_{\mu i}=0$ なので零です。四条件を個別に検証でき、静的であることが使用された位置も明確です。
+**定義の確認**（静的Newton模型）。 前節の $\bar h_{00}=-4\Phi/c^2$、$\bar h_{0i}=\bar h_{ij}=0$ を用い、$\partial_0\Phi=0$ とします。$\nu=0$ のとき $\partial^\mu\bar h_{\mu0}=-\partial_0\bar h_{00}=0$、$\nu=i$ のときすべての $\bar h_{\mu i}=0$ なので零です。四条件を個別に検証でき、静的であることが使用された位置も明確です。
 <!-- definition-example-end -->
 
 <a id="thm-gr21-linear-wave"></a>
