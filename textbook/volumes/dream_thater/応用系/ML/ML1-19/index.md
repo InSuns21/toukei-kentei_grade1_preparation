@@ -50,11 +50,11 @@ $$
 
 正規直交な $q$ 本の方向 $w_1,\ldots,w_q$ を列に並べた行列を $W_q=(w_1,\ldots,w_q)$ とする。行列の跡 $\operatorname{tr}$ は対角成分の和を表すので、各方向の標本分散の合計は
 
-$
+$$
 \operatorname{tr}(W_q^{\mathsf T}CW_q)
 =\sum_{k=1}^q w_k^{\mathsf T}Cw_k
 =\frac1{n-1}\sum_{k=1}^q\|Xw_k\|_2^2
-$
+$$
 
 となる。この量を最大化するのは、各方向へ投影した偏差平方和をできるだけ多く残すためである。$q=0$ なら空和を0とする。
 
@@ -82,10 +82,10 @@ $$
 
 さらに任意の $z\in\mathbb R^p$ について
 
-$
+$$
 W_q^{\mathsf T}(z-W_qW_q^{\mathsf T}z)
 =W_q^{\mathsf T}z-I_qW_q^{\mathsf T}z=0
-$
+$$
 
 となる。したがって残差は選んだ列空間の全方向に直交し、$W_qW_q^{\mathsf T}z$ は元の点からその空間に下ろした垂線の足になっている。$T_q$ の行は観測ごとの低次元座標であり、$\widehat A_q$ では平均を必ず戻す。
 
@@ -274,19 +274,19 @@ $$
 
 $X=\sum_{j=1}^r s_ju_jv_j^{\mathsf T}$ を $PX$ に代入する。右特異ベクトルの直交性によって交差項が消えるため、
 
-$
+$$
 \|PX\|_F^2=\sum_{j=1}^r s_j^2\|Pu_j\|_2^2
-$
+$$
 
 となる。$t_j=\|Pu_j\|_2^2$ と置くと、直交射影は長さを増やさないので $0\le t_j\le1$。さらに $u_1,\ldots,u_r$ を $\mathbb R^n$ の正規直交基底 $u_1,\ldots,u_n$ まで延長すると、
 
-$
+$$
 \sum_{j=1}^r t_j
 \le\sum_{j=1}^n\|Pu_j\|_2^2
 =\sum_{j=1}^n u_j^{\mathsf T}Pu_j
 =\operatorname{tr}P
 =\operatorname{rank}P\le q.
-$
+$$
 
 最後の等号では、$P^2=P=P^{\mathsf T}$ の固有値が0または1であり、その1の個数が像の次元であることを使った。
 
@@ -487,13 +487,13 @@ $$
 
 この行列を二つの独立な方向へ作用させると、
 
-$
+$$
 \begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}
 =3\begin{pmatrix}1\\1\end{pmatrix},
 \qquad
 \begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}
 =\begin{pmatrix}1\\-1\end{pmatrix}.
-$
+$$
 
 このため固有値は $3,1$、最大固有値の単位固有ベクトルは $v_1=(1,1)^{\mathsf T}/\sqrt2$ である。得点 $Xv_1=(1/\sqrt2,1/\sqrt2,-\sqrt2)^{\mathsf T}$ だから、各得点へ $v_1^{\mathsf T}$ を掛けて
 
