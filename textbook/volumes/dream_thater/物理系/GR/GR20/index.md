@@ -44,7 +44,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr20-coordinate-flight-time -->
-**定義の確認**。 $r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。[GR17の静止時計の固有時換算](../GR17/index.md#prop-gr17-static-clock)と同じように計量を代入すると $ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2$ なので $d\tau_A=\sqrt{f(r_A)}\,dt$。例えば $r_A=4r_s$ なら同じ座標時間 $T$ に対して時計の経過は $\sqrt{3/4}\,T$ です。座標時間と固有時を取り違えないための確認です。
+**定義の確認**。 $r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。[GR17の静止時計の固有時換算](../GR17/index.md#prop-gr17-static-clock)と同じように計量を代入すると $ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2$ なので $d\tau_A=\sqrt{f(r_A)}\,dt$。例えば $r_A=4r_s$ なら同じ座標時間 $T$ に対して時計の経過は $\sqrt{3/4}\,T$ です。
+
+定義で要求した光的測地線についても確かめます。半径方向に外向きに進む光では $d\theta=d\phi=0$、$ds^2=0$ なので、$r_2>r_1>r_s$ の二事象を結ぶとき
+
+$$
+0=-fc^2dt^2+\frac{dr^2}{f},
+\qquad
+dt=\frac{dr}{cf}>0,
+\qquad
+T_{12}=\frac1c\int_{r_1}^{r_2}\frac{dr}{f(r)}>0.
+$$
+
+この $T_{12}$ が同じ規格化された座標 $t$ の送受信時刻の差です。一方、静止時計の固有時率は位置によって $\sqrt{f}$ 倍されるため、両者を取り違えてはいけません。
 <!-- definition-example-end -->
 
 光的条件に保存量を代入すると、[GR18の一階積分](../GR18/index.md#prop-gr18-null-radial)より
@@ -280,7 +292,18 @@ $$
 =\left[\frac{d\gamma_0}{dz}\cdot\eta\right]_{z_A}^{z_B}=0.
 $$
 
-同様に $r_s\int_\gamma d\ell/\rho$ の光路移動による差は既に $r_s$ が掛かるため二次です。$b_0>0$、端点比固定、直接光路の滑らかな摂動という条件の下で、残余を $O(r_s^2/(cb_0))$ にまとめられます。従って
+重力項の経路変化も次数を確かめます。$I[\gamma]=\int |\gamma'(z)|/|\gamma(z)|\,dz$ と置き、$\rho_0=|\gamma_0|=\sqrt{b_0^2+z^2}$、$e_z=\gamma_0'=(0,0,1)$ とすれば、その一次変分は
+
+$$
+\delta I[\gamma_0;\eta]
+=\int_{z_A}^{z_B}
+\left(
+\frac{e_z\cdot\eta'}{\rho_0}
+-\frac{\gamma_0\cdot\eta}{\rho_0^3}
+\right)dz.
+$$
+
+これは $|\gamma'|$ と $1/|\gamma|$ をそれぞれ微分した結果です。端点比を固定し、$\eta=O(r_s)$ かつ $\eta'=O(r_s/b_0)$ と滑らかに摂動するなら、$\rho_0\ge b_0$ と積分区間長 $D=O(b_0)$ から $\delta I=O(r_s/b_0)$。したがって $r_s I[\gamma]$ の光路変形による差は $O(r_s^2/b_0)$ です。Euclid長さの一次変分が零であることと合わせ、残余を $O(r_s^2/(cb_0))$ にまとめられます。従って
 
 $$
 T_{AB}
@@ -313,7 +336,16 @@ $$
 {(R_A+z_A)+(R_B-z_B)}
 $$
 
-へ代入し、$R_A-z_A=b_0^2/(R_A+z_A)$、$R_B-z_B=b_0^2/(R_B+z_B)$ を使えば、比は $(R_A-z_A)(R_B+z_B)/b_0^2$ に整理されます。
+と書けます。ここで $P=R_A-z_A>0$、$Q=R_B+z_B>0$ とすると、$R_A+z_A=b_0^2/P$、$R_B-z_B=b_0^2/Q$ です。したがって
+
+$$
+\frac{R_A+R_B+D}{R_A+R_B-D}
+=\frac{P+Q}{b_0^2/P+b_0^2/Q}
+=\frac{PQ}{b_0^2}
+=\frac{(R_A-z_A)(R_B+z_B)}{b_0^2}.
+$$
+
+分母が正であることも $P,Q,b_0>0$ から分かります。
 
 $R_i\gg b_0$ なら $|z_i|=\sqrt{R_i^2-b_0^2}=R_i[1+O(b_0^2/R_i^2)]$ なので、対数の真数は $4R_AR_B/b_0^2$ に近づきます。以上で主張を得ます。$\square$
 <!-- proof-end -->
@@ -427,7 +459,15 @@ $r>r_s$ の赤道面光的測地線で $\mathcal E=f\dot x^0>0$、$\mathcal L=r^
 光線が $r_0=4r_s$ で単純に折り返すとする。衝突パラメータの二乗 $b^2/r_s^2$ を求め、折返し条件を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [時間積分命題](#prop-gr20-null-time-integral)で $1-f(r_0)b^2/r_0^2=0$。$f(4r_s)=1-1/4=3/4$ なので $b^2=r_0^2/f(r_0)=16r_s^2/(3/4)=(64/3)r_s^2$。また $r_0=4r_s>3r_s/2$ は[光子球](../GR18/index.md#prop-gr18-photon-sphere)の外側です。折返し点で $dt/dr$ が発散しても、光線のアフィン時間発展が止まるわけではありません。
+**詳細解答。** [時間積分命題](#prop-gr20-null-time-integral)で $1-f(r_0)b^2/r_0^2=0$。$f(4r_s)=1-1/4=3/4$ なので $b^2=r_0^2/f(r_0)=16r_s^2/(3/4)=(64/3)r_s^2$。単純根かどうかも確認します。$F(r)=1-b^2f(r)/r^2$ とすると
+
+$$
+F'(r)=\frac{b^2(2r-3r_s)}{r^4},
+\qquad
+F'(4r_s)=\frac{5}{12r_s}>0.
+$$
+
+よって $F(r_0)=0$ は単純根であり、$r_0=4r_s>3r_s/2$ は[光子球](../GR18/index.md#prop-gr18-photon-sphere)の外側です。折返し点で $dt/dr$ が発散しても、光線のアフィン時間発展が止まるわけではありません。
 <!-- solution-end -->
 
 <a id="ex-gr20-a03"></a>
@@ -491,7 +531,15 @@ $$
 +O(r_s^2/(cb_0)).
 $$
 
-原始関数を評価して $\Delta T_{\mathrm{Sh}}=(2r_s/c)\operatorname{arsinh}(L/b_0)+O(r_s^2/(cb_0))$。$\operatorname{arsinh}x=\log(x+\sqrt{1+x^2})$ なので $L/b_0\gg1$ では $\operatorname{arsinh}(L/b_0)=\log(2L/b_0)+O(b_0^2/L^2)$ です。従って先頭項は $(2r_s/c)\log(2L/b_0)$ です。$r_s/b_0$ の弱場極限と $L/b_0$ の遠方極限を混同しません。
+ここで $F(z)=\operatorname{arsinh}(z/b_0)$ とおくと $F'(z)=1/\sqrt{b_0^2+z^2}$ であり、
+
+$$
+F(L)-F(-L)
+=\operatorname{arsinh}(L/b_0)-\operatorname{arsinh}(-L/b_0)
+=2\operatorname{arsinh}(L/b_0).
+$$
+
+よって $\Delta T_{\mathrm{Sh}}=(2r_s/c)\operatorname{arsinh}(L/b_0)+O(r_s^2/(cb_0))$。$\operatorname{arsinh}x=\log(x+\sqrt{1+x^2})$ なので $L/b_0\gg1$ では $\operatorname{arsinh}(L/b_0)=\log(2L/b_0)+O(b_0^2/L^2)$ です。従って先頭項は $(2r_s/c)\log(2L/b_0)$ です。$r_s/b_0$ の弱場極限と $L/b_0$ の遠方極限を混同しません。
 <!-- solution-end -->
 
 <a id="ex-gr20-b02"></a>
