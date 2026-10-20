@@ -187,7 +187,32 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-16-adaboost -->
-**定義の確認**。4件を一様に重み付けし、1番の木が2番目だけ誤ると $\varepsilon_1=1/4$。$\alpha_1=(\log3)/2$、$Z_1=\sqrt3/2$。正解した3点には $\tfrac14e^{-\alpha_1}/Z_1=1/6$、誤った点には $\tfrac14e^{\alpha_1}/Z_1=1/2$ を与える。更新後は $(1/6,1/2,1/6,1/6)$ で正、総和は $3(1/6)+1/2=1$。次に3番目だけ誤る木なら、誤り集合は第3点だけなので
+**定義の確認**。4件を一様に重み付けし、1番目の木が第2点だけ誤るとする。[AdaBoostの更新定義](#def-ml1-16-adaboost)から、最初の係数と正規化定数は
+
+$$
+\varepsilon_1=\frac14,\qquad
+\alpha_1=\frac{\log3}{2},\qquad
+Z_1=\frac34e^{-\alpha_1}+\frac14e^{\alpha_1}
+=\frac{\sqrt3}{2}.
+$$
+
+正解した3点と誤った第2点の重みはそれぞれ
+
+$$
+\frac{\frac14e^{-\alpha_1}}{Z_1}=\frac16,
+\qquad
+\frac{\frac14e^{\alpha_1}}{Z_1}=\frac12.
+$$
+
+従って更新後の重みは
+
+$$
+w^{(2)}=\left(\frac16,\frac12,\frac16,\frac16\right),
+\qquad
+\sum_iw_i^{(2)}=3\cdot\frac16+\frac12=1.
+$$
+
+次に第3点だけ誤る木を選ぶと、誤り集合は第3点だけなので
 
 $$
 \varepsilon_2=w_3^{(2)}=\frac16,\qquad
