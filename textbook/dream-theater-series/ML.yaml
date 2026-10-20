@@ -77,7 +77,7 @@ chapters:
     title: "SVMの予測とマージンの適用"
   - id: ML1-18
     path: textbook/volumes/dream_thater/応用系/ML/ML1-18
-    status: planned
+    status: completed
     title: "カーネル回帰と正則化経路"
   - id: ML1-19
     path: textbook/volumes/dream_thater/応用系/ML/ML1-19

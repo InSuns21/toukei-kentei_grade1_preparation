@@ -1,0 +1,50 @@
+id: "ML1-18"
+title: "カーネル回帰と正則化経路"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-17
+  - ML1-05
+  - ML1-12
+  - RKHS1
+  - RKHS2
+  - RKHS3
+official_scope: []
+learning_objectives:
+  - 正半定値核の特徴写像を検証しGram行列・核ベクトルから新入力を予測できる
+  - 既習の表現定理と解公式を有限標本へ適用しnとlambdaの規約を一致させられる
+  - 対角Gram行列の正則化経路を計算し縮小方向の違いを解釈できる
+  - 特異Gram行列で係数表示の発散とRKHS関数・予測の非発散を証明できる
+  - 残差平方和・関数ノルム二乗・有効自由度の固有値表示と単調性を再導出できる
+  - 零正則化極限をGram行列の像への射影として確認できる
+  - 独立検証点に基づく核と正則化係数の選択を計算し訓練誤差との違いを説明できる
+  - 計算ラボでGram行列・予測・正則化経路・特異例を再計算できる
+definitions:
+  - { id: ML1-18-DEF-01, name: Gram行列と核予測 }
+  - { id: ML1-18-DEF-02, name: 標本に対するカーネル回帰の学習 }
+  - { id: ML1-18-DEF-03, name: 正則化経路の三つの診断量 }
+theorems:
+  - { id: ML1-18-PROP-01, name: 2方向の標本と正則化経路 }
+  - { id: ML1-18-PROP-02, name: 相反する応答と特異Gram行列 }
+  - { id: ML1-18-THM-01, name: カーネル回帰の正則化経路の単調性 }
+canonical_examples:
+  - 二方向の特徴写像と未知点の核ベクトル
+  - 対角Gram行列のlambda別の訓練予測と未知点予測
+  - 定数核で標準係数が発散し予測が恒等的に零となる例
+  - 固有方向の残差・ノルム・平滑化有効自由度の確認
+  - 検証標本での正則化係数選択
+  - 再現可能なPythonラボによるlambda経路の実数値検算
+problem_patterns:
+  - ML1-18-A01
+  - ML1-18-A02
+  - ML1-18-A03
+  - ML1-18-A04
+  - ML1-18-B01
+  - ML1-18-B02
+  - ML1-18-B03
+  - ML1-18-B04
+  - ML1-18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1.5 }
