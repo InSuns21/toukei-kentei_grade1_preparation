@@ -24,7 +24,7 @@ $$
 これは[RKHS2の有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)と[RKHS3の核ベクトル](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-vector)を標本で使うための書き方である。訓練点 $x_j$ の核ベクトルは $G$ の第 $j$ 列なので、訓練値を縦に並べると $\widehat y=G\alpha$ となる。
 
 <!-- definition-example-start: def-ml1-18-kernel-prediction -->
-**定義の確認：核値・Gram行列・予測を直接計算する。** $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$。任意の $c\in\mathbb R^m$ について $\sum_{ij}c_ic_jK(z_i,z_j)=\|\sum_ic_i\phi(z_i)\|^2\ge0$ となり核の条件を確認できる。標本では
+**定義の確認**：核値・Gram行列・予測を直接計算する。 $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$。任意の $c\in\mathbb R^m$ について $\sum_{ij}c_ic_jK(z_i,z_j)=\|\sum_ic_i\phi(z_i)\|^2\ge0$ となり核の条件を確認できる。標本では
 
 $$
 G=\begin{pmatrix}4&0\\0&1\end{pmatrix}.
@@ -51,11 +51,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-18-krr-training -->
-**定義の確認：定数核の1点学習。** $n=1$、定数核 $K(x,z)=1$、応答 $y_1=2$、$\lambda=1$ とする。この核のRKHSの関数は定数 $f(x)=c$ であり、$\|f\|_{\mathcal H}^2=c^2$ である。従って目的関数は
+**定義の確認**：定数核の1点学習。 $n=1$、定数核 $K(x,z)=1$、応答 $y_1=2$、$\lambda=1$ とする。この核のRKHSの関数は定数 $f(x)=c$ であり、$\|f\|_{\mathcal H}^2=c^2$ である。従って目的関数は
 
-$
+$$
 J_1(f)=(2-c)^2+c^2=2(c-1)^2+2.
-$
+$$
 
 全ての $c\in\mathbb R$ に対し第1項は非負なので、最小値2を達成する唯一の関数は $f_1(x)=1$ である。実際、核行列は $(1)$、学習公式でも $\alpha=(1+1)^{-1}\cdot2=1$ と一致する。
 <!-- definition-example-end -->
@@ -163,7 +163,26 @@ $\lambda>0$ により行列が正定値なので、表示された係数が標�
 
 ## 4. 経路を固有値方向に分ける
 
-[RKHS3の平滑化行列](../../RKHS/RKHS3/index.md#def-rkhs3-smoother-matrix)を $S_\lambda=G(G+n\lambda I_n)^{-1}$ と書く。$G$ は実対称正半定値なので、[スペクトル表示](../../RKHS/RKHS3/index.md#prop-rkhs3-spectral-smoother)として $G=Q\operatorname{diag}(\mu_1,\ldots,\mu_n)Q^{\mathsf T}$、$Q^{\mathsf T}Q=I_n$、$\mu_j\ge0$ を選べる。$z=Q^{\mathsf T}y$ とおけば、$j$ 番目の訓練予測成分は $\mu_j/(\mu_j+n\lambda)\,z_j$ である。
+[RKHS3の平滑化行列](../../RKHS/RKHS3/index.md#def-rkhs3-smoother-matrix)を用い、次のように置く。
+
+$$
+S_\lambda=G(G+n\lambda I_n)^{-1}.
+$$
+
+$G$ が実対称正半定値なので、[RKHS3のスペクトル表示](../../RKHS/RKHS3/index.md#prop-rkhs3-spectral-smoother)が適用できる。固有値は非負であり、ある直交行列 $Q$ を用いて
+
+$$
+G=Q\operatorname{diag}(\mu_1,\ldots,\mu_n)Q^{\mathsf T},
+\qquad Q^{\mathsf T}Q=I_n,\qquad \mu_j\ge0
+$$
+
+と書ける。応答をその固有方向へ回して $z=Q^{\mathsf T}y$ とすると、$j$ 番目の訓練予測成分は
+
+$$
+\frac{\mu_j}{\mu_j+n\lambda}z_j
+$$
+
+となる。
 
 <a id="def-ml1-18-path-diagnostics"></a>
 
@@ -181,7 +200,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-18-path-diagnostics -->
-**定義の確認：** 2方向例で $\lambda=1/2$ を代入すると $S_\lambda=\operatorname{diag}(4/5,1/2)$ だから、$R_\lambda=(2-8/5)^2+(1-1/2)^2=4/25+1/4=41/100$、$N_\lambda=4(2/5)^2+(1/2)^2=16/25+1/4=89/100$、$d_\lambda=4/5+1/2=13/10$。残差平方和には $1/n$ が掛かっていないことに注意する。
+**定義の確認**：2方向例で $\lambda=1/2$ を代入すると $S_\lambda=\operatorname{diag}(4/5,1/2)$ だから、$R_\lambda=(2-8/5)^2+(1-1/2)^2=4/25+1/4=41/100$、$N_\lambda=4(2/5)^2+(1/2)^2=16/25+1/4=89/100$、$d_\lambda=4/5+1/2=13/10$。残差平方和には $1/n$ が掛かっていないことに注意する。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-18-path-monotonicity"></a>
@@ -420,7 +439,34 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[2方向の標本と正則化経路](#prop-ml1-18-two-direction-fit)より未知点の予測は $2/(4+2\lambda)+1/(1+2\lambda)$。$\lambda=1/4$ では $4/9+2/3=10/9$ なので誤差は $(1-10/9)^2=1/81$。$\lambda=1/2$ では $2/5+1/2=9/10$ なので $1/100$。$\lambda=1$ では $1/3+1/3=2/3$ なので $1/9$。$1/100<1/81<1/9$ より、この固定した候補と検証標本上では $\lambda=1/2$ を選ぶ。母集団予測リスクの大小や独立テストの誤差まで確定するものではない。[独立テスト](../ML1-12/index.md#thm-ml1-12-independent-holdout)を別に実施する。
+[2方向の標本と正則化経路](#prop-ml1-18-two-direction-fit)を、この問題の核・入力・応答へ適用する。未知点の予測は
+
+$$
+f_\lambda(x_*)=\frac2{4+2\lambda}+\frac1{1+2\lambda}.
+$$
+
+$\lambda=1/4$ では、二つの項をそれぞれ計算して
+
+$$
+f_{1/4}(x_*)=\frac49+\frac23=\frac{10}{9},\qquad
+(1-f_{1/4}(x_*))^2=\frac1{81}.
+$$
+
+$\lambda=1/2$ では
+
+$$
+f_{1/2}(x_*)=\frac25+\frac12=\frac9{10},\qquad
+(1-f_{1/2}(x_*))^2=\frac1{100}.
+$$
+
+$\lambda=1$ では
+
+$$
+f_1(x_*)=\frac13+\frac13=\frac23,\qquad
+(1-f_1(x_*))^2=\frac19.
+$$
+
+三候補の誤差は $1/100<1/81<1/9$ なので、固定した候補集合と検証標本では $\lambda=1/2$ を選ぶ。一方、母集団予測リスクや独立テストの誤差までは確定しない。最終選択後には[独立テスト](../ML1-12/index.md#thm-ml1-12-independent-holdout)を別に実施する。
 <!-- solution-end -->
 
 ### ML1-18-B04 線形核と主形式の照合
