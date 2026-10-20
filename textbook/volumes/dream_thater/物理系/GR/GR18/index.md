@@ -65,7 +65,26 @@ $$
 となります。保存量比の次元が長さになることは、アフィンパラメータの規格化に依存しません。
 
 <!-- definition-example-start: def-gr18-impact-parameter -->
-**定義の確認**（平坦極限）。 $M=0$ の極限を取り、$x^0=s$、$r(s)=\sqrt{s^2+d^2}$、$\phi(s)=\operatorname{atan2}(d,s)$ と置きます。符号を正にするため $\phi$ の正向きを進行方向に合わせると、$|\mathcal L|=d$、$\mathcal E=1$ です。実際、直交座標で $X=s,Y=d$ とすると $d\phi/ds=-d/(s^2+d^2)$、従って $|r^2d\phi/ds|=d$。よって $b=d$ です。この直線は $x^0=s, X=s, Y=d$ と書けるため、$k=(1,1,0,0)$ は非零、$g(k,k)=-1+1=0$ であり、座標加速度も零です。従って光的アフィン測地線という入力条件自体も平坦極限で確認できます。ここでの平坦極限は衝突パラメータの幾何学的意味の検証であり、$M>0$ での定義と混同しません。
+**定義の確認**（平坦極限）。$M=0$ の極限を取り、最近接距離 $d>0$ の直線を平坦な直交座標で $x^0=s$、$X=s$、$Y=d$ と表します。このとき
+
+$$
+r(s)=\sqrt{s^2+d^2},
+\qquad
+\phi(s)=\operatorname{atan2}(d,s).
+$$
+
+接ベクトル $k=(1,1,0,0)$ は非零で、$g(k,k)=-1+1=0$、各座標成分の二階微分も零です。ゆえに $s$ はアフィンパラメータであり、光的アフィン測地線という入力条件を確認できます。
+
+角度の増加する向きに合わせて $\mathcal L$ の符号を取ると
+
+$$
+\frac{d\phi}{ds}=-\frac{d}{s^2+d^2},
+\qquad
+\left|r^2\frac{d\phi}{ds}\right|=d,
+\qquad \mathcal E=1.
+$$
+
+従って $b=|\mathcal L|/\mathcal E=d$ です。ここでの平坦極限は衝突パラメータの幾何学的意味の検証であり、$M>0$ での定義と混同しません。
 <!-- definition-example-end -->
 
 光的条件に $k$ の保存量表示を代入すると、半径方向の運動を求められます。
@@ -597,7 +616,27 @@ b=20r_s\sqrt{\frac{20}{19}}>0,
 $$
 $b>b_c$ は、光子球外側では $W(r_0)<W_{\max}$ なので $1/b^2=W(r_0)<1/b_c^2$ からも分かります。
 
-(3) [GR4の局所直交枠による測定成分](../GR4/index.md#def-gr4-measured-components)をSchwarzschild静止観測者へ適用します。$r_0>r_s$ で $f(r_0)>0$ なので直交枠を規格化でき、その時間成分は $k^{\hat0}=\mathcal E/\sqrt{f}$、角度成分は $k^{\hat\phi}=\mathcal L/r$ です。光的条件から $\sin\alpha=|k^{\hat\phi}|/k^{\hat0}=b\sqrt f/r$。$r=r_0$ に (2) の $b$ を代入すると $\sin\alpha=1$。さらに基底射影から $\cos\alpha=\dot r/\mathcal E=0$ です。よって $\alpha=\pi/2$、光は接線方向を向きます。折返しの前後では $\dot r$ の符号が負から正へ変わるので、入射方向と出射方向も区別できます。
+(3) [GR4の局所直交枠による測定成分](../GR4/index.md#def-gr4-measured-components)をSchwarzschild静止観測者へ適用します。$r_0>r_s$ で $f(r_0)>0$ なので直交枠を規格化できます。その測定成分は
+
+$$
+k^{\hat0}=\frac{\mathcal E}{\sqrt f},
+\qquad
+k^{\hat\phi}=\frac{\mathcal L}{r},
+\qquad
+k^{\hat r}=\frac{\dot r}{\sqrt f}
+$$
+
+です。これを角度の定義へ代入すると
+
+$$
+\sin\alpha=\frac{|k^{\hat\phi}|}{k^{\hat0}}
+=\frac{b\sqrt f}{r},
+\qquad
+\cos\alpha=\frac{k^{\hat r}}{k^{\hat0}}
+=\frac{\dot r}{\mathcal E}.
+$$
+
+$r=r_0$ では (2) の $b$ により $\sin\alpha=1$、折返し条件 $\dot r=0$ より $\cos\alpha=0$ です。よって $\alpha=\pi/2$、光は接線方向を向きます。折返しの前後で $\dot r$ の符号が負から正へ変わるので、入射方向と出射方向も区別できます。
 
 (4) 小量は $\varepsilon=(1/20)\sqrt{19/20}\approx0.0487$ です。[Schwarzschild光線の弱場屈曲角](#thm-gr18-weak-bending)で
 $$
