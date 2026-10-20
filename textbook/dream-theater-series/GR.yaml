@@ -73,7 +73,7 @@ chapters:
     title: "Schwarzschild真空解の導出"
   - id: GR17
     path: textbook/volumes/dream_thater/物理系/GR/GR17
-    status: planned
+    status: completed
     title: "重力赤方偏移と静止時計"
   - id: GR18
     path: textbook/volumes/dream_thater/物理系/GR/GR18
