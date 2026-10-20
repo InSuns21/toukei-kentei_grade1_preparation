@@ -188,7 +188,21 @@ $C=1$ なら $w=1$、両損失0、目的値 $1/2$。どちらも訓練正解率�
 
 この表は最適解のKKTが成立する場合だけ使える。[RKHS5の双対問題](../../RKHS/RKHS5/index.md#thm-rkhs5-soft-margin-dual)からの $w=\sum_i\alpha_i y_ix_i$ を、前節の2点へ代入して検算する。両点で $y_ix_i=1$ なので対称な $\alpha_1=\alpha_2=a$ を選べば $w=2a$、$\sum_i\alpha_i y_i=a-a=0$ も成立する。
 
-$C=1/4$ では $a=1/4=C$、$w=1/2$、$t_i=1/2\le1$ と[上限制約サポートベクトルの定義](../../RKHS/RKHS5/index.md#def-rkhs5-kkt-point-classes)およびそのKKT必要条件に一致する。$C=1$ では $a=1/2$ が $0<a<C$ を満たし、$w=1$、$t_i=1$ と同じ[自由サポートベクトルの定義](../../RKHS/RKHS5/index.md#def-rkhs5-kkt-point-classes)およびKKT必要条件に一致する。**係数を見ずに「境界上だから自由サポートベクトル」と結論しない**。
+$C=1/4$ のときは次の値となる。
+
+$$
+a=C=1/4,\qquad w=2a=1/2,\qquad t_1=t_2=1/2<1.
+$$
+
+係数が上限値なので、両点は[上限制約サポートベクトル](../../RKHS/RKHS5/index.md#def-rkhs5-kkt-point-classes)であり、$t_i\le1$ というKKT必要条件と一致する。
+
+一方、$C=1$ のときは
+
+$$
+a=1/2,\qquad 0<a<C,\qquad w=2a=1,\qquad t_1=t_2=1.
+$$
+
+係数が箱制約の内点なので、両点は[自由サポートベクトル](../../RKHS/RKHS5/index.md#def-rkhs5-kkt-point-classes)であり、$t_i=1$ というKKT必要条件と一致する。**係数を見ずに「境界上だから自由サポートベクトル」と結論しない**。
 
 ## 7. 分離不能は最適化アルゴリズムの失敗ではない
 
