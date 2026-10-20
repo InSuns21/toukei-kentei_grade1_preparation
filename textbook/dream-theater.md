@@ -398,6 +398,7 @@
 11. [HPDE11 局所Cauchy問題の存在](textbook/volumes/dream_thater/解析系/HPDE/HPDE11/index.md)
 12. [HPDE12 Minkowskiの先進・遅延基本解](textbook/volumes/dream_thater/解析系/HPDE/HPDE12/index.md)
 13. [HPDE13 Hadamard係数とtransport方程式](textbook/volumes/dream_thater/解析系/HPDE/HPDE13/index.md)
+14. [HPDE14 局所parametrixの誤差補正](textbook/volumes/dream_thater/解析系/HPDE/HPDE14/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
