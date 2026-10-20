@@ -1,0 +1,50 @@
+id: "ML1-17"
+title: "SVMの予測とマージンの適用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-16
+  - ML1-08
+  - ML1-12
+  - RKHS4
+  - RKHS5
+official_scope: []
+learning_objectives:
+  - SVM得点・符号予測・関数マージン・幾何マージンを区別して計算できる
+  - ハードマージンを具体標本の制約から最適化し分離不能性を判定できる
+  - スラックとヒンジ損失をデータへ適用し経験0–1誤りの上界を証明できる
+  - 対称2点のソフトマージン解とCによる正則化経路を導出できる
+  - 双対係数の三領域とサポートベクトルの位置をKKTの必要条件から判定できる
+  - 多項式核の正半定値性を特徴写像から確認しXORの分類解を導出できる
+  - Cと核係数の違い、分離不能例と零法線の限界を説明できる
+  - 解析解を再計算するラボでマージン・ヒンジ損失・予測の変化を検算できる
+  - 訓練・検証・テストの役割と選択指標による違いを説明できる
+definitions:
+  - { id: ML1-17-DEF-01, name: SVM得点の予測規則 }
+  - { id: ML1-17-DEF-02, name: SVMの訓練マージン表 }
+theorems:
+  - { id: ML1-17-THM-01, name: 経験ヒンジ損失による訓練誤りの上界 }
+  - { id: ML1-17-PROP-01, name: 対称2点のソフトマージン解 }
+  - { id: ML1-17-PROP-02, name: XORに対する核SVMの対称解 }
+canonical_examples:
+  - 得点と幾何マージンの位置関係
+  - 4点のハードマージンと境界上の点
+  - 4つの関数マージンとヒンジ損失
+  - 対称2点のCによる正則化経路とKKT
+  - 相反するラベルでのソフトマージン最適値
+  - XORの多項式核のGram行列と双対解
+  - Cとgammaを変える実計算ラボ
+problem_patterns:
+  - ML1-17-A01
+  - ML1-17-A02
+  - ML1-17-A03
+  - ML1-17-A04
+  - ML1-17-B01
+  - ML1-17-B02
+  - ML1-17-B03
+  - ML1-17-B04
+  - ML1-17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1.5 }

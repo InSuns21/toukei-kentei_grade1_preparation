@@ -73,7 +73,7 @@ chapters:
     title: "Boosting・加法モデル"
   - id: ML1-17
     path: textbook/volumes/dream_thater/応用系/ML/ML1-17
-    status: planned
+    status: completed
     title: "SVMの予測とマージンの適用"
   - id: ML1-18
     path: textbook/volumes/dream_thater/応用系/ML/ML1-18
