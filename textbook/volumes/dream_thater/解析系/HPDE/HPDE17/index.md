@@ -8,7 +8,7 @@
 
 $(M,g)$ は境界のない、時間向き付き滑らかな大域双曲Lorentz多様体で、計量の符号は $(-,+,\ldots,+)$ とします。$E\to M$ は有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ は滑らかな[normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)とします。一般の $P$ は形式的自己随伴と仮定しません。
 
-[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)により、$t:M\to\mathbb R$ をCauchy temporal functionとして選び、$\Sigma_s=t^{-1}(s)$、$\Sigma=\Sigma_0$ と書きます。未来向き単位法線を $N$、[HPDE5の一意な接続](../HPDE5/index.md#thm-hpde5-unique-connection)を $\nabla^P$ とします。初期速度には $\nabla_N^P u|_\Sigma$ を用い、座標微分と取り違えません。
+[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)により、$t:M\to\mathbb R$ を[Cauchy時間関数](../../../幾何系/LORG/LORG20/index.md#def-lorg20-cauchy-temporal)として選び、$\Sigma_s=t^{-1}(s)$、$\Sigma=\Sigma_0$ と書きます。未来向き単位法線を $N$、[HPDE5の一意な接続](../HPDE5/index.md#thm-hpde5-unique-connection)を $\nabla^P$ とします。初期速度には $\nabla_N^P u|_\Sigma$ を用い、座標微分と取り違えません。
 
 今回は、源 $f\in\Gamma(M,E)$ と初期値 $u_0,u_1\in\Gamma(\Sigma,E|_\Sigma)$ は**滑らかであればよく、コンパクト支持とは仮定しません**。目標は全時空で
 
@@ -50,7 +50,13 @@ $$
 K_Q=\{(0,y):|y|\le3\}.
 $$
 
-$D_Q$ には例えば $(1,0)$ が入り、$(0,4)$ は入りません。$Q$ の点へ到達する曲線が $t=0$ から $t=2$ までに通る点は必ず $D_Q$ にあります。この例で $Q$ と $T$ の指定、$K_Q,D_Q$ の各条件を実際に確認できました。
+源の影響候補 $D_Q$ も因果到達条件から直接求められます。$s\le2$ の点 $(s,y)$ が $Q$ の因果的過去にあるのは、ある $x\in[-1,1]$ に対して $|y-x|\le2-s$ が成り立つとき、すなわち区間 $[y-(2-s),y+(2-s)]$ と $[-1,1]$ が交わるときです。これは $|y|\le3-s$ と同値です。$s<2$ の点は $Q$ の因果的未来には入らず、$s=2$ では $Q$ 自身だけが加わるため、
+
+$
+D_Q=\{(s,y):-2\le s\le2,\ |y|\le3-s\}.
+$
+
+特に $(1,0)\in D_Q$、$(0,4)\notin D_Q$ であり、$D_Q\cap\Sigma=K_Q$ も計算から確認できます。$Q$ の点へ初期面から到達する曲線が時刻 $0$ から $2$ までに通る点は、この $D_Q$ の中に含まれます。
 <!-- definition-example-end -->
 
 <a id="lem-hpde17-footprint-compact"></a>
@@ -186,7 +192,13 @@ $$
 
 解の存在一意性に続いて、初期データや源を少し変えたとき解がどれほど変化するかを調べます。「少し」の意味には注意が必要です。非コンパクト空間では、空間全体で積分したSobolevノルムが無限大でも、各コンパクト集合上なら滑らかな関数として問題なく扱えます。
 
-コンパクト集合 $C$ とその近くの有限個の座標枠、非負整数 $k$ を選びます。その枠で切断 $v$ の係数の $k$ 階以下の偏微分の絶対値の最大値を測ることにします。枠と座標箱の取り方を変えても、コンパクト集合上での収束の概念は同じです。
+コンパクト集合 $C$ を、各座標領域 $U_i$ の内部にある有限個のコンパクト集合 $C_i$ で覆い、$U_i$ 上の束の局所枠 $(e_{i,a})_a$ を選びます。切断を $v|_{U_i}=\sum_a v_i^a e_{i,a}$ と**枠の係数へ展開**すれば、$k$ 階以下の偏微分を測る量は
+
+$
+p_{C,k}(v)=\max_{\substack{i,a\\|\alpha|\le k}}\ \sup_{x\in C_i}|\partial^\alpha v_i^a(x)|
+$
+
+と具体化できます。各 $C_i$ はコンパクトなので、座標変換と枠の変換行列および必要な有限階導関数はその上で有界です。積の微分公式を繰り返すと、別の有限座標枠でも同じ収束の概念になります。
 
 <a id="def-hpde17-smooth-local-topology"></a>
 
@@ -236,23 +248,41 @@ $$
 <!-- proof-start -->
 ### 証明
 
-差を $\delta u=u-\widetilde u$、$\delta f=f-\widetilde f$、$\delta u_a=u_a-\widetilde u_a$（$a=0,1$）と書きます。線形性から $P\delta u=\delta f$、初期値は $(\delta u_0,\delta u_1)$ です。$Q$ を含む時刻帯 $[-T,T]$ を固定し、コンパクトな $K_Q,D_Q$ の近傍で $1$ となる滑らかなコンパクト支持関数 $\chi_\Sigma,\chi_M$ を選びます。切り出したデータ
+差を $\delta u=u-\widetilde u$、$\delta f=f-\widetilde f$、$\delta u_a=u_a-\widetilde u_a$（$a=0,1$）と書きます。線形性から $P\delta u=\delta f$、初期値は $(\delta u_0,\delta u_1)$ です。まず $Q\subset\operatorname{int}Q'$ となるコンパクト集合 $Q'\subset M$ を一つ選びます。$Q'$ を含む時刻帯 $[-T,T]$ を固定し、コンパクトな $K_{Q'},D_{Q'}$ の近傍で $1$ となる滑らかなコンパクト支持関数 $\chi_\Sigma,\chi_M$ を選びます。切り出したデータ
 
 $$
 (\chi_M\delta f,\ \chi_\Sigma\delta u_0,\ \chi_\Sigma\delta u_1)
 $$
 
-の[HPDE16の大域解](../HPDE16/index.md#thm-hpde16-global-cauchy)を $w$ とします。[局所一致補題](#lem-hpde17-localized-agreement)より $\delta u=w$ が $Q$ 上で成り立ちます。
+の[HPDE16の大域解](../HPDE16/index.md#thm-hpde16-global-cauchy)を $w$ とします。[局所一致補題](#lem-hpde17-localized-agreement)を $Q'$ に適用すると $\delta u=w$ が $Q'$ 上、特に開集合 $\operatorname{int}Q'$ 上で成り立ちます。従って $Q$ 上では**値だけでなく任意階の導関数も一致**します。点集合 $Q$ 上での値の一致だけから導関数の一致を推論してはならないため、ここでは $Q'$ へ拡大してから切り出しています。
 
 切り出したデータの支持は固定したコンパクト集合の中にあります。[HPDE16の有限時間因果影](../HPDE16/index.md#lem-hpde16-shadow-compact)により、その解の $[-T,T]$ 上の支持も固定したコンパクト集合へ入ります。そこを有限個の局所枠で覆い、[HPDE16の高階エネルギー評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を任意に大きい $m$ で適用すると、有限時間帯での $\delta u$ の空間高階導関数・一階時間微分が、初期データと $\chi_M\delta f$ の有限階Sobolevノルムで支配されます。
 
-時間方向の二階以上の微分は、波動方程式の時間二階係数の可逆性から順に求めます。実際、局所還元の一次系 $A^0\partial_tV+A^j\partial_jV+DV=F$ の $A^0$ は可逆なので
+時間方向の二階以上の微分も評価する必要があります。[HPDE11の一次対称双曲化](../HPDE11/index.md#prop-hpde11-positive-symmetrizer)で得る局所還元変数を $W$ とし、
 
-$$
-\partial_tV=-(A^0)^{-1}\left(\sum_jA^j\partial_jV+DV-F\right)
-$$
+$
+A^0\partial_tW+\sum_aA^a\partial_aW+DW=F
+$
 
-と置き、これをさらに微分すると時間高階微分も有限階の空間微分と源の微分で支配されます。$m$ を十分大きく選んで、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)で用いた局所Sobolev埋込みを適用すると $\|\delta u\|_{C^k(Q)}$ を切り出したデータの有限階Sobolevノルムで評価できます。
+と書きます。$A^0$ は正定値、特に可逆なので
+
+$
+\partial_tW=(A^0)^{-1}\left(F-\sum_aA^a\partial_aW-DW\right).
+$
+
+もう一度時間微分し、各係数にも積の微分公式を使うと
+
+$
+\begin{aligned}
+A^0\partial_t^2W={}&\partial_tF
+-\sum_aA^a\partial_a\partial_tW-D\partial_tW\\
+&-(\partial_tA^0)\partial_tW
+-\sum_a(\partial_tA^a)\partial_aW
+-(\partial_tD)W.
+\end{aligned}
+$
+
+右辺の $\partial_tW$ には直前の式を代入できます。同じ操作を帰納的に繰り返せば、$\partial_t^\ell W$ の空間 $H^{m-\ell}$ ノルムは、一次系の空間 $H^m$ 評価と源 $F$ の必要な時間・空間導関数で支配されます。係数の導関数は固定したコンパクトな因果影上で有界です。空間次元を $n$ とし、$m>k+n/2+1$ となる整数を選べば、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)と局所Sobolev埋込みにより、$\|w\|_{C^k(Q)}=\|\delta u\|_{C^k(Q)}$ は切り出した初期値・源の有限階ノルムで支配されます。
 
 最後に、各切断関数の支持を含む固定コンパクト集合を $C_\Sigma,C_M$ として取り、十分大きい $r$ を選びます。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を有限回適用すれば、例えば
 
@@ -645,9 +675,9 @@ $(M,g)$ は境界なし滑らかな大域双曲時空、$\Sigma=\Sigma_0$ は滑
 
 (iii) 任意の $q\in M$ は $\operatorname{int}Q_j$ に入り、$i\ge j$ なら $v_i(q)=v_j(q)$ なので値の定義は一意です。近傍 $\operatorname{int}Q_j$ では滑らかな $v_j$ と一致するため $u$ は滑らかです。$q\in Q_j\subset D_j$ なので $Pu(q)=Pv_j(q)=\chi_{M,j}(q)f(q)=f(q)$。$p\in\Sigma$ では $p\in Q_j\cap\Sigma\subset K_j$ により $u(p)=u_0(p)$、$\nabla_N^Pu(p)=u_1(p)$ です。別解との差には[HPDE10の一意性](../HPDE10/index.md#cor-hpde10-domain-uniqueness)を適用すると任意の点で零です。
 
-(iv) 差の元データを観測集合 $Q$ の $K_Q,D_Q$ の近傍で切り出すと、差の解は $Q$ 上でコンパクト支持データの大域解 $w$ に等しくなります。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を、この切り出しデータのコンパクトな因果影で適用し、任意に大きい $H^m$ を制御します。
+(iv) $Q\subset\operatorname{int}Q'$ となるコンパクトな $Q'$ を固定し、差の元データを $K_{Q'},D_{Q'}$ の近傍で切り出します。[局所一致補題](#lem-hpde17-localized-agreement)から差の解は開集合 $\operatorname{int}Q'$ 上でコンパクト支持データの大域解 $w$ に一致し、$Q$ 上では各階の導関数も一致します。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を切り出しデータのコンパクトな因果影で適用し、任意に大きい空間 $H^m$ ノルムを制御します。
 
-一次還元方程式で時間高階微分を空間微分と源へ置き換え、$m$ を $k$ と次元より十分大きく取れば、局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。
+一次還元方程式の $A^0$ の可逆性を使うと、$\partial_tW=(A^0)^{-1}(F-\sum_aA^a\partial_aW-DW)$ です。さらに時間微分して係数の微分項も加え、帰納法で時間高階微分を空間微分と源の混合導関数へ置き換えます。$m>k+n/2+1$ と取れば局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。
 
 切断関数への[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)の反復適用により、右辺のSobolevノルムは元の差データの固定コンパクト集合上の有限階 $C^r$ ノルムで支配できます。従って[局所連続依存定理](#thm-hpde17-local-stability)の形になります。
 
