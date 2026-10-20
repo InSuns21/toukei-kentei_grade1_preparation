@@ -1,0 +1,54 @@
+chapter: HPDE14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE13
+  - HPDE12
+  - HPDE11
+  - HPDE10
+  - HPDE9
+  - HPDE5
+  - HPDE4
+  - HPDE3
+forward_references: []
+concepts:
+  - id: hpde.local-parametrix
+    name: 因果的な局所近似基本解
+    kind: definition
+    introduction: formal
+    requires: [hpde.point-fundamental-solution, hpde.hadamard-truncated-defect]
+  - id: hpde.cutoff-hadamard
+    name: 切断付きHadamard核
+    kind: definition
+    introduction: formal
+    requires: [hpde.hadamard-coefficients, hpde.local-parametrix]
+  - id: hpde.cutoff-commutator
+    name: cutoff交換子の計算
+    kind: lemma
+    introduction: formal
+    requires: [hpde.cutoff-hadamard, hpde.riesz-product-rule]
+  - id: hpde.smooth-remainder
+    name: 滑らかな残差を持つ局所近似核の構成
+    kind: theorem
+    introduction: formal
+    requires: [hpde.cutoff-commutator, hpde.hadamard-truncated-defect]
+  - id: hpde.volterra-kernel
+    name: 因果Volterra核と反復積
+    kind: definition
+    introduction: formal
+    requires: [hpde.smooth-remainder, hpde.distribution-support]
+  - id: hpde.volterra-factorial
+    name: 因果Volterra核の階乗評価
+    kind: lemma
+    introduction: formal
+    requires: [hpde.volterra-kernel]
+  - id: hpde.true-local-fundamental
+    name: 真の局所点源基本解への補正
+    kind: theorem
+    introduction: formal
+    requires: [hpde.volterra-factorial, hpde.local-parametrix]
+  - id: hpde.cauchy-correction-comparison
+    name: Cauchy補正との比較
+    kind: proposition
+    introduction: formal
+    requires: [hpde.true-local-fundamental, hpde.local-cauchy-existence]
