@@ -85,7 +85,7 @@ chapters:
     title: "主成分分析・特異値分解・低ランク近似"
   - id: ML1-20
     path: textbook/volumes/dream_thater/応用系/ML/ML1-20
-    status: planned
+    status: completed
     title: "k-means・階層クラスタリング"
   - id: ML1-21
     path: textbook/volumes/dream_thater/応用系/ML/ML1-21
