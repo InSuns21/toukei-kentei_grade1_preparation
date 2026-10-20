@@ -8,7 +8,17 @@
 
 $(M,g)$ は境界のない、連結した時間向き付き滑らかな[大域双曲Lorentz多様体](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)、符号は $(-,+,\ldots,+)$ とします。$E\to M$ は有限ランクの実または複素滑らかなベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ は滑らかな[normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)です。形式的自己随伴性や正定値で接続と両立する束計量を、定理の**仮定にはしません**。
 
-[HPDE5の一意接続表示](../HPDE5/index.md#thm-hpde5-unique-connection)を使い、$P=-\operatorname{tr}_g(\nabla^P)^2+B$ と書きます。$B$ は滑らかな零次の束自己準同型です。[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)から滑らかなCauchy時間関数 $t:M\to\mathbb R$ を選び、$\Sigma_s=t^{-1}(s)$、$\Sigma=\Sigma_0$ とします。後の定理で **先に任意の滑らかな空間的Cauchy面 $\Sigma$ を指定した場合** には、与えられた面を $t^{-1}(0)$ にできるというBernal–Sánchezの強化定理（[原論文](https://arxiv.org/abs/gr-qc/0512095)）を使います。これは「あるCauchy時間分割が存在する」というLORG20の定理だけからは直ちに従わない点です。未来向き単位法線を $N$ と書きます。[法線初期データ](../HPDE6/index.md#def-hpde6-cauchy-data)は $\nabla_N^Pu$ であり、別の接続に取り替えません。ここで $\Sigma$ が[Cauchy面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)であることを使います。
+[HPDE5の一意接続表示](../HPDE5/index.md#thm-hpde5-unique-connection)を使い、$P=-\operatorname{tr}_g(\nabla^P)^2+B$ と書きます。$B$ は滑らかな零次の束自己準同型です。
+
+[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)から滑らかなCauchy時間関数 $t:M\to\mathbb R$ を選びます。そのレベル集合を次のように表します。
+
+$$
+\Sigma_s=t^{-1}(s),\qquad \Sigma=\Sigma_0.
+$$
+
+後の定理で **先に任意の滑らかな空間的Cauchy面を指定した場合** には、与えられた面を $t^{-1}(0)$ にできるというBernal–Sánchezの強化定理（[原論文](https://arxiv.org/abs/gr-qc/0512095)）を使います。これは「あるCauchy時間分割が存在する」というLORG20の定理だけからは直ちに従わない点です。
+
+未来向き単位法線を $N$ と書きます。[法線初期データ](../HPDE6/index.md#def-hpde6-cauchy-data)は $\nabla_N^Pu$ であり、別の接続に取り替えません。ここで $\Sigma$ が[Cauchy面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)であることを使います。
 
 時空の**コンパクト支持の滑らかな源** $f\in\Gamma_c(M,E)$ と、初期面の**コンパクト支持の滑らかな二つのデータ** $u_0,u_1\in\Gamma_c(\Sigma,E|_\Sigma)$ を与えます。$\Gamma_c$ は滑らかで支持がコンパクトな切断の空間です。空間方向が非コンパクトでも、これらの支持はコンパクトとします。
 
@@ -34,7 +44,17 @@ $$
 u(t,x)=\tfrac12\bigl(\phi(x-t)+\phi(x+t)\bigr)
 $$
 
-と置きます。$g(\partial_t,\partial_t)=-1$ で $\partial_t$ は未来向きなので、単位法線は $N=\partial_t$ です。また $P$ は一次微分項を持たず、その主係数は一定なので、[HPDE5の一意接続表示](../HPDE5/index.md#thm-hpde5-unique-connection)の一階係数を比較すると $\nabla^P_{\partial_t}=\partial_t$ です。各項はその引数について二回微分したとき $\partial_t^2=\partial_x^2$ なので $Pu=0$。$u(0,x)=\phi(x)$、$\nabla^P_Nu(0,x)=\partial_tu(0,x)=\tfrac12(-\phi'(x)+\phi'(x))=0$ です。式はすべての $(t,x)$ で滑らかに定義されており、$f=0$、$(u_0,u_1)=(\phi,0)$ の大域Cauchy解です。
+と置きます。$g(\partial_t,\partial_t)=-1$ で $\partial_t$ は未来向きなので、単位法線は $N=\partial_t$ です。また $P$ は一次微分項を持たず、その主係数は一定です。[HPDE5の一意接続表示](../HPDE5/index.md#thm-hpde5-unique-connection)の一階係数を比較すると $\nabla^P_{\partial_t}=\partial_t$ と分かります。
+
+各項はその引数について二回微分したとき $\partial_t^2=\partial_x^2$ なので $Pu=0$ です。初期面上では次の値を得ます。
+
+$$
+u(0,x)=\phi(x),\qquad
+\nabla^P_Nu(0,x)=\partial_tu(0,x)
+=\tfrac12(-\phi'(x)+\phi'(x))=0.
+$$
+
+式はすべての $(t,x)$ で滑らかに定義されており、$f=0$、$(u_0,u_1)=(\phi,0)$ の大域Cauchy解です。
 <!-- definition-example-end -->
 
 この例では固定時刻ごとの支持がコンパクトでも、一般に**時空全体の支持がコンパクトではありません**。解の定義域が大域的であることと、解自体が時空コンパクト支持であることは別です。
@@ -61,7 +81,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde16-finite-shadow -->
-**定義の確認**。Minkowski平面で $t$ を標準時刻、$K=\{(0,x):|x|\le1\}$、$0\le s\le T$ とします。$(s,x)\in J^+(K)$ の判定を座標に直します。[因果曲線の速度条件](../../../幾何系/LORG/LORG3/index.md#def-lorg3-causal-curve)を $g=-dt^2+dx^2$ に入れると未来向きの速度は $|dx/dt|\le1$ です。$(0,y)$ から $(s,x)$ まで積分すれば $|x-y|\le s$、逆に $s>0$ でこの不等式があれば直線 $(r,y+r(x-y)/s)$ は因果的です。$s=0$ では $x=y$ です。従ってある $y\in[-1,1]$ に対して $|x-y|\le s$ であることが必要十分です。これは $|x|\le1+s$ と同値なので
+**定義の確認**。Minkowski平面で $t$ を標準時刻、$K=\{(0,x):|x|\le1\}$、$0\le s\le T$ とします。$(s,x)\in J^+(K)$ の判定を座標に直します。
+
+[因果曲線の速度条件](../../../幾何系/LORG/LORG3/index.md#def-lorg3-causal-curve)を $g=-dt^2+dx^2$ に入れると、未来向きの速度は $|dx/dt|\le1$ です。$(0,y)$ から $(s,x)$ まで積分すれば $|x-y|\le s$ が必要です。
+
+逆に $s>0$ でこの不等式があれば、直線 $(r,y+r(x-y)/s)$ は因果的です。$s=0$ では $x=y$ となります。従って、ある $y\in[-1,1]$ に対して $|x-y|\le s$ であることが、$(s,x)\in J^+(K)$ の必要十分条件です。
+
+この条件は区間から距離が $s$ 以下という意味なので、$|x|\le1+s$ と同値です。よって
 
 $$
 C^+_{K,[0,T]}
@@ -257,7 +283,11 @@ $$
 \le M_m(s_2-s_1).
 $$
 
-$s_1,s_2\uparrow b$ で右辺が零になるため、$V(s)$ はすべての有限次数のSobolev空間でCauchy列になります。各空間の完備性から $V(s)$ はすべての $H^{m-1}$ で極限を持ちます。異なる $m$ の極限は低階空間への連続包含により一致します。局所Sobolev埋込みを任意に高い次数で適用すると、この共通極限 $V_b$ は空間変数について滑らかです。特に第一成分と接続法線微分の成分から、$u_b$ と $v_b$ が得られます。支持は $C$ の閉じた空間射影に含まれるのでコンパクトです。
+$s_1,s_2\uparrow b$ で右辺が零になるため、$V(s)$ はすべての有限次数のSobolev空間でCauchy列になります。各空間の完備性から、すべての $H^{m-1}$ で極限を持ちます。
+
+異なる $m$ の極限は低階空間への連続包含により一致します。局所Sobolev埋込みを任意に高い次数で適用すると、この共通極限 $V_b$ は空間変数について滑らかです。
+
+特に第一成分と接続法線微分の成分から、$u_b$ と $v_b$ が得られます。支持は $C$ の閉じた空間射影に含まれるのでコンパクトです。
 
 **時間方向の滑らかさも確認します。** 一階系を $\partial_sV=G(s,x,V,\partial_xV,F)$ と解いたとき、$G$ は上記の $(A^0)^{-1}$ と滑らかな係数からなる線形な式です。$V(s)\to V_b$ がすべての空間 $H^m$ で成立し、$F$ と係数も滑らかなので
 $$
