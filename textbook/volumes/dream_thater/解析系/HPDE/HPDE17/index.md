@@ -8,7 +8,9 @@
 
 $(M,g)$ は境界のない、時間向き付き滑らかな大域双曲Lorentz多様体で、計量の符号は $(-,+,\ldots,+)$ とします。$E\to M$ は有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ は滑らかな[normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)とします。一般の $P$ は形式的自己随伴と仮定しません。
 
-[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)により、$t:M\to\mathbb R$ を[Cauchy時間関数](../../../幾何系/LORG/LORG20/index.md#def-lorg20-cauchy-temporal)として選び、$\Sigma_s=t^{-1}(s)$、$\Sigma=\Sigma_0$ と書きます。未来向き単位法線を $N$、[HPDE5の一意な接続](../HPDE5/index.md#thm-hpde5-unique-connection)を $\nabla^P$ とします。初期速度には $\nabla_N^P u|_\Sigma$ を用い、座標微分と取り違えません。
+[LORG20の滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)により、$t:M\to\mathbb R$ を[Cauchy時間関数](../../../幾何系/LORG/LORG20/index.md#def-lorg20-cauchy-temporal)として選び、$\Sigma_s=t^{-1}(s)$、$\Sigma=\Sigma_0$ と書きます。$M$ が非連結の場合は連結成分ごとに[LORG20の定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)を適用して $t$ を定めます。成分は開かつ互いに素で、成分間を結ぶ因果曲線もないため、得られた関数は $M$ 全体で滑らかなCauchy時間関数になります。
+
+未来向き単位法線を $N$、[HPDE5の一意な接続](../HPDE5/index.md#thm-hpde5-unique-connection)を $\nabla^P$ とします。初期速度には $\nabla_N^P u|_\Sigma$ を用い、座標微分と取り違えません。
 
 今回は、源 $f\in\Gamma(M,E)$ と初期値 $u_0,u_1\in\Gamma(\Sigma,E|_\Sigma)$ は**滑らかであればよく、コンパクト支持とは仮定しません**。目標は全時空で
 
