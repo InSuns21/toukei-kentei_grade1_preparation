@@ -187,7 +187,33 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-16-adaboost -->
-**定義の確認**。4件を一様に重み付けし、1番の木が2番目だけ誤ると $\varepsilon_1=1/4$。$\alpha_1=(\log3)/2$、$Z_1=\sqrt3/2$。正解した3点には $\tfrac14e^{-\alpha_1}/Z_1=1/6$、誤った点には $\tfrac14e^{\alpha_1}/Z_1=1/2$ を与える。更新後は $(1/6,1/2,1/6,1/6)$ で正、総和は $3(1/6)+1/2=1$。次に3番目だけ誤る木なら $\varepsilon_2=1/6$、$\alpha_2=(\log5)/2$、重みは $(1/10,3/10,1/2,1/10)$ となる。
+**定義の確認**。4件を一様に重み付けし、1番の木が2番目だけ誤ると $\varepsilon_1=1/4$。$\alpha_1=(\log3)/2$、$Z_1=\sqrt3/2$。正解した3点には $\tfrac14e^{-\alpha_1}/Z_1=1/6$、誤った点には $\tfrac14e^{\alpha_1}/Z_1=1/2$ を与える。更新後は $(1/6,1/2,1/6,1/6)$ で正、総和は $3(1/6)+1/2=1$。次に3番目だけ誤る木なら、誤り集合は第3点だけなので
+
+$
+\varepsilon_2=w_3^{(2)}=\frac16,\qquad
+\alpha_2=\frac{\log5}{2},\qquad
+Z_2=\frac56e^{-\alpha_2}+\frac16e^{\alpha_2}
+=\frac{\sqrt5}{3}.
+$
+
+正解点に掛ける倍率と誤り点に掛ける倍率はそれぞれ
+
+$
+\frac{e^{-\alpha_2}}{Z_2}=\frac35,\qquad
+\frac{e^{\alpha_2}}{Z_2}=3.
+$
+
+よって更新後は
+
+$
+w^{(3)}=\left(\frac16\cdot\frac35,\;
+\frac12\cdot\frac35,\;
+\frac16\cdot3,\;
+\frac16\cdot\frac35\right)
+=\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right).
+$
+
+各重みは正で、和は $1/10+3/10+1/2+1/10=1$ である。
 <!-- definition-example-end -->
 
 重みの更新で誤り点が大きくなるのは、$e^{\alpha_t}$ と $e^{-\alpha_t}$ の比が $e^{2\alpha_t}=(1-\varepsilon_t)/\varepsilon_t>1$ だからである。全体は $Z_t$ で割るので、各反復の重みは必ず合計1に戻る。
@@ -426,7 +452,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-16-residual-stage -->
-**定義の確認**。$y=(1,3)$、$F=0$、$h(x_1)=h(x_2)=1$ なら残差は $(1,3)$、最良の一定値 $\gamma=2$。$\nu=1/2$ とすれば次の得点は $(1,1)$、新残差は $(0,2)$。更新前の $R=(1+9)/4=5/2$ は、更新後に $R=(0+4)/4=1$ へ減る。実際に二つの訓練点で二乗損失を確認できた。
+**定義の確認**。$y=(1,3)$、$F=0$、$h(x_1)=h(x_2)=1$ とする。回帰器は二点上で定数1を返し、$\sum_i h(x_i)^2=2>0$ なので定義の非零条件を満たす。残差は $r=(1,3)$ であり、候補の係数 $\gamma$ に対する損失を定義どおり展開すると
+
+$
+\begin{aligned}
+R(F+\gamma h)
+&=\frac{(1-\gamma)^2+(3-\gamma)^2}{4}\\
+&=\frac{2\gamma^2-8\gamma+10}{4}
+=\frac{(\gamma-2)^2+1}{2}.
+\end{aligned}
+$
+
+平方項が0になるのは $\gamma=2$ のときだけなので、これが一意の最良の一定値である。$\nu=1/2$ とすれば更新後の得点は $(1,1)$、新残差は $(0,2)$。更新前後の損失は
+
+$
+R(F)=\frac{1^2+3^2}{4}=\frac52,\qquad
+R(F_{\rm next})=\frac{0^2+2^2}{4}=1.
+$
+
+従って損失は $3/2$ だけ減少する。ここでは後続の減少命題を仮定せず、定義から直接検算した。
 <!-- definition-example-end -->
 
 <a id="prop-ml1-16-residual-decrease"></a>
@@ -652,7 +696,39 @@ $g'(a)=-(1-\varepsilon)e^{-a}+\varepsilon e^a$、$g''(a)=(1-\varepsilon)e^{-a}+\
 <!-- solution-start -->
 #### 詳細解答
 
-1本目の誤りは第2点で $\varepsilon_1=1/4$。$\alpha_1=\log3/2$、$Z_1=\sqrt3/2$。正解点を $1/6$、誤り点を $1/2$ にして $w^{(2)}=(1/6,1/2,1/6,1/6)$。2本目は第3点だけ誤るので $\varepsilon_2=1/6$、$\alpha_2=\log5/2$、$Z_2=\sqrt5/3$。正解点は重みを $1/\{2(5/6)\}=3/5$ 倍、誤り点は $1/\{2(1/6)\}=3$ 倍され、$w^{(3)}=(1/10,3/10,1/2,1/10)$。積は $\sqrt{15}/6$。加法得点は $(\log15/2,\log(5/3)/2,\log(5/3)/2,-\log15/2)$ で、第3点だけ誤るから経験訓練誤りは $1/4$。従って[訓練誤り上界](#thm-ml1-16-training-bound)の $1/4\le\sqrt{15}/6$ を満たす。
+[AdaBoost更新](#def-ml1-16-adaboost)を順に用いる。1本目は第2点だけを誤るので
+
+$
+\varepsilon_1=\frac14,\quad
+\alpha_1=\frac{\log3}{2},\quad
+Z_1=\frac{\sqrt3}{2},\quad
+w^{(2)}=\left(\frac16,\frac12,\frac16,\frac16\right).
+$
+
+2本目は第3点だけを誤り、正解点の重みの倍率は $3/5$、誤り点の倍率は3となる。従って
+
+$
+\begin{aligned}
+\varepsilon_2&=\frac16,&
+\alpha_2&=\frac{\log5}{2},&
+Z_2&=\frac{\sqrt5}{3},\\
+w^{(3)}&=\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right),&
+Z_1Z_2&=\frac{\sqrt{15}}6.
+\end{aligned}
+$
+
+4点での加法得点を各木の予測から足し合わせると
+
+$
+\begin{aligned}
+F_2(x_1)&=\alpha_1+\alpha_2=\frac{\log15}{2},\\
+F_2(x_2)&=-\alpha_1+\alpha_2=\frac{\log(5/3)}2,\\
+F_2(x_3)&=-\alpha_1+\alpha_2=\frac{\log(5/3)}2,\\
+F_2(x_4)&=-\alpha_1-\alpha_2=-\frac{\log15}{2}.
+\end{aligned}
+$
+
+第3点は真値が $-1$ なのに得点が正なので誤分類され、残り3点は正解する。ゆえに経験訓練誤りは $1/4$ であり、[訓練誤り上界](#thm-ml1-16-training-bound)の $1/4\le\sqrt{15}/6$ と整合する。
 <!-- solution-end -->
 
 ### ML1-16-B03 弱い優位性から指数上界へ
