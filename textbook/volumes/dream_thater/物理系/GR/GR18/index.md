@@ -437,7 +437,7 @@ $$
 
 を取ります。計量に代入すれば $g(e_{\hat0},e_{\hat0})=-1$、$g(e_{\hat r},e_{\hat r})=g(e_{\hat\phi},e_{\hat\phi})=1$、異なる基底の内積は零です。静止観測者の四元速度は $U=ce_{\hat0}$ です。
 
-光の接ベクトルを局所枠で $k=k^{\hat0}e_{\hat0}+k^{\hat r}e_{\hat r}+k^{\hat\phi}e_{\hat\phi}$ と展開します。成分は射影で得られ、
+光の接ベクトルを局所枠で $k=k^{\hat0}e_{\hat0}+k^{\hat r}e_{\hat r}+k^{\hat\phi}e_{\hat\phi}$ と展開します。[GR4で定義した観測者の測定成分](../GR4/index.md#def-gr4-measured-components)は、時間方向の内積には負号を付け、空間方向にはそのまま内積を取って求めます。したがって
 
 $$
 k^{\hat0}=-g(k,e_{\hat0})=\frac{\mathcal E}{\sqrt f},\qquad
