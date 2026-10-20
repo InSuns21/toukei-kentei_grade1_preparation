@@ -1,0 +1,51 @@
+chapter: HPDE16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE15
+  - HPDE11
+  - HPDE10
+  - HPDE9
+  - HPDE8
+  - HPDE6
+  - HPDE5
+  - LORG20
+  - LORG16
+  - LORG15
+forward_references: []
+concepts:
+  - id: hpde.global-cauchy-problem
+    name: 大域Cauchy問題
+    kind: definition
+    introduction: formal
+    requires: [hpde.cauchy-patch, hpde.local-cauchy-existence]
+  - id: hpde.finite-time-causal-shadow
+    name: 有限時間因果影
+    kind: definition
+    introduction: formal
+    requires: [lorentz-geometry.global-hyperbolicity, hpde.finite-propagation]
+  - id: hpde.compact-causal-shadow
+    name: 有限時間因果影のコンパクト性
+    kind: lemma
+    introduction: formal
+    requires: [hpde.finite-time-causal-shadow, lorentz-geometry.global-hyperbolicity]
+  - id: hpde.compact-bundle-high-energy
+    name: コンパクト領域での束値高階評価
+    kind: lemma
+    introduction: formal
+    requires: [hpde.local-cauchy-existence, hpde.finite-time-causal-shadow]
+  - id: hpde.smooth-endpoint-continuation
+    name: 有限端点での滑らかな延長
+    kind: lemma
+    introduction: formal
+    requires: [hpde.compact-bundle-high-energy, hpde.slab-continuation]
+  - id: hpde.global-cauchy-theorem
+    name: 大域Cauchy問題の存在一意性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.compact-causal-shadow, hpde.smooth-endpoint-continuation, hpde.patch-overlap, hpde.local-cone-uniqueness]
+  - id: hpde.global-causal-support
+    name: 因果的支持と時間スライス上のコンパクト性
+    kind: corollary
+    introduction: formal
+    requires: [hpde.global-cauchy-theorem, hpde.finite-propagation]
