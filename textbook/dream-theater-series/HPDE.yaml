@@ -55,7 +55,7 @@ chapters:
     title: "Minkowskiの先進・遅延基本解"
   - id: HPDE13
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE13
-    status: planned
+    status: completed
     title: "Hadamard係数とtransport方程式"
   - id: HPDE14
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE14

@@ -1,0 +1,76 @@
+chapter: HPDE13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE12
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - LORG5
+forward_references: []
+concepts:
+  - id: hpde.world-function
+    name: Syngeの世界関数と放射ベクトル場
+    kind: definition
+    introduction: formal
+    requires: [lorentz-geometry.convex-normal-neighborhood, lorentz-geometry.lorentz-exponential-local]
+  - id: hpde.world-eikonal
+    name: 世界関数のアイコナール恒等式
+    kind: lemma
+    introduction: formal
+    requires: [hpde.world-function, lorentz-geometry.exponential-gauss-lemma]
+  - id: hpde.flat-riesz-distributions
+    name: 平坦時空の未来向きRiesz分布
+    kind: definition
+    introduction: formal
+    requires: [hpde.three-dimensional-fundamental, hpde.point-source]
+  - id: hpde.flat-riesz-recurrence
+    name: 4次元のRiesz再帰
+    kind: theorem
+    introduction: formal
+    requires: [hpde.flat-riesz-distributions, hpde.three-dimensional-fundamental]
+  - id: hpde.dimension-riesz
+    name: 次元依存と一般のRiesz再帰
+    kind: proposition
+    introduction: formal
+    requires: [hpde.flat-riesz-recurrence, hpde.one-dimensional-fundamental]
+  - id: hpde.van-vleck
+    name: van Vleck–Morette因子
+    kind: definition
+    introduction: formal
+    requires: [hpde.world-function, lorentz-geometry.convex-normal-neighborhood]
+  - id: hpde.van-vleck-transport
+    name: 体積Jacobianと先頭の輸送方程式
+    kind: lemma
+    introduction: formal
+    requires: [hpde.van-vleck, hpde.world-eikonal, hpde.density-divergence]
+  - id: hpde.hadamard-leading
+    name: 先頭Hadamard係数
+    kind: definition
+    introduction: formal
+    requires: [hpde.van-vleck, hpde.bundle-connection]
+  - id: hpde.hadamard-leading-transport
+    name: 束値先頭係数の輸送と一意性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.hadamard-leading, hpde.van-vleck-transport]
+  - id: hpde.riesz-product-rule
+    name: Riesz分布への波動作用素の積公式
+    kind: lemma
+    introduction: formal
+    requires: [hpde.world-eikonal, hpde.flat-riesz-recurrence, hpde.unique-connection]
+  - id: hpde.hadamard-coefficients
+    name: Hadamard係数と輸送再帰
+    kind: definition
+    introduction: formal
+    requires: [hpde.hadamard-leading-transport, hpde.riesz-product-rule]
+  - id: hpde.hadamard-integral
+    name: 輸送方程式の解の存在・一意性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.hadamard-coefficients, hpde.hadamard-leading-transport]
+  - id: hpde.hadamard-truncated-defect
+    name: 有限和の残差恒等式
+    kind: proposition
+    introduction: formal
+    requires: [hpde.hadamard-integral, hpde.riesz-product-rule, hpde.flat-riesz-distributions]
