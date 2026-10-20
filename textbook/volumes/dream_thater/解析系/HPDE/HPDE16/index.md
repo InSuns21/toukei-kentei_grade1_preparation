@@ -43,7 +43,7 @@ $$
 
 [HPDE10の有限伝播](../HPDE10/index.md#thm-hpde10-finite-propagation)は、解が存在すれば初期データ・源の支持から因果的に到達できない点では解が零になることを示しました。ただし $J^+(K)$ は未来へ無限に広がり得ます。「影響は因果集合内にある」というだけでは係数上界を一度に取れません。
 
-そこで、時刻の上限を固定した**有限時間因果影**を導入します。記号の $J^\pm$ は[因果的未来・過去](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)です。
+そこで、時刻の上限を固定して因果的な影響の広がりを切り取ります。記号の $J^\pm$ は[因果的未来・過去](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)です。
 
 <a id="def-hpde16-finite-shadow"></a>
 
@@ -113,7 +113,7 @@ $$
 <a id="lem-hpde16-bundle-energy"></a>
 
 <!-- formal-statement-start -->
-> **補題（コンパクト有限時間領域での束値高階評価）**  
+> **補題（コンパクト領域での束値高階評価）**  
 > $a<b$ を有限とし、$[a,b]$ 上の滑らかな解 $Pu=f$ の各スライス上の支持が、一つのコンパクトな時空集合 $C$ 内に含まれるとする。$C$ を内部に含む有限個の座標箱で $P$ の係数と必要な階数の導関数が有界であるとする。
 >
 > このとき任意の整数 $m\ge0$ に対して、有限被覆上の局所Sobolevノルムの和と同値な量 $Y_m(s)$ と定数 $c_m$ が選べて、
@@ -194,7 +194,7 @@ $$
 Y_m'(s)\le C_mY_m(s)+C_m\|f(s)\|_{H^m}^2.
 $$
 
-元の $P$ の一次還元では $F$ に $f$ の局所成分が現れます。[積分型Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)を適用して主張の指数評価を得ます。$V$ に $u$ の一階空間・時間微分が含まれ、一次還元の拘束は[HPDE11の構成](../HPDE11/index.md#thm-hpde11-local-cauchy)で保存されるため、$Y_m$ は必要な $u$ の高階ノルムを制御します。$\square$
+元の $P$ の一次還元では $F$ に $f$ の局所成分が現れます。[積分型Grönwall補題](../HPDE8/index.md#lem-hpde8-gronwall)を適用して主張の時間指数因子を伴う不等式を得ます。$V$ に $u$ の一階空間・時間微分が含まれ、一次還元の拘束は[HPDE11の構成](../HPDE11/index.md#thm-hpde11-local-cauchy)で保存されるため、$Y_m$ は必要な $u$ の高階ノルムを制御します。$\square$
 <!-- proof-end -->
 
 **重要な限定**。$C$ がコンパクトであることから係数界を得ました。非コンパクトな $\Sigma$ 上のすべての滑らかなデータについて、同一の $c_m$ を取れるという主張ではありません。そのような一様評価は後のHPDE17で条件を明示して扱います。
@@ -246,7 +246,7 @@ $s_1,s_2\uparrow b$ で右辺が零になるため、$V(s)$ はすべての有�
 
 この補題が排除するのは「有限時刻に高階微分が無限大になり、滑らかなCauchyデータが消えてしまう」という線形方程式での障害です。非線形問題ではエネルギーの右辺が未知解の高階ノルムに超線形に依存し、同じ議論が自動では成立しません。
 
-## 5. 大域Cauchy定理
+## 5. 解を全時刻へ延ばす
 
 ここまでで必要な材料が揃いました。有限伝播は**解の支持を予め絞る**ために使います。高階評価は**有限端点での延長を可能にする**ために使います。一意性は、途中でパッチ・座標・時刻の刻み幅を選び直しても同じ解になるために使います。
 
@@ -498,13 +498,13 @@ $(M,g)$ を境界のない滑らかな大域双曲時空、$E\to M$ を有限ラ
 <!-- solution-start -->
 **詳細解答**。
 
-(i) $K_\Sigma=\operatorname{supp}u_0\cup\operatorname{supp}u_1$、$K_f=\operatorname{supp}f$、$K_+=K_\Sigma\cup(K_f\cap J^+(\Sigma))$ と定めます。$K_+$ はコンパクトです。[有限伝播](../HPDE10/index.md#thm-hpde10-finite-propagation)は既に存在する局所解に対して、$0\le t<b$ で $\operatorname{supp}u\subset J^+(K_+)$ を与えます。よって $0\le t\le T$ で必要な領域は
+(i) $K_\Sigma=\operatorname{supp}u_0\cup\operatorname{supp}u_1$、$K_f=\operatorname{supp}f$、$K_+=K_\Sigma\cup(K_f\cap J^+(\Sigma))$ と定めます。$K_+$ はコンパクトです。[HPDE10の有限伝播定理](../HPDE10/index.md#thm-hpde10-finite-propagation)は既に存在する局所解に対して、$0\le t<b$ で $\operatorname{supp}u\subset J^+(K_+)$ を与えます。よって $0\le t\le T$ で必要な領域は
 
 $$
 C_T=J^+(K_+)\cap t^{-1}([0,T]).
 $$
 
-[有限時間因果影の補題](#lem-hpde16-shadow-compact)から $C_T$ はコンパクトです。
+[有限時間因果影のコンパクト性](#lem-hpde16-shadow-compact)から $C_T$ はコンパクトです。
 
 (ii) $b\le T$ と仮定します。コンパクトな $C_T$ を有限個の座標箱で覆えば、任意の有限階の係数界を取れます。[束値高階評価](#lem-hpde16-bundle-energy)により、任意の $m$ について
 
