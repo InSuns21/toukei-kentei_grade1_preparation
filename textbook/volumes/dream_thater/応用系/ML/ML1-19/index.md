@@ -6,7 +6,11 @@
 
 ## 1. 中心化と分散を行列にする
 
-$n\ge2$ 個の観測 $x_1,\ldots,x_n\in\mathbb R^p$（$p\ge1$）を、**行が観測・列が特徴量**の行列 $A\in\mathbb R^{n\times p}$ に並べる。平均ベクトル $\bar x$ を引いた各行を $z_i^{\mathsf T}$ と書き、中心化行列を $X$ とする。平均を引くのは、例えば観測が $(100,1)$ と $(100,-1)$ なら、座標の大きな第1成分ではなく、第2成分だけが変動していると見抜くためである。
+$n\ge2$ 個の観測 $x_1,\ldots,x_n\in\mathbb R^p$（$p\ge1$）を、**行が観測・列が特徴量**の行列 $A\in\mathbb R^{n\times p}$ に並べる。
+
+平均ベクトル $\bar x$ を引いた各行を $z_i^{\mathsf T}$ と書き、中心化行列を $X$ とする。例えば観測が $(100,1)$ と $(100,-1)$ なら、座標の大きな第1成分ではなく、第2成分だけが変動している。平均を引くのは、この違いを見抜くためである。
+
+各列の偏差を掛け合わせて標本全体で足せば、同じ特徴量の分散と、異なる特徴量が一緒に変動する共分散を一つの行列にまとめられる。
 
 <a id="def-ml1-19-centered-data"></a>
 
@@ -29,7 +33,7 @@ $$
 w^{\mathsf T}Cw=\frac1{n-1}\|Xw\|_2^2\ge0.
 $$
 
-ゆえに正半定値である。$Xw$ の第 $i$ 成分は、中心化した観測を方向 $w$ に射影した座標 $z_i^{\mathsf T}w$ である。この中間式によって、行列の二次形式と「その方向の標本分散」が結び付く。
+ゆえに [半正定値の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite) を満たす。$Xw$ の第 $i$ 成分は、中心化した観測を方向 $w$ に射影した座標 $z_i^{\mathsf T}w$ である。この中間式によって、行列の二次形式と「その方向の標本分散」が結び付く。
 
 <!-- definition-example-start: def-ml1-19-centered-data -->
 **定義の確認**：$x_1=(2,0)$、$x_2=(-2,0)$、$x_3=(0,1)$、$x_4=(0,-1)$ とする。$\sum_i x_i=(0,0)$ より $\bar x=0$、したがって
@@ -48,6 +52,16 @@ $$
 
 原点からの距離の大きい方向を任意の倍率で選べば分散も無制限に増える。そこで方向ベクトルの長さを1に固定する。第1主成分の方向は、中心化データの射影得点の標本分散を最大にする単位ベクトルとする。複数方向を選ぶときは互いに直交させる。
 
+正規直交な $q$ 本の方向 $w_1,\ldots,w_q$ を列に並べた行列を $W_q=(w_1,\ldots,w_q)$ とする。行列の跡 $\operatorname{tr}$ は対角成分の和を表すので、各方向の標本分散の合計は
+
+$$
+\operatorname{tr}(W_q^{\mathsf T}CW_q)
+=\sum_{k=1}^q w_k^{\mathsf T}Cw_k
+=\frac1{n-1}\sum_{k=1}^q\|Xw_k\|_2^2
+$$
+
+となる。この量を最大化するのは、各方向へ投影した偏差平方和をできるだけ多く残すためである。$q=0$ なら空和を0とする。
+
 <a id="def-ml1-19-pca-loading"></a>
 
 <!-- formal-statement-start -->
@@ -62,7 +76,7 @@ $$
 > と定める。$q=0$ では $\widehat A_0=\boldsymbol 1_n\bar x^{\mathsf T}$ とする。符号や、同じ固有値を持つ方向間の基底の選び方は一般には一意でない。
 <!-- formal-statement-end -->
 
-$W_qW_q^{\mathsf T}$ が選んだ部分空間への直交射影である理由も確かめよう。$W_q^{\mathsf T}W_q=I_q$ より、この行列は対称で、その二乗は
+$W_qW_q^{\mathsf T}$ が選んだ部分空間への [直交射影](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-orthogonal-projection) である理由も確かめよう。$W_q^{\mathsf T}W_q=I_q$ より、この行列は対称で、その二乗は
 
 $$
 (W_qW_q^{\mathsf T})^2
@@ -70,7 +84,14 @@ $$
 =W_qW_q^{\mathsf T}.
 $$
 
-さらに任意の $z\in\mathbb R^p$ について、$W_q^{\mathsf T}(z-W_qW_q^{\mathsf T}z)=0$ なので、元の点から選んだ空間に下ろした垂線の足になっている。$T_q$ の行は観測ごとの低次元座標であり、$\widehat A_q$ では平均を必ず戻す。
+さらに任意の $z\in\mathbb R^p$ について
+
+$$
+W_q^{\mathsf T}(z-W_qW_q^{\mathsf T}z)
+=W_q^{\mathsf T}z-I_qW_q^{\mathsf T}z=0
+$$
+
+となる。したがって残差は選んだ列空間の全方向に直交し、$W_qW_q^{\mathsf T}z$ は元の点からその空間に下ろした垂線の足になっている。$T_q$ の行は観測ごとの低次元座標であり、$\widehat A_q$ では平均を必ず戻す。
 
 <!-- definition-example-start: def-ml1-19-pca-loading -->
 **定義の確認**：先ほどの $C=\operatorname{diag}(8/3,2/3)$ に $q=1$ を適用する。$w=(a,b)$、$a^2+b^2=1$ に対し
@@ -80,7 +101,18 @@ w^{\mathsf T}Cw=\frac83a^2+\frac23b^2
 =\frac23+2a^2\le\frac83.
 $$
 
-最大値は $w=\pm e_1$ で達成される。$W_1=e_1$ を選ぶと $W_1^{\mathsf T}W_1=1$、$T_1=(2,-2,0,0)^{\mathsf T}$、$\widehat A_1$ の行は $(2,0),(-2,0),(0,0),(0,0)$ となる。$q=1$ の再構成平方誤差は、最後の二点の第2成分から $1^2+(-1)^2=2$ である。元のデータの総偏差平方和は $10$ なので、$8/10$ を保持している。
+最大値は $w=\pm e_1$ で達成される。$W_1=e_1$ を選ぶと $W_1^{\mathsf T}W_1=1$ で、得点と平均を戻した再構成は
+
+$$
+T_1=Xe_1=(2,-2,0,0)^{\mathsf T},
+\qquad
+\widehat A_1=
+\begin{pmatrix}
+2&0\\-2&0\\0&0\\0&0
+\end{pmatrix}
+$$
+
+となる。ここでは平均が零なので $\widehat A_1=Xe_1e_1^{\mathsf T}$ である。残差には第2成分の $1,-1$ だけが残り、再構成平方誤差は $1^2+(-1)^2=2$。元の総偏差平方和は $8+2=10$ なので、保持分散比は $8/10=4/5$ である。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-19-pca-spectral"></a>
@@ -94,7 +126,7 @@ $$
 =\sum_{j=1}^q\lambda_j.
 $$
 
-> 特に $q=1$ では、第1主成分方向は最大固有値の固有ベクトルである。$\lambda_q=\lambda_{q+1}$ の場合、$q$ 次元の最適部分空間が一意とは限らない。
+> 特に $q=1$ では、第1主成分方向は最大固有値の固有ベクトルである。$1\le q<p$ で $\lambda_q=\lambda_{q+1}$ の場合、$q$ 次元の最適部分空間が一意とは限らない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -157,7 +189,7 @@ $$
 =\operatorname{tr}(B^{\mathsf T}B)
 $$
 
-> とする。中心化行列 $X\ne0$ の主成分を $q$ 個保持したとき、保持分散比を
+> とする。$n\ge2$、$p\ge1$ とし、中心化行列 $X\in\mathbb R^{n\times p}$ が $X\ne0$ で、階数を $r=\operatorname{rank}X\ge1$、正の特異値を $s_1\ge\cdots\ge s_r>0$ とする。$0\le q\le p$ 個の主成分を保持したとき、保持分散比を
 
 $$
 \rho_q=\frac{\sum_{j=1}^{\min(q,r)}s_j^2}{\|X\|_F^2}
@@ -167,7 +199,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-19-frobenius-error -->
-**定義の確認**：第1節の $X$ は非零で、成分平方和が $2^2+(-2)^2+1^2+(-1)^2=10$、$\operatorname{tr}(X^{\mathsf T}X)=8+2=10$ で一致する。$X$ の特異値は $s_1=2\sqrt2$、$s_2=\sqrt2$ なので、$q=1$ の保持分散比は $s_1^2/(s_1^2+s_2^2)=8/10=4/5$。$q=0$ では0、$q=2$ では1である。$X=0$ なら分母も0になるため、比を無理に $0/0$ と計算しない。
+**定義の確認**：第1節の $X$ は非零で、成分の平方和と積行列の対角成分の和はともに
+
+$$
+\|X\|_F^2=2^2+(-2)^2+1^2+(-1)^2
+=8+2=\operatorname{tr}(X^{\mathsf T}X)=10
+$$
+
+である。$X^{\mathsf T}X=\operatorname{diag}(8,2)$ だから、[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) より $s_1=2\sqrt2$、$s_2=\sqrt2$。したがって
+
+$$
+\rho_1=\frac{s_1^2}{s_1^2+s_2^2}
+=\frac8{8+2}=\frac45.
+$$
+
+$q=0$ では保持比0、$q=2$ では1である。$X=0$ なら分母も0になるため、比を無理に $0/0$ と計算しない。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-19-pca-reconstruction"></a>
@@ -255,7 +301,23 @@ $$
 \|(I-P)X\|_F^2=\|X\|_F^2-\|PX\|_F^2.
 $$
 
-$X$ の左特異ベクトル $u_j$ により、$\|PX\|_F^2=\sum_{j=1}^r s_j^2\|Pu_j\|_2^2$。係数 $t_j=\|Pu_j\|_2^2$ は $0\le t_j\le1$ であり、左特異ベクトルを $\mathbb R^n$ の正規直交基底まで延長すると、$\sum_{j=1}^r t_j\le\operatorname{tr}P=\operatorname{rank}P\le q$ となる。
+$X=\sum_{j=1}^r s_ju_jv_j^{\mathsf T}$ を $PX$ に代入する。右特異ベクトルの直交性によって交差項が消えるため、
+
+$$
+\|PX\|_F^2=\sum_{j=1}^r s_j^2\|Pu_j\|_2^2
+$$
+
+となる。$t_j=\|Pu_j\|_2^2$ と置くと、直交射影は長さを増やさないので $0\le t_j\le1$。さらに $u_1,\ldots,u_r$ を $\mathbb R^n$ の正規直交基底 $u_1,\ldots,u_n$ まで延長すると、
+
+$$
+\sum_{j=1}^r t_j
+\le\sum_{j=1}^n\|Pu_j\|_2^2
+=\sum_{j=1}^n u_j^{\mathsf T}Pu_j
+=\operatorname{tr}P
+=\operatorname{rank}P\le q.
+$$
+
+最後の等号では、$P^2=P=P^{\mathsf T}$ に [実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を適用した。$P$ の固有値は0または1であり、その1の個数が像の次元なので、跡は階数に等しい。
 
 $0<q<r$ なら、$s_q^2$ を境界として、$j>q$ の係数が非正となることから
 
@@ -347,7 +409,14 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$。固有値は $6,8/3$、特異値はその $n-1$ 倍の平方根で $3\sqrt2,2\sqrt2$。[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと捨てる平方和は $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
+各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$ である。固有値は $6,8/3$。[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) に $C=X^{\mathsf T}X/(n-1)$ を代入すると $s_j^2=(n-1)\lambda_j$ となるから、
+
+$$
+s_1=\sqrt{3\cdot6}=3\sqrt2,\qquad
+s_2=\sqrt{3\cdot(8/3)}=2\sqrt2.
+$$
+
+[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと再構成平方誤差は捨てた $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
 <!-- solution-end -->
 
 ### ML1-19-A03 保持次元が0・全次元の場合
@@ -452,7 +521,17 @@ $$
 X^{\mathsf T}X=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-$(1,1)$ と $(1,-1)$ へそれぞれ作用させると $3(1,1)$、$(1,-1)$ を得るため、固有値は $3,1$、第1方向は $v_1=(1,1)^{\mathsf T}/\sqrt2$。得点 $Xv_1=(1/\sqrt2,1/\sqrt2,-\sqrt2)^{\mathsf T}$ だから、各得点へ $v_1^{\mathsf T}$ を掛けて
+この行列を二つの独立な方向へ作用させると、
+
+$$
+\begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}
+=3\begin{pmatrix}1\\1\end{pmatrix},
+\qquad
+\begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}1\\-1\end{pmatrix}.
+$$
+
+このため固有値は $3,1$、最大固有値の単位固有ベクトルは $v_1=(1,1)^{\mathsf T}/\sqrt2$ である。得点 $Xv_1=(1/\sqrt2,1/\sqrt2,-\sqrt2)^{\mathsf T}$ だから、各得点へ $v_1^{\mathsf T}$ を掛けて
 
 $$
 Xv_1v_1^{\mathsf T}=
