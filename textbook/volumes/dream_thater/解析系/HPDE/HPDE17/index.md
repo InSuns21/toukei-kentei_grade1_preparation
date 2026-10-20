@@ -258,7 +258,7 @@ $$
 
 の[HPDE16の大域解](../HPDE16/index.md#thm-hpde16-global-cauchy)を $w$ とします。[局所一致補題](#lem-hpde17-localized-agreement)を $Q'$ に適用すると $\delta u=w$ が $Q'$ 上、特に開集合 $\operatorname{int}Q'$ 上で成り立ちます。従って $Q$ 上では**値だけでなく任意階の導関数も一致**します。点集合 $Q$ 上での値の一致だけから導関数の一致を推論してはならないため、ここでは $Q'$ へ拡大してから切り出しています。
 
-切り出したデータの支持は固定したコンパクト集合の中にあります。[HPDE16の有限時間因果影](../HPDE16/index.md#lem-hpde16-shadow-compact)により、その解の $[-T,T]$ 上の支持も固定したコンパクト集合へ入ります。そこを有限個の局所枠で覆い、[HPDE16の高階エネルギー評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を任意に大きい $m$ で適用すると、有限時間帯での $\delta u$ の空間高階導関数・一階時間微分が、初期データと $\chi_M\delta f$ の有限階Sobolevノルムで支配されます。
+切り出したデータの支持は固定したコンパクト集合の中にあります。[HPDE16の有限時間因果影](../HPDE16/index.md#lem-hpde16-shadow-compact)により、その解の $[-T,T]$ 上の支持も固定したコンパクト集合へ入ります。そこを有限個の局所枠で覆い、[HPDE16の高階エネルギー評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を任意に大きい $m$ で適用すると、有限時間帯での $w$ の空間高階導関数・一階時間微分が、初期データと $\chi_M\delta f$ の有限階Sobolevノルムで支配されます。
 
 時間方向の二階以上の微分も評価する必要があります。[HPDE11の一次対称双曲化](../HPDE11/index.md#prop-hpde11-positive-symmetrizer)で得る局所還元変数を $W$ とし、
 
