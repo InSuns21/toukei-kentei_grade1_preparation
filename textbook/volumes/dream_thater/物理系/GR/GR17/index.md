@@ -177,7 +177,25 @@ $$
 
 ## 3. 赤方偏移の符号と時計比較を一つの式に結ぶ
 
-観測の記述では、周波数だけでなく波長や赤方偏移量を使います。観測者の局所直交枠では光速は $c$ なので、局所的な波長を $\lambda_{\mathrm{loc}}=c/\nu_{\mathrm{loc}}$ と表せます。これは遠隔二地点の空間距離を測る式ではなく、**各地点の同じ局所観測者**による周波数と波長の換算です。
+観測の記述では、周波数だけでなく波長や赤方偏移量を使います。ここで使う波長も遠隔の座標差ではなく、**各地点の同じ局所観測者**が測る量です。[GR4の局所光線方向の命題](../GR4/index.md#prop-gr4-photon-direction)によると、観測者の局所直交枠に波数四ベクトルを展開した際の時間成分は $K^{(0)}=\omega_{\mathrm{loc}}/c$ です。光的条件をその枠で書けば、空間波数の大きさ $\kappa$ は
+
+$$
+0=g(K,K)=-\left(\frac{\omega_{\mathrm{loc}}}{c}\right)^2
++\sum_{i=1}^3(K^{(i)})^2,
+\qquad
+\kappa:=\sqrt{\sum_{i=1}^3(K^{(i)})^2}
+=\frac{\omega_{\mathrm{loc}}}{c}>0.
+$$
+
+局所的な波面の位相が空間方向へ $2\pi$ 増える距離を波長 $\lambda_{\mathrm{loc}}=2\pi/\kappa$ とすれば、$\omega_{\mathrm{loc}}=2\pi\nu_{\mathrm{loc}}$ なので
+
+$$
+\lambda_{\mathrm{loc}}
+=\frac{2\pi c}{\omega_{\mathrm{loc}}}
+=\frac{c}{\nu_{\mathrm{loc}}}
+$$
+
+となります。この換算は各地点の局所枠内で完結しており、二地点間の空間距離の測定式ではありません。
 
 送信地点Aでの局所波長 $\lambda_A>0$ と受信地点Bでの局所波長 $\lambda_B>0$ の比を使い、通常、赤方偏移を $z:=\lambda_B/\lambda_A-1$ と表示します。局所換算 $\lambda=c/\nu$ により、同じ光について $1+z=\nu_A/\nu_B$ でもあります。
 
@@ -496,7 +514,7 @@ $$
 \frac{\Delta\tau_B}{\Delta\tau_A}=\sqrt{\frac32}.
 $$
 
-(iii) [GR14のKilling保存定理](../GR14/index.md#thm-gr14-killing-charge)は $\Omega=-c\,g(K,\xi)$ の光路上での一定性を与えます。[GR4の周波数定義](../GR4/index.md#def-gr4-measured-components)に $U_i=c\xi/\sqrt{f_i}$ を入れれば $\omega_i=\Omega/\sqrt{f_i}$。従って
+(iii) [GR14のKilling保存定理](../GR14/index.md#thm-gr14-killing-charge)は $\Omega=-c\,g(K,\xi)$ の光路上での一定性を与えます。[GR4の周波数定義](../GR4/index.md#def-gr4-measured-components)に $U_i=c\xi/\sqrt{f_i}$ を入れれば $\omega_i=\Omega/\sqrt{f_i}$。[静止観測者間の赤方偏移量の定義](#def-gr17-redshift-z)も用いると
 
 $$
 \frac{\nu_B}{\nu_A}=\frac{\omega_B}{\omega_A}
