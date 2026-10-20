@@ -23,13 +23,15 @@ $$
 
 これは[RKHS2の有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)と[RKHS3の核ベクトル](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-vector)を標本で使うための書き方である。訓練点 $x_j$ の核ベクトルは $G$ の第 $j$ 列なので、訓練値を縦に並べると $\widehat y=G\alpha$ となる。
 
-**直接例。** $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$。任意の $c\in\mathbb R^m$ について $\sum_{ij}c_ic_jK(z_i,z_j)=\|\sum_ic_i\phi(z_i)\|^2\ge0$ となり核の条件を確認できる。標本では
+<!-- definition-example-start: def-ml1-18-kernel-prediction -->
+**定義の確認：核値・Gram行列・予測を直接計算する。** $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$。任意の $c\in\mathbb R^m$ について $\sum_{ij}c_ic_jK(z_i,z_j)=\|\sum_ic_i\phi(z_i)\|^2\ge0$ となり核の条件を確認できる。標本では
 
 $$
 G=\begin{pmatrix}4&0\\0&1\end{pmatrix}.
 $$
 
 新しい入力 $x_*=(1/4,1)$ では $k(x_*)=(1,1)^{\mathsf T}$。例えば $\alpha=(2/5,1/2)^{\mathsf T}$ なら、訓練予測は $(8/5,1/2)^{\mathsf T}$、未知点予測は $2/5+1/2=9/10$ である。「核ベクトルの二成分」と「特徴ベクトルの二成分」は、数が同じでも別の対象である。
+<!-- definition-example-end -->
 
 ## 2. 正則化係数を固定して学習する
 
@@ -47,6 +49,16 @@ $$
 
 > を最小にする関数 $f_\lambda\in\mathcal H$ を学習結果とする。その訓練予測を $\widehat y_\lambda=(f_\lambda(x_i))_{i=1}^n$ とする。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ml1-18-krr-training -->
+**定義の確認：定数核の1点学習。** $n=1$、定数核 $K(x,z)=1$、応答 $y_1=2$、$\lambda=1$ とする。この核のRKHSの関数は定数 $f(x)=c$ であり、$\|f\|_{\mathcal H}^2=c^2$ である。従って目的関数は
+
+$
+J_1(f)=(2-c)^2+c^2=2(c-1)^2+2.
+$
+
+全ての $c\in\mathbb R$ に対し第1項は非負なので、最小値2を達成する唯一の関数は $f_1(x)=1$ である。実際、核行列は $(1)$、学習公式でも $\alpha=(1+1)^{-1}\cdot2=1$ と一致する。
+<!-- definition-example-end -->
 
 [RKHS3の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)の前提は正半定値核、二乗損失、$\lambda>0$ である。そこへ $n$ と $\lambda$ を代入すると、**一つの標準的な係数表示**として
 
@@ -168,7 +180,9 @@ $$
 > で定める。$d_\lambda$ は平滑化行列の固有値の和であり、標本数そのものとは区別する。
 <!-- formal-statement-end -->
 
-**定義の直接確認。** 2方向例で $\lambda=1/2$ を代入すると $S_\lambda=\operatorname{diag}(4/5,1/2)$ だから、$R_\lambda=(2-8/5)^2+(1-1/2)^2=4/25+1/4=41/100$、$N_\lambda=4(2/5)^2+(1/2)^2=16/25+1/4=89/100$、$d_\lambda=4/5+1/2=13/10$。残差平方和には $1/n$ が掛かっていないことに注意する。
+<!-- definition-example-start: def-ml1-18-path-diagnostics -->
+**定義の確認：** 2方向例で $\lambda=1/2$ を代入すると $S_\lambda=\operatorname{diag}(4/5,1/2)$ だから、$R_\lambda=(2-8/5)^2+(1-1/2)^2=4/25+1/4=41/100$、$N_\lambda=4(2/5)^2+(1/2)^2=16/25+1/4=89/100$、$d_\lambda=4/5+1/2=13/10$。残差平方和には $1/n$ が掛かっていないことに注意する。
+<!-- definition-example-end -->
 
 <a id="thm-ml1-18-path-monotonicity"></a>
 
@@ -287,7 +301,7 @@ axes[0].plot(grid,val_sqerr,"s-",label="validation squared error")
 axes[0].set(xscale="log",xlabel="lambda",ylabel="squared error")
 axes[0].legend()
 axes[1].plot(grid,norm_sq,"o-",label="RKHS norm squared")
-axes[1].plot(grid,dof,"s-",label="trace(S)")
+axes[1].plot(grid,dof,"s-",label="d(lambda)")
 axes[1].set(xscale="log",xlabel="lambda")
 axes[1].legend()
 plt.tight_layout()
