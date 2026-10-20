@@ -18,7 +18,7 @@ $r$ は球面積 $4\pi r^2$ を与える面積半径です。試験質点は未�
 
 ## 1. 保存量を利用して半径運動を切り出す
 
-球対称性を使って初期の軌道面を $\theta=\pi/2$ とします。この制限が一貫していることを確かめます。測地線の角度方向のEuler–Lagrange方程式は
+球対称性を使って初期の軌道面を $\theta=\pi/2$ とします。この制限が一貫していることを確かめます。[GR3の固有時測地線方程式](../GR3/index.md#thm-gr3-stationary-action)を角度方向に適用すると、Euler–Lagrange方程式は
 
 $$
 \frac{d}{d\tau}(r^2\dot\theta)=r^2\sin\theta\cos\theta\,\dot\phi^2.
@@ -116,7 +116,7 @@ $r^{-3}$ 項は負なので、同じ $\ell$ のNewton有効ポテンシャルよ
 
 ## 2. 逆半径の軌道方程式
 
-$\ell=r^2\dot\phi>0$ なので $\phi$ を媒介変数にできます。$u(\phi)=1/r(\phi)$ と置き、プライムを $d/d\phi$ とすると、連鎖律は
+$\ell=r^2\dot\phi>0$ なので $\phi$ を媒介変数にできます。以下では四元速度に使った記号 $u$ を改めて逆半径 $u(\phi)=1/r(\phi)$ に使い、プライムを $d/d\phi$ とします。連鎖律は
 
 $$
 u'=-\frac1{r^2}\frac{\dot r}{\dot\phi}
@@ -178,12 +178,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr19-newtonian-orbit-data -->
-**定義の確認**。 $e=1/4$ と $\phi_0=0$ に対し、$u_{\mathrm N}>0$ は全角度で成立します。$\phi=0$ で $u=(5/4)/p$、$\phi=\pi$ で $u=(3/4)/p$ なので、半径の最小値は $r_{\min}=4p/5$、最大値は $r_{\max}=4p/3$。二つの半径の逆数から $2/(r_{\min}^{-1}+r_{\max}^{-1})=p$ も確認できます。$u_{\mathrm N}''+u_{\mathrm N}=1/p=GM/\ell^2$ なのでNewtonの軌道方程式を満たします。
+**定義の確認**。$e=1/4$、$\phi_0=0$ とすれば $1+e\cos\phi\geq 3/4>0$ なので $u_{\mathrm N}>0$ は全角度で成立します。逆半径は $\phi=0$ で最大、$\phi=\pi$ で最小です。そこで
+
+$$
+\begin{aligned}
+r_{\min}&=\frac{p}{1+e}=\frac{4p}{5},&
+r_{\max}&=\frac{p}{1-e}=\frac{4p}{3},\\
+\frac{2}{r_{\min}^{-1}+r_{\max}^{-1}}
+&=\frac{2}{(5/4+3/4)/p}=p.
+\end{aligned}
+$$
+
+さらに $u_{\mathrm N}'=-e\sin\phi/p$、$u_{\mathrm N}''=-e\cos\phi/p$ だから
+
+$$
+u_{\mathrm N}''+u_{\mathrm N}
+=-\frac{e\cos\phi}{p}+\frac{1+e\cos\phi}{p}
+=\frac1p=\frac{GM}{\ell^2}.
+$$
+
+すなわち半径が正、折返し半径が二つ、Newtonの軌道方程式を満たすという各条件を確認できます。
 <!-- definition-example-end -->
 
 ## 3. 円軌道と安定性の境界
 
-有効ポテンシャルを見れば、相対論の補正が強場で何を変えるか分かります。半径一定の運動では、まず $\dot r=0$ だけでなく $\ddot r=0$ も必要です。$u^\mu$ の半径方向の測地線方程式を保存量で整理すると
+有効ポテンシャルを見れば、相対論の補正が強場で何を変えるか分かります。半径一定の運動では、まず $\dot r=0$ だけでなく $\ddot r=0$ も必要です。[GR3の固有時測地線方程式](../GR3/index.md#thm-gr3-stationary-action)の半径成分を保存量で整理すると
 
 $$
 \ddot r=-\frac{dV_{\mathrm{eff}}}{dr};
@@ -367,19 +386,50 @@ $$
 \qquad \delta=\frac{3\alpha}{p}=\frac{3GM}{c^2p}.
 $$
 
-$e>0$ のため、この係数比較で $e$ を割れます。残りの補正項は定数、$\cos\phi$、$\cos2\phi$ の有限周期成分です。これらは一次では軌道の形と振幅を変えるだけで、連続する極小点の角度差に一次の追加を与えません。実際、振動数 $1-\delta$ の近傍では二次高調波などの導関数は周期を通じて同じ位相へ戻るので、近日点条件 $u'=0$ の一次の周期差は $2\pi/(1-\delta)$ で定まります。
-
-したがって径方向周期の角度は
+$e>0$ のため、この係数比較で $e$ を割れます。周期的な補正項が近日点間の角度差を変えないことも、**近日点の条件 $u'=0$ を直接解いて**確認しましょう。角度原点を最初の近日点に置けば $u'(0)=B=0$ です。次の近日点を $\phi=2\pi+h$ と書くと、$h=O(\eta)$ であり、零次解の導関数は
 
 $$
-\Phi_r=\frac{2\pi}{1-\delta}
-=2\pi(1+\delta)+O(\delta^2),
+u_0'(2\pi+h)=-\frac{e}{p}\sin h
+=-\frac{e}{p}h+O\left(\frac{h^3}{p}\right)
+$$
+
+となります。一方、一次解で $\phi=2\pi$ における導関数を求めると、定数項、$\cos2\phi$ 項、$A\cos\phi$ 項はすべて零になり、共鳴項だけが残ります。
+
+$$
+u_1'(2\pi)
+=\frac{3\alpha e}{p^2}
+\left[\sin\phi+\phi\cos\phi\right]_{\phi=2\pi}
+=\frac{6\pi\alpha e}{p^2}.
+$$
+
+$h=O(\eta)$ のとき $u_1'(2\pi+h)-u_1'(2\pi)$ は二次の寄与であり、固定した $0<e<1$ の有限角度区間では摂動展開の残差も二次です。よって次の近日点の条件は
+
+$$
+0=u'(2\pi+h)
+=-\frac{e}{p}h+\frac{6\pi\alpha e}{p^2}
++O\left(\frac{\eta^2}{p}\right),
 \qquad
-\Delta\varpi=2\pi\delta+O(\delta^2)
-=\frac{6\pi GM}{c^2p}+O(r_s^2/p^2).
+h=\frac{6\pi\alpha}{p}+O(\eta^2).
 $$
 
-Newton基準楕円の幾何から $p=a(1-e^2)$ を代入して第二表示を得ます。$\square$
+この $h$ は最初の近日点から次の近日点までの角度 $\Phi_r=2\pi+h$ の余剰そのものです。したがって[近日点移動角の定義](#def-gr19-perihelion-shift)から
+
+$$
+\Delta\varpi=h
+=\frac{6\pi GM}{c^2p}
++O\left(\frac{r_s^2}{p^2}\right).
+$$
+
+同様に振動数 $1-\delta$ の表示では $h=2\pi\delta+O(\delta^2)$ と一致します。Newton基準楕円の二つの半径から、長半径は
+
+$$
+a=\frac{r_{\min}+r_{\max}}2
+=\frac12\left(\frac{p}{1+e}+\frac{p}{1-e}\right)
+=\frac{p}{1-e^2}
+$$
+
+なので $p=a(1-e^2)$ を代入して第二表示を得ます。$\square$
+<!-- proof-end -->
 <!-- proof-end -->
 
 **弱場の直接例。** $p=100r_s$、$e=1/4$ のNewton基準楕円を考えると、近日点と遠日点の基準半径はそれぞれ $80r_s$、$400r_s/3$ です。どちらも $r_s$ より十分大きく、$r_s/p=0.01$ です。一次の近日点移動角は
@@ -404,7 +454,24 @@ $$
 赤道面の時間的測地線で $\mathcal E=f\dot x^0$、$\ell=r^2\dot\phi>0$ とする。$g(u,u)=-c^2$ から $\dot r^2$ を導け。$r>r_s$ が必要な箇所を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 規格化条件は $-f\dot x^{0\,2}+\dot r^2/f+r^2\dot\phi^2=-c^2$。$f>0$ の座標域で $\dot x^0=\mathcal E/f$ とし、$\dot\phi=\ell/r^2$ を代入すると $-\mathcal E^2/f+\dot r^2/f+\ell^2/r^2=-c^2$。両辺を $f$ 倍して $\dot r^2=\mathcal E^2-f(c^2+\ell^2/r^2)$ です。時間座標の割算とこの静的表示に $f\ne0$ が必要です。[半径積分](#prop-gr19-radial-energy)を独立に復元しました。
+**詳細解答。** 規格化条件と保存量は
+
+$$
+-f\dot x^{0\,2}+\frac{\dot r^2}{f}
++r^2\dot\phi^2=-c^2,\qquad
+\mathcal E=f\dot x^0,\quad \ell=r^2\dot\phi.
+$$
+
+$r>r_s$ では $f=1-r_s/r>0$ ですから、$\dot x^0=\mathcal E/f$、$\dot\phi=\ell/r^2$ を代入できます。すると
+
+$$
+-\frac{\mathcal E^2}{f}+\frac{\dot r^2}{f}
++\frac{\ell^2}{r^2}=-c^2
+\quad\Longrightarrow\quad
+\dot r^2=\mathcal E^2-f\left(c^2+\frac{\ell^2}{r^2}\right).
+$$
+
+静的表示の時間保存量を $f$ で割る段階に $f\ne0$ が必要です。[半径方向の一階積分](#prop-gr19-radial-energy)を規格化から独立に復元しました。
 <!-- solution-end -->
 
 <a id="ex-gr19-a02"></a>
@@ -414,7 +481,28 @@ $$
 $V_{\mathrm{eff}}=[(1-r_s/r)(c^2+\ell^2/r^2)-c^2]/2$ を展開し、補正項の符号と単位を調べよ。
 
 <!-- solution-start -->
-**詳細解答。** 積を分配すると $V_{\mathrm{eff}}=-c^2r_s/(2r)+\ell^2/(2r^2)-r_s\ell^2/(2r^3)$ です。$r_s=2GM/c^2$ を代入して $-GM/r+\ell^2/(2r^2)-GM\ell^2/(c^2r^3)$。三番目は負です。$[\ell]=\mathrm{m}^2/\mathrm{s}$ より $[GM\ell^2/(c^2r^3)]=(\mathrm{m}^3/\mathrm{s}^2)(\mathrm{m}^4/\mathrm{s}^2)/[(\mathrm{m}^2/\mathrm{s}^2)\mathrm{m}^3]=\mathrm{m}^2/\mathrm{s}^2$ で揃います。
+**詳細解答。** まず $1-r_s/r$ を積に分配し、$c^2/2$ を相殺します。
+
+$$
+\begin{aligned}
+V_{\mathrm{eff}}
+&=-\frac{c^2r_s}{2r}+\frac{\ell^2}{2r^2}
+-\frac{r_s\ell^2}{2r^3}\\
+&=-\frac{GM}{r}+\frac{\ell^2}{2r^2}
+-\frac{GM\ell^2}{c^2r^3}.
+\end{aligned}
+$$
+
+最後の項は負です。$[\ell]=\mathrm{m}^2/\mathrm{s}$ を用いれば、この項の次元は
+
+$$
+\left[\frac{GM\ell^2}{c^2r^3}\right]
+=\frac{(\mathrm{m}^3/\mathrm{s}^2)(\mathrm{m}^4/\mathrm{s}^2)}
+{(\mathrm{m}^2/\mathrm{s}^2)\mathrm{m}^3}
+=\mathrm{m}^2/\mathrm{s}^2
+$$
+
+となり、ほかの二項とも一致します。
 <!-- solution-end -->
 
 <a id="ex-gr19-a03"></a>
@@ -424,7 +512,29 @@ $V_{\mathrm{eff}}=[(1-r_s/r)(c^2+\ell^2/r^2)-c^2]/2$ を展開し、補正項の
 $\dot\phi=\ell/r^2>0$、$u=1/r$ とする。$u'$ と $\dot r$ の関係、および $u''+u$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $u'=(-r^{-2})(dr/d\phi)=(-r^{-2})(\dot r/\dot\phi)=-\dot r/\ell$ です。[径方向積分](#prop-gr19-radial-energy)に代入すると $(u')^2=(\mathcal E^2-c^2)/\ell^2+(r_sc^2/\ell^2)u-u^2+r_su^3$。$u'\ne0$ で微分・除算して $u''+u=r_sc^2/(2\ell^2)+(3r_s/2)u^2=GM/\ell^2+3GMu^2/c^2$ です。折返し点は滑らかさで延長し、円は別判定が必要です。
+**詳細解答。** $\dot\phi=\ell/r^2$ は正なので、連鎖律から
+
+$$
+u'=-\frac1{r^2}\frac{dr}{d\phi}
+=-\frac1{r^2}\frac{\dot r}{\dot\phi}
+=-\frac{\dot r}{\ell}.
+$$
+
+[半径方向の一階積分](#prop-gr19-radial-energy)を展開し、$r=1/u$ を代入すると
+
+$$
+(u')^2=\frac{\mathcal E^2-c^2}{\ell^2}
++\frac{r_sc^2}{\ell^2}u-u^2+r_su^3.
+$$
+
+$u'\ne0$ の区間で角度微分して $2u'$ で割れば
+
+$$
+u''+u=\frac{r_sc^2}{2\ell^2}+\frac{3r_s}{2}u^2
+=\frac{GM}{\ell^2}+\frac{3GM}{c^2}u^2.
+$$
+
+非円軌道の折返し点には滑らかさで延長しますが、円軌道は別途半径測地線方程式による判定が必要です。
 <!-- solution-end -->
 
 <a id="ex-gr19-a04"></a>
@@ -434,7 +544,22 @@ $\dot\phi=\ell/r^2>0$、$u=1/r$ とする。$u'$ と $\dot r$ の関係、およ
 $p=100r_s$、$e=1/4$ のNewton基準楕円について、近日点・遠日点の半径と一次の近日点移動角を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Newton基準楕円](#def-gr19-newtonian-orbit-data)は $r=p/(1+e\cos\phi)$。$\cos\phi=1$ で $r_{\min}=100r_s/(5/4)=80r_s$、$\cos\phi=-1$ で $r_{\max}=100r_s/(3/4)=400r_s/3$ です。[Schwarzschild近日点移動の弱場一次式](#thm-gr19-perihelion-advance)により $\Delta\varpi\simeq3\pi r_s/p=3\pi/100$ ラジアン。いずれの半径も $r_s$ より大きいものの、誤差の係数は別に評価が必要です。
+**詳細解答。** [Newton基準楕円](#def-gr19-newtonian-orbit-data)の $r=p/(1+e\cos\phi)$ に $e=1/4$、$p=100r_s$ を代入します。
+
+$$
+r_{\min}=\frac{100r_s}{1+1/4}=80r_s,
+\qquad
+r_{\max}=\frac{100r_s}{1-1/4}=\frac{400r_s}{3}.
+$$
+
+[Schwarzschild近日点移動の弱場一次式](#thm-gr19-perihelion-advance)により
+
+$$
+\Delta\varpi\simeq\frac{3\pi r_s}{p}
+=\frac{3\pi}{100}\ \mathrm{rad}.
+$$
+
+両半径は外部領域にありますが、一次近似の誤差係数が小さいことまで示したわけではありません。
 <!-- solution-end -->
 
 <a id="ex-gr19-a05"></a>
@@ -444,7 +569,20 @@ $p=100r_s$、$e=1/4$ のNewton基準楕円について、近日点・遠日点�
 半径 $r_0=4r_s$ の円軌道で $\ell^2$ と $\mathcal E^2$ を求め、安定か判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** [円軌道の命題](#prop-gr19-circular-orbits)に $r_0=4r_s$ を代入すると $\ell^2=c^2r_s(16r_s^2)/(8r_s-3r_s)=(16/5)c^2r_s^2$。$\mathcal E^2/c^2=(1-1/4)^2/(1-3/8)=(9/16)/(5/8)=9/10$ です。$r_0=4r_s>3r_s$ で $V_{\mathrm{eff}}''>0$ なので半径方向に安定です。
+**詳細解答。** [円軌道の保存量と安定条件](#prop-gr19-circular-orbits)に $r_0=4r_s$ を代入します。
+
+$$
+\begin{aligned}
+\ell^2
+&=\frac{c^2r_s(4r_s)^2}{8r_s-3r_s}
+=\frac{16}{5}c^2r_s^2,\\
+\frac{\mathcal E^2}{c^2}
+&=\frac{(1-1/4)^2}{1-3/8}
+=\frac{9/16}{5/8}=\frac9{10}.
+\end{aligned}
+$$
+
+さらに $4r_s>3r_s$ なので、固定 $\ell$ で $V_{\mathrm{eff}}''(r_0)>0$ となり半径方向に線形安定です。
 <!-- solution-end -->
 
 ### Level B
@@ -456,7 +594,35 @@ $p=100r_s$、$e=1/4$ のNewton基準楕円について、近日点・遠日点�
 $V_{\mathrm{eff}}'=GM/r^2-\ell^2/r^3+3GM\ell^2/(c^2r^4)$ の正の零点が二つある条件を求めよ。両零点が重なるときの半径を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $r^4V_{\mathrm{eff}}'=GM r^2-\ell^2r+3GM\ell^2/c^2$ は上に凸の二次式です。判別式は $D=\ell^4-12(GM)^2\ell^2/c^2=\ell^2[\ell^2-12(GM)^2/c^2]$。$\ell>0$ なので二つの異なる正の根には $\ell^2>12(GM)^2/c^2=3c^2r_s^2$ が必要十分です。根は $r_\pm=[\ell^2\pm\sqrt D]/(2GM)$ で、符号の変化は正、負、正となるため、内側 $r_-$ は極大、外側 $r_+$ は極小です。$D=0$ では $\ell^2=12(GM)^2/c^2$、重根は $r=\ell^2/(2GM)=6GM/c^2=3r_s$。この限界点は二次の極小ではありません。
+**詳細解答。** $r>0$ で $r^4>0$ なので、停留点は次の二次式の根です。
+
+$$
+GM r^2-\ell^2r+\frac{3GM\ell^2}{c^2}=0,
+\qquad
+D=\ell^4-\frac{12(GM)^2\ell^2}{c^2}
+=\ell^2\left(\ell^2-\frac{12(GM)^2}{c^2}\right).
+$$
+
+$\ell>0$ のもとで二つの異なる実根があるのは $D>0$、すなわち
+
+$$
+\ell^2>\frac{12(GM)^2}{c^2}=3c^2r_s^2
+$$
+
+のときです。二次式の根の和は $\ell^2/(GM)>0$、積は $3\ell^2/c^2>0$ なので、両方とも正です。二つの根
+
+$$
+r_\pm=\frac{\ell^2\pm\sqrt D}{2GM}
+$$
+
+の前後では $V_{\mathrm{eff}}'$ の符号が正・負・正と変わるため、内側の $r_-$ は極大、外側の $r_+$ は極小です。$D=0$ で
+
+$$
+r_-=r_+=\frac{\ell^2}{2GM}
+=\frac{6GM}{c^2}=3r_s.
+$$
+
+停留点は重なり、二階微分による正の安定条件は成立しません。
 <!-- solution-end -->
 
 <a id="ex-gr19-b02"></a>
@@ -466,7 +632,37 @@ $V_{\mathrm{eff}}'=GM/r^2-\ell^2/r^3+3GM\ell^2/(c^2r^4)$ の正の零点が二�
 $u_0=(1+e\cos\phi)/p$ を $u''+u=1/p+3GMu^2/c^2$ に代入し、一次補正の共鳴項の特解と振動数のずれ $\delta$ を求めよ。$0<e<1$ とする。
 
 <!-- solution-start -->
-**詳細解答。** $\alpha=GM/c^2$ とすると一次の強制項は $3\alpha p^{-2}(1+2e\cos\phi+e^2\cos^2\phi)$。$\cos^2\phi=(1+\cos2\phi)/2$ なので、振動数1の項だけ抜き出すと $6\alpha e p^{-2}\cos\phi$ です。$(d^2/d\phi^2+1)(\phi\sin\phi)=2\cos\phi$ より特解は $(3\alpha e/p^2)\phi\sin\phi$。一方 $(e/p)\cos[(1-\delta)\phi]=(e/p)(\cos\phi+\delta\phi\sin\phi)+O(\delta^2)$ なので $(e/p)\delta=3\alpha e/p^2$、$\delta=3\alpha/p$ です。$e>0$ の条件は係数比較で $e$ を割るためにも必要です。
+**詳細解答。** $\alpha=GM/c^2$ と置き、零次解を一次方程式の強制項へ代入します。
+
+$$
+\begin{aligned}
+u_1''+u_1
+&=\frac{3\alpha}{p^2}(1+2e\cos\phi+e^2\cos^2\phi)\\
+&=\frac{3\alpha}{p^2}
+\left(1+\frac{e^2}2+2e\cos\phi+\frac{e^2}2\cos2\phi\right).
+\end{aligned}
+$$
+
+振動数1の強制項は $6\alpha e\cos\phi/p^2$ です。作用素 $L=d^2/d\phi^2+1$ には
+
+$$
+L(\phi\sin\phi)=2\cos\phi
+$$
+
+が成り立つので、その共鳴特解は $3\alpha e\phi\sin\phi/p^2$ です。振動数を $1-\delta$ にずらして固定角度で一次展開すると
+
+$$
+\frac ep\cos[(1-\delta)\phi]
+=\frac ep\cos\phi+\frac ep\delta\phi\sin\phi+O(\delta^2/p).
+$$
+
+$0<e<1$ なので係数を比較して $e$ を消去でき、
+
+$$
+\delta=\frac{3\alpha}{p}=\frac{3GM}{c^2p}
+$$
+
+を得ます。
 <!-- solution-end -->
 
 <a id="ex-gr19-b03"></a>
@@ -476,7 +672,20 @@ $u_0=(1+e\cos\phi)/p$ を $u''+u=1/p+3GMu^2/c^2$ に代入し、一次補正の�
 半径の折返し点と円軌道について、必要な条件を有効ポテンシャルで比較せよ。なぜ折返し点の $u'=0$ から二階軌道式を直接導けないか。
 
 <!-- solution-start -->
-**詳細解答。** 一般の折返し点では $\dot r=0$ なので $\varepsilon=V_{\mathrm{eff}}(r_0)$ が必要ですが、$\ddot r=-V_{\mathrm{eff}}'(r_0)$ は一般に零でありません。円軌道では $\dot r=\ddot r=0$ の両方が必要で、$\varepsilon=V_{\mathrm{eff}}(r_0)$ かつ $V_{\mathrm{eff}}'(r_0)=0$ です。$u'=-\dot r/\ell$ なので折返し点では $u'=0$。一階式の微分 $2u'u''=(-2u+\cdots)u'$ を $2u'$ で割る手順はその点では無効です。[軌道方程式](#prop-gr19-orbit-equation)は非円軌道の周囲からの連続延長で扱い、円は別途半径方程式で確認します。
+**詳細解答。** 一般の折返し点 $r=r_0$ では $\dot r=0$ が必要で、[半径方向の一階積分](#prop-gr19-radial-energy)から
+
+$$
+\varepsilon=V_{\mathrm{eff}}(r_0)
+$$
+
+が成立します。しかし $\ddot r=-V_{\mathrm{eff}}'(r_0)$ は一般には零でありません。円軌道であればさらに $\ddot r=0$ が必要ですから
+
+$$
+\varepsilon=V_{\mathrm{eff}}(r_0),
+\qquad V_{\mathrm{eff}}'(r_0)=0
+$$
+
+の両方を要求します。$u'=-\dot r/\ell$ なので折返し点では $u'=0$ です。一階式を微分した $2u'u''=(\cdots)u'$ をその点で $2u'$ により割れません。[軌道方程式](#prop-gr19-orbit-equation)は非円軌道の折返し点へ連続延長し、円の存在は半径測地線方程式から確認します。
 <!-- solution-end -->
 
 <a id="ex-gr19-b04"></a>
@@ -486,7 +695,19 @@ $u_0=(1+e\cos\phi)/p$ を $u''+u=1/p+3GMu^2/c^2$ に代入し、一次補正の�
 $r_0=3r_s$ で $\ell^2/(c^2r_s^2)$ と $\mathcal E^2/c^2$ を求め、$V_{\mathrm{eff}}''$ の符号がどうなるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [円軌道公式](#prop-gr19-circular-orbits)から $\ell^2/(c^2r_s^2)=9/(6-3)=3$。また $\mathcal E^2/c^2=(1-1/3)^2/(1-3/6)=(4/9)/(1/2)=8/9$ です。二階微分の分子は $GM(r_0-3r_s)$ なので零となります。ここで「二階微分が零だから安定」と判断するのは誤りです。安定側の極小が消える境界であり、二階の正値条件は満たしません。
+**詳細解答。** [円軌道公式](#prop-gr19-circular-orbits)へ $r_0=3r_s$ を代入すると
+
+$$
+\begin{aligned}
+\frac{\ell^2}{c^2r_s^2}
+&=\frac{3^2}{2\cdot3-3}=3,\\
+\frac{\mathcal E^2}{c^2}
+&=\frac{(1-1/3)^2}{1-3/(2\cdot3)}
+=\frac{4/9}{1/2}=\frac89.
+\end{aligned}
+$$
+
+同じ命題の二階微分式は分子に $GM(r_0-3r_s)$ を持つため、この半径では $V_{\mathrm{eff}}''(r_0)=0$ です。零は正を意味しません。安定な極小と不安定な極大が重なる限界であり、二階微分が正となる安定円軌道の条件から外れます。
 <!-- solution-end -->
 
 ### Level C
@@ -498,7 +719,22 @@ $r_0=3r_s$ で $\ell^2/(c^2r_s^2)$ と $\mathcal E^2/c^2$ を求め、$V_{\mathr
 $r>r_s$ にある未来向き時間的試験質点が赤道面で $\ell>0$ を保ち運動する。計量と四元速度規格化から有効ポテンシャルを導き、逆半径の軌道方程式を作れ。$0<e<1$、$p=\ell^2/(GM)\gg r_s$ を用いて一次の近日点移動角を導出し、近似が成立しない条件を二つ述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [GR14の測地線保存量](../GR14/index.md#thm-gr14-killing-charge)を計量の $\partial_{x^0}$ と $\partial_\phi$ に適用すると $\mathcal E=f\dot x^0$ と $\ell=r^2\dot\phi$ が定数です。規格化条件 $-f\dot x^{0\,2}+\dot r^2/f+r^2\dot\phi^2=-c^2$ へ代入し、$\dot r^2=\mathcal E^2-f(c^2+\ell^2/r^2)$ を得ます。$c^2/2$ を両辺から整理して
+**詳細解答。** [GR14のKilling場の座標判定](../GR14/index.md#prop-gr14-killing-coordinate-test)と[測地線保存量](../GR14/index.md#thm-gr14-killing-charge)を $\partial_{x^0}$、$\partial_\phi$ に適用すると
+
+$$
+\mathcal E=f\dot x^0,\qquad \ell=r^2\dot\phi
+$$
+
+が定数です。規格化条件に代入すると
+
+$$
+-\frac{\mathcal E^2}{f}+\frac{\dot r^2}{f}
++\frac{\ell^2}{r^2}=-c^2,
+\qquad
+\dot r^2=\mathcal E^2-f\left(c^2+\frac{\ell^2}{r^2}\right).
+$$
+
+$r_s=2GM/c^2$ を用いて積を展開すれば
 
 $$
 \frac{\dot r^2}{2}-\frac{GM}{r}
@@ -506,16 +742,47 @@ $$
 =\frac{\mathcal E^2-c^2}{2}.
 $$
 
-$u=1/r$、$u'=-(1/r^2)(\dot r/\dot\phi)=-\dot r/\ell$。径方向の一階式を二階へ変換すると、非円軌道上で $u''+u=GM/\ell^2+3GMu^2/c^2=1/p+3\alpha u^2$、$\alpha=GM/c^2$ です。
-
-零次の楕円 $u_0=(1+e\cos\phi)/p$ を入れれば一次の強制項は $3\alpha p^{-2}[1+e^2/2+2e\cos\phi+(e^2/2)\cos2\phi]$。$\cos\phi$ の係数は $6\alpha e/p^2$ で、$(D^2+1)(\phi\sin\phi)=2\cos\phi$ なので共鳴補正は $3\alpha e\phi\sin\phi/p^2$ です。$(e/p)\cos[(1-\delta)\phi]=(e/p)[\cos\phi+\delta\phi\sin\phi+\cdots]$ と比較して $\delta=3\alpha/p$。従って
+$u=1/r$、$u'=-r^{-2}\dot r/\dot\phi=-\dot r/\ell$ であり、[軌道方程式](#prop-gr19-orbit-equation)の導出と同じく非円軌道の $u'\ne0$ の区間で微分・除算して
 
 $$
-\Delta\varpi=\frac{2\pi}{1-\delta}-2\pi
-=\frac{6\pi GM}{c^2p}+O(r_s^2/p^2).
+u''+u=\frac{GM}{\ell^2}+\frac{3GM}{c^2}u^2
+=\frac1p+3\alpha u^2,
+\quad \alpha=\frac{GM}{c^2}.
 $$
 
-誤適用例の第一は $p\sim r_s$ として二次以降を無視すること、第二は $e=0$ の円に近日点という特別な方向があるとみなすことです。さらに中心天体の回転や試験質点自身の重力を無視した模型にも注意が必要です。
+折返し点では滑らかさによりこの式を延長します。Newton基準解を $u_0=(1+e\cos\phi)/p$ と置き、強制項を角振動数ごとに分けると
+
+$$
+u_1''+u_1=\frac{3\alpha}{p^2}
+\left(1+\frac{e^2}2+2e\cos\phi
++\frac{e^2}2\cos2\phi\right).
+$$
+
+共鳴項は $6\alpha e\cos\phi/p^2$ です。$(d^2/d\phi^2+1)(\phi\sin\phi)=2\cos\phi$ より特解の共鳴成分は $3\alpha e\phi\sin\phi/p^2$。零次の $e\cos\phi/p$ を $e\cos[(1-\delta)\phi]/p$ と書き換えて比較すれば
+
+$$
+\frac{e\delta}{p}=\frac{3\alpha e}{p^2},
+\qquad \delta=\frac{3\alpha}{p}.
+$$
+
+周期項が角度差に寄与しないことは、最初の近日点を $\phi=0$ として $u'(0)=0$ を課し、次の近日点を $\phi=2\pi+h$ として確かめられます。共鳴項以外の一次項の導関数は $\phi=2\pi$ で零になり、
+
+$$
+0=u'(2\pi+h)
+=-\frac{e}{p}h+\frac{6\pi\alpha e}{p^2}
++O\left(\frac{\alpha^2}{p^3}\right),
+\qquad
+h=\frac{6\pi\alpha}{p}+O\left(\frac{r_s^2}{p^2}\right).
+$$
+
+したがって[近日点移動角の定義](#def-gr19-perihelion-shift)から
+
+$$
+\boxed{\Delta\varpi=h
+=\frac{6\pi GM}{c^2p}+O\left(\frac{r_s^2}{p^2}\right).}
+$$
+
+近似が成立しない例は、(i) $p$ が $r_s$ と同程度で二次以上の摂動を捨てられない場合、(ii) $e=0$ の円で近日点が一意に定義できない場合です。中心天体の回転や試験質点の自己重力もこの模型の外です。
 <!-- solution-end -->
 
 ---
