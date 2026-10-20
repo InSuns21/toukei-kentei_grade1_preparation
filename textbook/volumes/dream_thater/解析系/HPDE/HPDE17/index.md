@@ -52,9 +52,9 @@ $$
 
 源の影響候補 $D_Q$ も因果到達条件から直接求められます。$s\le2$ の点 $(s,y)$ が $Q$ の因果的過去にあるのは、ある $x\in[-1,1]$ に対して $|y-x|\le2-s$ が成り立つとき、すなわち区間 $[y-(2-s),y+(2-s)]$ と $[-1,1]$ が交わるときです。これは $|y|\le3-s$ と同値です。$s<2$ の点は $Q$ の因果的未来には入らず、$s=2$ では $Q$ 自身だけが加わるため、
 
-$
+$$
 D_Q=\{(s,y):-2\le s\le2,\ |y|\le3-s\}.
-$
+$$
 
 特に $(1,0)\in D_Q$、$(0,4)\notin D_Q$ であり、$D_Q\cap\Sigma=K_Q$ も計算から確認できます。$Q$ の点へ初期面から到達する曲線が時刻 $0$ から $2$ までに通る点は、この $D_Q$ の中に含まれます。
 <!-- definition-example-end -->
@@ -194,9 +194,9 @@ $$
 
 コンパクト集合 $C$ を、各座標領域 $U_i$ の内部にある有限個のコンパクト集合 $C_i$ で覆い、$U_i$ 上の束の局所枠 $(e_{i,a})_a$ を選びます。切断を $v|_{U_i}=\sum_a v_i^a e_{i,a}$ と**枠の係数へ展開**すれば、$k$ 階以下の偏微分を測る量は
 
-$
+$$
 p_{C,k}(v)=\max_{\substack{i,a\\|\alpha|\le k}}\ \sup_{x\in C_i}|\partial^\alpha v_i^a(x)|
-$
+$$
 
 と具体化できます。各 $C_i$ はコンパクトなので、座標変換と枠の変換行列および必要な有限階導関数はその上で有界です。積の微分公式を繰り返すと、別の有限座標枠でも同じ収束の概念になります。
 
@@ -260,19 +260,19 @@ $$
 
 時間方向の二階以上の微分も評価する必要があります。[HPDE11の一次対称双曲化](../HPDE11/index.md#prop-hpde11-positive-symmetrizer)で得る局所還元変数を $W$ とし、
 
-$
+$$
 A^0\partial_tW+\sum_aA^a\partial_aW+DW=F
-$
+$$
 
 と書きます。$A^0$ は正定値、特に可逆なので
 
-$
+$$
 \partial_tW=(A^0)^{-1}\left(F-\sum_aA^a\partial_aW-DW\right).
-$
+$$
 
 もう一度時間微分し、各係数にも積の微分公式を使うと
 
-$
+$$
 \begin{aligned}
 A^0\partial_t^2W={}&\partial_tF
 -\sum_aA^a\partial_a\partial_tW-D\partial_tW\\
@@ -280,7 +280,7 @@ A^0\partial_t^2W={}&\partial_tF
 -\sum_a(\partial_tA^a)\partial_aW
 -(\partial_tD)W.
 \end{aligned}
-$
+$$
 
 右辺の $\partial_tW$ には直前の式を代入できます。同じ操作を帰納的に繰り返せば、$\partial_t^\ell W$ の空間 $H^{m-\ell}$ ノルムは、一次系の空間 $H^m$ 評価と源 $F$ の必要な時間・空間導関数で支配されます。係数の導関数は固定したコンパクトな因果影上で有界です。空間次元を $n$ とし、$m>k+n/2+1$ となる整数を選べば、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)と局所Sobolev埋込みにより、$\|w\|_{C^k(Q)}=\|\delta u\|_{C^k(Q)}$ は切り出した初期値・源の有限階ノルムで支配されます。
 
