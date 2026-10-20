@@ -22,9 +22,9 @@ $$
 
 二つの開集合 $A,B\subset\Sigma$ と点 $q$ について、$q\in D(A)\cap D(B)$ なら、$q$ を通る任意の非延長因果曲線が $\Sigma$ と交わる唯一の点は $A$ にも $B$ にも属します。従ってその点は $A\cap B$ にあり、$D(A)\cap D(B)\subset D(A\cap B)$ が従います。逆に $q\in D(A\cap B)$ なら、$q$ から両側へ非延長な各因果曲線の唯一の初期面交点は $A\cap B$ 内、従って $A$ と $B$ の両方に入るため、逆向きの包含も成立します。よって
 
-$
+$$
 D(A)\cap D(B)=D(A\cap B)
-$
+$$
 
 となります。この集合恒等式は、重なりの一意性の**適用先**を与えます。ただし局所解がその領域の必要部分に定義されているかは、別に確かめなければなりません。
 
@@ -69,17 +69,17 @@ $$
 
 点 $(t,x)$ から初期面へ至る因果曲線の足跡は区間 $[x-|t|,x+|t|]$ に収まります。この区間全体が $A$ に含まれる条件は $-2<x-|t|$ かつ $x+|t|<2$、すなわち $|x|+|t|<2$ です。従って
 
-$
+$$
 V(A,1)=\{(t,x):|t|<1,\ |x|+|t|<2\}.
-$
+$$
 
 $u_A(t,x)=x+t$ と置くと、この開領域上で滑らかであり、
 
-$
+$$
 Pu_A=\partial_t^2(x+t)-\partial_x^2(x+t)=0,\quad
 u_A(0,x)=x,\quad
 \nabla_N^Pu_A(0,x)=\partial_t(x+t)=1.
-$
+$$
 
 こうして、**領域が依存領域の短時間帯であること、源の方程式、初期変位、法線方向の接続微分**を定義の各条件と照合できました。
 <!-- definition-example-end -->
@@ -264,9 +264,9 @@ $$
 >
 > このとき、$L$ を覆う有限個の小さいCauchyパッチを構成できる。各パッチの源は $f$、初期データは次の通りである。
 >
-$
+$$
 \left(u^-|_{\Sigma_s},\ \nabla_N^Pu^-|_{\Sigma_s}\right).
-$
+$$
 >
 > 十分小さい共通時間幅 $\delta>0$ に対し、新しいパッチ同士は共通定義域上で一致する。また、各パッチと既存解 $u^-$ は、初期面への因果的足跡が双方の定義域に入る重なりで一致する。
 >
@@ -313,26 +313,26 @@ $$
 
 時間的未来・過去は開集合です。そのため両端点集合のコンパクト性から、有限個の点 $r_i,s_j$ を選び、次を満たすようにできます。
 
-$
+$$
 K_-\subset\bigcup_i I^+(r_i),\qquad
 K_+\subset\bigcup_j I^-(s_j).
-$
+$$
 
 任意の $z\in Q$ について、$p\in K_-$ と $q\in K_+$ を $p\le z\le q$ となるよう選びます。すると、ある $i,j$ に対して
 
-$
+$$
 r_i\ll p\le z\le q\ll s_j,\qquad
 Q\subset\bigcup_{i,j}\bigl(J^+(r_i)\cap J^-(s_j)\bigr).
-$
+$$
 
 右辺は、有限個のコンパクトな二点間ダイヤモンドの和です。さらに $Q$ が閉集合であることを示します。
 
 $z_n\in Q$ が $z$ へ収束するとします。端点を $p_n\in K_-$、$q_n\in K_+$ から選ぶと、コンパクト性により共通の部分列で次が成り立ちます。
 
-$
+$$
 p_n\le z_n\le q_n,\qquad
 p_n\to p\in K_-,\qquad q_n\to q\in K_+.
-$
+$$
 
 [因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)より $p\le z\le q$、従って $z\in Q$ です。よって $Q$ は有限個のコンパクト集合の和に含まれる閉集合であり、コンパクトです。
 
@@ -423,10 +423,10 @@ $$
 
 他方 $\chi Pv=-2\chi$ なので差は $[P,\chi]v=-\chi''x^2-4\chi'x$ です。一般式で使う波動作用素は、計量 $g=-dt^2+dx^2$ に対し $\Box_g=-\partial_t^2+\partial_x^2$ です。従って $\Box_g\chi=\chi''$、$\operatorname{grad}\chi=\chi'\partial_x$、$\nabla_{\operatorname{grad}\chi}v=2x\chi'$ となり、
 
-$
+$$
 -(\Box_g\chi)v-2\nabla_{\operatorname{grad}\chi}v
 =-\chi''x^2-4\chi'x
-$
+$$
 
 と積の直接微分と一致します。$P=-\Box_g$ なので、$\Box_g$ と $P$ の符号を取り違えないことが重要です。
 <!-- solution-end -->
