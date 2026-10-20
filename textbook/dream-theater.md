@@ -401,6 +401,7 @@
 14. [HPDE14 局所parametrixの誤差補正](textbook/volumes/dream_thater/解析系/HPDE/HPDE14/index.md)
 15. [HPDE15 局所解から大域解への貼り合わせ](textbook/volumes/dream_thater/解析系/HPDE/HPDE15/index.md)
 16. [HPDE16 大域Cauchy問題の存在一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE16/index.md)
+17. [HPDE17 大域安定性と因果的な解の支持](textbook/volumes/dream_thater/解析系/HPDE/HPDE17/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分

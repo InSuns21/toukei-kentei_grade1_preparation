@@ -71,7 +71,7 @@ chapters:
     title: "大域Cauchy問題の存在一意性"
   - id: HPDE17
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE17
-    status: planned
+    status: completed
     title: "大域安定性と因果的な解の支持"
   - id: HPDE18
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE18
