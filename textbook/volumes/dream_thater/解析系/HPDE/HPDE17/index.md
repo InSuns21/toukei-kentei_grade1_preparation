@@ -132,9 +132,10 @@ $$
 観測集合を一つに固定しただけでは、時空全体で滑らかな解になったとは言えません。そこで $M$ のコンパクト集合を内部が増大する列
 
 $$
-Q_1\subset\operatorname{int}Q_2,quad
-Q_2\subset\operatorname{int}Q_3\subset\cdots,\qquad
-\bigcup_{j\ge1}\operatorname{int}Q_j=M
+\begin{aligned}
+Q_1&\subset\operatorname{int}Q_2,\qquad Q_2\subset\operatorname{int}Q_3,\quad\ldots,\\
+\bigcup_{j\ge1}\operatorname{int}Q_j&=M.
+\end{aligned}
 $$
 
 で尽くします。$M$ は第二可算・局所コンパクトな滑らかな多様体なので、このようなコンパクトな尽くし方を選べます。各 $Q_j$ を時刻帯 $[-T_j,T_j]$ に含め、$T_j$ は増大させます。
