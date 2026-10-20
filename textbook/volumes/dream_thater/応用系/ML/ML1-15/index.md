@@ -12,6 +12,14 @@
 
 新しい独立な観測を集める代わりに、今ある $n$ 件の**添字**から、各回に一様に一つ選び、選んだ添字を戻す。これを $n$ 回行うと、同じ観測が何回も入り、選ばれない観測も出る。これがブートストラップ再標本化（bootstrap resampling）である。ここでは標本を固定した上で、添字を取り直す乱数だけを考える期待値・分散を $E_*,\operatorname{Var}_*$ と書く。
 
+元の観測をここでは $z_1,\ldots,z_n$ と記す。この手順は、元の $n$ 件それぞれに抽出確率 $1/n$ を割り当てた分布から値を取り直すことに等しい。値 $a$ の抽出確率は、同じ値を持つ添字を数え上げて
+
+$$
+\widehat P_n(\{a\})=\frac1n\sum_{i=1}^n\boldsymbol{1}_{\{z_i=a\}}
+$$
+
+となる。例えば $z=(2,2,5)$ なら添字1・2・3は各 $1/3$ で選ばれ、抽出値が2となる確率は $2/3$ である。値が等しい元観測も添字は別なので、重複度と袋の外の判定は値ではなく添字で行う。
+
 <a id="def-ml1-15-bootstrap"></a>
 
 <!-- formal-statement-start -->
@@ -181,7 +189,7 @@ E\overline U_B=\mu,\qquad
 =\frac{\sigma^2}{B}+\frac{B-1}{B}\gamma.
 $$
 
-> 特に $\sigma^2>0$ で $\rho=\gamma/\sigma^2$ と置けば、分散は $\sigma^2\{\rho+(1-\rho)/B\}$ である。$\rho$ はこの $B$ 個で実現可能な相関係数とする。
+> $B=1$ では平均の分散は $\sigma^2$ であり、異なる二木間の相関係数は定義されない。$B\ge2$ かつ $\sigma^2>0$ のときは、$\rho=\gamma/\sigma^2$ が共通の二木間相関係数であり、分散は $\sigma^2\{\rho+(1-\rho)/B\}$ である。$\rho$ はこの $B$ 個で実現可能な値に限る。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -204,10 +212,10 @@ $$
 \end{aligned}
 $$
 
-$\sigma^2>0$ なら $\gamma=\rho\sigma^2$ を代入する。$\square$
+$B=1$ の場合は非対角の和が空和となり、分散は $\sigma^2$ である。$B\ge2$ かつ $\sigma^2>0$ のときだけ、$\gamma=\rho\sigma^2$ を代入して相関係数表示を得る。$\square$
 <!-- proof-end -->
 
-例えば各木の分散が4、二木間の相関が $1/4$ で $B=8$ なら $\gamma=1$、平均の分散は $4/8+(7/8)\cdot1=11/8$。独立の場合の $1/2$ より大きい。$B\to\infty$ で相関 $\rho$ を固定できる非負相関模型では限界は $\rho\sigma^2$ で、全ての木が同じなら $\rho=1$ で減少はない。有限 $B$ では相関は $\rho\ge-1/(B-1)$ という制約を持ち、任意の負の数を固定して $B\to\infty$ とすることはできない。
+例えば各木の分散が4、二木間の相関が $1/4$ で $B=8$ なら $\gamma=1$、平均の分散は $4/8+(7/8)\cdot1=11/8$。独立の場合の $1/2$ より大きい。$B\to\infty$ で相関 $\rho$ を固定できる非負相関模型では限界は $\rho\sigma^2$ で、全ての木が同じなら $\rho=1$ で減少はない。有限 $B\ge2$ では相関は $\rho\ge-1/(B-1)$ という制約を持ち、任意の負の数を固定して $B\to\infty$ とすることはできない。
 
 **二つの乱数を混同しない。** 固定した $D$ のもとで独立に木を作るなら木の条件付き共分散は0である。しかし、訓練標本 $D$ 自体を取り直すと、木は同じ $D$ に由来する成分を共有する。次の命題は両者の違いを式にする。
 
@@ -282,6 +290,14 @@ $$
 **定義の確認**。特徴が「身長・年齢・体重」の3個で $m=2$ なら、節点ごとに $\{\text{身長},\text{年齢}\}$、$\{\text{身長},\text{体重}\}$、$\{\text{年齢},\text{体重}\}$ のいずれかをそれぞれ確率 $1/3$ で候補にする。選ばれていない特徴は利得が大きくてもその節点では試さない。$m=d=3$ なら毎回全特徴を候補にするので、この節点での追加乱数は消え、同じ木構築規則のBaggingに帰着する。
 <!-- definition-example-end -->
 
+一般に各節点の候補集合は $\binom dm$ 通りあり、ある一つの特徴を含む集合は $\binom{d-1}{m-1}$ 通りある。すべてを同確率で選ぶという定義から、その特徴が候補に入る確率は
+
+$$
+\frac{\binom{d-1}{m-1}}{\binom dm}=\frac md
+$$
+
+となる。上の $d=3,m=2$ では $2/3$ であり、3組中2組にその特徴が含まれることと一致する。候補の選択と、選ばれた候補について[分割利得](../ML1-14/index.md#def-ml1-14-split-gain)を計算する段階は別である。
+
 $m$ を小さくすれば木同士が必ず独立になるわけではない。相関を下げられる場合がある一方、よい分割特徴を見落とすことで各木の予測力も変わる。したがって**平均後の誤差が必ず減るという定理ではない**。[独立した検証データ](../ML1-12/index.md#def-ml1-12-three-way-split)で $m$・木の深さ・本数を選ぶ必要がある。回帰では平均を、分類では多数決または票の比率を取り、票の比率は確率校正の保証ではない。
 
 ## 5. 木を作るのに使われなかった観測
@@ -333,7 +349,7 @@ $$
 
 ## 6. 実際に再標本化して木を学習する
 
-次の計算では一変量ではなく二つの特徴量を使い、ブートストラップで決定株（深さ1の木）を本当に学習する。分割候補の探索は[決定木のGini利得](../ML1-14/index.md#thm-ml1-14-gini-gain)に従い、空の子を禁止する。単なる保存済み予測のアニメーションではない。再標本化の乱数種、本数 $B$、節点で試す特徴数 $m$ を変えられる。
+次の計算では一変量ではなく二つの特徴量を使い、ブートストラップで決定株（深さ1の木）を本当に学習する。分割候補の探索は[決定木のGini利得](../ML1-14/index.md#thm-ml1-14-gini-gain)に従い、空の子を禁止する。単なる保存済み予測のアニメーションではない。再標本化の乱数種、本数 $B$、節点で試す特徴数 $m$ を変えられる。復元抽出によって一つの特徴値しか現れず、有効な二分割が存在しない場合は、根をそのまま葉として扱い、再標本のラベルの多数決を返す。これは[葉の予測規則](../ML1-14/index.md#def-ml1-14-tree-leaf)の適用であり、常に0を返す例外処理ではない。
 
 ~~~python-lab
 # lab-id: ml1-15-bagging-forest
@@ -365,9 +381,9 @@ def train_stump(indices, mtry, rng):
             gain = gini(subset_y)-(len(left)*gini(left)+len(right)*gini(right))/len(indices)
             candidate = (gain, -j, -threshold, j, threshold, majority(left), majority(right))
             if best is None or candidate[:3] > best[:3]: best = candidate
-    return None if best is None else best[3:]
+    return majority(subset_y) if best is None else best[3:]
 def predict(tree, x):
-    if tree is None: return 0
+    if isinstance(tree, int): return tree  # 分割不能な場合は多数決の葉
     j,t,left,right = tree
     return left if x[j] <= t else right
 trees, oob = [], [[] for _ in range(n)]
@@ -394,7 +410,8 @@ assert len(trees)==B and len(votes)==B
 assert all(0<=v<=1 for v in votes)
 assert all(len(oob[i])<=B for i in range(n))
 assert 0<=sum(votes)/B<=1
-assert len(covered)>0
+assert sum(oob_errors) <= len(covered)  # OOBが空の標本も許す
+assert train_stump([7]*n, 2, random.Random(1)) == 1  # 分割不能・陽性のみの葉
 ~~~
 
 この一回の訓練だけから母集団の予測分散は分からない。元データを固定して乱数種を変えた変動、元データそのものを新たに生成して変えた変動、未知の独立検証点での誤りは異なる。次に、理論上の相関項だけを切り出して再現する。
