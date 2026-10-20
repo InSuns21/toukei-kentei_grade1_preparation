@@ -1,0 +1,47 @@
+id: "GR19"
+title: "近日点移動と有効ポテンシャル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR14
+  - GR16
+official_scope: []
+learning_objectives:
+  - Schwarzschild外部で時間的測地線の赤道面制限とKilling保存量を確認できる
+  - 固有時による規格化から有効ポテンシャルを構成しNewton項と相対論補正を分けられる
+  - 逆半径への連鎖律から軌道方程式を導き折返し点の除算を適切に扱える
+  - Newton基準半通径と離心率の定義および基準軌道の折返し半径を確認できる
+  - 円軌道の保存量と存在域を求め二階微分から最内安定円軌道を導ける
+  - 近日点移動角を連続する近日点の角度差から定義できる
+  - 共鳴摂動の主要中間式からSchwarzschild弱場の近日点移動角を導ける
+  - 固有時と角度の媒介変数の違いと近似の適用限界を説明できる
+definitions:
+  - { id: GR19-DEF-01, name: 時間的測地線の有効ポテンシャル }
+  - { id: GR19-DEF-02, name: Newton基準の半通径と離心率 }
+  - { id: GR19-DEF-03, name: 近日点移動角 }
+theorems:
+  - { id: GR19-PROP-01, name: 半径方向の一階積分とNewton極限 }
+  - { id: GR19-PROP-02, name: Schwarzschild時間的測地線の軌道方程式 }
+  - { id: GR19-PROP-03, name: 円軌道と最内安定円軌道 }
+  - { id: GR19-THM-01, name: Schwarzschild近日点移動の弱場一次式 }
+canonical_examples:
+  - 平坦極限で有効ポテンシャルの遠心項を確認
+  - 離心率1/4の基準楕円で二つの折返し半径を検算
+  - 半径4r_sの円軌道で保存量と安定性を検算
+  - 半通径100r_sの弱場軌道で近日点移動の符号と桁を確認
+problem_patterns:
+  - GR19-TIMELIKE-RADIAL-INTEGRAL
+  - GR19-EFFECTIVE-POTENTIAL-UNITS
+  - GR19-BINET-CHAIN-RULE
+  - GR19-KEPLER-TURNING-RADII
+  - GR19-CIRCULAR-ENERGY
+  - GR19-CIRCULAR-DISCRIMINANT
+  - GR19-RESONANT-PERTURBATION
+  - GR19-TURNING-POINT-VS-CIRCULAR
+  - GR19-ISCO-CHECK
+  - GR19-PERIHELION-INTEGRATED-DERIVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }

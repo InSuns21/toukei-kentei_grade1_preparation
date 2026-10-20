@@ -81,7 +81,7 @@ chapters:
     title: "Schwarzschild光線軌道と光の屈曲"
   - id: GR19
     path: textbook/volumes/dream_thater/物理系/GR/GR19
-    status: planned
+    status: completed
     title: "近日点移動と有効ポテンシャル"
   - id: GR20
     path: textbook/volumes/dream_thater/物理系/GR/GR20
