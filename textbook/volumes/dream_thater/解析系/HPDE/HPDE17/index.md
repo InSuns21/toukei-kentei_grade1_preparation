@@ -272,7 +272,7 @@ $$
 \partial_tW=(A^0)^{-1}\left(F-\sum_aA^a\partial_aW-DW\right).
 $$
 
-もう一度時間微分し、各係数にも積の微分公式を使うと
+もう一度時間微分し、各係数にも[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を使うと
 
 $$
 \begin{aligned}
