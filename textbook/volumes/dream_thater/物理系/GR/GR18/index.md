@@ -331,7 +331,23 @@ y(\phi)=a_\varepsilon\cos\phi
 \int_0^\phi\sin(\phi-t)y(t)^2\,dt
 $
 
-を得ます。$|\phi|\leq2$ に固定すれば、$a_\varepsilon$ は有界で積分核も有界です。$\varepsilon$ が十分小さいとき、積分方程式を順に評価すると $y$ はこの区間で一様有界になり、まず $y=\cos\phi+O(\varepsilon)$、次に $y(t)^2=\cos^2t+O(\varepsilon)$ です。従って
+を得ます。$|\phi|\leq2$ に固定します。$\varepsilon$ が十分小さければ $a_\varepsilon\leq5/4$ です。$y$ が $|y|\leq2$ を満たす区間では、積分区間の長さが高々 $2$、$|\sin(\phi-t)|\leq1$ だから、上の式から
+
+$
+|y(\phi)|\leq\frac54+\frac{3\varepsilon}{2}\cdot2\cdot2^2
+=\frac54+12\varepsilon<2
+\qquad(0<\varepsilon<1/20)
+$
+
+となります。初期値は $|a_\varepsilon|<2$ なので、連続性とこの不等式により区間 $[-2,2]$ の途中で初めて $|y|=2$ へ達することはありません。従って $|y|\leq2$ はこの区間全体で成立します。積分方程式へ戻れば
+
+$
+|y(\phi)-\cos\phi|
+\leq |a_\varepsilon-1|+12\varepsilon
+=O(\varepsilon),
+$
+
+さらに $|y(t)^2-\cos^2t|\leq3|y(t)-\cos t|=O(\varepsilon)$ です。従って
 
 $
 y(\phi)=\cos\phi+\varepsilon
@@ -394,7 +410,7 @@ u(\phi)=\frac{\cos\phi}{b}
 +O\left(\frac{r_s^2}{b^3}\right).
 $$
 
-遠方の出射方向を $\phi=\pi/2+\delta$ と書き、$u=0$ を課します。$\delta=O(r_s/b)$ として $\cos(\pi/2+\delta)=-\delta+O(\delta^3)$、$\cos(\pi+2\delta)=-1+O(\delta^2)$ を代入すると
+上の一様な展開から $y(\pi/2)=\varepsilon+O(\varepsilon^2)$、$y'(\pi/2)=-1+O(\varepsilon)$ です。したがって $\varepsilon$ が十分小さいと、$\pi/2$ の近傍で $y$ は単調減少し、零点が一意に存在します。零点までの角度変化は $O(\varepsilon)$ です。この出射方向を $\phi=\pi/2+\delta$ と書き、$u=0$ を課します。$\delta=O(r_s/b)$ として $\cos(\pi/2+\delta)=-\delta+O(\delta^3)$、$\cos(\pi+2\delta)=-1+O(\delta^2)$ を代入すると
 
 $$
 0=-\frac{\delta}{b}+\frac{r_s}{b^2}
