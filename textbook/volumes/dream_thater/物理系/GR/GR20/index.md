@@ -44,7 +44,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr20-coordinate-flight-time -->
-**定義の確認**。 $r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。[GR17の静止時計の固有時換算](../GR17/index.md#prop-gr17-static-clock)と同じように計量を代入すると $ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2$ なので $d\tau_A=\sqrt{f(r_A)}\,dt$。例えば $r_A=4r_s$ なら同じ座標時間 $T$ に対して時計の経過は $\sqrt{3/4}\,T$ です。
+**定義の確認**。$r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。[GR17の静止時計の固有時換算](../GR17/index.md#prop-gr17-static-clock)を使うと、計量と固有時の関係は
+
+$
+ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2,
+\qquad
+d\tau_A=\sqrt{f(r_A)}\,dt
+$
+
+となります。例えば $r_A=4r_s$ では $f(r_A)=3/4$ なので、同じ座標時間 $T$ に対して静止時計の経過は $\sqrt{3/4}\,T$ です。
 
 定義で要求した光的測地線についても確かめます。半径方向に外向きに進む光では $d\theta=d\phi=0$、$ds^2=0$ なので、$r_2>r_1>r_s$ の二事象を結ぶとき
 
