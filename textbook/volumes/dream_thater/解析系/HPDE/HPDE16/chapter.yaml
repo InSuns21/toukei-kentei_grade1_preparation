@@ -1,0 +1,52 @@
+id: "HPDE16"
+title: "大域Cauchy問題の存在一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE15
+  - HPDE11
+  - HPDE10
+  - HPDE9
+  - HPDE8
+  - HPDE6
+  - HPDE5
+  - LORG20
+  - LORG16
+  - LORG15
+official_scope: []
+learning_objectives:
+  - 大域双曲性・Cauchy時間関数・コンパクト支持データの役割を区別し大域定理の仮定を説明できる
+  - コンパクトな因果的影が有限時間帯ではコンパクトになる仕組みを因果曲線から示せる
+  - 束値波動方程式の局所一階対称双曲化から有限時間の高階評価を導ける
+  - 高階エネルギー界から有限端点で滑らかなCauchyトレースを構成できる
+  - コンパクト支持を保つ局所貼り合わせと時間スライス延長により大域解を構成できる
+  - 局所一意性と有限伝播から大域解の一意性および因果的支持を導ける
+  - 非コンパクトな初期面への一様Sobolev評価を無条件に推論できない理由を示せる
+definitions:
+  - { id: HPDE16-DEF-01, name: 大域Cauchy問題 }
+  - { id: HPDE16-DEF-02, name: 有限時間因果影 }
+theorems:
+  - { id: HPDE16-LEM-01, name: 有限時間因果影のコンパクト性 }
+  - { id: HPDE16-LEM-02, name: コンパクト領域での束値高階評価 }
+  - { id: HPDE16-LEM-03, name: 有限端点での滑らかな延長 }
+  - { id: HPDE16-THM-01, name: 大域Cauchy問題の存在一意性 }
+  - { id: HPDE16-COR-01, name: 因果的支持と時間スライス上のコンパクト性 }
+canonical_examples:
+  - Minkowski空間での有限時間因果影の計算
+  - 一次対称双曲系のエネルギー微分と非自己随伴項の評価
+  - 空間コンパクトな波動が時空コンパクトとは限らない模型
+  - 非コンパクト面で局所時間幅の下限が零となる模型
+problem_patterns:
+  - HPDE16-CAUSAL-SHADOW
+  - HPDE16-INITIAL-JET
+  - HPDE16-ENERGY-BOUND
+  - HPDE16-FINITE-PROPAGATION
+  - HPDE16-COMPACT-COVER
+  - HPDE16-TRACE-LIMIT
+  - HPDE16-UNIQUENESS
+  - HPDE16-NONUNIFORMITY
+  - HPDE16-GLOBAL-THEOREM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 7 }

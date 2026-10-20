@@ -67,7 +67,7 @@ chapters:
     title: "局所解から大域解への貼り合わせ"
   - id: HPDE16
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE16
-    status: planned
+    status: completed
     title: "大域Cauchy問題の存在一意性"
   - id: HPDE17
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE17
