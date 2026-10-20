@@ -14,7 +14,7 @@ ds^2=-f(r)(dx^0)^2+\frac{dr^2}{f(r)}
 \qquad f(r)=1-\frac{r_s}{r}>0
 $$
 
-を使います。$r$ は球面の[面積半径](../GR15/index.md#def-gr15-areal-radius)、$\xi=\partial_{x^0}$ は無限遠で $g(\xi,\xi)\to-1$ となる未来向き時間並進Killing場です。[GR16の静的領域の命題](../GR16/index.md#prop-gr16-static-domain)の範囲外へこの観測者を勝手に延長しません。光は未来向き非零の光的・アフィン測地線に沿って進む幾何光学近似とし、その波数四ベクトルを $K$、$g(K,K)=0$、$\nabla_KK=0$ とします。光の散乱・吸収・再放射は扱いません。
+を使います。$r$ は球面の[面積半径](../GR15/index.md#def-gr15-areal-radius)、$\xi=\partial_{x^0}$ は無限遠で $g(\xi,\xi)\to-1$ となる未来向き時間並進Killing場です。[静的Schwarzschild座標の適用域](../GR16/index.md#prop-gr16-static-domain)の範囲外へこの観測者を勝手に延長しません。光は未来向き非零の光的・アフィン測地線に沿って進む幾何光学近似とし、その波数四ベクトルを $K$、$g(K,K)=0$、$\nabla_KK=0$ とします。光の散乱・吸収・再放射は扱いません。
 
 ## 1. 静止する時計の一秒は座標時間の何秒か
 
@@ -197,7 +197,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr17-redshift-z -->
-**定義の確認**（同じ光、静止二地点）。$r_A=2r_s$、$r_B=4r_s$ はいずれも $r_s>0$ より静的外部にあり、$f_A=1/2$、$f_B=3/4$ と正です。[重力赤方偏移定理](#thm-gr17-redshift)から $\nu_B/\nu_A=\sqrt{2/3}>0$。各地点で $\lambda_i=c/\nu_i>0$ と定めるので
+**定義の確認**（同じ光、静止二地点）。$r_A=2r_s$、$r_B=4r_s$ はいずれも $r_s>0$ より静的外部にあり、$f_A=1/2$、$f_B=3/4$ と正です。[Schwarzschild静止観測者間の重力赤方偏移](#thm-gr17-redshift)から $\nu_B/\nu_A=\sqrt{2/3}>0$。各地点で $\lambda_i=c/\nu_i>0$ と定めるので
 
 $$
 \frac{\lambda_B}{\lambda_A}
@@ -233,7 +233,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[静止時計の固有時率](#prop-gr17-static-clock)から $\Delta\tau_A=\sqrt{f_A}\Delta t$、$\Delta\tau_B=\sqrt{f_B}\Delta t$。比の逆数は $\Delta\tau_A/\Delta\tau_B=\sqrt{f_A/f_B}$ です。[重力赤方偏移定理](#thm-gr17-redshift)は同じ平方根が $\nu_B/\nu_A$ に等しいと示しています。また[赤方偏移の定義](#def-gr17-redshift-z)により $1+z_{A\to B}=\nu_A/\nu_B$。従って第二式も従います。$\square$
+[静止時計の固有時率](#prop-gr17-static-clock)から $\Delta\tau_A=\sqrt{f_A}\Delta t$、$\Delta\tau_B=\sqrt{f_B}\Delta t$。比の逆数は $\Delta\tau_A/\Delta\tau_B=\sqrt{f_A/f_B}$ です。[Schwarzschild静止観測者間の重力赤方偏移](#thm-gr17-redshift)は同じ平方根が $\nu_B/\nu_A$ に等しいと示しています。また[赤方偏移の定義](#def-gr17-redshift-z)により $1+z_{A\to B}=\nu_A/\nu_B$。従って第二式も従います。$\square$
 <!-- proof-end -->
 
 **信号の山で読み直す。** Aが自分の時計で間隔 $T_A=1/\nu_A$ ごとに連続する波面（または位相が $2\pi$ 増える二つの事象）を送るとします。静的な幾何と、同じKilling軌道上の放射者・受信者を使うので、二つの波面の光路はKilling時間並進で互いに移り、同じ時間間隔 $\Delta t$ だけずれます。Aでは $T_A=\sqrt{f_A}\Delta t$、Bでは $T_B=\sqrt{f_B}\Delta t$。したがって $\nu_B/\nu_A=T_A/T_B=\sqrt{f_A/f_B}$。**静止していない**観測者には、この単純な対応をそのまま適用できません。
@@ -336,7 +336,7 @@ $$
 
 一定半径で留まるには加速が必要であり、$r\downarrow r_s$ に向かうと $\alpha$ が発散します。静的座標の限界を、静止観測者が物理的に作れるかという問題とも区別してください。**有限半径 $r>r_s$ では公式が適用可能**ですが、$r=r_s$ に規格化した静止四元速度は存在しません。
 
-**運動する受信者ならDoppler効果が加わります。** 受信事象の静止観測者を $U_s$ とし、静止直交枠に対して速度 $v$（$|v|<c$）で光の進行方向へ動く観測者を $U_m$ とします。[GR4の同一点Doppler公式](../GR4/index.md#prop-gr4-doppler)から、その受信者が測る周波数は
+**運動する受信者ならDoppler効果が加わります。** 受信事象の静止観測者を $U_s$ とし、静止直交枠に対して速度 $v$（$|v|<c$）で光の進行方向へ動く観測者を $U_m$ とします。[同一事象での観測者間Doppler公式](../GR4/index.md#prop-gr4-doppler)から、その受信者が測る周波数は
 
 $$
 \omega_m=\gamma(1-v/c)\,\omega_s,\qquad
@@ -378,7 +378,7 @@ $M>0$ のSchwarzschild静的外部 $r>r_s=2GM/c^2$ で $f=1-r_s/r$ とする。$
 $r_A=2r_s$ から $r_B=4r_s$ へ送った同じ光について、$\nu_B/\nu_A$、$\lambda_B/\lambda_A$、$z_{A\to B}$ を求めよ。ここで両地点の観測者は静止し、光は光的アフィン測地線を進み、散乱されない。
 
 <!-- solution-start -->
-**詳細解答。** [重力赤方偏移定理](#thm-gr17-redshift)に $f_A=1/2$、$f_B=3/4$ を代入して $\nu_B/\nu_A=\sqrt{(1/2)/(3/4)}=\sqrt{2/3}$。局所波長は $\lambda_i=c/\nu_i$ だから $\lambda_B/\lambda_A=\nu_A/\nu_B=\sqrt{3/2}$。[赤方偏移量の定義](#def-gr17-redshift-z)から $z_{A\to B}=\sqrt{3/2}-1>0$。$\nu_B<\nu_A$ で上方への赤方偏移です。
+**詳細解答。** [Schwarzschild静止観測者間の重力赤方偏移](#thm-gr17-redshift)に $f_A=1/2$、$f_B=3/4$ を代入して $\nu_B/\nu_A=\sqrt{(1/2)/(3/4)}=\sqrt{2/3}$。局所波長は $\lambda_i=c/\nu_i$ だから $\lambda_B/\lambda_A=\nu_A/\nu_B=\sqrt{3/2}$。[静止観測者間の赤方偏移量](#def-gr17-redshift-z)から $z_{A\to B}=\sqrt{3/2}-1>0$。$\nu_B<\nu_A$ で上方への赤方偏移です。
 <!-- solution-end -->
 
 <a id="ex-gr17-a04"></a>
@@ -398,7 +398,7 @@ $r_A=4r_s$ を放射側、$r_B=2r_s$ を受信側として光を送る。両者�
 静止計量 $g_{00}=-N(r)^2$、$N(r)>0$、$\xi=\partial_{x^0}$ の領域で、アフィン光的測地線の波数四ベクトル $K$ の $\Omega=-c\,g(K,\xi)$ が一定とする。静止観測者の $U$ と局所周波数 $\omega$ を表せ。$\Omega$ と $\omega$ のどちらが一般に位置によらないか。
 
 <!-- solution-start -->
-**詳細解答。** $g(\xi,\xi)=-N^2$ なので $U=(c/N)\xi$ と規格化でき、$g(U,U)=(c^2/N^2)(-N^2)=-c^2$ です。[GR4の測定定義](../GR4/index.md#def-gr4-measured-components)より $\omega=-g(K,U)=-c\,g(K,\xi)/N=\Omega/N$。アフィン測地線とKilling方程式で $\Omega$ は光路上で一定です。$N=N(r)$ が変化すれば $\omega$ は一定とは限りません。[GR14の局所エネルギー式](../GR14/index.md#prop-gr14-local-energy-lapse)とも整合します。
+**詳細解答。** $g(\xi,\xi)=-N^2$ なので $U=(c/N)\xi$ と規格化でき、$g(U,U)=(c^2/N^2)(-N^2)=-c^2$ です。[観測者の測定成分・エネルギー・周波数](../GR4/index.md#def-gr4-measured-components)より $\omega=-g(K,U)=-c\,g(K,\xi)/N=\Omega/N$。アフィン測地線とKilling方程式で $\Omega$ は光路上で一定です。$N=N(r)$ が変化すれば $\omega$ は一定とは限りません。[GR14の局所エネルギー式](../GR14/index.md#prop-gr14-local-energy-lapse)とも整合します。
 <!-- solution-end -->
 
 ### Level B
@@ -460,7 +460,7 @@ $$
 静的Schwarzschild外部の二地点 $r_A,r_B>r_s$ を結ぶ光について、Aの静止観測者が $\omega_A$ を測る。Bで静止観測者に対して光の進行方向へ速度 $v=c/3$ で動く別の観測者が受信するとき、受信周波数 $\omega_m/\omega_A$ を求めよ。$v$ はBの局所直交枠で測る速度とする。
 
 <!-- solution-start -->
-**詳細解答。** AとBの静止観測者だけなら[赤方偏移定理](#thm-gr17-redshift)から $\omega_s/\omega_A=\sqrt{f_A/f_B}$。Bの局所直交枠で $v=c/3$ なら $\gamma=1/\sqrt{1-1/9}=3/\sqrt8$ です。[GR4のDoppler公式](../GR4/index.md#prop-gr4-doppler)から進行方向への運動で $\omega_m=\gamma(1-v/c)\omega_s$。係数は $(3/\sqrt8)(2/3)=1/\sqrt2$、従って
+**詳細解答。** AとBの静止観測者だけなら[赤方偏移定理](#thm-gr17-redshift)から $\omega_s/\omega_A=\sqrt{f_A/f_B}$。Bの局所直交枠で $v=c/3$ なら $\gamma=1/\sqrt{1-1/9}=3/\sqrt8$ です。[同一事象での観測者間Doppler公式](../GR4/index.md#prop-gr4-doppler)から進行方向への運動で $\omega_m=\gamma(1-v/c)\omega_s$。係数は $(3/\sqrt8)(2/3)=1/\sqrt2$、従って
 
 $$
 \frac{\omega_m}{\omega_A}=\frac{1}{\sqrt2}\sqrt{\frac{f_A}{f_B}}.
@@ -501,7 +501,7 @@ $$
 
 これは時計比の逆数になることも[相反命題](#prop-gr17-clock-frequency-reciprocity)と整合します。
 
-(iv) Bの同一事象での運動受信者には[GR4のDoppler公式](../GR4/index.md#prop-gr4-doppler)を使います。$v/c=1/3$、$\gamma=3/\sqrt8$ より $\gamma(1-v/c)=1/\sqrt2$。よって
+(iv) Bにおいて運動して受信する場合には、[同一事象での観測者間Doppler公式](../GR4/index.md#prop-gr4-doppler)を使います。$v/c=1/3$、$\gamma=3/\sqrt8$ より $\gamma(1-v/c)=1/\sqrt2$。よって
 
 $$
 \frac{\omega_m}{\omega_A}
@@ -510,7 +510,7 @@ $$
 
 静止Bが受け取る値 $\sqrt{2/3}$ とは異なります。
 
-(v) $r_A\downarrow r_s$ では $f_A\downarrow0$ ですから、固定した $r_B>r_s$ に対し $\nu_B/\nu_A=\sqrt{f_A/f_B}\to0$。ただし各 $r_A>r_s$ での静止光源の局所周波数を一定に揃えて取る極限です。同時に $U_A=c\xi/\sqrt{f_A}$ の座標成分と静止に要する固有加速度は発散します。[GR16の静的領域の命題](../GR16/index.md#prop-gr16-static-domain)から $r=r_s$ でこの静止世界線を規格化できないので、極限値をその点の静止観測者の実測値と同一視してはいけません。地平線の幾何学的延長の可否も、この周波数極限のみからは分かりません。
+(v) $r_A\downarrow r_s$ では $f_A\downarrow0$ ですから、固定した $r_B>r_s$ に対し $\nu_B/\nu_A=\sqrt{f_A/f_B}\to0$。ただし各 $r_A>r_s$ での静止光源の局所周波数を一定に揃えて取る極限です。同時に $U_A=c\xi/\sqrt{f_A}$ の座標成分と静止に要する固有加速度は発散します。[静的Schwarzschild座標の適用域](../GR16/index.md#prop-gr16-static-domain)から $r=r_s$ でこの静止世界線を規格化できないので、極限値をその点の静止観測者の実測値と同一視してはいけません。地平線の幾何学的延長の可否も、この周波数極限のみからは分かりません。
 <!-- solution-end -->
 
 ---
