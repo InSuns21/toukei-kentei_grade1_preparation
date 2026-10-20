@@ -97,7 +97,18 @@ w^{\mathsf T}Cw=\frac83a^2+\frac23b^2
 =\frac23+2a^2\le\frac83.
 $$
 
-最大値は $w=\pm e_1$ で達成される。$W_1=e_1$ を選ぶと $W_1^{\mathsf T}W_1=1$、$T_1=(2,-2,0,0)^{\mathsf T}$、$\widehat A_1$ の行は $(2,0),(-2,0),(0,0),(0,0)$ となる。$q=1$ の再構成平方誤差は、最後の二点の第2成分から $1^2+(-1)^2=2$ である。元のデータの総偏差平方和は $10$ なので、$8/10$ を保持している。
+最大値は $w=\pm e_1$ で達成される。$W_1=e_1$ を選ぶと $W_1^{\mathsf T}W_1=1$ で、得点と平均を戻した再構成は
+
+$$
+T_1=Xe_1=(2,-2,0,0)^{\mathsf T},
+\qquad
+\widehat A_1=
+\begin{pmatrix}
+2&0\\-2&0\\0&0\\0&0
+\end{pmatrix}
+$$
+
+となる。ここでは平均が零なので $\widehat A_1=Xe_1e_1^{\mathsf T}$ である。残差には第2成分の $1,-1$ だけが残り、再構成平方誤差は $1^2+(-1)^2=2$。元の総偏差平方和は $8+2=10$ なので、保持分散比は $8/10=4/5$ である。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-19-pca-spectral"></a>
@@ -184,7 +195,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-19-frobenius-error -->
-**定義の確認**：第1節の $X$ は非零で、成分平方和が $2^2+(-2)^2+1^2+(-1)^2=10$、$\operatorname{tr}(X^{\mathsf T}X)=8+2=10$ で一致する。$X$ の特異値は $s_1=2\sqrt2$、$s_2=\sqrt2$ なので、$q=1$ の保持分散比は $s_1^2/(s_1^2+s_2^2)=8/10=4/5$。$q=0$ では0、$q=2$ では1である。$X=0$ なら分母も0になるため、比を無理に $0/0$ と計算しない。
+**定義の確認**：第1節の $X$ は非零で、成分の平方和と積行列の対角成分の和はともに
+
+$$
+\|X\|_F^2=2^2+(-2)^2+1^2+(-1)^2
+=8+2=\operatorname{tr}(X^{\mathsf T}X)=10
+$$
+
+である。$X^{\mathsf T}X=\operatorname{diag}(8,2)$ だから、[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) より $s_1=2\sqrt2$、$s_2=\sqrt2$。したがって
+
+$$
+\rho_1=\frac{s_1^2}{s_1^2+s_2^2}
+=\frac8{8+2}=\frac45.
+$$
+
+$q=0$ では保持比0、$q=2$ では1である。$X=0$ なら分母も0になるため、比を無理に $0/0$ と計算しない。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-19-pca-reconstruction"></a>
@@ -288,7 +313,7 @@ $$
 =\operatorname{rank}P\le q.
 $$
 
-最後の等号では、$P^2=P=P^{\mathsf T}$ の固有値が0または1であり、その1の個数が像の次元であることを使った。
+最後の等号では、$P^2=P=P^{\mathsf T}$ に [実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral) を適用した。$P$ の固有値は0または1であり、その1の個数が像の次元なので、跡は階数に等しい。
 
 $0<q<r$ なら、$s_q^2$ を境界として、$j>q$ の係数が非正となることから
 
@@ -380,7 +405,14 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$。固有値は $6,8/3$。[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) から $s_j^2=(n-1)\lambda_j$ なので、特異値は $\sqrt{3\cdot6}=3\sqrt2$、$\sqrt{3\cdot(8/3)}=2\sqrt2$ となる。[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと捨てる平方和は $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
+各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$ である。固有値は $6,8/3$。[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) に $C=X^{\mathsf T}X/(n-1)$ を代入すると $s_j^2=(n-1)\lambda_j$ となるから、
+
+$$
+s_1=\sqrt{3\cdot6}=3\sqrt2,\qquad
+s_2=\sqrt{3\cdot(8/3)}=2\sqrt2.
+$$
+
+[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと再構成平方誤差は捨てた $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
 <!-- solution-end -->
 
 ### ML1-19-A03 保持次元が0・全次元の場合
