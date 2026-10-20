@@ -1,0 +1,50 @@
+id: "GR21"
+title: "線形化重力とゲージ変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR12
+  - GR13
+official_scope: []
+learning_objectives:
+  - 4次元Minkowski背景の計量摂動・微分尺度・逆計量・跡の一次展開を説明し検算できる
+  - Christoffel係数・Riemann・Ricci・スカラー曲率を一次まで導ける
+  - 線形化Einsteinテンソルと普通の偏微分による線形Bianchi恒等式を計算できる
+  - 微小座標変換から線形ゲージ変換則を導き純ゲージの曲率零を証明できる
+  - 4次元トレース反転とその逆変換・発散のゲージ変換則を導ける
+  - 調和ゲージと残余ゲージ条件を区別し線形化Einstein方程式の波動形を得られる
+  - 背景真空・宇宙項零・微分可能性・ゲージ選択の可解性の仮定を明示できる
+  - 静的等方弱場の時間成分からPoisson方程式を復元できる
+definitions:
+  - { id: GR21-DEF-01, name: Minkowski背景の線形計量摂動 }
+  - { id: GR21-DEF-02, name: 線形ゲージ変換・純ゲージ摂動 }
+  - { id: GR21-DEF-03, name: 4次元のトレース反転摂動 }
+  - { id: GR21-DEF-04, name: 線形化した調和ゲージ }
+theorems:
+  - { id: GR21-PROP-01, name: 接続・Ricci・スカラー曲率の一次式 }
+  - { id: GR21-PROP-02, name: 線形化Einsteinテンソル }
+  - { id: GR21-PROP-03, name: 一次曲率のゲージ不変性 }
+  - { id: GR21-PROP-04, name: トレース反転のゲージ変換 }
+  - { id: GR21-THM-01, name: 調和ゲージの線形化Einstein方程式 }
+  - { id: GR21-PROP-05, name: 静的等方弱場のPoisson極限 }
+canonical_examples:
+  - 対角摂動の逆計量と跡の差
+  - 静的時間成分からRicciの符号を検算
+  - 時間依存の純ゲージで接続非零と曲率零の違いを確認
+  - 等方弱場のトレース反転で時間成分だけが残る
+  - 調和ゲージとNewton極限のPoisson係数
+problem_patterns:
+  - GR21-INVERSE-TRACE
+  - GR21-FIRST-ORDER-CONNECTION
+  - GR21-GAUGE-SIGN
+  - GR21-DOUBLE-TRACE-REVERSE
+  - GR21-HARMONIC-DIVERGENCE
+  - GR21-PURE-GAUGE-CURVATURE
+  - GR21-LINEAR-BIANCHI
+  - GR21-RESIDUAL-PLANE-GAUGE
+  - GR21-EXPLICIT-GAUGE-FIXING
+  - GR21-STATIC-MATTER-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
