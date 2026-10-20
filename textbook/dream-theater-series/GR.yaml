@@ -89,7 +89,7 @@ chapters:
     title: "Shapiro時間遅延"
   - id: GR21
     path: textbook/volumes/dream_thater/物理系/GR/GR21
-    status: planned
+    status: completed
     title: "線形化重力とゲージ変換"
   - id: GR22
     path: textbook/volumes/dream_thater/物理系/GR/GR22
