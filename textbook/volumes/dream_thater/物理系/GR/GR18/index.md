@@ -55,12 +55,12 @@ $$
 
 $\mathcal E$ と $\mathcal L$ はアフィンパラメータを定数倍で変えると共に同じ倍率で変化するため、比 $b$ は不変です。$\lambda$ の単位を任意に取っても、$x^0$ と $r$ は長さ、$\phi$ は無次元なので、保存量の次元は
 
-$
+$$
 [\mathcal E]=\frac{\mathrm{length}}{[\lambda]},
 \qquad
 [\mathcal L]=\frac{\mathrm{length}^2}{[\lambda]},
 \qquad [b]=\mathrm{length}
-$
+$$
 
 となります。保存量比の次元が長さになることは、アフィンパラメータの規格化に依存しません。
 
@@ -307,64 +307,64 @@ $$
 
 $\phi=0$ を最近接点とし、$u'(0)=0$ とします。$\varepsilon=r_s/b$ と $y(\phi)=bu(\phi)$ を置き、まず摂動展開の誤差を確かめます。[軌道方程式](#prop-gr18-orbit-equation)と一階積分は
 
-$
+$$
 y''+y=\frac{3\varepsilon}{2}y^2,
 \qquad y'(0)=0,
 \qquad y(0)^2-\varepsilon y(0)^3=1
-$
+$$
 
 です。$a_\varepsilon:=y(0)>0$ のうち $\varepsilon\to0$ で $1$ に近づく根を選びます。最後の式を因数分解すると
 
-$
+$$
 (a_\varepsilon-1)(a_\varepsilon+1)=\varepsilon a_\varepsilon^3,
 \qquad
 a_\varepsilon-1
 =\frac{\varepsilon a_\varepsilon^3}{a_\varepsilon+1}
 =\frac{\varepsilon}{2}+O(\varepsilon^2).
-$
+$$
 
 二階方程式を初期値から積分すると、$\phi$ が負でも成り立つ積分方程式
 
-$
+$$
 y(\phi)=a_\varepsilon\cos\phi
 +\frac{3\varepsilon}{2}
 \int_0^\phi\sin(\phi-t)y(t)^2\,dt
-$
+$$
 
 を得ます。$|\phi|\leq2$ に固定します。$\varepsilon$ が十分小さければ $a_\varepsilon\leq5/4$ です。$y$ が $|y|\leq2$ を満たす区間では、積分区間の長さが高々 $2$、$|\sin(\phi-t)|\leq1$ だから、上の式から
 
-$
+$$
 |y(\phi)|\leq\frac54+\frac{3\varepsilon}{2}\cdot2\cdot2^2
 =\frac54+12\varepsilon<2
 \qquad(0<\varepsilon<1/20)
-$
+$$
 
 となります。初期値は $|a_\varepsilon|<2$ なので、連続性とこの不等式により区間 $[-2,2]$ の途中で初めて $|y|=2$ へ達することはありません。従って $|y|\leq2$ はこの区間全体で成立します。積分方程式へ戻れば
 
-$
+$$
 |y(\phi)-\cos\phi|
 \leq |a_\varepsilon-1|+12\varepsilon
 =O(\varepsilon),
-$
+$$
 
 さらに $|y(t)^2-\cos^2t|\leq3|y(t)-\cos t|=O(\varepsilon)$ です。従って
 
-$
+$$
 y(\phi)=\cos\phi+\varepsilon
 \left\{\frac12\cos\phi+
 \frac32\int_0^\phi\sin(\phi-t)\cos^2t\,dt\right\}
 +O(\varepsilon^2)
-$
+$$
 
 が $|\phi|\leq2$ で一様に成立します。同じ積分式を一度微分すれば $y'$ についても一様な一次展開が得られます。したがって無限遠に対応する $\phi=\pm\pi/2$ の近くでも誤差を制御できます。
 
 括弧内を $w(\phi)$ と書くと、$u=y/b$ から
 
-$
+$$
 u(\phi)=\frac{\cos\phi}{b}
 +\frac{r_s}{b^2}w(\phi)
 +O\left(\frac{r_s^2}{b^3}\right)
-$
+$$
 
 です。以下では $w$ を微分方程式から具体的に求めます。これを[軌道方程式](#prop-gr18-orbit-equation)に代入し、$r_s$ の一次項を比較します。左辺の零次は $(\cos\phi)''+\cos\phi=0$、右辺は
 
@@ -451,16 +451,16 @@ $$
 =\frac{|k^{\hat\phi}|}{k^{\hat0}}
 =\frac{\mathcal L/r}{\mathcal E/\sqrt f}
 =\frac{b\sqrt{f(r)}}{r}.
-$
+$$
 
 ただし $\sin\alpha$ のみでは入射と出射を区別できません。半径方向の測定成分も基底射影から求めると、
 
-$
+$$
 k^{\hat r}=g(k,e_{\hat r})=\frac{\dot r}{\sqrt f},
 \qquad
 \cos\alpha=\frac{k^{\hat r}}{k^{\hat0}}
 =\frac{\dot r}{\mathcal E}.
-$
+$$
 
 [半径方向一階積分](#prop-gr18-null-radial)を使えば、$\sin^2\alpha+\cos^2\alpha=b^2f/r^2+\dot r^2/\mathcal E^2=1$ と検算できます。入射時は $\dot r<0$ で $\alpha>\pi/2$、出射時は $\dot r>0$ で $\alpha<\pi/2$ です。
 
