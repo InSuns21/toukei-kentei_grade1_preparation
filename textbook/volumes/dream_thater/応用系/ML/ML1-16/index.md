@@ -187,7 +187,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml1-16-adaboost -->
-**定義の確認**。4件を一様に重み付けし、1番目の木が第2点だけ誤るとする。[AdaBoostの更新定義](#def-ml1-16-adaboost)から、最初の係数と正規化定数は
+**定義の確認**。4件を一様に重み付けし、1番目の木が第2点だけ誤るとする。[離散AdaBoostの更新](#def-ml1-16-adaboost)から、最初の係数と正規化定数は
 
 $$
 \varepsilon_1=\frac14,\qquad
