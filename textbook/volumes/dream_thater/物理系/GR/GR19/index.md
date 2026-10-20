@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr19-effective-potential -->
-**定義の確認（平坦極限と次元）。** $M\to0$ すなわち $r_s\to0$ とすると、$V_{\mathrm{eff}}=\ell^2/(2r^2)$ です。これは平坦空間で同じ角運動量を保つときの半径方向の遠心項と一致します。また $[\ell^2/r^2]=\mathrm{m}^2/\mathrm{s}^2=[c^2]$ なので二項は加算可能です。さらに $\ell=0$ を形式的に代入すれば $V_{\mathrm{eff}}=-GM/r$ ですが、その運動には近日点の角度がないことに注意します。
+**定義の確認**（平坦極限と次元）。 $M\to0$ すなわち $r_s\to0$ とすると、$V_{\mathrm{eff}}=\ell^2/(2r^2)$ です。これは平坦空間で同じ角運動量を保つときの半径方向の遠心項と一致します。また $[\ell^2/r^2]=\mathrm{m}^2/\mathrm{s}^2=[c^2]$ なので二項は加算可能です。さらに $\ell=0$ を形式的に代入すれば $V_{\mathrm{eff}}=-GM/r$ ですが、その運動には近日点の角度がないことに注意します。
 <!-- definition-example-end -->
 
 <a id="prop-gr19-radial-energy"></a>
@@ -178,7 +178,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr19-newtonian-orbit-data -->
-**定義の確認。** $e=1/4$ と $\phi_0=0$ に対し、$u_{\mathrm N}>0$ は全角度で成立します。$\phi=0$ で $u=(5/4)/p$、$\phi=\pi$ で $u=(3/4)/p$ なので、半径の最小値は $r_{\min}=4p/5$、最大値は $r_{\max}=4p/3$。二つの半径の逆数から $2/(r_{\min}^{-1}+r_{\max}^{-1})=p$ も確認できます。$u_{\mathrm N}''+u_{\mathrm N}=1/p=GM/\ell^2$ なのでNewtonの軌道方程式を満たします。
+**定義の確認**。 $e=1/4$ と $\phi_0=0$ に対し、$u_{\mathrm N}>0$ は全角度で成立します。$\phi=0$ で $u=(5/4)/p$、$\phi=\pi$ で $u=(3/4)/p$ なので、半径の最小値は $r_{\min}=4p/5$、最大値は $r_{\max}=4p/3$。二つの半径の逆数から $2/(r_{\min}^{-1}+r_{\max}^{-1})=p$ も確認できます。$u_{\mathrm N}''+u_{\mathrm N}=1/p=GM/\ell^2$ なのでNewtonの軌道方程式を満たします。
 <!-- definition-example-end -->
 
 ## 3. 円軌道と安定性の境界
@@ -285,7 +285,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr19-perihelion-shift -->
-**定義の確認（Newton極限）。** [Newton基準楕円](#def-gr19-newtonian-orbit-data)は $e>0$ なら $\phi=\phi_0+2\pi n$ で連続する半径極小を持ちます。その差は $\Phi_r=2\pi$ であるため $\Delta\varpi=0$ です。$e=0$ の円では全点が同じ半径なので近日点を一意に定められず、この定義を直接適用しません。
+**定義の確認**（Newton極限）。 [Newton基準楕円](#def-gr19-newtonian-orbit-data)は $e>0$ なら $\phi=\phi_0+2\pi n$ で連続する半径極小を持ちます。その差は $\Phi_r=2\pi$ であるため $\Delta\varpi=0$ です。$e=0$ の円では全点が同じ半径なので近日点を一意に定められず、この定義を直接適用しません。
 <!-- definition-example-end -->
 
 軌道方程式の補正項は小さくても、同じ方向を何回通るかという**位相**には一周ごとに効果が積み重なります。単に補正項の大きさを見積もるのでなく、$\cos\phi$ に共鳴する項を求めるのが鍵です。
