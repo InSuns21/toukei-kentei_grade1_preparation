@@ -1,0 +1,50 @@
+id: "ML1-19"
+title: "主成分分析・特異値分解・低ランク近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-18
+  - ML1-04
+  - ML1-12
+  - F0-00F1
+  - F0-00F2
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 中心化標本行列と標本共分散行列を構成し方向別の分散を計算できる
+  - 主成分を直交方向に沿った最大分散問題として定義し固有値への還元を証明できる
+  - 得点・再構成行列・平均を戻した各観測の復元を計算できる
+  - 実特異値分解と共分散固有値の関係を導き保持分散比を求められる
+  - 再構成平方誤差が捨てた特異値の二乗和となることを証明できる
+  - 任意の階数制約下で打切りSVDがFrobenius誤差を最小にすることを証明できる
+  - 重複固有値・零分散・中心化漏れの意味と失敗機構を説明できる
+  - 検証点での投影誤差を訓練平均と訓練軸に固定して比較できる
+  - 再現可能なPython計算ラボで特異値と復元誤差を照合できる
+definitions:
+  - { id: ML1-19-DEF-01, name: 中心化標本行列と標本共分散行列 }
+  - { id: ML1-19-DEF-02, name: 主成分の方向・得点・再構成 }
+  - { id: ML1-19-DEF-03, name: Frobeniusノルムと保持分散比 }
+theorems:
+  - { id: ML1-19-THM-01, name: 主成分分析と共分散の固有空間 }
+  - { id: ML1-19-THM-02, name: 主成分再構成と捨てた特異値 }
+  - { id: ML1-19-THM-03, name: Frobenius誤差に対する最良低ランク近似 }
+canonical_examples:
+  - 中心化四標本の共分散と正半定値の直接確認
+  - 主成分方向の最大分散と得点・復元の具体計算
+  - 特異値の二乗による保持分散比と残差の比較
+  - 重複固有値・零分散・中心化漏れの失敗例
+  - Pythonによる次元別の復元と特異値の照合
+problem_patterns:
+  - ML1-19-A01
+  - ML1-19-A02
+  - ML1-19-A03
+  - ML1-19-A04
+  - ML1-19-B01
+  - ML1-19-B02
+  - ML1-19-B03
+  - ML1-19-B04
+  - ML1-19-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }

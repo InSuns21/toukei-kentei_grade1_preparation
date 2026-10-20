@@ -1,0 +1,47 @@
+chapter: ML1-19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-18
+  - ML1-04
+  - ML1-12
+  - F0-00F1
+  - F0-00F2
+  - F0-00E1
+concepts:
+  - id: learning.pca-centered-data
+    name: 中心化標本行列と標本共分散行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中心化標本行列と標本共分散行列）"]
+    requires: [learning.design-matrix]
+  - id: learning.pca-loadings-scores
+    name: 主成分の方向・得点・再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主成分の方向・得点・再構成）"]
+    requires: [learning.pca-centered-data, linear.spectral-theorem]
+  - id: learning.pca-spectral-optimization
+    name: 主成分分析と共分散の固有空間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（主成分分析と共分散の固有空間）"]
+    requires: [learning.pca-loadings-scores, linear.spectral-theorem]
+  - id: learning.pca-frobenius-ratio
+    name: Frobeniusノルムと保持分散比
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Frobeniusノルムと保持分散比）"]
+    requires: [learning.pca-centered-data, linear.singular-value-decomposition]
+  - id: learning.pca-svd-reconstruction
+    name: 主成分再構成と捨てた特異値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（主成分再構成と捨てた特異値）"]
+    requires: [learning.pca-spectral-optimization, learning.pca-frobenius-ratio, linear.singular-value-decomposition]
+  - id: learning.pca-best-low-rank
+    name: Frobenius誤差に対する最良低ランク近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Frobenius誤差に対する最良低ランク近似）"]
+    requires: [learning.pca-svd-reconstruction, linear.singular-value-decomposition]
