@@ -1,6 +1,6 @@
 # ML1-18 カーネル回帰と正則化経路
 
-線形回帰では特徴量の係数を求め、[Ridge回帰](../ML1-05/index.md#def-ml1-05-ridge-regression)では係数を縮めて過適合を抑えた。一方、入力と予測値の関係が非線形になると、使いたい特徴量そのものを事前に列挙するのは難しい。[RKHS1の再生核](../../RKHS/RKHS1/index.md#def-rkhs1-reproducing-kernel)は入力間の内積を関数空間で表し、[RKHS2の表現定理](../../RKHS/RKHS2/index.md#thm-rkhs2-representer)は無限次元の最適化を有限個の係数へ還元する。[RKHS3のカーネルリッジ回帰](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-ridge-regression)でその解法はすでに確立している。
+線形回帰では特徴量の係数を求め、[Ridge回帰](../ML1-05/index.md#def-ml1-05-ridge)では係数を縮めて過適合を抑えた。一方、入力と予測値の関係が非線形になると、使いたい特徴量そのものを事前に列挙するのは難しい。[RKHS1の再生核](../../RKHS/RKHS1/index.md#def-rkhs1-reproducing-kernel)は入力間の内積を関数空間で表し、[RKHS2の表現定理](../../RKHS/RKHS2/index.md#thm-rkhs2-representer)は無限次元の最適化を有限個の係数へ還元する。[RKHS3のカーネルリッジ回帰](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-ridge-regression)でその解法はすでに確立している。
 
 この章では、その一般定理を**実際の標本に代入して予測し、正則化係数を動かしたとき何が連続的に変わるか**を調べる。特に、Gram行列が特異でも予測が定まる理由、学習誤差だけで係数を決められない理由を数値で追う。
 
@@ -235,7 +235,7 @@ $\mu_j>0$ の縮小率は $\lambda\downarrow0$ で1、$\mu_j=0$ の縮小率は�
 
 候補集合を $\{1/4,1/2,1\}$ と**事前固定**すれば、この検証標本については $\lambda=1/2$ が最良である。しかし一つの検証点が母集団リスクの最小を保証するわけではない。核の種類も同時に選ぶなら、核・係数の組を検証し、独立なテスト標本は選択後の最終評価に残す（[ML1-12の独立評価](../ML1-12/index.md#thm-ml1-12-independent-holdout)）。
 
-通常の[Ridge回帰の縮小](../ML1-05/index.md#thm-ml1-05-ridge-svd)と同様、固定した核では $\lambda$ が係数ノルムを抑える。一方、核の変更は $G$ 自体と、その固有ベクトル・固有値を変える。**同じ $\lambda$ の数値でも核を変えれば同じ予測にはならない。**
+通常の[Ridge回帰の縮小](../ML1-05/index.md#thm-ml1-05-svd-shrink)と同様、固定した核では $\lambda$ が係数ノルムを抑える。一方、核の変更は $G$ 自体と、その固有ベクトル・固有値を変える。**同じ $\lambda$ の数値でも核を変えれば同じ予測にはならない。**
 
 この章は切片を罰しない設定を扱っていない。切片 $b$ を別に加える場合は $\sum_i(y_i-b-f(x_i))^2/n+\lambda\|f\|_{\mathcal H}^2$ を最適化し直す必要があり、ここでの $G+n\lambda I$ をそのまま適用して $b=0$ と扱ってはいけない。
 
@@ -417,7 +417,7 @@ $X=\operatorname{diag}(2,1)$、応答 $y=(2,1)$、線形核 $K(x,z)=x^{\mathsf T
 <!-- solution-start -->
 #### 詳細解答
 
-訓練点は $(2,0),(0,1)$、$G=XX^{\mathsf T}=\operatorname{diag}(4,1)$、$n\lambda=1$。核側は $\alpha=(G+I)^{-1}y=(2/5,1/2)$。主形式は[ML1-05のRidge](../ML1-05/index.md#def-ml1-05-ridge-regression)の規約から $w=(X^{\mathsf T}X+I)^{-1}X^{\mathsf T}y$ であり、$X^{\mathsf T}y=(4,1)$、$X^{\mathsf T}X+I=\operatorname{diag}(5,2)$ だから $w=(4/5,1/2)$。確かに $X^{\mathsf T}\alpha=(4/5,1/2)=w$。任意の $x\in\mathbb R^2$ では核予測は $\sum_i\alpha_i x_i^{\mathsf T}x=(X^{\mathsf T}\alpha)^{\mathsf T}x=w^{\mathsf T}x$ と一致する。
+訓練点は $(2,0),(0,1)$、$G=XX^{\mathsf T}=\operatorname{diag}(4,1)$、$n\lambda=1$。核側は $\alpha=(G+I)^{-1}y=(2/5,1/2)$。主形式は[ML1-05のRidge](../ML1-05/index.md#def-ml1-05-ridge)の規約から $w=(X^{\mathsf T}X+I)^{-1}X^{\mathsf T}y$ であり、$X^{\mathsf T}y=(4,1)$、$X^{\mathsf T}X+I=\operatorname{diag}(5,2)$ だから $w=(4/5,1/2)$。確かに $X^{\mathsf T}\alpha=(4/5,1/2)=w$。任意の $x\in\mathbb R^2$ では核予測は $\sum_i\alpha_i x_i^{\mathsf T}x=(X^{\mathsf T}\alpha)^{\mathsf T}x=w^{\mathsf T}x$ と一致する。
 <!-- solution-end -->
 
 ### ML1-18-C01 訓練誤差・核・検証・特異性の総合問題
