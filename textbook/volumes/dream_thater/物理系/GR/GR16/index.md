@@ -190,7 +190,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前定理の解で $f=1-a/r$、$g_{00}=-e^{2C_t}(1-a/r)$。無限遠で $g_{00}\to-1$ より $e^{2C_t}=1$、$C_t=0$。続いて $r\gg|a|$ での $g_{00}$ の $r^{-1}$ 係数と[GR13の弱場ポテンシャル](../GR13/index.md#def-gr13-newton-potential)を比較すると $a=2GM/c^2$。$x^0=ct$ を代入すれば表示式を得ます。逆方向の真空性は前定理の全Ricci成分の計算で既に確認済みです。$\square$
+[静的球対称真空の局所解](#thm-gr16-vacuum-family)で $f=1-a/r$、$g_{00}=-e^{2C_t}(1-a/r)$。無限遠で $g_{00}\to-1$ より $e^{2C_t}=1$、$C_t=0$。続いて $r\gg|a|$ での $g_{00}$ の $r^{-1}$ 係数と[GR13の弱場ポテンシャル](../GR13/index.md#def-gr13-newton-potential)を比較すると $a=2GM/c^2$。$x^0=ct$ を代入すれば表示式を得ます。逆方向の真空性は前定理の全Ricci成分の計算で既に確認済みです。$\square$
 <!-- proof-end -->
 
 ここまでで「真空」「静的」「球対称」「面積半径が座標として使える」「漸近条件」というそれぞれ異なる入力の役割が見えました。特に、真空とは領域内で $T_{\mu\nu}=0$ という意味であり、$M=0$ を要求しません。質量源は領域の外、例えば内側にあって構いません。
@@ -213,7 +213,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr16-schwarzschild-radius -->
-**定義の確認**（正質量の静的外部）。 $G,c>0$、$M>0$ を固定し、$r=2r_s$ の球面を選びます。$r_s=2GM/c^2>0$ なので $2r_s>r_s>0$。球面誘導計量は $(2r_s)^2d\Omega^2$ であり、角度成分の行列式は $(2r_s)^4\sin^2\theta$。その面積積分は $4\pi(2r_s)^2$ となり、面積半径がまさに $2r_s$ であると確認できます。係数は
+**定義の確認**（正質量の静的外部）。 $G,c>0$、$M>0$ を固定し、$r=2r_s$ の球面を選びます。$r_s=2GM/c^2>0$ なので $2r_s>r_s>0$ です。球面の接基底 $\partial_\theta,\partial_\phi$ に計量を制限すると、誘導計量は $(2r_s)^2d\Omega^2$ です。[GR15の面積半径の定義](../GR15/index.md#def-gr15-areal-radius)を直接確かめるため、この基底での二次元計量行列と面積密度を作ります。
+
+$
+(h_{AB})=(2r_s)^2\begin{pmatrix}1&0\\0&\sin^2\theta\end{pmatrix},\qquad
+\det(h_{AB})=(2r_s)^4\sin^2\theta.
+$
+
+局所角度域 $0<\theta<\pi$ では $\sin\theta>0$ なので、面積密度は $\sqrt{\det h}=(2r_s)^2\sin\theta$ です。極での球座標の退化は面積積分に影響しません。したがって
+
+$
+\mathcal A=\int_0^{2\pi}\!\int_0^\pi
+(2r_s)^2\sin\theta\,d\theta\,d\phi
+=4\pi(2r_s)^2,\qquad
+\sqrt{\frac{\mathcal A}{4\pi}}=2r_s.
+$
+
+この計算で、座標の値だけから半径と呼んだのではなく、定義どおり面積から $2r_s$ を確認しました。続いて静的係数を調べます。
 
 $$
 f(2r_s)=1-\frac{r_s}{2r_s}=\frac12>0,\qquad
@@ -311,7 +327,24 @@ $$
 $M\ne0$ なら $\sin\theta\ne0$ の局所座標域で非零です。曲率テンソルの全成分が零ならこの成分も零のはずなので、時空は平坦ではありません。一方、Ricciが零なのは第一定理で全成分について検算済みです。$\square$
 <!-- proof-end -->
 
-球面接方向を規格化した場合の曲率成分は $R_{\theta\phi\theta\phi}/(g_{\theta\theta}g_{\phi\phi})=2GM/(c^2r^3)$ です。これは質量が零でないと真空外部に潮汐が残ることを示す一つの量です。ただし一成分が有限というだけで、任意の座標に依存しない曲率不変量が有限とは結論できません。地平線での不変量と延長の検証はGR25で行います。
+球面接方向の曲率成分を規格化するときは、座標基底を**単位長の接ベクトル**に取り替えます。球面誘導計量は $g_{\theta\theta}=r^2$、$g_{\phi\phi}=r^2\sin^2\theta$、$g_{\theta\phi}=0$ なので、$r>0,\ 0<\theta<\pi$ で
+
+$
+e_{\hat\theta}=\frac1r\partial_\theta,\qquad
+e_{\hat\phi}=\frac1{r\sin\theta}\partial_\phi,
+\qquad g(e_{\hat\theta},e_{\hat\phi})=0.
+$
+
+両ベクトルのノルムは1です。曲率テンソルは各引数について線形だから、四つの添字にこの基底を代入すると
+
+$
+R_{\hat\theta\hat\phi\hat\theta\hat\phi}
+=\frac{R_{\theta\phi\theta\phi}}{r^4\sin^2\theta}
+=\frac{R_{\theta\phi\theta\phi}}{g_{\theta\theta}g_{\phi\phi}}
+=\frac{2GM}{c^2r^3}.
+$
+
+これは質量が零でないと真空外部に潮汐が残ることを示す一つの量です。ただし一成分が有限というだけで、任意の座標に依存しない曲率不変量が有限とは結論できません。地平線での不変量と延長の検証はGR25で行います.
 
 ## 5. 導出が言っていないこと
 
@@ -459,7 +492,12 @@ $$
 ds^2=-e^{2\Phi(r)}(dx^0)^2+e^{2\Lambda_r(r)}dr^2+r^2d\Omega^2
 $$
 
-が、$r>0$、$\partial_{x^0}$ が時間的、面積半径が正則な空間座標の連結領域で定義されているとする。(i) 独立なRicci方程式から二つの積分定数を持つ局所解を求めよ。(ii) 静的領域が無限遠まで伸びるとし、無限遠の時計と $\Phi_N=-GM/r$ でそれらを決めよ。(iii) 得た計量の全Ricci成分を検算せよ。(iv) $M>0$ での領域制限と、Birkhoff定理を証明したわけではない理由を説明せよ。
+が、$r>0$、$\partial_{x^0}$ が時間的、面積半径が正則な空間座標の連結領域で定義されているとする。次を順に示せ。
+
+1. 独立なRicci方程式から二つの積分定数を持つ局所解を求めよ。
+2. 静的領域が無限遠まで伸びるとし、無限遠の時計と $\Phi_N=-GM/r$ でそれらを決めよ。
+3. 得た計量の全Ricci成分を検算せよ。
+4. $M>0$ での領域制限と、Birkhoff定理を証明したわけではない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** (i) [GR15のRicci成分](../GR15/index.md#prop-gr15-static-ricci)について真空なので $R_{00}=R_{rr}=R_{\theta\theta}=0$。前二式を $e^{2(\Lambda_r-\Phi)}R_{00}+R_{rr}$ と組み合わせると $2(\Phi'+\Lambda_r')/r=0$、ゆえに $\Phi+\Lambda_r=C_t$ です。$f=e^{-2\Lambda_r}>0$ とすれば $\Phi'-\Lambda_r'=f'/f$。角度式は $0=1-f-rf'$、したがって $(rf)'=1$、積分して $f=1-a/r$。従って局所解は
