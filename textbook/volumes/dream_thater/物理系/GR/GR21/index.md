@@ -436,7 +436,7 @@ $\square$
 
 ## 6. 調和ゲージで見える波動方程式
 
-トレース反転の発散を零にできると、6種類の微分項がまとめて消えます。この条件を**調和ゲージ（Lorenzゲージ）**と呼びます。名称が似ていますが、Lorentz計量の「Lorentz」と混同しないでください。
+トレース反転の発散を零にできると、6種類の微分項がまとめて消えます。次に**調和ゲージ（Lorenzゲージ）**を正式に定義します。名称が似ていますが、Lorentz計量の「Lorentz」と混同しないでください。
 
 <a id="def-gr21-harmonic-gauge"></a>
 
@@ -745,7 +745,7 @@ D'_1=\partial^0h'_{01}
 =-\frac{\epsilon}{L}\sin(x^0/L),
 $$
 
-他の $D'_\nu$ は零。[ゲージ変換後の発散](#prop-gr21-trace-gauge)から、追加変換の生成ベクトルを $\zeta=-\xi$ に選べば $\Box\zeta_1=-\epsilon L\Box\sin(x^0/L)=-\epsilon L(+L^{-2}\sin(x^0/L))=-\epsilon L^{-1}\sin(x^0/L)=D'_1$ です。よって $D''_1=D'_1-\Box\zeta_1=0$、他成分も零。実際に追加変換で $h''=h'+\partial\xi+\partial\xi=0$ と戻ります。
+他の $D'_\nu$ は零。[ゲージ変換後の発散](#prop-gr21-trace-gauge)から、追加の微小座標変更を $\zeta=-\xi$ に選べば $\Box\zeta_1=-\epsilon L\Box\sin(x^0/L)=-\epsilon L(+L^{-2}\sin(x^0/L))=-\epsilon L^{-1}\sin(x^0/L)=D'_1$ です。よって $D''_1=D'_1-\Box\zeta_1=0$、他成分も零。実際に追加変換で $h''=h'+\partial\xi+\partial\xi=0$ と戻ります。
 <!-- solution-end -->
 
 ### Level C
