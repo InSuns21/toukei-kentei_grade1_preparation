@@ -95,16 +95,16 @@ $v=A_b(f)$ については $K\subset J^-(\Sigma_b)$、$K\cap J^+(\Sigma_b)=\varn
 > **命題（零初期面の選択からの独立性）**  
 > 上の仮定のもとで、同じ非零の $f\in\Gamma_c(M,E)$ に対して二つの初期面を源より前または後に選ぶ。すなわち
 
-$
+$$
 a_1,a_2<\min t(\operatorname{supp}f),\qquad
 b_1,b_2>\max t(\operatorname{supp}f)
-$
+$$
 
 > とする。このとき全時空で
 
-$
+$$
 R_{a_1}(f)=R_{a_2}(f),\qquad A_{b_1}(f)=A_{b_2}(f)
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
