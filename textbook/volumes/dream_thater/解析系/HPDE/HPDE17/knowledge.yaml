@@ -1,0 +1,52 @@
+chapter: HPDE17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE16
+  - HPDE10
+  - HPDE9
+  - HPDE5
+  - LORG20
+  - LORG16
+forward_references: []
+concepts:
+  - id: hpde.compact-observation-footprint
+    name: コンパクト観測域の因果的足跡
+    kind: definition
+    introduction: formal
+    requires: [hpde.finite-time-causal-shadow, hpde.causal-dependence]
+  - id: hpde.observation-footprint-compact
+    name: 足跡のコンパクト性
+    kind: lemma
+    introduction: formal
+    requires: [hpde.compact-observation-footprint, hpde.compact-causal-shadow]
+  - id: hpde.localized-agreement
+    name: 因果的足跡で一致するデータの局所一致
+    kind: lemma
+    introduction: formal
+    requires: [hpde.observation-footprint-compact, hpde.causal-dependence]
+  - id: hpde.smooth-noncompact-cauchy
+    name: 任意の滑らかなデータの大域Cauchy解
+    kind: theorem
+    introduction: formal
+    requires: [hpde.global-cauchy-theorem, hpde.localized-agreement]
+  - id: hpde.smooth-local-topology
+    name: 滑らかな切断のコンパクト開C∞位相
+    kind: definition
+    introduction: formal
+    requires: [hpde.global-cauchy-problem]
+  - id: hpde.cauchy-local-stability
+    name: 大域Cauchy解の局所連続依存
+    kind: theorem
+    introduction: formal
+    requires: [hpde.smooth-local-topology, hpde.smooth-noncompact-cauchy, hpde.compact-bundle-high-energy]
+  - id: hpde.noncompact-one-sided-support
+    name: 非コンパクトデータの片側因果支持
+    kind: proposition
+    introduction: formal
+    requires: [hpde.smooth-noncompact-cauchy, hpde.causal-dependence, hpde.compact-causal-shadow]
+  - id: hpde.uniform-flat-energy
+    name: 一様係数の平坦波動に対する全空間高階安定性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.high-order-sobolev-estimate, hpde.spatial-derivative-commutator]
