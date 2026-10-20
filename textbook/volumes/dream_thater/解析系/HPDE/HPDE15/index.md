@@ -45,15 +45,15 @@ $$
 <a id="def-hpde15-cauchy-patch"></a>
 <!-- formal-statement-start -->
 > **定義（Cauchyパッチ）**  
-> $(M,g)$ を時間向き付き大域双曲時空、$\Sigma=t^{-1}(0)$ を滑らかなCauchy超曲面とする。$\Sigma$ の開集合 $A$ と正数 $\varepsilon$ に対し、
+> $(M,g)$ を時間向き付きの滑らかな大域双曲Lorentz時空、$t:M\to\mathbb R$ を各水準面が滑らかな空間的Cauchy超曲面となる滑らかな時間関数、$\Sigma=t^{-1}(0)$ とする。$\Sigma$ の開集合 $A$ と正数 $\varepsilon$ に対し、
 >
 $$
 V(A,\varepsilon)=\operatorname{int}D(A)\cap t^{-1}((-\varepsilon,\varepsilon))
 $$
 >
-> と定める。$P$ を滑らかなnormally hyperbolic作用素、$f$ を滑らかな源とする。
-> $\Sigma$ 上に滑らかなCauchyデータ $(u_0,u_1)$ を与える。
-> 未来向き単位法線 $N$ に沿う接続微分を $\nabla^P_N$ と記す。
+> と定める。$E\to M$ を有限ランクの滑らかな実または複素ベクトル束、$P:\Gamma(M,E)\to\Gamma(M,E)$ を滑らかなnormally hyperbolic作用素、$f\in\Gamma(M,E)$ を滑らかな源とする。
+> $\Sigma$ 上に滑らかなCauchyデータ $u_0,u_1\in\Gamma(\Sigma,E|_\Sigma)$ を与える。
+> $N$ を未来向き単位法線とし、[HPDE5で一意に定まる接続](../HPDE5/index.md#thm-hpde5-unique-connection)に沿う微分を $\nabla^P_N$ と記す。
 > $V(A,\varepsilon)$ 上の滑らかな切断 $u_A$ が次を満たすとする。
 
 $$
@@ -65,7 +65,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde15-cauchy-patch -->
-**定義の確認**。Minkowski平面、$A=(-2,2)$、$f=0$、$u_0(x)=x$、$u_1(x)=1$ とします。$u_A(t,x)=x+t$ と置くと $\partial_t^2u_A-\partial_x^2u_A=0$、$u_A(0,x)=x$、$\partial_tu_A(0,x)=1$。$V(A,1)=\{|t|<1,\ |x|+|t|<2\}$ 上で滑らかです。定義の領域・方程式・二つの初期条件をすべて確認しました。
+**定義の確認**。Minkowski平面 $(\mathbb R^{1,1},-dt^2+dx^2)$ と自明な実直線束で $P=\partial_t^2-\partial_x^2$、$t$ を標準時間座標、$A=(-2,2)$、$f=0$、$u_0(x)=x$、$u_1(x)=1$ とします。この $P$ の接続は通常の微分で、$t=0$ の未来向き単位法線は $N=\partial_t$ なので、定義の法線条件は $\nabla^P_Nu_A=\partial_tu_A$ として判定できます。
+
+点 $(t,x)$ から初期面へ至る因果曲線の足跡は区間 $[x-|t|,x+|t|]$ に収まります。この区間全体が $A$ に含まれる条件は $-2<x-|t|$ かつ $x+|t|<2$、すなわち $|x|+|t|<2$ です。従って
+
+$
+V(A,1)=\{(t,x):|t|<1,\ |x|+|t|<2\}.
+$
+
+$u_A(t,x)=x+t$ と置くと、この開領域上で滑らかであり、
+
+$
+Pu_A=\partial_t^2(x+t)-\partial_x^2(x+t)=0,\quad
+u_A(0,x)=x,\quad
+\nabla_N^Pu_A(0,x)=\partial_t(x+t)=1.
+$
+
+こうして、**領域が依存領域の短時間帯であること、源の方程式、初期変位、法線方向の接続微分**を定義の各条件と照合できました。
 <!-- definition-example-end -->
 
 <a id="lem-hpde15-patch-intersection"></a>
@@ -88,9 +104,9 @@ V(A,\varepsilon_A)\cap V(B,\varepsilon_B)
 =\operatorname{int}D(A\cap B)\cap t^{-1}((-T,T)).
 $$
 
-$w=u_A-u_B$ はその領域で $Pw=f-f=0$、初期面 $A\cap B$ 上で $w=0$ かつ $\nabla^P_Nw=0$ です。$q$ を共通部分から取ります。$q$ と $\Sigma$ の間の因果曲線の部分は $D(A\cap B)$ にあり、時間関数 $t$ は単調なので $(-T,T)$ を出ません。従って、$q$ を頂点とする初期面までの因果的な足跡はすべて両解の定義域に入ります。
+$w=u_A-u_B$ はその領域で $Pw=f-f=0$、初期面 $A\cap B$ 上で $w=0$ かつ $\nabla^P_Nw=0$ です。$q$ を共通部分から取り、まず $t(q)\ge0$ とします。$q\in D^+(A\cap B)$ です。任意の $r\in J^-(q)\cap J^+(\Sigma)$ と、$r$ から過去へ延ばした因果曲線を考えます。$r$ から $q$ への因果曲線をその前に連結すると、$q$ から過去へ非延長な因果曲線が得られるため、初期面との交点は $A\cap B$ にあります。従って $r\in D^+(A\cap B)$ です。また $0\le t(r)\le t(q)<T$ なので、因果的な足跡全体 $C_q=J^-(q)\cap J^+(\Sigma)$ は両解の共通定義域に含まれます。
 
-この足跡の近傍を、[HPDE10の局所円錐一意性](../HPDE10/index.md#lem-hpde10-local-cone)を適用できる有限個の小領域で覆い、時間方向に順番に零性を伝えます。足跡は大域双曲性により局所的にコンパクトで、有限個を選べます。あるいは同章の[依存領域一致定理](../HPDE10/index.md#cor-hpde10-domain-uniqueness)をこの短い領域に直接適用できます。よって $w(q)=0$。$q$ は任意なので重なり全体で一致します。$\square$
+これで[HPDE10の依存領域一致定理](../HPDE10/index.md#cor-hpde10-domain-uniqueness)の「源が $C_q$ 上で一致し、初期面の足跡上で二つのCauchyデータが一致する」という適用条件が確認でき、$w(q)=0$ です。$t(q)\le0$ なら因果の向きを逆にした同じ論証を使います。$q$ は任意なので重なり全体で一致します。$\square$
 <!-- proof-end -->
 
 **なぜ「同じ初期値」だけでは足りないか。** 初期値が等しいのが $A\cap B$ の外側であっても、$q$ の足跡がそこまで達すれば、重なりでの等しさは結論できません。一方、上の補題は $D(A)\cap D(B)$ へ領域を縮めることで不足を取り除きます。
@@ -246,7 +262,7 @@ $$
 > **定理（有限個のパッチによる時間スライス延長）**  
 > $(M,g)$ を滑らかな時間向き付き大域双曲時空、$(\Sigma_s)_{s\in\mathbb R}$ を滑らかな空間的Cauchyスライス、$P$ を滑らかなnormally hyperbolic作用素、$f$ を滑らかな源とする。$s\in\mathbb R$ とコンパクト集合 $L\subset\Sigma_s$ を固定し、既存の滑らかな解 $u^-$ が $L$ を含む $\Sigma_s$ の開近傍の両側に定義され、$Pu^-=f$ を満たすとする。
 >
-> このとき $L$ を覆う有限個の小さいCauchyパッチを、初期データ $(u^-|_{\Sigma_s},\nabla_N^Pu^-|_{\Sigma_s})$ と源 $f$ から構成できる。十分小さい共通時間幅 $\delta>0$ に対し、新しいパッチ同士、また各パッチと $u^-$ は、双方の初期面への因果的足跡が共通の定義域に含まれる重なりで一致する。従ってその重なりに沿って滑らかに延長できる。$\delta$ は $L$ と局所係数に依存し、非コンパクトな $\Sigma_s$ 全体について一定とは主張しない。
+> このとき $L$ を覆う有限個の小さいCauchyパッチを、初期データ $(u^-|_{\Sigma_s},\nabla_N^Pu^-|_{\Sigma_s})$ と源 $f$ から構成できる。十分小さい共通時間幅 $\delta>0$ に対し、新しいパッチ同士、また各パッチと $u^-$ は、双方の初期面への因果的足跡が共通の定義域に含まれる重なりで一致する。**既存解の定義域を $L$ の近くでこの比較条件が成り立つ小近傍に制限してから**新パッチと接合すれば、滑らかな解が得られる。比較条件を満たさない既存解の遠方の定義域まで、無条件に接合できるとは主張しない。$\delta$ は $L$ と局所係数に依存し、非コンパクトな $\Sigma_s$ 全体について一定とは主張しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -260,9 +276,9 @@ $\Sigma_s$ を新しい初期面として第3節の有限被覆構成を繰り�
 
 パッチ間の差 $v_i-v_j$ は同じ $f$ を打ち消す斉次解で、$\Sigma_s$ の $A_i\cap A_j$ 上で零変位かつ零法線微分です。[重なり補題](#lem-hpde15-patch-intersection)の証明を $t-s$ に平行移動して適用すると、依存領域の共通帯で零となります。
 
-同様に、既存解とパッチとの差 $u^--v_i$ は $\Sigma_s$ 上で零データです。既存解の定義域が含む開近傍を必要なだけ縮め、$\Sigma_s$ まで戻る因果的足跡が両方の定義域内に入る領域を選びます。[HPDE10の局所零データ一意性](../HPDE10/index.md#lem-hpde10-local-cone)により $u^-=v_i$ です。
+同様に、既存解とパッチとの差 $u^--v_i$ は $\Sigma_s$ 上で零データです。各 $p_i$ で既存解の定義域内に小さい座標箱を選び、初期面側の開集合と時間幅を縮めます。二解の重なりのうち、各点から $\Sigma_s$ への因果的足跡全体がこの箱に入る領域では、差に[HPDE10の局所零データ一意性](../HPDE10/index.md#lem-hpde10-local-cone)を適用でき、$u^-=v_i$ です。コンパクトな $L$ は有限個のこうした比較領域で覆えます。
 
-従って既存解の定義域と新パッチの合併で切断を定義できます。重なりでは関数とすべての導関数が同じなので、接合部に微分の跳びは生じません。$P$ は局所微分作用素なので貼り合わせ後も $Pu=f$ を満たします。$\square$
+既存解は、この一致を確かめた $L$ の近くの開領域へいったん制限します。新パッチとの共通部分が比較可能な領域内にあるよう接合領域を取れば、[パッチの重なり補題](#lem-hpde15-patch-intersection)と直前の一致から接合値は一意です。各点近くで既存解またはパッチのどちらかと等しいので滑らかで、局所性から $Pu=f$ を満たします。元の既存解の**定義域全体**と接合できるかは、別途その全重なりでの一致を調べる必要があります。$\square$
 <!-- proof-end -->
 
 時間方向の切断関数でも同じことを確認できます。重なりにおいて $u^-=u^+$ なら、$0\le\beta(t)\le1$ を使った
@@ -316,7 +332,7 @@ $$
 
 ### 局所点源核との接続
 
-[HPDE14の真の局所点源基本解](../HPDE14/index.md#thm-hpde14-true-local)は、十分小さい因果凸領域内で $P_xE_+(x,y)=\delta_y$ を満たします。滑らかでコンパクト支持の源をこの局所核に積分し、同じ領域の過去スライス上に零データがあるなら、得られた解と[HPDE11の局所Cauchy解](../HPDE11/index.md#thm-hpde11-local-cauchy)との差は零データ斉次解になります。この領域の[一意性](../HPDE10/index.md#lem-hpde10-local-cone)が二つの**構成法の整合性**を保証します。ここで大域Green作用素の存在を仮定しているわけではありません。
+**4次元の場合**、[HPDE14の真の局所点源基本解](../HPDE14/index.md#thm-hpde14-true-local)は、十分小さい因果凸領域内で $P_xE_+(x,y)=\delta_y\operatorname{id}_{E_y}$ を満たします。滑らかでコンパクト支持の源をこの局所核に積分し、同じ領域の過去スライス上に零データがあるなら、得られた解と[HPDE11の局所Cauchy解](../HPDE11/index.md#thm-hpde11-local-cauchy)との差は零データ斉次解になります。この領域の[一意性](../HPDE10/index.md#lem-hpde10-local-cone)が二つの**構成法の整合性**を保証します。ここで大域Green作用素の存在を仮定しているわけではありません。
 
 ## 7. 演習：貼り合わせを手で追う
 
@@ -368,7 +384,14 @@ P(\chi x^2)=-\partial_x^2(\chi x^2)
 =-(\chi''x^2+4\chi'x+2\chi).
 $$
 
-他方 $\chi Pv=-2\chi$ なので差は $[P,\chi]v=-\chi''x^2-4\chi'x$。一般式では $\Box\chi=-\chi''$、$\operatorname{grad}\chi=\chi'\partial_x$、$\nabla_{\operatorname{grad}\chi}v=2x\chi'$、$-\Box\chi=+\chi''$ ではなく、$P=-\Box$ の符号規約に注意します。ここでの $\Box=-\partial_t^2+\partial_x^2$ なので $\Box\chi=\chi''$ であり、公式からも $-\chi''x^2-2(2x\chi')$ と一致します。
+他方 $\chi Pv=-2\chi$ なので差は $[P,\chi]v=-\chi''x^2-4\chi'x$ です。一般式で使う波動作用素は、計量 $g=-dt^2+dx^2$ に対し $\Box_g=-\partial_t^2+\partial_x^2$ です。従って $\Box_g\chi=\chi''$、$\operatorname{grad}\chi=\chi'\partial_x$、$\nabla_{\operatorname{grad}\chi}v=2x\chi'$ となり、
+
+$
+-(\Box_g\chi)v-2\nabla_{\operatorname{grad}\chi}v
+=-\chi''x^2-4\chi'x
+$
+
+と積の直接微分と一致します。$P=-\Box_g$ なので、$\Box_g$ と $P$ の符号を取り違えないことが重要です。
 <!-- solution-end -->
 
 <a id="ex-hpde15-a04"></a>
