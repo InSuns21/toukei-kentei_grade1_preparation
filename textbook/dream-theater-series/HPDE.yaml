@@ -63,7 +63,7 @@ chapters:
     title: "局所parametrixの誤差補正"
   - id: HPDE15
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE15
-    status: planned
+    status: completed
     title: "局所解から大域解への貼り合わせ"
   - id: HPDE16
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE16
