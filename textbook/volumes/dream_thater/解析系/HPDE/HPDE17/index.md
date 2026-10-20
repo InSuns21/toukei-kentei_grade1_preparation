@@ -359,7 +359,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $t\ge0$ を扱います。$|\alpha|\le m$ に対して $w_\alpha=\partial_x^\alpha u$ と書き、方程式を微分します。積の微分公式から
+まず $t\ge0$ を扱います。$|\alpha|\le m$ に対して $w_\alpha=\partial_x^\alpha u$ と書き、方程式を微分します。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)から
 
 $$
 \partial_t^2w_\alpha-\Delta w_\alpha+Vw_\alpha
@@ -628,7 +628,7 @@ $(M,g)$ は境界なし滑らかな大域双曲時空、$\Sigma=\Sigma_0$ は滑
 
 (iii) 任意の $q\in M$ は $\operatorname{int}Q_j$ に入り、$i\ge j$ なら $v_i(q)=v_j(q)$ なので値の定義は一意です。近傍 $\operatorname{int}Q_j$ では滑らかな $v_j$ と一致するため $u$ は滑らかです。$q\in Q_j\subset D_j$ なので $Pu(q)=Pv_j(q)=\chi_{M,j}(q)f(q)=f(q)$。$p\in\Sigma$ では $p\in Q_j\cap\Sigma\subset K_j$ により $u(p)=u_0(p)$、$\nabla_N^Pu(p)=u_1(p)$ です。別解との差には[HPDE10の一意性](../HPDE10/index.md#cor-hpde10-domain-uniqueness)を適用すると任意の点で零です。
 
-(iv) 差の元データを観測集合 $Q$ の $K_Q,D_Q$ の近傍で切り出すと、差の解は $Q$ 上でコンパクト支持データの大域解 $w$ に等しくなります。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を、この切り出しデータのコンパクトな因果影で適用し、任意に大きい $H^m$ を制御します。一次還元方程式で時間高階微分を空間微分と源へ置き換え、$m$ を $k$ と次元より十分大きく取れば、局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。切断関数の積の微分公式により、右辺のSobolevノルムは元の差データの固定コンパクト集合上の有限階 $C^r$ ノルムで支配できます。従って[局所連続依存定理](#thm-hpde17-local-stability)の形になります。
+(iv) 差の元データを観測集合 $Q$ の $K_Q,D_Q$ の近傍で切り出すと、差の解は $Q$ 上でコンパクト支持データの大域解 $w$ に等しくなります。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を、この切り出しデータのコンパクトな因果影で適用し、任意に大きい $H^m$ を制御します。一次還元方程式で時間高階微分を空間微分と源へ置き換え、$m$ を $k$ と次元より十分大きく取れば、局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。切断関数への[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)の反復適用により、右辺のSobolevノルムは元の差データの固定コンパクト集合上の有限階 $C^r$ ノルムで支配できます。従って[局所連続依存定理](#thm-hpde17-local-stability)の形になります。
 
 (v) 固定した $Q$ には定数 $A_{Q,k}$ を使えますが、$Q$ を空間無限遠へ動かした際の定数上界は証明していません。例えば第7節の滑らかな $V(x)=-\sum j^2\rho(x-10j)$ では、同じ大きさの初期データを各 $x=10j$ の近くへ移すと、$t=1/4$ の解の $L^2$ ノルムが少なくとも $\cosh(j/4)$ になります。初期Sobolevノルムは平行移動で一定です。ゆえに全空間共通の定数を持つ評価は成り立ちません。必要になるのは、例えば[第7節の一様係数仮定](#thm-hpde17-uniform-flat-energy)です。
 <!-- solution-end -->
