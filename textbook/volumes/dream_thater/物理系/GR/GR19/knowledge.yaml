@@ -1,0 +1,50 @@
+chapter: GR19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR3
+  - GR14
+  - GR16
+concepts:
+  - id: gravity.schwarzschild-timelike-effective-potential
+    name: 時間的測地線の有効ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間的測地線の有効ポテンシャル）"]
+    requires: [gravity.killing-geodesic-charge, gravity.schwarzschild-vacuum-metric]
+  - id: gravity.schwarzschild-timelike-radial-integral
+    name: 半径方向の一階積分とNewton極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半径方向の一階積分とNewton極限）"]
+    requires: [gravity.schwarzschild-timelike-effective-potential]
+  - id: gravity.schwarzschild-timelike-orbit-equation
+    name: Schwarzschild時間的測地線の軌道方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild時間的測地線の軌道方程式）"]
+    requires: [gravity.schwarzschild-timelike-radial-integral]
+  - id: gravity.schwarzschild-newton-orbit-data
+    name: Newton基準の半通径と離心率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Newton基準の半通径と離心率）"]
+    requires: [gravity.schwarzschild-timelike-orbit-equation]
+  - id: gravity.schwarzschild-timelike-circular-stability
+    name: 円軌道と最内安定円軌道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円軌道と最内安定円軌道）"]
+    requires: [gravity.schwarzschild-timelike-effective-potential, gravity.schwarzschild-timelike-radial-integral]
+  - id: gravity.schwarzschild-perihelion-shift
+    name: 近日点移動角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近日点移動角）"]
+    requires: [gravity.schwarzschild-newton-orbit-data]
+  - id: gravity.schwarzschild-perihelion-advance
+    name: Schwarzschild近日点移動の弱場一次式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschild近日点移動の弱場一次式）"]
+    requires: [gravity.schwarzschild-perihelion-shift, gravity.schwarzschild-timelike-orbit-equation, gravity.schwarzschild-newton-orbit-data]
