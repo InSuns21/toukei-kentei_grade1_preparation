@@ -77,7 +77,7 @@ chapters:
     title: "重力赤方偏移と静止時計"
   - id: GR18
     path: textbook/volumes/dream_thater/物理系/GR/GR18
-    status: planned
+    status: completed
     title: "Schwarzschild光線軌道と光の屈曲"
   - id: GR19
     path: textbook/volumes/dream_thater/物理系/GR/GR19
