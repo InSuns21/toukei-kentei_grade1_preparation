@@ -310,7 +310,7 @@ $$
 
 となる。最後に $S_\lambda=Q\operatorname{diag}(\mu_j/(\mu_j+n\lambda))Q^{\mathsf T}$ の跡はその固有値の和だから、$d_\lambda$ の表示式を得る。
 
-有限和なので各項を微分でき、$\mu_j,\lambda\ge0$ を用いると
+和は有限で、$\lambda>0$ なら各分母が正だから項別に微分できる。$\mu_j\ge0$ と $\lambda>0$ を用いると
 
 $$
 \frac{dR_\lambda}{d\lambda}
