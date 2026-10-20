@@ -185,7 +185,7 @@ $$
 =\operatorname{tr}(B^{\mathsf T}B)
 $$
 
-> とする。中心化行列 $X\in\mathbb R^{n\times p}$ が $X\ne0$ で、階数を $r=\operatorname{rank}X\ge1$、正の特異値を $s_1\ge\cdots\ge s_r>0$ とする。$0\le q\le p$ 個の主成分を保持したとき、保持分散比を
+> とする。$n\ge2$、$p\ge1$ とし、中心化行列 $X\in\mathbb R^{n\times p}$ が $X\ne0$ で、階数を $r=\operatorname{rank}X\ge1$、正の特異値を $s_1\ge\cdots\ge s_r>0$ とする。$0\le q\le p$ 個の主成分を保持したとき、保持分散比を
 
 $$
 \rho_q=\frac{\sum_{j=1}^{\min(q,r)}s_j^2}{\|X\|_F^2}
