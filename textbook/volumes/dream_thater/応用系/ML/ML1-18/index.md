@@ -6,7 +6,16 @@
 
 ## 1. 核の値から予測を作る
 
-入力空間を $\mathcal X$、実数値の正半定値核を $K:\mathcal X\times\mathcal X\to\mathbb R$、対応する実RKHSを $\mathcal H$ とする。訓練標本 $(x_i,y_i)_{i=1}^n$ は固定し、$n\ge1$ とする。核が正半定値とは、任意の有限個の入力に対して核値で作る行列が実対称・正半定値となる条件である（[RKHS1の定義](../../RKHS/RKHS1/index.md#def-rkhs1-psd-kernel)）。
+入力空間を $\mathcal X$、実数値の正半定値核を $K:\mathcal X\times\mathcal X\to\mathbb R$、対応する実RKHSを $\mathcal H$ とする。訓練標本 $(x_i,y_i)_{i=1}^n$ は固定し、$n\ge1$ とする。核が正半定値とは、対称性 $K(x,z)=K(z,x)$ と、任意の有限個の入力および係数に対する二次形式の非負性を要求する条件である（[RKHS1の定義](../../RKHS/RKHS1/index.md#def-rkhs1-psd-kernel)）。
+
+[RKHS2のGram表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)に従って標本点ごとの核切片を足し合わせると、関数と訓練点での値は
+
+$$
+f_\alpha(\cdot)=\sum_{i=1}^n\alpha_iK(x_i,\cdot),\qquad
+f_\alpha(x_j)=\sum_{i=1}^n\alpha_iK(x_i,x_j)
+$$
+
+と表される。後者の係数 $K(x_i,x_j)$ を行・列に並べたものがGram行列である。つまり行列は新しい条件ではなく、**各訓練点で関数を評価する操作**の座標表示である。
 
 <a id="def-ml1-18-kernel-prediction"></a>
 
@@ -24,7 +33,16 @@ $$
 これは[RKHS2の有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)と[RKHS3の核ベクトル](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-vector)を標本で使うための書き方である。訓練点 $x_j$ の核ベクトルは $G$ の第 $j$ 列なので、訓練値を縦に並べると $\widehat y=G\alpha$ となる。
 
 <!-- definition-example-start: def-ml1-18-kernel-prediction -->
-**定義の確認**：核値・Gram行列・予測を直接計算する。 $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$。任意の $c\in\mathbb R^m$ について $\sum_{ij}c_ic_jK(z_i,z_j)=\|\sum_ic_i\phi(z_i)\|^2\ge0$ となり核の条件を確認できる。標本では
+**定義の確認**：核値・Gram行列・予測を直接計算する。 $\mathcal X=\mathbb R^2$、$K(x,z)=4x_1z_1+x_2z_2$、標本入力 $x^{(1)}=(1,0)$、$x^{(2)}=(0,1)$ とする。特徴写像 $\phi(x)=(2x_1,x_2)$ により $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$ である。内積の対称性から $K(x,z)=K(z,x)$。さらに任意の $m\ge1$、$z_1,\ldots,z_m\in\mathbb R^2$、$c\in\mathbb R^m$ に対して
+
+$$
+\sum_{i,j=1}^m c_ic_jK(z_i,z_j)
+=\left(\sum_i c_i\phi(z_i)\right)^{\mathsf T}
+ \left(\sum_j c_j\phi(z_j)\right)
+=\left\|\sum_i c_i\phi(z_i)\right\|_2^2\ge0
+$$
+
+なので、正半定値核の二条件をともに満たす。訓練入力を $x^{(1)},x^{(2)}$ の順に並べ、$G_{ij}=K(x^{(i)},x^{(j)})$ を計算すると
 
 $$
 G=\begin{pmatrix}4&0\\0&1\end{pmatrix}.
@@ -57,7 +75,7 @@ $$
 J_1(f)=(2-c)^2+c^2=2(c-1)^2+2.
 $$
 
-全ての $c\in\mathbb R$ に対し第1項は非負なので、最小値2を達成する唯一の関数は $f_1(x)=1$ である。実際、核行列は $(1)$、学習公式でも $\alpha=(1+1)^{-1}\cdot2=1$ と一致する。
+全ての $c\in\mathbb R$ に対し第1項は非負なので、最小値2を達成する唯一の関数は $f_1(x)=1$ である。ここでは関数を直接最小化したので、まだ係数の解公式を仮定していない。
 <!-- definition-example-end -->
 
 [RKHS3の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)の前提は正半定値核、二乗損失、$\lambda>0$ である。そこへ $n$ と $\lambda$ を代入すると、**一つの標準的な係数表示**として
@@ -68,7 +86,9 @@ $$
 \qquad f_\lambda(x)=k(x)^{\mathsf T}\alpha_\lambda
 $$
 
-を得る。なぜ逆行列が存在するかも確認する。任意の $v\ne0$ について $v^{\mathsf T}Gv\ge0$ なので
+を得る。直前の定数核の例にも[RKHS3のカーネルリッジ回帰の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)を適用する。$G=(1)$、$n=\lambda=1$、$y=(2)$ だから $\alpha_1=(1+1)^{-1}2=1$ となり、関数を直接最小化した結果と一致する。
+
+なぜ逆行列が存在するかも確認する。任意の $v\ne0$ について $v^{\mathsf T}Gv\ge0$ なので
 
 $$
 v^{\mathsf T}(G+n\lambda I_n)v
@@ -199,8 +219,46 @@ $$
 > で定める。$d_\lambda$ は平滑化行列の固有値の和であり、標本数そのものとは区別する。
 <!-- formal-statement-end -->
 
+定義した三量を行列から計算する手順を確かめる。残差は $y-G\alpha_\lambda$ であり、関数ノルムについては[RKHS2のGram行列による表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)をこの関数 $f_\lambda=\sum_i\alpha_{\lambda,i}K(x_i,\cdot)$ に適用して
+
+$$
+N_\lambda=\alpha_\lambda^{\mathsf T}G\alpha_\lambda
+$$
+
+を得る。また、$S_\lambda$ の跡は対角成分の和なので、対角行列ではその二成分を足せばよい。
+
 <!-- definition-example-start: def-ml1-18-path-diagnostics -->
-**定義の確認**：2方向例で $\lambda=1/2$ を代入すると $S_\lambda=\operatorname{diag}(4/5,1/2)$ だから、$R_\lambda=(2-8/5)^2+(1-1/2)^2=4/25+1/4=41/100$、$N_\lambda=4(2/5)^2+(1/2)^2=16/25+1/4=89/100$、$d_\lambda=4/5+1/2=13/10$。残差平方和には $1/n$ が掛かっていないことに注意する。
+**定義の確認**：第2節の2方向例では、$n=2$、$\lambda=1/2$、$G=\operatorname{diag}(4,1)$、$y=(2,1)^{\mathsf T}$ である。$n\lambda=1$ を解公式に代入して
+
+$$
+\alpha_\lambda=\begin{pmatrix}2/5\\1/2\end{pmatrix},\qquad
+S_\lambda=G(G+I_2)^{-1}=\operatorname{diag}(4/5,1/2)
+$$
+
+となる。したがって訓練値は $(8/5,1/2)^{\mathsf T}$、残差は $(2/5,1/2)^{\mathsf T}$ だから
+
+$$
+R_\lambda=\left(\frac25\right)^2+\left(\frac12\right)^2
+=\frac4{25}+\frac14=\frac{41}{100}.
+$$
+
+関数ノルムはGram表示により
+
+$$
+N_\lambda
+=\begin{pmatrix}2/5&1/2\end{pmatrix}
+\begin{pmatrix}4&0\\0&1\end{pmatrix}
+\begin{pmatrix}2/5\\1/2\end{pmatrix}
+=\frac{16}{25}+\frac14=\frac{89}{100}.
+$$
+
+跡は
+
+$$
+d_\lambda=\operatorname{tr}(S_\lambda)=\frac45+\frac12=\frac{13}{10}.
+$$
+
+ここで $R_\lambda$ は残差**平方和**なので $1/n$ を掛けない。
 <!-- definition-example-end -->
 
 <a id="thm-ml1-18-path-monotonicity"></a>
@@ -234,9 +292,25 @@ Q^{\mathsf T}\widehat y_\lambda
 =\operatorname{diag}\left(\frac{\mu_j}{\mu_j+n\lambda}\right)z.
 $$
 
-よって残差の $j$ 成分は $z_j-\mu_jz_j/(\mu_j+n\lambda)=n\lambda z_j/(\mu_j+n\lambda)$ であり、二乗和が $R_\lambda$ となる。さらに [RKHS2のGram行列による有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)により $N_\lambda=\alpha_\lambda^{\mathsf T}G\alpha_\lambda$、ゆえに表示式を得る。$S_\lambda$ の対角化から、跡はその固有値の和である。
+よって残差の $j$ 成分は
 
-有限和なので各項を微分でき、$\mu_j,\lambda\ge0$ を用いると
+$$
+z_j-\frac{\mu_j}{\mu_j+n\lambda}z_j
+=\frac{n\lambda}{\mu_j+n\lambda}z_j
+$$
+
+であり、直交行列 $Q$ による変換は長さを保つので、その二乗和が $R_\lambda$ となる。さらに[RKHS2のGram行列による有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)より、$N_\lambda=\alpha_\lambda^{\mathsf T}G\alpha_\lambda$ であり、固有座標へ変換すると
+
+$$
+N_\lambda
+=(Q^{\mathsf T}\alpha_\lambda)^{\mathsf T}
+ \operatorname{diag}(\mu_j)(Q^{\mathsf T}\alpha_\lambda)
+=\sum_j\frac{\mu_jz_j^2}{(\mu_j+n\lambda)^2}
+$$
+
+となる。最後に $S_\lambda=Q\operatorname{diag}(\mu_j/(\mu_j+n\lambda))Q^{\mathsf T}$ の跡はその固有値の和だから、$d_\lambda$ の表示式を得る。
+
+和は有限で、$\lambda>0$ なら各分母が正だから項別に微分できる。$\mu_j\ge0$ と $\lambda>0$ を用いると
 
 $$
 \frac{dR_\lambda}{d\lambda}
@@ -352,7 +426,26 @@ $K(x,z)=x_1z_1+2x_2z_2$、訓練入力 $e_1=(1,0),e_2=(0,1)$、応答 $y=(1,2)^{
 <!-- solution-start -->
 #### 詳細解答
 
-特徴写像 $(x_1,\sqrt2x_2)$ の内積が核なので正半定値である。[解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)を $n=2$ へ適用し、$G=\operatorname{diag}(1,2)$、$G+2\lambda I=\operatorname{diag}(2,3)$ とする。したがって $\alpha=(1/2,2/3)^{\mathsf T}$、$G\alpha=(1/2,4/3)^{\mathsf T}$。未知点の核ベクトルは $k(x_*)=(1,2)^{\mathsf T}$、予測は $1\cdot1/2+2\cdot2/3=11/6$。
+特徴写像 $\phi(x)=(x_1,\sqrt2x_2)$ から $K(x,z)=\phi(x)^{\mathsf T}\phi(z)$ となるため、この核は対称・正半定値である。訓練入力の順に核値を並べると
+
+$$
+G=\begin{pmatrix}1&0\\0&2\end{pmatrix},\qquad
+G+2\lambda I_2=\begin{pmatrix}2&0\\0&3\end{pmatrix}.
+$$
+
+二乗損失と $\lambda>0$ なので[RKHS3の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)を $n=2$ へ適用でき、
+
+$$
+\alpha_\lambda=\begin{pmatrix}1/2\\2/3\end{pmatrix},\qquad
+\widehat y_\lambda=G\alpha_\lambda=\begin{pmatrix}1/2\\4/3\end{pmatrix}
+$$
+
+を得る。新しい入力 $x_*=(1,1)$ の核ベクトルは $k(x_*)=(1,2)^{\mathsf T}$ である。ゆえに
+
+$$
+f_\lambda(x_*)=k(x_*)^{\mathsf T}\alpha_\lambda
+=1\cdot\frac12+2\cdot\frac23=\frac{11}{6}.
+$$
 <!-- solution-end -->
 
 ### ML1-18-A02 正則化の強さと規約
@@ -363,7 +456,24 @@ $G=I_2$、$y=(3,-1)^{\mathsf T}$ とする。$\lambda=1/2$ および $\lambda=3/
 <!-- solution-start -->
 #### 詳細解答
 
-標本数 $n=2$ なので $G+n\lambda I=(1+2\lambda)I$。$\lambda=1/2$ なら $2I$ で係数と予測は $(3/2,-1/2)$。$\lambda=3/2$ なら $4I$ で $(3/4,-1/4)$。本章の損失は平均 $n^{-1}\sum_i(\cdots)^2$、罰則は $\lambda\|f\|^2$ なので、[RKHS3の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)の $n\lambda$ が必要である。
+本章の損失は標本平均 $n^{-1}\sum_i(y_i-f(x_i))^2$、罰則は $\lambda\|f\|^2$ である。したがって[RKHS3の解公式](../../RKHS/RKHS3/index.md#thm-rkhs3-closed-form)を $n=2$ に適用すると、逆行列の対象は
+
+$$
+G+2\lambda I_2=(1+2\lambda)I_2
+$$
+
+となり、$G+\lambda I_2$ ではない。各値を代入して
+
+$$
+\begin{aligned}
+\lambda=\frac12:\quad&\alpha_\lambda=\widehat y_\lambda
+=\frac12y=\begin{pmatrix}3/2\\-1/2\end{pmatrix},\\
+\lambda=\frac32:\quad&\alpha_\lambda=\widehat y_\lambda
+=\frac14y=\begin{pmatrix}3/4\\-1/4\end{pmatrix}.
+\end{aligned}
+$$
+
+両者で係数と訓練予測が一致するのは、ここでは $G=I_2$ だからである。
 <!-- solution-end -->
 
 ### ML1-18-A03 特異な核と係数の区別
@@ -374,7 +484,29 @@ $G=I_2$、$y=(3,-1)^{\mathsf T}$ とする。$\lambda=1/2$ および $\lambda=3/
 <!-- solution-start -->
 #### 詳細解答
 
-$G$ は全成分1の $2\times2$ 行列で、$G(1,-1)^{\mathsf T}=0$。[特異例の命題](#prop-ml1-18-singular-example)に代入すると $\alpha=(2,-2)$。予測は $k(x)^{\mathsf T}\alpha=2-2=0$。係数ノルムは $\sqrt{2^2+(-2)^2}=2\sqrt2$、関数ノルム二乗は $\alpha^{\mathsf T}G\alpha=0$ なので関数ノルムは0である。
+すべての核値が1なので
+
+$$
+G=\begin{pmatrix}1&1\\1&1\end{pmatrix},\qquad
+G\begin{pmatrix}1\\-1\end{pmatrix}=0.
+$$
+
+[特異例の命題](#prop-ml1-18-singular-example)に $2\lambda=1/2$ を代入すると
+
+$$
+\alpha_\lambda=\frac1{2\lambda}\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}2\\-2\end{pmatrix}.
+$$
+
+任意の入力の核ベクトルは $(1,1)^{\mathsf T}$ なので、予測は $2-2=0$。しかし係数ノルムと関数ノルムは異なり、
+
+$$
+\|\alpha_\lambda\|_2=\sqrt{2^2+(-2)^2}=2\sqrt2,\qquad
+\|f_\lambda\|_{\mathcal H}^2
+=\alpha_\lambda^{\mathsf T}G\alpha_\lambda=0.
+$$
+
+関数ノルムは0である。
 <!-- solution-end -->
 
 ### ML1-18-A04 平滑化の有効自由度
@@ -385,7 +517,22 @@ $G=\operatorname{diag}(3,0)$、$n=2$、$\lambda=1/2$、$y=(4,2)$ について、
 <!-- solution-start -->
 #### 詳細解答
 
-$n\lambda=1$ なので $S_\lambda=\operatorname{diag}(3/4,0)$。$\widehat y=(3,0)$、残差は $(4-3,2-0)=(1,2)$。従って $R_\lambda=1^2+2^2=5$。跡を加えて $d_\lambda=3/4+0=3/4$。第2成分は零固有値方向なので $\lambda$ を下げても訓練値として表現できない。
+$n\lambda=1$ である。平滑化行列を定義どおり計算すると
+
+$$
+S_\lambda=G(G+I_2)^{-1}
+=\operatorname{diag}(3/4,0),\qquad
+\widehat y_\lambda=S_\lambda y=\begin{pmatrix}3\\0\end{pmatrix}.
+$$
+
+残差は $(4-3,2-0)=(1,2)$ なので
+
+$$
+R_\lambda=1^2+2^2=5,\qquad
+d_\lambda=\operatorname{tr}(S_\lambda)=\frac34+0=\frac34.
+$$
+
+第2成分は零固有値方向なので、$\lambda$ を下げてもその方向を訓練値として表現できない。
 <!-- solution-end -->
 
 ### ML1-18-B01 正則化経路の微分
@@ -469,15 +616,42 @@ $$
 三候補の誤差は $1/100<1/81<1/9$ なので、固定した候補集合と検証標本では $\lambda=1/2$ を選ぶ。一方、母集団予測リスクや独立テストの誤差までは確定しない。最終選択後には[独立テスト](../ML1-12/index.md#thm-ml1-12-independent-holdout)を別に実施する。
 <!-- solution-end -->
 
-### ML1-18-B04 線形核と主形式の照合
+### ML1-18-B04 線形核と係数による直接最小化の照合
 - Level: B
 
-$X=\operatorname{diag}(2,1)$、応答 $y=(2,1)$、線形核 $K(x,z)=x^{\mathsf T}z$、$\lambda=1/2$ とする。訓練点を $X$ の行として、カーネル係数 $\alpha$ と線形リッジ係数 $w$ をそれぞれ求め、両予測が一致することを確かめよ。切片は用いない。
+$X=\operatorname{diag}(2,1)$、応答 $y=(2,1)$、線形核 $K(x,z)=x^{\mathsf T}z$、$\lambda=1/2$ とする。訓練点を $X$ の行として、カーネル係数 $\alpha$ と、[ML1-05のRidge回帰](../ML1-05/index.md#def-ml1-05-ridge)で特徴係数を直接最小化したときの $w$ をそれぞれ求め、両予測が一致することを確かめよ。切片は用いない。
 
 <!-- solution-start -->
 #### 詳細解答
 
-訓練点は $(2,0),(0,1)$、$G=XX^{\mathsf T}=\operatorname{diag}(4,1)$、$n\lambda=1$。核側は $\alpha=(G+I)^{-1}y=(2/5,1/2)$。主形式は[ML1-05のRidge](../ML1-05/index.md#def-ml1-05-ridge)の規約から $w=(X^{\mathsf T}X+I)^{-1}X^{\mathsf T}y$ であり、$X^{\mathsf T}y=(4,1)$、$X^{\mathsf T}X+I=\operatorname{diag}(5,2)$ だから $w=(4/5,1/2)$。確かに $X^{\mathsf T}\alpha=(4/5,1/2)=w$。任意の $x\in\mathbb R^2$ では核予測は $\sum_i\alpha_i x_i^{\mathsf T}x=(X^{\mathsf T}\alpha)^{\mathsf T}x=w^{\mathsf T}x$ と一致する。
+訓練点は $X$ の二つの行 $(2,0),(0,1)$ である。したがって線形核のGram行列は
+
+$$
+G_{ij}=x_i^{\mathsf T}x_j,\qquad
+G=XX^{\mathsf T}=\operatorname{diag}(4,1).
+$$
+
+$n\lambda=1$ なので、核側の係数は $\alpha_\lambda=(G+I_2)^{-1}y=(2/5,1/2)^{\mathsf T}$ となる。一方、[ML1-05のRidge回帰](../ML1-05/index.md#def-ml1-05-ridge)で特徴係数を直接求めると
+
+$$
+\begin{aligned}
+X^{\mathsf T}X+I_2&=\operatorname{diag}(5,2),\\
+X^{\mathsf T}y&=\begin{pmatrix}4\\1\end{pmatrix},\\
+w&=(X^{\mathsf T}X+I_2)^{-1}X^{\mathsf T}y
+=\begin{pmatrix}4/5\\1/2\end{pmatrix}.
+\end{aligned}
+$$
+
+ここで $X^{\mathsf T}\alpha_\lambda=(4/5,1/2)^{\mathsf T}=w$。カーネル表示は訓練点の線形結合を係数に戻すので、任意の $x\in\mathbb R^2$ に対して
+
+$$
+f_\lambda(x)
+=\sum_{i=1}^2\alpha_{\lambda,i}x_i^{\mathsf T}x
+=(X^{\mathsf T}\alpha_\lambda)^{\mathsf T}x
+=w^{\mathsf T}x
+$$
+
+となり、両者の予測は一致する。
 <!-- solution-end -->
 
 ### ML1-18-C01 訓練誤差・核・検証・特異性の総合問題
