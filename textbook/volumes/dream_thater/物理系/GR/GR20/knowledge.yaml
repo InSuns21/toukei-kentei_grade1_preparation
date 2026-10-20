@@ -2,8 +2,6 @@ chapter: GR20
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - GR3
-  - GR14
   - GR16
   - GR17
   - GR18
