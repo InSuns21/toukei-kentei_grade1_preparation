@@ -1,6 +1,6 @@
 # HPDE17 大域安定性と因果的な解の支持
 
-[HPDE16の大域Cauchy定理](../HPDE16/index.md#thm-hpde16-global-cauchy)により、初期値と源が滑らかで**コンパクト支持**なら、滑らかな波動解は全時空に一意に存在します。しかし、例えば無限に広い空間で一定の初期変位を与えると、初期データはどこでも零ではありません。この場合にも波動方程式を解けるのでしょうか。また、遠方のデータだけを変更したとき、手元の観測結果はどう変わるのでしょうか。
+[大域Cauchy問題の存在一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)により、初期値と源が滑らかで**コンパクト支持**なら、滑らかな波動解は全時空に一意に存在します。しかし、例えば無限に広い空間で一定の初期変位を与えると、初期データはどこでも零ではありません。この場合にも波動方程式を解けるのでしょうか。また、遠方のデータだけを変更したとき、手元の観測結果はどう変わるのでしょうか。
 
 鍵は「すべての空間を一度に制御する」ことではありません。**観測するコンパクト領域を先に固定**し、そこへ届く因果的な情報だけを切り出して大域定理を適用します。その切り出しを互いに矛盾なく重ねることで、一般の滑らかな非コンパクトデータにも解を構成できます。最後に、この局所的な安定性と、全空間に共通定数を持つSobolev評価の違いを定量的に調べます。
 
@@ -190,7 +190,7 @@ $$
 <a id="def-hpde17-smooth-local-topology"></a>
 
 <!-- formal-statement-start -->
-> **定義（滑らかな切断のコンパクト開 $C^\infty$ 位相）**  
+> **定義（滑らかな切断のコンパクト開C∞位相）**  
 > 滑らかな多様体 $X$ 上の有限ランク滑らかな束 $F\to X$ と切断列 $v_j,v\in\Gamma(X,F)$ に対し、$v_j\to v$ が**コンパクト開 $C^\infty$ 位相**で成り立つとは、任意のコンパクト集合 $C\subset X$、整数 $k\ge0$、$C$ の近くの有限座標枠において、$v_j-v$ の係数の $k$ 階以下のすべての偏微分が $C$ 上で一様に零へ収束することをいう。
 <!-- formal-statement-end -->
 
@@ -253,7 +253,7 @@ $$
 
 と置き、これをさらに微分すると時間高階微分も有限階の空間微分と源の微分で支配されます。$m$ を十分大きく選んで、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)で用いた局所Sobolev埋込みを適用すると $\|\delta u\|_{C^k(Q)}$ を切り出したデータの有限階Sobolevノルムで評価できます。
 
-最後に、各切断関数の支持を含む固定コンパクト集合を $C_\Sigma,C_M$ として取り、十分大きい $r$ を選びます。積の微分公式を有限回適用すれば、例えば
+最後に、各切断関数の支持を含む固定コンパクト集合を $C_\Sigma,C_M$ として取り、十分大きい $r$ を選びます。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を有限回適用すれば、例えば
 
 $$
 \|\chi_M\delta f\|_{H^m}
@@ -305,7 +305,7 @@ $$
 
 です。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)で右辺はコンパクトなので、部分列で $p_j\to p\in A$ とできます。[閉因果関係](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から $p\le q$、従って $q\in J^+(A)$ です。
 
-$t(q)\ge0$ かつ $q\notin J^+(A)$ とします。$J^-(q)\cap\Sigma$ は $K_\Sigma$ と交わらず、$J^-(q)\cap t^{-1}([0,t(q)])$ は $F_+$ と交わりません。すなわち $q$ の値を決める初期データ・源は因果的な領域上で零です。[HPDE10の因果的依存定理](../HPDE10/index.md#thm-hpde10-causal-dependence)を適用して $u(q)=0$。よって $t\ge0$ では非零点は $J^+(A)$ に含まれます。これは閉集合なので、相対位相の支持も同じ集合内にあります。$\operatorname{supp}u\cap\Sigma$ についても $u|_\Sigma=u_0$ より包含が成立します。
+$t(q)\ge0$ かつ $q\notin J^+(A)$ とします。$J^-(q)\cap\Sigma$ は $K_\Sigma$ と交わらず、$J^-(q)\cap t^{-1}([0,t(q)])$ は $F_+$ と交わりません。すなわち $q$ の値を決める初期データ・源は因果的な領域上で零です。[大域双曲時空の因果的な依存評価](../HPDE10/index.md#thm-hpde10-causal-dependence)を適用して $u(q)=0$。よって $t\ge0$ では非零点は $J^+(A)$ に含まれます。これは閉集合なので、$t\ge0$ 側の非零点の閉包も同じ集合内にあります。$\operatorname{supp}u\cap\Sigma$ についても $u|_\Sigma=u_0$ より包含が成立します。
 
 過去側は $A_-=K_\Sigma\cup F_-$ とし、$t(A_-)\subset(-\infty,0]$、$J^-(A_-)$ の閉性を未来・過去の向きを入れ替えて証明します。依存定理を $q$ の未来領域へ適用すれば、同じ包含が得られます。$\square$
 <!-- proof-end -->
@@ -546,7 +546,7 @@ $$
 u_{xtt}-u_{xxx}+\partial_x(Vu)=f_x.
 $$
 
-積の微分公式から $\partial_x(Vu)=V_xu+Vu_x$ なので、
+[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)から $\partial_x(Vu)=V_xu+Vu_x$ なので、
 
 $$
 w_{tt}-w_{xx}+Vw=f_x-V_xu.
@@ -624,7 +624,7 @@ $(M,g)$ は境界なし滑らかな大域双曲時空、$\Sigma=\Sigma_0$ は滑
 
 (i) 第二可算・局所コンパクト性から $Q_j\subset\operatorname{int}Q_{j+1}$、$\bigcup_j\operatorname{int}Q_j=M$ となるコンパクト尽くし方を取れます。$Q_j\subset t^{-1}([-T_j,T_j])$ となる増大列 $T_j$ を取ります。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)に $K=Q_j$、区間 $[-T_j,T_j]$ を代入すると $D_j=J(Q_j)\cap t^{-1}([-T_j,T_j])$ はコンパクトです。$K_j=D_j\cap\Sigma$ も閉部分集合なのでコンパクトです。
 
-(ii) $K_j$ 近傍で $1$ のコンパクト支持関数 $\chi_{\Sigma,j}$、$D_j$ 近傍で $1$ の $\chi_{M,j}$ を選びます。これを元データに掛けたデータはコンパクト支持で、[HPDE16の大域定理](../HPDE16/index.md#thm-hpde16-global-cauchy)から $v_j$ を得ます。$i\ge j$ なら $Q_j\subset Q_i$ で $T_j\le T_i$ なので $K_j\subset K_i$、$D_j\subset D_i$。従って $v_i,v_j$ の源は $D_j$ 近傍で、初期値は $K_j$ 近傍でともに元データへ一致します。[局所一致補題](#lem-hpde17-localized-agreement)から $v_i=v_j$ on $Q_j$ です。
+(ii) $K_j$ 近傍で $1$ のコンパクト支持関数 $\chi_{\Sigma,j}$、$D_j$ 近傍で $1$ の $\chi_{M,j}$ を選びます。これを元データに掛けたデータはコンパクト支持で、[大域Cauchy問題の存在一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)から $v_j$ を得ます。$i\ge j$ なら $Q_j\subset Q_i$ で $T_j\le T_i$ なので $K_j\subset K_i$、$D_j\subset D_i$。従って $v_i,v_j$ の源は $D_j$ 近傍で、初期値は $K_j$ 近傍でともに元データへ一致します。[局所一致補題](#lem-hpde17-localized-agreement)から $v_i=v_j$ on $Q_j$ です。
 
 (iii) 任意の $q\in M$ は $\operatorname{int}Q_j$ に入り、$i\ge j$ なら $v_i(q)=v_j(q)$ なので値の定義は一意です。近傍 $\operatorname{int}Q_j$ では滑らかな $v_j$ と一致するため $u$ は滑らかです。$q\in Q_j\subset D_j$ なので $Pu(q)=Pv_j(q)=\chi_{M,j}(q)f(q)=f(q)$。$p\in\Sigma$ では $p\in Q_j\cap\Sigma\subset K_j$ により $u(p)=u_0(p)$、$\nabla_N^Pu(p)=u_1(p)$ です。別解との差には[HPDE10の一意性](../HPDE10/index.md#cor-hpde10-domain-uniqueness)を適用すると任意の点で零です。
 
