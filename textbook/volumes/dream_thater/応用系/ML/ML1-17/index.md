@@ -4,7 +4,7 @@
 
 ## 1. 正しい分類だけでは測れないもの
 
-[ML1-08のlogistic回帰](../ML1-08/index.md#def-ml1-08-logistic-model)は確率を、[ML1-16のBoosting](../ML1-16/index.md#def-ml1-16-additive-score)は弱学習器の加法得点を学んだ。どちらも分類境界を作れる。しかし同じ訓練正解率でも、境界から十分離れた点が多い分類器と、点が境界に張り付いた分類器は異なる。
+[ML1-08のlogistic回帰](../ML1-08/index.md#def-ml1-08-logistic)は確率を、[ML1-16のBoosting](../ML1-16/index.md#def-ml1-16-additive-score)は弱学習器の加法得点を学んだ。どちらも分類境界を作れる。しかし同じ訓練正解率でも、境界から十分離れた点が多い分類器と、点が境界に張り付いた分類器は異なる。
 
 SVM（support vector machine、サポートベクトルマシン）は、境界からの**余裕（マージン）**と、その余裕を作る法線ベクトルの大きさを結び付ける。この結び付きと双対・KKTの一般的な証明は[RKHS4の最大マージン定理](../../RKHS/RKHS4/index.md#thm-rkhs4-primal-max-margin)と[RKHS5のソフトマージン双対](../../RKHS/RKHS5/index.md#thm-rkhs5-soft-margin-dual)で既習である。本講では、与えられたデータと係数で**何が予測されるか、どの点が余裕を失うか、正則化や核を変えるとどうなるか**を実際に計算する。
 
@@ -315,9 +315,33 @@ objective_xor = norm_sq/2 + C*sum(hinge)
 print("linear w:",w,"margins:",margins_lin,"objective:",objective_lin)
 print("XOR alpha:",alpha,"margins:",margins,"objective:",objective_xor)
 print("XOR Gram:",gram)
+print("dual support indices:",[i+1 for i in range(4) if alpha>0])
+print("linear boundary: x=0; XOR boundary: x1*x2=0")
 for x in [(0.6,0.7),(0.6,-0.7),(-0.6,0.7),(-0.6,-0.7)]:
     s = score(x)
     print("input",x,"score",round(s,5),"prediction",1 if s>0 else -1)
+
+# 判別得点を実際に再計算し、分類境界（score=0）を描く
+import matplotlib.pyplot as plt
+line_x = [-2+i*0.05 for i in range(81)]
+plane = [[score((a,b)) for a in line_x] for b in line_x]
+fig, axes = plt.subplots(1,2,figsize=(10,4))
+axes[0].plot(line_x,[w*a for a in line_x],label="linear score")
+axes[0].axhline(0,color="gray",linestyle="--")
+axes[0].scatter(xs_lin,scores_lin,marker="o",label="training score")
+axes[0].set(xlabel="x",ylabel="score",title="Linear SVM (boundary x=0)")
+axes[0].legend()
+axes[1].contour(line_x,line_x,plane,levels=[0],colors="black")
+axes[1].scatter([a for (a,b),y in zip(xs,ys) if y==1],
+                [b for (a,b),y in zip(xs,ys) if y==1],
+                marker="o",label="positive")
+axes[1].scatter([a for (a,b),y in zip(xs,ys) if y==-1],
+                [b for (a,b),y in zip(xs,ys) if y==-1],
+                marker="x",label="negative")
+axes[1].set(xlabel="x1",ylabel="x2",title="XOR kernel (boundary score=0)")
+axes[1].legend()
+plt.tight_layout()
+plt.show()
 ~~~
 
 ~~~python-test
@@ -421,7 +445,7 @@ $x=(\pm1,\pm1)$、$y=x_1x_2$、$\gamma=1$、$C=1/4$ とする。対称双対係�
 <!-- solution-start -->
 #### 詳細解答
 
-ラベルを掛けた値はAで $(2,2,-0.2)$、Bで $(0.8,0.5,0.2)$。Aのヒンジ損失は $(0,0,1.2)$ なので平均 $1.2/3=0.4$、誤分類は第3点だけで $1/3$。Bは $(0.2,0.5,0.8)$ なので平均 $1.5/3=0.5$、誤分類は0。平均ヒンジを最小化する規則ならA、0–1誤りを最小化する規則ならBを選ぶ。指標は同じではない。[ML1-12の検証分割](../ML1-12/index.md#def-ml1-12-split)に従ってモデル選択後の性能測定には別のテスト標本を確保する。
+ラベルを掛けた値はAで $(2,2,-0.2)$、Bで $(0.8,0.5,0.2)$。Aのヒンジ損失は $(0,0,1.2)$ なので平均 $1.2/3=0.4$、誤分類は第3点だけで $1/3$。Bは $(0.2,0.5,0.8)$ なので平均 $1.5/3=0.5$、誤分類は0。平均ヒンジを最小化する規則ならA、0–1誤りを最小化する規則ならBを選ぶ。指標は同じではない。[ML1-12の検証分割](../ML1-12/index.md#def-ml1-12-three-way-split)に従ってモデル選択後の性能測定には別のテスト標本を確保する。
 <!-- solution-end -->
 
 ### ML1-17-C01 線形SVM・核SVM・検証を比較する
