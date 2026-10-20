@@ -1,0 +1,49 @@
+id: "ML1-20"
+title: "k-means・階層クラスタリング"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-19
+  - ML1-12
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 固定標本のk-means割当・中心・目的値を定義し直接計算できる
+  - 平方和分解を証明して固定割当での群平均の一意最適性を導ける
+  - Lloyd算法の同点規則・空群規則を適用して一反復を計算できる
+  - 割当・中心更新が目的値を非増加にし有限停止する条件を証明できる
+  - 初期中心の異なる停止点を構成し大域最適性と区別できる
+  - single linkageとcomplete linkageの群間距離を計算できる
+  - Ward併合費用と中心間距離公式を導いて手計算できる
+  - 二つの階層法とk-meansの再割当可否・尺度依存性を説明できる
+  - Python計算ラボで初期中心・seedと目的値の変化を照合できる
+definitions:
+  - { id: ML1-20-DEF-01, name: k-meansの割当・中心・目的関数 }
+  - { id: ML1-20-DEF-02, name: Lloyd算法・同点規則・空群規則 }
+  - { id: ML1-20-DEF-03, name: single linkageとcomplete linkage }
+  - { id: ML1-20-DEF-04, name: Ward法の併合費用 }
+theorems:
+  - { id: ML1-20-PROP-01, name: 平方和分解と最適中心 }
+  - { id: ML1-20-THM-01, name: Lloyd算法の非増加性と有限停止 }
+  - { id: ML1-20-THM-02, name: Ward法の中心間距離公式 }
+canonical_examples:
+  - 3点の割当平方和と重心更新の直接検算
+  - 群平均からの平方和分解と一意最適性
+  - 異なる初期中心の固定点と目的値9および26/3
+  - single/completeの異なる群間距離
+  - Ward併合費用の二通りの計算
+  - NumPyによる目的値非増加とWard費用の照合
+problem_patterns:
+  - ML1-20-A01
+  - ML1-20-A02
+  - ML1-20-A03
+  - ML1-20-A04
+  - ML1-20-B01
+  - ML1-20-B02
+  - ML1-20-B03
+  - ML1-20-B04
+  - ML1-20-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1.5 }
