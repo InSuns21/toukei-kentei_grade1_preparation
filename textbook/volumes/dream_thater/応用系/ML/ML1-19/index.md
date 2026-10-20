@@ -410,7 +410,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$P$ を $\operatorname{Im}B$ への直交射影とすると $PB=B$、$\operatorname{rank}P\le1$。[直交射影](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-orthogonal-projection)の直交分解より
+$P$ を $\operatorname{Im}B$ への直交射影とすると $PB=B$、$\operatorname{rank}P\le1$。[直交射影](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-orthogonal-projection)では $P^{\mathsf T}=P$ と $P^2=P$ が成り立つ。$P(I-P)=P-P^2=0$ より、$PX-B$ の各列は $(I-P)X$ の対応する列と垂直である。そこで各列の平方ノルムを加えると
 
 $$
 \|X-B\|_F^2=\|PX-B\|_F^2+\|(I-P)X\|_F^2
