@@ -256,7 +256,9 @@ $$
 (\chi_M\delta f,\ \chi_\Sigma\delta u_0,\ \chi_\Sigma\delta u_1)
 $$
 
-の[HPDE16の大域解](../HPDE16/index.md#thm-hpde16-global-cauchy)を $w$ とします。[局所一致補題](#lem-hpde17-localized-agreement)を $Q'$ に適用すると $\delta u=w$ が $Q'$ 上、特に開集合 $\operatorname{int}Q'$ 上で成り立ちます。従って $Q$ 上では**値だけでなく任意階の導関数も一致**します。点集合 $Q$ 上での値の一致だけから導関数の一致を推論してはならないため、ここでは $Q'$ へ拡大してから切り出しています。
+の[HPDE16の大域解](../HPDE16/index.md#thm-hpde16-global-cauchy)を $w$ とします。[局所一致補題](#lem-hpde17-localized-agreement)を $Q'$ に適用すると、$\delta u=w$ は $Q'$ 上、特に開集合 $\operatorname{int}Q'$ 上で成り立ちます。
+
+従って $Q$ 上では**値だけでなく任意階の導関数も一致**します。点集合 $Q$ 上での値の一致だけから導関数の一致は導けないため、$Q'$ へ拡大してから切り出したのです。
 
 切り出したデータの支持は固定したコンパクト集合の中にあります。[HPDE16の有限時間因果影](../HPDE16/index.md#lem-hpde16-shadow-compact)により、その解の $[-T,T]$ 上の支持も固定したコンパクト集合へ入ります。そこを有限個の局所枠で覆い、[HPDE16の高階エネルギー評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を任意に大きい $m$ で適用すると、有限時間帯での $w$ の空間高階導関数・一階時間微分が、初期データと $\chi_M\delta f$ の有限階Sobolevノルムで支配されます。
 
@@ -284,7 +286,9 @@ A^0\partial_t^2W={}&\partial_tF
 \end{aligned}
 $$
 
-右辺の $\partial_tW$ には直前の式を代入できます。同じ操作を帰納的に繰り返せば、$\partial_t^\ell W$ の空間 $H^{m-\ell}$ ノルムは、一次系の空間 $H^m$ 評価と源 $F$ の必要な時間・空間導関数で支配されます。係数の導関数は固定したコンパクトな因果影上で有界です。空間次元を $n$ とし、$m>k+n/2+1$ となる整数を選べば、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)と局所Sobolev埋込みにより、$\|w\|_{C^k(Q)}=\|\delta u\|_{C^k(Q)}$ は切り出した初期値・源の有限階ノルムで支配されます。
+右辺の $\partial_tW$ には直前の式を代入できます。同じ操作を帰納的に繰り返すと、$\partial_t^\ell W$ の空間 $H^{m-\ell}$ ノルムが、一次系の空間 $H^m$ 評価と源 $F$ の必要な混合導関数で支配されます。係数の導関数は固定したコンパクトな因果影上で有界です。
+
+空間次元を $n$ とし、$m>k+n/2+1$ を満たす整数を選びます。[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)と局所Sobolev埋込みから、$\|w\|_{C^k(Q)}=\|\delta u\|_{C^k(Q)}$ は切り出した初期値・源の有限階ノルムで支配されます。
 
 最後に、各切断関数の支持を含む固定コンパクト集合を $C_\Sigma,C_M$ として取り、十分大きい $r$ を選びます。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を有限回適用すれば、例えば
 
