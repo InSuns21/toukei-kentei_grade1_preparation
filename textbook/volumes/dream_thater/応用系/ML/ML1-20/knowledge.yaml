@@ -1,0 +1,50 @@
+chapter: ML1-20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-19
+  - ML1-12
+  - F0-00E1
+concepts:
+  - id: learning.kmeans-objective
+    name: k-meansの割当・中心・目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（k-meansの割当・中心・目的関数）"]
+    requires: [linear.inner-product]
+  - id: learning.kmeans-centroid-decomposition
+    name: 平方和分解と最適中心
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平方和分解と最適中心）"]
+    requires: [learning.kmeans-objective, linear.inner-product]
+  - id: learning.lloyd-clustering
+    name: Lloyd算法・同点規則・空群規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lloyd算法・同点規則・空群規則）"]
+    requires: [learning.kmeans-objective, learning.kmeans-centroid-decomposition]
+  - id: learning.lloyd-descent-termination
+    name: Lloyd算法の非増加性と有限停止
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lloyd算法の非増加性と有限停止）"]
+    requires: [learning.lloyd-clustering, learning.kmeans-centroid-decomposition]
+  - id: learning.agglomerative-linkage
+    name: single linkageとcomplete linkage
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（single linkageとcomplete linkage）"]
+    requires: [linear.inner-product]
+  - id: learning.ward-merge-cost
+    name: Ward法の併合費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ward法の併合費用）"]
+    requires: [learning.kmeans-centroid-decomposition, learning.agglomerative-linkage]
+  - id: learning.ward-variance-identity
+    name: Ward法の中心間距離公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Ward法の中心間距離公式）"]
+    requires: [learning.ward-merge-cost, learning.kmeans-centroid-decomposition]
