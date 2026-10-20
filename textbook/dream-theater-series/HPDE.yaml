@@ -59,7 +59,7 @@ chapters:
     title: "Hadamard係数とtransport方程式"
   - id: HPDE14
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE14
-    status: planned
+    status: completed
     title: "局所parametrixの誤差補正"
   - id: HPDE15
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE15
