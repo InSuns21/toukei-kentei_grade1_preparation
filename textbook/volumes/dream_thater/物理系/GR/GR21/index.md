@@ -35,11 +35,15 @@ $$
 > **定義（Minkowski背景の線形計量摂動）**  
 > 上記の4次元座標領域で、$C^2$ 級の対称テンソル $k_{\mu\nu}=k_{\nu\mu}$ と計量族 $g(\epsilon)$ が
 >
-> $g_{\mu\nu}(\epsilon)=\eta_{\mu\nu}+\epsilon k_{\mu\nu}+O(\epsilon^2)$
+$$
+g_{\mu\nu}(\epsilon)=\eta_{\mu\nu}+\epsilon k_{\mu\nu}+O(\epsilon^2)
+$$
 >
 > を満たすとき、$h_{\mu\nu}:=\epsilon k_{\mu\nu}$ を **計量摂動** と呼ぶ。$h=O(\epsilon)$ とし、$O(h^2)$ は $O(\epsilon^2)$ を表す。一次の式では $h$ を含む項を一つだけ残し、積 $h\partial h$、$(\partial h)^2$ などを捨てる。背景との跡を
 >
-> $h:=\eta^{\mu\nu}h_{\mu\nu}$
+$$
+h:=\eta^{\mu\nu}h_{\mu\nu}
+$$
 >
 > とする。背景の逆計量で上げた $h^{\mu\nu}:=\eta^{\mu\alpha}\eta^{\nu\beta}h_{\alpha\beta}$ と、未知の全計量の逆成分 $g^{\mu\nu}$ は区別する。
 <!-- formal-statement-end -->
@@ -228,6 +232,30 @@ $$
 一般相対論では、座標だけを変えても同じ時空を記述できます。しかし背景計量 $\eta$ を固定して摂動 $h$ を比較すると、同じ幾何を表す二つの $h$ が異なって見えます。この違いが**ゲージ自由度**です。実際に座標変換のJacobianを二つ掛ければ変換則が導けます。
 
 小さい滑らかなベクトル場 $\xi^\mu=O(\epsilon L)$ とその微分 $\partial\xi=O(\epsilon)$ を取り、一次の座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を考えます。$\xi_\mu=\eta_{\mu\nu}\xi^\nu$ と書きます。$x$ と $x'$ は異なる座標ですが、一次近似では同じ背景点に引き戻して比較するので、$h(x'-\xi)=h(x')+O(\epsilon^2)$ となります。
+
+実際、逆のJacobianは
+
+$$
+\frac{\partial x^\alpha}{\partial x'^\mu}
+=\delta^\alpha_\mu-\partial_\mu\xi^\alpha+O(\epsilon^2).
+$$
+
+二階共変テンソルとしての計量の座標変換則に入れると
+
+$$
+\begin{aligned}
+g'_{\mu\nu}(x')
+&=\frac{\partial x^\alpha}{\partial x'^\mu}
+  \frac{\partial x^\beta}{\partial x'^\nu}g_{\alpha\beta}(x)\\
+&=(\delta^\alpha_\mu-\partial_\mu\xi^\alpha)
+(\delta^\beta_\nu-\partial_\nu\xi^\beta)
+(\eta_{\alpha\beta}+h_{\alpha\beta})+O(\epsilon^2)\\
+&=\eta_{\mu\nu}+h_{\mu\nu}
+-\partial_\mu\xi_\nu-\partial_\nu\xi_\mu+O(\epsilon^2).
+\end{aligned}
+$$
+
+背景 $\eta$ を同じ固定行列と比較しているので、残りを $h'_{\mu\nu}$ と読めます。ここで変わっているのは幾何学的な計量そのものでなく、その**成分表示**です。
 
 <a id="def-gr21-gauge-equivalence"></a>
 
