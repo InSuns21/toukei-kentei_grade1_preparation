@@ -1,0 +1,49 @@
+id: "GR20"
+title: "Shapiro時間遅延"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR14
+  - GR16
+  - GR17
+  - GR18
+official_scope: []
+learning_objectives:
+  - Schwarzschild静的外部で光線のKilling保存量と光的条件から座標時間の厳密な積分式を導ける
+  - 座標伝播時間と静止時計の固有時間の違いを計量から確かめられる
+  - 面積半径から等方半径への変換と計量成分の検算ができる
+  - 弱場等方計量の光的条件から光学的な線積分を一次まで求められる
+  - 固定端点の直線長さの一次変分が消える理由を示せる
+  - Shapiro片道座標時間超過の対数を導出しその端点条件と弱場極限を説明できる
+  - 往復レーダー固有時間の換算と時計補正を正確に分離できる
+  - 光子球付近や運動する装置へ弱場静止模型を無条件に外挿しない
+definitions:
+  - { id: GR20-DEF-01, name: Schwarzschild座標伝播時間 }
+  - { id: GR20-DEF-02, name: 固定等方座標端点のShapiro座標時間超過 }
+theorems:
+  - { id: GR20-PROP-01, name: Schwarzschild光線の座標時間積分 }
+  - { id: GR20-PROP-02, name: Schwarzschild静的外部の等方表示 }
+  - { id: GR20-THM-01, name: Shapiro時間遅延の弱場一次式 }
+  - { id: GR20-PROP-03, name: 静止時計での往復エコー時間 }
+canonical_examples:
+  - r_A=4r_sの静止時計と座標時間の換算
+  - 半径方向光線の厳密積分と平坦極限
+  - 等方半径と面積半径の一次差
+  - 対称な弱場光路の片道Shapiro超過の正符号
+  - 送信者の時計による往復エコー時間
+problem_patterns:
+  - GR20-NULL-DTDR
+  - GR20-TURNING-IMPACT
+  - GR20-ISOTROPIC-COORDINATE
+  - GR20-LOG-INTEGRAL
+  - GR20-EXACT-RADIAL-TIME
+  - GR20-SYMMETRIC-SHAPIRO-LOG
+  - GR20-AREAL-VS-ISOTROPIC
+  - GR20-ECHO-CLOCK-CONVERSION
+  - GR20-PATH-STATIONARITY
+  - GR20-INTEGRATED-SIGNAL-CLOCK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
