@@ -69,7 +69,7 @@ chapters:
     title: "Bagging・random forest・bootstrap"
   - id: ML1-16
     path: textbook/volumes/dream_thater/応用系/ML/ML1-16
-    status: planned
+    status: completed
     title: "Boosting・加法モデル"
   - id: ML1-17
     path: textbook/volumes/dream_thater/応用系/ML/ML1-17

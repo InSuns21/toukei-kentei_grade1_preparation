@@ -1014,6 +1014,7 @@
 13. [ML1-13 分類評価・適切なスコア・校正](textbook/volumes/dream_thater/応用系/ML/ML1-13/index.md)
 14. [ML1-14 決定木・分割不純度](textbook/volumes/dream_thater/応用系/ML/ML1-14/index.md)
 15. [ML1-15 Bagging・random forest・bootstrap](textbook/volumes/dream_thater/応用系/ML/ML1-15/index.md)
+16. [ML1-16 Boosting・加法モデル](textbook/volumes/dream_thater/応用系/ML/ML1-16/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
