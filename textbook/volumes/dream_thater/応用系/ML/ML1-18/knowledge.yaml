@@ -1,0 +1,47 @@
+chapter: ML1-18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-17
+  - ML1-05
+  - ML1-12
+  - RKHS1
+  - RKHS2
+  - RKHS3
+concepts:
+  - id: learning.kernel-prediction-from-gram
+    name: Gram行列と核予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gram行列と核予測）"]
+    requires: [rkhs.reproducing-kernel, rkhs.kernel-vector]
+  - id: learning.kernel-sample-training
+    name: 標本に対するカーネル回帰の学習
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本に対するカーネル回帰の学習）"]
+    requires: [rkhs.kernel-ridge-regression, learning.kernel-prediction-from-gram]
+  - id: learning.kernel-two-direction-path
+    name: 2方向の標本と正則化経路
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（2方向の標本と正則化経路）"]
+    requires: [learning.kernel-sample-training, rkhs.kernel-ridge-closed-form]
+  - id: learning.kernel-singular-response
+    name: 相反する応答と特異Gram行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相反する応答と特異Gram行列）"]
+    requires: [rkhs.gram-finite-dimensional-reduction, learning.kernel-sample-training]
+  - id: learning.kernel-path-diagnostics
+    name: 正則化経路の三つの診断量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則化経路の三つの診断量）"]
+    requires: [rkhs.kernel-ridge-smoother-matrix, learning.kernel-sample-training]
+  - id: learning.kernel-path-monotonicity
+    name: カーネル回帰の正則化経路の単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（カーネル回帰の正則化経路の単調性）"]
+    requires: [learning.kernel-path-diagnostics, rkhs.kernel-ridge-spectral-shrinkage]

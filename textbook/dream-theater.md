@@ -1019,6 +1019,7 @@
 15. [ML1-15 Bagging・random forest・bootstrap](textbook/volumes/dream_thater/応用系/ML/ML1-15/index.md)
 16. [ML1-16 Boosting・加法モデル](textbook/volumes/dream_thater/応用系/ML/ML1-16/index.md)
 17. [ML1-17 SVMの予測とマージンの適用](textbook/volumes/dream_thater/応用系/ML/ML1-17/index.md)
+18. [ML1-18 カーネル回帰と正則化経路](textbook/volumes/dream_thater/応用系/ML/ML1-18/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
