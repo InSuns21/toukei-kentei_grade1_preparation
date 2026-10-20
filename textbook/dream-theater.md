@@ -1197,6 +1197,7 @@
 15. [GR15 球対称計量の選択とゲージ自由度](textbook/volumes/dream_thater/物理系/GR/GR15/index.md)
 16. [GR16 Schwarzschild真空解の導出](textbook/volumes/dream_thater/物理系/GR/GR16/index.md)
 17. [GR17 重力赤方偏移と静止時計](textbook/volumes/dream_thater/物理系/GR/GR17/index.md)
+18. [GR18 Schwarzschild光線軌道と光の屈曲](textbook/volumes/dream_thater/物理系/GR/GR18/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

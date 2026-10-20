@@ -1,0 +1,51 @@
+chapter: GR18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR3
+  - GR4
+  - GR14
+  - GR16
+concepts:
+  - id: gravity.schwarzschild-photon-impact-parameter
+    name: 光線の衝突パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光線の衝突パラメータ）"]
+    requires: [gravity.killing-geodesic-charge, gravity.schwarzschild-vacuum-metric]
+  - id: gravity.schwarzschild-null-radial-equation
+    name: 光的測地線の半径方向一階積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（光的測地線の半径方向一階積分）"]
+    requires: [gravity.schwarzschild-photon-impact-parameter, gravity.schwarzschild-vacuum-metric]
+  - id: gravity.schwarzschild-null-orbit-equation
+    name: Schwarzschild光線軌道方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild光線軌道方程式）"]
+    requires: [gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-photon-sphere
+    name: Schwarzschild光子球
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Schwarzschild光子球）"]
+    requires: [gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-critical-impact
+    name: 光子球と臨界衝突パラメータ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（光子球と臨界衝突パラメータ）"]
+    requires: [gravity.schwarzschild-photon-sphere, gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-deflection-angle
+    name: 遠方散乱における光の屈曲角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（遠方散乱における光の屈曲角）"]
+    requires: [gravity.schwarzschild-critical-impact, gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-weak-bending
+    name: Schwarzschild光線の弱場屈曲角
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschild光線の弱場屈曲角）"]
+    requires: [gravity.schwarzschild-null-orbit-equation, gravity.schwarzschild-deflection-angle]
