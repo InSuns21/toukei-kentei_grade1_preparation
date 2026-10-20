@@ -434,7 +434,7 @@ $\dot\phi=\ell/r^2>0$、$u=1/r$ とする。$u'$ と $\dot r$ の関係、およ
 $p=100r_s$、$e=1/4$ のNewton基準楕円について、近日点・遠日点の半径と一次の近日点移動角を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [Newton基準楕円](#def-gr19-newtonian-orbit-data)は $r=p/(1+e\cos\phi)$。$\cos\phi=1$ で $r_{\min}=100r_s/(5/4)=80r_s$、$\cos\phi=-1$ で $r_{\max}=100r_s/(3/4)=400r_s/3$ です。[弱場近日点移動定理](#thm-gr19-perihelion-advance)により $\Delta\varpi\simeq3\pi r_s/p=3\pi/100$ ラジアン。いずれの半径も $r_s$ より大きいものの、誤差の係数は別に評価が必要です。
+**詳細解答。** [Newton基準楕円](#def-gr19-newtonian-orbit-data)は $r=p/(1+e\cos\phi)$。$\cos\phi=1$ で $r_{\min}=100r_s/(5/4)=80r_s$、$\cos\phi=-1$ で $r_{\max}=100r_s/(3/4)=400r_s/3$ です。[Schwarzschild近日点移動の弱場一次式](#thm-gr19-perihelion-advance)により $\Delta\varpi\simeq3\pi r_s/p=3\pi/100$ ラジアン。いずれの半径も $r_s$ より大きいものの、誤差の係数は別に評価が必要です。
 <!-- solution-end -->
 
 <a id="ex-gr19-a05"></a>
