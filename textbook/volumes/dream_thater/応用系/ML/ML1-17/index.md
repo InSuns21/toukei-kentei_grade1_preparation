@@ -312,6 +312,7 @@ hinge = [max(0,1-t) for t in margins]
 norm_sq = sum(alpha*ys[i]*alpha*ys[j]*gram[i][j]
               for i in range(4) for j in range(4))
 objective_xor = norm_sq/2 + C*sum(hinge)
+print("settings: C =",C,"gamma =",gamma)
 print("linear w:",w,"margins:",margins_lin,"objective:",objective_lin)
 print("XOR alpha:",alpha,"margins:",margins,"objective:",objective_xor)
 print("XOR Gram:",gram)
