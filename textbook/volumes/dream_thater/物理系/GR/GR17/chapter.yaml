@@ -1,0 +1,49 @@
+id: "GR17"
+title: "重力赤方偏移と静止時計"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR4
+  - GR14
+  - GR16
+official_scope: []
+learning_objectives:
+  - Schwarzschild静的外部における静止四元速度を正規化し時計の固有時率を導ける
+  - 共通Killing時間幅に対する二地点の静止時計の固有時比を求められる
+  - 光的アフィン測地線のKilling保存量を接続とKilling方程式から再証明できる
+  - Killing保存量と局所周波数測定を結び二地点の重力赤方偏移比を導ける
+  - 周波数・局所波長・赤方偏移量の定義と正負を変換できる
+  - 静止時計の経過時間比と光の周波数比の逆数関係を説明できる
+  - 弱場ポテンシャル差から地表付近の重力赤方偏移を一次近似できる
+  - Schwarzschild静止観測者の固有加速度と存在域を検算できる
+  - 動く受信者のDoppler因子と重力因子を区別して計算できる
+  - 地平線に近づく極限と地平線上の静止観測者の存在を混同しない
+definitions:
+  - { id: GR17-DEF-01, name: 静止観測者間の赤方偏移量 }
+theorems:
+  - { id: GR17-PROP-01, name: Schwarzschild静止時計の固有時率 }
+  - { id: GR17-THM-01, name: Schwarzschild静止観測者間の重力赤方偏移 }
+  - { id: GR17-PROP-02, name: 静止時計と光の周波数の相反する比 }
+  - { id: GR17-PROP-03, name: 弱場の静止時計・重力赤方偏移 }
+canonical_examples:
+  - 2r_sと4r_sで静止時計の規格化・経過時間を検算
+  - 二地点の光のKilling角周波数と局所周波数を比較
+  - 2r_sから4r_sへの赤方偏移量を周波数比と波長比で直接確認
+  - Newtonポテンシャルの差による弱場の符号の検算
+  - 静止観測者の固有加速度と地平線近傍の極限
+  - 受信側の運動による局所Doppler因子を分離
+problem_patterns:
+  - GR17-STATIC-FOUR-VELOCITY
+  - GR17-CLOCK-COMPARISON
+  - GR17-REDSHIFT-Z-SIGN
+  - GR17-BLUESHIFT-REVERSE
+  - GR17-KILLING-VS-LOCAL-FREQUENCY
+  - GR17-KILLING-PROOF-AFFINE
+  - GR17-WEAK-FIELD-EXPANSION
+  - GR17-STATIC-ACCELERATION-DOMAIN
+  - GR17-DOPPLER-GRAVITY-COMPOSITION
+  - GR17-INTEGRATED-CLOCK-LIGHT-DOMAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
