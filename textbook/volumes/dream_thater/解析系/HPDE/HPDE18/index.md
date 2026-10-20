@@ -45,7 +45,24 @@ $$
 なぜ存在するでしょうか。[HPDE16の大域Cauchy存在一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)の初期面として $\Sigma_a$ または $\Sigma_b$、源として $f$、二つの初期データとして $(0,0)$ を代入すればよいのです。どちらの面もCauchy面であり、零データはコンパクト支持なので、定理のすべての仮定が成立します。$f=0$ の特別扱いは、$\min t(\varnothing)$ が定義されないためです。
 
 <!-- definition-example-start: def-hpde18-zero-data-response -->
-**定義の確認**。$\mathbb R^{1+1}$ で $P=\partial_t^2-\partial_x^2$、$f(s,y)=h(s)q(y)$、$h\in C_c^\infty((1,2))$、$q\in C_c^\infty((-1,1))$ とします。$a=0,b=3$ は条件を満たします。[HPDE12で構成した平坦遅延・先進畳み込み解](../HPDE12/index.md#thm-hpde12-convolution-inverses)はともに $Pu=f$ を満たし、遅延解は $t<1$ で、先進解は $t>2$ で恒等的に零です。従って $\Sigma_0,\Sigma_3$ 上の値も時間微分も零です。自明束の標準接続では $\nabla_N^P=\partial_t$ なので、**方程式と二つのCauchy条件をすべて確認**しました。
+**定義の確認**。Minkowski平面の自明束で、次の平坦波動作用素と源を選びます。
+
+$$
+P=\partial_t^2-\partial_x^2,\qquad f(s,y)=h(s)q(y).
+$$
+
+ここで $h$ と $q$ は、それぞれ次のように滑らかでコンパクト支持とします。
+
+$$
+h\in C_c^\infty((1,2)),\qquad
+q\in C_c^\infty((-1,1)).
+$$
+
+$a=0$ と $b=3$ は源の時刻区間を挟む条件を満たします。[HPDE12の平坦遅延・先進畳み込み解](../HPDE12/index.md#thm-hpde12-convolution-inverses)はともに $Pu=f$ を満たします。
+
+遅延解は $t<1$ で、先進解は $t>2$ で恒等的に零です。従って、それぞれの零領域に含まれる $\Sigma_0$ と $\Sigma_3$ 上で、値も時間微分も零です。
+
+自明束の標準接続では $\nabla_N^P=\partial_t$ なので、**方程式と二つのCauchy条件をすべて確認**できました。
 <!-- definition-example-end -->
 
 ## 3. 零データ応答の因果的支持
@@ -116,7 +133,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a_1<a_2<\min t(K)$ と並べ替えます。[零Cauchyデータ応答の支持](#lem-hpde18-zero-side-support)により $R_{a_1}(f)$ は開領域 $t<\min t(K)$ 上で恒等的に零です。従って $\Sigma_{a_2}$ で値が零であり、滑らかな接続を取った $\nabla_N^PR_{a_1}(f)$ も零です。一方 $R_{a_2}(f)$ は定義により $\Sigma_{a_2}$ で同じ二つの零データを持ちます。両者の源は $f$ で等しいので、[HPDE16のCauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)により二つの解が全時空で一致します。
+$a_1<a_2<\min t(K)$ と並べ替えます。[零Cauchyデータ応答の支持](#lem-hpde18-zero-side-support)により、$R_{a_1}(f)$ は開領域 $t<\min t(K)$ で恒等的に零です。この開領域は $\Sigma_{a_2}$ を含むので、
+
+$$
+R_{a_1}(f)|_{\Sigma_{a_2}}=0,\qquad
+\nabla_N^PR_{a_1}(f)|_{\Sigma_{a_2}}=0
+$$
+
+を得ます。二つ目の零は、開集合上で恒等的に零である切断の接続微分も零になるためです。
+
+他方、$R_{a_2}(f)$ も定義により $\Sigma_{a_2}$ で同じ二つの零データを持ち、両者の源は $f$ です。[HPDE16のCauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)により、二つの解は全時空で一致します。
 
 先進側は $b_1<b_2$ とし、$A_{b_2}(f)$ が $t>\max t(K)$ の開領域で零であることを使います。$\Sigma_{b_1}$ で二つのデータが零であり、$A_{b_1}(f)$ と同じ源を持つので、一意性から一致します。$\square$
 <!-- proof-end -->
@@ -329,7 +355,21 @@ $\min t(\operatorname{supp}f)=4$ とし、$R_0(f)$ と $R_2(f)$ が一致する�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。[支持補題](#lem-hpde18-zero-side-support)から $\operatorname{supp}R_0(f)\subset J^+(K)$ です。従って $R_0(f)$ は開集合 $t<4$ 全体で恒等的に零です。開集合上で零であれば接続によるすべての導関数も零なので、$\Sigma_2$ で $(R_0(f),\nabla_N^PR_0(f))=(0,0)$。$R_2(f)$ も $\Sigma_2$ で同じ零データを持ち、両者は $Pu=f$ を満たします。[Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)で一致します。関数が一つの面上だけで零でも、その法線微分は一般に零とは限りません。開いた時間帯で零となることが必要です。
+**詳細解答**。[零Cauchyデータ応答の支持](#lem-hpde18-zero-side-support)から
+
+$$
+\operatorname{supp}R_0(f)\subset J^+(K)
+$$
+
+です。源の最小時刻は $4$ なので、$R_0(f)$ は開領域 $t<4$ で恒等的に零です。接続は局所的な微分演算なので、この領域では法線導関数も零です。従って $\Sigma_2$ において
+
+$$
+(R_0(f),\nabla_N^PR_0(f))=(0,0)
+$$
+
+が成立します。$R_2(f)$ も同じ面で零Cauchyデータを持ち、両者は同じ $Pu=f$ を満たします。[大域Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)で二つの解は一致します。
+
+一つの面で切断の値だけが零でも、法線微分は一般に零とは限りません。ここでは**開いた時間帯で零**という強い情報を使っています。
 <!-- solution-end -->
 
 <a id="ex-hpde18-b02"></a>
