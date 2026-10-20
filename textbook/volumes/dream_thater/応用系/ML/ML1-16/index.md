@@ -189,29 +189,29 @@ $$
 <!-- definition-example-start: def-ml1-16-adaboost -->
 **定義の確認**。4件を一様に重み付けし、1番の木が2番目だけ誤ると $\varepsilon_1=1/4$。$\alpha_1=(\log3)/2$、$Z_1=\sqrt3/2$。正解した3点には $\tfrac14e^{-\alpha_1}/Z_1=1/6$、誤った点には $\tfrac14e^{\alpha_1}/Z_1=1/2$ を与える。更新後は $(1/6,1/2,1/6,1/6)$ で正、総和は $3(1/6)+1/2=1$。次に3番目だけ誤る木なら、誤り集合は第3点だけなので
 
-$
+$$
 \varepsilon_2=w_3^{(2)}=\frac16,\qquad
 \alpha_2=\frac{\log5}{2},\qquad
 Z_2=\frac56e^{-\alpha_2}+\frac16e^{\alpha_2}
 =\frac{\sqrt5}{3}.
-$
+$$
 
 正解点に掛ける倍率と誤り点に掛ける倍率はそれぞれ
 
-$
+$$
 \frac{e^{-\alpha_2}}{Z_2}=\frac35,\qquad
 \frac{e^{\alpha_2}}{Z_2}=3.
-$
+$$
 
 よって更新後は
 
-$
+$$
 w^{(3)}=\left(\frac16\cdot\frac35,\;
 \frac12\cdot\frac35,\;
 \frac16\cdot3,\;
 \frac16\cdot\frac35\right)
 =\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right).
-$
+$$
 
 各重みは正で、和は $1/10+3/10+1/2+1/10=1$ である。
 <!-- definition-example-end -->
@@ -454,21 +454,21 @@ $$
 <!-- definition-example-start: def-ml1-16-residual-stage -->
 **定義の確認**。$y=(1,3)$、$F=0$、$h(x_1)=h(x_2)=1$ とする。回帰器は二点上で定数1を返し、$\sum_i h(x_i)^2=2>0$ なので定義の非零条件を満たす。残差は $r=(1,3)$ であり、候補の係数 $\gamma$ に対する損失を定義どおり展開すると
 
-$
+$$
 \begin{aligned}
 R(F+\gamma h)
 &=\frac{(1-\gamma)^2+(3-\gamma)^2}{4}\\
 &=\frac{2\gamma^2-8\gamma+10}{4}
 =\frac{(\gamma-2)^2+1}{2}.
 \end{aligned}
-$
+$$
 
 平方項が0になるのは $\gamma=2$ のときだけなので、これが一意の最良の一定値である。$\nu=1/2$ とすれば更新後の得点は $(1,1)$、新残差は $(0,2)$。更新前後の損失は
 
-$
+$$
 R(F)=\frac{1^2+3^2}{4}=\frac52,\qquad
 R(F_{\rm next})=\frac{0^2+2^2}{4}=1.
-$
+$$
 
 従って損失は $3/2$ だけ減少する。ここでは後続の減少命題を仮定せず、定義から直接検算した。
 <!-- definition-example-end -->
@@ -687,26 +687,26 @@ $0<\varepsilon<1$ のとき $g(a)=(1-\varepsilon)e^{-a}+\varepsilon e^a$ の唯�
 
 導関数を計算すると
 
-$
+$$
 g'(a)=-(1-\varepsilon)e^{-a}+\varepsilon e^a,\qquad
 g''(a)=(1-\varepsilon)e^{-a}+\varepsilon e^a>0.
-$
+$$
 
 停留条件 $g'(a)=0$ を解くと
 
-$
+$$
 \varepsilon e^a=(1-\varepsilon)e^{-a}
 \iff e^{2a}=\frac{1-\varepsilon}{\varepsilon}
 \iff a^*=\frac12\log\frac{1-\varepsilon}{\varepsilon}.
-$
+$$
 
 厳密凸性により、これが唯一の大域最小点である。$e^{a^*}=\sqrt{(1-\varepsilon)/\varepsilon}$ を代入すれば
 
-$
+$$
 g(a^*)=(1-\varepsilon)\sqrt{\frac{\varepsilon}{1-\varepsilon}}
 +\varepsilon\sqrt{\frac{1-\varepsilon}{\varepsilon}}
 =2\sqrt{\varepsilon(1-\varepsilon)}.
-$
+$$
 
 $\varepsilon=3/4$ では $a^*=\tfrac12\log(1/3)<0$。符号を反転した木なら重み付き誤りは $1/4$ となり、正の係数を使える。
 <!-- solution-end -->
@@ -721,16 +721,16 @@ $\varepsilon=3/4$ では $a^*=\tfrac12\log(1/3)<0$。符号を反転した木な
 
 [AdaBoost更新](#def-ml1-16-adaboost)を順に用いる。1本目は第2点だけを誤るので
 
-$
+$$
 \varepsilon_1=\frac14,\quad
 \alpha_1=\frac{\log3}{2},\quad
 Z_1=\frac{\sqrt3}{2},\quad
 w^{(2)}=\left(\frac16,\frac12,\frac16,\frac16\right).
-$
+$$
 
 2本目は第3点だけを誤り、正解点の重みの倍率は $3/5$、誤り点の倍率は3となる。従って
 
-$
+$$
 \begin{aligned}
 \varepsilon_2&=\frac16,&
 \alpha_2&=\frac{\log5}{2},&
@@ -738,18 +738,18 @@ Z_2&=\frac{\sqrt5}{3},\\
 w^{(3)}&=\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right),&
 Z_1Z_2&=\frac{\sqrt{15}}6.
 \end{aligned}
-$
+$$
 
 4点での加法得点を各木の予測から足し合わせると
 
-$
+$$
 \begin{aligned}
 F_2(x_1)&=\alpha_1+\alpha_2=\frac{\log15}{2},\\
 F_2(x_2)&=-\alpha_1+\alpha_2=\frac{\log(5/3)}2,\\
 F_2(x_3)&=-\alpha_1+\alpha_2=\frac{\log(5/3)}2,\\
 F_2(x_4)&=-\alpha_1-\alpha_2=-\frac{\log15}{2}.
 \end{aligned}
-$
+$$
 
 第3点は真値が $-1$ なのに得点が正なので誤分類され、残り3点は正解する。ゆえに経験訓練誤りは $1/4$ であり、[訓練誤り上界](#thm-ml1-16-training-bound)の $1/4\le\sqrt{15}/6$ と整合する。
 <!-- solution-end -->
@@ -775,26 +775,26 @@ $y=(1,3)$、初期得点0、候補回帰器の値は $h=(1,1)$、縮小係数は
 
 $n=2$、残差は $r=(1,3)$ である。回帰器が両点で1を返すことから
 
-$
+$$
 C=1\cdot1+3\cdot1=4,\qquad
 S=1^2+1^2=2>0,\qquad
 \gamma^*=\frac CS=2.
-$
+$$
 
 最後の等式は[残差方向の最適係数](#prop-ml1-16-residual-decrease)による。縮小更新後の得点は $(\nu\gamma^*,\nu\gamma^*)=(1,1)$ なので、二つの損失を直接計算すると
 
-$
+$$
 R(F)=\frac{1^2+3^2}{2\cdot2}=\frac52,\qquad
 R(F_{\rm next})=\frac{(1-1)^2+(3-1)^2}{4}=1.
-$
+$$
 
 一方、減少公式へ代入すると
 
-$
+$$
 \frac{(2\nu-\nu^2)C^2}{2nS}
 =\frac{(1-1/4)\cdot16}{2\cdot2\cdot2}
 =\frac32=\frac52-1.
-$
+$$
 
 よって直接計算と一般公式が一致する。
 <!-- solution-end -->
@@ -813,26 +813,26 @@ $
 
 **(1)** 第3点だけを誤るので $\varepsilon=1/6$ である。[指数損失の一段最小化](#thm-ml1-16-optimal-stage)の係数と正規化定数は
 
-$
+$$
 \alpha=\frac12\log\frac{5/6}{1/6}=\frac12\log5,\qquad
 Z=2\sqrt{\frac16\cdot\frac56}=\frac{\sqrt5}{3}.
-$
+$$
 
 正解点と誤り点の更新倍率はそれぞれ
 
-$
+$$
 \frac{e^{-\alpha}}Z=\frac1{2(1-\varepsilon)}=\frac35,\qquad
 \frac{e^\alpha}Z=\frac1{2\varepsilon}=3.
-$
+$$
 
 元の各重みに掛けて
 
-$
+$$
 w_{\rm next}
 =\left(\frac16\cdot\frac35,\frac12\cdot\frac35,
 \frac16\cdot3,\frac16\cdot\frac35\right)
 =\left(\frac1{10},\frac3{10},\frac12,\frac1{10}\right).
-$
+$$
 
 合計は $1/10+3/10+1/2+1/10=1$ となる。
 
@@ -840,19 +840,19 @@ $
 
 **(3)** $n=3$ で残差 $r=(1,2,-1)$、回帰器の値 $h=(1,1,0)$ を使う。係数を計算すると
 
-$
+$$
 C=1\cdot1+2\cdot1+(-1)\cdot0=3,\qquad
 S=1^2+1^2+0^2=2>0,\qquad
 \gamma^*=\frac CS=\frac32.
-$
+$$
 
 [残差方向の減少公式](#prop-ml1-16-residual-decrease)に $\nu=1/2$ を代入すると
 
-$
+$$
 R(F)-R(F+\nu\gamma^*h)
 =\frac{(2\cdot\frac12-\frac14)\cdot3^2}{2\cdot3\cdot2}
 =\frac34\cdot\frac34=\frac9{16}.
-$
+$$
 
 AdaBoostは符号分類器の指数損失と重み付き誤りに基づいて係数を決める。これに対し、残差加法更新は数値残差の二乗を最小化する係数を求め、さらに縮小する。従って二つの係数公式を交換してはならない。
 <!-- solution-end -->
