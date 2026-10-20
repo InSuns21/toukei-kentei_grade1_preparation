@@ -201,7 +201,7 @@ Q^{\mathsf T}\widehat y_\lambda
 =\operatorname{diag}\left(\frac{\mu_j}{\mu_j+n\lambda}\right)z.
 $$
 
-よって残差の $j$ 成分は $z_j-\mu_jz_j/(\mu_j+n\lambda)=n\lambda z_j/(\mu_j+n\lambda)$ であり、二乗和が $R_\lambda$ となる。さらに [RKHS2のノルム公式](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)により $N_\lambda=\alpha_\lambda^{\mathsf T}G\alpha_\lambda$、ゆえに表示式を得る。$S_\lambda$ の対角化から、跡はその固有値の和である。
+よって残差の $j$ 成分は $z_j-\mu_jz_j/(\mu_j+n\lambda)=n\lambda z_j/(\mu_j+n\lambda)$ であり、二乗和が $R_\lambda$ となる。さらに [RKHS2のGram行列による有限次元表示](../../RKHS/RKHS2/index.md#prop-rkhs2-gram-reduction)により $N_\lambda=\alpha_\lambda^{\mathsf T}G\alpha_\lambda$、ゆえに表示式を得る。$S_\lambda$ の対角化から、跡はその固有値の和である。
 
 有限和なので各項を微分でき、$\mu_j,\lambda\ge0$ を用いると
 
@@ -270,7 +270,7 @@ for lam in grid:
     train_mse.append(float(np.mean((y_train-fitted)**2)))
     val_sqerr.append(float((y_val-prediction)**2))
     norm_sq.append(float(alpha @ G @ alpha))
-    dof.append(float(np.trace(np.linalg.solve(G+n*lam*np.eye(n),G))))
+    dof.append(float(sum(np.diag(np.linalg.solve(G+n*lam*np.eye(n),G)))))
     print("lambda",lam,"alpha",alpha,"train",fitted,
           "val",round(prediction,6),"val error",round(val_sqerr[-1],6))
 best = int(np.argmin(val_sqerr))
@@ -406,7 +406,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[2方向の命題](#prop-ml1-18-two-direction-fit)より未知点の予測は $2/(4+2\lambda)+1/(1+2\lambda)$。$\lambda=1/4$ では $4/9+2/3=10/9$ なので誤差は $(1-10/9)^2=1/81$。$\lambda=1/2$ では $2/5+1/2=9/10$ なので $1/100$。$\lambda=1$ では $1/3+1/3=2/3$ なので $1/9$。$1/100<1/81<1/9$ より、この固定した候補と検証標本上では $\lambda=1/2$ を選ぶ。母集団予測リスクの大小や独立テストの誤差まで確定するものではない。[独立テスト](../ML1-12/index.md#thm-ml1-12-independent-holdout)を別に実施する。
+[2方向の標本と正則化経路](#prop-ml1-18-two-direction-fit)より未知点の予測は $2/(4+2\lambda)+1/(1+2\lambda)$。$\lambda=1/4$ では $4/9+2/3=10/9$ なので誤差は $(1-10/9)^2=1/81$。$\lambda=1/2$ では $2/5+1/2=9/10$ なので $1/100$。$\lambda=1$ では $1/3+1/3=2/3$ なので $1/9$。$1/100<1/81<1/9$ より、この固定した候補と検証標本上では $\lambda=1/2$ を選ぶ。母集団予測リスクの大小や独立テストの誤差まで確定するものではない。[独立テスト](../ML1-12/index.md#thm-ml1-12-independent-holdout)を別に実施する。
 <!-- solution-end -->
 
 ### ML1-18-B04 線形核と主形式の照合
