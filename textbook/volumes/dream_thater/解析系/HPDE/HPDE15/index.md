@@ -47,11 +47,21 @@ $$
 > **定義（Cauchyパッチ）**  
 > $(M,g)$ を時間向き付き大域双曲時空、$\Sigma=t^{-1}(0)$ を滑らかなCauchy超曲面とする。$\Sigma$ の開集合 $A$ と正数 $\varepsilon$ に対し、
 >
-> $$
-> V(A,\varepsilon)=\operatorname{int}D(A)\cap t^{-1}((-\varepsilon,\varepsilon))
-> $$
+$$
+V(A,\varepsilon)=\operatorname{int}D(A)\cap t^{-1}((-\varepsilon,\varepsilon))
+$$
 >
-> と定める。$P$ を滑らかなnormally hyperbolic作用素、$f$ を滑らかな源、$(u_0,u_1)$ を $\Sigma$ 上の滑らかなCauchyデータとする。$V(A,\varepsilon)$ 上の滑らかな切断 $u_A$ が $Pu_A=f$ を満たし、$A=V(A,\varepsilon)\cap\Sigma$ 上で $(u_0,u_1)$ に一致するとき、$(A,\varepsilon,u_A)$ を与えられたデータの **Cauchyパッチ**という。
+> と定める。$P$ を滑らかなnormally hyperbolic作用素、$f$ を滑らかな源とする。
+> $\Sigma$ 上に滑らかなCauchyデータ $(u_0,u_1)$ を与える。
+> 未来向き単位法線 $N$ に沿う接続微分を $\nabla^P_N$ と記す。
+> $V(A,\varepsilon)$ 上の滑らかな切断 $u_A$ が次を満たすとする。
+
+$$
+Pu_A=f,\qquad u_A|_A=u_0|_A,\qquad
+\nabla^P_Nu_A|_A=u_1|_A.
+$$
+
+> このとき $(A,\varepsilon,u_A)$ を与えられたデータの **Cauchyパッチ**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde15-cauchy-patch -->
@@ -98,9 +108,9 @@ $w=u_A-u_B$ はその領域で $Pw=f-f=0$、初期面 $A\cap B$ 上で $w=0$ か
 >
 > このとき有限個の比較的小さい開集合 $A_1,\ldots,A_m\subset\Sigma$、正数 $\varepsilon>0$ とCauchyパッチ $u_i$ が存在し、$L\subset\bigcup_i A_i$、各 $u_i$ は $V(A_i,\varepsilon)$ 上で定義される。パッチは重なりで一致するので、
 >
-> $$
-> V_L=\bigcup_{i=1}^m V(A_i,\varepsilon)
-> $$
+$$
+V_L=\bigcup_{i=1}^m V(A_i,\varepsilon)
+$$
 >
 > 上の滑らかな切断 $u$ へ一意に貼り合わされ、$Pu=f$ と所定の初期データを満たす。ここで「一意」とは、この有限パッチに関する貼り合わせ値の一意性をいう。
 <!-- formal-statement-end -->
@@ -130,14 +140,23 @@ $\{A_p:p\in L\}$ は $L$ の開被覆なので、コンパクト性より有限�
 <a id="lem-hpde15-partition-commutator"></a>
 <!-- formal-statement-start -->
 > **補題（分割関数と作用素の交換子）**  
-> $(M,g)$ を滑らかなLorentz多様体、$(E,\nabla)$ を滑らかな接続付き束、$B$ を滑らかな束自己準同型とする。$P=-\operatorname{tr}_g\nabla^2+B$ とおく。滑らかなスカラー関数 $\chi$ と滑らかな束切断 $v$ に対し、
+> $(M,g)$ を滑らかなLorentz多様体とし、$(E,\nabla)$ を滑らかな接続付き束とする。
+> 束自己準同型 $B$ と作用素 $P=-\operatorname{tr}_g\nabla^2+B$ を与える。
+> 滑らかなスカラー関数 $\chi$ と滑らかな束切断 $v$ に対し、
 >
-> $$
-> P(\chi v)=\chi Pv+[P,\chi]v,\qquad
-> [P,\chi]v=-(\Box_g\chi)v-2\nabla_{\operatorname{grad}\chi}v
-> $$
+$$
+P(\chi v)=\chi Pv+[P,\chi]v,\qquad
+[P,\chi]v=-(\Box_g\chi)v-2\nabla_{\operatorname{grad}\chi}v
+$$
 >
-> が成立する。特に同一の源 $f$ を持つ局所解 $u_i$ と局所有限な1の分割 $(\chi_i)$ から $v=\sum_i\chi_i u_i$ が定義できる場合、$Pv=f+\sum_i[P,\chi_i]u_i$ となる。
+> が成立する。同じ源 $f$ を持つ局所解 $u_i$ を考える。
+> 局所有限な1の分割 $(\chi_i)$ による加重和が定義できれば、
+
+$$
+v=\sum_i\chi_i u_i,\qquad Pv=f+\sum_i[P,\chi_i]u_i
+$$
+
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -190,7 +209,22 @@ $$
 <a id="prop-hpde15-corrected-partition"></a>
 <!-- formal-statement-start -->
 > **命題（加重和の残差と局所補正）**  
-> 滑らかなnormally hyperbolic作用素 $P$ と共通の滑らかな源 $f$ に対し、開集合 $W$ 上で有限個の滑らかな局所解 $Pu_i=f$ があり、局所有限な滑らかな分割関数 $\chi_i$ の支持が各 $u_i$ の定義域の内部に入るとする。$v=\sum_i\chi_i u_i$、$R=\sum_i[P,\chi_i]u_i$ と置く。このとき $Pv=f+R$。さらに $W$ 内の小さいCauchyパッチ上で $Pw=-R$ を満たす滑らかな $w$ が構成できれば、$v+w$ はそこでは $P(v+w)=f$ を満たす。
+> 開集合 $W$ 上の滑らかなnormally hyperbolic作用素 $P$ と滑らかな源 $f$ を考える。
+> 開被覆上に同じ源を満たす滑らかな局所解 $Pu_i=f$ があるとする。
+> 局所有限な1の分割 $(\chi_i)$ は、各 $\chi_i$ の支持が $u_i$ の定義域に含まれるように選ぶ。
+> 加重和 $v$ と残差 $R$ を次で定める。
+
+$$
+v=\sum_i\chi_i u_i,\qquad R=\sum_i[P,\chi_i]u_i.
+$$
+
+> このとき $Pv=f+R$。さらに小さいCauchyパッチ上で滑らかな $w$ が $Pw=-R$ を満たせば、
+
+$$
+P(v+w)=f
+$$
+
+> が成立する。
 <!-- formal-statement-end -->
 
 証明は前の補題の式と線形性から $P(v+w)=f+R-R=f$ と計算するだけです。ただし $w$ の存在を言うには、$R$ が滑らかであることと、適切な局所Cauchyデータを与えて[局所存在](../HPDE11/index.md#thm-hpde11-local-cauchy)を使う必要があります。**補正なしの単純和を大域解とすることはできません。**
@@ -248,7 +282,16 @@ $$
 <a id="prop-hpde15-diamond-consistency"></a>
 <!-- formal-statement-start -->
 > **命題（因果ダイヤモンド上の整合性）**  
-> $(M,g)$ を時間向き付き滑らかな大域双曲時空、$\Sigma$ を滑らかなCauchy超曲面、$P$ を滑らかなnormally hyperbolic作用素とする。$Q=J^+(K_-)\cap J^-(K_+)$ をコンパクトな因果ダイヤモンドとし、$Q$ 内を覆う局所Cauchy解の族が、同じ滑らかな源と初期データに由来し、各重なりに含まれる初期面への因果的足跡上で比較可能であると仮定する。
+> $(M,g)$ を時間向き付きの滑らかな大域双曲時空とする。
+> $\Sigma$ を滑らかなCauchy超曲面、$P$ を滑らかなnormally hyperbolic作用素とする。
+> コンパクト集合 $K_-,K_+\subset M$ に対する因果ダイヤモンドを
+
+$$
+Q=J^+(K_-)\cap J^-(K_+)
+$$
+
+> と定める。$Q$ 内を覆う局所Cauchy解の族が、同じ滑らかな源と初期データに由来するとする。
+> 各重なりに含まれる初期面への因果的足跡上で、二解を比較できると仮定する。
 >
 > このとき、重なり上で局所解は一致し、合併領域上の滑らかな解として貼り合わされる。別の比較可能なパッチ族で構成しても、共通して比較できる部分では解は一致する。
 <!-- formal-statement-end -->
