@@ -1,0 +1,75 @@
+chapter: ML1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-15
+  - ML1-14
+  - ML1-12
+  - ML1-08
+concepts:
+  - id: learning.boosting-additive-score
+    name: 加法得点と符号分類器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法得点と符号分類器）"]
+    requires: [learning.bagging-predictor, learning.binary-classification-tree]
+  - id: learning.exponential-classification-loss
+    name: 経験指数損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（経験指数損失）"]
+    requires: [learning.boosting-additive-score]
+  - id: learning.weighted-misclassification
+    name: 重み付き誤分類率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き誤分類率）"]
+    requires: [learning.boosting-additive-score]
+  - id: learning.boosting-stage-exponential-minimizer
+    name: 指数損失の一段最小化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指数損失の一段最小化）"]
+    requires: [learning.exponential-classification-loss, learning.weighted-misclassification]
+  - id: learning.discrete-adaboost-update
+    name: 離散AdaBoostの更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散AdaBoostの更新）"]
+    requires: [learning.boosting-stage-exponential-minimizer]
+  - id: learning.boosting-weight-invariant
+    name: 重みの指数表示と正規化定数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重みの指数表示と正規化定数）"]
+    requires: [learning.discrete-adaboost-update]
+  - id: learning.adaboost-training-error-bound
+    name: AdaBoostの経験訓練誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（AdaBoostの経験訓練誤差上界）"]
+    requires: [learning.boosting-weight-invariant]
+  - id: learning.boosting-training-margin
+    name: 訓練マージン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（訓練マージン）"]
+    requires: [learning.boosting-additive-score]
+  - id: learning.boosting-low-margin-bound
+    name: 低マージン点の割合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（低マージン点の割合）"]
+    requires: [learning.boosting-training-margin, learning.boosting-weight-invariant]
+  - id: learning.residual-stagewise-addition
+    name: 二乗損失に対する残差加法更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二乗損失に対する残差加法更新）"]
+    requires: [learning.boosting-additive-score]
+  - id: learning.residual-stage-loss-decrease
+    name: 残差方向への一段更新の損失減少
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（残差方向への一段更新の損失減少）"]
+    requires: [learning.residual-stagewise-addition]
