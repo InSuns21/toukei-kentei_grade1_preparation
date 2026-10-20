@@ -496,12 +496,12 @@ $0<\nu\le1$ なら $2\nu-\nu^2>0$。従って $C\ne0$ の場合に狭義に減�
 import math, random
 seed, rounds, noise = 16020, 12, 0.25
 rng = random.Random(seed)
-# XORに近い曲がった境界。ノイズとseedを変えると候補と重みが変わる。
+# 和と積を含む曲がった境界。ノイズとseedを変えると候補と重みが変わる。
 xy = [(a,b) for a in (-2,-1,1,2) for b in (-2,-1,1,2)]
 rng.shuffle(xy)
 xs = [(a+noise*rng.uniform(-1,1), b+noise*rng.uniform(-1,1))
       for a,b in xy]
-ys = [1 if a*b>0 else -1 for a,b in xy]
+ys = [1 if a+b+0.3*a*b>0 else -1 for a,b in xy]
 n = len(ys)
 def stump_candidates(xs):
     for j in (0,1):
@@ -556,7 +556,7 @@ if history:
         assert row["error"]<=row["loss"]+1e-10
 ~~~
 
-上の点群は**二つの特徴の積で決まるラベル**を持つので、一回の軸平行な決定株では表現しにくい。一回の木と複数の木の役割を分けて観察できる。反復数を増やせば訓練指数損失は更新可能な回に限り必ず減るが、検証用の独立標本なしに汎化の改善は結論できない。
+上の点群は**二つの特徴の和と積で決まるラベル**を持つので、一回の軸平行な決定株では表現しにくい。一回の木と複数の木の役割を分けて観察できる。反復数を増やせば訓練指数損失は更新可能な回に限り必ず減るが、検証用の独立標本なしに汎化の改善は結論できない。
 
 ### 二乗損失での加法更新を再計算する
 
