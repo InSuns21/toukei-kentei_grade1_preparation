@@ -1,0 +1,51 @@
+id: "GR18"
+title: "Schwarzschild光線軌道と光の屈曲"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR4
+  - GR14
+  - GR16
+official_scope: []
+learning_objectives:
+  - Schwarzschild光的測地線を赤道面に制限できる根拠を説明できる
+  - Killing保存量から衝突パラメータを定義して平坦極限で確かめられる
+  - 光的条件と保存量から半径方向の一階積分を導出できる
+  - 逆半径uに関する光線軌道方程式を連鎖律から導ける
+  - 光子球を半径一定の光的測地線として検証し臨界衝突パラメータを求められる
+  - 無限遠からの散乱と折返しなしの光路を有効ポテンシャルで判定できる
+  - 屈曲角の積分表示と収束条件を導ける
+  - 摂動軌道の積分定数を一階積分で固定し弱場屈曲角を再導出できる
+  - 衝突パラメータと局所観測者の入射角を直交枠から関連付けられる
+  - 弱場近似と臨界光子球での散乱近似の限界を区別できる
+definitions:
+  - { id: GR18-DEF-01, name: 光線の衝突パラメータ }
+  - { id: GR18-DEF-02, name: Schwarzschild光子球 }
+  - { id: GR18-DEF-03, name: 遠方散乱における光の屈曲角 }
+theorems:
+  - { id: GR18-PROP-01, name: 光的測地線の半径方向一階積分 }
+  - { id: GR18-PROP-02, name: Schwarzschild光線軌道方程式 }
+  - { id: GR18-PROP-03, name: 光子球と臨界衝突パラメータ }
+  - { id: GR18-THM-01, name: Schwarzschild光線の弱場屈曲角 }
+canonical_examples:
+  - 平坦極限の直線で衝突パラメータが最近接距離になることを確認
+  - 光子球でf正値と半径加速度零を確認
+  - 平坦時空で屈曲積分が零になることを確認
+  - b=100r_sで弱場角と漸近誤差を比較
+  - 静止直交枠から折返し点の接線方向を確認
+problem_patterns:
+  - GR18-NULL-FIRST-INTEGRAL
+  - GR18-TURNING-B
+  - GR18-PHOTON-SPHERE-TEST
+  - GR18-FLAT-ORBIT
+  - GR18-WEAK-ANGLE-SCALE
+  - GR18-U-ORBIT-DERIVATION
+  - GR18-WEAK-PERTURBATION
+  - GR18-CRITICAL-SCATTER-CLASSIFICATION
+  - GR18-DEFLECTION-INTEGRAL-CONVERGENCE
+  - GR18-INTEGRATED-RAY-LOCAL-ANGLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
