@@ -132,8 +132,8 @@ $$
 観測集合を一つに固定しただけでは、時空全体で滑らかな解になったとは言えません。そこで $M$ のコンパクト集合を内部が増大する列
 
 $$
-Q_1\subset\operatorname{int}Q_2\subset Q_2
-\subset\operatorname{int}Q_3\subset\cdots,\qquad
+Q_1\subset\operatorname{int}Q_2,quad
+Q_2\subset\operatorname{int}Q_3\subset\cdots,\qquad
 \bigcup_{j\ge1}\operatorname{int}Q_j=M
 $$
 
@@ -145,7 +145,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（任意の滑らかなデータの大域Cauchy解）**  
-> $(M,g)$ を境界のない時間向き付き滑らかな大域双曲Lorentz多様体、$\Sigma$ を滑らかな空間的Cauchy超曲面、$E\to M$ を有限ランクの滑らかな実または複素ベクトル束、$P$ を滑らかなnormally hyperbolic作用素とする。$N$ は未来向き単位法線、$\nabla^P$ は $P$ の一意な接続とする。
+> $(M,g)$ を境界のない時間向き付き滑らかな大域双曲Lorentz多様体、$t:M\to\mathbb R$ を滑らかなCauchy時間関数、$\Sigma=t^{-1}(0)$ を滑らかな空間的Cauchy超曲面、$E\to M$ を有限ランクの滑らかな実または複素ベクトル束、$P$ を滑らかなnormally hyperbolic作用素とする。$N$ は未来向き単位法線、$\nabla^P$ は $P$ の一意な接続とする。
 >
 > 任意の滑らかな源 $f\in\Gamma(M,E)$ と滑らかな初期データ $u_0,u_1\in\Gamma(\Sigma,E|_\Sigma)$ に対し、唯一の滑らかな切断 $u\in\Gamma(M,E)$ が存在して
 
@@ -251,7 +251,7 @@ $$
 \partial_tV=-(A^0)^{-1}\left(\sum_jA^j\partial_jV+DV-F\right)
 $$
 
-と置き、これをさらに微分すると時間高階微分も有限階の空間微分と源の微分で支配されます。$m$ を十分大きく選んで、有限個の座標箱の[局所Sobolev埋込み](../HPDE9/index.md#thm-hpde9-high-energy-estimate)を適用すると $\|\delta u\|_{C^k(Q)}$ を切り出したデータの有限階Sobolevノルムで評価できます。
+と置き、これをさらに微分すると時間高階微分も有限階の空間微分と源の微分で支配されます。$m$ を十分大きく選んで、[HPDE9の高階評価](../HPDE9/index.md#thm-hpde9-high-energy-estimate)で用いた局所Sobolev埋込みを適用すると $\|\delta u\|_{C^k(Q)}$ を切り出したデータの有限階Sobolevノルムで評価できます。
 
 最後に、各切断関数の支持を含む固定コンパクト集合を $C_\Sigma,C_M$ として取り、十分大きい $r$ を選びます。積の微分公式を有限回適用すれば、例えば
 
@@ -334,7 +334,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（一様係数の平坦波動に対する全空間高階安定性）**  
-> $T>0$、整数 $m\ge0$ とし、$V\in C^\infty([-T,T]\times\mathbb R^n;\mathbb R)$ の $m$ 階以下の空間偏微分が、$[-T,T]\times\mathbb R^n$ 全体で有界とする。$\partial_t^2u-\Delta_xu+Vu=f$ の滑らかな解 $u$ が各有限時間帯でコンパクトな空間支持を持ち、$f$ も同様であるとする。初期値を $u(0)=u_0$、$\partial_tu(0)=u_1$ とする。
+> $T>0$、整数 $m\ge0$ とし、$V\in C^\infty([-T,T]\times\mathbb R^n;\mathbb R)$ の $m$ 階以下の空間偏微分が、$[-T,T]\times\mathbb R^n$ 全体で有界とする。$\partial_t^2u-\Delta_xu+Vu=f$ の滑らかな解 $u$ と源 $f$ の $[-T,T]\times\mathbb R^n$ 内の支持が、ともにこの時間帯のコンパクト部分集合に含まれるとする。初期値を $u(0)=u_0$、$\partial_tu(0)=u_1$ とする。
 >
 > このとき定数 $C_{m,T}>0$ が存在し、すべての $|t|\le T$ に対し
 
