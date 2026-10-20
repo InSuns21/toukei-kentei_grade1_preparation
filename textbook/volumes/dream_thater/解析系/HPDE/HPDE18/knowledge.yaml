@@ -38,6 +38,11 @@ concepts:
     introduction: formal
     introduction_aliases: [遅延・先進Green作用素]
     requires: [hpde.green-slice-independence]
+  - id: hpde.retarded-advanced-green
+    name: 遅延・先進Green作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.retarded-green-operator, hpde.advanced-green-operator]
   - id: hpde.green-existence-support
     name: 遅延・先進Green作用素の構成と因果的支持
     kind: theorem
