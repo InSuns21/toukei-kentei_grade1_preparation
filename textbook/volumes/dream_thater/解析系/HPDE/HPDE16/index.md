@@ -16,7 +16,7 @@ $$
 \Sigma_s=t^{-1}(s),\qquad \Sigma=\Sigma_0.
 $$
 
-後の定理で **先に任意の滑らかな空間的Cauchy面を指定した場合** には、与えられた面を $t^{-1}(0)$ にできるというBernal–Sánchezの強化定理（[原論文](https://arxiv.org/abs/gr-qc/0512095)）を使います。これは「あるCauchy時間分割が存在する」というLORG20の定理だけからは直ちに従わない点です。
+後の定理で **先に任意の滑らかな空間的Cauchy面を指定した場合** には、与えられた面を $t^{-1}(0)$ にできるというBernal–Sánchezの強化定理（[原論文](https://arxiv.org/abs/gr-qc/0512095)）を使います。これは「あるCauchy時間分割が存在する」という[LORG20の直交分割定理](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)だけからは直ちに従わない点です。
 
 未来向き単位法線を $N$ と書きます。[法線初期データ](../HPDE6/index.md#def-hpde6-cauchy-data)は $\nabla_N^Pu$ であり、別の接続に取り替えません。ここで $\Sigma$ が[Cauchy面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)であることを使います。
 
