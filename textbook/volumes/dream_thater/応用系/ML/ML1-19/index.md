@@ -272,7 +272,23 @@ $$
 \|(I-P)X\|_F^2=\|X\|_F^2-\|PX\|_F^2.
 $$
 
-$X$ の左特異ベクトル $u_j$ により、$\|PX\|_F^2=\sum_{j=1}^r s_j^2\|Pu_j\|_2^2$。係数 $t_j=\|Pu_j\|_2^2$ は $0\le t_j\le1$ であり、左特異ベクトルを $\mathbb R^n$ の正規直交基底まで延長すると、$\sum_{j=1}^r t_j\le\operatorname{tr}P=\operatorname{rank}P\le q$ となる。
+$X=\sum_{j=1}^r s_ju_jv_j^{\mathsf T}$ を $PX$ に代入する。右特異ベクトルの直交性によって交差項が消えるため、
+
+$
+\|PX\|_F^2=\sum_{j=1}^r s_j^2\|Pu_j\|_2^2
+$
+
+となる。$t_j=\|Pu_j\|_2^2$ と置くと、直交射影は長さを増やさないので $0\le t_j\le1$。さらに $u_1,\ldots,u_r$ を $\mathbb R^n$ の正規直交基底 $u_1,\ldots,u_n$ まで延長すると、
+
+$
+\sum_{j=1}^r t_j
+\le\sum_{j=1}^n\|Pu_j\|_2^2
+=\sum_{j=1}^n u_j^{\mathsf T}Pu_j
+=\operatorname{tr}P
+=\operatorname{rank}P\le q.
+$
+
+最後の等号では、$P^2=P=P^{\mathsf T}$ の固有値が0または1であり、その1の個数が像の次元であることを使った。
 
 $0<q<r$ なら、$s_q^2$ を境界として、$j>q$ の係数が非正となることから
 
@@ -364,7 +380,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$。固有値は $6,8/3$、特異値はその $n-1$ 倍の平方根で $3\sqrt2,2\sqrt2$。[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと捨てる平方和は $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
+各列の和は0で中心化済み。$X^{\mathsf T}X=\operatorname{diag}(18,8)$、$n-1=3$ なので $C=\operatorname{diag}(6,8/3)$。固有値は $6,8/3$。[特異値の定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors) から $s_j^2=(n-1)\lambda_j$ なので、特異値は $\sqrt{3\cdot6}=3\sqrt2$、$\sqrt{3\cdot(8/3)}=2\sqrt2$ となる。[再構成定理](#thm-ml1-19-pca-reconstruction)から第一方向 $e_1$ を残すと捨てる平方和は $s_2^2=8$、保持分散比は $18/(18+8)=9/13$ である。
 <!-- solution-end -->
 
 ### ML1-19-A03 保持次元が0・全次元の場合
@@ -469,7 +485,17 @@ $$
 X^{\mathsf T}X=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-$(1,1)$ と $(1,-1)$ へそれぞれ作用させると $3(1,1)$、$(1,-1)$ を得るため、固有値は $3,1$、第1方向は $v_1=(1,1)^{\mathsf T}/\sqrt2$。得点 $Xv_1=(1/\sqrt2,1/\sqrt2,-\sqrt2)^{\mathsf T}$ だから、各得点へ $v_1^{\mathsf T}$ を掛けて
+この行列を二つの独立な方向へ作用させると、
+
+$
+\begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}
+=3\begin{pmatrix}1\\1\end{pmatrix},
+\qquad
+\begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}1\\-1\end{pmatrix}.
+$
+
+このため固有値は $3,1$、最大固有値の単位固有ベクトルは $v_1=(1,1)^{\mathsf T}/\sqrt2$ である。得点 $Xv_1=(1/\sqrt2,1/\sqrt2,-\sqrt2)^{\mathsf T}$ だから、各得点へ $v_1^{\mathsf T}$ を掛けて
 
 $$
 Xv_1v_1^{\mathsf T}=
