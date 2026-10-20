@@ -1202,6 +1202,7 @@
 17. [GR17 重力赤方偏移と静止時計](textbook/volumes/dream_thater/物理系/GR/GR17/index.md)
 18. [GR18 Schwarzschild光線軌道と光の屈曲](textbook/volumes/dream_thater/物理系/GR/GR18/index.md)
 19. [GR19 近日点移動と有効ポテンシャル](textbook/volumes/dream_thater/物理系/GR/GR19/index.md)
+20. [GR20 Shapiro時間遅延](textbook/volumes/dream_thater/物理系/GR/GR20/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
