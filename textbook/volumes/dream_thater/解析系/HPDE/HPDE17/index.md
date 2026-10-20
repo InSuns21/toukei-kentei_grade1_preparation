@@ -305,7 +305,11 @@ $$
 
 です。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)で右辺はコンパクトなので、部分列で $p_j\to p\in A$ とできます。[閉因果関係](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から $p\le q$、従って $q\in J^+(A)$ です。
 
-$t(q)\ge0$ かつ $q\notin J^+(A)$ とします。$J^-(q)\cap\Sigma$ は $K_\Sigma$ と交わらず、$J^-(q)\cap t^{-1}([0,t(q)])$ は $F_+$ と交わりません。すなわち $q$ の値を決める初期データ・源は因果的な領域上で零です。[大域双曲時空の因果的な依存評価](../HPDE10/index.md#thm-hpde10-causal-dependence)を適用して $u(q)=0$。よって $t\ge0$ では非零点は $J^+(A)$ に含まれます。これは閉集合なので、$t\ge0$ 側の非零点の閉包も同じ集合内にあります。$\operatorname{supp}u\cap\Sigma$ についても $u|_\Sigma=u_0$ より包含が成立します。
+$t(q)\ge0$ かつ $q\notin J^+(A)$ とします。$J^-(q)\cap\Sigma$ は $K_\Sigma$ と交わらず、$J^-(q)\cap t^{-1}([0,t(q)])$ は $F_+$ と交わりません。
+
+すなわち $q$ の値を決める初期データ・源は因果的な領域上で零です。[大域双曲時空の因果的な依存評価](../HPDE10/index.md#thm-hpde10-causal-dependence)を適用して $u(q)=0$。よって $t\ge0$ では非零点は $J^+(A)$ に含まれます。これは閉集合なので、$t\ge0$ 側の非零点の閉包も同じ集合内にあります。
+
+$\operatorname{supp}u\cap\Sigma$ についても $u|_\Sigma=u_0$ より包含が成立します。
 
 過去側は $A_-=K_\Sigma\cup F_-$ とし、$t(A_-)\subset(-\infty,0]$、$J^-(A_-)$ の閉性を未来・過去の向きを入れ替えて証明します。依存定理を $q$ の未来領域へ適用すれば、同じ包含が得られます。$\square$
 <!-- proof-end -->
@@ -483,7 +487,11 @@ $P=\partial_t^2-\partial_x^2$、$f=0$、$u_0(x)=x$、$u_1(x)=0$ とする。$u(t
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。$u_t=0$、$u_{tt}=0$、$u_x=1$、$u_{xx}=0$ なので $Pu=0$ です。$t=0$ で $u=x$、$\partial_tu=0$ なので二つの初期値にも一致します。しかし $u_0(x)=x$ の支持は $\mathbb R$（零でない点の閉包）であり、コンパクトではありません。[HPDE16の定理](../HPDE16/index.md#thm-hpde16-global-cauchy)の仮定には入らず、[本章の大域定理](#thm-hpde17-noncompact-cauchy)がこの場合を含みます。
+**詳細解答**。$u_t=0$、$u_{tt}=0$、$u_x=1$、$u_{xx}=0$ なので $Pu=0$ です。
+
+$t=0$ で $u=x$、$\partial_tu=0$ なので二つの初期値にも一致します。しかし $u_0(x)=x$ の支持は $\mathbb R$（零でない点の閉包）であり、コンパクトではありません。
+
+[HPDE16の定理](../HPDE16/index.md#thm-hpde16-global-cauchy)の仮定には入らず、[本章の大域定理](#thm-hpde17-noncompact-cauchy)がこの場合を含みます。
 <!-- solution-end -->
 
 <a id="ex-hpde17-a03"></a>
@@ -530,7 +538,9 @@ z|_\Sigma=(\chi_\Sigma-\eta_\Sigma)u_0,\qquad
 \nabla_N^Pz|_\Sigma=(\chi_\Sigma-\eta_\Sigma)u_1
 $$
 
-であり、源は $Pz=(\chi_M-\eta_M)f$ です。二組の関数は $K_Q$、$D_Q$ のそれぞれの近傍でともに $1$ なので、上記の差はいずれも対応する因果的足跡上で零です。$q\in Q$ が未来側なら、その過去因果領域と初期面の交わりは $K_Q$ に入り、そこまでの源も $D_Q$ に入ります。過去側も因果向きを逆にして同様です。[局所一致補題](#lem-hpde17-localized-agreement)より $z(q)=0$。全時空で $v=w$ と結論してはならず、切断域の外ではデータが違うことがあります。
+であり、源は $Pz=(\chi_M-\eta_M)f$ です。二組の関数は $K_Q$、$D_Q$ のそれぞれの近傍でともに $1$ なので、上記の差はいずれも対応する因果的足跡上で零です。
+
+$q\in Q$ が未来側なら、その過去因果領域と初期面の交わりは $K_Q$ に入り、そこまでの源も $D_Q$ に入ります。過去側も因果向きを逆にして同様です。[局所一致補題](#lem-hpde17-localized-agreement)より $z(q)=0$。全時空で $v=w$ と結論してはならず、切断域の外ではデータが違うことがあります。
 <!-- solution-end -->
 
 <a id="ex-hpde17-b02"></a>
@@ -598,7 +608,9 @@ Minkowski平面の $P=\partial_t^2-\partial_x^2$ で、初期値 $u_0(x)=1$、$u
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。(i) $u(t,x)=1$ とすると両二階微分は零で $Pu=0$、初期値も一致します。[滑らかな大域解の一意性](#thm-hpde17-noncompact-cauchy)によりこれが唯一の解です。(ii) 任意の時刻 $t$ に $\{x:u(t,x)\ne0\}=\mathbb R$ なのでその支持は $\mathbb R$、非コンパクトです。(iii) $K_\Sigma=\Sigma$ で、[片側因果支持命題](#prop-hpde17-one-sided-support)の右辺は $J^+(\Sigma)$ または $J^-(\Sigma)$ 全体です。この集合はコンパクトではないので、支持が全空間に広がることを排除しません。
+**詳細解答**。(i) $u(t,x)=1$ とすると両二階微分は零で $Pu=0$、初期値も一致します。[滑らかな大域解の一意性](#thm-hpde17-noncompact-cauchy)によりこれが唯一の解です。(ii) 任意の時刻 $t$ に $\{x:u(t,x)\ne0\}=\mathbb R$ なのでその支持は $\mathbb R$、非コンパクトです。
+
+(iii) $K_\Sigma=\Sigma$ で、[片側因果支持命題](#prop-hpde17-one-sided-support)の右辺は $J^+(\Sigma)$ または $J^-(\Sigma)$ 全体です。この集合はコンパクトではないので、支持が全空間に広がることを排除しません。
 <!-- solution-end -->
 
 ### Level C
@@ -624,13 +636,25 @@ $(M,g)$ は境界なし滑らかな大域双曲時空、$\Sigma=\Sigma_0$ は滑
 
 (i) 第二可算・局所コンパクト性から $Q_j\subset\operatorname{int}Q_{j+1}$、$\bigcup_j\operatorname{int}Q_j=M$ となるコンパクト尽くし方を取れます。$Q_j\subset t^{-1}([-T_j,T_j])$ となる増大列 $T_j$ を取ります。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)に $K=Q_j$、区間 $[-T_j,T_j]$ を代入すると $D_j=J(Q_j)\cap t^{-1}([-T_j,T_j])$ はコンパクトです。$K_j=D_j\cap\Sigma$ も閉部分集合なのでコンパクトです。
 
-(ii) $K_j$ 近傍で $1$ のコンパクト支持関数 $\chi_{\Sigma,j}$、$D_j$ 近傍で $1$ の $\chi_{M,j}$ を選びます。これを元データに掛けたデータはコンパクト支持で、[大域Cauchy問題の存在一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)から $v_j$ を得ます。$i\ge j$ なら $Q_j\subset Q_i$ で $T_j\le T_i$ なので $K_j\subset K_i$、$D_j\subset D_i$。従って $v_i,v_j$ の源は $D_j$ 近傍で、初期値は $K_j$ 近傍でともに元データへ一致します。[局所一致補題](#lem-hpde17-localized-agreement)から $v_i=v_j$ on $Q_j$ です。
+(ii) $K_j$ 近傍で $1$ のコンパクト支持関数 $\chi_{\Sigma,j}$、$D_j$ 近傍で $1$ の $\chi_{M,j}$ を選びます。
+
+これを元データに掛けたデータはコンパクト支持で、[大域Cauchy問題の存在一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)から $v_j$ を得ます。$i\ge j$ なら $Q_j\subset Q_i$ で $T_j\le T_i$ なので $K_j\subset K_i$、$D_j\subset D_i$。
+
+従って $v_i,v_j$ の源は $D_j$ 近傍で、初期値は $K_j$ 近傍でともに元データへ一致します。[局所一致補題](#lem-hpde17-localized-agreement)から $v_i=v_j$ on $Q_j$ です。
 
 (iii) 任意の $q\in M$ は $\operatorname{int}Q_j$ に入り、$i\ge j$ なら $v_i(q)=v_j(q)$ なので値の定義は一意です。近傍 $\operatorname{int}Q_j$ では滑らかな $v_j$ と一致するため $u$ は滑らかです。$q\in Q_j\subset D_j$ なので $Pu(q)=Pv_j(q)=\chi_{M,j}(q)f(q)=f(q)$。$p\in\Sigma$ では $p\in Q_j\cap\Sigma\subset K_j$ により $u(p)=u_0(p)$、$\nabla_N^Pu(p)=u_1(p)$ です。別解との差には[HPDE10の一意性](../HPDE10/index.md#cor-hpde10-domain-uniqueness)を適用すると任意の点で零です。
 
-(iv) 差の元データを観測集合 $Q$ の $K_Q,D_Q$ の近傍で切り出すと、差の解は $Q$ 上でコンパクト支持データの大域解 $w$ に等しくなります。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を、この切り出しデータのコンパクトな因果影で適用し、任意に大きい $H^m$ を制御します。一次還元方程式で時間高階微分を空間微分と源へ置き換え、$m$ を $k$ と次元より十分大きく取れば、局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。切断関数への[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)の反復適用により、右辺のSobolevノルムは元の差データの固定コンパクト集合上の有限階 $C^r$ ノルムで支配できます。従って[局所連続依存定理](#thm-hpde17-local-stability)の形になります。
+(iv) 差の元データを観測集合 $Q$ の $K_Q,D_Q$ の近傍で切り出すと、差の解は $Q$ 上でコンパクト支持データの大域解 $w$ に等しくなります。[HPDE16の有限時間高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を、この切り出しデータのコンパクトな因果影で適用し、任意に大きい $H^m$ を制御します。
 
-(v) 固定した $Q$ には定数 $A_{Q,k}$ を使えますが、$Q$ を空間無限遠へ動かした際の定数上界は証明していません。例えば第7節の滑らかな $V(x)=-\sum j^2\rho(x-10j)$ では、同じ大きさの初期データを各 $x=10j$ の近くへ移すと、$t=1/4$ の解の $L^2$ ノルムが少なくとも $\cosh(j/4)$ になります。初期Sobolevノルムは平行移動で一定です。ゆえに全空間共通の定数を持つ評価は成り立ちません。必要になるのは、例えば[第7節の一様係数仮定](#thm-hpde17-uniform-flat-energy)です。
+一次還元方程式で時間高階微分を空間微分と源へ置き換え、$m$ を $k$ と次元より十分大きく取れば、局所Sobolev埋込みから $\|w\|_{C^k(Q)}$ を得ます。
+
+切断関数への[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)の反復適用により、右辺のSobolevノルムは元の差データの固定コンパクト集合上の有限階 $C^r$ ノルムで支配できます。従って[局所連続依存定理](#thm-hpde17-local-stability)の形になります。
+
+(v) 固定した $Q$ には定数 $A_{Q,k}$ を使えますが、$Q$ を空間無限遠へ動かした際の定数上界は証明していません。
+
+例えば第7節の滑らかな $V(x)=-\sum j^2\rho(x-10j)$ では、同じ大きさの初期データを各 $x=10j$ の近くへ移すと、$t=1/4$ の解の $L^2$ ノルムが少なくとも $\cosh(j/4)$ になります。初期Sobolevノルムは平行移動で一定です。ゆえに全空間共通の定数を持つ評価は成り立ちません。
+
+必要になるのは、例えば[第7節の一様係数仮定](#thm-hpde17-uniform-flat-energy)です。
 <!-- solution-end -->
 
 ## 9. 大域解の構成からGreen作用素へ
