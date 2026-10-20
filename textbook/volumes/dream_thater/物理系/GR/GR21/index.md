@@ -70,27 +70,27 @@ $$
 > **命題（接続・Ricci・スカラー曲率の一次式）**  
 > [線形計量摂動](#def-gr21-linear-perturbation)の仮定の下で、一次の接続係数、Ricciテンソル、スカラー曲率は
 >
-> $$
-> \Gamma^{(1)\rho}_{\mu\nu}
-> =\frac12\eta^{\rho\lambda}
-> (\partial_\mu h_{\lambda\nu}+\partial_\nu h_{\lambda\mu}
-> -\partial_\lambda h_{\mu\nu}),
-> $$
+$$
+\Gamma^{(1)\rho}_{\mu\nu}
+=\frac12\eta^{\rho\lambda}
+(\partial_\mu h_{\lambda\nu}+\partial_\nu h_{\lambda\mu}
+-\partial_\lambda h_{\mu\nu}),
+$$
 >
-> $$
-> \boxed{
-> R^{(1)}_{\mu\nu}=\frac12\left(
-> \partial_\rho\partial_\mu h^\rho{}_\nu+
-> \partial_\rho\partial_\nu h^\rho{}_\mu
-> -\Box h_{\mu\nu}-\partial_\mu\partial_\nu h
-> \right),
-> }
-> $$
+$$
+\boxed{
+R^{(1)}_{\mu\nu}=\frac12\left(
+\partial_\rho\partial_\mu h^\rho{}_\nu+
+\partial_\rho\partial_\nu h^\rho{}_\mu
+-\Box h_{\mu\nu}-\partial_\mu\partial_\nu h
+\right),
+}
+$$
 >
-> $$
-> \boxed{\mathcal R^{(1)}
-> =\partial_\mu\partial_\nu h^{\mu\nu}-\Box h}
-> $$
+$$
+\boxed{\mathcal R^{(1)}
+=\partial_\mu\partial_\nu h^{\mu\nu}-\Box h}
+$$
 >
 > である。上付き $(1)$ は摂動パラメータについて一次の部分を意味する。
 <!-- formal-statement-end -->
@@ -181,15 +181,15 @@ Ricci曲率だけでは物質と結び付ける方程式になりません。ス
 > **命題（線形化Einsteinテンソル）**  
 > Minkowski背景の $C^2$ 級線形摂動に対し、Einsteinテンソル $G_{\mu\nu}=R_{\mu\nu}-g_{\mu\nu}\mathcal R/2$ の一次項は
 >
-> $$
-> \boxed{
-> G^{(1)}_{\mu\nu}=\frac12\left[
-> \partial_\rho\partial_\mu h^\rho{}_\nu+
-> \partial_\rho\partial_\nu h^\rho{}_\mu
-> -\Box h_{\mu\nu}-\partial_\mu\partial_\nu h
-> -\eta_{\mu\nu}\partial_\rho\partial_\sigma h^{\rho\sigma}
-> +\eta_{\mu\nu}\Box h\right].}
-> $$
+$$
+\boxed{
+G^{(1)}_{\mu\nu}=\frac12\left[
+\partial_\rho\partial_\mu h^\rho{}_\nu+
+\partial_\rho\partial_\nu h^\rho{}_\mu
+-\Box h_{\mu\nu}-\partial_\mu\partial_\nu h
+-\eta_{\mu\nu}\partial_\rho\partial_\sigma h^{\rho\sigma}
++\eta_{\mu\nu}\Box h\right].}
+$$
 >
 > $h$ が $C^3$ 級なら $\partial^\mu G^{(1)}_{\mu\nu}=0$ が恒等的に成り立つ。
 <!-- formal-statement-end -->
@@ -263,10 +263,10 @@ $$
 > **定義（線形ゲージ変換・純ゲージ摂動）**  
 > Minkowski背景上の線形摂動 $h_{\mu\nu}$ と、$\xi^\mu$ およびその一次・二次微分が弱場の尺度で $O(\epsilon)$ となる微小座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を取る。これに誘導される一次変換
 >
-> $$
-> \boxed{h'_{\mu\nu}=h_{\mu\nu}
-> -\partial_\mu\xi_\nu-\partial_\nu\xi_\mu}
-> $$
+$$
+\boxed{h'_{\mu\nu}=h_{\mu\nu}
+-\partial_\mu\xi_\nu-\partial_\nu\xi_\mu}
+$$
 >
 > を **線形ゲージ変換** と呼ぶ。二つの摂動がこの形で結ばれるとき一次までゲージ同値である。特に、$h_{\mu\nu}=-\partial_\mu\xi_\nu-\partial_\nu\xi_\mu$ と表せる摂動を **純ゲージ摂動** と呼ぶ。
 <!-- formal-statement-end -->
@@ -341,10 +341,10 @@ $$
 > **定義（4次元のトレース反転摂動）**  
 > 4次元Minkowski背景に対する対称線形摂動 $h_{\mu\nu}$ について
 >
-> $$
-> \boxed{\bar h_{\mu\nu}:=
-> h_{\mu\nu}-\frac12\eta_{\mu\nu}h}
-> $$
+$$
+\boxed{\bar h_{\mu\nu}:=
+h_{\mu\nu}-\frac12\eta_{\mu\nu}h}
+$$
 >
 > を **トレース反転摂動** と呼ぶ。ここで $h=\eta^{\alpha\beta}h_{\alpha\beta}$ である。
 <!-- formal-statement-end -->
@@ -377,18 +377,18 @@ $\bar h=-\bar h_{00}=4\varphi=-h$ となり、逆変換も元の $h$ を再現�
 > **命題（トレース反転のゲージ変換）**  
 > [線形ゲージ変換](#def-gr21-gauge-equivalence)の下で
 >
-> $$
-> \boxed{\bar h'_{\mu\nu}
-> =\bar h_{\mu\nu}-\partial_\mu\xi_\nu
-> -\partial_\nu\xi_\mu+\eta_{\mu\nu}\partial_\rho\xi^\rho}
-> $$
+$$
+\boxed{\bar h'_{\mu\nu}
+=\bar h_{\mu\nu}-\partial_\mu\xi_\nu
+-\partial_\nu\xi_\mu+\eta_{\mu\nu}\partial_\rho\xi^\rho}
+$$
 >
 > が成り立つ。さらに
 >
-> $$
-> \boxed{\partial^\mu\bar h'_{\mu\nu}
-> =\partial^\mu\bar h_{\mu\nu}-\Box\xi_\nu}
-> $$
+$$
+\boxed{\partial^\mu\bar h'_{\mu\nu}
+=\partial^\mu\bar h_{\mu\nu}-\Box\xi_\nu}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -444,10 +444,10 @@ $\square$
 > **定義（線形化した調和ゲージ）**  
 > Minkowski背景上の $C^2$ 級トレース反転摂動 $\bar h_{\mu\nu}$ が
 >
-> $$
-> \boxed{\partial^\mu\bar h_{\mu\nu}=0
-> \qquad(\nu=0,1,2,3)}
-> $$
+$$
+\boxed{\partial^\mu\bar h_{\mu\nu}=0
+\qquad(\nu=0,1,2,3)}
+$$
 >
 > を満たすとき、調和ゲージにあるという。
 <!-- formal-statement-end -->
@@ -464,15 +464,15 @@ $\square$
 > **定理（調和ゲージの線形化Einstein方程式）**  
 > 4次元Minkowski背景で $\Lambda=0$ とし、$C^3$ 級の計量族 $g(\epsilon)=\eta+h+O(\epsilon^2)$ が[線形摂動の微分尺度条件](#def-gr21-linear-perturbation)を満たすとする。物質テンソルも $T_{\mu\nu}(\epsilon)=T_{\mu\nu}^{(1)}+O(\epsilon^2)$ と展開でき、背景の物質テンソルは零とする。[Einstein場の方程式](../GR12/index.md#thm-gr12-einstein-equation)の一次項において、調和ゲージを選べば
 >
-> $$
-> \boxed{\Box\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}T_{\mu\nu}^{(1)}}
-> $$
+$$
+\boxed{\Box\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}T_{\mu\nu}^{(1)}}
+$$
 >
 > が成り立つ。整合条件として $\partial^\mu T_{\mu\nu}^{(1)}=0$ が必要である。さらに調和ゲージにある摂動へのゲージ変換が調和条件を保つ必要十分条件は
 >
-> $$
-> \boxed{\Box\xi_\nu=0}
-> $$
+$$
+\boxed{\Box\xi_\nu=0}
+$$
 >
 > である。一般の摂動からこのゲージへ移すには $\Box\xi_\nu=\partial^\mu\bar h_{\mu\nu}$ を解く必要があり、指定領域・初期境界条件での可解性は別途確認する。
 <!-- formal-statement-end -->
@@ -533,16 +533,16 @@ $$
 > **命題（静的等方弱場のPoisson極限）**  
 > 調和ゲージの弱場計量について
 >
-> $$
-> h_{00}=-2\Phi/c^2,\qquad h_{0i}=0,\qquad
-> h_{ij}=-2\Phi\delta_{ij}/c^2
-> $$
+$$
+h_{00}=-2\Phi/c^2,\qquad h_{0i}=0,\qquad
+h_{ij}=-2\Phi\delta_{ij}/c^2
+$$
 >
 > とし、$\partial_0\Phi=0$、$\Lambda=0$、物質の時間成分が $T_{00}^{(1)}=\rho c^2$（一次精度の主項）であるとする。このとき線形場の方程式の $00$ 成分は
 >
-> $$
-> \boxed{\Delta\Phi=4\pi G\rho}
-> $$
+$$
+\boxed{\Delta\Phi=4\pi G\rho}
+$$
 >
 > を与える。
 <!-- formal-statement-end -->
