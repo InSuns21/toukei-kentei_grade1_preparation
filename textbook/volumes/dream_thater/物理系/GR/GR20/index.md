@@ -44,7 +44,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr20-coordinate-flight-time -->
-**定義の確認。** $r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。計量を代入すると $ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2$ なので $d\tau_A=\sqrt{f(r_A)}\,dt$。例えば $r_A=4r_s$ なら同じ座標時間 $T$ に対して時計の経過は $\sqrt{3/4}\,T$ です。座標時間と固有時を取り違えないための確認です。
+**定義の確認。** $r=r_A>r_s$ に静止する時計では $dr=d\theta=d\phi=0$ です。[GR17の静止時計の固有時換算](../GR17/index.md#prop-gr17-static-clock)と同じように計量を代入すると $ds^2=-f(r_A)c^2dt^2=-c^2d\tau_A^2$ なので $d\tau_A=\sqrt{f(r_A)}\,dt$。例えば $r_A=4r_s$ なら同じ座標時間 $T$ に対して時計の経過は $\sqrt{3/4}\,T$ です。座標時間と固有時を取り違えないための確認です。
 <!-- definition-example-end -->
 
 光的条件に保存量を代入すると、[GR18の一階積分](../GR18/index.md#prop-gr18-null-radial)より
