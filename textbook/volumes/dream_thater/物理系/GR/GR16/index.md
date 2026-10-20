@@ -500,18 +500,18 @@ $$
 4. $M>0$ での領域制限と、Birkhoff定理を証明したわけではない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** (i) [GR15のRicci成分](../GR15/index.md#prop-gr15-static-ricci)について真空なので $R_{00}=R_{rr}=R_{\theta\theta}=0$。前二式を $e^{2(\Lambda_r-\Phi)}R_{00}+R_{rr}$ と組み合わせると $2(\Phi'+\Lambda_r')/r=0$、ゆえに $\Phi+\Lambda_r=C_t$ です。$f=e^{-2\Lambda_r}>0$ とすれば $\Phi'-\Lambda_r'=f'/f$。角度式は $0=1-f-rf'$、したがって $(rf)'=1$、積分して $f=1-a/r$。従って局所解は
+**詳細解答。** **（1）** [GR15のRicci成分](../GR15/index.md#prop-gr15-static-ricci)について真空なので $R_{00}=R_{rr}=R_{\theta\theta}=0$。前二式を $e^{2(\Lambda_r-\Phi)}R_{00}+R_{rr}$ と組み合わせると $2(\Phi'+\Lambda_r')/r=0$、ゆえに $\Phi+\Lambda_r=C_t$ です。$f=e^{-2\Lambda_r}>0$ とすれば $\Phi'-\Lambda_r'=f'/f$。角度式は $0=1-f-rf'$、したがって $(rf)'=1$、積分して $f=1-a/r$。従って局所解は
 
 $$
 ds^2=-e^{2C_t}(1-a/r)(dx^0)^2
 +(1-a/r)^{-1}dr^2+r^2d\Omega^2.
 $$
 
-(ii) $r\to\infty$ で $g_{00}\to-1$ により $e^{2C_t}=1$、$C_t=0$。[Newton極限](../GR13/index.md#def-gr13-newton-potential)で $g_{00}=-(1+2\Phi_N/c^2)$、$\Phi_N=-GM/r$ と比較すれば $a=2GM/c^2$。
+**（2）** $r\to\infty$ で $g_{00}\to-1$ により $e^{2C_t}=1$、$C_t=0$。[Newton極限](../GR13/index.md#def-gr13-newton-potential)で $g_{00}=-(1+2\Phi_N/c^2)$、$\Phi_N=-GM/r$ と比較すれば $a=2GM/c^2$。
 
-(iii) $f'=a/r^2$、$f''=-2a/r^3$、$\Phi'=f'/(2f)$、$\Lambda_r'=-f'/(2f)$。Ricciの時間・半径成分に共通する因子 $f''/2+f'/r=-a/r^3+a/r^3=0$、角度成分に共通する $1-f-rf'=0$。したがって $R_{00}=R_{rr}=R_{\theta\theta}=R_{\phi\phi}=0$。他成分は対称性から零です。
+**（3）** $f'=a/r^2$、$f''=-2a/r^3$、$\Phi'=f'/(2f)$、$\Lambda_r'=-f'/(2f)$。Ricciの時間・半径成分に共通する因子 $f''/2+f'/r=-a/r^3+a/r^3=0$、角度成分に共通する $1-f-rf'=0$。したがって $R_{00}=R_{rr}=R_{\theta\theta}=R_{\phi\phi}=0$。他成分は対称性から零です。
 
-(iv) $M>0$ で $a=r_s>0$。本章の正値指数関数の静的ゲージは $1-r_s/r>0$、すなわち $r>r_s$ に限ります。ここでの計算は最初から時間的Killing場と静的対角表示を仮定しています。時間依存を許す一般の球対称真空からこの仮定が従うことは示しておらず、それはBirkhoff定理の論点です。
+**（4）** $M>0$ で $a=r_s>0$。本章の正値指数関数の静的ゲージは $1-r_s/r>0$、すなわち $r>r_s$ に限ります。ここでの計算は最初から時間的Killing場と静的対角表示を仮定しています。時間依存を許す一般の球対称真空からこの仮定が従うことは示しておらず、それはBirkhoff定理の論点です。
 <!-- solution-end -->
 
 ---
