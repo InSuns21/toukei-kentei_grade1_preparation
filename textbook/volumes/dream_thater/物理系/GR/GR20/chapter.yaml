@@ -3,8 +3,6 @@ title: "Shapiro時間遅延"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - GR3
-  - GR14
   - GR16
   - GR17
   - GR18
