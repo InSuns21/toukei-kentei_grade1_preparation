@@ -1,0 +1,46 @@
+id: "HPDE18"
+title: "遅延・先進Green作用素の構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE17
+  - HPDE16
+  - HPDE12
+  - HPDE10
+  - HPDE5
+  - LORG20
+  - LORG16
+official_scope: []
+learning_objectives:
+  - コンパクトな源の支持より前後に滑らかなCauchy面を選び零データ応答を構成できる
+  - 大域Cauchy定理の因果的支持から遅延・先進支持を証明できる
+  - 零初期面を変えても解が変わらないことをCauchy一意性で証明できる
+  - Green作用素の正確な作用域と線形性およびPGf=fを証明できる
+  - 平坦波動の積分を検算してGreen解の非コンパクト支持を示せる
+  - 有限時間帯のコンパクト性と固定源支持での局所連続依存を示せる
+definitions:
+  - { id: HPDE18-DEF-01, name: 源に対する零Cauchyデータ応答 }
+  - { id: HPDE18-DEF-02, name: 遅延・先進Green作用素 }
+theorems:
+  - { id: HPDE18-LEM-01, name: 零Cauchyデータ応答の支持 }
+  - { id: HPDE18-PROP-01, name: 零初期面の選択からの独立性 }
+  - { id: HPDE18-THM-01, name: 遅延・先進Green作用素の構成と因果的支持 }
+  - { id: HPDE18-PROP-02, name: 固定コンパクト源に対する局所連続依存 }
+canonical_examples:
+  - Minkowski平面の時刻帯にある源と零Cauchy面
+  - 1+1次元の遅延・先進畳み込みとの一致
+  - 非負コンパクト源から生じる時空非コンパクト支持の遅延解
+problem_patterns:
+  - HPDE18-ZERO-DATA
+  - HPDE18-CONE-SLICE
+  - HPDE18-ZERO-SOURCE
+  - HPDE18-NONCOMPACT-OUTPUT
+  - HPDE18-SLICE-INDEPENDENCE
+  - HPDE18-LINEARITY
+  - HPDE18-SLAB-COMPACTNESS
+  - HPDE18-TIME-DIRECTION
+  - HPDE18-BUNDLE-CONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }

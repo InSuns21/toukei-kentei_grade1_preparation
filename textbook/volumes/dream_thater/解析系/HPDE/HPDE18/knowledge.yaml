@@ -1,0 +1,43 @@
+chapter: HPDE18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE17
+  - HPDE16
+  - HPDE12
+  - HPDE10
+  - HPDE5
+  - LORG20
+  - LORG16
+forward_references: []
+concepts:
+  - id: hpde.zero-cauchy-response
+    name: 源に対する零Cauchyデータ応答
+    kind: definition
+    introduction: formal
+    requires: [hpde.global-cauchy-theorem]
+  - id: hpde.green-zero-side-support
+    name: 零Cauchyデータ応答の支持
+    kind: lemma
+    introduction: formal
+    requires: [hpde.zero-cauchy-response, hpde.global-causal-support]
+  - id: hpde.green-slice-independence
+    name: 零初期面の選択からの独立性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.green-zero-side-support, hpde.global-cauchy-theorem]
+  - id: hpde.retarded-advanced-green
+    name: 遅延・先進Green作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.green-slice-independence]
+  - id: hpde.green-existence-support
+    name: 遅延・先進Green作用素の構成と因果的支持
+    kind: theorem
+    introduction: formal
+    requires: [hpde.retarded-advanced-green, hpde.green-zero-side-support, hpde.global-cauchy-theorem]
+  - id: hpde.green-fixed-support-continuity
+    name: 固定コンパクト源に対する局所連続依存
+    kind: proposition
+    introduction: formal
+    requires: [hpde.green-existence-support, hpde.cauchy-local-stability]
