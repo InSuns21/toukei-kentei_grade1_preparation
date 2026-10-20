@@ -245,7 +245,7 @@ $$
 
 ### 証明の見取り図
 
-差のデータを[足跡 $K_Q,D_Q$](#def-hpde17-causal-footprint)の近くでコンパクト支持へ切り出します。差の解は $Q$ 上でその切り出し解と一致します。コンパクト支持の解には[HPDE16の束値高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を使い、有限個の座標箱でのSobolev埋込みから $C^k$ ノルムへ移します。
+まず $Q$ を内部に含むコンパクトな $Q'$ を取り、差のデータを[足跡 $K_{Q'},D_{Q'}$](#def-hpde17-causal-footprint)の近くでコンパクト支持へ切り出します。差の解は開集合 $\operatorname{int}Q'$ 上でその切り出し解と一致し、$Q$ 上では導関数も一致します。コンパクト支持の解には[HPDE16の束値高階評価](../HPDE16/index.md#lem-hpde16-bundle-energy)を使い、有限個の座標箱でのSobolev埋込みから $C^k$ ノルムへ移します。
 
 <!-- proof-start -->
 ### 証明
