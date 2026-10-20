@@ -300,7 +300,7 @@ $$
 
 $C\ge1/(8\gamma^2)$ なら $a=1/(8\gamma^2)$ で全偏導関数が0。$C<1/(8\gamma^2)$ なら $a=C$ で全偏導関数は正であり、実行可能な各座標の変化は $\delta\alpha_i\le0$ だから、方向微分 $\sum_i(\partial_iD)\delta\alpha_i\le0$。核の半正定値性により $D$ は凹であるため、いずれも双対大域最大点である。
 
-対応する主変数を $w=\sum_i\alpha_iy_i\phi_\gamma(x_i)$、$b=0$、$\xi_i=\max(0,1-8a\gamma^2)$ とし、スラックの非負制約の双対変数を $\beta_i=C-a$ と置く。$a\le C$ だから $\beta_i\ge0$ であり、先に確かめた $\sum_i\alpha_iy_i=0$ と合わせて双対実行可能性が成り立つ。
+ここで $\phi_\gamma:\mathbb R^2\to\mathbb R^6$ が核を内積として表しているため、[RKHS5の線形ソフトマージンKKT条件](../../RKHS/RKHS5/index.md#thm-rkhs5-kkt)は入力 $x_i$ を特徴ベクトル $\phi_\gamma(x_i)$ に置き換えて適用できる。対応する主変数を $w=\sum_i\alpha_iy_i\phi_\gamma(x_i)$、$b=0$、$\xi_i=\max(0,1-8a\gamma^2)$ とし、スラックの非負制約の双対変数を $\beta_i=C-a$ と置く。$a\le C$ だから $\beta_i\ge0$ であり、先に確かめた $\sum_i\alpha_iy_i=0$ と合わせて双対実行可能性が成り立つ。
 
 $a<C$ なら $a=1/(8\gamma^2)$ なので $t_i=1$、$\xi_i=0$ である。一方 $a=C$ なら $t_i=8C\gamma^2\le1$ で、$\xi_i=1-t_i\ge0$ となる。いずれも
 
