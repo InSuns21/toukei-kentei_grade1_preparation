@@ -1,0 +1,51 @@
+chapter: HPDE15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE14
+  - HPDE11
+  - HPDE10
+  - HPDE5
+  - HPDE1
+  - PDE4
+  - LORG20
+  - LORG16
+  - LORG15
+  - LORG13
+forward_references: []
+concepts:
+  - id: hpde.cauchy-patch
+    name: Cauchyパッチ
+    kind: definition
+    introduction: formal
+    requires: [hpde.local-cauchy-existence, lorentz-geometry.domain-of-dependence]
+  - id: hpde.patch-overlap
+    name: Cauchyパッチの重なり
+    kind: lemma
+    introduction: formal
+    requires: [hpde.cauchy-patch, hpde.local-cone-uniqueness]
+  - id: hpde.compact-collar-gluing
+    name: コンパクトな初期面部分の貼り合わせ
+    kind: theorem
+    introduction: formal
+    requires: [hpde.patch-overlap, hpde.local-cauchy-existence]
+  - id: hpde.partition-commutator
+    name: 分割関数と作用素の交換子
+    kind: lemma
+    introduction: formal
+    requires: [hpde.cutoff-commutator]
+  - id: hpde.corrected-partition
+    name: 加重和の残差と局所補正
+    kind: proposition
+    introduction: formal
+    requires: [hpde.partition-commutator, hpde.local-cauchy-existence]
+  - id: hpde.slab-continuation
+    name: 有限個のパッチによる時間スライス延長
+    kind: theorem
+    introduction: formal
+    requires: [hpde.compact-collar-gluing, hpde.patch-overlap]
+  - id: hpde.diamond-consistency
+    name: 因果ダイヤモンド上の整合性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.patch-overlap, lorentz-geometry.global-hyperbolicity]
