@@ -71,7 +71,7 @@ d_x\sigma(w)
 \end{aligned}
 $$
 
-始点を固定したので $W(0)=0$、[Lorentz測地線と因果型保存の命題](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)から $\nabla_s\dot\gamma=0$ です。したがって $Z_x=\dot\gamma(1)$。また $\exp_y(sv)$ を終点とする区間 $[0,1]$ 上の測地線は $u\mapsto\exp_y(usv)$ であり、終端速度は $s\dot\gamma(s)$。最後に
+始点を固定したので $W(0)=0$、[Lorentz測地線と因果型保存](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)から $\nabla_s\dot\gamma=0$ です。したがって $Z_x=\dot\gamma(1)$。また $\exp_y(sv)$ を終点とする区間 $[0,1]$ 上の測地線は $u\mapsto\exp_y(usv)$ であり、終端速度は $s\dot\gamma(s)$。最後に
 
 $$
 g_x(Z_x,Z_x)=g_y(v,v)=2\sigma(x,y)
