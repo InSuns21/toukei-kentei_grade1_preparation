@@ -1,0 +1,67 @@
+chapter: GR21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR12
+  - GR13
+concepts:
+  - id: gravity.linearized-minkowski-perturbation
+    name: Minkowski背景の線形計量摂動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Minkowski背景の線形計量摂動）"]
+    requires: [gravity.einstein-field-equation, gravity.newtonian-weak-field-potential]
+  - id: gravity.linearized-curvature
+    name: 接続・Ricci・スカラー曲率の一次式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接続・Ricci・スカラー曲率の一次式）"]
+    requires: [gravity.linearized-minkowski-perturbation]
+  - id: gravity.linearized-einstein-tensor
+    name: 線形化Einsteinテンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形化Einsteinテンソル）"]
+    requires: [gravity.linearized-curvature, gravity.einstein-tensor]
+  - id: gravity.linearized-gauge-equivalence
+    name: 線形ゲージ変換・純ゲージ摂動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形ゲージ変換・純ゲージ摂動）"]
+    requires: [gravity.linearized-minkowski-perturbation]
+  - id: gravity.linearized-gauge-invariance
+    name: 一次曲率のゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次曲率のゲージ不変性）"]
+    requires: [gravity.linearized-curvature, gravity.linearized-gauge-equivalence]
+  - id: gravity.linearized-trace-reverse
+    name: 4次元のトレース反転摂動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（4次元のトレース反転摂動）"]
+    requires: [gravity.linearized-minkowski-perturbation]
+  - id: gravity.linearized-trace-gauge
+    name: トレース反転のゲージ変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（トレース反転のゲージ変換）"]
+    requires: [gravity.linearized-gauge-equivalence, gravity.linearized-trace-reverse]
+  - id: gravity.linearized-harmonic-gauge
+    name: 線形化した調和ゲージ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形化した調和ゲージ）"]
+    requires: [gravity.linearized-trace-reverse]
+  - id: gravity.linearized-harmonic-wave
+    name: 調和ゲージの線形化Einstein方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（調和ゲージの線形化Einstein方程式）"]
+    requires: [gravity.linearized-einstein-tensor, gravity.linearized-trace-gauge, gravity.linearized-harmonic-gauge, gravity.einstein-field-equation]
+  - id: gravity.linearized-newton-check
+    name: 静的等方弱場のPoisson極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的等方弱場のPoisson極限）"]
+    requires: [gravity.linearized-harmonic-wave, gravity.newtonian-poisson-limit]
