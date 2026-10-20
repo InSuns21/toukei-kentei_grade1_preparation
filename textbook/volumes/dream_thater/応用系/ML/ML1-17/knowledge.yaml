@@ -1,0 +1,40 @@
+chapter: ML1-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-16
+  - ML1-08
+  - ML1-12
+  - RKHS4
+  - RKHS5
+concepts:
+  - id: learning.svm-applied-score-convention
+    name: SVM得点の予測規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SVM得点の予測規則）"]
+    requires: [learning.boosting-additive-score]
+  - id: learning.svm-training-margin-audit
+    name: SVMの訓練マージン表
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SVMの訓練マージン表）"]
+    requires: [learning.svm-applied-score-convention]
+  - id: learning.svm-hinge-training-error-bound
+    name: 経験ヒンジ損失による訓練誤りの上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（経験ヒンジ損失による訓練誤りの上界）"]
+    requires: [learning.svm-training-margin-audit]
+  - id: learning.svm-two-point-path
+    name: 対称2点のソフトマージン解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称2点のソフトマージン解）"]
+    requires: [learning.svm-training-margin-audit]
+  - id: learning.svm-xor-symmetric-solution
+    name: XORに対する核SVMの対称解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（XORに対する核SVMの対称解）"]
+    requires: [learning.svm-training-margin-audit]
