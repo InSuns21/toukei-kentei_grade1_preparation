@@ -1,0 +1,49 @@
+id: "HPDE17"
+title: "大域安定性と因果的な解の支持"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE16
+  - HPDE10
+  - HPDE9
+  - HPDE5
+  - LORG20
+  - LORG16
+official_scope: []
+learning_objectives:
+  - コンパクト観測域の因果的足跡を定義し、そのコンパクト性を大域双曲性から導ける
+  - 非コンパクトな滑らかなCauchyデータと源を切断関数で局所化し、解の局所一致を証明できる
+  - コンパクトな尽くし方から互いに整合する大域解を構成し、一意性を証明できる
+  - コンパクト開C∞位相を例で判定し、局所Sobolev評価から連続依存を導ける
+  - 初期データと源の非コンパクト支持に対する未来・過去の片側因果支持を示せる
+  - 全空間一様なポテンシャル係数界の下で高階エネルギー評価を導ける
+  - 係数が非一様な例で全空間Sobolev安定性が失敗する機構を検算できる
+definitions:
+  - { id: HPDE17-DEF-01, name: コンパクト観測域の因果的足跡 }
+  - { id: HPDE17-DEF-02, name: 滑らかな切断のコンパクト開C∞位相 }
+theorems:
+  - { id: HPDE17-LEM-01, name: 足跡のコンパクト性 }
+  - { id: HPDE17-LEM-02, name: 因果的足跡で一致するデータの局所一致 }
+  - { id: HPDE17-THM-01, name: 任意の滑らかなデータの大域Cauchy解 }
+  - { id: HPDE17-THM-02, name: 大域Cauchy解の局所連続依存 }
+  - { id: HPDE17-PROP-01, name: 非コンパクトデータの片側因果支持 }
+  - { id: HPDE17-THM-03, name: 一様係数の平坦波動に対する全空間高階安定性 }
+canonical_examples:
+  - Minkowski空間の区間観測点と初期面への因果的足跡
+  - 一定初期値の非コンパクトCauchy解
+  - 並進した滑らかな関数列の局所位相収束とL2非収束
+  - 負の非一様ポテンシャルによるcosh増幅と全空間一様評価の破綻
+problem_patterns:
+  - HPDE17-FOOTPRINT
+  - HPDE17-NONCOMPACT-DATA
+  - HPDE17-LOCAL-TOPOLOGY
+  - HPDE17-ONE-SIDED-SOURCE
+  - HPDE17-CUTOFF-CONSISTENCY
+  - HPDE17-COMMUTATOR-ENERGY
+  - HPDE17-UNBOUNDED-POTENTIAL
+  - HPDE17-SPATIAL-SUPPORT
+  - HPDE17-GLOBAL-GLUING-STABILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 8 }
