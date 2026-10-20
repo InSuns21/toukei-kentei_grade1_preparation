@@ -85,7 +85,7 @@ chapters:
     title: "近日点移動と有効ポテンシャル"
   - id: GR20
     path: textbook/volumes/dream_thater/物理系/GR/GR20
-    status: planned
+    status: completed
     title: "Shapiro時間遅延"
   - id: GR21
     path: textbook/volumes/dream_thater/物理系/GR/GR21

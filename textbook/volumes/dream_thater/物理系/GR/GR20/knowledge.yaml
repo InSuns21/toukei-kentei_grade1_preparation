@@ -1,0 +1,44 @@
+chapter: GR20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR16
+  - GR17
+  - GR18
+concepts:
+  - id: gravity.schwarzschild-coordinate-flight-time
+    name: Schwarzschild座標伝播時間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Schwarzschild座標伝播時間）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-null-time-integral
+    name: Schwarzschild光線の座標時間積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild光線の座標時間積分）"]
+    requires: [gravity.schwarzschild-coordinate-flight-time, gravity.schwarzschild-null-radial-equation]
+  - id: gravity.schwarzschild-isotropic-exterior
+    name: Schwarzschild静的外部の等方表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild静的外部の等方表示）"]
+    requires: [gravity.schwarzschild-vacuum-metric]
+  - id: gravity.shapiro-coordinate-excess
+    name: 固定等方座標端点のShapiro座標時間超過
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定等方座標端点のShapiro座標時間超過）"]
+    requires: [gravity.schwarzschild-coordinate-flight-time, gravity.schwarzschild-isotropic-exterior]
+  - id: gravity.shapiro-weak-first-order
+    name: Shapiro時間遅延の弱場一次式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Shapiro時間遅延の弱場一次式）"]
+    requires: [gravity.shapiro-coordinate-excess, gravity.schwarzschild-isotropic-exterior, gravity.schwarzschild-null-time-integral]
+  - id: gravity.shapiro-radar-echo
+    name: 静止時計での往復エコー時間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止時計での往復エコー時間）"]
+    requires: [gravity.shapiro-weak-first-order, gravity.schwarzschild-isotropic-exterior]
