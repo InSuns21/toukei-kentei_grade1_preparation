@@ -597,7 +597,7 @@ b=20r_s\sqrt{\frac{20}{19}}>0,
 $$
 $b>b_c$ は、光子球外側では $W(r_0)<W_{\max}$ なので $1/b^2=W(r_0)<1/b_c^2$ からも分かります。
 
-(3) 静止直交枠の時間成分は $k^{\hat0}=\mathcal E/\sqrt{f}$、角度成分は $k^{\hat\phi}=\mathcal L/r$。光的条件から $\sin\alpha=|k^{\hat\phi}|/k^{\hat0}=b\sqrt f/r$。$r=r_0$ に (2) の $b$ を代入すると $\sin\alpha=1$。さらに基底射影から $\cos\alpha=\dot r/\mathcal E=0$ です。よって $\alpha=\pi/2$、光は接線方向を向きます。折返しの前後では $\dot r$ の符号が負から正へ変わるので、入射方向と出射方向も区別できます。
+(3) [GR4の局所直交枠による測定成分](../GR4/index.md#def-gr4-measured-components)をSchwarzschild静止観測者へ適用します。$r_0>r_s$ で $f(r_0)>0$ なので直交枠を規格化でき、その時間成分は $k^{\hat0}=\mathcal E/\sqrt{f}$、角度成分は $k^{\hat\phi}=\mathcal L/r$ です。光的条件から $\sin\alpha=|k^{\hat\phi}|/k^{\hat0}=b\sqrt f/r$。$r=r_0$ に (2) の $b$ を代入すると $\sin\alpha=1$。さらに基底射影から $\cos\alpha=\dot r/\mathcal E=0$ です。よって $\alpha=\pi/2$、光は接線方向を向きます。折返しの前後では $\dot r$ の符号が負から正へ変わるので、入射方向と出射方向も区別できます。
 
 (4) 小量は $\varepsilon=(1/20)\sqrt{19/20}\approx0.0487$ です。[Schwarzschild光線の弱場屈曲角](#thm-gr18-weak-bending)で
 $$
