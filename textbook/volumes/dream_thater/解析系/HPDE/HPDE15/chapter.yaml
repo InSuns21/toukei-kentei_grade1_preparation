@@ -1,0 +1,51 @@
+id: "HPDE15"
+title: "局所解から大域解への貼り合わせ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE14
+  - HPDE11
+  - HPDE10
+  - HPDE5
+  - HPDE1
+  - PDE4
+  - LORG20
+  - LORG16
+  - LORG15
+  - LORG13
+official_scope: []
+learning_objectives:
+  - Cauchyパッチと依存領域の交わりを定義・計算し共通の初期足跡を識別できる
+  - 同じ源と二つの初期データを持つパッチの重なり一致を有限伝播と一意性から証明できる
+  - コンパクト初期面部分で局所存在から有限パッチと共通時間幅を構成できる
+  - 分割関数で生じる作用素交換子を中間式から導出し無補正の和を否定できる
+  - 時間スライス延長でCauchyデータと重なりの一致を確認できる
+  - 因果ダイヤモンドのコンパクト性と大域解存在の未証明部分を区別できる
+definitions:
+  - { id: HPDE15-DEF-01, name: Cauchyパッチ }
+theorems:
+  - { id: HPDE15-LEM-01, name: Cauchyパッチの重なり }
+  - { id: HPDE15-THM-01, name: コンパクトな初期面部分の貼り合わせ }
+  - { id: HPDE15-LEM-02, name: 分割関数と作用素の交換子 }
+  - { id: HPDE15-PROP-01, name: 加重和の残差と局所補正 }
+  - { id: HPDE15-THM-02, name: 有限個のパッチによる時間スライス延長 }
+  - { id: HPDE15-PROP-02, name: 因果ダイヤモンド上の整合性 }
+canonical_examples:
+  - 平坦時空の区間依存領域とパッチの交わり
+  - 波動作用素と分割関数の交換子の直接計算
+  - 時間スライスで法線速度を一致させない接合によるデルタ源
+  - 非コンパクト面の局所幅が零へ近づく例
+problem_patterns:
+  - HPDE15-DOMAIN-INTERSECTION
+  - HPDE15-PATCH-DEFINITION
+  - HPDE15-COMMUTATOR
+  - HPDE15-FINITE-COVER
+  - HPDE15-CORRECTION
+  - HPDE15-OVERLAP-UNIQUENESS
+  - HPDE15-SLAB-JUMP
+  - HPDE15-INDEPENDENCE
+  - HPDE15-COMPACT-GLUING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
