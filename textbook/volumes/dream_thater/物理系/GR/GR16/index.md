@@ -215,19 +215,19 @@ $$
 <!-- definition-example-start: def-gr16-schwarzschild-radius -->
 **定義の確認**（正質量の静的外部）。 $G,c>0$、$M>0$ を固定し、$r=2r_s$ の球面を選びます。$r_s=2GM/c^2>0$ なので $2r_s>r_s>0$ です。球面の接基底 $\partial_\theta,\partial_\phi$ に計量を制限すると、誘導計量は $(2r_s)^2d\Omega^2$ です。[GR15の面積半径の定義](../GR15/index.md#def-gr15-areal-radius)を直接確かめるため、この基底での二次元計量行列と面積密度を作ります。
 
-$
+$$
 (h_{AB})=(2r_s)^2\begin{pmatrix}1&0\\0&\sin^2\theta\end{pmatrix},\qquad
 \det(h_{AB})=(2r_s)^4\sin^2\theta.
-$
+$$
 
 局所角度域 $0<\theta<\pi$ では $\sin\theta>0$ なので、面積密度は $\sqrt{\det h}=(2r_s)^2\sin\theta$ です。極での球座標の退化は面積積分に影響しません。したがって
 
-$
+$$
 \mathcal A=\int_0^{2\pi}\!\int_0^\pi
 (2r_s)^2\sin\theta\,d\theta\,d\phi
 =4\pi(2r_s)^2,\qquad
 \sqrt{\frac{\mathcal A}{4\pi}}=2r_s.
-$
+$$
 
 この計算で、座標の値だけから半径と呼んだのではなく、定義どおり面積から $2r_s$ を確認しました。続いて静的係数を調べます。
 
@@ -329,20 +329,20 @@ $M\ne0$ なら $\sin\theta\ne0$ の局所座標域で非零です。曲率テン
 
 球面接方向の曲率成分を規格化するときは、座標基底を**単位長の接ベクトル**に取り替えます。球面誘導計量は $g_{\theta\theta}=r^2$、$g_{\phi\phi}=r^2\sin^2\theta$、$g_{\theta\phi}=0$ なので、$r>0,\ 0<\theta<\pi$ で
 
-$
+$$
 e_{\hat\theta}=\frac1r\partial_\theta,\qquad
 e_{\hat\phi}=\frac1{r\sin\theta}\partial_\phi,
 \qquad g(e_{\hat\theta},e_{\hat\phi})=0.
-$
+$$
 
 両ベクトルのノルムは1です。曲率テンソルは各引数について線形だから、四つの添字にこの基底を代入すると
 
-$
+$$
 R_{\hat\theta\hat\phi\hat\theta\hat\phi}
 =\frac{R_{\theta\phi\theta\phi}}{r^4\sin^2\theta}
 =\frac{R_{\theta\phi\theta\phi}}{g_{\theta\theta}g_{\phi\phi}}
 =\frac{2GM}{c^2r^3}.
-$
+$$
 
 これは質量が零でないと真空外部に潮汐が残ることを示す一つの量です。ただし一成分が有限というだけで、任意の座標に依存しない曲率不変量が有限とは結論できません。地平線での不変量と延長の検証はGR25で行います.
 
