@@ -229,10 +229,10 @@ $$
 > **命題（形式的双対もnormally hyperbolic）**  
 > 第1節の $P$ に対し、密度値双対束 $F=E^*\otimes|\Lambda^dT^*M|$ 上の形式的双対 $P^t$ はnormally hyperbolic作用素である。この作用素の遅延・先進Green作用素は次の写像として存在する。
 
-$
+$$
 G_{\mathrm{ret}}^{P^t},G_{\mathrm{adv}}^{P^t}:
 \Gamma_c(M,F)\longrightarrow\Gamma(M,F).
-$
+$$
 
 > 両作用素は各々の因果的支持条件と両側恒等式を満たす。
 <!-- formal-statement-end -->
@@ -520,15 +520,15 @@ $(M,g)$ は境界なしの滑らかな大域双曲時空、$E\to M$ は有限ラ
 
 (iii) [形式的双対もnormally hyperbolic](#prop-hpde19-transpose-hyperbolic)であることは、第5節の二階主シンボルの計算
 
-$
+$$
 \sigma_2(P^t)(x,\xi)=-g_x^{-1}(\xi,\xi)I
-$
+$$
 
 で確認しました。従って $P^t$ の先進Green作用素が存在します。二つの解を次のように置きます。
 
-$
+$$
 u=G_{\mathrm{ret}}^Pf,\qquad v=G_{\mathrm{adv}}^{P^t}\psi.
-$
+$$
 
 すると $Pu=f$、$P^tv=\psi$ であり、
 
