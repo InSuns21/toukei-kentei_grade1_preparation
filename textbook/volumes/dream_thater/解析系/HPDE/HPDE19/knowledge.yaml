@@ -1,0 +1,49 @@
+chapter: HPDE19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE18
+  - HPDE16
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - HPDE12
+  - LORG20
+  - LORG16
+forward_references: []
+concepts:
+  - id: hpde.green-two-sided-identity
+    name: Green作用素の両側恒等式
+    kind: proposition
+    introduction: formal
+    requires: [hpde.green-existence-support, hpde.global-cauchy-theorem]
+  - id: hpde.causal-green-candidate
+    name: 因果的Green候補
+    kind: definition
+    introduction: formal
+    requires: [hpde.retarded-advanced-green, hpde.global-causal-support]
+  - id: hpde.causal-green-uniqueness
+    name: 因果的Green候補の一意性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.causal-green-candidate, hpde.global-cauchy-theorem]
+  - id: hpde.causal-future-past-compact-overlap
+    name: 因果的な未来と過去の重なり
+    kind: lemma
+    introduction: formal
+    requires: [hpde.compact-causal-shadow]
+  - id: hpde.transpose-normally-hyperbolic
+    name: 形式的双対もnormally hyperbolic
+    kind: proposition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic-operator, hpde.formal-transpose]
+  - id: hpde.green-transpose-pairing
+    name: Green作用素の転置と時間方向の反転
+    kind: theorem
+    introduction: formal
+    requires: [hpde.causal-future-past-compact-overlap, hpde.transpose-normally-hyperbolic, hpde.formal-transpose]
+  - id: hpde.hermitian-green-pairing
+    name: Hermite随伴とのGreen対
+    kind: corollary
+    introduction: formal
+    requires: [hpde.green-transpose-pairing, hpde.formal-adjoint]

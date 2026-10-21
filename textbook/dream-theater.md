@@ -403,6 +403,7 @@
 16. [HPDE16 大域Cauchy問題の存在一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE16/index.md)
 17. [HPDE17 大域安定性と因果的な解の支持](textbook/volumes/dream_thater/解析系/HPDE/HPDE17/index.md)
 18. [HPDE18 遅延・先進Green作用素の構成](textbook/volumes/dream_thater/解析系/HPDE/HPDE18/index.md)
+19. [HPDE19 Green作用素の恒等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE19/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
