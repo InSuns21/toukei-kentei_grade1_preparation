@@ -1,0 +1,64 @@
+chapter: ML1-21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-20
+  - ML1-15
+  - ML1-13
+  - ML1-12
+  - F0-00P3A
+concepts:
+  - id: learning.covariate-shift
+    name: 共変量シフト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変量シフト）"]
+    requires: [learning.population-risk]
+  - id: learning.covariate-shift-risk-identity
+    name: 共変量シフトのリスク重み付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共変量シフトのリスク重み付け）"]
+    requires: [learning.covariate-shift, learning.population-risk]
+  - id: learning.label-shift
+    name: ラベルシフト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ラベルシフト）"]
+    requires: [learning.population-risk]
+  - id: learning.label-shift-risk-identity
+    name: ラベルシフトのリスク重み付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ラベルシフトのリスク重み付け）"]
+    requires: [learning.label-shift, learning.population-risk]
+  - id: learning.missing-label-mechanisms
+    name: MCAR・MAR・MNAR：目的変数欠測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MCAR・MAR・MNAR：目的変数欠測）"]
+    requires: [learning.population-risk]
+  - id: learning.missing-label-ipw
+    name: MAR下での逆回答確率重み付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（MAR下での逆回答確率重み付け）"]
+    requires: [learning.missing-label-mechanisms]
+  - id: learning.missing-label-nonidentifiability
+    name: 欠測下の陽性率の非識別性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（欠測下の陽性率の非識別性）"]
+    requires: [learning.missing-label-mechanisms]
+  - id: learning.covariate-shift-mar-weighting
+    name: 共変量シフトとMARの積重み恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変量シフトとMARの積重み恒等式）"]
+    requires: [learning.covariate-shift-risk-identity, learning.missing-label-ipw]
+  - id: learning.shift-aware-evaluation
+    name: シフト下の訓練・検証・テスト手順
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シフト下の訓練・検証・テスト手順）"]
+    requires: [learning.train-validation-test-split, learning.binary-brier-score]
