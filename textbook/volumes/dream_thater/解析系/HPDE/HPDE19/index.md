@@ -215,7 +215,7 @@ $$
 
 [HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を使います。$d=\dim M$、密度束を $|\Lambda^dT^*M|$ とし、$F=E^*\otimes|\Lambda^dT^*M|$ と書きます。$P^t$ はこの束の切断に作用する微分作用素で、代数的双対を使うため**複素数の場合も係数を共役しません**。
 
-二階の主シンボルだけを見ると、局所表示 $P=\sum_{i,j}A^{ij}\partial_i\partial_j+$（一階以下）で、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
+二階の主シンボルだけを見ると、局所表示で $P$ の二階係数を $A^{ij}$ と書くと、、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
 
 $$
 \sigma_2(P^t)(x,\xi)=-g_x^{-1}(\xi,\xi)\operatorname{id}_{F_x}.
@@ -227,7 +227,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（形式的双対もnormally hyperbolic）**  
-> 第1節の $P$ に対し、密度値双対束 $F=E^*\otimes|\Lambda^dT^*M|$ 上の形式的双対 $P^t$ はnormally hyperbolic作用素である。したがって $P^t$ には遅延・先進Green作用素 $G_{\mathrm{ret}}^{P^t},G_{\mathrm{adv}}^{P^t}:\Gamma_c(M,F)\to\Gamma(M,F)$ が存在し、各々の因果的支持条件と両側恒等式を満たす。
+> 第1節の $P$ に対し、密度値双対束 $F=E^*\otimes|\Lambda^dT^*M|$ 上の形式的双対 $P^t$ はnormally hyperbolic作用素である。この作用素の遅延・先進Green作用素は次の写像として存在する。
+
+$
+G_{\mathrm{ret}}^{P^t},G_{\mathrm{adv}}^{P^t}:
+\Gamma_c(M,F)\longrightarrow\Gamma(M,F).
+$
+
+> 両作用素は各々の因果的支持条件と両側恒等式を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
