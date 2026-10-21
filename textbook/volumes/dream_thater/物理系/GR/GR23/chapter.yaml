@@ -1,0 +1,48 @@
+id: "GR23"
+title: "四重極放射の近似とエネルギー流"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR8
+  - GR21
+  - GR22
+official_scope: []
+learning_objectives:
+  - 局在・保存・低速・遠方・波動領域の条件を区別し、遅延解の先頭項を導出できる
+  - 保存則と境界項の消失から単極・双極の保存と応力の四重極恒等式を証明できる
+  - 質量四重極の無跡性とTT射影への対応を直接計算できる
+  - 線形波動方程式の遅延解から四重極波形と二偏極を係数・次元付きで導ける
+  - 弱場TT波の二次エネルギー収支・平均流束を一次波形と区別できる
+  - 球面上の二次・四次方向平均を使って放射パワーの係数1/5を導ける
+  - Newton円軌道二体系の二倍角周波数・二偏極・四重極パワーを再計算できる
+  - 自己重力源における保存条件と放射反作用の近似上の留保を判定できる
+definitions:
+  - { id: GR23-DEF-01, name: 局在・低速の放射源と波動領域 }
+  - { id: GR23-DEF-02, name: 質量四重極モーメント }
+  - { id: GR23-DEF-03, name: 遠方TT波の平均エネルギー流束 }
+theorems:
+  - { id: GR23-THM-01, name: 単極・双極の保存と応力の四重極恒等式 }
+  - { id: GR23-THM-02, name: 先頭四重極波形 }
+  - { id: GR23-THM-03, name: 四重極放射の角度分布と総パワー }
+  - { id: GR23-PROP-01, name: Newton円軌道二体系の先頭四重極放射 }
+canonical_examples:
+  - 静的な局在源では波動領域を定義できず放射しない
+  - 二点配置の二次モーメントと無跡化の検算
+  - TT射影で縦成分と空間跡を除く
+  - 単一plus偏極の周期平均と単位検算
+  - 円軌道二体系の二倍角波形と放射パワー
+problem_patterns:
+  - GR23-CONTINUITY-UNITS
+  - GR23-TRACE-FREE-QUADRUPOLE
+  - GR23-DIPOLE-CONSERVATION
+  - GR23-TT-PROJECTION
+  - GR23-FLUX-POLARIZATION-FACTORS
+  - GR23-STRESS-MOMENT-IDENTITY
+  - GR23-ANGULAR-PROJECTOR-INTEGRAL
+  - GR23-NONCONSERVATIVE-POINT-SOURCE
+  - GR23-FAR-LOW-SPEED-CONDITIONS
+  - GR23-CIRCULAR-BINARY-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
