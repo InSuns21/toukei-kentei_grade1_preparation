@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-02 Bayes線形回帰の事後予測ラボ</title>
+<style>
+:root{color-scheme:light dark; font-family:system-ui,"Noto Sans JP",sans-serif}
+body{max-width:980px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.45rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.controls label{display:block;border:1px solid #8888;border-radius:10px;padding:12px}
+input[type=range]{width:100%}
+figure{margin:16px 0}
+svg{width:100%;background:#fff;color:#20242a;border:1px solid #8888;border-radius:10px}
+#results{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;padding:0}
+#results li{list-style:none;padding:10px;border:1px solid #8888;border-radius:6px}
+.legend{display:flex;flex-wrap:wrap;gap:16px}
+small{display:block}
+.key{display:inline-block;width:16px;height:9px;margin-right:5px}
+.pred{background:#dba34b}.latent{background:#4e8bc0}.mean{background:#292929}
+.axis{stroke:#777;stroke-width:1}.tick{fill:currentColor;font-size:11px}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-02/index">← ML2-02 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>ML2-02 Bayes線形回帰・事後予測</h1>
+<p>一係数の模型 <strong>Y = βx + ε</strong>。係数の事前分布は N(0, τ²)、独立雑音は N(0, σ²) です。固定された観測候補から先頭 n 件を使用し、各操作で事後分布を再計算します。</p>
+<section class="controls" aria-label="模型パラメータ">
+<label>係数の事前分散 τ² <output id="priorValue">2.0</output><input id="prior" type="range" min="0.2" max="9.8" step="0.2" value="2" aria-label="事前分散"></label>
+<label>観測雑音分散 σ² <output id="noiseValue">1.0</output><input id="noise" type="range" min="0.2" max="4.0" step="0.2" value="1" aria-label="雑音分散"></label>
+<label>使用する観測数 n <output id="countValue">4</output><input id="count" type="range" min="1" max="6" step="1" value="4" aria-label="観測数"></label>
+</section>
+<figure>
+<svg id="plot" viewBox="0 0 850 390" role="img" aria-label="係数事後予測。オレンジが新観測の95パーセント予測帯、青が平均応答の95パーセント信用帯。黒線が事後平均、点が観測値。" xmlns="http://www.w3.org/2000/svg"></svg>
+<figcaption><span class="legend"><span><i class="key pred"></i>新観測の約95%予測区間</span><span><i class="key latent"></i>平均応答の約95%信用区間</span><span><i class="key mean"></i>事後平均</span><span>● 観測値</span></span></figcaption>
+</figure>
+<ul id="results" aria-live="polite"></ul>
+<p>計算式：事後精度 <code>1/τ² + Σxᵢ²/σ²</code>、事後平均 <code>(Σxᵢyᵢ/σ²) / 事後精度</code>。位置 x における潜在平均の分散は <code>x² S</code>、新観測の予測分散は <code>σ² + x² S</code> です。</p>
+<p><strong>観察のポイント：</strong>雑音分散を変更すると、同じ観測値に対する信頼度が変わります。観測数を増やすと一般に係数分散は減りますが、未来の雑音成分 σ² は残ります。このラボではデータ候補そのものは固定され、雑音分散変更時にデータを再生成しません。</p>
+<script type="module">
+"use strict";
+import { computePosterior } from "./ml2-02-model.mjs";
+const ns="http://www.w3.org/2000/svg";
+const data=[[-3,-2.8],[-2,-1.85],[-1,-1.1],[1,1.2],[2,2.05],[3,2.85]];
+const $=id=>document.getElementById(id);
+function el(tag,attrs,txt){
+  const e=document.createElementNS(ns,tag);
+  for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,String(v));
+  if(txt!==undefined)e.textContent=String(txt);
+  return e;
+}
+function render(){
+  const tau2=Number($("prior").value),sig2=Number($("noise").value),n=Number($("count").value);
+  $("priorValue").textContent=tau2.toFixed(1);
+  $("noiseValue").textContent=sig2.toFixed(1);
+  $("countValue").textContent=String(n);
+  const chosen=data.slice(0,n);
+  const {precision,S,m}=computePosterior(data,tau2,sig2,n);
+  const xs=Array.from({length:121},(_,i)=>-3+6*i/120);
+  const bounds=xs.map(x=>{
+    const mean=x*m, latent=1.96*Math.sqrt(x*x*S);
+    const pred=1.96*Math.sqrt(sig2+x*x*S);
+    return {x,mean,lu:mean+latent,ll:mean-latent,pu:mean+pred,pl:mean-pred};
+  });
+  const all=[...chosen.map(d=>d[1]),...bounds.flatMap(q=>[q.pu,q.pl])];
+  const yAbs=Math.max(3,Math.ceil(Math.max(...all.map(Math.abs))*1.1));
+  const xl=x=>52+(x+3)*(850-78)/6;
+  const yl=y=>344-(y+yAbs)*(305)/(2*yAbs);
+  const svg=$("plot");
+  svg.replaceChildren();
+  svg.append(el("line",{x1:52,y1:yl(0),x2:824,y2:yl(0),stroke:"#777","stroke-width":1}));
+  svg.append(el("line",{x1:xl(0),y1:35,x2:xl(0),y2:344,stroke:"#777","stroke-width":1}));
+  for(let x=-3;x<=3;x++){
+    svg.append(el("text",{x:xl(x),y:363,"text-anchor":"middle",class:"tick"},x));
+  }
+  for(let k=-2;k<=2;k++){
+    const y=k*yAbs/2;
+    svg.append(el("text",{x:43,y:yl(y)+4,"text-anchor":"end",class:"tick"},y.toFixed(1)));
+  }
+  const poly=(up,lo,fill,opacity)=>{
+    const pts=[...bounds.map(q=>xl(q.x)+","+yl(q[up])),...bounds.slice().reverse().map(q=>xl(q.x)+","+yl(q[lo]))].join(" ");
+    svg.append(el("polygon",{points:pts,fill,opacity,stroke:"none"}));
+  };
+  poly("pu","pl","#dba34b",0.40);
+  poly("lu","ll","#4e8bc0",0.48);
+  svg.append(el("polyline",{points:bounds.map(q=>xl(q.x)+","+yl(q.mean)).join(" "),fill:"none",stroke:"#292929","stroke-width":2.7}));
+  for(const [x,y] of chosen){
+    svg.append(el("circle",{cx:xl(x),cy:yl(y),r:5,fill:"#ae2646",stroke:"#fff","stroke-width":1.5}));
+  }
+  svg.append(el("text",{x:824,y:384,"text-anchor":"end",class:"tick"},"特徴量 x"));
+  svg.append(el("text",{x:10,y:19,class:"tick"},"応答 y"));
+  const xstar=2,mu=xstar*m,lv=xstar*xstar*S,pv=sig2+lv;
+  const stats=[
+    ["係数の事後平均 m",m.toFixed(5)],
+    ["係数の事後分散 S",S.toFixed(5)],
+    ["x=2 での平均応答",mu.toFixed(5)],
+    ["x=2 での潜在分散",lv.toFixed(5)],
+    ["x=2 での新観測分散",pv.toFixed(5)],
+    ["分散の照合",sig2.toFixed(2)+" + "+lv.toFixed(5)+" = "+pv.toFixed(5)]
+  ];
+  $("results").replaceChildren(...stats.map(([k,v])=>{
+    const li=document.createElement("li");
+    const strong=document.createElement("strong");strong.textContent=k;
+    const output=document.createElement("small");output.textContent=v;
+    li.append(strong,output);return li;
+  }));
+}
+for(const id of ["prior","noise","count"])$(id).addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
