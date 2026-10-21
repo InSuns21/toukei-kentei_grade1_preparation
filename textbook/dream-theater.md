@@ -1212,6 +1212,7 @@
 20. [GR20 Shapiro時間遅延](textbook/volumes/dream_thater/物理系/GR/GR20/index.md)
 21. [GR21 線形化重力とゲージ変換](textbook/volumes/dream_thater/物理系/GR/GR21/index.md)
 22. [GR22 重力波のTT成分と検出器応答](textbook/volumes/dream_thater/物理系/GR/GR22/index.md)
+23. [GR23 四重極放射の近似とエネルギー流](textbook/volumes/dream_thater/物理系/GR/GR23/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

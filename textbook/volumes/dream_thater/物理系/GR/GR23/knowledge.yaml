@@ -1,0 +1,50 @@
+chapter: GR23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR8
+  - GR21
+  - GR22
+concepts:
+  - id: gravity.slow-localized-radiation-source
+    name: 局在・低速の放射源と波動領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局在・低速の放射源と波動領域）"]
+    requires: [gravity.linearized-harmonic-wave]
+  - id: gravity.mass-quadrupole-moment
+    name: 質量四重極モーメント
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（質量四重極モーメント）"]
+    requires: [gravity.slow-localized-radiation-source, gravity.field-conservation-compatibility]
+  - id: gravity.quadrupole-stress-moment-identity
+    name: 単極・双極の保存と応力の四重極恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単極・双極の保存と応力の四重極恒等式）"]
+    requires: [gravity.mass-quadrupole-moment, gravity.field-conservation-compatibility]
+  - id: gravity.leading-quadrupole-wave
+    name: 先頭四重極波形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（先頭四重極波形）"]
+    requires: [gravity.quadrupole-stress-moment-identity, gravity.linearized-harmonic-wave, gravity.spatial-tt-projector]
+  - id: gravity.averaged-tt-energy-flux
+    name: 遠方TT波の平均エネルギー流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（遠方TT波の平均エネルギー流束）"]
+    requires: [gravity.einstein-hilbert-action, gravity.tt-plane-wave-polarizations]
+  - id: gravity.quadrupole-radiated-power
+    name: 四重極放射の角度分布と総パワー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四重極放射の角度分布と総パワー）"]
+    requires: [gravity.leading-quadrupole-wave, gravity.averaged-tt-energy-flux]
+  - id: gravity.circular-binary-quadrupole
+    name: Newton円軌道二体系の先頭四重極放射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Newton円軌道二体系の先頭四重極放射）"]
+    requires: [gravity.quadrupole-radiated-power, gravity.leading-quadrupole-wave]
