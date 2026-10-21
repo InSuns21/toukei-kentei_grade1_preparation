@@ -36,7 +36,7 @@ concepts:
     name: 形式的双対もnormally hyperbolic
     kind: proposition
     introduction: formal
-    requires: [hpde.normally-hyperbolic-operator, hpde.formal-transpose]
+    requires: [hpde.normally-hyperbolic, hpde.formal-transpose]
   - id: hpde.green-transpose-pairing
     name: Green作用素の転置と時間方向の反転
     kind: theorem
