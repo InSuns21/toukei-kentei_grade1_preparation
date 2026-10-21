@@ -438,7 +438,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr22-detector-tensor -->
-**定義の確認**。$\boldsymbol u=\boldsymbol e_x$、$\boldsymbol v=\boldsymbol e_y$ はいずれも単位ベクトルで互いに直交します。定義の外積成分 $u^iu^j-v^iv^j$ をこの直交基底で表示すると、$D=\tfrac12\operatorname{diag}(1,-1,0)$ です。従って $D:e^+=\tfrac12(1+1)=1$、$D:e^\times=0$ なので $h_{\mathrm{det}}=h_+$。
+**定義の確認**。$\boldsymbol u=\boldsymbol e_x$、$\boldsymbol v=\boldsymbol e_y$ はいずれも単位ベクトルで互いに直交します。定義のテンソル積の成分 $u^iu^j-v^iv^j$ をこの直交基底で表示すると、$D=\tfrac12\operatorname{diag}(1,-1,0)$ です。従って $D:e^+=\tfrac12(1+1)=1$、$D:e^\times=0$ なので $h_{\mathrm{det}}=h_+$。
 
 腕を45度回転させ、$\boldsymbol u=(\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$、$\boldsymbol v=(-\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$ とします。内積を取ると $|\boldsymbol u|^2=|\boldsymbol v|^2=1$、$\boldsymbol u\cdot\boldsymbol v=(-1+1)/2=0$ なので、定義に必要な単位長・直交性を保ちます。座標成分から
 
@@ -669,7 +669,7 @@ $\theta=0$ では $(F_+,F_\times)=(1,0)$、$\theta=\pi/4$ では $(0,1)$ で、[
 #### GR22-B03 波のように見える純ゲージ
 - Level: B
 
-$k_\mu=(-q,0,0,q)$、$q>0$ とし、背景摂動 $h=0$ から $\xi_0=\alpha\sin(q(x^3-x^0))$、$\xi_1=\xi_2=\xi_3=0$（定数 $\alpha$ は長さの単位）でゲージ変換する。非零の $h'_{\mu\nu}$、調和条件、一次Riemann曲率、空間TT射影を求めよ。
+$k_\mu=(-q,0,0,q)$、$q>0$ とし、背景摂動 $h=0$ から $\xi_0=\alpha\sin(q(x^3-x^0))$、$\xi_1=\xi_2=\xi_3=0$（定数 $\alpha$ は長さの単位で $|q\alpha|\ll1$）でゲージ変換する。非零の $h'_{\mu\nu}$、調和条件、一次Riemann曲率、空間TT射影を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** 位相 $\phi=q(x^3-x^0)$ について $\partial_0\xi_0=-q\alpha\cos\phi$、$\partial_3\xi_0=q\alpha\cos\phi$ です。[GR21のゲージ変換](../GR21/index.md#def-gr21-gauge-equivalence)より
@@ -679,7 +679,7 @@ h'_{00}=2q\alpha\cos\phi,\qquad
 h'_{03}=h'_{30}=-q\alpha\cos\phi
 $$
 
-で、他成分零です。$\Box\xi_0=(-\partial_0^2+\partial_3^2)\xi_0=0$、他の $\xi_\mu$ も零なので[残余ゲージ条件](../GR21/index.md#thm-gr21-linear-wave)を満たします。[一次曲率のゲージ不変性](../GR21/index.md#prop-gr21-gauge-invariance)から変換前の零曲率のままです。空間振幅 $h'_{ij}$ は全成分零でTT射影も零です。非零の $h'_{00}$ が周期的でも物理的な重力波とは限らない直接反例になっています。
+で、他成分零です。$\Box\xi_0=(-\partial_0^2+\partial_3^2)\xi_0=0$、他の $\xi_\mu$ も零なので[残余ゲージ条件](../GR21/index.md#thm-gr21-linear-wave)を満たします。$|q\alpha|\ll1$ より一次微分は微小で、尺度 $q^{-1}$ での[GR21のゲージ変換の微分条件](../GR21/index.md#def-gr21-gauge-equivalence)にも適合します。[一次曲率のゲージ不変性](../GR21/index.md#prop-gr21-gauge-invariance)から変換前の零曲率のままです。空間振幅 $h'_{ij}$ は全成分零でTT射影も零です。非零の $h'_{00}$ が周期的でも物理的な重力波とは限らない直接反例になっています。
 <!-- solution-end -->
 
 <a id="ex-gr22-b04"></a>
