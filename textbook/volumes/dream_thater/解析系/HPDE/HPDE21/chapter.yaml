@@ -1,0 +1,47 @@
+id: "HPDE21"
+title: "因果伝播子とexact sequenceの核"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE20
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE12
+  - HPDE5
+  - LORG16
+  - LORG6
+official_scope: []
+learning_objectives:
+  - 因果伝播子の定義とコンパクト源から空間コンパクト斉次解への作用域を示せる
+  - PE_cau=E_cau P=0を対応するGreen恒等式と入力条件から証明できる
+  - 二つのGreen解の一致からコンパクト因果ダイヤモンドを使い共通解の台がコンパクトとなることを証明できる
+  - ker E_cau=PΓ_cの二包含を再構成できる
+  - Pのコンパクト支持切断上の単射性からexact sequence前半の完全性を説明できる
+  - 核の完全性と次講で証明する全射性を区別できる
+definitions:
+  - { id: HPDE21-DEF-01, name: 空間コンパクトな斉次解の空間 }
+  - { id: HPDE21-DEF-02, name: 因果伝播子 }
+theorems:
+  - { id: HPDE21-PROP-01, name: 因果伝播子の二つの零合成と支持 }
+  - { id: HPDE21-LEM-01, name: 遅延解と先進解が一致すれば共通解はコンパクト支持 }
+  - { id: HPDE21-THM-01, name: 因果伝播子の核と列の前半の完全性 }
+canonical_examples:
+  - Minkowski平面の光線に沿う空間コンパクト斉次解
+  - コンパクトな非負源が生む非コンパクトな因果伝播解
+  - コンパクト切断からPをかけた核の具体例
+  - 点除去Minkowski時空で因果ダイヤモンドのコンパクト性が壊れる模型
+problem_patterns:
+  - HPDE21-GREEN-COMPOSITIONS
+  - HPDE21-COMPACT-KERNEL-SOURCE
+  - HPDE21-SC-HOMOGENEOUS
+  - HPDE21-NONCOMPACT-PROPAGATION
+  - HPDE21-COMMON-SUPPORT
+  - HPDE21-COMPACT-INJECTIVITY
+  - HPDE21-FAIL-GLOBAL-HYPERBOLICITY
+  - HPDE21-EQUIVALENT-SOURCES
+  - HPDE21-EXACTNESS-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }

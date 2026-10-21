@@ -1,0 +1,39 @@
+chapter: HPDE21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE20
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE12
+  - HPDE5
+  - LORG16
+  - LORG6
+forward_references: []
+concepts:
+  - id: hpde.spatially-compact-solutions
+    name: 空間コンパクトな斉次解の空間
+    kind: definition
+    introduction: formal
+    requires: [hpde.spatially-compact-support, hpde.normally-hyperbolic]
+  - id: hpde.causal-propagator
+    name: 因果伝播子
+    kind: definition
+    introduction: formal
+    requires: [hpde.retarded-advanced-green]
+  - id: hpde.propagator-compositions
+    name: 因果伝播子の二つの零合成と支持
+    kind: proposition
+    introduction: formal
+    requires: [hpde.causal-propagator, hpde.spatially-compact-solutions, hpde.green-two-sided-identity, hpde.green-existence-support]
+  - id: hpde.common-green-compactness
+    name: 遅延解と先進解が一致すれば共通解はコンパクト支持
+    kind: lemma
+    introduction: formal
+    requires: [hpde.causal-future-past-compact-overlap, hpde.green-existence-support]
+  - id: hpde.causal-propagator-kernel
+    name: 因果伝播子の核と列の前半の完全性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.propagator-compositions, hpde.common-green-compactness, hpde.green-two-sided-identity]
