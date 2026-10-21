@@ -1,0 +1,48 @@
+id: "HPDE20"
+title: "空間コンパクト・時間的支持空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE5
+  - LORG20
+  - LORG16
+  - LORG6
+official_scope: []
+learning_objectives:
+  - sc、pc、fc、tcの定義と各支持条件の相違を直接例で判定できる
+  - 固定時間分割の各切片がコンパクトでもscと限らない反例を構成できる
+  - コンパクト支持がscとtcの交差に一致することを証明できる
+  - 過去コンパクト集合の因果的未来が閉かつ過去コンパクトとなることを示せる
+  - 局所コンパクトカットオフからG_retをpc入力へ拡張し独立性を証明できる
+  - 時間反転によりG_advをfc入力へ拡張できる
+  - 拡張したGreen作用素の両側恒等式と一意性を再構成できる
+definitions:
+  - { id: HPDE20-DEF-01, name: 空間コンパクト・過去コンパクト・未来コンパクト・時間コンパクト支持 }
+theorems:
+  - { id: HPDE20-PROP-01, name: 支持空間の基本関係 }
+  - { id: HPDE20-LEM-01, name: pc集合の因果的未来 }
+  - { id: HPDE20-THM-01, name: pc・fc入力へのGreen作用素の一意な延長 }
+  - { id: HPDE20-THM-02, name: 支持条件を指定したGreenの両側逆 }
+canonical_examples:
+  - Minkowski未来半空間のpc性とscの失敗
+  - Minkowski時間帯のtc性とscの失敗
+  - 未来・過去光円錐の支持空間判定
+  - 遠方へ逃げる離散閉集合の固定時刻切片反例
+  - 光線上に台を持つ斉次波のpc/fc不成立
+problem_patterns:
+  - HPDE20-SUPPORT-CLASSIFICATION
+  - HPDE20-CONE-DIRECTION
+  - HPDE20-COMPACT-INPUT
+  - HPDE20-FOLIATION-COUNTEREXAMPLE
+  - HPDE20-SPACE-TIME-INTERSECTION
+  - HPDE20-CUTOFF-INDEPENDENCE
+  - HPDE20-HOMOGENEOUS-UNIQUENESS
+  - HPDE20-CAUSAL-SHADOW
+  - HPDE20-GREEN-INVERSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
