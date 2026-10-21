@@ -186,9 +186,20 @@ $$
 > **定義（MCAR・MAR・MNAR：目的変数欠測）**  
 > 有限な $(X,Y)$ と回答指標 $R\in\{0,1\}$ に対し、確率が正のセルで次のように定める。
 >
-> - **MCAR（完全無作為欠測）**：ある定数 $c\in[0,1]$ があり、全セルで $P(R=1\mid X=x,Y=y)=c$。
-> - **MAR（無作為欠測）**：各 $x$ に対応する値 $\pi(x)\in[0,1]$ があり、全セルで $P(R=1\mid X=x,Y=y)=\pi(x)$。すなわち $R$ と未観測になり得る $Y$ が、常に観測できる $X$ を固定すると条件付き独立である。
-> - **MNAR（非無作為欠測）**：MARの条件を満たさない機構。ある正確率の $x$ で $P(R=1\mid X=x,Y=0)\ne P(R=1\mid X=x,Y=1)$ となる。
+> - **MCAR（完全無作為欠測）**：回答率が全セルで同じ定数 $c\in[0,1]$ となること。
+> - **MAR（無作為欠測）**：回答率は $X$ の値にだけ依存し、$X$ を固定すると $R$ と $Y$ が条件付き独立になること。各 $x$ の回答率を $\pi(x)\in[0,1]$ とする。
+> - **MNAR（非無作為欠測）**：MARではないこと。すなわち、$Y=0,1$ がともに正確率の $x$ で、$Y$ の値によって回答率が異なること。
+>
+> それぞれの判定条件は、上から順に次の等式または不等式で表される。
+
+$
+\begin{aligned}
+\text{MCAR}:\quad &P(R=1\mid X=x,Y=y)=c,\\
+\text{MAR}:\quad &P(R=1\mid X=x,Y=y)=\pi(x),\\
+\text{MNAR}:\quad &P(R=1\mid X=x,Y=0)\ne P(R=1\mid X=x,Y=1)
+\quad\text{となる }x\text{ が存在する}.
+\end{aligned}
+$
 >
 > MCARはMARの特別な場合である。この分類は「$Y$ だけが欠測し、$X$ は観測済み」という設定に対するものとする。
 <!-- formal-statement-end -->
@@ -259,7 +270,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（欠測下の陽性率の非識別性）**  
-> $X$ を定数とし、観測記録を $(R,RY)$ のみとする。$P(R=1,Y=1)=2/5,\ P(R=1,Y=0)=1/10,\ P(R=0)=1/2$ という観測分布からは、追加仮定がなければ $P(Y=1)$ は一意に決まらない。
+> $X$ を定数とし、観測記録を $(R,RY)$ のみとする。観測分布を次のように指定する。
+
+$
+P(R=1,Y=1)=\frac25,\quad
+P(R=1,Y=0)=\frac1{10},\quad
+P(R=0)=\frac12.
+$
+
+> この観測分布からは、追加仮定がなければ $P(Y=1)$ は一意に決まらない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -347,9 +366,9 @@ $Q(X=x)=0$ のセルの積重みは0と置く。全セルで平均すると右�
 
 現場では日時や拠点ごとに分割し、将来の集団をどの標本が代表するかを先に決める。訓練分布の重み付けは、運用分布を完全に再現する保証ではない。[適切な損失](../ML1-13/index.md#thm-ml1-13-brier-proper)も、評価対象の分布を明示して初めて比較できる。
 
-## 8. 計算ラボ：固定seedで統制比較する
+## 8. 計算ラボ：乱数の初期値を固定して比較する
 
-以下は外部APIや個人データを使わないNumPy実験である。学習データは第1節の $P$、検証・最終テストは第2節の共変量シフト $Q$ から**別々に**生成する。訓練ラベルは $X=0$ で回答率 $1/4$、$X=1$ で $4/5$ というMAR機構で部分的に観測される。固定seedを使い、訓練標本、重み、模型候補、検証・テストの役割を明示する。
+以下は外部APIや個人データを使わないNumPy実験である。学習データは第1節の $P$、検証・最終テストは第2節の共変量シフト $Q$ から**別々に**生成する。訓練ラベルは $X=0$ で回答率 $1/4$、$X=1$ で $4/5$ というMAR機構で部分的に観測される。乱数の初期値を固定し、訓練標本、重み、模型候補、検証・テストの役割を明示する。
 
 比較候補は、観測ラベルの単純平均を返す定数模型、逆回答確率で補正した定数模型、$X$ ごとの頻度を用いる模型、そして[Bagging](../ML1-15/index.md#def-ml1-15-bagging)によるその平均である。これらはすべて $Y=1$ の予測確率を返す。さらに[2群k-means](../ML1-20/index.md#def-ml1-20-kmeans-objective)の距離平方和を別途出力する。**教師なしの平方和は予測精度のスコアではない**ため、Brier損失とは混ぜない。
 
@@ -393,7 +412,7 @@ def table(x, y, weights=None, alpha=1.0):
 
 naive = rate(obs_x, obs_y)
 ipw = rate(obs_x, obs_y, inv_pi)
-group = table(obs_x, obs_y, inv_pi)
+rates_by_x = table(obs_x, obs_y, inv_pi)
 
 bag_models = []
 for _ in range(50):
@@ -405,7 +424,7 @@ bagged = np.mean(np.array(bag_models), axis=0)
 models = {
     "complete-case constant": lambda x: np.full(len(x), naive),
     "MAR-weighted constant": lambda x: np.full(len(x), ipw),
-    "stratified": lambda x: group[x],
+    "stratified": lambda x: rates_by_x[x],
     "bagged stratified": lambda x: bagged[x],
 }
 def brier(pred, y):
@@ -417,7 +436,7 @@ chosen = min(val_scores, key=val_scores.get)
 test_score = brier(models[chosen](test_x), test_y)
 print("n observed", len(obs_y), "observed rate", naive,
       "MAR weighted rate", ipw)
-print("group rates", group, "bagging", bagged)
+print("rates by X", rates_by_x, "bagging", bagged)
 print("validation", val_scores)
 print("selected", chosen, "one-shot test Brier", test_score)
 
@@ -545,7 +564,7 @@ $X$ は定数、$Y\in\{0,1\}$ の回答指標を $R$ とする。観測確率は
 $Z_i=(X_i,Y_i)$ が有限分布 $P$ から独立同分布に従い、$P,Q$ は共変量シフト、$h$ は標本から独立に固定、$T_i=w(X_i)\ell(h(X_i),Y_i)$ は二乗可積分とする。(i) $\widehat R=n^{-1}\sum_iT_i$ の期待値と分散を導け。(ii) もし $P(X=1)=1/100$、$Q(X=1)=1/2$ なら $w(1)$ を計算し、重みの分散上の懸念を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[共変量重みの命題](#prop-ml1-21-covariate-weight)より各 $T_i$ の期待値は $R_Q(h)$。期待値の線形性で $\mathbb E\widehat R=(1/n)nR_Q(h)=R_Q(h)$。独立性により共分散の交差項は0なので
+**詳細解答**：[共変量シフトのリスク重み付け命題](#prop-ml1-21-covariate-weight)より各 $T_i$ の期待値は $R_Q(h)$。期待値の線形性で $\mathbb E\widehat R=(1/n)nR_Q(h)=R_Q(h)$。独立性により共分散の交差項は0なので
 
 $$
 \operatorname{Var}(\widehat R)
@@ -564,7 +583,7 @@ $$
 学習側で $P(Y=0)=P(Y=1)=1/2$、$P(X=1\mid Y=0)=1/5$、$P(X=1\mid Y=1)=4/5$ とする。運用先はラベルシフトで $Q(Y=1)=4/5$ とする。(i) $P(Y=1\mid X=1)$、(ii) $Q(Y=1\mid X=1)$、(iii) 元の $P$ の確率予測を運用先の真の条件付き確率のままと見なせない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**：まず $P(X=1)=(1/2)(1/5)+(1/2)(4/5)=1/2$ で、Bayes公式より $P(Y=1\mid X=1)=(1/2)(4/5)/(1/2)=4/5$。ラベルシフトでは $Q(X=1,Y=1)=(4/5)(4/5)=16/25$、$Q(X=1,Y=0)=(1/5)(1/5)=1/25$ なので
+**詳細解答**：まず $P(X=1)=(1/2)(1/5)+(1/2)(4/5)=1/2$ で、条件付き確率の定義より $P(Y=1\mid X=1)=(1/2)(4/5)/(1/2)=4/5$。ラベルシフトでは $Q(X=1,Y=1)=(4/5)(4/5)=16/25$、$Q(X=1,Y=0)=(1/5)(1/5)=1/25$ なので
 
 $$
 Q(Y=1\mid X=1)=\frac{16/25}{16/25+1/25}=\frac{16}{17}.
