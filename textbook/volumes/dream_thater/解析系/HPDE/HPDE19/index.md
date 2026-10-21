@@ -295,9 +295,9 @@ $$
 
 $S$ の開近傍で $1$ となる滑らかなコンパクト台関数 $\chi$ を選びます。このとき $\chi u$ はコンパクト支持です。
 
-[形式的双対の積分恒等式](../HPDE4/index.md#def-hpde4-formal-transpose)を使うために、双対切断側にもコンパクト支持が必要です。$\operatorname{supp}(\chi u)$ の開近傍で $1$ になるコンパクト台関数 $\eta$ を選び、コンパクト支持の $\eta v$ を試験切断として用います。
+[密度値の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)の定義を適用するには、双対切断側にもコンパクト支持が必要です。$\operatorname{supp}(\chi u)$ の開近傍で $1$ になるコンパクト台関数 $\eta$ を選び、コンパクト支持の $\eta v$ を試験切断として用います。
 
-$\eta=1$ が成り立つ開集合では $P^t(\eta v)=P^tv$ です。また、$P(\chi u)$ の支持は $\operatorname{supp}(\chi u)$ に含まれます。従ってコンパクト台での積分恒等式を適用すると
+$\eta=1$ が成り立つ開集合では $P^t(\eta v)=P^tv$ です。また、$P(\chi u)$ の支持は $\operatorname{supp}(\chi u)$ に含まれます。従ってこのコンパクト台の切断の組に対し、定義中の部分積分関係を用いると
 
 $$
 \int_M (P^t v)(\chi u)=\int_M v(P(\chi u))
