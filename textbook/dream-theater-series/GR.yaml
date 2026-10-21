@@ -93,7 +93,7 @@ chapters:
     title: "線形化重力とゲージ変換"
   - id: GR22
     path: textbook/volumes/dream_thater/物理系/GR/GR22
-    status: planned
+    status: completed
     title: "重力波のTT成分と検出器応答"
   - id: GR23
     path: textbook/volumes/dream_thater/物理系/GR/GR23

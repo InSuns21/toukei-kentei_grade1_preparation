@@ -1210,6 +1210,7 @@
 19. [GR19 近日点移動と有効ポテンシャル](textbook/volumes/dream_thater/物理系/GR/GR19/index.md)
 20. [GR20 Shapiro時間遅延](textbook/volumes/dream_thater/物理系/GR/GR20/index.md)
 21. [GR21 線形化重力とゲージ変換](textbook/volumes/dream_thater/物理系/GR/GR21/index.md)
+22. [GR22 重力波のTT成分と検出器応答](textbook/volumes/dream_thater/物理系/GR/GR22/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

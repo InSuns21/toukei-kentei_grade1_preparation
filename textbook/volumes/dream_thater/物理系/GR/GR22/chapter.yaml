@@ -1,0 +1,51 @@
+id: "GR22"
+title: "重力波のTT成分と検出器応答"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR5
+  - GR21
+official_scope: []
+learning_objectives:
+  - 真空・調和ゲージの平面波に対して零分散関係と振幅の横断条件を導出できる
+  - 非零平面波で残余ゲージを具体的に構成して時間成分と縦成分を取り除ける
+  - TT条件と二つの偏極を定義から検算し、空間TT射影の不変性を証明できる
+  - 一次Riemann曲率と測地線偏差から自由質点の相対加速度を符号と次元付きで求められる
+  - 初期位置・初期速度が相対変位の積分定数を決めることを説明できる
+  - 長波長での近接距離・Michelson差動ひずみ・往復時間・レーザー位相を区別できる
+  - 二つの偏極への検出器感度の腕方向依存を計算できる
+  - 純ゲージ、真空・弱場、非零波数、長波長の適用条件と限界を判定できる
+definitions:
+  - { id: GR22-DEF-01, name: 調和ゲージの真空平面波 }
+  - { id: GR22-DEF-02, name: z軸正方向のTT平面波と二つの偏極 }
+  - { id: GR22-DEF-03, name: 空間TT射影 }
+  - { id: GR22-DEF-04, name: 長波長Michelson検出器テンソル }
+theorems:
+  - { id: GR22-PROP-01, name: 真空平面波の零分散関係 }
+  - { id: GR22-THM-01, name: 非零真空平面波のTTゲージ構成 }
+  - { id: GR22-PROP-02, name: TT射影の横断性・無跡性・ゲージ不変性 }
+  - { id: GR22-THM-02, name: TT平面波による自由質点の相対加速度 }
+  - { id: GR22-PROP-03, name: 長波長近似での自由質点間隔 }
+  - { id: GR22-THM-03, name: 長波長・自由鏡Michelson干渉計の差動位相 }
+canonical_examples:
+  - 対角plus偏極の振幅で真空波動方程式と調和条件を検算
+  - TT行列の二つの自由度を条件ごとに確認
+  - 縦方向射影の前後で横断・跡の条件を確認
+  - 直交する試験質点と45度方向の相対変位
+  - x/yと45度回転した干渉計で異なる偏極への感度
+  - 波状純ゲージで振動成分と一次曲率零を区別
+problem_patterns:
+  - GR22-DISPERSION-HARMONIC
+  - GR22-TT-COMPONENT-CONDITIONS
+  - GR22-RESIDUAL-GAUGE-FIXING
+  - GR22-POLARIZATION-DIRECTIONS
+  - GR22-TIDAL-SIGN-DIMENSIONS
+  - GR22-TT-SPATIAL-PROJECTION
+  - GR22-ROTATED-ANTENNA-FACTORS
+  - GR22-PURE-GAUGE-WAVE
+  - GR22-RELATIVE-INITIAL-DATA
+  - GR22-INTERFEROMETER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
