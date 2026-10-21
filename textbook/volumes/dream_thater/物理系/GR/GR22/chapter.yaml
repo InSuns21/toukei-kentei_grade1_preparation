@@ -17,7 +17,7 @@ learning_objectives:
   - 純ゲージ、真空・弱場、非零波数、長波長の適用条件と限界を判定できる
 definitions:
   - { id: GR22-DEF-01, name: 調和ゲージの真空平面波 }
-  - { id: GR22-DEF-02, name: +z方向のTT平面波と二つの偏極 }
+  - { id: GR22-DEF-02, name: z軸正方向のTT平面波と二つの偏極 }
   - { id: GR22-DEF-03, name: 空間TT射影 }
   - { id: GR22-DEF-04, name: 長波長Michelson検出器テンソル }
 theorems:
