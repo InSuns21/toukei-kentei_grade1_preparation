@@ -372,7 +372,14 @@ $$
 P^t(j_h(v)\otimes\mu)=j_h(P^*v)\otimes\mu.
 $$
 
-$P^*$ の主シンボルもnormally hyperbolicです。$v=G_{\mathrm{adv}}^{P^*}\psi$ と取れば $P^*v=\psi$ と先進支持を満たすため、上の式と $P^t$ の[Green候補一意性](#thm-hpde19-uniqueness)から
+ここで $P^*$ の主部も確かめます。$P^t$ の最上階は $-g^{ij}\partial_i\partial_j$ であり、$j_h$ と $\mu$ は各点で可逆な零階の同型です。従って上式の二階微分項を比較すると
+
+$$
+-g^{ij}j_h(\partial_i\partial_jv)\otimes\mu
+=j_h\!\left(\sigma_2(P^*)(\partial,\partial)v\right)\otimes\mu
+$$
+
+となります。$g^{ij}$ は実数で $j_h$ が共役線形でも係数は変わらないので、$\sigma_2(P^*)(x,\xi)=-g_x^{-1}(\xi,\xi)\operatorname{id}_{E_x}$ です。よって $P^*$ もnormally hyperbolicであり、[HPDE18の構成定理](../HPDE18/index.md#thm-hpde18-green-existence)からその先進Green作用素が存在します。$v=G_{\mathrm{adv}}^{P^*}\psi$ と取れば $P^*v=\psi$ と先進支持を満たすため、上の式と $P^t$ の[Green候補一意性](#thm-hpde19-uniqueness)から
 
 $$
 G_{\mathrm{adv}}^{P^t}\Psi=j_h(v)\otimes\mu
