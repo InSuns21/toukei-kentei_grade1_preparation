@@ -183,7 +183,7 @@ B_a=-\frac{A_{0a}}{iq}\ (a=1,2),\quad
 B_3=B_0-\frac{A_{03}}{iq}
 $$
 
-と選べば $A'_{0\mu}=0$ になります。また $\Box\xi_\mu=-k^\rho k_\rho\xi_\mu=0$ なので、これは調和条件を壊しません。
+と選べば $A'_{0\mu}=0$ になります。また $\Box\xi_\mu=-k^\rho k_\rho\xi_\mu=0$ なので、これは調和条件を壊しません。$A_{\mu\nu}=O(\epsilon)$ なら $B_\mu=O(\epsilon/q)$ です。波長に対応する長さ尺度 $q^{-1}$ を取ると、$\xi_\mu=O(\epsilon/q)$ かつその $j$ 階微分は $O(\epsilon q^{j-1})$（$j=1,2,3$）であり、[GR21の微小ゲージ変換の尺度条件](../GR21/index.md#def-gr21-gauge-equivalence)とも整合します。
 
 変換後にも $\bar A'_{0\nu}+\bar A'_{3\nu}=0$。$A':=\eta^{\mu\nu}A'_{\mu\nu}$ とすると、$\nu=0$ の式は
 
@@ -398,7 +398,24 @@ $$
 
 自由質点の相対距離は波の潮汐を知るための最も簡単な模型です。しかしレーザー干渉計が実際に比較するのは、二方向へ往復する光の到着位相です。二つを結びつけるには、波の振動周期に比べて光の往復時間が短いという追加の近似が必要です。
 
-中央のビームスプリッターと二つの自由鏡が背景では静止し、長さ $L$ の直交する二腕を持つとします。単位腕方向を $\boldsymbol u,\boldsymbol v$ とし、鏡・中央装置の重力波による加速度以外の運動を無視します。次に述べる式は **長波長・長腕同一長・直交腕** の理想模型です。
+中央のビームスプリッターと二つの自由鏡が背景では静止し、長さ $L$ の直交する二腕を持つとします。単位腕方向を $\boldsymbol u,\boldsymbol v$ とし、鏡・中央装置の重力波による加速度以外の運動を無視します。次に述べる式は **長波長・腕長同一・直交腕** の理想模型です。
+
+なぜ腕方向のベクトルを二つ組み合わせるのでしょうか。[近接距離の一次式](#prop-gr22-local-length)を同じ時刻の各腕へ適用すると、$qL\ll1$ の下で
+
+$
+\frac{\delta L_u}{L}=\frac12u^iu^jh_{ij}^{\mathrm{TT}},
+\qquad
+\frac{\delta L_v}{L}=\frac12v^iv^jh_{ij}^{\mathrm{TT}}.
+$
+
+従って、**二腕の伸縮率の差**は
+
+$
+\frac{\delta L_u-\delta L_v}{L}
+=\frac12(u^iu^j-v^iv^j)h_{ij}^{\mathrm{TT}}.
+$
+
+この係数を、入射波の各成分から装置の差動応答を取り出すテンソルとして定義します。ここまでの距離比較と、後で計算するレーザー往復時間・位相差とはまだ別の量です。
 
 <a id="def-gr22-detector-tensor"></a>
 
@@ -421,7 +438,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr22-detector-tensor -->
-**定義の確認**。$\boldsymbol u=\boldsymbol e_x$、$\boldsymbol v=\boldsymbol e_y$ のとき $D=\tfrac12\operatorname{diag}(1,-1,0)$ は対称です。$D:e^+=\tfrac12(1+1)=1$、$D:e^\times=0$ なので $h_{\mathrm{det}}=h_+$。腕を45度回転させ、$\boldsymbol u=(\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$、$\boldsymbol v=(-\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$ とすると、$D_{xy}=D_{yx}=1/2$、$D_{xx}=D_{yy}=0$ となり $F_+=0,F_\times=1$。同じ入射波でも装置の向きで二成分への感度が入れ替わることまで確認できます。
+**定義の確認**。$\boldsymbol u=\boldsymbol e_x$、$\boldsymbol v=\boldsymbol e_y$ はいずれも単位ベクトルで互いに直交します。定義の外積成分 $u^iu^j-v^iv^j$ をこの直交基底で表示すると、$D=\tfrac12\operatorname{diag}(1,-1,0)$ です。従って $D:e^+=\tfrac12(1+1)=1$、$D:e^\times=0$ なので $h_{\mathrm{det}}=h_+$。
+
+腕を45度回転させ、$\boldsymbol u=(\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$、$\boldsymbol v=(-\boldsymbol e_x+\boldsymbol e_y)/\sqrt2$ とします。内積を取ると $|\boldsymbol u|^2=|\boldsymbol v|^2=1$、$\boldsymbol u\cdot\boldsymbol v=(-1+1)/2=0$ なので、定義に必要な単位長・直交性を保ちます。座標成分から
+
+$
+( u^iu^j )=\frac12\begin{pmatrix}1&1&0\\1&1&0\\0&0&0\end{pmatrix},
+\qquad
+( v^iv^j )=\frac12\begin{pmatrix}1&-1&0\\-1&1&0\\0&0&0\end{pmatrix}
+$
+
+となるため、$D_{xy}=D_{yx}=1/2$、他の成分は零です。$e^+$ との縮約は零、$e^\times$ との縮約は $D_{12}+D_{21}=1$ ですから $F_+=0,F_\times=1$。同じ入射波でも装置の向きで二成分への感度が入れ替わることまで確認できます。
 <!-- definition-example-end -->
 
 <a id="thm-gr22-michelson-response"></a>
@@ -446,7 +473,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一定方向 $\boldsymbol e$ の腕に沿って $dx^i=e^i ds$ とし、光的条件 $ds_{\mathrm{spacetime}}^2=0$ を使います。TTゲージでは $g_{00}=-1,g_{0i}=0$ ですから
+まず光路の一次走時には背景の直線経路を用いてよいことを確かめます。両端のTT座標位置が固定されているので、直線 $\boldsymbol x(s)=\boldsymbol x_0+\boldsymbol e s$ からの一次の経路変化 $\delta\boldsymbol x(s)$ は両端で零です。背景の道のりの一次変化は
+
+$
+\delta\int_0^L|\boldsymbol x'(s)|\,ds
+=\int_0^L\boldsymbol e\cdot\delta\boldsymbol x'(s)\,ds
+=\boldsymbol e\cdot[\delta\boldsymbol x(L)-\delta\boldsymbol x(0)]=0.
+$
+
+計量摂動 $O(\epsilon)$ と経路修正 $O(\epsilon)$ の積も二次です。従って一次では一定方向 $\boldsymbol e$ の腕に沿って $dx^i=e^i ds$ とし、[光的接ベクトルの条件](../../../幾何系/LORG/LORG1/index.md#def-lorg1-causal-type) $ds_{\mathrm{spacetime}}^2=0$ を使えます。TTゲージでは $g_{00}=-1,g_{0i}=0$ ですから
 
 $$
 0=-c^2dt^2+(\delta_{ij}+h_{ij}^{\mathrm{TT}})e^ie^jds^2.
