@@ -1,0 +1,57 @@
+chapter: HPDE20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE5
+  - LORG20
+  - LORG16
+  - LORG6
+forward_references: []
+concepts:
+  - id: hpde.spatially-compact-support
+    name: 空間コンパクト支持
+    kind: definition
+    introduction: formal
+    introduction_aliases: [空間コンパクト・過去コンパクト・未来コンパクト・時間コンパクト支持]
+    requires: [lorentz-geometry.global-hyperbolicity]
+  - id: hpde.past-compact-support
+    name: 過去コンパクト支持
+    kind: definition
+    introduction: formal
+    introduction_aliases: [空間コンパクト・過去コンパクト・未来コンパクト・時間コンパクト支持]
+    requires: [lorentz-geometry.global-hyperbolicity]
+  - id: hpde.future-compact-support
+    name: 未来コンパクト支持
+    kind: definition
+    introduction: formal
+    introduction_aliases: [空間コンパクト・過去コンパクト・未来コンパクト・時間コンパクト支持]
+    requires: [lorentz-geometry.global-hyperbolicity]
+  - id: hpde.timelike-compact-support
+    name: 時間コンパクト支持
+    kind: definition
+    introduction: formal
+    introduction_aliases: [空間コンパクト・過去コンパクト・未来コンパクト・時間コンパクト支持]
+    requires: [hpde.past-compact-support, hpde.future-compact-support]
+  - id: hpde.support-space-relations
+    name: 支持空間の基本関係
+    kind: proposition
+    introduction: formal
+    requires: [hpde.spatially-compact-support, hpde.timelike-compact-support]
+  - id: hpde.past-compact-causal-future
+    name: pc集合の因果的未来
+    kind: lemma
+    introduction: formal
+    requires: [hpde.past-compact-support, hpde.causal-future-past-compact-overlap]
+  - id: hpde.green-pc-fc-extension
+    name: pc・fc入力へのGreen作用素の一意な延長
+    kind: theorem
+    introduction: formal
+    requires: [hpde.past-compact-causal-future, hpde.green-existence-support, hpde.green-two-sided-identity]
+  - id: hpde.green-pc-fc-inverse
+    name: 支持条件を指定したGreenの両側逆
+    kind: theorem
+    introduction: formal
+    requires: [hpde.green-pc-fc-extension, hpde.green-two-sided-identity]
