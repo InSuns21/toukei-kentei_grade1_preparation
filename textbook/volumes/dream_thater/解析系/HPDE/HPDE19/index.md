@@ -463,7 +463,7 @@ $$
 \{(t,x):0\le t\le3,\ |x|\le t,\ |x-1|\le3-t\}.
 $$
 
-この集合は連続関数の非厳密不等式で記述されるので閉集合です。また $0\le t\le3$、$|x|\le3$ から有界です。$\mathbb R^2$ のHeine–Borel性よりコンパクトです。[一般の重なり補題](#lem-hpde19-causal-overlap)では平坦空間の座標不等式に代わり、有限時間因果影のコンパクト性を使います。
+この集合は連続関数の非厳密不等式で記述されるので閉集合です。また $0\le t\le3$、$|x|\le3$ から有界です。$\mathbb R^2$ のHeine–Borel性よりコンパクトです。[一般の重なり補題](#lem-hpde19-causal-overlap)では平坦空間の座標不等式に代わり、[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)を使います。
 <!-- solution-end -->
 
 <a id="ex-hpde19-b02"></a>
