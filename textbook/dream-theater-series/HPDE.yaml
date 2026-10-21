@@ -83,7 +83,7 @@ chapters:
     title: "Green作用素の恒等式と一意性"
   - id: HPDE20
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE20
-    status: planned
+    status: completed
     title: "空間コンパクト・時間的支持空間"
   - id: HPDE21
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE21
