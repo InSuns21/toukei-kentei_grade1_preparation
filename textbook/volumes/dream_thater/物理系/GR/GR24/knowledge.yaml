@@ -17,4 +17,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（静的二次元ブロックの接続と曲率の検算）"]
-    requires: [gravity.curvature-components-lorentz, gravity.killing-field, gravity.schwarzschild-vacuum-metric]
+    requires: [gravity.curvature-components-lorentz, gravity.four-acceleration]
