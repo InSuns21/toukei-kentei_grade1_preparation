@@ -62,7 +62,7 @@ $a=0$ と $b=3$ は源の時刻区間を挟む条件を満たします。[HPDE12
 
 遅延解は $t<1$ で、先進解は $t>2$ で恒等的に零です。従って、それぞれの零領域に含まれる $\Sigma_0$ と $\Sigma_3$ 上で、値も時間微分も零です。
 
-接続微分と通常の時間微分の対応も確かめます。Minkowski計量 $g=-dt^2+dx^2$ ではChristoffel記号が零で、$P=-g^{ij}\partial_i\partial_j$ の一階微分係数 $A^k$ も零です。[HPDE5の接続の一意分解](../HPDE5/index.md#thm-hpde5-unique-connection)の係数比較式に代入すると、接続係数 $\omega_i$ は
+接続微分と通常の時間微分の対応も確かめます。Minkowski計量 $g=-dt^2+dx^2$ ではChristoffel記号 $\Gamma^k{}_{ij}$ が零で、$P=-g^{ij}\partial_i\partial_j$ の一階微分係数 $A^k$ も零です。[HPDE5の接続の一意分解](../HPDE5/index.md#thm-hpde5-unique-connection)の係数比較式に代入すると、接続係数 $\omega_i$ は
 
 $$
 0=A^k=-2g^{ik}\omega_i,\qquad \omega_i=0
