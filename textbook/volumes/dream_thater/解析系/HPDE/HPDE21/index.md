@@ -1,6 +1,6 @@
 # HPDE21 因果伝播子とexact sequenceの核
 
-遅延Green作用素は源から未来へ、先進Green作用素は過去へ伝わる解を作りました。しかし両者の差を取ると、源そのものが消えて**斉次方程式の解**が残ります。これが因果伝播子です。
+遅延Green作用素は源から未来へ、先進Green作用素は過去へ伝わる解を作りました。しかし両者の差を取ると、源そのものが消えて**斉次方程式の解**が残ります。この差を適切な作用域を持つ写像として定義します。
 
 ここで注意したいのは、斉次解が得られることと、「すべての空間コンパクトな斉次解を得た」ことは違う、という点です。本講で決着させるのは、**どんなコンパクトな源が差を零にするか**という核の問題です。これは次講の全射性の証明と切り分けます。
 
@@ -112,7 +112,7 @@ $$
 f=P\varphi=h''(t)q(x)-h(t)q''(x)
 $$
 
-と置くと、$f\in\Gamma_c$ です。[Greenの両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
+と置くと、$f\in\Gamma_c$ です。[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
 
 $$
 E_{\mathrm{cau}}f
@@ -313,12 +313,12 @@ $$
 
 ### 証明の見取り図
 
-まず $P\varphi=0$ なら、コンパクト支持切断に対する $G_{\mathrm{ret}}P\varphi=\varphi$ から $\varphi=0$ を得ます。核の二つの包含を別々に示し、逆包含で先ほどのコンパクト共通解補題を使います。
+まず $P\varphi=0$ なら、コンパクト支持切断に対する $G_{\mathrm{ret}}P\varphi=\varphi$ から $\varphi=0$ を得ます。核の二つの包含を別々に示し、逆包含では、前節で確かめた共通解の台のコンパクト性を使います。
 
 <!-- proof-start -->
 ### 証明
 
-**第一項での完全性。** $\varphi\in\Gamma_c(M,E)$ が $P\varphi=0$ と仮定します。$P\varphi$ はコンパクト支持なので、[Greenの両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を入力 $\varphi$ に適用でき、
+**第一項での完全性。** $\varphi\in\Gamma_c(M,E)$ が $P\varphi=0$ と仮定します。$P\varphi$ はコンパクト支持なので、[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を入力 $\varphi$ に適用でき、
 
 $$
 \varphi=G_{\mathrm{ret}}(P\varphi)
@@ -342,7 +342,7 @@ $$
 =G_{\mathrm{ret}}f-G_{\mathrm{adv}}f,
 $$
 
-したがって $G_{\mathrm{ret}}f=G_{\mathrm{adv}}f$ です。[共通解のコンパクト支持補題](#lem-hpde21-common-solution-compact)を適用すると
+したがって $G_{\mathrm{ret}}f=G_{\mathrm{adv}}f$ です。[遅延解と先進解が一致すれば共通解はコンパクト支持](#lem-hpde21-common-solution-compact)を適用すると
 
 $$
 u:=G_{\mathrm{ret}}f
@@ -358,7 +358,7 @@ $$
 
 ## 6. 核の等式から何がまだ出てこないか
 
-二つのコンパクト源 $f_1,f_2$ については、線形性と[核の定理](#thm-hpde21-kernel-exact)から
+二つのコンパクト源 $f_1,f_2$ については、[因果伝播子の核と列の前半の完全性](#thm-hpde21-kernel-exact)と線形性から
 
 $$
 E_{\mathrm{cau}}f_1=E_{\mathrm{cau}}f_2
@@ -388,7 +388,7 @@ PE_{\mathrm{cau}}f
 =PG_{\mathrm{ret}}f-PG_{\mathrm{adv}}f=f-f=0.
 $$
 
-第二は $P\varphi\in\Gamma_c$ を局所性から確認してから、[コンパクト入力上の右逆恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を使います。
+第二は $P\varphi\in\Gamma_c$ を局所性から確認してから、[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を使います。
 
 $$
 E_{\mathrm{cau}}P\varphi
@@ -426,7 +426,7 @@ $$
 \operatorname{supp}h\times\operatorname{supp}q
 $$
 
-となり右辺はコンパクトです。[Greenの両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)をコンパクトな $\varphi$ に適用すれば
+となり右辺はコンパクトです。[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)をコンパクトな $\varphi$ に適用すれば
 
 $$
 E_{\mathrm{cau}}f
