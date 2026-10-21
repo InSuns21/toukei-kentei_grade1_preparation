@@ -1,0 +1,20 @@
+chapter: GR24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR6
+  - GR13
+  - GR14
+  - GR16
+  - GR17
+  - GR20
+  - GR21
+  - GR22
+  - GR23
+concepts:
+  - id: gravity.static-metric-composite-diagnostic
+    name: 静的二次元ブロックの接続と曲率の検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的二次元ブロックの接続と曲率の検算）"]
+    requires: [gravity.curvature-components-lorentz, gravity.killing-field, gravity.schwarzschild-vacuum-metric]
