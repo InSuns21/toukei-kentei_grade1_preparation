@@ -93,7 +93,7 @@ chapters:
     title: "分布シフト・欠測・総合検証実験"
   - id: ML2-01
     path: textbook/volumes/dream_thater/応用系/ML/ML2-01
-    status: planned
+    status: completed
     title: "確率的予測・対数損失・KL"
   - id: ML2-02
     path: textbook/volumes/dream_thater/応用系/ML/ML2-02

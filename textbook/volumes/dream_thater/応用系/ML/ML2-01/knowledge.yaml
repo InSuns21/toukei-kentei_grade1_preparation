@@ -1,0 +1,55 @@
+chapter: ML2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-13
+  - INFO10
+concepts:
+  - id: learning.probabilistic-forecast
+    name: 有限ラベルの確率的予測器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限ラベルの確率的予測器）"]
+    requires: [learning.binary-proper-scoring-rule]
+  - id: learning.conditional-log-risk
+    name: 条件付き対数リスク
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き対数リスク）"]
+    requires: [learning.probabilistic-forecast, information.log-loss]
+  - id: learning.conditional-kl-regret
+    name: 有限ラベルの条件付きKL超過リスク
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限ラベルの条件付きKL超過リスク）"]
+    requires: [learning.conditional-log-risk, information.log-loss-optimality]
+  - id: learning.multiclass-calibration
+    name: 有限値の多クラス確率校正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限値の多クラス確率校正）"]
+    requires: [learning.probabilistic-forecast, learning.binary-probability-calibration]
+  - id: learning.calibration-log-decomposition
+    name: 有限予測群における校正と対数損失の分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限予測群における校正と対数損失の分解）"]
+    requires: [learning.multiclass-calibration, learning.conditional-kl-regret]
+  - id: learning.density-log-loss
+    name: 密度予測の対数損失とKL
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度予測の対数損失とKL）"]
+    requires: [information.log-loss, information.relative-entropy]
+  - id: learning.density-kl-identity
+    name: 密度の期待対数損失とKLの恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（密度の期待対数損失とKLの恒等式）"]
+    requires: [learning.density-log-loss, information.gibbs-inequality]
+  - id: learning.empirical-log-risk
+    name: 確率予測器の経験対数リスク
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率予測器の経験対数リスク）"]
+    requires: [learning.conditional-log-risk, learning.population-risk]
