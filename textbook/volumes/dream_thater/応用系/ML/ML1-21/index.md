@@ -293,7 +293,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（共変量シフトとMARの積重み恒等式）**  
-> 有限な $\mathcal X\times\{0,1\}$ 上の学習分布 $P(X,Y,R)$ と運用分布 $Q(X,Y)$ を考える。$(X,Y)$ の二つの周辺分布が[共変量シフト](#def-ml1-21-covariate-shift)を満たし、学習側の回答機構が[MAR](#def-ml1-21-missingness)であるとする。$Q(X=x)>0$ なら $P(X=x)>0$ かつ $\pi(x)=P(R=1\mid X=x)>0$ と仮定する。固定した予測器 $h$ の非負損失が $Q$ の下で可積分なら
+> 有限な $\mathcal X\times\{0,1\}$ 上の学習分布 $P(X,Y,R)$ と運用分布 $Q(X,Y)$ を考える。$(X,Y)$ の二つの周辺分布が[共変量シフト](#def-ml1-21-covariate-shift)を満たし、学習側の回答機構が[MAR](#def-ml1-21-missingness)であるとする。$Q(X=x)>0$ なら $P(X=x)>0$ とし、すべての $P(X=x)>0$ に対し $\pi(x)=P(R=1\mid X=x)>0$ と仮定する。固定した予測器 $h$ の非負損失が $Q$ の下で可積分なら
 
 $$
 R_Q(h)=\mathbb E_P\left[
@@ -311,7 +311,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Q(X=x)>0$ のセルに限って $\pi(x)>0$ である。そこで条件付き平均を取れば
+$P(X=x)>0$ の全セルで $\pi(x)>0$ である。そこで条件付き平均を取れば
 
 $$
 \begin{aligned}
