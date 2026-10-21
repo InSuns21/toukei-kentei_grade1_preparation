@@ -89,7 +89,7 @@ chapters:
     title: "k-means・階層クラスタリング"
   - id: ML1-21
     path: textbook/volumes/dream_thater/応用系/ML/ML1-21
-    status: planned
+    status: completed
     title: "分布シフト・欠測・総合検証実験"
   - id: ML2-01
     path: textbook/volumes/dream_thater/応用系/ML/ML2-01
