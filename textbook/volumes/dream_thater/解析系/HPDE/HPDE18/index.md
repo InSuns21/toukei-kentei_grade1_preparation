@@ -64,9 +64,9 @@ $a=0$ と $b=3$ は源の時刻区間を挟む条件を満たします。[HPDE12
 
 接続微分と通常の時間微分の対応も確かめます。Minkowski計量 $g=-dt^2+dx^2$ ではChristoffel記号が零で、$P=-g^{ij}\partial_i\partial_j$ の一階微分係数 $A^k$ も零です。[HPDE5の接続の一意分解](../HPDE5/index.md#thm-hpde5-unique-connection)の係数比較式に代入すると、接続係数 $\omega_i$ は
 
-$
+$$
 0=A^k=-2g^{ik}\omega_i,\qquad \omega_i=0
-$
+$$
 
 となります。したがってこの自明束の $\nabla^P$ は通常微分であり、未来向き単位法線 $N=\partial_t$ について $\nabla_N^P=\partial_t$ です。ゆえに、**方程式と二つのCauchy条件をすべて確認**できました。
 <!-- definition-example-end -->
@@ -326,10 +326,10 @@ $$
 
 [HPDE12の遅延畳み込み公式](../HPDE12/index.md#def-hpde12-convolution-operators)を $t=4$ に代入すると、
 
-$
+$$
 u(4,x)=\frac12\int_1^2\int_{x-(4-s)}^{x+(4-s)}
 f(s,y)\,dy\,ds
-$
+$$
 
 です。$x=4$ のとき内側の積分下限は $s\ge1$ で、一方 $f(s,y)$ は $y\le1$ の外で零です。両条件の共通部分は高々 $(s,y)=(1,1)$ なので積分は零です。$x=-4$ でも内側の上限が $-s\le-1$ となり、同様に $u(4,-4)=0$ です。よって **値が非零となり得るのは $|x|<4$ の点だけ**です。
 
