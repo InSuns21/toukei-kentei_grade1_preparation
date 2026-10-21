@@ -1,0 +1,67 @@
+chapter: GR22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR5
+  - GR21
+concepts:
+  - id: gravity.harmonic-vacuum-plane-wave
+    name: 調和ゲージの真空平面波
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（調和ゲージの真空平面波）"]
+    requires: [gravity.linearized-harmonic-wave, gravity.linearized-trace-reverse]
+  - id: gravity.vacuum-null-plane-dispersion
+    name: 真空平面波の零分散関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（真空平面波の零分散関係）"]
+    requires: [gravity.harmonic-vacuum-plane-wave]
+  - id: gravity.tt-plane-wave-polarizations
+    name: +z方向のTT平面波と二つの偏極
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$+z$ 方向のTT平面波と二つの偏極）"]
+    requires: [gravity.harmonic-vacuum-plane-wave, gravity.linearized-gauge-equivalence]
+  - id: gravity.tt-plane-wave-gauge-construction
+    name: 非零真空平面波のTTゲージ構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非零真空平面波のTTゲージ構成）"]
+    requires: [gravity.vacuum-null-plane-dispersion, gravity.tt-plane-wave-polarizations, gravity.linearized-harmonic-wave]
+  - id: gravity.spatial-tt-projector
+    name: 空間TT射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間TT射影）"]
+    requires: [gravity.tt-plane-wave-polarizations]
+  - id: gravity.tt-projector-invariance
+    name: TT射影の横断性・無跡性・ゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（TT射影の横断性・無跡性・ゲージ不変性）"]
+    requires: [gravity.spatial-tt-projector, gravity.linearized-gauge-equivalence]
+  - id: gravity.gravitational-plane-wave-tidal-response
+    name: TT平面波による自由質点の相対加速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（TT平面波による自由質点の相対加速度）"]
+    requires: [gravity.tt-plane-wave-gauge-construction, gravity.lorentz-geodesic-deviation-equation, gravity.linearized-curvature]
+  - id: gravity.tt-local-proper-length
+    name: 長波長近似での自由質点間隔
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（長波長近似での自由質点間隔）"]
+    requires: [gravity.tt-plane-wave-polarizations, gravity.gravitational-plane-wave-tidal-response]
+  - id: gravity.michelson-detector-tensor
+    name: 長波長Michelson検出器テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（長波長Michelson検出器テンソル）"]
+    requires: [gravity.tt-plane-wave-polarizations, gravity.tt-local-proper-length]
+  - id: gravity.michelson-tt-response
+    name: 長波長・自由鏡Michelson干渉計の差動位相
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（長波長・自由鏡Michelson干渉計の差動位相）"]
+    requires: [gravity.michelson-detector-tensor, gravity.tt-local-proper-length, gravity.gravitational-plane-wave-tidal-response]
