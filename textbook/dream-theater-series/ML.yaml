@@ -97,7 +97,7 @@ chapters:
     title: "確率的予測・対数損失・KL"
   - id: ML2-02
     path: textbook/volumes/dream_thater/応用系/ML/ML2-02
-    status: planned
+    status: completed
     title: "Bayes線形回帰・事後予測"
   - id: ML2-03
     path: textbook/volumes/dream_thater/応用系/ML/ML2-03

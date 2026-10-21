@@ -1,0 +1,48 @@
+id: "ML2-02"
+title: "Bayes線形回帰・事後予測"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-05
+  - ML1-07
+  - ML2-01
+official_scope: []
+learning_objectives:
+  - Gaussian線形回帰の既知雑音分散と係数事前分布の仮定・次元を指定できる
+  - 尤度と正定値Gaussian事前密度を掛け平方完成で事後平均・共分散を導ける
+  - 設計行列が階数不足でも事後精度行列が正定値であると証明できる
+  - 等方Gaussian事前分布のMAP推定とRidgeの正則化係数の対応を説明できる
+  - 新観測の事後予測分散を係数の不確実性と観測雑音に分けて導ける
+  - 逐次更新を精度行列から証明し一括計算と照合できる
+  - 事前分散・観測雑音・観測点を変えて事後平均・信用帯と予測区間を検算できる
+definitions:
+  - { id: ML2-02-DEF-01, name: 既知雑音分散のGaussian線形回帰模型 }
+  - { id: ML2-02-DEF-02, name: 非退化Gaussian事前分布 }
+  - { id: ML2-02-DEF-03, name: 係数の事後密度 }
+  - { id: ML2-02-DEF-04, name: 事後予測密度と潜在平均応答 }
+theorems:
+  - { id: ML2-02-THM-01, name: Gaussian線形回帰の事後平均と共分散 }
+  - { id: ML2-02-THM-02, name: 等方Gaussian事前分布とRidgeの一致 }
+  - { id: ML2-02-THM-03, name: Gaussian事後予測と分散の二項分解 }
+  - { id: ML2-02-THM-04, name: 単一観測のGaussian事後逐次更新 }
+canonical_examples:
+  - 一係数一観測で平方完成と正規化
+  - 二次元対角共分散の正定値性の直接確認
+  - 設計行列階数欠損での正定値事後
+  - 観測雑音と係数不確実性を分離した予測区間
+  - 観測後の逐次更新とRidgeの係数正規化
+  - 対話実験による事前分散・雑音・観測数の変更
+problem_patterns:
+  - ML2-02-A01
+  - ML2-02-A02
+  - ML2-02-A03
+  - ML2-02-A04
+  - ML2-02-B01
+  - ML2-02-B02
+  - ML2-02-B03
+  - ML2-02-B04
+  - ML2-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

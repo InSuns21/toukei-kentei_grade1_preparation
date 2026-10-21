@@ -1,0 +1,56 @@
+chapter: ML2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-05
+  - ML1-07
+  - ML2-01
+concepts:
+  - id: learning.gaussian-linear-regression-model
+    name: 既知雑音分散のGaussian線形回帰模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知雑音分散のGaussian線形回帰模型）"]
+    requires: [learning.design-matrix, learning.nondegenerate-gaussian-density]
+  - id: learning.gaussian-coefficient-prior
+    name: 非退化Gaussian事前分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非退化Gaussian事前分布）"]
+    requires: [learning.gaussian-linear-regression-model, learning.nondegenerate-gaussian-density]
+  - id: learning.gaussian-coefficient-posterior
+    name: 係数の事後密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（係数の事後密度）"]
+    requires: [learning.gaussian-coefficient-prior, learning.generative-posterior]
+  - id: learning.bayesian-linear-gaussian-posterior
+    name: Gaussian線形回帰の事後平均と共分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian線形回帰の事後平均と共分散）"]
+    requires: [learning.gaussian-coefficient-posterior, learning.gaussian-normalization]
+  - id: learning.bayesian-ridge-map
+    name: 等方Gaussian事前分布とRidgeの一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（等方Gaussian事前分布とRidgeの一致）"]
+    requires: [learning.bayesian-linear-gaussian-posterior, learning.ridge-unique-solution]
+  - id: learning.gaussian-posterior-predictive
+    name: 事後予測密度と潜在平均応答
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事後予測密度と潜在平均応答）"]
+    requires: [learning.gaussian-coefficient-posterior, learning.gaussian-linear-regression-model]
+  - id: learning.gaussian-predictive-variance
+    name: Gaussian事後予測と分散の二項分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian事後予測と分散の二項分解）"]
+    requires: [learning.gaussian-posterior-predictive, learning.bayesian-linear-gaussian-posterior]
+  - id: learning.gaussian-posterior-sequential-update
+    name: 単一観測のGaussian事後逐次更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単一観測のGaussian事後逐次更新）"]
+    requires: [learning.bayesian-linear-gaussian-posterior, learning.gaussian-predictive-variance]
