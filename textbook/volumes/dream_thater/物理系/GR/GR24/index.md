@@ -54,7 +54,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_{00}=-N^2$、$g_{xx}=A^2$、$g^{00}=-N^{-2}$、$g^{xx}=A^{-2}$ で、時間微分と混合計量成分は零です。[Levi-Civita接続の座標計算](../GR3/index.md#thm-gr3-stationary-action)に使う公式を直接展開すると、
+$g_{00}=-N^2$、$g_{xx}=A^2$、$g^{00}=-N^{-2}$、$g^{xx}=A^{-2}$ で、時間微分と混合計量成分は零です。[GR3の測地線方程式の導出](../GR3/index.md#thm-gr3-stationary-action)に使う公式を直接展開すると、
 
 $$
 \begin{aligned}
@@ -99,7 +99,7 @@ $A,N>0$ よりこの成分の消失と $(N'/A)'=0$ は同値です。2次元のR
 
 ### 直接例A：Rindler時計
 
-$a>0$ とし、$N(x)=1+ax/c^2$、$A=1$、$x>-c^2/a$ の計量を考えます。[GR1の局所自由落下・Rindlerの構成](../GR1/index.md)を見直し、上の命題に代入すると
+$a>0$ とし、$N(x)=1+ax/c^2$、$A=1$、$x>-c^2/a$ の計量を考えます。[GR1のRindler計量の導出](../GR1/index.md#prop-gr1-rindler-metric)を見直し、上の命題に代入すると
 
 $$
 \Gamma^x_{00}=\frac{a}{c^2}N,\qquad
