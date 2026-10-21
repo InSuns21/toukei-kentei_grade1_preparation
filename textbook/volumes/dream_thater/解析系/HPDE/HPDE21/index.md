@@ -171,7 +171,7 @@ P(E_{\mathrm{cau}}f)
 =f-f=0.
 $$
 
-$\varphi\in\Gamma_c$ なら $P\varphi\in\Gamma_c$ です。この入力条件を確認した後で[両側Green恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を使うと
+$\varphi\in\Gamma_c$ なら $P\varphi\in\Gamma_c$ です。この入力条件を確認した後で[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を使うと
 
 $$
 E_{\mathrm{cau}}(P\varphi)
@@ -514,7 +514,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。$\varphi\in\Gamma_c$ が $P\varphi=0$ とします。入力 $\varphi$ がコンパクト支持なので[両側Green恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)の適用条件を満たします。従って
+**詳細解答**。$\varphi\in\Gamma_c$ が $P\varphi=0$ とします。入力 $\varphi$ がコンパクト支持なので[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)の適用条件を満たします。従って
 
 $$
 \varphi=G_{\mathrm{ret}}P\varphi
@@ -611,7 +611,7 @@ PE_{\mathrm{cau}}f
 =PG_{\mathrm{ret}}f-PG_{\mathrm{adv}}f=f-f=0.
 $$
 
-$\varphi\in\Gamma_c$ に対し $P\varphi\in\Gamma_c$ なので、[両側Green恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を用いると
+$\varphi\in\Gamma_c$ に対し $P\varphi\in\Gamma_c$ なので、[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を用いると
 
 $$
 E_{\mathrm{cau}}P\varphi
@@ -644,7 +644,7 @@ $$
 
 [コンパクト因果ダイヤモンド補題](../HPDE19/index.md#lem-hpde19-causal-overlap)の条件は、大域双曲性と $K$ のコンパクト性によって満たされます。この交差はコンパクトで、閉集合 $\operatorname{supp}u$ もコンパクトです。よって $u\in\Gamma_c$ で $f=Pu\in P\Gamma_c$。両包含から核の等式が成り立ちます。
 
-さらに $\varphi\in\Gamma_c$ が $P\varphi=0$ なら、[右側Green恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
+さらに $\varphi\in\Gamma_c$ が $P\varphi=0$ なら、[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
 
 $$
 \varphi=G_{\mathrm{ret}}P\varphi=G_{\mathrm{ret}}0=0.
