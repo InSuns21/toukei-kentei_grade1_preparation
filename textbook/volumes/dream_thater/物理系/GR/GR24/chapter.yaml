@@ -1,0 +1,42 @@
+id: "GR24"
+title: "GR I 総合演習：計量から観測まで"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR6
+  - GR13
+  - GR14
+  - GR16
+  - GR17
+  - GR20
+  - GR21
+  - GR22
+  - GR23
+official_scope: []
+learning_objectives:
+  - 静的計量の逆行列・接続・曲率を同じ座標と符号で導き、RindlerとSchwarzschildを区別できる
+  - 静止時計の固有時、静止観測者の固有加速度、自由粒子の保存量を混同せず計算できる
+  - Schwarzschild動径光線の座標走時と静止観測者間の重力赤方偏移を導ける
+  - Newton弱場極限のPoisson方程式・加速度・時計比の近似次数を点検できる
+  - TT波の偏極・検出器差動応答と円軌道二体系の先頭四重極波形・放射パワーを計算できる
+  - 計量から観測までの複合問題で仮定・符号・次元・定義域を一貫して監査できる
+definitions: []
+theorems:
+  - { id: GR24-PROP-01, name: 静的二次元ブロックの接続と曲率の検算 }
+canonical_examples:
+  - Rindler時計の接続非零と曲率零の直接計算
+  - Schwarzschild時間・半径ブロックの曲率と静止固有加速度
+  - 静止時計・自由落下・光子的保存量の区別
+  - TT波の二偏極と四重極放射の次数・次元
+problem_patterns:
+  - GR24-CONNECTION-AND-CURVATURE
+  - GR24-RINDLER-VS-SCHWARZSCHILD
+  - GR24-REDSHIFT-AND-RADAR
+  - GR24-NEWTON-WEAK-FIELD
+  - GR24-TT-PROJECTION
+  - GR24-BINARY-WAVE
+  - GR24-CAPSTONE-STATIC-OBSERVATIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 6 }
