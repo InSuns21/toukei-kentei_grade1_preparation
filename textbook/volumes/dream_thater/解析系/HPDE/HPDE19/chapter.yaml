@@ -1,0 +1,49 @@
+id: "HPDE19"
+title: "Green作用素の恒等式と一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE18
+  - HPDE16
+  - HPDE5
+  - HPDE4
+  - HPDE3
+  - HPDE12
+  - LORG20
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 局所微分作用素の台不増大性とGreen合成の正確な作用域を説明できる
+  - コンパクト支持の切断に対してPG=GP=idを大域Cauchy一意性から証明できる
+  - 因果的支持と片側逆条件だけからGreen作用素の一意性を証明できる
+  - コンパクトな因果未来と因果過去の交差のコンパクト性を示せる
+  - 形式的双対がnormally hyperbolicであることを主シンボルで検算できる
+  - 先進と遅延が反転する双対積分公式を支持の交差とcutoffから導ける
+  - P^tとP^*を区別し非自己随伴の具体例で検算できる
+definitions:
+  - { id: HPDE19-DEF-01, name: 因果的Green候補 }
+theorems:
+  - { id: HPDE19-PROP-01, name: Green作用素の両側恒等式 }
+  - { id: HPDE19-THM-01, name: 因果的Green候補の一意性 }
+  - { id: HPDE19-LEM-01, name: 因果的な未来と過去の重なり }
+  - { id: HPDE19-PROP-02, name: 形式的双対もnormally hyperbolic }
+  - { id: HPDE19-THM-02, name: Green作用素の転置と時間方向の反転 }
+  - { id: HPDE19-COR-01, name: Hermite随伴とのGreen対 }
+canonical_examples:
+  - コンパクト支持の平坦積関数とその波動作用素
+  - 定数斉次解で作用域拡張の失敗を確認
+  - Minkowski因果ダイヤモンドのコンパクト性
+  - 定数一階時間微分を含む非自己随伴波動作用素
+problem_patterns:
+  - HPDE19-LOCAL-SUPPORT
+  - HPDE19-LEFT-RIGHT-INVERSE
+  - HPDE19-GREEN-DOMAIN
+  - HPDE19-FORMAL-TRANSPOSE
+  - HPDE19-CAUSAL-OVERLAP
+  - HPDE19-UNIQUENESS
+  - HPDE19-PAIRING
+  - HPDE19-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
