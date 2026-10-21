@@ -130,7 +130,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde19-causal-green-candidate -->
-**定義の確認**。Minkowski平面の $P=\partial_t^2-\partial_x^2$ と $f\in C_c^\infty(\mathbb R^{1+1})$ を取ります。[HPDE12の遅延積分核](../HPDE12/index.md#thm-hpde12-convolution-inverses)は $P(G_{\mathrm{ret}}f)=f$ を満たし、積分領域は $s\le t$ かつ $|x-y|\le t-s$ に限られます。従って値が非零になる点は $\operatorname{supp}f$ の因果的未来に入り、両条件が確認できます。[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)により、曲がった時空・束値作用素でもこの候補は実在します。
+**定義の確認**。Minkowski平面で $P=\partial_t^2-\partial_x^2$ とし、[HPDE12の遅延畳み込み作用素](../HPDE12/index.md#def-hpde12-convolution-operators)を $H$ とします。観測点を $(t,x)$、源の点を $(s,y)$ とすると、
+
+$$
+(Hf)(t,x)=\frac12\int_{-\infty}^{t}
+\int_{x-(t-s)}^{x+(t-s)}f(s,y)\,dy\,ds,
+\qquad f\in C_c^\infty(\mathbb R^{1+1}).
+$$
+
+まず、積分の線形性から任意のスカラー $\alpha,\beta$ と源 $f_1,f_2$ に対して $H(\alpha f_1+\beta f_2)=\alpha Hf_1+\beta Hf_2$ です。[HPDE12の畳み込み逆定理](../HPDE12/index.md#thm-hpde12-convolution-inverses)により $PHf=f$ も成立します。
+
+最後に支持条件を判定します。積分領域の $s\le t$ および $|x-y|\le t-s$ は、Minkowski計量に関して $(s,y)$ から $(t,x)$ へ未来向き因果曲線で到達できる条件そのものです。$(t,x)\notin J^+(\operatorname{supp}f)$ なら、積分領域で $f(s,y)$ はすべて零なので $(Hf)(t,x)=0$ です。大域双曲Minkowski時空では[コンパクト集合の因果的未来は閉](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)であるため、零集合の開性も含めて $\operatorname{supp}(Hf)\subseteq J^+(\operatorname{supp}f)$ と結論できます。これで**線形性・方程式・支持包含**の三条件を実際に確認しました。[HPDE18の構成定理](../HPDE18/index.md#thm-hpde18-green-existence)によって曲がった時空・束値作用素でも候補は実在します。
 <!-- definition-example-end -->
 
 <a id="thm-hpde19-uniqueness"></a>
@@ -204,7 +214,15 @@ J^+(K)\cap J^-(L)\subseteq
 J^+(K)\cap t^{-1}([a,b]).
 $$
 
-右辺は[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)によりコンパクトです。大域双曲性の下でコンパクト集合の因果的未来・過去は閉集合であるので、左辺も閉です。従ってコンパクト集合の閉部分集合としてコンパクトです。
+この右辺は有限時刻の因果影です。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)は区間の両端に厳密な大小 $a'<b'$ を仮定するため、$a=b$ の場合も含めて、例えば $a'=a-1$、$b'=b+1$ と取ります。すると
+
+$$
+J^+(K)\cap J^-(L)
+\subseteq J^+(K)\cap t^{-1}([a,b])
+\subseteq J^+(K)\cap t^{-1}([a',b'])
+$$
+
+であり、右端は同補題によってコンパクトです。また、[大域双曲性の閉因果関係](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と $K,L$ のコンパクト性により $J^+(K)$ と $J^-(L)$ は閉集合なので、左端はこのコンパクト集合の閉部分集合としてコンパクトです。
 
 切断の支持は閉集合です。その交差は上で得たコンパクト集合に含まれる閉集合だからコンパクトです。$\square$
 <!-- proof-end -->
@@ -215,7 +233,7 @@ $$
 
 [HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を使います。$d=\dim M$、密度束を $|\Lambda^dT^*M|$ とし、$F=E^*\otimes|\Lambda^dT^*M|$ と書きます。$P^t$ はこの束の切断に作用する微分作用素で、代数的双対を使うため**複素数の場合も係数を共役しません**。
 
-二階の主シンボルだけを見ると、局所表示で $P$ の二階係数を $A^{ij}$ と書くと、、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
+二階の主シンボルだけを見ると、局所表示で $P$ の二階係数を $A^{ij}$ と書くと、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
 
 $$
 \sigma_2(P^t)(x,\xi)=-g_x^{-1}(\xi,\xi)\operatorname{id}_{F_x}.
@@ -422,7 +440,7 @@ $$
 P\varphi(t,x)=h''(t)q(x)-h(t)q''(x).
 $$
 
-この源はコンパクト支持です。$a<\min\operatorname{supp}h$ を選ぶと $\varphi$ は $\Sigma_a$ 付近で零であり、二つのCauchyデータも零です。[HPDE18の遅延Green](../HPDE18/index.md#def-hpde18-green-operators)も、同じ源と零データから作られます。[大域一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より $G_{\mathrm{ret}}(P\varphi)=\varphi$ です。$h=0$ の場合も両辺は零です。
+$h=0$ または $q=0$ なら $\varphi=P\varphi=0$ なので、Green作用素の線形性により直ちに $G_{\mathrm{ret}}(P\varphi)=0=\varphi$ です。以下は両者が非零の場合とします。この源はコンパクト支持です。空でないコンパクト集合 $\operatorname{supp}h\subset\mathbb R$ に対して $a<\min\operatorname{supp}h$ を選べば、$\varphi$ は $\Sigma_a$ 付近で零となり、二つのCauchyデータも零です。[HPDE18の遅延Green](../HPDE18/index.md#def-hpde18-green-operators)も、同じ源と零データから作られます。[大域一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より $G_{\mathrm{ret}}(P\varphi)=\varphi$ です。
 <!-- solution-end -->
 
 <a id="ex-hpde19-a03"></a>
@@ -547,7 +565,9 @@ $$
 \subset J^+(\operatorname{supp}f)\cap J^-(\operatorname{supp}\psi)
 $$
 
-です。[重なり補題](#lem-hpde19-causal-overlap)により右辺はコンパクト。重なりの近傍で $1$ となるコンパクト台の $\chi$ を取ります。$[P,\chi]u$ は $\operatorname{supp}v$ と交わらず、また $v(Pu)$ の支持は重なりの中です。双対の部分積分公式を $\chi u$ と、必要ならコンパクト化した $v$ に適用すると
+です。[重なり補題](#lem-hpde19-causal-overlap)により右辺はコンパクトです。$S=\operatorname{supp}u\cap\operatorname{supp}v$ とし、その開近傍で $1$ となるコンパクト台の $\chi$ を取ります。さらに $\operatorname{supp}(\chi u)$ の開近傍で $1$ となるコンパクト台の $\eta$ を取れば、$\chi u$ と $\eta v$ は共に試験切断です。$P(\chi u)$ は $\operatorname{supp}(\chi u)$ に支持され、$\eta=1$ の近傍では $P^t(\eta v)=P^tv$ なので、[形式的双対の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)をこの二つの試験切断に適用できます。
+
+また、$[P,\chi]u$ が非零となり得るのは $\operatorname{supp}u\cap\operatorname{supp}(d\chi)$ だけです。この集合は $\operatorname{supp}v$ と交わりません。交われば $S$ の点で $d\chi\ne0$ となりますが、$\chi=1$ が $S$ の近傍で成り立つことに反します。さらに $\operatorname{supp}f=\operatorname{supp}(Pu)\subseteq\operatorname{supp}u$ なので $v(f)$ の支持は $S$ に入り、$\chi v(f)=v(f)$ です。以上により
 
 $$
 \begin{aligned}
