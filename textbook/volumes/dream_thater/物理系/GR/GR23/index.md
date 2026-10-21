@@ -58,7 +58,7 @@ $$
 I_{ij}=Q_{ij}-\frac13\delta_{ij}Q_{kk}
 $$
 
-を**質量四重極モーメント**と呼びます。対角の和を引く理由は、観測方向に垂直で無跡な[GR22のTT射影](../GR22/index.md#def-gr22-tt-projector)では $\delta_{ij}$ に比例する部分が消えるためです。$\operatorname{tr}I=Q_{kk}-3Q_{kk}/3=0$ と直接確かめられます。
+で方向による形の違いを表します。正式な名称は直後に定義します。対角の和を引く理由は、観測方向に垂直で無跡な[GR22のTT射影](../GR22/index.md#def-gr22-tt-projector)では $\delta_{ij}$ に比例する部分が消えるためです。$\operatorname{tr}I=Q_{kk}-3Q_{kk}/3=0$ と直接確かめられます。
 
 <a id="def-gr23-mass-quadrupole"></a>
 
@@ -75,7 +75,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr23-mass-quadrupole -->
-**定義の確認。** 時刻を固定し、質量 $m$ の二つの集中質量を $(a,0,0)$ と $(-a,0,0)$ に置く理想化を考えます（数学的にはDirac質量によるモーメントの極限であり、前節の滑らかさとは別の例です）。$Q_{11}=2ma^2$、$Q_{22}=Q_{33}=0$、非対角も零。従って
+**定義の確認。** 時刻を固定し、質量 $m$ の二つの集中質量を $(a,0,0)$ と $(-a,0,0)$ に置く理想化を考えます（数学的には滑らかな質量分布を点へ集中させた極限であり、前節の滑らかさとは別の例です）。$Q_{11}=2ma^2$、$Q_{22}=Q_{33}=0$、非対角も零。従って
 
 $$
 I=\frac{2ma^2}{3}
@@ -188,7 +188,7 @@ $$
 \frac1{|\boldsymbol x-\boldsymbol y|}=\frac1r+O(a/r^2).
 $$
 
-従って遅延時刻は $t_r=t-r/c$ を中心として $t_r+\boldsymbol n\cdot\boldsymbol y/c+O(a^2/(cr))$。$a\Omega/c\ll1$ なら被積分関数を $t_r$ の値で展開でき、先頭項が $\int T_{ij}(t_r,\boldsymbol y)\,d^3y$ となります。$1/r$ の係数の相対的な遅延補正は典型的に $O(a\Omega/c)$、距離による補正は $O(a/r)$ です。特別な対称性で先頭項が零の場合には**相対誤差**とは呼べません。
+従って遅延時刻は $t_r=t-r/c$ を中心として $t_r+\boldsymbol n\cdot\boldsymbol y/c+O(a^2/(cr))$。$a\Omega/c\ll1$ なら被積分関数を $t_r$ の値で展開でき、先頭項が $\int T_{ij}(t_r,\boldsymbol y)\,d^3y$ となります。$1/r$ の係数の相対的な遅延補正は典型的に $O(a\Omega/c)$、距離による補正は $O(a/r)$ です。特別な対称性で先頭項が零の場合には、この補正を先頭項の大きさで割る評価はできません。
 
 <a id="thm-gr23-quadrupole-wave"></a>
 
@@ -606,10 +606,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gr23-b02"></a>
-#### GR23-B02 球面平均の $1/5$ を独立に計算する
+#### GR23-B02 方向積分の $1/5$ を独立に計算する
 - Level: B
 
-対称無跡行列 $A$ と単位ベクトル $\boldsymbol n$ に対し $\Lambda A=PAP-P\operatorname{tr}(PA)/2$ とする。球面平均の二次・四次モーメントを用い、$\int\|\Lambda A\|^2d\Omega=8\pi\|A\|^2/5$ を示せ。
+対称無跡行列 $A$ と単位ベクトル $\boldsymbol n$ に対し $\Lambda A=PAP-P\operatorname{tr}(PA)/2$ とする。単位球面上の方向ベクトルの二次・四次積分を用い、$\int\|\Lambda A\|^2d\Omega=8\pi\|A\|^2/5$ を示せ。
 
 <!-- solution-start -->
 **詳細解答。** $P=E-\boldsymbol n\boldsymbol n^\mathsf T$、$P^2=P$ だから
