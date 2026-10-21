@@ -293,7 +293,11 @@ $$
 
 です。[重なりの補題](#lem-hpde19-causal-overlap)により $S=\operatorname{supp}u\cap\operatorname{supp}v$ はコンパクトです。
 
-$S$ の開近傍で $1$ となる滑らかなコンパクト台関数 $\chi$ を選びます。$\chi u$ はコンパクト支持です。[形式的双対の積分恒等式](../HPDE4/index.md#def-hpde4-formal-transpose)を $\chi u$ と $v$ に適用するには、元の定義で試験切断がコンパクト台であることに注意が要ります。そこで $v$ にも、$\operatorname{supp}(\chi u)$ を含むコンパクト近傍で $1$ になるカットオフ $\eta$ を掛け、まずコンパクト台の $\eta v$ に対して定義で与えた積分等式を適用します。$\eta=1$ が成り立つ開集合で $P^t(\eta v)=P^tv$ なので
+$S$ の開近傍で $1$ となる滑らかなコンパクト台関数 $\chi$ を選びます。このとき $\chi u$ はコンパクト支持です。
+
+[形式的双対の積分恒等式](../HPDE4/index.md#def-hpde4-formal-transpose)を使うために、双対切断側にもコンパクト支持が必要です。$\operatorname{supp}(\chi u)$ の開近傍で $1$ になるコンパクト台関数 $\eta$ を選び、コンパクト支持の $\eta v$ を試験切断として用います。
+
+$\eta=1$ が成り立つ開集合では $P^t(\eta v)=P^tv$ です。また、$P(\chi u)$ の支持は $\operatorname{supp}(\chi u)$ に含まれます。従ってコンパクト台での積分恒等式を適用すると
 
 $$
 \int_M (P^t v)(\chi u)=\int_M v(P(\chi u))
@@ -514,7 +518,19 @@ $(M,g)$ は境界なしの滑らかな大域双曲時空、$E\to M$ は有限ラ
 
 (ii) $P\varphi=0$ かつ $\varphi\in\Gamma_c$ なら、(i)により $\varphi=G_{\mathrm{ret}}(P\varphi)=G_{\mathrm{ret}}0=0$ です。従って核は零で $P$ は単射です。この段階で、後続講義のexact sequence全体はまだ証明していません。
 
-(iii) $P^t$ は二階主シンボルが $-g^{-1}(\xi,\xi)I$ のままなのでnormally hyperbolicです。[形式的双対もnormally hyperbolic](#prop-hpde19-transpose-hyperbolic)から $v=G_{\mathrm{adv}}^{P^t}\psi$ が存在します。$u=G_{\mathrm{ret}}^Pf$ と置けば $Pu=f$、$P^tv=\psi$ で、
+(iii) [形式的双対もnormally hyperbolic](#prop-hpde19-transpose-hyperbolic)であることは、第5節の二階主シンボルの計算
+
+$
+\sigma_2(P^t)(x,\xi)=-g_x^{-1}(\xi,\xi)I
+$
+
+で確認しました。従って $P^t$ の先進Green作用素が存在します。二つの解を次のように置きます。
+
+$
+u=G_{\mathrm{ret}}^Pf,\qquad v=G_{\mathrm{adv}}^{P^t}\psi.
+$
+
+すると $Pu=f$、$P^tv=\psi$ であり、
 
 $$
 \operatorname{supp}u\cap\operatorname{supp}v
