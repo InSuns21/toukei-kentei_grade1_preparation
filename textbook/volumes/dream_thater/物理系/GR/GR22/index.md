@@ -183,7 +183,15 @@ B_a=-\frac{A_{0a}}{iq}\ (a=1,2),\quad
 B_3=B_0-\frac{A_{03}}{iq}
 $$
 
-と選べば $A'_{0\mu}=0$ になります。また $\Box\xi_\mu=-k^\rho k_\rho\xi_\mu=0$ なので、これは調和条件を壊しません。$A_{\mu\nu}=O(\epsilon)$ なら $B_\mu=O(\epsilon/q)$ です。波長に対応する長さ尺度 $q^{-1}$ を取ると、$\xi_\mu=O(\epsilon/q)$ かつその $j$ 階微分は $O(\epsilon q^{j-1})$（$j=1,2,3$）であり、[GR21の微小ゲージ変換の尺度条件](../GR21/index.md#def-gr21-gauge-equivalence)とも整合します。
+と選べば $A'_{0\mu}=0$ になります。また $\Box\xi_\mu=-k^\rho k_\rho\xi_\mu=0$ なので、これは調和条件を壊しません。$A_{\mu\nu}=O(\epsilon)$ なら $B_\mu=O(\epsilon/q)$ です。波長に対応する長さ尺度 $q^{-1}$ で微分を数えると
+
+$$
+\xi_\mu=O(\epsilon/q),\qquad
+\partial_{\alpha_1}\cdots\partial_{\alpha_j}\xi_\mu
+=O(\epsilon q^{j-1})\quad(j=1,2,3)
+$$
+
+となり、[GR21の微小ゲージ変換の尺度条件](../GR21/index.md#def-gr21-gauge-equivalence)とも整合します。
 
 変換後にも $\bar A'_{0\nu}+\bar A'_{3\nu}=0$。$A':=\eta^{\mu\nu}A'_{\mu\nu}$ とすると、$\nu=0$ の式は
 
