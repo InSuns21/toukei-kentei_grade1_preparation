@@ -54,10 +54,48 @@ $$
 \boxed{g^{\mu\nu}=\eta^{\mu\nu}-h^{\mu\nu}+O(\epsilon^2)}
 $$
 
-です。実際に $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ に代入すると、一次の二項が相殺します。
+です。逆計量の定義は $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ です。候補 $q^{\mu\nu}=\eta^{\mu\nu}-h^{\mu\nu}$ を作って代入すると
+
+$$
+\begin{aligned}
+g_{\mu\alpha}q^{\alpha\nu}
+&=(\eta_{\mu\alpha}+h_{\mu\alpha})
+  (\eta^{\alpha\nu}-h^{\alpha\nu})+O(\epsilon^2)\\
+&=\delta_\mu^\nu-\eta_{\mu\alpha}h^{\alpha\nu}
+  +h_{\mu\alpha}\eta^{\alpha\nu}+O(\epsilon^2)\\
+&=\delta_\mu^\nu-h_\mu{}^\nu+h_\mu{}^\nu
+  +O(\epsilon^2)
+=\delta_\mu^\nu+O(\epsilon^2).
+\end{aligned}
+$$
+
+二つの一次項はどちらも背景計量で添字を上げた $h_\mu{}^\nu$ なので打ち消し合い、候補 $q$ が一次までの逆計量であると分かります。
 
 <!-- definition-example-start: def-gr21-linear-perturbation -->
-**定義の確認**（対角の小さな変化）。 定数 $a$ について $h_{00}=-2\epsilon a$、他成分が零の例を考えます。$h_{\mu\nu}$ は対称で、微分は零、$g_{00}=-1-2\epsilon a<0$（$|\epsilon a|$ が小さいとき）なので、計量はLorentz型です。背景による跡は $h=\eta^{00}h_{00}=2\epsilon a$、上げた成分は $h^{00}=-2\epsilon a$ です。一方、厳密な逆成分は $g^{00}=-(1+2\epsilon a)^{-1}=-1+2\epsilon a+O(\epsilon^2)$。これが $\eta^{00}-h^{00}$ と一致し、定義中の「背景で添字を上げる」操作と「全計量を逆にする」操作の差が確認できます。
+**定義の確認**（対角の小さな変化）。定数 $a$ に対し $h_{00}=-2\epsilon a$、他成分が零で、二次の剰余も零である計量族を考えます。成分行列は
+
+$$
+(g_{\mu\nu})=\operatorname{diag}(-1-2\epsilon a,1,1,1).
+$$
+
+$h_{\mu\nu}$ は対称で、$k_{00}=-2a$ とその二階までの微分は有界です。さらに $|\epsilon a|<1/2$ なら第1対角成分は負、残りの3成分は正です。この対角行列の固有値は対角成分そのものなので、署名は $(-,+,+,+)$ となり、計量族はLorentz型で非退化です。対角行列を用いた判定は、この例では全計量を座標基底で表示しているから可能です。
+
+背景計量による縮約と添字上げは
+
+$$
+h=\eta^{00}h_{00}=2\epsilon a,\qquad
+h^{00}=(\eta^{00})^2h_{00}=-2\epsilon a.
+$$
+
+一方、全計量の逆行列は対角成分を逆数にした行列なので
+
+$$
+g^{00}=-\frac1{1+2\epsilon a}
+=-1+2\epsilon a+O(\epsilon^2)
+=\eta^{00}-h^{00}+O(\epsilon^2).
+$$
+
+こうして「背景で添字を上げる」操作と「全計量を逆にする」操作を、定義式と逆行列の条件から区別できます。
 <!-- definition-example-end -->
 
 ## 2. 接続から一次曲率まで計算する
@@ -150,7 +188,15 @@ $$
 \end{aligned}
 $$
 
-最後の等号は $h^\rho{}_\mu=\partial^\rho$ と置いたのではなく、**$\partial_\rho h^\rho{}_\mu=\partial^\rho h_{\rho\mu}$** で第1項と第3項が相殺するためです。よって定理のRicci式を得ます。
+ここで
+
+$$
+\partial_\rho h^\rho{}_\mu
+=\eta^{\rho\lambda}\partial_\rho h_{\lambda\mu}
+=\partial^\lambda h_{\lambda\mu}
+$$
+
+なので、$\Gamma^{(1)\rho}_{\rho\mu}$ の第1項と第3項が相殺します。これをRicciの縮約式へ代入すると、命題のRicci式が得られます。
 
 スカラー曲率は $\mathcal R=g^{\mu\nu}R_{\mu\nu}$。背景のRicciは零なので、逆計量の一次補正とRicci一次の積は二次です。従って
 
@@ -231,7 +277,7 @@ $$
 
 一般相対論では、座標だけを変えても同じ時空を記述できます。しかし背景計量 $\eta$ を固定して摂動 $h$ を比較すると、同じ幾何を表す二つの $h$ が異なって見えます。この違いが**ゲージ自由度**です。実際に座標変換のJacobianを二つ掛ければ変換則が導けます。
 
-小さい滑らかなベクトル場 $\xi^\mu=O(\epsilon L)$ とその微分 $\partial\xi=O(\epsilon)$ を取り、一次の座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を考えます。$\xi_\mu=\eta_{\mu\nu}\xi^\nu$ と書きます。$x$ と $x'$ は異なる座標ですが、一次近似では同じ背景点に引き戻して比較するので、$h(x'-\xi)=h(x')+O(\epsilon^2)$ となります。
+小さい $C^3$ 級ベクトル場 $\xi^\mu$ を取り、固定尺度 $L$ に関して $\xi^\mu=O(\epsilon L)$、その第 $j$ 階座標偏微分が $O(\epsilon L^{1-j})$（$j=1,2,3$）で一様に評価できるとします。一次の座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を考えます。第3階までの条件は後の曲率変化の計算で偏微分を交換し、一次と高次を分離するために必要です。$\xi_\mu=\eta_{\mu\nu}\xi^\nu$ と書きます。$x$ と $x'$ は異なる座標ですが、一次近似では同じ背景点に引き戻して比較するので、$h(x'-\xi)=h(x')+O(\epsilon^2)$ となります。
 
 実際、逆のJacobianは
 
@@ -261,7 +307,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（線形ゲージ変換・純ゲージ摂動）**  
-> Minkowski背景上の線形摂動 $h_{\mu\nu}$ と、$\xi^\mu$ およびその一次・二次微分が弱場の尺度で $O(\epsilon)$ となる微小座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を取る。これに誘導される一次変換
+> Minkowski背景上の線形摂動 $h_{\mu\nu}$ と、$C^3$ 級の微小座標変更 $x'^\mu=x^\mu+\xi^\mu(x)$ を取る。$\xi^\mu=O(\epsilon L)$ で、その第 $j$ 階座標偏微分は $O(\epsilon L^{1-j})$（$j=1,2,3$）を満たすとする。これに誘導される一次変換
 >
 $$
 \boxed{h'_{\mu\nu}=h_{\mu\nu}
@@ -274,7 +320,17 @@ $$
 微小座標変換の符号は、ここで $x'=x+\xi$ と約束したことによります。$x'=x-\xi$ を採れば変化の符号も反転しますが、曲率が不変という結論は同じです。
 
 <!-- definition-example-start: def-gr21-gauge-equivalence -->
-**定義の確認**（揺れて見える平坦計量）。 $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。滑らかで、$\xi^1=O(\epsilon L)$、$\partial_0\xi_1=\epsilon\cos(x^0/L)$ です。$h=0$ から変換すると
+**定義の確認**（揺れて見える平坦計量）。 $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。この $\xi$ は $C^3$ 級であり、非零となり得る微分は $x^0$ 方向だけです。具体的に
+
+$$
+\begin{aligned}
+\partial_0\xi_1&=\epsilon\cos(x^0/L),\\
+\partial_0^2\xi_1&=-\epsilon L^{-1}\sin(x^0/L),\\
+\partial_0^3\xi_1&=-\epsilon L^{-2}\cos(x^0/L).
+\end{aligned}
+$$
+
+従って $\xi^1=O(\epsilon L)$ に加え、第一・第二・第三微分の尺度条件がすべて成り立ちます。$h=0$ から変換すると
 
 $$
 h'_{01}=h'_{10}=-\epsilon\cos(x^0/L),
@@ -288,7 +344,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（一次曲率のゲージ不変性）**  
-> Minkowski背景の $C^3$ 級線形摂動が上のゲージ変換を受け、$\xi$ が必要な微分について $C^3$ 級とする。このとき一次のRiemannテンソル、Ricciテンソル、スカラー曲率、Einsteinテンソルはいずれも変わらない。純ゲージ摂動の一次曲率は零である。
+> Minkowski背景の $C^3$ 級線形摂動が[線形ゲージ変換](#def-gr21-gauge-equivalence)を受け、$\xi$ は第三階の座標微分まで定義中の微分尺度条件を満たすとする。このとき一次のRiemannテンソル、Ricciテンソル、スカラー曲率、Einsteinテンソルはいずれも変わらない。純ゲージ摂動の一次曲率は零である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -718,7 +774,7 @@ $$
 #### GR21-B03 残余ゲージと平面関数
 - Level: B
 
-定ベクトル $a_\nu$ と定共変ベクトル $k_\mu$ を取り、$\xi_\nu=a_\nu\cos(k_\mu x^\mu)$ とする。調和ゲージを保つ条件を求め、$k^\mu k_\mu$ の符号と波の伝播の関係を述べよ。
+零でない定ベクトル $a_\nu$ と零でない定共変ベクトル $k_\mu$ を取り、$\xi_\nu=a_\nu\cos(k_\mu x^\mu)$ とする。微小ゲージ変換として扱えるよう、$a_\nu=O(\epsilon L)$、$k_\mu=O(L^{-1})$ を仮定する。調和ゲージを保つ条件を求め、$k^\mu k_\mu$ の符号と波の伝播の関係を述べよ。
 
 <!-- solution-start -->
 **詳細解答。** $\partial_\alpha\xi_\nu=-a_\nu k_\alpha\sin(k_\mu x^\mu)$、二回微分して $\partial_\beta\partial_\alpha\xi_\nu=-a_\nu k_\alpha k_\beta\cos(k_\mu x^\mu)$。背景で縮約して
