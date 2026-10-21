@@ -58,7 +58,31 @@ $$
 ここで $L$ を一つだけ固定するのではなく、**すべてのコンパクト $L$** について調べます。pc は「過去に広がらない」を時刻の下限で定義しているのではありません。非コンパクトなCauchy面を持つ時空では、遠方へ行くにつれて源の最初の時刻がいくらでも早くなることがあります。
 
 <!-- definition-example-start: def-hpde20-support-classes -->
-**定義の確認**。標準Minkowski計量 $g=-dt^2+dx^2$ と、$t$ が増える向きを未来とする $(t,x)\in\mathbb R^{1+1}$ を考えます。上で定義した $J^\pm$ は因果曲線の存在で決まりますが、ここでは[既習のMinkowski因果錐公式](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を座標判定に用います。未来因果曲線の各滑らかな片では未来向きの条件と $g(\dot\gamma,\dot\gamma)\le0$ から $|\dot x|\le\dot t$ なので、各片で積分し和を取ると三角不等式により $|x-y|\le t-s$ です。逆にこの不等式と $t\ge s$ を満たす二点は、その二点を結ぶ直線が未来因果的になるため、次の同値が成立します。
+**定義の確認**。標準Minkowski計量と、時刻座標の増加方向を未来とする平面を考えます。
+
+$$
+g=-dt^2+dx^2,\qquad (t,x)\in\mathbb R^{1+1}.
+$$
+
+上で定義した因果的未来・過去は曲線の存在で決まります。これを座標で判定するには、[既習のMinkowski因果錐公式](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を使います。実際、未来因果曲線の各滑らかな片について、計量による因果性と未来向きの条件から
+
+$$
+g(\dot\gamma,\dot\gamma)=-\dot t^{\,2}+\dot x^{\,2}\le0,
+\qquad |\dot x|\le\dot t
+$$
+
+が成り立ちます。曲線を有限個の滑らかな片 $I_j$ に分けて積分すると、各片の空間変位の絶対値を積分で評価できるので、
+
+$$
+\begin{aligned}
+|x-y|
+&\le\sum_j\left|\int_{I_j}\dot x(\lambda)\,d\lambda\right|\\
+&\le\sum_j\int_{I_j}|\dot x(\lambda)|\,d\lambda\\
+&\le\sum_j\int_{I_j}\dot t(\lambda)\,d\lambda=t-s.
+\end{aligned}
+$$
+
+逆にこの不等式と時刻の大小関係を満たす二点は、両端を結ぶ直線が未来因果的になるため、次の同値が成立します。
 
 $$
 (s,y)\le(t,x)\quad\Longleftrightarrow\quad
@@ -137,7 +161,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u\in\Gamma_c$ なら $A=\operatorname{supp}u$ はコンパクトです。$K=A$ として $A\subset J(K)$ が成立します。また $A\cap J^\pm(L)$ はコンパクトな $A$ の閉部分集合なのでコンパクトです。ここでは[大域双曲時空の因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から、コンパクト $L$ の $J^\pm(L)$ が閉となることを使います。例えば $q_n\in J^-(L)$、$q_n\to q$ なら $q_n\le\ell_n\in L$ と取れ、$L$ のコンパクト性で $\ell_{n_k}\to\ell\in L$、閉因果関係で $q\le\ell$ となるからです。従って $u$ はsc、pc、fcのすべてに属します。
+$u\in\Gamma_c$ なら台 $A=\operatorname{supp}u$ はコンパクトです。$K=A$ を選べば $A\subset J(K)$ なのでscです。
+
+pcとfcの確認では、[大域双曲時空の因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から、コンパクト集合 $L$ の因果的未来・過去が閉であることを使います。たとえば $q_n\in J^-(L)$ が $q$ に収束するとき、対応する $\ell_n\in L$ を取れば
+
+$$
+q_n\le\ell_n,\qquad
+\ell_{n_k}\longrightarrow\ell\in L,\qquad
+q_{n_k}\longrightarrow q
+$$
+
+を満たす部分列があります。閉因果関係より $q\le\ell$ となるため、極限点も $J^-(L)$ に入ります。未来側も時刻方向を反転して同じことが成立します。
+
+したがって $A\cap J^\pm(L)$ はコンパクトな台の閉部分集合であり、いずれもコンパクトです。ゆえに $u$ はsc、pc、fcのすべてに属します。
 
 tcの等号は定義から従います。逆に $u$ がscかつtcならコンパクト $K$ に対し
 
@@ -173,7 +209,17 @@ $$
 
 を得ます。右辺は[因果的未来と過去の重なりの補題](../HPDE19/index.md#lem-hpde19-causal-overlap)によりコンパクトです。従って $J^+(A)$ はpcです。
 
-閉性も局所的に確認します。$q_n\in J^+(A)$、$q_n\to q$ とし、$q$ を内部に含む相対コンパクトな開近傍 $V$ を選びます。十分大きな $n$ について $q_n\in\overline V$ です。pcより $A_{\overline V}=A\cap J^-(\overline V)$ はコンパクトで、各 $q_n$ に対して $a_n\in A_{\overline V}$、$a_n\le q_n$ を選べます。コンパクト性から部分列を取り、$a_{n_k}\to a\in A_{\overline V}$ とできます。各 $a_{n_k}\le q_{n_k}$ と $q_{n_k}\to q$ に[因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)を適用すると $a\le q$ です。従って $q\in J^+(A)$ となります。未来コンパクトの場合にはすべての $+$ と $-$ を入れ替えます。$\square$
+閉性も局所的に確認します。$q_n\in J^+(A)$ が $q$ に収束するとし、極限点を内部に含む相対コンパクトな開近傍 $V$ を取ります。十分大きな番号について、列の点は $\overline V$ に含まれます。
+
+pcの仮定から $A_{\overline V}=A\cap J^-(\overline V)$ はコンパクトです。各列の点に対して、その因果過去にある $a_n\in A_{\overline V}$ を選びます。コンパクト性から部分列を取れば
+
+$$
+a_{n_k}\longrightarrow a\in A_{\overline V},
+\qquad q_{n_k}\longrightarrow q,\qquad
+a_{n_k}\le q_{n_k}
+$$
+
+です。ここで[因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)を、収束する両端点の列に適用すると $a\le q$ です。よって $q\in J^+(A)$ となり、因果的未来の閉性が得られます。未来コンパクトの場合にはすべての $+$ と $-$ を入れ替えます。$\square$
 <!-- proof-end -->
 
 ## 4. 遅延Green作用素をpc入力へ延長する
