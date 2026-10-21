@@ -320,7 +320,17 @@ $$
 微小座標変換の符号は、ここで $x'=x+\xi$ と約束したことによります。$x'=x-\xi$ を採れば変化の符号も反転しますが、曲率が不変という結論は同じです。
 
 <!-- definition-example-start: def-gr21-gauge-equivalence -->
-**定義の確認**（揺れて見える平坦計量）。 $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。滑らかで、$\xi^1=O(\epsilon L)$、$\partial_0\xi_1=\epsilon\cos(x^0/L)$ です。$h=0$ から変換すると
+**定義の確認**（揺れて見える平坦計量）。 $L>0$ として、$\xi^1=\epsilon L\sin(x^0/L)$、他の $\xi^\mu=0$ を取ります。この $\xi$ は $C^3$ 級であり、非零となり得る微分は $x^0$ 方向だけです。具体的に
+
+$$
+\begin{aligned}
+\partial_0\xi_1&=\epsilon\cos(x^0/L),\\
+\partial_0^2\xi_1&=-\epsilon L^{-1}\sin(x^0/L),\\
+\partial_0^3\xi_1&=-\epsilon L^{-2}\cos(x^0/L).
+\end{aligned}
+$$
+
+従って $\xi^1=O(\epsilon L)$ に加え、第一・第二・第三微分の尺度条件がすべて成り立ちます。$h=0$ から変換すると
 
 $$
 h'_{01}=h'_{10}=-\epsilon\cos(x^0/L),
