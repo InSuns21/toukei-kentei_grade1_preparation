@@ -59,7 +59,7 @@ $$
 
 **直接例で確認する**。Minkowski平面 $(t,x)\in\mathbb R^{1+1}$ を考えます。$J^\pm$ の判定は、二点 $(s,y),(t,x)$ について $t\ge s$ かつ $|x-y|\le t-s$ なら $(s,y)\le(t,x)$ である、という光円錐の不等式です。次に挙げる閉集合はいずれも滑らかな切断の台として実現できますが、まず集合の支持条件自体を検査します。
 
-- **未来半空間** $A_+=\{t\ge0\}$：コンパクト集合 $L$ が $t\le T$、$|x|\le R$ の矩形に入れば、$A_+\cap J^-(L)$ の点は $0\le t\le T$、$|x|\le R+T$ を満たし、閉かつ有界でコンパクトです（$T<0$ なら空）。よってpcです。しかし $A_+$ は時刻 $0$ で空間方向に無限に広がるのでscではなく、$J^+(0,0)\cap A_+$ も非コンパクトなのでfcでもありません。
+- **時刻0以降の半空間** $A_+=\{t\ge0\}$：コンパクト集合 $L$ が $t\le T$、$|x|\le R$ の矩形に入れば、$A_+\cap J^-(L)$ の点は $0\le t\le T$、$|x|\le R+T$ を満たし、閉かつ有界で[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトです（$T<0$ なら空）。よってpcです。しかし $A_+$ は時刻 $0$ で空間方向に無限に広がるのでscではなく、$J^+(0,0)\cap A_+$ も非コンパクトなのでfcでもありません。
 - **未来光円錐** $C_+=J^+(\{(0,0)\})$：点一つを $K$ とすればscです。$C_+\cap J^-(L)$ は[コンパクト因果ダイヤモンド](../HPDE19/index.md#lem-hpde19-causal-overlap)に含まれる閉集合だからpcです。一方 $C_+\cap J^+(\{(0,0)\})=C_+$ は非コンパクトなのでfcではありません。
 - **時間帯** $B=\{0\le t\le1\}$：$B\cap J^-(L)$ と $B\cap J^+(L)$ はともに閉かつ有界です。したがってtcですが、時刻 $1/2$ の全直線を含み、どのコンパクト集合 $K$ の $J(K)$ にも入りません。従ってscではなく、時空コンパクトでもありません。
 - **全光円錐** $C=J(\{(0,0)\})$：scです。しかし $C\cap J^-(\{(0,0)\})$ と $C\cap J^+(\{(0,0)\})$ はいずれも非コンパクトなのでpcでもfcでもありません。
@@ -108,7 +108,7 @@ $$
 A=(A\cap J^+(K))\cup(A\cap J^-(K)).
 $$
 
-fcより第一項はコンパクト、pcより第二項はコンパクトです。有限個のコンパクト集合の和はコンパクトなので $u\in\Gamma_c$。第2節の未来半空間と全光円錐がscとpcの非包含を示し、時間反転でfcの場合も分かります。$\square$
+fcより第一項はコンパクト、pcより第二項はコンパクトです。有限個のコンパクト集合の和はコンパクトなので $u\in\Gamma_c$。第2節の時刻0以降の半空間と全光円錐がscとpcの非包含を示し、時間反転でfcの場合も分かります。$\square$
 <!-- proof-end -->
 
 ここでGreen作用素に必要な、さらに一段強い性質を証明します。有限伝播だけでは「因果影 $J^+(A)$ は閉じているか」「その因果過去との交差はコンパクトか」が自動的には分かりません。
@@ -214,9 +214,9 @@ Pu|_V=P G_{\mathrm{ret}}(\chi_Vf)|_V
 =(\chi_Vf)|_V=f|_V.
 $$
 
-**支持条件。** $A$ の因果的未来に入らない点 $q$ では、任意の $\chi_V$ について $\operatorname{supp}(\chi_Vf)\subseteq A$ なので $G_{\mathrm{ret}}(\chi_Vf)$ は $q$ で零です。従って $u=0$ は $M\setminus J^+(A)$ で成立します。第3節の[pc因果影の補題](#lem-hpde20-causal-past-compact)から $J^+(A)$ は閉かつpcなので、$\operatorname{supp}u\subset J^+(A)$、しかも $u\in\Gamma_{\mathrm{pc}}$ です。$f\in\Gamma_c$ の場合、元のGreen解も同じ局所値を与えるため、確かに延長になっています。
+**支持条件。** $A$ の因果的未来に入らない点 $q$ では、任意の $\chi_V$ について $\operatorname{supp}(\chi_Vf)\subseteq A$ なので $G_{\mathrm{ret}}(\chi_Vf)$ は $q$ で零です。従って $u=0$ は $M\setminus J^+(A)$ で成立します。第3節の[pc集合の因果的未来](#lem-hpde20-causal-past-compact)から $J^+(A)$ は閉かつpcなので、$\operatorname{supp}u\subset J^+(A)$、しかも $u\in\Gamma_{\mathrm{pc}}$ です。$f\in\Gamma_c$ の場合、元のGreen解も同じ局所値を与えるため、確かに延長になっています。
 
-**一意性。** $H:\Gamma_{\mathrm{pc}}\to\Gamma_{\mathrm{pc}}$ が $PHf=f$ と $\operatorname{supp}Hf\subset J^+(\operatorname{supp}f)$ を満たすとします。$w=Hf-u$ は $Pw=0$ かつpc支持です。任意の $q$ と、その相対コンパクト近傍 $V$ について、$\operatorname{supp}w\cap J^-(\overline V)$ はコンパクトです。これを含む開集合で $1$ となるコンパクト台関数 $\eta$ を選びます。$P(\eta w)$ は $J^-(\overline V)$ 上で $Pw=0$ と一致し、したがってそこで零です。また $\eta w\in\Gamma_c$ なので[コンパクト支持での両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)から
+**一意性。** $H:\Gamma_{\mathrm{pc}}\to\Gamma_{\mathrm{pc}}$ が $PHf=f$ と $\operatorname{supp}Hf\subset J^+(\operatorname{supp}f)$ を満たすとします。$w=Hf-u$ は $Pw=0$ かつpc支持です。任意の $q$ と、その相対コンパクト近傍 $V$ について、$\operatorname{supp}w\cap J^-(\overline V)$ はコンパクトです。これを含む開集合で $1$ となるコンパクト台関数 $\eta$ を選びます。$P(\eta w)$ は $J^-(\overline V)$ 上で $Pw=0$ と一致し、したがってそこで零です。また $\eta w\in\Gamma_c$ です。[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)から
 
 $$
 \eta w=G_{\mathrm{ret}}(P(\eta w)).
@@ -282,7 +282,7 @@ $$
 =(G_{\mathrm{ret}}P(\eta v))|_V.
 $$
 
-右辺において $\eta v$ はコンパクト支持だから[HPDE19の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を適用でき、
+右辺において $\eta v$ はコンパクト支持だから[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)を適用でき、
 
 $$
 G_{\mathrm{ret}}P(\eta v)=\eta v.
@@ -305,7 +305,7 @@ $$
 E_{\mathrm{cau}}f=G_{\mathrm{ret}}f-G_{\mathrm{adv}}f
 $$
 
-は両側Green恒等式により $PE_{\mathrm{cau}}f=0$ を満たし、台は
+は[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)により $PE_{\mathrm{cau}}f=0$ を満たし、台は
 
 $$
 \operatorname{supp}(E_{\mathrm{cau}}f)
@@ -319,13 +319,13 @@ $$
 ### Level A
 
 <a id="ex-hpde20-a01"></a>
-#### HPDE20-A01 未来半空間と時間帯を判定する
+#### HPDE20-A01 時刻0以降の半空間と時間帯を判定する
 
 Minkowski平面で $A=\{t\ge0\}$、$B=\{0\le t\le1\}$ とする。両者についてpc、fc、tc、scをすべて判定せよ。
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。$L$ が $|t|\le T$、$|x|\le R$ に入るとして $T,R\ge0$ を選びます。$J^-(L)$ の点 $(t,x)$ で $t\ge0$ なら、ある $(s,y)\in L$ について $0\le t\le s\le T$、$|x-y|\le s-t\le T$ です。よって $|x|\le R+T$。$A\cap J^-(L)$ は閉かつ有界なのでコンパクトで、$A$ はpc。$A\cap J^+(\{(0,0)\})=J^+(\{(0,0)\})$ は非コンパクトでfcではなく、tcでもありません。$\{t=0\}\subset A$ が非有界で、どのコンパクト $K$ の因果影の時刻0断面にも入らないためscではありません。
+**詳細解答**。$L$ が $|t|\le T$、$|x|\le R$ に入るとして $T,R\ge0$ を選びます。$J^-(L)$ の点 $(t,x)$ で $t\ge0$ なら、ある $(s,y)\in L$ について $0\le t\le s\le T$、$|x-y|\le s-t\le T$ です。よって $|x|\le R+T$。$A\cap J^-(L)$ は閉かつ有界なので[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトで、$A$ はpc。$A\cap J^+(\{(0,0)\})=J^+(\{(0,0)\})$ は非コンパクトでfcではなく、tcでもありません。$\{t=0\}\subset A$ が非有界で、どのコンパクト $K$ の因果影の時刻0断面にも入らないためscではありません。
 
 $B\subset A$ は閉集合なのでpcです。$B\cap J^+(L)$ は $0\le t\le1$ かつ $|x|\le R+T+1$ に含まれ、閉であるためコンパクトです。従ってfcでもありtcです。$\{t=1/2\}\subset B$ は時刻一定で非有界なのでscではありません。
 <!-- solution-end -->
@@ -442,7 +442,7 @@ $$
 
 の近傍で $1$ となるコンパクト台の滑らかな関数 $\chi$ を選びます。$z=\chi w\in\Gamma_c(M,E)$ です。$K_V$ の近傍で $\chi=1$ なので、そこで $Pz=Pw=0$。一方 $A$ の外の点では $w=0$ が近傍で成立し $Pz=0$ です。従って $Pz$ は $J^-(\overline V)$ と交わらないコンパクト支持の源です。
 
-[HPDE19の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
+[Green作用素の両側恒等式](../HPDE19/index.md#prop-hpde19-two-sided-identity)より
 
 $$
 z=G_{\mathrm{ret}}(Pz).
@@ -450,7 +450,7 @@ $$
 
 [遅延Greenの因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)を用いると、$Pz$ が $J^-(\overline V)$ と交わらない以上、そのGreen解は $V$ で零です。従って $z|_V=0$。もし $q\in V$ で $w(q)\ne0$ なら $q\in K_V$ で $\chi(q)=1$ となるため $z(q)=w(q)\ne0$、矛盾です。よって $w|_V=0$、$V$ は任意なので $w=0$ です。
 
-$P$ が単射であることは、核がいま示した零解のみであることから従います。[延長定理](#thm-hpde20-green-extension)は任意の $f\in\Gamma_{\mathrm{pc}}$ に対し $u=G_{\mathrm{ret}}f\in\Gamma_{\mathrm{pc}}$ を作り $Pu=f$ を満たすので、$P$ は全射です。最後に [拡張作用域での両側恒等式](#thm-hpde20-green-two-sided)から逆写像が $G_{\mathrm{ret}}$ であると分かります。
+$P$ が単射であることは、核がいま示した零解のみであることから従います。[延長定理](#thm-hpde20-green-extension)は任意の $f\in\Gamma_{\mathrm{pc}}$ に対し $u=G_{\mathrm{ret}}f\in\Gamma_{\mathrm{pc}}$ を作り $Pu=f$ を満たすので、$P$ は全射です。最後に [支持条件を指定したGreenの両側逆](#thm-hpde20-green-two-sided)から逆写像が $G_{\mathrm{ret}}$ であると分かります。
 <!-- solution-end -->
 
 ## 8. 次に何を証明するか
