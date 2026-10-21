@@ -87,7 +87,7 @@ chapters:
     title: "空間コンパクト・時間的支持空間"
   - id: HPDE21
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE21
-    status: planned
+    status: completed
     title: "因果伝播子とexact sequenceの核"
   - id: HPDE22
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE22
