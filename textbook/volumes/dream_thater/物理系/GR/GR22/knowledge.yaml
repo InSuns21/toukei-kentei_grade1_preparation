@@ -18,10 +18,10 @@ concepts:
     introduction_aliases: ["命題（真空平面波の零分散関係）"]
     requires: [gravity.harmonic-vacuum-plane-wave]
   - id: gravity.tt-plane-wave-polarizations
-    name: +z方向のTT平面波と二つの偏極
+    name: z軸正方向のTT平面波と二つの偏極
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$+z$ 方向のTT平面波と二つの偏極）"]
+    introduction_aliases: ["定義（z軸正方向のTT平面波と二つの偏極）"]
     requires: [gravity.harmonic-vacuum-plane-wave, gravity.linearized-gauge-equivalence]
   - id: gravity.tt-plane-wave-gauge-construction
     name: 非零真空平面波のTTゲージ構成
