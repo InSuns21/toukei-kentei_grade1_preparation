@@ -39,7 +39,36 @@ $$
 定義の各条件は同じではありません。$r\gg a$ だけで遅延時刻を源の中心の時刻へ置き換えることはできず、$a\Omega/c\ll1$ が必要です。また $r\Omega/c\gg1$ は、$1/r$ の放射項を $1/r^2$ の近接場から区別するために必要です。
 
 <!-- definition-example-start: def-gr23-slow-source -->
-**定義の確認**。 $a>0$ の球内で滑らかな関数 $f(\boldsymbol y)$ を固定し、$\int f\,d^3y=1$ とします。$T^{00}=\rho_0c^2 f$、$T^{0i}=T^{ij}=0$ と置けば全成分は球外で零であり、時間微分も空間発散も零なので四つの保存式が成立します。源は静的で、変動尺度はなく $\Omega=0$ と読めます。この例に「$r\Omega/c\gg1$ の波動領域」が存在するとは言えません。静的な局在源は放射しないためです。次の節では $\Omega>0$ の保存された変動源を仮定します。
+**定義の確認**。 $a>0$ の球内で滑らかな関数 $f(\boldsymbol y)$ を固定し、$\int f\,d^3y=1$ とします。$T^{00}=\rho_0c^2 f$、$T^{0i}=T^{ij}=0$ と置けば全成分は球外で零であり、時間微分も空間発散も零なので四つの保存式が成立します。源は静的で、変動尺度はなく $\Omega=0$ と読めます。この例に「$r\Omega/c\gg1$ の波動領域」が存在するとは言えません。静的な局在源は放射しないためです。
+
+一方、**時間変動し、保存式も満たす場合**を直接確かめます。上と同じく球内に台を持ち、$\int f\,d^3y=1$ と規格化した滑らかな関数 $f(\boldsymbol y)$、対称な定数行列 $S_{ij}=\operatorname{diag}(1,-1,0)_{ij}$、定数 $A$ と $\Omega>0$ を取り、
+
+$$
+U_{ij}=A S_{ij}f(\boldsymbol y)\cos\Omega t
+$$
+
+から次の対称テンソルを作ります。
+
+$$
+T^{00}=\partial_i\partial_jU_{ij},\qquad
+T^{0i}=T^{i0}=-\partial_0\partial_jU_{ij},\qquad
+T^{ij}=\partial_0^2U_{ij}.
+$$
+
+これは物質の正エネルギー条件を課さない**線形源の数学的な模型**です。固定球内での滑らかさと台は $f$ から従います。$\partial_0=c^{-1}\partial_t$ と偏微分の交換、および $U_{ij}=U_{ji}$ により、四つの保存式は実際に
+
+$$
+\begin{aligned}
+\partial_\mu T^{\mu0}
+&=\partial_0\partial_i\partial_jU_{ij}
+-\partial_i\partial_0\partial_jU_{ij}=0,\\
+\partial_\mu T^{\mu k}
+&=-\partial_0^2\partial_jU_{kj}
++\partial_i\partial_0^2U_{ik}=0
+\end{aligned}
+$$
+
+となります。例えば $\Omega a/c=10^{-2}$、$r\Omega/c=10^2$ と選べば、$r/a=10^4$ なので低速・遠方・波動領域を**すべて**満たします。静的な反例と、この時間変動する直接例を区別してください。
 <!-- definition-example-end -->
 
 ## 2. 単極・双極はなぜ放射を担わないか
@@ -75,14 +104,45 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr23-mass-quadrupole -->
-**定義の確認**。 時刻を固定し、質量 $m$ の二つの集中質量を $(a,0,0)$ と $(-a,0,0)$ に置く理想化を考えます（数学的には滑らかな質量分布を点へ集中させた極限であり、前節の滑らかさとは別の例です）。$Q_{11}=2ma^2$、$Q_{22}=Q_{33}=0$、非対角も零。従って
+**定義の確認**。 固定した背景直交座標で、$\boldsymbol e_1=(1,0,0)$ とします。まず非負・滑らか・球対称な関数 $f_\varepsilon(\boldsymbol u)$ を原点近くの小球に台を持つよう選び、
 
 $$
-I=\frac{2ma^2}{3}
+\int f_\varepsilon\,d^3u=1,\quad
+\int u_i f_\varepsilon\,d^3u=0,\quad
+\int u_i u_j f_\varepsilon\,d^3u=\sigma^2\delta_{ij}
+$$
+
+と置きます。後二式は球対称性から従い、$\sigma^2=\int|\boldsymbol u|^2f_\varepsilon\,d^3u/3$ です。質量 $m>0$ の滑らかな二つの塊を $\pm a\boldsymbol e_1$ に置いて
+
+$$
+\rho(\boldsymbol y)=m f_\varepsilon(\boldsymbol y-a\boldsymbol e_1)
++m f_\varepsilon(\boldsymbol y+a\boldsymbol e_1)
+$$
+
+とすれば、$\rho$ は非負・コンパクト台です。$T^{00}=c^2\rho$、$T^{0i}=T^{ij}=0$ とした静的な対称源は $\partial_\mu T^{\mu\nu}=0$ も満たします。
+
+なぜ質量分布から行列が得られるかを、**定義の積分そのもの**で確かめます。二つの塊について $\boldsymbol y=\boldsymbol u\pm a\boldsymbol e_1$ と変数変換すると、一次モーメントは零で、
+
+$$
+\begin{aligned}
+Q_{ij}
+&=m\sum_{\pm}\int
+(u_i\pm a\delta_{i1})(u_j\pm a\delta_{j1})
+f_\varepsilon(\boldsymbol u)\,d^3u\\
+&=2m\sigma^2\delta_{ij}+2ma^2\delta_{i1}\delta_{j1},\\
+Q_{kk}&=6m\sigma^2+2ma^2.
+\end{aligned}
+$$
+
+したがって等方的な幅 $\sigma$ に由来する項は $I=Q-(Q_{kk}/3)E$ で消え、
+
+$$
+I=2ma^2\left(\boldsymbol e_1\boldsymbol e_1^{\mathsf T}-\frac13E\right)
+=\frac{2ma^2}{3}
 \begin{pmatrix}2&0&0\\0&-1&0\\0&0&-1\end{pmatrix}.
 $$
 
-対称性と跡 $2-1-1=0$ が成立します。二つの質点を等しく全方向に広げて $Q_{ij}=q\delta_{ij}$ とすれば $I=0$ です。大きさだけでなく**方向による形の違い**を抽出しています。
+$Q_{ij}=Q_{ji}$ は積分の $y_i y_j=y_j y_i$ から、$I_{ij}=I_{ji}$ はこの差の両項の対称性から従います。さらに $I_{kk}=(2ma^2/3)(2-1-1)=0$ です。**滑らかさ・台・保存・対称性・跡零**をすべて確認し、行列が定義のどの積分から生じるかも追えました。
 <!-- definition-example-end -->
 
 <a id="thm-gr23-moment-conservation"></a>
@@ -257,23 +317,42 @@ $$
 
 一般相対論で重力場のエネルギーを、任意の一点における座標不変な局所密度として定義できるわけではありません。自由波の**二次のエネルギー収支**を、平坦に近い背景、TT表示、波長より長い時間・距離での平均という条件の下で扱います。一次の場の方程式の解に二次のエネルギーを結び付けるため、振幅の一次式だけから流束を定義してはいけません。
 
-[Einstein–Hilbert作用](../GR10/index.md#def-gr10-eh-action)を平坦背景のまわりで二次まで展開し、真空のTT成分に限り境界項を除くと、波の二次作用は
+[Einstein–Hilbert作用の変分公式](../GR10/index.md#thm-gr10-eh-variation)を、背景が真空のMinkowski計量 $\eta$ で宇宙項が零の場合に適用します。$x^0=ct$ なので $d^4x=c\,dt\,d^3x$ です。$g_{\mu\nu}=\eta_{\mu\nu}+\epsilon h_{\mu\nu}$ とおくと背景のEinsteinテンソルは零であり、計量の共変成分による変分は
 
 $$
+\delta S_{\mathrm{EH}}
+=-\frac{c^4}{16\pi G}\int dt\,d^3x\,
+G^{\mu\nu}\delta g_{\mu\nu}
+$$
+
+です（境界変分はコンパクト台または適切な境界条件で消します）。$\epsilon$ の一次で $G_{\mu\nu}=\epsilon G_{\mu\nu}^{(1)}[h]+O(\epsilon^2)$ と展開し、$\epsilon$ で積分すると二次項の係数 $1/2$ が現れます。
+
+$$
+S^{(2)}[h]=-\frac{c^4}{32\pi G}
+\int dt\,d^3x\,h^{\mu\nu}G_{\mu\nu}^{(1)}[h].
+$$
+
+真空TT条件 $h_{0\mu}^{\mathrm{TT}}=0$、$\partial^i h_{ij}^{\mathrm{TT}}=0$、$\delta^{ij}h_{ij}^{\mathrm{TT}}=0$ を用いると、[GR21の線形化Einsteinテンソル](../GR21/index.md#prop-gr21-linear-einstein)は $G_{ij}^{(1)}=-\Box h_{ij}^{\mathrm{TT}}/2$ となります。従って
+
+$$
+\begin{aligned}
 S_{\mathrm{TT}}^{(2)}
-=\frac{c^4}{64\pi G}\int dt\,d^3x
+&=\frac{c^4}{64\pi G}\int dt\,d^3x\,
+h_{ij}^{\mathrm{TT}}\Box h_{ij}^{\mathrm{TT}}\\
+&=\frac{c^4}{64\pi G}\int dt\,d^3x
 \left[\frac1{c^2}\dot h_{ij}^{\mathrm{TT}}\dot h_{ij}^{\mathrm{TT}}
 -\partial_k h_{ij}^{\mathrm{TT}}\partial_k h_{ij}^{\mathrm{TT}}\right].
+\end{aligned}
 $$
 
-二次作用は元の一般共変な作用の全内容ではなく、平坦背景の真空TT自由度に制限したものです。$\partial^\mu h_{\mu\nu}^{\mathrm{TT}}=0$、$h^{\mathrm{TT}}=0$ を先に用いると、二次の運動項では偏微分の縮約だけが残ります。$h\mapsto h+\delta h$ の変分では、例えば時間項が $2c^{-2}\dot h_{ij}\delta\dot h_{ij}$ となり、部分積分で波動方程式が戻ります。
+最後の行は時間・空間とも部分積分して境界項を除いたものです。これは元の一般共変な作用の全内容ではなく、平坦背景での真空TT自由度だけの二次作用です。$h\mapsto h+\delta h$ の変分では、例えば時間項が $2c^{-2}\dot h_{ij}\delta\dot h_{ij}$ となり、部分積分で波動方程式が戻ります。
 
-$a=c^4/(64\pi G)$ と略記すると、この作用の空間・時間並進に対する二次のエネルギー収支は
+$\kappa_{\mathrm{TT}}=c^4/(64\pi G)$ と略記すると、この作用の空間・時間並進に対する二次のエネルギー収支は
 
 $$
-u=a\left[c^{-2}\dot h_{ij}\dot h_{ij}
+u=\kappa_{\mathrm{TT}}\left[c^{-2}\dot h_{ij}\dot h_{ij}
 +\partial_kh_{ij}\partial_kh_{ij}\right],\qquad
-S_k=-2a\dot h_{ij}\partial_kh_{ij}.
+S_k=-2\kappa_{\mathrm{TT}}\dot h_{ij}\partial_kh_{ij}.
 $$
 
 実際、$\dot u$ を計算し波動方程式 $c^{-2}\ddot h_{ij}=\nabla^2h_{ij}$ を代入すると
@@ -281,11 +360,11 @@ $$
 $$
 \begin{aligned}
 \dot u
-&=2a\left[c^{-2}\dot h_{ij}\ddot h_{ij}
+&=2\kappa_{\mathrm{TT}}\left[c^{-2}\dot h_{ij}\ddot h_{ij}
 +\partial_kh_{ij}\partial_k\dot h_{ij}\right]\\
-&=2a\left[\dot h_{ij}\partial_k\partial_kh_{ij}
+&=2\kappa_{\mathrm{TT}}\left[\dot h_{ij}\partial_k\partial_kh_{ij}
 +\partial_kh_{ij}\partial_k\dot h_{ij}\right]
-=2a\,\partial_k(\dot h_{ij}\partial_kh_{ij})
+=2\kappa_{\mathrm{TT}}\,\partial_k(\dot h_{ij}\partial_kh_{ij})
 =-\partial_kS_k.
 \end{aligned}
 $$
