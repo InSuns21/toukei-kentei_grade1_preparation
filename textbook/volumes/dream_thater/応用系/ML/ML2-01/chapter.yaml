@@ -1,0 +1,46 @@
+id: "ML2-01"
+title: "確率的予測・対数損失・KL"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-13
+  - INFO10
+official_scope: []
+learning_objectives:
+  - 有限ラベルの確率的予測器と条件付き対数リスクを台の条件込みで定義できる
+  - 有限ラベルの条件付き期待対数損失を条件付きエントロピーとKLへ分解して最適性を証明できる
+  - 多クラス校正を予測値ごとの条件付き分布で判定し校正と識別の違いを反例で示せる
+  - 校正群の対数損失分解を証明し校正誤差を定量化できる
+  - 連続密度における確率0と密度0を区別し密度の台と積分の条件を検査できる
+  - 微分エントロピーの絶対可積分性の下で期待対数損失とKLの恒等式および等号条件を証明できる
+  - 経験対数リスクと母集団対数リスクを区別し独立テストの期待値を導ける
+definitions:
+  - { id: ML2-01-DEF-01, name: 有限ラベルの確率的予測器 }
+  - { id: ML2-01-DEF-02, name: 条件付き対数リスク }
+  - { id: ML2-01-DEF-03, name: 有限値の多クラス確率校正 }
+  - { id: ML2-01-DEF-04, name: 密度予測の対数損失とKL }
+  - { id: ML2-01-DEF-05, name: 確率予測器の経験対数リスク }
+theorems:
+  - { id: ML2-01-THM-01, name: 有限ラベルの条件付きKL超過リスク }
+  - { id: ML2-01-THM-02, name: 有限予測群における校正と対数損失の分解 }
+  - { id: ML2-01-THM-03, name: 密度の期待対数損失とKLの恒等式 }
+canonical_examples:
+  - 二入力三ラベルの確率ベクトルの直接検証
+  - 有限二値の条件付き対数リスクとKL差
+  - 校正済み定数予測と情報を利用した予測の差
+  - 一様密度と傾斜密度のsupport・積分・無限損失条件
+  - 標本での過剰適合と母集団の無限リスク
+problem_patterns:
+  - ML2-01-A01
+  - ML2-01-A02
+  - ML2-01-A03
+  - ML2-01-A04
+  - ML2-01-B01
+  - ML2-01-B02
+  - ML2-01-B03
+  - ML2-01-B04
+  - ML2-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
