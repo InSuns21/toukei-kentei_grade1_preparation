@@ -130,7 +130,39 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde19-causal-green-candidate -->
-**定義の確認**。Minkowski平面の $P=\partial_t^2-\partial_x^2$ と $f\in C_c^\infty(\mathbb R^{1+1})$ を取ります。[HPDE12の遅延積分核](../HPDE12/index.md#thm-hpde12-convolution-inverses)は $P(G_{\mathrm{ret}}f)=f$ を満たし、積分領域は $s\le t$ かつ $|x-y|\le t-s$ に限られます。従って値が非零になる点は $\operatorname{supp}f$ の因果的未来に入り、両条件が確認できます。[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)により、曲がった時空・束値作用素でもこの候補は実在します。
+**定義の確認**。Minkowski平面で $P=\partial_t^2-\partial_x^2$ とし、[HPDE12の遅延畳み込み作用素](../HPDE12/index.md#def-hpde12-convolution-operators)を $H$ とします。観測点を $(t,x)$、源の点を $(s,y)$ とすると、
+
+$$
+(Hf)(t,x)=\frac12\int_{-\infty}^{t}
+\int_{x-(t-s)}^{x+(t-s)}f(s,y)\,dy\,ds,
+\qquad f\in C_c^\infty(\mathbb R^{1+1}).
+$$
+
+まず、積分の線形性から任意のスカラー $\alpha,\beta$ と源 $f_1,f_2$ に対して $H(\alpha f_1+\beta f_2)=\alpha Hf_1+\beta Hf_2$ です。[平坦波動作用素の畳み込み逆と因果的支持](../HPDE12/index.md#thm-hpde12-convolution-inverses)により $PHf=f$ も成立します。
+
+最後に支持条件を判定します。積分領域で使った源の点と観測点は
+
+$$
+s\le t,\qquad |x-y|\le t-s
+$$
+
+を満たします。これはMinkowski計量に関して、源点 $(s,y)$ から観測点 $(t,x)$ へ未来向き因果曲線で到達できる条件です。
+
+従って観測点が源の因果的未来に入らなければ、積分領域で源はすべて零となり、
+
+$$
+(t,x)\notin J^+(\operatorname{supp}f)
+\quad\Longrightarrow\quad
+(Hf)(t,x)=0
+$$
+
+です。さらに、大域双曲なMinkowski時空では[閉因果関係](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)とコンパクトな源支持から因果的未来が閉じているため、
+
+$$
+\operatorname{supp}(Hf)\subseteq J^+(\operatorname{supp}f)
+$$
+
+が従います。以上で線形性・方程式・支持包含の三条件を確認しました。[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)により、曲がった時空・束値作用素でも候補は実在します。
 <!-- definition-example-end -->
 
 <a id="thm-hpde19-uniqueness"></a>
@@ -204,7 +236,15 @@ J^+(K)\cap J^-(L)\subseteq
 J^+(K)\cap t^{-1}([a,b]).
 $$
 
-右辺は[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)によりコンパクトです。大域双曲性の下でコンパクト集合の因果的未来・過去は閉集合であるので、左辺も閉です。従ってコンパクト集合の閉部分集合としてコンパクトです。
+この右辺は有限時刻の因果影です。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)は区間の両端に厳密な大小 $a'<b'$ を仮定するため、$a=b$ の場合も含めて、例えば $a'=a-1$、$b'=b+1$ と取ります。すると
+
+$$
+J^+(K)\cap J^-(L)
+\subseteq J^+(K)\cap t^{-1}([a,b])
+\subseteq J^+(K)\cap t^{-1}([a',b'])
+$$
+
+であり、右端は同補題によってコンパクトです。また、[大域双曲性の閉因果関係](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)と $K,L$ のコンパクト性により $J^+(K)$ と $J^-(L)$ は閉集合なので、左端はこのコンパクト集合の閉部分集合としてコンパクトです。
 
 切断の支持は閉集合です。その交差は上で得たコンパクト集合に含まれる閉集合だからコンパクトです。$\square$
 <!-- proof-end -->
@@ -215,7 +255,7 @@ $$
 
 [HPDE4の形式的双対](../HPDE4/index.md#def-hpde4-formal-transpose)を使います。$d=\dim M$、密度束を $|\Lambda^dT^*M|$ とし、$F=E^*\otimes|\Lambda^dT^*M|$ と書きます。$P^t$ はこの束の切断に作用する微分作用素で、代数的双対を使うため**複素数の場合も係数を共役しません**。
 
-二階の主シンボルだけを見ると、局所表示で $P$ の二階係数を $A^{ij}$ と書くと、、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
+二階の主シンボルだけを見ると、局所表示で $P$ の二階係数を $A^{ij}$ と書くと、[HPDE4の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)は $P^t$ の二階係数を $(A^{ij})^{\mathsf T}$ にします。二回の部分積分では符号が正に戻ります。$P$ がnormally hyperbolicなら $A^{ij}=-g^{ij}I$ なので
 
 $$
 \sigma_2(P^t)(x,\xi)=-g_x^{-1}(\xi,\xi)\operatorname{id}_{F_x}.
@@ -354,7 +394,27 @@ $$
 P^t(j_h(v)\otimes\mu)=j_h(P^*v)\otimes\mu.
 $$
 
-$P^*$ の主シンボルもnormally hyperbolicです。$v=G_{\mathrm{adv}}^{P^*}\psi$ と取れば $P^*v=\psi$ と先進支持を満たすため、上の式と $P^t$ の[Green候補一意性](#thm-hpde19-uniqueness)から
+ここで $P^*$ の主部も確かめます。局所表示を
+
+$$
+P^*=D^{ij}\partial_i\partial_j+\text{一次以下の項}
+$$
+
+と置きます。$P^t$ の最上階係数は $-g^{ij}I_F$ であり、$j_h$ と $\mu$ は各点で可逆な零階の同型です。従って上式の二階微分項を比較すると
+
+$$
+-g^{ij}j_h(\partial_i\partial_jv)\otimes\mu
+=j_h(D^{ij}\partial_i\partial_jv)\otimes\mu
+$$
+
+となります。$g^{ij}$ は実数なので、共役線形な $j_h$ を介しても係数は変わりません。対称な二階係数を選ぶと $D^{ij}=-g^{ij}I_E$ です。ゆえに
+
+$$
+\sigma_2(P^*)(x,\xi)
+=-g_x^{-1}(\xi,\xi)\operatorname{id}_{E_x}
+$$
+
+です。$P^*$ もnormally hyperbolicであり、[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)から先進Green作用素が存在します。これを使って $v=G_{\mathrm{adv}}^{P^*}\psi$ と置けば $P^*v=\psi$ と先進支持が成り立ちます。従って上の式と $P^t$ の[Green候補一意性](#thm-hpde19-uniqueness)から
 
 $$
 G_{\mathrm{adv}}^{P^t}\Psi=j_h(v)\otimes\mu
@@ -422,7 +482,21 @@ $$
 P\varphi(t,x)=h''(t)q(x)-h(t)q''(x).
 $$
 
-この源はコンパクト支持です。$a<\min\operatorname{supp}h$ を選ぶと $\varphi$ は $\Sigma_a$ 付近で零であり、二つのCauchyデータも零です。[HPDE18の遅延Green](../HPDE18/index.md#def-hpde18-green-operators)も、同じ源と零データから作られます。[大域一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より $G_{\mathrm{ret}}(P\varphi)=\varphi$ です。$h=0$ の場合も両辺は零です。
+まず $h=0$ または $q=0$ なら積関数もその像も零です。Green作用素の線形性から
+
+$$
+G_{\mathrm{ret}}(P\varphi)=G_{\mathrm{ret}}(0)=0=\varphi
+$$
+
+となります。以下は両因子が非零の場合を考えます。
+
+このとき時間因子の支持は空でないコンパクト集合なので、
+
+$$
+a<\min\operatorname{supp}h
+$$
+
+を選べます。源はコンパクト支持であり、積関数は過去のCauchy面 $\Sigma_a$ 近傍で零なので、値・法線微分の両初期データも零です。[HPDE18の遅延Green](../HPDE18/index.md#def-hpde18-green-operators)も同じ源と零データから構成されます。[大域一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より両解は一致します。
 <!-- solution-end -->
 
 <a id="ex-hpde19-a03"></a>
@@ -547,7 +621,26 @@ $$
 \subset J^+(\operatorname{supp}f)\cap J^-(\operatorname{supp}\psi)
 $$
 
-です。[重なり補題](#lem-hpde19-causal-overlap)により右辺はコンパクト。重なりの近傍で $1$ となるコンパクト台の $\chi$ を取ります。$[P,\chi]u$ は $\operatorname{supp}v$ と交わらず、また $v(Pu)$ の支持は重なりの中です。双対の部分積分公式を $\chi u$ と、必要ならコンパクト化した $v$ に適用すると
+です。[重なり補題](#lem-hpde19-causal-overlap)により右辺はコンパクトです。解の支持が重なる集合を
+
+$$
+S=\operatorname{supp}u\cap\operatorname{supp}v
+$$
+
+と置き、その開近傍で値が $1$ となるコンパクト台の滑らかな関数 $\chi$ を選びます。次に $\operatorname{supp}(\chi u)$ の開近傍で値が $1$ となるコンパクト台の $\eta$ を選びます。これで $\chi u$ と $\eta v$ はともにコンパクト支持の試験切断です。
+
+局所微分作用素の台不増大性と、$\eta$ が局所定数であることから
+
+$$
+\operatorname{supp}(P(\chi u))
+\subseteq\operatorname{supp}(\chi u),\qquad
+P^t(\eta v)=P^tv
+\quad\text{on a neighborhood of }\operatorname{supp}(\chi u)
+$$
+
+となります。従って[形式的双対の部分積分公式](../HPDE4/index.md#thm-hpde4-transpose-formula)をこれら二つの試験切断に適用できます。
+
+また、$[P,\chi]u$ が非零となり得るのは $\operatorname{supp}u\cap\operatorname{supp}(d\chi)$ だけです。この集合は $\operatorname{supp}v$ と交わりません。交われば $S$ の点で $d\chi\ne0$ となりますが、$\chi=1$ が $S$ の近傍で成り立つことに反します。さらに $\operatorname{supp}f=\operatorname{supp}(Pu)\subseteq\operatorname{supp}u$ なので $v(f)$ の支持は $S$ に入り、$\chi v(f)=v(f)$ です。以上により
 
 $$
 \begin{aligned}
