@@ -64,7 +64,7 @@ $$
 g=-dt^2+dx^2,\qquad (t,x)\in\mathbb R^{1+1}.
 $$
 
-上で定義した因果的未来・過去は曲線の存在で決まります。これを座標で判定するには、[既習のMinkowski因果錐公式](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を使います。実際、未来因果曲線の各滑らかな片について、計量による因果性と未来向きの条件から
+上で定義した因果的未来・過去は曲線の存在で決まります。これを座標で判定するには、[Minkowski時空の時間的・因果的未来と過去](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を使います。実際、未来因果曲線の各滑らかな片について、計量による因果性と未来向きの条件から
 
 $$
 g(\dot\gamma,\dot\gamma)=-\dot t^{\,2}+\dot x^{\,2}\le0,
