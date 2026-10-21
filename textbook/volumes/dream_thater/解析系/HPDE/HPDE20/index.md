@@ -58,7 +58,7 @@ $$
 ここで $L$ を一つだけ固定するのではなく、**すべてのコンパクト $L$** について調べます。pc は「過去に広がらない」を時刻の下限で定義しているのではありません。非コンパクトなCauchy面を持つ時空では、遠方へ行くにつれて源の最初の時刻がいくらでも早くなることがあります。
 
 <!-- definition-example-start: def-hpde20-support-classes -->
-**定義の確認**。標準Minkowski計量 $g=-dt^2+dx^2$ と、$t$ が増える向きを未来とする $(t,x)\in\mathbb R^{1+1}$ を考えます。上で定義した $J^\pm$ は因果曲線の存在で決まりますが、ここでは[既習のMinkowski因果錐公式](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を座標判定に用います。未来因果曲線上では $|dx/dt|\le1$ なので、曲線に沿って積分すると $|x-y|\le t-s$ です。逆にこの不等式と $t\ge s$ を満たす二点は、その二点を結ぶ直線が未来因果的になるため、次の同値が成立します。
+**定義の確認**。標準Minkowski計量 $g=-dt^2+dx^2$ と、$t$ が増える向きを未来とする $(t,x)\in\mathbb R^{1+1}$ を考えます。上で定義した $J^\pm$ は因果曲線の存在で決まりますが、ここでは[既習のMinkowski因果錐公式](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を座標判定に用います。未来因果曲線の各滑らかな片では未来向きの条件と $g(\dot\gamma,\dot\gamma)\le0$ から $|\dot x|\le\dot t$ なので、各片で積分し和を取ると三角不等式により $|x-y|\le t-s$ です。逆にこの不等式と $t\ge s$ を満たす二点は、その二点を結ぶ直線が未来因果的になるため、次の同値が成立します。
 
 $$
 (s,y)\le(t,x)\quad\Longleftrightarrow\quad
