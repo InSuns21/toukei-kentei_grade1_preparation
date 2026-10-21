@@ -62,7 +62,7 @@ $$
 
 ### 証明の見取り図
 
-前半は[HPDE18の構成定理](../HPDE18/index.md#thm-hpde18-green-existence)の結論です。後半では $\varphi$ 自身が、源 $P\varphi$ に対する**過去の零データ解**であることを確認してから、[大域Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)を適用します。
+前半は[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)の結論です。後半では $\varphi$ 自身が、源 $P\varphi$ に対する**過去の零データ解**であることを確認してから、[大域Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)を適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -130,7 +130,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde19-causal-green-candidate -->
-**定義の確認**。Minkowski平面の $P=\partial_t^2-\partial_x^2$ と $f\in C_c^\infty(\mathbb R^{1+1})$ を取ります。[HPDE12の遅延積分核](../HPDE12/index.md#thm-hpde12-convolution-inverses)は $P(G_{\mathrm{ret}}f)=f$ を満たし、積分領域は $s\le t$ かつ $|x-y|\le t-s$ に限られます。従って値が非零になる点は $\operatorname{supp}f$ の因果的未来に入り、両条件が確認できます。[HPDE18の構成定理](../HPDE18/index.md#thm-hpde18-green-existence)により、曲がった時空・束値作用素でもこの候補は実在します。
+**定義の確認**。Minkowski平面の $P=\partial_t^2-\partial_x^2$ と $f\in C_c^\infty(\mathbb R^{1+1})$ を取ります。[HPDE12の遅延積分核](../HPDE12/index.md#thm-hpde12-convolution-inverses)は $P(G_{\mathrm{ret}}f)=f$ を満たし、積分領域は $s\le t$ かつ $|x-y|\le t-s$ に限られます。従って値が非零になる点は $\operatorname{supp}f$ の因果的未来に入り、両条件が確認できます。[遅延・先進Green作用素の構成と因果的支持](../HPDE18/index.md#thm-hpde18-green-existence)により、曲がった時空・束値作用素でもこの候補は実在します。
 <!-- definition-example-end -->
 
 <a id="thm-hpde19-uniqueness"></a>
@@ -244,7 +244,7 @@ $
 <!-- proof-start -->
 ### 証明
 
-座標と局所枠で $P=A^{ij}\partial_i\partial_j+B^i\partial_i+C$ と書き、$A^{ij}=-g^{ij}I$ の対称な二階係数を選びます。[形式的双対の局所公式](../HPDE4/index.md#thm-hpde4-transpose-formula)より
+座標と局所枠で $P=A^{ij}\partial_i\partial_j+B^i\partial_i+C$ と書き、$A^{ij}=-g^{ij}I$ の対称な二階係数を選びます。[形式的双対の存在・一意性と局所公式](../HPDE4/index.md#thm-hpde4-transpose-formula)より
 
 $$
 P^t\psi=\partial_i\partial_j\bigl((A^{ij})^{\mathsf T}\psi\bigr)
@@ -293,7 +293,7 @@ $$
 
 です。[重なりの補題](#lem-hpde19-causal-overlap)により $S=\operatorname{supp}u\cap\operatorname{supp}v$ はコンパクトです。
 
-$S$ の開近傍で $1$ となる滑らかなコンパクト台関数 $\chi$ を選びます。$\chi u$ はコンパクト支持です。[形式的双対の積分恒等式](../HPDE4/index.md#def-hpde4-formal-transpose)を $\chi u$ と $v$ に適用するには、元の定義で試験切断がコンパクト台であることに注意が要ります。そこで $v$ にも、$\operatorname{supp}(\chi u)$ を含むコンパクト近傍で $1$ になるカットオフ $\eta$ を掛け、まずコンパクト台の $\eta v$ に対して同恒等式を使います。$\eta=1$ が成り立つ開集合で $P^t(\eta v)=P^tv$ なので
+$S$ の開近傍で $1$ となる滑らかなコンパクト台関数 $\chi$ を選びます。$\chi u$ はコンパクト支持です。[形式的双対の積分恒等式](../HPDE4/index.md#def-hpde4-formal-transpose)を $\chi u$ と $v$ に適用するには、元の定義で試験切断がコンパクト台であることに注意が要ります。そこで $v$ にも、$\operatorname{supp}(\chi u)$ を含むコンパクト近傍で $1$ になるカットオフ $\eta$ を掛け、まずコンパクト台の $\eta v$ に対して定義で与えた積分等式を適用します。$\eta=1$ が成り立つ開集合で $P^t(\eta v)=P^tv$ なので
 
 $$
 \int_M (P^t v)(\chi u)=\int_M v(P(\chi u))
@@ -344,7 +344,7 @@ Hermite計量による双対化 $j_h(\psi)(u)=h(u,\psi)$ は共役線形です�
 <!-- proof-start -->
 ### 証明
 
-$\Psi=j_h(\psi)\otimes\mu$ とすると、[HPDE4の公式](../HPDE4/index.md#prop-hpde4-adjoint-from-transpose)により
+$\Psi=j_h(\psi)\otimes\mu$ とすると、[形式的双対と随伴の関係](../HPDE4/index.md#prop-hpde4-adjoint-from-transpose)により
 
 $$
 P^t(j_h(v)\otimes\mu)=j_h(P^*v)\otimes\mu.
@@ -514,7 +514,7 @@ $(M,g)$ は境界なしの滑らかな大域双曲時空、$E\to M$ は有限ラ
 
 (ii) $P\varphi=0$ かつ $\varphi\in\Gamma_c$ なら、(i)により $\varphi=G_{\mathrm{ret}}(P\varphi)=G_{\mathrm{ret}}0=0$ です。従って核は零で $P$ は単射です。この段階で、後続講義のexact sequence全体はまだ証明していません。
 
-(iii) $P^t$ は二階主シンボルが $-g^{-1}(\xi,\xi)I$ のままなのでnormally hyperbolicです。[第5節の命題](#prop-hpde19-transpose-hyperbolic)から $v=G_{\mathrm{adv}}^{P^t}\psi$ が存在します。$u=G_{\mathrm{ret}}^Pf$ と置けば $Pu=f$、$P^tv=\psi$ で、
+(iii) $P^t$ は二階主シンボルが $-g^{-1}(\xi,\xi)I$ のままなのでnormally hyperbolicです。[形式的双対もnormally hyperbolic](#prop-hpde19-transpose-hyperbolic)から $v=G_{\mathrm{adv}}^{P^t}\psi$ が存在します。$u=G_{\mathrm{ret}}^Pf$ と置けば $Pu=f$、$P^tv=\psi$ で、
 
 $$
 \operatorname{supp}u\cap\operatorname{supp}v
