@@ -12,7 +12,7 @@
 
 調和条件 $\partial^\mu\bar h_{\mu\nu}=0$ を満たすと、[GR21の真空方程式](../GR21/index.md#thm-gr21-linear-wave)は $\Box\bar h_{\mu\nu}=0$ です。ここで $\bar h_{\mu\nu}=h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h$ は[トレース反転](../GR21/index.md#def-gr21-trace-reverse)であり、まだ十成分を持ちます。伝播方向と振動数を固定すると、偏微分を代数的な係数に変えられます。
 
-振幅を定数の複素対称行列 $A_{\mu\nu}$ とし、その実部を物理的な小振幅摂動として読むため、複素指数関数を計算上だけ使います。振動数 $\omega>0$、空間波数 $q>0$、位相 $\phi=qz-\omega t$ の進行波を考えます。背景の四元波数は $k_\mu=(-\omega/c,0,0,q)$ です。
+振幅を定数の複素対称行列 $A_{\mu\nu}$ とし、その実部を物理的な小振幅摂動として読むため、指数表示 $e^{i\phi}$ を計算上だけ使います。振動数 $\omega>0$、空間波数 $q>0$、位相 $\phi=qz-\omega t$ の進行波を考えます。背景の四元波数は $k_\mu=(-\omega/c,0,0,q)$ です。
 
 <a id="def-gr22-vacuum-plane-wave"></a>
 
@@ -91,7 +91,7 @@ $q>0$ なので各 $\nu$ について表示式を得ます。逆に両条件が�
 <a id="def-gr22-tt-wave"></a>
 
 <!-- formal-statement-start -->
-> **定義（$+z$ 方向のTT平面波と二つの偏極）**  
+> **定義（z軸正方向のTT平面波と二つの偏極）**  
 > $h_{\mu\nu}=\operatorname{Re}(A_{\mu\nu}e^{iq(z-ct)})$ が対称、$q>0$ で、時間方向の成分が零 $A_{0\mu}=0$、縦方向が零 $A_{3\mu}=0$、空間跡が零 $\delta^{ij}A_{ij}=0$ であるとき、これを **横断・無跡（TT）平面波** とする。このとき横断面の振幅は
 >
 $$
@@ -117,7 +117,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（非零真空平面波のTTゲージ構成）**  
-> $\omega=cq$、$q>0$ を満たす4次元Minkowski背景の真空線形化平面波を調和ゲージで考え、$\bar A_{0\nu}+\bar A_{3\nu}=0$ を仮定する。この平面波の位相と波数を保つ残余ゲージ変換によって $A'_{0\mu}=A'_{3\mu}=0$、$\delta^{ij}A'_{ij}=0$ を満たす[TT振幅](#def-gr22-tt-wave)へ移せる。残る独立な振幅は $a_+$ と $a_\times$ の二つである。
+> 4次元Minkowski背景で、次の条件を満たす真空線形化平面波を調和ゲージで考える。
+>
+$$
+\omega=cq,\quad q>0,\qquad
+\bar A_{0\nu}+\bar A_{3\nu}=0\quad(\nu=0,1,2,3).
+$$
+>
+> この平面波の位相・波数を保つ残余ゲージ変換によって[TT振幅](#def-gr22-tt-wave)へ移せる。すなわち変換後の振幅は
+>
+$$
+A'_{0\mu}=A'_{3\mu}=0,\qquad
+\delta^{ij}A'_{ij}=0
+$$
+>
+> を満たし、残る独立な振幅は $a_+$ と $a_\times$ の二つである.
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -209,7 +223,18 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（TT射影の横断性・無跡性・ゲージ不変性）**  
-> $\boldsymbol n$ を単位ベクトルとし、$S$ を対称空間テンソルとする。上の $S^{\mathrm{TT}}$ は対称で、$n^iS_{ij}^{\mathrm{TT}}=0$、$\delta^{ij}S_{ij}^{\mathrm{TT}}=0$ を満たす。また空間波数 $k_i=q n_i$ の平面波で、ゲージ変化 $\delta S_{kl}=-i(k_kB_l+k_lB_k)$ に対して $S^{\mathrm{TT}}$ は不変である。
+> $\boldsymbol n$ を単位ベクトルとし、$S$ を対称空間テンソルとする。上のTT射影は対称で、横断性と無跡性
+>
+$$
+n^iS_{ij}^{\mathrm{TT}}=0,\qquad
+\delta^{ij}S_{ij}^{\mathrm{TT}}=0
+$$
+>
+> を満たす。また空間波数 $k_i=q n_i$ の平面波で、次のゲージ変化に対してTT射影は不変である。
+>
+$$
+\delta S_{kl}=-i(k_kB_l+k_lB_k).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -440,7 +465,7 @@ $$
 \end{aligned}
 $$
 
-等しいレーザー角周波数を使う理想干渉計で、差動の往復遅延は位相の一次変化 $\delta\Delta\Phi=\Omega_{\mathrm L}\delta\Delta T$ に対応します。実際のレーザー・制御系や有限光路長の伝達関数を含めた主張ではありません。$\square$
+等しいレーザー角周波数を使う理想干渉計で、差動の往復遅延は位相の一次変化 $\delta\Delta\Phi=\Omega_{\mathrm L}\delta\Delta T$ に対応します。実際のレーザー・制御系や有限光路長による周波数ごとの感度変化を含めた主張ではありません。$\square$
 <!-- proof-end -->
 
 **直接例。** $x,y$ 腕と $+z$ からの入射で $h_{\mathrm{det}}=h_+$ なので、$h_\times=0$ のとき $T_x-T_y=(2L/c)h_+$ が一次の信号です。二鏡のTT座標は動かず、$\Gamma^i_{00}=0$ ですが、往復光路の時間が変わります。ここが「重力波は鏡をTT座標内で左右に動かす」という誤解との違いです。
@@ -483,7 +508,7 @@ $\phi$ が変化する開領域で恒等的に零なら $\bar A_{0\nu}+\bar A_{3
 $A_{11}=a$、$A_{22}=-a$、$A_{12}=A_{21}=b$、他の全成分零とする。対称性、時間・縦方向の零、空間跡零、調和条件を直接確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $A_{12}=A_{21}$ なので対称です。$A_{0\mu}=A_{3\mu}=0$、$\delta^{ij}A_{ij}=a-a+0=0$。全跡 $A=\eta^{\mu\nu}A_{\mu\nu}=0$ により $\bar A=A$ で、$k^\mu\bar A_{\mu\nu}=q(A_{0\nu}+A_{3\nu})=0$。$a,b$ はともに複素数でよく、実部の取り方で相対位相の違う偏極も記述できます。
+**詳細解答。** $A_{12}=A_{21}$ なので対称です。$A_{0\mu}=A_{3\mu}=0$、$\delta^{ij}A_{ij}=a-a+0=0$。全跡 $A=\eta^{\mu\nu}A_{\mu\nu}=0$ により $\bar A=A$ で、$k^\mu\bar A_{\mu\nu}=q(A_{0\nu}+A_{3\nu})=0$。$a,b$ はともに複素数でよく、実部の取り方で二つの偏極の振動が時間的にずれる場合も記述できます。
 <!-- solution-end -->
 
 <a id="ex-gr22-a03"></a>
@@ -673,7 +698,7 @@ $$
 h_{\mathrm{det}}^{45^\circ}(t,0)=-K\sin(\omega t).
 $$
 
-**(4)** [往復光路差の定理](#thm-gr22-michelson-response)を適用すると
+**(4)** [長波長・自由鏡Michelson干渉計の差動位相](#thm-gr22-michelson-response)を適用すると
 
 $$
 \begin{aligned}
