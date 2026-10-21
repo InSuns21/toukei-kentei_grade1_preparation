@@ -192,14 +192,14 @@ $$
 >
 > それぞれの判定条件は、上から順に次の等式または不等式で表される。
 
-$
+$$
 \begin{aligned}
 \text{MCAR}:\quad &P(R=1\mid X=x,Y=y)=c,\\
 \text{MAR}:\quad &P(R=1\mid X=x,Y=y)=\pi(x),\\
 \text{MNAR}:\quad &P(R=1\mid X=x,Y=0)\ne P(R=1\mid X=x,Y=1)
 \quad\text{となる }x\text{ が存在する}.
 \end{aligned}
-$
+$$
 >
 > MCARはMARの特別な場合である。この分類は「$Y$ だけが欠測し、$X$ は観測済み」という設定に対するものとする。
 <!-- formal-statement-end -->
@@ -272,11 +272,11 @@ $$
 > **命題（欠測下の陽性率の非識別性）**  
 > $X$ を定数とし、観測記録を $(R,RY)$ のみとする。観測分布を次のように指定する。
 
-$
+$$
 P(R=1,Y=1)=\frac25,\quad
 P(R=1,Y=0)=\frac1{10},\quad
 P(R=0)=\frac12.
-$
+$$
 
 > この観測分布からは、追加仮定がなければ $P(Y=1)$ は一意に決まらない。
 <!-- formal-statement-end -->
@@ -436,7 +436,8 @@ def brier(pred, y):
 val_scores = {name: brier(model(val_x), val_y)
               for name, model in models.items()}
 chosen = min(val_scores, key=val_scores.get)
-test_score = brier(models[chosen](test_x), test_y)
+selected_model = models[chosen]
+test_score = brier(selected_model(test_x), test_y)
 print("n observed", len(obs_y), "observed rate", naive,
       "MAR weighted rate", ipw)
 print("rates by X", rates_by_x, "bagging", bagged)
