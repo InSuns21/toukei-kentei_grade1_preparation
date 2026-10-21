@@ -514,7 +514,17 @@ $(M,g)$ は境界なしの滑らかな大域双曲時空、$E\to M$ は有限ラ
 <!-- solution-start -->
 **詳細解答**。
 
-(i) $\varphi$ の支持を $K$ とします。$K=\varnothing$ なら自明です。それ以外では $\Sigma_a$ を $a<\min t(K)$ と選びます。$P\varphi$ も $K$ に支持され、$u=G_{\mathrm{ret}}(P\varphi)$ と $\varphi$ はどちらも源 $P\varphi$ のCauchy解です。$\Sigma_a$ の近傍で $\varphi=0$ であり $u$ は零Cauchyデータから作られるため、二つの初期データは一致します。[大域Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より $u=\varphi$ です。
+(i) $\varphi$ の支持を $K$ とします。$K=\varnothing$ なら両辺は零です。以下 $K\ne\varnothing$ とし、源より前のCauchy面 $\Sigma_a$ を、$a<\min t(K)$ として選びます。
+
+局所微分作用素の台不増大性から $\operatorname{supp}(P\varphi)\subseteq K$ です。従って、遅延解
+
+$$
+u=G_{\mathrm{ret}}(P\varphi)
+$$
+
+は $\Sigma_a$ 上で値・法線微分とも零です。一方、$\varphi$ も $\Sigma_a$ の近傍で恒等的に零であり、同じ二つの初期データを持ちます。
+
+両者は源 $P\varphi$ のCauchy解なので、[大域Cauchy一意性](../HPDE16/index.md#thm-hpde16-global-cauchy)より $u=\varphi$ です。
 
 (ii) $P\varphi=0$ かつ $\varphi\in\Gamma_c$ なら、(i)により $\varphi=G_{\mathrm{ret}}(P\varphi)=G_{\mathrm{ret}}0=0$ です。従って核は零で $P$ は単射です。この段階で、後続講義のexact sequence全体はまだ証明していません。
 
