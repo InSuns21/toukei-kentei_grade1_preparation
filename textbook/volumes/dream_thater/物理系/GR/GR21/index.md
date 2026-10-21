@@ -56,7 +56,7 @@ $$
 
 です。逆計量の定義は $g_{\mu\alpha}g^{\alpha\nu}=\delta_\mu^\nu$ です。候補 $q^{\mu\nu}=\eta^{\mu\nu}-h^{\mu\nu}$ を作って代入すると
 
-$
+$$
 \begin{aligned}
 g_{\mu\alpha}q^{\alpha\nu}
 &=(\eta_{\mu\alpha}+h_{\mu\alpha})
@@ -67,33 +67,33 @@ g_{\mu\alpha}q^{\alpha\nu}
   +O(\epsilon^2)
 =\delta_\mu^\nu+O(\epsilon^2).
 \end{aligned}
-$
+$$
 
 二つの一次項はどちらも背景計量で添字を上げた $h_\mu{}^\nu$ なので打ち消し合い、候補 $q$ が一次までの逆計量であると分かります。
 
 <!-- definition-example-start: def-gr21-linear-perturbation -->
 **定義の確認**（対角の小さな変化）。定数 $a$ に対し $h_{00}=-2\epsilon a$、他成分が零で、二次の剰余も零である計量族を考えます。成分行列は
 
-$
+$$
 (g_{\mu\nu})=\operatorname{diag}(-1-2\epsilon a,1,1,1).
-$
+$$
 
 $h_{\mu\nu}$ は対称で、$k_{00}=-2a$ とその二階までの微分は有界です。さらに $|\epsilon a|<1/2$ なら第1対角成分は負、残りの3成分は正です。この対角行列の固有値は対角成分そのものなので、署名は $(-,+,+,+)$ となり、計量族はLorentz型で非退化です。対角行列を用いた判定は、この例では全計量を座標基底で表示しているから可能です。
 
 背景計量による縮約と添字上げは
 
-$
+$$
 h=\eta^{00}h_{00}=2\epsilon a,\qquad
 h^{00}=(\eta^{00})^2h_{00}=-2\epsilon a.
-$
+$$
 
 一方、全計量の逆行列は対角成分を逆数にした行列なので
 
-$
+$$
 g^{00}=-\frac1{1+2\epsilon a}
 =-1+2\epsilon a+O(\epsilon^2)
 =\eta^{00}-h^{00}+O(\epsilon^2).
-$
+$$
 
 こうして「背景で添字を上げる」操作と「全計量を逆にする」操作を、定義式と逆行列の条件から区別できます。
 <!-- definition-example-end -->
@@ -190,11 +190,11 @@ $$
 
 ここで
 
-$
+$$
 \partial_\rho h^\rho{}_\mu
 =\eta^{\rho\lambda}\partial_\rho h_{\lambda\mu}
 =\partial^\lambda h_{\lambda\mu}
-$
+$$
 
 なので、$\Gamma^{(1)\rho}_{\rho\mu}$ の第1項と第3項が相殺します。これをRicciの縮約式へ代入すると、命題のRicci式が得られます。
 
