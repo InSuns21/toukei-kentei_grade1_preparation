@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-gaussian-linear-model -->
-**定義の確認。** $n=p=1,X=(1),\beta=2,\sigma^2=1$ とする。$X\beta=2$、$\varepsilon\sim N(0,1)$ で $\sigma^2>0$、したがって $Y\mid\beta=2\sim N(2,1)$。密度は $(2\pi)^{-1/2}\exp(-(y-2)^2/2)$ となり、残差 $y-X\beta$ を代入した定義の尤度と一致する。標本が二つなら独立性により各密度を掛け、残差平方和の指数が現れる。
+**定義の確認**。 $n=p=1,X=(1),\beta=2,\sigma^2=1$ とする。$X\beta=2$、$\varepsilon\sim N(0,1)$ で $\sigma^2>0$、したがって $Y\mid\beta=2\sim N(2,1)$。密度は $(2\pi)^{-1/2}\exp(-(y-2)^2/2)$ となり、残差 $y-X\beta$ を代入した定義の尤度と一致する。標本が二つなら独立性により各密度を掛け、残差平方和の指数が現れる。
 <!-- definition-example-end -->
 
 [非退化多変量正規密度](../ML1-07/index.md#def-ml1-07-gaussian)は、平均ベクトルと正定値共分散行列により決まる。この知識を係数側にも適用する。事前平均 $m_0$ は信じている係数の中心、事前共分散 $S_0$ はその不確実性の方向と大きさを表す。
@@ -50,7 +50,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-gaussian-prior -->
-**定義の確認。** $p=2,m_0=(0,0)^{\mathsf T},S_0=\operatorname{diag}(1,4)$ を取る。任意の非零 $v=(a,b)^{\mathsf T}$ について $v^{\mathsf T}S_0v=a^2+4b^2>0$ だから正定値であり、$\det S_0=4>0$、$S_0^{-1}=\operatorname{diag}(1,1/4)$ が存在する。事前密度は $(4\pi)^{-1}\exp[-(\beta_1^2+\beta_2^2/4)/2]$ となる。第2係数方向は第1係数方向より分散が4倍大きい。
+**定義の確認**。 $p=2,m_0=(0,0)^{\mathsf T},S_0=\operatorname{diag}(1,4)$ を取る。任意の非零 $v=(a,b)^{\mathsf T}$ について $v^{\mathsf T}S_0v=a^2+4b^2>0$ だから正定値であり、$\det S_0=4>0$、$S_0^{-1}=\operatorname{diag}(1,1/4)$ が存在する。事前密度は $(4\pi)^{-1}\exp[-(\beta_1^2+\beta_2^2/4)/2]$ となる。第2係数方向は第1係数方向より分散が4倍大きい。
 <!-- definition-example-end -->
 
 ここで $Y=y$ は連続型観測なので、事後密度は点の確率 $P(Y=y)$ で割るのではなく、周辺密度
@@ -79,7 +79,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-posterior -->
-**定義の確認。** $p=n=1,X=(1),m_0=0,S_0=(1),\sigma^2=1,y=2$ とする。尤度と事前密度はどちらも非負であり、その積は $\exp[-(\beta^2+(2-\beta)^2)/2]/(2\pi)$。指数部を変形すると
+**定義の確認**。 $p=n=1,X=(1),m_0=0,S_0=(1),\sigma^2=1,y=2$ とする。尤度と事前密度はどちらも非負であり、その積は $\exp[-(\beta^2+(2-\beta)^2)/2]/(2\pi)$。指数部を変形すると
 
 $$
 \beta^2+(2-\beta)^2=2(\beta-1)^2+2.
@@ -243,7 +243,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-posterior-predictive -->
-**定義の確認。** $p=n=1$、既観測後に $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、新入力 $x_*=2$ とする。新雑音 $\varepsilon_*$ を係数・データから独立に生成し、$Y_*=2\beta+\varepsilon_*$ とするので、条件付き密度 $p(y_*\mid\beta,x_*)$ は正規密度で積分1、事後密度も積分1である。非負積分を入れ替えれば $\int p(y_*\mid y,X,x_*)\,dy_*=\int\pi(\beta\mid y,X)\,d\beta=1$。これが確率密度であることを確認できる。
+**定義の確認**。 $p=n=1$、既観測後に $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、新入力 $x_*=2$ とする。新雑音 $\varepsilon_*$ を係数・データから独立に生成し、$Y_*=2\beta+\varepsilon_*$ とするので、条件付き密度 $p(y_*\mid\beta,x_*)$ は正規密度で積分1、事後密度も積分1である。非負積分を入れ替えれば $\int p(y_*\mid y,X,x_*)\,dy_*=\int\pi(\beta\mid y,X)\,d\beta=1$。これが確率密度であることを確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-02-predictive-variance"></a>
