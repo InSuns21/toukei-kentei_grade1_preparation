@@ -138,7 +138,7 @@ $$
 \qquad f\in C_c^\infty(\mathbb R^{1+1}).
 $$
 
-まず、積分の線形性から任意のスカラー $\alpha,\beta$ と源 $f_1,f_2$ に対して $H(\alpha f_1+\beta f_2)=\alpha Hf_1+\beta Hf_2$ です。[HPDE12の畳み込み逆定理](../HPDE12/index.md#thm-hpde12-convolution-inverses)により $PHf=f$ も成立します。
+まず、積分の線形性から任意のスカラー $\alpha,\beta$ と源 $f_1,f_2$ に対して $H(\alpha f_1+\beta f_2)=\alpha Hf_1+\beta Hf_2$ です。[平坦波動作用素の畳み込み逆と因果的支持](../HPDE12/index.md#thm-hpde12-convolution-inverses)により $PHf=f$ も成立します。
 
 最後に支持条件を判定します。積分領域の $s\le t$ および $|x-y|\le t-s$ は、Minkowski計量に関して $(s,y)$ から $(t,x)$ へ未来向き因果曲線で到達できる条件そのものです。$(t,x)\notin J^+(\operatorname{supp}f)$ なら、積分領域で $f(s,y)$ はすべて零なので $(Hf)(t,x)=0$ です。大域双曲Minkowski時空では[コンパクト集合の因果的未来は閉](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)であるため、零集合の開性も含めて $\operatorname{supp}(Hf)\subseteq J^+(\operatorname{supp}f)$ と結論できます。これで**線形性・方程式・支持包含**の三条件を実際に確認しました。[HPDE18の構成定理](../HPDE18/index.md#thm-hpde18-green-existence)によって曲がった時空・束値作用素でも候補は実在します。
 <!-- definition-example-end -->
