@@ -91,7 +91,7 @@ chapters:
     title: "因果伝播子とexact sequenceの核"
   - id: HPDE22
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE22
-    status: planned
+    status: completed
     title: "exact sequenceの全射性と切断"
   - id: HPDE23
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE23

@@ -406,6 +406,7 @@
 19. [HPDE19 Green作用素の恒等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE19/index.md)
 20. [HPDE20 空間コンパクト・時間的支持空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE20/index.md)
 21. [HPDE21 因果伝播子とexact sequenceの核](textbook/volumes/dream_thater/解析系/HPDE/HPDE21/index.md)
+22. [HPDE22 exact sequenceの全射性と切断](textbook/volumes/dream_thater/解析系/HPDE/HPDE22/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分

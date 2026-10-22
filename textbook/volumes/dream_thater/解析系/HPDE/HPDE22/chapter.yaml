@@ -1,0 +1,45 @@
+id: "HPDE22"
+title: "exact sequenceの全射性と切断"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA2
+  - HPDE21
+  - HPDE20
+  - HPDE16
+  - HPDE15
+  - HPDE5
+  - LORG20
+official_scope: []
+learning_objectives:
+  - 空間コンパクトな斉次解とCauchy時間カットオフからコンパクト源を構成できる
+  - 有限時間因果影のコンパクト性を使い、切断による源と二つの半解の台を検証できる
+  - 過去コンパクト・未来コンパクトな半解へのGreen両側逆の適用を導出できる
+  - 遅延引く先進の符号を保って因果伝播子の全射性を証明できる
+  - Pの単射性・因果伝播子の核・全射性を結合して短完全系列を完成できる
+  - カットオフの選択に依存しない商空間との同型を証明できる
+definitions:
+  - { id: HPDE22-DEF-01, name: コンパクト源の同値類 }
+theorems:
+  - { id: HPDE22-LEM-01, name: 時間的カットオフによるコンパクト源 }
+  - { id: HPDE22-LEM-02, name: 半解のpc・fc支持 }
+  - { id: HPDE22-THM-01, name: 因果伝播子の全射性と短完全系列 }
+  - { id: HPDE22-COR-01, name: コンパクト源の商と空間コンパクト斉次解 }
+canonical_examples:
+  - Minkowski平面の右向き進行波のカットオフ源
+  - 空間円周を持つMinkowski時空の定数斉次解
+  - 非コンパクト空間の定数解では源のコンパクト性が壊れる例
+problem_patterns:
+  - HPDE22-CUTOFF-COMMUTATOR
+  - HPDE22-FINITE-SLAB-SUPPORT
+  - HPDE22-GREEN-SIGN
+  - HPDE22-COMPACT-SPATIAL-SECTION
+  - HPDE22-PC-FC-HALVES
+  - HPDE22-CUTOFF-DEPENDENCE
+  - HPDE22-EXACTNESS-AND-QUOTIENT
+  - HPDE22-SPATIAL-NONCOMPACT-FAILURE
+  - HPDE22-TRAVELING-WAVE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
