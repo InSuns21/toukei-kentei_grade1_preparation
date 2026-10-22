@@ -1,0 +1,43 @@
+id: "GR25"
+title: "Schwarzschild地平線と曲率特異性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR16
+  - GR24
+  - LORG3
+official_scope: []
+learning_objectives:
+  - Schwarzschild対角表示の適用域と曲率特異性を区別し、g00およびgrrの境界挙動を検算できる
+  - Kretschmann不変量の完全縮約を定義から構成し、正規直交枠の独立な曲率成分を検算できる
+  - Schwarzschild真空のKretschmann公式を接続とRiemann曲率から導き、次元とrのべき指数を確認できる
+  - r=rsでの有限な曲率とr=0での曲率発散から導ける結論および導けない結論を説明できる
+  - 横断座標を構成し、計量と逆計量の行列式から地平線の非退化性および零超曲面性を証明できる
+  - 静的座標時間と自由落下固有時を区別し、地平線まで有限な固有時を導ける
+definitions:
+  - { id: GR25-DEF-01, name: Kretschmann不変量 }
+  - { id: GR25-DEF-02, name: 曲率不変量による発散判定 }
+theorems:
+  - { id: GR25-THM-01, name: Schwarzschild真空のKretschmann不変量 }
+  - { id: GR25-PROP-01, name: 地平線候補で有限、中心で発散する曲率 }
+  - { id: GR25-PROP-02, name: 正則な地平線横断表示と零超曲面 }
+canonical_examples:
+  - 無次元半径r/rsでの曲率と静的係数の対比
+  - 地平線上の正則な二次計量行列と零法の確認
+  - 自由落下する粒子の固有時と静的時間の相違
+  - Rindler座標の係数退化と曲率零の反例
+problem_patterns:
+  - GR25-EXTERIOR-COEFFICIENTS
+  - GR25-CURVATURE-DIMENSIONS
+  - GR25-KILLING-CAUSAL-TYPE
+  - GR25-NULL-HYPERSURFACE
+  - GR25-REGULAR-BLOCK-INVERSE
+  - GR25-KRETSCHMANN-CONTRACTION
+  - GR25-REGULAR-HORIZON-COORDINATES
+  - GR25-FINITE-FALL-PROPER-TIME
+  - GR25-RINDLER-COUNTEREXAMPLE
+  - GR25-INTEGRATED-SINGULARITY-DIAGNOSTIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
