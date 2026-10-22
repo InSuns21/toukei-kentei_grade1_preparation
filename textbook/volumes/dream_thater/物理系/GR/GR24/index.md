@@ -4,8 +4,17 @@ GR I では、計量から自由落下・潮汐・時計・光路を求め、Ein
 
 本章は新しい大規模理論を追加する講義ではありません。既習結果をつないで、それらの適用条件・符号・次元を自分で点検するための講義です。特に、**Rindler座標の見かけの重力とSchwarzschild外部の真の潮汐は別物**であること、静止時計と光の局所周波数を混同しないこと、重力波の一次振幅と二次エネルギーを区別することを繰り返し扱います。
 
-全章を通して、計量符号は $(-,+,+,+)$、曲率は[GR6の成分規約](../GR6/index.md#prop-gr6-coordinate-curvature)と同じ
-$R^\rho{}_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}$ とします。$x^0=ct$、$G$ はNewton定数、$c>0$ は光速、$\tau$ は時間的世界線の固有時です。添字 $0$ と座標時刻 $t$ に関する微分は $\partial_0=c^{-1}\partial_t$ で区別します。特記しなければ4次元、$\Lambda=0$ です。
+全章を通して、計量符号は $(-,+,+,+)$ とし、曲率は[GR6の成分規約](../GR6/index.md#prop-gr6-coordinate-curvature)に従います。
+
+$$
+R^\rho{}_{\sigma\mu\nu}
+=\partial_\mu\Gamma^\rho_{\nu\sigma}
+-\partial_\nu\Gamma^\rho_{\mu\sigma}
++\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}
+-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}.
+$$
+
+$x^0=ct$、$G$ はNewton定数、$c>0$ は光速、$\tau$ は時間的世界線の固有時です。添字 $0$ と座標時刻 $t$ に関する微分は $\partial_0=c^{-1}\partial_t$ で区別します。特記しなければ4次元、$\Lambda=0$ です。
 
 ## 1. 静的計量から何を、どの順序で読み取るか
 
@@ -22,6 +31,15 @@ d\tau=N(x)\,dt.
 $$
 
 同じ計量から、自由落下の加速度を求める接続と、座標の取り方を変えても消せない曲率を**別々に**計算します。
+
+ここで使う成分は、座標基底 $(\partial_0,\partial_x)$ による双線形形式 $g$ の値 $g_{ab}=g(\partial_a,\partial_b)$ です。直交する二方向を選んだため、その行列と逆行列は
+
+$$
+(g_{ab})=\begin{pmatrix}-N^2&0\\0&A^2\end{pmatrix},\qquad
+(g^{ab})=\begin{pmatrix}-N^{-2}&0\\0&A^{-2}\end{pmatrix}.
+$$
+
+$N,A>0$ なら行列式は $-N^2A^2<0$ で、時間的方向一つ・空間的方向一つを持つ非退化なLorentz計量です。この逆行列を[Levi-Civita接続の座標式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)に用いると接続係数を判定でき、さらに[GR6の曲率成分式](../GR6/index.md#prop-gr6-coordinate-curvature)へ代入すると潮汐に関係するテンソル成分を計算できます。計量成分の表から接続・曲率へ進むのは、この二段の操作によります。
 
 <a id="prop-gr24-static-diagnostic"></a>
 
@@ -49,7 +67,7 @@ $$
 
 ### 証明の見取り図
 
-計量とその逆行列を先に書き、Christoffelの定義へ代入します。曲率では接続の微分項と二次項が打ち消し合う部分を見逃さないようにします。2次元ではRiemannテンソルの独立成分が一つなので、その成分が零なら全曲率が零です。
+計量とその逆行列を先に書き、Christoffelの定義へ代入します。曲率では接続の微分項と二次項が打ち消し合う部分を見逃さないようにします。2次元では[GR6で確認した曲率対称性](../GR6/index.md#prop-gr6-coordinate-curvature)によりRiemannテンソルの独立成分が一つなので、その成分が零なら全曲率が零です。
 
 <!-- proof-start -->
 ### 証明
@@ -90,9 +108,25 @@ R_{x0x0}=A^2R^x{}_{0x0}
 =AN\left(\frac{N'}A\right)'.
 $$
 
-$A,N>0$ よりこの成分の消失と $(N'/A)'=0$ は同値です。2次元のRiemannテンソルは反対称性と対交換対称性から独立成分が $R_{x0x0}$ だけです。したがって平坦性についての主張が従います。
+$A,N>0$ よりこの成分の消失と $(N'/A)'=0$ は同値です。[GR6で確認したRiemannテンソルの対称性](../GR6/index.md#prop-gr6-coordinate-curvature)を使うと、2次元では反対称な添字対が $(0,x)$ 一通りしかなく、独立成分は $R_{x0x0}$ だけです。したがって平坦性についての主張が従います。
 
-静止観測者の四元速度は $u^0=dx^0/d\tau=c/N$、$u^x=0$。四元加速度 $a^\mu=u^\nu\nabla_\nu u^\mu$ は $a^x=\Gamma^x_{00}(c/N)^2=c^2N'/(A^2N)$、$a^0=0$ です。よって大きさは $\sqrt{g_{xx}(a^x)^2}=c^2|N'|/(AN)$。$\square$
+静止観測者は $dx=0$ なので $d\tau=Ndt$、四元速度は $u^0=dx^0/d\tau=c/N$、$u^x=0$ です。四元加速度 $a^\mu=u^\nu\nabla_\nu u^\mu$ を計算すると
+
+$$
+a^x=\Gamma^x_{00}(u^0)^2
+=\frac{NN'}{A^2}\frac{c^2}{N^2}
+=\frac{c^2N'}{A^2N},\qquad a^0=0.
+$$
+
+よって、その長さは $A>0$ を使って
+
+$$
+\sqrt{g_{xx}(a^x)^2}
+=\sqrt{A^2\frac{c^4(N')^2}{A^4N^2}}
+=\frac{c^2|N'|}{AN}.
+$$
+
+$\square$
 <!-- proof-end -->
 
 **定義を計算で使う理由。** Christoffel係数は座標に依存するので、$\Gamma^x_{00}\neq0$ は単独では重力の潮汐を意味しません。一方、曲率はテンソルであり、成分が一つでも非零ならその点で平坦ではありません。加速度の大きさは「その場所に留まる観測者が加速しているか」であり、「自由落下の相対加速度があるか」とも異なります。
@@ -142,6 +176,18 @@ $$
 $$
 
 初期に半径 $r_0>r_s$ で静止座標に対して瞬間的に静止した自由粒子は、初期条件 $dr/d\tau=0$ から $e^2=f(r_0)$、未来向きなので $e=\sqrt{f(r_0)}$ です。これは自由落下開始時の条件であり、落下中の粒子は静止観測者ではありません。
+
+自由粒子の $dr/d\tau$ は座標半径の固有時微分であり、静止観測者が測る速さそのものではありません。[GR4の測定速度の定義](../GR4/index.md#prop-gr4-observer-speed)に従い、静止観測者の局所的な半径方向の物差し $d\ell=dr/\sqrt f$ と時計 $dT=\sqrt f\,dt$ を用いると、通過する粒子の局所速さは
+
+$$
+v_{\mathrm{loc}}
+=\left|\frac{d\ell}{dT}\right|
+=\frac1f\left|\frac{dr}{dt}\right|
+=\frac{|dr/d\tau|}{f(dt/d\tau)}
+=c\sqrt{1-\frac{f}{e^2}}.
+$$
+
+ここでは未来向き測地線の $e=f\,dt/d\tau>0$ を使いました。$r=r_0$ で静止して落下を始める場合には $e^2=f(r_0)$ なので、観測者が変わる各半径での局所速さは $v_{\mathrm{loc}}=c\sqrt{1-f(r)/f(r_0)}$ です。
 
 同じ時空を伝播する光では、[GR17の周波数比](../GR17/index.md#thm-gr17-redshift)により、半径 $r_A$ での局所周波数を $\nu_A$、半径 $r_B$ での局所周波数を $\nu_B$ として
 
@@ -259,7 +305,7 @@ $$
 R_{x0x0}=N N''=0.
 $$
 
-同じ結果を接続から確認すると $\partial_x\Gamma^x_{00}=b^2$、$-\Gamma^x_{00}\Gamma^0_{x0}=-b^2$ で相殺します。2次元の独立曲率成分はこれだけです。接続は座標依存で、静止観測者は加速していますが、空間の曲がりとは別です。
+同じ結果を接続から確認すると $\partial_x\Gamma^x_{00}=b^2$、$-\Gamma^x_{00}\Gamma^0_{x0}=-b^2$ で相殺します。2次元の独立曲率成分はこれだけです。接続は座標依存で、静止観測者は加速していますが、時空の曲率とは別です。
 <!-- solution-end -->
 
 <a id="ex-gr24-a03"></a>
@@ -334,7 +380,7 @@ $$
 #### GR24-B01 自由落下の初期条件と静止時計
 - Level: B
 
-$M>0$ のSchwarzschild外部 $r>r_s$ で、半径 $r_0>r_s$ から動径方向に自由落下を開始する質点を考える。質点は初期時刻だけ静止座標に対して静止している。保存量 $e=f\,dt/d\tau$ と初期条件から $(dr/d\tau)^2$ を導出し、半径 $r<r_0$ での速さを求めよ。
+$M>0$ のSchwarzschild外部 $r>r_s$ で、半径 $r_0>r_s$ から動径方向に自由落下を開始する質点を考える。質点は初期時刻だけ静止座標に対して静止している。保存量 $e=f\,dt/d\tau$ と初期条件から $(dr/d\tau)^2$ を導出し、半径 $r_s<r<r_0$ での座標変化率 $|dr/d\tau|$ と、その位置の静止観測者が測る局所速さ $v_{\mathrm{loc}}$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** 静的計量の時間並進が[Killing場](../GR14/index.md#def-gr14-killing-field)であり、時間的測地線が固有時でアフィン表示されるので、[Killing保存量の定理](../GR14/index.md#thm-gr14-killing-charge)を適用できます。時間成分から $e=f\,dt/d\tau$ が一定です。規格化に $dt/d\tau=e/f$ を入れると
@@ -352,7 +398,19 @@ $$
 =c\sqrt{r_s\left(\frac1r-\frac1{r_0}\right)}.
 $$
 
-内向き落下では $dr/d\tau<0$ を選びます。これは座標速度 $dr/dt$ ではなく、固有時に対する動径座標の変化率です。$r_s<r<r_0$ では根号内は正です。
+内向き落下では $dr/d\tau<0$ を選びます。これは固有時に対する動径座標の変化率で、$r_s<r<r_0$ では根号内は正です。一方、通過地点の静止観測者による[測定速度](../GR4/index.md#prop-gr4-observer-speed)は、局所距離 $d\ell=dr/\sqrt f$ と局所時間 $dT=\sqrt f\,dt$ の比です。$dt/d\tau=e/f$ を代入すると
+
+$$
+\begin{aligned}
+v_{\mathrm{loc}}
+&=\frac1f\left|\frac{dr}{dt}\right|
+=\frac{|dr/d\tau|}{e}\\
+&=c\sqrt{1-\frac{f(r)}{f(r_0)}}
+=c\sqrt{\frac{r_s(1/r-1/r_0)}{1-r_s/r_0}}<c.
+\end{aligned}
+$$
+
+局所速さは初期点で零、その後増加しますが、座標の変化率と同じ数値ではありません。
 <!-- solution-end -->
 
 <a id="ex-gr24-b02"></a>
@@ -416,7 +474,7 @@ $$
 #### GR24-B04 円軌道から波形と放射パワーまで
 - Level: B
 
-等質量 $m>0$ の二質点が相対距離 $2a$（$a>0$）のNewton円軌道にあり、重心を原点とする。十分遠い軌道面法線方向の観測者までの距離を $D$ とする。$\Omega^2=G(2m)/(2a)^3$、$a\Omega/c\ll1$、$Gm/(ac^2)\ll1$ とし、先頭四重極近似で波の角周波数、二偏極の共通振幅 $H$、総放射パワー $P$ を求めよ。
+等質量 $m>0$ の二質点が相対距離 $2a$（$a>0$）のNewton円軌道にあり、重心を原点とする。軌道面法線方向の観測者までの距離を $D$ とする。$\Omega^2=G(2m)/(2a)^3$、$a\Omega/c\ll1$、$Gm/(ac^2)\ll1$ に加え、遠方波動領域 $D\gg2a$、$\Omega D/c\gg1$ を仮定し、先頭四重極近似で波の角周波数、二偏極の共通振幅 $H$、総放射パワー $P$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答。** 相対距離は $R=2a$、総質量は $M=2m$、換算質量は $\mu=m^2/(2m)=m/2$ です。[GR23の円軌道四重極式](../GR23/index.md#prop-gr23-circular-binary)へこの三量を代入すると角周波数は $2\Omega$、振幅は
