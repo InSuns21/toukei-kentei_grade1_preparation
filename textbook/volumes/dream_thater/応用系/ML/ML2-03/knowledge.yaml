@@ -1,0 +1,55 @@
+chapter: ML2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML2-02
+  - F0-00D2B
+concepts:
+  - id: learning.regular-natural-exponential-family
+    name: 固定台の正則自然指数型分布族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定台の正則自然指数型分布族）"]
+    requires: [prob.distribution-law]
+  - id: learning.log-partition-function
+    name: 対数分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定台の正則自然指数型分布族）"]
+    requires: [learning.regular-natural-exponential-family]
+  - id: learning.log-partition-moment-identity
+    name: 対数分配関数の一階・二階微分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対数分配関数の一階・二階微分公式）"]
+    requires: [learning.log-partition-function, measure.dominated-convergence-theorem]
+  - id: learning.log-partition-convexity
+    name: 共分散による対数分配関数の凸性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共分散による対数分配関数の凸性）"]
+    requires: [learning.log-partition-moment-identity]
+  - id: learning.canonical-exponential-conjugate-prior
+    name: 正規化可能な指数型共役事前分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化可能な指数型共役事前分布）"]
+    requires: [learning.regular-natural-exponential-family, learning.gaussian-coefficient-posterior]
+  - id: learning.exponential-conjugate-update
+    name: 指数型共役事前分布の超母数更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指数型共役事前分布の超母数更新）"]
+    requires: [learning.canonical-exponential-conjugate-prior]
+  - id: learning.beta-bernoulli-conjugacy
+    name: Beta–Bernoulli共役更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Beta–Bernoulli共役更新）"]
+    requires: [learning.exponential-conjugate-update, learning.log-partition-moment-identity]
+  - id: learning.normal-known-variance-conjugacy
+    name: 既知分散Gaussianの共役更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（既知分散Gaussianの共役更新）"]
+    requires: [learning.exponential-conjugate-update, learning.bayesian-linear-gaussian-posterior]

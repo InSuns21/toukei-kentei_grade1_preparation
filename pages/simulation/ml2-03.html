@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-03 対数分配関数とモーメントの照合</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,"Noto Sans JP",sans-serif}
+body{max-width:880px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.45rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.controls label{display:block;padding:12px;border:1px solid #8888;border-radius:10px}
+input[type=range]{width:100%}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;padding:0}
+.metrics li{list-style:none;border:1px solid #8888;padding:10px;border-radius:7px}
+.metrics small{display:block;font-variant-numeric:tabular-nums}
+svg{width:100%;background:#fff;color:#222;border:1px solid #8888;border-radius:10px}
+.note{font-size:.93rem}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-03/index">← ML2-03 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>ML2-03 対数分配関数の微分実験</h1>
+<p>共通の台を持つBernoulli模型または分散2で固定した正規模型を選び、自然母数 η を変えます。曲線は A(η)、表は解析的に求めた A′・A″ と、前後の値を使った中央差分です。</p>
+<section class="controls" aria-label="自然母数の入力">
+<label>模型 <select id="family" aria-label="分布族"><option value="bernoulli">Bernoulli：台 {0,1}</option><option value="gaussian">正規：分散2、台 R</option></select></label>
+<label>自然母数 η <output id="etaValue">0.5</output><input type="range" id="eta" min="-5" max="5" step="0.1" value="0.5" aria-label="自然母数"></label>
+</section>
+<figure>
+<svg id="plot" viewBox="0 0 800 340" role="img" aria-label="横軸は自然母数、縦軸は対数分配関数。青い曲線と赤い選択点を表示します" xmlns="http://www.w3.org/2000/svg"></svg>
+<figcaption>固定した分布族の対数分配関数 A(η)。赤い丸が現在の自然母数。</figcaption>
+</figure>
+<ul id="metrics" class="metrics" aria-live="polite"></ul>
+<p id="description" class="note"></p>
+<p class="note">数値微分は刻み幅 h=0.001 の中央差分：A′≈[A(η+h)−A(η−h)]/(2h)、A″≈[A(η+h)−2A(η)+A(η−h)]/h²。表示誤差は丸め・打切り誤差を含み、数学的証明ではありません。固定分散の正規模型では自然母数を動かしても分散が2のままである点も確認できます。</p>
+<script type="module">
+"use strict";
+import { evaluateFamily, checkDerivatives } from "./ml2-03-model.mjs";
+const ns="http://www.w3.org/2000/svg";
+const $=id=>document.getElementById(id);
+function svgElement(tag, attrs, label){
+  const e=document.createElementNS(ns,tag);
+  for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));
+  if(label!==undefined)e.textContent=String(label);
+  return e;
+}
+function render(){
+  const family=$("family").value,eta=Number($("eta").value),q=checkDerivatives(family,eta);
+  $("etaValue").textContent=eta.toFixed(1);
+  const fmt=n=>n.toFixed(7);
+  const rows=[
+    ["A(η) 対数分配関数",fmt(q.a)],
+    ["A′(η) = E[T]",fmt(q.mean)],
+    ["中央差分による一階微分",fmt(q.numericMean)],
+    ["A″(η) = Var(T)",fmt(q.covariance)],
+    ["中央差分による二階微分",fmt(q.numericVariance)],
+    ["絶対誤差（一階・二階）",q.meanError.toExponential(2)+" / "+q.varianceError.toExponential(2)]
+  ];
+  $("metrics").replaceChildren(...rows.map(([name,value])=>{
+    const li=document.createElement("li"),strong=document.createElement("strong"),small=document.createElement("small");
+    strong.textContent=name;small.textContent=value;li.append(strong,small);return li;
+  }));
+  $("description").textContent=family==="bernoulli"
+    ?"Bernoulliの十分統計量 T(X)=X。平均は成功確率 p、分散は p(1−p)。η を大きくすると平均は1へ近づき、分散は0へ近づきます。"
+    :"正規模型の十分統計量 T(X)=X。平均は 2η、分散は常に2。両模型とも観測値の台は η に依存しません。";
+  const sv=$("plot"),samples=Array.from({length:201},(_,i)=>{
+    const x=-5+10*i/200;return {x,y:evaluateFamily(family,x).a};
+  });
+  const maxY=Math.max(...samples.map(p=>p.y)),xMap=x=>50+(x+5)*72,yMap=y=>295-y/maxY*253;
+  sv.replaceChildren();
+  sv.append(svgElement("line",{x1:50,y1:295,x2:770,y2:295,stroke:"#555"}));
+  sv.append(svgElement("line",{x1:50,y1:42,x2:50,y2:295,stroke:"#555"}));
+  for(const x of [-5,0,5])sv.append(svgElement("text",{x:xMap(x),y:314,"text-anchor":"middle",fill:"#222","font-size":14},x));
+  for(const y of [0,maxY/2,maxY])sv.append(svgElement("text",{x:42,y:yMap(y)+4,"text-anchor":"end",fill:"#222","font-size":12},y.toFixed(1)));
+  sv.append(svgElement("polyline",{points:samples.map(p=>xMap(p.x)+","+yMap(p.y)).join(" "),fill:"none",stroke:"#2269ad","stroke-width":3}));
+  sv.append(svgElement("circle",{cx:xMap(eta),cy:yMap(q.a),r:6,fill:"#d33",stroke:"#fff","stroke-width":2}));
+  sv.append(svgElement("text",{x:760,y:334,"text-anchor":"end",fill:"#222","font-size":14},"自然母数 η"));
+  sv.append(svgElement("text",{x:50,y:26,fill:"#222","font-size":14},"A(η)"));
+}
+for(const id of ["family","eta"])$(id).addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
