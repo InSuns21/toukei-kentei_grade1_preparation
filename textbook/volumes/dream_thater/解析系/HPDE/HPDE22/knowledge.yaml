@@ -1,0 +1,38 @@
+chapter: HPDE22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA2
+  - HPDE21
+  - HPDE20
+  - HPDE16
+  - HPDE15
+  - HPDE5
+  - LORG20
+forward_references: []
+concepts:
+  - id: hpde.compact-source-classes
+    name: コンパクト源の同値類
+    kind: definition
+    introduction: formal
+    requires: [hpde.causal-propagator-kernel, linear.quotient-space]
+  - id: hpde.cutoff-compact-source
+    name: 時間的カットオフによるコンパクト源
+    kind: lemma
+    introduction: formal
+    requires: [hpde.spatially-compact-solutions, hpde.compact-causal-shadow, hpde.unique-connection]
+  - id: hpde.cutoff-half-support
+    name: 半解のpc・fc支持
+    kind: lemma
+    introduction: formal
+    requires: [hpde.cutoff-compact-source, hpde.past-compact-support, hpde.future-compact-support]
+  - id: hpde.propagator-surjectivity
+    name: 因果伝播子の全射性と短完全系列
+    kind: theorem
+    introduction: formal
+    requires: [hpde.cutoff-half-support, hpde.green-pc-fc-inverse, hpde.causal-propagator-kernel]
+  - id: hpde.propagator-quotient
+    name: コンパクト源の商と空間コンパクト斉次解
+    kind: corollary
+    introduction: formal
+    requires: [hpde.propagator-surjectivity, hpde.compact-source-classes]
