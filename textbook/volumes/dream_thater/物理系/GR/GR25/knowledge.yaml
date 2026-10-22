@@ -1,0 +1,38 @@
+chapter: GR25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR16
+  - GR24
+  - LORG3
+concepts:
+  - id: gravity.kretschmann-invariant
+    name: Kretschmann不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kretschmann不変量）"]
+    requires: [gravity.curvature-components-lorentz]
+  - id: gravity.schwarzschild-kretschmann
+    name: Schwarzschild真空のKretschmann不変量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschild真空のKretschmann不変量）"]
+    requires: [gravity.kretschmann-invariant, gravity.schwarzschild-vacuum-metric, gravity.schwarzschild-angular-riemann]
+  - id: gravity.curvature-invariant-blowup
+    name: 曲率不変量による発散判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲率不変量による発散判定）"]
+    requires: [gravity.kretschmann-invariant]
+  - id: gravity.schwarzschild-curvature-limits
+    name: 地平線候補で有限、中心で発散する曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線候補で有限、中心で発散する曲率）"]
+    requires: [gravity.schwarzschild-kretschmann, gravity.curvature-invariant-blowup]
+  - id: gravity.schwarzschild-regular-horizon-chart
+    name: 正則な地平線横断表示と零超曲面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則な地平線横断表示と零超曲面）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.schwarzschild-radius]

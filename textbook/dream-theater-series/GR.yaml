@@ -105,7 +105,7 @@ chapters:
     title: "GR I 総合演習：計量から観測まで"
   - id: GR25
     path: textbook/volumes/dream_thater/物理系/GR/GR25
-    status: planned
+    status: completed
     title: "Schwarzschild地平線と曲率特異性"
   - id: GR26
     path: textbook/volumes/dream_thater/物理系/GR/GR26
