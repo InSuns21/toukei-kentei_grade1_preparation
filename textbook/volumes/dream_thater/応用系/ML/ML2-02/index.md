@@ -33,7 +33,15 @@ $$
 **定義の確認**。 $n=p=1,X=(1),\beta=2,\sigma^2=1$ とする。$X\beta=2$、$\varepsilon\sim N(0,1)$ で $\sigma^2>0$、したがって $Y\mid\beta=2\sim N(2,1)$。密度は $(2\pi)^{-1/2}\exp(-(y-2)^2/2)$ となり、残差 $y-X\beta$ を代入した定義の尤度と一致する。標本が二つなら独立性により各密度を掛け、残差平方和の指数が現れる。
 <!-- definition-example-end -->
 
-[非退化多変量正規密度](../ML1-07/index.md#def-ml1-07-gaussian)は、平均ベクトルと正定値共分散行列により決まる。この知識を係数側にも適用する。事前平均 $m_0$ は信じている係数の中心、事前共分散 $S_0$ はその不確実性の方向と大きさを表す。
+[非退化多変量正規密度](../ML1-07/index.md#def-ml1-07-gaussian)は、平均ベクトルと正定値共分散行列により決まる。この知識を係数側にも適用する。事前平均 $m_0$ は信じている係数の中心、事前共分散 $S_0$ はその不確実性の方向と大きさを表す。共分散の定義を係数の線形結合に展開すると、方向 $v\in\mathbb R^p$ の分散は
+
+$$
+\operatorname{Var}(v^{\mathsf T}\beta)
+=\sum_{j,k}v_jv_k\operatorname{Cov}(\beta_j,\beta_k)
+=v^{\mathsf T}S_0v
+$$
+
+である。従って $S_0$ の正定値性は、すべての非零方向の分散が正であることに対応する。次の対角行列は係数の各方向の分散を直接指定した例である。
 
 <a id="def-ml2-02-gaussian-prior"></a>
 
@@ -50,7 +58,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-gaussian-prior -->
-**定義の確認**。 $p=2,m_0=(0,0)^{\mathsf T},S_0=\operatorname{diag}(1,4)$ を取る。任意の非零 $v=(a,b)^{\mathsf T}$ について $v^{\mathsf T}S_0v=a^2+4b^2>0$ だから正定値であり、$\det S_0=4>0$、$S_0^{-1}=\operatorname{diag}(1,1/4)$ が存在する。事前密度は $(4\pi)^{-1}\exp[-(\beta_1^2+\beta_2^2/4)/2]$ となる。第2係数方向は第1係数方向より分散が4倍大きい。
+**定義の確認**。 $p=2,m_0=(0,0)^{\mathsf T},S_0=\operatorname{diag}(1,4)$ を取る。任意の非零 $v=(a,b)^{\mathsf T}$ について
+
+$$
+v^{\mathsf T}S_0v=a^2+4b^2>0
+$$
+
+だから実対称正定値であり、非退化性の条件を満たす。対角成分を掛けて $\det S_0=4>0$、各成分の逆数を取って $S_0^{-1}=\operatorname{diag}(1,1/4)$ を得る。これらを密度の定義へ代入すると
+
+$$
+\pi_0(\beta)=\frac1{4\pi}\exp\left[-\frac12\left(\beta_1^2+\frac{\beta_2^2}{4}\right)\right].
+$$
+
+二つの一次元正規密度の積なので非負・積分1であることも[正規密度の正規化補題](../ML1-07/index.md#lem-ml1-07-gaussian-normalization)から確認できる。第2係数方向は第1係数方向より分散が4倍大きい。
 <!-- definition-example-end -->
 
 ここで $Y=y$ は連続型観測なので、事後密度は点の確率 $P(Y=y)$ で割るのではなく、周辺密度
@@ -85,7 +105,13 @@ $$
 \beta^2+(2-\beta)^2=2(\beta-1)^2+2.
 $$
 
-したがって積を $\beta$ で正規化した密度は $N(1,1/2)$ の密度であり、非負・積分1を直接確認できる。この計算から事後平均が1に移るが、分散 $1/2$ は残ることが分かる。
+尤度と事前密度の積は $e^{-1}e^{-(\beta-1)^2}/(2\pi)$ である。$\int_{\mathbb R}e^{-(b-1)^2}\,db=\sqrt\pi$ で割ると、正規化後は
+
+$$
+\pi(\beta\mid y=2,X=(1))=\frac1{\sqrt\pi}e^{-(\beta-1)^2}.
+$$
+
+これは $N(1,1/2)$ の密度で、非負・積分1を直接確認できる。この計算から事後平均が1に移るが、分散 $1/2$ は残ることが分かる。
 <!-- definition-example-end -->
 
 正規密度の指数は二次式である。事前の二次式と残差平方和を足すと、新しい正規密度の二次式になる。この平方完成こそ、Gaussian事前分布を使う理由である。
@@ -137,7 +163,14 @@ v^{\mathsf T}\Lambda_nv
 =v^{\mathsf T}S_0^{-1}v+\sigma^{-2}\|Xv\|_2^2>0.
 $$
 
-第1項が正なのは $S_0$ が正定値だからである。従って $\Lambda_n$ は実対称正定値で、$S_n=\Lambda_n^{-1}$ も実対称正定値。$m_n=S_nh_n$ とすれば $\Lambda_nm_n=h_n$ であり、
+第1項が正であることも確認する。実対称正定値 $S_0$ は、正の固有値 $d_j$ と正規直交固有ベクトル $q_j$ を用いて $S_0=Q\operatorname{diag}(d_j)Q^{\mathsf T}$ と書ける。従って
+
+$$
+v^{\mathsf T}S_0^{-1}v
+=\sum_{j=1}^p\frac{(q_j^{\mathsf T}v)^2}{d_j}>0\qquad(v\ne0).
+$$
+
+よって $\Lambda_n$ は実対称正定値で、同じ固有値の議論により $S_n=\Lambda_n^{-1}$ も実対称正定値。$m_n=S_nh_n$ とすれば $\Lambda_nm_n=h_n$ であり、
 
 $$
 \begin{aligned}
@@ -169,7 +202,13 @@ $$
 S_1=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
 $$
 
-$\det\Lambda_1=3>0$ で事後は存在するが、$X(1,-1)^{\mathsf T}=0$ なので、係数の差の方向をデータだけでは学べない。**事後分布の存在と係数の識別可能性は別**である。
+任意の非零 $v=(a,b)^{\mathsf T}$ に対して
+
+$$
+v^{\mathsf T}\Lambda_1v=a^2+b^2+(a+b)^2>0
+$$
+
+だから正定値であり、$\det\Lambda_1=3>0$ を使って上の逆行列も検算できる。一方、$X(1,-1)^{\mathsf T}=0$ なので、係数の差の方向をデータだけでは学べない。**事後分布の存在と係数の識別可能性は別**である。
 
 ## 3. Ridge回帰との接続
 
@@ -179,7 +218,7 @@ $\det\Lambda_1=3>0$ で事後は存在するが、$X(1,-1)^{\mathsf T}=0$ なの
 
 <!-- formal-statement-start -->
 > **定理（等方Gaussian事前分布とRidgeの一致）**  
-> $\sigma^2>0$、$\lambda>0$、$X\in\mathbb R^{n\times p}$、$n\ge1$ を固定する。[Gaussian線形回帰模型](#def-ml2-02-gaussian-linear-model)に
+> $\sigma^2>0$、$\lambda>0$、$X\in\mathbb R^{n\times p}$、$n,p\ge1$ を固定する。[Gaussian線形回帰模型](#def-ml2-02-gaussian-linear-model)に
 
 $$
 m_0=0,\qquad S_0=\frac{\sigma^2}{n\lambda}I_p
@@ -243,14 +282,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-02-posterior-predictive -->
-**定義の確認**。 $p=n=1$、既観測後に $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、新入力 $x_*=2$ とする。新雑音 $\varepsilon_*$ を係数・データから独立に生成し、$Y_*=2\beta+\varepsilon_*$ とするので、条件付き密度 $p(y_*\mid\beta,x_*)$ は正規密度で積分1、事後密度も積分1である。非負積分を入れ替えれば $\int p(y_*\mid y,X,x_*)\,dy_*=\int\pi(\beta\mid y,X)\,d\beta=1$。これが確率密度であることを確認できる。
+**定義の確認**。 $p=n=1$、既観測後に $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、新入力 $x_*=2$ とする。新雑音 $\varepsilon_*$ を係数・データから独立に生成し、$Y_*=2\beta+\varepsilon_*$ とするので、条件付き密度 $p(y_*\mid\beta,x_*)$ は正規密度で積分1、事後密度も積分1である。非負関数への[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を用いると
+
+$$
+\begin{aligned}
+\int_{\mathbb R}p(y_*\mid y,X,x_*)\,dy_*
+&=\int_{\mathbb R}\pi(\beta\mid y,X)
+ \left\{\int_{\mathbb R}p(y_*\mid\beta,x_*)\,dy_*\right\}d\beta\\
+&=\int_{\mathbb R}\pi(\beta\mid y,X)\,d\beta=1.
+\end{aligned}
+$$
+
+よって事後予測密度は非負で積分1となり、確率密度の条件を満たす。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-02-predictive-variance"></a>
 
 <!-- formal-statement-start -->
 > **定理（Gaussian事後予測と分散の二項分解）**  
-> [事後公式](#thm-ml2-02-gaussian-posterior)の仮定と[独立な新雑音](#def-ml2-02-posterior-predictive)の仮定の下、潜在平均と新しい観測の条件付き分布は
+> 固定した $X\in\mathbb R^{n\times p}$ と観測 $y\in\mathbb R^n$（$n,p\ge1$）に対して、[事後公式](#thm-ml2-02-gaussian-posterior)の条件を満たし、$\beta\mid y,X\sim N_p(m_n,S_n)$ とする。$x_*\in\mathbb R^p$ を固定し、$\varepsilon_*\sim N(0,\sigma^2)$（$\sigma^2>0$）は係数と既観測データの双方から独立とする。[潜在平均と新観測](#def-ml2-02-posterior-predictive)を $f_*=x_*^{\mathsf T}\beta$、$Y_*=f_*+\varepsilon_*$ とおけば、その条件付き分布は
 
 $$
 \begin{aligned}
@@ -285,7 +335,20 @@ $$
 \end{aligned}
 $$
 
-Gaussianベクトルの線形結合はGaussianであり、$x_*=0$ のときのみここでは分散0になる。さらに $\varepsilon_*$ は係数と観測データから独立、平均0、分散 $\sigma^2$ だから
+[正規密度の正規化補題](../ML1-07/index.md#lem-ml1-07-gaussian-normalization)の対角化を使って正規性も確かめる。$S_n=Q\operatorname{diag}(d_j)Q^{\mathsf T}$（$d_j>0$）とおくと、独立な標準正規成分を持つ $Z$ により $\beta=m_n+Q\operatorname{diag}(\sqrt{d_j})Z$ と表せる。$c=\operatorname{diag}(\sqrt{d_j})Q^{\mathsf T}x_*$ とすれば
+
+$$
+f_*=x_*^{\mathsf T}m_n+\sum_jc_jZ_j,
+\qquad \sum_jc_j^2=x_*^{\mathsf T}S_nx_*.
+$$
+
+$c\ne0$ なら $c/\|c\|_2$ を第1行とする直交行列 $U$ を取り、$W=UZ$ とする。直交変換は二乗ノルムと体積要素の絶対値を保つので、$W$ の同時密度は $Z$ と同じ独立標準正規密度の積である。従って
+
+$$
+\sum_jc_jZ_j=\|c\|_2W_1\sim N(0,\|c\|_2^2).
+$$
+
+$c=0$ ならこの和は0に集中する。$S_n$ が正定値なので、これは $x_*=0$ と同値である。さらに $\varepsilon_*$ は係数と観測データから独立、平均0、分散 $\sigma^2$ だから
 
 $$
 \begin{aligned}
@@ -298,10 +361,10 @@ $$
 \end{aligned}
 $$
 
-独立なGaussian量の和がGaussianであることから分布まで確定し、積分表示もこの正規密度に一致する。$\square$
+$\varepsilon_*/\sigma$ を $Z$ に追加した独立標準正規ベクトルに、係数 $(c_1,\ldots,c_p,\sigma)$ で同じ直交変換の議論を適用できる。その係数の二乗和は $\sum_jc_j^2+\sigma^2$ だから、$Y_*$ も表示された平均・分散の正規分布となる。積分表示もこの密度に一致する。$\square$
 <!-- proof-end -->
 
-**同じ例の予測。** $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、$x_*=2$ なら、潜在平均 $f_*=2\beta$ は平均2・分散2、新観測 $Y_*$ は平均2・分散3である。正規分布の両側約95%区間はそれぞれ $2\pm1.96\sqrt2$ と $2\pm1.96\sqrt3$ になる。後者の方が広いのは、未来の観測雑音を含むためである。
+**同じ例の予測。** $\beta\mid y,X\sim N(1,1/2)$、$\sigma^2=1$、$x_*=2$ なら、潜在平均 $f_*=2\beta$ は平均2・分散2、新観測 $Y_*$ は平均2・分散3である。正規分布の両側約95%区間はそれぞれ $2\pm1.96\sqrt2$ と $2\pm1.96\sqrt3$ になる。前者は固定した $x_*$ における潜在平均の事後信用区間、後者は新観測の予測区間である。後者の方が広いのは未来の観測雑音を含むためで、いずれもすべての入力に対する同時95%帯を意味しない。
 
 この予測密度は、平均を固定して $N(x_*^{\mathsf T}m_n,\sigma^2)$ で予測するプラグイン法とは違う。事後平均だけを使って係数の不確実性を消してしまうと、特に観測の少ない入力で新観測の条件付き正規分布を過度に狭く見積もりやすい。
 
@@ -313,7 +376,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（単一観測のGaussian事後逐次更新）**  
-> 現在の係数分布が $N_p(m,S)$、$S$ が実対称正定値とする。新観測 $z=x^{\mathsf T}\beta+\epsilon$ において $\epsilon\sim N(0,\sigma^2)$ は独立、$\sigma^2>0$ とする。$v=\sigma^2+x^{\mathsf T}Sx>0$ とおけば、観測後の係数分布は $N_p(m^+,S^+)$ で
+> 既観測データ $D$ に条件付けた係数分布が $N_p(m,S)$ で、$S$ は実対称正定値とする。固定した入力 $x\in\mathbb R^p$ に新観測 $z=x^{\mathsf T}\beta+\epsilon$ を得る。雑音 $\epsilon\sim N(0,\sigma^2)$ は係数と既観測データの双方から独立で、$\sigma^2>0$ とする。
+>
+> このとき正の量
+
+$$
+v=\sigma^2+x^{\mathsf T}Sx>0
+$$
+
+> を用いると、観測後の係数分布は $N_p(m^+,S^+)$ で
 
 $$
 \begin{aligned}
@@ -374,7 +445,7 @@ $$
 
 [Bayes線形回帰の対話ラボ](../../../../../../simulation/ml2-02.html)では、一係数の模型 $Y=\beta x+\varepsilon$ を使う。事前分散、観測雑音分散、観測数を変えると、観測されたデータに対する事後平均・事後分散を毎回新しく計算し、**潜在平均の区間**と**次の観測の予測区間**を別々に描く。表示する数値は上の平方完成・分散公式に基づく。95%区間はモデルが正しい場合の条件付きGaussian区間であり、任意のデータに対する無条件の保証ではない。
 
-観測数が少ない場合や $x_*$ が既観測点から離れた場合、$x_*^2S_n$ が大きくなる。その部分は係数を十分に学んでいないことを表す。一方、観測を増やしても $\sigma^2$ は残り、未来の観測雑音まで消えるわけではない。
+一係数模型で事後分散 $S_n$ を固定したまま新入力の絶対値 $|x_*|$ を大きくすると、潜在平均の分散 $x_*^2S_n$ は大きくなる。「既観測点からの距離」だけで決まる量ではない。観測数が少なく $S_n$ が大きい場合にも、この係数の不確実性が予測に強く現れる。一方、観測を増やしても $\sigma^2$ は残り、未来の観測雑音まで消えるわけではない。
 
 ## 7. 演習
 
@@ -445,11 +516,25 @@ $$
 =\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-先頭主小行列式が2、行列式が $2\cdot2-1=3>0$ なので正定値である。逆行列は
+この行列が表す二次形式は、任意の $v=(a,b)^{\mathsf T}\ne0$ について
+
+$$
+v^{\mathsf T}\Lambda_1v=a^2+b^2+(a+b)^2>0
+$$
+
+となるので、正定値の定義を直接満たす。行列式は $2\cdot2-1=3>0$ である。次の候補を左から $\Lambda_1$ に掛けると単位行列になる：
 
 $$
 S_1=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
 $$
+
+実際、
+
+$$
+\Lambda_1S_1=\frac13\begin{pmatrix}3&0\\0&3\end{pmatrix}=I_2
+$$
+
+であり、これが逆行列である。
 
 $X^{\mathsf T}y=(2,2)^{\mathsf T}$ を掛けると
 
@@ -516,9 +601,22 @@ $\beta\sim N(0,1)$、雑音分散1で $(x_1,y_1)=(1,2)$、$(x_2,y_2)=(2,1)$ を�
 <!-- solution-start -->
 #### 詳細解答
 
-最初の一件は $v_1=1+1^2\cdot1=2$、係数 $K_1=S_0x_1/v_1=1/2$。従って $m_1=0+(1/2)(2-0)=1$、$S_1=1-1^2/2=1/2$。
+最初の一件は $v_1=1+1^2\cdot1=2$、補正係数は $K_1=S_0x_1/v_1=1/2$ である。[逐次更新公式](#thm-ml2-02-sequential-update)へ代入すると
 
-二件目は $v_2=1+2^2(1/2)=3$、$K_2=(1/2)\cdot2/3=1/3$、残差は $y_2-x_2m_1=1-2=-1$。よって
+$$
+m_1=0+\frac12(2-0)=1,\qquad
+S_1=1-\frac{1^2}{2}=\frac12.
+$$
+
+二件目は、更新後の $S_1=1/2$ を事前分散として使う。入力 $x_2=2$ に対して
+
+$$
+v_2=1+2^2\frac12=3,\quad
+K_2=\frac{(1/2)\cdot2}{3}=\frac13,\quad
+y_2-x_2m_1=1-2=-1.
+$$
+
+よって
 
 $$
 m_2=1+\frac13(-1)=\frac23,\qquad
@@ -596,7 +694,10 @@ $$
 
 $p=n=2$、$X=\operatorname{diag}(1,2)$、$y=(1,0)^{\mathsf T}$、$\beta\sim N_2(0,I_2)$、雑音共分散 $I_2$ の独立なGaussian模型を考える。
 
-（1）事後平均 $m_2$ と共分散 $S_2$ を求めよ。（2）新入力 $x_*=(1,1)^{\mathsf T}$ に対する潜在平均と次の観測の平均・分散を求めよ。（3）この入力で $z=1$ を追加観測したときの新しい事後平均・共分散を逐次更新で求め、一括公式と照合せよ。（4）この係数の事後平均と $\lambda=1/2$ のRidge解の関係を説明せよ。
+1. 事後平均 $m_2$ と共分散 $S_2$ を求めよ。
+2. 新入力 $x_*=(1,1)^{\mathsf T}$ に対する潜在平均と次の観測の平均・分散を求めよ。
+3. この入力で $z=1$ を追加観測したときの新しい事後平均・共分散を逐次更新で求め、一括公式と照合せよ。
+4. この係数の事後平均と $\lambda=1/2$ のRidge解の関係を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
