@@ -72,7 +72,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_{00}=-N^2$、$g_{xx}=A^2$、$g^{00}=-N^{-2}$、$g^{xx}=A^{-2}$ で、時間微分と混合計量成分は零です。[GR3の測地線方程式の導出](../GR3/index.md#thm-gr3-stationary-action)に使う公式を直接展開すると、
+$g_{00}=-N^2$、$g_{xx}=A^2$、$g^{00}=-N^{-2}$、$g^{xx}=A^{-2}$ で、時間微分と混合計量成分は零です。[LORG4のLevi-Civita係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)へこれらの成分を代入すると、
 
 $$
 \begin{aligned}
