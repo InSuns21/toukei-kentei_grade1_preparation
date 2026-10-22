@@ -1031,6 +1031,7 @@
 21. [ML1-21 分布シフト・欠測・総合検証実験](textbook/volumes/dream_thater/応用系/ML/ML1-21/index.md)
 22. [ML2-01 確率的予測・対数損失・KL](textbook/volumes/dream_thater/応用系/ML/ML2-01/index.md)
 23. [ML2-02 Bayes線形回帰・事後予測](textbook/volumes/dream_thater/応用系/ML/ML2-02/index.md)
+24. [ML2-03 指数型分布族と共役性](textbook/volumes/dream_thater/応用系/ML/ML2-03/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

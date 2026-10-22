@@ -1,0 +1,47 @@
+id: "ML2-03"
+title: "指数型分布族と共役性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-02
+  - F0-00D2B
+official_scope: []
+learning_objectives:
+  - 固定された台・基準測度・自然母数空間を特定して正則な自然指数型分布族を判定できる
+  - 分配関数の二階微分と積分の交換を局所可積分支配から証明できる
+  - 対数分配関数の勾配が十分統計量の期待値、Hessianが共分散であることを導ける
+  - Bernoulliと既知分散Gaussianの自然母数・対数分配関数・モーメントを計算できる
+  - 共役事前分布の正規化条件を確認し、観測での超母数の加算更新を導ける
+  - Beta–BernoulliとGaussian–Gaussianの事後分布を超母数更新と照合できる
+  - 台の母数依存・境界母数・不適切事前分布による公式の適用失敗を区別できる
+  - 数値ラボで自然母数を動かし、分配関数の解析微分と中央差分を照合できる
+definitions:
+  - { id: ML2-03-DEF-01, name: 固定台の正則自然指数型分布族 }
+  - { id: ML2-03-DEF-02, name: 正規化可能な指数型共役事前分布 }
+theorems:
+  - { id: ML2-03-THM-01, name: 対数分配関数の一階・二階微分公式 }
+  - { id: ML2-03-PROP-01, name: 共分散による対数分配関数の凸性 }
+  - { id: ML2-03-THM-02, name: 指数型共役事前分布の超母数更新 }
+  - { id: ML2-03-PROP-02, name: Beta–Bernoulli共役更新 }
+  - { id: ML2-03-PROP-03, name: 既知分散Gaussianの共役更新 }
+canonical_examples:
+  - Bernoulliの二点固定台と自然母数・二階微分の直接確認
+  - 既知分散Gaussianの平方完成と対数分配関数
+  - Beta事前分布のJacobian・正規化可能性と更新
+  - Gaussian事前分布の精度加算との一致
+  - 母数依存台の一様分布と不適切Beta境界例
+  - BernoulliとGaussianの導関数の数値差分ラボ
+problem_patterns:
+  - ML2-03-A01
+  - ML2-03-A02
+  - ML2-03-A03
+  - ML2-03-A04
+  - ML2-03-B01
+  - ML2-03-B02
+  - ML2-03-B03
+  - ML2-03-B04
+  - ML2-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
