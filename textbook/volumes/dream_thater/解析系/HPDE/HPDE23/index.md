@@ -6,7 +6,9 @@
 
 ## 1. 実スカラー場と波動作用素
 
-以下、$(M,g)$ は境界なし、時間向き付き、滑らかな大域双曲Lorentz時空で、次元は $n+1$（$n\ge1$）、計量の符号は $(-,+,\ldots,+)$ とします。[滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)のレベルを $\Sigma_t$、その未来向き単位法線を $N$、誘導Riemann計量の正の体積密度を $d\mu_{\Sigma_t}$ とします。時空体積密度を $d\mu_g$ と書きます。
+以下、$(M,g)$ は境界なし、時間向き付き、滑らかな大域双曲Lorentz時空で、次元は $n+1$（$n\ge1$）、計量の符号は $(-,+,\ldots,+)$ とします。
+
+[滑らかなCauchy時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)のレベルを $\Sigma_t$、その未来向き単位法線を $N$、誘導Riemann計量の正の体積密度を $d\mu_{\Sigma_t}$ とします。時空体積密度を $d\mu_g$ と書きます。
 
 これまでの束値作用素は一般に自己随伴ではありませんでした。本講では**実数値のスカラー関数**に限定します。実ポテンシャル $V\in C^\infty(M,\mathbb R)$ を与え、関数 $u$ に作用する $\Box_g u=g^{ab}\nabla_a\nabla_bu$（Lorentz計量による波動作用素）を用います。$\nabla$ は関数の通常の共変微分です。
 
