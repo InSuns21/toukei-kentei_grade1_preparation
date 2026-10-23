@@ -1,0 +1,44 @@
+chapter: GR26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR18
+  - GR25
+  - LORG3
+concepts:
+  - id: gravity.schwarzschild-tortoise-coordinate
+    name: Schwarzschildのtortoise座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Schwarzschildのtortoise座標）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.schwarzschild-radius]
+  - id: gravity.eddington-finkelstein-null-times
+    name: 入射・出射零時刻とEddington–Finkelstein座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入射・出射零時刻とEddington–Finkelstein座標）"]
+    requires: [gravity.schwarzschild-tortoise-coordinate, gravity.schwarzschild-null-radial-equation]
+  - id: gravity.ingoing-ef-regular-metric
+    name: 入射Eddington–Finkelstein計量と適用域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（入射Eddington–Finkelstein計量と適用域）"]
+    requires: [gravity.eddington-finkelstein-null-times, gravity.schwarzschild-regular-horizon-chart]
+  - id: gravity.ef-radial-null-generators
+    name: 未来向き動径零測地線の二つの方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（未来向き動径零測地線の二つの方向）"]
+    requires: [gravity.ingoing-ef-regular-metric, lorentz-geometry.causal-curve]
+  - id: gravity.ef-interior-causal-radius
+    name: 地平線内側の未来向き因果曲線の半径減少
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線内側の未来向き因果曲線の半径減少）"]
+    requires: [gravity.ef-radial-null-generators, lorentz-geometry.causal-curve]
+  - id: gravity.ef-regular-infall
+    name: 正のエネルギーを持つ入射自由落下の正則速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正のエネルギーを持つ入射自由落下の正則速度）"]
+    requires: [gravity.ingoing-ef-regular-metric, gravity.killing-geodesic-charge]

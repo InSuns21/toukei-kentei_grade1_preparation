@@ -109,7 +109,7 @@ chapters:
     title: "Schwarzschild地平線と曲率特異性"
   - id: GR26
     path: textbook/volumes/dream_thater/物理系/GR/GR26
-    status: planned
+    status: completed
     title: "Eddington–Finkelstein座標と光線"
   - id: GR27
     path: textbook/volumes/dream_thater/物理系/GR/GR27

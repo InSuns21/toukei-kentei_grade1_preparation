@@ -1,0 +1,45 @@
+id: "GR26"
+title: "Eddington–Finkelstein座標と光線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR18
+  - GR25
+  - LORG3
+official_scope: []
+learning_objectives:
+  - Schwarzschild外部の動径零条件から二系統の光線とtortoise座標の積分を導ける
+  - 入射・出射零時刻の意味と定義域を確認し、入射Eddington–Finkelstein計量へ変換できる
+  - 座標Jacobianの可逆性と地平線での非適用を分け、延長計量の非退化性を検算できる
+  - 入射・出射零ベクトル場についてノルムと測地線方程式を検算できる
+  - 地平線の内外で未来向き放射状光線と一般の因果曲線の半径変化を判定できる
+  - 正のKillingエネルギーを持つ入射自由落下の速度と地平線通過の有限性を導ける
+  - 入射と出射の正則表示が異なる延長を与え得ることを説明できる
+definitions:
+  - { id: GR26-DEF-01, name: Schwarzschildのtortoise座標 }
+  - { id: GR26-DEF-02, name: 入射・出射零時刻とEddington–Finkelstein座標 }
+theorems:
+  - { id: GR26-PROP-01, name: 入射Eddington–Finkelstein計量と適用域 }
+  - { id: GR26-PROP-02, name: 未来向き動径零測地線の二つの方向 }
+  - { id: GR26-PROP-03, name: 地平線内側の未来向き因果曲線の半径減少 }
+  - { id: GR26-PROP-04, name: 正のエネルギーを持つ入射自由落下の正則速度 }
+canonical_examples:
+  - r=2rsにおける入射・出射光線の座標速度
+  - r=rsおよびr=rs/2における未来向き零方向
+  - 無限遠で静止する極限から落下する粒子のv速度
+  - 出射EF表示の交差項の符号と適用域
+problem_patterns:
+  - GR26-RADIAL-NULL-SLOPE
+  - GR26-TORTOISE-DERIVATIVE
+  - GR26-JACOBIAN-DOMAIN
+  - GR26-INVERSE-METRIC
+  - GR26-INGOING-AFFINE-GEODESIC
+  - GR26-OUTGOING-NONAFFINE-GEODESIC
+  - GR26-CAUSAL-INTERIOR
+  - GR26-INFALL-REGULARITY
+  - GR26-OUTGOING-CHART-SIGNS
+  - GR26-INTEGRATED-HORIZON-TRAJECTORIES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
