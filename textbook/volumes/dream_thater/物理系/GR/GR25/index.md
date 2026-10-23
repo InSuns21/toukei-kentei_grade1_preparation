@@ -58,7 +58,7 @@ $$
 
 $$
 g(u,w)=u^\mu G_{\mu\nu}w^\nu,
-\qquad g(u,w)=0\ \text{が全ての }w\text{ で成立}
+\qquad \bigl[g(u,w)=0\ (\forall w)\bigr]
 \iff Gu=0.
 $$
 
