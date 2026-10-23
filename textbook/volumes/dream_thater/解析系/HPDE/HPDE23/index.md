@@ -181,7 +181,7 @@ u\partial_tv-v\partial_tu
 =\cos^2(\mu t)+\sin^2(\mu t)=1.
 $$
 
-従って $\Omega_{\Sigma_t}(u,v)=\int_0^{2\pi}1\,d\theta=2\pi$ で、$t$ に依存しません。入れ替えると $-2\pi$、同一解同士では零です。この例の二つの解は退化しておらず、一般の非退化性の証明は第5節で行います。
+従って $\Omega_{\Sigma_t}(u,v)=\int_0^{2\pi}1\,d\theta=2\pi$ で、$t$ に依存しません。入れ替えると $-2\pi$、同一解同士では零です。この二解に対する値が非零であることは確認できましたが、解空間全体の非退化性はまだ従いません。その証明は第4節で行います。
 <!-- definition-example-end -->
 
 <a id="thm-hpde23-slice-independence"></a>
