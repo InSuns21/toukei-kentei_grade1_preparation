@@ -551,6 +551,16 @@ $$
 \nabla^2A=\begin{pmatrix}2/9&-1/6\\-1/6&1/4\end{pmatrix}.
 $$
 
+三点のどこでも $T_1T_2=0$ かつ $T_i^2=T_i$ である。したがって統計量の積から直接求めても
+
+$$
+\begin{aligned}
+\operatorname{Var}(T_1)&=\frac13-\left(\frac13\right)^2=\frac29,\\
+\operatorname{Var}(T_2)&=\frac12-\left(\frac12\right)^2=\frac14,\\
+\operatorname{Cov}(T_1,T_2)&=0-\frac13\cdot\frac12=-\frac16.
+\end{aligned}
+$$
+
 ここで[対数分配関数の一階・二階微分公式](#thm-ml2-03-log-partition-moments)を、二成分の統計量 $T=(T_1,T_2)^{\mathsf T}$ に適用したことも確かめる。Hessianの各成分は
 
 $$
