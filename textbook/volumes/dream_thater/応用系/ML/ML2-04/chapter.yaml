@@ -1,0 +1,49 @@
+id: "ML2-04"
+title: "確率的グラフィカルモデル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-03
+  - ML1-07
+official_scope: []
+learning_objectives:
+  - 有限有向非巡回グラフと親集合・局所条件付き確率表を定義し、その行和と確率の台を確認できる
+  - Bayesネットの因子分解が正規化された同時分布を作ることを証明し、表を具体的に計算できる
+  - 変数と因子から二部グラフを組み、因子グラフの接続が表の引数を示すことを説明できる
+  - 正の確率を持つ条件の下での条件付き独立を検算し、連鎖と合流点の違いを説明できる
+  - 正の同時確率に対する順序付き条件付き独立と因子分解の同値性を証明できる
+  - 周辺化・証拠確率・事後確率を有限和の変数消去とsum-productで導出できる
+  - 因子の消去順序が計算量を変えても結果を変えない理由とゼロ確率の証拠の限界を説明できる
+  - 条件付き確率表を変更できる数値ラボで、全列挙と変数消去が一致することを検算できる
+definitions:
+  - { id: ML2-04-DEF-01, name: 有限Bayesネットと局所条件付き確率表 }
+  - { id: ML2-04-DEF-02, name: 条件付き独立 }
+  - { id: ML2-04-DEF-03, name: 因子・因子グラフ・観測証拠 }
+theorems:
+  - { id: ML2-04-PROP-01, name: Bayesネットの積の正規化 }
+  - { id: ML2-04-THM-01, name: 順序付き条件付き独立と因子分解 }
+  - { id: ML2-04-PROP-02, name: 連鎖の端点の条件付き独立 }
+  - { id: ML2-04-THM-02, name: 有限変数消去とsum-productの正しさ }
+  - { id: ML2-04-PROP-03, name: 合流点の観測による依存 }
+canonical_examples:
+  - 三つの二値変数の連鎖で全八セルを計算して正規化
+  - 三変数の局所表と因子グラフの二部接続を照合
+  - 連鎖の端点を中間変数で条件付けて独立性を確認
+  - 合流点の論理和で、観測前と観測後の独立性を比較
+  - 観測証拠を周辺化して二通りの消去順序で照合
+  - 零確率の観測で事後確率が未定義となる例
+  - 条件付き確率表の再計算ラボで全列挙とsum-productを比較
+problem_patterns:
+  - ML2-04-A01
+  - ML2-04-A02
+  - ML2-04-A03
+  - ML2-04-A04
+  - ML2-04-B01
+  - ML2-04-B02
+  - ML2-04-B03
+  - ML2-04-B04
+  - ML2-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

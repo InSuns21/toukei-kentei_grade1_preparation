@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-04 有限Bayesネットのsum-product</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:940px;margin:0 auto;padding:18px;line-height:1.6}
+label{display:grid;gap:4px;padding:10px;border:1px solid #8888;border-radius:8px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px}
+input{width:100%;box-sizing:border-box}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{border:1px solid #8888;padding:5px 9px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.panel{border:1px solid #8888;border-radius:9px;padding:12px;overflow-x:auto}
+.bars{display:flex;align-items:stretch;gap:12px;min-height:125px}
+.bar-item{flex:1;display:flex;flex-direction:column;justify-content:flex-end;min-width:0;text-align:center}
+.bar{width:100%;background:#2371a9;box-sizing:border-box}
+.bar.secondary{background:#9a5818}
+.error{color:#b1291f;font-weight:bold}
+.note{font-size:.94rem}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-04/index">← ML2-04 本文へ</a> ・ <a href="./index.html">数値実験一覧</a></nav>
+<h1>ML2-04 有限Bayesネットのsum-product</h1>
+<p>連鎖 A → B → C（各変数は0または1）。入力の値は「その条件下で1になる確率」です。各表の0の確率は補数なので行和は常に1。入力変更のたびに全八セルを再計算し、独立の変数消去算法と照合します。</p>
+<section class="controls" aria-label="局所条件付き確率表">
+<label>P(A=1)<input type="number" id="pA" min="0" max="1" step="0.05" value="0.3"></label>
+<label>P(B=1 | A=0)<input type="number" id="pB0" min="0" max="1" step="0.05" value="0.2"></label>
+<label>P(B=1 | A=1)<input type="number" id="pB1" min="0" max="1" step="0.05" value="0.8"></label>
+<label>P(C=1 | B=0)<input type="number" id="pC0" min="0" max="1" step="0.05" value="0.1"></label>
+<label>P(C=1 | B=1)<input type="number" id="pC1" min="0" max="1" step="0.05" value="0.9"></label>
+<label>観測条件
+<select id="evidence"><option value="one">C=1</option><option value="zero">C=0</option><option value="none">観測なし</option></select>
+</label>
+</section>
+<p><button type="button" id="reset">標準設定へ戻す</button></p>
+<p id="status" role="status" aria-live="polite"></p>
+<div class="results">
+<section class="panel"><h2>メッセージと事後</h2><table id="messageTable"><thead><tr><th>量</th><th>値</th></tr></thead><tbody></tbody></table><div id="posteriorBars" class="bars" role="img" aria-label="観測後のA=0とA=1の確率の棒グラフ"></div></section>
+<section class="panel"><h2>全八セルの同時確率</h2><table id="jointTable"><thead><tr><th>A</th><th>B</th><th>C</th><th>P(A,B,C)</th></tr></thead><tbody></tbody></table></section>
+</div>
+<p class="note">全列挙は八セルを足し、sum-productは λC(b) → λB(a) → 正規化の順に別計算しています。観測確率が0なら事後は未定義と表示します。入力範囲外の値は受け付けません。乱数は使わない有限和の実験です。</p>
+<script type="module">
+import { defaultCpt, evaluateNetwork } from "./ml2-04-model.mjs";
+const $ = id => document.getElementById(id);
+const keys = Object.keys(defaultCpt);
+const format = x => x === null ? "未定義" : x.toFixed(8);
+function setTable(id, entries){
+  const body = $(id).querySelector("tbody");
+  body.replaceChildren(...entries.map(row=>{
+    const tr = document.createElement("tr");
+    for(const value of row){const td=document.createElement("td");td.textContent=String(value);tr.append(td);}
+    return tr;
+  }));
+}
+function render(){
+  const cpt = Object.fromEntries(keys.map(k=>[k, Number($(k).value)]));
+  const invalid = keys.find(k=>$(k).value.trim()==="" || !Number.isFinite(cpt[k]) || cpt[k]<0 || cpt[k]>1);
+  if(invalid){
+    $("status").textContent="入力エラー：すべての確率を0以上1以下で指定してください。";
+    $("status").className="error";
+    setTable("jointTable",[]);setTable("messageTable",[]);$("posteriorBars").replaceChildren();
+    return;
+  }
+  const r=evaluateNetwork(cpt,$("evidence").value);
+  $("status").className="";
+  $("status").textContent=r.possible?"再計算完了：全列挙とsum-productが一致します。":"観測確率が0です。事後確率は定義できません。";
+  setTable("jointTable",r.rows.map(row=>[row.a,row.b,row.c,format(row.p)]));
+  setTable("messageTable",[
+    ["同時確率の全セル和",format(r.total)],
+    ["λC(B=0)",format(r.messageC[0])],
+    ["λC(B=1)",format(r.messageC[1])],
+    ["λB(A=0)",format(r.messageB[0])],
+    ["λB(A=1)",format(r.messageB[1])],
+    ["未正規化 m(A=0)",format(r.weights[0])],
+    ["未正規化 m(A=1)",format(r.weights[1])],
+    ["P(観測)・全列挙",format(r.evidenceBrute)],
+    ["P(観測)・sum-product",format(r.evidenceSumProduct)],
+    ["P(A=1 | 観測)・全列挙",format(r.posteriorBrute)],
+    ["P(A=1 | 観測)・sum-product",format(r.posteriorSumProduct)],
+  ]);
+  const bars=$("posteriorBars");bars.replaceChildren();
+  if(r.possible){
+    for(const [index,prob] of [[0,1-r.posteriorSumProduct],[1,r.posteriorSumProduct]]){
+      const item=document.createElement("div");item.className="bar-item";
+      const bar=document.createElement("div");bar.className="bar"+(index===1?" secondary":"");
+      bar.style.height=`${prob*100}px`;
+      const label=document.createElement("span");label.textContent=`A=${index}: ${prob.toFixed(4)}`;
+      item.append(bar,label);bars.append(item);
+    }
+  }
+}
+keys.forEach(k=>$(k).addEventListener("input",render));
+$("evidence").addEventListener("change",render);
+$("reset").addEventListener("click",()=>{
+  keys.forEach(k=>$(k).value=String(defaultCpt[k]));$("evidence").value="one";render();
+});
+render();
+</script>
+</body>
+</html>
