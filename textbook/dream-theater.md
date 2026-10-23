@@ -1220,6 +1220,7 @@
 23. [GR23 四重極放射の近似とエネルギー流](textbook/volumes/dream_thater/物理系/GR/GR23/index.md)
 24. [GR24 GR I 総合演習：計量から観測まで](textbook/volumes/dream_thater/物理系/GR/GR24/index.md)
 25. [GR25 Schwarzschild地平線と曲率特異性](textbook/volumes/dream_thater/物理系/GR/GR25/index.md)
+26. [GR26 Eddington–Finkelstein座標と光線](textbook/volumes/dream_thater/物理系/GR/GR26/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
