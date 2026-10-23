@@ -105,7 +105,7 @@ chapters:
     title: "指数型分布族と共役性"
   - id: ML2-04
     path: textbook/volumes/dream_thater/応用系/ML/ML2-04
-    status: planned
+    status: completed
     title: "確率的グラフィカルモデル"
   - id: ML2-05
     path: textbook/volumes/dream_thater/応用系/ML/ML2-05

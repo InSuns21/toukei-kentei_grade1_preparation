@@ -1,0 +1,55 @@
+chapter: ML2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML2-03
+  - ML1-07
+concepts:
+  - id: learning.finite-bayesian-network
+    name: 有限Bayesネット
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限Bayesネットと局所条件付き確率表）"]
+    requires: [prob.distribution-law, learning.naive-bayes]
+  - id: learning.bayesian-network-normalization
+    name: Bayesネットの積の正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bayesネットの積の正規化）"]
+    requires: [learning.finite-bayesian-network]
+  - id: learning.finite-conditional-independence
+    name: 有限変数の条件付き独立
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き独立）"]
+    requires: [prob.distribution-law]
+  - id: learning.ordered-markov-factorization
+    name: 順序付き条件付き独立と因子分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（順序付き条件付き独立と因子分解）"]
+    requires: [learning.finite-bayesian-network, learning.finite-conditional-independence]
+  - id: learning.bayesian-chain-independence
+    name: 連鎖の端点の条件付き独立
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連鎖の端点の条件付き独立）"]
+    requires: [learning.ordered-markov-factorization]
+  - id: learning.discrete-factor-evidence
+    name: 因子・因子グラフ・観測証拠
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子・因子グラフ・観測証拠）"]
+    requires: [learning.finite-bayesian-network]
+  - id: learning.finite-sum-product-elimination
+    name: 有限変数消去とsum-productの正しさ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限変数消去とsum-productの正しさ）"]
+    requires: [learning.discrete-factor-evidence, learning.bayesian-network-normalization]
+  - id: learning.collider-evidence-dependence
+    name: 合流点の観測による依存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（合流点の観測による依存）"]
+    requires: [learning.finite-conditional-independence, learning.finite-bayesian-network]
