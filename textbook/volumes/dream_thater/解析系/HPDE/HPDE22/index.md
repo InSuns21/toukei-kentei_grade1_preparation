@@ -170,7 +170,15 @@ $$
 <!-- formal-statement-start -->
 > **補題（半解のpc・fc支持）**
 >
-> 第2節と同じ境界なし大域双曲時空、有限ランク束、normally hyperbolic作用素、Cauchy時間関数 $T$、空間コンパクトな斉次解 $u$、および過去で $0$・未来で $1$ のカットオフ $\chi=\eta\circ T$ を取る。このとき
+> $(M,g)$ を境界のない時間向き付き滑らかな大域双曲時空、$E\to M$ を有限ランクの滑らかな実または複素ベクトル束、$P$ をnormally hyperbolic作用素とする。$T$ を滑らかなCauchy時間関数、$u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ とする。
+>
+> 実数 $a<b$ と、$(-\infty,a]$ で $0$、$[b,\infty)$ で $1$ となる滑らかな関数 $\eta:\mathbb R\to\mathbb R$ を選び、次の切断と源を定める。
+
+$$
+\chi=\eta\circ T,\qquad f_\chi=P(\chi u).
+$$
+
+> このとき
 
 $$
 w_+=\chi u\in\Gamma_{\mathrm{pc}}(M,E),\qquad
@@ -206,7 +214,11 @@ $$
 \subseteq J(K)\cap T^{-1}([a,B]).
 $$
 
-$B<a$ なら左辺は空、$B\ge a$ なら右辺は[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)からコンパクトです（$B=a$ の場合は区間を $[a,a+1]$ に拡張してよい）。左辺は閉集合であり、コンパクト集合の閉部分集合なのでコンパクトです。任意の $L$ について成立するため、$w_+$ は[pcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。
+$B<a$ なら左辺は空、$B\ge a$ なら右辺は[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)からコンパクトです（$B=a$ の場合は区間を $[a,a+1]$ に拡張してよい）。
+
+ここで $J^-(L)$ が閉であることも確認します。$q_n\in J^-(L)$ が $q_n\to q$ を満たせば、$q_n\le\ell_n$ となる $\ell_n\in L$ を選べます。$L$ のコンパクト性により部分列で $\ell_n\to\ell\in L$ とでき、[因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から $q\le\ell$ です。従って $q\in J^-(L)$ であり、$J^-(L)$ は閉です。
+
+$\operatorname{supp}w_+$ も閉なので、左辺はコンパクト集合の閉部分集合としてコンパクトです。任意の $L$ について成立するため、$w_+$ は[pcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。
 
 同じ手順で $\chi-1=0$ が $T\ge b$ に成立することから
 
@@ -221,7 +233,7 @@ $$
 \subseteq J(K)\cap T^{-1}([A,b]).
 $$
 
-$A>b$ なら空、そうでなければ同じ有限時間因果影補題（$A=b$ なら区間を拡張）から閉部分集合としてコンパクトです。従って $w_-$ はfcです。
+$A>b$ なら空、そうでなければ同じ有限時間因果影補題（$A=b$ なら区間を拡張）からコンパクトな集合に収まります。$J^+(L)$ も上と同じ閉因果関係の議論で閉なので、左辺はその閉部分集合としてコンパクトです。従って $w_-$ はfcです。
 
 最後に $Pu=0$ と $[P,1]=0$ から
 
@@ -324,12 +336,20 @@ $$
 \ker E_{\mathrm{cau}}=P\Gamma_c(M,E).
 $$
 
-最初の $0\to\Gamma_c$ の写像は零写像なので、その像は $\{0\}$ であり、第一の等式と一致します。中央の $\Gamma_c$ では $\operatorname{im}P=\ker E_{\mathrm{cau}}$ が第二式そのものです。最後の $\operatorname{Sol}_{\mathrm{sc}}(P)\to0$ の核は全解空間で、今回証明した $\operatorname{im}E_{\mathrm{cau}}=\operatorname{Sol}_{\mathrm{sc}}(P)$ に一致します。よって列は全ての項で完全です。$\square$
+列の各項で像と核を順に照合します。
+
+1. 最初の零写像の像は $\{0\}$ であり、$P$ の核と一致します。
+2. 中央の $\Gamma_c$ では $\operatorname{im}P=\ker E_{\mathrm{cau}}$ が第二式そのものです。
+3. 最後の零写像の核は全解空間です。これは今回示した $E_{\mathrm{cau}}$ の像と一致します。
+
+よって列は全ての項で完全です。$\square$
 <!-- proof-end -->
 
 ### 具体例：空間が円周なら定数解も切れる
 
-$M=\mathbb R\times S^1$ に平坦な積計量 $-dt^2+d\theta^2$ を入れ、実スカラー $P=\partial_t^2-\partial_\theta^2$ とします。$u(t,\theta)=1$ は $Pu=0$ です。$S^1$ はコンパクトで、時刻 $0$ の全断面 $K=\{0\}\times S^1$ もコンパクトです。任意の $(t,\theta)$ は $(0,\theta)$ と時間的な直線で結ばれるため $M=J(K)$、従って $u$ はscです。
+$M=\mathbb R\times S^1$ に平坦な積計量 $-dt^2+d\theta^2$ を入れ、実スカラー作用素 $P=\partial_t^2-\partial_\theta^2$ を考えます。定数切断 $u=1$ は $Pu=0$ を満たします。
+
+$S^1$ はコンパクトなので、時刻零の断面 $K=\{0\}\times S^1$ もコンパクトです。任意の $(t,\theta)$ は $(0,\theta)\in K$ と時間的な直線で結ばれるため、$M=J(K)$ です。ゆえに $\operatorname{supp}u=M\subseteq J(K)$ となり、$u$ はscです。
 
 $\chi=\eta(t)$ とすると
 
@@ -352,7 +372,13 @@ $$
 
 同じ解 $u$ に対して遷移時刻 $a,b$ や $\eta$ の形を変えれば、異なる源が得られます。それでも、因果伝播子で見た解は一致します。この自由度を[前講の核の定理](../HPDE21/index.md#thm-hpde21-kernel-exact)で記述します。
 
-固定したCauchy時間関数 $T$ について、過去で零・未来で一のカットオフを $\chi_1,\chi_2$ とします。各々の遷移帯を $[a_i,b_i]$ とすれば、$\chi_1-\chi_2$ は $T<\min(a_1,a_2)$ と $T>\max(b_1,b_2)$ で零です。$u$ はscなので、[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)により
+固定したCauchy時間関数 $T$ について、過去で零・未来で一のカットオフを $\chi_1,\chi_2$ とします。それぞれの遷移帯を $[a_i,b_i]$ とし、二つの時間帯を覆う区間の端点を
+
+$$
+A=\min(a_1,a_2),\qquad B=\max(b_1,b_2)
+$$
+
+と置きます。$T<A$ では両方零、$T>B$ では両方一なので、$\chi_1-\chi_2$ は帯の外で零です。$u$ はscなので、[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)により
 
 $$
 v:=(\chi_1-\chi_2)u\in\Gamma_c(M,E).
@@ -400,7 +426,13 @@ $$
 となり、定義の存在条件を満たすので $[f]=[0]$ です。他方、[コンパクト切断上での $P$ の単射性](../HPDE21/index.md#thm-hpde21-kernel-exact)より $\varphi\ne0$ なら $P\varphi\ne0$ です。**零とは異なる源も零の同値類に属す**ことを直接確認できました。
 <!-- definition-example-end -->
 
-この同値関係は $f-g\in P\Gamma_c$ と書けるため、反射律・対称律・推移律を満たします。$P\Gamma_c$ が線形部分空間なので、$[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ は代表元の選択に依存しません。
+同値関係の三条件も、$P$ の線形性から確認できます。反射律では $f-f=P0$ です。$f-g=P\varphi$ なら $g-f=P(-\varphi)$ なので対称律が成り立ちます。さらに $g-h=P\psi$ も成立するなら
+
+$$
+f-h=(f-g)+(g-h)=P(\varphi+\psi)
+$$
+
+であり、$\varphi+\psi$ はコンパクト支持なので推移律も成立します。局所微分作用素 $P$ はコンパクト支持を保ち、線形性から $P\Gamma_c$ は線形部分空間です。従って[商空間の演算](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)により $[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ は代表元の選択に依存しません。
 
 <a id="cor-hpde22-quotient-isomorphism"></a>
 
@@ -567,7 +599,7 @@ $$
 \subseteq J(K)\cap T^{-1}([a,B]).
 $$
 
-$B<a$ なら空、そうでなければ[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)で右辺はコンパクト（退化区間では拡張）です。左辺は[因果関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から閉で、コンパクトな右辺の閉部分集合なのでコンパクトです。従って[pcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。
+$B<a$ なら空、そうでなければ[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)で右辺はコンパクト（退化区間では拡張）です。$L$ のコンパクト性と[因果到達関係の閉性](../../../幾何系/LORG/LORG16/index.md#lem-lorg16-closed-causal-relation)から $J^-(L)$ は閉です。実際、$q_n\le\ell_n\in L$ で $q_n\to q$ なら、$\ell_n$ の収束部分列を取って極限へ移せます。従って左辺はコンパクトな右辺の閉部分集合としてコンパクトであり、[pcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。
 
 $w_-$ では $\operatorname{supp}w_-\subseteq J(K)\cap\{T\le b\}$ です。$A=\min_LT$ とすれば
 
@@ -576,7 +608,7 @@ $$
 \subseteq J(K)\cap T^{-1}([A,b]).
 $$
 
-同様のコンパクト性から[fcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。空の $L$ の場合は両交差とも空です。
+$J^+(L)$ も同じ極限議論で閉です。従って有限時間因果影のコンパクト性と合わせ、[fcの定義](../HPDE20/index.md#def-hpde20-support-classes)を満たします。空の $L$ の場合は両交差とも空です。
 <!-- solution-end -->
 
 <a id="ex-hpde22-b02"></a>
