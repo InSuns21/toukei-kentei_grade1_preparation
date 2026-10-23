@@ -10,7 +10,7 @@
 
 まず離散分布では確率を全点で足し、連続分布では密度を積分して、合計が1になるよう正規化する。両者を一緒に書くため、観測空間 $S$ 上の積分記号 $\int_S f(x)\,d\mu(x)$ を用いる。$S$ が有限または可算なら $\mu$ は数え上げ測度（積分は和）、$S\subset\mathbb R^k$ なら $\mu$ はLebesgue測度（通常の積分）とする。
 
-ここで $h(x)\ge0$ は母数に依存しない重み、$T(x)\in\mathbb R^d$ は観測から作る統計量、$\eta\in\mathbb R^d$ はその係数である。係数 $\eta$ を**自然母数**、$T$ を**十分統計量の候補となる統計量**として使う。十分性の一般的判定を先取りせず、この講では指数の中の役割に注目する。和や積分が有限になる領域と、正規化した確率の実際の台を区別する。
+ここで $h(x)\ge0$ は母数に依存しない重み、$T(x)\in\mathbb R^d$ は観測から作る統計量、$\eta\in\mathbb R^d$ はその係数である。係数 $\eta$ を**自然母数**と呼ぶ。この講での $T$ の役割は、指数の中で自然母数と内積になり、複数の観測を掛け合わせると和として現れることである。和や積分が有限になる領域と、正規化した確率の実際の台を区別する。
 
 <a id="def-ml2-03-regular-family"></a>
 
@@ -175,6 +175,8 @@ $$
 
 となり、$\eta=\log3$ で $3/4$、$3/16$。一階・二階とも[微分公式](#thm-ml2-03-log-partition-moments)と一致する。Bernoulliの $T$ は二値を取るため、有限 $\eta$ では分散は正だが $\eta\to\pm\infty$ の極限で0に近づく。
 
+<a id="ref-ml2-03-gaussian-exponential-form"></a>
+
 ## 3. Gaussian模型も同じ計算になる
 
 Bernoulliで指数の係数だった $\eta$ は対数オッズだった。[非退化正規密度](../ML1-07/index.md#def-ml1-07-gaussian)の平均 $\mu\in\mathbb R$ に対しても、分散 $\sigma^2>0$ を固定すれば指数の一次項を切り出せる。$x\in\mathbb R$ で
@@ -236,6 +238,8 @@ $$
 
 > と定める。これは自然母数上の共役事前分布族であり、$\chi,\nu$ を超母数と呼ぶ。
 <!-- formal-statement-end -->
+
+<a id="ex-ml2-03-gaussian-conjugate"></a>
 
 <!-- definition-example-start: def-ml2-03-conjugate-prior -->
 **定義の確認**（Gaussianの自然母数）。既知の $\sigma^2>0$ に対し、前節の $A(\eta)=\sigma^2\eta^2/2$ を用いる。$\nu>0$、$\chi\in\mathbb R$ なら
@@ -377,7 +381,7 @@ $A(\eta)=\sigma^2\eta^2/2$ を共役事前密度へ代入し、[超母数更新]
 <!-- proof-start -->
 ### 証明
 
-Gaussianの指数型表示では $T(x)=x$、$A(\eta)=\sigma^2\eta^2/2$。$\nu>0$ なので[共役事前の直接例](#def-ml2-03-conjugate-prior)で $K$ は有限。更新先でも $\nu+n>0$ だから有限で、[超母数更新定理](#thm-ml2-03-conjugate-update)を適用できる。
+Gaussianの[指数型表示](#ref-ml2-03-gaussian-exponential-form)では $T(x)=x$、$A(\eta)=\sigma^2\eta^2/2$。$\nu>0$ なので[共役事前の直接例](#ex-ml2-03-gaussian-conjugate)で $K$ は有限。更新先でも $\nu+n>0$ だから有限で、[超母数更新定理](#thm-ml2-03-conjugate-update)を適用できる。
 
 $$
 \chi_n=\nu m_0+\sum_i x_i,\qquad \nu_n=\nu+n.
@@ -454,7 +458,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-固定分散 $\sigma^2=2$ の[Gaussianの指数型表示](#def-ml2-03-regular-family)により $\eta=\mu/2$、従って $\mu=1$。平方完成を行うと
+固定分散 $\sigma^2=2$ の[Gaussianの指数型表示](#ref-ml2-03-gaussian-exponential-form)では $\eta=\mu/2$、従って $\mu=1$。平方完成を行うと
 
 $$
 -\frac{x^2}{4}+\frac{x}{2}
@@ -547,14 +551,47 @@ $$
 \nabla^2A=\begin{pmatrix}2/9&-1/6\\-1/6&1/4\end{pmatrix}.
 $$
 
-Hessianは対称、左上成分は $2/9>0$。行列式は
+三点のどこでも $T_1T_2=0$ かつ $T_i^2=T_i$ である。したがって統計量の積から直接求めても
+
+$$
+\begin{aligned}
+\operatorname{Var}(T_1)&=\frac13-\left(\frac13\right)^2=\frac29,\\
+\operatorname{Var}(T_2)&=\frac12-\left(\frac12\right)^2=\frac14,\\
+\operatorname{Cov}(T_1,T_2)&=0-\frac13\cdot\frac12=-\frac16.
+\end{aligned}
+$$
+
+ここで[対数分配関数の一階・二階微分公式](#thm-ml2-03-log-partition-moments)を、二成分の統計量 $T=(T_1,T_2)^{\mathsf T}$ に適用したことも確かめる。Hessianの各成分は
+
+$$
+H_{ij}=E_\eta[T_iT_j]-E_\eta[T_i]E_\eta[T_j]
+=\operatorname{Cov}_\eta(T_i,T_j)
+$$
+
+であり、上で求めた行列はこの共分散行列に等しい。正定値性とは、任意の非零ベクトル $v=(v_1,v_2)^{\mathsf T}$ に対して
+
+$$
+v^{\mathsf T}(\nabla^2A)v>0
+$$
+
+となることなので、その判定を具体的に確かめる。Hessianは対称で、左上成分は $2/9>0$。行列式は
 
 $$
 \det(\nabla^2A)=\frac29\cdot\frac14-\left(-\frac16\right)^2
 =\frac1{18}-\frac1{36}=\frac1{36}>0.
 $$
 
-よって二次元の正定値判定から正定値である。これは $v^{\mathsf T}T$ が任意の非零 $v$ に対して三点すべてで同じ値にはならないという[凸性命題](#prop-ml2-03-convexity)とも一致する。
+なぜこの二条件で正定値を判定できるかも、二次形式を平方完成して確認する。$H=\nabla^2A$ とおくと
+
+$$
+\begin{aligned}
+v^{\mathsf T}Hv
+&=\frac29v_1^2-\frac13v_1v_2+\frac14v_2^2\\
+&=\frac29\left(v_1-\frac34v_2\right)^2+\frac18v_2^2.
+\end{aligned}
+$$
+
+第二項の係数は $\det(H)/H_{11}=(1/36)/(2/9)=1/8$ に等しい。従って上の二条件は二つの平方の係数が正であることを意味し、$v\ne0$ なら二次形式は必ず正となる。これは $v^{\mathsf T}T$ が任意の非零 $v$ に対して三点すべてで同じ値にはならないという[凸性命題](#prop-ml2-03-convexity)とも一致する。
 <!-- solution-end -->
 
 ### ML2-03-B02 超母数更新と次の観測
