@@ -95,7 +95,7 @@ chapters:
     title: "exact sequenceの全射性と切断"
   - id: HPDE23
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE23
-    status: planned
+    status: completed
     title: "実Klein–Gordon解のシンプレクティック構造"
   - id: HPDE24
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE24

@@ -1,0 +1,57 @@
+chapter: HPDE23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE22
+  - HPDE21
+  - HPDE20
+  - HPDE19
+  - HPDE16
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - LORG20
+  - GEO16
+  - SYM1
+forward_references: []
+concepts:
+  - id: hpde.real-klein-gordon
+    name: 実Klein–Gordon作用素
+    kind: definition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.kg-conserved-current
+    name: Klein–Gordon保存電流
+    kind: definition
+    introduction: formal
+    requires: [hpde.real-klein-gordon]
+  - id: hpde.kg-current-divergence
+    name: 保存電流の発散恒等式
+    kind: proposition
+    introduction: formal
+    requires: [hpde.kg-conserved-current]
+  - id: hpde.kg-symplectic-form
+    name: 解空間のシンプレクティック形式
+    kind: definition
+    introduction: formal
+    requires: [hpde.kg-conserved-current, hpde.spatially-compact-solutions]
+  - id: hpde.kg-surface-independence
+    name: Cauchy面によらないシンプレクティック積分
+    kind: theorem
+    introduction: formal
+    requires: [hpde.kg-current-divergence, hpde.compact-causal-shadow]
+  - id: hpde.kg-nondegenerate
+    name: 解空間のシンプレクティック非退化性
+    kind: theorem
+    introduction: formal
+    requires: [hpde.kg-symplectic-form, hpde.global-cauchy-theorem]
+  - id: hpde.kg-green-pairing
+    name: 因果伝播子と源の積分対の符号
+    kind: proposition
+    introduction: formal
+    requires: [hpde.kg-surface-independence, hpde.green-existence-support, hpde.causal-propagator]
+  - id: hpde.kg-quotient-symplectic
+    name: コンパクト源の商への誘導形式
+    kind: corollary
+    introduction: formal
+    requires: [hpde.kg-green-pairing, hpde.kg-nondegenerate, hpde.propagator-quotient]
