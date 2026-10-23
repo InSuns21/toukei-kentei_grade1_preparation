@@ -1,0 +1,51 @@
+id: "HPDE23"
+title: "実Klein–Gordon解のシンプレクティック構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE22
+  - HPDE21
+  - HPDE20
+  - HPDE19
+  - HPDE16
+  - HPDE7
+  - HPDE6
+  - HPDE5
+  - LORG20
+  - GEO16
+  - SYM1
+official_scope: []
+learning_objectives:
+  - 実Klein–Gordon作用素の形式的自己随伴性と保存電流の発散零を直接計算できる
+  - 空間コンパクト解の支持を用いてCauchy面積分の有限性と面独立性を証明できる
+  - 初期データの交代双線形形式としてシンプレクティック形式を表し非退化性を証明できる
+  - 遅延引く先進の因果伝播子と源の積分対の符号をStokes公式から導ける
+  - コンパクト源の商空間に誘導される形式のwell-defined性と非退化性を説明できる
+definitions:
+  - { id: HPDE23-DEF-01, name: 実Klein–Gordon作用素 }
+  - { id: HPDE23-DEF-02, name: Klein–Gordon保存電流 }
+  - { id: HPDE23-DEF-03, name: 解空間のシンプレクティック形式 }
+theorems:
+  - { id: HPDE23-PROP-01, name: 保存電流の発散恒等式 }
+  - { id: HPDE23-THM-01, name: Cauchy面によらないシンプレクティック積分 }
+  - { id: HPDE23-THM-02, name: 解空間のシンプレクティック非退化性 }
+  - { id: HPDE23-PROP-02, name: 因果伝播子と源の積分対の符号 }
+  - { id: HPDE23-COR-01, name: コンパクト源の商への誘導形式 }
+canonical_examples:
+  - Minkowski平面の左右進行波のWronskian積分
+  - 平坦円筒時空での調和振動子の基本解
+  - 実ポテンシャルが保存則に相殺される例
+problem_patterns:
+  - HPDE23-DIVERGENCE
+  - HPDE23-CYLINDER-FLUX
+  - HPDE23-SKEW-SYMMETRY
+  - HPDE23-COMPACT-SLICE
+  - HPDE23-SURFACE-INDEPENDENCE
+  - HPDE23-NONDEGENERACY
+  - HPDE23-GREEN-SIGN
+  - HPDE23-QUOTIENT
+  - HPDE23-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
