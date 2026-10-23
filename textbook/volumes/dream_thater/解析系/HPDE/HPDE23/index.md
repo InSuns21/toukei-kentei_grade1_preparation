@@ -579,7 +579,9 @@ $$
 
 - Level: B
 
-境界なし大域双曲時空でCauchy時間関数 $T$ を固定し、$u,v\in\operatorname{Sol}_{\mathrm{sc}}(P)$ は同じ実 $P=-\Box_g+V$ の解とする。コンパクト $K_u,K_v$ について $\operatorname{supp}u\subseteq J(K_u)$、$\operatorname{supp}v\subseteq J(K_v)$ とする。$a<b$ の間で電流の台がコンパクトであることを示し、外側境界項を作らず $\Omega_{\Sigma_a}=\Omega_{\Sigma_b}$ を導け。
+境界なし大域双曲時空でCauchy時間関数 $T$ を固定する。$u,v\in\operatorname{Sol}_{\mathrm{sc}}(P)$ は同じ実 $P=-\Box_g+V$ の解とする。
+
+コンパクト集合 $K_u,K_v$ について $\operatorname{supp}u\subseteq J(K_u)$、$\operatorname{supp}v\subseteq J(K_v)$ とする。$a<b$ の間で電流の台がコンパクトであることを示し、外側境界項を作らず $\Omega_{\Sigma_a}=\Omega_{\Sigma_b}$ を導け。
 
 <!-- solution-start -->
 **詳細解答**。$K=K_u\cup K_v$ はコンパクトです。$u,v$ が零の開集合ではその微分も零なので、[電流の定義](#def-hpde23-current)から $\operatorname{supp}j(u,v)\subseteq J(K)$ です。[有限時間因果影のコンパクト性](../HPDE16/index.md#lem-hpde16-shadow-compact)を $K,[a,b]$ に適用すると
@@ -588,7 +590,9 @@ $$
 C=J(K)\cap T^{-1}([a,b])
 $$
 
-はコンパクトです。$C$ の近傍で $1$ となるコンパクト支持関数 $\rho$ を選び、$\rho j$ に[Stokesの境界収支](../HPDE7/index.md#thm-hpde7-stokes-balance)を適用します。$j$ が非零の位置では $\rho=1$、$\nabla\rho=0$ なので $\nabla_a(\rho j^a)=0$ です。$\rho j$ はコンパクト支持ゆえに空間側面の寄与はありません。
+はコンパクトです。$C$ の近傍で $1$ となるコンパクト支持関数 $\rho$ を選び、$\rho j$ に[Stokesの境界収支](../HPDE7/index.md#thm-hpde7-stokes-balance)を適用します。
+
+$j$ が非零の位置では $\rho=1$、$\nabla\rho=0$ なので $\nabla_a(\rho j^a)=0$ です。$\rho j$ はコンパクト支持ゆえに空間側面の寄与はありません。
 
 未来面の外向き共法線は $-N_b^\flat$、過去面では $N_a^\flat$ であることを[Stokesの境界収支](../HPDE7/index.md#thm-hpde7-stokes-balance)で確認し、
 
