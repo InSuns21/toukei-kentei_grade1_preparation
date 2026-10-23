@@ -426,7 +426,13 @@ $$
 となり、定義の存在条件を満たすので $[f]=[0]$ です。他方、[コンパクト切断上での $P$ の単射性](../HPDE21/index.md#thm-hpde21-kernel-exact)より $\varphi\ne0$ なら $P\varphi\ne0$ です。**零とは異なる源も零の同値類に属す**ことを直接確認できました。
 <!-- definition-example-end -->
 
-この同値関係は $f-g\in P\Gamma_c$ と書けるため、反射律・対称律・推移律を満たします。$P\Gamma_c$ が線形部分空間なので、$[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ は代表元の選択に依存しません。
+同値関係の三条件も、$P$ の線形性から確認できます。反射律では $f-f=P0$ です。$f-g=P\varphi$ なら $g-f=P(-\varphi)$ なので対称律が成り立ちます。さらに $g-h=P\psi$ も成立するなら
+
+$$
+f-h=(f-g)+(g-h)=P(\varphi+\psi)
+$$
+
+であり、$\varphi+\psi$ はコンパクト支持なので推移律も成立します。局所微分作用素 $P$ はコンパクト支持を保ち、線形性から $P\Gamma_c$ は線形部分空間です。従って[商空間の演算](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)により $[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ は代表元の選択に依存しません。
 
 <a id="cor-hpde22-quotient-isomorphism"></a>
 
