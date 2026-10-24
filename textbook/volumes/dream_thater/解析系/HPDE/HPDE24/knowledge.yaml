@@ -1,0 +1,62 @@
+chapter: HPDE24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HPDE23
+  - HPDE22
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE12
+  - HPDE2
+  - HPDE5
+  - LORG21
+  - LORG20
+  - LORG16
+forward_references: []
+concepts:
+  - id: hpde.causal-diamond-diagnostic
+    name: 因果ダイヤモンドによる大域診断
+    kind: definition
+    introduction: formal
+    requires: [hpde.global-cauchy-theorem]
+  - id: hpde.flat-massive-retarded-kernel
+    name: 平坦1+1次元の質量付き遅延核
+    kind: proposition
+    introduction: formal
+    requires: [hpde.causal-diamond-diagnostic]
+  - id: hpde.time-dependent-cauchy-model
+    name: 時間依存膨張模型のCauchy性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.punctured-spacetime-failure
+    name: 点除去模型の失われた大域仮定
+    kind: proposition
+    introduction: formal
+    requires: [hpde.causal-diamond-diagnostic]
+  - id: hpde.homogeneous-dirichlet-boundary
+    name: 斉次Dirichlet条件
+    kind: definition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.homogeneous-neumann-boundary
+    name: 斉次Neumann条件
+    kind: definition
+    introduction: formal
+    requires: [hpde.normally-hyperbolic]
+  - id: hpde.timelike-boundary-nonuniqueness
+    name: 時間的境界での零初期データ非一意性
+    kind: proposition
+    introduction: formal
+    requires: [hpde.homogeneous-dirichlet-boundary, hpde.homogeneous-neumann-boundary]
+  - id: hpde.half-line-image-green
+    name: 半直線の反射Green核
+    kind: proposition
+    introduction: formal
+    requires: [hpde.homogeneous-dirichlet-boundary, hpde.homogeneous-neumann-boundary, hpde.flat-massive-retarded-kernel]
+  - id: hpde.boundary-symplectic-flux
+    name: シンプレクティック電流の境界フラックス
+    kind: proposition
+    introduction: formal
+    requires: [hpde.homogeneous-dirichlet-boundary, hpde.homogeneous-neumann-boundary, hpde.kg-conserved-current]
