@@ -1,0 +1,54 @@
+id: "HPDE24"
+title: "反例・模型・AQFT/MICAへの橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HPDE23
+  - HPDE22
+  - HPDE19
+  - HPDE18
+  - HPDE16
+  - HPDE12
+  - HPDE2
+  - HPDE5
+  - LORG21
+  - LORG20
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 平坦1+1次元のmassless・massive遅延基本解を分布方程式から検算し、有限伝播とtailの違いを説明できる
+  - 時間依存計量の主シンボル・波動作用素とCauchy面を計算し、非静的性と非大域双曲性を混同しない
+  - 点除去時空の非コンパクト因果ダイヤモンドと、欠落点から生じる分布解の不定性を区別して説明できる
+  - 時間的境界の未指定データが初期値の一意性を壊す具体的な滑らかな解を構成できる
+  - Dirichlet・Neumann半直線Green核と境界フラックスを検算し、境界付き問題が別の作用域・仮定を要することを説明できる
+  - HPDEの古典的成果からAQFT・MICAへ渡せるデータと、未証明の量子論的条件を区別できる
+definitions:
+  - { id: HPDE24-DEF-01, name: 因果ダイヤモンドによる大域診断 }
+  - { id: HPDE24-DEF-02, name: 斉次Dirichlet条件 }
+  - { id: HPDE24-DEF-03, name: 斉次Neumann条件 }
+theorems:
+  - { id: HPDE24-PROP-01, name: 平坦1+1次元の質量付き遅延核 }
+  - { id: HPDE24-PROP-02, name: 時間依存膨張模型のCauchy性 }
+  - { id: HPDE24-PROP-03, name: 点除去模型の失われた大域仮定 }
+  - { id: HPDE24-PROP-04, name: 時間的境界での零初期データ非一意性 }
+  - { id: HPDE24-PROP-05, name: 半直線の反射Green核 }
+  - { id: HPDE24-PROP-06, name: シンプレクティック電流の境界フラックス }
+canonical_examples:
+  - 1+1次元massless・massiveのBessel型核
+  - 指数膨張する1+1次元時空の共形時間
+  - 原点除去Minkowski平面の欠損ダイヤモンド
+  - 半直線への入射波とDirichlet・Neumann像の方法
+problem_patterns:
+  - HPDE24-MASSLESS-DELTA
+  - HPDE24-MASSIVE-SERIES
+  - HPDE24-EXPANDING-METRIC
+  - HPDE24-PUNCTURE-DIAMOND
+  - HPDE24-MODEL-CLASSIFICATION
+  - HPDE24-BOUNDARY-UNIQUENESS
+  - HPDE24-IMAGE-GREEN
+  - HPDE24-BOUNDARY-FLUX
+  - HPDE24-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }

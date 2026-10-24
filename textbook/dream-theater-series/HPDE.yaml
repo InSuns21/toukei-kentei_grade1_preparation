@@ -99,5 +99,5 @@ chapters:
     title: "実Klein–Gordon解のシンプレクティック構造"
   - id: HPDE24
     path: textbook/volumes/dream_thater/解析系/HPDE/HPDE24
-    status: planned
+    status: completed
     title: "反例・模型・AQFT/MICAへの橋"
