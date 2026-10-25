@@ -13,7 +13,7 @@
 
 - 既存FA／QM（Hilbert空間・非有界作用素・CCR）、FOU／GPDE（Schwartz試験関数・超関数／Sobolev）、測度・確率、確率過程／SM、複素解析。QFT Iの自由場モデル／QFT IIの摂動展開は物理的動機として参照する。
 - (I)にはEuclid楕円作用素と共分散核、Gaussian測度、無限次元分布空間の測度、Schwinger関数とOsterwalder–Schrader (OS)公理／再構成への入口。
-- (II)には[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)の波面集合・分布の積／引戻しを前提とする後半、[HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)の因果伝播、[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)の局所環とは相互接続する。ただし**既存MICAの点分離やHadamardくりこみと、相互作用の時間順序積を対角へ延長するくりこみは別問題**。
+- (II)には[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)の波面集合・分布の積／引戻しを前提とする後半、[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)の因果伝播、[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)の局所環とは相互接続する。ただし**既存MICAの点分離やHadamardくりこみと、相互作用の時間順序積を対角へ延長するくりこみは別問題**。
 - MQFCが所有するのはEuclid側の測度・反射陽性・再構成と、平坦模型から始める**分布の対角延長／Epstein–Glaser型摂動くりこみ**。AQFTは局所環net・GNS・モジュラー理論、MICAは波面集合／Hadamard条件、QFT IIは正則化・反項を用いる実際の物理的計算が主担当。
 - 共形ネット・vertex operator algebraの分類一般論や4次元非可換Yang–Millsの非摂動的存在／質量ギャップを、完成証明として扱わない。
 

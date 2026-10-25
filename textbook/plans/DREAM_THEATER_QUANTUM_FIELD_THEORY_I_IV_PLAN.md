@@ -23,7 +23,7 @@
 - II: I、複素積分・漸近評価、必要なLie代数。ゲージ固定、Faddeev–Popov、正則化はIIで初出導入する。
 - III: II、群・表現の最低限（I／IIの復習を含む）。QCDの閉じ込めと質量ギャップは一般的に証明済みと扱わない。
 - IV: I、IIの経路積分・Ward恒等式・RGの必要部分、複素解析。有限次元の量子エントロピーは[QINF](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)が正本。IVにIIIは原則不要。
-- Lorentz計量・因果幾何は[LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、Lorentz多様体上のGreen作用素は[HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)。厳密な波面集合は[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、局所演算子環の一般理論は[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。これら全部をQFT Iの入学条件にしない。
+- Lorentz計量・因果幾何は[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、Lorentz多様体上のGreen作用素は[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)。厳密な波面集合は[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、局所演算子環の一般理論は[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。これら全部をQFT Iの入学条件にしない。
 - 先行PLAN未実装の箇所は既習定理として使わない。実装時に直接必要な概念を本文で導入するか、公開済みcanonical dependencyを確認する。
 
 ### 1.1 数学的不足の追加監査（2026-10-13）
@@ -34,7 +34,7 @@
 | Hilbert空間・非有界作用素・CCR／Weyl関係 | 既存QM・FA・OA | Fockの有限粒子稠密領域・無限自由度の表現非一意性・自由真空の仮定を区別する |
 | Lorentz表現・スピノル・Poincaré粒子表現 | [LREP：Lie群の表現とスピノル](DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)（追加・未着手） | QFT IのDirac／Weyl、QFT IIIの質量・ヘリシティは必要な具体計算を本文に置き、一般分類の証明はLREPへ |
 | 主G束・接続・Chern–Weil・spin構造 | [GBG：主束とゲージ幾何](DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)（追加・未着手） | QFT IIでは平坦時空の局所ゲージ変換と曲率を導く。非自明束・monopole／instanton／特性類はGBGへ |
-| Lorentz多様体上の初期値・因果Green作用素 | [LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)・[HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 一般多様体の定理を自由平坦場の計算へ逆輸入しない |
+| Lorentz多様体上の初期値・因果Green作用素 | [LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)・[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 一般多様体の定理を自由平坦場の計算へ逆輸入しない |
 | Euclid測度・Schwinger／Wightman・OS反射陽性 | [MQFC I：Euclid構成](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)（追加・任意発展） | QFT II／IVでは**形式的Wick回転と再構成定理の違い**、特に反射陽性を要することを明示 |
 | 分布の対角延長・因果的時間順序積・摂動くりこみ | [MQFC II：数学的くりこみ](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)（追加・任意発展）、MICA | QFT IIで具体的反項・1ループを計算し、時間順序分布の衝突点での延長に自由度が生じる理由を説明 |
 | BRST・ghost・異常 | QFT II／IIIは具体模型と計算；MQFC IIは摂動論のコホモロジー入口；GBGは古典幾何 | BRSTのnilpotency、物理状態の条件と量子異常の障害を区別。指数定理を前提外から暗黙使用しない |
