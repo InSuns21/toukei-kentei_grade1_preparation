@@ -87,7 +87,7 @@ $$
 <!-- definition-example-start: def-qinf3-partial-trace -->
 ### 定義の確認：積の外積を片側だけ残す
 
-**定義の確認**：何を足すのか、$H_A=H_B=\mathbb C^2$ で確認します。$|0\rangle,|1\rangle$ を計算基底とし、$X=|0\,1\rangle\langle1\,1|$ を取ります。$B$ 側の基底を $f_0=|0\rangle,f_1=|1\rangle$ とすると
+**定義の確認**：何を足すのか、$H_A=H_B=\mathbb C^2$ で確認します。$|0\rangle,|1\rangle$ を計算基底とし、$X=|0\,1\rangle\langle1\,1|$ を取ります。$B$ 側の基底を $f_1=|0\rangle,f_2=|1\rangle$ とすると
 
 $$
 \begin{aligned}
@@ -312,7 +312,7 @@ $0<t<1$ ならrank 2で、[積状態の同値判定](#thm-qinf3-product-pure)か
 
 $B$ 側だけに何かしても、その結果を $A$ の観測者へ知らせなければ、$A$ 側のすべての測定確率は変わりません。この節では一般の量子操作を先取りせず、[QINF1の局所ユニタリ](../QINF1/index.md#prop-qinf1-local-algebra)と射影測定について、行列計算で直接確認します。
 
-ここで**非選択射影測定**とは、$B$ 側で直交射影の族 $(Q_b)$（$Q_bQ_c=\delta_{bc}Q_b$、$\sum_bQ_b=I_B$）に従って測定した後、その結果 $b$ を区別せず平均した状態を用いる操作です。全系の更新後の状態は $\sum_b(I_A\otimes Q_b)\rho_{AB}(I_A\otimes Q_b)$ です。一つの結果 $b$ を選んで条件付けする場合とは区別します。
+ここでは $B$ 側で直交射影の族 $(Q_b)$（$Q_bQ_c=\delta_{bc}Q_b$、$\sum_bQ_b=I_B$）に従って測定した後、**結果 $b$ を区別せず平均する**場合（非選択射影測定）を扱います。全系の更新後の状態は $\sum_b(I_A\otimes Q_b)\rho_{AB}(I_A\otimes Q_b)$ です。一つの結果 $b$ を選んで条件付けする場合とは区別します。
 
 <a id="prop-qinf3-no-signalling"></a>
 
