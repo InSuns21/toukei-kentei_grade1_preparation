@@ -22,7 +22,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Einstein–Maxwellの無電流外部領域）**  
-> 4次元Lorentz時空の開領域 $U$ で、滑らかな計量 $g$ と反対称テンソル $F_{\mu\nu}$ が
+> 4次元Lorentz時空の開領域 $U$ で、滑らかな計量 $g$ と滑らかな反対称テンソル $F_{\mu\nu}$ が
 
 $$
 \begin{gathered}
