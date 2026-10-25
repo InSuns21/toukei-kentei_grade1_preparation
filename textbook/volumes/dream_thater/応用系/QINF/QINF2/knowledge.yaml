@@ -1,0 +1,85 @@
+chapter: QINF2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QM2
+forward_references: []
+
+concepts:
+  - id: quantum.finite-ensemble
+    name: 有限量子アンサンブル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限量子アンサンブルと密度演算子）]
+    requires: [quantum.hilbert-ray, quantum.finite-born-rule]
+
+  - id: quantum.finite-density-operator
+    name: 有限次元密度演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限量子アンサンブルと密度演算子）]
+    requires: [quantum.finite-ensemble]
+
+  - id: quantum.density-ensemble-characterization
+    name: 密度演算子とアンサンブルの同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（密度演算子とアンサンブルの同値）]
+    requires: [quantum.finite-density-operator, quantum.finite-ensemble]
+
+  - id: quantum.mixed-born-trace
+    name: 混合状態のBorn則と期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（混合状態のBorn則と期待値）]
+    requires: [quantum.finite-density-operator, quantum.finite-born-rule]
+
+  - id: quantum.density-operational-uniqueness
+    name: 全射影測定による密度演算子の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（全射影測定による密度演算子の一意性）]
+    requires: [quantum.mixed-born-trace]
+
+  - id: quantum.pure-mixed-density
+    name: 純粋密度演算子と混合密度演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（純粋密度演算子と混合密度演算子）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.density-purity
+    name: 密度演算子の純粋性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（密度演算子の純粋性）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.density-purity-criteria
+    name: 純粋性・rank・射影性の同値と上下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純粋性・rank・射影性の同値と上下界）]
+    requires: [quantum.pure-mixed-density, quantum.density-purity]
+
+  - id: quantum.qubit-bloch-vector
+    name: qubitのBlochベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（qubitのBlochベクトル）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.qubit-bloch-ball
+    name: Bloch球によるqubit状態の完全分類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bloch球によるqubit状態の完全分類）]
+    requires: [quantum.qubit-bloch-vector, quantum.density-purity-criteria]
+
+  - id: quantum.unitary-density-invariance
+    name: ユニタリ共役と純粋性の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ユニタリ共役と純粋性の不変性）]
+    requires: [quantum.finite-density-operator, quantum.density-purity]

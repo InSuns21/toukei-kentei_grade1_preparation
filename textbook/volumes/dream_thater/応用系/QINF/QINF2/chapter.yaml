@@ -1,0 +1,45 @@
+id: "QINF2"
+title: "密度演算子とアンサンブル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF1
+  - QM2
+official_scope: []
+learning_objectives:
+  - 有限アンサンブルから密度演算子を構成し、正値性とtrace 1を確かめ、逆にスペクトル分解からアンサンブルを構成できる
+  - 射影測定の確率と観測量の期待値をtrace表示に直し、測定統計から密度演算子が一意に定まることを証明できる
+  - 純粋状態と混合状態をrank・射影性・purityで同値に判定し、次元による純粋性の下界を導ける
+  - qubit密度演算子のBloch表示と正値条件を導き、球の境界と内部の意味を説明できる
+  - 非直交状態の重ね合わせと統計的混合を測定で区別し、異なるアンサンブルが同じ密度演算子を表せることを示せる
+definitions:
+  - { id: QINF2-DEF-01, name: "有限量子アンサンブルと密度演算子" }
+  - { id: QINF2-DEF-02, name: "純粋密度演算子と混合密度演算子" }
+  - { id: QINF2-DEF-03, name: "密度演算子の純粋性" }
+  - { id: QINF2-DEF-04, name: "qubitのBlochベクトル" }
+theorems:
+  - { id: QINF2-THM-01, name: "密度演算子とアンサンブルの同値" }
+  - { id: QINF2-PROP-01, name: "混合状態のBorn則と期待値" }
+  - { id: QINF2-PROP-02, name: "全射影測定による密度演算子の一意性" }
+  - { id: QINF2-THM-02, name: "純粋性・rank・射影性の同値と上下界" }
+  - { id: QINF2-THM-03, name: "Bloch球によるqubit状態の完全分類" }
+  - { id: QINF2-PROP-03, name: "ユニタリ共役と純粋性の不変性" }
+canonical_examples:
+  - "|+>の射影と|0>,|1>の等確率混合のZ/X測定比較"
+  - "I/2のZ基底とX基底での異なるアンサンブル分解"
+  - "qubitのBlochベクトルと固有値による正値判定"
+  - "非直交二純粋状態の混合とpurity"
+problem_patterns:
+  - QINF2-ENSEMBLE-MATRIX
+  - QINF2-PURE-PROJECTOR
+  - QINF2-BLOCH-POSITIVITY
+  - QINF2-BORN-TRACE
+  - QINF2-ONE-PARAMETER-FAMILY
+  - QINF2-ENSEMBLE-NONUNIQUENESS
+  - QINF2-NONORTHOGONAL-MIXTURE
+  - QINF2-PAULI-TOMOGRAPHY
+  - QINF2-BLOCH-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }

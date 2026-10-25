@@ -1011,6 +1011,7 @@
 ### 量子情報 I・II・III
 
 1. [QINF1 複合系とテンソル積](textbook/volumes/dream_thater/応用系/QINF/QINF1/index.md)
+2. [QINF2 密度演算子とアンサンブル](textbook/volumes/dream_thater/応用系/QINF/QINF2/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
