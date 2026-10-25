@@ -25,7 +25,7 @@ chapters:
     title: "部分トレースと縮約状態"
   - id: QINF4
     path: textbook/volumes/dream_thater/応用系/QINF/QINF4
-    status: planned
+    status: completed
     title: "精製とアンサンブル"
   - id: QINF5
     path: textbook/volumes/dream_thater/応用系/QINF/QINF5
