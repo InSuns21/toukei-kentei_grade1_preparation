@@ -1,0 +1,48 @@
+id: "GR36"
+title: "地平線の面積非減少の仮定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR29
+  - GR30
+  - GR34
+  - GR35
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 零超曲面の横断二次元計量から面積密度の輸送式と光的膨張率の対応を導出できる
+  - 光的Ricci集束条件と物質の零エネルギー条件の関係を宇宙項も含めて説明できる
+  - Raychaudhuri不等式を積分して負の膨張率から有限アフィン長の焦点を導出できる
+  - 地平線生成線の未来アフィン完備性と非時間的境界性が面積定理のどこで必要か説明できる
+  - 滑らかな切断間の生成線対応を仮定して面積非減少を証明できる
+  - 非滑らかな形成地平線の証明境界とNCC・因果性・完全性を区別できる
+  - Schwarzschildと入射Vaidyaで地平線の面積変化を直接計算できる
+definitions:
+  - { id: GR36-DEF-01, name: 光的Ricci集束条件 }
+  - { id: GR36-DEF-02, name: 地平線生成線の未来アフィン完備性 }
+theorems:
+  - { id: GR36-PROP-01, name: 滑らかな生成光線に沿う面積密度 }
+  - { id: GR36-LEM-01, name: 負の膨張率と有限アフィン長の焦点 }
+  - { id: GR36-THM-01, name: 滑らかな未来地平線の面積非減少 }
+canonical_examples:
+  - 丸い球面の面積密度と膨張率を誘導計量から検算
+  - Schwarzschild真空で全光的方向のRicci集束条件を検証
+  - Minkowski入射球面光束で有限長の焦点と地平線との違いを確認
+  - Schwarzschild地平線でアフィンパラメータと定常面積を確認
+  - 入射Vaidyaで事象地平線の面積増加と未来依存性を検算
+  - 入射Vaidyaの物質源で光的Ricci集束条件を全光的方向について確認
+problem_patterns:
+  - GR36-SCHWARZSCHILD-AREA-DIMENSION
+  - GR36-TRANSVERSE-AREA-DENSITY
+  - GR36-FOCAL-AFFINE-BOUND
+  - GR36-COSMOLOGICAL-TERM-NULL
+  - GR36-VAIDYA-EXPANSION
+  - GR36-RECIPROCAL-RAYCHAUDHURI
+  - GR36-GENERATOR-INTEGRAL
+  - GR36-INGOING-NULL-COUNTEREXAMPLE
+  - GR36-TELEOLOGICAL-HORIZON
+  - GR36-AREA-THEOREM-ASSUMPTIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
