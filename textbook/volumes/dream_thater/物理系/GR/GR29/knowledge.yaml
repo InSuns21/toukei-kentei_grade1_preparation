@@ -1,0 +1,59 @@
+chapter: GR29
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR26
+  - GR27
+  - GR28
+  - GR14
+  - LORG6
+  - LORG13
+concepts:
+  - id: gravity.future-event-horizon
+    name: 未来事象地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（未来事象地平線）"]
+    requires: [gravity.penrose-asymptotic-symbols, lorentz-geometry.chronological-causal-future]
+  - id: gravity.null-normal-expansion
+    name: 零法線の膨張率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零法線の膨張率）"]
+    requires: [gravity.ingoing-ef-regular-metric]
+  - id: gravity.trapped-apparent-horizon
+    name: 捕獲面・限界外向き捕獲面・見かけの地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（捕獲面・限界外向き捕獲面・見かけの地平線）"]
+    requires: [gravity.null-normal-expansion, gravity.future-event-horizon]
+  - id: gravity.killing-horizon
+    name: Killing地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Killing地平線）"]
+    requires: [gravity.trapped-apparent-horizon, gravity.killing-field]
+  - id: gravity.spherical-null-expansion
+    name: 球対称二球面の零膨張率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球対称二球面の零膨張率）"]
+    requires: [gravity.null-normal-expansion]
+  - id: gravity.schwarzschild-horizon-coincidence
+    name: Schwarzschildの三種類の地平線の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschildの三種類の地平線の一致）"]
+    requires: [gravity.future-event-horizon, gravity.trapped-apparent-horizon, gravity.killing-horizon, gravity.spherical-null-expansion]
+  - id: gravity.vaidya-horizon-separation
+    name: Vaidyaの限界面と未来事象地平線の分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Vaidyaの限界面と未来事象地平線の分離）"]
+    requires: [gravity.schwarzschild-horizon-coincidence, gravity.spherical-null-expansion]
+  - id: gravity.killing-norm-zero-counterexample
+    name: Killingノルム零集合の反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Killingノルム零集合の反例）"]
+    requires: [gravity.killing-horizon]

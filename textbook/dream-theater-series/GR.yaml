@@ -121,7 +121,7 @@ chapters:
     title: "共形コンパクト化とPenrose図"
   - id: GR29
     path: textbook/volumes/dream_thater/物理系/GR/GR29
-    status: planned
+    status: completed
     title: "事象・見かけ・Killing地平線"
   - id: GR30
     path: textbook/volumes/dream_thater/物理系/GR/GR30

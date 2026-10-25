@@ -1,0 +1,50 @@
+id: "GR29"
+title: "事象・見かけ・Killing地平線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR26
+  - GR27
+  - GR28
+  - GR14
+  - LORG6
+  - LORG13
+official_scope: []
+learning_objectives:
+  - 漸近的な未来零無限遠の因果的過去から事象地平線を定義し大域性を説明できる
+  - 丸い二球面上の未来向き零法線の膨張率を面積変化から導出できる
+  - 捕獲面・限界外向き捕獲面・時空葉層上の見かけの地平線を区別できる
+  - Killing地平線に必要な零超曲面とKilling法線の条件を確認できる
+  - 静的Schwarzschildの三種の地平線の一致を仮定付きで証明できる
+  - 非定常の入射Vaidya模型で限界面と事象地平線の位置を比較できる
+  - Killing場のノルム零集合が必ずしもKilling地平線でない反例を検算できる
+definitions:
+  - { id: GR29-DEF-01, name: 未来事象地平線 }
+  - { id: GR29-DEF-02, name: 零法線の膨張率 }
+  - { id: GR29-DEF-03, name: 捕獲面・限界外向き捕獲面・見かけの地平線 }
+  - { id: GR29-DEF-04, name: Killing地平線 }
+theorems:
+  - { id: GR29-PROP-01, name: 球対称二球面の零膨張率 }
+  - { id: GR29-PROP-02, name: Schwarzschildの三種類の地平線の一致 }
+  - { id: GR29-PROP-03, name: Vaidyaの限界面と未来事象地平線の分離 }
+  - { id: GR29-PROP-04, name: Killingノルム零集合の反例 }
+canonical_examples:
+  - Schwarzschildのr=rsにおける零膨張率とKilling法線
+  - 入射Vaidyaで面r=a(v)が増加中に空間的になる判定
+  - 未来の質量変化から決まるVaidya事象地平線と限界面の位置差
+  - 回転Minkowskiのlight cylinderがKilling地平線でない反例
+problem_patterns:
+  - GR29-AREA-EXPANSION
+  - GR29-NULL-RESCALING
+  - GR29-STATIC-ESCAPE
+  - GR29-KILLING-NORMAL
+  - GR29-TRAPPED-CLASSIFICATION
+  - GR29-DYNAMIC-HORIZON-SIGNATURE
+  - GR29-LIGHT-CYLINDER-COUNTEREXAMPLE
+  - GR29-EVENT-HORIZON-BACKWARD-INTEGRAL
+  - GR29-FOLIATION-VS-GLOBAL
+  - GR29-INTEGRATED-DYNAMIC-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
