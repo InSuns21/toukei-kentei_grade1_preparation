@@ -5,7 +5,7 @@ prerequisites:
   - LA3E
   - QM2
 forward_references:
-  - QINF3
+  - quantum.partial-trace
 
 concepts:
   - id: quantum.qubit
