@@ -162,7 +162,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr29-killing-horizon -->
-**定義の確認**。[GR26の入射Eddington–Finkelstein計量](../GR26/index.md#prop-gr26-ef-metric-domain)で、地平線の候補を $F=r-r_s=0$、時間並進を $\xi=\partial_v$ と選びます。定数 $r_s>0$ に対して計量係数は $v$ に依存せず、$\partial_v g_{\mu\nu}=0$ なので $\xi$ はKilling場です。
+**定義の確認**。[GR26の入射Eddington–Finkelstein計量](../GR26/index.md#prop-gr26-ef-metric-domain)で、地平線の候補を $F=r-r_s=0$、時間並進を $\xi=\partial_v$ と選びます。定数 $r_s>0$ に対して計量係数は $v$ に依存せず、$\partial_v g_{\mu\nu}=0$ なので、[GR14の座標によるKilling判定](../GR14/index.md#prop-gr14-killing-coordinate-test)から $\xi$ はKilling場です。
 
 このベクトル場の計量双対と、候補の超曲面における法線を計算すると
 
