@@ -117,7 +117,7 @@ chapters:
     title: "Kruskal座標と最大解析延長"
   - id: GR28
     path: textbook/volumes/dream_thater/物理系/GR/GR28
-    status: planned
+    status: completed
     title: "共形コンパクト化とPenrose図"
   - id: GR29
     path: textbook/volumes/dream_thater/物理系/GR/GR29

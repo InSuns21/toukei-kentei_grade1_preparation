@@ -1,0 +1,49 @@
+chapter: GR28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR27
+  - LORG8
+concepts:
+  - id: gravity.compact-null-coordinates
+    name: 零座標の有界化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零座標の有界化）"]
+    requires: [gravity.kruskal-domain, lorentz-geometry.conformal-rescaling]
+  - id: gravity.conformal-causal-diagram
+    name: 二次元共形因果図
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次元共形因果図）"]
+    requires: [gravity.compact-null-coordinates, lorentz-geometry.conformal-causal-invariance]
+  - id: gravity.null-coordinate-compactification
+    name: 二重零計量の共形有界化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二重零計量の共形有界化）"]
+    requires: [gravity.conformal-causal-diagram, lorentz-geometry.conformal-causal-invariance]
+  - id: gravity.minkowski-penrose-diamond
+    name: Minkowski平面の共形ダイヤモンド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Minkowski平面の共形ダイヤモンド）"]
+    requires: [gravity.null-coordinate-compactification]
+  - id: gravity.penrose-asymptotic-symbols
+    name: 共形図における無限遠の記号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共形図における無限遠の記号）"]
+    requires: [gravity.minkowski-penrose-diamond]
+  - id: gravity.kruskal-penrose-domain
+    name: Kruskal延長の共形領域と六つの境界辺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kruskal延長の共形領域と六つの境界辺）"]
+    requires: [gravity.null-coordinate-compactification, gravity.kruskal-radius-global]
+  - id: gravity.penrose-horizon-singularity
+    name: 地平線と特異境界の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線と特異境界の判定）"]
+    requires: [gravity.kruskal-penrose-domain, gravity.kruskal-interior-causality, gravity.schwarzschild-curvature-limits]
