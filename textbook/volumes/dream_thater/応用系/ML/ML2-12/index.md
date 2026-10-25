@@ -63,6 +63,19 @@ c^\mathsf TKc=(u+v/2)^2+3v^2/4\ge0.
 $$
 
 上で構成した $F(a)=Z_1,\ F(b)=Z_1/2+\sqrt3 Z_2/2$ は平均0、分散1、共分散 $1/2$ である。重複入力 $(a,a)$ なら関数値は同じ $F(a)$ を二度並べるため、共分散は $\left(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\right)$ となり、これも正半定値である。
+
+二点に限らず、任意の有限列 $x_1,\ldots,x_n\in\{a,b\}$（重複を含む）と係数 $c_i$ に対し、$C_a=\sum_{i:x_i=a}c_i$、$C_b=\sum_{i:x_i=b}c_i$ とまとめれば
+
+$$
+\begin{aligned}
+\sum_{i,j=1}^n c_ic_jk(x_i,x_j)
+&=\operatorname{Var}\left(\sum_{i=1}^n c_iF(x_i)\right)\\
+&=C_a^2+C_aC_b+C_b^2\\
+&=(C_a+C_b/2)^2+3C_b^2/4\ge0.
+\end{aligned}
+$$
+
+したがって有限列の長さ・順序・反復のどの場合にも、定義で要求された正半定値性とGaussian性がこの具体的構成から確かめられる。
 <!-- definition-example-end -->
 
 任意個の点を選ぶたびにGaussian分布を勝手に指定すると、三点の分布を二点へ周辺化したものと、最初に指定した二点の分布が食い違うかもしれない。平均と核を共通にすることがこの矛盾を防ぐ。
@@ -236,6 +249,21 @@ $$
 $$
 
 両項が独立Gaussianなので和もGaussianであり、$Y_1\sim N(0,2)$ を得る。単に核の対角分散だけを観測分散として使わない。
+
+同じ点を二度測定すると、$Y_i=F(0)+\varepsilon_i$（$i=1,2$）であり、$F(0),\varepsilon_1,\varepsilon_2$ の独立性から、異なる測定雑音の交差項も消える。よって
+
+$$
+\begin{aligned}
+\operatorname{Cov}(Y_1,Y_2)
+&=\operatorname{Var}(F(0))
+ +\operatorname{Cov}(\varepsilon_1,\varepsilon_2)=1,\\
+\operatorname{Cov}(Y)
+&=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+ =\begin{pmatrix}1&1\\1&1\end{pmatrix}+I_2.
+\end{aligned}
+$$
+
+これは $K+\sigma^2I_2$ の意味を各成分から確認したものであり、雑音分散を非対角にも足してはいけない。
 <!-- definition-example-end -->
 
 新入力 $x_*$ を1点固定し、潜在関数値 $F_*=F(x_*)$ の事後分布を知りたい。$k_*=(k(x_1,x_*),\ldots,k(x_n,x_*))^\mathsf T$ と $k_{**}=k(x_*,x_*)$ を置く。独立な雑音は $F_*$ との共分散には寄与しないから
@@ -279,7 +307,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-12-prediction -->
-**定義の確認**。観測する前に $F(x_*)\sim N(0,1)$ なら $\mu_*=0$、$v_*=1$ の場合の95%区間は $[-1.96,1.96]$ である。これが一つの確率変数について $P(-1.96\le F(x_*)\le1.96)\simeq0.95$ を満たすことは標準正規分布の対称性による。異なる100点を同時にこの区間へ入れる確率が95%であるとは主張していない。
+**定義の確認**。$F(0)\sim N(0,1)$、$\varepsilon\sim N(0,1)$ を独立とし、$Y=F(0)+\varepsilon$ の実現値 $y=2$ を観測した。まず $\operatorname{Var}(Y)=2$、$\operatorname{Cov}(F(0),Y)=1$ である。$R=F(0)-Y/2$ と置くと
+
+$$
+\operatorname{Cov}(R,Y)=1-\frac12\cdot2=0,
+\qquad
+\operatorname{Var}(R)=1-2\cdot\frac12\cdot1+\frac14\cdot2=\frac12.
+$$
+
+$(R,Y)$ は同時Gaussianなので無相関から独立となり、$F(0)=Y/2+R$ を $Y=2$ で条件付けると
+
+$$
+F(0)\mid Y=2\sim N(1,1/2),\qquad
+[\mu_*-1.96\sqrt{v_*},\mu_*+1.96\sqrt{v_*}]
+=\left[1-\frac{1.96}{\sqrt2},\ 1+\frac{1.96}{\sqrt2}\right].
+$$
+
+これは観測模型から条件付き分布を求め、定義した信用区間まで確認した直接例である。標準正規分布の対称性により、この区間へ $F(0)$ が入る条件付き確率は約95%となる。一点の条件付き確率であり、異なる100点を同時に覆う確率が95%とは主張していない。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-12-posterior"></a>
@@ -357,6 +401,21 @@ $$
 
 と書き直せる。$Y=y$ と条件付けると第1・第2項は定数、第3項 $R$ は $Y$ から独立な $N(0,v_*)$ のままだから、条件付き平均・分散の式を得る。最後に独立な $\varepsilon_*$ を足すと平均は変わらず、条件付き共分散は0なので、分散だけ $\sigma^2$ 増す。$\square$
 <!-- proof-end -->
+
+ここで $v_*$ の行列としての意味も確かめよう。$A$ は対称正定値だから、任意の $u\in\mathbb R^n$ と $t\in\mathbb R$ に対して、同時共分散行列の二次形式を平方完成できる。
+
+$$
+\begin{aligned}
+&\begin{pmatrix}u^\mathsf T&t\end{pmatrix}
+\begin{pmatrix}A&k_*\\k_*^\mathsf T&k_{**}\end{pmatrix}
+\begin{pmatrix}u\\t\end{pmatrix}\\
+&\quad=u^\mathsf TAu+2t\,u^\mathsf Tk_*+t^2k_{**}\\
+&\quad=(u+tA^{-1}k_*)^\mathsf TA(u+tA^{-1}k_*)
++t^2(k_{**}-k_*^\mathsf TA^{-1}k_*).
+\end{aligned}
+$$
+
+最後の括弧 $k_{**}-k_*^\mathsf TA^{-1}k_*$ を、ブロック $A$ に関する **Schur補完**という。$u=-tA^{-1}k_*$ を選ぶと第1項が0になるので、元の共分散行列の正半定値性から Schur補完は非負でなければならない。これが条件付き分散 $v_*$ と同じ量になる理由であり、単なる行列式の符号判定ではない。
 
 **ここで分けた三つの量**を混同しない。
 
@@ -744,7 +803,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$K$ は対角成分が正なので正定値。予測点を追加した核行列のSchur補完は $2-(1,1)\operatorname{diag}(1/2,1)(1,1)^\mathsf T=1/2\ge0$ で、指定された三点の核も正半定値である。
+$K=\operatorname{diag}(2,1)$ は対角成分が正なので正定値だが、それだけでは予測点を加えた三点の核の正半定値性は決まらない。三点の核行列を
+
+$$
+G=\begin{pmatrix}2&0&1\\0&1&1\\1&1&2\end{pmatrix}
+$$
+
+と書き、任意の実数 $u,v,w$ に対して二次形式を平方完成すると
+
+$$
+\begin{aligned}
+(u,v,w)G(u,v,w)^\mathsf T
+&=2u^2+v^2+2uw+2vw+2w^2\\
+&=2(u+w/2)^2+(v+w)^2+w^2/2\ge0.
+\end{aligned}
+$$
+
+よって対称性と併せて三点の核も正半定値である。第3節のSchur補完で判定するなら、最後の $w^2/2$ の係数が $2-(1,1)\operatorname{diag}(1/2,1)(1,1)^\mathsf T=1/2$ に対応する。
 
 $A=K+I_2=\operatorname{diag}(3,2)$ より
 
