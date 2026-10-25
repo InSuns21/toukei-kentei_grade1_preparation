@@ -148,7 +148,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr29-killing-horizon -->
-**定義の確認**。[GR26の入射Eddington–Finkelstein計量](../GR26/index.md#prop-gr26-ef-metric-domain)で $F=r-r_s$、$\xi=\partial_v$ を選びます。定数 $r_s>0$ なので $\partial_v g_{\mu\nu}=0$ であり、$\xi$ はKilling場です。$\xi^\flat=-f\,dv+dr$、$f=1-r_s/r$ ですから、$r=r_s$ では $\xi^\flat=dr=dF$。逆計量より $g^{-1}(dF,dF)=f=0$ です。したがって $r=r_s$ の未来側の正則部分はKilling地平線です。$\xi$ 自体はそこで零ベクトルにはなりません。**零になるのはノルム**です。
+**定義の確認**。[GR26の入射Eddington–Finkelstein計量](../GR26/index.md#prop-gr26-ef-metric-domain)で、地平線の候補を $F=r-r_s=0$、時間並進を $\xi=\partial_v$ と選びます。定数 $r_s>0$ に対して計量係数は $v$ に依存せず、$\partial_v g_{\mu\nu}=0$ なので $\xi$ はKilling場です。
+
+このベクトル場の計量双対と、候補の超曲面における法線を計算すると
+
+$$
+\xi^\flat=-f\,dv+dr,\qquad f=1-\frac{r_s}{r},
+$$
+
+$$
+\left.\xi^\flat\right|_{r=r_s}=dr=dF,
+\qquad \left.g^{-1}(dF,dF)\right|_{r=r_s}=f(r_s)=0.
+$$
+
+したがって未来側の正則部分ではKilling地平線の条件をすべて満たします。$\xi$ 自体はここで零ベクトルにはなりません。**零になるのはノルム**です。
 <!-- definition-example-end -->
 
 ## 5. Schwarzschildで三者が一致する理由
@@ -215,7 +228,15 @@ $$
 \frac{dr}{dv}=\frac12\left(1-\frac{r_s}{r}\right).
 $$
 
-$r>r_s$ では右辺が正で、進行中に $r$ は減らず、初期値 $r_0>r_s$ について $r\ge r_0$、したがって $dr/dv\ge(1-r_s/r_0)/2>0$ です。ゆえに $r$ は未来に無限大へ向かい、その出射光線は漸近的な $\mathscr I^+$ へ達します。一方、内側 $r<r_s$ では[GR26の未来向き因果曲線の半径減少](../GR26/index.md#prop-gr26-interior-causality)により光的・時間的のどちらでも未来に半径が増えず、$\mathscr I^+$ へは出られません。境界の零生成子は $r=r_s$ に留まります。したがって対象の未来地平線は $r=r_s$ です。
+$r>r_s$ では右辺が正で、初期半径 $r_0>r_s$ から進行中に半径は減りません。これを元の微分方程式へ代入すると、下限
+
+$$
+\frac{dr}{dv}\ge\frac12\left(1-\frac{r_s}{r_0}\right)=:b>0
+$$
+
+を得ます。初期時刻を $v_0$ とすれば $r(v)\ge r_0+b(v-v_0)$ なので、出射光線は未来に無限大へ進み、漸近的な $\mathscr I^+$ へ達します。
+
+一方、内側では[GR26の未来向き因果曲線の半径減少](../GR26/index.md#prop-gr26-interior-causality)により、光的・時間的のどちらでも半径を増せません。境界の零生成子は $r=r_s$ に留まるため、この領域での未来事象地平線は $r=r_s$ です。
 
 最後に $\xi=\partial_v$ について計量は $v$ に依存せず、$\xi^\flat=-f\,dv+dr$ です。$F=r-r_s$ の上で $\xi^\flat=dF$、$g^{-1}(dF,dF)=f=0$ となり、[Killing地平線の定義](#def-gr29-killing-horizon)も満たします。三者はそれぞれ別の判定を経て一致しました。
 <!-- proof-end -->
@@ -436,7 +457,15 @@ $$
 \ge\frac12\left(1-\frac{r_s}{r_0}\right)=:b>0.
 $$
 
-初期時刻 $v_0$ から積分すると $r(v)\ge r_0+b(v-v_0)$、よって $v\to\infty$ で $r\to\infty$ です。漸近平坦Schwarzschild外部の零光線なので未来零無限遠へ達します。一方内部 $r_0<r_s$ では[GR26の未来向き半径減少](../GR26/index.md#prop-gr26-interior-causality)が任意の未来向き因果曲線へ適用され、半径は増えません。したがって地平線 $r=r_s$ を外側へ越せず、$\mathscr I^+$ へ達しません。この二つの因果判定から境界が $r=r_s$ と決まります。
+初期時刻 $v_0$ から先の不等式を積分すると
+
+$$
+r(v)-r_0=\int_{v_0}^{v}\frac{dr}{ds}\,ds\ge b(v-v_0)
+$$
+
+です。したがって未来に $r\to\infty$ となり、漸近平坦Schwarzschild外部の零光線は未来零無限遠へ達します。
+
+一方、内部の初期半径 $r_0<r_s$ では[GR26の未来向き半径減少](../GR26/index.md#prop-gr26-interior-causality)が任意の未来向き因果曲線へ適用されます。半径が増えないので地平線を外側へ越せず、$\mathscr I^+$ へ達しません。この二つの因果判定から境界は $r=r_s$ です。
 <!-- solution-end -->
 
 <a id="ex-gr29-b02"></a>
