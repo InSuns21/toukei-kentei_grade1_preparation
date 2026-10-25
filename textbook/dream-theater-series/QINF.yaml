@@ -21,7 +21,7 @@ chapters:
     title: "密度演算子とアンサンブル"
   - id: QINF3
     path: textbook/volumes/dream_thater/応用系/QINF/QINF3
-    status: planned
+    status: completed
     title: "部分トレースと縮約状態"
   - id: QINF4
     path: textbook/volumes/dream_thater/応用系/QINF/QINF4
