@@ -236,6 +236,30 @@ $$
 $rr$ 成分は $tt$ と同じ値となり、Maxwell方程式は既に証明済みです。$e^{\Phi+\Lambda}=1$ を前節の $F_{tr}$ に代入すると $F_{tr}=Q/r^2$ です。このようにEinstein方程式とMaxwell方程式のすべての独立成分が一致し、局所解が得られます。
 <!-- proof-end -->
 
+**非零電場を持つ定義の確認**。[無電流外部領域の定義](#def-gr31-electrovac)に対し、$M=5,Q=4$ として $U=\{r>8\}$ を選びます。この領域では
+
+$$
+f(r)=\left(1-\frac8r\right)\left(1-\frac2r\right)>0,
+\qquad F=\frac4{r^2}\,dt\wedge dr\ne0
+$$
+
+であり、計量は滑らかなLorentz計量、$F$ は滑らかな反対称テンソルです。$\sqrt{-g}=r^2\sin\vartheta$ と $F^{rt}=4/r^2$ を用いれば
+
+$$
+\partial_r(\sqrt{-g}F^{rt})
+=\partial_r(4\sin\vartheta)=0,
+\qquad dF=d\left(\frac4{r^2}\right)\wedge dt\wedge dr=0
+$$
+
+なので、無電流Maxwell方程式の両方を満たします。さらに上で導いたEinsteinテンソルの式へ代入すると
+
+$$
+G^t{}_t=G^r{}_r=-\frac{16}{r^4},
+\qquad G^\vartheta{}_\vartheta=G^\varphi{}_\varphi=\frac{16}{r^4}
+$$
+
+で、$8\pi T^\mu{}_\nu$ の四成分に一致します。ほかの物質源・電流・宇宙項を零とする設定と合わせて、定義の非自明な条件を一つずつ満たす例になりました。
+
 **係数を元の単位へ戻す**。SI質量 $M_{\rm SI}$、SI電荷 $q_{\rm SI}$ に対し、長さのパラメータを
 
 $$
@@ -289,7 +313,20 @@ f(r)=1-\frac{10}r+\frac{16}{r^2}
 =\left(1-\frac8r\right)\left(1-\frac2r\right)
 $$
 
-だから $f(8)=f(2)=0$ です。次の命題でこれらの面が実際に零超曲面となることを確かめます。
+だから $f(8)=f(2)=0$ です。これらが単なる係数の零点でなく、[Killing地平線の定義](../GR29/index.md#def-gr29-killing-horizon)を満たすことも確認します。根を避けた $f\ne0$ の座標域で $dv=dt+dr/f$ と置き、得られた式を根へ延長すると
+
+$$
+ds^2=-f\,dv^2+2\,dv\,dr+r^2d\Omega^2
+$$
+
+です。交差項は $2g_{vr}\,dv\,dr=2\,dv\,dr$ なので、座標基底 $(\partial_v,\partial_r)$ での行列と逆行列は
+
+$$
+(g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix},
+\qquad (g^{ab})=\begin{pmatrix}0&1\\1&f\end{pmatrix}
+$$
+
+となります。この有限次元の座標基底では、計量の非退化性は係数行列の可逆性と同値です。$\det(g_{ab})=-1$ は時間・半径部分の可逆性を示し、$r>0$ の球面部分は正定値なので全計量は両根で非退化なLorentz計量です。$g^{-1}(dr,dr)=g^{rr}=f=0$ だから $r=2,8$ は零超曲面です。さらに $\xi=\partial_v$ は計量が $v$ に依存しないためKilling場で、その計量双対は $\xi^\flat=-f\,dv+dr=dr$（両根上）です。従って、零でない $\xi$ が面の法線方向になり、定義の非自明な条件を確認できました。次の命題では一般の $M,Q$ に対して同じ判定を証明します。
 <!-- definition-example-end -->
 
 <a id="prop-gr31-horizons"></a>
@@ -351,7 +388,7 @@ $$
 \end{aligned}
 $$
 
-$(v,r)$ 部分の計量と逆計量は
+座標基底 $(\partial_v,\partial_r)$ で計量の $dv^2$ 係数が $g_{vv}=-f$、$dr^2$ 係数が $g_{rr}=0$ です。また交差項は $2g_{vr}\,dv\,dr=2\,dv\,dr$ なので $g_{vr}=g_{rv}=1$ です。このように定めた $(v,r)$ 部分の計量と逆計量は
 
 $$
 (g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix},
@@ -359,7 +396,16 @@ $$
 (g^{ab})=\begin{pmatrix}0&1\\1&f\end{pmatrix}.
 $$
 
-積を取れば単位行列になり、$\det(g_{ab})=-1$ です。球座標の極を避ければ、4次元行列式は $-r^4\sin^2\vartheta$ で、$r>0$ の根で退化しません。$f$ はその根の近傍でも滑らかなので、この表示は座標域を根まで延長できます。
+二つの行列の積は単位行列であり、$\det(g_{ab})=(-f)\cdot0-1\cdot1=-1$ です。実対称な二次元行列の行列式が負なので時間・半径部分の固有値は異符号で、角度方向の正定値部分と合わせてLorentz符号を保ちます。球座標の極を避ければ、4次元行列式は $-r^4\sin^2\vartheta$ で、$r>0$ の根で退化しません。$f$ はその根の近傍でも滑らかなので、この表示は座標域を根まで延長できます。
+
+電磁場も $dt=dv-dr/f$ を使うと
+
+$$
+F=\frac Q{r^2}\left(dv-\frac{dr}{f}\right)\wedge dr
+=\frac Q{r^2}\,dv\wedge dr
+$$
+
+となります。$dr\wedge dr=0$ により $1/f$ は消え、$F$ もすべての正の根で滑らかです。したがって静的領域で成り立つEinstein–Maxwell方程式は、この滑らかな延長でも連続性によって成立します。
 
 $r=r_h$ を一定にする面の法線は $dr$ です。逆計量をこの法線に適用すると
 
@@ -374,7 +420,14 @@ g(\partial_v,\partial_v)=-f(r_h)=0,\qquad
 \partial_v(r)=0
 $$
 
-を満たし、面上を走る零方向となります。計量係数が $v$ に依存しないため $\partial_v$ はKilling場でもあり、[GR29のKilling地平線の定義](../GR29/index.md#def-gr29-killing-horizon)に対応します。この判定は重根でも成立し、$f'$ が零かどうかを仮定していません。
+を満たし、面上を走る零方向となります。さらにこの座標基底での計量双対は
+
+$$
+(\partial_v)^\flat=g_{vv}\,dv+g_{rv}\,dr=-f\,dv+dr,
+\qquad (\partial_v)^\flat\big|_{r=r_h}=dr
+$$
+
+です。$dr$ は面 $r=r_h$ の法共ベクトルで、$\partial_v$ は零でないので、Killing場の**法線性**まで示されました。計量係数が $v$ に依存しないため $\partial_v$ はKilling場でもあり、[GR29のKilling地平線の定義](../GR29/index.md#def-gr29-killing-horizon)のすべての条件に対応します。この判定は重根でも成立し、$f'$ が零かどうかを仮定していません。
 <!-- proof-end -->
 
 ここで静的領域と地平線を混同しないため、$f<0$ では $g_{tt}=-f>0$、$g_{rr}=1/f<0$ となり、$t$ が時間的な座標ではなくなります。外側で静止していた観測者を、この区間でも同じ意味で静止させることはできません。
@@ -573,7 +626,15 @@ $$
 =-f\,dv^2+2\,dv\,dr.
 $$
 
-従って $(g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix}$、$(g^{ab})=\begin{pmatrix}0&1\\1&f\end{pmatrix}$ です。行列式は $-1$、逆計量の $rr$ 成分は $f$ なので $r=M$ の法線 $dr$ は零です。元の $t$ と $v$ の関係が根で発散しても、新しい座標表示の計量自体は滑らかで退化しません。
+交差項が $2\,dv\,dr=2g_{vr}\,dv\,dr$ であることから $g_{vr}=g_{rv}=1$ と読み取れます。座標基底 $(\partial_v,\partial_r)$ で
+
+$$
+(g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix},
+\qquad (g^{ab})=\begin{pmatrix}0&1\\1&f\end{pmatrix},
+\qquad \det(g_{ab})=-1
+$$
+
+となり、二行列の積は単位行列です。$r=M$ の法線 $dr$ は $g^{-1}(dr,dr)=g^{rr}=f(M)=0$ なので零です。さらに $(\partial_v)^\flat=-f\,dv+dr=dr$ がその面で成り立ち、$\partial_v$ は[Killing地平線の定義](../GR29/index.md#def-gr29-killing-horizon)の法線条件を満たします。元の $t$ と $v$ の関係が根で発散しても、新しい座標表示の計量は滑らかで非退化であり、電磁場 $F=Qr^{-2}dv\wedge dr$ も滑らかです。
 <!-- solution-end -->
 
 <a id="ex-gr31-b03"></a>
