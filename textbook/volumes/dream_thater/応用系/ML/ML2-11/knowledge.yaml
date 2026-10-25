@@ -1,0 +1,56 @@
+chapter: ML2-11
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-10, STO2A]
+concepts:
+  - id: learning.mcmc-invariant-distribution
+    name: 不変分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不変分布）"]
+    requires: [stochastic.discrete-markov-chain]
+  - id: learning.markov-chain-monte-carlo
+    name: Markov連鎖Monte Carlo法
+    kind: definition
+    aliases: [MCMC法, Markov chain Monte Carlo]
+    introduction: formal
+    introduction_aliases: ["定義（Markov連鎖Monte Carlo法）"]
+    requires: [learning.mcmc-invariant-distribution, numerical.monte-carlo-estimator]
+  - id: learning.metropolis-hastings-kernel
+    name: Metropolis–Hastings遷移
+    kind: definition
+    aliases: [Metropolis–Hastings算法, Metropolis-Hastings transition]
+    introduction: formal
+    introduction_aliases: ["定義（Metropolis–Hastings遷移）"]
+    requires: [learning.markov-chain-monte-carlo, stochastic.markov-reversibility]
+  - id: learning.metropolis-hastings-balance
+    name: MH遷移の詳細釣合い
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（MH遷移の詳細釣合い）"]
+    requires: [learning.metropolis-hastings-kernel, stochastic.markov-reversibility]
+  - id: learning.random-scan-gibbs-kernel
+    name: random-scan Gibbs遷移
+    kind: definition
+    aliases: [無作為走査Gibbs遷移, random-scan Gibbs transition]
+    introduction: formal
+    introduction_aliases: ["定義（random-scan Gibbs遷移）"]
+    requires: [learning.markov-chain-monte-carlo]
+  - id: learning.gibbs-detailed-balance
+    name: random-scan Gibbsの詳細釣合い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（random-scan Gibbsの詳細釣合い）"]
+    requires: [learning.random-scan-gibbs-kernel, stochastic.markov-reversibility]
+  - id: learning.positive-power-mixing
+    name: 正の遷移行列べきによる幾何収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の遷移行列べきによる幾何収束）"]
+    requires: [learning.markov-chain-monte-carlo]
+  - id: learning.mcmc-stationary-mean-variance
+    name: 定常Markov連鎖の標本平均分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定常Markov連鎖の標本平均分散）"]
+    requires: [learning.markov-chain-monte-carlo]

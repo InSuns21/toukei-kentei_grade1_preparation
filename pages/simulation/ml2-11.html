@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-11 MCMC・Metropolis–Hastings・Gibbs 対話実験</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color:#172b40;background:#f5f8fc}
+*{box-sizing:border-box}body{margin:0}main{max-width:1040px;margin:auto;padding:18px}
+header,section{background:white;border:1px solid #cbd8e5;border-radius:9px;padding:16px;margin:12px 0}
+h1{font-size:1.65rem;margin-top:0}h2{font-size:1.2rem}p{line-height:1.65}
+.inputs,.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+label{display:grid;gap:5px;font-weight:600}input,select{font:inherit;padding:7px;width:100%;min-width:0;border:1px solid #768b9f}
+.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+button{font:inherit;padding:8px 13px;border:1px solid #275b87;background:#fff;color:#225482;border-radius:6px;cursor:pointer}
+button.primary{background:#205e91;color:white}button:disabled{opacity:.48;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #d78d24;outline-offset:2px}
+svg{width:100%;height:auto;border:1px solid #d1dce7;background:white}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid #dfe8f0;text-align:right;padding:6px}
+th:first-child,td:first-child{text-align:left}
+.scroll{max-height:295px;overflow:auto}.note{font-size:.9rem;color:#405569}
+.warning{color:#a12723;font-weight:bold}.series-a{color:#115d9f}.series-b{color:#a05d00}
+@media(max-width:640px){main{padding:7px}header,section{padding:11px}}
+</style>
+</head>
+<body><main>
+<header>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-11/index">← ML2-11 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-11：標本が偏る理由を見つける</h1>
+<p>有限状態の真の確率分布を全列挙できる模型で、実際にMCMCの遷移を生成します。<strong>初期位置が違う二本の鎖</strong>を比較し、経路・自己相関・真の確率との誤差を調べます。目標分布は理論値、鎖の数値はシミュレーション結果です。</p>
+</header>
+<section aria-labelledby="controls"><h2 id="controls">条件と実行</h2>
+<div class="inputs">
+<label>更新方式<select id="method"><option value="mh">Metropolis–Hastings：9状態</option><option value="gibbs">random-scan Gibbs：4状態</option></select></label>
+<label>提案の幅 σ（MHのみ、0.4〜4）<input id="width" type="number" min="0.4" max="4" step="0.2" value="1"></label>
+<label>相互作用 β（Gibbsのみ、0〜3）<input id="beta" type="number" min="0" max="3" step="0.2" value="1.38629436112"></label>
+<label>鎖Aの初期状態 <select id="initial"></select></label>
+<label>乱数seed（0〜4294967295）<input id="seed" type="number" min="0" max="4294967295" step="1" value="2111"></label>
+<label>捨てる初期遷移数（burn-in）<input id="burn" type="number" min="0" max="2000" step="10" value="50"></label>
+</div>
+<div class="buttons"><button type="button" id="reset">seedと条件で初期化</button><button type="button" id="step" class="primary">1遷移</button><button type="button" id="batch" class="primary">100遷移</button><button type="button" id="play">連続実行</button><button type="button" id="pause" disabled>一時停止</button></div>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="note">各鎖の上限は5000遷移。条件変更で両鎖を初期化します。burn-inの変更は表示集計だけを更新し、標本は引き直しません。別鎖はseed+1（32ビット巡回）を使い、初期状態を反対側の端にします。</p>
+</section>
+<section><h2>標本経路（最後の200遷移）</h2>
+<svg id="trace" viewBox="0 0 800 300" role="img" aria-label="遷移番号に対する鎖Aと鎖Bの観測値の経路。鎖Aは実線、鎖Bは破線"></svg>
+<p class="note"><span class="series-a">実線：鎖A</span> ／ <span class="series-b">破線：鎖B</span>。縦軸はMHでは状態値 x∈{−4,…,4}、Gibbsでは第一座標 x∈{−1,1}。横軸は遷移番号 t。図は見やすさのため最後の200遷移を表示し、統計量は全保持標本で計算します。</p>
+</section>
+<div class="panels">
+<section><h2>平均値と自己相関</h2>
+<table><thead><tr><th>指標</th><th>鎖A</th><th>鎖B</th></tr></thead><tbody id="summary"></tbody></table>
+<p id="target-mean" class="note"></p>
+<p class="note">自己相関は標本平均を引いた積の和を、全保持標本数×標本分散で割る定義。標本分散0なら未定義です。短い鎖の自己相関が小さくても収束保証にはなりません。</p>
+<div class="scroll"><table><thead><tr><th>lag</th><th>鎖A</th><th>鎖B</th></tr></thead><tbody id="acf"></tbody></table></div>
+</section>
+<section><h2>状態の出現頻度</h2>
+<div class="scroll"><table><thead><tr><th>状態</th><th>真のπ</th><th>鎖A</th><th>鎖B</th></tr></thead><tbody id="counts"></tbody></table></div>
+<p class="note">頻度はburn-in後の遷移時点のみ。鎖間の一致・真値への近さは有限長の経験的診断であり、どの初期値でも正しく混合したことの証明ではありません。</p>
+</section>
+</div>
+<section><h2>重要な仮定と失敗の見方</h2>
+<p id="model-note"></p>
+<p>MHの提案分布は各出発点で正規化した離散Gaussianなので、端では前向きと逆向きの提案確率が異なります。受理率は<strong>両方向の提案確率の比</strong>を含むので、端でも正しい定常分布を保ちます。幅が小さいと谷を越えるまで時間がかかります。Gibbsは正の同時質量から一座標ずつ条件付き分布で引き直します。</p>
+<p class="note">MHの「受理率」には提案が現在状態と同じで受理された場合も含まれます。状態が変化した率とは異なります。Gibbsは受理・棄却を行わないので受理率を表示しません。乱数は再現実験用の擬似乱数であり暗号用途ではありません。外部送信なし。</p>
+</section>
+</main>
+<script type="module">
+import { defaults, check, makeChain, diagnostics, observable, stateLabel } from "./ml2-11-model.mjs";
+const $ = id => document.getElementById(id), ns = "http://www.w3.org/2000/svg";
+const fmt = (x, digits=4) => x===null || !Number.isFinite(x) ? "—" : x.toFixed(digits);
+let a=null,b=null,timer=null;
+function lineRow(items){const tr=document.createElement("tr");for(const v of items){const td=document.createElement("td");td.textContent=String(v);tr.append(td);}return tr;}
+function table(id,rows){$(id).replaceChildren(...rows.map(lineRow));}
+function stop(){if(timer!==null)clearInterval(timer);timer=null;$("play").disabled=false;$("pause").disabled=true;}
+function say(msg,error=false){$("status").textContent=msg;$("status").className=error?"warning":"";}
+function options(){const method=$("method").value, limit=method==="mh"?9:4;
+  $("width").disabled=method!=="mh";$("beta").disabled=method!=="gibbs";
+  const old=Number($("initial").value);$("initial").replaceChildren();
+  for(let i=0;i<limit;i++){const option=document.createElement("option");option.value=String(i);option.textContent=stateLabel(method,i);$("initial").append(option);}
+  $("initial").value=String(Number.isInteger(old)&&old>=0&&old<limit?old:0);
+}
+function config(){for(const id of ["width","beta","seed","initial"])if($(id).value.trim()==="")throw new RangeError("空欄があります");
+  return check({method:$("method").value,width:Number($("width").value),beta:Number($("beta").value),seed:Number($("seed").value),initial:Number($("initial").value)});
+}
+function burn(){const x=Number($("burn").value);if($("burn").value.trim()===""||!Number.isInteger(x)||x<0||x>2000)throw new RangeError("burn-inは0〜2000の整数にしてください");return x;}
+function svg(name,attrs,parent,txt){const el=document.createElementNS(ns,name);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(txt!==undefined)el.textContent=txt;parent.append(el);return el;}
+function chart(){const root=$("trace");root.replaceChildren();if(!a)return;
+  const start=Math.max(0,a.states.length-201),end=a.states.length-1,span=Math.max(1,end-start);
+  const ymin=a.config.method==="mh"?-4.5:-1.5,ymax=-ymin;
+  const xx=t=>65+700*(t-start)/span, yy=v=>250-210*(v-ymin)/(ymax-ymin);
+  for(const v of a.config.method==="mh"?[-4,-2,0,2,4]:[-1,0,1]){
+    const y=yy(v);svg("line",{x1:65,x2:765,y1:y,y2:y,stroke:"#e2eaf2"},root);svg("text",{x:55,y:y+4,"text-anchor":"end","font-size":13},root,String(v));
+  }
+  svg("line",{x1:65,x2:765,y1:250,y2:250,stroke:"#556779"},root);
+  for(const t of [start,Math.floor((start+end)/2),end])svg("text",{x:xx(t),y:278,"text-anchor":"middle","font-size":13},root,String(t));
+  for(const [chain,color,dash] of [[a,"#155e9b",null],[b,"#b16e11","7 5"]]){
+    const path=chain.states.slice(start).map((s,i)=>`${i===0?"M":"L"}${xx(start+i).toFixed(2)},${yy(observable(chain.config.method,s)).toFixed(2)}`).join(" ");
+    svg("path",{d:path,fill:"none",stroke:color,"stroke-width":2.5,...(dash?{"stroke-dasharray":dash}:{})},root);
+  }
+  svg("text",{x:410,y:295,"text-anchor":"middle","font-size":13},root,"遷移番号 t");
+}
+function display(){const d=burn(),p=diagnostics(a,d),q=diagnostics(b,d),observed=i=>observable(a.config.method,i);
+  table("summary",[["遷移数",a.moves.length,b.moves.length],["保持標本数",p.n,q.n],["標本平均",fmt(p.mean),fmt(q.mean)],["標本分散",fmt(p.variance),fmt(q.variance)],["MH受理率",fmt(p.acceptance),fmt(q.acceptance)]]);
+  table("acf",Array.from({length:Math.max(p.acf.length,q.acf.length)},(_,i)=>[i+1,fmt(p.acf[i]??null),fmt(q.acf[i]??null)]));
+  table("counts",a.pi.map((v,i)=>[stateLabel(a.config.method,i),fmt(v),p.n?fmt(p.visits[i]/p.n):"—",q.n?fmt(q.visits[i]/q.n):"—"]));
+  const mu=a.pi.reduce((sum,v,i)=>sum+v*observed(i),0);
+  $("target-mean").textContent="真の期待値 Eπ[h] = "+fmt(mu)+"。標本平均の差は有限反復誤差と初期値依存の影響を含みます。";
+  $("model-note").textContent=a.config.method==="mh"?"9状態 x=−4,…,4 の二峰性分布：重み exp(−(x+3)²/2)+exp(−(x−3)²/2)。提案幅 σ="+a.config.width+"。":"4状態 (x,y)∈{−1,1}²：重み exp(βxy)、β="+fmt(a.config.beta)+"。各遷移で一様に選んだ一座標を正確な条件付き分布から更新。";
+  chart();
+}
+function reset(){stop();try{const c=config();burn();const other={...c,seed:(c.seed+1)>>>0,initial:c.method==="mh"?8-c.initial:3-c.initial};
+  a=makeChain(c);b=makeChain(other);display();$("step").disabled=false;$("batch").disabled=false;say("条件を反映しました。両鎖を初期化しています。");
+}catch(e){a=b=null;$("step").disabled=true;$("batch").disabled=true;say(e.message,true);}}
+function advance(n){if(!a)return;try{a.advance(n);b.advance(n);display();say("両鎖を"+n+"遷移進めました（各"+a.moves.length+"遷移）。");if(a.moves.length>=5000){stop();$("step").disabled=true;$("batch").disabled=true;}}
+catch(e){stop();say(e.message,true);}}
+$("method").addEventListener("change",()=>{options();reset();});
+for(const id of ["width","beta","initial","seed"])$(id).addEventListener("change",reset);
+$("burn").addEventListener("change",()=>{try{if(a){display();say("burn-in後の集計を更新しました。標本は再抽出していません。");}}catch(e){say(e.message,true);}});
+$("reset").addEventListener("click",reset);
+$("step").addEventListener("click",()=>advance(1));$("batch").addEventListener("click",()=>advance(Math.min(100,5000-a.moves.length)));
+$("play").addEventListener("click",()=>{if(!a||timer!==null)return;$("play").disabled=true;$("pause").disabled=false;timer=setInterval(()=>advance(Math.min(10,5000-a.moves.length)),150);});
+$("pause").addEventListener("click",()=>{stop();say("一時停止しました。状態と乱数系列は保持されています。");});
+$("method").value=defaults.method;$("width").value=String(defaults.width);$("beta").value=String(defaults.beta);$("seed").value=String(defaults.seed);
+options();reset();
+</script>
+</body></html>
