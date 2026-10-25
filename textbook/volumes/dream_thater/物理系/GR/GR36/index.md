@@ -157,7 +157,7 @@ $$
 
 もし $\lambda-\lambda_0=2/|\theta_0|$ まで $\theta$ が有限の負値であり続ければ、左辺は負、右辺は零となって矛盾します。したがってそれ以前に $\theta\to-\infty$、または合同の滑らかな正面積表示が破れます。
 
-焦点への接続も計算しておきます。$T:=2/|\theta_0|$、$t:=\lambda-\lambda_0$ とすると、滑らかで $\theta<0$ の間は上の逆数不等式から $1/\theta\ge-(T-t)/2$。両辺が負なので逆数を取ると $\theta\le-2/(T-t)$ です。[面積密度の輸送式](#prop-gr36-area-transport) $a'/a=\theta$ を $0\le t<T$ で積分して
+焦点への接続も計算しておきます。$T:=2/|\theta_0|$、$t:=\lambda-\lambda_0$ とすると、滑らかで $\theta<0$ の間は直前に得た $1/\theta$ の評価から $1/\theta\ge-(T-t)/2$。両辺が負なので逆数を取ると $\theta\le-2/(T-t)$ です。[面積密度の輸送式](#prop-gr36-area-transport) $a'/a=\theta$ を $0\le t<T$ で積分して
 
 $
 \begin{aligned}
