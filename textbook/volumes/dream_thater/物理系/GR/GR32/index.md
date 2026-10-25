@@ -329,7 +329,7 @@ g(\partial_t+\omega\partial_\varphi,\partial_t+\omega\partial_\varphi)
 =-\frac{\Delta\Sigma}{A}<0
 $$
 
-です。最後の等式には[時間角度ブロックの行列式](#prop-gr32-inverse)を使い、外部では $\Delta,\Sigma,A>0$ なので時間的です。$A=R^2-a^2\Delta s^2=R\Sigma+2Mra^2s^2>0$ と展開すれば正性も直接分かります。
+です。最後の等式には[時間角度ブロックの行列式](#prop-gr32-inverse)を使います。外部 $r>r_+$ では $\Delta=(r-r_+)(r-r_-)>0$、$\Sigma>0$ です。また $A=R^2-a^2\Delta s^2=R\Sigma+2Mra^2s^2>0$ と展開できるので、接ベクトルのノルムは負となり時間的であることが直接分かります。
 <!-- definition-example-end -->
 
 <a id="prop-gr32-frame-dragging"></a>
