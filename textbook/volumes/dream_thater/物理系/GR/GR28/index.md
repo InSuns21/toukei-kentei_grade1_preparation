@@ -394,7 +394,14 @@ $$
 g_2=-2\sec^4p\sec^4q\,dp\,dq.
 $$
 
-$|p|,|q|<\pi/2$ では $\cos p,\cos q>0$ だから、$\omega^2=\tfrac12\cos^4p\cos^4q>0$ を掛ければ $\omega^2g_2=-dp\,dq$ です。共形倍率が境界で零へ向かっても、内部で正なら[LORG8の共形条件](../../../幾何系/LORG/LORG8/index.md#def-lorg8-conformal-rescaling)を満たします。
+$|p|,|q|<\pi/2$ では $\cos p,\cos q>0$ なので、正の共形倍率として
+
+$$
+\omega^2=\frac12\cos^4p\cos^4q>0,\qquad
+\omega^2g_2=-dp\,dq
+$$
+
+を得ます。倍率が境界で零へ近づいても、内部で滑らかかつ正なら[LORG8の共形条件](../../../幾何系/LORG/LORG8/index.md#def-lorg8-conformal-rescaling)を満たします。
 <!-- solution-end -->
 
 <a id="ex-gr28-a03"></a>
