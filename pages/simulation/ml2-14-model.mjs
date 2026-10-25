@@ -16,7 +16,11 @@ export function forward(parameters, x, target) {
   const a = z.map(relu);
   const y = p.v1 * a[0] + p.v2 * a[1] + p.b2;
   const residual = y - target;
-  return { z, a, y, residual, loss: residual * residual / 2 };
+  const loss = residual * residual / 2;
+  if (![...z, ...a, y, residual, loss].every(Number.isFinite)) {
+    throw new RangeError("numerical overflow in the forward pass");
+  }
+  return { z, a, y, residual, loss };
 }
 
 export function reverseGradient(parameters, x, target) {

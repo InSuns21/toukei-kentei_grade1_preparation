@@ -75,6 +75,8 @@ test("at a kink an implementation derivative and central difference can disagree
 
 test("finite-value and step-size validation", () => {
   assert.throws(() => forward(defaultParameters, Infinity, 1), RangeError);
+  assert.throws(() => forward({ ...defaultParameters, w11: 1e308 }, 1e308, 1),
+    /overflow/);
   assert.throws(() => gradientCheck(defaultParameters, 1, 1.3, 0), RangeError);
   assert.throws(() => gradientCheck(defaultParameters, 1, 1.3, 1.1), RangeError);
 });
