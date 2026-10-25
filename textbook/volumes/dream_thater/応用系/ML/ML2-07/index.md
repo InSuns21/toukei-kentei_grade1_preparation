@@ -8,9 +8,19 @@
 
 ## 1. 少数の因子が観測を動かす
 
-観測値 $X$ は $p$ 次元、見えない因子 $Z$ は $q$ 次元で、$1\le q\le p$ とする。観測 $j$ と因子 $a$ の結び付く強さを行列 $W$ の成分 $W_{ja}$ として持つ。観測固有の誤差 $\varepsilon$ がそこへ加わる。$W$ の列を**負荷ベクトル**、その成分を**因子負荷量**という。列の数 $q$ が潜在次元である。
+観測値 $X\in\mathbb R^p$ と見えない因子 $Z\in\mathbb R^q$ を考え、$1\le q\le p$ とする。観測 $j$ と因子 $a$ の結び付く強さは、行列 $W\in\mathbb R^{p\times q}$ の成分 $W_{ja}$ で表す。
 
-二因子なら、観測の第 $j$ 成分は $X_j=\mu_j+W_{j1}Z_1+W_{j2}Z_2+\varepsilon_j$ と書ける。各因子が標準正規分布に従い、観測誤差もGaussianで独立という仮定を足すと、積分や条件付き推論を行列計算に還元できる。
+観測固有の誤差 $\varepsilon$ がそこへ加わる。$W$ の列を**負荷ベクトル**、その成分を**因子負荷量**という。列の数 $q$ が潜在次元である。
+
+二因子なら、観測の第 $j$ 成分は $X_j=\mu_j+W_{j1}Z_1+W_{j2}Z_2+\varepsilon_j$ と書ける。各因子が標準正規分布に従い、観測誤差もGaussianで独立という仮定を足すと、積分や条件付き推論を行列計算に還元できる。ここでの $W$ の列は、PCAの負荷ベクトルと違い、単位長や相互直交を仮定しない。
+
+以下の $N_d(m,\Sigma)$ は[非退化多変量正規密度](../ML1-07/index.md#def-ml1-07-gaussian)に対応する分布である。同章で導入した実対称正定値の条件は、任意の非零ベクトルについて
+
+$$
+v^{\mathsf T}\Sigma v>0
+$$
+
+となることである。これを誤差共分散 $\Psi$ に適用すると、誤差のどの非零方向にも正の分散があり、密度計算に必要な逆行列 $\Psi^{-1}$ と正の行列式 $\det\Psi>0$ が保証される。
 
 <a id="def-ml2-07-factor-model"></a>
 
@@ -134,7 +144,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-07-posterior-reconstruction -->
-**定義の確認**。$p=2,q=1$、$\mu=0$、$W=(2,1)^{\mathsf T}$、$\Psi=I_2$、$x=(2,1)^{\mathsf T}$ とする。正のGaussian密度が分子・分母に現れ、$C=\left(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\right)$ は正定値（行列式6）である。後の[平方完成定理](#thm-ml2-07-posterior)で $m(x)=5/6$ と確認するので、再構成は $(5/3,5/6)^{\mathsf T}$。観測点 $(2,1)^{\mathsf T}$ とのずれは雑音を考慮した縮小である。
+**定義の確認**。$p=2,q=1$、$\mu=0$、$W=(2,1)^{\mathsf T}$、$\Psi=I_2$、$x=(2,1)^{\mathsf T}$ とする。$Z$ と $\varepsilon$ は独立、$\Psi$ は正定値であり、[周辺分布定理](#thm-ml2-07-marginal)の $C=WW^{\mathsf T}+I_2$ は
+
+$$
+C=\begin{pmatrix}5&2\\2&2\end{pmatrix},\qquad
+v^{\mathsf T}Cv=\|W^{\mathsf T}v\|_2^2+\|v\|_2^2>0\quad(v\ne0)
+$$
+
+となる。したがって分母 $\phi_2(x;0,C)$ は正であり、同定理による周辺化は
+
+$$
+\int_{\mathbb R}\phi_2(x;Wz,I_2)\phi_1(z;0,1)\,dz=\phi_2(x;0,C)
+$$
+
+を与えるので、事後密度の積分は1である。さらにこの観測値を固定すると、分子の指数に現れる二次式は
+
+$$
+z^2+(2-2z)^2+(1-z)^2=6\left(z-\frac56\right)^2+\frac56.
+$$
+
+よって事後分布は平均 $m(x)=5/6$、分散 $1/6$ のGaussianとなり、再構成は $(5/3,5/6)^{\mathsf T}$。観測点 $(2,1)^{\mathsf T}$ とのずれは雑音を考慮した縮小である。一般次元の平方完成は次の定理で示す。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-07-posterior"></a>
@@ -208,7 +237,7 @@ $$
 
 ## 4. 観測だけでは潜在軸を特定できない
 
-[混合模型のラベル交換](../ML2-05/index.md#thm-ml2-05-label-switch)では、見えないラベルの番号を入れ替えても観測分布が変わらなかった。連続潜在模型ではより広く、標準Gaussianの潜在座標を直交回転しても同じ現象が起こる。
+[混合模型のラベル交換](../ML2-05/index.md#thm-ml2-05-label-switch)では、見えないラベルの番号を入れ替えても観測分布が変わらなかった。連続潜在模型ではより広く、標準Gaussianの潜在座標を直交回転しても同じ現象が起こる。$q$ 次実直交行列全体の集合を $O(q)$ と書く。これは $R^{\mathsf T}R=I_q$ を満たす正方行列の集合である。正方行列では左逆行列の存在から $R^{-1}=R^{\mathsf T}$ となり、$RR^{\mathsf T}=I_q$ も従う。
 
 <a id="def-ml2-07-rotation-nonidentifiability"></a>
 
@@ -224,14 +253,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-07-rotation-nonidentifiability -->
-**定義の確認**。$q=p=2$、$W=\operatorname{diag}(2,1)$、$R=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ とする。$R^{\mathsf T}R=I_2$ を行列積で確かめられ、$WR=\left(\begin{smallmatrix}0&-2\\1&0\end{smallmatrix}\right)\ne W$。しかし
+**定義の確認**。$q=p=2$、$\mu=0$、$W=\operatorname{diag}(2,1)$、$\Psi=I_2$、$R=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ とし、$Z$ と $\varepsilon$ は独立とする。$\Psi$ は実対称正定値である。まず
+
+$$
+R^{\mathsf T}R=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+=I_2=RR^{\mathsf T}
+$$
+
+なので $R\in O(2)$ であり、$WR=\left(\begin{smallmatrix}0&-2\\1&0\end{smallmatrix}\right)\ne W$。しかし
 
 $$
 WW^{\mathsf T}=\begin{pmatrix}4&0\\0&1\end{pmatrix}
 =(WR)(WR)^{\mathsf T}
 $$
 
-であり、同じ $\mu,\Psi$ を使えば観測共分散が等しい。この例は「行列成分が異なる」条件と「観測分布が等しい」条件をともに確認している。$q=1$ の直交変換は符号反転 $R=-1$ も含む。
+であり、同じ $\mu,\Psi$ を使えば観測共分散が等しい。[因子模型の周辺Gaussian分布と共分散](#thm-ml2-07-marginal)により平均も同じなら観測分布そのものが等しい。この例は「行列成分が異なる」条件と「観測分布が等しい」条件をともに確認している。$q=1$ の直交変換は符号反転 $R=-1$ も含む。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-07-rotation"></a>
@@ -287,7 +324,13 @@ $WW^{\mathsf T}$ は正半定値であり、その零固有空間は $W^{\mathsf
 <!-- proof-start -->
 ### 証明
 
-任意の $v$ について $v^{\mathsf T}WW^{\mathsf T}v=\|W^{\mathsf T}v\|_2^2\ge0$。実対称行列の[固有空間によるPCAの表現](../ML1-19/index.md#thm-ml1-19-pca-spectral)と同じ直交対角化を $WW^{\mathsf T}$ に行う。固有値を $d_j\ge0$ とすれば $C$ の固有値は $d_j+\sigma^2$。核は $\ker(WW^{\mathsf T})=\ker W^{\mathsf T}$ だから、正の固有空間の直和はその直交補空間 $\operatorname{im}W$ であり、次元は $\operatorname{rank}W$。$\square$
+任意の $v$ について $v^{\mathsf T}WW^{\mathsf T}v=\|W^{\mathsf T}v\|_2^2\ge0$。実対称行列の[固有空間によるPCAの表現](../ML1-19/index.md#thm-ml1-19-pca-spectral)と同じ直交対角化を $WW^{\mathsf T}$ に行う。固有値を $d_j\ge0$ とすれば $C$ の固有値は $d_j+\sigma^2$。零固有空間は
+
+$$
+\ker(WW^{\mathsf T})=\{v:\|W^{\mathsf T}v\|_2^2=0\}=\ker W^{\mathsf T}.
+$$
+
+$W^{\mathsf T}v=0$ は $v$ が $W$ のすべての列に直交することだから、[直交補空間の定義](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-orthogonal-complement)により $\ker W^{\mathsf T}=(\operatorname{im}W)^\perp$ である。従って正の固有空間の直和はその直交補空間 $\operatorname{im}W$ であり、次元は $\operatorname{rank}W$。$\square$
 <!-- proof-end -->
 
 例として $W=(2,1)^{\mathsf T}$、$\sigma^2=1$ なら $W$ と直交する方向では潜在分散0、$W$ 方向では分散 $\|W\|^2=5$ が加わる。ゆえに $C=\left(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\right)$ の固有値は6と1。FAの例の7と3とは異なる。$\sigma^2$ を小さくするだけで「必ずPCAと一致する」というわけではなく、どの値をデータから推定するかが重要となる。
@@ -357,7 +400,25 @@ $$
 \sum_{i=1}^k r_i\le\sum_{j=1}^k\lambda_j
 $$
 
-が成り立つ。実際、$v_i=\sum_j(u_j^{\mathsf T}v_i)u_j$ と展開して $b_j=\sum_{i=1}^k(u_j^{\mathsf T}v_i)^2$ とすれば、直交射影の性質から $0\le b_j\le1$、$\sum_jb_j=k$。よって $\sum_i r_i=\sum_j\lambda_jb_j$ は、大きい順の $\lambda_j$ に重みを1ずつ割り当てた $\sum_{j\le k}\lambda_j$ を超えない。
+が成り立つ。[PCAの固有空間定理](../ML1-19/index.md#thm-ml1-19-pca-spectral)で用いた射影重みを、この固有基底にも適用する。$v_i=\sum_j(u_j^{\mathsf T}v_i)u_j$ と展開し、先頭 $k$ 本への直交射影を $P_k=\sum_{i=1}^kv_iv_i^{\mathsf T}$ と置けば
+
+$$
+b_j=\sum_{i=1}^k(u_j^{\mathsf T}v_i)^2=\|P_ku_j\|_2^2,\qquad
+0\le b_j\le1,\qquad
+\sum_{j=1}^pb_j=\sum_{i=1}^k\|v_i\|_2^2=k.
+$$
+
+従って部分和は $\sum_{i=1}^k r_i=\sum_j\lambda_jb_j$ である。$j\le k$ では $\lambda_j\ge\lambda_k$ と $b_j-1\le0$、$j>k$ では $\lambda_j\le\lambda_k$ と $b_j\ge0$ だから
+
+$$
+\begin{aligned}
+\sum_{j=1}^p\lambda_jb_j-\sum_{j=1}^k\lambda_j
+&=\sum_{j\le k}\lambda_j(b_j-1)+\sum_{j>k}\lambda_jb_j\\
+&\le\lambda_k\left(\sum_{j\le k}(b_j-1)+\sum_{j>k}b_j\right)=0.
+\end{aligned}
+$$
+
+これで必要な部分和不等式を得た。
 
 係数 $a_i$ を差分で表示すると
 
@@ -385,14 +446,30 @@ $$
 H(t)=(p-q)\log t+\frac{\sum_{j>q}\lambda_j}{t},\qquad t>0
 $$
 
-であり、$H'(t)=((p-q)t-\sum_{j>q}\lambda_j)/t^2$ から $t=s_*^2$ で大域最小となる。実際、$t\downarrow0$ では正の尾部和により $H\to+\infty$、$t\to\infty$ でも $H\to+\infty$。仮定 $\lambda_q>s_*^2$ により $c_j=\lambda_j$（$j\le q$）、$c_j=s_*^2$（$j>q$）は順序条件と $c_j\ge s_*^2$ を同時に満たす。したがって個別下界をすべて一度に達成し、全域最小である。
+である。尾部固有値の和が正なので、導関数と端点挙動は
+
+$$
+H'(t)=\frac{(p-q)t-\sum_{j>q}\lambda_j}{t^2},\qquad
+\lim_{t\downarrow0}H(t)=\lim_{t\to\infty}H(t)=+\infty
+$$
+
+となり、$t=s_*^2$ で大域最小となる。仮定 $\lambda_q>s_*^2$ の下では、$j\le q$ に $c_j=\lambda_j$、$j>q$ に $c_j=s_*^2$ を選ぶと、固有値の順序と $c_j\ge s_*^2$ を同時に満たす。したがって個別下界をすべて一度に達成し、全域最小である。
 
 $\widehat C-s_*^2I_p=\sum_{j\le q}(\lambda_j-s_*^2)u_ju_j^{\mathsf T}$ は正半定値で階数 $q$。提示した $\widehat W$ は $\widehat W\widehat W^{\mathsf T}=\widehat C-s_*^2I_p$ を満たすため許されるPPCA母数である。各 $\lambda_j-s_*^2>0$ なので $\operatorname{im}\widehat W=\operatorname{span}\{u_1,\ldots,u_q\}$。$\square$
 <!-- proof-end -->
 
 **具体例**。$p=2,q=1$、$S=\operatorname{diag}(9,1)$ とする。$\lambda_1=9,\lambda_2=1$、$s_*^2=1>0$、$9>1$ なので定理の条件が成り立つ。$U_1=e_1$ を選ぶと $\widehat W=(\sqrt8,0)^{\mathsf T}$、$\widehat C=\operatorname{diag}(9,1)=S$。PCAの主軸は $e_1$ と一致するが、以下で再構成の係数は1ではなく $8/9$ になる。
 
-**条件が破れるとき**。$S=\operatorname{diag}(1,1)$、$q=1$ なら $s_*^2=1$、$\lambda_q=1$ で厳密不等式が破れ、$W=0$ も最尤解になる。潜在軸を推定できない。さらに $S=\operatorname{diag}(9,0)$ なら $s_*^2=0$ で模型の $\sigma^2>0$ という条件から外れる。$C=\operatorname{diag}(9,t)$、$t\downarrow0$ とすると $F(C)=\log9+1+\log t\to-\infty$、尤度は上に非有界で、有限の最尤推定値が存在しない。数値計算の丸めで零分散を許してよいわけではない。
+**条件が破れるとき**。$S=\operatorname{diag}(1,1)$、$q=1$ なら $s_*^2=\lambda_q=1$ で厳密不等式が破れ、$W=0$ も最尤解になる。潜在軸を推定できない。
+
+さらに $S=\operatorname{diag}(9,0)$ なら $s_*^2=0$ で模型の $\sigma^2>0$ という条件から外れる。$C_t=\operatorname{diag}(9,t)$（$0<t<9$）は $W_t=(\sqrt{9-t},0)^{\mathsf T}$ と $\sigma^2=t$ で実現できる。このとき
+
+$$
+F(C_t)=\log\det C_t+\operatorname{tr}(C_t^{-1}S)
+=\log9+1+\log t\longrightarrow-\infty\qquad(t\downarrow0).
+$$
+
+したがって尤度は上に非有界で、有限の最尤推定値は存在しない。数値計算の丸めで零分散を許してよいわけではない。
 
 ## 6. PCA射影とPPCA再構成の差
 
