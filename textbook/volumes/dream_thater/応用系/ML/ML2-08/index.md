@@ -28,11 +28,13 @@ $$
 q(z)>0\ \Longrightarrow\ f(z)>0
 $$
 
-> が成り立つとき、$q$ は事後分布 $r$ に絶対連続（記号 $q\ll r$）という。
+> が成り立つとき、[INFO2で導入した台の包含条件](../../INFO/INFO2/index.md#def-info2-relative-entropy)と同じ意味で、$q$ は事後分布 $r$ に絶対連続（記号 $q\ll r$）という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-08-variational-family -->
-**定義の確認**。先ほどの $f=(1/4,1/2)$ では両成分が正だから、$q=(1/2,1/2)$ も $q=(1,0)$ も正規化された変分分布であり $q\ll r$ を満たす。$\mathcal Q=\{(t,1-t):1/4\le t\le3/4\}$ も空でない変分族である。ところが $f=(1/4,0)$ と置き直すと $r=(1,0)$ になり、$q=(1/2,1/2)$ は第2状態で $q>0,r=0$ となるため、絶対連続ではない。単なる非負性・総和1と台の条件は別々に検査する。
+**定義の確認**。先ほどの $f=(1/4,1/2)$ では $e=3/4>0$、$r=(1/3,2/3)$ で両成分が正である。候補 $q=(1/2,1/2)$ と $q=(1,0)$ はともに非負で、成分和はそれぞれ $1/2+1/2=1$、$1+0=1$。正の $q$ を持つ状態では必ず $r>0$ だから、両候補は $q\ll r$ も満たす。
+
+変分族 $\mathcal Q=\{(t,1-t):1/4\le t\le3/4\}$ の各候補も $t,1-t\ge1/4>0$ かつ成分和1である。例えば $t=1/2$ を含むので、この族は空でない。ところが $f=(1/4,0)$ と置き直すと $r=(1,0)$ になり、$q=(1/2,1/2)$ は第2状態で $q>0,r=0$ となるため、絶対連続ではない。単なる非負性・総和1と台の条件は別々に検査する。
 <!-- definition-example-end -->
 
 $q(z)=0$ の状態は期待値に寄与しない。したがって $q$ の台 $S_q=\{z:q(z)>0\}$ だけで和を取れば、$0/0$ の対数を作らずに済む。この限定した和が次の下界を定義する。
@@ -62,7 +64,14 @@ $q=(1,0)$ なら和は第1状態だけで、$\mathcal L(q)=\log(1/4)$。第2状�
 
 ## 2. 周辺尤度・ELBO・KL の三角関係
 
-[INFO2の相対エントロピー（KL）](../../INFO/INFO2/index.md#def-info2-relative-entropy)は二分布のずれを非対称に測る量だった。ここで使う向きは $D(q\|r)$ であって $D(r\|q)$ ではない。$r(z)=f(z)/e$ を代入して、$q$ に関する和の中で定数 $\log e$ を取り出そう。
+[INFO2の相対エントロピー（KL）](../../INFO/INFO2/index.md#def-info2-relative-entropy)は二分布のずれを非対称に測る量だった。ただしINFO2の定義は底2（bit）であり、本講のELBOは自然対数（nat）である。[ML2-01の自然対数によるKL](../ML2-01/index.md#thm-ml2-01-conditional-kl-regret)と同じ単位に揃え、以下では $q\ll r$ に対して
+
+$$
+D(q\|r):=\sum_{z\in S_q}q(z)\log\frac{q(z)}{r(z)}
+=(\log2)D_{\mathrm{INFO2}}(q\|r)
+$$
+
+と書く。$q\not\ll r$ なら $D(q\|r)=+\infty$ とする。ここで $D_{\mathrm{INFO2}}$ は底2の量、$\log$ は自然対数であり、係数 $\log2$ を落とすと後の恒等式は成り立たない。使う向きは $D(q\|r)$ であって $D(r\|q)$ ではない。$r(z)=f(z)/e$ を代入して、$q$ に関する和の中で定数 $\log e$ を取り出そう。
 
 <a id="thm-ml2-08-elbo-identity"></a>
 
@@ -84,7 +93,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$S_q=\{z:q(z)>0\}$ とする。$q\ll r$ によりこの集合では $f(z)>0$ かつ $r(z)>0$ なので、すべての対数が定義される。[相対エントロピーの定義](../../INFO/INFO2/index.md#def-info2-relative-entropy)から
+$S_q=\{z:q(z)>0\}$ とする。$q\ll r$ によりこの集合では $f(z)>0$ かつ $r(z)>0$ なので、すべての対数が定義される。上で底2から換算した[相対エントロピーの定義](../../INFO/INFO2/index.md#def-info2-relative-entropy)から
 
 $$
 \begin{aligned}
@@ -141,7 +150,14 @@ $q\not\ll r$ なら $q(z_0)>0,r(z_0)=0$ となる $z_0$ がある。$e>0$ から
 
 潜在因子が連続なら和を積分に置き換える。[ML2-07の連続Gaussian因子](../ML2-07/index.md#def-ml2-07-factor-model)はその具体例である。ただし離散と違い、密度の零集合を**ほとんど至る所**で扱い、対数比の可積分性が必要になる。
 
-ここでは $\Omega\subset\mathbb R^d$ を可測集合とし、すべての密度は同じLebesgue測度 $dz$ に関して定義されるとする。固定した $x$ について $f_x(z)=p_\theta(x,z)\ge0$ を可測な同時密度の断面とし、$e=\int_\Omega f_x(z)\,dz\in(0,\infty)$ と仮定する。$r_x(z)=f_x(z)/e$ は積分1の事後密度である。$q$ も $\Omega$ 上の確率密度で、$q(z)>0$ なら $f_x(z)>0$ がほとんど至る所で成り立つ場合、$q\ll r_x$ と書く。
+ここでは $\Omega\subset\mathbb R^d$ を可測集合とし、すべての密度は同じLebesgue測度 $dz$ に関して定義されるとする。固定した観測値 $x$ について、可測な同時密度の断面 $f_x(z)=p_\theta(x,z)\ge0$ を考え、
+
+$$
+e=\int_\Omega f_x(z)\,dz\in(0,\infty),\qquad
+r_x(z)=\frac{f_x(z)}e,\qquad \int_\Omega r_x(z)\,dz=1
+$$
+
+と仮定・定義する。$r_x$ は事後密度で、$q$ も $\Omega$ 上の確率密度とする。[ML2-01の密度KLにおける台の条件](../ML2-01/index.md#def-ml2-01-density-log-loss)を $d$ 次元で用い、$q(z)>0$ なら $f_x(z)>0$ がほとんど至る所で成り立つ場合、$q\ll r_x$ と書く。
 
 <a id="def-ml2-08-elbo-density"></a>
 
@@ -213,7 +229,7 @@ D(q\|r_x)
 \end{aligned}
 $$
 
-非負性と等号条件をこの $d$ 次元の場合にも確認する。$A=\{z:q(z)>0\}$ とし、正の比 $u(z)=r_x(z)/q(z)$ に $\log u\le u-1$ を適用すると
+非負性と等号条件をこの $d$ 次元の場合にも確認する。$A=\{z:q(z)>0\}$ とし、[Gibbs不等式の証明で用いた対数不等式](../../INFO/INFO2/index.md#thm-info2-gibbs) $\log u\le u-1$（自然対数、等号は $u=1$）を正の比 $u(z)=r_x(z)/q(z)$ に適用すると
 
 $$
 q(z)\log\frac{q(z)}{r_x(z)}\ge q(z)-r_x(z)\qquad(z\in A).
@@ -239,11 +255,20 @@ $$
 
 **もう一つの重要な書き換え**。$f_x(z)=p_\theta(x\mid z)p_\theta(z)$ と因子分解でき、$q\ll p_\theta(z)$、かつ $\log p_\theta(x\mid z)$ と $\log(p_\theta(z)/q(z))$ がともに $q$ に関して絶対可積分なら、
 
+<a id="eq-ml2-08-prior-decomposition"></a>
+
 $$
 \mathcal L(q)=E_q[\log p_\theta(x\mid Z)]-D(q\|p_\theta(z)).
 $$
 
-ここで右辺第1項は**観測の適合度**、第2項は**事前分布からのずれへの罰則**である。これは単なる対数の分解だが、二つの項を別々に書くにはそれぞれの可積分性を確認する必要がある。$q\ll p_\theta(z)$ だけでは観測尤度が零になる状態を避けたことにはならない。
+ここで右辺第1項は**観測の適合度**、第2項は**事前分布からのずれへの罰則**である。$q$ の台上で使った対数の展開は
+
+$$
+\log\frac{f_x(z)}{q(z)}
+=\log p_\theta(x\mid z)+\log\frac{p_\theta(z)}{q(z)}
+$$
+
+であり、各項を $q$ で積分すると上の分解が得られる。潜在集合が有限なら積分を有限和へ換え、$q(z)>0$ の状態で事前確率・観測尤度が正であることを確認すれば、同じ式が成り立つ。二つの項を別々に書くにはそれぞれの可積分性を確認する必要があり、$q\ll p_\theta(z)$ だけでは観測尤度が零になる状態を避けたことにはならない。
 
 ## 5. 最適化の意味：近似事後分布を選ぶ
 
@@ -413,7 +438,18 @@ $$
 \end{aligned}
 $$
 
-ここでは $\varepsilon\log(2\varepsilon)\to0$ を用いた。同様に密度比の対数を展開すれば $D(q\|r_x)=\int_0^1-\log(2z)dz=1-\log2$。和は0で $\log e=0$ と一致する。
+ここでは $\varepsilon\log(2\varepsilon)\to0$ を用いた。KLも同じ台 $z>0$ 上で積分でき、対数の符号を反転して
+
+$$
+\begin{aligned}
+D(q\|r_x)
+&=\lim_{\varepsilon\downarrow0}\int_\varepsilon^1\log\frac{1}{2z}\,dz\\
+&=\lim_{\varepsilon\downarrow0}\bigl[-z\log(2z)+z\bigr]_\varepsilon^1
+=1-\log2.
+\end{aligned}
+$$
+
+和は0で $\log e=0$ と一致する。
 <!-- solution-end -->
 
 ### ML2-08-B01 一般有限集合で式を再導出する
@@ -472,7 +508,7 @@ $Z\in\{0,1\}$、$p(Z=0)=p(Z=1)=1/2$、$p(x\mid0)=1/4$、$p(x\mid1)=3/4$ とす�
 <!-- solution-start -->
 #### 詳細解答
 
-両状態で事前も尤度も正だから、[ELBOの事前・尤度分解](#thm-ml2-08-elbo-density-identity)の有限和版を使える。同時値は $f=(1/8,3/8)$、$e=1/2$、事後分布は $r=(1/4,3/4)$ であり、選んだ $q=r$ である。第一項は
+両状態で事前も尤度も正だから、[ELBOの事前・尤度分解](#eq-ml2-08-prior-decomposition)の有限和版を使える。各状態で $f(z)=p(x\mid z)p(z)>0$ かつ $q(z)>0$ であり、上の対数の分解を $q(z)$ 倍して足す条件が満たされる。同時値は $f=(1/8,3/8)$、$e=1/2$、事後分布は $r=(1/4,3/4)$ で、選んだ $q=r$ である。第一項は
 
 $$
 E_q\log p(x\mid Z)=\frac14\log\frac14+\frac34\log\frac34.
