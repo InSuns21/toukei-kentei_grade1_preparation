@@ -113,7 +113,7 @@ chapters:
     title: "Eddington–Finkelstein座標と光線"
   - id: GR27
     path: textbook/volumes/dream_thater/物理系/GR/GR27
-    status: planned
+    status: completed
     title: "Kruskal座標と最大解析延長"
   - id: GR28
     path: textbook/volumes/dream_thater/物理系/GR/GR28

@@ -1,0 +1,49 @@
+chapter: GR27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR26
+  - LORG6
+concepts:
+  - id: gravity.kruskal-exterior-null-coordinates
+    name: 外部のKruskal零座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外部のKruskal零座標）"]
+    requires: [gravity.eddington-finkelstein-null-times, gravity.schwarzschild-tortoise-coordinate]
+  - id: gravity.kruskal-regular-metric
+    name: Kruskal計量の導出と地平線の正則性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kruskal計量の導出と地平線の正則性）"]
+    requires: [gravity.kruskal-exterior-null-coordinates, gravity.ingoing-ef-regular-metric]
+  - id: gravity.kruskal-domain
+    name: Kruskal領域とその時間・空間座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kruskal領域とその時間・空間座標）"]
+    requires: [gravity.kruskal-regular-metric]
+  - id: gravity.kruskal-radius-global
+    name: 半径の一意性と正則な大域表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半径の一意性と正則な大域表示）"]
+    requires: [gravity.kruskal-domain, gravity.kruskal-regular-metric]
+  - id: gravity.kruskal-ef-regions
+    name: 四領域とEF座標の被覆範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四領域とEF座標の被覆範囲）"]
+    requires: [gravity.kruskal-radius-global, gravity.eddington-finkelstein-null-times]
+  - id: gravity.kruskal-interior-causality
+    name: 内部での未来向き半径変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内部での未来向き半径変化）"]
+    requires: [gravity.kruskal-ef-regions, lorentz-geometry.chronological-causal-future]
+  - id: gravity.kruskal-analytic-extension
+    name: 解析延長と最大解析延長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析延長と最大解析延長）"]
+    requires: [gravity.kruskal-radius-global, gravity.schwarzschild-curvature-limits]
