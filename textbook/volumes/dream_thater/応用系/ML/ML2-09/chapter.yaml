@@ -1,0 +1,35 @@
+id: "ML2-09"
+title: "Mean-field変分Bayes・再パラメータ化"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-08, ML2-03, ML2-05]
+official_scope: []
+learning_objectives:
+  - 積分・和で定義したELBOと独立積変分族を区別し、mean-field制約が事後依存を失わせることを説明できる
+  - 有限の正値模型で一座標のELBOをKLを用いて分解し、正規化を含む座標最適更新式を証明できる
+  - 二変量の離散模型で更新値とELBOを直接計算し、座標上昇の単調性と大域最適保証の違いを判定できる
+  - 連続因子の更新式が成立するための台、可積分性、正規化条件を明示できる
+  - Gaussian変分分布の再パラメータ化と期待値微分の交換を局所的な支配条件から導ける
+  - GaussianのELBOを位置・対数標準偏差で微分し、有限差分と比較できる
+  - 計算ラボで座標更新の順序・初期値・相互作用を変え、ELBOと真の事後分布とのずれを再計算できる
+definitions:
+  - { id: ML2-09-DEF-01, name: mean-field変分族 }
+  - { id: ML2-09-DEF-02, name: Gaussian再パラメータ化 }
+theorems:
+  - { id: ML2-09-THM-01, name: 有限正値模型の座標最適更新 }
+  - { id: ML2-09-PROP-01, name: 座標上昇の単調性と限界 }
+  - { id: ML2-09-PROP-02, name: 連続因子の座標更新 }
+  - { id: ML2-09-THM-02, name: Gaussian再パラメータ化勾配 }
+  - { id: ML2-09-PROP-03, name: Gaussian変分ELBOの勾配 }
+canonical_examples:
+  - 二値相互作用模型の更新式、正規化、ELBOの単調性
+  - 積形式では真の事後分布を表せないオッズ比の確認
+  - 連続Gaussian因子の平方完成による座標更新
+  - 標準正規のELBOと再パラメータ化勾配の検算
+  - 不連続被積分関数での経路微分失敗
+  - パラメータを変えて再計算するPythonラボ
+problem_patterns: [ML2-09-A01, ML2-09-A02, ML2-09-A03, ML2-09-A04, ML2-09-B01, ML2-09-B02, ML2-09-B03, ML2-09-B04, ML2-09-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

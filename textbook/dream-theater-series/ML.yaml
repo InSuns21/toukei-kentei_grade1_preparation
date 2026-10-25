@@ -125,7 +125,7 @@ chapters:
     title: "変分推論の基礎・ELBO恒等式"
   - id: ML2-09
     path: textbook/volumes/dream_thater/応用系/ML/ML2-09
-    status: planned
+    status: completed
     title: "Mean-field変分Bayes・再パラメータ化"
   - id: ML2-10
     path: textbook/volumes/dream_thater/応用系/ML/ML2-10
