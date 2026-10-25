@@ -26,7 +26,7 @@ $\Sigma$ は動径と緯度の組合せ、$\Delta$ は地平線候補の位置�
 
 <!-- formal-statement-start -->
 > **定義（Kerr計量のBoyer–Lindquist表示）**  
-> $M>0$、$a\in\mathbb R$ とし、$\Sigma>0$、$\Delta\ne0$、$0<\vartheta<\pi$ の座標領域で次のLorentz計量を考える。この座標表示をKerr計量のBoyer–Lindquist表示という。
+> $M>0$、$a\in\mathbb R$ とし、$\Sigma>0$、$\Delta\ne0$、$0<\vartheta<\pi$ の座標領域で次の[Lorentz計量](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を考える。この座標表示をKerr計量のBoyer–Lindquist表示という。
 
 $$
 \begin{aligned}
@@ -37,11 +37,13 @@ ds^2={}&-\left(1-\frac{2Mr}{\Sigma}\right)dt^2
 \end{aligned}
 $$
 
-> $t,\varphi$ に依存しないため $\xi=\partial_t$、$\eta=\partial_\varphi$ はKilling場である。ブラックホールの外部として扱う際は $|a|\le M$、$r>r_+=M+\sqrt{M^2-a^2}$ を採用する。
+> $t,\varphi$ に依存しないため、[GR14の座標によるKilling判定](../GR14/index.md#prop-gr14-killing-coordinate-test)から $\xi=\partial_t$、$\eta=\partial_\varphi$ はKilling場である。ブラックホールの外部として扱う際は $|a|\le M$、$r>r_+=M+\sqrt{M^2-a^2}$ を採用する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr32-kerr-metric -->
-**定義の確認**。赤道上の一例として $M=5,a=3,r=12,\vartheta=\pi/2$ とすると $\Sigma=144$、$\Delta=144-120+9=33$、$A=(153)^2-9(33)=23112$ です。したがって
+**定義の確認**。座標基底 $\partial_\mu$ に関する計量行列は $g_{\mu\nu}=g(\partial_\mu,\partial_\nu)$ であり、$ds^2=g_{\mu\nu}dx^\mu dx^\nu$ と展開します。対称性 $g_{t\varphi}=g_{\varphi t}$ のため、$dt\,d\varphi$ の係数は $2g_{t\varphi}$ です。この対応で数値を調べます。
+
+赤道上の一例として $M=5,a=3,r=12,\vartheta=\pi/2$ とすると $\Sigma=144$、$\Delta=144-120+9=33$、$A=(153)^2-9(33)=23112$ です。したがって
 
 $$
 g_{tt}=-\frac16,\quad
@@ -50,7 +52,22 @@ g_{\varphi\varphi}=\frac{321}{2},\quad
 g_{rr}=\frac{48}{11},\quad g_{\vartheta\vartheta}=144.
 $$
 
-ここで交差項の係数は $2g_{t\varphi}$ なので $-5\,dt\,d\varphi$ です。$\Delta>0$、$g_{\vartheta\vartheta},g_{rr},g_{\varphi\varphi}>0$ ですが、時間角度ブロックの行列式が負となることも次の命題で確認します。
+交差項は $-5\,dt\,d\varphi$ です。また、時間角度ブロックの行列式は直接
+
+$$
+\det\begin{pmatrix}g_{tt}&g_{t\varphi}\\g_{t\varphi}&g_{\varphi\varphi}\end{pmatrix}
+=-\frac16\cdot\frac{321}{2}-\left(-\frac52\right)^2
+=-33<0
+$$
+
+と求まります。符号を直接判定するため時間角度部分を平方完成すると
+
+$$
+-\frac16dt^2-5\,dt\,d\varphi+\frac{321}{2}d\varphi^2
+=-\frac16(dt+15\,d\varphi)^2+198\,d\varphi^2.
+$$
+
+$(dt,d\varphi)\mapsto(dt+15\,d\varphi,d\varphi)$ は逆変換を持つので、負方向と正方向が各一つあると分かります。残る $g_{rr}=48/11>0$、$g_{\vartheta\vartheta}=144>0$ から計量全体の符号は $(-,+,+,+)$ で、定義に必要なLorentz性も確認できました。一般の行列式と逆計量は次節で導きます。
 <!-- definition-example-end -->
 
 $a=0$ に置けば $\Sigma=r^2$、$\Delta=r(r-2M)$、$A=r^4$ となり、交差項は消えます。計量は
@@ -143,8 +160,24 @@ $$
 =\frac{1}{uw-v^2}\begin{pmatrix}w&-v\\-v&u\end{pmatrix}
 $$
 
-で $u=g_{tt}$、$v=g_{t\varphi}$、$w=g_{\varphi\varphi}$ とすると、例えば $g^{tt}=(As^2/\Sigma)/(-\Delta s^2)=-A/(\Sigma\Delta)$、$g^{t\varphi}=-g_{t\varphi}/(-\Delta s^2)=-2Mar/(\Sigma\Delta)$ です。残りも同様の分子代入で表示式を得ます。$r,\vartheta$ 成分は対角成分の逆数です。
+で $u=g_{tt}$、$v=g_{t\varphi}$、$w=g_{\varphi\varphi}$ とすると、例えば $g^{tt}=(As^2/\Sigma)/(-\Delta s^2)=-A/(\Sigma\Delta)$、$g^{t\varphi}=-g_{t\varphi}/(-\Delta s^2)=-2Mar/(\Sigma\Delta)$ です。最後のブロック成分も
+
+$$
+g^{\varphi\varphi}=\frac{g_{tt}}{-\Delta s^2}
+=\frac{-(\Delta-a^2s^2)/\Sigma}{-\Delta s^2}
+=\frac{\Delta-a^2s^2}{\Sigma\Delta s^2}
+$$
+
+と代入できます。$r,\vartheta$ 成分は対角成分の逆数です。
 <!-- proof-end -->
+
+この行列式から、定義した全座標域でのLorentz符号も判定できます。実際、$r>0$ と $\Sigma>0$ より $R=r^2+a^2>0$ であり、
+
+$$
+A=R^2-a^2\Delta s^2=R\Sigma+2Mra^2s^2>0
+$$
+
+なので $g_{\varphi\varphi}=As^2/\Sigma>0$ です。$\Delta>0$ なら時間角度ブロックの行列式は負で、残りの $g_{rr},g_{\vartheta\vartheta}$ は正です。$\Delta<0$ なら同ブロックは正定値で、$g_{rr}<0$ です。どちらも負方向は一つで、単なる行列式の非零性以上にLorentz性を確かめられます。
 
 この計算により、$\Delta=0$ で一部のBoyer–Lindquist成分が発散するのは、4次元計量の必然的な退化ではない可能性が見えます。座標を変えて確かめましょう。
 
@@ -255,7 +288,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Kerrの静止極限面）**  
-> $M>0$、$0<|a|\le M$ のKerr計量で、無限遠に規格化された定常Killing場 $\xi=\partial_t$ が次の条件を満たす外側の面を外側静止極限面という。
+> $M>0$、$0<|a|\le M$ のKerr計量で、無限遠に規格化された[定常Killing場](../GR14/index.md#def-gr14-stationary-static) $\xi=\partial_t$ が次の条件を満たす外側の面を外側静止極限面という。
 
 $$
 g(\xi,\xi)=g_{tt}=0.
@@ -329,7 +362,15 @@ g(\partial_t+\omega\partial_\varphi,\partial_t+\omega\partial_\varphi)
 =-\frac{\Delta\Sigma}{A}<0
 $$
 
-です。最後の等式には[時間角度ブロックの行列式](#prop-gr32-inverse)を使います。外部 $r>r_+$ では $\Delta=(r-r_+)(r-r_-)>0$、$\Sigma>0$ です。また $A=R^2-a^2\Delta s^2=R\Sigma+2Mra^2s^2>0$ と展開できるので、接ベクトルのノルムは負となり時間的であることが直接分かります。
+です。最後の等式には[時間角度ブロックの行列式](#prop-gr32-inverse)を使います。外部 $r>r_+$ では $\Delta=(r-r_+)(r-r_-)>0$、$\Sigma>0$ です。また $A=R^2-a^2\Delta s^2=R\Sigma+2Mra^2s^2>0$ と展開できるので、接ベクトルのノルムは負となります。この結果から
+
+$$
+u^t=\left(\frac{\Delta\Sigma}{A}\right)^{-1/2}
+=\sqrt{\frac{A}{\Delta\Sigma}}>0,\qquad
+u^\varphi=\omega u^t
+$$
+
+を選べば $g(u,u)=-1$ となり、無限遠の未来向き時間方向に連続につながる四元速度が得られます。従って時間的・単位規格化・零角運動量の各条件を確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-gr32-frame-dragging"></a>
