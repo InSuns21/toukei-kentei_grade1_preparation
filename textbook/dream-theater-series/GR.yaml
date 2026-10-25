@@ -129,7 +129,7 @@ chapters:
     title: "球対称重力崩壊模型"
   - id: GR31
     path: textbook/volumes/dream_thater/物理系/GR/GR31
-    status: planned
+    status: completed
     title: "Reissner–Nordström解"
   - id: GR32
     path: textbook/volumes/dream_thater/物理系/GR/GR32

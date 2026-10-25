@@ -1007,6 +1007,11 @@
 9. [INFO9 微分エントロピーと連続変数の情報量](textbook/volumes/dream_thater/応用系/INFO/INFO9/index.md)
 10. [INFO10 対数損失・統計的推測と相対エントロピー](textbook/volumes/dream_thater/応用系/INFO/INFO10/index.md)
 
+<a id="dt-subject-quantum-information"></a>
+### 量子情報 I・II・III
+
+1. [QINF1 複合系とテンソル積](textbook/volumes/dream_thater/応用系/QINF/QINF1/index.md)
+
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
 
@@ -1232,6 +1237,7 @@
 28. [GR28 共形コンパクト化とPenrose図](textbook/volumes/dream_thater/物理系/GR/GR28/index.md)
 29. [GR29 事象・見かけ・Killing地平線](textbook/volumes/dream_thater/物理系/GR/GR29/index.md)
 30. [GR30 球対称重力崩壊模型](textbook/volumes/dream_thater/物理系/GR/GR30/index.md)
+31. [GR31 Reissner–Nordström解](textbook/volumes/dream_thater/物理系/GR/GR31/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
