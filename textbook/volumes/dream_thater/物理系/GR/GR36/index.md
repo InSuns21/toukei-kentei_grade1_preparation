@@ -141,7 +141,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Raychaudhuri不等式より、$\theta<0$ の区間では $\theta'\le-\theta^2/2<0$ です。初期値 $\theta_0<0$ から始めると滑らかな解が続く間は負のままなので、その区間で
+[GR34の光的Raychaudhuri方程式](../GR34/index.md#thm-gr34-null-raychaudhuri)と回転零・NCCより、$\theta<0$ の区間では $\theta'\le-\theta^2/2<0$ です。初期値 $\theta_0<0$ から始めると滑らかな解が続く間は負のままなので、その区間で
 
 $$
 \frac{d}{d\lambda}\frac1\theta
@@ -159,14 +159,14 @@ $$
 
 焦点への接続も計算しておきます。$T:=2/|\theta_0|$、$t:=\lambda-\lambda_0$ とすると、滑らかで $\theta<0$ の間は直前に得た $1/\theta$ の評価から $1/\theta\ge-(T-t)/2$。両辺が負なので逆数を取ると $\theta\le-2/(T-t)$ です。[面積密度の輸送式](#prop-gr36-area-transport) $a'/a=\theta$ を $0\le t<T$ で積分して
 
-$
+$$
 \begin{aligned}
 \log\frac{a(\lambda_0+t)}{a(\lambda_0)}
 &\le\int_0^t\frac{-2}{T-s}\,ds
 =2\log\left(1-\frac tT\right),\\
 0<a(\lambda_0+t)&\le a(\lambda_0)\left(1-\frac tT\right)^2.
 \end{aligned}
-$
+$$
 
 従って測地線と横断Jacobi場が $t=T$ まで滑らかに延長できれば、面積密度はそれ以前に零になるか、$t\uparrow T$ で零へ収束します。横断Jacobi写像の行列式が零となるので焦点を生じます。途中で時空や測地線そのものが終わるなら、この推論で「実際に焦点へ到達した」とは言えません。焦点は個々の測地線の曲率特異性とも異なります。
 <!-- proof-end -->
@@ -425,9 +425,9 @@ $$
 <!-- solution-start -->
 **詳細解答。** [負の膨張率の集束補題](#lem-gr36-negative-expansion)へ $\lambda_0=0,\theta_0=-1/L$ を代入します。
 
-$
+$$
 T=\frac{2}{|-1/L|}=2L.
-$
+$$
 
 従って滑らかな正面積密度の合同はアフィン長 $2L$ 以降まで維持できません。生成測地線と横断Jacobi場がその時刻まで延長できる場合は、$\lambda_{\rm focal}\le2L$ と結論できます。これは曲率特異点や測地不完備性への到達時刻ではありません。回転零・アフィン媒介・NCCのいずれかが欠けるならこの評価はそのまま適用できません。
 <!-- solution-end -->
@@ -460,19 +460,19 @@ $f=1-a(v)/r$、$r_E'=f(v,r_E)/2$ とし、$r_E\ge a>0$ と仮定する。$A_E=4\
 <!-- solution-start -->
 **詳細解答。** 連鎖律と与えられた微分方程式により
 
-$
+$$
 A_E'=8\pi r_E r_E'
 =4\pi r_E f(v,r_E)
 =4\pi(r_E-a)\ge0.
-$
+$$
 
 膨張率も、$r_E'=f/2$ を代入すれば
 
-$
+$$
 \theta_{(\ell)}=\frac{2r_E'}{r_E}
 =\frac{f(v,r_E)}{r_E}
 =\frac{r_E-a}{r_E^2}\ge0.
-$
+$$
 
 $r_E>0$ なので分母の符号は正です。$r_E=a$ なら両者零、$r_E>a$ なら両者正です。
 <!-- solution-end -->
@@ -539,17 +539,17 @@ $$
 <!-- solution-start -->
 **詳細解答。** [GR29の終端値積分表示](../GR29/index.md#prop-gr29-vaidya-separation)を導き直します。$\delta(v)=r_E(v)-a(v)$ とすると、出射零光線の方程式より
 
-$
+$$
 \delta'=\frac12\left(1-\frac{a}{r_E}\right)-a'
 =\frac{\delta}{2r_E}-a'.
-$
+$$
 
 従って $q(v)=1/(2r_E(v))$ とおいた線形方程式 $\delta'-q\delta=-a'$ を、終端条件 $\delta(v_1)=0$ から積分因子で解くと
 
-$
+$$
 \delta(v)=\int_v^{v_1}a'(s)
 \exp\left(-\int_v^s\frac{du}{2r_E(u)}\right)ds.
-$
+$$
 
 指数因子は正、$a'(s)\ge0$ で、$[v_0,v_1]$ のある部分で厳密に正なので、$v<v_0$ でも右辺は厳密に正です。$a'(v)=0$ なのは**現在の局所的な流入がない**というだけで、未来の境界位置を固定しません。そこで
 
