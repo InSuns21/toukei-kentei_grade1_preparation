@@ -6,7 +6,7 @@
 
 ## 1. 二つの量子系を一緒に記述する
 
-一つ目の系を $A$、二つ目を $B$ と呼び、その有限次元複素Hilbert空間を $H_A,H_B$ とします。$A$ の基底が $e_0,e_1$、$B$ の基底が $f_0,f_1$ なら、同時に識別できる基底候補は四通りです。
+一つ目の系を $A$、二つ目を $B$ と呼び、その[複素Hilbert空間](../../../解析系/QM/QM1/index.md#def-qm1-complex-hilbert-space)を有限次元に限って $H_A,H_B$ とします。$A$ の基底が $e_0,e_1$、$B$ の基底が $f_0,f_1$ なら、同時に識別できる基底候補は四通りです。
 
 $$
 e_0\otimes f_0,\quad e_0\otimes f_1,\quad
@@ -108,7 +108,7 @@ $$
 |11\rangle=\begin{pmatrix}0\\0\\0\\1\end{pmatrix}.
 $$
 
-四本は正規直交し、[積基底定理](#thm-qinf1-product-basis)による次元は $2\cdot2=4$ です。例えば $\psi=(|00\rangle+i|11\rangle)/\sqrt2$ は、係数二つの絶対値二乗の和 $1/2+1/2=1$ により単位ベクトルです。
+四本は正規直交し、[積基底定理](#thm-qinf1-product-basis)による次元は $2\cdot2=4$ です。例えば $\psi=(|00\rangle+i|11\rangle)/\sqrt2$ は、係数二つの絶対値二乗の和 $1/2+1/2=1$ により単位ベクトルです。また $e^{i\theta}\psi$ は任意の実数 $\theta$ について同じ長さを持ち、[純粋状態のrayによる同一視](../../../解析系/QM/QM2/index.md#def-qm2-normalized-pure-state)により同一の物理状態を表します。
 <!-- definition-example-end -->
 
 一般の状態は $\sum_{ij}c_{ij}|ij\rangle$ と書けますが、全てが一つの $u\otimes v$ に分かれるわけではありません。この違いが量子情報の出発点です。
@@ -130,12 +130,29 @@ $$
 > と書けるとき**積状態**という。全体位相の違いは同一視する。どのような単位ベクトル $a,b$ を選んでも積状態に書けない純粋状態を**エンタングル純粋状態**という。
 <!-- formal-statement-end -->
 
+積基底 $|ij\rangle$ で $\psi=\sum_{i,j=0}^1c_{ij}|ij\rangle$ と展開したとき、四つの振幅を係数行列 $C=(c_{ij})$ に整理します。行を $A$ 側の添字 $i$、列を $B$ 側の添字 $j$ に対応させるので、これは作用素の行列表示とは異なります。もし $a=\sum_i a_i|i\rangle$、$b=\sum_j b_j|j\rangle$ の積状態なら、[テンソル積の双線形性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から
+
+$$
+a\otimes b=\sum_{i,j=0}^1 a_i b_j|ij\rangle,\qquad
+C=\begin{pmatrix}a_0\\a_1\end{pmatrix}
+  \begin{pmatrix}b_0&b_1\end{pmatrix}.
+$$
+
+従って積状態なら $c_{00}c_{11}=c_{01}c_{10}$ で、$\det C=0$ が**必要**です。逆向きも成立することを次の命題で証明します。この順に見ると、行列式は定義に付け加えた別条件ではなく、積への因数分解可能性を調べる座標上の道具だと分かります。
+
 <!-- definition-example-start: def-qinf1-product-entangled -->
 ### 定義の確認：一つの積と二つの積の和
 
 **定義の確認**：まず単位ベクトル二つの積を実際に構成し、次にその形で書けない単位ベクトルを係数行列で判定します。
 
-まず $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ と置きます。[積基底定理](#thm-qinf1-product-basis)で各因子のノルムが1と分かり、
+まず $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ と置きます。$|0\rangle,|1\rangle$ の正規直交性から
+
+$$
+\lVert |+\rangle\rVert^2=\frac12+\frac12=1,\qquad
+\lVert |0\rangle\rVert=1
+$$
+
+です。従って[積ノルム公式](#thm-qinf1-product-basis)により、
 
 $$
 |+\rangle\otimes|0\rangle
@@ -158,7 +175,7 @@ C_{\Phi^+}=
 \end{pmatrix}
 $$
 
-で、行列式は $1/2\ne0$ です。次の[係数判定](#prop-qinf1-product-criterion)によれば、これは積状態ではありません。単に「二項の和だから」ではなく、**一個の積へ因数分解できない**ことが理由です。
+で、行列式は $1/2\ne0$ です。先ほど積状態なら $\det C=0$ と確かめたので、これは積状態ではありません。さらに次の[係数判定](#prop-qinf1-product-criterion)で、この必要条件が十分でもあることを示します。単に「二項の和だから」ではなく、**一個の積へ因数分解できない**ことが理由です。
 <!-- definition-example-end -->
 
 <a id="prop-qinf1-product-criterion"></a>
@@ -232,8 +249,16 @@ $$
 (I_A\otimes T)(u\otimes v)=u\otimes Tv
 $$
 
-> として線形に延長する。両方を操作する作用素は $S\otimes T$ とする。
+> として線形に延長する。両方を操作する作用素 $S\otimes T$ は
+
+$$
+(S\otimes T)(u\otimes v):=Su\otimes Tv
+$$
+
+> を線形に延長して定める。
 <!-- formal-statement-end -->
+
+右辺の $(u,v)\mapsto Su\otimes Tv$ はそれぞれの変数について線形です。[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)によって、それに対応する線形写像 $H_A\otimes H_B\to H_A\otimes H_B$ が存在し、一意に定まります。片側だけの作用も同じ理由で定義できます。
 
 <!-- definition-example-start: def-qinf1-local-operator -->
 ### 定義の確認：左のqubitだけを反転する
@@ -293,7 +318,7 @@ $$
 \end{aligned}
 $$
 
-ここでも積基底上の一致を双線形に拡張すれば随伴の式が従います。積の公式に $S'=I,T=I$ をそれぞれ代入すると、どちらの作用順でも $S\otimes T$ です。最後に $U^*U=UU^*=I_A$、$V^*V=VV^*=I_B$ を代入し、
+この等式では[有限次元随伴の定義](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)を各因子に適用しました。積基底上の一致を、内積の第一変数の共役線形性と第二変数の線形性によって一般ベクトルへ拡張すれば随伴の式が従います。積の公式に $S'=I,T=I$ をそれぞれ代入すると、どちらの作用順でも $S\otimes T$ です。最後に[ユニタリ作用素の定義](../../../基礎科目/LA/LA5/index.md#def-la5-unitary)である $U^*U=UU^*=I_A$、$V^*V=VV^*=I_B$ を代入し、
 
 $$
 (U\otimes V)^*(U\otimes V)
@@ -307,7 +332,7 @@ $$
 
 ## 4. 二つの系を測ると、確率はどうなるか
 
-[QM2の有限次元Born則](../../../解析系/QM/QM2/index.md#axiom-qm2-born-rule)では直交射影 $P$ の結果が得られる確率を $\|P\psi\|^2$ としました。二つのqubitを別々の測定器で測るときも、全系への一つの射影として扱えばよいはずです。ただし「両方を測った確率」と「片方だけの確率」を混同しないことが重要です。
+[QM2の有限次元Born則](../../../解析系/QM/QM2/index.md#axiom-qm2-born-rule)では直交射影 $P$ の結果が得られる確率を $\|P\psi\|^2$ としました。[QM2の射影測定](../../../解析系/QM/QM2/index.md#def-qm2-projective-measurement)で扱った、互いに直交し総和が恒等作用素となる射影族を各系に用います。二つのqubitを別々の測定器で測るときも、全系への一つの射影として扱えばよいはずです。ただし「両方を測った確率」と「片方だけの確率」を混同しないことが重要です。
 
 <a id="def-qinf1-local-projective"></a>
 
