@@ -436,7 +436,10 @@ $6+(-2)=4$ なのでKillingエネルギーも保存します。$\xi$ は $g(\xi,
 #### GR33-B02 Wronskianを両端で評価する
 - Level: B
 
-$\mathcal J=\Delta(R^*R'-RR^{*\prime})/(2i)$ について、(1) 無限遠の $R=(\mathcal I e^{-i\omega r_*}+\mathcal R e^{i\omega r_*})/r$ から $\mathcal J_\infty$、(2) 地平線の $R=\mathcal T e^{-ikr_*}$ から $\mathcal J_H$ をそれぞれ導け。$k=\omega-m\Omega_H$ とする。
+$\mathcal J=\Delta(R^*R'-RR^{*\prime})/(2i)$ について、次の二つの漸近形から保存流束をそれぞれ導け。$k=\omega-m\Omega_H$ とする。
+
+- 無限遠の $R=(\mathcal I e^{-i\omega r_*}+\mathcal R e^{i\omega r_*})/r$ から $\mathcal J_\infty$。
+- 未来地平線の $R=\mathcal T e^{-ikr_*}$ から $\mathcal J_H$。
 
 <!-- solution-start -->
 **詳細解答。** (1) $F=\mathcal I e^{-i\omega r_*}+\mathcal R e^{i\omega r_*}$ と置くと $R=F/r$。$\Delta\sim r^2$、$dr_*/dr\to1$ により
