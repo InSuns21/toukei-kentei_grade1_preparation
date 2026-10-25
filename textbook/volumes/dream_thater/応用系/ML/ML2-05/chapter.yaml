@@ -1,0 +1,49 @@
+id: "ML2-05"
+title: "潜在変数・混合モデル・識別不能性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-04
+  - ML1-07
+official_scope: []
+learning_objectives:
+  - 観測できない有限カテゴリ変数と混合重み・成分分布を定義し、同時分布の正規化を検査できる
+  - 潜在変数を周辺化して混合密度と独立標本の観測尤度・完全データ尤度を区別して導ける
+  - 正の混合密度の下でresponsibilityをBayes公式から導き、成分ごとの和が1であることを確認できる
+  - Gaussian混合の平均・共分散を条件付きモーメントから導出し、有限数値例で検算できる
+  - ラベル交換による同じ観測分布の複数表現を証明し、退化成分・Bernoulli混合の追加的不識別を区別できる
+  - 分散が0へ近づくGaussian混合では観測尤度が非有界になりうることを証明し、適切な制約の必要性を説明できる
+  - 数値ラボで混合比・平均・分散・観測値を変更し、密度・responsibility・ラベル交換の不変性を検算できる
+definitions:
+  - { id: ML2-05-DEF-01, name: 有限潜在カテゴリと混合模型 }
+  - { id: ML2-05-DEF-02, name: 観測データ尤度と完全データ尤度 }
+  - { id: ML2-05-DEF-03, name: 成分責務（responsibility） }
+  - { id: ML2-05-DEF-04, name: 観測分布に関する識別可能性 }
+theorems:
+  - { id: ML2-05-PROP-01, name: 混合の周辺化と正規化 }
+  - { id: ML2-05-THM-01, name: 責務のBayes公式と正規化 }
+  - { id: ML2-05-PROP-02, name: Gaussian混合の平均と共分散 }
+  - { id: ML2-05-THM-02, name: ラベル交換による観測分布の不変性 }
+  - { id: ML2-05-PROP-03, name: Gaussian混合尤度の非有界性 }
+canonical_examples:
+  - 二成分の有限確率質量関数を周辺化して全セル和を確認
+  - 二成分の正規密度の観測値0に対する責務の計算
+  - 一次元Gaussian混合の平均・分散と成分内・成分間分解
+  - 二成分のラベル交換による同じ密度と異なる母数ベクトル
+  - Bernoulli混合の同じ周辺分布を持つ異なる母数
+  - 一成分を標本点に集中させるGaussian尤度の発散
+  - 数値ラボでの密度の直接和・responsibility・ラベル交換照合
+problem_patterns:
+  - ML2-05-A01
+  - ML2-05-A02
+  - ML2-05-A03
+  - ML2-05-A04
+  - ML2-05-B01
+  - ML2-05-B02
+  - ML2-05-B03
+  - ML2-05-B04
+  - ML2-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
