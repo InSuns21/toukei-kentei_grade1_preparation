@@ -1,0 +1,44 @@
+chapter: QINF4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+forward_references: []
+
+concepts:
+  - id: quantum.purification
+    name: 精製
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（精製と精製補助系）]
+    requires: [quantum.finite-density-operator, quantum.partial-trace]
+
+  - id: quantum.purification-existence
+    name: 有限次元状態の精製の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限次元状態の精製の存在）]
+    requires: [quantum.purification, quantum.density-ensemble-characterization]
+
+  - id: quantum.minimal-purifying-dimension
+    name: 精製補助系の最小次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（精製補助系の最小次元）]
+    requires: [quantum.purification-existence, quantum.partial-trace]
+
+  - id: quantum.purification-isometry
+    name: 同一縮約を持つ精製の等長写像による関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（同一縮約を持つ精製の等長写像による関係）]
+    requires: [quantum.purification, quantum.partial-trace]
+
+  - id: quantum.ensemble-from-purification
+    name: 有限アンサンブルの精製測定による実現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限アンサンブルの精製測定による実現）]
+    requires: [quantum.purification-isometry, quantum.finite-ensemble, quantum.local-projective-measurement]
