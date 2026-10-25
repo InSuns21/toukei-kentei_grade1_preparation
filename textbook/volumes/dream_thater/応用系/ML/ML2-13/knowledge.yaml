@@ -1,0 +1,53 @@
+chapter: ML2-13
+scope: dream-theater
+coverage: complete
+prerequisites: [ML1-08, RA2]
+concepts:
+  - id: learning.relu-activation
+    name: ReLU活性化関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ReLU活性化関数）"]
+    requires: []
+  - id: learning.relu-mlp
+    name: ReLU多層パーセプトロン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ReLU多層パーセプトロン）"]
+    requires: [learning.relu-activation]
+  - id: learning.continuous-piecewise-affine
+    name: 連続区分アフィン関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続区分アフィン関数）"]
+    requires: []
+  - id: learning.relu-piecewise-affine
+    name: 有限ReLU網の区分アフィン性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限ReLU網の区分アフィン性）"]
+    requires: [learning.relu-mlp, learning.continuous-piecewise-affine]
+  - id: learning.piecewise-linear-interpolant
+    name: 区分線形補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区分線形補間）"]
+    requires: []
+  - id: learning.relu-interpolation-representation
+    name: 折線補間のReLUによる厳密表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（折線補間のReLUによる厳密表示）"]
+    requires: [learning.relu-mlp, learning.piecewise-linear-interpolant]
+  - id: learning.relu-uniform-approximation
+    name: 閉区間の連続関数のReLU一様近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉区間の連続関数のReLU一様近似）"]
+    requires: [learning.relu-interpolation-representation, analysis.heine-cantor]
+  - id: learning.relu-folding-depth
+    name: 山形合成と折点の倍増
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（山形合成と折点の倍増）"]
+    requires: [learning.relu-mlp, learning.relu-piecewise-affine]

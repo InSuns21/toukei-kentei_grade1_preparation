@@ -1,0 +1,40 @@
+id: "ML2-13"
+title: "多層パーセプトロン・表現力と限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-08
+  - RA2
+official_scope: []
+learning_objectives:
+  - ReLUの連続性と非線形な折点を具体的な入力から検算できる
+  - 多層パーセプトロンの重みとバイアスの次元を追い行列表示を手計算できる
+  - 有限の一変数ReLU網が連続区分アフィンであることを帰納法で証明できる
+  - 節点値から傾き差を計算して一隠れ層ReLU網の折線表示を構成できる
+  - 閉区間の連続関数の一様連続性から折線近似と一様誤差を証明できる
+  - 山形ReLU網を合成して一定幅でも深さとともに折点が増えることを示せる
+  - 不連続な目標や非コンパクト域での一様近似限界を反例で説明できる
+  - 補間の訓練点誤差と別格子の評価誤差を計算し表現力と学習の保証を区別できる
+definitions:
+  - { id: ML2-13-DEF-01, name: ReLU活性化関数 }
+  - { id: ML2-13-DEF-02, name: ReLU多層パーセプトロン }
+  - { id: ML2-13-DEF-03, name: 連続区分アフィン関数 }
+  - { id: ML2-13-DEF-04, name: 区分線形補間 }
+theorems:
+  - { id: ML2-13-THM-01, name: 有限ReLU網の区分アフィン性 }
+  - { id: ML2-13-THM-02, name: 折線補間のReLUによる厳密表示 }
+  - { id: ML2-13-THM-03, name: 閉区間の連続関数のReLU一様近似 }
+  - { id: ML2-13-PROP-01, name: 山形合成と折点の倍増 }
+canonical_examples:
+  - 三つのReLUで構成する山形と行列次元の確認
+  - ReLUが連続区分アフィンであることの境界点検算
+  - 三節点の折線での出力重みと傾きの差
+  - 二次関数の等間隔補間誤差の厳密式
+  - 幅3の山形反復による折点の指数的増加
+  - 不連続階段関数と全直線の二次関数という一様近似の限界
+  - 幅・深さを変更して係数と関数値を再計算するブラウザ実験
+problem_patterns: [ML2-13-A01, ML2-13-A02, ML2-13-A03, ML2-13-A04, ML2-13-B01, ML2-13-B02, ML2-13-B03, ML2-13-B04, ML2-13-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
