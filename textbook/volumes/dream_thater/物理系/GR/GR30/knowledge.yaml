@@ -1,0 +1,46 @@
+chapter: GR30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR8
+  - GR12
+  - GR26
+  - GR27
+  - GR29
+concepts:
+  - id: gravity.ingoing-null-dust
+    name: 球対称の入射零物質流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（球対称の入射零物質流）"]
+    requires: [gravity.ingoing-ef-regular-metric, gravity.dust-matter]
+  - id: gravity.vaidya-null-dust-source
+    name: 球対称入射Vaidya計量の物質源
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球対称入射Vaidya計量の物質源）"]
+    requires: [gravity.ingoing-null-dust, gravity.einstein-field-equation]
+  - id: gravity.ingoing-null-shell-collapse
+    name: 入射薄光殻の球対称崩壊模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入射薄光殻の球対称崩壊模型）"]
+    requires: [gravity.vaidya-null-dust-source, gravity.ingoing-ef-regular-metric]
+  - id: gravity.null-shell-junction-source
+    name: 薄光殻の面上応力と真空接合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（薄光殻の面上応力と真空接合）"]
+    requires: [gravity.ingoing-null-shell-collapse, gravity.vaidya-null-dust-source]
+  - id: gravity.collapse-event-horizon
+    name: 薄光殻崩壊で形成される未来事象地平線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（薄光殻崩壊で形成される未来事象地平線）"]
+    requires: [gravity.ingoing-null-shell-collapse, gravity.future-event-horizon]
+  - id: gravity.collapse-trapped-vs-event
+    name: 薄光殻模型でのMOTSと事象地平線の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（薄光殻模型でのMOTSと事象地平線の差）"]
+    requires: [gravity.collapse-event-horizon, gravity.trapped-apparent-horizon, gravity.spherical-null-expansion]
