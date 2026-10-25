@@ -22,7 +22,7 @@
 - I: 上記に加え、Lorentz群・スピノルは**必要な定義・具体計算を本文で導入**する。LIEの既存結果は実際に使用する箇所へリンクする。CPT・一般のスピン統計定理を無仮定で証明済み扱いしない。
 - II: I、複素積分・漸近評価、必要なLie代数。ゲージ固定、Faddeev–Popov、正則化はIIで初出導入する。
 - III: II、群・表現の最低限（I／IIの復習を含む）。QCDの閉じ込めと質量ギャップは一般的に証明済みと扱わない。
-- IV: I、IIの経路積分・Ward恒等式・RGの必要部分、複素解析。有限次元の量子エントロピーは[QINF](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)が正本。IVにIIIは原則不要。
+- IV: I、IIの経路積分・Ward恒等式・RGの必要部分、複素解析。有限次元の量子エントロピーは[QINF](../plans_progress/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)が正本。IVにIIIは原則不要。
 - Lorentz計量・因果幾何は[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、Lorentz多様体上のGreen作用素は[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)。厳密な波面集合は[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、局所演算子環の一般理論は[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。これら全部をQFT Iの入学条件にしない。
 - 先行PLAN未実装の箇所は既習定理として使わない。実装時に直接必要な概念を本文で導入するか、公開済みcanonical dependencyを確認する。
 
@@ -148,7 +148,7 @@
 | 非慣性観測者・粒子生成・Unruh／Hawking | [QCURV](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md) | QFT Iでは自由場と変換の準備まで。温度の物理的導出を二重所有しない |
 | Hadamard・波面集合・曲がった時空の局所くりこみ | [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、QCURV | QFT IIの平坦摂動論の反項と混同しない |
 | Weyl代数・局所環・Type III・Tomita–Takesaki | [AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md) | QFT IVで必要な問題の動機と参照にとどめる |
-| von Neumann entropy・量子チャネル・誤り訂正 | [QINF](DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | QFT IVは連続場の局所性・UV・CFTに固有の計算 |
+| von Neumann entropy・量子チャネル・誤り訂正 | [QINF](../plans_progress/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | QFT IVは連続場の局所性・UV・CFTに固有の計算 |
 | AdS/CFT・RT/HRT・量子極値曲面 | [HOLO](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md) | QFT IVのCFTは境界側だけ |
 | Page曲線・replica wormhole・island | [BHI I／II](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md) | QFT IVのreplicaは非重力の領域エントロピーまで |
 
