@@ -1,0 +1,58 @@
+chapter: GR32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR14
+  - GR16
+  - GR25
+  - GR29
+  - GR31
+concepts:
+  - id: gravity.kerr-boyer-lindquist-metric
+    name: Kerr計量のBoyer–Lindquist表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerr計量のBoyer–Lindquist表示）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.stationary-static-killing]
+  - id: gravity.kerr-metric-inverse
+    name: Kerr計量の行列式と逆計量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerr計量の行列式と逆計量）"]
+    requires: [gravity.kerr-boyer-lindquist-metric]
+  - id: gravity.kerr-horizon-ingoing
+    name: Kerr地平線と正則な入射座標
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerr地平線と正則な入射座標）"]
+    requires: [gravity.kerr-metric-inverse, gravity.killing-horizon]
+  - id: gravity.kerr-static-limit
+    name: Kerrの静止極限面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerrの静止極限面）"]
+    requires: [gravity.kerr-boyer-lindquist-metric, gravity.stationary-static-killing]
+  - id: gravity.kerr-static-limit-order
+    name: 静止極限面と地平線の位置関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止極限面と地平線の位置関係）"]
+    requires: [gravity.kerr-static-limit, gravity.kerr-horizon-ingoing]
+  - id: gravity.kerr-zamo-angular-speed
+    name: 零角運動量観測者の角速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零角運動量観測者の角速度）"]
+    requires: [gravity.killing-energy-angular-momentum, gravity.kerr-metric-inverse]
+  - id: gravity.kerr-frame-dragging
+    name: 枠引きずりの角速度と地平線の回転
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（枠引きずりの角速度と地平線の回転）"]
+    requires: [gravity.kerr-zamo-angular-speed, gravity.kerr-horizon-ingoing]
+  - id: gravity.kerr-killing-integrals
+    name: Kerr測地線のKilling保存量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerr測地線のKilling保存量）"]
+    requires: [gravity.kerr-metric-inverse, gravity.killing-geodesic-charge]
