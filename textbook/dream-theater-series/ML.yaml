@@ -113,7 +113,7 @@ chapters:
     title: "潜在変数・混合モデル・識別不能性"
   - id: ML2-06
     path: textbook/volumes/dream_thater/応用系/ML/ML2-06
-    status: planned
+    status: completed
     title: "EM算法と尤度の単調改善"
   - id: ML2-07
     path: textbook/volumes/dream_thater/応用系/ML/ML2-07

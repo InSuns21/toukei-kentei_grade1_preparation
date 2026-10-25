@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-06 Gaussian混合のEM反復</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:960px;margin:0 auto;padding:18px;line-height:1.6}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+label{display:grid;gap:5px;padding:9px;border:1px solid #8888;border-radius:8px}
+input,select{width:100%;box-sizing:border-box;font:inherit}
+button{font:inherit;padding:7px 12px;margin:5px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.panel{border:1px solid #8888;border-radius:8px;padding:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td,th{padding:5px;border-bottom:1px solid #8888;text-align:right;white-space:nowrap}
+td:first-child,th:first-child{text-align:left}
+.scroll{max-height:320px;overflow:auto}
+.error{color:#b1291f;font-weight:bold}
+.note{font-size:.94rem}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-06/index">← ML2-06 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-06 Gaussian混合のEM反復</h1>
+<p>真の二成分混合 <code>0.5 N(-2,1) + 0.5 N(2,1)</code> から固定seedで擬似乱数標本を生成します。推定側の成分数は2または3。分散は<strong>既知の1に固定</strong>し、混合比と平均だけをEMで更新します。</p>
+<section class="controls" aria-label="パラメータ">
+<label>seed（0〜999999999）<input type="number" id="seed" min="0" max="999999999" step="1" value="2606"></label>
+<label>標本数（40〜400）<input type="number" id="count" min="40" max="400" step="20" value="120"></label>
+<label>推定成分数 K<select id="components"><option value="2">2</option><option value="3">3</option></select></label>
+<label>初期中心の距離 s（0〜4）<input type="number" id="separation" min="0" max="4" step="0.25" value="1.5"></label>
+</section>
+<p class="note">初期平均：K=2では(-s,s)、K=3では(-s,0,s)。初期混合比は一様。設定を変えると反復がリセットされます。同じseedでは同じ標本になります。</p>
+<p><button type="button" id="reset">設定から再生成</button><button type="button" id="step">1回更新</button><button type="button" id="run">20回更新</button></p>
+<p role="status" aria-live="polite" id="status"></p>
+<div class="panels">
+<section class="panel">
+<h2>現在の推定値</h2>
+<p>反復 <strong id="iteration">0</strong>、観測対数尤度 <strong id="likelihood">—</strong></p>
+<table id="current"><thead><tr><th>成分</th><th>π</th><th>μ</th><th>責務合計 N</th></tr></thead><tbody></tbody></table>
+<p class="note">責務は各観測点で合計1、全成分のNの和は標本数になります。</p>
+</section>
+<section class="panel">
+<h2>直前の差分</h2>
+<table id="diagnostics"><thead><tr><th>量</th><th>値</th></tr></thead><tbody></tbody></table>
+<p class="note">ΔQは旧責務を固定した補助関数の増分。責務KLはΔlogL − ΔQとして照合しています。ゼロ近傍の極小負値は浮動小数点誤差の可能性があります。</p>
+</section>
+</div>
+<section class="panel">
+<h2>対数尤度の履歴</h2>
+<div class="scroll"><table id="history"><thead><tr><th>t</th><th>logL</th><th>ΔlogL</th><th>ΔQ</th><th>責務KL</th></tr></thead><tbody></tbody></table></div>
+</section>
+<p class="note">数値実験は理論証明や未知データへの性能保証ではありません。分散崩壊による尤度の非有界性は、固定分散の設定では発生しません。</p>
+<script type="module">
+import { defaultConfig, makeDataset, initialParameters, expectation, stepEM } from "./ml2-06-model.mjs";
+const $ = id => document.getElementById(id);
+const fields = ["seed","count","components","separation"];
+const fmt = x => Number.isFinite(x) ? x.toFixed(8) : "—";
+let data=[],params=null,trace=[];
+function row(items) {
+  const tr=document.createElement("tr");
+  for(const item of items){const td=document.createElement("td");td.textContent=String(item);tr.append(td);}
+  return tr;
+}
+function fill(id,rows){$(id).querySelector("tbody").replaceChildren(...rows.map(row));}
+function config() {
+  if(fields.some(k=>$(k).value.trim()==="")) throw new RangeError("未入力項目があります");
+  return Object.fromEntries(fields.map(k=>[k,Number($(k).value)]));
+}
+function error(e){$("status").className="error";$("status").textContent="入力・計算エラー："+e.message;}
+function render(last=null){
+  const stats=expectation(data,params);
+  $("iteration").textContent=String(trace.length-1);
+  $("likelihood").textContent=fmt(stats.logLikelihood);
+  fill("current",params.means.map((m,k)=>[k+1,fmt(params.weights[k]),fmt(m),fmt(stats.counts[k])]));
+  fill("diagnostics",[
+    ["Nの総和",fmt(stats.counts.reduce((a,b)=>a+b,0))],
+    ["πの総和",fmt(params.weights.reduce((a,b)=>a+b,0))],
+    ["ΔlogL",last?fmt(last.likelihoodDifference):"—"],
+    ["ΔQ",last?fmt(last.qDifference):"—"],
+    ["責務KL",last?fmt(last.klDifference):"—"]
+  ]);
+  fill("history",trace.map((x,t)=>[t,fmt(x.logLikelihood),t?fmt(x.likelihoodDifference):"—",t?fmt(x.qDifference):"—",t?fmt(x.klDifference):"—"]));
+}
+function reset(){
+  try{
+    const c=config(), d=makeDataset(c),p=initialParameters(c),r=expectation(d,p);
+    data=d;params=p;trace=[{logLikelihood:r.logLikelihood}];render();
+    $("status").className="";$("status").textContent="seed固定の標本を再生成しました。";
+  }catch(e){error(e);}
+}
+function iterate(n){
+  if(!params){error(new Error("先に再生成してください"));return;}
+  try{
+    let last=null;
+    for(let t=0;t<n;t++){
+      last=stepEM(data,params);params=last.updated;
+      trace.push({logLikelihood:last.next.logLikelihood,likelihoodDifference:last.likelihoodDifference,qDifference:last.qDifference,klDifference:last.klDifference});
+    }
+    render(last);$("status").className="";
+    $("status").textContent=String(n)+"回の更新が完了。直前のΔlogL="+fmt(last.likelihoodDifference);
+  }catch(e){error(e);}
+}
+fields.forEach(k=>{$(k).value=String(defaultConfig[k]);$(k).addEventListener("change",reset);});
+$("reset").addEventListener("click",reset);
+$("step").addEventListener("click",()=>iterate(1));
+$("run").addEventListener("click",()=>iterate(20));
+reset();
+</script>
+</body>
+</html>
