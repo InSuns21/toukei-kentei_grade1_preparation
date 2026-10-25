@@ -1,0 +1,40 @@
+id: "QINF4"
+title: "精製とアンサンブル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+official_scope: []
+learning_objectives:
+  - 有限次元密度演算子の精製を定義し、固有値分解から正規化と縮約を検算して構成できる
+  - 精製に必要な補助系の最小次元が密度演算子のrankであることを証明できる
+  - 同じ縮約を持つ純粋状態の補助系側の等長写像による関係を、次元条件と零固有値に注意して証明できる
+  - 任意の有限アンサンブル表示と補助系の基底測定の対応を構成し、非一意な表示が同じ局所状態を与えることを説明できる
+definitions:
+  - { id: QINF4-DEF-01, name: "精製と精製補助系" }
+theorems:
+  - { id: QINF4-THM-01, name: "有限次元状態の精製の存在" }
+  - { id: QINF4-PROP-01, name: "精製補助系の最小次元" }
+  - { id: QINF4-THM-02, name: "同一縮約を持つ精製の等長写像による関係" }
+  - { id: QINF4-THM-03, name: "有限アンサンブルの精製測定による実現" }
+canonical_examples:
+  - "非一様qubit状態の正準精製と両側の縮約"
+  - "最大混合qubit状態の計算基底・Hadamard基底の二つのアンサンブル"
+  - "最小補助系と冗長補助系の等長写像、存在しない逆向き等長写像"
+  - "非直交状態のアンサンブルを与える補助系側のHadamard測定"
+problem_patterns:
+  - QINF4-SPECTRAL-PURIFICATION
+  - QINF4-PURE-MINIMAL-ENVIRONMENT
+  - QINF4-PARTIAL-TRACE-CONSTRUCTION
+  - QINF4-RANK-LOWER-BOUND
+  - QINF4-PHASE-PURIFICATIONS
+  - QINF4-ISOMETRY-DIMENSION
+  - QINF4-ENSEMBLE-ISOMETRY
+  - QINF4-CONJUGATE-BASIS
+  - QINF4-PURIFICATION-ENSEMBLE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }
