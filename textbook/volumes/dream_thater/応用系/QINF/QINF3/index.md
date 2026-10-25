@@ -24,6 +24,16 @@ $$
 
 で定められます。積空間の内積を使ったこの定義は、正規直交基底 $(e_a)$ を選べば $X$ の成分 $\langle e_a\otimes f_j,X(e_b\otimes f_j)\rangle$ を $a,b$ 成分に持つ行列を指定していることになります。$B$ の対角ブロックを足すと、欲しい作用素が得られます。
 
+この対角ブロックを作用素の積で表すため、$K_j:H_A\to H_A\otimes H_B$ を $K_jv=v\otimes f_j$ と置きます。Dirac記法では $K_j=I_A\otimes|f_j\rangle$、[随伴](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)は $K_j^\dagger=I_A\otimes\langle f_j|$ です。実際、$u,v\in H_A$ について
+
+$$
+\langle u,K_j^\dagger X K_jv\rangle
+=\langle u\otimes f_j,X(v\otimes f_j)\rangle
+=\langle u,X_{jj}v\rangle.
+$$
+
+従って $X_{jj}=K_j^\dagger X K_j$ であり、基底の対角ブロックの和を次のように定義できます。
+
 <a id="def-qinf3-partial-trace"></a>
 
 <!-- formal-statement-start -->
@@ -38,7 +48,7 @@ $$
 > と定める。$A$ 上の部分トレース $\operatorname{Tr}_A X$ も同様に $A$ の正規直交基底で定める。全系の密度演算子 $\rho_{AB}$ に対し、$\rho_A:=\operatorname{Tr}_B\rho_{AB}$ と $\rho_B:=\operatorname{Tr}_A\rho_{AB}$ をそれぞれ **$A$ と $B$ の縮約状態（縮約密度演算子）**と呼ぶ。
 <!-- formal-statement-end -->
 
-記号 $I_A\otimes|f_j\rangle:H_A\to H_A\otimes H_B$ は $v\mapsto v\otimes f_j$、$I_A\otimes\langle f_j|$ はその随伴です。したがって積の各項は $H_A$ 上の作用素で、和を取れることが分かります。見かけは基底に依存しますが、次の定理により**作られた作用素は基底に依存しない**ことも分かります。
+各 $K_j^\dagger X K_j$ は $H_A$ 上の作用素なので、和は型の上でも定まっています。見かけは基底に依存しますが、次の定理により**作られた作用素は基底に依存しない**ことも分かります。
 
 <a id="thm-qinf3-expectation-uniqueness"></a>
 
@@ -98,6 +108,15 @@ $$
 $$
 
 例えば $v=\alpha|0\rangle+\beta|1\rangle$ について、二番目の項は $v\mapsto\beta|0\rangle$ です。$X$ は密度演算子ではありませんが、**部分トレースは任意の作用素に定義される**ため、この非対角成分にも使えます。一方 $|0\,0\rangle\langle1\,1|$ は $B$ の添字が異なるので、同じ和では0になります。各項の $B$ 添字を一致させて和を取る点が本質です。
+
+縮約状態として使う場合も確認します。$\rho_{AB}=|0\,1\rangle\langle0\,1|$ は単位ベクトルの外積なので、[QINF2の密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の自己共役性・正値性・トレース1を満たします。上と同じ成分和から
+
+$$
+\rho_A=|0\rangle\langle0|,\qquad
+\rho_B=|1\rangle\langle1|
+$$
+
+です。どちらも自己共役で、任意の $v$ について二次形式は $|\langle0,v\rangle|^2$ または $|\langle1,v\rangle|^2$ で非負、トレースは1です。これで「部分トレースの計算」と「縮約状態が密度演算子になること」を区別して確かめました。一般の全系状態についての三条件は次節で証明します。
 <!-- definition-example-end -->
 
 ## 2. 縮約は正しい密度演算子になる
@@ -239,18 +258,33 @@ $$
 \qquad \sum_{a,j}|c_{aj}|^2=1.
 $$
 
-$d_A\times d_B$ の係数行列を $C=(c_{aj})$ とします。ここで $C$ は純粋状態の係数を行列に並べたもので、密度行列そのものではありません。部分トレースの成分を計算すると
+$d_A\times d_B$ の係数行列を $C=(c_{aj})$ とします。ここで $C$ は純粋状態の係数を行列に並べたもので、密度行列そのものではありません。部分トレースの成分を計算すると、$A$ 側では $B$ の添字 $j$ が一致する項を足し、$B$ 側では $A$ の添字 $a$ が一致する項を足します。
+
+<a id="eq-qinf3-coefficient-reduction"></a>
 
 $$
 \begin{aligned}
 \langle e_a,\rho_Ae_b\rangle
 &=\sum_j\langle e_a\otimes f_j,|\psi\rangle\langle\psi|(e_b\otimes f_j)\rangle\\
 &=\sum_jc_{aj}\overline{c_{bj}},
-\qquad \boxed{\rho_A=CC^\dagger}.
+\qquad \boxed{\rho_A=CC^\dagger},\\
+\langle f_j,\rho_Bf_k\rangle
+&=\sum_a\langle e_a\otimes f_j,|\psi\rangle\langle\psi|(e_a\otimes f_k)\rangle\\
+&=\sum_ac_{aj}\overline{c_{ak}},
+\qquad \boxed{\rho_B=C^{\mathsf T}\overline C}.
 \end{aligned}
 $$
 
-この表示は、$\rho_A$ のrankを $C$ の列の線形独立性から判定できる理由にもなります。
+ここで $\overline C$ は成分ごとの複素共役であり、$C^{\mathsf T}$ は転置です。一般の複素係数では $C^{\mathsf T}\overline C$ と $C^\dagger C$ を取り違えてはいけません。例えば $|\psi\rangle=(|00\rangle+i|01\rangle)/\sqrt2$ に対しては
+
+$$
+(\rho_B)_{01}
+=\sum_a c_{a0}\overline{c_{a1}}
+=\frac1{\sqrt2}\frac{-i}{\sqrt2}
+=-\frac i2
+$$
+
+です。正しい複素共役の位置をこの例でも確認できます。また $\rho_A=CC^\dagger$ の表示から、$\rho_A$ のrankを $C$ の列の線形独立性によって判定できます。
 
 <a id="thm-qinf3-product-pure"></a>
 
@@ -312,7 +346,27 @@ $0<t<1$ ならrank 2で、[積状態の同値判定](#thm-qinf3-product-pure)か
 
 $B$ 側だけに何かしても、その結果を $A$ の観測者へ知らせなければ、$A$ 側のすべての測定確率は変わりません。この節では一般の量子操作を先取りせず、[QINF1の局所ユニタリ](../QINF1/index.md#prop-qinf1-local-algebra)と射影測定について、行列計算で直接確認します。
 
-ここでは $B$ 側で直交射影の族 $(Q_b)$（$Q_bQ_c=\delta_{bc}Q_b$、$\sum_bQ_b=I_B$）に従って測定した後、**結果 $b$ を区別せず平均する**場合（非選択射影測定）を扱います。全系の更新後の状態は $\sum_b(I_A\otimes Q_b)\rho_{AB}(I_A\otimes Q_b)$ です。一つの結果 $b$ を選んで条件付けする場合とは区別します。
+ここでは $B$ 側で直交射影の族 $(Q_b)$（$Q_bQ_c=\delta_{bc}Q_b$、$\sum_bQ_b=I_B$）に従って測定した後、**結果 $b$ を区別せず平均する**場合（非選択射影測定）を扱います。[QINF2のアンサンブル表示](../QINF2/index.md#thm-qinf2-density-ensemble)で全系を書き、$L_b=I_A\otimes Q_b$ と置きます。結果 $b$ への射影で得る非正規化作用素とその結果確率は
+
+$$
+\begin{aligned}
+\widetilde\rho_b
+&=\sum_kp_kL_b|\psi_k\rangle\langle\psi_k|L_b
+=L_b\rho_{AB}L_b,\\
+q_b&=\operatorname{Tr}_{AB}(\widetilde\rho_b),
+\qquad \rho_{AB}=\sum_kp_k|\psi_k\rangle\langle\psi_k|.
+\end{aligned}
+$$
+
+です。$q_b>0$ の結果に条件付けた状態は $\widetilde\rho_b/q_b$ です。結果を**知らずに平均**すれば、条件付けで割った確率が打ち消され、
+
+$$
+\rho''_{AB}
+=\sum_{b:q_b>0}q_b\frac{\widetilde\rho_b}{q_b}
+=\sum_bL_b\rho_{AB}L_b
+$$
+
+となります。$q_b=0$ の項は零作用素なので最後の和へ加えても変わりません。一つの結果 $b$ を選んで条件付けする場合とは区別します。
 
 <a id="prop-qinf3-no-signalling"></a>
 
@@ -511,7 +565,7 @@ $$
 C=\frac1{\sqrt3}\begin{pmatrix}1&0\\1&1\end{pmatrix}.
 $$
 
-本文で導いた $\rho_A=CC^\dagger$ の各成分を列の積の和として、$\rho_B=C^\dagger C$ を行の積の和として計算します。
+上の[成分表示](#eq-qinf3-coefficient-reduction)を使い、$\rho_A=CC^\dagger$ の各成分を列の積の和として、$\rho_B=C^{\mathsf T}\overline C$ の各成分を行の積の和として計算します。今回は $C$ が実行列なので $C^{\mathsf T}\overline C=C^\dagger C$ です。
 
 $$
 \begin{aligned}
@@ -627,7 +681,15 @@ $$
 D_t=\begin{pmatrix}t&0\\0&1-t\end{pmatrix}
 $$
 
-です。これは正値・自己共役・trace1で、$\operatorname{Tr}(D_t^2)=t^2+(1-t)^2=1-2t(1-t)$ です。$t(1-t)=0$、すなわち $t=0$ または1でのみ純粋です。$0<t<1$ では縮約は混合で、[積状態と縮約純粋性の同値](#thm-qinf3-product-pure)から $\psi_t$ はエンタングルです。$\sigma_t$ は全系が混合する準備ですが、同じ縮約を持ちます。
+です。これは正値・自己共役・トレース1で、その純粋性は
+
+$$
+\operatorname{Tr}(D_t^2)=t^2+(1-t)^2=1-2t(1-t)
+$$
+
+です。$t(1-t)=0$、すなわち $t=0$ または1でのみ純粋です。$0<t<1$ では縮約は混合で、[積状態と縮約純粋性の同値](#thm-qinf3-product-pure)から $\psi_t$ はエンタングルです。
+
+$\sigma_t$ は $0<t<1$ では全系が混合状態ですが、端点 $t=0,1$ では純粋状態です。いずれの $t$ でも $\rho_t$ と同じ縮約を持ちます。
 
 2. $X\otimes X$ は $|00\rangle$ と $|11\rangle$ を入れ替えます。$\rho_t$ の期待値は対角二項が0、交差二項がそれぞれ $\sqrt{t(1-t)}$ を与えるので
 
