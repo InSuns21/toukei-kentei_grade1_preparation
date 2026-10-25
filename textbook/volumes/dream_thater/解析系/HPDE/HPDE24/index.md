@@ -8,7 +8,7 @@
 
 ## 1. まず何を診断するのか
 
-[normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)であることは主シンボルが $-g^{-1}(\zeta,\zeta)$ であるという**各点近傍で判定する条件**です。一方、[大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)は、因果的な閉曲線がないことを含む因果条件と、任意の二点 $p,q$ の因果ダイヤモンド $J^+(p)\cap J^-(q)$ がコンパクトであることを要求します。$J^+(p)$ は $p$ から未来因果曲線で到達できる集合、$J^-(q)$ は $q$ へ未来因果曲線で到達できる集合です。
+[normally hyperbolic作用素](../HPDE5/index.md#def-hpde5-normally-hyperbolic)であることは主シンボルが $-g^{-1}(\zeta,\zeta)$ であるという**各点近傍で判定する条件**です。一方、[大域双曲性](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)は、[強因果性](../../../幾何系/LORG/LORG10/index.md#def-lorg10-strong-causality)と、任意の二点 $p,q$ の因果ダイヤモンド $J^+(p)\cap J^-(q)$ がコンパクトであることを要求します。強因果性は閉因果曲線がないことより強く、因果曲線の小近傍への再侵入も排除します。$J^+(p)$ は $p$ から未来因果曲線で到達できる集合、$J^-(q)$ は $q$ へ未来因果曲線で到達できる集合です。
 
 境界なしの時空に適用する本系列の大域定理について、次の診断の順番を固定します。
 
@@ -16,19 +16,28 @@
 
 <!-- formal-statement-start -->
 > **定義（因果ダイヤモンドによる大域診断）**
-> 時間向き付きLorentz時空上の二階作用素に、境界なし大域双曲時空用のCauchy・Green定理を適用できるか調べる際、(i) 作用素の主シンボルと正則性、(ii) 時空の因果条件と全ての $J^+(p)\cap J^-(q)$ のコンパクト性、(iii) 境界の有無と、境界がある場合の条件指定、を別々に確認する手順を本講の**大域診断**と呼ぶ。(i) だけで (ii) または (iii) を結論しない。
+> 時間向き付きLorentz時空上の二階作用素に、境界なし大域双曲時空用のCauchy・Green定理を適用できるか調べる際、(i) 作用素の主シンボルと正則性、(ii) 時空の強因果性と全ての $J^+(p)\cap J^-(q)$ のコンパクト性、(iii) 境界の有無と、境界がある場合の条件指定、を別々に確認する手順を本講の**大域診断**と呼ぶ。(i) だけで (ii) または (iii) を結論しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hpde24-diagnostic -->
 ### 直接例：完全なMinkowski平面
 
-**定義の確認**。$M_0=\mathbb R^{1,1}$、$g_0=-dt^2+dx^2$、$P=\partial_t^2-\partial_x^2+m^2$ とします。最高階は $-g_0^{-1}$ であり (i) を満たします。$t$ が未来因果曲線に沿って増えるため閉因果曲線はありません。例えば $p=(-1,0),q=(1,0)$ について、[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を二回使うと
+**定義の確認**。$M_0=\mathbb R^{1,1}$、$g_0=-dt^2+dx^2$、$P=\partial_t^2-\partial_x^2+m^2$ とします。座標基底の二階係数は $\operatorname{diag}(1,-1)=-g_0^{-1}$、質量項は滑らかなので (i) を満たします。また計量勾配は $\nabla^{g_0}t=-\partial_t$ で過去時間的です。よって $t$ は[temporal functionの定義](../../../幾何系/LORG/LORG10/index.md#def-lorg10-time-function)を満たし、[temporal functionがあれば強因果的](../../../幾何系/LORG/LORG10/index.md#thm-lorg10-temporal-implies-strong)という定理により (ii) の強因果性を確認できます。
+
+ダイヤモンドについて、例えば $p=(-1,0),q=(1,0)$ に[Minkowskiの因果到達条件](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を二回使うと
 
 $$
 J^+(p)\cap J^-(q)=\{(t,x):|t|+|x|\le1\}
 $$
 
-です。これは閉かつ有界なので[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトです。任意の二点にも同様の不等式が使え、(ii) を満たします。$M_0$ に境界はなく (iii) も満たすので、[大域Cauchy定理](../HPDE16/index.md#thm-hpde16-global-cauchy)と[Green作用素定理](../HPDE18/index.md#thm-hpde18-green-existence)の対象になります。
+です。これは閉かつ有界なので[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトです。一般の端点 $p=(t_p,x_p),q=(t_q,x_q)$ に対しても、ダイヤモンド中の $r=(t,x)$ は
+
+$$
+t_p\le t\le t_q,\qquad
+|x-x_p|\le t-t_p,\qquad |x-x_q|\le t_q-t
+$$
+
+を満たします。時刻の上下界と $x_p$ からの距離上界によって $t,x$ は有界で、三条件はいずれも閉条件です。到達不能ならダイヤモンドは空集合です。よって任意のダイヤモンドがコンパクトで (ii) を満たします。$M_0$ に境界はなく (iii) も満たすので、[大域Cauchy定理](../HPDE16/index.md#thm-hpde16-global-cauchy)と[Green作用素定理](../HPDE18/index.md#thm-hpde18-green-existence)の対象になります。
 <!-- definition-example-end -->
 
 以降、診断が不合格になった模型でも「Green作用素が絶対に存在しない」とは主張しません。**この仮定を使った一般定理を適用できない**ことと、**特定の問題が解けない**ことは異なります。
@@ -96,7 +105,13 @@ $$
 \end{aligned}
 $$
 
-分布 $H(p)H(q)F_m(pq)$ を微分します。$\partial_qF_m(pq)=pF_m'(pq)$ だから $p=0$ 上では零、同様に $\partial_pF_m(pq)$ は $q=0$ 上で零です。従って混合微分では余分な片側境界分布は残らず、
+分布 $W=H(p)H(q)F_m(pq)$ を微分します。まず $\partial_qF_m(pq)=pF_m'(pq)$ を使って
+
+$$
+\partial_qW=H(p)\delta(q)F_m(0)+H(p)H(q)pF_m'(pq).
+$$
+
+さらに $p$ で微分すると、第二項の境界微分に現れる $\delta(p)pF_m'(pq)$ は零です。第一項の微分は $\delta(p)\delta(q)F_m(0)$ です。従って光線に沿う余分な分布項は残らず、
 
 $$
 \begin{aligned}
@@ -112,7 +127,15 @@ $$
 \delta(t)\delta(x)=2\delta(p)\delta(q).
 $$
 
-ゆえに $P_mK_m=\delta(t)\delta(x)$ です。$H(p)H(q)$ の台は $p,q\ge0$、すなわち $t\ge|x|$ であり、遅延支持を満たします。$m=0$ では級数の $k\ge1$ が消えます。$m>0$ では $F_m(z)=1-m^2z/4+O(m^4z^2)$ を代入して表示を得ます。$F_m(0)=1$ で連続なので、円錐内部の原点に近い開領域で核は非零です。$\square$
+ゆえに $P_mK_m=\delta(t)\delta(x)$ です。$H(p)H(q)$ の台は $p,q\ge0$、すなわち $t\ge|x|$ であり、遅延支持を満たします。
+
+質量が零なら正次数の級数項が全て消えます。質量が正なら原点近くで
+
+$$
+F_m(z)=1-\frac{m^2z}{4}+O(m^4z^2)
+$$
+
+となります。$F_m(0)=1$ で連続なので、円錐内部の原点に近い開領域で核は非零です。$\square$
 <!-- proof-end -->
 
 この模型には二つの注意があります。第一に、$K_m$ は**点源の分布核**であって、一般の滑らかな初期データの解そのものではありません。滑らかなコンパクト源 $f$ には畳込み $G_{\mathrm{ret}}f=K_m*f$ を使います。第二に、[有限伝播・支持の因果的包含](../HPDE10/index.md#thm-hpde10-finite-propagation)は台が閉光円錐を越えないことで、**強Huygens性**とは点源の伝播核が光円錐面上に限られることです。1+1次元の $K_0$ は既に強Huygens性を満たしません。
@@ -177,14 +200,27 @@ $$
 
 よって[滑らかなCauchy面の定義](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)を満たし、[大域双曲性の特徴付け](../../../幾何系/LORG/LORG16/index.md#thm-lorg16-characterization)から大域双曲性が従います。
 
-一方、$g^{tt}=-1$、$g^{xx}=a^{-2}$、$\sqrt{|\det g|}=a$ です。関数についての波動作用素の座標公式に各成分を代入し、
+一方、座標基底 $(\partial_t,\partial_x)$ で $g_{ij}=g(\partial_i,\partial_j)$ を並べると $\operatorname{diag}(-1,a^2)$ です。$a>0$ なので非退化で、負方向・正方向が一本ずつあります。逆計量と体積密度の係数は
+
+$$
+(g^{ij})=\operatorname{diag}(-1,a^{-2}),\qquad
+\det(g_{ij})=-a^2,\qquad\sqrt{|\det g|}=a
+$$
+
+です。[Levi-Civita接続の係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)へ $\partial_tg_{xx}=2aa'$ を代入すると
+
+$$
+\Gamma^t_{xx}=aa',\qquad\Gamma^x_{tx}=\Gamma^x_{xt}=a'/a
+$$
+
+が非零の係数です。関数の二階共変微分 $\nabla_i\nabla_j u=\partial_i\partial_j u-\Gamma^k_{ij}\partial_ku$ を逆計量で縮約すると
 
 $$
 \begin{aligned}
 \Box_gu
-&=\frac1a\partial_t(a g^{tt}\partial_tu)
-+\frac1a\partial_x(a g^{xx}\partial_xu)\\
-&=-\partial_t^2u-\frac{a'}a\partial_tu+a^{-2}\partial_x^2u\\
+&=g^{tt}(u_{tt}-\Gamma^k_{tt}u_k)
++g^{xx}(u_{xx}-\Gamma^t_{xx}u_t)\\
+&=-u_{tt}+a^{-2}(u_{xx}-aa'u_t)\\
 &=-\partial_t^2u-\alpha\partial_tu+e^{-2\alpha t}\partial_x^2u.
 \end{aligned}
 $$
@@ -224,11 +260,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z_k=(0,1/k)$（$k\ge2$）を取ります。$p\to z_k$ と $z_k\to q$ を結ぶ直線の時間差はいずれも $1$、空間差は $1/k<1$ であるため、どちらも時間的です。$t=0$ での空間位置は $1/k\ne0$ なので原点を通りません。従って $z_k$ は $M_*$ 内の因果ダイヤモンドに属します。しかし $z_k\to o$ で $o\notin M_*$ です。ダイヤモンドの点列 $z_k$ は $M_*$ 内に収束部分列を持たないので、ダイヤモンドはコンパクトではありません。
+$z_k=(0,1/k)$（$k\ge2$）を取ります。$p\to z_k$ と $z_k\to q$ を結ぶ直線の時間差はいずれも $1$、空間差の絶対値は $1/k<1$ であるため、どちらも時間的です。$t=0$ での空間位置は $1/k\ne0$ なので原点を通りません。従って $z_k$ は $M_*$ 内の因果ダイヤモンドに属します。
+
+一方、$z_k\to o$ ですが除去点 $o$ は $M_*$ に属しません。部分列も同じ点以外には収束できないため、ダイヤモンド中のこの点列に $M_*$ で収束する部分列はなく、コンパクトではありません。
 
 $t>0$ で $|x|\le t$ を満たす点 $(t,x)$ へは、$\gamma(s)=(s,sx/t)$（$0<s\le t$）という過去端が原点に近づく未来因果曲線が到達します。$|dx/ds|=|x|/t\le1$ で、$s\downarrow0$ で曲線は削除点に達するため、$M_*$ 内では過去非延長です。この曲線は $S_*$ と交わらないので $(t,x)\notin D^+(S_*)$ です。光的な等号 $|x|=t$ も除外されます。
 
-逆に $t>0$ で $|x|>t$ なら、過去非延長因果曲線が時刻零より前に達することを妨げる唯一の有限端点候補は $o$ ですが、原点から $(t,x)$ へ因果的に達するには $|x|\le t$ が必要であり矛盾します。従って全ての過去非延長曲線は $S_*$ を通ります。過去側は時間反転で同様です。この議論は[点除去時空の依存領域の計算](../../../幾何系/LORG/LORG21/index.md#prop-lorg21-punctured-domain)と一致し、表示の式を得ます。$\square$
+逆に $t>0$ で $|x|>t$ とします。[点除去時空の依存領域の計算](../../../幾何系/LORG/LORG21/index.md#prop-lorg21-punctured-domain)で使った因果速度評価により、過去向き曲線を時刻 $s$ で表すと
+
+$$
+|x(s_1)-x(s_2)|\le|s_1-s_2|
+$$
+
+です。従って有限な過去端時刻があれば空間座標にも極限があり、曲線を延長できない有限端点は除去点 $o$ しかありません。しかし原点から $(t,x)$ へ因果的に達するには $|x|\le t$ が必要であり、仮定に反します。よって全ての過去非延長曲線は時刻零で $o$ 以外の点を通り、$S_*$ と交わります。過去側は時間反転で同様に示せ、表示の式を得ます。$\square$
 <!-- proof-end -->
 
 では、点除去のせいで**滑らかな解の一意性が必ず破れる**のでしょうか。そこまでは結論できません。正則性クラスを区別するため、[束値超関数](../HPDE3/index.md#def-hpde3-distribution-section)の定義を階数1の実数束に適用して次を見ます。完全なMinkowski平面上の分布
@@ -244,7 +288,13 @@ $$
 =\langle\delta_o,\widetilde\phi\rangle=0.
 $$
 
-しかも $w|_{M_*}$ は $t<0$ で零なのに、$t>|x|$ で $1/2$ です。これは**分布解として**、穴に隠れた源を初期データだけでは排除できないという実例です。ただし光円錐上に跳びがあり $w$ は滑らかでないので、この例を滑らかな解の非一意性の証明へすり替えてはいけません。
+しかも各 $(0,x_0)\in S_*$ に対して、近傍
+
+$$
+|t|+|x-x_0|<|x_0|/2\quad\Longrightarrow\quad t<|x|
+$$
+
+では $w$ が零です。従って初期集合上の分布的な変位と速度は共に零であるのに、未来の錐内部では $w=1/2$ です。これは**分布解として**、穴に隠れた源を初期データだけでは排除できない実例です。ただし光円錐上に跳びがあり $w$ は滑らかでないので、この例を滑らかな解の非一意性の証明へすり替えてはいけません。
 
 ## 5. 時間的境界では滑らかな零データ解さえ一意ではない
 
@@ -266,7 +316,13 @@ $$
 <!-- definition-example-start: def-hpde24-dirichlet -->
 ### 直接例：固定端の振動
 
-**定義の確認**。$k>0$、$u_D(t,x)=\sin(kx)\cos(kt)$ とすると、$u_D(t,0)=0$ で壁の条件を満たします。さらに $\partial_t^2u_D=-k^2u_D$、$\partial_x^2u_D=-k^2u_D$ なので $Pu_D=0$ です。一方 $\partial_xu_D(t,0)=k\cos(kt)$ は恒等的に零ではありません。これは**固定端**の境界条件です。
+**定義の確認**。$k>0$、$u_D(t,x)=\sin(kx)\cos(kt)$ とします。境界での値と内部の方程式を別々に確かめると
+
+$$
+u_D(t,0)=\sin(0)\cos(kt)=0,\qquad Pu_D=(-k^2+k^2)u_D=0
+$$
+
+です。一方 $\partial_xu_D(t,0)=k\cos(kt)$ は恒等的に零ではありません。これは**固定端**の境界条件です。
 <!-- definition-example-end -->
 
 <a id="def-hpde24-neumann"></a>
@@ -283,7 +339,13 @@ $$
 <!-- definition-example-start: def-hpde24-neumann -->
 ### 直接例：自由端の振動
 
-**定義の確認**。$u_N(t,x)=\cos(kx)\cos(kt)$ は $\partial_xu_N(t,0)=-k\sin(0)\cos(kt)=0$ であり、$Pu_N=(-k^2+k^2)u_N=0$ です。他方 $u_N(t,0)=\cos(kt)$ は恒等的に零ではありません。こちらは**自由端**に対応します。両方のモードは空間的に非コンパクトなので、後の有限エネルギー一意性の証明へそのまま入力しません。
+**定義の確認**。同じ $k>0$ について $u_N(t,x)=\cos(kx)\cos(kt)$ とします。境界の法線微分と内部方程式は
+
+$$
+\partial_xu_N(t,0)=-k\sin(0)\cos(kt)=0,\qquad Pu_N=(-k^2+k^2)u_N=0
+$$
+
+です。他方 $u_N(t,0)=\cos(kt)$ は恒等的に零ではありません。こちらは**自由端**に対応します。両方のモードは空間的に非コンパクトなので、後の有限エネルギー一意性の証明へそのまま入力しません。
 <!-- definition-example-end -->
 
 <a id="prop-hpde24-boundary-nonunique"></a>
@@ -545,20 +607,19 @@ $$
 $g=-dt^2+e^{2\alpha t}dx^2$（$\alpha>0$）とし、$P=-\Box_g+m^2$ とする。$\det g$、$g^{-1}$、$P$ の座標表示を求め、共変ベクトル $\zeta=\tau\,dt+\kappa\,dx$ に対する二階主シンボルを計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。計量行列は対角行列 $\operatorname{diag}(-1,e^{2\alpha t})$ なので
+**詳細解答**。座標基底 $(\partial_t,\partial_x)$ に関する計量の成分 $g_{ij}=g(\partial_i,\partial_j)$ は $g_{tt}=-1$、$g_{tx}=0$、$g_{xx}=e^{2\alpha t}$ です。係数行列は $\operatorname{diag}(-1,e^{2\alpha t})$ となり、逆計量はその逆行列です。
 
 $$
 \det g=-e^{2\alpha t},\quad \sqrt{|\det g|}=e^{\alpha t},\quad
 g^{tt}=-1,\quad g^{xx}=e^{-2\alpha t}.
 $$
 
-従って
+本章の[膨張模型の係数計算](#prop-hpde24-expanding-cauchy)と同じく、$\Gamma^t_{xx}=\alpha e^{2\alpha t}$、$\Gamma^x_{tx}=\Gamma^x_{xt}=\alpha$ を得ます。$\Box_gu=g^{ij}(\partial_i\partial_j u-\Gamma^k_{ij}\partial_ku)$ に代入すると
 
 $$
 \begin{aligned}
 \Box_gu
-&=e^{-\alpha t}\partial_t(-e^{\alpha t}u_t)
-+e^{-\alpha t}\partial_x(e^{-\alpha t}u_x)\\
+&=-u_{tt}+e^{-2\alpha t}(u_{xx}-\alpha e^{2\alpha t}u_t)\\
 &=-u_{tt}-\alpha u_t+e^{-2\alpha t}u_{xx}.
 \end{aligned}
 $$
@@ -683,7 +744,21 @@ $$
 \end{aligned}
 $$
 
-Dirichletを共に満たせば $u=v=0$、Neumannを共に満たせば $u_x=v_x=0$ が壁で成立し、両方の場合に右辺は零です。異なる条件の場合、$u(0)=0$、$v_x(0)=0$ だけでは壁の括弧は $-v(0)u_x(0)$ となり、一般に零とは限りません。従って条件の混在だけから面積分の保存は導けません。保存される解空間を一緒に選ぶ必要があります。
+Dirichletを共に満たせば $u=v=0$、Neumannを共に満たせば $u_x=v_x=0$ が壁で成立し、右辺は零です。異なる条件の場合、$u(t,0)=0$、$v_x(t,0)=0$ だけでは壁の括弧は $-v(t,0)u_x(t,0)$ となります。
+
+実際、$F,G\in C_c^\infty(\mathbb R)$ に対し
+
+$$
+u(t,x)=F(t-x)-F(t+x),\qquad v(t,x)=G(t-x)+G(t+x)
+$$
+
+と置けば、どちらも波動方程式の解で、有限時間帯ごとに空間コンパクト支持です。境界では $u(t,0)=0$、$v_x(t,0)=0$ である一方、$u_x(t,0)=-2F'(t)$、$v(t,0)=2G(t)$ なので
+
+$$
+\frac{d}{dt}\Omega_t(u,v)=-4G(t)F'(t).
+$$
+
+$G(t)F'(t)$ が零でない箇所を持つように選べます。従って条件の混在だけから面積分の保存は導けません。保存される解空間を一緒に選ぶ必要があります。
 <!-- solution-end -->
 
 ### Level C：幾何・Green・保存形式を接続する
