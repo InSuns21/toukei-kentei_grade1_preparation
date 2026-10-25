@@ -149,6 +149,21 @@ $p$ が時間的なら $p^0>|\vec p|$ なので正です。一方、$-p\cdot\chi
 
 分裂の瞬間に負エネルギーと増加した正エネルギーを両立できることを、局所正規直交枠で実際に構成します。
 
+そのための枠が存在することも確かめます。ergoregionでは $\xi$ が空間的なので、$\lambda=\sqrt{g(\xi,\xi)}>0$、$f_1=\xi/\lambda$ と置けます。$f_1$ に直交する未来向き単位時間ベクトルを $f_0$ とし、$s>0$ に対して局所Lorentz変換
+
+$$
+e_0=\cosh s\,f_0-\sinh s\,f_1,\qquad
+e_1=-\sinh s\,f_0+\cosh s\,f_1
+$$
+
+を施します。すると $e_0$ は未来向き単位時間ベクトルで、$e_1$ は空間単位ベクトルです。逆変換により
+
+$$
+\xi=\lambda f_1=(\lambda\sinh s)e_0+(\lambda\cosh s)e_1
+$$
+
+となるので、以下で仮定する $\beta>\alpha>0$ を実際に満たす枠を選べます。
+
 <a id="prop-gr33-local-split"></a>
 
 <!-- formal-statement-start -->
