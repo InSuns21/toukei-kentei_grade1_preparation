@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-12 Gaussian process回帰と不確実性ラボ</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,"Noto Sans JP",sans-serif}
+body{max-width:1040px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.5rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.controls label{display:block;border:1px solid #8887;border-radius:9px;padding:12px}
+.controls input[type=range],.controls select{display:block;width:100%;margin-top:10px}
+.buttons{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:14px 0}
+button{border:1px solid #888;background:#1e679b;color:#fff;border-radius:7px;padding:8px 14px;cursor:pointer;font:inherit}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.secondary{background:#555}
+figure{margin:16px 0}
+svg{display:block;width:100%;background:#fff;border:1px solid #8888;border-radius:10px}
+svg text{fill:#343b41;font-size:12px}
+figcaption{font-size:.94rem;margin-top:8px}
+.legend{display:flex;flex-wrap:wrap;gap:14px}
+.key{display:inline-block;width:20px;height:10px;margin-right:4px}
+.pred{background:#eab769}.latent{background:#7dadd5}
+.mean{height:3px;background:#202733}.obs{color:#a12448;font-weight:bold}
+.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:8px;padding:0}
+.data li{list-style:none;padding:10px;border:1px solid #8887;border-radius:7px}
+.data strong,.data small{display:block}
+.hint{font-size:.92rem}
+#status{font-weight:600}
+@media(max-width:560px){body{padding:10px}svg text{font-size:14px}}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-12/index">← ML2-12 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>ML2-12 Gaussian process回帰・不確実性</h1>
+<p>固定された観測値と核を使って共分散行列を作り、雑音付きGaussian条件付けを毎回再計算します。青帯は<strong>潜在関数値</strong>、橙帯は<strong>次の観測値</strong>についての点ごとの約95%区間。線は潜在関数値の事後平均、赤点は観測値です。</p>
+<section class="controls" aria-label="Gaussian processパラメータ">
+  <label>核の種類
+    <select id="kind" aria-label="共分散核">
+      <option value="se">平方指数核</option>
+      <option value="constant">定数核</option>
+      <option value="linear">線形核（定数項を含む）</option>
+    </select>
+  </label>
+  <label>核の振幅 a <output id="amplitudeValue">1.0</output>
+    <input id="amplitude" type="range" min="0.4" max="2.5" step="0.1" value="1" aria-label="核の振幅">
+  </label>
+  <label>長さ尺度 ℓ <output id="lengthValue">1.0</output>
+    <input id="length" type="range" min="0.2" max="3.0" step="0.1" value="1" aria-label="長さ尺度">
+  </label>
+  <label>仮定する観測雑音分散 σ² <output id="noiseValue">0.25</output>
+    <input id="noise" type="range" min="0.05" max="1.50" step="0.05" value="0.25" aria-label="観測雑音分散">
+  </label>
+  <label>追加観測の入力位置 x <output id="positionValue">0.0</output>
+    <input id="position" type="range" min="-3" max="3" step="0.1" value="0" aria-label="追加観測の位置">
+  </label>
+</section>
+<div class="buttons">
+  <button id="add" type="button">この位置で観測を追加</button>
+  <button id="reset" type="button" class="secondary">seed固定で初期化</button>
+  <span id="status" role="status" aria-live="polite"></span>
+</div>
+<figure>
+  <svg id="plot" viewBox="0 0 960 450" role="img" aria-label="潜在関数の平均曲線、点ごとの信用帯と新観測の予測帯、および観測点のグラフ" xmlns="http://www.w3.org/2000/svg"></svg>
+  <figcaption class="legend"><span><i class="key pred"></i>新観測の約95%予測区間</span><span><i class="key latent"></i>潜在関数値の約95%信用区間</span><span><i class="key mean"></i>潜在関数値の事後平均</span><span class="obs">● 観測値</span></figcaption>
+</figure>
+<ul id="diagnostics" class="data" aria-live="polite"></ul>
+<p class="hint">平方指数核は <code>a² exp(-(x-z)²/(2ℓ²))</code>、定数核は <code>a²</code>、線形核は <code>a²(1+xz/4)</code> です。長さ尺度は平方指数核のときだけ有効です。予測区間の分散 = 潜在関数値の事後分散 + σ²。核・雑音分散は<strong>固定して既知</strong>と仮定し、学習していません。</p>
+<p class="hint">初期観測と追加観測は関数 <code>0.8sin(1.4x)+0.2x</code> に、固定seedの擬似乱数で作った標準偏差0.25の測定雑音を加えて生成します。表示中の σ² は<strong>推論側が仮定する分散</strong>なので、スライダーを動かしても過去の観測値は変化しません。重複入力の追加では毎回別の擬似乱数を発生させます。</p>
+<p class="hint">区間は各入力についての条件付き確率であり、真の関数全体を95%の確率で覆う同時帯ではありません。観測点が増えれば潜在分散は縮みますが、誤った核や雑音仮定では区間の被覆率が保証されません。</p>
+<script type="module">
+"use strict";
+import { fitGaussianProcess } from "./ml2-12-model.mjs";
+const ns="http://www.w3.org/2000/svg";
+const $=id=>document.getElementById(id);
+const initialLocations=[-2,0,2];
+let state=1;
+let observations=[];
+
+function uniform(){
+  state=(1664525*state+1013904223)>>>0;
+  return (state+0.5)/4294967296;
+}
+function standardNormal(){
+  const u=Math.max(1e-12,uniform()),v=uniform();
+  return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
+}
+function generate(x){
+  const actual=0.8*Math.sin(1.4*x)+0.2*x;
+  return [x,actual+0.25*standardNormal()];
+}
+function reset(){
+  state=20261026;
+  observations=initialLocations.map(generate);
+  render();
+}
+function element(tag,attributes={},label){
+  const node=document.createElementNS(ns,tag);
+  for(const [key,value] of Object.entries(attributes))node.setAttribute(key,String(value));
+  if(label!==undefined)node.textContent=String(label);
+  return node;
+}
+function render(){
+  const kind=$("kind").value;
+  const amplitude=Number($("amplitude").value);
+  const length=Number($("length").value);
+  const noiseVariance=Number($("noise").value);
+  const position=Number($("position").value);
+  const options={kind,amplitude,length};
+  $("amplitudeValue").textContent=amplitude.toFixed(1);
+  $("lengthValue").textContent=length.toFixed(1);
+  $("noiseValue").textContent=noiseVariance.toFixed(2);
+  $("positionValue").textContent=position.toFixed(1);
+  $("length").disabled=kind!=="se";
+  $("add").disabled=observations.length>=25;
+  $("status").textContent=String(observations.length)+" 個の観測点 / 最大25個";
+
+  const fitted=fitGaussianProcess(observations,options,noiseVariance);
+  const values=Array.from({length:181},(_,i)=>{
+    const x=-3+i/30;
+    const p=fitted.predict(x);
+    const latent=1.96*Math.sqrt(p.latentVariance);
+    const observed=1.96*Math.sqrt(p.observationVariance);
+    return {x,mean:p.mean,lu:p.mean+latent,ll:p.mean-latent,pu:p.mean+observed,pl:p.mean-observed};
+  });
+  const yItems=[...values.flatMap(p=>[p.pu,p.pl]),...observations.map(p=>p[1])];
+  const limit=Math.max(2,Math.ceil(1.12*Math.max(...yItems.map(Math.abs))));
+  const sx=x=>62+(x+3)*865/6;
+  const sy=y=>407-(y+limit)*362/(2*limit);
+  const svg=$("plot");
+  svg.replaceChildren();
+  const add=(tag,attrs,label)=>svg.append(element(tag,attrs,label));
+
+  for(let x=-3;x<=3;x++){
+    add("line",{x1:sx(x),y1:36,x2:sx(x),y2:407,stroke:"#edf0f3"});
+    add("text",{x:sx(x),y:429,"text-anchor":"middle"},x);
+  }
+  for(let i=-2;i<=2;i++){
+    const y=i*limit/2;
+    add("line",{x1:62,y1:sy(y),x2:927,y2:sy(y),stroke:y===0?"#8895a2":"#edf0f3"});
+    add("text",{x:52,y:sy(y)+4,"text-anchor":"end"},y.toFixed(1));
+  }
+  const ribbon=(hi,lo,color,opacity)=>{
+    const points=[
+      ...values.map(q=>String(sx(q.x))+","+String(sy(q[hi]))),
+      ...values.slice().reverse().map(q=>String(sx(q.x))+","+String(sy(q[lo])))
+    ].join(" ");
+    add("polygon",{points,fill:color,opacity,stroke:"none"});
+  };
+  ribbon("pu","pl","#eab769",0.52);
+  ribbon("lu","ll","#7dadd5",0.59);
+  add("polyline",{points:values.map(q=>String(sx(q.x))+","+String(sy(q.mean))).join(" "),fill:"none",stroke:"#202733","stroke-width":3});
+  for(const [x,y] of observations) add("circle",{cx:sx(x),cy:sy(y),r:5,fill:"#a12448",stroke:"#fff","stroke-width":1.4});
+  add("line",{x1:sx(position),y1:36,x2:sx(position),y2:407,stroke:"#a12448","stroke-dasharray":"6 5",opacity:0.6});
+  add("text",{x:928,y:446,"text-anchor":"end"},"入力 x");
+  add("text",{x:10,y:20},"出力 y");
+
+  const probe=fitted.predict(position);
+  const first=fitted.predict(0);
+  const rows=[
+    ["観測数",String(observations.length)],
+    ["追加位置 x の事後平均",probe.mean.toFixed(5)],
+    ["追加位置 x の潜在分散",probe.latentVariance.toFixed(5)],
+    ["追加位置 x の新観測分散",probe.observationVariance.toFixed(5)],
+    ["x=0 の潜在分散",first.latentVariance.toFixed(5)],
+    ["用いた行列サイズ",String(fitted.matrix.length)+" × "+String(fitted.matrix.length)]
+  ];
+  const li=rows.map(([label,value])=>{
+    const node=document.createElement("li");
+    const title=document.createElement("strong");title.textContent=label;
+    const content=document.createElement("small");content.textContent=value;
+    node.append(title,content);return node;
+  });
+  $("diagnostics").replaceChildren(...li);
+}
+
+for(const id of ["kind","amplitude","length","noise","position"]){
+  $(id).addEventListener("input",render);
+}
+$("add").addEventListener("click",()=>{
+  if(observations.length>=25)return;
+  observations.push(generate(Number($("position").value)));
+  render();
+});
+$("reset").addEventListener("click",reset);
+reset();
+</script>
+</body>
+</html>
