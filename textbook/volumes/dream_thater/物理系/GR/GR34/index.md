@@ -248,7 +248,25 @@ k=\partial_t+\partial_r,\qquad
 \ell=\tfrac12(\partial_t-\partial_r)
 $$
 
-を取ります。$g(k,k)=g(\ell,\ell)=0$、$g(k,\ell)=-1$、$k^t>0$ であり、$\nabla_kk=0$ は $r$ がアフィンパラメータとして線形に増えることから、またCartesian座標で $k=(1,x^i/r)$ を微分しても確認できます。スクリーンは球面の正規直交二方向 $e_\vartheta,e_\varphi$ です。角度一定の微小変位はそれぞれ長さ $r\,d\vartheta$、$r\sin\vartheta\,d\varphi$ を持ち、$dr/d\lambda=1$ によって両方向とも単位長さ当たり $1/r$ の割合で伸びます。従ってスクリーンの速度勾配は
+を取ります。$g(k,k)=g(\ell,\ell)=0$、$g(k,\ell)=-1$、$k^t>0$ です。Cartesian空間座標で $n^i=x^i/r$ と置けば $k=(1,n^i)$ であり、平坦接続について
+
+$$
+\partial_jn^i=\frac{\delta^i{}_j-n^in_j}{r},\qquad
+k^\mu\partial_\mu n^i
+=n^j\partial_jn^i=\frac{n^i-n^i(n_jn^j)}r=0.
+$$
+
+従って $\nabla_kk=0$ で、各光線に沿って $dr/d\lambda=1$ です。スクリーンは局所的に球面の正規直交二方向 $e_\vartheta,e_\varphi$ で表せます。各空間成分 $E_A$ は $n_iE_A^i=0$、$\delta_{ij}E_A^iE_B^j=\delta_{AB}$ を満たします。定義した光学テンソルの正規直交枠成分は、射影 $q$ がこれらの方向に恒等的に働くことから
+
+$$
+\mathcal B_{AB}
+=g(e_A,\nabla_{e_B}k)
+=E_A^iE_B^j\partial_jn_i
+=\frac{E_A^iE_{Bi}-(E_A^in_i)(E_B^jn_j)}r
+=\frac{\delta_{AB}}r.
+$$
+
+これが共変微分による定義から行列への橋渡しです。角度一定の微小変位の長さも $r\,d\vartheta$、$r\sin\vartheta\,d\varphi$ であり、$dr/d\lambda=1$ なので各方向の伸び率 $1/r$ と一致します。従ってスクリーンの速度勾配は
 
 $$
 (\mathcal B_{AB})=\begin{pmatrix}1/r&0\\0&1/r\end{pmatrix},
@@ -306,7 +324,13 @@ $$
 \hat\theta'=\operatorname{tr}\mathcal C-\operatorname{tr}(\mathcal B^2).
 $$
 
-$g(k,k)=0$、$R(k,k)=0$ と曲率の対称性により、Ricci縮約を零枠 $(k,\ell,e_1,e_2)$ で表すと、$k,\ell$ に沿う寄与は零です。そこで
+$g(k,\ell)=-1$ の零枠 $(k,\ell,e_1,e_2)$ では逆計量が
+
+$$
+g^{ab}=-k^a\ell^b-\ell^ak^b+\sum_{A=1}^2e_A^ae_A^b
+$$
+
+と分解されます。[GR6のRicci縮約](../GR6/index.md#def-gr6-ricci-scalar)を $\operatorname{Ric}(k,k)=\operatorname{tr}(X\mapsto R(X,k)k)$ に適用すると、$k$ 方向は $R(k,k)=0$ で消え、$\ell$ 方向は $g(k,R(\ell,k)k)=0$（曲率作用素の計量反対称性）で消えます。従って二つのスクリーン方向だけが残り、
 
 $$
 \operatorname{tr}\mathcal C
@@ -323,9 +347,29 @@ $$
 -\hat\omega_{ab}\hat\omega^{ab}.
 $$
 
-この二式を代入すれば主張を得ます。非アフィンの場合は $\nabla_kk=\kappa k$ を測地線偏差の交換子に戻すと、速度勾配の進化式に $\kappa\mathcal B$ が加わるため、跡に $\kappa\hat\theta$ が残ります。
+この二式を代入すれば主張を得ます。
+
+非アフィンの場合も、任意の正関数 $f$ によりアフィン接ベクトルを $\tilde k=fk$ と取り直すと直接検算できます。補助ベクトルは $\tilde\ell=\ell/f$ と選べるのでスクリーン射影 $q$ は不変です。さらに $q$ が $k$ を消すため、積の微分の $\nabla f$ の項は射影後に消え、
+
+$$
+\tilde{\mathcal B}_{ab}=f\mathcal B_{ab},\qquad
+\tilde\theta=f\hat\theta
+$$
+
+となります。新しいパラメータ $\tilde\lambda$ は $d/d\tilde\lambda=f\,d/d\lambda$ を満たし、
+
+$$
+\nabla_{\tilde k}\tilde k=k(f)\tilde k,
+\qquad
+\frac{d\tilde\theta}{d\tilde\lambda}
+=f\frac{d}{d\lambda}(f\hat\theta)
+=k(f)\tilde\theta+f^2\frac{d\hat\theta}{d\lambda}.
+$$
+
+ここで $\tilde\kappa=k(f)$ です。せん断・回転の二乗と $\operatorname{Ric}(\tilde k,\tilde k)$ は元の式の各項の $f^2$ 倍なので、非アフィンの方程式には $\tilde\kappa\tilde\theta$ が一項加わります。曲線に沿う正の再規格化は局所的に任意の非アフィン接ベクトルを表します。
 <!-- proof-end -->
 
+<a id="ex-gr34-radial-null-expansion"></a>
 ### 同じMinkowskiでも、出射と入射は逆
 
 出射合同 $k_+=\partial_t+\partial_r$ では $dr/d\lambda=1$、$\hat\theta_+=2/r$ だから
@@ -372,7 +416,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-時間的の場合、$V=V_0|\det J|/|\det J_0|$ です。$J$ の列を $J_1,\ldots,J_3$ と書き、$J'=BJ$ を使います。行列式の多重線形性より、その微分は「一本の列だけを微分した行列式」の和です。各 $J_j'=BJ_j$ を $J$ の列で展開する係数行列は $H=J^{-1}BJ$ です。列 $j$ を $\sum_iH_{ij}J_i$ に置き換えた行列式では、$i\ne j$ の項は同じ列を二本持つため零となり、$i=j$ の項だけが $H_{jj}\det J$ を与えます。従って
+時間的の場合、$V=V_0|\det J|/|\det J_0|$ です。$J$ の列を $J_1,\ldots,J_3$ と書き、$J'=BJ$ を使います。行列式の多重線形性より、その微分は「一本の列だけを微分した行列式」の和です。
+
+各 $J_j'=BJ_j$ を $J$ の列で展開する係数行列は $H=J^{-1}BJ$ です。列 $j$ を $\sum_iH_{ij}J_i$ に置き換えた行列式では、$i\ne j$ の項は同じ列を二本持つため零となり、$i=j$ の項だけが $H_{jj}\det J$ を与えます。従って
 
 $$
 \frac{d}{d\tau}\det J
@@ -448,7 +494,7 @@ $$
 となり、上限は $-2/\hat\theta_0=2/|\hat\theta_0|$ です。これは合同の局所表示の限界についての評価であって、個々の測地線がそこで終わるとは主張していません。
 <!-- proof-end -->
 
-回転 $\omega$ が非零なら正の $\omega_{ab}\omega^{ab}$ が残り、この比較不等式はただちには導けません。さらに、集束したあとに測地線が延長できるかという大域的問題は別です。[入射Minkowski光線の例](#thm-gr34-null-raychaudhuri)は曲率零でも焦点を作るので、焦点だけから「時空の特異点」と断言する誤りへの反例になります。
+回転 $\omega$ が非零なら正の $\omega_{ab}\omega^{ab}$ が残り、この比較不等式はただちには導けません。さらに、集束したあとに測地線が延長できるかという大域的問題は別です。[入射Minkowski光線の例](#ex-gr34-radial-null-expansion)は曲率零でも焦点を作るので、焦点だけから「時空の特異点」と断言する誤りへの反例になります。
 
 ## 7. 演習：次元・符号・仮定・局所と大域
 
@@ -570,7 +616,16 @@ $$
 =(g_{\mu\nu}+u_\mu u_\nu)/\tau=h_{\mu\nu}/\tau.
 $$
 
-従って $u^\nu\partial_\nu u_\mu=(u_\mu+u_\mu(-1))/\tau=0$。射影 $h$ は三次元なので $B=h/\tau$、$\theta=h^{\mu\nu}h_{\mu\nu}/\tau=3/\tau$。対称な $B$ の跡零部分は $h/\tau-(3/\tau)h/3=0$、反対称部分も零です。[体積の対数微分](#prop-gr34-volume-area)で $V'/V=3/\tau$ を積分すると $\log V=3\log\tau+C$、従って $V=C_1\tau^3$、$C_1>0$。曲率零でも体積は膨張します。
+従って $u^\nu\partial_\nu u_\mu=(u_\mu+u_\mu(-1))/\tau=0$。射影 $h$ は三次元なので、光学分解の各成分は
+
+$$
+B_{\mu\nu}=\frac{h_{\mu\nu}}\tau,\qquad
+\theta=\frac{h^{\mu\nu}h_{\mu\nu}}\tau=\frac3\tau,\qquad
+\sigma_{\mu\nu}=\frac{h_{\mu\nu}}\tau-\frac{3/\tau}{3}h_{\mu\nu}=0,\qquad
+\omega_{\mu\nu}=0.
+$$
+
+[体積の対数微分](#prop-gr34-volume-area)で $V'/V=3/\tau$ を積分すると $\log V=3\log\tau+C$、従って $V=C_1\tau^3$、$C_1>0$ です。曲率零でも体積は膨張します。
 <!-- solution-end -->
 
 <a id="ex-gr34-b03"></a>
@@ -666,7 +721,14 @@ $$
 
    どちらも $L$ で零へ収束しますが、次数は異なります。
 
-3. 時間的合同の瞬間静止空間は三次元、光的合同の物理的な横断スクリーンは二次元です。正規化された等方的膨張 $B=(\theta/d)I$ を二乗して跡を取れば $\operatorname{tr}(B^2)=\theta^2/d$。従って $d=3,2$ がそれぞれ $1/3,1/2$ になります。これは曲率発散や個々の測地線が延長不能になることとは異なります。[入射Minkowski光線の例](#prop-gr34-focusing)のように、平坦時空で焦点だけが生じる場合があります。
+3. 時間的合同の瞬間静止空間は三次元、光的合同の物理的な横断スクリーンは二次元です。正規化された等方的膨張を $B=(\theta/d)I$ と書けば
+
+   $$
+   \operatorname{tr}(B^2)=\operatorname{tr}\left(\frac{\theta^2}{d^2}I\right)
+   =\frac{\theta^2}{d}
+   $$
+
+   です。従って $d=3,2$ がそれぞれ係数 $1/3,1/2$ を与えます。これは曲率発散や個々の測地線が延長不能になることとは異なります。[入射Minkowski光線の例](#ex-gr34-radial-null-expansion)のように、平坦時空で焦点だけが生じる場合があります。
 
 4. 再規格化した接ベクトル $\tilde k=fk$ に対し $\nabla_{\tilde k}\tilde k=k(f)\tilde k$ であり、一般には非アフィンです。$k(f)$ の項を含む進化式へ移るうえ、新パラメータの目盛りも変わります。従って元のアフィン長の数値 $L$ を無条件には移せません。
 <!-- solution-end -->
