@@ -29,7 +29,7 @@ chapters:
     title: "精製とアンサンブル"
   - id: QINF5
     path: textbook/volumes/dream_thater/応用系/QINF/QINF5
-    status: planned
+    status: completed
     title: "一般化量子測定"
   - id: QINF6
     path: textbook/volumes/dream_thater/応用系/QINF/QINF6
