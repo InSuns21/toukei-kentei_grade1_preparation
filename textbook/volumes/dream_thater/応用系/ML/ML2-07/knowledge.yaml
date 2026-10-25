@@ -1,0 +1,65 @@
+chapter: ML2-07
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-02, ML2-05, ML1-19, ML1-07]
+concepts:
+  - id: learning.continuous-gaussian-factor-model
+    name: 連続潜在Gaussian因子模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続潜在Gaussian因子模型）"]
+    requires: [learning.nondegenerate-gaussian-density, learning.gaussian-linear-regression-model]
+  - id: learning.factor-analysis-ppca
+    name: 因子分析と確率的主成分分析
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子分析と確率的主成分分析）"]
+    requires: [learning.continuous-gaussian-factor-model]
+  - id: learning.factor-gaussian-marginal
+    name: 因子模型の周辺Gaussian分布と共分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因子模型の周辺Gaussian分布と共分散）"]
+    requires: [learning.factor-analysis-ppca]
+  - id: learning.factor-posterior-reconstruction
+    name: 潜在因子の条件付き事後分布と再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（潜在因子の条件付き事後分布と再構成）"]
+    requires: [learning.factor-gaussian-marginal, learning.gaussian-coefficient-posterior]
+  - id: learning.factor-gaussian-posterior
+    name: 潜在Gaussian事後分布の平方完成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（潜在Gaussian事後分布の平方完成）"]
+    requires: [learning.factor-posterior-reconstruction]
+  - id: learning.latent-rotation-nonidentifiability
+    name: 観測分布に関する潜在回転不識別
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測分布に関する潜在回転不識別）"]
+    requires: [learning.factor-gaussian-marginal]
+  - id: learning.orthogonal-factor-rotation
+    name: 直交回転による観測分布の不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直交回転による観測分布の不変性）"]
+    requires: [learning.latent-rotation-nonidentifiability]
+  - id: learning.ppca-spectrum
+    name: PPCA共分散の固有値構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（PPCA共分散の固有値構造）"]
+    requires: [learning.factor-gaussian-marginal]
+  - id: learning.ppca-maximum-likelihood
+    name: PPCA最尤共分散とPCA部分空間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（PPCA最尤共分散とPCA部分空間）"]
+    requires: [learning.ppca-spectrum, learning.pca-spectral-optimization]
+  - id: learning.ppca-shrinkage-reconstruction
+    name: PPCA事後平均再構成の縮小
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（PPCA事後平均再構成の縮小）"]
+    requires: [learning.ppca-maximum-likelihood, learning.factor-gaussian-posterior]

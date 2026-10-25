@@ -117,7 +117,7 @@ chapters:
     title: "EM算法と尤度の単調改善"
   - id: ML2-07
     path: textbook/volumes/dream_thater/応用系/ML/ML2-07
-    status: planned
+    status: completed
     title: "連続潜在因子・因子分析・PPCA"
   - id: ML2-08
     path: textbook/volumes/dream_thater/応用系/ML/ML2-08
