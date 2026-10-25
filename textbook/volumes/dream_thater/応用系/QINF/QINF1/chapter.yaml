@@ -1,0 +1,43 @@
+id: "QINF1"
+title: "複合系とテンソル積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3E
+  - QM2
+official_scope: []
+learning_objectives:
+  - 有限次元複素Hilbert空間のテンソル積内積を積基底から構成し、次元と正規化を証明できる
+  - 二つのqubitの積状態とBell状態を基底成分で書き、係数行列から積状態かどうか判定できる
+  - 局所作用素のテンソル積作用、交換性、随伴・ユニタリ性を成分から証明できる
+  - 局所射影測定の同時確率と周辺確率をBorn則から構成し、積状態とBell状態で計算できる
+  - 局所ユニタリでは積状態からBell状態を作れない一方、制御NOTでは作れることを説明できる
+definitions:
+  - { id: QINF1-DEF-01, name: "有限次元複合量子系" }
+  - { id: QINF1-DEF-02, name: "積状態とエンタングル純粋状態" }
+  - { id: QINF1-DEF-03, name: "局所作用素" }
+  - { id: QINF1-DEF-04, name: "二部系の局所射影測定" }
+theorems:
+  - { id: QINF1-THM-01, name: "積基底と複合系の内積" }
+  - { id: QINF1-PROP-01, name: "二qubit積状態の係数判定" }
+  - { id: QINF1-PROP-02, name: "局所作用素の交換・随伴・ユニタリ性" }
+  - { id: QINF1-PROP-03, name: "局所射影測定の確率と正規化" }
+  - { id: QINF1-PROP-04, name: "局所ユニタリの積状態保存" }
+canonical_examples:
+  - "C2⊗C2の積基底と二qubit状態"
+  - "Bell状態 (|00>+|11>)/sqrt(2) の係数行列"
+  - "局所Pauli XとZの交換および局所測定"
+  - "Hadamardと制御NOTによるBell対生成"
+problem_patterns:
+  - QINF1-PRODUCT-BASIS
+  - QINF1-NORMALIZATION
+  - QINF1-LOCAL-GATE
+  - QINF1-JOINT-BORN
+  - QINF1-PRODUCT-CRITERION
+  - QINF1-COMMUTING-LOCAL
+  - QINF1-BELL-CIRCUIT
+  - QINF1-CORRELATIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }
