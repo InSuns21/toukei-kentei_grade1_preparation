@@ -161,7 +161,13 @@ $$
 
 ## 3. 同じ状態の精製は補助系側で結ばれる
 
-異なる固有基底、異なる補助系でも精製を作れました。しかし「異なる精製を作る自由」は $A$ 側の測定結果を変えません。二つの精製を結ぶには、ベクトルの内積を保つ線形写像、すなわち $V^\dagger V=I_R$ を満たす**等長写像** $V:H_R\to H_{R'}$ を使います。これが存在するには $\dim H_R\le\dim H_{R'}$ が必要です。次元が等しければ等長写像はユニタリになります。
+異なる固有基底、異なる補助系でも精製を作れました。しかし「異なる精製を作る自由」は $A$ 側の測定結果を変えません。二つの精製を結ぶには、ベクトルの内積を保つ線形写像である**等長写像** $V:H_R\to H_{R'}$ を使います。[有限次元随伴の定義](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)と同じ内積関係で $V^\dagger:H_{R'}\to H_R$ を定めると、
+
+$$
+\langle Vx,Vy\rangle=\langle x,V^\dagger Vy\rangle
+$$
+
+です。従って、すべての $x,y\in H_R$ で内積を保存する条件は $V^\dagger V=I_R$ と同値です。これが存在するには $\dim H_R\le\dim H_{R'}$ が必要です。次元が等しければ等長写像はユニタリになります。
 
 <a id="thm-qinf4-isometric-freedom"></a>
 
@@ -191,12 +197,13 @@ $$
 \quad(1\le j\le r)
 $$
 
-と定めます。分母が正なので定義できます。[部分トレースの期待値による特徴づけ](../QINF3/index.md#thm-qinf3-expectation-uniqueness)で $M=|e_k\rangle\langle e_j|$ を代入すると
+と定めます。分母が正なので定義できます。[部分トレースの期待値による特徴づけ](../QINF3/index.md#thm-qinf3-expectation-uniqueness)で $M=|e_j\rangle\langle e_k|$ を代入します。$R$ 側の係数ベクトルの内積を全系の期待値に戻すと、
 
 $$
 \begin{aligned}
 \sqrt{\lambda_j\lambda_k}\,\langle a_j,a_k\rangle
 &=\langle\Psi|(|e_j\rangle\langle e_k|\otimes I_R)|\Psi\rangle\\
+&=\operatorname{Tr}_A(\rho_A|e_j\rangle\langle e_k|)\\
 &=\langle e_k,\rho_A e_j\rangle
 =\lambda_j\delta_{jk}.
 \end{aligned}
@@ -215,7 +222,9 @@ $$
 |\Psi\rangle=\sum_{j=1}^r\sqrt{\lambda_j}\,|e_j\rangle\otimes|a_j\rangle.
 $$
 
-同じ計算を $|\Phi\rangle$ に行い、$R'$ の正規直交系 $(b_j)_{j=1}^r$ を得ます。$V a_j=b_j$ と指定すれば、$\operatorname{span}\{a_j\}$ 上の内積を保存します。$\dim R\le\dim R'$ なら、$R$ 側の $(a_j)$ を長さ $d_R$ の正規直交基底へ、$R'$ 側の $(b_j)$ を少なくとも長さ $d_R$ の正規直交系へそれぞれ拡張できます。残りの基底を順に対応させて線形に $V$ を定めると $V^\dagger V=I_R$ です。
+同じ計算を $|\Phi\rangle$ に行い、$R'$ の正規直交系 $(b_j)_{j=1}^r$ を得ます。まず $V a_j=b_j$ と指定すれば、$\operatorname{span}\{a_j\}$ 上の内積を保存します。
+
+$\dim H_R\le\dim H_{R'}$ なら、$R$ 側の $(a_j)$ を長さ $d_R$ の正規直交基底へ、$R'$ 側の $(b_j)$ を少なくとも長さ $d_R$ の正規直交系へそれぞれ拡張できます。残りの基底を順に対応させて線形に $V$ を定めると、各基底の内積を保存するため $V^\dagger V=I_R$ です。
 
 この $V$ で $(I_A\otimes V)|\Psi\rangle=\sum_j\sqrt{\lambda_j}e_j\otimes b_j=|\Phi\rangle$ となります。次元が等しければ像が $H_{R'}$ 全体なので $VV^\dagger=I_{R'}$ も成り立ちます。次元が逆向きで等長写像全体を作れない場合でも、上記の $a_j\mapsto b_j$ は両側の $r$ 次元部分空間の間の一対一の等長写像です。
 <!-- proof-end -->
@@ -252,7 +261,24 @@ $$
 =\sum_{i=1}^m\sqrt{p_i}\,|\psi_i\rangle_A\otimes|i\rangle_R
 $$
 
-と置きます。$\psi_i$ 同士は直交していなくても、$|i\rangle$ が直交するので全体のノルムは $\sum_ip_i=1$ です。部分トレースでは $i\ne k$ の交差項が消え、$\rho_A$ が得られます。[局所射影測定](../QINF1/index.md#def-qinf1-local-projective)で $R$ の $|i\rangle\langle i|$ を測ると、結果 $i$ の前の非正規化された $A$ のベクトルは $\sqrt{p_i}\psi_i$、結果の確率は $p_i$、条件付き状態は $\psi_i$ です。
+と置きます。準備状態同士は直交していなくても、補助系の番号ベクトルは直交するので、全体のノルム二乗は $\sum_ip_i=1$ です。部分トレースでは異なる番号の交差項が消え、$\rho_A$ が得られます。
+
+[局所射影測定の定義](../QINF1/index.md#def-qinf1-local-projective)で $A$ 側の射影族を一項だけの $\{I_A\}$ とし、$R$ 側を標準基底の射影族とすれば、結果 $i$ の全系への射影は
+
+$$
+Q_i:=I_A\otimes|i\rangle\langle i|
+$$
+
+です。この射影を全系へ作用させ、[局所射影測定の確率則](../QINF1/index.md#prop-qinf1-joint-born)でノルム二乗を求めると、
+
+$$
+Q_i|\Phi_{\mathcal E}\rangle
+=\sqrt{p_i}|\psi_i\rangle_A\otimes|i\rangle_R,
+\qquad
+\|Q_i|\Phi_{\mathcal E}\rangle\|^2=p_i.
+$$
+
+従って結果 $i$ を得た後の条件付きの $A$ の状態は $\psi_i$ です。
 
 この構成は任意のアンサンブルを精製する方法です。さらに**一つの最小精製からすべての有限アンサンブルが得られる**ことを、係数の等長性として確かめます。これは次章で導入する一般化測定を仮定せず、補助系を必要な次元へ広げた後の通常の基底測定だけで済みます。
 
@@ -370,7 +396,14 @@ $$
 =\frac{|+i\rangle_A|-i\rangle_R+|-i\rangle_A|+i\rangle_R}{\sqrt2}.
 $$
 
-補助系側の係数が複素共役になるのは、$|00\rangle+|11\rangle$ の交差項を正確に打ち消すためです。測定基底の選択とアンサンブルの対応では、この位相を取り違えないことが重要です。
+この複素共役は、補助系の測定ベクトル $|u\rangle=\alpha|0\rangle+\beta|1\rangle$ に対するブラの係数が $\overline\alpha,\overline\beta$ になることから生じます。実際、$\|u\|=1$ なら
+
+$$
+(I_A\otimes\langle u|)|\Phi^+\rangle
+=\frac{\overline\alpha|0\rangle+\overline\beta|1\rangle}{\sqrt2}
+$$
+
+です。これが結果確率 $1/2$ に対応する非正規化ベクトルであり、条件付きの $A$ は計算基底で $|u\rangle$ の複素共役成分を持ちます。測定基底の選択とアンサンブルの対応では、この位相を取り違えないことが重要です。
 
 ## 5. 精製が教えること・教えないこと
 
@@ -471,7 +504,7 @@ $\rho_A$ のrankは1で最小次元と一致します。他方 $\sigma_A$ は3�
 - 問題: $|\Psi\rangle=\frac12|00\rangle+\frac{\sqrt3}{2}|11\rangle$ について、$R$ を計算基底で測定した各結果の確率・条件付き $A$ の状態・結果を無視した密度演算子を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。全体のノルム二乗は $1/4+3/4=1$ です。$R$ の射影 $P_0=|0\rangle\langle0|$、$P_1=|1\rangle\langle1|$ を適用すると、
+**詳細解答**。全体のノルム二乗は $1/4+3/4=1$ です。[局所射影測定の確率則](../QINF1/index.md#prop-qinf1-joint-born)を $A$ 側の自明な射影 $I_A$ と、$R$ 側の射影 $P_0=|0\rangle\langle0|$、$P_1=|1\rangle\langle1|$ に適用すると、
 
 $$
 \begin{aligned}
