@@ -141,7 +141,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\theta'<0$ または $\theta'=0$ のいずれでも、$\theta_0<0$ から始めれば $\theta$ は負のままです。従ってその有限な区間で
+Raychaudhuri不等式より、$\theta<0$ の区間では $\theta'\le-\theta^2/2<0$ です。初期値 $\theta_0<0$ から始めると滑らかな解が続く間は負のままなので、その区間で
 
 $$
 \frac{d}{d\lambda}\frac1\theta
