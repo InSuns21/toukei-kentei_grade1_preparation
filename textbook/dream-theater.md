@@ -1007,6 +1007,11 @@
 9. [INFO9 微分エントロピーと連続変数の情報量](textbook/volumes/dream_thater/応用系/INFO/INFO9/index.md)
 10. [INFO10 対数損失・統計的推測と相対エントロピー](textbook/volumes/dream_thater/応用系/INFO/INFO10/index.md)
 
+<a id="dt-subject-quantum-information"></a>
+### 量子情報 I・II・III
+
+1. [QINF1 複合系とテンソル積](textbook/volumes/dream_thater/応用系/QINF/QINF1/index.md)
+
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
 

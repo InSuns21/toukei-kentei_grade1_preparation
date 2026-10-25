@@ -1,0 +1,71 @@
+chapter: QINF1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3E
+  - QM2
+forward_references: []
+
+concepts:
+  - id: quantum.composite-system
+    name: 有限次元複合量子系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限次元複合量子系）]
+    requires: [linear.tensor-product, functional.complex-hilbert-space]
+
+  - id: quantum.product-entangled-pure-state
+    name: 積状態とエンタングル純粋状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（積状態とエンタングル純粋状態）]
+    requires: [quantum.composite-system, linear.simple-tensor, quantum.hilbert-ray]
+
+  - id: quantum.product-basis-inner-product
+    name: 積基底と複合系の内積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（積基底と複合系の内積）]
+    requires: [quantum.composite-system, linear.tensor-product-basis, linear.complex-inner-product]
+
+  - id: quantum.two-qubit-product-criterion
+    name: 二qubit積状態の係数判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二qubit積状態の係数判定）]
+    requires: [quantum.product-entangled-pure-state, quantum.product-basis-inner-product]
+
+  - id: quantum.local-operator
+    name: 局所作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所作用素）]
+    requires: [quantum.composite-system]
+
+  - id: quantum.local-operator-laws
+    name: 局所作用素の交換・随伴・ユニタリ性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所作用素の交換・随伴・ユニタリ性）]
+    requires: [quantum.local-operator]
+
+  - id: quantum.local-projective-measurement
+    name: 二部系の局所射影測定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二部系の局所射影測定）]
+    requires: [quantum.local-operator, quantum.finite-spectral-projection-measurement]
+
+  - id: quantum.local-born-distribution
+    name: 局所射影測定の確率と正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所射影測定の確率と正規化）]
+    requires: [quantum.local-projective-measurement, quantum.product-basis-inner-product, quantum.finite-born-rule]
+
+  - id: quantum.local-unitary-product-preservation
+    name: 局所ユニタリの積状態保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所ユニタリの積状態保存）]
+    requires: [quantum.local-operator-laws, quantum.product-entangled-pure-state]
