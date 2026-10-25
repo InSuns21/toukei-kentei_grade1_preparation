@@ -1242,6 +1242,7 @@
 31. [GR31 Reissner–Nordström解](textbook/volumes/dream_thater/物理系/GR/GR31/index.md)
 32. [GR32 Kerr時空の計量と回転](textbook/volumes/dream_thater/物理系/GR/GR32/index.md)
 33. [GR33 Ergoregion・Penrose過程・超放射](textbook/volumes/dream_thater/物理系/GR/GR33/index.md)
+34. [GR34 Raychaudhuri方程式](textbook/volumes/dream_thater/物理系/GR/GR34/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
