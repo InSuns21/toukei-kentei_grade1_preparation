@@ -463,7 +463,7 @@ $$
 +\sqrt{\frac{1-t}{2}}|-\rangle|1\rangle
 $$
 
-とします。係数の平方和は $(1+t)/2+(1-t)/2=1$ です。[積の部分トレース公式](../QINF3/index.md#prop-qinf3-state-product)により $R$ の異なる基底間の交差項が消え、
+とします。係数の平方和は $(1+t)/2+(1-t)/2=1$ です。[部分トレースの状態保存性と積への作用](../QINF3/index.md#prop-qinf3-state-product)により $R$ の異なる基底間の交差項が消え、
 
 $$
 \begin{aligned}
