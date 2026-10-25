@@ -1,0 +1,145 @@
+version: 1
+id: QINF
+title: "量子情報 I・II・III"
+plan: textbook/plans_progress/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# I: QINF1–QINF13 / II: QINF14–QINF24 / III: QINF25–QINF33。
+# 次の作業は先頭の連続completedの直後にある最初のplanned章。
+parts:
+  - { title: "量子情報 I：状態・測定・量子操作", from: QINF1, to: QINF13 }
+  - { title: "量子情報 II：エンタングルメント・エントロピー・通信", from: QINF14, to: QINF24 }
+  - { title: "量子情報 III：量子誤り訂正・情報回復・典型性", from: QINF25, to: QINF33 }
+chapters:
+  - id: QINF1
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF1
+    status: completed
+    title: "複合系とテンソル積"
+  - id: QINF2
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF2
+    status: planned
+    title: "密度演算子とアンサンブル"
+  - id: QINF3
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF3
+    status: planned
+    title: "部分トレースと縮約状態"
+  - id: QINF4
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF4
+    status: planned
+    title: "精製とアンサンブル"
+  - id: QINF5
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF5
+    status: planned
+    title: "一般化量子測定"
+  - id: QINF6
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF6
+    status: planned
+    title: "Schmidt分解"
+  - id: QINF7
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF7
+    status: planned
+    title: "量子チャネルとKraus表示"
+  - id: QINF8
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF8
+    status: planned
+    title: "Stinespring表現と相補チャネル"
+  - id: QINF9
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF9
+    status: planned
+    title: "Choi表現とチャネル判定"
+  - id: QINF10
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF10
+    status: planned
+    title: "二状態識別とHelstrom界"
+  - id: QINF11
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF11
+    status: planned
+    title: "トレース距離・忠実度"
+  - id: QINF12
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF12
+    status: planned
+    title: "複製・放送・削除の制約"
+  - id: QINF13
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF13
+    status: planned
+    title: "テレポーテーションと超密符号化"
+  - id: QINF14
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF14
+    status: planned
+    title: "LOCCと純粋状態の変換"
+  - id: QINF15
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF15
+    status: planned
+    title: "混合状態の分離可能性"
+  - id: QINF16
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF16
+    status: planned
+    title: "Bell不等式とCHSH"
+  - id: QINF17
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF17
+    status: planned
+    title: "von Neumannエントロピー"
+  - id: QINF18
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF18
+    status: planned
+    title: "条件付きエントロピーと相互情報量"
+  - id: QINF19
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF19
+    status: planned
+    title: "強劣加法性と条件付き相互情報量"
+  - id: QINF20
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF20
+    status: planned
+    title: "量子相対エントロピーとデータ処理"
+  - id: QINF21
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF21
+    status: planned
+    title: "Holevo情報と測定の限界"
+  - id: QINF22
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF22
+    status: planned
+    title: "量子典型部分空間とSchumacher圧縮"
+  - id: QINF23
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF23
+    status: planned
+    title: "量子通信路での古典通信"
+  - id: QINF24
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF24
+    status: planned
+    title: "量子通信容量とcoherent information"
+  - id: QINF25
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF25
+    status: planned
+    title: "ビット反転・位相反転符号"
+  - id: QINF26
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF26
+    status: planned
+    title: "Knill–Laflamme条件"
+  - id: QINF27
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF27
+    status: planned
+    title: "スタビライザー・CSS符号"
+  - id: QINF28
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF28
+    status: planned
+    title: "消失訂正と量子秘密分散"
+  - id: QINF29
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF29
+    status: planned
+    title: "情報漏洩・デカップリング"
+  - id: QINF30
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF30
+    status: planned
+    title: "近似訂正・回復写像"
+  - id: QINF31
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF31
+    status: planned
+    title: "Haar測度とランダム純粋状態"
+  - id: QINF32
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF32
+    status: planned
+    title: "Page型エントロピー評価"
+  - id: QINF33
+    path: textbook/volumes/dream_thater/応用系/QINF/QINF33
+    status: planned
+    title: "可逆発展・放射模型・後続への橋"
