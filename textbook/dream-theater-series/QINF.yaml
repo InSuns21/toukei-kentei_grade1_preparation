@@ -17,7 +17,7 @@ chapters:
     title: "複合系とテンソル積"
   - id: QINF2
     path: textbook/volumes/dream_thater/応用系/QINF/QINF2
-    status: planned
+    status: completed
     title: "密度演算子とアンサンブル"
   - id: QINF3
     path: textbook/volumes/dream_thater/応用系/QINF/QINF3
