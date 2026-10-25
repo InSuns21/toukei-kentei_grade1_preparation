@@ -1,0 +1,60 @@
+chapter: QINF5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+  - QINF4
+forward_references: []
+
+concepts:
+  - id: quantum.povm
+    name: 正作用素値測度
+    kind: definition
+    introduction: formal
+    aliases: [POVM]
+    introduction_aliases: [定義（POVMと効果作用素）]
+    requires: [quantum.finite-density-operator, quantum.finite-spectral-projection-measurement]
+
+  - id: quantum.povm-effect
+    name: 効果作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（POVMと効果作用素）]
+    requires: [quantum.povm]
+
+  - id: quantum.povm-born-rule
+    name: POVMの確率分布と射影測定の包含
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（POVMの確率分布と射影測定の包含）]
+    requires: [quantum.povm, quantum.mixed-born-trace]
+
+  - id: quantum.finite-measurement-instrument
+    name: 有限Kraus型測定instrument
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限Kraus型測定instrument）]
+    requires: [quantum.povm, quantum.finite-density-operator]
+
+  - id: quantum.instrument-state-update
+    name: instrumentの確率と状態更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（instrumentの確率と状態更新）]
+    requires: [quantum.finite-measurement-instrument, quantum.povm-born-rule]
+
+  - id: quantum.finite-naimark-dilation
+    name: 有限POVMのNaimark拡張
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限POVMのNaimark拡張）]
+    requires: [quantum.povm, quantum.local-projective-measurement, quantum.partial-trace]
+
+  - id: quantum.finite-instrument-dilation
+    name: 有限Kraus型instrumentの補助系実現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限Kraus型instrumentの補助系実現）]
+    requires: [quantum.finite-measurement-instrument, quantum.finite-naimark-dilation, quantum.partial-trace]
