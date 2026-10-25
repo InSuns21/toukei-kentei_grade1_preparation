@@ -141,7 +141,7 @@ chapters:
     title: "Ergoregion・Penrose過程・超放射"
   - id: GR34
     path: textbook/volumes/dream_thater/物理系/GR/GR34
-    status: planned
+    status: completed
     title: "Raychaudhuri方程式"
   - id: GR35
     path: textbook/volumes/dream_thater/物理系/GR/GR35

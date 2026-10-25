@@ -1,0 +1,44 @@
+chapter: GR34
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR5
+  - GR6
+  - LORG4
+concepts:
+  - id: gravity.timelike-congruence-optical-split
+    name: 時間的測地線合同の膨張・せん断・回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間的測地線合同の光学分解）"]
+    requires: [gravity.lorentz-geodesic-deviation-equation, gravity.observer-orthonormal-frame]
+  - id: gravity.timelike-raychaudhuri
+    name: 時間的Raychaudhuri方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（時間的Raychaudhuri方程式）"]
+    requires: [gravity.timelike-congruence-optical-split, gravity.lorentz-ricci-curvature]
+  - id: gravity.null-screen-optical-split
+    name: 光的スクリーンと光学分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光的スクリーンと光学分解）"]
+    requires: [gravity.timelike-congruence-optical-split, gravity.lorentz-geodesic-deviation-equation]
+  - id: gravity.null-raychaudhuri
+    name: 光的Raychaudhuri方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（光的Raychaudhuri方程式）"]
+    requires: [gravity.null-screen-optical-split, gravity.lorentz-ricci-curvature]
+  - id: gravity.congruence-volume-area-rate
+    name: 合同の体積・断面積変化率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積と面積の対数微分）"]
+    requires: [gravity.timelike-congruence-optical-split, gravity.null-screen-optical-split]
+  - id: gravity.local-focusing-estimate
+    name: 回転零合同の集束評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転零合同の有限パラメータ集束評価）"]
+    requires: [gravity.timelike-raychaudhuri, gravity.null-raychaudhuri]
