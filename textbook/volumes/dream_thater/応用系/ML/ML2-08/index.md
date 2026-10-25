@@ -270,7 +270,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $q\in\mathcal Q$ に[有限状態のELBO恒等式](#thm-ml2-08-elbo-identity)を適用する。
+[有限状態の ELBO 恒等式と等号条件](#thm-ml2-08-elbo-identity)を用いる。まず、候補 $q\in\mathcal Q$ ごとに次を得る。
 
 $$
 \mathcal L(q)=\log e-D(q\|r).
