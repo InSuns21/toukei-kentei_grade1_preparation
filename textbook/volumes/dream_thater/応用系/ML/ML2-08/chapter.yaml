@@ -1,0 +1,34 @@
+id: "ML2-08"
+title: "変分推論の基礎・ELBO恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-01, ML2-05, ML2-06, ML2-07, INFO2]
+official_scope: []
+learning_objectives:
+  - 有限潜在模型で周辺尤度・事後分布・変分族と台の条件を区別し、ELBOを定義できる
+  - 有限状態で対数周辺尤度とELBOおよびKLの恒等式・等号条件を最初から導出できる
+  - 真の事後分布の台から外れる候補でELBOとKLが拡張値となり有限値の恒等式が壊れる理由を説明できる
+  - 連続密度の可測性・絶対連続性・可積分性条件を確認し、積分形の恒等式を証明できる
+  - 事前分布と観測尤度によるELBOの分解を行い、事後KLとの違いを説明できる
+  - 変分族内の最適化と正確な事後推論を区別し、制約された二状態模型の最適点を計算できる
+  - 二状態の計算ラボで対数周辺尤度・ELBO・KLを独立計算して恒等式を検算できる
+definitions:
+  - { id: ML2-08-DEF-01, name: 有限潜在変数の変分分布と変分族 }
+  - { id: ML2-08-DEF-02, name: 有限状態の ELBO }
+  - { id: ML2-08-DEF-03, name: 連続密度の ELBO }
+theorems:
+  - { id: ML2-08-THM-01, name: 有限状態の ELBO 恒等式と等号条件 }
+  - { id: ML2-08-PROP-01, name: 台を外れる変分分布と拡張下界 }
+  - { id: ML2-08-THM-02, name: 連続密度の ELBO 恒等式 }
+  - { id: ML2-08-PROP-02, name: 変分最適化と近似の残差 }
+canonical_examples:
+  - 二状態の周辺尤度・事後分布・ELBO・KLの直接計算
+  - 零確率状態に質量を与えたときの負の無限大と正の無限大
+  - 連続密度の一点での零と広義積分の可積分性
+  - 区間制約を持つ二状態変分族の端点最適化
+  - PythonによるELBO・log evidence・KLの数値恒等式検算
+problem_patterns: [ML2-08-A01, ML2-08-A02, ML2-08-A03, ML2-08-A04, ML2-08-B01, ML2-08-B02, ML2-08-B03, ML2-08-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

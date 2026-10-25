@@ -121,7 +121,7 @@ chapters:
     title: "連続潜在因子・因子分析・PPCA"
   - id: ML2-08
     path: textbook/volumes/dream_thater/応用系/ML/ML2-08
-    status: planned
+    status: completed
     title: "変分推論の基礎・ELBO恒等式"
   - id: ML2-09
     path: textbook/volumes/dream_thater/応用系/ML/ML2-09

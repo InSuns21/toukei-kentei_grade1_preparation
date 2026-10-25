@@ -1,0 +1,57 @@
+chapter: ML2-08
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-01, ML2-05, ML2-06, ML2-07, INFO2]
+concepts:
+  - id: learning.variational-distribution
+    name: 変分分布
+    kind: term
+    introduction: inline
+    requires: [learning.component-responsibility]
+  - id: learning.variational-family
+    name: 変分族
+    kind: term
+    introduction: inline
+    requires: [learning.variational-distribution]
+  - id: learning.variational-family-finite
+    name: 有限潜在変数の変分分布と変分族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限潜在変数の変分分布と変分族）"]
+    requires: [learning.variational-distribution, learning.variational-family, information.relative-entropy]
+  - id: learning.elbo-finite
+    name: 有限状態の ELBO
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の ELBO）"]
+    requires: [learning.variational-family-finite, learning.mixture-likelihood]
+  - id: learning.elbo-identity-finite
+    name: 有限状態の ELBO 恒等式と等号条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態の ELBO 恒等式と等号条件）"]
+    requires: [learning.elbo-finite, information.gibbs-inequality]
+  - id: learning.variational-support-boundary
+    name: 台を外れる変分分布と拡張下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（台を外れる変分分布と拡張下界）"]
+    requires: [learning.elbo-identity-finite]
+  - id: learning.elbo-continuous
+    name: 連続密度の ELBO
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続密度の ELBO）"]
+    requires: [learning.elbo-finite, learning.density-kl-identity]
+  - id: learning.elbo-identity-continuous
+    name: 連続密度の ELBO 恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続密度の ELBO 恒等式）"]
+    requires: [learning.elbo-continuous, learning.density-kl-identity]
+  - id: learning.variational-optimum
+    name: 変分最適化と近似の残差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（変分最適化と近似の残差）"]
+    requires: [learning.elbo-identity-finite]
