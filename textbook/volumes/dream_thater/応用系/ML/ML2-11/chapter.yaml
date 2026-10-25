@@ -1,0 +1,34 @@
+id: "ML2-11"
+title: "MCMC・Metropolis–Hastings・Gibbs"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-10, STO2A]
+official_scope: []
+learning_objectives:
+  - 非正規化目標分布と遷移核・不変分布・MCMC標本平均を区別して有限模型で確認できる
+  - 非対称提案核を含むMetropolis–Hastings受理確率を導き詳細釣合いと行和を完全証明できる
+  - 二変数の条件付き分布を直接計算しrandom-scan Gibbsの詳細釣合いを証明できる
+  - 既約性・非周期性・不変性を区別し正の遷移行列べきによる幾何収束を証明できる
+  - 定常鎖の自己共分散を使って標本平均分散を導出し独立標本の分散との違いを計算できる
+  - 固定seedの二本のMCMC鎖で提案幅・初期値・burn-inの効果と診断の限界を検証できる
+definitions:
+  - { id: ML2-11-DEF-00, name: 不変分布 }
+  - { id: ML2-11-DEF-01, name: Markov連鎖Monte Carlo法 }
+  - { id: ML2-11-DEF-02, name: Metropolis–Hastings遷移 }
+  - { id: ML2-11-DEF-03, name: random-scan Gibbs遷移 }
+theorems:
+  - { id: ML2-11-THM-01, name: MH遷移の詳細釣合い }
+  - { id: ML2-11-PROP-01, name: random-scan Gibbsの詳細釣合い }
+  - { id: ML2-11-THM-02, name: 正の遷移行列べきによる幾何収束 }
+  - { id: ML2-11-PROP-02, name: 定常Markov連鎖の標本平均分散 }
+canonical_examples:
+  - 二状態MHの全受理率・不変分布・幾何収束
+  - 非対称提案のHastings補正を欠かした場合の流量不一致
+  - 二値相互作用模型のrandom-scan Gibbsの条件付き確率
+  - 既約性と非周期性がそれぞれ必要な反例
+  - 固定seedの二本の鎖を用いたtrace・自己相関・状態頻度の実験
+problem_patterns: [ML2-11-A01, ML2-11-A02, ML2-11-A03, ML2-11-A04, ML2-11-B01, ML2-11-B02, ML2-11-B03, ML2-11-B04, ML2-11-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
