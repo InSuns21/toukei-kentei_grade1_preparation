@@ -9,6 +9,7 @@
     <path d="M380 260 L229 411"/>
     <path d="M380 260 L531 411"/>
   </g>
+  <circle cx="380" cy="260" r="4" fill="#173b4c" stroke="none"/>
   <g fill="#173b4c" font-family="DejaVu Sans, sans-serif" text-anchor="middle">
     <text x="380" y="76" font-size="20">r = 0</text>
     <text x="380" y="451" font-size="20">r = 0</text>
@@ -16,7 +17,7 @@
     <text x="380" y="356" font-size="29">IV</text>
     <text x="575" y="269" font-size="29">I</text>
     <text x="183" y="269" font-size="29">III</text>
-    <text x="380" y="295" font-size="18">O</text>
+    <text x="420" y="268" font-size="18">O</text>
     <text x="218" y="81" font-size="18">i⁺</text>
     <text x="542" y="81" font-size="18">i⁺</text>
     <text x="217" y="440" font-size="18">i⁻</text>
