@@ -125,7 +125,7 @@ chapters:
     title: "事象・見かけ・Killing地平線"
   - id: GR30
     path: textbook/volumes/dream_thater/物理系/GR/GR30
-    status: planned
+    status: completed
     title: "球対称重力崩壊模型"
   - id: GR31
     path: textbook/volumes/dream_thater/物理系/GR/GR31

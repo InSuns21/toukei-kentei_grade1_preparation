@@ -1,0 +1,48 @@
+id: "GR30"
+title: "球対称重力崩壊模型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR8
+  - GR12
+  - GR26
+  - GR27
+  - GR29
+official_scope: []
+learning_objectives:
+  - 球対称入射EF表示が定質量ではSchwarzschild、質量零ではMinkowskiになることを座標計算できる
+  - 時間依存する質量関数のEinsteinテンソルを成分計算し入射零物質源の符号を説明できる
+  - 零殻の両側で退化した誘導計量が一致することを検算できる
+  - 滑らかな入射流の薄殻極限からデルタ型の面上応力を導出できる
+  - 光殻到着前の平坦領域にある事象地平線を光線と因果不等式から決定できる
+  - 丸いMOTS・未来捕獲面と事象地平線の位置と定義の違いを判定できる
+  - 永遠のSchwarzschild最大延長と重力崩壊時空の大域構造の違いを説明できる
+definitions:
+  - { id: GR30-DEF-01, name: 球対称の入射零物質流 }
+  - { id: GR30-DEF-02, name: 入射薄光殻の球対称崩壊模型 }
+theorems:
+  - { id: GR30-PROP-01, name: 球対称入射Vaidya計量の物質源 }
+  - { id: GR30-PROP-02, name: 薄光殻の面上応力と真空接合 }
+  - { id: GR30-PROP-03, name: 薄光殻崩壊で形成される未来事象地平線 }
+  - { id: GR30-PROP-04, name: 薄光殻模型でのMOTSと事象地平線の差 }
+canonical_examples:
+  - a=0の入射零座標とMinkowski時間への戻し方
+  - 滑らかな質量関数a(v)による入射零物質の正のエネルギー密度
+  - v=0に沿う平坦・Schwarzschild領域の零殻接合
+  - a_f=6で平坦領域の事象地平線がv=-12から始まる例
+  - 地平線上にMOTSのない平坦領域と形成後の捕獲球面
+problem_patterns:
+  - GR30-FLAT-EF-TRANSFORM
+  - GR30-NULL-JUNCTION-PULLBACK
+  - GR30-NULL-DUST-POSITIVITY
+  - GR30-SHELL-CROSSING
+  - GR30-MOTS-CLASSIFICATION
+  - GR30-EINSTEIN-TENSOR-VAIDYA
+  - GR30-CAUSAL-ESCAPE-THRESHOLD
+  - GR30-SHELL-DISTRIBUTION-LIMIT
+  - GR30-CAUSAL-OUTGOING-COMPARISON
+  - GR30-INTEGRATED-COLLAPSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
