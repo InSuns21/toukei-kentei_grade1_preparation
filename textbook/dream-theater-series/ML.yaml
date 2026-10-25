@@ -137,7 +137,7 @@ chapters:
     title: "MCMC・Metropolis–Hastings・Gibbs"
   - id: ML2-12
     path: textbook/volumes/dream_thater/応用系/ML/ML2-12
-    status: planned
+    status: completed
     title: "Gaussian process回帰と不確実性"
   - id: ML2-13
     path: textbook/volumes/dream_thater/応用系/ML/ML2-13

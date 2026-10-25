@@ -1,0 +1,41 @@
+id: "ML2-12"
+title: "Gaussian process回帰と不確実性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-02
+  - ML1-18
+  - RKHS1
+  - RKHS3
+  - STO3
+official_scope: []
+learning_objectives:
+  - 正半定値共分散核から退化も許す有限次元Gaussian分布を構成し整合性を確認できる
+  - 平方指数核の正半定値性を級数展開から証明し具体的なGram行列を検算できる
+  - 独立Gaussian観測雑音の下で条件付き予測平均とSchur補完による潜在分散を導出できる
+  - 観測値の予測分散に雑音分散を足す理由と区間の条件付きの意味を説明できる
+  - 重複観測点・雑音0極限・外挿・核選択における不確実性の挙動を計算できる
+  - GP事後平均とカーネルリッジ回帰の対応を正規化係数まで照合しRKHSとの意味の違いを説明できる
+  - 対話ラボの核・長さ尺度・雑音・観測追加を変更して事後平均と区間を数値検証できる
+definitions:
+  - { id: ML2-12-DEF-01, name: 回帰のGaussian process事前モデル }
+  - { id: ML2-12-DEF-02, name: Gaussian process回帰の観測模型 }
+  - { id: ML2-12-DEF-03, name: GP事後予測と点ごとの信用区間 }
+theorems:
+  - { id: ML2-12-THM-01, name: 正半定値核からの有限次元整合構成 }
+  - { id: ML2-12-PROP-01, name: 平方指数核の正半定値性 }
+  - { id: ML2-12-THM-02, name: Gaussian process回帰の事後予測公式 }
+  - { id: ML2-12-PROP-02, name: 観測追加による条件付き分散の非増加 }
+  - { id: ML2-12-PROP-03, name: GP事後平均とカーネルリッジ予測の一致 }
+canonical_examples:
+  - 二点相関行列の正半定値性と有限次元分布の整合性
+  - 平方指数核の無限特徴展開とGram行列
+  - 一観測・一予測点での潜在分散と観測分散の分解
+  - 重複観測による不確実性低下と非正定値核の反例
+  - GPとカーネルリッジの平均の一致と区間解釈の違い
+  - 決定論的合成データを使った対話ラボの核・長さ尺度・雑音・観測追加
+problem_patterns: [ML2-12-A01, ML2-12-A02, ML2-12-A03, ML2-12-A04, ML2-12-B01, ML2-12-B02, ML2-12-B03, ML2-12-B04, ML2-12-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

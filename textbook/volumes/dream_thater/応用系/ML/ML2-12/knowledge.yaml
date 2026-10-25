@@ -1,0 +1,53 @@
+chapter: ML2-12
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-02, ML1-18, RKHS1, RKHS3, STO3]
+concepts:
+  - id: learning.gaussian-process-prior
+    name: 回帰のGaussian process事前モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回帰のGaussian process事前モデル）"]
+    requires: [stochastic.gaussian-process, rkhs.psd-kernel]
+  - id: learning.gp-finite-consistency
+    name: 正半定値核からの有限次元整合構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正半定値核からの有限次元整合構成）"]
+    requires: [learning.gaussian-process-prior, stochastic.kolmogorov-extension]
+  - id: learning.gp-squared-exponential-psd
+    name: 平方指数核の正半定値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平方指数核の正半定値性）"]
+    requires: [rkhs.psd-kernel]
+  - id: learning.gp-regression-model
+    name: Gaussian process回帰の観測模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian process回帰の観測模型）"]
+    requires: [learning.gaussian-process-prior, learning.gaussian-linear-regression-model]
+  - id: learning.gp-posterior-prediction
+    name: GP事後予測と点ごとの信用区間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（GP事後予測と点ごとの信用区間）"]
+    requires: [learning.gp-regression-model, learning.gaussian-predictive-variance]
+  - id: learning.gp-conditioning-theorem
+    name: Gaussian process回帰の事後予測公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian process回帰の事後予測公式）"]
+    requires: [learning.gp-regression-model, learning.gp-posterior-prediction]
+  - id: learning.gp-conditioning-variance
+    name: 観測追加による条件付き分散の非増加
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（観測追加による条件付き分散の非増加）"]
+    requires: [learning.gp-conditioning-theorem]
+  - id: learning.gp-krr-equivalence
+    name: GP事後平均とカーネルリッジ予測の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GP事後平均とカーネルリッジ予測の一致）"]
+    requires: [learning.gp-conditioning-theorem, rkhs.kernel-ridge-closed-form]
