@@ -1,0 +1,42 @@
+id: "QINF3"
+title: "部分トレースと縮約状態"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF1
+  - QINF2
+official_scope: []
+learning_objectives:
+  - 有限次元複合系の部分トレースを基底表示から定義し、局所期待値による一意な特徴づけと基底独立性を証明できる
+  - 部分トレースの線形性・正値性・trace保存、積状態への作用を成分から検証できる
+  - Bell純粋状態と古典相関混合状態の縮約状態を求め、同じ周辺状態から全系の相関を復元できないことを説明できる
+  - 二部純粋状態の縮約のrank・純粋性と積状態条件の同値を、係数行列を用いて証明できる
+  - 局所ユニタリ、結果を捨てた局所射影測定、三部系の逐次部分トレースについて縮約状態を計算できる
+definitions:
+  - { id: QINF3-DEF-01, name: "部分トレースと縮約状態" }
+theorems:
+  - { id: QINF3-THM-01, name: "部分トレースの局所期待値による一意性" }
+  - { id: QINF3-PROP-01, name: "部分トレースの状態保存性と積への作用" }
+  - { id: QINF3-PROP-02, name: "縮約状態と局所測定の周辺確率" }
+  - { id: QINF3-THM-02, name: "純粋状態の積性と縮約の純粋性" }
+  - { id: QINF3-PROP-03, name: "局所ユニタリと非選択射影測定の不変性" }
+  - { id: QINF3-PROP-04, name: "三部系の逐次部分トレース" }
+canonical_examples:
+  - "二qubit積状態の片側縮約とtrace保存"
+  - "Bell対と古典相関混合状態の同一周辺・異なるXX相関"
+  - "二部純粋状態の係数行列CC†と純粋性判定"
+  - "局所射影測定を選択した場合と結果を捨てた場合の比較"
+problem_patterns:
+  - QINF3-PRODUCT-TRACE
+  - QINF3-BELL-MARGINAL
+  - QINF3-CLASSICAL-MARGINAL
+  - QINF3-OFFDIAGONAL-TRACE
+  - QINF3-PURE-COEFFICIENT-MATRIX
+  - QINF3-LOCAL-MEASUREMENT
+  - QINF3-TRACE-UNIQUENESS
+  - QINF3-TRIPARTITE-TRACE
+  - QINF3-PURITY-ENTANGLEMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 2.0 }
