@@ -1,0 +1,36 @@
+id: "ML2-14"
+title: "逆伝播・自動微分・Jacobian"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-13
+  - RA6
+official_scope: []
+learning_objectives:
+  - Jacobianの行・列と行列積の次元を明示して多変数連鎖律を層に適用できる
+  - 計算グラフの局所微分と逆モードの随伴量を定義し逆順の伝播を証明できる
+  - 重み・バイアス・入力の勾配を成分表示と外積表示で導出できる
+  - 分岐と共有パラメータでは寄与を加算する理由を示せる
+  - ReLUの非微分点とそこで用いる算法上の微分値の選択を区別できる
+  - 中心有限差分の誤差評価と数値丸めの限界を説明し勾配を検算できる
+  - 前向きモードと逆モードの仕事量の違いを入出力の次元から説明できる
+definitions:
+  - { id: ML2-14-DEF-01, name: 計算グラフ }
+  - { id: ML2-14-DEF-02, name: 逆モードの随伴量 }
+  - { id: ML2-14-DEF-03, name: 自動微分の前向き・逆モード }
+theorems:
+  - { id: ML2-14-THM-01, name: 層のJacobian積 }
+  - { id: ML2-14-THM-02, name: 逆モードの連鎖律と分岐和 }
+  - { id: ML2-14-THM-03, name: 多層網の逆伝播とパラメータ勾配 }
+  - { id: ML2-14-PROP-01, name: 中心有限差分の打切り誤差 }
+canonical_examples:
+  - 二入力・二出力のJacobian積と転置の次元確認
+  - 分岐するグラフでの微分寄与の加算
+  - 二ニューロン一隠れ層網の全パラメータ逆伝播
+  - ReLU折点で中心差分と算法上の値が食い違う例
+  - 摂動幅を変えて逆伝播と有限差分を照合するブラウザラボ
+problem_patterns: [ML2-14-A01, ML2-14-A02, ML2-14-A03, ML2-14-A04, ML2-14-B01, ML2-14-B02, ML2-14-B03, ML2-14-B04, ML2-14-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

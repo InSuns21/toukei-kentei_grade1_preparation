@@ -1,0 +1,47 @@
+chapter: ML2-14
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-13, RA6]
+concepts:
+  - id: learning.computational-graph
+    name: 計算グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算グラフ）"]
+    requires: []
+  - id: learning.layer-jacobian-chain
+    name: 層のJacobian積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（層のJacobian積）"]
+    requires: [analysis.multivariable-chain-rule, analysis.jacobian-matrix, learning.relu-mlp]
+  - id: learning.reverse-adjoint
+    name: 逆モードの随伴量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆モードの随伴量）"]
+    requires: [learning.computational-graph, analysis.jacobian-matrix]
+  - id: learning.reverse-chain-rule
+    name: 逆モードの連鎖律と分岐和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（逆モードの連鎖律と分岐和）"]
+    requires: [learning.reverse-adjoint, analysis.multivariable-chain-rule]
+  - id: learning.backpropagation
+    name: 多層網の逆伝播とパラメータ勾配
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多層網の逆伝播とパラメータ勾配）"]
+    requires: [learning.reverse-chain-rule, learning.relu-mlp]
+  - id: learning.automatic-differentiation-modes
+    name: 自動微分の前向き・逆モード
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自動微分の前向き・逆モード）"]
+    requires: [learning.reverse-chain-rule]
+  - id: learning.central-finite-difference-bound
+    name: 中心有限差分の打切り誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心有限差分の打切り誤差）"]
+    requires: [analysis.derivative]

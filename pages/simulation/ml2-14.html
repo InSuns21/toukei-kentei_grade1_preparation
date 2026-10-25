@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-14 逆伝播と有限差分の勾配検算</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1060px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.5rem}h2{font-size:1.18rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:9px}
+label{display:block;font-size:.94rem}
+.controls label{padding:10px;border:1px solid #8887;border-radius:9px}
+input{display:block;width:100%;box-sizing:border-box;font-size:1rem;padding:5px;margin-top:6px}
+button{padding:9px 16px;border-radius:8px;border:1px solid #667e90;cursor:pointer;background:#e1eff9;color:#173e60;margin:6px 6px 6px 0}
+.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;padding:0}
+.data li{list-style:none;padding:11px;border:1px solid #8887;border-radius:8px}
+.data strong,.data small{display:block}.data small{font-size:1.13rem;font-variant-numeric:tabular-nums}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid #8886;padding:8px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{background:#718ba01d}
+.note{background:#e8f2fa;color:#173c54;padding:10px 13px;border-radius:8px}
+.warning{background:#fff1da;color:#774100}
+.error{color:#ad2930}
+svg{display:block;width:100%;height:auto;max-width:100%;border:1px solid #8887;border-radius:8px;background:#fff}
+.legend{font-size:.9rem}
+.legend b{display:inline-block;width:20px;height:4px;vertical-align:middle;margin-left:12px;margin-right:5px}
+@media(max-width:560px){body{padding:10px}th,td{font-size:.82rem;padding:6px}}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-14/index">← ML2-14 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>ML2-14：逆伝播の全勾配を有限差分で照合する</h1>
+<p>入力1個 → ReLU隠れユニット2個 → 線形出力1個、損失は <strong>E = (y − 目標値)² / 2</strong> です。すべての値を変更すると、前向き計算・逆向きの全勾配・7個の中心有限差分をブラウザ内で再計算します。</p>
+<p><button id="reset" type="button">微分可能な標準例に戻す</button><button id="kink" type="button">折点 z₁=0 の例を試す</button></p>
+<h2>入力・パラメータ</h2>
+<div id="controls" class="controls">
+  <label>入力 x<input id="x" type="number" step="any" value="1"></label>
+  <label>目標値 t<input id="target" type="number" step="any" value="1.3"></label>
+  <label>摂動幅 h<input id="h" type="number" step="any" min="0.000000000001" max="1" value="0.0001"></label>
+  <label>隠れ重み w₁₁<input id="w11" type="number" step="any" value="1"></label>
+  <label>隠れ重み w₁₂<input id="w12" type="number" step="any" value="-0.5"></label>
+  <label>隠れバイアス b₁₁<input id="b11" type="number" step="any" value="0.2"></label>
+  <label>隠れバイアス b₁₂<input id="b12" type="number" step="any" value="0.7"></label>
+  <label>出力重み v₁<input id="v1" type="number" step="any" value="2"></label>
+  <label>出力重み v₂<input id="v2" type="number" step="any" value="-1"></label>
+  <label>出力バイアス b₂<input id="b2" type="number" step="any" value="0.1"></label>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<h2>順伝播と逆伝播</h2>
+<ul id="diagnostics" class="data"></ul>
+<p class="legend"><b style="background:#245b9b"></b>逆モード（実線）<b style="background:#d47f28"></b>中心有限差分（破線）</p>
+<svg id="plot" viewBox="0 0 900 370" role="img" aria-label="7個のパラメータについて、逆モード勾配と中心有限差分を同じ横軸で比較する棒グラフ" xmlns="http://www.w3.org/2000/svg"></svg>
+<h2>勾配の成分別検算</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>パラメータ</th><th>逆モード</th><th>中心有限差分</th><th>絶対差</th><th>折点を横切るか</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table></div>
+<p id="explanation" class="note"></p>
+<p>勾配は関数が微分可能な点で比較してください。ReLUの折点ではここでは算法上の導関数を0と置いており、中心差分が0.5のような別の値を返しても矛盾ではありません。極端に小さな h は浮動小数点の丸め誤差を増やします。中心差分はパラメータごとに2回の損失評価を使うため、逆伝播の代替として大きな網を訓練する用途には向きません。</p>
+<script type="module">
+import {
+  defaultParameters, defaultInputs, parameterNames, gradientCheck
+} from "./ml2-14-model.mjs";
+const $ = id => document.getElementById(id);
+const ns = "http://www.w3.org/2000/svg";
+const names = { w11: "w₁₁", w12: "w₁₂", b11: "b₁₁", b12: "b₁₂",
+  v1: "v₁", v2: "v₂", b2: "b₂" };
+function svgItem(tag, attrs, text) {
+  const item = document.createElementNS(ns, tag);
+  for (const [name, value] of Object.entries(attrs)) item.setAttribute(name, String(value));
+  if (text !== undefined) item.textContent = String(text);
+  return item;
+}
+function number(value) {
+  return Number.isFinite(value) ? value.toPrecision(6) : String(value);
+}
+function diagnostics(rows) {
+  const items = rows.map(([title, value]) => {
+    const li = document.createElement("li");
+    const bold = document.createElement("strong");
+    const small = document.createElement("small");
+    bold.textContent = title;
+    small.textContent = value;
+    li.append(bold, small);
+    return li;
+  });
+  $("diagnostics").replaceChildren(...items);
+}
+function drawGradientPlot(rows) {
+  const svg = $("plot");
+  svg.replaceChildren();
+  const maxMagnitude = Math.max(0.01, ...rows.flatMap(r => [Math.abs(r.reverse), Math.abs(r.finiteDifference)]));
+  const center = 460, scale = 355 / maxMagnitude;
+  svg.append(svgItem("line", { x1: center, x2: center, y1: 18, y2: 340,
+    stroke: "#546575", "stroke-width": 1.5 }));
+  svg.append(svgItem("text", { x: center, y: 358, fill: "#334", "text-anchor": "middle" }, "0"));
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i], y = 48 + i * 43;
+    const title = svgItem("text", { x: 68, y: y + 4, fill: "#273744", "text-anchor": "end",
+      "font-size": 17 }, names[row.name]);
+    svg.append(title);
+    svg.append(svgItem("line", { x1: 78, x2: 840, y1: y + 12, y2: y + 12,
+      stroke: "#e8eef2" }));
+    const aEnd = center + row.reverse * scale;
+    const dEnd = center + row.finiteDifference * scale;
+    svg.append(svgItem("line", { x1: center, y1: y - 6, x2: aEnd, y2: y - 6,
+      stroke: "#245b9b", "stroke-width": 7 }));
+    svg.append(svgItem("line", { x1: center, y1: y + 5, x2: dEnd, y2: y + 5,
+      stroke: "#d47f28", "stroke-width": 5, "stroke-dasharray": "9 4" }));
+  }
+  svg.append(svgItem("text", { x: 90, y: 358, fill: "#334", "font-size": 14 },
+    "勾配 −" + number(maxMagnitude)));
+  svg.append(svgItem("text", { x: 815, y: 358, fill: "#334", "font-size": 14,
+    "text-anchor": "end" }, "+" + number(maxMagnitude)));
+}
+function render() {
+  const p = Object.fromEntries(parameterNames.map(id => [id, Number($(id).value)]));
+  const x = Number($("x").value), target = Number($("target").value), h = Number($("h").value);
+  if ([...parameterNames, "x", "target", "h"].some(id => $(id).value.trim() === "")) {
+    $("status").textContent = "未入力の欄があります";
+    $("status").className = "error";
+    return;
+  }
+  try {
+    const result = gradientCheck(p, x, target, h);
+    $("status").className = "";
+    $("status").textContent = "全7成分を再計算しました";
+    diagnostics([
+      ["活性化前 z₁", result.z.map(number).join(", ")],
+      ["隠れ出力 h₁", result.a.map(number).join(", ")],
+      ["出力 y", number(result.y)],
+      ["損失 E", number(result.loss)],
+      ["出力誤差 δ₂", number(result.residual)],
+      ["隠れ誤差 δ₁", result.hiddenDeltas.map(number).join(", ")],
+      ["入力への勾配", number(result.inputGradient)],
+      ["最大絶対差", number(result.maxAbsoluteDifference)]
+    ]);
+    const trs = result.rows.map(r => {
+      const tr = document.createElement("tr");
+      for (const value of [names[r.name], number(r.reverse), number(r.finiteDifference),
+        number(r.absoluteDifference), r.crossedKink ? "あり" : "なし"]) {
+        const td = document.createElement("td");
+        td.textContent = value;
+        tr.append(td);
+      }
+      return tr;
+    });
+    $("rows").replaceChildren(...trs);
+    drawGradientPlot(result.rows);
+    const crossed = result.rows.some(row => row.crossedKink);
+    $("explanation").className = "note" + (crossed || result.kink ? " warning" : "");
+    $("explanation").textContent = result.kink
+      ? "評価点がReLUの折点です。算法上の微分値は0とし、古典的導関数は存在しないため差が出ても微分実装のバグとは限りません。"
+      : crossed
+        ? "差分の左右でReLUの折点をまたいでいます。摂動幅を縮めるか折点から離して微分可能な区間だけで比べてください。"
+        : result.maxAbsoluteDifference < 1e-6
+          ? "各勾配が有限差分とよく一致しています。h を変えると打切り誤差と丸め誤差の釣合いを確認できます。"
+          : "差が目立ちます。hの大きさ・桁落ち・折点との近さを確認してください。";
+  } catch (error) {
+    $("status").textContent = "入力エラー：" + error.message;
+    $("status").className = "error";
+  }
+}
+function setParameters(params) {
+  for (const [id, value] of Object.entries(params)) $(id).value = String(value);
+  render();
+}
+$("reset").addEventListener("click", () => setParameters({ ...defaultParameters, ...defaultInputs }));
+$("kink").addEventListener("click", () => setParameters({
+  ...defaultParameters, ...defaultInputs, b11: -1, b12: -1
+}));
+for (const field of document.querySelectorAll("#controls input")) field.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
