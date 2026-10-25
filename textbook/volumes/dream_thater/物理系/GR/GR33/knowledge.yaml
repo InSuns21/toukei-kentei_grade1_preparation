@@ -1,0 +1,51 @@
+chapter: GR33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR14
+  - GR29
+  - GR32
+  - PDE11
+concepts:
+  - id: gravity.kerr-ergoregion
+    name: Kerrのergoregion
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerrのergoregion）"]
+    requires: [gravity.kerr-static-limit-order, gravity.kerr-horizon-ingoing]
+  - id: gravity.kerr-negative-killing-energy
+    name: 負のKillingエネルギーが可能な場所
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（負のKillingエネルギーが可能な場所）"]
+    requires: [gravity.kerr-ergoregion, gravity.killing-geodesic-charge]
+  - id: gravity.kerr-horizon-energy-bound
+    name: 地平線を通過する粒子のエネルギー下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線を通過する粒子のエネルギー下限）"]
+    requires: [gravity.kerr-horizon-ingoing, gravity.killing-energy-angular-momentum]
+  - id: gravity.penrose-particle-process
+    name: 粒子のPenrose過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子のPenrose過程）"]
+    requires: [gravity.kerr-negative-killing-energy, gravity.kerr-horizon-energy-bound]
+  - id: gravity.penrose-local-split
+    name: ergoregion内の局所分裂模型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ergoregion内の局所分裂模型）"]
+    requires: [gravity.penrose-particle-process]
+  - id: gravity.scalar-superradiant-scattering
+    name: スカラー波の超放射散乱
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スカラー波の超放射散乱）"]
+    requires: [gravity.kerr-horizon-ingoing]
+  - id: gravity.scalar-superradiance-wronskian
+    name: スカラー散乱の流束恒等式と超放射条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スカラー散乱の流束恒等式と超放射条件）"]
+    requires: [gravity.scalar-superradiant-scattering, gravity.kerr-metric-inverse]

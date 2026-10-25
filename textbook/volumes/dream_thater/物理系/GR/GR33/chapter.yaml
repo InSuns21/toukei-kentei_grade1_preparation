@@ -1,0 +1,46 @@
+id: "GR33"
+title: "Ergoregion・Penrose過程・超放射"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR14
+  - GR29
+  - GR32
+  - PDE11
+official_scope: []
+learning_objectives:
+  - Kerrの外側地平線と静止極限面からergoregionを判定できる
+  - 局所エネルギーとKillingエネルギーを区別し負の保存エネルギーが可能となる条件を証明できる
+  - 未来地平線でE-Ω_H Lが非負となる条件を導きPenrose分裂の保存則と限界を説明できる
+  - 質量零スカラー波を分離し入射・反射・地平線境界条件の意味を説明できる
+  - 動径Wronskianから0<ω<mΩ_Hの超放射条件と反射増幅率を計算できる
+definitions:
+  - { id: GR33-DEF-01, name: Kerrのergoregion }
+  - { id: GR33-DEF-02, name: 粒子のPenrose過程 }
+  - { id: GR33-DEF-03, name: スカラー波の超放射散乱 }
+theorems:
+  - { id: GR33-PROP-01, name: 負のKillingエネルギーが可能な場所 }
+  - { id: GR33-PROP-02, name: 地平線を通過する粒子のエネルギー下限 }
+  - { id: GR33-PROP-03, name: ergoregion内の局所分裂模型 }
+  - { id: GR33-THM-01, name: スカラー散乱の流束恒等式と超放射条件 }
+canonical_examples:
+  - M=5とa=3の赤道のergoregion判定
+  - 局所正規直交枠の負のKillingエネルギーと未来向き性
+  - 二光子への局所分裂での四元運動量・Killingエネルギーの保存
+  - 地平線エネルギー下限と負角運動量の必要性
+  - m=2とω=1/20の流束恒等式による条件付き反射増幅
+problem_patterns:
+  - GR33-ERGOREGION-BOUNDARY
+  - GR33-KILLING-ENERGY-SIGN
+  - GR33-HORIZON-ANGULAR-MOMENTUM
+  - GR33-SUPERRADIANT-WINDOW
+  - GR33-NONROTATING-LIMIT
+  - GR33-LOCAL-MOMENTUM-SPLIT
+  - GR33-WRONSKIAN-FLUX
+  - GR33-REFLECTION-AMPLIFICATION
+  - GR33-HORIZON-INGOING-PHASE
+  - GR33-INTEGRATED-EXTRACTION-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
