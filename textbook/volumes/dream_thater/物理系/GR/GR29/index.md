@@ -130,7 +130,7 @@ g(\ell,\ell)=-f+2(f/2)=0,\quad
 g(n,n)=0,\quad g(\ell,n)=-1
 $$
 
-です。角度成分はなく $\ell(r)=f/2$、$n(r)=-1$ なので、[球対称二球面の零膨張率公式](#prop-gr29-spherical-expansion)をこの二つの法線に適用すると
+です。未来向きの選択は[GR26の入射・出射零方向](../GR26/index.md#prop-gr26-radial-null-generators)と一致します。角度成分はなく $\ell(r)=f/2$、$n(r)=-1$ なので、[球対称二球面の零膨張率公式](#prop-gr29-spherical-expansion)をこの二つの法線に適用すると
 
 $$
 \theta_{(\ell)}=\frac1r\left(1-\frac ar\right),
