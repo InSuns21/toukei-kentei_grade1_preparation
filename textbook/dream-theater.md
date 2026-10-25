@@ -1238,6 +1238,7 @@
 29. [GR29 事象・見かけ・Killing地平線](textbook/volumes/dream_thater/物理系/GR/GR29/index.md)
 30. [GR30 球対称重力崩壊模型](textbook/volumes/dream_thater/物理系/GR/GR30/index.md)
 31. [GR31 Reissner–Nordström解](textbook/volumes/dream_thater/物理系/GR/GR31/index.md)
+32. [GR32 Kerr時空の計量と回転](textbook/volumes/dream_thater/物理系/GR/GR32/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
