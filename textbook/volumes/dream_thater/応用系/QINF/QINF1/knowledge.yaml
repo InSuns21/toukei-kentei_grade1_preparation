@@ -4,9 +4,24 @@ coverage: complete
 prerequisites:
   - LA3E
   - QM2
-forward_references: []
+forward_references:
+  - quantum.partial-trace
 
 concepts:
+  - id: quantum.qubit
+    name: 量子ビット
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子ビットと計算基底）]
+    requires: [functional.complex-hilbert-space, quantum.hilbert-ray]
+
+  - id: quantum.computational-basis
+    name: 計算基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子ビットと計算基底）]
+    requires: [quantum.qubit, linear.complex-inner-product]
+
   - id: quantum.composite-system
     name: 有限次元複合量子系
     kind: definition
