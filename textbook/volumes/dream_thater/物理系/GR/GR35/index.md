@@ -70,9 +70,25 @@ $$
 $v=u$ の一例だけを調べるのでなく、$\gamma\ge1$ の全範囲で確認しました。
 <!-- definition-example-end -->
 
-WECからNECが従うことも確かめられます。任意の非零未来向き光的 $k$ に対し、局所正規直交枠で $k=(k^0,\boldsymbol{k})$、$k^0=|\boldsymbol{k}|>0$ と書きます。$0\le s<1$ について $w_s=(k^0,s\boldsymbol{k})$ は未来向き時間的なので $T(w_s,w_s)\ge0$（正の倍率で単位化してWECを適用）。$s\uparrow1$ の連続性で $T(k,k)\ge0$ が得られます。逆にNECだけでは時間的方向の密度の符号は決まりません。
+WECからNECが従うことも確かめられます。任意の非零未来向き光的 $k$ に対し、局所正規直交枠で $k=(k^0,\boldsymbol{k})$、$k^0=|\boldsymbol{k}|>0$ と書きます。$0\le s<1$ に対して $w_s=(k^0,s\boldsymbol{k})$ を作ると、
 
-もう一つの要請は、観測者に対するエネルギー・運動量の流れが光より速くならないことです。[GR8の応力テンソル](../GR8/index.md#def-gr8-perfect-fluid-stress)の混合成分を使い、観測者 $v$ に付随するエネルギー流ベクトルを $J^a=-T^a{}_bv^b$ と置きます。局所正規直交枠で $v=(1,0,0,0)$ と置くと、計量は $\eta_{ab}=\operatorname{diag}(-1,1,1,1)$ です。第1添字を上げると $T^0{}_b=-T_{0b}$、$T^i{}_b=T_{ib}$ なので、$J^0=T_{00}$、$J^i=-T_{i0}$ となります。従って $J$ が未来因果的という条件は、非負のエネルギーと、エネルギー流束の大きさがエネルギー密度を超えないことを同時に表します。「因果的」は時間的または光的（零ベクトルも許す）を意味します。
+$$
+g(w_s,w_s)=-(k^0)^2+s^2|\boldsymbol{k}|^2
+=-(1-s^2)(k^0)^2<0
+$$
+
+なので、$w_s$ は未来向き時間的です。正の倍率で単位化してWECを適用すれば $T(w_s,w_s)\ge0$。$s\uparrow1$ で $w_s\to k$ となるため、テンソル縮約の連続性から $T(k,k)\ge0$ です。逆にNECだけでは時間的方向の密度の符号は決まりません。
+
+もう一つの要請は、観測者に対するエネルギー・運動量の流れが光より速くならないことです。[GR8の応力テンソル](../GR8/index.md#def-gr8-perfect-fluid-stress)の混合成分を使い、観測者 $v$ に付随する流れを $J^a=-T^a{}_bv^b$ と置きます。
+
+局所正規直交枠で $v=(1,0,0,0)$ と置けば、計量は $\eta_{ab}=\operatorname{diag}(-1,1,1,1)$ です。第1添字を上げると、
+
+$$
+T^0{}_b=-T_{0b},\qquad T^i{}_b=T_{ib},
+\qquad J^0=T_{00},\qquad J^i=-T_{i0}.
+$$
+
+従って $J$ が未来因果的という条件は、非負のエネルギーと、エネルギー流束の大きさがエネルギー密度を超えないことを同時に表します。「因果的」は時間的または光的（零ベクトルも許す）を意味します。
 
 <a id="def-gr35-dec"></a>
 
@@ -150,7 +166,22 @@ $$
 
 従って $T_{\hat a\hat b}=\operatorname{diag}(\rho,p,p,p)$ です。さらに第1添字を計量で上げると $T^{\hat a}{}_{\hat b}=g^{\hat a\hat c}T_{\hat c\hat b}=\operatorname{diag}(-\rho,p,p,p)$ です。以下の対角行列は、それぞれこの正規直交基底での**共変成分**と**混合成分**を表します。
 
-一般の未来単位時間的 $v$ の成分を $(v^0,\boldsymbol v)$ と置けば、$-(v^0)^2+|\boldsymbol v|^2=-1$ と $v^0>0$ から $v=(\gamma,\gamma\boldsymbol\beta)$、$\gamma=(1-|\boldsymbol\beta|^2)^{-1/2}\ge1$、$|\boldsymbol\beta|<1$ と書けます。同様に光的 $k$ は $-(k^0)^2+|\boldsymbol k|^2=0$ から $k=(E,E\boldsymbol n)$、$E>0$、$|\boldsymbol n|=1$ と書けます。これで任意の時間的・光的方向を座標で走査でき、定義の全称条件を係数の不等式へ還元できます。
+一般の未来単位時間的 $v=(v^0,\boldsymbol v)$ に対し、$g(v,v)=-1$ と $v^0>0$ を解くと、
+
+$$
+v=(\gamma,\gamma\boldsymbol\beta),\qquad
+\boldsymbol\beta=\frac{\boldsymbol v}{v^0},\qquad
+\gamma=\frac1{\sqrt{1-|\boldsymbol\beta|^2}}\ge1,
+\quad |\boldsymbol\beta|<1
+$$
+
+です。同様に未来向きの非零光的ベクトルは、$g(k,k)=0$ と $k^0>0$ から
+
+$$
+k=(E,E\boldsymbol n),\qquad E>0,\quad |\boldsymbol n|=1
+$$
+
+と書けます。これで任意の時間的・光的方向を座標で走査でき、定義の全称条件を係数の不等式へ還元できます。
 
 <a id="thm-gr35-fluid-criteria"></a>
 
