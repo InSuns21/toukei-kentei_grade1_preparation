@@ -14,8 +14,8 @@
     <path d="M320 255 L222 157" marker-end="url(#mink-arrow)"/>
   </g>
   <g fill="#173b4c" font-family="DejaVu Sans, sans-serif" font-size="19" text-anchor="middle">
-    <text x="320" y="278">O</text>
-    <text x="343" y="33">i⁺</text>
+    <text x="344" y="282">O</text>
+    <text x="348" y="19">i⁺</text>
     <text x="344" y="493">i⁻</text>
     <text x="65" y="263">i⁰</text>
     <text x="577" y="263">i⁰</text>
@@ -23,8 +23,8 @@
     <text x="502" y="125">ℐ⁺</text>
     <text x="138" y="406">ℐ⁻</text>
     <text x="502" y="406">ℐ⁻</text>
-    <text x="412" y="206" font-size="17">u = 0</text>
-    <text x="221" y="206" font-size="17">v = 0</text>
-    <text x="343" y="303" font-size="15">χ = 0</text>
+    <text x="448" y="218" font-size="17">u = 0</text>
+    <text x="194" y="218" font-size="17">v = 0</text>
+    <text x="380" y="316" font-size="15">χ = 0</text>
   </g>
 </svg>

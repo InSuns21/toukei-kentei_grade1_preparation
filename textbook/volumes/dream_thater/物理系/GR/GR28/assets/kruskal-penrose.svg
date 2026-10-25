@@ -16,16 +16,16 @@
     <text x="380" y="356" font-size="29">IV</text>
     <text x="575" y="269" font-size="29">I</text>
     <text x="183" y="269" font-size="29">III</text>
-    <text x="380" y="282" font-size="18">O</text>
+    <text x="380" y="295" font-size="18">O</text>
     <text x="218" y="81" font-size="18">i⁺</text>
     <text x="542" y="81" font-size="18">i⁺</text>
     <text x="217" y="440" font-size="18">i⁻</text>
     <text x="543" y="440" font-size="18">i⁻</text>
     <text x="47" y="269" font-size="19">i⁰</text>
     <text x="712" y="269" font-size="19">i⁰</text>
-    <text x="156" y="158" font-size="19">ℐ⁺</text>
-    <text x="604" y="158" font-size="19">ℐ⁺</text>
-    <text x="156" y="369" font-size="19">ℐ⁻</text>
-    <text x="604" y="369" font-size="19">ℐ⁻</text>
+    <text x="121" y="158" font-size="19">ℐ⁺</text>
+    <text x="639" y="158" font-size="19">ℐ⁺</text>
+    <text x="121" y="369" font-size="19">ℐ⁻</text>
+    <text x="639" y="369" font-size="19">ℐ⁻</text>
   </g>
 </svg>
