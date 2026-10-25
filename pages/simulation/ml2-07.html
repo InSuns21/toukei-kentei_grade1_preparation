@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ML2-07 PPCAの共分散・事後推論</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1020px;margin:0 auto;padding:18px;line-height:1.65}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px}
+label{display:grid;gap:4px;border:1px solid #8888;border-radius:8px;padding:8px}
+input,select{font:inherit;width:100%;box-sizing:border-box}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px;margin-top:16px}
+.panel{border:1px solid #8888;border-radius:9px;padding:12px;min-width:0;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:5px;text-align:left;border-bottom:1px solid #8888;vertical-align:top}
+td{white-space:pre-wrap;overflow-wrap:anywhere}
+svg{display:block;width:100%;height:auto;max-width:490px;margin:0 auto;background:#f7f8fb;color:#162736;border-radius:6px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0}
+.legend span{font-size:.9rem}
+.swatch{display:inline-block;width:11px;height:11px;margin-right:4px;vertical-align:middle}
+.note{font-size:.92rem}
+.error{color:#c52a25;font-weight:bold}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-07/index">← ML2-07 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-07 PPCAの共分散・事後推論</h1>
+<p>固定した負荷行列から2次元の観測分布を構成します。潜在次元、等方雑音の分散、潜在座標の回転、観測点を変更すると、<strong>共分散・潜在事後・再構成</strong>が更新されます。標本からの最尤推定ではありません。</p>
+<section class="controls" aria-label="模型の設定">
+<label>潜在次元 q<select id="q"><option value="1">1</option><option value="2" selected>2</option></select></label>
+<label>観測雑音分散 σ²（0.1〜4）<input id="noise" type="number" min="0.1" max="4" step="0.1" value="1"></label>
+<label>潜在回転角（度、q=2のみ）<input id="angle" type="number" min="-180" max="180" step="15" value="0"></label>
+<label>観測値 x₁（−4〜4）<input id="x1" type="number" min="-4" max="4" step="0.25" value="2"></label>
+<label>観測値 x₂（−4〜4）<input id="x2" type="number" min="-4" max="4" step="0.25" value="1"></label>
+</section>
+<p class="note">基準負荷行列は q=1 で W=(2,1)ᵀ、q=2 で W=[[2,0],[1,1.5]]。q=2 では W を右から直交回転 R(θ) します。q=1 の回転角は無効です（符号反転のみが直交変換）。</p>
+<p><button type="button" id="reset">初期値へ戻す</button></p>
+<p role="status" aria-live="polite" id="status"></p>
+<div class="panels">
+<section class="panel"><h2>観測分布と再構成</h2>
+<svg id="plot" viewBox="0 0 480 480" role="img" aria-label="観測共分散による二標準偏差楕円、観測値、PPCA再構成と主部分空間への射影"></svg>
+<div class="legend">
+<span><i class="swatch" style="background:#4261a6"></i>2標準偏差楕円（破線）</span>
+<span><i class="swatch" style="background:#c0392b"></i>観測（丸）</span>
+<span><i class="swatch" style="background:#157c73"></i>事後再構成（菱形）</span>
+<span><i class="swatch" style="background:#7952a0"></i>主部分空間射影（四角）</span>
+</div>
+<p class="note">座標は±7.5。長軸・短軸を共分散行列の固有値・固有ベクトルから毎回計算します。楕円は2標準偏差の等密度曲線であり、「確率95%の領域」ではありません。</p>
+</section>
+<section class="panel"><h2>行列・条件付き分布</h2>
+<table id="values"><thead><tr><th>量</th><th>再計算した値</th></tr></thead><tbody></tbody></table>
+<p class="note">回転不識別の検算は、同じ q・σ²・x で角度0°の値と比較します。残差が小さくなるのは観測分布と事後再構成であって、潜在事後座標そのものではありません。</p>
+</section>
+</div>
+<script type="module">
+import { defaultConfig, evaluatePPCA, ellipsePoints } from "./ml2-07-model.mjs";
+const $ = id => document.getElementById(id);
+const keys = Object.keys(defaultConfig);
+const ns = "http://www.w3.org/2000/svg";
+const fmt = value => Number.isFinite(value) ? value.toFixed(5) : "—";
+const matrix = A => A.map(row => "[" + row.map(fmt).join(", ") + "]").join("\n");
+const col = v => v.map(value => [value]);
+function svgElement(name, attributes) {
+  const element = document.createElementNS(ns, name);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
+  return element;
+}
+const pix = point => [240 + 29 * point[0], 240 - 29 * point[1]];
+function line(svg, a, b, color, dash="") {
+  const [x1,y1]=pix(a),[x2,y2]=pix(b);
+  svg.append(svgElement("line",{x1,y1,x2,y2,stroke:color,"stroke-width":1.7,"stroke-dasharray":dash}));
+}
+function draw(result, x) {
+  const svg=$("plot");svg.replaceChildren();
+  svg.append(svgElement("rect",{x:0,y:0,width:480,height:480,fill:"#f7f8fb"}));
+  line(svg,[-7.5,0],[7.5,0],"#7e8791");line(svg,[0,-7.5],[0,7.5],"#7e8791");
+  for(const [name,px,py] of [["X₁",454,234],["X₂",245,18]]) {
+    const text=svgElement("text",{x:px,y:py,fill:"#162736","font-size":15});text.textContent=name;svg.append(text);
+  }
+  const points=ellipsePoints(result.eigen);
+  const path=points.map((p,i)=>`${i===0?"M":"L"}${pix(p).join(" ")}`).join(" ")+" Z";
+  svg.append(svgElement("path",{d:path,fill:"none",stroke:"#4261a6","stroke-width":2.6,"stroke-dasharray":"7 4"}));
+  for(const column of result.W[0].map((_,j)=>[result.W[0][j],result.W[1][j]])) line(svg,[0,0],column,"#97732c","4 4");
+  const [ox,oy]=pix([x.x1,x.x2]);
+  svg.append(svgElement("circle",{cx:ox,cy:oy,r:6,fill:"#c0392b",stroke:"#fff","stroke-width":1.5}));
+  const [rx,ry]=pix(result.reconstructed);
+  svg.append(svgElement("polygon",{points:`${rx},${ry-8} ${rx+8},${ry} ${rx},${ry+8} ${rx-8},${ry}`,fill:"#157c73"}));
+  const [px,py]=pix(result.projected);
+  svg.append(svgElement("rect",{x:px-5,y:py-5,width:10,height:10,fill:"#7952a0",stroke:"#fff","stroke-width":1}));
+}
+function fillRows(rows) {
+  const tbody=$("values").querySelector("tbody");tbody.replaceChildren();
+  for(const [name,value] of rows){const tr=document.createElement("tr");for(const item of [name,value]){const td=document.createElement("td");td.textContent=String(item);tr.append(td);}tbody.append(tr);}
+}
+function render() {
+  try {
+    if(keys.some(key=>$(key).value.trim()==="")) throw new RangeError("未入力の項目があります");
+    const c=Object.fromEntries(keys.map(key=>[key,Number($(key).value)]));
+    const r=evaluatePPCA(c);draw(r,c);
+    fillRows([
+      ["負荷行列 W",matrix(r.W)],
+      ["潜在寄与 WWᵀ",matrix(r.latent)],
+      ["観測共分散 C",matrix(r.C)],
+      ["Cの固有値（大→小）",r.eigen.values.map(fmt).join(", ")],
+      ["det C",fmt(r.determinant)],
+      ["事後平均 E[Z|x]",matrix(col(r.posteriorMean))],
+      ["事後共分散 Var(Z|x)",matrix(r.posteriorCov)],
+      ["信号再構成 μ+W E[Z|x]",r.reconstructed.map(fmt).join(", ")],
+      ["主部分空間射影",r.projected.map(fmt).join(", ")],
+      ["角度0°との共分散最大差",fmt(r.rotationCovarianceError)],
+      ["角度0°との再構成最大差",fmt(r.rotationReconstructionError)],
+    ]);
+    $("status").className="";
+    $("status").textContent="共分散と事後推論を再計算しました。";
+  } catch (error) {
+    $("status").className="error";$("status").textContent="入力・計算エラー："+error.message;
+    $("plot").replaceChildren();fillRows([]);
+  }
+}
+keys.forEach(key=>$(key).addEventListener("input",render));
+$("q").addEventListener("change",()=>{$("angle").disabled=$("q").value==="1";render();});
+$("reset").addEventListener("click",()=>{keys.forEach(key=>$(key).value=String(defaultConfig[key]));$("angle").disabled=false;render();});
+render();
+</script>
+</body>
+</html>

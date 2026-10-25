@@ -1,0 +1,38 @@
+id: "ML2-07"
+title: "連続潜在因子・因子分析・PPCA"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-02, ML2-05, ML1-19, ML1-07]
+official_scope: []
+learning_objectives:
+  - 連続潜在Gaussian模型の次元・独立性・正定値条件を確認し、観測平均と共分散を導出できる
+  - 因子分析の対角固有雑音とPPCAの等方雑音を区別し、低ランクと雑音床を固有値で判定できる
+  - 線形Gaussian模型の潜在事後分布を平方完成で導き、事後平均から再構成を計算できる
+  - 潜在直交回転による観測分布の不変性と潜在座標の非識別性を証明できる
+  - PPCA最尤解と標本PCAの主部分空間の一致条件を証明し、縮小再構成との違いを説明できる
+  - 境界例・固有値の重複・標本共分散特異性が結論へ与える影響を説明できる
+  - 数値ラボで潜在次元・雑音・回転を変え、共分散・事後平均・再構成・不変量を再計算できる
+definitions:
+  - { id: ML2-07-DEF-01, name: 連続潜在Gaussian因子模型 }
+  - { id: ML2-07-DEF-02, name: 因子分析と確率的主成分分析 }
+  - { id: ML2-07-DEF-03, name: 潜在因子の条件付き事後分布と再構成 }
+  - { id: ML2-07-DEF-04, name: 観測分布に関する潜在回転不識別 }
+theorems:
+  - { id: ML2-07-THM-01, name: 因子模型の周辺Gaussian分布と共分散 }
+  - { id: ML2-07-THM-02, name: 潜在Gaussian事後分布の平方完成 }
+  - { id: ML2-07-THM-03, name: 直交回転による観測分布の不変性 }
+  - { id: ML2-07-PROP-01, name: PPCA共分散の固有値構造 }
+  - { id: ML2-07-THM-04, name: PPCA最尤共分散とPCA部分空間 }
+  - { id: ML2-07-PROP-02, name: PPCA事後平均再構成の縮小 }
+canonical_examples:
+  - 二次元因子分析で雑音行列の対角性・正定値性と観測共分散を検算
+  - 二次元PPCAの潜在事後平均・分散・再構成を直接算出
+  - 二因子の90度回転と潜在座標の同時変換
+  - 二次元標本共分散のPPCA最尤解とPCA復元との比較
+  - 固有値が等しい場合と零雑音境界における推定の限界
+  - 計算ラボの回転前後の行列差分と潜在次元別の共分散楕円
+problem_patterns: [ML2-07-A01, ML2-07-A02, ML2-07-A03, ML2-07-A04, ML2-07-B01, ML2-07-B02, ML2-07-B03, ML2-07-B04, ML2-07-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
