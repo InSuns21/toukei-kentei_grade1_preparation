@@ -116,7 +116,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二乗可積分性と [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を、$q$ の下で $wh$ および $w$ と定数1の積に適用すると、$E_q|wh|$、$E_qw$ は有限である。台条件から $q=0$ の領域では $f=0$ がほとんど至るところ成立する。ゆえに
+二乗可積分性と [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) を、$q$ の下で $wh$ および $w$ と定数1の積に適用する。$E_q1^2=1$ なので
+
+$$
+E_q|wh|\le\sqrt{E_q[(wh)^2]}<\infty,\qquad
+E_qw\le\sqrt{E_q[w^2]}<\infty.
+$$
+
+これで分子・分母の期待値が定義できる。さらに台条件から $q=0$ の領域では $f=0$ がほとんど至るところ成立する。ゆえに
 
 $$
 \begin{aligned}
