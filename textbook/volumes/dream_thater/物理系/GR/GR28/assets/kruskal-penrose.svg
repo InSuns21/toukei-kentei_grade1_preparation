@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 510" width="760" height="510" data-layout-lint="strict" role="img" aria-labelledby="kruskal-title kruskal-desc">
+  <title id="kruskal-title">Kruskal延長の共形六角形</title>
+  <desc id="kruskal-desc">六角形の右が外部I、上が未来内部II、左が別外部III、下が過去内部IV。中央から四隅へ伸びる破線が零地平線、上下の太い水平線が半径零の曲率特異境界。外側の斜辺が左右の未来・過去零無限遠。</desc>
+  <polygon points="229,109 531,109 682,260 531,411 229,411 78,260" fill="#f2f7fa" stroke="#286a86" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M229 109 H531 M229 411 H531" stroke="#903e48" stroke-width="7" stroke-linecap="round"/>
+  <g stroke="#5a417f" stroke-width="3" stroke-dasharray="9 6" fill="none">
+    <path d="M380 260 L229 109"/>
+    <path d="M380 260 L531 109"/>
+    <path d="M380 260 L229 411"/>
+    <path d="M380 260 L531 411"/>
+  </g>
+  <circle cx="380" cy="260" r="4" fill="#173b4c" stroke="none"/>
+  <g fill="#173b4c" font-family="DejaVu Sans, sans-serif" text-anchor="middle">
+    <text x="380" y="76" font-size="20">r = 0</text>
+    <text x="380" y="451" font-size="20">r = 0</text>
+    <text x="380" y="172" font-size="29">II</text>
+    <text x="380" y="356" font-size="29">IV</text>
+    <text x="575" y="269" font-size="29">I</text>
+    <text x="183" y="269" font-size="29">III</text>
+    <text x="420" y="268" font-size="18">O</text>
+    <text x="218" y="81" font-size="18">i⁺</text>
+    <text x="542" y="81" font-size="18">i⁺</text>
+    <text x="217" y="440" font-size="18">i⁻</text>
+    <text x="543" y="440" font-size="18">i⁻</text>
+    <text x="47" y="269" font-size="19">i⁰</text>
+    <text x="712" y="269" font-size="19">i⁰</text>
+    <text x="121" y="158" font-size="19">ℐ⁺</text>
+    <text x="639" y="158" font-size="19">ℐ⁺</text>
+    <text x="121" y="369" font-size="19">ℐ⁻</text>
+    <text x="639" y="369" font-size="19">ℐ⁻</text>
+  </g>
+</svg>
