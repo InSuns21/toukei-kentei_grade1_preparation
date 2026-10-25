@@ -4,11 +4,11 @@
 
 **量子ビット（qubit）**とは、状態空間が二次元複素Hilbert空間 $H=\mathbb C^2$ である量子系です。基準となる正規直交基底を $|0\rangle=(1,0)^{\mathsf T}$、$|1\rangle=(0,1)^{\mathsf T}$ と選び、これを**計算基底**と呼びます。[QM2の純粋状態の定義](../../../解析系/QM/QM2/index.md#def-qm2-normalized-pure-state)によれば、その単位ベクトル代表は
 
-$
+$$
 |\psi\rangle=\alpha|0\rangle+\beta|1\rangle,
 \qquad \alpha,\beta\in\mathbb C,\qquad
 |\alpha|^2+|\beta|^2=1
-$
+$$
 
 と書けます。$|0\rangle,|1\rangle$ は二つの基底状態ですが、$(|0\rangle+|1\rangle)/\sqrt2$ も係数二乗和が $1/2+1/2=1$ の純粋状態です。「0か1のどちらかしか取れない古典ビット」ではなく、その重ね合わせまで表すことがqubitの要点です。
 
