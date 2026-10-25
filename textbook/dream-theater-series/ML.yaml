@@ -145,7 +145,7 @@ chapters:
     title: "多層パーセプトロン・表現力と限界"
   - id: ML2-14
     path: textbook/volumes/dream_thater/応用系/ML/ML2-14
-    status: planned
+    status: completed
     title: "逆伝播・自動微分・Jacobian"
   - id: ML2-15
     path: textbook/volumes/dream_thater/応用系/ML/ML2-15
