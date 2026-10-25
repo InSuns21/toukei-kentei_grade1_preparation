@@ -1,0 +1,37 @@
+chapter: ML2-10
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-08, MC3, F0-00P7A]
+concepts:
+  - id: learning.self-normalized-importance-sampling
+    name: 自己正規化重点サンプリング推定量
+    kind: definition
+    aliases: [自己正規化重要度サンプリング推定量, self-normalized importance sampling estimator]
+    introduction: formal
+    introduction_aliases: ["定義（自己正規化重点サンプリング推定量）"]
+    requires: [numerical.importance-sampling, learning.elbo-finite]
+  - id: learning.unnormalized-is-moments
+    name: 非正規化分子・分母推定の期待値と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非正規化分子・分母推定の期待値と分散）"]
+    requires: [numerical.importance-sampling-variance, learning.self-normalized-importance-sampling]
+  - id: learning.self-normalized-is-limit
+    name: 自己正規化推定の一致性と漸近分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自己正規化推定の一致性と漸近分布）"]
+    requires: [learning.self-normalized-importance-sampling, numerical.monte-carlo-clt, prob.iid-integrable-slln]
+  - id: learning.weight-ess
+    name: 重みの経験的有効標本サイズ
+    kind: definition
+    aliases: [weight effective sample size]
+    introduction: formal
+    introduction_aliases: ["定義（重みの経験的有効標本サイズ）"]
+    requires: [learning.self-normalized-importance-sampling]
+  - id: learning.weight-ess-limit
+    name: 経験的有効標本サイズの範囲と極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（経験的有効標本サイズの範囲と極限）"]
+    requires: [learning.weight-ess, prob.iid-integrable-slln]

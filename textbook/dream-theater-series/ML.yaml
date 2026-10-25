@@ -129,7 +129,7 @@ chapters:
     title: "Mean-field変分Bayes・再パラメータ化"
   - id: ML2-10
     path: textbook/volumes/dream_thater/応用系/ML/ML2-10
-    status: planned
+    status: completed
     title: "Monte Carlo・重要度サンプリング"
   - id: ML2-11
     path: textbook/volumes/dream_thater/応用系/ML/ML2-11
