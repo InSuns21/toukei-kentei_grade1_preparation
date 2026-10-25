@@ -1,0 +1,47 @@
+chapter: ML2-09
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-08, ML2-03, ML2-05]
+concepts:
+  - id: learning.mean-field-family
+    name: mean-field変分族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（mean-field変分族）"]
+    requires: [learning.variational-family, learning.elbo-finite]
+  - id: learning.mean-field-coordinate-optimum
+    name: 有限正値模型の座標最適更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限正値模型の座標最適更新）"]
+    requires: [learning.mean-field-family, learning.elbo-identity-finite]
+  - id: learning.coordinate-ascent-limit
+    name: 座標上昇の単調性と限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（座標上昇の単調性と限界）"]
+    requires: [learning.mean-field-coordinate-optimum]
+  - id: learning.mean-field-continuous-update
+    name: 連続因子の座標更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続因子の座標更新）"]
+    requires: [learning.mean-field-coordinate-optimum, learning.elbo-continuous]
+  - id: learning.gaussian-reparameterization
+    name: Gaussian再パラメータ化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian再パラメータ化）"]
+    requires: [learning.elbo-continuous]
+  - id: learning.gaussian-pathwise-gradient
+    name: Gaussian再パラメータ化勾配
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian再パラメータ化勾配）"]
+    requires: [learning.gaussian-reparameterization]
+  - id: learning.gaussian-variational-gradient
+    name: Gaussian変分ELBOの勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian変分ELBOの勾配）"]
+    requires: [learning.gaussian-pathwise-gradient, learning.elbo-continuous]

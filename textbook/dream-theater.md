@@ -1039,6 +1039,7 @@
 27. [ML2-06 EM算法と尤度の単調改善](textbook/volumes/dream_thater/応用系/ML/ML2-06/index.md)
 28. [ML2-07 連続潜在因子・因子分析・PPCA](textbook/volumes/dream_thater/応用系/ML/ML2-07/index.md)
 29. [ML2-08 変分推論の基礎・ELBO恒等式](textbook/volumes/dream_thater/応用系/ML/ML2-08/index.md)
+30. [ML2-09 Mean-field変分Bayes・再パラメータ化](textbook/volumes/dream_thater/応用系/ML/ML2-09/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
