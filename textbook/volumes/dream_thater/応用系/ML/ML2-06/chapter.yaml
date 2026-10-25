@@ -1,0 +1,34 @@
+id: "ML2-06"
+title: "EM算法と尤度の単調改善"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-05, ML2-01, ML1-09, MC2]
+official_scope: []
+learning_objectives:
+  - 対数和のJensen下界を証明し責務による接触と等号条件を判定できる
+  - Eステップ・Mステップと一般化EMを定義し尤度差分恒等式から単調改善を証明できる
+  - 厳密改善と等号の必要十分条件を責務のKLで説明できる
+  - 一次元Gaussian混合の混合比・平均・分散更新を途中式から導き退化時の限界を説明できる
+  - 内点EM固定点の停留性を導き大域最適でない固定点を構成できる
+  - seedを固定した数値ラボで責務・混合比・平均・尤度履歴を検算できる
+definitions:
+  - { id: ML2-06-DEF-01, name: EM補助関数とJensen下界 }
+  - { id: ML2-06-DEF-02, name: Eステップ・Mステップと一般化EM }
+  - { id: ML2-06-DEF-03, name: EM固定点と尤度停留点 }
+theorems:
+  - { id: ML2-06-LEM-01, name: 有限対数和のJensen不等式と等号 }
+  - { id: ML2-06-THM-01, name: EMの尤度差分恒等式と単調改善 }
+  - { id: ML2-06-PROP-01, name: Gaussian混合のMステップ更新 }
+  - { id: ML2-06-THM-02, name: 内点EM固定点の停留性 }
+  - { id: ML2-06-PROP-02, name: 固定点が大域最適とは限らない }
+canonical_examples:
+  - 二項対数和の接触する重みと接触しない重み
+  - 二成分Gaussian混合の責務と更新後の平均・分散
+  - Gaussian混合分散の退化と下限制約
+  - 対称Gaussian混合の非最適な固定点
+  - 固定seed反復ラボでの対数尤度とKLの差分
+problem_patterns: [ML2-06-A01, ML2-06-A02, ML2-06-A03, ML2-06-A04, ML2-06-B01, ML2-06-B02, ML2-06-B03, ML2-06-B04, ML2-06-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
