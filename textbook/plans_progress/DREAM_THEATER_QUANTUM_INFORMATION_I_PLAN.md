@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-10-14（標準教科書との比較・旧15テーマ構成を刷新・3部の履修区切りを設定）  
-状態: planned（設計のみ。QINF章本文・系列manifest・公開は未着手）
+状態: in_progress（QINF1完了、QINF2〜QINF33の本文・部別到達判定・系列横断査読は未着手）
 
 ## 0. この科目の中心問いと範囲
 
@@ -17,7 +17,7 @@
 - **必須:** [QM1〜QM8の量子力学](../plan_done/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md)のうち状態・観測・Born則・射影測定・ユニタリ発展、既存の線形代数（内積・テンソル積に必要な行列演算・固有値・特異値分解）と有限確率論。QMの非有界作用素やCCRの高度な結果は本講の標準経路では使わない。
 - **古典情報:** [INFO1〜INFO10](../plan_done/DREAM_THEATER_INFORMATION_THEORY_I_PLAN.md)（Shannonエントロピー、Gibbs不等式、相対エントロピー、典型列、情報源・通信路符号化）。量子情報量を初めて使う箇所でINFO側の結果と仮定を正確に参照し、古典情報理論の証明を二重所有しない。量子Shannon理論に入る前にはINFO3・INFO5〜7の必要部分を直接prerequisiteに加える。
 - **発展時のみ:** 一部の強い行列不等式・測度集中には既存の作用素論や高次元確率・ランダム行列理論を参照してよいが、全体の必修前提にしない。標準部分は有限行列・有限確率だけで理解できるよう補題を本文へ導入する。
-- **依存ルート:** [熱・時空・情報の横断ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)。各章の直接依存は実装時の chapter.yaml / knowledge.yaml で最小集合を確定する。
+- **依存ルート:** [熱・時空・情報の横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)。各章の直接依存は実装時の chapter.yaml / knowledge.yaml で最小集合を確定する。
 
 **原則として有限次元の複素Hilbert空間を扱う。** 基底の選択、テンソル積の順序、状態の正規化、作用素の正値性・trace=1、logの底（既定は2、必要時は自然対数）、相対エントロピーでのsupport条件を明示する。連続変数・無限次元・局所QFT代数へ定理を無条件に延長しない。
 
@@ -164,8 +164,8 @@ QINF19〜20の一般定理、QINF23〜24の漸近符号化定理は重い。主�
 
 ## 6. 実装・査読・PLAN状態
 
-1. 今回は**I〜IIIの3部へのPLAN設計改訂のみ**。新しい章の中身、章IDの公開先、knowledge DAG、系列manifest、全体公開索引には未実装のQINFを先取り追加しない。このPLANは textbook/plans/ に維持する。
-2. 実際の着手時に QINF1〜QINF33 のID衝突と既存前提の実在を再確認し、当該series manifestには3部の範囲と境界を記録してPLANを plans_progress/ へ**移動**する。移動時は横断ルートと直接リンクのpathを同じ作業単位で更新し、計画を二重配置しない。
+1. QINF1で複合系・純粋状態・局所測定を実装済み。残るQINF2〜QINF33は本文・査読・公開を先取りせず、系列manifestのplannedで管理する。本PLANは textbook/plans_progress/ に置く。
+2. QINF1〜QINF33のID衝突がないこと、QM・INFOの直接前提が存在することを着手時に確認し、系列manifestに3部の範囲と境界を記録した。以後、部の境界と既存の直接参照を保持する。
 3. QINF1から順に連続するcompletedの後の最初のplannedを進める。講義の統合・分割・増講をするときは、**最初に講数を機械的に15へ戻すことはしない**。章ごとのlearning objective・証明・演習・参照関係を優先し、manifestと公開導線を同期する。
 4. 新規本文・実質改稿（変更区分C）は主要証明と全演習解答を出発点から再計算し、別観点で完成本文を再読する。数学的修正Bは波及範囲、表示のみAは意味同値と実表示を検証する。**別の完成章の追跡監査はユーザーが章IDを明示して依頼した場合のみ**実施する。CI greenや数値検算を数学的完全性の代用としない。
 5. 各章のcanonical stable anchorを実在させ、既出結果を使う箇所へリンクする。必要なchanged-only validationを通し、**I・II・IIIそれぞれの到達判定**と、全33講の主要学修目標・数学的証明責務・演習/詳細解答・系列全体の整合・公開導線の確認まで完了して初めてplan_done/へ移す。
