@@ -1,0 +1,53 @@
+chapter: ML2-06
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-05, ML2-01, ML1-09, MC2]
+concepts:
+  - id: learning.em-jensen-lemma
+    name: 有限対数和のJensen不等式と等号
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限対数和のJensen不等式と等号）"]
+    requires: [information.gibbs-inequality]
+  - id: learning.em-auxiliary-function
+    name: EM補助関数とJensen下界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（EM補助関数とJensen下界）"]
+    requires: [learning.mixture-likelihood, learning.component-responsibility, learning.em-jensen-lemma]
+  - id: learning.em-steps
+    name: Eステップ・Mステップと一般化EM
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Eステップ・Mステップと一般化EM）"]
+    requires: [learning.em-auxiliary-function]
+  - id: learning.em-monotonicity
+    name: EMの尤度差分恒等式と単調改善
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（EMの尤度差分恒等式と単調改善）"]
+    requires: [learning.em-steps, information.relative-entropy]
+  - id: learning.em-gaussian-update
+    name: Gaussian混合のMステップ更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian混合のMステップ更新）"]
+    requires: [learning.em-steps, learning.nondegenerate-gaussian-density]
+  - id: learning.em-fixed-point
+    name: EM固定点と尤度停留点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（EM固定点と尤度停留点）"]
+    requires: [learning.em-steps, learning.empirical-smooth-loss]
+  - id: learning.em-fixed-stationary
+    name: 内点EM固定点の停留性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内点EM固定点の停留性）"]
+    requires: [learning.em-fixed-point, learning.em-monotonicity]
+  - id: learning.em-nonglobal-fixed-point
+    name: 固定点が大域最適とは限らない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定点が大域最適とは限らない）"]
+    requires: [learning.em-fixed-point, learning.em-gaussian-update]

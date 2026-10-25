@@ -1036,6 +1036,7 @@
 24. [ML2-03 指数型分布族と共役性](textbook/volumes/dream_thater/応用系/ML/ML2-03/index.md)
 25. [ML2-04 確率的グラフィカルモデル](textbook/volumes/dream_thater/応用系/ML/ML2-04/index.md)
 26. [ML2-05 潜在変数・混合モデル・識別不能性](textbook/volumes/dream_thater/応用系/ML/ML2-05/index.md)
+27. [ML2-06 EM算法と尤度の単調改善](textbook/volumes/dream_thater/応用系/ML/ML2-06/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
