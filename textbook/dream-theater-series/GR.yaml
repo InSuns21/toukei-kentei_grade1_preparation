@@ -133,7 +133,7 @@ chapters:
     title: "Reissner–Nordström解"
   - id: GR32
     path: textbook/volumes/dream_thater/物理系/GR/GR32
-    status: planned
+    status: completed
     title: "Kerr時空の計量と回転"
   - id: GR33
     path: textbook/volumes/dream_thater/物理系/GR/GR33
