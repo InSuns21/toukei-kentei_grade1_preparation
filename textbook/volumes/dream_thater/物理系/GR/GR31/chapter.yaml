@@ -1,0 +1,47 @@
+id: "GR31"
+title: "Reissner–Nordström解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR9
+  - GR12
+  - GR16
+  - GR25
+  - GR29
+official_scope: []
+learning_objectives:
+  - 真空と電磁場のある無電流領域を区別しMaxwell方程式から電場の半径依存性を導ける
+  - 電磁場の混合応力テンソルとEinsteinテンソルを照合しRN計量を導出できる
+  - 質量と電荷の正規化および通常単位への復元を説明できる
+  - 劣極限・極限・超極限の根と地平線の条件を分類できる
+  - EF座標で地平線の座標正則性を確認し静的座標の限界を説明できる
+  - 電磁場のRicci曲率不変量からr=0の特異性を判定できる
+definitions:
+  - { id: GR31-DEF-01, name: Einstein–Maxwellの無電流外部領域 }
+  - { id: GR31-DEF-02, name: RN計量の内外のKilling地平線半径 }
+theorems:
+  - { id: GR31-PROP-01, name: 球対称静電場のMaxwell方程式と応力 }
+  - { id: GR31-THM-01, name: 静的球対称Einstein–Maxwell外部解 }
+  - { id: GR31-PROP-02, name: RN計量の地平線の分類と正則座標 }
+  - { id: GR31-PROP-03, name: RN電磁場のRicci不変量 }
+canonical_examples:
+  - M=5でQ=4の内外地平線半径8と2
+  - Q=0でSchwarzschild解へ戻ること
+  - M=|Q|で根が合流し|Q|>Mで正の根がないこと
+  - EF表示における二つの地平線での計量行列式
+  - 電磁場のRicci平方不変量と中心特異性
+problem_patterns:
+  - GR31-MAXWELL-FLUX
+  - GR31-ELECTROMAGNETIC-STRESS
+  - GR31-METRIC-INTEGRATION
+  - GR31-CHARGE-UNITS
+  - GR31-HORIZON-ROOTS
+  - GR31-EF-REGULARITY
+  - GR31-TRACE-INVARIANT
+  - GR31-EXTREMAL-DOUBLE-ROOT
+  - GR31-HORIZON-CAUSAL-SIGNS
+  - GR31-EINSTEIN-MAXWELL-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
