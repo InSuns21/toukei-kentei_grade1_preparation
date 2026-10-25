@@ -349,7 +349,7 @@ $$
 
 ## 5. 図が語る因果関係と語らない長さ
 
-[GR27の因果半径命題](../GR27/index.md#prop-gr27-causal-radius)によれば、未来向き因果曲線の接ベクトルでは $dU,dV\ge0$ です。$\arctan$ の導関数は常に正なので $dp,dq\ge0$ でもあり、接ベクトルに沿って
+[GR27の「内部での未来向き半径変化」命題](../GR27/index.md#prop-gr27-causal-radius)によれば、未来向き因果曲線の接ベクトルでは $dU,dV\ge0$ です。$\arctan$ の導関数は常に正なので $dp,dq\ge0$ でもあり、接ベクトルに沿って
 
 $$
 d\tau=\frac{dp+dq}{2}\ge\frac{|dq-dp|}{2}=|d\chi|
