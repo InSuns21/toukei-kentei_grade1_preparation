@@ -13,6 +13,7 @@ learning_objectives:
   - 局所射影測定の同時確率と周辺確率をBorn則から構成し、積状態とBell状態で計算できる
   - 局所ユニタリでは積状態からBell状態を作れない一方、制御NOTでは作れることを説明できる
 definitions:
+  - { id: QINF1-DEF-00, name: "量子ビットと計算基底" }
   - { id: QINF1-DEF-01, name: "有限次元複合量子系" }
   - { id: QINF1-DEF-02, name: "積状態とエンタングル純粋状態" }
   - { id: QINF1-DEF-03, name: "局所作用素" }
