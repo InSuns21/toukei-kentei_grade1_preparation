@@ -1,0 +1,51 @@
+chapter: GR35
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR8
+  - GR9
+  - GR12
+  - GR34
+concepts:
+  - id: gravity.null-energy-condition
+    name: 零エネルギー条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零エネルギー条件）"]
+    requires: [gravity.curved-perfect-fluid-stress]
+  - id: gravity.weak-energy-condition
+    name: 弱エネルギー条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱エネルギー条件）"]
+    requires: [gravity.null-energy-condition]
+  - id: gravity.strong-energy-condition
+    name: 強エネルギー条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（強エネルギー条件）"]
+    requires: [gravity.curved-perfect-fluid-stress]
+  - id: gravity.dominant-energy-condition
+    name: 優越エネルギー条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（優越エネルギー条件）"]
+    requires: [gravity.weak-energy-condition]
+  - id: gravity.fluid-energy-condition-criteria
+    name: 完全流体のエネルギー条件の必要十分判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全流体のエネルギー条件の必要十分判定）"]
+    requires: [gravity.null-energy-condition, gravity.weak-energy-condition, gravity.strong-energy-condition, gravity.dominant-energy-condition]
+  - id: gravity.energy-ricci-convergence
+    name: Einstein方程式とRicci集束条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Einstein方程式とRicci集束条件）"]
+    requires: [gravity.null-energy-condition, gravity.strong-energy-condition, gravity.timelike-raychaudhuri, gravity.null-raychaudhuri]
+  - id: gravity.energy-focusing-bound
+    name: エネルギー条件から得る測地線合同の集束評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（エネルギー条件から得る測地線合同の集束評価）"]
+    requires: [gravity.energy-ricci-convergence, gravity.local-focusing-estimate]

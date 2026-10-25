@@ -145,7 +145,7 @@ chapters:
     title: "Raychaudhuri方程式"
   - id: GR35
     path: textbook/volumes/dream_thater/物理系/GR/GR35
-    status: planned
+    status: completed
     title: "各種エネルギー条件と集束"
   - id: GR36
     path: textbook/volumes/dream_thater/物理系/GR/GR36

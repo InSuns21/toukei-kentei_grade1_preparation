@@ -1,0 +1,46 @@
+id: "GR35"
+title: "各種エネルギー条件と集束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR8
+  - GR9
+  - GR12
+  - GR34
+official_scope: []
+learning_objectives:
+  - 任意の時間的・光的方向への縮約からnull・weak・strong・dominantエネルギー条件を定義し論理関係を説明できる
+  - 完全流体について各エネルギー条件を密度と圧力の不等式へ必要十分に還元できる
+  - 塵・放射・負圧流体・電磁場・宇宙項の条件と違反例を条件ごとに区別できる
+  - Einstein方程式の跡を通じてnullおよび時間的Ricci集束条件へ変換し宇宙項の役割を検算できる
+  - 回転零の時間的・光的測地線合同について有限パラメータ集束の評価とその限界を導出できる
+definitions:
+  - { id: GR35-DEF-01, name: 零エネルギー条件 }
+  - { id: GR35-DEF-02, name: 弱エネルギー条件 }
+  - { id: GR35-DEF-03, name: 強エネルギー条件 }
+  - { id: GR35-DEF-04, name: 優越エネルギー条件 }
+theorems:
+  - { id: GR35-THM-01, name: 完全流体のエネルギー条件の必要十分判定 }
+  - { id: GR35-PROP-01, name: Einstein方程式とRicci集束条件 }
+  - { id: GR35-PROP-02, name: エネルギー条件から得る測地線合同の集束評価 }
+canonical_examples:
+  - 静止塵の全時間的・光的方向で各条件を直接確認
+  - 完全流体の任意の相対Lorentz因子による必要十分判定
+  - 負圧流体でNECとSECが分かれる実例
+  - 正の宇宙項で光的集束条件が飽和し時間的Ricci条件が破れる例
+  - 一様電場の主軸に沿う光的縮約と直交する光的縮約
+problem_patterns:
+  - GR35-NULL-COMPONENT
+  - GR35-WEAK-BOOST
+  - GR35-NEGATIVE-PRESSURE
+  - GR35-COSMOLOGICAL-TERM
+  - GR35-DOMINANT-FLUX
+  - GR35-PERFECT-FLUID-EQUIVALENCES
+  - GR35-ANISOTROPIC-NEC
+  - GR35-DUST-LAMBDA-RICCI
+  - GR35-FINITE-FOCUSING-BOUNDS
+  - GR35-MIXED-CONDITIONS-AND-CAUSTICS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
