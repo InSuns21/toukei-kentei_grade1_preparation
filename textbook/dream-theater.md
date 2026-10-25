@@ -1226,6 +1226,7 @@
 25. [GR25 Schwarzschild地平線と曲率特異性](textbook/volumes/dream_thater/物理系/GR/GR25/index.md)
 26. [GR26 Eddington–Finkelstein座標と光線](textbook/volumes/dream_thater/物理系/GR/GR26/index.md)
 27. [GR27 Kruskal座標と最大解析延長](textbook/volumes/dream_thater/物理系/GR/GR27/index.md)
+28. [GR28 共形コンパクト化とPenrose図](textbook/volumes/dream_thater/物理系/GR/GR28/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

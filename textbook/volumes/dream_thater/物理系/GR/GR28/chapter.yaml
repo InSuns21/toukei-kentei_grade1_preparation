@@ -1,0 +1,44 @@
+id: "GR28"
+title: "共形コンパクト化とPenrose図"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR27
+  - LORG8
+official_scope: []
+learning_objectives:
+  - 1+1次元の零座標をarctanで有界化し共形因子を求められる
+  - Minkowskiの共形ダイヤモンドと未来・過去の零無限遠、時間的・空間的無限遠を区別できる
+  - 正の共形再尺度が保つ光円錐と保たない長さ・曲率を説明できる
+  - KruskalのUV<1をコンパクトな二次元座標域へ写して領域I–IVを確定できる
+  - r=0の時空特異境界、r=rsの地平線と無限遠を符号と極限で判定できる
+  - Penrose図上の因果到達可能性と距離・4次元幾何について読み取れない量を区別できる
+definitions:
+  - { id: GR28-DEF-01, name: 零座標の有界化 }
+  - { id: GR28-DEF-02, name: 二次元共形因果図 }
+  - { id: GR28-DEF-03, name: 共形図における無限遠の記号 }
+theorems:
+  - { id: GR28-PROP-01, name: 二重零計量の共形有界化 }
+  - { id: GR28-PROP-02, name: Minkowski平面の共形ダイヤモンド }
+  - { id: GR28-PROP-03, name: Kruskal延長の共形領域と六つの境界辺 }
+  - { id: GR28-PROP-04, name: 地平線と特異境界の判定 }
+canonical_examples:
+  - Minkowskiの静止世界線と右向き光線の端点
+  - U=0の地平線とUV=1の特異境界を共形図で区別する例
+  - Kruskalの四領域と左右の二つの空間的無限遠
+  - 曲率の発散と図上の有限位置との違い
+problem_patterns:
+  - GR28-NULL-ARCTAN-DERIVATIVE
+  - GR28-CONFORMAL-FACTOR
+  - GR28-MINKOWSKI-DIAMOND
+  - GR28-BOUNDARY-LIMIT
+  - GR28-KRUSKAL-HEXAGON
+  - GR28-HORIZON-SINGULAR-EDGE
+  - GR28-NULL-INFINITY-ENDPOINTS
+  - GR28-CONFORMAL-PROPER-TIME
+  - GR28-INTERIOR-CAUSAL-CURVES
+  - GR28-GLOBAL-DIAGRAM-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }

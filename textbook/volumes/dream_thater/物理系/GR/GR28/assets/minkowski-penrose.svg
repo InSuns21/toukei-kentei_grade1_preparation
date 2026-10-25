@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520" data-layout-lint="strict" role="img" aria-labelledby="mink-title mink-desc">
+  <title id="mink-title">二次元Minkowski時空の共形ダイヤモンド</title>
+  <desc id="mink-desc">中央のひし形がMinkowski平面を有界化した開領域。光は右上・左上へ45度に進み、未来零無限遠は斜めの上辺、時間的無限遠は最上頂点、空間的無限遠は左右の頂点に対応する。</desc>
+  <defs>
+    <marker id="mink-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#6d3faa"/></marker>
+  </defs>
+  <polygon points="320,40 535,255 320,470 105,255" fill="#f2f7fa" stroke="#226b88" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="none" stroke="#a3b9c6" stroke-width="1.5" stroke-dasharray="5 5">
+    <path d="M320 55 V455"/>
+    <path d="M120 255 H520"/>
+  </g>
+  <g fill="none" stroke="#6d3faa" stroke-width="3" stroke-dasharray="10 5">
+    <path d="M320 255 L418 157" marker-end="url(#mink-arrow)"/>
+    <path d="M320 255 L222 157" marker-end="url(#mink-arrow)"/>
+  </g>
+  <g fill="#173b4c" font-family="DejaVu Sans, sans-serif" font-size="19" text-anchor="middle">
+    <text x="320" y="278">O</text>
+    <text x="343" y="33">i⁺</text>
+    <text x="344" y="493">i⁻</text>
+    <text x="65" y="263">i⁰</text>
+    <text x="577" y="263">i⁰</text>
+    <text x="138" y="125">ℐ⁺</text>
+    <text x="502" y="125">ℐ⁺</text>
+    <text x="138" y="406">ℐ⁻</text>
+    <text x="502" y="406">ℐ⁻</text>
+    <text x="412" y="206" font-size="17">u = 0</text>
+    <text x="221" y="206" font-size="17">v = 0</text>
+    <text x="343" y="303" font-size="15">χ = 0</text>
+  </g>
+</svg>
