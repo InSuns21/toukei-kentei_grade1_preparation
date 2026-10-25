@@ -1,0 +1,49 @@
+id: "GR32"
+title: "Kerr時空の計量と回転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR14
+  - GR16
+  - GR25
+  - GR29
+  - GR31
+official_scope: []
+learning_objectives:
+  - 定常・軸対称と静的を区別しKerr計量の各座標と回転パラメータを説明できる
+  - Boyer–Lindquist表示の時間角度ブロックを検算し逆計量の必要成分を求められる
+  - Deltaの根を求め正則な入射Kerr座標でKilling地平線を確認できる
+  - 静止極限面と地平線の位置関係を計算し回転観測者の角速度を導ける
+  - Killing保存量EとLから時間・角度方向の測地線方程式を解ける
+  - 回転を零にしたSchwarzschild極限とパラメータ制限を検算できる
+definitions:
+  - { id: GR32-DEF-01, name: Kerr計量のBoyer–Lindquist表示 }
+  - { id: GR32-DEF-02, name: Kerrの静止極限面 }
+  - { id: GR32-DEF-03, name: 零角運動量観測者の角速度 }
+theorems:
+  - { id: GR32-PROP-01, name: Kerr計量の行列式と逆計量 }
+  - { id: GR32-PROP-02, name: Kerr地平線と正則な入射座標 }
+  - { id: GR32-PROP-03, name: 静止極限面と地平線の位置関係 }
+  - { id: GR32-PROP-04, name: 枠引きずりの角速度と地平線の回転 }
+  - { id: GR32-PROP-05, name: Kerr測地線のKilling保存量 }
+canonical_examples:
+  - 回転零でSchwarzschild計量へ戻る
+  - M=5でa=3の地平線半径9と1および赤道の静止極限半径10
+  - 赤道での時間角度ブロックと非対角成分の計算
+  - 入射Kerr座標の地平線での零生成Killing場
+  - 零角運動量観測者の角速度と遠方近似
+problem_patterns:
+  - GR32-KERR-COEFFICIENTS
+  - GR32-SCHWARZSCHILD-LIMIT
+  - GR32-HORIZON-ROOTS
+  - GR32-STATIC-LIMIT
+  - GR32-ZAMO-ANGULAR-SPEED
+  - GR32-INVERSE-T-PHI-BLOCK
+  - GR32-INGOING-COORDINATES
+  - GR32-KILLING-CONSERVATION
+  - GR32-HORIZON-GENERATOR
+  - GR32-INTEGRATED-METRIC-ANALYSIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
