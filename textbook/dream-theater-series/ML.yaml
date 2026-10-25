@@ -141,8 +141,8 @@ chapters:
     title: "Gaussian process回帰と不確実性"
   - id: ML2-13
     path: textbook/volumes/dream_thater/応用系/ML/ML2-13
-    status: planned
-    title: "多層perceptron・表現力と限界"
+    status: completed
+    title: "多層パーセプトロン・表現力と限界"
   - id: ML2-14
     path: textbook/volumes/dream_thater/応用系/ML/ML2-14
     status: planned

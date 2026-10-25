@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-13 ReLU表現力・区分線形近似ラボ</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1040px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.5rem}h2{font-size:1.18rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.controls label{display:block;padding:12px;border:1px solid #8887;border-radius:9px}
+.controls input,.controls select{display:block;width:100%;margin-top:8px}
+.muted{color:#536372}.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:9px;padding:0}
+.data li{list-style:none;padding:11px;border:1px solid #8887;border-radius:8px}
+.data strong,.data small{display:block}.data small{font-size:1.05rem;font-variant-numeric:tabular-nums}
+svg{display:block;width:100%;height:auto;background:#fff;border:1px solid #8888;border-radius:8px}
+svg text{font-size:14px;fill:#354552}.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem}
+.legend span::before{content:"";display:inline-block;width:24px;height:3px;margin-right:6px;vertical-align:middle;background:var(--color)}
+.legend .target{--color:#2563a6}.legend .network{--color:#b34442}.legend .knots{--color:#178459}
+.note{background:#e8f2fa;color:#173c54;padding:10px 13px;border-radius:8px}
+[hidden]{display:none!important}
+@media(max-width:560px){body{padding:10px}svg text{font-size:16px}}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-13/index">← ML2-13 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>ML2-13 ReLUの表現力を実計算で確かめる</h1>
+<p>同じ画面で、節点の値から係数を構成する「幅の実験」と、山形関数を合成する「深さの実験」を試せます。どちらも<strong>推論時の関数値を毎回計算</strong>します。勾配法による訓練は行わず、定理の明示的構成を可視化します。</p>
+<div class="controls">
+  <label>実験の種類
+    <select id="mode">
+      <option value="interpolation">幅：折線補間</option>
+      <option value="folding">深さ：山形の合成</option>
+    </select>
+  </label>
+  <label id="target-control">目標関数
+    <select id="target">
+      <option value="quadratic">x²（折点のない滑らかな目標）</option>
+      <option value="absolute">|x−0.5|（折点1個）</option>
+      <option value="tent">山形T(x)（折点1個）</option>
+      <option value="double-tent">T(T(x))（折点3個）</option>
+    </select>
+  </label>
+  <label id="width-control">節点間の区間数 m：<output id="width-value">4</output>
+    <input type="range" id="width" min="1" max="32" value="4" step="1" aria-label="補間区間数">
+  </label>
+  <label id="depth-control" hidden>山形を合成する回数 d：<output id="depth-value">3</output>
+    <input type="range" id="depth" min="1" max="8" value="3" step="1" aria-label="山形の合成回数">
+  </label>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<figure>
+  <svg id="plot" viewBox="0 0 940 430" role="img" aria-label="横軸 x が0から1の目標関数とReLUの出力、および補間節点の比較曲線" xmlns="http://www.w3.org/2000/svg"></svg>
+  <figcaption id="legend" class="legend"><span class="target">目標関数（青）</span><span class="network">構成したReLU網（赤）</span><span class="knots">補間節点（緑丸）</span></figcaption>
+</figure>
+<h2>計算結果</h2>
+<ul id="diagnostics" class="data" aria-live="polite"></ul>
+<p id="explanation" class="note"></p>
+<p>入力は区間 [0,1] の小模型です。補間実験の「訓練誤差」は補間に使った節点での平均二乗誤差、評価誤差は別の1001点での平均二乗誤差です。後者の最大絶対誤差は格子標本の最大であり、真の上限ではありません。目標が x² のときだけ、定理で求めた厳密な最大誤差 1/(4m²) も表示します。</p>
+<p>補間にはあらかじめ目標関数の節点値が必要です。このラボは未知の関数を有限標本から推測したり、勾配法で重みを訓練したりしません。幅と深さの表現を検証する計算実験です。</p>
+<script type="module">
+import { evaluateInterpolation, foldNetwork } from "./ml2-13-model.mjs";
+const ns = "http://www.w3.org/2000/svg";
+const $ = id => document.getElementById(id);
+function el(tag, attrs = {}, value) {
+  const item = document.createElementNS(ns, tag);
+  for (const [key, val] of Object.entries(attrs)) item.setAttribute(key, String(val));
+  if (value !== undefined) item.textContent = String(value);
+  return item;
+}
+function renderPlot(points, knotPoints = [], folded = false) {
+  const svg = $("plot");
+  svg.replaceChildren();
+  const sx = x => 62 + 835 * x;
+  const sy = y => 373 - 325 * (y + 0.07) / 1.21;
+  for (let i = 0; i <= 5; i++) {
+    const x = i / 5;
+    svg.append(el("line", { x1: sx(x), y1: 37, x2: sx(x), y2: 373, stroke: "#e3e8ed" }));
+    svg.append(el("text", { x: sx(x), y: 399, "text-anchor": "middle" }, x.toFixed(1)));
+  }
+  for (let i = 0; i <= 4; i++) {
+    const y = i / 4;
+    svg.append(el("line", { x1: 62, y1: sy(y), x2: 897, y2: sy(y), stroke: "#e3e8ed" }));
+    svg.append(el("text", { x: 51, y: sy(y) + 5, "text-anchor": "end" }, y.toFixed(2)));
+  }
+  if (!folded) {
+    svg.append(el("polyline", {
+      points: points.map(p => sx(p.x) + "," + sy(p.target)).join(" "),
+      fill: "none", stroke: "#2563a6", "stroke-width": 3
+    }));
+  }
+  svg.append(el("polyline", {
+    points: points.map(p => sx(p.x) + "," + sy(p.predicted)).join(" "),
+    fill: "none", stroke: "#b34442", "stroke-width": 3
+  }));
+  for (const [x, y] of knotPoints) {
+    svg.append(el("circle", {
+      cx: sx(x), cy: sy(y), r: 5,
+      fill: "#178459", stroke: "#fff", "stroke-width": 1
+    }));
+  }
+  svg.append(el("text", { x: 897, y: 422, "text-anchor": "end" }, "入力 x"));
+  svg.append(el("text", { x: 12, y: 24 }, "出力"));
+}
+function diagnostics(rows) {
+  const items = rows.map(([name, value]) => {
+    const item = document.createElement("li");
+    const title = document.createElement("strong");
+    title.textContent = name;
+    const data = document.createElement("small");
+    data.textContent = value;
+    item.append(title, data);
+    return item;
+  });
+  $("diagnostics").replaceChildren(...items);
+}
+function render() {
+  const folded = $("mode").value === "folding";
+  $("target-control").hidden = folded;
+  $("width-control").hidden = folded;
+  $("depth-control").hidden = !folded;
+  $("width-value").textContent = $("width").value;
+  $("depth-value").textContent = $("depth").value;
+  $("legend").hidden = folded;
+  if (folded) {
+    const depth = Number($("depth").value);
+    const result = foldNetwork(depth);
+    renderPlot(result.points, [], true);
+    diagnostics([
+      ["隠れ層数", String(depth)],
+      ["各隠れ層の幅", "3"],
+      ["線形区間数", String(result.pieces)],
+      ["内部折点数", String(result.breakpoints.length)],
+      ["入力範囲", "[0, 1]"]
+    ]);
+    $("status").textContent = "Tを" + depth + "回合成して1001点を再評価しました";
+    $("explanation").textContent = "各区間で値が0から1または1から0へ動き、次のTが各区間を二分します。深さを増やしたときの折点倍増を確認します。汎化性能や勾配法の成功を意味しません。";
+  } else {
+    const kind = $("target").value;
+    const segments = Number($("width").value);
+    const result = evaluateInterpolation(kind, segments);
+    renderPlot(result.points, result.knots.map((x, i) => [x, result.values[i]]));
+    const rows = [
+      ["隠れ層数", "1"],
+      ["隠れ層の幅", String(segments)],
+      ["節点数", String(result.knots.length)],
+      ["訓練MSE（節点）", result.trainMse.toExponential(3)],
+      ["評価MSE（別格子）", result.evaluationMse.toExponential(4)],
+      ["格子最大絶対誤差", result.sampledMaximumError.toFixed(7)]
+    ];
+    if (result.quadraticExactMaximum !== null) {
+      rows.push(["理論上の最大絶対誤差", result.quadraticExactMaximum.toFixed(7)]);
+    }
+    diagnostics(rows);
+    $("status").textContent = "節点" + result.knots.length + "個からReLU係数を再構成し、1001点を評価しました";
+    $("explanation").textContent = "出力重みは各折点の右傾きと左傾きの差です。訓練点では値が一致しますが、節点の間に誤差が残る場合があります。入力mと目標関数を変えて確認してください。";
+  }
+}
+for (const id of ["mode", "target", "width", "depth"]) $(id).addEventListener("input", render);
+render();
+</script>
+</body>
+</html>

@@ -1050,6 +1050,7 @@
 31. [ML2-10 Monte Carlo・重要度サンプリング](textbook/volumes/dream_thater/応用系/ML/ML2-10/index.md)
 32. [ML2-11 MCMC・Metropolis–Hastings・Gibbs](textbook/volumes/dream_thater/応用系/ML/ML2-11/index.md)
 33. [ML2-12 Gaussian process回帰と不確実性](textbook/volumes/dream_thater/応用系/ML/ML2-12/index.md)
+34. [ML2-13 多層パーセプトロン・表現力と限界](textbook/volumes/dream_thater/応用系/ML/ML2-13/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
