@@ -10,6 +10,28 @@
 
 準備の選択を表す番号 $j=1,\ldots,m$ と、その選択確率 $p_j$ を考えます。番号を知っていれば状態は $\psi_j$、知らなければ測定確率を $p_j$ で平均する必要があります。各純粋状態の射影を同じ確率で平均したものが、次の作用素です。
 
+その条件を書く前に、作用素の**トレース**を定めます。正規直交基底 $(e_k)_{k=1}^d$ を一つ選び、作用素 $T$ の対角成分を足した
+
+$$
+\operatorname{Tr}T:=\sum_{k=1}^d\langle e_k,Te_k\rangle
+$$
+
+がトレースです。この値は基底の選び方に依りません。実際、別の正規直交基底への変換行列 $U$ は[ユニタリ](../../../基礎科目/LA/LA5/index.md#def-la5-unitary)で、そこでは $T$ の行列が $U^\dagger T U$ になります。有限行列の積について
+
+$$
+\operatorname{Tr}(AB)=\sum_{i,j}A_{ij}B_{ji}
+=\sum_{i,j}B_{ji}A_{ij}=\operatorname{Tr}(BA)
+$$
+
+したがって基底を変えても
+
+$$
+\operatorname{Tr}(U^\dagger T U)
+=\operatorname{Tr}(TUU^\dagger)=\operatorname{Tr}T
+$$
+
+です。また、以下でいう**自己共役**とは[LA5のHermitian作用素](../../../基礎科目/LA/LA5/index.md#def-la5-hermitian)と同じ $T^\dagger=T$ という条件です。
+
 <a id="def-qinf2-ensemble-density"></a>
 
 <!-- formal-statement-start -->
@@ -23,7 +45,7 @@ $$
 > とする。一般に $H$ 上の作用素 $\rho$ が**密度演算子**であるとは、$\rho$ が自己共役で、任意の $v\in H$ に対して $\langle v,\rho v\rangle\ge0$（正値、ここでは半正定値）を満たし、$\operatorname{Tr}\rho=1$ であることをいう。
 <!-- formal-statement-end -->
 
-有限次元のトレースは任意の正規直交基底 $(e_k)$ について $\operatorname{Tr}T=\sum_k\langle e_k,Te_k\rangle$ です。正値であるという条件は「対角成分が非負」より強く、**すべての** $v$ で二次形式が非負という条件です。$|\psi\rangle\langle\psi|$ の正値性は
+正値であるという条件は「対角成分が非負」より強く、**すべての** $v$ で二次形式が非負という条件です。$|\psi\rangle\langle\psi|$ の正値性は
 
 $$
 \langle v,|\psi\rangle\langle\psi|v\rangle
@@ -296,7 +318,15 @@ $$
 \operatorname{Tr}(\rho^2)=\sum_j\lambda_j^2.
 $$
 
-$\rho$ が純粋なら $\rho=|\psi\rangle\langle\psi|$ なので $\rho\psi=\psi$、$\psi$ に直交する $d-1$ 次元では $\rho v=0$ です。よってrankは1です。逆にrankが1なら、非零固有値は一つだけで、トレース 1からその値は1です。この固有ベクトルを $e_k$ とすれば $\rho=|e_k\rangle\langle e_k|$、従って純粋です。
+$\rho$ が純粋なら $\rho=|\psi\rangle\langle\psi|$ なので、$\psi$ への作用とその直交補空間への作用は
+
+$$
+\rho\psi=\psi\langle\psi,\psi\rangle=\psi,
+\qquad
+\rho v=\psi\langle\psi,v\rangle=0\quad(v\perp\psi).
+$$
+
+よって像は $\psi$ が張る一次元部分空間で、rankは1です。逆にrankが1なら、非零固有値は一つだけで、トレース 1からその値は1です。この固有ベクトルを $e_k$ とすれば $\rho=|e_k\rangle\langle e_k|$、従って純粋です。
 
 $\rho^2=\rho$ は固有基底では全 $j$ における $\lambda_j^2=\lambda_j$ と同値です。$\lambda_j\in[0,1]$ だから $\lambda_j=0$ または1であり、総和1からちょうど一つが1です。さらに
 
@@ -308,7 +338,7 @@ $$
 
 各項は非負なので、和が0となる必要十分条件は、すべての $\lambda_j$ が0または1となることです。以上で四条件の同値と上界が示せました。
 
-下界は実数ベクトル $(\lambda_1,\ldots,\lambda_d)$ と $(1,\ldots,1)$ にCauchy–Schwarzを使って
+下界は実数ベクトル $(\lambda_1,\ldots,\lambda_d)$ と $(1,\ldots,1)$ に[実内積空間のCauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使って
 
 $$
 1=\left(\sum_j\lambda_j\right)^2
@@ -369,7 +399,14 @@ $$
 \end{aligned}
 $$
 
-各内積の絶対値は高々1で、$\sum_{j,k}p_jp_k=1$ です。純粋性が1であるには、すべての正の重みを持つ組で絶対値が1、すなわちCauchy–Schwarzの等号条件によりすべての $\psi_j$ が同じrayにならなければなりません。逆に同じrayだけなら外積は全て一致し、$\rho$ は純粋です。**異なるアンサンブル項を複数書くだけでは混合にはなりません。**
+内積の絶対値が高々1であることと等号条件は、単位ベクトル $\psi_j,\psi_k$ に対して $\psi_k=\langle\psi_j,\psi_k\rangle\psi_j+w$、$w\perp\psi_j$ と分解すれば
+
+$$
+1=\|\psi_k\|^2
+=|\langle\psi_j,\psi_k\rangle|^2+\|w\|^2
+$$
+
+から直接分かります。$\sum_{j,k}p_jp_k=1$ なので、純粋性が1であるには、正の重みを持つすべての組で $w=0$、すなわちすべての $\psi_j$ が同じrayでなければなりません。逆に同じrayだけなら外積は全て一致し、$\rho$ は純粋です。**異なるアンサンブル項を複数書くだけでは混合にはなりません。**
 
 ## 4. qubitの状態をBloch球へ写す
 
@@ -495,7 +532,11 @@ $$
 \operatorname{Tr}(\rho\sigma_z)=1,
 $$
 
-なので $\boldsymbol r=(0,0,1)$、球面上です。一方 $I/2$ はすべてのPauli行列のトレースが0なので $\boldsymbol r=(0,0,0)$、球の中心です。さらに $\rho=\operatorname{diag}(3/4,1/4)$ なら $\boldsymbol r=(0,0,1/2)$、ノルム $1/2<1$ なので混合です。[Bloch球によるqubit状態の完全分類](#thm-qinf2-bloch-ball)により固有値は $(3/4,1/4)$、純粋性は $5/8$ と検算できます。
+なので $\boldsymbol r=(0,0,1)$、球面上です。
+
+一方 $I/2$ はすべてのPauli行列のトレースが0なので $\boldsymbol r=(0,0,0)$、球の中心です。
+
+さらに $\rho=\operatorname{diag}(3/4,1/4)$ なら $\boldsymbol r=(0,0,1/2)$、ノルム $1/2<1$ なので混合です。[Bloch球によるqubit状態の完全分類](#thm-qinf2-bloch-ball)により固有値は $(3/4,1/4)$、純粋性は $5/8$ と検算できます。
 <!-- definition-example-end -->
 
 **基底の注意**：Bloch座標は固定した $|0\rangle,|1\rangle$ 基底に対するものです。基底を変えると座標の方向は変わりますが、固有値と球の中心からの距離は変わりません。
@@ -518,7 +559,7 @@ $$
 
 この二つの準備レシピでは、実際に選ばれた純粋状態は異なります。それでも最終的な $\rho$ が同じなので、[測定統計の一意性](#prop-qinf2-operational-uniqueness)により、受け手だけがどんな射影測定をしても区別できません。「混合なら必ず直交状態を混ぜたもの」という意味でもありません。[スペクトルによるアンサンブル表示](#thm-qinf2-density-ensemble)は直交する表示を**少なくとも一つ**与えるだけです。
 
-ユニタリ作用素 $U$ は、準備された各純粋状態を $U\psi_j$ に写します。密度演算子に対する変換を成分から導くと、純粋性も保存されます。
+[ユニタリ作用素](../../../基礎科目/LA/LA5/index.md#def-la5-unitary) $U$ は、準備された各純粋状態を $U\psi_j$ に写します。密度演算子に対する変換を成分から導くと、純粋性も保存されます。
 
 <a id="prop-qinf2-unitary-invariance"></a>
 
@@ -813,7 +854,13 @@ $$
 \end{aligned}
 $$
 
-$0<p<1$ より $2p(1-p)>0$ です。[純粋性による判定](#thm-qinf2-purity-rank)から純粋であるのは $|\langle u,v\rangle|=1$ のとき、かつそのときに限ります。Cauchy–Schwarzの等号条件により、これは $u,v$ が全体位相を除いて同じベクトルであることです。
+$0<p<1$ より $2p(1-p)>0$ です。[純粋性による判定](#thm-qinf2-purity-rank)から純粋であるのは $|\langle u,v\rangle|=1$ のとき、かつそのときに限ります。実際、$v=\langle u,v\rangle u+w$、$w\perp u$ と置けば
+
+$$
+1=\|v\|^2=|\langle u,v\rangle|^2+\|w\|^2.
+$$
+
+したがって等号成立は $w=0$ と同値であり、$u,v$ が全体位相を除いて同じベクトルであることを意味します。
 
 一次独立の場合は $\operatorname{span}\{u,v\}$ が二次元です。任意の $w$ に対し
 
@@ -923,7 +970,9 @@ $$
 
 これは準備確率から直接 $p\cdot(1/2)+(1-p)\cdot1$ としても一致します。
 
-$I/2$ のBlochベクトルは原点ですが、$\boldsymbol r=(1-p,0,p)$ の $x,z$ 成分が同時に0になるには $p=1$ と $p=0$ が同時に必要で、不可能です。また $\|\boldsymbol r\|^2=1-2p(1-p)$ が1になるのは $p=0$ または1だけです。[純粋性とrankの同値](#thm-qinf2-purity-rank)から、この両端だけが純粋で、$0<p<1$ では混合です。前者は $|+\rangle$、後者は $|0\rangle$ の射影に戻ります。
+$I/2$ のBlochベクトルは原点ですが、$\boldsymbol r=(1-p,0,p)$ の $x,z$ 成分が同時に0になるには $p=1$ と $p=0$ が同時に必要で、不可能です。
+
+また $\|\boldsymbol r\|^2=1-2p(1-p)$ が1になるのは $p=0$ または1だけです。[純粋性とrankの同値](#thm-qinf2-purity-rank)から、この両端だけが純粋で、$0<p<1$ では混合です。前者は $|+\rangle$、後者は $|0\rangle$ の射影に戻ります。
 <!-- solution-end -->
 
 ## 7. 本章で得た記述と次に生じる問い
