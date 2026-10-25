@@ -13,11 +13,19 @@ r_+=M+\sqrt{M^2-a^2},\quad
 \Omega_H=\frac{a}{r_+^2+a^2}
 $$
 
-とします。時間並進 $\xi=\partial_t$、軸回転 $\eta=\partial_\varphi$、地平線生成場 $\chi=\xi+\Omega_H\eta$ は[GR32の地平線命題](../GR32/index.md#prop-gr32-horizon)で導入したものです。$\xi$ は無限遠で未来向きに規格化します。
+とします。時間並進 $\xi=\partial_t$、軸回転 $\eta=\partial_\varphi$、地平線生成場 $\chi=\xi+\Omega_H\eta$ は[GR32の地平線命題](../GR32/index.md#prop-gr32-horizon)で導入したものです。$\xi$ は無限遠で未来向きに規格化します。[GR14の定常Killing場の定義](../GR14/index.md#def-gr14-stationary-static)は場が時間的な領域についてのものです。Kerrではその時間並進Killing場を内側へ延長すると、空間的になる領域があります。
 
 ## 1. 局所では正なのに無限遠の保存エネルギーは負になりうる
 
-[GR14のKilling保存量](../GR14/index.md#thm-gr14-killing-charge)から、自由粒子の未来向き四元運動量 $p$ に対して $E=-p\cdot\xi$、$L=p\cdot\eta$ は測地線上で一定です。質量粒子には $p=mu$、$m>0$、$g(u,u)=-1$ を使います。局所の未来向き単位観測者 $u_{\rm obs}$ が測るエネルギーは $-p\cdot u_{\rm obs}>0$ です。一方、$\xi$ 自身が時間的でなくなれば、$-p\cdot\xi$ の符号はこの局所的正値性だけから決まりません。
+[GR14のKillingエネルギーと軸角運動量の定義](../GR14/index.md#def-gr14-energy-angular-momentum)に従い、自由粒子の未来向き四元運動量 $p$ に対して
+
+$$
+E=-g(p,\xi),\qquad L=g(p,\eta)
+$$
+
+と置きます。[Killing場による測地線保存量](../GR14/index.md#thm-gr14-killing-charge)から、これらは測地線上で一定です。質量粒子には $p=mu$、$m>0$、$g(u,u)=-1$ を使います。
+
+局所の未来向き単位観測者 $u_{\rm obs}$ が測るエネルギーは $-p\cdot u_{\rm obs}>0$ です。一方、$\xi$ 自身が時間的でなくなれば、$E=-p\cdot\xi$ の符号はこの局所的正値性だけから決まりません。
 
 まず二つの面の間に名前を付けましょう。
 
@@ -25,7 +33,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Kerrのergoregion）**
-> $M>0$、$0<a<M$ のKerr外部で、無限遠に規格化された定常Killing場 $\xi=\partial_t$ が空間的になる開領域を *ergoregion*（エルゴ領域）という。Boyer–Lindquist座標では
+> $M>0$、$0<a<M$ のKerr外部で、無限遠で未来向き時間的に規格化した時間並進Killing場 $\xi=\partial_t$ が空間的になる開領域を *ergoregion*（エルゴ領域）という。Boyer–Lindquist座標では
 
 $$
 \mathcal E=\{(r,\vartheta):r_+<r<r_{\rm stat}(\vartheta),\ 0<\vartheta<\pi\},
@@ -36,7 +44,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr33-ergoregion -->
-**定義の確認**。[GR32の静止極限面の式](../GR32/index.md#prop-gr32-static-order)を使い、$M=5,a=3$ の赤道で $r_+=9$、$r_{\rm stat}=10$ を得ます。$r=19/2$ では $\Sigma=r^2=361/4$、$2Mr=95$ だから
+**定義の確認**。座標基底では $\xi^\mu=\delta^\mu_t$ なので、自己内積は $g(\xi,\xi)=g_{\mu\nu}\xi^\mu\xi^\nu=g_{tt}$ です。[GR32のKerr計量](../GR32/index.md#def-gr32-kerr-metric)から $g_{tt}=-1+2Mr/\Sigma$ を読み取れます。
+
+[静止極限面の式](../GR32/index.md#prop-gr32-static-order)から、$M=5,a=3$ の赤道では $r_+=9$、$r_{\rm stat}=10$ です。$r=19/2$ では $\Sigma=r^2=361/4$、$2Mr=95$ だから
 
 $$
 g(\xi,\xi)=g_{tt}=-1+\frac{95}{361/4}=\frac{19}{361}>0.
@@ -45,7 +55,19 @@ $$
 よって $9<19/2<10$ のこの点は、定義の半径条件と $\xi$ が空間的という条件の両方を満たします。$a\to0$ なら静止極限面は地平線へ重なり、外部のergoregionは消えます。
 <!-- definition-example-end -->
 
-負のKillingエネルギーを作れる理由を、座標計算でなくまず接空間のLorentz幾何から証明します。ここで正規直交枠とは、未来向き単位時間ベクトル $e_0$ と空間単位ベクトル $e_1$ が $g(e_0,e_0)=-1$、$g(e_1,e_1)=1$、$g(e_0,e_1)=0$ を満たすものです。
+負のKillingエネルギーを作れる理由を、座標計算でなくまず接空間のLorentz幾何から証明します。ここでは[GR4の観測者の局所正規直交枠](../GR4/index.md#def-gr4-observer-frame)を使います。
+
+未来向き単位時間ベクトル $e_0$ と空間単位ベクトル $e_1$ は、$g(e_0,e_0)=-1$、$g(e_1,e_1)=1$、$g(e_0,e_1)=0$ を満たします。$\xi$ の $e_0$ に直交する空間成分に沿って $e_1$ を選べば
+
+$$
+\begin{aligned}
+\xi&=\alpha e_0+\beta e_1,\\
+\alpha&=-g(\xi,e_0),\qquad \beta=g(\xi,e_1),\\
+g(\xi,\xi)&=-\alpha^2+\beta^2.
+\end{aligned}
+$$
+
+従って、$\xi$ が空間的という抽象条件は $\beta^2>\alpha^2$ という枠成分の判定に移ります。
 
 <a id="prop-gr33-negative-energy"></a>
 
@@ -112,7 +134,7 @@ $p$ が時間的なら $p^0>|\vec p|$ なので正です。一方、$-p\cdot\chi
 
 ## 3. Penrose過程：分裂した二粒子の保存則
 
-考える装置は単純です。ergoregion内の一つの事象で、入射粒子が二つの娘粒子に分裂します。分裂の前後では**その事象での四元運動量**が保存し、背景の二つのKilling場との内積を取れば $E$ と $L$ も加法的に保存します。
+考える装置は単純です。ergoregion内の一つの事象で、入射粒子が二つの娘粒子に分裂します。分裂の前後では**その事象での四元運動量**が保存し、[GR14のKillingエネルギーと軸角運動量](../GR14/index.md#def-gr14-energy-angular-momentum)を定める二つのKilling場との内積を取れば、$E$ と $L$ も加法的に保存します。
 
 <a id="def-gr33-penrose-process"></a>
 
@@ -171,7 +193,7 @@ $\beta>\alpha>0$ より $E_2<0$ かつ $E_1-E_0=m_0(\beta-\alpha)/2=-E_2>0$ で�
 
 ## 4. 波の超放射では何が増幅されるか
 
-粒子の分裂に対応する別のエネルギー抽出は、回転Kerr背景へ波を入射させる散乱です。ここでは荷電も質量も持たない**複素スカラー場の線形波動方程式** $\Box_g\Phi=0$ を考えます。物理的な実スカラー場は実部を取って表せます。重力波や電磁波の摂動方程式まで同時に証明したことにはしません。
+粒子の分裂に対応する別のエネルギー抽出は、回転Kerr背景へ波を入射させる散乱です。ここでは荷電も質量も持たない**複素スカラー場の線形波動方程式** $\Box_g\Phi=0$ を考えます。$\Box_g$ は計量 $g$ が定める波動演算子（d'Alembert演算子）で、座標表示を下で導きます。物理的な実スカラー場は実部を取って表せます。重力波や電磁波の摂動方程式まで同時に証明したことにはしません。
 
 時間振動数 $\omega>0$、方位モード数 $m\in\mathbb Z$ を用いて
 
@@ -243,7 +265,20 @@ $$
 -\Lambda_{\ell m}\right]R=0.
 $$
 
-$\ell\ge|m|$ は角方向のモード番号です。$a\omega=0$ なら[PDE11の球面調和関数の定義](../../../解析系/PDE/PDE11/index.md#def-pde11-spherical-harmonic)に対応する角方程式に戻り、[球面固有モードの固有値](../../../解析系/PDE/PDE11/index.md#prop-pde11-spherical-eigenmode)は $\Lambda_{\ell m}=\ell(\ell+1)$ です。実 $\omega$ で角方程式は実係数・適切な正則境界条件のSturm–Liouville問題なので、固有値は実数です。この実数性が動径の保存流束を作る鍵です。
+$\ell\ge|m|$ は角方向のモード番号です。$a\omega=0$ なら[PDE11の球面調和関数の定義](../../../解析系/PDE/PDE11/index.md#def-pde11-spherical-harmonic)に対応する角方程式に戻り、[球面固有モードの固有値](../../../解析系/PDE/PDE11/index.md#prop-pde11-spherical-eigenmode)は $\Lambda_{\ell m}=\ell(\ell+1)$ です。
+
+実 $\omega$ でも固有値が実数であることを、角方程式から確認しましょう。方程式に $S^*\sin\vartheta$ を掛けて積分し、軸で正則な $S$ に対する境界項 $[S^*\sin\vartheta\,S']_0^\pi=0$ を用いると
+
+$$
+\begin{aligned}
+\Lambda_{\ell m}\int_0^\pi |S|^2\sin\vartheta\,d\vartheta
+={}&\int_0^\pi |S'|^2\sin\vartheta\,d\vartheta
++m^2\int_0^\pi\frac{|S|^2}{\sin\vartheta}\,d\vartheta\\
+&-a^2\omega^2\int_0^\pi |S|^2\cos^2\vartheta\sin\vartheta\,d\vartheta.
+\end{aligned}
+$$
+
+非零の正則モードなら左辺の積分係数は正、右辺は実数なので $\Lambda_{\ell m}\in\mathbb R$ です。この実数性が動径の保存流束を作る鍵です。
 
 外側地平線の「亀座標」 $r_*$ を、$r>r_+$ で
 
@@ -367,7 +402,7 @@ $$
 $M=5,a=3$ の赤道で $r_+$、$r_{\rm stat}$ を求め、$r=19/2$ における $g_{tt}$ の符号を直接計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [GR32の地平線式](../GR32/index.md#prop-gr32-horizon)から $r_+=5+\sqrt{25-9}=9$ です。赤道 $\cos\vartheta=0$ なので[静止極限面の式](../GR32/index.md#prop-gr32-static-order)は $r_{\rm stat}=5+\sqrt{25}=10$ です。$r=19/2$ は $9<19/2<10$ に入ります。赤道で $\Sigma=r^2=361/4$、$2Mr=95$ だから $g_{tt}=-(1-95/(361/4))=-1+380/361=19/361>0$。定常Killing場は空間的です。
+**詳細解答。** [GR32の地平線式](../GR32/index.md#prop-gr32-horizon)から $r_+=5+\sqrt{25-9}=9$ です。赤道 $\cos\vartheta=0$ なので[静止極限面の式](../GR32/index.md#prop-gr32-static-order)は $r_{\rm stat}=5+\sqrt{25}=10$ です。$r=19/2$ は $9<19/2<10$ に入ります。赤道で $\Sigma=r^2=361/4$、$2Mr=95$ だから $g_{tt}=-(1-95/(361/4))=-1+380/361=19/361>0$。時間並進Killing場はこの点で空間的です。
 <!-- solution-end -->
 
 <a id="ex-gr33-a02"></a>
@@ -496,7 +531,15 @@ $$
 \end{aligned}
 $$
 
-最後の括弧の微分は $[\Omega_H(r^2+a^2)-a]/\Delta$ です。分子は $r=r_+$ で $\Omega_H(r_+^2+a^2)-a=0$ です。非極限Kerrでは $\Delta=(r-r_+)(r-r_-)$、分子は $r-r_+$ を因子に持つのでこの比は $r_+$ で有限・滑らかです。よって位相の残余も滑らかに延長でき、未来地平線を横切る入射境界条件と整合します。
+最後の括弧の微分は $[\Omega_H(r^2+a^2)-a]/\Delta$ です。$\Omega_H=a/(r_+^2+a^2)$ を代入し、$\Delta=(r-r_+)(r-r_-)$ で約分すると
+
+$$
+\frac{\Omega_H(r^2+a^2)-a}{\Delta}
+=\frac{a(r^2-r_+^2)}{(r_+^2+a^2)(r-r_+)(r-r_-)}
+=\frac{a(r+r_+)}{(r_+^2+a^2)(r-r_-)}.
+$$
+
+非極限Kerrでは $r_+>r_-$ なのでこの比は $r_+$ で有限・滑らかです。よって位相の残余も滑らかに延長でき、未来地平線を横切る入射境界条件と整合します。
 <!-- solution-end -->
 
 ### Level C：粒子と波の条件を一つのKerr時空で比較する
