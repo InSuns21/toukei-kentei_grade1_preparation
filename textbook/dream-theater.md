@@ -1012,6 +1012,7 @@
 
 1. [QINF1 複合系とテンソル積](textbook/volumes/dream_thater/応用系/QINF/QINF1/index.md)
 2. [QINF2 密度演算子とアンサンブル](textbook/volumes/dream_thater/応用系/QINF/QINF2/index.md)
+3. [QINF3 部分トレースと縮約状態](textbook/volumes/dream_thater/応用系/QINF/QINF3/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I

@@ -1,0 +1,64 @@
+chapter: QINF3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QINF2
+forward_references: []
+
+concepts:
+  - id: quantum.partial-trace
+    name: 部分トレース
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（部分トレースと縮約状態）]
+    requires: [quantum.composite-system, quantum.finite-density-operator]
+
+  - id: quantum.reduced-density-operator
+    name: 縮約状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（部分トレースと縮約状態）]
+    requires: [quantum.partial-trace, quantum.finite-density-operator]
+
+  - id: quantum.partial-trace-uniqueness
+    name: 部分トレースの局所期待値による一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（部分トレースの局所期待値による一意性）]
+    requires: [quantum.partial-trace]
+
+  - id: quantum.partial-trace-state-preservation
+    name: 部分トレースの状態保存性と積への作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（部分トレースの状態保存性と積への作用）]
+    requires: [quantum.partial-trace, quantum.finite-density-operator]
+
+  - id: quantum.reduced-local-born
+    name: 縮約状態と局所測定の周辺確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（縮約状態と局所測定の周辺確率）]
+    requires: [quantum.partial-trace-uniqueness, quantum.mixed-born-trace, quantum.local-born-distribution]
+
+  - id: quantum.pure-reduction-product-criterion
+    name: 純粋状態の積性と縮約の純粋性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純粋状態の積性と縮約の純粋性）]
+    requires: [quantum.partial-trace, quantum.product-entangled-pure-state, quantum.density-purity-criteria]
+
+  - id: quantum.local-ignored-outcome-invariance
+    name: 局所ユニタリと非選択射影測定の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所ユニタリと非選択射影測定の不変性）]
+    requires: [quantum.partial-trace-uniqueness, quantum.local-projective-measurement]
+
+  - id: quantum.iterated-partial-trace
+    name: 三部系の逐次部分トレース
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三部系の逐次部分トレース）]
+    requires: [quantum.partial-trace]
