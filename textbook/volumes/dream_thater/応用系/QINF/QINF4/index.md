@@ -463,7 +463,7 @@ $$
 +\sqrt{\frac{1-t}{2}}|-\rangle|1\rangle
 $$
 
-とします。係数の平方和は $(1+t)/2+(1-t)/2=1$ です。部分トレースでは $R$ の異なる基底間の交差項が消え、
+とします。係数の平方和は $(1+t)/2+(1-t)/2=1$ です。[積の部分トレース公式](../QINF3/index.md#prop-qinf3-state-product)により $R$ の異なる基底間の交差項が消え、
 
 $$
 \begin{aligned}
@@ -636,7 +636,7 @@ $$
 - 問題: $|+i\rangle=(|0\rangle+i|1\rangle)/\sqrt2$、$|-i\rangle=(|0\rangle-i|1\rangle)/\sqrt2$ とする。Bell精製 $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ の $R$ を基底 $\{|+i\rangle,|-i\rangle\}$ で測定するとき、結果ごとの $A$ の状態を求めよ。また $|\Phi^+\rangle=(|+i,+i\rangle+|-i,-i\rangle)/\sqrt2$ という誤った展開の失敗を計算で示せ。
 
 <!-- solution-start -->
-**詳細解答**。$R$ に $\langle+i|=(\langle0|-i\langle1|)/\sqrt2$ を作用させると、
+**詳細解答**。[局所射影測定の確率則](../QINF1/index.md#prop-qinf1-joint-born)を $A$ 側の自明な射影と $R$ 側の複素基底の射影に適用します。$R$ に $\langle+i|=(\langle0|-i\langle1|)/\sqrt2$ を作用させると、
 
 $$
 \begin{aligned}
@@ -742,7 +742,7 @@ $$
 \end{aligned}
 $$
 
-この補助系を $|0\rangle,|1\rangle$ で測定すると結果は各確率 $1/2$、条件付き $A$ はそれぞれ $\psi_+,\psi_-$ です。これは元の $|\Omega\rangle$ の補助系を $|+\rangle,|-\rangle$ 基底で測ることと同じ予測を与えます。
+[局所射影測定の確率則](../QINF1/index.md#prop-qinf1-joint-born)により、この補助系を $|0\rangle,|1\rangle$ で測定すると結果は各確率 $1/2$、条件付き $A$ はそれぞれ $\psi_+,\psi_-$ です。これは元の $|\Omega\rangle$ の補助系を $|+\rangle,|-\rangle$ 基底で測ることと同じ予測を与えます。
 
 最後に $\rho_A$ のrankは2であるため[最小次元命題](#prop-qinf4-minimal-rank)から一次元補助系では精製不可能です。また
 
