@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-05 Gaussian二成分混合と責務</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:900px;margin:0 auto;padding:18px;line-height:1.6}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:10px}
+label{display:grid;gap:4px;padding:9px;border:1px solid #8888;border-radius:8px}
+input{width:100%;box-sizing:border-box;font:inherit}
+button{font:inherit;padding:5px 12px;margin-right:8px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:14px}
+.panel{border:1px solid #8888;border-radius:8px;padding:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td,th{padding:5px;border-bottom:1px solid #8888;text-align:right}
+td:first-child,th:first-child{text-align:left}
+.track{display:flex;height:20px;overflow:hidden;border-radius:4px;border:1px solid #777}
+.part1{background:#246da8}.part2{background:#c27925}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:9px 0}
+.swatch{display:inline-block;width:12px;height:12px;margin-right:5px;vertical-align:middle}
+.error{color:#b1291f;font-weight:bold}
+.note{font-size:.94rem}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-05/index">← ML2-05 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-05 Gaussian二成分混合と責務</h1>
+<p>一変量正規分布の二成分を混合します。観測値は一つの <em>x</em> とし、混合密度・責務・平均と分散を再計算します。正の分散のみを許し、入力範囲を限定しています。</p>
+<section class="controls" aria-label="混合模型パラメータ">
+<label>第1成分の混合比 π₁（0.01〜0.99）<input type="number" id="pi1" min="0.01" max="0.99" step="0.05" value="0.3"></label>
+<label>第1成分の平均 μ₁（-5〜5）<input type="number" id="mu1" min="-5" max="5" step="0.25" value="-1"></label>
+<label>第2成分の平均 μ₂（-5〜5）<input type="number" id="mu2" min="-5" max="5" step="0.25" value="1"></label>
+<label>第1成分の分散 v₁（0.1〜10）<input type="number" id="v1" min="0.1" max="10" step="0.1" value="1"></label>
+<label>第2成分の分散 v₂（0.1〜10）<input type="number" id="v2" min="0.1" max="10" step="0.1" value="1"></label>
+<label>観測値 x（-5〜5）<input type="number" id="x" min="-5" max="5" step="0.25" value="0"></label>
+</section>
+<p><button type="button" id="swap">成分ラベルを交換</button><button type="button" id="reset">初期値へ戻す</button></p>
+<p role="status" aria-live="polite" id="status"></p>
+<div class="panels">
+<section class="panel"><h2>観測点での密度と責務</h2>
+<table id="densityTable"><thead><tr><th>量</th><th>値</th></tr></thead><tbody></tbody></table>
+<div class="legend"><span><i class="swatch part1"></i>第1成分</span><span><i class="swatch part2"></i>第2成分</span></div>
+<div class="track" id="responsibilityBar" role="img" aria-label="第1成分と第2成分の責務の割合"></div></section>
+<section class="panel"><h2>混合全体のモーメント</h2>
+<table id="momentTable"><thead><tr><th>量</th><th>値</th></tr></thead><tbody></tbody></table>
+<p class="note">全分散＝成分内分散＋成分間分散。成分中心が異なると、各成分の分散を重み付き平均した値より大きくなります。</p>
+</section>
+</div>
+<p class="note">二成分の観測密度は <code>π₁ f₁(x) + (1−π₁) f₂(x)</code>、責務は各項をその合計で割った値です。ラベルを交換すると観測密度・平均・分散は不変で、責務の番号だけが入れ替わります。密度は確率そのものではありません。</p>
+<script type="module">
+import { defaultMixture, evaluateMixture, swapMixture } from "./ml2-05-model.mjs";
+const $ = id => document.getElementById(id);
+const keys = Object.keys(defaultMixture);
+const fmt = v => v.toFixed(8);
+function fill(id, rows) {
+  const tbody = $(id).querySelector("tbody");
+  tbody.replaceChildren(...rows.map(([name,value]) => {
+    const tr = document.createElement("tr");
+    for (const cell of [name,value]) { const td = document.createElement("td");td.textContent=cell;tr.append(td); }
+    return tr;
+  }));
+}
+function read() {
+  if(keys.some(key => $(key).value.trim() === "")) throw new RangeError("未入力の項目があります");
+  return Object.fromEntries(keys.map(key => [key, Number($(key).value)]));
+}
+function render() {
+  let result;
+  try { result=evaluateMixture(read()); }
+  catch(error) {
+    $("status").className="error";
+    $("status").textContent=`入力エラー：${error.message}`;
+    fill("densityTable",[]);fill("momentTable",[]);$("responsibilityBar").replaceChildren();
+    return;
+  }
+  $("status").className="";
+  $("status").textContent="計算完了：混合密度と責務・モーメントを更新しました。";
+  fill("densityTable",[
+    ["f₁(x)",fmt(result.densities[0])],["f₂(x)",fmt(result.densities[1])],
+    ["π₁f₁(x)",fmt(result.jointAtX[0])],["π₂f₂(x)",fmt(result.jointAtX[1])],
+    ["混合密度 p(x)",fmt(result.density)],
+    ["責務 r₁(x)",fmt(result.responsibilities[0])],
+    ["責務 r₂(x)",fmt(result.responsibilities[1])],
+  ]);
+  fill("momentTable",[
+    ["混合平均",fmt(result.mean)],["成分内分散",fmt(result.withinVariance)],
+    ["成分間分散",fmt(result.betweenVariance)],["混合全分散",fmt(result.variance)],
+  ]);
+  const bar = $("responsibilityBar");bar.replaceChildren();
+  result.responsibilities.forEach((r,index) => {
+    const div=document.createElement("div");div.className=index===0?"part1":"part2";
+    div.style.width=`${100*r}%`;
+    bar.append(div);
+  });
+  bar.setAttribute("aria-label",`第1成分 ${fmt(result.responsibilities[0])}、第2成分 ${fmt(result.responsibilities[1])}`);
+}
+keys.forEach(key => $(key).addEventListener("input",render));
+$("swap").addEventListener("click",() => {
+  try {
+    const swapped=swapMixture(read());
+    keys.forEach(key => {$(key).value=String(swapped[key]);});
+    render();
+  } catch {render();}
+});
+$("reset").addEventListener("click",() => {
+  keys.forEach(key => {$(key).value=String(defaultMixture[key]);});render();
+});
+render();
+</script>
+</body>
+</html>

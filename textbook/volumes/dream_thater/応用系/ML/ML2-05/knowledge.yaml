@@ -1,0 +1,61 @@
+chapter: ML2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML2-04
+  - ML1-07
+concepts:
+  - id: learning.finite-latent-mixture
+    name: 有限潜在カテゴリと混合模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限潜在カテゴリと混合模型）"]
+    requires: [learning.finite-bayesian-network, learning.generative-classification]
+  - id: learning.mixture-marginalization
+    name: 混合の周辺化と正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（混合の周辺化と正規化）"]
+    requires: [learning.finite-latent-mixture]
+  - id: learning.mixture-likelihood
+    name: 観測データ尤度と完全データ尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測データ尤度と完全データ尤度）"]
+    requires: [learning.mixture-marginalization, learning.density-log-loss]
+  - id: learning.component-responsibility
+    name: 成分責務
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（成分責務）"]
+    requires: [learning.finite-latent-mixture]
+  - id: learning.responsibility-bayes
+    name: 責務のBayes公式と正規化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（責務のBayes公式と正規化）"]
+    requires: [learning.component-responsibility, learning.mixture-marginalization]
+  - id: learning.gaussian-mixture-moments
+    name: Gaussian混合の平均と共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian混合の平均と共分散）"]
+    requires: [learning.finite-latent-mixture, learning.nondegenerate-gaussian-density]
+  - id: learning.mixtures-identifiability
+    name: 観測分布に関する識別可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測分布に関する識別可能性）"]
+    requires: [learning.mixture-marginalization]
+  - id: learning.label-switching
+    name: ラベル交換による観測分布の不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ラベル交換による観測分布の不変性）"]
+    requires: [learning.mixtures-identifiability, learning.finite-latent-mixture]
+  - id: learning.gaussian-mixture-degeneracy
+    name: Gaussian混合尤度の非有界性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian混合尤度の非有界性）"]
+    requires: [learning.mixture-likelihood, learning.nondegenerate-gaussian-density]

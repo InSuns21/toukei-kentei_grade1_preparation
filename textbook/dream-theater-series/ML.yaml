@@ -109,7 +109,7 @@ chapters:
     title: "確率的グラフィカルモデル"
   - id: ML2-05
     path: textbook/volumes/dream_thater/応用系/ML/ML2-05
-    status: planned
+    status: completed
     title: "潜在変数・混合モデル・識別不能性"
   - id: ML2-06
     path: textbook/volumes/dream_thater/応用系/ML/ML2-06
