@@ -573,7 +573,9 @@ $$
 \frac{dr}{dv}\le\frac f2-\frac{r^2}{2}\left[\left(\frac{d\vartheta}{dv}\right)^2+\sin^2\vartheta\left(\frac{d\varphi}{dv}\right)^2\right]\le\frac f2.
 $$
 
-平坦側では $f=1$ であり、$v_0$ から0まで積分すると $r(0)-r_0\le-v_0/2$ です。等号は角度変化が零で零条件を飽和する動径出射零線が達成します。$dv=0$ の入射零線はそもそも半径を減らす向きなので、脱出をより容易にはしません。
+平坦側では $f=1$ であり、$v_0$ から0まで積分すると $r(0)-r_0\le-v_0/2$ です。等号は角度変化が零で零条件を飽和する動径出射零線が達成します。
+
+$dv=0$ の非零な因果接ベクトル $X$ なら、因果条件は $r^2[(X^\vartheta)^2+\sin^2\vartheta(X^\varphi)^2]\le0$ です。従って角度方向の変化はなく、[GR26の未来向き入射零方向](../GR26/index.md#prop-gr26-radial-null-generators)より $X$ は $-\partial_r$ の正の倍数です。この場合は半径が減るため、殻への到達半径の上界を改善しません。
 <!-- solution-end -->
 
 ### Level C：形成過程を一つの時空として再構成する
