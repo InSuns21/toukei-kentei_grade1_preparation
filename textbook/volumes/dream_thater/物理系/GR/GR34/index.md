@@ -275,7 +275,7 @@ $$
 \hat\sigma_{AB}=0,\quad\hat\omega_{AB}=0.
 $$
 
-二次元の跡 $2/r$ は四次元時空の次元や零方向を数に入れずに得られます。$\ell$ の選択を変えても、$k^\perp/\langle k\rangle$ 上の光学変形とその跡は変わりません。
+二次元の跡 $2/r$ は四次元時空の次元や零方向を数に入れずに得られます。ここで $X,Y\in k^\perp$ の代表を $X+\alpha k,Y+\beta k$ と変えても、$g(k,\nabla_Yk)=Y(g(k,k))/2=0$ と $\nabla_kk=0$ より $g(X,\nabla_Yk)$ は変わりません。従って光学変形は商空間 $k^\perp/\langle k\rangle$ 上で定義され、補助ベクトル $\ell$ の選択によって物理的な変形やその跡は変わりません。
 <!-- definition-example-end -->
 
 ## 4. 光的Raychaudhuri方程式：二次元の跡と曲率
