@@ -137,7 +137,7 @@ chapters:
     title: "Kerr時空の計量と回転"
   - id: GR33
     path: textbook/volumes/dream_thater/物理系/GR/GR33
-    status: planned
+    status: completed
     title: "Ergoregion・Penrose過程・超放射"
   - id: GR34
     path: textbook/volumes/dream_thater/物理系/GR/GR34
