@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-10-18（標準講義・教科書との再照合、局所→大域の証明依存・束値分布・支持空間を精密化）  
-状態: in_progress（HPDE1〜HPDE24の本文・系列manifest・公開導線を実装済み。系列横断の最終査読・検証を完了するまでPLAN全体は未完了）
+状態: completed（2026-10-25：HPDE1〜HPDE24の実装・公開導線・系列横断整合査読を完了）
 
 ## 中心問いと出口
 
@@ -16,7 +16,7 @@
 - HPDEが所有：滑らかなベクトル束と束値微分作用素の波動問題に必要な部分、normally hyperbolic作用素、エネルギー評価、Cauchy問題、有限伝播、局所/大域基本解、advanced/retarded Green作用素、因果伝播子、古典的実KG解のシンプレクティック構造。
 - [MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)が所有：波面集合、擬微分・伝播の微局所理論、Hadamard**二点関数**の特異構造、点分離と応力テンソル。HPDEでは局所基本解の構成に必要な**古典的Hadamard係数・transport equationの入口**だけを扱い、二点関数のHadamard条件は先取りしない。
 - [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)が所有：CCR代数・状態・モジュラー理論の精密な構成。HPDEの解空間は量子化に渡すデータであり、量子論としてのCCRの詳細は移さない。[QCURV](../plans/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)は粒子数・Bogoliubov係数・量子状態・物理観測を所有。
-- [GR](DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
+- [GR](../plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
 
 **共通の正確な設定**：時空 (M,g) は時間向き付き滑らかなLorentz多様体（符号 (-,+,…,+)）、標準定理では大域双曲・境界なし。E→M は有限ランク滑らかな実/複素ベクトル束とし、接続・束計量・向きを必要な命題で指定する。微分作用素の記号の規約を固定し、基本模型は P=-Box_g+m²（m²≥0、Box_g=g^{ab}∇_a∇_b）とする。一般のnormally hyperbolic Pの2次主シンボルは σ₂(P)(x,ξ)=-g_x^{-1}(ξ,ξ) id_{E_x} と定義する（フーリエの i による符号流儀と混同しない）。形式的自己随伴性は一般のPに自動では成立しない。
 
@@ -155,4 +155,15 @@
 - 定義→直接例→主要定理（対象・仮定・結論）→2〜4手の省略なしの核心論証→演習A4/B3/C1以上と全詳細解答。証明に必要なformal adjoint、Stokes、束接続、微分幾何の記号は使用箇所で導入する。
 - 図ではCauchy面、光円錐、ソースの支持、retarded/advancedの像、解の空間コンパクト支持を**異なる輪郭/線種**で識別し、座標と支持集合の包含式で照合する。SVGの図だけで存在定理や支持の包含を証明しない。
 - 既出結果を援用する使用箇所へstable anchorリンクを付け、前提PLANが未完成なら証明済みと宣言しない。新規章・実質改稿は現行DREAM THEATER standardの区分Cに従って全主要証明・全演習/解答を再計算し、別観点で再査読する。**無指定の直前章追跡監査は行わない。**
-- HPDE1〜HPDE24の全24章と数学的証明閉包、科目内の横断依存・リンク・検証・公開導線が完成して初めてPLANをcompletedとする。全24章の本文・manifest・公開導線の登録は完了したが、系列横断の最終査読・検証は別作業として残る。講義の進捗はHPDE系列manifestを正本とする。
+- HPDE1〜HPDE24の全24章と数学的証明閉包、科目内の横断依存・リンク・検証・公開導線が完成して初めてPLANをcompletedとする。全24章の本文・manifest・公開導線の登録と、以下の系列横断最終査読・検証を完了した。講義の進捗はHPDE系列manifestを正本とする。
+
+## 最終系列横断査読と完了判定（2026-10-25）
+
+- **対象**：GitHub `main` 上のHPDE1〜HPDE24の本文、全24組の `chapter.yaml` / `knowledge.yaml`、`HPDE.yaml`、公開索引、前提結果の使用箇所。計24章・16,178行、formal statement 171件、証明ブロック113件、演習・詳細解答209組を構造的に棚卸しした。各章A4/B3/C1以上、全演習と詳細解答が一対一、chapter/knowledgeのprerequisite列が一致し、HPDEの後続章を先行章の必須前提として逆用したmetadataはなかった。
+- **経路Aの責務**：HPDE5のnormally hyperbolic作用素の接続分解から、HPDE6の初期データ、HPDE7〜10のエネルギー・Grönwall・有限伝播、HPDE11の局所存在、HPDE15〜17の貼り合わせと大域Cauchy解に到るリンクを追跡。分割関数の交換子 $[P,\chi]v=-(\Box_g\chi)v-2\nabla^P_{\operatorname{grad}_g\chi}v$ が零ではないことと、時間帯ごとの台のコンパクト性・支持推定を区別した。
+- **経路Bの責務**：HPDE12の1+1・3+1点源正規化から、HPDE13の世界関数・van Vleck係数・Hadamard輸送式、HPDE14の滑らかな残差とVolterra反復へ続く論証を照合。$P S=I+F$ のとき $S(I+F)^{-1}$ が右逆の核であり、形式漸近級数を真の基本解と混同していないことを確認。局所Cauchy解を使う比較経路は独立な第二証明と称していない。
+- **Greenから古典場への責務**：HPDE18では $G_{\mathrm{ret/adv}}:\Gamma_c\to\Gamma$ と因果的支持、HPDE19では $PG=GP=\operatorname{id}$ の入力条件、HPDE20ではpc/fc拡張、HPDE21では $\ker E_{\mathrm{cau}}=P\Gamma_c$、HPDE22では $f_\chi=P(\chi u)$ を用いた全射性を追跡した。過去0・未来1の時間カットオフについて $w_+=\chi u$（pc）、$w_-=(\chi-1)u$（fc）であるから、$E_{\mathrm{cau}}f_\chi=w_+-w_-=u$ と符号を再計算した。
+- **代表的な独立検算**：1+1平坦核 $K_0=H(t-|x|)/2$ は初期速度の跳躍から $PK_0=\delta$。4次元の $R_+(4)=H(t-r)/(8\pi)$ は $(\partial_t^2-\Delta)R_+(4)=\delta(t-r)/(4\pi r)$ を生じる。HPDE23の規約 $\Omega(u,v)=\int_\Sigma(uNv-vNu)$ と $E_{\mathrm{cau}}=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ では $\Omega(E_{\mathrm{cau}}f,v)=-\int_Mfv\,d\mu_g$（遅延解を源より前で零にしてStokesを適用）。HPDE24では半直線の鏡像核の差がDirichlet、和がNeumannを満たし、$F(t-x)$ の零初期値反例が境界条件なしに限ることを確認。
+- **定義・参照・表示**：定義の導入順・依存リンクは概念監査、formal reference検証、公開prerequisite監査で照合。HPDE章自身のエラーは検出されなかった。全体公開索引では全24章が一度ずつ正しい順に登録されている。対象本文は変更せず、過去の章別全証明・全209解答を今回新たにすべて独立再導出したという主張はしない。
+- **検証の境界**：`npm run validate`、`validate:dream-theater-index`、`validate:dream-theater-work`、`validate:dream-theater-prerequisites`、`validate:formal-references`、`audit:dream-theater-prose-prerequisites` は成功。全系列を超える任意のstrict概念・明示依存・全章演習数監査にはHPDE以外の既存対象でエラーがあり、本系列の修正対象へ混入させない。Pages組立てと最終PR CIの結果はPRで別途確認する。
+- **判定・実施主体**：系列内の証明担当、演習導線、前提、公開導線に未解決のHPDE固有の重大矛盾は認められず、PLAN固有タスクを完了とする。同一担当ChatGPTによる横断検算と学習者観点の再読であり、第三者独立査読ではない。以後の個別章追跡監査は章ID指定の別作業とする。
