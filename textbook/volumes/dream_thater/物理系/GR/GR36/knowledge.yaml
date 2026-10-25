@@ -1,0 +1,40 @@
+chapter: GR36
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR29
+  - GR30
+  - GR34
+  - GR35
+  - LORG16
+concepts:
+  - id: gravity.horizon-area-transport
+    name: 滑らかな生成光線に沿う面積密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな生成光線に沿う面積密度）"]
+    requires: [gravity.null-normal-expansion, gravity.congruence-volume-area-rate]
+  - id: gravity.null-ricci-convergence-condition
+    name: 光的Ricci集束条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光的Ricci集束条件）"]
+    requires: [gravity.lorentz-ricci-curvature, gravity.energy-ricci-convergence]
+  - id: gravity.horizon-negative-expansion-focal
+    name: 負の膨張率と有限アフィン長の焦点
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（負の膨張率と有限アフィン長の焦点）"]
+    requires: [gravity.null-ricci-convergence-condition, gravity.local-focusing-estimate]
+  - id: gravity.horizon-future-affine-completeness
+    name: 地平線生成線の未来アフィン完備性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地平線生成線の未来アフィン完備性）"]
+    requires: [gravity.future-event-horizon]
+  - id: gravity.smooth-horizon-area-monotonicity
+    name: 滑らかな未来地平線の面積非減少
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな未来地平線の面積非減少）"]
+    requires: [gravity.horizon-area-transport, gravity.horizon-negative-expansion-focal, gravity.horizon-future-affine-completeness, gravity.null-ricci-convergence-condition]

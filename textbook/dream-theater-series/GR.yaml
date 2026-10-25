@@ -149,7 +149,7 @@ chapters:
     title: "各種エネルギー条件と集束"
   - id: GR36
     path: textbook/volumes/dream_thater/物理系/GR/GR36
-    status: planned
+    status: completed
     title: "地平線の面積非減少の仮定"
   - id: GR37
     path: textbook/volumes/dream_thater/物理系/GR/GR37
