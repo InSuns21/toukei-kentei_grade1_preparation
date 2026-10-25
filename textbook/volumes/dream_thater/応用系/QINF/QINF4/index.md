@@ -496,7 +496,10 @@ $$
 ### QINF4-B01 補助系の位相は縮約に現れない
 
 - Level: B
-- 問題: $0<p<1$ と $\theta\in\mathbb R$ に対し、$|\Psi_\theta\rangle=\sqrt p|00\rangle+e^{i\theta}\sqrt{1-p}|11\rangle$ を考える。(1) 全体を正規化せよ。(2) $R$ の部分トレースが $\theta$ に依らないことを確かめよ。(3) $|\Psi_0\rangle$ から局所ユニタリを明示して $|\Psi_\theta\rangle$ を得よ。
+- 問題: $0<p<1$ と $\theta\in\mathbb R$ に対し、$|\Psi_\theta\rangle=\sqrt p|00\rangle+e^{i\theta}\sqrt{1-p}|11\rangle$ を考える。
+  - 全体が正規化されていることを示せ。
+  - $R$ の部分トレースが $\theta$ に依らないことを確かめよ。
+  - $|\Psi_0\rangle$ から局所ユニタリを明示して $|\Psi_\theta\rangle$ を得よ。
 
 <!-- solution-start -->
 **詳細解答**。積基底の直交性より
@@ -528,7 +531,10 @@ $$
 ### QINF4-B02 異なる次元の二つの精製
 
 - Level: B
-- 問題: $\rho_A=I_2/2$、$|\Psi\rangle=(|00\rangle+|11\rangle)/\sqrt2\in\mathbb C^2\otimes\mathbb C^2$、$|\Phi\rangle=(|0\rangle|0\rangle+|1\rangle|2\rangle)/\sqrt2\in\mathbb C^2\otimes\mathbb C^3$ とする。(1) 両者が $\rho_A$ の精製であることを確認せよ。(2) $V:\mathbb C^2\to\mathbb C^3$ の行列を作れ。(3) 逆方向に全空間上の等長写像がない理由を説明せよ。
+- 問題: $\rho_A=I_2/2$、$|\Psi\rangle=(|00\rangle+|11\rangle)/\sqrt2\in\mathbb C^2\otimes\mathbb C^2$、$|\Phi\rangle=(|0\rangle|0\rangle+|1\rangle|2\rangle)/\sqrt2\in\mathbb C^2\otimes\mathbb C^3$ とする。
+  - 両者が $\rho_A$ の精製であることを確認せよ。
+  - $V:\mathbb C^2\to\mathbb C^3$ の行列を作れ。
+  - 逆方向に全空間上の等長写像がない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**。どちらも直交する二項で、ノルム二乗は $1/2+1/2=1$ です。各外積の交差項は $R$ 側の基底が異なるので部分トレースで消えます。従って両者の縮約は $(|0\rangle\langle0|+|1\rangle\langle1|)/2=I_2/2$ です。
@@ -548,7 +554,10 @@ $$
 ### QINF4-B03 三つの非直交状態から同じ最大混合を作る
 
 - Level: B
-- 問題: $\omega=e^{2\pi i/3}$、$|\psi_k\rangle=(|0\rangle+\omega^k|1\rangle)/\sqrt2$（$k=0,1,2$）とする。(1) 各状態を確率 $1/3$ で混合すると $\rho_A=I_2/2$ となることを示せ。(2) [アンサンブル実現定理](#thm-qinf4-ensemble-measurement)の係数行列 $W$ を求め、$W^\dagger W=I_2$ を検算せよ。(3) 最小精製から三次元補助系を用いるアンサンブル精製を与えよ。
+- 問題: $\omega=e^{2\pi i/3}$、$|\psi_k\rangle=(|0\rangle+\omega^k|1\rangle)/\sqrt2$（$k=0,1,2$）とする。
+  - 各状態を確率 $1/3$ で混合すると $\rho_A=I_2/2$ となることを示せ。
+  - [アンサンブル実現定理](#thm-qinf4-ensemble-measurement)の係数行列 $W$ を求め、$W^\dagger W=I_2$ を検算せよ。
+  - 最小精製から三次元補助系を用いるアンサンブル精製を与えよ。
 
 <!-- solution-start -->
 **詳細解答**。$|\omega|=1$ なので各 $\psi_k$ は単位ベクトルです。外積は
@@ -627,7 +636,9 @@ $$
 ### QINF4-C01 非対角状態の精製と非直交アンサンブルの統合
 
 - Level: C
-- 問題: $H_A=\mathbb C^2$ 上の $\rho_A=\begin{pmatrix}1/2&1/4\\1/4&1/2\end{pmatrix}$ を考える。(1) 固有値と正規直交固有ベクトルを求め、最小精製 $|\Omega\rangle$ を構成せよ。(2) 次の二つの状態の等確率混合が $\rho_A$ を与えることを示せ。
+- 問題: $H_A=\mathbb C^2$ 上の $\rho_A=\begin{pmatrix}1/2&1/4\\1/4&1/2\end{pmatrix}$ を考える。
+  - 固有値と正規直交固有ベクトルを求め、最小精製 $|\Omega\rangle$ を構成せよ。
+  - 次の二つの状態の等確率混合が $\rho_A$ を与えることを示せ。
 
 $$
 |\psi_\pm\rangle=\frac{\sqrt3}{2}|+\rangle\pm\frac12|-\rangle,
@@ -637,7 +648,10 @@ $$
 |-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt2}.
 $$
 
-- 問題（続き）: (3) 定理の係数行列 $W$ を作り $W^\dagger W=I_2$ を確かめよ。(4) $|\Omega\rangle$ の補助系に適切な射影測定を行い、二つの条件付き状態とその確率を導け。(5) 補助系が一次元では不可能な理由と、二つの状態が直交しない理由を述べよ。
+- 問題（続き）:
+  - 定理の係数行列 $W$ を作り $W^\dagger W=I_2$ を確かめよ。
+  - $|\Omega\rangle$ の補助系に適切な射影測定を行い、二つの条件付き状態とその確率を導け。
+  - 補助系が一次元では不可能な理由と、二つの状態が直交しない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。行列を $|+\rangle,|-\rangle$ に作用させると
