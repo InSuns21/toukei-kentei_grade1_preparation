@@ -201,7 +201,7 @@ $$
 D_{\mathrm{KL}}(p\Vert q)=\sum_kp_k\log\frac{p_k}{q_k}
 $$
 
-を使う。正の確率ベクトルならKLは非負であり、等号は二つのベクトルが一致するときに限る。
+を使う。正の確率ベクトルに対する[INFO2のGibbs不等式](../../INFO/INFO2/index.md#thm-info2-gibbs)により、KLは非負であり、等号は二つのベクトルが一致するときに限る。本章の単調性定理でも同じ条件を対数不等式から再確認する。
 
 <a id="thm-ml2-06-monotone"></a>
 
