@@ -1,0 +1,46 @@
+chapter: GR31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR9
+  - GR12
+  - GR16
+  - GR25
+  - GR29
+concepts:
+  - id: gravity.einstein-maxwell-electrovac-region
+    name: Einstein–Maxwellの無電流外部領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Einstein–Maxwellの無電流外部領域）"]
+    requires: [gravity.einstein-field-equation]
+  - id: gravity.rn-spherical-maxwell-stress
+    name: 球対称静電場のMaxwell方程式と応力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球対称静電場のMaxwell方程式と応力）"]
+    requires: [gravity.einstein-maxwell-electrovac-region]
+  - id: gravity.reissner-nordstrom-solution
+    name: 静的球対称Einstein–Maxwell外部解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静的球対称Einstein–Maxwell外部解）"]
+    requires: [gravity.rn-spherical-maxwell-stress, gravity.einstein-field-equation]
+  - id: gravity.rn-horizon-radii
+    name: RN計量の内外のKilling地平線半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RN計量の内外のKilling地平線半径）"]
+    requires: [gravity.reissner-nordstrom-solution]
+  - id: gravity.rn-horizon-classification
+    name: RN計量の地平線の分類と正則座標
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RN計量の地平線の分類と正則座標）"]
+    requires: [gravity.rn-horizon-radii, gravity.reissner-nordstrom-solution]
+  - id: gravity.rn-ricci-invariant
+    name: RN電磁場のRicci不変量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RN電磁場のRicci不変量）"]
+    requires: [gravity.reissner-nordstrom-solution, gravity.rn-spherical-maxwell-stress]
