@@ -133,7 +133,7 @@ chapters:
     title: "Monte Carlo・重要度サンプリング"
   - id: ML2-11
     path: textbook/volumes/dream_thater/応用系/ML/ML2-11
-    status: planned
+    status: completed
     title: "MCMC・Metropolis–Hastings・Gibbs"
   - id: ML2-12
     path: textbook/volumes/dream_thater/応用系/ML/ML2-12
