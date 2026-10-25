@@ -182,12 +182,16 @@ $$
 **定義の確認**。$\Omega=[0,1]$、$f_x(z)=2z$、$e=\int_0^1 2z\,dz=1$、$q(z)=1$（$0\le z\le1$）とする。$f_x(0)=0$ だが零点は測度0で、$q\ll r_x$ は成立する。さらに
 
 $$
+\begin{aligned}
 \int_0^1\left|\log(2z)\right|dz
-=\int_0^{1/2}-\log(2z)dz+\int_{1/2}^1\log(2z)dz
-=\log2<\infty.
+&=\int_0^{1/2}-\log(2z)dz+\int_{1/2}^1\log(2z)dz\\
+&=\bigl[-z\log(2z)+z\bigr]_0^{1/2}
+ +\bigl[z\log(2z)-z\bigr]_{1/2}^1\\
+&=\frac12+\left(\log2-\frac12\right)=\log2<\infty.
+\end{aligned}
 $$
 
-よって ELBO は定義され、$\int_0^1\log(2z)dz=\log2-1$ となる。**一点で密度が零**というだけで、正の質量を持つ禁制状態と混同してはならない。
+下端では $\lim_{z\downarrow0}z\log(2z)=0$ を用いた。よって ELBO は定義され、$\int_0^1\log(2z)dz=\log2-1$ となる。**一点で密度が零**というだけで、正の質量を持つ禁制状態と混同してはならない。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-08-elbo-density-identity"></a>
