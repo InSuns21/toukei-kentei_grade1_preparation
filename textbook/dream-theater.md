@@ -1247,6 +1247,7 @@
 33. [GR33 Ergoregion・Penrose過程・超放射](textbook/volumes/dream_thater/物理系/GR/GR33/index.md)
 34. [GR34 Raychaudhuri方程式](textbook/volumes/dream_thater/物理系/GR/GR34/index.md)
 35. [GR35 各種エネルギー条件と集束](textbook/volumes/dream_thater/物理系/GR/GR35/index.md)
+36. [GR36 地平線の面積非減少の仮定](textbook/volumes/dream_thater/物理系/GR/GR36/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
