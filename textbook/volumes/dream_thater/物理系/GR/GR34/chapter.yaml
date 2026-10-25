@@ -1,0 +1,44 @@
+id: "GR34"
+title: "Raychaudhuri方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR5
+  - GR6
+  - LORG4
+official_scope: []
+learning_objectives:
+  - 時間的測地線合同の速度勾配を膨張・せん断・回転へ直交分解し各成分を計算できる
+  - 曲率の符号と空間次元を明示して時間的Raychaudhuri方程式を出発点から導出できる
+  - 光的測地線合同のスクリーン空間と光学テンソルを導入し二次元の係数を検算できる
+  - 光的Raychaudhuri方程式をアフィンパラメータの仮定下で証明できる
+  - 体積・断面積の変化と膨張率を対応させ平坦な直接例で検算できる
+  - 曲率条件・回転条件から有限時間集束の評価を導き焦点と時空特異性を区別できる
+definitions:
+  - { id: GR34-DEF-01, name: 測地線合同と時間的光学分解 }
+  - { id: GR34-DEF-02, name: 光的スクリーンと光学分解 }
+theorems:
+  - { id: GR34-THM-01, name: 時間的Raychaudhuri方程式 }
+  - { id: GR34-THM-02, name: 光的Raychaudhuri方程式 }
+  - { id: GR34-PROP-01, name: 体積と面積の対数微分 }
+  - { id: GR34-PROP-02, name: 回転零合同の有限パラメータ集束評価 }
+canonical_examples:
+  - Minkowski未来円錐内の時間的放射合同で膨張3/τを検算
+  - Minkowskiの出射・入射光線で膨張±2/rを検算
+  - 平坦でも負の膨張が焦点を生む反例
+  - 対称行列と反対称行列の直接分解によるせん断・回転の符号確認
+problem_patterns:
+  - GR34-TIMELIKE-PROJECTOR
+  - GR34-DEFORMATION-DECOMPOSITION
+  - GR34-RICCI-TRACE-SIGN
+  - GR34-MINKOWSKI-MILNE-EXPANSION
+  - GR34-NULL-SCREEN-TRACE
+  - GR34-OUTGOING-NULL-AREA
+  - GR34-INCOMING-NULL-CAUSTIC
+  - GR34-TIMELIKE-RICCATI
+  - GR34-TWIST-AND-AFFINE-ASSUMPTIONS
+  - GR34-INTEGRATED-FOCUSING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
