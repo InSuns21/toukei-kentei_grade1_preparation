@@ -1,0 +1,46 @@
+id: "GR27"
+title: "Kruskal座標と最大解析延長"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR26
+  - LORG6
+official_scope: []
+learning_objectives:
+  - Schwarzschild外部の二重零時刻を指数変換しUVとrの関係およびKruskal計量を導ける
+  - 地平線におけるKruskal計量の非退化性と半径の解析的な一意性を検算できる
+  - UとVの符号から四領域・未来過去地平線・分岐二球面を判定できる
+  - 入射および出射EF延長がKruskal領域のどの部分を覆うか逆写像で説明できる
+  - Kruskalの未来向き因果条件から領域IIとIVの半径の単調性を証明できる
+  - 曲率特異境界と地平線を区別し最大解析延長という名称の数学的射程を説明できる
+  - 永遠の真空Schwarzschild解と重力崩壊による時空を区別できる
+definitions:
+  - { id: GR27-DEF-01, name: 外部のKruskal零座標 }
+  - { id: GR27-DEF-02, name: Kruskal領域とその時間・空間座標 }
+  - { id: GR27-DEF-03, name: 解析延長と最大解析延長 }
+theorems:
+  - { id: GR27-PROP-01, name: Kruskal計量の導出と地平線の正則性 }
+  - { id: GR27-PROP-02, name: 半径の一意性と正則な大域表示 }
+  - { id: GR27-PROP-03, name: 四領域とEF座標の被覆範囲 }
+  - { id: GR27-PROP-04, name: 内部での未来向き半径変化 }
+canonical_examples:
+  - r=2rsかつ静的時刻0でのUとVおよび半径の対応
+  - UV=0での非退化計量と分岐二球面
+  - 四象限の具体点からの領域と半径判定
+  - 入射EF座標と出射EF座標の被覆範囲の違い
+  - UV=1への接近時の曲率発散
+problem_patterns:
+  - GR27-DOUBLE-NULL-CROSS-TERM
+  - GR27-EXPONENTIAL-UV-PRODUCT
+  - GR27-INVERSE-FUNCTION-DOMAIN
+  - GR27-HORIZON-METRIC-DETERMINANT
+  - GR27-QUADRANT-IDENTIFICATION
+  - GR27-INGOING-EF-OVERLAP
+  - GR27-CAUSAL-RADIUS-SIGNS
+  - GR27-CURVATURE-BOUNDARY
+  - GR27-OUTGOING-EF-OVERLAP
+  - GR27-INTEGRATED-EXTENSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
