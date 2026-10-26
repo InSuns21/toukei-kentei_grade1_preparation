@@ -1,0 +1,48 @@
+id: "GR37"
+title: "特異点定理と測地不完備性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR25
+  - GR26
+  - GR34
+  - GR35
+  - GR36
+  - LORG18
+  - LORG19
+official_scope: []
+learning_objectives:
+  - 光的・時間的測地線のアフィン完備性を定義し、曲率発散や座標端点と区別できる
+  - 二つの未来光的法線の膨張率から閉じた捕獲面を判定できる
+  - Raychaudhuri不等式とコンパクト性から一様な焦点到達上限を導出できる
+  - achronal境界の生成線・焦点・Cauchy面の非コンパクト性をつないでPenrose型定理を証明できる
+  - Penrose型定理の光的Ricci集束・大域双曲性・捕獲面・非コンパクトCauchy面の役割を説明できる
+  - 平坦な不完備時空、膨張模型、Schwarzschild内部の測地線を計算し結論の射程を比較できる
+definitions:
+  - { id: GR37-DEF-01, name: 測地線のアフィン不完備性 }
+  - { id: GR37-DEF-02, name: 閉じた未来捕獲面 }
+theorems:
+  - { id: GR37-PROP-01, name: 捕獲面からの一様集束上限 }
+  - { id: GR37-LEM-01, name: 未来光的境界生成線の長さ制限 }
+  - { id: GR37-THM-01, name: Penrose型光的測地不完備定理 }
+  - { id: GR37-PROP-02, name: Schwarzschild内部の有限固有時 }
+canonical_examples:
+  - Minkowskiの未来時刻半空間は平坦でも過去測地不完備
+  - Minkowski球面の一方の光的膨張は正で捕獲面にならない
+  - 球対称の膨張模型で共動・光的測地線の有限パラメータを直接積分
+  - Schwarzschild内部で半径ゼロまでの固有時が有限であることを検算
+problem_patterns:
+  - GR37-FLAT-INCOMPLETE
+  - GR37-NULL-NORMALS
+  - GR37-TRAPPED-UNIFORM-BOUND
+  - GR37-RICCI-VS-SINGULARITY
+  - GR37-SPACETIME-EXAMPLES
+  - GR37-CAUSAL-BOUNDARY
+  - GR37-CAUCHY-PROJECTION
+  - GR37-ASSUMPTION-FAILURES
+  - GR37-SCHWARZSCHILD-PROPER-TIME
+  - GR37-PENROSE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 7 }
