@@ -18,7 +18,19 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-14-computational-graph -->
-**定義の確認**。上の例は入力 $x$ と計算節点 $u=x^2$、$v=3x$、$w=uv$、$y=w+u$ を持つ。評価順は $x\to(u,v)\to w\to y$ とできるので循環がない。節点 $w$ の局所写像は $\phi_w(u,v)=uv:\mathbb R^2\to\mathbb R$ であり、$y$ の二つの親は $w,u$ である。$u$ から $w$ と $y$ への二本の矢印を区別することが必要になる。
+**定義の確認**。上の例の入力は $x$ 一つ、計算節点は $u=x^2$、$v=3x$、$w=uv$、$y=w+u$ の四つであり、いずれも有限個である。先に必要な値を並べると
+
+$$
+x\longrightarrow(u,v)\longrightarrow w\longrightarrow y
+$$
+
+の順に評価できるので循環はない。節点 $w$ は二つの実数を親として、局所写像
+
+$$
+\phi_w:\mathbb R^2\to\mathbb R,\qquad \phi_w(u,v)=uv
+$$
+
+を使う。最終節点 $y$ の親は $w,u$ であり、$u$ から $w$ と $y$ への二本の矢印を区別する。したがって節点の数・矢印の向き・局所写像の定義域と値域・非巡回性をいずれも確認できた。
 <!-- definition-example-end -->
 
 この段階では計算グラフは「どの値を先に作るか」の記録でしかない。微分を求めるには、各矢印の周辺で小さな変化が何倍に伝わるかを調べる。
