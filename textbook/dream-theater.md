@@ -1254,6 +1254,7 @@
 35. [GR35 各種エネルギー条件と集束](textbook/volumes/dream_thater/物理系/GR/GR35/index.md)
 36. [GR36 地平線の面積非減少の仮定](textbook/volumes/dream_thater/物理系/GR/GR36/index.md)
 37. [GR37 特異点定理と測地不完備性](textbook/volumes/dream_thater/物理系/GR/GR37/index.md)
+38. [GR38 宇宙検閲仮説の論理と既知の限界](textbook/volumes/dream_thater/物理系/GR/GR38/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
