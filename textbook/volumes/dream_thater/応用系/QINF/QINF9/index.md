@@ -2,9 +2,11 @@
 
 ## 1. 写像のすべての入力を一つの行列へ収める
 
-[QINF7のKraus表示](../QINF7/index.md#thm-qinf7-kraus-existence)は、完全正写像を作用素の和として扱えることを教えてくれました。[QINF8のStinespring表現](../QINF8/index.md#thm-qinf8-stinespring)では環境を用いた実現まで進みました。しかし、線形写像が最初から $\Phi(E_{ij})$ という行列単位上の値で与えられたとき、Kraus作用素を推測するのは遠回りです。
+[QINF7のKraus表示](../QINF7/index.md#thm-qinf7-kraus-existence)は、完全正写像を作用素の和として扱えることを教えてくれました。[QINF8のStinespring表現](../QINF8/index.md#thm-qinf8-stinespring)では環境を用いた実現まで進みました。しかし、線形写像が最初から入力の行列単位上の値で与えられたとき、Kraus作用素を推測するのは遠回りです。
 
-目標は、**一つの有限行列の正半定値性と部分トレースだけで、物理的なチャネルかどうかを判定する**ことです。その行列を入力基底から構成していきます。有限次元複素Hilbert空間 $H_A,H_B$ を取り、$d_A=\dim H_A\ge1$、$d_B=\dim H_B\ge1$ とします。入力 $A$ の正規直交基底 $|i\rangle_A$（$1\le i\le d_A$）と、同じ次元の参照系 $R$ の基底 $|i\rangle_R$ を対応させます。出力には $B$ を使い、**テンソル因子の順序は $R\otimes B$** と固定します。
+目標は、**一つの有限行列の正半定値性と部分トレースだけで、物理的なチャネルかどうかを判定する**ことです。その行列を入力基底から構成していきます。有限次元複素Hilbert空間 $H_A,H_B$ を取り、$d_A=\dim H_A\ge1$、$d_B=\dim H_B\ge1$ とします。入力 $A$ の正規直交基底 $|i\rangle_A$（$1\le i\le d_A$）と、同じ次元の参照系 $R$（$H_R\cong H_A$）の基底 $|i\rangle_R$ を対応させます。出力には $B$ を使い、**テンソル因子の順序は $R\otimes B$** と固定します。
+
+$L(H)$ は $H$ 上の線形作用素全体、$\mathrm{id}_R$ は $R$ の作用素を変えない恒等写像です。
 
 規格化しないベクトル
 
@@ -39,14 +41,25 @@ $$
 > を、この基底に関する **非規格化Choi行列** と呼ぶ。$C_\Phi$ は $d_A d_B$ 次正方行列である。
 <!-- formal-statement-end -->
 
-ここで $\mathrm{id}_R$ は参照系の行列を変えない写像です。$C_\Phi$ は一般の複素線形写像について定義でき、**定義の時点では正値性もトレース保存も仮定しません**。基底を変えると成分表示は変わりますが、固定した基底に対する判定をしている限り曖昧さはありません。
+$C_\Phi$ は一般の複素線形写像について定義でき、**定義の時点では正値性もトレース保存も仮定しません**。基底を変えると成分表示は変わりますが、固定した基底に対する判定をしている限り曖昧さはありません。
 
 <!-- definition-example-start: def-qinf9-choi -->
 ### 定義の確認：恒等チャネルで全ブロックを照合する
 
 **定義の確認**として、写像の全行列単位でブロックを作り、正規化を要求していないことも確かめます。
 
-$H_A=H_B=\mathbb C^2$ とし、$\Phi(X)=X$ を取ります。計算基底では $\Phi(E_{ij})=E_{ij}$ なので、$R\otimes B$ の順に $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と並べると
+$H_A=H_B=\mathbb C^2$ とし、$\Phi(X)=X$ を取ります。qubitの計算基底では、一般の基底番号 $1,\ldots,d_A$ を $0,1$ に付け替えます。$\Phi(E_{ij})=E_{ij}$ です。定義の $|i\rangle\langle j|_R\otimes E_{ij}$ は、$R$ の行・列番号 $(i,j)$ のブロックに $E_{ij}$ を置きます。全4ブロックを展開すると
+
+$$
+\begin{aligned}
+(i,j)=(0,0)&\longmapsto |00\rangle\langle00|,\\
+(0,1)&\longmapsto |00\rangle\langle11|,\\
+(1,0)&\longmapsto |11\rangle\langle00|,\\
+(1,1)&\longmapsto |11\rangle\langle11|.
+\end{aligned}
+$$
+
+従って $R\otimes B$ の順に $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と並べると
 
 $$
 C_{\mathrm{id}}
@@ -60,7 +73,19 @@ C_{\mathrm{id}}
 \end{pmatrix}.
 $$
 
-これは $|00\rangle+|11\rangle$ の射影であり、固有値は $2,0,0,0$ です。すべて非負ですが、$\operatorname{Tr}C_{\mathrm{id}}=2$ なので**密度演算子ではありません**。そもそも定義は密度演算子であることを要求していません。後でトレース保存の条件を調べると $\operatorname{Tr}_B C_{\mathrm{id}}=I_R$ も分かります。
+ここで $v=|00\rangle+|11\rangle$ とすれば $C_{\mathrm{id}}=|v\rangle\langle v|$ です。$\langle v|v\rangle=2$ より $C_{\mathrm{id}}v=2v$ であり、$v$ に直交する3次元の空間では0となるため、固有値は $2,0,0,0$ です。これは**非規格化ベクトルの外積**であって、直交射影ではありません。
+
+$$
+C_{\mathrm{id}}^2=|v\rangle\langle v|v\rangle\langle v|
+=2C_{\mathrm{id}}\ne C_{\mathrm{id}}.
+$$
+
+固有値はすべて非負ですが、$\operatorname{Tr}C_{\mathrm{id}}=2$ なので[密度演算子](../QINF2/index.md#def-qinf2-ensemble-density)ではありません。そもそも定義は密度演算子であることを要求していません。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)で $B$ の基底添字を一致させると交差項は消え、次も確かめられます。
+
+$$
+\operatorname{Tr}_B C_{\mathrm{id}}
+=|0\rangle\langle0|_R+|1\rangle\langle1|_R=I_R.
+$$
 <!-- definition-example-end -->
 
 ### 規格化した最大エンタングル状態との係数
@@ -84,7 +109,7 @@ $C_\Phi$ が作用をすべて収めたと言うには、任意の入力 $X$ か
 
 <!-- formal-statement-start -->
 > **定理（Choi行列による写像の再構成）**
-> 有限次元複素Hilbert空間 $H_A,H_B$ と固定した $A\cong R$ の正規直交基底について、任意の複素線形写像 $\Phi:L(H_A)\to L(H_B)$ とすべての $X\in L(H_A)$ に対し
+> 有限次元複素Hilbert空間 $H_A,H_B$ と固定した $H_A\cong H_R$ の正規直交基底について、任意の複素線形写像 $\Phi:L(H_A)\to L(H_B)$ とすべての $X\in L(H_A)$ に対し
 
 $$
 \boxed{\displaystyle
@@ -101,7 +126,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X=\sum_{k,l}x_{kl}|k\rangle\langle l|$ と置きます。固定基底で $X^{\mathsf T}=\sum_{k,l}x_{kl}|l\rangle\langle k|$ です。行列単位の積は
+$X=\sum_{k,l}x_{kl}|k\rangle\langle l|$ と置きます。固定基底で $X^{\mathsf T}=\sum_{k,l}x_{kl}|l\rangle\langle k|$ です。[部分トレースの基底公式](../QINF3/index.md#def-qinf3-partial-trace)で参照系を縮約します。行列単位の積は
 
 $$
 |l\rangle\langle k|i\rangle\langle j|
@@ -311,7 +336,7 @@ Kraus作用素が $m$ 個あれば、Choi行列は $m$ 個の階数1以下の行
 <!-- proof-start -->
 ### 証明
 
-任意のKraus表示 $\Phi(X)=\sum_{\alpha=1}^{m}K_\alpha X K_\alpha^\dagger$ に対し、[ChoiのKrausベクトル表示](#thm-qinf9-cp)から
+任意のKraus表示 $\Phi(X)=\sum_{\alpha=1}^{m}K_\alpha X K_\alpha^\dagger$ に対し、[ChoiのKrausベクトル表示](#thm-qinf9-cp)から次の包含を得ます。ここで $\operatorname{Ran}C_\Phi$ は $C_\Phi$ の像空間（出力ベクトル全体）です。
 
 $$
 \operatorname{Ran}C_\Phi
@@ -327,7 +352,7 @@ $$
 
 ### 二つのqubit雑音をChoi行列で検査する
 
-まず $Z=\operatorname{diag}(1,-1)$、$0\le p\le1$ とし、位相反転の確率的混合 $\mathcal D_p(X)=(1-p)X+pZXZ$ を取ります。[QINF7のKraus判定](../QINF7/index.md#thm-qinf7-kraus-cptp)によりチャネルで、非対角成分に掛かる係数は $t=1-2p$ です。行列単位を順に送ると
+まず $Z=\operatorname{diag}(1,-1)$、$0\le p\le1$ とし、位相反転の確率的混合 $\mathcal D_p(X)=(1-p)X+pZXZ$ を取ります。[QINF7のKraus判定](../QINF7/index.md#thm-qinf7-kraus-cptp)によりチャネルで、非対角成分に掛かる係数は $t=1-2p$ です。行列単位を順に送ると次の行列になります。$\operatorname{spec}(C)$ は固有値を重複度込みで並べたものとします。
 
 $$
 C_{\mathcal D_p}
@@ -340,9 +365,9 @@ t&0&0&1
 \operatorname{spec}(C_{\mathcal D_p})=\{2(1-p),2p,0,0\}.
 $$
 
-$\operatorname{Tr}_B C=I_R$ で、固有値は $0\le p\le1$ なら非負です。$0<p<1$ ではChoi rank 2、$p=0,1$ ではrank 1となり、両端点はそれぞれ $I$ または $Z$ によるユニタリ共役です。「位相反転が確率1」であってもランダム雑音の枝が二つ必要なわけではありません。
+$\operatorname{Tr}_B C=I_R$ で、固有値は $0\le p\le1$ なら非負です。[完全正値性判定](#thm-qinf9-cp)と[トレース保存判定](#thm-qinf9-tp)の両方を満たします。$0<p<1$ ではChoi rank 2、$p=0,1$ ではrank 1となり、両端点はそれぞれ $I$ または $Z$ によるユニタリ共役です。「位相反転が確率1」であってもランダム雑音の枝が二つ必要なわけではありません。
 
-続いて $0\le\gamma\le1$ の振幅減衰チャネル $\mathcal A_\gamma$ を扱います。[QINF7の振幅減衰](../QINF7/index.md#thm-qinf7-kraus-cptp)のKraus作用素
+続いて $0\le\gamma\le1$ の振幅減衰チャネル $\mathcal A_\gamma$ を扱います。[QINF7の振幅減衰の計算例](../QINF7/index.md#ex-qinf7-a04)でも使ったKraus作用素を、一般の $\gamma$ について書くと
 
 $$
 K_0=\begin{pmatrix}1&0\\0&\sqrt{1-\gamma}\end{pmatrix},
@@ -361,7 +386,15 @@ C_{\mathcal A_\gamma}
 \end{pmatrix}.
 $$
 
-これは二つの正値階数1項の和です。$\operatorname{Tr}_B C=\operatorname{diag}(1,\gamma+1-\gamma)=I_R$ なのでCPTPです。$\gamma=0$ のrankは1、$0<\gamma\le1$ のrankは2です。$\operatorname{Tr}_R C=\operatorname{diag}(1+\gamma,1-\gamma)$ だから、$\gamma>0$ では単位的ではありません。この例は、トレース保存と単位的が別条件であることも示します。
+これは二つの正半定値な外積の和です（$\gamma=0$ のとき第2項は零）。部分トレースを基底成分ごとに足すと
+
+$$
+\operatorname{Tr}_B C=\operatorname{diag}(1,\gamma+1-\gamma)=I_R,
+\qquad
+\operatorname{Tr}_R C=\operatorname{diag}(1+\gamma,1-\gamma)
+$$
+
+となります。[Choiの二条件](#thm-qinf9-tp)からCPTPであり、$\gamma>0$ では単位的ではありません。$\gamma=0$ のrankは1、$0<\gamma\le1$ のrankは2です。この例は、トレース保存と単位的が別条件であることも示します。
 
 ## 6. 判定の順序と使える範囲
 
@@ -428,7 +461,7 @@ $$
 \end{aligned}
 $$
 
-特に $b,c$ が交換されていないのは、掛けるのが $X$ ではなく $X^{\mathsf T}$ だからです。この写像は $C_\Phi$ の $|00\rangle\pm|11\rangle$ 方向の固有値が $3,-1$ となるため、完全正ではありません。
+特に $b,c$ が交換されていないのは、掛けるのが $X$ ではなく $X^{\mathsf T}$ だからです。この写像は $C_\Phi$ の $|00\rangle\pm|11\rangle$ 方向の固有値が $3,-1$ となるため、[Choiの判定](#thm-qinf9-cp)により完全正ではありません。
 <!-- solution-end -->
 
 <a id="ex-qinf9-a03"></a>
@@ -487,7 +520,7 @@ $$
 C_{\mathcal D_p}=\begin{pmatrix}1&0&0&t\\0&0&0&0\\0&0&0&0\\t&0&0&1\end{pmatrix}.
 $$
 
-$|00\rangle\pm|11\rangle$ は固有ベクトルで、その固有値は $1\pm t=2(1-p),2p$ です。残りの $|01\rangle,|10\rangle$ の固有値は0です。よってCPの必要十分条件は $p\ge0$ かつ $1-p\ge0$、すなわち $0\le p\le1$ です。$\operatorname{Tr}_B C=I_R$ は $t$ の値によらず成立しますから、同じ範囲がCPTPの条件です。
+$|00\rangle\pm|11\rangle$ は固有ベクトルで、その固有値は $1\pm t=2(1-p),2p$ です。残りの $|01\rangle,|10\rangle$ の固有値は0です。[ChoiのCP判定](#thm-qinf9-cp)より必要十分条件は $p\ge0$ かつ $1-p\ge0$、すなわち $0\le p\le1$ です。$\operatorname{Tr}_B C=I_R$ は $t$ の値によらず成立しますから、[トレース保存条件](#thm-qinf9-tp)と合わせて同じ範囲がCPTPの条件です。
 
 $p=0,1$ のとき非零固有値は一つでChoi rank 1、$0<p<1$ では二つでrank 2です。[rankと最小Kraus数](#prop-qinf9-choi-rank)より、それぞれ1個、2個必要です。$p=1$ は $\mathcal D_1(X)=ZXZ$ であり、一つのユニタリKraus作用素 $Z$ だけで実現されます。
 <!-- solution-end -->
@@ -540,7 +573,15 @@ $$
 C=\begin{pmatrix}1&0&0&\sqrt{1-\gamma}\\0&0&0&0\\0&0&\gamma&0\\\sqrt{1-\gamma}&0&0&1-\gamma\end{pmatrix}.
 $$
 
-二つの正値階数1行列の和なので $C\ge0$ です。$B$ 側のトレースは参照系の $0$ 対角成分が1、$1$ 対角成分が $\gamma+(1-\gamma)=1$、非対角成分が0なので $\operatorname{Tr}_B C=I_R$ です。従ってCPTP。$\gamma=0$ では $|K_1\rangle\!\rangle=0$ なのでrank 1、$0<\gamma\le1$ では $|K_0\rangle\!\rangle$ と $|K_1\rangle\!\rangle$ が非零で直交するためrank 2です。
+二つの正半定値な外積の和なので $C\ge0$ です（$\gamma=0$ では第2項は零）。$B$ 側の部分トレースでは、参照系の対角成分が順に $1$ と $\gamma+(1-\gamma)$ となり、非対角成分は0です。
+
+$$
+\operatorname{Tr}_B C
+=\begin{pmatrix}1&0\\0&\gamma+(1-\gamma)\end{pmatrix}
+=I_R.
+$$
+
+従って[Choiの完全正・トレース保存判定](#thm-qinf9-tp)よりCPTPです。$\gamma=0$ では $|K_1\rangle\!\rangle=0$ なのでrank 1です。一方、$0<\gamma\le1$ では $|K_0\rangle\!\rangle$ と $|K_1\rangle\!\rangle$ が非零で直交するためrank 2です。
 
 再構成では $X=E_{01}$、$X^{\mathsf T}=E_{10}$ とするので
 
@@ -642,7 +683,7 @@ M=\begin{pmatrix}a&c\\\overline c&b\end{pmatrix},
 \frac{a+b\pm\sqrt{(a-b)^2+4|c|^2}}2
 $$
 
-です。$M\ge0$ は $a\ge0$、$b\ge0$、$\det M=ab-|c|^2\ge0$ と同値です。必要性は対角成分の二次形式と行列式から、十分性は $a+b\ge0$ かつ $\lambda_+\lambda_-=\det M\ge0$（または平方完成）から従います。従ってCPTPの必要十分条件は
+です。$M\ge0$ は $a\ge0$、$b\ge0$、$\det M=ab-|c|^2\ge0$ と同値です。必要性は対角成分の二次形式と行列式から、十分性は $a+b\ge0$ かつ $\lambda_+\lambda_-=\det M\ge0$（または平方完成）から従います。[Choiの完全正値性判定](#thm-qinf9-cp)と[トレース保存条件](#thm-qinf9-tp)を適用すると、CPTPの必要十分条件は
 
 $$
 \boxed{0\le a\le1,\quad0\le b\le1,\quad|c|^2\le ab.}
