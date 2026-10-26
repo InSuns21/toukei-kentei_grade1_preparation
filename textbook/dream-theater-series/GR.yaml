@@ -169,7 +169,7 @@ chapters:
     title: "Hamiltonian・運動量制約"
   - id: GR41
     path: textbook/volumes/dream_thater/物理系/GR/GR41
-    status: planned
+    status: completed
     title: "FLRW計量と対称性"
   - id: GR42
     path: textbook/volumes/dream_thater/物理系/GR/GR42
