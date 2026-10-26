@@ -18,7 +18,19 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-14-computational-graph -->
-**定義の確認**。上の例は入力 $x$ と計算節点 $u=x^2$、$v=3x$、$w=uv$、$y=w+u$ を持つ。評価順は $x\to(u,v)\to w\to y$ とできるので循環がない。節点 $w$ の局所写像は $\phi_w(u,v)=uv:\mathbb R^2\to\mathbb R$ であり、$y$ の二つの親は $w,u$ である。$u$ から $w$ と $y$ への二本の矢印を区別することが必要になる。
+**定義の確認**。上の例の入力は $x$ 一つ、計算節点は $u=x^2$、$v=3x$、$w=uv$、$y=w+u$ の四つであり、いずれも有限個である。先に必要な値を並べると
+
+$$
+x\longrightarrow(u,v)\longrightarrow w\longrightarrow y
+$$
+
+の順に評価できるので循環はない。節点 $w$ は二つの実数を親として、局所写像
+
+$$
+\phi_w:\mathbb R^2\to\mathbb R,\qquad \phi_w(u,v)=uv
+$$
+
+を使う。最終節点 $y$ の親は $w,u$ であり、$u$ から $w$ と $y$ への二本の矢印を区別する。したがって節点の数・矢印の向き・局所写像の定義域と値域・非巡回性をいずれも確認できた。
 <!-- definition-example-end -->
 
 この段階では計算グラフは「どの値を先に作るか」の記録でしかない。微分を求めるには、各矢印の周辺で小さな変化が何倍に伝わるかを調べる。
@@ -116,7 +128,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-14-adjoint -->
-**定義の確認**。第1節の $y=w+u$、$w=uv$ に戻る。$y$ を損失とすれば $\bar y=\partial y/\partial y=1$。$w$ だけを変えれば $y$ は同量増えるので $\bar w=1$。$u$ は $w$ を固定した直接経路では係数1、$w=uv$ の経路では係数 $v$ だから $\bar u=1+v$。$x=2$ なら $\bar u=7,\bar v=u=4$、いずれも実数（1成分の列）である。
+**定義の確認**。第1節の $y=w+u$、$w=uv$ に戻る。$y$ を損失とすれば、その節点自身への微分は1である。$w$ だけを変えれば $y$ は同量増えるので、まず
+
+$$
+\bar y=\frac{\partial y}{\partial y}=1,\qquad \bar w=\frac{\partial y}{\partial w}=1
+$$
+
+となる。$u$ は $w$ を固定した直接経路では係数1、$w=uv$ の経路では係数 $v$ だから、二経路の寄与を足すと
+
+$$
+\bar u=1+v,\qquad \bar v=u.
+$$
+
+$x=2$ では $u=4,v=6$ なので、$\bar u=7,\bar v=4$。いずれも実数（1成分の列）である。
 <!-- definition-example-end -->
 
 節点が一つの親からだけ作られる場合は、親へ局所Jacobianの転置を掛ければよい。複数の子が同じ値を使っていれば、その子から来る勾配を**すべて加える**。
@@ -160,7 +184,7 @@ $$
 
 $$
 \Delta E=\left(\sum_j J_{j,u}^{\mathsf T}\bar v_j\right)^{\mathsf T}\Delta u
-o(\|\Delta u\|).
++o(\|\Delta u\|).
 $$
 
 微分を表す線形写像の一意性より、括弧内が $\bar u$ に等しい。グラフが有限で循環がないので、すべての子の随伴量を先に求める逆向き順序が存在する。損失節点で $\bar E=1$ とし、この式を順に適用すれば帰納法で各節点の真の勾配となる。$\square$
@@ -187,6 +211,8 @@ $$
 
 損失 $\ell_{\mathrm{loss}}:\mathbb R^{d_L}\to\mathbb R$ は $h_L$ で微分可能とし、$E=\ell_{\mathrm{loss}}(h_L)$ と置く。$D_\ell=\operatorname{diag}(\phi_\ell'(z_{\ell,1}),\ldots,\phi_\ell'(z_{\ell,d_\ell}))$ は隠れ層の $d_\ell\times d_\ell$ 対角行列である。局所関係 $\Delta z_\ell=W_\ell\Delta h_{\ell-1}$、$\Delta h_\ell=D_\ell\Delta z_\ell$ によって、入力からのJacobianはそれぞれ $W_\ell,D_\ell$ になる。
 
+重み行列の**勾配**は、各重みを独立に変えたときの損失の偏微分を同じ行・列へ並べた行列とする。すなわち $W_\ell$ が $d_\ell\times d_{\ell-1}$ のとき、$(\nabla_{W_\ell}E)_{ij}=\partial E/\partial(W_\ell)_{ij}$ と定める。この定義により、重みをどの成分から変えても対応する偏微分を取り出せる。
+
 <a id="thm-ml2-14-backprop"></a>
 
 <!-- formal-statement-start -->
@@ -205,7 +231,7 @@ $$
 \end{aligned}
 $$
 
-> 行列の勾配は成分ごとに $(\nabla_{W_\ell}E)_{ij}=\partial E/\partial(W_\ell)_{ij}$ と定める。これらの式は同じ層重みを別の場所で共有しない場合の式であり、共有する場合は使用ごとの寄与を加える。
+> これらの式は同じ層重みを別の場所で共有しない場合の式であり、共有する場合は使用ごとの寄与を加える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -323,7 +349,23 @@ $$
 J_F(x)=\begin{pmatrix}6&6\\4&-2\end{pmatrix}.
 $$
 
-方向 $v=(1,0)^{\mathsf T}$ の前向きモードでは $J_Fv=(6,4)^{\mathsf T}$、出力種 $w=(1,2)^{\mathsf T}$ の逆モードでは $J_F^{\mathsf T}w=(14,2)^{\mathsf T}$。出力次元2、入力次元2と両積の次元も一致する。
+方向 $v=(1,0)^{\mathsf T}$ を前から送ると、まず $f$ の入力から中間値への局所Jacobian $J_f$ を掛け、次に評価点 $u=f(x)=(3,1)$ での $J_g(u)$ を掛ける。
+
+$$
+J_f(x)v=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+J_g(u)\begin{pmatrix}1\\1\end{pmatrix}
+=\begin{pmatrix}6\\4\end{pmatrix}=J_F(x)v.
+$$
+
+逆モードでは出力種 $w=(1,2)^{\mathsf T}$ を最後の演算から戻す。まず $g$ の局所Jacobianの転置を掛け、その結果を $f$ の転置で戻す。
+
+$$
+J_g(u)^{\mathsf T}w=\begin{pmatrix}8\\6\end{pmatrix},\qquad
+J_f(x)^{\mathsf T}\begin{pmatrix}8\\6\end{pmatrix}
+=\begin{pmatrix}14\\2\end{pmatrix}=J_F(x)^{\mathsf T}w.
+$$
+
+前向きは各節点の方向微分を後続へ渡し、逆向きは各節点の随伴量を直前へ渡す。両者とも局所Jacobianの積だけで計算でき、ここでは出力次元2、入力次元2と両積の次元も一致する。
 <!-- definition-example-end -->
 
 各局所Jacobianを陽に巨大な行列として保存する必要はない。例えばアフィン演算では前向きは $Wv$、逆向きは $W^{\mathsf T}w$、成分ごとの活性化では成分積を取れば済む。[逆伝播の定理](#thm-ml2-14-backprop)は、まさにこれらを使った逆モードの具体化である。
@@ -360,7 +402,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q$ が3回連続微分可能なので、一変数のTaylorの定理を展開点 $a$、評価点 $a+h$ および $a-h$、二次までに適用できる。$\xi_+\in(a,a+h)$ と $\xi_-\in(a-h,a)$ が存在して
+$q$ が3回連続微分可能なので、一変数の[Taylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を展開点 $a$、評価点 $a+h$ および $a-h$、二次までに適用できる。$\xi_+\in(a,a+h)$ と $\xi_-\in(a-h,a)$ が存在して
 
 $$
 \begin{aligned}
@@ -427,7 +469,13 @@ $u=x^2$、$v=3x$、$y=uv+u$ を計算するグラフについて、$x=2$ で $u,
 <!-- solution-start -->
 ### 詳細解答
 
-$u=4,v=6,y=4\cdot6+4=28$。最終節点から $\bar y=1$、積 $uv$ から $\bar u$ へ $v=6$、直和の $+u$ からさらに1が届く。したがって $\bar u=7$、$\bar v=u=4$ である。入力への微分は $du/dx=2x=4$、$dv/dx=3$ なので
+前向きには $u=4,v=6$、したがって $y=4\cdot6+4=28$ となる。最終節点から $\bar y=1$、積 $uv$ から $\bar u$ へ6、最後の加算 $+u$ からさらに1が届く。二経路の和ともう一方の随伴量は
+
+$$
+\bar u=6+1=7,\qquad \bar v=u=4.
+$$
+
+入力への局所微分は $du/dx=2x=4$、$dv/dx=3$ なので
 
 $$
 \bar x=7(4)+4(3)=28+12=40.
