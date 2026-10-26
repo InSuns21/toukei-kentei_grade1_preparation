@@ -1018,6 +1018,7 @@
 6. [QINF6 Schmidt分解](textbook/volumes/dream_thater/応用系/QINF/QINF6/index.md)
 7. [QINF7 量子チャネルとKraus表示](textbook/volumes/dream_thater/応用系/QINF/QINF7/index.md)
 8. [QINF8 Stinespring表現と相補チャネル](textbook/volumes/dream_thater/応用系/QINF/QINF8/index.md)
+9. [QINF9 Choi表現とチャネル判定](textbook/volumes/dream_thater/応用系/QINF/QINF9/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
