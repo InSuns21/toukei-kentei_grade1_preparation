@@ -364,9 +364,9 @@ $$
 
 $$
 Y=\begin{pmatrix}
-(2+4)/2\\(2+4e)/(1+e)
+(2+4)/2\\[2pt](2+4e)/(1+e)
 \end{pmatrix}
-=\begin{pmatrix}3\\(2+4e)/(1+e)\end{pmatrix}.
+=\begin{pmatrix}3\\[2pt](2+4e)/(1+e)\end{pmatrix}.
 $$
 
 重みはquery/keyで決まり、値を $(0,1)$ から $(2,4)$ へ変えても $A$ は変わらない。
@@ -447,7 +447,7 @@ $n=2,k=v=1$ で $Q=K=0$、$V=(1,3)^{\mathsf T}$ とし、因果マスク $J_1=\{
 
 $$
 A=\begin{pmatrix}1&0\\1/2&1/2\end{pmatrix},\quad
-Y=\begin{pmatrix}1\\(1+3)/2\end{pmatrix}
+Y=\begin{pmatrix}1\\[2pt](1+3)/2\end{pmatrix}
 =\begin{pmatrix}1\\2\end{pmatrix}.
 $$
 
