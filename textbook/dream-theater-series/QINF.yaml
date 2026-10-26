@@ -49,7 +49,7 @@ chapters:
     title: "Choi表現とチャネル判定"
   - id: QINF10
     path: textbook/volumes/dream_thater/応用系/QINF/QINF10
-    status: planned
+    status: completed
     title: "二状態識別とHelstrom界"
   - id: QINF11
     path: textbook/volumes/dream_thater/応用系/QINF/QINF11

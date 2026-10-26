@@ -1,0 +1,66 @@
+chapter: QINF10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF2
+  - QINF5
+  - QINF7
+forward_references: []
+
+concepts:
+  - id: quantum.binary-minimum-error-discrimination
+    name: 二状態最小誤り識別
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二状態最小誤り識別）]
+    requires: [quantum.finite-density-operator, quantum.povm]
+
+  - id: quantum.helstrom-operator
+    name: Helstrom作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Helstrom作用素と正負部分）]
+    requires: [quantum.binary-minimum-error-discrimination]
+
+  - id: quantum.finite-trace-norm
+    name: 有限次元トレースノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限次元トレースノルム）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.positive-part-variational
+    name: 自己共役作用素の正部分の変分原理
+    kind: lemma
+    introduction: formal
+    aliases: [正部分の変分原理]
+    introduction_aliases: [補題（正部分の変分原理）]
+    requires: [quantum.helstrom-operator]
+
+  - id: quantum.helstrom-bound
+    name: 二状態識別のHelstrom界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二状態識別のHelstrom界）]
+    requires: [quantum.positive-part-variational, quantum.finite-trace-norm]
+
+  - id: quantum.commuting-state-test
+    name: 可換状態の尤度比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可換状態の尤度比較）]
+    requires: [quantum.helstrom-bound]
+
+  - id: quantum.pure-binary-discrimination
+    name: 二つの純粋状態の識別公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二つの純粋状態の識別公式）]
+    requires: [quantum.helstrom-bound]
+
+  - id: quantum.discrimination-data-processing
+    name: チャネル下での最適識別性能の単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（チャネル下での最適識別性能の単調性）]
+    requires: [quantum.helstrom-bound, quantum.quantum-channel]
