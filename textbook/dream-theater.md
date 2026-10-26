@@ -1018,6 +1018,7 @@
 6. [QINF6 Schmidt分解](textbook/volumes/dream_thater/応用系/QINF/QINF6/index.md)
 7. [QINF7 量子チャネルとKraus表示](textbook/volumes/dream_thater/応用系/QINF/QINF7/index.md)
 8. [QINF8 Stinespring表現と相補チャネル](textbook/volumes/dream_thater/応用系/QINF/QINF8/index.md)
+9. [QINF9 Choi表現とチャネル判定](textbook/volumes/dream_thater/応用系/QINF/QINF9/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
@@ -1060,6 +1061,7 @@
 36. [ML2-15 深層最適化・正則化・汎化検証](textbook/volumes/dream_thater/応用系/ML/ML2-15/index.md)
 37. [ML2-16 畳み込みネットワークと等変性](textbook/volumes/dream_thater/応用系/ML/ML2-16/index.md)
 38. [ML2-17 系列模型・再帰ネットワーク](textbook/volumes/dream_thater/応用系/ML/ML2-17/index.md)
+39. [ML2-18 Attention・Transformerの演算](textbook/volumes/dream_thater/応用系/ML/ML2-18/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
@@ -1262,6 +1264,7 @@
 37. [GR37 特異点定理と測地不完備性](textbook/volumes/dream_thater/物理系/GR/GR37/index.md)
 38. [GR38 宇宙検閲仮説の論理と既知の限界](textbook/volumes/dream_thater/物理系/GR/GR38/index.md)
 39. [GR39 3+1分解と初期データの意味](textbook/volumes/dream_thater/物理系/GR/GR39/index.md)
+40. [GR40 Hamiltonian・運動量制約](textbook/volumes/dream_thater/物理系/GR/GR40/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

@@ -8,7 +8,7 @@
 
 ## 1. 一つの入力から出力と環境を作る
 
-まず、[QINF7の振幅減衰](../QINF7/index.md#thm-qinf7-kraus-cptp)を手がかりにします。緩和率を $0\le\gamma\le1$ とし、$H_A=H_B=H_E=\mathbb C^2$ で
+まず、[QINF7第4.3節の振幅減衰](../QINF7/index.md)を手がかりにします。緩和率を $0\le\gamma\le1$ とし、$H_A=H_B=H_E=\mathbb C^2$ で
 
 $$
 \begin{aligned}
@@ -72,7 +72,7 @@ $$
 +\gamma|0\rangle\langle0|.
 $$
 
-これは[QINF7の振幅減衰の出力](../QINF7/index.md#thm-qinf7-kraus-cptp)で直接計算したものと一致します。二つの枝の確率は、環境を捨てる操作によって一つの混合状態に合流しました。
+これはQINF7第4.3節の振幅減衰の出力で直接計算したものと一致します。二つの枝の確率は、環境を捨てる操作によって一つの混合状態に合流しました。
 <!-- definition-example-end -->
 
 ## 2. すべての量子チャネルに環境表示がある
@@ -164,6 +164,7 @@ $$
 
 この定理は「環境が物理的にどの粒子であるか」を一意に定めるものではありません。しかし**任意の有限次元CPTP写像を、環境を含めた内積保存操作と、環境を捨てる操作とに分解できる**ことを保証します。環境基底のラベル $\alpha$ は、ここでは数学的な直交方向であり、必ずしも実験装置で読み出した測定結果ではありません。
 
+<a id="ex-qinf8-reset-isometry"></a>
 ### 出力が一定でも環境は情報を持てる
 
 $H_A=H_B=H_E=\mathbb C^2$ として
@@ -238,7 +239,7 @@ $$
 <!-- definition-example-start: def-qinf8-complement -->
 ### 定義の確認：リセットの環境は入力を保持する
 
-**定義の確認**として、前節のリセット等長写像を使います。任意の密度演算子 $\rho$ について、前節で導いた積の形から
+**定義の確認**として、[前節のリセット等長写像](#ex-qinf8-reset-isometry)を使います。任意の密度演算子 $\rho$ について、前節で導いた積の形から
 
 $$
 \operatorname{Tr}_B(V\rho V^\dagger)
@@ -282,7 +283,17 @@ VXV^\dagger
 =\sum_{\mu,\nu} K_\mu X K_\nu^\dagger\otimes|\mu\rangle\langle\nu|_E
 $$
 
-を使います。$\langle\alpha|\cdot|\beta\rangle$ を環境側へ作用させると、$\mu=\alpha,\nu=\beta$ だけ残ります。続いて $B$ をトレースすれば第一の等式を得ます。第二の等式は矩形行列にも使えるトレースの循環性によります。
+を使います。$\langle\alpha|\cdot|\beta\rangle$ を環境側へ作用させると、$\mu=\alpha,\nu=\beta$ だけ残ります。続いて $B$ をトレースすれば第一の等式を得ます。第二の等式は矩形行列にも使えるトレースの循環性によります。入出力の空間の違いは基底成分で確かめます。入力基底 $|i\rangle_A$ と出力基底 $|b\rangle_B$ に対し、$X_{ij}=\langle i|X|j\rangle$ とおけば
+
+$$
+\begin{aligned}
+\operatorname{Tr}_B(K_\alpha X K_\beta^\dagger)
+&=\sum_{b,i,j}\langle b|K_\alpha|i\rangle X_{ij}
+  \langle j|K_\beta^\dagger|b\rangle\\
+&=\sum_{i,j}X_{ij}\langle j|K_\beta^\dagger K_\alpha|i\rangle
+=\operatorname{Tr}_A(XK_\beta^\dagger K_\alpha).
+\end{aligned}
+$$
 
 完全正値性のため、$H_B$ の正規直交基底 $|b\rangle$（$1\le b\le d_B$）を選び、
 
@@ -311,7 +322,7 @@ $$
 
 ## 4. 振幅減衰では何が環境へ移るか
 
-振幅減衰のKraus作用素を、[QINF7の具体的な振幅減衰](../QINF7/index.md#thm-qinf7-kraus-cptp)と同じ規約で
+振幅減衰のKraus作用素を、[QINF7第4.3節の具体例](../QINF7/index.md)と同じ規約で
 
 $$
 K_0=\begin{pmatrix}1&0\\0&\sqrt{1-\gamma}\end{pmatrix},
@@ -327,7 +338,18 @@ $$
 \quad a,d\ge0,\quad a+d=1,\quad |b|^2\le ad
 $$
 
-です。[相補チャネルの行列成分](#prop-qinf8-complement-matrix)に代入すると、対角成分は
+です。これは入力の計算基底 $|0\rangle,|1\rangle$ による表示です。[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の自己共役性は非対角成分 $b,\overline b$ に、トレース1は $a+d=1$ に対応します。
+
+正半定値性については、基底ベクトルで二次形式を評価すると $a,d\ge0$ が必要です。また、自己共役行列は正規行列なので[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用できます。固有値は実数で、その和と積は
+
+$$
+\lambda_1+\lambda_2=a+d=1>0,\qquad
+\lambda_1\lambda_2=ad-|b|^2
+$$
+
+です。従って $ad-|b|^2\ge0$ は非負固有値の必要十分条件となり、表示に課した条件と元の密度演算子の条件が対応します。
+
+[相補チャネルの行列成分](#prop-qinf8-complement-matrix)に代入すると、対角成分は
 
 $$
 \begin{aligned}
@@ -400,7 +422,19 @@ x_{00}+(1-\gamma)x_{11}&\sqrt\gamma\,x_{01}\\
 \end{pmatrix}.
 $$
 
-一方、[振幅減衰のKraus計算](../QINF7/index.md#thm-qinf7-kraus-cptp)の一般式で緩和率を $\eta=1-\gamma$ と置くと
+一方、緩和率を $\eta=1-\gamma$ とし、振幅減衰の二つのKraus作用素を用いて積を取ると
+
+$$
+\begin{aligned}
+K_0(\eta)XK_0(\eta)^\dagger
+&=\begin{pmatrix}x_{00}&\sqrt{1-\eta}\,x_{01}\\
+\sqrt{1-\eta}\,x_{10}&(1-\eta)x_{11}\end{pmatrix},\\
+K_1(\eta)XK_1(\eta)^\dagger
+&=\begin{pmatrix}\eta x_{11}&0\\0&0\end{pmatrix}.
+\end{aligned}
+$$
+
+従って、その和は
 
 $$
 \mathcal A_{\eta}(X)
@@ -652,7 +686,7 @@ $$
 =\begin{pmatrix}1-p&0\\0&p\end{pmatrix}.
 $$
 
-どちらもトレース1で、前者の行列式は0、後者は $p(1-p)>0$ なので正半定値です。二つの状態を区別するのは環境の非対角成分です。入力の位相 $b$ ではなく、$Z$ 期待値がそこへ入る点に注意します。
+どちらも自己共役でトレース1です。固有値は実数で和が1なので、その積である行列式が非負なら固有値はともに非負です。前者の行列式は0、後者は $p(1-p)>0$ なので、両者は正半定値です。二つの状態を区別するのは環境の非対角成分です。入力の位相 $b$ ではなく、$Z$ 期待値がそこへ入る点に注意します。
 <!-- solution-end -->
 
 <a id="ex-qinf8-b01"></a>
@@ -693,7 +727,7 @@ $$
 \end{aligned}
 $$
 
-最後は入力の $|b|^2\le ad$ と $0\le\gamma\le1$ を使いました。よって相補出力は任意の入力密度演算子に対して密度演算子です。
+最後は入力の $|b|^2\le ad$ と $0\le\gamma\le1$ を使いました。出力行列は自己共役です。二次元自己共役行列の固有値は実数で、和がトレース1、積がこの非負な行列式なので、両固有値とも非負です。従って正半定値であり、任意の入力密度演算子に対して密度演算子です。
 <!-- solution-end -->
 
 <a id="ex-qinf8-b02"></a>
@@ -766,7 +800,7 @@ $$
 \end{aligned}
 $$
 
-これは二つの互いに直交するベクトル $|0\rangle_R|0\rangle_B$ と $|1\rangle_R|0\rangle_B$ に固有値 $1/2$ を持つためrankは2です。従って最小環境次元は2で、[リセット等長写像](#def-qinf8-isometry)の例が下界を達成します。リセットは受信者側で情報が失われても、環境には二次元の入力を保持する余地が必要です。
+これは二つの互いに直交するベクトル $|0\rangle_R|0\rangle_B$ と $|1\rangle_R|0\rangle_B$ に固有値 $1/2$ を持つためrankは2です。従って最小環境次元は2で、[第2節のリセット等長写像](#ex-qinf8-reset-isometry)の例が下界を達成します。リセットは受信者側で情報が失われても、環境には二次元の入力を保持する余地が必要です。
 <!-- solution-end -->
 
 <a id="ex-qinf8-b04"></a>
@@ -869,7 +903,14 @@ M_1=\sqrt{\gamma+\delta(1-\gamma)}\,|0\rangle\langle1|
 =\sqrt\Gamma\,|0\rangle\langle1|
 $$
 
-へまとめられます。残る $M_0=\operatorname{diag}(1,\sqrt{1-\Gamma})$ と合わせれば
+へまとめられます。ここで「まとめる」とは作用素を単純に加算することではなく、二つのKraus項の和を保つことです。$P=|0\rangle\langle1|$ と置けば、元の二項は
+
+$$
+\gamma PXP^\dagger+\delta(1-\gamma)PXP^\dagger
+=\Gamma PXP^\dagger=M_1XM_1^\dagger
+$$
+
+と一致します。残る $M_0=\operatorname{diag}(1,\sqrt{1-\Gamma})$ と合わせれば
 
 $$
 M_0XM_0^\dagger+M_1XM_1^\dagger

@@ -1,0 +1,47 @@
+chapter: ML2-18
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-14, ML2-17]
+concepts:
+  - id: learning.scaled-dot-product-attention
+    name: scaled dot-product attention
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（scaled dot-product attention）"]
+    requires: [learning.layer-jacobian-chain]
+  - id: learning.masked-attention
+    name: 許可集合とマスク付きattention
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（許可集合とマスク付きattention）"]
+    requires: [learning.scaled-dot-product-attention]
+  - id: learning.attention-gradient
+    name: softmaxとattentionの微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（softmaxとattentionの微分）"]
+    requires: [learning.masked-attention, learning.reverse-chain-rule]
+  - id: learning.causal-attention
+    name: マスク付きattentionの因果性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（マスク付きattentionの因果性）"]
+    requires: [learning.masked-attention]
+  - id: learning.multihead-attention
+    name: multi-head attentionと残差ブロック
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（multi-head attentionと残差ブロック）"]
+    requires: [learning.scaled-dot-product-attention]
+  - id: learning.attention-position-information
+    name: 位置情報を加えたトークン表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位置情報を加えたトークン表現）"]
+    requires: [learning.multihead-attention]
+  - id: learning.attention-permutation-equivariance
+    name: 位置情報なしの置換同変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（位置情報なしの置換同変性）"]
+    requires: [learning.scaled-dot-product-attention, learning.multihead-attention]

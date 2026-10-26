@@ -1,0 +1,45 @@
+chapter: QINF9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF7
+  - QINF8
+forward_references: []
+
+concepts:
+  - id: quantum.choi-matrix
+    name: Choi行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非規格化Choi行列）]
+    requires: [quantum.completely-positive-map, quantum.composite-system]
+
+  - id: quantum.choi-reconstruction
+    name: Choi表現からの写像再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Choi行列による写像の再構成）]
+    requires: [quantum.choi-matrix, quantum.partial-trace]
+
+  - id: quantum.choi-cp-criterion
+    name: Choiの完全正値性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Choi行列の正半定値性と完全正値性）]
+    requires: [quantum.choi-matrix, quantum.completely-positive-map, quantum.kraus-existence]
+
+  - id: quantum.choi-tp-criterion
+    name: Choiによるトレース保存条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Choi行列によるトレース保存条件）]
+    requires: [quantum.choi-matrix, quantum.quantum-channel]
+
+  - id: quantum.choi-rank
+    name: Choi rankと最小Kraus数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Choi rankと最小Kraus数）]
+    requires: [quantum.choi-cp-criterion, quantum.stinespring-minimal-uniqueness]

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-18 Attentionと置換同変性の計算ラボ</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1060px;margin:0 auto;padding:16px;line-height:1.65}
+h1{font-size:1.45rem}h2{font-size:1.14rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+fieldset{border:1px solid #748997;border-radius:10px;padding:10px 13px}
+legend{font-weight:700}.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+label{display:block;font-size:.91rem}
+input,select{display:block;box-sizing:border-box;max-width:100%;width:100%;padding:7px;margin:3px 0 7px;font:inherit}
+button{padding:8px 16px;border:1px solid #567794;border-radius:8px;background:#dceefa;color:#193e60;cursor:pointer;margin:6px 9px 6px 0}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:7px;text-align:right;border:1px solid #8899a866}
+th{background:#708da720}th:first-child{text-align:left}
+.tables{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:12px}
+.scroll{overflow-x:auto}
+.note{padding:11px;background:#dfedf7;color:#153e5f;border-radius:7px}
+.warning{background:#fff0d3;color:#764500}
+.error{color:#b3262e;font-weight:700}
+.value{font-size:1.08rem;font-variant-numeric:tabular-nums}
+small{font-size:.9rem}
+@media(max-width:580px){body{padding:10px}th,td{padding:5px;font-size:.86rem}}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-18/index">← ML2-18 本文へ</a> ・ <a href="./index.html">実験一覧へ</a></nav>
+<h1>Attention行列・残差・位置入替を計算する</h1>
+<p>3トークン×2特徴から、幅1のheadを2個作ります。各headのquery・key・valueの係数を変え、<strong>得点 → softmax → 値の平均 → head連結 → 残差</strong>をその場で再計算します。出力射影は恒等行列です。</p>
+<p><button id="reset" type="button">標準例に戻す</button><button id="swap" type="button" aria-pressed="false">入力の1行目と3行目を交換する</button></p>
+<div class="controls">
+<fieldset><legend>トークン X（位置ベクトルを足す前）</legend>
+<div class="field-grid" id="tokens"></div></fieldset>
+<fieldset><legend>head 1 の射影ベクトル</legend>
+<div class="field-grid" id="head1"></div></fieldset>
+<fieldset><legend>head 2 の射影ベクトル</legend>
+<div class="field-grid" id="head2"></div></fieldset>
+<fieldset><legend>マスク・位置情報</legend>
+<label>参照方式<select id="mask">
+<option value="all">全列参照</option><option value="causal">因果マスク j ≤ i</option>
+<option value="padding">第3列はパディング</option></select></label>
+<label>位置強度 p（E行: [0,0], [0,p], [p,0]）
+<input id="positionStrength" type="number" min="-100" max="100" step="0.25" value="0"></label>
+</fieldset>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="note">入力交換ではトークン X の行だけを入れ替え、位置ベクトル・因果マスク・「第3列はパディング」という意味は元の位置番号に固定します。位置強度0・全列参照なら置換同変性が成り立ちます。</p>
+<div id="results"></div>
+<h2>置換同変性の数値比較</h2>
+<p>交換後の出力と「交換前の出力をそのまま行交換したもの」を比較します。行列の成分差の絶対値最大を表示します。</p>
+<p class="value" id="comparison"></p>
+<div class="tables">
+<section><h3>交換後の残差出力</h3><div class="scroll" id="swappedRows"></div></section>
+<section><h3>交換前の残差を行交換したもの</h3><div class="scroll" id="expectedRows"></div></section>
+</div>
+<p id="explanation"></p>
+<p><small>計算はブラウザ内で完結します。乱数・外部データ通信は使いません。入力・係数・位置強度は絶対値100以下の有限数のみ許可します。極端な得点はsoftmaxで一つの参照先へ集中し、丸めのため0や1に見える場合があります。第3行をパディングとする場合はそのqueryの結果を損失へ使いません。</small></p>
+<script type="module">
+import { defaultTokens, defaultHeads, permutationComparison } from "./ml2-18-model.mjs";
+const $ = id => document.getElementById(id);
+let swapped = false;
+const settings = { tokens: defaultTokens.map(row => row.slice()), heads: structuredClone(defaultHeads) };
+const descriptors = [
+  ...[0,1,2].flatMap(i => [0,1].map(j => ({ parent:"tokens", key:"x"+i+j,
+    title:"行"+(i+1)+"・特徴"+(j+1), value:settings.tokens[i][j] }))),
+  ...[0,1].flatMap(h => ["q","k","v"].flatMap(qkv => [0,1].map(c => ({
+    parent:"head"+(h+1), key:"h"+h+qkv+c, title:qkv.toUpperCase()+" 係数"+(c+1),
+    value:settings.heads[h][qkv][c] }))))
+];
+for (const item of descriptors) {
+  const label = document.createElement("label");
+  label.textContent = item.title;
+  const input = document.createElement("input");
+  input.id = item.key; input.type = "number"; input.step = "any";
+  input.min = "-100"; input.max = "100"; input.value = String(item.value);
+  label.append(input); $(item.parent).append(label);
+}
+const format = x => Number.isFinite(x) ? Number(x.toPrecision(6)).toString() : String(x);
+function table(headers, body, title) {
+  const table = document.createElement("table");
+  table.setAttribute("aria-label", title);
+  const head = table.createTHead(), hrow = head.insertRow();
+  for (const label of headers) {
+    const th = document.createElement("th"); th.scope = "col"; th.textContent = label; hrow.append(th);
+  }
+  const tbody = table.createTBody();
+  body.forEach((row, i) => {
+    const tr = tbody.insertRow();
+    const th = document.createElement("th"); th.scope = "row"; th.textContent = String(i+1); tr.append(th);
+    row.forEach(x => { const td = tr.insertCell(); td.textContent = format(x); });
+  });
+  return table;
+}
+function section(title, tableElement) {
+  const block = document.createElement("section");
+  const h = document.createElement("h3"); h.textContent = title;
+  const wrapper = document.createElement("div"); wrapper.className = "scroll"; wrapper.append(tableElement);
+  block.append(h, wrapper); return block;
+}
+function readInput(id) {
+  const field = $(id);
+  if (!field.value.trim()) throw new RangeError(id + " が空欄です");
+  const x = Number(field.value);
+  if (!Number.isFinite(x) || Math.abs(x) > 100) throw new RangeError(id + " は絶対値100以下の有限数にしてください");
+  return x;
+}
+function render() {
+  try {
+    const tokens = [0,1,2].map(i => [0,1].map(j => readInput("x"+i+j)));
+    const heads = [0,1].map(h => Object.fromEntries(["q","k","v"].map(name =>
+      [name, [0,1].map(c => readInput("h"+h+name+c))])));
+    const positionStrength = readInput("positionStrength"), mask = $("mask").value;
+    const params = { tokens, heads, positionStrength, mask };
+    const { base, swapped: changed, expected, maxDifference } = permutationComparison(params);
+    const shown = swapped ? changed : base;
+    const blocks = [
+      section("入力＋位置行列 X+E", table(["トークン","特徴1","特徴2"], shown.rows, "入力行列"))
+    ];
+    shown.results.forEach((head, index) => {
+      const group = document.createElement("div"); group.className = "tables";
+      group.append(section("head "+(index+1)+" 得点 S", table(["query","key1","key2","key3"], head.scores, "head得点")),
+        section("head "+(index+1)+" 注意重み A", table(["query","key1","key2","key3"], head.weights, "head注意重み")));
+      const output = document.createElement("p");
+      output.textContent = "value V = [" + head.v.map(format).join(", ") + "] / head出力 = ["+
+        head.output.map(format).join(", ")+"]";
+      group.append(output); blocks.push(group);
+    });
+    blocks.push(section("連結出力（W_O = I）", table(["トークン","head1","head2"], shown.concatenated, "連結行列")));
+    blocks.push(section("残差 Z = (X+E) + MHA(X+E)", table(["トークン","特徴1","特徴2"], shown.residual, "残差行列")));
+    $("results").replaceChildren(...blocks);
+    $("swappedRows").replaceChildren(table(["トークン","特徴1","特徴2"], changed.residual, "交換後の出力"));
+    $("expectedRows").replaceChildren(table(["トークン","特徴1","特徴2"], expected, "交換前を並べ替えた出力"));
+    $("status").textContent = "2 head・3行を再計算しました。入力交換：" + (swapped ? "あり" : "なし");
+    $("status").className = "";
+    $("comparison").textContent = "最大絶対差 = " + format(maxDifference);
+    const equivariant = maxDifference < 1e-10;
+    $("explanation").textContent = equivariant
+      ? "この入力では交換と演算が一致します。すべての入力に対する保証は位置強度0・全列参照のときです。"
+      : "入力行だけを交換すると出力が単なる行交換からずれます。固定した位置ベクトルとマスクのどちらが原因か、一方ずつ0または全列参照に戻して確かめてください。";
+    $("explanation").className = equivariant ? "note" : "note warning";
+  } catch (error) {
+    $("status").textContent = "入力エラー：" + error.message;
+    $("status").className = "error";
+    $("results").replaceChildren(); $("comparison").textContent = "入力を修正してください";
+    $("swappedRows").replaceChildren(); $("expectedRows").replaceChildren();
+    $("explanation").textContent = "";
+  }
+}
+for (const id of descriptors.map(x => x.key).concat("positionStrength")) $(id).addEventListener("input", render);
+$("mask").addEventListener("change", render);
+$("swap").addEventListener("click", () => {
+  swapped = !swapped; $("swap").setAttribute("aria-pressed", String(swapped));
+  $("swap").textContent = swapped ? "入力交換を解除する" : "入力の1行目と3行目を交換する"; render();
+});
+$("reset").addEventListener("click", () => {
+  descriptors.forEach(item => { $(item.key).value = String(item.value); });
+  $("positionStrength").value = "0"; $("mask").value = "all"; swapped = false;
+  $("swap").setAttribute("aria-pressed", "false");
+  $("swap").textContent = "入力の1行目と3行目を交換する"; render();
+});
+render();
+</script>
+</body>
+</html>
