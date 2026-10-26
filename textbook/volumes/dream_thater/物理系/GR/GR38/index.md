@@ -14,7 +14,7 @@
 
 ここで必要になるのは、Einstein方程式の**初期値問題**という見方です。空間的三次元面 $\Sigma$ に幾何・物質データを指定し、Einstein方程式の制約式を満たす場合に、そこから得られる時空（発展）を考えます。詳しい分解・制約式はGR39–40で導きますが、本章では初期データが制約を満たして滑らかな発展を持つと仮定し、その因果論的な意味だけを使います。
 
-[Cauchy面の定義](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)は、非延長な時間的曲線が初期面を一度通ることです。[大域双曲性とCauchy面の特徴付け](../../../幾何系/LORG/LORG16/index.md#thm-lorg16-characterization)により、初期値から因果的に決定される領域を一つの時空として扱えます。
+[Cauchy面の定義](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)は、両側非延長な未来向き**因果曲線（光的曲線も含む）**が初期面をちょうど一度通ることです。[大域双曲性とCauchy面の特徴付け](../../../幾何系/LORG/LORG16/index.md#thm-lorg16-characterization)により、初期値から因果的に決定される領域を一つの時空として扱えます。
 
 <a id="def-gr38-mghd"></a>
 
@@ -26,7 +26,9 @@
 滑らかな適切な初期データについて、MGHDの存在と初期面を保つ等長同型を除いた一意性は、Einstein方程式の初期値問題の大定理（Choquet-Bruhat–Geroch）です。この定理の偏微分方程式論による証明は本章の前提外なので、**ここでは使用する定理として明示的に受け入れます**。これは「MGHDの外へあらゆる正則性で延長できない」という主張ではありません。
 
 <!-- definition-example-start: def-gr38-mghd -->
-**定義の確認**：平坦な全Minkowski時空で $t=0$ を $\Sigma$ とすると、[Minkowskiの非延長因果曲線の全時刻通過](../../../幾何系/LORG/LORG15/index.md#lem-lorg15-full-time)により $\Sigma$ はCauchy面です。逆に開半空間 $t>0$ を単体で取ると、この $t=0$ の初期面を含まず、元のデータの発展にはなりません。最大発展を検査するときは、単に計量の式が書けるかでなく、**元の初期面がCauchy面として残るか**を確認します。
+**定義の確認**：平坦な全Minkowski時空で $t=0$ を $\Sigma$ とすると、[Minkowskiの非延長因果曲線の全時刻通過](../../../幾何系/LORG/LORG15/index.md#lem-lorg15-full-time)により、光線も含めて $\Sigma$ はCauchy面です。$-1<t<1$ の開スラブでも、因果曲線の空間座標は時刻について1-Lipschitzなので、有限な中間時刻で抜け落ちることはなく、各非延長因果曲線は $t=-1$ と $t=1$ の間の全時刻を通ります。従って $\Sigma$ はここでもCauchy面です。
+
+スラブと全Minkowskiは $t=0$ の近傍で同じ計量を持つため同じ初期データを誘導しますが、スラブは全Minkowskiへ真に等長埋め込みできるので、**スラブは最大ではありません**。一方、開半空間 $t>0$ はそもそも $\Sigma$ を含まず、この初期データの発展になりません。これで「同じデータ」「Cauchy面」「より大きい発展への埋め込み」の判定を分けられます。全候補に対する最大性の証明は、この一例での比較だけではなくMGHDの存在・一意性定理を使う段階です。
 <!-- definition-example-end -->
 
 初期値問題の最大性と幾何学的な延長の正則性を区別するため、次の定義を使います。
@@ -39,7 +41,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr38-regular-extension -->
-**定義の確認**：Minkowski時空の領域 $D=\{t>0\}$ に制限した計量 $-dt^2+dx^2+dy^2+dz^2$ は、全Minkowskiへ恒等的に埋め込めます。拡張計量は滑らかで非退化、$D$ は真の開部分です。よってこの領域は $C^0$、$C^2$、さらには滑らかに延長可能です。[GR37の不完備性の例](../GR37/index.md#def-gr37-geodesic-incompleteness)とも整合します。不完備だから非延長可能、とはなりません。
+**定義の確認**：Minkowski時空の領域 $D=\{t>0\}$ に制限した計量 $-dt^2+dx^2+dy^2+dz^2$ は、全Minkowskiへ恒等的に埋め込めます。座標基底 $(\partial_t,\partial_x,\partial_y,\partial_z)$ の計量行列は $\operatorname{diag}(-1,1,1,1)$ で、固有値の符号は一つだけ負、行列式は $-1\ne0$ です。従って非退化なLorentz計量で、係数は定数ゆえ滑らかです。$D$ は全空間の**真の開部分**なので、この領域は $C^0$、$C^2$、さらには滑らかに延長可能です。[GR37の不完備性の例](../GR37/index.md#def-gr37-geodesic-incompleteness)とも整合します。不完備だから非延長可能、とはなりません。
 <!-- definition-example-end -->
 
 ## 2. 弱宇宙検閲：遠方に露出するか
@@ -56,7 +58,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr38-weak-censorship -->
-**定義の確認**：Minkowski時空では未来向き光線を無限遠へ伸ばせ、[事象地平線の定義例](../GR29/index.md#def-gr29-event-horizon)で $J^-(\mathscr I^+)=D$ と分かります。遠方に不完備な光の終端はありません。これはWCCと矛盾しない一例ですが、一般の重力崩壊を証明してはいません。対して、$r=0$ の曲率特異性を持つ $|Q|>M$ の形式的RN解は[地平線分類](../GR31/index.md#prop-gr31-horizons)で正の地平線を持ちません。ただし**この静的解の存在だけでは、許容する滑らかな初期データから一般的にその裸特異性が形成される、とは言えません**。
+**定義の確認**：Minkowski時空の未来向き光線を、例えば $\gamma(\lambda)=(t_0+\lambda,x_0+\lambda,y_0,z_0)$（$\lambda\ge0$）と書けます。接続係数は零、接ベクトルは零ベクトルではなく光的で、$\lambda$ は上限のないアフィンパラメータです。[未来零無限遠の定義](../GR28/index.md#def-gr28-infinities)に従ってこの光線は $\mathscr I^+$ に達し、[事象地平線の定義例](../GR29/index.md#def-gr29-event-horizon)では $J^-(\mathscr I^+)=D$ です。Minkowskiの全光線は並進・回転で同様に調べられます。これはWCCと矛盾しない一例ですが、一般の重力崩壊を証明してはいません。対して、$r=0$ の曲率特異性を持つ $|Q|>M$ の形式的RN解は[地平線分類](../GR31/index.md#prop-gr31-horizons)で正の地平線を持ちません。ただし**この静的解の存在だけでは、許容する滑らかな初期データから一般的にその裸特異性が形成される、とは言えません**。
 <!-- definition-example-end -->
 
 「一般的」の曖昧さは飾りではありません。特異な解が一つ存在することと、わずかに初期データを変えても裸特異性が残ることは違います。また未来零無限遠の完備性と「すべての測地線が完備」という命題も違います。[GR37のPenrose型定理](../GR37/index.md#thm-gr37-penrose)が保証するのはどこかの光的測地線の不完備性であって、それが $J^-(\mathscr I^+)$ にあるかは同定しません。
@@ -125,7 +127,7 @@ g_{(v,r)}=\begin{pmatrix}-f&1\\1&0\end{pmatrix},\qquad
 g_{(v,r)}^{-1}=\begin{pmatrix}0&1\\1&f\end{pmatrix}.
 $$
 
-$r_->0$ なので球面部分 $r^2d\Omega^2$ も局所座標では滑らかで正定値です。時間・半径ブロックの行列式が負なので全計量はLorentz型で、局所延長は非退化です。計量の係数と逆行列が滑らかだから、ここで曲率の有限性も局所的に従います（$r=0$ は除外）。
+$r_->0$ なので球面部分 $r^2d\Omega^2$ も球面の局所座標では滑らかで正定値です。上の行列は実対称で、その二固有値の積が $-1<0$ だから一つが負、もう一つが正です。従って二つの正固有値を持つ球面部分と合わせた全計量の符号は $(-,+,+,+)$ で、非退化です。座標の交差項 $2\,dv\,dr$ が行列の非対角成分 $g_{vr}=g_{rv}=1$ を与えることが、この行列で判定できる理由です。計量の係数と逆行列が滑らかだから、ここで曲率の有限性も局所的に従います（$r=0$ は除外）。
 
 次に時間的測地線の固有時微分を点で表します。$t$ の並進対称性から[GR14のKilling保存量](../GR14/index.md#thm-gr14-killing-charge)で $E=f\dot t$ が一定です。$g(\dot\gamma,\dot\gamma)=-1$ に代入すると
 
@@ -191,15 +193,46 @@ $$
 ds^2=-dt^2+a(t)^2dx^2,\qquad a(t)=1+t^{3/2}.
 $$
 
-$t\downarrow0$ で $a\to1$ なので $a(0)=1$ と補えば計量は連続・非退化です。行列式は $-a^2\to-1$ で、これは **$C^0$ 延長の直接例**です。一方、計量の非零なChristoffel係数は $\Gamma^t_{xx}=aa'$、$\Gamma^x_{tx}=\Gamma^x_{xt}=a'/a$。これを曲率に代入すると
+$t\downarrow0$ で $a\to1$ です。そこで**開いた全平面** $\widetilde D=\mathbb R^2$ に
 
 $$
-R=\frac{2a''}{a}
+\widetilde a(t)=\begin{cases}1,&t\le0,\\1+t^{3/2},&t>0,\end{cases}
+\qquad \widetilde g=-dt^2+\widetilde a(t)^2dx^2
+$$
+
+を定めます。座標基底 $(\partial_t,\partial_x)$ での行列は $\operatorname{diag}(-1,\widetilde a^2)$ です。$\widetilde a$ は連続で正なので、二固有値の符号は $(-,+)$、行列式は $-\widetilde a^2\ne0$ です。元の $D=\{t>0\}$ は真の開部分で、恒等埋め込みが等長となるため、これは**定義の全条件を満たす $C^0$ 延長**です。
+
+一方、$t>0$ での非零なChristoffel係数は $\Gamma^t_{xx}=aa'$、$\Gamma^x_{tx}=\Gamma^x_{xt}=a'/a$ です。[曲率成分の四項公式](../GR6/index.md#prop-gr6-coordinate-curvature)の添字に $(t,x,t,x)$、$(x,t,x,t)$ を代入すると
+
+$$
+\begin{aligned}
+R^t{}_{xtx}&=\partial_t(aa')-(aa')(a'/a)=aa'',\\
+R^x{}_{txt}&=-\partial_t(a'/a)-(a'/a)^2=-a''/a.
+\end{aligned}
+$$
+
+[Lorentz時空のRicci曲率](../GR6/index.md#def-gr6-ricci-scalar)の定義より $\operatorname{Ric}_{xx}=aa''$、$\operatorname{Ric}_{tt}=-a''/a$。同じ箇所で定義したスカラー曲率に対し、逆計量の $g^{tt}=-1$、$g^{xx}=a^{-2}$ を使うと
+
+$$
+R=(-1)\left(-\frac{a''}{a}\right)
+ +a^{-2}(aa'')=\frac{2a''}{a}
 =\frac{3}{2}\frac{t^{-1/2}}{1+t^{3/2}}
 \longrightarrow+\infty.
 $$
 
-[曲率発散による障害](#prop-gr38-curvature-obstruction)により、$t=0$ を境界点としてこの列を収束させる $C^2$ 延長はできません。計量は連続的に続けられても、曲率は続けられないのです。これが「弱い零特異性（weak null singularity）」を研究する際に正則性を明記する理由の入門的な類比です。ただしこの二次元例は零地平線の模型ではありません。
+[曲率発散による障害](#prop-gr38-curvature-obstruction)により、$t=0$ を境界点としてこの列を収束させる $C^2$ 延長はできません。
+
+実際、**別の境界からの $C^2$ 延長でも逃れられない**ことを次のように確かめられます。時間的測地線では $x$ が循環座標なので[循環座標の保存量](../GR14/index.md#prop-gr14-cyclic-coordinate) $p=a^2\dot x$ が一定で、規格化から
+
+$$
+\dot t^2=1+\frac{p^2}{a^2},\qquad
+1\le|\dot t|\le\sqrt{1+p^2},\qquad
+|\dot x|\le|p|.
+$$
+
+この評価により、有限固有時で元の領域から出る時間的測地線の座標は $t\downarrow0$ 以外の場所で発散できません（$t>0$ の内部なら滑らかな測地線方程式で続けられます）。もし真の連結な $C^2$ 延長があれば、延長領域の境界を横切る短い時間的測地線を局所的に選べるので、その元の領域内の枝は有限固有時で $t=0$ に向かいます。しかしどの $x$ でも $R\to+\infty$ で、延長計量から計算する連続な曲率と矛盾します。
+
+従ってこの模型は**$C^0$ 延長可能だが $C^2$ 非延長可能**です。計量は連続的に続けられても、曲率は続けられないのです。これが「弱い零特異性（weak null singularity）」を研究する際に正則性を明記する理由の入門的な類比です。ただしこの二次元例は零地平線の模型ではありません。
 
 <a id="prop-gr38-regularity-logic"></a>
 
@@ -222,7 +255,7 @@ $C^2$ 延長 $\widetilde g$ があればその係数は連続で、同じ等長�
 
 「内側の地平線は不安定」と一言で済ませると、何の方程式・どの摂動・どの正則性について述べているのかが消えてしまいます。
 
-1. **球対称のEinstein–無質量実スカラー場模型**：Christodoulouは球対称重力崩壊で裸特異性を構成し、その摂動不安定性を示しました。これは特定の模型・データの正則性クラスにおける重要な成果ですが、すべての物質や非球対称崩壊についての弱宇宙検閲の一般定理ではありません。
+1. **球対称のEinstein–無質量実スカラー場模型**：Christodoulouは1994年に球対称重力崩壊で裸特異性の例を構成し、1999年にその摂動不安定性を示しました。これは特定の模型・データの正則性クラスにおける重要な成果ですが、すべての物質や非球対称崩壊についての弱宇宙検閲の一般定理ではありません。
 2. **球対称のEinstein–Maxwell–実スカラー場模型**：Luk–Ohらの二つの論文では、二端の漸近平坦な初期データのクラスで、一般的な $C^2$ 非延長可能性が証明されています。一方、同じ模型では適切な解の内部に**連続計量のCauchy地平線**が存在します。したがってこの定理を $C^0$ 版SCCの証明と表現するのは誤りです。
 3. **回転するKerrの真空摂動**：Dafermos–Lukの結果は、特定の内側領域の仮定を満たす動的な真空ブラックホールのCauchy地平線が $C^0$ の意味で安定に残ることを証明します。これは一般の滑らかな初期データからの全大域的発展について、$C^2$ 版SCCの真偽を一括解決した主張ではありません。
 
@@ -230,7 +263,7 @@ $C^2$ 延長 $\widetilde g$ があればその係数は連続で、同じ等長�
 
 ### 一次論文を読むための入口
 
-- D. Christodoulou, [*The instability of naked singularities in the gravitational collapse of a scalar field*](https://annals.math.princeton.edu/articles/12445)（1999）。球対称スカラー場の例外的な裸特異性と不安定性。
+- D. Christodoulou, [*Examples of naked singularity formation in the gravitational collapse of a scalar field*](https://annals.math.princeton.edu/1994/140-3/p03)（1994）と[*The instability of naked singularities in the gravitational collapse of a scalar field*](https://annals.math.princeton.edu/articles/12445)（1999）。球対称スカラー場における構成と、その後の不安定性の証明。
 - J. Luk and S.-J. Oh, [*Strong cosmic censorship in spherical symmetry for two-ended asymptotically flat initial data I*](https://annals.math.princeton.edu/2019/190-1/p01) と [Part II](https://doi.org/10.1007/s40818-019-0062-7)（2019）。$C^2$ 版と $C^0$ 版を区別する数学的結果。
 - M. Dafermos and J. Luk, [*The interior of dynamical vacuum black holes I: The $C^0$-stability of the Kerr Cauchy horizon*](https://annals.math.princeton.edu/2025/202-2/p01)（2025）。真空Kerr型内部での連続計量の延長。
 
@@ -284,7 +317,7 @@ $$
 未来光的測地線が一本不完備であると分かった。これだけからWCCの破れ、SCCの破れ、曲率発散をそれぞれ主張できるか。
 
 <!-- solution-start -->
-**詳細解答**：いずれも主張できません。[測地不完備性の定義](../GR37/index.md#def-gr37-geodesic-incompleteness)は極大アフィンパラメータの有限端点だけを述べます。WCCは $\mathscr I^+$ の完備性など遠方可視性を別途要求し、SCCはMGHDの計量延長可能性を問います。曲率は計量の二階微分から作る不変量で、平坦半時空は曲率零でも測地不完備です。三つとも別の検査が要ります。
+**詳細解答**：いずれも主張できません。[測地不完備性の定義](../GR37/index.md#def-gr37-geodesic-incompleteness)は極大アフィンパラメータの有限端点だけを述べます。WCCは $\mathscr I^+$ の完備性など遠方可視性を別途要求し、SCCはMGHDの計量延長可能性を問います。曲率は計量の二階微分から作る不変量です。例えば平坦な開半時空 $t<0$ の未来向き光線 $\gamma(\lambda)=(\lambda,\lambda,0,0)$（$\lambda<0$）は未来端 $\lambda=0$ で不完備ですが、曲率は零で、全Minkowskiへの滑らかな延長も存在します。この開半時空は指定初期データのMGHDと断定できないので、SCCの反例ともなりません。三つとも別の検査が要ります。
 <!-- solution-end -->
 
 <a id="ex-gr38-a05"></a>
@@ -345,7 +378,7 @@ $$
 $t>0$ で $ds^2=-dt^2+(1+t^{3/2})^2dx^2$ を考える。$t=0$ で $C^0$ 延長ができること、スカラー曲率が発散すること、同じ境界へ $C^2$ 延長できないことを順に示せ。
 
 <!-- solution-start -->
-**詳細解答**：$a(t)=1+t^{3/2}$ と置けば、計量行列 $\mathrm{diag}(-1,a^2)$ の行列式は $-a^2$ で、$t\downarrow0$ に $-1$ に収束します。$a(0)=1$ とすれば連続かつ非退化です。Christoffel係数は $\Gamma^t_{xx}=aa'$、$\Gamma^x_{tx}=a'/a$ です。ここから $R=2a''/a$ を計算し、
+**詳細解答**：$a(t)=1+t^{3/2}$ と置けば、計量行列 $\mathrm{diag}(-1,a^2)$ の行列式は $-a^2$ で、$t\downarrow0$ に $-1$ に収束します。$t\le0$ に $\widetilde a=1$、$t>0$ に $\widetilde a=a$ と定めた全平面上の計量は連続・非退化で、元の領域を真の開部分として含みます。Christoffel係数は $\Gamma^t_{xx}=aa'$、$\Gamma^x_{tx}=a'/a$ です。[曲率公式](../GR6/index.md#prop-gr6-coordinate-curvature)に代入すると $R^t{}_{xtx}=\partial_t(aa')-(a')^2=aa''$、$R^x{}_{txt}=-\partial_t(a'/a)-(a'/a)^2=-a''/a$。従って $\operatorname{Ric}_{xx}=aa''$、$\operatorname{Ric}_{tt}=-a''/a$、[スカラー曲率の縮約](../GR6/index.md#def-gr6-ricci-scalar)で $R=2a''/a$ となり、
 
 $$
 a'=\frac32t^{1/2},\qquad
@@ -353,7 +386,7 @@ a''=\frac34t^{-1/2},\qquad
 R=\frac{3t^{-1/2}}{2(1+t^{3/2})}\to+\infty.
 $$
 
-[曲率スカラー発散による障害](#prop-gr38-curvature-obstruction)を境界 $t=0$ に適用すると、その境界で曲率が連続になる $C^2$ 非退化計量を構成できません。計量自体の連続延長とは矛盾しません。
+[曲率スカラー発散による障害](#prop-gr38-curvature-obstruction)を境界 $t=0$ に適用すると、その境界で曲率が連続になる $C^2$ 非退化計量を構成できません。さらに $p=a^2\dot x$ が一定な時間的測地線では $\dot t^2=1+p^2/a^2$、$|\dot x|\le|p|$ なので有限固有時で出られるのは $t\downarrow0$ のみです。従って別の境界を通る $C^2$ 延長もなく、$C^2$ 非延長性が従います。計量自体の連続延長とは矛盾しません。
 <!-- solution-end -->
 
 <a id="ex-gr38-b03"></a>
