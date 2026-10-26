@@ -126,7 +126,7 @@ $$
 
 正負の固有値の絶対値を加える操作を、次の章では状態間の距離にも使います。この章では最適誤り確率を表すために必要な行列ノルムだけを先に定義します。
 
-一般の作用素 $X$ は自己共役とは限りませんが、$X^\dagger X$ は自己共役で、任意の $|v\rangle$ に対して $\langle v|X^\dagger X|v\rangle=\|Xv\|^2\ge0$ です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)によって $X^\dagger X=\sum_k\mu_k|e_k\rangle\langle e_k|$（$\mu_k\ge0$）と表示でき、その非負平方根は $\sum_k\sqrt{\mu_k}|e_k\rangle\langle e_k|$ です。つまり、平方根は行列の各成分に作用させるのではなく、固有値に作用させて構成します。
+一般の作用素 $X$ は自己共役とは限りませんが、$X^\dagger X$ は自己共役で、任意の $|v\rangle$ に対して $\langle v|X^\dagger X|v\rangle=\|Xv\|^2\ge0$ です。[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)によって $X^\dagger X=\sum_k\mu_k|e_k\rangle\langle e_k|$（$\mu_k\ge0$）と表示でき、その非負平方根は $\sum_k\sqrt{\mu_k}|e_k\rangle\langle e_k|$ です。つまり、平方根は行列の各成分に作用させるのではなく、固有値に作用させて構成します。
 
 <a id="def-qinf10-trace-norm"></a>
 
@@ -322,7 +322,7 @@ $$
 \rho_0(\rho_1v)=\rho_1(\rho_0v)=p(\rho_1v)
 $$
 
-が成立し、$\rho_1$ は $\rho_0$ の固有値 $p$ の固有空間を保ちます。各固有空間への $\rho_1$ の制限も自己共役です。そこへ[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用して正規直交基底で対角化し、各基底を合わせれば、両者の共通固有基底が得られます。
+が成立し、$\rho_1$ は $\rho_0$ の固有値 $p$ の固有空間を保ちます。各固有空間への $\rho_1$ の制限も自己共役です。そこへ[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用して正規直交基底で対角化し、各基底を合わせれば、両者の共通固有基底が得られます。
 
 共通基底 $|k\rangle$ でそれぞれの固有値を $p_k,q_k$ とすると
 
