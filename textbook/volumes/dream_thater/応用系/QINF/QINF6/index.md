@@ -383,7 +383,7 @@ $$
 
 従って計算基底の組でも $|\pm\rangle$ の組でも同じSchmidt表示を与えます。固有値の重複があると固有空間内の正規直交基底は一意ではありません。重複がなくても各組の位相を逆向きに変える自由はあります。一意なのは正係数の多重集合であって、Schmidtベクトルそのものではありません。
 
-Schmidt階数 $r$ について、$\sum_i s_i^2=1$ と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+[両側縮約の非零固有値の一致](#thm-qinf6-reduced-spectrum)によれば、$\operatorname{Tr}(\rho_A^2)=\sum_i s_i^4$ です。Schmidt階数 $r$ について、$\sum_i s_i^2=1$ と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 1=\left(\sum_i s_i^2\right)^2
