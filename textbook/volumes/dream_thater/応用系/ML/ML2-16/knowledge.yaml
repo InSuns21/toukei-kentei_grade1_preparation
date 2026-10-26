@@ -1,0 +1,62 @@
+chapter: ML2-16
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-14]
+# 数学の畳み込みとの名前・核の反転の比較に限る。FOU3の定理を証明入力には用いない。
+forward_references:
+  - fourier.fou3-convolution
+concepts:
+  - id: learning.translation-equivariance
+    name: 周期平行移動作用と平行移動等変性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期平行移動作用と平行移動等変性）"]
+    requires: []
+  - id: learning.periodic-cross-correlation
+    name: 周期相互相関型畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期相互相関型畳み込み）"]
+    requires: [learning.translation-equivariance]
+  - id: learning.convolution-equivariance
+    name: 周期畳み込みの平行移動等変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期畳み込みの平行移動等変性）"]
+    requires: [learning.periodic-cross-correlation]
+  - id: learning.multichannel-convolution
+    name: 多チャネル畳み込み層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多チャネル畳み込み層）"]
+    requires: [learning.periodic-cross-correlation]
+  - id: learning.multichannel-convolution-equivariance
+    name: 多チャネル畳み込みと点ごと活性化の等変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多チャネル畳み込みと点ごと活性化の等変性）"]
+    requires: [learning.multichannel-convolution, learning.convolution-equivariance]
+  - id: learning.strided-sampling
+    name: stride付き標本抽出
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（stride付き標本抽出）"]
+    requires: [learning.periodic-cross-correlation]
+  - id: learning.strided-equivariance
+    name: strideで残る平行移動等変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（strideで残る平行移動等変性）"]
+    requires: [learning.strided-sampling, learning.convolution-equivariance]
+  - id: learning.convolution-backpropagation
+    name: 畳み込み層の逆伝播
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（畳み込み層の逆伝播）"]
+    requires: [learning.multichannel-convolution, learning.backpropagation]
+  - id: learning.global-average-invariance
+    name: 大域平均プーリングの平行移動不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（大域平均プーリングの平行移動不変性）"]
+    requires: [learning.multichannel-convolution-equivariance]

@@ -153,7 +153,7 @@ chapters:
     title: "深層最適化・正則化・汎化検証"
   - id: ML2-16
     path: textbook/volumes/dream_thater/応用系/ML/ML2-16
-    status: planned
+    status: completed
     title: "畳み込みネットワークと等変性"
   - id: ML2-17
     path: textbook/volumes/dream_thater/応用系/ML/ML2-17

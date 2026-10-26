@@ -1,0 +1,36 @@
+id: "ML2-16"
+title: "畳み込みネットワークと等変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-14
+official_scope: []
+learning_objectives:
+  - 離散信号の平行移動作用、周期境界、深層学習における相互相関型の畳み込みを定義から計算できる
+  - 重み共有による周期畳み込みの平行移動等変性と逆に位置依存重みでの破れを証明できる
+  - zero paddingと有限領域の切り出し、strideによる一般の平行移動等変性の破れを反例とともに説明できる
+  - 多チャネルCNN層の入出力次元、パラメータ数、点ごと活性化と大域平均の作用を説明できる
+  - 逆伝播の重み・入力・バイアス勾配を有限和の添字から導ける
+  - 固定seedの計算ラボでpadding・stride・核変更時の特徴写像と等変性残差を検算できる
+definitions:
+  - { id: ML2-16-DEF-01, name: 周期平行移動作用と平行移動等変性 }
+  - { id: ML2-16-DEF-02, name: 周期相互相関型畳み込み }
+  - { id: ML2-16-DEF-03, name: 多チャネル畳み込み層 }
+  - { id: ML2-16-DEF-04, name: stride付き標本抽出 }
+theorems:
+  - { id: ML2-16-THM-01, name: 周期畳み込みの平行移動等変性 }
+  - { id: ML2-16-PROP-01, name: 多チャネル畳み込みと点ごと活性化の等変性 }
+  - { id: ML2-16-PROP-02, name: strideで残る平行移動等変性 }
+  - { id: ML2-16-PROP-03, name: 畳み込み層の逆伝播 }
+  - { id: ML2-16-PROP-04, name: 大域平均プーリングの平行移動不変性 }
+canonical_examples:
+  - 4点周期信号を一つ右へずらした畳み込みの等変性
+  - 位置ごとに重みが異なる演算での等変性の失敗
+  - 3点zero padding境界と4点stride 2の反例
+  - 3点周期畳み込みの全重み・入力勾配の成分検算
+  - 信号・核・padding・strideを変更するNumPy計算ラボ
+problem_patterns: [ML2-16-A01, ML2-16-A02, ML2-16-A03, ML2-16-A04, ML2-16-B01, ML2-16-B02, ML2-16-B03, ML2-16-B04, ML2-16-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
