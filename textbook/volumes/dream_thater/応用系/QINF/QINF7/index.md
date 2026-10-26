@@ -304,6 +304,16 @@ $$
 
 この証明は、入力の $d$ 個の基底方向と出力の $d_{\mathrm{out}}$ 個の成分を掛けた $dd_{\mathrm{out}}$ 次元の正半定値行列を使います。得られる作用素数の上界は次元だけに依存します。Kraus表示そのものは一般に一意ではありません。例えば同じチャネルをより多くのKraus作用素で書くこともできます。
 
+実際、$H_{\mathrm{in}}=H_{\mathrm{out}}=\mathbb C^2$ 上の恒等チャネル $\Phi(X)=X$ は、一つのKraus作用素 $K_1=I$ でも、二つの作用素 $L_1=L_2=I/\sqrt2$ でも表せます。後者では
+
+$$
+L_1XL_1^\dagger+L_2XL_2^\dagger=\frac12X+\frac12X=X,
+\qquad
+L_1^\dagger L_1+L_2^\dagger L_2=I.
+$$
+
+したがってKraus作用素の個数や個々の行列から、チャネルそのものを一意に識別することはできません。
+
 <a id="prop-qinf7-composition"></a>
 
 <!-- formal-statement-start -->
