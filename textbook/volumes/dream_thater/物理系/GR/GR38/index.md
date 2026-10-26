@@ -41,7 +41,14 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr38-regular-extension -->
-**定義の確認**：Minkowski時空の領域 $D=\{t>0\}$ に制限した計量 $-dt^2+dx^2+dy^2+dz^2$ は、全Minkowskiへ恒等的に埋め込めます。座標基底 $(\partial_t,\partial_x,\partial_y,\partial_z)$ の計量行列は $\operatorname{diag}(-1,1,1,1)$ で、固有値の符号は一つだけ負、行列式は $-1\ne0$ です。従って非退化なLorentz計量で、係数は定数ゆえ滑らかです。$D$ は全空間の**真の開部分**なので、この領域は $C^0$、$C^2$、さらには滑らかに延長可能です。[GR37の不完備性の例](../GR37/index.md#def-gr37-geodesic-incompleteness)とも整合します。不完備だから非延長可能、とはなりません。
+**定義の確認**：Minkowski時空の領域 $D=\{t>0\}$ に制限した計量は、全Minkowskiへ恒等的に埋め込めます。座標基底で線素と計量行列を書けば
+
+$$
+ds^2=-dt^2+dx^2+dy^2+dz^2,\qquad
+(g_{ab})=\operatorname{diag}(-1,1,1,1).
+$$
+
+行列の固有値の符号は一つだけ負、行列式は $-1\ne0$ です。従って非退化なLorentz計量で、係数は定数ゆえ滑らかです。元の領域は全空間の**真の開部分**なので、$C^0$、$C^2$、さらには滑らかに延長可能です。[GR37の不完備性の例](../GR37/index.md#def-gr37-geodesic-incompleteness)とも整合します。不完備だから非延長可能、とはなりません。
 <!-- definition-example-end -->
 
 ## 2. 弱宇宙検閲：遠方に露出するか
@@ -380,7 +387,26 @@ $$
 $t>0$ で $ds^2=-dt^2+(1+t^{3/2})^2dx^2$ を考える。$t=0$ で $C^0$ 延長ができること、スカラー曲率が発散すること、同じ境界へ $C^2$ 延長できないことを順に示せ。
 
 <!-- solution-start -->
-**詳細解答**：$a(t)=1+t^{3/2}$ と置けば、計量行列 $\mathrm{diag}(-1,a^2)$ の行列式は $-a^2$ で、$t\downarrow0$ に $-1$ に収束します。$t\le0$ に $\widetilde a=1$、$t>0$ に $\widetilde a=a$ と定めた全平面上の計量は連続・非退化で、元の領域を真の開部分として含みます。Christoffel係数は $\Gamma^t_{xx}=aa'$、$\Gamma^x_{tx}=a'/a$ です。[曲率公式](../GR6/index.md#prop-gr6-coordinate-curvature)に代入すると $R^t{}_{xtx}=\partial_t(aa')-(a')^2=aa''$、$R^x{}_{txt}=-\partial_t(a'/a)-(a'/a)^2=-a''/a$。従って $\operatorname{Ric}_{xx}=aa''$、$\operatorname{Ric}_{tt}=-a''/a$、[スカラー曲率の縮約](../GR6/index.md#def-gr6-ricci-scalar)で $R=2a''/a$ となり、
+**詳細解答**：まず $a(t)=1+t^{3/2}$ と置きます。座標基底の計量行列と行列式は
+
+$$
+(g_{ab})=\operatorname{diag}(-1,a^2),\qquad
+\det(g_{ab})=-a^2\longrightarrow-1\quad(t\downarrow0).
+$$
+
+$t\le0$ では $\widetilde a=1$、$t>0$ では $\widetilde a=a$ と定めると、全平面上の計量は連続・非退化で、元の領域を真の開部分として含みます。
+
+次に非零のChristoffel係数を求め、[曲率成分の公式](../GR6/index.md#prop-gr6-coordinate-curvature)へ代入します。
+
+$$
+\begin{aligned}
+\Gamma^t_{xx}&=aa',&\Gamma^x_{tx}&=a'/a,\\
+R^t{}_{xtx}&=\partial_t(aa')-(a')^2=aa'',&
+R^x{}_{txt}&=-\partial_t(a'/a)-(a'/a)^2=-a''/a.
+\end{aligned}
+$$
+
+従って $\operatorname{Ric}_{xx}=aa''$、$\operatorname{Ric}_{tt}=-a''/a$ です。[Lorentz時空のスカラー曲率](../GR6/index.md#def-gr6-ricci-scalar)の縮約によって $R=2a''/a$ となり、
 
 $$
 a'=\frac32t^{1/2},\qquad
