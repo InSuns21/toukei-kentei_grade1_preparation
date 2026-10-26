@@ -140,15 +140,25 @@ P&:=h^{ik}h^{jl}R^{(4)}_{ijkl}\\
 \end{aligned}
 $$
 
-一方、その点で正規直交枠 $(n,e_1,e_2,e_3)$ を選ぶと、[GR6のRicci縮約](../GR6/index.md#def-gr6-ricci-scalar)と曲率の対称性により
+一方、その点で正規直交枠 $(n,e_1,e_2,e_3)$ を選びます。[GR6のRicci縮約](../GR6/index.md#def-gr6-ricci-scalar)をまず法線方向に適用すると
 
 $$
-\mathcal R^{(4)}=P-2\operatorname{Ric}(n,n),
-\qquad
-2G(n,n)=2\operatorname{Ric}(n,n)+\mathcal R^{(4)}=P.
+\operatorname{Ric}(n,n)=\sum_{i=1}^3R^{(4)}_{i n i n}
 $$
 
-最初の等式は、全方向で二重縮約する際、法線を含む二組がそれぞれ負符号で寄与することによります。$G=\operatorname{Ric}-\tfrac12\mathcal R^{(4)}g$ に $g(n,n)=-1$ を代入すれば次の等式も得られます。
+です。スカラー曲率では正規直交枠の符号が $(-1,1,1,1)$ なので、空間添字だけの和が $P$、法線を一つ含む二組がそれぞれ負号を持ち、曲率の二組交換対称性から
+
+$$
+\begin{aligned}
+\mathcal R^{(4)}
+&=\sum_{i,j=1}^3R^{(4)}_{i j i j}
+-2\sum_{i=1}^3R^{(4)}_{i n i n}\\
+&=P-2\operatorname{Ric}(n,n),\\
+2G(n,n)&=2\operatorname{Ric}(n,n)+\mathcal R^{(4)}=P.
+\end{aligned}
+$$
+
+最後の行は $G=\operatorname{Ric}-\tfrac12\mathcal R^{(4)}g$ に $g(n,n)=-1$ を代入したものです。
 
 最後にRicciの混合成分を、同じ直交枠で縮約します。曲率の最初の二添字の反対称性・二組の交換対称性を使うと、
 
@@ -171,7 +181,19 @@ $$
 
 初期面上の $h,K$ を与えても、まだEinstein方程式を満たしたとは言えません。前節の縮約によって、4次元Einsteinテンソルの法線・混合成分は、面内だけで計算できる量になりました。これらを物質密度 $\rho,j_i$ と比較して零になるか調べることが、**Hamiltonian制約**と**運動量制約**の意味です。
 
-ここでは、計算すべき差をまず定義します。$D_jK^j{}_i-D_iK$ の前に負符号を入れるのは、既習の $j_i=-T(n,e_i)$ と揃え、運動量制約の右辺を $+\kappa j_i$ にするためです。
+ここでは、計算すべき差をまず定義します。$h$ の逆計量で第二基本形式の添字を上げると、混合成分と反変成分はそれぞれ
+
+$$
+K^j{}_i=h^{jk}K_{ki},\qquad K^{ij}=h^{ik}h^{jl}K_{kl}
+$$
+
+です。$\delta^j_i$ は接基底に関する恒等写像の成分（Kroneckerのデルタ）で、計量両立接続の下では
+
+$$
+D_j\delta^j_i=0,\qquad D_j(K\delta^j_i)=D_iK
+$$
+
+となります。$D_jK^j{}_i-D_iK$ の前に負符号を入れるのは、既習の $j_i=-T(n,e_i)$ と揃え、運動量制約の右辺を $+\kappa j_i$ にするためです。
 
 <a id="def-gr40-constraints"></a>
 
@@ -191,7 +213,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr40-constraints -->
-**定義の確認**：Minkowski標準時刻面で $h_{ij}=\delta_{ij}$、$K_{ij}=0$、真空の $\rho=j_i=0$、$\Lambda=0$ とします。$h$ は正定値、$K$ は対称、$D$ の係数と $\mathcal R^{(3)}$ は零です。従ってHamiltonian側は $0+0-0=0$、運動量側は各 $i$ で $D_j(0)=0$ となり、いずれも右辺の零と一致します。定義に含まれる二種類の等式をそれぞれ検査しました。
+**定義の確認**：Minkowski標準時刻面のCartesian接基底 $(\partial_x,\partial_y,\partial_z)$ で、真空・宇宙項なしのデータを
+
+$$
+h_{ij}=g(\partial_i,\partial_j)=\delta_{ij},\qquad
+K_{ij}=0,\qquad \rho=j_i=\Lambda=0
+$$
+
+と置きます。任意の非零接ベクトル $v=v^i\partial_i$ に対し
+
+$$
+h(v,v)=v^i\delta_{ij}v^j=(v^1)^2+(v^2)^2+(v^3)^2>0
+$$
+
+で正定値です。$K_{ij}=0=K_{ji}$ なので対称性も満たします。$h_{ij}$ がこの座標で定数であることから、[Levi-Civita接続のChristoffel係数公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
+
+$$
+\Gamma^k_{ij}=\frac12h^{k\ell}(\partial_i h_{j\ell}+\partial_jh_{i\ell}-\partial_\ell h_{ij})=0
+$$
+
+が成り立ち、その微分と二次式からなる $R^{(3)}$ も零です。従ってHamiltonian側は $0+0-0=0$、運動量側は各 $i$ で $D_j(K\delta^j_i-K^j{}_i)=D_j(0)=0$ となり、いずれも右辺の零と一致します。正定値性・対称性と二種類の等式をそれぞれ検査しました。
 <!-- definition-example-end -->
 
 制約式には $N$（lapse）も $\beta$（shift）も現れません。[GR39の時間発展表示](../GR39/index.md#prop-gr39-k-evolution)は $\partial_t h_{ij}$ に $N,\beta$ が必要だったのに、こちらは同じ初期面の幾何と物質の整合性だけを問うためです。
@@ -303,13 +344,28 @@ $$
 これらを二つの制約式に代入すれば（2）が得られます。$j_i=0$ なら $D_iH=0$、すなわち任意の接方向に沿う微分が零なので連結成分ごとに $H$ は一定です。逆向きも代入で確認できます。$\square$
 <!-- proof-end -->
 
-例えば $\Lambda=0$ の真空で $K_{ij}=0$ とすると $\mathcal R^{(3)}=0$ が必要です。**スカラー曲率零はRiemann曲率テンソル全体が零という意味ではありません。** 一方、半径 $a>0$ の丸い3次元球面の計量では $\mathcal R^{(3)}=6/a^2$ なので、$K=0$ の真空初期面にはできません。同じ $h,K$ でも $\rho=3/(8\pi a^2)$ と $j=0$ を置くなら、少なくとも幾何・物質射影の制約を満たします。物質の運動方程式や大域発展まで確認したことにはなりません。
+例えば $\Lambda=0$ の真空で $K_{ij}=0$ とすると、[時間対称データの判定](#prop-gr40-special-data)から $\mathcal R^{(3)}=0$ が必要です。**スカラー曲率零はRiemann曲率テンソル全体が零という意味ではありません。**
+
+半径 $a>0$ の丸い3次元球面では $\mathcal R^{(3)}=6/a^2$ なので、時間対称の真空初期面にはできません。同じ計量と $K_{ij}=0$ でも、
+
+$$
+\rho=\frac{\mathcal R^{(3)}}{2\kappa}=\frac{3}{8\pi a^2},
+\qquad j_i=0
+$$
+
+と置くなら、少なくとも幾何・物質射影の制約を満たします。物質の運動方程式や大域発展まで確認したことにはなりません。
 
 ## 4. 曲がったMinkowski葉が制約を満たす理由
 
 GR39の平坦時空上の曲がった時刻葉では、非零の第二基本形式が現れました。それでも時空が真空・平坦なのだから、初期データは制約を満たすはずです。実際に内在曲率と外在曲率の相殺を追ってみます。
 
-Minkowskiの慣性座標 $(T,X,Y,Z)$ で $t=T-f(X)$、$x=X$ とし、$p(x)=f'(x)$、$q(x)=1-p(x)^2>0$ と置きます。[GR39の曲がった時刻葉の計算](../GR39/index.md#prop-gr39-k-evolution)と同じ法線・符号を使えば、
+Minkowskiの慣性座標 $(T,X,Y,Z)$ で $t=T-f(X)$、$x=X$ とし、
+
+$$
+p(x)=f'(x)=\frac{df}{dx},\qquad q(x)=1-p(x)^2>0
+$$
+
+と置きます。以下の $p',q'$ はそれぞれ $dp/dx,dq/dx$ を表します。[GR39の曲がった時刻葉の計算](../GR39/index.md#prop-gr39-k-evolution)と同じ法線・符号を使えば、
 
 $$
 h=q(x)\,dx^2+dy^2+dz^2,\qquad
@@ -324,7 +380,20 @@ K=\frac{p'}{q^{3/2}},
 \qquad K_{ij}K^{ij}=\frac{(p')^2}{q^3}=K^2.
 $$
 
-Hamiltonian左辺は $0+K^2-K^2=0$。運動量式でも $K^x{}_x=K$ が唯一の非零固有成分で、$D_jK^j{}_x=D_xK$、$D_jK^j{}_y=D_jK^j{}_z=0$ です。従って $D_jK^j{}_i-D_iK=0$ が各 $i$ で成立します。曲がった時刻葉なのに真空の制約を満たすのは偶然ではなく、平坦な4次元時空のGauss–Codazzi射影がその成分をちょうど相殺するためです。
+Hamiltonian左辺は $0+K^2-K^2=0$。運動量式では $K^x{}_x=K$ が唯一の非零混合成分です。$h=q\,dx^2+dy^2+dz^2$ の接続係数で非零になり得るものは $\Gamma^x_{xx}=q'/(2q)$ だけなので、
+
+$$
+D_jK^j{}_x=\partial_xK+\Gamma^x_{xx}K-\Gamma^x_{xx}K
+=\partial_xK=D_xK.
+$$
+
+$y,z$ 方向は $K^j{}_i=0$（$i=y,z$）で、$K$ も $x$ のみに依存します。従って
+
+$$
+D_jK^j{}_y=D_yK=0,\qquad D_jK^j{}_z=D_zK=0
+$$
+
+です。これで $D_jK^j{}_i-D_iK=0$ が各 $i$ で成立します。曲がった時刻葉なのに真空の制約を満たすのは偶然ではなく、平坦な4次元時空のGauss–Codazzi射影がその成分をちょうど相殺するためです。
 
 ## 5. 制約と時間発展は別の問い
 
@@ -338,7 +407,14 @@ $$
 
 ただし「四つの制約を満たす」ことを、**完全な初期値問題を解いた**ことと同一視してはいけません。実際のEinstein–物質系では、物質場自身の制約・進化式、適切な滑らかさ、座標条件、局所または大域の存在と一意性などが別途関わります。また、単に制約式に $\rho,j$ を代入できたというだけで、対応する物質場を構成したことにもなりません。
 
-たとえば $h=\delta$、$K=0$、$\rho=j=0$、$\Lambda=0$ は真空制約を満たします。$N=1$、$\beta=0$ なら $\partial_th=0$。同じ時刻面で $N=1$、$\beta^x=bx$（定数 $b$）、他は零と選べば、進化表示の右辺は $\partial_th_{xx}=2b$、他は零になります。それでも面上の $\mathcal R^{(3)},K,\rho,j$ は変化しません。座標の時刻微分が違うことを、初期面の制約違反と取り違えないでください。
+たとえば $h=\delta$、$K_{ij}=0$、$\rho=j_i=\Lambda=0$ は真空制約を満たします。$N=1$、$\beta=0$ なら $\partial_th_{ij}=0$ です。同じ時刻面で $N=1$、$\beta^x=bx$（定数 $b$）、他は零と選べば、[時間発展表示](../GR39/index.md#prop-gr39-k-evolution)から
+
+$$
+\partial_t h_{xx}=2\partial_x(bx)=2b,\qquad
+\partial_t h_{ij}=0\quad ((i,j)\ne(x,x))
+$$
+
+となります。それでも初期面上の $\mathcal R^{(3)},K,\rho,j$ は変化しません。座標の時刻微分が違うことを、初期面の制約違反と取り違えないでください。
 
 ## 6. 演習
 
@@ -592,7 +668,13 @@ $$
 2. 定数 $v$ に対し $u=\chi-v\tau$ と座標変更した場合、$N,\beta^u$ と $K_{uu},K_{\theta\theta}$ を時間発展表示から再導出し、同じ初期幾何と制約になることを確認する。座標は $\chi=u+v\tau>0$ の領域に限ってよい。
 
 <!-- solution-start -->
-**詳細解答。** $\tau$ 一定面では $h_{ij}=\tau^2\operatorname{diag}(1,\sinh^2\chi,\sinh^2\chi\sin^2\theta)$、$N=1$、$\beta=0$ です。$n=\partial_\tau$ は $g(n,n)=-1$ を満たします。[GR39の時間発展表示](../GR39/index.md#prop-gr39-k-evolution)で $\partial_\tau h_{ij}=2\tau\,\bar h_{ij}$（$\bar h$ は波括弧内の計量）だから
+**詳細解答。** $\tau$ 一定面では $N=1$、$\beta=0$、$n=\partial_\tau$ であり、$g(n,n)=-1$ です。誘導計量は
+
+$$
+h_{ij}=\tau^2\operatorname{diag}(1,\sinh^2\chi,\sinh^2\chi\sin^2\theta)
+$$
+
+です。[GR39の時間発展表示](../GR39/index.md#prop-gr39-k-evolution)で $\partial_\tau h_{ij}=2\tau\,\bar h_{ij}$（$\bar h$ は波括弧内の計量）と書くとき、微分では空間座標 $(\chi,\theta,\phi)$ を固定しています。従って
 
 $$
 K_{ij}=\frac12\partial_\tau h_{ij}
@@ -623,7 +705,24 @@ $$
 -d\tau^2+\tau^2(du+v\,d\tau)^2
 $$
 
-なので、[3+1計量](../GR39/index.md#prop-gr39-adm-metric)と比較して $N=1$、$\beta^u=v$、$h_{uu}=\tau^2$ です。角方向では $h_{\theta\theta}=\tau^2\sinh^2\chi$、$h_{\phi\phi}=h_{\theta\theta}\sin^2\theta$ です。$\beta=v\partial_u$ だから
+なので、[3+1計量](../GR39/index.md#prop-gr39-adm-metric)と比較して $N=1$、$\beta^u=v$、$h_{uu}=\tau^2$ です。角方向では $h_{\theta\theta}=\tau^2\sinh^2\chi$、$h_{\phi\phi}=h_{\theta\theta}\sin^2\theta$ です。shiftベクトルは $\beta=v\partial_u$ となります。
+
+新座標での微分は $(u,\theta,\phi)$ を固定する $\partial_\tau$ であり、変換式 $\chi=u+v\tau$ から
+
+$$
+\left.\frac{\partial\chi}{\partial\tau}\right|_u=v,
+\qquad
+\left.\frac{\partial\chi}{\partial u}\right|_\tau=1
+$$
+
+です。特に元の法線は新座標では
+
+$$
+n=\left.\partial_\tau\right|_\chi
+=\left.\partial_\tau\right|_u-v\left.\partial_u\right|_\tau
+$$
+
+と表示され、座標時刻ベクトルとは一致しません。$\sinh^2\chi$ の偏微分に連鎖律を適用すると、$\partial_\tau h_{\theta\theta}$ に $2v\tau^2\sinh\chi\cosh\chi$ が追加されます。一方、同じ項がshiftのLie微分にも現れます。実際、
 
 $$
 \begin{aligned}
@@ -635,7 +734,7 @@ $$
 \end{aligned}
 $$
 
-これらは空間座標 $u$ を固定した偏微分であることに注意します。[時間発展表示](../GR39/index.md#prop-gr39-k-evolution)でshiftのLie微分を引くと
+[時間発展表示](../GR39/index.md#prop-gr39-k-evolution)でshiftのLie微分を引くと
 
 $$
 K_{uu}=\frac{2\tau-0}{2}=\tau,
