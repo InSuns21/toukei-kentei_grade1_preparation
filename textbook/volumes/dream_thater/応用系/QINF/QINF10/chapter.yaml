@@ -1,0 +1,44 @@
+id: "QINF10"
+title: "二状態識別とHelstrom界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF2
+  - QINF5
+  - QINF7
+official_scope: []
+learning_objectives:
+  - 二状態の事前確率と二結果POVMから平均成功確率・平均誤り確率を構成し、一般の結果集合も二値判断へ集約できる
+  - Helstrom作用素の正負・零固有空間を用いた最適効果作用素を構成し、核上の非一意性を説明できる
+  - 正部分の変分原理を証明し、重み付きトレースノルムによるHelstrom界を誤り確率まで導出できる
+  - 可換状態・同一状態・直交状態・非直交純粋状態で最適測定と誤り確率を直接計算できる
+  - 事前確率の偏りと量子チャネルによる情報損失が最適識別性能へ与える影響を検算できる
+definitions:
+  - { id: QINF10-DEF-01, name: "二状態最小誤り識別" }
+  - { id: QINF10-DEF-02, name: "Helstrom作用素とその正負部分" }
+  - { id: QINF10-DEF-03, name: "有限次元トレースノルム" }
+theorems:
+  - { id: QINF10-LEM-01, name: "自己共役作用素の正部分の変分原理" }
+  - { id: QINF10-THM-01, name: "二状態識別のHelstrom界" }
+  - { id: QINF10-PROP-01, name: "可換状態の尤度比較" }
+  - { id: QINF10-PROP-02, name: "二つの純粋状態の識別公式" }
+  - { id: QINF10-PROP-03, name: "チャネル下での最適識別性能の単調性" }
+canonical_examples:
+  - "直交・同一の二状態と偏った事前確率"
+  - "可換qubit混合状態の古典的尤度判定"
+  - "|0>と|+>の最適射影測定・計算基底測定の比較"
+  - "雑音で非対角成分が消える場合の識別性能"
+problem_patterns:
+  - QINF10-PRIORS-AND-POVM
+  - QINF10-SPECTRAL-PARTS
+  - QINF10-COMMUTING-DECISION
+  - QINF10-TRIVIAL-DISCRIMINATION
+  - QINF10-NONORTHOGONAL-PURE
+  - QINF10-PRIOR-THRESHOLD
+  - QINF10-CHANNEL-CONTRACTION
+  - QINF10-MULTI-OUTCOME-COARSE-GRAINING
+  - QINF10-CHANNEL-NOISE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
