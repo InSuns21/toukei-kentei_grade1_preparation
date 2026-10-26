@@ -4,7 +4,7 @@
 
 [QINF7のKraus表示](../QINF7/index.md#thm-qinf7-kraus-existence)は、完全正写像を作用素の和として扱えることを教えてくれました。[QINF8のStinespring表現](../QINF8/index.md#thm-qinf8-stinespring)では環境を用いた実現まで進みました。しかし、線形写像が最初から入力の行列単位上の値で与えられたとき、Kraus作用素を推測するのは遠回りです。
 
-目標は、**一つの有限行列の正半定値性と部分トレースだけで、物理的なチャネルかどうかを判定する**ことです。その行列を入力基底から構成していきます。有限次元複素Hilbert空間 $H_A,H_B$ を取り、$d_A=\dim H_A\ge1$、$d_B=\dim H_B\ge1$ とします。入力 $A$ の正規直交基底 $|i\rangle_A$（$1\le i\le d_A$）と、同じ次元の参照系 $R$ の基底 $|i\rangle_R$ を対応させます。出力には $B$ を使い、**テンソル因子の順序は $R\otimes B$** と固定します。
+目標は、**一つの有限行列の正半定値性と部分トレースだけで、物理的なチャネルかどうかを判定する**ことです。その行列を入力基底から構成していきます。有限次元複素Hilbert空間 $H_A,H_B$ を取り、$d_A=\dim H_A\ge1$、$d_B=\dim H_B\ge1$ とします。入力 $A$ の正規直交基底 $|i\rangle_A$（$1\le i\le d_A$）と、同じ次元の参照系 $R$（$H_R\cong H_A$）の基底 $|i\rangle_R$ を対応させます。出力には $B$ を使い、**テンソル因子の順序は $R\otimes B$** と固定します。
 
 $L(H)$ は $H$ 上の線形作用素全体、$\mathrm{id}_R$ は $R$ の作用素を変えない恒等写像です。
 
@@ -109,7 +109,7 @@ $C_\Phi$ が作用をすべて収めたと言うには、任意の入力 $X$ か
 
 <!-- formal-statement-start -->
 > **定理（Choi行列による写像の再構成）**
-> 有限次元複素Hilbert空間 $H_A,H_B$ と固定した $A\cong R$ の正規直交基底について、任意の複素線形写像 $\Phi:L(H_A)\to L(H_B)$ とすべての $X\in L(H_A)$ に対し
+> 有限次元複素Hilbert空間 $H_A,H_B$ と固定した $H_A\cong H_R$ の正規直交基底について、任意の複素線形写像 $\Phi:L(H_A)\to L(H_B)$ とすべての $X\in L(H_A)$ に対し
 
 $$
 \boxed{\displaystyle
