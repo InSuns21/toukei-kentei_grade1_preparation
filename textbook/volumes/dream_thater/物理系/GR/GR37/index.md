@@ -176,7 +176,7 @@ $$
 J(\lambda_f)=0,\qquad 0<\lambda_f<L.
 $$
 
-$J$ を $[\lambda_f,L]$ で零に延長します。始点を $S$ に、終点を $q$ に固定する二変数の曲線変分 $\gamma_{\varepsilon,\eta}$ を考え、そのエネルギー積分の混合二次変分を**曲面を始点とする指数形式**と呼びます。
+$J$ を $[\lambda_f,L]$ で零に延長します。始点を $S$ に、終点を $q$ に固定する二変数の曲線変分 $\gamma_{\varepsilon,\eta}$ を考え、そのエネルギー積分の混合二次変分を、次の記号で表します。
 
 $$
 I_S(V,W):=\left.
@@ -184,7 +184,7 @@ I_S(V,W):=\left.
 \mathcal E(\gamma_{\varepsilon,\eta})\right|_{(0,0)}.
 $$
 
-先ほど確かめた $k(0)\perp T_pS$ により元の光線はこの変分で停留します。Jacobi方程式を指数形式に代入し部分積分すると、$\lambda_f$ 近くに支持を持つ横断変分 $W$ に対して交差項は
+先ほど確かめた $k(0)\perp T_pS$ により元の光線はこの変分で停留します。Jacobi方程式をこの二次変分に代入し部分積分すると、$\lambda_f$ 近くに支持を持つ横断変分 $W$ に対して交差項は
 
 $$
 I_S(J,W)=g(D_\lambda J(\lambda_f),W(\lambda_f)).
