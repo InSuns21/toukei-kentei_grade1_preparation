@@ -1055,6 +1055,7 @@
 33. [ML2-12 Gaussian process回帰と不確実性](textbook/volumes/dream_thater/応用系/ML/ML2-12/index.md)
 34. [ML2-13 多層パーセプトロン・表現力と限界](textbook/volumes/dream_thater/応用系/ML/ML2-13/index.md)
 35. [ML2-14 逆伝播・自動微分・Jacobian](textbook/volumes/dream_thater/応用系/ML/ML2-14/index.md)
+36. [ML2-15 深層最適化・正則化・汎化検証](textbook/volumes/dream_thater/応用系/ML/ML2-15/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
