@@ -1,0 +1,47 @@
+chapter: ML2-17
+scope: dream-theater
+coverage: complete
+prerequisites: [ML1-12, ML2-14, ML2-16]
+concepts:
+  - id: learning.simple-recurrent-network
+    name: 単純再帰ネットワークと時間方向の重み共有
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単純再帰ネットワークと時間方向の重み共有）"]
+    requires: [learning.relu-mlp]
+  - id: learning.time-unrolling
+    name: 時間展開と系列損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間展開と系列損失）"]
+    requires: [learning.simple-recurrent-network, learning.computational-graph]
+  - id: learning.backpropagation-through-time
+    name: 再帰ネットワークの時間方向逆伝播
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（再帰ネットワークの時間方向逆伝播）"]
+    requires: [learning.time-unrolling, learning.reverse-chain-rule]
+  - id: learning.recurrent-jacobian-product
+    name: 状態間Jacobian積と勾配消失の十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（状態間Jacobian積と勾配消失の十分条件）"]
+    requires: [learning.simple-recurrent-network, learning.layer-jacobian-chain]
+  - id: learning.linear-recurrent-gradient
+    name: 線形スカラー再帰の勾配消失・爆発
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形スカラー再帰の勾配消失・爆発）"]
+    requires: [learning.recurrent-jacobian-product]
+  - id: learning.truncated-bptt
+    name: 打切り時間逆伝播による勾配の欠落
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（打切り時間逆伝播による勾配の欠落）"]
+    requires: [learning.backpropagation-through-time]
+  - id: learning.teacher-forcing
+    name: 教師強制と自律生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（教師強制と自律生成）"]
+    requires: [learning.simple-recurrent-network]

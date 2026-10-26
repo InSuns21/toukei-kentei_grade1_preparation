@@ -157,7 +157,7 @@ chapters:
     title: "畳み込みネットワークと等変性"
   - id: ML2-17
     path: textbook/volumes/dream_thater/応用系/ML/ML2-17
-    status: planned
+    status: completed
     title: "系列模型・再帰ネットワーク"
   - id: ML2-18
     path: textbook/volumes/dream_thater/応用系/ML/ML2-18

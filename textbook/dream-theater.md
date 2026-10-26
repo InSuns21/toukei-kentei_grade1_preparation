@@ -1059,6 +1059,7 @@
 35. [ML2-14 逆伝播・自動微分・Jacobian](textbook/volumes/dream_thater/応用系/ML/ML2-14/index.md)
 36. [ML2-15 深層最適化・正則化・汎化検証](textbook/volumes/dream_thater/応用系/ML/ML2-15/index.md)
 37. [ML2-16 畳み込みネットワークと等変性](textbook/volumes/dream_thater/応用系/ML/ML2-16/index.md)
+38. [ML2-17 系列模型・再帰ネットワーク](textbook/volumes/dream_thater/応用系/ML/ML2-17/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
