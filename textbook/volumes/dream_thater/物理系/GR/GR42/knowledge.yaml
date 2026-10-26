@@ -1,0 +1,50 @@
+chapter: GR42
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR41
+  - GR12
+  - GR8
+concepts:
+  - id: gravity.flrw-hubble-fluid
+    name: Hubble率と共動完全流体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hubble率と共動完全流体）"]
+    requires: [gravity.flrw-metric, gravity.curved-perfect-fluid-stress]
+  - id: gravity.flrw-connection-ricci
+    name: FLRWの接続とRicci曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FLRWの接続とRicci曲率）"]
+    requires: [gravity.flrw-hubble-fluid, gravity.flrw-kinematics, gravity.einstein-field-equation]
+  - id: gravity.friedmann-equations
+    name: Friedmann方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Friedmann方程式）"]
+    requires: [gravity.flrw-connection-ricci, gravity.curved-perfect-fluid-stress, gravity.einstein-field-equation]
+  - id: gravity.flrw-barotropic-w
+    name: 一定状態方程式パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一定状態方程式パラメータ）"]
+    requires: [gravity.flrw-hubble-fluid]
+  - id: gravity.flrw-continuity-scaling
+    name: FLRWの流体保存と密度スケーリング
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FLRWの流体保存と密度スケーリング）"]
+    requires: [gravity.flrw-barotropic-w, gravity.fluid-euler-curved, gravity.friedmann-equations]
+  - id: gravity.friedmann-constraint-propagation
+    name: Friedmann制約の伝播と逆推論の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Friedmann制約の伝播と逆推論の限界）"]
+    requires: [gravity.friedmann-equations, gravity.flrw-continuity-scaling]
+  - id: gravity.flrw-barotropic-solutions
+    name: 平坦な一定状態方程式宇宙と真空解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦な一定状態方程式宇宙と真空解）"]
+    requires: [gravity.friedmann-equations, gravity.flrw-continuity-scaling]

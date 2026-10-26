@@ -173,7 +173,7 @@ chapters:
     title: "FLRW計量と対称性"
   - id: GR42
     path: textbook/volumes/dream_thater/物理系/GR/GR42
-    status: planned
+    status: completed
     title: "Friedmann方程式と流体保存"
   - id: GR43
     path: textbook/volumes/dream_thater/物理系/GR/GR43
