@@ -1,0 +1,37 @@
+id: "ML2-17"
+title: "系列模型・再帰ネットワーク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-12
+  - ML2-14
+  - ML2-16
+official_scope: []
+learning_objectives:
+  - 系列の時刻と状態・入力・出力の次元、初期状態、共有パラメータを明示して再帰ネットワークを展開できる
+  - 因果的な系列予測と時間方向の重み共有を区別し、出力時刻・系列長・マスクの扱いを説明できる
+  - 時間展開した逆伝播の随伴量を導出し、共有された全パラメータの勾配を求められる
+  - 状態間Jacobianの積を導出し、勾配消失の十分条件と勾配爆発の具体例、一般には言えない事柄を区別できる
+  - 全時間逆伝播と打切り時間逆伝播の差を手計算し、その偏りを説明できる
+  - 教師強制と自律生成の違いを系列の添字で定式化し、評価時の情報漏洩を検査できる
+  - 反復係数・系列長・入力を変えるNumPyラボで状態軌道と時間方向の感度を有限差分と照合できる
+definitions:
+  - { id: ML2-17-DEF-01, name: 単純再帰ネットワークと時間方向の重み共有 }
+  - { id: ML2-17-DEF-02, name: 時間展開と系列損失 }
+  - { id: ML2-17-DEF-03, name: 教師強制と自律生成 }
+theorems:
+  - { id: ML2-17-THM-01, name: 再帰ネットワークの時間方向逆伝播 }
+  - { id: ML2-17-THM-02, name: 状態間Jacobian積と勾配消失の十分条件 }
+  - { id: ML2-17-PROP-01, name: 線形スカラー再帰の勾配消失・爆発 }
+  - { id: ML2-17-PROP-02, name: 打切り時間逆伝播による勾配の欠落 }
+canonical_examples:
+  - 二時刻一状態の共有重みと全出力の計算
+  - 二時刻スカラー線形網の時間逆伝播と前向き微分の一致
+  - 終端入力を固定した勾配消失と爆発の厳密な比較
+  - 打切り長を変えた線形再帰の重み勾配の差
+  - 系列長・反復係数・入力配置を変更するNumPy計算ラボ
+problem_patterns: [ML2-17-A01, ML2-17-A02, ML2-17-A03, ML2-17-A04, ML2-17-B01, ML2-17-B02, ML2-17-B03, ML2-17-B04, ML2-17-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
