@@ -386,7 +386,15 @@ C_{\mathcal A_\gamma}
 \end{pmatrix}.
 $$
 
-これは二つの正半定値な外積の和です（$\gamma=0$ のとき第2項は零）。$\operatorname{Tr}_B C=\operatorname{diag}(1,\gamma+1-\gamma)=I_R$ なので[Choiの二条件](#thm-qinf9-tp)によってCPTPです。$\gamma=0$ のrankは1、$0<\gamma\le1$ のrankは2です。$\operatorname{Tr}_R C=\operatorname{diag}(1+\gamma,1-\gamma)$ だから、$\gamma>0$ では単位的ではありません。この例は、トレース保存と単位的が別条件であることも示します。
+これは二つの正半定値な外積の和です（$\gamma=0$ のとき第2項は零）。部分トレースを基底成分ごとに足すと
+
+$$
+\operatorname{Tr}_B C=\operatorname{diag}(1,\gamma+1-\gamma)=I_R,
+\qquad
+\operatorname{Tr}_R C=\operatorname{diag}(1+\gamma,1-\gamma)
+$$
+
+となります。[Choiの二条件](#thm-qinf9-tp)からCPTPであり、$\gamma>0$ では単位的ではありません。$\gamma=0$ のrankは1、$0<\gamma\le1$ のrankは2です。この例は、トレース保存と単位的が別条件であることも示します。
 
 ## 6. 判定の順序と使える範囲
 
@@ -565,7 +573,15 @@ $$
 C=\begin{pmatrix}1&0&0&\sqrt{1-\gamma}\\0&0&0&0\\0&0&\gamma&0\\\sqrt{1-\gamma}&0&0&1-\gamma\end{pmatrix}.
 $$
 
-二つの正半定値な外積の和なので $C\ge0$ です（$\gamma=0$ では第2項は零）。$B$ 側のトレースは参照系の $0$ 対角成分が1、$1$ 対角成分が $\gamma+(1-\gamma)=1$、非対角成分が0なので $\operatorname{Tr}_B C=I_R$ です。[Choiの完全正・トレース保存判定](#thm-qinf9-tp)よりCPTPです。$\gamma=0$ では $|K_1\rangle\!\rangle=0$ なのでrank 1、$0<\gamma\le1$ では $|K_0\rangle\!\rangle$ と $|K_1\rangle\!\rangle$ が非零で直交するためrank 2です。
+二つの正半定値な外積の和なので $C\ge0$ です（$\gamma=0$ では第2項は零）。$B$ 側の部分トレースでは、参照系の対角成分が順に $1$ と $\gamma+(1-\gamma)$ となり、非対角成分は0です。
+
+$$
+\operatorname{Tr}_B C
+=\begin{pmatrix}1&0\\0&\gamma+(1-\gamma)\end{pmatrix}
+=I_R.
+$$
+
+従って[Choiの完全正・トレース保存判定](#thm-qinf9-tp)よりCPTPです。$\gamma=0$ では $|K_1\rangle\!\rangle=0$ なのでrank 1です。一方、$0<\gamma\le1$ では $|K_0\rangle\!\rangle$ と $|K_1\rangle\!\rangle$ が非零で直交するためrank 2です。
 
 再構成では $X=E_{01}$、$X^{\mathsf T}=E_{10}$ とするので
 
