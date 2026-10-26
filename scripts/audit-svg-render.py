@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Render existing textbook SVGs for visual accessibility review.
+"""Render textbook SVGs at mobile and source widths for visual accessibility review.
 
+No --paths-file: scan the existing small-text candidates (nightly/manual audit).
+--paths-file: render every changed SVG (NUL-delimited paths from the PR diff).
 Not a semantic proof: thumbnails reveal clipping and typography problems; review the math manually.
-Usage: python3 scripts/audit-svg-render.py [--emit-contact-sheets]
-Dependencies: cairosvg, Pillow (installed only in the CI rendering step).
+Dependencies: cairosvg, Pillow (needed only when actually rendering).
 """
 import argparse
 import base64
 import io
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
-
-import cairosvg
-from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path("textbook/volumes")
 OUTPUT = Path("_svg_render_review")
@@ -40,6 +40,9 @@ def audit_candidate(source):
 
 
 def render(path, width):
+    import cairosvg
+    from PIL import Image
+
     # The CI environment has Noto CJK installed, but CairoSVG's CSS font fallback
     # may still select a Latin-only font for SVGs that declare Segoe UI or Noto Sans JP.
     # Apply a review-only font override; do NOT rewrite the textbook's SVG source.
@@ -56,6 +59,8 @@ def render(path, width):
 
 
 def contact_sheet(entries, batch, font):
+    from PIL import Image, ImageDraw
+
     tile_w, tile_h = 440, 335
     canvas = Image.new("RGB", (tile_w * 2, tile_h * 4), "#f4f5f7")
     draw = ImageDraw.Draw(canvas)
@@ -78,17 +83,72 @@ def contact_sheet(entries, batch, font):
     return canvas
 
 
+def read_changed_paths(path_file, repository_root=Path(".")):
+    """Accept only existing SVGs below textbook/volumes from a NUL-separated git diff."""
+    root = (repository_root / ROOT).resolve()
+    selected = []
+    seen = set()
+    for raw in path_file.read_bytes().split(b"\0"):
+        if not raw:
+            continue
+        relative = Path(os.fsdecode(raw))
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError(f"Unsafe SVG path from diff: {relative}")
+        if relative.suffix.lower() != ".svg" or not relative.is_relative_to(ROOT):
+            continue
+        candidate = repository_root / relative
+        if not candidate.is_file() or not candidate.resolve().is_relative_to(root):
+            continue  # Deleted paths and paths outside the SVG tree cannot be rendered.
+        if candidate not in seen:
+            seen.add(candidate)
+            selected.append(candidate)
+    return sorted(selected)
+
+
+def self_test():
+    assert audit_candidate('<svg viewBox="0 0 500 200"><text font-size="14">a</text></svg>')
+    assert not audit_candidate('<svg viewBox="0 0 500 200"><text font-size="20">a</text></svg>')
+    with tempfile.TemporaryDirectory() as directory:
+        repo = Path(directory)
+        svg = repo / ROOT / "応用系" / "sample.svg"
+        svg.parent.mkdir(parents=True)
+        svg.write_text('<svg viewBox="0 0 100 100"/>', encoding="utf-8")
+        paths = repo / "changed.nul"
+        paths.write_bytes(
+            os.fsencode(str(svg.relative_to(repo))) + b"\0" +
+            b"textbook/volumes/missing.svg\0" +
+            b"textbook/volumes/ignore.md\0" +
+            b"outside.svg\0" +
+            os.fsencode(str(svg.relative_to(repo))) + b"\0"
+        )
+        assert read_changed_paths(paths, repo) == [svg]
+        paths.write_bytes(b"")
+        assert read_changed_paths(paths, repo) == []
+    print("SVG_RENDER_SCOPE_SELF_TEST passed")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--emit-contact-sheets", action="store_true",
                         help="Emit base64 sheet PNGs in CI log for the audit run.")
+    parser.add_argument("--paths-file", type=Path,
+                        help="NUL-separated changed SVG paths from git diff; render all listed SVGs.")
+    parser.add_argument("--self-test", action="store_true",
+                        help="Test changed-path filtering without rendering dependencies.")
     args = parser.parse_args()
+    if args.self_test:
+        self_test()
+        return
+
+    from PIL import Image, ImageFont
+
     OUTPUT.mkdir(exist_ok=True)
     font = ImageFont.load_default()
     errors, records, selected = [], [], []
-    for path in sorted(ROOT.rglob("*.svg")):
+    paths = read_changed_paths(args.paths_file) if args.paths_file else sorted(ROOT.rglob("*.svg"))
+    for path in paths:
         text = path.read_text("utf-8")
-        if not audit_candidate(text):
+        if not args.paths_file and not audit_candidate(text):
             continue
         try:
             small = render(path, 360)
