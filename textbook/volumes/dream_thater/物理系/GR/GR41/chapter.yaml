@@ -1,0 +1,43 @@
+id: "GR41"
+title: "FLRW計量と対称性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR40
+official_scope: []
+learning_objectives:
+  - 各時刻の空間的均一性・等方性を群作用で定式化し、断面曲率が空間内で一定になることを説明できる
+  - 共通の空間対称群を持つ時空計量からshiftの消失・lapseの時間依存・単一尺度因子を導いてFLRW計量を構成できる
+  - 定曲率3空間の測地極座標と曲率座標を導き、k=0,±1の適用域と位相上の限界を判定できる
+  - 尺度因子の空間座標再標準化と曲率パラメータの変化を計算し、kの符号と幾何学的曲率を区別できる
+  - 共動観測者の固有時・測地線性・空間体積の変化・正符号の第二基本形式を検算できる
+  - FLRWの内在曲率と外在曲率を区別し、均一・等方性だけでは宇宙の時間発展が決まらない理由を述べられる
+definitions:
+  - { id: GR41-DEF-01, name: 空間的均一性・等方性 }
+  - { id: GR41-DEF-02, name: FLRW計量と尺度因子 }
+  - { id: GR41-DEF-03, name: 共動観測者と宇宙時間 }
+theorems:
+  - { id: GR41-PROP-01, name: 空間対称性からのFLRW計量 }
+  - { id: GR41-PROP-02, name: 定曲率空間の二つの動径座標表示 }
+  - { id: GR41-PROP-03, name: FLRW空間曲率・体積・第二基本形式 }
+  - { id: GR41-PROP-04, name: 曲率パラメータの座標再標準化 }
+canonical_examples:
+  - 平坦Euclid空間・丸い3球面・双曲3空間の定曲率模型
+  - 正曲率球面の曲率座標が赤道で止まる理由
+  - Minkowskiの静止葉とMilne葉の比較
+  - 一定の尺度因子と時間変化する尺度因子の共動距離
+problem_patterns:
+  - GR41-ISOTROPY-TENSOR
+  - GR41-GEODESIC-POLAR
+  - GR41-K-COORDINATE-DOMAIN
+  - GR41-LAPSE-COSMIC-TIME
+  - GR41-COMOVING-SEPARATION
+  - GR41-SCALE-RESCALING
+  - GR41-SPATIAL-CURVATURE
+  - GR41-EXTRINSIC-CURVATURE
+  - GR41-CONSTRAINT-KINEMATICS
+  - GR41-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
