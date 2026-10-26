@@ -1,6 +1,6 @@
 # QINF7 量子チャネルとKraus表示
 
-[QINF5の測定instrument](../QINF5/index.md#def-qinf5-instrument)では、結果を読まないときの状態更新を、測定演算子の和として計算しました。しかし雑音は、測定結果を読み取らなくても起こります。例えば、外部へ位相情報だけが漏れれば密度行列の非対角成分が縮み、励起したqubitが緩和すれば人口（対角成分）も変化します。こうした操作を、入力状態を出力状態へ送る一つの線形写像として扱いたいのです。
+[QINF5の測定instrument](../QINF5/index.md#def-qinf5-instrument)では、結果を読まないときの状態更新を、測定演算子の和として計算しました。しかし雑音は、測定結果を読み取らなくても起こります。例えば、外部へ位相情報だけが漏れれば密度行列の非対角成分が縮み、励起したqubitが緩和すれば占有確率（対角成分）も変化します。こうした操作を、入力状態を出力状態へ送る一つの線形写像として扱いたいのです。
 
 単に「密度演算子を密度演算子へ写す」と定めるだけでは不十分です。操作する系 $A$ が別の系 $R$ とエンタングルしているとき、$A$ だけに同じ操作を施しても、複合系 $R\otimes A$ の状態は正値でなければなりません。この要求が **完全正値性** です。この章では、完全正値性とトレース保存を組み合わせて物理的な操作を定義し、それを有限個の行列で記述する方法を導きます。
 
@@ -155,14 +155,20 @@ $$
 
 **定義の確認**：作用素の入出力の型と、任意の入力 $X$ に対して指定のKraus和が成立することを確かめます。
 
-$H_{\mathrm{in}}=H_{\mathrm{out}}=\mathbb C^2$ として、$K_0=|0\rangle\langle0|$、$K_1=|0\rangle\langle1|$ を取ります。どちらも入力を二次元から二次元へ送る行列であり、
+$H_{\mathrm{in}}=H_{\mathrm{out}}=\mathbb C^2$ とします。計算基底のどちらを入力しても $|0\rangle$ に初期化したいので、各基底成分を取り出す $\langle j|$ と出力を作る $|0\rangle$ を組み合わせ、
+
+$$
+K_0=|0\rangle\langle0|,\qquad K_1=|0\rangle\langle1|
+$$
+
+と選びます。基底への作用は $K_0|0\rangle=K_1|1\rangle=|0\rangle$、$K_0|1\rangle=K_1|0\rangle=0$ です。入力基底に関する第 $i$ 列が出力 $K_j|i\rangle$ を表すので、これらは二次元から二次元への行列になります。随伴積は
 
 $$
 K_0^\dagger K_0=|0\rangle\langle0|,\qquad
 K_1^\dagger K_1=|1\rangle\langle1|
 $$
 
-です。一般の $X=(x_{ij})$ に対して
+です。一般の $X=\sum_{i,k}x_{ik}|i\rangle\langle k|$ について、両側の $\langle j|$ と $|j\rangle$ が $(j,j)$ 成分だけを選ぶため、
 
 $$
 K_0XK_0^\dagger=x_{00}|0\rangle\langle0|,\qquad
@@ -273,7 +279,9 @@ C&=(\mathrm{id}_d\otimes\Phi)(|\Omega_d\rangle\langle\Omega_d|)\\
 \end{aligned}
 $$
 
-を補助空間 $\mathbb C^d\otimes H_{\mathrm{out}}$ 上に作ります。$|\Omega_d\rangle\langle\Omega_d|\ge0$ であり、$\Phi$ は完全正なので $C\ge0$ です。有限次元の正半定値行列のスペクトル分解から、$r=\operatorname{rank}C\le d\,d_{\mathrm{out}}$ として
+を補助空間 $\mathbb C^d\otimes H_{\mathrm{out}}$ 上に作ります。$|\Omega_d\rangle\langle\Omega_d|\ge0$ であり、$\Phi$ は完全正なので $C\ge0$ です。もし $C=0$ なら、その $(i,j)$ 成分は $\Phi(E_{ij})=0$ であり、行列単位の線形結合で任意の入力を書けるため $\Phi=0$ です。この場合は一個の零作用素 $K_1=0$ がKraus表示を与えます。
+
+以下 $C\ne0$ とします。$C$ は自己共役であり、[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用できます。固有値が非負であることは、固有ベクトル $u$ について $\langle u,Cu\rangle=\lambda\|u\|^2\ge0$ から分かります。正固有値だけを残し、$1\le r=\operatorname{rank}C\le d\,d_{\mathrm{out}}$ として
 
 $$
 C=\sum_{\alpha=1}^r|w_\alpha\rangle\langle w_\alpha|
@@ -289,7 +297,7 @@ $$
 
 と展開します。行列 $K_\alpha:H_{\mathrm{in}}\to H_{\mathrm{out}}$ を、入力基底の第 $i$ 列が $K_\alpha|i\rangle=|k_{\alpha i}\rangle$ となるように定めます。
 
-両側で補助系の $(i,j)$ 成分 $\langle i|\cdot|j\rangle$ を比較します。$C$ の定義から左辺は $\Phi(E_{ij})$、スペクトル分解から右辺は
+両側で補助系の $(i,j)$ 成分、つまり $(\langle i|\otimes I_{H_{\mathrm{out}}})C(|j\rangle\otimes I_{H_{\mathrm{out}}})$ を比較します。$C$ の定義式へ代入すると、$\langle i|s\rangle\langle t|j\rangle=\delta_{is}\delta_{tj}$ により $\Phi(E_{ij})$ だけが残ります。他方 $w_\alpha$ の基底展開を代入すると、同じ成分は
 
 $$
 \sum_{\alpha=1}^r
@@ -376,7 +384,15 @@ $$
 \quad a,d\ge0,\quad a+d=1,\quad |b|^2\le ad
 $$
 
-と表します。最後の条件は二次の正半定値性を行列式で確認したものです。[QINF2の密度演算子](../QINF2/index.md#def-qinf2-ensemble-density)との対応もこれで分かります。
+と表します。これは計算基底における行列表示です。[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の自己共役性は非対角成分の共役関係に、トレース1は $a+d=1$ に対応します。
+
+正半定値性は任意のベクトルに対する二次形式が非負という条件です。まず基底ベクトル $|0\rangle,|1\rangle$ を代入すると $a,d\ge0$ が必要です。さらにこの自己共役行列の固有値は、特性方程式
+
+$$
+t^2-(a+d)t+(ad-|b|^2)=0
+$$
+
+の二根です。[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)より二次形式の非負性と固有値の非負性は同値です。固有値の和は $a+d=1>0$ なので、積 $ad-|b|^2\ge0$ が残りの必要十分条件です。これで行列に課した条件が元の定義から導かれ、逆に密度演算子であることも判定できます。
 
 ### 4.1 位相緩和（dephasing）
 
@@ -430,13 +446,19 @@ $$
 =\left(1-\frac{3p}{4}+3\frac p4\right)I=I
 $$
 
-です。実際、任意の $2\times2$ 行列 $X_0$ をPauli基底で
+です。[Krausの完全性条件](#thm-qinf7-kraus-cptp)によってトレースを保存し、完全正でもあります。実際、任意の $2\times2$ 行列 $X_0$ をPauli基底で
 
 $$
 X_0=c_0I+c_xX+c_yY+c_zZ,\qquad c_0=\frac12\operatorname{Tr}X_0
 $$
 
-と展開すると、$X,Y,Z$ の共役和では $I$ の係数が3倍、各Pauli成分が $-1$ 倍になるため
+と展開します。Pauli行列の積を直接計算すると、異なる二つは反交換し、同じ行列の二乗は $I$ です。例えば $XY=-YX$、$XZ=-ZX$ より
+
+$$
+XXX+YXY+ZXZ=X-X-X=-X.
+$$
+
+$Y,Z$ の成分でも同様の積を確かめると、$X,Y,Z$ の共役和では $I$ の係数が3倍、各Pauli成分が $-1$ 倍になるため
 
 $$
 XX_0X+YX_0Y+ZX_0Z
@@ -514,7 +536,7 @@ $$
 \qquad(\gamma>0).
 $$
 
-**トレース保存**は $\sum K_\alpha^\dagger K_\alpha=I$ を意味しますが、**単位作用素を保存すること**は $\sum K_\alpha K_\alpha^\dagger=I$ という別条件です。振幅減衰は前者を満たし、後者は満たしません。
+[Krausのトレース保存条件](#thm-qinf7-kraus-cptp)は $\sum K_\alpha^\dagger K_\alpha=I$ ですが、**単位作用素を保存すること**は $\sum K_\alpha K_\alpha^\dagger=I$ という別条件です。振幅減衰は前者を満たし、後者は満たしません。
 
 ## 5. 観測しない測定と量子チャネル
 
@@ -524,7 +546,9 @@ $$
 \Phi(X)=\sum_{i,\alpha}M_{i\alpha}XM_{i\alpha}^\dagger
 $$
 
-は $\sum_{i,\alpha}M_{i\alpha}^\dagger M_{i\alpha}=I$ により量子チャネルです。観測結果を記録して条件づけることと、結果を捨てて平均することは違います。条件付き結果の状態は（確率が正の場合）正規化が必要ですが、非選択チャネルの出力は最初からトレース1です。
+は $\sum_{i,\alpha}M_{i\alpha}^\dagger M_{i\alpha}=I$ と[KrausのCPTP条件](#thm-qinf7-kraus-cptp)により量子チャネルです。観測結果を記録して条件づけることと、結果を捨てて平均することは違います。条件付き結果の状態は（確率が正の場合）正規化が必要ですが、非選択チャネルの出力は最初からトレース1です。
+
+状態を出力へ送る $\Phi$ に対し、出力側の観測量 $B$ の期待値 $\operatorname{Tr}(\Phi(\rho)B)$ を、入力 $\rho$ だけを使って計算したい場合があります。トレース内の作用素を移すと、入力側に作用する $\Phi^*(B)$ が自然に現れます。この観測量の引き戻しを**双対作用**と呼び、次の命題で式を定めます。
 
 <a id="prop-qinf7-adjoint"></a>
 
@@ -563,7 +587,7 @@ $$
 \end{aligned}
 $$
 
-$B=I_{H_{\mathrm{out}}}$ とすれば
+$B=I_{H_{\mathrm{out}}}$ とし、[Krausの完全性関係](#thm-qinf7-kraus-cptp)を適用すれば
 
 $$
 \Phi^*(I_{H_{\mathrm{out}}})
