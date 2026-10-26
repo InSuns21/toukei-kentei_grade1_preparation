@@ -8,7 +8,15 @@
 
 ## 1. 結果の確率だけを記述する
 
-射影測定は直交射影 $P_i$ で $P_iP_j=\delta_{ij}P_i$、$\sum_iP_i=I_H$ を満たします。一方、確率 $p_i$ を作るには、各作用素が正値で総和が恒等作用素であることが本質です。有限次元で $E=E^\dagger$ のもとでは、$\langle v,Ev\rangle\ge0$ がすべての $v$ で成り立つことは、$E$ の固有値がすべて非負であることと同値です。そこで、各結果に非負の確率を割り当てる作用素の族を考えます。
+射影測定は直交射影 $P_i$ で $P_iP_j=\delta_{ij}P_i$、$\sum_iP_i=I_H$ を満たします。一方、確率 $p_i$ を作るには、各作用素が正値で総和が恒等作用素であることが本質です。有限次元で $E=E^\dagger$ なら、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)から、正規直交固有基底 $(e_a)$ と実固有値 $(\lambda_a)$ によって
+
+$$
+E=\sum_a\lambda_a|e_a\rangle\langle e_a|,
+\qquad
+\langle v,Ev\rangle=\sum_a\lambda_a|\langle e_a,v\rangle|^2
+$$
+
+と書けます。従ってすべての $v$ で $\langle v,Ev\rangle\ge0$ であることと、各 $v=e_a$ を代入して確かめる $\lambda_a\ge0$ は同値です。この対応を使い、各結果に非負の確率を割り当てる作用素の族を考えます。
 
 <a id="def-qinf5-povm"></a>
 
@@ -26,9 +34,9 @@ $$
 <!-- definition-example-start: def-qinf5-povm -->
 ### 定義の確認：ぼやけた二値測定
 
-**定義の確認**：作用素の自己共役性・正値性・完全性を、この順に基底表示で調べます。
+**定義の確認**：作用素の自己共役性・正値性・完全性を、この順に基底表示で調べます。計算基底における行列の各列は、その基底ベクトルへの作用の成分です。ここで固有値を調べるのは、直前のスペクトル表示によって正値性の全ベクトル条件と同値だからです。
 
-qubitの計算基底を $|0\rangle,|1\rangle$ とし、$0\le\eta\le1$ とします。$Z=|0\rangle\langle0|-|1\rangle\langle1|$ とおきます。$Z$ の固有値は $+1,-1$ なので
+qubitの[計算基底](../QINF1/index.md#def-qinf1-qubit)を $|0\rangle,|1\rangle$ とし、$0\le\eta\le1$ とします。$Z=|0\rangle\langle0|-|1\rangle\langle1|$ とおくと、$Z|0\rangle=|0\rangle$、$Z|1\rangle=-|1\rangle$ なので、$Z$ のこの基底での行列は $\operatorname{diag}(1,-1)$ です。従って
 
 $$
 E_+=\frac{I_2+\eta Z}{2}
@@ -85,6 +93,10 @@ $$
 射影 $P_i$ は $P_i^\dagger=P_i$、$\langle v,P_iv\rangle=\|P_iv\|^2\ge0$ を満たします。完全性も仮定したのでPOVMであり、[混合状態の射影Born則](../QINF2/index.md#prop-qinf2-trace-born)と同じ式 $\operatorname{Tr}(\rho P_i)$ を得ます。
 <!-- proof-end -->
 
+<a id="ref-qinf5-trine"></a>
+
+### 三結果のtrine測定
+
 **三結果のqubit測定**を実際に作りましょう。$\omega=e^{2\pi i/3}$ とし、$k=0,1,2$ について、正規化された三つの非直交ベクトル
 
 $$
@@ -131,7 +143,7 @@ $$
 <!-- definition-example-start: def-qinf5-instrument -->
 ### 定義の確認：確率半々でも後の状態は異なる
 
-**定義の確認**：二乗和の完全性と、結果ごとの非正規化状態を別々に計算します。
+**定義の確認**：測定演算子自身の正値性は要求せず、各 $M_{i\alpha}^\dagger M_{i\alpha}$ の正値性と二乗和の完全性、結果ごとの非正規化状態を別々に計算します。
 
 qubitで $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$ とします。装置Aでは $M_0=M_1=I_2/\sqrt2$、装置Bでは $N_0=I_2/\sqrt2$、$N_1=X/\sqrt2$ とします。$X^\dagger X=I_2$ より、両装置とも
 
@@ -141,7 +153,27 @@ $$
 E_0=E_1=\frac12I_2
 $$
 
-で、各枝の正値性と完全性を確認できます。しかし入力 $\rho=|0\rangle\langle0|$ に対し、結果1の非正規化状態は装置Aで $\rho/2$、装置Bで $X\rho X^\dagger/2=|1\rangle\langle1|/2$ です。結果1の確率は双方とも $1/2$ ですが、規格化後の状態は $|0\rangle\langle0|$ と $|1\rangle\langle1|$ で異なります。同じPOVMから測定後状態を復元できないことが直接分かります。
+です。各効果は $I_2/2$ で自己共役・正値、総和も $I_2$ なので、対応するPOVMの条件をすべて確認できます。
+
+ただし、測定演算子そのものには正値性を要求しません。例えば $X$ の固有値は $+1,-1$ なので、装置Bの $N_1=X/\sqrt2$ は正値ではありません。必要なのは次の二乗積が正値になることです。
+
+$$
+N_1^\dagger N_1=\frac12X^\dagger X=\frac12I_2.
+$$
+
+入力 $\rho=|0\rangle\langle0|$ で結果1を得たとき、非正規化状態と規格化後の状態は装置によって次のように異なります。
+
+$$
+\begin{aligned}
+\mathcal I_1^{(A)}(\rho)&=\frac12\rho,
+&\rho_1^{(A)}&=|0\rangle\langle0|,\\
+\mathcal I_1^{(B)}(\rho)&=\frac12X\rho X^\dagger
+=\frac12|1\rangle\langle1|,
+&\rho_1^{(B)}&=|1\rangle\langle1|.
+\end{aligned}
+$$
+
+結果1の確率は双方とも $1/2$ です。同じPOVMから測定後状態を復元できないことが直接分かります。
 <!-- definition-example-end -->
 
 <a id="prop-qinf5-state-update"></a>
@@ -165,7 +197,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $v$ について $\langle v,M_{i\alpha}^\dagger M_{i\alpha}v\rangle=\|M_{i\alpha}v\|^2\ge0$ であり、完全性は定義の総和条件そのものです。従って $E_i$ は[POVMの定義](#def-qinf5-povm)を満たします。また
+各 $M_{i\alpha}^\dagger M_{i\alpha}$ は随伴を取っても不変なので自己共役です。任意の $v$ について $\langle v,M_{i\alpha}^\dagger M_{i\alpha}v\rangle=\|M_{i\alpha}v\|^2\ge0$ であり、完全性は定義の総和条件そのものです。従って $E_i$ は[POVMの定義](#def-qinf5-povm)を満たします。また
 
 $$
 \begin{aligned}
@@ -176,7 +208,7 @@ $$
 \end{aligned}
 $$
 
-$\rho=\sum_a\lambda_a|e_a\rangle\langle e_a|$ とスペクトル分解すれば
+[密度演算子のスペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)で $\rho=\sum_a\lambda_a|e_a\rangle\langle e_a|$ と書けば
 
 $$
 \langle v,\mathcal I_i(\rho)v\rangle
@@ -187,7 +219,16 @@ $$
 従って $\mathcal I_i(\rho)$ は正値です。$p_i>0$ なら $1/p_i$ 倍で正値かつトレース1になり、$\rho_i$ は密度演算子です。$p_i=0$ なら非正規化状態は正値でトレース0なので、すべての固有値が0、すなわち $\mathcal I_i(\rho)=0$ です。総和は正値でトレース $\sum_ip_i=1$ となり、$\rho'$ も密度演算子です。
 <!-- proof-end -->
 
-どのPOVMにも一つの標準的な状態更新を与えられます。正値作用素 $E_i$ のスペクトル分解で各非負固有値の平方根を取った $\sqrt{E_i}$ は正値で、$(\sqrt{E_i})^2=E_i$ です。$M_i=\sqrt{E_i}$ と置けば $\sum_iM_i^\dagger M_i=\sum_iE_i=I$ なので、[instrumentの定義](#def-qinf5-instrument)を満たします。この構成を**平方根型の測定更新**として使います。ただし他の $M_i$ もあり得るため、POVMそのものの定義にこの更新を埋め込んではいけません。
+どのPOVMにも一つの標準的な状態更新を与えられます。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を各正値作用素 $E_i$ に適用し、非負固有値の平方根を同じ固有基底に並べます。
+
+$$
+E_i=\sum_a\lambda_{ia}|e_{ia}\rangle\langle e_{ia}|,
+\qquad
+\sqrt{E_i}=\sum_a\sqrt{\lambda_{ia}}|e_{ia}\rangle\langle e_{ia}|,
+\quad \lambda_{ia}\ge0.
+$$
+
+直交射影の積で交差項が消えるため $\sqrt{E_i}$ は自己共役・正値で、$(\sqrt{E_i})^2=E_i$ です。$M_i=\sqrt{E_i}$ と置けば $\sum_iM_i^\dagger M_i=\sum_iE_i=I_H$ なので、[instrumentの定義](#def-qinf5-instrument)を満たします。この構成を**平方根型の測定更新**として使います。ただし他の $M_i$ もあり得るため、POVMそのものの定義にこの更新を埋め込んではいけません。
 
 例えば[ぼやけた二値測定](#def-qinf5-povm)で $\rho=|+\rangle\langle+|$、$|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ なら
 
@@ -246,7 +287,16 @@ $$
 \end{aligned}
 $$
 
-よって $V$ は等長写像です。さらに $P_iVv=\sqrt{E_i}v\otimes|i\rangle$ なので
+よって $V$ は等長写像です。さらに $P_iVw=\sqrt{E_i}w\otimes|i\rangle$ です。任意の $v,w\in H$ に対し
+
+$$
+\langle v,V^\dagger P_iVw\rangle
+=\langle Vv,P_iVw\rangle
+=\langle\sqrt{E_i}v,\sqrt{E_i}w\rangle
+=\langle v,E_iw\rangle
+$$
+
+となり、二つの作用素の行列成分がすべて一致するので
 
 $$
 V^\dagger P_iV=E_i,\qquad
@@ -258,7 +308,14 @@ $$
 $H$ の正規直交基底を $e_1,\ldots,e_d$ とします。$e_j\otimes a$ は $H\otimes K$ 内の正規直交系であり、$Ve_j$ も上の等長性から正規直交系です。どちらも長さ $d$ の系なので、それぞれを $dm$ 個のベクトルからなる正規直交基底まで補えます。対応する基底ベクトルを線形に写す $U$ を定めれば、内積を保つ全射でありユニタリです。特に $U(e_j\otimes a)=Ve_j$ が各 $j$ で成立し、線形性から任意の $v$ に拡張されます。
 <!-- proof-end -->
 
-この構成はPOVMの確率を再現するだけでなく、ポインタ結果 $i$ に条件づけた後、補助系を[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で捨てると $\sqrt{E_i}\rho\sqrt{E_i}$ を残します。これは前節の**平方根型**更新です。Naimark拡張は測定後更新を一意に固定する定理ではない、という点に注意しましょう。
+この構成はPOVMの確率を再現するだけではありません。ポインタ結果 $i$ を選んだ全系の非正規化状態は
+
+$$
+P_iV\rho V^\dagger P_i
+=\sqrt{E_i}\rho\sqrt{E_i}\otimes|i\rangle\langle i|
+$$
+
+です。補助系を[部分トレースの積公式](../QINF3/index.md#prop-qinf3-state-product)で捨てると、$\operatorname{Tr}(|i\rangle\langle i|)=1$ から $\sqrt{E_i}\rho\sqrt{E_i}$ が残ります。これは前節の**平方根型**更新です。Naimark拡張は測定後更新を一意に固定する定理ではない、という点に注意しましょう。
 
 ## 4. 補助系が測定装置の内部の枝も記録する
 
@@ -314,7 +371,7 @@ M_{i\alpha}\rho M_{j\beta}^\dagger
 \otimes|i,\alpha\rangle\langle j,\beta|.
 $$
 
-左右から $P_i$ を掛けると $i=j$ の項だけが残り、さらに[積作用素の部分トレース公式](../QINF3/index.md#prop-qinf3-state-product)で $\operatorname{Tr}(|i,\alpha\rangle\langle i,\beta|)=\delta_{\alpha\beta}$ だから
+左右から $P_i$ を掛けると、もとの和で左の結果添字も右の結果添字も固定値 $i$ となり、$\alpha,\beta$ の二重和が残ります。さらに[積作用素の部分トレース公式](../QINF3/index.md#prop-qinf3-state-product)で $\operatorname{Tr}(|i,\alpha\rangle\langle i,\beta|)=\delta_{\alpha\beta}$ だから
 
 $$
 \begin{aligned}
@@ -452,13 +509,32 @@ A^2=s^2I_2+t^2I_2+st(XZ+ZX)
 =(s^2+t^2)I_2.
 $$
 
-$A$ は自己共役でトレース0なので、固有値は $r,-r$、$r=\sqrt{s^2+t^2}$ です。$E_\pm$ は自己共役かつ和が $I_2$ であり、それぞれの固有値は $(1+r)/2,(1-r)/2$。従って[POVMの正値性条件](#def-qinf5-povm)は $r\le1$、すなわち
+$r=\sqrt{s^2+t^2}$ とおきます。$A$ は自己共役で $A^2=r^2I_2$ なので、各固有値は $\pm r$ のどちらかです。トレース0より、$r>0$ なら二つの符号が一つずつ現れ、$r=0$ なら両方0です。
+
+$E_\pm=(I_2\pm A)/2$ は自己共役で和が $I_2$、それぞれの固有値は $(1+r)/2,(1-r)/2$ です。[POVMの正値性条件](#def-qinf5-povm)は $r\le1$、すなわち
 
 $$
 s^2+t^2\le1
 $$
 
-と同値です。$|0\rangle$ では $\langle0,X0\rangle=0$、$\langle0,Z0\rangle=1$ なので $p_+(|0\rangle)=(1+t)/2$。$|+\rangle$ では $\langle+,X+\rangle=1$、$\langle+,Z+\rangle=0$ なので $p_+(|+\rangle)=(1+s)/2$ です。境界 $r=1$ なら両効果は射影、内側 $r<1$ ならどちらも二つの正固有値を持ちます。
+と同値です。計算基底の入力 $|0\rangle$ では $X$ の期待値が0、$Z$ の期待値が1です。一方 $|+\rangle$ では $X$ の期待値が1、$Z$ の期待値が0です。従ってBorn確率は
+
+$$
+\begin{aligned}
+p_+(|0\rangle)&=\frac{1+\langle0,(sX+tZ)0\rangle}{2}
+=\frac{1+t}{2},\\
+p_+(|+\rangle)&=\frac{1+\langle+,(sX+tZ)+\rangle}{2}
+=\frac{1+s}{2}.
+\end{aligned}
+$$
+
+さらに射影性は
+
+$$
+E_\pm^2-E_\pm=\frac{A^2-I_2}{4}=\frac{r^2-1}{4}I_2.
+$$
+
+従って境界 $r=1$ なら両効果は射影、内側 $r<1$ ならどちらも二つの正固有値を持ち、射影ではありません。
 <!-- solution-end -->
 
 <a id="ex-qinf5-b02"></a>
@@ -527,7 +603,7 @@ $$
 - 問題: 入力 $|0\rangle$ にtrine測定 $E_k=(2/3)|\psi_k\rangle\langle\psi_k|$ を平方根型更新で二度連続して行い、各回の報告結果を記録する。第一回の結果確率・条件付き状態、二回連続で同じ結果となる確率、第一回の結果を捨てた状態と第二回の周辺確率を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。第一回の確率は[三結果の計算](#def-qinf5-povm)により $p_k=1/3$ です。$\sqrt{E_k}=\sqrt{2/3}Q_k$、$Q_k=|\psi_k\rangle\langle\psi_k|$ なので、第一回の非正規化状態は
+**詳細解答**。第一回の確率は[三結果の構成と検算](#ref-qinf5-trine)により $p_k=1/3$ です。$\sqrt{E_k}=\sqrt{2/3}Q_k$、$Q_k=|\psi_k\rangle\langle\psi_k|$ なので、第一回の非正規化状態は
 
 $$
 \mathcal I_k(|0\rangle\langle0|)
@@ -535,7 +611,7 @@ $$
 =\frac13Q_k.
 $$
 
-したがって第一回で $k$ を得た条件付き状態は $Q_k$ です。その状態に再び同じ測定を行うと、結果 $j$ の条件付き確率は $(2/3)|\langle\psi_j,\psi_k\rangle|^2$。$j=k$ では $2/3$ なので、二回とも同じ結果となる確率は
+したがって第一回で $k$ を得た条件付き状態は $Q_k$ です。その状態に再び同じ測定を行うと、結果 $j$ の条件付き確率は $(2/3)|\langle\psi_j,\psi_k\rangle|^2$。二回の結果を $K_1,K_2$ と書くと、$j=k$ では条件付き確率が $2/3$ なので、二回とも同じ結果となる確率は
 
 $$
 \sum_{k=0}^2 P(K_1=k)P(K_2=k\mid K_1=k)
