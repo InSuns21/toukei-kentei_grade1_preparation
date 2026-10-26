@@ -37,7 +37,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr39-shift -->
-**定義の確認**：Minkowski時空の慣性座標 $(T,X,Y,Z)$ で、$t=T$、$x=X-vT$、$y=Y$、$z=Z$（定数 $v\in\mathbb R$）とします。$X=x+vt$ なので $\partial_t=\partial_T+v\partial_X$、$\partial_x=\partial_X$ です。各 $t$ 面は元の平坦な $T$ 面で、$n=\partial_T$ は未来向き、$g(n,n)=-1$、$dt(n)=1$。ゆえに $N=1$、$\beta=\partial_t-n=v\partial_x$ で、$dt(\beta)=0$ を直接確かめられます。$|v|>1$ で $\partial_t$ 自身が空間的になっても、時刻面と $n$ はなお空間的・時間的です。
+**定義の確認**：Minkowski時空の慣性座標 $(T,X,Y,Z)$ で、定数 $v\in\mathbb R$ に対し
+
+$$
+t=T,\qquad x=X-vT,\qquad y=Y,\qquad z=Z
+$$
+
+とします。$X=x+vt$ より、座標基底の対応は
+
+$$
+\partial_t=\partial_T+v\partial_X,\qquad
+\partial_x=\partial_X
+$$
+
+です。各時刻面は元の平坦な $T$ 面です。$n=\partial_T$ は未来向きで $g(n,n)=-1$、$dt(n)=1$ だから $N=1$ です。差を取って
+
+$$
+\beta=\partial_t-Nn=v\partial_x,\qquad dt(\beta)=0
+$$
+
+となり、shiftは確かに面の接方向です。$|v|>1$ で $\partial_t$ 自身が空間的になっても、時刻面と $n$ の因果型は変わりません。
 <!-- definition-example-end -->
 
 shiftは空間内の粒子の実速度ではありません。座標 $x^i$ を固定して時刻を進めた線と、面に垂直に進めた線のずれです。この区別により、後の計算で「時刻面の形」と「座標点の付け替え」を切り分けられます。
@@ -280,7 +299,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr39-initial-data -->
-**定義の確認**：平坦Minkowskiの $\Sigma=\{T=0\}$ を考えます。接方向は $\partial_X,\partial_Y,\partial_Z$ なので $h_{ij}=\delta_{ij}$ は正定値です。$n=\partial_T$ は未来向きで $g(n,n)=-1$、$n_\mu$ は定数かつ接続係数は零なので $K_{ij}=0=K_{ji}$。真空を選べば $T_{\mu\nu}=0$、$\rho=j_i=S_{ij}=0$ です。Minkowski計量が[Einstein方程式](../GR12/index.md#thm-gr12-einstein-equation)を $\Lambda=0$ で満たすので、この例は制約式も満たす実在の初期データです。他方、任意の $h,K$ を書いただけで実在する解が保証されたことにはなりません。
+**定義の確認**：平坦Minkowskiの時刻面 $\Sigma=\{T=0\}$ を考えます。接基底 $\partial_X,\partial_Y,\partial_Z$ の内積を取ると
+
+$$
+h_{ij}=g(\partial_i,\partial_j)=\delta_{ij}
+$$
+
+で、これは正定値です。未来単位法線 $n=\partial_T$ は $g(n,n)=-1$ を満たします。$n_\mu$ は定数でMinkowskiの慣性座標における接続係数は零なので、定義に戻ると
+
+$$
+K_{ij}=e_i^\mu e_j^\nu\nabla_\mu n_\nu=0,
+\qquad K_{ij}=K_{ji}
+$$
+
+です。真空を選べば応力テンソルと三種類の射影は
+
+$$
+T_{\mu\nu}=0,\qquad \rho=0,\qquad j_i=0,\qquad S_{ij}=0.
+$$
+
+Minkowski計量は[Einstein方程式](../GR12/index.md#thm-gr12-einstein-equation)を $\Lambda=0$ で満たすため、この例は制約式も満たす実在の初期データです。他方、任意の $h,K$ を書いただけでは、実在する解が保証されたことにはなりません。
 <!-- definition-example-end -->
 
 この候補の $h_{ij},K_{ij}$ は各6成分を持ちますが、初期面に12個の独立な「物理量」があるという結論にはなりません。第一に座標の付け替えがあり、第二に[Einstein方程式](../GR12/index.md#thm-gr12-einstein-equation)の一部は初期面上の制約式です。後者はGR40でGauss–Codazzi関係から導きます。$N,\beta^i$ は面の幾何 $h,K$ と同じ種類の自由データではなく、時刻や座標点の対応を指定するものです。初期値問題の局所存在・一意性にも、十分な正則性、適切な物質模型、制約式を満たすことなどが必要です。
