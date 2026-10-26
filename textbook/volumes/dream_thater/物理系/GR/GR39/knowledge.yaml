@@ -1,0 +1,39 @@
+chapter: GR39
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR3
+  - GR11
+  - GR12
+  - LORG20
+concepts:
+  - id: gravity.adm-spatial-shift
+    name: 時間座標に伴うshift
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間座標に伴うshift）"]
+    requires: [lorentz-geometry.lapse-normal, gravity.boundary-induced-metric]
+  - id: gravity.adm-metric-inverse
+    name: lapse・shiftを含む3+1計量と逆行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（lapse・shiftを含む3+1計量と逆行列）"]
+    requires: [gravity.adm-spatial-shift]
+  - id: gravity.adm-extrinsic-evolution
+    name: 第二基本形式の時間発展表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（第二基本形式の時間発展表示）"]
+    requires: [gravity.adm-metric-inverse, gravity.boundary-extrinsic-curvature]
+  - id: gravity.einstein-initial-data-candidate
+    name: Einstein方程式の初期データ候補
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Einstein方程式の初期データ候補）"]
+    requires: [gravity.adm-extrinsic-evolution, gravity.einstein-field-equation]
+  - id: gravity.adm-time-reparametrization
+    name: 時間再目盛りに対するデータの変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間再目盛りに対するデータの変換）"]
+    requires: [gravity.adm-metric-inverse, gravity.einstein-initial-data-candidate]

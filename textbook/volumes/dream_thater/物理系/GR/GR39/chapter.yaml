@@ -1,0 +1,43 @@
+id: "GR39"
+title: "3+1分解と初期データの意味"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR3
+  - GR11
+  - GR12
+  - LORG20
+official_scope: []
+learning_objectives:
+  - 時間関数のレベル面から誘導計量・未来単位法線・lapse・shiftを構成し、3+1計量と逆行列を導ける
+  - GR11と同じ正符号の第二基本形式を使い、時間微分とshiftのLie微分からKijを導ける
+  - Minkowskiの標準葉層・移動座標・曲がった時刻葉の三例でlapse・shift・Kijを検算できる
+  - 初期面の幾何・物質射影と座標選択を区別し、制約式を満たす必要性と十分性を混同しない
+  - 時間再目盛りとshiftの変更が物理的幾何そのものを変えない場合を計算で判定できる
+definitions:
+  - { id: GR39-DEF-01, name: 時間座標に伴うshift }
+  - { id: GR39-DEF-02, name: Einstein方程式の初期データ候補 }
+theorems:
+  - { id: GR39-PROP-01, name: lapse・shiftを含む3+1計量と逆行列 }
+  - { id: GR39-PROP-02, name: 第二基本形式の時間発展表示 }
+  - { id: GR39-PROP-03, name: 時間再目盛りに対するデータの変換 }
+canonical_examples:
+  - Minkowskiの標準時刻面でN=1・shift=0・Kij=0
+  - Minkowskiの移動空間座標で非零shiftだがKij=0
+  - Minkowskiの曲がったCauchy時刻葉で非零Kxxを二つの方法で計算
+  - lapse・shiftの時間再目盛りと3次元幾何データの不変性
+problem_patterns:
+  - GR39-ADM-METRIC
+  - GR39-NORMAL-SHIFT
+  - GR39-INVERSE-DETERMINANT
+  - GR39-FLAT-MOVING-COORDINATES
+  - GR39-EXTRINSIC-EVOLUTION
+  - GR39-CURVED-FOLIATION
+  - GR39-TIME-REPARAMETRIZATION
+  - GR39-INITIAL-DATA-COUNT
+  - GR39-GAUGE-VS-GEOMETRY
+  - GR39-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
