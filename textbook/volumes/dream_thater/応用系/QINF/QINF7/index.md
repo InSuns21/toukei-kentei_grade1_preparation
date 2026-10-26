@@ -4,7 +4,11 @@
 
 単に「密度演算子を密度演算子へ写す」と定めるだけでは不十分です。操作する系 $A$ が別の系 $R$ とエンタングルしているとき、$A$ だけに同じ操作を施しても、複合系 $R\otimes A$ の状態は正値でなければなりません。この要求が **完全正値性** です。この章では、完全正値性とトレース保存を組み合わせて物理的な操作を定義し、それを有限個の行列で記述する方法を導きます。
 
-以下、$H_{\mathrm{in}},H_{\mathrm{out}}$ は次元 $d_{\mathrm{in}},d_{\mathrm{out}}\ge1$ の有限次元複素Hilbert空間とします。$L(H)$ は $H$ 上のすべての線形作用素、$L(H_{\mathrm{in}},H_{\mathrm{out}})$ は入力から出力への線形写像の空間です。$\dagger$ は随伴、$I_H$ は単位作用素、$\operatorname{Tr}$ はトレースを表します。[密度演算子](../QINF2/index.md#def-qinf2-ensemble-density)は正半定値かつトレース1の作用素です。正半定値作用素を $X\ge0$ と書きます。写像 $\Phi:L(H_{\mathrm{in}})\to L(H_{\mathrm{out}})$ は複素線形とします。
+以下、$H_{\mathrm{in}},H_{\mathrm{out}}$ は次元 $d_{\mathrm{in}},d_{\mathrm{out}}\ge1$ の有限次元複素Hilbert空間とします。
+
+$L(H)$ は $H$ 上のすべての線形作用素、$L(H_{\mathrm{in}},H_{\mathrm{out}})$ は入力から出力への線形写像の空間です。$\dagger$ は随伴、$I_H$ は単位作用素、$\operatorname{Tr}$ はトレースを表します。
+
+[密度演算子](../QINF2/index.md#def-qinf2-ensemble-density)は正半定値かつトレース1の作用素です。正半定値作用素を $X\ge0$ と書きます。写像 $\Phi:L(H_{\mathrm{in}})\to L(H_{\mathrm{out}})$ は複素線形とします。
 
 ## 1. 状態を保つだけでよいか
 
@@ -761,7 +765,11 @@ $$
 
 - Level: B
 
-$H=\mathbb C^2$ の計算基底射影 $P_0=|0\rangle\langle0|,P_1=|1\rangle\langle1|$ を測定演算子とする。入力 $|+\rangle\langle+|$ について、(1) 各結果の確率と条件付き状態、(2) 結果を捨てたチャネルの出力、(3) 同チャネルと $\mathcal D_0$ の一致を確認せよ。
+$H=\mathbb C^2$ の計算基底射影 $P_0=|0\rangle\langle0|,P_1=|1\rangle\langle1|$ を測定演算子とする。入力 $|+\rangle\langle+|$ について、次を示せ。
+
+1. 各結果の確率と条件付き状態を求める。
+2. 結果を捨てたチャネルの出力を計算する。
+3. 同チャネルと $\mathcal D_0$ が一致することを確かめる。
 
 <!-- solution-start -->
 ### 詳細解答
