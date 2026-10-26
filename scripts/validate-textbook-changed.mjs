@@ -4,6 +4,7 @@ import process from 'node:process';
 import { spawnSync } from 'node:child_process';
 import katex from 'katex';
 import YAML from 'yaml';
+import { forbiddenMathPatterns } from './math-delimiter-policy.mjs';
 
 const root = process.cwd();
 const errors = [];
@@ -34,14 +35,7 @@ const targets = changed
   .filter((rel) => targetRe.test(rel) && /\.(?:md|ya?ml)$/u.test(rel))
   .filter((rel) => fs.existsSync(path.join(root, rel)));
 
-const forbidden = [
-  [/\\\(/gu, String.raw`\(`],
-  [/\\\)/gu, String.raw`\)`],
-  [/(?<!\\)\\\[/gu, String.raw`\[`],
-  [/(?<!\\)\\\]/gu, String.raw`\]`],
-  [/\\begin\{(?:equation|align\*?)\}/gu, 'equation/align environment'],
-  [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/gu, 'unsupported command'],
-];
+const forbidden = forbiddenMathPatterns;
 
 for (const rel of targets) {
   const file = path.join(root, rel);

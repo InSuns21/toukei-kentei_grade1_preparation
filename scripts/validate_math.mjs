@@ -1,38 +1,39 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { spawnSync } from 'node:child_process';
 import katex from 'katex';
+import { forbiddenMathPatterns } from './math-delimiter-policy.mjs';
 
 const root = process.cwd();
 const errors = [];
-const validationRoots = ['textbook', 'references', 'agents']
+const validationRootNames = ['textbook', 'references', 'agents'];
+const delimiterRootNames = [...validationRootNames, 'statistical-mathematics', 'applied-rikou-80', 'anki'];
+const rootDelimiterNames = ['AGENTS.md', 'CONTENT_GUIDELINES.md', 'EXERCISE_GUIDELINES.md'];
+const options = parseOptions(process.argv.slice(2));
+const forbidden = forbiddenMathPatterns;
+if (options.selfTest) {
+  runSelfTests();
+  process.exit(0);
+}
+const selected = resolveSelectedFiles(options);
+const validationRoots = validationRootNames
   .map((name) => path.join(root, name))
   .filter(fs.existsSync);
-const files = validationRoots.flatMap(walk).filter((file) => file.endsWith('.md'));
+const files = selected === null
+  ? validationRoots.flatMap(walk).filter((file) => file.endsWith('.md'))
+  : selected.filter((file) => hasRoot(file, validationRootNames));
 
-const delimiterValidationRoots = [
-  'textbook',
-  'statistical-mathematics',
-  'applied-rikou-80',
-  'anki',
-  'references',
-  'agents',
-]
+const delimiterValidationRoots = delimiterRootNames
   .map((name) => path.join(root, name))
   .filter(fs.existsSync);
-const delimiterFiles = [
-  ...delimiterValidationRoots.flatMap(walk).filter((file) => file.endsWith('.md')),
-  ...['AGENTS.md', 'CONTENT_GUIDELINES.md', 'EXERCISE_GUIDELINES.md']
-    .map((name) => path.join(root, name))
-    .filter(fs.existsSync),
-];
-const forbidden = [
-  [/\\\(/g, String.raw`\(`], [/\\\)/g, String.raw`\)`],
-  [/(?<!\\)\\\[/g, String.raw`\[`], [/(?<!\\)\\\]/g, String.raw`\]`],
-  [/\\begin\{(?:equation|align\*?)\}/g, 'equation/align environment'],
-  [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
-];
-
+const delimiterFiles = selected === null
+  ? [
+    ...delimiterValidationRoots.flatMap(walk).filter((file) => file.endsWith('.md')),
+    ...rootDelimiterNames.map((name) => path.join(root, name)).filter(fs.existsSync),
+  ]
+  : selected.filter((file) => hasRoot(file, delimiterRootNames) ||
+    rootDelimiterNames.includes(relative(file)));
 const katexValidationCache = new Map();
 let katexRenderCount = 0;
 let katexCacheHits = 0;
@@ -67,8 +68,97 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証し、${delimiterFiles.length} 個の教材 Markdown で単独行 $ を検査しました。`);
+console.log(`${options.changedOnly ? '変更分' : selected ? '指定分' : '全件'}: ${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証し、${delimiterFiles.length} 個の教材 Markdown で単独行 $ を検査しました。`);
 console.log(`KaTeX render cache: ${katexRenderCount} unique render(s), ${katexCacheHits} cache hit(s).`);
+
+function parseOptions(args) {
+  const result = { changedOnly: false, selfTest: false, base: null, files: [] };
+  for (let i = 0; i < args.length; i += 1) {
+    if (args[i] === '--changed-only') result.changedOnly = true;
+    else if (args[i] === '--self-test') result.selfTest = true;
+    else if (args[i] === '--base' || args[i] === '--file') {
+      const option = args[i];
+      const value = args[++i];
+      if (!value || value.startsWith('--')) throw new Error('Missing value for ' + option);
+      if (option === '--base') result.base = value;
+      else result.files.push(value);
+    } else throw new Error('Unknown argument: ' + args[i]);
+  }
+  if (result.changedOnly && result.files.length) {
+    throw new Error('--changed-only and --file are mutually exclusive');
+  }
+  if (result.base && !result.changedOnly) throw new Error('--base requires --changed-only');
+  return result;
+}
+
+function resolveSelectedFiles(opts) {
+  if (!opts.changedOnly && !opts.files.length) return null;
+  let names = opts.files;
+  if (opts.changedOnly) {
+    const base = opts.base || (process.env.TEXTBOOK_BASE_SHA || '').trim();
+    if (!base) throw new Error('--changed-only requires --base <sha> or TEXTBOOK_BASE_SHA');
+    const diff = spawnSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base + '...HEAD', '--'], {
+      encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    if (diff.status !== 0) throw new Error(diff.stderr || 'git diff failed');
+    names = diff.stdout.split('\0').filter(Boolean);
+  }
+  return [...new Set(names)].filter((name) => {
+    if (opts.files.length && !name.endsWith('.md')) {
+      throw new Error('--file expects a Markdown file: ' + name);
+    }
+    return name.endsWith('.md');
+  }).map((name) => {
+    const abs = path.resolve(root, name);
+    if (!abs.startsWith(root + path.sep)) throw new Error('Path outside repository: ' + name);
+    if (opts.files.length && !(
+      hasRoot(abs, delimiterRootNames) || rootDelimiterNames.includes(relative(abs))
+    )) throw new Error('Markdown file outside validation scope: ' + name);
+    if (opts.files.length && (!fs.existsSync(abs) || !fs.statSync(abs).isFile())) {
+      throw new Error('Markdown file not found: ' + name);
+    }
+    return abs;
+  }).filter((file) => fs.existsSync(file) && fs.statSync(file).isFile());
+}
+
+function hasRoot(file, rootNames) {
+  return rootNames.some((name) => relative(file).startsWith(name + '/'));
+}
+
+function runSelfTests() {
+  const patterns = [
+    [String.raw`\(`, true], [String.raw`\)`, true],
+    [String.raw`\[`, true], [String.raw`\]`, true],
+    [String.raw`\\(`, false], [String.raw`\\)`, false],
+    [String.raw`\\[`, false], [String.raw`\\]`, false],
+    [String.raw`\\\(`, true], [String.raw`\\\\(`, false],
+  ];
+  for (const [sample, expected] of patterns) {
+    const actual = forbidden.slice(0, 4).some(([re]) => {
+      re.lastIndex = 0;
+      return re.test(sample);
+    });
+    if (actual !== expected) throw new Error('Delimiter parity test failed: ' + sample);
+  }
+  // The exact matrix-row form previously reported as a forbidden \( delimiter.
+  katex.renderToString(String.raw`\begin{pmatrix}1\\(2+4)/2\end{pmatrix}`, {
+    displayMode: true, throwOnError: true, strict: 'error', trust: false,
+  });
+  if (forbidden.some(([re]) => {
+    re.lastIndex = 0;
+    return re.test(String.raw`\begin{pmatrix}1\\(2+4)/2\end{pmatrix}`);
+  })) throw new Error('Legal matrix row break was classified as forbidden');
+  if (!hasRoot(path.join(root, 'textbook', 'chapter.md'), validationRootNames)) {
+    throw new Error('Validation root selection failed');
+  }
+  if (hasRoot(path.join(root, 'anki', 'cards.md'), validationRootNames)) {
+    throw new Error('Non-KaTeX root was incorrectly selected');
+  }
+  if (!hasRoot(path.join(root, 'anki', 'cards.md'), delimiterRootNames)) {
+    throw new Error('Delimiter root selection failed');
+  }
+  console.log('Math validation delimiter parity and scope self-tests: OK');
+}
 
 function validateKatex(item) {
   let modeCache = katexValidationCache.get(item.display);

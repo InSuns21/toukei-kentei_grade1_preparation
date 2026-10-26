@@ -8,6 +8,7 @@
     "validate:structure": "node scripts/validate_textbook_structure.mjs",
     "validate:structure:strict": "node scripts/validate_structure.mjs",
     "validate:math": "node scripts/validate_math.mjs",
+    "validate:math:changed": "node scripts/validate_math.mjs --changed-only",
     "validate:exercise-style": "node scripts/validate_exercise_style.mjs",
     "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "audit:textbook-granularity": "node scripts/audit_textbook_granularity.mjs",
