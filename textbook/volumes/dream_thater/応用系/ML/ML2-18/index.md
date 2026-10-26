@@ -91,6 +91,8 @@ $$
 
 例えば三つの行のうち第3列だけがパディングなら、有効な問い合わせ $i=1,2$ に $J_i=\{1,2\}$ と指定する。第3行が無効であれば、そもそも第3行の出力と損失を使わない。計算APIで全行の出力が必要なら第3行にも非空の許可集合を明示し、その結果を無効として捨てる。全列を禁止した行は分母が0となり未定義で、0ベクトルをsoftmaxの結果として装うことはできない。
 
+後に扱う位置情報では、各位置 $j$ に固定ベクトル $p_j\in\mathbb R^d$ を割り当て、行 $x_j^{\mathsf T}$ を $(x_j+p_j)^{\mathsf T}$ に置き換える場合もある。この加算は一行の内側で行われ、$p_j$ が別の入力行から計算されない限り、未来の入力を混ぜない。
+
 <a id="prop-ml2-18-causal"></a>
 
 <!-- formal-statement-start -->
@@ -105,7 +107,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $i$ を固定する。射影は行ごとに共有されるだけで行間を混ぜないので、$q_i=W_Q^{\mathsf T}x_i$ は $x_i$ のみの関数である。同じく $j\in J_i$ なら $k_j=W_K^{\mathsf T}x_j$、$v_j=W_V^{\mathsf T}x_j$ は $j\le i$ の入力のみの関数である。したがって $S_{ij}=q_i^{\mathsf T}k_j/\sqrt{k}$、許可集合内の最大 $m_i$、分母 $\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)$ はいずれも先頭 $i$ 行から決まり、正の分母を持つ。$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。固定位置ベクトルを足しても、各行の計算に他の入力行は混入しない。$\square$
+任意の $i$ を固定する。位置情報がなければ $\widetilde x_j=x_j$、固定位置ベクトル $p_j$ を加える場合には $\widetilde x_j=x_j+p_j$ と置く。射影は行ごとに共有されるだけで行間を混ぜないので、$q_i=W_Q^{\mathsf T}\widetilde x_i$ は $x_i$ と固定値 $p_i$ のみの関数である。同じく $j\in J_i$ なら $k_j=W_K^{\mathsf T}\widetilde x_j$、$v_j=W_V^{\mathsf T}\widetilde x_j$ は $j\le i$ の入力と固定値のみの関数である。したがって $S_{ij}=q_i^{\mathsf T}k_j/\sqrt{k}$、許可集合内の最大 $m_i$、分母 $\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)$ はいずれも先頭 $i$ 行から決まり、正の分母を持つ。$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。$\square$
 <!-- proof-end -->
 
 この主張は「各行の射影前に系列全体の平均を混ぜる」などの別操作を挿入した場合には自動では成立しない。また訓練時に正解系列をずらして入力する場合は、[教師強制](../ML2-17/index.md#def-ml2-17-teacher-forcing)と同じく、入力自体に将来の答えが紛れ込んでいないかを別途確認する必要がある。
@@ -277,13 +279,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（位置情報なしの置換同変性）**  
-> $n,d,k,v\ge1$、共有された射影行列 $W_Q,W_K,W_V$ を固定し、位置情報を加えない[scaled dot-product attention](#def-ml2-18-attention)の写像を $F:\mathbb R^{n\times d}\to\mathbb R^{n\times v}$ とする。$P\in\mathbb R^{n\times n}$ は各行・各列にちょうど一個の1を持ち、他が0の行列とする。全行で全列を許可する（または、$X$ を $P$ で並べ替えた際に許可集合も $P$ で同時に移す）なら
+> $n,d,k,v\ge1$、共有された射影行列 $W_Q,W_K,W_V$ を固定し、位置情報を加えない[scaled dot-product attention](#def-ml2-18-attention)の写像を $F:\mathbb R^{n\times d}\to\mathbb R^{n\times v}$ とする。$P\in\mathbb R^{n\times n}$ は各行・各列にちょうど一個の1を持ち、他が0の行列とする。全行で全列を許可するこの写像について
 
 $$
 F(PX)=PF(X)
 $$
 
-> が成り立つ。各headで同じ条件が成立する[multi-head attention](#def-ml2-18-multihead)と、出力次元を $d$ に合わせた残差 $X+\operatorname{MHA}(X)$ も置換同変である。**位置番号に固定された位置情報**や**元の順序で固定された因果マスク**を加えた一般の写像については、この主張は成り立たない。
+> が成り立つ。さらに各行で空でない許可集合の族 $J=(J_1,\ldots,J_n)$ を持つ[マスク付きattention](#def-ml2-18-mask)の写像を $F_J$ と書く。$(Pz)_i=z_{\pi(i)}$ を満たす置換 $\pi$ に対して $J'_i=\pi^{-1}(J_{\pi(i)})$ と許可集合も移した場合には
+
+$$
+F_{J'}(PX)=P F_J(X)
+$$
+
+> が成り立つ。各headで同じマスク移動条件が成立する[multi-head attention](#def-ml2-18-multihead)と、出力次元を $d$ に合わせた残差 $X+\operatorname{MHA}(X)$ にも対応する等式が成り立つ。**位置番号に固定された位置情報**や**元の順序で固定された因果マスク**を加えた一般の写像については、固定した一つの写像の置換同変性は成り立たない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -318,14 +326,25 @@ A'_{ij}
 \end{aligned}
 $$
 
-最大値を引く表示でも、置換で各行の最大値は変わらないので同じ結論である。許可集合を同時に運ぶ場合は和の範囲も $\pi(J'_i)=J_{\pi(i)}$ と対応させればよい。最後に
+最大値を引く表示でも、置換で各行の最大値は変わらないので同じ結論である。許可集合を同時に運ぶ場合は $J'_i=\pi^{-1}(J_{\pi(i)})$ により $\pi(J'_i)=J_{\pi(i)}$ である。許可列 $j\in J'_i$ について和の添字を $r=\pi(\ell)$ と取り直せば
+
+$$
+\begin{aligned}
+A'_{ij}
+&=\frac{\exp(S_{\pi(i),\pi(j)})}{\sum_{\ell\in J'_i}\exp(S_{\pi(i),\pi(\ell)})}\\
+&=\frac{\exp(S_{\pi(i),\pi(j)})}{\sum_{r\in J_{\pi(i)}}\exp(S_{\pi(i),r})}
+=A_{\pi(i),\pi(j)}.
+\end{aligned}
+$$
+
+禁止列は両方とも0なので、この場合も $A'=PAP^{\mathsf T}$ となる。最後に
 
 $$
 F(PX)=A'V'=(PAP^{\mathsf T})(PV)
 =PA(P^{\mathsf T}P)V=PAV=PF(X).
 $$
 
-各headは同じ性質を持つので横連結した出力も $P$ の行置換に従い、右からの $W_O$ 乗算は行置換と可換である。残差も $PX+P\operatorname{MHA}(X)=P(X+\operatorname{MHA}(X))$。$\square$
+これは全列許可の場合の表示であり、マスクを運んだ場合は左辺を $F_{J'}(PX)$、右辺を $PF_J(X)$ に読み替える。各headは同じ性質を持つので横連結した出力も $P$ の行置換に従い、右からの $W_O$ 乗算は行置換と可換である。残差も $PX+P\operatorname{MHA}(X)=P(X+\operatorname{MHA}(X))$。$\square$
 <!-- proof-end -->
 
 反例を二つ比べる。まず位置情報を固定した場合、第5節の $X=(0,0)^{\mathsf T}$ と $E=(0,1)^{\mathsf T}$ を使い、$P$ を二行の交換とする。$PX=X$ だから $F(PX+E)=F(X+E)$ であるが、出力 $(1/2,e/(1+e))^{\mathsf T}$ の二成分は異なり、$PF(X+E)\ne F(X+E)$ となる。原因はトークン行だけを置換して位置ベクトルを運ばなかったことにある。
