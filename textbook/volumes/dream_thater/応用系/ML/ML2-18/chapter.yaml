@@ -1,0 +1,35 @@
+id: "ML2-18"
+title: "Attention・Transformerの演算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-14
+  - ML2-17
+official_scope: []
+learning_objectives:
+  - トークン行列とQ・K・V射影の全次元を説明し、行ごとのscaled dot-product attentionを計算できる
+  - 許可集合に基づく因果マスクとパディングマスクを実装し、正規化・空行・未来情報の漏洩を検査できる
+  - softmaxのJacobianとattentionの逆伝播を分岐ごとに導出し、有限差分で検算できる
+  - multi-headの連結・出力射影・残差接続の次元と計算を追える
+  - 位置情報とマスクの条件を分離し、位置情報なしの置換同変性を証明し反例を構成できる
+  - 入力・射影係数・マスク・位置埋込みを動かすブラウザ計算ラボで注意重みと出力を再現できる
+definitions:
+  - { id: ML2-18-DEF-01, name: scaled dot-product attention }
+  - { id: ML2-18-DEF-02, name: 許可集合とマスク付きattention }
+  - { id: ML2-18-DEF-03, name: multi-head attentionと残差ブロック }
+  - { id: ML2-18-DEF-04, name: 位置情報を加えたトークン表現 }
+theorems:
+  - { id: ML2-18-THM-01, name: softmaxとattentionの微分 }
+  - { id: ML2-18-THM-02, name: 位置情報なしの置換同変性 }
+  - { id: ML2-18-PROP-01, name: マスク付きattentionの因果性 }
+canonical_examples:
+  - 二トークン一次元のattentionと因果マスク
+  - 三トークンのパディングマスクと空許可集合の扱い
+  - 二headの平均・連結・出力射影・残差
+  - 固定位置情報と因果マスクによる置換同変性の破れ
+  - Q・K・V・mask・位置強度を動かす小型ブラウザ計算ラボ
+problem_patterns: [ML2-18-A01, ML2-18-A02, ML2-18-A03, ML2-18-A04, ML2-18-B01, ML2-18-B02, ML2-18-B03, ML2-18-B04, ML2-18-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

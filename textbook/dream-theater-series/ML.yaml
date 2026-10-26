@@ -161,7 +161,7 @@ chapters:
     title: "系列模型・再帰ネットワーク"
   - id: ML2-18
     path: textbook/volumes/dream_thater/応用系/ML/ML2-18
-    status: planned
+    status: completed
     title: "Attention・Transformerの演算"
   - id: ML2-19
     path: textbook/volumes/dream_thater/応用系/ML/ML2-19
