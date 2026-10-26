@@ -1,0 +1,30 @@
+chapter: GR40
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR39
+concepts:
+  - id: gravity.gauss-codazzi-spacelike
+    name: 空間的超曲面のGauss・Codazzi射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空間的超曲面のGauss・Codazzi射影）"]
+    requires: [gravity.boundary-extrinsic-curvature, gravity.adm-extrinsic-evolution]
+  - id: gravity.adm-constraints
+    name: Hamiltonian制約・運動量制約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hamiltonian制約・運動量制約）"]
+    requires: [gravity.gauss-codazzi-spacelike, gravity.einstein-field-equation]
+  - id: gravity.adm-constraint-projection
+    name: Einstein方程式のHamiltonian・運動量制約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Einstein方程式のHamiltonian・運動量制約）"]
+    requires: [gravity.adm-constraints, gravity.einstein-initial-data-candidate]
+  - id: gravity.adm-time-symmetric-pure-trace
+    name: 時間対称および純跡の初期データの判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間対称および純跡の初期データの判定）"]
+    requires: [gravity.adm-constraint-projection]
