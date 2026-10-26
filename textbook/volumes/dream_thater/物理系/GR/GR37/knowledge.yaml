@@ -1,0 +1,48 @@
+chapter: GR37
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR25
+  - GR26
+  - GR34
+  - GR35
+  - GR36
+  - LORG18
+  - LORG19
+concepts:
+  - id: gravity.affine-geodesic-incompleteness
+    name: 測地線のアフィン不完備性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測地線のアフィン不完備性）"]
+    requires: [geometry.geodesic-affine-reparametrization]
+  - id: gravity.closed-future-trapped-surface
+    name: 閉じた未来捕獲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉じた未来捕獲面）"]
+    requires: [gravity.null-normal-expansion]
+  - id: gravity.trapped-uniform-focusing
+    name: 捕獲面からの一様集束上限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（捕獲面からの一様集束上限）"]
+    requires: [gravity.closed-future-trapped-surface, gravity.null-ricci-convergence-condition, gravity.horizon-negative-expansion-focal]
+  - id: gravity.trapped-boundary-generators
+    name: 未来光的境界生成線の長さ制限
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（未来光的境界生成線の長さ制限）"]
+    requires: [gravity.trapped-uniform-focusing]
+  - id: gravity.penrose-null-incompleteness
+    name: Penrose型光的測地不完備定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Penrose型光的測地不完備定理）"]
+    requires: [gravity.trapped-boundary-generators, gravity.affine-geodesic-incompleteness]
+  - id: gravity.schwarzschild-finite-proper-time
+    name: Schwarzschild内部の有限固有時
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild内部の有限固有時）"]
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.affine-geodesic-incompleteness]

@@ -153,7 +153,7 @@ chapters:
     title: "地平線の面積非減少の仮定"
   - id: GR37
     path: textbook/volumes/dream_thater/物理系/GR/GR37
-    status: planned
+    status: completed
     title: "特異点定理と測地不完備性"
   - id: GR38
     path: textbook/volumes/dream_thater/物理系/GR/GR38
