@@ -158,7 +158,7 @@ $$
 
 $q\in E^+(S)\setminus S$ を固定します。$q\in J^+(S)$ より、ある $p\in S$ から $q$ へ因果曲線が存在します。$q\notin I^+(S)$ なので $p\not\ll q$。[LORG18のAvez–Seifert定理](../../../幾何系/LORG/LORG18/index.md#thm-lorg18-avez-seifert)を $p\le q$ に使うと長さ零の最大化曲線があり、[その測地線規則性](../../../幾何系/LORG/LORG18/index.md#prop-lorg18-local-geodesic)から非定数光的測地線を得ます。
 
-始点の接ベクトルを $k(0)$ とします。$S$ 内で始点を速度 $v\in T_pS$ で動かし、終点 $q$ を固定した曲線変分の変分場を $V$ とします。$L$ を元の光線のアフィン長、$\mathcal E=\frac12\int_0^L g(\dot\gamma,\dot\gamma)\,d\lambda$ をエネルギー汎関数とすると、測地線方程式と $V(L)=0$ を使った第一変分は
+始点の接ベクトルを $k(0)$ とします。$S$ 内で始点を速度 $v\in T_pS$ で動かし、終点 $q$ を固定した曲線変分の変分場を $V$ とします。$L$ を元の光線のアフィン長、$\mathcal E=\frac12\int_0^L g(\dot\gamma,\dot\gamma)\,d\lambda$ を、曲線から実数を作るエネルギー積分と定めると、測地線方程式と $V(L)=0$ を使った第一変分は
 
 $$
 \begin{aligned}
@@ -225,7 +225,7 @@ $$
 
 [未来光的境界生成線の長さ制限](#lem-gr37-boundary-generators)により $E^+(S)\subset K$。一方 $E^+(S)=\partial I^+(S)$ は[LORG12の境界定理](../../../幾何系/LORG/LORG12/index.md#thm-lorg12-boundary-achronal)から閉です。従って $K$ の閉部分集合であり、$E^+(S)$ はコンパクトです。
 
-次に、[LORG19の位相的分割の証明で構成した完全な時間的ベクトル場](../../../幾何系/LORG/LORG19/index.md#thm-lorg19-topological-splitting) $X$ の流れ $\Phi_s$ を使います。各流線は両側非延長の時間的曲線なので、[Cauchy面の定義](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)により、仮定した**この** $\Sigma$ と一度だけ交わります。$\Sigma$ をLORG19の時間関数の零レベル集合と仮定する必要はありません。$\pi(\Phi_s(p))=p$（$p\in\Sigma$）で定まる写像
+次に、[LORG19の位相的分割の証明で構成した完全な時間的ベクトル場](../../../幾何系/LORG/LORG19/index.md#thm-lorg19-topological-splitting) $X$ の流れ $\Phi_s$ を使います。各流線は両側非延長の時間的曲線なので、[Cauchy面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)により、仮定した**この** $\Sigma$ と一度だけ交わります。$\Sigma$ をLORG19の時間関数の零レベル集合と仮定する必要はありません。$\pi(\Phi_s(p))=p$（$p\in\Sigma$）で定まる写像
 
 $$
 \pi:M\longrightarrow\Sigma
