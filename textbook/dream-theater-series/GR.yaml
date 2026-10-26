@@ -157,7 +157,7 @@ chapters:
     title: "特異点定理と測地不完備性"
   - id: GR38
     path: textbook/volumes/dream_thater/物理系/GR/GR38
-    status: planned
+    status: completed
     title: "宇宙検閲仮説の論理と既知の限界"
   - id: GR39
     path: textbook/volumes/dream_thater/物理系/GR/GR39

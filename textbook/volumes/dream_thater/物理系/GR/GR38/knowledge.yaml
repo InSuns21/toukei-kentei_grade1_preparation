@@ -1,0 +1,55 @@
+chapter: GR38
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR28
+  - GR29
+  - GR31
+  - GR32
+  - GR37
+  - LORG13
+  - LORG15
+  - LORG16
+concepts:
+  - id: gravity.maximal-globally-hyperbolic-development
+    name: 最大大域双曲的発展
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最大大域双曲的発展）"]
+    requires: [lorentz-geometry.cauchy-hypersurface, lorentz-geometry.global-hyperbolicity]
+  - id: gravity.metric-extension-regularity
+    name: 計量の正則性別延長可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計量の正則性別延長可能性）"]
+    requires: [gravity.maximal-globally-hyperbolic-development]
+  - id: gravity.weak-cosmic-censorship-formulation
+    name: 弱宇宙検閲の代表的定式化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱宇宙検閲の代表的定式化）"]
+    requires: [gravity.future-event-horizon, gravity.affine-geodesic-incompleteness]
+  - id: gravity.strong-cosmic-censorship-formulation
+    name: 強宇宙検閲の代表的定式化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（強宇宙検閲の代表的定式化）"]
+    requires: [gravity.maximal-globally-hyperbolic-development, gravity.metric-extension-regularity]
+  - id: gravity.rn-inner-local-extension
+    name: RN内側の正則な局所延長と有限固有時
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RN内側の正則な局所延長と有限固有時）"]
+    requires: [gravity.rn-horizon-classification, gravity.metric-extension-regularity]
+  - id: gravity.curvature-c2-obstruction
+    name: 曲率スカラー発散によるC2延長障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率スカラー発散によるC2延長障害）"]
+    requires: [gravity.metric-extension-regularity]
+  - id: gravity.metric-regularity-implications
+    name: 延長の正則性についての含意
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（延長の正則性についての含意）"]
+    requires: [gravity.metric-extension-regularity]
