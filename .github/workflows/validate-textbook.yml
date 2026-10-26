@@ -227,6 +227,16 @@ jobs:
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:math
 
+      - name: Self-test textbook math validator
+        if: github.event_name == 'pull_request'
+        run: npm run validate:math -- --self-test
+
+      - name: Validate changed textbook math
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: npm run validate:math:changed -- --base "$TEXTBOOK_BASE_SHA"
+
       - name: Validate exercise style
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:exercise-style
