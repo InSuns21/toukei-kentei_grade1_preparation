@@ -161,7 +161,7 @@ chapters:
     title: "宇宙検閲仮説の論理と既知の限界"
   - id: GR39
     path: textbook/volumes/dream_thater/物理系/GR/GR39
-    status: planned
+    status: completed
     title: "3+1分解と初期データの意味"
   - id: GR40
     path: textbook/volumes/dream_thater/物理系/GR/GR40
