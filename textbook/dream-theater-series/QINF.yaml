@@ -37,7 +37,7 @@ chapters:
     title: "Schmidt分解"
   - id: QINF7
     path: textbook/volumes/dream_thater/応用系/QINF/QINF7
-    status: planned
+    status: completed
     title: "量子チャネルとKraus表示"
   - id: QINF8
     path: textbook/volumes/dream_thater/応用系/QINF/QINF8
