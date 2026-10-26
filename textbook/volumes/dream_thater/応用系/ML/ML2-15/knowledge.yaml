@@ -1,0 +1,59 @@
+chapter: ML2-15
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-14, ML1-09, ML1-10, ML1-12]
+concepts:
+  - id: learning.deep-regularized-objective
+    name: 深層網の正則化付き経験損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深層網の正則化付き経験損失）"]
+    requires: [learning.backpropagation, learning.empirical-risk-minimization]
+  - id: learning.nonconvex-gradient-stationarity
+    name: 非凸滑らかな損失の勾配下降と停留性評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非凸滑らかな損失の勾配下降と停留性評価）"]
+    requires: [learning.deep-regularized-objective, learning.empirical-smooth-loss]
+  - id: learning.quadratic-learning-rate-threshold
+    name: 二次模型の学習率閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次模型の学習率閾値）"]
+    requires: [learning.nonconvex-gradient-stationarity]
+  - id: learning.weight-decay
+    name: weight decay
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（weight decay）"]
+    requires: [learning.deep-regularized-objective]
+  - id: learning.weight-decay-norm-comparison
+    name: 非凸大域最小解の重みノルム比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非凸大域最小解の重みノルム比較）"]
+    requires: [learning.weight-decay]
+  - id: learning.early-stopping
+    name: early stopping
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（early stopping）"]
+    requires: [learning.holdout-model-selection]
+  - id: learning.early-stopping-counterexample
+    name: early stoppingの反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（early stoppingの反例）"]
+    requires: [learning.early-stopping]
+  - id: learning.inverted-dropout
+    name: inverted dropoutと評価時予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（inverted dropoutと評価時予測）"]
+    requires: [learning.deep-regularized-objective]
+  - id: learning.dropout-expected-square-loss
+    name: inverted dropoutの期待損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（inverted dropoutの期待損失）"]
+    requires: [learning.inverted-dropout]
