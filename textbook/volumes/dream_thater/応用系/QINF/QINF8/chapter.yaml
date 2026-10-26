@@ -1,0 +1,45 @@
+id: "QINF8"
+title: "Stinespring表現と相補チャネル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF3
+  - QINF4
+  - QINF7
+official_scope: []
+learning_objectives:
+  - 有限次元等長写像を定義し、Kraus完全性関係からStinespring等長写像を構成して入出力の次元と内積保存を検算できる
+  - 環境の部分トレースが元の量子チャネルを与えること、およびすべての有限次元チャネルにこの表現が存在することを両方向から証明できる
+  - 相補チャネルを定義し、その行列成分と完全正値性・トレース保存性を導ける
+  - 振幅減衰と位相緩和について出力側・環境側の状態を計算し、環境へ漏れる情報を区別できる
+  - 環境の最小次元と同じチャネルの環境表現の等長写像による非一意性を、精製の一意性から証明できる
+  - 環境基底のKrausラベルと物理的測定記録を区別し、ユニタリ実現の次元条件を説明できる
+definitions:
+  - { id: QINF8-DEF-01, name: "Stinespring等長写像と環境系" }
+  - { id: QINF8-DEF-02, name: "相補チャネル" }
+theorems:
+  - { id: QINF8-THM-01, name: "有限次元Stinespring表現" }
+  - { id: QINF8-PROP-01, name: "相補チャネルのKraus行列成分" }
+  - { id: QINF8-PROP-02, name: "等長写像のユニタリ拡張" }
+  - { id: QINF8-THM-02, name: "最小環境次元と環境表現の非一意性" }
+  - { id: QINF8-PROP-03, name: "振幅減衰の相補チャネル" }
+canonical_examples:
+  - "振幅減衰の等長写像で直交性・正規化を各基底に対して検算"
+  - "リセットチャネルでは出力が一定でも環境へ入力状態が移る"
+  - "振幅減衰の相補写像がパラメータ1−γの振幅減衰と一致する"
+  - "位相緩和の相補写像はZ期待値を受け取るが位相には依存しない"
+  - "Krausラベルの回転と環境のユニタリ変換"
+problem_patterns:
+  - QINF8-ISOMETRY
+  - QINF8-TRACE-ENVIRONMENT
+  - QINF8-CONSTANT-COMPLEMENT
+  - QINF8-DEPHASING-COMPLEMENT
+  - QINF8-AMPLITUDE-COMPLEMENT
+  - QINF8-KRAUS-ROTATION
+  - QINF8-ENVIRONMENT-NONUNIQUENESS
+  - QINF8-MINIMAL-DILATION
+  - QINF8-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 2.0 }
