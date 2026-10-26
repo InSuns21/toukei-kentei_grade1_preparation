@@ -1,0 +1,75 @@
+chapter: QINF7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+  - QINF5
+forward_references: []
+
+concepts:
+  - id: quantum.positive-map
+    name: 正写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正写像と完全正写像）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.completely-positive-map
+    name: 完全正写像
+    kind: definition
+    introduction: formal
+    aliases: [完全正値写像]
+    introduction_aliases: [定義（正写像と完全正写像）]
+    requires: [quantum.positive-map, quantum.composite-system]
+
+  - id: quantum.transpose-not-cp
+    name: 転置は正だが完全正ではない
+    kind: proposition
+    introduction: formal
+    requires: [quantum.completely-positive-map, quantum.composite-system]
+
+  - id: quantum.quantum-channel
+    name: 量子チャネル
+    kind: definition
+    introduction: formal
+    aliases: [CPTP写像]
+    requires: [quantum.completely-positive-map]
+
+  - id: quantum.kraus-representation
+    name: Kraus表示
+    kind: definition
+    introduction: formal
+    requires: [quantum.finite-measurement-instrument, quantum.completely-positive-map]
+
+  - id: quantum.kraus-operator
+    name: Kraus作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Kraus表示）]
+    requires: [quantum.kraus-representation]
+
+  - id: quantum.kraus-completeness
+    name: Kraus表示からの完全正値性とトレース保存条件
+    kind: theorem
+    introduction: formal
+    requires: [quantum.kraus-representation, quantum.quantum-channel]
+
+  - id: quantum.kraus-existence
+    name: 有限次元完全正写像のKraus表示
+    kind: theorem
+    introduction: formal
+    requires: [quantum.kraus-representation, quantum.completely-positive-map, quantum.kraus-completeness]
+
+  - id: quantum.channel-composition
+    name: チャネルの合成と古典的混合
+    kind: proposition
+    introduction: formal
+    requires: [quantum.kraus-completeness, quantum.quantum-channel]
+
+  - id: quantum.channel-adjoint
+    name: チャネルと観測量の双対作用
+    kind: proposition
+    introduction: formal
+    requires: [quantum.quantum-channel, quantum.kraus-completeness]
