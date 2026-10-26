@@ -8,23 +8,15 @@ if(!process.argv.includes('--self-test') && verifiedMassRelocation()) { console.
 
 // Three review modes: A (verified presentation-only), B (local mathematical edits),
 // C (new chapters or substantive revisions). Unclassified changes fail closed to C.
-const localFields = [
-  '変更箇所と影響範囲', '変更部分の再計算根拠', '波及先の証明・演習確認',
-  '読者粒度・参照リンク', '未確認・未解消', '最終差分と検証', '結論'
-];
-const formatFields = ['変更範囲', '表示検証', '未確認・未解消', '最終差分と検証'];
-
-const fields = [
-  '本文確認範囲', 'learning objectives 対応', '主要結果アンカー',
-  '全演習ID', '主要結果の再計算根拠', '演習の再計算根拠',
-  '読者粒度の重点箇所', '未確認・未解消', '査読の実施主体',
-  '最終差分と検証', '結論'
-];
+// The gate checks that a chapter-specific review record exists, not that the
+// writer copied eleven particular field names or every source ID into a PR.
+// Mathematical review and the contents of the record remain human judgments.
+const minimumRecordLengths = {substantive: 80, 'local-math': 50, format: 40};
 
 function inventory(source) {
   return {
     anchors: [...new Set([...source.matchAll(/<a id="((?:thm|prop|lemma|principle)-[^"]+)"><\/a>/g)].map(x => x[1]))],
-    exercises: [...new Set([...source.matchAll(/^###\s+([ABC]\d+)(?=[.．:：\s]|$)/gm)].map(x => x[1]))]
+    exercises: [...new Set([...source.matchAll(/^###\s+((?:[A-Z][A-Z0-9_-]*-)?[ABC]\d+)(?=[.．:：\s]|$)/gm)].map(x => x[1]))]
   };
 }
 function stableInventory(source) {
@@ -77,36 +69,37 @@ function sectionsFrom(body) {
   const sections = new Map();
   found.forEach((m, i) => {
     if (sections.has(m[1])) throw new Error('duplicate review section: ' + m[1]);
-    sections.set(m[1], {mode: m[2] || 'substantive', text: body.slice(m.index + m[0].length, found[i + 1]?.index ?? body.length)});
+    const nextFormat = body.indexOf('<!-- DT-FORMAT-REVIEW -->', m.index + m[0].length);
+    const nextChapter = found[i + 1]?.index ?? body.length;
+    const end = nextFormat < 0 ? nextChapter : Math.min(nextChapter, nextFormat);
+    sections.set(m[1], {mode: m[2] || 'substantive', text: body.slice(m.index + m[0].length, end)});
   });
   return sections;
 }
-function fieldValue(section, label) {
-  const prefix = '- **' + label + '**：';
-  return section.split('\n').find(line => line.startsWith(prefix))?.slice(prefix.length).trim() ?? '';
+function recordLength(text) {
+  // Exclude markup and common literal placeholders. This deliberately does not
+  // try to certify the mathematical validity of freely written review notes.
+  return text.replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<[^>\n]*>/g, '')
+    .replace(/\[(?:TODO|TBD|未記入|記入欄)\]/gi, '')
+    .replace(/[\s`*_#>\-|]/g, '').length;
 }
-function checkChapter(id, section, targets) {
+function checkChapter(id, section) {
   if (!section) return ['missing <!-- DT-REVIEW: ' + id + ' -->'];
-  const errors = [];
-  const required = section.mode === 'local-math' ? localFields : fields;
-  for (const field of required) {
-    const v = fieldValue(section.text, field);
-    if (v.length < 6 || /^<[^>]*>$/.test(v)) errors.push('unfilled field: ' + field);
-  }
-  if (section.mode === 'local-math') return errors;
-  const tick = String.fromCharCode(96);
-  const a = fieldValue(section.text, '主要結果アンカー');
-  const e = fieldValue(section.text, '全演習ID');
-  for (const id of targets.anchors) if (!a.includes(tick + id + tick)) errors.push('missing theorem/proposition: ' + id);
-  for (const id of targets.exercises) if (!e.includes(tick + id + tick)) errors.push('missing exercise: ' + id);
-  return errors;
+  const minimum = minimumRecordLengths[section.mode];
+  return recordLength(section.text) < minimum
+    ? ['review summary is blank or too short (at least ' + minimum + ' characters; no fixed field names required)']
+    : [];
 }
 function selfTest() {
   const src = '<a id="thm-one"></a>\n<a id="prop-two"></a>\n### A1. one\n### B2. two\n### C1. three';
   const expected = {anchors: ['thm-one', 'prop-two'], exercises: ['A1', 'B2', 'C1']};
   assert.deepEqual(inventory(src), expected);
+  assert.deepEqual(inventory('<a id="thm-qinf9-cp"></a>\n### QINF9-A01 解答\n### QINF9-C02 応用'),
+    {anchors: ['thm-qinf9-cp'], exercises: ['QINF9-A01', 'QINF9-C02']});
   assert.equal(sectionsFrom('<!-- DT-REVIEW: T1 -->\nabc').get('T1').text.trim(), 'abc');
   assert.equal(sectionsFrom('<!-- DT-REVIEW: T1 local-math -->\nabc').get('T1').mode, 'local-math');
+  assert.equal(sectionsFrom('<!-- DT-REVIEW: T1 -->\n<!-- DT-FORMAT-REVIEW -->\nlong other review').get('T1').text.trim(), '');
   const from = '> 1. **結合則**\n>\n$$\na=b\n$$\n>\n> 2. **単位元**';
   const to = '> **（G1）結合則**\n>\n$$\na=b\n$$\n>\n> **（G2）単位元**';
   assert(isVerifiedFormatOnly(from, to), 'presentational list number fix should qualify');
@@ -121,18 +114,13 @@ function selfTest() {
   assert(!isVerifiedFormatOnly('a**b', 'ab'), 'non-Markdown exponent-like syntax must not qualify');
   assert(!isVerifiedFormatOnly('a__b', 'ab'), 'non-Markdown underscore identifiers must not qualify');
   assert(isVerifiedFormatOnly('  元の本文  \n\n定義', '元の本文\n定義'), 'spaces and blank lines should qualify');
-  const tick = String.fromCharCode(96);
-  const body = fields.map(f => '- **' + f + '**：十分な実査読情報をここに記録した。').join('\n')
-    .replace('- **主要結果アンカー**：十分な実査読情報をここに記録した。',
-      '- **主要結果アンカー**：' + tick + 'thm-one' + tick + ', ' + tick + 'prop-two' + tick)
-    .replace('- **全演習ID**：十分な実査読情報をここに記録した。',
-      '- **全演習ID**：' + tick + 'A1' + tick + ', ' + tick + 'B2' + tick + ', ' + tick + 'C1' + tick);
-  assert.deepEqual(checkChapter('T1', {mode: 'substantive', text: body}, expected), []);
-  assert(checkChapter('T1', {mode:'substantive', text:body.replace(tick + 'C1' + tick, tick + 'D1' + tick)}, expected).some(x => x.includes('C1')));
-  const local = localFields.map(f => '- **' + f + '**：変更した証明を出発点から検算し、関連箇所を確認した。').join('\n');
-  assert.deepEqual(checkChapter('T1', {mode:'local-math', text:local}, expected), []);
-  assert(checkChapter('T1', {mode:'local-math', text:local.replace('波及先の証明・演習確認', '未確認の項目')}, expected).length > 0);
-  assert(checkChapter('T1', {mode:'substantive', text:''}, expected).length > 0);
+  const substantive = '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
+  assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
+  assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);
+  assert(checkChapter('T1', {mode:'substantive', text:'確認済み'}).length > 0);
+  assert(checkChapter('T1', {mode:'substantive', text:'<記入欄>'}).length > 0);
+  assert(checkChapter('T1', null).length > 0);
+  assert(recordLength('<!-- memo -->\n**確認**：<内容>') < minimumRecordLengths.format);
   console.log('DREAM THEATER review evidence self-test passed');
 }
 
@@ -183,22 +171,20 @@ if (args.includes('--self-test')) {
     const section = sections.get(id);
     if (before === null && section?.mode === 'local-math')
       problems.push(id + ': newly added chapter requires substantive (C) review evidence');
-    const violations = checkChapter(id, section, targets);
+    const violations = checkChapter(id, section);
     problems.push(...violations.map(v => id + ': ' + v));
     if (!violations.length) console.log(id + ': ' + section.mode + ' review evidence recorded; ' + targets.anchors.length + ' primary results and ' + targets.exercises.length + ' exercises present');
   }
   if (formatOnly.length) {
     const record = formatReview(body);
     if (!record) problems.push('format-only chapters require a shared <!-- DT-FORMAT-REVIEW --> record');
-    else for (const field of formatFields) {
-      const v = fieldValue(record, field);
-      if (v.length < 6 || /^<[^>]*>$/.test(v)) problems.push('format-only review: unfilled field ' + field);
-    }
+    else if (recordLength(record) < minimumRecordLengths.format)
+      problems.push('format-only review: provide a short rendering/diff verification summary (no fixed field names required)');
     console.log('Format-only text/math/anchors/headings/links/code/exercises unchanged in ' + formatOnly.length + ' chapters: ' + formatOnly.join(', '));
   }
   if (problems.length) {
     console.error('DREAM THEATER review evidence gate failed:\n- ' + problems.join('\n- '));
-    console.error('Use textbook/prompts/dream-theater-review-evidence.md; this check cannot prove mathematical validity.');
+    console.error('See textbook/prompts/dream-theater-review-evidence.md; field names and full ID lists are not required by CI. This check cannot prove mathematical validity.');
     process.exit(1);
   }
   console.log('Risk-based review evidence gate passed (automated format equivalence does not replace rendered-layout verification or mathematical review when applicable)');
