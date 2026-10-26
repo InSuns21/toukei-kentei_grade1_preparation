@@ -1,0 +1,46 @@
+id: "GR42"
+title: "Friedmann方程式と流体保存"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR41
+  - GR12
+  - GR8
+official_scope: []
+learning_objectives:
+  - FLRW計量から非零Christoffel係数とRicci・Einsteinテンソルの全独立成分を計算できる
+  - Einstein場の方程式の時間成分と空間成分からFriedmann制約式・加速式を導ける
+  - 共動完全流体の共変保存を座標計算と体積仕事の両方から説明できる
+  - 一定状態方程式p=wρの密度スケーリングと塵・放射・宇宙項の基本解を再導出できる
+  - Friedmann制約と発展方程式を区別し、制約保存とH=0での逆推論の限界を判断できる
+  - 曲率の規格化と宇宙項・真空エネルギーの二重計上に注意して模型を検算できる
+definitions:
+  - { id: GR42-DEF-01, name: Hubble率と共動完全流体 }
+  - { id: GR42-DEF-02, name: 一定状態方程式パラメータ }
+theorems:
+  - { id: GR42-PROP-01, name: FLRWの接続とRicci曲率 }
+  - { id: GR42-THM-01, name: Friedmann方程式 }
+  - { id: GR42-PROP-02, name: FLRWの流体保存と密度スケーリング }
+  - { id: GR42-PROP-03, name: Friedmann制約の伝播と逆推論の限界 }
+  - { id: GR42-PROP-04, name: 平坦な一定状態方程式宇宙と真空解 }
+canonical_examples:
+  - 平坦な塵宇宙のa∝t^(2/3)とρ∝a^(-3)
+  - 平坦な放射優勢宇宙のa∝t^(1/2)とρ∝a^(-4)
+  - 正の宇宙項の平坦de Sitter解と曲率座標を持つ解
+  - Milne時空の真空・負空間曲率検算
+  - 静的初期データが制約だけでは時間発展を定めない例
+problem_patterns:
+  - GR42-CHRISTOFFEL
+  - GR42-RICCI-TRACE
+  - GR42-HAMILTONIAN
+  - GR42-FLUID-CONTINUITY
+  - GR42-ACCELERATION
+  - GR42-SPATIAL-EINSTEIN
+  - GR42-CONSTANT-W
+  - GR42-CONSTRAINT-PROPAGATION
+  - GR42-DE-SITTER-CURVATURE
+  - GR42-MULTIFLUID-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
