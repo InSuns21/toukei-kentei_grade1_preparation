@@ -21,8 +21,28 @@
 > 連結な3次元Riemann多様体 $(\Sigma,h)$ の等長変換群 $\mathcal G$ について、任意の $p,q\in\Sigma$ を結ぶ $F\in\mathcal G$ が存在するとき**空間的均一**という。また各点 $p$ を固定する等長変換の微分が、$T_p\Sigma$ 上のすべての向き保存直交回転 $SO(3)$ を含むとき**空間的等方**という。本章でいう均一・等方な空間は両方を満たすものとする。
 <!-- formal-statement-end -->
 
+この定義を座標で判定するときは、各点の $h$ に関する正規直交基底 $e_1,e_2,e_3$ を選びます。この基底では $h(e_i,e_j)=\delta_{ij}$ なので、接ベクトルに作用する向き保存直交回転は
+
+$$
+R^{\mathsf T}R=I,\qquad\det R=1
+$$
+
+を満たす行列で表されます。等長写像 $F$ の微分 $dF_p$ がその回転を実現し、[Riemann等長写像の条件](../../../幾何系/GEO/GEO12/index.md#def-geo12-isometry)
+
+$$
+h_{F(p)}(dF_pX,dF_pY)=h_p(X,Y)
+$$
+
+を満たすかを確認すれば、抽象的な等長性と等方性を行列で検査できます。
+
 <!-- definition-example-start: def-gr41-spatial-symmetry -->
-**定義の確認**：Euclid空間。$h=dx^2+dy^2+dz^2$ とします。任意の二点 $p,q$ は平行移動 $x\mapsto x+(q-p)$ で結ばれ、この写像の微分は単位行列なので内積を保ちます。また任意の $R\in SO(3)$ に対する $x\mapsto p+R(x-p)$ は $p$ を固定し、微分 $R$ は全ての方向を回転できます。二条件を個別に確認できました。
+**定義の確認**：Euclid空間。$h=dx^2+dy^2+dz^2$ とします。任意の二点 $p,q$ は平行移動 $x\mapsto x+(q-p)$ で結ばれ、この写像の微分は単位行列なので内積を保ちます。また任意の $R\in SO(3)$ に対する $F_R(x)=p+R(x-p)$ は $p$ を固定します。Cartesian正規直交基底で微分は $d(F_R)_x=R$ であり、任意の $X,Y$ に対して
+
+$$
+(RX)^{\mathsf T}(RY)=X^{\mathsf T}R^{\mathsf T}RY=X^{\mathsf T}Y.
+$$
+
+従って各 $F_R$ は等長写像で、その微分は定義が要求する全ての回転を実現します。二条件を個別に確認できました。
 <!-- definition-example-end -->
 
 対称性を曲率へ結び付けます。[GEO16の断面曲率の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-sectional-curvature)では、点 $p$ の2次元接平面 $\Pi$ ごとに曲率 $K_p(\Pi)$ が決まります。等方性の回転は任意の2平面を任意の別の2平面へ写せるため、同じ点では曲率が平面に依存しません。さらに均一性の等長変換が点を移すので、その値は点にも依存しません。
@@ -41,7 +61,13 @@ $$
 v_i=0
 $$
 
-です。次に対称二階テンソル $S_{ij}$ を考えます。計量 $h$ で一つの添字を上げた線形写像は、$h$ に関して対称です。その固有方向を任意の回転で取り替えても不変であるため、三つの固有値は全て等しく、
+です。次に回転に不変な対称二階テンソル $S$ を考えます。点 $p$ の $h$-正規直交基底 $e_1,e_2,e_3$ で $S_{ij}=S(e_i,e_j)$ と成分を定めると、回転不変性は
+
+$$
+R^{\mathsf T}(S_{ij})R=(S_{ij})
+$$
+
+という行列等式です。座標軸まわりの180度回転で非対角成分 $S_{ij}=0$（$i\ne j$）、90度回転で対角成分 $S_{11}=S_{22}=S_{33}=s$ となります。この基底では $h_{ij}=\delta_{ij}$ だから、任意の基底でもテンソルとして
 
 $$
 S_{ij}=s h_{ij}
@@ -104,13 +130,27 @@ $$
 
 一般の座標成分を $g_{tt},g_{ti},g_{ij}$ とします。各点を固定する $SO(3)$ が作用するとき、$g_{ti}$ は空間一形式だから、任意のベクトル $v^i=h^{ij}g_{tj}$ が全回転で不変でなければなりません。$v\ne0$ と仮定すると $v$ に垂直な軸回りの180度回転で $v$ は $-v$ となり矛盾します。ゆえに $g_{ti}=0$ です。
 
-$g_{tt}$ は群不変な関数です。作用が推移的なので $g_{tt}=-N(t)^2$ と書け、空間面が空間的かつ時空計量がLorentz型であることから $N(t)>0$ です。時刻 $t_0$ に $\gamma=h_{t_0}$ を固定すると、各時刻の $h_t$ は同じ群の不変な正定値対称テンソルです。点 $p$ で $\gamma^{-1}h_t$ は自己共役であり、その固有ベクトルを任意に回転しても不変なので三つの固有値は等しい。従って $h_t(p)=b(t,p)^2\gamma(p)$ です。群の推移性から $b(t,p)=b(t)>0$、すなわち
+$g_{tt}$ は群不変な関数です。作用が推移的なので $g_{tt}=-N(t)^2$ と書け、空間面が空間的かつ時空計量がLorentz型であることから $N(t)>0$ です。時刻 $t_0$ に $\gamma=h_{t_0}$ を固定すると、各時刻の $h_t$ は同じ群の不変な正定値対称テンソルです。点 $p$ の $\gamma$-正規直交基底では $[\gamma]=I$、$[h_t]=B_t$ であり、等方部分群の不変性は
+
+$$
+R^{\mathsf T}B_tR=B_t
+$$
+
+です。第1節と同じ180度・90度回転による成分判定から $B_t=b(t,p)^2I$、すなわち $h_t(p)=b(t,p)^2\gamma(p)$ です。群の推移性から $b(t,p)=b(t)>0$、すなわち
 
 $$
 g=-N(t)^2dt^2+b(t)^2\gamma.
 $$
 
-第1節の断面曲率の議論から $\gamma$ は定断面曲率 $\kappa$ を持ちます。$\kappa\ne0$ なら一定の正係数で $\gamma$ を拡大・縮小し、曲率を $k=\operatorname{sgn}\kappa$ に規格化できます。$\kappa=0$ なら $k=0$ のままです。この係数を $b$ 側に移して $a>0$ と書きます。
+第1節の断面曲率の議論から $\gamma$ は定断面曲率 $\kappa$ を持ちます。計量を定数 $c>0$ 倍すると、接続と上添字一つの曲率テンソルは変わらず、[断面曲率の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-sectional-curvature)の分子は $c$ 倍、分母は $c^2$ 倍になるので曲率は $\kappa/c$ です。従って $\kappa\ne0$ なら
+
+$$
+\gamma_k=|\kappa|\gamma,\qquad
+k=\frac\kappa{|\kappa|},\qquad
+a=\frac b{\sqrt{|\kappa|}}
+$$
+
+と置けば $b^2\gamma=a^2\gamma_k$ です。$\kappa=0$ なら $\gamma_0=\gamma$、$a=b$ とします。
 
 最後に $\tau(t)=\tau_0+\int_{t_0}^t N(s)\,ds$ と定めると、$N>0$ なので $d\tau/dt=N$ で局所的な逆関数があり、$-N^2dt^2=-d\tau^2$ です。逆向きは、標準的なEuclid空間・球面・双曲空間が移動と各点での回転に対応する等長変換を持ち、$a$ が空間点に依存しないことから従います。$\square$
 <!-- proof-end -->
@@ -125,7 +165,7 @@ $$
 d\Omega^2=d\theta^2+\sin^2\theta\,d\phi^2
 $$
 
-と書きます。角度を少し変えた二本の測地線の分離はJacobi場として測れます。[GEO17のJacobi方程式](../../../幾何系/GEO/GEO17/index.md#thm-geo17-geodesic-variation-jacobi)と[GEO16の定断面曲率テンソル](../../../幾何系/GEO/GEO16/index.md#prop-geo16-constant-curvature-tensor)によって、長さの係数 $S_k$ は次の初期値問題を満たします。
+と書きます。角度を少し変えた二本の測地線の分離はJacobi場として測れます。[GEO17のJacobi方程式](../../../幾何系/GEO/GEO17/index.md#thm-geo17-geodesic-variation-jacobi)と[GEO16の定断面曲率テンソル](../../../幾何系/GEO/GEO16/index.md#prop-geo16-constant-curvature-tensor)によって、長さの係数 $S_k(\chi)$ は次の初期値問題を満たします。ここで $S_k'(\chi)=dS_k/d\chi$、$S_k''(\chi)=d^2S_k/d\chi^2$ は測地線に沿う距離 $\chi$ に関する通常の導関数です。
 
 $$
 S_k''(\chi)+kS_k(\chi)=0,\qquad
@@ -167,16 +207,43 @@ $$
 <!-- proof-start -->
 ### 証明
 
-原点 $p$ と単位方向 $v$ を固定し、$\gamma(\chi)=\exp_p(\chi v)$ を単位速測地線とします。$v$ の角方向の単位変分 $w\perp v$ に対し、$J_w(\chi)=\partial_s\exp_p(\chi v(s))|_{s=0}$ を取り、$v'(0)=w$ とします。これは[測地線変分からのJacobi方程式](../../../幾何系/GEO/GEO17/index.md#thm-geo17-geodesic-variation-jacobi)の仮定を満たし、
+原点 $p$ と $\gamma_k$ に関する単位方向 $v$ を固定し、$c(\chi)=\exp_p(\chi v)$ を単位速測地線とします。$v$ の角方向の単位変分 $w\perp v$ を取り、$v(s)$ を $v(0)=v$、$dv/ds|_{s=0}=w$ を満たす単位方向の曲線とします。角方向の変分場と測地線に沿う共変微分を
+
+$$
+J_w(\chi)=\left.\frac{\partial}{\partial s}\exp_p(\chi v(s))\right|_{s=0},
+\qquad D_\chi=\nabla_{\dot c}
+$$
+
+と書きます。ここで点は $dc/d\chi$、$\partial/\partial s$ は $\chi$ を固定した $s$ の偏微分で、先ほどの $S_k'$ とは微分変数が異なります。これは[測地線変分からのJacobi方程式](../../../幾何系/GEO/GEO17/index.md#thm-geo17-geodesic-variation-jacobi)の仮定を満たし、
 
 $$
 J_w(0)=0,\qquad D_\chi J_w(0)=w,\qquad
-D_\chi^2J_w+R(J_w,\dot\gamma)\dot\gamma=0
+D_\chi^2J_w+R(J_w,\dot c)\dot c=0
 $$
 
-です。平行移動した角方向の単位場を $E_w$ とすれば、[定断面曲率の曲率テンソル](../../../幾何系/GEO/GEO16/index.md#prop-geo16-constant-curvature-tensor)から $R(E_w,\dot\gamma)\dot\gamma=kE_w$ です。従って $J_w=S_k E_w$ と置けば $S_k''+kS_k=0$、初期値は先に述べた二つです。解の一意性から表示した三つの関数が得られます。
+です。$w$ を測地線に沿って平行移動した単位場を $E_w$ とすれば、[定断面曲率の曲率テンソル](../../../幾何系/GEO/GEO16/index.md#prop-geo16-constant-curvature-tensor)から $R(E_w,\dot c)\dot c=kE_w$ です。$D_\chi E_w=0$ なので候補 $S_k E_w$ を代入すると
 
-測地極座標の径方向 $\partial_\chi=\dot\gamma$ は角方向のJacobi場と直交します。初期点で直交し、$g(J_w,\dot\gamma)$ の二階微分が零で初期値・初期微分とも零であるためです。異なる角方向 $w_1,w_2$ の内積は $S_k^2\langle w_1,w_2\rangle$ となります。そこで径方向係数が1、角方向が $S_k^2d\Omega^2$ と分かります。
+$$
+D_\chi^2(S_kE_w)=S_k''E_w,
+\qquad (S_k''+kS_k)E_w=0.
+$$
+
+この候補は $J_w$ と同じ初期値 $0,w$ を持ちます。Jacobi方程式の解の一意性から $J_w=S_kE_w$ となり、表示した三つの関数が得られます。
+
+測地極座標の径方向 $\partial_\chi=\dot c$ は角方向のJacobi場と直交します。実際 $f(\chi)=\gamma_k(J_w,\dot c)$ と置くと、測地線方程式 $D_\chi\dot c=0$ と曲率作用素の直交性から
+
+$$
+f''=\gamma_k(D_\chi^2J_w,\dot c)=0,
+\qquad f(0)=0,\quad f'(0)=\gamma_{k,p}(w,v)=0.
+$$
+
+従って $f=0$ です。異なる角方向 $w_1,w_2$ の内積も
+
+$$
+\gamma_k(J_{w_1},J_{w_2})=S_k^2\gamma_{k,p}(w_1,w_2)
+$$
+
+となります。そこで径方向係数が1、角方向が $S_k^2d\Omega^2$ と分かります。
 
 最後に $r=S_k(\chi)$ と置きます。先ほどの常微分方程式の両辺へ $2S_k'$ を掛けると
 
@@ -462,7 +529,7 @@ $$
 $t>0$ において $g=-4t^2dt^2+(1+t^2)^2(dx^2+dy^2+dz^2)$ とする。宇宙時間 $\tau$ を $\tau(1)=1$ で定め、尺度因子 $a(\tau)$、Hubble率 $H(\tau)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** lapseは $N(t)=2t>0$ です。共動世界線で $d\tau=Ndt=2t\,dt$ なので
+**詳細解答。** lapseは $N(t)=2t>0$ です。共動世界線で $d\tau=Ndt=2t\,dt$ です。これは $d\tau/dt=2t$ という導関数の関係を表し、$t>0$ で零にならないため宇宙時間への変換が可逆です。従って
 
 $$
 \tau(t)-\tau(1)=\int_1^t2s\,ds=t^2-1.
@@ -474,7 +541,13 @@ $$
 H(\tau)=\frac{da/d\tau}{a}=\frac{1}{1+\tau}.
 $$
 
-$t$ に関する $da/dt=2t$ をそのまま $H$ の分子に使わないことが要点です。
+$t$ に関する $da/dt=2t$ をそのまま $H$ の分子に使ってはいけません。連鎖律によれば
+
+$$
+\frac{da}{d\tau}=\frac{da/dt}{d\tau/dt}=\frac{2t}{2t}=1
+$$
+
+で、上の値に一致します。
 <!-- solution-end -->
 
 <a id="ex-gr41-a05"></a>
@@ -622,7 +695,14 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**（1）** lapseは $N=2t>0$ なので、$d\tau=2t\,dt$ を積分して $\tau=t^2$ です。$t>0$ だから $\tau>0$、$t^4=\tau^2$ であり、$k=-1$、$a(\tau)=\tau$、$H=1/\tau$。共動観測者の単位速度は $u=\partial_\tau=(2t)^{-1}\partial_t$ で、$g(u,u)=-1$ です。
+**（1）** lapseは $N=2t>0$ なので、$d\tau/dt=2t$ を $t=1$ の初期値 $\tau(1)=1$ で積分して $\tau=t^2$ です。$t>0$ だから $\tau>0$、$t^4=\tau^2$ であり、$k=-1$、$a(\tau)=\tau$、$H=1/\tau$ です。空間座標を固定した連鎖律から
+
+$$
+u=\partial_\tau=\frac{dt}{d\tau}\partial_t=\frac1{2t}\partial_t,
+\qquad g(u,u)=\frac{-4t^2}{(2t)^2}=-1.
+$$
+
+これにより $\partial_\tau$ と $\partial_t$ は同じ方向のベクトルを異なる時刻で表したもので、共動観測者の固有時は $\tau$ です。
 
 **（2）** $r=\sinh\chi$ より $dr=\cosh\chi\,d\chi$、$\cosh^2\chi=1+\sinh^2\chi=1+r^2$ なので
 
