@@ -281,7 +281,7 @@ $$
 
 を補助空間 $\mathbb C^d\otimes H_{\mathrm{out}}$ 上に作ります。$|\Omega_d\rangle\langle\Omega_d|\ge0$ であり、$\Phi$ は完全正なので $C\ge0$ です。もし $C=0$ なら、その $(i,j)$ 成分は $\Phi(E_{ij})=0$ であり、行列単位の線形結合で任意の入力を書けるため $\Phi=0$ です。この場合は一個の零作用素 $K_1=0$ がKraus表示を与えます。
 
-以下 $C\ne0$ とします。$C$ は自己共役であり、[有限次元のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用できます。固有値が非負であることは、固有ベクトル $u$ について $\langle u,Cu\rangle=\lambda\|u\|^2\ge0$ から分かります。正固有値だけを残し、$1\le r=\operatorname{rank}C\le d\,d_{\mathrm{out}}$ として
+以下 $C\ne0$ とします。$C$ は自己共役であり、[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用できます。固有値が非負であることは、固有ベクトル $u$ について $\langle u,Cu\rangle=\lambda\|u\|^2\ge0$ から分かります。正固有値だけを残し、$1\le r=\operatorname{rank}C\le d\,d_{\mathrm{out}}$ として
 
 $$
 C=\sum_{\alpha=1}^r|w_\alpha\rangle\langle w_\alpha|
@@ -392,7 +392,7 @@ $$
 t^2-(a+d)t+(ad-|b|^2)=0
 $$
 
-の二根です。[有限次元のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)より二次形式の非負性と固有値の非負性は同値です。固有値の和は $a+d=1>0$ なので、積 $ad-|b|^2\ge0$ が残りの必要十分条件です。これで行列に課した条件が元の定義から導かれ、逆に密度演算子であることも判定できます。
+の二根です。[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)より二次形式の非負性と固有値の非負性は同値です。固有値の和は $a+d=1>0$ なので、積 $ad-|b|^2\ge0$ が残りの必要十分条件です。これで行列に課した条件が元の定義から導かれ、逆に密度演算子であることも判定できます。
 
 ### 4.1 位相緩和（dephasing）
 
