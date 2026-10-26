@@ -1,0 +1,48 @@
+chapter: GR41
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR40
+concepts:
+  - id: gravity.spatial-homogeneity-isotropy
+    name: 空間的均一性・等方性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間的均一性・等方性）"]
+    requires: [geometry.sectional-curvature, gravity.adm-metric-inverse]
+  - id: gravity.flrw-metric
+    name: FLRW計量と尺度因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（FLRW計量と尺度因子）"]
+    requires: [gravity.spatial-homogeneity-isotropy, gravity.adm-metric-inverse]
+  - id: gravity.flrw-symmetry-form
+    name: 空間対称性からのFLRW計量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空間対称性からのFLRW計量）"]
+    requires: [gravity.flrw-metric, gravity.spatial-homogeneity-isotropy]
+  - id: gravity.flrw-radial-coordinates
+    name: 定曲率空間の二つの動径座標表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定曲率空間の二つの動径座標表示）"]
+    requires: [gravity.flrw-metric, geometry.constant-curvature-tensor]
+  - id: gravity.flrw-comoving-observer
+    name: 共動観測者と宇宙時間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共動観測者と宇宙時間）"]
+    requires: [gravity.flrw-metric, gravity.adm-metric-inverse]
+  - id: gravity.flrw-kinematics
+    name: FLRW空間曲率・体積・第二基本形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FLRW空間曲率・体積・第二基本形式）"]
+    requires: [gravity.flrw-comoving-observer, gravity.adm-extrinsic-evolution, geometry.constant-curvature-contractions]
+  - id: gravity.flrw-coordinate-normalization
+    name: 曲率パラメータの座標再標準化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率パラメータの座標再標準化）"]
+    requires: [gravity.flrw-radial-coordinates, gravity.flrw-kinematics]
