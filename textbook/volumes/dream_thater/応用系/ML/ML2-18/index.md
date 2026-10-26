@@ -107,7 +107,30 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $i$ を固定する。位置情報がなければ $\widetilde x_j=x_j$、固定位置ベクトル $p_j$ を加える場合には $\widetilde x_j=x_j+p_j$ と置く。射影は行ごとに共有されるだけで行間を混ぜないので、$q_i=W_Q^{\mathsf T}\widetilde x_i$ は $x_i$ と固定値 $p_i$ のみの関数である。同じく $j\in J_i$ なら $k_j=W_K^{\mathsf T}\widetilde x_j$、$v_j=W_V^{\mathsf T}\widetilde x_j$ は $j\le i$ の入力と固定値のみの関数である。したがって $S_{ij}=q_i^{\mathsf T}k_j/\sqrt{k}$、許可集合内の最大 $m_i$、分母 $\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)$ はいずれも先頭 $i$ 行から決まり、正の分母を持つ。$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。$\square$
+任意の行 $i$ を固定する。位置情報の有無をまとめるため、各入力列ベクトルを次のように書く。
+
+$$
+\widetilde x_j=x_j\quad(\text{位置情報なし}),\qquad
+\widetilde x_j=x_j+p_j\quad(\text{固定位置情報あり}).
+$$
+
+射影は各行に同じ係数を作用させ、行どうしを混ぜない。したがって問い合わせと、許可された列 $j\in J_i$ の鍵・値は
+
+$$
+q_i=W_Q^{\mathsf T}\widetilde x_i,\qquad
+k_j=W_K^{\mathsf T}\widetilde x_j,\qquad
+v_j=W_V^{\mathsf T}\widetilde x_j
+$$
+
+であり、$q_i$ は現在行、$k_j,v_j$ は $j\le i$ の入力および固定位置ベクトルのみから決まる。続いて
+
+$$
+S_{ij}=\frac{q_i^{\mathsf T}k_j}{\sqrt{k}},\qquad
+m_i=\max_{j\in J_i}S_{ij},\qquad
+Z_i=\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)>0
+$$
+
+も先頭 $i$ 行から決まる。最後に $A_{ij}=\exp(S_{ij}-m_i)/Z_i$（許可列のみ）を使うので、$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。$\square$
 <!-- proof-end -->
 
 この主張は「各行の射影前に系列全体の平均を混ぜる」などの別操作を挿入した場合には自動では成立しない。また訓練時に正解系列をずらして入力する場合は、[教師強制](../ML2-17/index.md#def-ml2-17-teacher-forcing)と同じく、入力自体に将来の答えが紛れ込んでいないかを別途確認する必要がある。
