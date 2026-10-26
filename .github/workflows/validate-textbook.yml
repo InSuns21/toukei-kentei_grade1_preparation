@@ -172,17 +172,46 @@ jobs:
           npm run validate:svg-quality -- --self-test
           npm run audit:svg-quality:existing
 
-      - name: Render mobile SVG contact sheets for visual inspection
+      # Use the PR's synthetic merge commit parent as the comparison base.
+      # NUL-delimited paths support Japanese filenames and safe renames.
+      - name: Self-test SVG rendering scope
         if: github.event_name == 'pull_request'
+        run: python3 scripts/audit-svg-render.py --self-test
+
+      - name: Detect changed SVGs for rendering
+        if: github.event_name == 'pull_request'
+        id: svg_render
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
+          git diff --name-only -z --diff-filter=ACMR "$PR_COMPARISON_SHA" HEAD -- ':(glob)textbook/volumes/**/*.svg' > "$RUNNER_TEMP/changed-svg-paths.nul"
+          if [ -s "$RUNNER_TEMP/changed-svg-paths.nul" ]; then
+            echo "render=true" >> "$GITHUB_OUTPUT"
+            echo "Changed SVGs detected; render only changed paths."
+          else
+            echo "render=false" >> "$GITHUB_OUTPUT"
+            echo "No changed SVGs; skip font installation and rendering."
+          fi
+
+      - name: Render mobile SVG contact sheets for visual inspection
+        if: (github.event_name == 'pull_request' && steps.svg_render.outputs.render == 'true') || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          # Noto CJK is needed only when SVGs are actually being rendered.
+          if ! fc-list : family | grep -q 'Noto Sans CJK JP'; then
+            sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk || {
+              sudo apt-get update -qq
+              sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
+            }
+          fi
           python3 -m venv /tmp/svg-render-venv
           /tmp/svg-render-venv/bin/python -m pip install --quiet cairosvg Pillow
-          /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py --paths-file "$RUNNER_TEMP/changed-svg-paths.nul"
+          else
+            # Nightly and manual runs keep the existing repository-wide audit.
+            /tmp/svg-render-venv/bin/python scripts/audit-svg-render.py
+          fi
 
-      - name: Attach existing SVG rendering review images
-        if: github.event_name == 'pull_request' && always()
+      - name: Attach SVG rendering review images
+        if: always() && ((github.event_name == 'pull_request' && steps.svg_render.outputs.render == 'true') || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-artifact@v4
         with:
           name: svg-render-review
