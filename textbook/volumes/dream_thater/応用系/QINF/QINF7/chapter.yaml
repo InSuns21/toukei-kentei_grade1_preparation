@@ -1,0 +1,44 @@
+id: "QINF7"
+title: "量子チャネルとKraus表示"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+  - QINF5
+official_scope: []
+learning_objectives:
+  - 正写像・完全正写像・量子チャネルを定義し、転置写像が正でトレース保存でも完全正でないことをBell状態で検算できる
+  - 有限次元の完全正写像がKraus表示を持つことを行列単位と正値行列のスペクトル分解から証明できる
+  - Kraus表示の完全正値性とトレース保存条件を導き、入出力次元と作用素積の順序を確認できる
+  - 位相緩和・脱分極・振幅減衰のKraus作用素と出力を計算し、各雑音が失わせる情報を区別できる
+  - 量子チャネルの合成・混合・測定instrumentとの関係と双対作用を計算できる
+definitions:
+  - { id: QINF7-DEF-01, name: "正写像と完全正写像" }
+  - { id: QINF7-DEF-02, name: "量子チャネル" }
+  - { id: QINF7-DEF-03, name: "Kraus表示" }
+theorems:
+  - { id: QINF7-PROP-01, name: "転置は正だが完全正ではない" }
+  - { id: QINF7-THM-01, name: "Kraus表示からの完全正値性とトレース保存条件" }
+  - { id: QINF7-THM-02, name: "有限次元完全正写像のKraus表示" }
+  - { id: QINF7-PROP-02, name: "チャネルの合成と古典的混合" }
+  - { id: QINF7-PROP-03, name: "チャネルと観測量の双対作用" }
+canonical_examples:
+  - "転置の正値性とBell状態に対する部分転置の負固有値"
+  - "計算基底初期化チャネルと入力・出力次元の区別"
+  - "位相緩和の非対角成分、脱分極のPauli Kraus和、振幅減衰の人口移動"
+  - "振幅減衰と脱分極の合成順序依存"
+problem_patterns:
+  - QINF7-KRAUS-COMPLETENESS
+  - QINF7-DEPHASING
+  - QINF7-DEPOLARIZING
+  - QINF7-AMPLITUDE-DAMPING
+  - QINF7-POSITIVE-NOT-CP
+  - QINF7-CHANNEL-COMPOSITION
+  - QINF7-NONSELECTIVE-MEASUREMENT
+  - QINF7-CHANNEL-ORDER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 2.0 }
