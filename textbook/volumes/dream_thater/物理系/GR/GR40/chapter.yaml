@@ -1,0 +1,39 @@
+id: "GR40"
+title: "Hamiltonian・運動量制約"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR39
+official_scope: []
+learning_objectives:
+  - GR39の正符号の第二基本形式からGauss・Codazzi射影を導き、符号と曲率縮約を検算できる
+  - Einstein方程式の法線・混合射影からHamiltonian制約と運動量制約を導出できる
+  - 時間対称・等方的・非一様な初期データ候補が制約を満たすか判定できる
+  - 曲がったMinkowski葉やMilne座標で内在曲率・外在曲率の相殺を確認できる
+  - 制約式と時間発展式、座標のlapse・shift、初期値の実現可能性を区別できる
+definitions:
+  - { id: GR40-DEF-01, name: Hamiltonian制約・運動量制約 }
+theorems:
+  - { id: GR40-PROP-01, name: 空間的超曲面のGauss・Codazzi射影 }
+  - { id: GR40-THM-01, name: Einstein方程式のHamiltonian・運動量制約 }
+  - { id: GR40-PROP-02, name: 時間対称および純跡の初期データの判定 }
+canonical_examples:
+  - Minkowski標準時刻葉の真空制約
+  - 時間対称な正曲率3次元球面に必要なエネルギー密度
+  - Minkowskiの曲がった時刻葉でR3=0かつKijKij=K二乗
+  - Milne葉で負の3次元曲率と非零Kの相殺
+problem_patterns:
+  - GR40-NORMAL-CONTRACTION
+  - GR40-ISOTROPIC-K
+  - GR40-TIME-SYMMETRIC
+  - GR40-DIAGONAL-K
+  - GR40-MOMENTUM-SOURCE
+  - GR40-TRACE-SHEAR
+  - GR40-CURVED-MINKOWSKI-LEAF
+  - GR40-GAUGE-INITIAL-DATA
+  - GR40-VACUUM-OBSTRUCTION
+  - GR40-MILNE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 7 }
