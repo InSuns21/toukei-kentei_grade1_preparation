@@ -41,7 +41,7 @@ chapters:
     title: "量子チャネルとKraus表示"
   - id: QINF8
     path: textbook/volumes/dream_thater/応用系/QINF/QINF8
-    status: planned
+    status: completed
     title: "Stinespring表現と相補チャネル"
   - id: QINF9
     path: textbook/volumes/dream_thater/応用系/QINF/QINF9
