@@ -1,0 +1,58 @@
+chapter: QINF6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF4
+  - LA6
+forward_references: []
+
+concepts:
+  - id: quantum.schmidt-decomposition
+    name: Schmidt表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Schmidt表示とSchmidt係数）]
+    requires: [quantum.composite-system, quantum.product-entangled-pure-state]
+
+  - id: quantum.schmidt-coefficients
+    name: Schmidt係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Schmidt表示とSchmidt係数）]
+    requires: [quantum.schmidt-decomposition]
+
+  - id: quantum.schmidt-rank
+    name: Schmidt階数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Schmidt階数）]
+    requires: [quantum.schmidt-decomposition]
+
+  - id: quantum.schmidt-existence
+    name: 有限次元Schmidt分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限次元Schmidt分解）]
+    requires: [quantum.schmidt-coefficients, linear.complex-singular-value-decomposition]
+
+  - id: quantum.schmidt-reduced-spectrum
+    name: 両側縮約の非零固有値の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（両側縮約の非零固有値の一致）]
+    requires: [quantum.schmidt-existence, quantum.partial-trace, quantum.reduced-density-operator]
+
+  - id: quantum.schmidt-product-criterion
+    name: Schmidt階数と積状態
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Schmidt階数と積状態）]
+    requires: [quantum.schmidt-rank, quantum.pure-reduction-product-criterion, quantum.schmidt-reduced-spectrum]
+
+  - id: quantum.schmidt-local-unitary-invariance
+    name: 局所ユニタリとSchmidt係数の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所ユニタリとSchmidt係数の不変性）]
+    requires: [quantum.schmidt-existence, quantum.schmidt-reduced-spectrum]

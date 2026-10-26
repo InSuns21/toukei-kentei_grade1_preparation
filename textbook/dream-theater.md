@@ -1015,6 +1015,7 @@
 3. [QINF3 部分トレースと縮約状態](textbook/volumes/dream_thater/応用系/QINF/QINF3/index.md)
 4. [QINF4 精製とアンサンブル](textbook/volumes/dream_thater/応用系/QINF/QINF4/index.md)
 5. [QINF5 一般化量子測定](textbook/volumes/dream_thater/応用系/QINF/QINF5/index.md)
+6. [QINF6 Schmidt分解](textbook/volumes/dream_thater/応用系/QINF/QINF6/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
