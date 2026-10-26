@@ -160,28 +160,28 @@ $q\in E^+(S)\setminus S$ を固定します。$q\in J^+(S)$ より、ある $p\i
 
 始点の接ベクトルを $k(0)$ とします。$S$ 内で始点を速度 $v\in T_pS$ で動かし、終点 $q$ を固定した曲線変分の変分場を $V$ とします。$L$ を元の光線のアフィン長、$\mathcal E=\frac12\int_0^L g(\dot\gamma,\dot\gamma)\,d\lambda$ をエネルギー汎関数とすると、測地線方程式と $V(L)=0$ を使った第一変分は
 
-$
+$$
 \begin{aligned}
 \delta\mathcal E
 &=[g(V,k)]_0^L-\int_0^L g(V,\nabla_k k)\,d\lambda\\
 &=-g(v,k(0)).
 \end{aligned}
-$
+$$
 
 もし $g(v,k(0))\ne0$ なら、$v$ の符号を選んで零光線の端点を時間的に到達できる側へ変形できます（凸正規近傍ごとに時間的な小変形をつなぐ）。すると $q\in I^+(S)$ となって境界性に反します。従って $g(v,k(0))=0$ がすべての $v\in T_pS$ で必要であり、光線は $S$ に直交します。
 
 焦点後の主張では、**点からの共役点**と**曲面からの焦点**を区別します。後者は、始点を $S$ に沿って動かす法線測地線変分に非零の横断Jacobi場 $J$ があり、$J(\lambda_f)=0$ となることです。焦点より先の終点を $L>\lambda_f$ に置き、$J$ を $[\lambda_f,L]$ で零に延長します。始点を $S$ に置き終点を $q$ に固定する二変数の曲線変分 $\gamma_{\varepsilon,\eta}$ に対し、$I_S(V,W):=\left.\partial_\varepsilon\partial_\eta\mathcal E(\gamma_{\varepsilon,\eta})\right|_{(0,0)}$ を**曲面を始点とする指数形式**と定めます。$k(0)$ が $S$ に直交するので元の光線はこの変分に対する停留点です。Jacobi方程式を指数形式に代入して部分積分すると、$\lambda_f$ 近くに支持を持つ横断変分 $W$ との交差項は
 
-$
+$$
 I_S(J,W)=g(D_\lambda J(\lambda_f),W(\lambda_f)).
-$
+$$
 
 非零Jacobi場は $J(\lambda_f)=D_\lambda J(\lambda_f)=0$ を同時には満たせません。従って $W$ の符号を選べば $I_S(J,W)<0$ とでき、十分小さい $\varepsilon>0$ に対し
 
-$
+$$
 I_S(J+\varepsilon W,J+\varepsilon W)
 =2\varepsilon I_S(J,W)+\varepsilon^2 I_S(W,W)<0.
-$
+$$
 
 これは焦点を越えた零曲線に時間的な端点固定変形があるという光的第二変分の判定です。したがって $q\in I^+(S)$ となり境界性に反します。焦点**ちょうどの点**は境界に残り得ますが、それより先は残れません。回転零・曲面始点のJacobi条件を使うので、[LORG18の点に対する共役点](../../../幾何系/LORG/LORG18/index.md#def-lorg18-conjugate)をそのまま代用してはいません。
 
@@ -227,9 +227,9 @@ $$
 
 次に、[LORG19の位相的分割の証明で構成した完全な時間的ベクトル場](../../../幾何系/LORG/LORG19/index.md#thm-lorg19-topological-splitting) $X$ の流れ $\Phi_s$ を使います。各流線は両側非延長の時間的曲線なので、[Cauchy面の定義](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy)により、仮定した**この** $\Sigma$ と一度だけ交わります。$\Sigma$ をLORG19の時間関数の零レベル集合と仮定する必要はありません。$\pi(\Phi_s(p))=p$（$p\in\Sigma$）で定まる写像
 
-$
+$$
 \pi:M\longrightarrow\Sigma
-$
+$$
 
 は連続です。実際、時間的流線を縦軸にした局所流れ箱では、Cauchy面は流線と一回交わる連続な局所グラフです。交点の流れパラメータが初期点に連続に依存することから $\pi$ の局所連続性が従います。$E^+(S)$ はachronalなので、同じ時間的流線が $E^+(S)$ と二度交わることはなく、$\pi|_{E^+(S)}$ は単射です。[LORG12の境界の局所グラフ表示](../../../幾何系/LORG/LORG12/index.md#lem-lorg12-boundary-graph)を流線方向の局所座標で使うと、$\pi|_{E^+(S)}$ は局所同相で、像 $\pi(E^+(S))$ は $\Sigma$ の**開集合**です。ここでは「単射だから開」と飛ばさず、境界が三次元の端のない局所グラフであることを使っています。
 
@@ -320,16 +320,16 @@ $$
 
 地平線を横断できることは[GR26の正則なEF表示](../GR26/index.md#prop-gr26-ef-metric-domain)で確認されます。[GR25のKretschmann公式](../GR25/index.md#thm-gr25-kretschmann-schwarzschild)の定理文は外部 $r>2M$ について述べていますが、ここで内部への適用根拠も確かめます。EF計量
 
-$
+$$
 ds^2=-\left(1-\frac{2M}{r}\right)dv^2+2\,dv\,dr+r^2d\Omega^2
-$
+$$
 
 は $r>0$ の連結領域で実解析的かつ非退化です。曲率の完全縮約 $\mathcal K$ は計量・逆計量と一、二階微分の有理式であり、この領域で実解析的です。外部で得た $\mathcal K=48M^2/r^6$ は実解析関数の一致性により $0<r<2M$ でも成り立ちます。従って
 
-$
+$$
 \mathcal K(r)=\frac{48M^2}{r^6}\longrightarrow+\infty
 \qquad(r\downarrow0).
-$
+$$
 
 この模型では有限固有時と曲率発散の**両方を別々に**確かめました。$\square$
 <!-- proof-end -->
