@@ -33,7 +33,7 @@ chapters:
     title: "一般化量子測定"
   - id: QINF6
     path: textbook/volumes/dream_thater/応用系/QINF/QINF6
-    status: planned
+    status: completed
     title: "Schmidt分解"
   - id: QINF7
     path: textbook/volumes/dream_thater/応用系/QINF/QINF7

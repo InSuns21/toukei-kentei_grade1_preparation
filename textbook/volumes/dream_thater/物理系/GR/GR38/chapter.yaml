@@ -1,0 +1,47 @@
+id: "GR38"
+title: "宇宙検閲仮説の論理と既知の限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR28
+  - GR29
+  - GR31
+  - GR32
+  - GR37
+  - LORG13
+  - LORG15
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 弱宇宙検閲と強宇宙検閲の問いを未来零無限遠・初期値の決定性の違いから説明できる
+  - 最大大域双曲的発展と計量のC0・C2延長可能性を区別できる
+  - 劣極限RNの内側地平線を正則座標・径方向測地線で検算し、局所延長と大域因果構造を区別できる
+  - 曲率発散がC2延長を阻む仕組みを計算し、C0延長の可能性を排除しない理由を説明できる
+  - 模型・初期データの一般性・摂動・正則性を指定して既知の成果と未解決部分を分類できる
+definitions:
+  - { id: GR38-DEF-01, name: 最大大域双曲的発展 }
+  - { id: GR38-DEF-02, name: 計量の正則性別延長可能性 }
+  - { id: GR38-DEF-03, name: 弱宇宙検閲の代表的定式化 }
+  - { id: GR38-DEF-04, name: 強宇宙検閲の代表的定式化 }
+theorems:
+  - { id: GR38-PROP-01, name: RN内側の正則な局所延長と有限固有時 }
+  - { id: GR38-PROP-02, name: 曲率スカラー発散によるC2延長障害 }
+  - { id: GR38-PROP-03, name: 延長の正則性についての含意 }
+canonical_examples:
+  - 劣極限RNの二つの正の根と非退化な入射EF表示
+  - RNの径方向時間的測地線が有限固有時で内側の零面へ達する
+  - C0で延長可能だが曲率発散でC2延長できない二次元幾何模型
+  - Kerrの内側地平線と真空摂動の研究成果の射程
+problem_patterns:
+  - GR38-HORIZON-ROOTS
+  - GR38-EXTENSION-REGULARITY
+  - GR38-WEAK-STRONG-LOGIC
+  - GR38-RN-TIMELIKE-CROSSING
+  - GR38-CURVATURE-OBSTRUCTION
+  - GR38-CH-NOT-EH
+  - GR38-RESEARCH-SCOPE
+  - GR38-COSMIC-CENSORSHIP-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
