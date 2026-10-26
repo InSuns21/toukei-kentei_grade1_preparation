@@ -27,6 +27,15 @@ $$
 > と定める写像を**単純再帰ネットワーク**という。すべての時刻で同じ $W,U,V,b,c$ を使う性質を**時間方向の重み共有**という。各時刻の予測値は用途に応じて $o_t$ をそのまま使うか、確率に変換するなどして得る。
 <!-- formal-statement-end -->
 
+行列が何を計算するかは、前活性の第 $i$ 成分を展開すると分かる。ここで $1\le i\le m$ である。
+
+$$
+a_{t,i}=\sum_{j=1}^{m}W_{ij}h_{t-1,j}
+       +\sum_{r=1}^{d}U_{ir}x_{t,r}+b_i.
+$$
+
+第1の和は前状態の $m$ 成分、第2の和は現在の入力の $d$ 成分から、いずれも次状態の第 $i$ 成分への寄与を作る。したがって $W$ は $m\times m$、$U$ は $m\times d$ でなければならない。同様に $o_{t,k}=\sum_{i=1}^{m}V_{ki}h_{t,i}+c_k$（$1\le k\le q$）だから、$V$ は $q\times m$ である。この次元の対応と、時刻を変えても係数が同じことを次の例で確認する。
+
 <!-- definition-example-start: def-ml2-17-simple-rnn -->
 **定義の確認**。 $d=m=q=1$、$T=2$、活性化は恒等写像、$W=2,U=1,V=1,b=c=0$、$h_0=0$、$(x_1,x_2)=(1,3)$ とする。すべて1行1列の行列（実数）なので積の次元は一致し、時刻を進めると
 
@@ -79,7 +88,18 @@ $$
 
 系列全体の勾配を求めたい。各時刻の状態は直接その時刻の損失に寄与する一方、将来の状態を経由して将来の損失にも寄与する。したがって単に各時刻の $\ell_t$ だけを微分するのは不十分である。
 
-以下では $\phi$ が計算された各 $a_t$ の成分で微分可能と仮定し、対角行列 $D_t=\operatorname{diag}(\phi'(a_{t,1}),\ldots,\phi'(a_{t,m}))\in\mathbb R^{m\times m}$ を置く。$\eta_t=\nabla_{o_t}\ell_t(o_t)\in\mathbb R^q$ は出力で測った局所勾配、$\delta_t=\nabla_{a_t}L\in\mathbb R^m$ は前活性で測った全損失の勾配とする。**随伴量**とは、このように後続の全経路から流れ込む損失勾配を一つの中間変数に集約したものを指し、[逆モードの随伴量](../ML2-14/index.md#def-ml2-14-adjoint)として既習である。
+以下では $\phi$ が計算された各 $a_t$ の成分で微分可能と仮定する。$h_{t,i}=\phi(a_{t,i})$ は $a_{t,j}$（$j\ne i$）に依存しないため、Jacobianの行を出力成分、列を入力成分とする[既習の約束](../ML2-14/index.md#thm-ml2-14-layer-jacobian)では
+
+$$
+\frac{\partial h_{t,i}}{\partial a_{t,j}}
+=\begin{cases}\phi'(a_{t,i})&i=j,\\0&i\ne j,\end{cases}
+\qquad
+D_t=\frac{\partial h_t}{\partial a_t}
+=\operatorname{diag}(\phi'(a_{t,1}),\ldots,\phi'(a_{t,m}))
+\in\mathbb R^{m\times m}.
+$$
+
+$\eta_t=\nabla_{o_t}\ell_t(o_t)\in\mathbb R^q$ は出力で測った局所勾配、$\delta_t=\nabla_{a_t}L\in\mathbb R^m$ は前活性で測った全損失の勾配とする。**随伴量**とは、このように後続の全経路から流れ込む損失勾配を一つの中間変数に集約したものを指し、[逆モードの随伴量](../ML2-14/index.md#def-ml2-14-adjoint)として既習である。
 
 <a id="thm-ml2-17-bptt"></a>
 
@@ -119,7 +139,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t\le T$ で $h_t$ に関する全損失勾配を $\lambda_t=\nabla_{h_t}L$ と書く。$h_t$ から直接 $o_t=Vh_t+c$ へ進む経路の寄与は $V^{\mathsf T}\eta_t$。$t<T$ で $a_{t+1}=Wh_t+Ux_{t+1}+b$ へ進む経路の寄与は $W^{\mathsf T}\delta_{t+1}$ である。最終時刻には後者がないので $\delta_{T+1}=0$ と約束すれば両者を一式で表せる。
+$t\le T$ で $h_t$ に関する全損失勾配を $\lambda_t=\nabla_{h_t}L$ と書く。これは計算グラフの中間節点 $h_t$ を一時的に独立に動かし、後続節点だけを再計算したときの勾配である。$h_t$ から直接 $o_t=Vh_t+c$ へ進む経路の寄与は $V^{\mathsf T}\eta_t$。$t<T$ で $a_{t+1}=Wh_t+Ux_{t+1}+b$ へ進む経路の寄与は $W^{\mathsf T}\delta_{t+1}$ である。最終時刻には後者がないので $\delta_{T+1}=0$ と約束すれば両者を一式で表せる。
 
 $$
 \lambda_t=V^{\mathsf T}\eta_t+W^{\mathsf T}\delta_{t+1}.
@@ -127,7 +147,17 @@ $$
 
 $h_t=\phi(a_t)$ のJacobianは成分別の導関数から $D_t$ であり、$D_t^{\mathsf T}=D_t$。よって[逆モードの連鎖律](../ML2-14/index.md#thm-ml2-14-reverse-chain)で $\delta_t=D_t^{\mathsf T}\lambda_t=D_t\lambda_t$。これが再帰式である。
 
-重み $W$ の成分 $W_{ij}$ を一時刻 $t$ の $a_{t,k}=\sum_j W_{kj}h_{t-1,j}+\sum_rU_{kr}x_{t,r}+b_k$ で偏微分すると、$\partial a_{t,k}/\partial W_{ij}=1_{k=i}h_{t-1,j}$。したがってこの時刻の寄与は
+時刻 $t$ の演算節点で、入力 $h_{t-1}$ を固定した**局所偏微分**を考える。和の添字を $j$ と衝突させないよう $r$、$u$ として
+
+$$
+a_{t,k}=\sum_{r=1}^{m}W_{kr}h_{t-1,r}
+       +\sum_{u=1}^{d}U_{ku}x_{t,u}+b_k,
+\qquad
+\left.\frac{\partial a_{t,k}}{\partial W_{ij}}\right|_{h_{t-1}\,\mathrm{fixed}}
+=\mathbf 1_{\{k=i\}}h_{t-1,j}.
+$$
+
+過去の状態 $h_{t-1}$ 自身が $W$ に依存する経路は、すでに $\delta_{t-1}$ まで戻す逆伝播が数えている。ここでその依存をもう一度微分すると二重計上になる。したがってこの時刻の寄与は
 
 $$
 \sum_{k=1}^m\delta_{t,k}\frac{\partial a_{t,k}}{\partial W_{ij}}
@@ -151,11 +181,31 @@ $$
 \end{aligned}
 $$
 
-よって $\partial L/\partial W=\delta_1h_0+\delta_2h_1=5$、$\partial L/\partial U=\delta_1x_1+\delta_2x_2=10+15=25$。出力側は $\partial L/\partial V=\eta_2h_2=25$、$\partial L/\partial b=15$、$\partial L/\partial c=5$。直接展開すると $h_2=W(Ux_1)+Ux_2$（ここでは $h_0=b=0$）で $\partial h_2/\partial W=Ux_1=1$、$\partial h_2/\partial U=Wx_1+x_2=5$。終端損失の微分 $\partial L/\partial h_2=5$ を掛けて $5$ と $25$ になり、二経路の加算と一致する。$b,c$ の微分は、値が0でも変数として動かすため消えない。
+共有重みの各時刻からの寄与を足すと
+
+$$
+\begin{aligned}
+\frac{\partial L}{\partial W}&=\delta_1h_0+\delta_2h_1=10\cdot0+5\cdot1=5,\\
+\frac{\partial L}{\partial U}&=\delta_1x_1+\delta_2x_2=10\cdot1+5\cdot3=25,\\
+\frac{\partial L}{\partial V}&=\eta_1h_1+\eta_2h_2=0+5\cdot5=25,\\
+\frac{\partial L}{\partial b}&=10+5=15,\qquad
+\frac{\partial L}{\partial c}=0+5=5.
+\end{aligned}
+$$
+
+別法として、$h_0=b=0$ を代入してから $W,U$ への依存を直接展開すると
+
+$$
+h_2=W(Ux_1)+Ux_2,\qquad
+\frac{\partial h_2}{\partial W}=Ux_1=1,\qquad
+\frac{\partial h_2}{\partial U}=Wx_1+x_2=5.
+$$
+
+終端損失の微分 $\partial L/\partial h_2=5$ をそれぞれに掛けると5と25になり、二経路の加算と一致する。$b,c$ の微分は、値が0でも変数として動かすため消えない。
 
 ## 4. なぜ遠い過去の勾配が弱くなるのか
 
-ある時刻の状態を少し動かしたとき、後の状態へどれだけ伝わるかを考える。$a_t=Wh_{t-1}+Ux_t+b$ において $x_t$ は固定だから、$h_{t-1}$ から $h_t$ へのJacobianは $J_t=D_tW\in\mathbb R^{m\times m}$ である。これは「一時刻の変化の倍率」を表す線形写像で、複数時刻の倍率は**和ではなく積**になる。
+ある時刻の状態を少し動かしたとき、後の状態へどれだけ伝わるかを考える。ここでも時刻 $s$ の状態を独立に摂動し、その後の状態を計算し直す感度を指す。$a_t=Wh_{t-1}+Ux_t+b$ において $x_t$ とパラメータは固定だから、[層のJacobian積](../ML2-14/index.md#thm-ml2-14-layer-jacobian)を状態更新へ適用し、$\partial a_t/\partial h_{t-1}=W$、$\partial h_t/\partial a_t=D_t$ から $h_{t-1}$ に対するJacobianは $J_t=D_tW\in\mathbb R^{m\times m}$ である。これは「一時刻の変化の倍率」を表す線形写像で、複数時刻の倍率は**和ではなく積**になる。
 
 ベクトルのEuclidノルム $\|v\|_2$ と、それが誘導する行列作用素ノルム $\|A\|_2=\sup_{\|v\|_2=1}\|Av\|_2$ を用いる。積に対して $\|AB\|_2\le\|A\|_2\|B\|_2$ が成立することは、$\|ABv\|_2\le\|A\|_2\|Bv\|_2$ を単位ベクトルについて上限化すれば分かる。
 
@@ -292,7 +342,36 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-17-teacher-forcing -->
-**定義の確認**。 一状態の模型 $f(h,x)=x$、$g(h)=h/2$ とする。出力写像 $g$ の入力は更新後の状態 $h$ である。$h_0=0$、観測 $y_0=4,y_1=3$ を使うと、時刻1は双方とも $x_1=4,h_1=4,\hat y_1=2$。時刻2では教師強制は $x_2=y_1=3,h_2=3,\hat y_2=3/2$、自律生成は $x_2=\hat y_1=2,h_2=2,\hat y_2=1$ となる。入力に将来の真値を入れない条件は両方式で満たすが、二時刻目以降の状態は一般に一致しない。
+**定義の確認**。一状態で恒等活性化し、重みとバイアスを $W=0,U=1,b=0,V=1/2,c=0$ とする。[単純再帰ネットワーク](#def-ml2-17-simple-rnn)の更新式へ代入すると
+
+$$
+f(h,x)=0\cdot h+1\cdot x+0=x,\qquad
+g(h)=\tfrac12 h+0=\tfrac12h.
+$$
+
+前者は前状態を引き継がず現在の入力だけを次状態へ保存し、後者は更新後の状態を半分にする。初期状態を $h_0=0$、実測値を $(y_0,y_1)=(4,3)$ とする。
+
+時刻1では両方式とも初期観測を取り込むので
+
+$$
+x_1=4,\qquad h_1=f(0,4)=4,\qquad \hat y_1=g(4)=2.
+$$
+
+時刻2の**教師強制**は直前の実測値を入力するから
+
+$$
+x_2=y_1=3,\qquad h_2=f(4,3)=3,\qquad
+\hat y_2=g(3)=\tfrac32.
+$$
+
+一方、**自律生成**は直前の予測値を入力するから
+
+$$
+x_2=\hat y_1=2,\qquad h_2=f(4,2)=2,\qquad
+\hat y_2=g(2)=1.
+$$
+
+どちらも時刻2の予測に真値 $y_2$ を入力していない。前時刻の真値を使うか自己予測を使うかで、二時刻目以降の状態は一般に一致しない。
 <!-- definition-example-end -->
 
 学習時に教師強制の予測誤差が小さくても、自律生成での長期予測誤差が小さいとは限らない。予測誤差が次の入力の誤差となり、状態遷移を通って増幅されうるからである。また、時刻 $t$ を予測する教師強制の入力へ $y_t$ 自体を入れると「予測対象をすでに観測した」ことになり、検証損失が実際の未来予測性能を示さない。[訓練・検証・テスト分割](../ML1-12/index.md#def-ml1-12-three-way-split)を守ることに加え、**時刻方向の可用情報**も守る必要がある。
