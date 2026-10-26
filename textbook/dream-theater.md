@@ -1262,6 +1262,7 @@
 37. [GR37 特異点定理と測地不完備性](textbook/volumes/dream_thater/物理系/GR/GR37/index.md)
 38. [GR38 宇宙検閲仮説の論理と既知の限界](textbook/volumes/dream_thater/物理系/GR/GR38/index.md)
 39. [GR39 3+1分解と初期データの意味](textbook/volumes/dream_thater/物理系/GR/GR39/index.md)
+40. [GR40 Hamiltonian・運動量制約](textbook/volumes/dream_thater/物理系/GR/GR40/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
