@@ -1,0 +1,43 @@
+id: "QINF9"
+title: "Choi表現とチャネル判定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF7
+  - QINF8
+official_scope: []
+learning_objectives:
+  - 基底とテンソル因子の順序を固定して非規格化Choi行列を構成し、規格化された最大エンタングル状態との係数差を説明できる
+  - Choi行列から線形写像の全入力に対する作用を部分トレースで再構成し、転置の入る位置を検算できる
+  - Choi行列の正半定値性と完全正値性の同値を証明し、負固有値から完全正値性の破れを判定できる
+  - トレース保存条件を入力側の部分トレースと同値で導き、完全正値性とは独立に検査できる
+  - Choi行列のスペクトル分解からKraus作用素を構成し、rankと最小Kraus数・環境次元を結び付けられる
+  - 恒等・位相緩和・振幅減衰・転置などのqubit写像のChoi行列を手計算できる
+definitions:
+  - { id: QINF9-DEF-01, name: "非規格化Choi行列" }
+theorems:
+  - { id: QINF9-THM-01, name: "Choi表現からの写像再構成" }
+  - { id: QINF9-THM-02, name: "Choiの完全正値性判定" }
+  - { id: QINF9-THM-03, name: "Choiによるトレース保存条件" }
+  - { id: QINF9-PROP-01, name: "Choi rankと最小Kraus数" }
+canonical_examples:
+  - "恒等チャネルのrank 1 Choi行列と規格化の係数"
+  - "位相緩和のChoi固有値とKraus数"
+  - "振幅減衰のChoi行列と入力側部分トレース"
+  - "転置写像のswap型Choi行列の負固有値"
+problem_patterns:
+  - QINF9-CHOI-DEFINITION
+  - QINF9-RECONSTRUCT
+  - QINF9-NORMALIZATION
+  - QINF9-TRACE-PRESERVATION
+  - QINF9-POSITIVITY-COUNTEREXAMPLE
+  - QINF9-KRAUS-FROM-SPECTRUM
+  - QINF9-AMPLITUDE-DAMPING
+  - QINF9-CHANNEL-CLASSIFICATION
+  - QINF9-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.5, review: 2.0 }

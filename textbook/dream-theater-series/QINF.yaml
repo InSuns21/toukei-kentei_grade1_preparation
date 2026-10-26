@@ -45,7 +45,7 @@ chapters:
     title: "Stinespring表現と相補チャネル"
   - id: QINF9
     path: textbook/volumes/dream_thater/応用系/QINF/QINF9
-    status: planned
+    status: completed
     title: "Choi表現とチャネル判定"
   - id: QINF10
     path: textbook/volumes/dream_thater/応用系/QINF/QINF10
