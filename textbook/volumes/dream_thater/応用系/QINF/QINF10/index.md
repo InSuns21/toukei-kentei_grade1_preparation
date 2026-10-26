@@ -50,7 +50,22 @@ $$
 二つの条件 $E_j\ge0$ と $E_0+E_1=I$ の両方を確かめることが重要です。特に $E_0$ は射影に限らず、$0\le E_0\le I$ の任意の効果作用素でよく、$E_1=I-E_0$ が決まります。
 <!-- definition-example-end -->
 
-装置が三つ以上の結果 $F_k$ を出しても、各結果に対する最終回答が0か1なら、0と答える結果の効果作用素を足して $E_0=\sum_{k:\,\text{回答0}}F_k$ とできます。残りを $E_1$ とすれば上のモデルへ戻せます。確率的に回答を決める場合も、$0\le q_k\le1$ を使って $E_0=\sum_kq_kF_k$ とまとめられます。したがって二値判断に関して二結果POVMへの制限は損失を生みません。
+装置が三つ以上の結果 $F_k$ を出しても、各結果に対する最終回答が0か1なら、0と答える結果の効果作用素を足して $E_0=\sum_{k:\,\text{回答0}}F_k$ とできます。残りを $E_1$ とすれば上のモデルへ戻せます。
+
+確率的に回答を決める場合は、結果 $k$ の後に0と答える条件付き確率を $q_k$（$0\le q_k\le1$）と置きます。このとき
+
+$$
+E_0=\sum_kq_kF_k,
+\qquad E_1=\sum_k(1-q_k)F_k
+$$
+
+とまとめられます。各 $F_k$ が非負なので両効果作用素も非負です。また
+
+$$
+E_0+E_1=\sum_k\bigl(q_k+(1-q_k)\bigr)F_k=\sum_kF_k=I
+$$
+
+と元の測定の完全性が引き継がれます。したがって二値判断に関して二結果POVMへの制限は損失を生みません。
 
 ## 2. 最適測定を決める行列
 
@@ -99,7 +114,7 @@ $$
 
 **定義の確認**では、重み付き差を求め、正負部分が非負で互いに直交することを確かめます。
 
-$\rho_0=\operatorname{diag}(4/5,1/5)$、$\rho_1=\operatorname{diag}(3/10,7/10)$、$\eta_0=3/5$、$\eta_1=2/5$ とします。各 $\rho_j$ は対角成分が非負で和1の密度演算子です。事前確率も非負で和1です。よって
+計算基底 $|0\rangle,|1\rangle$ で $\operatorname{diag}(a,b)=a|0\rangle\langle0|+b|1\rangle\langle1|$ と表します。$\rho_0=\operatorname{diag}(4/5,1/5)$、$\rho_1=\operatorname{diag}(3/10,7/10)$、$\eta_0=3/5$、$\eta_1=2/5$ とします。各 $\rho_j$ はこの正規直交基底で自己共役な対角行列で、固有値（対角成分）が非負、トレース（対角成分の和）が1です。ゆえに[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の各条件を満たします。事前確率も非負で和1です。よって
 
 $$
 \Delta=\begin{pmatrix}12/25-3/25&0\\0&3/25-7/25\end{pmatrix}
@@ -110,6 +125,8 @@ $$
 <!-- definition-example-end -->
 
 正負の固有値の絶対値を加える操作を、次の章では状態間の距離にも使います。この章では最適誤り確率を表すために必要な行列ノルムだけを先に定義します。
+
+一般の作用素 $X$ は自己共役とは限りませんが、$X^\dagger X$ は自己共役で、任意の $|v\rangle$ に対して $\langle v|X^\dagger X|v\rangle=\|Xv\|^2\ge0$ です。[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)によって $X^\dagger X=\sum_k\mu_k|e_k\rangle\langle e_k|$（$\mu_k\ge0$）と表示でき、その非負平方根は $\sum_k\sqrt{\mu_k}|e_k\rangle\langle e_k|$ です。つまり、平方根は行列の各成分に作用させるのではなく、固有値に作用させて構成します。
 
 <a id="def-qinf10-trace-norm"></a>
 
@@ -256,7 +273,15 @@ $$
 また定義から $P_{\mathrm{e}}=1-P_{\mathrm{s}}$ なので最小値は $P_{\mathrm{e}}^*=1-P_{\mathrm{s}}^*$ です。
 <!-- proof-end -->
 
-ここには二つの境界があります。$0\le E\le I$ なら $\operatorname{Tr}(E\rho_j)\le1$ なので、[変分原理](#lem-qinf10-variational)から $\operatorname{Tr}\Delta_+\le\eta_0$ です。$-\Delta$ に同じ議論を適用すれば $\operatorname{Tr}\Delta_-\le\eta_1$。従って $\|\Delta\|_1\le\eta_0+\eta_1=1$ です。また $\|\Delta\|_1\ge|\operatorname{Tr}\Delta|=|\eta_0-\eta_1|$ は正負部分の非負性から従います。よって
+ここには二つの境界があります。[POVMの確率条件](../QINF5/index.md#prop-qinf5-probabilities)から、$0\le E\le I$ なら $0\le\operatorname{Tr}(E\rho_j)\le1$ です。よって任意の効果作用素 $E$ に対して
+
+$$
+\operatorname{Tr}(E\Delta)
+=\eta_0\operatorname{Tr}(E\rho_0)-\eta_1\operatorname{Tr}(E\rho_1)
+\le\eta_0.
+$$
+
+[変分原理](#lem-qinf10-variational)で左辺を最大化すれば $\operatorname{Tr}\Delta_+\le\eta_0$ です。$-\Delta=\eta_1\rho_1-\eta_0\rho_0$ に同じ議論を適用すれば $\operatorname{Tr}\Delta_-\le\eta_1$。従って $\|\Delta\|_1\le\eta_0+\eta_1=1$ です。また $\|\Delta\|_1\ge|\operatorname{Tr}\Delta|=|\eta_0-\eta_1|$ は正負部分の非負性から従います。よって
 
 $$
 0\le P_{\mathrm{e}}^*\le\min(\eta_0,\eta_1).
@@ -291,7 +316,29 @@ $$
 
 ### 可換状態の尤度比較
 
-二つの密度演算子が可換なら、同時に対角化できます。共通固有基底 $|k\rangle$ で $\rho_0$ と $\rho_1$ の対角成分を確率列 $p_k,q_k$ として読めるため、問題は古典的な仮説検定へ還元されます。
+二つの密度演算子が**可換**であるとは、$[\rho_0,\rho_1]:=\rho_0\rho_1-\rho_1\rho_0=0$（ここで角括弧は交換子）となることです。可換なら同時に対角化できます。実際、$\rho_0v=pv$ を満たす固有ベクトル $v$ には
+
+$$
+\rho_0(\rho_1v)=\rho_1(\rho_0v)=p(\rho_1v)
+$$
+
+が成立し、$\rho_1$ は $\rho_0$ の固有値 $p$ の固有空間を保ちます。各固有空間への $\rho_1$ の制限も自己共役です。そこへ[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用して正規直交基底で対角化し、各基底を合わせれば、両者の共通固有基底が得られます。
+
+共通基底 $|k\rangle$ でそれぞれの固有値を $p_k,q_k$ とすると
+
+$$
+\rho_0=\sum_kp_k|k\rangle\langle k|,
+\qquad \rho_1=\sum_kq_k|k\rangle\langle k|
+$$
+
+と表示されます。[密度演算子の条件](../QINF2/index.md#def-qinf2-ensemble-density)から両固有値列は非負で総和1です。[POVMの確率式](../QINF5/index.md#prop-qinf5-probabilities)で基底射影 $|k\rangle\langle k|$ を測れば
+
+$$
+\operatorname{Tr}(|k\rangle\langle k|\rho_0)=p_k,
+\qquad \operatorname{Tr}(|k\rangle\langle k|\rho_1)=q_k
+$$
+
+となります。つまり結果 $k$ の条件付き確率が各状態で $p_k,q_k$ です。事前確率を掛けた $\eta_0p_k,\eta_1q_k$ を比較する古典的な仮説検定へ還元されます。
 
 <a id="prop-qinf10-commuting"></a>
 
@@ -787,7 +834,7 @@ P_{\mathrm{e}}^*(0)=\frac12-\frac{\sqrt2}{4},
 \qquad P_{\mathrm{e}}^*(1/2)=\frac12-\frac14=\frac14.
 $$
 
-**4. 計算基底との比較。** 計算基底で結果0なら仮説0、結果1なら仮説1と答えると、$\sigma_0$ の正解率は1、$\sigma_1$ で結果1の確率は常に $1/2$ です。よって $P_{\mathrm{e}}^{Z}=1-(1/2+1/4)=1/4$ は $t$ に依存しません。
+**4. 計算基底との比較。** 計算基底で結果0なら仮説0、結果1なら仮説1と答え、この判断の誤り確率を $P_{\mathrm{e}}^{Z}$ と書きます。$\sigma_0$ の正解率は1、$\sigma_1$ で結果1の確率は常に $1/2$ です。よって $P_{\mathrm{e}}^{Z}=1-(1/2+1/4)=1/4$ は $t$ に依存しません。
 
 $$
 P_{\mathrm{e}}^{Z}-P_{\mathrm{e}}^*(t)
