@@ -1,0 +1,36 @@
+id: "ML2-19"
+title: "自己教師あり表現学習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML2-18
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 正解ラベルの代わりに観測から正例対を作る自己教師あり学習の設定と、augmentationが保存すべき情報を区別できる
+  - 埋め込みの正規化、温度付き対照損失、正例・負例集合の条件を明記して損失を計算できる
+  - 対照損失のscore勾配と埋め込みへの勾配を導出し、温度と負例重複の効果を検算できる
+  - augmentation不変性の二乗距離と条件付き分散の恒等式を証明し、collapseとの違いを説明できる
+  - 独立な周辺分布負例を用いる有限離散サンプリング模型の下でInfoNCE情報下界を導き、適用できない採標法を判別できる
+  - データ分割、同一対象の重複、擬似負例、温度を変える計算ラボで損失と漏洩を比較できる
+definitions:
+  - { id: ML2-19-DEF-01, name: 二つの拡張ビューと自己教師あり正例 }
+  - { id: ML2-19-DEF-02, name: 温度付き対照損失 }
+  - { id: ML2-19-DEF-03, name: 拡張に関する平均二乗不変性 }
+  - { id: ML2-19-DEF-04, name: 独立負例の候補識別模型 }
+theorems:
+  - { id: ML2-19-THM-01, name: 対照損失の得点勾配 }
+  - { id: ML2-19-THM-02, name: 拡張不変性と条件付き分散 }
+  - { id: ML2-19-THM-03, name: 有限独立負例模型におけるInfoNCE下界 }
+  - { id: ML2-19-PROP-01, name: 表現崩壊の対照損失 }
+canonical_examples:
+  - 二つの候補の対照損失と温度の効果
+  - 恒等拡張・情報を破壊する拡張・定数表現の比較
+  - 同一意味の別標本を負例に取った偽負例
+  - 独立な負例模型からの情報界の検算
+  - NumPyで角度・温度・負例重複を動かす計算ラボ
+problem_patterns: [ML2-19-A01, ML2-19-A02, ML2-19-A03, ML2-19-A04, ML2-19-B01, ML2-19-B02, ML2-19-B03, ML2-19-B04, ML2-19-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

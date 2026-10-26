@@ -1,0 +1,53 @@
+chapter: ML2-19
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-18, INFO2]
+concepts:
+  - id: learning.self-supervised-views
+    name: 二つの拡張ビューと自己教師あり正例
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二つの拡張ビューと自己教師あり正例）"]
+    requires: []
+  - id: learning.temperature-contrastive-loss
+    name: 温度付き対照損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（温度付き対照損失）"]
+    requires: [learning.self-supervised-views, learning.scaled-dot-product-attention]
+  - id: learning.contrastive-score-gradient
+    name: 対照損失の得点勾配
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対照損失の得点勾配）"]
+    requires: [learning.temperature-contrastive-loss, learning.attention-gradient]
+  - id: learning.augmentation-invariance-risk
+    name: 拡張に関する平均二乗不変性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（拡張に関する平均二乗不変性）"]
+    requires: [learning.self-supervised-views]
+  - id: learning.augmentation-variance-identity
+    name: 拡張不変性と条件付き分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（拡張不変性と条件付き分散）"]
+    requires: [learning.augmentation-invariance-risk]
+  - id: learning.contrastive-collapse
+    name: 表現崩壊の対照損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（表現崩壊の対照損失）"]
+    requires: [learning.temperature-contrastive-loss]
+  - id: learning.independent-negative-model
+    name: 独立負例の候補識別模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立負例の候補識別模型）"]
+    requires: [learning.temperature-contrastive-loss]
+  - id: learning.infonce-finite-mi-bound
+    name: 有限独立負例模型におけるInfoNCE下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限独立負例模型におけるInfoNCE下界）"]
+    requires: [learning.independent-negative-model, information.mutual-as-divergence]
