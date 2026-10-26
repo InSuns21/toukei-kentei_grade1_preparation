@@ -1,0 +1,65 @@
+chapter: QINF8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF4
+  - QINF7
+forward_references: []
+
+concepts:
+  - id: quantum.stinespring-isometry
+    name: Stinespring等長写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Stinespring等長写像と環境系）]
+    requires: [quantum.kraus-representation, quantum.kraus-completeness]
+
+  - id: quantum.stinespring-environment
+    name: Stinespring表現の環境系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Stinespring等長写像と環境系）]
+    requires: [quantum.stinespring-isometry, quantum.partial-trace]
+
+  - id: quantum.stinespring-representation
+    name: 有限次元Stinespring表現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限次元Stinespring表現）]
+    requires: [quantum.stinespring-isometry, quantum.kraus-existence, quantum.partial-trace]
+
+  - id: quantum.complementary-channel
+    name: 相補チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相補チャネル）]
+    requires: [quantum.stinespring-representation, quantum.quantum-channel]
+
+  - id: quantum.complementary-kraus-formula
+    name: 相補チャネルのKraus行列成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（相補チャネルの行列成分とチャネル性）]
+    requires: [quantum.complementary-channel, quantum.kraus-completeness]
+
+  - id: quantum.stinespring-unitary-extension
+    name: 等長写像のユニタリ拡張
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同次元入出力におけるユニタリ拡張）]
+    requires: [quantum.stinespring-isometry]
+
+  - id: quantum.stinespring-minimal-uniqueness
+    name: 最小環境次元と環境表現の非一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（最小環境次元と環境表現の非一意性）]
+    requires: [quantum.stinespring-representation, quantum.purification-isometry, quantum.minimal-purifying-dimension]
+
+  - id: quantum.amplitude-complement
+    name: 振幅減衰の相補チャネル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（振幅減衰の相補チャネル）]
+    requires: [quantum.complementary-kraus-formula, quantum.kraus-representation]
