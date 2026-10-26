@@ -8,7 +8,13 @@
 
 長さ $n\ge1$ の系列で各トークンを $d$ 次元の行ベクトル $x_i^{\mathsf T}$ として並べ、$X\in\mathbb R^{n\times d}$ とする。行 $i$ の出力を作るとき、参照先の行 $j$ とどの程度合うかを比較したい。比較する側の特徴を**query（問い合わせ）**、比較される側の特徴を**key（鍵）**、実際に取り出す内容を**value（値）**と呼ぶ。この三者を分ければ、似ているかの尺度と取り出す値を別々に学習できる。
 
-射影行列 $W_Q,W_K\in\mathbb R^{d\times k}$、$W_V\in\mathbb R^{d\times v}$ を共有し、$k,v$ を正整数とする。$Q=XW_Q,K=XW_K,V=XW_V$ の行をそれぞれ $q_i^{\mathsf T},k_i^{\mathsf T},v_i^{\mathsf T}$ と書く。問い合わせと鍵の内積 $q_i^{\mathsf T}k_j$ は実数で、同じ query に対して値が大きい参照先ほど大きな重みを与えたい。得点を $\sqrt{k}$ で割るのは、各座標積が中心化され独立・等分散なら内積の分散が概ね $k$ に比例することを緩和するためであり、一般の学習済み行列で分散一定を保証する定理ではない。
+射影行列 $W_Q,W_K\in\mathbb R^{d\times k}$、$W_V\in\mathbb R^{d\times v}$ を共有し、$k,v$ を正整数とする。ここで「射影」は学習する線形特徴変換という意味であり、$W^2=W$ を満たす正方の射影作用素に限らない。$Q=XW_Q,K=XW_K,V=XW_V$ の行をそれぞれ $q_i^{\mathsf T},k_i^{\mathsf T},v_i^{\mathsf T}$ と書く。問い合わせと鍵の内積 $q_i^{\mathsf T}k_j$ は実数で、同じ query に対して値が大きい参照先ほど大きな重みを与えたい。行列積の第 $(i,j)$ 成分を展開すると
+
+$$
+(QK^{\mathsf T})_{ij}=\sum_{a=1}^{k}Q_{ia}K_{ja}=q_i^{\mathsf T}k_j
+$$
+
+となり、行 $i$ のqueryと行 $j$ のkeyを比較する得点行列を作れる。得点を $\sqrt{k}$ で割るのは、各座標積が中心化され独立・等分散なら内積の分散が概ね $k$ に比例することを緩和するためであり、一般の学習済み行列で分散一定を保証する定理ではない。
 
 実数列 $s_1,\ldots,s_n$ を指数化して合計で割ると、すべて正で合計1になる。これを**softmax**と呼び、$s$ が大きい項の比重を増やす。行ごとの指数値は数値桁あふれを防ぐため、最大値を引いてから指数化しても同じ比率になる。
 
@@ -34,7 +40,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-18-attention -->
-**定義の確認**。$n=2,d=k=v=1$、$X=(0,1)^{\mathsf T}$、三つの射影重みをすべて1とする。すると $Q=K=V=(0,1)^{\mathsf T}$ で、$QK^{\mathsf T}$ の行・列を順に掛けると
+**定義の確認**。$n=2,d=k=v=1$、$X=(0,1)^{\mathsf T}$、三つの射影重みをすべて1とする。ここで $e=\exp(1)$ と書く。すると $Q=K=V=(0,1)^{\mathsf T}$ で、直前の成分展開に従って得点を作り、各行で指数値を正規化すると
 
 $$
 S=\begin{pmatrix}0&0\\0&1\end{pmatrix},\quad
@@ -44,7 +50,7 @@ A=\begin{pmatrix}
 Y=\begin{pmatrix}1/2\\e/(1+e)\end{pmatrix}.
 $$
 
-第一行は $0$ と $0$ を等しく比較する。第二行は $0$ と $1$ を比較して後者を $e$ 倍重くする。両行とも成分は正で和1であり、$Y$ の各成分は値 $0$ と $1$ の凸結合である。ここで $e=\exp(1)$ とした。
+第一行は $0$ と $0$ を等しく比較する。第二行は $0$ と $1$ を比較して後者を $e$ 倍重くする。両行とも成分は正で和1であり、$Y$ の各成分は値 $0$ と $1$ の凸結合である。
 <!-- definition-example-end -->
 
 $V$ の行がすべて同じベクトル $c$ なら、どんな $A$ でも $y_i=(\sum_jA_{ij})c=c$ となる。逆に注意重みが違っても値ベクトルが同じなら出力に違いはない。したがって、重みの大きさだけから予測への因果的寄与を読み取るのは危険である。
@@ -85,6 +91,8 @@ $$
 
 例えば三つの行のうち第3列だけがパディングなら、有効な問い合わせ $i=1,2$ に $J_i=\{1,2\}$ と指定する。第3行が無効であれば、そもそも第3行の出力と損失を使わない。計算APIで全行の出力が必要なら第3行にも非空の許可集合を明示し、その結果を無効として捨てる。全列を禁止した行は分母が0となり未定義で、0ベクトルをsoftmaxの結果として装うことはできない。
 
+後に扱う位置情報では、各位置 $j$ に固定ベクトル $p_j\in\mathbb R^d$ を割り当て、行 $x_j^{\mathsf T}$ を $(x_j+p_j)^{\mathsf T}$ に置き換える場合もある。この加算は一行の内側で行われ、$p_j$ が別の入力行から計算されない限り、未来の入力を混ぜない。
+
 <a id="prop-ml2-18-causal"></a>
 
 <!-- formal-statement-start -->
@@ -99,7 +107,30 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $i$ を固定する。射影は行ごとに共有されるだけで行間を混ぜないので、$q_i=W_Q^{\mathsf T}x_i$ は $x_i$ のみの関数である。同じく $j\in J_i$ なら $k_j=W_K^{\mathsf T}x_j$、$v_j=W_V^{\mathsf T}x_j$ は $j\le i$ の入力のみの関数である。したがって $S_{ij}=q_i^{\mathsf T}k_j/\sqrt{k}$、許可集合内の最大 $m_i$、分母 $\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)$ はいずれも先頭 $i$ 行から決まり、正の分母を持つ。$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。固定位置ベクトルを足しても、各行の計算に他の入力行は混入しない。$\square$
+任意の行 $i$ を固定する。位置情報の有無をまとめるため、各入力列ベクトルを次のように書く。
+
+$$
+\widetilde x_j=x_j\quad(\text{位置情報なし}),\qquad
+\widetilde x_j=x_j+p_j\quad(\text{固定位置情報あり}).
+$$
+
+射影は各行に同じ係数を作用させ、行どうしを混ぜない。したがって問い合わせと、許可された列 $j\in J_i$ の鍵・値は
+
+$$
+q_i=W_Q^{\mathsf T}\widetilde x_i,\qquad
+k_j=W_K^{\mathsf T}\widetilde x_j,\qquad
+v_j=W_V^{\mathsf T}\widetilde x_j
+$$
+
+であり、$q_i$ は現在行、$k_j,v_j$ は $j\le i$ の入力および固定位置ベクトルのみから決まる。続いて
+
+$$
+S_{ij}=\frac{q_i^{\mathsf T}k_j}{\sqrt{k}},\qquad
+m_i=\max_{j\in J_i}S_{ij},\qquad
+Z_i=\sum_{\ell\in J_i}\exp(S_{i\ell}-m_i)>0
+$$
+
+も先頭 $i$ 行から決まる。最後に $A_{ij}=\exp(S_{ij}-m_i)/Z_i$（許可列のみ）を使うので、$y_i=\sum_{j\in J_i}A_{ij}v_j$ に未来入力は現れない。$\square$
 <!-- proof-end -->
 
 この主張は「各行の射影前に系列全体の平均を混ぜる」などの別操作を挿入した場合には自動では成立しない。また訓練時に正解系列をずらして入力する場合は、[教師強制](../ML2-17/index.md#def-ml2-17-teacher-forcing)と同じく、入力自体に将来の答えが紛れ込んでいないかを別途確認する必要がある。
@@ -184,10 +215,17 @@ $$
 \frac{\partial L}{\partial K_{ra}}=\frac1{\sqrt{k}}\sum_iD_{ir}Q_{ia}
 $$
 
-を得る。これらは主張の行列式であり、形も $Q,K,V$ の形と一致する。$\square$
+を得る。これらを行列積の成分表示と照合すると定理の勾配の行列表示になり、形も $Q,K,V$ の形と一致する。$\square$
 <!-- proof-end -->
 
-ここで特に、各行で $\sum_jD_{ij}=0$ となる。実際、$\sum_{j\in J_i}A_{ij}G_{ij}-(\sum_jA_{ij})(\sum_\ell A_{i\ell}G_{i\ell})=0$ である。全得点に同じ定数を足してもsoftmaxが変化しないことの微分版である。$Q=XW_Q$ 等の線形射影へ戻すなら、[逆伝播の行列成分展開](../ML2-14/index.md#thm-ml2-14-backprop)から $\nabla_{W_Q}L=X^{\mathsf T}\nabla_QL$ などを得る。また共有入力の勾配は三本の経路の和になる。
+ここで特に、各行で $\sum_jD_{ij}=0$ となる。実際、$\sum_{j\in J_i}A_{ij}G_{ij}-(\sum_jA_{ij})(\sum_\ell A_{i\ell}G_{i\ell})=0$ である。全得点に同じ定数を足してもsoftmaxが変化しないことの微分版である。$Q=XW_Q$ 等の線形射影へ戻すと、$Q_{ib}=\sum_aX_{ia}(W_Q)_{ab}$ なので、[逆伝播の行列成分展開](../ML2-14/index.md#thm-ml2-14-backprop)をこの行共有写像へ適用して
+
+$$
+\frac{\partial L}{\partial(W_Q)_{ab}}=\sum_iX_{ia}(\nabla_QL)_{ib},
+\qquad \nabla_{W_Q}L=X^{\mathsf T}\nabla_QL
+$$
+
+を得る。$K,V$ の射影係数にも同じ成分展開を適用できる。また共有入力の勾配は三本の経路の和になる。
 
 $$
 \nabla_XL=(\nabla_QL)W_Q^{\mathsf T}
@@ -235,7 +273,13 @@ $$
 =\gamma_a\frac{z_{ia}-\mu_i}{\sqrt{s_i^2+\varepsilon}}+\beta_a
 $$
 
-とする。$d=1$ でも $\varepsilon>0$ なので分母は0にならない。これは行の特徴座標に作用しトークンの行どうしは混ぜない。たとえば $U=\operatorname{LN}(X+\operatorname{MHA}(X))$ として、$Z=\operatorname{LN}(U+f(U))$、$f(u)=\phi(uW_1+b_1)W_2+b_2$ を各行で計算する構成がある。$W_1\in\mathbb R^{d\times m},W_2\in\mathbb R^{m\times d}$ を選べば次元は一致する。実装には正規化を残差の前に置く方式もあり、同じ計算とは限らない。残差は勾配に恒等経路を追加するが、深いモデルで勾配消失が絶対に起こらないという保証ではない。
+とする。$d=1$ でも $\varepsilon>0$ なので分母は0にならない。これは行の特徴座標に作用しトークンの行どうしは混ぜない。行ごとの全結合網では、中間幅 $m\ge1$、$W_1\in\mathbb R^{d\times m}$、$W_2\in\mathbb R^{m\times d}$、行ベクトルとして足すバイアス $b_1\in\mathbb R^m,b_2\in\mathbb R^d$ を選び、$\phi$ を成分ごとの活性化関数（例えばReLU）とする。行ベクトル $u\in\mathbb R^{1\times d}$ に対し
+
+$$
+f(u)=\phi(uW_1+b_1^{\mathsf T})W_2+b_2^{\mathsf T}
+$$
+
+は $1\times d$ の行を返す。$f(U)$ はこの同じ写像を $U$ の各行へ適用した行列である。たとえば $U=\operatorname{LN}(X+\operatorname{MHA}(X))$、$Z=\operatorname{LN}(U+f(U))$ とする構成があり、すべての加算で幅は $d$ に一致する。実装には正規化を残差の前に置く方式もあり、同じ計算とは限らない。残差は勾配に恒等経路を追加するが、深いモデルで勾配消失が絶対に起こらないという保証ではない。
 
 ## 5. 順番を区別する位置情報と置換同変性
 
@@ -258,13 +302,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（位置情報なしの置換同変性）**  
-> $n,d,k,v\ge1$、共有された射影行列 $W_Q,W_K,W_V$ を固定し、位置情報を加えない[scaled dot-product attention](#def-ml2-18-attention)の写像を $F:\mathbb R^{n\times d}\to\mathbb R^{n\times v}$ とする。$P\in\mathbb R^{n\times n}$ は各行・各列にちょうど一個の1を持ち、他が0の行列とする。全行で全列を許可する（または、$X$ を $P$ で並べ替えた際に許可集合も $P$ で同時に移す）なら
+> $n,d,k,v\ge1$、共有された射影行列 $W_Q,W_K,W_V$ を固定し、位置情報を加えない[scaled dot-product attention](#def-ml2-18-attention)の写像を $F:\mathbb R^{n\times d}\to\mathbb R^{n\times v}$ とする。$P\in\mathbb R^{n\times n}$ は各行・各列にちょうど一個の1を持ち、他が0の行列とする。全行で全列を許可するこの写像について
 
 $$
 F(PX)=PF(X)
 $$
 
-> が成り立つ。各headで同じ条件が成立する[multi-head attention](#def-ml2-18-multihead)と、出力次元を $d$ に合わせた残差 $X+\operatorname{MHA}(X)$ も置換同変である。**位置番号に固定された位置情報**や**元の順序で固定された因果マスク**を加えた一般の写像については、この主張は成り立たない。
+> が成り立つ。さらに各行で空でない許可集合の族 $J=(J_1,\ldots,J_n)$ を持つ[マスク付きattention](#def-ml2-18-mask)の写像を $F_J$ と書く。$(Pz)_i=z_{\pi(i)}$ を満たす置換 $\pi$ に対して $J'_i=\pi^{-1}(J_{\pi(i)})$ と許可集合も移した場合には
+
+$$
+F_{J'}(PX)=P F_J(X)
+$$
+
+> が成り立つ。各headで同じマスク移動条件が成立する[multi-head attention](#def-ml2-18-multihead)と、出力次元を $d$ に合わせた残差 $X+\operatorname{MHA}(X)$ にも対応する等式が成り立つ。**位置番号に固定された位置情報**や**元の順序で固定された因果マスク**を加えた一般の写像については、固定した一つの写像の置換同変性は成り立たない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -299,14 +349,25 @@ A'_{ij}
 \end{aligned}
 $$
 
-最大値を引く表示でも、置換で各行の最大値は変わらないので同じ結論である。許可集合を同時に運ぶ場合は和の範囲も $\pi(J'_i)=J_{\pi(i)}$ と対応させればよい。最後に
+最大値を引く表示でも、置換で各行の最大値は変わらないので同じ結論である。許可集合を同時に運ぶ場合は $J'_i=\pi^{-1}(J_{\pi(i)})$ により $\pi(J'_i)=J_{\pi(i)}$ である。許可列 $j\in J'_i$ について和の添字を $r=\pi(\ell)$ と取り直せば
+
+$$
+\begin{aligned}
+A'_{ij}
+&=\frac{\exp(S_{\pi(i),\pi(j)})}{\sum_{\ell\in J'_i}\exp(S_{\pi(i),\pi(\ell)})}\\
+&=\frac{\exp(S_{\pi(i),\pi(j)})}{\sum_{r\in J_{\pi(i)}}\exp(S_{\pi(i),r})}
+=A_{\pi(i),\pi(j)}.
+\end{aligned}
+$$
+
+禁止列は両方とも0なので、この場合も $A'=PAP^{\mathsf T}$ となる。最後に
 
 $$
 F(PX)=A'V'=(PAP^{\mathsf T})(PV)
 =PA(P^{\mathsf T}P)V=PAV=PF(X).
 $$
 
-各headは同じ性質を持つので横連結した出力も $P$ の行置換に従い、右からの $W_O$ 乗算は行置換と可換である。残差も $PX+P\operatorname{MHA}(X)=P(X+\operatorname{MHA}(X))$。$\square$
+これは全列許可の場合の表示であり、マスクを運んだ場合は左辺を $F_{J'}(PX)$、右辺を $PF_J(X)$ に読み替える。各headは同じ性質を持つので横連結した出力も $P$ の行置換に従い、右からの $W_O$ 乗算は行置換と可換である。残差も $PX+P\operatorname{MHA}(X)=P(X+\operatorname{MHA}(X))$。$\square$
 <!-- proof-end -->
 
 反例を二つ比べる。まず位置情報を固定した場合、第5節の $X=(0,0)^{\mathsf T}$ と $E=(0,1)^{\mathsf T}$ を使い、$P$ を二行の交換とする。$PX=X$ だから $F(PX+E)=F(X+E)$ であるが、出力 $(1/2,e/(1+e))^{\mathsf T}$ の二成分は異なり、$PF(X+E)\ne F(X+E)$ となる。原因はトークン行だけを置換して位置ベクトルを運ばなかったことにある。
@@ -533,6 +594,15 @@ $$
 $$
 
 $w=1$ の値は $e/(1+e)^2>0$。直接商微分 $\{e^w(1+e^w)-e^{2w}\}/(1+e^w)^2$ とも一致する。第一行は禁止先へ依存せず $w$ に関する勾配を加えない。
+
+数値検算として、$L(w)=1+e^w/(1+e^w)$ を一変数関数として扱う。[中心有限差分の誤差評価](../ML2-14/index.md#prop-ml2-14-central-difference)が使える滑らかな関数なので、$h=10^{-3}$ として
+
+$$
+\frac{L(1+h)-L(1-h)}{2h}\simeq0.1966119274,
+\qquad \frac{e}{(1+e)^2}\simeq0.1966119332
+$$
+
+を得る。差が約 $5.9\times10^{-9}$ であることは微分式から求めた勾配と整合するが、有限差分は証明の代用ではない。
 
 **(3)** 行交換後は $X'=(1,0)^{\mathsf T}$、$Q'=K'=V'=X'$。第一行は自身だけ見るので $Y'_1=1$、第二行は query が0で両列を等重みで見て $Y'_2=1/2$。ゆえに
 
