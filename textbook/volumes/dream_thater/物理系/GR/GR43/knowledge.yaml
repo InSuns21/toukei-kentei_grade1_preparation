@@ -1,0 +1,56 @@
+chapter: GR43
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR4
+  - GR41
+  - GR42
+concepts:
+  - id: gravity.flrw-null-path
+    name: FLRWの動径光路と共動距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FLRWの動径光路と共動距離）"]
+    requires: [gravity.flrw-radial-coordinates, gravity.flrw-comoving-observer]
+  - id: gravity.cosmological-redshift
+    name: 共動光源の宇宙赤方偏移
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共動光源の宇宙赤方偏移）"]
+    requires: [gravity.observer-measured-components, gravity.flrw-comoving-observer]
+  - id: gravity.redshift-scale-factor
+    name: 宇宙赤方偏移と尺度因子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（宇宙赤方偏移と尺度因子）"]
+    requires: [gravity.cosmological-redshift, gravity.flrw-connection-ricci]
+  - id: gravity.redshift-lookback-distance
+    name: 赤方偏移・光行時間・共動動径距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（赤方偏移・光行時間・共動動径距離）"]
+    requires: [gravity.flrw-null-path, gravity.redshift-scale-factor, gravity.flrw-hubble-fluid]
+  - id: gravity.angular-luminosity-distances
+    name: 角径距離と光度距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（角径距離と光度距離）"]
+    requires: [gravity.flrw-null-path, gravity.cosmological-redshift]
+  - id: gravity.flrw-distance-duality
+    name: FLRWの角径距離・光度距離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（FLRWの角径距離・光度距離）"]
+    requires: [gravity.angular-luminosity-distances, gravity.redshift-scale-factor, gravity.redshift-lookback-distance]
+  - id: gravity.flrw-hubble-series
+    name: 低赤方偏移での光度距離の級数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（低赤方偏移での光度距離の級数）"]
+    requires: [gravity.flrw-distance-duality, gravity.redshift-lookback-distance, gravity.friedmann-equations]
+  - id: gravity.milne-doppler-redshift
+    name: Milne模型の赤方偏移と特殊相対論Doppler因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Milne模型の赤方偏移と特殊相対論Doppler因子）"]
+    requires: [gravity.redshift-scale-factor, gravity.flrw-null-path, gravity.flrw-radial-coordinates]
