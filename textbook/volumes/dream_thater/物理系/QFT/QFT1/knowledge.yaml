@@ -1,0 +1,58 @@
+chapter: QFT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL3
+  - AMECH3
+  - VC4
+forward_references: []
+
+concepts:
+  - id: qft.real-scalar-field
+    name: 実スカラー場
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（実スカラー場）]
+    requires: [relativity.minkowski-metric]
+
+  - id: qft.scalar-action
+    name: ラグランジアン密度と場の作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ラグランジアン密度と場の作用）]
+    requires: [qft.real-scalar-field, analytical-mechanics.action-functional]
+
+  - id: qft.field-euler-lagrange
+    name: 場のEuler–Lagrange方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（場のEuler–Lagrange方程式）]
+    requires: [qft.scalar-action, analytical-mechanics.first-variation]
+
+  - id: qft.klein-gordon
+    name: Klein–Gordon方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Klein–Gordon方程式）]
+    requires: [qft.field-euler-lagrange]
+
+  - id: qft.scalar-dispersion
+    name: 平面波の分散関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平面波の分散関係）]
+    requires: [qft.klein-gordon, relativity.mass-shell-relation]
+
+  - id: qft.scalar-energy
+    name: 自由スカラー場のエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由スカラー場のエネルギー）]
+    requires: [qft.scalar-action, qft.klein-gordon]
+
+  - id: qft.scalar-energy-conservation
+    name: 自由場のエネルギー保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由場のエネルギー保存）]
+    requires: [qft.scalar-energy, qft.klein-gordon]

@@ -1,0 +1,43 @@
+id: QFT1
+title: "相対論的スカラー場の作用とKlein–Gordon方程式"
+volume: foundations
+status: supplementary
+prerequisites:
+  - SREL3
+  - AMECH3
+  - VC4
+official_scope: []
+learning_objectives:
+  - 一粒子の相対論的質量殻と粒子数が変化する理論の違いを説明できる
+  - Minkowski計量・自然単位系・微分添字を統一して実スカラー場と場の作用を定義できる
+  - コンパクトな変分から場のEuler–Lagrange方程式を全ての符号を追って導ける
+  - Klein–Gordon方程式の平面波の分散関係と粒子の質量殻を区別して接続できる
+  - 境界条件を明記してエネルギー保存を局所式と空間積分から導ける
+  - Lorentz変換時のスカラー場の規則を検算し、有限エネルギー解と平面波の違いを説明できる
+definitions:
+  - { id: QFT1-DEF-01, name: 実スカラー場 }
+  - { id: QFT1-DEF-02, name: ラグランジアン密度と場の作用 }
+  - { id: QFT1-DEF-03, name: Klein–Gordon方程式 }
+  - { id: QFT1-DEF-04, name: 自由スカラー場のエネルギー }
+theorems:
+  - { id: QFT1-THM-01, name: 場のEuler–Lagrange方程式 }
+  - { id: QFT1-PROP-01, name: 平面波の分散関係 }
+  - { id: QFT1-THM-02, name: 自由場のエネルギー保存 }
+canonical_examples:
+  - 定数場とLorentzスカラー変換則の直接確認
+  - compact supportをもつ変分の境界項の消滅
+  - 余弦平面波のKlein–Gordon方程式への代入
+  - Gaussian初期データと平面波のエネルギー可積分性の比較
+problem_patterns:
+  - QFT1-MASS-SHELL
+  - QFT1-LORENTZ-SCALAR
+  - QFT1-VARIATION-MASS
+  - QFT1-PLANE-WAVE
+  - QFT1-SUPERPOSITION
+  - QFT1-SOURCE-FIELD
+  - QFT1-LOCAL-ENERGY
+  - QFT1-COVARIANT-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }

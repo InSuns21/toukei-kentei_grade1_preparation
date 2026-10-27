@@ -1,0 +1,17 @@
+chapter: QFT1
+terms:
+  - term: 実スカラー場
+    english: real scalar field
+    meaning: "Minkowski時空上の実数値関数で、Lorentz座標変換時に同じ事象の場の値を保つもの。"
+  - term: ラグランジアン密度
+    english: Lagrangian density
+    meaning: "場とその一階微分から各時空点で作る量で、時空積分が作用になる。"
+  - term: Klein–Gordon方程式
+    english: Klein–Gordon equation
+    meaning: "自然単位系で(Box+m²)phi=0となる自由スカラー場の線形偏微分方程式。"
+  - term: 質量殻
+    english: mass shell
+    meaning: "エネルギーと運動量がE²-|p|²=m²を満たす相対論的関係。"
+  - term: 分散関係
+    english: dispersion relation
+    meaning: "平面波の角振動数omegaと波数ベクトルkを結びつける条件。"
