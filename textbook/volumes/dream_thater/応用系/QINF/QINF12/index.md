@@ -42,7 +42,13 @@ U|0,0\rangle=|0,0\rangle,\qquad
 U|1,0\rangle=|1,1\rangle.
 $$
 
-従って $\mathcal C(X)=U(X\otimes|0\rangle\langle0|)U^\dagger$ は、[ユニタリ作用と補助系のCPTP性](../QINF7/index.md#def-qinf7-channel)からチャネルであり、集合 $\{\rho_0,\rho_1\}$ を定義どおり複製します。この例の成立条件は入力が**この二つの直交状態のいずれか**であることです。
+固定空白を付ける等長写像 $J:H\to H_A\otimes H_B$ を $J|v\rangle=|v\rangle|0\rangle_B$ と定めます。$J^\dagger J=I_H$ なので、$K=UJ$ に対して
+
+$$
+K^\dagger K=J^\dagger U^\dagger UJ=J^\dagger J=I_H.
+$$
+
+従って[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)から $\mathcal C(X)=KXK^\dagger=U(X\otimes|0\rangle\langle0|)U^\dagger$ はチャネルです。$\rho_a=|a\rangle\langle a|$（$a=0,1$）とすれば、上の二つの基底像から $\mathcal C(\rho_a)=\rho_a\otimes\rho_a$ です。つまり、この例の成立条件は入力が**この二つの直交状態のいずれか**であることです。
 <!-- definition-example-end -->
 
 ところが、入力を $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ とすると、線形性から
@@ -118,7 +124,14 @@ f\le f(\mathcal C(\rho),\mathcal C(\sigma))
 =f(\rho\otimes\rho,\sigma\otimes\sigma)=f^2.
 $$
 
-最後の等号は[忠実度の定義](../QINF11/index.md#def-qinf11-fidelity)とテンソル積の非負平方根・特異値の積則から従い、QINF11-B02でも直接計算しています。$0\le f\le1$ なので $f=0$ または $1$。$f=1$ は $\rho=\sigma$ と同値です。$f=0$ は $\sqrt\rho\sqrt\sigma=0$、従って二状態の台が直交し $\rho\sigma=0$ と同値です。
+最後の等号は[忠実度の定義](../QINF11/index.md#def-qinf11-fidelity)とテンソル積の非負平方根・特異値の積則によるもので、[QINF11-B02の詳細解答](../QINF11/index.md#ex-qinf11-b02)で導出しています。$0\le f\le1$ なので $f=0$ または $1$。[Uhlmann定理の等号条件](../QINF11/index.md#thm-qinf11-uhlmann)より $f=1$ は $\rho=\sigma$ と同値です。一方、
+
+$$
+f=0\iff\|\sqrt\rho\sqrt\sigma\|_1=0
+\iff\sqrt\rho\sqrt\sigma=0.
+$$
+
+このとき $\operatorname{Ran}\sqrt\sigma\subset\ker\sqrt\rho=(\operatorname{supp}\rho)^\perp$ なので、二状態の台は直交します。逆に台が直交すれば $\sqrt\rho\sqrt\sigma=0$ であり、$\rho\sigma=0$ とも同値です。
 
 逆に同一状態 $\tau$ だけの集合なら $\mathcal C(X)=\operatorname{Tr}(X)\tau\otimes\tau$ はCPTPで厳密複製します。$\rho\sigma=0$ なら、その直交する台への射影を $P_\rho,P_\sigma$ とします。$P_\rho P_\sigma=0$ なので三結果測定 $(P_\rho,P_\sigma,I-P_\rho-P_\sigma)$ は[POVM](../QINF5/index.md#def-qinf5-povm)です。結果 $\rho$ では $\rho\otimes\rho$、結果 $\sigma$ では $\sigma\otimes\sigma$、第三結果では任意の固定積状態を準備する測定・準備チャネルを選べば、対応する入力では確率1で正しい積出力となります。$\square$
 <!-- proof-end -->
@@ -158,11 +171,11 @@ $$
 [部分トレースの基底公式](../QINF3/index.md#def-qinf3-partial-trace)で $|ii\rangle\langle ii|$ のBまたはAを捨てると $|i\rangle\langle i|$ なので、両周辺は確かに $\rho_p$。しかし $\rho_p\otimes\rho_p$ の $|01\rangle\langle01|$ の確率は $p(1-p)$、$\omega_p$ では0です。$0<p<1$ なら積複製ではありません。
 <!-- definition-example-end -->
 
-したがって「純粋状態は複製できない」から「どんな混合状態も放送できない」と結論するのは誤りです。どの混合集合まで放送できるかを判定するには、二つの密度行列の**可換性** $[\rho,\sigma]=\rho\sigma-\sigma\rho=0$ が鍵です。これは両自己共役行列が同時に対角化できることと同値です。
+したがって「純粋状態は複製できない」から「どんな混合状態も放送できない」と結論するのは誤りです。どの混合集合まで放送できるかを判定するには、二つの密度行列の**可換性** $[\rho,\sigma]=\rho\sigma-\sigma\rho=0$ が鍵です。これは両自己共役行列が[共通正規直交固有基底で同時対角化できること](../QINF11/index.md#prop-qinf11-commuting)と同値です。
 
 ### 3.1 必要性のための準備：忠実度が変わらない測定
 
-二密度行列の一方 $\beta>0$（その台上で逆行列が存在）ともう一方 $\alpha>0$ に対し、正作用素
+[QINF11の忠実度を実現する射影測定](../QINF11/index.md#lem-qinf11-fidelity-measurement)を、後で等号条件を比較できるようにもう一度構成します。同じ空間上の正定値密度演算子 $\beta>0$ と $\alpha>0$ に対し、正作用素
 
 $$
 K=\beta^{-1/2}
@@ -306,7 +319,14 @@ P_k\beta P_l
 \end{aligned}
 $$
 
-最後はB側の直交する部分空間間の作用素を部分トレースすると零になるためです。よって $\beta=\sum_kP_k\beta P_k$、すなわち $[K,\beta]=0$。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)に照らしたこのブロック判定と $\alpha=K\beta K$ により $[\alpha,\beta]=0$ です。
+最後の零は、B側で直交する部分空間の間を結ぶ作用素の部分トレースが消えるためです。[部分トレースの基底公式](../QINF3/index.md#def-qinf3-partial-trace)で、$K$ の固有空間ごとに選んだ正規直交基底 $(b_j)$ を用いれば、各 $j$ について $\langle b_j|P_k$ と $P_l|b_j\rangle$ は $k\ne l$ のとき同時には非零にならず、各項
+
+$$
+(I\otimes\langle b_j|)(P_k\otimes P_k)Y
+(P_l\otimes P_l)(I\otimes|b_j\rangle)=0
+$$
+
+です。よって $\beta=\sum_kP_k\beta P_k$、すなわち $[K,\beta]=0$。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)に照らしたこのブロック判定と $\alpha=K\beta K$ により $[\alpha,\beta]=0$ です。
 
 **必要性（特異な状態を含む一般の場合）。** $S$ を $\rho+\sigma$ の台とします。二状態は $S^\perp$ 上では零です。線形性によって
 
@@ -316,7 +336,15 @@ $$
 \beta=\frac{\rho+2\sigma}{3}
 $$
 
-も放送され、$S$ 上ではともに正定値です。実際、$v\in S$ が零でなければ $\langle v,(\rho+\sigma)v\rangle>0$ であり、$\alpha,\beta$ の二次形式も正です。両周辺が $S$ に支持される非負の同時出力は $S\otimes S$ に支持されます。なぜなら $(I-P_S)\otimes I$ を測った確率は0で、非負作用素のその部分の行列要素はすべて零であり、第二系でも同様だからです。従って $S$ を全空間とみなして先ほどの議論を適用すると $[\alpha,\beta]=0$ です。
+も放送され、$S$ 上ではともに正定値です。実際、$v\in S$ が零でなければ $\langle v,(\rho+\sigma)v\rangle>0$ であり、$\alpha,\beta$ の二次形式も正です。両周辺が $S$ に支持される非負の同時出力は $S\otimes S$ に支持されます。なぜなら $(I-P_S)\otimes I$ を測った確率は0で、非負作用素のその部分の行列要素はすべて零であり、第二系でも同様だからです。
+
+さらに $\alpha>0$ は $S$ 上正定値です。$S$ に支持される任意の $T\ge0$ に対して、ある $c>0$ が存在して $T\le c\alpha$ です。チャネルの正値性から
+
+$$
+0\le\mathcal B(T)\le c\mathcal B(\alpha)
+$$
+
+であり、右辺は $S\otimes S$ に支持されます。ゆえに $\mathcal B(T)$ も同じ部分空間に支持され、正作用素の線形結合で $L(S)$ を張ることから、$\mathcal B$ の $L(S)$ への制限は $L(S\otimes S)$ に値を取るCPTP写像です。こうして $S$ を全空間とみなし、先ほどの正定値の場合を適用して $[\alpha,\beta]=0$ を得ます。
 
 $$
 [\alpha,\beta]
@@ -329,7 +357,9 @@ $$
 
 ### 直接例：固有値が同じでも放送可能とは限らない
 
-$\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=\frac12 I+\frac14\begin{pmatrix}0&1\\1&0\end{pmatrix}$ はともに固有値 $3/4,1/4$ を持つ正定値の密度演算子ですが、
+以下の行列は、計算基底 $|0\rangle,|1\rangle$ における密度演算子の表示です。固有値の非負性で正値性を、対角和でトレース1を確認し、可換性の定義 $[\rho,\sigma]=0$ はこの基底での行列積によって判定します。
+
+$\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=\frac12 I+\frac14\begin{pmatrix}0&1\\1&0\end{pmatrix}$ はともに固有値 $3/4,1/4$ を持ち、対角和も1なので密度演算子ですが、
 
 $$
 [\rho,\sigma]=
@@ -543,7 +573,15 @@ $$
 K=\operatorname{diag}\left(\frac32,\frac1{\sqrt6}\right).
 $$
 
-両固有値は正で異なるため、固有射影は $P_0=|0\rangle\langle0|$、$P_1=|1\rangle\langle1|$ です。確率は $p=(9/10,1/10)$、$q=(2/5,3/5)$。$p_0/q_0=9/4=k_0^2$、$p_1/q_1=1/6=k_1^2$ なので3.1節の判定式を各成分で確認できます。
+両固有値は正で異なるため、固有射影は $P_0=|0\rangle\langle0|$、$P_1=|1\rangle\langle1|$ です。確率は $p=(9/10,1/10)$、$q=(2/5,3/5)$。$p_0/q_0=9/4=k_0^2$、$p_1/q_1=1/6=k_1^2$ です。さらに $\sqrt\alpha\sqrt\beta$ は非負対角行列なので、[等号補題](#lem-qinf12-optimal-measurement)のユニタリは $U=I$ と取れます。実際、各 $i=0,1$ について
+
+$$
+U\sqrt\alpha P_i=\sqrt{p_i}\,P_i
+=\sqrt{\frac{p_i}{q_i}}\sqrt{q_i}\,P_i
+=k_i\sqrt\beta P_i.
+$$
+
+従って測定確率の等号だけでなく、等号補題の作用素等式も確認できました。
 
 $$
 \sum_i\sqrt{p_iq_i}
