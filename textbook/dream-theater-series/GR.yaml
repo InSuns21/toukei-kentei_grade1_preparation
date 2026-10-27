@@ -181,7 +181,7 @@ chapters:
     title: "宇宙赤方偏移と膨張の測定"
   - id: GR44
     path: textbook/volumes/dream_thater/物理系/GR/GR44
-    status: planned
+    status: completed
     title: "宇宙論的地平線とde Sitter"
   - id: GR45
     path: textbook/volumes/dream_thater/物理系/GR/GR45

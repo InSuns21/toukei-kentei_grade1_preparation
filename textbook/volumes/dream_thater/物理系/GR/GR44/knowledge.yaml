@@ -1,0 +1,57 @@
+chapter: GR44
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR28
+  - GR41
+  - GR42
+  - GR43
+concepts:
+  - id: gravity.flrw-particle-horizon
+    name: FLRWの粒子地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（FLRWの粒子地平線）"]
+    requires: [gravity.flrw-null-path, gravity.flrw-comoving-observer]
+  - id: gravity.flrw-event-horizon
+    name: FLRWの宇宙論的事象地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（FLRWの宇宙論的事象地平線）"]
+    requires: [gravity.flrw-null-path, gravity.conformal-causal-diagram]
+  - id: gravity.flrw-horizon-integral
+    name: 共形時間積分による地平線判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共形時間積分による地平線判定）"]
+    requires: [gravity.flrw-particle-horizon, gravity.flrw-event-horizon]
+  - id: gravity.hubble-radius
+    name: Hubble半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hubble半径）"]
+    requires: [gravity.flrw-hubble-fluid]
+  - id: gravity.horizon-proper-distance-evolution
+    name: 地平線固有距離の時間発展
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線固有距離の時間発展）"]
+    requires: [gravity.flrw-horizon-integral, gravity.hubble-radius]
+  - id: gravity.power-law-horizon-classification
+    name: 冪乗膨張の地平線とHubble半径
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪乗膨張の地平線とHubble半径）"]
+    requires: [gravity.flrw-horizon-integral, gravity.hubble-radius]
+  - id: gravity.de-sitter-flat-horizon
+    name: 平坦de Sitterの曲率と共形時間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦de Sitterの曲率と共形時間）"]
+    requires: [gravity.friedmann-equations, gravity.flrw-connection-ricci, gravity.flrw-horizon-integral]
+  - id: gravity.de-sitter-static-patch
+    name: de Sitterの静的座標と宇宙論的地平線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（de Sitterの静的座標と宇宙論的地平線）"]
+    requires: [gravity.de-sitter-flat-horizon, gravity.flrw-radial-coordinates]
