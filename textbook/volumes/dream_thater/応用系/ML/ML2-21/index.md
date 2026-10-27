@@ -25,7 +25,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（pushforward密度と正規化flow）**
-> $p_0$ を $\mathbb R^d$ 上の連続な確率密度、$f:\mathbb R^d\to\mathbb R^d$ を $C^1$ の滑らかな可逆変換とする。$Z$ が $p_0$ に従うときの $X=f(Z)$ の分布は $f$ による[押し出し測度](../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-pushforward)である。この押し出しを密度計算可能な可逆写像 $f$ でパラメータ化した生成模型を**正規化flow（normalizing flow）**という。
+> $p_0$ を $\mathbb R^d$ 上の連続な確率密度とする。$f:\mathbb R^d\to\mathbb R^d$ は、写像も逆写像も $C^1$ の全単射とする。
+>
+> $Z$ が $p_0$ に従うとき、$X=f(Z)$ の分布は $f$ による[押し出し測度](../../../解析系/F0/F0-00P1/index.md#def-f0-00p1-pushforward)である。
+>
+> この押し出しを密度計算可能な可逆写像でパラメータ化した生成模型を**正規化flow（normalizing flow）**という。
 >
 > $Df(z)=(\partial f_i/\partial z_j)_{i,j=1}^d$ をJacobian行列、$\det Df(z)$ をその行列式とする。生成方向は $z\mapsto x=f(z)$、密度評価方向は $x\mapsto z=f^{-1}(x)$ である。
 <!-- formal-statement-end -->
@@ -107,7 +111,17 @@ $$
 =\int_{\mathbb R^d}h(f(z))p_0(z)\,dz.
 $$
 
-特に有界な開矩形 $Q$ に対し、$h_m(x)=\min(1,m\,\operatorname{dist}(x,Q^c))$ と置くと、各 $h_m$ は非負連続で台は $\overline Q$ に含まれ、$h_m\uparrow\mathbf1_Q$ となる。両辺に[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用すれば、$Q$ の確率について候補密度の積分と $P(f(Z)\in Q)$ が一致する。開矩形が生成するBorel集合上で確率測度は一意に定まるので、この密度は確かに $f(Z)$ の分布を与える。式の対数を取れば、$p_0>0$ かつ行列式が0でないため、対数式も得られる。$\square$
+特に有界な開矩形 $Q$ に対し、境界までの距離を使って次の関数を置く。
+
+$$
+h_m(x)=\min(1,m\,\operatorname{dist}(x,Q^c)).
+$$
+
+各 $h_m$ は非負連続で、台は $\overline Q$ に含まれる。また点ごとに $h_m\uparrow\mathbf1_Q$ である。
+
+両辺に[単調収束定理](../../../解析系/F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用すると、$Q$ の確率について候補密度の積分と $P(f(Z)\in Q)$ が一致する。開矩形が生成するBorel集合上で確率測度は一意に定まる。従って候補密度は確かに $f(Z)$ の分布を与える。
+
+最後に、$p_0>0$ かつJacobianの行列式は0でないので、密度式の対数を取って結論を得る。$\square$
 <!-- proof-end -->
 
 **一次元の全計算**。第1節の $f(z)=2z+1$ では
