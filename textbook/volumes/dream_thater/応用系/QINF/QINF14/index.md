@@ -4,7 +4,7 @@
 
 [QINF13のテレポーテーション](../QINF13/index.md#thm-qinf13-teleportation)では、AliceとBobは事前にBell対を共有し、Aliceの測定結果を古典通信で送ってBobの操作を指定しました。ここでは、**二人が手元の系だけを操作し、測定結果を古典通信で共有するとき、共有純粋状態そのものをどこまで変換できるか**を考えます。
 
-例えばBell対 $(|00\rangle+|11\rangle)/\sqrt2$ を $|00\rangle$ にするには、Aliceが計算基底で測り、結果1なら両者が $X$ を施せばよいでしょう。逆に $|00\rangle$ からBell対を作るには、Aliceの操作だけでもBobの操作だけでも足りません。この「一方向だけが可能」を定量的に表すのが、Schmidt係数の二乗と優越関係（majorization）です。
+例えば[QINF13で定義したBell対](../QINF13/index.md#def-qinf13-ebit) $(|00\rangle+|11\rangle)/\sqrt2$ を $|00\rangle$ にするには、Aliceが計算基底で測り、結果1なら両者が $X$ を施せばよいでしょう。逆に $|00\rangle$ からBell対を作るには、Aliceの操作だけでもBobの操作だけでも足りません。この「一方向だけが可能」を定量的に表すのが、Schmidt係数の二乗と優越関係（majorization）です。
 
 以下、$H_A\cong H_B\cong\mathbb C^d$（$d\ge2$）とし、二人が一つずつ系を持ちます。純粋状態はノルム1のベクトルとして扱い、全体位相の相違は同じ状態とします。異なる局所次元をもつ場合の一般化は、十分大きい同次元の局所空間への埋め込みを考えればよいですが、本章では操作と補題の定義域を明確にするため等次元に固定します。
 
@@ -26,7 +26,22 @@
 
 **定義の確認**として、操作の完全性と全分岐の成功を直接調べます。
 
-Aliceは計算基底で $M_0=|0\rangle\langle0|,M_1=|1\rangle\langle1|$ を測ります。$M_0^\dagger M_0+M_1^\dagger M_1=I$ だから合法な局所測定です。Bell対へ作用させると、結果0と1の非正規化枝はそれぞれ $|00\rangle/\sqrt2$ と $|11\rangle/\sqrt2$ で、確率はいずれも $1/2$。結果1ではAliceとBobが各々 $X$ を施し、結果0なら何もしません。両枝が $|00\rangle$ になるため、この変換は決定論的LOCCです。Aliceが送るのは測定結果を表す1古典ビットだけです。
+Aliceは計算基底で $M_0=|0\rangle\langle0|$、$M_1=|1\rangle\langle1|$ を測ります。これらはそれぞれ計算基底の一方向への射影であり、$M_j^\dagger M_j=M_j$ です。基底の正規直交性から
+
+$$
+M_0^\dagger M_0+M_1^\dagger M_1
+=|0\rangle\langle0|+|1\rangle\langle1|=I_2
+$$
+
+となるため、[測定instrumentの完全性](../QINF5/index.md#def-qinf5-instrument)を満たします。Bell対への作用は
+
+$$
+(M_0\otimes I)|\psi\rangle=\frac{|00\rangle}{\sqrt2},
+\qquad
+(M_1\otimes I)|\psi\rangle=\frac{|11\rangle}{\sqrt2}
+$$
+
+で、各枝のノルム二乗（確率）は $1/2$ です。$X$ は $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$ と入れ替える局所ユニタリです。結果1では両者が $X$ を施し、結果0では何もしないので、両方の正確率枝で正規化後の状態が $|00\rangle$ になります。これが決定論的LOCCの「全枝で成功」という条件の直接確認です。Aliceが送るのは測定結果を表す1古典ビットだけです.
 <!-- definition-example-end -->
 
 LOCCを単なる「局所ユニタリの積」と同一視しないことが大切です。[QINF6の局所ユニタリ不変性](../QINF6/index.md#prop-qinf6-local-unitary)により局所ユニタリはSchmidt係数を変えませんが、測定を伴うLOCCはSchmidt係数を変えられます。一方、測定の一つの成功枝だけを選んで他を捨てる**確率的成功**と、すべての枝を成功させる決定論的変換も区別します。
@@ -64,14 +79,28 @@ $$
 
 $x=(1/2,1/2)$、$y=(4/5,1/5)$ は共に非負で和1、降順です。$k=1$ について $1/2\le4/5$ なので $x\prec y$ ですが、逆向きの $y\prec x$ は成り立ちません。
 
-三次元では $x=(1/2,2/5,1/10)$ と $y=(3/5,1/4,3/20)$ はともに降順で総和1です。第一部分和は $1/2\le3/5$、しかし第二部分和は $9/10>17/20$。したがって $x\not\prec y$ です。また第一部分和で $3/5>1/2$ なので $y\not\prec x$ も成立します。両方向とも成り立たない比較不能な組です。定義の条件は $k=1$ だけではありません。
+三次元では $x=(1/2,2/5,1/10)$ と $y=(3/5,1/4,3/20)$ はともに降順で総和1です。定義で必要な二つの部分和は
+
+$$
+x_1=\frac12\le\frac35=y_1,\qquad
+x_1+x_2=\frac9{10}>\frac{17}{20}=y_1+y_2
+$$
+
+です。第二部分和が失敗するので $x\not\prec y$。逆向きは第一部分和 $3/5>1/2$ で失敗し、$y\not\prec x$ です。この組は比較不能であり、最大成分だけでは判定できません。
 <!-- definition-example-end -->
 
 直観的には、全成分が $1/d$ の等確率ベクトルが最も「偏らず」、$(1,0,\ldots,0)$ が最も「偏って」います。純粋状態のもつれは偏らない方で大きく、したがってLOCC変換可能性の向きは $\lambda(\psi)\prec\lambda(\phi)$ となります。この方向を以下で証明します。
 
 ## 4. ベクトルの並べ替えによる橋渡し
 
-ベクトルの並べ替えを線形作用素に直す準備をします。置換 $\pi$ が成分番号を並べ替えるとき、$P_\pi$ は $(P_\pi y)_i=y_{\pi(i)}$ と定める成分入替作用素です。これは各行・各列に1が一個だけある行列で表せます。また、$\sum_jp_j=1$ で $p_j\ge0$ の和 $\sum_jp_jP_{\pi_j}y$ を使って、置換ベクトルの確率付き混合を表します。
+ベクトルの並べ替えを線形作用素に直す準備をします。置換 $\pi$ が $\{1,\ldots,d\}$ の成分番号を並べ替えるとき、$P_\pi$ を $(P_\pi y)_i=y_{\pi(i)}$ と定めます。標準基底での行列の第 $i$ 行・第 $\ell$ 列は
+
+$$
+(P_\pi)_{i\ell}=\delta_{\ell,\pi(i)},\qquad
+(P_\pi y)_i=\sum_{\ell=1}^d(P_\pi)_{i\ell}y_\ell=y_{\pi(i)}
+$$
+
+です。各 $i$ に対して $\ell=\pi(i)$ が一意であり、置換の全単射性から各列にも1が一つなので、確かに成分入替行列です。この規約では $P_\pi|i\rangle=|\pi^{-1}(i)\rangle$ です。後に使う局所補正 $U_\pi|i\rangle=|\pi(i)\rangle$ は逆向きの作用で、$U_\pi P_\pi=I$ となります。以下、$p_j\ge0$、$\sum_jp_j=1$ の和 $\sum_jp_jP_{\pi_j}y$ を置換ベクトルの確率付き混合と呼びます。
 
 <a id="lem-qinf14-permutation-mixture"></a>
 
@@ -103,7 +132,13 @@ $$
 
 よって $x\prec y$ です。
 
-逆に $x\prec y$ とします。$C=\{\sum_jp_jP_{\pi_j}y:p_j\ge0,\sum_jp_j=1\}$ は有限個の置換ベクトルを確率付きで混合した集合です。係数全体が閉有界な単体上を動く連続像なので $C$ も閉有界で空ではありません。$x\notin C$ と仮定すれば、距離が最小の $z\in C$ をとれます。$w=x-z\ne0$ とし、任意の $u\in C$ について $z+t(u-z)\in C$（$0\le t\le1$）を使います。距離二乗
+逆に $x\prec y$ とします。有限個の置換ベクトルの凸包を
+
+$$
+C=\left\{\sum_jp_jP_{\pi_j}y:p_j\ge0,\ \sum_jp_j=1\right\}
+$$
+
+と置きます。係数全体が閉有界な単体上を動く連続像なので $C$ も閉有界で空ではありません。$x\notin C$ と仮定すれば、距離が最小の $z\in C$ をとれます。$w=x-z\ne0$ とし、任意の $u\in C$ について $z+t(u-z)\in C$（$0\le t\le1$）を使います。距離二乗
 
 $$
 \|x-z-t(u-z)\|^2=\|w\|^2-2t\,w\cdot(u-z)+t^2\|u-z\|^2
@@ -130,7 +165,13 @@ $$
 
 ## 5. LOCCで増えない量：小さい固有値の和
 
-大きい固有値を足す代わりに、小さい固有値 $k$ 個の和を使うと測定との相性がよくなります。密度行列 $\rho$ の固有値を降順 $r_1\ge\cdots\ge r_d$ として、$E_k(\rho)=r_{d-k+1}+\cdots+r_d$（$1\le k<d$）と定めます。これは $\sum_{i=1}^{d-k}r_i=1-E_k(\rho)$ と同じ情報を持ちます。
+大きい固有値を足す代わりに、小さい固有値 $k$ 個の和を使うと測定との相性がよくなります。[密度演算子のスペクトル表示](../QINF2/index.md#thm-qinf2-density-ensemble)を $d$ 次元の $\rho$ に適用し、固有基底 $|e_i\rangle$ と降順の固有値 $r_1\ge\cdots\ge r_d\ge0$ により $\rho=\sum_i r_i|e_i\rangle\langle e_i|$、$\sum_i r_i=1$ と書きます。このとき
+
+$$
+E_k(\rho):=\sum_{i=d-k+1}^d r_i,\qquad 1\le k<d
+$$
+
+と定義します。これと上位固有値の和との対応は $\sum_{i=1}^{d-k}r_i=1-E_k(\rho)$ です。
 
 <a id="lem-qinf14-tail-concavity"></a>
 
@@ -166,7 +207,7 @@ $$
 
 これを $\rho=\sum_jp_j\rho_j$ に適用すると、各 $P$ について $\sum_jp_j\operatorname{Tr}(P\rho_j)\ge\sum_jp_jE_k(\rho_j)$ です。左辺の $P$ に関する最小値をとれば前半の凹性を得ます。
 
-次にAliceだけが $\{M_j\}$ を測定し、結果 $j$ の確率を $p_j$、正規化した二部純粋状態を $|\psi_j\rangle$ とします。Bobの縮約状態を $\rho_B^j$ とすると、完全性 $\sum_jM_j^\dagger M_j=I_A$ と[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)から、Bobの任意の演算子 $T_B$ に対し
+次にAliceだけが $\{M_j\}$ を測定し、[instrumentの確率と状態更新](../QINF5/index.md#prop-qinf5-state-update)により結果 $j$ の確率を $p_j$、正確率枝の正規化した二部純粋状態を $|\psi_j\rangle$ とします。Bobの縮約状態を $\rho_B^j$ とすると、完全性 $\sum_jM_j^\dagger M_j=I_A$ と[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)から、Bobの任意の演算子 $T_B$ に対し
 
 $$
 \begin{aligned}
@@ -184,7 +225,7 @@ $$
 
 ## 6. 変換可能性の必要十分条件
 
-ここまでの二つの補題を結合します。状態は局所ユニタリでSchmidt基底へ移せるので、証明では入力と目標をそれぞれ標準の対角Schmidt表示に直して考えます。
+ここまでの二つの補題を結合します。[Schmidt分解](../QINF6/index.md#thm-qinf6-existence)と[局所ユニタリによるSchmidt基底の対応](../QINF6/index.md#prop-qinf6-local-unitary)を使い、入力と目標をそれぞれ標準の対角Schmidt表示に直して考えます。これは局所ユニタリによる前後処理なので、LOCC変換の有無を変えません。
 
 <a id="thm-qinf14-nielsen"></a>
 
@@ -208,7 +249,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**必要性**。$1\le k<d$ を固定します。LOCCの各測定ノードでは、[小さい固有値の和の凹性](#lem-qinf14-tail-concavity)により、親ノードの $E_k$ は子ノードの確率付き平均以上です。古典メッセージに応じて次の局所操作を選ぶ場合にも、この不等式は各親ノードで条件付きに成立します。全ノードの不等式を上段から順に確率で重み付けして足し合わせれば、中間の項が打ち消され、入力の $E_k$ は終端ノードの平均以上になります。決定論的変換では確率正のすべての終端が $|\phi\rangle$ なので
+**必要性**。$1\le k<d$ を固定します。LOCCの各測定ノードでは、[小さい固有値の和の凹性](#lem-qinf14-tail-concavity)により、親ノードの $E_k$ は子ノードの確率付き平均以上です。古典メッセージに応じて次の局所操作を選ぶ場合にも、この不等式は各親ノードで条件付きに成立します。ノード $v$ へ到達する確率を $q(v)$、その状態の小さい固有値和を $E_k(v)$ とし、子 $w$ への条件付き確率を $\Pr(w\mid v)$ と書くと、$q(w)=q(v)\Pr(w\mid v)$ だから
+
+$$
+q(v)E_k(v)\ge
+\sum_{w\in\operatorname{child}(v)}q(w)E_k(w)
+$$
+
+です。ある段のすべての親について足せば次段の確率付き和を得るため、有限段を反復して入力の $E_k$ は終端ノードの平均以上になります。途中で終わった枝はその後を恒等操作とみなせば同じ計算です。決定論的変換では確率正のすべての終端が $|\phi\rangle$ なので
 
 $$
 \sum_{i=d-k+1}^d\lambda_i(\psi)
@@ -360,7 +408,14 @@ $\mu=(3/4,1/4)$ とその交換 $\mu'=(1/4,3/4)$ を確率 $p,1-p$ で混合し�
 <!-- solution-start -->
 ### 詳細解答
 
-第一成分の等式は $1/2=3p/4+(1-p)/4=(1+2p)/4$ であり、$p=1/2$。第二成分は $p/4+3(1-p)/4=1/2$ で一致します。$\lambda=(1/2,1/2)$ と $\mu=(3/4,1/4)$ は降順で、$k=1$ は $1/2\le3/4$、総和はそれぞれ1。よって[majorizationの定義](#def-qinf14-majorization)を満たします。この確率付き混合は[majorizationと置換の確率混合](#lem-qinf14-permutation-mixture)の具体例です。
+第一成分の等式を解くと
+
+$$
+\frac12=\frac{3p}4+\frac{1-p}4=\frac{1+2p}4
+\quad\Longrightarrow\quad p=\frac12
+$$
+
+です。第二成分も $p/4+3(1-p)/4=1/2$ と一致します。$\lambda=(1/2,1/2)$ と $\mu=(3/4,1/4)$ は共に降順・非負・総和1で、$k=1$ で $1/2\le3/4$。よって[majorizationの定義](#def-qinf14-majorization)を満たします。この混合は[majorizationと置換の確率混合](#lem-qinf14-permutation-mixture)の具体例です。
 <!-- solution-end -->
 
 <a id="ex-qinf14-a05"></a>
@@ -475,7 +530,64 @@ $$
 \frac13\cdot0+\frac23\cdot\frac14=\frac16.
 $$
 
-[小さい固有値の凹性](#lem-qinf14-tail-concavity)が要求する $2/5\ge1/6$ は成立し、少なくともこの単調量からは矛盾しません。ただし、条件を満たすことは**この枝構成自体の実現を保証しません**。各枝のSchmidt確率が異なっているため、後続の補正も指定されない限りすべての枝を一つの目標へ変換したとはいえず、決定論的変換の定義とは区別すべきです。
+[小さい固有値の凹性](#lem-qinf14-tail-concavity)が要求する $2/5\ge1/6$ は成立します。ただし、これは実現の**必要条件**を通過しただけであり、十分条件ではありません。実際にあり得ることまで示すには、以下の局所測定を構成します。
+
+入力をSchmidt基底で $|\psi\rangle=\sqrt{3/5}|00\rangle+\sqrt{2/5}|11\rangle$ とします。Aliceのベクトルとrank 1射影を
+
+$$
+|m\rangle=\frac{\sqrt{13}}6|0\rangle+\sqrt{\frac7{24}}|1\rangle,
+\qquad
+s=\langle m|m\rangle=\frac{47}{72},
+\qquad
+Q=\frac{|m\rangle\langle m|}{s}
+$$
+
+と置き、二つのKraus作用素を
+
+$$
+M_0=|0\rangle\langle m|,
+\qquad
+M_1=(I-Q)+\sqrt{1-s}\,Q
+$$
+
+とします。$Q^2=Q=Q^\dagger$、$0<s<1$ より
+
+$$
+M_0^\dagger M_0=sQ,\qquad
+M_1^\dagger M_1=(I-Q)+(1-s)Q=I-sQ
+$$
+
+なので[局所測定の完全性](../QINF5/index.md#def-qinf5-instrument)を満たします。結果0の非正規化枝は
+
+$$
+(M_0\otimes I)|\psi\rangle
+=\sqrt{\frac13}|0\rangle_A\otimes|v\rangle_B,
+\qquad
+|v\rangle=\sqrt{\frac{13}{20}}|0\rangle+\sqrt{\frac7{20}}|1\rangle
+$$
+
+です。$|v\rangle$ はノルム1なので、確率は $1/3$、Bobの縮約は純粋状態 $|v\rangle\langle v|$ で固有値 $(1,0)$ です。
+
+Bobの測定前の縮約は[Schmidt表示の縮約固有値](../QINF6/index.md#thm-qinf6-reduced-spectrum)から $D=\operatorname{diag}(3/5,2/5)$。結果を忘れたときにBobの縮約が変わらないこと（[局所測定後の平均保存](#lem-qinf14-tail-concavity)の証明）とKraus完全性から、結果1の非正規化縮約は
+
+$$
+\tau_1=D-\frac13|v\rangle\langle v|
+=\frac1{60}
+\begin{pmatrix}
+23&-\sqrt{91}\\
+-\sqrt{91}&17
+\end{pmatrix}.
+$$
+
+従って結果1の確率は $\operatorname{Tr}\tau_1=2/3$ です。また
+
+$$
+\det\tau_1=\frac{23\cdot17-91}{60^2}=\frac1{12},
+\qquad
+\det\!\left(\frac{\tau_1}{2/3}\right)=\frac3{16}.
+$$
+
+正規化した $\rho_B^1=\tau_1/(2/3)$ はトレース1なので、固有値は $u^2-u+3/16=0$ の二根 $3/4,1/4$ です。単一Kraus作用素を純粋入力へ作用させた各正確率枝は純粋な二部状態なので、これで指定された両枝の確率・固有値を実現しました。なお二枝のSchmidt確率は異なるため、この測定だけでは両枝を一つの同じ純粋目標へ出力したことにはならず、**決定論的変換**とは区別します。
 <!-- solution-end -->
 
 <a id="ex-qinf14-c01"></a>
