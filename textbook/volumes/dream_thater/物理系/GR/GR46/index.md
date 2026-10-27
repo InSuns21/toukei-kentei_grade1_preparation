@@ -6,7 +6,11 @@
 
 この総合演習では、**解が満たす方程式 → 座標域 → 不変な測定量 → 大域的な仮定**の順番を固定します。最後に、古典的なKilling地平線で求めた量のうち、ブラックホール熱力学・曲がった時空の量子場へ引き渡せるものを確定します。各節の式は既習結果を再計算する入口であり、新たなブラックホールの一意性定理や量子放射の公式を仮定するものではありません。
 
-符号は $(-,+,+,+)$、4次元、特記しなければ $G=c=1$ とし、時間・動径座標 $t,r$ および質量・電荷パラメータ $M,Q$ は長さの単位で表します。Kerrの回転パラメータ $a=J/M$ も長さ、FLRWの宇宙時間は $\tau$ と書きます。$\Lambda$ は宇宙項、$d\Omega^2=d\vartheta^2+\sin^2\vartheta\,d\varphi^2$ です。曲率符号は[GR6の成分規約](../GR6/index.md#prop-gr6-coordinate-curvature)で統一します。
+符号は $(-,+,+,+)$、4次元、特記しなければ $G=c=1$ とします。時間・動径座標 $t,r$ および質量・電荷パラメータ $M,Q$ は長さの単位で表します。
+
+Kerrの回転パラメータ $a=J/M$ も長さです。一方、FLRWでは宇宙時間を $\tau$、膨張を記述する尺度因子を $a(\tau)$ と書き、Kerrの定数 $a$ とは別の量です。
+
+$\Lambda$ は宇宙項、$d\Omega^2=d\vartheta^2+\sin^2\vartheta\,d\varphi^2$ です。曲率符号は[GR6の成分規約](../GR6/index.md#prop-gr6-coordinate-curvature)で統一します。
 
 ## 1. 四つの時空で「同じように見える式」の役割を分ける
 
@@ -38,13 +42,13 @@ $$
 r^2-2Mr+Q^2=(r-M)^2-(M^2-Q^2).
 $$
 
-$|Q|<M$ なら、異なる正の根を持ちます。
+$0<|Q|<M$ なら、異なる正の根を持ちます。
 
 $$
 r_\pm=M\pm\sqrt{M^2-Q^2}.
 $$
 
-この表示から三つの区間で $f_R$ の符号が順に正・負・正と分かります。
+この表示から、$0<|Q|<M$ では $0<r_-<r_+$ なので三つの区間で $f_R$ の符号が順に正・負・正と分かります。
 
 - $r>r_+$ では正。
 - $r_-<r<r_+$ では負。
@@ -52,7 +56,7 @@ $$
 
 ただし、対角計量の $g_{rr}=f_R^{-1}$ が発散すること**だけ**では地平線と判定できません。[GR31の地平線命題](../GR31/index.md#prop-gr31-horizons)と正則な延長を合わせて使います。
 
-$|Q|=M$ は重根で、$|Q|>M$ なら実根がありません。後者を「裸の特異点を持つ定常解の候補」と呼べても、一般的な重力崩壊からこの状態が生じるとは結論できません。
+$Q=0$ では $r_-=0$ は領域 $r>0$ の端点で、外側の根 $r_+=2M$ だけが残るSchwarzschildの場合です。$|Q|=M$ は $r=M$ の重根で、$|Q|>M$ なら実根がありません。後者を「裸の特異点を持つ定常解の候補」と呼べても、一般的な重力崩壊からこの状態が生じるとは結論できません。
 
 例えば $M=5,Q=3$ では $r_+=9,r_-=1$ です。$r=3$ で
 
@@ -71,13 +75,21 @@ $$
 \Sigma=r^2+a^2\cos^2\vartheta
 $$
 
-です。$|a|<M$ の外側の地平線は[GR32の判定](../GR32/index.md#prop-gr32-horizon)により $r_+=M+\sqrt{M^2-a^2}$。これと別に $g_{tt}=-(1-2Mr/\Sigma)=0$ は
+です。$|a|<M$ の外側の地平線は[GR32の判定](../GR32/index.md#prop-gr32-horizon)により $r_+=M+\sqrt{M^2-a^2}$。これと別に $g_{tt}=-(1-2Mr/\Sigma)=0$ は $\Sigma=2Mr$、すなわち $r^2-2Mr+a^2\cos^2\vartheta=0$ と同値なので、平方完成から
 
 $$
 r_{\rm stat}(\vartheta)=M+\sqrt{M^2-a^2\cos^2\vartheta}
 $$
 
-を与えます（外側の根）。極では $r_{\rm stat}=r_+$、赤道では $r_{\rm stat}=2M$。$0<|a|<M$ なら赤道に $r_+<r<2M$ という幅があり、ここでは無限遠に規格化された $\partial_t$ が空間的でも、[回転するKilling生成場](../GR45/index.md#thm-gr45-kerr)は地平線上で零になります。これは[GR33のergoregion](../GR33/index.md#def-gr33-ergoregion)の入口です。
+を与えます（外側の根）。ここで $g_{tt}=g(\partial_t,\partial_t)$ は時間並進の座標基底ベクトルのノルム二乗で、$g_{tt}=0$ はそのベクトルが**光的**となる条件です。一方、$\Delta=0$ の地平線候補は[GR32の正則な延長と地平線の判定](../GR32/index.md#prop-gr32-horizon)を用いて解釈します。
+
+極では $r_{\rm stat}=r_+$、赤道では $r_{\rm stat}=2M$。$0<|a|<M$ なら赤道には次の領域が存在します。
+
+$$
+r_+<r<2M.
+$$
+
+この領域では無限遠に規格化された $\partial_t$ が空間的でも、[回転するKilling生成場](../GR45/index.md#thm-gr45-kerr) $\partial_t+\Omega_H\partial_\varphi$ は地平線上で**ノルムが零**になります。生成場そのものが零ベクトルになるわけではありません。これは[GR33のergoregion](../GR33/index.md#def-gr33-ergoregion)の入口です。
 
 具体例 $M=5,a=3$ では $r_+=9$、赤道の静止極限は $10$ です。外部から $r\downarrow9$ と近づくと赤道で $g_{tt}\to-(1-10/9)=1/9>0$ となるので、**$\partial_t$ のノルムが零か**を地平線の判定に使うと誤答します。Boyer–Lindquist表示は $\Delta=0$ で特異なので、この値は外部極限として読み、地平線そのものでは正則な回転座標へ延長して解釈します。回転に伴う角速度を含めて生成場を選び直さなければなりません。
 
@@ -97,13 +109,13 @@ $$
 
 としたときの比例係数です。$\chi\mapsto A\chi$ と定数倍すれば[GR45のKilling場の規格化と表面重力](../GR45/index.md#prop-gr45-scaling)により $\kappa\mapsto A\kappa$ です。漸近平坦なSchwarzschild・RN・Kerrでは無限遠の時間基準を使えますが、de Sitter静的パッチでは無限遠に同じ基準がなく、中心観測者などの選択が要ります。
 
-静的球対称の正則な座標
+静的球対称の正則な入射座標 $v,r$ において、$\partial_v$ は $r$ を固定した座標基底ベクトルです。以下で用いる $f'(r_h)$ は $df/dr$ を地平線半径 $r_h$ で評価した値であり、時間微分ではありません。計量が
 
 $$
 ds^2=-f(r)dv^2+2\,dv\,dr+r^2d\Omega^2
 $$
 
-に対して、$\chi=\partial_v$ を選ぶと[GR45の静的地平線定理](../GR45/index.md#thm-gr45-static)から $\kappa_\chi=f'(r_h)/2$ です。例えばRNの $f_R=(r-r_+)(r-r_-)/r^2$ を $r=r_+$ で微分すると
+と表される場合、$\chi=\partial_v$ を選ぶと[GR45の静的地平線定理](../GR45/index.md#thm-gr45-static)から $\kappa_\chi=f'(r_h)/2$ です。例えばRNの $f_R=(r-r_+)(r-r_-)/r^2$ を微分すると、分子の積の微分で $r-r_+$ を含む項と分母の微分項は $r=r_+$ で消えるので
 
 $$
 f_R'(r_+)=\frac{r_+-r_-}{r_+^2},\qquad
@@ -114,14 +126,14 @@ $$
 
 ### 2.2 宇宙論的な地平線は光の積分から調べる
 
-[GR41のFLRW計量](../GR41/index.md#def-gr41-flrw)で、放射方向の共動距離を $\chi$ とする（ここだけ $\chi$ は座標でありKilling場ではない）と、零条件は $|d\chi|=d\tau/a(\tau)$ です。[GR44の粒子・事象の地平線](../GR44/index.md#prop-gr44-integral-criterion)によれば、粒子地平線は過去端から現在まで、宇宙論的事象の地平線は現在から未来端までの積分が有限かで判定します。
+[GR41のFLRW計量](../GR41/index.md#def-gr41-flrw)で、放射方向の共動距離を $\chi$ とする（ここだけ $\chi$ は座標でありKilling場ではない）と、径方向の光線について $ds^2=-d\tau^2+a(\tau)^2d\chi^2=0$ です。未来向き $d\tau>0$ では $|d\chi|=d\tau/a(\tau)$ が従い、光の共動距離は積分で与えられます。[GR44の粒子・事象の地平線](../GR44/index.md#prop-gr44-integral-criterion)によれば、粒子地平線は過去端から現在まで、宇宙論的事象の地平線は現在から未来端までの積分が有限かで判定します。
 
 $$
 D_{\rm p}(\tau_0)=a(\tau_0)\int_{\tau_i}^{\tau_0}\frac{d\tau}{a(\tau)},\qquad
 D_{\rm e}(\tau_0)=a(\tau_0)\int_{\tau_0}^{\tau_f}\frac{d\tau}{a(\tau)}.
 $$
 
-例えば $a(\tau)=\tau^{2/3}$、$\tau\in(0,\infty)$ として $\tau_0=1$ で計算します。過去積分は
+以下ではHubble率を $H=\dot a/a$ とし、点は宇宙時間 $\tau$ による全微分 $\dot a=da/d\tau$ を表します（前節の半径微分 $f'$ とは異なります）。べき膨張の数値例では基準時刻・基準尺度をともに1に規格化した数値を使います。例えば $a(\tau)=\tau^{2/3}$、$\tau\in(0,\infty)$ として $\tau_0=1$ で計算します。過去積分は
 
 $$
 \int_0^1\tau^{-2/3}d\tau=3<\infty
@@ -141,15 +153,29 @@ $$
 -R_{\mu\nu}k^\mu k^\nu
 $$
 
-です。$\sigma$ は横断方向のせん断、$k$ は零接ベクトルです。[GR35の零エネルギー条件](../GR35/index.md#def-gr35-nec)に加えてEinstein方程式を仮定すれば、$R_{\mu\nu}k^\mu k^\nu=8\pi T_{\mu\nu}k^\mu k^\nu\ge0$ （$g(k,k)=0$ により $\Lambda$ 項は消える）で、$\theta<0$ は有限アフィン長のうちに強く減少します。ここで得るのは**光線束の集束評価**であって、曲率不変量の発散ではありません。[GR37のPenrose型定理](../GR37/index.md#thm-gr37-penrose)の測地不完備性という結論には、捕獲面と非コンパクトCauchy面など追加の大域仮定が必要です。そして測地不完備性と曲率発散も定義上は同義ではありません。[GR38の宇宙検閲仮説](../GR38/index.md#def-gr38-weak-censorship)はさらに別の問題です。
+です。$\sigma$ は横断方向のせん断、$k^\mu=dx^\mu/d\lambda$ は**非零の光的接ベクトル**で $g(k,k)=0$ を満たします。
 
-他方、ある時刻の空間的超曲面の幾何を指定するときは、その上の計量 $h_{ij}$、第二基本形式 $K_{ij}$ と物質データを勝手に独立に選べません。[GR39の初期データの定義](../GR39/index.md#def-gr39-initial-data)と[GR40のEinstein制約](../GR40/index.md#thm-gr40-einstein-constraints)から、$K_{ij}=g(\nabla_{e_i}n,e_j)$ とする符号で、法線観測者が測る密度 $\rho=T(n,n)$ に対して
+[GR35の零エネルギー条件](../GR35/index.md#def-gr35-nec)とEinstein方程式を仮定すれば、光的条件によって宇宙項が消え、次を得ます。
+
+$$
+R_{\mu\nu}k^\mu k^\nu=8\pi T_{\mu\nu}k^\mu k^\nu\ge0.
+$$
+
+従って $\theta<0$ は有限アフィン長のうちに強く減少します。ここで得るのは**光線束の集束評価**であって、曲率不変量の発散ではありません。
+
+[GR37のPenrose型定理](../GR37/index.md#thm-gr37-penrose)の測地不完備性という結論には、捕獲面と非コンパクトCauchy面など追加の大域仮定が必要です。そして測地不完備性と曲率発散も定義上は同義ではありません。[GR38の宇宙検閲仮説](../GR38/index.md#def-gr38-weak-censorship)はさらに別の問題です。
+
+他方、ある時刻の空間的超曲面の幾何を指定するときは、その上の計量 $h_{ij}$、第二基本形式 $K_{ij}$ と物質データを勝手に独立に選べません。
+
+[GR39の初期データの定義](../GR39/index.md#def-gr39-initial-data)と[GR40のEinstein制約](../GR40/index.md#thm-gr40-einstein-constraints)から、$K_{ij}=g(\nabla_{e_i}n,e_j)$ とする符号で、法線観測者が測る密度 $\rho=T(n,n)$ に対して次式が成り立ちます。
+
+ここで $K=h^{ij}K_{ij}$ は第二基本形式のトレース（第1節のKretschmann不変量 $K$ とは別の量）、$\mathcal R^{(3)}$ は空間計量 $h$ のスカラー曲率です。
 
 $$
 \mathcal R^{(3)}+K^2-K_{ij}K^{ij}=16\pi\rho+2\Lambda.
 $$
 
-例えば $\Lambda=0$、平坦な空間計量 $h_{ij}=\delta_{ij}$、$K_{ij}=0$ なら左辺は零です。これを満たすには $\rho=0$ が必要であり、同じデータのまま $\rho>0$ を任意に選ぶことはできません。逆にFLRWの共動切片で $K_{ij}=Hh_{ij}$ とすると $K=3H$、$K_{ij}K^{ij}=3H^2$、$\mathcal R^{(3)}=6k/a^2$ なので
+例えば $\Lambda=0$、平坦な空間計量 $h_{ij}=\delta_{ij}$、$K_{ij}=0$ なら左辺は零です。これを満たすには $\rho=0$ が必要であり、同じデータのまま $\rho>0$ を任意に選ぶことはできません。逆にFLRWの共動切片で $K_{ij}=Hh_{ij}$ とすると $h^{ij}h_{ij}=3$ より $K=3H$、$K_{ij}K^{ij}=H^2h_{ij}h^{ij}=3H^2$ です。空間曲率定数 $k\in\{-1,0,1\}$（上の光線接ベクトル $k^\mu$ とは別物）について[GR41のFLRW空間曲率](../GR41/index.md#def-gr41-flrw)から $\mathcal R^{(3)}=6k/a^2$ なので
 
 $$
 6\left(H^2+\frac{k}{a^2}\right)
@@ -220,14 +246,14 @@ $$
 $M=5,a=3$ のKerr解で、外側の $\Delta=0$ の根、赤道の $g_{tt}=0$ の外側の根、および外側地平線へ外部から近づくときの赤道の $g_{tt}$ の符号を求めよ。無限遠の時間並進を生成する $\partial_t$ は地平線上で零ベクトルか。
 
 <!-- solution-start -->
-**詳細解答。** $\Delta=r^2-10r+9$ の根は $1,9$ なので $r_+=9$ です。[静止極限面の公式](../GR32/index.md#prop-gr32-static-order)で $\vartheta=\pi/2$ とすると $r_{\rm stat}=M+\sqrt{M^2}=10$。赤道では $\Sigma=r^2$ だから
+**詳細解答。** $\Delta=r^2-10r+9$ の根は $1,9$ なので $r_+=9$ です。[静止極限面の公式](../GR32/index.md#prop-gr32-static-order)で $\vartheta=\pi/2$ とすると $r_{\rm stat}=M+\sqrt{M^2}=10$。赤道では $\Sigma=r^2$ だから、Boyer–Lindquist外部からの極限は
 
 $$
-g_{tt}(r_+,\pi/2)=-\left(1-\frac{2M}{r_+}\right)
+\lim_{r\downarrow r_+}g_{tt}(r,\pi/2)=-\left(1-\frac{2M}{r_+}\right)
 =-\left(1-\frac{10}{9}\right)=\frac19>0.
 $$
 
-したがって $\partial_t$ は地平線への外部極限で**空間的**です。$g_{tt}>0$ と $\partial_t=0$ は別の条件であり、正則座標に延長しても $\partial_t$ が零ベクトルになるわけではありません。地平線の零生成場は回転成分を持つ $\partial_t+\Omega_H\partial_\varphi$ です。
+したがって $\partial_t$ は地平線への外部極限で**空間的**です。$g_{tt}>0$ と $\partial_t=0$ は別の条件であり、正則座標に延長しても $\partial_t$ が零ベクトルになるわけではありません。[GR45のKerr生成場](../GR45/index.md#thm-gr45-kerr)により、地平線の光的生成場は回転成分を持つ $\partial_t+\Omega_H\partial_\varphi$ です。
 <!-- solution-end -->
 
 <a id="ex-gr46-a04"></a>
@@ -351,7 +377,7 @@ $$
 ねじれが零の滑らかな零測地線束をアフィンパラメータ $\lambda\ge0$ で追い、初期膨張 $\theta(0)=-2/L$、$L>0$ とする。零エネルギー条件およびEinstein方程式を仮定し、断面のせん断二乗が非負であるとき、焦点形成までのアフィン長の上界を導け。これだけから曲率不変量の発散や宇宙検閲を証明したことになるか。
 
 <!-- solution-start -->
-**詳細解答。** $k$ は零ベクトルなので、宇宙項 $\Lambda g_{\mu\nu}k^\mu k^\nu$ は零です。[GR35の零エネルギー条件](../GR35/index.md#def-gr35-nec)から $R_{\mu\nu}k^\mu k^\nu\ge0$。ねじれが零なら[零Raychaudhuri方程式](../GR34/index.md#thm-gr34-null-raychaudhuri)は
+**詳細解答。** $k$ は非零の光的接ベクトルで $g_{\mu\nu}k^\mu k^\nu=0$ なので、宇宙項 $\Lambda g_{\mu\nu}k^\mu k^\nu$ は零です。[GR35の零エネルギー条件](../GR35/index.md#def-gr35-nec)からEinstein方程式を通じて $R_{\mu\nu}k^\mu k^\nu\ge0$。ねじれが零なら[零Raychaudhuri方程式](../GR34/index.md#thm-gr34-null-raychaudhuri)は
 
 $$
 \theta'=-\frac12\theta^2-\sigma_{\mu\nu}\sigma^{\mu\nu}
@@ -365,7 +391,7 @@ y'=-\frac{\theta'}{\theta^2}\ge\frac12,
 \qquad y(0)=-\frac L2.
 $$
 
-従って $y(\lambda)\ge-L/2+\lambda/2$。もし光線束が $\lambda=L$ まで焦点を作らず有限で負の $\theta$ を保てるなら、$y(L)<0$ であるべきなのに $y(L)\ge0$ となり矛盾します。従って通常の滑らかな光線束の記述が維持される限り、$\lambda\le L$ までに膨張が負方向へ発散する焦点形成の判定が生じます。
+従って $y(\lambda)\ge-L/2+\lambda/2$。もし光線束が $\lambda=L$ まで焦点を作らず有限で負の $\theta$ を保てるなら、$y(L)<0$ であるべきなのに $y(L)\ge0$ となり矛盾します。光線が少なくともその長さまで延長されるなら、$\lambda\le L$ で膨張が負方向へ発散し、焦点形成が起こります。そこまで延長できなければ、この評価だけで「焦点を観測した」とは言えず、延長可能性を別に調べる必要があります。
 
 ただしこれは局所的な集束評価です。[GR37の特異点定理](../GR37/index.md#thm-gr37-penrose)が測地不完備性を結論するには非コンパクトCauchy面・捕獲面など別の大域的仮定を要します。測地不完備性も曲率不変量の発散と同義ではありません。[GR38の宇宙検閲の定式化](../GR38/index.md#def-gr38-weak-censorship)は、さらに初期データの一般性・可視性・漸近構造を問う仮説です。
 <!-- solution-end -->
@@ -456,7 +482,7 @@ $$
 =\frac2{2(9+3)}=\frac1{12}.
 $$
 
-$r=r_+$ の赤道で $g_{tt}=-(1-2M/r_+)=1/3>0$ なので、$\partial_t$ は零でも光的でもなく空間的です。零ノルムとなるのは回転成分を含めた $\chi$ です。
+$r\downarrow r_+$ の赤道の外部極限で $g_{tt}\to-(1-2M/r_+)=1/3>0$ なので、$\partial_t$ は零でも光的でもなく空間的です。零ノルムとなるのは回転成分を含めた $\chi$ です。
 
 **（3）de Sitter。** $H=1/2$ 一定として[GR44の未来光線の積分](../GR44/index.md#prop-gr44-integral-criterion)を用います。
 
