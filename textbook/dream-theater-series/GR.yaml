@@ -177,7 +177,7 @@ chapters:
     title: "Friedmann方程式と流体保存"
   - id: GR43
     path: textbook/volumes/dream_thater/物理系/GR/GR43
-    status: planned
+    status: completed
     title: "宇宙赤方偏移と膨張の測定"
   - id: GR44
     path: textbook/volumes/dream_thater/物理系/GR/GR44

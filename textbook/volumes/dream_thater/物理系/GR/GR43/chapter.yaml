@@ -1,0 +1,47 @@
+id: "GR43"
+title: "宇宙赤方偏移と膨張の測定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR4
+  - GR41
+  - GR42
+official_scope: []
+learning_objectives:
+  - FLRWの光的零条件を用い動径光路の共動距離と共形時間を導ける
+  - 波数四ベクトルの測地線方程式と局所周波数から1+z=a0/aeを導ける
+  - H>0の範囲で赤方偏移を積分変数として光行時間と共動距離を求められる
+  - 角径距離・光度距離の測定定義からFLRWでの距離双対を証明できる
+  - 小赤方偏移のHubble則と二次の減速パラメータを計算できる
+  - 塵・放射・真空の代表膨張史でzとD_Lを比較できる
+  - Milne時空の赤方偏移を特殊相対論的Doppler因子と照合し一般化の限界を説明できる
+definitions:
+  - { id: GR43-DEF-01, name: 共動光源の宇宙赤方偏移 }
+  - { id: GR43-DEF-02, name: 角径距離と光度距離 }
+theorems:
+  - { id: GR43-PROP-01, name: FLRWの動径光路と共動距離 }
+  - { id: GR43-THM-01, name: 宇宙赤方偏移と尺度因子 }
+  - { id: GR43-PROP-02, name: 赤方偏移・光行時間・共動動径距離 }
+  - { id: GR43-THM-02, name: FLRWの角径距離・光度距離 }
+  - { id: GR43-PROP-03, name: 低赤方偏移での光度距離の級数 }
+  - { id: GR43-PROP-04, name: Milne模型の赤方偏移と特殊相対論Doppler因子 }
+canonical_examples:
+  - 平坦な塵・放射の冪乗宇宙におけるH(z)とD_L(z)
+  - 真空指数膨張宇宙の距離と光行時間
+  - Milne時空での宇宙赤方偏移と慣性系Doppler因子の一致
+  - 透明なFLRW模型での角径距離と光度距離の変換
+problem_patterns:
+  - GR43-NULL-INTEGRAL
+  - GR43-REDSHIFT-GEODESIC
+  - GR43-RADIATION-SCALING
+  - GR43-DISTANCE-DUALITY
+  - GR43-HUBBLE-SERIES
+  - GR43-POWERLAW-DISTANCE
+  - GR43-DUST-RADIATION
+  - GR43-FLUX-TIME-DILATION
+  - GR43-MILNE-DOPPLER
+  - GR43-OBSERVATIONAL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }
