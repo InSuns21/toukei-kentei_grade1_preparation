@@ -122,11 +122,11 @@ encoderは平均 $\mu_\phi(x)\in\mathbb R^k$ と正の標準偏差を出力で�
 
 [Gaussian再パラメータ化](../ML2-09/index.md#def-ml2-09-reparam)を各成分に適用し、独立な標準正規乱数 $\varepsilon_1,\ldots,\varepsilon_k$ から $Z_j=\mu_{\phi,j}(x)+e^{\rho_{\phi,j}(x)}\varepsilon_j$ を作る。このとき $E\varepsilon_j=0$、$E(\varepsilon_i\varepsilon_j)=\delta_{ij}$（同じ添字なら1、異なる添字なら0）なので、
 
-$
+$$
 E[Z_j]=\mu_{\phi,j}(x),\qquad
 \operatorname{Cov}(Z_i,Z_j)
 =e^{\rho_{\phi,i}(x)+\rho_{\phi,j}(x)}\delta_{ij}.
-$
+$$
 
 従って共分散行列の $(i,j)$ 成分は、$i=j$ なら $e^{2\rho_{\phi,j}(x)}$、そうでなければ0となる。$\operatorname{diag}(c_1,\ldots,c_k)$ は $c_j$ を対角成分に置き、他の成分を0にした行列である。共分散が対角というのは **近似事後に置いた独立性の仮定** であり、真の事後分布の性質ではない。以下、$q=N_k(\mu,\Sigma)$ は「$q$ が $N_k(\mu,\Sigma)$ の密度である」の略記とする。
 
@@ -273,7 +273,6 @@ $$
 \end{aligned}
 $$
 
-> $\theta,\phi$ は独立のパラメータ群とする。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
