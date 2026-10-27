@@ -1,0 +1,48 @@
+id: "QINF12"
+title: "複製・放送・削除の制約"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA6
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF7
+  - QINF8
+  - QINF11
+official_scope: []
+learning_objectives:
+  - 万能な決定論的・厳密な純粋状態複製が不可能であることを内積保存から証明し、直交既知集合の例外を構成できる
+  - 混合状態の厳密な積複製と両周辺状態を保つ放送を区別し、忠実度による混合状態複製の条件を導出できる
+  - 二つの混合状態が同一のチャネルで放送可能であることと可換性の同値を、忠実度最適測定の等号条件から証明できる
+  - 重なりをもつ非可換qubit状態と可換対角状態で、放送の可否と実際の周辺状態を検算できる
+  - no-deletingが環境を含む可逆操作で何を禁じ、部分トレースや環境への転送を禁じない理由を説明できる
+definitions:
+  - { id: QINF12-DEF-01, name: "厳密な量子状態複製" }
+  - { id: QINF12-DEF-02, name: "量子状態の放送" }
+  - { id: QINF12-DEF-03, name: "補助系を含む厳密な量子状態削除" }
+theorems:
+  - { id: QINF12-THM-01, name: "純粋状態の複製不能定理" }
+  - { id: QINF12-THM-02, name: "混合状態の厳密な複製の条件" }
+  - { id: QINF12-LEM-01, name: "忠実度を最小化する射影測定の等号条件" }
+  - { id: QINF12-THM-03, name: "二状態の放送可能性と可換性" }
+  - { id: QINF12-THM-04, name: "補助系への情報退避を伴うno-deleting" }
+canonical_examples:
+  - "直交計算基底を複製するCNOTと非直交重ね合わせの失敗"
+  - "可換な対角qubit状態の相関付き放送と積複製の区別"
+  - "非可換な二つのfull-rank qubit状態と混合によるsupport縮約"
+  - "SWAPで見かけ上削除した情報が環境へ残る例"
+problem_patterns:
+  - QINF12-PURE-OVERLAP
+  - QINF12-CNOT-SUPERPOSITION
+  - QINF12-COMMUTING-BROADCAST
+  - QINF12-SWAP-DELETION
+  - QINF12-MIXED-EXACT-CLONING
+  - QINF12-NONCOMMUTING-QUBIT
+  - QINF12-OPTIMAL-MEASUREMENT
+  - QINF12-NO-GO-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }
