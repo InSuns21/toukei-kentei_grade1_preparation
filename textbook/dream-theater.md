@@ -1276,6 +1276,7 @@
 43. [GR43 宇宙赤方偏移と膨張の測定](textbook/volumes/dream_thater/物理系/GR/GR43/index.md)
 44. [GR44 宇宙論的地平線とde Sitter](textbook/volumes/dream_thater/物理系/GR/GR44/index.md)
 45. [GR45 Killing地平線の表面重力](textbook/volumes/dream_thater/物理系/GR/GR45/index.md)
+46. [GR46 GR II 総合演習と後続科目への接続](textbook/volumes/dream_thater/物理系/GR/GR46/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
