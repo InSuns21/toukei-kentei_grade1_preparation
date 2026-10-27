@@ -1,0 +1,54 @@
+id: "GR46"
+title: "GR II 総合演習と後続科目への接続"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR25
+  - GR29
+  - GR30
+  - GR31
+  - GR32
+  - GR33
+  - GR34
+  - GR35
+  - GR36
+  - GR37
+  - GR38
+  - GR39
+  - GR40
+  - GR41
+  - GR42
+  - GR43
+  - GR44
+  - GR45
+official_scope: []
+learning_objectives:
+  - Schwarzschild・RN・Kerr・FLRWの計量、物質源、対称性、曲率と適用領域を整理し真空と無電流を区別できる
+  - RN・Kerrの地平線候補を根と正則性から判定し事象・見かけ・Killing地平線を混同せず説明できる
+  - 表面重力の生成場規格化と宇宙論的地平線の符号を検算し古典幾何の射程を特定できる
+  - Raychaudhuriの集束評価、エネルギー条件、測地不完備性、宇宙検閲の論理的距離を説明できる
+  - 3+1初期値制約、FLRWのFriedmann制約と保存則を同じ符号・次元で検算できる
+  - ブラックホール熱力学BHTと曲がった時空の量子場QCURVへ渡す既習結果と未導出の主張を区別できる
+definitions: []
+theorems: []
+canonical_examples:
+  - Schwarzschild・RN・Kerr・FLRWの仮定と観測可能量の横断診断
+  - RNの二つの根とKilling表面重力、Kerrの静止極限面・回転生成場の比較
+  - Milne初期データのHamiltonian制約と曲率ゼロの検算
+  - FLRWべき膨張・de Sitterの光の積分と地平線判定
+  - 古典地平線の幾何から熱・量子場へ渡す前提と未証明部分の比較
+problem_patterns:
+  - GR46-SCHWARZSCHILD-CURVATURE
+  - GR46-RN-HORIZON-SOURCE
+  - GR46-KERR-ERGOREGION
+  - GR46-COSMIC-CAUSAL-INTEGRAL
+  - GR46-INITIAL-CONSTRAINT
+  - GR46-RN-SURFACE-GRAVITY
+  - GR46-KERR-KILLING-GENERATOR
+  - GR46-NULL-FOCUSING
+  - GR46-FLRW-CONSISTENCY
+  - GR46-CAPSTONE-HANDOFF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 6 }
