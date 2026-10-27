@@ -1,0 +1,70 @@
+chapter: QINF12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA6
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF7
+  - QINF8
+  - QINF11
+forward_references: []
+
+concepts:
+  - id: quantum.exact-cloning
+    name: 厳密な量子状態複製
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（厳密な量子状態複製）]
+    requires: [quantum.quantum-channel, quantum.finite-density-operator]
+
+  - id: quantum.pure-no-cloning
+    name: 純粋状態の複製不能定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純粋状態の複製不能）]
+    requires: [quantum.exact-cloning, quantum.composite-system]
+
+  - id: quantum.mixed-exact-cloning
+    name: 混合状態の厳密な複製の条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（混合状態の厳密な複製の条件）]
+    requires: [quantum.exact-cloning, quantum.root-fidelity, quantum.fidelity-data-processing]
+
+  - id: quantum.broadcasting
+    name: 量子状態の放送
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子状態の放送）]
+    requires: [quantum.quantum-channel, quantum.partial-trace]
+
+  - id: quantum.fidelity-optimal-measurement-equality
+    name: 忠実度最適測定の等号条件
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（忠実度最適測定の等号条件）]
+    requires: [quantum.root-fidelity, quantum.fidelity-data-processing]
+
+  - id: quantum.no-broadcasting-commutativity
+    name: 二状態の放送可能性と可換性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二状態の放送可能性と可換性）]
+    requires: [quantum.broadcasting, quantum.fidelity-optimal-measurement-equality]
+
+  - id: quantum.strict-deleting
+    name: 補助系を含む厳密な量子状態削除
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（補助系を含む厳密な量子状態削除）]
+    requires: [quantum.exact-cloning, quantum.stinespring-representation]
+
+  - id: quantum.no-deleting
+    name: 補助系への情報退避を伴うno-deleting
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（no-deletingと補助系への情報退避）]
+    requires: [quantum.strict-deleting, quantum.composite-system]

@@ -1021,6 +1021,7 @@
 9. [QINF9 Choi表現とチャネル判定](textbook/volumes/dream_thater/応用系/QINF/QINF9/index.md)
 10. [QINF10 二状態識別とHelstrom界](textbook/volumes/dream_thater/応用系/QINF/QINF10/index.md)
 11. [QINF11 トレース距離・忠実度](textbook/volumes/dream_thater/応用系/QINF/QINF11/index.md)
+12. [QINF12 複製・放送・削除の制約](textbook/volumes/dream_thater/応用系/QINF/QINF12/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
@@ -1066,6 +1067,7 @@
 39. [ML2-18 Attention・Transformerの演算](textbook/volumes/dream_thater/応用系/ML/ML2-18/index.md)
 40. [ML2-19 自己教師あり表現学習](textbook/volumes/dream_thater/応用系/ML/ML2-19/index.md)
 41. [ML2-20 変分autoencoder](textbook/volumes/dream_thater/応用系/ML/ML2-20/index.md)
+42. [ML2-21 正規化flow・密度変換](textbook/volumes/dream_thater/応用系/ML/ML2-21/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

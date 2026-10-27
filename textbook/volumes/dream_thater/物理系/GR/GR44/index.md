@@ -63,7 +63,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr44-particle-horizon -->
-**定義の確認**：$a(\tau)=A\sqrt{\tau}$、$A>0$、$\tau\in(0,\infty)$、$\chi=0$ とします。$a>0$ で切片は $\mathbb R^3$、初期端は $\tau_i=0$ です。$\int_0^\tau ds/(A\sqrt{s})=2\sqrt{\tau}/A$ は有限なので $\chi_{\mathrm p}=2\sqrt{\tau}/A$、$D_{\mathrm p}=A\sqrt{\tau}\,(2\sqrt{\tau}/A)=2\tau$ です。**共動半径にその時刻の尺度因子を掛ける**理由は、時刻一定の動径線分の計量が $dl=a(\tau)d\chi$ だからです。この模型の初期端を越えた延長可能性は別途調べる必要があります。
+**定義の確認**：$a(\tau)=A\sqrt{\tau}$、$A>0$、$\tau\in(0,\infty)$、$\chi=0$ とします。尺度因子は正、空間切片は $\mathbb R^3$、過去端は $\tau_i=0$ であり、定義の領域条件を満たします。まず下端を $\epsilon>0$ で切って積分すると
+
+$$
+\chi_{\mathrm p}(\tau)
+=\lim_{\epsilon\downarrow0}\frac1A\int_\epsilon^\tau s^{-1/2}\,ds
+=\lim_{\epsilon\downarrow0}\frac{2(\sqrt\tau-\sqrt\epsilon)}A
+=\frac{2\sqrt\tau}A<\infty.
+$$
+
+時刻 $\tau$ と角度を固定した動径線分では、上のFLRW計量から $d\ell^2=a(\tau)^2d\chi^2$ です。$a(\tau)>0$ かつ同一時刻上では一定なので、原点からの固有距離は $\int_0^{\chi_{\mathrm p}}a(\tau)\,d\chi=a(\tau)\chi_{\mathrm p}$ と判定できます。従って
+
+$$
+D_{\mathrm p}=A\sqrt\tau\,\frac{2\sqrt\tau}A=2\tau.
+$$
+
+この模型の過去端を越えた延長可能性は別途調べる必要があります。
 <!-- definition-example-end -->
 
 次に、時刻 $\tau$ の位置 $\chi>0$ で発した内向きの光が、中心の共動観測者の生涯のうちに受信され得るかを問います。宇宙論的事象地平線は「いま見える範囲」ではなく**未来の観測可能性の境界**です。ここでは中心観測者が $\tau\to+\infty$ まで存在し、$\tau_f=+\infty$ であると仮定します。
@@ -72,7 +87,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（FLRWの宇宙論的事象地平線）**
-> 空間切片が $\mathbb R^3$ の平坦FLRW時空で、未来まで存在する共動観測者 $\gamma(\tau)=(\tau,0)$、$\tau\in(\tau_i,\infty)$ を取る。$\gamma$ の未来全体へ信号を届け得る点の集合、すなわち $\gamma$ の**因果的過去**の境界を、この観測者の**宇宙論的事象地平線**という。時刻 $\tau$ の共動半径が有限なら
+> 空間切片が $\mathbb R^3$ の平坦FLRW時空で、未来まで存在する共動観測者 $\gamma(\tau)=(\tau,0)$、$\tau\in(\tau_i,\infty)$ を取る。
+>
+> $\gamma$ の**いずれかの未来時刻**に未来向き因果曲線で信号を届けられる点全体を、[LORG6の因果的過去](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future) $J^-(\gamma)$ と呼ぶ。その境界を、この観測者の**宇宙論的事象地平線**という。時刻 $\tau$ の共動半径が有限なら
 
 $$
 \chi_{\mathrm e}(\tau)=\int_\tau^\infty\frac{ds}{a(s)}
@@ -84,7 +101,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr44-event-horizon -->
-**定義の確認**：$a(\tau)=A\tau^2$、$A>0$、$\tau>0$ では $\int_\tau^\infty ds/(As^2)=1/(A\tau)$ が有限です。内向きの光が進める最大共動距離は $\chi_{\mathrm e}=1/(A\tau)$、時刻 $\tau$ の固有半径は $D_{\mathrm e}=A\tau^2/(A\tau)=\tau$ です。$\chi>\chi_{\mathrm e}$ からの信号は受信できません。逆に $0<\chi<\chi_{\mathrm e}$ なら、積分 $\int_\tau^{\tau_r}ds/a(s)$ が $\chi$ に達する有限の $\tau_r$ が存在します。
+**定義の確認**：$a(\tau)=A\tau^2$、$A>0$、$\tau\in(0,\infty)$ の平坦FLRW時空では、尺度因子が正で、中心の共動観測者は未来無限遠まで存在します。内向き光線が進める共動距離の上限を、未来端の積分で計算すると
+
+$$
+\chi_{\mathrm e}(\tau)
+=\lim_{L\to\infty}\int_\tau^L\frac{ds}{As^2}
+=\lim_{L\to\infty}\frac1A\left(\frac1\tau-\frac1L\right)
+=\frac1{A\tau}<\infty.
+$$
+
+$0<\chi<\chi_{\mathrm e}$ なら積分の連続性・単調増加性により、有限の受信時刻 $\tau_r$ で $\int_\tau^{\tau_r}ds/a(s)=\chi$ となります。$\chi>\chi_{\mathrm e}$ の信号はどの有限時刻にも届かず、等号の光線は未来無限遠で初めて原点へ近づきます。同時刻の固有半径は、粒子地平線の例と同じ動径計量 $d\ell=a(\tau)d\chi$ から
+
+$$
+D_{\mathrm e}(\tau)=a(\tau)\chi_{\mathrm e}(\tau)
+=A\tau^2\,\frac1{A\tau}=\tau
+$$
+
+です。
 <!-- definition-example-end -->
 
 この二つの積分は、過去端から現在までと、現在から未来端までを積分する点が違います。図で同じ45度線に見えても、どちらの共形時間端へ向かうかが異なります。
@@ -93,7 +126,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共形時間積分による地平線判定）**
-> $a\in C^1((\tau_i,\infty))$ は正、空間切片は $\mathbb R^3$、中心観測者は全未来で共動し続けるとする。動径光信号について、時刻 $\tau$ の有限な粒子地平線が存在するための条件は $\int_{\tau_i}^{\tau}ds/a(s)<\infty$、有限な宇宙論的事象地平線が存在するための条件は $\int_\tau^\infty ds/a(s)<\infty$ である。後者が有限なら $0<\chi<\chi_{\mathrm e}(\tau)$ から出た内向き信号は有限の宇宙時間に中心へ届き、$\chi>\chi_{\mathrm e}(\tau)$ からは届かない。
+> $a\in C^1((\tau_i,\infty))$ は正、空間切片は $\mathbb R^3$、中心観測者は全未来で共動し続けるとする。動径光信号について、時刻 $\tau$ で有限な粒子地平線・宇宙論的事象地平線が存在するための条件は、それぞれ
+
+$$
+\int_{\tau_i}^{\tau}\frac{ds}{a(s)}<\infty,
+\qquad \int_\tau^\infty\frac{ds}{a(s)}<\infty
+$$
+
+> である。後者が有限なら $0<\chi<\chi_{\mathrm e}(\tau)$ から出た内向き信号は有限の宇宙時間に中心へ届き、$\chi>\chi_{\mathrm e}(\tau)$ からは届かない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -128,7 +168,23 @@ $a>0$ より右辺の積分は $\tau_r$ に関して連続かつ単調増加で�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr44-hubble-radius -->
-**定義の確認**：$a(\tau)=A\tau^{2/3}$、$\tau>0$ なら $H=(2/3)\tau^{-1}>0$ だから $D_H=3\tau/2$ です。平坦空間切片では、共動分離 $\chi$ の同時刻固有距離 $D=a\chi$ は $\dot D=HD$ を満たします。$D=D_H$ に置けば $\dot D=1$、すなわち膨張による距離増大率が $c=1$ と等しくなる長さです。しかし、この関係だけではその光信号が将来受信されないとはいえません。
+**定義の確認**：$a(\tau)=A\tau^{2/3}$、$A>0$、$\tau>0$ の平坦FLRW時空を考えます。$a>0$、$H\ne0$ を確認して定義に代入すると
+
+$$
+H=\frac{2}{3\tau}>0,\qquad
+D_H=\frac1H=\frac{3\tau}{2},\qquad
+\chi_H=\frac{D_H}{a}=\frac{3\tau^{1/3}}{2A}.
+$$
+
+この半径の意味も判定します。共動分離 $\chi$ を固定した二点間の同時刻固有距離 $D=a\chi$ は
+
+$$
+\left.\frac{dD}{d\tau}\right|_{\chi\,\mathrm{fixed}}
+=\dot a\chi=HD,
+\qquad D=D_H\ \Longrightarrow\ \dot D=HD_H=1
+$$
+
+を満たします。つまり**共動する二点の膨張による距離増大率**が $c=1$ と等しくなる長さですが、これは内向きの光が将来受信されない条件ではありません。
 <!-- definition-example-end -->
 
 実際、中心へ向かう光について $\dot\chi=-1/a$ を距離 $D=a\chi$ に代入すると $\dot D=HD-1$ です。$HD>1$ の間は中心との固有距離がいったん増えますが、その後 $H$ や $D$ が変われば内側へ転じることがあります。
@@ -618,7 +674,7 @@ $a=a_*e^{H_*\tau}$、$k=0$ とする。Friedmann制約とRicciテンソルを使
 
 $$
 R_{00}=-3H_*^2,\quad R_{ij}=3H_*^2h_{ij},\quad
-R=12H_*^2.
+\mathcal R=12H_*^2.
 $$
 
 従って $R_{\mu\nu}=3H_*^2g_{\mu\nu}$、$G_{\mu\nu}=-3H_*^2g_{\mu\nu}$ で、$G_{\mu\nu}+\Lambda g_{\mu\nu}=0$ を満たします。もし $k=+1$ に変更し $a$ をそのままにすると、制約左辺は $H_*^2+1/a^2$ となり $\Lambda/3=H_*^2$ と一致しません。空間曲率の変更は同じ指数解では吸収できません。
@@ -642,7 +698,13 @@ A\tau_0^{2/3}e^{H_*(\tau-\tau_0)},&\tau\ge\tau_0
 \qquad H_*=\frac{2}{3\tau_0}.
 $$
 
-この模型は $\tau_0$ で $C^1$ 級につながることを確かめる。次に (1) $\tau_0$ の粒子・事象地平線の固有半径、(2) $\tau>\tau_0$ の両固有半径とHubble半径、(3) $\tau>\tau_0$ において粒子地平線と事象地平線の意味がどう異なるかを計算・説明せよ。接続点で二階微分が不連続なため、物質方程式の滑らかな解であるとは仮定しない。
+この模型は $\tau_0$ で $C^1$ 級につながることを確かめる。次を計算・説明せよ。
+
+1. $\tau_0$ における粒子・事象地平線の固有半径。
+2. $\tau>\tau_0$ における両固有半径とHubble半径。
+3. $\tau>\tau_0$ において粒子地平線と事象地平線の意味がどう異なるか。
+
+接続点で二階微分が不連続なため、物質方程式の滑らかな解であるとは仮定しない。
 
 <!-- solution-start -->
 **詳細解答。** 左側の値は $a_-=A\tau_0^{2/3}$、時間微分は $\dot a_-=(2/3)A\tau_0^{-1/3}$。右側の値は $a_+=A\tau_0^{2/3}$、時間微分は $\dot a_+=H_*A\tau_0^{2/3}=(2/3)A\tau_0^{-1/3}$。従って値・一階微分とも連続で $C^1$ です。

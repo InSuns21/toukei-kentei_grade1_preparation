@@ -57,7 +57,7 @@ chapters:
     title: "トレース距離・忠実度"
   - id: QINF12
     path: textbook/volumes/dream_thater/応用系/QINF/QINF12
-    status: planned
+    status: completed
     title: "複製・放送・削除の制約"
   - id: QINF13
     path: textbook/volumes/dream_thater/応用系/QINF/QINF13
