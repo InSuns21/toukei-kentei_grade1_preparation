@@ -6,7 +6,11 @@
 
 本章では、地平線を生成するKillingベクトル場が自分自身に沿ってどう変わるかを測り、**表面重力**を定義します。その値を正則な座標で計算し、生成場の規格化・符号・物理単位の注意を明らかにします。ブラックホールの温度・エントロピーとの関係は、後続のブラックホール熱力学講座（BHT）で扱います。ここで示すのは古典的一般相対論の幾何学です。
 
-計量符号は $(-,+,+,+)$、時空は4次元とし、本文ではまず $G=c=1$ を用います。座標 $t,v,u,r$ とパラメータ $M,a,Q$ は長さの次元を持ち、$\nabla$ は[LORG4で定義されたLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)です。Killing場 $\chi$ はある滑らかな零超曲面の正則な部分で零ベクトルではないと仮定します。以下の $\kappa$ はその生成場の**選び方込み**で定まる量です。
+計量符号は $(-,+,+,+)$、時空は4次元とし、本文ではまず $G=c=1$ を用います。$\nabla$ は[LORG4で定義されたLevi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)です。
+
+時間・動径座標 $t,v,u,r$ とパラメータ $M,a,Q$ は長さの次元を持ちます。後で使う $u$ は**出射零時刻の座標**であり、静止観測者の四元速度は $u_{\rm stat}$ と区別します。
+
+Killing場 $\chi$ はある滑らかな零超曲面の正則な部分で零ベクトルではないと仮定します。以下の $\kappa$ はその生成場の**選び方込み**で定まる量です。
 
 ## 1. 地平線の零生成曲線は、いつアフィン媒介か
 
@@ -34,7 +38,17 @@ $$
 <!-- definition-example-start: def-gr45-surface-gravity -->
 **定義の確認**として、以下では零超曲面と比例係数を両方計算します。
 
-**定義の直接確認**：平坦時空の光的座標 $U,V$ で $ds^2=-2\,dU\,dV+dy^2+dz^2$ とし、定数 $\alpha>0$ に対して $\chi=\alpha(V\partial_V-U\partial_U)$ を取ります。この場は $U\mapsto e^{-\alpha s}U$、$V\mapsto e^{\alpha s}V$ の変換を生成し、$dU\,dV$ を保つのでKilling場です。面 $U=0,V>0$ では $\chi=\alpha V\partial_V\ne0$、$\chi^\flat=-\alpha V\,dU$ で、面の法線 $dU$ に比例します。また $g^{-1}(dU,dU)=0$ なので、確かにKilling地平線です。計量成分が一定ゆえこの座標のChristoffel記号は零であり、
+**定義の直接確認**：平坦時空の光的座標 $U,V$ で $ds^2=-2\,dU\,dV+dy^2+dz^2$ とし、逆長さの次元を持つ定数 $\alpha>0$ に対して $\chi=\alpha(V\partial_V-U\partial_U)$ を取ります。この場は $U\mapsto e^{-\alpha s}U$、$V\mapsto e^{\alpha s}V$ の変換を生成し、$dU\,dV$ を保つのでKilling場です。
+
+面 $U=0,V>0$ では $\chi=\alpha V\partial_V\ne0$ です。計量の交差項 $-2\,dU\,dV$ は $g_{UV}=g_{VU}=-1$ を意味するので、添字を下げると
+
+$$
+\chi^\flat=g_{\mu\nu}\chi^\nu dx^\mu
+=-\alpha V\,dU+\alpha U\,dV
+\ \xrightarrow{U=0}\ -\alpha V\,dU.
+$$
+
+この共変ベクトルは面の法線 $dU$ に比例し、逆計量の $g^{UU}=0$ から $g^{-1}(dU,dU)=0$ も従います。すなわち、[Killing地平線の定義](../GR29/index.md#def-gr29-killing-horizon)の非零生成場・零法線・法線方向という条件をそれぞれ確かめました。計量成分が一定ゆえこの座標のChristoffel記号は零であり、
 
 $$
 \chi^\nu\nabla_\nu\chi^V
@@ -137,13 +151,20 @@ $$
 ds^2=-f(r)dt^2+\frac{dr^2}{f(r)}+r^2d\Omega^2
 $$
 
-を考えます。$f(r_h)=0$ の地点ではこの対角座標が退化しますが、$dv=dt+dr/f(r)$ と置けば
+を考えます。以下で $f'(r)=df/dr$ とし、プライムは動径 $r$ による常微分です。$f(r_h)=0$ の地点ではこの対角座標が退化します。外部の $f>0$ で基準半径 $r_0$ を固定し、$v=t+\int_{r_0}^{r}d\rho/f(\rho)$ と定めます。積分上端の増分を $h$ とすると、連続な関数 $1/f$ について
+
+$$
+\frac{1}{h}\int_r^{r+h}\frac{d\rho}{f(\rho)}
+\ \xrightarrow{h\to0}\ \frac1{f(r)}
+$$
+
+なので、$\partial v/\partial t=1$、$\partial v/\partial r=1/f(r)$、すなわち $dv=dt+dr/f(r)$ です。これを代入すると
 
 $$
 ds^2=-f(r)dv^2+2\,dv\,dr+r^2d\Omega^2
 $$
 
-です。$f$ が $r_h>0$ の近傍で滑らかなら、この表示は $r_h$ でも正則です。$\chi=\partial_v$ はKilling場で、$r=r_h$ では
+です。元の $t$ と $v$ の変換は $f=0$ で使えませんが、$f$ が $r_h>0$ の近傍で滑らかなら、**変換後の計量**は $r_h$ へ正則に延長します。$\chi=\partial_v$ は計量成分が $v$ に依存しないので[座標によるKilling判定](../GR14/index.md#prop-gr14-killing-coordinate-test)を満たし、$r=r_h$ では
 
 $$
 \chi^2=-f(r_h)=0,\qquad
@@ -179,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正則な $(v,r)$ 表示で計量のブロック行列と逆行列は
+正則な $(v,r)$ 表示で、座標基底 $(\partial_v,\partial_r)$ の内積 $g_{ab}=g(\partial_a,\partial_b)$ を並べたブロック行列と逆行列は
 
 $$
 (g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix},
@@ -223,17 +244,17 @@ $M$ を幾何単位の長さとして使う式と、$M_{\rm SI}$ をkgとして�
 
 ## 4. 静止観測者の加速度は発散してもよい
 
-静的外部で $r,\vartheta,\varphi$ を固定する観測者は $u=f^{-1/2}\partial_t$ を四元速度に持ちます。$f\to0^+$ では静止を保つこと自体が困難になりますが、表面重力には時間の規格化に伴う赤方偏移が組み込まれています。
+静的外部で $r,\vartheta,\varphi$ を固定する観測者は $u_{\rm stat}=f^{-1/2}\partial_t$ を四元速度に持ちます。ここでの $u_{\rm stat}$ は後の出射零時刻 $u$ とは別のベクトル場であり、$g(u_{\rm stat},u_{\rm stat})=-1$ です。四元加速度には、Kerrの回転パラメータ $a$ と区別して $a_{\rm stat}$ を使います。$f\to0^+$ では静止を保つこと自体が困難になりますが、表面重力には時間の規格化に伴う赤方偏移が組み込まれています。
 
 <a id="prop-gr45-redshift"></a>
 
 <!-- formal-statement-start -->
 > **命題（静止観測者の赤方偏移加速度）**
-> $f>0$ の外部で静的計量 $-fdt^2+f^{-1}dr^2+r^2d\Omega^2$ を持ち、$r\downarrow r_h$ で $f(r_h)=0$、$f'(r_h)>0$、$f'$ が連続であるとする。静止観測者の四元加速度 $a=\nabla_u u$ の大きさ $|a|$ は
+> $f>0$ の外部で静的計量 $-fdt^2+f^{-1}dr^2+r^2d\Omega^2$ を持ち、$r\downarrow r_h$ で $f(r_h)=0$、$f'(r_h)>0$、$f'$ が連続であるとする。静止観測者の四元速度を $u_{\rm stat}=f^{-1/2}\partial_t$、四元加速度を $a_{\rm stat}=\nabla_{u_{\rm stat}}u_{\rm stat}$ と定める。その大きさ $|a_{\rm stat}|$ は
 
 $$
-|a|=\frac{|f'|}{2\sqrt f},\qquad
-\boxed{\lim_{r\downarrow r_h}\sqrt f\,|a|=\kappa_\chi=\frac{f'(r_h)}2}
+|a_{\rm stat}|=\frac{|f'|}{2\sqrt f},\qquad
+\boxed{\lim_{r\downarrow r_h}\sqrt f\,|a_{\rm stat}|=\kappa_\chi=\frac{f'(r_h)}2}
 $$
 
 > となる。ただし $\chi=\partial_t$ は外部の静的時間で規格化し、地平線へはその正則延長を用いる。
@@ -241,30 +262,30 @@ $$
 
 ### 証明の見取り図
 
-$u^t=1/\sqrt f$ をChristoffel記号 $\Gamma^r_{tt}$ に代入して $a^r$ を計算し、逆に動径計量の $g_{rr}$ でノルムを測ります。
+$u_{\rm stat}^t=1/\sqrt f$ をChristoffel記号 $\Gamma^r_{tt}$ に代入して $a_{\rm stat}^r$ を計算し、逆に動径計量の $g_{rr}$ でノルムを測ります。
 
 <!-- proof-start -->
 ### 証明
 
-$u^\mu=(f^{-1/2},0,0,0)$ なので、世界線に沿って $f$ は一定であり、$u^\nu\partial_\nu u^\mu=0$ です。唯一の非零成分は
+$u_{\rm stat}^\mu=(f^{-1/2},0,0,0)$ なので、世界線に沿って $f$ は一定であり、$u_{\rm stat}^\nu\partial_\nu u_{\rm stat}^\mu=0$ です。唯一の非零成分は
 
 $$
 \Gamma^r_{tt}=-\frac12g^{rr}\partial_rg_{tt}
 =\frac12ff',\qquad
-a^r=\Gamma^r_{tt}(u^t)^2=\frac12f'.
+a_{\rm stat}^r=\Gamma^r_{tt}(u_{\rm stat}^t)^2=\frac12f'.
 $$
 
 従って $g_{rr}=f^{-1}$ から
 
 $$
-|a|^2=g_{rr}(a^r)^2=\frac{f'^2}{4f},
-\qquad \sqrt f\,|a|=\frac{|f'|}2.
+|a_{\rm stat}|^2=g_{rr}(a_{\rm stat}^r)^2=\frac{f'^2}{4f},
+\qquad \sqrt f\,|a_{\rm stat}|=\frac{|f'|}2.
 $$
 
 $f'(r_h)>0$ と連続性により地平線付近で $f'>0$ だから極限は $f'(r_h)/2$ です。[静的球対称地平線の定理](#thm-gr45-static)に一致します。$\square$
 <!-- proof-end -->
 
-Schwarzschildでは $f'(r_s)>0$ なので、$|a|\sim(2r_s\sqrt f)^{-1}$ と発散する一方、赤方偏移因子 $\sqrt f$ を掛けた値は $1/(2r_s)$ に収束します。「表面重力が有限」から「地平線に静止できる」を導いてはいけません。
+Schwarzschildでは $f'(r_s)>0$ なので、$|a_{\rm stat}|\sim(2r_s\sqrt f)^{-1}$ と発散する一方、赤方偏移因子 $\sqrt f$ を掛けた値は $1/(2r_s)$ に収束します。「表面重力が有限」から「地平線に静止できる」を導いてはいけません。
 
 ## 5. 電荷と回転で表面重力はどう変わるか
 
@@ -303,7 +324,7 @@ $$
 \Omega_H=\frac a{r_+^2+a^2}
 $$
 
-を用います。以下で $\kappa$ が極角に依存しないことを**直接**示します。一般の定常ブラックホールの零法則を、追加仮定なしで引用するわけではありません。
+を用います。[GR32の入射座標変換](../GR32/index.md#prop-gr32-horizon)は $dv=dt+(r^2+a^2)dr/\Delta$、$d\psi=d\varphi+a\,dr/\Delta$ です。$\Delta\ne0$ の重なり領域で、$r,\vartheta$ を固定した座標微分は $\partial_v=\partial_t$、$\partial_\psi=\partial_\varphi$ となるため、同じ生成場を二つの座標系で表示できます。以下で $\kappa$ が極角に依存しないことを**直接**示します。一般の定常ブラックホールの零法則を、追加仮定なしで引用するわけではありません。
 
 <a id="thm-gr45-kerr"></a>
 
@@ -352,7 +373,7 @@ $$
 =-\frac{\Delta'(r_+)\Sigma_+}{R_+^2}.
 $$
 
-この微分は、$\chi^2$ がスカラーであるため地平線へ正則に延長しても同じです。[GR32で確認した入射Kerr表示](../GR32/index.md#prop-gr32-horizon)では $\chi^\flat|_{r_+}=(\Sigma_+/R_+)dr$ です。よって[ノルム勾配恒等式](#prop-gr45-gradient)の $dr$ 成分は
+この $\partial_r$ は $t,\varphi,\vartheta$ を固定した微分ですが、$\chi^2$ は $t,\varphi$ に依存しないスカラーなので、$v,\psi,\vartheta$ を固定した入射座標の動径微分とも一致します。計量自体はBoyer–Lindquist座標で特異に見えても、ノルムは地平線へ滑らかに延長できます。[GR32で確認した入射Kerr表示](../GR32/index.md#prop-gr32-horizon)では $\chi^\flat|_{r_+}=(\Sigma_+/R_+)dr$ です。よって[ノルム勾配恒等式](#prop-gr45-gradient)の $dr$ 成分は
 
 $$
 -\frac{\Delta'(r_+)\Sigma_+}{R_+^2}
@@ -366,7 +387,7 @@ $R_+>0$、$\Sigma_+>0$（軸は滑らかな極限）だから、$\kappa_\chi=\De
 
 ### 宇宙論的地平線では向きを指定する
 
-[GR44の静的de Sitterパッチ](../GR44/index.md#thm-gr44-static-patch)では $f(R)=1-H_*^2R^2$、$R_h=H_*^{-1}$ です。未来側の宇宙論的地平線には $du=dT-dR/f$ を用いた**出射型**の正則座標を採れば
+[GR44の静的de Sitterパッチ](../GR44/index.md#thm-gr44-static-patch)では $f(R)=1-H_*^2R^2$、$R_h=H_*^{-1}$ です。静的パッチ内の $f>0$ で $u=T-\int_{R_0}^{R}d\rho/f(\rho)$ と定めると、$du=dT-dR/f$ です。以下の $u$ はこの**出射零時刻**であり、四元速度 $u_{\rm stat}$ ではありません。未来側の宇宙論的地平線まで変換後の計量を延長すると
 
 $$
 ds^2=-f(R)du^2-2\,du\,dR+R^2d\Omega^2,
@@ -394,7 +415,14 @@ $$
 あるKilling地平線で $\chi$ の表面重力が $3/L$（$L>0$ は長さ）とする。$\chi'=2\chi$ と $\widehat\chi=-\chi$ のそれぞれの表面重力と時間向きの変化を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [規格化の命題](#prop-gr45-scaling)の定数 $A$ をそれぞれ $2,-1$ に取ります。$\kappa_{\chi'}=2(3/L)=6/L$ で、正の倍数なので時間向きは不変です。一方、$\kappa_{\widehat\chi}=(-1)(3/L)=-3/L$、時間向きは反転します。地平線の位置と $g(\chi,\chi)=0$ という条件は変わりません。
+**詳細解答。** [規格化の命題](#prop-gr45-scaling)の定数 $A$ をそれぞれ $2,-1$ に取ります。
+
+$$
+\kappa_{\chi'}=2\frac3L=\frac6L,\qquad
+\kappa_{\widehat\chi}=-\frac3L.
+$$
+
+前者は正の倍数なので時間向きは不変、後者は負の倍数なので反転します。地平線の位置と $g(\chi,\chi)=0$ という条件は変わりません。
 <!-- solution-end -->
 
 <a id="ex-gr45-a02"></a>
@@ -406,7 +434,20 @@ $$
 $r_s=8L$ のSchwarzschild計量について、$f(r_s)$、$f'(r_s)$、$\kappa$ を求めよ。$L>0$ とする。
 
 <!-- solution-start -->
-**詳細解答。** $f(r)=1-8L/r$ なので $f(8L)=0$、$f'(r)=8L/r^2$、従って $f'(8L)=1/(8L)$ です。[静的球対称地平線の表面重力](#thm-gr45-static)から $\kappa=f'(r_s)/2=1/(16L)$ となります。$f$ は無次元、$f'$ と $\kappa$ の単位は $L^{-1}$ です。
+**詳細解答。** $f(r)=1-8L/r$ を半径で微分してから $r_s=8L$ を代入します。
+
+$$
+f(8L)=0,\qquad f'(r)=\frac{8L}{r^2},\qquad
+f'(8L)=\frac1{8L}.
+$$
+
+[静的球対称地平線の表面重力](#thm-gr45-static)から
+
+$$
+\kappa=\frac{f'(r_s)}2=\frac1{16L}.
+$$
+
+$f$ は無次元、$f'$ と $\kappa$ の単位は $L^{-1}$ です。
 <!-- solution-end -->
 
 <a id="ex-gr45-a03"></a>
@@ -418,7 +459,15 @@ $r_s=8L$ のSchwarzschild計量について、$f(r_s)$、$f'(r_s)$、$\kappa$ �
 入射EF計量 $ds^2=-f(r)dv^2+2dvdr+r^2d\Omega^2$ の $r=r_h$、$f(r_h)=0$ において $\chi=\partial_v$ は零ベクトルか。計量双対と法線を用いて答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $\chi$ の座標成分は $\chi^v=1,\chi^r=0$ なので零ベクトルではありません。$\chi^2=g_{vv}=-f(r_h)=0$ で、零なのはノルムです。また $\chi^\flat=g_{v\mu}dx^\mu=-f\,dv+dr$ より地平線では $dr$。面 $F=r-r_h=0$ の法線も $dF=dr$ で、$g^{-1}(dr,dr)=f(r_h)=0$ です。[Killing地平線の定義](../GR29/index.md#def-gr29-killing-horizon)が満たされます。
+**詳細解答。** $\chi$ の座標成分は $\chi^v=1,\chi^r=0$ なので零ベクトルではありません。零なのはノルム $\chi^2=g_{vv}=-f(r_h)=0$ です。さらに座標基底の計量成分を使うと
+
+$$
+\chi^\flat=g_{v\mu}dx^\mu=-f\,dv+dr
+\ \xrightarrow{r=r_h}\ dr,
+\qquad dF=d(r-r_h)=dr.
+$$
+
+面の法線も $dr$ であり、逆計量の $rr$ 成分によって $g^{-1}(dr,dr)=g^{rr}=f(r_h)=0$ です。これで[Killing地平線の定義](../GR29/index.md#def-gr29-killing-horizon)の非零性・法線性・零性がそれぞれ満たされます。
 <!-- solution-end -->
 
 <a id="ex-gr45-a04"></a>
@@ -430,7 +479,17 @@ $r_s=8L$ のSchwarzschild計量について、$f(r_s)$、$f'(r_s)$、$\kappa$ �
 質量 $M_{\rm SI}$ kg のSchwarzschild地平線の表面重力を、$G,c$ と $M_{\rm SI}$ で表せ。長さの逆数から加速度への変換係数も説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $r_s=2GM_{\rm SI}/c^2$ は長さです。幾何単位の値は $\kappa=1/(2r_s)$ なので、長さの逆数 $\mathrm{m}^{-1}$ から $\mathrm{m\,s^{-2}}$ にするには $c^2$ を掛けます。従って $g_H=c^2/(2r_s)=c^4/(4GM_{\rm SI})$ です。次元は $[c^4/(GM)]=(\mathrm{m}^4\mathrm{s}^{-4})/(\mathrm{m}^3\mathrm{s}^{-2})=\mathrm{m\,s}^{-2}$ と一致します。
+**詳細解答。** $r_s=2GM_{\rm SI}/c^2$ は長さです。幾何単位の値は $\kappa=1/(2r_s)$ なので、長さの逆数 $\mathrm{m}^{-1}$ から加速度 $\mathrm{m\,s^{-2}}$ へ変換するには $c^2$ を掛けます。
+
+$$
+g_H=c^2\kappa=\frac{c^2}{2r_s}=\frac{c^4}{4GM_{\rm SI}},
+\qquad
+\left[\frac{c^4}{GM_{\rm SI}}\right]
+=\frac{\mathrm{m}^4\mathrm{s}^{-4}}{\mathrm{m}^3\mathrm{s}^{-2}}
+=\mathrm{m\,s}^{-2}.
+$$
+
+したがって加速度としての単位に一致します。
 <!-- solution-end -->
 
 <a id="ex-gr45-a05"></a>
@@ -442,7 +501,21 @@ $r_s=8L$ のSchwarzschild計量について、$f(r_s)$、$f'(r_s)$、$\kappa$ �
 $M=5L,Q=3L$ のRN解の $r_+,r_-$ と外側地平線の $\kappa$ を求め、$Q\to M$ の極限と比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** $r_\pm=5L\pm\sqrt{25-9}L=(5\pm4)L$ で、$r_+=9L,r_-=L$ です。[静的球対称地平線の表面重力](#thm-gr45-static)をRNの $f(r)$ に適用した $\kappa=(r_+-r_-)/(2r_+^2)$ に代入すると $\kappa=8L/(2\cdot81L^2)=4/(81L)$ です。$Q\to M$ では $r_+-r_-=2\sqrt{M^2-Q^2}\to0$、分母は $2M^2>0$ なので $\kappa\to0$ となります。
+**詳細解答。** 二根の式に $M=5L,Q=3L$ を代入すると
+
+$$
+r_\pm=5L\pm\sqrt{25-9}L=(5\pm4)L,
+\qquad r_+=9L,\quad r_-=L.
+$$
+
+[静的球対称地平線の表面重力](#thm-gr45-static)をRNの $f(r)$ に適用すると
+
+$$
+\kappa=\frac{r_+-r_-}{2r_+^2}
+=\frac{8L}{2\cdot81L^2}=\frac4{81L}.
+$$
+
+$Q\to M$ では $r_+-r_-=2\sqrt{M^2-Q^2}\to0$、分母は $2r_+^2\to2M^2>0$ なので $\kappa\to0$ となります。
 <!-- solution-end -->
 
 ### Level B：勾配・座標・観測者をつなぐ
@@ -472,18 +545,18 @@ $$
 
 - Level: B
 
-$f(r)=1-r_s/r$、$r>r_s$ の静止観測者について、$r=4r_s$ での $|a|$ と $\sqrt f|a|$ を求め、$r\downarrow r_s$ の極限を示せ。
+$f(r)=1-r_s/r$、$r>r_s$ の静止観測者について、$r=4r_s$ での $|a_{\rm stat}|$ と $\sqrt f|a_{\rm stat}|$ を求め、$r\downarrow r_s$ の極限を示せ。
 
 <!-- solution-start -->
 **詳細解答。** $r=4r_s$ で $f=3/4$、$\sqrt f=\sqrt3/2$、$f'=r_s/(16r_s^2)=1/(16r_s)$ です。[静止観測者の赤方偏移加速度](#prop-gr45-redshift)により
 
 $$
-|a|=\frac{1/(16r_s)}{2(\sqrt3/2)}
+|a_{\rm stat}|=\frac{1/(16r_s)}{2(\sqrt3/2)}
 =\frac1{16\sqrt3\,r_s},\qquad
-\sqrt f\,|a|=\frac1{32r_s}.
+\sqrt f\,|a_{\rm stat}|=\frac1{32r_s}.
 $$
 
-$r\downarrow r_s$ では $f'\to1/r_s$、$f\to0^+$ だから $|a|\to+\infty$ ですが、$\sqrt f|a|=f'/2\to1/(2r_s)=\kappa_{\rm Schw}$ です。$r=4r_s$ での赤方偏移加速度と地平線極限が異なるのは $f'$ が $r$ に依存するためです。
+$r\downarrow r_s$ では $f'\to1/r_s$、$f\to0^+$ だから $|a_{\rm stat}|\to+\infty$ ですが、$\sqrt f|a_{\rm stat}|=f'/2\to1/(2r_s)=\kappa_{\rm Schw}$ です。$r=4r_s$ での赤方偏移加速度と地平線極限が異なるのは $f'$ が $r$ に依存するためです。
 <!-- solution-end -->
 
 <a id="ex-gr45-b03"></a>
