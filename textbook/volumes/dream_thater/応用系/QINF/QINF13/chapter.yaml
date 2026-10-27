@@ -18,6 +18,7 @@ learning_objectives:
   - Bell対への四つの局所ユニタリから超密符号化と完全復号を構成し、転置の対応を証明できる
   - エンタングルメントの有無による零誤り識別可能数と、ebit・cbit・qubitの通信資源を区別して算定できる
 definitions:
+  - { id: QINF13-DEF-04, name: "Bell対と1 ebit" }
   - { id: QINF13-DEF-01, name: "Bell基底とBell測定" }
   - { id: QINF13-DEF-02, name: "標準qubitテレポーテーション" }
   - { id: QINF13-DEF-03, name: "標準超密符号化" }
