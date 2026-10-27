@@ -90,7 +90,13 @@ Aliceは $S$ と $A$ を保有し、Bobは $B$ を保有します。あらかじ
 
 <!-- formal-statement-start -->
 > **定義（標準qubitテレポーテーション）**  
-> 有限次元系 $S,A,B\cong\mathbb C^2$ において、未知の入力密度演算子 $\rho_S$ と共有資源 $|\Phi^+\rangle_{AB}$ から、Aliceが $SA$ にBell測定を行う。結果 $(a,b)$ を2 cbitでBobへ知らせ、Bobは $B$ に $U_{ab}=Z^aX^b$ を施す。この一連の操作を標準qubitテレポーテーションという。成功とは各結果ごとの補正後の $B$ の状態が $\rho_S$ と一致することである。
+> 未知の入力qubit $S$ と共有Bell対 $AB$ を考える。Aliceは $SA$ にBell測定を行い、結果 $(a,b)$ を2 cbitでBobへ送る。Bobが系 $B$ に施す補正を
+
+$$
+U_{ab}=Z^aX^b
+$$
+
+> とする。この操作を標準qubitテレポーテーションという。成功とは、任意の入力密度演算子 $\rho_S$ に対し、各結果ごとの補正後のBobの状態が $\rho_S$ に一致することである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf13-teleportation -->
@@ -196,7 +202,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（標準超密符号化）**  
-> AliceとBobが $|\Phi^+\rangle_{AB}$ を共有する。Aliceが二ビット $(a,b)\in\{0,1\}^2$ を送るために $A$ に $U_{ab}=Z^aX^b$ を作用させてから、$A$ を量子通信路でBobへ送る。Bobが受け取った $A$ と手元の $B$ にBell測定を施して $(a,b)$ を復元するプロトコルを標準超密符号化という。通信路は送られたqubitを誤りなく届けるものとする。
+> AliceとBobがBell対を共有し、Aliceが二ビット $(a,b)$ を送りたいとする。Aliceは自分のqubitに次のユニタリを施す。
+
+$$
+U_{ab}=Z^aX^b,\qquad (a,b)\in\{0,1\}^2.
+$$
+
+> そのqubitを雑音のない量子通信路でBobへ送り、Bobは受け取ったqubitと手元のqubitにBell測定を行って二ビットを復元する。このプロトコルを標準超密符号化という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf13-superdense -->
@@ -217,7 +229,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（標準超密符号化の完全復号）**  
-> 理想的な一個のBell対 $|\Phi^+\rangle_{AB}$ と、雑音なく一個のqubit $A$ をAliceからBobへ届ける通信路があるとする。四つの入力 $(a,b)$ を $U_{ab}=Z^aX^b$ で符号化すると出力状態は四つの直交Bell状態 $|B_{ab}\rangle$ に一致する。従ってBobのBell測定で二古典ビットが誤りなく復元される。
+> 理想的なBell対と、一個のqubitを雑音なく届ける量子通信路があるとする。Aliceがメッセージ $(a,b)$ を $U_{ab}=Z^aX^b$ で符号化した状態は
+
+$$
+(U_{ab}\otimes I)|\Phi^+\rangle=|B_{ab}\rangle
+$$
+
+> である。四状態が互いに直交するため、BobのBell測定で二古典ビットが誤りなく復元される。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -250,7 +268,7 @@ $$
 [Bell基底の正規直交性](#def-qinf13-bell-basis)で $\langle B_{cd}|B_{ab}\rangle=\delta_{ac}\delta_{bd}$ ですから、BobのBell測定では正しい $(a,b)$ に確率1、他の結果に確率0です。$\square$
 <!-- proof-end -->
 
-誤りなく区別できる四状態を、送信qubit単体に詰めたわけではありません。送信時にはBobが既にもう一つのqubitを持っており、**二qubit全体の4次元空間**で四つを直交させています。$AB$ のBell対は通信後、二つともBobの手元に集まり、もはや遠隔共有のebitではありません。
+誤りなく区別できる四状態を、送信qubit単体に詰めたわけではありません。送信時にはBobが既にもう一つのqubitを持っており、二つを合わせた空間の次元は $2\cdot2=4$ です。この空間で四状態を直交させています。$AB$ のBell対は通信後、二つともBobの手元に集まり、もはや遠隔共有のebitではありません。
 
 <a id="prop-qinf13-unassisted-bound"></a>
 
@@ -305,7 +323,18 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[Bell基底の定義](#def-qinf13-bell-basis)から $B_{00}=(|00\rangle+|11\rangle)/\sqrt2$、$B_{10}=(|00\rangle-|11\rangle)/\sqrt2$、$B_{01}=(|01\rangle+|10\rangle)/\sqrt2$、$B_{11}=(|01\rangle-|10\rangle)/\sqrt2$。最初の二内積はそれぞれ $(1-1)/2=0$。三番目は $00,11$ と $01,10$ の計算基底が全て異なるので0。ノルムは四つとも1で、残る交差内積も同じパリティ分離で0です。4次元空間の四正規直交ベクトルは基底だから、任意の $v=\sum c_{ab}B_{ab}$ について $\sum P_{ab}v=\sum c_{ab}B_{ab}=v$。従って和は $I_4$ です。
+[Bell基底とBell測定](#def-qinf13-bell-basis)の展開を使います。
+
+$$
+\begin{aligned}
+B_{00}&=(|00\rangle+|11\rangle)/\sqrt2,\\
+B_{10}&=(|00\rangle-|11\rangle)/\sqrt2,\\
+B_{01}&=(|01\rangle+|10\rangle)/\sqrt2,\\
+B_{11}&=(|01\rangle-|10\rangle)/\sqrt2.
+\end{aligned}
+$$
+
+最初の二内積はそれぞれ $(1-1)/2=0$。三番目は $00,11$ と $01,10$ の計算基底が全て異なるので0。ノルムは四つとも1で、残る交差内積も同じパリティ分離で0です。4次元空間の四正規直交ベクトルは基底だから、任意の $v=\sum c_{ab}B_{ab}$ について $\sum P_{ab}v=\sum c_{ab}B_{ab}=v$。従って和は $I_4$ です。
 <!-- solution-end -->
 
 <a id="ex-qinf13-a02"></a>
@@ -381,7 +410,13 @@ $\rho=\begin{pmatrix}3/4&1/4\\1/4&1/4\end{pmatrix}$ を入力として、通信�
 <!-- solution-start -->
 ### 詳細解答
 
-与えられた行列は自己共役でトレース1、行列式は $3/16-1/16=1/8>0$ だから正値です。$Z\rho Z=\begin{pmatrix}3/4&-1/4\\-1/4&1/4\end{pmatrix}$ で、この二つの和は $\operatorname{diag}(3/2,1/2)$。残りは $X\rho X$ と $XZ\rho ZX$ で、上の和を $X$ で挟んだ $\operatorname{diag}(1/2,3/2)$ です。全四枝を $1/4$ で平均すれば $(2I_2)/4=I_2/2$。$|0\rangle\langle0|$ についても[通信前の縮約命題](#prop-qinf13-no-signalling)により同じ $I_2/2$ です。Bobの任意のPOVMで結果分布は $\operatorname{Tr}(E_m I_2/2)$ と等しく、入力依存性がありません。二古典ビット到着前に復号することはできません。
+与えられた行列は自己共役でトレース1、行列式は $3/16-1/16=1/8>0$ だから正値です。$Z\rho Z$ は非対角成分の符号を反転するので
+
+$$
+\rho+Z\rho Z=\operatorname{diag}(3/2,1/2).
+$$
+
+残りの $X\rho X+XZ\rho ZX$ は、上の和を $X$ で挟んだ $\operatorname{diag}(1/2,3/2)$ です。全四枝を $1/4$ で平均すれば $(2I_2)/4=I_2/2$。$|0\rangle\langle0|$ についても [テレポーテーションにおける通信前の縮約状態](#prop-qinf13-no-signalling) により同じ $I_2/2$ です。Bobの任意のPOVMで結果分布は $\operatorname{Tr}(E_m I_2/2)$ と等しく、入力依存性がありません。二古典ビット到着前に復号することはできません。
 <!-- solution-end -->
 
 <a id="ex-qinf13-b03"></a>
@@ -426,9 +461,9 @@ Aliceが二古典ビット $m=(a,b)$ をBobへ送り、その後Bobが未知のq
 <!-- solution-start -->
 ### 詳細解答
 
-第一段階では $A_1B_1$ を $|\Phi^+\rangle$ とし、Aliceが $A_1$ に $U_{ab}=Z^aX^b$ をかけます。[超密符号化定理](#thm-qinf13-superdense)により全系は $|B_{ab}\rangle_{A_1B_1}$。Aliceが $A_1$ 一個をBobへ量子送信し、Bobが $A_1B_1$ のBell測定を行うと確率1で $m=(a,b)$ を得ます。ここではAliceからBobへ **1 qubit**、最初の共有 **1 ebit** を使い、別の古典メッセージは送りません。
+第一段階では $A_1B_1$ を $|\Phi^+\rangle$ とし、Aliceが $A_1$ に $U_{ab}=Z^aX^b$ をかけます。[標準超密符号化の完全復号](#thm-qinf13-superdense)により全系は $|B_{ab}\rangle_{A_1B_1}$。Aliceが $A_1$ 一個をBobへ量子送信し、Bobが $A_1B_1$ のBell測定を行うと確率1で $m=(a,b)$ を得ます。ここではAliceからBobへ **1 qubit**、最初の共有 **1 ebit** を使い、別の古典メッセージは送りません。
 
-第二段階では残る $A_2B_2$ のBell対を使います。Bobが入力 $S=|\varphi\rangle$ と $B_2$ にBell測定を行い、結果 $(c,d)$ をAliceへ **2 cbit** 送ります。系の向きを入れ替えた[テレポーテーション恒等式](#thm-qinf13-teleportation)からAlice側 $A_2$ の条件付き状態は $X^dZ^c|\varphi\rangle$。Aliceが $Z^cX^d$ を施せば $|\varphi\rangle$ が復元されます。消費するのは第二の **1 ebit** です。
+第二段階では残る $A_2B_2$ のBell対を使います。Bobが入力 $S=|\varphi\rangle$ と $B_2$ にBell測定を行い、結果 $(c,d)$ をAliceへ **2 cbit** 送ります。送受信者の役割を入れ替えて [テレポーテーション恒等式と決定論的補正](#thm-qinf13-teleportation) を使うと、Alice側 $A_2$ の条件付き状態は $X^dZ^c|\varphi\rangle$。Aliceが $Z^cX^d$ を施せば $|\varphi\rangle$ が復元されます。消費するのは第二の **1 ebit** です。
 
 総計は事前共有 **2 ebit**、Alice $\to$ Bob **1 qubit**、Bob $\to$ Alice **2 cbit**、それ以外の送信なしです。二段階目にBobが結果を送る前のAliceの状態は、[無条件縮約の命題](#prop-qinf13-no-signalling)で $I_2/2$。従って未知入力の振幅はまだ読めません。Bobの入力系はBell測定によって元の状態のコピーとして残らず、Aliceに移すのは一つの量子状態だけです。[複製不能定理](../QINF12/index.md#thm-qinf12-pure-no-cloning)と矛盾しません。第一段階の古典ビットは量子通信で運び、第二段階の未知qubitは古典通信と事前エンタングルメントで移した、という方向別の交換関係を区別することが要点です。
 <!-- solution-end -->
