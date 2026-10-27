@@ -1,0 +1,45 @@
+chapter: GR45
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR14
+  - GR29
+  - GR32
+  - GR44
+concepts:
+  - id: gravity.killing-surface-gravity
+    name: Killing地平線の表面重力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Killing地平線の表面重力）"]
+    requires: [gravity.killing-horizon, gravity.killing-field]
+  - id: gravity.surface-gravity-norm-gradient
+    name: 表面重力とKillingノルムの勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（表面重力とKillingノルムの勾配）"]
+    requires: [gravity.killing-surface-gravity]
+  - id: gravity.surface-gravity-normalization
+    name: Killing場の規格化と表面重力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Killing場の規格化と表面重力）"]
+    requires: [gravity.killing-surface-gravity]
+  - id: gravity.static-spherical-surface-gravity
+    name: 静的球対称地平線の表面重力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静的球対称地平線の表面重力）"]
+    requires: [gravity.surface-gravity-norm-gradient, gravity.killing-horizon]
+  - id: gravity.redshifted-static-acceleration
+    name: 静止観測者の赤方偏移加速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止観測者の赤方偏移加速度）"]
+    requires: [gravity.static-spherical-surface-gravity]
+  - id: gravity.kerr-surface-gravity
+    name: Kerr外側地平線の表面重力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kerr外側地平線の表面重力）"]
+    requires: [gravity.surface-gravity-norm-gradient, gravity.kerr-horizon-ingoing]

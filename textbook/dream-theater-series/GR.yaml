@@ -185,7 +185,7 @@ chapters:
     title: "宇宙論的地平線とde Sitter"
   - id: GR45
     path: textbook/volumes/dream_thater/物理系/GR/GR45
-    status: planned
+    status: completed
     title: "Killing地平線の表面重力"
   - id: GR46
     path: textbook/volumes/dream_thater/物理系/GR/GR46
