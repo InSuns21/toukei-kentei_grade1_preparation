@@ -1,1 +1,48 @@
-id: QINF13
+id: "QINF13"
+title: "テレポーテーションと超密符号化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF7
+  - QINF12
+official_scope: []
+learning_objectives:
+  - Bell基底の正規直交性と射影測定条件を確認し、CNOT・HadamardからBell測定回路を導出できる
+  - 任意の純粋・混合qubitにテレポーテーション恒等式を適用し、各測定確率とPauli補正を順に検算できる
+  - Aliceの二古典ビットが到着する前はBobの状態がI/2であることを証明し、複製不能定理との整合性を説明できる
+  - Bell対への四つの局所ユニタリから超密符号化と完全復号を構成し、転置の対応を証明できる
+  - エンタングルメントの有無による零誤り識別可能数と、ebit・cbit・qubitの通信資源を区別して算定できる
+definitions:
+  - { id: QINF13-DEF-01, name: "Bell基底とBell測定" }
+  - { id: QINF13-DEF-02, name: "標準qubitテレポーテーション" }
+  - { id: QINF13-DEF-03, name: "標準超密符号化" }
+theorems:
+  - { id: QINF13-PROP-01, name: "Bell基底の準備と測定回路" }
+  - { id: QINF13-THM-01, name: "テレポーテーション恒等式と決定論的補正" }
+  - { id: QINF13-PROP-02, name: "テレポーテーションにおける通信前の縮約状態" }
+  - { id: QINF13-THM-02, name: "標準超密符号化の完全復号" }
+  - { id: QINF13-PROP-03, name: "事前共有資源なしの一qubit零誤り符号数界" }
+canonical_examples:
+  - "Bell基底の四展開とCNOT・Hadamardによる測定"
+  - "入力|0>・複素振幅入力のテレポーテーション四分岐"
+  - "Pauli twirlによる通信前のI/2縮約"
+  - "超密符号化の4語とBell対の位相誤り"
+problem_patterns:
+  - QINF13-BELL-ORTHONORMAL
+  - QINF13-BELL-MEASUREMENT-CIRCUIT
+  - QINF13-TELEPORT-BRANCHES
+  - QINF13-SUPERDENSE-CODEWORDS
+  - QINF13-TELEPORT-COMPLEX-AMPLITUDE
+  - QINF13-NO-SIGNALLING
+  - QINF13-UNASSISTED-ZERO-ERROR
+  - QINF13-RESOURCE-PHASE-NOISE
+  - QINF13-BIDIRECTIONAL-RESOURCE-ACCOUNTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
