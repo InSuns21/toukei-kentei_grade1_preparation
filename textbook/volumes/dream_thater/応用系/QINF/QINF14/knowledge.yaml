@@ -1,0 +1,52 @@
+chapter: QINF14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF13
+forward_references: []
+
+concepts:
+  - id: quantum.finite-round-locc
+    name: 有限ラウンドLOCC操作
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限ラウンドLOCC操作）]
+    requires: [quantum.finite-measurement-instrument, quantum.schmidt-decomposition]
+
+  - id: quantum.deterministic-locc-pure-conversion
+    name: 決定論的LOCC変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限ラウンドLOCC操作）]
+    requires: [quantum.finite-round-locc]
+
+  - id: quantum.probability-majorization
+    name: 確率ベクトルの優越関係・majorization
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（確率ベクトルの優越関係・majorization）]
+    requires: [quantum.schmidt-coefficients]
+
+  - id: quantum.majorization-permutation-mixture
+    name: majorizationと置換の確率混合
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（majorizationと置換の確率混合）]
+    requires: [quantum.probability-majorization]
+
+  - id: quantum.schmidt-tail-concavity
+    name: 小さい固有値の和の凹性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（小さい固有値の和の凹性）]
+    requires: [quantum.schmidt-reduced-spectrum, quantum.finite-measurement-instrument]
+
+  - id: quantum.nielsen-pure-locc
+    name: Nielsenの決定論的LOCC変換条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Nielsenの決定論的LOCC変換条件）]
+    requires: [quantum.deterministic-locc-pure-conversion, quantum.probability-majorization, quantum.majorization-permutation-mixture, quantum.schmidt-tail-concavity]

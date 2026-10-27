@@ -1,0 +1,45 @@
+id: "QINF14"
+title: "LOCCと純粋状態の変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF13
+official_scope: []
+learning_objectives:
+  - 有限ラウンドLOCCと決定論的純粋状態変換を操作の分岐から定義し、局所ユニタリだけの操作・確率的成功と区別できる
+  - Schmidt係数の二乗の降順部分和を計算し、majorizationの向きと三次元の比較不能例を判定できる
+  - majorizationと置換ベクトルの凸結合の同値を分離超平面を用いた有限次元証明で再構成できる
+  - 小さい固有値の和の変分表示と凹性を導き、局所測定での平均単調性からNielsen定理の必要性を証明できる
+  - 置換混合からKraus測定・分岐確率・両側の局所補正を構成し、零のSchmidt係数を含めてNielsen定理の十分性を証明できる
+  - 二qubit純粋状態の変換を具体的に設計し、逆方向の変換不能を不等式から説明できる
+definitions:
+  - { id: QINF14-DEF-01, name: "有限ラウンドLOCC操作" }
+  - { id: QINF14-DEF-03, name: "決定論的LOCC変換" }
+  - { id: QINF14-DEF-02, name: "確率ベクトルの優越関係・majorization" }
+theorems:
+  - { id: QINF14-LEM-01, name: "majorizationと置換の確率混合" }
+  - { id: QINF14-LEM-02, name: "小さい固有値の和の凹性" }
+  - { id: QINF14-THM-01, name: "Nielsenの決定論的LOCC変換条件" }
+canonical_examples:
+  - "Bell対の局所測定・古典通信による積状態への決定論的変換"
+  - "三成分のmajorization比較不能と小さい固有値の和"
+  - "3/5から4/5への二qubitSchmidt変換のKraus測定と分岐補正"
+  - "零Schmidt係数を持つ三次元の測定構成"
+problem_patterns:
+  - QINF14-LOCC-BRANCHES
+  - QINF14-MAJORIZATION-TWO-DIM
+  - QINF14-REDUCED-SPECTRUM-TAILS
+  - QINF14-PERMUTATION-MIXTURE
+  - QINF14-NO-SIGNALLING-MARGINAL
+  - QINF14-INCOMPARABLE-SPECTRA
+  - QINF14-TWO-OUTCOME-CONSTRUCTION
+  - QINF14-ZERO-SUPPORT
+  - QINF14-TAIL-CONCAVITY
+  - QINF14-GENERAL-QUBIT-CONVERSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.0 }
