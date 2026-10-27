@@ -387,7 +387,30 @@ $$
 \rho(\sigma v)=\sigma(\rho v)=\lambda\sigma v
 $$
 
-なので、$\rho$ の各固有空間は $\sigma$ で保たれます。$\sigma$ はその各固有空間への制限でも自己共役です。[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で各固有空間内に正規直交固有基底を選び、合わせれば共通固有基底が得られます。この基底で $\rho-\sigma$ の固有値は $p_i-q_i$ だから、[有限次元トレースノルム](../QINF10/index.md#def-qinf10-trace-norm)はその絶対値和です。一方、$\sqrt\rho=\operatorname{diag}(\sqrt{p_i})$、$\sqrt\sigma=\operatorname{diag}(\sqrt{q_i})$ で、$\sqrt\rho\,\sigma\sqrt\rho=\operatorname{diag}(p_iq_i)$。非負平方根のトレースを取ると第2式を得ます。$\square$
+なので、$\rho$ の各固有空間は $\sigma$ で保たれます。$\sigma$ はその各固有空間への制限でも自己共役です。[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で各固有空間内に正規直交固有基底を選び、合わせれば共通固有基底が得られます。
+
+この基底では $\rho-\sigma=\operatorname{diag}(p_i-q_i)$ です。[有限次元トレースノルム](../QINF10/index.md#def-qinf10-trace-norm)の定義を固有値 $p_i-q_i$ に適用すると
+
+$$
+T(\rho,\sigma)=\frac12\|\rho-\sigma\|_1
+=\frac12\sum_i|p_i-q_i|.
+$$
+
+一方、同じ基底で非負平方根を取ると
+
+$$
+\sqrt\rho=\operatorname{diag}(\sqrt{p_i}),
+\qquad \sqrt\rho\,\sigma\sqrt\rho=\operatorname{diag}(p_iq_i).
+$$
+
+右辺の対角成分はすべて非負です。さらに平方根を取ってトレースを求めれば
+
+$$
+f(\rho,\sigma)=\operatorname{Tr}\operatorname{diag}(\sqrt{p_iq_i})
+=\sum_i\sqrt{p_iq_i}.
+$$
+
+これで二つの式が得られました。$\square$
 <!-- proof-end -->
 
 ### 直接例：二値分布では距離は単なる確率差
@@ -721,7 +744,7 @@ $$
 A\otimes B=(U\otimes P)\bigl(\operatorname{diag}(s_i)\otimes\operatorname{diag}(t_j)\bigr)(V\otimes Q)^\dagger.
 $$
 
-両側のテンソル積もユニタリで、中央は $s_it_j$ を対角成分とする非負行列です。したがってテンソル積の特異値は $s_it_j$ であり、
+両側のテンソル積もユニタリで、中央は対角成分がすべて $s_it_j\ge0$ の対角行列です。したがってテンソル積の特異値は $s_it_j$ であり、
 
 $$
 \|(\sqrt\rho\sqrt\sigma)\otimes(\sqrt\tau\sqrt\omega)\|_1
