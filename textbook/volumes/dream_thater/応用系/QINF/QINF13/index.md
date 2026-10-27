@@ -13,7 +13,7 @@ X|0\rangle=|1\rangle,\quad X|1\rangle=|0\rangle,\qquad
 Z|0\rangle=|0\rangle,\quad Z|1\rangle=-|1\rangle.
 $$
 
-$X^2=Z^2=I$、$ZX=-XZ$ です。また $H|0\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$H|1\rangle=(|0\rangle-|1\rangle)/\sqrt2$ で定めるHadamard作用素は $H^\dagger H=I$ を満たします。例えば $H$ の列ベクトルは直交し、どちらも長さ1です。$X,Z,H$ は計算基底に関して具体的に定められたユニタリであり、以後テンソル積の左右に作用する場合は添字で区別します。
+$X,Z$ はこの二つのPauli作用素を表し、$X^2=Z^2=I$、$ZX=-XZ$ です。また $H|0\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$H|1\rangle=(|0\rangle-|1\rangle)/\sqrt2$ で定めるHadamard作用素は $H^\dagger H=I$ を満たします。例えば $H$ の列ベクトルは直交し、どちらも長さ1です。$X,Z,H$ は計算基底に関して具体的に定められたユニタリです。$H$ 単独はHadamard作用素、添字付き $H_S,H_A,H_B$ はHilbert空間を指し、両者を区別します。以後テンソル積の左右に作用する場合も作用する系を明示します。
 
 最初にAliceとBobが持つ資源を一つずつ数えましょう。[Schmidt分解](../QINF6/index.md#def-qinf6-schmidt)では、二qubitの純粋状態のエンタングルメントを二つの係数で確かめました。通信で使うBell対は、この係数が等しい特別な状態です。
 
@@ -35,7 +35,14 @@ $$
 
 **定義の確認**として、Schmidt係数と両側の縮約状態を計算します。
 
-$|\Phi^+\rangle$ は計算基底で既にSchmidt表示になり、係数の二乗和は $1/2+1/2=1$。また[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)でAliceかBobを無視すると $I_2/2$ になり、各側が混合状態です。これに対し $|00\rangle$ のSchmidt係数は $1,0$ で、一方の縮約は $|0\rangle\langle0|$ ですから1 ebitではありません。係数が等しい任意の二qubit純粋状態は、[Schmidt分解](../QINF6/index.md#thm-qinf6-existence)の二組の正規直交ベクトルを局所ユニタリで計算基底へ移せば、$|\Phi^+\rangle$ に変わります。
+$|\Phi^+\rangle$ は計算基底で既にSchmidt表示になっています。両側の $|0\rangle,|1\rangle$ は正規直交し、二つの正の係数は $1/\sqrt2$、二乗和は $1/2+1/2=1$ です。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で $B$ 側を無視する場合、$|i\rangle_B\langle j|$ のトレースが $\delta_{ij}$ なので交差項が消え、
+
+$$
+\operatorname{Tr}_B(|\Phi^+\rangle\langle\Phi^+|)
+=\frac12\bigl(|0\rangle\langle0|+|1\rangle\langle1|\bigr)=I_2/2.
+$$
+
+$A$ 側を無視しても同じです。各側は混合状態になります。これに対し $|00\rangle$ の正のSchmidt係数は1個だけ（値は $1$）で、一方の縮約は $|0\rangle\langle0|$ ですから1 ebitではありません。一般の二qubit純粋状態でも、[Schmidt表示の存在](../QINF6/index.md#thm-qinf6-existence)と[局所ユニタリ変換と係数多重集合の同値](../QINF6/index.md#prop-qinf6-local-unitary)から、二係数がともに $1/\sqrt2$ であることと標準Bell対へ局所ユニタリで移せることが同値です。
 <!-- definition-example-end -->
 
 AliceとBobが後でやり取りする古典ビット（cbit）と、送信するqubitとは別にebitを数えます。エンタングルメント単独では相手へ選んだメッセージを送れません。
@@ -48,7 +55,7 @@ AliceとBobが後でやり取りする古典ビット（cbit）と、送信す�
 
 <!-- formal-statement-start -->
 > **定義（Bell基底とBell測定）**  
-> 二qubit系 $H\otimes H$ において、$a,b\in\{0,1\}$ に対し次の四ベクトルを **Bell基底** と呼ぶ。$W_{ab}=X^bZ^a$ と置き、右側のqubitに作用させる。
+> 二qubit系 $\mathbb C^2\otimes\mathbb C^2$ において、$a,b\in\{0,1\}$ に対し次の四ベクトルを **Bell基底** と呼ぶ。$W_{ab}=X^bZ^a$ と置き、右側のqubitに作用させる。
 
 $$
 |B_{ab}\rangle=(I\otimes W_{ab})|\Phi^+\rangle,
@@ -77,6 +84,8 @@ $$
 各ベクトルのノルム二乗は $(1+1)/2=1$ です。偶数パリティ（$00,11$）と奇数パリティ（$01,10$）は互いに直交し、同じパリティの $+$ と $-$ の内積は $(1-1)/2=0$。したがって四つは4次元空間の正規直交基底です。各 $P_{ab}$ は非負な射影で $\sum P_{ab}=I_4$、従って[POVMの条件](../QINF5/index.md#def-qinf5-povm)を満たします。これが定義の「測定」を本当に実現していることの確認です。
 <!-- definition-example-end -->
 
+制御NOTは第一qubitが $1$ のときだけ第二qubitを反転します。計算基底では $C|x,y\rangle=|x,y\oplus x\rangle$（$x,y\in\{0,1\}$）と書き、$\oplus$ は2を法とする和です。この規約で二qubitの操作順を追います。
+
 <a id="prop-qinf13-bell-circuit"></a>
 
 <!-- formal-statement-start -->
@@ -98,13 +107,13 @@ $H|a\rangle=(|0\rangle+(-1)^a|1\rangle)/\sqrt2$ から始め、$C|x,b\rangle=|x,
 <!-- proof-start -->
 ### 証明
 
-$\oplus$ を2を法とする和とします。まず
+まず、$H$ を第一qubitに作用させた後、上の $C$ の基底作用を用いると
 
 $$
 E|ab\rangle=\frac{|0,b\rangle+(-1)^a|1,b\oplus1\rangle}{\sqrt2}.
 $$
 
-$b=0$ なら $B_{a0}$、$b=1$ なら $B_{a1}$ の上記展開と一致します。$H$、$C$ はユニタリ、かつ $H^\dagger=H$、$C^\dagger=C$ なので $E^\dagger=(H\otimes I)C=D$。従って $D E|ab\rangle=|ab\rangle$ です。特にBell測定の確率は、$D$ 後の[計算基底射影測定](../QINF1/index.md#def-qinf1-local-projective)の確率に等しいことも従います。$\square$
+$b=0$ なら $|B_{a0}\rangle$、$b=1$ なら $|B_{a1}\rangle$ の上記展開と一致します。$H$ は計算基底で実対称なユニタリなので $H^\dagger=H$ です。$C$ は計算基底の置換で、同じ操作を二度行うと $y\oplus x\oplus x=y$ に戻るため、$C^\dagger=C^{-1}=C$。従って $E^\dagger=(H\otimes I)C=D$、そして $D E|ab\rangle=|ab\rangle$ です。特にBell測定の確率は、$D$ 後の[計算基底射影測定](../QINF1/index.md#def-qinf1-local-projective)の確率に等しいことも従います。$\square$
 <!-- proof-end -->
 
 ## 3. テレポーテーション：未知のqubitを移す
@@ -309,14 +318,36 @@ $$
 <!-- proof-start -->
 ### 証明
 
-BobのPOVM効果を $E_m$ とし、$\sum_mE_m=I_2$、$E_m\ge0$ とします。成功率1とは $\operatorname{Tr}(E_m\rho_m)=1$、他メッセージ $n\ne m$ には $\operatorname{Tr}(E_m\rho_n)=0$ ということです。$0\le E_m\le I$ なので、$I-E_m\ge0$。密度演算子の正固有値に対応する正規直交固有ベクトル $v_i$ を使うと
+Bobの[POVM](../QINF5/index.md#def-qinf5-povm)効果を $E_m$ とし、各効果は非負で総和が $I_2$ とします。成功率1とは、正しいメッセージ $m$ と、それ以外の $n$ に対し
 
 $$
-0=\operatorname{Tr}((I-E_m)\rho_m)
-=\sum_i\lambda_i\langle v_i|(I-E_m)|v_i\rangle.
+\operatorname{Tr}(E_m\rho_m)=1,\qquad
+\operatorname{Tr}(E_m\rho_n)=0\quad(n\ne m)
 $$
 
-各項は非負なので、$\lambda_i>0$ の全ての $v_i$ で期待値が0です。非負作用素の平方根を使えば $(I-E_m)v_i=0$、すなわち $E_mv_i=v_i$。同じく $\operatorname{Tr}(E_m\rho_n)=0$ から $E_mw=0$ が $\rho_n$ の台上で成立します。従って $v\in\operatorname{supp}\rho_m$、$w\in\operatorname{supp}\rho_n$ なら
+が成り立つことです。総和が $I_2$ で各効果が非負なので、$0\le E_m\le I_2$、特に $I_2-E_m\ge0$ です。
+
+$\operatorname{supp}\rho$（$\rho$ の**台**）を、$\rho$ の正固有値に対応する固有ベクトルの張る部分空間とします。[密度演算子のスペクトル表示](../QINF2/index.md#thm-qinf2-density-ensemble)により
+
+$$
+\rho_m=\sum_{\lambda_i>0}\lambda_i|v_i\rangle\langle v_i|
+$$
+
+と書けるので、
+
+$$
+0=\operatorname{Tr}((I_2-E_m)\rho_m)
+=\sum_{\lambda_i>0}\lambda_i\langle v_i|(I_2-E_m)|v_i\rangle.
+$$
+
+各項は非負なので、すべての $v_i$ で期待値が0です。非負作用素 $P$ の平方根は正のスペクトル表示から定まり、
+
+$$
+\langle v|P|v\rangle=\|P^{1/2}v\|^2=0
+\quad\Longrightarrow\quad Pv=P^{1/2}(P^{1/2}v)=0.
+$$
+
+$P=I_2-E_m$ に適用すると $E_mv_i=v_i$ となり、線形性から $\rho_m$ の台全体で $E_m$ は恒等的に作用します。同じ議論を $P=E_m$ に適用すれば、$\operatorname{Tr}(E_m\rho_n)=0$ から $E_mw=0$ が $\rho_n$ の台上で成立します。従って $v\in\operatorname{supp}\rho_m$、$w\in\operatorname{supp}\rho_n$ なら
 
 $$
 \langle v|w\rangle=\langle E_mv|w\rangle=\langle v|E_mw\rangle=0.
@@ -356,14 +387,14 @@ $$
 
 $$
 \begin{aligned}
-B_{00}&=(|00\rangle+|11\rangle)/\sqrt2,\\
-B_{10}&=(|00\rangle-|11\rangle)/\sqrt2,\\
-B_{01}&=(|01\rangle+|10\rangle)/\sqrt2,\\
-B_{11}&=(|01\rangle-|10\rangle)/\sqrt2.
+|B_{00}\rangle&=(|00\rangle+|11\rangle)/\sqrt2,\\
+|B_{10}\rangle&=(|00\rangle-|11\rangle)/\sqrt2,\\
+|B_{01}\rangle&=(|01\rangle+|10\rangle)/\sqrt2,\\
+|B_{11}\rangle&=(|01\rangle-|10\rangle)/\sqrt2.
 \end{aligned}
 $$
 
-最初の二内積はそれぞれ $(1-1)/2=0$。三番目は $00,11$ と $01,10$ の計算基底が全て異なるので0。ノルムは四つとも1で、残る交差内積も同じパリティ分離で0です。4次元空間の四正規直交ベクトルは基底だから、任意の $v=\sum c_{ab}B_{ab}$ について $\sum P_{ab}v=\sum c_{ab}B_{ab}=v$。従って和は $I_4$ です。
+最初の二内積はそれぞれ $(1-1)/2=0$。三番目は $00,11$ と $01,10$ の計算基底が全て異なるので0。ノルムは四つとも1で、残る交差内積も同じパリティ分離で0です。4次元空間の四正規直交ベクトルは基底だから、任意の $v=\sum c_{ab}|B_{ab}\rangle$ について $\sum P_{ab}v=\sum c_{ab}|B_{ab}\rangle=v$。従って和は $I_4$ です。
 <!-- solution-end -->
 
 <a id="ex-qinf13-a02"></a>
@@ -376,7 +407,13 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$|B_{11}\rangle=(|01\rangle-|10\rangle)/\sqrt2$。[Bell測定回路](#prop-qinf13-bell-circuit)の $C$ は $|01\rangle\mapsto|01\rangle$、$|10\rangle\mapsto|11\rangle$ とするため、中間状態は $(|01\rangle-|11\rangle)/\sqrt2=| -\rangle\otimes|1\rangle$。$H|-\rangle=|1\rangle$ は $H^2=I$ と $|-\rangle=H|1\rangle$ から従い、最終状態は $|11\rangle$。計算基底測定の確率は $|\langle11|11\rangle|^2=1$ です。
+$|B_{11}\rangle=(|01\rangle-|10\rangle)/\sqrt2$。$|-\rangle:=(|0\rangle-|1\rangle)/\sqrt2=H|1\rangle$ と置きます。[Bell測定回路](#prop-qinf13-bell-circuit)の $C$ は $|01\rangle\mapsto|01\rangle$、$|10\rangle\mapsto|11\rangle$ とするため、中間状態は
+
+$$
+C|B_{11}\rangle=(|01\rangle-|11\rangle)/\sqrt2=|-\rangle\otimes|1\rangle.
+$$
+
+$H|-\rangle=\bigl(H|0\rangle-H|1\rangle\bigr)/\sqrt2=|1\rangle$ なので、最終状態は $|11\rangle$。計算基底測定の確率は $|\langle11|11\rangle|^2=1$ です。
 <!-- solution-end -->
 
 <a id="ex-qinf13-a03"></a>
@@ -439,7 +476,13 @@ $\rho=\begin{pmatrix}3/4&1/4\\1/4&1/4\end{pmatrix}$ を入力として、通信�
 <!-- solution-start -->
 ### 詳細解答
 
-与えられた行列は自己共役でトレース1、行列式は $3/16-1/16=1/8>0$ だから正値です。$Z\rho Z$ は非対角成分の符号を反転するので
+与えられた行列は計算基底での $\rho$ の表示です。自己共役でトレース1、行列式は $3/16-1/16=1/8$ です。固有値 $\lambda$ は $\lambda^2-\lambda+1/8=0$ を満たすから、
+
+$$
+\lambda_\pm=\frac{1\pm1/\sqrt2}{2}>0.
+$$
+
+したがって[密度演算子のスペクトル判定](../QINF2/index.md#thm-qinf2-density-ensemble)により正値で、入力状態の三条件を満たします。$Z\rho Z$ は非対角成分の符号を反転するので
 
 $$
 \rho+Z\rho Z=\operatorname{diag}(3/2,1/2).
@@ -453,17 +496,16 @@ $$
 
 - Level: B
 
-事前共有がないとする。Aliceが $|0\rangle,|1\rangle,|+\rangle,|-\rangle$ の四つの純粋状態から一つ選んで送る方法で、Bobがそれを零誤りで識別できるか。一般の二次元零誤り符号数界とも比較せよ。
+事前共有がないとする。$|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ として、Aliceが $|0\rangle,|1\rangle,|+\rangle,|-\rangle$ の四つの純粋状態から一つ選んで送る方法で、Bobがそれを零誤りで識別できるか。一般の二次元零誤り符号数界とも比較せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$\langle0|+\rangle=1/\sqrt2\ne0$ なので、二つの候補 $|0\rangle,|+\rangle$ だけでも直交しません。零誤り識別を仮定すると、対応するPOVM効果 $E_0$ は $|0\rangle$ には恒等的に、$|+\rangle$ には零として作用するはずです。しかし自己共役性から
+$\langle0|+\rangle=1/\sqrt2\ne0$ なので、二つの候補 $|0\rangle,|+\rangle$ だけでも直交しません。零誤り識別を仮定すると、対応するPOVM効果 $E_0$ は $|0\rangle$ には恒等的に、$|+\rangle$ には零として作用するはずです。しかし $E_0$ の自己共役性から $\langle0|E_0=\langle0|$ となり、
 
 $$
 \langle0|+\rangle
-=\langle E_0 0|+\rangle
-=\langle0|E_0+\rangle=0
+=\langle0|E_0|+\rangle=0
 $$
 
 となって矛盾します。[一qubit零誤り符号数界](#prop-qinf13-unassisted-bound)は混合入力や一般POVMでも高々2語と述べています。Bell対を共有する超密符号化ではBobの受信後のHilbert空間が4次元となり、事前共有なしという仮定が変わるため四語を識別できます。
