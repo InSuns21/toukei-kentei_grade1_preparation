@@ -1,0 +1,16 @@
+version: 1
+id: QFT
+title: "量子場理論 I〜IV"
+plan: textbook/plans_progress/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 最初の実装講義から順に章数を確定する。I〜IVの16項目は章数の固定値ではない。
+chapters:
+  - id: QFT1
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT1
+    status: completed
+    title: "相対論的スカラー場の作用とKlein–Gordon方程式"
+  - id: QFT2
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT2
+    status: planned
+    title: "場の対称性・Noether流・エネルギー運動量テンソル"
