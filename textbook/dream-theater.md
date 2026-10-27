@@ -1023,6 +1023,7 @@
 11. [QINF11 トレース距離・忠実度](textbook/volumes/dream_thater/応用系/QINF/QINF11/index.md)
 12. [QINF12 複製・放送・削除の制約](textbook/volumes/dream_thater/応用系/QINF/QINF12/index.md)
 13. [QINF13 テレポーテーションと超密符号化](textbook/volumes/dream_thater/応用系/QINF/QINF13/index.md)
+14. [QINF14 LOCCと純粋状態の変換](textbook/volumes/dream_thater/応用系/QINF/QINF14/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
@@ -1069,6 +1070,7 @@
 40. [ML2-19 自己教師あり表現学習](textbook/volumes/dream_thater/応用系/ML/ML2-19/index.md)
 41. [ML2-20 変分autoencoder](textbook/volumes/dream_thater/応用系/ML/ML2-20/index.md)
 42. [ML2-21 正規化flow・密度変換](textbook/volumes/dream_thater/応用系/ML/ML2-21/index.md)
+43. [ML2-22 敵対的生成モデルと分布比較](textbook/volumes/dream_thater/応用系/ML/ML2-22/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化

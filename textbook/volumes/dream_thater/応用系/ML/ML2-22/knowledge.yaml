@@ -1,0 +1,41 @@
+chapter: ML2-22
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-01, ML2-14]
+concepts:
+  - id: learning.adversarial-generative-value
+    name: 敵対的生成モデルと識別器の価値関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（敵対的生成モデルと識別器の価値関数）"]
+    requires: [learning.density-log-loss]
+  - id: learning.gan-optimal-discriminator
+    name: 固定生成分布の最適識別器
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定生成分布の最適識別器）"]
+    requires: [learning.adversarial-generative-value]
+  - id: learning.jensen-shannon-divergence
+    name: Jensen–Shannon発散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Jensen–Shannon発散）"]
+    requires: [learning.density-log-loss]
+  - id: learning.gan-js-identity
+    name: 敵対的価値とJensen–Shannon発散の恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（敵対的価値とJensen–Shannon発散の恒等式）"]
+    requires: [learning.adversarial-generative-value, learning.gan-optimal-discriminator, learning.jensen-shannon-divergence]
+  - id: learning.js-bounds-support
+    name: Jensen–Shannon発散の上下界と台の分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Jensen–Shannon発散の上下界と台の分離）"]
+    requires: [learning.jensen-shannon-divergence]
+  - id: learning.gan-discrete-gradient
+    name: 識別器logitと生成器softmaxの勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（識別器logitと生成器softmaxの勾配）"]
+    requires: [learning.adversarial-generative-value, learning.layer-jacobian-chain]

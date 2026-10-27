@@ -65,7 +65,7 @@ chapters:
     title: "テレポーテーションと超密符号化"
   - id: QINF14
     path: textbook/volumes/dream_thater/応用系/QINF/QINF14
-    status: planned
+    status: completed
     title: "LOCCと純粋状態の変換"
   - id: QINF15
     path: textbook/volumes/dream_thater/応用系/QINF/QINF15
