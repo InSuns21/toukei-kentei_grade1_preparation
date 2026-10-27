@@ -15,7 +15,28 @@ $$
 
 $X^2=Z^2=I$、$ZX=-XZ$ です。また $H|0\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$H|1\rangle=(|0\rangle-|1\rangle)/\sqrt2$ で定めるHadamard作用素は $H^\dagger H=I$ を満たします。例えば $H$ の列ベクトルは直交し、どちらも長さ1です。$X,Z,H$ は計算基底に関して具体的に定められたユニタリであり、以後テンソル積の左右に作用する場合は添字で区別します。
 
-最初にAliceとBobが持つ資源を一つずつ数えましょう。$|\Phi^+\rangle_{AB}=(|00\rangle+|11\rangle)/\sqrt2$ は共有Bell対で、[Schmidt分解](../QINF6/index.md#def-qinf6-schmidt)の係数がともに $1/\sqrt2$ です。このような最大エンタングル状態の一対を **1 ebit** と呼びます。AliceとBobが後でやり取りする古典ビット（cbit）と、送信するqubitとは別に数えます。エンタングルメント単独では相手へ選んだメッセージを送れません。
+最初にAliceとBobが持つ資源を一つずつ数えましょう。[Schmidt分解](../QINF6/index.md#def-qinf6-schmidt)では、二qubitの純粋状態のエンタングルメントを二つの係数で確かめました。通信で使うBell対は、この係数が等しい特別な状態です。
+
+<a id="def-qinf13-ebit"></a>
+
+<!-- formal-statement-start -->
+> **定義（Bell対と1 ebit）**  
+> AliceとBobがそれぞれ一つのqubitを保有し、共有純粋状態のSchmidt係数が両方 $1/\sqrt2$ であるとき、その共有資源一組を **1 ebit** と数える。これは両者の局所ユニタリ変換で
+
+$$
+|\Phi^+\rangle_{AB}=\frac{|00\rangle+|11\rangle}{\sqrt2}
+$$
+
+> に移せることと同値である。この状態を本章の標準Bell対として使う。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-qinf13-ebit -->
+### 定義の確認：共有対と積状態
+
+$|\Phi^+\rangle$ は計算基底で既にSchmidt表示になり、係数の二乗和は $1/2+1/2=1$。また[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)でAliceかBobを無視すると $I_2/2$ になり、各側が混合状態です。これに対し $|00\rangle$ のSchmidt係数は $1,0$ で、一方の縮約は $|0\rangle\langle0|$ ですから1 ebitではありません。係数が等しい任意の二qubit純粋状態は、[Schmidt分解](../QINF6/index.md#thm-qinf6-existence)の二組の正規直交ベクトルを局所ユニタリで計算基底へ移せば、$|\Phi^+\rangle$ に変わります。
+<!-- definition-example-end -->
+
+AliceとBobが後でやり取りする古典ビット（cbit）と、送信するqubitとは別にebitを数えます。エンタングルメント単独では相手へ選んだメッセージを送れません。
 
 ## 2. Bell基底：二つのqubitをまとめて測る
 
@@ -429,7 +450,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\langle0|+\rangle=1/\sqrt2\ne0$ なので、$|0\rangle$ と $|+\rangle$ だけでも直交しません。零誤り識別を仮定すれば、対応するPOVM効果 $E_0$ が $E_0|0\rangle=|0\rangle$ と $E_0|+\rangle=0$ を同時に満たす必要があります。しかし自己共役性から $\langle0|+\rangle=\langle E_0 0|+\rangle=\langle0|E_0+\rangle=0$ となって矛盾します。[一qubit零誤り符号数界](#prop-qinf13-unassisted-bound)は混合入力や一般POVMでも高々2語と述べています。Bell対を共有する超密符号化ではBob側の受信後の空間が $2\times2=4$ 次元となり、この仮定が変わるため四語を識別できます。
+$\langle0|+\rangle=1/\sqrt2\ne0$ なので、二つの候補 $|0\rangle,|+\rangle$ だけでも直交しません。零誤り識別を仮定すると、対応するPOVM効果 $E_0$ は $|0\rangle$ には恒等的に、$|+\rangle$ には零として作用するはずです。しかし自己共役性から
+
+$$
+\langle0|+\rangle
+=\langle E_0 0|+\rangle
+=\langle0|E_0+\rangle=0
+$$
+
+となって矛盾します。[一qubit零誤り符号数界](#prop-qinf13-unassisted-bound)は混合入力や一般POVMでも高々2語と述べています。Bell対を共有する超密符号化ではBobの受信後のHilbert空間が4次元となり、事前共有なしという仮定が変わるため四語を識別できます。
 <!-- solution-end -->
 
 <a id="ex-qinf13-b04"></a>
@@ -442,7 +471,15 @@ AliceとBobの資源が $|\Phi^+\rangle$ の代わりに、確率 $p$ で $|\Phi
 <!-- solution-start -->
 ### 詳細解答
 
-$|\Phi^-\rangle_{AB}=(I_A\otimes Z_B)|\Phi^+\rangle_{AB}$ です。Aliceの $SA$ 測定は $B$ 上の $Z$ と交換するので、Bell測定の各枝で標準の場合のBobの状態 $W_{ab}|\psi\rangle$ に、さらに $Z$ が左からかかって $ZW_{ab}|\psi\rangle$ となります。Bobの補正 $U_{ab}=W_{ab}^{-1}$ を掛けた出力は $U_{ab}ZW_{ab}|\psi\rangle$。$W_{ab}$ はPauli積なので、$W_{ab}^{-1}ZW_{ab}=(-1)^b Z$ です。結果に依存するのは全体位相だけで、密度演算子は $Z\rho Z$ になります。$|\Phi^+\rangle$ の枝では[標準定理](#thm-qinf13-teleportation)より $\rho$ です。入力状態と資源状態についてのチャネルの線形性により、無条件の出力は
+$|\Phi^-\rangle_{AB}=(I_A\otimes Z_B)|\Phi^+\rangle_{AB}$ です。Aliceの $SA$ 測定は $B$ 上の $Z$ と交換します。従って結果 $(a,b)$ では、Bob側に標準の場合の $W_{ab}|\psi\rangle$ の代わりに $ZW_{ab}|\psi\rangle$ が現れます。Bobが通常の逆補正をかけると
+
+$$
+U_{ab}ZW_{ab}|\psi\rangle
+=W_{ab}^{-1}ZW_{ab}|\psi\rangle
+=(-1)^bZ|\psi\rangle.
+$$
+
+最後の等号は $Z$ が $X$ と反交換し、$Z$ と可換であることから従います。結果に依存するのは全体位相だけで、密度演算子は $Z\rho Z$ になります。$|\Phi^+\rangle$ の枝では [テレポーテーション恒等式と決定論的補正](#thm-qinf13-teleportation) より $\rho$ です。入力状態と資源状態についてのチャネルの線形性により、無条件の出力は
 
 $$
 \mathcal N_p(\rho)=p\rho+(1-p)Z\rho Z.
@@ -461,9 +498,15 @@ Aliceが二古典ビット $m=(a,b)$ をBobへ送り、その後Bobが未知のq
 <!-- solution-start -->
 ### 詳細解答
 
-第一段階では $A_1B_1$ を $|\Phi^+\rangle$ とし、Aliceが $A_1$ に $U_{ab}=Z^aX^b$ をかけます。[標準超密符号化の完全復号](#thm-qinf13-superdense)により全系は $|B_{ab}\rangle_{A_1B_1}$。Aliceが $A_1$ 一個をBobへ量子送信し、Bobが $A_1B_1$ のBell測定を行うと確率1で $m=(a,b)$ を得ます。ここではAliceからBobへ **1 qubit**、最初の共有 **1 ebit** を使い、別の古典メッセージは送りません。
+第一段階では $A_1B_1$ を標準Bell対とし、Aliceが $A_1$ に局所ユニタリ $U_{ab}=Z^aX^b$ をかけます。[標準超密符号化の完全復号](#thm-qinf13-superdense) により全系は $|B_{ab}\rangle_{A_1B_1}$ です。Aliceは $A_1$ を一個Bobへ量子送信します。Bobが手元に集まった二qubitにBell測定を行うと、確率1で $m=(a,b)$ を得ます。この段階では **1 qubit** と最初の共有 **1 ebit** を使い、古典通信は不要です。
 
-第二段階では残る $A_2B_2$ のBell対を使います。Bobが入力 $S=|\varphi\rangle$ と $B_2$ にBell測定を行い、結果 $(c,d)$ をAliceへ **2 cbit** 送ります。送受信者の役割を入れ替えて [テレポーテーション恒等式と決定論的補正](#thm-qinf13-teleportation) を使うと、Alice側 $A_2$ の条件付き状態は $X^dZ^c|\varphi\rangle$。Aliceが $Z^cX^d$ を施せば $|\varphi\rangle$ が復元されます。消費するのは第二の **1 ebit** です。
+第二段階では残る $A_2B_2$ のBell対を使います。Bobが未知入力 $S$ と $B_2$ にBell測定を行い、結果 $(c,d)$ をAliceへ **2 cbit** 送ります。送受信者の役割を入れ替えて [テレポーテーション恒等式と決定論的補正](#thm-qinf13-teleportation) を使うと、Alice側の条件付き状態は
+
+$$
+X^dZ^c|\varphi\rangle_{A_2}.
+$$
+
+Aliceが $Z^cX^d$ を施すと $|\varphi\rangle$ が復元されます。この段階で第二の **1 ebit** を消費します。
 
 総計は事前共有 **2 ebit**、Alice $\to$ Bob **1 qubit**、Bob $\to$ Alice **2 cbit**、それ以外の送信なしです。二段階目にBobが結果を送る前のAliceの状態は、[無条件縮約の命題](#prop-qinf13-no-signalling)で $I_2/2$。従って未知入力の振幅はまだ読めません。Bobの入力系はBell測定によって元の状態のコピーとして残らず、Aliceに移すのは一つの量子状態だけです。[複製不能定理](../QINF12/index.md#thm-qinf12-pure-no-cloning)と矛盾しません。第一段階の古典ビットは量子通信で運び、第二段階の未知qubitは古典通信と事前エンタングルメントで移した、という方向別の交換関係を区別することが要点です。
 <!-- solution-end -->
