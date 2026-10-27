@@ -44,9 +44,9 @@ $$
 
 固定空白を付ける等長写像 $J:H\to H_A\otimes H_B$ を $J|v\rangle=|v\rangle|0\rangle_B$ と定めます。$J^\dagger J=I_H$ なので、$K=UJ$ に対して
 
-$
+$$
 K^\dagger K=J^\dagger U^\dagger UJ=J^\dagger J=I_H.
-$
+$$
 
 従って[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)から $\mathcal C(X)=KXK^\dagger=U(X\otimes|0\rangle\langle0|)U^\dagger$ はチャネルです。$\rho_a=|a\rangle\langle a|$（$a=0,1$）とすれば、上の二つの基底像から $\mathcal C(\rho_a)=\rho_a\otimes\rho_a$ です。つまり、この例の成立条件は入力が**この二つの直交状態のいずれか**であることです。
 <!-- definition-example-end -->
@@ -126,10 +126,10 @@ $$
 
 最後の等号は[忠実度の定義](../QINF11/index.md#def-qinf11-fidelity)とテンソル積の非負平方根・特異値の積則によるもので、[QINF11-B02の詳細解答](../QINF11/index.md#ex-qinf11-b02)で導出しています。$0\le f\le1$ なので $f=0$ または $1$。[Uhlmann定理の等号条件](../QINF11/index.md#thm-qinf11-uhlmann)より $f=1$ は $\rho=\sigma$ と同値です。一方、
 
-$
+$$
 f=0\iff\|\sqrt\rho\sqrt\sigma\|_1=0
 \iff\sqrt\rho\sqrt\sigma=0.
-$
+$$
 
 このとき $\operatorname{Ran}\sqrt\sigma\subset\ker\sqrt\rho=(\operatorname{supp}\rho)^\perp$ なので、二状態の台は直交します。逆に台が直交すれば $\sqrt\rho\sqrt\sigma=0$ であり、$\rho\sigma=0$ とも同値です。
 
@@ -321,10 +321,10 @@ $$
 
 最後の零は、B側で直交する部分空間の間を結ぶ作用素の部分トレースが消えるためです。[部分トレースの基底公式](../QINF3/index.md#def-qinf3-partial-trace)で、$K$ の固有空間ごとに選んだ正規直交基底 $(b_j)$ を用いれば、各 $j$ について $\langle b_j|P_k$ と $P_l|b_j\rangle$ は $k\ne l$ のとき同時には非零にならず、各項
 
-$
+$$
 (I\otimes\langle b_j|)(P_k\otimes P_k)Y
 (P_l\otimes P_l)(I\otimes|b_j\rangle)=0
-$
+$$
 
 です。よって $\beta=\sum_kP_k\beta P_k$、すなわち $[K,\beta]=0$。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)に照らしたこのブロック判定と $\alpha=K\beta K$ により $[\alpha,\beta]=0$ です。
 
@@ -340,9 +340,9 @@ $$
 
 さらに $\alpha>0$ は $S$ 上正定値です。$S$ に支持される任意の $T\ge0$ に対して、ある $c>0$ が存在して $T\le c\alpha$ です。チャネルの正値性から
 
-$
+$$
 0\le\mathcal B(T)\le c\mathcal B(\alpha)
-$
+$$
 
 であり、右辺は $S\otimes S$ に支持されます。ゆえに $\mathcal B(T)$ も同じ部分空間に支持され、正作用素の線形結合で $L(S)$ を張ることから、$\mathcal B$ の $L(S)$ への制限は $L(S\otimes S)$ に値を取るCPTP写像です。こうして $S$ を全空間とみなし、先ほどの正定値の場合を適用して $[\alpha,\beta]=0$ を得ます。
 
@@ -575,11 +575,11 @@ $$
 
 両固有値は正で異なるため、固有射影は $P_0=|0\rangle\langle0|$、$P_1=|1\rangle\langle1|$ です。確率は $p=(9/10,1/10)$、$q=(2/5,3/5)$。$p_0/q_0=9/4=k_0^2$、$p_1/q_1=1/6=k_1^2$ です。さらに $\sqrt\alpha\sqrt\beta$ は非負対角行列なので、[等号補題](#lem-qinf12-optimal-measurement)のユニタリは $U=I$ と取れます。実際、各 $i=0,1$ について
 
-$
+$$
 U\sqrt\alpha P_i=\sqrt{p_i}\,P_i
 =\sqrt{\frac{p_i}{q_i}}\sqrt{q_i}\,P_i
 =k_i\sqrt\beta P_i.
-$
+$$
 
 従って測定確率の等号だけでなく、等号補題の作用素等式も確認できました。
 
