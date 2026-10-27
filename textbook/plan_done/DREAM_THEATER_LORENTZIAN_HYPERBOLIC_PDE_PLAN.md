@@ -16,7 +16,7 @@
 - HPDEが所有：滑らかなベクトル束と束値微分作用素の波動問題に必要な部分、normally hyperbolic作用素、エネルギー評価、Cauchy問題、有限伝播、局所/大域基本解、advanced/retarded Green作用素、因果伝播子、古典的実KG解のシンプレクティック構造。
 - [MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)が所有：波面集合、擬微分・伝播の微局所理論、Hadamard**二点関数**の特異構造、点分離と応力テンソル。HPDEでは局所基本解の構成に必要な**古典的Hadamard係数・transport equationの入口**だけを扱い、二点関数のHadamard条件は先取りしない。
 - [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)が所有：CCR代数・状態・モジュラー理論の精密な構成。HPDEの解空間は量子化に渡すデータであり、量子論としてのCCRの詳細は移さない。[QCURV](../plans/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)は粒子数・Bogoliubov係数・量子状態・物理観測を所有。
-- [GR](../plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
+- [GR](../plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)の非線形Einstein方程式の制約・ゲージ固定・最大Cauchy発展と、境界条件付き時空の一般理論はHPDEの本編から区別する。対称双曲系・Dirac型のGreen-hyperbolic作用素は必要に応じて発展節とし、normally hyperbolicに対する定理を無条件に流用しない。
 
 **共通の正確な設定**：時空 (M,g) は時間向き付き滑らかなLorentz多様体（符号 (-,+,…,+)）、標準定理では大域双曲・境界なし。E→M は有限ランク滑らかな実/複素ベクトル束とし、接続・束計量・向きを必要な命題で指定する。微分作用素の記号の規約を固定し、基本模型は P=-Box_g+m²（m²≥0、Box_g=g^{ab}∇_a∇_b）とする。一般のnormally hyperbolic Pの2次主シンボルは σ₂(P)(x,ξ)=-g_x^{-1}(ξ,ξ) id_{E_x} と定義する（フーリエの i による符号流儀と混同しない）。形式的自己随伴性は一般のPに自動では成立しない。
 

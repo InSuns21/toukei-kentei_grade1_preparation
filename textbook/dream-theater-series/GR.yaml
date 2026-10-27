@@ -1,7 +1,7 @@
 version: 1
 id: GR
 title: "一般相対論 I・II"
-plan: textbook/plans_progress/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 章が完成したときだけstatusをcompletedにし、公開索引に追加する。
