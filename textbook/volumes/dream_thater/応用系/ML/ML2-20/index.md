@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-20-vae -->
-**定義の確認**。潜在・観測とも一次元とし、$\tau>0$ に対し
+**定義の確認**。潜在・観測とも一次元とし、$a,b\in\mathbb R$、$\tau>0$、$\theta=(a,b,\tau)$ に対し
 
 $$
 p(z)=\frac{e^{-z^2/2}}{\sqrt{2\pi}},\qquad
@@ -118,7 +118,17 @@ $$
 
 ## 3. 対角Gaussian encoderとKLの閉形式
 
-encoderは平均 $\mu_\phi(x)\in\mathbb R^k$ と正の標準偏差を出力できる。$\rho_j=\log\sigma_j$ とすれば $\sigma_j=e^{\rho_j}>0$ となる。共分散が対角というのは **近似事後に置いた独立性の仮定** であり、真の事後分布の性質ではない。
+encoderは平均 $\mu_\phi(x)\in\mathbb R^k$ と正の標準偏差を出力できる。観測 $x$ を固定し、$\rho_{\phi,j}(x)=\log\sigma_j$ とすれば $\sigma_j=e^{\rho_{\phi,j}(x)}>0$ となる。
+
+[Gaussian再パラメータ化](../ML2-09/index.md#def-ml2-09-reparam)を各成分に適用し、独立な標準正規乱数 $\varepsilon_1,\ldots,\varepsilon_k$ から $Z_j=\mu_{\phi,j}(x)+e^{\rho_{\phi,j}(x)}\varepsilon_j$ を作る。このとき $E\varepsilon_j=0$、$E(\varepsilon_i\varepsilon_j)=\delta_{ij}$（同じ添字なら1、異なる添字なら0）なので、
+
+$$
+E[Z_j]=\mu_{\phi,j}(x),\qquad
+\operatorname{Cov}(Z_i,Z_j)
+=e^{\rho_{\phi,i}(x)+\rho_{\phi,j}(x)}\delta_{ij}.
+$$
+
+従って共分散行列の $(i,j)$ 成分は、$i=j$ なら $e^{2\rho_{\phi,j}(x)}$、そうでなければ0となる。$\operatorname{diag}(c_1,\ldots,c_k)$ は $c_j$ を対角成分に置き、他の成分を0にした行列である。共分散が対角というのは **近似事後に置いた独立性の仮定** であり、真の事後分布の性質ではない。以下、$q=N_k(\mu,\Sigma)$ は「$q$ が $N_k(\mu,\Sigma)$ の密度である」の略記とする。
 
 <a id="def-ml2-20-diagonal-encoder"></a>
 
@@ -136,7 +146,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-20-diagonal-encoder -->
-**定義の確認**。$k=2$、$\mu=(1,-1)$、$\sigma=(2,1/2)$ とすると $\rho=(\log2,-\log2)$、共分散は $\operatorname{diag}(4,1/4)$。
+**定義の確認**。$k=2$、$\mu=(1,-1)$、$\sigma=(2,1/2)$ とすると $\rho=(\log2,-\log2)$ で、直前の共分散成分の式から $\operatorname{diag}(4,1/4)$ を得る。任意の非零ベクトル $v=(v_1,v_2)^T\in\mathbb R^2$ に対し
 
 $$
 v^T\operatorname{diag}(4,1/4)v=4v_1^2+v_2^2/4>0
@@ -197,7 +207,7 @@ $$
 $\log\sigma_j^2=2\rho_j$ と $\sigma_j^2=e^{2\rho_j}$ を使えば第二の表記も得られる。$\square$
 <!-- proof-end -->
 
-定義例の $\mu=(1,-1)$、$\sigma=(2,1/2)$ なら対数分散が相殺して $D(q\|p)=17/8$ となる。KLが0になるのはすべての成分で $\mu_j=0$、$\sigma_j=1$ となるときに限る。
+定義例の $\mu=(1,-1)$、$\sigma=(2,1/2)$ なら対数分散が相殺して $D(q\|p)=17/8$ となる。$t>0$ に対し $g(t)=t-1-\log t$ は $g'(t)=1-1/t$ だから $t=1$ で唯一の最小値0を取る。よって各項 $\mu_j^2+g(\sigma_j^2)$ は非負であり、KLが0になるのはすべての成分で $\mu_j=0$、$\sigma_j=1$ となるときに限る。
 
 ## 4. 再構成項はdecoderの尤度が決める
 
@@ -248,7 +258,7 @@ $\odot$ と指数は成分ごとの演算である。乱数 $\varepsilon$ を固
 > **定理（Gaussian VAEの経路勾配）**
 > 観測 $x$ を固定し、事前は $N_k(0,I_k)$、encoderは対角Gaussianとする。$h_\theta(z)=\log p_\theta(x\mid z)$ は $z,\theta$ で連続微分可能、$\mu_\phi(x),\rho_\phi(x)$ は $\phi$ で連続微分可能とする。
 >
-> パラメータ近傍で $h_\theta(T_\phi)$ とその偏微分を同じ可積分関数で支配でき、微分と期待値を交換できると仮定する。$J_\phi\mu,J_\phi\rho$ は行を出力成分とするJacobianとする。このとき
+> $\theta\in\mathbb R^r$、$\phi\in\mathbb R^m$ を別々のパラメータ群とする。パラメータ近傍で $h_\theta(T_\phi(x,\varepsilon))$ とその偏微分を同じ可積分関数で支配でき、微分と期待値を交換できると仮定する。$J_\phi\mu,J_\phi\rho\in\mathbb R^{k\times m}$ は行を出力成分、列を $\phi$ の成分とするJacobian、$\boldsymbol1\in\mathbb R^k$ は全成分が1の列ベクトルとする。勾配も列ベクトルとして書く。このとき
 
 $$
 \begin{aligned}
@@ -263,7 +273,6 @@ $$
 \end{aligned}
 $$
 
-> $\theta,\phi$ は独立のパラメータ群とする。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -324,7 +333,7 @@ $Z\sim N(0,1)$、$X\mid Z=z\sim N(z,1)$ とする。独立な標準正規 $E$ �
 
 <!-- formal-statement-start -->
 > **命題（線形Gaussian VAEの下界一致）**
-> この模型でencoderを $q(z\mid1)=N(\mu,s^2)$、$\mu\in\mathbb R$、$s>0$ とすると、真の事後は $N(1/2,1/2)$ であり、ELBOは $\mu=1/2,s^2=1/2$ で最大になる。その最大値は
+> $Z\sim N(0,1)$、$X\mid Z=z\sim N(z,1)$、観測 $x=1$ の模型でencoderを $q(z\mid1)=N(\mu,s^2)$、$\mu\in\mathbb R$、$s>0$ とすると、真の事後は $N(1/2,1/2)$ であり、ELBOは $\mu=1/2,s^2=1/2$ で最大になる。その最大値は
 
 $$
 \log p(1)=-\frac12\log(4\pi)-\frac14
@@ -385,7 +394,7 @@ $$
 \log p(1)-\mathcal L(0,1)=\tfrac34-\tfrac12\log2>0.
 $$
 
-差は真の事後へのKLである。これは真の事後を表現できるencoder族でも、誤ったencoderパラメータなら下界は緩むことを示す。
+この差は[VAEのELBOと事後KL恒等式](#thm-ml2-20-elbo)により真の事後へのKLである。真の事後を表現できるencoder族でも、誤ったencoderパラメータなら下界は緩むことを示す。
 
 ## 7. 潜在変数を無視するdecoderとサンプル推定値
 

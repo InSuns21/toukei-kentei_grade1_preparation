@@ -29,11 +29,23 @@ $$
 <!-- definition-example-start: def-qinf11-trace-distance -->
 ### 定義の確認：直交・同一・非直交
 
-**定義の確認**として、状態の非負性・正規化を確かめてから、差の固有値を用いて距離を計算します。
+**定義の確認**として、状態の非負性・正規化を確かめてから、差の固有値を用いて距離を計算します。以下、計算基底 $|0\rangle,|1\rangle$ で行列を表し、$\operatorname{diag}(a,b)$ はこの基底での対角作用素を表す記法です。具体的には
+
+$$
+\operatorname{diag}(a,b)=a|0\rangle\langle0|+b|1\rangle\langle1|.
+$$
+
+自己共役な差 $A$ を固有基底で表示すると、$\sqrt{A^2}$ の固有値は元の固有値 $\lambda_i$ の絶対値です。したがって[有限次元トレースノルムの定義](../QINF10/index.md#def-qinf10-trace-norm)から
+
+$$
+\|A\|_1=\operatorname{Tr}\sqrt{A^2}=\sum_i|\lambda_i|
+$$
+
+と計算できます。
 
 計算基底で $\rho=|0\rangle\langle0|$、$\sigma=|1\rangle\langle1|$ とすると、それぞれ非負・トレース1なので状態です。差は $\operatorname{diag}(1,-1)$、その絶対値は $I_2$ で、$T=1$ となります。一方 $\rho=\sigma$ なら差は零で $T=0$ です。
 
-非直交の例として $\rho=|0\rangle\langle0|$、$\sigma=|+\rangle\langle+|$、$|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ では
+非直交の例として $\rho=|0\rangle\langle0|$、$\sigma=|+\rangle\langle+|$、$|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を取ります。$\langle+|+\rangle=1$ なので、$\sigma$ も非負・トレース1の純粋状態です。この基底で射影 $|+\rangle\langle+|$ の $(i,j)$ 成分は $\langle i|+\rangle\langle+|j\rangle$ となるため、差の行列は
 
 $$
 \rho-\sigma=\frac12
@@ -260,7 +272,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$d=\dim H$ とし、まず $H_R\cong\mathbb C^d$ を選びます。$|\Omega\rangle$ 自体はノルム $\sqrt d$ の非規格化ベクトルですが、
+$d=\dim H$ とし、まず $H_R\cong\mathbb C^d$ を選びます。$H$ と $H_R$ に添字 $1\le i\le d$ を対応させた正規直交基底 $|i\rangle$ と $|i\rangle_R$ を取り、$|\Omega\rangle=\sum_{i=1}^d|i\rangle\otimes|i\rangle_R$ と置きます。このベクトル自体はノルム $\sqrt d$ の非規格化ベクトルですが、
 
 $$
 |\Psi_\rho\rangle=(\sqrt\rho\otimes I_R)|\Omega\rangle,
@@ -277,7 +289,7 @@ $$
 
 です。$\sigma$ についても同じ計算で精製の条件を満たします。[同一縮約を持つ精製の等長写像による関係](../QINF4/index.md#thm-qinf4-isometric-freedom)を同じ次元 $d$ の補助系に適用すると、$\sigma$ の任意の精製は $(I\otimes U)|\Psi_\sigma\rangle$ と書けます。$\rho$ の精製も補助系のユニタリで正準精製に移せるので、一方を固定してよいわけです。
 
-行列成分で内積を展開すると
+補助系側の基底で $U_{ij}={}_R\langle i|U|j\rangle_R$ と書き、$U^{\mathsf T}$ をこの行列表現の転置と定めます。行列成分で内積を展開すると
 
 $$
 \begin{aligned}
@@ -287,7 +299,7 @@ $$
 \end{aligned}
 $$
 
-ここで上付きの $\mathsf T$ は固定した基底での転置であり、$U^{\mathsf T}$ もユニタリです。$U$ を全ユニタリにわたって動かせば $U^{\mathsf T}$ も全ユニタリを動きます。[補題](#lem-qinf11-unitary-optimization)から最大絶対値は $\|\sqrt\rho\sqrt\sigma\|_1=f(\rho,\sigma)$ です。
+転置した $U^{\mathsf T}$ もユニタリです。$U$ を全ユニタリにわたって動かせば $U^{\mathsf T}$ も全ユニタリを動きます。[補題](#lem-qinf11-unitary-optimization)から最大絶対値は $\|\sqrt\rho\sqrt\sigma\|_1=f(\rho,\sigma)$ です。
 
 $\dim H_R>d$ の場合は正準精製をそれぞれ等長写像 $J_\rho,J_\sigma:\mathbb C^d\to H_R$ によって埋め込みます。[同一縮約を持つ精製の等長写像による関係](../QINF4/index.md#thm-qinf4-isometric-freedom)により、任意の精製はこの形に書けます。二つの重なりは上式の $U$ を $C=J_\rho^\dagger J_\sigma$ に置き換えたものです。等長性から $\|C\|_\infty\le1$ であり、[補題の特異値分解](#lem-qinf11-unitary-optimization)と同じ計算で
 
@@ -369,7 +381,36 @@ $$
 <!-- proof-start -->
 ### 証明
 
-可換な自己共役行列は同時に対角化できます。この基底で $\rho-\sigma$ の固有値が $p_i-q_i$ だから、[有限次元トレースノルム](../QINF10/index.md#def-qinf10-trace-norm)はその絶対値和です。一方、$\sqrt\rho=\operatorname{diag}(\sqrt{p_i})$、$\sqrt\sigma=\operatorname{diag}(\sqrt{q_i})$ で、$\sqrt\rho\,\sigma\sqrt\rho=\operatorname{diag}(p_iq_i)$。非負平方根のトレースを取ると第2式を得ます。$\square$
+同時対角化の理由を確かめます。$\rho v=\lambda v$ を満たす $v$ に対し、可換性から
+
+$$
+\rho(\sigma v)=\sigma(\rho v)=\lambda\sigma v
+$$
+
+なので、$\rho$ の各固有空間は $\sigma$ で保たれます。$\sigma$ はその各固有空間への制限でも自己共役です。[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で各固有空間内に正規直交固有基底を選び、合わせれば共通固有基底が得られます。
+
+この基底では $\rho-\sigma=\operatorname{diag}(p_i-q_i)$ です。[有限次元トレースノルム](../QINF10/index.md#def-qinf10-trace-norm)の定義を固有値 $p_i-q_i$ に適用すると
+
+$$
+T(\rho,\sigma)=\frac12\|\rho-\sigma\|_1
+=\frac12\sum_i|p_i-q_i|.
+$$
+
+一方、同じ基底で非負平方根を取ると
+
+$$
+\sqrt\rho=\operatorname{diag}(\sqrt{p_i}),
+\qquad \sqrt\rho\,\sigma\sqrt\rho=\operatorname{diag}(p_iq_i).
+$$
+
+右辺の対角成分はすべて非負です。さらに平方根を取ってトレースを求めれば
+
+$$
+f(\rho,\sigma)=\operatorname{Tr}\operatorname{diag}(\sqrt{p_iq_i})
+=\sum_i\sqrt{p_iq_i}.
+$$
+
+これで二つの式が得られました。$\square$
 <!-- proof-end -->
 
 ### 直接例：二値分布では距離は単なる確率差
@@ -690,7 +731,20 @@ $$
 =(\sqrt\rho\sqrt\sigma)\otimes(\sqrt\tau\sqrt\omega).
 $$
 
-左因子の特異値を $s_i$、右因子の特異値を $t_j$ とします。[複素特異値分解](../../../基礎科目/LA/LA6/index.md#thm-la6-complex-svd)で両行列を対角化すればテンソル積の特異値は $s_it_j$ です。ゆえに
+左因子 $A=\sqrt\rho\sqrt\sigma$ の特異値を $s_i$、右因子 $B=\sqrt\tau\sqrt\omega$ の特異値を $t_j$ とします。[複素特異値分解](../../../基礎科目/LA/LA6/index.md#thm-la6-complex-svd)は、左右からユニタリ行列を掛ける次の表示です。
+
+$$
+A=U\operatorname{diag}(s_i)V^\dagger,
+\qquad B=P\operatorname{diag}(t_j)Q^\dagger.
+$$
+
+このとき
+
+$$
+A\otimes B=(U\otimes P)\bigl(\operatorname{diag}(s_i)\otimes\operatorname{diag}(t_j)\bigr)(V\otimes Q)^\dagger.
+$$
+
+両側のテンソル積もユニタリで、中央は対角成分がすべて $s_it_j\ge0$ の対角行列です。したがってテンソル積の特異値は $s_it_j$ であり、
 
 $$
 \|(\sqrt\rho\sqrt\sigma)\otimes(\sqrt\tau\sqrt\omega)\|_1
