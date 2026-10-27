@@ -12,6 +12,13 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: quantum.one-ebit-resource
+    name: Bell対と1 ebit
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Bell対と1 ebit）]
+    requires: [quantum.schmidt-decomposition, quantum.partial-trace]
+
   - id: quantum.bell-basis-measurement
     name: Bell基底とBell測定
     kind: definition
