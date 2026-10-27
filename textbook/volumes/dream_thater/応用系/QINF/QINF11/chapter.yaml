@@ -1,0 +1,53 @@
+id: "QINF11"
+title: "トレース距離・忠実度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA6
+  - QINF2
+  - QINF3
+  - QINF4
+  - QINF5
+  - QINF7
+  - QINF8
+  - QINF10
+official_scope: []
+learning_objectives:
+  - トレース距離を測定結果の全変動距離として特徴づけ、二状態識別と結び付けられる
+  - 有限次元量子チャネルによるトレース距離の縮小を双対写像から証明できる
+  - 平方根忠実度と二乗忠実度を区別し、純粋状態・可換混合状態で算出できる
+  - Uhlmann定理を正準精製・極分解・補助系のユニタリ自由度から導ける
+  - 忠実度のチャネル下の単調性とFuchs–van de Graaf不等式を証明・適用できる
+  - 雑音チャネルの具体例で両指標と識別誤りを突き合わせられる
+definitions:
+  - { id: QINF11-DEF-01, name: "トレース距離" }
+  - { id: QINF11-DEF-02, name: "平方根忠実度と二乗忠実度" }
+theorems:
+  - { id: QINF11-THM-01, name: "トレース距離の測定特徴づけ" }
+  - { id: QINF11-THM-02, name: "トレース距離のデータ処理不等式" }
+  - { id: QINF11-LEM-01, name: "ユニタリ最適化とトレースノルム" }
+  - { id: QINF11-LEM-02, name: "忠実度を実現する測定" }
+  - { id: QINF11-THM-03, name: "Uhlmannの精製忠実度定理" }
+  - { id: QINF11-THM-04, name: "忠実度のデータ処理不等式" }
+  - { id: QINF11-THM-05, name: "Fuchs–van de Graaf不等式" }
+  - { id: QINF11-PROP-01, name: "純粋状態のトレース距離" }
+  - { id: QINF11-PROP-02, name: "可換状態の距離と忠実度" }
+canonical_examples:
+  - "直交・同一状態、|0>と|+>の距離・忠実度"
+  - "対角qubit状態の全変動距離・古典忠実度"
+  - "二値測定と精製によるFuchs–van de Graaf界の検算"
+  - "振幅減衰下での距離縮小と忠実度増加"
+problem_patterns:
+  - QINF11-CLASSICAL-TRACE-DISTANCE
+  - QINF11-PURE-TRACE-DISTANCE
+  - QINF11-PURE-MIXED-FIDELITY
+  - QINF11-CANONICAL-PURIFICATION
+  - QINF11-DEPHASING-CONTRACTION
+  - QINF11-FIDELITY-CONVENTIONS
+  - QINF11-FVDG-COMMUTING
+  - QINF11-FIDELITY-TENSOR-PRODUCT
+  - QINF11-AMPLITUDE-DAMPING-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.5, review: 2.0 }

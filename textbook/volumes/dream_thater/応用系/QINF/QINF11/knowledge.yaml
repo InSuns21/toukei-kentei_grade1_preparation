@@ -1,0 +1,99 @@
+chapter: QINF11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA6
+  - QINF2
+  - QINF3
+  - QINF4
+  - QINF5
+  - QINF7
+  - QINF8
+  - QINF10
+forward_references: []
+
+concepts:
+  - id: quantum.trace-distance
+    name: トレース距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（トレース距離）]
+    requires: [quantum.finite-trace-norm, quantum.finite-density-operator]
+
+  - id: quantum.trace-distance-measurement
+    name: トレース距離の測定特徴づけ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（トレース距離の測定特徴づけ）]
+    requires: [quantum.trace-distance, quantum.positive-part-variational, quantum.povm]
+
+  - id: quantum.trace-distance-data-processing
+    name: トレース距離のデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（トレース距離のデータ処理不等式）]
+    requires: [quantum.trace-distance-measurement, quantum.channel-adjoint]
+
+  - id: quantum.root-fidelity
+    name: 平方根忠実度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平方根忠実度と二乗忠実度）]
+    requires: [quantum.finite-density-operator, quantum.finite-trace-norm]
+
+  - id: quantum.squared-fidelity
+    name: 二乗忠実度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平方根忠実度と二乗忠実度）]
+    requires: [quantum.root-fidelity]
+
+  - id: quantum.unitary-trace-norm-variational
+    name: ユニタリ最適化とトレースノルム
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（ユニタリ最適化とトレースノルム）]
+    requires: [quantum.finite-trace-norm]
+
+  - id: quantum.uhlmann-fidelity
+    name: Uhlmannの精製忠実度定理
+    kind: theorem
+    introduction: formal
+    aliases: [Uhlmann定理]
+    introduction_aliases: [定理（Uhlmannの精製忠実度定理）]
+    requires: [quantum.root-fidelity, quantum.purification-isometry, quantum.unitary-trace-norm-variational]
+
+  - id: quantum.fidelity-data-processing
+    name: 忠実度のデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（忠実度のデータ処理不等式）]
+    requires: [quantum.uhlmann-fidelity, quantum.stinespring-representation]
+
+  - id: quantum.pure-state-trace-distance
+    name: 純粋状態のトレース距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋状態のトレース距離）]
+    requires: [quantum.trace-distance]
+
+  - id: quantum.commuting-distances
+    name: 可換状態の距離と忠実度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可換状態の距離と忠実度）]
+    requires: [quantum.trace-distance, quantum.root-fidelity]
+
+  - id: quantum.fidelity-attaining-measurement
+    name: 忠実度を実現する測定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（忠実度を実現する測定）]
+    requires: [quantum.root-fidelity, quantum.fidelity-data-processing]
+
+  - id: quantum.fuchs-van-de-graaf
+    name: Fuchs–van de Graaf不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Fuchs–van de Graaf不等式）]
+    requires: [quantum.fidelity-attaining-measurement, quantum.pure-state-trace-distance, quantum.trace-distance-data-processing]
