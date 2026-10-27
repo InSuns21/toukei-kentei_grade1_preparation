@@ -1,0 +1,49 @@
+id: "GR44"
+title: "宇宙論的地平線とde Sitter"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR28
+  - GR41
+  - GR42
+  - GR43
+official_scope: []
+learning_objectives:
+  - FLRWの共形時間と光的条件から粒子地平線と宇宙論的事象地平線を因果的に定義し積分判定できる
+  - 正曲率空間の大域的注意を含め座標パッチの境界と時空の真の地平線を区別できる
+  - Hubble半径と地平線が一般には異なることを冪乗膨張・反例で説明できる
+  - 粒子地平線・事象地平線の固有距離の時間発展式を導ける
+  - 正の宇宙項の平坦de Sitter解の曲率・共形時間・地平線を直接計算できる
+  - de Sitterの平坦FLRW座標を静的座標へ変換し適用域と光線方向を説明できる
+  - 加速膨張だけでは未来の事象地平線の存在は保証されないことを判定できる
+definitions:
+  - { id: GR44-DEF-01, name: FLRWの粒子地平線 }
+  - { id: GR44-DEF-02, name: FLRWの宇宙論的事象地平線 }
+  - { id: GR44-DEF-03, name: Hubble半径 }
+theorems:
+  - { id: GR44-PROP-01, name: 共形時間積分による地平線判定 }
+  - { id: GR44-PROP-02, name: 地平線固有距離の時間発展 }
+  - { id: GR44-PROP-03, name: 冪乗膨張の地平線とHubble半径 }
+  - { id: GR44-PROP-04, name: 平坦de Sitterの曲率と共形時間 }
+  - { id: GR44-THM-01, name: de Sitterの静的座標と宇宙論的地平線 }
+canonical_examples:
+  - 塵型a∝t^(2/3)の粒子地平線と事象地平線の不在
+  - 加速型a∝t^2の事象地平線とHubble半径の不一致
+  - a=t log(t/t*)による永続的な加速と事象地平線の不在
+  - 平坦de Sitterの共形時間・未来事象地平線・静的パッチ
+  - 物質優勢から指数膨張へ接続するC1級模型
+problem_patterns:
+  - GR44-PARTICLE-POWERLAW
+  - GR44-EVENT-POWERLAW
+  - GR44-LOG-BORDERLINE
+  - GR44-HUBBLE-NOT-HORIZON
+  - GR44-DE-SITTER-CONFORMAL
+  - GR44-HORIZON-EVOLUTION
+  - GR44-ACCELERATION-COUNTEREXAMPLE
+  - GR44-STATIC-COORDINATES
+  - GR44-DE-SITTER-CURVATURE
+  - GR44-PIECEWISE-COSMOLOGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }

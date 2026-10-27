@@ -1272,6 +1272,7 @@
 41. [GR41 FLRW計量と対称性](textbook/volumes/dream_thater/物理系/GR/GR41/index.md)
 42. [GR42 Friedmann方程式と流体保存](textbook/volumes/dream_thater/物理系/GR/GR42/index.md)
 43. [GR43 宇宙赤方偏移と膨張の測定](textbook/volumes/dream_thater/物理系/GR/GR43/index.md)
+44. [GR44 宇宙論的地平線とde Sitter](textbook/volumes/dream_thater/物理系/GR/GR44/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学
