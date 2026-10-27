@@ -34,14 +34,34 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr42-hubble-fluid -->
-**定義の確認**：$k=0$、$a(\tau)=1+\tau^2$、$\rho(\tau)=3$、$p(\tau)=2$ と置きます。$a>0$ で $g_{00}=-1$ だから $g(u,u)=-1$、$u_0=-1,u_i=0$ です。従って $T_{00}=(3+2)(-1)^2+2(-1)=3$、$T_{0i}=0$、$T_{ij}=2(1+\tau^2)^2\delta_{ij}$ で全方向に同じ圧力がかかります。$H=2\tau/(1+\tau^2)$ です。これは**テンソルの定義の例**であり、$\rho,p$ を定数に選んだこの組がEinstein方程式を満たすとは主張していません。
+**定義の確認**：平坦なCartesian空間座標を選び、$\gamma_{ij}=\delta_{ij}$、$a(\tau)=1+\tau^2$、$\rho(\tau)=3$、$p(\tau)=2$ と置きます。$a>0$ で $\rho\ge0$、$\rho,p$ は滑らかです。$g_{00}=-1$ だから $u=\partial_\tau$ は未来向き単位速度で、$g(u,u)=-1$、$u_0=-1,u_i=0$ です。テンソルの定義へ代入すると
+
+$$
+T_{00}=(3+2)(-1)^2+2(-1)=3,\qquad
+T_{0i}=0,\qquad T_{ij}=2(1+\tau^2)^2\delta_{ij}.
+$$
+
+最後の座標成分が等方圧力を表す理由も確かめます。空間計量は $h_{ij}=a^2\delta_{ij}$ なので、空間の単位直交基底を $e_{(i)}=a^{-1}\partial_i$ と取れます。二階共変テンソル $T$ の両引数をそれぞれ $a^{-1}$ 倍した接ベクトルで評価すると
+
+$$
+T(e_{(i)},e_{(j)})=a^{-2}T_{ij}=2\delta_{ij}=p\delta_{ij},
+\qquad T(u,e_{(i)})=0.
+$$
+
+従ってどの単位空間方向でも応力は同じ $p=2$ で、熱流束もありません。$H=\dot a/a=2\tau/(1+\tau^2)$ です。これは**テンソルの定義の例**であり、$\rho,p$ を定数に選んだこの組がEinstein方程式を満たすとは主張していません。
 <!-- definition-example-end -->
 
 密度や圧力が場所に依存していたら空間並進のもとでテンソルが変化し、方向ごとの応力が異なれば回転のもとで変化します。ここで一様性・等方性を課しているのは**流体の静止系**です。宇宙全体の厳密な模型としての仮定であり、星や銀河などの小尺度の不均一を否定するものではありません。
 
 ## 2. 接続から時空Ricci曲率まで手で出す
 
-必要な成分は思いのほか少数です。時刻依存が $a$ だけなので、[Levi-Civita接続の座標公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)を $g_{00}=-1,g_{0i}=0,g_{ij}=h_{ij}$ に代入すればよいのです。空間のChristoffel係数は、$a$ が空間座標に依存しないため $\gamma$ のものと一致します。Ricciを出すときには、**3次元空間の曲率**と**時間変化による曲率**を足します。
+必要な成分は思いのほか少数です。以下、座標添字 $0$ は宇宙時間 $\tau$、$i,j,\ell$ は空間座標を表します。$\partial_0=\partial/\partial\tau$ は空間座標 $x^i$ を固定する偏微分です。尺度因子・Hubble率・密度・圧力は時間だけの関数なので、例えば
+
+$$
+\partial_0a=\frac{da}{d\tau}=\dot a,\qquad \partial_i a=0.
+$$
+
+点記法と偏微分はこの意味で使い分けます。[Levi-Civita接続の座標公式](../../../幾何系/GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)を $g_{00}=-1,g_{0i}=0,g_{ij}=h_{ij}$ に代入します。空間のChristoffel係数は、$a$ が空間座標に依存しないため $\gamma$ のものと一致します。Ricciを出すときには、**3次元空間の曲率**と**時間変化による曲率**を足します。
 
 <a id="prop-gr42-flrw-curvature"></a>
 
@@ -295,7 +315,18 @@ $$
 \end{aligned}
 $$
 
-空間成分では $\partial_i p=0$、$\Gamma^i{}_{00}=0$ です。残る空間接続の項は計量両立性 $\widehat\nabla_jh^{ji}=0$ によって相殺し、$\nabla_\mu T^{\mu i}=0$。よって時間成分の式が全四成分の局所保存と同値です。
+空間成分では $\partial_i p=0$、$\Gamma^i{}_{00}=0$ です。$\widehat\nabla$ を時刻面の空間計量 $h$ のLevi-Civita接続とすると、上の接続係数から残りの項は
+
+$$
+\begin{aligned}
+\nabla_\mu T^{\mu i}
+&=\partial_j(ph^{ji})+\widehat\Gamma^j{}_{j\ell}ph^{\ell i}
++\widehat\Gamma^i{}_{j\ell}ph^{j\ell}\\
+&=h^{ji}\partial_jp+p\widehat\nabla_jh^{ji}=0.
+\end{aligned}
+$$
+
+最後の等号には $p$ の一様性と[Levi-Civita接続の計量両立性](../../../幾何系/GEO/GEO13/index.md#def-geo13-metric-compatibility)を使いました。よって時間成分の式が全四成分の局所保存と同値です。
 
 次に一定 $w$ の場合は
 
@@ -414,14 +445,14 @@ $$
 \left(\frac{\dot a}{a}\right)^2=\frac{8\pi C}{3}a^{-n}.
 $$
 
-膨張枝 $\dot a>0$ では $D=\sqrt{8\pi C/3}>0$ と置いて $\dot a=D a^{1-n/2}$、すなわち
+膨張枝 $\dot a>0$ では $D=\sqrt{8\pi C/3}>0$ と置いて $\dot a=D a^{1-n/2}$ です。$a>0,n>0$ なので $a^{n/2}$ は微分でき、連鎖律から
 
 $$
-a^{n/2-1}\,da=D\,d\tau,
-\qquad \frac{2}{n}a^{n/2}=D(\tau-\tau_B).
+\frac{d}{d\tau}\left(a^{n/2}\right)
+=\frac n2 a^{n/2-1}\dot a=\frac{nD}{2}.
 $$
 
-$a>0,n>0$ より $\tau>\tau_B$、$a=[(nD/2)(\tau-\tau_B)]^{2/n}=A(\tau-\tau_B)^{2/n}$ です。対数微分すると
+両辺を宇宙時間 $\tau$ で積分して $a^{n/2}=(nD/2)(\tau-\tau_B)$ を得ます。しばしば書く $a^{n/2-1}\,da=D\,d\tau$ はこの連鎖律と積分の省略記法であり、微分記号を分数として勝手に割ったものではありません。$a>0,nD>0$ より $\tau>\tau_B$、従って $a=[(nD/2)(\tau-\tau_B)]^{2/n}=A(\tau-\tau_B)^{2/n}$ です。対数微分すると
 
 $$
 H=\frac{2}{n(\tau-\tau_B)},\qquad
@@ -441,7 +472,23 @@ $$
 真空 $\rho=p=0$、$k=0$、$\Lambda>0$ なら制約から $H^2=\Lambda/3$ です。膨張枝を選んで $\dot a=H_\Lambda a$ を積分すると指数関数を得ます。$\ddot a/a=H_\Lambda^2=\Lambda/3$ で加速式も成立します。$\Lambda=0,w=-1$ の流体の場合、保存から $\dot\rho=0$ で $\rho>0$ は一定なので同じ計算です。$\square$
 <!-- proof-end -->
 
-指数膨張の平坦な模型はde Sitter時空の一つの座標域を与えます。$\Lambda>0$ で物質のない場合、**非平坦なFLRW葉**も可能です。$b=\sqrt{\Lambda/3}$ と書けば $k=+1$ では $a=b^{-1}\cosh(b\tau)$（$\tau\in\mathbb R$）、$k=-1$ では $a=b^{-1}\sinh(b\tau)$（$\tau>0$）が成り立ちます。実際、前者は $H=b\tanh(b\tau)$、$1/a^2=b^2\operatorname{sech}^2(b\tau)$ より $H^2+1/a^2=b^2$、後者は $H=b\coth(b\tau)$、$1/a^2=b^2\operatorname{csch}^2(b\tau)$ より $H^2-1/a^2=b^2$ です。いずれも $\ddot a/a=b^2$ を満たします。空間の曲率符号が違うからといって、直ちに異なる宇宙項の理論を意味するわけではありません。
+指数膨張の平坦な模型はde Sitter時空の一つの座標域を与えます。$\Lambda>0$ で物質のない場合、**非平坦なFLRW葉**も可能です。$b=\sqrt{\Lambda/3}>0$ と置くと、閉じた空間断面 $k=+1$ では全実数時刻で
+
+$$
+a=b^{-1}\cosh(b\tau),\qquad
+H=b\tanh(b\tau),\qquad
+\frac1{a^2}=b^2\operatorname{sech}^2(b\tau).
+$$
+
+恒等式 $\tanh^2z+\operatorname{sech}^2z=1$ から $H^2+1/a^2=b^2$ です。他方、負曲率の $k=-1$ では $\tau>0$ に対して
+
+$$
+a=b^{-1}\sinh(b\tau),\qquad
+H=b\coth(b\tau),\qquad
+\frac1{a^2}=b^2\operatorname{csch}^2(b\tau).
+$$
+
+恒等式 $\coth^2z-\operatorname{csch}^2z=1$ より $H^2-1/a^2=b^2$ です。いずれも直接二階微分すれば $\ddot a/a=b^2$ を満たします。空間の曲率符号が違うからといって、直ちに異なる宇宙項の理論を意味するわけではありません。
 
 一方で[Milne時空](../GR41/index.md#ex-gr41-c01)の $k=-1,a=\tau,\rho=p=\Lambda=0$ なら $H^2+k/a^2=\tau^{-2}-\tau^{-2}=0$、$\ddot a=0$ で両式が成立します。**空間が負曲率でも物質が必須とは限らない**という対照例です。
 
@@ -595,11 +642,34 @@ $h_{ij}$ の係数比較は $h$ が非退化であることを使い、$H$ で�
 $k=\Lambda=0$、$\rho>0$、一定 $w>-1$ の膨張解を考える。保存式と制約式を積分して $a,\rho$ を求め、$w=0,1/3$ の二例で $\ddot a/a$ と $-4\pi(\rho+3p)/3$ を数値係数まで比較せよ。時間原点は $\tau_B$ とする。
 
 <!-- solution-start -->
-**詳細解答。** [密度スケーリング](#prop-gr42-fluid-continuity)から $\rho=Ca^{-n}$、$n=3(1+w)>0$、$C>0$。制約は $(\dot a/a)^2=(8\pi C/3)a^{-n}$ です。膨張枝で $D=\sqrt{8\pi C/3}$ とすると $a^{n/2-1}da=Dd\tau$、積分は $a^{n/2}=nD(\tau-\tau_B)/2$。よって $a=A(\tau-\tau_B)^{2/n}$、$H=2/[n(\tau-\tau_B)]$、$\rho=3H^2/(8\pi)$ です。
+**詳細解答。** [密度スケーリング](#prop-gr42-fluid-continuity)から $\rho=Ca^{-n}$、$n=3(1+w)>0$、$C>0$。[Friedmann制約](#thm-gr42-friedmann)は $(\dot a/a)^2=(8\pi C/3)a^{-n}$ です。膨張枝では $D=\sqrt{8\pi C/3}>0$ とすると $\dot a=Da^{1-n/2}$。$a>0$ なので連鎖律を適用でき、
 
-$s=\tau-\tau_B>0$ と書くと、塵 $n=3,w=0$ では $a=As^{2/3}$、$\rho=1/(6\pi s^2)$。直接微分して $\ddot a/a=(2/3)(-1/3)s^{-2}=-2/(9s^2)$、右辺も $-4\pi\rho/3=-4\pi/(18\pi s^2)=-2/(9s^2)$ です。
+$$
+\frac{d}{d\tau}\left(a^{n/2}\right)
+=\frac n2 a^{n/2-1}\dot a=\frac{nD}{2}.
+$$
 
-放射 $n=4,w=1/3$ では $a=As^{1/2}$、$\rho=3/(32\pi s^2)$。左辺は $(1/2)(-1/2)s^{-2}=-1/(4s^2)$、右辺は $-4\pi(\rho+3p)/3=-8\pi\rho/3=-8\pi(3/(32\pi s^2))/3=-1/(4s^2)$ です。両解は制約と発展式の両方を満たします。
+従って $a^{n/2}=nD(\tau-\tau_B)/2$、$a=A(\tau-\tau_B)^{2/n}$、$H=2/[n(\tau-\tau_B)]$、$\rho=3H^2/(8\pi)$ です。$\tau>\tau_B$ は $a>0$ と $nD>0$ から従います。
+
+$s=\tau-\tau_B>0$ と書きます。塵 $n=3,w=0$ では $a=As^{2/3}$、$\rho=1/(6\pi s^2)$ です。二階微分と加速式の右辺を別々に計算すると
+
+$$
+\frac{\ddot a}{a}=\frac23\left(-\frac13\right)s^{-2}
+=-\frac2{9s^2},\qquad
+-\frac{4\pi}{3}\rho=-\frac{4\pi}{3}\frac{1}{6\pi s^2}
+=-\frac2{9s^2}.
+$$
+
+放射 $n=4,w=1/3$ では $a=As^{1/2}$、$\rho=3/(32\pi s^2)$、$p=\rho/3$ です。したがって
+
+$$
+\frac{\ddot a}{a}=\frac12\left(-\frac12\right)s^{-2}
+=-\frac1{4s^2},\qquad
+-\frac{4\pi}{3}(\rho+3p)=-\frac{8\pi}{3}\rho
+=-\frac{8\pi}{3}\frac3{32\pi s^2}=-\frac1{4s^2}.
+$$
+
+両解は制約と発展式の両方を満たします。
 <!-- solution-end -->
 
 <a id="ex-gr42-b03"></a>
@@ -700,7 +770,13 @@ $$
 f(a):=La^4-\frac M2a-Q=0.
 $$
 
-$f(0)=-Q<0$、$a\to\infty$ で $f(a)\to\infty$ なので正の根が少なくとも一つあります。$f'(a)=4La^3-M/2$ は $a_*=(M/(8L))^{1/3}$ で零になり、$0<a<a_*$ で負、$a>a_*$ で正です。従って $f$ はまず減少して負の最小値に達し、以後単調増加して一度だけ零を横切ります。加速転換は一意です。この転換尺度は、一般には等密度尺度 $Q/M$ と一致しません。
+$f(0)=-Q<0$、$a\to\infty$ で $f(a)\to\infty$ なので正の根が少なくとも一つあります。導関数は
+
+$$
+f'(a)=4La^3-\frac M2,\qquad a_*=\left(\frac{M}{8L}\right)^{1/3}>0.
+$$
+
+$0<a<a_*$ で導関数は負、$a>a_*$ では正です。従って $f$ はまず減少して負の最小値に達し、以後単調増加して一度だけ零を横切ります。加速転換は一意です。この転換尺度は、一般には等密度尺度 $Q/M$ と一致しません。
 
 **（4）** $M=Q=L=1,a=1$ では $H^2=1+1+1=3$、$\ddot a/a=-1/2-1+1=-1/2$ なので $q=(-\ddot a/a)/H^2=(1/2)/3=1/6$。$a=2$ では $\ddot a/a=-1/(2\cdot8)-1/16+1=1-1/16-1/16=7/8>0$ で加速しています。
 
