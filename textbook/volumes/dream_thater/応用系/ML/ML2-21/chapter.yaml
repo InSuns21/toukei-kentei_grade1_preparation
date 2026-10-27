@@ -1,0 +1,33 @@
+id: "ML2-21"
+title: "正規化flow・密度変換"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-01, RA7, ML2-14, F0-00P1]
+official_scope: []
+learning_objectives:
+  - 可逆な同次元写像によるpushforward分布と正規化flowを、生成方向・密度評価方向を区別して定義できる
+  - 多変数変数変換定理からJacobianの逆行列式を含む密度公式を導き、正規化と符号を検算できる
+  - 可逆層の合成に対してlog Jacobianが和になることを連鎖律から証明できる
+  - affine coupling層の逆写像と三角Jacobianを導き、具体的なGaussian密度を計算できる
+  - 一対一性・次元・supportの仮定が破れたときに単純な密度公式が失敗する理由を説明できる
+  - 対数尤度の計算と生成サンプリングを区別し、安定な計算ラボで密度の正規化を確認できる
+definitions:
+  - { id: ML2-21-DEF-01, name: pushforward密度と正規化flow }
+  - { id: ML2-21-DEF-02, name: affine coupling層 }
+theorems:
+  - { id: ML2-21-THM-01, name: 可逆変換の密度公式 }
+  - { id: ML2-21-THM-02, name: flow合成のlog Jacobian公式 }
+  - { id: ML2-21-PROP-01, name: affine coupling層の可逆性とJacobian }
+  - { id: ML2-21-PROP-02, name: 全空間正密度のflowによるsupport制約 }
+canonical_examples:
+  - 一次元affine変換の密度と積分1の確認
+  - 行列式の絶対値が必要な反転変換
+  - 二次元affine couplingの逆写像と密度
+  - 重ね合わせた可逆層のlog Jacobian
+  - 多対一・次元低下・有限supportが生む制約
+  - 固定seedでの密度変換と生成の再計算ラボ
+problem_patterns: [ML2-21-A01, ML2-21-A02, ML2-21-A03, ML2-21-A04, ML2-21-B01, ML2-21-B02, ML2-21-B03, ML2-21-B04, ML2-21-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
