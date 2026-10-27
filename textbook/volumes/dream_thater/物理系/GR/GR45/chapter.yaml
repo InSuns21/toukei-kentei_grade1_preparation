@@ -1,0 +1,44 @@
+id: "GR45"
+title: "Killing地平線の表面重力"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR14
+  - GR29
+  - GR32
+  - GR44
+official_scope: []
+learning_objectives:
+  - Killing地平線上の零生成場から非アフィン係数として表面重力を定義しノルム勾配との同値性を証明できる
+  - Killing場の一定倍による表面重力の変化と無限遠あるいは観測者での規格化を区別できる
+  - 正則なEddington–Finkelstein座標から静的球対称計量の表面重力を導出できる
+  - SchwarzschildとReissner–Nordströmの表面重力と極限を計算しSI加速度単位へ復元できる
+  - Kerr地平線の回転Killing生成場を用いて表面重力が角度によらないことを直接検算できる
+  - 赤方偏移を掛けた静止観測者の固有加速度との関係および古典幾何と熱力学の境界を説明できる
+definitions:
+  - { id: GR45-DEF-01, name: Killing地平線の表面重力 }
+theorems:
+  - { id: GR45-PROP-01, name: 表面重力とKillingノルムの勾配 }
+  - { id: GR45-PROP-02, name: Killing場の規格化と表面重力 }
+  - { id: GR45-THM-01, name: 静的球対称地平線の表面重力 }
+  - { id: GR45-PROP-03, name: 静止観測者の赤方偏移加速度 }
+  - { id: GR45-THM-02, name: Kerr外側地平線の表面重力 }
+canonical_examples:
+  - Schwarzschildの未来地平線での正則座標によるkappaの算出とcの復元
+  - RN非極限と極限の比較
+  - Kerrでの角度に依存しないkappaの直接検算
+  - de Sitterの未来宇宙論的地平線における生成方向と符号
+problem_patterns:
+  - GR45-NONAFFINITY
+  - GR45-GRADIENT-IDENTITY
+  - GR45-NORMALIZATION
+  - GR45-SCHWARZSCHILD-UNITS
+  - GR45-RN-EXTREMAL
+  - GR45-REDSHIFTED-ACCELERATION
+  - GR45-DE-SITTER-ORIENTATION
+  - GR45-KERR-POLAR-INDEPENDENCE
+  - GR45-CROSS-METRIC-ANALYSIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
