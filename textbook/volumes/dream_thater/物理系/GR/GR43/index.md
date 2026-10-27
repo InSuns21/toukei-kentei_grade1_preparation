@@ -6,7 +6,9 @@
 
 本章は、共動光源と共動受信者の間を進む光の零測地線を出発点に、宇宙赤方偏移、伝播時間、光度距離と角径距離を順に導きます。最後に小さい赤方偏移でのHubble則と、特殊相対論的Doppler効果との関係・限界を確かめます。
 
-計量の符号は $(-,+,+,+)$、本章の計算単位は $c=1$ とします。宇宙時間を $\tau$、尺度因子を正の $C^3$ 級関数 $a(\tau)$、$H=\dot a/a$ とし、光は幾何光学近似のもとで未来向き非零の光的測地線を進むと仮定します。発光・受信を添字 $e,0$ で区別し、$\tau_e<\tau_0$ とします。宇宙の膨張を最初から仮定しません。$H<0$ の模型では青方偏移も起こります。
+計量の符号は $(-,+,+,+)$、本章の計算単位は $c=1$ とします。宇宙時間を $\tau$、尺度因子を正の $C^3$ 級関数 $a(\tau)$、Hubble率を $H=\dot a/a$ とします。点は $\tau$ による微分です。
+
+光は幾何光学近似のもとで未来向き非零の光的測地線を進むと仮定します。発光・受信を添字 $e,0$ で区別し、$\tau_e<\tau_0$ とします。宇宙の膨張を最初から仮定しません。$H<0$ の模型では青方偏移も起こります。
 
 ## 1. 光が進む空間距離と、受信者の時計
 
@@ -48,7 +50,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-動径光線上で $-d\tau^2+a^2d\chi^2=0$。$a>0$、未来向きなので $d\tau>0$、内向きなので $d\chi<0$ を選びます。従って $d\chi=-d\tau/a$ です。端点を代入して
+動径光線上で $-d\tau^2+a^2d\chi^2=0$。$a>0$、未来向きなので $d\tau>0$、内向きなので $d\chi<0$ を選びます。従って $d\chi/d\tau=-1/a$ です。以下の $d\chi=-d\tau/a$ は、この導関数を $\tau$ について積分する際の省略記法です。端点を代入して
 
 $$
 0-\chi_e=\int_{\chi_e}^{0}d\chi
@@ -62,7 +64,9 @@ $$
 
 ## 2. 波数ベクトルを運ぶと、周波数はどうなるか
 
-光の周波数を取り出すには、光路だけでなく**波面の間隔**を調べます。[GR4の観測角周波数](../GR4/index.md#def-gr4-measured-components)は、位相勾配から得る波数ベクトル $K$ と観測者の四元速度 $u$ の内積 $\omega=-g(K,u)$ です。FLRWの共動観測者は[GR41で定義した $u=\partial_\tau$](../GR41/index.md#def-gr41-comoving)であり、$g_{\tau\tau}=-1$ だから $\omega=K^\tau>0$ と読めます。
+光の周波数を取り出すには、光路だけでなく**波面の間隔**を調べます。[GR4の観測角周波数](../GR4/index.md#def-gr4-measured-components)は、位相勾配から得る波数ベクトル $K$ と観測者の四元速度 $u$ の内積 $\omega=-g(K,u)$ です。
+
+FLRWの共動観測者は[GR41で定義した $u=\partial_\tau$](../GR41/index.md#def-gr41-comoving)であり、$g_{\tau\tau}=-1$ だから $\omega=K^\tau>0$ と読めます。
 
 赤方偏移は発光時と受信時の**局所周波数の比**です。光源と受信者が共動している、という条件をここで明示して定義します。
 
@@ -81,7 +85,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr43-redshift -->
-**定義の確認**：共動源で $\nu_e=600\,\mathrm{THz}$、共動受信者で $\nu_0=400\,\mathrm{THz}$ と実測したとします。両値は正で同じ周波数単位なので、$1+z=600/400=3/2$、$z=1/2$ です。逆に $\nu_e=400$、$\nu_0=500\,\mathrm{THz}$ なら $z=4/5-1=-1/5$ であり、負でも $z>-1$ を満たします。この定義だけでは、これらの周波数差を生んだ尺度因子の変化はまだ導出していません。
+**定義の確認**：共動源で $\nu_e=600\,\mathrm{THz}$、共動受信者で $\nu_0=400\,\mathrm{THz}$ と実測したとします。両値は正で同じ周波数単位なので、$1+z=600/400=3/2$、$z=1/2$ です。
+
+逆に $\nu_e=400\,\mathrm{THz}$、$\nu_0=500\,\mathrm{THz}$ なら $z=4/5-1=-1/5$ であり、負でも $z>-1$ を満たします。この定義だけでは、これらの周波数差を生んだ尺度因子の変化はまだ導出していません。
 <!-- definition-example-end -->
 
 いよいよ計量から周波数変化を証明します。発光時刻と受信時刻を異なる場所の静止時計の固有時で比較することと、途中の波数が光的測地線に沿って変化することを、一つの式に結び付けます。
@@ -106,7 +112,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GR42の接続成分](../GR42/index.md#prop-gr42-flrw-curvature)より $\Gamma^\tau{}_{ij}=Hh_{ij}$ であり、$\Gamma^\tau{}_{\tau\tau}=\Gamma^\tau{}_{\tau i}=0$ です。ここで $h_{ij}=a^2\gamma_{ij}$。測地線方程式と光的条件はそれぞれ
+[GR42の接続成分の計算](../GR42/index.md#prop-gr42-flrw-curvature)を本定理の $C^2$ 級という仮定の下で確かめ直します。$g_{\tau\tau}=-1$、$g_{\tau i}=0$、$g_{ij}=h_{ij}=a^2\gamma_{ij}$ なので
+
+$$
+\Gamma^\tau{}_{ij}=\frac12\partial_\tau h_{ij}
+=a\dot a\gamma_{ij}=Hh_{ij},\qquad
+\Gamma^\tau{}_{\tau\tau}=\Gamma^\tau{}_{\tau i}=0.
+$$
+
+この接続成分には $a$ の一階微分までしか必要ありません。GR42でRicci曲率も計算するときの $C^3$ 級という仮定を、この接続計算へ持ち込む必要はありません。測地線方程式と光的条件はそれぞれ
 
 $$
 \frac{dK^\tau}{d\lambda}
@@ -251,7 +265,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gr43-observational-distances -->
-**定義の確認**：近傍の静的平坦空間で半径 $r=10$（同一の長さ単位）の位置に光源を置き、横方向の微小長を $\ell_\perp=10^{-2}$ とします。局所幾何から $\delta\theta\to\ell_\perp/r=10^{-3}$ なので $D_A=10$ です。等方光度 $L=4\pi\cdot100$、透明空間での流束 $F=1$ とすれば $L/(4\pi F)=100$、$D_L=10$。小角近似と逆二乗則を個別に確認しました。膨張時には二種類が一致しないことを次に導きます。
+**定義の確認**：近傍の静的平坦空間で半径 $r=10$（同一の長さ単位）の位置に光源を置きます。受信者の方向角を $\delta\theta$ だけ変えたとき、半径 $r$ の球面上で測る横方向の弧長は $\ell_\perp(\delta\theta)=r\delta\theta$ です。これは球面の角方向の長さ要素が $r\,d\theta$ だからであり、観測角と固有長の対応を与えます。例えば $\delta\theta=10^{-3}$ なら $\ell_\perp=10^{-2}$ です。定義の極限は
+
+$$
+D_A=\lim_{\delta\theta\to0}\frac{\ell_\perp(\delta\theta)}{\delta\theta}
+=\lim_{\delta\theta\to0}\frac{r\delta\theta}{\delta\theta}=10.
+$$
+
+等方光度 $L=4\pi\cdot100$、透明空間での流束 $F=1$ とすれば $L/(4\pi F)=100$、$D_L=10$。小角の幾何と逆二乗則を個別に確認しました。膨張時には二種類が一致しないことを次に導きます。
 <!-- definition-example-end -->
 
 <a id="thm-gr43-distance-duality"></a>
@@ -283,7 +304,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-発光時刻の空間計量は $a_e^2(d\chi^2+S_k(\chi)^2d\Omega^2)$ です。受信者の方向角を $\delta\theta$ だけ変えて発光面を横切る二本の隣接動径光線は、同じ $\chi_e$ において
+発光時刻の空間計量は $a_e^2(d\chi^2+S_k(\chi)^2d\Omega^2)$ です。[GR41の測地極座標](../GR41/index.md#prop-gr41-radial-metric)では受信者を原点に置き、局所等方性により座標上の微小方向差 $\delta\theta$ が受信者の局所枠で測る角度差に一致します。この角度を変えて発光面を横切る二本の隣接動径光線は、同じ $\chi_e$ において
 
 $$
 \ell_\perp=a_eS_k(\chi_e)\delta\theta+o(\delta\theta).
@@ -304,7 +325,9 @@ $$
 F=\frac{L}{4\pi a_0^2S_k(\chi_e)^2(1+z)^2}.
 $$
 
-[光度距離の定義](#def-gr43-observational-distances)に代入すると $D_L=a_0S_k(\chi_e)(1+z)$。$a_0/a_e=1+z$ と $D_A=a_eS_k(\chi_e)$ から $D_L=(1+z)^2D_A$ です。$k=0$ なら $S_0(\chi)=\chi$、[赤方偏移による光路積分](#prop-gr43-lookback-distance)から $a_0\chi_e=\int_0^z dz'/H(z')$ を代入すれば最後の式を得ます。$\square$
+[光度距離の定義](#def-gr43-observational-distances)に代入すると $D_L=a_0S_k(\chi_e)(1+z)$ です。$a_0/a_e=1+z$ と $D_A=a_eS_k(\chi_e)$ から $D_L=(1+z)^2D_A$ が従います。
+
+$k=0$ なら $S_0(\chi)=\chi$ であり、[赤方偏移による光路積分](#prop-gr43-lookback-distance)から $a_0\chi_e=\int_0^z dz'/H(z')$ を代入すれば最後の式を得ます。$\square$
 <!-- proof-end -->
 
 この距離双対はしばしばEtherington関係と呼ばれます。ここではFLRW・透明な幾何光学に限って導きました。吸収や散乱があれば観測流束は小さくなり、単純に $D_L=(1+z)^2D_A$ を観測データへ当てはめることはできません。また非等方な光源、天体固有のスペクトル変化、重力レンズで複数像が生じる場合には、対応する放射・像の取り扱いが必要です。
@@ -342,7 +365,7 @@ $$
 =\frac{(1+q)H}{1+z}.
 $$
 
-よって $H'(0)=H_0(1+q_0)$。$H_0>0$ の近傍では逆数を展開して
+よって $z$ についての導関数 $H'(0)=(dH/dz)|_{z=0}=H_0(1+q_0)$。$H_0>0$ の近傍では逆数を展開して
 
 $$
 \frac1{H(z)}
@@ -414,7 +437,16 @@ $$
 T=\tau\cosh\chi,\qquad R=\tau\sinh\chi
 $$
 
-と置くと $-dT^2+dR^2=-d\tau^2+\tau^2d\chi^2$。角度部分も $R^2d\Omega^2=\tau^2\sinh^2\chi\,d\Omega^2$ なので計量はMinkowskiです。$\chi=\chi_e$ の共動源は $R/T=\tanh\chi_e=\beta$ という定速世界線、$\chi=0$ の受信者は $R=0$ です。$\beta\in(0,1)$ に対し
+と置くと、積の微分から
+
+$$
+\begin{aligned}
+dT&=\cosh\chi\,d\tau+\tau\sinh\chi\,d\chi,\\
+dR&=\sinh\chi\,d\tau+\tau\cosh\chi\,d\chi.
+\end{aligned}
+$$
+
+$\cosh^2\chi-\sinh^2\chi=1$ を使えば交差項が消え、$-dT^2+dR^2=-d\tau^2+\tau^2d\chi^2$ です。角度部分も $R^2d\Omega^2=\tau^2\sinh^2\chi\,d\Omega^2$ なので計量はMinkowskiです。$\chi=\chi_e$ の共動源は $R/T=\tanh\chi_e=\beta$ という定速世界線、$\chi=0$ の受信者は $R=0$ です。$\beta\in(0,1)$ に対し
 
 $$
 \sqrt{\frac{1+\beta}{1-\beta}}
@@ -423,7 +455,24 @@ $$
 =e^{\chi_e}
 $$
 
-となります。$\square$
+となります。これは[GR4の局所Doppler公式](../GR4/index.md#prop-gr4-doppler)とも直接照合できます。光線の進む動径を $X$ 軸とする大域的なMinkowski直交座標 $(T,X,Y,Z)$ を取り、この光線上では $X=R$ とします。内向き光線の波数、源の四元速度、受信者の四元速度はそれぞれ
+
+$$
+K=\omega_0(1,-1,0,0),\qquad
+u_e=\gamma(1,\beta,0,0),\qquad
+u_0=(1,0,0,0),
+$$
+
+です。ここで $\gamma=(1-\beta^2)^{-1/2}$。平坦時空では $K$ の成分は光線上で一定なので
+
+$$
+\frac{\omega_e}{\omega_0}
+=\frac{-g(K,u_e)}{-g(K,u_0)}
+=\gamma(1+\beta)
+=\sqrt{\frac{1+\beta}{1-\beta}}.
+$$
+
+離れた二点で局所Doppler公式を比較できるのは、ここでは大域的なMinkowski慣性枠で光の $K$ を同定できるためです。$\square$
 <!-- proof-end -->
 
 Milne時空は[GR41で確かめた平坦時空の別の葉層](../GR41/index.md#ex-gr41-c01)であり、時空曲率は零です。従って「宇宙赤方偏移があれば時空曲率が非零」とは推論できません。逆に一般の曲がったFLRW時空でMilneと同じ大域的な慣性座標を作れるとも限りません。局所Dopplerの連続的な積として表現する方法はありますが、その中間観測者の選び方を明示した上での記述です。
@@ -518,27 +567,35 @@ $H_0>0$ のFLRW模型二つが同じ $H_0$ を持ち、一方は $q_0=1/2$、他
 ### GR43-B01 一般の冪乗膨張から距離を計算する
 - Level: B
 
-$k=0$、$\tau>0$、$a(\tau)=A\tau^q$（$A>0,q>0$）とし、$\tau_0$ に観測する。$H_0=q/\tau_0$ と $z$ を使って、$q\ne1$ の光度距離 $D_L(z)$ と、$q=1$ の極限を求めよ。途中で $a_0\chi$ を導け。
+$k=0$、$\tau>0$、$a(\tau)=A\tau^s$（$A>0,s>0$）とし、$\tau_0$ に観測する。$H_0=s/\tau_0$ と $z$ を使って、$s\ne1$ の光度距離 $D_L(z)$ と、$s=1$ の極限を求めよ。$s$ は冪指数であり、第5節の減速パラメータ $q$ とは異なる。途中で $a_0\chi$ を導け。
 
 <!-- solution-start -->
-**詳細解答。** [赤方偏移定理](#thm-gr43-redshift-scale)は $1+z=(\tau_0/\tau_e)^q$、従って $\tau_e=\tau_0(1+z)^{-1/q}$ です。[光路積分](#prop-gr43-null-path)で $q\ne1$ なら
+**詳細解答。** [赤方偏移定理](#thm-gr43-redshift-scale)は $1+z=(\tau_0/\tau_e)^s$、従って $\tau_e=\tau_0(1+z)^{-1/s}$ です。[光路積分](#prop-gr43-null-path)で $s\ne1$ なら
 
 $$
 \begin{aligned}
-a_0\chi&=A\tau_0^q\int_{\tau_e}^{\tau_0}\frac{d\tau}{A\tau^q}\\
-&=\frac{\tau_0^q}{1-q}\left(\tau_0^{1-q}-\tau_e^{1-q}\right)\\
-&=\frac{\tau_0}{1-q}\left[1-(1+z)^{-(1-q)/q}\right].
+a_0\chi&=A\tau_0^s\int_{\tau_e}^{\tau_0}\frac{d\tau}{A\tau^s}\\
+&=\frac{\tau_0^s}{1-s}\left(\tau_0^{1-s}-\tau_e^{1-s}\right)\\
+&=\frac{\tau_0}{1-s}\left[1-(1+z)^{-(1-s)/s}\right].
 \end{aligned}
 $$
 
-$\tau_0=q/H_0$ を代入し、[FLRWの角径距離・光度距離](#thm-gr43-distance-duality)の定理を使えば
+$\tau_0=s/H_0$ を代入し、[FLRWの角径距離・光度距離](#thm-gr43-distance-duality)の定理を使えば
 
 $$
-\boxed{D_L(z)=\frac{q(1+z)}{H_0(1-q)}
-\left[1-(1+z)^{-(1-q)/q}\right].}
+\boxed{D_L(z)=\frac{s(1+z)}{H_0(1-s)}
+\left[1-(1+z)^{-(1-s)/s}\right].}
 $$
 
-$q=1$ では積分を直接行い $a_0\chi=\tau_0\log(\tau_0/\tau_e)=\tau_0\log(1+z)$、$H_0=1/\tau_0$ より $D_L=(1+z)\log(1+z)/H_0$。上式の $q\to1$ でも $[1-e^{-(1-q)\log(1+z)/q}]/(1-q)\to\log(1+z)$ で同じです。
+$s=1$ では積分を直接行い、$a_0\chi=\tau_0\log(\tau_0/\tau_e)=\tau_0\log(1+z)$ です。$H_0=1/\tau_0$ より $D_L=(1+z)\log(1+z)/H_0$。上式の $s\to1$ も、$x=(1-s)\log(1+z)/s\to0$ と置くと
+
+$$
+\frac{1-e^{-x}}{1-s}
+=\frac{1-e^{-x}}x\frac{\log(1+z)}s
+\longrightarrow\log(1+z)
+$$
+
+となり、$\lim_{x\to0}(1-e^{-x})/x=1$ によって同じ結果が得られます。
 <!-- solution-end -->
 
 <a id="ex-gr43-b02"></a>
@@ -549,7 +606,7 @@ $q=1$ では積分を直接行い $a_0\chi=\tau_0\log(\tau_0/\tau_e)=\tau_0\log(
 $k=\Lambda=0$、単一の一定状態方程式流体が支配する膨張FLRW模型を二つ考える。塵 $w=0$ と放射 $w=1/3$ の各々で、同じ受信時 $H_0>0$ を基準に $H(z)$、$D_L(z)$、$q_0$ を求め、小さい $z$ での二次係数を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [GR42の冪乗解](../GR42/index.md#prop-gr42-elementary-solutions)より塵は $q=2/3$、放射は $q=1/2$ という尺度因子の冪指数です（以下の減速パラメータ $q_0$ とは別記号）。一般の冪指数を $s$ と書けば $H=s/\tau$、$\tau_e=\tau_0(1+z)^{-1/s}$ なので $H(z)=H_0(1+z)^{1/s}$ です。
+**詳細解答。** [GR42の冪乗解](../GR42/index.md#prop-gr42-elementary-solutions)より塵は尺度因子の冪指数 $s=2/3$、放射は $s=1/2$ です。減速パラメータ $q_0$ とは区別します。一般に $H=s/\tau$、$\tau_e=\tau_0(1+z)^{-1/s}$ なので $H(z)=H_0(1+z)^{1/s}$ です。
 
 塵では $H_m(z)=H_0(1+z)^{3/2}$ です。[冪乗模型の距離](#ex-gr43-b01)へ $s=2/3$ を代入し、
 
@@ -585,7 +642,7 @@ $a\propto\tau^s$ なら $\ddot a/a=s(s-1)/\tau^2$、$H^2=s^2/\tau^2$ だから�
 
 **（1）** [宇宙赤方偏移と尺度因子](#thm-gr43-redshift-scale)により、一光子の受信エネルギーは $E_0=E_e/(1+z)$ です。
 
-**（2）** 同じ共動経路を進む連続パルスについて、$d\tau_0=(1+z)d\tau_e$ です。
+**（2）** [光路積分の両端の微分](#thm-gr43-redshift-scale)を適用すると、同じ共動経路を進む連続パルスについて $0=-d\tau_e/a_e+d\tau_0/a_0$、従って $d\tau_0=(1+z)d\tau_e$ です。
 
 **（3）** 光子数 $dN$ が保存するので、受信したエネルギーは $dE_0=dN E_0=dN E_e/(1+z)$。受信時のエネルギー率は
 
@@ -677,7 +734,16 @@ $$
 
 **(3)** [赤方偏移定理](#thm-gr43-redshift-scale)からどちらも $E_e/E_0=1+z$、$z=1$ なら2です。この比は端点の尺度因子だけで決まり、(1)の光路積分は途中の $H(z)$ に依存します。従って $z$ 単独から距離は決められません。
 
-**(4)** [Hubble級数の導出](#prop-gr43-hubble-series)から $H'(0)=H_0(1+q_0)$。模型Aは $H'_A(0)=3H_0/2$ なので $q_{0,A}=1/2$、模型Bは $H'_B(0)=0$ なので $q_{0,B}=-1$。二次係数はそれぞれ $1/(4H_0)$、$1/H_0$ です。実際 $(1+z)^{-1/2}=1-z/2+3z^2/8+O(z^3)$ をAの式へ代入すると $D_{L,A}=z/H_0+z^2/(4H_0)+O(z^3)$、Bは $D_{L,B}=z/H_0+z^2/H_0$ となります。
+**(4)** [Hubble級数の導出](#prop-gr43-hubble-series)から $H'(0)=H_0(1+q_0)$。模型Aは $H'_A(0)=3H_0/2$ なので $q_{0,A}=1/2$、模型Bは $H'_B(0)=0$ なので $q_{0,B}=-1$。二次係数はそれぞれ $1/(4H_0)$、$1/H_0$ です。
+
+実際、$(1+z)^{-1/2}=1-z/2+3z^2/8+O(z^3)$ を(1)の式へ代入すると
+
+$$
+D_{L,A}=\frac z{H_0}+\frac{z^2}{4H_0}+O(z^3),\qquad
+D_{L,B}=\frac z{H_0}+\frac{z^2}{H_0}
+$$
+
+となり、先ほどの二次係数を確かめられます。
 
 **(5)** $H=\dot a/a=H_0$ の一階方程式を積分すると $a(\tau)=a_0e^{H_0(\tau-\tau_0)}=e^{H_0(\tau-\tau_0)}$。$k=0,\rho=p=0,\Lambda=3H_0^2$ の制約式は $H^2=\Lambda/3=H_0^2$、加速式は $\ddot a/a=H_0^2=\Lambda/3$ です。両方が成立し、[GR42の真空指数解](../GR42/index.md#prop-gr42-elementary-solutions)を再現します。宇宙項は物質密度へ重複して加えていません。
 <!-- solution-end -->
