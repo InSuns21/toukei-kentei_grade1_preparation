@@ -33,6 +33,8 @@ $$
 <!-- definition-example-start: def-qinf13-ebit -->
 ### 定義の確認：共有対と積状態
 
+**定義の確認**として、Schmidt係数と両側の縮約状態を計算します。
+
 $|\Phi^+\rangle$ は計算基底で既にSchmidt表示になり、係数の二乗和は $1/2+1/2=1$。また[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)でAliceかBobを無視すると $I_2/2$ になり、各側が混合状態です。これに対し $|00\rangle$ のSchmidt係数は $1,0$ で、一方の縮約は $|0\rangle\langle0|$ ですから1 ebitではありません。係数が等しい任意の二qubit純粋状態は、[Schmidt分解](../QINF6/index.md#thm-qinf6-existence)の二組の正規直交ベクトルを局所ユニタリで計算基底へ移せば、$|\Phi^+\rangle$ に変わります。
 <!-- definition-example-end -->
 
@@ -58,6 +60,8 @@ $$
 
 <!-- definition-example-start: def-qinf13-bell-basis -->
 ### 定義の確認：四ベクトルと四つの効果
+
+**定義の確認**として、四状態の規格化・直交性・測定の完全性を一つずつ調べます。
 
 $Z$ が $|1\rangle$ の符号を反転し、$X$ が $0$ と $1$ を交換することから、基底の順序 $00,01,10,11$ を固定すると
 
@@ -122,6 +126,8 @@ $$
 
 <!-- definition-example-start: def-qinf13-teleportation -->
 ### 定義の確認：入力 $|0\rangle$ を一分岐ずつ追う
+
+**定義の確認**として、各測定分岐の確率と補正が要求どおりか調べます。
 
 $|0\rangle_S|\Phi^+\rangle_{AB}=(|000\rangle+|011\rangle)/\sqrt2$ です。$SA$ をBell基底に展開すると $B_{00},B_{10}$ の枝に $|0\rangle_B/2$、$B_{01},B_{11}$ の枝に $|1\rangle_B/2$ が出ます。各枝の確率は $1/4$、補正 $I,X,Z,ZX$ はそれぞれ $|0\rangle,|1\rangle,|0\rangle,|1\rangle$ を $|0\rangle$ へ戻します（$ZX|1\rangle=|0\rangle$）。計算基底の入力ではこれで四分岐を直接確かめました。一般入力を扱う恒等式を次に証明します。
 <!-- definition-example-end -->
@@ -234,6 +240,8 @@ $$
 
 <!-- definition-example-start: def-qinf13-superdense -->
 ### 定義の確認：メッセージ $11$ を符号化する
+
+**定義の確認**として、局所符号化、Bell測定による復号、必要な通信資源を調べます。
 
 $U_{11}=ZX$ だから $ZX|0\rangle=-|1\rangle$、$ZX|1\rangle=|0\rangle$。従って
 
