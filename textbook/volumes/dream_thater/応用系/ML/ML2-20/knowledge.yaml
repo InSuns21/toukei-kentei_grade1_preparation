@@ -1,0 +1,47 @@
+chapter: ML2-20
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-08, ML2-09, ML2-14]
+concepts:
+  - id: learning.vae-model-encoder
+    name: 変分autoencoderの生成模型とencoder
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変分autoencoderの生成模型とencoder）"]
+    requires: [learning.elbo-continuous, learning.variational-family]
+  - id: learning.vae-elbo-identity
+    name: VAEのELBOと事後KL恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（VAEのELBOと事後KL恒等式）"]
+    requires: [learning.vae-model-encoder, learning.elbo-identity-continuous]
+  - id: learning.vae-diagonal-encoder
+    name: 対角Gaussian encoder
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対角Gaussian encoder）"]
+    requires: [learning.vae-model-encoder, learning.gaussian-reparameterization]
+  - id: learning.vae-gaussian-kl
+    name: 対角Gaussianの事前KL公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対角Gaussianの事前KL公式）"]
+    requires: [learning.vae-diagonal-encoder, learning.vae-elbo-identity]
+  - id: learning.vae-pathwise-gradient
+    name: Gaussian VAEの経路勾配
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian VAEの経路勾配）"]
+    requires: [learning.vae-gaussian-kl, learning.gaussian-pathwise-gradient, learning.reverse-chain-rule]
+  - id: learning.vae-linear-tightness
+    name: 線形Gaussian VAEの下界一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形Gaussian VAEの下界一致）"]
+    requires: [learning.vae-elbo-identity, learning.vae-gaussian-kl]
+  - id: learning.vae-posterior-collapse
+    name: 潜在変数を使わないdecoderとposterior collapse
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（潜在変数を使わないdecoderとposterior collapse）"]
+    requires: [learning.vae-elbo-identity]
