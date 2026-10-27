@@ -1,0 +1,41 @@
+chapter: ML2-21
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-01, RA7, ML2-14, F0-00P1]
+concepts:
+  - id: learning.normalizing-flow
+    name: pushforward密度と正規化flow
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（pushforward密度と正規化flow）"]
+    requires: [learning.density-log-loss, analysis.multivariable-riemann-change-of-variables, prob.pushforward-probability-measure]
+  - id: learning.flow-change-of-variables
+    name: 可逆変換の密度公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可逆変換の密度公式）"]
+    requires: [learning.normalizing-flow, analysis.multivariable-riemann-change-of-variables]
+  - id: learning.flow-composition
+    name: flow合成のlog Jacobian公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（flow合成のlog Jacobian公式）"]
+    requires: [learning.flow-change-of-variables, learning.layer-jacobian-chain]
+  - id: learning.affine-coupling-layer
+    name: affine coupling層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（affine coupling層）"]
+    requires: [learning.normalizing-flow]
+  - id: learning.affine-coupling-inverse
+    name: affine coupling層の可逆性とJacobian
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（affine coupling層の可逆性とJacobian）"]
+    requires: [learning.affine-coupling-layer, learning.flow-composition]
+  - id: learning.flow-support-obstruction
+    name: 全空間正密度のflowによるsupport制約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全空間正密度のflowによるsupport制約）"]
+    requires: [learning.flow-change-of-variables]
