@@ -169,7 +169,7 @@ chapters:
     title: "自己教師あり表現学習"
   - id: ML2-20
     path: textbook/volumes/dream_thater/応用系/ML/ML2-20
-    status: planned
+    status: completed
     title: "変分autoencoder"
   - id: ML2-21
     path: textbook/volumes/dream_thater/応用系/ML/ML2-21
