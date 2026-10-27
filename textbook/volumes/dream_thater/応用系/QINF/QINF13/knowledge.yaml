@@ -1,0 +1,69 @@
+chapter: QINF13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF1
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF6
+  - QINF7
+  - QINF12
+forward_references: []
+
+concepts:
+  - id: quantum.bell-basis-measurement
+    name: Bell基底とBell測定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Bell基底とBell測定）]
+    requires: [quantum.composite-system, quantum.povm, quantum.qubit]
+
+  - id: quantum.bell-basis-circuit
+    name: Bell基底の準備と測定回路
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Bell基底の準備と測定回路）]
+    requires: [quantum.bell-basis-measurement, quantum.local-operator]
+
+  - id: quantum.qubit-teleportation
+    name: 標準qubitテレポーテーション
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標準qubitテレポーテーション）]
+    requires: [quantum.bell-basis-measurement, quantum.partial-trace, quantum.finite-density-operator]
+
+  - id: quantum.teleportation-identity
+    name: テレポーテーション恒等式と決定論的補正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（テレポーテーション恒等式と決定論的補正）]
+    requires: [quantum.qubit-teleportation, quantum.bell-basis-circuit]
+
+  - id: quantum.teleportation-no-signalling
+    name: テレポーテーションにおける通信前の縮約状態
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（テレポーテーションにおける通信前の縮約状態）]
+    requires: [quantum.teleportation-identity, quantum.partial-trace]
+
+  - id: quantum.superdense-coding
+    name: 標準超密符号化
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標準超密符号化）]
+    requires: [quantum.bell-basis-measurement, quantum.local-operator]
+
+  - id: quantum.superdense-coding-correctness
+    name: 標準超密符号化の完全復号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標準超密符号化の完全復号）]
+    requires: [quantum.superdense-coding, quantum.bell-basis-circuit]
+
+  - id: quantum.unassisted-qubit-zero-error-bound
+    name: 事前共有資源なしの一qubit零誤り符号数界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（事前共有資源なしで一qubitを送る零誤り符号数）]
+    requires: [quantum.superdense-coding-correctness, quantum.povm]
