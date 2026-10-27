@@ -53,7 +53,7 @@ chapters:
     title: "二状態識別とHelstrom界"
   - id: QINF11
     path: textbook/volumes/dream_thater/応用系/QINF/QINF11
-    status: planned
+    status: completed
     title: "トレース距離・忠実度"
   - id: QINF12
     path: textbook/volumes/dream_thater/応用系/QINF/QINF12
