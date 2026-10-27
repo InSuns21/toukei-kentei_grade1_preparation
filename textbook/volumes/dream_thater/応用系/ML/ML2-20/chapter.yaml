@@ -1,0 +1,34 @@
+id: "ML2-20"
+title: "変分autoencoder"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-08, ML2-09, ML2-14]
+official_scope: []
+learning_objectives:
+  - 潜在事前分布・生成decoder・推論encoderの役割と、encoderが生成模型の一部ではないことを説明できる
+  - 観測値ごとのVAE下界をELBO恒等式とBayes公式から導き、台・有限性・等号条件を確認できる
+  - 対角Gaussian encoderと標準正規事前分布のKLを密度比から計算できる
+  - Gaussian/Bernoulli decoderの再構成項を負の対数尤度として導き、分散・正規化定数を扱える
+  - Gaussian再パラメータ化と逆伝播からencoder・decoderの経路微分を計算し、期待値との交換条件を説明できる
+  - 線形Gaussian模型で真の事後・ELBO gap・最適encoderを検算できる
+  - posterior collapseと償却推論によるずれ、Monte Carlo推定値の限界を区別し、計算ラボで検証できる
+definitions:
+  - { id: ML2-20-DEF-01, name: 変分autoencoderの生成模型とencoder }
+  - { id: ML2-20-DEF-02, name: 対角Gaussian encoder }
+theorems:
+  - { id: ML2-20-THM-01, name: VAEのELBOと事後KL恒等式 }
+  - { id: ML2-20-THM-02, name: 対角Gaussianの事前KL公式 }
+  - { id: ML2-20-THM-03, name: Gaussian VAEの経路勾配 }
+  - { id: ML2-20-PROP-01, name: 線形Gaussian VAEの下界一致 }
+  - { id: ML2-20-PROP-02, name: 潜在変数を使わないdecoderとposterior collapse }
+canonical_examples:
+  - 一次元正規decoderの再構成・KLとELBO gap
+  - 二値観測のBernoulli再構成対数尤度
+  - 対角Gaussianの平均と対数標準偏差の微分
+  - 潜在変数を無視するdecoderの厳密なposterior collapse例
+  - 固定seedでのMonte Carlo ELBO・経路勾配ラボ
+problem_patterns: [ML2-20-A01, ML2-20-A02, ML2-20-A03, ML2-20-A04, ML2-20-B01, ML2-20-B02, ML2-20-B03, ML2-20-B04, ML2-20-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

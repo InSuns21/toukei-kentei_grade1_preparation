@@ -1064,6 +1064,7 @@
 38. [ML2-17 系列模型・再帰ネットワーク](textbook/volumes/dream_thater/応用系/ML/ML2-17/index.md)
 39. [ML2-18 Attention・Transformerの演算](textbook/volumes/dream_thater/応用系/ML/ML2-18/index.md)
 40. [ML2-19 自己教師あり表現学習](textbook/volumes/dream_thater/応用系/ML/ML2-19/index.md)
+41. [ML2-20 変分autoencoder](textbook/volumes/dream_thater/応用系/ML/ML2-20/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
