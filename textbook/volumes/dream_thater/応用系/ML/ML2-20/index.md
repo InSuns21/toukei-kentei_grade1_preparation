@@ -394,7 +394,7 @@ $$
 \log p(1)-\mathcal L(0,1)=\tfrac34-\tfrac12\log2>0.
 $$
 
-この差は[ELBO恒等式](#thm-ml2-20-elbo)により真の事後へのKLである。真の事後を表現できるencoder族でも、誤ったencoderパラメータなら下界は緩むことを示す。
+この差は[VAEのELBOと事後KL恒等式](#thm-ml2-20-elbo)により真の事後へのKLである。真の事後を表現できるencoder族でも、誤ったencoderパラメータなら下界は緩むことを示す。
 
 ## 7. 潜在変数を無視するdecoderとサンプル推定値
 
