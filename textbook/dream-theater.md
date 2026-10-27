@@ -1022,6 +1022,7 @@
 10. [QINF10 二状態識別とHelstrom界](textbook/volumes/dream_thater/応用系/QINF/QINF10/index.md)
 11. [QINF11 トレース距離・忠実度](textbook/volumes/dream_thater/応用系/QINF/QINF11/index.md)
 12. [QINF12 複製・放送・削除の制約](textbook/volumes/dream_thater/応用系/QINF/QINF12/index.md)
+13. [QINF13 テレポーテーションと超密符号化](textbook/volumes/dream_thater/応用系/QINF/QINF13/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
