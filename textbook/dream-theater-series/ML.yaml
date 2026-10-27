@@ -177,7 +177,7 @@ chapters:
     title: "正規化flow・密度変換"
   - id: ML2-22
     path: textbook/volumes/dream_thater/応用系/ML/ML2-22
-    status: planned
+    status: completed
     title: "敵対的生成モデルと分布比較"
   - id: ML2-23
     path: textbook/volumes/dream_thater/応用系/ML/ML2-23
