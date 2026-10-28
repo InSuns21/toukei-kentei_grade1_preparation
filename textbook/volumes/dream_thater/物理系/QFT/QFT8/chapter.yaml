@@ -1,0 +1,48 @@
+id: QFT8
+title: "フェルミオンFock空間・反交換関係とDirac伝播関数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT7
+  - QFT6
+official_scope: []
+learning_objectives:
+  - 反対称テンソル積からフェルミオンFock空間と生成・消滅演算子を作り、CARとPauli排他性を証明できる
+  - 粒子と反粒子の独立な生成演算子を用いてDirac場を構成し、負振動数の係数が反粒子の生成に対応する理由を説明できる
+  - 正規順序化した自由Hamiltonianと電荷を導き、真空・一粒子・一反粒子状態の固有値を判定できる
+  - Diracスピン和とFourier完全性から等時刻CARを導ける
+  - Dirac反交換子をPauli–Jordan分布に帰着し、空間的分離での反交換性を示せる
+  - フェルミオンの時間順序に伴う負符号を検算し、Dirac伝播関数の極とデルタ源を再構成できる
+definitions:
+  - { id: QFT8-DEF-01, name: フェルミオンFock空間 }
+  - { id: QFT8-DEF-02, name: フェルミオンの生成・消滅演算子 }
+  - { id: QFT8-DEF-03, name: 自由量子Dirac場 }
+  - { id: QFT8-DEF-04, name: 正規順序化したエネルギーと電荷 }
+  - { id: QFT8-DEF-05, name: フェルミオンの時間順序と伝播関数 }
+theorems:
+  - { id: QFT8-THM-01, name: 外積構成による正準反交換関係 }
+  - { id: QFT8-PROP-01, name: 正エネルギーと反粒子の反対電荷 }
+  - { id: QFT8-THM-02, name: Dirac場の等時刻正準反交換関係 }
+  - { id: QFT8-THM-03, name: Dirac場の因果的反交換子と局所性 }
+  - { id: QFT8-THM-04, name: Dirac時間順序伝播関数の極とデルタ源 }
+canonical_examples:
+  - 一つのモードの二状態と同一モードの二重生成の零
+  - 粒子と反粒子の一励起に対する電荷とエネルギー
+  - 静止運動量でのスピン和による四成分の完全性
+  - 空間的分離で反交換子が消える一方で二点相関は残る例
+  - 時間順序を逆転させた際の符号と極の配置
+problem_patterns:
+  - QFT8-ONE-MODE-PAULI
+  - QFT8-CAR-SIGNS
+  - QFT8-PARTICLE-ANTIPARTICLE
+  - QFT8-EQUAL-TIME-BLOCKS
+  - QFT8-TIME-ORDER-SIGN
+  - QFT8-WEDGE-CAR
+  - QFT8-LOCALITY-CAUSAL
+  - QFT8-HAMILTONIAN-CHARGE
+  - QFT8-DIRAC-POLES
+  - QFT8-FERMION-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 4 }
