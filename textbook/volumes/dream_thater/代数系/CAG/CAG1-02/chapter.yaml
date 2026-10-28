@@ -6,6 +6,7 @@ prerequisites:
   - CAG1-01
   - AG3-04
   - AG1-05
+  - AG1-11
 official_scope: []
 learning_objectives:
   - 多項式イデアルから複素点集合と正則関数の商層を構成し、零点集合と非被約構造を区別できる
