@@ -1,0 +1,20 @@
+chapter: QFT5
+terms:
+  - term: Wightman二点分布
+    english: Wightman two-point distribution
+    meaning: "真空における二つの場の順序付き積の期待値を、試験関数の対へ割り当てる分布。"
+  - term: スペクトル条件
+    english: spectral condition
+    meaning: "二点分布のFourier支持が正エネルギーの質量殻上にある性質。"
+  - term: Pauli–Jordan交換子分布
+    english: Pauli–Jordan commutator distribution
+    meaning: "自由場の交換子を定める二点分布の反対称部分。ここではC=-iEの規約を採る。"
+  - term: 有限伝播速度
+    english: finite propagation speed
+    meaning: "コンパクト台初期値の影響が、時刻差と同じ距離以内にしか伝わらない性質。"
+  - term: 空間的分離
+    english: spacelike separation
+    meaning: "二つの時空点の差がMinkowski計量で負の二乗間隔を持つこと。"
+  - term: 局所的可換性
+    english: microcausality
+    meaning: "互いに空間的に分離した支持を持つ試験関数でsmearingした場の交換子が消えること。"
