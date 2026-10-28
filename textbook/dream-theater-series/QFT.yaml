@@ -42,3 +42,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT9
     status: completed
     title: "相互作用描像・Dyson級数・Wickの定理"
+  - id: QFT10
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT10
+    status: completed
+    title: "スカラー相互作用の頂点規則・対称因子・連結図"
