@@ -1,0 +1,48 @@
+id: "QINF20"
+title: "量子相対エントロピーとデータ処理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF3
+  - QINF5
+  - QINF7
+  - QINF8
+  - QINF17
+  - QINF18
+  - QINF19
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 有限次元量子相対エントロピーを台の包含条件付きで定義し、可換・非可換・無限大の例を区別できる
+  - 非負性と等号条件を既習の非可換対数比較から導き、ユニタリ・等長変換での不変性を確認できる
+  - 正定値行列の部分トレース比較を正半定値へ拡張し、零固有値の極限と出力の台包含を証明できる
+  - Stinespring表現を用いて任意の有限次元量子チャネルのデータ処理不等式を証明できる
+  - 相互情報量・強劣加法性・古典測定・等号例へ不等式を適用し、一般の等号構造定理との境界を説明できる
+definitions:
+  - { id: QINF20-DEF-01, name: "量子相対エントロピー" }
+theorems:
+  - { id: QINF20-PROP-01, name: "量子相対エントロピーの非負性と等号条件" }
+  - { id: QINF20-LEM-01, name: "等長写像による相対エントロピーの不変性" }
+  - { id: QINF20-LEM-02, name: "零固有値を許す部分トレース単調性" }
+  - { id: QINF20-THM-01, name: "量子相対エントロピーのデータ処理不等式" }
+  - { id: QINF20-COR-01, name: "局所チャネルによる量子相互情報量の単調性" }
+  - { id: QINF20-PROP-02, name: "古典的粗視化の相対エントロピー差と等号" }
+canonical_examples:
+  - "純粋状態と最大混合状態、直交純粋状態のsupport条件"
+  - "位相消失チャネルによる|+>と最大混合状態の識別情報の減少"
+  - "Bell対・古典相関・積状態の相互情報量をチャネル処理で比較"
+problem_patterns:
+  - QINF20-PURE-MIXED
+  - QINF20-SUPPORT-INFINITY
+  - QINF20-CLASSICAL-RELATIVE-ENTROPY
+  - QINF20-UNITARY-INVARIANCE
+  - QINF20-BINARY-NOISE
+  - QINF20-REGULARIZATION
+  - QINF20-PARTIAL-TRACE-STRICT
+  - QINF20-CLASSICAL-CHAIN-RULE
+  - QINF20-MUTUAL-INFORMATION-DPI
+  - QINF20-BELL-DEPHASING-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.5, review: 3.0 }
