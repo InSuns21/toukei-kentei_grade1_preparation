@@ -1,0 +1,44 @@
+id: "CAG1-02"
+title: "解析化の構成と特異解析空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-01
+  - AG3-04
+  - AG1-05
+official_scope: []
+learning_objectives:
+  - 多項式イデアルから複素点集合と正則関数の商層を構成し、零点集合と非被約構造を区別できる
+  - 有限生成複素代数のアフィン解析化を説明し、多項式表示を変えたときに自然な同型となる理由を示せる
+  - 代数的局所環から解析的局所環への自然な写像を具体式で書き、滑らかな点・節点・非被約な点を比較できる
+  - 主開集合への制限を使って解析化を貼り合わせ、射の解析化が恒等射と合成を保つことを証明できる
+  - 同じ点写像でも冪零元への作用が異なる射を区別し、連接層や平坦性の比較とは切り分けられる
+definitions:
+  - { id: CAG1-02-DEF-01, name: 方程式が定める複素解析空間 }
+  - { id: CAG1-02-DEF-02, name: アフィンスキームの解析化 }
+theorems:
+  - { id: CAG1-02-PROP-01, name: アフィン表示からの独立性 }
+  - { id: CAG1-02-PROP-02, name: 代数的局所環から解析的局所環へ }
+  - { id: CAG1-02-PROP-03, name: 節点の二つの接方向 }
+  - { id: CAG1-02-THM-01, name: 有限型スキームの解析化と射の関手性 }
+canonical_examples:
+  - xy=1 の解析化と複素乗法群の同型
+  - xy=0 の節点と一次接方向
+  - z^2=0 と z=0 の非被約構造の比較
+  - 射影直線の二枚の解析的チャートの貼り合わせ
+  - xy=y^2=0 の非被約構造が原点に集中する例
+problem_patterns:
+  - CAG1-02-A01
+  - CAG1-02-A02
+  - CAG1-02-A03
+  - CAG1-02-A04
+  - CAG1-02-A05
+  - CAG1-02-B01
+  - CAG1-02-B02
+  - CAG1-02-B03
+  - CAG1-02-B04
+  - CAG1-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
