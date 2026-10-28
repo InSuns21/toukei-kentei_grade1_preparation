@@ -5,6 +5,7 @@ prerequisites:
   - CAG1-01
   - AG3-04
   - AG1-05
+  - AG1-11
 forward_references:
   - algebraic-geometry.coherent-sheaf
 
