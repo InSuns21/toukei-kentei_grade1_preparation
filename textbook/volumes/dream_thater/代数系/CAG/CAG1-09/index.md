@@ -38,7 +38,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（閉解析部分空間）**
-> 複素多様体 $M$ 上の解析的連接イデアル層 $\mathcal J\subset\mathcal O_M$ に対し、その零点集合を台とし、構造層を $\mathcal O_M/\mathcal J$ とする解析空間を **閉解析部分空間** と呼ぶ。$\mathcal J=\mathcal I_Z$ の場合は被約だが、一般には冪零元が残ってよい。
+> 複素多様体 $M$ 上の[解析的連接層](../CAG1-03/index.md#def-cag1-03-analytic-coherent)であるイデアル層 $\mathcal J\subset\mathcal O_M$ に対し、その零点集合を台とし、構造層を $\mathcal O_M/\mathcal J$ とする解析空間を **閉解析部分空間** と呼ぶ。$\mathcal J=\mathcal I_Z$ の場合は被約だが、一般には冪零元が残ってよい。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cag1-09-analytic-subspace -->
@@ -83,7 +83,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\mathcal I_Z\hookrightarrow\mathcal O_{P^{\mathrm{an}}}$ を考える。これらは解析的連接層である。射影性の仮定のもと、[GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)から代数的連接層 $\mathcal F$ と同型 $\alpha:\mathcal F^{\mathrm{an}}\xrightarrow{\sim}\mathcal I_Z$ を取れる。
+まず $n=0$ なら $P=\mathbb P^0_{\mathbb C}$ は一点で、閉解析部分集合は空集合か全体だけである。それぞれ定数斉次式 $1$、$0$ の零点として表せ、被約構造の主張も直ちに成立する。以下は $n\ge1$ とする。
+
+$\mathcal I_Z\hookrightarrow\mathcal O_{P^{\mathrm{an}}}$ を考える。これらは解析的連接層である。射影性の仮定のもと、[GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)から代数的連接層 $\mathcal F$ と同型 $\alpha:\mathcal F^{\mathrm{an}}\xrightarrow{\sim}\mathcal I_Z$ を取れる。
 
 解析的な合成射
 
@@ -120,7 +122,30 @@ $$
 
 右側に得られる解析的完全列は $\mathcal J^{\mathrm{an}}\simeq\mathcal I_Z$ という**包含射と両立する**同型のため、$\mathcal O_{Y^{\mathrm{an}}}\simeq\mathcal O_{P^{\mathrm{an}}}/\mathcal I_Z$ を与える。したがって解析的閉部分空間として $Y^{\mathrm{an}}=Z$ である。
 
-閉部分スキーム $Y$ は射影的だから、[射影スキームの斉次イデアル表示](../../AG/AG3-09/index.md#thm-ag3-09-homogeneous-quotient)に従って有限個の斉次方程式で与えられる。これらの解析的共通零点が $Z$ となる。さらに $Z$ の消滅イデアルは根基的なので、解析化の忠実平坦性と各閉点での被約性の降下により $Y$ も被約である（または $Y$ を被約化しても解析的零点集合は変わらない）。主張が従う。
+有限個の斉次方程式が得られる方向も確認する。代数的連接イデアル $\mathcal J\subset\mathcal O_P$ に[十分高いねじりの大域生成](../CAG1-05/index.md#lem-cag1-05-finite-twist)を適用し、$m\ge0$ を十分大きく取る。合成
+
+$$
+\mathcal O_P^{\oplus r}\twoheadrightarrow\mathcal J(m)
+\hookrightarrow\mathcal O_P(m)
+$$
+
+の各成分は $\mathcal O_P(m)$ の大域切断であり、[射影空間上の切断表示](../../AG/AG2-06/index.md#thm-ag2-06-pn-sections)から次数 $m$ の斉次多項式 $F_1,\ldots,F_r$ に対応する。$\mathcal O_P(-m)$ で戻すと $F_i$ の生成するイデアル層がちょうど $\mathcal J$ になる。[斉次商環の閉埋込み](../../AG/AG3-09/index.md#thm-ag3-09-homogeneous-quotient)とも一致し、これらの解析的共通零点が $Z$ となる。
+
+さらに、$Z$ は点集合上で消える**全て**の関数から消滅イデアル層を作ったので、解析側の商 $\mathcal O_{P^{\mathrm{an}}}/\mathcal I_Z$ は被約である。各複素閉点 $x$ における代数側と解析側の商局所環を
+
+$$
+A=\mathcal O_{P,x}/\mathcal J_x,
+\qquad B=\mathcal O_{P^{\mathrm{an}},x}/(\mathcal J^{\mathrm{an}})_x
+$$
+
+と置く。上の完全列から
+
+$$
+A\otimes_{\mathcal O_{P,x}}\mathcal O_{P^{\mathrm{an}},x}
+\simeq B
+$$
+
+であり、$A\to B$ は[忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により単射となる。$A$ の元が冪零なら、その像は被約環 $B$ で零だから、元も零である。全複素閉点の局所環が被約なので $Y$ は被約である。これで構造層まで含む主張が従う。
 <!-- proof-end -->
 
 証明の核心は、$\mathcal F$ を層として戻しただけでは**イデアル**と断言せず、包含射を戻して、その核が零であることまで確認した点にある。これは[GAGAの圏同値](../CAG1-08/index.md#thm-cag1-08-projective-equivalence)が対象と射の両方を復元することの幾何学的な使い道である。
@@ -172,13 +197,25 @@ $$
 グラフを定義した意図は、写像 $f$ を「二つの射影空間の積の中の閉解析部分集合」に置き換えてChowを適用することである。特に $B$ が射影代数多様体の解析化なら、$B$ はHausdorffであり、グラフの閉性が保証される。
 
 <!-- definition-example-start: def-cag1-09-graph -->
-**定義の確認**：$f:\mathbb P^1\to\mathbb P^1$ を $[S:T]\mapsto[S^2:T^2]$ で与える。二つ目の座標を $[U:V]$ と書くと
+**定義の確認**：$f:\mathbb P^1\to\mathbb P^1$ を $[S:T]\mapsto[S^2:T^2]$ で与える。二つ目の点の座標を $[U:V]$ と書く。二つの射影点 $[U:V]$ と $[S^2:T^2]$ が一致する条件は、どちらの座標対も零対でないことを前提として $UT^2=VS^2$ である。この比例条件を、始域と標的にそれぞれ斉次な方程式へ書き直すと
 
 $$
 \Gamma_f=V(UT^2-VS^2)\subset\mathbb P^1\times\mathbb P^1.
 $$
 
-$S,T$ は同時に零にならないので $[S^2:T^2]$ は定義できる。固定した $[S:T]$ に対して $UT^2=VS^2$ を満たす $[U:V]$ は $[S^2:T^2]$ ただ一つである。$T\ne0$ のチャートでは $t=S/T$、$v=U/V$ として $v=t^2$ となり、第一射影の局所的な逆は $t\mapsto(t,t^2)$。したがってグラフの正則な同型を実際に確かめられる。
+$S,T$ は同時に零にならないので、固定した $[S:T]$ に対する第二成分は一意である。$T\ne0$ なら方程式から $V\ne0$ となる。局所座標 $t=S/T$、$v=U/V$ での式は
+
+$$
+v=t^2,\qquad t\longmapsto(t,t^2)
+$$
+
+で、右辺は第一射影の逆を表す。$S\ne0$ の側では $U\ne0$、局所座標 $s=T/S$、$u=V/U$ に対して
+
+$$
+u=s^2,\qquad s\longmapsto(s,s^2)
+$$
+
+となる。二つの逆写像は重なりで同じ $f$ を表すため、解析空間構造も含めて第一射影が同型である。
 <!-- definition-example-end -->
 
 <a id="prop-cag1-09-graph-algebraization"></a>
@@ -190,16 +227,16 @@ $S,T$ は同時に零にならないので $[S^2:T^2]$ は定義できる。固�
 
 ### 証明の見取り図
 
-標的 $Y^{\mathrm{an}}$ のHausdorff性でグラフが閉じ、局所正則座標では $y_j-f_j(x)=0$ で解析的に定義される。積 $X\times Y$ はSegre埋め込みで射影的なので、[Chowの定理](#thm-cag1-09-chow)を適用できる。
+標的 $Y^{\mathrm{an}}$ のHausdorff性でグラフが閉じ、局所正則座標では $y_j-f_j(x)=0$ で解析的に定義される。積 $X\times Y$ は[Segre写像の像の定理](../../AG/AG2-03/index.md#thm-ag2-03-segre-minors)で射影的になるので、[Chowの定理](#thm-cag1-09-chow)を適用できる。
 
 <!-- proof-start -->
 ### 証明
 
 $Y^{\mathrm{an}}$ は射影空間の閉部分空間なのでHausdorffである。$\Gamma_f$ は連続写像 $(x,y)\mapsto(f(x),y)$ の下で $Y^{\mathrm{an}}\times Y^{\mathrm{an}}$ の対角集合の逆像として表される。Hausdorff性により対角集合は閉だから $\Gamma_f$ も閉である。
 
-$Y$ の局所解析的埋め込み座標を $y_1,\ldots,y_r$ とし、$f$ の各座標表示を $f_j(x)$ とする。グラフの局所イデアルは $y_j-f_j(x)$ と $Y$ 自身の方程式で記述される。よって閉解析部分集合である。
+$Y$ が特異な場合も、その点の近傍を正則関数による方程式で複素座標空間へ埋め込める（[複素解析空間の局所定義](../CAG1-02/index.md#def-cag1-02-analytic-subspace)）。その周囲の座標を $y_1,\ldots,y_r$、$f$ の局所表示を $f_j(x)$ とすると、積の中のグラフは $Y$ の方程式と $y_j-f_j(x)=0$ の共通零点になる。これは第一射影の逆 $x\mapsto(x,f(x))$ も正則であることを同時に示す。よって閉解析部分集合である。
 
-代数側では $X\times Y$ は射影的であり、射影空間へのSegre埋め込みの下でも閉解析部分集合のままである。[Chowの定理](#thm-cag1-09-chow)で代数的閉部分多様体 $G$ を得る。
+代数側で $X\subset\mathbb P^a$、$Y\subset\mathbb P^b$ という閉埋込みを選ぶ。必要なら座標を増やして $a,b\ge1$ とできる。[Segre写像の像の定理](../../AG/AG2-03/index.md#thm-ag2-03-segre-minors)は $([a_i],[b_j])\mapsto[a_ib_j]$ の像を二次小行列式の零点で表し、局所逆も与える。従って $X\times Y$ は射影空間の閉部分空間となり、その中の $\Gamma_f$ も閉解析部分集合である。[Chowの定理](#thm-cag1-09-chow)を適用して代数的閉部分多様体 $G$ を得る。
 
 元のグラフは被約な多様体 $X^{\mathrm{an}}$ と解析的に同型なので、対応する代数化も被約構造を選べる。
 <!-- proof-end -->
@@ -208,7 +245,7 @@ $Y$ の局所解析的埋め込み座標を $y_1,\ldots,y_r$ とし、$f$ の各
 
 ## 4. グラフに対応する写像を実際に作る
 
-射影空間 $\mathbb P^m$ への正則写像は、各点で同時には消えない $m+1$ 個の正則切断の比で表せる。標的の座標 $[U_0:\cdots:U_m]$ を引き戻すには、単なる関数ではなく $\mathcal O(1)$ の正則線束を使う必要がある。各局所チャートで別の分母が現れるからである。
+射影空間 $\mathbb P^m$ への正則写像は、各点で同時には消えない $m+1$ 個の正則切断の比で表せる。標的の座標 $[U_0:\cdots:U_m]$ を引き戻すには、単なる関数ではなく[ねじり層 $\mathcal O(1)$](../../AG/AG2-06/index.md#def-ag2-06-twisting-sheaf) の正則線束を使う必要がある。各局所チャートで別の分母が現れるからである。
 
 まず、解析側の正則線束を代数化した後、本当に可逆な代数的層になるのかを確かめておく。
 
@@ -216,7 +253,7 @@ $Y$ の局所解析的埋め込み座標を $y_1,\ldots,y_r$ とし、$f$ の各
 
 <!-- formal-statement-start -->
 > **補題（解析的正則線束の代数化と切断の復元）**
-> $X$ を有限型射影 $\mathbb C$-スキーム、$\mathcal L_{\mathrm{an}}$ を $X^{\mathrm{an}}$ 上の階数一の局所自由解析的連接層とする。このとき代数的可逆層 $\mathcal L$ が存在し、$\mathcal L^{\mathrm{an}}\simeq\mathcal L_{\mathrm{an}}$ である。また選んだ同型の下で、大域切断の比較
+> $X$ を有限型射影 $\mathbb C$-スキーム、$\mathcal L_{\mathrm{an}}$ を $X^{\mathrm{an}}$ 上の階数一の局所自由解析的連接層とする（[可逆層・直線束の定義](../../AG/AG2-06/index.md#def-ag2-06-invertible-sheaf)の解析版）。このとき代数的可逆層 $\mathcal L$ が存在し、$\mathcal L^{\mathrm{an}}\simeq\mathcal L_{\mathrm{an}}$ である。また選んだ同型の下で、大域切断の比較
 
 $$
 H^0(X,\mathcal L)
@@ -229,14 +266,33 @@ $$
 
 ### 証明の見取り図
 
-[GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)は解析的線束をまず代数的な**連接層**として戻す。可逆性の判定には[局所環の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)とNakayamaの補題を使う。切断の復元は[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の $q=0$ である。
+[GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)は解析的線束をまず代数的な**連接層**として戻す。可逆性の判定には[局所環の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)と、ここで有限生成加群について確認するNakayamaの補題を使う。切断の復元は[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の $q=0$ である。
 
 <!-- proof-start -->
 ### 証明
 
 [GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)で連接層 $\mathcal F$ と $\mathcal F^{\mathrm{an}}\simeq\mathcal L_{\mathrm{an}}$ を得る。任意の複素閉点 $x$ における $A=\mathcal O_{X,x}$、$B=\mathcal O_{X^{\mathrm{an}},x}$、$M=\mathcal F_x$ と置くと、$A\to B$ は[忠実平坦な局所準同型](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)で、$M\otimes_A B\simeq B$ である。
 
-両局所環の剰余体は $\mathbb C$ なので、$M/\mathfrak m_A M$ は一次元である。$M$ は有限生成だからNakayamaの補題により、ある $m\in M$ が $M$ を生成し、$A\xrightarrow{1\mapsto m}M$ は全射となる。$B$ へテンソルした射 $B\to M\otimes_A B\simeq B$ も全射である。局所環 $B$ 上の全射 $B\to B$ は単元による乗法だから同型であり、その核は零である。$A\to B$ の忠実平坦性により元の核も零、従って $M\simeq A$ である。
+局所座標で $X$ を多項式方程式の商として表すと、[解析化の茎の表示](../CAG1-02/index.md#prop-cag1-02-stalk-comparison)では同じ方程式を収束冪級数環に移す。したがって両局所環の極大イデアルは座標差 $z_i-z_i(x)$ の像で生成され、$\mathfrak m_AB=\mathfrak m_B$、剰余体はともに $\mathbb C$ である。ゆえに
+
+$$
+M/\mathfrak m_A M
+\simeq (M\otimes_A B)/\mathfrak m_B(M\otimes_A B)
+\simeq B/\mathfrak m_B\simeq\mathbb C.
+$$
+
+従って $M/\mathfrak m_A M$ は一次元であり、その生成元を $M$ の元 $m$ に持ち上げる。ここで使うNakayamaの補題の有限生成版は、局所環 $(A,\mathfrak m)$ 上の有限生成加群 $N$ が $N=\mathfrak m N$ を満たせば $N=0$、という主張である。
+
+実際、生成元 $n_1,\ldots,n_r$ に対して $N=\mathfrak m N$ を使い、係数 $a_{ij}\in\mathfrak m$ を選んで
+
+$$
+n_i=\sum_{j=1}^r a_{ij}n_j,
+\qquad \det(I-(a_{ij}))n_i=0
+$$
+
+を得る。第二式は第一式に行列 $I-(a_{ij})$ の余因子行列を掛けたものである。行列式は法 $\mathfrak m$ で $1$ となる単元だから、全ての $n_i$ が零になる。
+
+これを $N=M/Am$ に適用する。$N/\mathfrak m_A N=0$ だから $N=0$、従って $A\xrightarrow{1\mapsto m}M$ は全射である。$B$ へテンソルした射 $B\to M\otimes_A B\simeq B$ も全射である。局所環 $B$ 上の全射 $B\to B$ は単元による乗法だから同型であり、その核は零である。$A\to B$ の忠実平坦性により元の核も零、従って $M\simeq A$ である。
 
 有限表示層の局所自由性は開条件で、任意の非空閉集合は複素閉点を含む。ゆえに全ての閉点の近くで階数一局所自由なら $\mathcal F$ は $X$ 全体で可逆である。これを $\mathcal L$ とする。
 
@@ -276,16 +332,35 @@ $$
 
 もし $s_0,\ldots,s_m$ に共通零点があれば、その零点集合は有限型 $\mathbb C$-スキーム上の非空閉集合なので複素閉点 $x$ を含む。その点で $s_j(x)=0$ が全 $j$ について成立し、解析化後も $t_j(x)=0$ となって矛盾する。
 
-従って評価写像 $\mathcal O_X^{m+1}\xrightarrow{(s_0,\ldots,s_m)}\mathcal L$ は全射である。可逆層と同時零点のない切断が与える[射影空間への射の構成](../../AG/AG2-06/index.md#def-ag2-06-invertible-sheaf)を局所枠で書けば、
+従って評価写像は全射である。
+
+$$
+\mathcal O_X^{m+1}\xrightarrow{(s_0,\ldots,s_m)}\mathcal L
+$$
+
+ここから射を作る操作を局所的に確認する。各添字 $j$ に対して、切断が消えない開集合
+
+$$
+D(s_j)=\{x\in X:s_j(x)\ne0\}
+$$
+
+を取ると、これらは $X$ を覆う。$D(s_j)$ 上では $s_j$ 自身を[可逆層の局所枠](../../AG/AG2-06/index.md#def-ag2-06-invertible-sheaf)として使える。従って $s_i/s_j$ は通常の正則関数である。$\mathbb P^m$ の $U_j\ne0$ チャートへの環の射は、座標 $U_i/U_j$ をこの正則関数へ送ることで定まる。二つのチャートが重なるところでは
+
+$$
+\frac{s_i}{s_k}=\frac{s_i/s_j}{s_k/s_j}
+\qquad(s_j\ne0,\ s_k\ne0)
+$$
+
+となる。分母 $s_k/s_j$ は重なりで単元なので、これはチャート変更と一致する。この局所構成を[射の貼り合わせ定理](../../AG/AG3-04/index.md#thm-ag3-04-morphism-gluing)で貼ると、代数的射
 
 $$
 g_P:X\longrightarrow\mathbb P^m,\qquad
 x\longmapsto[s_0(x):\cdots:s_m(x)]
 $$
 
-が得られる。局所枠の変更で全成分に同じ単元が掛かるので、[射の貼り合わせ定理](../../AG/AG3-04/index.md#thm-ag3-04-morphism-gluing)によりこの表示は貼り合わさる。解析化した射は $h$ と一致する。
+が得られる。解析化した局所座標の引戻しは $t_i/t_j=h^*(U_i/U_j)$ だから、各チャートで解析化した射は $h$ と一致する。
 
-次に $Y$ の斉次イデアルを有限個の斉次多項式 $F_\nu(U_0,\ldots,U_m)$（次数 $d_\nu$）で生成する。[斉次イデアル表示](../../AG/AG3-09/index.md#thm-ag3-09-homogeneous-quotient)による。切断の斉次式
+次に $Y\subset\mathbb P^m$ の連接イデアル層に[十分高いねじりの大域生成](../CAG1-05/index.md#lem-cag1-05-finite-twist)を使い、上の[Chowの証明](#thm-cag1-09-chow)と同じく斉次多項式 $F_\nu(U_0,\ldots,U_m)$（次数 $d_\nu$）で局所イデアルを生成する。切断の斉次式
 
 $$
 F_\nu(s_0,\ldots,s_m)\in
@@ -298,7 +373,7 @@ $$
 
 局所枠で割った座標環の準同型は全ての $F_\nu$ を零に送る。そのため $g_P$ は閉部分スキーム $Y$ を通る射 $g:X\to Y$ に因子化し、その解析化は $f$ と一致する。
 
-一意性は、二つの代数的射の解析化が一致すれば、その射が誘導する局所正則関数の引戻しが各複素点で一致し、被約有限型 $\mathbb C$-多様体の大域的な射も一致することによる。あるいは両グラフは同じ解析的イデアルを持ち、[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom)の忠実性から同じ代数的グラフになる。
+一意性も局所座標で確かめられる。$g_1,g_2:X\to Y$ の解析化が一致するとし、$Y$ を射影空間に埋め込む。各標準チャートの逆像が複素閉点上で一致するので、それらの開集合も一致する（異なるなら差は非空な局所閉集合となり、有限型 $\mathbb C$-スキーム上では複素閉点を含む）。そこで座標関数 $U_i/U_j$ の二つの引戻しは全ての複素閉点で等しい。$X$ が**被約**だから、その差は各アフィン開上で零であり、[射の貼り合わせ](../../AG/AG3-04/index.md#thm-ag3-04-morphism-gluing)により $g_1=g_2$ となる。
 <!-- proof-end -->
 
 この証明は**Chowの定理を仮定して射を作ったわけではない**。GAGA I・IIIから直接射を構成した。前節のグラフの代数化と合わせると、構成した代数的射のグラフの解析化は $\Gamma_f$ に一致するため、Chowで得た代数的閉部分多様体 $G$ とも同一になる。これで「グラフの代数化」と「射の代数化」が閉部分空間の構造まで一致する。
@@ -346,7 +421,14 @@ $$
 
 もし代数的射 $g:\mathbb A^1_{\mathbb C}\to\mathbb P^1_{\mathbb C}$ が $g^{\mathrm{an}}=f$ を満たすとする。$f$ の第一斉次座標は常に $1\ne0$ なので、$g$ の像も $U\ne0$ のアフィンチャートに含まれる。これは $\mathbb A^1$ の全複素閉点が $g^{-1}(U\ne0)$ に属し、その補集合である閉集合が空だからである。したがって $g$ はアフィン直線への射で、座標環の準同型 $\mathbb C[w]\to\mathbb C[z]$ は $w\mapsto p(z)$（ある多項式 $p$）となる。
 
-解析化すると $p(z)=e^z$ が全ての複素数 $z$ で成立する。しかし $e^z$ の $k$ 階導関数は全て $e^z$ であり $z=0$ で $1$、一方次数 $d$ の多項式の $d+1$ 階導関数は零なので矛盾する。
+解析化すると $p(z)=e^z$ が全ての複素数 $z$ で成立する。特に $p(0)=1$ なので $p$ は零多項式でなく、その次数を $d\ge0$ と置ける。$z$ を微分変数とする $d+1$ 階導関数を比較すると、
+
+$$
+\left.\frac{d^{d+1}}{dz^{d+1}}e^z\right|_{z=0}=1,
+\qquad \frac{d^{d+1}}{dz^{d+1}}p(z)=0
+$$
+
+となって矛盾する。左辺は指数関数を何回微分しても同じ関数となること、右辺は多項式の次数が $d$ であることを使った。
 <!-- proof-end -->
 
 また、始域がコンパクト複素多様体というだけでは、それが射影代数多様体の解析化であるとは限らない。**Chowの定理は「すでに射影空間の中にある」閉解析集合についての定理**である。コンパクト性だけを理由に、任意の複素多様体へ代数性を宣言してはならない。
@@ -362,7 +444,13 @@ $$
 $P^1$ の $p=[0:1]$ を考える。$S:\mathcal O(-1)\to\mathcal O$ が $p$ の消滅イデアルを与えることを、$T\ne0$、$S\ne0$ の両チャートで示し、商層の非零な茎を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$T\ne0$ では $w=S/T$ とし、$\mathcal O(1)$ の局所枠を $T$ として射を自明化すると $S=wT$ だから乗法は $w$。像は $(w)$ で、$p$ における商は $\mathbb C[w]_{(w)}/(w)\simeq\mathbb C$。$S\ne0$ では $S$ が $\mathcal O(1)$ の局所枠なので乗法は $1$、商は零である。両チャートでの像を貼れば $\mathcal I_p$ となり、解析化後も $w$ は同じ正則座標なので $(\mathcal I_p)^{\mathrm{an}}=\mathcal I_{\{p\}}$ である。[消滅イデアルの定義](#def-cag1-09-vanishing-ideal)を直接検算した。
+**詳細解答**。$T\ne0$ では $w=S/T$ とし、$\mathcal O(1)$ の局所枠を $T$ として射を自明化すると $S=wT$ だから乗法は $w$。像は $(w)$ で、$p$ における代数的な商の茎は
+
+$$
+\mathbb C[w]_{(w)}/(w)\simeq\mathbb C.
+$$
+
+$S\ne0$ では $S$ が $\mathcal O(1)$ の局所枠なので乗法は $1$、商は零である。両チャートでの像を貼れば点 $p$ のイデアル層となる。解析化では $\mathbb C[w]_{(w)}$ を正則関数の芽 $\mathbb C\{w\}$ へ移すので、商の茎は $\mathbb C\{w\}/(w)\simeq\mathbb C$ で変わらない。$p$ 以外では像が単位イデアルだから、$(\mathcal I_p)^{\mathrm{an}}=\mathcal I_{\{p\}}$ である。[消滅イデアルの定義](#def-cag1-09-vanishing-ideal)を直接検算した。
 <!-- solution-end -->
 
 <a id="ex-cag1-09-a02"></a>
@@ -382,7 +470,9 @@ $p=[0:1]\in\mathbb P^1$ とする。$S$ と $S^2$ が定める閉部分スキー
 $f([S:T])=[S^2:T^2]$ のグラフが $\mathbb P^1\times\mathbb P^1$ で $UT^2-VS^2=0$ と書けることを示せ。$S\ne0$ と $T\ne0$ のチャートで第一射影が同型であることも確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。二つ目の点を $[U:V]$ とすれば $[U:V]=[S^2:T^2]$ と $UT^2=VS^2$ は同値である。$T\ne0$ なら $T^2\ne0$ で $V\ne0$、$t=S/T$、$v=U/V$ として $v=t^2$。逆は $t\mapsto(t,t^2)$。$S\ne0$ なら $U\ne0$、$s=T/S$、$u=V/U$ として $u=s^2$、逆は $s\mapsto(s,s^2)$。両方の逆写像は重なりで同じ $f$ を与える。[グラフの定義](#def-cag1-09-graph)の解析的同型を局所計算で確かめた。
+**詳細解答**。二つ目の点を $[U:V]$ とする。$[U:V]=[S^2:T^2]$ は、両座標対が非零という条件の下で比例条件 $UT^2-VS^2=0$ と同値である。
+
+$T\ne0$ なら方程式から $V\ne0$ であり、$t=S/T$、$v=U/V$ と置くと $v=t^2$。逆は $t\mapsto(t,t^2)$ となる。$S\ne0$ なら $U\ne0$ であり、$s=T/S$、$u=V/U$ と置くと $u=s^2$。逆は $s\mapsto(s,s^2)$ となる。両方の逆写像は重なりで同じ $f$ を与える。[グラフの定義](#def-cag1-09-graph)の解析的同型を局所計算で確かめた。
 <!-- solution-end -->
 
 <a id="ex-cag1-09-a04"></a>
@@ -392,7 +482,23 @@ $f([S:T])=[S^2:T^2]$ のグラフが $\mathbb P^1\times\mathbb P^1$ で $UT^2-VS
 アフィン尖点 $C=V(y^2-x^3)$ と写像 $\nu:\mathbb A^1\to C$、$t\mapsto(t^2,t^3)$ を考える。$\nu$ が複素点上全単射であること、しかし同型でないことを局所環から示せ。
 
 <!-- solution-start -->
-**詳細解答**。$\nu(t)=\nu(s)$ なら $t^2=s^2$、$t^3=s^3$。$t=0$ なら $s=0$、非零なら $t/s$ は二乗も三乗も1なので $t=s$。任意の $(x,y)$ が $y^2=x^3$ を満たすとき、$x=0$ なら原点、$x\ne0$ なら $t=y/x$ と置けば $t^2=y^2/x^2=x$、$t^3=tx=(y/x)x=y$。よって全単射である。一方、尖点での環準同型は $\mathbb C[t^2,t^3]_{(t^2,t^3)}\to\mathbb C[t]_{(t)}$ で、$t$ は左辺に属さない。なぜなら $\mathbb C[t^2,t^3]$ の元を $t=0$ で展開すると一次項がなく、分母が原点で零でない分数でも一次項が現れないからである。環同型でないのでスキーム同型でない。
+**詳細解答**。まず単射性を確かめる。$\nu(t)=\nu(s)$ なら $t^2=s^2$、$t^3=s^3$。$t=0$ なら $s=0$。非零なら $t/s$ の二乗も三乗も $1$ なので $t=s$ である。
+
+次に任意の $(x,y)\in C(\mathbb C)$ を取る。$x=0$ なら $y=0$ で原点となる。$x\ne0$ なら $t=y/x$ と置き、曲線の式から
+
+$$
+t^2=\frac{y^2}{x^2}=x,
+\qquad t^3=tx=y
+$$
+
+を得るので全射でもある。しかし尖点の局所環の射
+
+$$
+\mathbb C[t^2,t^3]_{(t^2,t^3)}
+\longrightarrow\mathbb C[t]_{(t)}
+$$
+
+は全射でない。左辺の分子・分母はともに $t$ の一次項を持たず、分母の定数項は非零なので、その商も一次項を持たない。一方、右辺の $t$ は一次係数が $1$ である。従って局所環は同型でなく、スキーム同型でもない。
 <!-- solution-end -->
 
 <a id="ex-cag1-09-a05"></a>
@@ -418,7 +524,9 @@ Hausdorff性から二点は互いに交わらない近傍で分離でき、$\Del
 $P^1$ で $p=[0:1]$、$q=[1:1]$ とし、$Z=\{p,q\}$ とする。$T\ne0$ の座標 $w=S/T$ で $\mathcal I_Z$ の局所生成元を求め、斉次二次式を使って代数的イデアル層を構成せよ。もう一方のチャートでも零点が増えないことを確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$p,q$ は $w=0,1$ に対応する。両点で消える正則関数 $h(w)$ は零点で一次因子を持ち、局所的には $w(w-1)$ で割れる。従って二点の近傍では消滅イデアルは $(w(w-1))$、それ以外の点では単位イデアルとなる。斉次化すると $F(S,T)=S(S-T)$ であり、代数的層の射
+**詳細解答**。$p,q$ は $w=0,1$ に対応する。両点で消える正則関数 $h(w)$ は各零点で一次因子を持つ。実際、$w=0$ の近くでは $h(w)=w a(w)$、$w=1$ の近くでは $h(w)=(w-1)b(w)$ と書け、他方の因子はそれぞれ単元である。従って二点の近傍では消滅イデアルは $(w(w-1))$、それ以外では単位イデアルとなる。
+
+斉次化すると $F(S,T)=S(S-T)$ であり、代数的層の射
 
 $$
 \mathcal O_{P^1}(-2)\xrightarrow{\cdot S(S-T)}\mathcal O_{P^1}
@@ -434,13 +542,28 @@ $$
 $P^1$ 上の $\mathcal O(2)$ の三切断 $S^2,ST,T^2$ から $P^2$ への射を作り、標的の斉次式 $UW-V^2$ が引き戻しで零になることを示せ。$T\ne0$ のチャートで像の局所方程式と逆写像を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$S^2$ と $T^2$ は同時に零でないので、三切断に共通零点がない。従って $\mathcal O^3\to\mathcal O(2)$ は全射で、$v_2([S:T])=[S^2:ST:T^2]$ が代数的射となる。引戻しは
+**詳細解答**。$S^2$ と $T^2$ は同時に零でないので、三切断に共通零点がない。従って $\mathcal O^3\to\mathcal O(2)$ は全射で、[切断比による局所構成](#thm-cag1-09-morphism-algebraic)により代数的射
+
+$$
+v_2([S:T])=[S^2:ST:T^2]
+$$
+
+が得られる。標的方程式の引戻しは
 
 $$
 (UW-V^2)(S^2,ST,T^2)=S^2T^2-S^2T^2=0.
 $$
 
-$T\ne0$ で $t=S/T$ と置くと像は $[t^2:t:1]$。$W\ne0$ の局所座標 $u=U/W$、$v=V/W$ では $u-v^2=0$ だから、逆写像は $(u,v)\mapsto t=v$ である。$S\ne0$ の側でも同様に $U\ne0$ 上で $W/U=(V/U)^2$ となる。局所環のレベルで一致しているので、単に点が同じだけではない。
+$T\ne0$ で $t=S/T$ と置くと像は $[t^2:t:1]$。$W\ne0$ の局所座標 $u=U/W$、$v=V/W$ では、$u-v^2=0$ なので逆写像は $(u,v)\mapsto t=v$ である。
+
+$S\ne0$ では $s=T/S$ とし、$U\ne0$ の座標を $a=V/U$、$b=W/U$ とする。このとき局所計算は
+
+$$
+(a,b)=(s,s^2),\qquad b-a^2=0,
+\qquad (a,b)\longmapsto s=a
+$$
+
+である。両側で座標環の同型を作ったため、点集合の一致だけではない。
 <!-- solution-end -->
 
 <a id="ex-cag1-09-b03"></a>
@@ -480,7 +603,14 @@ $$
 
 と同値である。$T\ne0$ では $t=S/T$ と置き、$V\ne0$ の座標 $u=U/V$ で $u=t+1$ となる。逆写像 $t\mapsto(t,t+1)$ は正則かつ代数的である。
 
-$T=0$ の点 $[1:0]$ では $[U:V]=[1:0]$ に一意に決まり、$S\ne0$ のチャートでも局所逆が存在する。
+$T=0$ の点 $[1:0]$ では $[U:V]=[1:0]$ に一意に決まる。$S\ne0$ のチャートで $s=T/S$、$U\ne0$ のチャートで $v=V/U$ と置けば、方程式は
+
+$$
+s-v(1+s)=0,
+\qquad v=\frac{s}{1+s}\quad(1+s\ne0)
+$$
+
+となる。$s=0$ の近くでは $1+s$ は単元で、第一射影の逆 $s\mapsto(s,s/(1+s))$ は代数的である。$s=-1$ の点では $U=0$ となるが、その点は既に $T\ne0$ 側のチャートで扱った。
 
 二つの一次切断 $S+T,T$ は共通零点を持たないので、[射影空間への射の構成](#thm-cag1-09-morphism-algebraic)でも同じグラフを得る。第一射影の**実際の逆射**を作れたので、単なる点集合の全単射に頼っていない。
 <!-- solution-end -->
@@ -512,7 +642,7 @@ $Z\subset(\mathbb P^n_{\mathbb C})^{\mathrm{an}}$ を閉解析部分集合とす
    \to\mathcal O_P/\mathcal J\to0.
    $$
 
-   包含射と両立する形で解析側は $\mathcal I_Z$ を核とする列になる。従って対応する閉部分スキームは解析化後に $Z$ を再現する。[斉次イデアル表示](../../AG/AG3-09/index.md#thm-ag3-09-homogeneous-quotient)から有限個の斉次多項式が得られる。
+   包含射と両立する形で解析側は $\mathcal I_Z$ を核とする列になる。従って対応する閉部分スキームは解析化後に $Z$ を再現する。[大域生成補題](../CAG1-05/index.md#lem-cag1-05-finite-twist)を $\mathcal J(m)$ に適用し、$\mathcal O_P^{\oplus r}\twoheadrightarrow\mathcal J(m)\hookrightarrow\mathcal O_P(m)$ を取る。[切断の斉次多項式表示](../../AG/AG2-06/index.md#thm-ag2-06-pn-sections)から各成分は次数 $m$ の斉次多項式で、$-m$ ねじりを戻すと生成イデアル層が $\mathcal J$ になる。
 
    非被約なイデアル $(w^2)$ を与えた場合は、二段目で**指定した包含射そのもの**を代数化するため $(w)$ に置き換わらない。商の $\bar w\ne0$, $\bar w^2=0$ も保存される。
 <!-- solution-end -->
