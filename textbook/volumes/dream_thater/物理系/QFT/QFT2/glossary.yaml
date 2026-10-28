@@ -1,0 +1,17 @@
+chapter: QFT2
+terms:
+  - term: 連続内部対称性
+    english: continuous internal symmetry
+    meaning: "時空座標を固定したまま場の成分を連続的に混ぜ、作用を境界項を除いて不変にする変換。"
+  - term: Noether流
+    english: Noether current
+    meaning: "連続対称変換から得られ、場の運動方程式の下で発散が零になる四元流。"
+  - term: 保存電荷
+    english: conserved charge
+    meaning: "流の時間成分を空間積分した量で、境界を通る流出入がなければ時間的に一定。"
+  - term: 正準エネルギー運動量テンソル
+    english: canonical energy-momentum tensor
+    meaning: "時空並進に対するNoether流から得られるT^mu_nu。一般には対称とは限らない。"
+  - term: 改良エネルギー運動量テンソル
+    english: improved energy-momentum tensor
+    meaning: "発散が恒等的に零の項を足して保存則を保ち、対称性やトレースなどを調整したテンソル。"

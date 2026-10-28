@@ -1235,6 +1235,7 @@
 ### 量子場理論 I
 
 1. [QFT1 相対論的スカラー場の作用とKlein–Gordon方程式](textbook/volumes/dream_thater/物理系/QFT/QFT1/index.md)
+2. [QFT2 場の対称性・Noether流・エネルギー運動量テンソル](textbook/volumes/dream_thater/物理系/QFT/QFT2/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I
