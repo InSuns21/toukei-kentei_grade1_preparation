@@ -16,7 +16,7 @@ chapters:
     title: "解析化の構成と特異解析空間"
   - id: CAG1-03
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-03
-    status: planned
+    status: completed
     title: "代数的連接層と解析的連接層"
   - id: CAG1-04
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-04
