@@ -6,7 +6,17 @@
 
 そこで、系 $B$ を手元に持ったとき $A$ の不確かさがどう変わるか、そして $A,B$ がどれだけの情報を共有しているかを、**全体と局所のエントロピーの差**で調べます。古典の[条件付きエントロピー](../../INFO/INFO1/index.md#def-info1-conditional-entropy)は非負ですが、量子では負になる例があり、その理由が本章の中心問いです。
 
-以下では有限次元の複素Hilbert空間 $H_A,H_B$ を取り、二部系の密度演算子を $\rho_{AB}$ とします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)による縮約を $\rho_A=\operatorname{Tr}_B\rho_{AB}$、$\rho_B=\operatorname{Tr}_A\rho_{AB}$ と書きます。略記 $S_A=S(\rho_A)$、$S_B=S(\rho_B)$、$S_{AB}=S(\rho_{AB})$ を用い、対数の底は2、$0\log_2 0=0$ とします。
+以下では有限次元の複素Hilbert空間 $H_A,H_B$ を取り、二部系の密度演算子を $\rho_{AB}$ とします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)による縮約と、本章で用いるエントロピーの略記を
+
+$$
+\begin{aligned}
+\rho_A&=\operatorname{Tr}_B\rho_{AB},\qquad
+\rho_B=\operatorname{Tr}_A\rho_{AB},\\
+S_A&=S(\rho_A),\qquad S_B=S(\rho_B),\qquad S_{AB}=S(\rho_{AB})
+\end{aligned}
+$$
+
+とします。対数の底は2、零固有値の項は[既習の規約](../QINF17/index.md#def-qinf17-entropy)に従って $0\log_2 0=0$ とします。
 
 ## 2. 条件付きエントロピー：全体から既知の側を差し引く
 
@@ -30,7 +40,7 @@ $$
 <!-- definition-example-start: def-qinf18-conditional -->
 ### 定義の確認：独立な二つのqubit
 
-**定義の確認**として、$\rho_{AB}=I_2/2\otimes I_2/2=I_4/4$ とします。各因子は正値・トレース1で、[積状態の部分トレース](../QINF3/index.md#def-qinf3-partial-trace)は $\rho_A=\rho_B=I_2/2$ です。全体の固有値は4個の $1/4$、局所の固有値は各2個の $1/2$。したがって
+**定義の確認**として、$\rho_{AB}=I_2/2\otimes I_2/2=I_4/4$ とします。各因子は正値・トレース1で、[部分トレースの状態保存性と積への作用](../QINF3/index.md#prop-qinf3-state-product)から $\rho_A=\rho_B=I_2/2$ です。いずれも計算基底で対角なので、全体の固有値は4個の $1/4$、局所の固有値は各2個の $1/2$。したがって
 
 $$
 S_{AB}=2,\qquad S_A=S_B=1,
@@ -60,15 +70,51 @@ $$
 <!-- definition-example-start: def-qinf18-mutual -->
 ### 定義の確認：独立・古典相関・Bell対
 
-**定義の確認**として三つの二qubit状態を比べます。局所の縮約はすべて $I_2/2$、ゆえに $S_A=S_B=1$ ですが、全体の固有値が違います。
+**定義の確認**として三つの二qubit状態を比べます。定義が要求するのは、各状態が正値・トレース1であることを確かめ、部分トレースで縮約を作り、全体と局所の固有値をそれぞれエントロピーへ代入することです。
+
+比較する積状態、古典相関状態、Bell純粋状態をそれぞれ
+
+$$
+\begin{aligned}
+\rho^{\mathrm{prod}}_{AB}&=I_4/4,\\
+\omega&=\tfrac12|00\rangle\langle00|+\tfrac12|11\rangle\langle11|,\\
+|\Phi^+\rangle&=(|00\rangle+|11\rangle)/\sqrt2,
+\qquad \Phi=|\Phi^+\rangle\langle\Phi^+|.
+\end{aligned}
+$$
+
+と置きます。これらは同じ二qubit系上の作用素です。
+
+計算基底では、[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)を外積に適用すると
+
+$$
+\operatorname{Tr}_B(|ab\rangle\langle cd|)
+=\langle d|b\rangle|a\rangle\langle c|
+=\delta_{bd}|a\rangle\langle c|.
+$$
+
+$I_4/4$ は正の対角行列でトレース1、古典相関状態 $\omega$ は直交する二射影の確率混合、Bell状態 $\Phi$ は正規化ベクトルへのrank 1射影なので、いずれも密度演算子です。$\omega$ の二つの対角項を縮約すると
+
+$$
+\operatorname{Tr}_B\omega
+=\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|=I_2/2
+$$
+
+です。$\Phi$ の外積に現れる $|00\rangle\langle11|$ とその随伴は、上式で $\delta_{01}=0$ となり消えます。$A$ 側をトレースしても同様なので、三状態とも
+
+$$
+\rho_A=\rho_B=I_2/2,\qquad S_A=S_B=1
+$$
+
+です。一方、全体の固有値は、対角行列 $I_4/4$、対角の二射影の混合 $\omega$、rank 1射影 $\Phi$ の順に異なります。これで次の表の固有値からエントロピーを判定できます。
 
 | 二部状態 $\rho_{AB}$ | 全体の非零固有値 | $S_{AB}$ | $S(A|B)$ | $I(A:B)$ |
 | --- | --- | ---: | ---: | ---: |
-| $I_4/4$（独立） | $1/4$ が4個 | $2$ | $1$ | $0$ |
-| $\omega=\frac12|00\rangle\langle00|+\frac12|11\rangle\langle11|$ | $1/2,1/2$ | $1$ | $0$ | $1$ |
-| $\Phi=|\Phi^+\rangle\langle\Phi^+|$、$|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ | $1$ | $0$ | $-1$ | $2$ |
+| $\rho^{\mathrm{prod}}_{AB}$（独立） | $1/4$ が4個 | $2$ | $1$ | $0$ |
+| $\omega$（古典相関） | $1/2,1/2$ | $1$ | $0$ | $1$ |
+| $\Phi$（Bell対） | $1$ | $0$ | $-1$ | $2$ |
 
-独立状態は積で、各局所エントロピーの和と全体が一致します。古典相関状態 $\omega$ は二つの直交射影の混合なので全体の固有値は $(1/2,1/2,0,0)$。Bell対 $\Phi$ はrank 1です。両者の縮約は、[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で $|00\rangle\langle11|$ の交差項が消えて $I_2/2$ になります。各列を定義の差へ代入しており、すべてビット単位です。
+独立状態は積で、各局所エントロピーの和と全体が一致します。古典相関状態 $\omega$ の全体の固有値は $(1/2,1/2,0,0)$、Bell対 $\Phi$ は非零固有値1個だけです。各列を定義の差へ代入しており、すべてビット単位です。
 <!-- definition-example-end -->
 
 **負の $-1$ は負の確率や負の物理的混合を意味しません。** Bell対では全体のエントロピー0より局所のエントロピー1が大きく、その差が負になります。一方、相互情報量2は「二つの独立な古典ビットを測って同時に取り出せる」という主張ではありません。量子状態の全体と縮約に関する情報量です。
@@ -100,7 +146,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-純粋性から $\rho_{AB}$ の固有値は $(1,0,\ldots,0)$ であり、[エントロピーの零等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)より $S_{AB}=0$。Schmidt分解で非零係数の二乗を $\lambda_1,\ldots,\lambda_r$ とすれば、[両側縮約の非零固有値の一致](../QINF6/index.md#thm-qinf6-reduced-spectrum)により $\rho_A,\rho_B$ の非零固有値はともに $\lambda_1,\ldots,\lambda_r$。ゆえに $S_A=S_B=-\sum_i\lambda_i\log_2\lambda_i$ です。定義から
+純粋性から $\rho_{AB}$ の固有値は $(1,0,\ldots,0)$ であり、[エントロピーの零等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)より $S_{AB}=0$。Schmidt分解で非零係数の二乗を $\lambda_1,\ldots,\lambda_r$ とすれば、[両側縮約の非零固有値の一致](../QINF6/index.md#thm-qinf6-reduced-spectrum)により $\rho_A,\rho_B$ の非零固有値はともに $\lambda_1,\ldots,\lambda_r$。ゆえに
+
+$$
+S_A=S_B=-\sum_{i=1}^r\lambda_i\log_2\lambda_i.
+$$
+
+この値と $S_{AB}=0$ を二つの定義へ代入すると
 
 $$
 \begin{aligned}
@@ -122,7 +174,7 @@ $p=0,1$ は積純粋状態で両量0、$p=1/2$ はBell対で $-1,2$ です。こ
 
 ## 5. 部分加法性を有限行列から証明する
 
-相互情報量が一般の混合状態でも非負かを知るには、全体のエントロピーが局所エントロピーの和を超えないことが必要です。ここでは後続の量子相対エントロピーや強劣加法性を仮定せず、既習のスペクトル分解と実数の $\ln t\le t-1$ だけから必要な行列比較を導きます。
+相互情報量が一般の混合状態でも非負かを知るには、全体のエントロピーが局所エントロピーの和を超えないことが必要です。ここでは後続の量子相対エントロピーや強劣加法性を仮定せず、既習の[密度演算子のスペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)と、[INFO1のエントロピー上下限定理の証明](../../INFO/INFO1/index.md#thm-info1-entropy-bounds)で導いた実数の $\ln t\le t-1$（$t>0$、等号は $t=1$）から必要な行列比較を導きます。
 
 まず正値行列の**台（support）**とは、正の固有値を持つ固有ベクトルが張る部分空間です。$P$ の台が $Q$ の台に含まれるとき、$Q$ の対数は $P$ の固有ベクトルに作用させる範囲でのみ考えればよく、零固有値の対数を要求しません。
 
@@ -213,7 +265,15 @@ $$
 =\operatorname{Tr}(Q_A\rho_A)=0.
 $$
 
-$\rho_{AB}$ は正値なので、左辺は $\rho_{AB}^{1/2}(Q_A\otimes I_B)\rho_{AB}^{1/2}$ の非負トレースです。零ならこの正値行列は0、従って $(Q_A\otimes I_B)\rho_{AB}^{1/2}=0$。同様に $B$ 側の台射影 $P_B$ を使えば $(I_A\otimes(I_B-P_B))\rho_{AB}^{1/2}=0$ です。両射影は可換なので、$\rho_{AB}$ の台は $P_AH_A\otimes P_BH_B$ に含まれます。これは $T=\rho_A\otimes\rho_B$ の台と一致します。
+$\rho_{AB}$ は正値なので、その非負固有値を平方根に換えた正値作用素 $\rho_{AB}^{1/2}$ が存在します。$E=Q_A\otimes I_B$ は直交射影であり、$C=E\rho_{AB}^{1/2}$ とすると $C^\dagger C=\rho_{AB}^{1/2}E\rho_{AB}^{1/2}$ です。トレースの巡回性と任意の正規直交基底 $(e_k)$ によって
+
+$$
+0=\operatorname{Tr}(E\rho_{AB})
+=\operatorname{Tr}(C^\dagger C)
+=\sum_k\|Ce_k\|^2
+$$
+
+となるため、すべての $Ce_k=0$、すなわち $E\rho_{AB}^{1/2}=0$ です。同様に $B$ 側の台射影 $P_B$ を使えば $(I_A\otimes(I_B-P_B))\rho_{AB}^{1/2}=0$ です。両側の射影は可換なので、$\rho_{AB}$ の台は $P_AH_A\otimes P_BH_B$ に含まれます。これは $T=\rho_A\otimes\rho_B$ の台と一致します。
 
 正の局所固有値を $p_i,q_j$ とすると、台の上では積固有基底 $|i\rangle\otimes|j\rangle$ に対して
 
@@ -351,7 +411,7 @@ $$
 
 ## 7. 古典の条件付きエントロピーが負にならない理由
 
-量子系の対角状態は古典確率の埋め込みです。この場合に限れば、条件付きの式は[古典情報理論の条件付きエントロピー](../../INFO/INFO1/index.md#def-info1-conditional-entropy)へ戻ります。二つの値を混同しないため、どの基底で何を計算しているかを確かめます。
+量子系の対角状態は古典確率の埋め込みです。この場合に限れば、条件付きの式は[古典情報理論の条件付きエントロピー](../../INFO/INFO1/index.md#def-info1-conditional-entropy)へ戻ります。二つの値を混同しないため、どの基底で何を計算しているかを確かめます。以下の $H(r)$ は有限確率列 $r=(r_i)_i$ の[Shannonエントロピー](../../INFO/INFO1/index.md#def-info1-entropy)を表し、添字の $\cdot$ は特定の成分ではなく、その添字を動かした列全体を表します。
 
 <a id="prop-qinf18-classical"></a>
 
@@ -363,11 +423,11 @@ $$
 \rho_{AB}=\sum_{x,y}p_{xy}|xy\rangle\langle xy|
 $$
 
-> とする。周辺確率を $p_x=\sum_yp_{xy}$、$q_y=\sum_xp_{xy}$ とし、$q_y>0$ で $p_{x|y}=p_{xy}/q_y$ と置く。このとき
+> とする。周辺確率を $p_x=\sum_yp_{xy}$、$q_y=\sum_xp_{xy}$ とし、$q_y>0$ で $p_{x|y}=p_{xy}/q_y$ と置く。確率列を $p_{\cdot|y}=(p_{x|y})_x$、$p_\cdot=(p_x)_x$、$q_\cdot=(q_y)_y$、$p_{\cdot\cdot}=(p_{xy})_{x,y}$ と書く。このとき
 
 $$
 S(A|B)=\sum_{y:q_y>0}q_yH(p_{\cdot|y})\ge0,
-\qquad I(A:B)=H(p_x)+H(q_y)-H(p_{xy}).
+\qquad I(A:B)=H(p_\cdot)+H(q_\cdot)-H(p_{\cdot\cdot}).
 $$
 
 > 条件付きエントロピーが0となるのは、各 $q_y>0$ について $p_{\cdot|y}$ が一点に集中するとき、かつそのときに限る。
@@ -709,7 +769,15 @@ $$
 
 **（3）** 二部系 $A|BC$ に[部分加法性](#thm-qinf18-subadditivity)を適用すると $S_{ABC}\le S_A+S_{BC}=2h$。$P$ では $0<2h$、$\Omega$ では $h<2h$ とともに厳密です。等号条件の積状態にはどちらも該当しません。実際、積なら相互情報量は0ですが、(2)で $2h,h>0$ と確認しました。
 
-[Araki–Lieb不等式](#thm-qinf18-araki-lieb)は $|S_A-S_{BC}|=|h-h|=0\le S_{ABC}$。$P$ では全体0で等号、$\Omega$ では全体 $h>0$ なので厳密です。$p=1/2$ では $h=1$、$P$ の $S(A|BC)=-1,I(A:BC)=2$、$\Omega$ の対応する値は $0,1$、共通する $S(A|B)=0,I(A:B)=1$ です。
+[Araki–Lieb不等式](#thm-qinf18-araki-lieb)は $|S_A-S_{BC}|=|h-h|=0\le S_{ABC}$。$P$ では全体0で等号、$\Omega$ では全体 $h>0$ なので厳密です。特に $p=1/2$ では $h=1$ となり、二部縮約から求める値は共通でも、全体状態を必要とする値は異なります。
+
+$$
+\begin{array}{c|cc|cc}
+ & S(A|B) & I(A:B) & S(A|BC) & I(A:BC)\\ \hline
+P & 0 & 1 & -1 & 2\\
+\Omega & 0 & 1 & 0 & 1
+\end{array}
+$$
 <!-- solution-end -->
 
 ## 9. まとめと次の問い
