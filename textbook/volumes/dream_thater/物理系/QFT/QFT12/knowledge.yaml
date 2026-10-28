@@ -1,0 +1,55 @@
+chapter: QFT12
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT11]
+forward_references: []
+
+concepts:
+  - id: qft.mandelstam-two-body-kinematics
+    name: Mandelstam不変量と二体反応の重心系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Mandelstam不変量と二体反応の重心系）]
+    requires: [qft.lsz-external-reduction]
+  - id: qft.kallen-cm-momentum
+    name: 重心系二体運動量とKällén関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重心系二体運動量とKällén関数）]
+    requires: [qft.mandelstam-two-body-kinematics]
+  - id: qft.final-state-invariant-phase-space
+    name: Lorentz不変終状態位相空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lorentz不変終状態位相空間）]
+    requires: [qft.invariant-one-particle-packet]
+  - id: qft.two-body-phase-space-angle
+    name: 二体位相空間の角度表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二体位相空間の角度表示）]
+    requires: [qft.final-state-invariant-phase-space, qft.kallen-cm-momentum]
+  - id: qft.decay-rate-scattering-cross-section
+    name: 崩壊率と入射流束による断面積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（崩壊率と入射流束による断面積）]
+    requires: [qft.lsz-four-leg-formula, qft.final-state-invariant-phase-space]
+  - id: qft.s-matrix-rate-formulas
+    name: S行列規格化からの崩壊率と断面積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（S行列規格化からの崩壊率と断面積）]
+    requires: [qft.decay-rate-scattering-cross-section, qft.two-body-phase-space-angle]
+  - id: qft.cm-two-body-cross-section
+    name: 重心系二体微分断面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重心系二体微分断面積）]
+    requires: [qft.s-matrix-rate-formulas]
+  - id: qft.quartic-total-cross-section
+    name: 四次スカラー相互作用の木レベル全断面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四次スカラー相互作用の木レベル全断面積）]
+    requires: [qft.cm-two-body-cross-section, qft.quartic-scattering-tree]
