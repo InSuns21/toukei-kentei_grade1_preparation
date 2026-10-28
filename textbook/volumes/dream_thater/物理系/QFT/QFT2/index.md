@@ -8,7 +8,7 @@
 
 ## 1. 規約と「変換しても作用が同じ」の意味
 
-時空は平坦な $3+1$ 次元Minkowski空間、計量は $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、単位系は $c=\hbar=1$ とします。ギリシア添字は $0,1,2,3$、空間添字 $i,j$ は $1,2,3$、同じ上下の添字は縮約します。導関数の上下も $\eta$ で上げ下げし、$\partial^0=\partial_t$、$\partial^i=-\partial_i$ です。
+時空は平坦な $3+1$ 次元Minkowski空間、計量は $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、単位系は $c=\hbar=1$ とします。ギリシア添字は $0,1,2,3$、空間添字 $i,j$ は $1,2,3$、同じ添字が上付きと下付きに一度ずつ現れた場合は、その添字について和を取ります。導関数の上下も $\eta$ で上げ下げし、$\partial^0=\partial_t$、$\partial^i=-\partial_i$ です。
 
 まず実数値の場 $\phi_a(x)$（$a=1,\ldots,N$）を考え、各成分を $C^2$、密度を一階微分までの $C^2$ 関数とします。コンパクトな時空領域で必要な積分・微分交換が成り立つ場合だけ作用を扱います。境界項を捨てるときには、変換パラメータをコンパクトな台に局所化するか、明示的な境界条件を使います。
 
@@ -68,14 +68,35 @@ $$
 \begin{pmatrix}\phi_1\\\phi_2\end{pmatrix}
 $$
 
-と回します。行列の転置と自身の積が単位行列なので、場の二乗和は
+と回します。ここで右辺の $2\times2$ 行列を $R(\varepsilon)$ と書くと、$\phi_a^\varepsilon=\sum_bR_{ab}(\varepsilon)\phi_b$ です。この行列は
 
 $$
-(\phi_1^\varepsilon)^2+(\phi_2^\varepsilon)^2
-=\phi_1^2+\phi_2^2.
+R(\varepsilon)^TR(\varepsilon)
+=\begin{pmatrix}
+\cos^2\varepsilon+\sin^2\varepsilon&0\\
+0&\sin^2\varepsilon+\cos^2\varepsilon
+\end{pmatrix}
+=I_2
 $$
 
-$\varepsilon$ が時空に依存しないため $\partial_\mu\phi_a^\varepsilon$ も同じ行列で回転し、縮約した微分の二乗和も不変です。よって $\mathcal L_2^\varepsilon=\mathcal L_2$ で $K^\mu=0$ を選べます。また行列を角度で微分して
+を満たします。$I_2$ は二次単位行列で、以下の $\delta_{bc}$ は $b=c$ なら $1$、それ以外なら $0$ を表すKroneckerのデルタです。従って各成分の二乗和について
+
+$$
+\sum_a(\phi_a^\varepsilon)^2
+=\sum_{a,b,c}R_{ab}R_{ac}\phi_b\phi_c
+=\sum_{b,c}\delta_{bc}\phi_b\phi_c
+=\sum_b\phi_b^2.
+$$
+
+$\varepsilon$ が時空点 $x$ に依存しないことから $\partial_\mu\phi_a^\varepsilon=\sum_bR_{ab}\partial_\mu\phi_b$ となります。同じ直交性を微分項にも適用すると
+
+$$
+\sum_a\partial_\mu\phi_a^\varepsilon\,\partial^\mu\phi_a^\varepsilon
+=\sum_{a,b,c}R_{ab}R_{ac}\partial_\mu\phi_b\,\partial^\mu\phi_c
+=\sum_b\partial_\mu\phi_b\,\partial^\mu\phi_b.
+$$
+
+二つの二次項が別々に不変なので $\mathcal L_2^\varepsilon=\mathcal L_2$、従って $K^\mu=0$ を選べます。また行列を角度で微分して
 
 $$
 \Delta\phi_1=-\phi_2,\qquad
@@ -86,7 +107,7 @@ $$
 
 ## 3. 作用の変分からNoether流を導く
 
-各場の一階微分に共役な係数を
+各場の一階微分に共役な係数を記します。この偏微分では、[QFT1の場のEuler–Lagrange方程式](../QFT1/index.md#thm-qft1-field-el)と同じく、$\phi_b$ と $\partial_\rho\phi_b$ を独立な変数として、微分対象以外を固定します。
 
 $$
 \pi_a^\mu
@@ -104,13 +125,13 @@ $$
 
 と書きます。[QFT1の場のEuler–Lagrange方程式](../QFT1/index.md#thm-qft1-field-el)の各成分版で、運動方程式の成立は $\mathcal E_a=0$ です。
 
-対称性の情報は、全微分 $K^\mu$ を差し引いた四元ベクトルとしてまとめます。
+内部回転に限らず、**固定した座標での場の変化** $\Delta\phi_a$ が密度の全微分を与える場合には、以下の組立てを使えます。例えば後で扱う能動的な時空並進も、固定点での誘導変化 $\Delta\phi_a=-b^\nu\partial_\nu\phi_a$（一定の方向 $b^\nu$）として記述できます。対称性の情報は、全微分 $K^\mu$ を差し引いた流にまとめます。
 
 <a id="def-qft2-noether-current"></a>
 
 <!-- formal-statement-start -->
 > **定義（Noether流）**  
-> 一階微分密度 $\mathcal L$ と[内部連続対称性](#def-qft2-internal-symmetry)の生成子 $\Delta\phi_a$、境界項 $K^\mu$ が与えられたとき、Noether流を
+> 一階微分密度 $\mathcal L$ と、座標を固定した滑らかな一パラメータの場の変換の生成子 $\Delta\phi_a$ が与えられ、その密度の一次変化が $\delta\mathcal L=\partial_\mu K^\mu$ と書けるとする（[内部連続対称性](#def-qft2-internal-symmetry)はその一例である）。このときNoether流を
 
 $$
 j^\mu=\sum_{a=1}^N\pi_a^\mu\Delta\phi_a-K^\mu,
@@ -206,7 +227,7 @@ $$
 
 ## 4. 複素スカラー場で流を実際に計算する
 
-前節の回転を、今度は各成分の運動方程式まで含めて調べます。二つの実場を一つの複素数にまとめると、成分平面の回転は位相を掛ける操作になります。
+前節の回転を、今度は各成分の運動方程式まで含めて調べます。二つの実場を一つの複素数にまとめると、成分平面の回転は位相を掛ける操作になります。ここで $U(1)=\{z\in\mathbb C:|z|=1\}$ は複素数の乗法に関する群で、$e^{i\varepsilon}=\cos\varepsilon+i\sin\varepsilon$ はその元です。
 
 $$
 \psi=\frac{\phi_1+i\phi_2}{\sqrt2},
@@ -215,13 +236,28 @@ $$
 =\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi.
 $$
 
-$\sqrt2$ は実二成分の密度にあった $1/2$ と一致させるための規格化です。回転は $\psi\mapsto e^{i\varepsilon}\psi$、生成子は $\Delta\psi=i\psi$、$\Delta\psi^*=-i\psi^*$ です。これは大域的な $U(1)$ 位相変換であり、局所ゲージ変換とはまだ異なります。
+ここで $\psi^*$ は $\psi$ の複素共役です。$\sqrt2$ は実二成分の密度にあった $1/2$ と一致させるための規格化です。実際に
+
+$$
+\psi^*\psi=\frac12(\phi_1^2+\phi_2^2),\qquad
+\partial_\mu\psi^*\partial^\mu\psi
+=\frac12\sum_{a=1}^2\partial_\mu\phi_a\partial^\mu\phi_a
+$$
+
+であり、後者では虚数の交差項が相殺します。また第2節の回転行列によって
+
+$$
+\phi_1^\varepsilon+i\phi_2^\varepsilon
+=(\cos\varepsilon+i\sin\varepsilon)(\phi_1+i\phi_2)
+$$
+
+となるため、回転は $\psi\mapsto e^{i\varepsilon}\psi$、生成子はパラメータ微分から $\Delta\psi=i\psi$、$\Delta\psi^*=-i\psi^*$ です。$\varepsilon$ は全時空で一定なので、これは大域的な $U(1)$ 位相変換であり、位置ごとに位相を変える局所ゲージ変換とはまだ異なります。
 
 <a id="prop-qft2-u1"></a>
 
 <!-- formal-statement-start -->
 > **命題（複素スカラー場のU(1)保存流）**  
-> $m\ge0$ とし、$\phi_1,\phi_2\in C^2(\Omega;\mathbb R)$ がそれぞれ $(\Box+m^2)\phi_a=0$ を満たすとする。上の密度 $\mathcal L_2$ と回転 $\psi\mapsto e^{i\varepsilon}\psi$ に対応するNoether流は
+> $m\ge0$ とし、$\phi_1,\phi_2\in C^2(\Omega;\mathbb R)$ がそれぞれ $(\Box+m^2)\phi_a=0$ を満たすとする。$\psi=(\phi_1+i\phi_2)/\sqrt2$、$\mathcal L_2=\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi$ と定める。この密度の一定角回転 $\psi\mapsto e^{i\varepsilon}\psi$ に対応するNoether流は
 
 $$
 j^\mu
@@ -289,7 +325,7 @@ $$
 \phi_2=A\sin\theta
 $$
 
-を選びます。どちらも実数値 $C^\infty$ 場で、二階微分によって $(\Box+m^2)\phi_a=(-\omega^2+k^2+m^2)\phi_a=0$ となります。回転で成分二乗和 $A^2$ が不変なのも直接確認できます。
+を選びます。どちらも実数値 $C^\infty$ 場で、[Klein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)の左辺へ代入すると、$\partial_t^2\phi_a=-\omega^2\phi_a$、$\partial_x^2\phi_a=-k^2\phi_a$ から $(\Box+m^2)\phi_a=(-\omega^2+k^2+m^2)\phi_a=0$ となります。回転で成分二乗和 $A^2$ が不変なのも直接確認できます。
 
 流の時間成分と空間成分は
 
@@ -321,6 +357,8 @@ $$
 
 > を領域 $D$ の電荷と呼ぶ。$j^\mu$ が局所保存式 $\partial_\mu j^\mu=0$ を満たす場合でも、$Q_D$ の時間的保存には境界を通る空間流束が零であるなどの条件が必要である。
 <!-- formal-statement-end -->
+
+以下の $1+1$ 次元の例では、空間積分を一次元へ制限して $D\subset\mathbb R$、$d^3x$ をそれぞれ区間 $D$、$dx$ に読み替えます。これは同じ局所保存式を一次元で積分したもので、三次元全空間での有限な総電荷を主張するものではありません。
 
 <!-- definition-example-start: def-qft2-charge -->
 ### 例：周期箱の回転波
@@ -354,7 +392,7 @@ $$
 
 今度は二成分回転ではなく、場の配置全体を四方向へ少しずらします。一様な時空では密度の形は変わりませんが、固定した点での値は変わります。その結果、時間並進の流はエネルギー、空間並進の流は運動量を組み立てます。
 
-ここでは一般の実場 $\phi_a$ と、時空座標 $x$ に**明示的には依存しない**一階微分密度 $\mathcal L(\phi,\partial\phi)$ を取ります。「明示的」とは、$\phi(x)$ を固定しても密度の係数に $x$ が現れるという意味です。
+ここでは一般の実場 $\phi_a$ と、時空座標 $x$ に**明示的には依存しない**一階微分密度 $\mathcal L(\phi,\partial\phi)$ を取ります。「明示的」とは、$\phi(x)$ を固定しても密度の係数に $x$ が現れるという意味です。以下の $\delta^\mu{}_{\nu}$ は第2節のKroneckerのデルタと同じく、$\mu=\nu$ のとき $1$、それ以外で $0$ の成分です。
 
 <a id="def-qft2-stress"></a>
 
@@ -496,7 +534,18 @@ $$
 
 **定義の確認**：場から $\pi^\mu$ と密度を求め、テンソルの定義に戻って各成分を計算します。
 
-$1+1$ 次元で $m=0$、$f\in C^2(\mathbb R)$、$\phi(t,x)=f(x-t)$ とします。$\phi_t=-f'(x-t)$、$\phi_x=f'(x-t)$ なので、[$\Box\phi=0$ というKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)が直接成立します。この波の密度は $\mathcal L=0$ で、
+$1+1$ 次元で $m=0$、$f\in C^2(\mathbb R)$、$\phi(t,x)=f(x-t)$ とします。$u=x-t$ と置き、$f'(u)=df/du$、$f''(u)=d^2f/du^2$ と書きます。これらのプライムは $u$ に関する導関数であり、時間微分ではありません。$\partial_tu=-1$、$\partial_xu=1$ を使う連鎖律から
+
+$$
+\begin{aligned}
+\phi_t=\partial_t\phi&=f'(u)\partial_tu=-f'(u),\\
+\phi_x=\partial_x\phi&=f'(u)\partial_xu=f'(u),\\
+\partial_t^2\phi&=-f''(u)\partial_tu=f''(u),\\
+\partial_x^2\phi&=f''(u)\partial_xu=f''(u).
+\end{aligned}
+$$
+
+従って $\Box\phi=\partial_t^2\phi-\partial_x^2\phi=0$ となり、[$m=0$ のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)が成立します。この波の密度は $\mathcal L=0$ で、
 
 $$
 T^{00}=f'(x-t)^2,\qquad
@@ -532,7 +581,7 @@ $D$ が無限空間なら、$R\to\infty$ での各流束の消滅と積分交換
 
 ## 7. 改良項を足しても局所保存は変わらない
 
-流やテンソルは必ずしも一意ではありません。全微分の項を足しても発散が同じなら、局所保存則は同じ情報を表します。ただし境界電荷やテンソルの対称性・トレースがどうなるかは改めて確認する必要があります。
+流やテンソルは必ずしも一意ではありません。全微分の項を足しても発散が同じなら、局所保存則は同じ情報を表します。ただし境界電荷やテンソルの対称性・トレースがどうなるかは改めて確認する必要があります。ここでLorentzスカラー関数 $F$ とは、[QFT1の実スカラー場の変換則](../QFT1/index.md#def-qft1-real-scalar)と同じく $F'(x')=F(x)$ を満たす関数です。
 
 <a id="def-qft2-improvement"></a>
 
@@ -553,7 +602,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（改良項の恒等的保存）**  
-> 前定義の正則性と一定のMinkowski計量のもとで
+> 平坦なMinkowski時空で、定数計量 $\eta^{\mu\nu}$、$F\in C^3(\Omega)$、$T^{\mu\nu}\in C^2(\Omega)$、定数 $\xi\in\mathbb R$ を取る。[改良テンソル](#def-qft2-improvement)を $\widetilde T^{\mu\nu}=T^{\mu\nu}+\xi(\eta^{\mu\nu}\Box-\partial^\mu\partial^\nu)F$ とすると、
 
 $$
 \partial_\mu
@@ -598,7 +647,14 @@ $$
 
 **定義の確認**：改良項に $F=\phi^2$ を代入し、そのトレースと発散が定義どおりの性質を持つことを確認します。
 
-自由実スカラー場で $m=0$、$F=\phi^2$、$\xi=1/6$ と取ります。四次元で計量を縮約すると $\eta_{\mu\nu}\eta^{\mu\nu}=4$、$\eta_{\mu\nu}\partial^\mu\partial^\nu=\Box$ なので改良項のトレースは $3\xi\Box\phi^2$ です。積の微分から
+$m=0$ の自由実スカラー場 $\phi\in C^3(\Omega)$ が $\Box\phi=0$ を満たすとし、$F=\phi^2$、$\xi=1/6$ と取ります。$\phi$ は[実スカラー場](../QFT1/index.md#def-qft1-real-scalar)なので $F'(x')=\phi'(x')^2=\phi(x)^2=F(x)$ となり、$F$ もLorentzスカラーです。$\phi\in C^3$ より $F\in C^3$ であり、[改良項の恒等的保存](#prop-qft2-improvement)の $C^3$ の仮定を満たします。実際、
+
+$$
+\partial_\mu\left[(\eta^{\mu\nu}\Box-\partial^\mu\partial^\nu)\phi^2\right]
+=\partial^\nu\Box\phi^2-\Box\partial^\nu\phi^2=0
+$$
+
+で、この段階では $\Box\phi=0$ を使いません。四次元で計量を縮約すると $\eta_{\mu\nu}\eta^{\mu\nu}=4$、$\eta_{\mu\nu}\partial^\mu\partial^\nu=\Box$ なので改良項のトレースは $3\xi\Box\phi^2$ です。積の微分から
 
 $$
 \Box\phi^2
