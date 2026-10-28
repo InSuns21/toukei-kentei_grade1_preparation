@@ -181,7 +181,7 @@ chapters:
     title: "敵対的生成モデルと分布比較"
   - id: ML2-23
     path: textbook/volumes/dream_thater/応用系/ML/ML2-23
-    status: planned
+    status: completed
     title: "Score matchingとノイズ除去"
   - id: ML2-24
     path: textbook/volumes/dream_thater/応用系/ML/ML2-24
