@@ -6,7 +6,23 @@
 
 ## 1. 確率密度の値ではなく、傾きを学ぶ
 
-$x\in\mathbb R^d$ における密度 $p(x)$ が正で微分可能なら、$\log p(x)$ の $x$ に関する勾配を考えられる。パラメータ $\theta$ を微分する勾配ではなく、**観測位置 $x$ を動かす方向**を表すベクトルである。密度を $p(x)=\widetilde p(x)/Z$、$Z>0$ は $x$ と無関係、と書けるなら $\log p=\log\widetilde p-\log Z$ であり、微分すると $Z$ が消える。
+$x\in\mathbb R^d$ における[確率密度](../ML2-01/index.md#def-ml2-01-density-log-loss) $p(x)$ が正で微分可能なら、$\log p(x)$ の $x$ に関する勾配を考えられる。[多変数微分のJacobian表示](../../../基礎科目/RA/RA6/index.md#def-ra6-jacobian)に従い、スカラー関数 $f$ の列勾配は
+
+$$
+\nabla_x f(x)=\left(\partial_{x_1}f(x),\ldots,\partial_{x_d}f(x)\right)^{\mathsf T}
+$$
+
+であり、$\partial_{x_i}$ は他の座標とパラメータを固定して $x_i$ を微分する。ここで使うのは**観測位置 $x$ を動かす勾配**である。[尤度のパラメータscore](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-score)のように $\theta$ を微分するものとは区別する。
+
+密度を $p(x)=\widetilde p(x)/\mathcal Z$ と書き、$\mathcal Z>0$ が $x$ と無関係なら、
+
+$$
+\nabla_x\log p(x)
+=\nabla_x\log\widetilde p(x)-\nabla_x\log\mathcal Z
+=\nabla_x\log\widetilde p(x)
+$$
+
+となる。これが正規化定数を求めずにscoreを計算できる理由である。
 
 <a id="def-ml2-23-score"></a>
 
@@ -19,24 +35,39 @@ s_p(x)=\nabla_x\log p(x)
 =\frac{\nabla_x p(x)}{p(x)}\in\mathbb R^d.
 $$
 
-> $p_\theta=\widetilde p_\theta/Z_\theta$（$Z_\theta>0$ が $x$ に依存しない）の場合、$s_{p_\theta}=\nabla_x\log\widetilde p_\theta$ である。$p=0$ の点ではこの定義を無条件に使わない。
+> $p_\theta=\widetilde p_\theta/\mathcal Z_\theta$（$\mathcal Z_\theta>0$ が $x$ に依存しない）の場合、$s_{p_\theta}=\nabla_x\log\widetilde p_\theta$ である。$p=0$ の点ではこの定義を無条件に使わない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-23-score -->
-**定義の確認**。一次元正規密度 $p(x)=(2\pi v)^{-1/2}\exp\{-(x-m)^2/(2v)\}$（$v>0$）は全実数で正かつ微分可能で、$\log p$ を $x$ で微分して
+**定義の確認**。一次元正規密度（$v>0$）
+
+$$
+p(x)=(2\pi v)^{-1/2}\exp\left(-\frac{(x-m)^2}{2v}\right)
+$$
+
+は全実数で正かつ連続微分可能であり、[正規密度の正規化補題](../ML1-07/index.md#lem-ml1-07-gaussian-normalization)により積分1も満たす。$\log p=-\frac12\log(2\pi v)-(x-m)^2/(2v)$ を $x$ で微分して
 
 $$
 s_p(x)=-\frac{x-m}{v}
 $$
 
-を得る。$x<m$ なら正で密度が増える右方向、$x>m$ なら負で密度が増える左方向を指す。係数 $(2\pi v)^{-1/2}$ は微分で消える。一方、平均についての微分 $\partial_m\log p=(x-m)/v$ は別の対象である。
+を得る。$x<m$ なら正で密度が増える右方向、$x>m$ なら負で密度が増える左方向を指す。係数 $(2\pi v)^{-1/2}$ は微分で消える。一方、$x$ を固定した平均パラメータの微分 $\partial_m\log p=(x-m)/v$ は符号が逆で、別の対象である。
 <!-- definition-example-end -->
 
-正規化しないエネルギー模型 $\widetilde p_\theta(x)=\exp[-E_\theta(x)]$ なら score は $-\nabla_xE_\theta(x)$ であり、$Z_\theta$ を計算しなくてよい。ただし score の一致は密度の一致を直ちに意味するわけではない。連結な $\mathbb R^d$ 上の正で滑らかな二密度の score が全点一致すれば、$\nabla\log(p/q)=0$ となり $p=Cq$、積分1から $C=1$ である。支持集合が切れた場合や、score が定義できない境界を持つ場合は、各連結成分間の質量比が残り得る。
+正規化しないエネルギー模型 $\widetilde p_\theta(x)=\exp[-E_\theta(x)]$ なら score は $-\nabla_xE_\theta(x)$ であり、$\mathcal Z_\theta$ を計算しなくてよい。
+
+ただし、score の一致が密度の一致を意味するには条件がある。連結な $\mathbb R^d$ 上の正で滑らかな二密度のscoreが全点一致する場合には、$h=\log(p/q)$ と置くと $\nabla h=s_p-s_q=0$ である。任意の二点を結ぶ線分に沿って $h$ の導関数が0だから $h$ は定数で、$p=Cq$（$C>0$）となる。正規化を使えば
+
+$$
+1=\int_{\mathbb R^d}p(x)\,dx
+=C\int_{\mathbb R^d}q(x)\,dx=C
+$$
+
+だから $p=q$ である。支持集合が切れた場合や、score が定義できない境界を持つ場合は、各連結成分間の質量比が残り得る。
 
 ## 2. Score matching：未知の真のscoreを消す
 
-真の分布 $p$ から独立標本を得るが、$s_p$ は計算できないとする。候補となる連続微分可能なベクトル値関数 $s_\theta$ と真の score の二乗誤差を小さくしたい。形式上の目的に $s_p$ が入っていても、部分積分でそれを消せる。ただし、**境界項が消えることが核心的な仮定**である。
+真の分布 $p$ から独立標本を得るが、$s_p$ は計算できないとする。候補となる連続微分可能なベクトル値関数 $s_\theta$ と真の score の二乗誤差を小さくしたい。以下で $C^1$ は各一階偏導関数が存在して連続であることを表す。形式上の目的に $s_p$ が入っていても、部分積分でそれを消せる。ただし、**境界項が消えることが核心的な仮定**である。
 
 <a id="def-ml2-23-fisher-discrepancy"></a>
 
@@ -52,16 +83,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-23-fisher-discrepancy -->
-**定義の確認**。$p=N(0,1)$ では $s_p(x)=-x$。$s(x)=-x+c$ と置くと $s-s_p=c$ は定数で、$E_p[c^2]=c^2<\infty$、また $E_p[X^2]=1$ だから両二乗可積分性が成り立ち、
+**定義の確認**。$p=N(0,1)$ では $s_p(x)=-x$。$s(x)=-x+c$ と置くと $s-s_p=c$ は定数で、$E_p[X]=0$、$E_p[X^2]=1$ を使えば
+
+$$
+E_p[s(X)^2]=E_p[(-X+c)^2]=1+c^2<\infty,
+\qquad E_p[s_p(X)^2]=1<\infty.
+$$
+
+従って両二乗可積分性を直接確認でき、差の二乗の期待値は $E_p[c^2]=c^2$ だから
 
 $$
 \mathcal J_p(s)=\frac{c^2}{2}.
 $$
 
-$c=0$ で差は0になる。これはパラメータ $\theta$ の通常のFisher情報量と同じ定義ではなく、**空間scoreの差**を測っている。
+$c=0$ で差は0になる。これは[パラメータscoreのFisher情報量](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-fisher-information)と同じ定義ではなく、**空間scoreの差**を測っている。
 <!-- definition-example-end -->
 
-座標 $i$ ごとに積分を考える。$s_\theta=(s_{\theta,1},\ldots,s_{\theta,d})$ について発散を $\operatorname{div}s_\theta=\sum_i\partial_{x_i}s_{\theta,i}$ と書く。これはベクトル場の各成分を対応する座標で微分して足した量である。
+座標 $i$ ごとに積分を考える。$s_\theta=(s_{\theta,1},\ldots,s_{\theta,d})$ について発散を $\operatorname{div}s_\theta=\sum_{i=1}^d\partial_{x_i}s_{\theta,i}$ と書く。これはベクトル場の各成分を対応する座標で微分して足した量である。$s_{p,i}$ も真のscoreの第 $i$ 成分を表す。また $x_{-i}$ は $x$ から第 $i$ 座標を除いた残りの座標、$dx_{-i}$ はそれらについての積分を表す（$d=1$ では残りの座標の積分はそのまま値を取る）。
 
 <a id="thm-ml2-23-score-matching"></a>
 
@@ -75,7 +113,7 @@ $$
 \,dx_{-i}=0\quad(i=1,\ldots,d)
 $$
 
-> が成り立ち、Fubiniの積分交換が許されると仮定する。このとき[score差](#def-ml2-23-fisher-discrepancy)は
+> が成り立ち、[Fubiniの定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02)による積分交換が許されると仮定する。このとき[score差](#def-ml2-23-fisher-discrepancy)は
 
 $$
 \boxed{\mathcal J_p(s_\theta)=
@@ -95,7 +133,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二乗を展開し、Cauchy–Schwarz不等式による交差項の絶対可積分性を確認すると、
+二乗を展開し、[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)による交差項の絶対可積分性
+
+$$
+E_p|s_\theta\cdot s_p|\le
+\bigl(E_p\|s_\theta\|^2\bigr)^{1/2}
+\bigl(E_p\|s_p\|^2\bigr)^{1/2}<\infty
+$$
+
+を確認すると、
 
 $$
 \begin{aligned}
@@ -148,7 +194,7 @@ $$
 
 ## 3. Gaussian例で目的と最小点を確かめる
 
-一次元の真の分布を $p=N(\mu,\tau^2)$（$\tau^2>0$）、候補を $q_{m,v}=N(m,v)$（$v>0$）とする。候補scoreは $s_{m,v}(x)=-(x-m)/v$、その微分は $s'_{m,v}(x)=-1/v$ である。正規密度の尾では $p(x)s_{m,v}(x)\to0$、必要な二次モーメントも有限であり、[部分積分定理](#thm-ml2-23-score-matching)の条件が満たされる。
+一次元の真の分布を $p=N(\mu,\tau^2)$（$\tau^2>0$）、候補を $q_{m,v}=N(m,v)$（$v>0$）とする。候補scoreは $s_{m,v}(x)=-(x-m)/v$ である。ここでプライム $s'_{m,v}=ds_{m,v}/dx=\partial_xs_{m,v}$ は $m,v$ を固定した**位置 $x$ に関する微分**なので $s'_{m,v}(x)=-1/v$ となる。正規密度の尾では $p(x)s_{m,v}(x)\to0$（$x\to\pm\infty$）、必要な二次モーメントも有限であり、[部分積分定理](#thm-ml2-23-score-matching)の条件が満たされる。
 
 <a id="prop-ml2-23-gaussian-contrast"></a>
 
@@ -191,7 +237,15 @@ $$
 
 ## 4. Denoising：ノイズから滑らかなscoreを学ぶ
 
-元のデータ $X$ の密度が不明、あるいは離散分布でも、独立な標準Gaussian $Z\sim N(0,I_d)$ を加えた観測 $Y=X+\sigma Z$（$\sigma>0$）の密度は正で滑らかになる。ここで $I_d$ は $d$ 次元単位行列、$\sigma$ はノイズの標準偏差である。
+元のデータ $X$ の密度が不明、あるいは離散分布でも、独立な標準Gaussian $Z\sim N(0,I_d)$ を加えた観測 $Y=X+\sigma Z$（$\sigma>0$）の密度は正で滑らかになる。ここからの $Z$ は**正規化定数ではなく確率変数**である。$I_d$ は $d$ 次元単位行列、$\sigma$ はノイズの標準偏差である。
+
+[多次元Gaussian密度](../ML1-07/index.md#def-ml1-07-gaussian)のうち共分散が単位行列のものを使うため、$Z_1,\ldots,Z_d$ は独立な標準正規変数である。$\delta_{ij}$ を $i=j$ で1、他で0となる記号とすれば、
+
+$$
+E[(\sigma Z_i)(\sigma Z_j)]=\sigma^2\delta_{ij}
+$$
+
+となる。これは共分散行列が $\sigma^2I_d$ という意味であり、ノイズ密度を各座標の正規密度の積として計算できる理由にもなる。
 
 <a id="def-ml2-23-noisy-score-target"></a>
 
@@ -226,6 +280,8 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
+具体的には独立なGaussian各座標の密度を掛けると、$\prod_{i=1}^d\exp[-u_i^2/(2\sigma^2)]=\exp[-\|u\|^2/(2\sigma^2)]$ となり、上の $\varphi_\sigma$ を得る。固定した $X=x$ では $Y$ の密度は $\varphi_\sigma(y-x)$ であり、$x$ を動かさず $y$ で対数微分すると $T_\sigma=-(y-x)/\sigma^2$ になる。$q_\sigma$ はこの条件付き密度を $X$ の分布で平均した**周辺密度**である。$T_\sigma=-Z/\sigma$ だから $E\|T_\sigma\|^2=d/\sigma^2<\infty$ も確認できる。
+
 <!-- definition-example-start: def-ml2-23-noisy-score-target -->
 **定義の確認**。$d=1$、$X$ が等確率で $-a,a$（$a>0$）をとるなら
 
@@ -234,7 +290,9 @@ q_\sigma(y)=\frac12\varphi_\sigma(y+a)
 +\frac12\varphi_\sigma(y-a)>0.
 $$
 
-各Gaussianは積分1だから混合密度も積分1で、滑らかである。$X=a,Y=y$ なら $T_\sigma=-(y-a)/\sigma^2$、$X=-a$ なら $T_\sigma=-(y+a)/\sigma^2$ と、組から計算できる。離散な $X$ 自身にはLebesgue密度のscoreはないが、$Y$ のscoreには意味がある。
+各Gaussianは積分1だから混合密度も積分1で、滑らかである。$E[X^2]=a^2<\infty$ なので元データの二乗可積分性も満たす。$X=a,Y=y$ なら $T_\sigma=-(y-a)/\sigma^2$、$X=-a$ なら $T_\sigma=-(y+a)/\sigma^2$ と、組から計算できる。候補 $s=0$ では $D_\sigma(0)=1/(2\sigma^2)<\infty$ である。離散な $X$ 自身にはLebesgue密度のscoreはないが、$Y$ のscoreには意味がある。
+
+[条件付き期待値](../../../解析系/F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation) $E[T_\sigma\mid Y=y]$ は、観測値 $y$ に対応する事後分布で $T_\sigma$ を平均する意味で使う。以下のGaussian核による事後分布は $q_\sigma(y)>0$ のため任意の $y$ で定められる。
 <!-- definition-example-end -->
 
 <a id="thm-ml2-23-denoising-identity"></a>
@@ -285,9 +343,26 @@ $$
 \end{aligned}
 $$
 
-二行目は $Y=y$ を観測したときの $X$ の条件付き分布が、元の分布に $\varphi_\sigma(y-X)$ の重みを掛け、分母 $q_\sigma(y)$ で正規化したものだからである。$E\|X\|^2<\infty$ よりこれらの条件付き平均は定義でき、表示式の最後の形も従う。
+二行目で用いた事後分布の表示を確認する。[密度から事後確率を得る定理](../ML1-07/index.md#thm-ml1-07-posterior)の二クラスの場合と同じ積の構造を使うが、今回は $X$ 自体が離散・連続のどちらでもよい。任意の可測集合 $A,B\subset\mathbb R^d$ について、$Y=X+\sigma Z$ と独立性から、非負関数の積分交換を用いて
 
-次に $r(Y)=E[T_\sigma\mid Y]$ とおき、$s(Y)-T_\sigma=(s(Y)-r(Y))+(r(Y)-T_\sigma)$ を二乗する。交差項を $Y$ で条件付けると
+$$
+\begin{aligned}
+P(X\in A,Y\in B)
+&=E\left[\boldsymbol1_{\{X\in A\}}\int_B\varphi_\sigma(y-X)\,dy\right]\\
+&=\int_B E[\boldsymbol1_{\{X\in A\}}\varphi_\sigma(y-X)]\,dy.
+\end{aligned}
+$$
+
+ここで $\boldsymbol1$ は指定した事象で1、それ以外で0を取る指示関数である。[Tonelliの定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)で交換でき、$Y$ の密度は $q_\sigma(y)>0$ なので、条件付き分布は
+
+$$
+P(X\in A\mid Y=y)
+=\frac{E[\boldsymbol1_{\{X\in A\}}\varphi_\sigma(y-X)]}{q_\sigma(y)}
+$$
+
+と表せる。したがって $-(y-X)/\sigma^2$ をこの事後分布で平均したものが上のscoreである。$E\|X\|^2<\infty$ よりこの条件付き平均は定義でき、表示式の最後の形も従う。
+
+次に $r(Y)=E[T_\sigma\mid Y]$ とおき、$s(Y)-T_\sigma=(s(Y)-r(Y))+(r(Y)-T_\sigma)$ を二乗する。交差項が0であることを、$Y$ で条件付けて直接確かめると
 
 $$
 \begin{aligned}
@@ -304,7 +379,14 @@ $E\|T_\sigma\|^2=d/\sigma^2<\infty$ と条件付き期待値の二乗可積分�
 
 ## 5. 二峰性データのscoreを直接計算する
 
-等確率の $X=\pm a$（$a>0$）にGaussianノイズを加えた第4節の例を解く。Bayesの重みは $w_+(y)=P(X=a\mid Y=y)$、$w_-(y)=P(X=-a\mid Y=y)$ であり、正規化前の重みはそれぞれ $\exp\{-(y-a)^2/(2\sigma^2)\}$、$\exp\{-(y+a)^2/(2\sigma^2)\}$ である。
+等確率の $X=\pm a$（$a>0$）にGaussianノイズを加えた第4節の例を解く。[密度から事後確率を得る定理](../ML1-07/index.md#thm-ml1-07-posterior)で計算する重みは $w_+(y)=P(X=a\mid Y=y)$、$w_-(y)=P(X=-a\mid Y=y)$ であり、正規化前の重みはそれぞれ $\exp\{-(y-a)^2/(2\sigma^2)\}$、$\exp\{-(y+a)^2/(2\sigma^2)\}$ である。双曲線正接は
+
+$$
+\tanh t=\frac{e^t-e^{-t}}{e^t+e^{-t}}
+=\frac{e^{2t}-1}{e^{2t}+1}
+$$
+
+で定義する。事後確率の差をこの形に直してからscoreを計算する。
 
 <a id="prop-ml2-23-two-point-score"></a>
 
@@ -519,7 +601,7 @@ $\pi=1/2$ では $2w-1=(e^{2ay/\sigma^2}-1)/(e^{2ay/\sigma^2}+1)=\tanh(ay/\sigma
 
 **ML2-23-B04（多次元Gaussianと発散）**
 - Level: B
-- 問題: $X\sim N_d(\mu,\tau^2 I_d)$（$\tau>0$）に対して $s_{m,v}(x)=-(x-m)/v$（$v>0$）とする。$\operatorname{div}s_{m,v}$ と定数を除いたscore matching目的を求め、最小点を示せ。
+- 問題: $X\sim N_d(\mu,\tau^2 I_d)$（$\tau>0$）に対して $s_{m,v}(x)=-(x-m)/v$（$m,x,\mu\in\mathbb R^d,\ v>0$）とする。$N_d$ は平均ベクトル $\mu$、共分散 $\tau^2I_d$ の[多次元正規分布](../ML1-07/index.md#def-ml1-07-gaussian)を表す。$\operatorname{div}s_{m,v}$ と定数を除いたscore matching目的を求め、最小点を示せ。
 <!-- solution-start -->
 **詳細解答**。各座標で $\partial_{x_i}s_i=-1/v$、他の成分を微分する必要はない。従って $\operatorname{div}s=-d/v$。また $E\|X-m\|^2=\sum_i E[(X_i-\mu_i)+(\mu_i-m_i)]^2=d\tau^2+\|\mu-m\|^2$ だから
 
