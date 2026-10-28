@@ -12,7 +12,7 @@ chapters:
     title: "代数的幾何と複素解析的幾何のずれ"
   - id: CAG1-02
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-02
-    status: planned
+    status: completed
     title: "解析化の構成と特異解析空間"
   - id: CAG1-03
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-03
