@@ -32,7 +32,7 @@ chapters:
     title: "GAGA II――正則な層の射の代数性"
   - id: CAG1-07
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-07
-    status: planned
+    status: completed
     title: "GAGA III――正則連接層の代数化"
   - id: CAG1-08
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-08

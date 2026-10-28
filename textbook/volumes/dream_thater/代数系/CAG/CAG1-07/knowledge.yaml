@@ -1,0 +1,42 @@
+chapter: CAG1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-06]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.algebraization-of-coherent-analytic-sheaf
+    name: 解析的連接層の代数化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析的連接層の代数化）"]
+    requires: [complex-algebraic-geometry.analytic-coherent-sheaf, complex-algebraic-geometry.coherent-sheaf-analytification]
+  - id: complex-algebraic-geometry.analytic-serre-global-generation
+    name: Cartan–Serre型の解析的大域生成と有限次元性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cartan–Serre型の解析的大域生成と有限次元性）"]
+    requires: [complex-algebraic-geometry.analytic-coherent-sheaf, complex-algebraic-geometry.analytic-twisting-sheaf]
+  - id: complex-algebraic-geometry.analytic-two-term-presentation
+    name: 解析的連接層のねじり層による二項表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（解析的連接層のねじり層による二項表示）"]
+    requires: [complex-algebraic-geometry.analytic-serre-global-generation, complex-algebraic-geometry.oka-coherence]
+  - id: complex-algebraic-geometry.gaga-essential-surjectivity
+    name: GAGA III――解析的連接層の代数化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（GAGA III――解析的連接層の代数化）"]
+    requires: [complex-algebraic-geometry.analytic-two-term-presentation, complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.analytic-coherence-exactness]
+  - id: complex-algebraic-geometry.unique-algebraization
+    name: 指定同型と両立する代数化の一意性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（指定同型と両立する代数化の一意性）"]
+    requires: [complex-algebraic-geometry.gaga-essential-surjectivity, complex-algebraic-geometry.gaga-hom]
+  - id: complex-algebraic-geometry.length-two-analytic-algebraization
+    name: 射影直線上の長さ二の解析的層の代数化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線上の長さ二の解析的層の代数化）"]
+    requires: [complex-algebraic-geometry.gaga-essential-surjectivity, algebraic-geometry.projective-twist]
