@@ -28,5 +28,9 @@ chapters:
     title: "自由場の二点関数・因果的交換子・局所的可換性"
   - id: QFT6
     path: textbook/volumes/dream_thater/物理系/QFT/QFT6
-    status: planned
+    status: completed
     title: "遅延・先進・Feynman伝播関数とiε処方"
+  - id: QFT7
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT7
+    status: planned
+    title: "Dirac場のLorentz変換・Clifford代数と平面波解"

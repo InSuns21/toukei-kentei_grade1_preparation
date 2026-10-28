@@ -1,0 +1,45 @@
+id: QFT6
+title: "遅延・先進・Feynman伝播関数とiε処方"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT5
+official_scope: []
+learning_objectives:
+  - 因果核Eから遅延・先進基本解を構成し、分布微分の跳びからKlein–Gordon作用素のデルタ源を確認できる
+  - 有限伝播速度から遅延・先進核の支持と、コンパクト台外力に対する因果的な解を導ける
+  - Fourier–Laplace境界値の極の位置を計算し、遅延・先進のi0処方を時間方向と照合できる
+  - 真空Wightman分布から時間順序付きFeynman二点分布を構成し、運動量のiε処方を導出できる
+  - Feynman二点分布とKlein–Gordon基本解のi係数および空間的分離での非零相関を区別できる
+  - 基本解・交換子・時間順序二点分布を同じ模型の例題で比較し、因果的応答と真空相関を混同せず説明できる
+definitions:
+  - { id: QFT6-DEF-01, name: 遅延・先進基本解 }
+  - { id: QFT6-DEF-02, name: エネルギー境界値と極の処方 }
+  - { id: QFT6-DEF-03, name: Feynman二点分布 }
+  - { id: QFT6-DEF-04, name: Feynman基本解 }
+theorems:
+  - { id: QFT6-THM-01, name: 遅延・先進核の基本解性と支持 }
+  - { id: QFT6-THM-02, name: 遅延・先進のFourier境界値 }
+  - { id: QFT6-THM-03, name: 時間順序二点分布の極とデルタ源 }
+  - { id: QFT6-PROP-01, name: 因果的応答と空間的真空相関の相違 }
+canonical_examples:
+  - 一つの振動数の正弦核における跳びとデルタ源
+  - 正負の質量殻極の上下半平面への移動
+  - 時間順序による正負の周波数の切替
+  - 空間的分離でも残るFeynman相関のGaussian表示
+  - コンパクト台外力への遅延応答と真空相関の比較
+problem_patterns:
+  - QFT6-DISTRIBUTION-JUMP
+  - QFT6-CAUSAL-SUPPORT
+  - QFT6-RETARDED-POLES
+  - QFT6-TIME-ORDERING
+  - QFT6-ADVANCED-SIGN
+  - QFT6-RETARDED-UNIQUENESS
+  - QFT6-POLE-CONTOURS
+  - QFT6-SPACELIKE-CORRELATION
+  - QFT6-FEYNMAN-NORMALIZATION
+  - QFT6-RESPONSE-CORRELATION-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 3 }
