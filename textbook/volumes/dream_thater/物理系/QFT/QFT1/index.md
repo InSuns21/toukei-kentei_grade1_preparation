@@ -26,7 +26,7 @@ $$
 =\frac{\partial^2}{\partial t^2}-\sum_{j=1}^{3}\frac{\partial^2}{\partial(x^j)^2}
 $$
 
-です。$\partial_\mu$ は他の座標を固定して $x^\mu$ で偏微分する演算子であり、最後の微分作用素を $\Box=\partial_\mu\partial^\mu$ と書きます。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ とまとめ、空間勾配とLaplacianを
+です。$\partial_\mu$ は他の座標を固定して $x^\mu$ で偏微分する演算子です。最後の微分作用素を**ダランベール演算子（波動演算子）**と呼び、$\Box=\partial_\mu\partial^\mu$ と書きます。$\Box$（四角形）は文字化けではなく、この演算子を表す標準的な数学記号です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ とまとめ、空間勾配とLaplacianを
 
 $$
 \nabla\phi=(\partial_1\phi,\partial_2\phi,\partial_3\phi),\qquad
