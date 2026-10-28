@@ -1,0 +1,13 @@
+chapter: QFT14
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT13]
+forward_references: [complex-analysis.analytic-continuation-along-path]
+
+concepts:
+  - id: qft.integrated-scalar-normalization
+    name: 四次実スカラーの二点関数から単位性までの規格化連鎖
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四次実スカラーの二点関数から単位性までの規格化連鎖）]
+    requires: [qft.feynman-poles-and-source, qft.lsz-four-leg-formula, qft.quartic-scattering-tree, qft.cm-two-body-cross-section, qft.quartic-unitarity-cut]
