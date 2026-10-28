@@ -1,7 +1,7 @@
 # DREAM THEATER 機械学習 I・II（ML1・ML2）
 
 改訂日: 2026-10-14  
-状態: in_progress（科目固有の着手準備・前提照合・series manifest初期化済。全46章の本文は未執筆）
+状態: completed（2026-10-28。全46章・ラボ要件・最終横断確認を実装し、系列manifestと公開導線を照合）
 
 ## 0. 中心問い・学習範囲
 
@@ -181,7 +181,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 
 ### 5A.4 共通実装の方針と既存基盤の利用
 
-**共通Runtimeの正本：** [DREAM THEATER 対話型数値シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)。実行制御・Workerプロトコル・描画アダプター・実験の保存/export・ブラウザ試験は共通PLANを再利用し、本PLANは学習模型・サンプラー/最適化/推論・損失/校正/正確な観測指標を所有する。共通基盤はPhase 0の通信契約・受け入れ模型に着手済みだが、Worker・対話UIは未実装であり、完成したRuntimeを前提にしない。
+**共通Runtimeの正本：** [DREAM THEATER 対話型数値シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)。実行制御・Workerプロトコル・描画アダプター・実験の保存/export・ブラウザ試験は共通PLANを再利用し、本PLANは学習模型・サンプラー/最適化/推論・損失/校正/正確な観測指標を所有する。Phase 0/1のWorker基盤とML固有のJS数値モジュール/対話UIが実装された。全ラボが同じWorkerを利用するという意味ではなく、軽量な8模型はページ内JSで再計算する。
 
 1. **Python数値カーネルを第一候補**：既存`pages/numerical-lab-worker.mjs`のPyodide、`pages/numerical-lab-runtime.js`のPythonラボを、アルゴリズム構成・勾配検査・一回の収束実験・Matplotlib図表で再利用する。既存UIは一回実行とPNG出力の契約であり、連続対話を実装済みと誤認しない。
 2. **対話用UIは共通基盤の描画アダプターを利用**：入力→数値カーネルの再計算→実結果→表示の経路を共通化し、Canvas 2D / SVG / HTMLグラフ等は**計算結果の表示**にのみ使う。軽量な有限離散模型や2次元二次最適化はJSのML固有数値モジュールを許す。大きな行列計算・反復推論は計測の上でPyodide/NumPy Workerを使い、PythonとJSの混在時は固定模型で数値照合する。
@@ -207,7 +207,7 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 - **描画**：母集団の4セル確率、採択された標本、標本数別の経験リスク分布・厳密母集団リスク線。nやseedを変えたら数値カーネルを再実行し、グラフと表を同時更新する。
 - **受け入れ**：固定seedで同値、4セルの確率和1、経験リスク/真のリスクが[0,1]、空標本や無効な確率を拒否、小標本での変動を観測可能とする。n増大で**すべての個別反復の誤差が単調減少する**とは主張しない。UIパラメータ変更が実再計算を生むテストを通す。
 
-## 6. 着手手順（次担当が追加設計なしでML1-01を書ける状態）
+## 6. 着手時手順（2026-10-14の初期設計記録）
 
 1. series manifest textbook/dream-theater-series/ML.yaml の先頭未完了ML1-01を読み、パス textbook/volumes/dream_thater/応用系/ML/ML1-01 に章を作る。予定章を本文や公開索引へ事前登録しない。
 2. DREAM_THEATER_AUTHORING_STANDARD.md、対象に近いAGENTS.md、既存の確率・線形代数のchapter.yaml/knowledge.yamlを確認し、ML1-01のprerequisites・learning objectives・新規concept ownerを実在IDで確定する。
@@ -215,10 +215,32 @@ ML I/IIは「学習の問題設定、予測モデル、確率推論、計算の�
 4. 書籍の本文やコード断片の無断転載は禁止。標準のformal statement・proof・A/B/C詳細解答を整え、変更区分Cとして全主要証明・全演習を再計算した自己査読と別観点の再読を実施する。
 5. 実装完了後は当該章・knowledge metadata・系列manifest（その章だけcompleted）・公開導線を同一PRで更新する。通常のleaf chapterはchanged-only検証、globalに波及する変更はfull validationへ昇格する。**別の完成済み章の追跡監査は明示依頼時のみ**で、直前章だからといって自動追加しない。
 
-## 7. 現時点の完了判定
+## 7. 完了判定・最終横断査読（2026-10-28）
 
-- 完了：教科書比較、対象章IDと順序の決定、既存canonical章の存在確認、ML series manifestの初期化・PLAN経路の整合。
-- 未完了：ML1-01〜ML2-25の46章すべての本文・演習・詳細解答、章単位metadata、公開index、全章横断査読。予定章はどれも公開済/実装済と扱わない。
-- PLANは実装開始準備に着手したためplans_progress/に移し、章執筆が始まるまで全章plannedとする。最初の次作業は一意に**ML1-01**。
+### 7.1 成果物と監査範囲
 
-完了条件は全46章の内容/証明/演習と学習目標、既出結果リンク、最終検証・横断監査、公開導線の整合で判定する。講数だけを満たしたら完了とする運用は採らない。
+- 系列manifestの46章（ML1-01〜ML1-21、ML2-01〜ML2-25）は全件`completed`。各章の`index.md`、`chapter.yaml`、`knowledge.yaml`、学習目標・直接prerequisiteを照合した。
+- 46章の形式的な全件棚卸しで、主要証明ブロック201件（開始/終了対）、formal結果stable anchor 357件、演習と詳細解答412組（A189/B177/C46）を確認。全章A4/B3/C1以上、演習IDの重複・解答不足なし。これらの個数・整合は`node scripts/validate-ml-plan-completion.mjs`で継続検査する。**個数の一致を個々の数学的証明の正しさと取り違えない**。
+- §5A.2/5A.3のモード指定を全章と照合し、対話21章・計算25章の動作先を確認。完了段階で不足していた8つの対話章（ML1-08/12/13/19/20/21、ML2-09/20）は`pages/simulation/ml-completion.html?chapter=<章ID>`へ接続し、各章に説明・理論anchorへのリンク・限界を加えた。JSカーネルは`ml-completion-models.mjs`で実計算し、入力・seed・反例設定によって数値が変化する。ML2-01には台条件とKLのPython計算ラボを追加した。
+- 既存の対話/計算ラボ、[シリーズ索引](../dream-theater-series/ML.yaml)、Pages内のラボ一覧と46章の公開章リンクを照合。Python計算例だけを対話UIとして数えない。既存章の正本定義・結果anchorを移動・改名せず、直接prerequisiteを変えていない。
+
+### 7.2 数学的な横断確認の再導出例
+
+各章の既存の個別査読と別に、ML I→IIの概念の受け渡し、台・正規化・線形代数・最適化・標本独立性を横断して照合した。特に新しいラボの数値核と次の主要結果を、定義から独立に導出・計算した。
+
+1. **Logistic（ML1-08）**：[勾配・Hessian](../volumes/dream_thater/応用系/ML/ML1-08/index.md#thm-ml1-08-binary-derivatives)について、$z_i=wx_i+b$、$q_i=(1+e^{-z_i})^{-1}$ から $\partial\ell_i/\partial z_i=q_i-y_i$、$\partial^2\ell_i/\partial z_i^2=q_i(1-q_i)$ を得る。したがって $\nabla^2L=n^{-1}\sum_iq_i(1-q_i)(x_i,1)^{\mathsf T}(x_i,1)+\lambda I_2$ は半正定値。[完全分離](../volumes/dream_thater/応用系/ML/ML1-08/index.md#thm-ml1-08-separation-no-mle)の方向では係数ノルムが増えて損失が下がる設定と、$\lambda>0$ の有界な対照設定を別々に検算した。
+2. **PCA（ML1-19）**：[中心化標本の再構成](../volumes/dream_thater/応用系/ML/ML1-19/index.md#thm-ml1-19-pca-reconstruction)は $C=X^{\mathsf T}X/n$ の固有値 $\lambda_j=\sigma_j^2/n$ と直交射影から $\|X-X_q\|_F^2/n=\sum_{j>q}\lambda_j$。2次元の$q=0,1,2$で全分散・第二固有値・0をそれぞれ独立計算した。固有値の縮退時は軸の一意性を主張しない。
+3. **k-means（ML1-20）**：[平均の最小化](../volumes/dream_thater/応用系/ML/ML1-20/index.md#prop-ml1-20-centroid-identity)は $\sum_{i\in C}\|x_i-c\|^2=\sum_{i\in C}\|x_i-\bar x_C\|^2+|C|\|c-\bar x_C\|^2$。[Lloydの非増加](../volumes/dream_thater/応用系/ML/ML1-20/index.md#thm-ml1-20-lloyd-descent)は割当の最小化と平均更新の二段で成立する。初期群サイズ30と30のWard併合増分は $30\cdot30/(30+30)\|\bar x_1-\bar x_2\|^2=15\|\bar x_1-\bar x_2\|^2$。
+4. **Mean-field（ML2-09）**：[座標更新](../volumes/dream_thater/応用系/ML/ML2-09/index.md#thm-ml2-09-coordinate)は $f(z_1,z_2)=\exp(cz_1z_2)$、$q=q_1q_2$ と置いて $\mathcal L=cab+H(a)+H(b)$（$a=q_1(1),b=q_2(1)$）、正規化定数 $Z=3+e^c$ と列挙できる。$a\leftarrow\operatorname{sigmoid}(cb)$、$b\leftarrow\operatorname{sigmoid}(ca)$ の各更新でELBOは非減少、$\log Z-\mathcal L=\mathrm{KL}(q\|p)$。$c=0$では一度の更新で両因子が1/2となりELBO=$\log4$。
+5. **VAE（ML2-20）**：[ELBO](../volumes/dream_thater/応用系/ML/ML2-20/index.md#thm-ml2-20-elbo)を2次元潜在 $p(z)=N(m\mathbf1,vI_2)$、$p(x\mid z)=N(w^{\mathsf T}z,\tau^2)$、$q=N(\mu,\operatorname{diag}(s_1^2,s_2^2))$ で照合。$D=\tau^2+v\|w\|^2$と置けば真の事後平均は $m\mathbf1+vw(x-w^{\mathsf T}m\mathbf1)/D$、共分散は $vI_2-v^2ww^{\mathsf T}/D$。再構成項は $-\tfrac12[\log(2\pi\tau^2)+((x-w^{\mathsf T}\mu)^2+\sum_jw_j^2s_j^2)/\tau^2]$。事前KLは $\tfrac12\sum_j[\log(v/s_j^2)+(s_j^2+(\mu_j-m)^2)/v-1]$。真の事後とのKLはこの共分散行列の逆行列・行列式を用いて独立計算し、$\log p(x)-\mathcal L$に一致することを検算した。$v=\tau=x=w_1=1,w_2=m=\mu_2=0,\mu_1=1/2,s_1^2=1/2,s_2^2=1$で厳密な等号を確認。$\beta\ne1$ は通常ELBOと分けている。
+6. **支持条件（ML2-01→ML2-25）**：[有限対数損失とKL](../volumes/dream_thater/応用系/ML/ML2-01/index.md#thm-ml2-01-conditional-kl-regret)では $p_i>0$ の添字だけで $L_p(q)=-\sum p_i\log q_i$ と $D(p\|q)=\sum p_i\log(p_i/q_i)$ を計算し、$q_i=0$ なら双方$+\infty$。零確率項を`0log0`で評価しない。[ML2-25の評価](../volumes/dream_thater/応用系/ML/ML2-25/index.md#prop-ml2-25-heldout-logloss)でも独立評価・台条件を区別した。
+
+**定義・記法・リンクの初出実例：** ML1-19では中心化$X=A-\mathbf1\bar x^{\mathsf T}$を定義してから共分散$C=X^{\mathsf T}X/n$と固有値を導入し、$\sigma_j^2/n=\lambda_j$を再構成判定へ橋渡しする。ML1-08では得点$z_i$を係数$(w,b)$の線形結合で定めてから、$d\ell/dz_i$と$\partial\ell/\partial w$を $\partial\ell/\partial w=(q_i-y_i)x_i$ の連鎖律で結ぶ。ML2-20ではencoder標準偏差$s$とdecoder雑音$\tau$を別母数とし、分散$s^2$、$\tau^2$を混同しない。該当する定理名は上記の各実在anchorへ直接リンクした。レイアウト・リンクは表示とPages検証で確認し、計算例の図を証明の代用品にしない。
+
+### 7.3 最終ゲートと査読主体
+
+- 数値テスト：`node pages/simulation/ml-completion-models.test.mjs`の10群に加え既存ML数値モジュール群。再現性、入力差分、logisticの初期損失、3-fold CVと独立test、混同行列とBrier、PCAの特異値・残差、Lloyd非増加、シフト母集団率、ELBO単調性とKL、VAEの事後と下界の等号を照合する。
+- 実ブラウザ受け入れ：`node scripts/validate-ml-completion-browser.mjs`をPages CIでblocking実行。8ラボすべてで入力変更・UI表示値とheadlessカーネル・描画、反復章の再生/停止/リセット、375px画面、Service Workerのオフライン再訪を検査する。資源上限は各模型の入力範囲で制限し、Pythonを使わない8ラボにPyodide未起動の問題はない。
+- 横断検証：`npm run validate:pages`（formal・参照anchor・画像・数式・Pages offlineを含む）、DREAM THEATER概念・演習・work stateを通す。PLANの移動に伴う直接参照、系列manifestの`plan`と公開ラボ一覧を同じ作業単位で更新する。
+- 査読主体：ChatGPTが数理再導出・コード数値テスト・読者導線の別観点再読を実施。**独立第三者査読ではない**。章ごとの旧PRの査読実施主体もここで第三者と読み替えない。全201証明をこの最終横断作業だけで個別再計算したとは主張せず、46章の形式・依存・演習・ラボ整合と上記の横断代表結果を再導出した。
+- 未確認事項：実ブラウザ受け入れはGitHub ActionsのChromiumで最終実行し、失敗した場合はplan_doneへの移動をマージしない。公開後のPagesデプロイとsmokeを確認して完了とする。
