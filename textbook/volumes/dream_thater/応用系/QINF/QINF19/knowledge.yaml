@@ -1,0 +1,59 @@
+chapter: QINF19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF17
+  - QINF18
+  - INFO1
+forward_references: []
+
+concepts:
+  - id: quantum.conditional-mutual-information
+    name: 量子条件付き相互情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子条件付き相互情報量）]
+    requires: [quantum.conditional-entropy, quantum.mutual-information, quantum.partial-trace]
+
+  - id: quantum.inverse-compression-inequality
+    name: 逆行列の圧縮不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（逆行列の圧縮不等式）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.partial-trace-log-monotonicity
+    name: 正定値行列の部分トレース比較
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（正定値行列の部分トレース比較）]
+    requires: [quantum.inverse-compression-inequality, quantum.partial-trace]
+
+  - id: quantum.strong-subadditivity
+    name: 強劣加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（強劣加法性）]
+    requires: [quantum.partial-trace-log-monotonicity, quantum.conditional-mutual-information, quantum.entropy-tensor-additivity]
+
+  - id: quantum.conditional-entropy-monotonicity
+    name: 条件付きエントロピーの単調性と連鎖律
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（条件付きエントロピーの単調性と連鎖律）]
+    requires: [quantum.strong-subadditivity, quantum.conditional-entropy, quantum.mutual-information]
+
+  - id: quantum.quantum-markov-condition
+    name: 量子Markov条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子Markov条件）]
+    requires: [quantum.conditional-mutual-information, quantum.strong-subadditivity]
+
+  - id: quantum.classical-flag-markov-equality
+    name: 古典旗を条件とした等号判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典旗を条件とした等号判定）]
+    requires: [quantum.quantum-markov-condition, quantum.entropy-subadditivity]

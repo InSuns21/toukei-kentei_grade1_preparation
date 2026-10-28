@@ -1034,6 +1034,7 @@
 16. [QINF16 Bell不等式とCHSH](textbook/volumes/dream_thater/応用系/QINF/QINF16/index.md)
 17. [QINF17 von Neumannエントロピー](textbook/volumes/dream_thater/応用系/QINF/QINF17/index.md)
 18. [QINF18 条件付きエントロピーと相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF18/index.md)
+19. [QINF19 強劣加法性と条件付き相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF19/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
