@@ -12,7 +12,7 @@
 
 自由真空期待値の $\langle\Omega,A\Omega\rangle$ は物理学のブラ・ケット式を略記したもので、[QFT8の第1変数線形の内積規約](../QFT8/index.md#def-qft8-fermion-fock)では $\langle A\Omega,\Omega\rangle$ を意味します。
 
-作用素値分布を点で掛けた式は、**有限体積・有限モードの正則化を施した演算式、または相異なる点をsmearingした摂動計算の略記**です。同一点での積・カットオフを外した積の存在は、この記法だけからは従いません。
+作用素値分布を点で掛けた式は、**有限体積・有限モードの正則化を施した演算式、または相異なる点を[試験関数で積分（smearing）](../QFT4/index.md#def-qft4-smeared-field)した摂動計算の略記**です。同一点での積・カットオフを外した積の存在は、この記法だけからは従いません。
 
 ## 1. 自由発展と相互作用を分ける
 
@@ -25,13 +25,13 @@ i\frac{\partial}{\partial t}U_S(t,t_0)
 =H_S(t)U_S(t,t_0),\qquad U_S(t_0,t_0)=I
 $$
 
-を満たすものとします。基準時刻は $t_0$ です。ここで自由発展 $e^{-iH_0(t-t_0)}$ を取り出します。
+を満たすものとします。基準時刻 $t_0$ を固定し、$\partial_t=\partial/\partial t$ は第一引数 $t$ だけの微分を表します（$t_0$ は動かしません）。ここで自由発展 $e^{-iH_0(t-t_0)}$ を取り出します。
 
 <a id="def-qft9-interaction-picture"></a>
 
 <!-- formal-statement-start -->
 > **定義（相互作用描像と相互作用Hamiltonian）**
-> 上の有限次元Hilbert空間と $H_S(t)=H_0+V(t)$ に対し、相互作用描像の発展、相互作用Hamiltonian、Schrödinger描像の時刻非依存演算子 $A_S$ に対応する自由演算子を
+> 有限次元Hilbert空間上の自己共役な時間非依存行列 $H_0$、連続な自己共役行列 $V(t)$、$H_S(t)=H_0+V(t)$ によるSchrödinger発展 $U_S(t,t_0)$ を取る。基準時刻 $t_0$ を固定し、相互作用描像の発展、相互作用Hamiltonian、Schrödinger描像の時刻非依存演算子 $A_S$ に対応する自由演算子を
 
 $$
 \begin{aligned}
@@ -44,28 +44,50 @@ $$
 > と定義する。状態は $\Psi_I(t)=U_I(t,t_0)\Psi_S(t_0)$ とし、相互作用を除けば $U_I=I$ となる。
 <!-- formal-statement-end -->
 
-この定義では $H_I(t)$ の自由変換と、実際に状態を動かす $U_I$ は別物です。たとえば $V(t)=\lambda A_S$ のとき、$A_S$ が $H_0$ と可換なら $H_I(t)=\lambda A_S$ は一定ですが、可換でなければ自由回転のため時刻依存します。
+この定義では $H_I(t)$ の自由変換と、実際に状態を動かす $U_I$ は別物です。たとえば実定数 $\lambda$ に対し $V(t)=\lambda A_S$ のとき、$A_S$ が $H_0$ と可換なら $H_I(t)=\lambda A_S$ は一定ですが、可換でなければ自由回転のため時刻依存します。
 
 <!-- definition-example-start: def-qft9-interaction-picture -->
 ### 例：二準位系で自由回転を確かめる
 
-**定義の確認**：Pauli行列 $\sigma_x,\sigma_y,\sigma_z$ を使い、$t_0=0$、$H_0=\omega\sigma_z/2$、$V=\lambda\sigma_x$ とします。$\sigma_z$ の固有基底で
+**定義の確認**：[QFT7で用いたPauli行列](../QFT7/index.md#def-qft7-clifford)を $\sigma_x=\sigma^1$、$\sigma_y=\sigma^2$、$\sigma_z=\sigma^3$ と書き直します。$\omega,\lambda\in\mathbb R$、$t_0=0$、$H_0=\omega\sigma_z/2$、$V=\lambda\sigma_x$ とします。
+
+標準基底 $e_+=(1,0)^{\mathsf T}$、$e_-=(0,1)^{\mathsf T}$ では $\sigma_ze_\pm=\pm e_\pm$、$\sigma_xe_+=e_-$、$\sigma_xe_-=e_+$ です。従ってこの基底は $H_0$ の固有基底で、自由指数は各固有値 $\pm\omega/2$ を指数化した対角行列です。定義の共役 $e^{iH_0t}Ve^{-iH_0t}$ を実際に掛けると
 
 $$
 e^{iH_0t}=
 \begin{pmatrix}e^{i\omega t/2}&0\\0&e^{-i\omega t/2}\end{pmatrix},
 \qquad
 H_I(t)=\lambda
-\begin{pmatrix}0&e^{i\omega t}\\e^{-i\omega t}&0\end{pmatrix}
+\begin{pmatrix}
+0&e^{i\omega t/2}e^{i\omega t/2}\\
+e^{-i\omega t/2}e^{-i\omega t/2}&0
+\end{pmatrix}
+=\lambda\begin{pmatrix}0&e^{i\omega t}\\e^{-i\omega t}&0\end{pmatrix}
 $$
 
-となります。行列の随伴を取ると $H_I(t)^\dagger=H_I(t)$、また $t=0$ で $H_I(0)=V$ です。さらに
+となります。非対角成分は複素共役なので $H_I(t)^\dagger=H_I(t)$、また $t=0$ で $H_I(0)=V$ です。$A_S=\sigma_x$ と選べば、定義した自由演算子にも同じ共役計算を適用でき、$\lambda$ の値と無関係に
+
+$$
+A_I(t)=\begin{pmatrix}0&e^{i\omega t}\\e^{-i\omega t}&0\end{pmatrix}
+$$
+
+と求まります。これは $H_I(t)=\lambda A_I(t)$ とも整合します。
+
+残る発展の定義も、一定の全Hamiltonian $H_0+V$ から
+
+$$
+U_I(t,0)=e^{iH_0t}e^{-i(H_0+V)t},\qquad
+U_I(0,0)=I,\qquad
+V=0\ \Longrightarrow\ U_I(t,0)=I
+$$
+
+と確かめられます。さらに $\sigma_y$ の非対角成分 $\mp i$ を使うと
 
 $$
 H_I(t)=\lambda\bigl(\cos(\omega t)\sigma_x-\sin(\omega t)\sigma_y\bigr)
 $$
 
-で、定義の両条件を直接確認できます。**元の相互作用が時刻非依存でも、その自由回転は一般に時刻依存する**ことが分かります。
+となり、自由回転がどの演算子をどの基底で表しているかも分かります。**元の相互作用が時刻非依存でも、その自由回転は一般に時刻依存する**のです。
 <!-- definition-example-end -->
 
 <a id="thm-qft9-interaction-evolution"></a>
@@ -115,13 +137,15 @@ $$
 
 ## 2. 時刻の順序を保ったDyson展開
 
-発展方程式を一回積分すれば、$t\ge t_0$ で
+[相互作用描像の発展方程式](#thm-qft9-interaction-evolution)を一回積分すれば、$t\ge t_0$ で
 
 $$
 U_I(t,t_0)=I-i\int_{t_0}^{t}H_I(s)U_I(s,t_0)\,ds
 $$
 
 です。右辺の $U_I$ にこの式をもう一度代入すると、後から作用する演算子の時刻が左に並びます。異なる時刻の $H_I$ が可換とは限らないので、積の順序を落とした通常の指数関数ではありません。
+
+ここで「偶演算子」は時間順序の並べ替えにフェルミオン特有の負号を付けない演算子（ボース場やフェルミオン奇演算子の偶数個からなる相互作用など）を指します。奇演算子を並べ替える場合の規則は[QFT8の時間順序の定義](../QFT8/index.md#def-qft8-timeorder)に従い、第4節で改めて扱います。
 
 <a id="def-qft9-dyson"></a>
 
@@ -144,7 +168,7 @@ $$
 <!-- definition-example-start: def-qft9-dyson -->
 ### 例：二つの時間領域と係数 $1/2!$
 
-**定義の確認**：相異なる時刻の時間順序積は
+**定義の確認**：$\theta(u)$ は[QFT6の時刻切替係数](../QFT6/index.md#def-qft6-retarded-advanced)で、$u>0$ で1、$u<0$ で0です。相異なる時刻の時間順序積は
 
 $$
 T[H_I(t_1)H_I(t_2)]
@@ -152,7 +176,7 @@ T[H_I(t_1)H_I(t_2)]
 +\theta(t_2-t_1)H_I(t_2)H_I(t_1).
 $$
 
-ここで $\theta$ は[QFT6で使った時刻切替](../QFT6/index.md#def-qft6-retarded-advanced)です。第二項の積分で $t_1$ と $t_2$ を入れ替えれば
+第二項の積分で $t_1$ と $t_2$ を入れ替えれば
 
 $$
 \frac12\int_{t_0}^{t}dt_1dt_2\,T[H_I(t_1)H_I(t_2)]
@@ -175,11 +199,11 @@ U^{(n)}=(-i)^n
 dt_1\cdots dt_n\,H_I(t_1)\cdots H_I(t_n)
 $$
 
-> で与えられ、これは[Dyson級数](#def-qft9-dyson)の $n!$ 付き時間順序積に一致する。$U^{(0)}=I$、$U^{(1)}+U^{(2)}$ まで残すと、$H_I$ の各因子の次数を一つと数えたとき
+> で与えられ、これは[Dyson級数](#def-qft9-dyson)の $n!$ 付き時間順序積に一致する。$U^{(0)}=I$ とし、次数を明示するため $H_I$ を $\varepsilon H_I$（実パラメータ $\varepsilon\to0$）へ置き換えると、二次までの積は
 
 $$
-(I+U^{(1)}+U^{(2)})^\dagger
-(I+U^{(1)}+U^{(2)})=I+O(H_I^3).
+(I+\varepsilon U^{(1)}+\varepsilon^2U^{(2)})^\dagger
+(I+\varepsilon U^{(1)}+\varepsilon^2U^{(2)})=I+O(\varepsilon^3).
 $$
 
 > 有界な行列の場合、Dyson級数は有限区間上でノルム収束する。
@@ -229,7 +253,7 @@ H_I(t_1)H_I(t_2)\,dt_1dt_2.
 \end{aligned}
 $$
 
-よって $U_2+U_2^\dagger+U_1^\dagger U_1=0$ です。積を二次まで展開すると、一次も二次も相殺します。$U_2^\dagger U_2$ 等は三次以上の評価に含めるため、ここでは含めません。
+よって $U_2+U_2^\dagger+U_1^\dagger U_1=0$ です。$H_I\mapsto\varepsilon H_I$ では $U_1$ が $\varepsilon$ 倍、$U_2$ が $\varepsilon^2$ 倍になり、積を二次まで展開すると一次も二次も相殺します。交差項 $U_1^\dagger U_2$ は $\varepsilon^3$、$U_2^\dagger U_2$ は $\varepsilon^4$ なので、残差は $O(\varepsilon^3)$ です。
 <!-- proof-end -->
 
 ### 例：順序を捨てると交換子を見失う
@@ -245,7 +269,7 @@ $$
 
 ## 3. ボース場の時間順序積を二点関数へ分解する
 
-Dysonの各項に例えば四次の場を含む相互作用を代入すると、場の積が何個も現れます。自由場では生成・消滅演算子の交換子が数（$c$-number）なので、それを使って場を正規順序へ並べ替えられます。このとき出る二点の数が、[QFT6のFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point)です。
+Dysonの各項に例えば四次の場を含む相互作用を代入すると、場の積が何個も現れます。自由場では[QFT4の生成・消滅演算子の交換関係](../QFT4/index.md#thm-qft4-fock-ccr)から交差交換子が数（$c$-number）になるので、それを使って場を正規順序へ並べ替えられます。このとき出る二点の数が、[QFT6のFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point)です。
 
 [QFT4で導入した正規順序](../QFT4/index.md#prop-qft4-normal-order)では全ての生成演算子を消滅演算子の左に並べます。$\phi_I(x)=\phi^-(x)+\phi^+(x)$ と分け、$\phi^-$ は生成部分、$\phi^+$ は消滅部分とします。$:\!\phi_1\cdots\phi_n\!:$ はその並べ替え後の積を表し、交換時の数項は**加えません**。真空に関して、非自明な正規順序積の期待値は零です。
 
@@ -287,11 +311,13 @@ $$
 $s>t$ では時間順序を逆にして同じ計算を行うので、収縮は $e^{-i\omega|t-s|}/(2\omega)$ です。$q(t)q(s)$ で $a(t)a^\dagger(s)$ を正規順序へ入れ替える際に現れる $[a(t),a^\dagger(s)]$ が、まさにこの数です。場では運動量ごとにこれを積分して $D_F$ を得ます。
 <!-- definition-example-end -->
 
+全ての場の添字を余りなく二個ずつに分割した組の集合を「完全対合」と呼びます。$n$ が奇数なら完全対合は作れません。これに対し一部だけを組にするものを部分収縮と呼び、残る場は正規順序積になります。
+
 <a id="thm-qft9-boson-wick"></a>
 
 <!-- formal-statement-start -->
 > **定理（ボース自由場のWickの定理）**
-> 自由なボースFock真空と正準交換関係を仮定し、相異なる時空点の場を有限モードで正則化するか、意味のあるsmearingと行列要素で考える。このとき $n$ 個の自由場の時間順序積は、互いに重ならない零個以上の二点組の全ての選び方について、各組を[Wick収縮](#def-qft9-boson-contraction)し、非収縮の場を正規順序へ置いた項の和である。特に偶数個の真空期待値は全完全対合の収縮積の和、奇数個の期待値は零である。
+> 自由なボースFock真空と[正準交換関係](../QFT4/index.md#thm-qft4-fock-ccr)を仮定し、相異なる時空点の場を有限モードで正則化するか、意味のあるsmearingと行列要素で考える。このとき $n$ 個の自由場の時間順序積は、互いに重ならない零個以上の二点組の全ての選び方について、各組を[Wick収縮](#def-qft9-boson-contraction)し、非収縮の場を正規順序へ置いた項の和である。特に偶数個の真空期待値は全完全対合の収縮積の和、奇数個の期待値は零である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -301,7 +327,7 @@ $s>t$ では時間順序を逆にして同じ計算を行うので、収縮は $
 <!-- proof-start -->
 ### 証明
 
-まず有限個の自由振動子の線形結合としての場に対して証明します。時刻の大きいものを左に並べて $\phi_1\cdots\phi_n$ と書き、各 $\phi_j=\phi_j^-+\phi_j^+$ とします。CCRから生成部分同士・消滅部分同士は可換で、
+まず有限個の自由振動子の線形結合としての場に対して証明します。時刻の大きいものを左に並べて $\phi_1\cdots\phi_n$ と書き、各 $\phi_j=\phi_j^-+\phi_j^+$ とします。[QFT4のCCR](../QFT4/index.md#thm-qft4-fock-ccr)から生成部分同士・消滅部分同士は可換で、
 
 $$
 [\phi_i^+,\phi_j^-]
@@ -352,7 +378,7 @@ $$
 
 ## 4. フェルミオンでは順序交換が符号を変える
 
-スカラー場の二点収縮だけでは、[QFT8の正準反交換関係](../QFT8/index.md#thm-qft8-car)を持つDirac場を扱えません。$\psi$ と $\bar\psi$ は粒子・反粒子の生成消滅を含み、異なる奇演算子を交換する度に負号が付くためです。ボース場の「全ての組を加える」という規則に、**組を作るための置換符号**を追加します。
+スカラー場の二点収縮だけでは、[QFT8の正準反交換関係](../QFT8/index.md#thm-qft8-car)を持つDirac場を扱えません。$\psi$ と $\bar\psi$ は粒子・反粒子の生成消滅を含む奇演算子で、[QFT8のフェルミオン時間順序](../QFT8/index.md#def-qft8-timeorder)では交換する度に負号が付きます。また残る場の「正規順序」は[QFT8のフェルミオン正規順序](../QFT8/index.md#def-qft8-observables)に従い、生成を左へ移す際の負号を保持し、反交換子の数項を足しません。ボース場の「全ての組を加える」という規則に、**組を作るための置換符号**を追加します。
 
 <a id="def-qft9-fermion-contraction"></a>
 
@@ -392,11 +418,13 @@ $$
 ラベルを逆にして同じ二時刻を時間順序すると、$T[F_2F_1]=-F_1F_2$ ですから期待値は $-1$ になります。**時間順序の符号**と、同一時刻での $\{c,c^\dagger\}=1$ は別に判定しています。
 <!-- definition-example-end -->
 
+ここで「奇置換数」は、二つの奇演算子を隣同士で交換する操作を何回行うかという数え方です。符号にはその回数の偶奇だけが効きます。例えば四個の列の第1・第4因子を組にするには、間の二因子を横切って二回交換します。
+
 <a id="thm-qft9-fermion-wick"></a>
 
 <!-- formal-statement-start -->
 > **定理（フェルミオンのWickの定理と置換符号）**
-> 有限個のCARモードから構成した自由Fock真空と、その線形結合である奇演算子 $F_1,\ldots,F_n$ を仮定する。奇演算子の時間順序積は、ボースの場合と同様に互いに重ならない二点組の全ての選択にわたる、収縮と残りの正規順序積の和である。ただし各項には、収縮する組を隣同士に持って来て元の順序から作るときの奇置換数に応じた $(-1)^{\text{奇置換数}}$ を掛ける。完全収縮した偶数個の真空期待値は、この符号付きの対合和となる。
+> 有限個の[CARモード](../QFT8/index.md#thm-qft8-car)から構成した自由Fock真空と、その線形結合である奇演算子 $F_1,\ldots,F_n$ を仮定する。奇演算子の時間順序積は、互いに重ならない二点組の全ての選択にわたる、[フェルミオンのWick収縮](#def-qft9-fermion-contraction)と残りの正規順序積の和である。ただし各項には、収縮する組を隣同士に持って来て元の順序から作るときの奇置換数に応じた $(-1)^{\text{奇置換数}}$ を掛ける。完全収縮した偶数個の真空期待値は、この符号付きの対合和となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -406,7 +434,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まずCARの一組 $c,c^\dagger$ では $cc^\dagger=-c^\dagger c+\{c,c^\dagger\}$ です。二つの異なる線形結合 $F_i$ の消滅部分 $F_i^+$ と生成部分 $F_j^-$ に対しても
+まず[QFT8のCAR](../QFT8/index.md#thm-qft8-car)の一組 $c,c^\dagger$ では $cc^\dagger=-c^\dagger c+\{c,c^\dagger\}$ です。各 $F_i=F_i^-+F_i^+$ の上付き $-$ を生成部分、$+$ を消滅部分として分けると、二つの線形結合の消滅部分 $F_i^+$ と生成部分 $F_j^-$ に対しても
 
 $$
 F_i^+F_j^-=-F_j^-F_i^++\{F_i^+,F_j^-\}
@@ -448,7 +476,7 @@ $$
 
 ## 5. 真空規格化と相互作用の有限次数
 
-Wick展開を相互作用へ使う最初の模型として、実スカラー場の正規順序四次相互作用を選びます。相互作用密度は $\lambda:\!\phi_I(x)^4\!:/4!$ とし、$\lambda$ は実結合定数です。外部関数 $g\in C_c^\infty(\mathbb R^4)$ は、相互作用を有限の時空領域だけでオンにするための切替関数です。自由場を有限モードに正則化して各次数の真空期待値を計算し、その後に連続極限の問題を別途考えます。
+Wick展開を相互作用へ使う最初の模型として、実スカラー場の正規順序四次相互作用を選びます。相互作用密度は $\lambda:\!\phi_I(x)^4\!:/4!$ とし、$\lambda$ は実結合定数です。外部関数 $g\in C_c^\infty(\mathbb R^4;\mathbb R)$ は、実数値・滑らか・コンパクト台を持つ切替関数で、相互作用を有限の時空領域だけでオンにします。自由場を有限モードに正則化して各次数の真空期待値を計算し、その後に連続極限の問題を別途考えます。
 
 たとえば
 
@@ -483,7 +511,7 @@ $$
 <!-- definition-example-start: def-qft9-vacuum-normalization -->
 ### 例：零次と一次で分母を検算する
 
-**定義の確認**：$\lambda=0$ では $\mathcal S_g=I$、分母は $\langle\Omega,\Omega\rangle=1$ で、$G_g$ は自由真空相関へ戻ります。一次では正規順序の真空期待値が零なので
+**定義の確認**：$\lambda=0$ では $\mathcal S_g=I$、分母は $\langle\Omega,\Omega\rangle=1$ で、$G_g$ は自由真空相関へ戻ります。一次では[QFT4で確認した正規順序](../QFT4/index.md#prop-qft4-normal-order)の真空期待値が零なので
 
 $$
 \langle\Omega,\mathcal S_g\Omega\rangle
@@ -553,7 +581,7 @@ $$
 
 ### 演習 QFT9-A1：相互作用描像の微分
 
-$H_0=\operatorname{diag}(1,-1)$、$V=\lambda\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$t_0=0$ とする。$H_I(t)$ を求め、自己共役性を確認せよ。
+$H_0=\operatorname{diag}(1,-1)$、$V=\lambda\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\lambda\in\mathbb R$、$t_0=0$ とする。$H_I(t)$ とその時間微分 $\partial_tH_I(t)$ を求め、自己共役性と $\partial_tH_I=i[H_0,H_I]$ を確認せよ。
 
 - Level: A
 
@@ -570,7 +598,18 @@ H_I(t)
 =\lambda\begin{pmatrix}0&e^{2it}\\e^{-2it}&0\end{pmatrix}.
 $$
 
-$\lambda\in\mathbb R$ とすれば非対角成分は複素共役なので $H_I(t)^\dagger=H_I(t)$ です。$t=0$ では元の $V$ に戻ります。
+非対角成分は複素共役なので $H_I(t)^\dagger=H_I(t)$ です。$t=0$ では元の $V$ に戻ります。$H_0$ は時刻に依存せず、$\partial_t$ は $t$ だけを動かします。従って
+
+$$
+\begin{aligned}
+\partial_tH_I(t)
+&=2i\lambda\begin{pmatrix}0&e^{2it}\\-e^{-2it}&0\end{pmatrix},\\
+[H_0,H_I(t)]
+&=2\lambda\begin{pmatrix}0&e^{2it}\\-e^{-2it}&0\end{pmatrix}.
+\end{aligned}
+$$
+
+これは $\partial_tH_I=i[H_0,H_I]$ と一致します。実際、定義の $e^{iH_0t}Ve^{-iH_0t}$ を積の微分で扱っても、$\partial_tH_I=iH_0H_I-iH_IH_0$ です。
 <!-- solution-end -->
 
 ### 演習 QFT9-A2：二次Dyson積分の二領域
@@ -802,7 +841,7 @@ $F_2F_3$ をボース場のように $F_3F_2$ へ負号なしに交換してし�
 
 ### 演習 QFT9-C1：四次相互作用の一次四外線と二次真空項
 
-質量 $m>0$ の実自由場の有限モード正則化を考え、$g\in C_c^\infty(\mathbb R^4)$ と実 $\lambda$ に対し
+質量 $m>0$ の実自由場の有限モード正則化を考え、実数値の $g\in C_c^\infty(\mathbb R^4;\mathbb R)$ と実 $\lambda$ に対し
 
 $$
 \mathcal S_g=T\exp\left(
