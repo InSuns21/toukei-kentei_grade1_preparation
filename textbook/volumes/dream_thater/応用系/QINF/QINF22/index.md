@@ -12,7 +12,7 @@
 
 ## 2. 固有値列から典型部分空間を作る
 
-単一状態の行列 $\rho$ と、$n$ 個の入力を記述する行列を区別します。異なる時刻が独立・同分布であることを**状態のテンソル積**として指定するのが重要です。
+単一状態の行列 $\rho$ と、$n$ 個の入力を記述する行列を区別します。[QINF2の密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)に従い、$\rho$ は自己共役・正値・トレース1です。[密度演算子のスペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)で得る固有値を確率と見なせます。異なる時刻が独立・同分布であることを**状態のテンソル積**として指定するのが重要です。
 
 <a id="def-qinf22-iid-source"></a>
 
@@ -71,7 +71,14 @@ $$
 <!-- definition-example-start: def-qinf22-iid-source, def-qinf22-typical -->
 ### 定義の確認：偏ったqubitを4個まとめる
 
-**定義の確認**として $\rho=\operatorname{diag}(3/4,1/4)$ を取り、$|0\rangle,|1\rangle$ を固有ベクトルとします。$\rho\ge0$、$\operatorname{Tr}\rho=3/4+1/4=1$、独立な4個の状態は $\rho^{\otimes4}$ です。$1$ の個数が $k$ の基底文字列は
+**定義の確認**として、正規直交計算基底 $|0\rangle,|1\rangle$ で $\rho=\operatorname{diag}(3/4,1/4)$ を取ります。これは $\rho=(3/4)|0\rangle\langle0|+(1/4)|1\rangle\langle1|$ の行列表示です。実対角なので $\rho^\dagger=\rho$、任意の $v=a|0\rangle+b|1\rangle$ に対して
+
+$$
+\langle v|\rho|v\rangle=\tfrac34|a|^2+\tfrac14|b|^2\ge0,
+\qquad\operatorname{Tr}\rho=\tfrac34+\tfrac14=1.
+$$
+
+従って[密度演算子の三条件](../QINF2/index.md#def-qinf2-ensemble-density)を満たし、二つの基底ベクトルは正の固有値 $3/4,1/4$ を持ちます。独立な4個のブロックは $\rho^{\otimes4}$ です。$1$ の個数が $k$ の基底文字列は
 
 $$
 r_{i^4}=(3/4)^{4-k}(1/4)^k,
@@ -80,7 +87,7 @@ r_{i^4}=(3/4)^{4-k}(1/4)^k,
 =-\log_2(3/4)+\frac{k}{4}\log_2 3.
 $$
 
-一文字のエントロピーは
+[QINF17の二値エントロピーの式](../QINF17/index.md#prop-qinf17-classical)から、一文字のエントロピーは
 
 $$
 S(\rho)=h_2(1/4)
@@ -88,7 +95,7 @@ S(\rho)=h_2(1/4)
 =2-\tfrac34\log_2 3.
 $$
 
-したがって $k=1$ の列では自己情報量の平均がちょうど $S(\rho)$ です。$\delta=0.1$ とすれば $k=0,2$ は $S(\rho)$ からそれぞれ $(\log_2 3)/4>0.1$ 離れるため、
+自己情報量の平均と $S(\rho)$ の差は $(k-1)\log_2 3/4$ です。$\delta=0.1$ とすれば、$k=1$ の場合に限り絶対値が $0.1$ 以下となります。$k=0,2$ では $(\log_2 3)/4>0.1$、$k=3,4$ ではさらに大きいため、
 
 $$
 T_{4,0.1}=\{0001,0010,0100,1000\},
@@ -139,7 +146,7 @@ $r_i$ を有限確率分布と考え、独立な添字 $I_k$ を確率 $r_i$ で
 <!-- proof-start -->
 ### 証明
 
-スペクトル確率 $r_i$ に従う独立同分布の添字 $I_1,\ldots,I_n$ を考えます。有限集合 $\mathcal I$ 上で各 $r_i$ は正なので $Z_k=-\log_2r_{I_k}$ の二次モーメントは有限です。[INFO3の対数確率の平均・分散](../../INFO/INFO3/index.md#lem-info3-log-moments)に $p(i)=r_i$ を代入すると
+スペクトル確率 $r_i$ に従う独立同分布の添字 $I_1,\ldots,I_n$ を考えます。以下、$\Pr$ はこの添字列の確率、$P$ は直交射影であり、区別します。有限集合 $\mathcal I$ 上で各 $r_i$ は正なので $Z_k=-\log_2r_{I_k}$ の二次モーメントは有限です。[INFO3の対数確率の平均・分散](../../INFO/INFO3/index.md#lem-info3-log-moments)に $p(i)=r_i$ を代入すると
 
 $$
 E[Z_k]=-\sum_i r_i\log_2r_i=S,\quad
@@ -153,7 +160,7 @@ $$
 \begin{aligned}
 p_n
 &=\sum_{i^n\in T_{n,\delta}}r_{i^n}\\
-&=P\left(\left|\frac1n\sum_{k=1}^nZ_k-S\right|\le\delta\right)\\
+&=\Pr\left(\left|\frac1n\sum_{k=1}^nZ_k-S\right|\le\delta\right)\\
 &\ge 1-\frac V{n\delta^2}.
 \end{aligned}
 $$
@@ -185,7 +192,7 @@ $$
 
 ## 4. 何を保存できたら「量子圧縮に成功」か
 
-典型固有ベクトルの名前だけを古典ビットで送ると、その重ね合わせの相対位相や外部系との相関を消す可能性があります。[QINF4の精製](../QINF4/index.md#def-qinf4-purification)を使い、参照系 $R$ まで含めた純粋状態の重なりで成功を測ります。
+典型固有ベクトルの名前だけを古典ビットで送ると、その重ね合わせの相対位相や外部系との相関を消す可能性があります。[QINF4の精製](../QINF4/index.md#def-qinf4-purification)を使い、参照系 $R$ まで含めた純粋状態の重なりで成功を測ります。符号化と復号は[QINF7の量子チャネル](../QINF7/index.md#def-qinf7-channel)、すなわち線形な完全正・トレース保存（CPTP）写像とします。以下の $A$ は入力空間 $H^{\otimes n}$、$\operatorname{id}_R$ は参照系 $R$ 上で何もしない恒等チャネルを表します。
 
 <a id="def-qinf22-code-fidelity"></a>
 
@@ -209,21 +216,27 @@ $$
 <!-- definition-example-start: def-qinf22-code-fidelity -->
 ### 定義の確認：何もせず保存する場合と、測定してしまう場合
 
-**定義の確認**として、精製・チャネル・忠実度の条件を直接確かめます。
+**定義の確認**として $n=1,D_1=2,B_1=\mathbb C^2$ と取り、精製・符号化チャネル・復号チャネル・忠実度の条件を直接確かめます。
 
-二次元状態 $\rho=I_2/2$ の精製を $|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ とします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で $\operatorname{Tr}_R|\Phi\rangle\langle\Phi|=I_2/2$ を確かめられます。恒等チャネルなら出力も $|\Phi\rangle\langle\Phi|$ で $F_e=1$。
+二次元状態 $\rho=I_2/2$ の精製を $|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ とします。二つの積ベクトルは直交するので $\langle\Phi|\Phi\rangle=1$、[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)では参照系 $R$ の交差項が消え、$\operatorname{Tr}_R|\Phi\rangle\langle\Phi|=I_2/2$ です。$\mathcal E_1=\mathcal D_1=\operatorname{id}$ とすれば、ともにKraus作用素 $I_2$ によるCPTPチャネルで、出力も $|\Phi\rangle\langle\Phi|$、従って $F_e=1$ です。
 
-計算基底を非選択的に測る位相消失チャネル $\mathcal M(\tau)=\sum_{i=0}^1|i\rangle\langle i|\tau|i\rangle\langle i|$ は[Krausの条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たします。しかし参照系を含めた出力は
+一方、符号化を計算基底の非選択測定 $\mathcal E_1=\mathcal M$、復号を $\mathcal D_1=\operatorname{id}$ とします。位相消失チャネル $\mathcal M(\tau)=\sum_{i=0}^1|i\rangle\langle i|\tau|i\rangle\langle i|$ は、Kraus作用素 $|0\rangle\langle0|,|1\rangle\langle1|$ の二乗和が $I_2$ なので[Krausの条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たします。しかし参照系を含めた出力は
 
 $$
 (\operatorname{id}\otimes\mathcal M)(|\Phi\rangle\langle\Phi|)
 =\tfrac12|00\rangle\langle00|+\tfrac12|11\rangle\langle11|.
 $$
 
-従って $F_e=\tfrac12|\langle\Phi|00\rangle|^2+\tfrac12|\langle\Phi|11\rangle|^2=1/2$ です。$\rho$ 自体は測定前後とも $I_2/2$ なのに $F_e<1$。**平均状態だけが一致しても量子情報の保存とは言えない**ことが分かります。
+ここで $|\langle\Phi|00\rangle|^2=|\langle\Phi|11\rangle|^2=1/2$ だから
+
+$$
+F_e=\tfrac12\cdot\tfrac12+\tfrac12\cdot\tfrac12=\tfrac12.
+$$
+
+$\rho$ 自体は測定前後とも $I_2/2$ なのに $F_e<1$。**平均状態だけが一致しても量子情報の保存とは言えない**ことが分かります。
 <!-- definition-example-end -->
 
-計算の際に精製を毎回展開せずに済む公式を用意します。
+計算の際に精製を毎回展開せずに済むよう、[QINF7のKraus表示](../QINF7/index.md#def-qinf7-kraus)を使う公式を用意します。
 
 <a id="lem-qinf22-fidelity-kraus"></a>
 
@@ -292,7 +305,15 @@ $0<\delta<R-S(\rho)$ と固定します。[量子典型射影の確率・固有�
 
 $S=S(\rho)$ とし、$0<\delta<R-S$ を選びます。[典型射影補題](#lem-qinf22-typical-bounds)から $p_n=\operatorname{Tr}(P_{n,\delta}\rho_n)\to1$ です。従って十分大きな $n$ で $D_n=\operatorname{rank}P_{n,\delta}\ge1$。以下そのような $n$ を固定し、$P=P_{n,\delta}$、$Q=I-P$ とします。
 
-$\operatorname{ran}P$ から $D_n$ 次元空間 $B_n$ への等長同型 $V$ を選びます。つまり $V^\dagger V=P$（$V$ を $H^{\otimes n}$ 全体上では $Q$ を零に写す写像として延長）、$VV^\dagger=I_{B_n}$ です。$\operatorname{ran}P$ に単位ベクトル $|\phi\rangle$ を一つ選び $|b\rangle=V|\phi\rangle$ と置きます。符号化と復号を
+$\operatorname{ran}P$ から $D_n$ 次元空間 $B_n$ への等長同型 $V$ を選びます。具体的に $\operatorname{ran}P$ の正規直交基底を $|t_\ell\rangle$、$B_n$ の正規直交基底を $|b_\ell\rangle$（$1\le\ell\le D_n$）とすれば
+
+$$
+V=\sum_{\ell=1}^{D_n}|b_\ell\rangle\langle t_\ell|,
+\quad V^\dagger V=\sum_\ell|t_\ell\rangle\langle t_\ell|=P,
+\quad VV^\dagger=I_{B_n}.
+$$
+
+この $V$ は $H^{\otimes n}$ 全体上では $Q$ を零に写します。$\operatorname{ran}P$ に単位ベクトル $|\phi\rangle$ を一つ選び $|b\rangle=V|\phi\rangle$ と置きます。符号化と復号を
 
 $$
 \begin{aligned}
@@ -304,10 +325,10 @@ $$
 
 と定めます。ここでは $VP=V$ ですが、射影される場所を示すため $P$ を書きました。
 
-$Q$ の正規直交基底を $|j\rangle$ とすると符号化のKraus作用素は $V$ と $|b\rangle\langle j|$ であり、
+$\operatorname{ran}Q$ の正規直交基底を $\{|j\rangle:j\in\mathcal J_Q\}$ と書きます。添字集合 $\mathcal J_Q$ は失敗部分空間の基底に付けたラベルであり、射影 $Q$ 自体を添字集合として扱うわけではありません。符号化のKraus作用素は $V$ と $|b\rangle\langle j|$（$j\in\mathcal J_Q$）であり、
 
 $$
-V^\dagger V+\sum_{j\in Q}|j\rangle\langle b|b\rangle\langle j|
+V^\dagger V+\sum_{j\in\mathcal J_Q}|j\rangle\langle b|b\rangle\langle j|
 =P+Q=I_{H^{\otimes n}}.
 $$
 
@@ -324,7 +345,7 @@ $$
 \begin{aligned}
 F_e(\rho_n,\mathcal N_n)
 &=|\operatorname{Tr}(\rho_nP)|^2
-+\sum_{j\in Q}|\langle j|\rho_n|\phi\rangle|^2\\
++\sum_{j\in\mathcal J_Q}|\langle j|\rho_n|\phi\rangle|^2\\
 &=p_n^2.
 \end{aligned}
 $$
@@ -349,7 +370,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（中間次元による忠実度の固有値上界）**
-> 有限次元状態 $\sigma$ の固有値を重複度込みで $\lambda_1\ge\cdots\ge\lambda_d\ge0$ とする。$\sigma$ の空間から $D$ 次元空間 $B$ への任意のCPTP写像 $\mathcal E$ と、$B$ から元の空間への任意のCPTP写像 $\mathcal D$ について
+> 有限次元状態 $\sigma$ の固有値を重複度込みで $\lambda_1\ge\cdots\ge\lambda_d\ge0$ とする。整数 $D\ge1$ とし、$\sigma$ の空間から $D$ 次元空間 $B$ への任意のCPTP写像 $\mathcal E$ と、$B$ から元の空間への任意のCPTP写像 $\mathcal D$ について
 
 $$
 F_e(\sigma,\mathcal D\circ\mathcal E)
@@ -379,13 +400,21 @@ F_e(\sigma,\mathcal N)
 \end{aligned}
 $$
 
-中間空間の状態を $\tau_i=\mathcal E(|i\rangle\langle i|)$、復号後に $i$ と判定する効果を $M_i=\mathcal D^*(|i\rangle\langle i|)$ とします。$\tau_i$ は密度演算子なので $0\le\tau_i\le I_B$、$M_i\ge0$、また復号がトレース保存なので
+中間空間の状態を $\tau_i=\mathcal E(|i\rangle\langle i|)$ とします。復号後に固有基底で $i$ と判定する測定効果を、中間空間上へ引き戻すには[QINF7のチャネル双対作用](../QINF7/index.md#prop-qinf7-adjoint)を使います。$\mathcal D^*$ は復号 $\mathcal D$ のトレース双対であり、$M_i=\mathcal D^*(|i\rangle\langle i|)$ と置けば
+
+$$
+\operatorname{Tr}(M_i\tau_i)
+=\operatorname{Tr}(|i\rangle\langle i|\,\mathcal D(\tau_i))
+=\langle i|\mathcal N(|i\rangle\langle i|)|i\rangle.
+$$
+
+$\tau_i$ は密度演算子なので、固有値は非負で和が1、従って $0\le\tau_i\le I_B$ です。双対作用は正値性を保つため $M_i\ge0$、また復号がトレース保存なので
 
 $$
 \sum_iM_i=\mathcal D^*(I)=I_B.
 $$
 
-ここで $q_i=\operatorname{Tr}(M_i\tau_i)$ は正しく $i$ と判定する確率です。$0\le q_i\le1$ かつ $\tau_i\le I_B$ から
+ここで $q_i=\operatorname{Tr}(M_i\tau_i)$ は正しく $i$ と判定する確率です。$M_i\ge0$、$\sum_iM_i=I_B$ から $0\le M_i\le I_B$ なので $0\le q_i\le\operatorname{Tr}\tau_i=1$。さらに $\tau_i\le I_B$ から
 
 $$
 \sum_iq_i
@@ -433,7 +462,7 @@ $R<S$ の隙間に $0<\delta<S-R$ を置きます。典型でない固有値の�
 <!-- proof-start -->
 ### 証明
 
-$0<\delta<S-R$ を固定し、$P=P_{n,\delta}$ とします。$\rho_n$ のすべての固有値を大きい順に並べ、上位 $D_n$ 個の添字集合を $J_n$ とします（$D_n$ が全次元以上なら全添字）。$J_n$ に属する典型・非典型の固有値を別々に足すと
+$0<\delta<S-R$ を固定し、$P=P_{n,\delta}$ とします。$\rho_n$ の正の固有値は $r_{i^n}$（$i^n\in\mathcal I^n$）です。全固有値の上位 $D_n$ 個の和は、零固有値があっても、正の固有値を大きい方から $\min(D_n,|\mathcal I|^n)$ 個選んだ和と等しくなります。この正の固有値の添字集合を $J_n\subseteq\mathcal I^n$ と定めます。$J_n$ に属する典型・非典型の固有値を別々に足すと
 
 $$
 \begin{aligned}
@@ -444,7 +473,7 @@ $$
 \end{aligned}
 $$
 
-零固有値が $J_n$ にあっても寄与は0です。[典型射影補題](#lem-qinf22-typical-bounds)と $D_n\le2^{nR}$ によって
+零固有値は初めから $J_n$ に含めず、その和への寄与は0です。[典型射影補題](#lem-qinf22-typical-bounds)と $D_n\le2^{nR}$ によって
 
 $$
 \sum_{i^n\in J_n}r_{i^n}
@@ -625,7 +654,7 @@ $$
 
 - Level: B
 
-$\rho=\operatorname{diag}(3/4,1/4)$ の独立同分布情報源について、$Z=-\log_2r_I$（$P(I=0)=3/4$、$P(I=1)=1/4$）とする。
+$\rho=\operatorname{diag}(3/4,1/4)$ の独立同分布情報源について、$Z=-\log_2r_I$（$\Pr(I=0)=3/4$、$\Pr(I=1)=1/4$）とする。
 
 1. $E[Z]=S(\rho)$、$V=\operatorname{Var}(Z)$ を求めよ。
 2. $n=1000,\delta=0.1$ として典型射影の成功確率・rankの数式上界を求めよ。
@@ -784,14 +813,22 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**1. スペクトル。** $|+\rangle\langle+|=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}$ なので
+**1. スペクトル。** 正規直交計算基底 $|0\rangle,|1\rangle$ で $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ の外積を展開すると、各行列成分は $\langle a|+\rangle\langle+|b\rangle=1/2$（$a,b\in\{0,1\}$）です。従って $|+\rangle\langle+|=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}$ であり、
 
 $$
 \rho=\frac12|0\rangle\langle0|+\frac12|+\rangle\langle+|
 =\begin{pmatrix}3/4&1/4\\1/4&1/4\end{pmatrix}.
 $$
 
-トレース1、行列式 $3/16-1/16=1/8$ から特性方程式 $\lambda^2-\lambda+1/8=0$ を得ます。固有値は
+非零ベクトル $v$ が固有値 $\lambda$ を持つ条件は $(\rho-\lambda I_2)v=0$ です。二次元ではこれは $\det(\rho-\lambda I_2)=0$ と同値なので、行列式を展開して
+
+$$
+\det(\rho-\lambda I_2)
+=(\tfrac34-\lambda)(\tfrac14-\lambda)-\tfrac1{16}
+=\lambda^2-\lambda+\tfrac18=0
+$$
+
+を得ます。固有値は
 
 $$
 \lambda_\pm=\frac{1\pm1/\sqrt2}{2},\qquad
@@ -806,7 +843,7 @@ V=\lambda_+\lambda_-
 =\frac18\left[\log_2(3+2\sqrt2)\right]^2.
 $$
 
-送信ラベル自体のShannonエントロピーは1ですが、圧縮対象は測定済みのラベルではなく、非直交純粋状態の**平均密度演算子**です。量子源の限界率は $S$ になります。
+送信ラベル自体の[Shannonエントロピー](../../INFO/INFO1/index.md#def-info1-entropy)は、二値一様分布なので1ビットですが、圧縮対象は測定済みのラベルではなく、非直交純粋状態の**平均密度演算子**です。量子源の限界率は $S$ になります。
 
 **2. 符号の構成。** $\delta=0.04$ は $0<\delta<0.7-S$ を満たします。従って[典型射影補題](#lem-qinf22-typical-bounds)と[達成可能性の構成](#thm-qinf22-achievability)から、十分大きい $n$ で
 
@@ -840,7 +877,16 @@ $$
 +\tfrac12|+\rangle^{\otimes n}\langle+|^{\otimes n}.
 $$
 
-その台は高々 $\operatorname{span}\{|0^n\rangle,|+^n\rangle\}$ の二次元です。$n\ge1$ でこの二つは線形独立なので台のrankは2、台を1qubitへ等長に写し逆写像で復号すれば $F_e=1$ です。一方、$\rho$ は二つの正の固有値を持ち $\rho^{\otimes n}$ のrankは $2^n$。$n>1$ では $\omega_n\ne\rho^{\otimes n}$ です。前半の定理が使った固有列の積確率と独立性が失われるため、単一系の $S$ をこの相関源の圧縮限界にしてはいけません。
+その台は高々 $\operatorname{span}\{|0^n\rangle,|+^n\rangle\}$ の二次元です。両ベクトルのノルムは1で、その内積は
+
+$$
+\langle0^n|+^n\rangle=(\langle0|+\rangle)^n=2^{-n/2}<1
+\qquad(n\ge1)
+$$
+
+です。従って線形独立で、$\omega_n$ の二つの正の重みから台のrankは2です。台への射影を $P$ とすれば $\operatorname{Tr}(P\omega_n)=1$ なので、台を1qubitへ等長に写し逆写像で復号する[達成可能性の構成](#thm-qinf22-achievability)を適用でき、$F_e=1^2=1$ です。
+
+一方、$\rho$ は二つの正の固有値を持ち、積状態 $\rho^{\otimes n}$ のrankは $2^n$ です。$n>1$ では $\omega_n\ne\rho^{\otimes n}$。前半の定理が使った固有列の積確率と独立性が失われるため、単一系の $S$ をこの相関源の圧縮限界にしてはいけません。
 <!-- solution-end -->
 
 ## 9. まとめと次の問い
