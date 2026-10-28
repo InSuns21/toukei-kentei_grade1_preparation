@@ -1,0 +1,53 @@
+chapter: CAG1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAG1-01
+  - AG3-04
+  - AG1-05
+forward_references:
+  - algebraic-geometry.coherent-sheaf
+
+concepts:
+  - id: complex-algebraic-geometry.analytic-subspace
+    name: 方程式が定める複素解析空間
+    kind: definition
+    introduction: formal
+    aliases: ["複素解析空間", "解析空間"]
+    introduction_aliases: ["定義（方程式が定める複素解析空間）"]
+    requires: [complex-analysis.holomorphic-function, algebraic-geometry.sheaf-of-rings-axioms]
+
+  - id: complex-algebraic-geometry.affine-analytification
+    name: アフィンスキームの解析化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィンスキームの解析化）"]
+    requires: [complex-algebraic-geometry.analytic-subspace, algebraic-geometry.affine-scheme]
+
+  - id: complex-algebraic-geometry.presentation-independence
+    name: アフィン表示からの独立性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィン表示からの独立性）"]
+    requires: [complex-algebraic-geometry.affine-analytification, algebraic-geometry.affine-scheme-ring-hom-bijection]
+
+  - id: complex-algebraic-geometry.stalk-comparison
+    name: 代数的局所環から解析的局所環へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（代数的局所環から解析的局所環へ）"]
+    requires: [complex-algebraic-geometry.affine-analytification, algebraic-geometry.spectrum-stalk]
+
+  - id: complex-algebraic-geometry.node-local-ring
+    name: 節点の二つの接方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（節点の二つの接方向）"]
+    requires: [complex-algebraic-geometry.stalk-comparison]
+
+  - id: complex-algebraic-geometry.analytification-functor
+    name: 有限型スキームの解析化と射の関手性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限型スキームの解析化と射の関手性）"]
+    requires: [complex-algebraic-geometry.presentation-independence, complex-algebraic-geometry.stalk-comparison, algebraic-geometry.scheme-gluing, algebraic-geometry.morphism-gluing]
