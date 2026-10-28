@@ -69,7 +69,7 @@ chapters:
     title: "LOCCと純粋状態の変換"
   - id: QINF15
     path: textbook/volumes/dream_thater/応用系/QINF/QINF15
-    status: planned
+    status: completed
     title: "混合状態の分離可能性"
   - id: QINF16
     path: textbook/volumes/dream_thater/応用系/QINF/QINF16

@@ -1,0 +1,48 @@
+id: "QINF15"
+title: "混合状態の分離可能性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF6
+  - QINF14
+official_scope: []
+learning_objectives:
+  - 純粋状態のSchmidt階数と混合状態の分離可能性の判定の違いを、同一縮約を持つ二つの状態から説明できる
+  - 分離可能状態を局所密度演算子の凸結合で定義し、有限純粋積アンサンブルとの同値をスペクトル分解から証明できる
+  - 有限ラウンドLOCCが分離可能性を保存し、古典通信で分離可能状態を準備できることを分岐の正規化から示せる
+  - 部分転置の添字交換を行列で追い、転置の正値性と局所基底での固有値不変性からPeresのPPT必要条件を証明できる
+  - Bell状態と2qubit Werner型混合状態のPPT固有値を計算し、Werner型状態の分離可能範囲に積状態分解を構成できる
+  - 3×3次元でPPTだが分離可能でない例を、積ベクトルの直交補空間と支持空間の論証から再構成できる
+definitions:
+  - { id: QINF15-DEF-01, name: "二部混合状態の分離可能性とエンタングルメント" }
+  - { id: QINF15-DEF-02, name: "部分転置とPPT条件" }
+  - { id: QINF15-DEF-03, name: "二qubitのWerner型状態族" }
+theorems:
+  - { id: QINF15-PROP-01, name: "分離可能状態の純粋積分解" }
+  - { id: QINF15-PROP-02, name: "LOCCによる分離可能性の保存と準備" }
+  - { id: QINF15-LEM-01, name: "転置の正値性と部分転置の基底独立な符号" }
+  - { id: QINF15-THM-01, name: "PeresのPPT必要条件" }
+  - { id: QINF15-THM-02, name: "二qubit Werner型状態の分離可能性" }
+  - { id: QINF15-THM-03, name: "PPTだが分離可能でない3×3状態" }
+canonical_examples:
+  - "古典相関混合とBell純粋状態がともにI/2の両側縮約を持つ比較"
+  - "Bell純粋状態の部分転置と負固有値の直接計算"
+  - "二qubit Werner型状態のPPT境界と六つの純粋積射影による端点分解"
+  - "5つの直交積ベクトルからなる3×3 PPTエンタングル状態"
+problem_patterns:
+  - QINF15-CLASSICAL-CORRELATION
+  - QINF15-TRANSPOSE-COMPLEX-PRODUCT
+  - QINF15-SINGLET-NPT
+  - QINF15-WERNER-EIGENVALUES
+  - QINF15-NONDIAGONAL-SEPARABLE
+  - QINF15-LOCAL-CHANNEL-PRESERVATION
+  - QINF15-X-STATE-NPT
+  - QINF15-ARBITRARILY-WEAK-ENTANGLEMENT
+  - QINF15-WERNER-NEGATIVE-PARAMETER
+  - QINF15-LOCALLY-UNITARY-CONJUGATE-WERNER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 2.0 }
