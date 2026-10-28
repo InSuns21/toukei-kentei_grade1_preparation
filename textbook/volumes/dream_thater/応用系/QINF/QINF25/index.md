@@ -51,7 +51,7 @@ $$
 と両基底で直接できます。
 
 <!-- definition-example-start: def-qinf25-bit-code -->
-**定義の確認。** 入力 $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入れると、$V|+\rangle=(|000\rangle+|111\rangle)/\sqrt2$ は正規化され、$P$ を作用させても変わりません。一方 $P|001\rangle=0$ です。従って符号空間は八次元空間の全体ではなく、二次元の部分空間です。
+**定義の確認**。入力 $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入れると、$V|+\rangle=(|000\rangle+|111\rangle)/\sqrt2$ は正規化され、$P$ を作用させても変わりません。一方 $P|001\rangle=0$ です。従って符号空間は八次元空間の全体ではなく、二次元の部分空間です。
 <!-- definition-example-end -->
 
 ### CNOTでの符号化と復号
@@ -110,7 +110,7 @@ $$
 この定義では測定の結果 $(s,t)$ と補正作用 $F_{s,t}$ を古典的に結び付けています。実際に物理系での確率と測定後状態を決めるのは、[射影測定のBorn則](../QINF1/index.md#prop-qinf1-joint-born)と[測定後状態](../QINF5/index.md#prop-qinf5-state-update)です。
 
 <!-- definition-example-start: def-qinf25-syndrome -->
-**定義の確認。** $X_2|\psi_L\rangle=\alpha|010\rangle+\beta|101\rangle$ とします。両基底ベクトルは $T_1,T_2$ の固有値がともに $-1$ なので、$\Pi_{-,-}X_2|\psi_L\rangle=X_2|\psi_L\rangle$、他の三射影の作用は0です。従って測定は確率1で $(-,-)$ を返し、$F_{-,-}=X_2$ をかけると $X_2^2|\psi_L\rangle=|\psi_L\rangle$ に戻ります。確率は $\alpha,\beta$ に依存しません。
+**定義の確認**。$X_2|\psi_L\rangle=\alpha|010\rangle+\beta|101\rangle$ とします。両基底ベクトルは $T_1,T_2$ の固有値がともに $-1$ なので、$\Pi_{-,-}X_2|\psi_L\rangle=X_2|\psi_L\rangle$、他の三射影の作用は0です。従って測定は確率1で $(-,-)$ を返し、$F_{-,-}=X_2$ をかけると $X_2^2|\psi_L\rangle=|\psi_L\rangle$ に戻ります。確率は $\alpha,\beta$ に依存しません。
 <!-- definition-example-end -->
 
 どの反転がどのsyndromeを作るかを、$T_j$ の固有値を基底ごとに代入して求めると次の通りです。「−」は不一致、「＋」は一致を表します。
@@ -372,7 +372,7 @@ $$
 元のビット符号の各物理量子ビットに $H$ を施しただけなので、$W^\dagger W=V^\dagger(H^\dagger H)^{\otimes3}V=I$ であり、二つの論理基底は直交・正規化されています。
 
 <!-- definition-example-start: def-qinf25-phase-code -->
-**定義の確認。** $S_1|+++\rangle=|+++\rangle$ であり、$X|-\rangle=-|-\rangle$ を二箇所に掛けた符号は $(-1)^2=+1$ なので $S_1|---\rangle=|---\rangle$ です。$S_2$ についても同じです。従って $P_{\mathrm{ph}}$ は $S_1=S_2=+1$ の同時固有空間への射影であり、$Z_2|+++\rangle=|+-+\rangle$ は両検査で $-1$ を出します。
+**定義の確認**。$S_1|+++\rangle=|+++\rangle$ であり、$X|-\rangle=-|-\rangle$ を二箇所に掛けた符号は $(-1)^2=+1$ なので $S_1|---\rangle=|---\rangle$ です。$S_2$ についても同じです。従って $P_{\mathrm{ph}}$ は $S_1=S_2=+1$ の同時固有空間への射影であり、$Z_2|+++\rangle=|+-+\rangle$ は両検査で $-1$ を出します。
 <!-- definition-example-end -->
 
 <a id="thm-qinf25-phase-recovery"></a>
