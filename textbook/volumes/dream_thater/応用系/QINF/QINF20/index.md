@@ -6,7 +6,9 @@
 
 [QINF18の対数比較補題](../QINF18/index.md#lem-qinf18-log)には非可換行列の非負な比較量がすでに登場しました。また[QINF19の部分トレース比較](../QINF19/index.md#lem-qinf19-partial-trace-log)は正定値な二つの行列を系の一部で比較します。しかし、実際の量子状態は純粋状態のように零固有値を持ち、量子操作には[一般の量子チャネル](../QINF7/index.md#def-qinf7-channel)が現れます。この二つの不足を本章で解決します。
 
-以下、Hilbert空間は有限次元・複素、状態は正半定値でトレース1、$\log$ は底2です。$d=\dim H$ のとき $I_H/d$ は最大混合状態です。固有値0には $0\log_2 0=0$ を使いますが、**$\log_2 0$ という有限の数を定義するわけではありません**。
+以下、Hilbert空間は有限次元・複素、状態は[密度演算子](../QINF2/index.md#def-qinf2-ensemble-density)（正半定値でトレース1）、$\log$ は底2です。空間 $H$ の次元を $d=\dim H$、単位作用素を $I_H$ と書くと、最大混合状態は $I_H/d$ です。
+
+固有値0のエントロピーへの寄与には $0\log_2 0=0$ を使いますが、**$\log_2 0$ という有限の数を定義するわけではありません**。
 
 ## 2. 量子相対エントロピーと台の条件
 
@@ -36,14 +38,29 @@ D(\rho\|\sigma)
 r_i|\langle u_i|v_j\rangle|^2\log_2s_j.
 $$
 
-実際、$s_j=0$ なら $v_j\in\ker\sigma\subseteq\ker\rho$ なので、$r_i>0$ の $u_i$ とは直交します。したがって上の和で $0\cdot(-\infty)$ を計算する必要はありません。可換な対角行列 $\rho=\operatorname{diag}(p_i)$、$\sigma=\operatorname{diag}(q_i)$ なら、台の条件は $p_i>0\Rightarrow q_i>0$ で、[INFO2の古典相対エントロピーの定義](../../INFO/INFO2/index.md#def-info2-relative-entropy)と同じ $\sum_{p_i>0}p_i\log_2(p_i/q_i)$ に戻ります。
+実際、$s_j=0$ なら $v_j\in\ker\sigma\subseteq\ker\rho$ なので、$r_i>0$ の $u_i$ とは直交します。したがって上の和で $0\cdot(-\infty)$ を計算する必要はありません。
+
+可換な対角行列 $\rho=\operatorname{diag}(p_i)$、$\sigma=\operatorname{diag}(q_i)$ なら台の条件は $p_i>0\Rightarrow q_i>0$。この場合は[INFO2の古典相対エントロピーの定義](../../INFO/INFO2/index.md#def-info2-relative-entropy)に戻り、
+
+$$
+D(\rho\|\sigma)=\sum_{i:p_i>0}p_i\log_2\frac{p_i}{q_i}
+$$
+
+です。
 
 <!-- definition-example-start: def-qinf20-relative-entropy -->
 ### 定義の確認：可換でない純粋状態と正定値状態
 
-**定義の確認**として、$|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$\rho=|+\rangle\langle+|$、$\sigma=\operatorname{diag}(3/4,1/4)$ とします。$\rho$ は固有値 $(1,0)$ の密度演算子、$\sigma$ は二つとも正固有値で和1なので、両方とも正半定値・トレース1、かつ $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ です。
+**定義の確認**として、計算基底 $|0\rangle,|1\rangle$ で $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$\rho=|+\rangle\langle+|$、$\sigma=\operatorname{diag}(3/4,1/4)$ とします。外積の $(i,j)$ 成分は $\langle i|\rho|j\rangle=\langle i|+\rangle\langle+|j\rangle$ です。これを並べると、定義に現れる二作用素の行列表示は
 
-$\operatorname{Tr}(\rho\log_2\rho)=0$、一方で $|+\rangle$ の各計算基底との重なりの二乗は $1/2$ なので
+$$
+\rho=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix},
+\qquad \sigma=\begin{pmatrix}3/4&0\\0&1/4\end{pmatrix}.
+$$
+
+$\rho$ は規格化ベクトルの射影なので固有値 $(1,0)$、$\sigma$ は二つとも正固有値で和1です。両者は自己共役・正半定値・トレース1を満たし、$\operatorname{supp}\sigma=\mathbb C^2$ だから $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ です。**ここで固有値を使う理由**は、台を正固有値の固有空間で判定し、対数をその固有空間上で作用させるという直前の定義にあります。
+
+$\operatorname{Tr}(\rho\log_2\rho)=1\log_2 1=0$ です。一方、$\sigma$ の固有ベクトルは $|0\rangle,|1\rangle$ で、$|\langle0|+\rangle|^2=|\langle1|+\rangle|^2=1/2$ です。従って §2 の固有基底表示に代入すると
 
 $$
 \operatorname{Tr}(\rho\log_2\sigma)
@@ -51,7 +68,14 @@ $$
 \qquad D(\rho\|\sigma)=\tfrac12\log_2\tfrac{16}{3}.
 $$
 
-$\rho$ と $\sigma$ は可換ではありません。$\rho$ の**対角成分だけ**を $(1/2,1/2)$ とみなして古典相対エントロピーを計算すると、純粋状態の非対角成分の情報を落とします。この操作を定義そのものと取り違えないでください。
+実際、上の行列積から
+
+$$
+\rho\sigma-\sigma\rho
+=\begin{pmatrix}0&-1/4\\1/4&0\end{pmatrix}\ne0
+$$
+
+なので $\rho$ と $\sigma$ は可換ではありません。$\rho$ の**対角成分だけ**を $(1/2,1/2)$ とみなして古典相対エントロピーを計算すると、純粋状態の非対角成分の情報を落とします。この操作を定義そのものと取り違えないでください。
 <!-- definition-example-end -->
 
 対照的に $\rho=|1\rangle\langle1|$、$\sigma=|0\rangle\langle0|$ では、両者の台は互いに直交し、$D(\rho\|\sigma)=+\infty$ です。$\sigma$ がその方向に全く重みを持たないことを表しています。
@@ -190,11 +214,13 @@ $$
 
 部分トレースは「環境を忘れる」操作です。[Stinespringの有限次元表現](../QINF8/index.md#thm-qinf8-stinespring)によれば、どの量子チャネルも入力を等長に大きな系へ移し、その一部を捨てる形に書けます。等長写像では相対エントロピーが変わらず、捨てると増えないので、一般の雑音に対する主張へつながります。
 
+以下、$L(H)$ は $H$ 上の全線形作用素の空間で、[QINF7のチャネルの定義](../QINF7/index.md#def-qinf7-channel)と同じ表記です。これは[QINF19の行列空間](../QINF19/index.md#lem-qinf19-partial-trace-log)で用いた $\mathcal M(H)$ と集合として同じですが、ここではチャネルの入力・出力空間を $L(H)$ に統一します。
+
 <a id="thm-qinf20-dpi"></a>
 
 <!-- formal-statement-start -->
 > **定理（量子相対エントロピーのデータ処理不等式）**  
-> 有限次元Hilbert空間 $H_A,H_B$ を取り、$H_A$ 上の密度演算子 $\rho,\sigma$ と、完全正かつトレース保存の量子チャネル $\Phi:\mathcal M(H_A)\to\mathcal M(H_B)$ に対し、
+> 有限次元Hilbert空間 $H_A,H_B$ を取り、$H_A$ 上の密度演算子 $\rho,\sigma$ と、完全正かつトレース保存の量子チャネル $\Phi:L(H_A)\to L(H_B)$ に対し、
 
 $$
 D(\Phi(\rho)\|\Phi(\sigma))\le D(\rho\|\sigma)
@@ -227,13 +253,50 @@ $$
 必要な行列比較の核心は[QINF19の補題](../QINF19/index.md#lem-qinf19-partial-trace-log)と、その前段の[逆行列圧縮の証明](../QINF19/index.md#lem-qinf19-inverse-compression)にすでに閉じています。本章ではその仮定を零固有値まで拡張し、チャネル表示への代入も示しました。$\square$
 <!-- proof-end -->
 
-例えば $|+\rangle$ の状態と最大混合状態 $I_2/2$ を比較すると、入力の相対エントロピーは1です。計算基底の**位相消失チャネル** $\mathcal D(X)=|0\rangle\langle0|X|0\rangle\langle0|+|1\rangle\langle1|X|1\rangle\langle1|$ は[二つのKraus作用素](../QINF7/index.md#thm-qinf7-kraus-cptp)の二乗和が $I_2$ なのでCPTPです。出力では $\mathcal D(|+\rangle\langle+|)=I_2/2=\mathcal D(I_2/2)$ となり、$1\ge0$ の不等式は厳密です。測定や雑音を受けたあと、**失われた相対エントロピーを勝手に復活させる一般操作はありません**。
+例えば $|+\rangle$ の状態と最大混合状態 $I_2/2$ を比較すると、入力の相対エントロピーは1です。計算基底の**位相消失チャネル**を
+
+$$
+\mathcal D(X)=P_0XP_0+P_1XP_1,
+\qquad P_j=|j\rangle\langle j|\quad(j=0,1)
+$$
+
+とします。$P_0^\dagger P_0+P_1^\dagger P_1=I_2$ なので、[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たします。出力を直接計算すると
+
+$$
+\mathcal D(|+\rangle\langle+|)=I_2/2=\mathcal D(I_2/2)
+$$
+
+であり、相対エントロピーの比較は $1>0$ と厳密です。測定や雑音を受けたあと、**失われた相対エントロピーを勝手に復活させる一般操作はありません**。
 
 ## 6. 相互情報量、強劣加法性、測定への接続
 
 二部状態 $\rho_{AB}$ に対しては、$\operatorname{supp}\rho_{AB}\subseteq\operatorname{supp}(\rho_A\otimes\rho_B)$ が成り立ちます。理由は[QINF18の部分加法性の証明](../QINF18/index.md#thm-qinf18-subadditivity)にあるように、周辺状態の核への射影 $P$ を取ると $\operatorname{Tr}[(P\otimes I)\rho_{AB}]=0$ で、正値性から $\rho_{AB}$ はその方向に台を持てないためです。$A$ と $B$ の両方についてこれを使います。
 
-積行列の正固有値は局所固有値の積なので、台上で対数は和となります。従って[量子相互情報量の定義](../QINF18/index.md#def-qinf18-mutual)を展開すると
+以下、[既習の量子相互情報量](../QINF18/index.md#def-qinf18-mutual)と同様に、$X=A,B,AB$ について $S_X=S(\rho_X)$ と略記します。
+
+積行列の正固有値は局所固有値の積です。局所状態の正固有値・固有ベクトルをそれぞれ $a_i,|a_i\rangle$ および $b_j,|b_j\rangle$ とします。すると
+
+$$
+(\rho_A\otimes\rho_B)(|a_i\rangle\otimes|b_j\rangle)
+=a_ib_j(|a_i\rangle\otimes|b_j\rangle),
+\qquad \log_2(a_ib_j)=\log_2a_i+\log_2b_j.
+$$
+
+従って積状態の台上では
+
+$$
+\log_2(\rho_A\otimes\rho_B)
+=(\log_2\rho_A)\otimes I_B+I_A\otimes(\log_2\rho_B).
+$$
+
+零固有空間では対数を作用させず、先に確かめた台包含を使います。この式のトレースを[部分トレースの局所期待値公式](../QINF3/index.md#thm-qinf3-expectation-uniqueness)で縮約すると
+
+$$
+\operatorname{Tr}\bigl[\rho_{AB}(\log_2\rho_A\otimes I_B)\bigr]
+=\operatorname{Tr}(\rho_A\log_2\rho_A)
+$$
+
+で、$B$ 側も同様です。従って[量子相互情報量の定義](../QINF18/index.md#def-qinf18-mutual)を展開すると
 
 $$
 \begin{aligned}
@@ -244,7 +307,7 @@ D(\rho_{AB}\|\rho_A\otimes\rho_B)
 \end{aligned}
 $$
 
-これによって相互情報量は、「実際の共同状態」と「周辺状態だけから作る無相関な積状態」との相対エントロピーになります。
+これによって相互情報量は、「実際の共同状態」と「周辺状態だけから作る無相関な積状態」との相対エントロピーになります。以下の $\operatorname{id}_A$ は $A$ 上で何もしない恒等チャネルを表し、[完全正写像の定義](../QINF7/index.md#def-qinf7-positive-cp)での $\mathrm{id}_n$ と同じものです。$B'$ は $B$ の処理後の出力系を指します。
 
 <a id="cor-qinf20-mutual-dpi"></a>
 
@@ -280,7 +343,7 @@ $$
 最後から二番目では、$A$ 側を操作していないので $\omega_A=\rho_A$、部分トレースと局所チャネルの可換性から $\omega_{B'}=\Phi_B(\rho_B)$ を使いました。$\square$
 <!-- proof-end -->
 
-この系に $B=BC$、$B'=B$、$\Phi_B=\operatorname{Tr}_C$ を代入すれば
+この系に $B=BC$、$B'=B$、$\Phi_B=\operatorname{Tr}_C$ を代入し、[条件付き相互情報量の定義](../QINF19/index.md#def-qinf19-cmi)に戻せば
 
 $$
 I(A:BC)_\rho-I(A:B)_\rho
@@ -301,7 +364,7 @@ $$
 =\sum_y\operatorname{Tr}(M_y\tau)|y\rangle\langle y|.
 $$
 
-従って[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たします。[データ処理不等式](#thm-qinf20-dpi)と対角出力の式から
+従って[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たします。[データ処理不等式](#thm-qinf20-dpi)と[古典相対エントロピーの台条件](../../INFO/INFO2/index.md#def-info2-relative-entropy)を対角出力へ適用すると
 
 $$
 \sum_{y:p_y>0}p_y\log_2\frac{p_y}{q_y}
@@ -309,11 +372,26 @@ $$
 \le D(\rho\|\sigma).
 $$
 
-右辺が有限なら $q_y=0$ の場所で $p_y=0$ なので左辺も有限です。結果ラベルだけを保存する測定は、入力の識別情報を増やしません。**測定結果を条件として選別した後の正規化状態**については、成功確率を無視して同じ不等式を直接適用できるとは限りません。
+この和は $p_y>0,q_y=0$ が一つでもあれば $+\infty$ とする拡張実数の式です。右辺が有限なら $q_y=0$ の場所で $p_y=0$ なので左辺も有限です。結果ラベルだけを保存する測定は、入力の識別情報を増やしません。**測定結果を条件として選別した後の正規化状態**については、成功確率を無視して同じ不等式を直接適用できるとは限りません。
 
 ## 7. いつ等号となるか：古典的な粗視化で検算する
 
-等長変換やユニタリ変換では[補題](#lem-qinf20-isometry)により等号が成立します。入力に共通の状態 $\tau$ を独立に付けるチャネル $\rho\mapsto\rho\otimes\tau$ でも、付加後にその $\tau$ を捨てるチャネルがあるため、[データ処理不等式](#thm-qinf20-dpi)を両方向に使うと
+等長変換やユニタリ変換では[補題](#lem-qinf20-isometry)により等号が成立します。入力に共通の密度演算子 $\tau$ を独立に付ける写像 $X\mapsto X\otimes\tau$ もチャネルです。実際、$\tau$ の固有分解から出力へのKraus作用素を
+
+$$
+\tau=\sum_k\lambda_k|v_k\rangle\langle v_k|,
+\qquad K_k=\sqrt{\lambda_k}(I\otimes|v_k\rangle)
+\quad (\lambda_k\ge0,\ \sum_k\lambda_k=1)
+$$
+
+と置けば、
+
+$$
+\sum_kK_kXK_k^\dagger=X\otimes\tau,
+\qquad \sum_kK_k^\dagger K_k=\sum_k\lambda_k I=I.
+$$
+
+従って[KrausのCPTP条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たし、付加後に $\tau$ を[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で捨てるチャネルもあります。[データ処理不等式](#thm-qinf20-dpi)を両方向に使うと
 
 $$
 D(\rho\|\sigma)
@@ -323,7 +401,14 @@ $$
 
 従って等号です。一方、§5の位相消失の例は厳密な不等号です。**等号はチャネルだけではなく比較する二状態にも依存**します。
 
-古典的なラベルをまとめる操作については、等号条件を完全に計算できます。有限集合 $\Omega$ 上の確率ベクトル $p=(p_i)$、$q=(q_i)$（$p_i\ge0$、$q_i>0$、各総和1）と、ラベルを群 $b$ へ送る全射 $g:\Omega\to\mathcal B$ を考えます。群の確率を $P_b=\sum_{g(i)=b}p_i$、$Q_b=\sum_{g(i)=b}q_i$ とします。
+古典的なラベルをまとめる操作については、等号条件を完全に計算できます。有限集合 $\Omega$ 上の確率ベクトル $p=(p_i)$、$q=(q_i)$ を、各総和1かつ $p_i\ge0$、$q_i>0$ とします。ラベルを群 $b$ へ送る全射 $g:\Omega\to\mathcal B$ を考え、群の確率を
+
+$$
+P_b=\sum_{i:g(i)=b}p_i,
+\qquad Q_b=\sum_{i:g(i)=b}q_i
+$$
+
+とします。$p_{\cdot|b},q_{\cdot|b}$ の点は、群 $g^{-1}(b)$ 内の全添字 $i$ を走らせた条件付き確率ベクトル全体を表します。
 
 <a id="prop-qinf20-classical-coarse"></a>
 
@@ -463,7 +548,7 @@ $$
 
 - Level: A
 
-$0\le t\le1$、$\rho=|0\rangle\langle0|$、$\sigma=I_2/2$ とし、$X=|0\rangle\langle1|+|1\rangle\langle0|$、$\Phi_t(\tau)=(1-t/2)\tau+(t/2)X\tau X$ とする。CPTPを確認し、出力の相対エントロピー、$t=0,1$ での等号を求めよ。
+$0\le t\le1$、$\rho=|0\rangle\langle0|$、$\sigma=I_2/2$ とし、$X=|0\rangle\langle1|+|1\rangle\langle0|$、$\Phi_t(\tau)=(1-t/2)\tau+(t/2)X\tau X$ とする。添字 $t$ は雑音の強さを表すパラメータで、微分ではなくチャネル族の区別に使う。CPTPを確認し、出力の相対エントロピー、$t=0,1$ での等号を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -525,7 +610,14 @@ D(\rho_{AB}\|\sigma_{AB})
 =2\cdot\tfrac12\log_2\frac{1/2}{1/4}=1.
 $$
 
-[部分トレースの計算規則](../QINF3/index.md#def-qinf3-partial-trace)より $\rho_A=(|0\rangle\langle0|+|1\rangle\langle1|)/2=I_2/2$、$\sigma_A=\operatorname{Tr}_B(I_4/4)=I_2/2$。従って $D(\rho_A\|\sigma_A)=0$、比較は $0<1$ と厳密です。消えた隔たりは $A$ だけでは分からない $AB$ の相関にあったと解釈できます。
+[部分トレースの計算規則](../QINF3/index.md#def-qinf3-partial-trace)より
+
+$$
+\rho_A=(|0\rangle\langle0|+|1\rangle\langle1|)/2=I_2/2,
+\qquad \sigma_A=\operatorname{Tr}_B(I_4/4)=I_2/2.
+$$
+
+従って $D(\rho_A\|\sigma_A)=0$、比較は $0<1$ と厳密です。消えた隔たりは $A$ だけでは分からない $AB$ の相関にあったと解釈できます。
 <!-- solution-end -->
 
 <a id="ex-qinf20-b03"></a>
@@ -574,13 +666,28 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-可能な $(A,B,C)$ は $(0,0,0),(0,1,1),(1,1,0),(1,0,1)$ の4組で、各確率1/4です。確率は非負・総和1で、対角密度演算子は正半定値・トレース1。$A$ は一様、$(B,C)$ は4組が一様なので $\rho_A=I_2/2$、$\rho_{BC}=I_4/4$、比較する積状態は $I_8/8$ と正定値です。よって
+可能な $(A,B,C)$ は $(0,0,0),(0,1,1),(1,1,0),(1,0,1)$ の4組で、各確率1/4です。確率は非負・総和1で、対角密度演算子は正半定値・トレース1です。$A$ は一様、$(B,C)$ は4組が一様なので
+
+$$
+\rho_A=I_2/2,
+\qquad\rho_{BC}=I_4/4,
+\qquad\rho_A\otimes\rho_{BC}=I_8/8.
+$$
+
+比較する積状態は正定値です。よって
 
 $$
 D(\rho_{ABC}\|I_8/8)=4\cdot\tfrac14\log_2\frac{1/4}{1/8}=1.
 $$
 
-一方 $A,B$ も独立一様なので $\rho_{AB}=I_4/4=\rho_A\otimes\rho_B$、従って2番目の相対エントロピーは0。差は1です。エントロピーからも $S_{AB}=2,S_{BC}=2,S_B=1,S_{ABC}=2$ なので、[条件付き相互情報量](../QINF19/index.md#def-qinf19-cmi)は $2+2-1-2=1$。$\operatorname{Tr}_C$ を二状態へ同時に施した場合の[データ処理不等式](#thm-qinf20-dpi)と一致します。
+一方 $A,B$ も独立一様なので $\rho_{AB}=I_4/4=\rho_A\otimes\rho_B$、従って2番目の相対エントロピーは0、差は1です。エントロピーを各縮約の非零固有値から再計算しても
+
+$$
+S_{AB}=2,\quad S_{BC}=2,\quad S_B=1,\quad S_{ABC}=2,
+\qquad I(A:C|B)=2+2-1-2=1.
+$$
+
+これは[条件付き相互情報量の定義](../QINF19/index.md#def-qinf19-cmi)からの値であり、$\operatorname{Tr}_C$ を二状態へ同時に施した場合の[データ処理不等式](#thm-qinf20-dpi)と一致します。
 <!-- solution-end -->
 
 <a id="ex-qinf20-c01"></a>
