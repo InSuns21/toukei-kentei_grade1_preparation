@@ -58,3 +58,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT13
     status: completed
     title: "木レベル散乱・交差対称性と光学定理"
+  - id: QFT14
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT14
+    status: completed
+    title: "自由場の二点関数から散乱確率までの総合演習"

@@ -1,0 +1,14 @@
+chapter: QFT14
+terms:
+  - term: 外線切断
+    english: amputation
+    meaning: "連結時間順序相関関数の外部一粒子極を取り除き、散乱振幅を得る操作。"
+  - term: 波動関数留数
+    english: wave-function residue
+    meaning: "相互作用場の二点関数の孤立安定一粒子極の係数Z。"
+  - term: 終状態対称因子
+    english: final-state symmetry factor
+    meaning: "同一終状態のラベル付き位相空間を過剰計数しないための1/S_f。"
+  - term: 摂動次数の整合
+    english: perturbative unitarity matching
+    meaning: "木振幅の二乗が次次数の前方虚部を要求する関係。"
