@@ -1,0 +1,78 @@
+chapter: QFT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT7
+  - QFT6
+forward_references: []
+
+concepts:
+  - id: qft.fermion-fock-space
+    name: フェルミオンFock空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（フェルミオンFock空間）]
+    requires: [qft.dirac-plane-wave-spinors]
+
+  - id: qft.fermion-ladder-operators
+    name: フェルミオンの生成・消滅演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（フェルミオンの生成・消滅演算子）]
+    requires: [qft.fermion-fock-space]
+
+  - id: qft.canonical-anticommutation
+    name: 外積構成による正準反交換関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（外積構成による正準反交換関係）]
+    requires: [qft.fermion-ladder-operators]
+
+  - id: qft.quantum-dirac-field
+    name: 自由量子Dirac場
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由量子Dirac場）]
+    requires: [qft.canonical-anticommutation, qft.dirac-spin-sums]
+
+  - id: qft.normal-ordered-dirac-observables
+    name: 正規順序化したエネルギーと電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正規順序化したエネルギーと電荷）]
+    requires: [qft.quantum-dirac-field]
+
+  - id: qft.positive-antiparticle-spectrum
+    name: 正エネルギーと反粒子の反対電荷
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正エネルギーと反粒子の反対電荷）]
+    requires: [qft.normal-ordered-dirac-observables]
+
+  - id: qft.dirac-equal-time-car
+    name: Dirac場の等時刻正準反交換関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirac場の等時刻正準反交換関係）]
+    requires: [qft.quantum-dirac-field, qft.dirac-spin-sums]
+
+  - id: qft.dirac-microcausality
+    name: Dirac場の因果的反交換子と局所性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirac場の因果的反交換子と局所性）]
+    requires: [qft.dirac-equal-time-car]
+
+  - id: qft.fermionic-time-order
+    name: フェルミオンの時間順序と伝播関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（フェルミオンの時間順序と伝播関数）]
+    requires: [qft.quantum-dirac-field]
+
+  - id: qft.dirac-feynman-propagator
+    name: Dirac時間順序伝播関数の極とデルタ源
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirac時間順序伝播関数の極とデルタ源）]
+    requires: [qft.fermionic-time-order, qft.dirac-microcausality]
