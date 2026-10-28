@@ -960,6 +960,7 @@
 ### 複素代数幾何学
 
 1. [CAG1-01 代数的幾何と複素解析的幾何のずれ](textbook/volumes/dream_thater/代数系/CAG/CAG1-01/index.md)
+2. [CAG1-02 解析化の構成と特異解析空間](textbook/volumes/dream_thater/代数系/CAG/CAG1-02/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線
