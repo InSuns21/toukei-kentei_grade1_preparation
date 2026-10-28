@@ -29,7 +29,7 @@ $$
 <!-- definition-example-start: def-qinf19-cmi -->
 ### 定義の確認：第三の独立なqubit
 
-**定義の確認**として、$\rho_{AB}$ を任意の二部密度演算子とし、$\tau_C=I_2/2$ を独立に付けて $\rho_{ABC}=\rho_{AB}\otimes\tau_C$ とします。テンソル積は正値、トレースは $1\cdot1=1$。[積状態のエントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)と[積の部分トレース](../QINF3/index.md#def-qinf3-partial-trace)から
+**定義の確認**として、$\rho_{AB}$ を任意の二部密度演算子とし、$\tau_C=I_2/2$ を独立に付けて $\rho_{ABC}=\rho_{AB}\otimes\tau_C$ とします。テンソル積は正値、トレースは $1\cdot1=1$。[部分トレースの積への作用](../QINF3/index.md#prop-qinf3-state-product)によって $\rho_{BC}=\rho_B\otimes\tau_C$、$\rho_{AB}=\operatorname{Tr}_C\rho_{ABC}$ です。さらに[積状態のエントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)から
 
 $$
 S_{ABC}=S_{AB}+1,\qquad S_{BC}=S_B+1.
@@ -48,11 +48,11 @@ $$
 
 ## 3. 一般の不等式を支える有限行列の道具
 
-欲しいのは $I(A:BC)\ge I(A:B)$ です。そのため、一般の正定値行列 $T,R$ を部分トレースした際、対数を含む量がどう変わるかを先に調べます。対数の行列式を成分ごとに比較することはできません。非可換な $T,R$ に対しては、**行列の空間そのものをHilbert空間として扱う**工夫が有効です。
+欲しいのは $I(A:BC)\ge I(A:B)$ です。そのため、一般の正定値行列 $T,R$ を部分トレースした際、対数を含む量がどう変わるかを先に調べます。行列の対数は、元の行列の各成分に対数を取る操作ではありません。非可換な $T,R$ に対しては、**行列の空間そのものをHilbert空間として扱う**工夫が有効です。
 
 ### 3.1 逆行列は圧縮の下で不等式を満たす
 
-有限次元Hilbert空間 $K,L$ と $L$ から $K$ への等長写像 $U$（$U^\dagger U=I_L$）を考えます。$K$ 上の正定値作用素 $M$ を $L$ へ圧縮した $U^\dagger M U$ も正定値です。
+有限次元Hilbert空間 $K,L$ と $L$ から $K$ への等長写像 $U$（$U^\dagger U=I_L$）を考えます。$K$ 上の正定値作用素 $M$ を $L$ へ圧縮した $U^\dagger M U$ も正定値です。実際、$x\ne0$ なら $Ux\ne0$ なので、$\langle x,U^\dagger MUx\rangle=\langle Ux,MUx\rangle>0$ です。
 
 <a id="lem-qinf19-inverse-compression"></a>
 
@@ -111,7 +111,13 @@ $$
 \left(\frac1{x+s}-\frac1{1+s}\right)\,ds
 $$
 
-を使います。実際、上限 $L$ まで積分した値は $\ln((x+L)/(1+L))-\ln x$ であり、$L\to\infty$ で $-\ln x$ です。正定値作用素にも固有値ごとにこの式を適用できます。[逆行列の圧縮不等式](#lem-qinf19-inverse-compression)を $M=X+sI$ に適用し、$U^\dagger U=I$ により定数項が相殺されるので
+を使います。実際、積分上限を $a>0$ とした値は $\ln((x+a)/(1+a))-\ln x$ であり、$a\to\infty$ で $-\ln x$ です。正定値作用素にも固有値ごとにこの式を適用できます。[逆行列の圧縮不等式](#lem-qinf19-inverse-compression)を $M=X+sI_K$ に適用すると
+
+$$
+U^\dagger(X+sI_K)U=U^\dagger XU+sI_L.
+$$
+
+$U^\dagger U=I_L$ により積分内の定数項 $(1+s)^{-1}I_L$ も左右で一致するため、積分して
 
 $$
 -\ln(U^\dagger XU)\ \le\ U^\dagger(-\ln X)U
@@ -137,7 +143,15 @@ $$
 \quad(X\ne0).
 $$
 
-従って $\Delta_{R,T}$ は行列の空間上の正定値Hermitian線形写像です（内積で左右を入れ替えた式も同じトレースになる）。この写像を介すると、非可換な $R,T$ でも対数比較が可能になります。
+また、$R,T^{-1}$ がHermitianであることとトレースの巡回性から
+
+$$
+\langle X,\Delta_{R,T}Y\rangle_{\rm HS}
+=\operatorname{Tr}(X^\dagger RYT^{-1})
+=\langle\Delta_{R,T}X,Y\rangle_{\rm HS}.
+$$
+
+従って $\Delta_{R,T}$ は行列の空間上の正定値Hermitian線形写像です。この写像を介すると、非可換な $R,T$ でも対数比較が可能になります。
 
 <a id="lem-qinf19-partial-trace-log"></a>
 
@@ -289,7 +303,32 @@ $$
 \end{aligned}
 $$
 
-正定値行列の積の対数は、積固有基底で局所対数の和になります。これを[部分トレースのトレース恒等式](../QINF3/index.md#def-qinf3-partial-trace)で評価すると、左辺は
+正定値な $P,Q$ の固有基底で、$\log_2(p_iq_j)=\log_2p_i+\log_2q_j$ です。したがって、積固有基底上の作用を比較すれば
+
+$$
+\log_2(P\otimes Q)=(\log_2P)\otimes I+I\otimes(\log_2Q)
+$$
+
+となります。ここで $P,Q$ にそれぞれ $\rho_A^{(\varepsilon)},\rho_B^{(\varepsilon)}$ を代入し、[部分トレースの局所トレース恒等式](../QINF3/index.md#thm-qinf3-expectation-uniqueness)を用います。例えば
+
+$$
+\begin{aligned}
+&\operatorname{Tr}\!\left[\rho_{AB}^{(\varepsilon)}
+(\log_2\rho_A^{(\varepsilon)}\otimes I_B)\right]\\
+&\quad=\operatorname{Tr}\!\left[\rho_A^{(\varepsilon)}
+\log_2\rho_A^{(\varepsilon)}\right]=-S_A^{(\varepsilon)}.
+\end{aligned}
+$$
+
+$B$ 側の項も
+
+$$
+\operatorname{Tr}\!\left[\rho_{AB}^{(\varepsilon)}
+(I_A\otimes\log_2\rho_B^{(\varepsilon)})\right]
+=-S_B^{(\varepsilon)}
+$$
+
+となります。右辺については $AB$ を $ABC$、$B$ を $BC$ に置き換えて評価します。よって元の比較式の左辺は
 
 $$
 -S_{AB}^{(\varepsilon)}+S_A^{(\varepsilon)}+S_B^{(\varepsilon)}
@@ -399,7 +438,14 @@ $$
 <!-- definition-example-start: def-qinf19-markov -->
 ### 定義の確認：Bell対に独立な系を付ける
 
-**定義の確認**として、$A,B$ をqubit、$|\Phi^+\rangle_{AB}=(|00\rangle+|11\rangle)/\sqrt2$ とし、$C$ に純粋状態 $|0\rangle$ を付けます。$\rho_{ABC}=|\Phi^+\rangle\langle\Phi^+|_{AB}\otimes|0\rangle\langle0|_C$ はrank 1で正値、トレース1です。[Bell対の縮約](../QINF18/index.md#def-qinf18-mutual)から
+**定義の確認**として、$A,B$ をqubit、$|\Phi^+\rangle_{AB}=(|00\rangle+|11\rangle)/\sqrt2$ とし、$C$ に純粋状態 $|0\rangle$ を付けます。$\rho_{ABC}=|\Phi^+\rangle\langle\Phi^+|_{AB}\otimes|0\rangle\langle0|_C$ はrank 1で正値、トレース1です。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)で交差項は消えます。実際、
+
+$$
+\operatorname{Tr}_A(|00\rangle\langle11|)
+=\langle1|0\rangle|0\rangle\langle1|=0.
+$$
+
+対角二項の縮約はそれぞれ $|0\rangle\langle0|/2$ と $|1\rangle\langle1|/2$ になるので、$\rho_B=I_2/2$ です。[積のエントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)も使えば
 
 $$
 S_{AB}=0,\quad S_B=1,\quad S_{BC}=1+0=1,\quad S_{ABC}=0.
@@ -416,7 +462,7 @@ $$
 \rho_{ABC}=\sum_b p_b\,\sigma_{AC}^{(b)}\otimes|b\rangle\langle b|_B
 $$
 
-と書きます。式のテンソル因子は物理的には $A,B,C$ の順へ並べ直すものとします。各項は正値で、直交する $B$ のブロックごとにトレース $p_b$ を持つので、全体のトレースは1です。$B$ が異なると別のブロックになるため、非零固有値は $p_b$ 倍された $\sigma_{AC}^{(b)}$ の固有値の合併です。
+と書きます。式のテンソル因子は物理的には $A,B,C$ の順へ並べ直すものとします。各項は正値で、直交する $B$ のブロックごとにトレース $p_b$ を持つので、全体のトレースは1です。$B$ が異なると別のブロックになるため、非零固有値は $p_b$ 倍された $\sigma_{AC}^{(b)}$ の固有値の合併です。各ブロックの縮約は[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で求めます。
 
 <a id="prop-qinf19-flag"></a>
 
@@ -428,7 +474,14 @@ $$
 \rho_{ABC}=\sum_b p_b\,\sigma_{AC}^{(b)}\otimes|b\rangle\langle b|_B
 $$
 
-> と表されるとする（因子の順は $ABC$ に揃える）。そのとき
+> と表されるとする（因子の順は $ABC$ に揃える）。各ブロックの縮約を
+
+$$
+\sigma_A^{(b)}:=\operatorname{Tr}_C\sigma_{AC}^{(b)},\qquad
+\sigma_C^{(b)}:=\operatorname{Tr}_A\sigma_{AC}^{(b)}
+$$
+
+> と定めると、次が成り立つ。
 
 $$
 I(A:C|B)_\rho=\sum_{b:p_b>0}p_b I(A:C)_{\sigma^{(b)}}.
@@ -439,7 +492,13 @@ $$
 
 ### 証明の見取り図
 
-直交するラベル $b$ ごとに固有値を並べると、各エントロピーはラベルのShannonエントロピーとブロック内の平均エントロピーの和です。四項のShannon部分が打ち消し合い、$b$ ごとの[二部相互情報量の非負性・積の等号条件](../QINF18/index.md#thm-qinf18-subadditivity)だけが残ります。
+直交するラベル $b$ ごとに固有値を並べると、各エントロピーはラベルの[Shannonエントロピー](../../INFO/INFO1/index.md#def-info1-entropy)
+
+$$
+H(p):=-\sum_{b:p_b>0}p_b\log_2p_b
+$$
+
+とブロック内の平均エントロピーの和です。四項のShannon部分が打ち消し合い、$b$ ごとの[二部相互情報量の非負性・積の等号条件](../QINF18/index.md#thm-qinf18-subadditivity)だけが残ります。
 
 <!-- proof-start -->
 ### 証明
@@ -477,7 +536,16 @@ $$
 各相互情報量は[部分加法性](../QINF18/index.md#thm-qinf18-subadditivity)により非負で、0ならそのブロックが積状態です。正の重みを持つ非負項の和が0となるのは全項0の場合に限ります。$\square$
 <!-- proof-end -->
 
-例えば $\sigma_A^{(0)}=|0\rangle\langle0|$、$\sigma_C^{(0)}=I_2/2$、$\sigma_A^{(1)}=|+\rangle\langle+|$、$\sigma_C^{(1)}=|1\rangle\langle1|$ を選び、$p_0=p_1=1/2$ として各 $\sigma_{AC}^{(b)}=\sigma_A^{(b)}\otimes\sigma_C^{(b)}$ とします。$A$ 側の二つの純粋状態は直交していませんが、各ブロックが積なので命題から $I(A:C|B)=0$。条件付き独立を確かめるのに、$A$ の全ブロックを同時に対角化する必要はありません。
+例えば二つの旗を等確率 $p_0=p_1=1/2$ で選び、各ブロックの縮約を
+
+$$
+\begin{aligned}
+\sigma_A^{(0)}&=|0\rangle\langle0|,&\sigma_C^{(0)}&=I_2/2,\\
+\sigma_A^{(1)}&=|+\rangle\langle+|,&\sigma_C^{(1)}&=|1\rangle\langle1|
+\end{aligned}
+$$
+
+とし、$\sigma_{AC}^{(b)}=\sigma_A^{(b)}\otimes\sigma_C^{(b)}$ とします。各ブロックは正値・トレース1で、積状態のため[部分加法性の等号条件](../QINF18/index.md#thm-qinf18-subadditivity)を満たします。$A$ 側の二つの純粋状態は直交していませんが、各ブロックが積なので[命題](#prop-qinf19-flag)から $I(A:C|B)=0$。条件付き独立を確かめるのに、$A$ の全ブロックを同時に対角化する必要はありません。
 
 ### 等号ではない例と、どこまで言えたか
 
@@ -508,7 +576,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-テンソル積は正値で、トレースは $1\cdot1=1$ です。[積の部分トレース](../QINF3/index.md#def-qinf3-partial-trace)より $\rho_{AB}=\eta_{AB}$、$\rho_{BC}=\eta_B\otimes\tau_C$、$\rho_B=\eta_B$ です。[エントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)を後二者と全体に適用すると
+テンソル積は正値で、トレースは $1\cdot1=1$ です。[部分トレースの積への作用](../QINF3/index.md#prop-qinf3-state-product)より $\rho_{AB}=\eta_{AB}$、$\rho_{BC}=\eta_B\otimes\tau_C$、$\rho_B=\eta_B$ です。[エントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)を後二者と全体に適用すると
 
 $$
 S_{AB}=S(\eta_{AB}),\quad S_{BC}=S(\eta_B)+S(\tau_C),\quad
@@ -535,7 +603,18 @@ $\eta_{AB}$ の積性は仮定していません。$C$ だけが独立なら等�
 <!-- solution-start -->
 ### 詳細解答
 
-確率 $1/4$ を持つ組は $(A,B,C)=(0,0,0),(0,1,1),(1,1,0),(1,0,1)$ の4通りです。全て非負で総和1なので、対応する対角密度演算子は正値・トレース1です。$A,C$ は独立一様で、$\rho_{AC}=I_4/4$。従って $S_A=S_C=1,S_{AC}=2$、[相互情報量の定義](../QINF18/index.md#def-qinf18-mutual)から $I(A:C)=1+1-2=0$ です。
+正の確率を持つ三つ組は
+
+$$
+(A,B,C)\in\{(0,0,0),(0,1,1),(1,1,0),(1,0,1)\},
+\qquad P(A=a,B=b,C=c)=\tfrac14
+$$
+
+の4通りだけです。確率は非負で総和1なので、対応する対角密度演算子は正値・トレース1です。$A,C$ の4通りの組も各確率 $1/4$ なので、$\rho_{AC}=I_4/4$。従って[相互情報量の定義](../QINF18/index.md#def-qinf18-mutual)から
+
+$$
+I(A:C)=S_A+S_C-S_{AC}=1+1-2=0.
+$$
 
 一方、$(A,B)$ と $(B,C)$ の組はいずれも4通りが一様に現れるので $S_{AB}=S_{BC}=2$。$B$ は一様で $S_B=1$、全体は確率 $1/4$ が4個なので $S_{ABC}=2$。よって
 
@@ -556,7 +635,14 @@ $P=|\mathrm{GHZ}\rangle\langle\mathrm{GHZ}|$、$|\mathrm{GHZ}\rangle=(|000\rangl
 <!-- solution-start -->
 ### 詳細解答
 
-$P$ は正規化ベクトルのrank 1射影、$\Omega$ は直交rank 1射影の非負混合で、共に正値・トレース1です。$P$ の交差項 $|000\rangle\langle111|$ を $A,B,C$ のうち一つでも部分トレースすると、その系で $\langle0|1\rangle=0$ のため消えます。したがって両状態の全ての真部分系縮約は一致し、$AB,BC$ で非零固有値 $(1/2,1/2)$、$B$ でも $(1/2,1/2)$。ゆえに三つのエントロピーはそれぞれ1です。
+$P$ は正規化ベクトルのrank 1射影、$\Omega$ は直交rank 1射影の非負混合で、共に正値・トレース1です。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)から、例えば $P$ の交差項について
+
+$$
+\operatorname{Tr}_C(|000\rangle\langle111|)
+=\langle1|0\rangle|00\rangle\langle11|=0
+$$
+
+です。$A,B$ の一方を捨てても同じ直交性で消えます。したがって両状態の全ての真部分系縮約は一致し、$AB,BC$ で非零固有値 $(1/2,1/2)$、$B$ でも $(1/2,1/2)$。ゆえに三つのエントロピーはそれぞれ1です。
 
 $P$ の全体固有値は $(1,0,\ldots)$ なので $S_{ABC}=0$。$\Omega$ の全体非零固有値は $(1/2,1/2)$ なので $S_{ABC}=1$。したがって
 
@@ -670,7 +756,11 @@ $$
 
 - Level: B
 
-$K=\mathbb C^2$、$L=\mathbb C$ とし、$U(z)=(z,z)/\sqrt2$、$M=\operatorname{diag}(1,4)$ とする。(1) $U$ が等長であることを示し、(2) $(U^\dagger M U)^{-1}$ と $U^\dagger M^{-1}U$ を計算し、(3) 等号が成立しない理由を、[補題](#lem-qinf19-inverse-compression)の最大化の位置から説明せよ。
+$K=\mathbb C^2$、$L=\mathbb C$ とし、$U(z)=(z,z)/\sqrt2$、$M=\operatorname{diag}(1,4)$ とする。次に答えよ。
+
+1. $U$ が等長であることを示せ。
+2. $(U^\dagger M U)^{-1}$ と $U^\dagger M^{-1}U$ を計算せよ。
+3. 等号が成立しない理由を、[逆行列の圧縮不等式](#lem-qinf19-inverse-compression)の最大化の位置から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -704,7 +794,10 @@ $$
 \otimes|b\rangle\langle b|_B
 $$
 
-を考える（因子を $ABC$ 順へ置く）。$p_b\ge0$、$\sum_bp_b=1$、$\sigma_{AC}^{(b)}$ は密度演算子である。(1) $I(A:C|B)$ を二部相互情報量の平均で表せ。(2) $p_b>0$ の全てのブロックが積であることと $I(A:C|B)=0$ が同値であることを、等号条件を含めて証明せよ。
+を考える（因子を $ABC$ 順へ置く）。$p_b\ge0$、$\sum_bp_b=1$、$\sigma_{AC}^{(b)}$ は密度演算子である。次に答えよ。
+
+1. $I(A:C|B)$ を二部相互情報量の平均で表せ。
+2. $p_b>0$ の全てのブロックが積であることと $I(A:C|B)=0$ が同値であることを、等号条件を含めて証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -783,7 +876,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$|000\rangle,|111\rangle$ の張る二次元部分空間上で、$\rho_t$ は
+$|000\rangle,|111\rangle$ の張る二次元部分空間をこの順に基底とします。問題文の最初の純粋状態の外積を展開すると、対角項の係数は $t/2+(1-t)/2=1/2$、交差項 $|000\rangle\langle111|$ とその随伴の係数は $t/2$ です。したがって、この基底での $\rho_t$ の表示行列は
 
 $$
 \frac12\begin{pmatrix}1&t\\t&1\end{pmatrix}
