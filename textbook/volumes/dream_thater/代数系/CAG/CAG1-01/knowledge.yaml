@@ -1,0 +1,48 @@
+chapter: CAG1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-01
+  - AG1-03
+  - AG1-04
+  - AG2-01
+  - AG2-05
+  - CM1-10
+  - CA3
+forward_references: []
+
+concepts:
+  - id: complex-algebraic-geometry.topology-comparison
+    name: Zariski位相と解析位相の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Zariski位相と解析位相の比較）"]
+    requires: [algebraic-geometry.projective-space, complex-manifolds.projective-atlas]
+
+  - id: complex-algebraic-geometry.function-comparison-map
+    name: 代数・解析の関数比較写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（代数・解析の関数比較写像）"]
+    requires: [algebraic-geometry.projective-structure-sheaf, complex-analysis.holomorphic-function]
+
+  - id: complex-algebraic-geometry.function-comparison-injective
+    name: 関数比較写像の単射性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関数比較写像の単射性）"]
+    requires: [complex-algebraic-geometry.function-comparison-map]
+
+  - id: complex-algebraic-geometry.affine-function-mismatch
+    name: アフィン直線における関数比較の不一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィン直線における関数比較の不一致）"]
+    requires: [complex-algebraic-geometry.function-comparison-injective]
+
+  - id: complex-algebraic-geometry.projective-global-function-comparison
+    name: 射影直線の大域関数の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の大域関数の一致）"]
+    requires: [complex-algebraic-geometry.function-comparison-injective, complex-analysis.liouville-theorem, algebraic-geometry.projective-global-regular-functions]

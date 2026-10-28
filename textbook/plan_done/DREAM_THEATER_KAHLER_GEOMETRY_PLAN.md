@@ -17,7 +17,7 @@
 - 本科目 **KAH1の正本**：Kähler条件とその同値性、Kählerポテンシャル、Fubini–Study計量の幾何、Kähler接続と接束の曲率、Ricci形式、$\rho/(2\pi)$ による第一Chern類の表示、Kähler class、$U(n)$ ホロノミーへの入口。
 - 後続：[HOD1](../plans/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md) が **Kähler恒等式・Hodge分解・$\partial\bar\partial$-補題の大域版・Hard Lefschetz・primitive decomposition** を所有する。KAH1の「局所$\partial\bar\partial$-ポテンシャル」とHOD1の「コンパクトKähler多様体上の大域$\partial\bar\partial$-補題」を混同しない。
 - [GBG](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md) が一般の主束・ゲージ接続・Chern–Weil理論を所有する。KAH1ではCM2のChern接続を接束・標準束に適用し、**第一Chern類に必要な特殊計算**を証明する。一般の全特性類理論を二重実装しない。
-- [CAG1](../plans/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md) がGAGAと射影代数幾何、[CYG1](../plans/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md) がCalabi–Yauの定義・例と諸条件の区別、[YAU1](../plans/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md) が複素Monge–Ampère・連続性の方法・存在証明を所有する。**Kodaira埋め込み定理、Calabi–Yau定理の一般存在部、Ricci平坦性と標準束自明性の無条件同値**はKAH1では証明済みとしない。
+- [CAG1](../plans_progress/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md) がGAGAと射影代数幾何、[CYG1](../plans/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md) がCalabi–Yauの定義・例と諸条件の区別、[YAU1](../plans/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md) が複素Monge–Ampère・連続性の方法・存在証明を所有する。**Kodaira埋め込み定理、Calabi–Yau定理の一般存在部、Ricci平坦性と標準束自明性の無条件同値**はKAH1では証明済みとしない。
 
 ## 記号と規約（初章で固定）
 
