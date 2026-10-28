@@ -105,7 +105,7 @@ chapters:
     title: "量子通信路での古典通信"
   - id: QINF24
     path: textbook/volumes/dream_thater/応用系/QINF/QINF24
-    status: planned
+    status: completed
     title: "量子通信容量とcoherent information"
   - id: QINF25
     path: textbook/volumes/dream_thater/応用系/QINF/QINF25
