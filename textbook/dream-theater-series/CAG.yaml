@@ -24,7 +24,7 @@ chapters:
     title: "射影空間上のねじり層と比較の基底例"
   - id: CAG1-05
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-05
-    status: planned
+    status: completed
     title: "GAGA I――連接層コホモロジーの比較"
   - id: CAG1-06
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-06
