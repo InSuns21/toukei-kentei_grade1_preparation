@@ -1,0 +1,47 @@
+id: "QINF22"
+title: "量子典型部分空間とSchumacher圧縮"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF4
+  - QINF7
+  - QINF17
+  - QINF21
+  - INFO3
+official_scope: []
+learning_objectives:
+  - 有限次元の独立同分布量子情報源についてスペクトル確率と典型射影を定義し、零固有値も含めて直接判定できる
+  - 典型射影の成功確率・固有値・rankの評価を古典的漸近等分割性から証明できる
+  - CPTPな量子圧縮器と復号器、精製に対するエンタングルメント忠実度を定義して具体的に検算できる
+  - 典型部分空間を等長に符号化して任意のR>S(ρ)で忠実度が1へ近づくことを証明できる
+  - 任意の中間符号空間次元Dの圧縮器に対する固有値上界を導き、R<S(ρ)の強い逆向き限界を証明できる
+  - 一様・純粋・偏った二値源と非独立源の例で仮定と境界率の意味を説明できる
+definitions:
+  - { id: QINF22-DEF-01, name: "独立同分布量子情報源" }
+  - { id: QINF22-DEF-02, name: "量子弱典型部分空間と典型射影" }
+  - { id: QINF22-DEF-03, name: "量子情報源符号とエンタングルメント忠実度" }
+theorems:
+  - { id: QINF22-LEM-01, name: "量子典型射影の確率・固有値・次元評価" }
+  - { id: QINF22-LEM-02, name: "エンタングルメント忠実度のKraus表示" }
+  - { id: QINF22-THM-01, name: "Schumacher圧縮の達成可能性" }
+  - { id: QINF22-LEM-03, name: "中間次元による忠実度の固有値上界" }
+  - { id: QINF22-THM-02, name: "Schumacher圧縮の強い逆向き限界" }
+canonical_examples:
+  - "対角二値源p=(3/4,1/4)の4ブロックの射影・確率・符号空間"
+  - "純粋源と最大混合源の圧縮率・典型射影の極端な例"
+  - "相関した非独立列で単一文字エントロピー率を誤用すると破綻する例"
+problem_patterns:
+  - QINF22-BIASED-SPECTRUM
+  - QINF22-UNIFORM-TYPICAL
+  - QINF22-ZERO-EIGENVALUE
+  - QINF22-FIDELITY-KRAUS
+  - QINF22-FINITE-BLOCK
+  - QINF22-VARIANCE-BOUND
+  - QINF22-CPTP-CONSTRUCTION
+  - QINF22-DIMENSION-CONVERSE
+  - QINF22-BOUNDARY-RATE
+  - QINF22-SOURCE-CODING-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }

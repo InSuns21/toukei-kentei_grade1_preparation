@@ -1039,6 +1039,7 @@
 19. [QINF19 強劣加法性と条件付き相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF19/index.md)
 20. [QINF20 量子相対エントロピーとデータ処理](textbook/volumes/dream_thater/応用系/QINF/QINF20/index.md)
 21. [QINF21 Holevo情報と測定の限界](textbook/volumes/dream_thater/応用系/QINF/QINF21/index.md)
+22. [QINF22 量子典型部分空間とSchumacher圧縮](textbook/volumes/dream_thater/応用系/QINF/QINF22/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I

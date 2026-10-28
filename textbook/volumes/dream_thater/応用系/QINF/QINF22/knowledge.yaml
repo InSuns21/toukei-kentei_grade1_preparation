@@ -1,0 +1,67 @@
+chapter: QINF22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF4
+  - QINF7
+  - QINF17
+  - QINF21
+  - INFO3
+forward_references: []
+
+concepts:
+  - id: quantum.iid-quantum-source
+    name: 独立同分布量子情報源
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（独立同分布量子情報源）]
+    requires: [quantum.finite-density-operator, information.iid-block-source]
+
+  - id: quantum.weakly-typical-subspace
+    name: 量子弱典型部分空間と典型射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子弱典型部分空間と典型射影）]
+    requires: [quantum.iid-quantum-source, information.weak-typical-set, quantum.von-neumann-entropy]
+
+  - id: quantum.typical-projector-bounds
+    name: 量子典型射影の確率・固有値・次元評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（量子典型射影の確率・固有値・次元評価）]
+    requires: [quantum.weakly-typical-subspace, information.typical-cardinality]
+
+  - id: quantum.source-code-entanglement-fidelity
+    name: 量子情報源符号とエンタングルメント忠実度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子情報源符号とエンタングルメント忠実度）]
+    requires: [quantum.quantum-channel, quantum.purification, quantum.iid-quantum-source]
+
+  - id: quantum.entanglement-fidelity-kraus
+    name: エンタングルメント忠実度のKraus表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（エンタングルメント忠実度のKraus表示）]
+    requires: [quantum.source-code-entanglement-fidelity, quantum.kraus-representation]
+
+  - id: quantum.schumacher-achievability
+    name: Schumacher圧縮の達成可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Schumacher圧縮の達成可能性）]
+    requires: [quantum.typical-projector-bounds, quantum.entanglement-fidelity-kraus]
+
+  - id: quantum.bottleneck-fidelity-bound
+    name: 中間次元による忠実度の固有値上界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（中間次元による忠実度の固有値上界）]
+    requires: [quantum.entanglement-fidelity-kraus, quantum.source-code-entanglement-fidelity]
+
+  - id: quantum.schumacher-strong-converse
+    name: Schumacher圧縮の強い逆向き限界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Schumacher圧縮の強い逆向き限界）]
+    requires: [quantum.bottleneck-fidelity-bound, quantum.typical-projector-bounds]
