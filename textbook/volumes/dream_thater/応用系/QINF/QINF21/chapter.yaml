@@ -1,0 +1,47 @@
+id: "QINF21"
+title: "Holevo情報と測定の限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF5
+  - QINF10
+  - QINF17
+  - QINF18
+  - QINF20
+official_scope: []
+learning_objectives:
+  - 有限アンサンブルと古典量子状態を正半定値性・正規化・周辺状態まで確認して構成できる
+  - 古典量子状態のブロック固有値からHolevo情報と量子相互情報量の一致を導出できる
+  - 任意の有限POVMの測定結果を古典通信路として表し、データ処理不等式からHolevo界を証明できる
+  - Holevo情報の非負性・Shannonエントロピー上界と、可換・直交・同一状態の等号例を説明できる
+  - 非直交二状態と量子チャネルによる情報損失を計算し、最小誤りと最大相互情報量を区別できる
+definitions:
+  - { id: QINF21-DEF-01, name: "密度演算子アンサンブル" }
+  - { id: QINF21-DEF-02, name: "古典量子状態" }
+  - { id: QINF21-DEF-03, name: "Holevo情報" }
+  - { id: QINF21-DEF-04, name: "可アクセス情報量" }
+theorems:
+  - { id: QINF21-LEM-01, name: "古典量子状態のブロックエントロピー" }
+  - { id: QINF21-PROP-01, name: "Holevo情報の範囲と零の等号条件" }
+  - { id: QINF21-THM-01, name: "Holevo界" }
+  - { id: QINF21-PROP-02, name: "可換アンサンブルにおけるHolevo界の達成" }
+  - { id: QINF21-PROP-03, name: "送信前の量子チャネルでHolevo情報は増えない" }
+canonical_examples:
+  - "同一・直交・可換で混合した二状態のHolevo情報と測定相互情報量"
+  - "非直交純粋状態|0>と|+>の平均状態の固有値と二種類の測定"
+  - "位相消失チャネルがアンサンブルの古典情報を減らす例"
+problem_patterns:
+  - QINF21-IDENTICAL-STATES
+  - QINF21-ORTHOGONAL-PRIORS
+  - QINF21-COMMUTING-MIXTURE
+  - QINF21-BIASED-PURE-ENSEMBLE
+  - QINF21-UNINFORMATIVE-POVM
+  - QINF21-CQ-BLOCK-ENTROPY
+  - QINF21-HELSTROM-MUTUAL-INFORMATION
+  - QINF21-REPEATED-LABELS
+  - QINF21-DEPHASING-LOSS
+  - QINF21-PREPROCESSING-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }

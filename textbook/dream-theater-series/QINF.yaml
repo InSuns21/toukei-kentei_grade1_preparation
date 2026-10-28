@@ -93,7 +93,7 @@ chapters:
     title: "量子相対エントロピーとデータ処理"
   - id: QINF21
     path: textbook/volumes/dream_thater/応用系/QINF/QINF21
-    status: planned
+    status: completed
     title: "Holevo情報と測定の限界"
   - id: QINF22
     path: textbook/volumes/dream_thater/応用系/QINF/QINF22
