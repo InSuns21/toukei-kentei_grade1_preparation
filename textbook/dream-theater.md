@@ -1037,6 +1037,7 @@
 18. [QINF18 条件付きエントロピーと相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF18/index.md)
 19. [QINF19 強劣加法性と条件付き相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF19/index.md)
 20. [QINF20 量子相対エントロピーとデータ処理](textbook/volumes/dream_thater/応用系/QINF/QINF20/index.md)
+21. [QINF21 Holevo情報と測定の限界](textbook/volumes/dream_thater/応用系/QINF/QINF21/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
