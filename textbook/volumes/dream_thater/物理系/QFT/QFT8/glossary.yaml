@@ -1,0 +1,20 @@
+chapter: QFT8
+terms:
+  - term: フェルミオンFock空間
+    english: fermionic Fock space
+    meaning: "一粒子Hilbert空間の反対称テンソル冪を全粒子数で直和した状態空間。"
+  - term: 正準反交換関係
+    english: canonical anticommutation relations
+    meaning: "生成・消滅演算子の反交換子が一粒子内積または零になる関係。"
+  - term: Pauli排他原理
+    english: Pauli exclusion principle
+    meaning: "同一の一粒子状態を生成演算子で二回作ると零になる性質。"
+  - term: 反粒子
+    english: antiparticle
+    meaning: "Dirac場の負振動数係数に対応する独立な正エネルギー励起で、粒子と逆の保存電荷を持つ。"
+  - term: フェルミオンの時間順序
+    english: fermionic time ordering
+    meaning: "奇演算子の順序を交換するたび負号を付ける時間順序の規約。"
+  - term: Dirac伝播関数
+    english: Dirac Feynman propagator
+    meaning: "自由Dirac場の時間順序付き真空二点分布。Dirac作用素をかけるとi倍のデルタ源を与える。"
