@@ -1,0 +1,42 @@
+chapter: CAG1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-05]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.internal-hom-sheaf
+    name: 内部Hom層と射の解析化写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部Hom層と射の解析化写像）"]
+    requires: [algebraic-geometry.coherent-sheaf, complex-algebraic-geometry.coherent-sheaf-analytification]
+  - id: complex-algebraic-geometry.coherent-internal-hom
+    name: 連接層間の内部Hom層の連接性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（連接層間の内部Hom層の連接性）"]
+    requires: [complex-algebraic-geometry.internal-hom-sheaf, algebraic-geometry.coherent-sheaf]
+  - id: complex-algebraic-geometry.flat-hom-analytification
+    name: 平坦な解析化と内部Homの交換
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（平坦な解析化と内部Homの交換）"]
+    requires: [complex-algebraic-geometry.internal-hom-sheaf, complex-algebraic-geometry.analytic-faithful-flatness]
+  - id: complex-algebraic-geometry.gaga-hom
+    name: GAGA II――連接層の射の比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（GAGA II――連接層の射の比較）"]
+    requires: [complex-algebraic-geometry.coherent-internal-hom, complex-algebraic-geometry.flat-hom-analytification, complex-algebraic-geometry.gaga-cohomology]
+  - id: complex-algebraic-geometry.analytified-isomorphism-algebraic
+    name: 解析化した連接層の同型の代数性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（解析化した連接層の同型の代数性）"]
+    requires: [complex-algebraic-geometry.gaga-hom]
+  - id: complex-algebraic-geometry.algebraic-linear-system-analytic-map
+    name: 代数的線型系から生じる正則射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（代数的線型系から生じる正則射）"]
+    requires: [complex-algebraic-geometry.gaga-hom, algebraic-geometry.invertible-sheaf]
