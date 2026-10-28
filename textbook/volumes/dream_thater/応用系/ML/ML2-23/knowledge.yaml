@@ -1,0 +1,47 @@
+chapter: ML2-23
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-01, ML2-14]
+concepts:
+  - id: learning.density-spatial-score
+    name: 密度のscore
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度のscore）"]
+    requires: [learning.density-log-loss]
+  - id: learning.fisher-score-discrepancy
+    name: Fisher型score差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fisher型score差）"]
+    requires: [learning.density-spatial-score]
+  - id: learning.score-matching-integration-by-parts
+    name: 部分積分によるscore matching恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分積分によるscore matching恒等式）"]
+    requires: [learning.fisher-score-discrepancy]
+  - id: learning.gaussian-score-matching-optimum
+    name: Gaussian族のscore matching最適解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian族のscore matching最適解）"]
+    requires: [learning.score-matching-integration-by-parts]
+  - id: learning.gaussian-denoising-target
+    name: Gaussianノイズ分布とdenoising教師信号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussianノイズ分布とdenoising教師信号）"]
+    requires: [learning.density-spatial-score]
+  - id: learning.denoising-conditional-score
+    name: Gaussian denoisingの条件付き平均恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian denoisingの条件付き平均恒等式）"]
+    requires: [learning.gaussian-denoising-target, learning.density-spatial-score]
+  - id: learning.two-atom-noisy-score
+    name: 二点混合をGaussianで平滑化したscore
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二点混合をGaussianで平滑化したscore）"]
+    requires: [learning.denoising-conditional-score]

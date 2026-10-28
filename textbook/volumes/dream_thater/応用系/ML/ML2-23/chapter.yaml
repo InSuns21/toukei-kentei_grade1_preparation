@@ -1,0 +1,34 @@
+id: "ML2-23"
+title: "Score matchingとノイズ除去"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-01, ML2-14]
+official_scope: []
+learning_objectives:
+  - 密度の空間scoreを定義し、観測変数に依存しない正規化定数が勾配から消えることを確認できる
+  - Fisher型score差を定義し境界条件・積分交換を明示してscore matchingの部分積分公式を証明できる
+  - 一次元・多次元Gaussian族のscore matching目的と一意な最小点を再計算できる
+  - Gaussianノイズの教師信号とノイズ付き密度を定義し条件付き期待値によるdenoising恒等式を証明できる
+  - 二点混合の事後平均・混合密度のscoreを計算しノイズ幅の役割を説明できる
+  - 元の分布とノイズ付き分布のscoreを区別し境界条件違反・非滑らかな台における限界を診断できる
+  - 固定seedの計算ラボで密度対数勾配の有限差分とdenoising損失を再計算できる
+definitions:
+  - { id: ML2-23-DEF-01, name: 密度のscore }
+  - { id: ML2-23-DEF-02, name: Fisher型score差 }
+  - { id: ML2-23-DEF-03, name: Gaussianノイズ分布とdenoising教師信号 }
+theorems:
+  - { id: ML2-23-THM-01, name: 部分積分によるscore matching恒等式 }
+  - { id: ML2-23-PROP-01, name: Gaussian族のscore matching最適解 }
+  - { id: ML2-23-THM-02, name: Gaussian denoisingの条件付き平均恒等式 }
+  - { id: ML2-23-PROP-02, name: 二点混合をGaussianで平滑化したscore }
+canonical_examples:
+  - 一次元Gaussianのscoreと平均パラメータ微分の区別
+  - 有界区間の一様分布における部分積分境界の反例
+  - 一次元・多次元Gaussianのscore matchingと唯一の最適点
+  - 二点原子分布へGaussianノイズを加えた混合密度と事後平均
+  - 固定seedでの有限差分score・denoising損失の数値検算
+problem_patterns: [ML2-23-A01, ML2-23-A02, ML2-23-A03, ML2-23-A04, ML2-23-B01, ML2-23-B02, ML2-23-B03, ML2-23-B04, ML2-23-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
