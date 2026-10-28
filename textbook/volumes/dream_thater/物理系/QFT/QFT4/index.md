@@ -21,13 +21,13 @@ $$
 
 と置きます。$\mathfrak h$ は一粒子の波束を表す複素Hilbert空間で、内積は**第1変数について線形**という[QM5の規約](../../../解析系/QM/QM5/index.md#def-qm5-unbounded-adjoint)を採用します。波束 $f$ のノルム二乗は $\int|f|^2d\mu$ です。
 
-区別できない二つのボース粒子を入れ替えても波動関数は変わりません。例えば一粒子波束 $f,g$ から二粒子波束を作るなら、$f(\boldsymbol p_1)g(\boldsymbol p_2)$ だけでなく、二つの引数を交換した項も必要です。この対称性を粒子数ごとに課してから全てを直和します。
+区別できない二つのボース粒子を入れ替えても波動関数は変わりません。例えば一粒子波束 $f,g$ から二粒子波束を作るなら、$f(\boldsymbol p_1)g(\boldsymbol p_2)$ だけでなく、二つの引数を交換した項も必要です。$n$ 粒子では積測度 $d\mu(\boldsymbol p_1)\cdots d\mu(\boldsymbol p_n)$ でノルムを測り、各引数の置換で変わらない部分空間を取ります。これが次の対称テンソル積の具体的な関数表示であり、その空間を粒子数ごとに直和します。
 
 <a id="def-qft4-fock-space"></a>
 
 <!-- formal-statement-start -->
 > **定義（ボースFock空間と有限粒子領域）**
-> $\mathfrak h=L^2(\mathbb R^3,d\mu)$ とし、$n\ge1$ に対して $\mathfrak h^{\otimes_s n}$ を、$\mathbb R^{3n}$ 上で任意の粒子変数交換に不変な二乗可積分関数のHilbert空間とする。零粒子空間を $\mathfrak h^{\otimes_s0}=\mathbb C$ とし、ボースFock空間を次のHilbert直和で定義する。
+> $\mathfrak h=L^2(\mathbb R^3,d\mu)$ とし、$n\ge1$ に対して $\mathfrak h^{\otimes_s n}$ を、積測度 $d\mu^{\otimes n}$ に関して二乗可積分で、$\mathbb R^{3n}$ 上の任意の粒子変数交換に不変な関数のHilbert空間とする。零粒子空間を $\mathfrak h^{\otimes_s0}=\mathbb C$ とし、ボースFock空間を次のHilbert直和で定義する。
 
 $$
 \mathcal F_s(\mathfrak h)
@@ -170,7 +170,7 @@ $$
 
 [QFT3の古典的smearing](../QFT3/index.md#def-qft3-smearing)では $\phi$ を積分して複素数を得ました。量子場では同じ位置に**作用素**を置きます。まず実数値の時空Schwartz関数 $F\in\mathcal S(\mathbb R^4;\mathbb R)$ を選び、その正振動数の質量殻上のFourier成分を一粒子波束として使います。
 
-ここでは $d^4x=dt\,d^3x$、$x=(t,\boldsymbol x)$ とし、$\widetilde F(E,\boldsymbol p)=\int d^4x\,F(t,\boldsymbol x)e^{iEt-i\boldsymbol p\cdot\boldsymbol x}$ と約束します。$E$ は時間周波数の変数です。
+ここでは $d^4x=dt\,d^3x$、$x=(t,\boldsymbol x)$ とし、$\widetilde F(E,\boldsymbol p)=\int d^4x\,F(t,\boldsymbol x)e^{iEt-i\boldsymbol p\cdot\boldsymbol x}$ と約束します。$E$ は時間周波数の変数であり、$\partial_t$ は空間位置を固定した偏微分です。
 
 <a id="def-qft4-smeared-field"></a>
 
@@ -189,6 +189,16 @@ $$
 <!-- formal-statement-end -->
 
 $m>0$ なので $\omega_{\boldsymbol p}\ge m$ です。$\widetilde F$ はSchwartz級で、$\boldsymbol p\mapsto(\omega_{\boldsymbol p},\boldsymbol p)$ は全階微分可能、導関数は高々多項式増大です。この対応に沿って制限し $1/\sqrt{2\omega}$ を掛けても運動量側でSchwartz級です。よって[本章の生成・消滅演算子の定義](#def-qft4-ladder-operators)が使えます。$F$ の実線形性と $a$ の反線形性を組み合わせた $\Phi(F)$ は実線形です。対称性は二演算子の随伴関係から従います。
+
+複素試験関数に延長する際は、反線形の $a$ に対して**同じ $u_F$ をそのまま入れる式ではない**点に注意します。$F=F_1+iF_2$（$F_1,F_2$ は実数値）なら、$u_F=u_{F_1}+iu_{F_2}$、$u_{\overline F}=u_{F_1}-iu_{F_2}$ なので
+
+$$
+\Phi_{\mathbb C}(F)
+=\Phi(F_1)+i\Phi(F_2)
+=a(u_{\overline F})+a^\dagger(u_F).
+$$
+
+この式では $a(u_{\overline F})=a(u_{F_1})+ia(u_{F_2})$ となり、複素線形性と実試験関数での対称性が両立します。以下の $\Phi(F)$ は実関数では元の定義、複素関数ではこの延長を意味します。
 
 <!-- definition-example-start: def-qft4-smeared-field -->
 ### 例：真空を一粒子波束へ写す
@@ -209,6 +219,8 @@ $$
 積分が有限なのは $m>0$ とSchwartz減衰によります。場をかけると粒子が「正確に一個」生まれるのは真空に作用させた場合であり、一般状態では消滅の項も働きます。$u_F=0$ となる非零試験関数もあるので、$F\ne0$ だけから一粒子状態が非零とは結論できません。
 <!-- definition-example-end -->
 
+次に、試験関数 $F$ に作用素 $\Phi(F)$ を対応させ、固定した共通領域の二つのベクトルで挟んだ行列要素が試験関数について連続な分布になるかを調べます。[QFT3の緩増加超関数の定義](../QFT3/index.md#def-qft3-tempered)を数値から作用素の行列要素へ拡張する考え方です。**弱い方程式**は、点で微分する代わりに試験関数に微分作用素 $P$ を移し、$\Phi(PF)=0$ を確認するものです。
+
 <a id="prop-qft4-operator-distribution"></a>
 
 <!-- formal-statement-start -->
@@ -227,7 +239,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-粒子数 $n$ の成分にCauchy–Schwarzを使うと
+以下の評価だけで使う $N$ を、$(N\Psi)_n=n\Psi_n$ と各粒子数成分をその粒子数倍する作用素とします。第6節でエネルギーと合わせて正式に定義します。粒子数 $n$ の成分にCauchy–Schwarzを使うと
 
 $$
 \|a(f)\Psi\|\le\|f\|\|N^{1/2}\Psi\|,
@@ -235,7 +247,7 @@ $$
 \|a^\dagger(f)\Psi\|\le\|f\|\|(N+I)^{1/2}\Psi\|
 $$
 
-です。ここで $N$ は各 $n$ 粒子成分を $n$ 倍する作用素で、有限粒子領域上では右辺は有限です。最初の評価は消滅の積分へのCauchy–Schwarzから、二つ目は $\|a^\dagger(f)\Psi\|^2=\|a(f)\Psi\|^2+\|f\|^2\|\Psi\|^2$ を[本章の交換関係](#thm-qft4-fock-ccr)と随伴性から得て従います。
+です。有限粒子領域上では右辺は有限です。最初の評価は消滅の積分へのCauchy–Schwarzから、二つ目は $\|a^\dagger(f)\Psi\|^2=\|a(f)\Psi\|^2+\|f\|^2\|\Psi\|^2$ を[本章の交換関係](#thm-qft4-fock-ccr)と随伴性から得て従います。
 
 $F$ のSchwartz性から、任意の $k$ に対してある定数 $C_k(F)$ があり
 
@@ -278,7 +290,9 @@ $$
 +a^\dagger(\boldsymbol p)e^{i\omega_{\boldsymbol p}t-i\boldsymbol p\cdot\boldsymbol x}\right)
 $$
 
-と書けます。これは $a(\boldsymbol p)$ 自身を各点の作用素と主張する式ではなく、直前の $\Phi(F)$ を得るための**積分核の略記**です。これを時刻固定で空間Schwartz関数 $h$ によって積分する操作は、以下の正確な定義で扱います。
+と書けます。これは $a(\boldsymbol p)$ 自身を各点の作用素と主張する式ではなく、直前の $\Phi(F)$ を得るための**積分核の略記**です。これを時刻固定で空間Schwartz関数 $h$ によって積分する操作は、以下の正確な定義で扱います。$\Phi_t(h)$ の下付き $t$ は**空間変数を積分した後に残る時刻パラメータ**を表し、$\partial_t\Phi_t(h)$ は $h$ を固定してこの族を時刻で微分する意味です。
+
+[QFT1の自由場のエネルギー構成](../QFT1/index.md#def-qft1-energy)では、ラグランジアン密度の時間微分変数での偏微分から古典的な共役運動量 $\pi=\partial\mathcal L_{\mathrm{free}}/\partial(\partial_t\phi)=\partial_t\phi$ を得ました。したがって量子化後もこの**時間微分**に対応する作用素を $\Pi_t$ と呼びます。
 
 $h\in\mathcal S(\mathbb R^3;\mathbb R)$ として、[QFT3のFourier変換](../QFT3/index.md#thm-qft3-cauchy)による $\widehat h(\boldsymbol p)=\int h(\boldsymbol x)e^{-i\boldsymbol p\cdot\boldsymbol x}d^3x$ を使い、
 
@@ -312,6 +326,27 @@ $$
 **定義の確認**：共役運動量が場の時間微分になる条件を、正負の指数因子に分けて確認します。
 
 $\overline{u_{t,h}}$ が形式的な消滅係数なので、その時間微分は $-i\omega_{\boldsymbol p}\overline{u_{t,h}}$ です。一方、生成係数 $u_{t,h}$ の微分は $+i\omega_{\boldsymbol p}u_{t,h}$。消滅演算子の反線形性から $a(i\omega u)=\overline i\,a(\omega u)=-i\,a(\omega u)$ となり、定義した $\Pi_t(h)$ は両方の時間微分と一致します。係数の $i$ を共通のプラスで置くのは誤りです。
+
+この対応は形式的な指数の微分だけでなく、$\mathcal D_{\mathcal S}$ 上のベクトル値微分としても成り立ちます。実数 $s\ne0$ に対し、$h$ を固定すると
+
+$$
+\frac{u_{t+s,h}-u_{t,h}}s
+=\int_0^1 i\omega_{\boldsymbol p}
+\frac{e^{i\omega_{\boldsymbol p}(t+\theta s)}\widehat h(\boldsymbol p)}
+{\sqrt{2\omega_{\boldsymbol p}}}\,d\theta
+\longrightarrow v_{t,h}
+\qquad(s\to0).
+$$
+
+$m>0$ の下では各運動量微分後も積分内の因子が高々多項式増大なので、Schwartz減衰によって極限は一粒子ノルムでも成立します。第4節の[生成・消滅演算子のノルム評価](#prop-qft4-operator-distribution)を固定した $\Psi\in\mathcal D_{\mathcal S}$ に適用すれば、$t$ についての**実変数の微分**として
+
+$$
+\frac{d}{dt}\bigl(\Phi_t(h)\Psi\bigr)
+=a(v_{t,h})\Psi+a^\dagger(v_{t,h})\Psi
+=\Pi_t(h)\Psi
+$$
+
+がFock空間のノルムで成り立ちます。$\partial_t\Phi_t$ はこの意味での表記であり、点ごとの非有界作用素 $\Phi(t,\boldsymbol x)$ の存在を仮定していません。
 <!-- definition-example-end -->
 
 <a id="thm-qft4-equal-time-ccr"></a>
@@ -357,7 +392,7 @@ $$
 \end{aligned}
 $$
 
-ここでは時間因子 $e^{\pm i\omega t}$ が打ち消されています。実 $h,k$ について[QFT3のFourier規格化](../QFT3/index.md#thm-qft3-cauchy)でのParseval等式を使うと、両積分はどちらも $\int hk\,d^3x$ に等しいので混合交換子の式が出ます。
+ここでは時間因子 $e^{\pm i\omega t}$ が打ち消されています。実 $h,k$ について[FOU4のParseval内積等式](../../../解析系/FOU/FOU4/index.md#thm-fou4-parseval)を三つの空間座標に適用すると、両積分はどちらも $\int hk\,d^3x$ に等しいので混合交換子の式が出ます。
 
 場同士は
 
@@ -373,7 +408,7 @@ $$
 
 ## 6. 粒子数、エネルギーと真空
 
-生成・消滅が何を「一個」と数えるかは粒子数作用素で確かめられます。また古典場の正のエネルギーに対応する一粒子のエネルギーは $\omega_{\boldsymbol p}$ であり、多粒子では各粒子の和になります。
+生成・消滅が何を「一個」と数えるかは粒子数作用素で確かめられます。また古典場の正のエネルギーに対応する一粒子のエネルギーは $\omega_{\boldsymbol p}$ であり、多粒子では各粒子の和になります。**正規順序**とは生成演算子を消滅演算子の左に置き、交換で現れる定数項を自由Hamiltonianから取り除く規約です。まずその作用を $H_0$ として定義し、第7節で有限モードの元のエネルギー式と比較して差を検算します。
 
 <a id="def-qft4-number-hamiltonian"></a>
 
@@ -458,7 +493,31 @@ $$
 
 一つの調和振動子のエネルギーには、粒子が零個でも $\omega/2$ が残ります。無限個の運動量モードへ素朴に足すと、全ての $\omega/2$ の和は発散します。何を引いたか曖昧にしないため、まず**体積もモード数も有限**な周期箱と運動量カットオフを置いて確認します。
 
-一辺 $L>0$ の周期箱で $\boldsymbol p=2\pi\boldsymbol n/L$（$\boldsymbol n\in\mathbb Z^3$）、$|\boldsymbol p|\le\Lambda$ の有限集合 $K_{L,\Lambda}$ を使います。実場の独立な正弦・余弦座標を調和振動子へ対角化したものと等価な、運動量ラベル付きの生成・消滅演算子を使います。各モードで $[b_{\boldsymbol p},b^\dagger_{\boldsymbol q}]=\delta_{\boldsymbol p\boldsymbol q}$ とし、$n_{\boldsymbol p}=b^\dagger_{\boldsymbol p}b_{\boldsymbol p}$ と置きます。
+一辺 $L>0$ の周期箱で $\boldsymbol p=2\pi\boldsymbol n/L$（$\boldsymbol n\in\mathbb Z^3$）、$|\boldsymbol p|\le\Lambda$ の有限集合 $K_{L,\Lambda}$ を使います。実場では $\boldsymbol p$ と $-\boldsymbol p$ のFourier係数は複素共役なので、両者を**独立な複素座標**と数えてはいけません。各非零の対 $\{\boldsymbol p,-\boldsymbol p\}$ から一方を取った集合を $K_+$ とし、実直交規格化モードを
+
+$$
+e_0(\boldsymbol x)=L^{-3/2},\qquad
+e_{\boldsymbol p,c}(\boldsymbol x)=\sqrt{\frac2{L^3}}\cos(\boldsymbol p\cdot\boldsymbol x),\qquad
+e_{\boldsymbol p,s}(\boldsymbol x)=\sqrt{\frac2{L^3}}\sin(\boldsymbol p\cdot\boldsymbol x)
+\quad(\boldsymbol p\in K_+)
+$$
+
+と取ります。実場とその共役運動量を $\phi=\sum_\alpha q_\alpha e_\alpha$、$\pi=\sum_\alpha\pi_\alpha e_\alpha$ と展開すると、周期積分での直交性から
+
+$$
+\int_{[0,L]^3}e_\alpha e_\beta\,d^3x=\delta_{\alpha\beta},\qquad
+\int_{[0,L]^3}(\nabla e_\alpha\cdot\nabla e_\beta+m^2e_\alpha e_\beta)\,d^3x
+=\omega_{\boldsymbol p(\alpha)}^2\delta_{\alpha\beta}.
+$$
+
+従って[QFT1の自由場のエネルギー密度](../QFT1/index.md#def-qft1-energy)を箱で積分すれば
+
+$$
+H=\frac12\sum_\alpha
+\left(\pi_\alpha^2+\omega_{\boldsymbol p(\alpha)}^2q_\alpha^2\right).
+$$
+
+$\alpha$ は零モードまたは各余弦・正弦モードを走り、総数は $|K_{L,\Lambda}|$ です。そこでこの**実モードのラベル**を便宜的に $\boldsymbol p\in K_{L,\Lambda}$ と付け直します。各調和振動子に生成・消滅演算子 $b_{\boldsymbol p},b^\dagger_{\boldsymbol p}$ を対応させ、$[b_{\boldsymbol p},b^\dagger_{\boldsymbol q}]=\delta_{\boldsymbol p\boldsymbol q}$、$n_{\boldsymbol p}=b^\dagger_{\boldsymbol p}b_{\boldsymbol p}$ と置きます。この再ラベルは実場の $\pm\boldsymbol p$ の関係を捨てて独立自由度を倍にする操作ではありません。
 
 <a id="prop-qft4-normal-order"></a>
 
@@ -525,7 +584,7 @@ $$
 
 ### 演習 QFT4-A1：対称二粒子波束のノルム
 
-$f,g\in\mathfrak h$ を単位波束とし、$\Psi_2=(f\otimes g+g\otimes f)/\sqrt2$ とする。$\|\Psi_2\|^2$ を求め、$f=g$ の場合の規格化を述べよ。
+$f,g\in\mathcal S(\mathbb R^3;\mathbb C)\subset\mathfrak h$ を単位波束とし、$\Psi_2=(f\otimes g+g\otimes f)/\sqrt2$ とする。$\|\Psi_2\|^2$ を求め、$f=g$ の場合の規格化を述べよ。
 
 - Level: A
 
@@ -540,7 +599,7 @@ $$
 =|\langle f,g\rangle|^2.
 $$
 
-よって $\|\Psi_2\|^2=1+|\langle f,g\rangle|^2$ です。$f=g$ ならノルム二乗は $2$ なので、単位状態は $f\otimes f=(a^\dagger(f))^2\Omega/\sqrt2$ となります。
+よって $\|\Psi_2\|^2=1+|\langle f,g\rangle|^2$ です。$f=g$ ならノルム二乗は $2$ なので、[生成・消滅演算子](#def-qft4-ladder-operators)の生成の式から単位状態は $f\otimes f=(a^\dagger(f))^2\Omega/\sqrt2$ となります。
 <!-- solution-end -->
 
 ### 演習 QFT4-A2：一粒子状態への消滅作用
@@ -552,7 +611,7 @@ $f,g\in\mathcal S(\mathbb R^3)$ とし、$a(f)a^\dagger(g)\Omega$ を計算せ�
 <!-- solution-start -->
 #### 詳細解答
 
-$a^\dagger(g)\Omega$ の一粒子成分は $g(\boldsymbol q)$ なので、定義の $n=0$ を使うと
+[生成・消滅演算子の定義](#def-qft4-ladder-operators)から $a^\dagger(g)\Omega$ の一粒子成分は $g(\boldsymbol q)$ です。消滅の式に $n=0$ を使うと
 
 $$
 (a(f)a^\dagger(g)\Omega)_0
@@ -572,7 +631,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$a(u_F)\Omega=0$、生成の一粒子成分は $u_F$ です。従って粒子数は（非零なら）一個で
+[実自由場のsmearingの定義](#def-qft4-smeared-field)で $a(u_F)\Omega=0$、生成の一粒子成分は $u_F$ です。従って粒子数は（非零なら）一個で
 
 $$
 \|\Phi(F)\Omega\|^2
@@ -593,7 +652,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-真空では両方の $b_j^\dagger b_j$ の固有値が零なので、裸エネルギーは $(2+3)/2=5/2$、正規順序では零です。粒子数 $(n_1,n_2)=(1,2)$ では
+[有限モードの正規順序の式](#prop-qft4-normal-order)を使います。真空では両方の $b_j^\dagger b_j$ の固有値が零なので、裸エネルギーは $(2+3)/2=5/2$、正規順序では零です。粒子数 $(n_1,n_2)=(1,2)$ では
 
 $$
 H^{\mathrm{bare}}=2\left(1+\frac12\right)
@@ -614,7 +673,7 @@ $f\in\mathcal S(\mathbb R^3)$、$\Psi$ が $n$ 粒子成分のみ持つ有限粒
 <!-- solution-start -->
 #### 詳細解答
 
-$a^\dagger(f)\Psi$ は $n+1$ 粒子成分のみ、$a(f)\Psi$ は $n-1$ 粒子成分のみ（$n=0$ なら零）です。よって
+[生成・消滅演算子の定義](#def-qft4-ladder-operators)より $a^\dagger(f)\Psi$ は $n+1$ 粒子成分のみ、$a(f)\Psi$ は $n-1$ 粒子成分のみ（$n=0$ なら零）です。[粒子数作用素の定義](#def-qft4-number-hamiltonian)を作用させると
 
 $$
 \begin{aligned}
@@ -658,7 +717,7 @@ $$
 \left[\widehat k\overline{\widehat h}+\widehat h\overline{\widehat k}\right]I.
 $$
 
-時刻に依存する指数因子は $e^{i\omega t}e^{-i\omega t}=1$ と相殺します。実関数のParseval等式で各積分が $\int hk\,d^3x$ なので、答えは $i\int hk\,d^3x\,I$ です。
+時刻に依存する指数因子は $e^{i\omega t}e^{-i\omega t}=1$ と相殺します。[FOU4のParseval内積等式](../../../解析系/FOU/FOU4/index.md#thm-fou4-parseval)を三座標に適用すると実関数の各積分は $\int hk\,d^3x$ なので、答えは $i\int hk\,d^3x\,I$ です。
 <!-- solution-end -->
 
 ### 演習 QFT4-B2：波束のエネルギーと交換子
@@ -670,7 +729,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-一粒子成分では $H_0f=\omega f$、$\|f\|=1$ なので
+[粒子数作用素と正規順序Hamiltonian](#def-qft4-number-hamiltonian)の定義より一粒子成分では $H_0f=\omega f$、$\|f\|=1$ なので
 
 $$
 \langle H_0f,f\rangle
@@ -686,7 +745,7 @@ $$
 =a^\dagger(\omega f)\Omega.
 $$
 
-右辺の一粒子成分は $\omega f$ であり、左辺のエネルギー作用と一致します。質量 $m$ はエネルギーの下界ですが、$f$ が非零の運動量幅を持つとき一般に期待値は $m$ より大きいです。
+右辺の一粒子成分は $\omega f$ であり、左辺のエネルギー作用と一致します。質量 $m$ はエネルギーの下界ですが、$\omega_{\boldsymbol p}=m$ となるのは測度零の $\boldsymbol p=0$ のみです。従って規格化された非零の $L^2$ 波束では期待値は実際には常に $m$ より大きくなります。
 <!-- solution-end -->
 
 ### 演習 QFT4-B3：作用素値の弱方程式
@@ -785,7 +844,7 @@ $$
 \end{aligned}
 $$
 
-ここで最終段階に実関数のParseval等式を適用しました。$\omega$ が分母と分子で消えることが重要です。
+ここで最終段階に実関数への[FOU4のParseval内積等式](../../../解析系/FOU/FOU4/index.md#thm-fou4-parseval)を三座標に適用しました。$\omega$ が分母と分子で消えることが重要です。
 
 **(4)** $G=PG_0$ の質量殻上のFourier変換は零なので $u_G=0$。従って $\Phi(G)=0$、(1)の二点量・(2)の交換子のいずれも零になります。これは場が自由Klein–Gordon方程式を試験関数の意味で満たすことと一致します。
 <!-- solution-end -->
