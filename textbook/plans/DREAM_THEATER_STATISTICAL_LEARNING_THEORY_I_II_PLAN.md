@@ -5,7 +5,7 @@
 
 ## 中心問いと直接依存
 
-[ML1](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)、確率論・測度論、[HDP](../plan_done/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md)の集中不等式。SLT2でRMTを使う部分は必要講に限定。
+[ML1](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)、確率論・測度論、[HDP](../plan_done/DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md)の集中不等式。SLT2でRMTを使う部分は必要講に限定。
 
 **本科目の正本：** VC・Rademacher・汎化界、次に高次元・深層学習の条件付き理論。
 
