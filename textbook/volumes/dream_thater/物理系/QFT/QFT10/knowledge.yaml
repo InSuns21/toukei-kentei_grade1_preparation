@@ -1,0 +1,62 @@
+chapter: QFT10
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT4, QFT6, QFT9]
+forward_references: []
+
+concepts:
+  - id: qft.scalar-normal-ordered-interaction
+    name: 正規順序スカラー相互作用と摂動係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正規順序スカラー相互作用と摂動係数）]
+    requires: [qft.dyson-series, qft.vacuum-normalized-perturbation]
+
+  - id: qft.scalar-contraction-graph
+    name: 収縮図・外線・内部線と連結成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（収縮図・外線・内部線と連結成分）]
+    requires: [qft.scalar-normal-ordered-interaction, qft.bosonic-wick-theorem]
+
+  - id: qft.scalar-vertex-factor
+    name: 頂点の階乗と一次頂点規則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（頂点の階乗と一次頂点規則）]
+    requires: [qft.scalar-contraction-graph]
+
+  - id: qft.graph-symmetry-factor
+    name: 外部ラベル固定の対称因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（外部ラベル固定の対称因子）]
+    requires: [qft.scalar-contraction-graph]
+
+  - id: qft.scalar-graph-symmetry-formula
+    name: 正規順序スカラー図の対称因子公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正規順序スカラー図の対称因子公式）]
+    requires: [qft.graph-symmetry-factor, qft.scalar-vertex-factor]
+
+  - id: qft.connected-correlator
+    name: 連結相関関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（連結相関関数）]
+    requires: [qft.scalar-contraction-graph, qft.vacuum-bubble-cancellation]
+
+  - id: qft.vacuum-versus-connected
+    name: 真空bubble除去と非連結図の残存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空bubble除去と非連結図の残存）]
+    requires: [qft.connected-correlator]
+
+  - id: qft.scalar-momentum-vertex
+    name: 頂点積分からの運動量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（頂点積分からの運動量保存）]
+    requires: [qft.scalar-vertex-factor, qft.feynman-two-point]
