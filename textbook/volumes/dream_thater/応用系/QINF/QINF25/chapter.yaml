@@ -1,0 +1,31 @@
+id: QINF25
+title: "ビット反転・位相反転符号"
+volume: foundations
+status: supplementary
+prerequisites: [QINF1, QINF3, QINF5, QINF7, QINF12, QINF24]
+official_scope: []
+learning_objectives:
+  - 3量子ビット反復符号を等長写像とCNOT回路で構成し任意の論理重ね合わせの符号化・復号を追跡できる
+  - パリティ検査の射影と補助量子ビットによるsyndrome測定を導き論理情報を読まない理由を証明できる
+  - 1個以下のビット反転を訂正するCPTP回復を構成し任意の論理密度行列に対する完全訂正を証明できる
+  - 独立なビット反転の二重・三重誤りが生む論理誤り確率を計算し位相反転の未検出を説明できる
+  - Hadamard共役で位相反転反復符号を作り位相反転の検出・訂正とビット反転符号との守備範囲を比較できる
+definitions:
+  - { id: QINF25-DEF-01, name: "3量子ビット反復符号と符号空間" }
+  - { id: QINF25-DEF-02, name: "パリティsyndromeと回復操作" }
+  - { id: QINF25-DEF-03, name: "3量子ビット位相反転符号" }
+theorems:
+  - { id: QINF25-PROP-01, name: "パリティsyndrome射影の分解" }
+  - { id: QINF25-THM-01, name: "単一ビット反転の完全訂正" }
+  - { id: QINF25-PROP-02, name: "独立ビット反転雑音による論理チャネル" }
+  - { id: QINF25-THM-02, name: "Hadamard共役による位相反転訂正" }
+canonical_examples:
+  - "CNOTによるGHZ型符号語の符号化・復号と局所状態"
+  - "二補助qubitのパリティ抽出と4通りのsyndrome表"
+  - "独立ビット反転確率pの論理誤り確率3p²-2p³"
+  - "位相反転を検出できない反例とHadamard基底での訂正"
+problem_patterns: [QINF25-ENCODING, QINF25-PARITY, QINF25-SYNDROME, QINF25-RECOVERY, QINF25-DOUBLE-ERROR, QINF25-PHASE, QINF25-COHERENT-ERROR, QINF25-ENTANGLEMENT]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 3.0 }
