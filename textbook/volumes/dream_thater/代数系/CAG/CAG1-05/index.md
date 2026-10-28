@@ -1,20 +1,53 @@
 # CAG1-05 GAGA I――連接層コホモロジーの比較
 
-[前章の射影空間上の比較](../CAG1-04/index.md#thm-cag1-04-projective-comparison)では、$mathbb P^n$ のねじり層 $mathcal O(d)$ の全コホモロジーについて、代数的なLaurent多項式と解析的なLaurent級数が同じ類を与えることを確認した。しかし一般の連接層は一本のねじり層ではない。たとえば射影直線上の二重に厚くした点の構造層には冪零元があり、どの $mathcal O(d)$ とも同型ではない。
+[前章の射影空間上の比較](../CAG1-04/index.md#thm-cag1-04-projective-comparison)では、$\mathbb P^n$ のねじり層 $\mathcal O(d)$ の全コホモロジーについて、代数的なLaurent多項式と解析的なLaurent級数が同じ類を与えることを確認した。しかし一般の連接層は一本のねじり層ではない。たとえば射影直線上の二重に厚くした点の構造層には冪零元があり、どの $\mathcal O(d)$ とも同型ではない。
 
 それでも、**有限個のねじり層から連接層を作り、その核も再び連接層になる**。この操作と長完全列を組み合わせれば、ねじり層で知っている比較を一般の層へ広げられるだろうか。難所は、長完全列の中央項の同型を単純な一回の「五項補題」だけでは言えない点にある。以下では全射性と単射性を分けて降下帰納を完結させる。
 
-基礎体は $mathbb C$ とする。$P=mathbb P^n_{mathbb C}$ は $n\ge0$ とし、$X$ は有限型の射影 $mathbb C$-スキーム（滑らか・既約・被約とは仮定しない）、$mathcal F$ はその代数的連接層とする。解析化写像を $h:X^{\mathrm{an}}\to X$ と書く。層コホモロジーの意味は[既習の定義](../../AG/AG3-08/index.md#def-ag3-08-sheaf-cohomology)に従う。
+基礎体は $\mathbb C$ とし、射影空間は $P=\mathbb P^n_{\mathbb C}$（$n\ge0$）と書く。$X$ は有限型の[射影 $\mathbb C$-スキーム](../../AG/AG3-09/index.md#def-ag3-09-projective-scheme)（滑らか・既約・被約とは仮定しない）とし、$\mathcal F$ はその[代数的連接層](../../AG/AG3-06/index.md#def-ag3-06-coherent)とする。
+
+解析化写像を $h:X^{\mathrm{an}}\to X$ と書く。層コホモロジーの意味は[既習の定義](../../AG/AG3-08/index.md#def-ag3-08-sheaf-cohomology)に従う。
 
 ## 1. 比較写像はどこから来るか
 
-[連接層の解析化](../CAG1-03/index.md#def-cag1-03-sheaf-analytification)は、代数的な局所切断を正則な局所切断として読む操作である。$U_i=\{X_i\ne0\}$ を $P$ の標準開集合とすると、代数的Čechコチェインを、同じ交叉上の正則コチェインへ移せる。さらにこの操作は制限写像、加法、交代微分と可換である。
+[連接層の解析化](../CAG1-03/index.md#def-cag1-03-sheaf-analytification)は、代数的な局所切断を正則な局所切断として読む操作である。一般の $X$ についても、Zariski開集合 $V\subset X$ の局所切断を $V^{\mathrm{an}}=h^{-1}(V)$ 上へ移す写像は制限と可換であり、次の層の射を作る。
+
+$$
+\mathcal F\longrightarrow h_*\mathcal F^{\mathrm{an}},\qquad
+(h_*\mathcal F^{\mathrm{an}})(V)=\Gamma(V^{\mathrm{an}},\mathcal F^{\mathrm{an}}).
+$$
+
+後者の等号は直像の定義であり、引戻し $h^*$ は前掲の解析化（$h^*\mathcal F=\mathcal F^{\mathrm{an}}$）である。引戻しと直像の随伴性とは、層の射の集合について
+
+$$
+\operatorname{Hom}_{X^{\mathrm{an}}}(h^*\mathcal G,\mathcal I)
+\simeq\operatorname{Hom}_X(\mathcal G,h_*\mathcal I)
+$$
+
+が自然に成り立つことである。[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により $h^*$ は単射を保つ。この随伴性と入射対象の延長性から、$h_*$ は入射対象を入射対象へ送る。
+
+そこで解析側の入射分解 $\mathcal F^{\mathrm{an}}\to\mathcal I^\bullet$ を選ぶと、$\mathcal F\to h_*\mathcal I^\bullet$ を代数側の入射分解からの複体写像に延長できる。[入射分解による層コホモロジーの構成](../../AG/AG3-08/index.md#def-ag3-08-sheaf-cohomology)と
+
+$$
+\Gamma(X,h_*\mathcal I^j)
+=\Gamma(X^{\mathrm{an}},\mathcal I^j)
+$$
+
+により、そのコホモロジー上に分解の選び方に依存しない自然写像が得られる。これが以下の $\alpha^q$ である。
+
+具体計算では、[前章の標準交叉の座標](../CAG1-04/index.md#prop-cag1-04-stein-intersections)に従い、$P$ の斉次座標を $[X_0:\cdots:X_n]$ とし、添字集合 $I$ に対して次の開集合を使う。
+
+$$
+U_i=\{X_i\ne0\},\qquad U_I=\bigcap_{i\in I}U_i.
+$$
+
+$P$ 上の代数的Čechコチェインを同じ交叉上の正則コチェインへ移す写像は、制限と交代微分に可換である。[前章の解析的Čech比較](../CAG1-04/index.md#prop-cag1-04-analytic-cech-comparison)で確認したねじり層の場合、このコチェイン写像が上の自然写像を表す。一般の連接層についてČech計算が可能な条件は次節の高次消滅で確かめる。特異な $X$ の標準交叉が自動的にStein複素多様体になるとは仮定しない。
 
 <a id="def-cag1-05-comparison-map"></a>
 
 <!-- formal-statement-start -->
 > **定義（コホモロジーの自然比較写像）**
-> 射影 $mathbb C$-スキーム $X$ と代数的連接層 $\mathcal F$ の解析化を $\mathcal F^{\mathrm{an}}$ とする。局所切断を解析化し、層コホモロジーへ誘導される写像
+> 射影 $\mathbb C$-スキーム $X$ と代数的連接層 $\mathcal F$ の解析化を $\mathcal F^{\mathrm{an}}$ とする。局所切断を解析化し、層コホモロジーへ誘導される写像
 
 $$
 \alpha^q_{X,\mathcal F}:H^q(X,\mathcal F)
@@ -26,10 +59,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cag1-05-comparison-map -->
-**定義の確認**：$P=\mathbb P^1$、$\mathcal F=\mathcal O_P(-2)$ では、[前章のLaurent計算](../CAG1-04/index.md#thm-cag1-04-projective-comparison)により、$H^1$ の代数的Čech類 $[X_0^{-1}X_1^{-1}]$ が解析側でも同じ分数の類となる。$H^0=0$ も両側で一致する。これは単に群の次元が等しいだけでなく、**具体的な類をどこへ送るか**が指定されている例である。
+**定義の確認**：$P=\mathbb P^1$、$\mathcal F=\mathcal O_P(-2)$ では、[ねじり層のČech計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で指数 $(-1,-1)$ のLaurent単項式だけが一次群に残る。局所切断の解析化で分数は変わらない。[前章の解析的比較](../CAG1-04/index.md#thm-cag1-04-projective-comparison)により、比較写像は双方の非零基底を
+
+$$
+\alpha^1_{P,\mathcal O(-2)}:\left[\frac{1}{X_0X_1}\right]
+\longmapsto\left[\frac{1}{X_0X_1}\right]
+$$
+
+と対応させる。また零次群は両側で零だから、その比較は $0\to0$ である。単に群の次元が等しいだけでなく、**具体的な類をどこへ送るか**と零次・一次の両方が確認できた。
 <!-- definition-example-end -->
 
-短完全列の自然性を少し展開しておく。$0\to\mathcal K\to\mathcal E\to\mathcal F\to0$ が代数側で完全なら、[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)から解析側でも短完全である。各交叉上の代数的な持ち上げを解析化してからČech微分を取る操作と、先に微分してから解析化する操作が一致するので、連結準同型 $\partial^q$ について
+短完全列の自然性を少し展開しておく。$0\to\mathcal K\to\mathcal E\to\mathcal F\to0$ が代数側で完全なら、[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)から解析側でも短完全である。[長完全列の連結準同型のČech表示](../../AG/AG3-08/index.md#prop-ag3-08-connecting-cech)に従い、代数側と解析側の連結準同型を次のように区別する。
+
+$$
+\begin{aligned}
+\partial^q_{\mathrm{alg}}&:H^q(X,\mathcal F)\longrightarrow H^{q+1}(X,\mathcal K),\\
+\partial^q_{\mathrm{an}}&:H^q(X^{\mathrm{an}},\mathcal F^{\mathrm{an}})
+\longrightarrow H^{q+1}(X^{\mathrm{an}},\mathcal K^{\mathrm{an}}).
+\end{aligned}
+$$
+
+代数的な持ち上げを解析化してから交代微分を取る操作と、先に微分してから解析化する操作は一致するので、
 
 $$
 \alpha^{q+1}_{X,\mathcal K}\circ\partial^q_{\mathrm{alg}}
@@ -130,7 +180,16 @@ $$
 \mathcal O_P^{\oplus r}\twoheadrightarrow\mathcal F(m)
 $$
 
-ができ、$\mathcal O_P(-m)$ をテンソルして $\mathcal O_P(-m)^{\oplus r}\twoheadrightarrow\mathcal F$ を得る。より一般の $a_j$ を許す形も従う。$P$ はNoetherスキームで、$\mathcal F$ と $\mathcal E$ は連接だから、局所的に有限生成加群の準同型の核は有限生成であり[局所Noether上の連接性](../../AG/AG3-06/index.md#thm-ag3-06-noether-coherence)から $\mathcal K$ は連接である。
+ができる。可逆層 $\mathcal O_P(-m)$ のテンソルは完全性を保ち、
+
+$$
+\mathcal O_P^{\oplus r}\otimes\mathcal O_P(-m)
+\simeq\mathcal O_P(-m)^{\oplus r}
+\twoheadrightarrow\mathcal F(m)\otimes\mathcal O_P(-m)
+\simeq\mathcal F
+$$
+
+を得る。より一般の $a_j$ を許す形も従う。$P$ はNoetherスキームで、$\mathcal F$ と $\mathcal E$ は連接だから、局所的に有限生成加群の準同型の核は有限生成であり[局所Noether上の連接性](../../AG/AG3-06/index.md#thm-ag3-06-noether-coherence)から $\mathcal K$ は連接である。
 <!-- proof-end -->
 
 **この入力の境界**：有限直和による全射表示は代数的な定理である。前章の[Cartanの定理B](../CAG1-04/index.md#thm-cag1-04-cartan-b)から直接得たのではない。通常のSerre消滅 $H^q(P,\mathcal F(m))=0$（$q>0$, $m\gg0$）は、この有限全射表示と[ねじり層の高次群](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から別途導ける。
@@ -171,7 +230,14 @@ $$
 \qquad \mathcal E=\bigoplus_{j=1}^r\mathcal O_P(a_j).
 $$
 
-[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)により、解析側でも同じ短完全列がある。以下、$H^j_{\mathrm a}(\mathcal M)=H^j(P,\mathcal M)$、$H^j_{\mathrm h}(\mathcal M)=H^j(P^{\mathrm{an}},\mathcal M^{\mathrm{an}})$ と略し、比較写像を縦矢印 $\alpha$ とする。
+[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)により、解析側でも同じ短完全列がある。以下、コホモロジーの場所を添字で区別する。
+
+$$
+H^j_{\mathrm a}(\mathcal M)=H^j(P,\mathcal M),\qquad
+H^j_{\mathrm h}(\mathcal M)=H^j(P^{\mathrm{an}},\mathcal M^{\mathrm{an}}).
+$$
+
+比較写像を縦矢印 $\alpha$ とする。$u_*,v_*$ は層の射 $u,v$ が誘導する同次数のコホモロジー写像、$\partial$ は $\mathcal F$ の次数 $j$ から $\mathcal K$ の次数 $j+1$ へ移す連結準同型である。
 
 **第一段階（全射性）**。長完全列の次の部分を見る。
 
@@ -183,7 +249,14 @@ H^q_{\mathrm h}(\mathcal E)&\xrightarrow{v_*}&H^q_{\mathrm h}(\mathcal F)&\xrigh
 \end{array}
 $$
 
-左右の $\wr$ は $\mathcal E$ のねじり層比較と、$\mathcal K$ に対する帰納仮定である。任意の $y\in H^q_{\mathrm h}(\mathcal F)$ を取る。$\partial y$ は $H^{q+1}_{\mathrm h}(\mathcal K)$ の元なので、一意な $k\in H^{q+1}_{\mathrm a}(\mathcal K)$ があり $\alpha(k)=\partial y$。下段の完全性で $u_*\partial y=0$、右端の縦矢印の単射性から $u_*k=0$ となる。上段の完全性から $k=\partial x$ を満たす $x\in H^q_{\mathrm a}(\mathcal F)$ を取れる。
+左右の $\wr$ は $\mathcal E$ のねじり層比較と、$\mathcal K$ に対する帰納仮定である。任意の $y\in H^q_{\mathrm h}(\mathcal F)$ を取る。帰納仮定の同型で、$\alpha(k)=\partial y$ を満たす唯一の $k\in H^{q+1}_{\mathrm a}(\mathcal K)$ を選べる。下段の完全性と右端の縦矢印の単射性から
+
+$$
+\alpha(u_*k)=u_*\alpha(k)=u_*\partial y=0
+\quad\Longrightarrow\quad u_*k=0.
+$$
+
+上段の完全性より、$k=\partial x$ を満たす $x\in H^q_{\mathrm a}(\mathcal F)$ がある。
 
 $$
 \partial(y-\alpha(x))=\partial y-\alpha(\partial x)=0.
@@ -220,7 +293,15 @@ $\mathcal E$ の次数 $q$ の比較は**単射**なので $e=u_*k$。上段の�
 
 ## 4. 射影空間から特異・非被約な射影スキームへ
 
-射影的な $X$ はある $P=\mathbb P^n_{\mathbb C}$ へ閉埋込み $i:X\hookrightarrow P$ を持つ。ここで $X$ を滑らかな部分多様体と仮定する必要はない。局所方程式が冪零元を許す場合も、閉埋込みであることは変わらない。
+[射影スキームの閉埋込み表示](../../AG/AG3-09/index.md#thm-ag3-09-standard-graded-embedding)により、射影的な $X$ はある射影空間 $P$ へ閉埋込みを持つ。
+
+$$
+i:X\hookrightarrow P=\mathbb P^n_{\mathbb C},\qquad
+(i_*\mathcal F)(V)=\Gamma(i^{-1}V,\mathcal F)
+\quad(V\subset P\text{ は開集合}).
+$$
+
+右の式が直像層の定義である。ここで $X$ を滑らかな部分多様体と仮定する必要はない。局所方程式が冪零元を許す場合も、閉埋込みであることは変わらない。
 
 <a id="prop-cag1-05-closed-pushforward"></a>
 
@@ -258,9 +339,27 @@ $$
 A^s\longrightarrow A^r\longrightarrow M\longrightarrow0.
 $$
 
-この表示の解析化は $U^{\mathrm{an}}$ 上の正則関数層による同じ行列の余核である。[有限表示と解析化](../CAG1-03/index.md#prop-cag1-03-local-presentation)により、それは閉埋込み後の $i^{\mathrm{an}}_*\mathcal F^{\mathrm{an}}$ の局所表示に一致する。各開集合上の同型は同じ行列に由来するため、重なりで貼り合わさる。
+自由基底を選び、最初の射を $r\times s$ 行列 $B=(b_{ab})$（$b_{ab}\in A$）で表す。[有限表示と解析化](../CAG1-03/index.md#prop-cag1-03-local-presentation)では、各係数 $b_{ab}$ を $U^{\mathrm{an}}$ 上の正則関数として読む。そのため解析化した直像は
 
-閉埋込み $i$ に対する直像は層の短完全列を短完全列に移す。実際、$p\in P$ が $X$ に属せば $(i_*\mathcal F)_p=\mathcal F_p$、属さなければ零であり、各茎での完全性が保存される。解析側も同様である。よって $R^qi_*=R^qi_*^{\mathrm{an}}=0$（$q>0$）であり、[層コホモロジー](../../AG/AG3-08/index.md#def-ag3-08-sheaf-cohomology)の導来関手による構成、またはLerayのコホモロジー比較から、記した自然同型を得る。局所切断の解析化は $i_*$ の前後で同じ表示行列に作用するため、自然比較写像との可換性も従う。
+$$
+(i_*\mathcal F)^{\mathrm{an}}|_{U^{\mathrm{an}}}
+\simeq\operatorname{coker}\!\left(
+\mathcal O_{U^{\mathrm{an}}}^{s}
+\xrightarrow{B^{\mathrm{an}}}
+\mathcal O_{U^{\mathrm{an}}}^{r}\right).
+$$
+
+一方、$X\cap U$ の解析化は $I$ の正則化した方程式で定まり、$i^{\mathrm{an}}_*\mathcal F^{\mathrm{an}}$ にも**同じ生成元と関係行列**が課される。従って両者はこの同じ余核に一致する。行列は座標変換の判定器ではなく、$M$ の有限表示における関係式そのものである。各開集合上の同型は元の有限表示の自然性に由来するため、重なりで貼り合わさる。
+
+閉埋込み $i$ に対する直像は層の短完全列を短完全列に移す。実際、$p\in P$ が $X$ に属せば直像の茎は $\mathcal F_p$、属さなければ零であり、各茎での完全性が保存される。解析側も同様である。
+
+さらにアーベル群の層としての逆像 $i^{-1}$ は完全で、その右随伴 $i_*$ は入射層を入射層へ送る。従って $\mathcal F\to\mathcal I^\bullet$ を入射分解とすると、$i_*\mathcal F\to i_*\mathcal I^\bullet$ も入射分解である。大域切断は次数ごとに
+
+$$
+\Gamma(P,i_*\mathcal I^j)=\Gamma(X,\mathcal I^j)
+$$
+
+と一致するから、[入射分解による層コホモロジー](../../AG/AG3-08/index.md#def-ag3-08-sheaf-cohomology)も一致する。解析側の閉埋込みについて同じ操作を行えば、命題の両側のコホモロジー同型が得られる。局所切断の解析化は $i_*$ の前後で同じ表示行列に作用するため、比較写像との可換性も従う。
 <!-- proof-end -->
 
 ここで、**代数的連接層を解析化したもの**を扱っていることが重要である。任意の解析的連接層がこの形になるという「GAGA III」はまだ使っていない。
@@ -325,7 +424,14 @@ $$
 \longrightarrow i_*\mathcal O_Z\longrightarrow0.
 $$
 
-[$\mathcal O(-2)$ の既習計算](../CAG1-04/index.md#thm-cag1-04-projective-comparison)により $H^0(P,\mathcal O(-2))=0$、$H^1(P,\mathcal O(-2))\simeq\mathbb C$、$H^0(P,\mathcal O)=\mathbb C$、$H^1(P,\mathcal O)=0$。長完全列は
+[$\mathcal O(-2)$ の既習計算](../CAG1-04/index.md#thm-cag1-04-projective-comparison)により
+
+$$
+H^0(P,\mathcal O(-2))=0,\quad H^1(P,\mathcal O(-2))\simeq\mathbb C,\qquad
+H^0(P,\mathcal O)=\mathbb C,\quad H^1(P,\mathcal O)=0.
+$$
+
+従って長完全列の該当部分は
 
 $$
 0\longrightarrow\mathbb C\longrightarrow
@@ -333,7 +439,7 @@ H^0(Z,\mathcal O_Z)\xrightarrow{\partial}
 \mathbb C\longrightarrow0
 $$
 
-となる。実際 $H^0(Z,\mathcal O_Z)=\mathbb C\{1,\bar z\}$ は二次元である。$\bar z$ を $U_0$ 上の $z$ に持ち上げ、$U_1$ の空部分上の値は零とすると、交叉でのČech差は $-z$。$X_1^2$ で割ると
+となる。実際 $H^0(Z,\mathcal O_Z)=\mathbb C\{1,\bar z\}$ は二次元である。[連結準同型のČech表示](../../AG/AG3-08/index.md#prop-ag3-08-connecting-cech)に従い、$\bar z$ を $U_0$ 上の $z$ に持ち上げ、$U_1$ の空部分上の値は零とすると、交叉でのČech差は $0-z=-z$。$X_1^2$ で割ると
 
 $$
 \partial(\bar z)=\left[-\frac{z}{X_1^2}\right]
@@ -341,11 +447,11 @@ $$
 \in H^1(P,\mathcal O_P(-2)).
 $$
 
-これは一次群の非零基底であり、定数 $1$ は $P$ 上の大域切断から来るので境界が零。解析化しても同じ $z^2=0$ と同じČech差が残るため、[GAGA I](#thm-cag1-05-gaga-cohomology)は両側の二次元空間を **$1\mapsto1$, $\bar z\mapsto\bar z$** と同一視する。点が一つだから切断空間が一次元と考えるのは、非被約構造を捨てた誤りである。
+これは一次群の非零基底であり、定数 $1$ は $P$ 上の大域切断から来るので境界が零。解析化しても同じ $z^2=0$ と同じČech差が残るため、[GAGA I](#thm-cag1-05-gaga-cohomology)は両側の二次元空間で $1\mapsto1$、$\bar z\mapsto\bar z$ と同一視する。点が一つだから切断空間が一次元と考えるのは、非被約構造を捨てた誤りである。
 
 ### 5.2 射影平面の超平面：直像を介して比較する
 
-$P=\mathbb P^2$、$H=\{X_2=0\}\simeq\mathbb P^1$ とし、包含を $j:H\hookrightarrow P$ とする。$X_2$ の乗法で
+$P=\mathbb P^2$、$H=\{X_2=0\}\simeq\mathbb P^1$ とし、包含を $j:H\hookrightarrow P$ とする。[超平面制限列](../../AG/AG3-10/index.md#prop-ag3-10-hyperplane-sequence)に $X_2$ を使うと
 
 $$
 0\longrightarrow\mathcal O_P(-1)
@@ -417,7 +523,14 @@ $$
 $P=\mathbb P^1_{\mathbb C}$、$\mathcal E=\mathcal O_P(1)\oplus\mathcal O_P(-3)$ とする。$H^0(P,\mathcal E)$、$H^1(P,\mathcal E)$ の次元を求め、解析側の群を同定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[ねじり層の公式](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)より $h^0(\mathcal O(1))=2,h^1(\mathcal O(1))=0$、$h^0(\mathcal O(-3))=0,h^1(\mathcal O(-3))=2$ である。有限直和の切断と導来関手は直和に分解するので
+**詳細解答**。[ねじり層の公式](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=1$ を代入すると
+
+$$
+h^0(\mathcal O(1))=2,\quad h^1(\mathcal O(1))=0,\qquad
+h^0(\mathcal O(-3))=0,\quad h^1(\mathcal O(-3))=2.
+$$
+
+有限直和のČech複体が各成分の複体の直和になるので、コホモロジーも直和に分解する。よって
 
 $$
 H^0(P,\mathcal E)\simeq\mathbb C^2,
@@ -466,7 +579,15 @@ $$
 $P=\mathbb P^n_{\mathbb C}$ の連接層 $\mathcal F$ の有限全射表示 $0\to\mathcal K\to\mathcal E\to\mathcal F\to0$ を固定する。$\alpha^1_{P,\mathcal K}$ が単射であり、$\alpha^0_{P,\mathcal E}$ が同型、$\alpha^0_{P,\mathcal K}$ が全射であるとする。この三条件から $\alpha^0_{P,\mathcal F}$ が単射であることを示せ。
 
 <!-- solution-start -->
-**詳細解答**。$x\in H^0(P,\mathcal F)$ が $\alpha(x)=0$ を満たすとする。長完全列の自然性により $\alpha^1_{P,\mathcal K}(\partial x)=\partial\alpha(x)=0$。$\alpha^1_{P,\mathcal K}$ は単射なので $\partial x=0$。よって $x=v_*(e)$ となる $e\in H^0(P,\mathcal E)$ がある。
+**詳細解答**。$x\in H^0(P,\mathcal F)$ が $\alpha(x)=0$ を満たすとする。[長完全列の自然性](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)と仮定した一次比較の単射性から
+
+$$
+\alpha^1_{P,\mathcal K}(\partial x)
+=\partial\alpha^0_{P,\mathcal F}(x)=0
+\quad\Longrightarrow\quad\partial x=0.
+$$
+
+上段の完全性により、$x=v_*(e)$ となる $e\in H^0(P,\mathcal E)$ がある。
 
 $v_*\alpha(e)=\alpha(v_*e)=0$ だから、解析側で $\alpha(e)=u_*k'$ となる $k'\in H^0(P^{\mathrm{an}},\mathcal K^{\mathrm{an}})$ を取れる。$\alpha^0_{P,\mathcal K}$ の全射性から $k'=\alpha(k)$ となる $k\in H^0(P,\mathcal K)$ がある。従って
 
@@ -493,7 +614,14 @@ $$
 
 となる。よって $H^0(Z,\mathcal O_Z)$ は二次元で $H^1(Z,\mathcal O_Z)=0$。局所的には $H^0(Z,\mathcal O_Z)=\mathbb C\{1,\bar z\}$ である。
 
-$\bar z$ を $U_0$ の $z$ へ持ち上げ、$U_1$ では零を選ぶと、交叉で差は $-z$。$X_1^2$ の乗法で逆に戻した $\mathcal O(-2)$ のコチェインは $-z/X_1^2=-1/(X_0X_1)$。従って
+[連結準同型のČech表示](../../AG/AG3-08/index.md#prop-ag3-08-connecting-cech)により、$\bar z$ を $U_0$ の $z$ へ持ち上げ、$U_1$ では零を選ぶと、交叉で差は $0-z=-z$。$X_1^2$ の乗法で逆に戻した $\mathcal O(-2)$ のコチェインは
+
+$$
+-\frac{z}{X_1^2}=-\frac{X_1/X_0}{X_1^2}
+=-\frac{1}{X_0X_1}.
+$$
+
+従って
 
 $$
 \partial(\bar z)=[-1/(X_0X_1)]\ne0.
@@ -509,7 +637,13 @@ $$
 $i:X\hookrightarrow\mathbb P^n$ を射影スキームの閉埋込みとし、$\mathcal F$ は $X$ 上の連接層とする。$H^1(X,\mathcal F)$ の比較を $\mathbb P^n$ 上の比較へ帰着する三段階を、各段階の必要条件とともに説明せよ。$X$ が非被約な場合の変更点も答えよ。
 
 <!-- solution-start -->
-**詳細解答**。第一に、閉埋込みの局所有限表示により $i_*\mathcal F$ は $\mathbb P^n$ 上の代数的連接層である。第二に、[直像と解析化の交換](#prop-cag1-05-closed-pushforward)で $(i_*\mathcal F)^{\mathrm{an}}\simeq i_*^{\mathrm{an}}\mathcal F^{\mathrm{an}}$ が成立し、両側の $H^1$ は閉埋込みの直像の $H^1$ と同型になる。第三に、[射影空間で証明したGAGA I](#thm-cag1-05-gaga-cohomology)を $i_*\mathcal F$ に適用して
+**詳細解答**。三段階の適用条件を順に確認する。
+
+1. 閉埋込みの局所有限表示により $i_*\mathcal F$ は $\mathbb P^n$ 上の代数的連接層である。
+2. [直像と解析化の交換](#prop-cag1-05-closed-pushforward)で $(i_*\mathcal F)^{\mathrm{an}}\simeq i_*^{\mathrm{an}}\mathcal F^{\mathrm{an}}$ が成立し、両側の $H^1$ は閉埋込みの直像の $H^1$ と同型になる。
+3. [射影空間で証明したGAGA I](#thm-cag1-05-gaga-cohomology)を $i_*\mathcal F$ に適用する。
+
+具体的に第三段階の同型は
 
 $$
 H^1(\mathbb P^n,i_*\mathcal F)
@@ -540,9 +674,16 @@ $P=\mathbb P^1_{\mathbb C}$、$Z=\{X_1^3=0\}$、$z=X_1/X_0$ とする。次を�
    H^0(Z,\mathcal O_Z)=\mathbb C\{1,\bar z,\bar z^2\}.
    $$
 
-   $Z$ はアフィンかつ零次元であり、[アフィン消滅](../../AG/AG3-08/index.md#thm-ag3-08-affine-vanishing)で $H^1(Z,\mathcal O_Z)=0$。射影直線の完全列からも確認できる。実際 $H^0(\mathcal O(-3))=0$、$H^1(\mathcal O(-3))\simeq\mathbb C^2$、$H^1(\mathcal O)=0$ を代入すると $0\to\mathbb C\to H^0(Z,\mathcal O_Z)\to\mathbb C^2\to0$ となり、三次元と一致する。
+   $Z$ はアフィンかつ零次元であり、[アフィン消滅](../../AG/AG3-08/index.md#thm-ag3-08-affine-vanishing)で $H^1(Z,\mathcal O_Z)=0$。射影直線の完全列からも確認できる。実際、[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)による $H^0(\mathcal O(-3))=0$、$H^1(\mathcal O(-3))\simeq\mathbb C^2$、$H^1(\mathcal O)=0$ を代入すると
 
-2. $\bar z$ と $\bar z^2$ を $U_0$ の正則関数 $z,z^2$ へ持ち上げ、$U_1$ 上には零を選ぶ。Čech微分はそれぞれ $-z,-z^2$ であり、射 $X_1^3$ の逆像は
+   $$
+   0\longrightarrow\mathbb C\longrightarrow H^0(Z,\mathcal O_Z)
+   \longrightarrow\mathbb C^2\longrightarrow0
+   $$
+
+   となり、三次元と一致する。
+
+2. [連結準同型のČech表示](../../AG/AG3-08/index.md#prop-ag3-08-connecting-cech)を使い、$\bar z$ と $\bar z^2$ を $U_0$ の正則関数 $z,z^2$ へ持ち上げ、$U_1$ 上には零を選ぶ。Čech微分 $c_1-c_0$ はそれぞれ $-z,-z^2$ であり、射 $X_1^3$ の逆像は
 
    $$
    \partial(\bar z)=\left[-\frac{z}{X_1^3}\right]
@@ -572,9 +713,22 @@ $P=\mathbb P^2_{\mathbb C}$、$H=\{X_2=0\}$、$Y=\{X_2^2=0\}$ とする。$j:Y\h
 <!-- solution-start -->
 **詳細解答**。
 
-1. [射影平面のねじり層計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $\mathcal O_P(-2)$ は全次数で零、$\mathcal O_P$ は零次のみ $\mathbb C$ である。よって長完全列の $H^0$ 部分は $0\to0\to\mathbb C\to H^0(Y,\mathcal O_Y)\to0$ となり、$H^0(Y,\mathcal O_Y)=\mathbb C$。$q\ge1$ では両隣のねじり層群が零なので $H^q(Y,\mathcal O_Y)=0$。
+1. [射影平面のねじり層計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $\mathcal O_P(-2)$ は全次数で零、$\mathcal O_P$ は零次のみ $\mathbb C$ である。よって長完全列の零次部分は
 
-2. $Y$ の被約化は直線 $H$ であり、局所的な冪零元は $X_2$ の像である。還元写像の核を $\mathcal J$ とする。$X_2$ の一次の係数を取り出すと、$H$ 上の層として
+   $$
+   0\longrightarrow0\longrightarrow\mathbb C
+   \longrightarrow H^0(Y,\mathcal O_Y)\longrightarrow0
+   $$
+
+   となり、$H^0(Y,\mathcal O_Y)=\mathbb C$。$q\ge1$ では両隣のねじり層群が零なので $H^q(Y,\mathcal O_Y)=0$。
+
+2. $Y$ の被約化は直線 $H$ であり、局所的な冪零元は $X_2$ の像である。還元写像の核を $\mathcal J$ とする。$H$ を覆う $U_i=\{X_i\ne0\}$（$i=0,1$）上では、$t_i=X_2/X_i$ の像が $\mathcal J$ を生成し、$t_i^2=0$ である。重なりで
+
+   $$
+   t_1=\frac{X_0}{X_1}t_0
+   $$
+
+   となる。これは[代数的ねじり層の局所基底と遷移関数](../../AG/AG3-09/index.md#prop-ag3-09-twists-polynomial)で次数 $d=-1$ としたものと一致する。従って $H$ 上の層として
 
    $$
    \mathcal J=(X_2)/(X_2^2)\simeq\mathcal O_H(-1),
