@@ -89,7 +89,7 @@ chapters:
     title: "強劣加法性と条件付き相互情報量"
   - id: QINF20
     path: textbook/volumes/dream_thater/応用系/QINF/QINF20
-    status: planned
+    status: completed
     title: "量子相対エントロピーとデータ処理"
   - id: QINF21
     path: textbook/volumes/dream_thater/応用系/QINF/QINF21

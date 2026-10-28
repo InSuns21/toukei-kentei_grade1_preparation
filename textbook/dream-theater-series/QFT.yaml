@@ -32,5 +32,5 @@ chapters:
     title: "遅延・先進・Feynman伝播関数とiε処方"
   - id: QFT7
     path: textbook/volumes/dream_thater/物理系/QFT/QFT7
-    status: planned
+    status: completed
     title: "Dirac場のLorentz変換・Clifford代数と平面波解"
