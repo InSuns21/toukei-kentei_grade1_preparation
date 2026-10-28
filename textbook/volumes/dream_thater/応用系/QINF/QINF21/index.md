@@ -16,7 +16,9 @@
 
 <!-- formal-statement-start -->
 > **定義（密度演算子アンサンブル）**
-> 有限集合 $\mathcal X$、確率 $p_x\ge0$（$\sum_{x\in\mathcal X}p_x=1$）、同一の有限次元Hilbert空間 $H_Q$ 上の密度演算子 $\rho_x\ge0$（$\operatorname{Tr}\rho_x=1$）の組 $\mathcal E=\{(p_x,\rho_x):x\in\mathcal X\}$ を**密度演算子アンサンブル**と呼ぶ。その**平均状態**を
+> 有限集合 $\mathcal X$、確率 $p_x\ge0$（$\sum_{x\in\mathcal X}p_x=1$）、同一の有限次元Hilbert空間 $H_Q$ 上の密度演算子 $\rho_x\ge0$（$\operatorname{Tr}\rho_x=1$）の組 $\mathcal E=\{(p_x,\rho_x):x\in\mathcal X\}$ を**密度演算子アンサンブル**と呼ぶ。
+>
+> 中括弧はラベル $x$ で添字付けした族の略記であり、異なるラベルに同じ確率・同じ状態が対応しても重複排除しない。その**平均状態**を
 
 $$
 \overline\rho=\sum_{x\in\mathcal X}p_x\rho_x
@@ -31,7 +33,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（古典量子状態）**
-> 有限量子アンサンブル $\mathcal E=\{(p_x,\rho_x)\}$ に対し、$H_X\otimes H_Q$ 上の**古典量子状態**（cq状態）を
+> 密度演算子アンサンブル $\mathcal E=\{(p_x,\rho_x)\}$ に対し、$H_X\otimes H_Q$ 上の**古典量子状態**（cq状態）を
 
 $$
 \omega_{XQ}=\sum_x p_x|x\rangle\langle x|_X\otimes\rho_x
@@ -45,9 +47,31 @@ $$
 
 **定義の確認**として、状態・確率・周辺状態の条件を順に調べます。
 
-$\mathcal X=\{0,1\}$、$p_0=p_1=1/2$、$\rho_0=|0\rangle\langle0|$、$\rho_1=|+\rangle\langle+|$ とします。$|0\rangle,|+\rangle$ は規格化ベクトルなので、$\rho_0,\rho_1$ は自己共役・正半定値・トレース1です。確率は非負で和1、両状態は同じ二次元空間上にあるためアンサンブルの全条件を満たします。
+次の二状態アンサンブルを考えます。
 
-計算基底 $|0\rangle,|1\rangle$ での平均状態は
+$$
+\mathcal X=\{0,1\},\quad p_0=p_1=\frac12,\quad
+\rho_0=|0\rangle\langle0|,\quad
+\rho_1=|+\rangle\langle+|.
+$$
+
+$|\psi_0\rangle=|0\rangle$、$|\psi_1\rangle=|+\rangle$ は規格化ベクトルです。[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の三条件を直接確かめると、$\rho_x^\dagger=\rho_x$ であり、任意の $v$ について
+
+$$
+\langle v|\rho_x|v\rangle=|\langle\psi_x|v\rangle|^2\ge0,
+\qquad \operatorname{Tr}\rho_x=\langle\psi_x|\psi_x\rangle=1
+$$
+
+です。確率は非負で和1、両状態は同じ二次元空間上にあるためアンサンブルの全条件を満たします。
+
+次に行列を作る理由を確認します。[計算基底](../QINF1/index.md#def-qinf1-qubit) $|0\rangle,|1\rangle$ で $|\psi\rangle=c_0|0\rangle+c_1|1\rangle$ と展開すると、外積の行列成分は
+
+$$
+\langle i|\bigl(|\psi\rangle\langle\psi|\bigr)|j\rangle
+=c_i\overline{c_j}\qquad (i,j\in\{0,1\}).
+$$
+
+これは作用素を基底で表示しただけで、正値性を単に対角成分から推測したものではありません。$|0\rangle$ の係数は $(1,0)$、$|+\rangle$ の係数は $(1/\sqrt2,1/\sqrt2)$ なので、平均状態の行列は
 
 $$
 \overline\rho=\frac12
@@ -56,7 +80,27 @@ $$
 =\begin{pmatrix}3/4&1/4\\1/4&1/4\end{pmatrix}.
 $$
 
-$\omega_{XQ}$ は $X$ の二つのラベルに沿うブロック対角行列です。各ブロック $p_x\rho_x$ は正半定値なので $\omega_{XQ}\ge0$ であり、トレースは $\sum_xp_x\operatorname{Tr}\rho_x=1$。さらに[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)を各項へ施すと
+$\omega_{XQ}$ は $X$ の基底でブロック対角になり、その二つのブロックは $\tfrac12\rho_0,\tfrac12\rho_1$ です。これは $|x\rangle\langle x|$ が $X$ の第 $x$ 成分だけを選ぶためです。各項が自己共役なので $\omega_{XQ}=\omega_{XQ}^\dagger$ です。任意の $u=\sum_x|x\rangle\otimes|u_x\rangle$ に対して、正値性とトレースは
+
+$$
+\langle u|\omega_{XQ}|u\rangle
+=\sum_xp_x\langle u_x|\rho_x|u_x\rangle\ge0,
+\qquad \operatorname{Tr}\omega_{XQ}
+=\sum_xp_x\operatorname{Tr}\rho_x=1
+$$
+
+と確認でき、cq状態も密度演算子の三条件を満たします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)を各項に適用すると
+
+$$
+\begin{aligned}
+\operatorname{Tr}_Q(|x\rangle\langle x|\otimes\rho_x)
+&=|x\rangle\langle x|\operatorname{Tr}\rho_x,\\
+\operatorname{Tr}_X(|x\rangle\langle x|\otimes\rho_x)
+&=\operatorname{Tr}(|x\rangle\langle x|)\rho_x=\rho_x
+\end{aligned}
+$$
+
+となるため、
 
 $$
 \omega_X=\sum_xp_x|x\rangle\langle x|,
@@ -86,7 +130,14 @@ $$
 <!-- definition-example-start: def-qinf21-holevo -->
 ### 定義の確認：直交する二つの純粋状態
 
-**定義の確認**として、正規化と固有値を調べます。
+**定義の確認**として、正規化と固有値を調べます。[INFO1の二値エントロピー](../../INFO/INFO1/index.md#def-info1-entropy)の記号を使い、端点の零項を0として
+
+$$
+h_2(t)=-t\log_2t-(1-t)\log_2(1-t)
+\qquad (0\le t\le1)
+$$
+
+と書きます。
 
 $p_0=1/4,p_1=3/4$、$\rho_0=|0\rangle\langle0|$、$\rho_1=|1\rangle\langle1|$ を考えます。両状態は正半定値・トレース1のrank 1射影なので $S(\rho_0)=S(\rho_1)=0$ です。平均状態 $\overline\rho=\operatorname{diag}(1/4,3/4)$ も正半定値・トレース1で、その固有値を使うと
 
@@ -96,10 +147,10 @@ $$
 =h_2(1/4).
 $$
 
-ここで $h_2(t)=-t\log_2t-(1-t)\log_2(1-t)$（端点の零項は0）は[INFO1の二値エントロピー](../../INFO/INFO1/index.md#def-info1-entropy)です。この例では計算基底測定でラベルが確実に分かるため、後で得られる上限は実際に達成されます。
+この例では計算基底測定でラベルが確実に分かるため、後で得られる上限は実際に達成されます。
 <!-- definition-example-end -->
 
-差の式が負にならない理由や、古典ラベルとの関係は次のブロック計算から分かります。
+差の式が負にならない理由や、古典ラベルとの関係は次のブロック計算から分かります。[既習の量子相互情報量](../QINF18/index.md#def-qinf18-mutual)は、二部状態 $\omega_{XQ}$ に対して $I(X:Q)_\omega=S(\omega_X)+S(\omega_Q)-S(\omega_{XQ})$ でした。これは測定前の $Q$ を保持したままの量で、後の古典的な $I(X:Y)$ とは区別します。
 
 <a id="lem-qinf21-cq-entropy"></a>
 
@@ -120,7 +171,7 @@ $\omega_{XQ}$ は直交する $X$ のラベルごとにブロック $p_x\rho_x$ 
 <!-- proof-start -->
 ### 証明
 
-各 $\rho_x$ の正規直交固有基底を $|u_{xj}\rangle$、固有値を $r_{xj}\ge0$ とします。$\sum_jr_{xj}=1$ です。$|x\rangle\otimes|u_{xj}\rangle$ は $H_X\otimes H_Q$ の正規直交基底になり、$\omega_{XQ}$ を作用させると
+[密度演算子のスペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)により、各 $\rho_x$ の正規直交固有基底を $|u_{xj}\rangle$、固有値を $r_{xj}\ge0$ とします。$\sum_jr_{xj}=1$ です。$x$ ごとに異なる固有基底を選んでも、$X$ のラベルが直交するため $|x\rangle\otimes|u_{xj}\rangle$ は $H_X\otimes H_Q$ の正規直交基底になり、$\omega_{XQ}$ を作用させると
 
 $$
 \omega_{XQ}(|x\rangle\otimes|u_{xj}\rangle)
@@ -151,7 +202,7 @@ $$
 有限和だけを使った計算なので、非可換な $\rho_x$ が混在していても成立します。$\square$
 <!-- proof-end -->
 
-この補題が示すのは、$\chi$ が測定前の**ラベル $X$ と量子系 $Q$ の相互情報量**だということです。受け手が測定して得る量とはまだ区別しなければなりません。
+この補題が示すのは、$\chi$ が測定前の**ラベル $X$ と量子系 $Q$ の相互情報量**だということです。受け手が測定して得る量とはまだ区別しなければなりません。次の命題でいう状態の**台**は、[QINF20で導入した](../QINF20/index.md#def-qinf20-relative-entropy)正固有値の固有空間が張る部分空間です。
 
 <a id="prop-qinf21-range"></a>
 
@@ -173,7 +224,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QINF20の相互情報量の相対エントロピー表示](../QINF20/index.md#cor-qinf20-mutual-dpi)と[非負性・等号条件](../QINF20/index.md#prop-qinf20-nonnegative)を適用します。補題から $\chi=I(X:Q)=D(\omega_{XQ}\|\omega_X\otimes\omega_Q)\ge0$ です。相対エントロピーが0なら $\omega_{XQ}=\omega_X\otimes\omega_Q$ であり、両辺の $|x\rangle\langle x|$ ブロックを比較して
+[QINF20の相互情報量の相対エントロピー表示](../QINF20/index.md#cor-qinf20-mutual-dpi)と[非負性・等号条件](../QINF20/index.md#prop-qinf20-nonnegative)を適用します。[古典量子状態のブロックエントロピー](#lem-qinf21-cq-entropy)から $\chi=I(X:Q)=D(\omega_{XQ}\|\omega_X\otimes\omega_Q)\ge0$ です。相対エントロピーが0なら $\omega_{XQ}=\omega_X\otimes\omega_Q$ であり、両辺の $|x\rangle\langle x|$ ブロックを比較して
 
 $$
 p_x\rho_x=p_x\overline\rho.
@@ -216,7 +267,7 @@ q(y|x)=\operatorname{Tr}(M_y\rho_x),
 \qquad p_{xy}=p_xq(y|x)
 $$
 
-と置きます。$q(y|x)\ge0$ は正値性から従い、$\sum_yq(y|x)=\operatorname{Tr}\rho_x=1$ です。従って $p_{xy}$ は非負で全和1の古典同時分布です。
+と置きます。[POVMの確率分布と射影測定の包含](../QINF5/index.md#prop-qinf5-probabilities)により $q(y|x)\ge0$ であり、$\sum_yq(y|x)=\operatorname{Tr}\rho_x=1$ です。従って $p_{xy}$ は非負で全和1の古典同時分布です。以下の $I(X:Y)$ は[古典相互情報量の表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)で、$X$ は入力ラベル、$Y$ は測定結果を動く変数とします。
 
 <a id="def-qinf21-accessible"></a>
 
@@ -324,7 +375,21 @@ $$
 
 ## 5. いつHolevo界に届くか
 
-もし全ての $\rho_x$ が同じ基底で対角化できるなら、その基底を測定した結果は通常の古典通信路になり、測定前に保持していたラベルの相関を失いません。有限次元では、密度演算子が互いに可換なら共通正規直交固有基底を取れます。
+もし全ての $\rho_x$ が同じ基底で対角化できるなら、その基底を測定した結果は通常の古典通信路になり、測定前に保持していたラベルの相関を失いません。有限次元では、密度演算子が互いに可換、すなわち
+
+$$
+\rho_x\rho_z=\rho_z\rho_x\qquad(x,z\in\mathcal X)
+$$
+
+なら共通正規直交固有基底を取れます。実際、[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で一つを対角化し、その固有空間 $V_\lambda$ を取ると、他の可換な $\rho_z$ について
+
+$$
+\rho_xv=\lambda v\ \Longrightarrow\
+\rho_x(\rho_zv)=\rho_z(\rho_xv)=\lambda\rho_zv
+\quad (v\in V_\lambda)
+$$
+
+なので $V_\lambda$ は $\rho_z$ で不変です。各固有空間の上で残りの各密度演算子を順に対角化すれば、有限個の $\rho_x$ を同時に対角化できます。
 
 <a id="prop-qinf21-commuting"></a>
 
@@ -395,7 +460,7 @@ $$
 \qquad\det\overline\rho=\frac3{16}-\frac1{16}=\frac18.
 $$
 
-特性方程式 $\lambda^2-\lambda+1/8=0$ の解は
+$2\times2$ 行列の特性多項式は $\det(\lambda I_2-\overline\rho)=\lambda^2-(\operatorname{Tr}\overline\rho)\lambda+\det\overline\rho$ なので、ここでは $\lambda^2-\lambda+1/8=0$ です。その解は
 
 $$
 \lambda_\pm=\frac{1\pm1/\sqrt2}{2},
@@ -409,7 +474,25 @@ I(X:Y)_{\mathrm{computational}}
 =h_2(1/4)-\tfrac12=0.311278\ldots.
 $$
 
-さらに[QINF10のHelstrom測定](../QINF10/index.md#thm-qinf10-helstrom)を選ぶと、最小誤りを実現する射影 $E_0,E_1$ があり、$e=(1-1/\sqrt2)/2$ と置けば条件付き確率は
+さらに[QINF10のHelstrom測定](../QINF10/index.md#thm-qinf10-helstrom)を選びます。等確率なので判定に使う作用素は $\Delta=(\rho_0-\rho_1)/2$ です。計算基底で
+
+$$
+\Delta=\frac14\begin{pmatrix}1&-1\\-1&-1\end{pmatrix},
+\qquad \Delta^2=\frac18 I_2.
+$$
+
+従って $2\sqrt2\Delta$ は固有値 $\pm1$ のHermitian行列で、$E_0=(I_2+2\sqrt2\Delta)/2$、$E_1=I_2-E_0$ は正負固有空間への射影です。$E_0$ の対角成分と $|+\rangle$ での期待値を別々に計算すると
+
+$$
+\begin{aligned}
+q(0|0)&=\langle0|E_0|0\rangle=\frac{1+1/\sqrt2}{2},\\
+q(0|1)&=\langle+|E_0|+\rangle
+=\frac12+\sqrt2\langle+|\Delta|+\rangle
+=\frac12-\frac1{2\sqrt2}.
+\end{aligned}
+$$
+
+ここで $\langle+|\Delta|+\rangle=(|\langle0|+\rangle|^2-1)/2=-1/4$ です。$e=(1-1/\sqrt2)/2$ と置くと $q(0|0)=1-e$、$q(0|1)=e$、補集合 $E_1$ についても同様に求まるので、条件付き確率は
 
 $$
 \begin{array}{c|cc}
