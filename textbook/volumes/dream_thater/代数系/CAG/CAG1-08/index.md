@@ -25,18 +25,36 @@ $$
 $$
 
 > - **本質的全射**：$\mathcal D$ の任意の対象 $E$ に対し、$T(A)\simeq E$ となる $\mathcal C$ の対象 $A$ が存在する。
-> - **圏の同値**：$T$ が完全忠実かつ本質的全射であること。同値な言い方として、同型を除いて逆向きの関手があり、往復が恒等関手に自然同型となる。
+> - **圏の同値**：$T$ が完全忠実かつ本質的全射であること。
 <!-- formal-statement-end -->
 
 「忠実」は異なる射を同じ射へ潰さず、「完全」は解析側の射を取り逃がさず、「本質的全射」は解析側の層を同型を除いて取り逃がさない、という三つの意味を持つ。対象の文字列が完全一致する必要はない。前章の[指定同型と両立する一意性](../CAG1-07/index.md#cor-cag1-07-uniqueness)が、この「同型を除いて」の意味を具体化している。
 
+逆向きの関手 $S:\mathcal D\to\mathcal C$ を作り、各対象で $S(T(A))\simeq A$、$T(S(E))\simeq E$ を射と両立する形で選べる、というのも同値な記述である。例えば $ST$ から恒等関手への対象ごとの同型 $\eta_A:S(T(A))\to A$ について、「射と両立する」とは任意の $u:A\to B$ で
+
+$$
+u\circ\eta_A=\eta_B\circ S(T(u))
+$$
+
+が成立することである。このように、すべての対象で選んだ同型がすべての射と交換するとき、その同型の族を**自然同型**という。
+
+逆関手の構成方向では、本質的全射性で各 $E$ に模型 $S(E)$ と同型 $\alpha_E:T(S(E))\to E$ を選び、$f:E\to E'$ に対して $\alpha_{E'}^{-1}f\alpha_E$ を完全忠実性で一意に $S(f)$ へ戻せばよい。この一意性が合成・恒等射との両立を保証する。
+
 <!-- definition-example-start: def-cag1-08-category-equivalence -->
-**定義の確認**：$X=\operatorname{Spec}\mathbb C$ という一点上では、代数的連接層も解析的連接層も有限次元 $\mathbb C$-ベクトル空間である。両側で、$\mathbb C^r$ から $\mathbb C^s$ への層の射は $s\times r$ 複素行列で決まり、解析化によって各成分は変わらない。従って任意の $r,s$ で Hom 写像は全単射である。
+**定義の確認**：$X=\operatorname{Spec}\mathbb C$ という一点上では、代数的連接層も解析的連接層も有限次元 $\mathbb C$-ベクトル空間である。$V=\mathbb C^r$、$W=\mathbb C^s$ と置き、各々の標準基底を $e_1,\ldots,e_r$、$f_1,\ldots,f_s$ とする。層の射はここでは $\mathbb C$-線形写像 $u:V\to W$ であり、各 $u(e_j)$ の基底展開で係数 $m_{ij}\in\mathbb C$ が一意に決まる。
+
+$$
+u(e_j)=\sum_{i=1}^{s}m_{ij}f_i,\qquad
+u\!\left(\sum_{j=1}^{r}x_je_j\right)
+=\sum_{i=1}^{s}\left(\sum_{j=1}^{r}m_{ij}x_j\right)f_i.
+$$
+
+従って射の集合 $\operatorname{Hom}(V,W)$ は $s\times r$ 複素行列全体と一対一に対応する。解析化では $V\otimes_{\mathbb C}\mathbb C\simeq V$、$W\otimes_{\mathbb C}\mathbb C\simeq W$ だから同じ行列 $M=(m_{ij})$ が同じ射を表す。恒等射は単位行列、合成は行列積に対応して保たれる。任意の $r,s$ で Hom 写像は $M\mapsto M$ という全単射になり、[完全忠実性の定義](#def-cag1-08-category-equivalence)の各条件を確かめられた。
 
 解析側の任意の有限次元空間 $E$ は、その次元を $r$ として基底を選べば $\mathbb C^r\simeq E$ となる。これで本質的全射性も確認できた。基底の選び方が一意でないことは、圏の同値の妨げにならない。
 <!-- definition-example-end -->
 
-この最小例では、層の射を行列として**実際に**照合できた。射影的な $X$ では、行列の成分が一般の正則関数になっても同じ復元が可能であることが、GAGA IIの大きな中身だった。
+この最小例では、層の射を行列として**実際に**照合できた。射影的な $X$ では、局所表示行列の成分が一般の正則関数になっても同じ復元が可能であることが、[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom)の大きな中身だった。
 
 ## 2. 射影版GAGAを一つの定理へ
 
@@ -99,20 +117,20 @@ $$
 
 ## 3. 自然性――比較同型は射を忘れない
 
-二つの層のコホモロジーが同型だとしても、その層の間の射が誘導する線形写像まで対応しているかは別の問いである。例えば $\mathbb P^1$ 上の $\mathcal O\to\mathcal O(1)$ を切断 $S$ による乗法で定めると、大域切断の写像は $1\mapsto S$ である。解析側でも同じ射を使う以上、この写像が変わっては困る。
+二つの層のコホモロジーが同型だとしても、その層の間の射が誘導する線形写像まで対応しているかは別の問いである。例えば斉次座標を $[S:T]$ とする $\mathbb P^1$ 上の $\mathcal O\to\mathcal O(1)$ を切断 $S$ による乗法で定めると、大域切断の写像は $1\mapsto S$ である。解析側でも同じ射を使う以上、この写像が変わっては困る。
 
 <a id="prop-cag1-08-cohomology-naturality"></a>
 
 <!-- formal-statement-start -->
 > **命題（コホモロジー比較の自然性）**
-> $X$ を有限型射影 $\mathbb C$-スキーム、$u:\mathcal F\to\mathcal G$ を代数的連接層間の射、$q\ge0$ を整数とする。[射影版GAGA](#thm-cag1-08-projective-equivalence)の比較同型は次を満たす。
+> $X$ を有限型射影 $\mathbb C$-スキーム、$u:\mathcal F\to\mathcal G$ を代数的連接層間の射、$q\ge0$ を整数とする。$H^q(u)$ は $u$ が誘導する $q$ 次コホモロジーの射とする。[射影版GAGA](#thm-cag1-08-projective-equivalence)の比較同型は次を満たす。
 
 $$
 c^q_{\mathcal G}\circ H^q(u)
 =H^q(u^{\mathrm{an}})\circ c^q_{\mathcal F}.
 $$
 
-> また代数的連接層の短完全列に付随するコホモロジー長完全列では、各次数の比較写像が接続準同型とも可換である。
+> また代数的連接層の短完全列に付随するコホモロジー長完全列では、各次数の比較写像が接続準同型とも可換である。解析側の対応する射と接続準同型にはそれぞれ $H^q(u^{\mathrm{an}})$、$\delta^q_{\mathrm{an}}$ の添字を付ける。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -241,7 +259,14 @@ $R$ の元は $a+bt$（$a,b\in\mathbb C$）と一意に書ける。$t(a+bt)=at$ 
 解析側では $f(t)=a+bt+t^2g(t)$ と局所的に書けるので、$\mathbb C\{t\}/(t^2)$ における積も $t f(t)=at$ である。よって同じ核・像・余核の計算を再現する。$X$ は零次元の射影スキームだから[射影版GAGA](#thm-cag1-08-projective-equivalence)を適用できることとも一致する。
 <!-- proof-end -->
 
-特異であっても、例えば $Y=V(UV)\subset\mathbb P^2$ は二本の射影直線の和として射影的である。交点 $[0:0:1]$ では $UV$ の両偏微分が零になり滑らかでないが、GAGAはその点を除外しない。必要なのは射影性と連接性であって、Jacobianの階数条件ではない。
+特異であっても、例えば斉次座標 $[U:V:W]$ の $Y=V(UV)\subset\mathbb P^2$ は二本の射影直線の和として射影的である。$W\ne0$ の座標 $u=U/W,\ v=V/W$ で局所方程式は $f(u,v)=uv$。交点 $[0:0:1]$ では
+
+$$
+\left(\frac{\partial f}{\partial u},\frac{\partial f}{\partial v}\right)_{(0,0)}
+=(v,u)_{(0,0)}=(0,0)
+$$
+
+となる。$uv$ は平方因子を持たないので、既習の[平面曲線の特異点判定](../../AG/AG1-11/index.md#prop-ag1-11-singular-criterion)を適用でき、交点は特異である。ここで偏微分は局所方程式の一次係数を測るもので、Jacobianの階数が零になるため接空間は二次元となり、曲線の一次元より大きい。しかしGAGAはその点を除外しない。必要なのは射影性と連接性であって、Jacobianの階数条件ではない。
 
 ## 6. 固有版へ広げるとき、何が増えるか
 
@@ -333,7 +358,16 @@ $$
 
 を取る。これは一つの正則関数による有限表示の余核であり、[解析的連接性](../CAG1-03/index.md#thm-cag1-03-oka-coherence)を満たす。その支持は $\sin(\pi z)=0$、すなわち全整数 $\mathbb Z$ である。各整数 $n$ で導関数 $\pi\cos(\pi n)=\pi(-1)^n$ は非零だから、整数の近傍では長さ一の非零な茎を持ち、その他では零である。
 
-仮に代数的連接層 $\mathcal F$ の解析化が $\mathcal E$ と同型なら、解析化の局所的な忠実平坦性によって $\operatorname{Supp}(\mathcal F^{\mathrm{an}})$ は $\operatorname{Supp}(\mathcal F)$ の複素点集合に一致する。しかし $\mathbb A^1$ 上の代数的連接層の支持はZariski閉集合であり、$\mathbb C[z]$ のイデアルの零点集合だから、有限集合または全体 $\mathbb C$ に限られる。$\mathbb Z$ はどちらでもない。矛盾するので $\mathcal E$ は代数化できない。
+仮に代数的連接層 $\mathcal F$ の解析化が $\mathcal E$ と同型だとする。[解析化の局所的な忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)を複素閉点 $x$ の茎に適用すると
+
+$$
+\mathcal F_x\ne0
+\quad\Longleftrightarrow\quad
+\mathcal F_x\otimes_{\mathcal O_{A,x}}
+\mathcal O_{A^{\mathrm{an}},x}\ne0
+$$
+
+である。従って解析化した支持は、代数的支持の複素点集合に一致する。しかし $\mathbb A^1$ 上の代数的連接層の支持はZariski閉集合であり、$\mathbb C[z]$ のイデアルの零点集合だから、有限集合または全体 $\mathbb C$ に限られる。$\mathbb Z$ はどちらでもない。矛盾するので $\mathcal E$ は代数化できない。
 <!-- proof-end -->
 
 射影版のどこが失敗したかも明確である。アフィン直線には閉埋込み $A\hookrightarrow\mathbb P^N$ がなく、[解析的大域生成と有限次元性](../CAG1-07/index.md#thm-cag1-07-analytic-serre)を**射影的な空間上の任意の解析的連接層**へ使う段階が壊れる。実際、$H^0(\mathbb C,\mathcal O_{\mathbb C})$ 自身が無限次元である。コンパクトな複素トーラスなどが必ず代数的になると結論することもできない。固有版の定理は、あくまで最初から**固有な代数的スキーム $X$ が与えられている**場合の比較である。
@@ -412,7 +446,22 @@ $A=\operatorname{Spec}\mathbb C[z]$ とする。$e^z$ による乗法が $A^{\ma
 $P=\mathbb P^1_{\mathbb C}$ とし、$\mathcal F=\mathcal O_P(-2)$ とする。代数側の $H^0(P,\mathcal F)$、$H^1(P,\mathcal F)$ の次元を求め、解析化後の対応する群の次元と比較写像について述べよ。
 
 <!-- solution-start -->
-**詳細解答**。[射影直線のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)の $n=1,d=-2$ の場合、$H^0(P,\mathcal O(-2))=0$ であり、$H^1(P,\mathcal O(-2))$ は一次元である。標準チャートの重なりのLaurent展開で、一次群は $t^{-1}$ の係数に対応する一類で生成される。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)はこの代数的類を同じ解析的Čech類へ移す同型なので
+**詳細解答**。[射影直線のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)の $n=1,d=-2$ の場合、$H^0(P,\mathcal O(-2))=0$ であり、$H^1(P,\mathcal O(-2))$ は一次元である。これをチャートでも確かめる。$U_S$ で $t=T/S$ とし、$\mathcal O(-2)$ の枠を $S^{-2}$ とする。重なり、$U_S$、$U_T$ からの切断は順に
+
+$$
+\mathbb C[t,t^{-1}]S^{-2},\qquad
+\mathbb C[t]S^{-2},\qquad
+t^{-2}\mathbb C[t^{-1}]S^{-2}
+$$
+
+となる。従って Čech の一次群は
+
+$$
+\frac{\mathbb C[t,t^{-1}]}{\mathbb C[t]+t^{-2}\mathbb C[t^{-1}]}
+\simeq\mathbb C\cdot[t^{-1}].
+$$
+
+唯一残るのは $t^{-1}$ の係数に対応する類である。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)はこの代数的類を同じ解析的Čech類へ移す同型なので
 
 $$
 \dim H^0(P^{\mathrm{an}},\mathcal F^{\mathrm{an}})=0,
@@ -492,7 +541,14 @@ $P=\mathbb P^1_{\mathbb C}$、$p=[0:1]$ とし、$S^2:\mathcal O_P(-2)\to\mathca
 <!-- solution-start -->
 **詳細解答**。$U_T$ の座標 $w=S/T$ で射は $w^2$ 倍なので、余核の $p$ での茎は $\mathbb C[w]_{(w)}/(w^2)$ で、基底 $1,w$ を持ち長さ2である。他の点では $S^2$ が単元として働き、余核は零。よって $\mathcal Q$ は一点に台を持つ長さ2の層である。
 
-代数的な短完全列 $0\to\mathcal O(-2)\xrightarrow{S^2}\mathcal O\to\mathcal Q\to0$ の長完全列と[射影直線のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から
+$U_T$ で $S^2$ による射は $w^2$ 倍であり、$\mathbb C[w]$ は整域だから単射である。$U_S$ では $S$ は枠を与えるので射は単元倍となり、やはり単射である。よって代数的な短完全列が成立する。
+
+$$
+0\to\mathcal O(-2)\xrightarrow{S^2}\mathcal O
+\to\mathcal Q\to0.
+$$
+
+この長完全列と[射影直線のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から
 
 $$
 0\to0\to\mathbb C\to H^0(P,\mathcal Q)
@@ -517,7 +573,7 @@ $Y=V(UV)\subset\mathbb P^2_{\mathbb C}$ と $A=\mathbb A^1_{\mathbb C}$ を考�
 <!-- solution-start -->
 **詳細解答**。
 
-1. $UV$ は二次斉次式なので $Y$ は射影平面の閉部分スキームとして射影的である。点 $[0:0:1]$ で $\partial(UV)/\partial U=V=0$、$\partial(UV)/\partial V=U=0$、$\partial(UV)/\partial W=0$ だからJacobianの階数が不足し、特異である。しかし[射影版GAGA](#thm-cag1-08-projective-equivalence)は滑らかさを仮定しない。従って連接層の本質的全射、Homの全単射、および全 $q\ge0$ での自然なコホモロジー比較同型が成り立つ。
+1. $UV$ は二次斉次式なので $Y$ は射影平面の閉部分スキームとして射影的である。$W\ne0$ の局所方程式 $f(u,v)=uv$ は平方因子を持たず、交点 $[0:0:1]$ では偏微分がともに零である。従って[平面曲線の特異点判定](../../AG/AG1-11/index.md#prop-ag1-11-singular-criterion)により特異である（第5節で座標と一次式を照合した）。しかし[射影版GAGA](#thm-cag1-08-projective-equivalence)は滑らかさを仮定しない。従って連接層の本質的全射、Homの全単射、および全 $q\ge0$ での自然なコホモロジー比較同型が成り立つ。
 2. $A$ では大域代数関数は $\mathbb C[z]$、解析側では整関数全体である。$e^z$ は整関数だが多項式でないので $H^0$ 比較の像にない。さらに $\operatorname{Hom}(\mathcal O,\mathcal O)$ は大域関数と同じで、乗法 $\cdot e^z$ は解析的Homの元だが代数側から来ない。
 3. $\sin(\pi z)=0$ は $z\in\mathbb Z$ と同値で、各整数での零点は一位だから $\mathcal E$ は整数点にだけ非零な茎を持つ。代数的連接層の支持は $\mathbb A^1$ のZariski閉集合で有限集合または全体に限られ、無限離散な $\mathbb Z$ とは一致しない。従って代数化不能である。$Y$ は**特異でも射影的**という仮定を満たす。一方 $A$ は**非固有かつ非射影的**なので、GAGA I〜IIIや[解析的大域生成定理](../CAG1-07/index.md#thm-cag1-07-analytic-serre)の射影性仮定を失っている。
 <!-- solution-end -->
@@ -545,7 +601,7 @@ $X$ を有限型射影 $\mathbb C$-スキームとし、解析的連接層 $\mat
 
    第一項は $\mathcal I$、第二項は $\mathcal K$ に属する。逆に $t\in\mathcal I\cap\mathcal K$ なら $t=u(r)$ と書け、かつ $u(t)=0$ である。しかし $u(t)=u^2(r)=u(r)=t$ だから $t=0$。従って和は直和である。
 
-   加法写像 $\mathcal I\oplus\mathcal K\to\mathcal F$ は同型で、逆は $s\mapsto(u(s),s-u(s))$ である。Noether性により両部分層は連接であり、[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)が核と像を保つ。従って $\iota$ を通して $\mathcal E\simeq\operatorname{im}e\oplus\ker e$ を得る。
+   加法写像 $\mathcal I\oplus\mathcal K\to\mathcal F$ は同型で、逆は $s\mapsto(u(s),s-u(s))$ である。[Noetherスキーム上の連接層の核・像](../../AG/AG3-06/index.md#thm-ag3-06-noether-coherence)により両部分層は連接であり、[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)が核と像を保つ。従って $\iota$ を通して $\mathcal E\simeq\operatorname{im}e\oplus\ker e$ を得る。
 3. 有限直和のコホモロジーは直和へ分解するため
 
 $$
