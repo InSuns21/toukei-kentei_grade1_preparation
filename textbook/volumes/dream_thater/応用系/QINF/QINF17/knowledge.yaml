@@ -1,0 +1,60 @@
+chapter: QINF17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF6
+  - QINF14
+  - INFO1
+forward_references: []
+
+concepts:
+  - id: quantum.von-neumann-entropy
+    name: von Neumannエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（von Neumannエントロピー）]
+    requires: [quantum.finite-density-operator, information.shannon-entropy]
+
+  - id: quantum.von-neumann-entropy-bounds
+    name: von Neumannエントロピーの上下限と等号条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（von Neumannエントロピーの上下限と等号条件）]
+    requires: [quantum.von-neumann-entropy, quantum.density-purity-criteria]
+
+  - id: quantum.entropy-unitary-invariance
+    name: ユニタリ共役に対するエントロピー不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ユニタリ共役に対するエントロピー不変性）]
+    requires: [quantum.von-neumann-entropy]
+
+  - id: quantum.entropy-tensor-additivity
+    name: テンソル積状態のエントロピー加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（テンソル積状態のエントロピー加法性）]
+    requires: [quantum.von-neumann-entropy, quantum.composite-system]
+
+  - id: quantum.entropy-classical-diagonal
+    name: 古典対角状態とShannonエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典対角状態とShannonエントロピー）]
+    requires: [quantum.von-neumann-entropy, information.shannon-entropy]
+
+  - id: quantum.entropy-pure-bipartite
+    name: 純粋二部状態の縮約エントロピーの一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋二部状態の縮約エントロピーの一致）]
+    requires: [quantum.von-neumann-entropy, quantum.schmidt-reduced-spectrum]
+
+  - id: quantum.entropy-majorization-monotonicity
+    name: majorizationによるエントロピーの単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（majorizationによるエントロピーの単調性）]
+    requires: [quantum.von-neumann-entropy, quantum.probability-majorization]
