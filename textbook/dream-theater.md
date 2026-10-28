@@ -967,6 +967,7 @@
 6. [CAG1-06 GAGA II――正則な層の射の代数性](textbook/volumes/dream_thater/代数系/CAG/CAG1-06/index.md)
 7. [CAG1-07 GAGA III――正則連接層の代数化](textbook/volumes/dream_thater/代数系/CAG/CAG1-07/index.md)
 8. [CAG1-08 射影版GAGAの圏同値と固有性の境界](textbook/volumes/dream_thater/代数系/CAG/CAG1-08/index.md)
+9. [CAG1-09 Chowの定理と解析的射の代数性](textbook/volumes/dream_thater/代数系/CAG/CAG1-09/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線

@@ -1,0 +1,56 @@
+chapter: CAG1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-08]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.analytic-vanishing-ideal
+    name: 閉解析部分集合の消滅イデアル層
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-coherent-sheaf]
+  - id: complex-algebraic-geometry.closed-analytic-subspace
+    name: 閉解析部分空間
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-vanishing-ideal, complex-algebraic-geometry.analytic-coherent-sheaf]
+  - id: complex-algebraic-geometry.cartan-oka-ideal-coherence
+    name: Cartan–Okaの解析的イデアル層連接性
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-vanishing-ideal]
+  - id: complex-algebraic-geometry.chow-theorem
+    name: Chowの定理
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.cartan-oka-ideal-coherence, complex-algebraic-geometry.gaga-equivalence, complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.analytic-faithful-flatness]
+  - id: complex-algebraic-geometry.closed-analytic-subspace-algebraization
+    name: 閉解析部分空間の代数化
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.chow-theorem, complex-algebraic-geometry.gaga-equivalence]
+  - id: complex-algebraic-geometry.holomorphic-graph
+    name: 正則写像のグラフ
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.chow-theorem]
+  - id: complex-algebraic-geometry.graph-algebraization
+    name: 正則グラフの閉性と代数化
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.holomorphic-graph, complex-algebraic-geometry.chow-theorem]
+  - id: complex-algebraic-geometry.holomorphic-line-bundle-algebraization
+    name: 解析的正則線束の代数化と切断の復元
+    kind: lemma
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-equivalence, complex-algebraic-geometry.gaga-cohomology, complex-algebraic-geometry.analytic-faithful-flatness]
+  - id: complex-algebraic-geometry.projective-holomorphic-morphism-algebraicity
+    name: 射影多様体間の正則写像の代数性
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.graph-algebraization, complex-algebraic-geometry.holomorphic-line-bundle-algebraization]
+  - id: complex-algebraic-geometry.nonproper-holomorphic-map-counterexample
+    name: 非固有直線上の正則写像の非代数性
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.projective-holomorphic-morphism-algebraicity]

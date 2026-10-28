@@ -1,0 +1,48 @@
+id: "CAG1-09"
+title: "Chowの定理と解析的射の代数性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-08
+official_scope: []
+learning_objectives:
+  - 閉解析部分集合の消滅イデアル層とその連接性を説明し、零点集合と非被約な解析的部分空間を区別できる
+  - Cartan–Okaのイデアル連接性を外部入力として明記し、GAGA III・IIと忠実平坦性からChowの定理を導ける
+  - 射影多様体間の正則写像のグラフが閉解析的であり、射影積上のChowの定理が使える条件を確認できる
+  - 正則写像が引き戻す線束と座標切断を代数化し、射影空間への代数的射を構成して標的への因子化を示せる
+  - グラフの点集合上の全単射とスキームの同型を区別し、射影性・分離性・固有性を誤用しない
+  - 非射影の例では定理の仮定がどこで失われるかを特定し、具体的な反例を計算できる
+definitions:
+  - { id: CAG1-09-DEF-01, name: 閉解析部分集合の消滅イデアル層 }
+  - { id: CAG1-09-DEF-02, name: 正則写像のグラフ }
+  - { id: CAG1-09-DEF-03, name: 閉解析部分空間 }
+theorems:
+  - { id: CAG1-09-THM-01, name: Cartan–Okaの解析的イデアル層連接性（外部定理） }
+  - { id: CAG1-09-THM-02, name: Chowの定理 }
+  - { id: CAG1-09-PROP-01, name: 閉解析部分空間の代数化 }
+  - { id: CAG1-09-PROP-02, name: 正則グラフの閉性と代数化 }
+  - { id: CAG1-09-LEM-01, name: 解析的正則線束の代数化と切断の復元 }
+  - { id: CAG1-09-THM-03, name: 射影多様体間の正則写像の代数性 }
+  - { id: CAG1-09-PROP-03, name: 非固有直線上の正則写像の非代数性 }
+canonical_examples:
+  - P1の一点の消滅イデアルとO(-1)からOへの射
+  - P1の同じ点上の非被約二重点と解析的イデアルの差
+  - 二乗写像P1からP1のグラフを双斉次式で計算する
+  - P1の二次Veronese写像と平面二次曲線への因子化
+  - A1上の指数関数と射影性欠落による代数化失敗
+problem_patterns:
+  - CAG1-09-A01
+  - CAG1-09-A02
+  - CAG1-09-A03
+  - CAG1-09-A04
+  - CAG1-09-A05
+  - CAG1-09-B01
+  - CAG1-09-B02
+  - CAG1-09-B03
+  - CAG1-09-B04
+  - CAG1-09-C01
+  - CAG1-09-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }

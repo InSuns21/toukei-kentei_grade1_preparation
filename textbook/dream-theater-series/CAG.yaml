@@ -40,7 +40,7 @@ chapters:
     title: "射影版GAGAの統合と固有版の境界"
   - id: CAG1-09
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-09
-    status: planned
+    status: completed
     title: "Chowの定理と解析的射の代数性"
   - id: CAG1-10
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-10
