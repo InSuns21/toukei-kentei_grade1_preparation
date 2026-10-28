@@ -278,7 +278,7 @@ $g$ は $w=0$ で連続かつ有限だから、左辺は $w\to0$ で $0$ に収�
 複素平面上の $F(z)=e^z$ を、$A$ の複素点から $A$ の複素点への集合写像とする。解析位相では正則・連続であるが、始域・終域をともにZariski位相にすると連続でないことを、閉集合 $\{1\}$ の逆像で示せ。
 
 <!-- solution-start -->
-**詳細解答**。$e^{x+iy}=e^x(\cos y+i\sin y)$ なので $e^z=1$ には $x=0$ と $\cos y=1,\sin y=0$ が必要十分である。従って
+**詳細解答**。$z=x+iy$（$x,y\in\mathbb R$）とおく。実部 $x$ と虚部 $y$ に分けると $e^{x+iy}=e^x(\cos y+i\sin y)$ であり、$e^z=1$ は $x=0$ かつ $\cos y=1,\sin y=0$ と同値である。従って
 
 $$
 F^{-1}(\{1\})=\{2\pi i n:n\in\mathbb Z\}.
@@ -293,7 +293,7 @@ $\{1\}$ は多項式 $t-1$ の零点なので終域 $A$ のZariski閉集合で�
 #### CAG1-01-C01 穿孔直線の二つの関数環と比較の境界
 - Level: C
 
-$U=P\setminus\{[1:0],[0:1]\}$ とし、$U$ を $U_S$ の座標 $z=T/S$ で見る。
+$U=P\setminus\{[1:0],[0:1]\}$ とし、$U$ を $U_S$ の座標 $z=T/S$ で見る。以下、$\mathbb C^\times=\mathbb C\setminus\{0\}$ と書く。
 
 1. $U\cong\mathbb C^\times$ と示せ。
 2. $U$ 上の代数的正則関数環が $\mathbb C[z,z^{-1}]$（有限個の整数冪の和）であることを、主開集合の局所化から説明せよ。
@@ -305,7 +305,45 @@ $U=P\setminus\{[1:0],[0:1]\}$ とし、$U$ を $U_S$ の座標 $z=T/S$ で見る
 
 (1) $[1:0]$ は $z=0$、$[0:1]$ は $U_S$ に入らない無限遠点である。従って残りの $U$ は $[1:z]$（$z\ne0$）の点すべてで、$z$ は $U$ を $\mathbb C^\times$ に全単射かつ双正則に写す。
 
-(2) $U$ はアフィン直線の主開集合 $D(z)$ に等しい。[主開集合と局所化](../../AG/AG1-04/index.md#prop-ag1-04-basic-opens)により座標環は $S^{-1}\mathbb C[z]$、$S=\{1,z,z^2,\ldots\}$ である。その元は $p(z)/z^m$（$p\in\mathbb C[z]$, $m\ge0$）と表せ、$p$ の各項を $z^m$ で割れば有限個の整数冪の和となる。逆に各 $z^k$（$k\in\mathbb Z$）はこの局所化に属する。よって環は $\mathbb C[z,z^{-1}]$ である。
+(2) $U$ はアフィン直線の[主開集合](../../AG/AG1-04/index.md#def-ag1-04-principal-open) $D_A(z)$ に等しい。局所化に使う乗法的集合を $S_z=\{1,z,z^2,\ldots\}$ と書く。[主開集合上の分数関数の命題](../../AG/AG1-04/index.md#prop-ag1-04-fractions-functions)により、局所化 $S_z^{-1}\mathbb C[z]$ の元
+
+$$
+\frac{p(z)}{z^m}\qquad (p\in\mathbb C[z],\ m\ge0)
+$$
+
+は $U$ 上の代数的正則関数を与える。この命題は単射を主張するだけなので、**すべての正則関数がこの形になること**も確かめる。
+
+$A$ を $P$ のチャート $U_S$ と同一視し、$U$ 上の代数的正則関数全体を $\mathcal O_A(U)$ と書く。その任意の元 $f$ を取る。[構造層の局所分数表示](../../AG/AG2-05/index.md#def-ag2-05-structure-sheaf)により、各点 $\alpha\in U$ のZariski開近傍 $N_\alpha$ と多項式 $a_\alpha,b_\alpha$ が存在し、
+
+$$
+f(z)=\frac{a_\alpha(z)}{b_\alpha(z)}\quad(z\in N_\alpha),
+\qquad b_\alpha(z)\ne0\quad(z\in N_\alpha)
+$$
+
+と書ける。$A$ の空でないZariski開集合はいずれも有限集合の補集合だから、任意の二つの近傍 $N_\alpha,N_\beta$ の共通部分は無限集合である。重なりで等しい関数値の分母を払うと、
+
+$$
+a_\alpha(z)b_\beta(z)-a_\beta(z)b_\alpha(z)=0
+$$
+
+が無限個の $z$ で成り立つ。一変数多項式の根の個数から左辺は零多項式である。$\mathbb C(z)$ を $\mathbb C[z]$ の非零多項式を分母とする分数全体と書くと、各局所表示はその同じ元 $r=p/q$ に一致する。$p,q$ は互いに素、$q\ne0$ として選ぶ。
+
+もし $q(\alpha)=0$ となる $\alpha\ne0$ があれば、$\alpha\in U$ での局所表示 $a_\alpha/b_\alpha$ と $p/q$ の一致から
+
+$$
+p(\alpha)b_\alpha(\alpha)
+=q(\alpha)a_\alpha(\alpha)=0
+$$
+
+となる。$b_\alpha(\alpha)\ne0$ なので $p(\alpha)=0$ だが、これは $p,q$ が互いに素なことに矛盾する。
+
+従って $q$ の零点は $0$ に限られ、[複素多項式の一次因子分解](../../../解析系/CA/CA3/index.md#cor-ca3-fta-factorization)により $q=cz^m$（$c\ne0,\ m\ge0$）である。よって $f=p(z)/(cz^m)$ は有限個の整数冪の和となる。逆にこの形の関数は $z\ne0$ で分母が非零なので正則であり、
+
+$$
+\mathcal O_A(U)=S_z^{-1}\mathbb C[z]=\mathbb C[z,z^{-1}]
+$$
+
+が従う。
 
 (3) $z\ne0$ では $1/z$ が正則で、指数関数との合成 $e^{1/z}$ も正則である。これがLaurent多項式 $\sum_{k=-m}^n a_kz^k$ と等しいと仮定する。必要なら $m\ge0$ を大きく取って、$z^m h(z)$ は多項式 $\sum a_k z^{k+m}$ となるはずである。この多項式は $z\to0$ で有限値に収束する。一方、正の実数 $x\to0$ について
 
