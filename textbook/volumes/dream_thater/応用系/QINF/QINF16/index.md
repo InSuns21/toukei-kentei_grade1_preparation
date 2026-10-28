@@ -607,7 +607,19 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$(0,1)$ では $xy=0$ だから $(a,b)=(+,+),(-,-)$ が各 $1/2$、他は0です。$(1,1)$ では $xy=1$ なので $(+,-),(-,+)$ が各 $1/2$、他は0です。いずれもAlice・Bobの周辺分布は各結果 $1/2$。残る二設定も積が $+1$ の同じ二対なので、設定の変更でどちらの周辺分布も変わりません。
+設定 $(0,1)$ では $xy=0$ だから積が $+1$ となる同符号の二対だけが許され、
+
+$$
+p(+,+\mid0,1)=p(-,-\mid0,1)=\frac12
+$$
+
+で、それ以外は0です。設定 $(1,1)$ では $xy=1$ なので異符号の二対だけが許され、
+
+$$
+p(+,-\mid1,1)=p(-,+\mid1,1)=\frac12
+$$
+
+で、それ以外は0です。いずれもAlice・Bobの周辺分布は各結果 $1/2$。残る二設定も積が $+1$ の同じ二対なので、設定の変更でどちらの周辺分布も変わりません。
 
 各設定で $ab$ は確率1で $(-1)^{xy}$ だから
 
@@ -742,7 +754,22 @@ $$
 =\frac{n^+_{xy}-n^-_{xy}}{N_{xy}}.
 $$
 
-従って $\widehat S=\widehat E_{00}+\widehat E_{01}+\widehat E_{10}-\widehat E_{11}$ です。例えば各設定を一回ずつ測り、$ab$ が順に $+1,+1,+1,-1$ となれば $\widehat S=4$。各局所応答が独立な公平コインを返す局所模型なら、真の $E_{xy}=0$ でありながら、この四つの積が指定順に出る確率は $(1/2)^4=1/16>0$ です。[古典CHSH定理](#thm-qinf16-classical-chsh)が制約するのは条件付き確率から計算した真の相関 $E_{xy}$ であり、四組それぞれの有限標本の実現値ではありません。統計的主張には試行の抽出法・設定選択・誤差評価が別途必要です。
+標本CHSH値は
+
+$$
+\widehat S=\widehat E_{00}+\widehat E_{01}
++\widehat E_{10}-\widehat E_{11}
+$$
+
+です。例えば各設定を一回ずつ測り、結果の積が順に $+1,+1,+1,-1$ となれば $\widehat S=4$。
+
+各局所応答が独立な公平コインを返す局所模型なら、真の相関は全て $E_{xy}=0$ ですが、この四つの積が指定順に出る確率は
+
+$$
+\left(\frac12\right)^4=\frac1{16}>0
+$$
+
+です。[古典CHSH定理](#thm-qinf16-classical-chsh)が制約するのは真の相関であって、四組それぞれの有限標本の実現値ではありません。統計的主張には試行の抽出法・設定選択・誤差評価が別途必要です。
 <!-- solution-end -->
 
 <a id="ex-qinf16-c01"></a>
@@ -829,7 +856,14 @@ $$
 \langle Z\otimes Z\rangle=1
 $$
 
-で、異なるPauli軸の積の期待値は0です。例えば $Y\otimes Y$ は $|00\rangle\mapsto-|11\rangle$、$|11\rangle\mapsto-|00\rangle$ と作用するので $-1$。交差する $X\otimes Y$ では $|00\rangle\mapsto i|11\rangle$、$|11\rangle\mapsto-i|00\rangle$ なので、期待値は $(i-i)/2=0$ です。他の異なる軸も同様に直交または位相相殺で0となります。従って $\boldsymbol a,\boldsymbol b$ を単位実ベクトルとすると
+で、異なるPauli軸の積の期待値は0です。例えば $Y\otimes Y$ は $|00\rangle\mapsto-|11\rangle$、$|11\rangle\mapsto-|00\rangle$ と作用するので期待値は $-1$。交差する $X\otimes Y$ では
+
+$$
+(X\otimes Y)|00\rangle=i|11\rangle,
+\qquad (X\otimes Y)|11\rangle=-i|00\rangle
+$$
+
+なので、期待値は $(-i+i)/2=0$ です。他の異なる軸も直交または位相相殺で0となります。従って $\boldsymbol a,\boldsymbol b$ を単位実ベクトルとすると
 
 $$
 E(\boldsymbol a,\boldsymbol b)
@@ -852,7 +886,14 @@ $$
 |\boldsymbol b_0-\boldsymbol b_1|\right).
 $$
 
-二つの和差の二乗和は $4$ なので、その和は Cauchy–Schwarz より最大 $2\sqrt2$。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。従って非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
+二つの和差の二乗和は平行四辺形恒等式により
+
+$$
+|\boldsymbol b_0+\boldsymbol b_1|^2
++|\boldsymbol b_0-\boldsymbol b_1|^2=4.
+$$
+
+従ってその和はCauchy–Schwarzより最大 $2\sqrt2$ です。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。よって非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
 
 特に $1/3<p\le1/\sqrt2$ の状態はエンタングル状態でも、この二設定二値の非自明な射影測定ではCHSH違反しません。エンタングルメントの判定とBell非局所性の検出は同じ検査ではないのです。
 <!-- solution-end -->
