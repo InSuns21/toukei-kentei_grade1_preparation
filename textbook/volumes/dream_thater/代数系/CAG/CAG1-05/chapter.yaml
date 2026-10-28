@@ -1,0 +1,43 @@
+id: "CAG1-05"
+title: "GAGA I――連接層コホモロジーの比較"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-04
+official_scope: []
+learning_objectives:
+  - 射影的な複素スキームと代数的連接層について自然な全次数コホモロジー比較写像を構成し、射影性・連接性の役割を説明できる
+  - 射影空間の解析的Stein被覆から高次消滅を導き、代数的なねじり層の有限直和による全射表示を使える
+  - ねじり層の比較を初期条件とする降下帰納で、長完全列の全射性と単射性を別々に証明できる
+  - 射影的閉埋込みの直像と解析化の交換を確認し、特異・非被約なXにも比較を移せる
+  - 具体的な層の短完全列・連結写像・零次切断を両側で計算し、非固有なアフィン例との違いを説明できる
+definitions:
+  - { id: CAG1-05-DEF-01, name: コホモロジーの自然比較写像 }
+theorems:
+  - { id: CAG1-05-LEM-01, name: 射影空間上の連接層の高次消滅 }
+  - { id: CAG1-05-THM-02, name: 代数的Serreの生成補題 }
+  - { id: CAG1-05-LEM-02, name: ねじり層の有限直和による全射表示 }
+  - { id: CAG1-05-LEM-03, name: 一次数降下の全射・単射補題 }
+  - { id: CAG1-05-THM-01, name: GAGA I――連接層コホモロジーの比較 }
+  - { id: CAG1-05-PROP-01, name: 閉埋込みの直像と解析化の交換 }
+canonical_examples:
+  - P1上のO(-2)の一次コホモロジー比較
+  - P1の長さ2の非被約点の構造層と境界写像
+  - P2内の射影直線の構造層とその高次消滅
+  - アフィン直線のOに対するH0比較の失敗
+problem_patterns:
+  - CAG1-05-A01
+  - CAG1-05-A02
+  - CAG1-05-A03
+  - CAG1-05-A04
+  - CAG1-05-A05
+  - CAG1-05-B01
+  - CAG1-05-B02
+  - CAG1-05-B03
+  - CAG1-05-B04
+  - CAG1-05-C01
+  - CAG1-05-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }

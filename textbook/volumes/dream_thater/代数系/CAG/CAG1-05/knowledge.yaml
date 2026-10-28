@@ -1,0 +1,48 @@
+chapter: CAG1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-04]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.cohomology-comparison-map
+    name: コホモロジーの自然比較写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（コホモロジーの自然比較写像）"]
+    requires: [complex-algebraic-geometry.coherent-sheaf-analytification]
+  - id: complex-algebraic-geometry.projective-coherent-dimension-bound
+    name: 射影空間上の連接層の高次消滅
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（射影空間上の連接層の高次消滅）"]
+    requires: [complex-algebraic-geometry.cartan-theorem-b, complex-algebraic-geometry.projective-stein-intersections]
+  - id: complex-algebraic-geometry.algebraic-serre-generation
+    name: 代数的Serreの生成補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（代数的Serreの生成補題）"]
+    requires: [algebraic-geometry.coherent-sheaf, algebraic-geometry.projective-twist]
+  - id: complex-algebraic-geometry.finite-twist-cover
+    name: ねじり層の有限直和による全射表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ねじり層の有限直和による全射表示）"]
+    requires: [complex-algebraic-geometry.algebraic-serre-generation, algebraic-geometry.coherent-sheaf, algebraic-geometry.projective-twist]
+  - id: complex-algebraic-geometry.gaga-descending-step
+    name: 一次数降下の全射・単射補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（一次数降下の全射・単射補題）"]
+    requires: [complex-algebraic-geometry.finite-twist-cover, complex-algebraic-geometry.projective-twist-analytic-comparison, complex-algebraic-geometry.analytic-coherence-exactness]
+  - id: complex-algebraic-geometry.gaga-cohomology
+    name: GAGA I――連接層コホモロジーの比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（GAGA I――連接層コホモロジーの比較）"]
+    requires: [complex-algebraic-geometry.gaga-descending-step, complex-algebraic-geometry.projective-coherent-dimension-bound]
+  - id: complex-algebraic-geometry.closed-immersion-analytification-pushforward
+    name: 閉埋込みの直像と解析化の交換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉埋込みの直像と解析化の交換）"]
+    requires: [complex-algebraic-geometry.coherent-sheaf-analytification, complex-algebraic-geometry.analytic-coherence-exactness]
