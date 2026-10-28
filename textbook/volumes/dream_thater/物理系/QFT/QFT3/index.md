@@ -8,7 +8,15 @@
 
 ## 1. 三次元Fourier変換で波をほどく
 
-時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、自然単位系は $c=\hbar=1$ です。$\boldsymbol x,\boldsymbol p\in\mathbb R^3$ を空間位置と運動量、$m\ge0$ を一定の質量パラメータとします。空間内積を $\boldsymbol p\cdot\boldsymbol x=\sum_{j=1}^3p_jx^j$、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。
+時空は $3+1$ 次元のMinkowski空間、自然単位系は $c=\hbar=1$ です。$\boldsymbol x,\boldsymbol p\in\mathbb R^3$ を空間位置と運動量、$m\ge0$ を一定の質量パラメータとします。計量、空間内積、角振動数は次の規約で固定します。
+
+$$
+\eta=\operatorname{diag}(1,-1,-1,-1),\qquad
+\boldsymbol p\cdot\boldsymbol x=\sum_{j=1}^3p_jx^j,\qquad
+\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}.
+$$
+
+以下、$\partial_j=\partial/\partial x^j$ は時刻を固定した空間偏微分、$\partial_t=\partial/\partial t$ は空間位置を固定した時間偏微分です。
 
 [FOU3の一変数Fourier変換・反転](../../../解析系/FOU/FOU3/index.md#thm-fou3-inversion)を各座標に適用する規格化として、
 
@@ -37,7 +45,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Schwartz関数）**
-> 全ての多重指数 $\alpha,\beta\in\mathbb N_0^3$ について上記の重み付き微分の上限が有限である $h\in C^\infty(\mathbb R^3;\mathbb C)$ をSchwartz関数といい、その集合を $\mathcal S(\mathbb R^3;\mathbb C)$ とする。実数値の場合は $\mathcal S(\mathbb R^3;\mathbb R)$ と書く。
+> $h\in C^\infty(\mathbb R^3;\mathbb C)$ が、全ての多重指数 $\alpha,\beta\in\mathbb N_0^3$ に対し
+
+$$
+\sup_{\boldsymbol x\in\mathbb R^3}
+|\boldsymbol x^\alpha\partial^\beta h(\boldsymbol x)|<\infty
+$$
+
+> を満たすときSchwartz関数といい、その集合を $\mathcal S(\mathbb R^3;\mathbb C)$ とする。ここで $\boldsymbol x^\alpha=\prod_{j=1}^3(x^j)^{\alpha_j}$、$\partial^\beta=\prod_{j=1}^3\partial_{x^j}^{\beta_j}$ とする。実数値の場合は $\mathcal S(\mathbb R^3;\mathbb R)$ と書く。
 <!-- formal-statement-end -->
 
 [GPDE1のコンパクト台のテスト関数](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-test-function)はこの集合に含まれますが、Gaussianのように台が無限に広がる関数も含まれます。Schwartz関数のFourier変換もSchwartz関数になり、微分は周波数の乗算へ移ります。例えば部分積分によって
@@ -143,7 +158,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U(t,\boldsymbol p)=\widehat\phi(t,\boldsymbol p)$ と書きます。Fourier変換と微分の交換ができるSchwartz解なら
+$U(t,\boldsymbol p)=\widehat\phi(t,\boldsymbol p)$ と書きます。$U_t, U_{tt}$ は運動量 $\boldsymbol p$ を固定して $t$ で一回・二回微分したものです。Fourier変換と微分の交換ができるSchwartz解なら
 
 $$
 U_{tt}+\omega_{\boldsymbol p}^2U=0,
@@ -187,7 +202,14 @@ $$
 \end{aligned}
 $$
 
-$C_0=1,\ S_0=0,\ (\partial_tC_t)_{t=0}=0,\ (\partial_tS_t)_{t=0}=1$ なので、Fourier反転から $\phi(0)=f$、$\partial_t\phi(0)=g$ が得られます。一意性は二つのSchwartz解の差を空間Fourier変換すれば、各 $\boldsymbol p$ で初期値零の振動子の解が零となることから従います。実初期値のときは複素共役を取った解も同じ初期値を持つため、一意性から $\overline\phi=\phi$ です。
+初期時刻で
+
+$$
+C_0=1,\quad S_0=0,\quad
+(\partial_tC_t)_{t=0}=0,\quad(\partial_tS_t)_{t=0}=1
+$$
+
+です。[FOU3のFourier反転定理](../../../解析系/FOU/FOU3/index.md#thm-fou3-inversion)を三座標へ適用すると、$\phi(0)=f$、$\partial_t\phi(0)=g$ が得られます。一意性は二つのSchwartz解の差を空間Fourier変換すれば、各 $\boldsymbol p$ で初期値零の振動子の解が零となることから従います。実初期値のときは複素共役を取った解も同じ初期値を持つため、一意性から $\overline\phi=\phi$ です。
 <!-- proof-end -->
 
 最も単純な直接例は、周期境界条件の箱に入れた一つの余弦波です。$f(\boldsymbol x)=A\cos(\boldsymbol k\cdot\boldsymbol x)$、$g=0$ とすると
@@ -223,7 +245,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正負振動数成分）**
-> $m\ge0$、複素Schwartz初期値 $f,g$ をもつ自由Klein–Gordon解について、$\omega_{\boldsymbol p}>0$ で上記の $a_+,a_-$ を定める。$\phi$ を
+> $m\ge0$、複素Schwartz初期値 $f,g$ をもつ自由Klein–Gordon解について、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}>0$ で
+
+$$
+a_\pm(\boldsymbol p)=\frac12\left(
+\widehat f(\boldsymbol p)\pm
+\frac{i\widehat g(\boldsymbol p)}{\omega_{\boldsymbol p}}
+\right)
+$$
+
+> と定める。$\phi$ を
 
 $$
 \phi=\phi_++\phi_-,
@@ -330,7 +361,25 @@ $$
 
 ## 4. 保存形式は全解空間で正定値ではない
 
-[QFT2の複素スカラー場のU(1)流](../QFT2/index.md#prop-qft2-u1)は、複素解から保存流を作る見本でした。同様に、二つの複素解 $u,v$ を組にすると、時間とともに変わらない双線形型が得られます。ただし **普通のHilbert空間の正定値内積と最初から同一視できません**。時間因子の符号によって値が正負に分かれるためです。
+[QFT2の複素スカラー場のU(1)流](../QFT2/index.md#prop-qft2-u1)は、複素解から保存流を作る見本でした。そこでその時間成分に現れる括弧内の式を、二つの解 $u,v$ に対して次のように拡張します。
+
+$$
+\overline u\,\partial_tu-(\partial_t\overline u)u
+\quad\longrightarrow\quad
+\overline u\,\partial_tv-(\partial_t\overline u)v.
+$$
+
+複素共役があるため、右式は通常の**双線形**ではなく、第一変数に反線形、第二変数に線形な**半双線形**の式です。
+
+さらに、一般の半双線形形式 $B$ について、二つの変数を交換して複素共役を取る対称性
+
+$$
+B(u,v)=\overline{B(v,u)}
+$$
+
+を確認します。この条件と $B(u,u)>0$（$u\ne0$）という正定値性は別です。
+
+なお[FOU4の複素 $L^2$ 内積](../../../解析系/FOU/FOU4/index.md#def-fou4-complex-l2)は第一変数を線形とする規約ですが、以下のKlein–Gordon形式は第一変数を反線形とします。後で確かめるように時間因子の符号によって値が正負に分かれるため、普通のHilbert空間の正定値内積と同一視できません。
 
 <a id="def-qft3-pairing"></a>
 
@@ -345,12 +394,58 @@ $$
 -(\partial_t\overline u)\,v\right)\,d^3x
 $$
 
-> と定義する。これは第一変数に反線形、第二変数に線形なHermite形式である。
+> と定義する。これは第一変数に反線形、第二変数に線形であり、$(u,v)_{\mathrm{KG}}=\overline{(v,u)_{\mathrm{KG}}}$ を満たすエルミート形式である。
 <!-- formal-statement-end -->
 
-ここでHermite形式とは、$(u,v)_{\mathrm{KG}}=\overline{(v,u)_{\mathrm{KG}}}$ を満たすことです。実際、上の積分で $u,v$ を交換して複素共役すると同じ値へ戻ります。ただしHermiteであることは正定値であることを意味しません。
+積分の線形性と複素共役から、任意の複素数 $c,d$ について
+
+$$
+\begin{aligned}
+(cu_1+du_2,v)_{\mathrm{KG}}
+&=\overline c(u_1,v)_{\mathrm{KG}}+\overline d(u_2,v)_{\mathrm{KG}},\\
+(u,cv_1+dv_2)_{\mathrm{KG}}
+&=c(u,v_1)_{\mathrm{KG}}+d(u,v_2)_{\mathrm{KG}}
+\end{aligned}
+$$
+
+です。また
+
+$$
+\overline{(v,u)_{\mathrm{KG}}}
+=-i\int\left(v\,\partial_t\overline u-(\partial_tv)\overline u\right)d^3x
+=(u,v)_{\mathrm{KG}}
+$$
+
+となり、エルミート対称性を直接確認できます。ここでの積分は空間全体にわたり、$u,v$ とその時間微分がSchwartz級なので絶対収束します。
 
 <!-- definition-example-start: def-qft3-pairing -->
+### 例：Schwartz初期値で形式の条件と符号を直接確認する
+
+**定義の確認**：同一質量の複素Schwartz解であること、積分の存在、半双線形性とエルミート対称性、自己形式の符号をそれぞれ照合します。
+
+$m>0,\ \sigma>0$ とし、$h(\boldsymbol x)=e^{-|\boldsymbol x|^2/(2\sigma^2)}$ を取ります。[Cauchy解定理](#thm-qft3-cauchy)を次の初期値に適用します。
+
+$$
+u(0,\boldsymbol x)=h(\boldsymbol x),\qquad
+\partial_tu(0,\boldsymbol x)=-im h(\boldsymbol x).
+$$
+
+$v=\overline u$ とすれば、$m$ が実数なので $v$ も同じKlein–Gordon方程式を満たします。$h$ と $\pm imh$ はSchwartz級なので、両方とも定義の対象であり、積分も有限です。時刻零では
+
+$$
+\begin{aligned}
+(u,u)_{\mathrm{KG}}(0)
+&=i\int\{h(-imh)-(imh)h\}\,d^3x
+=2m\pi^{3/2}\sigma^3>0,\\
+(v,v)_{\mathrm{KG}}(0)
+&=i\int\{h(imh)-(-imh)h\}\,d^3x
+=-2m\pi^{3/2}\sigma^3<0.
+\end{aligned}
+$$
+
+ここでは初期値のSchwartz条件、定義の積分の存在、複素共役による符号、半双線形性とエルミート対称性を定義式から確認しました。保存性は次の定理で証明します。
+<!-- definition-example-end -->
+
 ### 例：一つの平面波の符号を周期箱で確かめる
 
 **定義の確認**：保存形式を周期箱に置き換え、解の条件、積分の存在、正負の符号を確かめます。
@@ -379,7 +474,6 @@ $$
 $$
 
 分母の規格化、解の条件、保存形式の符号を一つずつ確かめました。これは周期箱の例であり、$\mathbb R^3$ 上の非減衰な平面波へ定義の積分をそのまま適用したものではありません。またQFT2で位相変換 $\psi\mapsto e^{i\varepsilon}\psi$ から得た流は、同じ場に対してこの形式の密度と **逆符号** です。保存流の符号は変換の生成子の選択に依存します。
-<!-- definition-example-end -->
 
 <a id="thm-qft3-pairing"></a>
 
@@ -407,7 +501,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-被積分関数を時間微分すると積の微分から
+$(u,v)_{\mathrm{KG}}(t)$ は空間積分後の $t$ だけの関数なので、その $d/dt$ は空間位置を固定した被積分関数の $\partial_t$ を積分したものです。Schwartz減衰は有限時間区間で必要な交換を許します。被積分関数を時間微分すると積の微分から
 
 $$
 \begin{aligned}
@@ -466,7 +560,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Fourier表示の自由場エネルギー）**
-> $m\ge0$、$f,g\in\mathcal S(\mathbb R^3;\mathbb C)$ を初期値とするKlein–Gordon解について、上記の $E[\phi](t)$ は有限で時刻に依存せず、
+> $m\ge0$、$f,g\in\mathcal S(\mathbb R^3;\mathbb C)$ を初期値とするKlein–Gordon解について、実部と虚部のエネルギーの和
+
+$$
+E[\phi](t)=\frac12\int_{\mathbb R^3}
+\left(|\partial_t\phi|^2+|\nabla\phi|^2
++m^2|\phi|^2\right)d^3x
+$$
+
+> は有限で時刻に依存せず、
 
 $$
 E[\phi]
@@ -592,14 +694,29 @@ e^{-t^2/\lambda^2-|\boldsymbol x|^2/\sigma^2}\,d^4x
 $$
 
 と評価でき、積分は絶対収束します。$\phi=1$ は $m=0$ の古典解ですが、Schwartz初期値には含まれません。この例外的な解でも同じ積分式の値は $\pi^2\lambda\sigma^3$ となり、「点を読む」のではなく分布を平均する操作の意味が分かります。
-また $\chi_1,\chi_2$ と複素数 $c_1,c_2$ に対して積分の線形性から $\Phi_\phi[c_1\chi_1+c_2\chi_2]=c_1\Phi_\phi[\chi_1]+c_2\Phi_\phi[\chi_2]$ です。
+また試験関数 $\chi_1,\chi_2$ と複素数 $c_1,c_2$ に対して、積分の線形性から
+
+$$
+\Phi_\phi[c_1\chi_1+c_2\chi_2]
+=c_1\Phi_\phi[\chi_1]+c_2\Phi_\phi[\chi_2]
+$$
+
+です。
 <!-- definition-example-end -->
+
+以下、$\Box=\partial_t^2-\Delta$ は[QFT1のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)で使った波動作用素です。$\partial_t$ は空間座標を固定し、$\Delta=\sum_j\partial_j^2$ は時刻を固定して作用します。
 
 <a id="prop-qft3-distribution"></a>
 
 <!-- formal-statement-start -->
 > **命題（古典Klein–Gordon解の超関数表示）**
-> $m\ge0$ とし、Schwartz初期値から作った古典解 $\phi$ と上記の線形汎関数 $\Phi_\phi$ を取る。$\Phi_\phi$ は時空Schwartz空間上連続な緩増加超関数を定め、任意の $\chi\in\mathcal S(\mathbb R^4)$ について
+> $m\ge0$ とし、Schwartz初期値から作った古典解 $\phi$ に対し、時空Schwartz関数 $\chi$ 上の線形汎関数を
+
+$$
+\Phi_\phi[\chi]=\int_{\mathbb R^4}\phi(x)\chi(x)\,d^4x
+$$
+
+> と定める。$\Phi_\phi$ は時空Schwartz空間上連続な緩増加超関数であり、任意の $\chi\in\mathcal S(\mathbb R^4)$ について
 
 $$
 \Phi_\phi[(\Box+m^2)\chi]=0
@@ -816,7 +933,7 @@ $$
 
 従って $a=\sigma^{-2}$ では $I_2=\frac32\pi^{3/2}\sigma^5$ です。
 
-**(3)** 初期速度が零なので
+**(3)** [QFT1の自由場エネルギーの定義](../QFT1/index.md#def-qft1-energy)を時刻零で適用します。初期速度が零なので
 
 $$
 \begin{aligned}
@@ -889,7 +1006,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-周期箱の直交積分は
+[Klein–Gordon保存形式の定義](#def-qft3-pairing)を周期箱の空間積分へ置き換えます。周期箱の直交積分は
 
 $$
 \int_Ve^{i(\boldsymbol\ell-\boldsymbol k)\cdot\boldsymbol x}d^3x
