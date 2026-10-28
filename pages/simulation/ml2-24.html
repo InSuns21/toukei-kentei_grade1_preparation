@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-24 離散Gaussian拡散と逆向き推論</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1050px;margin:auto;padding:16px;line-height:1.6}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+label{display:grid;gap:5px;border:1px solid #8888;border-radius:7px;padding:8px}
+input,select,button{font:inherit}input,select{width:100%;box-sizing:border-box}
+button{margin:4px;padding:7px 12px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
+.panel{border:1px solid #8888;border-radius:8px;padding:10px;min-width:0;overflow-x:auto}
+canvas{display:block;width:100%;height:auto;background:#fff;color:#192b42;border-radius:5px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.92em}
+th,td{padding:5px;text-align:right;border-bottom:1px solid #8888;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+.note{font-size:.92em}.error{color:#b83228;font-weight:700}
+.scroll{max-height:350px;overflow:auto}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-24/index">← ML2-24 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-24：離散Gaussian拡散と逆向き推論</h1>
+<p>データは二点 <code>X₀=-2,+2</code>。正の原子の確率、ノイズ時刻数、分散率のschedule、seedを変え、毎時刻の実標本を計算します。<strong>「厳密混合逆向き」は学習済み模型ではなく、真のデータ分布を知っている理論比較用</strong>です。</p>
+<section class="controls" aria-label="実験設定">
+  <label>乱数seed（0〜4294967295）<input id="seed" type="number" min="0" max="4294967295" step="1" value="2424"></label>
+  <label>標本数（100〜1600）<input id="count" type="number" min="100" max="1600" step="100" value="600"></label>
+  <label>時刻数 T（2〜20）<input id="steps" type="number" min="2" max="20" step="1" value="8"></label>
+  <label>schedule<select id="schedule"><option value="linear">線形増加</option><option value="constant">一定</option></select></label>
+  <label>開始分散率 β₁（0〜1）<input id="betaStart" type="number" min="0.01" max="0.9" step="0.01" value="0.08"></label>
+  <label>終了分散率 βT（線形時）<input id="betaEnd" type="number" min="0.01" max="0.9" step="0.01" value="0.4"></label>
+  <label>P(X₀=+2)<input id="probabilityPlus" type="number" min="0.1" max="0.9" step="0.05" value="0.7"></label>
+  <label>逆向き開始分布<select id="terminal"><option value="true">真の qT（理論比較）</option><option value="normal">標準Gaussian N(0,1)</option></select></label>
+  <label>逆向きの1ステップ<select id="reverse"><option value="exact">厳密混合（条件付けて抽出）</option><option value="mean">単一Gaussian・平均近似</option></select></label>
+</section>
+<p><button type="button" id="reset">設定で初期化</button><button type="button" id="step">1時刻進む</button><button type="button" id="run">最後まで実計算</button><button type="button" id="play">連続実行</button><button type="button" id="pause">一時停止</button></p>
+<p id="status" role="status" aria-live="polite"></p>
+<div class="panels">
+  <section class="panel"><h2>正方向（t=0 → T）</h2><canvas id="forward" width="720" height="500" role="img" aria-label="各時刻の正方向標本。横軸が値x、縦方向が離散時刻t。塗りつぶしの丸で表示"></canvas><p class="note">横軸：観測値 x、各行：時刻 t。青い●は独立Gaussian更新による標本（表示は最大80点／時刻）。</p></section>
+  <section class="panel"><h2>逆方向（t=T → 0）</h2><canvas id="reversePlot" width="720" height="500" role="img" aria-label="各時刻の逆向き標本。横軸が値x、縦方向が離散時刻t。四角の記号で表示"></canvas><p class="note">橙色の■は逆向きの実標本（最大80点／時刻）。上から下へではなく、時刻の大きい行から0へ戻します。</p></section>
+</div>
+<section class="panel">
+  <h2>標本による数値検算</h2>
+  <p id="summary" class="note"></p>
+  <div class="scroll"><table aria-label="各時刻の理論値と標本統計量"><thead><tr><th>t</th><th>bar αt</th><th>理論 E[Xt]</th><th>正方向の平均</th><th>理論 Var(Xt)</th><th>正方向 Var</th><th>逆方向 Var</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <p class="note">分散は母分散形式（平方偏差の平均）で集計。理論値は正方向の周辺分布：平均 <code>√barα × E[X₀]</code>、分散 <code>barα × Var(X₀) + 1 − barα</code>。<strong>条件付き分散</strong> <code>1−barα</code> と区別してください。</p>
+</section>
+<section class="panel">
+  <h2>何を比較するか</h2>
+  <ul>
+    <li>「真のqT」から「厳密混合逆向き」で戻せば、理論上は各時刻の正方向周辺分布を逆再現する（有限標本では誤差あり）。</li>
+    <li>「単一Gaussian・平均近似」は、混合成分間の条件付き分散を落としている。t=1では平均のみを返し、二点へ完全に戻らない。</li>
+    <li>「標準Gaussian」から開始すると、有限Tでは真のqTとの初期分布差があり、逆向きが厳密でも通常は全時刻の分布は一致しない。</li>
+  </ul>
+  <p class="note">復元品質は最終標本と最近の原子（−2または+2）との二乗距離、および+2側の標本割合で観察します。この指標は二点の教材模型専用です。標本数を増やしても各試行の誤差が単調に減る保証はありません。</p>
+</section>
+<script type="module">
+import { createExperiment, defaultConfig, summarize, theoreticalMoments } from "./ml2-24-model.mjs";
+const $ = id => document.getElementById(id);
+const keys = Object.keys(defaultConfig);
+let experiment=null, timer=null;
+const fixed = n => Number.isFinite(n) ? n.toFixed(4) : "—";
+function config() {
+  const result = {};
+  for (const key of keys) {
+    const value = $(key).value;
+    if (value.trim() === "") throw new RangeError(key + "は必須です");
+    result[key] = ["schedule","terminal","reverse"].includes(key) ? value : Number(value);
+  }
+  return result;
+}
+function stop(){if(timer!==null){clearInterval(timer);timer=null;}}
+function error(e){stop();$("status").className="error";$("status").textContent="入力・計算エラー："+e.message;}
+function draw(id, samples, steps, square) {
+  const canvas=$(id),ctx=canvas.getContext("2d"),w=canvas.width,h=canvas.height;
+  ctx.clearRect(0,0,w,h);ctx.fillStyle="#fff";ctx.fillRect(0,0,w,h);
+  const xMin=-6,xMax=6,left=54,right=w-20,top=22,bottom=h-43;
+  const xToPx=x=>left+(x-xMin)*(right-left)/(xMax-xMin);
+  const yToPx=t=>bottom-t*(bottom-top)/steps;
+  ctx.strokeStyle="#b5bec8";ctx.fillStyle="#24364a";ctx.lineWidth=1;ctx.font="13px system-ui";
+  for(let t=0;t<=steps;t++){
+    const y=yToPx(t);ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(right,y);ctx.stroke();
+    ctx.fillText(String(t),16,y+4);
+  }
+  for(let x=-6;x<=6;x+=2){const px=xToPx(x);ctx.fillText(String(x),px-6,h-16);}
+  ctx.fillText("x（観測値）",w/2-40,h-2);ctx.fillText("t",16,14);
+  for(let t=0;t<=steps;t++){
+    const a=samples[t];if(!a)continue;
+    const skip=Math.max(1,Math.ceil(a.length/80));
+    ctx.fillStyle=square?"#c05f24":"#1764a3";
+    for(let j=0;j<a.length;j+=skip){
+      const x=a[j];if(x<xMin||x>xMax)continue;
+      const xx=xToPx(x),yy=yToPx(t)+(j%5-2)*2;
+      if(square)ctx.fillRect(xx-2.6,yy-2.6,5.2,5.2);
+      else{ctx.beginPath();ctx.arc(xx,yy,2.6,0,2*Math.PI);ctx.fill();}
+    }
+  }
+}
+function tableRow(items){const tr=document.createElement("tr");for(const item of items){const td=document.createElement("td");td.textContent=String(item);tr.append(td);}return tr;}
+function render(){
+  if(!experiment)return;
+  const e=experiment,c=e.config,s=e.schedule;
+  draw("forward",e.forward,c.steps,false);
+  draw("reversePlot",e.reverse,c.steps,true);
+  const rows=[];
+  for(let t=0;t<=c.steps;t++){
+    const theory=theoreticalMoments(t,s,c.probabilityPlus);
+    const forward=summarize(e.forward[t]);
+    const reverse=summarize(e.reverse[t]);
+    rows.push(tableRow([t,fixed(s.barAlpha[t]),fixed(theory.mean),forward?fixed(forward.mean):"—",
+      fixed(theory.variance),forward?fixed(forward.variance):"—",reverse?fixed(reverse.variance):"—"]));
+  }
+  $("rows").replaceChildren(...rows);
+  const ending=summarize(e.reverse[0]),terminal=summarize(e.reverse[c.steps]);
+  $("summary").textContent=`終端 barαT=${fixed(s.barAlpha[c.steps])}、真の qT 平均=${fixed(theoreticalMoments(c.steps,s,c.probabilityPlus).mean)}、`+
+    `標本開始平均=${terminal?fixed(terminal.mean):"—"}。`+
+    `復元結果 P̂(+側)=${ending?fixed(ending.proportionPositive):"—"}（真のP(+2)=${fixed(c.probabilityPlus)}）、`+
+    `最近原子への二乗距離=${ending?fixed(ending.nearestAtomMse):"—"}。`;
+  const message=e.phase==="done"?"逆向きの最終時刻0まで計算済み。":e.phase==="forward"?
+    `正方向を時刻${e.time}/${c.steps}まで実計算。`:e.phase==="terminal"?
+    "正方向が終端へ到達。次は逆向き初期標本を抽出。":
+    `逆向きで時刻${e.time}まで実計算。次は時刻${e.time-1}。`;
+  $("status").className="";$("status").textContent=message;
+}
+function reset(){stop();try{experiment=createExperiment(config());render();}catch(e){experiment=null;error(e);}}
+function step(){if(!experiment){error(new Error("先に初期化してください"));return;}try{experiment.step();render();if(experiment.phase==="done")stop();}catch(e){error(e);}}
+function run(){stop();if(!experiment)return;try{while(experiment.step()){}render();}catch(e){error(e);}}
+keys.forEach(k=>{$(k).value=String(defaultConfig[k]);$(k).addEventListener("change",reset);});
+$("reset").addEventListener("click",reset);
+$("step").addEventListener("click",()=>{stop();step();});
+$("run").addEventListener("click",run);
+$("play").addEventListener("click",()=>{if(timer!==null||!experiment||experiment.phase==="done")return;timer=setInterval(step,180);});
+$("pause").addEventListener("click",()=>{stop();$("status").textContent+=" 一時停止中。";});
+reset();
+</script>
+</body>
+</html>

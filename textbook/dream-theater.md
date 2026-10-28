@@ -1073,6 +1073,7 @@
 42. [ML2-21 正規化flow・密度変換](textbook/volumes/dream_thater/応用系/ML/ML2-21/index.md)
 43. [ML2-22 敵対的生成モデルと分布比較](textbook/volumes/dream_thater/応用系/ML/ML2-22/index.md)
 44. [ML2-23 Score matchingとノイズ除去](textbook/volumes/dream_thater/応用系/ML/ML2-23/index.md)
+45. [ML2-24 離散拡散模型と逆向き推論](textbook/volumes/dream_thater/応用系/ML/ML2-24/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
