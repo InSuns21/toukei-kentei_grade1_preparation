@@ -1,0 +1,63 @@
+chapter: QFT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT5
+forward_references: []
+
+concepts:
+  - id: qft.retarded-advanced-fundamental-solutions
+    name: 遅延・先進基本解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（遅延・先進基本解）]
+    requires: [qft.pauli-jordan-cauchy, qft.finite-propagation]
+
+  - id: qft.causal-green-support
+    name: 遅延・先進核の基本解性と支持
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（遅延・先進核の基本解性と支持）]
+    requires: [qft.retarded-advanced-fundamental-solutions, qft.finite-propagation]
+
+  - id: qft.energy-boundary-prescription
+    name: エネルギー境界値と極の処方
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エネルギー境界値と極の処方）]
+    requires: [qft.retarded-advanced-fundamental-solutions, qft.frequency-splitting]
+
+  - id: qft.causal-green-fourier
+    name: 遅延・先進のFourier境界値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（遅延・先進のFourier境界値）]
+    requires: [qft.energy-boundary-prescription, qft.causal-green-support]
+
+  - id: qft.feynman-two-point
+    name: Feynman二点分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Feynman二点分布）]
+    requires: [qft.wightman-two-point, qft.pauli-jordan-commutator]
+
+  - id: qft.feynman-poles-and-source
+    name: 時間順序二点分布の極とデルタ源
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（時間順序二点分布の極とデルタ源）]
+    requires: [qft.feynman-two-point, qft.energy-boundary-prescription]
+
+  - id: qft.feynman-fundamental-solution
+    name: Feynman基本解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Feynman基本解）]
+    requires: [qft.feynman-poles-and-source]
+
+  - id: qft.causal-response-vs-vacuum-correlation
+    name: 因果的応答と空間的真空相関の相違
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（因果的応答と空間的真空相関の相違）]
+    requires: [qft.causal-green-support, qft.feynman-fundamental-solution, qft.free-field-locality]
