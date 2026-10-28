@@ -193,7 +193,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\omega_R=\pi_R$ より、Hilbert–Schmidtノルムの平方を展開して
+まず $\omega_R=\pi_R$ より、Hilbert–Schmidtノルム $\|X\|_2=(\operatorname{Tr}X^\dagger X)^{1/2}$ の平方を展開して
 
 $$
 \|\omega_{RE}-\pi_R\otimes\omega_E\|_2^2
@@ -322,24 +322,24 @@ $$
 \frac1n\log_2D_{t_n}\to S(\rho_A).
 $$
 
-最初の式は階乗の積を対数に取って
+最初の式は階乗の積を対数に取って得られます。以下のスターリング近似と積分では**自然対数** $\ln$ を使います（本章のエントロピーに用いる $\log_2$ とは異なります）。
 
 $$
-\log D_t=\log n!-\sum_a\log N_a!
-=n\log n-\sum_aN_a\log N_a+O(r\log(n+1))
+\ln D_t=\ln n!-\sum_a\ln N_a!
+=n\ln n-\sum_aN_a\ln N_a+O(r\ln(n+1))
 $$
 
-と展開したものです。$\log m!=m\log m-m+O(\log(m+1))$ は $\log x$ の単調性から積分 $\int_1^m\log x\,dx$ と $\int_1^{m+1}\log x\,dx$ で和 $\sum_{j=1}^m\log j$ を挟めば得られます。この型へ参照系 $T^n$ を射影し正規化した純粋状態 $|\Omega\rangle_{T_tB^nE^n}$ は、$\Omega_{T_t}=I_{T_t}/D_{t_n}$ を**厳密に**満たします。これは同じ型の係数が等しいためです。
+と展開したものです。$\ln m!=m\ln m-m+O(\ln(m+1))$ は $\ln x$ の単調性から積分 $\int_1^m\ln x\,dx$ と $\int_1^{m+1}\ln x\,dx$ で和 $\sum_{j=1}^m\ln j$ を挟めば得られます。ここから $\log_2D_t=(\ln D_t)/(\ln2)$ と底を変換し、$H(t)$ の式を得ます。この型へ参照系 $T^n$ を射影し正規化した純粋状態 $|\Omega\rangle_{T_tB^nE^n}$ は、$\Omega_{T_t}=I_{T_t}/D_{t_n}$ を**厳密に**満たします。これは同じ型の係数が等しいためです。
 
 **(ii) 出力を典型化する。** 受信系と環境系を、それぞれ $\varphi_B^{\otimes n},\varphi_E^{\otimes n}$ の典型射影 $P_B,P_E$ で切ります。[QINF22の固有値・次元評価](../QINF22/index.md#lem-qinf22-typical-bounds)に加えて、有限分布の指数型集中評価を用います。
 
 固有値分布 $r_i>0$ に従う確率添字 $I$（$\Pr(I=i)=r_i$）から、対数確率変数 $Z=-\log_2r_I$ を作ります。有限個の値しか取らないため、中心化した対数モーメント母関数
 
 $$
-m(s)=\log\mathbb E e^{s(Z-\mathbb EZ)},\qquad m(0)=m'(0)=0
+m(s)=\ln\mathbb E e^{s(Z-\mathbb EZ)},\qquad m(0)=m'(0)=0
 $$
 
-は原点近傍で滑らかで、$m'(0)=dm/ds|_{s=0}$ は変数 $s$ に関する通常の微分です。$m(s)=o(s)$ なので、固定した幅 $\delta>0$ に対し、十分小さい $s>0$ を選んで $m(s)<s\delta/2$ とできます。
+は原点近傍で滑らかです。指数関数 $e^{sZ}$ と合わせてここでも $\ln$ を使い、$m'(0)=dm/ds|_{s=0}$ は変数 $s$ に関する通常の微分です。$m(s)=o(s)$ なので、固定した幅 $\delta>0$ に対し、十分小さい $s>0$ を選んで $m(s)<s\delta/2$ とできます。
 
 [Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を非負変数 $Y=e^{s\sum_j(Z_j-\mathbb EZ)}$ と閾値 $e^{ns\delta}$ に適用します。$\mathbb E$ は確率的期待値で、環境系 $E$ とは別です。これにより
 
