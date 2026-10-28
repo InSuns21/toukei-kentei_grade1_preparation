@@ -1,0 +1,33 @@
+id: "ML2-25"
+title: "生成評価・不確実性・統合実験"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-06, ML2-12, ML2-18, ML2-20, ML2-21, ML2-22, ML2-24]
+official_scope: []
+learning_objectives:
+  - 生成模型の明示的な確率と標本抽出インターフェースを区別し、対数尤度の計算可能性を判定できる
+  - 独立した保留標本の平均対数損失とその期待値・分散・支持条件を導ける
+  - 有限分布の全変動距離を計算し、標本推定の誤差と品質・多様性の違いを説明できる
+  - 多クラスBrier損失の適切性と校正の範囲を計算し、予測不確実性と推定不確実性を区別できる
+  - 分布外シフトでの評価リスクを計算し、シフトの存在と検知の成功を混同しない
+  - 学習・生成・評価のseedと分割を分け、計算量・時間・失敗条件を含む比較を再現できる
+  - 対話ラボで明示確率生成と標本専用生成を切り替え、shiftとseedの変更による結果を実再計算できる
+definitions:
+  - { id: ML2-25-DEF-01, name: 独立保留標本による生成評価プロトコル }
+  - { id: ML2-25-DEF-02, name: 有限分布の全変動距離 }
+  - { id: ML2-25-DEF-03, name: 多クラスBrier損失 }
+theorems:
+  - { id: ML2-25-PROP-01, name: 保留対数損失の期待値と分散 }
+  - { id: ML2-25-THM-01, name: 全変動距離の事象表示と標本誤差境界 }
+  - { id: ML2-25-THM-02, name: 多クラスBrier損失の期待値分解 }
+  - { id: ML2-25-PROP-02, name: 平滑化頻度による推定不確実性 }
+canonical_examples:
+  - 有限三カテゴリの明示尤度・全変動距離・支持違反
+  - Brier損失とエントロピーの異なる意味
+  - 独立評価分布の混合シフトと対数損失差
+  - 固定seedと独立seedの対話的な生成評価比較
+problem_patterns: [ML2-25-A01, ML2-25-A02, ML2-25-A03, ML2-25-A04, ML2-25-B01, ML2-25-B02, ML2-25-B03, ML2-25-B04, ML2-25-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
