@@ -1,0 +1,48 @@
+id: QFT7
+title: "Dirac場のLorentz変換・Clifford代数と平面波解"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT6
+  - SREL3
+official_scope: []
+learning_objectives:
+  - Minkowski計量に対応するClifford反交換関係をDirac表示の行列で確認し、一次のDirac作用素からKlein–Gordon方程式を導ける
+  - Lorentz変換のスピノル表現を無限小生成子から構成し、回転・boost・二重被覆・非ユニタリ性を具体的に区別できる
+  - Dirac随伴を使ってDirac方程式と作用のLorentz共変性、および保存電流を導ける
+  - 正負振動数の平面波スピノルを構成し、質量殻条件・二成分解・規格化を検算できる
+  - スピン和と質量殻射影子を行列積から導き、スピン基底に依らない式として利用できる
+  - 古典場の負振動数成分と量子論の反粒子解釈を区別し、後続の反交換関係へ接続できる
+definitions:
+  - { id: QFT7-DEF-01, name: Clifford関係とDirac行列 }
+  - { id: QFT7-DEF-02, name: Lorentzスピノル変換 }
+  - { id: QFT7-DEF-03, name: Dirac随伴とDirac作用 }
+  - { id: QFT7-DEF-04, name: 正負振動数の平面波スピノル }
+  - { id: QFT7-DEF-05, name: 質量殻スピン射影子 }
+theorems:
+  - { id: QFT7-THM-01, name: Dirac作用素の因数分解 }
+  - { id: QFT7-THM-02, name: スピノル変換とDirac方程式のLorentz共変性 }
+  - { id: QFT7-THM-03, name: Dirac作用と保存電流 }
+  - { id: QFT7-THM-04, name: 平面波解の規格化とスピン和 }
+  - { id: QFT7-PROP-01, name: スピン和から得る相補射影 }
+canonical_examples:
+  - Pauli行列から組み立てた四つのgamma行列
+  - z軸回転の2π符号とz方向boostの非ユニタリ性
+  - 静止系の正負振動数スピノルと非静止の運動量ブロック
+  - スピン和の上下二成分ブロックと射影子の階数
+  - Dirac電流の時間成分と正定値性
+problem_patterns:
+  - QFT7-CLIFFORD-BLOCKS
+  - QFT7-DIRAC-FACTOR
+  - QFT7-SPIN-ROTATION
+  - QFT7-BOOST-IDENTITY
+  - QFT7-REST-SPINORS
+  - QFT7-LORENTZ-COVARIANCE
+  - QFT7-CURRENT-CONSERVATION
+  - QFT7-SPIN-SUM-BLOCKS
+  - QFT7-PROJECTOR-CHECK
+  - QFT7-DIRAC-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 4 }

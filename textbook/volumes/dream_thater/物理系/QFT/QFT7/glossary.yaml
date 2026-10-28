@@ -1,0 +1,23 @@
+chapter: QFT7
+terms:
+  - term: Clifford関係
+    english: Clifford relation
+    meaning: "四元ベクトルの計量をgamma行列の反交換子で表す関係。"
+  - term: Dirac行列
+    english: Dirac gamma matrices
+    meaning: "Minkowski計量に対するClifford関係を満たす4行4列の複素行列。"
+  - term: スピノル表現
+    english: spinor representation
+    meaning: "Lorentz変換をgamma行列と両立する複素行列で持ち上げた作用。同じLorentz変換に符号の異なる二つの持ち上げがある。"
+  - term: Dirac随伴
+    english: Dirac adjoint
+    meaning: "四成分スピノルのHermite共役にgammaの時間成分を掛けた行ベクトル。"
+  - term: Dirac方程式
+    english: Dirac equation
+    meaning: "Clifford行列による一次のLorentz共変な自由スピノル場方程式。"
+  - term: スピン和
+    english: spin sum
+    meaning: "二つのスピン状態の外積和。質量殻上でgamma行列と四元運動量だけで書ける。"
+  - term: 質量殻射影子
+    english: on-shell projector
+    meaning: "質量殻上のslash演算子の二つの固有空間への相補的な射影行列。"
