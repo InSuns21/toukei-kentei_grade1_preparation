@@ -1,0 +1,46 @@
+id: QFT2
+title: "場の対称性・Noether流・エネルギー運動量テンソル"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT1
+official_scope: []
+learning_objectives:
+  - 固定座標での場の連続内部変換と全微分を許す作用の対称性を区別できる
+  - 場のEuler–Lagrange方程式からNoether流のオフシェル恒等式とオンシェル保存則を導ける
+  - 実二成分場と複素スカラー場のU(1)保存流を符号と規格化まで検算できる
+  - 時空並進の能動変換から正準エネルギー運動量テンソルを導き、自由実スカラー場の各成分を計算できる
+  - 境界フラックスと適切な減衰・周期条件を用いて保存電荷・エネルギー・運動量を区別できる
+  - 保存則を保つ改良項と、明示的な対称性破れで保存則が失われる仕組みを説明できる
+definitions:
+  - { id: QFT2-DEF-01, name: 場の内部連続対称性と変換の生成子 }
+  - { id: QFT2-DEF-02, name: Noether流 }
+  - { id: QFT2-DEF-03, name: 保存電荷 }
+  - { id: QFT2-DEF-04, name: 正準エネルギー運動量テンソル }
+  - { id: QFT2-DEF-05, name: 改良エネルギー運動量テンソル }
+theorems:
+  - { id: QFT2-THM-01, name: 場のNoether恒等式と保存則 }
+  - { id: QFT2-PROP-01, name: 複素スカラー場のU(1)保存流 }
+  - { id: QFT2-THM-02, name: 並進対称性とエネルギー運動量保存 }
+  - { id: QFT2-PROP-02, name: 改良項の恒等的保存 }
+canonical_examples:
+  - 二成分回転の各二次項での不変性の直接確認
+  - 回転する二成分平面波の電流と質量殻の検算
+  - 自由実スカラー場のT00とエネルギー流の同定
+  - 明示的外部源による内部対称性の破れ
+  - 質量零の場合のトレース改良と境界条件
+problem_patterns:
+  - QFT2-INTERNAL-ROTATION
+  - QFT2-CURRENT-SIGN
+  - QFT2-ENERGY-FLUX
+  - QFT2-IMPROVEMENT
+  - QFT2-LOCAL-PARAMETER
+  - QFT2-TRANSLATION-DIVERGENCE
+  - QFT2-BREAKING-SOURCE
+  - QFT2-BOUNDARY-CHARGE
+  - QFT2-WAVE-CHARGES
+  - QFT2-TRACE-IMPROVEMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 2 }

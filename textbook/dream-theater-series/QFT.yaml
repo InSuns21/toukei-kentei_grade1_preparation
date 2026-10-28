@@ -12,5 +12,5 @@ chapters:
     title: "相対論的スカラー場の作用とKlein–Gordon方程式"
   - id: QFT2
     path: textbook/volumes/dream_thater/物理系/QFT/QFT2
-    status: planned
+    status: completed
     title: "場の対称性・Noether流・エネルギー運動量テンソル"

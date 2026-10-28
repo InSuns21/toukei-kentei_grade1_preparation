@@ -1,0 +1,70 @@
+chapter: QFT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT1
+forward_references: []
+
+concepts:
+  - id: qft.internal-continuous-symmetry
+    name: 場の内部連続対称性と変換の生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（場の内部連続対称性と変換の生成子）]
+    requires: [qft.scalar-action]
+
+  - id: qft.noether-current
+    name: Noether流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Noether流）]
+    requires: [qft.internal-continuous-symmetry, qft.field-euler-lagrange]
+
+  - id: qft.noether-identity
+    name: 場のNoether恒等式と保存則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（場のNoether恒等式と保存則）]
+    requires: [qft.noether-current, qft.field-euler-lagrange]
+
+  - id: qft.u1-scalar-current
+    name: 複素スカラー場のU(1)保存流
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（複素スカラー場のU(1)保存流）]
+    requires: [qft.noether-identity]
+
+  - id: qft.noether-charge
+    name: 保存電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（保存電荷）]
+    requires: [qft.noether-identity]
+
+  - id: qft.canonical-stress-tensor
+    name: 正準エネルギー運動量テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正準エネルギー運動量テンソル）]
+    requires: [qft.noether-current]
+
+  - id: qft.translation-stress-conservation
+    name: 並進対称性とエネルギー運動量保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（並進対称性とエネルギー運動量保存）]
+    requires: [qft.canonical-stress-tensor, qft.field-euler-lagrange]
+
+  - id: qft.improved-stress-tensor
+    name: 改良エネルギー運動量テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（改良エネルギー運動量テンソル）]
+    requires: [qft.canonical-stress-tensor]
+
+  - id: qft.improvement-conservation
+    name: 改良項の恒等的保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（改良項の恒等的保存）]
+    requires: [qft.improved-stress-tensor]
