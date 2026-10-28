@@ -1,0 +1,78 @@
+chapter: QFT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT6
+  - SREL3
+forward_references: []
+
+concepts:
+  - id: qft.clifford-dirac-matrices
+    name: Clifford関係とDirac行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Clifford関係とDirac行列）]
+    requires: [qft.klein-gordon]
+
+  - id: qft.dirac-factorization
+    name: Dirac作用素の因数分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirac作用素の因数分解）]
+    requires: [qft.clifford-dirac-matrices]
+
+  - id: qft.lorentz-spinor-transformation
+    name: Lorentzスピノル変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lorentzスピノル変換）]
+    requires: [qft.clifford-dirac-matrices]
+
+  - id: qft.spinor-covariance
+    name: スピノル変換とDirac方程式のLorentz共変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（スピノル変換とDirac方程式のLorentz共変性）]
+    requires: [qft.lorentz-spinor-transformation, qft.dirac-factorization]
+
+  - id: qft.dirac-adjoint-action
+    name: Dirac随伴とDirac作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirac随伴とDirac作用）]
+    requires: [qft.lorentz-spinor-transformation]
+
+  - id: qft.dirac-current
+    name: Dirac作用と保存電流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirac作用と保存電流）]
+    requires: [qft.dirac-adjoint-action, qft.spinor-covariance]
+
+  - id: qft.dirac-plane-wave-spinors
+    name: 正負振動数の平面波スピノル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正負振動数の平面波スピノル）]
+    requires: [qft.dirac-factorization, qft.dirac-adjoint-action]
+
+  - id: qft.dirac-spin-sums
+    name: 平面波解の規格化とスピン和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平面波解の規格化とスピン和）]
+    requires: [qft.dirac-plane-wave-spinors]
+
+  - id: qft.on-shell-spin-projectors
+    name: 質量殻スピン射影子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量殻スピン射影子）]
+    requires: [qft.dirac-spin-sums]
+
+  - id: qft.spinor-projector-completeness
+    name: スピン和から得る相補射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（スピン和から得る相補射影）]
+    requires: [qft.on-shell-spin-projectors, qft.dirac-spin-sums]

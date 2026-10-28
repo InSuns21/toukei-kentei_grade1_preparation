@@ -1035,6 +1035,7 @@
 17. [QINF17 von Neumannエントロピー](textbook/volumes/dream_thater/応用系/QINF/QINF17/index.md)
 18. [QINF18 条件付きエントロピーと相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF18/index.md)
 19. [QINF19 強劣加法性と条件付き相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF19/index.md)
+20. [QINF20 量子相対エントロピーとデータ処理](textbook/volumes/dream_thater/応用系/QINF/QINF20/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
@@ -1254,6 +1255,7 @@
 4. [QFT4 実スカラー場のFock空間と正準量子化](textbook/volumes/dream_thater/物理系/QFT/QFT4/index.md)
 5. [QFT5 自由場の二点関数・因果的交換子・局所的可換性](textbook/volumes/dream_thater/物理系/QFT/QFT5/index.md)
 6. [QFT6 遅延・先進・Feynman伝播関数とiε処方](textbook/volumes/dream_thater/物理系/QFT/QFT6/index.md)
+7. [QFT7 Dirac場のLorentz変換・Clifford代数と平面波解](textbook/volumes/dream_thater/物理系/QFT/QFT7/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I

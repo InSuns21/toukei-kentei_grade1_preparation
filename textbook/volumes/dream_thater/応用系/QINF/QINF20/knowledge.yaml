@@ -1,0 +1,63 @@
+chapter: QINF20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF5
+  - QINF7
+  - QINF8
+  - QINF17
+  - QINF18
+  - QINF19
+  - INFO2
+forward_references: []
+
+concepts:
+  - id: quantum.relative-entropy
+    name: 量子相対エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子相対エントロピー）]
+    requires: [quantum.finite-density-operator]
+
+  - id: quantum.relative-entropy-nonnegativity
+    name: 量子相対エントロピーの非負性と等号条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（量子相対エントロピーの非負性と等号条件）]
+    requires: [quantum.relative-entropy]
+
+  - id: quantum.relative-entropy-isometry
+    name: 等長写像による相対エントロピーの不変性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（等長写像による相対エントロピーの不変性）]
+    requires: [quantum.relative-entropy, quantum.stinespring-isometry]
+
+  - id: quantum.relative-entropy-partial-trace
+    name: 零固有値を許す部分トレース単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（零固有値を許す部分トレース単調性）]
+    requires: [quantum.relative-entropy, quantum.partial-trace-log-monotonicity]
+
+  - id: quantum.relative-entropy-data-processing
+    name: 量子相対エントロピーのデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（量子相対エントロピーのデータ処理不等式）]
+    requires: [quantum.relative-entropy-partial-trace, quantum.relative-entropy-isometry, quantum.stinespring-representation]
+
+  - id: quantum.mutual-information-data-processing
+    name: 局所チャネルによる量子相互情報量の単調性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（局所チャネルによる量子相互情報量の単調性）]
+    requires: [quantum.relative-entropy-data-processing, quantum.mutual-information]
+
+  - id: quantum.classical-coarse-graining-equality
+    name: 古典的粗視化の相対エントロピー差と等号
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典的粗視化の相対エントロピー差と等号）]
+    requires: [quantum.relative-entropy-data-processing]
