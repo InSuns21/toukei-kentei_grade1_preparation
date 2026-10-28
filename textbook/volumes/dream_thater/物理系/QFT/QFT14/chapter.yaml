@@ -1,0 +1,36 @@
+id: QFT14
+title: "自由場の二点関数から散乱確率までの総合演習"
+volume: foundations
+status: supplementary
+prerequisites: [QFT13]
+official_scope: []
+learning_objectives:
+  - 自由場のWightman二点分布・時間順序二点分布・交換子を導き、相関と因果性の相違を説明できる
+  - 四次スカラー相互作用のWick収縮とLSZ外線切断を規格化・留数の仮定付きで再構成できる
+  - 二体位相空間のJacobianと入射流束から同種・異種粒子の全断面積を求められる
+  - 木レベル散乱・交差チャネルと単位性の摂動次数を区別し、光学定理の係数を検算できる
+  - 質量殻極、安定漸近粒子、外線留数、閾値、同種粒子係数の適用条件を横断的に判定できる
+definitions: []
+theorems:
+  - { id: QFT14-PROP-01, name: 四次実スカラーの二点関数から単位性までの規格化連鎖 }
+canonical_examples:
+  - 同一自由場の空間的相関と交換子の違い
+  - 外線留数Zの打消しと接触頂点の階乗
+  - 二体位相空間のエネルギーdeltaのJacobian
+  - 四次実スカラーと異種スカラーの終状態計数の比較
+  - 木レベル断面積と次次数の前方虚部の整合
+problem_patterns:
+  - QFT14-WIGHTMAN-CAUSAL-CHECK
+  - QFT14-FEYNMAN-POLE-PRESCRIPTION
+  - QFT14-WICK-FACTORIAL
+  - QFT14-LSZ-RESIDUE
+  - QFT14-TWO-BODY-JACOBIAN
+  - QFT14-IDENTICAL-FINAL-STATE
+  - QFT14-CROSSING-VS-PHASE-SPACE
+  - QFT14-OPTICAL-ORDER
+  - QFT14-INTEGRATED-SCALAR-CHAIN
+  - QFT14-MIXED-SPECIES-SCATTERING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 15, review: 5 }
