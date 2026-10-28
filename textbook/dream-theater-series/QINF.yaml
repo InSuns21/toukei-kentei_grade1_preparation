@@ -73,7 +73,7 @@ chapters:
     title: "混合状態の分離可能性"
   - id: QINF16
     path: textbook/volumes/dream_thater/応用系/QINF/QINF16
-    status: planned
+    status: completed
     title: "Bell不等式とCHSH"
   - id: QINF17
     path: textbook/volumes/dream_thater/応用系/QINF/QINF17
