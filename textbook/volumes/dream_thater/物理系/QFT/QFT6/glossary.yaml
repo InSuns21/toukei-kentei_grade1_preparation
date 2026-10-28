@@ -1,0 +1,20 @@
+chapter: QFT6
+terms:
+  - term: 遅延基本解
+    english: retarded fundamental solution
+    meaning: "デルタ源を再現し、源から未来の光円錐内だけに支持を持つKlein–Gordon核。"
+  - term: 先進基本解
+    english: advanced fundamental solution
+    meaning: "デルタ源を再現し、源から過去の光円錐内だけに支持を持つKlein–Gordon核。"
+  - term: 境界値処方
+    english: boundary-value prescription
+    meaning: "実エネルギー軸上の極を、上側・下側の複素境界値として分布的に解釈する規約。"
+  - term: 時間順序積
+    english: time-ordered product
+    meaning: "二点のうち時刻の遅い場が左に来るよう並べ替えた積。等時刻の積は核として分布的に規定する。"
+  - term: Feynman二点分布
+    english: Feynman two-point distribution
+    meaning: "自由Fock真空における時間順序付き二点期待値。ここではD_Fと書き、P D_F=-iδとなる。"
+  - term: Feynman基本解
+    english: Feynman fundamental solution
+    meaning: "Feynman二点分布にiを掛けたG_F=iD_F。P G_F=δを満たすが遅延支持は持たない。"
