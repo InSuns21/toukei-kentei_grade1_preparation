@@ -6,11 +6,13 @@
 
 この章では、まず自由場の波束で粒子の規格化を固定し、次に相互作用場で必要となる漸近状態と孤立した一粒子極を区別します。その後、時刻面積分を比較する方法からLSZ還元の外線因子を追い、[QFT10の四次頂点](../QFT10/index.md#def-qft10-scalar-interaction)を初めて散乱振幅に結び付けます。
 
-時空はMinkowski空間 $\mathbb R^{1,3}$、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$ とし、まず質量 $m>0$ の実スカラー場を扱います。相互作用理論では $m$ を**物理的な一粒子質量**とし、摂動論の自由質量との差は必要な質量調整により整合させます。場は[作用素値分布](../QFT4/index.md#prop-qft4-operator-distribution)として試験関数でsmearingし、平面波状態・無限体積デルタはその極限の記法とします。有限モードで行うWick計算、有限時間の発展、無限時間の散乱極限を同時に正当化したとは仮定しません。
+時空はMinkowski空間 $\mathbb R^{1,3}$、計量成分は $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$ とし、まず質量 $m>0$ の実スカラー場を扱います。四元ベクトルの積は $p\cdot x=p^0t-\boldsymbol p\cdot\boldsymbol x$（$x^0=t$）です。相互作用理論では $m$ を**物理的な一粒子質量**とし、摂動論の自由質量との差は必要な質量調整により整合させます。場は[作用素値分布](../QFT4/index.md#prop-qft4-operator-distribution)として試験関数でsmearingし、平面波状態・無限体積デルタはその極限の記法とします。有限モードで行うWick計算、有限時間の発展、無限時間の散乱極限を同時に正当化したとは仮定しません。
 
 ## 1. 自由一粒子の規格化を固定する
 
-量子場のモード展開には $2E_{\boldsymbol p}$ が現れます。これを省略すると、散乱の運動量保存デルタの係数が合わなくなります。まず[自由Fock空間の生成消滅演算子](../QFT4/index.md#def-qft4-ladder-operators)を、Lorentz不変な正エネルギー質量殻測度で書き直します。
+量子場のモード展開には $2E_{\boldsymbol p}$ が現れます。これを省略すると、散乱の運動量保存デルタの係数が合わなくなります。まず[自由Fock空間の生成消滅演算子](../QFT4/index.md#def-qft4-ladder-operators)を、[正エネルギー質量殻](../QFT5/index.md#def-qft5-positive-mass-shell)上のLorentz不変測度で書き直します。
+
+ここで波束の添字 $f_t$ は時刻 $t$ における空間波形を表し、$\partial_t$ は空間座標を固定して微分します。また、[QFT4のHilbert内積](../QFT4/index.md#def-qft4-fock-space)は第1変数線形でしたが、本章のKlein–Gordon内積と物理のブラケット $\langle f|g\rangle$ は**第2変数線形**とします。同じ二つの波束について、後者の値はQFT4流儀の $\langle g,f\rangle$ と一致します。
 
 <a id="def-qft11-invariant-packet"></a>
 
@@ -49,7 +51,7 @@ $$
 > と規格化する。
 <!-- formal-statement-end -->
 
-固定した慣性座標では $d\Pi_p$ は三次元運動量積分ですが、[正エネルギー質量殻](../QFT5/index.md#def-qft5-positive-mass-shell)を $2\pi\theta(p^0)\delta(p^2-m^2)d^4p/(2\pi)^4$ で表示しても同じです。実際、$\delta((p^0)^2-E_{\boldsymbol p}^2)$ の正の根 $p^0=E_{\boldsymbol p}$ のJacobianは $1/(2E_{\boldsymbol p})$ です。ここで内積が正になるのは**正振動数に限定したから**であり、一般の正負混合解では不定符号になります。
+固定した慣性座標では $d\Pi_p$ は三次元運動量積分ですが、[正エネルギー質量殻](../QFT5/index.md#def-qft5-positive-mass-shell)を $2\pi\theta(p^0)\delta(p^2-m^2)d^4p/(2\pi)^4$ で表示しても同じです。実際、$\delta((p^0)^2-E_{\boldsymbol p}^2)$ の正の根 $p^0=E_{\boldsymbol p}$ のJacobianは $1/(2E_{\boldsymbol p})$ です。この四次元表示は時刻の向きを保つLorentz変換で不変なので、誘導された $d\Pi_p$ も不変です。ここで内積が正になるのは**正振動数に限定したから**であり、一般の正負混合解では不定符号になります。
 
 <!-- definition-example-start: def-qft11-invariant-packet -->
 ### 例：波束の内積を直接計算する
@@ -69,6 +71,18 @@ $$
 
 よって $(f,f)_{\mathrm{KG}}>0$（$f\ne0$）、かつ時間に依存しません。これで定義の正定値性と規格化係数を実際に検査しました。
 <!-- definition-example-end -->
+
+この表示を[QFT4の自由場のsmearing](../QFT4/index.md#def-qft4-smeared-field)と結び付けます。QFT4では $d\mu_p=d^3\boldsymbol p/(2\pi)^3$ と $1/\sqrt{2E_{\boldsymbol p}}$ を使って場を展開しました。同じ場を $d\Pi_p=d\mu_p/(2E_{\boldsymbol p})$ で書くには、運動量でラベルした演算子を
+
+$$
+a_{\mathrm{inv}}(\boldsymbol p)
+=\sqrt{2E_{\boldsymbol p}}\,a_{\mathrm{QFT4}}(\boldsymbol p),
+\qquad
+\int d\Pi_p\,a_{\mathrm{inv}}(\boldsymbol p)e^{-ip\cdot x}
+=\int d\mu_p\,\frac{a_{\mathrm{QFT4}}(\boldsymbol p)}{\sqrt{2E_{\boldsymbol p}}}e^{-ip\cdot x}
+$$
+
+と再規格化します。以後 $a_{\mathrm{inv}}(\boldsymbol p)$ を単に $a(\boldsymbol p)$ と書きます。[QFT4の交換関係](../QFT4/index.md#thm-qft4-fock-ccr)のデルタを掛け合わせると $[a(\boldsymbol p),a^\dagger(\boldsymbol q)]=(2\pi)^3 2E_{\boldsymbol p}\delta^{(3)}(\boldsymbol p-\boldsymbol q)$ となります。この変換は場を変える操作ではなく、測度と演算子の係数を同時に取り替える操作です。
 
 <a id="prop-qft11-free-packet"></a>
 
@@ -137,7 +151,7 @@ $|f\rangle=a^\dagger(f)|\Omega_0\rangle$ に作用させれば内積の式も従
 
 ## 2. いつ「入射」「出射」粒子と呼べるか
 
-散乱中には粒子数が変わり得ますが、相互作用が局所的で、遠い時空で互いに離れた安定粒子の波束を識別できる場合があります。ここで重要なのは、相互作用場の時間発展があることだけでは、**漸近極限の存在は従わない**という点です。
+散乱中には粒子数が変わり得ますが、相互作用が局所的で、遠い時空で互いに離れた安定粒子の波束を識別できる場合があります。ここで「安定」は時間発展で崩壊しない一粒子、「孤立」はその質量が他の質量スペクトルから隔たっていることを意味します。散乱状態写像が**等長**であるとは波束の内積を保つことです。**漸近完全性**とは、考える粒子種の散乱波束から物理的散乱部分空間全体を得られる条件であり、両写像の値域がその同じ部分空間を尽くすことを要請します。ここで重要なのは、相互作用場の時間発展があることだけでは、**漸近極限の存在は従わない**という点です。
 
 <a id="def-qft11-asymptotic-s"></a>
 
@@ -161,7 +175,7 @@ $$
 <!-- definition-example-start: def-qft11-asymptotic-s -->
 ### 例：自由理論では両極限が一致する
 
-**定義の確認**：$\phi_H=\phi_0$ の自由理論なら[自由波束の命題](#prop-qft11-free-packet)によって $a_t(f)=a(f)$ はどの時刻でも同じです。したがってin/out写像は両方とも恒等写像、$S=I$ で、波束同士の散乱行列要素は $\langle g|S|f\rangle=\int d\Pi_p\,g^*(\boldsymbol p)f(\boldsymbol p)$ です。これは「相互作用しないので何も起こらない」という意味ですが、$S$ の行列要素が零になるわけではありません。
+**定義の確認**：$\phi_H=\phi_0$ の自由理論なら[自由波束の命題](#prop-qft11-free-packet)によって $a_t(f)=a(f)$ はどの時刻でも同じです。したがってin/out写像は両方とも恒等写像で、波束の内積 $\langle g|f\rangle$ を保ち（等長性）、値域も自由Fock空間全体です（完全性）。$S=I$ で、波束同士の散乱行列要素は $\langle g|S|f\rangle=\int d\Pi_p\,g^*(\boldsymbol p)f(\boldsymbol p)$ です。これは「相互作用しないので何も起こらない」という意味ですが、$S$ の行列要素が零になるわけではありません。
 <!-- definition-example-end -->
 
 [QFT9の有限時間Dyson演算子](../QFT9/index.md#def-qft9-dyson)や[QFT10の有限切替 $\mathcal S_g$](../QFT10/index.md#def-qft10-scalar-interaction)は、有限次数の計算を組織するものです。$g\to1$、時間 $\to\pm\infty$、体積 $\to\infty$、紫外cutoff除去という複数の極限を交換できる保証はありません。有限体積では離散スペクトルの再帰もあり、そこから散乱の大時間極限を無条件に推測できません。
@@ -199,7 +213,7 @@ $$
 **定義の確認**：自由場のモード展開のうち $\langle\Omega_0|\phi_0(0)a^\dagger(\boldsymbol p)|\Omega_0\rangle$ に寄与するのは消滅部分だけです。[自由交換関係](../QFT4/index.md#thm-qft4-fock-ccr)で規格化すると値は $1$、従って $Z=1$。また[自由二点関数の極](../QFT6/index.md#thm-qft6-feynman-poles)は $p^2=m^2$ の単純極で、他の連続スペクトルを含みません。定義の重なり・正値性・孤立性をそれぞれ確認しました。
 <!-- definition-example-end -->
 
-相互作用場の波束演算子 $a_t^H(f)$ は[自由波束の面積分](#prop-qft11-free-packet)の $\phi_0$ を $\phi_H$ に置き換えたものです。[波動関数留数](#def-qft11-stable-pole)を用いると、適切な散乱状態上で
+相互作用場の波束演算子 $a_t^H(f)$ は[自由波束の面積分](#prop-qft11-free-packet)の $\phi_0$ を $\phi_H$ に置き換えたものです。上付き $H$ は相互作用場（Heisenberg描像）を、下付き $t$ は面積分を評価する時刻を示し、時間微分ではありません。[波動関数留数](#def-qft11-stable-pole)を用いると、適切な散乱状態上で
 
 $$
 a_{\mathrm{in}}(f)
@@ -317,13 +331,15 @@ $$
 空間部分積分を二回行うと、境界項が消える仮定によって $\int(\nabla^2f_t^*)F=\int f_t^*\nabla^2F$ です。よって $dA_t/dt=i\int f_t^*KF$。この等式を $t_1$ から $t_2$ まで積分して結論を得ます。
 <!-- proof-end -->
 
-**使い方**：自由場なら $K\phi_0=0$ なので時間差が零です。相互作用場では一般に $K\phi_H\ne0$ であり、大時間端の差が相互作用を反映します。多粒子の行列要素へ適用するときは、時間順序記号を微分した際に生じる等時刻の接触項も含めて扱います。これらを無条件に捨てるのではなく、外線極の係数を取り出す過程で整理します。
+**使い方**：自由場なら $A_t(f;\phi_0)=a_t(f)$ で、$K\phi_0=0$ なので時間差が零です。相互作用場では一般に $K\phi_H\ne0$ であり、大時間端の差が相互作用を反映します。多粒子の行列要素へ適用するときは、時間順序記号を微分した際に生じる等時刻の接触項も含めて扱います。これらを無条件に捨てるのではなく、外線極の係数を取り出す過程で整理します。
+
+[QFT10の連結相関関数](../QFT10/index.md#def-qft10-connected-correlator)では、全外部挿入点が一つの連結成分に属する寄与を選びました。ここでもその四点成分を用い、各外部座標 $x_j$ に共役な四元運動量 $k_j$ を全て内向きに取ってFourier変換します。四元運動量の符号は出射粒子だけ反転させるので、外線の極 $k_j^2=m^2$ は符号反転しても同じ位置です。
 
 <a id="def-qft11-lsz-amputation"></a>
 
 <!-- formal-statement-start -->
 > **定義（LSZ外線還元と連結散乱振幅）**  
-> 質量 $m>0$ の安定一粒子状態と $Z>0$ の孤立一粒子極を持ち、漸近in/out場が存在する相互作用実スカラー理論を考える。$G_{4,c}(x_1,\ldots,x_4)$ を真空の**連結**時間順序四点関数とする。全て内向きの四元運動量 $k_1,\ldots,k_4$ に対するFourier変換を
+> 質量 $m>0$ の安定一粒子状態と $Z>0$ の孤立一粒子極を持ち、漸近in/out場が存在する相互作用実スカラー理論を考える。$G_{4,c}(x_1,\ldots,x_4)$ を真空の[**連結**時間順序四点関数](../QFT10/index.md#def-qft10-connected-correlator)とする。全て内向きの四元運動量 $k_1,\ldots,k_4$ に対するFourier変換を
 
 $$
 \begin{aligned}
@@ -372,15 +388,25 @@ $$
 を適用すると $\sqrt Z$ が残ります。二点関数には場が二つあるのに、外線を一つだけ外したので重なりが一つ残ったのです。四点関数では四つの外線ごとに $\sqrt Z$ を除いて初めて規格化された粒子の振幅になります。自由理論では $Z=1$ ですが、一般にこの係数を省略できません。
 <!-- definition-example-end -->
 
+前の[散乱状態の定義](#def-qft11-asymptotic-s)では、$S$ は**自由漸近Fock空間上**の作用素として定義しました。従って $S=I+iT$ と分けるなら、$iT$ の行列要素も自由漸近状態 $|\alpha\rangle,|\beta\rangle$ で挟みます。物理的なin/out状態の重なりとの関係は
+
+$$
+\langle\beta,\mathrm{out}|\alpha,\mathrm{in}\rangle
+=\langle\beta|S|\alpha\rangle
+=\langle\beta|\alpha\rangle+\langle\beta|iT|\alpha\rangle
+$$
+
+です。$\langle\beta,\mathrm{out}|iT|\alpha,\mathrm{in}\rangle$ と書くと、自由空間上の演算子を別の状態空間に無断で作用させることになります。
+
 <a id="thm-qft11-lsz-four-leg"></a>
 
 <!-- formal-statement-start -->
 > **定理（漸近場を仮定したLSZ四外線還元）**  
-> $3+1$ 次元の局所的・並進不変な実スカラー量子場理論で、(i) 真空が一意、(ii) 物理質量 $m>0$ の孤立安定一粒子部分空間と $Z>0$ の場の重なりが存在、(iii) 適切な波束でin/out散乱状態が存在、(iv) 時間順序相関関数の外線極限・大時間極限とその交換が正当化できる、と仮定する。$S=I+iT$ と書く。このとき連結 $2\to2$ 行列要素は
+> $3+1$ 次元の局所的・並進不変な実スカラー量子場理論で、(i) 真空が一意、(ii) 物理質量 $m>0$ の孤立安定一粒子部分空間と $Z>0$ の場の重なりが存在、(iii) 適切な波束でin/out散乱状態が存在、(iv) 時間順序相関関数の外線極限・大時間極限とその交換が正当化できる、と仮定する。自由漸近Fock空間上で $S=I+iT$ と書く。このとき連結 $2\to2$ 行列要素は
 
 $$
-\langle\boldsymbol p_3,\boldsymbol p_4,\mathrm{out}|
-iT|\boldsymbol p_1,\boldsymbol p_2,\mathrm{in}\rangle_{\!c}
+\langle\boldsymbol p_3,\boldsymbol p_4|
+iT|\boldsymbol p_1,\boldsymbol p_2\rangle_{\!c}
 =(2\pi)^4\delta^{(4)}(p_1+p_2-p_3-p_4)\,
 i\mathcal M(p_1,p_2\to p_3,p_4),
 $$
@@ -395,7 +421,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず外線を一個だけ還元します。[漸近in/out状態](#def-qft11-asymptotic-s)の条件により、場から作る波束演算子は大時間で $a_{\rm in/out}(f)$ の $\sqrt Z$ 倍になります。二つの時間端の差に[面積分の時間差](#lem-qft11-surface-difference)を適用すると、対応する行列要素の差を $i\int d^4x\, f_t^*(\boldsymbol x)K_x\phi_H(x)/\sqrt Z$ で表せます。外部の波束を正負のエネルギーに展開することで、入射側の $e^{-ip\cdot x}$ と出射側の $e^{+ip\cdot x}$ が選ばれます。境界条件の情報は $i0$ 処方に反映されます。
+まず外線を一個だけ還元します。[漸近in/out状態](#def-qft11-asymptotic-s)の条件により、場から作る波束演算子は大時間で $a_{\rm in/out}(f)$ の $\sqrt Z$ 倍になります。二つの時間端の差に[面積分の時間差](#lem-qft11-surface-difference)を適用すると、適切な散乱状態間の行列要素として
+
+$$
+a_{\rm out}(f)-a_{\rm in}(f)
+=\frac{i}{\sqrt Z}\int_{-\infty}^{\infty}d^4x\,
+f_t^*(\boldsymbol x)K_x\phi_H(x)
+$$
+
+を得ます。消滅演算子側の $f_t^*$ は $e^{+ip\cdot x}$ を、入射粒子を作る随伴演算子側の $f_t$ は $e^{-ip\cdot x}$ を含み、これが全内向き運動量の符号選択になります。時間順序相関をFourier変換すると、分布の微分の規則により
+
+$$
+\int d^4x\,e^{ik\cdot x}K_xG(x,\ldots)
+=(m^2-k^2)\widetilde G(k,\ldots),\qquad
+\frac{i}{\sqrt Z}(m^2-k^2)
+=\frac{k^2-m^2}{i\sqrt Z}
+$$
+
+です。したがって面積分の差が外線還元因子を生む理由も符号を含めて追えます。時間順序微分で生じる[QFT6のデルタ源と同種の接触項](../QFT6/index.md#thm-qft6-feynman-poles)は保持し、外線の単純極を取る際の分離は仮定(iv)によります。境界条件の情報は $i0$ 処方に反映されます。
 
 次に、外線の場がつながる残りの行列要素の間へ一粒子状態を挿入します。[一粒子極の命題](#prop-qft11-one-particle-pole)と全く同じ時間積分を使うと、その外線の運動量 $k$ に関する特異部分は
 
@@ -551,7 +594,28 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[自由波束の命題](#prop-qft11-free-packet)のモード表示を代入します。消滅部分の係数は $i[-iE_q-iE_p]=E_q+E_p$、空間積分は $\delta^{(3)}(\boldsymbol p-\boldsymbol q)$ です。$\boldsymbol q=\boldsymbol p$ により係数 $2E_p$ が現れて質量殻測度の分母を消すので、$\int d\Pi_p f^*(\boldsymbol p)a(\boldsymbol p)$ が残ります。生成部分の空間積分では $\boldsymbol q=-\boldsymbol p$、従って $E_q=E_p$ ですが、時間微分係数は $i[iE_q-iE_p]=0$ です。ゆえに生成部分は零です。最終式に $t$ が残らないため $a_t(f)$ は時刻に依存しません。
+[自由波束の命題](#prop-qft11-free-packet)のモード表示を代入します。消滅部分の時間微分係数は $i[-iE_q-iE_p]=E_q+E_p$ で、空間積分のデルタが $\boldsymbol q=\boldsymbol p$ を選びます。従って
+
+$$
+\begin{aligned}
+a_t(f)\big|_{\mathrm{ann}}
+&=\int d\Pi_p\,d\Pi_q\,f^*(\boldsymbol p)a(\boldsymbol q)
+(E_p+E_q)e^{i(E_p-E_q)t}
+(2\pi)^3\delta^{(3)}(\boldsymbol q-\boldsymbol p)\\
+&=\int d\Pi_p\,f^*(\boldsymbol p)a(\boldsymbol p).
+\end{aligned}
+$$
+
+二行目では $E_q=E_p$ となり、係数 $2E_p$ が $d\Pi_q$ の分母を消しました。一方、生成部分は空間デルタで $\boldsymbol q=-\boldsymbol p$ を選ぶので、$E_q=E_p$ から
+
+$$
+a_t(f)\big|_{\mathrm{cre}}
+=\int d\Pi_p\,d\Pi_q\,f^*(\boldsymbol p)a^\dagger(\boldsymbol q)
+i(iE_q-iE_p)e^{i(E_p+E_q)t}
+(2\pi)^3\delta^{(3)}(\boldsymbol p+\boldsymbol q)=0.
+$$
+
+最終式に $t$ が残らないため $a_t(f)$ は時刻に依存しません。
 <!-- solution-end -->
 
 ### 演習 QFT11-A3：正負エネルギー極の分母
@@ -785,7 +849,7 @@ $$
 仮定した漸近状態と外線極限が実際に成立する場合、[漸近場を仮定したLSZ四外線還元](#thm-qft11-lsz-four-leg)から
 
 $$
-\langle p_3,p_4,\mathrm{out}|iT|p_1,p_2,\mathrm{in}\rangle_c
+\langle p_3,p_4|iT|p_1,p_2\rangle_c
 =(2\pi)^4\delta^{(4)}(p_1+p_2-p_3-p_4)(-i\lambda)
 $$
 
