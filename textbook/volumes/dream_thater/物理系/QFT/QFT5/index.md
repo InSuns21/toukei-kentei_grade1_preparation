@@ -116,7 +116,17 @@ $$
 <!-- definition-example-start: def-qft5-wightman -->
 ### 例：Gaussian試験関数が作る正の二点量
 
-**定義の確認**：時空の実Schwartz関数で二点分布の双線形性と正値性を実際に確認します。
+**定義の確認**：時空の実Schwartz関数で二点分布の双線形性と正値性を実際に確認します。まず複素係数 $\alpha,\beta$ と試験関数 $F_1,F_2,G$ について、[場の複素線形なsmearing](../QFT4/index.md#def-qft4-smeared-field)から
+
+$$
+\begin{aligned}
+W(\alpha F_1+\beta F_2,G)
+&=\omega_0\bigl((\alpha\Phi(F_1)+\beta\Phi(F_2))\Phi(G)\bigr)\\
+&=\alpha W(F_1,G)+\beta W(F_2,G)
+\end{aligned}
+$$
+
+が従います。第2引数でも同じ積の線形性を使えるため、定義の双線形条件が確かめられます。次に正値性を具体的な関数で調べます。
 
 $\sigma_t,\sigma_x>0$ として
 
@@ -147,7 +157,7 @@ $$
 
 ## 2. 二点分布のエネルギーはどこにあるか
 
-正値性は真空のHilbert空間に由来します。もう一つの制約は、真空から場を掛けて作る波束のエネルギーが正であることです。「質量殻上」という条件は[QFT3の分散関係](../QFT3/index.md#thm-qft3-cauchy)と同じですが、二点分布ではFourier変換の**支持**として表れます。
+正値性は真空のHilbert空間に由来します。もう一つの制約は、真空から場を掛けて作る波束のエネルギーが正であることです。[SREL3の質量殻と正エネルギー枝の定義](../../SREL/SREL3/index.md#def-srel3-mass-shell)では四元運動量の二乗と時間成分の符号を指定しました。[QFT3の分散関係](../QFT3/index.md#thm-qft3-cauchy)も同じ代数式を満たします。ここではその集合を新たな粒子の定義と混同せず、**二点分布のFourier変数がどこに支持されるか**の条件として使います。
 
 四元運動量 $k=(k^0,\boldsymbol k)$ のMinkowski二乗を $k^2=(k^0)^2-|\boldsymbol k|^2$ とし、$\theta(k^0)$ は $k^0>0$ で1、それ以外で0となる階段関数、$\delta$ はDiracデルタ分布です。
 
@@ -424,7 +434,30 @@ $$
 \subset\overline B_{|t|+\varepsilon}.
 $$
 
-近似恒等族の性質によって、任意の空間Schwartz試験関数への $u_\varepsilon(t,\cdot)$ の作用は $E(t,\cdot)$ の作用へ収束します。時間についてもコンパクト台試験関数で積分すれば時空試験関数への作用が収束します。閉光円錐の外に支持を持つ任意のコンパクト台試験関数は十分小さい $\varepsilon$ で全ての $u_\varepsilon$ と対合が零なので、極限の $E$ とも零です。これで時空支持の主張が証明されました。
+この極限が時空分布としても成立することを確かめます。$\widehat\rho(\boldsymbol p)=\int\rho(\boldsymbol x)e^{-i\boldsymbol p\cdot\boldsymbol x}\,d^3x$ とすると、$\widehat{\rho_\varepsilon}(\boldsymbol p)=\widehat\rho(\varepsilon\boldsymbol p)\to1$ です。任意の $\psi\in C_c^\infty(\mathbb R^4)$ について空間Fourier変換を $\widehat\psi(t,\boldsymbol p)$ と書けば
+
+$$
+\begin{aligned}
+\langle u_\varepsilon-E,\psi\rangle
+&=\int_{\mathbb R}dt\int d\mu(\boldsymbol p)\,
+\frac{\sin(\omega_{\boldsymbol p}t)}{\omega_{\boldsymbol p}}\\
+&\qquad\cdot\bigl(\widehat\rho(\varepsilon\boldsymbol p)-1\bigr)
+\widehat\psi(t,-\boldsymbol p).
+\end{aligned}
+$$
+
+$\rho$ は非負で積分1なので、そのFourier変換の絶対値は1以下です。また質量の正値性を使うと、直前の被積分関数は
+
+$$
+\left|\frac{\sin(\omega_{\boldsymbol p}t)}{\omega_{\boldsymbol p}}
+(\widehat\rho(\varepsilon\boldsymbol p)-1)
+\widehat\psi(t,-\boldsymbol p)\right|
+\le\frac2m|\widehat\psi(t,-\boldsymbol p)|
+$$
+
+で抑えられます。右辺は時間のコンパクト台と運動量のSchwartz減衰で可積分です。各運動量での収束とこの一様な可積分上界を照合し、[Lebesgueの優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用すると、$u_\varepsilon\to E$ が時空試験関数への作用として成立します。
+
+閉光円錐の外に支持を持つ任意のコンパクト台試験関数は、十分小さい $\varepsilon$ で全ての $u_\varepsilon$ と対合が零なので、極限の $E$ とも零です。これで時空支持の主張が証明されました。
 <!-- proof-end -->
 
 この証明で重要なのは局所エネルギーの**境界速度が1**であることです。球を固定したまま全空間エネルギー保存だけを使っても、外への伝播速度は分かりません。
@@ -524,6 +557,8 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-qft5-locality -->
+<a id="ref-qft5-spacelike-wightman"></a>
+
 ### 例：零交換子でも真空相関は残る
 
 **定義の確認**：空間差 $\boldsymbol r\ne0$ で等時刻の二点核を調べます。$\sqrt a$ の逆数のGaussian積分表示
@@ -546,9 +581,56 @@ e^{-m^2s-|\boldsymbol r|^2/(4s)}\,ds>0.
 \end{aligned}
 $$
 
-中間段階では $\int d^3p/(2\pi)^3\,e^{-s|\boldsymbol p|^2+i\boldsymbol p\cdot\boldsymbol r}=(4\pi s)^{-3/2}e^{-|\boldsymbol r|^2/(4s)}$ を使いました。$\boldsymbol r\ne0$ なら両端の積分は収束し、積分の被積分関数は正です。元の振動積分は分布として解釈し、空間的分離領域で滑らかな値へ制限した結果を表示しています。
+中間段階では、三次元のGaussian Fourier積分
 
-これに対して[交換子の時刻零データ](#thm-qft5-commutator-cauchy)は $C(0,\boldsymbol r)=0$ です。等時刻で空間的に離れた二つの小さい非負試験関数を選ぶと、連続性から二点相関の実部は非零にできますが、交換子は[局所性定理](#thm-qft5-locality)により零です。**相関があること**と**相互に影響を信号として伝えられること**は異なります。
+$$
+\int\frac{d^3p}{(2\pi)^3}
+e^{-s|\boldsymbol p|^2+i\boldsymbol p\cdot\boldsymbol r}
+=(4\pi s)^{-3/2}e^{-|\boldsymbol r|^2/(4s)}
+$$
+
+を使いました。元の振動積分は分布として解釈し、例えば運動量積分へ $e^{-\varepsilon|\boldsymbol p|^2}$ を挿入してGaussian積分を先に行い、$\varepsilon\downarrow0$ とすることで空間差が非零のときの表示を得ます。積分の両端は正の質量と非零の空間差により収束し、被積分関数は正です。
+
+等時刻から一般の空間的分離への橋渡しも確認します。[正エネルギー質量殻表示](#prop-qft5-spectrum-kg)の測度 $d^4k\,\theta(k^0)\delta(k^2-m^2)$ は、未来方向を保つLorentz変換で質量殻・正エネルギー枝・体積要素が保たれるため不変です。
+
+時空差 $z=(\tau,\boldsymbol r)$ が空間的分離なら、[SREL1のLorentz boost](../../SREL/SREL1/index.md#thm-srel1-lorentz)を空間差の方向へ施せます。速度とLorentz因子を次のように選びます。
+
+$$
+v=\frac{\tau}{|\boldsymbol r|},\qquad
+\gamma=\frac1{\sqrt{1-v^2}},\qquad |v|<1.
+$$
+
+変換後の時間差と空間距離はそれぞれ
+
+$$
+\tau'=\gamma(\tau-v|\boldsymbol r|)=0,\qquad
+|\boldsymbol r'|=\gamma(|\boldsymbol r|-v\tau)
+=\sqrt{|\boldsymbol r|^2-\tau^2}.
+$$
+
+従って $W$ は空間的分離領域で滑らかで、上の正の積分を用いて
+
+$$
+W(\tau,\boldsymbol r)
+=\frac1{16\pi^2}\int_0^\infty s^{-2}
+e^{-m^2s-(|\boldsymbol r|^2-\tau^2)/(4s)}\,ds>0
+\qquad(|\boldsymbol r|>|\tau|)
+$$
+
+です。前節の時空小球の例で $L>4\delta$ とし、そこに支持を持つ非負かつ非零の実試験関数 $F,G$ を選べば、全点対で
+
+$$
+|\boldsymbol x-\boldsymbol y|\ge L-2\delta
+>2\delta\ge|x^0-y^0|
+$$
+
+です。ゆえに正の核の積分として $W(F,G)>0$ となり、非零性まで直接判定できます。一方、[交換子の時刻零データ](#thm-qft5-commutator-cauchy)は $C(0,\boldsymbol r)=0$、支持全体については[局所性定理](#thm-qft5-locality)から
+
+$$
+[\Phi(F),\Phi(G)]=0
+$$
+
+です。**相関があること**と**相互に影響を信号として伝えられること**は異なります。
 <!-- definition-example-end -->
 
 ## 6. 演習：二点分布と因果性を手で確認する
@@ -921,7 +1003,14 @@ W(0,\boldsymbol r)
 s^{-2}e^{-m^2s-|\boldsymbol r|^2/(4s)}\,ds>0.
 $$
 
-近接した等時刻空間的分離点の近傍では $W$ が滑らかで、この正の実部は小さい時間・空間のずれに対しても保たれます。従って $L>0$ を固定して十分小さい $\delta$ を選び、各中心の近くに非負の滑らかな関数 $F,G$ を支持させれば、二点相関の実部が正となる例を構成できます。一方、それらの交換子は(3)により零です。ここで**任意の**非負 $F,G$ が必ず正の二点相関を持つと主張してはいません。真空相関と因果的な交換子は異なる量です。
+実際には本設問の $F,G$ に対して、より強い結論まで確認できます。[空間的分離での二点核の計算](#ref-qft5-spacelike-wightman)で導いた質量殻測度のLorentz不変性により、任意の $x\in\operatorname{supp}F$、$y\in\operatorname{supp}G$ について $r_{xy}^2=|\boldsymbol x-\boldsymbol y|^2-(x^0-y^0)^2>0$ と置くと
+
+$$
+W(x-y)=\frac1{16\pi^2}\int_0^\infty
+s^{-2}e^{-m^2s-r_{xy}^2/(4s)}\,ds>0.
+$$
+
+従って非負かつ非零の滑らかな $F,G$ の積を掛けて積分すると $W(F,G)>0$ です。一方、それらの交換子は(3)により零です。この**正の相関**は、特に本設問の空間的分離・非負性の仮定から得られるもので、一般の符号付き・複素試験関数では二点相関が正になるとは限りません。真空相関と因果的な交換子は異なる量です。
 <!-- solution-end -->
 
 ## 7. まとめと次の問い
