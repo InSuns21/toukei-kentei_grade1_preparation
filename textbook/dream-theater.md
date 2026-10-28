@@ -1025,6 +1025,7 @@
 13. [QINF13 テレポーテーションと超密符号化](textbook/volumes/dream_thater/応用系/QINF/QINF13/index.md)
 14. [QINF14 LOCCと純粋状態の変換](textbook/volumes/dream_thater/応用系/QINF/QINF14/index.md)
 15. [QINF15 混合状態の分離可能性](textbook/volumes/dream_thater/応用系/QINF/QINF15/index.md)
+16. [QINF16 Bell不等式とCHSH](textbook/volumes/dream_thater/応用系/QINF/QINF16/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
