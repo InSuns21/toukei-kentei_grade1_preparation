@@ -1,0 +1,78 @@
+chapter: QFT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT3
+  - QM8
+forward_references: []
+
+concepts:
+  - id: qft.bosonic-fock-space
+    name: ボースFock空間と有限粒子領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ボースFock空間と有限粒子領域）]
+    requires: [qft.frequency-splitting, quantum.canonical-commutation-relation]
+
+  - id: qft.fock-ladder-operators
+    name: 生成・消滅演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（生成・消滅演算子）]
+    requires: [qft.bosonic-fock-space]
+
+  - id: qft.fock-ccr
+    name: Fock生成・消滅演算子の交換関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Fock生成・消滅演算子の交換関係）]
+    requires: [qft.fock-ladder-operators, quantum.canonical-commutation-relation]
+
+  - id: qft.quantum-smeared-scalar-field
+    name: 実自由量子場のsmearing
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（実自由量子場のsmearing）]
+    requires: [qft.fock-ladder-operators, qft.classical-smearing]
+
+  - id: qft.free-field-operator-distribution
+    name: 作用素値分布と弱いKlein–Gordon方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（作用素値分布と弱いKlein–Gordon方程式）]
+    requires: [qft.quantum-smeared-scalar-field, qft.fock-ccr]
+
+  - id: qft.equal-time-fields
+    name: 等時刻の場と共役運動量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等時刻の場と共役運動量）]
+    requires: [qft.quantum-smeared-scalar-field, qft.frequency-splitting]
+
+  - id: qft.equal-time-ccr
+    name: 自由実スカラー場の等時刻正準交換関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由実スカラー場の等時刻正準交換関係）]
+    requires: [qft.equal-time-fields, qft.fock-ccr]
+
+  - id: qft.number-and-normal-hamiltonian
+    name: 粒子数作用素と正規順序Hamiltonian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（粒子数作用素と正規順序Hamiltonian）]
+    requires: [qft.bosonic-fock-space, qft.spectral-energy]
+
+  - id: qft.number-energy-commutators
+    name: 粒子数とエネルギーの生成交換子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（粒子数とエネルギーの生成交換子）]
+    requires: [qft.number-and-normal-hamiltonian, qft.fock-ladder-operators]
+
+  - id: qft.normal-order-zero-point
+    name: 有限モードの正規順序と零点エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限モードの正規順序と零点エネルギー）]
+    requires: [qft.number-and-normal-hamiltonian, qft.fock-ccr]

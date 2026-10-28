@@ -1,0 +1,23 @@
+chapter: QFT4
+terms:
+  - term: ボースFock空間
+    english: bosonic Fock space
+    meaning: "零粒子から任意粒子数までの対称多粒子Hilbert空間を直和した状態空間。"
+  - term: 生成演算子
+    english: creation operator
+    meaning: "対称な多粒子波動関数へ一粒子波束を加える、一般に非有界な作用素。"
+  - term: 消滅演算子
+    english: annihilation operator
+    meaning: "指定した一粒子波束と縮約して粒子数を一つ減らす作用素。"
+  - term: 有限粒子Schwartz領域
+    english: finite-particle Schwartz domain
+    meaning: "非零粒子数成分が有限個で、各成分が対称Schwartz関数である共通稠密領域。"
+  - term: 作用素値分布
+    english: operator-valued distribution
+    meaning: "試験関数を入力として共通領域上の作用素を与え、行列要素が分布となる対応。"
+  - term: 等時刻正準交換関係
+    english: equal-time canonical commutation relation
+    meaning: "同時刻の場と共役運動量を試験関数でsmearingして得る交換関係。"
+  - term: 正規順序
+    english: normal ordering
+    meaning: "生成演算子を消滅演算子の左に並べ、自由場の零点エネルギーの定数項を差し引く規約。"
