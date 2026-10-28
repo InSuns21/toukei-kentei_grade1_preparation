@@ -42,7 +42,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cag1-06-internal-hom -->
-**定義の確認**：$\mathbb A^1_{\mathbb C}$ の原点近傍で $A=\mathbb C[t]_{(t)}$、$M=A/(t^2)$ とする。$A$-線型写像 $u:M\to M$ は $u(1)=b$ で決まり、$t^2b=0$ は $M$ では自動的に成立する。従って $\operatorname{End}_A(M)\simeq M$ で、対応は $b\mapsto(m\mapsto bm)$ である。解析的な茎でも $B=\mathbb C\{t\}$、$M^{\mathrm{an}}_0=B/(t^2)$ だから、$1,t$ を基底とする二次元の自己準同型空間が現れる。これは「射を一つ送る」だけでなく、「射の係数がどの層に属するか」を調べる例である。
+**定義の確認**：$\mathbb A^1_{\mathbb C}$ の原点近傍で $A=\mathbb C[t]_{(t)}$、$M=A/(t^2)$ とする。$A$-線型写像 $u:M\to M$ は $u(1)=b$ で決まり、関係式 $t^2b=0$ は $M$ では自動的に成立する。従って
+
+$$
+\operatorname{End}_A(M)\simeq M,
+\qquad b\longmapsto(m\longmapsto bm).
+$$
+
+解析的な茎では $B=\mathbb C\{t\}$、$M^{\mathrm{an}}_0=B/(t^2)$ である。こちらも $1,t$ を基底とする二次元の自己準同型空間になる。これは「射を一つ送る」だけでなく、「射の係数がどの層に属するか」を調べる例である。
 <!-- definition-example-end -->
 
 この定義の $\mathcal Hom$ は抽象的な全体のHom集合とは違う。たとえば $\mathcal F=\mathcal O_X$ なら、$U$ 上の射は $1$ の像で一意に決まり、
@@ -257,11 +264,11 @@ $$
 となる。恒等射 $\operatorname{id}_{\mathcal F}$ も同じ解析化を持つので、GAGA IIの単射性から $\psi\circ\varphi=\operatorname{id}_{\mathcal F}$。同様に $\varphi\circ\psi=\operatorname{id}_{\mathcal G}$ であり、$\varphi$ は代数的同型である。
 <!-- proof-end -->
 
-ここで「ともに代数的」が大切である。任意の正則線束 $\mathcal L_{\mathrm{an}}$ に対し、比較する代数的 $\mathcal L$ の**存在**はGAGA IIIの仕事である。今示したのは、代数化済みの二つの層の間で、射や同型が新しく増えないという**充満忠実性**である。
+ここで「ともに代数的」が大切である。任意の正則線束 $\mathcal L_{\mathrm{an}}$ に対し、比較する代数的 $\mathcal L$ の**存在**はGAGA IIIの主題である。今示したのは、代数化済みの二つの層の間で、射や同型が新しく増えないという**充満忠実性**である。
 
 ## 4. 線束の射、正則写像、そして境界
 
-まず射影直線で定理を目に見える形にする。[ねじり層のテンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)および[斉次多項式による切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
+まず射影直線で定理を目に見える形にする。[ねじれ層のテンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)および[斉次多項式による切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
 
 $$
 \operatorname{Hom}_{\mathbb P^1}
@@ -298,9 +305,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[内部Homの定義](#def-cag1-06-internal-hom)から、正則切断 $\sigma_i$ は層の射 $\mathcal O_X^{\mathrm{an}}\to\mathcal L^{\mathrm{an}}$ と同じ情報である。[GAGA II](#thm-cag1-06-gaga-hom)を $\mathcal F=\mathcal O_X,\mathcal G=\mathcal L$ に適用し、一意の代数的切断 $s_i$ を得る。
+[内部Hom層と射の解析化写像の定義](#def-cag1-06-internal-hom)から、正則切断 $\sigma_i$ は層の射 $\mathcal O_X^{\mathrm{an}}\to\mathcal L^{\mathrm{an}}$ と同じ情報である。[GAGA II](#thm-cag1-06-gaga-hom)を $\mathcal F=\mathcal O_X,\mathcal G=\mathcal L$ に適用し、一意の代数的切断 $s_i$ を得る。
 
-それらは代数的にも各点の近くで $\mathcal L$ を生成する。もし生成しない点があれば余核 $\mathcal Q$ は非零の連接層となり、有限型 $\mathbb C$-スキームはJacobsonなので、その台には複素閉点 $p$ が存在する。[忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)で $\mathcal Q_p\otimes\mathcal O_{X^{\mathrm{an}},p}\ne0$ だが、解析側では $\sigma_i$ が局所生成するため余核は零であり矛盾する。
+それらは代数的にも各点の近くで $\mathcal L$ を生成する。実際、生成しない点があれば、評価射 $\mathcal O_X^{m+1}\to\mathcal L$ の余核 $\mathcal Q$ は非零の連接層となる。有限型 $\mathbb C$-スキームはJacobsonなので、その台には複素閉点 $p$ が存在する。
+
+[忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)によって
+
+$$
+\mathcal Q_p\otimes_{\mathcal O_{X,p}}\mathcal O_{X^{\mathrm{an}},p}\ne0
+$$
+
+だが、解析側では切断 $\sigma_i$ が局所生成するので、このテンソル積で表される余核は零となる。矛盾するから、代数側にも共通零点はない。
 
 従って $s_0,\ldots,s_m$ は代数的な全射 $\mathcal O_X^{m+1}\twoheadrightarrow\mathcal L$ を与える。$s_i$ が局所基底になる開集合 $U_i$ では
 
@@ -328,7 +343,7 @@ $$
 $P=\mathbb P^1_{\mathbb C}$ とする。$\operatorname{Hom}(\mathcal O_P(-2),\mathcal O_P(1))$ と $\operatorname{Hom}(\mathcal O_P(1),\mathcal O_P(-2))$ の次元を両側で求め、非零の射を前者について一つ与えよ。
 
 <!-- solution-start -->
-**詳細解答**。[ねじり層の双対・テンソル公式](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと、前者の内部Homは $\mathcal O_P(1-(-2))=\mathcal O_P(3)$、後者は $\mathcal O_P(-2-1)=\mathcal O_P(-3)$ になる。[斉次多項式による大域切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
+**詳細解答**。[ねじれ層のテンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと、前者の内部Homは $\mathcal O_P(1-(-2))=\mathcal O_P(3)$、後者は $\mathcal O_P(-2-1)=\mathcal O_P(-3)$ になる。[斉次多項式による大域切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
 
 $$
 \dim\operatorname{Hom}(\mathcal O_P(-2),\mathcal O_P(1))=4,
@@ -364,7 +379,15 @@ $$
 \operatorname{Hom}_A(M,M)=\ker(M\xrightarrow{t^2}M)=M.
 $$
 
-右端の写像は零なので核は $M$ であり、これは $\mathbb C$-ベクトル空間として基底 $1,t$ を持つ（$t^2=0$）。[平坦な解析化と内部Homの交換](#lem-cag1-06-hom-base-change)では $B=\mathbb C\{t\}$ へ移す。$M\otimes_A B=B/(t^2)$ で、基底 $1,t$ と関係式 $t^2=0$ は変わらない。したがって $1$ を $1$ へ送る恒等射と、$1$ を $t$ へ送る冪零自己準同型はそれぞれ同じ形で解析化される。
+右端の写像は零なので核は $M$ であり、これは $\mathbb C$-ベクトル空間として基底 $1,t$ を持つ（$t^2=0$）。
+
+[平坦な解析化と内部Homの交換](#lem-cag1-06-hom-base-change)で $B=\mathbb C\{t\}$ へ移すと、
+
+$$
+M\otimes_A B=B/(t^2)
+$$
+
+となり、基底 $1,t$ と関係式 $t^2=0$ は変わらない。$1$ を $1$ へ送る恒等射と、$1$ を $t$ へ送る冪零自己準同型はそれぞれ同じ形で解析化される。
 <!-- solution-end -->
 
 <a id="ex-cag1-06-a04"></a>
@@ -408,7 +431,7 @@ $$
 $P=\mathbb P^1$、$p=[1:0]$ とし、点のイデアル層 $\mathcal I_p\simeq\mathcal O_P(-1)$ を考える。$\operatorname{Hom}(\mathcal I_p,\mathcal O_P)$ の次元を求め、零でない射がどこで消えるかを斉次一次式で説明せよ。解析側も同様か。
 
 <!-- solution-start -->
-**詳細解答**。[超平面の完全列](../../AG/AG3-10/index.md#prop-ag3-10-hyperplane-sequence)により $\mathcal I_p\simeq\mathcal O(-1)$ である。[ねじり層の双対公式](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと内部Homは $\mathcal O(1)$。その大域切断は $aS+bT$ の二次元空間だからHomの次元は2である。
+**詳細解答**。[超平面の完全列](../../AG/AG3-10/index.md#prop-ag3-10-hyperplane-sequence)により $\mathcal I_p\simeq\mathcal O(-1)$ である。[ねじれ層のテンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)を使うと内部Homは $\mathcal O(1)$。その大域切断は $aS+bT$ の二次元空間だからHomの次元は2である。
 
 $(a,b)\ne(0,0)$ に対し $[S:T]=[-b:a]$ は正しい射影点で、$a(-b)+ba=0$ を満たす。よって係数はこの点で零であり、その茎で単元でない。零でない射は存在するが同型は存在しない。[GAGA II](#thm-cag1-06-gaga-hom)で解析側の射も全て同じ斉次一次式に由来するので、正則係数を追加して零点を避けることはできない。
 <!-- solution-end -->
@@ -501,7 +524,15 @@ $$
 
 と計算できる。$a=0$ なら $ct$ は冪零であり逆元を持たないので、可逆性の条件は $a\ne0$ である。
 
-**（3）** 解析側の局所環は $B=\mathbb C\{t\}$ で、$B/(t^2)$ は $1,t$ による同じ二次元の商である。$B$ も整域なので $\operatorname{Hom}_B(B/(t^2),B)=0$、一方 $\operatorname{End}_B(B/(t^2))=B/(t^2)$。これらは[平坦基底変換](#lem-cag1-06-hom-base-change)の核表示と整合し、射影的な $P$ での**大域Hom**の全単射は[GAGA II](#thm-cag1-06-gaga-hom)により保証される。局所計算だけで大域の全射性を一般に言うことはできない。
+**（3）** 解析側の局所環は $B=\mathbb C\{t\}$ で、$B/(t^2)$ は $1,t$ による同じ二次元の商である。$B$ も整域なので
+
+$$
+\operatorname{Hom}_B(B/(t^2),B)=0,
+\qquad
+\operatorname{End}_B(B/(t^2))=B/(t^2).
+$$
+
+これらは[平坦基底変換](#lem-cag1-06-hom-base-change)の核表示と整合する。射影的な $P$ での**大域Hom**の全単射は[GAGA II](#thm-cag1-06-gaga-hom)により保証される。局所計算だけで大域の全射性を一般に言うことはできない。
 <!-- solution-end -->
 
 <a id="ex-cag1-06-c02"></a>
@@ -529,7 +560,9 @@ $$
 
 別法として、$\mathbb C[z]$ の単元は非零定数だけである。実際 $p(z)q(z)=1$ の多項式恒等式なら $\deg p+\deg q=0$ だから両者は定数である。$e^z$ は非定数なのに解析側で逆元 $e^{-z}$ を持ち、代数的な自己同型の解析化とはなり得ない。
 
-**（3）** $\mathbb P^1$ では[射影空間の大域関数定理](../../AG/AG2-05/index.md#thm-ag2-05-projective-global-constants)と[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)から双方の $H^0(\mathcal O)$ は $\mathbb C$ で、GAGA IIがHomの全単射を保証する。一方 $A$ では[局所的な内部Homの基底変換](#lem-cag1-06-hom-base-change)はなお成立するが、GAGA Iを使って
+**（3）** $\mathbb P^1$ では[射影空間の大域関数定理](../../AG/AG2-05/index.md#thm-ag2-05-projective-global-constants)と[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)から双方の $H^0(\mathcal O)$ は $\mathbb C$ である。GAGA IIがHomの全単射を保証する。
+
+一方 $A$ でも[局所的な内部Homの基底変換](#lem-cag1-06-hom-base-change)は成立する。しかしGAGA Iを使って
 
 $$
 H^0(A,\mathcal O_A)\longrightarrow
