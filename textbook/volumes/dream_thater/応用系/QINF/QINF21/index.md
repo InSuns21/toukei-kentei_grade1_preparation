@@ -47,7 +47,15 @@ $$
 
 **定義の確認**として、状態・確率・周辺状態の条件を順に調べます。
 
-$\mathcal X=\{0,1\}$、$p_0=p_1=1/2$、$\rho_0=|0\rangle\langle0|$、$\rho_1=|+\rangle\langle+|$ とします。$|\psi_0\rangle=|0\rangle$、$|\psi_1\rangle=|+\rangle$ は規格化ベクトルです。[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の三条件を直接確かめると、$\rho_x^\dagger=\rho_x$ であり、任意の $v$ について
+次の二状態アンサンブルを考えます。
+
+$$
+\mathcal X=\{0,1\},\quad p_0=p_1=\frac12,\quad
+\rho_0=|0\rangle\langle0|,\quad
+\rho_1=|+\rangle\langle+|.
+$$
+
+$|\psi_0\rangle=|0\rangle$、$|\psi_1\rangle=|+\rangle$ は規格化ベクトルです。[密度演算子の定義](../QINF2/index.md#def-qinf2-ensemble-density)の三条件を直接確かめると、$\rho_x^\dagger=\rho_x$ であり、任意の $v$ について
 
 $$
 \langle v|\rho_x|v\rangle=|\langle\psi_x|v\rangle|^2\ge0,
@@ -72,7 +80,27 @@ $$
 =\begin{pmatrix}3/4&1/4\\1/4&1/4\end{pmatrix}.
 $$
 
-$\omega_{XQ}$ は $X$ の基底でブロック対角になり、その二つのブロックは $\tfrac12\rho_0,\tfrac12\rho_1$ です。これは $|x\rangle\langle x|$ が $X$ の第 $x$ 成分だけを選ぶためです。各ブロックが正半定値で $\omega_{XQ}=\omega_{XQ}^\dagger$、トレースも $\sum_xp_x\operatorname{Tr}\rho_x=1$ なので、cq状態も密度演算子の三条件を満たします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)では $\operatorname{Tr}_Q(|x\rangle\langle x|\otimes\rho_x)=|x\rangle\langle x|\operatorname{Tr}\rho_x$、$\operatorname{Tr}_X(|x\rangle\langle x|\otimes\rho_x)=\rho_x$ となるため、
+$\omega_{XQ}$ は $X$ の基底でブロック対角になり、その二つのブロックは $\tfrac12\rho_0,\tfrac12\rho_1$ です。これは $|x\rangle\langle x|$ が $X$ の第 $x$ 成分だけを選ぶためです。各項が自己共役なので $\omega_{XQ}=\omega_{XQ}^\dagger$ です。任意の $u=\sum_x|x\rangle\otimes|u_x\rangle$ に対して、正値性とトレースは
+
+$$
+\langle u|\omega_{XQ}|u\rangle
+=\sum_xp_x\langle u_x|\rho_x|u_x\rangle\ge0,
+\qquad \operatorname{Tr}\omega_{XQ}
+=\sum_xp_x\operatorname{Tr}\rho_x=1
+$$
+
+と確認でき、cq状態も密度演算子の三条件を満たします。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)を各項に適用すると
+
+$$
+\begin{aligned}
+\operatorname{Tr}_Q(|x\rangle\langle x|\otimes\rho_x)
+&=|x\rangle\langle x|\operatorname{Tr}\rho_x,\\
+\operatorname{Tr}_X(|x\rangle\langle x|\otimes\rho_x)
+&=\operatorname{Tr}(|x\rangle\langle x|)\rho_x=\rho_x
+\end{aligned}
+$$
+
+となるため、
 
 $$
 \omega_X=\sum_xp_x|x\rangle\langle x|,
@@ -347,7 +375,13 @@ $$
 
 ## 5. いつHolevo界に届くか
 
-もし全ての $\rho_x$ が同じ基底で対角化できるなら、その基底を測定した結果は通常の古典通信路になり、測定前に保持していたラベルの相関を失いません。有限次元では、密度演算子が互いに可換（全ての $x,z\in\mathcal X$ で $\rho_x\rho_z=\rho_z\rho_x$）なら共通正規直交固有基底を取れます。実際、[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で一つを対角化し、その固有空間 $V_\lambda$ を取ると、他の可換な $\rho_z$ について
+もし全ての $\rho_x$ が同じ基底で対角化できるなら、その基底を測定した結果は通常の古典通信路になり、測定前に保持していたラベルの相関を失いません。有限次元では、密度演算子が互いに可換、すなわち
+
+$$
+\rho_x\rho_z=\rho_z\rho_x\qquad(x,z\in\mathcal X)
+$$
+
+なら共通正規直交固有基底を取れます。実際、[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で一つを対角化し、その固有空間 $V_\lambda$ を取ると、他の可換な $\rho_z$ について
 
 $$
 \rho_xv=\lambda v\ \Longrightarrow\
