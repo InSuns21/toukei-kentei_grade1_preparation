@@ -10,6 +10,15 @@
 
 ノイズ $Z_1,\ldots,Z_T$ は互いに独立な $N_d(0,I_d)$ に従い、$X_0$ とも独立である。$I_d$ は単位行列、$N_d(m,vI_d)$ は平均 $m$、共分散 $vI_d$ の多次元正規分布である。
 
+各段で直前の値を $\sqrt{\alpha_t}$ 倍し、新しい独立ノイズ $\sqrt{\beta_t}Z_t$ を加えて次の状態を作る。直前の値を $X_{t-1}=x_{t-1}$ と固定すると、加えるノイズの平均は0、共分散は $\beta_t I_d$ なので、次の $X_t$ の条件付き平均・共分散は
+
+$$
+E[X_t\mid X_{t-1}=x_{t-1}]=\sqrt{\alpha_t}x_{t-1},
+\quad\operatorname{Cov}(X_t\mid X_{t-1}=x_{t-1})=\beta_t I_d.
+$$
+
+新しいノイズは過去の状態から独立であり、次の状態の条件付き分布は直前の状態のみに依存する。この性質を持つ連鎖をここでは Markov 連鎖という。以下、$q(x_t\mid x_{t-1})$ はこの条件付き**密度**、$q$ は正方向の確率法則を表す。
+
 <a id="def-ml2-24-forward-chain"></a>
 
 <!-- formal-statement-start -->
@@ -28,14 +37,14 @@ q(x_t\mid x_{t-1})=(2\pi\beta_t)^{-d/2}
 \exp\left(-\frac{\|x_t-\sqrt{\alpha_t}x_{t-1}\|^2}{2\beta_t}\right).
 $$
 
-> $q$ は正方向の分布を表す記号である。$X_0$ の分布は任意とし、最初からGaussianであるとは仮定しない。
+> $X_0$ の分布は任意とし、最初からGaussianであるとは仮定しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-24-forward-chain -->
-**定義の確認**。一次元で $\beta_1=3/4$、$X_0=2$ が確定しているとする。$\alpha_1=1/4$ なので $X_1=1+\sqrt3 Z_1/2$、従って $X_1\mid X_0=2\sim N(1,3/4)$。条件付き密度は全実数で正、積分1であり、指定した平均と分散を持つ。$\beta_t$ は標準偏差ではなく**分散**に入る。
+**定義の確認**。一次元で $\beta_1=3/4$、$X_0=2$ が確定しているとする。$\alpha_1=1/4$ なので $X_1=1+\sqrt3 Z_1/2$、従って $X_1\mid X_0=2\sim N(1,3/4)$。$Z_1$ は標準正規なので、その線形変換の密度は全実数で正、積分1であり、条件付き平均は1、分散は $(\sqrt3/2)^2=3/4$ である。$\beta_t$ は標準偏差ではなく**分散**に入る。
 <!-- definition-example-end -->
 
-$X_t$ は $X_{t-1}$ が分かればそれより前の状態に依存しない。これは各時刻で新しい独立ノイズだけを足すためである。連鎖を複数回展開すると、過去のノイズは独立Gaussianの線形和となる。
+連鎖を複数回展開すると、過去のノイズは独立Gaussianの線形和となる。次節ではこの線形和の平均と共分散を直接計算する。
 
 ## 2. 任意時刻へ一度にノイズを加える公式
 
@@ -156,7 +165,20 @@ A_t=\frac{1-\bar\alpha_t}{\beta_t(1-\bar\alpha_{t-1})}
 =\widetilde\beta_t^{-1}>0.
 $$
 
-平方完成は $A_t\|u-A_t^{-1}b_t\|^2/2$ に $u$ と無関係な定数を加えた形である。従って共分散は $A_t^{-1}I_d=\widetilde\beta_t I_d$ であり、平均 $A_t^{-1}b_t$ の $x_0$ と $x_t$ の係数をそれぞれ掛け合わせれば定理の $\widetilde\mu_t$ になる。$t=1$ では条件 $X_0=x_0$ 自体が対象変数を指定している。$\square$
+平方完成は $A_t\|u-A_t^{-1}b_t\|^2/2$ に $u$ と無関係な定数を加えた形である。従って共分散は $A_t^{-1}I_d=\widetilde\beta_t I_d$ であり、平均は
+
+$$
+\begin{aligned}
+A_t^{-1}b_t
+&=\frac{\beta_t(1-\bar\alpha_{t-1})}{1-\bar\alpha_t}
+\left(\frac{\sqrt{\bar\alpha_{t-1}}}{1-\bar\alpha_{t-1}}x_0
++\frac{\sqrt{\alpha_t}}{\beta_t}x_t\right)\\
+&=\frac{\sqrt{\bar\alpha_{t-1}}\beta_t}{1-\bar\alpha_t}x_0
++\frac{\sqrt{\alpha_t}(1-\bar\alpha_{t-1})}{1-\bar\alpha_t}x_t.
+\end{aligned}
+$$
+
+$t=1$ では条件 $X_0=x_0$ 自体が対象変数を指定している。$\square$
 <!-- proof-end -->
 
 **計算例**。$d=1$、$t=2$、$\beta_1=\beta_2=3/4$、$x_0=2$、$x_2=0$ とする。$1-\bar\alpha_1=3/4$、$1-\bar\alpha_2=15/16$ なので
@@ -173,11 +195,34 @@ $$
 
 $x_0$ は訓練標本では既知だが、未知の新標本を作る生成時には使えない。必要なのは $x_t$ だけを与えた逆向きの条件付き分布である。
 
+[前章のGaussian観測に対するBayes表示](../ML2-23/index.md#thm-ml2-23-denoising-identity)を時刻 $t$ の[正方向の直接公式](#thm-ml2-24-forward-marginal)に適用して、条件付き分布の記法を確かめる。$P_0$ を $X_0$ の分布とする。共分散 $vI_d$ の中心Gaussian密度を、$v>0$ に対して
+
+$$
+\varphi_v(u)=(2\pi v)^{-d/2}\exp[-\|u\|^2/(2v)]
+$$
+
+と記す。前章の $\varphi_\sigma$ は**標準偏差**を添字としたが、ここでは $v$ が**分散**なので、前章の記法なら $\varphi_{\sqrt v}$ に相当する。$0<\bar\alpha_t<1$ より周辺密度は
+
+$$
+q_t(x)=\int\varphi_{1-\bar\alpha_t}
+(x-\sqrt{\bar\alpha_t}x_0)\,P_0(dx_0)>0.
+$$
+
+ここで $P_0(dx_0)$ は、連続密度を仮定せず $X_0$ の分布で積分する記法である。$q(dx_0\mid x)$ は $X_t=x$ を観測した後の $X_0$ の事後分布を表す。[前章のBayes表示](../ML2-23/index.md#thm-ml2-23-denoising-identity)と同じく、可測集合 $A\subset\mathbb R^d$ への確率は
+
+$$
+q(X_0\in A\mid X_t=x)
+=\frac{\displaystyle\int_A\varphi_{1-\bar\alpha_t}
+(x-\sqrt{\bar\alpha_t}x_0)\,P_0(dx_0)}{q_t(x)}.
+$$
+
+分母が正なので、離散・連続いずれのデータ分布でもこの事後分布を扱える。以下の $q(x_{t-1}\mid x_t)$ は逆向きの確率分布を表し、$t=1$ では密度とは限らない。混合積分は、この事後分布で各 $x_0$ に対応する逆向き分布を平均するという意味である。
+
 <a id="prop-ml2-24-reverse-mixture"></a>
 
 <!-- formal-statement-start -->
 > **命題（逆向き周辺分布の混合表示）**
-> [正方向拡散](#def-ml2-24-forward-chain)の任意のデータ分布に対し、正則条件付き分布が定義される $q_t$ ほとんどすべての $x_t$ で、
+> [正方向拡散](#def-ml2-24-forward-chain)の任意の $X_0$ の分布、各 $t=1,\ldots,T$ に対し、$X_t=x_t$ を条件とする逆向き分布は
 
 $$
 \boxed{q(x_{t-1}\mid x_t)=
@@ -205,7 +250,7 @@ q(dx_0\mid X_t).
 \end{aligned}
 $$
 
-これは左辺の条件付き分布が右辺の混合に一致することを意味する。$t=1$ では内側の分布は $\delta_{x_0}$ である。$\square$
+これは有界可測な $h$ のすべてで期待値が一致するため、条件付き分布が混合に一致することを意味する。上で構成した事後分布を用いれば、$q_t(x_t)>0$ の任意の $x_t$ に対して同じ等式を定められる。$t=1$ では内側の分布は $\delta_{x_0}$ である。$\square$
 <!-- proof-end -->
 
 例えば $P(X_0=-a)=P(X_0=a)=1/2$（$a>0$）なら、$t=1$ の $q(X_0\mid X_1=x_1)$ は二点 $\{-a,a\}$ の上にだけ質量を置く。[前章の二点混合のBayes計算](../ML2-23/index.md#prop-ml2-23-two-point-score)を、$Y=\sqrt{\alpha_1}X_0+\sqrt{\beta_1}Z_1$ に適用すると
@@ -221,11 +266,43 @@ $$
 
 逆向きの正しい $q(x_{t-1}\mid x_t)$ は未知なので、現実には学習した平均 $\mu_\theta(x_t,t)$ で近似する。まず $t\ge2$ だけについて、計算可能な分散 $\widetilde\beta_t$ を固定したGaussian模型を考える。添字 $\theta$ は学習パラメータを表す。最後の $t=1$ では、GaussianのKL公式をそのまま使わず別の復元規則を設ける。
 
+逆向き平均の形を選ぶ理由を先に確認する。[正方向の直接公式](#thm-ml2-24-forward-marginal)を $x_0$ について解くと、実現ノイズ $\varepsilon$ に対し
+
+$$
+x_0=\frac{x_t-\sqrt{1-\bar\alpha_t}\,\varepsilon}{\sqrt{\bar\alpha_t}}.
+$$
+
+これを[元データ条件付き事後平均](#thm-ml2-24-posterior)へ代入する。$x_t$ の係数は
+
+$$
+\frac{\beta_t+\alpha_t(1-\bar\alpha_{t-1})}
+{\sqrt{\alpha_t}(1-\bar\alpha_t)}
+=\frac1{\sqrt{\alpha_t}},
+$$
+
+ノイズの係数は $-\beta_t/[\sqrt{\alpha_t}\sqrt{1-\bar\alpha_t}]$ となる。従って元のデータを知る場合の事後平均は次の形を持つ。
+
+$$
+\widetilde\mu_t(x_t,x_0)
+=\frac{x_t-\beta_t\varepsilon/\sqrt{1-\bar\alpha_t}}{\sqrt{\alpha_t}}.
+$$
+
+生成時には元データも実現ノイズも未知である。そこで観測できる $(x_t,t)$ からノイズを予測する関数で $\varepsilon$ を置き換える。
+
+$t=1$ でも同じ逆向き平均の形を使える。実際、最初の正方向更新を $x_0$ について解くと
+
+$$
+x_0=\frac{x_1-\sqrt{\beta_1}\varepsilon}{\sqrt{\alpha_1}},
+\qquad 1-\bar\alpha_1=\beta_1.
+$$
+
+ただしこの時刻の真の条件付き事後には正のGaussian分散がない。この逆向き平均の形は**模型の選択**であって、任意のデータ分布の真の逆向き分布がGaussianだという主張ではない。
+
 <a id="def-ml2-24-noise-predictor"></a>
 
 <!-- formal-statement-start -->
 > **定義（ノイズ予測による逆向き平均）**
-> [正方向の時刻別分布](#thm-ml2-24-forward-marginal)の $\varepsilon$ を予測する関数 $\varepsilon_\theta:\mathbb R^d\times\{1,\ldots,T\}\to\mathbb R^d$ を選ぶ。$t\ge2$ で逆向き平均とGaussian模型を
+> [正方向の時刻別分布](#thm-ml2-24-forward-marginal)の $\varepsilon$ を予測する関数 $\varepsilon_\theta:\mathbb R^d\times\{1,\ldots,T\}\to\mathbb R^d$ を選ぶ。逆向き平均を $t=1,\ldots,T$ に対し
 
 $$
 \mu_\theta(x_t,t)=\frac1{\sqrt{\alpha_t}}
@@ -233,12 +310,14 @@ $$
 \varepsilon_\theta(x_t,t)\right),
 $$
 
+> と定義し、$t\ge2$ ではさらにGaussian模型を
+
 $$
 p_\theta(x_{t-1}\mid x_t)
 =N_d\bigl(\mu_\theta(x_t,t),\widetilde\beta_t I_d\bigr)
 $$
 
-> と定義する。$\widetilde\beta_t$ は[事後定理](#thm-ml2-24-posterior)の正の値である。時刻 $t=1$ の一例として、$X_0^{\mathrm{gen}}=\mu_\theta(X_1,1)$ とする決定的復元を別途指定できるが、これは真の $q(X_0\mid X_1)$ と一般には一致しない。
+> と定義する。$\widetilde\beta_t$ は[事後定理](#thm-ml2-24-posterior)の正の値である。時刻 $t=1$ にはこのGaussian模型を定めず、一例として $X_0^{\mathrm{gen}}=\mu_\theta(X_1,1)$ とする決定的復元を別途指定できるが、これは真の $q(X_0\mid X_1)$ と一般には一致しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ml2-24-noise-predictor -->
@@ -250,7 +329,7 @@ $$
 =2\cdot\frac{6}{15}=\frac45.
 $$
 
-先ほどの事後平均と一致する。
+先ほどの事後平均と一致する。また分散の条件も、$\widetilde\beta_2=3/5>0$ なので $p_\theta(x_1\mid x_2=0)=N(4/5,3/5)$ と正規化されたGaussian分布になり、[事後Gaussian](#thm-ml2-24-posterior)と平均・分散の両方が一致する。この例の一致は実現ノイズを正確に入力した場合に限る。
 <!-- definition-example-end -->
 
 直前の式は、予測関数が真の実現ノイズを言い当てた仮想的な組の**代数的な検算**である。実際の $\varepsilon_\theta(x_t,t)$ は $x_0$ を入力に取れないため、同じ $x_t$ へ異なるデータから来たときに全実現ノイズを同時に言い当てることはできない。
@@ -278,7 +357,7 @@ $$
 w_t=\frac{\beta_t^2}{2\widetilde\beta_t\alpha_t(1-\bar\alpha_t)}>0.
 $$
 
-> 全時刻に同じ重みを用いる簡略目的 $E_{t,X_0,\varepsilon}\|\varepsilon-\varepsilon_\theta(X_t,t)\|^2$ は学習に利用できるが、**一般にはこのKLの厳密な重み付き和と同一ではない**。$t=1$ は $\widetilde\beta_1=0$ なのでこのKL式の対象外である。
+> 例えば $t$ を $\{1,\ldots,T\}$ から一様に、$X_0$ および独立標準Gaussian $\varepsilon$ とは独立に抽出する簡略目的 $E_{t,X_0,\varepsilon}\|\varepsilon-\varepsilon_\theta(X_t,t)\|^2$ は学習に利用できるが、**一般にはこのKLの厳密な重み付き和と同一ではない**。$t=1$ は $\widetilde\beta_1=0$ なのでこのKL式の対象外である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -303,7 +382,7 @@ $$
 \left(x_t-\frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\varepsilon\right).
 $$
 
-二つのGaussianの共通共分散を $vI_d$（ここでは $v=\widetilde\beta_t>0$）、平均を $m_q,m_p$ とする。$U\sim N_d(m_q,vI_d)$ の対数密度比の期待値は
+二つのGaussianの共通共分散を $vI_d$（ここでは $v=\widetilde\beta_t>0$）、平均を $m_q,m_p$ とする。中心Gaussian密度を $\varphi_v(u)=(2\pi v)^{-d/2}e^{-\|u\|^2/(2v)}$ と書けば、$U\sim N_d(m_q,vI_d)$ の対数密度比の期待値は
 
 $$
 \begin{aligned}
@@ -313,7 +392,7 @@ E\log\frac{\varphi_{v}(U-m_q)}{\varphi_{v}(U-m_p)}
 \end{aligned}
 $$
 
-ここで $\varphi_v(u)=(2\pi v)^{-d/2}e^{-\|u\|^2/(2v)}$、二乗の交差項の期待値が0であることを使った。平均差は
+ここで $U-m_p=(U-m_q)+(m_q-m_p)$ と展開し、$E(U-m_q)=0$ によって交差項の期待値が消えることを使った。平均差は
 
 $$
 m_q-m_p=\frac{\beta_t}{\sqrt{\alpha_t}\sqrt{1-\bar\alpha_t}}
@@ -327,7 +406,9 @@ $$
 
 ## 6. 最良ノイズ予測とscore、そして逆向き生成
 
-一つの時刻 $t$ を固定する。$X_t$ だけを見る予測関数にとって、最良の実現ノイズ推定は条件付き平均である。その平均と $X_t$ の周辺密度のscoreが一致する関係は[前章のGaussian denoising恒等式](../ML2-23/index.md#thm-ml2-23-denoising-identity)から導ける。
+一つの時刻 $t$ を固定する。$X_t$ だけを見る予測関数にとって、最良の実現ノイズ推定は条件付き平均である。その平均と周辺密度のscoreの関係は[前章のGaussian denoising恒等式](../ML2-23/index.md#thm-ml2-23-denoising-identity)から導ける。
+
+[密度の空間scoreの定義](../ML2-23/index.md#def-ml2-23-score)に従い、$s_{q_t}$ の下付き $t$ は**密度の時刻**を示す。$\nabla_x$ は観測位置 $x$ の勾配であり、離散時刻 $t$ を微分する記号ではない。
 
 <a id="thm-ml2-24-noise-score"></a>
 
@@ -439,7 +520,14 @@ $$
 <!-- solution-start -->
 **詳細解答**。前者は $X_0=x_0$ が既に分かっているので、[事後定理](#thm-ml2-24-posterior)の端点の通り点質量 $\delta_{x_0}$。後者は $X_0$ が未知で、$x_1$ を観測したときの事後分布である。
 
-[二点混合命題](#prop-ml2-24-reverse-mixture)から $P(X_0=a\mid x_1)$ は $0$ と $1$ の間、$P(X_0=-a\mid x_1)$ も正である。前者は真値1点に集中し、後者は2点の不確実性を残すので異なる。
+[逆向き混合表示](#prop-ml2-24-reverse-mixture)と第4節のBayes計算を使うと、$a>0$ と有限な $x_1$ に対して
+
+$$
+P(X_0=a\mid X_1=x_1)
+=\frac1{1+\exp[-2\sqrt{\alpha_1}a x_1/\beta_1]}\in(0,1).
+$$
+
+もう一方の確率も正である。前者の分布は真値1点に集中し、後者は2点の不確実性を残すので異なる。
 <!-- solution-end -->
 
 ### Level B
@@ -535,7 +623,15 @@ $$
 +\operatorname{Var}(X_0/4)=\frac{15}{16}+\frac4{16}=\frac{19}{16}.
 $$
 
-(2) $x_2=0$ は両成分 $N(\pm1/2,15/16)$ で同じ尤度なので、[事後重み公式](#prop-ml2-24-reverse-mixture)から $P(X_0=2\mid X_2=0)=1/2$。一方、[事後Gaussian](#thm-ml2-24-posterior)で $x_0=\pm2$ のときの平均は $\pm4/5$、分散は $3/5$。従って $q(x_1\mid x_2=0)$ は
+(2) $x_2=0$ は両成分 $N(\pm1/2,15/16)$ で同じ尤度である。第4節のBayes表示を使うと
+
+$$
+P(X_0=2\mid X_2=0)
+=\frac{\varphi_{15/16}(-1/2)}
+{\varphi_{15/16}(-1/2)+\varphi_{15/16}(1/2)}=\frac12.
+$$
+
+[逆向き混合命題](#prop-ml2-24-reverse-mixture)と[事後Gaussian](#thm-ml2-24-posterior)を使うと、$x_0=\pm2$ のときの平均は $\pm4/5$、分散は $3/5$。従って $q(x_1\mid x_2=0)$ は
 
 $$
 \frac12N\left(\frac45,\frac35\right)
