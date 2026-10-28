@@ -1,0 +1,49 @@
+chapter: QINF23
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF5, QINF7, QINF17, QINF18, QINF20, QINF21, QINF22, INFO3]
+forward_references: []
+concepts:
+  - id: quantum.cq-channel-code
+    name: cq通信路と古典メッセージ符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（cq通信路と古典メッセージ符号）]
+    requires: [quantum.quantum-channel, quantum.povm, quantum.density-operator-ensemble]
+  - id: quantum.classical-communication-capacity
+    name: 古典通信の達成可能率と容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古典通信の達成可能率と容量）]
+    requires: [quantum.cq-channel-code, information.shannon-entropy]
+  - id: quantum.block-holevo-converse
+    name: Fano不等式とブロックHolevo逆評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Fano不等式とブロックHolevo逆評価）]
+    requires: [quantum.cq-channel-code, quantum.holevo-bound]
+  - id: quantum.conditional-typical-overlap
+    name: 条件付き典型射影の平均重なり
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（条件付き典型射影の平均重なり）]
+    requires: [quantum.typical-projector-bounds, quantum.holevo-information]
+  - id: quantum.pretty-good-decoding-bound
+    name: 平方根測定の誤差評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（平方根測定の誤差評価）]
+    requires: [quantum.povm, quantum.conditional-typical-overlap]
+  - id: quantum.hsw-cq-capacity
+    name: 有限入力cq通信路のHSW定理
+    kind: theorem
+    introduction: formal
+    aliases: [HSW定理]
+    introduction_aliases: [定理（有限入力cq通信路のHSW定理）]
+    requires: [quantum.block-holevo-converse, quantum.pretty-good-decoding-bound]
+  - id: quantum.regularized-classical-capacity
+    name: 一般量子チャネルの正則化古典容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一般量子チャネルの正則化古典容量）]
+    requires: [quantum.hsw-cq-capacity, quantum.holevo-channel-monotonicity]
