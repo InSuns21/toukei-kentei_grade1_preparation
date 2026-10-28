@@ -77,7 +77,7 @@ chapters:
     title: "Bell不等式とCHSH"
   - id: QINF17
     path: textbook/volumes/dream_thater/応用系/QINF/QINF17
-    status: planned
+    status: completed
     title: "von Neumannエントロピー"
   - id: QINF18
     path: textbook/volumes/dream_thater/応用系/QINF/QINF18
