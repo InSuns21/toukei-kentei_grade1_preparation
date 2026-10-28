@@ -1,0 +1,20 @@
+chapter: QFT9
+terms:
+  - term: 相互作用描像
+    english: interaction picture
+    meaning: "状態発展を自由発展と相互作用による発展へ分け、演算子には自由時間発展を担わせる記述。"
+  - term: Dyson級数
+    english: Dyson series
+    meaning: "非可換な時刻依存相互作用Hamiltonianの時間順序発展を、時刻の順序を保った反復積分で表す級数。"
+  - term: 時間順序積
+    english: time-ordered product
+    meaning: "遅い時刻の演算子を左に並べる積。フェルミオンでは奇演算子の置換ごとに負号を付ける。"
+  - term: Wick収縮
+    english: Wick contraction
+    meaning: "自由真空で時間順序付き二点期待値を取り、場の二つを組にして置き換える操作。"
+  - term: Wickの定理
+    english: Wick's theorem
+    meaning: "自由場の時間順序積を正規順序積と全ての許される組の収縮の和で表す恒等式。"
+  - term: 真空bubble
+    english: vacuum bubble
+    meaning: "外部場に接続しない、相互作用の収縮だけからなる真空寄与。規格化した相関関数では相殺する。"

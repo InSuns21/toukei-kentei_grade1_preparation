@@ -38,3 +38,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT8
     status: completed
     title: "フェルミオンFock空間・反交換関係とDirac伝播関数"
+  - id: QFT9
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT9
+    status: completed
+    title: "相互作用描像・Dyson級数・Wickの定理"
