@@ -42,7 +42,15 @@ $$
 で、それ以外は0です。結果は完全に相関していますが、局所模型そのものです。
 <!-- definition-example-end -->
 
-局所応答が確率的でも、乱数を $\lambda$ に追加すれば決定論的な応答で表せます。ただし次の不等式の証明はこの追加構成に頼らず、確率的応答のままで行います。なお上の模型は、相手の選択へ信号を送る仕組みの不在よりも強い条件です。
+局所応答が確率的でも、乱数を $\lambda$ に追加すれば決定論的な応答で表せます。具体的には各 $\lambda$ の下で、未選択の設定も含む四つの答え $a_0,a_1,b_0,b_1\in\{\pm1\}$ を独立に事前抽選し、拡張した共通原因 $\lambda'=(\lambda,a_0,a_1,b_0,b_1)$ に
+
+$$
+\mu'(\lambda')=\mu(\lambda)
+\prod_{x=0}^1p_A(a_x\mid x,\lambda)
+\prod_{y=0}^1p_B(b_y\mid y,\lambda)
+$$
+
+を割り当てます。未選択の答えを足し消すと各局所応答の正規化により元の $p(a,b\mid x,y)$ が戻り、$\mu'$ も設定に依存しません。ただし次の不等式の証明はこの追加構成に頼らず、確率的応答のままで行います。なお上の模型は、相手の選択へ信号を送る仕組みの不在よりも強い条件です。
 
 ## 3. CHSH式と古典上界2
 
@@ -141,9 +149,25 @@ $$
 
 ## 4. 局所量子測定を同じ確率表へ写す
 
-[QINF5のPOVM](../QINF5/index.md#def-qinf5-povm)では、二値の局所測定を二つの正値作用素 $M_+^x,M_-^x$（和は $I_A$）で記述できます。Bob側も $N_+^y,N_-^y$（和は $I_B$）とします。各局所Hilbert空間は有限次元で、全体は $H_A\otimes H_B$、状態は密度演算子 $\rho_{AB}$ です。
+[QINF5のPOVM](../QINF5/index.md#def-qinf5-povm)では、二値の局所測定を二つの正値作用素 $M_+^x,M_-^x$（和は $I_A$）で記述できます。Bob側も $N_+^y,N_-^y$（和は $I_B$）とします。上付きの $x,y$ は測定設定、下付きの $\pm$ は結果ラベルです。各局所Hilbert空間は有限次元で、全体は $H_A\otimes H_B$、状態は密度演算子 $\rho_{AB}$ です。
 
-測定結果のラベル $\pm1$ を作用素へ組み込むため、$A_x=M_+^x-M_-^x$、$B_y=N_+^y-N_-^y$ と置きます。$M_\pm^x=(I_A\pm A_x)/2$ ですから $A_x$ はHermitianで、$-I_A\le A_x\le I_A$、すなわち演算子ノルムが1以下です。Bob側も同様です。射影測定で結果がちょうど $\pm1$ のときは $A_x^2=I_A$、$B_y^2=I_B$ となりますが、一般のPOVMでは二乗が恒等になるとは限りません。
+測定結果のラベル $\pm1$ を作用素へ組み込むため、$A_x=M_+^x-M_-^x$、$B_y=N_+^y-N_-^y$ と置きます。$M_\pm^x=(I_A\pm A_x)/2\ge0$ ですから $A_x$ はHermitianで、その固有値はすべて $[-1,1]$ にあります。
+
+演算子ノルムを $\|A\|:=\sup_{\|v\|=1}\|Av\|$ とします。Hermitian作用素では固有値の絶対値の最大値に等しいので、$\|A_x\|\le1$ です。Bob側も同様です。射影測定で結果がちょうど $\pm1$ のときは $A_x^2=I_A$、$B_y^2=I_B$ となりますが、一般のPOVMでは二乗が恒等になるとは限りません。
+
+なぜこの差を相関の計算に使えるのでしょうか。[POVMのBorn則](../QINF5/index.md#prop-qinf5-probabilities)とトレース・テンソル積の線形性から、各設定で
+
+$$
+\begin{aligned}
+\sum_{a,b=\pm1}ab\,p(a,b\mid x,y)
+&=\operatorname{Tr}\!\left[\rho_{AB}
+\left(\sum_a aM_a^x\right)\otimes
+\left(\sum_b bN_b^y\right)\right]\\
+&=\operatorname{Tr}[\rho_{AB}(A_x\otimes B_y)]
+\end{aligned}
+$$
+
+と変形できます。これは確率表で定義した相関と、密度演算子の期待値による判定を結ぶ式です。
 
 <a id="def-qinf16-quantum-chsh"></a>
 
@@ -204,7 +228,7 @@ $$
 
 ### 証明の見取り図
 
-純粋状態を使い、四つの局所作用素をその状態へ作用させたベクトルへ変換します。CHSH式は二つの内積へまとまり、Cauchy–Schwarzの不等式を二度使うと、ベクトルの和と差の二乗が相殺し合う構造が現れます。混合状態へは純粋状態分解の平均で拡張できます。
+純粋状態を使い、四つの局所作用素をその状態へ作用させたベクトルへ変換します。CHSH式は二つの内積へまとまり、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を二度使うと、ベクトルの和と差の二乗が相殺し合う構造が現れます。混合状態へは純粋状態分解の平均で拡張できます。
 
 <!-- proof-start -->
 ### 証明
@@ -223,7 +247,7 @@ E_{xy}=\langle\psi|(A_x\otimes B_y)|\psi\rangle
 =\langle u_x,v_y\rangle\in\mathbb R.
 $$
 
-ゆえにCauchy–Schwarzを各項へ使うと
+ゆえに[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を各項へ使うと
 
 $$
 \begin{aligned}
@@ -235,7 +259,7 @@ $$
 \end{aligned}
 $$
 
-二つの非負実数 $r,s$ に対して $(r+s)^2\le2(r^2+s^2)$ を使い、内積の交差項を打ち消す平行四辺形恒等式を適用すれば
+二つの非負実数 $r,s$ に対して $(r+s)^2\le2(r^2+s^2)$ を使い、内積の交差項を打ち消す[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)を適用すれば
 
 $$
 \begin{aligned}
@@ -260,7 +284,14 @@ $\square$
 
 ## 6. Bell対で上界を実現する
 
-一qubit上の二つのPauli作用素を、$Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ とします。$X,Z$ はHermitianで $X^2=Z^2=I_2$、$XZ=-ZX$ です。まずこれは、各設定を実際の二値射影測定にするための条件確認です。
+[QINF2のPauli基底](../QINF2/index.md#def-qinf2-bloch-vector)から、一qubit上の二つの作用素を計算基底で
+
+$$
+Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+X=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+$$
+
+とします。$X,Z$ はHermitianで $X^2=Z^2=I_2$、$XZ=-ZX$ です。まずこれは、各設定を実際の二値射影測定にするための条件確認です。
 
 <a id="prop-qinf16-saturation"></a>
 
@@ -328,7 +359,7 @@ $\square$
 
 ## 7. 無信号性と、分離可能性との論理関係
 
-局所模型の因子化より弱い性質として、一方の設定を選び直しても他方の結果の周辺分布が変わらない、という要求を考えます。Aliceの周辺分布は $p_A(a\mid x,y)=\sum_b p(a,b\mid x,y)$ なので、設定 $y$ に依存しなければBobからAliceへこの確率表だけで情報を送れません。
+局所模型の因子化より弱い性質として、一方の設定を選び直しても他方の結果の周辺分布が変わらない、という要求を考えます。Aliceの観測上の周辺分布を $p_A^{\mathrm{marg}}(a\mid x,y)=\sum_b p(a,b\mid x,y)$ と書きます。これは第2節の、共通原因 $\lambda$ を固定した局所応答 $p_A(a\mid x,\lambda)$ とは別の対象です。観測上の周辺分布がBobの設定 $y$ に依存しなければ、BobからAliceへこの確率表だけで情報を送れません。
 
 <a id="def-qinf16-no-signalling"></a>
 
@@ -360,7 +391,7 @@ p(a,b\mid x,y)=
 \end{cases}
 $$
 
-各設定で許される結果対は二つあり、重みの和は1で、どの確率も非負です。Aliceの二結果の周辺確率はどちらも $1/2$、Bob側も同じです。相手の設定を変えても周辺確率が変わらないため、上の無信号条件を満たします。
+各設定で許される結果対は二つあり、重みの和は1で、どの確率も非負です。固定した $a$ に対して $ab=(-1)^{xy}$ を満たす $b$ はちょうど一つなので、$\sum_b p(a,b\mid x,y)=1/2$。$b$ を固定して $a$ について足しても $1/2$ です。両方とも相手の設定を変えても一定なので、上の無信号条件を満たします。
 
 一方、各設定の相関は次の値です。
 
@@ -375,7 +406,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（分離可能状態のCHSH上界と無信号性）**  
-> 有限次元二部系の任意の[分離可能状態](../QINF15/index.md#def-qinf15-separable)に局所二値POVMを施した確率表は局所隠れ変数模型を持ち、したがって $|S|\le2$ である。さらに、有限次元二部系の任意の状態へ局所POVMを施して得られる確率表は無信号である。
+> 有限次元二部系の任意の[分離可能状態](../QINF15/index.md#def-qinf15-separable)に局所二値POVMを施した確率表は[局所隠れ変数模型](#def-qinf16-local-model)を持ち、したがって $|S|\le2$ である。さらに、有限次元二部系の任意の状態へ局所POVMを施して得られる確率表は[無信号](#def-qinf16-no-signalling)である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -385,7 +416,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-分離可能な $\rho_{AB}=\sum_jq_j\sigma_j^A\otimes\tau_j^B$ をとり、[分離可能状態の表示](../QINF15/index.md#def-qinf15-separable)の混合番号 $j$ を $\lambda$ とします。[局所POVMのBorn則](../QINF5/index.md#def-qinf5-povm)に従い
+分離可能な $\rho_{AB}=\sum_jq_j\sigma_j^A\otimes\tau_j^B$ をとり、[分離可能状態の表示](../QINF15/index.md#def-qinf15-separable)の混合番号 $j$ を $\lambda$ とします。[局所POVMのBorn則](../QINF5/index.md#prop-qinf5-probabilities)に従い
 
 $$
 \begin{aligned}
@@ -418,7 +449,7 @@ $$
 \rho_W(p)=(1-p)I_4/4+p|\Psi^-\rangle\langle\Psi^-|
 $$
 
-では、$p=1/2$ はエンタングル状態ですが、上のBell対用の特定の測定を $|\Psi^-\rangle$ に合う向きへ回しても $|S|=\sqrt2<2$ です。$\rho_W(p)$ での一般的な測定方向の最適化は後の統合演習で行います。また「無信号だから量子状態で実現できる」も偽で、前の確率表は反例です。
+では、$p=1/2$ はエンタングル状態です。Singletでは $\langle\Psi^-|Z\otimes Z|\Psi^-\rangle=\langle\Psi^-|X\otimes X|\Psi^-\rangle=-1$、交差相関は0です。そこで第6節のAliceの測定を $A_0=-Z,A_1=-X$ としてBob側を保つと、白色雑音部分の相関は0なので $S=2\sqrt2\,p=\sqrt2<2$ です。$\rho_W(p)$ での一般的な測定方向の最適化は後の統合演習で行います。また「無信号だから量子状態で実現できる」も偽で、前の確率表は反例です。
 
 ## 8. 射影測定なら作用素の交換子でも上界が見える
 
@@ -576,7 +607,19 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$(0,1)$ では $xy=0$ だから $(a,b)=(+,+),(-,-)$ が各 $1/2$、他は0です。$(1,1)$ では $xy=1$ なので $(+,-),(-,+)$ が各 $1/2$、他は0です。いずれもAlice・Bobの周辺分布は各結果 $1/2$。残る二設定も積が $+1$ の同じ二対なので、設定の変更でどちらの周辺分布も変わりません。
+設定 $(0,1)$ では $xy=0$ だから積が $+1$ となる同符号の二対だけが許され、
+
+$$
+p(+,+\mid0,1)=p(-,-\mid0,1)=\frac12
+$$
+
+で、それ以外は0です。設定 $(1,1)$ では $xy=1$ なので異符号の二対だけが許され、
+
+$$
+p(+,-\mid1,1)=p(-,+\mid1,1)=\frac12
+$$
+
+で、それ以外は0です。いずれもAlice・Bobの周辺分布は各結果 $1/2$。残る二設定も積が $+1$ の同じ二対なので、設定の変更でどちらの周辺分布も変わりません。
 
 各設定で $ab$ は確率1で $(-1)^{xy}$ だから
 
@@ -597,13 +640,13 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-純粋状態 $|\psi\rangle$ のとき、$u_x=(A_x\otimes I)|\psi\rangle$、$v_y=(I\otimes B_y)|\psi\rangle$ とすると、収縮性から各ノルムは1以下です。局所作用素の可換性により $E_{xy}=\langle u_x,v_y\rangle$ ですから
+純粋状態 $|\psi\rangle$ のとき、$u_x=(A_x\otimes I)|\psi\rangle$、$v_y=(I\otimes B_y)|\psi\rangle$ とすると、収縮性から各ノルムは1以下です。[局所作用素の可換性](../QINF1/index.md#prop-qinf1-local-algebra)により $E_{xy}=\langle u_x,v_y\rangle$ ですから
 
 $$
 |S|\le\|v_0+v_1\|+\|v_0-v_1\|.
 $$
 
-実数のCauchy–Schwarzと平行四辺形恒等式を順に適用すると
+実数の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)を順に適用すると
 
 $$
 |S|^2\le2(\|v_0+v_1\|^2+\|v_0-v_1\|^2)
@@ -676,7 +719,15 @@ $$
 \|[A_0,A_1]\|\le\|A_0A_1\|+\|A_1A_0\|\le2
 $$
 
-であり、Bob側も同様。従って
+であり、Bob側も同様。有限次元でのテンソル積の演算子ノルムは、次の恒等式から確かめられます。
+
+$$
+(P\otimes Q)^\dagger(P\otimes Q)
+=(P^\dagger P)\otimes(Q^\dagger Q),
+\qquad \|P\otimes Q\|=\|P\|\|Q\|.
+$$
+
+二つの正値作用素 $P^\dagger P,Q^\dagger Q$ の正規直交固有基底をテンソル積すると、左辺の最大固有値が各最大固有値の積になるためです。従って
 
 $$
 \|\mathcal B\|^2=\|\mathcal B^2\|
@@ -696,14 +747,29 @@ $\mathcal B$ はHermitianなので $\|\mathcal B^2\|=\|\mathcal B\|^2$ であり
 <!-- solution-start -->
 ### 詳細解答
 
-各組の標本平均は
+各組の第 $i$ 試行で得た結果を $a_i^{(xy)},b_i^{(xy)}\in\{\pm1\}$（$1\le i\le N_{xy}$）と書きます。上付きの $(xy)$ は測定設定の組を示し、試行回数の添字 $i$ と区別します。各組の標本平均は
 
 $$
-\widehat E_{xy}=\frac1{N_{xy}}\sum_{i=1}^{N_{xy}}a_ib_i
+\widehat E_{xy}=\frac1{N_{xy}}\sum_{i=1}^{N_{xy}}a_i^{(xy)}b_i^{(xy)}
 =\frac{n^+_{xy}-n^-_{xy}}{N_{xy}}.
 $$
 
-従って $\widehat S=\widehat E_{00}+\widehat E_{01}+\widehat E_{10}-\widehat E_{11}$ です。例えば各設定を一回ずつ測り、$ab$ が順に $+1,+1,+1,-1$ となれば $\widehat S=4$。局所模型でも各設定の結果に乱数性があれば、この四つの観測結果がそれぞれ正確率で生じることはあり得ます。[古典CHSH定理](#thm-qinf16-classical-chsh)が制約するのは条件付き確率から計算した真の相関 $E_{xy}$ であり、四組それぞれの有限標本の実現値ではありません。統計的主張には試行の抽出法・設定選択・誤差評価が別途必要です。
+標本CHSH値は
+
+$$
+\widehat S=\widehat E_{00}+\widehat E_{01}
++\widehat E_{10}-\widehat E_{11}
+$$
+
+です。例えば各設定を一回ずつ測り、結果の積が順に $+1,+1,+1,-1$ となれば $\widehat S=4$。
+
+各局所応答が独立な公平コインを返す局所模型なら、真の相関は全て $E_{xy}=0$ ですが、この四つの積が指定順に出る確率は
+
+$$
+\left(\frac12\right)^4=\frac1{16}>0
+$$
+
+です。[古典CHSH定理](#thm-qinf16-classical-chsh)が制約するのは真の相関であって、四組それぞれの有限標本の実現値ではありません。統計的主張には試行の抽出法・設定選択・誤差評価が別途必要です。
 <!-- solution-end -->
 
 <a id="ex-qinf16-c01"></a>
@@ -727,7 +793,14 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**（1）** $I_4/4$ とBell射影はいずれも正値・トレース1であり、$0\le p\le1$ の確率混合も同様です。Bell方向の固有値は $(1+3p)/4$、直交する三方向は $(1-p)/4$ です。[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)を使うと双方の項の片側縮約は $I_2/2$ なので、$\rho_A=\rho_B=I_2/2$。
+**（1）** $I_4/4$ とBell射影 $P=|\Phi^+\rangle\langle\Phi^+|$ はいずれも正値・トレース1であり、$0\le p\le1$ の確率混合も同様です。射影の作用は $P|\Phi^+\rangle=|\Phi^+\rangle$、$P|v\rangle=0$（$v\perp\Phi^+$）なので、$\rho_p$ の固有値は
+
+$$
+\lambda_{\parallel}=\frac{1-p}{4}+p=\frac{1+3p}{4},
+\qquad \lambda_{\perp}=\frac{1-p}{4}\quad(3\text{重}).
+$$
+
+[部分トレースの積公式と線形性](../QINF3/index.md#prop-qinf3-state-product)を使うと、最大混合状態とBell射影の片側縮約はどちらも $I_2/2$。従って $\rho_A=\rho_B=I_2/2$ です。
 
 **（2）** 計算基底 $00,01,10,11$ での行列は
 
@@ -740,7 +813,22 @@ p/2&0&0&(1+p)/4
 \end{pmatrix}.
 $$
 
-[部分転置](../QINF15/index.md#def-qinf15-partial-transpose)は外側の非対角要素を中央へ移すので、部分転置の固有値は $(1+p)/4$ が三個、$(1-3p)/4$ が一個です。$p>1/3$ で最後が負となり、[PPT必要条件](../QINF15/index.md#thm-qinf15-ppt-necessary)によりエンタングル状態です。$0\le p\le1/3$ では、[QINF15の局所ユニタリによる積状態分解](../QINF15/index.md#thm-qinf15-werner-threshold)により分離可能です。
+[部分転置の定義](../QINF15/index.md#def-qinf15-partial-transpose)で $|00\rangle\langle11|$ と $|11\rangle\langle00|$ はそれぞれ $|01\rangle\langle10|$ と $|10\rangle\langle01|$ へ移ります。従って部分転置は外側に対角値 $(1+p)/4$ を二つ持ち、中央 $01,10$ のブロックは
+
+$$
+\begin{pmatrix}(1-p)/4&p/2\\p/2&(1-p)/4\end{pmatrix}
+$$
+
+です。このブロックの固有ベクトル $(1,1)/\sqrt2$、$(1,-1)/\sqrt2$ に対する固有値はそれぞれ $(1+p)/4$、$(1-3p)/4$。外側の二固有値と合わせると、
+
+$$
+\operatorname{spec}(\rho_p^{\Gamma_B})
+=\left\{\frac{1+p}{4}\ (3\text{重}),\ \frac{1-3p}{4}\right\}.
+$$
+
+$p>1/3$ では最後が負となり、[PPT必要条件](../QINF15/index.md#thm-qinf15-ppt-necessary)によりエンタングル状態です。
+
+$0\le p\le1/3$ では、[QINF15の局所ユニタリによる積状態分解](../QINF15/index.md#ex-qinf15-c01)により分離可能です。同演習で使う $U=|0\rangle\langle1|-|1\rangle\langle0|$ は $(I\otimes U)|\Psi^-\rangle=|\Phi^+\rangle$ を満たします。これにより[Werner型の分離可能性定理](../QINF15/index.md#thm-qinf15-werner-threshold)の積状態分解を局所的に移せます。
 
 **（3）** $I_4/4$ からのPauli積の期待値は $\operatorname{Tr}(I_4(A_x\otimes B_y))/4=0$ です。両側の観測量はトレース0なので、積のトレースも0です。したがって各相関は第6節のBell純粋状態の $p$ 倍となり、
 
@@ -751,7 +839,16 @@ $$
 
 よってこの測定では $p>1/\sqrt2$ でのみ2を超えます。
 
-**（4）** 三つのPauli行列の積を直接使うとBell対では
+**（4）** なぜ問題文の「非自明なqubit射影測定」を三次元ベクトルで尽くせるか、先に確認します。[QINF2のPauli基底](../QINF2/index.md#def-qinf2-bloch-vector)により任意の二行二列Hermitian行列は $A=cI_2+a_xX+a_yY+a_zZ$（実係数）です。
+
+非自明な二値射影測定では両方の固有値 $+1,-1$ が現れるので $\operatorname{Tr}A=0$、従って $c=0$。Pauli行列の二乗は $I_2$、異なる二つは反交換するため
+
+$$
+A^2=(a_x^2+a_y^2+a_z^2)I_2=I_2,
+\qquad a_x^2+a_y^2+a_z^2=1.
+$$
+
+従って実単位ベクトル $\boldsymbol a=(a_x,a_y,a_z)$ が観測量を漏れなく指定します。同様にBob側は $\boldsymbol b$ です。三つのPauli行列の積を直接使うとBell対では
 
 $$
 \langle X\otimes X\rangle=1,\qquad
@@ -759,7 +856,14 @@ $$
 \langle Z\otimes Z\rangle=1
 $$
 
-で、異なるPauli軸の積の期待値は0です。例えば $Y\otimes Y$ は $|00\rangle\mapsto-|11\rangle$、$|11\rangle\mapsto-|00\rangle$ と作用するので $-1$、異なる軸では $|00\rangle,|11\rangle$ の組と直交するか、二項の位相が相殺します。従って $\boldsymbol a,\boldsymbol b$ を単位実ベクトルとすると
+で、異なるPauli軸の積の期待値は0です。例えば $Y\otimes Y$ は $|00\rangle\mapsto-|11\rangle$、$|11\rangle\mapsto-|00\rangle$ と作用するので期待値は $-1$。交差する $X\otimes Y$ では
+
+$$
+(X\otimes Y)|00\rangle=i|11\rangle,
+\qquad (X\otimes Y)|11\rangle=-i|00\rangle
+$$
+
+なので、期待値は $(-i+i)/2=0$ です。他の異なる軸も直交または位相相殺で0となります。従って $\boldsymbol a,\boldsymbol b$ を単位実ベクトルとすると
 
 $$
 E(\boldsymbol a,\boldsymbol b)
@@ -767,7 +871,14 @@ E(\boldsymbol a,\boldsymbol b)
 T=\operatorname{diag}(1,-1,1).
 $$
 
-$T$ は直交行列なので $|T\boldsymbol b|=1$。Bobの二方向を $\boldsymbol b_0,\boldsymbol b_1$ として、Aliceの各単位方向を最適化すると
+$T$ は直交行列（$T^{\mathsf T}T=I_3$）なので $|T\boldsymbol b|=1$。Bobの二方向を $\boldsymbol b_0,\boldsymbol b_1$ とすると、CHSH式は
+
+$$
+S=p\left\{\boldsymbol a_0\cdot T(\boldsymbol b_0+\boldsymbol b_1)
++\boldsymbol a_1\cdot T(\boldsymbol b_0-\boldsymbol b_1)\right\}
+$$
+
+です。これに[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用し、Aliceの各単位方向を最適化すると
 
 $$
 |S|\le p\left(
@@ -775,7 +886,14 @@ $$
 |\boldsymbol b_0-\boldsymbol b_1|\right).
 $$
 
-二つの和差の二乗和は $4$ なので、その和は Cauchy–Schwarz より最大 $2\sqrt2$。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。従って非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
+二つの和差の二乗和は[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)により
+
+$$
+|\boldsymbol b_0+\boldsymbol b_1|^2
++|\boldsymbol b_0-\boldsymbol b_1|^2=4.
+$$
+
+従ってその和は[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より最大 $2\sqrt2$ です。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。よって非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
 
 特に $1/3<p\le1/\sqrt2$ の状態はエンタングル状態でも、この二設定二値の非自明な射影測定ではCHSH違反しません。エンタングルメントの判定とBell非局所性の検出は同じ検査ではないのです。
 <!-- solution-end -->
