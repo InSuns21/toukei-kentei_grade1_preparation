@@ -108,7 +108,7 @@ $$
 $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ なら、[QINF18の補題](../QINF18/index.md#lem-qinf18-log)に $R=\rho,T=\sigma$ と代入します。補題は二つの行列が可換とは仮定せず、$r_i|\langle u_i|v_j\rangle|^2$ の表から $D\ge0$ と等号 iff $R=T$ を証明済みです。逆に $\rho=\sigma$ なら二つのトレースが相殺されます。台が含まれない場合 $D=+\infty>0$ なので等号ではありません。$\square$
 <!-- proof-end -->
 
-隔たりを保つ操作として、余分な出力次元へ埋め込む等長写像を考えます。これは後で[Stinespring表現](../QINF8/index.md#thm-qinf8-stinespring)に使います。
+隔たりを保つ操作として、余分な出力次元へ埋め込む[等長写像](../QINF8/index.md#def-qinf8-isometry)を考えます。これは後で[Stinespring表現](../QINF8/index.md#thm-qinf8-stinespring)に使います。
 
 <a id="lem-qinf20-isometry"></a>
 
@@ -139,7 +139,7 @@ $\rho=\sum_i r_i|u_i\rangle\langle u_i|$、$\sigma=\sum_j s_j|v_j\rangle\langle 
 
 ## 4. 部分トレースのデータ処理：零固有値まで閉じる
 
-[QINF19の補題](../QINF19/index.md#lem-qinf19-partial-trace-log)は厳密に正定値な二つの行列について対数の部分トレース比較を、Hilbert–Schmidt空間上の逆行列圧縮と収束積分から証明しました。そこで用いた非可換行列不等式を、ここでは**証明済みの直接前提**として使います。残る本質的な論点は、台条件を保ちながら零固有値を持つ密度演算子へ拡張することです。
+[QINF3で定義した部分トレース](../QINF3/index.md#def-qinf3-partial-trace)について、[QINF19の補題](../QINF19/index.md#lem-qinf19-partial-trace-log)は厳密に正定値な二つの行列の対数比較を、Hilbert–Schmidt空間上の逆行列圧縮と収束積分から証明しました。そこで用いた非可換行列不等式を、ここでは**証明済みの直接前提**として使います。残る本質的な論点は、台条件を保ちながら零固有値を持つ密度演算子へ拡張することです。
 
 <a id="lem-qinf20-partial-trace"></a>
 
@@ -408,7 +408,7 @@ P_b=\sum_{i:g(i)=b}p_i,
 \qquad Q_b=\sum_{i:g(i)=b}q_i
 $$
 
-とします。$p_{\cdot|b},q_{\cdot|b}$ の点は、群 $g^{-1}(b)$ 内の全添字 $i$ を走らせた条件付き確率ベクトル全体を表します。
+とします。$P_b>0$ の群では $Q_b>0$ でもあるので、群内の条件付き確率を $p_{i|b}=p_i/P_b$、$q_{i|b}=q_i/Q_b$ と書けます。$p_{\cdot|b},q_{\cdot|b}$ の点は、群 $g^{-1}(b)$ 内の全添字 $i$ を走らせた条件付き確率ベクトル全体を表します。
 
 <a id="prop-qinf20-classical-coarse"></a>
 
