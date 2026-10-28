@@ -647,7 +647,7 @@ $$
 
 **定義の確認**：改良項に $F=\phi^2$ を代入し、そのトレースと発散が定義どおりの性質を持つことを確認します。
 
-$m=0$ の自由実スカラー場 $\phi\in C^3(\Omega)$ が $\Box\phi=0$ を満たすとし、$F=\phi^2$、$\xi=1/6$ と取ります。$\phi$ は[実スカラー場](../QFT1/index.md#def-qft1-real-scalar)なので $F'(x')=\phi'(x')^2=\phi(x)^2=F(x)$ となり、$F$ もLorentzスカラーです。$\phi\in C^3$ より $F\in C^3$ であり、[改良項の恒等的保存](#prop-qft2-improvement)の正則性条件を満たします。実際、
+$m=0$ の自由実スカラー場 $\phi\in C^3(\Omega)$ が $\Box\phi=0$ を満たすとし、$F=\phi^2$、$\xi=1/6$ と取ります。$\phi$ は[実スカラー場](../QFT1/index.md#def-qft1-real-scalar)なので $F'(x')=\phi'(x')^2=\phi(x)^2=F(x)$ となり、$F$ もLorentzスカラーです。$\phi\in C^3$ より $F\in C^3$ であり、[改良項の恒等的保存](#prop-qft2-improvement)の $C^3$ の仮定を満たします。実際、
 
 $$
 \partial_\mu\left[(\eta^{\mu\nu}\Box-\partial^\mu\partial^\nu)\phi^2\right]
