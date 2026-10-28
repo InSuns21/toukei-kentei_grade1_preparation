@@ -46,3 +46,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT10
     status: completed
     title: "スカラー相互作用の頂点規則・対称因子・連結図"
+  - id: QFT11
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT11
+    status: completed
+    title: "漸近状態・S行列とLSZ還元"

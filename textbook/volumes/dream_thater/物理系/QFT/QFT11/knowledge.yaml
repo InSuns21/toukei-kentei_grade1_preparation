@@ -1,0 +1,61 @@
+chapter: QFT11
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT4, QFT5, QFT6, QFT9, QFT10]
+forward_references: []
+
+concepts:
+  - id: qft.invariant-one-particle-packet
+    name: Lorentz不変一粒子波束とKlein–Gordon内積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lorentz不変一粒子波束とKlein–Gordon内積）]
+    requires: [qft.fock-ladder-operators, qft.positive-mass-shell-spectrum]
+  - id: qft.free-packet-extraction
+    name: 自由波束の消滅演算子と規格化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由波束の消滅演算子と規格化）]
+    requires: [qft.invariant-one-particle-packet]
+  - id: qft.asymptotic-scattering-states
+    name: 漸近in/out状態とS行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（漸近in/out状態とS行列）]
+    requires: [qft.free-packet-extraction, qft.dyson-series]
+  - id: qft.stable-one-particle-pole
+    name: 安定一粒子極と波動関数留数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（安定一粒子極と波動関数留数）]
+    requires: [qft.asymptotic-scattering-states, qft.feynman-two-point]
+  - id: qft.one-particle-pole-contribution
+    name: 安定一粒子状態による二点関数の極
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（安定一粒子状態による二点関数の極）]
+    requires: [qft.stable-one-particle-pole, qft.wightman-two-point]
+  - id: qft.kg-surface-difference
+    name: Klein–Gordon面積分の時間差
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Klein–Gordon面積分の時間差）]
+    requires: [qft.invariant-one-particle-packet]
+  - id: qft.lsz-external-reduction
+    name: LSZ外線還元と連結散乱振幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（LSZ外線還元と連結散乱振幅）]
+    requires: [qft.one-particle-pole-contribution, qft.kg-surface-difference, qft.connected-correlator]
+  - id: qft.lsz-four-leg-formula
+    name: 漸近場を仮定したLSZ四外線還元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（漸近場を仮定したLSZ四外線還元）]
+    requires: [qft.lsz-external-reduction]
+  - id: qft.quartic-scattering-tree
+    name: 四次相互作用の木レベル散乱振幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四次相互作用の木レベル散乱振幅）]
+    requires: [qft.lsz-four-leg-formula, qft.scalar-vertex-factor]
