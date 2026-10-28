@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML2-25 生成評価・不確実性・統合実験</title>
+<style>
+:root {font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body {max-width:1060px;margin:auto;padding:16px;line-height:1.6}
+.controls {display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+label {display:grid;gap:5px;border:1px solid #8888;border-radius:7px;padding:8px}
+input,select,button {font:inherit}
+input,select {width:100%;box-sizing:border-box}
+button {margin:12px 0;padding:9px 16px}
+.panels {display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}
+.panel {border:1px solid #8888;border-radius:8px;padding:12px;min-width:0;overflow-x:auto}
+canvas {display:block;width:100%;height:auto;background:#fff;border-radius:6px}
+table {width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td {text-align:right;padding:7px;border-bottom:1px solid #8888}
+th:first-child,td:first-child {text-align:left}
+.small {font-size:.92em}
+.error {color:#b83228;font-weight:700}
+.metrics {display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}
+.metric {padding:9px;background:#8ca7bc18;border:1px solid #8886;border-radius:6px}
+.metric strong {display:block;font-size:1.15em}
+</style>
+</head>
+<body>
+<nav><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/ML/ML2-25/index">← ML2-25 本文へ</a> ・ <a href="./index.html">実験一覧</a></nav>
+<h1>ML2-25：生成評価・不確実性・統合実験</h1>
+<p>有限三カテゴリ <code>a,b,c</code> の教材模型です。学習基準分布は <code>(0.5,0.3,0.2)</code>、シフト先は <code>(0.2,0.3,0.5)</code>。学習・評価・生成に用途別の擬似乱数列を使い、生成方式によって「計算できる指標」と「未計算の指標」を区別します。</p>
+<section class="controls" aria-label="数値実験の設定">
+  <label>生成方式
+    <select id="mode">
+      <option value="explicit">明示確率（学習頻度＋平滑化）</option>
+      <option value="sampleOnly">標本専用（重み三乗・尤度APIなし）</option>
+    </select>
+  </label>
+  <label>モデルseed（0〜4294967295）<input id="modelSeed" type="number" min="0" max="4294967295" step="1" value="2525"></label>
+  <label>評価用の別seed（0〜4294967295）<input id="evaluationSeed" type="number" min="0" max="4294967295" step="1" value="5252"></label>
+  <label>学習標本数（20〜5000）<input id="trainCount" type="number" min="20" max="5000" step="1" value="300"></label>
+  <label>評価標本数（20〜5000）<input id="evaluationCount" type="number" min="20" max="5000" step="1" value="400"></label>
+  <label>生成標本数（20〜5000）<input id="generatedCount" type="number" min="20" max="5000" step="1" value="400"></label>
+  <label>シフト係数 λ（0〜1）<input id="shift" type="range" min="0" max="1" step="0.05" value="0">
+    <output id="shiftValue">0.00</output>
+  </label>
+</section>
+<button id="calculate" type="button">この設定で実際に再計算</button>
+<p id="status" role="status" aria-live="polite"></p>
+<div class="panels">
+  <section class="panel">
+    <h2>分布の比較</h2>
+    <canvas id="chart" width="720" height="420" role="img" aria-label="三カテゴリの学習基準確率、評価標本頻度、生成標本頻度を比較する棒グラフ"></canvas>
+    <p class="small">灰色＝学習基準分布（理論値）、青＝評価標本の頻度、橙＝生成標本の頻度。計算結果を下表にも数値表示します。</p>
+  </section>
+  <section class="panel">
+    <h2>独立した標本による実測指標</h2>
+    <div class="metrics">
+      <div class="metric">評価 vs 生成の経験TV<strong id="empiricalTv">—</strong></div>
+      <div class="metric">真の評価分布 vs 生成頻度のTV<strong id="referenceTv">—</strong></div>
+      <div class="metric">生成経験エントロピー（nat）<strong id="entropy">—</strong></div>
+      <div class="metric">生成で観測したカテゴリ数<strong id="coveredCategories">—</strong></div>
+      <div class="metric">保留対数損失（nat/件）<strong id="logLoss">—</strong></div>
+      <div class="metric">保留多クラスBrier損失<strong id="brier">—</strong></div>
+      <div class="metric">周辺予測確率と評価頻度の最大差<strong id="maxCategoryGap">—</strong></div>
+      <div class="metric">実計測時間（ms）<strong id="elapsed">—</strong></div>
+    </div>
+  </section>
+</div>
+<section class="panel">
+  <h2>カテゴリ別の値</h2>
+  <table aria-label="理論値と学習・評価・生成のカテゴリ別度数">
+    <thead><tr><th>カテゴリ</th><th>学習度数</th><th>学習したq</th><th>真の評価分布</th><th>評価頻度</th><th>生成頻度</th><th>生成度数</th></tr></thead>
+    <tbody id="categoryRows"></tbody>
+  </table>
+  <p id="seedDetails" class="small"></p>
+</section>
+<section class="panel">
+  <h2>何が言えて、何が言えないか</h2>
+  <ul>
+    <li>標本専用方式の内部重みは教材では三乗正規化として既知ですが、外部評価インターフェースには確率問い合わせがありません。このモードの尤度・Brier・校正差は<strong>「API非公開・未計算」</strong>と表示し、0とはしません。</li>
+    <li>学習した <code>q</code> の表は両方式に共通する学習結果です。標本専用方式の<strong>実際の生成分布とは異なります</strong>。生成側は頻度でのみ評価します。</li>
+    <li>TVのうち「経験TV」は二つの標本からの推定値です。「真の評価分布 vs 生成頻度」も生成側に標本誤差が残ります。どちらも母集団での真の生成距離とは限りません。</li>
+    <li>同じモデルseedなら評価seedやシフトを変えても学習した分布と生成標本は不変です。評価側だけが更新されます。経過時間は端末負荷で変動し、数学的な品質の証明にはなりません。</li>
+  </ul>
+</section>
+<script type="module">
+import { categories, defaultConfig, trainingDistribution, runExperiment } from "./ml2-25-model.mjs";
+const $ = id => document.getElementById(id);
+const keys = Object.keys(defaultConfig);
+const numeric = new Set(["modelSeed","evaluationSeed","trainCount","evaluationCount","generatedCount","shift"]);
+const fixed = (value, digits = 4) => Number.isFinite(value) ? value.toFixed(digits) : "—";
+function currentConfig() {
+  const result = {};
+  for (const key of keys) {
+    const raw = $(key).value;
+    if (raw.trim() === "") throw new RangeError(key + "を入力してください");
+    result[key] = numeric.has(key) ? Number(raw) : raw;
+  }
+  return result;
+}
+function drawBars(result) {
+  const canvas = $("chart"), ctx = canvas.getContext("2d");
+  const w = canvas.width, h = canvas.height, bottom = h - 65, top = 28, maxValue = 0.85;
+  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, w, h);
+  ctx.font = "15px system-ui"; ctx.textAlign = "left";
+  ctx.strokeStyle = "#ced4db"; ctx.fillStyle = "#263748";
+  for (const level of [0,0.2,0.4,0.6,0.8]) {
+    const y = bottom - level / maxValue * (bottom - top);
+    ctx.beginPath(); ctx.moveTo(52,y); ctx.lineTo(w-20,y); ctx.stroke();
+    ctx.fillText(level.toFixed(1), 9, y+5);
+  }
+  const series = [
+    { values:trainingDistribution, color:"#718196", label:"学習基準" },
+    { values:result.evaluationFrequencies, color:"#2567aa", label:"評価頻度" },
+    { values:result.generatedFrequencies, color:"#de7830", label:"生成頻度" },
+  ];
+  series.forEach((s,k) => {
+    ctx.fillStyle = s.color;
+    ctx.fillRect(55 + k*185, 9, 12, 12);
+    ctx.fillStyle = "#263748"; ctx.fillText(s.label, 72+k*185, 21);
+  });
+  const groupWidth = (w - 110) / 3;
+  categories.forEach((label, i) => {
+    const groupLeft = 60 + i * groupWidth;
+    series.forEach((s, k) => {
+      const value = s.values[i];
+      const barHeight = value / maxValue * (bottom - top);
+      ctx.fillStyle = s.color;
+      ctx.fillRect(groupLeft + k*42, bottom-barHeight, 31, barHeight);
+    });
+    ctx.fillStyle = "#263748"; ctx.textAlign = "center";
+    ctx.fillText(label, groupLeft + 56, h-26);
+    ctx.textAlign = "left";
+  });
+}
+function addRow(values) {
+  const tr = document.createElement("tr");
+  for (const value of values) {
+    const td = document.createElement("td");
+    td.textContent = String(value);
+    tr.append(td);
+  }
+  return tr;
+}
+function calculate() {
+  try {
+    const config = currentConfig();
+    const start = performance.now();
+    const result = runExperiment(config);
+    const elapsed = performance.now() - start;
+    drawBars(result);
+    for (const key of ["empiricalTv","referenceTv","entropy","coveredCategories","logLoss","brier","maxCategoryGap"]) {
+      const value = result.metrics[key];
+      $(key).textContent = value === null ? "API非公開・未計算" : key === "coveredCategories"
+        ? String(value) + " / 3" : fixed(value);
+    }
+    $("elapsed").textContent = fixed(elapsed, 3);
+    $("categoryRows").replaceChildren(...categories.map((name,i) => addRow([
+      name, result.trainCounts[i], fixed(result.learnedProbabilities[i]),
+      fixed(result.evaluationDistribution[i]), fixed(result.evaluationFrequencies[i]),
+      fixed(result.generatedFrequencies[i]), result.generatedCounts[i],
+    ])));
+    $("shiftValue").textContent = fixed(config.shift, 2);
+    $("seedDetails").textContent =
+      "モデルseed=" + config.modelSeed + "／評価seed=" + config.evaluationSeed +
+      "（内部で用途別の固定saltを加えた別々の擬似乱数ストリーム。数学的な独立性の証明ではありません）。" +
+      "学習・評価・生成の合計抽出回数=" + result.operationCount + "。";
+    $("status").className = "";
+    $("status").textContent = "訓練・独立評価・生成標本を再抽出して計算完了（" +
+      (config.mode === "explicit" ? "明示確率" : "標本専用") + "）。";
+  } catch (e) {
+    $("status").className = "error";
+    $("status").textContent = "入力・計算エラー：" + e.message;
+  }
+}
+keys.forEach(key => {
+  $(key).value = String(defaultConfig[key]);
+  $(key).addEventListener("change", calculate);
+});
+$("shift").addEventListener("input", () => $("shiftValue").textContent = fixed(Number($("shift").value),2));
+$("calculate").addEventListener("click", calculate);
+calculate();
+</script>
+</body>
+</html>

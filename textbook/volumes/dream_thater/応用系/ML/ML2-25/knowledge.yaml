@@ -1,0 +1,47 @@
+chapter: ML2-25
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-06, ML2-12, ML2-18, ML2-20, ML2-21, ML2-22, ML2-24]
+concepts:
+  - id: learning.generative-evaluation-protocol
+    name: 独立保留標本による生成評価プロトコル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立保留標本による生成評価プロトコル）"]
+    requires: [learning.density-log-loss]
+  - id: learning.generative-heldout-log-risk
+    name: 保留対数損失の期待値と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（保留対数損失の期待値と分散）"]
+    requires: [learning.generative-evaluation-protocol]
+  - id: learning.generative-tv-distance
+    name: 有限分布の全変動距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限分布の全変動距離）"]
+    requires: [learning.generative-evaluation-protocol]
+  - id: learning.generative-tv-sampling-bound
+    name: 全変動距離の事象表示と標本誤差境界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全変動距離の事象表示と標本誤差境界）"]
+    requires: [learning.generative-tv-distance]
+  - id: learning.generative-multiclass-brier
+    name: 多クラスBrier損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多クラスBrier損失）"]
+    requires: [learning.generative-evaluation-protocol]
+  - id: learning.generative-brier-decomposition
+    name: 多クラスBrier損失の期待値分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多クラスBrier損失の期待値分解）"]
+    requires: [learning.generative-multiclass-brier]
+  - id: learning.generative-smoothed-frequency-variance
+    name: 平滑化頻度による推定不確実性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平滑化頻度による推定不確実性）"]
+    requires: [learning.generative-evaluation-protocol]
