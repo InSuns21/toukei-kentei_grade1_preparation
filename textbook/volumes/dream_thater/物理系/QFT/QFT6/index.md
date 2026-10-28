@@ -37,7 +37,7 @@ $$
 
 とします。[初期値の定理](../QFT5/index.md#thm-qft5-commutator-cauchy)により $PE=0$、$E(0)=0$、$\partial_tE(0)=\delta^3$ が空間分布として成立し、[Klein–Gordon解の有限伝播速度](../QFT5/index.md#thm-qft5-finite-speed)から $E$ の支持は両向きの光円錐内にあります。
 
-外力が時刻零に加わるなら、その前に応答してはいけません。そこで $t>0$ の部分だけを残します。逆向きに残す場合は $t=0$ の時間微分の符号も合わせる必要があります。
+外力が時刻零に加わるなら、その前に応答してはいけません。そこで $t>0$ の部分だけを残します。逆向きに残す場合は $t=0$ の時間微分の符号も合わせる必要があります。ここで「$P$ の基本解」の判定条件は、$P$ を分布として作用させたときに時空の点源 $\delta^4$ が得られること、すなわち $PG=\delta^4$ です。以下の核がこの条件を満たすことは次の定理で確認します。
 
 <a id="def-qft6-retarded-advanced"></a>
 
@@ -59,7 +59,16 @@ $$
 <!-- definition-example-start: def-qft6-retarded-advanced -->
 ### 例：一つの振動数で時間の向きを確かめる
 
-**定義の確認**：空間Fourier成分を一つ固定し、$\omega>0$ に対して
+**定義の確認**：空間Fourier変換を $\mathcal F_{\boldsymbol x}$ と書くと、$-\Delta_{\boldsymbol x}$ は $|\boldsymbol p|^2$ の乗法です。従って
+
+$$
+\mathcal F_{\boldsymbol x}(PR)
+=(\partial_t^2+\omega_{\boldsymbol p}^2)\mathcal F_{\boldsymbol x}R,
+\qquad \mathcal F_{\boldsymbol x}R(t,\boldsymbol p)
+=\theta(t)\frac{\sin(\omega_{\boldsymbol p}t)}{\omega_{\boldsymbol p}}.
+$$
+
+このため、空間運動量を一つ固定した $\omega=\omega_{\boldsymbol p}>0$ について
 
 $$
 r_\omega(t)=\theta(t)\frac{\sin(\omega t)}{\omega},
@@ -67,7 +76,16 @@ r_\omega(t)=\theta(t)\frac{\sin(\omega t)}{\omega},
 a_\omega(t)=-\theta(-t)\frac{\sin(\omega t)}{\omega}
 $$
 
-を見ます。$r_\omega$ は $t<0$ で零、$a_\omega$ は $t>0$ で零です。前者の右微分は $r_\omega'(0+)=1$、後者の左微分は $a_\omega'(0-)=-1$ ですが、いずれも反対側の微分は零なので、**導関数の右値引く左値は $+1$** です。先進核の前に負号を付けなければ、この跳びが逆になります。
+を見ます。ここでプライムは $\omega$ を固定した一変数 $t$ の微分であり、上式の $\partial_t$ と同じ時間変数に作用します。$r_\omega$ は負の時刻で零、$a_\omega$ は正の時刻で零です。それぞれの一階微分の跳び（右値から左値を引く）は
+
+$$
+\begin{aligned}
+r_\omega'(0+)-r_\omega'(0-)&=1-0=1,\\
+a_\omega'(0+)-a_\omega'(0-)&=0-(-1)=1
+\end{aligned}
+$$
+
+です。先進核の前に負号を付けなければ、この跳びが逆になります。二階分布微分ではこの跳びが $\delta(t)$ になるので、各運動量での基本解の判定条件に対応します。
 <!-- definition-example-end -->
 
 <a id="thm-qft6-fundamental-support"></a>
@@ -157,7 +175,7 @@ $$
 <!-- definition-example-start: def-qft6-energy-boundary -->
 ### 例：二つの極を実際にずらす
 
-**定義の確認**：固定した $\omega>0$ について、遅延側の分母は
+**定義の確認**：実エネルギー $p^0$ を複素変数 $z$ に拡張します。ここでいう極は、次の分数表示で分母が零になる複素数 $z$ です。固定した $\omega>0$ について、遅延側の分母は
 
 $$
 \omega^2-(z+i\varepsilon)^2
@@ -253,7 +271,16 @@ $$
 <!-- definition-example-start: def-qft6-feynman-two-point -->
 ### 例：時間を逆にして正負周波数を切り替える
 
-**定義の確認**：空間運動量 $\boldsymbol p$ を固定します。$t=2$ なら核の時間係数は $e^{-2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$、$t=-2$ なら $e^{-2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ です。前者は $W(2,\boldsymbol x)$、後者は $W(2,-\boldsymbol x)$ から来ます。単純に $W(t,\boldsymbol x)$ を両側へ使うと、負の時刻では $e^{+2i\omega}$ となり時間順序を再現しません。
+**定義の確認**：空間運動量 $\boldsymbol p$ を固定します。空間Fourier表示の時間係数は、正負の時刻でそれぞれ
+
+$$
+\begin{aligned}
+t=2 &: \quad \frac{e^{-2i\omega_{\boldsymbol p}}}{2\omega_{\boldsymbol p}},\\
+t=-2 &: \quad \frac{e^{-2i\omega_{\boldsymbol p}}}{2\omega_{\boldsymbol p}}
+\end{aligned}
+$$
+
+となります。前者は $W(2,\boldsymbol x)$、後者は $W(2,-\boldsymbol x)$ から来ます。単純に $W(t,\boldsymbol x)$ を両側へ使うと、負の時刻では $e^{+2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ となり時間順序を再現しません。
 <!-- definition-example-end -->
 
 <a id="thm-qft6-feynman-poles"></a>
@@ -397,14 +424,14 @@ $$
 
 ### 証明の見取り図
 
-$R,A$ は[遅延・先進核の基本解性と支持](#thm-qft6-fundamental-support)から、時刻零では原点以外に支持を持てません。他方 $D_F(0,\boldsymbol x)$ は正の振動数の重ね合わせです。Schwingerパラメータを使えば、その振動積分を正の実積分へ変換でき、空間的に離れても一般に消えないことを直接示せます。
+$R,A$ は[遅延・先進核の基本解性と支持](#thm-qft6-fundamental-support)から、時刻零では原点以外に支持を持てません。他方 $D_F(0,\boldsymbol x)$ は正の振動数の重ね合わせです。[QFT5の等時刻Wightman核の例](../QFT5/index.md#ref-qft5-spacelike-wightman)と同様に、正の補助積分変数 $s$（Schwingerパラメータ）で $1/\sqrt a$ をGaussian積分へ表せば、空間的に離れても一般に消えないことを直接示せます。
 
 <!-- proof-start -->
 ### 証明
 
 $R,A$ の支持はそれぞれ $t\ge|\boldsymbol x|$ と $-t\ge|\boldsymbol x|$ に含まれるため、$t=0,\boldsymbol x\ne0$ の近傍で両分布は零です。ここでの零は特異な原点での分布値の主張ではありません。
 
-$D_F$ の空間Fourier表示を $t=0$ で取ると
+$D_F$ の空間Fourier表示を $t=0$ で取ると、[既習のWightman核](../QFT5/index.md#ref-qft5-spacelike-wightman)と同じ積分になり、
 
 $$
 D_F(0,\boldsymbol x)
@@ -436,7 +463,33 @@ e^{-s|\boldsymbol p|^2+i\boldsymbol p\cdot\boldsymbol x}
 $$
 
 これらを組み合わせると係数は
-$(2\sqrt\pi)^{-1}(4\pi)^{-3/2}=1/(16\pi^2)$、積分の冪は $s^{-1/2}s^{-3/2}=s^{-2}$ です。$r>0$ なら $s\downarrow0$ で $e^{-r^2/(4s)}$、$s\to\infty$ で $e^{-m^2s}$ が収束を保証し、積分は厳密に正です。正当化は、先に滑らかな正則化を挿入した分布のFourier作用を評価し、$r>0$ の開集合で極限を取ることで行えます。
+$(2\sqrt\pi)^{-1}(4\pi)^{-3/2}=1/(16\pi^2)$、積分の冪は $s^{-1/2}s^{-3/2}=s^{-2}$ です。$r>0$ なら $s\downarrow0$ で $e^{-r^2/(4s)}$、$s\to\infty$ で $e^{-m^2s}$ が収束を保証し、積分は厳密に正です。
+
+振動積分と $s$ 積分の交換は、まず運動量側に $e^{-\lambda|\boldsymbol p|^2}$（$\lambda>0$）を掛けて行います。このときGaussian積分の $s$ が $s+\lambda$ になるので、正則化した等時刻核は
+
+$$
+D_{F,\lambda}(0,\boldsymbol x)
+=\frac1{16\pi^2}\int_0^\infty
+s^{-1/2}(s+\lambda)^{-3/2}
+e^{-m^2s-r^2/(4(s+\lambda))}\,ds.
+$$
+
+$r\ge r_0>0$ の領域で $s\ge\lambda$ の部分は次の可積分関数に抑えられます。
+
+$$
+s^{-1/2}(s+\lambda)^{-3/2}e^{-m^2s-r^2/(4(s+\lambda))}
+\le s^{-2}e^{-m^2s-r_0^2/(8s)}.
+$$
+
+一方、$0<s<\lambda$ の部分では
+
+$$
+\int_0^\lambda s^{-1/2}(s+\lambda)^{-3/2}
+e^{-m^2s-r^2/(4(s+\lambda))}\,ds
+\le 2\lambda^{-1}e^{-r_0^2/(8\lambda)}\longrightarrow0.
+$$
+
+従って $\lambda\downarrow0$ の極限を $r>0$ の領域で取れ、上の正の積分表示が分布の制限として得られます。
 
 最後に[QFT5の局所的可換性](../QFT5/index.md#thm-qft5-locality)は交換子 $C=-iE$ が空間的分離で消えるという主張です。$D_F$ や $W$ が消えるとは主張していません。
 <!-- proof-end -->
@@ -616,7 +669,15 @@ $$
 
 です。$u$ はコンパクト台源からの滑らかな解であり、各時刻で空間コンパクト台を持つので、$w$ のCauchyデータも仮定のSchwartz級です。
 
-[QFT3のCauchy一意性](../QFT3/index.md#thm-qft3-cauchy)を時刻 $t_0$ から適用すれば $w=0$、すなわち $v=u$ です。同次解を足す自由を、過去で零という条件が除いています。
+時刻を平行移動した関数を作ると、
+
+$$
+\widetilde w(\tau,\boldsymbol x)=w(t_0+\tau,\boldsymbol x),
+\qquad P\widetilde w=0,
+\qquad \widetilde w(0)=\partial_\tau\widetilde w(0)=0.
+$$
+
+ここで $\partial_\tau$ は元の $\partial_t$ を時刻の平行移動後に書き直したものです。[QFT3のCauchy一意性](../QFT3/index.md#thm-qft3-cauchy)を $\widetilde w$ に適用すれば $\widetilde w=0$、すなわち $v=u$ です。同次解を足す自由を、過去で零という条件が除いています。
 <!-- solution-end -->
 
 ### 演習 QFT6-B2：遅延と先進の差は因果核になる
@@ -771,7 +832,7 @@ $$
 を満たす。観測点 $(0,\boldsymbol x)$ を $L=|\boldsymbol x|>a+b$ に置く。また $h,k\in C_c^\infty(\mathbb R^3)$ は非負で零でない関数とし、$\operatorname{supp}h\subset B(\boldsymbol x,\rho)$、$\operatorname{supp}k\subset B(0,\rho)$、$L>2\rho>0$ とする。
 
 1. 遅延応答 $(R*f)(0,\boldsymbol x)$ と先進応答 $(A*f)(0,\boldsymbol x)$ がともに零であることを、源点との距離の下界で示せ。
-2. 等時刻の場 $\Phi_0(h)$ と $\Phi_0(k)$ の交換子が零であることを説明せよ。
+2. [QFT4の等時刻場](../QFT4/index.md#def-qft4-equal-time-fields) $\Phi_0(h)$ と $\Phi_0(k)$ の交換子が零であることを説明せよ。下付きの $0$ は空間試験関数 $h,k$ を固定して場の時刻パラメータ $t$ を零にした意味で、空間座標を零とする添字ではない。
 3. 等時刻Feynman相関の空間smearing
 
 $$
