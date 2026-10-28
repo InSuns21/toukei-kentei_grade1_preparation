@@ -1,0 +1,47 @@
+chapter: ML2-24
+scope: dream-theater
+coverage: complete
+prerequisites: [ML2-20, ML2-23]
+concepts:
+  - id: learning.discrete-gaussian-diffusion
+    name: 離散Gaussian正方向拡散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散Gaussian正方向拡散）"]
+    requires: [learning.denoising-conditional-score]
+  - id: learning.diffusion-forward-marginal
+    name: 正方向の時刻別Gaussian分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正方向の時刻別Gaussian分布）"]
+    requires: [learning.discrete-gaussian-diffusion]
+  - id: learning.diffusion-conditional-posterior
+    name: 元データ条件付き逆向きGaussian事後
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（元データ条件付き逆向きGaussian事後）"]
+    requires: [learning.diffusion-forward-marginal]
+  - id: learning.diffusion-reverse-mixture
+    name: 逆向き周辺分布の混合表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（逆向き周辺分布の混合表示）"]
+    requires: [learning.diffusion-conditional-posterior]
+  - id: learning.diffusion-noise-predictor
+    name: ノイズ予測による逆向き平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ノイズ予測による逆向き平均）"]
+    requires: [learning.diffusion-forward-marginal, learning.diffusion-conditional-posterior]
+  - id: learning.diffusion-noise-kl
+    name: 事後GaussianのKLとノイズ二乗誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（事後GaussianのKLとノイズ二乗誤差）"]
+    requires: [learning.diffusion-noise-predictor, learning.density-log-loss]
+  - id: learning.diffusion-noise-score
+    name: 最適ノイズ予測と時刻別score
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最適ノイズ予測と時刻別score）"]
+    requires: [learning.diffusion-forward-marginal, learning.denoising-conditional-score]
