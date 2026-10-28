@@ -1032,6 +1032,7 @@
 15. [QINF15 混合状態の分離可能性](textbook/volumes/dream_thater/応用系/QINF/QINF15/index.md)
 16. [QINF16 Bell不等式とCHSH](textbook/volumes/dream_thater/応用系/QINF/QINF16/index.md)
 17. [QINF17 von Neumannエントロピー](textbook/volumes/dream_thater/応用系/QINF/QINF17/index.md)
+18. [QINF18 条件付きエントロピーと相互情報量](textbook/volumes/dream_thater/応用系/QINF/QINF18/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
@@ -1249,6 +1250,7 @@
 2. [QFT2 場の対称性・Noether流・エネルギー運動量テンソル](textbook/volumes/dream_thater/物理系/QFT/QFT2/index.md)
 3. [QFT3 Klein–Gordon場の初期値・振動数分解・超関数](textbook/volumes/dream_thater/物理系/QFT/QFT3/index.md)
 4. [QFT4 実スカラー場のFock空間と正準量子化](textbook/volumes/dream_thater/物理系/QFT/QFT4/index.md)
+5. [QFT5 自由場の二点関数・因果的交換子・局所的可換性](textbook/volumes/dream_thater/物理系/QFT/QFT5/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I

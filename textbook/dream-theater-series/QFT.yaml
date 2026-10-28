@@ -24,5 +24,9 @@ chapters:
     title: "実スカラー場のFock空間と正準量子化"
   - id: QFT5
     path: textbook/volumes/dream_thater/物理系/QFT/QFT5
-    status: planned
+    status: completed
     title: "自由場の二点関数・因果的交換子・局所的可換性"
+  - id: QFT6
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT6
+    status: planned
+    title: "遅延・先進・Feynman伝播関数とiε処方"

@@ -1,0 +1,78 @@
+chapter: QFT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT4
+forward_references: []
+
+concepts:
+  - id: qft.wightman-two-point
+    name: Wightman二点分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Wightman二点分布）]
+    requires: [qft.quantum-smeared-scalar-field, qft.bosonic-fock-space]
+
+  - id: qft.wightman-positivity
+    name: 真空二点分布の表示と正値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（真空二点分布の表示と正値性）]
+    requires: [qft.wightman-two-point, qft.fock-ccr]
+
+  - id: qft.positive-mass-shell-spectrum
+    name: 正エネルギー質量殻スペクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正エネルギー質量殻スペクトル）]
+    requires: [qft.wightman-two-point, qft.frequency-splitting]
+
+  - id: qft.wightman-spectrum-and-kg
+    name: 二点分布の質量殻スペクトルと弱い場の方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二点分布の質量殻スペクトルと弱い場の方程式）]
+    requires: [qft.positive-mass-shell-spectrum, qft.wightman-positivity]
+
+  - id: qft.pauli-jordan-commutator
+    name: Pauli–Jordan交換子分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Pauli–Jordan交換子分布）]
+    requires: [qft.wightman-two-point, qft.fock-ccr]
+
+  - id: qft.pauli-jordan-cauchy
+    name: Pauli–Jordan交換子の表示とCauchyデータ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Pauli–Jordan交換子の表示とCauchyデータ）]
+    requires: [qft.pauli-jordan-commutator, qft.equal-time-ccr]
+
+  - id: qft.finite-propagation
+    name: Klein–Gordon解の有限伝播速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Klein–Gordon解の有限伝播速度）]
+    aliases: [QFT5の因果核支持定理]
+    requires: [qft.pauli-jordan-cauchy, qft.classical-smearing]
+
+  - id: qft.spacelike-test-supports
+    name: 空間的分離した試験関数の支持
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（空間的分離した試験関数の支持）]
+    requires: [qft.wightman-two-point]
+
+  - id: qft.local-commutativity
+    name: 局所的可換性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所的可換性）]
+    requires: [qft.spacelike-test-supports, qft.pauli-jordan-commutator]
+
+  - id: qft.free-field-locality
+    name: 自由実スカラー場の局所的可換性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由実スカラー場の局所的可換性）]
+    requires: [qft.local-commutativity, qft.finite-propagation]

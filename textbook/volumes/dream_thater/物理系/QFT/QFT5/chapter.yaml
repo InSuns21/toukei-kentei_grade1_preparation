@@ -1,0 +1,47 @@
+id: QFT5
+title: "自由場の二点関数・因果的交換子・局所的可換性"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT4
+official_scope: []
+learning_objectives:
+  - Fock真空の二点量を作用素から導き、Wightman二点分布の運動量表示と正規化を計算できる
+  - 複素試験関数に対する二点分布の正値性と正エネルギー質量殻上のスペクトル条件を検証できる
+  - Pauli–Jordan交換子を二点分布の反対称部分として導出し、Klein–Gordon方程式と等時刻Cauchyデータの符号を確認できる
+  - 局所エネルギーの流束評価から有限伝播速度を証明し、因果的交換子の支持を光円錐内に制限できる
+  - 時空的に離れた試験関数の支持から局所的可換性を示し、二点相関そのものの消滅とは区別できる
+  - 空間的分離の真空相関と時間的分離の交換子を具体例で検証できる
+definitions:
+  - { id: QFT5-DEF-01, name: Wightman二点分布 }
+  - { id: QFT5-DEF-02, name: 正エネルギー質量殻スペクトル }
+  - { id: QFT5-DEF-03, name: Pauli–Jordan交換子分布 }
+  - { id: QFT5-DEF-04, name: 空間的分離した試験関数の支持 }
+  - { id: QFT5-DEF-05, name: 局所的可換性 }
+theorems:
+  - { id: QFT5-THM-01, name: 真空二点分布の表示と正値性 }
+  - { id: QFT5-PROP-01, name: 二点分布の質量殻スペクトルと弱い場の方程式 }
+  - { id: QFT5-THM-02, name: Pauli–Jordan交換子の表示とCauchyデータ }
+  - { id: QFT5-THM-03, name: Klein–Gordon解の有限伝播速度 }
+  - { id: QFT5-THM-04, name: 自由実スカラー場の局所的可換性 }
+canonical_examples:
+  - Gaussian時空試験関数による真空二点のノルム
+  - 時間微分と等時刻交換子の符号
+  - コンパクト台初期速度からの有限伝播域
+  - 二つの離れた時空小球の空間的分離条件
+  - 等時刻の非零相関と零交換子の対照
+problem_patterns:
+  - QFT5-VACUUM-POSITIVITY
+  - QFT5-MASS-SHELL-SPECTRUM
+  - QFT5-COMMUTATOR-SIGN
+  - QFT5-EQUAL-TIME-DATA
+  - QFT5-BILINEAR-POSITIVITY
+  - QFT5-CONE-ENERGY-ESTIMATE
+  - QFT5-SUPPORT-SEPARATION
+  - QFT5-SPACELIKE-CORRELATION
+  - QFT5-TIMELIKE-NONCOMMUTATIVITY
+  - QFT5-LOCALITY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 3 }
