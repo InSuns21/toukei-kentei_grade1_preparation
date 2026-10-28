@@ -4,7 +4,14 @@
 
 [QINF24の量子通信符号](../QINF24/index.md#def-qinf24-entanglement-code)は、未知の重ね合わせを等長写像で物理系へ埋め込み、雑音のあとで復号するものでした。しかし、単に量子ビットを三つに増やすだけでは、雑音がどこに起きたか分かりません。誤りを見つけるために論理状態の $0,1$ を直接測れば、保存したかった相対位相を失います。
 
-ここでは **論理情報は測らず、誤りの位置を知らせるパリティだけ測る** 方法を作ります。物理量子ビットを左から $1,2,3$ と番号付けし、計算基底を $|b_1b_2b_3\rangle$（$b_j\in\{0,1\}$）と書きます。$X_j,Z_j$ は第 $j$ 量子ビットだけに作用するPauli作用素です。
+ここでは **論理情報は測らず、誤りの位置を知らせるパリティだけ測る** 方法を作ります。物理量子ビットを左から $1,2,3$ と番号付けし、[計算基底](../QINF1/index.md#def-qinf1-qubit)を $|b_1b_2b_3\rangle$（$b_j\in\{0,1\}$）と書きます。一量子ビットのPauli作用素 $X,Z$ は、計算基底で
+
+$$
+X|b\rangle=|1-b\rangle,\qquad
+Z|b\rangle=(-1)^b|b\rangle\quad(b=0,1)
+$$
+
+と作用します。$X_j,Z_j$ は[局所作用素](../QINF1/index.md#def-qinf1-local-operator)として第 $j$ 量子ビットにだけ $X,Z$ を、ほかの二つには恒等作用素 $I$ を作用させます。
 
 この章でいう「一つのビット反転」は $X_1,X_2,X_3$ のいずれか一つが生じるという意味です。同時に二つ以上の反転が起きる模型や、位相反転 $Z_j$ は別に検討します。「任意の一量子ビット雑音」を訂正できるという意味ではありません。
 
@@ -34,7 +41,7 @@ $$
 > を符号空間とその射影とする。$X_L:=X_1X_2X_3$ は $\mathcal C$ 上で論理 $X$ として作用する。
 <!-- formal-statement-end -->
 
-まず $|000\rangle,|111\rangle$ は直交し、それぞれ長さ1です。任意の $|\psi\rangle=\alpha|0\rangle+\beta|1\rangle$ に対して
+まず $|000\rangle,|111\rangle$ は直交し、それぞれ長さ1です。任意の $|\psi\rangle=\alpha|0\rangle+\beta|1\rangle$ に対し、符号語を $|\psi_L\rangle:=V|\psi\rangle$ と略記すると
 
 $$
 V|\psi\rangle=\alpha|000\rangle+\beta|111\rangle,\qquad
@@ -56,7 +63,7 @@ $$
 
 ### CNOTでの符号化と復号
 
-最初の量子ビットに未知状態 $\alpha|0\rangle+\beta|1\rangle$、残り二つに $|00\rangle$ を準備します。制御を1番、標的を2番・3番とする二つのCNOTを順に施すと
+最初の量子ビットに未知状態 $\alpha|0\rangle+\beta|1\rangle$、残り二つに $|00\rangle$ を準備します。CNOTは制御ビットが1のときだけ標的ビットを反転するゲートで、$\mathrm{CNOT}_{1\to j}$ は計算基底の $b_j$ を $b_j\oplus b_1$ に変えます（$\oplus$ は2を法とする加算）。制御を1番、標的を2番・3番とする二つのCNOTを順に施すと
 
 $$
 \begin{aligned}
@@ -84,7 +91,23 @@ $$
 
 $|000\rangle$ と $|111\rangle$ では、隣同士のビットが一致しています。片方のビットが反転すると「1番と2番が一致するか」「2番と3番が一致するか」のどこかが変わります。両者に共通な性質を測れば、$\alpha,\beta$ を区別せずに位置を特定できそうです。
 
-この一致・不一致を、$Z|0\rangle=|0\rangle$、$Z|1\rangle=-|1\rangle$ を使って固有値 $\pm1$ として表示します。
+この一致・不一致を、先ほど導入した $Z$ を使って固有値 $\pm1$ として表示します。計算基底では
+
+$$
+Z_1Z_2|b_1b_2b_3\rangle
+=(-1)^{b_1+b_2}|b_1b_2b_3\rangle
+$$
+
+であり、$b_1=b_2$ のとき $+1$、異なるとき $-1$ です。$Z_2Z_3$ でも同じ判定を2番と3番のビットへ行います。二つの作用素は同じ計算基底で対角的なので可換です。
+
+また、$T=T^\dagger$、$T^2=I$ を満たす検査作用素では、固有値 $u=\pm1$ を持つ固有ベクトル $|v_u\rangle$ について
+
+$$
+\frac{I+sT}{2}|v_u\rangle=\frac{1+su}{2}|v_u\rangle
+=\begin{cases}|v_u\rangle,&u=s,\\0,&u=-s\end{cases}
+$$
+
+が成り立ちます（$s=\pm1$）。従って二つのこの射影を掛ければ、両方のパリティに一致する成分だけが残ります。
 
 <a id="def-qinf25-syndrome"></a>
 
@@ -256,7 +279,15 @@ $$
 
 論理密度行列は[スペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)によって純粋状態射影の非負和なので、線形性から第一の結論が従います。
 
-次に $A_k=\sum_i a_{ki}E_i$ とし、$\sigma=V\rho V^\dagger$ と置きます。$\Pi_{s,t}E_iP$ は対応する $i$ 以外で0なので、各syndrome枝で交差項 $E_i\sigma E_j^\dagger$（$i\ne j$）が消えます。ゆえに
+次に $A_k=\sum_i a_{ki}E_i$ とし、$\sigma=V\rho V^\dagger=P\sigma P$ と置きます。$\Pi_{s,t}E_iP$ は、$(s,t)=(s_i,t_i)$ のときだけ $E_iP$ となり、それ以外では0です。四つの $i$ は異なるsyndromeを持つため、一つの枝 $(s,t)$ に対応する一意の $i$ を選ぶと
+
+$$
+\Pi_{s,t}A_k\sigma A_k^\dagger\Pi_{s,t}
+=|a_{ki}|^2E_i\sigma E_i^\dagger
+\quad\bigl((s,t)=(s_i,t_i)\bigr)
+$$
+
+となります。これは左右の射影が同じ $i$ だけを選び、$E_i\sigma E_j^\dagger$（$i\ne j$）の交差項を消すということです。枝ごとに $F_{s_i,t_i}=E_i$ を掛けて足すと
 
 $$
 \mathcal R(A_k\sigma A_k^\dagger)
@@ -379,7 +410,14 @@ $$
 > を位相反転反復符号とする。符号空間は $\mathcal C_{\mathrm{ph}}=W L$、その射影は $P_{\mathrm{ph}}=WW^\dagger$ である。検査作用素は $S_1=X_1X_2$、$S_2=X_2X_3$ とする。
 <!-- formal-statement-end -->
 
-元のビット符号の各物理量子ビットに $H$ を施しただけなので、$W^\dagger W=V^\dagger(H^\dagger H)^{\otimes3}V=I$ であり、二つの論理基底は直交・正規化されています。
+元のビット符号の各物理量子ビットに $H$ を施しただけなので、$W^\dagger W=V^\dagger(H^\dagger H)^{\otimes3}V=I$ であり、二つの論理基底は直交・正規化されています。$U=H^{\otimes3}$ と置けば、符号空間の射影と検査作用素は次のように移ります。
+
+$$
+P_{\mathrm{ph}}=UPU,\qquad
+UT_1U=S_1,\qquad UT_2U=S_2.
+$$
+
+[パリティ射影の分解](#prop-qinf25-projectors)より、元の $T_1=T_2=+1$ の同時固有空間は階数2で、$\mathcal C$ を張る $|000\rangle,|111\rangle$ で尽くされます。従って $U$ で移した $S_1=S_2=+1$ の同時固有空間も階数2で、$\mathcal C_{\mathrm{ph}}$ と一致します。
 
 <!-- definition-example-start: def-qinf25-phase-code -->
 **定義の確認**。$S_1|+++\rangle=|+++\rangle$ であり、$X|-\rangle=-|-\rangle$ を二箇所に掛けた符号は $(-1)^2=+1$ なので $S_1|---\rangle=|---\rangle$ です。$S_2$ についても同じです。従って $P_{\mathrm{ph}}$ は $S_1=S_2=+1$ の同時固有空間への射影であり、$Z_2|+++\rangle=|+-+\rangle$ は両検査で $-1$ を出します。
@@ -411,7 +449,7 @@ $H^{\otimes3}$ で物理系全体の基底を変えると、$Z_j$ は $X_j$ に�
 <!-- proof-start -->
 ### 証明
 
-$U=H^{\otimes3}=U^\dagger=U^{-1}$ とします。$UZ_jU=X_j$、$U(X_1X_2)U=Z_1Z_2$、$U(X_2X_3)U=Z_2Z_3$ です。従って $\Pi^{\mathrm{ph}}_{s,t}=U\Pi_{s,t}U$、syndromeごとの位相補正は $UF_{s,t}U$ です。全回復は
+$U=H^{\otimes3}=U^\dagger=U^{-1}$ とし、$X_0=I$ と約束します。$UZ_jU=X_j$（$j=0,1,2,3$）、$U(X_1X_2)U=Z_1Z_2$、$U(X_2X_3)U=Z_2Z_3$ です。従って $\Pi^{\mathrm{ph}}_{s,t}=U\Pi_{s,t}U$、syndromeごとの位相補正は $UF_{s,t}U$ です。全回復は
 
 $$
 \mathcal R_{\mathrm{ph}}(\sigma)
