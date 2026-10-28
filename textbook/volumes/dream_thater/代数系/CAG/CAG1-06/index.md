@@ -4,7 +4,7 @@
 
 点ごとの線型写像を単に貼るだけでは、この問いには答えられない。射の空間自体を「内部Hom層」という連接層として作り、その**大域切断**を前章で比較するのが鍵である。局所的なHomの解析化を正当化する場面で、[有限表示](../../AG/AG3-06/index.md#def-ag3-06-finite-type-presentation)と[解析化の平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)がそれぞれ必要になる。
 
-以下、基礎体は $\mathbb C$ とし、$X$ は有限型 $\mathbb C$-スキームとする。射影性は大域比較を述べる段階で仮定する。$\mathcal F,\mathcal G$ は代数的連接層、$h:X^{\mathrm{an}}\to X$ は解析化に伴う環付き空間の射とする。$X$ の滑らかさ・既約性・被約性は仮定しない。
+以下、基礎体は $\mathbb C$ とし、$X$ は有限型 $\mathbb C$-スキームとする。射影性は大域比較を述べる段階で仮定する。$\mathcal F,\mathcal G$ は[代数的連接層](../../AG/AG3-06/index.md#def-ag3-06-coherent)、$h:X^{\mathrm{an}}\to X$ は[解析化に伴う局所環付き空間の射](../CAG1-02/index.md#thm-cag1-02-analytification-functor)とする。層の解析化 $\mathcal F^{\mathrm{an}}$ は[既習の引戻しによる定義](../CAG1-03/index.md#def-cag1-03-sheaf-analytification)を用いる。$X$ の滑らかさ・既約性・被約性は仮定しない。
 
 ## 1. 層の射を大域切断として読む
 
@@ -42,14 +42,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cag1-06-internal-hom -->
-**定義の確認**：$\mathbb A^1_{\mathbb C}$ の原点近傍で $A=\mathbb C[t]_{(t)}$、$M=A/(t^2)$ とする。$A$-線型写像 $u:M\to M$ は $u(1)=b$ で決まり、関係式 $t^2b=0$ は $M$ では自動的に成立する。従って
+**定義の確認**：$\mathbb A^1_{\mathbb C}$ の原点の代数的局所環で $A=\mathbb C[t]_{(t)}$、$M=A/(t^2)$ とする。$A$-線型写像 $u:M\to M$ は $u(1)=b$ で決まり、関係式 $t^2b=0$ は $M$ では自動的に成立する。従って
 
 $$
 \operatorname{End}_A(M)\simeq M,
 \qquad b\longmapsto(m\longmapsto bm).
 $$
 
-解析的な茎では $B=\mathbb C\{t\}$、$M^{\mathrm{an}}_0=B/(t^2)$ である。こちらも $1,t$ を基底とする二次元の自己準同型空間になる。これは「射を一つ送る」だけでなく、「射の係数がどの層に属するか」を調べる例である。
+実際 $b=a+ct$（$a,c\in\mathbb C$）なら、$A$-線型性と $t^2=0$ から
+
+$$
+u(1)=a+ct,\qquad u(t)=t(a+ct)=at
+$$
+
+である。解析的な茎では $B=\mathbb C\{t\}$、$M^{\mathrm{an}}_0=B/(t^2)$ であり、同じ計算から
+
+$$
+u^{\mathrm{an}}(1)=a+ct,\qquad u^{\mathrm{an}}(t)=at
+$$
+
+を得る。両側の自己準同型環はともに $\mathbb C$-ベクトル空間として $1,t$ を基底とする二次元空間で、局所的な解析化写像は係数 $a,c$ を変えない。これは「射を一つ送る」だけでなく、「射の係数がどの層に属するか」を調べる例である。
 <!-- definition-example-end -->
 
 この定義の $\mathcal Hom$ は抽象的な全体のHom集合とは違う。たとえば $\mathcal F=\mathcal O_X$ なら、$U$ 上の射は $1$ の像で一意に決まり、
@@ -99,7 +111,14 @@ $$
 \longrightarrow N^r\xrightarrow{D^\vee}N^s
 $$
 
-が完全である。$D^\vee$ は行列 $D$ の転置を $N$ の成分に作用させたもの。つまり $M$ からの射とは、$A^r$ の基底の行先 $n_1,\ldots,n_r$ のうち、$D$ の各関係式を零に送る組である。
+が完全である。$D^\vee$ は行列 $D=(d_{ij})_{1\le i\le r,\,1\le j\le s}$ の転置を $N$ の成分に作用させたもの。具体的に
+
+$$
+D^\vee(n_1,\ldots,n_r)
+=\left(\sum_{i=1}^r d_{ij}n_i\right)_{j=1}^s.
+$$
+
+つまり $M$ からの射とは、$A^r$ の基底の行先 $n_1,\ldots,n_r$ のうち、$D$ の各関係式を零に送る組である。
 
 $A$ は有限型 $\mathbb C$-代数でNoether環であり、$N^r$ も有限生成なので $\ker D^\vee$ は有限生成となる。[Noether環上の連接性](../../AG/AG3-06/index.md#thm-ag3-06-noether-coherence)から対応する層は連接である。
 
@@ -268,7 +287,14 @@ $$
 
 ## 4. 線束の射、正則写像、そして境界
 
-まず射影直線で定理を目に見える形にする。[ねじれ層のテンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)および[斉次多項式による切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
+まず射影直線で定理を目に見える形にする。[ねじれ層の局所基底と遷移規則](../../AG/AG2-06/index.md#def-ag2-06-twisting-sheaf)を使い、$U_i$ 上の射 $u:\mathcal O(a)\to\mathcal O(b)$ を $u(e_i^{(a)})=c_i e_i^{(b)}$ と表示する。重なりで $e_j^{(d)}=(X_j/X_i)^d e_i^{(d)}$ だから、$g_{ij}=X_j/X_i$ とおくと
+
+$$
+c_j e_j^{(b)}=u(e_j^{(a)})=g_{ij}^a c_i e_i^{(b)},
+\qquad c_j=g_{ij}^{a-b}c_i.
+$$
+
+この $c_j=g_{ij}^{-(b-a)}c_i$ は、[ねじれ層の貼り合わせで導いた局所係数の規則](../../AG/AG2-06/index.md#prop-ag2-06-od-cocycle)を次数 $b-a$ に適用した式そのものである。[テンソル積と双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)とも一致し、[斉次多項式による大域切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)を適用すると
 
 $$
 \operatorname{Hom}_{\mathbb P^1}
@@ -289,7 +315,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（代数的線型系から生じる正則射）**
-> $X$ を有限型の射影 $\mathbb C$-スキーム、$\mathcal L$ を**代数的**な可逆層とする。$\mathcal L^{\mathrm{an}}$ の正則大域切断 $\sigma_0,\ldots,\sigma_m$ がすべての点で同時に零にならない（各点で少なくとも一つが局所基底を生成する）とする。このとき各 $\sigma_i$ は一意の代数的切断 $s_i$ に由来し、局所座標
+> $X$ を有限型の射影 $\mathbb C$-スキーム、$\mathcal L$ を**代数的**な[可逆層](../../AG/AG2-06/index.md#def-ag2-06-invertible-sheaf)とする。$\mathcal L^{\mathrm{an}}$ の正則大域切断 $\sigma_0,\ldots,\sigma_m$ がすべての点で同時に零にならない（各点で少なくとも一つが局所基底を生成する）とする。このとき各 $\sigma_i$ は一意の代数的切断 $s_i$ に由来し、局所座標
 
 $$
 f^{\mathrm{an}}(x)=[\sigma_0(x):\cdots:\sigma_m(x)]
@@ -307,7 +333,31 @@ $$
 
 [内部Hom層と射の解析化写像の定義](#def-cag1-06-internal-hom)から、正則切断 $\sigma_i$ は層の射 $\mathcal O_X^{\mathrm{an}}\to\mathcal L^{\mathrm{an}}$ と同じ情報である。[GAGA II](#thm-cag1-06-gaga-hom)を $\mathcal F=\mathcal O_X,\mathcal G=\mathcal L$ に適用し、一意の代数的切断 $s_i$ を得る。
 
-それらは代数的にも各点の近くで $\mathcal L$ を生成する。実際、生成しない点があれば、評価射 $\mathcal O_X^{m+1}\to\mathcal L$ の余核 $\mathcal Q$ は非零の連接層となる。有限型 $\mathbb C$-スキームはJacobsonなので、その台には複素閉点 $p$ が存在する。
+それらは代数的にも各点の近くで $\mathcal L$ を生成する。実際、生成しない点があれば、評価射 $\mathcal O_X^{m+1}\to\mathcal L$ の余核 $\mathcal Q$ は非零の連接層となる。その非零性が残るアフィン開 $U=\operatorname{Spec}A$ を選び、$\mathcal Q|_U=\widetilde N$ と書くと、$N$ は非零の有限生成 $A$-加群である。
+
+零化イデアルを
+
+$$
+I:=\operatorname{Ann}_A(N)=\{a\in A\mid aN=0\}
+$$
+
+と定義する。これは真のイデアルだから、それを含む極大イデアル $\mathfrak m$ を選べる。もし $N_{\mathfrak m}=0$ なら、有限個の各生成元 $n_k$ に対して $s_k\notin\mathfrak m$ かつ $s_kn_k=0$ となる元が存在する。その有限積は
+
+$$
+a:=\prod_k s_k\notin\mathfrak m,\qquad
+aN=0\ \Longrightarrow\ a\in I\subseteq\mathfrak m
+$$
+
+を満たし、矛盾する。よって $N_{\mathfrak m}\ne0$ である。
+
+$A$ は有限生成 $\mathbb C$-代数で、$\mathbb C$ は代数閉体である。[弱Hilbertの零点定理](../../AG/AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)を $A$ の多項式環表示に適用すると
+
+$$
+A/\mathfrak m\simeq\mathbb C,
+\qquad \mathcal Q_p=N_{\mathfrak m}\ne0
+$$
+
+となり、$\mathfrak m$ は複素閉点 $p$ を与える。
 
 [忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)によって
 
@@ -445,7 +495,14 @@ $a,b\in\mathbb Z$ とする。$\mathbb P^1(\mathbb C)$ 上の $\mathcal O(a)^{\m
 <!-- solution-start -->
 **詳細解答**。解析的な同型 $\varphi$ とその逆射 $\psi$ を仮定する。[GAGA II](#thm-cag1-06-gaga-hom)で $\varphi$ と $\psi$ はそれぞれ代数的なHomに対応する。
 
-もし $b<a$ なら $\operatorname{Hom}(\mathcal O(a),\mathcal O(b))=H^0(\mathcal O(b-a))=0$ で、$\varphi$ は零射にしかなれない。もし $a<b$ なら逆向きの $\operatorname{Hom}(\mathcal O(b),\mathcal O(a))=H^0(\mathcal O(a-b))=0$ となり、$\psi$ が存在しない。したがって $a=b$。
+[ねじれ層の双対](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)と[負次数の切断の消失](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)を各方向に使う。もし $b<a$ なら
+
+$$
+\operatorname{Hom}(\mathcal O(a),\mathcal O(b))
+=H^0(\mathcal O(b-a))=0
+$$
+
+で、$\varphi$ は零射にしかなれない。もし $a<b$ なら逆向きに $\operatorname{Hom}(\mathcal O(b),\mathcal O(a))=H^0(\mathcal O(a-b))=0$ となり、$\psi$ が存在しない。したがって $a=b$。
 
 逆に $a=b$ なら恒等射が解析的同型である。[解析的同型の代数性](#cor-cag1-06-isom-algebraic)も、両方向の合成を比較して代数的同型になることを保証する。単なる次元の一致だけで同型を宣言してはいない。
 <!-- solution-end -->
@@ -477,7 +534,21 @@ $P=\mathbb P^1$、$\mathcal L=\mathcal O_P(2)$ とし、解析化後の切断 $\
 <!-- solution-start -->
 **詳細解答**。$ST=0$ の点では $S=0$ または $T=0$ である。前者なら $S^2+T^2=T^2\ne0$、後者なら $S^2+T^2=S^2\ne0$。よって同時零点がない。各切断は $H^0(P,\mathcal O(2)^{\mathrm{an}})$ の元なので、[GAGA II](#thm-cag1-06-gaga-hom)を $\mathcal O\to\mathcal O(2)$ に適用すれば代数的な同名の二次式に由来する。
 
-$S\ne0$ で $z=T/S$ とすると $[\sigma_0:\sigma_1]=[1+z^2:z]$。$T\ne0$ で $w=S/T$ とすると $[\sigma_0:\sigma_1]=[1+w^2:w]$ である。重なりでは $w=1/z$、両成分を $z^2$ 倍すれば $[z^2+1:z]$ となり、同じ射影点を表す。[代数的線型系からの射](#prop-cag1-06-algebraic-linear-system)に従い
+$S\ne0$ では $z=T/S$、$T\ne0$ では $w=S/T$ とおく。各局所基底で切断の係数を取り、射影座標へ移すと
+
+$$
+[\sigma_0:\sigma_1]_{U_S}=[1+z^2:z],
+\qquad
+[\sigma_0:\sigma_1]_{U_T}=[1+w^2:w].
+$$
+
+重なりでは $z\ne0$、$w=1/z$ であり、後者の両成分を $z^2$ 倍して
+
+$$
+[1+w^2:w]=[(z^2+1)/z^2:1/z]=[z^2+1:z]
+$$
+
+と変形できる。これは前者と同じ射影点である。[代数的線型系からの射](#prop-cag1-06-algebraic-linear-system)に従い
 
 $$
 f([S:T])=[S^2+T^2:ST]
@@ -516,7 +587,13 @@ $$
 \operatorname{Hom}_A(M,M)=\ker(M\xrightarrow{t^2}M)=M.
 $$
 
-自己射は $1$ の像 $b=a+ct$ による乗法に一致する。大域の自己準同型環は $\mathbb C[t]/(t^2)$ で、積は $(a+ct)(a'+c't)=aa'+(ac'+ca')t$。$a\ne0$ のとき
+自己射は $1$ の像 $b=a+ct$ による乗法に一致する。[閉埋込みの直像とコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)から大域の自己準同型環は $\mathbb C[t]/(t^2)$ である。$t^2=0$ により積は
+
+$$
+(a+ct)(a'+c't)=aa'+(ac'+ca')t.
+$$
+
+$a\ne0$ のとき
 
 $$
 (a+ct)^{-1}=a^{-1}-ca^{-2}t
@@ -556,9 +633,31 @@ $$
 \operatorname{End}_{\mathbb C}(\mathcal O_{\mathbb C})=\mathcal H(\mathbb C).
 $$
 
-**（2）** $e^z$ は全平面で正則かつ零点がないので、乗法写像は $\mathcal O_{\mathbb C}$-線型な層自己同型で、逆射は $e^{-z}$ の乗法である。一方、代数的自己射は $p(z)\in\mathbb C[z]$ の乗法に限られる。$e^z$ が次数 $d$ の多項式なら $(d+1)$ 階導関数は恒等的に零のはずだが、$e^z$ の同じ階の導関数は $e^z$ で $z=0$ では $1$。よって多項式ではない。
+**（2）** $e^z$ は全平面で正則かつ零点がないので、乗法写像は $\mathcal O_{\mathbb C}$-線型な層自己同型で、逆射は $e^{-z}$ の乗法である。一方、代数的自己射は $p(z)\in\mathbb C[z]$ の乗法に限られる。$e^z$ が次数 $d$ の多項式 $p$ なら、**変数 $z$ による** $(d+1)$ 階微分について
 
-別法として、$\mathbb C[z]$ の単元は非零定数だけである。実際 $p(z)q(z)=1$ の多項式恒等式なら $\deg p+\deg q=0$ だから両者は定数である。$e^z$ は非定数なのに解析側で逆元 $e^{-z}$ を持ち、代数的な自己同型の解析化とはなり得ない。
+$$
+\frac{d^{d+1}}{dz^{d+1}}p(z)=0,
+\qquad
+\left.\frac{d^{d+1}}{dz^{d+1}}e^z\right|_{z=0}=1
+$$
+
+が同時に必要となり矛盾する。よって多項式ではない。
+
+別法として、指数関数が多項式 $p(z)$ の解析化だと仮定する。指数関数は非定数なので $p$ も非定数であり、一方で零点がないため
+
+$$
+p(z)=e^z\ne0\qquad(z\in\mathbb C)
+$$
+
+となる。しかし[弱Hilbertの零点定理](../../AG/AG1-07/index.md#thm-ag1-07-weak-nullstellensatz)を真のイデアル $(p)\subset\mathbb C[z]$ に適用すると、非定数多項式は複素零点を持つ。これは表示式に矛盾する。
+
+なお $\mathbb C[z]$ の単元が非零定数だけであることも、$p(z)q(z)=1$ のとき
+
+$$
+\deg p+\deg q=\deg1=0
+$$
+
+から直接従う。これにより**代数的自己同型だけでなく、すべての代数的自己準同型**の解析化を排除した。
 
 **（3）** $\mathbb P^1$ では[射影空間の大域関数定理](../../AG/AG2-05/index.md#thm-ag2-05-projective-global-constants)と[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)から双方の $H^0(\mathcal O)$ は $\mathbb C$ である。GAGA IIがHomの全単射を保証する。
 
@@ -576,7 +675,7 @@ $$
 
 この章の論理は、[代数的連接層の有限表示](../../AG/AG3-06/index.md#def-ag3-06-finite-type-presentation)と[局所Noether性](../../AG/AG3-06/index.md#thm-ag3-06-noether-coherence)から内部Homの連接性を得て、[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)から内部Homの解析化交換を証明し、[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の零次比較でHom全単射へ進むものである。
 
-**証明の停止線**：解析化の局所環の忠実平坦性、Okaの解析的連接性、GAGA Iのコホモロジー比較の深い解析的入力はそれぞれ前提章の明示した定理・外部入力に依存する。本章ではその証明を新たに完結したと称さない。射影スキームの射の比較は証明したが、任意の解析的連接層の存在的な代数化はまだ証明していない。
+**ここまでの証明の範囲**：解析化の局所環の忠実平坦性、Okaの解析的連接性、GAGA Iのコホモロジー比較の深い解析的入力はそれぞれ前提章の明示した定理・外部入力に依存する。本章ではそれらを再証明していない。射影スキームの射の比較は証明したが、任意の解析的連接層の存在的な代数化はまだ証明していない。
 
 次のCAG1-07では、**そもそも代数的な相手が指定されていない**解析的連接層を、ねじった大域生成と有限表示からどう作り直すかを扱う。その段階で初めて、今日の「代数化済みの層の間には新しい正則射が増えない」という結論が、解析的層を構成するための道具になる。
 
