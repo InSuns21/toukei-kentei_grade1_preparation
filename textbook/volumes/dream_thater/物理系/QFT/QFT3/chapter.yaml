@@ -1,0 +1,49 @@
+id: QFT3
+title: "Klein–Gordon場の初期値・振動数分解・超関数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT2
+  - FOU4
+  - GPDE2
+official_scope: []
+learning_objectives:
+  - 三次元空間Fourier変換の規格化を固定してKlein–Gordon方程式を周波数ごとの常微分方程式へ移せる
+  - Schwartz初期値から自由場の解を構成し初期条件と一意性を検算できる
+  - 正振動数・負振動数の係数と実場の現実条件を導き質量零の零運動量での扱いを説明できる
+  - 保存されるKlein–Gordon双線形型の符号を計算し正振動数空間と全解空間を区別できる
+  - 平面波と有限エネルギーの波束を区別してFourier側のエネルギー式を導ける
+  - Schwartz試験関数による場のsmearingと超関数としての運動方程式を定義し検証できる
+definitions:
+  - { id: QFT3-DEF-00, name: Schwartz関数 }
+  - { id: QFT3-DEF-01, name: 自由場のSchwartz初期値 }
+  - { id: QFT3-DEF-02, name: 正負振動数成分 }
+  - { id: QFT3-DEF-03, name: Klein–Gordon保存形式 }
+  - { id: QFT3-DEF-04, name: 緩増加超関数 }
+  - { id: QFT3-DEF-05, name: 古典場の試験関数smearing }
+theorems:
+  - { id: QFT3-THM-01, name: Schwartz初期値のCauchy解 }
+  - { id: QFT3-PROP-01, name: 実場の振動数係数の現実条件 }
+  - { id: QFT3-THM-02, name: Klein–Gordon形式の保存と振動数符号 }
+  - { id: QFT3-PROP-02, name: Fourier表示の自由場エネルギー }
+  - { id: QFT3-PROP-03, name: 古典Klein–Gordon解の超関数表示 }
+canonical_examples:
+  - 余弦・正弦の二成分からCauchy条件を直接復元
+  - 実Gaussian初期値に対する正負振動数の対
+  - 周期箱の複素平面波によるKlein–Gordon形式の正負
+  - 時空GaussianをSchwartz試験関数とするsmearing
+problem_patterns:
+  - QFT3-FOURIER-ODE
+  - QFT3-PERIODIC-MODE
+  - QFT3-ZERO-MODE
+  - QFT3-SCHWARTZ-TEST
+  - QFT3-REALITY
+  - QFT3-GAUSSIAN-ENERGY
+  - QFT3-SPECTRAL-ENERGY
+  - QFT3-KG-PAIRING
+  - QFT3-WEAK-EQUATION
+  - QFT3-INITIAL-DATA-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }

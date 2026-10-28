@@ -1,0 +1,86 @@
+chapter: QFT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT2
+  - FOU4
+  - GPDE2
+forward_references: []
+
+concepts:
+  - id: qft.schwartz-function
+    name: Schwartz関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Schwartz関数）]
+    requires: [distribution.test-function, distribution.multi-index]
+
+  - id: qft.schwartz-cauchy-data
+    name: 自由場のSchwartz初期値
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由場のSchwartz初期値）]
+    requires: [qft.klein-gordon, qft.schwartz-function]
+
+  - id: qft.schwartz-cauchy-solution
+    name: Schwartz初期値のCauchy解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Schwartz初期値のCauchy解）]
+    requires: [qft.schwartz-cauchy-data, qft.scalar-dispersion]
+
+  - id: qft.frequency-splitting
+    name: 正負振動数成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正負振動数成分）]
+    requires: [qft.schwartz-cauchy-solution]
+
+  - id: qft.reality-condition
+    name: 実場の振動数係数の現実条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（実場の振動数係数の現実条件）]
+    requires: [qft.frequency-splitting, qft.real-scalar-field]
+
+  - id: qft.klein-gordon-pairing
+    name: Klein–Gordon保存形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Klein–Gordon保存形式）]
+    requires: [qft.frequency-splitting, qft.u1-scalar-current]
+
+  - id: qft.klein-gordon-pairing-conservation
+    name: Klein–Gordon形式の保存と振動数符号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Klein–Gordon形式の保存と振動数符号）]
+    requires: [qft.klein-gordon-pairing, qft.schwartz-cauchy-solution]
+
+  - id: qft.spectral-energy
+    name: Fourier表示の自由場エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Fourier表示の自由場エネルギー）]
+    requires: [qft.schwartz-cauchy-solution, qft.scalar-energy]
+
+  - id: qft.tempered-distribution
+    name: 緩増加超関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（緩増加超関数）]
+    requires: [qft.schwartz-function, distribution.schwartz-distribution]
+
+  - id: qft.classical-smearing
+    name: 古典場の試験関数smearing
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古典場の試験関数smearing）]
+    requires: [qft.schwartz-cauchy-solution, qft.tempered-distribution]
+
+  - id: qft.distributional-klein-gordon
+    name: 古典Klein–Gordon解の超関数表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典Klein–Gordon解の超関数表示）]
+    requires: [qft.classical-smearing, qft.klein-gordon]
