@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-28（標準教科書・公開講義ノートとの照合、証明境界・依存・具体例の再設計）  
-状態: planned（PLAN の推敲のみ。本文・系列 manifest は未実装）
+状態: in progress（CAG1-01 を実装。CAG1-02 以降と全体監査は未完了）
 
 ## 中心問いと到達点
 
@@ -20,8 +20,8 @@
 - [代数幾何学 I〜III：AG1〜AG3](../plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md) は全38章が完成。AG2-01/05/06/07/08/09/10/12（射影空間・構造層・線束・標準束・随伴公式・quintic）、AG3-06/07/08/10/11（連接層・コホモロジー・種数）を主に再利用する。一般のSerre双対性・交叉理論をAG3で証明済みと見なさない。
 - [複素多様体論 I・II：CM1/CM2](../plan_done/DREAM_THEATER_COMPLEX_MANIFOLDS_I_II_PLAN.md) は全21章が完成。CM1-10（複素射影空間）、CM2-04〜08（Dolbeault・正則束・標準束）を再利用する。解析空間は特異点・非被約構造を許すため、**複素多様体**だけの定義とは区別する。
 - [Kähler幾何学：KAH1](../plan_done/DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md) は全16章が完成。KAH1-07/12〜14（Fubini–Study形式、第一Chern類、Kähler class、射影多様体）を再利用する。CAG1でKähler接続・曲率を重複証明しない。
-- [Kähler–Hodge理論：HOD1](DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md) は計画のみ。Hodge分解、Hard Lefschetz、Hodge数の対称性・原始コホモロジーの**証明 owner**であり、本PLANの完成をこれら未完成の定理の既習扱いに依存させない。
-- [Calabi–Yau幾何学：CYG1](DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md) は計画のみ。Calabi–Yau の諸定義・quintic の **Hodge 数の実計算**・変形への入口を所有する。CAG1はquinticの滑らかさ・随伴公式と正則3形式の入口までを担当する。
+- [Kähler–Hodge理論：HOD1](../plans/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md) は計画のみ。Hodge分解、Hard Lefschetz、Hodge数の対称性・原始コホモロジーの**証明 owner**であり、本PLANの完成をこれら未完成の定理の既習扱いに依存させない。
+- [Calabi–Yau幾何学：CYG1](../plans/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md) は計画のみ。Calabi–Yau の諸定義・quintic の **Hodge 数の実計算**・変形への入口を所有する。CAG1はquinticの滑らかさ・随伴公式と正則3形式の入口までを担当する。
 
 このPLANの固有責務は**代数化／解析化の比較の仕組み（GAGA）と、その線束・射・具体例への適用**である。一般Hodge理論、Kodaira消滅・埋め込みの完全証明、Calabi–Yau定理、一般のGrothendieck双対、変形理論は本講に押し込まない。Kodaira埋め込み定理は仮定と結論のみ必要箇所で紹介し、完全証明を掲載する別の正本が決まるまでは「既証明」としない。
 
@@ -102,7 +102,7 @@
 
 ## 着手・査読・完成条件
 
-1. 現段階はPLAN推敲のみ。本文実装は未着手であり、ファイルを **textbook/plans/** に保ち、系列manifestや公開索引を「実装済み」として先行登録しない。
+1. CAG1-01 のみ本文・系列 manifest・公開索引へ登録済み。未実装章を公開索引へ先行登録せず、残る章・全体監査の完了まで本PLANを **textbook/plans_progress/** に保つ。
 2. 正式着手時に仮IDの衝突、完成済みAG・CM・KAHの実在する章・stable anchor、未完成HOD・CYGの現在地、必要な解析的入力の証明ownerを照合する。章別の直接 prerequisite は「この章が実際に使うもの」に絞り、前提を無意味に増やさない。
 3. 各章は動機→定義の通常文での導入→条件を検算する直接例→主要結果と証明→独習用演習と全詳細解答の順を基準とする。既習結果を実際に使う文からcanonical stable anchorへリンクする。
 4. 新規本文は現行 [執筆基準](../DREAM_THEATER_AUTHORING_STANDARD.md) の区分Cに従い、全主要証明・全演習解答の棚卸しと出発点からの再計算、完成本文の別観点再読を行う。同じ担当者の再読を第三者の独立査読と呼ばない。**別の完成章の追跡監査は章IDを指定された場合のみ**実施する。

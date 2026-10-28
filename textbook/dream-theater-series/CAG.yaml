@@ -1,0 +1,64 @@
+version: 1
+id: CAG
+title: "複素代数幾何学――解析化とGAGA"
+plan: textbook/plans_progress/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 完了章だけを公開索引へ登録する。残りの章IDは暫定であり、実装時に調整できる。
+chapters:
+  - id: CAG1-01
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-01
+    status: completed
+    title: "代数的幾何と複素解析的幾何のずれ"
+  - id: CAG1-02
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-02
+    status: planned
+    title: "解析化の構成と特異解析空間"
+  - id: CAG1-03
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-03
+    status: planned
+    title: "代数的連接層と解析的連接層"
+  - id: CAG1-04
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-04
+    status: planned
+    title: "射影空間上のねじり層と比較の基底例"
+  - id: CAG1-05
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-05
+    status: planned
+    title: "GAGA I――連接層コホモロジーの比較"
+  - id: CAG1-06
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-06
+    status: planned
+    title: "GAGA II――正則な層の射の代数性"
+  - id: CAG1-07
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-07
+    status: planned
+    title: "GAGA III――正則連接層の代数化"
+  - id: CAG1-08
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-08
+    status: planned
+    title: "射影版GAGAの統合と固有版の境界"
+  - id: CAG1-09
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-09
+    status: planned
+    title: "Chowの定理と解析的射の代数性"
+  - id: CAG1-10
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-10
+    status: planned
+    title: "Picard群と正則線束の代数化"
+  - id: CAG1-11
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-11
+    status: planned
+    title: "標準束と随伴公式を両側で読む"
+  - id: CAG1-12
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-12
+    status: planned
+    title: "曲線の種数と代数・解析比較"
+  - id: CAG1-13
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-13
+    status: planned
+    title: "滑らかなquintic threefold"
+  - id: CAG1-14
+    path: textbook/volumes/dream_thater/代数系/CAG/CAG1-14
+    status: planned
+    title: "総合演習とHodge数への橋"

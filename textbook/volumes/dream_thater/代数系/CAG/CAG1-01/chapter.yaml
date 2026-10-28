@@ -1,0 +1,45 @@
+id: "CAG1-01"
+title: "代数的幾何と複素解析的幾何のずれ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-01
+  - AG1-03
+  - AG1-04
+  - AG2-01
+  - AG2-05
+  - CM1-10
+  - CA3
+official_scope: []
+learning_objectives:
+  - 複素アフィン直線と複素射影直線でZariski開集合と解析的開集合の関係を証明し、開集合の具体例を分類できる
+  - 代数的正則関数から複素解析的正則関数への比較写像を局所分数表示から構成し、単射性を証明できる
+  - アフィン直線の大域代数的正則関数が多項式であることを確認し、e^zが解析側にはあるが代数側にはないと示せる
+  - 射影直線の二つのチャートとLiouvilleの定理から大域正則関数が代数・解析とも定数であると証明できる
+  - 穿孔直線・無限遠点の例を通じ、大域関数の一致とGAGAの一般的な比較定理を混同しない
+definitions:
+  - { id: CAG1-01-DEF-01, name: 代数・解析の関数比較写像 }
+theorems:
+  - { id: CAG1-01-PROP-01, name: Zariski位相と解析位相の比較 }
+  - { id: CAG1-01-PROP-02, name: 関数比較写像の単射性 }
+  - { id: CAG1-01-PROP-03, name: アフィン直線における関数比較の不一致 }
+  - { id: CAG1-01-THM-01, name: 射影直線の大域関数の一致 }
+canonical_examples:
+  - アフィン直線のZariski開集合と円板の比較
+  - 多項式と整関数e^zの比較
+  - 射影直線の座標zとw=1/zの貼り合わせ
+  - 有理関数z^2/(z^2+1)の無限遠への延長と有限極
+  - 穿孔直線のe^(1/z)とLaurent多項式の違い
+problem_patterns:
+  - CAG1-01-A01
+  - CAG1-01-A02
+  - CAG1-01-A03
+  - CAG1-01-A04
+  - CAG1-01-B01
+  - CAG1-01-B02
+  - CAG1-01-B03
+  - CAG1-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
