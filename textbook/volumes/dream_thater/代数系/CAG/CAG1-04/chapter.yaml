@@ -1,0 +1,49 @@
+id: "CAG1-04"
+title: "射影空間上のねじり層と比較の基底例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-03
+  - AG3-10
+  - CA4
+  - CM2-06
+official_scope: []
+learning_objectives:
+  - 射影空間の標準開集合と有限交叉を解析的座標で記述し、Stein性と連接性の適用条件を判定できる
+  - Cartanの定理Bを未証明の解析的入力と区別し、標準被覆の解析的Čech複体が層コホモロジーを計算する理由を説明できる
+  - 正則Laurent級数の負指数集合と収束を使い、代数的な単項式複体から解析的な複体への比較を全次数で示せる
+  - PnのO(d)について正次数の斉次多項式、負次数の大域切断消失、最高次コホモロジーの基底を計算できる
+  - 超平面の短完全列を解析化し、連結準同型の具体的なČech代表を計算できる
+  - 射影空間での比較の証明と一般のGAGA比較を区別できる
+definitions:
+  - { id: CAG1-04-DEF-02, name: Stein複素多様体 }
+  - { id: CAG1-04-DEF-01, name: 解析的標準被覆Čech複体 }
+theorems:
+  - { id: CAG1-04-PROP-01, name: 標準交叉のStein性とねじり層の表示 }
+  - { id: CAG1-04-THM-01, name: Cartanの定理B }
+  - { id: CAG1-04-PROP-02, name: 解析的標準Čech複体による計算 }
+  - { id: CAG1-04-LEM-01, name: 解析的Laurent級数の負指数分解 }
+  - { id: CAG1-04-THM-02, name: 射影空間のねじり層の解析的比較 }
+  - { id: CAG1-04-PROP-03, name: 超平面制限と連結写像の比較 }
+canonical_examples:
+  - P1のO(2)の解析的切断が斉次二次式になる計算
+  - P1のO(-3)の一次コホモロジーのLaurent基底
+  - P2のO(-3)の唯一の二次コホモロジー類
+  - P2のO(-2)の全群の消失
+  - 超平面の連結写像で1/(X0X1)が1/(X0X1X2)へ写る計算
+problem_patterns:
+  - CAG1-04-A01
+  - CAG1-04-A02
+  - CAG1-04-A03
+  - CAG1-04-A04
+  - CAG1-04-A05
+  - CAG1-04-B01
+  - CAG1-04-B02
+  - CAG1-04-B03
+  - CAG1-04-B04
+  - CAG1-04-C01
+  - CAG1-04-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 4 }

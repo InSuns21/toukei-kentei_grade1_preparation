@@ -1,0 +1,54 @@
+chapter: CAG1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-03, AG3-10, CA4, CM2-06]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.stein-manifold
+    name: Stein複素多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Stein複素多様体）"]
+    requires: []
+  - id: complex-algebraic-geometry.analytic-projective-cech
+    name: 解析的標準被覆Čech複体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析的標準被覆Čech複体）"]
+    requires: [complex-algebraic-geometry.analytic-twisting-sheaf, algebraic-geometry.projective-graded-cech]
+  - id: complex-algebraic-geometry.projective-stein-intersections
+    name: 標準交叉のStein性とねじり層の表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準交叉のStein性とねじり層の表示）"]
+    requires: [complex-algebraic-geometry.analytic-twisting-sheaf, complex-algebraic-geometry.stein-manifold]
+  - id: complex-algebraic-geometry.cartan-theorem-b
+    name: Cartanの定理B
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cartanの定理B）"]
+    requires: [complex-algebraic-geometry.analytic-coherent-sheaf, complex-algebraic-geometry.stein-manifold]
+  - id: complex-algebraic-geometry.analytic-projective-cech-comparison
+    name: 解析的標準Čech複体による計算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（解析的標準Čech複体による計算）"]
+    requires: [complex-algebraic-geometry.analytic-projective-cech, complex-algebraic-geometry.cartan-theorem-b, complex-algebraic-geometry.projective-stein-intersections]
+  - id: complex-algebraic-geometry.analytic-laurent-support
+    name: 解析的Laurent級数の負指数分解
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（解析的Laurent級数の負指数分解）"]
+    requires: [complex-algebraic-geometry.analytic-projective-cech, algebraic-geometry.negative-exponent-support]
+  - id: complex-algebraic-geometry.projective-twist-analytic-comparison
+    name: 射影空間のねじり層の解析的比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間のねじり層の解析的比較）"]
+    requires: [complex-algebraic-geometry.analytic-projective-cech-comparison, complex-algebraic-geometry.analytic-laurent-support, algebraic-geometry.projective-twist-cohomology]
+  - id: complex-algebraic-geometry.hyperplane-connecting-comparison
+    name: 超平面制限と連結写像の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超平面制限と連結写像の比較）"]
+    requires: [complex-algebraic-geometry.projective-twist-analytic-comparison, complex-algebraic-geometry.analytic-coherence-exactness]
