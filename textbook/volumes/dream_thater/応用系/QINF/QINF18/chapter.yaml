@@ -1,0 +1,45 @@
+id: "QINF18"
+title: "条件付きエントロピーと相互情報量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF3
+  - QINF4
+  - QINF17
+  - INFO1
+official_scope: []
+learning_objectives:
+  - 二部密度演算子の部分トレースから量子条件付きエントロピーと量子相互情報量を定義し、積・古典相関・Bell状態で計算できる
+  - 純粋二部系の縮約エントロピーの一致を用い、負の条件付きエントロピーと相互情報量が二倍になる理由を説明できる
+  - 有限行列の固有基底と対数不等式から部分加法性を証明し、相互情報量の非負性と積状態の等号条件を導ける
+  - 精製と部分加法性からAraki–Lieb不等式を証明し、等号例および条件付きエントロピーの上下限を検算できる
+  - 古典同時分布では条件付きエントロピーが非負であることを示し、量子純粋相関・古典相関・無相関の違いを判定できる
+definitions:
+  - { id: QINF18-DEF-01, name: "量子条件付きエントロピー" }
+  - { id: QINF18-DEF-02, name: "量子相互情報量" }
+theorems:
+  - { id: QINF18-LEM-01, name: "有限次元の対数比較補題" }
+  - { id: QINF18-THM-01, name: "部分加法性と等号条件" }
+  - { id: QINF18-PROP-01, name: "純粋二部系の条件付きエントロピーと相互情報量" }
+  - { id: QINF18-THM-02, name: "Araki–Lieb不等式" }
+  - { id: QINF18-COR-01, name: "条件付きエントロピーと相互情報量の範囲" }
+  - { id: QINF18-PROP-02, name: "古典対角状態の条件付きエントロピー" }
+canonical_examples:
+  - "Bell対・完全相関した古典混合・最大混合積状態の情報量比較"
+  - "二つのSchmidt係数を持つ純粋二部系と負の条件付きエントロピー"
+  - "Bell対と余分な混合qubitによるAraki–Lieb等号例"
+problem_patterns:
+  - QINF18-PRODUCT-ENTROPIES
+  - QINF18-CLASSICAL-CORRELATION
+  - QINF18-BELL-NEGATIVE
+  - QINF18-PURE-SCHMIDT
+  - QINF18-CLASSICAL-CONDITIONAL
+  - QINF18-LOG-COMPARISON
+  - QINF18-SUBADDITIVITY-EQUALITY
+  - QINF18-ARAKI-LIEB-PURIFICATION
+  - QINF18-ARAKI-LIEB-SATURATION
+  - QINF18-TRIPARTITE-ENTROPY-TABLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
