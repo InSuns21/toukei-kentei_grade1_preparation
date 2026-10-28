@@ -15,7 +15,7 @@ x^\mu=(t,x^1,x^2,x^3),\qquad
 \eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)
 $$
 
-とします。ギリシア添字 $\mu,\nu=0,1,2,3$、空間添字 $j=1,2,3$ を用い、同じ上下の添字が現れた場合は和を取ります。自然単位系 $c=\hbar=1$ を使うため、時間と長さは同じ次元であり、質量 $m$ は逆長さの次元を持ちます。添字の上げ下げは $\eta$ で行い、
+とします。ギリシア添字 $\mu,\nu=0,1,2,3$、空間添字 $j=1,2,3$ を用い、**同じ添字が上付きと下付きに一度ずつ現れた場合**はその添字について和を取ります（Einsteinの縮約規約）。自然単位系 $c=\hbar=1$ を使うため、時間と長さは同じ次元であり、質量 $m$ は逆長さの次元を持ちます。添字の上げ下げは $\eta$ で行い、
 
 $$
 \partial_\mu=\frac{\partial}{\partial x^\mu},
@@ -26,11 +26,18 @@ $$
 =\frac{\partial^2}{\partial t^2}-\sum_{j=1}^{3}\frac{\partial^2}{\partial(x^j)^2}
 $$
 
-です。最後の微分作用素を $\Box=\partial_\mu\partial^\mu$ と書きます。符号は、$(-,+,+,+)$ を選ぶ教科書とは異なるので注意してください。
+です。$\partial_\mu$ は他の座標を固定して $x^\mu$ で偏微分する演算子であり、最後の微分作用素を $\Box=\partial_\mu\partial^\mu$ と書きます。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ とまとめ、空間勾配とLaplacianを
+
+$$
+\nabla\phi=(\partial_1\phi,\partial_2\phi,\partial_3\phi),\qquad
+\Delta\phi=\sum_{j=1}^3\partial_j^2\phi
+$$
+
+と書きます。後の演習で使う $\phi_t,\phi_{tt},\phi_x$ は、それぞれ $\partial_t\phi,\partial_t^2\phi,\partial_x\phi$ の略記です。$\phi$ は時間と空間の関数なので、$\partial_t$ では空間座標を固定します。符号は、$(-,+,+,+)$ を選ぶ教科書とは異なるので注意してください。
 
 ## 2. 一つの座標ではなく、時空の各点へ値を割り当てる
 
-質点の軌道は時刻 $t$ ごとに位置を返す関数です。一方、温度分布なら同じ時刻でも場所ごとに値が違います。場は後者に似た未知関数で、ここでは実数を返すものから始めます。
+質点の軌道は時刻 $t$ ごとに位置を返す関数です。一方、温度分布なら同じ時刻でも場所ごとに値が違います。場は後者に似た未知関数で、ここでは実数を返すものから始めます。以下で $x'=\Lambda x$ と書くときのプライム $'$ は**変換後の座標・場の表示**を表し、時間微分ではありません。変換後の場の定義域は $\Omega'=\Lambda\Omega$ です。
 
 <a id="def-qft1-real-scalar"></a>
 
@@ -57,18 +64,18 @@ $$
 =\eta_{\mu\nu}x^\mu x^\nu
 $$
 
-もスカラー場です。[SREL2の時空間隔の不変性](../../SREL/SREL2/index.md#thm-srel2-interval-invariance)により $\eta_{\mu\nu}x^\mu x^\nu=\eta_{\mu\nu}x'^\mu x'^\nu$ だからです。原点を移す座標変更ではこの具体式も移動後の座標で書き直す必要があります。「スカラー」は座標での**数式がいつも同じ文字列になる**という意味ではありません。
+もスカラー場です。原点 $O$ と事象 $x$ の差へ[SREL2の時空間隔の不変性](../../SREL/SREL2/index.md#thm-srel2-interval-invariance)を適用すると、$O'=O$ なので $\eta_{\mu\nu}x^\mu x^\nu=\eta_{\mu\nu}x'^\mu x'^\nu$ だからです。原点を移す座標変更ではこの具体式も移動後の座標で書き直す必要があります。「スカラー」は座標での**数式がいつも同じ文字列になる**という意味ではありません。
 <!-- definition-example-end -->
 
 ## 3. 質点の作用を場へ拡張する
 
-[AMECH3の作用](../../AMECH/AMECH3/index.md#def-amech3-action)は時間積分でした。場は時間だけでなく空間にも広がっているため、密度を時空で積分します。ひとまず有界な領域 $\Omega$ で積分し、変分をその内部に台がある滑らかな関数へ制限します。こうすると無限体積での積分の収束や境界条件を曖昧にせず導出できます。
+[AMECH3の作用](../../AMECH/AMECH3/index.md#def-amech3-action)は時間積分でした。場は時間だけでなく空間にも広がっているため、密度を時空で積分します。ひとまず有界な開領域 $\Omega$ で積分し、変分をその内部に台がある滑らかな関数へ制限します。$C_c^\infty(\Omega)$ は、$\Omega$ 内のコンパクト集合の外で零となる滑らかな関数の集合です。この集合から選ぶ試験関数 $\chi$ は境界の近くで消えるので、境界項を残さず部分積分できます。こうすると無限体積での積分の収束や境界条件を曖昧にせず導出できます。
 
 <a id="def-qft1-action"></a>
 
 <!-- formal-statement-start -->
 > **定義（ラグランジアン密度と場の作用）**  
-> 有界な時空領域 $\Omega\subset\mathbb R^{1,3}$、実スカラー場 $\phi\in C^2(\Omega)$、各変数について微分可能な実関数 $\mathcal L(x,u,v_0,\ldots,v_3)$ を取る。$\phi$ のラグランジアン密度を $\mathcal L(x,\phi,\partial_\mu\phi)$、場の作用を
+> 有界な開時空領域 $\Omega\subset\mathbb R^{1,3}$、実スカラー場 $\phi\in C^2(\Omega)$、各変数について微分可能な実関数 $\mathcal L(x,u,v_0,\ldots,v_3)$ を取る。$\phi$ のラグランジアン密度を $\mathcal L(x,\phi,\partial_\mu\phi)$、場の作用を
 
 $$
 S_\Omega[\phi]=\int_\Omega
@@ -85,7 +92,7 @@ $$
 > とする。全ての $\chi$ で第一変分が零なら、$\phi$ を停留場という。
 <!-- formal-statement-end -->
 
-$C_c^\infty(\Omega)$ は、領域の内部のコンパクト集合の外で零になる滑らかな関数の集合です。したがって $\chi$ は $\partial\Omega$ の近くで消えます。これは時間の経過に伴う**実際の**場の変化ではなく、同じ時空領域で候補の場を比較する操作です。
+ここで $\varepsilon$ は実数の変分パラメータ、$\chi$ は固定した変分方向です。$d/d\varepsilon$ は場の時間微分 $\partial_t$ と異なり、時空点 $x$ を固定して候補 $\phi+\varepsilon\chi$ を動かす微分です。これは時間の経過に伴う**実際の**場の変化ではなく、同じ時空領域で候補の場を比較する操作です。
 
 <!-- definition-example-start: def-qft1-action -->
 ### 例：場の値だけに依存する密度
@@ -115,7 +122,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（場のEuler–Lagrange方程式）**  
-> $\Omega\subset\mathbb R^{1,3}$ を開集合、$\phi\in C^2(\Omega)$、$\mathcal L\in C^2$ を実数値の密度関数とし、各 $\chi\in C_c^\infty(\Omega)$ の台上で第一変分と積分の交換ができるとする。このとき $\phi$ が全ての $\chi$ に関して停留場であることと、$\Omega$ の各点で
+> $\Omega\subset\mathbb R^{1,3}$ を有界な開集合、$\phi\in C^2(\Omega)$、$\mathcal L\in C^2$ を実数値の密度関数とし、$S_\Omega[\phi+\varepsilon\chi]$ が $\varepsilon=0$ の近くで存在し、各 $\chi\in C_c^\infty(\Omega)$ について第一変分と積分の交換ができるとする。このとき $\phi$ が全ての $\chi$ に関して停留場であることと、$\Omega$ の各点で
 
 $$
 \frac{\partial\mathcal L}{\partial u}
@@ -201,7 +208,7 @@ $$
 \right]
 $$
 
-を考えます。この具体式の運動方程式を計算すると、相対論的な分散関係と両立することが分かります。
+を考えます。ここで $|\nabla\phi|^2=\sum_{j=1}^3(\partial_j\phi)^2$ は第1節で導入した空間勾配の長さの二乗です。$\eta^{00}=1$、$\eta^{jj}=-1$ なので、添字の縮約は $(\partial_t\phi)^2-\sum_j(\partial_j\phi)^2$ となります。この具体式の運動方程式を計算すると、相対論的な分散関係と両立することが分かります。
 
 <a id="def-qft1-klein-gordon"></a>
 
@@ -214,7 +221,7 @@ $$
 =\partial_t^2\phi-\Delta\phi+m^2\phi=0
 $$
 
-> を質量 $m$ の自由Klein–Gordon方程式と呼ぶ。$\Delta=\sum_{j=1}^3\partial_j^2$ は空間のLaplacianである。
+> を質量 $m$ の自由Klein–Gordon方程式と呼ぶ。$\Delta$ は第1節で定めた空間のLaplacianである。
 <!-- formal-statement-end -->
 
 自由場のラグランジアン密度の各変数の微分を省略せず求めると、
@@ -258,7 +265,21 @@ $$
 =(\Lambda^{-1})^\mu{}_\alpha\partial_\mu\phi(x).
 $$
 
-Lorentz変換が満たす $\Lambda^T\eta\Lambda=\eta$ から
+$\Lambda$ は定数行列なので、もう一度微分すると
+
+$$
+\partial'_\alpha\partial'_\beta\phi'
+=(\Lambda^{-1})^\mu{}_\alpha
+(\Lambda^{-1})^\nu{}_\beta\partial_\mu\partial_\nu\phi
+$$
+
+です。[Minkowski計量の不変性](../../SREL/SREL2/index.md#thm-srel2-interval-invariance)を行列で書いた $\Lambda^T\eta\Lambda=\eta$ の両辺を逆行列にすると
+
+$$
+\Lambda^{-1}\eta^{-1}(\Lambda^{-1})^T=\eta^{-1}
+$$
+
+なので、成分表示では
 
 $$
 \eta^{\alpha\beta}(\Lambda^{-1})^\mu{}_\alpha
@@ -266,11 +287,18 @@ $$
 =\eta^{\mu\nu}
 $$
 
-なので、$\Box'\phi'(x')=\Box\phi(x)$ となります。さらに $|\det\Lambda|=1$ なので $d^4x'=d^4x$ です。つまり自由作用と運動方程式は、Lorentz変換で同じ形を保ちます。場が微分可能で、考える積分領域も対応させることが前提です。
+となり、$\Box'\phi'(x')=\Box\phi(x)$ です。さらに $\det(\Lambda^T\eta\Lambda)=\det\eta$ から $(\det\Lambda)^2=1$、従って体積要素も $d^4x'=|\det\Lambda|d^4x=d^4x$ です。つまり自由作用と運動方程式は、Lorentz変換で同じ形を保ちます。場が微分可能で、考える積分領域も対応させることが前提です。
 
 ## 5. 平面波から粒子の質量殻が現れる
 
-次は微分方程式を実際に解いて、相対論的粒子とつなぎます。ここでいう平面波は空間全体に広がる数学的な解で、有限の全エネルギーを持つ一個の波束とは異なります。
+次は微分方程式を実際に解いて、相対論的粒子とつなぎます。角振動数 $\omega$ は時間 $t$ の位相変化率、波数ベクトル $\boldsymbol k=(k_1,k_2,k_3)$ は空間位置 $\boldsymbol x$ に対する位相変化率を表します。波数ベクトルと位置の内積を使って位相を
+
+$$
+\theta=\omega t-\boldsymbol k\cdot\boldsymbol x,
+\qquad \boldsymbol k\cdot\boldsymbol x=\sum_{j=1}^3 k_jx^j
+$$
+
+と書きます。この位相が一定となる平面が等位相面なので、$A\cos\theta$ を平面波と呼びます。非自明な振動をする平面波は空間全体に広がる数学的な解で、有限の全エネルギーを持つ一個の波束とは異なります。
 
 <a id="prop-qft1-dispersion"></a>
 
@@ -320,17 +348,26 @@ $$
 $A\ne0$ で余弦関数は時空全体で恒等的に零ではないので、左辺が恒等的に零になるための必要十分条件は括弧の係数が零になることです。
 <!-- proof-end -->
 
-自然単位系で $E=\omega$、$\boldsymbol p=\boldsymbol k$ と対応させると、上の式は[SREL3の質量殻関係式](../../SREL/SREL3/index.md#thm-srel3-mass-shell)と同じ形になります。ただしこれは**古典場の振動数・波数の関係**であって、まだ粒子や生成演算子を作ったわけではありません。量子化によって各モードの励起を粒子として解釈するのは後続の講義です。
+自然単位系で形式的に $E=\omega$、$\boldsymbol p=\boldsymbol k$ と対応させると、$m>0$ では[SREL3の質量殻関係式](../../SREL/SREL3/index.md#thm-srel3-mass-shell)と同じ形になります。$m=0$ の非零モードは[SREL3の質量殻の定義](../../SREL/SREL3/index.md#def-srel3-mass-shell)に現れる光的条件へ代数的に対応します。先の定理自体は $m>0$ の粒子に関するもので、零モード $\omega=\boldsymbol k=0$ は光的な**非零**四元運動量には対応しません。
+
+ただしこれは**古典場の振動数・波数の関係**であって、まだ粒子や生成演算子を作ったわけではありません。量子化によって各モードの励起を粒子として解釈するのは後続の講義です。
 
 ## 6. 波が運ぶエネルギーはいつ保存するか
 
-時間並進に関連するNoether流は次講で一般化します。ここでは具体的な二次式を直接微分し、正のエネルギーと保存則を先に確認します。
+時間並進に関連するNoether流は次講で一般化します。ここでは具体的な二次式を直接微分し、正のエネルギーと保存則を先に確認します。自由密度を時間微分 $\partial_t\phi$ の関数として微分すると $\pi:=\partial\mathcal L_{\mathrm{free}}/\partial(\partial_t\phi)=\partial_t\phi$ となります。$\pi\,\partial_t\phi$ から密度を引くと
+
+$$
+\pi\,\partial_t\phi-\mathcal L_{\mathrm{free}}
+=\frac12\left[(\partial_t\phi)^2+|\nabla\phi|^2+m^2\phi^2\right]
+$$
+
+です。ここでは「時間微分で密度を偏微分して得た $\pi$ と時間微分との積から、もとの密度を引く」という組合せを計算しました。右辺の各項は非負であり、以下ではこの式をエネルギー密度として採用します。これは次講で一般的な保存流を求める前の、自由場に限った具体計算です。
 
 <a id="def-qft1-energy"></a>
 
 <!-- formal-statement-start -->
 > **定義（自由スカラー場のエネルギー）**  
-> $m\ge0$、実数値 $C^2$ 場 $\phi$ に対し、エネルギー密度 $u$ を
+> $m\ge0$、時空全体で定義された実数値 $C^2$ 場 $\phi:\mathbb R^{1,3}\to\mathbb R$ に対し、エネルギー密度 $u$ を
 
 $$
 u(t,\boldsymbol x)=\frac12
@@ -362,14 +399,20 @@ m^2\phi(0,\boldsymbol x)^2
 =m^2A^2e^{-|\boldsymbol x|^2/\sigma^2}.
 $$
 
-どちらも $\mathbb R^3$ で積分可能で、$E(0)<\infty$ です。一方、非零振幅の平面波は空間全体で減衰せず、一般に $E(t)=\infty$ です。**方程式の解であることと有限エネルギーであることは別の条件**です。
+どちらも $\mathbb R^3$ で積分可能で、$E(0)<\infty$ です。一方、分散関係を満たす非零振幅 $A$ の平面波では、$m>0$ なら後の演習C1と同じ正の下界があります。$m=0$ かつ $\boldsymbol k\ne\boldsymbol0$ なら
+
+$$
+u=A^2|\boldsymbol k|^2\sin^2(\omega t-\boldsymbol k\cdot\boldsymbol x)
+$$
+
+の空間平均が正なので、いずれの場合も $E(t)=\infty$ です。ただし $m=0$、$\boldsymbol k=\boldsymbol0$、$\omega=0$ の定数解は $u=0$ で、この結論の例外です。**方程式の解であることと有限エネルギーであることは別の条件**です。
 <!-- definition-example-end -->
 
 <a id="thm-qft1-energy"></a>
 
 <!-- formal-statement-start -->
 > **定理（自由場のエネルギー保存）**  
-> $m\ge0$、$\phi\in C^2(\mathbb R^{1,3})$ が $(\Box+m^2)\phi=0$ を満たすとする。各時刻で $u$ が可積分であり、$E(t)$ の積分と時間微分の交換が許され、半径 $R$ の球面を通るフラックス
+> $m\ge0$、$\phi\in C^2(\mathbb R^{1,3})$ が $(\Box+m^2)\phi=0$ を満たすとする。各時刻で $u$ が可積分であり、半径 $R$ の球面を通るフラックス（$\boldsymbol n$ は外向き単位法線、$dS$ は面積要素）
 
 $$
 \int_{|\boldsymbol x|=R}
@@ -377,7 +420,13 @@ $$
 \longrightarrow0\qquad(R\to\infty)
 $$
 
-> が各時刻で成り立ち、極限操作も時間積分と交換できると仮定する。このとき $E(t)$ は時間に依存しない。十分な空間的減衰と正則性を持つ解ではこれらの条件が満たされる。
+> が各時刻で成り立つとする。さらに任意の有限時間区間 $[t_0,t_1]$ について、上のフラックスを $F_R(t)$ と書き、その時間積分の極限が
+
+$$
+\lim_{R\to\infty}\int_{t_0}^{t_1}F_R(t)\,dt=0
+$$
+
+> を満たすと仮定する（例えば各時間区間で一様に $F_R\to0$ ならよい）。このとき $E(t)$ は時間に依存しない。十分な空間的減衰と正則性を持つ解ではこれらの条件が満たされる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -424,7 +473,15 @@ $$
 (\partial_t\phi)\nabla\phi\cdot\boldsymbol n\,dS.
 $$
 
-定理で仮定した収束条件のもとで $R\to\infty$ とすれば $dE/dt=0$、従って $E(t)$ は一定です。
+有限球上では $u$ とその微分が連続なので、まず時刻 $t_0,t_1$ の間で積分し、
+
+$$
+\int_{B_R}u(t_1,\boldsymbol x)\,d^3x
+-\int_{B_R}u(t_0,\boldsymbol x)\,d^3x
+=\int_{t_0}^{t_1}F_R(t)\,dt
+$$
+
+を得ます。$u\ge0$ で各時刻に可積分だから、左辺の二つの球内積分は $R\to\infty$ でそれぞれ $E(t_1),E(t_0)$ に収束します。右辺は定理の時間積分されたフラックス条件によって零に収束します。したがって $E(t_1)=E(t_0)$ であり、任意の二時刻について一定です。
 <!-- proof-end -->
 
 この保存則は空間の端からエネルギーが出入りしない場合の主張です。有限の箱では境界フラックスを残し、どの境界条件を課したかを明記しなければなりません。
@@ -468,7 +525,7 @@ $$
 
 ### 演習 QFT1-A3：質量項の第一変分
 
-有界領域 $\Omega\subset\mathbb R^{1,3}$、実数値の滑らかな $\phi,\chi$ と定数 $m\ge0$ に対し、$\chi$ は領域内部に台を持つとする。密度 $\mathcal L=-m^2\phi^2/2$ の作用 $S_\Omega$ について $\delta S_\Omega[\phi;\chi]$ を求めよ。$\phi\equiv a$ とすると停留条件はどうなるか。
+有界な開領域 $\Omega\subset\mathbb R^{1,3}$、実数値の滑らかな $\phi,\chi$ と定数 $m\ge0$ に対し、$\phi$ は $\Omega$ 上で有界、$\chi\in C_c^\infty(\Omega)$ とする。密度 $\mathcal L=-m^2\phi^2/2$ の作用 $S_\Omega$ について $\delta S_\Omega[\phi;\chi]$ を求めよ。$\phi\equiv a$ とすると停留条件はどうなるか。
 
 - Level: A
 
@@ -518,7 +575,21 @@ $$
 \end{aligned}
 $$
 
-$\omega_i=\sqrt{|\boldsymbol k_i|^2+m^2}$ とし $\phi_i=\cos(\omega_i t-\boldsymbol k_i\cdot\boldsymbol x)$ を選べば、両方とも[平面波の分散関係](#prop-qft1-dispersion)を満たします。$\boldsymbol k_1\ne\boldsymbol k_2$ かつ $a,b\ne0$ の一般の場合、和は異なる空間周波数を持ち、単一の余弦波にはなりません。重ね合わせは方程式の線形性から従うのであり、エネルギー $E[\phi_1+\phi_2]=E[\phi_1]+E[\phi_2]$ という主張は交差項があるため一般に誤りです。
+$\omega_i=\sqrt{|\boldsymbol k_i|^2+m^2}$ とし $\phi_i=\cos(\omega_i t-\boldsymbol k_i\cdot\boldsymbol x)$ を選べば、両方とも[平面波の分散関係](#prop-qft1-dispersion)を満たします。$\boldsymbol k_1\ne\boldsymbol k_2$ かつ $a,b\ne0$ の一般の場合、和は異なる空間周波数を持ち、単一の余弦波にはなりません。重ね合わせは方程式の線形性から従います。
+
+一方、[エネルギーの定義](#def-qft1-energy)を有界な空間領域 $D$ で積分した量を $E_D[\phi]=\int_Du_\phi\,d^3x$ と書くと、平方を展開して
+
+$$
+\begin{aligned}
+&E_D[\phi_1+\phi_2]-E_D[\phi_1]-E_D[\phi_2]\\
+&=\int_D\left[
+(\partial_t\phi_1)(\partial_t\phi_2)
++\nabla\phi_1\cdot\nabla\phi_2+m^2\phi_1\phi_2
+\right]d^3x
+\end{aligned}
+$$
+
+という交差項が残ります。エネルギーは一般に加法的ではありません。また、今の平面波では全空間エネルギーが通常無限大なので、全空間の式を有限量の等式として比較してはいけません。
 <!-- solution-end -->
 
 ### 演習 QFT1-B2：外部源があるときの方程式
@@ -531,7 +602,7 @@ $$
 -\frac{m^2}{2}\phi^2+J\phi
 $$
 
-を考える。$J$ は変分しないとし、$\chi\in C_c^\infty(\Omega)$ を用いて停留条件を導け。$J=0$ の極限も確かめよ。
+を考える。作用積分が存在すると仮定し、$J$ は変分しないとし、$\chi\in C_c^\infty(\Omega)$ を用いて停留条件を導け。$J=0$ の場合も確かめよ。
 
 - Level: B
 
@@ -617,13 +688,13 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**(1)** $1+1$ 次元の自由密度は $\mathcal L=[\phi_t^2-\phi_x^2-m^2\phi^2]/2$ です。内部に台がある $\chi$ で $\phi\mapsto\phi+\varepsilon\chi$ とすると
+**(1)** $1+1$ 次元の有界な開時空領域 $\Omega$ 上で、自由密度は $\mathcal L=[\phi_t^2-\phi_x^2-m^2\phi^2]/2$ です。作用積分が存在し、$\chi\in C_c^\infty(\Omega)$ で $\phi\mapsto\phi+\varepsilon\chi$ とすると
 
 $$
 \begin{aligned}
 \delta S
-&=\int(\phi_t\chi_t-\phi_x\chi_x-m^2\phi\chi)\,dt\,dx\\
-&=\int(-\phi_{tt}+\phi_{xx}-m^2\phi)\chi\,dt\,dx.
+&=\int_\Omega(\phi_t\chi_t-\phi_x\chi_x-m^2\phi\chi)\,dt\,dx\\
+&=\int_\Omega(-\phi_{tt}+\phi_{xx}-m^2\phi)\chi\,dt\,dx.
 \end{aligned}
 $$
 
