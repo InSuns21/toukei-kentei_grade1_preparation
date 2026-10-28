@@ -1046,6 +1046,7 @@
 22. [QINF22 量子典型部分空間とSchumacher圧縮](textbook/volumes/dream_thater/応用系/QINF/QINF22/index.md)
 23. [QINF23 量子通信路での古典通信](textbook/volumes/dream_thater/応用系/QINF/QINF23/index.md)
 24. [QINF24 量子通信容量とcoherent information](textbook/volumes/dream_thater/応用系/QINF/QINF24/index.md)
+25. [QINF25 ビット反転・位相反転符号](textbook/volumes/dream_thater/応用系/QINF/QINF25/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
