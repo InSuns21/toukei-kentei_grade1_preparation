@@ -1,0 +1,20 @@
+chapter: QFT10
+terms:
+  - term: 頂点因子
+    english: vertex factor
+    meaning: "局所相互作用のDyson係数から導く、収縮図の各頂点に対応する結合定数と虚数単位の因子。"
+  - term: 外線
+    english: external line
+    meaning: "ラベルを持つ外部場の挿入点から内部頂点へ、または他の外部挿入点へ伸びる収縮線。"
+  - term: 内部線
+    english: internal line
+    meaning: "二つの相互作用頂点の因子を結ぶWick収縮に対応するFeynman二点分布。"
+  - term: 対称因子
+    english: symmetry factor
+    meaning: "同じ外部ラベル付き収縮図をDyson展開で重複して数えた分を補正する分母の整数。"
+  - term: 連結相関関数
+    english: connected correlation function
+    meaning: "全外部挿入点が同じ連結成分に属する収縮図だけを合わせた摂動相関関数。"
+  - term: 真空bubble
+    english: vacuum bubble
+    meaning: "外部挿入点を一つも含まない収縮図の連結成分。"

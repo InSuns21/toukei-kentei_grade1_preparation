@@ -1,0 +1,47 @@
+id: QFT10
+title: "スカラー相互作用の頂点規則・対称因子・連結図"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT4
+  - QFT6
+  - QFT9
+official_scope: []
+learning_objectives:
+  - 正規順序したスカラー三次・四次相互作用と有限切替のDyson展開を定め、カットオフと形式級数の範囲を区別できる
+  - 外線と内部線をWick収縮から定義し、次数・各頂点の価数と外線数の計数条件を確認できる
+  - 頂点の階乗が相殺して位置空間の頂点因子を生む過程を一次四点・三点相関で導ける
+  - 外部点のラベルを固定した二頂点図の対称因子を収縮数から計算し、同型なラベル付けによる過剰計数を説明できる
+  - 真空bubble・外部点に触れる連結成分・全体として連結な図を区別し、真空規格化と連結部分の抽出を混同しない
+  - 運動量保存と頂点因子をFourier積分から導き、外線の切断やS行列を自動的に仮定しない
+definitions:
+  - { id: QFT10-DEF-01, name: 正規順序スカラー相互作用と摂動係数 }
+  - { id: QFT10-DEF-02, name: 収縮図・外線・内部線と連結成分 }
+  - { id: QFT10-DEF-03, name: 外部ラベル固定の対称因子 }
+  - { id: QFT10-DEF-04, name: 連結相関関数 }
+theorems:
+  - { id: QFT10-THM-01, name: 頂点の階乗と一次頂点規則 }
+  - { id: QFT10-THM-02, name: 正規順序スカラー図の対称因子公式 }
+  - { id: QFT10-PROP-01, name: 真空bubble除去と非連結図の残存 }
+  - { id: QFT10-PROP-02, name: 頂点積分からの運動量保存 }
+canonical_examples:
+  - 四次相互作用の一次四点と三次相互作用の一次三点
+  - 三次相互作用の二頂点四点交換木図の三つの分割
+  - 四次相互作用の二頂点四点図の二重内部線と対称因子1/2
+  - 二つの四次頂点の四重内部線で作る真空bubbleの係数1/48
+  - 一次三次相互作用の五点相関に残る自由な二点成分
+problem_patterns:
+  - QFT10-LEG-COUNT
+  - QFT10-CUBIC-VERTEX
+  - QFT10-QUARTIC-VERTEX
+  - QFT10-FOURIER-VERTEX
+  - QFT10-CUBIC-EXCHANGE
+  - QFT10-QUARTIC-FISH
+  - QFT10-VACUUM-BUBBLE
+  - QFT10-DISCONNECTED-FIVE
+  - QFT10-MIXED-VALENCE
+  - QFT10-GRAPH-AUTOMORPHISM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 4 }
