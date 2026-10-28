@@ -164,6 +164,24 @@ try {
   assert.equal(exceptions.length, 0, 'browser uncaught JavaScript exceptions');
   console.log('ML completion browser: all 8 labs + replay/pause/reset + mobile + SW offline revisit PASS');
 } finally {
-  ws?.close(); browser.kill('SIGTERM'); server.close();
-  await rm(profile, { recursive: true, force: true });
+  ws?.close();
+  server.close();
+  // Chromium may still be writing profile files after the final CDP call.
+  // Wait for the browser process to exit before removing its profile; otherwise
+  // fs.rm can race a freshly-created Default/ file and fail with ENOTEMPTY.
+  const exited = browser.exitCode !== null || browser.signalCode !== null
+    ? Promise.resolve() : new Promise(resolve => browser.once('exit', resolve));
+  browser.kill('SIGTERM');
+  await Promise.race([exited, new Promise(resolve => setTimeout(resolve, 4000))]);
+  if (browser.exitCode === null && browser.signalCode === null) {
+    browser.kill('SIGKILL');
+    await Promise.race([exited, new Promise(resolve => setTimeout(resolve, 4000))]);
+  }
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try { await rm(profile, { recursive: true, force: true }); break; }
+    catch (error) {
+      if (error.code !== 'ENOTEMPTY' || attempt === 4) throw error;
+      await new Promise(resolve => setTimeout(resolve, 150));
+    }
+  }
 }
