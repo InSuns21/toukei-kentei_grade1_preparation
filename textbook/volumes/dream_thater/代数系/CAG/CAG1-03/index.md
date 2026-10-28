@@ -4,7 +4,15 @@
 
 代数側では[連接層](../../AG/AG3-06/index.md#def-ag3-06-coherent)を有限個の生成元と関係式で扱えた。解析側でも「局所的に有限個の関係式で記述でき、核を取っても有限性が残る」層を使う。しかし**有限表示の式を書けること**と、**解析側で核まで連接になること**は同じ主張ではない。本章ではこの区別を押さえ、解析化が短完全列を保存する根拠を確認する。
 
-以下、$X$ は有限型の $\mathbb C$-スキーム、$h:X^{\mathrm{an}}\to X$ は解析化の自然な局所環付き空間の射とする。$X$ は射影的・滑らか・被約である必要はない。代数側の開集合にはZariski位相、解析側には解析位相を用いる。$h^{-1}$ は層の逆像、$\otimes$ は指定した構造層上のテンソル積を表す。
+以下、$X$ は有限型の $\mathbb C$-スキーム、$h:X^{\mathrm{an}}\to X$ は解析化の自然な局所環付き空間の射とする。$X$ は射影的・滑らか・被約である必要はない。代数側の開集合にはZariski位相、解析側には解析位相を用いる。
+
+代数側の層 $\mathcal F$ を解析空間の上へ移した**逆像層**を $h^{-1}\mathcal F$ と書く。点 $p$ での茎は
+
+$$
+(h^{-1}\mathcal F)_p\simeq\mathcal F_{h(p)}
+$$
+
+となる。$\otimes$ は指定した環の層上のテンソル積である。[既習の層の引戻し](../../AG/AG3-06/index.md#prop-ag3-06-affine-base-change)と同じく、逆像層を作るだけでは係数環は変わらず、その後に解析側の構造層をテンソルして係数を拡張する。
 
 ## 1. 有限表示と解析的連接性はどこが違うか
 
@@ -16,7 +24,7 @@ $$
 
 という表示を持つ。行列の意味は $(a,b)\mapsto xa+yb$ であり、余核では $x$ と $y$ がともに零になる。このため、対応する層の支持は原点だけである。
 
-一方、複素解析空間上の正則関数は局所収束冪級数であり、単なる多項式加群の議論だけでは「正則行列の射の核がまた有限個の正則関数で局所生成できるか」を決められない。これを明示的に要求するのが解析的連接性である。
+一方、[複素解析空間](../CAG1-02/index.md#def-cag1-02-analytic-subspace)上の正則関数は局所収束冪級数であり、単なる多項式加群の議論だけでは「正則行列の射の核がまた有限個の正則関数で局所生成できるか」を決められない。これを明示的に要求するのが解析的連接性である。
 
 <a id="def-cag1-03-analytic-coherent"></a>
 
@@ -45,9 +53,19 @@ $$
 
 これは**解析的な外部定理**として用いる。根本には複素空間の正則関数に対するWeierstrassの除法などがあり、本章ではその証明を与えない。方程式で定まる空間 $Y$ では、まず正則関数の層と方程式が生成するイデアル層の連接性を使い、その商である $\mathcal O_Y$ に降ろす。さらに連接層の核・余核の閉性から有限行列の余核が連接になる。**層の連接性と局所環の平坦性は、別々に根拠を要する。**
 
+先ほどの $\mathcal E=\mathcal O_{\mathbb C}/(z^2)$ で、定義の**第二条件の全量化**も確認できる。点の近くで任意の射 $\varphi:\mathcal O^r\to\mathcal E$ を取り、標準基底の像を正則関数 $g_1,\ldots,g_r$ の剰余類で表す。その核は
+
+$$
+\ker\varphi
+=\{(a_i):\textstyle\sum_{i=1}^r a_i g_i\in(z^2)\}
+\simeq\ker\left(\mathcal O^{r+1}\xrightarrow{\ (g_1\ \cdots\ g_r\ {-z^2})\ }\mathcal O\right).
+$$
+
+右の核の元 $(a_1,\ldots,a_r,b)$ は $\sum_i a_i g_i=z^2b$ を満たす。$z^2$ は正則関数の芽の環で零因子ではないので $b$ は一意であり、最初の $r$ 成分への射影が表示した同型になる。右辺は[Oka の連接性定理](#thm-cag1-03-oka-coherence)により局所有限型である。こうして**特定の一つの表示の核**だけでなく、任意の有限自由層からの射の核を検査できた。
+
 ## 2. 層を解析化する操作
 
-空間の解析化で正則関数の層が増えたのと同じように、代数的な層の係数も正則関数へ拡張したい。加群 $M$ の生成元と関係式を、係数環だけ $\mathbb C[x]$ から正則関数へ取り替える操作を一般化する。
+空間の解析化で正則関数の層が増えたのと同じように、代数的な層の係数も正則関数へ拡張したい。加群 $M$ の生成元と関係式を、係数環だけ $\mathbb C[x]$ から正則関数へ取り替える操作を一般化する。[層の引戻しの公式](../../AG/AG3-06/index.md#prop-ag3-06-affine-base-change)を、前章の局所環付き空間の射 $h$ に適用する形で定義する。$\mathcal O_{X^{\mathrm{an}}}$ は $h^{-1}\mathcal O_X$ 上の環の層であり、逆像した加群の係数をこの環へ拡張する。
 
 <a id="def-cag1-03-sheaf-analytification"></a>
 
@@ -79,7 +97,16 @@ $$
 \simeq\mathbb C\{t\}/(t^2).
 $$
 
-最初の同型は茎を取ったテンソル積で、最後は $1\otimes\bar f\mapsto[f]$ による商の普遍性から得る。$1,[t]$ が基底で $[t]^2=0$、$[t]\ne0$。$a\ne0$ では $t^2$ が単元なので $\mathcal F^{\mathrm{an}}_a=0$。したがって解析的支持は原点一点だが、局所環上の長さは2である。
+ここでは $\mathcal O_{X,0}=\mathbb C[t]_{(t)}$、$\mathcal F_0=\mathbb C[t]_{(t)}/(t^2)$ である。上式で $\mathbb C[t]$ を使ってもよいのは、$t=0$ での値が非零の多項式は $\mathbb C\{t\}$ で単元となり、局所化してからテンソルしても同じ商になるためである。厳密に茎の公式を使うと
+
+$$
+\mathbb C\{t\}\otimes_{\mathbb C[t]_{(t)}}
+\bigl(\mathbb C[t]_{(t)}/(t^2)\bigr)
+\longrightarrow\mathbb C\{t\}/(t^2),\qquad
+g\otimes\bar f\longmapsto[gf]
+$$
+
+が同型である。$1,[t]$ はこの商の $\mathbb C$-ベクトル空間としての基底で、$[t]^2=0$、$[t]\ne0$。$a\ne0$ では $t^2$ が単元なので $\mathcal F^{\mathrm{an}}_a=0$。したがって解析的支持は原点一点だが、局所環上の長さは2である。
 <!-- definition-example-end -->
 
 この定義は解析側の任意の正則関数を代数側の関数へ戻す操作ではない。テンソル積は**代数的な関係を保ったまま係数を拡張する**のであり、大域切断の比較とは異なる。
@@ -158,7 +185,15 @@ $$
 
 ### 証明の見取り図と解析的入力
 
-これは「正則関数が多項式より多い」ことからは出ない。局所の多項式環と収束冪級数環を比較し、その**完備化が同じ形式冪級数環**であることを使う。そのためには収束冪級数環のNoether性（Weierstrassの準備・除法定理による）と、Noether局所環の極大イデアル進完備化の忠実平坦性が必要である。本章ではこれらの高度な定理を外部入力として使用し、方程式による商への帰着を詳しく示す。
+これは「正則関数が多項式より多い」ことからは出ない。局所の多項式環と収束冪級数環を比較し、その**完備化が同じ形式冪級数環**であることを使う。局所環 $(R,\mathfrak m)$ の極大イデアルの冪による完備化を
+
+$$
+\widehat R:=\varprojlim_{k\ge1}R/\mathfrak m^k
+$$
+
+と書く。ここで $k$ は正整数であり、逆極限では $k$ が増すときの自然な剰余写像による整合性を課す。$\mathbb C[[z_1,\ldots,z_n]]$ は収束を要求しない**形式冪級数**の環であり、収束冪級数の環 $\mathbb C\{z_1,\ldots,z_n\}$ と区別する。
+
+この比較には、収束冪級数環のNoether性（Weierstrassの準備・除法定理による）と、Noether局所環の完備化の忠実平坦性が必要である。本章ではこれらの高度な定理を外部入力として使用し、方程式による商への帰着を詳しく示す。
 
 <!-- proof-start -->
 ### 証明（既知の解析的定理への帰着）
@@ -173,7 +208,7 @@ $$
 
 多項式側の $R_0$ は[Hilbertの基底定理](../../AG/AG1-05/index.md#thm-ag1-05-hilbert-basis)からNoetherである。解析側の $S_0$ もNoetherであるが、**ここだけはWeierstrassの準備・除法定理による解析的入力**を使う。
 
-両者の極大イデアル進完備化は自然に
+両者の極大イデアルはそれぞれ $(z_1-a_1,\ldots,z_n-a_n)$ であり、次数 $k$ 未満のTaylor係数を取る写像が、両環の極大イデアルの $k$ 乗による商を同一視する。したがって、各有限次数の係数を整合的に並べる完備化は自然に
 
 $$
 \widehat R_0\simeq
@@ -181,7 +216,26 @@ $$
 \simeq\widehat S_0
 $$
 
-となる。Noether局所環の完備化は忠実平坦であるという代数的定理を適用すると、$S_0\to\widehat S_0$ および $R_0\to\widehat R_0$ は忠実平坦である。$R_0\to S_0\to\widehat S_0$ の合成が平坦で、最後の射が忠実平坦なので、テンソル積の完全性を後者で検出でき、$R_0\to S_0$ は平坦となる。さらにこれは局所準同型で、剰余体の写像は $\mathbb C\to\mathbb C$ だから、平坦な局所準同型は忠実平坦である。
+となる。Noether局所環の完備化は忠実平坦であるという代数的定理を適用すると、$S_0\to\widehat S_0$ および $R_0\to\widehat R_0$ は忠実平坦である。従って合成 $R_0\to S_0\to\widehat S_0$ は、$\widehat R_0\simeq\widehat S_0$ を通して平坦である。
+
+平坦性が途中の写像 $R_0\to S_0$ に降りる理由も確認する。任意の $R_0$-加群の単射 $N'\hookrightarrow N$ に $S_0$ をテンソルし、その核を $K$ とする。さらに完備化 $S_0\to\widehat S_0$ に沿ってテンソルすると、合成写像の平坦性から
+
+$$
+K\otimes_{S_0}\widehat S_0
+=\ker\bigl(\widehat S_0\otimes_{R_0}N'
+\longrightarrow\widehat S_0\otimes_{R_0}N\bigr)=0
+$$
+
+である。完備化の射は忠実平坦なので $K=0$。従って $R_0\to S_0$ は平坦となる。
+
+さらにこれは極大イデアルを極大イデアルへ写す局所準同型である。任意の真のイデアル $J\subset R_0$ は極大イデアル $\mathfrak m_{R_0}$ に含まれ、その像が生成するイデアルも
+
+$$
+JS_0\subseteq\mathfrak m_{R_0}S_0
+\subseteq\mathfrak m_{S_0}\subsetneq S_0
+$$
+
+を満たす。よって平坦性と併せて忠実平坦である。
 
 方程式を戻すと[前章の局所環表示](../CAG1-02/index.md#prop-cag1-02-stalk-comparison)により
 
@@ -192,7 +246,14 @@ $$
 \simeq S_0\otimes_{R_0}(R_0/IR_0).
 $$
 
-平坦性はこの商への基底変換で保たれ、剰余体が同じ非零の $\mathbb C$ であるため忠実平坦性も保たれる。これで任意の有限型 $X$ の点 $p$ へ帰着できた。なお、完備化の忠実平坦性と $S_0$ のNoether性そのものの証明はここには含めていない。
+平坦性と忠実平坦性はこの商への基底変換で保たれる。実際、$R_0/IR_0$-加群 $N$ について
+
+$$
+(S_0/IS_0)\otimes_{R_0/IR_0}N
+\simeq S_0\otimes_{R_0}N
+$$
+
+となり、右辺で元の完全性と零性を検出できる。これで任意の有限型 $X$ の点 $p$ へ帰着できた。なお、完備化の忠実平坦性と $S_0$ のNoether性そのものの証明はここには含めていない。
 <!-- proof-end -->
 
 この局所結果の用途は、層の短完全列を各点の茎に直し、右辺へテンソルを取れるようにすることにある。解析側での連接性には、さらに別の解析的入力が必要となる。
@@ -214,7 +275,7 @@ $$
 
 ### 証明の見取り図
 
-二つの結論の理由を分ける。連接性には **Oka の連接性定理**（複素解析空間の構造層が連接で、連接層の有限表示の余核も連接となる）を使う。完全性には上の**局所環の平坦性**を使う。前者を単なる代数環のNoether性から、後者を単なるテンソル積の右完全性から導かない。
+二つの結論の理由を分ける。連接性には [Oka の連接性定理](#thm-cag1-03-oka-coherence)（複素解析空間の構造層が連接で、有限自由層の正則行列の余核も連接となる）を使う。完全性には[局所環の平坦性](#thm-cag1-03-analytic-faithful-flatness)を使う。前者を単なる代数環のNoether性から、後者を単なるテンソル積の右完全性から導かない。
 
 <!-- proof-start -->
 ### 証明（解析的入力を明示した相対的証明）
@@ -312,7 +373,34 @@ $$
 \xrightarrow{\ (S,T)\ }\mathcal O\to0
 $$
 
-という局所的に短完全な列がある。$U_S$ 上では最後の射は $(a,b)\mapsto a+xb$、核は $(-x,1)$ の倍であり、$U_T$ 上では $(a,b)\mapsto ya+b$、核は $(-1,y)$ の倍となる。だが[射影直線の大域切断の計算](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から $H^0(\mathcal O(-1))=0$、$H^0(\mathcal O)=\mathbb C$ なので、大域切断にした $0\to\mathbb C$ の最後の写像は全射でない。この差は、次章以降にコホモロジーが必要となる理由でもある。
+という局所的に短完全な列がある。ここで列ベクトル $(-T,S)$ と行ベクトル $(S,T)$ の成分は単なる大域関数ではなく、[斉次一次式が定める $\mathcal O(1)$ の切断](../../AG/AG2-06/index.md#prop-ag2-06-homogeneous-sections)である。[ねじり層のテンソル積](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)を使えば、これらはそれぞれ $\mathcal O(-2)\to\mathcal O(-1)^2$ と $\mathcal O(-1)^2\to\mathcal O$ の層の射を定める。
+
+$U_S$ では $S/S=1$、$T/S=x$ として局所基底に対する行列を作り、$U_T$ では $S/T=y$、$T/T=1$ とする。二チャートで得られる行列と合成は
+
+$$
+U_S:\quad
+\begin{pmatrix}-x\\1\end{pmatrix},\quad
+\begin{pmatrix}1&x\end{pmatrix},\quad
+(1\ \ x)\begin{pmatrix}-x\\1\end{pmatrix}=0,
+$$
+
+$$
+U_T:\quad
+\begin{pmatrix}-1\\y\end{pmatrix},\quad
+\begin{pmatrix}y&1\end{pmatrix},\quad
+(y\ \ 1)\begin{pmatrix}-1\\y\end{pmatrix}=0
+$$
+
+となる。各行写像は成分の一つが $1$ なので全射、各列写像は成分の一つが $1$ なので単射である。行写像の核は、順に $(-x,1)$、$(-1,y)$ の倍だから列写像の像と一致する。
+
+だが[射影直線の大域切断の計算](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)では
+
+$$
+H^0(\mathcal O(-2))=H^0(\mathcal O(-1))=0,
+\qquad H^0(\mathcal O)=\mathbb C
+$$
+
+なので、大域切断にした最後の写像 $0\to\mathbb C$ は全射でない。この差は、次章以降にコホモロジーが必要となる理由でもある。
 
 ## 5. 演習
 
@@ -325,7 +413,22 @@ $$
 $A=\mathbb C[t]$、$M=A/(t^2)$ とする。$\widetilde M^{\mathrm{an}}$ の支持、原点と $a\ne0$ における茎を求め、原点の長さを計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。有限表示 $A\xrightarrow{t^2}A\to M\to0$ を解析化すると[有限表示の解析化](#prop-cag1-03-local-presentation)より $\mathcal O_{\mathbb C}\xrightarrow{z^2}\mathcal O_{\mathbb C}\to\widetilde M^{\mathrm{an}}\to0$ となる。$a\ne0$ では $z^2$ が局所単元なので余核は0。原点では余核は $\mathbb C\{z\}/(z^2)$ であり、各類は唯一に $a_0+a_1[z]$ と書ける。鎖 $(0)\subset([z])\subset\mathbb C\{z\}/(z^2)$ の二つの商はともに $\mathbb C$ で、長さは2。支持は $\{0\}$ である。
+**詳細解答**。[有限表示の解析化](#prop-cag1-03-local-presentation)を $A\xrightarrow{t^2}A\to M\to0$ に適用すると
+
+$$
+\mathcal O_{\mathbb C}\xrightarrow{z^2}\mathcal O_{\mathbb C}
+\longrightarrow\widetilde M^{\mathrm{an}}\longrightarrow0
+$$
+
+となる。$a\ne0$ では $z^2$ が局所単元なので余核は0。原点では余核は $R=\mathbb C\{z\}/(z^2)$ であり、各類は唯一に $a_0+a_1[z]$ と書ける。組成列
+
+$$
+(0)\subset([z])\subset R,
+\qquad ([z])/(0)\simeq\mathbb C,
+\quad R/([z])\simeq\mathbb C
+$$
+
+から長さは2。支持は $\{0\}$ である。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-a02"></a>
@@ -335,7 +438,14 @@ $A=\mathbb C[t]$、$M=A/(t^2)$ とする。$\widetilde M^{\mathrm{an}}$ の支�
 $A=\mathbb C[x,y]$、$M=A/(x,y)$ とする。有限表示行列を一つ書き、解析化した層の原点での茎と、$(1,0)$ での茎を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$P:A^2\to A$、$P(a,b)=xa+yb$ と取ると $\operatorname{im}P=(x,y)$、従って $\operatorname{coker}P=M$。原点では正則行列 $(x\ \ y)$ の余核は $\mathbb C\{x,y\}/(x,y)\simeq\mathbb C$ となる。$(1,0)$ の近傍では $x$ は単元なので、$1=x\cdot x^{-1}+y\cdot0$ が像に入り、余核は0である。
+**詳細解答**。$P:A^2\to A$、$P(a,b)=xa+yb$ と取ると $\operatorname{im}P=(x,y)$、従って $\operatorname{coker}P=M$。[有限表示の解析化](#prop-cag1-03-local-presentation)により原点での茎は
+
+$$
+\operatorname{coker}(\mathbb C\{x,y\}^2\xrightarrow{(x\ \ y)}\mathbb C\{x,y\})
+=\mathbb C\{x,y\}/(x,y)\simeq\mathbb C.
+$$
+
+$(1,0)$ の近傍では $x$ は単元なので、$1=x\cdot x^{-1}+y\cdot0$ が像に入り、余核は0である。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-a03"></a>
@@ -345,7 +455,14 @@ $A=\mathbb C[x,y]$、$M=A/(x,y)$ とする。有限表示行列を一つ書き�
 $X=\mathbb A^1_{\mathbb C}$、$\mathcal F=\widetilde{\mathbb C[t]/(t^2)}$ とする。原点の解析的茎 $\mathcal F^{\mathrm{an}}_0$ と、その極大イデアル $(t)$ で割ったファイバー $\mathcal F^{\mathrm{an}}_0/(t)\mathcal F^{\mathrm{an}}_0$ を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。[解析化の定義](#def-cag1-03-sheaf-analytification)と商とのテンソル積から茎は $R=\mathbb C\{t\}/(t^2)$。$R$ では $1,[t]$ が独立で、$\dim_{\mathbb C}R=2$。極大イデアルによる商は $R/(t)\simeq\mathbb C\{t\}/(t)\simeq\mathbb C$、その次元は1である。ファイバーだけを見れば冪零元 $[t]$ は消えるので、層の局所的な厚みは茎で検査する必要がある。
+**詳細解答**。[解析化の定義](#def-cag1-03-sheaf-analytification)と商とのテンソル積から茎は $R=\mathbb C\{t\}/(t^2)$。$R$ では $1,[t]$ が $\mathbb C$ 上独立で、$\dim_{\mathbb C}R=2$。一方、極大イデアルによる商は
+
+$$
+R/(t)\simeq\mathbb C\{t\}/(t)\simeq\mathbb C,
+\qquad \dim_{\mathbb C}(R/(t))=1.
+$$
+
+ファイバーだけを見れば冪零元 $[t]$ は消えるので、層の局所的な厚みは茎で検査する必要がある。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-a04"></a>
@@ -355,7 +472,14 @@ $X=\mathbb A^1_{\mathbb C}$、$\mathcal F=\widetilde{\mathbb C[t]/(t^2)}$ とす
 $\mathbb P^1$ の標準座標 $x=T/S$、$y=S/T$ で $\mathcal O(2)^{\mathrm{an}}$ の基底変換を書け。斉次式 $F=S^2+ST$ の局所係数 $f_S,f_T$ が貼り合うことを確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。[ねじり層の解析化](#prop-cag1-03-analytic-twisting)より $e_T^{(2)}=x^2e_S^{(2)}$、係数は $f_T=y^2f_S$ を満たす。$U_S$ では $F/S^2=1+x$、$U_T$ では $F/T^2=y^2+y$。重なりで $y=1/x$ を用いると $y^2(1+x)=y^2+y$ であるから、一つの切断として貼り合う。
+**詳細解答**。[ねじり層の解析化](#prop-cag1-03-analytic-twisting)より $e_T^{(2)}=x^2e_S^{(2)}$、係数は $f_T=y^2f_S$ を満たす。両チャートの係数を斉次式から直接求めると
+
+$$
+f_S=F/S^2=1+x,\qquad
+f_T=F/T^2=y^2+y.
+$$
+
+重なりで $xy=1$ を用いると $y^2f_S=y^2(1+x)=y^2+y=f_T$ であるから、一つの切断として貼り合う。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-a05"></a>
@@ -393,7 +517,16 @@ $$
 を解析化し、原点と $a\ne0$ の茎で左端の単射と右端の余核を別々に確かめよ。
 
 <!-- solution-start -->
-**詳細解答**。解析化後の候補は $0\to\mathcal O_{\mathbb C}\xrightarrow{z^2}\mathcal O_{\mathbb C}\to\mathcal O_{\mathbb C}/(z^2)\to0$。[局所環の平坦性](#thm-cag1-03-analytic-faithful-flatness)から完全性は保証されるが、直接にも確認する。原点で $z^2f(z)=0$ なら、収束冪級数の最初の非零係数の次数を2増やしても零にはならないので $f=0$。像は $(z^2)$ で、余核は $\mathbb C\{z\}/(z^2)$。$a\ne0$ では $z^2$ の芽に逆数があるため乗法は同型で、余核は0。すべての点の茎が完全なので層の列も短完全となる。
+**詳細解答**。解析化後の候補は
+
+$$
+0\to\mathcal O_{\mathbb C}\xrightarrow{z^2}\mathcal O_{\mathbb C}
+\to\mathcal O_{\mathbb C}/(z^2)\to0.
+$$
+
+[局所環の平坦性](#thm-cag1-03-analytic-faithful-flatness)から完全性は保証されるが、直接にも確認する。原点で $z^2f(z)=0$ なら、収束冪級数の最初の非零係数の次数を2増やしても零にはならないので $f=0$。像は $(z^2)$ で、余核は $\mathbb C\{z\}/(z^2)$ となる。
+
+$a\ne0$ では $z^2$ の芽に逆数があるため乗法は同型で、余核は0。すべての点の茎が完全なので層の列も短完全となる。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-b02"></a>
@@ -411,7 +544,7 @@ $$
 xf+yg+(x+y)h=x(f+h)+y(g+h)
 $$
 
-が成立する。したがって正則イデアル層でも $(x,y,x+y)=(x,y)$ であり、両方の余核は $\mathcal O_{\mathbb C^2}/(x,y)$ に同型である。これは右完全性の直接計算であり、平坦性を仮定していない。
+が成立する。したがって正則イデアル層でも $(x,y,x+y)=(x,y)$ であり、両方の余核は $\mathcal O_{\mathbb C^2}/(x,y)$ に同型である。これは[有限表示の解析化](#prop-cag1-03-local-presentation)における右完全性の直接計算であり、平坦性を仮定していない。
 <!-- solution-end -->
 
 <a id="ex-cag1-03-b03"></a>
@@ -449,7 +582,16 @@ $$
 が層として短完全であることを両チャートで示し、大域切断を取った列のどこで全射性が失われるかを計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$U_S$ 上で最後の射は $(a,b)\mapsto a+xb$ なので、$(c,0)$ を送れば任意の $c$ を得て全射。核は $a=-xb$ で、$(-x,1)b$ が生成する。第一の射は $(-T,S)$ の局所表示が $(-x,1)$ となるから核全体を与え、かつ単射である。$U_T$ では最後の射が $(a,b)\mapsto ya+b$、核は $(1,-y)a$、第一の射の局所表示 $(-1,y)$ が同じ核を符号を除いて生成する。従って各点の近傍で短完全である。
+**詳細解答**。$U_S$ 上では最後の射は $(a,b)\mapsto a+xb$ なので、$(c,0)$ を送れば任意の $c$ を得て全射。その核を方程式で解くと
+
+$$
+a+xb=0\quad\Longleftrightarrow\quad
+(a,b)=b(-x,1).
+$$
+
+第一の射 $(-T,S)$ の局所表示は $(-x,1)$ であり、核全体を与える。その第二成分は $1$ なので単射でもある。
+
+$U_T$ では最後の射が $(a,b)\mapsto ya+b$ であり、核は $(a,b)=a(1,-y)$。第一の射の局所表示 $(-1,y)$ が同じ核を符号を除いて生成し、その第一成分が単元なので単射である。従って各点の近傍で短完全である。
 
 [射影直線の $\mathcal O(d)$ の切断](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から、代数側では
 
@@ -464,7 +606,13 @@ $$
 f_T(y)=y^df_S(1/y).
 $$
 
-右辺が $y=0$ で正則であるため $f_S(x)=O(|x|^d)$（$|x|\to\infty$）となる。$d<0$ なので $f_S$ は無限遠で零に近づき、[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)から恒等的に零である。$d=0$ の大域正則関数も射影直線上で定数である。
+右辺が $y=0$ で正則なら、ある $\varepsilon,C>0$ について $|f_T(y)|\le C$（$|y|<\varepsilon$）である。従って $|x|>1/\varepsilon$ では
+
+$$
+|f_S(x)|=|x|^d|f_T(1/x)|\le C|x|^d.
+$$
+
+$d<0$ なら $f_S$ は無限遠で零に近づき、かつ有限円板上でも有界だから、[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)より定数で、その定数は0である。$d=0$ でも同じ評価から $f_S$ は有界整関数となり、従って定数である。
 
 従って解析側でも大域切断の列は $0\to0\to0\to\mathbb C$ となり、最後の $0\to\mathbb C$ は全射でない。層の射が各点の近傍で全射でも、局所的な持ち上げが大域的に貼り合うとは限らない。
 <!-- solution-end -->
