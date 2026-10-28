@@ -1,0 +1,66 @@
+chapter: QINF24
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF4, QINF7, QINF8, QINF11, QINF12, QINF17, QINF18, QINF19, QINF22, QINF23, INFO3]
+forward_references: []
+concepts:
+  - id: quantum.entanglement-transmission-code
+    name: 量子通信符号とエンタングルメント伝送容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子通信符号とエンタングルメント伝送容量）]
+    requires: [quantum.quantum-channel, quantum.fidelity-data-processing]
+  - id: quantum.coherent-information
+    name: coherent information
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（coherent information）]
+    requires: [quantum.complementary-channel, quantum.conditional-entropy]
+  - id: quantum.decoupling-recovery
+    name: 環境のデカップリングと復号
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（環境のデカップリングと復号）]
+    requires: [quantum.entanglement-transmission-code, quantum.fidelity-data-processing]
+  - id: quantum.random-subspace-decoupling
+    name: ランダム部分空間の一回デカップリング評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（ランダム部分空間の一回デカップリング評価）]
+    requires: [quantum.decoupling-recovery, quantum.complementary-channel]
+  - id: quantum.typical-flattened-decoupling
+    name: 典型平坦化と達成可能率
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（典型平坦化と達成可能率）]
+    requires: [quantum.random-subspace-decoupling, quantum.typical-projector-bounds, quantum.coherent-information]
+  - id: quantum.conditional-entropy-continuity
+    name: 条件付きエントロピーの連続性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（条件付きエントロピーの連続性）]
+    requires: [quantum.strong-subadditivity, quantum.conditional-entropy]
+  - id: quantum.lsd-quantum-capacity
+    name: Lloyd–Shor–Devetak量子容量定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lloyd–Shor–Devetak量子容量定理）]
+    requires: [quantum.typical-flattened-decoupling, quantum.conditional-entropy-continuity]
+  - id: quantum.degradable-channel
+    name: 劣化可能・反劣化可能チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（劣化可能・反劣化可能チャネル）]
+    requires: [quantum.complementary-channel]
+  - id: quantum.degradable-capacity
+    name: 劣化可能チャネルの単一文字式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（劣化可能チャネルの単一文字式）]
+    requires: [quantum.degradable-channel, quantum.lsd-quantum-capacity, quantum.strong-subadditivity]
+  - id: quantum.quantum-erasure-capacity
+    name: 量子消失チャネルの容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（量子消失チャネルの容量）]
+    requires: [quantum.degradable-capacity, quantum.degradable-channel]

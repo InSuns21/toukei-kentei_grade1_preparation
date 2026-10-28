@@ -8,7 +8,7 @@
 
 ## 2. cq符号・平均誤り・通信率
 
-量子チャネルの入力に古典ラベルだけを許す場合、ラベル $x$ に対応する出力状態 $\rho_x$ が決まります。これを *cq通信路*（classical-to-quantum channel）と呼びます。ラベルを $n$ 個並べれば、記憶のない通信路の出力はテンソル積になります。
+[量子チャネル](../QINF7/index.md#def-qinf7-channel)の入力を古典ラベルに制限すると、ラベル $x$ ごとに[密度演算子](../QINF2/index.md#def-qinf2-ensemble-density) $\rho_x$ が出力されます。これを *cq通信路*（classical-to-quantum channel）と呼びます。$x^n=(x_1,\ldots,x_n)$ は長さ $n\ge1$ のラベル列を表し、記憶のない通信路では各回の出力がテンソル積になります。復号には[POVMとBorn則](../QINF5/index.md#def-qinf5-povm)を用います。
 
 <a id="def-qinf23-cq-code"></a>
 
@@ -31,7 +31,28 @@ $$
 とする。誤りに応じた「失敗」POVM要素を追加する方式も、失敗を任意の一つのメッセージへ割り当てればこの形にでき、平均誤りは増えません。
 
 <!-- definition-example-start: def-qinf23-cq-code -->
-**定義の確認**。 $\rho_0=|0\rangle\langle0|$、$\rho_1=|1\rangle\langle1|$ とし、$n=2$、$M=4$ で $00,01,10,11$ を使います。$\Lambda_m=|x^2(m)\rangle\langle x^2(m)|$ は互いに直交し和は $I_4$、各成功確率は1です。したがって $P_e^{(2)}=0$、$R_2=\log_2 4/2=1$。一方、$\rho_0=\rho_1=I/2$ ならどんなPOVMでも $\sum_m\operatorname{Tr}(\rho^{\otimes n}\Lambda_m)=1$ なので成功確率は $1/M$ です。単なる符号語の個数ではなく、**出力が区別できること**が必要です。
+**定義の確認**。 [計算基底](../QINF1/index.md#def-qinf1-qubit)の $\rho_0=|0\rangle\langle0|$、$\rho_1=|1\rangle\langle1|$ を使い、$n=2$、$M=4$ とします。符号語を $00,01,10,11$ とし、$|x^2(m)\rangle=|x_1(m)\rangle\otimes|x_2(m)\rangle$ と置きます。これは4次元空間の正規直交基底なので、
+
+$$
+\Lambda_m=|x^2(m)\rangle\langle x^2(m)|\ge0,\qquad
+\sum_{m=1}^4\Lambda_m=I_4,\qquad
+\operatorname{Tr}(\rho_{x^2(m)}\Lambda_m)=1.
+$$
+
+正値性と完全性はPOVMの二条件に対応します。従って平均誤りと率は
+
+$$
+P_e^{(2)}=1-\frac44=0,\qquad R_2=\frac{\log_2 4}{2}=1
+$$
+
+です。一方、$\rho_0=\rho_1=I_2/2=:\tau$ なら、どんなPOVMでも
+
+$$
+\frac1M\sum_m\operatorname{Tr}(\tau^{\otimes n}\Lambda_m)
+=\frac1M\operatorname{Tr}\!\left(\tau^{\otimes n}\sum_m\Lambda_m\right)=\frac1M
+$$
+
+となります。単なる符号語の個数ではなく、**出力が区別できること**が必要です。
 <!-- definition-example-end -->
 
 <a id="def-qinf23-capacity"></a>
@@ -51,7 +72,13 @@ $$
 後者の $\omega_m^{(n)}$ は $n$ 回分の入力間でエンタングルしていても構いません。この自由度こそ後で単一文字式を安易に一般化できない理由です。
 
 <!-- definition-example-start: def-qinf23-capacity -->
-**定義の確認**。 直交する二出力では各長さ $n$ の $2^n$ 通りのビット列を互いに直交する状態へ写せるため、計算基底測定で $P_e^{(n)}=0$、$R_n=1$ を達成します。一方、すべての出力が同じ状態なら平均成功確率は $1/M_n$ です。したがって $P_e^{(n)}\to0$ には整数 $M_n=1$ が十分大きな $n$ で必要となり、正の達成可能率はありません。これらは容量定義の極限条件を直接調べた例です。
+**定義の確認**。 直交する二出力では長さ $n$ の $2^n$ 通りのビット列を互いに直交する状態へ写せるため、計算基底測定で
+
+$$
+M_n=2^n,\qquad P_e^{(n)}=0,\qquad \frac{\log_2M_n}{n}=1
+$$
+
+を達成します。一方、すべての出力が同じ状態なら上の例より $P_e^{(n)}=1-1/M_n$ です。整数 $M_n\ge1$ について $P_e^{(n)}\to0$ には、十分大きな $n$ で $M_n=1$ が必要となり、正の達成可能率はありません。これらは容量定義の極限条件を直接調べた例です。
 <!-- definition-example-end -->
 
 ## 3. 逆向き評価：誤りが小さいなら情報は十分ある
@@ -74,12 +101,12 @@ $$
 
 ### 証明の見取り図
 
-まず誤りが起きたかの1ビットと、誤り時の残り $M-1$ 通りを使って $H(U|\widehat U)$ を抑えます。次にPOVMは量子系から古典結果へのチャネルなので[Holevo界](../QINF21/index.md#thm-qinf21-holevo-bound)を適用します。
+まず誤りが起きたかの1ビットと、誤り時の残り $M-1$ 通りを使って $H(U|\widehat U)$ を抑えます。ここで $H$ は[古典条件付きエントロピー](../../INFO/INFO1/index.md#def-info1-conditional-entropy)、$I(U;\widehat U)$ は[古典相互情報量](../../INFO/INFO2/index.md#thm-info2-mutual-kl)です。次にPOVMは量子系から古典結果へのチャネルなので[Holevo界](../QINF21/index.md#thm-qinf21-holevo-bound)を適用します。
 
 <!-- proof-start -->
 ### 証明
 
-$E=1_{\{U\ne\widehat U\}}$ は $(U,\widehat U)$ から決まるので、連鎖律から
+$M=1$ なら誤りは0で主張は自明です。以下 $M\ge2$ とします。$E=1_{\{U\ne\widehat U\}}$ は $(U,\widehat U)$ から決まるので、[古典エントロピーの連鎖律](../../INFO/INFO1/index.md#thm-info1-chain-rule)から
 
 $$
 H(U|\widehat U)=H(E|\widehat U)+H(U|E,\widehat U).
@@ -91,10 +118,12 @@ $$
 H(U|E,\widehat U)\le\varepsilon\log_2(M-1)\le\varepsilon\log_2M.
 $$
 
-$H(U)=\log_2M$ と $I(U;\widehat U)=H(U)-H(U|\widehat U)$ を代入します。さらに $U$ と $\sigma_U$ のアンサンブルにHolevo界を適用すれば後半の不等式です。$M=1$ は自明です。
+$H(U)=\log_2M$ と $I(U;\widehat U)=H(U)-H(U|\widehat U)$ を代入します。さらに $U$ と $\sigma_U$ のアンサンブルに[Holevo界](../QINF21/index.md#thm-qinf21-holevo-bound)を適用すれば後半の不等式です。
 <!-- proof-end -->
 
-**cq通信路の逆定理。** 任意の長さ $n$ のcq符号について、メッセージを一様に選んだ確率変数を $U$、その各時刻の入力を $X_i=x_i(U)$、出力を $B^n$ とします。[量子相互情報量のデータ処理](../QINF20/index.md#cor-qinf20-mutual-dpi)とエントロピーの部分加法性から
+**cq通信路の逆定理。** 長さ $n$ の任意のcq符号でメッセージを一様に選び、これを $U$ とします。第 $i$ 回の入力を $X_i=x_i(U)$、出力系を $B_i$ と呼び、全出力を $B^n=B_1\cdots B_n$ と略記します。添字 $i$ は通信路の使用回数を動きます。
+
+$\chi(U;B^n)$ はメッセージと量子出力の[Holevo情報](../QINF21/index.md#def-qinf21-holevo)で、既出の $\chi(p,\rho)$ を符号語アンサンブルへ適用した同じ量です。[エントロピーの部分加法性](../QINF18/index.md#thm-qinf18-subadditivity)と[積状態のエントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)から
 
 $$
 \begin{aligned}
@@ -115,7 +144,9 @@ $$
 
 ## 4. 長い符号語を区別するための典型射影
 
-固定した入力分布 $p$ と平均出力 $\bar\rho=\sum_xp_x\rho_x$ を選びます。平均出力に対する[量子典型射影](../QINF22/index.md#def-qinf22-typical)を $P$ とし、各符号語 $x^n$ に対して、出力 $\rho_{x^n}$ の積スペクトルをその符号語ごとに典型化した射影 $P_{x^n}$ を作ります。後者は $x_i$ ごとに異なる固有値分布の列を扱うので、出現回数の少ない文字の部分は全空間として扱ってよいです。
+入力分布 $p=(p_x)_{x\in\mathcal X}$ を固定し、平均出力を $\bar\rho=\sum_xp_x\rho_x$ とします。その平均状態に対する[量子典型射影](../QINF22/index.md#def-qinf22-typical)を $P$ と呼びます。
+
+一方、符号語 $x^n$ については、文字 $x$ の出現回数を $N_x=|\{i:x_i=x\}|$ と定めます。その $N_x$ 個の位置にある $\rho_x$ の固有値列を典型化し、選ばれた積固有ベクトルの張る空間への射影を $P_{x^n}$ と呼びます。これは平均状態の固有基底への射影ではなく、$\rho_{x^n}$ の積スペクトルに対応します。出現回数が小さい文字の部分は全空間として扱ってよく、入力列が非典型なら零射影にしても構いません。
 
 <a id="lem-qinf23-overlap"></a>
 
@@ -149,7 +180,16 @@ $P$ の固有値上界は平均状態 $\bar\rho$ の典型性から来ます。�
 <!-- proof-start -->
 ### 証明
 
-各 $\rho_x$ の正の固有値の対数の期待値は $S(\rho_x)$ です。$x$ が現れた $N_x$ 箇所に限り、その固有値列の自己情報量が $N_xS(\rho_x)$ から高々 $N_x\delta/4$ ずれる部分を選びます。$N_x\to\infty$ なら大数の法則で対応する射影の成功確率は1へ向かいます。$p_x=0$ の文字は発生せず、$p_x>0$ の文字について $N_x/n\to p_x$ です。典型入力の集合を、すべての $|N_x/n-p_x|$ が十分小さい文字列に限定します。有限個の文字について一斉にこの条件を満たす確率は1へ向かいます。
+各 $\rho_x$ の正の固有値を $r_{xj}$ とすると、固有値分布から選ぶ $J$ の自己情報量 $Z_x=-\log_2r_{xJ}$ は、$E[Z_x]=S(\rho_x)$、分散 $V_x<\infty$ を持ちます。$x$ が現れた $N_x$ 箇所の積固有値を選び、その自己情報量の和が $N_xS(\rho_x)$ から高々 $N_x\delta/4$ ずれる固有ベクトルだけを残します。[典型射影のスペクトル構成](../QINF22/index.md#def-qinf22-typical)と同じ判定を文字ごとの位置集合へ適用したものです。
+
+$p_x=0$ の文字は確率1で発生しません。$p_x>0$ の各文字では $N_x/n\to p_x$ なので、典型入力集合で $N_x\ge np_x/2$ としてよく、$\Pr\{X^n\text{ が非典型}\}\to0$ です。この集合上で[Chebyshev評価](../../INFO/INFO3/index.md#thm-info3-aep)を条件付き固有値分布に使うと
+
+$$
+\Pr\!\left\{\left|\sum_{j=1}^{N_x}Z_{x,j}-N_xS(\rho_x)\right|>\frac{N_x\delta}{4}\,\middle|\,X^n=x^n\right\}
+\le\frac{16V_x}{N_x\delta^2}\le\frac{32V_x}{np_x\delta^2}.
+$$
+
+有限個の $p_x>0$ の文字についてこの失敗確率を足しても0へ向かいます。従って $P_{x^n}$ は、典型入力上で $\rho_{x^n}$ の重みを一様に $1-o(1)$ だけ拾い、非典型入力を零射影にしても平均成功確率は1へ向かいます。
 
 各文字の固有値典型列の数は $2^{N_x(S(\rho_x)+\delta/4)}$ 以下なので、全体のrankはそれらの積以下です。有限個の $S(\rho_x)$ は有界なので、頻度の誤差を十分小さく取れば
 
@@ -158,7 +198,7 @@ $$
 \le n\left(\sum_xp_xS(\rho_x)+\delta\right).
 $$
 
-この射影は $\rho_{x^n}$ と可換で、条件付きスペクトルの確率を1へ近づけます。平均については典型でない文字列の確率が消えるので第3式です。
+この射影は $\rho_{x^n}$ の積固有ベクトルから作ったので可換です。上の確率評価が補題の平均重みの主張を与えます。
 
 $P$ は[QINF22の典型射影評価](../QINF22/index.md#lem-qinf22-typical-bounds)を $\bar\rho$ に適用したものです。最後に $\mathbb E\rho_{X^n}=\bar\rho^{\otimes n}$ と独立性を使うと
 
@@ -176,7 +216,14 @@ $$
 
 ## 5. 平方根測定からHSW達成可能性へ
 
-符号語に対応する半正定値作用素 $D_m=PP_{x^n(m)}P$ を作り、$D=\sum_mD_m$ とします。$D$ の台上で逆平方根を取り、$\Lambda_m=D^{-1/2}D_mD^{-1/2}$ とします。これは **平方根測定**（pretty-good measurement）です。$\sum_m\Lambda_m$ は $D$ の台への射影であり、残余は任意の復号結果へ割り当てられます。逆行列を全空間に要求しないことが重要です。
+符号語に対応する作用素 $D_m=PP_{x^n(m)}P$ を作り、$D=\sum_mD_m$ とします。$P,P_{x^n(m)}$ は直交射影なので、任意の $v$ について $\langle v|D_m|v\rangle=\|P_{x^n(m)}Pv\|^2$ であり、$0\le D_m\le I$ です。$D$ の正の固有値 $d$ にだけ $d^{-1/2}$ を施し、核では0とする逆平方根 $D^{-1/2}$ を用います。
+
+$$
+\Lambda_m=D^{-1/2}D_mD^{-1/2},\qquad
+\sum_m\Lambda_m=D^{-1/2}DD^{-1/2}=\Pi_{\operatorname{supp}D}.
+$$
+
+これが **平方根測定**（pretty-good measurement）です。各 $\Lambda_m$ は正作用素で、和が台への射影となるので、残余 $I-\Pi_{\operatorname{supp}D}\ge0$ を任意の復号結果へ割り当てれば[POVMの完全性](../QINF5/index.md#def-qinf5-povm)を満たします。全空間での可逆性を仮定していません。
 
 <a id="lem-qinf23-pgm"></a>
 
@@ -308,7 +355,18 @@ $$
 \le2\sqrt{\operatorname{Tr}[\rho_{x^n}(I-P)]}
 $$
 
-が成り立ちます。実際、状態の精製 $|\psi\rangle$ を取ると $\|(I-P)|\psi\rangle\|^2=\operatorname{Tr}[\rho(I-P)]$、$\|P_{x^n}\|\le1$ なので、$\langle\psi|A|\psi\rangle-\langle\psi|PAP|\psi\rangle$ を左右の片方に $(I-P)$ を持つ二項に分け、Cauchy–Schwarzで抑えられます。平方根の凹性により平均では上界 $2\sqrt{\eta_n}$ です。したがって
+が成り立ちます。[精製](../QINF4/index.md#def-qinf4-purification) $|\psi\rangle$ を取って $A=P_{x^n}\otimes I$、$Q=P\otimes I$ と置けば $0\le A\le I$、$\|Q\psi\|\le1$ なので
+
+$$
+\begin{aligned}
+|\langle\psi|(A-QAQ)|\psi\rangle|
+&=|\langle(I-Q)\psi|A|\psi\rangle+\langle Q\psi|A|(I-Q)\psi\rangle|\\
+&\le2\|(I-Q)\psi\|
+=2\sqrt{\operatorname{Tr}[\rho_{x^n}(I-P)]}.
+\end{aligned}
+$$
+
+平方根の凹性により平均では上界 $2\sqrt{\eta_n}$ です。したがって
 
 $$
 \mathbb E\operatorname{Tr}[\rho_{X^n}(I-PP_{X^n}P)]
@@ -329,26 +387,68 @@ $$
 
 ## 6. 例：可換出力と非直交純粋出力
 
-**二元対称な可換出力。** $0\le q\le1/2$ として
+**二元対称な可換出力。** $0\le q\le1/2$ として、次の計算基底表示を持つ密度演算子を考えます。
 
 $$
 \rho_0=\operatorname{diag}(1-q,q),\qquad
 \rho_1=\operatorname{diag}(q,1-q)
 $$
 
-を考えます。入力確率 $p$ の平均状態は $\operatorname{diag}(q+p(1-2q),1-q-p(1-2q))$ です。各出力のエントロピーは $h_2(q)$、平均出力のエントロピーは高々1で、$p=1/2$ で1です。したがって $C_{\mathrm{cq}}=1-h_2(q)$。すべての出力が同じ基底で対角なので、その基底を各回測定するだけで古典二元対称通信路に戻ります。$q=0$ では1ビット、$q=1/2$ では0ビットです。
+入力確率 $p=\Pr\{X=0\}$ とすると、平均状態は
 
-**非直交な純粋出力。** $\rho_0=|0\rangle\langle0|$、$\rho_1=|\psi\rangle\langle\psi|$ とし、$|\psi\rangle=c|0\rangle+\sqrt{1-c^2}|1\rangle$、$0<c<1$ とします。等確率混合の固有値は $(1\pm c)/2$（行列式 $(1-c^2)/4$、トレース1）、個々のエントロピーは0です。一般の入力確率 $p$ では行列式が $p(1-p)(1-c^2)$ となり、$p(1-p)$ が最大の $p=1/2$ で平均状態のエントロピーが最大です。よって
+$$
+\bar\rho_p=p\rho_0+(1-p)\rho_1
+=\operatorname{diag}(q+p(1-2q),\,1-q-p(1-2q))
+$$
+
+です。対角成分がそのまま固有値なので、[対角状態のエントロピー](../QINF17/index.md#prop-qinf17-classical)より $S(\rho_0)=S(\rho_1)=h_2(q)$、$S(\bar\rho_p)\le1$ であり、$p=1/2$ のとき等号です。[HSW定理](#thm-qinf23-hsw)から
+
+$$
+C_{\mathrm{cq}}=\max_p\{S(\bar\rho_p)-h_2(q)\}=1-h_2(q).
+$$
+
+すべての出力が同じ基底で対角なので、[可換アンサンブルの測定](../QINF21/index.md#prop-qinf21-commuting)は各回の古典的な条件付き確率を失いません。実際、この基底での測定結果は入力ビットを確率 $q$ で反転したものです。$q=0$ では容量1ビット、$q=1/2$ では0ビットです。
+
+**非直交な純粋出力。** $\rho_0=|0\rangle\langle0|$、$\rho_1=|\psi\rangle\langle\psi|$ とし、$|\psi\rangle=c|0\rangle+\sqrt{1-c^2}|1\rangle$、$0<c<1$ とします。$|\psi\rangle$ は規格化されているため、両 $\rho_x$ は正値・トレース1のrank 1射影です。従って $S(\rho_x)=0$ です。
+
+平均状態のエントロピーを求めるため、$s=\sqrt{1-c^2}$、$p=\Pr\{X=0\}$ と置いて計算基底で外積を展開します。
+
+$$
+\bar\rho_p=p\rho_0+(1-p)\rho_1
+=\begin{pmatrix}
+p+(1-p)c^2&(1-p)cs\\
+(1-p)cs&(1-p)s^2
+\end{pmatrix}.
+$$
+
+この行列は元の二密度演算子を非負の重み $p,1-p$（和1）で混合したものなので正値・トレース1です。固有値の和と積はそれぞれトレースと行列式に等しく、
+
+$$
+\begin{aligned}
+\operatorname{Tr}\bar\rho_p&=1,\\
+\det\bar\rho_p&=[p+(1-p)c^2](1-p)s^2-(1-p)^2c^2s^2
+=p(1-p)(1-c^2),\\
+\lambda_\pm(p)&=\frac{1\pm\sqrt{1-4p(1-p)(1-c^2)}}2.
+\end{aligned}
+$$
+
+従って $\chi(p)=h_2(\lambda_+(p))$ です。$p(1-p)\le1/4$ で、$\lambda_+(p)$ はこの積が大きいほど $1/2$ に近づきます。一方、二値エントロピーは
+
+$$
+h_2'(u)=\log_2\frac{1-u}{u}\le0\qquad(1/2\le u<1)
+$$
+
+を満たすため、入力確率 $p=1/2$ で最大となります。このとき $\lambda_\pm=(1\pm c)/2$ であり、
 
 $$
 C_{\mathrm{cq}}=h_2\!\left(\frac{1+c}{2}\right).
 $$
 
-単一回の測定では非直交二状態を誤り0で識別できません。それでも長いブロックではこの正の率で平均誤りを0へ近づけられます。ただし $c=1$ なら二状態は同じで容量0、$c=0$ なら直交して容量1です。
+[二状態の完全識別条件](../QINF10/index.md#prop-qinf10-pure-states)から単一回の測定では非直交二状態を誤り0で識別できません。それでも[HSW定理](#thm-qinf23-hsw)により長いブロックではこの正の率で平均誤りを0へ近づけられます。ただし $c=1$ なら二状態は同じで容量0、$c=0$ なら直交して容量1です。
 
 ## 7. 一般量子チャネルではなぜ正則化が必要か
 
-一般の $\mathcal N:A\to B$ に対し、1回の使用で入力アンサンブルを最適化したHolevo量を
+一般の[量子チャネル](../QINF7/index.md#def-qinf7-channel) $\mathcal N:A\to B$ に対し、1回の使用で入力アンサンブルを最適化したHolevo量を考えます。$\{p_x,\omega_x\}$ は有限個のラベル $x$ に関する確率 $p_x$（$\sum_xp_x=1$）と $A$ 上の密度演算子 $\omega_x$ の組を表し、最大化ではラベル数も変えてよいものとします。
 
 $$
 \chi^*(\mathcal N)=\max_{\{p_x,\omega_x\}}
@@ -356,7 +456,15 @@ $$
 -\sum_xp_xS(\mathcal N(\omega_x))\right]
 $$
 
-と書きます。有限次元なので有限個の入力状態によるアンサンブルを考えれば足ります。この値は**積入力符号**の容量ですが、入力 $A^{\otimes n}$ にエンタングル状態を許す一般符号の容量とは直ちに同じではありません。
+と書きます。有限個で最大値を取れる理由も確認します。$d=\dim B$ とし、出力状態 $\sigma_x=\mathcal N(\omega_x)$ とそのエントロピーの組を
+
+$$
+(\sigma_x,S(\sigma_x))\in\mathbb R^{d^2-1}\times\mathbb R=\mathbb R^{d^2}
+$$
+
+の点として表します。トレース1のHermitian行列は $d^2-1$ 個の実座標で表せるからです。$d^2+2$ 個以上の点はアフィン従属なので、係数の和・平均出力・平均エントロピーを保ったまま重みを増減し、少なくとも1個を0にできます。反復すれば高々 $d^2+1$ 個の入力状態で同じHolevo量を表せます。入力状態のコンパクト性とエントロピーの連続性から、その個数以下のアンサンブル上で最大値が存在します。
+
+この値は**積入力符号**の容量ですが、入力 $A^{\otimes n}$ にエンタングル状態を許す一般符号の容量とは直ちに同じではありません。一般符号では各ブロック全体を一つの入力として扱うため、単回の最大化と区別します。
 
 <a id="thm-qinf23-regularized"></a>
 
@@ -377,7 +485,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\ell$ 個の最適入力アンサンブルの直積を考えると、出力平均状態も各出力状態も積状態です。エントロピー加法性からそのHolevo量は $a_k+a_\ell$ なので、$a_{k+\ell}\ge a_k+a_\ell$ です。また $0\le a_k\le k\log_2\dim B$。超加法列のFeketeの補題は、$n=qk+r$（$0\le r<k$）と分け $a_n\ge qa_k+a_r\ge qa_k$ とすれば、固定 $k$ について $\liminf_n a_n/n\ge a_k/k$、一方各 $a_n/n\le\sup_k a_k/k$ だから導けます。ゆえに極限と上限が等しいです。
+$a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\ell$ 個の最適入力アンサンブルの直積を考えると、出力平均状態も各出力状態も積状態です。[エントロピーのテンソル積加法性](../QINF17/index.md#prop-qinf17-tensor)から、そのHolevo量は $a_k+a_\ell$ なので、$a_{k+\ell}\ge a_k+a_\ell$ です。また[エントロピーの次元上界](../QINF17/index.md#thm-qinf17-entropy-bounds)により $0\le a_k\le k\log_2\dim B$ です。
+
+超加法列のFeketeの補題は、$n=qk+r$（$0\le r<k$）と分けて
+
+$$
+\frac{a_n}{n}\ge\frac{q a_k+a_r}{n}\ge\frac{q a_k}{qk+r}
+\longrightarrow\frac{a_k}{k}\quad(n\to\infty)
+$$
+
+とすれば、固定 $k$ について $\liminf_n a_n/n\ge a_k/k$ と分かります。一方 $a_n/n\le\sup_k a_k/k$ なので、極限と上限が等しいです。
 
 達成向きでは $k$ を固定し、$A^{\otimes k}$ 上の有限個の状態 $\omega_x$ を「入力文字」、$\mathcal N^{\otimes k}(\omega_x)$ を「出力文字」とするcq通信路へ[HSW定理](#thm-qinf23-hsw)を適用します。$t$ 文字を送る符号は元のチャネルの $kt$ 回の符号なので、率 $\chi(\{p_x,\mathcal N^{\otimes k}(\omega_x)\})/k$ に近づけます。入力アンサンブルと $k$ を最適化して下界が出ます。
 
@@ -396,7 +513,14 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: $\rho_0=|0\rangle\langle0|$、$\rho_1=|1\rangle\langle1|$ に対して長さ1、$M=2$、復号POVM $\Lambda_1=(1-t)|0\rangle\langle0|+t|1\rangle\langle1|$、$\Lambda_2=I-\Lambda_1$（$0\le t\le1$）を用いる。符号語0,1を割り当てたときの平均誤りと率を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $\operatorname{Tr}(\rho_0\Lambda_1)=1-t$、$\operatorname{Tr}(\rho_1\Lambda_2)=1-t$。よって $P_e=1-[(1-t)+(1-t)]/2=t$、$R=\log_2 2=1$ ビット/使用。POVMの両要素は非負で和が $I$ であることも $0\le t\le1$ から確認できる。
+**詳細解答。** 計算基底で $\Lambda_1=\operatorname{diag}(1-t,t)$、$\Lambda_2=\operatorname{diag}(t,1-t)$ です。$0\le t\le1$ より両者の固有値は非負、かつ $\Lambda_1+\Lambda_2=I_2$ なので[POVMの条件](../QINF5/index.md#def-qinf5-povm)を満たします。
+
+各符号語の成功確率は $\operatorname{Tr}(\rho_0\Lambda_1)=\operatorname{Tr}(\rho_1\Lambda_2)=1-t$ です。[平均誤りと率の定義](#def-qinf23-cq-code)に代入すると
+
+$$
+P_e^{(1)}=1-\frac{(1-t)+(1-t)}2=t,\qquad
+R_1=\frac{\log_2 2}{1}=1\ \text{ビット/使用}.
+$$
 <!-- solution-end -->
 
 <a id="ex-qinf23-a02"></a>
@@ -407,7 +531,21 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: すべての $x$ に $\rho_x=\tau$ が成り立つcq通信路について任意の $n,M$ の成功確率と容量を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 各符号語の出力は $\tau^{\otimes n}$ で共通だから、成功確率は $M^{-1}\sum_m\operatorname{Tr}(\tau^{\otimes n}\Lambda_m)=M^{-1}\operatorname{Tr}(\tau^{\otimes n}I)=1/M$。誤りが0へ向かうには $M=1$ が最終的に必要なので正の率は不可能。さらに $\chi=S(\tau)-\sum_xp_xS(\tau)=0$ でありHSW式とも一致する。
+**詳細解答。** 各符号語の出力は $\tau^{\otimes n}$ で共通です。[POVMの完全性](../QINF5/index.md#def-qinf5-povm)を用いると、平均成功確率は
+
+$$
+\frac1M\sum_m\operatorname{Tr}(\tau^{\otimes n}\Lambda_m)
+=\frac1M\operatorname{Tr}\!\left(\tau^{\otimes n}\sum_m\Lambda_m\right)
+=\frac1M.
+$$
+
+従って $P_e^{(n)}=1-1/M_n$ です。これが0へ向かうには整数 $M_n=1$ が十分大きな $n$ で必要なので、正の率は不可能です。また
+
+$$
+\chi(p,\rho)=S(\tau)-\sum_xp_xS(\tau)=0
+$$
+
+であり、[HSW容量公式](#thm-qinf23-hsw)とも一致します。
 <!-- solution-end -->
 
 <a id="ex-qinf23-a03"></a>
@@ -418,7 +556,21 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: $M=16$、平均誤り $\varepsilon=1/8$ の符号について、復号結果との相互情報量の下界を $h_2(1/8)$ を用いて示せ。
 
 <!-- solution-start -->
-**詳細解答。** [Fano不等式とブロックHolevo逆評価](#lem-qinf23-fano)から $I(U;\widehat U)\ge(1-1/8)\log_2 16-h_2(1/8)=7/2-h_2(1/8)$ ビット。$h_2(1/8)=3-(7/8)\log_2 7$ なので、下界は $1/2+(7/8)\log_2 7$ ビット。$I\ge0$ という自明な評価より強い。
+**詳細解答。** [Fano不等式とブロックHolevo逆評価](#lem-qinf23-fano)に $M=16$、$\varepsilon=1/8$ を代入すると
+
+$$
+I(U;\widehat U)\ge\left(1-\frac18\right)\log_2 16-h_2(1/8)
+=\frac72-h_2(1/8).
+$$
+
+二値エントロピーを定義から計算すれば
+
+$$
+h_2(1/8)=-\frac18\log_2\frac18-\frac78\log_2\frac78
+=3-\frac78\log_2 7.
+$$
+
+従って $I(U;\widehat U)\ge\frac12+\frac78\log_2 7$ ビットです。これは $I\ge0$ より強い下界です。
 <!-- solution-end -->
 
 <a id="ex-qinf23-a04"></a>
@@ -429,7 +581,27 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: $|\psi\rangle=c|0\rangle+\sqrt{1-c^2}|1\rangle$（$0\le c\le1$）とし、$\bar\rho=(|0\rangle\langle0|+|\psi\rangle\langle\psi|)/2$ の固有値を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 基底 $|0\rangle,|1\rangle$ で $\bar\rho$ の対角成分は $(1+c^2)/2,(1-c^2)/2$、非対角成分は $c\sqrt{1-c^2}/2$。トレースは1、行列式は $[(1-c^4)-c^2(1-c^2)]/4=(1-c^2)/4$。特性方程式 $\lambda^2-\lambda+(1-c^2)/4=0$ の解は $(1\pm c)/2$。したがってエントロピーは $h_2((1+c)/2)$。
+**詳細解答。** $s=\sqrt{1-c^2}$ と置き、計算基底で外積の成分 $\langle i|\psi\rangle\langle\psi|j\rangle$ を並べると
+
+$$
+\bar\rho=\frac12\begin{pmatrix}1+c^2&cs\\cs&1-c^2\end{pmatrix}.
+$$
+
+規格化された二純粋状態の平均なので正値・トレース1です。固有値の積は行列式であり、
+
+$$
+\det\bar\rho=\frac{(1+c^2)(1-c^2)-c^2(1-c^2)}4
+=\frac{1-c^2}{4}.
+$$
+
+従って特性方程式とその解は
+
+$$
+\lambda^2-\lambda+\frac{1-c^2}4=0,
+\qquad \lambda_\pm=\frac{1\pm c}{2}.
+$$
+
+[von Neumannエントロピーの定義](../QINF17/index.md#def-qinf17-entropy)より $S(\bar\rho)=h_2((1+c)/2)$ です。端点 $c=0,1$ でも固有値は非負で和が1です。
 <!-- solution-end -->
 
 <a id="ex-qinf23-b01"></a>
@@ -440,7 +612,22 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: $\rho_0=\operatorname{diag}(3/4,1/4)$、$\rho_1=\operatorname{diag}(1/4,3/4)$ の容量を計算し、符号語を一度も復号せず各回測定する古典通信路との対応を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 両出力のエントロピーは $h_2(1/4)$。入力確率 $p$ の平均出力の第1対角成分は $p(3/4)+(1-p)(1/4)=1/4+p/2$ であり、$h_2(1/4+p/2)\le1$。$p=1/2$ で等号なので $C=1-h_2(1/4)=1-[2-(3/4)\log_2 3]=(3/4)\log_2 3-1$。計算基底測定後は、入力ビットが確率 $1/4$ で反転する古典二元対称通信路になる。出力が可換なので一回ごとのこの測定でHolevo量を失わず、古典符号化定理に戻る。
+**詳細解答。** $p=\Pr\{X=0\}$ とします。両出力のエントロピーは[対角状態の計算法](../QINF17/index.md#prop-qinf17-classical)より $h_2(1/4)$ です。平均出力は
+
+$$
+\bar\rho_p=p\rho_0+(1-p)\rho_1
+=\operatorname{diag}\left(\frac14+\frac p2,\frac34-\frac p2\right).
+$$
+
+従って $S(\bar\rho_p)=h_2(1/4+p/2)\le1$ であり、$p=1/2$ のとき等号です。[HSW定理](#thm-qinf23-hsw)により
+
+$$
+C_{\mathrm{cq}}=1-h_2(1/4)
+=1-\left(2-\frac34\log_2 3\right)
+=\frac34\log_2 3-1.
+$$
+
+計算基底測定では $q(1|0)=q(0|1)=1/4$、$q(0|0)=q(1|1)=3/4$ となります。これは入力ビットが確率 $1/4$ で反転する古典二元対称通信路です。[可換アンサンブルのHolevo界達成](../QINF21/index.md#prop-qinf21-commuting)により各回測定で情報量を失わず、同じ容量になります。
 <!-- solution-end -->
 
 <a id="ex-qinf23-b02"></a>
@@ -451,7 +638,21 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: ある入力分布で $\chi=0.6$、典型射影補題の $2\delta=0.1$ とし、$R=0.4$ の符号を選ぶ。HSW証明の偽候補への重なり項がどの指数で減るか示せ。また $R=0.55$ では同じ $\delta$ の証明で何が不足するか。
 
 <!-- solution-start -->
-**詳細解答。** $M\le2^{0.4n}$ より偽候補項は $4(M-1)2^{-n(0.6-0.1)}\le4\cdot2^{-0.1n}$ で消える。$R=0.55$ では上界が $4\cdot2^{0.05n}$ となり、誤差が消えることを示さない。ただし容量超過を意味するのではない。$2\delta<0.6-0.55=0.05$ となるよう典型幅を狭めてから十分大きい $n$ を取れば同じ論法が使える。
+**詳細解答。** [HSW証明の誤り評価](#thm-qinf23-hsw)の偽候補項に $M\le2^{nR}$ を使うと
+
+$$
+4(M-1)2^{-n(\chi-2\delta)}
+\le4\cdot 2^{-n(\chi-2\delta-R)}.
+$$
+
+$R=0.4$ では指数の差が $0.6-0.1-0.4=0.1>0$ なので、上界は $4\cdot2^{-0.1n}\to0$ です。$R=0.55$ では同じ幅だと
+
+$$
+\chi-2\delta-R=0.6-0.1-0.55=-0.05,
+\qquad 4\cdot2^{-n(\chi-2\delta-R)}=4\cdot2^{0.05n}
+$$
+
+となり、誤差が消えることを示せません。ただし容量超過を意味するのではありません。$2\delta<0.05$ となるよう典型幅を狭めてから十分大きい $n$ を取れば、同じ論法が使えます。
 <!-- solution-end -->
 
 <a id="ex-qinf23-b03"></a>
@@ -462,7 +663,31 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: 任意の有限次元チャネルについて $a_k=\chi^*(\mathcal N^{\otimes k})$ が $a_{k+\ell}\ge a_k+a_\ell$ を満たす理由を証明し、$\chi^*(\mathcal N)\le C(\mathcal N)\le\log_2\dim B$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $k$ 使用と $\ell$ 使用のアンサンブルをそれぞれ独立に選び、入力状態のテンソル積を使う。その出力の平均は $\bar\sigma_k\otimes\bar\sigma_\ell$、各出力も積状態なのでエントロピーの加法性からHolevo量は $\chi_k+\chi_\ell$。最適化すると $a_{k+\ell}\ge a_k+a_\ell$。特に $a_k\ge ka_1$、したがって $C=\sup_k a_k/k\ge a_1$。また出力平均のエントロピーは高々 $\log_2(\dim B)^k=k\log_2\dim B$、各出力のエントロピーは非負だから $a_k\le k\log_2\dim B$。上限を取れば結論。
+**詳細解答。** $k$ 使用と $\ell$ 使用の入力アンサンブルをそれぞれ独立に選び、その入力状態のテンソル積を使います。前者の確率・出力を $p_x,\sigma_x$、後者を $q_y,\tau_y$、それぞれのHolevo量を $\chi_k,\chi_\ell$、平均出力を $\bar\sigma_k,\bar\sigma_\ell$ と書きます。直積アンサンブルでは確率が $p_xq_y$、出力が $\sigma_x\otimes\tau_y$ なので、[エントロピーの加法性](../QINF17/index.md#prop-qinf17-tensor)から
+
+$$
+\begin{aligned}
+\chi_{k+\ell}^{\mathrm{product}}
+&=S(\bar\sigma_k\otimes\bar\sigma_\ell)
+-\sum_{x,y}p_xq_yS(\sigma_x\otimes\tau_y)\\
+&=S(\bar\sigma_k)+S(\bar\sigma_\ell)
+-\sum_xp_xS(\sigma_x)-\sum_yq_yS(\tau_y)\\
+&=\chi_k+\chi_\ell.
+\end{aligned}
+$$
+
+入力アンサンブルを最適化すれば $a_{k+\ell}\ge a_k+a_\ell$ です。これを $a_k\ge ka_1$ と繰り返し、[正則化容量定理](#thm-qinf23-regularized)に代入すると
+
+$$
+C(\mathcal N)=\sup_{k\ge1}\frac{a_k}{k}\ge a_1=\chi^*(\mathcal N).
+$$
+
+一方、$k$ ブロックの最適アンサンブルの平均出力を改めて $\bar\sigma_k$ とすれば、その次元は $(\dim B)^k$ なので[エントロピー上界](../QINF17/index.md#thm-qinf17-entropy-bounds)から
+
+$$
+a_k\le S(\bar\sigma_k)\le\log_2(\dim B)^k=k\log_2\dim B,
+\quad C(\mathcal N)\le\log_2\dim B.
+$$
 <!-- solution-end -->
 
 <a id="ex-qinf23-c01"></a>
@@ -473,9 +698,46 @@ $a_k=\chi^*(\mathcal N^{\otimes k})$、$a_0=0$ と置きます。$k$ 個と $\el
 - 問題: $\rho_0=|0\rangle\langle0|$、$\rho_1=|\psi\rangle\langle\psi|$、$|\langle0|\psi\rangle|=1/2$ とする。(i) 入力確率 $p$ に対する平均出力の固有値を求めよ。(ii) 最適 $p$ と容量を求めよ。(iii) 一回の測定での完全識別が不可能な理由と、$0<R<C$ で誤りの消えるブロック符号が存在する理由を、それぞれ異なる論証で説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 位相を調整して $|\psi\rangle=(1/2)|0\rangle+(\sqrt3/2)|1\rangle$ と置ける。$\bar\rho_p=p|0\rangle\langle0|+(1-p)|\psi\rangle\langle\psi|$ はトレース1で、行列式は $p(1-p)(1-|\langle0|\psi\rangle|^2)=3p(1-p)/4$。特性方程式 $\lambda^2-\lambda+3p(1-p)/4=0$ より $\lambda_\pm=[1\pm\sqrt{1-3p(1-p)}]/2$。両出力が純粋なので $\chi(p)=h_2(\lambda_+)$。$p(1-p)\le1/4$ で等号は $p=1/2$、このとき $\lambda_+=3/4$、$\lambda_-=1/4$ となる。二値エントロピーは $[1/2,1]$ で減少するから $C=h_2(3/4)=2-(3/4)\log_2 3$ ビット/使用。
+**詳細解答。** (i) $|\langle0|\psi\rangle|=1/2$ なので全体位相と $|1\rangle$ の位相を選び、$|\psi\rangle=(|0\rangle+\sqrt3|1\rangle)/2$ と書けます。$p=\Pr\{X=0\}$ と置けば、計算基底の外積表示は
 
-完全識別POVM $E_0,E_1$ があれば $\langle0|E_1|0\rangle=0$、$\langle\psi|E_0|\psi\rangle=0$。正作用素では期待値0はそのベクトルが核にあることを意味する。$E_0+E_1=I$ と合わせると $\langle0|\psi\rangle=\langle0|(E_0+E_1)|\psi\rangle=0$ となり、与えられた重なり $1/2$ に反する。他方、HSW定理のランダム符号では任意の $R<h_2(3/4)$ に対し $2\delta<h_2(3/4)-R$ を選び、平均誤りを $2\eta_n+4\sqrt{\eta_n}+4\cdot2^{-n(C-2\delta-R)}\to0$ と抑える。これは各回の完全識別を要求せず、全出力の合同POVMを使うから矛盾しない。
+$$
+\bar\rho_p=p|0\rangle\langle0|+(1-p)|\psi\rangle\langle\psi|
+=\begin{pmatrix}p+(1-p)/4&\sqrt3(1-p)/4\\
+\sqrt3(1-p)/4&3(1-p)/4\end{pmatrix}.
+$$
+
+これは二密度演算子の混合なので正値・トレース1です。対角成分の和は1、行列式と固有値は
+
+$$
+\begin{aligned}
+\det\bar\rho_p&=\frac{3(1-p)}4\left(p+\frac{1-p}4\right)
+-\frac{3(1-p)^2}{16}=\frac{3p(1-p)}4,\\
+\lambda^2-\lambda+\frac{3p(1-p)}4&=0,\qquad
+\lambda_\pm(p)=\frac{1\pm\sqrt{1-3p(1-p)}}2.
+\end{aligned}
+$$
+
+(ii) 両出力が純粋なので $\chi(p)=h_2(\lambda_+(p))$ です。$p(1-p)\le1/4$ で等号は $p=1/2$、このとき固有値は $\lambda_+=3/4$、$\lambda_-=1/4$。$h_2$ は $[1/2,1]$ で減少するため[HSW容量式](#thm-qinf23-hsw)を最大化すると
+
+$$
+C_{\mathrm{cq}}=h_2(3/4)=2-\frac34\log_2 3\quad\text{ビット/使用}.
+$$
+
+(iii) 完全識別POVM $E_0,E_1$ があると仮定します。誤り0なら $\langle0|E_1|0\rangle=0$、$\langle\psi|E_0|\psi\rangle=0$ です。正作用素では $\langle v|E|v\rangle=\|E^{1/2}v\|^2=0$ から $Ev=0$ となるため、$E_1|0\rangle=0$ と $E_0|\psi\rangle=0$ を得ます。従って
+
+$$
+\langle0|\psi\rangle
+=\langle0|(E_0+E_1)|\psi\rangle=0+0=0
+$$
+
+となり、重なり $1/2$ に反します。一方、[HSW定理](#thm-qinf23-hsw)のランダム符号では、任意の $0<R<C_{\mathrm{cq}}$ に対して $2\delta<C_{\mathrm{cq}}-R$ を選ぶと
+
+$$
+\mathbb EP_e^{(n)}\le2\eta_n+4\sqrt{\eta_n}
++4\cdot2^{-n(C_{\mathrm{cq}}-2\delta-R)}\longrightarrow0.
+$$
+
+全出力への合同POVMを使うブロック識別は、各回の完全識別を要求しないため矛盾しません。
 <!-- solution-end -->
 
 ## 9. まとめと次への接続
