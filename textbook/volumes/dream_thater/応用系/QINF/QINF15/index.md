@@ -36,7 +36,24 @@ $$
 <!-- definition-example-start: def-qinf15-separable -->
 ### 例：共有乱数で作る古典相関
 
-**定義の確認**として、先ほどの $\rho_{\mathrm{cl}}$ では $m=2$、$p_1=p_2=1/2$ とし、$\sigma_1^A=\tau_1^B=|0\rangle\langle0|$、$\sigma_2^A=\tau_2^B=|1\rangle\langle1|$ を選べます。各局所項は正値でトレースが1、重みは非負で和1です。しかも $\rho_{\mathrm{cl}}$ 自身もこの二つの正値積演算子の和だから正値であり、トレースは $\frac12(1\cdot1)+\frac12(1\cdot1)=1$。よって定義の条件を全て満たします。なお $\operatorname{Tr}(\rho_{\mathrm{cl}}^2)=1/2$ なので混合状態です。
+**定義の確認**として、先ほどの $\rho_{\mathrm{cl}}$ に対し、二つの項を次のように選びます。
+
+$$
+\begin{gathered}
+m=2,\qquad p_1=p_2=\frac12,\\
+\sigma_1^A=\tau_1^B=|0\rangle\langle0|,\qquad
+\sigma_2^A=\tau_2^B=|1\rangle\langle1|.
+\end{gathered}
+$$
+
+各局所項は正値でトレースが1、重みは非負で和1です。したがってその積の和である $\rho_{\mathrm{cl}}$ も正値で、トレースは
+
+$$
+\operatorname{Tr}\rho_{\mathrm{cl}}
+=\frac12(1\cdot1)+\frac12(1\cdot1)=1.
+$$
+
+これで[分離可能性の定義](#def-qinf15-separable)の各条件を確認できました。なお $\operatorname{Tr}(\rho_{\mathrm{cl}}^2)=1/2$ なので混合状態です。
 <!-- definition-example-end -->
 
 この定義では局所側の $\sigma_j^A,\tau_j^B$ を混合状態としてもよいですが、純粋な積状態だけの和と同値です。その理由をここで閉じます。
@@ -79,7 +96,14 @@ $$
 重みは非負、総和は $\sum_jp_j(\sum_r\lambda_{jr})(\sum_s\mu_{js})=1$ です。有限次元なので項数も有限です。逆向きは $\sigma_k^A=|a_k\rangle\langle a_k|$、$\tau_k^B=|b_k\rangle\langle b_k|$ と置けば[二部混合状態の分離可能性](#def-qinf15-separable)に含まれます。$\square$
 <!-- proof-end -->
 
-純粋な全状態なら、上の和がrank 1であるため、各正の重みの $|a_kb_k\rangle$ は同一直線上にあります。従って[Schmidt階数1と積状態の同値](../QINF6/index.md#prop-qinf6-product)と一致して、純粋二部状態は「分離可能」であることと「積状態」であることが同値です。**混合状態ではSchmidt階数という単一ベクトルの判定をそのまま使えません。**
+純粋な全状態 $\rho_{AB}=|\psi\rangle\langle\psi|$ がこの純粋積分解を持つなら、$|\psi\rangle$ と直交する任意の $|v\rangle$ について
+
+$$
+0=\langle v|\rho_{AB}|v\rangle
+=\sum_kq_k|\langle v|a_kb_k\rangle|^2.
+$$
+
+非負項の和なので $q_k>0$ の各 $|a_kb_k\rangle$ は $|\psi\rangle$ に直交する全ベクトルと直交し、$|\psi\rangle$ の張る同一直線上にあります。従って[Schmidt階数1と積状態の同値](../QINF6/index.md#prop-qinf6-product)と一致して、純粋二部状態は「分離可能」であることと「積状態」であることが同値です。**混合状態ではSchmidt階数という単一ベクトルの判定をそのまま使えません。**
 
 ## 3. LOCCだけで作れる状態の範囲
 
@@ -112,9 +136,44 @@ $$
 \frac{M_r\sigma_jM_r^\dagger}{t_{jr}}\otimes\tau_j.
 $$
 
-これは分離可能な確率混合です。$P(r)=0$ の枝は起こりません。Bobが計測する場合も左右を入れ替えれば同じです。過去の古典結果に応じて演算子が変わっても、各枝にこの計算を有限回繰り返せます。最後に結果を忘れた平均も、非負の確率重みを持つ積演算子の和です。
+これは分離可能な確率混合です。$t_{jr}=0$ なら正値演算子 $M_r\sigma_jM_r^\dagger$ はトレース0なので零であり、除外した項は寄与しません。$P(r)=0$ の枝は起こりません。
 
-逆に[純粋積分解](#prop-qinf15-pure-product-ensemble)の有限和から $k$ を確率 $q_k$ で選び、AliceがBobへ番号 $k$ を伝えます。Aliceは $|a_k\rangle$、Bobは $|b_k\rangle$ を手元で準備します。入力を捨てて指定状態を準備する局所操作は許される量子操作であり、平均出力は $\sum_kq_k|a_kb_k\rangle\langle a_kb_k|=\rho_{AB}$ です。$\square$
+Bobが計測する場合も左右を入れ替えれば同じです。過去の古典結果に応じて演算子が変わっても、各枝にこの計算を有限回繰り返せます。最後に結果を忘れた平均も、非負の確率重みを持つ積演算子の和です。
+
+逆に[純粋積分解](#prop-qinf15-pure-product-ensemble)の有限和から $k$ を確率 $q_k$ で選び、AliceがBobへその番号を伝えます。AliceとBobは番号に応じて局所状態を準備します。
+
+この「入力を捨てた局所準備」も[有限ラウンドLOCCの定義](../QINF14/index.md#def-qinf14-locc)で許される局所計測として実現できます。例えば局所正規直交基底 $\{|e_\ell^A\rangle\}$、$\{|e_m^B\rangle\}$ を取り、選んだ番号 $k$ に対してKraus作用素を
+
+$$
+R_\ell^{(k)}=|a_k\rangle\langle e_\ell^A|,\qquad
+S_m^{(k)}=|b_k\rangle\langle e_m^B|
+$$
+
+とすれば、各側で
+
+$$
+\sum_\ell(R_\ell^{(k)})^\dagger R_\ell^{(k)}
+=\sum_\ell|e_\ell^A\rangle\langle e_\ell^A|=I_A,\qquad
+\sum_m(S_m^{(k)})^\dagger S_m^{(k)}=I_B
+$$
+
+となり、局所計測の完全性を満たします。入力を表す任意の密度演算子 $\omega_{AB}$ に両操作を適用した各枝の非正規化出力は
+
+$$
+\langle e_\ell^Ae_m^B|\omega_{AB}|e_\ell^Ae_m^B\rangle
+|a_kb_k\rangle\langle a_kb_k|
+$$
+
+です。局所結果を忘れれば、基底対角成分の総和がトレースになるので
+
+$$
+\sum_{\ell,m}(R_\ell^{(k)}\otimes S_m^{(k)})\omega_{AB}
+(R_\ell^{(k)}\otimes S_m^{(k)})^\dagger
+=\operatorname{Tr}(\omega_{AB})|a_kb_k\rangle\langle a_kb_k|
+=|a_kb_k\rangle\langle a_kb_k|.
+$$
+
+その後、番号 $k$ について平均すると出力は $\sum_kq_k|a_kb_k\rangle\langle a_kb_k|=\rho_{AB}$ です。$\square$
 <!-- proof-end -->
 
 この命題は**新しいエンタングルメントをLOCCだけで生めない**ことの混合状態版です。局所測定の一つの枝で珍しい結果が出たとしても、分離可能入力の分離可能性は破れません。
@@ -123,13 +182,29 @@ $$
 
 「分離可能な形が見つからない」は証明になりません。そこで、満たさないと分離可能ではあり得ない必要条件を作ります。普通の行列の転置は正値性を保ちますが、テンソル積の**片方の添字だけ**を転置すると、もつれを持つ状態では負の固有値が現れることがあります。
 
-基底 $|i\rangle_A$、$|\mu\rangle_B$ を固定します。行列要素を $\rho_{i\mu,j\nu}=\langle i\mu|\rho|j\nu\rangle$ と書くと、Bob側の添字 $\mu,\nu$ だけを入れ替える演算は
+基底 $|i\rangle_A$（$0\le i<d_A$）、$|\mu\rangle_B$（$0\le\mu<d_B$）を固定します。$j,\nu$ もそれぞれ同じ範囲を動く添字です。行列要素を $\rho_{i\mu,j\nu}=\langle i\mu|\rho|j\nu\rangle$ と書くと、Bob側の添字 $\mu,\nu$ だけを入れ替える演算は
 
 $$
 (\rho^{\Gamma_B})_{i\mu,j\nu}=\rho_{i\nu,j\mu}
 $$
 
-です。全体の転置 $\rho^T$ では $i,j$ も入れ替えますが、ここでは入れ替えません。
+です。実際、行列単位は $|i\mu\rangle\langle j\nu|=(|i\rangle\langle j|)\otimes(|\mu\rangle\langle\nu|)$ なので、Bob因子だけを転置すると $|i\nu\rangle\langle j\mu|$ になります。全体の転置 $\rho^T$ では $i,j$ も入れ替えますが、ここでは入れ替えません。
+
+部分転置後の固有値で正値性を判定できる理由も確認します。Hermitian演算子 $X$ の部分転置を $Y$ と書くと
+
+$$
+Y_{j\nu,i\mu}=X_{j\mu,i\nu}
+=\overline{X_{i\nu,j\mu}}=\overline{Y_{i\mu,j\nu}}
+$$
+
+なので $Y$ もHermitianです。[QINF2で用いた有限次元のスペクトル分解](../QINF2/index.md#thm-qinf2-density-ensemble)と同じく、$Y=\sum_\alpha\lambda_\alpha|e_\alpha\rangle\langle e_\alpha|$ と書けば
+
+$$
+\langle v|Y|v\rangle=\sum_\alpha\lambda_\alpha
+|\langle e_\alpha|v\rangle|^2.
+$$
+
+全ての $v$ でこれが非負であることと、全固有値 $\lambda_\alpha\ge0$ は同値です。ここで判定するのは**元の密度演算子ではなく、Bob側を転置したHermitian行列**の正値性です。
 
 <a id="def-qinf15-partial-transpose"></a>
 
@@ -342,7 +417,16 @@ $$
 
 $-1/3\le p\le1$ では後者は正なので、$p>1/3$ のときだけNPTです。[PPT必要条件](#thm-qinf15-ppt-necessary)によりその範囲はエンタングル状態です。
 
-残る範囲の分離可能性を証明します。[Bloch表示](../QINF2/index.md#def-qinf2-bloch-vector)で使ったPauli行列を $\sigma_x,\sigma_y,\sigma_z$ と書きます。単位座標ベクトル $\mathbf e_k$（$k=x,y,z$）方向の固有状態を $|k,+\rangle,|k,-\rangle$ とし、それぞれの射影を $P_{k,\pm}=(I_2\pm\sigma_k)/2$ とします。[Bloch球の正値条件](../QINF2/index.md#thm-qinf2-bloch-ball)から、これらはrank 1、トレース1の局所純粋状態です。
+残る範囲の分離可能性を証明します。[Bloch表示](../QINF2/index.md#def-qinf2-bloch-vector)で使ったPauli行列を $\sigma_x,\sigma_y,\sigma_z$ と書きます。
+
+単位座標ベクトル $\mathbf e_k$（$k=x,y,z$）方向の固有状態を $|k,+\rangle,|k,-\rangle$ とし、それぞれの射影を $P_{k,\pm}=(I_2\pm\sigma_k)/2$ とします。Pauli行列は $\sigma_k^2=I_2$、$\operatorname{Tr}\sigma_k=0$ だから
+
+$$
+P_{k,\pm}^2=\frac{I_2\pm2\sigma_k+\sigma_k^2}{4}
+=P_{k,\pm},\qquad \operatorname{Tr}P_{k,\pm}=1.
+$$
+
+つまりこれらはBlochベクトル $\pm\mathbf e_k$ に対応するrank 1の局所純粋状態であり、[Bloch球の正値条件](../QINF2/index.md#thm-qinf2-bloch-ball)にも一致します。
 
 同じ軸について逆向き・同向きの二つの積状態を等確率で混合した演算子を
 
@@ -436,9 +520,32 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\|u_j\|=1$ です。$u_0,u_1$ はBob側、$u_0,u_2$ と $u_0,u_3$ はAlice側、$u_1,u_2$ はAlice側、$u_1,u_3$ と $u_2,u_3$ はBob側の内積が0です。$u_4$ との内積も、残る各 $u_j$ がどちらかの因子に $|0\rangle-|1\rangle$ または $|1\rangle-|2\rangle$ を持ち、その因子が $|s\rangle$ と直交するので0。従って5個は正規直交です。
+まず各 $\|u_j\|=1$ です。二つの積ベクトルの内積は局所内積の積になるので、次の6組は示した側の直交性により内積が0です。
 
-$P=\sum_j|u_j\rangle\langle u_j|$ はrank 5の直交射影で、$I_9-P$ はrank 4の直交射影です。従って $\rho_{\mathrm{tile}}=(I_9-P)/4\ge0$ かつ $\operatorname{Tr}\rho_{\mathrm{tile}}=(9-5)/4=1$。各 $u_j=|a_j\rangle\otimes|b_j\rangle$ のBob因子は**実成分**なので $|b_j\rangle\langle b_j|$ は対称行列です。[部分転置の定義](#def-qinf15-partial-transpose)から各 $|u_j\rangle\langle u_j|$ と $I_9$ が不変で、
+$$
+\begin{aligned}
+\text{Alice側が直交}:&(i,j)=(0,2),(0,3),(1,2),\\
+\text{Bob側が直交}:&(i,j)=(0,1),(1,3),(2,3).
+\end{aligned}
+$$
+
+ここで組 $(i,j)$ は $\langle u_i|u_j\rangle$ を調べる添字の対です。残る $u_4$ との内積についても
+
+$$
+\langle s|(|0\rangle-|1\rangle)=\frac{1-1}{\sqrt3}=0,\qquad
+\langle s|(|1\rangle-|2\rangle)=\frac{1-1}{\sqrt3}=0
+$$
+
+であり、$u_0,\ldots,u_3$ は必ずどちらかの因子にこの差を含むため、$u_4$ と直交します。従って5個は正規直交です。
+
+$P=\sum_j|u_j\rangle\langle u_j|$ はrank 5の直交射影で、$I_9-P$ はrank 4の直交射影です。従って
+
+$$
+\rho_{\mathrm{tile}}=\frac{I_9-P}{4}\ge0,\qquad
+\operatorname{Tr}\rho_{\mathrm{tile}}=\frac{9-5}{4}=1.
+$$
+
+また各 $u_j=|a_j\rangle\otimes|b_j\rangle$ のBob因子は**実成分**なので $|b_j\rangle\langle b_j|$ は対称行列です。[部分転置の定義](#def-qinf15-partial-transpose)から各 $|u_j\rangle\langle u_j|$ と $I_9$ が不変で、
 
 $$
 \rho_{\mathrm{tile}}^{\Gamma_B}=\rho_{\mathrm{tile}}\ge0.
@@ -560,7 +667,14 @@ $\rho_W(p)=(1-p)I_4/4+p|\Psi^-\rangle\langle\Psi^-|$ の $p=1/2$ について、
 <!-- solution-start -->
 ### 詳細解答
 
-Singlet方向の固有値は $\frac{1+3p}{4}=5/8$、直交する3方向は $\frac{1-p}{4}=1/8$ です。いずれも非負で総和 $5/8+3/8=1$ だから正当な密度演算子です。部分転置については[Werner型状態の計算](#thm-qinf15-werner-threshold)のブロックに $p=1/2$ を代入し
+Singlet方向と直交する3方向の固有値は、それぞれ
+
+$$
+\frac{1+3p}{4}\bigg|_{p=1/2}=\frac58,\qquad
+\frac{1-p}{4}\bigg|_{p=1/2}=\frac18\quad(3\text{重})
+$$
+
+です。いずれも非負で総和 $5/8+3/8=1$ だから正当な密度演算子です。部分転置については[Werner型状態の計算](#thm-qinf15-werner-threshold)のブロックに $p=1/2$ を代入し
 
 $$
 \frac{1-3p}{4}=-\frac18,
@@ -729,7 +843,14 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**（1）** $|\Phi^+\rangle$ 方向では固有値 $(1-r)/4+r=(1+3r)/4$、それに直交する3次元では $(1-r)/4$ です。トレースは恒等的に1なので、両方が非負である条件は $-1/3\le r\le1$。$I_4/4$ とBell状態はともに片側縮約が $I_2/2$ なので、[部分トレースの線形性](../QINF3/index.md#prop-qinf3-state-product)から全範囲で $\omega_A=\omega_B=I_2/2$ です。
+**（1）** $|\Phi^+\rangle$ 方向とそれに直交する3次元での固有値は、それぞれ
+
+$$
+\lambda_\parallel=\frac{1-r}{4}+r=\frac{1+3r}{4},\qquad
+\lambda_\perp=\frac{1-r}{4}\quad(3\text{重}).
+$$
+
+トレースは恒等的に1なので、両方が非負である条件は $-1/3\le r\le1$ です。$I_4/4$ とBell状態はともに片側縮約が $I_2/2$ なので、[部分トレースの線形性](../QINF3/index.md#prop-qinf3-state-product)から全範囲で $\omega_A=\omega_B=I_2/2$ となります。
 
 **（2）** 行列を直接展開すると
 
