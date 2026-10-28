@@ -97,7 +97,13 @@ $$
 **定義の確認**。 恒等チャネルでは環境が一定の純粋状態を持つので $I_c(\rho,\operatorname{id}_d)=S(\rho)$。最大混合入力 $I_d/d$ なら $\log_2d$。完全消去チャネル $\mathcal T(\rho)=|e\rangle\langle e|$ では環境が $\rho$ を受け取る等長表現を選べるので $I_c(\rho,\mathcal T)=-S(\rho)$。混合入力では負、純粋入力では0です。いずれも精製・出力・環境の状態から定義を直接計算しました。
 <!-- definition-example-end -->
 
-もう一つ、qubitの位相反転チャネル $\mathcal Z_q(\rho)=(1-q)\rho+qZ\rho Z$ に $\rho=I_2/2$ を入力すると、$B$ は $I_2/2$、相補系の状態は $\operatorname{diag}(1-q,q)$ となります。後者はKraus演算子 $\sqrt{1-q}I,\sqrt q Z$ の環境基底で $\operatorname{Tr}(K_i\rho K_j^\dagger)$ を並べれば確かめられ、非対角成分は $\operatorname{Tr}(\rho Z)=0$ です。ゆえに
+もう一つ、qubitの位相反転チャネルを考えます。$Z=\operatorname{diag}(1,-1)$ は計算基底の相対位相を反転するPauli行列、$q\in[0,1]$ はその適用確率として
+
+$$
+\mathcal Z_q(\rho)=(1-q)\rho+qZ\rho Z
+$$
+
+と置きます。$\rho=I_2/2$ を入力すると、$B$ は $I_2/2$、相補系は $\operatorname{diag}(1-q,q)$ です。後者はKraus演算子 $K_0=\sqrt{1-q}I,\ K_1=\sqrt q Z$ を[QINF8の相補行列公式](../QINF8/index.md#prop-qinf8-complement-matrix)へ代入し、環境基底で $\operatorname{Tr}(K_i\rho K_j^\dagger)$ を並べれば確かめられます。非対角成分は $\operatorname{Tr}(\rho Z)=0$ です。ゆえに
 
 $$
 I_c(I_2/2,\mathcal Z_q)=1-h_2(q),\qquad
