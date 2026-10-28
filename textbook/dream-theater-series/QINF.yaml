@@ -101,7 +101,7 @@ chapters:
     title: "量子典型部分空間とSchumacher圧縮"
   - id: QINF23
     path: textbook/volumes/dream_thater/応用系/QINF/QINF23
-    status: completed
+    status: planned
     title: "量子通信路での古典通信"
   - id: QINF24
     path: textbook/volumes/dream_thater/応用系/QINF/QINF24
