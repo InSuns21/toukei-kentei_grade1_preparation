@@ -965,6 +965,7 @@
 4. [CAG1-04 射影空間上のねじり層と比較の基底例](textbook/volumes/dream_thater/代数系/CAG/CAG1-04/index.md)
 5. [CAG1-05 GAGA I――連接層コホモロジーの比較](textbook/volumes/dream_thater/代数系/CAG/CAG1-05/index.md)
 6. [CAG1-06 GAGA II――正則な層の射の代数性](textbook/volumes/dream_thater/代数系/CAG/CAG1-06/index.md)
+7. [CAG1-07 GAGA III――正則連接層の代数化](textbook/volumes/dream_thater/代数系/CAG/CAG1-07/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線

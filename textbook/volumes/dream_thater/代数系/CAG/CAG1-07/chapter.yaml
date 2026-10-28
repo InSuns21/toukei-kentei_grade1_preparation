@@ -1,0 +1,42 @@
+id: "CAG1-07"
+title: "GAGA III――正則連接層の代数化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-06
+official_scope: []
+learning_objectives:
+  - 解析的連接層の代数化を同型付きの組として定義し、存在と同型を除く一意性の違いを説明できる
+  - 射影スキーム上の解析的連接層について、解析的有限次元性と十分大きなねじりの大域生成を未証明の解析的入力として正確に使用できる
+  - 大域生成を二度使い、解析的連接層を解析化されたねじり層の有限二項表示として構成できる
+  - GAGA IIで表示行列を代数化し、解析化の完全性を用いて代数的余核が元の解析的連接層を復元することを証明できる
+  - 代数化の同型を除く一意性、非被約の例、非射影の場合に壊れる箇所を具体的に検証できる
+definitions:
+  - { id: CAG1-07-DEF-01, name: 解析的連接層の代数化 }
+theorems:
+  - { id: CAG1-07-THM-01, name: Cartan–Serre型の解析的大域生成と有限次元性 }
+  - { id: CAG1-07-LEM-01, name: 解析的連接層のねじり層による二項表示 }
+  - { id: CAG1-07-THM-02, name: GAGA III――解析的連接層の代数化 }
+  - { id: CAG1-07-COR-01, name: 指定同型と両立する代数化の一意性 }
+  - { id: CAG1-07-PROP-01, name: 射影直線上の長さ二の解析的層の代数化 }
+canonical_examples:
+  - P1上のO(1)の大域生成とO(-1)からO二つへの表示
+  - P1の二重零点を持つ解析的連接層とO(-2)からOへの表示
+  - P1上のS二乗とT二乗の対角行列の余核と支持
+  - A1のsin(pi z)の零点集合に支えられた解析的連接層の非代数化
+problem_patterns:
+  - CAG1-07-A01
+  - CAG1-07-A02
+  - CAG1-07-A03
+  - CAG1-07-A04
+  - CAG1-07-A05
+  - CAG1-07-B01
+  - CAG1-07-B02
+  - CAG1-07-B03
+  - CAG1-07-B04
+  - CAG1-07-C01
+  - CAG1-07-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
