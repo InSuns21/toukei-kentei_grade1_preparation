@@ -132,7 +132,21 @@ $$
 
 まず全射性。解析的可逆層 $E$ は局所自由階数1なので解析的連接層である。[射影版GAGAの圏同値](../CAG1-08/index.md#thm-cag1-08-projective-equivalence)の本質的全射性により、ある代数的連接層 $F$ と同型 $F^{\mathrm{an}}\simeq E$ がある。ここで $F$ が局所可逆であることが必要になる。
 
-その確認は[解析的正則線束の代数化補題](../CAG1-09/index.md#lem-cag1-09-line-bundle-sections)の局所議論による。具体的には $X$ の閉点 $p$ について代数的局所環 $A=\mathcal O_{X,p}$、解析的局所環 $B=\mathcal O_{X^{\mathrm{an}},p}$ と置く。[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により $A\to B$ は忠実平坦で、有限生成 $A$-加群 $M=F_p$ は $M\otimes_A B\simeq B$ を満たす。剰余体はともに $\mathbb C$ だから $M/\mathfrak m_A M$ は一次元であり、[Nakayamaの生成元判定](#lem-cag1-10-nakayama)で全射 $A\twoheadrightarrow M$ を得る。テンソル後の全射 $B\twoheadrightarrow B$ は局所環の自己全射なので単元倍の同型である。平坦性によって核 $I$ は $I\otimes_A B=0$、忠実性から $I=0$。よって $M\simeq A$ である。
+その確認は[解析的正則線束の代数化補題](../CAG1-09/index.md#lem-cag1-09-line-bundle-sections)の局所議論による。$X$ の閉点 $p$ を固定し、代数的局所環と解析的局所環を
+
+$$
+A=\mathcal O_{X,p},\qquad B=\mathcal O_{X^{\mathrm{an}},p}
+$$
+
+と置く。[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により $A\to B$ は忠実平坦である。有限生成加群 $M=F_p$ は $M\otimes_A B\simeq B$ を満たす。両局所環の剰余体は $\mathbb C$ なので、$M/\mathfrak m_A M$ は一次元である。
+
+[Nakayamaの生成元判定](#lem-cag1-10-nakayama)で全射 $A\twoheadrightarrow M$ を得る。これを $B$ とテンソルすると $B\twoheadrightarrow B$ となり、局所環の自己全射だから単元倍の同型である。元の核を $I$ と置けば、平坦性と忠実性により
+
+$$
+I\otimes_A B=0\quad\Longrightarrow\quad I=0.
+$$
+
+よって $M\simeq A$ である。
 
 局所自由階数1でない点の集合は有限表示加群の局所自由性の開性によって閉集合であり、非空なら有限型 $\mathbb C$-スキーム上に閉点を持つ。すべての閉点で自由と分かったのでその集合は空となる。したがって $F$ は代数的可逆層で、$\alpha_X([F])=[E]$。これは全射性である。
 
@@ -280,7 +294,13 @@ $$
 
 この例では滑らかな大域非零枠があるため位相的第一Chern類は零だが、正則に自明ではない。**線束を連続関数で貼るのか、正則関数で貼るのか**が違いを生む。射影GAGAは代数的可逆層と**正則**可逆層の比較であり、連続線束への比較ではない。
 
-また「正の線束」は、あるHermite計量のChern曲率が正という追加条件である。[正の正則線束の定義](../../../幾何系/KAH/KAH1-14/index.md#def-kah1-14-positive-line-bundle)によれば、$\mathbb{CP}^1$ の $\mathcal O(1)^{\mathrm{an}}$ は正だが、$\mathcal O(-1)^{\mathrm{an}}$ は $c_1$ の積分が $-1$ なので正になれない。自明束 $\mathcal O$ も、コンパクトな $\mathbb{CP}^1$ 上では $\int c_1=0$ のため正になれない。**正則線束であることと正であることは別**である。
+また「正の線束」は、あるHermite計量のChern曲率が正という追加条件である。[正の正則線束の定義](../../../幾何系/KAH/KAH1-14/index.md#def-kah1-14-positive-line-bundle)によれば、$\mathbb{CP}^1$ の $\mathcal O(1)^{\mathrm{an}}$ は正だが、$\mathcal O(-1)^{\mathrm{an}}$ は正になれない。実際、後者の第一Chern数は
+
+$$
+\int_{\mathbb{CP}^1}c_1(\mathcal O(-1))=-1
+$$
+
+であり、曲率が正なら積分が正となる条件に反する。自明束 $\mathcal O$ も同じ積分が零となるため、コンパクトな $\mathbb{CP}^1$ 上では正になれない。**正則線束であることと正であることは別**である。
 
 ## 5. 射影性を外したときの注意
 
@@ -400,7 +420,15 @@ $X$ を射影 $\mathbb C$-スキーム、$E$ をその解析化上の正則線�
 $M=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上で $(z+1,v)\sim(z,-v)$、$(z+i,v)\sim(z,v)$ と貼る線束を考える。$e^{\pi i\operatorname{Re}z}$ が滑らかな枠を与えることと、正則な枠が存在しないことをそれぞれ示せ。
 
 <!-- solution-start -->
-**詳細解答。** $f_{\mathrm{sm}}(z)=e^{\pi i\operatorname{Re}z}$ は零にならず、実部が $1$ 増えると $-1$ 倍、$i$ 増えると不変なので貼り合わせの条件を満たす。よって滑らかな線束として自明。正則枠が存在すれば、整関数 $f$ が $f(z+1)=-f(z)$、$f(z+i)=f(z)$ を満たし零にならないはずである。絶対値は格子周期的で、基本正方形での最大値が全平面の上界になる。[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)で $f$ は定数となり、反周期条件から零しか許されない。矛盾する。
+**詳細解答。** $f_{\mathrm{sm}}(z)=e^{\pi i\operatorname{Re}z}$ は零にならず、実部が $1$ 増えると $-1$ 倍、$i$ 増えると不変なので貼り合わせの条件を満たす。よって滑らかな線束として自明である。
+
+正則枠が存在すれば、零にならない整関数 $f$ が
+
+$$
+f(z+1)=-f(z),\qquad f(z+i)=f(z)
+$$
+
+を満たすはずである。$|f|$ は格子周期的で、閉正方形 $\{x+iy:0\le x,y\le1\}$ 上の最大値が全平面の上界になる。[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)で $f$ は定数となるが、反周期条件からその定数は零。非零枠の仮定に矛盾する。
 <!-- solution-end -->
 
 <a id="ex-cag1-10-b04"></a>
@@ -429,31 +457,50 @@ $$
 #### CAG1-10-C01 GAGAの三本柱からPicard群へ
 - Level: C
 
-$X$ を射影 $\mathbb C$-スキームとする。(1) 解析的可逆層を連接層として代数化しただけでは足りない理由を説明せよ。(2) その障害をどの局所事実で除くかを示せ。(3) 線束の同型類の一意性と群演算の保存を、GAGAのどの部分で示すか整理せよ。(4) $X=\mathbb A^1_{\mathbb C}$ へ同じ証明を持ち込めない理由を述べよ。ただし $\operatorname{Pic}(\mathbb A^1)=\operatorname{Pic}_{\mathrm{hol}}(\mathbb C)=0$ という事実自体は用いてよい。
+$X$ を射影 $\mathbb C$-スキームとする。以下を示せ。
+
+1. 解析的可逆層を連接層として代数化しただけでは足りない理由を説明せよ。
+2. その障害をどの局所事実で除くかを示せ。
+3. 線束の同型類の一意性と群演算の保存を、GAGAのどの部分で示すか整理せよ。
+4. $X=\mathbb A^1_{\mathbb C}$ へ同じ証明を持ち込めない理由を述べよ。ただし $\operatorname{Pic}(\mathbb A^1)=\operatorname{Pic}_{\mathrm{hol}}(\mathbb C)=0$ という事実自体は用いてよい。
 
 <!-- solution-start -->
-**詳細解答。** (1) [GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)が戻すのは一般の代数的連接層 $F$ であり、代数的Picard群の元にするには各点で $F_p\simeq\mathcal O_{X,p}$ が必要である。(2) 閉点で $A=\mathcal O_{X,p}$、$B=\mathcal O_{X^{\mathrm{an}},p}$ と置き、$F_p\otimes_A B\simeq B$ と[忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)を用いる。剰余体で一次元を得て[Nakayamaの生成元判定](#lem-cag1-10-nakayama)により $A\twoheadrightarrow F_p$。平坦性で核のテンソルが零、忠実性で核が零となり $F_p\simeq A$。局所自由性の非成立集合は閉で、非空なら閉点を含むからすべての点で可逆となる。
+**詳細解答。**
 
-(3) 解析的同型の正射と逆射を[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom)で持ち上げ、合成が恒等射であることをHom写像の単射性で示す。テンソル積・双対は局所遷移関数の積・逆数となるので[群演算の命題](#prop-cag1-10-tensor)が適用できる。(4) アフィン直線は射影でないためGAGA II/IIIの仮定を満たさず、同じ証明はできない。提示された例ではPicard群自体は双方零だが、[大域関数の比較失敗](../CAG1-01/index.md#prop-cag1-01-affine-mismatch)が示すように、Picard群の偶然の一致からGAGA全体の成立は導けない。
+1. [GAGA III](../CAG1-07/index.md#thm-cag1-07-gaga-algebraization)が戻すのは一般の代数的連接層 $F$ であり、代数的Picard群の元にするには各点で $F_p\simeq\mathcal O_{X,p}$ が必要である。
+2. 閉点で $A=\mathcal O_{X,p}$、$B=\mathcal O_{X^{\mathrm{an}},p}$ と置き、$F_p\otimes_A B\simeq B$ と[忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)を用いる。剰余体で一次元を得て[Nakayamaの生成元判定](#lem-cag1-10-nakayama)により $A\twoheadrightarrow F_p$。平坦性で核のテンソルが零、忠実性で核が零となり $F_p\simeq A$。局所自由性の非成立集合は閉で、非空なら閉点を含むからすべての点で可逆となる。
+
+3. 解析的同型の正射と逆射を[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom)で持ち上げ、合成が恒等射であることをHom写像の単射性で示す。テンソル積・双対は局所遷移関数の積・逆数となるので[群演算の命題](#prop-cag1-10-tensor)が適用できる。
+4. アフィン直線は射影でないためGAGA II/IIIの仮定を満たさず、同じ証明はできない。提示された例ではPicard群自体は双方零だが、[大域関数の比較失敗](../CAG1-01/index.md#prop-cag1-01-affine-mismatch)が示すように、Picard群の偶然の一致からGAGA全体の成立は導けない。
 <!-- solution-end -->
 
 <a id="ex-cag1-10-c02"></a>
 #### CAG1-10-C02 指数完全列が忘れる情報
 - Level: C
 
-複素多様体 $M$ 上で、正則遷移 $g_{ij}$ を局所対数 $e^{2\pi i\ell_{ij}}=g_{ij}$ に持ち上げるとする。(1) 三重重なりの整数値余輪を作れ。(2) $c_1(L)=0$ から正則自明性が一般には従わない理由を指数完全列で述べよ。(3) $M=\mathbb C/(\mathbb Z+i\mathbb Z)$ の $g$ を格子方向 $1$ で $-1$、$i$ で $1$ とした線束について、位相的自明性と正則非自明性を具体的に検証せよ。(4) $\mathbb{CP}^1$ 上の $\mathcal O(-1)^{\mathrm{an}}$ は正の線束か判定せよ。
+複素多様体 $M$ 上で、正則遷移 $g_{ij}$ を局所対数 $e^{2\pi i\ell_{ij}}=g_{ij}$ に持ち上げるとする。以下を示せ。
+
+1. 三重重なりの整数値余輪を作れ。
+2. $c_1(L)=0$ から正則自明性が一般には従わない理由を指数完全列で述べよ。
+3. $M=\mathbb C/(\mathbb Z+i\mathbb Z)$ の $g$ を格子方向 $1$ で $-1$、$i$ で $1$ とした線束について、位相的自明性と正則非自明性を具体的に検証せよ。
+4. $\mathbb{CP}^1$ 上の $\mathcal O(-1)^{\mathrm{an}}$ は正の線束か判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** (1) [遷移関数の余輪条件](../../../幾何系/CM/CM2-06/index.md#def-cm2-06-transition-cocycle)から $g_{ij}g_{jk}=g_{ik}$ なので
+**詳細解答。**
+
+1. [遷移関数の余輪条件](../../../幾何系/CM/CM2-06/index.md#def-cm2-06-transition-cocycle)から $g_{ij}g_{jk}=g_{ik}$ なので
 
 $$
 e^{2\pi i(\ell_{ij}+\ell_{jk}-\ell_{ik})}=1,
 \qquad n_{ijk}=\ell_{ij}+\ell_{jk}-\ell_{ik}\in\mathbb Z.
 $$
 
-これが第一Chern類を表す整数2-余輪である。(2) [指数完全列](#thm-cag1-10-exponential)の完全性は $\ker c_1=\operatorname{im}(H^1(M,\mathcal O_M)\to\operatorname{Pic}_{\mathrm{hol}}(M))$ と述べる。像に零以外のPicard類が残り得るので、$c_1(L)=0$ だけでは自明とは言えない。
+これが第一Chern類を表す整数2-余輪である。
 
-(3) $f_{\mathrm{sm}}(z)=e^{\pi i\operatorname{Re}z}$ は $f(z+1)=-f(z)$、$f(z+i)=f(z)$ の変換則を満たす滑らかな非零枠である。正則枠 $f$ を仮定すると、絶対値は両格子方向に周期的なので有界整関数になり、Liouvilleの定理で定数。$f(z+1)=-f(z)$ より $f=0$ となり、非零枠に矛盾する。(4) $\int_{\mathbb{CP}^1}c_1(\mathcal O(-1))=-1$。正のChern曲率があれば曲線上の積分は正になるため、正の線束ではない。
+2. [指数完全列](#thm-cag1-10-exponential)の完全性は $\ker c_1=\operatorname{im}(H^1(M,\mathcal O_M)\to\operatorname{Pic}_{\mathrm{hol}}(M))$ と述べる。像に零以外のPicard類が残り得るので、$c_1(L)=0$ だけでは自明とは言えない。
+
+3. $f_{\mathrm{sm}}(z)=e^{\pi i\operatorname{Re}z}$ は $f(z+1)=-f(z)$、$f(z+i)=f(z)$ の変換則を満たす滑らかな非零枠である。正則枠 $f$ を仮定すると、絶対値は両格子方向に周期的なので有界整関数になり、[Liouvilleの定理](../../../解析系/CA/CA3/index.md#thm-ca3-liouville)で定数。$f(z+1)=-f(z)$ より $f=0$ となり、非零枠に矛盾する。
+4. $\int_{\mathbb{CP}^1}c_1(\mathcal O(-1))=-1$。正のChern曲率があれば曲線上の積分は正になるため、正の線束ではない。
 <!-- solution-end -->
 
 ## まとめと次章への橋
