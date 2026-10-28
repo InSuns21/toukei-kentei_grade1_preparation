@@ -1260,6 +1260,7 @@
 6. [QFT6 遅延・先進・Feynman伝播関数とiε処方](textbook/volumes/dream_thater/物理系/QFT/QFT6/index.md)
 7. [QFT7 Dirac場のLorentz変換・Clifford代数と平面波解](textbook/volumes/dream_thater/物理系/QFT/QFT7/index.md)
 8. [QFT8 フェルミオンFock空間・反交換関係とDirac伝播関数](textbook/volumes/dream_thater/物理系/QFT/QFT8/index.md)
+9. [QFT9 相互作用描像・Dyson級数・Wickの定理](textbook/volumes/dream_thater/物理系/QFT/QFT9/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I

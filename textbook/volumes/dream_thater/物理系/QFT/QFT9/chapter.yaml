@@ -1,0 +1,49 @@
+id: QFT9
+title: "相互作用描像・Dyson級数・Wickの定理"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT4
+  - QFT6
+  - QFT8
+official_scope: []
+learning_objectives:
+  - 有限時刻の相互作用描像を自由Hamiltonianから導き、時間依存する相互作用Hamiltonianと発展方程式を区別できる
+  - Dyson級数の二次・三次項を時間順序の単体積分から構成し、非可換性と次数ごとのユニタリ性を検算できる
+  - 正規順序と時間順序を区別し、自由スカラー場のWickの定理を生成・消滅演算子の交換関係から導ける
+  - 複数のボース場の収縮数と対称係数を計算し、同一点の積の特異性について有限カットオフと連続極限を区別できる
+  - フェルミオンのWick展開で置換の偶奇を追い、Dirac場の四点関数の相対負号を導ける
+  - 摂動的な真空規格化で真空bubbleが消える機構を有限次数で検算し、S行列極限の追加仮定を述べられる
+definitions:
+  - { id: QFT9-DEF-01, name: 相互作用描像と相互作用Hamiltonian }
+  - { id: QFT9-DEF-02, name: 時間順序積とDyson級数 }
+  - { id: QFT9-DEF-03, name: 自由場のWick収縮 }
+  - { id: QFT9-DEF-04, name: フェルミオンのWick収縮 }
+  - { id: QFT9-DEF-05, name: 真空規格化した摂動相関関数 }
+theorems:
+  - { id: QFT9-THM-01, name: 相互作用描像の発展方程式 }
+  - { id: QFT9-THM-02, name: Dyson展開の時間順序表示と二次ユニタリ性 }
+  - { id: QFT9-THM-03, name: ボース自由場のWickの定理 }
+  - { id: QFT9-THM-04, name: フェルミオンのWickの定理と置換符号 }
+  - { id: QFT9-PROP-01, name: 真空bubbleの摂動的相殺 }
+canonical_examples:
+  - 二段の非可換なPauli相互作用と時間順序の効果
+  - スカラー場四点関数の三つの完全収縮
+  - 二つの正規順序二次単項式の収縮係数 1・4・2
+  - Dirac場四点関数の二つの完全収縮と相対負号
+  - 正規順序四次相互作用の一次四外線項と二次真空bubble
+problem_patterns:
+  - QFT9-PICTURE-DERIVATIVE
+  - QFT9-ORDERED-INTEGRAL
+  - QFT9-BOSON-FOUR-POINT
+  - QFT9-NORMAL-CONTRACTIONS
+  - QFT9-FERMION-PAIR-SIGN
+  - QFT9-DYSON-UNITARITY
+  - QFT9-NONCOMMUTING-PULSES
+  - QFT9-MIXED-MONOMIAL-WICK
+  - QFT9-FERMION-FOUR-POINT
+  - QFT9-PERTURBATIVE-VACUUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 4 }

@@ -1,0 +1,79 @@
+chapter: QFT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT4
+  - QFT6
+  - QFT8
+forward_references: []
+
+concepts:
+  - id: qft.interaction-picture
+    name: 相互作用描像と相互作用Hamiltonian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相互作用描像と相互作用Hamiltonian）]
+    requires: [qft.number-and-normal-hamiltonian]
+
+  - id: qft.interaction-picture-evolution
+    name: 相互作用描像の発展方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相互作用描像の発展方程式）]
+    requires: [qft.interaction-picture]
+
+  - id: qft.dyson-series
+    name: 時間順序積とDyson級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時間順序積とDyson級数）]
+    requires: [qft.interaction-picture-evolution]
+
+  - id: qft.dyson-time-ordering
+    name: Dyson展開の時間順序表示と二次ユニタリ性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dyson展開の時間順序表示と二次ユニタリ性）]
+    requires: [qft.dyson-series]
+
+  - id: qft.bosonic-wick-contraction
+    name: 自由場のWick収縮
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由場のWick収縮）]
+    requires: [qft.feynman-two-point, qft.dyson-series]
+
+  - id: qft.bosonic-wick-theorem
+    name: ボース自由場のWickの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ボース自由場のWickの定理）]
+    requires: [qft.bosonic-wick-contraction]
+
+  - id: qft.fermionic-wick-contraction
+    name: フェルミオンのWick収縮
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（フェルミオンのWick収縮）]
+    requires: [qft.canonical-anticommutation, qft.dirac-feynman-propagator, qft.dyson-series]
+
+  - id: qft.fermionic-wick-theorem
+    name: フェルミオンのWickの定理と置換符号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（フェルミオンのWickの定理と置換符号）]
+    requires: [qft.fermionic-wick-contraction, qft.bosonic-wick-theorem]
+
+  - id: qft.vacuum-normalized-perturbation
+    name: 真空規格化した摂動相関関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（真空規格化した摂動相関関数）]
+    requires: [qft.dyson-time-ordering, qft.bosonic-wick-theorem, qft.normal-order-zero-point]
+
+  - id: qft.vacuum-bubble-cancellation
+    name: 真空bubbleの摂動的相殺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空bubbleの摂動的相殺）]
+    requires: [qft.vacuum-normalized-perturbation]
