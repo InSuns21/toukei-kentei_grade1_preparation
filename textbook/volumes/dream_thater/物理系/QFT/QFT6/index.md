@@ -271,7 +271,16 @@ $$
 <!-- definition-example-start: def-qft6-feynman-two-point -->
 ### 例：時間を逆にして正負周波数を切り替える
 
-**定義の確認**：空間運動量 $\boldsymbol p$ を固定します。$t=2$ なら核の時間係数は $e^{-2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$、$t=-2$ なら $e^{-2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ です。前者は $W(2,\boldsymbol x)$、後者は $W(2,-\boldsymbol x)$ から来ます。単純に $W(t,\boldsymbol x)$ を両側へ使うと、負の時刻では $e^{+2i\omega}$ となり時間順序を再現しません。
+**定義の確認**：空間運動量 $\boldsymbol p$ を固定します。空間Fourier表示の時間係数は、正負の時刻でそれぞれ
+
+$$
+\begin{aligned}
+t=2 &: \quad \frac{e^{-2i\omega_{\boldsymbol p}}}{2\omega_{\boldsymbol p}},\\
+t=-2 &: \quad \frac{e^{-2i\omega_{\boldsymbol p}}}{2\omega_{\boldsymbol p}}
+\end{aligned}
+$$
+
+となります。前者は $W(2,\boldsymbol x)$、後者は $W(2,-\boldsymbol x)$ から来ます。単純に $W(t,\boldsymbol x)$ を両側へ使うと、負の時刻では $e^{+2i\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ となり時間順序を再現しません。
 <!-- definition-example-end -->
 
 <a id="thm-qft6-feynman-poles"></a>
