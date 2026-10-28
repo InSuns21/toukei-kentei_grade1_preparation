@@ -1,0 +1,74 @@
+chapter: QINF16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF13
+  - QINF15
+forward_references: []
+
+concepts:
+  - id: quantum.bell-local-hidden-variable-model
+    name: 二設定二値Bell実験と局所隠れ変数模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二設定二値Bell実験と局所隠れ変数模型）]
+    requires: [quantum.composite-system, quantum.povm]
+
+  - id: quantum.chsh-correlator
+    name: CHSH相関量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（CHSH相関量）]
+    requires: [quantum.bell-local-hidden-variable-model]
+
+  - id: quantum.chsh-classical-bound
+    name: 局所隠れ変数模型のCHSH不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（局所隠れ変数模型のCHSH不等式）]
+    requires: [quantum.chsh-correlator]
+
+  - id: quantum.binary-quantum-chsh-operator
+    name: 二値量子測定の相関とCHSH作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二値量子測定の相関とCHSH作用素）]
+    requires: [quantum.povm, quantum.chsh-correlator, quantum.finite-density-operator]
+
+  - id: quantum.tsirelson-bound
+    name: Tsirelson上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Tsirelson上界）]
+    requires: [quantum.binary-quantum-chsh-operator]
+
+  - id: quantum.chsh-bell-saturation
+    name: Bell状態によるTsirelson上界の達成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Bell状態によるTsirelson上界の達成）]
+    requires: [quantum.tsirelson-bound, quantum.one-ebit-resource]
+
+  - id: quantum.bell-no-signalling
+    name: 無信号条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（無信号条件）]
+    requires: [quantum.bell-local-hidden-variable-model]
+
+  - id: quantum.chsh-separable-and-no-signalling
+    name: 分離可能状態のCHSH上界と無信号性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（分離可能状態のCHSH上界と無信号性）]
+    requires: [quantum.bipartite-mixed-separability, quantum.chsh-classical-bound, quantum.bell-no-signalling]
+
+  - id: quantum.chsh-operator-square
+    name: 射影二値測定のCHSH作用素二乗恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（射影二値測定のCHSH作用素二乗恒等式）]
+    requires: [quantum.binary-quantum-chsh-operator]

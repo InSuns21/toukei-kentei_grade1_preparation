@@ -1,0 +1,49 @@
+id: "QINF16"
+title: "Bell不等式とCHSH"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF2
+  - QINF3
+  - QINF5
+  - QINF13
+  - QINF15
+official_scope: []
+learning_objectives:
+  - 二つの測定設定と二値結果の条件付き確率を定義し、局所隠れ変数模型の因子化と測定設定の独立性を区別できる
+  - 確率的な局所応答まで含め、CHSH式の古典上界2を全ての設定に対して導ける
+  - 二値POVMからHermitian収縮作用素を構成し、量子相関とCHSH作用素を密度演算子の期待値として表せる
+  - 有限次元の任意の二値局所測定についてTsirelson上界2√2を証明できる
+  - Bell対とPauli測定により上界を達成し、可換性・局所測定条件を検算できる
+  - 分離可能性・CHSH違反・無信号条件の論理関係を具体的な混合状態と非量子的確率表から区別できる
+definitions:
+  - { id: QINF16-DEF-01, name: "二設定二値Bell実験と局所隠れ変数模型" }
+  - { id: QINF16-DEF-02, name: "CHSH相関量" }
+  - { id: QINF16-DEF-03, name: "二値量子測定の相関とCHSH作用素" }
+  - { id: QINF16-DEF-04, name: "無信号条件" }
+theorems:
+  - { id: QINF16-THM-01, name: "局所隠れ変数模型のCHSH不等式" }
+  - { id: QINF16-THM-02, name: "Tsirelson上界" }
+  - { id: QINF16-PROP-01, name: "Bell状態によるTsirelson上界の達成" }
+  - { id: QINF16-PROP-02, name: "分離可能状態のCHSH上界と無信号性" }
+  - { id: QINF16-LEM-01, name: "射影二値測定のCHSH作用素二乗恒等式" }
+canonical_examples:
+  - "局所決定論的応答によるCHSH=2の達成"
+  - "Bell対とZ・X・45度傾斜測定によるCHSH=2√2"
+  - "白色雑音付きBell状態のエンタングルメントとCHSH検出の境界"
+  - "無信号だがTsirelson上界に反する確率表"
+problem_patterns:
+  - QINF16-LOCAL-DETERMINISTIC
+  - QINF16-STOCHASTIC-RESPONSE
+  - QINF16-PAULI-OBSERVABLES
+  - QINF16-BELL-CORRELATORS
+  - QINF16-NONSIGNALLING-BOX
+  - QINF16-TSIRELSON-CAUCHY
+  - QINF16-SEPARABLE-BOUND
+  - QINF16-COMMUTATOR-IDENTITY
+  - QINF16-CHSH-STATISTICS
+  - QINF16-NOISE-AND-ENTANGLEMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
