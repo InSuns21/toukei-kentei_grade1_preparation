@@ -1,0 +1,20 @@
+chapter: QFT3
+terms:
+  - term: Cauchy初期値
+    english: Cauchy initial data
+    meaning: "時刻零の場の値と時間微分の組。二階のKlein–Gordon方程式の解を定める。"
+  - term: Schwartz関数
+    english: Schwartz function
+    meaning: "関数と全階微分が、空間無限遠で任意の多項式より速く減衰する滑らかな関数。"
+  - term: 正振動数成分
+    english: positive-frequency component
+    meaning: "時間因子e^{-iωt}を持つ自由場の成分（ω>0）。正のエネルギーと関係するが、単独で実場とは限らない。"
+  - term: Klein–Gordon保存形式
+    english: Klein–Gordon sesquilinear form
+    meaning: "複素解二つの間の保存されるHermite形式。全解空間上では正定値ではない。"
+  - term: smearing
+    english: smearing
+    meaning: "点での値の代わりに試験関数を掛けて積分し、場を試験関数への作用として読む操作。"
+  - term: 緩増加超関数
+    english: tempered distribution
+    meaning: "Schwartz関数空間上で連続線形に作用する汎関数。急減少する試験関数に対して定義できる。"

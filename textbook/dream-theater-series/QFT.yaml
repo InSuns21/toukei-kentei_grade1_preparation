@@ -14,3 +14,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT2
     status: completed
     title: "場の対称性・Noether流・エネルギー運動量テンソル"
+  - id: QFT3
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT3
+    status: completed
+    title: "Klein–Gordon場の初期値・振動数分解・超関数"
