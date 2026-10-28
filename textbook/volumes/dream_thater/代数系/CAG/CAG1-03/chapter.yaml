@@ -1,0 +1,46 @@
+id: "CAG1-03"
+title: "代数的連接層と解析的連接層"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-02
+  - AG3-06
+  - AG2-06
+official_scope: []
+learning_objectives:
+  - 代数的連接層の有限表示と解析的連接層の核条件を区別し、局所表示を具体的な行列で書ける
+  - 解析化の層の引戻しとテンソル積による定義を説明し、茎・余核・非被約例を計算できる
+  - 代数的局所環から解析的局所環への忠実平坦性が高度な解析的入力を要することを理解し、完全列保存を導ける
+  - 解析的連接性の根拠と有限表示・平坦性それぞれの役割を分けて説明できる
+  - 射影直線上の O(d) の遷移関数を解析化後も同じ向きで照合し、大域切断の完全性とは区別できる
+definitions:
+  - { id: CAG1-03-DEF-01, name: 解析的連接層 }
+  - { id: CAG1-03-DEF-02, name: 連接層の解析化 }
+theorems:
+  - { id: CAG1-03-PROP-01, name: 有限表示の解析化と余核の計算 }
+  - { id: CAG1-03-THM-01, name: Okaの連接性定理 }
+  - { id: CAG1-03-THM-02, name: 解析化における局所環の忠実平坦性 }
+  - { id: CAG1-03-THM-03, name: 連接層の解析化と完全列の保存 }
+  - { id: CAG1-03-PROP-02, name: ねじり層の解析化と遷移関数 }
+canonical_examples:
+  - A/(t^2) の解析化と原点に集中する二重構造
+  - C[x,y]/(x,y) の有限表示行列と解析的余核
+  - 点評価による非平坦な写像と局所解析化との比較
+  - P1 の O(d) の局所基底と遷移関数
+  - Euler型短完全列と大域切断関手の非完全性
+  - xy=y^2=0 上の A/(x) の解析化
+problem_patterns:
+  - CAG1-03-A01
+  - CAG1-03-A02
+  - CAG1-03-A03
+  - CAG1-03-A04
+  - CAG1-03-A05
+  - CAG1-03-B01
+  - CAG1-03-B02
+  - CAG1-03-B03
+  - CAG1-03-B04
+  - CAG1-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 3 }

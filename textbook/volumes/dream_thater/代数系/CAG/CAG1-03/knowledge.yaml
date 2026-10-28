@@ -1,0 +1,59 @@
+chapter: CAG1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAG1-02
+  - AG3-06
+  - AG2-06
+forward_references: []
+
+concepts:
+  - id: complex-algebraic-geometry.analytic-coherent-sheaf
+    name: 解析的連接層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析的連接層）"]
+    requires: [algebraic-geometry.coherent-sheaf, complex-algebraic-geometry.analytic-subspace]
+
+  - id: complex-algebraic-geometry.coherent-sheaf-analytification
+    name: 連接層の解析化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連接層の解析化）"]
+    requires: [complex-algebraic-geometry.analytification-functor, algebraic-geometry.coherent-sheaf]
+
+  - id: complex-algebraic-geometry.analytic-presentation
+    name: 有限表示の解析化と余核の計算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限表示の解析化と余核の計算）"]
+    requires: [complex-algebraic-geometry.coherent-sheaf-analytification, algebraic-geometry.qc-finite-type-presentation]
+
+  - id: complex-algebraic-geometry.oka-coherence
+    name: Okaの連接性定理
+    kind: theorem
+    introduction: formal
+    aliases: ["Oka の連接性定理"]
+    introduction_aliases: ["定理（Okaの連接性定理）"]
+    requires: [complex-algebraic-geometry.analytic-coherent-sheaf]
+
+  - id: complex-algebraic-geometry.analytic-faithful-flatness
+    name: 解析化における局所環の忠実平坦性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（解析化における局所環の忠実平坦性）"]
+    requires: [complex-algebraic-geometry.stalk-comparison]
+
+  - id: complex-algebraic-geometry.analytic-coherence-exactness
+    name: 連接層の解析化と完全列の保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連接層の解析化と完全列の保存）"]
+    requires: [complex-algebraic-geometry.analytic-presentation, complex-algebraic-geometry.analytic-faithful-flatness, complex-algebraic-geometry.analytic-coherent-sheaf]
+
+  - id: complex-algebraic-geometry.analytic-twisting-sheaf
+    name: ねじり層の解析化と遷移関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ねじり層の解析化と遷移関数）"]
+    requires: [complex-algebraic-geometry.coherent-sheaf-analytification, algebraic-geometry.projective-twist]
