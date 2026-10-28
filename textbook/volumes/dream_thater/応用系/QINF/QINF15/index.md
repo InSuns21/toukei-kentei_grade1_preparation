@@ -417,7 +417,9 @@ $$
 
 $-1/3\le p\le1$ では後者は正なので、$p>1/3$ のときだけNPTです。[PPT必要条件](#thm-qinf15-ppt-necessary)によりその範囲はエンタングル状態です。
 
-残る範囲の分離可能性を証明します。[Bloch表示](../QINF2/index.md#def-qinf2-bloch-vector)で使ったPauli行列を $\sigma_x,\sigma_y,\sigma_z$ と書きます。単位座標ベクトル $\mathbf e_k$（$k=x,y,z$）方向の固有状態を $|k,+\rangle,|k,-\rangle$ とし、それぞれの射影を $P_{k,\pm}=(I_2\pm\sigma_k)/2$ とします。Pauli行列は $\sigma_k^2=I_2$、$\operatorname{Tr}\sigma_k=0$ だから
+残る範囲の分離可能性を証明します。[Bloch表示](../QINF2/index.md#def-qinf2-bloch-vector)で使ったPauli行列を $\sigma_x,\sigma_y,\sigma_z$ と書きます。
+
+単位座標ベクトル $\mathbf e_k$（$k=x,y,z$）方向の固有状態を $|k,+\rangle,|k,-\rangle$ とし、それぞれの射影を $P_{k,\pm}=(I_2\pm\sigma_k)/2$ とします。Pauli行列は $\sigma_k^2=I_2$、$\operatorname{Tr}\sigma_k=0$ だから
 
 $$
 P_{k,\pm}^2=\frac{I_2\pm2\sigma_k+\sigma_k^2}{4}
@@ -518,9 +520,32 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\|u_j\|=1$ です。$u_0,u_1$ はBob側、$u_0,u_2$ と $u_0,u_3$ はAlice側、$u_1,u_2$ はAlice側、$u_1,u_3$ と $u_2,u_3$ はBob側の内積が0です。$u_4$ との内積も、残る各 $u_j$ がどちらかの因子に $|0\rangle-|1\rangle$ または $|1\rangle-|2\rangle$ を持ち、その因子が $|s\rangle$ と直交するので0。従って5個は正規直交です。
+まず各 $\|u_j\|=1$ です。二つの積ベクトルの内積は局所内積の積になるので、次の6組は示した側の直交性により内積が0です。
 
-$P=\sum_j|u_j\rangle\langle u_j|$ はrank 5の直交射影で、$I_9-P$ はrank 4の直交射影です。従って $\rho_{\mathrm{tile}}=(I_9-P)/4\ge0$ かつ $\operatorname{Tr}\rho_{\mathrm{tile}}=(9-5)/4=1$。各 $u_j=|a_j\rangle\otimes|b_j\rangle$ のBob因子は**実成分**なので $|b_j\rangle\langle b_j|$ は対称行列です。[部分転置の定義](#def-qinf15-partial-transpose)から各 $|u_j\rangle\langle u_j|$ と $I_9$ が不変で、
+$$
+\begin{aligned}
+\text{Alice側が直交}:&(i,j)=(0,2),(0,3),(1,2),\\
+\text{Bob側が直交}:&(i,j)=(0,1),(1,3),(2,3).
+\end{aligned}
+$$
+
+ここで組 $(i,j)$ は $\langle u_i|u_j\rangle$ を調べる添字の対です。残る $u_4$ との内積についても
+
+$$
+\langle s|(|0\rangle-|1\rangle)=\frac{1-1}{\sqrt3}=0,\qquad
+\langle s|(|1\rangle-|2\rangle)=\frac{1-1}{\sqrt3}=0
+$$
+
+であり、$u_0,\ldots,u_3$ は必ずどちらかの因子にこの差を含むため、$u_4$ と直交します。従って5個は正規直交です。
+
+$P=\sum_j|u_j\rangle\langle u_j|$ はrank 5の直交射影で、$I_9-P$ はrank 4の直交射影です。従って
+
+$$
+\rho_{\mathrm{tile}}=\frac{I_9-P}{4}\ge0,\qquad
+\operatorname{Tr}\rho_{\mathrm{tile}}=\frac{9-5}{4}=1.
+$$
+
+また各 $u_j=|a_j\rangle\otimes|b_j\rangle$ のBob因子は**実成分**なので $|b_j\rangle\langle b_j|$ は対称行列です。[部分転置の定義](#def-qinf15-partial-transpose)から各 $|u_j\rangle\langle u_j|$ と $I_9$ が不変で、
 
 $$
 \rho_{\mathrm{tile}}^{\Gamma_B}=\rho_{\mathrm{tile}}\ge0.
@@ -818,7 +843,14 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**（1）** $|\Phi^+\rangle$ 方向では固有値 $(1-r)/4+r=(1+3r)/4$、それに直交する3次元では $(1-r)/4$ です。トレースは恒等的に1なので、両方が非負である条件は $-1/3\le r\le1$。$I_4/4$ とBell状態はともに片側縮約が $I_2/2$ なので、[部分トレースの線形性](../QINF3/index.md#prop-qinf3-state-product)から全範囲で $\omega_A=\omega_B=I_2/2$ です。
+**（1）** $|\Phi^+\rangle$ 方向とそれに直交する3次元での固有値は、それぞれ
+
+$$
+\lambda_\parallel=\frac{1-r}{4}+r=\frac{1+3r}{4},\qquad
+\lambda_\perp=\frac{1-r}{4}\quad(3\text{重}).
+$$
+
+トレースは恒等的に1なので、両方が非負である条件は $-1/3\le r\le1$ です。$I_4/4$ とBell状態はともに片側縮約が $I_2/2$ なので、[部分トレースの線形性](../QINF3/index.md#prop-qinf3-state-product)から全範囲で $\omega_A=\omega_B=I_2/2$ となります。
 
 **（2）** 行列を直接展開すると
 
