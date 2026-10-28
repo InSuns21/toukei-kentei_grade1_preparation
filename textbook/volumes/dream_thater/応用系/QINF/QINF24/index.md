@@ -12,11 +12,11 @@ $$
 
 となり、元の純粋なBell状態ではありません。通信路が古典情報を運べることだけでは十分でないのです。
 
-本章では有限次元の複素Hilbert空間、記憶のない量子チャネル $\mathcal N:A\to B$ の独立使用 $\mathcal N^{\otimes n}$、事前共有エンタングルメント・補助の古典通信の**ない**状況を扱います。対数は底2です。環境 $E$ は [Stinespring表現](../QINF8/index.md#thm-qinf8-stinespring)で導入し、[相補チャネル](../QINF8/index.md#def-qinf8-complement)を $\mathcal N^c:A\to E$ と書きます。
+本章では有限次元の複素Hilbert空間、記憶のない[量子チャネル（CPTP写像）](../QINF7/index.md#def-qinf7-channel) $\mathcal N:A\to B$ の独立使用 $\mathcal N^{\otimes n}$、事前共有エンタングルメント・補助の古典通信の**ない**状況を扱います。$\mathcal N^{\otimes n}$ は $n$ 個の入力系 $A_1,\ldots,A_n$ の各々に同じチャネルを作用させる記法で、添字は通信路の使用回を表します。対数は底2です。環境 $E$ は [Stinespring表現](../QINF8/index.md#thm-qinf8-stinespring)で導入し、[相補チャネル](../QINF8/index.md#def-qinf8-complement)を $\mathcal N^c:A\to E$ と書きます。
 
 ## 2. 参照系を使う伝送符号
 
-$M$ 次元の論理入力 $L$ と同じ次元の参照系 $R$ を考えます。参照系は送らず、受信後に両者の相関が元の状態と一致するかを検査します。[QINF11の忠実度](../QINF11/index.md#def-qinf11-fidelity)を使うと、一つの数でその検査ができます。
+$M$ 次元の論理入力 $L$ と同じ次元の参照系 $R$ を考えます。参照系は送らず、受信後に両者の相関が元の状態と一致するかを検査します。符号化には[等長写像の条件](../QINF4/index.md#thm-qinf4-isometric-freedom) $W^\dagger W=I_L$ を課し、論理系の内積を保存します。[QINF11の二乗忠実度](../QINF11/index.md#def-qinf11-fidelity)を使うと、一つの数でその検査ができます。
 
 <a id="def-qinf24-entanglement-code"></a>
 
@@ -36,13 +36,20 @@ F_e=\langle\Phi_M|(\operatorname{id}_R\otimes
 (\Phi_M)|\Phi_M\rangle
 $$
 
-> とする。ここで $\Phi_M=|\Phi_M\rangle\langle\Phi_M|$、$\operatorname{Ad}_W(X)=WXW^\dagger$。$F_e^{(n)}\to1$ かつ $\liminf_{n\to\infty}n^{-1}\log_2 M_n\ge R_0$ となる符号列があるとき $R_0$ は達成可能、上限を $Q(\mathcal N)$ とする。単位は qubit/通信路使用である。
+> とする。ここで $\Phi_M=|\Phi_M\rangle\langle\Phi_M|$、$\operatorname{id}_R$ は参照系上の恒等チャネル、$\operatorname{Ad}_W(X)=WXW^\dagger$。符号列について
+
+$$
+F_e^{(n)}\longrightarrow1,\qquad
+\liminf_{n\to\infty}\frac{\log_2M_n}{n}\ge R_0
+$$
+
+> を満たすとき $R_0$ は達成可能といい、その上限を $Q(\mathcal N)$ とする。単位は qubit/通信路使用である。
 <!-- formal-statement-end -->
 
 復号は補助系を用いてもよいですが、補助系を通じた別の通信は許しません。$M=2^k$ なら $k$ 論理qubitです。等長符号化により、入力の量子情報を捨てずに符号空間へ埋め込む模型を採用します。以下の達成可能性の構成も等長符号化を実際に与えます。以後、$I(R\rangle B)_\omega=-S(R|B)_\omega$ と略記します。
 
 <!-- definition-example-start: def-qinf24-entanglement-code -->
-**定義の確認**。 $\mathcal N=\operatorname{id}_2$、$n=1$、$M=2$、$W=\mathcal D=\operatorname{id}$ とすると出力は $\Phi_2$、$F_e=1$ です。逆に計算基底で測り、測定結果に対応する $|0\rangle$ または $|1\rangle$ を再準備するチャネルでは、Bell入力の出力 $\sigma$ に対し
+**定義の確認**。 $\mathcal N=\operatorname{id}_2$、$n=1$、$M=2$、$W=\mathcal D=\operatorname{id}$ とすると、$W^\dagger W=I_2$、復号はCPTPで、出力は $\Phi_2$、$F_e=1$ です。さらに任意の $n$ で $L=(\mathbb C^2)^{\otimes n}$、$M_n=2^n$、$W_n=\mathcal D_n=\operatorname{id}$ とすれば $F_e^{(n)}=1$、$n^{-1}\log_2M_n=1$ なので率1を達成します。逆に計算基底で測り、測定結果に対応する $|0\rangle$ または $|1\rangle$ を再準備するチャネルでは、Bell入力の出力 $\sigma$ に対し
 
 $$
 \langle\Phi_2|\sigma|\Phi_2\rangle
@@ -56,7 +63,7 @@ $$
 
 ## 3. coherent information：受信者と環境のエントロピー差
 
-通信路の入力に純粋状態を一つ固定すると、環境が何を得たかを測るには情報が足りません。未知の状態の混合を精製した参照系を保ち、出力との条件付きエントロピーを見るのが適切です。
+通信路の入力に純粋状態を一つ固定すると、環境が何を得たかを測るには情報が足りません。未知の状態の混合を精製した参照系を保ち、[量子条件付きエントロピー](../QINF18/index.md#def-qinf18-conditional) $S(R|B)=S(RB)-S(B)$ を見るのが適切です。
 
 <a id="def-qinf24-coherent-information"></a>
 
@@ -101,7 +108,7 @@ $$
 
 ## 4. 環境から切り離せれば、受信者は復号できる
 
-送信時には $R$ と論理入力が最大エンタングル状態です。通信路のあと $R$ が環境 $E$ と相関したままなら、受信者だけで元に戻すことは困難です。逆に $R$ と $E$ が直積なら、すべての精製を受信者側 $B$ に集め直せます。
+送信時には $R$ と論理入力が最大エンタングル状態です。通信路のあと $R$ が環境 $E$ と相関したままなら、受信者だけで元に戻すことは困難です。逆に $R$ と $E$ が直積なら、すべての精製を受信者側 $B$ に集め直せます。以下の $\|X\|_1=\operatorname{Tr}\sqrt{X^\dagger X}$ は[QINF10のノルムの定義](../QINF10/index.md#def-qinf10-trace-norm)に従い、状態間の[トレース距離](../QINF11/index.md#def-qinf11-trace-distance)はその差のノルムの半分です。
 
 <a id="lem-qinf24-decoupling-recovery"></a>
 
@@ -146,6 +153,14 @@ $$
 
 環境と相関しないコードをどう見つけるのでしょうか。出発点は、候補となる大きな符号空間をランダムに回転し、そのうち $K$ 次元だけを使う方法です。平均評価が小さければ、少なくとも一つ良い回転が存在します。
 
+ここで使う **Haar一様**とは、有限次元空間 $S$ 上のすべてのユニタリ作用素の集合 $\mathrm U(S)$ における、固定した任意のユニタリ $V$ を左・右から掛けても変わらない確率分布 $dU$ のことです。任意の連続関数 $g$ に対し
+
+$$
+\int g(VU)\,dU=\int g(UV)\,dU=\int g(U)\,dU
+$$
+
+を満たします。存在する不変確率測度をここでは使用し、その一般構成は扱いません。例えば一次元では複素位相 $e^{i\theta}$ の $\theta\in[0,2\pi)$ を一様に選ぶことに当たります。この不変性が、次の2次モーメントを少数の係数へ帰着させます。
+
 <a id="lem-qinf24-random-decoupling"></a>
 
 <!-- formal-statement-start -->
@@ -157,7 +172,7 @@ $$
 (U^\dagger P\otimes I_E)
 $$
 
-> と置く。これはトレース1で $\omega_R(U)=\pi_R$ を満たし、次の平均誤差評価が成り立つ。
+> と置く。ここで $P$ は $S$ から $R$ への直交射影を両側で作用させ、$\omega_E(U)=\operatorname{Tr}_R\omega_{RE}(U)$ とする。$\Psi_S=I_S/D$ なので射影後の確率は $K/D$ であり、上の $D/K$ によりトレース1となる。また $\omega_R(U)=\pi_R$ で、次の平均誤差評価が成り立つ。
 
 $$
 \mathbb E_U\|\omega_{RE}(U)-\pi_R\otimes\omega_E(U)\|_1
@@ -179,7 +194,7 @@ $$
 =\operatorname{Tr}(\omega_{RE}^2)-\frac1K\operatorname{Tr}(\omega_E^2).
 $$
 
-$S,E$ とそのコピー $\widetilde S,\widetilde E$ をとり、交換演算子を $F$ と書きます。任意の $X_{SE}$ について
+$S,E$ とそのコピー $\widetilde S,\widetilde E$ をとり、交換演算子 $F$ を積基底で $F|ij\rangle=|ji\rangle$ と定義します。$F_{S\widetilde S}$ は $S$ とコピー $\widetilde S$ を交換し、$F_{E\widetilde E}$ も同様です。任意の $X_{SE}$ について
 
 $$
 \begin{aligned}
@@ -192,16 +207,39 @@ $$
 \end{aligned}
 $$
 
-これは基底で $F|ij\rangle=|ji\rangle$ を代入すると、左辺の成分和 $\sum_{ij}X_{ij}X_{ji}$ に戻る恒等式です。Haar平均された $U^{\dagger\otimes2}(P\otimes P)U^{\otimes2}$ と、$R$ の交換を含む同様の演算子は $U^{\otimes2}$ と可換になるため、対称・反対称部分空間それぞれでスカラーです。したがって $I_{S\widetilde S}$ と $F_{S\widetilde S}$ の線形結合になります。
+これらは基底で交換作用を代入すると、左辺の成分和 $\sum_{ij}X_{ij}X_{ji}$ に戻る恒等式です。Haar不変性から、平均された
 
-係数は両部分空間の次元 $D(D+1)/2,D(D-1)/2$ と、
+$$
+\mathcal T_2(P\otimes P)
+:=\int U^{\dagger\otimes2}(P\otimes P)U^{\otimes2}\,dU
+$$
+
+は任意の $V^{\otimes2}$ と可換です。ここでこの可換性から $I_{S\widetilde S}$ と $F_{S\widetilde S}$ の線形結合になる理由も確認します。積基底で対角位相ユニタリを動かすと、可換演算子の非零成分は $|ij\rangle$ と $|ji\rangle$ の間だけに限られます。基底の置換により対角成分・交換成分の係数は添字によらず共通となり、二基底を混合するユニタリを作用させると $|ii\rangle$ 上の係数が両者の和に等しくなります。従って可換演算子は $aI+bF$ の形だけです（$D>1$）。
+
+係数を $a,b$ と置き、$\operatorname{Tr}I=D^2$、$\operatorname{Tr}F=D$ と、
 
 $$
 \operatorname{Tr}(P\otimes P)=K^2,\qquad
 \operatorname{Tr}\bigl[(P\otimes P)F_{S\widetilde S}\bigr]=K
 $$
 
-の二つのトレースから決まります。先ほどのノルム展開へ代入して整理すると、$D>1$ では正確に
+の二つのトレースを利用すると、$aD^2+bD=K^2$、$aD+bD^2=K$ です。これを解いて
+
+$$
+a=\frac{K(KD-1)}{D(D^2-1)},\qquad
+b=\frac{K(D-K)}{D(D^2-1)}
+$$
+
+を得ます。$F(P\otimes P)$ の平均は $aF+bI$ です。交換演算子のトレース公式をそれぞれに使うと、$A=\operatorname{Tr}(\Psi_{SE}^2)$、$B=\operatorname{Tr}(\Psi_E^2)$ に対し
+
+$$
+\begin{aligned}
+\mathbb E_U\operatorname{Tr}(\omega_{RE}^2)&=(D/K)^2(aA+bB),\\
+\mathbb E_U\operatorname{Tr}(\omega_E^2)&=(D/K)^2(aB+bA).
+\end{aligned}
+$$
+
+先ほどのノルム展開で前者から後者の $1/K$ 倍を引くと、$D>1$ では正確に
 
 $$
 \mathbb E_U\|\omega_{RE}-\pi_R\otimes\omega_E\|_2^2
@@ -262,7 +300,7 @@ D_t=\frac{n!}{N_1!\cdots N_r!},\qquad
 =\prod_a p_a^{N_a}|a^n\rangle
 $$
 
-を満たします。型を固定すれば固有値は一定です。各 $N_a/n$ の平均は $p_a$、分散は $p_a(1-p_a)/n$ なので、Chebyshevの不等式と有限和評価から、$\delta_n=n^{-1/4}$ に対して
+を満たします。型を固定すれば固有値は一定です。各 $N_a/n$ の平均は $p_a$、分散は $p_a(1-p_a)/n$ なので、[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を $N_a/n$ に閾値 $\delta_n=n^{-1/4}$ で適用し、有限個の添字に和事象の上界を使うと
 
 $$
 \Pr\left\{\max_a|N_a/n-p_a|>\delta_n\right\}
@@ -270,7 +308,7 @@ $$
 =O(n^{-1/2})
 $$
 
-です。型の種類数は高々 $(n+1)^r$ なので、その集合内のある型 $t_n$ の確率 $w_n$ は $(1-O(n^{-1/2}))(n+1)^{-r}$ 以上です。この選び方で $t_n\to p$ となり、型の多項係数は
+です。型の種類数は高々 $(n+1)^r$ なので、その集合内のある型 $t_n$ の確率 $w_n$ は $(1-O(n^{-1/2}))(n+1)^{-r}$ 以上です。この選び方で $t_n\to p$ となります。型分布 $t=(t_1,\ldots,t_r)$ のShannonエントロピーを $H(t)=-\sum_at_a\log_2t_a$ と書くと、型の多項係数は
 
 $$
 \log_2D_{t_n}
@@ -278,7 +316,7 @@ $$
 \frac1n\log_2D_{t_n}\to S(\rho_A).
 $$
 
-ここで $H(t)=-\sum_at_a\log_2t_a$ です。最初の式は階乗の積を対数に取って
+最初の式は階乗の積を対数に取って
 
 $$
 \log D_t=\log n!-\sum_a\log N_a!
@@ -289,15 +327,15 @@ $$
 
 **(ii) 出力を典型化する。** 受信系と環境系を、それぞれ $\varphi_B^{\otimes n},\varphi_E^{\otimes n}$ の典型射影 $P_B,P_E$ で切ります。[QINF22の固有値・次元評価](../QINF22/index.md#lem-qinf22-typical-bounds)に加えて、有限分布の指数型集中評価を用います。
 
-固有値分布 $r_i>0$ から得る対数確率変数を $Z=-\log_2r_I$ とします。有限個の値しか取らないため、中心化した対数モーメント母関数
+固有値分布 $r_i>0$ に従う確率添字 $I$（$\Pr(I=i)=r_i$）から、対数確率変数 $Z=-\log_2r_I$ を作ります。有限個の値しか取らないため、中心化した対数モーメント母関数
 
 $$
 m(s)=\log\mathbb E e^{s(Z-\mathbb EZ)},\qquad m(0)=m'(0)=0
 $$
 
-は原点で微分可能です。したがって固定した幅 $\delta>0$ に対し、十分小さい $s>0$ を選んで $m(s)<s\delta/2$ とできます。
+は原点近傍で滑らかで、$m'(0)=dm/ds|_{s=0}$ は変数 $s$ に関する通常の微分です。$m(s)=o(s)$ なので、固定した幅 $\delta>0$ に対し、十分小さい $s>0$ を選んで $m(s)<s\delta/2$ とできます。
 
-非負変数へのMarkov不等式を指数変数 $Y=e^{s\sum_j(Z_j-\mathbb EZ)}$ に適用します。これにより
+[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を非負変数 $Y=e^{s\sum_j(Z_j-\mathbb EZ)}$ と閾値 $e^{ns\delta}$ に適用します。$\mathbb E$ は確率的期待値で、環境系 $E$ とは別です。これにより
 
 $$
 \Pr\left\{\frac1n\sum_jZ_j-\mathbb EZ>\delta\right\}
@@ -327,7 +365,7 @@ $$
 
 最後の不等式は $X\le aI$、$\operatorname{Tr}X=1$ なら $\operatorname{Tr}X^2\le a$ によります。$w_n^{-1}$ は高々多項式です。
 
-**(iii) 再び最大混合にする。** $|\Omega'\rangle$ の $T_t$ についてのSchmidt係数を $\alpha_1,\ldots,\alpha_{D_t}$ とすると、[部分トレースの距離縮小性](../QINF11/index.md#thm-qinf11-trace-contractivity)により
+**(iii) 再び最大混合にする。** [Schmidt分解](../QINF6/index.md#thm-qinf6-existence)で $|\Omega'\rangle$ の $T_t$ 側のSchmidt係数を $s_i$ とします。零も補って **Schmidt重み** $\alpha_i=s_i^2$（$i=1,\ldots,D_t$）と置くと、これは $\Omega'_{T_t}$ の固有値で、$\sum_i\alpha_i=1$ です。従って[部分トレースの距離縮小性](../QINF11/index.md#thm-qinf11-trace-contractivity)から
 
 $$
 \sum_i|\alpha_i-D_t^{-1}|
@@ -369,13 +407,44 @@ $$
 
 $R_0<I_c$ なので $3\delta<I_c-R_0$ を選べます。また、$I_c\le S(\rho)$（[条件付きエントロピーの上下界](../QINF18/index.md#cor-qinf18-bounds)）から、十分大きい $n$ で $K\le\dim S$ です。
 
-最後に $\Psi$ から、元の型条件付き状態を $S$ に射影して正規化した $|\Omega_S\rangle$ に戻します。$\Omega_{T_t}=\pi_{T_t}$ だったので、$\Omega_S$ の参照系も厳密に $\pi_S$ であり、$\|\Psi-\Omega_S\|_1=o(1)$ です。Haarでランダムに回転して $K$ 次元へ射影する操作は、全結果の**平均**を取れば量子instrumentです。実際
+最後に $\Psi$ から、元の型条件付き状態を $S$ に射影して正規化した $|\Omega_S\rangle$ に戻します。$\Omega_{T_t}=\pi_{T_t}$ だったので、$\Omega_S$ の参照系も厳密に $\pi_S$ です。また $\dim S/D_t\ge1-\sqrt{\eta_n}$ だから、純粋状態の射影による距離は
+
+$$
+\|\Omega-\Omega_S\|_1
+=2\sqrt{1-\frac{\dim S}{D_t}}
+\le2\eta_n^{1/4}.
+$$
+
+これと前段の近似誤差を結ぶと
+
+$$
+\|\Psi-\Omega_S\|_1
+\le\|\Psi-\Omega'\|_1+\|\Omega'-\Omega\|_1
++\|\Omega-\Omega_S\|_1=o(1).
+$$
+
+Haarでランダムに回転して $K$ 次元へ射影する操作は、全結果の**平均**を取れば量子instrumentです。実際
 
 $$
 \int\frac{\dim S}{K}U^\dagger PU\,dU=I_S.
 $$
 
-よってその全結果を含めたCPTP写像の下ではトレース距離は増えず、$\int\|\omega_U(\Psi)-\omega_U(\Omega_S)\|_1dU=o(1)$。環境の縮約と三角不等式で、元のチャネルが作る $R E^n$ の平均デカップリング誤差も $o(1)$ です。したがって少なくとも一つの $U$ で誤差が $o(1)$、その $U$ に転置対応する $A^{\otimes n}$ 内の符号空間が等長符号化を与えます。[復号補題](#lem-qinf24-decoupling-recovery)により $F_e^{(n)}\to1$ です。
+よって結果 $U$ を古典フラグに記録したCPTP写像の[距離縮小性](../QINF11/index.md#thm-qinf11-trace-contractivity)から
+
+$$
+\int\|\omega_U(\Psi)-\omega_U(\Omega_S)\|_1\,dU
+\le\|\Psi-\Omega_S\|_1=o(1).
+$$
+
+環境の縮約と三角不等式で、元のチャネルが作る $R E^n$ の平均デカップリング誤差も $o(1)$ です。したがって少なくとも一つの $U$ で誤差が $o(1)$ になります。この $U$ が物理的な等長符号を与えることも確認します。$|\Omega_S\rangle$ の送信前の最大エンタングル状態を、$S$ と対応する入力型空間 $A_S$ の同じ正規直交基底で $|\Phi_{\dim S}\rangle$ と書くと、基底展開から
+
+$$
+\sqrt{\frac{\dim S}{K}}(PU\otimes I)|\Phi_{\dim S}\rangle
+=(I_R\otimes W_U)|\Phi_K\rangle,
+\qquad W_U=(PU)^{\mathsf T}:R\to A_S.
+$$
+
+ここで転置はこれらの対応する基底について取り、$PUU^\dagger P=P$ なので $W_U^\dagger W_U=I_R$ です。従って参照系の射影という計算は、入力側での等長符号化に置き換わり、[復号補題](#lem-qinf24-decoupling-recovery)により $F_e^{(n)}\to1$ です。
 <!-- proof-end -->
 
 この証明の本質は $S(B)-S(E)$ の符号です。$R_0<S(B)-S(E)$ なら、環境の典型空間と符号次元の積より、受信者側に残る「平坦な自由度」の方が漸近的に大きくなります。単に「典型部分空間がある」と言うだけでなく、**純度と環境次元の積が0へ向かう**ことを確認するのがポイントです。
@@ -488,7 +557,7 @@ $$
 
 **達成向き。** 任意の $k$ と入力 $\rho_{A^k}$ を固定し、$\mathcal N^{\otimes k}$ を一回のチャネルと見ます。[典型平坦化と達成可能率](#lem-qinf24-typical-achievability)により、任意の正の $r<I_c(\rho_{A^k},\mathcal N^{\otimes k})$ は、このチャネルの多数回使用で達成できます。元の $\mathcal N$ の使用回数は $k$ 倍なので、率は $r/k$。最大化・上限をとり逆向きと合わせます。$I_c\le0$ の場合も $M_n=1$ による率0は常に達成可能です。
 
-**極限の存在。** $a_k=Q^{(1)}(\mathcal N^{\otimes k})$ とする。$k,\ell$ 回の各最適入力をテンソル積にすると、[エントロピーのテンソル加法性](../QINF17/index.md#prop-qinf17-tensor)で
+**極限の存在。** 正整数 $k$ について $a_k=Q^{(1)}(\mathcal N^{\otimes k})$ とし、剰余0を扱うため $a_0=0$ と定めます。$k,\ell$ 回の各最適入力をテンソル積にすると、[エントロピーのテンソル加法性](../QINF17/index.md#prop-qinf17-tensor)で
 
 $$
 a_{k+\ell}\ge a_k+a_\ell.
@@ -511,7 +580,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf24-degradable -->
-**定義の確認**。 恒等チャネルでは環境出力は固定状態です。受信出力を捨てて固定状態を作る $\mathcal T$ はCPTPなので劣化可能です。完全消去チャネルでは環境側が入力状態を持つので、環境を捨て固定の受信出力を作る $\mathcal S$ はCPTP、反劣化可能です。後で消失確率に応じた非自明な劣化写像を構成します。
+**定義の確認**。 恒等チャネル $\mathcal N=\operatorname{id}_d$ では、環境を純粋状態 $|e\rangle$ に固定する等長表現を選べます。任意の入力状態 $\rho$ について $\mathcal N(\rho)=\rho$、$\mathcal N^c(\rho)=|e\rangle\langle e|$ です。$\mathcal T(X)=\operatorname{Tr}(X)|e\rangle\langle e|$ は、入力を捨てて状態を準備する[量子チャネル](../QINF7/index.md#def-qinf7-channel)なのでCPTPであり、全 $\rho$ で $\mathcal T(\mathcal N(\rho))=\mathcal N^c(\rho)$ を確認できます。
+
+逆に完全消去チャネル $\mathcal N(\rho)=|e\rangle\langle e|$ の等長表現では $\mathcal N^c(\rho)=\rho$ です。$\mathcal S(X)=\operatorname{Tr}(X)|e\rangle\langle e|$ はCPTPで、全 $\rho$ について $\mathcal S(\mathcal N^c(\rho))=\mathcal N(\rho)$。従って反劣化可能です。どちらも「CPTPの存在」と「チャネルの等式」という定義の二条件を確かめました。後で消失確率に応じた非自明な劣化写像を構成します。
 <!-- definition-example-end -->
 
 <a id="thm-qinf24-degradable-capacity"></a>
@@ -761,7 +832,7 @@ $$
 
 です。左辺を全入力で最大化すれば積入力の値以上になり、指定の超加法性が得られます。ただし全入力にはエンタングル状態も含まれます。最大値が積入力で達成されるとは限らないため、この議論だけでは等号を主張できません。
 
-続いて $a_n=Q^{(1)}(\mathcal N^{\otimes n})$ と置きます。超加法性と出力次元から
+続いて正整数 $n$ で $a_n=Q^{(1)}(\mathcal N^{\otimes n})$、剰余0の場合には $a_0=0$ と置きます。超加法性と出力次元から
 
 $$
 a_{m+n}\ge a_m+a_n,\qquad 0\le a_n\le n\log_2\dim B
