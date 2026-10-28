@@ -1,0 +1,45 @@
+id: QFT11
+title: "漸近状態・S行列とLSZ還元"
+volume: foundations
+status: supplementary
+prerequisites: [QFT4, QFT5, QFT6, QFT9, QFT10]
+official_scope: []
+learning_objectives:
+  - Lorentz不変一粒子規格化とKlein–Gordon波束内積を導き、自由場の消滅演算子を取り出せる
+  - 漸近in/out状態とS行列の存在条件を述べ、有限切替のDyson演算子と区別できる
+  - 安定一粒子状態から二点関数の孤立質量殻極と留数Zを導ける
+  - Klein–Gordon面積分の時間差と外線極の分離から仮定付きLSZ還元を導ける
+  - 連結四点関数の外線を切断し、2対2散乱振幅・恒等散乱・運動量保存を区別できる
+  - 一粒子極がない場合と長距離相互作用で通常のLSZが使えない理由を説明できる
+definitions:
+  - { id: QFT11-DEF-01, name: Lorentz不変一粒子波束とKlein–Gordon内積 }
+  - { id: QFT11-DEF-02, name: 漸近in/out状態とS行列 }
+  - { id: QFT11-DEF-03, name: 安定一粒子極と波動関数留数 }
+  - { id: QFT11-DEF-04, name: LSZ外線還元と連結散乱振幅 }
+theorems:
+  - { id: QFT11-PROP-01, name: 自由波束の消滅演算子と規格化 }
+  - { id: QFT11-PROP-02, name: 安定一粒子状態による二点関数の極 }
+  - { id: QFT11-LEM-01, name: Klein–Gordon面積分の時間差 }
+  - { id: QFT11-THM-01, name: 漸近場を仮定したLSZ四外線還元 }
+  - { id: QFT11-PROP-03, name: 四次相互作用の木レベル散乱振幅 }
+canonical_examples:
+  - 自由波束のノルムと消滅演算子
+  - 自由二点関数の正負エネルギー極と留数Z=1
+  - 孤立一粒子極と連続スペクトルの対比
+  - 四次スカラー相互作用の一次四点の外線切断
+  - 自由四点関数の非連結寄与と恒等S行列
+problem_patterns:
+  - QFT11-WAVE-PACKET-NORM
+  - QFT11-KG-EXTRACTION
+  - QFT11-TWO-POINT-POLE
+  - QFT11-RESIDUE-RESCALING
+  - QFT11-MOMENTUM-SIGNS
+  - QFT11-SURFACE-IDENTITY
+  - QFT11-FREE-SCATTERING
+  - QFT11-QUARTIC-LSZ
+  - QFT11-CUBIC-EXCHANGE
+  - QFT11-SPECTRAL-FAILURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 4 }

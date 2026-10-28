@@ -1,0 +1,20 @@
+chapter: QFT11
+terms:
+  - term: 漸近状態
+    english: asymptotic state
+    meaning: "散乱前後の十分離れた時間に自由一粒子波束で記述できる極限で定まるin/out多粒子状態。"
+  - term: S行列
+    english: scattering matrix
+    meaning: "同じ自由漸近状態の空間で入射状態と出射状態の重なりを表す演算子。"
+  - term: 質量殻極
+    english: mass-shell pole
+    meaning: "時間順序二点関数に現れる安定一粒子状態に対応する孤立単純極。"
+  - term: 波動関数留数
+    english: field-strength residue
+    meaning: "相互作用場の二点関数で物理質量殻の単純極に付く係数Z。"
+  - term: LSZ還元
+    english: Lehmann–Symanzik–Zimmermann reduction
+    meaning: "漸近粒子の存在を仮定し、相関関数の一粒子極を外線で切断して散乱行列要素と結び付ける操作。"
+  - term: 不変振幅
+    english: invariant amplitude
+    meaning: "S行列から恒等寄与と運動量保存デルタを分離してi倍の係数で定義する散乱振幅。"
