@@ -1,0 +1,42 @@
+chapter: QINF26
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF2, QINF7, QINF8, QINF25]
+forward_references: []
+concepts:
+  - id: quantum.exact-error-correction
+    name: 量子符号の完全誤り訂正
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子符号の完全誤り訂正）]
+    requires: [quantum.three-qubit-repetition-code, quantum.quantum-channel]
+  - id: quantum.knill-laflamme-matrix
+    name: Knill–Laflamme行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Knill–Laflamme行列）]
+    requires: [quantum.exact-error-correction, quantum.kraus-representation]
+  - id: quantum.knill-laflamme-gram
+    name: Knill–Laflamme行列の正値性と雑音の正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（行列の正値性と雑音の正規化）]
+    requires: [quantum.knill-laflamme-matrix, quantum.kraus-completeness]
+  - id: quantum.knill-laflamme-theorem
+    name: Knill–Laflammeの必要十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Knill–Laflammeの必要十分条件）]
+    requires: [quantum.knill-laflamme-gram, quantum.exact-error-correction, quantum.kraus-existence]
+  - id: quantum.error-degeneracy
+    name: 誤りの縮退
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（誤りの縮退）]
+    requires: [quantum.knill-laflamme-matrix, quantum.knill-laflamme-theorem]
+  - id: quantum.correctable-error-span
+    name: 訂正可能な誤りの線形包
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（訂正可能な誤りの線形包）]
+    requires: [quantum.knill-laflamme-theorem]
