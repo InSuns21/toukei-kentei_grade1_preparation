@@ -18,3 +18,11 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT3
     status: completed
     title: "Klein–Gordon場の初期値・振動数分解・超関数"
+  - id: QFT4
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT4
+    status: completed
+    title: "実スカラー場のFock空間と正準量子化"
+  - id: QFT5
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT5
+    status: planned
+    title: "自由場の二点関数・因果的交換子・局所的可換性"

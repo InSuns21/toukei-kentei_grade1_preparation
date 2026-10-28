@@ -1,0 +1,48 @@
+id: QFT4
+title: "実スカラー場のFock空間と正準量子化"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT3
+  - QM8
+official_scope: []
+learning_objectives:
+  - 一粒子Hilbert空間から対称Fock空間と真空・有限粒子Schwartz稠密領域を定義し、二粒子波束を規格化できる
+  - 生成・消滅演算子を粒子成分上に構成して随伴性と正準交換関係を出発式から導出できる
+  - 実Schwartz試験関数による自由場のsmearingを定義し、作用素値分布としての連続性と弱いKlein–Gordon方程式を検証できる
+  - 等時刻の場・共役運動量の交換関係をFourier規格化と現実条件から導ける
+  - 粒子数・正規順序Hamiltonianの作用と生成交換子を導き、真空と一粒子のエネルギーを検算できる
+  - 有限モードの零点エネルギーと正規順序の差を計算し、カットオフ除去時の発散と有限な励起エネルギーを区別できる
+definitions:
+  - { id: QFT4-DEF-01, name: ボースFock空間と有限粒子領域 }
+  - { id: QFT4-DEF-02, name: 生成・消滅演算子 }
+  - { id: QFT4-DEF-03, name: 実自由量子場のsmearing }
+  - { id: QFT4-DEF-04, name: 等時刻の場と共役運動量 }
+  - { id: QFT4-DEF-05, name: 粒子数作用素と正規順序Hamiltonian }
+theorems:
+  - { id: QFT4-THM-01, name: Fock生成・消滅演算子の交換関係 }
+  - { id: QFT4-PROP-01, name: 作用素値分布と弱いKlein–Gordon方程式 }
+  - { id: QFT4-THM-02, name: 自由実スカラー場の等時刻正準交換関係 }
+  - { id: QFT4-PROP-02, name: 粒子数とエネルギーの生成交換子 }
+  - { id: QFT4-PROP-03, name: 有限モードの正規順序と零点エネルギー }
+canonical_examples:
+  - 対称化された二粒子波束の入れ替えとノルム
+  - 真空から一粒子・二粒子を生成するときの規格化
+  - 真空にsmearingした場を作用させたときの質量殻波束
+  - 時間微分の正負振動数における符号
+  - 零粒子・一粒子・二粒子のエネルギー
+problem_patterns:
+  - QFT4-BOSON-SYMMETRIZATION
+  - QFT4-LADDER-ON-VACUUM
+  - QFT4-FIELD-SMEARING
+  - QFT4-ZERO-POINT-ENERGY
+  - QFT4-NUMBER-COMMUTATOR
+  - QFT4-EQUAL-TIME-CCR
+  - QFT4-WAVEPACKET-ENERGY
+  - QFT4-WEAK-KG
+  - QFT4-NONORTHOGONAL-BOSONS
+  - QFT4-VACUUM-TWO-POINT-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 3 }
