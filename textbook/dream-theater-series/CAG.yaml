@@ -36,7 +36,7 @@ chapters:
     title: "GAGA III――正則連接層の代数化"
   - id: CAG1-08
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-08
-    status: planned
+    status: completed
     title: "射影版GAGAの統合と固有版の境界"
   - id: CAG1-09
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-09
