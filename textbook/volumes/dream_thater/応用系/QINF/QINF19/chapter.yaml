@@ -1,0 +1,44 @@
+id: "QINF19"
+title: "強劣加法性と条件付き相互情報量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QINF3
+  - QINF17
+  - QINF18
+  - INFO1
+official_scope: []
+learning_objectives:
+  - 三部系の縮約エントロピーから条件付き相互情報量を定義し、古典・Bell・GHZ状態で値を再計算できる
+  - Hilbert–Schmidt空間の正値作用素、逆行列の圧縮不等式、対数積分から有限次元の部分トレース比較を証明できる
+  - 部分トレース比較を実際の三部状態と周辺積状態に適用し、零固有値を許す一般の強劣加法性を導ける
+  - 強劣加法性を条件付きエントロピーの単調性と相互情報量の連鎖律に読み替え、系を捨てる向きを説明できる
+  - 条件付き独立な古典旗状態の等号条件と、GHZ純粋状態などの非等号例を検算し、量子Markov条件の意味と射程を区別できる
+definitions:
+  - { id: QINF19-DEF-01, name: "量子条件付き相互情報量" }
+  - { id: QINF19-DEF-02, name: "量子Markov条件" }
+theorems:
+  - { id: QINF19-LEM-01, name: "逆行列の圧縮不等式" }
+  - { id: QINF19-LEM-02, name: "正定値行列の部分トレース比較" }
+  - { id: QINF19-THM-01, name: "強劣加法性" }
+  - { id: QINF19-COR-01, name: "条件付きエントロピーの単調性と連鎖律" }
+  - { id: QINF19-PROP-01, name: "古典旗を条件とした等号判定" }
+canonical_examples:
+  - "独立な第三系を付けても条件付き相互情報量は増えない"
+  - "GHZ純粋状態とその対角混合は同じ二部縮約でも条件付き相互情報量が異なる"
+  - "古典旗Bを挟んだ条件付き積状態とBell対A-Cの比較"
+problem_patterns:
+  - QINF19-INDEPENDENT-THIRD-SYSTEM
+  - QINF19-CLASSICAL-XOR
+  - QINF19-GHZ-PAIR
+  - QINF19-BELL-TENSOR
+  - QINF19-CONDITIONAL-FLAG
+  - QINF19-CHAIN-RULE
+  - QINF19-INVERSE-COMPRESSION
+  - QINF19-CLASSICAL-MARKOV-CRITERION
+  - QINF19-ENTANGLED-ENDPOINTS
+  - QINF19-PHASE-COHERENCE-INTERPOLATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.5 }
