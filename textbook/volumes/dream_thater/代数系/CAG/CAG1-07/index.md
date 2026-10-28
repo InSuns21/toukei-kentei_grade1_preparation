@@ -2,9 +2,19 @@
 
 [GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology) は**既に代数的な**連接層のコホモロジーを比較し、[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom) は**既に代数化された二つの層の間**の正則な射を代数的な射として復元した。しかし、解析的な方程式だけで与えられた連接層には、比較を始めるための代数的な相手がまだない。
 
-例えば $\mathbb P^1$ 上で $S,T$ を斉次座標とし、正則な層の射 $\mathcal O^{\mathrm{an}}(-1)\to(\mathcal O^{\mathrm{an}})^2$ を二つの成分 $(-T,S)$ で与える。この射の余核は解析的連接層だが、表示の射を代数的に戻せれば、余核そのものも代数的に作れる。この「**有限個の生成元と関係式を取り戻す**」方針を任意の解析的連接層へ広げるのが今回の目的である。
+例えば $P=\mathbb P^1_{\mathbb C}$ 上で $S,T$ を斉次座標とする。[ねじり層の双対とHom](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)および[大域切断の計算](../../AG/AG2-06/index.md#thm-ag2-06-p1-sections)から
 
-以下、$X$ は $\mathbb C$ 上の有限型**射影スキーム**、$h:X^{\mathrm{an}}\to X$ は解析化の射とする。閉埋込み $i:X\hookrightarrow\mathbb P^N_{\mathbb C}$ を一つ固定し、$\mathcal O_X(1)=i^*\mathcal O_{\mathbb P^N}(1)$ と書く。解析的なねじり層は [ねじり層の解析化](../CAG1-03/index.md#prop-cag1-03-analytic-twisting)による $\mathcal O_{X^{\mathrm{an}}}(m)=(\mathcal O_X(m))^{\mathrm{an}}$ である。滑らかさ・既約性・被約性は仮定しない。
+$$
+\operatorname{Hom}_P(\mathcal O_P(-1),\mathcal O_P)
+\simeq H^0(P,\mathcal O_P(1))
+=\mathbb C S\oplus\mathbb C T.
+$$
+
+よって $S,T$ はそれぞれ $\mathcal O_P(-1)\to\mathcal O_P$ の射を与える。$(-T,S)$ は**二つの射を成分として並べた** $\mathcal O_P(-1)\to\mathcal O_P^2$ の射であり、[射の解析化](../CAG1-03/index.md#def-cag1-03-sheaf-analytification)によって正則な層の射 $\mathcal O_{P^{\mathrm{an}}}(-1)\to\mathcal O_{P^{\mathrm{an}}}^2$ になる。
+
+この射の余核は解析的連接層だが、表示の射を代数的に戻せれば、余核そのものも代数的に作れる。この「**有限個の生成元と関係式を取り戻す**」方針を任意の解析的連接層へ広げるのが今回の目的である。
+
+以下、$X$ は $\mathbb C$ 上の有限型**射影スキーム**、$h:X^{\mathrm{an}}\to X$ は[解析化の射](../CAG1-02/index.md#thm-cag1-02-analytification-functor)とする。閉埋込み $i:X\hookrightarrow\mathbb P^N_{\mathbb C}$ を一つ固定し、$\mathcal O_X(1)=i^*\mathcal O_{\mathbb P^N}(1)$ と書く。解析的なねじり層は [ねじり層の解析化](../CAG1-03/index.md#prop-cag1-03-analytic-twisting)による $\mathcal O_{X^{\mathrm{an}}}(m)=(\mathcal O_X(m))^{\mathrm{an}}$ である。滑らかさ・既約性・被約性は仮定しない。
 
 ## 1. 何をもって「代数化できた」とするか
 
@@ -25,7 +35,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cag1-07-algebraization -->
-**定義の確認**：$P=\mathbb P^1_{\mathbb C}$、$\mathcal E=\mathcal O_{P^{\mathrm{an}}}(1)$ とする。[ねじり層の解析化と遷移関数](../CAG1-03/index.md#prop-cag1-03-analytic-twisting)により $\mathcal F=\mathcal O_P(1)$ は代数的連接で、その解析化の局所枠と遷移関数が $\mathcal E$ のものに一致する。したがって局所枠を対応させる $\iota:\mathcal F^{\mathrm{an}}\xrightarrow{\sim}\mathcal E$ を作れる。$\iota$ は各チャートで可逆な係数 $1$ を持ち、重なりでも遷移式と可換なので層の同型である。このように**層と同型の双方**を指定することが定義の条件である。
+**定義の確認**：$P=\mathbb P^1_{\mathbb C}$、$\mathcal E=\mathcal O_{P^{\mathrm{an}}}(1)$ とする。[代数的ねじり層](../../AG/AG2-06/index.md#def-ag2-06-twisting-sheaf) $\mathcal F=\mathcal O_P(1)$ は局所自由階数1なので代数的連接であり、[連接層の解析化](../CAG1-03/index.md#thm-cag1-03-coherent-exact)から $\mathcal E$ も解析的連接である。
+
+次に定義が要求する**同型**を作る。[ねじり層の解析化と遷移関数](../CAG1-03/index.md#prop-cag1-03-analytic-twisting)によると、$U_S=\{S\ne0\}$、$U_T=\{T\ne0\}$ の局所枠 $e_S,e_T$ は重なりで
+
+$$
+e_T=(T/S)e_S
+$$
+
+を満たす。解析化後にも同じ遷移式が成り立つので、両チャートで対応する枠を送る写像は
+
+$$
+\iota(e_T^{\mathrm{an}})=\frac TS\iota(e_S^{\mathrm{an}})
+=\frac TS e_S=e_T
+$$
+
+を満たして貼り合う。各チャートで係数 $1$ の可逆な写像だから、$\iota:\mathcal F^{\mathrm{an}}\xrightarrow{\sim}\mathcal E$ は層の同型である。このように**層と同型の双方**を指定することが定義の条件である。
 <!-- definition-example-end -->
 
 同じ $\mathcal E$ に別の表示や別の同型 $\iota$ が付くことはある。「一意性」とは $\mathcal F$ の文字列が一通りという意味ではない。上の定義の**指定同型と両立する唯一の代数的同型**があることを、あとで示す。
@@ -34,7 +59,20 @@ $$
 
 代数側では[代数的Serreの生成補題](../CAG1-05/index.md#thm-cag1-05-serre-generation)によって、十分ねじれば大域切断で生成できた。しかしこの補題を、いま代数化したい $\mathcal E$ に適用するのは循環である。$\mathcal E$ はまだ代数的な層と分かっていないからだ。
 
-そこで解析側には、別に証明を要する次の二つの性質を使う。$\mathcal E(m)$ は $\mathcal E\otimes\mathcal O_{X^{\mathrm{an}}}(m)$ を表し、**大域生成**とはすべての点 $x$ で評価写像 $H^0(X^{\mathrm{an}},\mathcal E(m))\otimes_{\mathbb C}\mathcal O_{X^{\mathrm{an}},x}\to\mathcal E(m)_x$ が全射となることである。
+そこで解析側には、別に証明を要する次の二つの性質を使う。まずねじりの記法を
+
+$$
+\mathcal E(m):=\mathcal E\otimes\mathcal O_{X^{\mathrm{an}}}(m)
+$$
+
+とする。**大域生成**とは、すべての点 $x\in X^{\mathrm{an}}$ で次の評価写像が全射となることをいう。
+
+$$
+H^0(X^{\mathrm{an}},\mathcal E(m))\otimes_{\mathbb C}\mathcal O_{X^{\mathrm{an}},x}
+\longrightarrow\mathcal E(m)_x,\qquad s\otimes f\longmapsto f s_x.
+$$
+
+ここで $s_x$ は大域切断 $s$ の点 $x$ での芽であり、$f$ はその点の正則関数の芽を動く。この全射性は、各茎の元を大域切断の有限な局所係数和として表せることを意味する。
 
 <a id="thm-cag1-07-analytic-serre"></a>
 
@@ -102,7 +140,14 @@ $$
 \xrightarrow{\varepsilon}\mathcal E\longrightarrow0
 $$
 
-は短完全である。$\varepsilon$ は局所では有限自由層から[解析的連接層](../CAG1-03/index.md#def-cag1-03-analytic-coherent)への射なので、定義の核条件から $\mathcal K$ は局所有限型である。さらに、局所的な任意の射 $\varphi:\mathcal O^t\to\mathcal K$ を包含 $\mathcal K\hookrightarrow\mathcal O^r$ と合成すると、包含の単射性から二つの射の核は一致する。後者は有限自由層間の射であるから、[Okaの連接性定理](../CAG1-03/index.md#thm-cag1-03-oka-coherence)で核が局所有限型となる。これで $\mathcal K$ は連接性の二条件を満たす。ここでは代数化を使っていない。
+は短完全である。$\varepsilon$ は局所では有限自由層から[解析的連接層](../CAG1-03/index.md#def-cag1-03-analytic-coherent)への射なので、定義の核条件から $\mathcal K$ は局所有限型である。連接性のもう一つの条件も確かめる。局所枠で中項を $\mathcal O^r$ と見て、任意の有限整数 $t$ と射 $\varphi:\mathcal O^t\to\mathcal K$ を取る。包含 $j:\mathcal K\hookrightarrow\mathcal O^r$ は単射だから
+
+$$
+\ker\varphi=\ker(j\circ\varphi),\qquad
+j\circ\varphi:\mathcal O^t\longrightarrow\mathcal O^r.
+$$
+
+右側は正則関数の有限行列で表される。[Okaの連接性定理](../CAG1-03/index.md#thm-cag1-03-oka-coherence)によりその核は局所有限型であり、左側もそうなる。これで $\mathcal K$ は連接性の二条件を満たす。ここでは代数化を使っていない。
 
 次に同じ[解析的大域生成定理](#thm-cag1-07-analytic-serre)を $\mathcal K$ に適用する。ある $m'$ に対して $\mathcal K(m')$ は有限個の大域切断から生成され、ねじりを戻すと全射
 
@@ -465,9 +510,24 @@ $$
 が同型であることを、具体的な可換図式に相当する射を指定して示せ。
 
 <!-- solution-start -->
-**詳細解答**。$T$ の乗法は $\mathcal O_P(-2)\to\mathcal O_P(-1)$ と $\mathcal O_P(-1)\to\mathcal O_P$ の両方に定まり、$ST=TS$ から二つの列の間に可換な正方形を作る。従って余核へ誘導される射 $\overline T:\mathcal G\to\mathcal F$ がある。
+**詳細解答**。[ねじり層のHomの表示](../../AG/AG2-06/index.md#prop-ag2-06-tensor-dual)により、次数1の切断 $T$ の乗法は $\mathcal O_P(-2)\to\mathcal O_P(-1)$ と $\mathcal O_P(-1)\to\mathcal O_P$ の両方に定まる。二つの合成は、始域 $\mathcal O_P(-2)$、終域 $\mathcal O_P$ の射として
 
-$U_T$ の座標 $w=S/T$ では、両余核は局所枠を使って $\mathbb C[w]/(w)$ と同一視でき、$T$ の局所係数は $1$ である。したがって $\overline T$ は $p$ の茎で恒等写像になる。$U_S$ では $S$ は単元なので両余核の茎は零。ゆえに $\overline T$ は層の同型である。解析化しても同じ同型となり、[指定同型に両立する一意性](#cor-cag1-07-uniqueness)の具体例になる。
+$$
+(\cdot S)\circ(\cdot T)
+=(\cdot ST)
+=(\cdot T)\circ(\cdot S)
+$$
+
+なので、二つの余核表示の間に可換な正方形ができる。従って余核へ誘導される射 $\overline T:\mathcal G\to\mathcal F$ がある。
+
+$U_T$ の座標 $w=S/T$ では、$\mathcal O(-k)$ の局所枠を $T^{-k}$（$k=1,2$）と取る。すると
+
+$$
+S\cdot T^{-k}=wT^{-(k-1)},\qquad
+T\cdot T^{-k}=T^{-(k-1)}
+$$
+
+だから、両方の $S$ の射の局所係数は $w$、縦の $T$ の射の係数は $1$ である。よって両余核は $\mathbb C[w]/(w)$ と同一視でき、$\overline T$ は $p$ の茎で恒等写像になる。$U_S$ では $S$ は単元なので両余核の茎は零。ゆえに $\overline T$ は層の同型である。解析化しても同じ同型となり、[指定同型に両立する一意性](#cor-cag1-07-uniqueness)の具体例になる。
 <!-- solution-end -->
 
 <a id="ex-cag1-07-b04"></a>
@@ -502,13 +562,13 @@ $P=\mathbb P^1_{\mathbb C}$ の解析化上で、正則な層の射 $S^2+T^2:\ma
 <!-- solution-start -->
 **詳細解答**。
 
-**（1）支持と長さ。** $U_T$ の座標を $w=S/T$ とすると、射の局所係数は次のように因数分解できる。
+**（1）支持と長さ。** 虚数単位は $\mathrm i$（$\mathrm i^2=-1$）と書き、冒頭で固定した閉埋込み $i$ と区別する。$U_T$ の座標を $w=S/T$ とすると、射の局所係数は次のように因数分解できる。
 
 $$
-w^2+1=(w-i)(w+i).
+w^2+1=(w-\mathrm i)(w+\mathrm i).
 $$
 
-$w=i$ の局所環では $w+i$ の値は $2i\ne0$ なので単元である。従って余核の茎は $\mathbb C\{w-i\}/(w-i)\simeq\mathbb C$ となり、長さ1。$w=-i$ では $w-i$ が単元となって同じく長さ1である。$U_S$ の座標 $v=T/S$ でも係数 $1+v^2$ の零点は同じ二点に対応し、新たな支持点はない。よって支持は $[i:1]$ と $[-i:1]$、総長さは2である。
+$w=\mathrm i$ の局所環では $w+\mathrm i$ の値は $2\mathrm i\ne0$ なので単元である。従って余核の茎は $\mathbb C\{w-\mathrm i\}/(w-\mathrm i)\simeq\mathbb C$ となり、長さ1。$w=-\mathrm i$ では $w-\mathrm i$ が単元となって同じく長さ1である。$U_S$ の座標 $v=T/S$ でも係数 $1+v^2$ の零点は同じ二点に対応し、新たな支持点はない。よって支持は $[\mathrm i:1]$ と $[-\mathrm i:1]$、総長さは2である。
 
 **（2）代数化。** 代数的な射 $u:\mathcal O_P(-2)\xrightarrow{S^2+T^2}\mathcal O_P$ を取り、$\mathcal F=\operatorname{coker}u$ とする。$P$ はNoetherなので余核は連接。$u^{\mathrm{an}}$ は問題の正則射そのものであり、[解析化の完全性](../CAG1-03/index.md#thm-cag1-03-coherent-exact)から
 
@@ -545,13 +605,22 @@ $$
 
 なので一次零点となり、茎は $\mathbb C\{z-n\}/(z-n)\simeq\mathbb C$ である。整数以外では係数が単元で商は零。よって支持は無限離散集合 $\mathbb Z$ である。
 
-**（2）非代数化。** $\mathbb C[z]$ は主イデアル整域で、有限生成加群 $M$ の台はZariski閉集合
+**（2）非代数化。** [アフィン上の加群と層の対応](../../AG/AG3-06/index.md#thm-ag3-06-affine-equivalence)を使う。$\mathbb C[z]$ は主イデアル整域である。有限生成加群 $M$ の**零化イデアル**と**台**をそれぞれ
+
+$$
+\operatorname{Ann}M=\{f\in\mathbb C[z]:fM=0\},\qquad
+\operatorname{Supp}M=\{\mathfrak p\in\operatorname{Spec}\mathbb C[z]:M_{\mathfrak p}\ne0\}
+$$
+
+と定めると、台はZariski閉集合
 
 $$
 \operatorname{Supp}M=V(\operatorname{Ann}M)
 $$
 
-である。$\operatorname{Ann}M=(0)$ なら台は全体、零でない多項式 $f$ を含むなら台は $V(f)$ という有限集合に含まれる。代数的層を解析化しても支持は同じ複素点集合なので、$\mathbb Z$ を支持とする $\mathcal Q$ はそのような $M$ の解析化ではあり得ない。
+である。実際、$M$ の生成元を $m_1,\ldots,m_r$ とすると、素イデアル $\mathfrak p$ について $M_{\mathfrak p}=0$ となることと、ある $s\notin\mathfrak p$ がすべての $m_j$ を零にすることは同値である。これは $\operatorname{Ann}M\not\subseteq\mathfrak p$ と同値なので、表示した台の式が従う。
+
+$\operatorname{Ann}M=(0)$ なら台は全体である。そうでなければ零でない多項式 $f\in\operatorname{Ann}M$ が取れ、台は有限集合 $V(f)$ に含まれる。[解析化の局所環の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)から代数的層を解析化しても複素点上の零・非零の茎は変わらない。したがって $\mathbb Z$ を支持とする $\mathcal Q$ はそのような $M$ の解析化ではあり得ない。
 
 **（3）証明機構の失敗。** $1$ の剰余類から $\mathcal O_{\mathbb C}\twoheadrightarrow\mathcal Q$ は全射だが、核の $\sin(\pi z)\mathcal O_{\mathbb C}$ を代数的関係式として戻せるとは限らない。射影スキームでは[解析的大域生成と有限次元性](#thm-cag1-07-analytic-serre)を核にも使い、**代数的ねじり層同士**の射を[GAGA II](../CAG1-06/index.md#thm-cag1-06-gaga-hom)で戻せた。アフィン直線ではこのHom比較が成立せず、$\sin(\pi z)$ を多項式の射へ戻せない。大域生成一回と解析的有限表示だけでは、代数化の証明にならない。
 <!-- solution-end -->
