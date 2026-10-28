@@ -555,7 +555,20 @@ q_{\boldsymbol p}=\frac{b_{\boldsymbol p}+b^\dagger_{\boldsymbol p}}{\sqrt{2\ome
 (b_{\boldsymbol p}-b^\dagger_{\boldsymbol p})
 $$
 
-とすると、一モードの $\frac12(\pi_{\boldsymbol p}^2+\omega_{\boldsymbol p}^2q_{\boldsymbol p}^2)$ の中で $b^2$ と $(b^\dagger)^2$ は互いに打ち消し、残りは
+とすると、係数の選び方は正準交換関係とも一致します。実際、$[b_{\boldsymbol p},b^\dagger_{\boldsymbol q}]=\delta_{\boldsymbol p\boldsymbol q}I$ から
+
+$$
+\begin{aligned}
+[q_{\boldsymbol p},\pi_{\boldsymbol q}]
+&=-\frac i2\sqrt{\frac{\omega_{\boldsymbol q}}{\omega_{\boldsymbol p}}}
+[b_{\boldsymbol p}+b^\dagger_{\boldsymbol p},b_{\boldsymbol q}-b^\dagger_{\boldsymbol q}]\\
+&=i\delta_{\boldsymbol p\boldsymbol q}I
+\end{aligned}
+$$
+
+です。同種の $q$ 同士、$\pi$ 同士も可換であり、これは生成・消滅の交換関係の反対称な項が相殺するためです。
+
+一モードの $\frac12(\pi_{\boldsymbol p}^2+\omega_{\boldsymbol p}^2q_{\boldsymbol p}^2)$ の中で $b^2$ と $(b^\dagger)^2$ は互いに打ち消し、残りは
 
 $$
 \frac{\omega_{\boldsymbol p}}2
