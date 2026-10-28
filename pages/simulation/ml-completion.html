@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>機械学習 I・II 数値実験ラボ</title>
+<style>
+:root{font:16px/1.6 system-ui,"Noto Sans JP",sans-serif;color:#182b40;background:#f4f7fa}
+*{box-sizing:border-box}body{margin:0}main{max-width:1150px;margin:auto;padding:16px}
+header,section{background:white;border:1px solid #c2d0dd;border-radius:10px;margin:12px 0;padding:16px}
+h1{font-size:1.65rem;margin:.2em 0}h2{font-size:1.2rem;margin:.2em 0 .6em}
+p{margin:.65em 0}a{color:#155c96}
+.controls,.charts,.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+label{display:grid;gap:4px;font-weight:600}input,select,button{font:inherit}
+input,select{width:100%;padding:7px;border:1px solid #75899c;border-radius:5px;min-width:0}
+button{padding:9px 12px;border:1px solid #285c80;border-radius:6px;background:#fff;color:#1e507c;cursor:pointer}
+button.primary{background:#205e8a;color:#fff}button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #e2a436;outline-offset:2px}
+.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.metric{padding:11px;border:1px solid #c9d7e1;border-radius:7px;background:#f9fbfd}
+.metric strong{display:block;font-variant-numeric:tabular-nums;font-size:1.2rem;overflow-wrap:anywhere}
+.panel{border:1px solid #c9d7e1;border-radius:8px;padding:10px;min-width:0}
+.panel canvas{display:block;width:100%;height:auto;background:#fff;border:1px solid #dde5ed}
+figcaption{font-size:.9rem;color:#344d61}figure{margin:0}
+.warning{border-left:5px solid #d47b22;padding:9px 12px;background:#fff8ed;white-space:pre-wrap}
+.error{color:#aa2424;font-weight:bold}.small{font-size:.91rem;color:#3f5566}
+table{width:100%;border-collapse:collapse}td,th{padding:6px;border-bottom:1px solid #d5e2ea;text-align:left}
+@media(max-width:620px){main{padding:6px}header,section{padding:12px}.buttons button{flex:1 1 130px}}
+</style>
+</head>
+<body><main>
+<header>
+  <nav><a href="./index.html">← ラボ一覧</a> ・ <a id="chapter-link" href="../index.html">章本文と証明へ</a></nav>
+  <h1 id="title">ML数値ラボを初期化中</h1>
+  <p>変更した条件で数値カーネルを再実行します。固定seedで再現可能です。解析的な式は本文で証明し、ここでは有限標本・有限反復の挙動を観測します。</p>
+  <p class="small">すべてブラウザ内のJavaScriptで計算します。外部データ送信・Pyodideのダウンロードは不要です。</p>
+</header>
+<section>
+  <h2>模型と実験設定</h2>
+  <div id="controls" class="controls"></div>
+  <div class="buttons">
+    <button id="calculate" class="primary">条件から再計算</button>
+    <button id="reset">初期設定に戻す</button>
+    <button id="step" hidden>1反復</button>
+    <button id="batch" hidden>10反復</button>
+    <button id="play" hidden>連続実行</button>
+    <button id="pause" hidden disabled>一時停止</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">準備中</p>
+</section>
+<section>
+  <h2>計算した診断値</h2>
+  <div id="metrics" class="metrics" aria-live="polite"></div>
+  <p id="interpretation" class="warning"></p>
+</section>
+<section>
+  <h2>実際の標本・曲線・反復履歴</h2>
+  <div id="charts" class="charts"></div>
+  <p class="small">座標値は数値カーネルの出力から描画し、飾りの軌跡や事前収録フレームは用いません。横軸・縦軸は各図の上に表示します。異なる名称と線/点の描き分けを色と併用しています。</p>
+</section>
+<section>
+  <h2>再現用の記録</h2>
+  <div class="buttons"><button id="json">設定・観測値JSON</button><button id="csv">指標CSV</button></div>
+  <p class="small">同じ章・設定・seedなら同じ標本と観測値になります。乱数列の疑似独立性は確率的独立性の数学的証明ではありません。数値実験の現象を一般定理の証明とはしません。</p>
+  <p id="offline" class="small" role="status"></p>
+</section>
+</main>
+<script type="module">
+import { mlLabSpecs, runMlLab } from './ml-completion-models.mjs';
+const $ = id => document.getElementById(id);
+const id = new URL(location.href).searchParams.get('chapter');
+const spec = mlLabSpecs[id];
+if (!spec) {
+  $('title').textContent = 'ラボの章IDが未登録です';
+  $('status').className = 'error'; $('status').textContent = '一覧から章を選択してください。';
+  throw new Error('Unknown ML lab: ' + id);
+}
+document.title = id + ' ' + spec.title + ' 対話数値実験';
+$('title').textContent = id + '：' + spec.title;
+$('chapter-link').href = '../index.html#/textbook/volumes/dream_thater/応用系/ML/' + id + '/index?id=' + spec.theory.slice(1);
+const fields = spec.inputs;
+for (const [key, field] of Object.entries(fields)) {
+  const label = document.createElement('label'); label.textContent = field.label;
+  let input;
+  if (field.options) {
+    input = document.createElement('select');
+    for (const [value, name] of field.options) {
+      const option = document.createElement('option'); option.value = value; option.textContent = name;
+      input.append(option);
+    }
+  } else {
+    input = document.createElement('input'); input.type = 'number';
+    input.min = String(field.min); input.max = String(field.max); input.step = String(field.step);
+  }
+  input.id = key; input.value = String(field.value);
+  input.addEventListener('change', () => recalculate());
+  label.append(input); $('controls').append(label);
+}
+let result = null, timer = null, generation = 0;
+const stepMode = spec.mode === 'steps';
+for (const control of ['step', 'batch', 'play', 'pause']) $(control).hidden = !stepMode;
+function params() {
+  const data = {};
+  for (const [key, field] of Object.entries(fields)) {
+    if ($(key).value.trim() === '') throw new RangeError(field.label + 'が空です');
+    data[key] = field.options ? $(key).value : Number($(key).value);
+  }
+  return data;
+}
+function stop() {
+  generation++; if (timer !== null) clearInterval(timer); timer = null;
+  $('play').disabled = false; $('pause').disabled = true;
+}
+const format = x => x === null ? '未定義' : Math.abs(x) >= 1000 || (x !== 0 && Math.abs(x) < .0001)
+  ? x.toExponential(5) : Number(x.toPrecision(7)).toString();
+const colors = ['#1564a0','#c16c17','#187c60','#873f9e','#b43e51','#334b7f'];
+function drawChart(canvas, item) {
+  const c = canvas.getContext('2d'), w = canvas.width, h = canvas.height;
+  c.fillStyle = '#fff'; c.fillRect(0, 0, w, h);
+  const all = item.series.flatMap(s => s.points);
+  if (!all.length) {
+    c.fillStyle = '#344d61'; c.font = '20px system-ui';
+    c.fillText('この標本では系列を定義できません', 30, 80);
+    return;
+  }
+  let xmin = Math.min(...all.map(p => p[0])), xmax = Math.max(...all.map(p => p[0]));
+  let ymin = Math.min(...all.map(p => p[1])), ymax = Math.max(...all.map(p => p[1]));
+  if (xmax === xmin) {xmin -= 1; xmax += 1;}
+  if (ymax === ymin) {ymin -= 1; ymax += 1;}
+  const dx = (xmax - xmin) * .07, dy = (ymax - ymin) * .09;
+  xmin -= dx; xmax += dx; ymin -= dy; ymax += dy;
+  const left = 80, right = w - 24, top = 32, bottom = h - 60;
+  const xx = x => left + (x - xmin) / (xmax - xmin) * (right - left);
+  const yy = y => bottom - (y - ymin) / (ymax - ymin) * (bottom - top);
+  c.strokeStyle = '#ccd9e3'; c.lineWidth = 1;
+  c.fillStyle = '#233c53'; c.font = '16px system-ui';
+  for (let i = 0; i <= 4; i++) {
+    const x = xmin + (xmax - xmin) * i / 4, y = ymin + (ymax - ymin) * i / 4;
+    c.beginPath(); c.moveTo(xx(x),top); c.lineTo(xx(x),bottom); c.stroke();
+    c.beginPath(); c.moveTo(left, yy(y)); c.lineTo(right,yy(y)); c.stroke();
+    c.fillText(Number(x.toPrecision(3)).toString(),xx(x)-18,bottom+24);
+    c.fillText(Number(y.toPrecision(3)).toString(),6,yy(y)+5);
+  }
+  item.series.forEach((s, i) => {
+    c.strokeStyle = colors[i % colors.length]; c.fillStyle = colors[i % colors.length];
+    c.lineWidth = 3; c.setLineDash(i % 2 === 1 ? [7,4] : []);
+    c.beginPath();
+    s.points.forEach(([x,y], j) => { if (j === 0) c.moveTo(xx(x), yy(y)); else c.lineTo(xx(x), yy(y)); });
+    if (!s.scatter && s.points.length > 1) c.stroke();
+    c.setLineDash([]);
+    if (s.scatter || s.points.length === 1) s.points.forEach(([x,y]) => {
+      c.beginPath(); c.arc(xx(x), yy(y), 4, 0, 2*Math.PI); c.fill();
+    });
+  });
+  c.textAlign = 'center'; c.fillStyle = '#182b40'; c.fillText(item.xLabel, (left+right)/2, h-14);
+}
+function render(value) {
+  result = value;
+  // Headless browser regression tests compare this exact model result with the UI.
+  window.mlLabLastResult = value;
+  $('metrics').replaceChildren(...value.metrics.map(item => {
+    const box = document.createElement('div'); box.className = 'metric';
+    const label = document.createElement('span'); label.textContent = item.name;
+    const strong = document.createElement('strong'); strong.textContent = format(item.value);
+    box.append(label, strong); return box;
+  }));
+  $('charts').replaceChildren(...value.charts.map((item, i) => {
+    const box = document.createElement('figure'); box.className = 'panel';
+    const h = document.createElement('h3'); h.textContent = item.title;
+    const axes = document.createElement('p'); axes.className = 'small';
+    axes.textContent = '横軸：' + item.xLabel + ' ／ 縦軸：' + item.yLabel;
+    const canvas = document.createElement('canvas'); canvas.width = 720; canvas.height = 420;
+    canvas.id = 'chart-' + i; canvas.setAttribute('role', 'img');
+    canvas.setAttribute('aria-label', item.title + '。' + axes.textContent);
+    const caption = document.createElement('figcaption');
+    caption.textContent = item.series.map((s, j) => ['●','◆','▲','■','✦','●'][j % 6] + ' ' + s.name +
+      '：' + (s.scatter ? '点' : '線') + '（' + s.points.length + '個）').join(' ／ ');
+    box.append(h,axes,canvas,caption); drawChart(canvas,item); return box;
+  }));
+  $('interpretation').textContent = value.note;
+  $('status').className = ''; $('status').textContent = '再計算完了：' + id +
+    (stepMode ? ' ／ 更新回数 ' + value.config.steps : '') + ' ／ ' + value.metrics.length + '指標';
+}
+function recalculate() {
+  stop();
+  try { render(runMlLab(id, params())); }
+  catch (error) { $('status').className = 'error'; $('status').textContent = '計算停止：' + error.message; }
+}
+function moveSteps(count) {
+  if (!stepMode) return;
+  const field = fields.steps;
+  const next = Math.min(field.max, Number($('steps').value) + count);
+  $('steps').value = String(next);
+  try { render(runMlLab(id, params())); }
+  catch (error) { stop(); $('status').className = 'error'; $('status').textContent = '停止：' + error.message; }
+  if (next === field.max) stop();
+}
+$('calculate').addEventListener('click', recalculate);
+$('reset').addEventListener('click', () => { stop(); for (const [key,field] of Object.entries(fields))
+  $(key).value = String(field.value); recalculate(); });
+$('step').addEventListener('click', () => { stop(); moveSteps(1); });
+$('batch').addEventListener('click', () => { stop(); moveSteps(10); });
+$('play').addEventListener('click', () => {
+  if (!stepMode || timer !== null) return;
+  stop(); const currentGeneration = generation;
+  $('play').disabled = true; $('pause').disabled = false;
+  timer = setInterval(() => { if (currentGeneration !== generation) return;
+    moveSteps(1); }, 300);
+});
+$('pause').addEventListener('click', stop);
+function download(name, content, type) {
+  const url = URL.createObjectURL(new Blob([content], { type }));
+  const anchor = document.createElement('a'); anchor.href = url; anchor.download = name; anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+$('json').addEventListener('click', () => { if (result) download(id + '-experiment.json',
+  JSON.stringify(result, null, 2), 'application/json'); });
+$('csv').addEventListener('click', () => { if (result) download(id + '-metrics.csv',
+  '指標,値\n' + result.metrics.map(m => '"' + m.name.replaceAll('"','""') + '",' +
+    (m.value ?? '')).join('\n') + '\n', 'text/csv;charset=utf-8'); });
+window.addEventListener('pagehide', stop);
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('../service-worker.js',
+    { scope: '../', updateViaCache: 'none' }).then(() => navigator.serviceWorker.ready).then(() => {
+    $('offline').textContent = 'オフライン用資産の登録完了（初回アクセス時はオンラインが必要）。';
+  }).catch(() => { $('offline').textContent = 'キャッシュを登録できません。オンライン接続で再試行してください。'; }));
+} else $('offline').textContent = 'このブラウザはService Workerに非対応です。';
+recalculate();
+</script>
+</body>
+</html>

@@ -448,6 +448,8 @@ $$
 
 ## 8. 再計算ラボ
 
+**対話ラボ：** [2次元潜在の線形Gaussian VAEで事前分布・encoder・decoder・KL重み・seedを操作](../../../../../../simulation/ml-completion.html?chapter=ML2-20)し、潜在点群・生成標本・再構成標本と、再構成項・KL・[VAEのELBO](#thm-ml2-20-elbo)を再計算する。対角Gaussian encoderに対し、decoderの両係数が非零なら真の事後は一般に相関する。$\beta\ne1$ の重み付き目的関数は通常のELBOと区別して表示する。decoderの両係数を0にすると潜在変数を無視する設定になり、真の事後が事前に一致する。
+
 NumPyで第6節の一次元模型を再計算する。$\rho$ は **標準偏差の対数** であり、分散の対数ではない。
 
 ```python

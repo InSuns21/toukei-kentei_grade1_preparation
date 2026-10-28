@@ -313,6 +313,42 @@ $$
 $$
 となる。一方、$q$ を**同じ標本に合わせて選んだ場合**、$q$ 自体が標本に依存するのでこの等式はそのまま適用できない。[訓練・検証・テスト分割](../ML1-12/index.md#def-ml1-12-three-way-split)に従って独立テストを別に取れば、訓練後の固定された $q$ に条件付けて同じ期待値計算を使える（有限リスクの条件も維持する）。
 
+### 計算ラボ：台を変えて対数損失とKLを直接照合する
+
+[有限分布の対数損失とKL恒等式](#thm-ml2-01-conditional-kl-regret)を、3カテゴリの確率和と正の台を確認してから数値計算する。$p$ と $q$ を編集し、$p_i>0$ なのに $q_i=0$ の場合は有限値に丸めず $+\infty$ とする。$p_i=0$ の項は0として扱い、`0*log(0)` を作らない。これは確率ベクトルの**計算ラボ**であり、標本による証明の置き換えではない。
+
+~~~python-lab
+# lab-id: ml2-01-logloss-support-kl
+# lab-title: 有限確率分布のlog loss・KLと台条件
+# lab-mode: demo
+# timeout-ms: 10000
+import math
+
+def scores(p, q):
+    assert len(p) == len(q) and len(p) >= 2
+    assert all(math.isfinite(v) and v >= 0 for v in p + q)
+    assert abs(sum(p) - 1.0) < 1e-12 and abs(sum(q) - 1.0) < 1e-12
+    h = -sum(v * math.log(v) for v in p if v > 0)
+    if any(v > 0 and q[i] == 0 for i, v in enumerate(p)):
+        return h, math.inf, math.inf
+    loss = -sum(v * math.log(q[i]) for i, v in enumerate(p) if v > 0)
+    kl = sum(v * math.log(v / q[i]) for i, v in enumerate(p) if v > 0)
+    return h, loss, kl
+
+p = [0.5, 0.3, 0.2]                 # 真の確率。和1を確認する
+predictions = [[0.5, 0.3, 0.2],     # 正しく校正された予測
+               [0.4, 0.35, 0.25],   # 台は同じだが予測がずれる
+               [0.7, 0.3, 0.0]]     # 真の正の確率に0を報告する
+for q in predictions:
+    h, loss, kl = scores(p, q)
+    assert kl >= -1e-12
+    if math.isfinite(loss):
+        assert abs(loss - h - kl) < 1e-12
+    else:
+        assert math.isinf(kl)
+    print('p=', p, 'q=', q, 'H=', h, 'L=', loss, 'KL=', kl)
+~~~
+
 ## 6. 演習：台・校正・密度を自力で判定する
 
 ### ML2-01-A01 二値対数損失の差
