@@ -113,7 +113,7 @@ chapters:
     title: "ビット反転・位相反転符号"
   - id: QINF26
     path: textbook/volumes/dream_thater/応用系/QINF/QINF26
-    status: planned
+    status: completed
     title: "Knill–Laflamme条件"
   - id: QINF27
     path: textbook/volumes/dream_thater/応用系/QINF/QINF27

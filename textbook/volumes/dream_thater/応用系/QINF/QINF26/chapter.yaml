@@ -1,0 +1,29 @@
+id: QINF26
+title: "Knill–Laflamme条件"
+volume: foundations
+status: supplementary
+prerequisites: [QINF2, QINF7, QINF8, QINF25]
+official_scope: []
+learning_objectives:
+  - 有限次元の等長符号化とCPTP雑音に対して完全誤り訂正を定義し重ね合わせと参照系を含む要請を説明できる
+  - 射影で挟んだ誤り積を論理基底で計算しKnill–Laflamme行列の正値性・正規化を証明できる
+  - Knill–Laflamme条件の必要性と十分性を証明し直交誤り部分空間からCPTP回復を構成できる
+  - 縮退する誤りと訂正不能な論理位相誤りを具体符号で判定できる
+  - 訂正可能な誤りの線形包への拡張を示し非対角Gram行列の対角化と復号を実行できる
+definitions:
+  - { id: QINF26-DEF-01, name: "量子符号の完全誤り訂正" }
+  - { id: QINF26-DEF-02, name: "Knill–Laflamme行列" }
+  - { id: QINF26-DEF-03, name: "誤りの縮退" }
+theorems:
+  - { id: QINF26-PROP-01, name: "行列の正値性と雑音の正規化" }
+  - { id: QINF26-THM-01, name: "Knill–Laflammeの必要十分条件" }
+  - { id: QINF26-PROP-02, name: "訂正可能な誤りの線形包" }
+canonical_examples:
+  - "3量子ビット反復符号のI・X1による直交誤り空間とGram行列"
+  - "Z1Z2が符号上で恒等となる縮退とZ1の訂正不能性"
+  - "非対角Knill–Laflamme行列の対角化からCPTP回復を構成"
+problem_patterns: [QINF26-GRAM, QINF26-NECESSITY, QINF26-SUFFICIENCY, QINF26-DEGENERACY, QINF26-COUNTEREXAMPLE, QINF26-ERROR-SPAN, QINF26-COHERENT, QINF26-RECOVERY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }
