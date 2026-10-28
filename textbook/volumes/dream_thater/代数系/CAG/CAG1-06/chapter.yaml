@@ -1,0 +1,43 @@
+id: "CAG1-06"
+title: "GAGA II――正則な層の射の代数性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-05
+official_scope: []
+learning_objectives:
+  - 内部Hom層と大域の層準同型を区別し、有限表示を用いて内部Hom層の連接性を導ける
+  - 局所環の平坦性と有限表示から解析化と内部Homの自然な交換同型を核の式で証明できる
+  - GAGA Iの零次比較から、射影スキーム上の連接層間のHom比較が全単射であることを導ける
+  - 既に代数的な層の解析的同型と逆射を代数化し、射影直線上のねじり層の射を斉次多項式で計算できる
+  - 代数的な線束と切断から作る正則写像の代数性、任意の正則写像や未代数化線束にはまだ言えないこと、非射影反例を区別できる
+definitions:
+  - { id: CAG1-06-DEF-01, name: 内部Hom層と射の解析化写像 }
+theorems:
+  - { id: CAG1-06-LEM-01, name: 連接層間の内部Hom層の連接性 }
+  - { id: CAG1-06-LEM-02, name: 平坦な解析化と内部Homの交換 }
+  - { id: CAG1-06-THM-01, name: GAGA II――連接層の射の比較 }
+  - { id: CAG1-06-COR-01, name: 解析化した連接層の同型の代数性 }
+  - { id: CAG1-06-PROP-01, name: 代数的線型系から生じる正則射 }
+canonical_examples:
+  - P1上のO(a)からO(b)への射と斉次多項式
+  - P1上のO(-1)からO(1)へのS二乗による射と局所表示
+  - 射影直線の長さ2の非被約点上の自己準同型と逆射
+  - A1上の指数関数による解析的自己同型の非代数性
+  - O(2)のS二乗とT二乗が定めるP1からP1への射
+problem_patterns:
+  - CAG1-06-A01
+  - CAG1-06-A02
+  - CAG1-06-A03
+  - CAG1-06-A04
+  - CAG1-06-A05
+  - CAG1-06-B01
+  - CAG1-06-B02
+  - CAG1-06-B03
+  - CAG1-06-B04
+  - CAG1-06-C01
+  - CAG1-06-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
