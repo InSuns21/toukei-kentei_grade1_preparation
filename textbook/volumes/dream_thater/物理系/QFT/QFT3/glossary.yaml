@@ -11,7 +11,7 @@ terms:
     meaning: "時間因子e^{-iωt}を持つ自由場の成分（ω>0）。正のエネルギーと関係するが、単独で実場とは限らない。"
   - term: Klein–Gordon保存形式
     english: Klein–Gordon sesquilinear form
-    meaning: "複素解二つの間の保存されるHermite形式。全解空間上では正定値ではない。"
+    meaning: "第一変数に反線形・第二変数に線形な保存されるエルミート形式。全解空間上では正定値ではない。"
   - term: smearing
     english: smearing
     meaning: "点での値の代わりに試験関数を掛けて積分し、場を試験関数への作用として読む操作。"
