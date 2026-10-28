@@ -28,6 +28,8 @@ $$
 
 です。
 
+四元運動量の二乗は $p^2:=p_\mu p^\mu=E^2-|\boldsymbol p|^2=m^2$ と書き、通常の三次元ベクトルの長さの二乗とは区別します。
+
 以下の $\psi(x)\in\mathbb C^4$ はまず**古典的な複素四成分場**です。スピン成分を数えられることと、Fock空間で反交換する量子場を構成したことは別であり、その量子化は次の段階で行います。
 
 ## 1. 一次方程式を可能にするClifford関係
@@ -63,6 +65,8 @@ $$
 $$
 
 とし、$I_2$ を二次単位行列とします。各行列を掛けると $(\sigma^j)^2=I_2$、$j\ne k$ では $\sigma^j\sigma^k=-\sigma^k\sigma^j$ です。例えば $\sigma^1\sigma^2=i\sigma^3$、$\sigma^2\sigma^1=-i\sigma^3$ となります。
+
+以下、$M^\dagger$ は複素行列 $M$ の共役転置（行列を転置して各成分を複素共役にする操作）、$[M,N]=MN-NM$ は交換子を表します。反交換子 $\{M,N\}=MN+NM$ とは区別します。
 
 Dirac表示は
 
@@ -140,7 +144,27 @@ $$
 
 [QFT1のスカラー変換](../QFT1/index.md#def-qft1-real-scalar)なら $\phi'(x')=\phi(x)$ でした。Dirac場には四成分を混ぜる行列がさらに必要です。座標を $x'=\Lambda x$ と動かしたとき、一次微分と $\gamma^\mu$ の縮約がもとの形に戻ることを基準にします。
 
-ただし、行列の相似変換だけでは $S$ を一意に選べません。例えば非零複素数 $c$ に対して $(cS)^{-1}\gamma^\mu(cS)=S^{-1}\gamma^\mu S$ だからです。ここではClifford行列から作る生成子
+ただし、行列の相似変換だけでは $S$ を一意に選べません。例えば非零複素数 $c$ に対して
+
+$$
+(cS)^{-1}\gamma^\mu(cS)=S^{-1}\gamma^\mu S
+$$
+
+だからです。ここで四成分の正方行列 $M$ に対する $e^M$ を
+
+$$
+e^M:=\sum_{n=0}^\infty\frac{M^n}{n!}
+$$
+
+で定めます。行列積に対して $\|AB\|\le\|A\|\|B\|$ となるノルムを用いれば
+
+$$
+\sum_{n=0}^\infty\left\|\frac{M^n}{n!}\right\|
+\le\sum_{n=0}^\infty\frac{\|M\|^n}{n!}
+=e^{\|M\|}<\infty
+$$
+
+なので、級数は絶対収束し、積や項別計算ができます。微小な変換の積から有限の変換を構成するため、ここではClifford行列から作る生成子
 
 $$
 \Sigma^{\mu\nu}=\frac i4[\gamma^\mu,\gamma^\nu]
@@ -192,7 +216,7 @@ e^{-i\varphi\sigma^3/2}&0\\
 \end{pmatrix}.
 $$
 
-$\sigma^3$ の固有値が $\pm1$ なので $S_R(2\pi)=-I_4$ ですが、座標の回転は $\Lambda_R(2\pi)=I_4$ です。$4\pi$ 回してようやく $S_R(4\pi)=I_4$ に戻ります。
+$\sigma^3e_1=e_1$、$\sigma^3e_2=-e_2$（$e_1=(1,0)^T$、$e_2=(0,1)^T$）なので、固有値は $\pm1$ です。従って $e^{-i\varphi\sigma^3/2}=\operatorname{diag}(e^{-i\varphi/2},e^{i\varphi/2})$ と成分ごとに指数を計算でき、$S_R(2\pi)=-I_4$ となります。一方、座標の回転は $\Lambda_R(2\pi)=I_4$ です。$4\pi$ 回してようやく $S_R(4\pi)=I_4$ に戻ります。
 
 $z$ 方向の速さパラメータ $\vartheta$ のboostは $\Lambda^0{}_3=\Lambda^3{}_0=\sinh\vartheta$、$\Lambda^0{}_0=\Lambda^3{}_3=\cosh\vartheta$ とします。$\omega_{03}=\vartheta$ なので
 
@@ -231,12 +255,12 @@ $$
 
 ### 証明の見取り図
 
-まず生成子と $\gamma$ の交換子をClifford関係から求め、無限小変換則を確かめます。任意の連続経路の微小変換を積めば有限の変換が得られます。その後、場の微分に連鎖律を用いて $S$ と $\Lambda^{-1}$ を消します。
+まず生成子と $\gamma$ の交換子を[Clifford関係](#def-qft7-clifford)から求め、無限小変換則を確かめます。任意の連続経路の微小変換を積めば有限の変換が得られます。その後、場の微分に連鎖律を用いて $S$ と $\Lambda^{-1}$ を消します。
 
 <!-- proof-start -->
 ### 証明
 
-Clifford関係から $[\gamma^\rho\gamma^\sigma,\gamma^\mu]$ を展開します。$\gamma^\sigma\gamma^\mu=2\eta^{\sigma\mu}I_4-\gamma^\mu\gamma^\sigma$ を二度使えば
+[Clifford関係](#def-qft7-clifford)から $[\gamma^\rho\gamma^\sigma,\gamma^\mu]$ を展開します。$\gamma^\sigma\gamma^\mu=2\eta^{\sigma\mu}I_4-\gamma^\mu\gamma^\sigma$ を二度使えば
 
 $$
 \begin{aligned}
@@ -267,7 +291,16 @@ $$
 
 ここで反対称性 $\omega_{\rho\sigma}=-\omega_{\sigma\rho}$ を使って二項をまとめました。微小変換の積ではこの恒等式が相似変換の合成として保たれます。$SO^+(1,3)$ の各要素は恒等元からの連続経路で到達でき、その経路を微小変換へ分割して極限を取れば有限変換の式が成立します。経路を一周させると $S$ の符号が変わり得ますが、相似変換には影響しません。
 
-次に $x'=\Lambda x$ なので連鎖律は
+次に $\partial'_\mu:=\partial/\partial x'^\mu$ と定めます。プライムは**変換後の座標**について微分する印であり、時間微分の記号ではありません。$x^\nu=(\Lambda^{-1})^\nu{}_\rho x'^\rho$、$S$ は座標に依存しない定数行列なので、連鎖律を成分ごとに書くと
+
+$$
+\frac{\partial\psi'(x')}{\partial x'^\mu}
+=S\frac{\partial x^\nu}{\partial x'^\mu}
+\frac{\partial\psi(x)}{\partial x^\nu}
+=S(\Lambda^{-1})^\nu{}_\mu\partial_\nu\psi(x).
+$$
+
+従って
 
 $$
 \partial'_\mu\psi'(x')
@@ -334,7 +367,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Dirac作用と保存電流）**
-> $\Lambda\in SO^+(1,3)$ に対応するDiracスピノル変換について、$S^\dagger\gamma^0S=\gamma^0$、$\bar\psi'=\bar\psi S^{-1}$ が成立する。Dirac作用はLorentz変換で不変である。独立なコンパクト台変分の停留条件は
+> $\Lambda\in SO^+(1,3)$ に対応するDiracスピノル変換について、$S^\dagger\gamma^0S=\gamma^0$、$\bar\psi'=\bar\psi S^{-1}$ が成立する。$\Omega'=\Lambda\Omega$ と領域も変換すれば、Dirac作用は
+
+$$
+\mathcal S_{\Omega'}[\psi',\bar\psi']
+=\mathcal S_\Omega[\psi,\bar\psi]
+$$
+
+> を満たす。独立なコンパクト台変分の停留条件は
 
 $$
 (i\gamma^\mu\partial_\mu-m)\psi=0,\qquad
@@ -351,13 +391,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Dirac表示では $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
+[Dirac行列の直接例](#def-qft7-clifford)から、Dirac表示では $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
 
 $$
 (\Sigma^{\mu\nu})^\dagger=\gamma^0\Sigma^{\mu\nu}\gamma^0.
 $$
 
-実の反対称パラメータ $\omega_{\mu\nu}$ で $X=-i\omega_{\mu\nu}\Sigma^{\mu\nu}/2$ と置けば $X^\dagger\gamma^0=-\gamma^0X$。従って
+実の反対称パラメータ $\omega_{\mu\nu}$ で $X=-i\omega_{\mu\nu}\Sigma^{\mu\nu}/2$ と置けば $X^\dagger\gamma^0=-\gamma^0X$ です。これを繰り返すと $(X^\dagger)^n\gamma^0=\gamma^0(-X)^n$ なので、指数の冪級数に項ごとに代入して $e^{X^\dagger}\gamma^0=\gamma^0e^{-X}$ を得ます。また同じ行列の指数の積は
+
+$$
+e^{-X}e^X
+=\sum_{n=0}^\infty\frac{X^n}{n!}
+\sum_{k=0}^n\binom nk(-1)^k=I_4
+$$
+
+です。従って
 
 $$
 S^\dagger\gamma^0S
@@ -380,7 +428,14 @@ $$
 =\bar\psi(i\gamma^\nu\partial_\nu-m)\psi
 $$
 
-となり、積分値は変わりません。
+となります。$\Lambda\in SO^+(1,3)$ は $\det\Lambda=1$ なので、変数変換 $x'=\Lambda x$ のJacobianは1です。従って積分領域も $\Omega'=\Lambda\Omega$ に移すと
+
+$$
+\int_{\Omega'}\bar\psi'(i\gamma^\mu\partial'_\mu-m)\psi'\,d^4x'
+=\int_\Omega\bar\psi(i\gamma^\nu\partial_\nu-m)\psi\,d^4x.
+$$
+
+同じ座標範囲 $\Omega$ を変換後にも固定する主張ではなく、領域ごとの作用の共変性です。
 
 停留条件では、任意のコンパクト台の $\delta\bar\psi$ に関する変分から $(i\gamma^\mu\partial_\mu-m)\psi=0$。$\delta\psi$ に関しては
 
@@ -708,12 +763,12 @@ $$
 
 ### 証明の見取り図
 
-Clifford関係によって質量殻上で $(\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
+[Clifford関係](#def-qft7-clifford)によって質量殻上で $(\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
 
 <!-- proof-start -->
 ### 証明
 
-$p_\mu p_\nu$ は添字について対称なので、Clifford関係から
+$p_\mu p_\nu$ は添字について対称なので、[Clifford関係](#def-qft7-clifford)から
 
 $$
 (\not p)^2
@@ -738,7 +793,34 @@ $$
 =\frac{m^2I_4-(\not p)^2}{4m^2}=0.
 $$
 
-和は分子の $\not p$ が打ち消されて $I_4$ です。Dirac表示の $\gamma^\mu$ はすべて跡が零で、従って $\operatorname{tr}\not p=0$。射影行列の跡は階数に等しいので
+和は分子の $\not p$ が打ち消されて $I_4$ です。ここで各射影子が取り出す**固有空間**も確かめます。[SREL3の質量殻条件](../../SREL/SREL3/index.md#def-srel3-mass-shell)から
+
+$$
+(\not p-mI_4)\Pi_+
+=\frac{(\not p)^2-m^2I_4}{2m}=0,
+\qquad
+(\not p+mI_4)\Pi_-=0.
+$$
+
+従って $\Pi_+$ の像のベクトルは $\not p$ の固有値 $+m$ に属し、$\Pi_-$ の像は固有値 $-m$ に属します。逆に $w\in\mathbb C^4$ が固有ベクトルなら
+
+$$
+\begin{aligned}
+\not p\,w=mw&\ \Longrightarrow\ \Pi_+w=\frac{m+m}{2m}w=w,\\
+\not p\,w=-mw&\ \Longrightarrow\ \Pi_-w=\frac{m-(-m)}{2m}w=w.
+\end{aligned}
+$$
+
+それぞれの像は**ちょうど**対応する固有空間です。
+
+階数の判定に用いる跡の意味も確認します。$\Pi^2=\Pi$ なら任意の $w$ は
+
+$$
+w=\Pi w+(w-\Pi w),\qquad
+\Pi(w-\Pi w)=\Pi w-\Pi^2w=0
+$$
+
+と像と核へ一意に分解され、像上の固有値は1、核上は0です。よってこの基底での対角成分の和（跡）は像の次元、すなわち階数に等しくなります。Dirac表示の四つの $\gamma^\mu$ はすべて跡が零なので、$\operatorname{tr}\not p=0$ ですから
 
 $$
 \operatorname{rank}\Pi_\pm
@@ -871,7 +953,7 @@ $q=m\sinh\vartheta$、$E=m\cosh\vartheta$、$\vartheta\ge0$ とし、$K=\gamma^0
 <!-- solution-start -->
 #### 詳細解答
 
-$K(1,0,0,0)^T=(0,0,1,0)^T$、$K^2=I_4$ から
+[本章のz方向boostの構成](#def-qft7-spinor-transform)で得た $K$ を使い、$K(1,0,0,0)^T=(0,0,1,0)^T$、$K^2=I_4$ から
 
 $$
 S_Bu_1(0)=\sqrt{2m}
@@ -1039,7 +1121,7 @@ $m>0$、$\vartheta>0$ とし、$E=m\cosh\vartheta$、$q=m\sinh\vartheta$、$p^\m
 <!-- solution-start -->
 #### 詳細解答
 
-**1. boost。** $K=\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
+**1. boost。** [z方向boostの例](#def-qft7-spinor-transform)の $K=\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
 
 $$
 \begin{aligned}
