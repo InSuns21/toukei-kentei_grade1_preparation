@@ -659,14 +659,14 @@ $$
 二つの質量が偶然同じでも粒子種が異なれば $S_{\mathrm f}=1$ です。$m_a=m_b=m$ なら $\lambda(M^2,m^2,m^2)=M^2(M^2-4m^2)$ なので
 
 $$
-\Gamma_{\mathrm{異種}}
+\Gamma_{\mathrm{distinct}}
 =\frac{g^2}{16\pi M}\sqrt{1-\frac{4m^2}{M^2}}.
 $$
 
 同種二粒子ならラベル付き位相空間を二度数えているため、$1/2!$ で割り
 
 $$
-\Gamma_{\mathrm{同種}}
+\Gamma_{\mathrm{identical}}
 =\frac{g^2}{32\pi M}\sqrt{1-\frac{4m^2}{M^2}}.
 $$
 
