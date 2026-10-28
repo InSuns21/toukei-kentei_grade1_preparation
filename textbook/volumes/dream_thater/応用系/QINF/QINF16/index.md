@@ -228,7 +228,7 @@ $$
 
 ### 証明の見取り図
 
-純粋状態を使い、四つの局所作用素をその状態へ作用させたベクトルへ変換します。CHSH式は二つの内積へまとまり、Cauchy–Schwarzの不等式を二度使うと、ベクトルの和と差の二乗が相殺し合う構造が現れます。混合状態へは純粋状態分解の平均で拡張できます。
+純粋状態を使い、四つの局所作用素をその状態へ作用させたベクトルへ変換します。CHSH式は二つの内積へまとまり、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を二度使うと、ベクトルの和と差の二乗が相殺し合う構造が現れます。混合状態へは純粋状態分解の平均で拡張できます。
 
 <!-- proof-start -->
 ### 証明
@@ -247,7 +247,7 @@ E_{xy}=\langle\psi|(A_x\otimes B_y)|\psi\rangle
 =\langle u_x,v_y\rangle\in\mathbb R.
 $$
 
-ゆえにCauchy–Schwarzを各項へ使うと
+ゆえに[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を各項へ使うと
 
 $$
 \begin{aligned}
@@ -259,7 +259,7 @@ $$
 \end{aligned}
 $$
 
-二つの非負実数 $r,s$ に対して $(r+s)^2\le2(r^2+s^2)$ を使い、内積の交差項を打ち消す平行四辺形恒等式を適用すれば
+二つの非負実数 $r,s$ に対して $(r+s)^2\le2(r^2+s^2)$ を使い、内積の交差項を打ち消す[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)を適用すれば
 
 $$
 \begin{aligned}
@@ -416,7 +416,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-分離可能な $\rho_{AB}=\sum_jq_j\sigma_j^A\otimes\tau_j^B$ をとり、[分離可能状態の表示](../QINF15/index.md#def-qinf15-separable)の混合番号 $j$ を $\lambda$ とします。[局所POVMのBorn則](../QINF5/index.md#def-qinf5-povm)に従い
+分離可能な $\rho_{AB}=\sum_jq_j\sigma_j^A\otimes\tau_j^B$ をとり、[分離可能状態の表示](../QINF15/index.md#def-qinf15-separable)の混合番号 $j$ を $\lambda$ とします。[局所POVMのBorn則](../QINF5/index.md#prop-qinf5-probabilities)に従い
 
 $$
 \begin{aligned}
@@ -646,7 +646,7 @@ $$
 |S|\le\|v_0+v_1\|+\|v_0-v_1\|.
 $$
 
-実数のCauchy–Schwarzと平行四辺形恒等式を順に適用すると
+実数の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)を順に適用すると
 
 $$
 |S|^2\le2(\|v_0+v_1\|^2+\|v_0-v_1\|^2)
@@ -878,7 +878,7 @@ S=p\left\{\boldsymbol a_0\cdot T(\boldsymbol b_0+\boldsymbol b_1)
 +\boldsymbol a_1\cdot T(\boldsymbol b_0-\boldsymbol b_1)\right\}
 $$
 
-です。これにCauchy–Schwarzを適用し、Aliceの各単位方向を最適化すると
+です。これに[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用し、Aliceの各単位方向を最適化すると
 
 $$
 |S|\le p\left(
@@ -886,14 +886,14 @@ $$
 |\boldsymbol b_0-\boldsymbol b_1|\right).
 $$
 
-二つの和差の二乗和は平行四辺形恒等式により
+二つの和差の二乗和は[平行四辺形恒等式](../../../解析系/F0/F0-02C1/index.md#ref-parallelogram-identity)により
 
 $$
 |\boldsymbol b_0+\boldsymbol b_1|^2
 +|\boldsymbol b_0-\boldsymbol b_1|^2=4.
 $$
 
-従ってその和はCauchy–Schwarzより最大 $2\sqrt2$ です。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。よって非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
+従ってその和は[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より最大 $2\sqrt2$ です。等号は $\boldsymbol b_0\cdot\boldsymbol b_1=0$ とし、Aliceの方向を $T(\boldsymbol b_0\pm\boldsymbol b_1)$ の正規化ベクトルへ選べば実現します。よって非自明なqubit射影二値測定の最大値は $2\sqrt2 p$。
 
 特に $1/3<p\le1/\sqrt2$ の状態はエンタングル状態でも、この二設定二値の非自明な射影測定ではCHSH違反しません。エンタングルメントの判定とBell非局所性の検出は同じ検査ではないのです。
 <!-- solution-end -->
