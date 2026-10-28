@@ -109,7 +109,7 @@ chapters:
     title: "量子通信容量とcoherent information"
   - id: QINF25
     path: textbook/volumes/dream_thater/応用系/QINF/QINF25
-    status: planned
+    status: completed
     title: "ビット反転・位相反転符号"
   - id: QINF26
     path: textbook/volumes/dream_thater/応用系/QINF/QINF26

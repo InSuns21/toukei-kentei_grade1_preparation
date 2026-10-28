@@ -1,0 +1,48 @@
+chapter: QINF25
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF1, QINF3, QINF5, QINF7, QINF12, QINF24]
+forward_references: []
+concepts:
+  - id: quantum.three-qubit-repetition-code
+    name: 3量子ビット反復符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（3量子ビット反復符号と符号空間）]
+    requires: [quantum.composite-system, quantum.entanglement-transmission-code]
+  - id: quantum.parity-syndrome-recovery
+    name: パリティsyndromeと回復操作
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（パリティsyndromeと回復操作）]
+    requires: [quantum.three-qubit-repetition-code, quantum.finite-measurement-instrument]
+  - id: quantum.parity-syndrome-projectors
+    name: パリティsyndrome射影の分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（パリティsyndrome射影の分解）]
+    requires: [quantum.parity-syndrome-recovery]
+  - id: quantum.single-bit-flip-correction
+    name: 単一ビット反転の完全訂正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単一ビット反転の完全訂正）]
+    requires: [quantum.parity-syndrome-projectors, quantum.kraus-completeness]
+  - id: quantum.repetition-logical-noise
+    name: 独立ビット反転雑音による論理チャネル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（独立ビット反転雑音による論理チャネル）]
+    requires: [quantum.single-bit-flip-correction, quantum.channel-composition]
+  - id: quantum.three-qubit-phase-code
+    name: 3量子ビット位相反転符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（3量子ビット位相反転符号）]
+    requires: [quantum.three-qubit-repetition-code]
+  - id: quantum.phase-flip-repetition-recovery
+    name: Hadamard共役による位相反転訂正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hadamard共役による位相反転訂正）]
+    requires: [quantum.three-qubit-phase-code, quantum.single-bit-flip-correction]
