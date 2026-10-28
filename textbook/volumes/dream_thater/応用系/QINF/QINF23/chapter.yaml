@@ -1,0 +1,29 @@
+id: QINF23
+title: "量子通信路での古典通信"
+volume: foundations
+status: supplementary
+prerequisites: [QINF5, QINF7, QINF17, QINF18, QINF20, QINF21, QINF22, INFO3]
+official_scope: []
+learning_objectives:
+  - 有限次元cq通信路とブロック符号・POVM復号・平均誤り・達成可能率を定義し具体例を計算できる
+  - Holevo量と単回の可アクセス情報量を区別し、ブロック符号のFano・Holevo逆向き評価を導ける
+  - 典型射影・重なり評価・平方根測定を使って有限入力cq通信路のHSW達成可能性を再構成できる
+  - 可換チャネル・完全識別可能な直交出力・非直交純粋出力の容量を計算できる
+  - 一般量子チャネルの積符号容量と、エンタングル入力を許す正則化容量の差を説明できる
+definitions:
+  - { id: QINF23-DEF-01, name: "cq通信路と古典メッセージ符号" }
+  - { id: QINF23-DEF-02, name: "古典通信の達成可能率と容量" }
+theorems:
+  - { id: QINF23-LEM-01, name: "Fano不等式とブロックHolevo逆評価" }
+  - { id: QINF23-LEM-02, name: "条件付き典型射影の平均重なり" }
+  - { id: QINF23-LEM-03, name: "平方根測定の誤差評価" }
+  - { id: QINF23-THM-01, name: "有限入力cq通信路のHSW定理" }
+  - { id: QINF23-THM-02, name: "一般量子チャネルの正則化古典容量" }
+canonical_examples:
+  - "直交二値出力、完全混合出力、非直交二純粋出力の容量"
+  - "二元対称な可換出力の容量と誤り率"
+problem_patterns: [QINF23-CQ-CODE, QINF23-HOLEVO, QINF23-FANO, QINF23-TYPICAL, QINF23-PGM, QINF23-BINARY, QINF23-REGULARIZATION, QINF23-CAPACITY-INTEGRATION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 8.0, review: 3.0 }
