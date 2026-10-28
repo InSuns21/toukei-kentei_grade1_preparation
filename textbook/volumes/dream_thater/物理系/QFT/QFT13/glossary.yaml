@@ -1,0 +1,20 @@
+chapter: QFT13
+terms:
+  - term: 交換チャネル
+    english: exchange channel
+    meaning: "木図の内部線の四運動量二乗によるs・t・uの分類。"
+  - term: 交差対称性
+    english: crossing symmetry
+    meaning: "入出射外線を移した別物理領域の振幅を解析接続で関係づける性質。"
+  - term: 全入射表示
+    english: all-incoming convention
+    meaning: "出射外線の四運動量の符号を反転し四本の外線を入射として記す方式。"
+  - term: 光学定理
+    english: optical theorem
+    meaning: "S行列の単位性から前方弾性振幅の虚部と全断面積を結ぶ等式。"
+  - term: 包摂和
+    english: inclusive sum
+    meaning: "運動量保存と質量殻を満たす全終状態の振幅二乗を位相空間で足した量。"
+  - term: 吸収部分
+    english: absorptive part
+    meaning: "単位性と質量殻上の中間状態に結びつく散乱振幅の虚部。"

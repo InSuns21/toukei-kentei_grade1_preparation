@@ -1,0 +1,43 @@
+id: QFT13
+title: "木レベル散乱・交差対称性と光学定理"
+volume: foundations
+status: supplementary
+prerequisites: [QFT12]
+official_scope: []
+learning_objectives:
+  - 三次・四次スカラー相互作用のラベル付き木図を数えてs・t・uチャネル振幅と干渉を導ける
+  - 重心系の角度依存振幅から同種終状態因子を含む微分・全断面積と閾値極限を求められる
+  - 全入射外線表示と交差対称性を理解し解析振幅と物理的断面積を区別できる
+  - S行列の単位性から前方光学定理を導き全終状態の位相空間和へ移せる
+  - 四次スカラー散乱で木レベルと次次数の虚部の関係を検算し適用仮定を説明できる
+definitions:
+  - { id: QFT13-DEF-01, name: 三つの交換チャネル }
+  - { id: QFT13-DEF-02, name: 全入射表示と交差された運動学 }
+  - { id: QFT13-DEF-03, name: 終状態全体への包摂和 }
+theorems:
+  - { id: QFT13-PROP-01, name: 実スカラーの三チャネル木レベル振幅 }
+  - { id: QFT13-PROP-02, name: 三チャネル振幅の角度分布と閾値極限 }
+  - { id: QFT13-PROP-03, name: 同一実スカラー四点木振幅の交差関係 }
+  - { id: QFT13-THM-01, name: S行列の単位性と前方光学定理 }
+  - { id: QFT13-PROP-04, name: 四次スカラー相互作用で単位性が要求する虚部 }
+canonical_examples:
+  - 直角散乱での三チャネルの内部運動量
+  - 木レベルのs・t・u交換図と接触図の干渉
+  - 全入射外線を交換して別の物理領域へ移す条件
+  - 同種二体終状態の包摂位相空間積分
+  - 四次スカラーの次次数虚部の単位性検算
+problem_patterns:
+  - QFT13-CHANNEL-KINEMATICS
+  - QFT13-EXCHANGE-VERTEX-SIGN
+  - QFT13-CROSSING-ANALYTIC-REGION
+  - QFT13-THRESHOLD-AMPLITUDE
+  - QFT13-OPERATOR-UNITARITY
+  - QFT13-IDENTICAL-ANGULAR-FACTOR
+  - QFT13-DISTINCT-SPECIES-CROSSING
+  - QFT13-OPTICAL-THEOREM-CUT
+  - QFT13-PERTURBATIVE-ORDER
+  - QFT13-INTERFERENCE-ANGULAR-INTEGRAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 4 }

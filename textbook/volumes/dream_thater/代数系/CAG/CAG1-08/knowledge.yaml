@@ -1,0 +1,42 @@
+chapter: CAG1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-07]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.categorical-equivalence
+    name: 完全忠実な関手と圏の同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全忠実な関手と圏の同値）"]
+    requires: [complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.gaga-essential-surjectivity]
+  - id: complex-algebraic-geometry.gaga-equivalence
+    name: 射影版GAGAの圏同値
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.categorical-equivalence, complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.gaga-essential-surjectivity, complex-algebraic-geometry.gaga-cohomology, complex-algebraic-geometry.analytic-coherence-exactness]
+  - id: complex-algebraic-geometry.gaga-cohomology-naturality
+    name: コホモロジー比較の自然性
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-cohomology, complex-algebraic-geometry.gaga-equivalence]
+  - id: complex-algebraic-geometry.gaga-exact-sequence-lifting
+    name: 解析的短完全列の代数化
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-equivalence, complex-algebraic-geometry.analytic-faithful-flatness]
+  - id: complex-algebraic-geometry.gaga-double-point
+    name: 非被約二重点でのGAGAの確認
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-equivalence, complex-algebraic-geometry.coherent-sheaf-analytification]
+  - id: complex-algebraic-geometry.proper-gaga
+    name: 固有版GAGA
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-equivalence]
+  - id: complex-algebraic-geometry.gaga-affine-counterexample
+    name: 非固有アフィン直線でのGAGAの不成立
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.gaga-essential-surjectivity]

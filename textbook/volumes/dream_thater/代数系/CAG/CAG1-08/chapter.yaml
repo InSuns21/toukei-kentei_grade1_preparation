@@ -1,0 +1,46 @@
+id: "CAG1-08"
+title: "射影版GAGAの圏同値と固有性の境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-07
+official_scope: []
+learning_objectives:
+  - 関手の完全忠実性・本質的全射性を定義し、点上の有限次元ベクトル空間で圏同値の条件を直接検査できる
+  - GAGA I〜IIIを統合して射影スキーム上の連接層の正確な圏同値を証明できる
+  - 層の射と短完全列に関するコホモロジー比較の自然性を具体例で検算できる
+  - 特異・非被約な射影スキームに同じ定理を適用し、冪零元の作用と完全列を再計算できる
+  - 固有版GAGAの定理とChowの補題による射影化の役割を述べ、射影版からの非自明な降下を未証明の入力として切り分けられる
+  - 非固有なアフィン直線でHom・大域切断・代数化が失敗する機構を明示し、一般のコンパクト複素空間と固有代数的スキームを混同しない
+definitions:
+  - { id: CAG1-08-DEF-01, name: 完全忠実な関手と圏の同値 }
+theorems:
+  - { id: CAG1-08-THM-01, name: 射影版GAGAの圏同値 }
+  - { id: CAG1-08-PROP-01, name: コホモロジー比較の自然性 }
+  - { id: CAG1-08-PROP-02, name: 解析的短完全列の代数化 }
+  - { id: CAG1-08-PROP-03, name: 非被約二重点でのGAGAの確認 }
+  - { id: CAG1-08-THM-02, name: 固有版GAGA（外部定理） }
+  - { id: CAG1-08-PROP-04, name: 非固有アフィン直線でのGAGAの不成立 }
+canonical_examples:
+  - 点上の有限次元ベクトル空間と行列で見る完全忠実性
+  - 射影直線のO(1)の切断の自然性とEuler型の完全列
+  - 射影直線上の非被約二重点と冪零元の作用
+  - 特異な可約射影曲線と滑らかさ不要の射程
+  - 尖点三次曲線の有限双有理射による降下の注意
+  - A1上のeのz乗とsin(pi z)による比較失敗
+problem_patterns:
+  - CAG1-08-A01
+  - CAG1-08-A02
+  - CAG1-08-A03
+  - CAG1-08-A04
+  - CAG1-08-A05
+  - CAG1-08-B01
+  - CAG1-08-B02
+  - CAG1-08-B03
+  - CAG1-08-B04
+  - CAG1-08-C01
+  - CAG1-08-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
