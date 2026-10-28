@@ -57,7 +57,7 @@
 | graph Laplacian、Cheeger、random walk、固有空間摂動 | **完成済みSGT1〜SGT8**。[SGT PLAN](../plan_done/DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md)、series/SGT.yaml | 点群上で得たgraphからcontinuumへ近似するための条件と誤差 |
 | Laplace–Beltrami、熱半群・熱核・manifold Sobolev | [幾何解析 GA PLAN](DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)。改訂時点でplanned | 実装済みGA結果へリンクし、未実装なら必要な局所表示・円周モデルに限って導く。一般理論の定理は既知扱いしない |
 | 確率・集中・有限標本上界 | 基礎確率、HDPの実在する該当章 | サンプルの測度モデル・核平均のbias/variance・幾何回復 |
-| 予測・NN・逆伝播・PCA・検証一般論 | [ML1/ML2 PLAN](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)。必要章のstatus確認 | 等変性・点群による学習への適用。ML未実装の結果を既習扱いしない |
+| 予測・NN・逆伝播・PCA・検証一般論 | [ML1/ML2 PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)。必要章のstatus確認 | 等変性・点群による学習への適用。ML未実装の結果を既習扱いしない |
 | SO(3)の一般表現論、Peter–Weyl、主束一般論 | GEO/LIE、LREP/GBGなど実在する完成章を確認 | MFL2では有限群、SO(2)、低階ベクトル表現と局所frame計算を直接閉じる。一般大定理の無証明引用は禁止 |
 | 非線形PDE、情報幾何、物理モデルの解法 | GPDE/GA/IG/PMLの該当正本 | 幾何データ・等変性・数値誤差の検証への接続のみ |
 
@@ -65,7 +65,7 @@
 
 ### 2.1 機械学習I/IIとの章別依存（ML PLANとの双方向の責務境界）
 
-[機械学習I/IIの現行PLAN](../plans_progress/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md) と [ML系列manifest](../dream-theater-series/ML.yaml) を基準にした**具体的な設計依存**を次に固定する。2026-10-14時点でML1-01〜21・ML2-01〜25はすべてplannedであり、**PLANに記されたML結果を、証明済みの定理としては使用しない**。以下の「主要前提」は必要な数学的内容に対応する章IDであり、執筆時には完成status、使用定理のstable anchor、実際の直接prerequisiteを再確認する。
+[機械学習I/IIの現行PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md) と [ML系列manifest](../dream-theater-series/ML.yaml) を基準にした**具体的な設計依存**を次に固定する。2026-10-14時点でML1-01〜21・ML2-01〜25はすべてplannedであり、**PLANに記されたML結果を、証明済みの定理としては使用しない**。以下の「主要前提」は必要な数学的内容に対応する章IDであり、執筆時には完成status、使用定理のstable anchor、実際の直接prerequisiteを再確認する。
 
 | MFL側（導入章・利用章） | 対応するML章 | 利用する数学・手法 | 必須とする時点・重複を防ぐ境界 |
 |---|---|---|---|

@@ -80,8 +80,13 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
 
+      - name: Validate ML I/II completed plan inventory and lab routes
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-ml-plan-completion.mjs
+
       - name: Smoke interactive simulation in Chromium
         if: steps.scope.outputs.full == 'true'
         run: |
           npm run validate:simulation-browser
           node scripts/validate-celev8-browser.mjs
+          node scripts/validate-ml-completion-browser.mjs
