@@ -1,0 +1,23 @@
+chapter: QFT12
+terms:
+  - term: Mandelstam不変量
+    english: Mandelstam invariants
+    meaning: "二体散乱の外部四運動量から作るLorentzスカラーs,t,u。"
+  - term: Källén関数
+    english: Källén function
+    meaning: "二体の重心系運動量と閾値を表す三変数の対称多項式。"
+  - term: Lorentz不変位相空間
+    english: Lorentz-invariant phase space
+    meaning: "各終状態の正エネルギー質量殻測度を運動量保存デルタで制限した測度。"
+  - term: 崩壊率
+    english: decay rate
+    meaning: "一個の初期粒子が単位固有時間当たりに指定終状態へ遷移する確率率。"
+  - term: 入射流束
+    english: incident flux factor
+    meaning: "二個の初期粒子の規格化と相対的な入射運動により散乱遷移率を割る因子。"
+  - term: 微分断面積
+    english: differential cross section
+    meaning: "指定した終状態の角度や運動量に対する散乱断面積密度。"
+  - term: 同一終状態因子
+    english: identical-final-state symmetry factor
+    meaning: "ラベル付き積分が同じ物理的終状態を重複計数する場合の1/n!因子。"

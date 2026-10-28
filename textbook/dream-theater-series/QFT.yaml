@@ -50,3 +50,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT11
     status: completed
     title: "漸近状態・S行列とLSZ還元"
+  - id: QFT12
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT12
+    status: completed
+    title: "散乱の運動学・不変位相空間・崩壊率と断面積"

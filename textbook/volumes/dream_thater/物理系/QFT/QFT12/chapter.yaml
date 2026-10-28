@@ -1,0 +1,43 @@
+id: QFT12
+title: "散乱の運動学・不変位相空間・崩壊率と断面積"
+volume: foundations
+status: supplementary
+prerequisites: [QFT11]
+official_scope: []
+learning_objectives:
+  - 質量殻・エネルギー運動量保存からMandelstam不変量と二体反応の閾値・重心系運動量を導ける
+  - 正エネルギー質量殻測度からLorentz不変な多粒子位相空間を構成し二体角度測度を積分できる
+  - S行列の有限体積・時間規格化から一粒子崩壊率と二粒子散乱の入射流束を導ける
+  - 重心系の微分断面積を計算し、同一終状態の過剰計数を階乗因子で除ける
+  - 四次スカラー頂点の木レベル振幅から全断面積を求め、閾値と適用仮定を判定できる
+definitions:
+  - { id: QFT12-DEF-01, name: Mandelstam不変量と二体反応の重心系 }
+  - { id: QFT12-DEF-02, name: Lorentz不変終状態位相空間 }
+  - { id: QFT12-DEF-03, name: 崩壊率と入射流束による断面積 }
+theorems:
+  - { id: QFT12-PROP-01, name: 重心系二体運動量とKällén関数 }
+  - { id: QFT12-PROP-02, name: 二体位相空間の角度表示 }
+  - { id: QFT12-THM-01, name: S行列規格化からの崩壊率と断面積 }
+  - { id: QFT12-PROP-03, name: 重心系二体微分断面積 }
+  - { id: QFT12-PROP-04, name: 四次スカラー相互作用の木レベル全断面積 }
+canonical_examples:
+  - 等質量二体の閾値とMandelstam恒等式
+  - 二体位相空間のエネルギーdeltaのJacobian
+  - 重いスカラー粒子の二体崩壊と同一粒子因子
+  - 固定標的での不変入射流束
+  - 四次スカラー相互作用の重心系全断面積
+problem_patterns:
+  - QFT12-MANDELSTAM-IDENTITY
+  - QFT12-TWO-BODY-THRESHOLD
+  - QFT12-PHASE-SPACE-JACOBIAN
+  - QFT12-FLUX-IDENTITY
+  - QFT12-SYMMETRY-FACTOR
+  - QFT12-TWO-BODY-DECAY
+  - QFT12-QUARTIC-CROSS-SECTION
+  - QFT12-T-ANGLE-RANGE
+  - QFT12-ANGULAR-AMPLITUDE
+  - QFT12-INELASTIC-THRESHOLD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 4 }
