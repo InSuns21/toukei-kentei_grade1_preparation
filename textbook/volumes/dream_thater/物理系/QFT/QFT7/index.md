@@ -255,12 +255,12 @@ $$
 
 ### 証明の見取り図
 
-まず生成子と $\gamma$ の交換子をClifford関係から求め、無限小変換則を確かめます。任意の連続経路の微小変換を積めば有限の変換が得られます。その後、場の微分に連鎖律を用いて $S$ と $\Lambda^{-1}$ を消します。
+まず生成子と $\gamma$ の交換子を[Clifford関係](#def-qft7-clifford)から求め、無限小変換則を確かめます。任意の連続経路の微小変換を積めば有限の変換が得られます。その後、場の微分に連鎖律を用いて $S$ と $\Lambda^{-1}$ を消します。
 
 <!-- proof-start -->
 ### 証明
 
-Clifford関係から $[\gamma^\rho\gamma^\sigma,\gamma^\mu]$ を展開します。$\gamma^\sigma\gamma^\mu=2\eta^{\sigma\mu}I_4-\gamma^\mu\gamma^\sigma$ を二度使えば
+[Clifford関係](#def-qft7-clifford)から $[\gamma^\rho\gamma^\sigma,\gamma^\mu]$ を展開します。$\gamma^\sigma\gamma^\mu=2\eta^{\sigma\mu}I_4-\gamma^\mu\gamma^\sigma$ を二度使えば
 
 $$
 \begin{aligned}
@@ -391,7 +391,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Dirac表示では $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
+[Dirac行列の直接例](#def-qft7-clifford)から、Dirac表示では $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
 
 $$
 (\Sigma^{\mu\nu})^\dagger=\gamma^0\Sigma^{\mu\nu}\gamma^0.
@@ -763,12 +763,12 @@ $$
 
 ### 証明の見取り図
 
-Clifford関係によって質量殻上で $(\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
+[Clifford関係](#def-qft7-clifford)によって質量殻上で $(\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
 
 <!-- proof-start -->
 ### 証明
 
-$p_\mu p_\nu$ は添字について対称なので、Clifford関係から
+$p_\mu p_\nu$ は添字について対称なので、[Clifford関係](#def-qft7-clifford)から
 
 $$
 (\not p)^2
@@ -793,7 +793,7 @@ $$
 =\frac{m^2I_4-(\not p)^2}{4m^2}=0.
 $$
 
-和は分子の $\not p$ が打ち消されて $I_4$ です。ここで各射影子が取り出す**固有空間**も確かめます。質量殻条件から
+和は分子の $\not p$ が打ち消されて $I_4$ です。ここで各射影子が取り出す**固有空間**も確かめます。[SREL3の質量殻条件](../../SREL/SREL3/index.md#def-srel3-mass-shell)から
 
 $$
 (\not p-mI_4)\Pi_+
@@ -953,7 +953,7 @@ $q=m\sinh\vartheta$、$E=m\cosh\vartheta$、$\vartheta\ge0$ とし、$K=\gamma^0
 <!-- solution-start -->
 #### 詳細解答
 
-$K(1,0,0,0)^T=(0,0,1,0)^T$、$K^2=I_4$ から
+[本章のz方向boostの構成](#def-qft7-spinor-transform)で得た $K$ を使い、$K(1,0,0,0)^T=(0,0,1,0)^T$、$K^2=I_4$ から
 
 $$
 S_Bu_1(0)=\sqrt{2m}
@@ -1121,7 +1121,7 @@ $m>0$、$\vartheta>0$ とし、$E=m\cosh\vartheta$、$q=m\sinh\vartheta$、$p^\m
 <!-- solution-start -->
 #### 詳細解答
 
-**1. boost。** $K=\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
+**1. boost。** [z方向boostの例](#def-qft7-spinor-transform)の $K=\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
 
 $$
 \begin{aligned}
