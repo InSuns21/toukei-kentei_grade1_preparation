@@ -1,0 +1,55 @@
+chapter: QFT13
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT12]
+forward_references: [complex-analysis.analytic-continuation-along-path]
+
+concepts:
+  - id: qft.scalar-exchange-channels
+    name: 三つの交換チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三つの交換チャネル）]
+    requires: [qft.mandelstam-two-body-kinematics, qft.scalar-vertex-factor]
+  - id: qft.scalar-three-channel-tree
+    name: 実スカラーの三チャネル木レベル振幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（実スカラーの三チャネル木レベル振幅）]
+    requires: [qft.scalar-exchange-channels, qft.quartic-scattering-tree]
+  - id: qft.scalar-angular-threshold
+    name: 三チャネル振幅の角度分布と閾値極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三チャネル振幅の角度分布と閾値極限）]
+    requires: [qft.scalar-three-channel-tree, qft.cm-two-body-cross-section]
+  - id: qft.all-incoming-crossing
+    name: 全入射表示と交差された運動学
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（全入射表示と交差された運動学）]
+    requires: [qft.lsz-external-reduction, qft.scalar-exchange-channels]
+  - id: qft.identical-scalar-crossing
+    name: 同一実スカラー四点木振幅の交差関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同一実スカラー四点木振幅の交差関係）]
+    requires: [qft.all-incoming-crossing, qft.scalar-three-channel-tree]
+  - id: qft.inclusive-final-state-sum
+    name: 終状態全体への包摂和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（終状態全体への包摂和）]
+    requires: [qft.final-state-invariant-phase-space, qft.asymptotic-scattering-states]
+  - id: qft.optical-theorem-unitarity
+    name: S行列の単位性と前方光学定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（S行列の単位性と前方光学定理）]
+    requires: [qft.inclusive-final-state-sum, qft.s-matrix-rate-formulas]
+  - id: qft.quartic-unitarity-cut
+    name: 四次スカラー相互作用で単位性が要求する虚部
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四次スカラー相互作用で単位性が要求する虚部）]
+    requires: [qft.optical-theorem-unitarity, qft.two-body-phase-space-angle, qft.quartic-total-cross-section]
