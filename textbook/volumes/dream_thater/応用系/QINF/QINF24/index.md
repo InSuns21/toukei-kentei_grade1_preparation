@@ -123,7 +123,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\tau_{RE}=\pi_R\otimes\psi_E$ と置き、$\psi_E$ の精製 $|\xi\rangle_{B'E}$ をとります。$\tau_{RE}$ の精製は $|\Phi_M\rangle_{R\widehat L}\otimes|\xi\rangle_{B'E}$ です。[Fuchs–van de Graaf不等式](../QINF11/index.md#thm-qinf11-fvdg)から、振幅としての忠実度 $f(\psi_{RE},\tau_{RE})\ge1-\varepsilon/2$。$|\psi\rangle_{RBE}$ も $\psi_{RE}$ の精製ですから、[Uhlmann定理](../QINF11/index.md#thm-qinf11-uhlmann)により、必要なら補助系を足した $B$ 上の等長写像 $U:B\to\widehat L B'$ を選んで、二つの純粋状態の重なりの絶対値を $f$ にできます。
+まず $\tau_{RE}=\pi_R\otimes\psi_E$ と置きます。環境状態 $\psi_E$ の精製 $|\xi\rangle_{B'E}$ をとれば、積状態の精製として
+
+$$
+|\Phi_M\rangle_{R\widehat L}\otimes|\xi\rangle_{B'E}
+$$
+
+を選べます。[Fuchs–van de Graaf不等式](../QINF11/index.md#thm-qinf11-fvdg)から、振幅としての忠実度は
+
+$$
+f(\psi_{RE},\tau_{RE})\ge1-\varepsilon/2
+$$
+
+です。一方、実際の $|\psi\rangle_{RBE}$ も $\psi_{RE}$ の精製です。[Uhlmann定理](../QINF11/index.md#thm-qinf11-uhlmann)により、必要なら補助系を足した受信系の等長写像 $U:B\to\widehat L B'$ を選べます。この写像の下で、実際の純粋状態と上の理想的な精製の重なりの絶対値を $f$ にできます。
 
 そこで $\mathcal D(X)=\operatorname{Tr}_{B'}UXU^\dagger$ と置きます。[忠実度のチャネル単調性](../QINF11/index.md#thm-qinf11-fidelity-monotonicity)を $B'$ の部分トレースに適用すると、復号後と $\Phi_M$ の二乗忠実度は少なくとも $f^2\ge(1-\varepsilon/2)^2$ です。
 <!-- proof-end -->
@@ -275,7 +287,17 @@ $$
 
 と展開したものです。$\log m!=m\log m-m+O(\log(m+1))$ は $\log x$ の単調性から積分 $\int_1^m\log x\,dx$ と $\int_1^{m+1}\log x\,dx$ で和 $\sum_{j=1}^m\log j$ を挟めば得られます。この型へ参照系 $T^n$ を射影し正規化した純粋状態 $|\Omega\rangle_{T_tB^nE^n}$ は、$\Omega_{T_t}=I_{T_t}/D_{t_n}$ を**厳密に**満たします。これは同じ型の係数が等しいためです。
 
-**(ii) 出力を典型化する。** $B^n,E^n$ をそれぞれ $\varphi_B^{\otimes n},\varphi_E^{\otimes n}$ の典型射影 $P_B,P_E$ で切ります。[QINF22の固有値・次元評価](../QINF22/index.md#lem-qinf22-typical-bounds)に加え、以下の有限分布での指数型集中評価を使います。固有値分布 $r_i>0$ の対数確率を $Z=-\log_2r_I$ とすると有限個の値しか取らず、$m(s)=\log\mathbb E e^{s(Z-\mathbb EZ)}$ は $m(0)=m'(0)=0$ を満たします。ゆえに十分小さい $s>0$ で $m(s)<s\delta/2$ と選べます。非負変数 $Y$ の $\Pr(Y\ge a)\le\mathbb EY/a$ を $Y=e^{s\sum_j(Z_j-\mathbb EZ)}$ に適用すれば
+**(ii) 出力を典型化する。** 受信系と環境系を、それぞれ $\varphi_B^{\otimes n},\varphi_E^{\otimes n}$ の典型射影 $P_B,P_E$ で切ります。[QINF22の固有値・次元評価](../QINF22/index.md#lem-qinf22-typical-bounds)に加えて、有限分布の指数型集中評価を用います。
+
+固有値分布 $r_i>0$ から得る対数確率変数を $Z=-\log_2r_I$ とします。有限個の値しか取らないため、中心化した対数モーメント母関数
+
+$$
+m(s)=\log\mathbb E e^{s(Z-\mathbb EZ)},\qquad m(0)=m'(0)=0
+$$
+
+は原点で微分可能です。したがって固定した幅 $\delta>0$ に対し、十分小さい $s>0$ を選んで $m(s)<s\delta/2$ とできます。
+
+非負変数へのMarkov不等式を指数変数 $Y=e^{s\sum_j(Z_j-\mathbb EZ)}$ に適用します。これにより
 
 $$
 \Pr\left\{\frac1n\sum_jZ_j-\mathbb EZ>\delta\right\}
@@ -603,7 +625,17 @@ $$
 最大値は $\rho=I_d/d$ で達成されます。$p\ge1/2$ では受信・環境を入れ替え、環境の非消失枝を確率 $(2p-1)/p$ で追加消失させれば受信出力が再現できます（$p\ge1/2$ でこの値は $[0,1]$）。反劣化可能なので $Q=0$。$p=1/2$ は両方で0となります。
 <!-- proof-end -->
 
-**数値例。** qubit（$d=2$）で消失確率 $p=1/4$ なら $Q=1/2$ qubit/使用です。[古典通信容量の定義](../QINF23/index.md#def-qinf23-capacity)で考えると、同じ通信路の古典容量は $C=(1-p)\log_2d$、すなわち $3/4$ bit/使用です。達成向きは直交する $d$ 個の入力を使ったcq通信路に[HSW定理](../QINF23/index.md#thm-qinf23-hsw)を適用します。実際、各出力のエントロピーは $h_2(p)$、平均出力のエントロピーは $h_2(p)+(1-p)H(X)$ なので、Holevo量の最大値は $(1-p)\log_2d$ です。逆向きは任意の $n$ 回入力（エンタングル入力も許す）について、出力で非消失だった位置の集合 $J$ に条件付けます。$J$ はメッセージと独立で、各 $J$ で受信者の量子系の次元は $d^{|J|}$ です。[Holevo界](../QINF21/index.md#thm-qinf21-holevo-bound)による情報量上界を平均すると
+**数値例。** qubit（$d=2$）で消失確率 $p=1/4$ なら、量子容量は $Q=1/2$ qubit/使用です。一方、[古典通信容量の定義](../QINF23/index.md#def-qinf23-capacity)で考えると、同じ通信路の古典容量は $C=(1-p)\log_2d$、すなわち $3/4$ bit/使用です。
+
+古典容量の達成向きは、直交する $d$ 個の入力を使ったcq通信路に[HSW定理](../QINF23/index.md#thm-qinf23-hsw)を適用します。各条件付き出力のエントロピーと平均出力のエントロピーは、それぞれ
+
+$$
+S(B|X=x)=h_2(p),\qquad S(\overline\rho_B)=h_2(p)+(1-p)H(X)
+$$
+
+となります。したがってHolevo量は $(1-p)H(X)$ で、最大値は $(1-p)\log_2d$ です。
+
+逆向きは、任意の $n$ 回入力（エンタングル入力も許す）について、出力で非消失だった位置の集合 $J$ に条件付けます。この集合はメッセージと独立で、条件付き受信系の次元は $d^{|J|}$ です。[Holevo界](../QINF21/index.md#thm-qinf21-holevo-bound)による情報量上界を平均すると
 
 $$
 I(M;\widehat M)\le I(M;B^nJ)
@@ -678,7 +710,27 @@ $$
 - 問題: 長さ $n$ の等長符号で $M_n=2^{k_n}$、復号後の $F_e\ge1-\epsilon_n$ とする。$\delta_n=\sqrt{\epsilon_n}$ とおき、$Q^{(1)}(\mathcal N^{\otimes n})\ge(1-2\delta_n)k_n-(1+\delta_n)h_2(\delta_n/(1+\delta_n))$ を導け。特に $\epsilon_n\to0$ で $k_n/n\to R_0$ の場合の結論を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 理想Bell状態への忠実度 $F_e\ge1-\epsilon_n$ から [Fuchs–van de Graaf不等式](../QINF11/index.md#thm-qinf11-fvdg)で $T(\widehat\omega,\Phi_{M_n})\le\sqrt{\epsilon_n}=\delta_n$。理想状態は $S(R)=S(\widehat L)=k_n$、$S(R\widehat L)=0$ だから $S(R|\widehat L)=-k_n$。[連続性補題](#lem-qinf24-conditional-continuity)に $X=R$、$d_X=M_n$ を代入して $-S(R|\widehat L)_{\widehat\omega}\ge k_n-2\delta_n k_n-(1+\delta_n)h_2(\delta_n/(1+\delta_n))$。復号は $B^n$ への後処理なので [条件付きエントロピーの単調性](../QINF19/index.md#cor-qinf19-monotonicity)により復号前の $I(R\rangle B^n)$ はこれ以上です。符号入力の平均状態 $\rho_n=W_n(I/M_n)W_n^\dagger$ は $R$ で精製されるので $I(R\rangle B^n)=I_c(\rho_n,\mathcal N^{\otimes n})\le Q^{(1)}(\mathcal N^{\otimes n})$。結合して指定式、$n$ で割って極限を取ると $R_0\le\sup_n Q^{(1)}(\mathcal N^{\otimes n})/n$ です。
+**詳細解答。** 理想Bell状態への忠実度 $F_e\ge1-\epsilon_n$ から、[Fuchs–van de Graaf不等式](../QINF11/index.md#thm-qinf11-fvdg)により
+
+$$
+T(\widehat\omega,\Phi_{M_n})\le\sqrt{\epsilon_n}=\delta_n
+$$
+
+です。理想状態では $S(R)=S(\widehat L)=k_n$、$S(R\widehat L)=0$ なので、条件付きエントロピーは $-k_n$ です。[連続性補題](#lem-qinf24-conditional-continuity)を $X=R$、$d_X=M_n$ で用いると
+
+$$
+-S(R|\widehat L)_{\widehat\omega}
+\ge (1-2\delta_n)k_n-(1+\delta_n)h_2\!\left(\frac{\delta_n}{1+\delta_n}\right).
+$$
+
+復号は受信系への後処理です。[条件付きエントロピーの単調性](../QINF19/index.md#cor-qinf19-monotonicity)により、復号前の coherent information はこの下界以上です。符号入力の平均状態 $\rho_n=W_n(I/M_n)W_n^\dagger$ は参照系で精製されるため、
+
+$$
+I(R\rangle B^n)=I_c(\rho_n,\mathcal N^{\otimes n})
+\le Q^{(1)}(\mathcal N^{\otimes n}).
+$$
+
+以上を結合すると指定の不等式を得ます。両辺を $n$ で割り、$\epsilon_n\to0$ と $k_n/n\to R_0$ を用いると、結論は $R_0\le\sup_n Q^{(1)}(\mathcal N^{\otimes n})/n$ です。
 <!-- solution-end -->
 
 <a id="ex-qinf24-b03"></a>
@@ -700,7 +752,28 @@ $$
 - 問題: 任意の二チャネル $\mathcal N,\mathcal M$ について $Q^{(1)}(\mathcal N\otimes\mathcal M)\ge Q^{(1)}(\mathcal N)+Q^{(1)}(\mathcal M)$ を証明し、これだけから一般の量子チャネルで等号は言えない理由を述べよ。さらに $a_n=Q^{(1)}(\mathcal N^{\otimes n})$ の極限式を導け。
 
 <!-- solution-start -->
-**詳細解答。** それぞれの最適入力 $\rho,\sigma$ を独立に用いると出力と相補出力は各々テンソル積になり、[エントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)により $I_c(\rho\otimes\sigma,\mathcal N\otimes\mathcal M)=I_c(\rho,\mathcal N)+I_c(\sigma,\mathcal M)$。左辺を**全入力**で最大化するので積入力の値以上、指定の不等式になります。しかし全入力にはエンタングル状態も含まれ、最大化を積入力へ制限できるという根拠はありません。$a_{m+n}\ge a_m+a_n$、$0\le a_n\le n\log_2\dim B$ です。固定 $m$ に対し $n=qm+r$ と書き、$a_n\ge qa_m+a_r$、したがって $\liminf_{n\to\infty}a_n/n\ge a_m/m$。一方 $\limsup a_n/n\le\sup_k a_k/k$ です。$m$ の上限を取れば両者は一致し $\lim_n a_n/n=\sup_m a_m/m$ となります。
+**詳細解答。** 各チャネルの最適入力をそれぞれ $\rho,\sigma$ とします。独立入力の出力と相補出力はともにテンソル積になり、[エントロピー加法性](../QINF17/index.md#prop-qinf17-tensor)から
+
+$$
+I_c(\rho\otimes\sigma,\mathcal N\otimes\mathcal M)
+=I_c(\rho,\mathcal N)+I_c(\sigma,\mathcal M)
+$$
+
+です。左辺を全入力で最大化すれば積入力の値以上になり、指定の超加法性が得られます。ただし全入力にはエンタングル状態も含まれます。最大値が積入力で達成されるとは限らないため、この議論だけでは等号を主張できません。
+
+続いて $a_n=Q^{(1)}(\mathcal N^{\otimes n})$ と置きます。超加法性と出力次元から
+
+$$
+a_{m+n}\ge a_m+a_n,\qquad 0\le a_n\le n\log_2\dim B
+$$
+
+が成り立ちます。固定した $m$ について $n=qm+r$（$0\le r<m$）と分解すると、$a_n\ge qa_m+a_r$ です。$a_r\ge0$ を使えば
+
+$$
+\liminf_{n\to\infty}\frac{a_n}{n}\ge\frac{a_m}{m}
+$$
+
+となります。一方、定義から $\limsup a_n/n\le\sup_k a_k/k$ です。任意の $m$ に対して上の下界を得たので、上限を取れば $\lim_n a_n/n=\sup_m a_m/m$ と結論できます。
 <!-- solution-end -->
 
 <a id="ex-qinf24-c01"></a>
@@ -708,14 +781,41 @@ $$
 ### 演習 C1：容量定理と消失チャネルを接続する
 
 - Level: C
-- 問題: $d=2$ の消失チャネルで $p\in[0,1]$ とする。(i) $\rho=\operatorname{diag}(t,1-t)$ の $I_c$ を導出せよ。(ii) $p<1/2$ なら任意の $0<R_0<1-2p$ に対してエンタングルメント忠実度が1へ向かう量子符号列が存在する理由を、典型部分空間・一回評価・復号の三段階に分けて示せ。(iii) $p\ge1/2$ で正の量子伝送率が不可能な理由を、環境側の出力から受信出力を再現する写像と[量子容量定理](#thm-qinf24-lsd)を使って示せ。(iv) 同じ $p=1/4$ で古典1ビットの通過成功と量子1qubitの伝送成功を同一視できない理由を説明せよ。
+- 問題: $d=2$ の量子消失チャネル（$p\in[0,1]$）について、次を順に考えよ。
+  - (i) 対角入力 $\rho=\operatorname{diag}(t,1-t)$ の coherent information を導出せよ。
+  - (ii) $p<1/2$ のとき、任意の $0<R_0<1-2p$ で忠実度が1へ近づく符号列の存在を、典型部分空間・一回評価・復号から示せ。
+  - (iii) $p\ge1/2$ で正の量子伝送率が不可能な理由を、環境側から受信出力を再現する写像と[量子容量定理](#thm-qinf24-lsd)で示せ。
+  - (iv) $p=1/4$ で古典1ビットの通過と量子1qubitの伝送を同一視できない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** (i) 入力のエントロピーは $h_2(t)$、受信側は消失フラグによる直交和なので $S(B)=h_2(p)+(1-p)h_2(t)$、環境側は $S(E)=h_2(p)+p h_2(t)$。差は $(1-2p)h_2(t)$。
 
-(ii) $p<1/2$ では $t=1/2$ とすると $I_c=1-2p>0$。$\delta>0$ を $R_0+3\delta<1-2p$ と選びます。[典型平坦化と達成可能率](#lem-qinf24-typical-achievability)の構成で、入力の型部分空間の次元は約 $2^{nS(A)}=2^n$、環境の典型次元は高々 $2^{n(S(E)+\delta)}$、受信純度は高々 $2^{-n(S(B)-2\delta)}$ です。[ランダム部分空間の一回デカップリング評価](#lem-qinf24-random-decoupling)へ符号次元 $K\approx2^{nR_0}$ を代入すると、平均デカップリング誤差は高々 $2^{-n(1-2p-R_0-3\delta)/2}+o(1)\to0$。ある等長符号がその評価を満たし、[環境のデカップリングと復号](#lem-qinf24-decoupling-recovery)により $F_e\to1$ です。
+(ii) $p<1/2$ では $t=1/2$ とすると $I_c=1-2p>0$ です。伝送率を $R_0<1-2p$ と固定し、$R_0+3\delta<1-2p$ を満たす $\delta>0$ を選びます。
 
-(iii) $p\ge1/2$ のとき環境出力の非消失枝を確率 $(2p-1)/p$ で追加消失させると受信側と同じ状態になります。したがって $\mathcal E_p$ は反劣化可能で、各 $n$ 回使用も反劣化可能です。[単一文字定理の証明](#thm-qinf24-degradable-capacity)の条件付きエントロピー単調性で任意の $\rho_{A^n}$ に対し $I_c(\rho,\mathcal E_p^{\otimes n})\le0$、純粋入力で0となります。[LSD容量式](#thm-qinf24-lsd)は $Q=0$ を与え、正の率で $F_e\to1$ は不可能です。
+[典型平坦化と達成可能率](#lem-qinf24-typical-achievability)の構成では、入力の型部分空間の次元は約 $2^{nS(A)}=2^n$ です。環境の典型次元と受信純度は、それぞれ
+
+$$
+\dim E_{\mathrm{typ}}\le 2^{n(S(E)+\delta)},\qquad
+\operatorname{Tr}\omega_B^2\le 2^{-n(S(B)-2\delta)}
+$$
+
+と評価されます。[ランダム部分空間の一回デカップリング評価](#lem-qinf24-random-decoupling)に符号次元 $K\approx2^{nR_0}$ を代入すると、平均デカップリング誤差は
+
+$$
+2^{-n(1-2p-R_0-3\delta)/2}+o(1)\longrightarrow0
+$$
+
+以下になります。したがって平均以下の誤差を達成する等長符号が存在し、[環境のデカップリングと復号](#lem-qinf24-decoupling-recovery)から $F_e\to1$ が従います。
+
+(iii) $p\ge1/2$ なら、環境出力の非消失枝を確率 $(2p-1)/p$ で追加消失させると受信出力と同じ状態を作れます。これが反劣化写像です。テンソル積の写像を使えば、各ブロック長でも反劣化可能性が保たれます。
+
+[単一文字定理の証明](#thm-qinf24-degradable-capacity)で使った条件付きエントロピーの単調性を、参照系と環境・受信系に適用します。その結果、任意の $n$ 回入力に対して
+
+$$
+I_c(\rho_{A^n},\mathcal E_p^{\otimes n})\le0
+$$
+
+となります。純粋入力では値が0になるため、[LSD容量式](#thm-qinf24-lsd)から $Q=0$ です。よって正の率で $F_e\to1$ を満たす符号列は存在しません。
 
 (iv) $p=1/4$ ではフラグが非消失を示す確率は $3/4$ で、直交二値入力ならその回の古典ラベルを完全に読めます。しかし消失した枝に持ち去られた参照系とのエンタングルメントは、受信側の単なる測定では復元できません。量子容量は $1/2$ qubit/使用であり、古典消失通信の $3/4$ bit/使用とは符号の誤り基準が違います。
 <!-- solution-end -->
