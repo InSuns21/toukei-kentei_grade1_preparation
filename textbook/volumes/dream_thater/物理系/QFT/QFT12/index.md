@@ -41,7 +41,7 @@ $$
 <!-- definition-example-start: def-qft12-mandelstam -->
 ### 例：等質量の弾性散乱で三つの量を調べる
 
-四粒子の質量が同じ $m>0$ で、重心系で入射が $(E,0,0,\pm p)$、出射粒子3が $(E,p\sin\theta,0,p\cos\theta)$ なら $E^2=p^2+m^2$ です。定義へ代入して
+**定義の確認**：四粒子の質量が同じ $m>0$ で、重心系で入射が $(E,0,0,\pm p)$、出射粒子3が $(E,p\sin\theta,0,p\cos\theta)$ なら $E^2=p^2+m^2$ です。各四運動量の二乗は $m^2$、空間運動量の和は零となり、定義の質量殻・重心系条件を満たします。定義へ代入して
 
 $$
 s=4E^2,\qquad
@@ -166,7 +166,7 @@ $$
 <!-- definition-example-start: def-qft12-phase-space -->
 ### 例：同種二粒子のラベル交換を直接数える
 
-一個の粒子が二個の同種粒子へ崩壊するとき、終状態 $(\boldsymbol k,-\boldsymbol k)$ と $(-\boldsymbol k,\boldsymbol k)$ は同じFock状態です。ラベル付き積分はこの二つを別々に数え、運動量の入れ替えで $d\Phi_2$ と $|\mathcal M|^2$ が不変なら積分値が二倍になります。そこで $S_{\mathrm f}=2!$ を用います。異種粒子AとBなら $(A,\boldsymbol k;B,-\boldsymbol k)$ と $(A,-\boldsymbol k;B,\boldsymbol k)$ は区別できるため、この $1/2!$ は付けません。
+**定義の確認**：一個の粒子が二個の同種粒子へ崩壊するとき、終状態 $(\boldsymbol k,-\boldsymbol k)$ と $(-\boldsymbol k,\boldsymbol k)$ は同じFock状態です。両方とも正エネルギー質量殻を満たし、運動量の和は親粒子の静止系で零です。ラベル付き積分はこの二つを別々に数え、運動量の入れ替えで $d\Phi_2$ と $|\mathcal M|^2$ が不変なら積分値が二倍になります。そこで $S_{\mathrm f}=2!$ を用います。異種粒子AとBなら $(A,\boldsymbol k;B,-\boldsymbol k)$ と $(A,-\boldsymbol k;B,\boldsymbol k)$ は区別できるため、この $1/2!$ は付けません。
 <!-- definition-example-end -->
 
 二体位相空間には、積分で残る自由度が方向の二角だけという利点があります。次の式では出射質量を $m_3,m_4$ とし、$\boldsymbol k_3$ の立体角を $d\Omega=d\varphi\,d(\cos\theta)$ の絶対測度として扱います。
@@ -266,7 +266,7 @@ $v_{\mathrm M}$ は**一般の二粒子の相対速度の大きさではあり�
 <!-- definition-example-start: def-qft12-rate-cross-section -->
 ### 例：静止標的に一個の粒子を当てる
 
-粒子2が静止し $p_2=(m_2,\boldsymbol0)$、粒子1が $p_1=(E_1,\boldsymbol p_1)$、$m_2>0$ なら
+**定義の確認**：粒子2が静止し $p_2=(m_2,\boldsymbol0)$、粒子1が $p_1=(E_1,\boldsymbol p_1)$、$m_2>0$ なら、両者の質量殻と $E_1>0$ を満たします。この具体例で不変内積 $p_1\cdot p_2=E_1m_2$ を流束の定義へ代入すると
 
 $$
 \mathcal F
