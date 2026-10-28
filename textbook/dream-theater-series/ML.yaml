@@ -185,7 +185,7 @@ chapters:
     title: "Score matchingとノイズ除去"
   - id: ML2-24
     path: textbook/volumes/dream_thater/応用系/ML/ML2-24
-    status: planned
+    status: completed
     title: "離散拡散模型と逆向き推論"
   - id: ML2-25
     path: textbook/volumes/dream_thater/応用系/ML/ML2-25

@@ -1,0 +1,34 @@
+id: "ML2-24"
+title: "離散拡散模型と逆向き推論"
+volume: "foundations"
+status: supplementary
+prerequisites: [ML2-20, ML2-23]
+official_scope: []
+learning_objectives:
+  - 独立Gaussianノイズによる正方向Markov連鎖の分散率と累積係数を定義し具体例で検算できる
+  - 正方向の任意時刻の条件付きGaussian分布を帰納法で導き、時刻間の同時分布と区別できる
+  - 元データと現在時刻を条件とした逆向き事後平均・分散を平方完成で導出できる
+  - 元データを周辺化した真の逆向き分布が一般にはGaussian混合であることを計算できる
+  - 固定共分散の逆向き模型のKLを時刻別のノイズ二乗誤差へ導き簡略目的との差を説明できる
+  - 最適ノイズ予測と時刻別周辺scoreの関係を証明し終端分布・生成近似の限界を区別できる
+  - 対話実験でstep数・noise schedule・seedを変更し正方向分布と二種類の逆向き標本を数値検算できる
+definitions:
+  - { id: ML2-24-DEF-01, name: 離散Gaussian正方向拡散 }
+  - { id: ML2-24-DEF-02, name: ノイズ予測による逆向き平均 }
+theorems:
+  - { id: ML2-24-THM-01, name: 正方向の時刻別Gaussian分布 }
+  - { id: ML2-24-THM-02, name: 元データ条件付き逆向きGaussian事後 }
+  - { id: ML2-24-PROP-01, name: 逆向き周辺分布の混合表示 }
+  - { id: ML2-24-THM-03, name: 事後GaussianのKLとノイズ二乗誤差 }
+  - { id: ML2-24-THM-04, name: 最適ノイズ予測と時刻別score }
+canonical_examples:
+  - 二時刻のGaussian分散累積と直接抽出の比較
+  - 二時刻の事後平均と事後分散の平方完成
+  - 二点データにおける真の逆向き混合分布と決定的平均復元の違い
+  - 時刻別KLの係数計算とノイズの二乗誤差
+  - 対話ラボの固定seedでの正逆過程・終端分布比較
+problem_patterns: [ML2-24-A01, ML2-24-A02, ML2-24-A03, ML2-24-A04, ML2-24-B01, ML2-24-B02, ML2-24-B03, ML2-24-B04, ML2-24-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
