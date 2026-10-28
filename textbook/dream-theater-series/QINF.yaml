@@ -81,7 +81,7 @@ chapters:
     title: "von Neumannエントロピー"
   - id: QINF18
     path: textbook/volumes/dream_thater/応用系/QINF/QINF18
-    status: planned
+    status: completed
     title: "条件付きエントロピーと相互情報量"
   - id: QINF19
     path: textbook/volumes/dream_thater/応用系/QINF/QINF19

@@ -1,0 +1,66 @@
+chapter: QINF18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QINF3
+  - QINF4
+  - QINF17
+  - INFO1
+forward_references: []
+
+concepts:
+  - id: quantum.conditional-entropy
+    name: 量子条件付きエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子条件付きエントロピー）]
+    requires: [quantum.von-neumann-entropy, quantum.partial-trace]
+
+  - id: quantum.mutual-information
+    name: 量子相互情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子相互情報量）]
+    requires: [quantum.von-neumann-entropy, quantum.partial-trace]
+
+  - id: quantum.entropy-log-comparison
+    name: 有限次元の対数比較補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限次元の対数比較補題）]
+    requires: [quantum.von-neumann-entropy, quantum.finite-density-operator]
+
+  - id: quantum.entropy-subadditivity
+    name: 部分加法性と等号条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（部分加法性と等号条件）]
+    requires: [quantum.entropy-log-comparison, quantum.entropy-tensor-additivity, quantum.partial-trace]
+
+  - id: quantum.entropy-pure-conditional-mutual
+    name: 純粋二部系の条件付きエントロピーと相互情報量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋二部系の条件付きエントロピーと相互情報量）]
+    requires: [quantum.conditional-entropy, quantum.mutual-information, quantum.entropy-pure-bipartite]
+
+  - id: quantum.araki-lieb-inequality
+    name: Araki–Lieb不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Araki–Lieb不等式）]
+    requires: [quantum.entropy-subadditivity, quantum.purification-existence, quantum.entropy-pure-bipartite]
+
+  - id: quantum.conditional-mutual-bounds
+    name: 条件付きエントロピーと相互情報量の範囲
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（条件付きエントロピーと相互情報量の範囲）]
+    requires: [quantum.araki-lieb-inequality, quantum.entropy-subadditivity, quantum.conditional-entropy, quantum.mutual-information]
+
+  - id: quantum.classical-conditional-reduction
+    name: 古典対角状態の条件付きエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（古典対角状態の条件付きエントロピー）]
+    requires: [quantum.conditional-entropy, quantum.mutual-information, information.shannon-entropy]
