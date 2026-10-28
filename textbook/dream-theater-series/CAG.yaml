@@ -44,7 +44,7 @@ chapters:
     title: "Chowの定理と解析的射の代数性"
   - id: CAG1-10
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-10
-    status: planned
+    status: completed
     title: "Picard群と正則線束の代数化"
   - id: CAG1-11
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-11

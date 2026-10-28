@@ -1,0 +1,49 @@
+id: "CAG1-10"
+title: "Picard群と正則線束の代数化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-09
+  - AG2-07
+  - CM2-06
+  - KAH1-12
+  - KAH1-14
+official_scope: []
+learning_objectives:
+  - 代数的Picard群と解析的Picard群を局所可逆層・テンソル積・同型類から定義し、位相的な線束の分類と区別できる
+  - GAGA圏同値と忠実平坦性からPicard群の自然同型を示し、全射・単射と群演算の保存をそれぞれ検証できる
+  - 射影直線のO(d)と因子の局所方程式を解析化し、Picard群の次数を両側で照合できる
+  - 解析的指数完全列を局所正則対数から導き、第一Chern類への写像とその核を正確に説明できる
+  - 正則・位相的・正の線束の差を具体例で判別し、射影性が抜けた状況へGAGAを無条件に拡張しない
+definitions:
+  - { id: CAG1-10-DEF-01, name: 解析的Picard群 }
+  - { id: CAG1-10-DEF-02, name: Picard比較写像 }
+theorems:
+  - { id: CAG1-10-PROP-01, name: 解析化は線束の群演算を保つ }
+  - { id: CAG1-10-LEM-01, name: Nakayamaの生成元判定 }
+  - { id: CAG1-10-THM-01, name: 射影GAGAによるPicard群の比較 }
+  - { id: CAG1-10-PROP-02, name: Cartier因子からの線束と解析化 }
+  - { id: CAG1-10-THM-02, name: 解析的指数完全列と第一Chern類 }
+  - { id: CAG1-10-PROP-03, name: 位相的には自明でも正則には非自明な線束 }
+canonical_examples:
+  - P1のO(d)の二つのチャートでの遷移関数と次数
+  - P1の点因子と主因子を解析化して比較する
+  - 指数完全列で局所対数の差から整数2-余輪を得る
+  - 正則には非自明で滑らかには自明な複素トーラスの線束
+  - P1のO(1)、O(-1)、Oの正値性を比較する
+problem_patterns:
+  - CAG1-10-A01
+  - CAG1-10-A02
+  - CAG1-10-A03
+  - CAG1-10-A04
+  - CAG1-10-A05
+  - CAG1-10-B01
+  - CAG1-10-B02
+  - CAG1-10-B03
+  - CAG1-10-B04
+  - CAG1-10-C01
+  - CAG1-10-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }

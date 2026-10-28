@@ -1,0 +1,46 @@
+chapter: CAG1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-09, AG2-07, CM2-06, KAH1-12, KAH1-14]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.analytic-picard-group
+    name: 解析的Picard群
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-equivalence]
+  - id: complex-algebraic-geometry.picard-comparison-map
+    name: Picard比較写像
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-picard-group]
+  - id: complex-algebraic-geometry.picard-tensor-compatibility
+    name: 解析化は線束の群演算を保つ
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.picard-comparison-map]
+  - id: complex-algebraic-geometry.gaga-picard-isomorphism
+    name: 射影GAGAによるPicard群の比較
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.picard-tensor-compatibility, complex-algebraic-geometry.gaga-equivalence, complex-algebraic-geometry.holomorphic-line-bundle-algebraization]
+  - id: complex-algebraic-geometry.divisor-analytification-compatibility
+    name: Cartier因子からの線束と解析化
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-picard-isomorphism]
+  - id: complex-algebraic-geometry.analytic-exponential-sequence
+    name: 解析的指数完全列と第一Chern類
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-picard-group]
+  - id: complex-algebraic-geometry.topological-holomorphic-distinction
+    name: 位相的には自明でも正則には非自明な線束
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-exponential-sequence]
+  - id: complex-algebraic-geometry.nakayama-generator
+    name: Nakayamaの生成元判定
+    kind: lemma
+    introduction: formal
+    requires: [complex-algebraic-geometry.picard-comparison-map]
