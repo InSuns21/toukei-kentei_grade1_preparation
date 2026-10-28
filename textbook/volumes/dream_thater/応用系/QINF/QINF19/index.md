@@ -462,14 +462,7 @@ $$
 \rho_{ABC}=\sum_b p_b\,\sigma_{AC}^{(b)}\otimes|b\rangle\langle b|_B
 $$
 
-と書きます。式のテンソル因子は物理的には $A,B,C$ の順へ並べ直すものとします。各項は正値で、直交する $B$ のブロックごとにトレース $p_b$ を持つので、全体のトレースは1です。$B$ が異なると別のブロックになるため、非零固有値は $p_b$ 倍された $\sigma_{AC}^{(b)}$ の固有値の合併です。以下、各ブロックの縮約を[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で
-
-$$
-\sigma_A^{(b)}:=\operatorname{Tr}_C\sigma_{AC}^{(b)},\qquad
-\sigma_C^{(b)}:=\operatorname{Tr}_A\sigma_{AC}^{(b)}
-$$
-
-と定めます。
+と書きます。式のテンソル因子は物理的には $A,B,C$ の順へ並べ直すものとします。各項は正値で、直交する $B$ のブロックごとにトレース $p_b$ を持つので、全体のトレースは1です。$B$ が異なると別のブロックになるため、非零固有値は $p_b$ 倍された $\sigma_{AC}^{(b)}$ の固有値の合併です。各ブロックの縮約は[部分トレース](../QINF3/index.md#def-qinf3-partial-trace)で求めます。
 
 <a id="prop-qinf19-flag"></a>
 
@@ -481,7 +474,14 @@ $$
 \rho_{ABC}=\sum_b p_b\,\sigma_{AC}^{(b)}\otimes|b\rangle\langle b|_B
 $$
 
-> と表されるとする（因子の順は $ABC$ に揃える）。そのとき
+> と表されるとする（因子の順は $ABC$ に揃える）。各ブロックの縮約を
+
+$$
+\sigma_A^{(b)}:=\operatorname{Tr}_C\sigma_{AC}^{(b)},\qquad
+\sigma_C^{(b)}:=\operatorname{Tr}_A\sigma_{AC}^{(b)}
+$$
+
+> と定めると、次が成り立つ。
 
 $$
 I(A:C|B)_\rho=\sum_{b:p_b>0}p_b I(A:C)_{\sigma^{(b)}}.
