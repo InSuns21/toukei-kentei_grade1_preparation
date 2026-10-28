@@ -20,7 +20,7 @@ chapters:
     title: "代数的連接層と解析的連接層"
   - id: CAG1-04
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-04
-    status: planned
+    status: completed
     title: "射影空間上のねじり層と比較の基底例"
   - id: CAG1-05
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-05
