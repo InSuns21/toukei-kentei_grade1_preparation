@@ -53,10 +53,38 @@ $$
 > を **衝突パラメータ**とする。光線の向きを逆に取る場合は $|\mathcal L|/\mathcal E$ を用いる。
 <!-- formal-statement-end -->
 
-$\mathcal E$ と $\mathcal L$ はアフィンパラメータを定数倍で変えると共に同じ倍率で変化するため、比 $b$ は不変です。$\mathcal L$ は $r^2\dot\phi$、$\mathcal E$ は $f\dot x^0$ で、いずれも $\dot{x}$ の次元に長さを掛けたものを含み、比には長さの次元が残ります。
+$\mathcal E$ と $\mathcal L$ はアフィンパラメータを定数倍で変えると共に同じ倍率で変化するため、比 $b$ は不変です。$\lambda$ の単位を任意に取っても、$x^0$ と $r$ は長さ、$\phi$ は無次元なので、保存量の次元は
+
+$$
+[\mathcal E]=\frac{\mathrm{length}}{[\lambda]},
+\qquad
+[\mathcal L]=\frac{\mathrm{length}^2}{[\lambda]},
+\qquad [b]=\mathrm{length}
+$$
+
+となります。保存量比の次元が長さになることは、アフィンパラメータの規格化に依存しません。
 
 <!-- definition-example-start: def-gr18-impact-parameter -->
-**定義の確認**（平坦極限）。 $M=0$ の極限を取り、$x^0=s$、$r(s)=\sqrt{s^2+d^2}$、$\phi(s)=\operatorname{atan2}(d,s)$ と置きます。符号を正にするため $\phi$ の正向きを進行方向に合わせると、$|\mathcal L|=d$、$\mathcal E=1$ です。実際、直交座標で $X=s,Y=d$ とすると $d\phi/ds=-d/(s^2+d^2)$、従って $|r^2d\phi/ds|=d$。よって $b=d$ です。ここでの平坦極限は衝突パラメータの幾何学的意味の検証であり、$M>0$ での定義と混同しません。
+**定義の確認**（平坦極限）。$M=0$ の極限を取り、最近接距離 $d>0$ の直線を平坦な直交座標で $x^0=s$、$X=s$、$Y=d$ と表します。このとき
+
+$$
+r(s)=\sqrt{s^2+d^2},
+\qquad
+\phi(s)=\operatorname{atan2}(d,s).
+$$
+
+接ベクトル $k=(1,1,0,0)$ は非零で、$g(k,k)=-1+1=0$、各座標成分の二階微分も零です。ゆえに $s$ はアフィンパラメータであり、光的アフィン測地線という入力条件を確認できます。
+
+角度の増加する向きに合わせて $\mathcal L$ の符号を取ると
+
+$$
+\frac{d\phi}{ds}=-\frac{d}{s^2+d^2},
+\qquad
+\left|r^2\frac{d\phi}{ds}\right|=d,
+\qquad \mathcal E=1.
+$$
+
+従って $b=|\mathcal L|/\mathcal E=d$ です。ここでの平坦極限は衝突パラメータの幾何学的意味の検証であり、$M>0$ での定義と混同しません。
 <!-- definition-example-end -->
 
 光的条件に $k$ の保存量表示を代入すると、半径方向の運動を求められます。
@@ -296,7 +324,60 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\phi=0$ を最近接点とし、$u'(0)=0$ とします。$\varepsilon=r_s/b$ を小さなパラメータとして
+$\phi=0$ を最近接点とし、$u'(0)=0$ とします。$\varepsilon=r_s/b$ と $y(\phi)=bu(\phi)$ を置き、まず摂動展開の誤差を確かめます。[軌道方程式](#prop-gr18-orbit-equation)と一階積分は
+
+$$
+y''+y=\frac{3\varepsilon}{2}y^2,
+\qquad y'(0)=0,
+\qquad y(0)^2-\varepsilon y(0)^3=1
+$$
+
+です。$a_\varepsilon:=y(0)>0$ のうち $\varepsilon\to0$ で $1$ に近づく根を選びます。最後の式を因数分解すると
+
+$$
+(a_\varepsilon-1)(a_\varepsilon+1)=\varepsilon a_\varepsilon^3,
+\qquad
+a_\varepsilon-1
+=\frac{\varepsilon a_\varepsilon^3}{a_\varepsilon+1}
+=\frac{\varepsilon}{2}+O(\varepsilon^2).
+$$
+
+二階方程式を初期値から積分すると、$\phi$ が負でも成り立つ積分方程式
+
+$$
+y(\phi)=a_\varepsilon\cos\phi
++\frac{3\varepsilon}{2}
+\int_0^\phi\sin(\phi-t)y(t)^2\,dt
+$$
+
+を得ます。$|\phi|\leq2$ に固定します。$\varepsilon$ が十分小さければ $a_\varepsilon\leq5/4$ です。$y$ が $|y|\leq2$ を満たす区間では、積分区間の長さが高々 $2$、$|\sin(\phi-t)|\leq1$ だから、上の式から
+
+$$
+|y(\phi)|\leq\frac54+\frac{3\varepsilon}{2}\cdot2\cdot2^2
+=\frac54+12\varepsilon<2
+\qquad(0<\varepsilon<1/20)
+$$
+
+となります。初期値は $|a_\varepsilon|<2$ です。仮に $[-2,2]$ の途中で $|y|=2$ に初めて達したとすると、その時点までは $|y|\leq2$ なので、直前の評価は到達点でも $|y|<2$ を与え、矛盾します。従って $|y|\leq2$ はこの区間全体で成立します。積分方程式へ戻れば
+
+$$
+|y(\phi)-\cos\phi|
+\leq |a_\varepsilon-1|+12\varepsilon
+=O(\varepsilon),
+$$
+
+さらに $|y(t)^2-\cos^2t|\leq3|y(t)-\cos t|=O(\varepsilon)$ です。従って
+
+$$
+y(\phi)=\cos\phi+\varepsilon
+\left\{\frac12\cos\phi+
+\frac32\int_0^\phi\sin(\phi-t)\cos^2t\,dt\right\}
++O(\varepsilon^2)
+$$
+
+が $|\phi|\leq2$ で一様に成立します。同じ積分式を一度微分すれば $y'$ についても一様な一次展開が得られます。したがって無限遠に対応する $\phi=\pm\pi/2$ の近くでも誤差を制御できます。
+
+括弧内を $w(\phi)$ と書くと、$u=y/b$ から
 
 $$
 u(\phi)=\frac{\cos\phi}{b}
@@ -304,7 +385,7 @@ u(\phi)=\frac{\cos\phi}{b}
 +O\left(\frac{r_s^2}{b^3}\right)
 $$
 
-と置きます。固定した有限角度区間での形式的摂動展開であり、ここでは散乱端点の近傍までの一次を追います。これを[軌道方程式](#prop-gr18-orbit-equation)に代入し、$r_s$ の一次項を比較します。左辺の零次は $(\cos\phi)''+\cos\phi=0$、右辺は
+です。以下では $w$ を微分方程式から具体的に求めます。これを[軌道方程式](#prop-gr18-orbit-equation)に代入し、$r_s$ の一次項を比較します。左辺の零次は $(\cos\phi)''+\cos\phi=0$、右辺は
 
 $$
 \frac{3r_s}{2}\left(\frac{\cos\phi}{b}\right)^2
@@ -348,7 +429,7 @@ u(\phi)=\frac{\cos\phi}{b}
 +O\left(\frac{r_s^2}{b^3}\right).
 $$
 
-遠方の出射方向を $\phi=\pi/2+\delta$ と書き、$u=0$ を課します。$\delta=O(r_s/b)$ として $\cos(\pi/2+\delta)=-\delta+O(\delta^3)$、$\cos(\pi+2\delta)=-1+O(\delta^2)$ を代入すると
+上の一様な展開から $y(\pi/2)=\varepsilon+O(\varepsilon^2)$、$y'(\pi/2)=-1+O(\varepsilon)$ です。したがって $\varepsilon$ が十分小さいと、$\pi/2$ の近傍で $y$ は単調減少し、零点が一意に存在します。零点までの角度変化は $O(\varepsilon)$ です。この出射方向を $\phi=\pi/2+\delta$ と書き、$u=0$ を課します。$\delta=O(r_s/b)$ として $\cos(\pi/2+\delta)=-\delta+O(\delta^3)$、$\cos(\pi+2\delta)=-1+O(\delta^2)$ を代入すると
 
 $$
 0=-\frac{\delta}{b}+\frac{r_s}{b^2}
@@ -375,14 +456,14 @@ $$
 
 を取ります。計量に代入すれば $g(e_{\hat0},e_{\hat0})=-1$、$g(e_{\hat r},e_{\hat r})=g(e_{\hat\phi},e_{\hat\phi})=1$、異なる基底の内積は零です。静止観測者の四元速度は $U=ce_{\hat0}$ です。
 
-光の接ベクトルを局所枠で $k=k^{\hat0}e_{\hat0}+k^{\hat r}e_{\hat r}+k^{\hat\phi}e_{\hat\phi}$ と展開します。成分は射影で得られ、
+光の接ベクトルを局所枠で $k=k^{\hat0}e_{\hat0}+k^{\hat r}e_{\hat r}+k^{\hat\phi}e_{\hat\phi}$ と展開します。[GR4で定義した観測者の測定成分](../GR4/index.md#def-gr4-measured-components)は、時間方向の内積には負号を付け、空間方向にはそのまま内積を取って求めます。したがって
 
 $$
 k^{\hat0}=-g(k,e_{\hat0})=\frac{\mathcal E}{\sqrt f},\qquad
 k^{\hat\phi}=g(k,e_{\hat\phi})=\frac{\mathcal L}{r}.
 $$
 
-光的条件は $(k^{\hat0})^2=(k^{\hat r})^2+(k^{\hat\phi})^2$ です。局所的に光の空間進行方向と半径方向のなす角を $\alpha$（$0\leq\alpha\leq\pi$）とすると、向きの絶対値について
+光的条件は $(k^{\hat0})^2=(k^{\hat r})^2+(k^{\hat\phi})^2$ です。局所的に光の空間進行方向と**外向きの半径方向**のなす角を $\alpha$（$0\leq\alpha\leq\pi$）とすると、角運動量の向き $\mathcal L>0$ に対し
 
 $$
 \sin\alpha
@@ -390,6 +471,17 @@ $$
 =\frac{\mathcal L/r}{\mathcal E/\sqrt f}
 =\frac{b\sqrt{f(r)}}{r}.
 $$
+
+ただし $\sin\alpha$ のみでは入射と出射を区別できません。半径方向の測定成分も基底射影から求めると、
+
+$$
+k^{\hat r}=g(k,e_{\hat r})=\frac{\dot r}{\sqrt f},
+\qquad
+\cos\alpha=\frac{k^{\hat r}}{k^{\hat0}}
+=\frac{\dot r}{\mathcal E}.
+$$
+
+[半径方向一階積分](#prop-gr18-null-radial)を使えば、$\sin^2\alpha+\cos^2\alpha=b^2f/r^2+\dot r^2/\mathcal E^2=1$ と検算できます。入射時は $\dot r<0$ で $\alpha>\pi/2$、出射時は $\dot r>0$ で $\alpha<\pi/2$ です。
 
 これにより、$b$ は単なる座標上の距離ではなく、静止観測者の局所測定と対応する保存量比だと分かります。外側折返し点では半径成分が零、$\alpha=\pi/2$ なので $b=r_0/\sqrt{f(r_0)}$ を再現します。$r\to\infty$ では $f\to1$ なので $b\sim r\sin\alpha$ となり、平坦時空の直線からの距離へつながります。
 
@@ -524,7 +616,27 @@ b=20r_s\sqrt{\frac{20}{19}}>0,
 $$
 $b>b_c$ は、光子球外側では $W(r_0)<W_{\max}$ なので $1/b^2=W(r_0)<1/b_c^2$ からも分かります。
 
-(3) 静止直交枠の時間成分は $k^{\hat0}=\mathcal E/\sqrt{f}$、角度成分は $k^{\hat\phi}=\mathcal L/r$。光的条件から $\sin\alpha=|k^{\hat\phi}|/k^{\hat0}=b\sqrt f/r$。$r=r_0$ に (2) の $b$ を代入すると $\sin\alpha=1$。半径成分 $\dot r=0$ なので $\alpha=\pi/2$、光は接線方向を向きます。
+(3) [GR4の局所直交枠による測定成分](../GR4/index.md#def-gr4-measured-components)をSchwarzschild静止観測者へ適用します。$r_0>r_s$ で $f(r_0)>0$ なので直交枠を規格化できます。その測定成分は
+
+$$
+k^{\hat0}=\frac{\mathcal E}{\sqrt f},
+\qquad
+k^{\hat\phi}=\frac{\mathcal L}{r},
+\qquad
+k^{\hat r}=\frac{\dot r}{\sqrt f}
+$$
+
+です。これを角度の定義へ代入すると
+
+$$
+\sin\alpha=\frac{|k^{\hat\phi}|}{k^{\hat0}}
+=\frac{b\sqrt f}{r},
+\qquad
+\cos\alpha=\frac{k^{\hat r}}{k^{\hat0}}
+=\frac{\dot r}{\mathcal E}.
+$$
+
+$r=r_0$ では (2) の $b$ により $\sin\alpha=1$、折返し条件 $\dot r=0$ より $\cos\alpha=0$ です。よって $\alpha=\pi/2$、光は接線方向を向きます。折返しの前後で $\dot r$ の符号が負から正へ変わるので、入射方向と出射方向も区別できます。
 
 (4) 小量は $\varepsilon=(1/20)\sqrt{19/20}\approx0.0487$ です。[Schwarzschild光線の弱場屈曲角](#thm-gr18-weak-bending)で
 $$
