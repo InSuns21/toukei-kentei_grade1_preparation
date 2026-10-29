@@ -29,7 +29,7 @@ $$
 **定義の確認**：$M=\mathbb C$ 上の自明線束は各開集合で $\mathcal O_M$ 自身なので解析的可逆層である。$\mathcal O_M\otimes\mathcal O_M\simeq\mathcal O_M$、双対も $\mathcal O_M^\vee\simeq\mathcal O_M$ だから、この同型類は確かに群の零元になる。非自明線束についても[正則遷移関数の余輪条件](../../../幾何系/CM/CM2-06/index.md#def-cm2-06-transition-cocycle)により、テンソル積の遷移は積、双対の遷移は逆数となる。
 <!-- definition-example-end -->
 
-代数的可逆層 $L$ に解析化 $L^{\mathrm{an}}$ を施したとき、局所基底は正則な局所基底として残る。したがって二つのPicard群の間に自然な写像を考えられる。
+代数的可逆層 $L$ に解析化 $L^{\mathrm{an}}$ を施したとき、局所基底は正則な局所基底として残る。また、代数的な同型 $L\simeq N$ を解析化すれば正則な同型 $L^{\mathrm{an}}\simeq N^{\mathrm{an}}$ を得るので、同型類に対する対応が定まる。したがって二つのPicard群の間に自然な写像を考えられる。
 
 <a id="def-cag1-10-picard-map"></a>
 
@@ -101,7 +101,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$N=Am_1+\cdots+Am_r$、$Q=M/N$ とする。剰余類の生成条件から $M=N+\mathfrak m M$、したがって $Q=\mathfrak m Q$。$Q$ は有限生成なので $q_1,\ldots,q_s$ を生成元に選び、各 $q_i=\sum_j a_{ij}q_j$ と書ける。ただし $a_{ij}\in\mathfrak m$ である。列ベクトル $q$ と行列 $A_0=(a_{ij})$ について $(I_s-A_0)q=0$。
+$N=Am_1+\cdots+Am_r$、$Q=M/N$ とする。剰余類の生成条件から $M=N+\mathfrak m M$、したがって $Q=\mathfrak m Q$。$Q$ は有限生成なので $q_1,\ldots,q_s$ を生成元に選ぶ。各 $q_i$ が $\mathfrak m Q$ に属することは、係数 $a_{ij}\in\mathfrak m$ を用いて $q_i=\sum_{j=1}^s a_{ij}q_j$ と書けることを意味する。この $s$ 本の関係式を並べ、列ベクトル $q=(q_1,\ldots,q_s)^{\mathsf T}$ と、$A$ の元を成分とする $s$ 行 $s$ 列の係数行列 $A_0=(a_{ij})$ にすると
+
+$$
+(I_s-A_0)q=0
+$$
+
+となる。ここで行列は生成元間の関係式の係数を表しており、$Q$ にあらかじめ基底があると仮定したわけではない。
 
 行列式 $\det(I_s-A_0)$ を展開すると恒等置換の定数項 $1$ 以外の項はいずれも $\mathfrak m$ の元を含むので、$\det(I_s-A_0)\in1+\mathfrak m$。局所環ではこれは単元である。随伴行列を掛けると $\det(I_s-A_0)q=0$、ゆえに $q=0$。すべての生成元が零なので $Q=0$、したがって $M=N$。$\square$
 <!-- proof-end -->
@@ -138,7 +144,15 @@ $$
 A=\mathcal O_{X,p},\qquad B=\mathcal O_{X^{\mathrm{an}},p}
 $$
 
-と置く。[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により $A\to B$ は忠実平坦である。有限生成加群 $M=F_p$ は $M\otimes_A B\simeq B$ を満たす。両局所環の剰余体は $\mathbb C$ なので、$M/\mathfrak m_A M$ は一次元である。
+と置く。[解析化の忠実平坦性](../CAG1-03/index.md#thm-cag1-03-analytic-faithful-flatness)により $A\to B$ は忠実平坦である。有限生成加群 $M=F_p$ は $M\otimes_A B\simeq B$ を満たす。閉点の局所環の剰余体はどちらも $\mathbb C$ なので、$B$ の極大イデアルを $\mathfrak m_B$ と書いて剰余を取ると
+
+$$
+(M/\mathfrak m_A M)\otimes_{A/\mathfrak m_A}\mathbb C
+\simeq (M\otimes_A B)/\mathfrak m_B(M\otimes_A B)
+\simeq B/\mathfrak m_B\simeq\mathbb C.
+$$
+
+左端は $M/\mathfrak m_A M$ 自身なので、これは一次元の $\mathbb C$-ベクトル空間である。
 
 [Nakayamaの生成元判定](#lem-cag1-10-nakayama)で全射 $A\twoheadrightarrow M$ を得る。これを $B$ とテンソルすると $B\twoheadrightarrow B$ となり、局所環の自己全射だから単元倍の同型である。元の核を $I$ と置けば、平坦性と忠実性により
 
@@ -253,13 +267,33 @@ $$
 
 任意の点 $p$ の近くで $g\in\mathcal O_M^\times$ を考える。$g(p)\ne0$ なので近傍を狭めて $g/g(p)$ が $1$ の周りの小円盤に入るようにでき、そこでは上記の級数から $\log(g/g(p))$ を取れる。定数 $g(p)$ の対数を一つ選んで足せば $\log g$ となり、$g=e^{2\pi i(\log g/(2\pi i))}$。これは**茎での全射性**であって、全域で対数が選べるという意味ではない。
 
-次に[正則線束の遷移余輪](../../../幾何系/CM/CM2-06/index.md#def-cm2-06-transition-cocycle) $g_{ij}$ を持つ被覆を細分し、二重重なりの連結な部分で $g_{ij}=e^{2\pi i\ell_{ij}}$ と対数を選ぶ。三重重なりで $g_{ij}g_{jk}=g_{ik}$ なので
+次に[正則線束の遷移余輪](../../../幾何系/CM/CM2-06/index.md#def-cm2-06-transition-cocycle) $g_{ij}$ を持つ被覆を十分細分し、すべての非空な有限重なりが可縮な良い被覆で計算する。これは[整数第一Chern類の局所構成](../../../幾何系/KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)と同じ設定である。
+
+単に重なりが**連結**なだけでは正則対数を選べない。例えば $\mathbb C^\times$ 上の $g(z)=z$ に正則対数 $h$ があれば、複素変数 $z$ で微分して $h'(z)=dh/dz=1/z$ となる。しかし導関数の閉曲線積分は零なのに、単位円周上の $1/z$ の積分は $2\pi i\ne0$ なので矛盾する。
+
+ここでは良い被覆の各二重重なりが可縮なので、局所対数を重なり全体へ整合的に延長できる。これは前述の[第一Chern類の局所構成](../../../幾何系/KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)で確かめた条件である。各 $g_{ij}$ に対して正則な $\ell_{ij}$ を選び、$g_{ij}=e^{2\pi i\ell_{ij}}$ と書く。三重重なりでは $g_{ij}g_{jk}=g_{ik}$ だから
 
 $$
 n_{ijk}=\ell_{ij}+\ell_{jk}-\ell_{ik}\in\mathbb Z.
 $$
 
-この整数値は局所定数で、四重重なりでの余輪条件を満たす。対数の選択を変えると整数余境界、局所枠を変えると同じコホモロジー類となる。[整数第一Chern類の局所構成](../../../幾何系/KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)と一致する。遷移余輪の同値類は $H^1(M,\mathcal O_M^\times)$、すなわち $\operatorname{Pic}_{\mathrm{hol}}(M)$ なので、層の短完全列に[コホモロジー長完全列の構成](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)と同じホモロジー代数を適用した該当部分が上の式になる。完全性により $c_1$ の核は直前の写像の像である。$\square$
+この整数値は局所定数である。四重重なりでのČech交代差を $\delta n$ と書くと
+
+$$
+(\delta n)_{ijkl}=n_{jkl}-n_{ikl}+n_{ijl}-n_{ijk}=0
+$$
+
+となる。実際、$n=\delta\ell$ を代入すれば各 $\ell_{ab}$ が正負一回ずつ現れて相殺する。対数の別の選択 $\ell'_{ij}=\ell_{ij}+k_{ij}$（$k_{ij}$ は局所定数の整数）では $n'=n+\delta k$ であり、同じコホモロジー類である。
+
+さらに局所枠を $e'_i=u_i e_i$ と替えると、遷移は $g'_{ij}=(u_j/u_i)g_{ij}$ となる。各 $u_i=e^{2\pi i a_i}$ の局所対数を選べば
+
+$$
+\ell'_{ij}=\ell_{ij}+a_j-a_i+k_{ij}
+$$
+
+となり、三重重なりで $a_j-a_i$ の項は消える。したがって枠の変更も整数余境界しか加えず、この類は[整数第一Chern類](../../../幾何系/KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)と一致する。
+
+遷移余輪の同値類は $H^1(M,\mathcal O_M^\times)$、すなわち $\operatorname{Pic}_{\mathrm{hol}}(M)$ なので、層の短完全列に[コホモロジー長完全列の構成](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)と同じホモロジー代数を適用した該当部分が上の式になる。完全性により $c_1$ の核は直前の写像の像である。$\square$
 <!-- proof-end -->
 
 したがって、$c_1(L)=0$ から言えるのは、$L$ が**局所正則関数の加法余輪から作れる**ということまでである。その余輪が大域的に消えるとは限らない。実係数Chern類が零なら整数係数の類も零という逆向きも一般には成り立たない（torsionが落ちる）。[整数類と曲率の区別](../../../幾何系/KAH/KAH1-12/index.md#thm-kah1-12-integrality)を参照しよう。
@@ -304,7 +338,7 @@ $$
 
 ## 5. 射影性を外したときの注意
 
-射影性の仮定が外れれば、上の[Picard群同型](#thm-cag1-10-picard-gaga)の**証明**ではGAGA IIIとGAGA IIを使えなくなる。ただし「すべての非射影空間でPicard比較が失敗する」という結論にもならない。例えば $\mathbb A^1_{\mathbb C}$ は非射影だが、その代数的線束はすべて自明であり、複素平面上の正則線束もすべて自明である（後者はStein空間の加法的層コホモロジー消滅と指数完全列から従う）。ここではPicard群だけが偶然ともに零でも、大域関数の比較は $e^z$ により失敗する。
+射影性の仮定が外れれば、上の[Picard群同型](#thm-cag1-10-picard-gaga)の**証明**ではGAGA IIIとGAGA IIを使えなくなる。ただし「すべての非射影空間でPicard比較が失敗する」という結論にもならない。例えば $\mathbb A^1_{\mathbb C}$ は非射影だが、その代数的線束はすべて自明であり、複素平面上の正則線束もすべて自明である。後者は $\mathbb C$ の[Stein性とCartan B](../CAG1-04/index.md#thm-cag1-04-cartan-b)から $H^1(\mathbb C,\mathcal O)=0$、可縮性から $H^2(\mathbb C,\underline{\mathbb Z})=0$ とし、[指数完全列](#thm-cag1-10-exponential)に代入すれば従う。ここではPicard群だけが偶然ともに零でも、大域関数の比較は $e^z$ により失敗する。
 
 一般のコンパクト複素多様体にも代数的射影モデルが与えられるわけではない。さらに第一Chern類を計算するだけで射影性は分からない。[整数Kähler類と射影性の関係](../../../幾何系/KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)は、正値性・整数性・大域切断を区別して読む必要がある。
 
@@ -478,7 +512,7 @@ $X$ を射影 $\mathbb C$-スキームとする。以下を示せ。
 #### CAG1-10-C02 指数完全列が忘れる情報
 - Level: C
 
-複素多様体 $M$ 上で、正則遷移 $g_{ij}$ を局所対数 $e^{2\pi i\ell_{ij}}=g_{ij}$ に持ち上げるとする。以下を示せ。
+複素多様体 $M$ 上で、非空な有限重なりが可縮な良い被覆を選び、正則遷移 $g_{ij}$ を局所対数 $e^{2\pi i\ell_{ij}}=g_{ij}$ に持ち上げるとする。以下を示せ。
 
 1. 三重重なりの整数値余輪を作れ。
 2. $c_1(L)=0$ から正則自明性が一般には従わない理由を指数完全列で述べよ。
@@ -495,7 +529,13 @@ e^{2\pi i(\ell_{ij}+\ell_{jk}-\ell_{ik})}=1,
 \qquad n_{ijk}=\ell_{ij}+\ell_{jk}-\ell_{ik}\in\mathbb Z.
 $$
 
-これが第一Chern類を表す整数2-余輪である。
+四重重なりで
+
+$$
+n_{jkl}-n_{ikl}+n_{ijl}-n_{ijk}=0
+$$
+
+となる。各 $n$ に $\ell$ の三項和を代入すると、すべての項が打ち消し合うためである。従ってこれは整数2-余輪であり、[第一Chern類の局所構成](../../../幾何系/KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)によって $c_1(L)$ を表す。
 
 2. [指数完全列](#thm-cag1-10-exponential)の完全性は $\ker c_1=\operatorname{im}(H^1(M,\mathcal O_M)\to\operatorname{Pic}_{\mathrm{hol}}(M))$ と述べる。像に零以外のPicard類が残り得るので、$c_1(L)=0$ だけでは自明とは言えない。
 
