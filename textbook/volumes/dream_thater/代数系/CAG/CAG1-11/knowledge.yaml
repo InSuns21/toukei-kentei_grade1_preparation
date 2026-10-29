@@ -1,0 +1,26 @@
+chapter: CAG1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-10, AG2-10, CM2-08]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.analytic-conormal-compatibility
+    name: 余法完全列と解析化の整合
+    kind: proposition
+    introduction: formal
+    requires: [algebraic-geometry.hypersurface-conormal-exact-sequence, complex-algebraic-geometry.analytic-faithful-flatness]
+  - id: complex-algebraic-geometry.canonical-analytification-compatibility
+    name: 滑らかな超曲面の標準束と解析化の可換性
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-conormal-compatibility, complex-manifolds.determinant-line-bundle]
+  - id: complex-algebraic-geometry.holomorphic-adjunction-local-form
+    name: 局所正則随伴形式
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-conormal-compatibility, algebraic-geometry.local-adjunction-form]
+  - id: complex-algebraic-geometry.analytic-adjunction-compatibility
+    name: 解析的随伴公式と代数的公式との整合
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.canonical-analytification-compatibility, complex-algebraic-geometry.holomorphic-adjunction-local-form, algebraic-geometry.hypersurface-adjunction]

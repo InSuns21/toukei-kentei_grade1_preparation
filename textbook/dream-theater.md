@@ -969,6 +969,7 @@
 8. [CAG1-08 射影版GAGAの圏同値と固有性の境界](textbook/volumes/dream_thater/代数系/CAG/CAG1-08/index.md)
 9. [CAG1-09 Chowの定理と解析的射の代数性](textbook/volumes/dream_thater/代数系/CAG/CAG1-09/index.md)
 10. [CAG1-10 Picard群と正則線束の代数化](textbook/volumes/dream_thater/代数系/CAG/CAG1-10/index.md)
+11. [CAG1-11 標準束と随伴公式を両側で読む](textbook/volumes/dream_thater/代数系/CAG/CAG1-11/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線
