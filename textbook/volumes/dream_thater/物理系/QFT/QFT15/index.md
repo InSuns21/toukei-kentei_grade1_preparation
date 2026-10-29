@@ -504,8 +504,14 @@ E'_i&=-\partial_i(\Phi+\partial_t\chi)
 \end{aligned}
 $$
 
-磁場について $B'_i=\epsilon_{ijk}\partial_j(A^k-\partial_k\chi)
-=B_i-\epsilon_{ijk}\partial_j\partial_k\chi=B_i$ です。最後の項は $j,k$ に対称な二階偏微分と反対称な $\epsilon_{ijk}$ の縮約なので零です。
+磁場について
+
+$$
+B'_i=\epsilon_{ijk}\partial_j(A^k-\partial_k\chi)
+=B_i-\epsilon_{ijk}\partial_j\partial_k\chi=B_i
+$$
+
+です。最後の項は $j,k$ に対称な二階偏微分と反対称な $\epsilon_{ijk}$ の縮約なので零です。
 <!-- solution-end -->
 
 ### 演習 QFT15-A3：Gauss則と保存する電流
