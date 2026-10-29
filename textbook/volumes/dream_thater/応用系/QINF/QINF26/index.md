@@ -80,7 +80,7 @@ $$
 
 これは $P=\sum_a|a_L\rangle\langle a_L|$ を左右に代入して得られ、逆に全 $a,b$ の成分がこの式を満たせば作用素の等式も従います。特に非対角の論理成分 $a\ne b$ は0、対角成分は $a$ に依存しません。
 
-ここでの $E_i$ は一般の誤り作用素であり、まだCPTPチャネルの正規化されたKraus作用素とは限りません。まず射影で挟んだ積を各論理基底で判定し、正規化が必要な場面では別に確認します。
+ここでの $E_i$ は単に作用素族です。CPTPのKraus表示は仮定しておらず、$\sum_iE_i^\dagger E_i=I_A$ も要求しません。まず射影で挟んだ積を各論理基底で判定し、トレース保存が必要な場面では別に確認します。
 
 <!-- definition-example-start: def-qinf26-kl-matrix -->
 **定義の確認**。[前講の符号](../QINF25/index.md#def-qinf25-bit-code)から $\mathcal C=\operatorname{span}\{|000\rangle,|111\rangle\}$ と射影 $P$ を取り、$E_0=I,E_1=X_1$ とします。二つの論理基底を $|0_L\rangle=|000\rangle$、$|1_L\rangle=|111\rangle$ と置きます。
