@@ -13,7 +13,7 @@ $$
 \qquad \sum_{i=1}^m E_i^\dagger E_i=I_A
 $$
 
-とします。最後の式は[Krausのトレース保存条件](../QINF7/index.md#thm-qinf7-kraus-cptp)です。$E_i:A\to A$ はそれぞれ「あり得る誤りの枝」を表しますが、個々の枝は一般にユニタリでもトレース保存でもありません。論理状態 $\rho$ は $V\rho V^\dagger$ として送ります。
+とします。最後の式は[Krausのトレース保存条件](../QINF7/index.md#thm-qinf7-kraus-cptp)です。$E_i:A\to A$ はそれぞれ「あり得る誤りの枝」を表しますが、個々の枝は一般にユニタリでもトレース保存でもありません。論理状態 $\rho$ は $V\rho V^\dagger$ として送ります。以下、$\mathcal B(A)$ は $A$ 上の線形作用素全体を表し、[QINF7で使った $L(A)$](../QINF7/index.md#def-qinf7-channel) と同じものです（有限次元ではすべての線形作用素が有界です）。
 
 ## 2. 完全回復とは、論理基底だけでなく重ね合わせを戻すこと
 
@@ -32,7 +32,7 @@ $$
 > を満たすとき、符号 $\mathcal C=VL$ は $\mathcal N$ を完全訂正できるという。
 <!-- formal-statement-end -->
 
-単一の $|0_L\rangle$ だけが戻ることでは不十分です。例えば $|0_L\rangle,|1_L\rangle$ を区別する測定をすると、両基底は変わりませんが $(|0_L\rangle+|1_L\rangle)/\sqrt2$ の位相情報は失われます。
+一つの符号語だけが戻ることでは不十分です。例えば $\dim L\ge2$ の場合、[QINF25の論理基底](../QINF25/index.md#def-qinf25-bit-code)のような直交符号語 $|0_L\rangle,|1_L\rangle$ を区別する測定をすると、両基底は変わりませんが $(|0_L\rangle+|1_L\rangle)/\sqrt2$ の位相情報は失われます。
 
 <!-- definition-example-start: def-qinf26-exact-correction -->
 **定義の確認**。[QINF25の完全回復](../QINF25/index.md#thm-qinf25-single-correction)を、$0\le p\le1$ のビット反転チャネルに適用します。
@@ -77,6 +77,8 @@ $$
 $$
 
 これは $P=\sum_a|a_L\rangle\langle a_L|$ を左右に代入して得られ、逆に全 $a,b$ の成分がこの式を満たせば作用素の等式も従います。特に非対角の論理成分 $a\ne b$ は0、対角成分は $a$ に依存しません。
+
+ここでの $E_i$ は一般の誤り作用素であり、まだCPTPチャネルの正規化されたKraus作用素とは限りません。まず射影で挟んだ積を各論理基底で判定し、正規化が必要な場面では別に確認します。
 
 <!-- definition-example-start: def-qinf26-kl-matrix -->
 **定義の確認**。$\mathcal C=\operatorname{span}\{|000\rangle,|111\rangle\}$ と $P$ を[前講の符号](../QINF25/index.md#def-qinf25-bit-code)から取り、$E_0=I,E_1=X_1$ とします。$\langle000|X_1|000\rangle=\langle111|X_1|111\rangle=0$、$\langle000|X_1|111\rangle=\langle111|X_1|000\rangle=0$ なので $PX_1P=0$ です。さらに $PI^\dagger IP=P$、$PX_1^\dagger X_1P=P$ です。したがって $C=I_2$ となり、元の符号の二つの論理基底とその重ね合わせを同じ条件で扱えます。
@@ -173,7 +175,15 @@ PF_a^\dagger F_bP=\lambda_a\delta_{ab}P,
 \qquad \lambda_a\ge0,\qquad \sum_a\lambda_a=1
 $$
 
-となります。実際、$F_a=\sum_iU_{ai}E_i$ と置けば $\sum_aF_a\sigma F_a^\dagger=\sum_iE_i\sigma E_i^\dagger$（$U^\dagger U=I$）であり、積の係数行列 $\sum_{i,j}\overline{U_{ai}}c_{ij}U_{bj}$ を対角にする $U$ がスペクトル定理で取れます。
+となります。ここで $a,b$ は論理基底ではなく、変換後の誤り枝の添字です。実際、$F_a=\sum_iU_{ai}E_i$ と置けば $\sum_aF_a\sigma F_a^\dagger=\sum_iE_i\sigma E_i^\dagger$（$U^\dagger U=I$）であり、新しい係数行列は $C'_{ab}=\sum_{i,j}\overline{U_{ai}}c_{ij}U_{bj}$ です。$C$ はHermitianなので正規行列でもあり、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)から、ユニタリ行列 $S$ で
+
+$
+C=S\operatorname{diag}(\lambda_1,\ldots,\lambda_m)S^\dagger,
+\qquad U=S^{\mathsf T},
+\qquad C'=\overline U C U^{\mathsf T}=\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
+$
+
+と取れます。これでKraus添字の変換と対角化が一致します。
 
 $\lambda_a>0$ の添字に対し $W_a=\lambda_a^{-1/2}F_aP$ と置きます。すると
 
@@ -227,6 +237,8 @@ $$
 <!-- formal-statement-end -->
 
 上の正値行列について $z^\dagger Cz=\|FP|\psi\rangle\|^2$（単位符号語 $|\psi\rangle$）なので、$C$ の0固有値と $FP=0$ は対応します。Kraus表示へ0作用素を冗長に追加するだけでも0固有値が増えるため、**物理的な縮退を議論するときは具体的な誤り集合と符号上の作用を併せて確認**します。
+
+以下、$\operatorname{spec}(C)$ は行列 $C$ の固有値を重複を除いて集めた集合を表します。固有値の重複度は必要に応じて別に示します。
 
 <!-- definition-example-start: def-qinf26-degeneracy -->
 **定義の確認**。反復符号 $\mathcal C=\operatorname{span}\{|000\rangle,|111\rangle\}$ では $Z_1Z_2|000\rangle=|000\rangle$、$Z_1Z_2|111\rangle=(-1)^2|111\rangle=|111\rangle$。従って $(I-Z_1Z_2)P=0$ です。異なる物理作用 $I,Z_1Z_2$ の差が符号上で0になるため、両者を分けるsyndromeは不要です。$0<p<1$ に対し $E_0=\sqrt{1-p}I,E_1=\sqrt p Z_1Z_2$ とすれば
@@ -440,10 +452,10 @@ $$
 C=\begin{pmatrix}
 1&1&0&0\\1&1&0&0\\0&0&1&1\\0&0&1&1
 \end{pmatrix},\qquad
-\operatorname{spec}(C)=\{2,2,0,0\}.
+\operatorname{spec}(C)=\{2,0\}.
 $$
 
-各2×2ブロックでは $(1,1)/\sqrt2$ が固有値2、$(1,-1)/\sqrt2$ が固有値0に対応します。非零固有値に対応する空間は $\mathcal C$ と $X_1\mathcal C$ の**二つ**だけで十分です。元の誤り作用素が四つあることは、四つのsyndromeが必要であることを意味しません。
+各2×2ブロックでは $(1,1)/\sqrt2$ が固有値2、$(1,-1)/\sqrt2$ が固有値0に対応し、全体ではどちらの固有値も重複度2です。非零固有値に対応する空間は $\mathcal C$ と $X_1\mathcal C$ の**二つ**だけで十分です。元の誤り作用素が四つあることは、四つのsyndromeが必要であることを意味しません。
 <!-- solution-end -->
 
 <a id="ex-qinf26-b04"></a>
@@ -471,7 +483,7 @@ $$
 ### 演習 C1：非対角Gram行列から回復を再構成する
 
 - Level: C
-- 問題: $P=|000\rangle\langle000|+|111\rangle\langle111|$、$a=1-p-q>0$、$p>0$、$0<q<1$、$p+q<1$ とし、$E_0=\sqrt a I,E_1=\sqrt p Z_1Z_2,E_2=\sqrt q X_1$ によるCPTP雑音 $\mathcal N(\sigma)=\sum_{i=0}^2E_i\sigma E_i^\dagger$ を考える。(i) $C$ とその固有値を求めよ。(ii) 非零固有値に対応する新Kraus作用素、二つのsyndrome射影、CPTP回復を具体的に構成せよ。(iii) 任意の参照系 $R$ と符号に支持された密度演算子 $\omega_{RA}$ に対して $(\mathrm{id}_R\otimes\mathcal R\mathcal N)(\omega_{RA})=\omega_{RA}$ を示せ。
+- 問題: $P=|000\rangle\langle000|+|111\rangle\langle111|$、$a=1-p-q>0$、$p>0$、$0<q<1$、$p+q<1$ とし、$E_0=\sqrt a I,E_1=\sqrt p Z_1Z_2,E_2=\sqrt q X_1$ によるCPTP雑音 $\mathcal N(\sigma)=\sum_{i=0}^2E_i\sigma E_i^\dagger$ を考える。(i) $C$ とその固有値を求めよ。(ii) 非零固有値に対応する新Kraus作用素、二つのsyndrome射影、CPTP回復を具体的に構成せよ。(iii) 任意の参照系 $R$ と符号に支持された密度演算子 $\omega_{RA}$ に対し、$\mathrm{id}_R$ を参照系上の恒等チャネルとして、$(\mathrm{id}_R\otimes\mathcal R\mathcal N)(\omega_{RA})=\omega_{RA}$ を示せ。
 
 <!-- solution-start -->
 **詳細解答。** (i) $Z_1Z_2P=P$、$PX_1P=0$、$X_1^2=(Z_1Z_2)^2=I$ です。$PE_0^\dagger E_1P=\sqrt{ap}P$、$PE_0^\dagger E_2P=0$、$PE_1^\dagger E_2P=\sqrt{pq}PZ_1Z_2X_1P=0$ で、
