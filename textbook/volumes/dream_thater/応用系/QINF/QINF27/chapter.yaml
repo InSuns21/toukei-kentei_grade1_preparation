@@ -1,0 +1,33 @@
+id: QINF27
+title: "スタビライザー・CSS符号"
+volume: foundations
+status: supplementary
+prerequisites: [QINF25, QINF26]
+official_scope: []
+learning_objectives:
+  - 多量子ビットPauli群の積と可換性を二値ベクトルで計算できる
+  - 独立可換なスタビライザー生成元から符号射影と符号空間次元を証明できる
+  - Pauli誤りのsyndromeと正常化群を定義しKnill–Laflamme条件による訂正判定を証明できる
+  - CSS符号の二値検査行列の直交条件と論理基底を構成できる
+  - 7量子ビットSteane符号の単一Pauli誤り訂正と距離3を検算できる
+definitions:
+  - { id: QINF27-DEF-01, name: "多量子ビットPauli群" }
+  - { id: QINF27-DEF-02, name: "スタビライザー符号" }
+  - { id: QINF27-DEF-03, name: "Pauli syndromeと正規化群" }
+  - { id: QINF27-DEF-04, name: "CSS符号" }
+  - { id: QINF27-DEF-05, name: "スタビライザー符号の距離" }
+theorems:
+  - { id: QINF27-PROP-01, name: "Pauli作用素の二値可換性" }
+  - { id: QINF27-THM-01, name: "スタビライザー射影と符号次元" }
+  - { id: QINF27-THM-02, name: "Pauli誤りの完全訂正判定" }
+  - { id: QINF27-THM-03, name: "CSS構成と論理基底" }
+  - { id: QINF27-PROP-02, name: "Steane符号の距離と単一誤り訂正" }
+canonical_examples:
+  - "3量子ビット反復符号のZパリティ生成元と論理Z誤り"
+  - "4量子ビットCSS符号の検出と非訂正の境界"
+  - "7量子ビットSteane符号の6個の検査生成元・syndrome・距離3"
+problem_patterns: [QINF27-PAULI, QINF27-PROJECTOR, QINF27-SYNDROME, QINF27-CSS, QINF27-STEANE, QINF27-KL, QINF27-DISTANCE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 8.0, review: 3.0 }

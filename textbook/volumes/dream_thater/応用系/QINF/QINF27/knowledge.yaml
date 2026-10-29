@@ -1,0 +1,66 @@
+chapter: QINF27
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF25, QINF26]
+forward_references: []
+concepts:
+  - id: quantum.n-qubit-pauli-group
+    name: 多量子ビットPauli群
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多量子ビットPauli群）]
+    requires: [quantum.three-qubit-repetition-code]
+  - id: quantum.pauli-binary-commutation
+    name: Pauli作用素の二値可換性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Pauli作用素の二値可換性）]
+    requires: [quantum.n-qubit-pauli-group]
+  - id: quantum.stabilizer-code
+    name: スタビライザー符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（スタビライザー符号）]
+    requires: [quantum.n-qubit-pauli-group]
+  - id: quantum.stabilizer-dimension
+    name: スタビライザー射影と符号次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（スタビライザー射影と符号次元）]
+    requires: [quantum.stabilizer-code, quantum.pauli-binary-commutation]
+  - id: quantum.pauli-syndrome-normalizer
+    name: Pauli syndromeと正規化群
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Pauli syndromeと正規化群）]
+    requires: [quantum.stabilizer-dimension]
+  - id: quantum.stabilizer-error-criterion
+    name: Pauli誤りの完全訂正判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Pauli誤りの完全訂正判定）]
+    requires: [quantum.pauli-syndrome-normalizer, quantum.knill-laflamme-theorem]
+  - id: quantum.css-code
+    name: CSS符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（CSS符号）]
+    requires: [quantum.stabilizer-code, quantum.pauli-binary-commutation]
+  - id: quantum.css-coset-basis
+    name: CSS構成と論理基底
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（CSS構成と論理基底）]
+    requires: [quantum.css-code, quantum.stabilizer-dimension]
+  - id: quantum.stabilizer-code-distance
+    name: スタビライザー符号の距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（スタビライザー符号の距離）]
+    requires: [quantum.pauli-syndrome-normalizer]
+  - id: quantum.steane-distance-three
+    name: Steane符号の距離と単一誤り訂正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Steane符号の距離と単一誤り訂正）]
+    requires: [quantum.css-coset-basis, quantum.stabilizer-error-criterion, quantum.stabilizer-code-distance]
