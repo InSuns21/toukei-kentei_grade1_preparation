@@ -8,7 +8,13 @@
 2. 真空相関関数の外線の極から、どの仮定の下で規格化された粒子の振幅が得られるか。
 3. 同じ振幅を断面積と光学定理の両側へ代入したとき、どの因子が一致を保証するか。
 
-時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。実スカラー場の自由質量は $m>0$ とし、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。積分核として現れる場の積は、[QFT5のWightman二点分布](../QFT5/index.md#def-qft5-wightman)と同じく試験関数へ作用する分布であって、点で定義された非有界作用素の積を無条件に意味しません。
+時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。この対角行列は[既習のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)の慣性座標表示です。四運動量 $k=(k^0,\boldsymbol k)$ の二乗は、慣性座標の成分で
+
+$$
+k^2=\eta_{\mu\nu}k^\mu k^\nu=(k^0)^2-|\boldsymbol k|^2
+$$
+
+となり、後で使う質量殻条件 $k^2=m^2$ に直接つながります。実スカラー場の自由質量は $m>0$ とし、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。積分核として現れる場の積は、[QFT5のWightman二点分布](../QFT5/index.md#def-qft5-wightman)と同じく試験関数へ作用する分布であって、点で定義された非有界作用素の積を無条件に意味しません。
 
 散乱側では、相互作用を摂動的に切り替えられ、安定な一粒子状態と適切なin/out波束が存在すると仮定します。まず $\mathcal L_I=-\lambda\phi^4/4!$、実数 $\lambda$ の木レベルを考えます。木計算では外線の物理質量を $m$、[一粒子極の係数](../QFT11/index.md#def-qft11-stable-pole)を $Z=1$ と置きます。$s>4m^2$ の重心系で二粒子弾性散乱を計算し、閾値 $s=4m^2$ の値は上側からの極限で扱います。四次元相互作用場の厳密な非摂動構成まで仮定から証明するものではありません。
 
@@ -21,7 +27,7 @@ W(z)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}\,
 e^{-i\omega_{\boldsymbol p}z^0+i\boldsymbol p\cdot\boldsymbol z}.
 $$
 
-ここから引数を交換した $W(-z)$ を引いたものが[Pauli–Jordan交換子の核](../QFT5/index.md#def-qft5-pauli-jordan)です。他方、時刻順序を指定した[QFT6のFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point)は
+ここから引数を交換した $W(-z)$ を引いたものが[Pauli–Jordan交換子の核](../QFT5/index.md#def-qft5-pauli-jordan)です。他方、時刻順序を指定した[QFT6のFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point)は、$\theta(u)$ を $u>0$ で1、$u<0$ で0となるHeaviside階段関数として
 
 $$
 D_F(z)=\theta(z^0)W(z)+\theta(-z^0)W(-z).
@@ -37,7 +43,7 @@ $$
 
 ## 2. 外線の極を切り取り、図の数を間違えない
 
-相互作用による時間順序四点関数の**連結部**を考えます。[QFT9のWickの定理](../QFT9/index.md#thm-qft9-boson-wick)で四つの外部場が四次頂点の四つの場と結びつく方法は $4!$ 通りです。[QFT10の頂点因子](../QFT10/index.md#thm-qft10-vertex-factor)では作用の $1/4!$ と打ち消し合い、接触頂点の係数は $-i\lambda$ です。全外線を内向き $k=(p_1,p_2,-p_3,-p_4)$ として、全運動量保存デルタを分離した自由外線近似では
+相互作用による時間順序四点関数の**連結部**を考えます。[QFT9のWickの定理](../QFT9/index.md#thm-qft9-boson-wick)で四つの外部場が四次頂点の四つの場と結びつく方法は $4!$ 通りです。[QFT10の頂点因子](../QFT10/index.md#thm-qft10-vertex-factor)では作用の $1/4!$ と打ち消し合い、接触頂点の係数は $-i\lambda$ です。入射粒子の正エネルギー四運動量を $p_1,p_2$、出射を $p_3,p_4$ とし、[全内向きの外線規約](../QFT11/index.md#def-qft11-lsz-amputation)で $(k_1,k_2,k_3,k_4)=(p_1,p_2,-p_3,-p_4)$ と置きます。全運動量保存デルタを分離した自由外線近似では
 
 $$
 \mathcal G_{4,c}^{(1)}(k_1,\ldots,k_4)=
@@ -194,7 +200,16 @@ e^{i\boldsymbol q\cdot\boldsymbol r}
 \end{aligned}
 $$
 
-従って差は零です。しかし同じ二つの量の**差**が零でも各量は零とは限りません。例えば正の時間順序二点分布は等時刻で $W$ に等しく、一般の空間的分離に相関が残ります。[局所的可換性](../QFT5/index.md#thm-qft5-locality)が要求するのは交換子の消滅であって相関の消滅ではありません。評価は空間的に離れた試験関数によるsmearing、または許される等時刻分布の意味で行います。
+従って差は零です。しかし同じ二つの量の**差**が零でも各量は零とは限りません。実際、非零のSchwartz関数 $f$ とその空間Fourier変換 $\widehat f(\boldsymbol p)=\int d^3r\,e^{-i\boldsymbol p\cdot\boldsymbol r}f(\boldsymbol r)$ を取れば、[二点分布の正値性](../QFT5/index.md#thm-qft5-wightman-positive)から
+
+$$
+\int d^3r\,d^3r'\,\overline{f(\boldsymbol r)}
+W(0,\boldsymbol r-\boldsymbol r')f(\boldsymbol r')
+=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
+|\widehat f(\boldsymbol p)|^2>0
+$$
+
+です。従って $W(0,\boldsymbol r)$ は零分布ではなく、等時刻の時間順序相関にも寄与します。[局所的可換性](../QFT5/index.md#thm-qft5-locality)が要求するのは交換子の消滅であって相関の消滅ではありません。評価は空間的に離れた試験関数によるsmearing、または許される等時刻分布の意味で行います。
 <!-- solution-end -->
 
 ### 演習 QFT14-A2：Feynman極の上下
@@ -425,7 +440,7 @@ $$
 =\frac{a^2+2abz^2+b^2z^4}{128\pi^2s}.
 $$
 
-$d\Omega=d\varphi\,dz$、$\varphi\in[0,2\pi)$、$z\in[-1,1]$ を使い、角度積分は
+極角 $\theta\in[0,\pi]$ に対して $d\Omega=\sin\theta\,d\theta\,d\varphi$ です。$z=\cos\theta$ と変数を替えると $dz=-\sin\theta\,d\theta$ で、$\theta:0\to\pi$ に対して $z:1\to-1$ となります。積分端点も反転させるので、正の測度として $d\Omega=d\varphi\,dz$、$\varphi\in[0,2\pi)$、$z\in[-1,1]$ を使えます。角度積分は
 
 $$
 \begin{aligned}
@@ -559,13 +574,31 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**1. 二点量**：$D_F$ の空間Fourier係数は $t>0$ では $e^{-i\omega t}/(2\omega)$、$t<0$ では $e^{i\omega t}/(2\omega)$ です。時間Fourier変換で微小減衰を入れると[QFT6のFeynman極](../QFT6/index.md#thm-qft6-feynman-poles)から
+**1. 二点量**：$D_F$ の空間Fourier係数は $t>0$ では $e^{-i\omega t}/(2\omega)$、$t<0$ では $e^{i\omega t}/(2\omega)$ です。ここで $\omega=\sqrt{|\boldsymbol k|^2+m^2}>0$ とします。$t$ を積分変数、$k^0$ をそのFourier共役変数とし、各半直線の積分へ $e^{-\varepsilon|t|}$（$\varepsilon>0$）を掛けると
 
 $$
-\widehat D_F(k)=\frac{i}{k^2-m^2+i0}.
+\begin{aligned}
+\int_0^\infty e^{i(k^0-\omega)t-\varepsilon t}\,dt
+&=\frac{i}{k^0-\omega+i\varepsilon},\\
+\int_{-\infty}^0 e^{i(k^0+\omega)t+\varepsilon t}\,dt
+&=\frac{-i}{k^0+\omega-i\varepsilon}.
+\end{aligned}
 $$
 
-正エネルギー極は下、負エネルギー極は上です。$W(0,\boldsymbol r)-W(0,-\boldsymbol r)=0$ は $\boldsymbol p\mapsto-\boldsymbol p$ により従いますが、これは交換子だけの話です。$D_F(0,\boldsymbol r)=W(0,\boldsymbol r)$ は一般に零とは限りません。[局所的可換性](../QFT5/index.md#thm-qft5-locality)は相関自体の消滅を主張していません。
+従って $\varepsilon\downarrow0$ の分布境界値では、[QFT6のFeynman極](../QFT6/index.md#thm-qft6-feynman-poles)の上下配置に従い
+
+$$
+\begin{aligned}
+\widehat D_F(k)
+&=\lim_{\varepsilon\downarrow0}\frac{i}{2\omega}
+\left(\frac1{k^0-\omega+i\varepsilon}
+-\frac1{k^0+\omega-i\varepsilon}\right)\\
+&=\frac{i}{(k^0)^2-\omega^2+i0}
+=\frac{i}{k^2-m^2+i0}.
+\end{aligned}
+$$
+
+ここで最後の $k^2$ は冒頭のMinkowski計量による四運動量の二乗です。正エネルギー極は下、負エネルギー極は上です。$W(0,\boldsymbol r)-W(0,-\boldsymbol r)=0$ は $\boldsymbol p\mapsto-\boldsymbol p$ により従いますが、これは交換子だけの話です。$D_F(0,\boldsymbol r)=W(0,\boldsymbol r)$ は一般に零とは限りません。[局所的可換性](../QFT5/index.md#thm-qft5-locality)は相関自体の消滅を主張していません。
 
 **2. Wickから外線切断**：[Wickの定理](../QFT9/index.md#thm-qft9-boson-wick)による四外線を一つの頂点へ結ぶ収縮は $4!$ 通りなので、Dyson一次の $i(-\lambda/4!)$ を掛けると $-i\lambda$ です。全内向きの外線を $(k_1,k_2,k_3,k_4)=(p_1,p_2,-p_3,-p_4)$ として、運動量保存デルタを除くと
 
