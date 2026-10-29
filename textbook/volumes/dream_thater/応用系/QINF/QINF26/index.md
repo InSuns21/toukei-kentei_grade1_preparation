@@ -13,7 +13,9 @@ $$
 \qquad \sum_{i=1}^m E_i^\dagger E_i=I_A
 $$
 
-とします。最後の式は[Krausのトレース保存条件](../QINF7/index.md#thm-qinf7-kraus-cptp)です。$E_i:A\to A$ はそれぞれ「あり得る誤りの枝」を表しますが、個々の枝は一般にユニタリでもトレース保存でもありません。論理状態 $\rho$ は $V\rho V^\dagger$ として送ります。以下、$\mathcal B(A)$ は $A$ 上の線形作用素全体を表し、[QINF7で使った $L(A)$](../QINF7/index.md#def-qinf7-channel) と同じものです（有限次元ではすべての線形作用素が有界です）。
+とします。最後の式は[Krausのトレース保存条件](../QINF7/index.md#thm-qinf7-kraus-cptp)です。$E_i:A\to A$ はそれぞれ「あり得る誤りの枝」を表しますが、個々の枝は一般にユニタリでもトレース保存でもありません。論理状態 $\rho$ は $V\rho V^\dagger$ として送ります。
+
+以下、$\mathcal B(A)$ は $A$ 上の線形作用素全体を表し、[QINF7で使った $L(A)$](../QINF7/index.md#def-qinf7-channel) と同じものです。有限次元ではすべての線形作用素が有界なので、二つの表記は一致します。
 
 ## 2. 完全回復とは、論理基底だけでなく重ね合わせを戻すこと
 
@@ -81,7 +83,16 @@ $$
 ここでの $E_i$ は一般の誤り作用素であり、まだCPTPチャネルの正規化されたKraus作用素とは限りません。まず射影で挟んだ積を各論理基底で判定し、正規化が必要な場面では別に確認します。
 
 <!-- definition-example-start: def-qinf26-kl-matrix -->
-**定義の確認**。$\mathcal C=\operatorname{span}\{|000\rangle,|111\rangle\}$ と $P$ を[前講の符号](../QINF25/index.md#def-qinf25-bit-code)から取り、$E_0=I,E_1=X_1$ とします。$\langle000|X_1|000\rangle=\langle111|X_1|111\rangle=0$、$\langle000|X_1|111\rangle=\langle111|X_1|000\rangle=0$ なので $PX_1P=0$ です。さらに $PI^\dagger IP=P$、$PX_1^\dagger X_1P=P$ です。したがって $C=I_2$ となり、元の符号の二つの論理基底とその重ね合わせを同じ条件で扱えます。
+**定義の確認**。[前講の符号](../QINF25/index.md#def-qinf25-bit-code)から $\mathcal C=\operatorname{span}\{|000\rangle,|111\rangle\}$ と射影 $P$ を取り、$E_0=I,E_1=X_1$ とします。二つの論理基底を $|0_L\rangle=|000\rangle$、$|1_L\rangle=|111\rangle$ と置きます。
+
+$X_1$ は第1ビットだけを反転するので、その作用後の像は符号空間と直交します。従って論理基底での積の行列は
+
+$$
+\bigl[\langle a_L|X_1|b_L\rangle\bigr]_{a,b=0,1}
+=\begin{pmatrix}0&0\\0&0\end{pmatrix}.
+$$
+
+この全成分が0であることから $PX_1P=0$ です。また $I^\dagger I=X_1^\dagger X_1=I$ なので両対角の誤り積を $P$ で挟むと $P$ になります。したがって $C=I_2$ であり、二つの論理基底だけでなくその重ね合わせにも同じ条件が成立します。
 <!-- definition-example-end -->
 
 <a id="prop-qinf26-gram"></a>
