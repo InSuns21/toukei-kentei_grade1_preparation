@@ -197,9 +197,13 @@ $$
 となります。$C$ はHermitianなので正規行列でもあり、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)から、ユニタリ行列 $S$ で
 
 $$
-C=S\operatorname{diag}(\lambda_1,\ldots,\lambda_m)S^\dagger,
-\qquad U=S^{\mathsf T},
-\qquad C'=\overline U C U^{\mathsf T}=\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
+\begin{aligned}
+C &= S\operatorname{diag}(\lambda_1,\ldots,\lambda_m)S^\dagger,\\
+U &= S^{\mathsf T},\\
+C' &= \overline U C U^{\mathsf T}
+= S^\dagger C S
+= \operatorname{diag}(\lambda_1,\ldots,\lambda_m).
+\end{aligned}
 $$
 
 と取れます。これでKraus添字の変換と対角化が一致します。
