@@ -8,7 +8,15 @@
 
 ## 1. 電場・磁場を四元ポテンシャルから作る
 
-時空は平坦な $3+1$ 次元Minkowski空間とし、座標を $x^\mu=(t,x^1,x^2,x^3)$、計量を $\eta=\operatorname{diag}(1,-1,-1,-1)$ とします。$c=\hbar=1$ の自然単位系と、電磁気の結合定数を場の規格化へ吸収したHeaviside–Lorentz単位系を使います。従ってこの章では $\partial_\mu F^{\mu\nu}=J^\nu$ であり、SI単位系の[SREL5の式](../../SREL/SREL5/index.md#thm-srel5-inhomogeneous-maxwell)にある $\mu_0$ は現れません。添字は $\mu,\nu=0,1,2,3$、空間添字は $i,j,k=1,2,3$、上下で反復した添字は和を表します。
+時空は平坦な $3+1$ 次元Minkowski空間とし、座標を $x^\mu=(t,x^1,x^2,x^3)$、計量を $\eta=\operatorname{diag}(1,-1,-1,-1)$ とします。$c=\hbar=1$ の自然単位系と、電磁気の結合定数を場の規格化へ吸収したHeaviside–Lorentz単位系を使います。
+
+この章のMaxwell方程式の規格化は
+
+$$
+\partial_\mu F^{\mu\nu}=J^\nu
+$$
+
+です。SI単位系の[SREL5の式](../../SREL/SREL5/index.md#thm-srel5-inhomogeneous-maxwell)にある $\mu_0$ は現れません。ギリシア添字は $\mu,\nu=0,1,2,3$、空間添字は $i,j,k=1,2,3$ とし、上下で反復した添字は和を表します。
 
 電場 $\boldsymbol E$ と磁場 $\boldsymbol B$ を一つの未知量で表すには、実数値の時間成分 $\Phi$ と三成分のベクトルポテンシャル $\boldsymbol A$ が便利です。$\Phi$ は静電場を、$\boldsymbol A$ は磁場や時間変化する電場を作ります。成分を $A^\mu=(\Phi,A^1,A^2,A^3)$ と置くと、下付き成分は $A_\mu=(\Phi,-A^1,-A^2,-A^3)$ です。偏微分の添字を下げた $\partial_\mu=\partial/\partial x^\mu$ と、上げた $\partial^\mu=\eta^{\mu\nu}\partial_\nu$ を区別します。
 
@@ -713,7 +721,15 @@ $$
 
 $\boldsymbol E\cdot\boldsymbol k=\boldsymbol B\cdot\boldsymbol k=0$、$\boldsymbol B=(0,0,1)\times\boldsymbol E$ です。$k^2=0$ は $\omega=|\boldsymbol k|$ という質量零の分散関係で、負振動数枝とは別に正の枝を選んでいます。
 
-**4. 初期値の数え上げ。** $\mathcal L=(E^2-B^2)/2$ には $\partial_t\Phi$ が含まれないので $\pi_\Phi=0$ です。$\Phi$ はHamiltonianの中でGauss条件を課す変数であり、別の伝播する波を与えません。さらに $A\mapsto A+\partial\chi$ で同一の $F$ を表す振幅が複数あるため、四成分を独立に量子化した四種類の物理粒子とは数えられません。$k\ne0$ のモードで運動方程式による一条件 $k\cdot\varepsilon=0$ とゲージ方向 $\beta k$ の除去を行うと $4-1-1=2$ の横偏極だけが残り、正準拘束の数え方とも一致します。
+**4. 初期値の数え上げ。** 密度 $\mathcal L=(E^2-B^2)/2$ には $\partial_t\Phi$ が含まれないので、正準運動量は $\pi_\Phi=0$ です。$\Phi$ はHamiltonianの中でGauss条件を課す変数であり、別の伝播する波を与えません。
+
+さらにゲージ変換 $A\mapsto A+\partial\chi$ で同一の $F$ を表す振幅が複数あるため、四成分を独立に量子化した四種類の物理粒子とは数えられません。非零の光的モードでは、運動方程式の直交条件とゲージ方向を一つずつ除くと
+
+$$
+4-1-1=2
+$$
+
+です。これは正準拘束による数え方とも一致します。
 <!-- solution-end -->
 
 ## 7. 次へ：冗長な記述を量子計算へ持ち込むには
