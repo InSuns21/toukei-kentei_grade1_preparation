@@ -175,13 +175,32 @@ PF_a^\dagger F_bP=\lambda_a\delta_{ab}P,
 \qquad \lambda_a\ge0,\qquad \sum_a\lambda_a=1
 $$
 
-となります。ここで $a,b$ は論理基底ではなく、変換後の誤り枝の添字です。実際、$F_a=\sum_iU_{ai}E_i$ と置けば $\sum_aF_a\sigma F_a^\dagger=\sum_iE_i\sigma E_i^\dagger$（$U^\dagger U=I$）であり、新しい係数行列は $C'_{ab}=\sum_{i,j}\overline{U_{ai}}c_{ij}U_{bj}$ です。$C$ はHermitianなので正規行列でもあり、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)から、ユニタリ行列 $S$ で
+となります。ここで $a,b$ は論理基底ではなく、変換後の誤り枝の添字です。
 
-$
+具体的に、ユニタリ行列 $U=(U_{ai})$ を使い $F_a=\sum_iU_{ai}E_i$ と置くと、
+
+$$
+\begin{aligned}
+\sum_aF_a\sigma F_a^\dagger
+&=\sum_{i,j}\left(\sum_aU_{ai}\overline{U_{aj}}\right)E_i\sigma E_j^\dagger\\
+&=\sum_iE_i\sigma E_i^\dagger
+\end{aligned}
+$$
+
+であり、元の雑音と同じです。一方、射影で挟んだ積の係数行列は
+
+$$
+C'_{ab}=\sum_{i,j}\overline{U_{ai}}c_{ij}U_{bj}
+=(\overline U C U^{\mathsf T})_{ab}
+$$
+
+となります。$C$ はHermitianなので正規行列でもあり、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)から、ユニタリ行列 $S$ で
+
+$$
 C=S\operatorname{diag}(\lambda_1,\ldots,\lambda_m)S^\dagger,
 \qquad U=S^{\mathsf T},
 \qquad C'=\overline U C U^{\mathsf T}=\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
-$
+$$
 
 と取れます。これでKraus添字の変換と対角化が一致します。
 
