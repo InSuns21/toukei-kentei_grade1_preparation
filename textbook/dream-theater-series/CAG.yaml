@@ -48,7 +48,7 @@ chapters:
     title: "Picard群と正則線束の代数化"
   - id: CAG1-11
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-11
-    status: planned
+    status: completed
     title: "標準束と随伴公式を両側で読む"
   - id: CAG1-12
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-12
