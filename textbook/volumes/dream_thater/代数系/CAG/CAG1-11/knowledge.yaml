@@ -2,7 +2,7 @@ chapter: CAG1-11
 scope: dream-theater
 coverage: complete
 prerequisites: [CAG1-10, AG2-10, CM2-08]
-forward_references: []
+forward_references: [AG3-11]
 concepts:
   - id: complex-algebraic-geometry.analytic-conormal-compatibility
     name: 余法完全列と解析化の整合
