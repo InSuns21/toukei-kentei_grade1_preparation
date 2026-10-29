@@ -361,7 +361,7 @@ $X=\{X_0^3+X_1^3+X_2^3=0\}\subset\mathbb P^2_{\mathbb C}$ とする。
 <!-- solution-start -->
 **詳細解答。** 斉次偏微分は $3X_0^2,3X_1^2,3X_2^2$ で、共通零点は原点のみだが射影空間に原点はない。従って $X$ は滑らかである。$n=2,d=3$ を[代数的随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)へ代入して $K_X\simeq\mathcal O_X(3-2-1)=\mathcal O_X$。
 
-$U_0$ では $df_0=3x^2dx+3y^2dy$。$y\ne0$ なら $f_{0,y}=3y^2$ は単元で、[局所随伴形式](#prop-cag1-11-holomorphic-residue)により
+$U_0$ では $df_0=3x^2dx+3y^2dy$。$y\ne0$ なら $f_{0,y}=3y^2$ は単元で、AG2-10の[局所随伴形式](../../AG/AG2-10/index.md#prop-ag2-10-local-residue)と整合する[本章の正則形式の局所構成](#prop-cag1-11-holomorphic-residue)により
 
 $$
 \eta_0=-\frac{dx}{3y^2}.
