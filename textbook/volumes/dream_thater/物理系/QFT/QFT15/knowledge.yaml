@@ -1,0 +1,83 @@
+chapter: QFT15
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT14, SREL5, EMAG8]
+forward_references: []
+
+concepts:
+  - id: qft.maxwell-potential-field
+    name: 四元ポテンシャルによる電磁場の表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元ポテンシャルによる電磁場の表示）]
+    requires: [relativity.electromagnetic-field-tensor, qft.scalar-action]
+
+  - id: qft.local-u1-gauge
+    name: 局所ゲージ変換とゲージ同値性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所ゲージ変換とゲージ同値性）]
+    requires: [qft.maxwell-potential-field, qft.u1-scalar-current]
+
+  - id: qft.gauge-field-invariance
+    name: 場の強さと斉次Maxwell方程式のゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（場の強さと斉次Maxwell方程式のゲージ不変性）]
+    requires: [qft.local-u1-gauge, relativity.homogeneous-maxwell-four]
+
+  - id: qft.maxwell-source-action
+    name: 源付きMaxwell作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（源付きMaxwell作用）]
+    requires: [qft.maxwell-potential-field, qft.scalar-action]
+
+  - id: qft.maxwell-action-eom
+    name: Maxwell作用のEuler–Lagrange方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Maxwell作用のEuler–Lagrange方程式）]
+    requires: [qft.maxwell-source-action, qft.field-euler-lagrange, relativity.inhomogeneous-maxwell-four]
+
+  - id: qft.gauge-current-conservation
+    name: ゲージ不変性と外部電流保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ゲージ不変性と外部電流保存）]
+    requires: [qft.gauge-field-invariance, qft.maxwell-action-eom, relativity.maxwell-charge-continuity]
+
+  - id: qft.maxwell-canonical-momenta
+    name: Maxwell場の正準運動量と一次拘束
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Maxwell場の正準運動量と一次拘束）]
+    requires: [qft.maxwell-source-action]
+
+  - id: qft.maxwell-gauss-hamiltonian
+    name: 正準HamiltonianとGauss拘束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準HamiltonianとGauss拘束）]
+    requires: [qft.maxwell-canonical-momenta, qft.maxwell-action-eom]
+
+  - id: qft.maxwell-two-polarizations
+    name: 真空Maxwell平面波の二つの物理偏極
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（真空Maxwell平面波の二つの物理偏極）]
+    requires: [qft.maxwell-action-eom, qft.local-u1-gauge, electromagnetism.plane-wave-transversality]
+
+  - id: qft.maxwell-transverse-projector
+    name: 非零波数の横射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非零波数の横射影）]
+    requires: [qft.maxwell-two-polarizations]
+
+  - id: qft.maxwell-projector-rank
+    name: 横射影の階数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（横射影の階数）]
+    requires: [qft.maxwell-transverse-projector]

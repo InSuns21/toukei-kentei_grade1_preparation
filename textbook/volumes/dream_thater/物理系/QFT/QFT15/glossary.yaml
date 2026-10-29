@@ -1,0 +1,17 @@
+chapter: QFT15
+terms:
+  - term: 四元ポテンシャル
+    english: electromagnetic four-potential
+    meaning: "電磁場テンソルを反対称微分で構成する四成分の場。ゲージ表示の冗長性を持つ。"
+  - term: 局所U(1)ゲージ変換
+    english: local U(1) gauge transformation
+    meaning: "電磁場を変えずにA_muへスカラー関数の微分を足す局所的な表示変換。"
+  - term: Gauss拘束
+    english: Gauss constraint
+    meaning: "Maxwell場の許される初期データが満たす電場の発散条件。"
+  - term: 物理偏極
+    english: physical polarization
+    meaning: "ゲージ同値な波の表示を同一視した後に残る非零波数の横方向の二つの独立な偏極。"
+  - term: 横射影
+    english: transverse projector
+    meaning: "非零波数に直交する空間へベクトル振幅を射影する階数2の直交射影。"
