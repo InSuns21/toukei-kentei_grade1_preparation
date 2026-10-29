@@ -1,0 +1,43 @@
+id: "CAG1-11"
+title: "標準束と随伴公式を両側で読む"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-10
+  - AG2-10
+  - CM2-08
+official_scope: []
+learning_objectives:
+  - 滑らかな射影超曲面の余法完全列を解析化し、階数と局所Jacobianの可逆性から解析的完全列を構成できる
+  - 代数的標準束の解析化と解析的標準束の自然同型を、局所微分と最高外積の変換から証明できる
+  - 局所正則随伴形式の分母・符号・消去変数の独立性を計算できる
+  - 座標Jacobianと方程式の遷移係数を合わせて解析的随伴公式を導き、代数的随伴公式との整合を説明できる
+  - 滑らかさと射影性の異なる役割を、三次曲線・四次曲線・特異尖点で判別できる
+definitions: []
+theorems:
+  - { id: CAG1-11-PROP-01, name: 余法完全列と解析化の整合 }
+  - { id: CAG1-11-THM-01, name: 滑らかな超曲面の標準束と解析化の可換性 }
+  - { id: CAG1-11-PROP-02, name: 局所正則随伴形式 }
+  - { id: CAG1-11-THM-02, name: 解析的随伴公式と代数的公式との整合 }
+canonical_examples:
+  - 放物線で余法方向を消去し余接層の基底を構成する
+  - x+y+xyの局所形式で消去変数によらないことを確認する
+  - P2の二つの標準チャートでJacobianの符号と次数を比較する
+  - 超平面と平面三次・四次曲線の標準束を比較する
+  - 特異な尖点で可逆Jacobianが失われる理由を示す
+problem_patterns:
+  - CAG1-11-A01
+  - CAG1-11-A02
+  - CAG1-11-A03
+  - CAG1-11-A04
+  - CAG1-11-A05
+  - CAG1-11-B01
+  - CAG1-11-B02
+  - CAG1-11-B03
+  - CAG1-11-B04
+  - CAG1-11-C01
+  - CAG1-11-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
