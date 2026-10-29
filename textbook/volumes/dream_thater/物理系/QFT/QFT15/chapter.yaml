@@ -1,0 +1,48 @@
+id: QFT15
+title: "Maxwell場の作用・ゲージ冗長性と二つの物理偏極"
+volume: foundations
+status: supplementary
+prerequisites: [QFT14, SREL5, EMAG8]
+official_scope: []
+learning_objectives:
+  - 四元ポテンシャルから電磁場テンソルと斉次Maxwell方程式を導ける
+  - 局所U(1)ゲージ変換で電磁場が不変であることを直接検算できる
+  - Maxwell作用の変分から非斉次方程式を導き源の保存条件を説明できる
+  - 正準運動量とHamiltonianから一次拘束・Gauss拘束を導ける
+  - 真空の光的平面波をゲージ同値で整理して二つの物理偏極を取り出せる
+  - 非零波数の横射影とLorenz・Coulombゲージの適用範囲を区別できる
+definitions:
+  - { id: QFT15-DEF-01, name: 四元ポテンシャルによる電磁場の表示 }
+  - { id: QFT15-DEF-02, name: 局所ゲージ変換とゲージ同値性 }
+  - { id: QFT15-DEF-03, name: 源付きMaxwell作用 }
+  - { id: QFT15-DEF-04, name: Maxwell場の正準運動量と一次拘束 }
+  - { id: QFT15-DEF-05, name: 非零波数の横射影 }
+theorems:
+  - { id: QFT15-PROP-01, name: 場の強さと斉次Maxwell方程式のゲージ不変性 }
+  - { id: QFT15-THM-01, name: Maxwell作用のEuler–Lagrange方程式 }
+  - { id: QFT15-PROP-02, name: ゲージ不変性と外部電流保存 }
+  - { id: QFT15-PROP-03, name: 正準HamiltonianとGauss拘束 }
+  - { id: QFT15-THM-02, name: 真空Maxwell平面波の二つの物理偏極 }
+  - { id: QFT15-PROP-04, name: 横射影の階数 }
+canonical_examples:
+  - 一様磁場を生む二つのゲージ同値ポテンシャル
+  - 静電場のMaxwell作用密度と符号の検算
+  - 保存しない外部電流でのゲージ不変性の破れ
+  - 時間成分の正準運動量が零になる例
+  - null波数の時間・縦偏極を除き二つの横偏極へ変える例
+  - 非零波数に対する直交射影の直接検算
+problem_patterns:
+  - QFT15-FIELD-COMPONENTS
+  - QFT15-GAUGE-CHECK
+  - QFT15-GAUSS-SOURCE
+  - QFT15-CANONICAL-MOMENTA
+  - QFT15-TRANSVERSE-PROJECTION
+  - QFT15-ACTION-VARIATION
+  - QFT15-HAMILTONIAN-GAUSS
+  - QFT15-GAUGE-PLANE-WAVE
+  - QFT15-NONCONSERVED-CURRENT
+  - QFT15-FULL-POLARIZATION-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 4 }

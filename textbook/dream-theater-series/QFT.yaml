@@ -62,3 +62,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT14
     status: completed
     title: "自由場の二点関数から散乱確率までの総合演習"
+  - id: QFT15
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT15
+    status: completed
+    title: "Maxwell場の作用・ゲージ冗長性と二つの物理偏極"
