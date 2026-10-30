@@ -1052,6 +1052,7 @@
 25. [QINF25 ビット反転・位相反転符号](textbook/volumes/dream_thater/応用系/QINF/QINF25/index.md)
 26. [QINF26 Knill–Laflamme条件](textbook/volumes/dream_thater/応用系/QINF/QINF26/index.md)
 27. [QINF27 スタビライザー・CSS符号](textbook/volumes/dream_thater/応用系/QINF/QINF27/index.md)
+28. [QINF28 消失訂正と量子秘密分散](textbook/volumes/dream_thater/応用系/QINF/QINF28/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
