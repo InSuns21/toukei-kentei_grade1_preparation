@@ -18,7 +18,19 @@ $$
 
 です。SI単位系の[SREL5の式](../../SREL/SREL5/index.md#thm-srel5-inhomogeneous-maxwell)にある $\mu_0$ は現れません。ギリシア添字は $\mu,\nu=0,1,2,3$、空間添字は $i,j,k=1,2,3$ とし、上下で反復した添字は和を表します。
 
-電場 $\boldsymbol E$ と磁場 $\boldsymbol B$ を一つの未知量で表すには、実数値の時間成分 $\Phi$ と三成分のベクトルポテンシャル $\boldsymbol A$ が便利です。$\Phi$ は静電場を、$\boldsymbol A$ は磁場や時間変化する電場を作ります。成分を $A^\mu=(\Phi,A^1,A^2,A^3)$ と置くと、下付き成分は $A_\mu=(\Phi,-A^1,-A^2,-A^3)$ です。偏微分の添字を下げた $\partial_\mu=\partial/\partial x^\mu$ と、上げた $\partial^\mu=\eta^{\mu\nu}\partial_\nu$ を区別します。
+電場 $\boldsymbol E$ と磁場 $\boldsymbol B$ を一つの未知量で表すには、実数値の時間成分 $\Phi$ と三成分のベクトルポテンシャル $\boldsymbol A$ が便利です。$\Phi$ は静電場を、$\boldsymbol A$ は磁場や時間変化する電場を作ります。四元ポテンシャルの上下成分は、計量による添字の上げ下げを使って
+
+$
+A^\mu=(\Phi,A^1,A^2,A^3),\qquad
+A_\mu=(\Phi,-A^1,-A^2,-A^3)
+$
+
+と対応します。また $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で偏微分する演算子で、添字を上げると空間成分の符号が変わります。
+
+$
+\partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
+\partial^\mu=\eta^{\mu\nu}\partial_\nu.
+$
 
 <a id="def-qft15-potential-field"></a>
 
@@ -89,7 +101,14 @@ $$
 > と定める。ただし同値性の右辺は、条件を満たす滑らかな実関数 $\chi$ が少なくとも一つ存在するという意味である。$d\chi$ は成分 $\partial_\mu\chi$ を持つ勾配の略記である。同値であるポテンシャルを同一の電磁場の異なるゲージ表示として扱う。
 <!-- formal-statement-end -->
 
-座標成分では $\Phi'=\Phi+\partial_t\chi$、$\boldsymbol A'=\boldsymbol A-\nabla\chi$ です。物理でよく使う $\boldsymbol A\mapsto\boldsymbol A+\nabla\lambda$、$\Phi\mapsto\Phi-\partial_t\lambda$ は $\lambda=-\chi$ と置いた同じ変換です。
+四元成分から時間と空間に分けると、変換後をプライムで表す記法は
+
+$
+\Phi'=\Phi+\partial_t\chi,\qquad
+\boldsymbol A'=\boldsymbol A-\nabla\chi
+$
+
+となります。ここでプライムは時間微分ではなく**変換後の表示**です。物理でよく使う $\boldsymbol A\mapsto\boldsymbol A+\nabla\lambda$、$\Phi\mapsto\Phi-\partial_t\lambda$ という記法は、$\lambda=-\chi$ と置いた同じ変換です。
 
 <!-- definition-example-start: def-qft15-gauge -->
 ### 例：一様磁場の二つの表示を結ぶ
@@ -146,7 +165,14 @@ $E_i=F_{0i}$ と $B_i=-\epsilon_{ijk}F_{jk}/2$ の定義から両方の電磁場
 
 ## 3. Maxwell作用を変分して運動方程式を得る
 
-[QFT1の場の作用と第一変分](../QFT1/index.md#def-qft1-action)を、実スカラー場だけでなく四元ベクトル場へ適用します。反対称テンソルの二乗は、$F_{\mu\nu}F^{\mu\nu}=2(\boldsymbol B^2-\boldsymbol E^2)$ です。実際、$F_{0i}F^{0i}=-E_i^2$ は $0i$ と $i0$ の二つ、$F_{ij}F^{ij}$ は磁場の各独立対を二つずつ数えるので、この係数になります。
+[QFT1の場の作用と第一変分](../QFT1/index.md#def-qft1-action)を、実スカラー場だけでなく四元ベクトル場へ適用します。反対称テンソルを縮約すると
+
+$
+F_{\mu\nu}F^{\mu\nu}
+=2(\boldsymbol B^2-\boldsymbol E^2)
+$
+
+となります。実際、$F_{0i}F^{0i}=-E_i^2$ は $0i$ と $i0$ の二つ、$F_{ij}F^{ij}$ は磁場の各独立対を二つずつ数えるので、この係数になります。
 
 <a id="def-qft15-maxwell-action"></a>
 
@@ -168,14 +194,28 @@ $$
 
 **定義の確認**：四元ポテンシャルと源の正則性、積分の存在、密度の符号を調べます。
 
-$\Omega$ を有界とし、$\Phi=-Ex^1$、$\boldsymbol A=0$、$J=0$ とします。$E$ は一定の実数です。上の定義から $F_{01}=E$、その他の独立成分は零であり、$F_{\mu\nu}F^{\mu\nu}=-2E^2$ です。従って $\mathcal L=E^2/2$、作用は $S_\Omega=E^2\operatorname{Vol}_4(\Omega)/2$ となり、積分は有界領域で有限です。場と源の正則性、積分の存在、作用密度の符号を確認しました。停留性そのものは次の定理で検査します。
+$\Omega$ を有界とし、$\Phi=-Ex^1$、$\boldsymbol A=0$、$J=0$ とします。$E$ は一定の実数です。場と源は滑らかで、独立な成分は $F_{01}=E$ のみなので
+
+$
+F_{\mu\nu}F^{\mu\nu}=-2E^2,\qquad
+\mathcal L=\frac{E^2}{2},\qquad
+S_\Omega=\frac{E^2}{2}\operatorname{Vol}_4(\Omega).
+$
+
+有界領域上で積分は有限です。場と源の正則性、積分の存在、作用密度の符号を確認しました。停留性そのものは次の定理で検査します。
 <!-- definition-example-end -->
 
 <a id="thm-qft15-euler-maxwell"></a>
 
 <!-- formal-statement-start -->
 > **定理（Maxwell作用のEuler–Lagrange方程式）**  
-> 上の源付きMaxwell作用で $A_\mu\in C^2(\Omega)$、外部電流 $J^\mu\in C^1(\Omega)$ とし、全てのコンパクト台を持つ滑らかな変分に対して作用が停留すると仮定する。このとき各 $\nu=0,1,2,3$ で
+> 有界開集合 $\Omega\subset\mathbb R^{1,3}$ 上の実数値 $A_\mu\in C^2(\Omega)$ と固定した外部電流 $J^\mu\in C^1(\Omega)$ を考える。場の強さを $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とし、積分が存在する[源付きMaxwell作用](#def-qft15-maxwell-action)を
+
+$
+S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}-J^\mu A_\mu\right)d^4x
+$
+
+> とする。全ての実数値 $C_c^\infty(\Omega)$ 四元変分 $\delta A_\nu$ に対して停留すると仮定すれば、各 $\nu=0,1,2,3$ について
 
 $$
 \partial_\mu F^{\mu\nu}=J^\nu.
@@ -214,7 +254,17 @@ $$
 各成分を独立に任意の試験関数とできるため、[QFT1の場のEuler–Lagrange方程式](../QFT1/index.md#thm-qft1-field-el)で用いた変分論法を適用できます。実際、括弧内の連続関数がある点で正なら、近傍でも正となり、その近傍に台を持つ非負で零でない滑らかな変分を選ぶと積分は正となって停留性と矛盾します。負の場合も変分の符号を変えて同じです。従って括弧内は各点で零です。逆向きは被積分関数が零であることから直ちに従います。斉次方程式は第1節の巡回微分の直接計算で従います。
 <!-- proof-end -->
 
-ここで運動方程式の四成分を $\boldsymbol E,\boldsymbol B$ に戻して確認しましょう。$F^{i0}=E_i$、$F^{0i}=-E_i$、$F^{ji}=\epsilon_{ijk}B_k$ なので、$\nu=0$ は $\nabla\cdot\boldsymbol E=\rho$、$\nu=i$ は $\nabla\times\boldsymbol B-\partial_t\boldsymbol E=\boldsymbol j$ になります。残る二つのMaxwell方程式は既に $F=dA$ に含まれています。
+ここで運動方程式の四成分を電場と磁場へ戻します。定義から $F^{i0}=E_i$、$F^{0i}=-E_i$、$F^{ji}=\epsilon_{ijk}B_k$ であるため、時間成分と空間成分はそれぞれ
+
+$
+\begin{aligned}
+\nu=0:&\quad \partial_iF^{i0}=\nabla\cdot\boldsymbol E=\rho,\\
+\nu=i:&\quad \partial_tF^{0i}+\partial_jF^{ji}
+=-\partial_tE_i+(\nabla\times\boldsymbol B)_i=J^i.
+\end{aligned}
+$
+
+残る二つのMaxwell方程式は既に $F=dA$ に含まれています。
 
 ### 3.1 外部源が保存しない場合に何が破綻するか
 
@@ -224,7 +274,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（ゲージ不変性と外部電流保存）**  
-> $J^\mu\in C^1(\Omega)$ を固定した外部電流とし、$A\mapsto A+\partial\chi$ を $\chi\in C_c^\infty(\Omega)$ によるゲージ変換とする。源付きMaxwell作用が全てのそのような $\chi$ に対して不変であることと、$\partial_\mu J^\mu=0$ は同値である。また $C^2$ の場がMaxwellの運動方程式を満たすなら、この保存則は必要条件である。
+> 有界開集合 $\Omega\subset\mathbb R^{1,3}$ 上で実数値 $C^2$ 四元ポテンシャル $A_\mu$ と固定した $C^1$ 外部電流 $J^\mu$ に対する[源付きMaxwell作用](#def-qft15-maxwell-action)を考える。$\chi\in C_c^\infty(\Omega)$ によるゲージ変換 $A_\mu\mapsto A_\mu+\partial_\mu\chi$ の全てに対し作用が不変であることと、$\partial_\mu J^\mu=0$ は同値である。また同じ正則性の $A$ がMaxwellの運動方程式を満たすなら、この保存則は必要条件である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -244,14 +294,22 @@ S[A+\partial\chi]-S[A]
 \end{aligned}
 $$
 
-保存則があれば右辺は零です。逆に全 $\chi$ で零なのに、連続関数 $\partial_\mu J^\mu$ がある点で正または負だと仮定すると、符号が一定の小領域に台を持つ非負の試験関数を選んで積分を非零にでき、矛盾します。従って $\partial_\mu J^\mu=0$ です。また[Maxwell作用のEuler–Lagrange方程式](#thm-qft15-euler-maxwell)を微分すると
+保存則があれば右辺は零です。逆に全 $\chi$ で零なのに、連続関数 $\partial_\mu J^\mu$ がある点で正または負だと仮定すると、符号が一定の小領域に台を持つ非負の試験関数を選んで積分を非零にでき、矛盾します。従って $\partial_\mu J^\mu=0$ です。
 
-$$
-\partial_\nu J^\nu=\partial_\nu\partial_\mu F^{\mu\nu}
-=\frac12\partial_\nu\partial_\mu(F^{\mu\nu}+F^{\nu\mu})=0.
-$$
+もう一方の経路として、[Maxwell作用のEuler–Lagrange方程式](#thm-qft15-euler-maxwell)からも保存則を導きます。ここでは $A\in C^2$ なので $F\in C^1$ にとどまり、$F$ の二階偏微分を古典的な意味で無条件に書くことはできません。任意の実試験関数 $\varphi\in C_c^\infty(\Omega)$ を取り、$J^\nu=\partial_\mu F^{\mu\nu}$ を代入して部分積分を二回行います。
 
-これは[SREL5の電荷保存](../../SREL/SREL5/index.md#thm-srel5-continuity)を作用・ゲージ変換の側から読み直したものです。
+$
+\begin{aligned}
+\int_\Omega(\partial_\nu J^\nu)\varphi\,d^4x
+&=-\int_\Omega J^\nu\partial_\nu\varphi\,d^4x\\
+&=-\int_\Omega(\partial_\mu F^{\mu\nu})\partial_\nu\varphi\,d^4x\\
+&=\int_\Omega F^{\mu\nu}\partial_\mu\partial_\nu\varphi\,d^4x\\
+&=\frac12\int_\Omega(F^{\mu\nu}+F^{\nu\mu})
+\partial_\mu\partial_\nu\varphi\,d^4x=0.
+\end{aligned}
+$
+
+最後の等号では、滑らかな $\varphi$ の混合偏微分が対称で、$F$ が反対称であることを使いました。$J\in C^1$ により $\partial_\nu J^\nu$ は連続です。[QFT1の変分論法](../QFT1/index.md#thm-qft1-field-el)と同様に、全試験関数との積分が零なら各点で零です。これは[SREL5の電荷保存](../../SREL/SREL5/index.md#thm-srel5-continuity)と同じ必要条件を、$A\in C^2$ の正則性の下で示したものです。
 <!-- proof-end -->
 
 例えば $J^\mu=(t,0,0,0)$ なら $\partial_\mu J^\mu=1$ です。この源は任意の滑らかな $\chi$ に対して作用を不変にできず、Maxwellの運動方程式の解も持ちません。壊れるのはゲージ場の導関数の計算ではなく、**外部源の保存性**です。
@@ -260,7 +318,7 @@ $$
 
 スカラー場では時間微分に対応する正準運動量を作れました。電磁場では $\Phi=A^0$ の時間微分が $\mathcal L$ に現れません。この事実が、単純な四つの振動子という数え方を妨げます。
 
-空間を固定時刻の $\mathbb R^3$ とし、無限遠で積分の境界項が消える場、または周期境界条件のもとで零モードを別に扱う場を考えます。正準運動量 $\pi^\mu$ は対応する独立変数 $A_\mu$ ではなく、ここでは $A^0=\Phi$ と $A^i$ の時間微分に対して定めます。
+空間を固定時刻の $\mathbb R^3$ とし、無限遠で積分の境界項が消える場、または周期境界条件のもとで零モードを別に扱う場を考えます。正準運動量はこの節では $\pi_\Phi,\pi_i$ と表し、独立な配置変数 $A^0=\Phi$ と $A^i$ の時間微分に対して定めます。添字 $i$ は空間成分を指定し、$\pi_i$ は $A^i$ に共役な運動量の記号です。
 
 <a id="def-qft15-canonical-momenta"></a>
 
@@ -282,14 +340,21 @@ $$
 
 **定義の確認**：時間的成分と空間的成分について、正準運動量の条件をそれぞれ計算します。
 
-$\Phi=f(t)$、$\boldsymbol A=0$ とします。$f\in C^2$ であれば $\partial_t\Phi=f'(t)$ は任意に変わりますが $\boldsymbol E=-\nabla f(t)=0$、$\boldsymbol B=0$ です。$\mathcal L$ に $\partial_t\Phi$ はないので $\pi_\Phi=0$ のままです。さらに $\pi_i=-E_i=0$ となり、定義にある二種類の運動量を直接確認できます。これは $\Phi$ 自身を観測可能な振動子座標と数えない最小例です。
+$\Phi=f(t)$、$\boldsymbol A=0$ と置きます。$f'(t)=df/dt$ は一変数関数 $f$ の導関数で、空間位置を固定した場の偏微分 $\partial_t\Phi$ に一致します。$f\in C^2$ とすると
+
+$
+\partial_t\Phi=f'(t),\qquad
+\boldsymbol E=-\nabla f(t)=0,\qquad \boldsymbol B=0.
+$
+
+$f'(t)$ は時刻によって変わっても、$\mathcal L$ は $\partial_t\Phi$ に依存しないため $\pi_\Phi=0$ のままです。さらに $\pi_i=-E_i=0$ となり、定義にある二種類の運動量を直接確認できます。これは $\Phi$ 自身を観測可能な振動子座標と数えない最小例です。
 <!-- definition-example-end -->
 
 <a id="prop-qft15-gauss-constraint"></a>
 
 <!-- formal-statement-start -->
 > **命題（正準HamiltonianとGauss拘束）**  
-> $3+1$ 次元の源付きMaxwell場を上記の正準変数で扱い、固定時刻の空間積分における部分積分の境界項が消えるとする。このとき正準Hamiltonianは
+> $3+1$ 次元の源付きMaxwell密度 $\mathcal L=(\boldsymbol E^2-\boldsymbol B^2)/2-\rho\Phi+\boldsymbol j\cdot\boldsymbol A$ に対し、配置変数を $(\Phi,A^i)$、正準運動量を $\pi_\Phi=0,\ \pi_i=-E_i$ とする。固定時刻の空間積分における部分積分の境界項が消えるなら、正準Hamiltonianは
 
 $$
 H_c=\int_{\mathbb R^3}\left[\frac12(\boldsymbol E^2+\boldsymbol B^2)
@@ -362,15 +427,22 @@ Maxwell方程式を振幅へ直すと光的 $k$ と $\varepsilon$ の内積が�
 <!-- proof-start -->
 ### 証明
 
-[ポテンシャルによる場の強さ](#def-qft15-potential-field)から、真空Maxwell方程式は
+[ポテンシャルによる場の強さ](#def-qft15-potential-field)から真空Maxwell方程式を展開します。まず[QFT1のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)でも用いたダランベール演算子を、空間座標を固定する時間偏微分 $\partial_t$ と、時間を固定する空間偏微分 $\partial_i$ により
 
-$$
+$
+\Box=\partial_\mu\partial^\mu
+=\partial_t^2-\sum_{i=1}^3\partial_i^2
+$
+
+と書きます。ここで $\partial^\mu$ は計量で添字を上げた偏微分です。したがって
+
+$
 \partial_\mu F^{\mu\nu}
 =\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)
 =\Box A^\nu-\partial^\nu(\partial_\mu A^\mu)=0.
-$$
+$
 
-ここで $\Box=\partial_\mu\partial^\mu$ は既習のダランベール演算子です。複素指数モードの実部と虚部を別々に代入できる線形方程式であり、振幅は
+複素指数モードの実部と虚部を別々に代入できる線形方程式であり、振幅は
 
 $$
 -k^2\varepsilon^\nu+k^\nu(k_\mu\varepsilon^\mu)=0
@@ -405,7 +477,16 @@ $$
 
 $\partial_\mu A^\mu=0$ はLorenzゲージ条件です。この条件を課した場合に真空方程式が $\Box A^\nu=0$ へ簡約されるのは上の導出の通りです。ただしこれはゲージの代表を選ぶ条件であり、追加の独立した物理方程式ではありません。一般の場についてこの条件に到達できるかは、ゲージ関数が満たす波動方程式 $\Box\chi=-\partial_\mu A^\mu$ の初期・境界条件に依存します。単一の光的モードでは $k\cdot\varepsilon=0$ が**既に運動方程式から**出るので、残余ゲージ変換 $\varepsilon\mapsto\varepsilon+\beta k$ だけではその値を変えられません。
 
-別に固定時刻で $\nabla\cdot\boldsymbol A=0$ とするCoulombゲージを考えると、真空ではGauss則は $-\Delta\Phi=0$ です。無限遠で消える $\Phi$ に限定すれば $\Phi=0$ であり、残る $\boldsymbol A$ は横方向だけになります。$\boldsymbol k\ne0$ のFourier成分について、ベクトル $\boldsymbol v$ を波数方向と直交方向に分ける射影を次で定義します。
+別に固定時刻で $\nabla\cdot\boldsymbol A=0$ とするCoulombゲージを考えると、真空ではGauss則は $-\Delta\Phi=0$ です。無限遠で消える $\Phi$ に限定すれば $\Phi=0$ であり、残る $\boldsymbol A$ は横方向だけになります。
+
+$\boldsymbol k\ne0$ を実波数、$\boldsymbol v\in\mathbb C^3$ を振幅として、まず波数に平行な成分を $\boldsymbol v_L=\alpha\boldsymbol k$ と置きます。残差 $\boldsymbol v_T=\boldsymbol v-\alpha\boldsymbol k$ が $\boldsymbol k$ に直交する条件は $\boldsymbol k\cdot\boldsymbol v-\alpha|\boldsymbol k|^2=0$ です。$|\boldsymbol k|^2>0$ なので
+
+$
+\alpha=\frac{\boldsymbol k\cdot\boldsymbol v}{|\boldsymbol k|^2},\qquad
+\boldsymbol v_T=\boldsymbol v-\frac{\boldsymbol k\cdot\boldsymbol v}{|\boldsymbol k|^2}\boldsymbol k.
+$
+
+したがって横成分を取り出す写像は $\boldsymbol v$ に線形で、その第 $i$ 成分の係数は $\delta_{ij}-k_i k_j/|\boldsymbol k|^2$ になります。$\boldsymbol k$ が実数なので、この直交条件は $\mathbb C^3$ の通常のHermitian内積での直交と一致します。この係数を行列として次のように定義します。
 
 <a id="def-qft15-transverse-projector"></a>
 
@@ -428,8 +509,18 @@ $$
 
 **定義の確認**：射影の分母の非零性、横・縦成分と直交・冪等条件を計算します。
 
-$\boldsymbol k=(0,0,\kappa)$、$\kappa>0$ なら $k_i k_j/|k|^2$ は $(3,3)$ 成分だけ1の行列です。従って $P=\operatorname{diag}(1,1,0)$、$P(v_1,v_2,v_3)=(v_1,v_2,0)$ です。$\boldsymbol k\cdot(P\boldsymbol v)=0$、$P^2=P$、$\boldsymbol v=P\boldsymbol v+(I-P)\boldsymbol v$ を直接満たします。$\boldsymbol k=0$ を除外する理由は分母が零で射影を定められないためです。
+$\boldsymbol k=(0,0,\kappa)$、$\kappa>0$ なら $k_i k_j/|\boldsymbol k|^2$ は $(3,3)$ 成分だけ1の行列です。このため
+
+$
+P=\operatorname{diag}(1,1,0),\qquad
+\boldsymbol v_T=(v_1,v_2,0),\qquad
+\boldsymbol v_L=(0,0,v_3)=\frac{v_3}{\kappa}\boldsymbol k.
+$
+
+横成分は $\boldsymbol k\cdot\boldsymbol v_T=0$、縦成分は $\boldsymbol k$ に平行です。また $P^2=P$、$\boldsymbol v=\boldsymbol v_T+\boldsymbol v_L$ を直接満たします。$\boldsymbol k=0$ を除外する理由は分母が零で射影を定められないためです。
 <!-- definition-example-end -->
+
+複素ベクトルに作用する行列の $P^*$ は複素共役転置（随伴行列）を意味します。$P^*=P$ は直交射影に必要な自己随伴性であり、冪等性 $P^2=P$ と合わせて検査します。
 
 <a id="prop-qft15-projector-rank"></a>
 
@@ -454,7 +545,16 @@ $$
 =K_{ij}.
 $$
 
-従って $P^2=(I-K)^2=I-2K+K^2=P$ です。$k_i$ は実数なので $P^*=P$、また $P\boldsymbol k=\boldsymbol k-\boldsymbol k|k|^2/|k|^2=0$。任意の $\boldsymbol v$ で $\boldsymbol k\cdot P\boldsymbol v=0$ です。逆に $\boldsymbol k\cdot\boldsymbol v=0$ なら $P\boldsymbol v=\boldsymbol v$。従って像が横方向の二次元空間に一致します。実際 $\operatorname{tr}P=3-|k|^2/|k|^2=2$ で、射影の固有値は0または1なので階数2です。
+従って $P^2=(I-K)^2=I-2K+K^2=P$ です。$k_i$ は実数なので $P^*=P$ です。さらに
+
+$
+P\boldsymbol k=\boldsymbol k-
+\frac{\boldsymbol k(\boldsymbol k\cdot\boldsymbol k)}{|\boldsymbol k|^2}=0,
+\qquad
+\boldsymbol k\cdot(P\boldsymbol v)=0.
+$
+
+逆に $\boldsymbol k\cdot\boldsymbol v=0$ なら $P\boldsymbol v=\boldsymbol v$。従って像が横方向の二次元空間に一致します。$P\boldsymbol v=\lambda\boldsymbol v$ を満たす非零固有ベクトルにもう一度 $P$ を作用させると、$P^2=P$ から $\lambda^2\boldsymbol v=\lambda\boldsymbol v$ となり、$\lambda=0,1$ です。$P$ は自己随伴なので固有ベクトルの直交基底を取れます。$\operatorname{tr}P=3-|\boldsymbol k|^2/|\boldsymbol k|^2=2$ は固有値の和だから、1の固有値が二つで階数2です。
 <!-- proof-end -->
 
 この射影は**空間の**電磁波の二偏極を選びます。四元ベクトルに対するLorentz共変な単純射影が何の条件もなく存在すると言っているわけではありません。また非零波数の局所的な話を、境界・大域的な零モード・非自明な位相を持つ空間に無条件で広げません。
@@ -634,7 +734,7 @@ $\pi_\Phi=0$ により $\Phi$ の速度はこのLegendre変換で決定されま
 <!-- solution-start -->
 **詳細解答**
 
-計量 $(+---)$ より $k\cdot\varepsilon=\kappa\varepsilon^0-\kappa\varepsilon^3=\kappa(2-2)=0$ です。$\beta=-2/\kappa$ を選べば
+計量 $(+---)$ より $k\cdot\varepsilon=\kappa\varepsilon^0-\kappa\varepsilon^3=\kappa(2-2)=0$ です。[二偏極定理のゲージ選択](#thm-qft15-two-polarizations)に従って $\beta=-2/\kappa$ を選べば
 
 $$
 \varepsilon'^\mu=(2,1,i,2)-\frac{2}{\kappa}(\kappa,0,0,\kappa)
@@ -673,7 +773,7 @@ $$
 \end{aligned}
 $$
 
-非負で零でないコンパクト台の $\chi$ を選べば右辺は正なので、全てのゲージ変換に対する不変性はありません。もしMaxwell解が存在すれば[運動方程式](#thm-qft15-euler-maxwell)の発散から $\partial_\mu J^\mu=0$ が必要です。しかし指定された $J$ では $\partial_t t=1$ で矛盾します。電流保存の欠落により、方程式の解の存在機構が破綻しています。
+非負で零でないコンパクト台の $\chi$ を選べば右辺は正なので、全てのゲージ変換に対する不変性はありません。もしMaxwell解が存在すれば、[運動方程式](#thm-qft15-euler-maxwell)と[外部電流保存の必要条件](#prop-qft15-current-conservation)から $\partial_\mu J^\mu=0$ です。しかし指定された $J$ では $\partial_t t=1$ で矛盾します。電流保存の欠落により、方程式の解の存在機構が破綻しています。
 <!-- solution-end -->
 
 ### 演習 QFT15-C1：Gauss拘束から二偏極までの全経路
