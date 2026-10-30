@@ -114,14 +114,14 @@ $A=0$ では同じ $F=0$ にもかかわらず $S_\xi[0]=0$ です。**場の正
 
 <!-- formal-statement-start -->
 > **定理（ゲージ固定作用のEuler–Lagrange方程式）**  
-> 上の $S_\xi$ の停留点は、各 $\nu=0,1,2,3$ で
+> $\xi>0$、有界領域 $\Omega\subset\mathbb R^{1,3}$、実数値 $C^2$ ポテンシャル $A_\mu$ と固定した $C^1$ 外部電流 $J^\mu$ に対する[共変ゲージ固定Maxwell作用](#def-qft16-gauge-fixed-action)の停留点は、各 $\nu=0,1,2,3$ で
 
 $$
 \Box A^\nu-\left(1-\frac1\xi\right)
 \partial^\nu(\partial_\mu A^\mu)=J^\nu
 $$
 
-> を満たし、逆も成り立つ。さらにその四元発散 $B=\partial_\mu A^\mu$ は
+> を満たし、逆も成り立つ。さらにその四元発散 $B=\partial_\mu A^\mu$ は、**分布の意味で**
 
 $$
 \frac1\xi\Box B=\partial_\nu J^\nu
@@ -154,7 +154,20 @@ $$
 \partial_\mu F^{\mu\nu}+\frac1\xi\partial^\nu B=J^\nu.
 $$
 
-$F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$ を代入し、$\partial_\mu F^{\mu\nu}=\Box A^\nu-\partial^\nu B$ とまとめれば、表示された方程式です。逆向きも同じ変分式から従います。さらに $\partial_\nu$ を作用させ、反対称性と偏微分の交換で $\partial_\nu\partial_\mu F^{\mu\nu}=0$ となるため
+$F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$ を代入し、$\partial_\mu F^{\mu\nu}=\Box A^\nu-\partial^\nu B$ とまとめれば、表示された方程式です。逆向きも同じ変分式から従います。
+
+ここで $A\in C^2$ からは $F\in C^1$、$B\in C^1$ しか分かりません。従って $\partial_\nu\partial_\mu F^{\mu\nu}$ や $\Box B$ を点ごとの古典的な二階微分として扱わず、**分布微分**で発散を取ります。任意の $\varphi\in C_c^\infty(\Omega)$ に対し、二回の部分積分と $F^{\mu\nu}=-F^{\nu\mu}$ より
+
+$$
+\begin{aligned}
+\left\langle\partial_\nu\partial_\mu F^{\mu\nu},\varphi\right\rangle
+&=\int_\Omega F^{\mu\nu}\partial_\mu\partial_\nu\varphi\,d^4x\\
+&=\frac12\int_\Omega(F^{\mu\nu}+F^{\nu\mu})
+\partial_\mu\partial_\nu\varphi\,d^4x=0.
+\end{aligned}
+$$
+
+したがって運動方程式の分布的な発散は
 
 $$
 \partial_\nu J^\nu
@@ -162,7 +175,7 @@ $$
 =\frac1\xi\Box B
 $$
 
-を得ます。$\partial\cdot J=0$ は $\Box B=0$ だけを意味し、例えば定数 $B=2$ も局所的にはその方程式を満たします。
+です。左辺は $J\in C^1$ により連続関数でもありますが、右辺についてこの仮定だけで古典的な二階微分の存在を主張しません。$\partial\cdot J=0$ は分布の意味で $\Box B=0$ だけを意味し、例えば定数 $B=2$ も局所的にはその方程式を満たします。
 <!-- proof-end -->
 
 特に $\xi=1$ では $\Box A^\nu=J^\nu$ と四成分ごとの波動方程式になります。ただし四つの**物理的**偏極が存在するわけではありません。正定値な光子の状態空間を得るには拘束による物理状態の選別が別途必要です。また $\xi>0$ のゲージ固定作用は一般の局所ゲージ変換では不変でなく、$B$ を変えない残余変換 $\Box\chi=0$ とは区別します。
@@ -193,7 +206,15 @@ $$
 > と定める。$L$ は $k$ に平行な成分、$T$ は $k_\mu v^\mu=0$ を満たす成分への射影である。ここで「横」はMinkowski内積に関する意味であり、空間的な正定値直交射影とは限らない。
 <!-- formal-statement-end -->
 
-混合添字なのは、たとえば $L^\mu{}_\nu v^\nu=k^\mu(k_\nu v^\nu)/k^2$ と四元ベクトルから四元ベクトルへ作用させるためです。上下両方の添字を上げた $L^{\mu\nu}$ は同じ成分行列ではありません。
+混合添字なのは、たとえば $L^\mu{}_\nu v^\nu=k^\mu(k_\nu v^\nu)/k^2$ と四元ベクトルから四元ベクトルへ作用させるためです。この式で $k$ 方向の係数が $(k_\nu v^\nu)/k^2$ と決まり、残差が横条件を満たすことも直接確かめられます。
+
+$$
+(Tv)^\mu=v^\mu-k^\mu\frac{k_\nu v^\nu}{k^2},
+\qquad
+k_\mu(Tv)^\mu=k_\mu v^\mu-\frac{k^2(k_\nu v^\nu)}{k^2}=0.
+$$
+
+従って次の例では、表示行列がこの二つの写像を表すかと、射影の冪等性を確認します。上下両方の添字を上げた $L^{\mu\nu}$ は同じ成分行列ではありません。
 
 <!-- definition-example-start: def-qft16-projectors -->
 ### 例：時間方向の非光的運動量
@@ -411,7 +432,7 @@ $$
 
 ## 6. 二つの物理偏極とCoulombゲージ
 
-伝播関数は四元添字を持ちますが、[QFT15で証明した物理偏極](../QFT15/index.md#thm-qft15-two-polarizations)は二つです。この二つを直接見るには、非零の光的運動量 $k^\mu=(\omega,0,0,\omega)$、$\omega>0$ を固定します。保存する振幅 $j^\mu$ なら $k_\mu j^\mu=\omega(j^0-j^3)=0$ なので $j^0=j^3$ です。
+伝播関数は四元添字を持ちますが、[QFT15で証明した物理偏極](../QFT15/index.md#thm-qft15-two-polarizations)は二つです。この二つを直接見るには、非零の光的運動量 $k^\mu=(\omega,0,0,\omega)$、$\omega>0$ を固定します。保存する振幅 $j^\mu$ なら $k_\mu j^\mu=\omega(j^0-j^3)=0$ なので $j^0=j^3$ です。複素振幅の $j_\mu^*$ は添字を下げた成分 $j_\mu$ の複素共役を表します。
 
 <a id="prop-qft16-physical-polarizations"></a>
 
@@ -466,7 +487,15 @@ P_{ij}(\boldsymbol k)=\delta_{ij}-\frac{k_i k_j}{|\boldsymbol k|^2}
 \qquad(|\boldsymbol k|>0)
 $$
 
-を使うと、$\boldsymbol A=P\boldsymbol A$ です。電場が $\boldsymbol E=-\partial_t\boldsymbol A-\nabla\Phi$ なので、Gauss則は
+を使います。$P$ は**空間Fourier変換後の各 $\boldsymbol k$ の振幅**に作用する行列です。Coulomb条件 $\nabla\cdot\boldsymbol A=0$ をFourier変換すると $\boldsymbol k\cdot\widehat{\boldsymbol A}=0$ となるので、[横射影の定義](../QFT15/index.md#def-qft15-transverse-projector)により
+
+$$
+\widehat{\boldsymbol A}(k^0,\boldsymbol k)
+=P(\boldsymbol k)\widehat{\boldsymbol A}(k^0,\boldsymbol k)
+\qquad(|\boldsymbol k|>0)
+$$
+
+です。電場が $\boldsymbol E=-\partial_t\boldsymbol A-\nabla\Phi$ なので、Gauss則は
 
 $$
 \nabla\cdot\boldsymbol E=-\Delta\Phi=\rho,\qquad
@@ -480,7 +509,16 @@ $$
 \Box\boldsymbol A+\nabla\partial_t\Phi=\boldsymbol j.
 $$
 
-これへ $P$ を作用させれば $P\nabla\Phi=0$、$P\boldsymbol A=\boldsymbol A$ から $\Box\boldsymbol A=\boldsymbol j_T$ です。**空間の横成分だけが波として伝播し、縦方向はGauss拘束で決まる**ことが分かります。これは共変ゲージで計算して保存電流で縦方向が相殺する記述と矛盾しません。零空間波数、境界条件、非局所的な射影、量子状態の選別はこの単一Fourierモードの議論だけでは決まりません。
+各非零空間波数で $P(\boldsymbol k)\boldsymbol k=0$ ですから、$P$ は勾配項のFourier振幅を消します。また $P$ は $k^0$ に依存しない行列乗算であり、$\Box$ のFourier記号 $-k^2$ はスカラーなので両者は交換します。よって
+
+$$
+-k^2\widehat{\boldsymbol A}
+=P(\boldsymbol k)\widehat{\boldsymbol j}
+=:\widehat{\boldsymbol j}_T
+\qquad(|\boldsymbol k|>0)
+$$
+
+を得ます。ここで $\boldsymbol j_T$ は空間電流の横成分です。逆Fourier表示では $\Box\boldsymbol A=\boldsymbol j_T$ となり、**空間の横成分だけが波として伝播し、縦方向はGauss拘束で決まる**ことが分かります。これは共変ゲージで計算して保存電流で縦方向が相殺する記述と矛盾しません。零空間波数、境界条件、非局所的な射影、量子状態の選別はこの単一Fourierモードの議論だけでは決まりません。
 
 ## 7. 演習：縦方向の余分な成分を追跡する
 
@@ -545,7 +583,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[ゲージ固定作用の方程式](#thm-qft16-gauge-fixed-eom)に $\partial_\nu$ を作用させると
+[ゲージ固定作用の方程式](#thm-qft16-gauge-fixed-eom)に分布微分として $\partial_\nu$ を作用させると（$A\in C^2$ のみでは $B$ の二階微分を古典的に仮定できません）、
 
 $$
 \Box B-\left(1-\frac12\right)\Box B
@@ -680,7 +718,7 @@ $$
 =\Box\boldsymbol A+\nabla\partial_t\Phi=\boldsymbol j.
 $$
 
-[QFT15の横射影](../QFT15/index.md#def-qft15-transverse-projector)は $P\boldsymbol k=0$ なので、Fourierで $P\nabla\partial_t\Phi=0$。既に $\boldsymbol A=P\boldsymbol A$ ですから $\Box\boldsymbol A=P\boldsymbol j=\boldsymbol j_T$ を得ます。Gauss拘束と伝播する横成分の役割が分離しました。
+[QFT15の横射影](../QFT15/index.md#def-qft15-transverse-projector)は各 $\boldsymbol k\ne0$ で $P\boldsymbol k=0$ なので、Fourier変換後に $P\widehat{\nabla\partial_t\Phi}=0$ です。またCoulomb条件から $P\widehat{\boldsymbol A}=\widehat{\boldsymbol A}$ で、$P$ は $\Box$ のスカラーFourier記号 $-k^2$ と交換します。従って $-k^2\widehat{\boldsymbol A}=P\widehat{\boldsymbol j}=:\widehat{\boldsymbol j}_T$、逆変換で $\Box\boldsymbol A=\boldsymbol j_T$ を得ます。Gauss拘束と伝播する横成分の役割が分離しました。
 <!-- solution-end -->
 
 ### 演習 QFT16-C1：ゲージ固定から保存電流の交換核と二偏極まで
@@ -691,7 +729,7 @@ $$
   1. ゲージ固定Maxwell作用の二次Fourier作用素を導き、$k^2\ne0$ で $T,L$ に分解せよ。
   2. 逆作用素から一般共変ゲージのFeynman核を求めよ。
   3. 保存する二つの外部電流の木レベル縮約が $\xi$ に依存しないことを示せ。
-  4. 光的運動量 $k=(\omega,0,0,\omega)$ と保存振幅 $j=(u,a,b,u)$ について、交換核の分子が横偏極の二乗和とどう結び付くか示せ。$a,b,u$ は複素数でもよい。
+  4. 光的運動量 $k=(\omega,0,0,\omega)$ と保存振幅 $j=(u,a,b,u)$ について、同じ振幅との複素共役縮約に現れる分子 $-j_\mu^*j^\mu$ が横偏極の二乗和とどう結び付くか示せ。$a,b,u$ は複素数でもよい。
 
 <!-- solution-start -->
 **詳細解答**
