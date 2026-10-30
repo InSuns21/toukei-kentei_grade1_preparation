@@ -56,8 +56,8 @@ chapters:
     title: "曲線の種数と代数・解析比較"
   - id: CAG1-13
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-13
-    status: planned
-    title: "滑らかなquintic threefold"
+    status: completed
+    title: "滑らかなquintic threefoldと正則3形式"
   - id: CAG1-14
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-14
     status: planned
