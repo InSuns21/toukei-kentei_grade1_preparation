@@ -1,0 +1,46 @@
+id: "CAG1-13"
+title: "滑らかなquintic threefoldと正則3形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-12
+  - CAG1-11
+  - AG2-12
+  - AG3-10
+official_scope: []
+learning_objectives:
+  - Fermat型五次超曲面の射影Jacobianを再計算し、複素次元3と局所余接基底を説明できる
+  - 随伴公式と標準束の解析化比較にn=4,d=5を代入し、標準束の自明性を示せる
+  - 局所正則3形式の分母の非零条件、消去方向の変更、射影チャート変更の符号を検算できる
+  - 斉次五次式の変換係数と座標Jacobianの相殺から非消失大域正則3形式を構成できる
+  - 制限完全列と射影空間上のねじり層コホモロジーからH0(O_Q)=Cを計算し、GAGAでH0(K_M)の一次元性を証明できる
+  - 任意の滑らかな五次超曲面へ構成を広げ、六次・特異五次では失う仮定を説明できる
+  - 標準束の自明性をRicci平坦計量、全SU(3)ホロノミー、Hodge数の実計算と混同しない
+definitions: []
+theorems:
+  - { id: CAG1-13-PROP-01, name: Fermat quintic上の正則3形式の貼り合わせ }
+  - { id: CAG1-13-THM-01, name: Fermat quinticの大域正則3形式の一意性 }
+  - { id: CAG1-13-PROP-02, name: 滑らかな五次超曲面の正則体積形式 }
+canonical_examples:
+  - Fermat五次式の射影Jacobianと複素三次元の局所座標
+  - U0上でx3とx4を消去した二つの局所正則3形式
+  - U0からU1への座標変換と負号の相殺
+  - 対角係数が異なる滑らかな五次超曲面の局所正則3形式
+  - 滑らかな六次で標準束の次数が1となる比較
+  - 特異な五次錐の頂点で局所正則3形式の構成が止まる例
+problem_patterns:
+  - CAG1-13-A01
+  - CAG1-13-A02
+  - CAG1-13-A03
+  - CAG1-13-A04
+  - CAG1-13-A05
+  - CAG1-13-B01
+  - CAG1-13-B02
+  - CAG1-13-B03
+  - CAG1-13-B04
+  - CAG1-13-C01
+  - CAG1-13-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
