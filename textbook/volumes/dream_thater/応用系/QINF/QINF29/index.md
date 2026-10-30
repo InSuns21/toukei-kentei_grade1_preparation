@@ -16,7 +16,7 @@
 
 <!-- formal-statement-start -->
 > **定義（参照系付きチャネル状態）**
-> 有限次元 $L,A,B,E,R$、$d=\dim L=\dim R\ge1$、等長写像 $V:L\to A$、$U:A\to B\otimes E$ を固定し、$W=UV$ とする。参照系を通さない最大エンタングル入力と、その出力を
+> 有限次元 $L,A,B,E,R$、$d=\dim L=\dim R\ge1$、等長写像 $V:L\to A$、$U:A\to B\otimes E$ を固定し、$W=UV$ とする。参照系 $R$ と論理入力 $L$ にまたがる最大エンタングル入力と、その出力を
 
 $$
 |\Phi_d\rangle_{RL}=\frac1{\sqrt d}\sum_{j=0}^{d-1}|j\rangle_R|j\rangle_L,
@@ -88,7 +88,7 @@ $$
 \otimes\mathcal M^c(|j\rangle\langle k|).
 $$
 
-> したがって[完全デカップリング](#def-qinf29-decoupling)と、ある $E$ 上の密度演算子 $\sigma_E$ について全 $j,k$ で
+> したがって[完全デカップリング](#def-qinf29-decoupling)と、ある $E$ 上の密度演算子 $\sigma_E$ について全 $j,k$ で（$\delta_{jk}$ は $j=k$ のとき1、それ以外では0）
 
 $$
 \mathcal M^c(|j\rangle\langle k|)=\delta_{jk}\sigma_E
@@ -118,7 +118,16 @@ $$
 =\operatorname{Tr}(\rho)\sigma_E=\sigma_E.
 $$
 
-逆に全密度演算子で一定とします。$|j\rangle\langle j|$ を入力すると各対角ブロックは $\sigma_E$。$j\ne k$ に対し $T=\mathcal M^c(|j\rangle\langle k|)$ と置き、$|+\rangle=(|j\rangle+|k\rangle)/\sqrt2$ と $|+i\rangle=(|j\rangle+i|k\rangle)/\sqrt2$ を入力します。$\mathcal M^c$ は随伴を保つので、双方の出力が $\sigma_E$ であることから
+逆に全密度演算子で一定とします。$|j\rangle\langle j|$ を入力すると各対角ブロックは $\sigma_E$。$j\ne k$ に対し $T=\mathcal M^c(|j\rangle\langle k|)$ と置き、$|+\rangle=(|j\rangle+|k\rangle)/\sqrt2$ と $|+i\rangle=(|j\rangle+i|k\rangle)/\sqrt2$ を入力します。$P_j=|j\rangle\langle j|$、$P_k=|k\rangle\langle k|$ と書けば、二つの入力密度演算子は
+
+$$
+\begin{aligned}
+|+\rangle\langle+|&=\tfrac12(P_j+P_k+|j\rangle\langle k|+|k\rangle\langle j|),\\
+|+i\rangle\langle+i|&=\tfrac12(P_j+P_k-i|j\rangle\langle k|+i|k\rangle\langle j|).
+\end{aligned}
+$$
+
+$\mathcal M^c$ は線形で随伴を保ち、対角二項をそれぞれ $\sigma_E$ に写します。双方の出力が $\sigma_E$ であることから
 
 $$
 T+T^\dagger=0,\qquad -iT+iT^\dagger=0.
@@ -168,7 +177,7 @@ $$
 =\operatorname{Tr}(XK_\nu^\dagger K_\mu).
 $$
 
-復号 $\mathcal D(\tau)=\sum_a D_a\tau D_a^\dagger$ のKraus作用素 $D_a:B\to L$ を選ぶと $\sum_aD_a^\dagger D_a=I_B$ です。全純粋入力 $|\psi\rangle$ を復号した結果が $|\psi\rangle\langle\psi|$ なので、正作用素の和
+[有限次元Kraus表示](../QINF7/index.md#thm-qinf7-kraus-existence)により、復号 $\mathcal D(\tau)=\sum_a D_a\tau D_a^\dagger$ のKraus作用素 $D_a:B\to L$ を選ぶと $\sum_aD_a^\dagger D_a=I_B$ です。全純粋入力 $|\psi\rangle$ を復号した結果が $|\psi\rangle\langle\psi|$ なので、正作用素の和
 
 $$
 |\psi\rangle\langle\psi|=\sum_{a,\mu}D_aK_\mu|\psi\rangle\langle\psi|K_\mu^\dagger D_a^\dagger
@@ -195,14 +204,24 @@ $$
 =\delta_{jk}(\sigma_E)_{\mu\nu}.
 $$
 
-したがって $K_\nu^\dagger K_\mu=(\sigma_E)_{\mu\nu}I_L$。右辺の係数は正半定値なGram行列で、Kraus添字をユニタリ変換し $F_a:L\to B$ に取り替えると
+したがって $K_\nu^\dagger K_\mu=(\sigma_E)_{\mu\nu}I_L$。添字を $K_\mu^\dagger K_\nu=c_{\mu\nu}I_L$ の順にそろえ、$C=(c_{\mu\nu})$ と置きます。任意の単位ベクトル $|\psi\rangle_L$ と複素数列 $z_\mu$ に対して
 
 $$
-F_a^\dagger F_b=\lambda_a\delta_{ab}I_L,
-\qquad\lambda_a\ge0,\qquad\sum_a\lambda_a=1.
+\sum_{\mu,\nu}\overline{z_\mu}c_{\mu\nu}z_\nu
+=\left\|\sum_\nu z_\nu K_\nu|\psi\rangle\right\|^2\ge0,
+\qquad\operatorname{Tr}C
+=\sum_\mu\langle\psi|K_\mu^\dagger K_\mu|\psi\rangle=1.
 $$
 
-最初の式が固有値表示を持つ理由は、任意の複素数列 $z_a$ に対し $\sum_{a,b}\bar z_a\langle\psi|K_a^\dagger K_b|\psi\rangle z_b=\|\sum_b z_bK_b|\psi\rangle\|^2\ge0$ であるためです。$\sum\lambda_a=1$ はKraus完全性をトレースした結果です。[QINF26でのKraus添字の対角化](../QINF26/index.md#thm-qinf26-kl)と同じ操作ですが、$K_a:L\to B$ が矩形でも積 $K_a^\dagger K_b:L\to L$ は正しく定義されます。
+従って $C$ は正半定値Hermitian行列で、固有値 $\lambda_a\ge0$ の和は1です。[QINF26のKraus添字の対角化](../QINF26/index.md#thm-qinf26-kl)と同様に、$S^\dagger CS=\operatorname{diag}(\lambda_a)$ となるユニタリ行列 $S$ を取り、$F_a=\sum_\mu S_{\mu a}K_\mu:L\to B$ と置きます。この変換では $\sum_a S_{\mu a}\overline{S_{\nu a}}=\delta_{\mu\nu}$ なのでチャネルは変わらず、
+
+$$
+F_a^\dagger F_b
+=\sum_{\mu,\nu}\overline{S_{\mu a}}c_{\mu\nu}S_{\nu b}I_L
+=\lambda_a\delta_{ab}I_L.
+$$
+
+ここでは $K_a:L\to B$ が矩形でも、積 $K_a^\dagger K_b:L\to L$ は正しく定義されます。$\lambda_a\ge0$ かつ $\sum_a\lambda_a=1$ で、固有値の零の枝を除いた直交性は次の復号構成で用います。
 
 $\lambda_a>0$ の枝に対し $W_a=F_a/\sqrt{\lambda_a}:L\to B$ とすると $W_a^\dagger W_b=\delta_{ab}I_L$。したがって $\Pi_a=W_aW_a^\dagger$ は互いに直交する射影、$Q=I_B-\sum_{a:\lambda_a>0}\Pi_a$ も射影です。$\lambda_a=0$ の枝は $\|F_a|\psi\rangle\|^2=0$ から $F_a=0$。固定した単位ベクトル $|0\rangle_L$ と、$QB$ の正規直交基底 $|q_t\rangle$ を選び、次のKraus作用素で復号を構成します。
 
@@ -379,7 +398,7 @@ $$
 =(1-p)|0\rangle\langle0|+p|1\rangle\langle1|.
 $$
 
-よって $S(E)=h_2(p)$、$\mathscr L=1+h_2(p)-1=h_2(p)$ です。環境の行列で $|e_0\rangle\langle e_0|$ の非対角要素は $+\sqrt{p(1-p)}$、$|e_1\rangle\langle e_1|$ のそれは負です。従って、Pauli $X_E=|0\rangle\langle1|+|1\rangle\langle0|$ を使うと
+よって $S(E)=h_2(p)$、$\mathscr L=1+h_2(p)-1=h_2(p)$ です。環境の行列で $|e_0\rangle\langle e_0|$ の非対角要素は $+\sqrt{p(1-p)}$、$|e_1\rangle\langle e_1|$ のそれは負です。論理側と同じ計算基底表示を参照系へ移した $Z_R=|0\rangle\langle0|_R-|1\rangle\langle1|_R$ と、Pauli $X_E=|0\rangle\langle1|_E+|1\rangle\langle0|_E$ を使うと
 
 $$
 \Omega_{RE}-I_R/2\otimes\Omega_E
