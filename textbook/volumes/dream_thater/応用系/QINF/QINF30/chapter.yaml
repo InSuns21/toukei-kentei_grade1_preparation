@@ -1,0 +1,33 @@
+id: QINF30
+title: "近似訂正・回復写像"
+volume: foundations
+status: supplementary
+prerequisites: [QINF3, QINF4, QINF7, QINF8, QINF9, QINF11, QINF26, QINF29]
+official_scope: []
+learning_objectives:
+  - 最大エンタングル入力のentanglement fidelityと最適回復誤差を定義・計算できる
+  - Uhlmannの定理から環境の近似デカップリングと最適回復忠実度の双対関係を導ける
+  - トレース距離と忠実度の不等式から漏洩と回復誤差の双方向評価を証明できる
+  - 平均的な参照系忠実度と任意入力での一様誤差を区別し次元因子を検算できる
+  - Petz型回復を全入力上のCPTP写像として構成し、その適用範囲を説明できる
+  - 位相反転・フラグ付き消失チャネルで最適回復とPetz回復を比較できる
+definitions:
+  - { id: QINF30-DEF-01, name: "エンタングルメント忠実度と回復誤差" }
+  - { id: QINF30-DEF-02, name: "最適環境積状態忠実度" }
+  - { id: QINF30-DEF-03, name: "Petz型回復写像" }
+theorems:
+  - { id: QINF30-THM-01, name: "近似デカップリングと最適回復の双対性" }
+  - { id: QINF30-THM-02, name: "環境の距離と回復誤差の双方向評価" }
+  - { id: QINF30-PROP-01, name: "参照系付き一様回復誤差の次元評価" }
+  - { id: QINF30-PROP-02, name: "Petz型回復のチャネル性と固定状態" }
+  - { id: QINF30-PROP-03, name: "位相反転チャネルの最適回復" }
+  - { id: QINF30-PROP-04, name: "フラグ付き消失チャネルの最適回復" }
+canonical_examples:
+  - "確率的位相反転では既知のPauli補正がPetz回復よりよい場合がある"
+  - "フラグ付き消失では消失フラグを測定して最大混合状態を補うPetz回復が最適"
+  - "参照系との最大エンタングル状態での誤差と任意入力の誤差を区別する"
+problem_patterns: [QINF30-FIDELITY, QINF30-DEC-BOUND, QINF30-UHLMANN, QINF30-PETZ, QINF30-PHASE, QINF30-ERASURE, QINF30-UNIFORM]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 4.0 }
