@@ -125,7 +125,7 @@ chapters:
     title: "消失訂正と量子秘密分散"
   - id: QINF29
     path: textbook/volumes/dream_thater/応用系/QINF/QINF29
-    status: planned
+    status: completed
     title: "情報漏洩・デカップリング"
   - id: QINF30
     path: textbook/volumes/dream_thater/応用系/QINF/QINF30

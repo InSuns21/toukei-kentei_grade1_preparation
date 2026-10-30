@@ -1,0 +1,30 @@
+id: QINF29
+title: "情報漏洩・デカップリング"
+volume: foundations
+status: supplementary
+prerequisites: [QINF3, QINF4, QINF7, QINF8, QINF11, QINF17, QINF18, QINF20, QINF26, QINF28]
+official_scope: []
+learning_objectives:
+  - 任意の有限次元CPTPチャネルと等長符号化から参照・受信・環境の純粋状態を構成できる
+  - 参照系と環境のデカップリングを縮約行列の対角・非対角条件で判定できる
+  - デカップリングと入力非依存の完全CPTP復号可能性の同値を必要・十分の両方向に証明できる
+  - 環境への情報漏洩を量子相互情報量とトレース距離で計算し両者の零条件を比較できる
+  - 位相情報漏洩・確率的位相反転・消失訂正の具体例から完全訂正の可否を検算できる
+definitions:
+  - { id: QINF29-DEF-01, name: "参照系付きチャネル状態" }
+  - { id: QINF29-DEF-02, name: "完全デカップリング" }
+  - { id: QINF29-DEF-03, name: "参照環境の情報漏洩量" }
+theorems:
+  - { id: QINF29-LEM-01, name: "参照環境の成分条件" }
+  - { id: QINF29-THM-01, name: "完全復号と環境デカップリングの同値" }
+  - { id: QINF29-PROP-01, name: "相互情報量・トレース距離と完全デカップリング" }
+  - { id: QINF29-PROP-02, name: "確率的位相反転の情報漏洩" }
+canonical_examples:
+  - "受信者が入力を保ち環境が固定される恒等チャネル"
+  - "二つのBell符号語で対角縮約だけが等しく位相情報が漏れる反例"
+  - "確率的位相反転チャネルで漏洩量が二値エントロピーになる例"
+problem_patterns: [QINF29-REFERENCE, QINF29-BLOCKS, QINF29-DECOUPLING, QINF29-KRAUS, QINF29-LEAKAGE, QINF29-PHASE, QINF29-ERASURE, QINF29-RECOVERY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }
