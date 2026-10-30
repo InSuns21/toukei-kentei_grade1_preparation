@@ -129,7 +129,7 @@ chapters:
     title: "情報漏洩・デカップリング"
   - id: QINF30
     path: textbook/volumes/dream_thater/応用系/QINF/QINF30
-    status: planned
+    status: completed
     title: "近似訂正・回復写像"
   - id: QINF31
     path: textbook/volumes/dream_thater/応用系/QINF/QINF31

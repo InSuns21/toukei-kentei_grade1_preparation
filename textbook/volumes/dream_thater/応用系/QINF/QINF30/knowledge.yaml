@@ -1,0 +1,60 @@
+chapter: QINF30
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF3, QINF4, QINF7, QINF8, QINF9, QINF11, QINF26, QINF29]
+forward_references: []
+concepts:
+  - id: quantum.entanglement-recovery-fidelity
+    name: エンタングルメント忠実度と回復誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エンタングルメント忠実度と回復誤差）]
+    requires: [quantum.reference-channel-state, quantum.squared-fidelity]
+  - id: quantum.environment-product-fidelity
+    name: 最適環境積状態忠実度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（最適環境積状態忠実度）]
+    requires: [quantum.exact-decoupling, quantum.root-fidelity]
+  - id: quantum.approximate-recovery-duality
+    name: 近似デカップリングと最適回復の双対性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（近似デカップリングと最適回復の双対性）]
+    requires: [quantum.environment-product-fidelity, quantum.entanglement-recovery-fidelity, quantum.uhlmann-fidelity]
+  - id: quantum.information-disturbance-bounds
+    name: 環境の距離と回復誤差の双方向評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（環境の距離と回復誤差の双方向評価）]
+    requires: [quantum.approximate-recovery-duality, quantum.fuchs-van-de-graaf]
+  - id: quantum.reference-uniform-recovery-bound
+    name: 参照系付き一様回復誤差の次元評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（参照系付き一様回復誤差の次元評価）]
+    requires: [quantum.entanglement-recovery-fidelity, quantum.fuchs-van-de-graaf]
+  - id: quantum.petz-recovery-map
+    name: Petz型回復写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Petz型回復写像）]
+    requires: [quantum.quantum-channel, quantum.entanglement-recovery-fidelity]
+  - id: quantum.petz-recovery-channel
+    name: Petz型回復のチャネル性と固定状態
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Petz型回復のチャネル性と固定状態）]
+    requires: [quantum.petz-recovery-map, quantum.kraus-representation]
+  - id: quantum.phase-optimal-recovery
+    name: 位相反転チャネルの最適回復
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（位相反転チャネルの最適回復）]
+    requires: [quantum.entanglement-recovery-fidelity, quantum.petz-recovery-channel]
+  - id: quantum.erasure-optimal-recovery
+    name: フラグ付き消失チャネルの最適回復
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（フラグ付き消失チャネルの最適回復）]
+    requires: [quantum.entanglement-recovery-fidelity, quantum.petz-recovery-channel]

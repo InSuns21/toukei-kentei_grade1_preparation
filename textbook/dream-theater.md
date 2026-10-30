@@ -1056,6 +1056,7 @@
 27. [QINF27 スタビライザー・CSS符号](textbook/volumes/dream_thater/応用系/QINF/QINF27/index.md)
 28. [QINF28 消失訂正と量子秘密分散](textbook/volumes/dream_thater/応用系/QINF/QINF28/index.md)
 29. [QINF29 情報漏洩・デカップリング](textbook/volumes/dream_thater/応用系/QINF/QINF29/index.md)
+30. [QINF30 近似訂正・回復写像](textbook/volumes/dream_thater/応用系/QINF/QINF30/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
