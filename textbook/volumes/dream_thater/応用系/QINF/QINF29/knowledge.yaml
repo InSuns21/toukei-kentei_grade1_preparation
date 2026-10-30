@@ -1,0 +1,48 @@
+chapter: QINF29
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF3, QINF4, QINF7, QINF8, QINF11, QINF17, QINF18, QINF20, QINF26, QINF28]
+forward_references: []
+concepts:
+  - id: quantum.reference-channel-state
+    name: 参照系付きチャネル状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（参照系付きチャネル状態）]
+    requires: [quantum.purification, quantum.stinespring-representation]
+  - id: quantum.exact-decoupling
+    name: 完全デカップリング
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（完全デカップリング）]
+    requires: [quantum.reference-channel-state, quantum.complementary-channel]
+  - id: quantum.reference-environment-blocks
+    name: 参照環境の成分条件
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（参照環境の成分条件）]
+    requires: [quantum.exact-decoupling, quantum.complementary-channel]
+  - id: quantum.decoupling-recovery-theorem
+    name: 完全復号と環境デカップリングの同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（完全復号と環境デカップリングの同値）]
+    requires: [quantum.reference-environment-blocks, quantum.knill-laflamme-theorem]
+  - id: quantum.reference-environment-leakage
+    name: 参照環境の情報漏洩量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（参照環境の情報漏洩量）]
+    requires: [quantum.exact-decoupling, quantum.mutual-information, quantum.trace-distance]
+  - id: quantum.leakage-zero-criterion
+    name: 相互情報量・トレース距離と完全デカップリング
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（相互情報量・トレース距離と完全デカップリング）]
+    requires: [quantum.reference-environment-leakage, quantum.relative-entropy]
+  - id: quantum.phase-flip-leakage
+    name: 確率的位相反転の情報漏洩
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（確率的位相反転の情報漏洩）]
+    requires: [quantum.leakage-zero-criterion, quantum.complementary-channel]
