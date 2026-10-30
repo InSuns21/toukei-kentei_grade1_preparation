@@ -1,0 +1,21 @@
+chapter: CAG1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-12, CAG1-11, AG2-12, AG3-10]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.fermat-quintic-analytic-volume-gluing
+    name: Fermat quintic上の正則3形式の貼り合わせ
+    kind: proposition
+    introduction: formal
+    requires: [algebraic-geometry.quintic-local-three-form, complex-algebraic-geometry.analytic-adjunction-compatibility]
+  - id: complex-algebraic-geometry.quintic-global-three-form-uniqueness
+    name: Fermat quinticの大域正則3形式の一意性
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.fermat-quintic-analytic-volume-gluing, complex-algebraic-geometry.gaga-cohomology, algebraic-geometry.projective-twist-cohomology]
+  - id: complex-algebraic-geometry.smooth-quintic-analytic-volume-general
+    name: 滑らかな五次超曲面の正則体積形式
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.quintic-global-three-form-uniqueness, complex-algebraic-geometry.analytic-adjunction-compatibility]

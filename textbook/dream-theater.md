@@ -971,6 +971,7 @@
 10. [CAG1-10 Picard群と正則線束の代数化](textbook/volumes/dream_thater/代数系/CAG/CAG1-10/index.md)
 11. [CAG1-11 標準束と随伴公式を両側で読む](textbook/volumes/dream_thater/代数系/CAG/CAG1-11/index.md)
 12. [CAG1-12 曲線の種数と代数・解析比較](textbook/volumes/dream_thater/代数系/CAG/CAG1-12/index.md)
+13. [CAG1-13 滑らかなquintic threefoldと正則3形式](textbook/volumes/dream_thater/代数系/CAG/CAG1-13/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線
