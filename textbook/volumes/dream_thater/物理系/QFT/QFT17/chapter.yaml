@@ -1,0 +1,46 @@
+id: QFT17
+title: "Dirac場の最小結合・QED頂点と電子–ミューオン散乱"
+volume: foundations
+status: supplementary
+prerequisites: [QFT16, QFT8, QFT9, QFT11, QFT12]
+official_scope: []
+learning_objectives:
+  - 符号付き電荷に対してU(1)局所変換と共変微分の共変性を直接検算できる
+  - 最小結合したDirac–Maxwell作用からDirac方程式と電流保存を導ける
+  - Dyson展開と収縮からQED三点頂点の係数と光子交換振幅を導ける
+  - 質量殻Dirac方程式から外線電流の横性を証明し共変ゲージへの依存が消える条件を説明できる
+  - 異種フェルミオンのスピン和とgamma行列traceを計算して木レベルの振幅二乗を求められる
+  - 電子–ミューオン弾性散乱の微分断面積と前方特異性の意味を説明できる
+definitions:
+  - { id: QFT17-DEF-01, name: 電荷付きDirac場のU(1)共変微分 }
+  - { id: QFT17-DEF-02, name: 最小結合Dirac–Maxwell作用 }
+  - { id: QFT17-DEF-03, name: QED三点頂点規則 }
+  - { id: QFT17-DEF-04, name: 電子–ミューオン散乱の運動量と不変量 }
+theorems:
+  - { id: QFT17-THM-01, name: 最小結合の局所U(1)不変性 }
+  - { id: QFT17-THM-02, name: 結合Dirac方程式と保存電流 }
+  - { id: QFT17-PROP-01, name: 光子交換の木レベル不変振幅 }
+  - { id: QFT17-THM-03, name: 質量殻電流の横性とゲージパラメータ非依存性 }
+  - { id: QFT17-THM-04, name: 非偏極電子–ミューオン散乱のスピン平均 }
+  - { id: QFT17-PROP-02, name: 重心系の微分断面積 }
+canonical_examples:
+  - 純ゲージ背景と位相を同時に変えた共変微分の検算
+  - 静止Diracスピノルの四元電流と電荷の符号
+  - 二つの異種電流の光子交換でDysonの2!が相殺する例
+  - 質量殻電流と縦ゲージ核の縮約
+  - スピン平均のtraceと質量零極限の検算
+problem_patterns:
+  - QFT17-U1-DERIVATIVE
+  - QFT17-COVARIANT-CURRENT
+  - QFT17-VERTEX-SIGN
+  - QFT17-CM-KINEMATICS
+  - QFT17-ON-SHELL-WARD
+  - QFT17-DYSON-EXCHANGE
+  - QFT17-TRACE-CONTRACTION
+  - QFT17-GAUGE-PARAMETER
+  - QFT17-DIFFERENTIAL-RATE
+  - QFT17-FULL-QED-TREE-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 4 }

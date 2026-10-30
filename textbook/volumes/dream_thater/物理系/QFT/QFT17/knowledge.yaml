@@ -1,0 +1,76 @@
+chapter: QFT17
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT16, QFT8, QFT9, QFT11, QFT12]
+forward_references: []
+
+concepts:
+  - id: qft.charged-dirac-covariant-derivative
+    name: 電荷付きDirac場のU(1)共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電荷付きDirac場のU(1)共変微分）]
+    requires: [qft.local-u1-gauge, qft.dirac-adjoint-action]
+
+  - id: qft.minimal-qed-action
+    name: 最小結合Dirac–Maxwell作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（最小結合Dirac–Maxwell作用）]
+    requires: [qft.charged-dirac-covariant-derivative, qft.maxwell-source-action]
+
+  - id: qft.qed-local-invariance
+    name: 最小結合の局所U(1)不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（最小結合の局所U(1)不変性）]
+    requires: [qft.minimal-qed-action, qft.local-u1-gauge]
+
+  - id: qft.qed-dirac-conserved-current
+    name: 結合Dirac方程式と保存電流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（結合Dirac方程式と保存電流）]
+    requires: [qft.minimal-qed-action, qft.dirac-current]
+
+  - id: qft.qed-three-point-vertex
+    name: QED三点頂点規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（QED三点頂点規則）]
+    requires: [qft.minimal-qed-action, qft.dyson-series]
+
+  - id: qft.electron-muon-kinematics
+    name: 電子–ミューオン散乱の運動量と不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電子–ミューオン散乱の運動量と不変量）]
+    requires: [qft.mandelstam-two-body-kinematics]
+
+  - id: qft.qed-tree-photon-exchange
+    name: 光子交換の木レベル不変振幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（光子交換の木レベル不変振幅）]
+    requires: [qft.qed-three-point-vertex, qft.electron-muon-kinematics, qft.covariant-photon-propagator]
+
+  - id: qft.on-shell-ward-identity
+    name: 質量殻電流の横性とゲージパラメータ非依存性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量殻電流の横性とゲージパラメータ非依存性）]
+    requires: [qft.qed-tree-photon-exchange, qft.conserved-current-gauge-independent, qft.dirac-plane-wave-spinors]
+
+  - id: qft.qed-spin-averaged-amplitude
+    name: 非偏極電子–ミューオン散乱のスピン平均
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非偏極電子–ミューオン散乱のスピン平均）]
+    requires: [qft.on-shell-ward-identity, qft.dirac-spin-sums]
+
+  - id: qft.electron-muon-differential-cross-section
+    name: 重心系の微分断面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重心系の微分断面積）]
+    requires: [qft.qed-spin-averaged-amplitude, qft.cm-two-body-cross-section]
