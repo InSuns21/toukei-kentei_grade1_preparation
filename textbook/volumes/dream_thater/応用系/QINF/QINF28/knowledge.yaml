@@ -1,0 +1,48 @@
+chapter: QINF28
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF3, QINF7, QINF12, QINF17, QINF18, QINF26, QINF27]
+forward_references: []
+concepts:
+  - id: quantum.erasure-channel
+    name: 消失チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（消失チャネル）]
+    requires: [quantum.quantum-channel, quantum.partial-trace]
+  - id: quantum.erasure-privacy-criterion
+    name: 消失訂正と消失系の状態独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（消失訂正と消失系の状態独立性）]
+    requires: [quantum.erasure-channel, quantum.knill-laflamme-theorem, quantum.partial-trace]
+  - id: quantum.secret-sharing-access
+    name: 量子秘密分散の認可集合と非認可集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（量子秘密分散の認可集合と非認可集合）]
+    requires: [quantum.erasure-privacy-criterion]
+  - id: quantum.threshold-ramp-sharing
+    name: 完全しきい値量子秘密分散とramp分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（完全しきい値量子秘密分散とramp分散）]
+    requires: [quantum.secret-sharing-access]
+  - id: quantum.four-qubit-erasure-code
+    name: 4量子ビットの単一消失訂正符号
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（4量子ビットの単一消失訂正符号）]
+    requires: [quantum.erasure-privacy-criterion, quantum.stabilizer-code]
+  - id: quantum.three-qutrit-threshold
+    name: 3-qutritによる(2,3)完全しきい値秘密分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（3-qutritによる(2,3)完全しきい値秘密分散）]
+    requires: [quantum.threshold-ramp-sharing, quantum.erasure-privacy-criterion]
+  - id: quantum.erasure-singleton-bound
+    name: 消失訂正の量子Singleton界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（消失訂正の量子Singleton界）]
+    requires: [quantum.erasure-privacy-criterion, quantum.entropy-pure-bipartite, quantum.entropy-subadditivity, quantum.von-neumann-entropy-bounds]
