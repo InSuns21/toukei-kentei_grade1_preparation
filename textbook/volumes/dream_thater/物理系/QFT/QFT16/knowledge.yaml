@@ -1,0 +1,69 @@
+chapter: QFT16
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT15, QFT6]
+forward_references: []
+
+concepts:
+  - id: qft.maxwell-gauge-zero-mode
+    name: 自由Maxwell二次作用素のゲージ零方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由Maxwell二次作用素のゲージ零方向）]
+    requires: [qft.maxwell-action-eom, qft.local-u1-gauge]
+
+  - id: qft.covariant-gauge-fixed-action
+    name: 共変ゲージ固定Maxwell作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共変ゲージ固定Maxwell作用）]
+    requires: [qft.maxwell-source-action, qft.maxwell-gauge-zero-mode]
+
+  - id: qft.gauge-fixed-maxwell-eom
+    name: ゲージ固定作用のEuler–Lagrange方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ゲージ固定作用のEuler–Lagrange方程式）]
+    requires: [qft.covariant-gauge-fixed-action, qft.field-euler-lagrange]
+
+  - id: qft.off-shell-vector-projectors
+    name: 非光的運動量の横・縦射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非光的運動量の横・縦射影）]
+    requires: [qft.gauge-fixed-maxwell-eom]
+
+  - id: qft.gauge-fixed-kinetic-inverse
+    name: ゲージ固定二次形式の反転
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ゲージ固定二次形式の反転）]
+    requires: [qft.off-shell-vector-projectors, qft.gauge-fixed-maxwell-eom]
+
+  - id: qft.covariant-photon-propagator
+    name: 共変ゲージの光子Feynman伝播関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共変ゲージの光子Feynman伝播関数）]
+    requires: [qft.gauge-fixed-kinetic-inverse, qft.feynman-two-point]
+
+  - id: qft.feynman-gauge-photon
+    name: Feynmanゲージと一般共変ゲージの伝播関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Feynmanゲージと一般共変ゲージの伝播関数）]
+    requires: [qft.covariant-photon-propagator]
+
+  - id: qft.conserved-current-gauge-independent
+    name: 保存電流間の交換核のゲージ非依存性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（保存電流間の交換核のゲージ非依存性）]
+    requires: [qft.covariant-photon-propagator, qft.gauge-current-conservation]
+
+  - id: qft.photon-two-physical-polarizations
+    name: 光的運動量での二つの物理偏極
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（光的運動量での二つの物理偏極）]
+    requires: [qft.conserved-current-gauge-independent, qft.maxwell-two-polarizations]
