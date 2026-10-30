@@ -1,0 +1,46 @@
+chapter: CAG1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-11, AG3-11, CM2-04]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.analytic-sheaf-genus
+    name: 解析的層種数
+    kind: definition
+    introduction: formal
+    requires: [algebraic-geometry.curve-genus, complex-algebraic-geometry.gaga-cohomology]
+  - id: complex-algebraic-geometry.curve-genus-gaga-comparison
+    name: GAGAによる曲線の種数比較
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.analytic-sheaf-genus, complex-algebraic-geometry.gaga-cohomology]
+  - id: complex-algebraic-geometry.curve-dolbeault-resolution
+    name: 曲線上のDolbeault解消
+    kind: proposition
+    introduction: formal
+    requires: [complex-manifolds.local-dbar-poincare, complex-manifolds.dolbeault-cohomology]
+  - id: complex-algebraic-geometry.fine-sheaf
+    name: 細層
+    kind: definition
+    introduction: formal
+    requires: [complex-algebraic-geometry.curve-dolbeault-resolution]
+  - id: complex-algebraic-geometry.fine-acyclicity
+    name: 細層の非巡回性
+    kind: lemma
+    introduction: formal
+    requires: [complex-algebraic-geometry.fine-sheaf, algebraic-geometry.sheaf-cohomology-les]
+  - id: complex-algebraic-geometry.curve-dolbeault-isomorphism
+    name: 曲線上のDolbeault同型
+    kind: theorem
+    introduction: formal
+    requires: [complex-algebraic-geometry.curve-dolbeault-resolution, complex-algebraic-geometry.fine-acyclicity, complex-manifolds.dolbeault-cohomology]
+  - id: complex-algebraic-geometry.cech-to-dolbeault-class
+    name: Čech類からDolbeault類への対応
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.curve-dolbeault-isomorphism, complex-manifolds.dolbeault-gluing]
+  - id: complex-algebraic-geometry.plane-genus-analytic-comparison
+    name: 平面曲線の種数と正則微分形式の比較
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.curve-dolbeault-isomorphism, algebraic-geometry.plane-curve-genus-formula, complex-algebraic-geometry.canonical-analytification-compatibility]

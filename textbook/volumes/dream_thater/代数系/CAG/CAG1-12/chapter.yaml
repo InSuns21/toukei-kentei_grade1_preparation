@@ -1,0 +1,49 @@
+id: "CAG1-12"
+title: "曲線の種数と代数・解析比較"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-11
+  - AG3-11
+  - CM2-04
+official_scope: []
+learning_objectives:
+  - 射影GAGAのコホモロジー比較を滑らかな射影曲線の構造層へ適用し、種数が解析化で保存されることを証明できる
+  - 正則関数層から滑らかな(0,q)形式への局所完全列を、bar∂の核と局所bar∂-Poincaré補題から導ける
+  - 細層と分割の1の役割を確認し、細層の非巡回性の入力とそのČech縮約の計算を区別できる
+  - 層コホモロジーとDolbeaultコホモロジーの同型を解消と大域切断から導き、一次Čech類の形式表示を検算できる
+  - 平面曲線の制限完全列から種数公式を再導出し、三次曲線・五次曲線・特異曲線で適用条件を判別できる
+  - 随伴公式による正則微分形式の個数と種数の一致を平面曲線で検算し、一般Serre双対性と混同しない
+definitions:
+  - { id: CAG1-12-DEF-01, name: 解析的層種数 }
+  - { id: CAG1-12-DEF-02, name: 細層 }
+theorems:
+  - { id: CAG1-12-THM-01, name: GAGAによる曲線の種数比較 }
+  - { id: CAG1-12-PROP-01, name: 曲線上のDolbeault解消 }
+  - { id: CAG1-12-LEM-01, name: 細層の非巡回性 }
+  - { id: CAG1-12-THM-02, name: 曲線上のDolbeault同型 }
+  - { id: CAG1-12-PROP-02, name: Čech類からDolbeault類への対応 }
+  - { id: CAG1-12-PROP-03, name: 平面曲線の種数と正則微分形式の比較 }
+canonical_examples:
+  - 射影直線で零となる解析的層種数
+  - 複素射影直線上の分割の1と細層の直接確認
+  - 局所原始関数の差から構成する一次Čech類と(0,1)形式
+  - Fermat三次曲線の滑らかさ・種数1・標準束の自明性
+  - 平面Fermat五次曲線の種数6と六つの正則微分形式
+  - 尖点三次曲線で滑らかなDolbeault解消を直接使えない理由
+problem_patterns:
+  - CAG1-12-A01
+  - CAG1-12-A02
+  - CAG1-12-A03
+  - CAG1-12-A04
+  - CAG1-12-A05
+  - CAG1-12-B01
+  - CAG1-12-B02
+  - CAG1-12-B03
+  - CAG1-12-B04
+  - CAG1-12-C01
+  - CAG1-12-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
