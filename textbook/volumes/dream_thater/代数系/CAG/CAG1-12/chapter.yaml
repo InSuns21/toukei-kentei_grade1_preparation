@@ -6,6 +6,7 @@ prerequisites:
   - CAG1-11
   - AG3-11
   - CM2-04
+  - AG2-11
 official_scope: []
 learning_objectives:
   - 射影GAGAのコホモロジー比較を滑らかな射影曲線の構造層へ適用し、種数が解析化で保存されることを証明できる
