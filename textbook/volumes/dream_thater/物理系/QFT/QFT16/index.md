@@ -156,7 +156,7 @@ $$
 
 $F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$ を代入し、$\partial_\mu F^{\mu\nu}=\Box A^\nu-\partial^\nu B$ とまとめれば、表示された方程式です。逆向きも同じ変分式から従います。
 
-ここで $A\in C^2$ からは $F\in C^1$、$B\in C^1$ しか分かりません。従って $\partial_\nu\partial_\mu F^{\mu\nu}$ や $\Box B$ を点ごとの古典的な二階微分として扱わず、**分布微分**で発散を取ります。任意の $\varphi\in C_c^\infty(\Omega)$ に対し、二回の部分積分と $F^{\mu\nu}=-F^{\nu\mu}$ より
+ここで $A\in C^2$ からは $F\in C^1$、$B\in C^1$ しか分かりません。従って $\partial_\nu\partial_\mu F^{\mu\nu}$ や $\Box B$ を点ごとの古典的な二階微分として扱わず、[GPDE2の超関数微分](../../../解析系/GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)で発散を取ります。任意の $\varphi\in C_c^\infty(\Omega)$ に対し、二回の部分積分と $F^{\mu\nu}=-F^{\nu\mu}$ より
 
 $$
 \begin{aligned}
