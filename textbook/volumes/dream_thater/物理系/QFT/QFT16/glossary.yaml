@@ -1,0 +1,17 @@
+chapter: QFT16
+terms:
+  - term: 共変ゲージ固定
+    english: covariant gauge fixing
+    meaning: "Maxwell作用に四元発散の二乗を加えて四元ポテンシャルの二次作用素を反転可能にする手続き。"
+  - term: ゲージパラメータ
+    english: gauge parameter
+    meaning: "共変ゲージ固定項の強さを指定するxi。ゲージ依存な中間量を変えるが保存電流間の木レベル交換核は変えない。"
+  - term: 光子Feynman伝播関数
+    english: photon Feynman propagator
+    meaning: "共変ゲージの二次作用の逆をFeynman境界値として解釈したテンソル値分布。"
+  - term: Ward縮約
+    english: Ward contraction
+    meaning: "伝播関数の運動量添字を縮約してゲージ依存性を調べる計算。"
+  - term: Coulombゲージ
+    english: Coulomb gauge
+    meaning: "空間ポテンシャルの発散を零に選び、Gauss拘束と横波成分を分離するゲージ。"

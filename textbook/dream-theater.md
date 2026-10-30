@@ -1280,6 +1280,7 @@
 13. [QFT13 木レベル散乱・交差対称性と光学定理](textbook/volumes/dream_thater/物理系/QFT/QFT13/index.md)
 14. [QFT14 自由場の二点関数から散乱確率までの総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT14/index.md)
 15. [QFT15 Maxwell場の作用・ゲージ冗長性と二つの物理偏極](textbook/volumes/dream_thater/物理系/QFT/QFT15/index.md)
+16. [QFT16 共変ゲージ固定・光子伝播関数と保存電流](textbook/volumes/dream_thater/物理系/QFT/QFT16/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I
