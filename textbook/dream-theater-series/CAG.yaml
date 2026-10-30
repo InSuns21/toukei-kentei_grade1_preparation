@@ -52,7 +52,7 @@ chapters:
     title: "標準束と随伴公式を両側で読む"
   - id: CAG1-12
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-12
-    status: planned
+    status: completed
     title: "曲線の種数と代数・解析比較"
   - id: CAG1-13
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-13
