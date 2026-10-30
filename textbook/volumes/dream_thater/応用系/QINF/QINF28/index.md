@@ -38,7 +38,24 @@ $$
 > である。消失位置は入力と無関係に既知であり、入力状態に依存する測定結果としては扱わない。
 <!-- formal-statement-end -->
 
-最後の完全性は $K_\mu^\dagger K_\mu=I_A\otimes|\mu\rangle\langle\mu|$ を足したものです。従って[トレース保存Kraus条件](../QINF7/index.md#thm-qinf7-kraus-cptp)を満たすCPTPチャネルです。$E$ が消えた後に受信者が復元するとき、$|e\rangle$ は自分で用意できる既知の補助状態なので、実質的に $A$ だけからの復元を意味します。
+ここでKraus表示が消失の定義式を再現する理由を確かめます。入力作用素を $E$ の正規直交基底で
+
+$$
+\sigma=\sum_{\mu,\nu}\sigma_{\mu\nu}^{(A)}\otimes|\mu\rangle\langle\nu|,
+\qquad
+\sigma_{\mu\nu}^{(A)}
+=(I_A\otimes\langle\mu|)\sigma(I_A\otimes|\nu\rangle)
+$$
+
+と展開します。$\sigma_{\mu\nu}^{(A)}$ は $A$ 上の作用素です。各 $K_\lambda$ は $\mu=\nu=\lambda$ の成分だけを残すので、
+
+$$
+\sum_\lambda K_\lambda\sigma K_\lambda^\dagger
+=\sum_\lambda \sigma_{\lambda\lambda}^{(A)}\otimes|e\rangle\langle e|
+=(\operatorname{Tr}_E\sigma)\otimes|e\rangle\langle e|.
+$$
+
+これで[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)とKraus表示が同じ写像を表すことが分かります。さらに $K_\mu^\dagger K_\mu=I_A\otimes|\mu\rangle\langle\mu|$ を足すと完全性関係が成り立ち、[トレース保存Kraus条件](../QINF7/index.md#thm-qinf7-kraus-cptp)によりCPTPチャネルです。$E$ が消えた後に受信者が復元するとき、$|e\rangle$ は自分で用意できる既知の補助状態なので、実質的に $A$ だけからの復元を意味します。
 
 <!-- definition-example-start: def-qinf28-erasure -->
 **定義の確認**。$A,E$ がそれぞれ量子ビットで、$|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ とします。[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)から
@@ -217,7 +234,7 @@ $$
 
 ## 5. 4量子ビットなら一つを失っても直せるが、しきい値とは限らない
 
-次の符号は2次元の論理系を4量子ビットへ写します。QINF27で扱った検査の言葉では $XXXX,Z_1Z_2,Z_3Z_4$ をスタビライザー生成元とする符号です。
+次の符号は2次元の論理系を4量子ビットへ写します。[スタビライザー符号](../QINF27/index.md#def-qinf27-stabilizer)の言葉では $XXXX,Z_1Z_2,Z_3Z_4$ を検査生成元とする符号です。
 
 $$
 |0_L\rangle=\frac{|0000\rangle+|1111\rangle}{\sqrt2},
@@ -298,7 +315,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（3-qutritによる(2,3)完全しきい値秘密分散）**
-> 上の等長符号化 $V:\mathbb C^3\to(\mathbb C^3)^{\otimes3}$ は、任意の一shareの縮約がすべての論理密度演算子に対して $I_3/3$ となり、任意の二shareから一つの固定ユニタリ復号と不要な補助系の廃棄により元の論理状態を完全復元できる。従って完全な $(2,3)$ しきい値量子秘密分散である。
+> 上の等長符号化 $V:\mathbb C^3\to(\mathbb C^3)^{\otimes3}$ は、任意の一shareの縮約がすべての論理密度演算子に対して $I_3/3$ となり、保持する二shareの組ごとに定まる入力非依存のユニタリ復号と不要な補助系の廃棄により元の論理状態を完全復元できる。従って完全な $(2,3)$ しきい値量子秘密分散である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -330,7 +347,7 @@ $$
 j=b-a,\qquad t=2b-a\pmod3
 $$
 
-を計算できます。逆変換は $a=t-2j,\ b=t-j$ です。従って
+を計算できます。逆変換は $a=t-2j,\ b=t-j$ です。復号の出力のうち論理系 $L$ 以外の3次元系を補助系 $G$ と名付け、消えたCのラベル $t$ を $G$ に格納します。従って
 
 $$
 U_{AB}|a,b\rangle=|b-a\rangle_L|2b-a\rangle_G
@@ -345,19 +362,45 @@ $$
 
 右辺の補助系 $GC$ は $j$ と無関係です。任意の重ね合わせ $\sum_j\alpha_j|j\rangle$ にも同じ式が線形に成り立ち、Cを失った後でも、ABで $U_{AB}$ を行いGを捨てれば論理状態 $\rho$ が戻ります。
 
-ACを保持する場合、$|a,c\rangle$ から $j=2(c-a)$、失ったBのラベル $t=2c-a$ を求めるので
+ACを保持する場合、元のラベルは $(a,c)=(i,i+2j)$ です。$2^{-1}=2$（$\mathbb Z_3$）を使うと、論理添字 $j=2(c-a)$、失ったBのラベル $t=i+j=2c-a$ を得ます。逆変換は $(a,c)=(t-j,t+j)$ です。従って
 
 $$
-U_{AC}|a,c\rangle=|2(c-a)\rangle_L|2c-a\rangle_G.
+U_{AC}|a,c\rangle=|2(c-a)\rangle_L|2c-a\rangle_G
 $$
 
-BCを保持する場合は $|b,c\rangle$ から $j=c-b$、失ったAのラベル $t=2b-c$ を求め、
+は9個の基底ラベルの全単射から定まるユニタリです。BCを保持する場合、$(b,c)=(i+j,i+2j)$ から $j=c-b$、失ったAのラベル $t=i=2b-c$ を得て、逆変換は $(b,c)=(t+j,t+2j)$。従って
 
 $$
-U_{BC}|b,c\rangle=|c-b\rangle_L|2b-c\rangle_G.
+U_{BC}|b,c\rangle=|c-b\rangle_L|2b-c\rangle_G
 $$
 
-いずれもラベルの逆変換が存在する基底置換で、同じく「論理状態 $\otimes$ 固定補助状態」となるので、任意の二shareで復元できます。これで[しきい値の定義](#def-qinf28-threshold)の両側を満たします。
+もユニタリです。保持した二shareと消失した一shareの順にテンソル因子を並べ直して符号語を書けば、両方について中間式を直接確認できます。
+
+$$
+\begin{aligned}
+|j_L\rangle
+&=\frac1{\sqrt3}\sum_{t=0}^2|t-j,t+j\rangle_{AC}|t\rangle_B
+&& (AC\mid B),\\
+|j_L\rangle
+&=\frac1{\sqrt3}\sum_{t=0}^2|t+j,t+2j\rangle_{BC}|t\rangle_A
+&& (BC\mid A).
+\end{aligned}
+$$
+
+それぞれ $U_{AC}$ または $U_{BC}$ を保持側に作用させると、
+
+$$
+\begin{aligned}
+|j_L\rangle&\longmapsto
+|j\rangle_L\otimes\frac1{\sqrt3}\sum_{t=0}^2|t\rangle_G|t\rangle_B
+&& (AC\mid B),\\
+|j_L\rangle&\longmapsto
+|j\rangle_L\otimes\frac1{\sqrt3}\sum_{t=0}^2|t\rangle_G|t\rangle_A
+&& (BC\mid A).
+\end{aligned}
+$$
+
+右辺の補助系と消失系は論理添字 $j$ に依存しません。従って任意の論理密度演算子についても、保持側で復号した後に $G$ を捨てれば元の状態が戻ります。これで[しきい値の定義](#def-qinf28-threshold)の両側を満たします。
 <!-- proof-end -->
 
 この例では**1 shareは単に論理基底ラベルを隠すのではなく、重ね合わせの位相も隠します**。一方、二shareを合わせると位相ごと復元できます。2と3という人数の条件だけを見ると古典秘密分散に似ていますが、要求しているのは密度行列全体と未知の量子重ね合わせの保存です。
@@ -372,7 +415,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（消失訂正の量子Singleton界）**
-> $q\ge2$、整数 $n\ge1,k\ge1,t\ge0$ とする。$q^k$ 次元の論理系から $n$ 個の $q$ 次元物理系への等長符号化が、位置の分かる任意の $t$ shareの消失を完全訂正できるなら
+> 整数 $q\ge2$ と整数 $n\ge1,k\ge1,0\le t\le n$ を取る。$q^k$ 次元の論理系から $n$ 個の $q$ 次元物理系への等長符号化が、位置の分かる任意の $t$ shareの消失を完全訂正できるなら
 
 $$
 k+2t\le n
@@ -629,7 +672,7 @@ $$
 - Level: C
 - 問題: $n=4$ の量子ビットで、可換な生成元 $g_X=X_1X_2X_3X_4$、$g_Z=Z_1Z_2Z_3Z_4$ の共通 $+1$ 固有空間を考える。$P$ をこの空間への直交射影として、次を示せ。
   - (a) 符号次元を求め、論理2量子ビットの正規直交符号基底を4つ作れ。
-  - (b) 任意の1量子ビット上のPauli作用素 $E\in\{X_j,Y_j,Z_j\}$ に対し $PEP=0$ を示し、1 share消失を完全訂正できると証明せよ。
+  - (b) 任意の1量子ビット上の[Pauli作用素](../QINF27/index.md#def-qinf27-pauli) $F\in\{X_j,Y_j,Z_j\}$ に対し $PFP=0$ を示し、1 share消失を完全訂正できると証明せよ。
   - (c) $(n,k,t)=(4,2,1)$ が[量子Singleton界](#thm-qinf28-singleton)に等号を達成することを確かめ、完全な $(3,4)$ しきい値方式でない理由を2 shareの縮約状態で示せ。
 
 <!-- solution-start -->
@@ -655,10 +698,10 @@ $$
 (b) $X_j$ は $g_Z$ と反可換、$Z_j$ は $g_X$ と反可換、$Y_j=iX_jZ_j$ は両方と反可換です。いずれも少なくとも一つの生成元 $g$ と反可換です。[共通固有空間への射影](../QINF27/index.md#thm-qinf27-dimension)では $gP=Pg=P$ なので
 
 $$
-PEP=PgEP=-PEgP=-PEP.
+PFP=PgFP=-PFgP=-PFP.
 $$
 
-よって $PEP=0$。任意の一量子ビット作用素は $\{I,X,Y,Z\}$ の複素線形結合なので、一箇所 $j$ に局在する任意の作用素 $O_j$ に対して $PO_jP=c(O_j)P$ となります。特に[消失Kraus積](#def-qinf28-erasure)の行列単位はこの形です。[Knill–Laflamme必要十分条件](../QINF26/index.md#thm-qinf26-kl)より、任意の1 share消失は完全訂正可能です。
+よって $PFP=0$。任意の一量子ビット作用素は $\{I,X,Y,Z\}$ の複素線形結合なので、一箇所 $j$ に局在する任意の作用素 $O_j$ に対して $PO_jP=c(O_j)P$ となります。特に[消失Kraus積](#def-qinf28-erasure)の行列単位はこの形です。[Knill–Laflamme必要十分条件](../QINF26/index.md#thm-qinf26-kl)より、任意の1 share消失は完全訂正可能です。
 
 (c) 2論理量子ビットを4物理量子ビットへ符号化し1箇所を訂正するので $k+2t=2+2=4=n$。一方、share 1,2だけを保持すると、論理基底 $|00_L\rangle$ と $|10_L\rangle$ の縮約は
 
