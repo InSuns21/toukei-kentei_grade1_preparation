@@ -428,7 +428,21 @@ $$
 保存則から $q_\mu\widehat J^\mu(q)=0$ が全ての $q$ で成立するため、$q=-k$ を代入しても $k_\mu\widehat J^\mu(-k)=0$ です。$J'$ についても $k_\nu\widehat J'^\nu(k)=0$ です。したがって**有限の $\varepsilon>0$ の段階で**第二項は零になります。残る第一項の分布境界値を取れば結論を得ます。特に二重極の微妙な分布操作に頼らず相殺が成立します。
 <!-- proof-end -->
 
-逆に保存しない源を許せば縦方向の項は一般に残ります。例えば $k^\mu=(\omega,0,0,q)$、$\omega q\ne0$ とし、$J^\mu=(j,0,0,0)$、$J'^\mu=(j',0,0,0)$ という振幅なら、$k_\mu J^\mu=\omega j$、$k_\mu J'^\mu=\omega j'$ です。差は $i(1-\xi)\omega^2jj'/(k^2+i0)^2$ となり、$\xi$ に依存します。これは**保存則を外したために証明の相殺機構が壊れた**具体例であって、実在の非保存電磁源を許すという意味ではありません。
+逆に保存しない源を許せば縦方向の項は一般に残ります。例えば $k^\mu=(\omega,0,0,q)$、$\omega q\ne0$ とし、振幅を $J^\mu=(j,0,0,0)$、$J'^\mu=(j',0,0,0)$ と選べば
+
+$$
+k_\mu J^\mu=\omega j,\qquad
+k_\mu J'^\mu=\omega j'
+$$
+
+なので、ゲージによる交換核の差は
+
+$$
+\mathcal E_\xi-\mathcal E_1
+=i(1-\xi)\frac{\omega^2jj'}{(k^2+i0)^2}
+$$
+
+となります。これは**保存則を外したために証明の相殺機構が壊れた**具体例であって、実在の非保存電磁源を許すという意味ではありません。
 
 ## 6. 二つの物理偏極とCoulombゲージ
 
@@ -718,7 +732,21 @@ $$
 =\Box\boldsymbol A+\nabla\partial_t\Phi=\boldsymbol j.
 $$
 
-[QFT15の横射影](../QFT15/index.md#def-qft15-transverse-projector)は各 $\boldsymbol k\ne0$ で $P\boldsymbol k=0$ なので、Fourier変換後に $P\widehat{\nabla\partial_t\Phi}=0$ です。またCoulomb条件から $P\widehat{\boldsymbol A}=\widehat{\boldsymbol A}$ で、$P$ は $\Box$ のスカラーFourier記号 $-k^2$ と交換します。従って $-k^2\widehat{\boldsymbol A}=P\widehat{\boldsymbol j}=:\widehat{\boldsymbol j}_T$、逆変換で $\Box\boldsymbol A=\boldsymbol j_T$ を得ます。Gauss拘束と伝播する横成分の役割が分離しました。
+[QFT15の横射影](../QFT15/index.md#def-qft15-transverse-projector)は各 $\boldsymbol k\ne0$ で $P\boldsymbol k=0$ です。よって勾配のFourier振幅が消え、Coulomb条件からも次を得ます。
+
+$$
+P\widehat{\nabla\partial_t\Phi}=0,\qquad
+P\widehat{\boldsymbol A}=\widehat{\boldsymbol A}.
+$$
+
+$P$ は $\Box$ のスカラーFourier記号 $-k^2$ と交換します。従って
+
+$$
+-k^2\widehat{\boldsymbol A}
+=P\widehat{\boldsymbol j}=:\widehat{\boldsymbol j}_T
+$$
+
+であり、逆変換で $\Box\boldsymbol A=\boldsymbol j_T$ を得ます。Gauss拘束と伝播する横成分の役割が分離しました。
 <!-- solution-end -->
 
 ### 演習 QFT16-C1：ゲージ固定から保存電流の交換核と二偏極まで
@@ -786,7 +814,15 @@ $$
 =|a|^2+|b|^2.
 $$
 
-実際、物理偏極 $\varepsilon_1=(0,1,0,0)$、$\varepsilon_2=(0,0,1,0)$ に対して $j\cdot\varepsilon_1=-a$、$j\cdot\varepsilon_2=-b$ なので、その絶対値二乗和は $|a|^2+|b|^2$ です。これは**伝播関数そのものを光円錐上で値として評価する操作ではなく**、物理偏極への縮約に現れる分子の等式です。四元共変な計算と二つの光子偏極が矛盾しないことを確認しました。
+実際、物理偏極 $\varepsilon_1=(0,1,0,0)$、$\varepsilon_2=(0,0,1,0)$ に対して
+
+$$
+j\cdot\varepsilon_1=-a,\qquad
+j\cdot\varepsilon_2=-b,\qquad
+\sum_{r=1}^2|j\cdot\varepsilon_r|^2=|a|^2+|b|^2
+$$
+
+です。これは**伝播関数そのものを光円錐上で値として評価する操作ではなく**、物理偏極への縮約に現れる分子の等式です。四元共変な計算と二つの光子偏極が矛盾しないことを確認しました。
 <!-- solution-end -->
 
 ## 8. 次へ：電磁場とDirac場を結合する
