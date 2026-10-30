@@ -136,6 +136,8 @@ $$
 
 を満たす族を取れる（各点の近くでは有限項だけ非零）。ここで $\operatorname{supp}$ は関数が非零な点集合の閉包である。
 
+層の自己準同型 $h:\mathcal F\to\mathcal F$ についても、各点 $x$ の茎に誘導される写像 $h_x:\mathcal F_x\to\mathcal F_x$ が零でない点集合の閉包を $\operatorname{supp}h$ と呼ぶ。関数を掛ける自己準同型の台は、その関数の台に含まれる。この意味の台を使って次を定義する。
+
 <a id="def-cag1-12-fine-sheaf"></a>
 
 <!-- formal-statement-start -->
@@ -193,9 +195,15 @@ $$
 を定める。$h_j$ の台が $U_j$ 内にあるため、$c$ の定義域 $U_j\cap U_{i_0}\cap\cdots$ 上で作用させた切断を $U_{i_0}\cap\cdots$ へ零延長できる。和は局所有限なので切断として定義される。[Čech交代微分](../../AG/AG3-07/index.md#def-ag3-07-cech-complex)を使って計算すると、$\delta c=0$ と $\sum_jh_j=\operatorname{id}$ から
 
 $$
+\begin{aligned}
+(\delta c)_{j i_0\ldots i_p}
+&=c_{i_0\ldots i_p}
+-\sum_{k=0}^{p}(-1)^kc_{j i_0\ldots\widehat{i_k}\ldots i_p}=0,\\
 (\delta b)_{i_0\ldots i_p}
-=\sum_jh_j(c_{i_0\ldots i_p})
+&=\sum_jh_j\!\left(\sum_{k=0}^{p}(-1)^kc_{j i_0\ldots\widehat{i_k}\ldots i_p}\right)\\
+&=\sum_jh_j(c_{i_0\ldots i_p})
 =c_{i_0\ldots i_p}.
+\end{aligned}
 $$
 
 従って正次数のČechコサイクルは境界である。同じ縮約は被覆の細分後にも働く。**ここから導来関手の層コホモロジーの消滅へ進む部分**には、パラコンパクトHausdorff空間における適切なČech比較定理を用いる。この一般比較定理自体の証明は本章では扱わず、ここでの唯一の層論的な外部入力とする。従って $H^q(M,\mathcal F)=0$（$q\ge1$）。
@@ -273,13 +281,13 @@ $$
 
 ### Čech類から一つの形式を作って確かめる
 
-抽象的な同型を一度だけ具体式へ下ろす。開被覆 $\{U_i\}$ において $c_{ij}=-c_{ji}$ が正則関数の一次Čechコサイクルで、$c_{ij}+c_{jk}=c_{ik}$ を満たすとする。分割の1 $\{\rho_j\}$ を取り、各 $U_i$ で
+抽象的な同型を一度だけ具体式へ下ろす。[Čech交代微分](../../AG/AG3-07/index.md#def-ag3-07-cech-complex)の規約は $(\delta h)_{ij}=h_j-h_i$ である。開被覆 $\{U_i\}$ において $c_{ij}=-c_{ji}$ が正則関数の一次Čechコサイクルで、$c_{ij}+c_{jk}=c_{ik}$ を満たすとする。分割の1 $\{\rho_j\}$ を取り、各 $U_i$ で
 
 $$
 u_i=\sum_j\rho_j c_{ji}
 $$
 
-と置く。重なり上で $u_k-u_i=\sum_j\rho_j(c_{jk}-c_{ji})=c_{ik}$ だから、$\bar\partial u_k-\bar\partial u_i=\bar\partial c_{ik}=0$。局所形式 $\bar\partial u_i$ は一つの大域 $(0,1)$ 形式 $\alpha$ に貼り合う。
+と置く。重なり上で $c_{jk}-c_{ji}=c_{ik}$、$\sum_j\rho_j=1$ だから $u_k-u_i=\sum_j\rho_j(c_{jk}-c_{ji})=c_{ik}$。従って $\bar\partial u_k-\bar\partial u_i=\bar\partial c_{ik}=0$ で、局所形式 $\bar\partial u_i$ は一つの大域 $(0,1)$ 形式 $\alpha$ に貼り合う。ここでは $c_{ik}=u_k-u_i$ と定めたが、[CM2-04の貼り合わせ判定](../../../幾何系/CM/CM2-04/index.md#thm-cm2-04-gluing-obstruction)での差 $c^{\mathrm{CM}}_{ik}=u_i-u_k$ とは**符号が逆**である。零類を表す条件はどちらの規約でも変わらない。
 
 <a id="prop-cag1-12-cech-dolbeault"></a>
 
@@ -342,7 +350,7 @@ H^2(P,\mathcal O_P(-d))^*\simeq S_{d-3},
 \qquad S_r=\mathbb C[X,Y,Z]_r,\quad S_r=0\ (r<0)
 $$
 
-となる。この「二次群への移動」を通すと、滑らかな曲線の種数が多項式の個数へ戻る。
+となる。$d=1,2$ では双方が零であることを前記の全コホモロジー計算から読み、$d\ge3$ では[最高次コホモロジーの完全係数対](../../AG/AG3-10/index.md#prop-ag3-10-top-pairing)を $t=-d\le-3$ に適用する。この「二次群への移動」を通すと、滑らかな曲線の種数が多項式の個数へ戻る。
 
 <a id="prop-cag1-12-plane-genus"></a>
 
@@ -383,7 +391,7 @@ $$
 \longrightarrow0
 $$
 
-は完全で、中央の矢印は同型である。有限次元の[最高次コホモロジーの完全係数対](../../AG/AG3-10/index.md#prop-ag3-10-top-pairing)を $t=-d$ に適用すると、その双対は $S_{d-3}$ に同型。$d=1,2$ では $d-3<0$ だから次元零、$d\ge3$ では
+は完全で、中央の矢印は同型である。$d=1,2$ では $-d>-3$ なので[射影平面の全コホモロジー計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から $H^2(P,\mathcal O_P(-d))=0$ を直接得る。$d\ge3$ では $-d\le-3$ なので[最高次コホモロジーの完全係数対](../../AG/AG3-10/index.md#prop-ag3-10-top-pairing)の仮定を満たし、この二次群の双対が $S_{d-3}$ に同型となる。後者では
 
 $$
 \dim S_{d-3}
@@ -423,7 +431,16 @@ $$
 | 4 | $X^4+Y^4+Z^4=0$ | $3$ | $3$ | $\mathcal O_C(1)$ |
 | 5 | $X^5+Y^5+Z^5=0$ | $6$ | $6$ | $\mathcal O_C(2)$ |
 
-Fermat型 $F=X^d+Y^d+Z^d$ では、$d\ge1$ に対し斉次偏微分が $dX^{d-1},dY^{d-1},dZ^{d-1}$ である。$d=1$ ならそれぞれ定数 $1$、$d\ge2$ なら同時零は $X=Y=Z=0$ だけで射影点ではない。従って表の例はすべて滑らか。特に五次曲線では $S_2$ の基底
+Fermat型 $F=X^d+Y^d+Z^d$ では、$d\ge1$ に対し斉次偏微分が $dX^{d-1},dY^{d-1},dZ^{d-1}$ である。$d=1$ ならそれぞれ定数 $1$、$d\ge2$ なら同時零は $X=Y=Z=0$ だけで射影点ではない。加えてこれらの偏微分の最大公約因子は $1$ なので、もし $F$ に平方因子 $G^2$ があれば $G$ が全偏微分を割ることに反し、$F$ は平方因子を持たない。
+
+ここで斉次偏微分を計算したのは、[Euler恒等式とチャートJacobian](../../AG/AG2-11/index.md#prop-ag2-11-euler-gradient)により、射影点 $[a:b:c]$ の $c\ne0$ のチャートでは $f(x,y)=F(x,y,1)$、$x=a/c,y=b/c$ として
+
+$$
+f_x=F_X(x,y,1),\qquad f_y=F_Y(x,y,1),\qquad
+F_Z(x,y,1)=dF-xF_X-yF_Y
+$$
+
+となるからである。曲線上では $F=0$ なので、局所方程式の二つの偏微分が零であることと斉次偏微分三つが零であることは同値。他の二つのチャートでも同様であり、平方因子なしの仮定を満たす今の $F$ に[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)を適用すると、表の例はすべて滑らかである。特に五次曲線では $S_2$ の基底
 
 $$
 X^2,\ Y^2,\ Z^2,\ XY,\ XZ,\ YZ
@@ -462,7 +479,7 @@ $$
 $C=V_+(X^3+Y^3+Z^3)\subset\mathbb P^2_{\mathbb C}$ が滑らかであることを偏微分で確かめ、$g(C)$ と $K_C$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $F_X=3X^2,F_Y=3Y^2,F_Z=3Z^2$ であり、これらが同時に零なら $X=Y=Z=0$。零ベクトルは射影点を定めないので、[射影Jacobian判定](../../AG/AG1-11/index.md#prop-ag1-11-singular-criterion)から滑らかである。[種数公式](#prop-cag1-12-plane-genus)に $d=3$ を代入すると
+**詳細解答。** $F_X=3X^2,F_Y=3Y^2,F_Z=3Z^2$ であり、これらが同時に零なら $X=Y=Z=0$。偏微分の最大公約因子が $1$ なので $F$ に平方因子はなく、零ベクトルは射影点を定めない。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定を満たして滑らかである。[種数公式](#prop-cag1-12-plane-genus)に $d=3$ を代入すると
 
 $$
 g(C)=(3-1)(3-2)/2=1.
@@ -616,7 +633,7 @@ $$
 F_X=-3X^2,\qquad F_Y=2YZ,\qquad F_Z=Y^2.
 $$
 
-$[0:0:1]$ では $F=F_X=F_Y=F_Z=0$ なので[射影Jacobian判定](../../AG/AG1-11/index.md#prop-ag1-11-singular-criterion)から特異点である。
+$F_X$ と $F_Z$ の最大公約因子は $1$ なので $F$ に平方因子はない。$[0:0:1]$ では $F=F_X=F_Y=F_Z=0$ だから[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の適用条件を満たしたうえで特異点と判定できる。
 
 1. 使える。$C$ は平面内の閉部分スキームで射影的、$\mathcal O_C$ は連接層である。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)は**滑らかさを仮定しない**。
 2. この形では使えない。[Dolbeault解消](#prop-cag1-12-dolbeault-resolution)は複素一次元**多様体**の局所正則座標と滑らかな形式の層で作られる。尖点ではその座標が存在しない。したがって層コホモロジーの解析化比較は残っても、滑らかなRiemann面上の $\bar\partial$ 商へ直接置き換える段階が失われる。
@@ -637,7 +654,7 @@ $C=V_+(X^3+Y^3+Z^3)\subset\mathbb P^2_{\mathbb C}$、$M=C^{\mathrm{an}}$ とす�
 3. $H_{\bar\partial}^{0,1}(M)$ が一次元であり、すべての滑らかな $(0,1)$ 形式が大域的に $\bar\partial$ 完全である、という主張が偽である理由。
 
 <!-- solution-start -->
-**詳細解答。** まず $F_X=3X^2,F_Y=3Y^2,F_Z=3Z^2$ で、同時零点は射影空間にない。従って $C$ は滑らか。[制限完全列](../../AG/AG3-11/index.md#prop-ag3-11-restriction)で $d=3,m=0$ とすると
+**詳細解答。** まず $F_X=3X^2,F_Y=3Y^2,F_Z=3Z^2$ で、最大公約因子は $1$ だから $F$ は平方因子を持たず、同時零点は射影空間にない。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)より $C$ は滑らか。[制限完全列](../../AG/AG3-11/index.md#prop-ag3-11-restriction)で $d=3,m=0$ とすると
 
 $$
 H^1(C,\mathcal O_C)
@@ -686,8 +703,24 @@ $$
    $$
 
    一次群の値が偶然一致しても、零次比較は失敗したままである。また $\mathbb C$ は非コンパクトだから平面**射影**曲線の種数公式はそのまま使えない。
-2. $C$ は射影的で、偏微分 $5X^4,5Y^4,5Z^4$ が射影点で同時零にならないため滑らか。従って射影GAGAとDolbeault解消の両方が使える。[平面曲線の計算](#prop-cag1-12-plane-genus)は $d=5$ なので $h^1(C,\mathcal O_C)=\dim S_2=6$。よって解析側の層一次群とDolbeault一次群もともに次元6である。
-3. $D$ は射影的なので特異であっても[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)を零次・一次に適用できる。[制限完全列](../../AG/AG3-11/index.md#prop-ag3-11-restriction)は $F=Y^2Z-X^3$ が非零因子だから成立し、$h^1(D,\mathcal O_D)=\dim S_0=1$。しかし $[0:0:1]$ はJacobianが零であり、解析化はその点で滑らかなRiemann面にならない。ゆえに[本章のDolbeault解消](#prop-cag1-12-dolbeault-resolution)を $D^{\mathrm{an}}$ に直接適用できない。**GAGAの失敗ではなく、滑らかな形式の局所自由な解消を作る仮定の欠落**である。
+2. $C$ は射影的で、偏微分 $5X^4,5Y^4,5Z^4$ の最大公約因子が $1$ だから平方因子を持たず、射影点で同時零にならない。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により滑らかである。従って射影GAGAとDolbeault解消の両方が使える。
+
+   [平面曲線の計算](#prop-cag1-12-plane-genus)へ次数 $d=5$ を入れると
+
+   $$
+   h^1(C,\mathcal O_C)=\dim S_2=6.
+   $$
+
+   よって解析側の層一次群とDolbeault一次群もともに次元6である。
+3. $D$ は射影的なので特異であっても[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)を零次・一次に適用できる。[制限完全列](../../AG/AG3-11/index.md#prop-ag3-11-restriction)は $F=Y^2Z-X^3$ が非零因子だから成立する。次数3であるから
+
+   $$
+   h^1(D,\mathcal O_D)=\dim S_0=1.
+   $$
+
+   $F_X=-3X^2$ と $F_Z=Y^2$ が互いに素なので $F$ は平方因子を持たない。しかし $[0:0:1]$ では全偏微分が零であり、[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により特異点である。
+
+   解析化はその点で滑らかなRiemann面にならない。ゆえに[本章のDolbeault解消](#prop-cag1-12-dolbeault-resolution)を $D^{\mathrm{an}}$ に直接適用できない。**GAGAの失敗ではなく、滑らかな形式の局所自由な解消を作る仮定の欠落**である。
 <!-- solution-end -->
 
 ## 7. この先で必要になるもの

@@ -1,7 +1,7 @@
 chapter: CAG1-12
 scope: dream-theater
 coverage: complete
-prerequisites: [CAG1-11, AG3-11, CM2-04]
+prerequisites: [CAG1-11, AG3-11, CM2-04, AG2-11]
 forward_references: []
 concepts:
   - id: complex-algebraic-geometry.analytic-sheaf-genus
