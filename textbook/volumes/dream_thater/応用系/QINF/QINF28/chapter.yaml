@@ -1,0 +1,30 @@
+id: QINF28
+title: "消失訂正と量子秘密分散"
+volume: foundations
+status: supplementary
+prerequisites: [QINF3, QINF7, QINF12, QINF17, QINF18, QINF26, QINF27]
+official_scope: []
+learning_objectives:
+  - 消失位置が既知のCPTP雑音をKraus作用素で表し未知位置の誤りと区別できる
+  - Knill–Laflamme条件から消失訂正と消失部分系の状態独立性の必要十分条件を両方向に証明できる
+  - 4量子ビット符号の一箇所消失訂正と二箇所の情報漏洩を計算しramp分散との相違を説明できる
+  - 3-qutrit符号を構成し任意の1 shareの秘密保持と任意の2 shareの復号を具体的に検算できる
+  - 純粋なしきい値秘密分散の認可集合と非認可集合を識別しno-cloning制約と消失版量子Singleton界を導ける
+definitions:
+  - { id: QINF28-DEF-01, name: "消失チャネル" }
+  - { id: QINF28-DEF-02, name: "量子秘密分散の認可集合と非認可集合" }
+  - { id: QINF28-DEF-03, name: "完全しきい値量子秘密分散とramp分散" }
+theorems:
+  - { id: QINF28-THM-01, name: "消失訂正と消失系の状態独立性" }
+  - { id: QINF28-PROP-01, name: "4量子ビットの単一消失訂正符号" }
+  - { id: QINF28-THM-02, name: "3-qutritによる(2,3)完全しきい値秘密分散" }
+  - { id: QINF28-THM-03, name: "消失訂正の量子Singleton界" }
+canonical_examples:
+  - "3量子ビット反復符号が一箇所消失でも位相情報を隠せない反例"
+  - "4量子ビット符号で単一shareは最大混合、二shareには論理基底情報が残る"
+  - "3-qutritの(2,3)符号の全share縮約と二share復号写像"
+problem_patterns: [QINF28-ERASURE-KRAUS, QINF28-PRIVACY, QINF28-KL, QINF28-FOUR-QUBIT, QINF28-QUTRIT-ENCODE, QINF28-QUTRIT-DECODE, QINF28-THRESHOLD, QINF28-SINGLETON]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }
