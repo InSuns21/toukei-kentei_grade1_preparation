@@ -70,3 +70,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT16
     status: completed
     title: "共変ゲージ固定・光子伝播関数と保存電流"
+  - id: QFT17
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT17
+    status: completed
+    title: "Dirac場の最小結合・QED頂点と電子–ミューオン散乱"
