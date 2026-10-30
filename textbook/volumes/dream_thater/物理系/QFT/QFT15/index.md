@@ -20,17 +20,17 @@ $$
 
 電場 $\boldsymbol E$ と磁場 $\boldsymbol B$ を一つの未知量で表すには、実数値の時間成分 $\Phi$ と三成分のベクトルポテンシャル $\boldsymbol A$ が便利です。$\Phi$ は静電場を、$\boldsymbol A$ は磁場や時間変化する電場を作ります。四元ポテンシャルの上下成分は、計量による添字の上げ下げを使って
 
-$
+$$
 A^\mu=(\Phi,A^1,A^2,A^3),\qquad
 A_\mu=(\Phi,-A^1,-A^2,-A^3)
-$
+$$
 
 と対応します。また $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で偏微分する演算子で、添字を上げると空間成分の符号が変わります。
 
-$
+$$
 \partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
 \partial^\mu=\eta^{\mu\nu}\partial_\nu.
-$
+$$
 
 <a id="def-qft15-potential-field"></a>
 
@@ -103,10 +103,10 @@ $$
 
 四元成分から時間と空間に分けると、変換後をプライムで表す記法は
 
-$
+$$
 \Phi'=\Phi+\partial_t\chi,\qquad
 \boldsymbol A'=\boldsymbol A-\nabla\chi
-$
+$$
 
 となります。ここでプライムは時間微分ではなく**変換後の表示**です。物理でよく使う $\boldsymbol A\mapsto\boldsymbol A+\nabla\lambda$、$\Phi\mapsto\Phi-\partial_t\lambda$ という記法は、$\lambda=-\chi$ と置いた同じ変換です。
 
@@ -167,10 +167,10 @@ $E_i=F_{0i}$ と $B_i=-\epsilon_{ijk}F_{jk}/2$ の定義から両方の電磁場
 
 [QFT1の場の作用と第一変分](../QFT1/index.md#def-qft1-action)を、実スカラー場だけでなく四元ベクトル場へ適用します。反対称テンソルを縮約すると
 
-$
+$$
 F_{\mu\nu}F^{\mu\nu}
 =2(\boldsymbol B^2-\boldsymbol E^2)
-$
+$$
 
 となります。実際、$F_{0i}F^{0i}=-E_i^2$ は $0i$ と $i0$ の二つ、$F_{ij}F^{ij}$ は磁場の各独立対を二つずつ数えるので、この係数になります。
 
@@ -196,11 +196,11 @@ $$
 
 $\Omega$ を有界とし、$\Phi=-Ex^1$、$\boldsymbol A=0$、$J=0$ とします。$E$ は一定の実数です。場と源は滑らかで、独立な成分は $F_{01}=E$ のみなので
 
-$
+$$
 F_{\mu\nu}F^{\mu\nu}=-2E^2,\qquad
 \mathcal L=\frac{E^2}{2},\qquad
 S_\Omega=\frac{E^2}{2}\operatorname{Vol}_4(\Omega).
-$
+$$
 
 有界領域上で積分は有限です。場と源の正則性、積分の存在、作用密度の符号を確認しました。停留性そのものは次の定理で検査します。
 <!-- definition-example-end -->
@@ -211,9 +211,9 @@ $
 > **定理（Maxwell作用のEuler–Lagrange方程式）**  
 > 有界開集合 $\Omega\subset\mathbb R^{1,3}$ 上の実数値 $A_\mu\in C^2(\Omega)$ と固定した外部電流 $J^\mu\in C^1(\Omega)$ を考える。場の強さを $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とし、積分が存在する[源付きMaxwell作用](#def-qft15-maxwell-action)を
 
-$
+$$
 S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}-J^\mu A_\mu\right)d^4x
-$
+$$
 
 > とする。全ての実数値 $C_c^\infty(\Omega)$ 四元変分 $\delta A_\nu$ に対して停留すると仮定すれば、各 $\nu=0,1,2,3$ について
 
@@ -256,13 +256,13 @@ $$
 
 ここで運動方程式の四成分を電場と磁場へ戻します。定義から $F^{i0}=E_i$、$F^{0i}=-E_i$、$F^{ji}=\epsilon_{ijk}B_k$ であるため、時間成分と空間成分はそれぞれ
 
-$
+$$
 \begin{aligned}
 \nu=0:&\quad \partial_iF^{i0}=\nabla\cdot\boldsymbol E=\rho,\\
 \nu=i:&\quad \partial_tF^{0i}+\partial_jF^{ji}
 =-\partial_tE_i+(\nabla\times\boldsymbol B)_i=J^i.
 \end{aligned}
-$
+$$
 
 残る二つのMaxwell方程式は既に $F=dA$ に含まれています。
 
@@ -298,7 +298,7 @@ $$
 
 もう一方の経路として、[Maxwell作用のEuler–Lagrange方程式](#thm-qft15-euler-maxwell)からも保存則を導きます。ここでは $A\in C^2$ なので $F\in C^1$ にとどまり、$F$ の二階偏微分を古典的な意味で無条件に書くことはできません。任意の実試験関数 $\varphi\in C_c^\infty(\Omega)$ を取り、$J^\nu=\partial_\mu F^{\mu\nu}$ を代入して部分積分を二回行います。
 
-$
+$$
 \begin{aligned}
 \int_\Omega(\partial_\nu J^\nu)\varphi\,d^4x
 &=-\int_\Omega J^\nu\partial_\nu\varphi\,d^4x\\
@@ -307,7 +307,7 @@ $
 &=\frac12\int_\Omega(F^{\mu\nu}+F^{\nu\mu})
 \partial_\mu\partial_\nu\varphi\,d^4x=0.
 \end{aligned}
-$
+$$
 
 最後の等号では、滑らかな $\varphi$ の混合偏微分が対称で、$F$ が反対称であることを使いました。$J\in C^1$ により $\partial_\nu J^\nu$ は連続です。[QFT1の変分論法](../QFT1/index.md#thm-qft1-field-el)と同様に、全試験関数との積分が零なら各点で零です。これは[SREL5の電荷保存](../../SREL/SREL5/index.md#thm-srel5-continuity)と同じ必要条件を、$A\in C^2$ の正則性の下で示したものです。
 <!-- proof-end -->
@@ -342,10 +342,10 @@ $$
 
 $\Phi=f(t)$、$\boldsymbol A=0$ と置きます。$f'(t)=df/dt$ は一変数関数 $f$ の導関数で、空間位置を固定した場の偏微分 $\partial_t\Phi$ に一致します。$f\in C^2$ とすると
 
-$
+$$
 \partial_t\Phi=f'(t),\qquad
 \boldsymbol E=-\nabla f(t)=0,\qquad \boldsymbol B=0.
-$
+$$
 
 $f'(t)$ は時刻によって変わっても、$\mathcal L$ は $\partial_t\Phi$ に依存しないため $\pi_\Phi=0$ のままです。さらに $\pi_i=-E_i=0$ となり、定義にある二種類の運動量を直接確認できます。これは $\Phi$ 自身を観測可能な振動子座標と数えない最小例です。
 <!-- definition-example-end -->
@@ -429,18 +429,18 @@ Maxwell方程式を振幅へ直すと光的 $k$ と $\varepsilon$ の内積が�
 
 [ポテンシャルによる場の強さ](#def-qft15-potential-field)から真空Maxwell方程式を展開します。まず[QFT1のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)でも用いたダランベール演算子を、空間座標を固定する時間偏微分 $\partial_t$ と、時間を固定する空間偏微分 $\partial_i$ により
 
-$
+$$
 \Box=\partial_\mu\partial^\mu
 =\partial_t^2-\sum_{i=1}^3\partial_i^2
-$
+$$
 
 と書きます。ここで $\partial^\mu$ は計量で添字を上げた偏微分です。したがって
 
-$
+$$
 \partial_\mu F^{\mu\nu}
 =\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)
 =\Box A^\nu-\partial^\nu(\partial_\mu A^\mu)=0.
-$
+$$
 
 複素指数モードの実部と虚部を別々に代入できる線形方程式であり、振幅は
 
@@ -481,10 +481,10 @@ $\partial_\mu A^\mu=0$ はLorenzゲージ条件です。この条件を課した
 
 $\boldsymbol k\ne0$ を実波数、$\boldsymbol v\in\mathbb C^3$ を振幅として、まず波数に平行な成分を $\boldsymbol v_L=\alpha\boldsymbol k$ と置きます。残差 $\boldsymbol v_T=\boldsymbol v-\alpha\boldsymbol k$ が $\boldsymbol k$ に直交する条件は $\boldsymbol k\cdot\boldsymbol v-\alpha|\boldsymbol k|^2=0$ です。$|\boldsymbol k|^2>0$ なので
 
-$
+$$
 \alpha=\frac{\boldsymbol k\cdot\boldsymbol v}{|\boldsymbol k|^2},\qquad
 \boldsymbol v_T=\boldsymbol v-\frac{\boldsymbol k\cdot\boldsymbol v}{|\boldsymbol k|^2}\boldsymbol k.
-$
+$$
 
 したがって横成分を取り出す写像は $\boldsymbol v$ に線形で、その第 $i$ 成分の係数は $\delta_{ij}-k_i k_j/|\boldsymbol k|^2$ になります。$\boldsymbol k$ が実数なので、この直交条件は $\mathbb C^3$ の通常のHermitian内積での直交と一致します。この係数を行列として次のように定義します。
 
@@ -511,11 +511,11 @@ $$
 
 $\boldsymbol k=(0,0,\kappa)$、$\kappa>0$ なら $k_i k_j/|\boldsymbol k|^2$ は $(3,3)$ 成分だけ1の行列です。このため
 
-$
+$$
 P=\operatorname{diag}(1,1,0),\qquad
 \boldsymbol v_T=(v_1,v_2,0),\qquad
 \boldsymbol v_L=(0,0,v_3)=\frac{v_3}{\kappa}\boldsymbol k.
-$
+$$
 
 横成分は $\boldsymbol k\cdot\boldsymbol v_T=0$、縦成分は $\boldsymbol k$ に平行です。また $P^2=P$、$\boldsymbol v=\boldsymbol v_T+\boldsymbol v_L$ を直接満たします。$\boldsymbol k=0$ を除外する理由は分母が零で射影を定められないためです。
 <!-- definition-example-end -->
@@ -547,12 +547,12 @@ $$
 
 従って $P^2=(I-K)^2=I-2K+K^2=P$ です。$k_i$ は実数なので $P^*=P$ です。さらに
 
-$
+$$
 P\boldsymbol k=\boldsymbol k-
 \frac{\boldsymbol k(\boldsymbol k\cdot\boldsymbol k)}{|\boldsymbol k|^2}=0,
 \qquad
 \boldsymbol k\cdot(P\boldsymbol v)=0.
-$
+$$
 
 逆に $\boldsymbol k\cdot\boldsymbol v=0$ なら $P\boldsymbol v=\boldsymbol v$。従って像が横方向の二次元空間に一致します。$P\boldsymbol v=\lambda\boldsymbol v$ を満たす非零固有ベクトルにもう一度 $P$ を作用させると、$P^2=P$ から $\lambda^2\boldsymbol v=\lambda\boldsymbol v$ となり、$\lambda=0,1$ です。$P$ は自己随伴なので固有ベクトルの直交基底を取れます。$\operatorname{tr}P=3-|\boldsymbol k|^2/|\boldsymbol k|^2=2$ は固有値の和だから、1の固有値が二つで階数2です。
 <!-- proof-end -->
