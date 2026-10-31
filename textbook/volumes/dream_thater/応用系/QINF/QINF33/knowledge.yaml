@@ -1,0 +1,42 @@
+chapter: QINF33
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF1, QINF3, QINF6, QINF17, QINF18, QINF29, QINF32]
+forward_references: []
+concepts:
+  - id: quantum.stepwise-swap-emission
+    name: 段階的SWAP放出模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（段階的SWAP放出模型）]
+    requires: [quantum.composite-system, quantum.partial-trace]
+  - id: quantum.radiation-entropy-history
+    name: 放射エントロピー履歴
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射エントロピー履歴）]
+    requires: [quantum.stepwise-swap-emission, quantum.von-neumann-entropy]
+  - id: quantum.reversible-reduced-entropy
+    name: 可逆全系と縮約エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可逆全系と縮約エントロピー）]
+    requires: [quantum.radiation-entropy-history, quantum.schmidt-reduced-spectrum, quantum.entropy-unitary-invariance]
+  - id: quantum.bell-emission-tent
+    name: Bell対放出模型の山型履歴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bell対放出模型の山型履歴）]
+    requires: [quantum.reversible-reduced-entropy, quantum.partial-trace, quantum.entropy-tensor-additivity]
+  - id: quantum.reference-mutual-information-budget
+    name: 参照系との相互情報量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（参照系との相互情報量収支）]
+    requires: [quantum.mutual-information, quantum.entropy-pure-bipartite]
+  - id: quantum.haar-partition-entropy-bounds
+    name: Haar次元分割の平均評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Haar次元分割の平均評価）]
+    requires: [quantum.page-type-average-bounds, quantum.radiation-entropy-history]
