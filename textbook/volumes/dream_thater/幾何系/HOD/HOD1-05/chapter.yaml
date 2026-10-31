@@ -1,0 +1,40 @@
+id: "HOD1-05"
+title: "Laplacian一致と調和形式の型保存"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-04
+official_scope: []
+learning_objectives:
+  - Kähler恒等式と微分の反交換関係から混合随伴反交換子が零になることを符号込みで導ける
+  - 三つの非負Laplacianの等式と係数2を全次数で証明し平坦トーラスで検算できる
+  - Lefschetz作用素・随伴とHodge Laplacianの可換性を正確な仮定の下で証明できる
+  - 調和形式が型ごとに調和となることとコンパクト境界なしの場合の閉・余閉判定を説明できる
+  - 非Kählerの共形Hermite計量で三Laplacian一致が破れる具体的計算を再現できる
+definitions:
+  - { id: HOD1-05-DEF-01, name: "型別調和形式" }
+theorems:
+  - { id: HOD1-05-LEM-01, name: "混合随伴反交換子の消滅" }
+  - { id: HOD1-05-THM-01, name: "Kähler上の三Laplacian一致" }
+  - { id: HOD1-05-LEM-02, name: "Lefschetz作用素と随伴微分の交換子" }
+  - { id: HOD1-05-THM-02, name: "Lefschetz作用とHodge Laplacianの可換性" }
+  - { id: HOD1-05-THM-03, name: "調和形式の型保存と閉・余閉判定" }
+  - { id: HOD1-05-PROP-01, name: "非Kähler共形計量のLaplacian不一致" }
+canonical_examples:
+  - 平坦複素トーラスのFourierモードと三Laplacianの固有値
+  - 複素次元2の定数係数調和形式とLefschetz作用
+  - 複素次元2の非Kähler共形計量上の正則関数
+problem_patterns:
+  - HOD1-05-MIXED-ADJOINT
+  - HOD1-05-DELTA-EXPANSION
+  - HOD1-05-ADJOINT-COMMUTATOR
+  - HOD1-05-FOURIER-CHECK
+  - HOD1-05-LEFSCHETZ-COMMUTATOR
+  - HOD1-05-TYPE-HARMONIC
+  - HOD1-05-ENERGY-CHECK
+  - HOD1-05-CONFORMAL-FAILURE
+  - HOD1-05-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

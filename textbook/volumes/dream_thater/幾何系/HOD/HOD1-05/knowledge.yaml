@@ -1,0 +1,48 @@
+chapter: HOD1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-04
+concepts:
+  - id: hodge.mixed-adjoint-anticommutators
+    name: 混合随伴反交換子の消滅
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（混合随伴反交換子の消滅）"]
+    requires: [hodge.kahler-identities, hodge.dolbeault-formal-adjoints]
+  - id: hodge.kahler-laplacian-equality
+    name: Kähler上の三Laplacian一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler上の三Laplacian一致）"]
+    requires: [hodge.mixed-adjoint-anticommutators, hodge.type-laplacians]
+  - id: hodge.lefschetz-adjoint-commutators
+    name: Lefschetz作用素と随伴微分の交換子
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Lefschetz作用素と随伴微分の交換子）"]
+    requires: [hodge.kahler-identities, hodge.lefschetz-adjoint]
+  - id: hodge.lefschetz-laplacian-commutation
+    name: Lefschetz作用とHodge Laplacianの可換性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lefschetz作用とHodge Laplacianの可換性）"]
+    requires: [hodge.lefschetz-adjoint-commutators, hodge.kahler-laplacian-equality]
+  - id: hodge.harmonic-pq-forms
+    name: 型別調和形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別調和形式）"]
+    requires: [hodge.kahler-laplacian-equality, geometric-analysis.hodge-laplacian]
+  - id: hodge.harmonic-type-preservation
+    name: 調和形式の型保存と閉・余閉判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（調和形式の型保存と閉・余閉判定）"]
+    requires: [hodge.harmonic-pq-forms, hodge.kahler-laplacian-equality, geometric-analysis.hodge-laplacian]
+  - id: hodge.non-kahler-laplacian-failure
+    name: 非Kähler共形計量のLaplacian不一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非Kähler共形計量のLaplacian不一致）"]
+    requires: [hodge.type-laplacians, hodge.kahler-laplacian-equality]

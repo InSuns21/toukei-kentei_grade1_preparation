@@ -19,13 +19,20 @@ Kähler条件の強さは、どの点でも**一階微分が消える正則座�
 
 ## 2. Kähler正規正則座標を作る
 
-普通の正則座標$z^1,\ldots,z^n$では
+普通の正則座標$z^1,\ldots,z^n$では、基本形式の係数をHermite行列$(g_{j\bar k})$で表して
 
 $$
 \omega=i\sum_{j,k}g_{j\bar k}(z)\,dz^j\wedge d\bar z^k
 $$
 
-となり、$\partial g_{j\bar k}$が現れる。点$x$だけでの計算なら、まず線形正則変換で$g_{j\bar k}(x)=\delta_{jk}/2$にできる。それだけでは$\partial_\ell g_{j\bar k}(x)$は消えない。**正則な二次座標変換で一階微分まで消す**座標を使いたい。以下でその条件と名前を定める。
+となり、$\partial g_{j\bar k}$が現れる。以下、係数関数の正則・反正則方向の偏微分を
+
+$$
+\partial_\ell=\frac{\partial}{\partial z^\ell},\qquad
+\partial_{\bar\ell}=\frac{\partial}{\partial\bar z^\ell}
+$$
+
+と書く。各微分ではほかの座標を固定する。点$x$だけでの計算なら、まず線形正則変換で$g_{j\bar k}(x)=\delta_{jk}/2$にできる。それだけでは$\partial_\ell g_{j\bar k}(x)$は消えない。**正則な二次座標変換で一階微分まで消す**座標を使いたい。以下でその条件と名前を定める。
 
 <a id="def-hod1-04-normal-coordinates"></a>
 
@@ -43,7 +50,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-04-normal-coordinates -->
-**定義の確認**（平坦模型）。$\mathbb C^2$で$z^j=x_j+iy_j$、$g_{\mathbb R}=dx_1^2+dy_1^2+dx_2^2+dy_2^2$とする。[座標計量の正規化](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から$g_{j\bar k}=\delta_{jk}/2$が全点で成り立つ。ゆえに任意の点を原点へ平行移動すれば上の値と全一階微分零を確認できる。さらに$\omega=\frac i2\sum_jdz^j\wedge d\bar z^j$であり、$\partial\omega=\bar\partial\omega=0$を係数が定数であることから直接確かめられる。
+**定義の確認**（平坦模型）。$\mathbb C^2$で$z^j=x_j+iy_j$、$g_{\mathbb R}=dx_1^2+dy_1^2+dx_2^2+dy_2^2$とする。$J\partial_{x_j}=\partial_{y_j}$だから、基本形式は$\omega=\sum_jdx_j\wedge dy_j$である。一方、$dz^j\wedge d\bar z^j=-2i\,dx_j\wedge dy_j$より
+
+$$
+\omega=\frac i2\sum_jdz^j\wedge d\bar z^j.
+$$
+
+[基本形式のHermite行列表示](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)と係数を比較すると
+
+$$
+g_{j\bar k}=\frac12\delta_{jk},\qquad
+\partial_\ell g_{j\bar k}=\partial_{\bar\ell}g_{j\bar k}=0
+$$
+
+である。定数行列は正定値Hermite行列であり、任意の点を原点へ平行移動すると、座標の正則性、$z(x)=0$、計量の値と両方向の一階微分零をすべて確認できる。さらに定数係数のため$\partial\omega=\bar\partial\omega=0$で、Kähler条件も満たす。
 <!-- definition-example-end -->
 
 <a id="prop-hod1-04-normal-existence"></a>
@@ -70,7 +90,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず正定値Hermite行列$(g_{j\bar k}(x))$を定数複素線形変換で$\frac12 I_n$にする。点$x$を$z=0$とし、
+まず正定値Hermite行列$(g_{j\bar k}(x))$を定数複素線形変換で$\frac12 I_n$にする。点$x$を$z=0$とし、$A_{\ell j\bar k}:=\partial_\ell g_{j\bar k}(0)$を正則方向の一次係数と書く。反正則方向の一次係数は$g_{j\bar k}=\overline{g_{k\bar j}}$から決まるので、
 
 $$
 g_{j\bar k}(z)=\frac12\delta_{jk}
@@ -117,7 +137,7 @@ $$
 
 複素共役から反正則方向の一階微分も零である。これで正規座標が得られた。
 
-点$x$で$g_{\mathbb R}$の実座標成分も標準形かつ一階微分零であり、[Levi–Civita接続の座標公式](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)のChristoffel記号はすべて零となる。$dz^j$は座標余標構なので、$\nabla dz^j(x)=0$。同じことが$\theta^j=dz^j/\sqrt2$と共役にも成立する。$\square$
+点$x$で$g_{\mathbb R}$の実座標成分も標準形かつ一階微分零である。[Levi–Civita接続のChristoffel係数公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)の各項は実座標での計量の一階微分なので、すべてのChristoffel記号が点$x$で零となる。$dz^j$は座標余標構であるから$\nabla dz^j(x)=0$。同じことが$\theta^j=dz^j/\sqrt2$と共役にも成立する。$\square$
 <!-- proof-end -->
 
 定数Euclid計量は全点でこの性質を持つが、一般のKähler計量では**選んだ点だけ**でよい。作用素恒等式が一点の計算で済む理由は、点$x$を任意に選んだからである。
@@ -191,7 +211,13 @@ $$
 
 点ごとの交換子を作用素の交換子へ移すには、$\Lambda$の**微分**も調べる必要がある。Kähler正規正則座標では、点$x$で$\nabla\theta^j=\nabla\bar\theta^j=0$であり、さらに接続が[計量と複素構造を保存する](../../KAH/KAH1-03/index.md#thm-kah1-03-main-equivalence)ので$\nabla\Lambda(x)=0$である。
 
-外微分の[型分解](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators)と、捩率零の接続による外微分の交代和を用いると、点$x$で任意の滑らかな複素形式$\alpha$について
+外微分の[型分解](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators)を局所係数へ適用する。昇順の多重添字$I,J$を使い、$\theta^I$と$\bar\theta^J$を対応する余標構の外積と書くと、形式は次のように展開できる。
+
+$$
+\alpha=\sum_{I,J}f_{I\bar J}\,\theta^I\wedge\bar\theta^J.
+$$
+
+$\theta^j=dz^j/\sqrt2$は座標の定数倍なので、$d$で微分されるのは係数$f_{I\bar J}$だけである。また点$x$で$\nabla\theta^j=\nabla\bar\theta^j=0$だから、係数の方向微分が$\nabla_{Z_j}\alpha(x)$、$\nabla_{\bar Z_j}\alpha(x)$に一致する。従って点$x$で任意の滑らかな複素形式$\alpha$について
 
 $$
 \partial\alpha(x)=\sum_j E_j\nabla_{Z_j}\alpha(x),\qquad
