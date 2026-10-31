@@ -1,0 +1,40 @@
+id: "HOD1-04"
+title: "Kähler恒等式の局所導出"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-03
+  - KAH1-03
+official_scope: []
+learning_objectives:
+  - Kähler条件から正規正則座標を構成し、その点で計量・接続の一階項が消える理由を説明できる
+  - unitary余標構における外積・収縮の交換子を符号込みで導出できる
+  - コンパクト台に対する部分積分から型別微分の形式的随伴の局所式を導出できる
+  - 二つのKähler恒等式を正常枠で証明し、平坦模型でiと係数を別経路で検算できる
+  - 非KählerなHermite計量で破れる項を計算し、Chern捩率との関係を説明できる
+definitions:
+  - { id: HOD1-04-DEF-01, name: "Kähler正規正則座標" }
+theorems:
+  - { id: HOD1-04-PROP-00, name: "Kähler正規正則座標の存在" }
+  - { id: HOD1-04-LEM-01, name: "外積とLefschetz随伴の局所交換子" }
+  - { id: HOD1-04-PROP-01, name: "Kähler正規枠での形式的随伴" }
+  - { id: HOD1-04-THM-01, name: "Kähler恒等式" }
+  - { id: HOD1-04-PROP-02, name: "非Kähler共形計量での恒等式の破れ" }
+canonical_examples:
+  - 複素Euclid空間の正規余標構と一次微分
+  - 一組の外積・収縮の反交換関係
+  - 平坦模型の一形式での二つの符号検算
+  - 複素次元2の非定数共形計量と零次補正
+problem_patterns:
+  - HOD1-04-NORMAL-COORDINATE
+  - HOD1-04-CREATION-COMMUTATOR
+  - HOD1-04-FORMAL-ADJOINT
+  - HOD1-04-FLAT-CHECK
+  - HOD1-04-CONFORMAL-OBSTRUCTION
+  - HOD1-04-ADJOINT-DUAL
+  - HOD1-04-MIXED-TYPE
+  - HOD1-04-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

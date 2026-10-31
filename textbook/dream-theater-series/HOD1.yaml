@@ -20,7 +20,7 @@ chapters:
     title: "sl2と原始形式の線形代数"
   - id: HOD1-04
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-04
-    status: planned
+    status: completed
     title: "Kähler恒等式の局所導出"
   - id: HOD1-05
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-05
