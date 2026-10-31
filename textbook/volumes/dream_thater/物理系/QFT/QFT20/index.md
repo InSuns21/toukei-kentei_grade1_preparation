@@ -371,7 +371,23 @@ $$
 \end{aligned}
 $$
 
-したがって任意のSchwartz関数 $g$ に対し、Parsevalの公式で
+したがって任意のSchwartz関数 $g$ に対し、Fourier逆変換
+
+$$
+K(\tau-\sigma)=\int_{\mathbb R}\frac{dp_4}{2\pi}
+e^{ip_4(\tau-\sigma)}\widehat K(p_4)
+$$
+
+を二次形式へ代入します。$\tau$ 側と $\sigma$ 側の積分はそれぞれ
+
+$$
+\int\overline{g(\tau)}e^{ip_4\tau}\,d\tau
+=\overline{\widehat g(p_4)},\qquad
+\int g(\sigma)e^{-ip_4\sigma}\,d\sigma
+=\widehat g(p_4)
+$$
+
+なので
 
 $$
 \int d\tau\,d\sigma\,\overline{g(\tau)}K(\tau-\sigma)g(\sigma)
