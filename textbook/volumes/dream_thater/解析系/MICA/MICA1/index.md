@@ -4,7 +4,14 @@
 
 大域Fourier変換だけでは、離れた場所にある特異性が混ざります。そこで、注目点の周囲だけを滑らかな関数で切り出してから変換します。**コンパクト支持の超関数が滑らかであることと、そのFourier変換が任意の多項式より速く減衰すること**を、両方向に証明するのがこの講義の中心です。次の講義では、この減衰を「どの周波数方向か」に分解します。
 
-舞台は $n\ge1$ の $\mathbb R^n$ とし、点を $x=(x_1,\ldots,x_n)$、周波数を $\xi=(\xi_1,\ldots,\xi_n)$ と書きます。$\mathcal D(\mathbb R^n)=C_c^\infty(\mathbb R^n)$ は滑らかでコンパクトな台を持つ試験関数の空間、$\mathcal D'(\mathbb R^n)$ は超関数の空間です。超関数 $u$ の試験関数 $\varphi$ への作用を $\langle u,\varphi\rangle$ と書きます。
+舞台は $n\ge1$ の $\mathbb R^n$ とし、点を $x=(x_1,\ldots,x_n)$、周波数を $\xi=(\xi_1,\ldots,\xi_n)$ と書きます。内積と Euclid ノルムは
+
+$$
+x\cdot\xi=\sum_{j=1}^n x_j\xi_j,\qquad
+|\xi|=\left(\sum_{j=1}^n\xi_j^2\right)^{1/2}
+$$
+
+です。$\mathcal D(\mathbb R^n)=C_c^\infty(\mathbb R^n)$ は滑らかでコンパクトな台を持つ試験関数の空間、$\mathcal D'(\mathbb R^n)$ は超関数の空間です。超関数 $u$ の試験関数 $\varphi$ への作用を $\langle u,\varphi\rangle$ と書きます。
 
 Fourier変換の符号・正規化は
 
@@ -43,7 +50,7 @@ $$
 > と定める。後者の値は $\rho$ の選択によらない。$\chi=1$ が $x_0$ の近傍で成り立つとき、この $\chi$ を $x_0$ のcutoff関数といい、この変換は $x_0$ の近くの情報だけを取り出す。
 <!-- formal-statement-end -->
 
-$\chi(x)e^{-ix\cdot\xi}$ は各 $\xi$ で試験関数なので、右辺は最初から定義されています。また $\rho$ と別の $\rho'$ の差は $\chi u$ の台の近くで零であるため、二つの作用の差は零になります。**$u$ 自体にはコンパクトな台を仮定していない**点が重要です。
+$\chi(x)e^{-ix\cdot\xi}$ は各 $\xi$ で試験関数なので、右辺は最初から定義されています。また $\rho$ と別のcutoff $\widetilde\rho$ の差は $\chi u$ の台の近くで零であるため、二つの作用の差は零になります。**$u$ 自体にはコンパクトな台を仮定していない**点が重要です。
 
 <!-- definition-example-start: def-mica1-local-fourier -->
 ### 直接例：デルタを原点と別の点で切り出す
@@ -68,7 +75,15 @@ $$
 \le C\max_{|\alpha|\le m}\sup_{x\in K}|\partial_x^\alpha\varphi(x)|
 $$
 
-と評価できることを保証します。$\alpha=(\alpha_1,\ldots,\alpha_n)$ は[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)、$|\alpha|=\alpha_1+\cdots+\alpha_n$ です。$\chi$ のような固定cutoffを掛けると、この評価の対象はいつも同じコンパクト集合へ収まります。
+と評価できることを保証します。ここで $\alpha=(\alpha_1,\ldots,\alpha_n)\in\mathbb N_0^n$ は[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index)で、$|\alpha|=\alpha_1+\cdots+\alpha_n$ です。$\partial_x^\alpha$ は空間変数 $x_j$ でそれぞれ $\alpha_j$ 回微分する記法です。周波数側の $\partial_\xi^\beta$ は同じ規則で $\xi_j$ を $\beta_j$ 回微分します。
+
+多重指数の積の省略記法は、例えば
+
+$$
+(-ix)^\beta=\prod_{j=1}^n(-ix_j)^{\beta_j}
+$$
+
+とします。これにより、周波数で微分した結果に空間変数 $x$ が現れる理由を各成分で追えます。$\chi$ のような固定cutoffを掛けると、有限階評価の対象はいつも同じコンパクト集合へ収まります。
 
 <a id="prop-mica1-polynomial-growth"></a>
 
@@ -100,7 +115,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$T$ の台を含むコンパクト集合 $K$ を $\rho$ の台として取り、[$T$ の局所有限階評価](../../GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)の次数を $m$ とします。$\xi$ の小さな増分 $h$ に対する変化を $h$ で割り、試験関数の $x$ 微分まで取ると、その式は $K$ 上の各 $C^m$ 半ノルムで収束します。例えば第 $j$ 成分に関しては
+$T$ の台を含むコンパクト集合 $K$ を $\rho$ の台として取り、[$T$ の局所有限階評価](../../GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)の次数を $m$ とします。
+
+$e_j$ を $j$ 番目の成分だけ $1$ の標準基底ベクトルとします。
+
+$\xi$ の第 $j$ 成分を $h$ だけ変化させ、試験関数の $x$ 微分まで取ると、その比は $K$ 上の各 $C^m$ 半ノルムで収束します。指数部分については
 
 $$
 \frac{e^{-ix\cdot(\xi+he_j)}-e^{-ix\cdot\xi}}{h}
@@ -114,7 +133,16 @@ $$
 =\langle T,\rho(x)(-ix)^\beta e^{-ix\cdot\xi}\rangle
 $$
 
-を得ます。$x$ で $\alpha$ 回微分するとLeibniz則による有限和となり、各項は $\rho(x)(-ix)^\beta$ の $x$ 微分と $( -i\xi)^{\alpha-\gamma}$ の積です。前者は $K$ 上で有界、後者は次数 $|\alpha-\gamma|$ の多項式です。ゆえに
+を得ます。$A_\beta(x)=\rho(x)(-ix)^\beta$ と置きます。$x$ で $\alpha$ 回微分すると、Leibniz則により
+
+$$
+\partial_x^\alpha\{A_\beta(x)e^{-ix\cdot\xi}\}
+=e^{-ix\cdot\xi}\sum_{\gamma\le\alpha}
+\binom{\alpha}{\gamma}
+(\partial_x^\gamma A_\beta(x))(-i\xi)^{\alpha-\gamma}
+$$
+
+となります。ここで $\gamma\le\alpha$ は成分ごとの不等式、$\binom{\alpha}{\gamma}=\prod_j\binom{\alpha_j}{\gamma_j}$ です。$\partial_x^\gamma A_\beta$ は $K$ 上で有界、各 $(-i\xi)^{\alpha-\gamma}$ は次数 $|\alpha-\gamma|\le|\alpha|$ の多項式です。ゆえに
 
 $$
 \sup_{x\in K}
@@ -130,6 +158,14 @@ $$
 ## 2. 微分は周波数側で何になるか
 
 滑らかな関数の[Fourier変換と微分の公式](../../FOU/FOU3/index.md#thm-fou3-derivative-rule)は部分積分で得られました。超関数では古典微分を求められないことがありますが、[超関数微分の定義](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)が既に部分積分の符号を吸収しています。
+
+以下、一変数のプライム $T'$ は空間変数 $x$ に関する超関数微分 $\partial_xT$、試験関数の $\varphi'$ は $d\varphi/dx$ を表します。周波数微分 $\partial_\xi$ とは微分する変数が異なります。多変数の積記法は
+
+$$
+(i\xi)^\alpha=\prod_{j=1}^n(i\xi_j)^{\alpha_j}
+$$
+
+と定めます。
 
 <a id="prop-mica1-fourier-derivative"></a>
 
@@ -199,6 +235,14 @@ $$
 
 反対に $G(\xi)=(1+|\xi|^2)^{-2}$ は、$|\xi|=r\to\infty$ で $(1+r)^5|G(\xi)|\sim r$ となります。$N=5$ の上限が存在せず、$G$ は急減少ではありません。「零に収束する」と「急減少する」は異なります。
 <!-- definition-example-end -->
+
+この定理で使う[正則超関数](../../GPDE/GPDE1/index.md#def-gpde1-regular-distribution) $T_f$ は、関数 $f$ を試験関数に積分で作用させるものです。
+
+$$
+\langle T_f,\varphi\rangle=\int_{\mathbb R^n} f(x)\varphi(x)\,dx
+$$
+
+したがって「$T$ が滑らか」とは、超関数 $T$ そのものを点ごとに評価するのでなく、この形の滑らかな $f$ で表せることを意味します。
 
 <a id="thm-mica1-smooth-rapid"></a>
 
@@ -272,7 +316,15 @@ $$
 
 を得ます。一変数の[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)は $\varphi$ と $\widehat\varphi$ が可積分かつ $\varphi$ が連続なので使え、$n$ 変数への反復では急減少によってFubiniの定理が使えます。
 
-ここで $\rho=1$ が $\operatorname{supp}T$ の近くで成り立つコンパクト支持cutoffを選びます。$\langle T,\varphi\rangle=\langle T,\rho\varphi\rangle$ です。逆変換を $\rho$ 倍してから作用させると、[$T$ の有限階評価](#prop-mica1-polynomial-growth)により積分の打切りを外すことができます。実際、$x$ 微分を $m$ 回まで取った積分の絶対値は $\int(1+|\xi|)^m|\widehat\varphi(\xi)|\,d\xi<\infty$ により支配されます。従って
+ここで $\rho=1$ が $\operatorname{supp}T$ の近くで成り立つコンパクト支持cutoffを選びます。すると $\langle T,\varphi\rangle=\langle T,\rho\varphi\rangle$ です。
+
+逆変換を $\rho$ 倍してから作用させると、[超関数の局所有限階評価](../../GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により積分の打切りを外すことができます。実際、$x$ 微分を $m$ 回まで取った積分は
+
+$$
+\int_{\mathbb R^n}(1+|\xi|)^m|\widehat\varphi(\xi)|\,d\xi<\infty
+$$
+
+の定数倍で支配されます。従って
 
 $$
 \begin{aligned}
@@ -317,7 +369,9 @@ $$
 <!-- definition-example-start: def-mica1-local-criterion -->
 ### 直接例：同じデルタでも基点によって答えが変わる
 
-**定義の確認**。$u=\delta_0$、$x_0=a\ne0$ とし、$a$ の周りの小球に台を持ち、その内側で $1$ となる $\chi$ を選びます。$\chi(0)=0$ なので $\widehat{\chi u}=0$ であり、任意の $N$ に $C_N=0$ を選べます。ゆえに $a$ では局所Fourier判定が成立します。
+**定義の確認**。$u=\delta_0$、$x_0=a\ne0$ とし、$a$ の周りの小球に台を持ち、その内側で $1$ となる $\chi$ を選びます。
+
+原点はこの台の外なので $\chi(0)=0$、従って $\widehat{\chi u}=0$ です。任意の $N$ に $C_N=0$ を選べるため、$a$ では局所Fourier判定が成立します。
 
 $x_0=0$ では、そこで $1$ となるどのcutoffに対しても $\widehat{\chi\delta_0}=1$ です。$N=1$ の急減少条件は満たせません。したがって原点では局所Fourier判定が成立しません。
 <!-- definition-example-end -->
@@ -339,7 +393,9 @@ $x_0=0$ では、そこで $1$ となるどのcutoffに対しても $\widehat{\c
 <!-- proof-start -->
 ### 証明
 
-**(1) から (2)。** $U$ 上で $u=T_f$、$f\in C^\infty(U)$ とします。$x_0$ を含む開球の閉包が $U$ に収まるよう選び、その球に台を持ち $x_0$ の近傍で $1$ となる $\chi\in C_c^\infty$ を取ります。$\chi f$ を $U$ 外では零として延長すると $C_c^\infty(\mathbb R^n)$ に属します。任意の試験関数 $\varphi$ に対し
+**(1) から (2)。** $U$ 上で $u=T_f$、$f\in C^\infty(U)$ とします。$x_0$ を含む開球の閉包が $U$ に収まるよう選び、その球に台を持ち $x_0$ の近傍で $1$ となる $\chi\in C_c^\infty$ を取ります。
+
+$\chi f$ を $U$ 外では零として延長すると、境界の近くでは $\chi=0$ なので $C_c^\infty(\mathbb R^n)$ に属します。任意の試験関数 $\varphi$ に対し
 
 $$
 \langle\chi u,\varphi\rangle
@@ -349,7 +405,9 @@ $$
 
 従って $\chi u=T_{\chi f}$ です。[コンパクト支持超関数のFourier急減少と滑らかさの同値](#thm-mica1-smooth-rapid)から $\widehat{\chi u}$ は急減少します。
 
-**(2) から (1)。** $\chi=1$ が $x_0$ を含む開近傍 $V$ で成立し、$\widehat{\chi u}$ が急減少するとします。$\chi u$ はコンパクト支持なので[同じ定理](#thm-mica1-smooth-rapid)によって $\chi u=T_g$、$g\in C_c^\infty(\mathbb R^n)$ です。$\operatorname{supp}\varphi\subset V$ の試験関数では $\chi\varphi=\varphi$ なので
+**(2) から (1)。** $\chi=1$ が $x_0$ を含む開近傍 $V$ で成立し、$\widehat{\chi u}$ が急減少するとします。$\chi u$ はコンパクト支持なので[同じ定理](#thm-mica1-smooth-rapid)によって $\chi u=T_g$、$g\in C_c^\infty(\mathbb R^n)$ です。
+
+$\operatorname{supp}\varphi\subset V$ の試験関数では $\chi\varphi=\varphi$ なので
 
 $$
 \langle u,\varphi\rangle
@@ -661,7 +719,9 @@ $$
 
 ただし $R_b$ は急減少です。
 
-**(3)** $a$ では右辺の絶対値が $1$ に、$b$ では $2$ に近づきます。したがってどちらも $|\xi\widehat{\chi u}|\to0$ にはなりません。もし、より大きな別のcutoffで急減少できたと仮定すれば、[局所判定定理](#thm-mica1-local-smooth)によりその点の近傍で $u$ が滑らかになります。その場合は (2) の小cutoffでも急減少するはずですが、いま計算した漸近式に反します。よって、滑らかでない点の集合は正確に
+**(3)** $a$ では右辺の絶対値が $1$ に、$b$ では $2$ に近づきます。したがってどちらも $|\xi\widehat{\chi u}|\to0$ にはなりません。
+
+もし、より大きな別のcutoffで急減少できたと仮定すれば、[局所判定定理](#thm-mica1-local-smooth)によりその点の近傍で $u$ が滑らかになります。その場合は (2) の小cutoffでも急減少するはずですが、いま計算した漸近式に反します。よって、滑らかでない点の集合は正確に
 
 $$
 \{a,b\}
