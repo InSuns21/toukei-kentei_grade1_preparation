@@ -1,0 +1,50 @@
+chapter: MICA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA8
+  - SYM4
+  - LORG4
+  - HPDE5
+forward_references: []
+concepts:
+  - id: microlocal.mica9-characteristic
+    name: 特性集合と非特性方向の再確認
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica8-ellipticity]
+  - id: microlocal.mica9-wavefront-confinement
+    name: 特性方向への波面の制限
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica9-characteristic, microlocal.mica8-elliptic-regularity]
+  - id: microlocal.mica9-bicharacteristic
+    name: 双特性曲線
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica9-characteristic, symplectic.hamiltonian-vector-field-existence]
+  - id: microlocal.mica9-hamilton-conservation
+    name: Hamilton流による主シンボルの保存
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica9-bicharacteristic]
+  - id: microlocal.mica9-real-principal-type
+    name: 実主型特性点
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica9-bicharacteristic]
+  - id: microlocal.mica9-homogeneous-rescaling
+    name: 同次性と双特性曲線の再パラメータ化
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica9-bicharacteristic]
+  - id: microlocal.mica9-kg-characteristic
+    name: Klein–Gordon作用素の光的特性と実主型性
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica9-real-principal-type, lorentz-geometry.lorentz-metric]
+  - id: microlocal.mica9-null-geodesic-projection
+    name: Klein–Gordon双特性曲線と零測地線
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica9-kg-characteristic, lorentz-geometry.geodesic-causal-type-conservation]
