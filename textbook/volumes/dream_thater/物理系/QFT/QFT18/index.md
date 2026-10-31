@@ -143,6 +143,8 @@ $$
 
 です。これは二つの端点を結ぶ $4\times4$ 行列値分布です。以下、$\partial_{x^\mu}$ は他の位置 $y,z$ を固定して挿入点の座標 $x^\mu$ で偏微分する記号とします。上下に反復するLorentz添字 $\mu=0,1,2,3$ は総和します。
 
+以下の二重Fourier積分では $p,p'$ を**独立の積分変数**として動かし、$k=p'-p$ を各積分点での差として読みます。$x$ でFourier指数を微分すると $i(p'_\mu-p_\mu)=ik_\mu$ が取り出されるので、位置空間の発散と運動量空間の縦縮約が対応します。
+
 <a id="def-qft18-three-point-kernel"></a>
 
 <!-- formal-statement-start -->
@@ -246,7 +248,7 @@ $$
 
 ## 3. 質量殻にして初めて外線の縮約は零になる
 
-今度は端点の核を外した三点頂点を、物理的な入射・出射電子スピノルで挟みます。出射を $p'=p+k$ とし、**同じ質量 $m$** の二つの正エネルギー質量殻運動量とします。
+今度は端点の核を外した三点頂点を、物理的な入射・出射電子スピノルで挟みます。出射を $p'=p+k$ とし、**同じ質量 $m$** の二つの正エネルギー質量殻運動量とします。ここで $k$ は運動量差であって、$k^2=0$ の実光子とは仮定しません（実光子を二本含む散乱は次節で扱います）。
 
 <a id="cor-qft18-on-shell-ward"></a>
 
@@ -268,14 +270,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QFT7の質量殻スピノル](../QFT7/index.md#def-qft7-plane-waves)は
+[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。さらに[Dirac随伴の定義](../QFT7/index.md#def-qft7-adjoint-action)と、Dirac表示での $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ より、実四元運動量 $p'$ について
 
 $$
-K(p)u_s(p)=0,\qquad
-\bar u_{s'}(p')K(p')=0
+\begin{aligned}
+\bar u_{s'}(p')K(p')
+&=u_{s'}(p')^\dagger\gamma^0K(p')\\
+&=[K(p')u_{s'}(p')]^\dagger\gamma^0=0.
+\end{aligned}
 $$
 
-を満たします。従って
+したがって入射・出射の両端で対応するDirac方程式を使えます。従って
 
 $$
 \begin{aligned}
@@ -351,7 +356,24 @@ $$
 \end{aligned}
 $$
 
-電子が未来向きの時間的ベクトル、両光子が非零の未来向き光的ベクトルなら $p\cdot k>0$、$p\cdot k'>0$ です。従ってこの物理的なCompton運動学では分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
+電子が未来向きの時間的ベクトル、両光子が非零の未来向き光的ベクトルであることを使います。電子の静止系では $p=(m,0,0,0)$ とでき、光子のエネルギーはどちらも正なので
+
+$$
+p\cdot k=mk^0_{\mathrm{rest}}>0,\qquad
+p\cdot k'=mk'^0_{\mathrm{rest}}>0.
+$$
+
+[Lorentzスピノル変換](../QFT7/index.md#def-qft7-spinor-transform)で用いた条件 $\Lambda^T\eta\Lambda=\eta$ を適用すると、
+
+$$
+\begin{aligned}
+(\Lambda p)^T\eta(\Lambda k)
+&=p^T\Lambda^T\eta\Lambda k\\
+&=p^T\eta k=p\cdot k.
+\end{aligned}
+$$
+
+となります。$k'$ にも同じ式を適用できるので、二つの内積は座標系を替えても正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
 <!-- definition-example-end -->
 
 <a id="thm-qft18-compton-ward"></a>
