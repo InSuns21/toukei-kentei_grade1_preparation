@@ -36,7 +36,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-07-hodge-numbers -->
-**定義の確認**（平坦な楕円曲線）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$に平坦計量を入れる。[平坦トーラスのFourier計算](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)はまず関数の非零Fourierモードに正のLaplacian固有値を与える。平坦計量では$dx,dy$が平行なので、$d$と$d^*$を展開すると$\Delta_d(f\,dx)= (\Delta_df)\,dx$、$\Delta_d(f\,dy)=(\Delta_df)\,dy$、2形式でも同様である。従って非零周波数の形式も正の固有値を持ち、調和形式は定数係数形式に限られる。次数ごとにそれらの基底は
+**定義の確認**（平坦な楕円曲線）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$に平坦計量を入れる。[平坦トーラスのFourier計算](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)は、関数の非零Fourierモードに正のLaplacian固有値を与える。形式にもこの判定を使えることを確かめよう。$f_x=\partial f/\partial x$、$f_{xy}=\partial^2f/\partial x\partial y$などと書く。[実Hodge星の定義](../../GA/GA6/index.md#def-ga6-hodge-star)と[余微分公式](../../GA/GA6/index.md#def-ga6-codifferential)を平坦計量に適用すると
+
+$$
+\begin{aligned}
+d(f\,dx)&=-f_y\,dx\wedge dy,&d^*(f\,dx)&=-f_x,\\
+d^*d(f\,dx)&=-f_{yy}\,dx+f_{xy}\,dy,&
+dd^*(f\,dx)&=-f_{xx}\,dx-f_{xy}\,dy.
+\end{aligned}
+$$
+
+よって混合微分が打ち消され、$\Delta_d(f\,dx)=-(f_{xx}+f_{yy})\,dx=(\Delta_df)\,dx$となる。$f\,dy$も同じ計算であり、2形式については$d(f\,dx\wedge dy)=0$、$d^*(f\,dx\wedge dy)=f_y\,dx-f_x\,dy$から$\Delta_d(f\,dx\wedge dy)=(\Delta_df)\,dx\wedge dy$を得る。したがって各係数の非零Fourierモードは正の固有値を持ち、調和形式は定数係数形式に限られる。次数ごとにそれらの基底は
 
 $$
 \mathcal H^{0,0}=\mathbb C\cdot1,\quad
@@ -260,6 +270,8 @@ $$
 $$
 <!-- definition-example-end -->
 
+有限次元複素ベクトル空間$V$の**複素線形双対**を$V^\vee=\operatorname{Hom}_{\mathbb C}(V,\mathbb C)$と書く。積分対の一方の変数を固定して、他方の空間上の複素線形汎関数が得られるかを調べる。
+
 <a id="thm-hod1-07-perfect-pairing"></a>
 
 <!-- formal-statement-start -->
@@ -286,7 +298,7 @@ $$
 
 [Dolbeaultコホモロジーの調和代表](../HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)は、各類に一意の代表$\alpha_{\mathrm{harm}},\beta_{\mathrm{harm}}$を対応させる。その対応は複素線形である。楔積と積分も各変数で複素線形なので$Q_{p,q}$は複素双線形である。
 
-$\alpha_{\mathrm{harm}}\ne0$とする。[共役と星の相補型同型](#thm-hod1-07-hodge-duality)より$\beta_{\mathrm{harm}}=*\overline{\alpha_{\mathrm{harm}}}$は$(n-p,n-q)$型の調和形式である。[複素形式の内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を第一変数$\bar\alpha$、第二変数$\bar\alpha$に適用すると、点ごとに
+$\alpha_{\mathrm{harm}}\ne0$とする。[共役と星の相補型同型](#thm-hod1-07-hodge-duality)より$\beta_{\mathrm{harm}}=*\overline{\alpha_{\mathrm{harm}}}$は$(n-p,n-q)$型の調和形式である。[複素形式の内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を第一変数$\overline{\alpha_{\mathrm{harm}}}$、第二変数$\overline{\alpha_{\mathrm{harm}}}$に適用すると、点ごとに
 
 $$
 \alpha_{\mathrm{harm}}\wedge(*\overline{\alpha_{\mathrm{harm}}})
@@ -296,12 +308,23 @@ $$
 したがって
 
 $$
-Q_{p,q}([\alpha],[*\bar\alpha])
+Q_{p,q}([\alpha],[*\overline{\alpha_{\mathrm{harm}}}])
 =\int_X|\alpha_{\mathrm{harm}}|^2dV_g
 =\|\alpha_{\mathrm{harm}}\|_2^2>0.
 $$
 
-これは左側の非退化性である。右側の非退化性も、非零$\beta_{\mathrm{harm}}$に対して$*\,\bar\beta_{\mathrm{harm}}$を取れば、$*^2$の符号の分だけ同じ非零積分が得られる。
+これは左側の非退化性である。右側について、非零の$\beta_{\mathrm{harm}}\in\mathcal H^{n-p,n-q}$に対して$\alpha_{\mathrm{harm}}=*\overline{\beta_{\mathrm{harm}}}\in\mathcal H^{p,q}$を選ぶ。$k=p+q$とおくと両形式の次数は$k$と$2n-k$で、楔積の交換符号は$(-1)^{k(2n-k)}=(-1)^k$である。従って
+
+$$
+\begin{aligned}
+Q_{p,q}([*\overline{\beta_{\mathrm{harm}}}],[\beta])
+&=\int_X(*\overline{\beta_{\mathrm{harm}}})\wedge\beta_{\mathrm{harm}}\\
+&=(-1)^k\int_X\beta_{\mathrm{harm}}\wedge(*\overline{\beta_{\mathrm{harm}}})\\
+&=(-1)^k\|\beta_{\mathrm{harm}}\|_2^2\ne0.
+\end{aligned}
+$$
+
+よって右側も非退化である。
 
 写像$[\beta]\mapsto Q_{p,q}(-,[\beta])$は右側の非退化性で単射である。二つの空間の複素次元は[補次数対称性](#thm-hod1-07-hodge-duality)により同じ有限値だから全射でもあり、双対空間への同型である。$\square$
 <!-- proof-end -->
@@ -314,7 +337,7 @@ $$
 =(\bar\partial\eta)\wedge\beta.
 $$
 
-$\eta\wedge\beta$は型$(n,n-1)$なので$\partial(\eta\wedge\beta)=0$（型が範囲外）。[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)でこの差の積分は零となる。$\beta$を変える場合も楔積の符号に注意して同様に従う。従って上の積分対はde Rhamの[Poincaré型の積分対](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)を複素型別に見たものである。一般のコンパクト複素多様体で成立するSerre双対性の全定理は、ここでのKähler仮定付きの解析的証明とは区別する。
+$\eta\wedge\beta$は型$(n,n-1)$なので$\partial(\eta\wedge\beta)=0$（型が範囲外）。[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)でこの差の積分は零となる。$\beta$を変える場合も楔積の符号に注意して同様に従う。従って上の積分対は、[Hodge--de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)によって調和形式をde Rham類と同定し、その楔積を積分する対を複素型別に見たものである。一般のコンパクト複素多様体で成立するSerre双対性の全定理は、ここでのKähler仮定付きの解析的証明とは区別する。
 
 ## 5. Betti数の等式と偶数性
 
@@ -723,7 +746,15 @@ Q_{p,q}([\alpha],[\beta])
 =\int_X|\alpha_h|^2dV_g>0.
 $$
 
-従って左側非退化。右側も$[\beta]\ne0$から$*\bar\beta_h$を選び、$*^2$の符号を補正すれば非零の積分を得る。与件3の調和代表は複素線形に選べ、楔積・積分も双線形なので$Q_{p,q}$は**複素双線形**である。最終的に両空間は有限次元かつ(i)で次元が等しく、$[\beta]\mapsto Q_{p,q}(-,[\beta])$が双対空間への同型になる。$\square$
+従って左側非退化。右側も$[\beta]\ne0$の調和代表$\beta_h$から$\alpha_h=*\bar\beta_h$を選ぶ。$k=p+q$とおけば、積分の楔積の順序を入れ替えて
+
+$$
+\int_X\alpha_h\wedge\beta_h
+=(-1)^{k(2n-k)}\int_X\beta_h\wedge(*\bar\beta_h)
+=(-1)^k\|\beta_h\|_2^2\ne0
+$$
+
+となる。与件3の調和代表は複素線形に選べ、楔積・積分も双線形なので$Q_{p,q}$は**複素双線形**である。最終的に両空間は有限次元かつ(i)で次元が等しく、$[\beta]\mapsto Q_{p,q}(-,[\beta])$が双対空間への同型になる。$\square$
 <!-- solution-end -->
 
 ## 8. 何が分かり、次に何を問うか
