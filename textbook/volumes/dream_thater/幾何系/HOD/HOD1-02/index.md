@@ -6,7 +6,7 @@
 
 前章では、[複素形式のHermite内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を作り、型ごとの形式的随伴を調べた。ここでは微分せずに、[基本2形式](../../KAH/KAH1-01/index.md#def-kah1-01-fundamental-form)を外積する操作を考える。これは $k$ 形式を $k+2$ 形式にするが、内積の反対側へ移したとき何が起きるだろうか。
 
-以下、$X$ は複素次元 $n\ge1$ の滑らかなHermite多様体、$g_{\mathbb R}$ は対応する実計量、$J$ は複素構造とする。各点の計算を行うので **コンパクト性もKähler条件 $d\omega=0$ も仮定しない**。$\Omega^{p,q}(X)$ のうち $p,q$ が $0,\ldots,n$ の範囲外なら零と約束する。交換子は $[A,B]=AB-BA$ の順序を用いる。
+以下、$X$ は複素次元 $n\ge1$ の滑らかなHermite多様体とする。ここでHermite計量とは、[複素構造 $J$ と両立するRiemann計量](../../KAH/KAH1-01/index.md#def-kah1-01-compatible-metric) $g_{\mathbb R}$ のことである。各点の計算を行うので **コンパクト性もKähler条件 $d\omega=0$ も仮定しない**。$\Omega^{p,q}(X)$ のうち $p,q$ が $0,\ldots,n$ の範囲外なら零と約束する。交換子は $[A,B]=AB-BA$ の順序を用いる。
 
 Hermite計量と $J$ により決まる基本2形式は、実接ベクトル $u,v$ に対して $\omega(u,v)=g_{\mathbb R}(Ju,v)$ である。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)では、局所座標で $\omega=i g_{j\bar k}\,dz^j\wedge d\bar z^k$ と書く際の正規化を確定した。この $\omega$ を何度も外積する操作が、後にコホモロジーを比較するための出発点となる。
 
@@ -24,7 +24,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-02-lefschetz -->
-**定義の確認**（複素次元1）。$\mathbb C$ に計量 $dx^2+dy^2$ を入れると、$z=x+iy$ に対して $\omega=dx\wedge dy=(i/2)dz\wedge d\bar z$ である。したがって
+**定義の確認**（複素次元1）。$\mathbb C$ に計量 $dx^2+dy^2$ を入れる。$J\partial_x=\partial_y$、$J\partial_y=-\partial_x$ なので、基本形式の定義から $\omega(\partial_x,\partial_y)=g_{\mathbb R}(\partial_y,\partial_y)=1$。実2形式は $dx\wedge dy$ の倍数だから $\omega=dx\wedge dy$ である。さらに $z=x+iy$ とすれば
+
+$$
+dz\wedge d\bar z=(dx+i\,dy)\wedge(dx-i\,dy)=-2i\,dx\wedge dy,
+\qquad \omega=\frac i2\,dz\wedge d\bar z.
+$$
+
+よって外積作用は
 
 $$
 L1=dx\wedge dy,\quad L(dx)=dx\wedge dy\wedge dx=0,\quad L(dy)=0.
@@ -60,10 +67,10 @@ $$
 =\langle1,\Lambda(dx\wedge dy)\rangle.
 $$
 
-2形式の空間は1次元だから $\Lambda(dx\wedge dy)=1$。0形式や1形式には次数を2下げた非零の行き先がなく、定義どおり $\Lambda=0$ である。
+0形式・2形式の各空間は1次元で、$1$ と $dx\wedge dy$ がそれぞれの基底だから、この基底対での検算と複素線形性から $\Lambda(dx\wedge dy)=1$ が確定する。0形式や1形式には次数を2下げた非零の行き先がなく、定義どおり $\Lambda=0$ である。
 <!-- definition-example-end -->
 
-計算を一般の $n$ 次元へ広げるため、点 $x$ で $J$ と両立する実正規直交余標構 $e^1,f^1,\ldots,e^n,f^n$ をとる。$f^j$ は、$J$ に対応した正規直交ベクトル $Ju_j$ の双対である。$\theta^j=(e^j+i f^j)/\sqrt2$、$\bar\theta^j=(e^j-i f^j)/\sqrt2$ とおくと、[型直交性](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)の証明と同じく、これらは複素余接空間の正規直交基底になる。
+計算を一般の $n$ 次元へ広げるため、点 $x$ で実正規直交接基底 $(u_1,Ju_1,\ldots,u_n,Ju_n)$ をとり、その双対余標構を $(e^1,f^1,\ldots,e^n,f^n)$ とする。つまり $e^j(u_\ell)=f^j(Ju_\ell)=\delta_{j\ell}$ で、交差する評価は零である。$(1,0)$ 余標構 $\theta^j=(e^j+i f^j)/\sqrt2$ と $(0,1)$ 余標構 $\bar\theta^j=(e^j-i f^j)/\sqrt2$ は、[型直交性と基底計算](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)により、複素余接空間の正規直交基底となる。
 
 1組の $j$ について直接計算すれば
 
@@ -102,7 +109,7 @@ $$
 単純な外積基底 $\eta_1\wedge\cdots\wedge\eta_k$ に対し、$I_j$ は因子 $\theta^j$ が存在すればそれを消し、先頭から $r$ 番目なら $(-1)^{r-1}$ を掛ける。存在しなければ零とする。$\bar I_j$ も $\bar\theta^j$ に対して同じ規則である。これは外積基底が正規直交であることから、随伴の定義式を各基底対へ代入して確かめられる。
 
 <!-- definition-example-start: def-hod1-02-creation-annihilation -->
-**定義の確認**（1組の4状態）。$\xi=\theta\wedge\bar\theta$ とし、$1,\theta,\bar\theta,\xi$ の順に正規直交基底を並べる。
+**定義の確認**（1組の4状態）。この段落では組の添字 $j$ を省き、$E=E_j$、$\bar E=\bar E_j$、$I=I_j$、$\bar I=\bar I_j$、$\theta=\theta^j$ と書く。$\xi=\theta\wedge\bar\theta$ とし、$1,\theta,\bar\theta,\xi$ の順に正規直交基底を並べる。
 
 $$
 \begin{aligned}
@@ -190,7 +197,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-点 $x$ にunitary余標構をとり、[随伴の表示](#prop-hod1-02-frame-adjoint)を $L=\sum_jL_j$、$\Lambda=\sum_j\Lambda_j$ と分ける。外積の基本反交換関係から、異なる組の外積または収縮を交差させる際には因子を2個ずつ移動する。符号は $(-1)^2=+1$ なので
+点 $x$ にunitary余標構をとり、[随伴の表示](#prop-hod1-02-frame-adjoint)を $L=\sum_jL_j$、$\Lambda=\sum_j\Lambda_j$ と分ける。$j\ne\ell$ なら、因子を取り除く規則から $I_jE_\ell=-E_\ell I_j$、$\bar I_jE_\ell=-E_\ell\bar I_j$ となり、$E_\ell$ を $\bar E_\ell$ に替えても同じ反交換関係が成り立つ。例えば $\theta^\ell$ は $I_j$ の消去対象でないため、$I_j(\theta^\ell\wedge\alpha)=-\theta^\ell\wedge I_j\alpha$ である。二つの収縮を二つの外積と入れ替えるには反交換を計4回用いるので符号は $(-1)^4=+1$。従って
 
 $$
 [\Lambda_j,L_\ell]=0\quad(j\ne\ell),\qquad
@@ -347,7 +354,19 @@ $$
 
 [作用次数の命題](#prop-hod1-02-bidegree)から、$\alpha$ については $L\alpha$ が $(2,3)$ 型、$\Lambda\alpha$ が $(0,1)$ 型となり、いずれも型だけでは零と決まらない。
 
-$\beta$ については $L\beta$ が $(1,3)$ 型で零とは限らない。一方 $\Lambda\beta$ の形式上の型は $(-1,1)$ で、負の次数の型空間は零だから $\Lambda\beta=0$。判定に使うのは総次数だけでなく各型次数である。
+$\beta$ については $L\beta$ が $(1,3)$ 型で零とは限らない。一方 $\Lambda\beta$ の形式上の型は $(-1,1)$ で、負の次数の型空間は零だから $\Lambda\beta=0$。
+
+非零になり得ることも直接確かめられる。$\xi_3=\theta^3\wedge\bar\theta^3$ と置き、$\alpha=\theta^1\wedge\bar\theta^1\wedge\bar\theta^2$、$\beta=\bar\theta^1\wedge\bar\theta^2$ を選べば
+
+$$
+\begin{aligned}
+\Lambda\alpha&=-i\bar\theta^2\ne0,\\
+L\alpha&=i\xi_3\wedge\alpha\ne0,\\
+L\beta&=i\xi_3\wedge\beta\ne0
+\end{aligned}
+$$
+
+となる。判定に使うのは総次数だけでなく各型次数である。
 <!-- solution-end -->
 
 <a id="ex-hod1-02-a04"></a>
@@ -500,7 +519,14 @@ $$
 =\langle1,\Lambda\alpha_0\rangle=0.
 $$
 
-複素次元2では $\alpha_0$ が次数2のため [交換子定理](#thm-hod1-02-commutator)から $\Lambda L\alpha_0=L\Lambda\alpha_0=0$。ただしこの等式だけで $L\alpha_0=0$ とは言えない。$L\alpha_0$ は次数4、かつ $L\alpha_0=s\xi_1\wedge\xi_2$ と書ける。ここへ $\Lambda=-i\sum_j\bar I_j I_j$ を適用すると
+複素次元2では $\alpha_0$ が次数2のため [交換子定理](#thm-hod1-02-commutator)から $\Lambda L\alpha_0=L\Lambda\alpha_0=0$。ただしこの等式だけで $L\alpha_0=0$ とは言えない。$L\alpha_0$ は次数4、かつ $L\alpha_0=s\xi_1\wedge\xi_2$ と書ける。ここへ [随伴の表示](#prop-hod1-02-frame-adjoint) $\Lambda=-i\sum_j\bar I_j I_j$ を適用する。因子を実際に消すと
+
+$$
+\bar I_1I_1(\xi_1\wedge\xi_2)=\xi_2,\qquad
+\bar I_2I_2(\xi_1\wedge\xi_2)=\xi_1
+$$
+
+なので、
 
 $$
 \Lambda(s\xi_1\wedge\xi_2)=-is(\xi_1+\xi_2).
