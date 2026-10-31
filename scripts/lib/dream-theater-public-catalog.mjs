@@ -51,6 +51,10 @@ export function assembleDreamTheaterContents(sourceFiles) {
 
 /** Reads only source fragments, without touching the generated Pages artifact. */
 export function readDreamTheaterContents(root = process.cwd()) {
+  const generatedRoute = path.join(root, 'textbook/dream-theater.md');
+  if (fs.existsSync(generatedRoute)) {
+    throw new Error('textbook/dream-theater.md is a generated Pages output; edit textbook/dream-theater-toc/ instead');
+  }
   const sourceRoot = path.join(root, TOC_ROOT);
   const files = new Map();
   files.set(`${TOC_ROOT}/intro.md`, fs.readFileSync(path.join(sourceRoot, 'intro.md'), 'utf8'));

@@ -65,6 +65,9 @@ try {
     ['textbook/dream-theater-toc/010_基礎科目/010_x.md', '<a id="dt-subject-x"></a>\n### X\n'],
     ['textbook/dream-theater-toc/010_基礎科目/010_y.md', '<a id="dt-subject-y"></a>\n### Y\n'],
   ])), /duplicate DREAM THEATER subject order/);
+  write('textbook/dream-theater.md', facade(`1. [X2](${b})\n2. [X1](${a})`));
+  assert.throws(() => readDreamTheaterContents(root), /generated Pages output/);
+  fs.unlinkSync(path.join(root, 'textbook/dream-theater.md'));
   console.log('DREAM THEATER public catalog self-test passed');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });

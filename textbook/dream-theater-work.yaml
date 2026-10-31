@@ -1,5 +1,5 @@
 version: 2
-updated: 2026-10-12
+updated: 2026-10-31
 
 # 全系列に共通するルーティング設定のみ。現在地は各系列manifestの章statusから導出する。
 # 章を進めるたびに共有ファイルを書き換えず、異なる系列の並行作業を可能にする。
@@ -9,7 +9,9 @@ routing:
   chapter_root: textbook/volumes/dream_thater
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
   exercise_policy: textbook/DREAM_THEATER_EXERCISE_POLICY.md
-  public_contents: textbook/dream-theater.md
+  # Edit the subject fragments; publish the assembled page at the stable route.
+  public_contents_source: textbook/dream-theater-toc
+  public_contents_output: textbook/dream-theater.md
   knowledge_dag: textbook/knowledge-dag.yaml
 
 validation:
