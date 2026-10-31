@@ -1317,6 +1317,7 @@
 22. [QFT22 φ⁴模型の1ループ二点・四点関数と運動量カットオフ](textbook/volumes/dream_thater/物理系/QFT/QFT22/index.md)
 23. [QFT23 φ⁴模型の正則化・くりこみ条件・反項と波動関数くりこみ](textbook/volumes/dream_thater/物理系/QFT/QFT23/index.md)
 24. [QFT24 QEDの一ループ真空偏極・Ward恒等式と電荷のくりこみ](textbook/volumes/dream_thater/物理系/QFT/QFT24/index.md)
+25. [QFT25 くりこみ群方程式・β関数・異常次元と一ループの走る結合](textbook/volumes/dream_thater/物理系/QFT/QFT25/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I
