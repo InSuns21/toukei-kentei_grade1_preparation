@@ -27,7 +27,20 @@ H^q(X,\mathcal F)\simeq
 H^q(X^{\mathrm{an}},\mathcal F^{\mathrm{an}}).
 $$
 
-**直接例：射影直線の切断。** $X=\mathbb P^1$、$\mathcal F=\mathcal O_X(d)$ とする。[射影空間のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から、$d\ge0$ のとき $H^0(X,\mathcal O(d))$ は次数 $d$ の斉次二変数多項式全体であり、基底は $X_0^d,X_0^{d-1}X_1,\ldots,X_1^d$ の $d+1$ 個である。$d<0$ のとき大域切断は零。上のコホモロジー比較を $q=0$ に適用すれば、解析側にも**同じ数の切断**がある。たとえば $d=2$ では $aX_0^2+bX_0X_1+cX_1^2$ の3係数が正則切断の自由度を尽くす。
+**直接例：射影直線の切断。** $X=\mathbb P^1$、$\mathcal F=\mathcal O_X(d)$ とする。[射影空間のねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から、$d\ge0$ では大域切断は次数 $d$ の斉次二変数多項式全体であり、次の基底を持つ。
+
+$$
+X_0^d,\ X_0^{d-1}X_1,\ \ldots,\ X_1^d
+\qquad(d+1\text{ 個}).
+$$
+
+$d<0$ では大域切断は零。コホモロジー比較を $q=0$ に適用すれば、解析側にも**同じ数の切断**がある。たとえば $d=2$ では
+
+$$
+aX_0^2+bX_0X_1+cX_1^2
+$$
+
+の3係数が正則切断の自由度を尽くす。
 
 「射影的」は単なる技術的条件ではない。大域切断を局所的に見ればアフィンチャート上の正則関数を使えるが、**全チャートで正則に貼り合わせる条件**が自由度を抑えている。なお、[固有版GAGA](../CAG1-08/index.md#thm-cag1-08-proper-gaga)は射影的でない固有スキームにも成立する。ただし射影版の証明で使った $\mathcal O(1)$ の構成を、そのまま任意の固有スキームに移すことはできない。
 
@@ -197,7 +210,15 @@ $$
 $X=\mathbb A^1_{\mathbb C}$ において $H^0(X,\mathcal O_X)\to H^0(X^{\mathrm{an}},\mathcal O_{X^{\mathrm{an}}})$ が全射でないことを示し、これがGAGAのどの仮定を失った反例か述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $X=\operatorname{Spec}\mathbb C[z]$ なので左辺は $\mathbb C[z]$。解析化は複素平面であり、$e^z$ は全平面で正則である。もし $e^z$ が多項式 $p(z)$ に等しければ、次数 $m$ の多項式の $(m+1)$ 階導関数は零なのに、$e^z$ の $(m+1)$ 階導関数は $e^z\ne0$ だから矛盾する。従って全射でない。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の仮定は射影性であり、アフィン直線は射影的でない。この反例は**零次コホモロジー比較**の全射性の破綻を示す。
+**詳細解答。** $X=\operatorname{Spec}\mathbb C[z]$ なので左辺は $\mathbb C[z]$。解析化は複素平面であり、$e^z$ は全平面で正則である。
+
+もし $e^z$ が次数 $m$ の多項式 $p(z)$ に等しければ、$(m+1)$ 階微分を比較すると
+
+$$
+0=p^{(m+1)}(z)=(e^z)^{(m+1)}=e^z\ne0
+$$
+
+となり矛盾する。従って全射でない。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の仮定は射影性であり、アフィン直線は射影的でない。この反例は**零次コホモロジー比較**の全射性の破綻を示す。
 <!-- solution-end -->
 
 <a id="ex-cag1-14-a02"></a>
@@ -207,7 +228,16 @@ $X=\mathbb A^1_{\mathbb C}$ において $H^0(X,\mathcal O_X)\to H^0(X^{\mathrm{
 $d=-2,0,2$ に対し $\dim H^0(\mathbb P^1,\mathcal O(d))$ を求め、解析化後にも同じ値である理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)の零次公式は $d<0$ なら零、$d\ge0$ なら次数 $d$ の斉次多項式の空間を与える。従って $d=-2$ で $0$、$d=0$ で $1$（定数）、$d=2$ で $3$（$X_0^2,X_0X_1,X_1^2$）。$\mathbb P^1$ は射影的で $\mathcal O(d)$ は連接だから、[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)を $q=0$ に適用して解析側の次元も $0,1,3$ となる。
+**詳細解答。** [ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)の零次公式は $d<0$ なら零、$d\ge0$ なら次数 $d$ の斉次多項式の空間を与える。各次数へ代入すると
+
+$$
+\begin{array}{c|ccc}
+d&-2&0&2\\ \hline
+\dim H^0(\mathbb P^1,\mathcal O(d))&0&1&3
+\end{array}
+$$
+
+となる。$d=0$ の基底は定数1、$d=2$ の基底は $X_0^2,X_0X_1,X_1^2$ である。$\mathbb P^1$ は射影的で $\mathcal O(d)$ は連接だから、[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)を $q=0$ に適用できる。解析側の次元も順に $0,1,3$ となる。
 <!-- solution-end -->
 
 <a id="ex-cag1-14-a03"></a>
@@ -243,7 +273,24 @@ $d=3$ なら $(2\cdot1)/2=1$、$d=5$ なら $(4\cdot3)/2=6$。ここで用いた
 $F=\sum_{j=0}^4X_j^5$ の超曲面 $Q\subset\mathbb P^4$ について、Jacobian判定、複素次元、標準束の次数の三つを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $F_{X_j}=5X_j^4$ なので全偏微分が零なら全ての $X_j=0$ となり射影点に矛盾する。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)より滑らかで、一つの独立な方程式で $\mathbb P^4$ を切るから複素次元は $4-1=3$。[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)へ周囲の次元 $n=4$、次数 $d=5$ を代入すると $K_{Q^{\mathrm{an}}}\simeq\mathcal O_{Q^{\mathrm{an}}}(5-4-1)=\mathcal O_{Q^{\mathrm{an}}}$。超曲面自身の次元 $3$ を $n$ に代入しない。
+**詳細解答。** 斉次偏微分は
+
+$$
+\frac{\partial F}{\partial X_j}=5X_j^4
+\qquad(j=0,\ldots,4)
+$$
+
+であり、全偏微分が零なら全ての射影座標が零となって矛盾する。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)より滑らか。一つの独立な方程式で $\mathbb P^4$ を切るから複素次元は $4-1=3$ である。
+
+[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)へ**周囲の次元** $n=4$、次数 $d=5$ を代入すると
+
+$$
+K_{Q^{\mathrm{an}}}\simeq
+\mathcal O_{Q^{\mathrm{an}}}(5-4-1)
+=\mathcal O_{Q^{\mathrm{an}}}.
+$$
+
+超曲面自身の次元 $3$ を $n$ に代入しない。
 <!-- solution-end -->
 
 ### Level B：複数の比較を接続する
@@ -255,7 +302,17 @@ $F=\sum_{j=0}^4X_j^5$ の超曲面 $Q\subset\mathbb P^4$ について、Jacobian
 $v:\mathbb P^1\to\mathbb P^2$ を $[s:t]\mapsto[s^2:st:t^2]$ で定める。定義可能性・像の方程式・解析化の正則性を順に確かめ、逆に射影多様体間の正則写像が代数的になるための一般的な根拠を答えよ。
 
 <!-- solution-start -->
-**詳細解答。** 三つの斉次式はどれも二次で、$s^2=t^2=0$ なら $s=t=0$ だから射影点上で同時零にならない。従って $v$ は代数的射である。像を $[U:V:W]$ と書けば $UW=s^2t^2=(st)^2=V^2$。この斉次方程式は像に沿って恒等的に成り立ち、逆に $U\ne0$ では $[U:V:W]=[1:z:z^2]$ と書ける。$U=0$ なら $V=0$ で点 $[0:0:1]$ となり $[0:1]$ の像である。従って像は二次曲線 $UW=V^2$ 全体である。各射影チャートの座標表示が多項式・有理式で分母の非零域に正則なので、解析化後は正則写像となる。
+**詳細解答。** 三つの斉次式はどれも二次で、$s^2=t^2=0$ なら $s=t=0$ だから射影点上で同時零にならない。従って $v$ は代数的射である。
+
+像を $[U:V:W]$ と書くと、
+
+$$
+UW=s^2t^2=(st)^2=V^2.
+$$
+
+逆に $U\ne0$ の二次曲線上では $z=V/U$ と置いて $[U:V:W]=[1:z:z^2]$ と書ける。これは $[1:z]$ の像である。$U=0$ の場合は $V=0$ で点 $[0:0:1]$ となり、$[0:1]$ の像である。
+
+従って像は二次曲線 $UW=V^2$ 全体である。各射影チャートの座標表示が分母の非零域で正則だから、解析化後は正則写像となる。
 
 逆方向では一般の正則写像のグラフを射影的な積内で扱い、[正則写像の代数性](../CAG1-09/index.md#thm-cag1-09-morphism-algebraic)を使う。具体例の多項式表示だけでは**すべての**正則写像に対する逆方向を証明したことにならない。
 <!-- solution-end -->
