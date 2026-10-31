@@ -340,7 +340,19 @@ Hodge分解の調和代表を引くと、純型のまま$d$完全になる。直
 <!-- proof-start -->
 ### 証明
 
-[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)により$h=P\alpha$は$(p,q)$型である。[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から、$d$閉$\alpha$と$h$は同じde Rham類を表す。従って$\alpha-h=d\eta$となる滑らかな$\eta$がある。$\alpha-h$は純型であるから、[純型の$d$完全形式の系](#cor-hod1-08-d-exact)により$\alpha-h=\partial\bar\partial u$と書ける。調和代表の一意性も同じHodge–de Rham同型に従う。$\square$
+[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)により$h=P\alpha$は$(p,q)$型である。[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から、$d$閉形式$\alpha$と$h$は同じde Rham類を表す。従って滑らかな$\eta$が存在して
+
+$$
+\alpha-h=d\eta
+$$
+
+となる。左辺も$(p,q)$型であるから、[純型の$d$完全形式の系](#cor-hod1-08-d-exact)を適用でき、
+
+$$
+\alpha-h=\partial\bar\partial u
+$$
+
+と書ける。調和代表の一意性も同じHodge–de Rham同型に従う。$\square$
 <!-- proof-end -->
 
 これは「任意の純型閉形式が二重完全」という主張ではない。**消せない部分は調和代表$h$**として残る。
@@ -366,7 +378,7 @@ $$
 
 ### 証明の見取り図
 
-大域ポテンシャルがあれば$\omega$は$d$完全になる。他方、Kähler形式の最高楔積の積分は正であり、Stokesの定理による零と矛盾する。
+大域ポテンシャルがあれば$\omega$は$d$完全になる。他方、Kähler形式の最高楔積の積分は正であり、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)による零と矛盾する。
 
 <!-- proof-start -->
 ### 証明
@@ -613,7 +625,7 @@ Bott–Chern代表は$\partial$閉・$\bar\partial$閉なのでDolbeault類を�
 #### HOD1-08-B03 大域Kählerポテンシャルが存在しない理由
 - Level: B
 
-複素次元$n\ge1$のコンパクトKähler多様体$X$で$\omega=i\partial\bar\partial\varphi$を満たす大域実関数$\varphi$が存在すると仮定する。$d\omega=0$とStokesの定理を使って矛盾を導け。局所ポテンシャルの存在と何が違うか説明せよ。
+複素次元$n\ge1$のコンパクトKähler多様体$X$で$\omega=i\partial\bar\partial\varphi$を満たす大域実関数$\varphi$が存在すると仮定する。$d\omega=0$と[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使って矛盾を導け。局所ポテンシャルの存在と何が違うか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -660,12 +672,28 @@ $\beta$は$(p-1,q)$型で滑らかであり、$\bar\partial\alpha=0$と合わせ
 #### HOD1-08-C01 純型閉形式の分類と自然な同型
 - Level: C
 
-$X$を滑らか・コンパクト・境界なしのKähler多様体とする。$d$閉な純型$(p,q)$形式全体を$Z_d^{p,q}$と書く。(1) 各$\alpha\in Z_d^{p,q}$が$\alpha=h+\partial\bar\partial u$（$h$は調和$(p,q)$形式）と書けること、(2) この$h$が一意であること、(3) そこから$H_{\mathrm{BC}}^{p,q}(X)\cong\mathcal H^{p,q}(X)$を直接構成することを証明せよ。
+$X$を滑らか・コンパクト・境界なしのKähler多様体とする。$d$閉な純型$(p,q)$形式全体を$Z_d^{p,q}$と書く。次を順に証明せよ。
+
+1. 各$\alpha\in Z_d^{p,q}$が$\alpha=h+\partial\bar\partial u$と書けること。ただし$h$は調和$(p,q)$形式とする。
+2. この$h$が一意であること。
+3. そこから$H_{\mathrm{BC}}^{p,q}(X)\cong\mathcal H^{p,q}(X)$を直接構成できること。
 
 <!-- solution-start -->
 ### 詳細解答
 
-(1) [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)より、$h=P\alpha$は$\alpha$のde Rham類の調和代表で、$\alpha-h=d\eta$である。[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)から$h$は$(p,q)$型であり、差$\alpha-h$も純型。従って[純型$d$完全形式の系](#cor-hod1-08-d-exact)から$\alpha-h=\partial\bar\partial u$である。
+(1) [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)により、$h=P\alpha$は$\alpha$のde Rham類の調和代表で、ある滑らかな$\eta$について
+
+$$
+\alpha-h=d\eta
+$$
+
+となる。[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)から$h$は$(p,q)$型であり、差も純型である。[純型$d$完全形式の系](#cor-hod1-08-d-exact)をこの差へ適用すると
+
+$$
+\alpha-h=\partial\bar\partial u
+$$
+
+を得る。
 
 (2) $h_1,h_2$が同じ$\alpha$を二重完全項とともに表すと仮定する。差は
 
@@ -691,7 +719,11 @@ $$
 #### HOD1-08-C02 二つの逆包含と非コンパクト反例の境界
 - Level: C
 
-コンパクトKähler多様体$X$の$\alpha\in\Omega^{p,q}(X)$について、(1) $\alpha=\partial\beta$、$\bar\partial\alpha=0$から原始形式$u$をGreen作用素で構成し、(2) $\alpha=\bar\partial\gamma$、$\partial\alpha=0$の場合の原始形式$v$と符号の差を導け。(3) $\mathbb C$上の$dz$が(1)の結論を満たさないことを確認し、証明のどの段階が使えなくなるか述べよ。
+コンパクトKähler多様体$X$の$\alpha\in\Omega^{p,q}(X)$について、次を順に示せ。
+
+1. $\alpha=\partial\beta$かつ$\bar\partial\alpha=0$から原始形式$u$をGreen作用素で構成する。
+2. $\alpha=\bar\partial\gamma$かつ$\partial\alpha=0$の場合の原始形式$v$を構成し、符号の差を説明する。
+3. 非コンパクトな$\mathbb C$上の$dz$は第一問の結論を満たさないことを確認し、証明のどの段階が使えなくなるか述べる。
 
 <!-- solution-start -->
 ### 詳細解答
