@@ -137,7 +137,7 @@ chapters:
     title: "Haar測度とランダム純粋状態"
   - id: QINF32
     path: textbook/volumes/dream_thater/応用系/QINF/QINF32
-    status: planned
+    status: completed
     title: "Page型エントロピー評価"
   - id: QINF33
     path: textbook/volumes/dream_thater/応用系/QINF/QINF33
