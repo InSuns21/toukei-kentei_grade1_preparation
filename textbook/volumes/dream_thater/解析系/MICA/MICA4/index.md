@@ -157,18 +157,18 @@ $$
 
 ## 3. 超平面に集中したデルタは法線方向だけを残す
 
-一次元の点デルタを高次元で使うと、「支持が超平面の上にある分布」が作れます。ただしこれは空間全体の点デルタとは違い、超平面に沿う方向には滑らかさが残ります。まず超平面を $x_n=a\cdot x'$ と書きます。$x'=(x_1,\ldots,x_{n-1})$ は接線側の座標、$x_n$ は最後の座標、$a\in\mathbb R^{n-1}$ は傾きを表す固定ベクトルです。
+一次元の点デルタを高次元で使うと、「支持が超平面の上にある分布」が作れます。ただしこれは空間全体の点デルタとは違い、超平面に沿う方向には滑らかさが残ります。まず超平面を $x_n=a\cdot x'+b$ と書きます。$x'=(x_1,\ldots,x_{n-1})$ は接線側の座標、$x_n$ は最後の座標、$a\in\mathbb R^{n-1}$ は傾き、$b\in\mathbb R$ は切片を表す固定値です。切片 $b$ が零でない平行移動も含めて扱います。
 
 <a id="def-mica4-hyperplane-delta"></a>
 
 <!-- formal-statement-start -->
 > **定義（アフィン超平面デルタ）**
 >
-> $n\ge2$、$a\in\mathbb R^{n-1}$ とする。超平面 $S_a=\{(x',x_n):x_n=a\cdot x'\}$ に沿うデルタ分布 $\delta(x_n-a\cdot x')\in\mathcal D'(\mathbb R^n)$ を
+> $n\ge2$、$a\in\mathbb R^{n-1}$、$b\in\mathbb R$ とする。アフィン超平面 $S_{a,b}=\{(x',x_n):x_n=a\cdot x'+b\}$ に沿うデルタ分布 $\delta(x_n-a\cdot x'-b)\in\mathcal D'(\mathbb R^n)$ を
 
 $$
-\langle\delta(x_n-a\cdot x'),\varphi\rangle
-=\int_{\mathbb R^{n-1}}\varphi(x',a\cdot x')\,dx'
+\langle\delta(x_n-a\cdot x'-b),\varphi\rangle
+=\int_{\mathbb R^{n-1}}\varphi(x',a\cdot x'+b)\,dx'
 $$
 
 > （$\varphi\in C_c^\infty(\mathbb R^n)$）で定める。
@@ -177,7 +177,7 @@ $$
 <!-- definition-example-start: def-mica4-hyperplane-delta -->
 ### 例：直線 $y=2x$ への集中
 
-**定義の確認**。$n=2,a=2$ として $u=\delta(y-2x)$ を取ります。試験関数 $\varphi$ に対し
+**定義の確認**。$n=2,a=2,b=0$ として $u=\delta(y-2x)$ を取ります。試験関数 $\varphi$ に対し
 
 $$
 \langle u,\varphi\rangle=\int_{\mathbb R}\varphi(t,2t)\,dt.
@@ -186,20 +186,39 @@ $$
 線形性は積分の線形性から従い、台がコンパクトな $\varphi$ の $(t,2t)$ への制限もコンパクト支持かつ滑らかです。したがって積分は有限で、各コンパクト集合上の試験関数の収束に対して連続です。$y\ne2x$ の点の近傍に台を持つ $\varphi$ には作用が $0$ ですが、直線上の点の近傍では非負の試験関数を選べば作用は正です。よって支持はちょうど直線 $y=2x$ です。
 
 この定義は積分に $dt$ を使うので、直線上の弧長測度 $ds=\sqrt5\,dt$ による積分とは $\sqrt5$ 倍違います。波面集合は非零定数倍で変わりませんが、分布の正規化は区別します。
+
+切片も試すと、$b=3$ では
+
+$$
+\langle\delta(y-2x-3),\varphi\rangle
+=\int_{\mathbb R}\varphi(t,2t+3)\,dt
+$$
+
+です。支持は直線 $y=2x+3$ となり、積分の連続性・線形性・有限性は $b=0$ と同じ理由で確認できます。
 <!-- definition-example-end -->
 
-接線方向のベクトルは $(v,a\cdot v)$（$v\in\mathbb R^{n-1}$）です。周波数側のベクトル $\xi=(\xi',\xi_n)$ をこの接線へ作用させると $(\xi'+a\xi_n)\cdot v$ になります。従って全ての接線に対して零となる条件は $\xi'+a\xi_n=0$ です。この計算が「法線の向き」を座標で判定できる理由です。
+接線方向のベクトルは $(v,a\cdot v)$（$v\in\mathbb R^{n-1}$）です。これは $x_n=a\cdot x'+b$ の差分で、切片 $b$ は変化しないためです。[波面集合の導入で説明した余ベクトル](../MICA3/index.md#def-mica3-wavefront) $\xi=(\xi',\xi_n)$ をこの接線に作用させると
+
+$$
+\begin{aligned}
+\xi\bigl(v,a\cdot v\bigr)
+&=\xi'\cdot v+\xi_n(a\cdot v)\\
+&=(\xi'+a\xi_n)\cdot v.
+\end{aligned}
+$$
+
+です。これが全ての $v$ に対し零である必要十分条件は $\xi'+a\xi_n=0$ です。したがって「法線共変ベクトル」は接線をすべて消す余ベクトルを意味し、座標による判定は元の条件と同値です。
 
 <a id="thm-mica4-hyperplane"></a>
 
 <!-- formal-statement-start -->
 > **定理（アフィン超平面デルタの波面集合）**
 >
-> $n\ge2$、$a\in\mathbb R^{n-1}$、$u=\delta(x_n-a\cdot x')$ とする。このとき
+> $n\ge2$、$a\in\mathbb R^{n-1}$、$b\in\mathbb R$、$u=\delta(x_n-a\cdot x'-b)$ とする。このとき
 
 $$
 WF(u)=\left\{
-\bigl((x',a\cdot x'),\,t(-a,1)\bigr):
+\bigl((x',a\cdot x'+b),\,t(-a,1)\bigr):
 x'\in\mathbb R^{n-1},\ t\in\mathbb R\setminus\{0\}
 \right\}.
 $$
@@ -209,24 +228,24 @@ $$
 
 ### 証明の見取り図
 
-試験関数を超平面へ制限してからFourier変換すると、$\xi'+a\xi_n$ だけが残ります。これが非零の方向では[滑らかなコンパクト支持関数の急減少](../MICA1/index.md#thm-mica1-smooth-rapid)を使え、零になる法線方向では周波数を法線に沿って大きくしても値が変わりません。
+試験関数を超平面へ制限してからFourier変換すると、$\xi'+a\xi_n$ と切片による位相因子 $e^{-ib\xi_n}$ が残ります。前者が非零の方向では[滑らかなコンパクト支持関数の急減少](../MICA1/index.md#thm-mica1-smooth-rapid)を使え、零になる法線方向では周波数を法線に沿って大きくしてもFourier変換の絶対値は変わりません。
 
 <!-- proof-start -->
 ### 証明
 
-超平面外の点では局所化で $u$ が零になります。超平面上の $p=(p',a\cdot p')$ を固定し、$p$ の近傍で $1$ となる任意のcutoff $\chi$ に対して
+超平面外の点では局所化で $u$ が零になります。超平面上の $p=(p',a\cdot p'+b)$ を固定し、$p$ の近傍で $1$ となる任意のcutoff $\chi$ に対して
 
 $$
-g(x')=\chi(x',a\cdot x')\in C_c^\infty(\mathbb R^{n-1}),
+g(x')=\chi(x',a\cdot x'+b)\in C_c^\infty(\mathbb R^{n-1}),
 \qquad
 \widehat{\chi u}(\xi',\xi_n)
-=\int g(x')e^{-ix'\cdot(\xi'+a\xi_n)}\,dx'
-=\widehat g(\xi'+a\xi_n)
+=e^{-ib\xi_n}\int g(x')e^{-ix'\cdot(\xi'+a\xi_n)}\,dx'
+=e^{-ib\xi_n}\widehat g(\xi'+a\xi_n)
 $$
 
 です。$g=1$ near $p'$ だから零関数ではありません。
 
-まず $\xi'_0+a\xi_{n,0}\ne0$ とします。線形写像 $L(\xi)=\xi'+a\xi_n$ の連続性から、$\xi_0$ を含む小さな開錐 $\Gamma$ と $c>0$ があり、$\xi\in\Gamma$ なら $|L(\xi)|\ge c|\xi|$ です。$\widehat g$ の任意次数の急減少を入力すると
+まず $\xi'_0+a\xi_{n,0}\ne0$ とします。線形写像 $L(\xi)=\xi'+a\xi_n$ の連続性から、$\xi_0$ を含む小さな開錐 $\Gamma$ と $c>0$ があり、$\xi\in\Gamma$ なら $|L(\xi)|\ge c|\xi|$ です。$|e^{-ib\xi_n}|=1$ なので、$\widehat g$ の任意次数の急減少を入力すると
 
 $$
 |\widehat{\chi u}(\xi)|
@@ -236,18 +255,19 @@ $$
 
 従って非法線方向は規則的です。
 
-逆に法線方向 $\xi_0=t_0(-a,1)$（$t_0\ne0$）を考えます。$\widehat g$ が恒等的に零なら[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)により $g=0$ となるはずですから、$\widehat g(\beta)\ne0$ となる $\beta\in\mathbb R^{n-1}$ が存在します。$t$ を $t_0$ と同符号で $|t|\to\infty$ として
+逆に法線方向 $\xi_0=t_0(-a,1)$（$t_0\ne0$）を考えます。$\widehat g$ が恒等的に零なら、[多次元Fourier反転を含むMICA1の証明](../MICA1/index.md#thm-mica1-smooth-rapid)（各座標で1次元の反転を反復する）により $g=0$ となるはずですから、$\widehat g(\beta)\ne0$ となる $\beta\in\mathbb R^{n-1}$ が存在します。$t$ を $t_0$ と同符号で $|t|\to\infty$ として
 
 $$
 \xi(t)=(-ta+\beta,t),\qquad
 L(\xi(t))=\beta,\qquad
-\widehat{\chi u}(\xi(t))=\widehat g(\beta)\ne0
+\widehat{\chi u}(\xi(t))=e^{-ibt}\widehat g(\beta),\qquad
+|\widehat{\chi u}(\xi(t))|=|\widehat g(\beta)|>0
 $$
 
-と取れます。$\xi(t)/|\xi(t)|$ は $\xi_0/|\xi_0|$ に近づくので、$\xi_0$ を含む任意の開錐には十分大きな $|t|$ で $\xi(t)$ が入ります。固定の非零値は次数 $N=1$ の急減少に反します。$\chi$ は任意であり、法線の正負両方向が残ります。$\square$
+と取れます。$\xi(t)/|\xi(t)|$ は $\xi_0/|\xi_0|$ に近づくので、$\xi_0$ を含む任意の開錐には十分大きな $|t|$ で $\xi(t)$ が入ります。固定の非零絶対値は次数 $N=1$ の急減少に反します。$\chi$ は任意であり、法線の正負両方向が残ります。$\square$
 <!-- proof-end -->
 
-特に $a=0$ とすると、水平超平面 $x_n=0$ に対して
+特に $a=0$、$b=0$ とすると、水平超平面 $x_n=0$ に対して
 
 $$
 WF(\delta(x_n))
@@ -715,7 +735,18 @@ $$
 WF(xH(x))=\{(0,\xi):\xi\ne0\}.
 $$
 
-$x\delta_0=0$ は係数 $x(0)=0$ により完全に消えますが、$xH$ は段差を連続にするだけで微分 $H+x\delta_0=H$ に段差が残り、滑らかにはなりません。[乗算の非増大](../MICA3/index.md#thm-mica3-smooth-multiplier)は、係数の零点で波面が必ず消えるとは主張しません。
+$x\delta_0=0$ は係数 $x(0)=0$ により完全に消えますが、$xH$ は段差を連続にするだけです。[分布微分の定義](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)から任意の試験関数 $\varphi$ について
+
+$$
+\begin{aligned}
+\langle(xH)',\varphi\rangle
+&=-\int_0^\infty x\varphi'(x)\,dx\\
+&=\int_0^\infty\varphi(x)\,dx
+=\langle H,\varphi\rangle.
+\end{aligned}
+$$
+
+となり、微分しても段差 $H$ が残るため滑らかにはなりません。[乗算の非増大](../MICA3/index.md#thm-mica3-smooth-multiplier)は、係数の零点で波面が必ず消えるとは主張しません。
 <!-- solution-end -->
 
 ### 演習 MICA4-B3：同じ場所での相殺
@@ -736,7 +767,17 @@ $$
 
 $f$ は滑らかなので $WF(f)=\varnothing$ です。$g$ について、滑らかな項を足してもWFが変わらないことを[和の包含](../MICA3/index.md#prop-mica3-sum)の両向きに適用し、$WF(g)=WF(H)=\{(0,\xi):\xi\ne0\}$ を得ます。具体的には $g=2H-1$ と $2H=g+1$ に包含を使います。
 
-$H(-x)$ 自体も原点で段差を持つので、正負とも $1/|\xi|$ の非減衰があります。しかし $f$ では二つの段差の跳びが逆向きで、和が定数 $1$ になります。[和の包含](../MICA3/index.md#prop-mica3-sum)が等号を保証しない理由は、このように同一方向の特異成分が打ち消せるからです。
+$H(-x)$ 自体も、$\chi=1$ near $0$ に対する部分積分から
+
+$$
+\begin{aligned}
+\widehat{\chi H(-x)}(\xi)
+&=\int_{-\infty}^0\chi(x)e^{-ix\xi}\,dx\\
+&=-\frac1{i\xi}+O(|\xi|^{-2}).
+\end{aligned}
+$$
+
+となるので、原点で正負とも $1/|\xi|$ の非減衰があります。しかし $f$ では二つの段差の跳びが逆向きで、和が定数 $1$ になります。[和の包含](../MICA3/index.md#prop-mica3-sum)が等号を保証しない理由は、このように同一方向の特異成分が打ち消せるからです。
 <!-- solution-end -->
 
 ### 演習 MICA4-B4：境界値の線形結合
