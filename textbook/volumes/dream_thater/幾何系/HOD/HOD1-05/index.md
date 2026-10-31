@@ -694,7 +694,7 @@ L\alpha
 \end{aligned}
 $$
 
-正則因子が一つ、反正則因子が二つで$(1,2)$型である。$\alpha$は定数係数で$d\alpha=d^*\alpha=0$だから$\Delta_d\alpha=0$。[Laplacianとの可換性](#thm-hod1-05-laplacian-lefschetz)を使うと
+正則因子が一つ、反正則因子が二つで$(1,2)$型である。$\alpha$は定数係数であり、[平坦トーラスの余微分の判定](#def-hod1-05-harmonic-pq)と同じ局所式から$d\alpha=d^*\alpha=0$だから、$\Delta_d\alpha=0$。[Laplacianとの可換性](#thm-hod1-05-laplacian-lefschetz)を使うと
 
 $$
 \Delta_d(L\alpha)=L(\Delta_d\alpha)=0.
@@ -835,7 +835,7 @@ $$
 \beta^{0,1}=\bar\theta^2.
 $$
 
-定数係数で平坦な余標構なので、どちらも$d$と$d^*$で零へ写る。従って[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)により
+[定義例の平坦座標による余微分の判定](#def-hod1-05-harmonic-pq)を各1形式の一定係数へ適用すると、どちらも$d$と$d^*$で零へ写る。従って[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)により
 
 $$
 \Delta_d\theta^1=0,\qquad
