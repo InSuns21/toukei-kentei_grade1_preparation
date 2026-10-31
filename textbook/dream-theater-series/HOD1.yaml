@@ -40,7 +40,7 @@ chapters:
     title: "大域partial barpartial補題"
   - id: HOD1-09
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-09
-    status: planned
+    status: completed
     title: "具体例とHodgeダイヤモンドI"
   - id: HOD1-10
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-10
