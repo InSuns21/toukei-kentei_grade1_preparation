@@ -1,0 +1,40 @@
+id: "HOD1-03"
+title: "sl2と原始形式の線形代数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-02
+official_scope: []
+learning_objectives:
+  - Lefschetz作用素・随伴・次数作用素のsl2交換関係を符号込みで導出できる
+  - 原始形式を定義し、次数と随伴の核を具体例で判定できる
+  - 原始形式から作るLefschetz列の係数・長さ・ノルムを証明できる
+  - 各次数の直交Lefschetz分解を有限次元Hermite線形代数から証明できる
+  - 点ごとのLefschetz同型と原始条件の高冪による特徴付けを証明し大域のHard Lefschetzと区別できる
+definitions:
+  - { id: HOD1-03-DEF-01, name: "原始形式" }
+theorems:
+  - { id: HOD1-03-THM-01, name: "Lefschetz作用素のsl2交換関係" }
+  - { id: HOD1-03-LEM-01, name: "原始形式のLefschetz列公式" }
+  - { id: HOD1-03-THM-02, name: "点ごとのLefschetz直交分解" }
+  - { id: HOD1-03-THM-03, name: "点ごとのLefschetz同型" }
+  - { id: HOD1-03-PROP-01, name: "原始形式の高冪による特徴付け" }
+  - { id: HOD1-03-COR-01, name: "原始形式の次元" }
+canonical_examples:
+  - 複素次元1の原始形式と二項のLefschetz列
+  - 複素次元2の原始(1,1)形式の具体基底
+  - 複素次元3の跡成分・原始成分の直交分解
+problem_patterns:
+  - HOD1-03-COMMUTATOR
+  - HOD1-03-PRIMITIVE-CHECK
+  - HOD1-03-LADDER-NORM
+  - HOD1-03-PRIMITIVE-DIMENSION
+  - HOD1-03-ORTHOGONAL-PROJECTION
+  - HOD1-03-FACTORIAL
+  - HOD1-03-MIDDLE-DEGREE
+  - HOD1-03-KERNEL-CRITERION
+  - HOD1-03-THREE-DIM-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
