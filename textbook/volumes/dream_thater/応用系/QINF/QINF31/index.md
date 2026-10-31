@@ -10,13 +10,13 @@
 
 ## 2. ランダム純粋状態をどう作るか
 
-まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$。$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた $g=(z_1,\ldots,z_D)^T$ の密度は
+まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$。$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた列ベクトル $g=(z_1,\ldots,z_D)^{\mathsf T}$ を取ります。ここで $^{\mathsf T}$ は転置、$^\dagger$ は[随伴の行列表現](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)としての共役転置を表し、$g^\dagger g=\sum_{r=1}^D|z_r|^2=\|g\|^2$ です。$g$ の密度は
 
 $$
 p(g)=\pi^{-D}\exp(-g^\dagger g)
 $$
 
-です。これは $g$ の長さ $g^\dagger g$ だけに依存するので、任意のユニタリ $V\in U(D)$ に対して $Vg$ と $g$ は同じ分布です。$\Pr(g=0)=0$ なので $g/\|g\|$ はほとんど確実に定義できます。
+です。任意のユニタリ $V\in U(D)$ は $\|Vg\|=\|g\|$ を満たします。さらに複素ユニタリ変換を実 $2D$ 次元の線形変換とみなしたとき、実Jacobianの絶対値は $|\det_{\mathbb C}V|^2=1$ です。よって密度の値だけでなく体積要素も保存され、$Vg$ と $g$ は同じ分布になります。連続密度を持つので $\Pr(g=0)=0$ であり、$g/\|g\|$ はほとんど確実に定義できます。
 
 正規化したベクトルの位相を変えても同じ純粋状態を表します。この点は[純粋密度演算子の定義](../QINF2/index.md#def-qinf2-pure-mixed)とも整合しています。
 
@@ -31,7 +31,7 @@ $$
 一つのユニタリ $V$ を作用させると状態は $V|\psi\rangle$ に変わりますが、**分布**は変わりません。「各状態がすべて同じ確率」という有限集合の言い方ではなく、分布の不変性が正確な条件です。
 
 <!-- definition-example-start: def-qinf31-haar -->
-**定義の確認**（一qubit）。独立な複素Gaussian $z_0,z_1$ を取って $|\psi\rangle=(z_0|0\rangle+z_1|1\rangle)/\sqrt{|z_0|^2+|z_1|^2}$ とします。分母は正で、ノルムは1です。また $Vg$ と $g$ が同分布で $\|Vg\|=\|g\|$ なので、任意の $V\in U(2)$ について $V|\psi\rangle$ の分布は同じです。位相を変えても $|\psi\rangle\langle\psi|$ は変化しません。
+**定義の確認**（一qubit）。独立な複素Gaussian $z_0,z_1$ を取って $|\psi\rangle=(z_0|0\rangle+z_1|1\rangle)/\sqrt{|z_0|^2+|z_1|^2}$ とします。分母は正で、ノルムは1です。また $Vg$ と $g$ が同分布で $\|Vg\|=\|g\|$ なので、任意の $V\in U(2)$ について $V|\psi\rangle$ の分布は同じです。位相を変えても $|\psi\rangle\langle\psi|$ は変化しません。この球面上の不変分布が、定義中のHaarユニタリ $U$ から得る $Ue$ と実際に同分布であることは、直後の構成定理で確認します。
 <!-- definition-example-end -->
 
 定義が空虚でないこと、分布が一意に定まることを証明します。そのために、正方複素Gaussian行列の列へ[複素Gram–Schmidt直交化](../../../基礎科目/LA/LA5/index.md#thm-la5-complex-gram-schmidt)を順番に施す**QR分解**を使います。列が一次独立なら $G=QR$ と一意に分解でき、$Q$ はユニタリ、$R$ は上三角で対角成分が正の実数です。直交化の各段階でベクトルのノルムを正数に取ることで、この位相規約が成り立ちます。
@@ -65,9 +65,28 @@ p(VG)=\pi^{-D^2}\exp[-\operatorname{Tr}(G^\dagger V^\dagger VG)]
 =p(G)
 $$
 
-なので $VG\overset{\mathrm d}=G$ です。従って $VQ\overset{\mathrm d}=Q$ で、左不変確率分布が構成できました。
+です。$G\mapsto VG$ は各列に同じユニタリを作用させる変換で、実 $2D^2$ 次元でのJacobianの絶対値は $|\det_{\mathbb C}V|^{2D}=1$ です。従って $VG\overset{\mathrm d}=G$、ひいては $VQ\overset{\mathrm d}=Q$ となり、左不変確率分布が構成できました。
 
-**一意性と右不変性。** $\mu,\nu$ を左不変な任意の確率分布とし、$U\sim\mu$、$V\sim\nu$ を独立に選びます。$V^{-1}$ の分布 $\nu^{-1}$ は右不変です。任意の有界連続関数 $f$ に対し、積 $V^{-1}U$ の平均は、$V$ を固定して $\mu$ の左不変性を使えば $\int f\,d\mu$、$U$ を固定して $\nu^{-1}$ の右不変性を使えば $\int f\,d\nu^{-1}$ です。よって $\mu=\nu^{-1}$。特に $\mu=\nu$ と置くと $\nu=\nu^{-1}$。従って左不変分布は一意で、同時に右不変です。
+**一意性と右不変性。** $\mu,\nu$ を左不変な任意の確率分布とし、$U\sim\mu$、$V\sim\nu$ を独立に選びます。$V^{-1}$ の分布を $\nu^{-1}$ と書きます。固定ユニタリ $W$ に対して
+
+$$
+V^{-1}W=(W^{-1}V)^{-1},
+$$
+
+かつ $W^{-1}V$ と $V$ は左不変性で同分布です。したがって $\nu^{-1}$ は**右不変**です。任意の有界連続関数 $f$ に対して独立性から二通りに積分すると、
+
+$$
+\begin{aligned}
+\mathbb E[f(V^{-1}U)]
+&=\mathbb E_V\!\left[\mathbb E_U[f(V^{-1}U)\mid V]\right]
+ =\int f\,d\mu,\\
+\mathbb E[f(V^{-1}U)]
+&=\mathbb E_U\!\left[\mathbb E_V[f(V^{-1}U)\mid U]\right]
+ =\int f\,d\nu^{-1}.
+\end{aligned}
+$$
+
+最初の等式は $\mu$ の左不変性、次の等式は $\nu^{-1}$ の右不変性によります。よって $\mu=\nu^{-1}$。特に $\mu=\nu$ と置けば $\nu=\nu^{-1}$。これを任意の二つの左不変分布へ戻すと $\mu=\nu$ で一意性が従い、しかも左不変分布 $\mu$ は逆行列で押し出しても変わらないため右不変でもあります。
 
 **ベクトル。** QRの最初の列は、最初のGaussian列 $g$ を $\|g\|$ で割ったものです。さらに任意の固定単位ベクトル $e$ は $e=We_1$ と表せるので、右不変性より $Qe=QWe_1$ と $Qe_1$ は同分布です。これで主張がすべて従います。
 <!-- proof-end -->
@@ -76,7 +95,7 @@ $$
 
 ## 3. 平均状態は最大混合だが、それだけでは「典型性」は分からない
 
-まず $\rho=|\psi\rangle\langle\psi|$ の平均を考えます。行列 $M=\mathbb E\rho$ はすべてのユニタリ $V$ に対し $VMV^\dagger=M$ を満たします。対角位相行列で非対角成分が零、基底の番号を入れ替えるユニタリで対角成分が等しいことが分かります。
+まず $\rho=|\psi\rangle\langle\psi|$ の平均を考えます。$\mathbb C^D$ の固定した正規直交基底 $|i\rangle$ で $|\psi\rangle=\sum_{i=1}^D\psi_i|i\rangle$ と展開し、$\psi_i=\langle i|\psi\rangle$ をその座標と呼びます。行列 $M=\mathbb E\rho$ はすべてのユニタリ $V$ に対し $VMV^\dagger=M$ を満たします。対角位相行列で非対角成分が零、基底の番号を入れ替えるユニタリで対角成分が等しいことが分かります。
 
 <a id="prop-qinf31-first-moment"></a>
 
@@ -103,7 +122,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M_{ij}=\mathbb E(\psi_i\overline{\psi_j})$ と置きます。$i\ne j$ のとき第 $i$ 座標だけを $e^{i\theta}$ 倍しても分布が同じなので、$M_{ij}=e^{i\theta}M_{ij}$ が任意の $\theta$ で成り立ち、$M_{ij}=0$。座標置換により $M_{11}=\cdots=M_{DD}=c$。さらに $\operatorname{Tr}M=\mathbb E\|\psi\|^2=1$ から $Dc=1$ です。最後に[部分トレースの期待値性質](../QINF3/index.md#thm-qinf3-expectation-uniqueness)を使うと
+$M_{ij}=\mathbb E(\psi_i\overline{\psi_j})$ と置きます。$i\ne j$ のとき第 $i$ 座標だけを $e^{i\theta}$ 倍しても分布が同じなので、$M_{ij}=e^{i\theta}M_{ij}$ が任意の $\theta$ で成り立ち、$M_{ij}=0$。座標置換により $M_{11}=\cdots=M_{DD}=c$。さらに $\operatorname{Tr}M=\mathbb E\|\psi\|^2=1$ から $Dc=1$ です。最後に、有限次元での期待値の線形性と[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)を使うと
 
 $$
 \mathbb E\rho_A
@@ -136,13 +155,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf31-swap -->
-**定義の確認**。$K=\mathbb C^2$ なら $F_K|01\rangle=|10\rangle$、$F_K|00\rangle=|00\rangle$。基底 $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ での行列は
+**定義の確認**。$K=\mathbb C^2$ なら $F_K|01\rangle=|10\rangle$、$F_K|00\rangle=|00\rangle$ です。[積基底の定理](../QINF1/index.md#thm-qinf1-product-basis)により $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ は $K\otimes K$ の基底です。定義の $F_K|ij\rangle=|ji\rangle$ に従い、各列 $|ij\rangle$ の像が対応する行 $|ji\rangle$ に係数1を持ち、残りの成分は0です。よってこの基底での行列は
 
 $$
 F_K=\begin{pmatrix}1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1\end{pmatrix}.
 $$
 
-この行列は転置共役で不変、二乗が単位行列です。固定される基底は $|00\rangle,|11\rangle$ の2本なので $\operatorname{Tr}F_K=2=\dim K$。一般の正規直交基底 $|i\rangle$ でも $F_K=\sum_{ij}|ij\rangle\langle ji|$、従って $\operatorname{Tr}F_K=\dim K$ です。
+この行列は転置共役で不変であり、二回作用させると $|ij\rangle\mapsto|ji\rangle\mapsto|ij\rangle$ となるので二乗は単位行列です。対角成分1は $|00\rangle,|11\rangle$ の2本に対応するので $\operatorname{Tr}F_K=2=\dim K$。一般の正規直交基底 $|i\rangle$ でも $F_K=\sum_{ij}|ij\rangle\langle ji|$、従って $\operatorname{Tr}F_K=\dim K$ です。
 <!-- definition-example-end -->
 
 <a id="lem-qinf31-swap-trick"></a>
@@ -430,17 +449,21 @@ $$
 |\psi\rangle=\sum_{i,\alpha}c_{i\alpha}|i\rangle_A|\alpha\rangle_B.
 $$
 
-部分トレースの成分表示によって
+固定した $A,B$ の正規直交基底 $|i\rangle_A,|\alpha\rangle_B$ について、[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)から
 
 $$
+\begin{aligned}
 (\rho_A)_{ij}
-=\sum_{\alpha=1}^{d_B}c_{i\alpha}\overline{c_{j\alpha}},
-\qquad
+&=\sum_{\alpha=1}^{d_B}\langle i\alpha|\psi\rangle\langle\psi|j\alpha\rangle\\
+&=\sum_{\alpha=1}^{d_B}c_{i\alpha}\overline{c_{j\alpha}}
+=(CC^\dagger)_{ij},\\
 \operatorname{Tr}\rho_A^2
+&=\sum_{i,j=1}^{d_A}(\rho_A)_{ij}(\rho_A)_{ji}
 =\sum_{i,j=1}^{d_A}|(\rho_A)_{ij}|^2.
+\end{aligned}
 $$
 
-特に後式は $\rho_A$ がHermitianであることから導いたもので、固有値分解をしなくても評価できます。実行できる[サンプル実装](assets/haar-sampling.mjs)では乱数種、二部系の次元、標本数を引数に指定します。
+ここで $C$ は $d_A\times d_B$ 行列で、$C^\dagger$ はその共役転置です。特に後式は $\rho_A$ がHermitianであることから導いたもので、固有値分解をしなくても評価できます。実行できる[サンプル実装](assets/haar-sampling.mjs)では乱数種、二部系の次元、標本数を引数に指定します。
 
 実験では各標本のpurity $P_s$ を記録し、標本平均 $\overline P$ と標本標準偏差 $s_P$ から、独立標本を仮定した平均の標準誤差 $s_P/\sqrt N$ を算出します。解析値
 
