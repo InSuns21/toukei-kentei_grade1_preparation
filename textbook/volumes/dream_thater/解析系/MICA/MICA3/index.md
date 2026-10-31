@@ -25,7 +25,9 @@ $$
 \xi=\sum_{j=1}^n\xi_j\,dx^j
 $$
 
-となります。$T^*\mathbb R^n$ は、各位置 $x$ とその点の余ベクトルの組 $(x,\xi)$ を集めたものです。本講義では $\xi=0$ を除いた組だけを使います。この固定座標での同一視と、一般の座標変換での余ベクトルの変換則は区別し、後者は MICA5 で証明します。
+となります。$T^*\mathbb R^n$ は、各位置 $x$ とその点の余ベクトルの組 $(x,\xi)$ を集めたものです。本講義では零方向を除きます。
+
+ここでの対応は固定座標での同一視です。一般の座標変換で余ベクトルがどう動くかは MICA5 で証明します。
 
 ## 1. 規則的でない組を集める
 
@@ -328,7 +330,20 @@ $$
 
 ## 5. 微分によって新しい方向は生まれるか
 
-[超関数の微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)は滑らかでない分布にも定義されます。$\partial_{x_j}=\partial/\partial x_j$ は第 $j$ 座標で微分し、残りの座標を固定する演算子です。以下では同じ演算子を $\partial_j$ と略記します。また、[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_n)$ に対する $\partial_x^\alpha=\partial_{x_1}^{\alpha_1}\cdots\partial_{x_n}^{\alpha_n}$ は各座標での反復微分です。
+[超関数の微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)は滑らかでない分布にも定義されます。座標微分は第 $j$ 座標だけを動かし、残りの座標を固定する演算子です。本節では次の二つの記法を同じ意味で使います。
+
+$$
+\partial_j=\partial_{x_j}=\frac{\partial}{\partial x_j}
+$$
+
+また、[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_n)$ は各座標での微分回数を表し、反復微分を
+
+$$
+\partial_x^\alpha
+=\partial_{x_1}^{\alpha_1}\cdots\partial_{x_n}^{\alpha_n}
+$$
+
+と書きます。
 
 コンパクト支持分布の[Fourier微分公式](../MICA1/index.md#prop-mica1-fourier-derivative)は $\partial_{x_j}$ が周波数側で $i\xi_j$ の乗算になることを述べました。周波数に多項式を掛けても任意次数の急減少は保たれますが、cutoffを先に掛けると積の微分から**余分な項**が出ることに注意が必要です。
 
@@ -611,7 +626,9 @@ $$
 =\widehat g(\xi_2).
 $$
 
-非零の基準方向 $\xi^0=(\xi_1^0,\xi_2^0)$ を $\xi_2^0\ne0$ となるように固定します（上付きの $0$ は固定した方向の目印で、べき乗ではありません）。この方向を囲む十分小さい開錐では $|\xi_2|\ge c|\xi|$（$c>0$）です。[滑らかな関数のFourier急減少](../MICA1/index.md#thm-mica1-smooth-rapid)から任意の $N$ について
+非零の基準方向 $\xi^0=(\xi_1^0,\xi_2^0)$ を、$\xi_2^0\ne0$ となるように固定します。上付きの $0$ は固定した方向の目印で、べき乗ではありません。
+
+この方向を囲む十分小さい開錐では $|\xi_2|\ge c|\xi|$（$c>0$）です。[滑らかな関数のFourier急減少](../MICA1/index.md#thm-mica1-smooth-rapid)から任意の $N$ について
 
 $$
 |\widehat g(\xi_2)|
