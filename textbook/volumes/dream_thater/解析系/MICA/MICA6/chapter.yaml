@@ -1,0 +1,41 @@
+id: "MICA6"
+title: "分布の積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA5
+official_scope: []
+learning_objectives:
+  - 分布のテンソル積を試験関数への作用から定義し、対角線上の制限と通常の積の関係を説明できる
+  - 対角線の余法束を接空間の消滅条件から導き、二つの波面の逆向き衝突を判定できる
+  - Hörmanderの非衝突十分条件の下で局所Fourier畳み込みによる積の存在・局所性を証明できる
+  - 積の波面集合の三種類の候補方向と、その包含評価の錐分割を導出できる
+  - 片側境界値の同側積と逆側積、Heaviside平方、デルタ平方の違いを正しく区別できる
+  - 交叉するデルタと段差の積を構成し、和の方向を含む波面集合を検算できる
+definitions:
+  - { id: MICA6-DEF-01, name: 分布のテンソル積 }
+theorems:
+  - { id: MICA6-PROP-01, name: テンソル積の波面集合の包含 }
+  - { id: MICA6-LEM-01, name: 非衝突方向の錐分離とFourier畳み込み }
+  - { id: MICA6-THM-01, name: Hörmanderの分布積の存在定理 }
+  - { id: MICA6-THM-02, name: 分布積の波面集合評価 }
+  - { id: MICA6-PROP-02, name: 同側境界値の積 }
+canonical_examples:
+  - 滑らかな関数同士のテンソル積と対角線の制限
+  - 対角線の余法束と互いに逆向きの周波数の衝突
+  - 同側境界値の積と逆側境界値の発散
+  - Heaviside平方は存在するが十分条件が成立しない例
+  - 交叉する直線デルタと段差で全方向が現れる例
+problem_patterns:
+  - MICA6-TENSOR-TEST
+  - MICA6-DIAGONAL-CONORMAL
+  - MICA6-COLLISION-CHECK
+  - MICA6-BOUNDARY-POWER
+  - MICA6-SMOOTH-COEFFICIENT
+  - MICA6-DELTA-REGULARIZATION
+  - MICA6-TRANSVERSE-SINGULARITIES
+  - MICA6-CROSSING-WAVEFRONT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
