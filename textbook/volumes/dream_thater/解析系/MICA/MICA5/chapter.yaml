@@ -16,6 +16,7 @@ learning_objectives:
 definitions:
   - { id: MICA5-DEF-01, name: 微分同相による分布の座標移送 }
   - { id: MICA5-DEF-02, name: 多様体上の波面集合 }
+  - { id: MICA5-DEF-03, name: 滑らかな密度と正の密度 }
 theorems:
   - { id: MICA5-LEM-01, name: 非停留位相の積分評価 }
   - { id: MICA5-THM-01, name: 波面集合の微分同相による変換則 }

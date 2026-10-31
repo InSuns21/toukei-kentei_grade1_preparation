@@ -14,7 +14,15 @@ $$
 
 ## 1. 座標を動かすと、分布と周波数はどう動くか
 
-$U,V\subset\mathbb R^n$ を開集合、$F:U\to V$ を滑らかな微分同相写像とします。通常の滑らかな関数 $u(x)$ なら新しい座標 $y=F(x)$ で同じ関数は $u(F^{-1}(y))$ です。分布は点ごとに値を持たないので、試験関数に対する作用で同じ操作を定めます。
+$U,V\subset\mathbb R^n$ を開集合、$F:U\to V$ を滑らかな微分同相写像とします。[GEO2の微分の座標表示](../../../幾何系/GEO/GEO2/index.md#thm-geo2-differential-coordinate)に従い、Jacobian行列を
+
+$$
+DF_x=\left(\frac{\partial F^j}{\partial x^i}(x)\right)_{j,i}
+$$
+
+と記します。これは点 $x$ で接ベクトルを送る行列です。通常の滑らかな関数 $u(x)$ なら新座標 $y=F(x)$ での表示は $u(F^{-1}(y))$ です。分布は点ごとに値を持たないので、試験関数への作用で同じ操作を定めます。
+
+以下の積分に現れる $dx,dy$ はそれぞれ $n$ 次元Lebesgue積分の体積要素であり、余ベクトルを表す1形式 $dx^i,dy^j$ とは区別します。
 
 変数変換 $dy=|\det DF(x)|\,dx$ を使うと、滑らかな $u$ について
 
@@ -54,7 +62,7 @@ $$
 従って $F_*\delta_2=3\delta_6$ です。ここで $F_*$ は「**スカラー関数として**座標表示を移す」規約です。測度としての押し出し $\varphi\mapsto\langle\delta_2,\varphi\circ F\rangle$ とはJacobian因子が違います。ただし係数 $3$ は滑らかで零でないので、波面方向には影響しません。
 <!-- definition-example-end -->
 
-次に周波数を考えます。新座標の位相 $e^{-iy\cdot\eta}$ を旧座標へ代入すると $e^{-iF(x)\cdot\eta}$ です。点 $x$ で位相を微分すると
+次に周波数を考えます。新座標の周波数を $\eta=(\eta_j)_{j=1}^n$、旧座標の周波数を $\xi=(\xi_i)_{i=1}^n$ と記します。新座標の位相 $e^{-iy\cdot\eta}$ を旧座標へ代入すると $e^{-iF(x)\cdot\eta}$ です。$\eta$ を固定し、指数の中の実数値関数 $F(x)\cdot\eta$ を $x$ で微分すると
 
 $$
 d_x(F(x)\cdot\eta)=\sum_{j=1}^n\sum_{i=1}^n
@@ -188,7 +196,24 @@ $$
 
 とできます。ここで $W$ を $\chi=1$ の領域に含めます。$\rho\in C_c^\infty(V)$ を $\rho=1$ near $y_0$、$F^{-1}(\operatorname{supp}\rho)\subset W$ となるように取り、$a(x)=\rho(F(x))|\det DF_x|$ とします。
 
-$w=\chi u$ はコンパクト支持なので、[MICA1のFourier変換の多項式増大](../MICA1/index.md#prop-mica1-polynomial-growth)から、ある $m,C$ について $|\widehat w(\zeta)|\le C(1+|\zeta|)^m$ です。コンパクト支持分布のFourier反転を、試験関数 $a(x)e^{-iF(x)\cdot\eta}$ への作用に用いると
+$w=\chi u$ はコンパクト支持なので、[MICA1のFourier変換の多項式増大](../MICA1/index.md#prop-mica1-polynomial-growth)により、ある $m,C$ について
+
+$$
+|\widehat w(\zeta)|\le C(1+|\zeta|)^m
+$$
+
+です。次に、コンパクト支持の滑らかな試験関数を $\psi_\eta(x)=a(x)e^{-iF(x)\cdot\eta}$ と置きます。
+
+[MICA1で用いた試験関数のFourier反転](../MICA1/index.md#thm-mica1-smooth-rapid)を $w$ に作用させ、積分変数の符号を取り替えます。$\widehat\psi_\eta$ の急減少と $\widehat w$ の多項式増大により、作用と積分の交換も正当化されます。中間式は
+
+$$
+\langle w,\psi_\eta\rangle
+=(2\pi)^{-n}\int_{\mathbb R^n}\widehat w(\zeta)\widehat\psi_\eta(-\zeta)\,d\zeta,
+\qquad
+\widehat\psi_\eta(-\zeta)=\int a(x)e^{i(x\cdot\zeta-F(x)\cdot\eta)}\,dx.
+$$
+
+この式を $\rho v$ のFourier変換に適用すると
 
 $$
 \begin{aligned}
@@ -240,7 +265,13 @@ $$
 \le C_L''(1+|\eta|)^{m+n-L},
 $$
 
-ここで最終の不等式は $\zeta=(1+|\eta|)t$ と同程度の尺度変更で評価でき、$L>m+n$ を取っています。$N,L$ は任意に大きく選べるため $\widehat{\rho v}$ は $\Lambda$ 上で全次数急減少します。$|\eta|<1$ は連続性とコンパクト性から定数を増やせばよく、$(y_0,\eta_0)\notin WF(v)$ です。
+最後の不等式では $R=1+|\eta|$、$\zeta=Rt$ と置き、$d\zeta=R^n\,dt$ とします。$1+|\zeta|\le R(1+|t|)$、$1+|\eta|+|\zeta|=R(1+|t|)$ なので、積分は
+
+$$
+R^{m+n-L}\int_{\mathbb R^n}(1+|t|)^{m-L}\,dt
+$$
+
+以下となり、$L>m+n$ のとき右の積分は有限です。$N,L$ は任意に大きく選べるため $\widehat{\rho v}$ は $\Lambda$ 上で全次数急減少します。$|\eta|<1$ は連続性とコンパクト性から定数を増やせばよく、$(y_0,\eta_0)\notin WF(v)$ です。
 
 同じ証明を微分同相 $F^{-1}:V\to U$ と $v$ に適用します。分布の移送の定義で $|(DF^{-1})_y|=|\det DF_x|^{-1}$ が成り立つため $(F^{-1})_*v=u$ です。したがって逆向きの規則性も得られ、集合の等号が成立します。$\square$
 <!-- proof-end -->
@@ -251,7 +282,42 @@ $$
 
 $M$ を $n$ 次元滑らかな多様体とします。$T^*M$ の点は、基点 $p\in M$ と余ベクトル $\alpha_p\in T_p^*M$ の組です。[余接束の局所自明化](../../../幾何系/GEO/GEO2/index.md#prop-geo2-cotangent-bundle-smooth)によれば、座標 $x:O\to U\subset\mathbb R^n$ の中では $\alpha_p$ を列成分 $\xi$ で表せます。零余ベクトルの集合を**零切断** $0_M=\{(p,0):p\in M\}$ と記します。
 
-多様体上の分布は、コンパクト支持の滑らかな密度に作用する連続線形汎関数として扱います。$x$ 座標で密度が $\varphi(x)|dx^1\cdots dx^n|$ と表されるときの作用を、$\mathbb R^n$ 上の局所分布 $u_x$ によって表します。別の座標 $y=F(x)$ へ移ると、同じ試験密度は旧座標で $\varphi(F(x))|\det DF(x)|\,|dx^1\cdots dx^n|$ となります。その作用を比べると $u_y=F_*u_x$ が従い、第1節のJacobian規約が座標表示に結び付きます。
+多様体上で分布を座標ごとに比較するには、座標変換で体積要素がどう動くかを固定する必要があります。座標の向きを反転しても符号が反転しない体積要素を使います。
+
+<a id="def-mica5-smooth-density"></a>
+
+<!-- formal-statement-start -->
+> **定義（滑らかな密度と正の密度）**  
+> $n$ 次元滑らかな多様体 $M$ 上の滑らかな密度 $\omega$ は、各座標 $x$ で滑らかな係数 $b_x$ を用いて $\omega=b_x(x)|dx^1\cdots dx^n|$ と書け、二つの座標が $y=F(x)$ で結ばれるとき、係数が
+
+$$
+b_y(F(x))|\det DF_x|=b_x(x)
+$$
+
+> を満たすものとする。すべての座標で $b_x>0$ となる密度を正の密度とする。体積要素は
+
+$$
+|dy^1\cdots dy^n|=|\det DF_x|\,|dx^1\cdots dx^n|
+$$
+
+> に従うので、向き付き微分形式とは異なり行列式の絶対値を用いる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mica5-smooth-density -->
+### 直接例：一次元の体積要素の伸縮
+
+**定義の確認**。座標変換の係数関係と、両座標での正値性を順に検証します。
+
+$\mathbb R$ 上の正の密度 $\omega=|dx|$ を、座標 $y=3x$ で表します。$dy=3\,dx$ なので $|dx|=(1/3)|dy|$ です。新座標の係数 $b_y=1/3$ と旧座標の係数 $b_x=1$ は
+
+$$
+b_y(3x)|DF_x|=\frac13\cdot3=1=b_x(x)
+$$
+
+を満たします。両座標で係数は正であり、定義の変換条件と正値条件をそれぞれ確認できました。
+<!-- definition-example-end -->
+
+多様体上の分布は、コンパクト支持の滑らかな密度に作用する連続線形汎関数として扱います。$x$ 座標で試験密度が $\varphi(x)|dx^1\cdots dx^n|$ と表されるときの作用を、$\mathbb R^n$ 上の局所分布 $u_x$ によって表します。別の座標 $y=F(x)$ へ移ると、同じ試験密度は旧座標で $\varphi(F(x))|\det DF(x)|\,|dx^1\cdots dx^n|$ となります。その作用を比べると $u_y=F_*u_x$ が従い、第1節のJacobian規約が座標表示に結び付きます。
 
 <a id="def-mica5-manifold-wavefront"></a>
 
@@ -350,7 +416,7 @@ $$
 N^*S=\{((x,x^2),t(-2x,1)):x\in\mathbb R,\ t\in\mathbb R\}.
 $$
 
-実際 $F(x,z)=(x,z+x^2)$ は $z=0$ を放物線へ写し、微分行列は
+実際 $F(x,z)=(u,v)=(x,z+x^2)$ は $z=0$ を放物線へ写します。逆写像は $(u,v)\mapsto(u,v-u^2)$ で滑らかなので、$F$ は微分同相です。旧座標の接ベクトル $(1,0)$ は $DF(1,0)=(1,2x)$ へ移り、$DF$ を行列表示すると
 
 $$
 DF=\begin{pmatrix}1&0\\2x&1\end{pmatrix}
@@ -545,7 +611,7 @@ $$
 なので、その像は $t(-3x^2,1)$ です。像の点では $u=x$ であるため一致します。両方とも接ベクトルへの評価を零にする同じ集合であり、定義に戻った確認です。
 <!-- solution-end -->
 
-### 演習 MICA5-B2：密度付き曲線デルタの全方向
+### 演習 MICA5-B2：密度付き曲面デルタの全方向
 
 - Level: B
 - 目安時間: 26分
@@ -642,7 +708,7 @@ $$
 
 放物線 $b=a^2$ と直線 $a=0$ は原点でだけ交わります。そのため放物線上の原点以外では $F_*v$ は局所的に定数、直線上の原点以外では $F_*u$ は局所的に零です。[局所性](../MICA3/index.md#lem-mica3-locality)と[和の包含](../MICA3/index.md#prop-mica3-sum)を和と差へ適用し、$w$ の波面はそれぞれの場所にある唯一の非滑らかな項と等しいと分かります。二集合の外では $WF(w)$ は空です。
 
-**3. 原点での相殺の排除。** 原点上では二つの方向集合は
+**3. 原点での相殺の排除。** $WF(T)|_p:=\{\xi\ne0:(p,\xi)\in WF(T)\}$ と書き、点 $p$ 上の方向だけを表します。原点上では二つの方向集合は
 
 $$
 A=\{(0,t):t\ne0\},\qquad B=\{(s,0):s\ne0\}

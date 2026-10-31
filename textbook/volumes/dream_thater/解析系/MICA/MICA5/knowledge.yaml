@@ -21,11 +21,23 @@ concepts:
     kind: theorem
     introduction: formal
     requires: [microlocal.mica5-distribution-coordinate-transfer, microlocal.mica5-nonstationary-phase, microlocal.mica3-wavefront]
+  - id: microlocal.mica5-smooth-density
+    name: 滑らかな密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [滑らかな密度と正の密度]
+    requires: [geometry.cotangent-bundle]
+  - id: microlocal.mica5-positive-density
+    name: 正の密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [滑らかな密度と正の密度]
+    requires: [microlocal.mica5-smooth-density]
   - id: microlocal.mica5-manifold-wavefront
     name: 多様体上の波面集合
     kind: definition
     introduction: formal
-    requires: [microlocal.mica5-coordinate-law, geometry.cotangent-bundle]
+    requires: [microlocal.mica5-coordinate-law, microlocal.mica5-smooth-density, geometry.cotangent-bundle]
   - id: microlocal.mica5-conormal-coordinate
     name: 余法束の局所座標と自然性
     kind: proposition
@@ -35,4 +47,4 @@ concepts:
     name: 部分多様体デルタの波面集合
     kind: theorem
     introduction: formal
-    requires: [microlocal.mica5-coordinate-law, microlocal.mica5-conormal-coordinate, microlocal.mica4-hyperplane-wf]
+    requires: [microlocal.mica5-coordinate-law, microlocal.mica5-conormal-coordinate, microlocal.mica5-positive-density, microlocal.mica4-hyperplane-wf]
