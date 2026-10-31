@@ -270,6 +270,8 @@ $$
 $$
 <!-- definition-example-end -->
 
+有限次元複素ベクトル空間$V$の**複素線形双対**を$V^\vee=\operatorname{Hom}_{\mathbb C}(V,\mathbb C)$と書く。積分対の一方の変数を固定して、他方の空間上の複素線形汎関数が得られるかを調べる。
+
 <a id="thm-hod1-07-perfect-pairing"></a>
 
 <!-- formal-statement-start -->
@@ -296,7 +298,7 @@ $$
 
 [Dolbeaultコホモロジーの調和代表](../HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)は、各類に一意の代表$\alpha_{\mathrm{harm}},\beta_{\mathrm{harm}}$を対応させる。その対応は複素線形である。楔積と積分も各変数で複素線形なので$Q_{p,q}$は複素双線形である。
 
-$\alpha_{\mathrm{harm}}\ne0$とする。[共役と星の相補型同型](#thm-hod1-07-hodge-duality)より$\beta_{\mathrm{harm}}=*\overline{\alpha_{\mathrm{harm}}}$は$(n-p,n-q)$型の調和形式である。[複素形式の内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を第一変数$\bar\alpha$、第二変数$\bar\alpha$に適用すると、点ごとに
+$\alpha_{\mathrm{harm}}\ne0$とする。[共役と星の相補型同型](#thm-hod1-07-hodge-duality)より$\beta_{\mathrm{harm}}=*\overline{\alpha_{\mathrm{harm}}}$は$(n-p,n-q)$型の調和形式である。[複素形式の内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を第一変数$\overline{\alpha_{\mathrm{harm}}}$、第二変数$\overline{\alpha_{\mathrm{harm}}}$に適用すると、点ごとに
 
 $$
 \alpha_{\mathrm{harm}}\wedge(*\overline{\alpha_{\mathrm{harm}}})
