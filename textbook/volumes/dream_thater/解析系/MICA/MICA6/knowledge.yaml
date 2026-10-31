@@ -1,0 +1,37 @@
+chapter: MICA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA5
+forward_references: []
+concepts:
+  - id: microlocal.mica6-tensor-product
+    name: 分布のテンソル積
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier]
+  - id: microlocal.mica6-tensor-wavefront
+    name: テンソル積の波面集合の包含
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica6-tensor-product, microlocal.mica3-wavefront]
+  - id: microlocal.mica6-cone-separation
+    name: 非衝突方向の錐分離とFourier畳み込み
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica2-angular-separation, microlocal.mica1-polynomial-growth]
+  - id: microlocal.mica6-product-existence
+    name: Hörmanderの分布積の存在定理
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica6-cone-separation, microlocal.mica6-tensor-product]
+  - id: microlocal.mica6-product-wavefront
+    name: 分布積の波面集合評価
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica6-product-existence, microlocal.mica6-cone-separation, microlocal.mica3-wavefront]
+  - id: microlocal.mica6-boundary-product
+    name: 同側境界値の積
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica6-product-existence, microlocal.mica4-boundary-wf]

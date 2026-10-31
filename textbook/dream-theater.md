@@ -418,6 +418,7 @@
 3. [MICA3 波面集合の定義と基本性質](textbook/volumes/dream_thater/解析系/MICA/MICA3/index.md)
 4. [MICA4 基本分布の波面集合](textbook/volumes/dream_thater/解析系/MICA/MICA4/index.md)
 5. [MICA5 座標変換と余法束](textbook/volumes/dream_thater/解析系/MICA/MICA5/index.md)
+6. [MICA6 分布の積](textbook/volumes/dream_thater/解析系/MICA/MICA6/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
