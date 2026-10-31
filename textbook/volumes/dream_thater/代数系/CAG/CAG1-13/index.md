@@ -516,18 +516,18 @@ $Q=V_+(\sum X_i^5)\subset\mathbb P^4$ と $M=Q^{\mathrm{an}}$ について、次
 
 $U_i$ で $\partial f_i/\partial z_r\ne0$ の領域の $\eta_{i,r}=(-1)^{r-1}\bigwedge_{a\ne r}dz_a/(\partial f_i/\partial z_r)$ は正則単元で割った局所基底。[CAG1-11の正則形式の構成](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から消去変数によらない。$s=X_k/X_i$ について $df_k=s^{-5}df_i$、$\tau_k=(-1)^{i+k}s^{-5}\tau_i$ なので $\eta_k=(-1)^{i+k}\eta_i$、従って $(-1)^i\eta_i$ が非消失な $\Omega$ を与える。
 
-制限完全列
+五次式による制限完全列は
 
-$
+$$
 0\to\mathcal O_{\mathbb P^4}(-5)\xrightarrow{F}\mathcal O_{\mathbb P^4}\to i_*\mathcal O_Q\to0
-$
+$$
 
-の[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)を取る。[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=4,d=-5$ と $d=0$ を入れると、
+である。この列から[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)を取る。[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=4,d=-5$ と $d=0$ を入れると、
 
-$
+$$
 H^0(\mathbb P^4,\mathcal O(-5))=H^1(\mathbb P^4,\mathcal O(-5))=0,
 \qquad H^0(\mathbb P^4,\mathcal O)=\mathbb C.
-$
+$$
 
 従って長完全列の完全性から $H^0(Q,\mathcal O_Q)=\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)に $q=0$、$\mathcal F=\mathcal O_Q$ を代入すると $H^0(M,\mathcal O_M)=\mathbb C$。
 
