@@ -1,0 +1,40 @@
+id: QFT25
+title: "くりこみ群方程式・β関数・異常次元と一ループの走る結合"
+volume: foundations
+status: supplementary
+prerequisites: [QFT21, QFT23, QFT24]
+official_scope: []
+learning_objectives:
+  - 裸の量とくりこみスケールを区別し固定裸パラメータ微分からβ関数と異常次元を定義できる
+  - φ⁴模型の一ループ結合・質量反項からβλとβm²を係数と符号まで導ける
+  - 波動関数因子から1PI頂点のくりこみ群方程式を導き一ループ四点関数と照合できる
+  - QED真空偏極の有限対数とWard恒等式に整合する電荷の一ループβ関数を求められる
+  - 一ループの流れを積分しLandau極・方式依存・質量閾値・摂動論の適用限界を説明できる
+definitions:
+  - { id: QFT25-DEF-01, name: くりこみ群β関数と場の異常次元 }
+  - { id: QFT25-DEF-02, name: くりこみ群方程式と走る結合 }
+theorems:
+  - { id: QFT25-THM-01, name: φ⁴模型の一ループβ関数と質量の走り }
+  - { id: QFT25-THM-02, name: 1PI頂点のくりこみ群方程式 }
+  - { id: QFT25-THM-03, name: QEDの一ループ電荷β関数 }
+  - { id: QFT25-PROP-01, name: 一ループの流れの積分と有効域 }
+  - { id: QFT25-PROP-02, name: 有限な結合再定義と一ループ係数 }
+canonical_examples:
+  - 自由理論の固定裸微分でβ関数と異常次元が零となることを確かめる
+  - φ⁴の裸四点結合の微分でεの係数と極の係数を分ける
+  - 零外部運動量の一ループ四点頂点にくりこみ群微分を作用させる
+  - QED真空偏極の対数を微分して電荷β関数の符号を確認する
+  - 有限スケールの流れの分母と摂動有効域を比較する
+problem_patterns:
+  - QFT25-BARE-DERIVATIVE
+  - QFT25-MASS-RUNNING
+  - QFT25-FIELD-ANOMALOUS-DIMENSION
+  - QFT25-FOUR-POINT-CHECK
+  - QFT25-QED-LEADING-LOG
+  - QFT25-RG-FLOW
+  - QFT25-SCHEME-CHANGE
+  - QFT25-INTEGRATED-RG
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 5 }
