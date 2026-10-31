@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-28（標準教科書・講義ノートとの照合、依存・証明責務・学修順序の再設計）  
-状態: planned（PLAN設計のみ。HOD1本文・系列manifestは未実装）
+状態: in_progress（HOD1-01実装・査読完了、HOD1-02〜16はplanned）
 
 ## 中心問いと到達点
 
@@ -28,7 +28,7 @@
 | Kähler恒等式、複素Hodge分解、$\partial\bar\partial$-補題、Hard Lefschetz、原始分解、Hodge–Riemann関係 | **HOD1が証明の正本**。KAH1/GA6に重複移植しない。 |
 | Kodaira埋め込み、一般Chern–Weil、Calabi予想、Hodge予想、周期写像の変動理論 | 各専用科目または後続に残す。HOD1では結果の使い道・入口を説明しても**未証明を既証明扱いしない**。 |
 
-現在は HOD1 専用の系列manifest・章本文が存在しない。**今回の改訂は設計のみ**なので `textbook/plans/` に留める。執筆開始時に系列manifestと実際の章IDを作り、各 `chapter.yaml` / `knowledge.yaml` の最小prerequisite・公開stable anchorを確認する。上の科目名だけを全章の一括prerequisiteにしない。
+HOD1系列manifestを初期化し、HOD1-01の本文・`chapter.yaml`・`knowledge.yaml`を実装した。HOD1-02以降は未実装であり、各章の着手時に最小prerequisiteと実在する公開stable anchorを再確認する。上の科目名だけを全章の一括prerequisiteにしない。
 
 ## 仮定・記号・正規化（初章から一貫して使う）
 
@@ -101,7 +101,7 @@
 
 ## 実装・完了条件
 
-1. 最初の実装時にHOD1系列manifestを初期化し、仮IDを実在IDへ確定する。**このPLANの推敲だけでは `plans_progress/` に移動しない。**
+1. HOD1系列manifestを初期化し、HOD1-01〜16の章IDを登録した。HOD1-01の初回実装に伴いPLANを `plans_progress/` に移動した。
 2. 学習者がprerequisiteのみで各章の主要定義・定理・証明を再構成できるよう、必要なら上記16章を分割・統合する。HOD1のためにGA6/KAH1/CM2の既習論証を無用に再執筆しない。
 3. 数式の係数・符号・随伴・次数、非Kähler反例、大域のcompact仮定、実／複素／有理係数、Serre型双対の仮定を各章で監査する。
 4. 新規本文の全主要証明・全演習と詳細解答を再計算し、完成本文を読者の立場で別観点再読する。CI greenやformal statementの個数だけで完成判定しない。
