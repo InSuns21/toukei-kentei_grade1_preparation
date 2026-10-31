@@ -1,7 +1,7 @@
 version: 1
 id: QINF
 title: "量子情報 I・II・III"
-plan: textbook/plans_progress/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # I: QINF1–QINF13 / II: QINF14–QINF24 / III: QINF25–QINF33。

@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-10-14（標準教科書との比較・旧15テーマ構成を刷新・3部の履修区切りを設定）  
-状態: in_progress（QINF1〜QINF33の各章本文完了。部別到達判定・系列横断査読は未完了）
+状態: completed（2026-10-31。QINF1〜QINF33の本文・部別到達判定・系列横断査読を完了）
 
 ## 0. この科目の中心問いと範囲
 
@@ -164,8 +164,17 @@ QINF19〜20の一般定理、QINF23〜24の漸近符号化定理は重い。主�
 
 ## 6. 実装・査読・PLAN状態
 
-1. QINF1〜QINF33の各章は本文・自己査読・公開導線まで完成。第II部・第III部の到達判定と系列横断査読は別の残タスクとして本PLANで管理する。本PLANは textbook/plans_progress/ に置く。
+1. QINF1〜QINF33の各章は本文・自己査読・公開導線まで完成。2026-10-31に第I・II・III部の到達判定と系列横断査読を終え、残タスクを解消したため、本PLANを textbook/plan_done/ へ移す。
 2. QINF1〜QINF33のID衝突がないこと、QM・INFOの直接前提が存在することを着手時に確認し、系列manifestに3部の範囲と境界を記録した。以後、部の境界と既存の直接参照を保持する。
 3. QINF1から順に連続するcompletedの後の最初のplannedを進める。講義の統合・分割・増講をするときは、**最初に講数を機械的に15へ戻すことはしない**。章ごとのlearning objective・証明・演習・参照関係を優先し、manifestと公開導線を同期する。
 4. 新規本文・実質改稿（変更区分C）は主要証明と全演習解答を出発点から再計算し、別観点で完成本文を再読する。数学的修正Bは波及範囲、表示のみAは意味同値と実表示を検証する。**別の完成章の追跡監査はユーザーが章IDを明示して依頼した場合のみ**実施する。CI greenや数値検算を数学的完全性の代用としない。
 5. 各章のcanonical stable anchorを実在させ、既出結果を使う箇所へリンクする。必要なchanged-only validationを通し、**I・II・IIIそれぞれの到達判定**と、全33講の主要学修目標・数学的証明責務・演習/詳細解答・系列全体の整合・公開導線の確認まで完了して初めてplan_done/へ移す。
+
+### 2026-10-31 部別到達判定・系列横断査読
+
+- **対象と範囲:** QINF1〜QINF33の33章について、各章の `chapter.yaml` / `knowledge.yaml`、本文の主要結果anchor・proof block・演習IDと詳細解答を対照した。33章すべて `completed`、主要証明165ブロック、詳細解答303題。各章でA4/B3/C1以上、演習IDと解答開始・終了が対応する。全33章の毎定理・毎解答を今回改めてゼロから再計算したという意味ではない。
+- **第I部（QINF1〜13）:** [POVMの定義](../volumes/dream_thater/応用系/QINF/QINF5/index.md#def-qinf5-povm)、[KrausのCPTP条件](../volumes/dream_thater/応用系/QINF/QINF7/index.md#thm-qinf7-kraus-cptp)、[Choiの完全正値判定](../volumes/dream_thater/応用系/QINF/QINF9/index.md#thm-qinf9-cp)、[Helstrom界](../volumes/dream_thater/応用系/QINF/QINF10/index.md#thm-qinf10-helstrom)、[テレポーテーション](../volumes/dream_thater/応用系/QINF/QINF13/index.md#thm-qinf13-teleportation)へ到達する導線を照合した。状態・測定・チャネル・通信資源の区別が各章にある。
+- **第II部（QINF14〜24）:** [NielsenのLOCC条件](../volumes/dream_thater/応用系/QINF/QINF14/index.md#thm-qinf14-nielsen)、[Tsirelson界](../volumes/dream_thater/応用系/QINF/QINF16/index.md#thm-qinf16-tsirelson)、[SSA](../volumes/dream_thater/応用系/QINF/QINF19/index.md#thm-qinf19-ssa)、[量子データ処理](../volumes/dream_thater/応用系/QINF/QINF20/index.md#thm-qinf20-dpi)、[Schumacher圧縮逆定理](../volumes/dream_thater/応用系/QINF/QINF22/index.md#thm-qinf22-converse)、[HSW](../volumes/dream_thater/応用系/QINF/QINF23/index.md#thm-qinf23-hsw)、[Lloyd–Shor–Devetak量子容量](../volumes/dream_thater/応用系/QINF/QINF24/index.md#thm-qinf24-lsd)の仮定・証明の接続を確認した。SSAは正定値化後の極限、DPIはStinespring等長写像と部分トレース、HSWは典型射影による平均誤りの消失、LSDはブロック長を正則化する構成を含む。古典容量と量子容量を同一視しない。
+- **第III部（QINF25〜33）:** [Knill–Laflamme条件の両方向](../volumes/dream_thater/応用系/QINF/QINF26/index.md#thm-qinf26-kl)、[CSS構成](../volumes/dream_thater/応用系/QINF/QINF27/index.md#thm-qinf27-css-basis)、[環境からの独立性と回復](../volumes/dream_thater/応用系/QINF/QINF29/index.md#thm-qinf29-recovery)、[Haar平均purity](../volumes/dream_thater/応用系/QINF/QINF31/index.md#thm-qinf31-average-purity)、[Page型平均評価](../volumes/dream_thater/応用系/QINF/QINF32/index.md#thm-qinf32-page-type-mean)、[可逆SWAP放出模型](../volumes/dream_thater/応用系/QINF/QINF33/index.md#thm-qinf33-bell-tent)の前提と対象を照合した。Haarの二次モーメントは `(I+F)/[D(D+1)]`、平均purityは `(d_A+d_B)/(d_Ad_B+1)`、Page下界は `log₂[(mn+1)/(m+n)]` で、平均と個々の時間軌道を区別する。
+- **QINF33追跡監査:** 主要定義2・命題2・定理2・演習A4/B4/C1と全詳細解答を再読・再計算。$k=0$ の自明な放射系、固有値を用いた直接例、時刻添字の省略の導入を補足した。$2^{-1}\sum_{a,b}|abba\rangle$ の分割から山型履歴 `(0,1,2,1,0)`、GHZ4から `(0,1,1,1,0)`、純粋三部系の `I(A:M)+I(A:R)=2S(A)` を検算。これは同一担当者による異なる観点での再読であり、第三者独立査読ではない。
+- **依存・公開:** 各直接prerequisiteと33章の公開索引・anchor・知識依存を機械検査し、数学的に援用する主要結果は本文の使用箇所から照合した。QINF外の古典情報・量子力学・重力・場の理論の所有範囲は第5節の停止線を維持する。完了後に新たな問題が発見されれば、対象を明示して追跡監査・修正する。
