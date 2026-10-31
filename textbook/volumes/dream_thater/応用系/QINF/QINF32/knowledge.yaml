@@ -1,0 +1,42 @@
+chapter: QINF32
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00P2A, QINF2, QINF3, QINF6, QINF17, QINF31]
+forward_references: []
+concepts:
+  - id: quantum.renyi-2-entropy
+    name: Rényi-2エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Rényi-2エントロピー）]
+    requires: [quantum.density-purity, quantum.von-neumann-entropy]
+  - id: quantum.entropy-deficit
+    name: エントロピー欠損
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エントロピー欠損）]
+    requires: [quantum.von-neumann-entropy]
+  - id: quantum.entropy-purity-sandwich
+    name: purityとエントロピーの挟み撃ち
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（purityとエントロピーの挟み撃ち）]
+    requires: [quantum.renyi-2-entropy, quantum.von-neumann-entropy]
+  - id: quantum.entropy-deficit-quadratic-bound
+    name: エントロピー欠損の二次偏差界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エントロピー欠損の二次偏差界）]
+    requires: [quantum.entropy-deficit, quantum.entropy-purity-sandwich]
+  - id: quantum.page-type-average-bounds
+    name: Haar部分系のPage型平均評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Haar部分系のPage型平均評価）]
+    requires: [quantum.entropy-purity-sandwich, quantum.haar-average-purity]
+  - id: quantum.page-type-deficit-tail
+    name: エントロピー欠損の確率評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（エントロピー欠損の確率評価）]
+    requires: [quantum.page-type-average-bounds, quantum.haar-average-purity]
