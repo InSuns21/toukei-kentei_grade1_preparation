@@ -1,0 +1,42 @@
+id: QFT18
+title: "QEDのWard–Takahashi恒等式と木レベル光子ゲージ不変性"
+volume: foundations
+status: supplementary
+prerequisites: [QFT17, QFT8, QFT9, QFT11]
+official_scope: []
+learning_objectives:
+  - 自由Dirac逆核の差から三点頂点の木レベルWard–Takahashi恒等式を導ける
+  - 非切断三点核の運動量恒等式を位置空間の接触項と対応させられる
+  - 質量殻の外線で接触項が消える理由と質量殻外で消えない理由を説明できる
+  - Compton散乱の二つの木図を導き各光子運動量との縮約が相殺することを証明できる
+  - 外部光子の偏極のゲージ変換と内部光子の共変ゲージパラメータ依存の違いを判別できる
+definitions:
+  - { id: QFT18-DEF-01, name: 自由Dirac逆核と切断前の伝播核 }
+  - { id: QFT18-DEF-02, name: 木レベル三点核と接触項 }
+  - { id: QFT18-DEF-03, name: Compton散乱の二つの木図 }
+theorems:
+  - { id: QFT18-THM-01, name: 木レベル三点頂点のWard–Takahashi恒等式 }
+  - { id: QFT18-THM-02, name: 非切断三点核の接触項恒等式 }
+  - { id: QFT18-COR-01, name: 質量殻外線のWard恒等式 }
+  - { id: QFT18-THM-03, name: Compton散乱の二つの光子脚の横性 }
+  - { id: QFT18-PROP-01, name: 外部偏極のゲージシフトに対する振幅不変性 }
+canonical_examples:
+  - 静止運動量と零エネルギー空間移行量に対する逆核の差
+  - 三点関数の位置空間での二つのデルタ接触項
+  - 質量殻外のDiracスピノルの残差
+  - Compton散乱の二図が互いに反対符号を作る検算
+problem_patterns:
+  - QFT18-KERNEL-DIFFERENCE
+  - QFT18-PROPAGATOR-DIFFERENCE
+  - QFT18-CONTACT-TERMS
+  - QFT18-ON-SHELL-REDUCTION
+  - QFT18-COMPTON-KINEMATICS
+  - QFT18-INCOMING-PHOTON-WARD
+  - QFT18-OUTGOING-PHOTON-WARD
+  - QFT18-GAUGE-SHIFT
+  - QFT18-OFF-SHELL-COUNTEREXAMPLE
+  - QFT18-COMBINED-TREE-IDENTITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 4 }
