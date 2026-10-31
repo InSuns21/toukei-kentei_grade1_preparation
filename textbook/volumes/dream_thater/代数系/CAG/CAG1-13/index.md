@@ -48,7 +48,7 @@ $U_i=\{X_i\ne0\}$ のアフィン座標を $x_a^{(i)}=X_a/X_i$（$a\ne i$）と�
 
 ここで $\partial f_i/\partial z_r$ は周囲のアフィンチャートで他の $z$ を固定した偏微分、$df_i=\sum_{r=1}^4a_r\,dz_r$ はその全微分である。$df_i=0$ は**超曲面の余接層 $\Omega_M^1$ での関係**を意味する。一方、周囲の余接束を $M$ に制限した中では $df_i$ が非零の法方向として残る。この二つを区別する根拠は[解析的余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)である。
 
-周囲の四形式 $\tau_i=dz_1\wedge dz_2\wedge dz_3\wedge dz_4$ から $df_i$ の方向を取り除く[局所正則随伴形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を使うと、
+周囲の四形式 $\tau_i=dz_1\wedge dz_2\wedge dz_3\wedge dz_4$ から $df_i$ の方向を取り除く[局所正則随伴形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を使う。以下、$\widehat{dz_r}$ は楔積から $dz_r$ を除く記号とする。すると、
 
 $$
 \eta_{i,r}=
@@ -57,7 +57,7 @@ dz_1\wedge\cdots\wedge\widehat{dz_r}\wedge\cdots\wedge dz_4}
 {a_r}.
 $$
 
-ここで帽子 $\widehat{dz_r}$ はその微分因子を外積から除く記号である。これは $a_r\ne0$ の領域でのみ書いた式である。そこでは分母は正則単元であり、残りの微分は局所基底だから、$\eta_{i,r}$ は**零にも極にもならない**。一つの分数式を分母零の点へ強引に延長する必要はない。
+これは $a_r\ne0$ の領域でのみ書いた式である。そこでは分母は正則単元であり、残りの微分は局所基底だから、$\eta_{i,r}$ は**零にも極にもならない**。一つの分数式を分母零の点へ強引に延長する必要はない。
 
 例えば $U_0$ で $x_4\ne0$ なら、
 
@@ -119,7 +119,9 @@ dy_i=-s^{-2}ds,\qquad
 dy_b=s^{-1}dx_b-x_bs^{-2}ds.
 $$
 
-四つの $dy_b$ の外積では、$dy_i$ が既に $ds=dx_k$ を含む。ほかの三因子から $ds$ を選ぶと同じ一次形式を二度楔積して零になる。生き残る項は $(-s^{-2}ds)$ と三つの $s^{-1}dx_b$ の積だけである。$dy_i$ が $U_k$ で現れる位置と $dx_k$ が $U_i$ で現れる位置を数えて、昇順に並べ直す符号は $(-1)^{i+k}$。よって
+四つの $dy_b$ の外積では、$dy_i$ が既に $ds=dx_k$ を含む。ほかの三因子から $ds$ を選ぶと同じ一次形式を二度楔積して零になる。生き残る項は $(-s^{-2}ds)$ と三つの $s^{-1}dx_b$ の積だけである。
+
+添字の昇順に戻す交換回数も確認する。$i<k$ なら $dy_i$ は $U_k$ で左から $i+1$ 番目、対応する $dx_k$ は $U_i$ で左から $k$ 番目なので $k-i-1$ 回交換する。$i>k$ なら逆向きに $i-k-1$ 回交換する。どちらも $dy_i=-s^{-2}ds$ の負号を合わせると $(-1)^{i+k}$ となる。よって
 
 $$
 \tau_k:=\bigwedge_{b\ne k}dy_b
@@ -408,7 +410,7 @@ $$
 dg_k=s^{-5}dg_i-5s^{-6}g_i\,ds=s^{-5}dg_i.
 $$
 
-一方 $y_i=s^{-1}$、$y_b=x_b/s$ を微分する。四形式では $dy_i$ 以外から $ds$ を選ぶ項が消える。生き残る係数は $(-s^{-2})s^{-3}=-s^{-5}$ である。添字昇順の置換符号を合わせて
+一方 $y_i=s^{-1}$、$y_b=x_b/s$ を微分する。四形式では $dy_i$ 以外から $ds$ を選ぶ項が消える。生き残る係数は $(-s^{-2})s^{-3}=-s^{-5}$ である。$i<k$ なら $dx_k$ を昇順の位置へ戻す交換は $k-i-1$ 回、$i>k$ なら $i-k-1$ 回である。負号と合わせて両場合とも $(-1)^{i+k}$ となるから、
 
 $$
 \tau_k=(-1)^{i+k}s^{-5}\tau_i.
@@ -502,7 +504,7 @@ $Q=V_+(\sum X_i^5)\subset\mathbb P^4$ と $M=Q^{\mathrm{an}}$ について、次
 
 $U_i$ で $\partial f_i/\partial z_r\ne0$ の領域の $\eta_{i,r}=(-1)^{r-1}\bigwedge_{a\ne r}dz_a/(\partial f_i/\partial z_r)$ は正則単元で割った局所基底。[CAG1-11の正則形式の構成](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から消去変数によらない。$s=X_k/X_i$ について $df_k=s^{-5}df_i$、$\tau_k=(-1)^{i+k}s^{-5}\tau_i$ なので $\eta_k=(-1)^{i+k}\eta_i$、従って $(-1)^i\eta_i$ が非消失な $\Omega$ を与える。
 
-制限完全列 $0\to\mathcal O(-5)\xrightarrow{F}\mathcal O\to i_*\mathcal O_Q\to0$ の[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)で、[ねじり層の消滅](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)により $H^0(Q,\mathcal O_Q)=\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)で $H^0(M,\mathcal O_M)=\mathbb C$。$\Omega$ が零にならないので掛け算は $\mathcal O_M\simeq K_M$ を与え、$H^0(M,K_M)=\mathbb C\Omega$。
+制限完全列 $0\to\mathcal O(-5)\xrightarrow{F}\mathcal O\to i_*\mathcal O_Q\to0$ の[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)を取る。[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=4,d=-5$ を入れると $H^0(\mathbb P^4,\mathcal O(-5))=H^1(\mathbb P^4,\mathcal O(-5))=0$ となり、$d=0$ では $H^0(\mathbb P^4,\mathcal O)=\mathbb C$。従って長完全列の完全性から $H^0(Q,\mathcal O_Q)=\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)に $q=0$、$\mathcal F=\mathcal O_Q$ を代入すると $H^0(M,\mathcal O_M)=\mathbb C$。$\Omega$ が零にならないので掛け算は $\mathcal O_M\simeq K_M$ を与え、$H^0(M,K_M)=\mathbb C\Omega$。
 
 以上は正則微分形式・層コホモロジー・随伴公式についての代数／解析比較であり、非線形なRicci曲率方程式を解いた段階は一度もない。従ってRicci平坦なKähler計量の存在も、全ホロノミーも未証明のままである。
 <!-- solution-end -->
