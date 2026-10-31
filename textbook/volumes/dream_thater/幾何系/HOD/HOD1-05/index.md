@@ -329,9 +329,37 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-05-harmonic-pq -->
-**定義の確認**（平坦トーラス）。$\mathbb C^2$を格子$(2\pi\mathbb Z+2\pi i\mathbb Z)^2$で割り、標準Euclid計量を入れた複素トーラスを$T^2_{\mathbb C}$とする。
+**定義の確認**（平坦トーラス）。$\mathbb C^2$を格子$(2\pi\mathbb Z+2\pi i\mathbb Z)^2$で割ったものを$T^2_{\mathbb C}$とし、$z^j=x_j+iy_j$と置く。標準Euclid計量と基本形式は
 
-$dz^1$は大域的な$(1,0)$形式で、係数・余標構が一定だから$d(dz^1)=0$かつ$d^*(dz^1)=0$である。[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)を代入すると
+$$
+g_{\mathbb R}=\sum_{j=1}^2(dx_j^2+dy_j^2),\qquad
+\omega=\sum_{j=1}^2dx_j\wedge dy_j.
+$$
+
+計量と$dz^j$は格子平行移動で不変なので商へ降りる。Euclid計量は標準複素構造に対して正定値のHermite計量であり、$d\omega=0$だから、このトーラスはKählerである。
+
+$dz^1=dx_1+i\,dy_1$は大域的な$(1,0)$形式である。実座標を$(u^1,u^2,u^3,u^4)=(x_1,y_1,x_2,y_2)$と置く。周期的な1形式とその係数を
+
+$$
+\eta=\sum_{a=1}^4c_a\,du^a
+$$
+
+と書き、[余微分の随伴関係](../../GA/GA6/index.md#prop-ga6-adjoint)を複素形式へ延長し、周期積分の部分積分を使う。任意の周期関数$h$について
+
+$$
+(dh,\eta)_2
+=\int_{T^2_{\mathbb C}}\sum_{a=1}^4\overline{\partial_{u^a}h}\,c_a\,dV
+=-\int_{T^2_{\mathbb C}}\overline h\sum_{a=1}^4\partial_{u^a}c_a\,dV.
+$$
+
+従って$dz^1$の係数$(1,i,0,0)$は一定であり、外微分の二乗零と定数1形式の外微分を用いて
+
+$$
+d^*\eta=-\sum_{a=1}^4\partial_{u^a}c_a,\qquad
+d^*(dz^1)=0,\qquad d(dz^1)=0
+$$
+
+と確認できる。[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)を代入すると
 
 $$
 \Delta_d(dz^1)=d(d^*dz^1)+d^*(d dz^1)=0.
@@ -470,7 +498,15 @@ $$
 =\bar\partial\bar\partial^*f+\bar\partial^*\bar\partial f=0.
 $$
 
-次に実座標を$u^1=x_1,u^2=y_1,u^3=x_2,u^4=y_2$と置く。逆計量は$g^{ab}=e^{-2x_1}\delta^{ab}$、実4次元の体積密度は$\sqrt{\det g}=e^{4x_1}$となる。[Hodge Laplacianの関数上の座標公式](../../GA/GA6/index.md#thm-ga6-energy)を適用すれば
+次に実座標を$(u^1,u^2,u^3,u^4)=(x_1,y_1,x_2,y_2)$と置く。この座標基底での計量行列は$g_{ab}=e^{2x_1}\delta_{ab}$だから、
+
+$$
+g^{ab}=e^{-2x_1}\delta^{ab},\qquad
+\det(g_{ab})=(e^{2x_1})^4=e^{8x_1},\qquad
+\sqrt{\det g}=e^{4x_1}.
+$$
+
+これらを[Hodge Laplacianの関数上の座標公式](../../GA/GA6/index.md#thm-ga6-energy)へ代入すれば
 
 $$
 \begin{aligned}
@@ -658,7 +694,7 @@ L\alpha
 \end{aligned}
 $$
 
-正則因子が一つ、反正則因子が二つで$(1,2)$型である。$\alpha$は定数係数で$d\alpha=d^*\alpha=0$だから$\Delta_d\alpha=0$。[Laplacianとの可換性](#thm-hod1-05-laplacian-lefschetz)を使うと
+正則因子が一つ、反正則因子が二つで$(1,2)$型である。$\alpha$は定数係数であり、[平坦トーラスの余微分の判定](#def-hod1-05-harmonic-pq)と同じ局所式から$d\alpha=d^*\alpha=0$だから、$\Delta_d\alpha=0$。[Laplacianとの可換性](#thm-hod1-05-laplacian-lefschetz)を使うと
 
 $$
 \Delta_d(L\alpha)=L(\Delta_d\alpha)=0.
@@ -754,7 +790,13 @@ $$
 
 **1. Fourierモードと型。** $\theta^1$は$(1,0)$型で$f$は関数だから$\alpha\in\Omega^{1,0}$である。
 
-平坦計量では$d,d^*$が定数係数の作用素である。実座標$u^a=(x_1,y_1,x_2,y_2)$、$E_a=du^a\wedge(-)$、$I_a=\iota_{\partial_{u^a}}$と置くと
+平坦計量では$d,d^*$が定数係数の作用素である。実座標を$(u^1,u^2,u^3,u^4)=(x_1,y_1,x_2,y_2)$とし、外積と収縮を
+
+$$
+E_a=du^a\wedge(-),\qquad I_a=\iota_{\partial_{u^a}}
+$$
+
+と書く。実正規直交余標構でも[外積と収縮の随伴関係](../HOD1-02/index.md#def-hod1-02-creation-annihilation)と同じく$E_a^*=I_a$である。また周期積分の部分積分から$(\partial_{u^a})^*=-\partial_{u^a}$となる。従って、すべての次数の平坦形式に対し
 
 $$
 d=\sum_a E_a\partial_{u^a},\qquad
@@ -793,7 +835,7 @@ $$
 \beta^{0,1}=\bar\theta^2.
 $$
 
-定数係数で平坦な余標構なので、どちらも$d$と$d^*$で零へ写る。従って[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)により
+[定義例の平坦座標による余微分の判定](#def-hod1-05-harmonic-pq)を各1形式の一定係数へ適用すると、どちらも$d$と$d^*$で零へ写る。従って[Hodge Laplacianの定義](../../GA/GA6/index.md#def-ga6-hodge-laplacian)により
 
 $$
 \Delta_d\theta^1=0,\qquad
