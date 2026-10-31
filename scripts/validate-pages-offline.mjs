@@ -97,7 +97,6 @@ for (const required of [
   'sw-config.js',
   'site-meta.json',
   'textbook/dream-theater.md',
-  'textbook/dream-theater-index.json',
 ]) {
   assert(manifest.has(required), `offline manifest must include ${required}`);
   assert(hashEntries.has(required), `hash manifest must include ${required}`);

@@ -2,11 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
-const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
+const index = loadDreamTheaterIndex(root);
 const policy = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-knowledge.yaml'), 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
@@ -194,7 +195,7 @@ function collectChangedFiles() {
       '-c', 'core.quotepath=false',
       'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--',
       'textbook/volumes/dream_thater',
-      'textbook/dream-theater-index.json',
+      'textbook/dream-theater.md',
       'textbook/dream-theater-knowledge.yaml',
       'scripts/audit-dream-theater-formal-order.mjs',
     ], { cwd: root, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });

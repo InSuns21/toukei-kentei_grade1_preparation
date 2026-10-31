@@ -2,8 +2,8 @@ import path from 'node:path';
 
 /**
  * Resolve the canonical location of a DREAM THEATER chapter by ID, using the
- * published index as the only category owner. Do not derive category from
- * chapter-ID prefixes or alphabetical order.
+ * in-memory catalog derived from the public contents page. Do not derive
+ * category from chapter-ID prefixes or alphabetical order.
  */
 export function chapterPathsFromIndex(index) {
   if (!Array.isArray(index?.sections)) throw Error('Invalid DREAM THEATER index');

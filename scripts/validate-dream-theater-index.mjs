@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 const facadeOnly = process.argv.includes('--facade-only');
 let YAML;
 if (!facadeOnly) ({ default: YAML } = await import('yaml'));
 
 const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
-const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json');
 const archivePath = path.join(repoRoot, 'textbook', 'dream-theater-archive.json');
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
 const calculationReaderSupportPrefix = 'F0_00CALC_';
@@ -74,11 +74,11 @@ const fail = (messages) => {
   process.exit(1);
 };
 
-for (const required of [facadePath, manifestPath, archivePath, foundationsDir]) {
+for (const required of [facadePath, archivePath, foundationsDir]) {
   if (!fs.existsSync(required)) fail([`required path does not exist: ${toPosix(path.relative(repoRoot, required))}`]);
 }
 
-const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const manifest = loadDreamTheaterIndex(repoRoot);
 if (!Array.isArray(manifest.sections)) fail(['manifest.sections must be an array']);
 
 const archive = JSON.parse(fs.readFileSync(archivePath, 'utf8'));

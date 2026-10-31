@@ -9,7 +9,7 @@ routing:
   chapter_root: textbook/volumes/dream_thater
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
   exercise_policy: textbook/DREAM_THEATER_EXERCISE_POLICY.md
-  global_index: textbook/dream-theater-index.json
+  public_contents: textbook/dream-theater.md
   knowledge_dag: textbook/knowledge-dag.yaml
 
 validation:

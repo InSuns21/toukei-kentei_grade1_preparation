@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 import {
   activeLocalOwners,
   aliasAppears,
@@ -21,7 +22,7 @@ if (selfTest) {
   process.exit(runSelfTest() ? 0 : 1);
 }
 
-const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
+const index = loadDreamTheaterIndex(root);
 const policy = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-knowledge.yaml'), 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
 const contextualAliases = new Set(

@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { parseDreamTheaterFacade } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
-const indexRel = 'textbook/dream-theater-index.json';
+const indexRel = 'textbook/dream-theater.md';
 const args = process.argv.slice(2);
 
 if (args.includes('--self-test')) {
@@ -29,8 +30,8 @@ for (const change of changes) {
 const indexChange = changes.find((change) => change.path === indexRel);
 if (indexChange) {
   try {
-    const before = JSON.parse(gitShow(base, indexRel));
-    const after = JSON.parse(fs.readFileSync(path.join(root, indexRel), 'utf8'));
+    const before = parseDreamTheaterFacade(gitShow(base, indexRel));
+    const after = parseDreamTheaterFacade(fs.readFileSync(path.join(root, indexRel), 'utf8'));
     const result = classifyIndexChange(before, after);
     if (!result.pureAdd) reasons.push(`index が pure-add ではありません: ${result.reason}`);
     else console.log(`DREAM THEATER index: pure-add (${result.addedPaths.length} path追加)`);

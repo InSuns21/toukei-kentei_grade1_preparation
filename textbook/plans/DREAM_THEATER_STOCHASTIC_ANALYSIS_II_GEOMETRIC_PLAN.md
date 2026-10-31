@@ -734,7 +734,7 @@ SGA3 の実装前に DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md の GA1 が実装�
 10. SGA9 熱半群・熱核。
 11. SGA10 多様体上の Wiener 空間。
 12. dream-theater.md に独立科目を追加する。
-13. dream-theater-index.json を更新する。
+13. `dream-theater.md` に公開章リンクを追加し、章ディレクトリとの一致を検証する。
 14. dream-theater-standard-math-core.md に発展交差科目として追加する。
 15. 必要な日本語主表記を references/terminology-guide.md へ同期する。
 16. knowledge DAG と chapter prerequisites を更新する。

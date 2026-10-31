@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const pagesMode = process.argv.includes('--pages');
 const ROOTS = pagesMode
@@ -13,10 +14,7 @@ const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
 const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
-const dreamTheaterIndexPath = path.resolve('textbook/dream-theater-index.json');
-const DREAM_THEATER_PATHS = fs.existsSync(dreamTheaterIndexPath)
-  ? new Set(JSON.parse(fs.readFileSync(dreamTheaterIndexPath, 'utf8')).sections.flatMap((section) => section.paths ?? []))
-  : new Set();
+const DREAM_THEATER_PATHS = new Set(loadDreamTheaterIndex().sections.flatMap((section) => section.paths ?? []));
 const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
 // No existing layout violations are grandfathered. New detections are blocking.

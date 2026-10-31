@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const ROOT = path.resolve('textbook/volumes');
 const REPO = process.cwd();
-const DREAM_INDEX = path.resolve('textbook/dream-theater-index.json');
 const DREAM_POLICY = path.resolve('textbook/dream-theater-knowledge.yaml');
 const FIX = process.argv.includes('--fix');
 const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
@@ -122,8 +122,8 @@ function stableLinksOnLine(line) {
 }
 
 function loadDreamTheaterKnowledge(contents) {
-  if (!fs.existsSync(DREAM_INDEX) || !fs.existsSync(DREAM_POLICY)) return { pagesByFile: new Map(), aliases: [], concepts: [], formalReferenceLinkExemptConcepts: new Set() };
-  const index = JSON.parse(fs.readFileSync(DREAM_INDEX, 'utf8'));
+  if (!fs.existsSync(DREAM_POLICY)) return { pagesByFile: new Map(), aliases: [], concepts: [], formalReferenceLinkExemptConcepts: new Set() };
+  const index = loadDreamTheaterIndex(REPO);
   const policy = YAML.parse(fs.readFileSync(DREAM_POLICY, 'utf8')) ?? {};
   const metadataFile = policy.metadata_file || 'knowledge.yaml';
   const formalReferenceLinkExemptConcepts = new Set(policy.dependency_tracking?.reachability_exempt_concepts ?? []);

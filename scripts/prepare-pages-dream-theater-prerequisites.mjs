@@ -2,11 +2,11 @@ import assert from 'node:assert/strict';
 import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const volumesRoot = path.join(root, 'textbook', 'volumes');
 const siteRoot = path.join(root, '_site');
-const manifestPath = path.join(root, 'textbook', 'dream-theater-index.json');
 const label = '> **前提講座（直接）**：';
 const mode = process.argv[2] ?? '--write';
 
@@ -122,7 +122,7 @@ async function main() {
     throw new Error('Usage: node scripts/prepare-pages-dream-theater-prerequisites.mjs [--write|--check-pages|--validate-source|--self-test]');
   }
 
-  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  const manifest = loadDreamTheaterIndex(root);
   const paths = manifest.sections.flatMap((section) => section.paths);
   const seenPaths = new Set(paths);
   if (paths.length !== seenPaths.size) throw new Error('duplicate chapter in DREAM THEATER manifest');

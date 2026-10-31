@@ -1,5 +1,6 @@
 import { access, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const siteDir = path.join(root, '_site');
@@ -331,7 +332,7 @@ for (const relative of textbookVolumeFiles) {
 
 // Inspect source files as well as published files: the single-page pass must
 // not silently remove a supplement that a chapter links to.
-const dreamManifest = JSON.parse(await readFile(path.join(root, 'textbook', 'dream-theater-index.json'), 'utf8'));
+const dreamManifest = loadDreamTheaterIndex(root);
 const dreamNavSource = await readFile(path.join(siteDir, 'dream-theater-navigation.js'), 'utf8');
 const dreamNavMatch = dreamNavSource.match(/^window\.DreamTheaterNavigation = (.+);$/m);
 let dreamNavigation = {};

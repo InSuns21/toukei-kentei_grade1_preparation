@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 // Reader-facing prose can depend on a chapter even when its chapter.yaml
 // prerequisites do not reach that chapter. This auditor produces a human-review
@@ -17,7 +18,7 @@ if(changedOnly){
  const diff=execFileSync('git',['diff','--name-only',baseline+'...HEAD'],{encoding:'utf8'});
  for(const item of diff.split(/\r?\n/u).filter(Boolean))changed.add(item.trim());
 }
-const paths=JSON.parse(fs.readFileSync('textbook/dream-theater-index.json','utf8')).sections.flatMap(s=>s.paths);
+const paths=loadDreamTheaterIndex(root).sections.flatMap(s=>s.paths);
 const indexed=new Set(paths);
 const reviewFile='textbook/dream-theater-prerequisite-audit-exceptions.yaml';
 const review=YAML.parse(fs.readFileSync(reviewFile,'utf8'))??{};

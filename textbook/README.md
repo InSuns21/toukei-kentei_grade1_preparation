@@ -41,7 +41,7 @@
 
 ### DREAM THEATER の差分
 
-`dream-theater-index.json` に掲載されるページは `DREAM_THEATER_EXERCISE_POLICY.md` を併用します。DREAM THEATER では、変更した章について原則 `Level A >= 4 / Level B >= 3 / Level C >= 1` を確保しますが、教育上不要なら理由付き例外を使い、水増ししません。
+`dream-theater.md` に掲載される DREAM THEATER ページは `DREAM_THEATER_EXERCISE_POLICY.md` を併用します。DREAM THEATER では、変更した章について原則 `Level A >= 4 / Level B >= 3 / Level C >= 1` を確保しますが、教育上不要なら理由付き例外を使い、水増ししません。
 
 また DREAM THEATER は本番答案訓練を目的としないため、演習では詳細解答を用意すればよく、**本番答案と採点基準は要求しません**。通常の試験向け章にはこの免除を適用しません。
 
