@@ -381,7 +381,24 @@ $$
 =-2\pi\zeta\,\mathbf1_{\{\zeta>0\}}.
 $$
 
-一方、$\widehat{-\partial_xu_+}(\zeta)=-i\zeta(-2\pi i)\mathbf1_{\{\zeta>0\}}=-2\pi\zeta\mathbf1_{\{\zeta>0\}}$ です。Fourier変換の一意性から一致します。$u_-$ は符号を反転した同じ計算です。[微分で波面が増えない定理](../MICA3/index.md#thm-mica3-derivative)で最後の包含も従います。$\square$
+一方、[分布微分のFourier公式](../MICA1/index.md#prop-mica1-fourier-derivative)により、微分はFourier側で $i\zeta$ の乗算になるので
+
+$$
+\widehat{-\partial_xu_+}(\zeta)
+=-i\zeta(-2\pi i)\mathbf1_{\{\zeta>0\}}
+=-2\pi\zeta\mathbf1_{\{\zeta>0\}}
+$$
+
+となり一致します。負側についても $\widehat{u_-}(\zeta)=2\pi i\mathbf1_{\{\zeta<0\}}$ なので、$\zeta<0$ では畳み込みの積分区間が $\zeta<\eta<0$（長さ $-\zeta$）となり、
+
+$$
+\widehat{u_-^2}(\zeta)
+=(2\pi)^{-1}(2\pi i)^2(-\zeta)\mathbf1_{\{\zeta<0\}}
+=2\pi\zeta\mathbf1_{\{\zeta<0\}}
+=\widehat{-\partial_xu_-}(\zeta).
+$$
+
+Fourier変換の一意性から両符号で主張の等式が成立します。[微分で波面が増えない定理](../MICA3/index.md#thm-mica3-derivative)で最後の包含も従います。$\square$
 <!-- proof-end -->
 
 このFourier計算は局所cutoffを省いた大域的なtempered分布としての検算です。実際の積の定義は前節の局所cutoffと平滑化によるもので、正周波数の畳み込みが一方向にしか広がらないことを反映しています。
@@ -413,7 +430,13 @@ $$
 
 ## 6. 交叉する特異集合の積
 
-$\mathbb R^2$ で $u(x,y)=\delta(x)$ と $v(x,y)=H(y)$ を考えます。前者の波面方向は $x$ 軸方向、後者は $y$ 軸方向なので、原点でも互いに逆向きにはなりません。[超平面デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)と[半空間Heavisideの波面](../MICA4/index.md#prop-mica4-halfspace)から
+$\mathbb R^2$ で $u(x,y)=\delta(x)$ と $v(x,y)=H(y)$ を考えます。前者の波面方向は $x$ 軸方向、後者は $y$ 軸方向なので、原点でも互いに逆向きにはなりません。$u$ には[超平面デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)を適用します。$v=H(y)$ は、[半空間Heavisideの波面](../MICA4/index.md#prop-mica4-halfspace)で扱った $H(x)$ の座標を $F(x,y)=(y,x)$ で交換したものです。座標基底 $e_x,e_y$ に対して $DF(e_x)=e_y$、$DF(e_y)=e_x$ なので、その行列は
+
+$$
+DF=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad (DF)^{-\mathsf T}=DF
+$$
+
+です。[波面集合の座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)によって余接方向 $(\tau,0)$ も $(0,\tau)$ へ移るので、
 
 $$
 WF(u)|_{(0,0)}=\{(\xi,0):\xi\ne0\},\qquad
@@ -429,7 +452,7 @@ $$
 
 と書けます。原点では和の方向 $(\xi,\eta)$（両成分非零）も候補になり、[積の波面評価](#thm-mica6-product-wavefront)の右辺は全非零方向を含みます。
 
-実際、ここでは**すべて**の方向が残ります。$\chi(x,y)=a(x)b(y)$ を原点近くで $1$ とするcutoffとし、$a(0)=b(0)=1$ に取ります。積のFourier変換は
+実際、ここでは**すべて**の方向が残ります。$\chi(x,y)=a(x)b(y)$ を原点近くで $1$ とするcutoffとし、$a(0)=b(0)=1$、$b\ge0$ に取ります。積のFourier変換は
 
 $$
 \widehat{\chi uv}(\xi,\eta)
@@ -442,7 +465,13 @@ $$
 
 $\eta_0\ne0$ の方向では $(\xi,\eta)=t(\xi_0,\eta_0)$ とすると $1/t$ しか減衰しません。
 
-$\eta_0=0$ かつ $\xi_0\ne0$ の方向には、$\widehat{bH}(\beta)\ne0$ となる有限の $\beta$ を一つ固定し、$(t\xi_0,\beta)$ と近づければ非減衰です。
+$\eta_0=0$ かつ $\xi_0\ne0$ の方向では、$b\ge0$ かつ $b=1$ が原点近傍で成り立つので、
+
+$$
+\widehat{bH}(0)=\int_0^\infty b(y)\,dy>0
+$$
+
+です。よって $(\xi,\eta)=(t\xi_0,0)$ に沿ってFourier変換が正の定数に等しく、急減少しません。
 
 任意のcutoffで急減少が成り立つなら、[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)によりこの積型cutoffでも急減少するはずなので矛盾します。従って
 
@@ -642,22 +671,22 @@ $\mathbb R^2$ 上で $u(x,y)=\delta(x)$、$v(x,y)=H(y)$ とする。積 $w=uv$ �
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 積の存在と作用。** [直線デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)では特異方向は $(\xi,0)$、[半空間段差の波面](../MICA4/index.md#prop-mica4-halfspace)では $(0,\eta)$ です。両方の位置集合が交わる原点でも $\xi\ne0,\eta\ne0$ に対し $(\xi,0)=-(0,\eta)$ は不可能です。よって[積の存在定理](#thm-mica6-product-existence)が使えます。定義を平滑化してから試験関数で評価すると、境界 $y=0$ は測度零なので
+**1. 積の存在と作用。** [直線デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)では特異方向は $(\xi,0)$ です。$H(y)$ については、[半空間段差の波面](../MICA4/index.md#prop-mica4-halfspace)の $H(x)$ を変数交換して、[波面集合の座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)から $(0,\eta)$ が特異方向になります。両方の位置集合が交わる原点でも $\xi\ne0,\eta\ne0$ に対し $(\xi,0)=-(0,\eta)$ は不可能です。よって[積の存在定理](#thm-mica6-product-existence)が使えます。定義を平滑化してから試験関数で評価すると、境界 $y=0$ は測度零なので
 
 $$
 \langle w,\varphi\rangle=\int_{y>0}\varphi(0,y)\,dy.
 $$
 
-**2. 原点以外。** $x\ne0$ では $u=0$ なので $w=0$ です。$x=0,y>0$ なら $H(y)=1$ が局所的に成立し、$w=\delta(x)$ です。$x=0,y<0$ では $H(y)=0$ なので $w=0$ です。従って
+**2. 原点以外。** $x\ne0$ では $u=0$ なので $w=0$ です。$x=0,y>0$ なら $H(y)=1$ が局所的に成立し、$w=\delta(x)$ です。$x=0,y<0$ では $H(y)=0$ なので $w=0$ です。余接ベクトルの基点への射影を $\pi(x,y;\xi,\eta)=(x,y)$ と書くと、
 
 $$
 WF(w)\setminus\pi^{-1}(\{(0,0)\})
-=\{(0,y;\xi,0):y>0,\xi\ne0\},
+=\{(0,y;\xi,0):y>0,\xi\ne0\}
 $$
 
-ただし $\pi(x,y;\xi,\eta)=(x,y)$ は基点への射影です。
+です。
 
-**3. 原点。** $a,b\in C_c^\infty(\mathbb R)$ をそれぞれ0の近くで1とし、$\chi(x,y)=a(x)b(y)$ と置きます。作用から
+**3. 原点。** $a,b\in C_c^\infty(\mathbb R)$ をそれぞれ0の近くで1とし、さらに $b\ge0$ を選び、$\chi(x,y)=a(x)b(y)$ と置きます。作用から
 
 $$
 \widehat{\chi w}(\xi,\eta)
@@ -671,7 +700,15 @@ $$
 \quad(|\eta|\to\infty)
 $$
 
-です。$\eta_0\ne0$ の任意の方向では $(t\xi_0,t\eta_0)$ に代入すると $t^{-1}$ の非零主項が残り、急減少ではありません。$\eta_0=0,\xi_0\ne0$ のとき、$bH$ は零分布ではないので[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)により $\widehat{bH}(\beta)\ne0$ となる $\beta$ を取れます。$(t\xi_0,\beta)$ は目的方向へ近づくのにFourier値は固定非零です。
+です。$\eta_0\ne0$ の任意の方向では $(t\xi_0,t\eta_0)$ に代入すると $t^{-1}$ の非零主項が残り、急減少ではありません。$\eta_0=0,\xi_0\ne0$ のときは、非負の $b$ が原点の近くで1なので
+
+$$
+\widehat{\chi w}(t\xi_0,0)
+=\widehat{bH}(0)
+=\int_0^\infty b(y)\,dy>0
+$$
+
+がすべての $t>0$ で成立します。この周波数列は目的方向上にあり、Fourier変換は一定の正値なので急減少しません。
 
 もし別のcutoffで目的方向に急減少があったなら、$\chi$ の台を十分小さくし直したときにも[cutoff縮小の定理](../MICA2/index.md#thm-mica2-cutoff-stability)で急減少するはずです。上の計算はどのように小さく取った積型cutoffでも成り立つので矛盾します。よって
 
