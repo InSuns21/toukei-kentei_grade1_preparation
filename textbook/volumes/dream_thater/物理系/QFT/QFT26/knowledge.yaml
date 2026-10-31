@@ -1,7 +1,7 @@
 chapter: QFT26
 scope: dream-theater
 coverage: complete
-prerequisites: [QFT19, QFT22, QFT23, QFT25]
+prerequisites: [QFT19, QFT22, QFT25]
 forward_references: []
 
 concepts:
