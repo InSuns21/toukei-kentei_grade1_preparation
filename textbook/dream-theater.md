@@ -791,6 +791,11 @@
 15. [KAH1-15 Kähler–Einstein・Ricci平坦への入口](textbook/volumes/dream_thater/幾何系/KAH/KAH1-15/index.md)
 16. [KAH1-16 ホロノミーと総合演習](textbook/volumes/dream_thater/幾何系/KAH/KAH1-16/index.md)
 
+<a id="dt-subject-kahler-hodge-theory"></a>
+### Kähler–Hodge理論
+
+1. [HOD1-01 実Hodge理論から複素形式の随伴へ](textbook/volumes/dream_thater/幾何系/HOD/HOD1-01/index.md)
+
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
 

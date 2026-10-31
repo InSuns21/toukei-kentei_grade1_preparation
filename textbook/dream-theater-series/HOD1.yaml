@@ -1,0 +1,72 @@
+version: 1
+id: HOD1
+title: "Kähler–Hodge理論"
+plan: textbook/plans_progress/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 本文・公開索引には完成した章のみを登録する。
+chapters:
+  - id: HOD1-01
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-01
+    status: completed
+    title: "実Hodge理論から複素形式の随伴へ"
+  - id: HOD1-02
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-02
+    status: planned
+    title: "Lefschetz作用素とその随伴"
+  - id: HOD1-03
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-03
+    status: planned
+    title: "sl2と原始形式の線形代数"
+  - id: HOD1-04
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-04
+    status: planned
+    title: "Kähler恒等式の局所導出"
+  - id: HOD1-05
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-05
+    status: planned
+    title: "Laplacian一致と調和形式の型保存"
+  - id: HOD1-06
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-06
+    status: planned
+    title: "Kähler多様体のHodge分解"
+  - id: HOD1-07
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-07
+    status: planned
+    title: "Hodge数の対称性と位相的制約"
+  - id: HOD1-08
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-08
+    status: planned
+    title: "大域partial barpartial補題"
+  - id: HOD1-09
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-09
+    status: planned
+    title: "具体例とHodgeダイヤモンドI"
+  - id: HOD1-10
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-10
+    status: planned
+    title: "調和形式上のLefschetz作用"
+  - id: HOD1-11
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-11
+    status: planned
+    title: "Hard Lefschetz定理"
+  - id: HOD1-12
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-12
+    status: planned
+    title: "原始コホモロジーとLefschetz分解"
+  - id: HOD1-13
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-13
+    status: planned
+    title: "Hodge–Riemann双線形関係とHodge指数定理"
+  - id: HOD1-14
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-14
+    status: planned
+    title: "HodgeダイヤモンドIIと大域制約"
+  - id: HOD1-15
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-15
+    status: planned
+    title: "Hodgeフィルトレーションと純Hodge構造"
+  - id: HOD1-16
+    path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-16
+    status: planned
+    title: "楕円曲線の周期と総合演習"
