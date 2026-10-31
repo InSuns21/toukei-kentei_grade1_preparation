@@ -1,0 +1,76 @@
+chapter: QFT23
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20, QFT21, QFT22]
+forward_references: []
+
+concepts:
+  - id: qft.phi4-bare-counterterms
+    name: 裸の作用・くりこみ済み係数・反項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（裸の作用・くりこみ済み係数・反項）]
+    requires: [qft.sharp-momentum-cutoff, qft.one-loop-proper-vertices]
+
+  - id: qft.zero-momentum-subtraction
+    name: 零運動量のくりこみ条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（零運動量のくりこみ条件）]
+    requires: [qft.phi4-bare-counterterms, qft.one-loop-proper-vertices]
+
+  - id: qft.phi4-cutoff-counterterms
+    name: 零運動量減算法の一ループ反項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（零運動量減算法の一ループ反項）]
+    requires: [qft.zero-momentum-subtraction, qft.phi4-one-loop-vertices, qft.phi4-cutoff-integrals]
+
+  - id: qft.subtracted-bubble-limit
+    name: 差し引いたbubbleの有限極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（差し引いたbubbleの有限極限）]
+    requires: [qft.bubble-log-universality, qft.phi4-cutoff-integrals]
+
+  - id: qft.finite-renormalized-four-vertex
+    name: 零運動量減算法の一ループ有限四点頂点
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（零運動量減算法の一ループ有限四点頂点）]
+    requires: [qft.phi4-cutoff-counterterms, qft.subtracted-bubble-limit]
+
+  - id: qft.dimensional-regularization
+    name: 次元正則化と基準スケール
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（次元正則化と基準スケール）]
+    requires: [qft.phi4-cutoff-integrals]
+
+  - id: qft.dimensional-loop-integrals
+    name: 次元正則化した二点・四点の基本積分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（次元正則化した二点・四点の基本積分）]
+    requires: [qft.dimensional-regularization]
+
+  - id: qft.modified-minimal-subtraction
+    name: 修正最小減算法
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（修正最小減算法）]
+    requires: [qft.dimensional-loop-integrals]
+
+  - id: qft.msbar-counterterms
+    name: 修正最小減算法の一ループ反項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（修正最小減算法の一ループ反項）]
+    requires: [qft.modified-minimal-subtraction, qft.phi4-one-loop-vertices]
+
+  - id: qft.dimensional-bubble-difference
+    name: 次元正則化の外部運動量差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（次元正則化の外部運動量差）]
+    requires: [qft.dimensional-loop-integrals, qft.subtracted-bubble-limit]
