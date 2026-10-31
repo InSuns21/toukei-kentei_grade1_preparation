@@ -25,7 +25,14 @@ $$
 \omega=i\sum_{j,k}g_{j\bar k}(z)\,dz^j\wedge d\bar z^k
 $$
 
-となり、$\partial g_{j\bar k}$が現れる。以下、$\partial_\ell=\partial/\partial z^\ell$、$\partial_{\bar\ell}=\partial/\partial\bar z^\ell$は、ほかの座標を固定してそれぞれ正則・反正則変数で微分する演算子とする。点$x$だけでの計算なら、まず線形正則変換で$g_{j\bar k}(x)=\delta_{jk}/2$にできる。それだけでは$\partial_\ell g_{j\bar k}(x)$は消えない。**正則な二次座標変換で一階微分まで消す**座標を使いたい。以下でその条件と名前を定める。
+となり、$\partial g_{j\bar k}$が現れる。以下、係数関数の正則・反正則方向の偏微分を
+
+$$
+\partial_\ell=\frac{\partial}{\partial z^\ell},\qquad
+\partial_{\bar\ell}=\frac{\partial}{\partial\bar z^\ell}
+$$
+
+と書く。各微分ではほかの座標を固定する。点$x$だけでの計算なら、まず線形正則変換で$g_{j\bar k}(x)=\delta_{jk}/2$にできる。それだけでは$\partial_\ell g_{j\bar k}(x)$は消えない。**正則な二次座標変換で一階微分まで消す**座標を使いたい。以下でその条件と名前を定める。
 
 <a id="def-hod1-04-normal-coordinates"></a>
 
@@ -49,7 +56,14 @@ $$
 \omega=\frac i2\sum_jdz^j\wedge d\bar z^j.
 $$
 
-[基本形式のHermite行列表示](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)と係数を比較すると$g_{j\bar k}=\delta_{jk}/2$である。これは定数の正定値Hermite行列であり、すべての$\partial_\ell g_{j\bar k}$、$\partial_{\bar\ell}g_{j\bar k}$も零になる。任意の点を原点へ平行移動すると、座標の正則性、$z(x)=0$、計量の値と両方向の一階微分零をすべて確認できる。さらに定数係数のため$\partial\omega=\bar\partial\omega=0$で、Kähler条件も満たす。
+[基本形式のHermite行列表示](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)と係数を比較すると
+
+$$
+g_{j\bar k}=\frac12\delta_{jk},\qquad
+\partial_\ell g_{j\bar k}=\partial_{\bar\ell}g_{j\bar k}=0
+$$
+
+である。定数行列は正定値Hermite行列であり、任意の点を原点へ平行移動すると、座標の正則性、$z(x)=0$、計量の値と両方向の一階微分零をすべて確認できる。さらに定数係数のため$\partial\omega=\bar\partial\omega=0$で、Kähler条件も満たす。
 <!-- definition-example-end -->
 
 <a id="prop-hod1-04-normal-existence"></a>
@@ -197,7 +211,13 @@ $$
 
 点ごとの交換子を作用素の交換子へ移すには、$\Lambda$の**微分**も調べる必要がある。Kähler正規正則座標では、点$x$で$\nabla\theta^j=\nabla\bar\theta^j=0$であり、さらに接続が[計量と複素構造を保存する](../../KAH/KAH1-03/index.md#thm-kah1-03-main-equivalence)ので$\nabla\Lambda(x)=0$である。
 
-外微分の[型分解](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators)を局所係数へ適用する。例えば$\alpha=\sum_{I,J}f_{I\bar J}\,\theta^I\wedge\bar\theta^J$と書く。ここで$I,J$は昇順の多重添字、$\theta^I$と$\bar\theta^J$は対応する余標構の外積を表す。$\theta^j=dz^j/\sqrt2$は座標の定数倍なので、$d$で微分されるのは係数$f_{I\bar J}$だけである。また点$x$で$\nabla\theta^j=\nabla\bar\theta^j=0$だから、係数の方向微分が$\nabla_{Z_j}\alpha(x)$、$\nabla_{\bar Z_j}\alpha(x)$に一致する。従って点$x$で任意の滑らかな複素形式$\alpha$について
+外微分の[型分解](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators)を局所係数へ適用する。昇順の多重添字$I,J$を使い、$\theta^I$と$\bar\theta^J$を対応する余標構の外積と書くと、形式は次のように展開できる。
+
+$$
+\alpha=\sum_{I,J}f_{I\bar J}\,\theta^I\wedge\bar\theta^J.
+$$
+
+$\theta^j=dz^j/\sqrt2$は座標の定数倍なので、$d$で微分されるのは係数$f_{I\bar J}$だけである。また点$x$で$\nabla\theta^j=\nabla\bar\theta^j=0$だから、係数の方向微分が$\nabla_{Z_j}\alpha(x)$、$\nabla_{\bar Z_j}\alpha(x)$に一致する。従って点$x$で任意の滑らかな複素形式$\alpha$について
 
 $$
 \partial\alpha(x)=\sum_j E_j\nabla_{Z_j}\alpha(x),\qquad
