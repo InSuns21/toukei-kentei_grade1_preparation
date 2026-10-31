@@ -4,7 +4,22 @@
 
 この講義の問いは、**局所的な電荷保存が、異なるGreen関数の間にどのような等式を強制し、実際の散乱振幅ではどうゲージ依存性を相殺するのか？** です。Dirac作用素の逆核の差から木レベルWard–Takahashi恒等式を導き、位置空間に現れるデルタ関数の接触項を計算します。その後、電子と光子のCompton散乱で二つの木図を足す必要を、両方の光子脚について検算します。
 
-時空・規約は $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、$\not p=\gamma^\mu p_\mu$ です。[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)と[Diracスピノルの平面波解](../QFT7/index.md#def-qft7-plane-waves)を使います。質量 $m>0$、荷電Dirac場の符号付き電荷 $q$ は一定で、[QFT17の最小結合](../QFT17/index.md#def-qft17-qed-action)は $D_\mu=\partial_\mu+iqA_\mu$、頂点因子は $-iq\gamma^\mu$ です。電子なら $q=-e$、$e>0$ とします。
+時空は $3+1$ 次元Minkowski時空で、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位系は $c=\hbar=1$ です。運動量とgamma行列の縮約は
+
+$$
+\not p=\gamma^\mu p_\mu
+$$
+
+と記します。[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)と[Diracスピノルの平面波解](../QFT7/index.md#def-qft7-plane-waves)を使います。
+
+荷電Dirac場の質量は $m>0$、符号付き電荷は定数 $q$ とします。[QFT17の最小結合](../QFT17/index.md#def-qft17-qed-action)と[三点頂点](../QFT17/index.md#def-qft17-vertex)の規約は
+
+$$
+D_\mu=\partial_\mu+iqA_\mu,\qquad
+V^\mu=-iq\gamma^\mu
+$$
+
+です。電子なら $q=-e$、$e>0$ とします。
 
 以下の恒等式は、自由場の伝播核と摂動論の**木レベル**での等式です。内部運動量の極ではFeynmanの $i0$ を分布的に理解し、積・積分は必要に応じ試験関数でsmearingした形式的摂動係数として扱います。[QFT11の漸近状態・LSZの条件](../QFT11/index.md#def-qft11-asymptotic-s)を満たす外線に限って散乱振幅と同定します。質量零光子を持つ現実のQEDで、赤外問題を含む厳密な孤立荷電粒子のS行列がこの計算だけで構成されたわけではありません。
 
@@ -335,7 +350,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Compton散乱の二つの光子脚の横性）**  
-> [Compton散乱の二つの木図](#def-qft18-compton-tree)について、$m>0$、$p^2=p'^2=m^2$、$k^2=k'^2=0$、$p+k=p'+k'$、全エネルギー正、光子のエネルギー非零とする。電子外線は自由Dirac方程式を満たすとき、
+> $m>0$ とし、$p^2=p'^2=m^2$、$k^2=k'^2=0$、$p+k=p'+k'$、全エネルギー正、光子のエネルギー非零のCompton過程を考える。電子外線は自由Dirac方程式を満たし、[二つの木図](#def-qft18-compton-tree)のテンソルを
+
+$$
+B^{\mu\nu}=\bar u(p')[
+\gamma^\nu R(p+k)\gamma^\mu
++\gamma^\mu R(p-k')\gamma^\nu]u(p)
+$$
+
+> とする。ただし $R(r)=(\not r+mI_4)/(r^2-m^2+i0)$ である。このとき
 
 $$
 k_\mu B^{\mu\nu}=0,\qquad
@@ -524,7 +547,19 @@ $f(y)=f(z)$ ならこの試験関数に対して接触項は相殺します。�
 ### 演習 QFT18-A4：質量殻外の電流は横向きでない
 
 - Level: A
-- 問題：$m>0$、$p=(m,0,0,0)$、$u(p)$ は $\bar u(p)\gamma^0u(p)=2m$ を満たす静止正エネルギースピノルとする。$\Delta\ne0$、$k=(\Delta,0,0,0)$、$p'=p+k$ とし、出射側にも誤って $\bar u(p)$ を用いたときの $k_\mu\bar u(p)\gamma^\mu u(p)$ を計算せよ。これが[質量殻Ward恒等式](#cor-qft18-on-shell-ward)への反例でない理由も述べよ。
+- 問題：$m>0$、$p=(m,0,0,0)$ とし、$u(p)$ は静止正エネルギースピノルとする。規格化は次で与える。
+
+$$
+\bar u(p)\gamma^0u(p)=2m.
+$$
+
+  $\Delta\ne0$、$k=(\Delta,0,0,0)$、$p'=p+k$ とする。出射側にも誤って $\bar u(p)$ を用いたときの縮約
+
+$$
+k_\mu\bar u(p)\gamma^\mu u(p)
+$$
+
+  を計算せよ。これが[質量殻外線のWard恒等式](#cor-qft18-on-shell-ward)への反例でない理由も述べよ。
 
 <!-- solution-start -->
 **詳細解答**
