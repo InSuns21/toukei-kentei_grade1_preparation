@@ -581,7 +581,15 @@ $$
 =\widehat g(\xi_2).
 $$
 
-$g\ne0$ であり、もし $\widehat g\equiv0$ なら[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)で $g\equiv0$ となるので矛盾します。ゆえに $\widehat g(\beta)\ne0$ となる $\beta\in\mathbb R$ を固定できます。任意の右向き開錐 $\Gamma$ は $(r,\beta)$ を十分大きい $r>0$ について含みます。この列では $\widehat{\chi u}(r,\beta)=\widehat g(\beta)$ なので $N=1$ の急減少は成立しません。$r\to-\infty$ とすれば左向きについても同じ結論です。$\chi$ は任意だったので、別のcutoffへ替えてもこの障害は消えません。
+$g$ は原点近くで $1$ なので零関数ではありません。もしそのFourier変換が恒等的に零なら、[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)により $g$ も零関数となるため矛盾します。従って、変換が零でない周波数 $\beta\in\mathbb R$ を一つ固定できます。
+
+任意の右向き開錐 $\Gamma$ は、十分大きい $r>0$ に対する $(r,\beta)$ を含みます。この列では
+
+$$
+\widehat{\chi u}(r,\beta)=\widehat g(\beta)\ne0
+$$
+
+で値が一定なので、$N=1$ の急減少は成立しません。$r\to-\infty$ とすれば左向きについても同じ結論です。$\chi$ は任意だったので、別のcutoffへ替えてもこの障害は消えません。
 <!-- solution-end -->
 
 ### 演習 MICA2-C1：二本の直線の交差点での方向
