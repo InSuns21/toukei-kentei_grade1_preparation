@@ -410,6 +410,11 @@
 23. [HPDE23 実Klein–Gordon解のシンプレクティック構造](textbook/volumes/dream_thater/解析系/HPDE/HPDE23/index.md)
 24. [HPDE24 反例・模型・AQFT/MICAへの橋](textbook/volumes/dream_thater/解析系/HPDE/HPDE24/index.md)
 
+<a id="dt-subject-microlocal-hadamard"></a>
+### 超局所解析・Hadamard条件
+
+1. [MICA1 局所Fourier変換と滑らかさ](textbook/volumes/dream_thater/解析系/MICA/MICA1/index.md)
+
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
 

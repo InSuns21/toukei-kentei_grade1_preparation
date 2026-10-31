@@ -1,0 +1,43 @@
+chapter: MICA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE2
+  - FOU3
+forward_references: []
+concepts:
+  - id: microlocal.mica1-local-fourier
+    name: 超関数の局所化と局所Fourier変換
+    kind: definition
+    introduction: formal
+    requires: [distribution.schwartz-distribution, distribution.test-function, fourier.fou3-fourier-transform]
+  - id: microlocal.mica1-polynomial-growth
+    name: コンパクト支持超関数のFourier変換の多項式増大
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier, distribution.local-finite-order-estimate]
+  - id: microlocal.mica1-differentiation
+    name: 超関数微分のFourier表示
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier, distribution.distributional-derivative]
+  - id: microlocal.mica1-rapid-decay
+    name: Fourier変換の急減少
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier]
+  - id: microlocal.mica1-smoothness-equivalence
+    name: コンパクト支持超関数のFourier急減少と滑らかさの同値
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica1-polynomial-growth, microlocal.mica1-rapid-decay, fourier.fou3-inversion]
+  - id: microlocal.mica1-local-criterion
+    name: 点での局所Fourier滑らかさ判定
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-smoothness-equivalence]
+  - id: microlocal.mica1-local-equivalence
+    name: 局所Fourier判定と点近傍での滑らかさの同値
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica1-local-criterion, microlocal.mica1-smoothness-equivalence]

@@ -24,7 +24,7 @@
 | `HPDE18–24`（[HPDE系列manifest](../dream-theater-series/HPDE.yaml)） | 先進／遅延Green作用素・因果伝播子・実Klein–Gordon解のシンプレクティック形式 | どの商空間上の形式が非退化かを照合してWeyl関係の符号へ接続する |
 | `SREL`・[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要部分 | Minkowski因果構造・空間的分離・wedge・Lorentz boost | 最初は平坦時空に限定する。大域双曲性一般論は必要箇所にだけ接続する |
 | `QFT4–6`、`QINF1–3/17/20`（[QFT](../dream-theater-series/QFT.yaml)・[QINF](../dream-theater-series/QINF.yaml)系列manifest） | 自由場・二点関数・Fock表現、有限次元のテンソル積・密度行列・相対エントロピー | 有限次元計算を比較模型に使うが、QFT・QINF全講を一律必修にしない |
-| [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | 曲がった時空でのHadamard状態、二点分布のmicrolocal条件 | **基本のMinkowski AQFTには全講を要求しない**。曲がった時空への拡張・局所共変性の発展課題で必要部分を指定する |
+| [MICA](../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | 曲がった時空でのHadamard状態、二点分布のmicrolocal条件 | **基本のMinkowski AQFTには全講を要求しない**。曲がった時空への拡張・局所共変性の発展課題で必要部分を指定する |
 
 `OA/VN/QM`の一般結果、`HPDE23`のシンプレクティック形式、`QINF20`の有限次元量子相対エントロピーが既習側の正本。章IDがmanifest上で`completed`でも、対応する定理・定義がどのstable anchorにあり、どこまで証明されているかは**執筆着手時に実本文で確認**する。実在しない定理を既習扱いしない。
 
