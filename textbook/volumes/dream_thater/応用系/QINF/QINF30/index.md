@@ -296,7 +296,28 @@ $d$ が大きい場合、この上界は弱くなります。**参照系一つ�
 
 ## 5. 具体的に書ける回復：Petz型写像
 
-[双対定理](#thm-qinf30-duality)は最適回復の存在を示しました。次は、行列の積と随伴チャネルだけで**候補となる回復を実際に書く**方法です。基準状態を $\pi_L$ に固定し、その出力 $\tau_B=\mathcal M(\pi_L)$ と比較します。出力 $\tau_B$ に零固有値がある場合、全空間で逆平方根を取れないので、正の固有値を持つ部分空間だけで逆数を取ります。この操作を「台上の逆平方根」といいます。
+[双対定理](#thm-qinf30-duality)は最適回復の存在を示しました。次は、行列の積と随伴チャネルだけで**候補となる回復を実際に書く**方法です。基準状態を $\pi_L$ に固定し、その出力 $\tau_B=\mathcal M(\pi_L)$ と比較します。出力 $\tau_B$ に零固有値がある場合、全空間で逆平方根を取れないので、正の固有値を持つ部分空間だけで逆数を取ります。この操作を「台上の逆平方根」といいます。正の固有値と対応する正規直交固有ベクトルを $\lambda_k>0,|b_k\rangle$ と書けば、計算に用いる作用素は
+
+$$
+P=\sum_{\lambda_k>0}|b_k\rangle\langle b_k|,
+\qquad P^\perp=I_B-P
+$$
+
+$$
+
+\tau_B^{-1/2}=\sum_{\lambda_k>0}\lambda_k^{-1/2}|b_k\rangle\langle b_k|
+$$
+
+です。この表示では零固有値への逆数を作らず、$P$ の像では $\tau_B^{-1/2}\tau_B\tau_B^{-1/2}=P$ が成り立ちます。
+
+もう一つ必要なのは、[QINF7のチャネルと観測量の双対作用](../QINF7/index.md#prop-qinf7-adjoint)です。そこでは $\mathcal M^*$ と記した写像を、本講では $\mathcal M^\dagger=\mathcal M^*$ と書きます。入力作用素 $X$ と出力作用素 $Y$ に対し
+
+$$
+\operatorname{Tr}[\mathcal M(X)Y]
+=\operatorname{Tr}[X\mathcal M^\dagger(Y)]
+$$
+
+が成立し、Kraus表示 $\mathcal M(X)=\sum_a K_aXK_a^\dagger$ なら $\mathcal M^\dagger(Y)=\sum_aK_a^\dagger YK_a$ です。したがって次の回復式は、出力を台上で正規化し、随伴写像で論理系へ引き戻してから基準入力の平方根で挟む構成になっています。
 
 <a id="def-qinf30-petz"></a>
 
@@ -782,7 +803,9 @@ $$
 =1-(1-q)\max\{1-p,p\}-\frac q4.
 $$
 
-**（3）Petz型との比較。** $\mathcal C_{p,q}(\pi_2)=(1-q)\pi_Q+q|e\rangle\langle e|$ です。$0<q<1$ では全ランクなので、[Petz型回復の公式](#def-qinf30-petz)に代入すると、成功枝には $\mathcal N_p^\dagger=\mathcal N_p$ を作用させ、消失時には $\pi_2$ を準備します。成功枝の合成は $\mathcal N_p^2$ で[命題](#prop-qinf30-phase)から忠実度は $(1-p)^2+p^2$。ゆえに
+**（3）Petz型との比較。** $\mathcal C_{p,q}(\pi_2)=(1-q)\pi_Q+q|e\rangle\langle e|$ です。$0<q<1$ では全ランクなので、[Petz型回復の公式](#def-qinf30-petz)に代入すると、成功枝には $\mathcal N_p^\dagger=\mathcal N_p$ を作用させ、消失時には $\pi_2$ を準備します。
+
+両端では逆平方根の台が変わるため、同じ全ランク計算を流用せず確認します。$q=0$ なら $\tau_B=\pi_Q$、$P=P_Q$ であり、到達する $Q$ 上では $\mathcal N_p^\dagger$ を作用させ、到達しない消失旗の成分には補完項が $\pi_2$ を返します。$q=1$ なら $\tau_B=|e\rangle\langle e|$、$P=P_e$ であり、到達する消失旗からは $\pi_2$ が返ります。このため全ての $q\in[0,1]$ で、成功枝の合成は $\mathcal N_p^2$、消失枝の忠実度は $1/4$ と評価できます。[位相反転の命題](#prop-qinf30-phase)から成功枝の忠実度は $(1-p)^2+p^2$。ゆえに
 
 $$
 F_{\mathrm e}^{\mathrm P}
