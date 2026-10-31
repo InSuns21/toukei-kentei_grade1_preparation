@@ -972,6 +972,7 @@
 11. [CAG1-11 標準束と随伴公式を両側で読む](textbook/volumes/dream_thater/代数系/CAG/CAG1-11/index.md)
 12. [CAG1-12 曲線の種数と代数・解析比較](textbook/volumes/dream_thater/代数系/CAG/CAG1-12/index.md)
 13. [CAG1-13 滑らかなquintic threefoldと正則3形式](textbook/volumes/dream_thater/代数系/CAG/CAG1-13/index.md)
+14. [CAG1-14 GAGAの総合演習とHodge数への橋](textbook/volumes/dream_thater/代数系/CAG/CAG1-14/index.md)
 
 <a id="dt-subject-elliptic-curves"></a>
 ### 楕円曲線
