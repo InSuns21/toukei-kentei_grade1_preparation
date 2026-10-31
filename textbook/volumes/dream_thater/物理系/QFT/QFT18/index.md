@@ -361,7 +361,17 @@ p\cdot k=mk^0_{\mathrm{rest}}>0,\qquad
 p\cdot k'=mk'^0_{\mathrm{rest}}>0.
 $$
 
-[Lorentzスピノル変換](../QFT7/index.md#def-qft7-spinor-transform)で用いた条件 $\Lambda^T\eta\Lambda=\eta$ より、$(\Lambda p)^T\eta(\Lambda k)=p^T\Lambda^T\eta\Lambda k=p^T\eta k$ です。したがって $p\cdot k$ と $p\cdot k'$ は座標系を替えても正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
+[Lorentzスピノル変換](../QFT7/index.md#def-qft7-spinor-transform)で用いた条件 $\Lambda^T\eta\Lambda=\eta$ を適用すると、
+
+$$
+\begin{aligned}
+(\Lambda p)^T\eta(\Lambda k)
+&=p^T\Lambda^T\eta\Lambda k\\
+&=p^T\eta k=p\cdot k.
+\end{aligned}
+$$
+
+となります。$k'$ にも同じ式を適用できるので、二つの内積は座標系を替えても正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
 <!-- definition-example-end -->
 
 <a id="thm-qft18-compton-ward"></a>
