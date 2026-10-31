@@ -25,6 +25,21 @@ $$
 
 と作用します。座標では $Df_x$ が $m\times n$ 行列なので、その転置は $n\times m$ 行列です。この転置で零になる非零の $\eta$ は、$f$ の像に沿った微小な動きを全く検出できません。そこに $u$ の特異な周波数方向があると、合成のFourier積分で振動による相殺が期待できなくなります。
 
+ここで $Df_x$ は $x$ に関する微分行列であり、${}^{\mathsf T}df_x\eta$ と $(Df_x)^{\mathsf T}\eta$ は同じ余ベクトルを表します。接ベクトルと余ベクトルを列ベクトルで表示すると、上の定義式は
+
+$$
+\eta(df_xh)=\eta^{\mathsf T}(Df_xh)
+=\bigl((Df_x)^{\mathsf T}\eta\bigr)^{\mathsf T}h
+$$
+
+です。したがって行列の転置像が零かを計算することは、**全ての接方向 $h$ への作用が零か**という元の条件を判定することにほかなりません。また $\eta$ を固定して $x$ だけを微分すれば、連鎖律から
+
+$$
+\nabla_x(f(x)\cdot\eta)=(Df_x)^{\mathsf T}\eta
+$$
+
+です。後の非停留位相評価でも、この同じ転置像を使います。
+
 この「写像によって消える余接方向」を、値域 $Y$ 上に記録します。英語の normal set という名は、[部分多様体の余法束](../MICA5/index.md#prop-mica5-conormal-coordinates)との類似を表しますが、一般の写像の像が部分多様体であるとは仮定しません。
 
 <a id="def-mica7-normal-set"></a>
@@ -460,7 +475,14 @@ $$
 =\int\varphi(t)\,dt.
 $$
 
-この特定の合成は分布 $1$ に収束します。しかし **波面による一般定理はこの例の極限を保証していません**。別の $u$、例えば $\delta_0$ の合成では、正規化近似単位 $\rho_\varepsilon(t^2)=\varepsilon^{-1}\rho(t^2/\varepsilon)$ を $t=\sqrt\varepsilon\,r$ で積分すると $\varepsilon^{-1/2}$ の発散が生じます。十分条件の不成立から結論できるのは「この定理を適用できない」ということまでです。
+この特定の合成は分布 $1$ に収束します。しかし **波面による一般定理はこの例の極限を保証していません**。別の $u$、例えば $\delta_0$ の合成では、非負で $\rho(0)>0$、$\int\rho=1$ を満たす滑らかなコンパクト支持の近似核を選ぶと、$t=\sqrt\varepsilon\,r$ の置換により
+
+$$
+\int\varepsilon^{-1}\rho(t^2/\varepsilon)\varphi(t)\,dt
+=\varepsilon^{-1/2}\left(\varphi(0)\int\rho(r^2)\,dr+o(1)\right)
+$$
+
+となり、$\varphi(0)>0$ なら $\varepsilon^{-1/2}$ の次数で発散します。$\rho(0)>0$ は係数の正値性を保証する条件です。単に $\rho\ge0$、$\int\rho=1$ とするだけでは、$\rho$ が負の半直線だけに支持を持つ可能性があり、この発散の結論は出ません。十分条件の不成立から一般に言えるのは「この定理を適用できない」ということまでです。
 
 ## 8. 演習
 
@@ -658,7 +680,13 @@ $i:\mathbb R\to\mathbb R^2$、$i(s)=(s,s^2)$ とし、分布 $u(x,y)=\delta(y-x)
 
 1. $u$ の波面集合と $N_i$ を求め、$WF(u)\cap N_i$ が空であることを確かめよ。
 2. $i^*u$ を試験関数への作用から計算せよ。
-3. $v$ については何が変わるか調べ、正規化された非負のmollifierによる $i^*v_\varepsilon$ の発散次数を求めよ。
+3. $v$ については何が変わるか調べよ。さらに、次を満たすmollifierで $v$ を平滑化したときの $i^*v_\varepsilon$ の発散次数を求めよ。
+
+$$
+\rho\in C_c^\infty(\mathbb R),\quad \rho\ge0,\quad
+\int\rho=1,\quad \rho(0)>0,\qquad
+v_\varepsilon(x,y)=\varepsilon^{-1}\rho(y/\varepsilon).
+$$
 
 <!-- solution-start -->
 #### 詳細解答
@@ -709,7 +737,7 @@ $$
 
 **（3）接触すると何が壊れるか。** $v=\delta(y)$ の波面は $\{(x,0;0,\beta):\beta\ne0\}$ です。放物線と $y=0$ は $s=0$ で接し、$N_i$ の余ベクトル $(0,\beta)$ と重なります。従って十分条件は不成立です。
 
-$v_\varepsilon(x,y)=\rho_\varepsilon(y)$ と平滑化すると $i^*v_\varepsilon(s)=\varepsilon^{-1}\rho(s^2/\varepsilon)$ です。$\rho\ge0$、$\rho(0)>0$、$\int\rho=1$ の滑らかなコンパクト支持関数とし、$s=\sqrt\varepsilon\,r$ と置けば
+$v_\varepsilon(x,y)=\rho_\varepsilon(y)$ と平滑化すると $i^*v_\varepsilon(s)=\varepsilon^{-1}\rho(s^2/\varepsilon)$ です。問題で指定した $\rho$ に対して $s=\sqrt\varepsilon\,r$ と置けば
 
 $$
 \begin{aligned}
@@ -721,7 +749,7 @@ $$
 \end{aligned}
 $$
 
-$\rho(0)>0$ なら $\int\rho(r^2)\,dr>0$ です。$\psi(0)>0$ を選べば $\varepsilon^{-1/2}$ の次数で発散します。ここでは $g(s)=s^2$ の導関数が零点で消え、（2）で使えた逆関数による座標変換が破綻しました。非特性条件が支える証明機構を、横断交差と接触の差として確認できました。
+$\rho(r^2)$ はコンパクト支持で、$\psi(\sqrt\varepsilon r)\to\psi(0)$ への[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)が使えます。$\rho(0)>0$ だから $\int\rho(r^2)\,dr>0$ です。$\psi(0)>0$ を選べば $\varepsilon^{-1/2}$ の次数で発散します。ここでは $g(s)=s^2$ の導関数が零点で消え、（2）で使えた逆関数による座標変換が破綻しました。非特性条件が支える証明機構を、横断交差と接触の差として確認できました。
 <!-- solution-end -->
 
 ## 9. 何が分かったか
