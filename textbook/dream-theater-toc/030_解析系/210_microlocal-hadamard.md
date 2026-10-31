@@ -8,4 +8,5 @@
 5. [MICA5 座標変換と余法束](textbook/volumes/dream_thater/解析系/MICA/MICA5/index.md)
 6. [MICA6 分布の積](textbook/volumes/dream_thater/解析系/MICA/MICA6/index.md)
 7. [MICA7 引き戻しと部分多様体への制限](textbook/volumes/dream_thater/解析系/MICA/MICA7/index.md)
+8. [MICA8 擬微分作用素と主シンボル](textbook/volumes/dream_thater/解析系/MICA/MICA8/index.md)
 

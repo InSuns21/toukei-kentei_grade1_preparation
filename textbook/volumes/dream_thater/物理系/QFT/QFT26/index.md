@@ -4,11 +4,27 @@
 
 この操作では、作用の形そのものが変わり得ます。四次相互作用から高次の場や導関数を含む項も生成されます。そこで、どの項が長距離で重要かを分類し、既習の $\beta$ 関数との符号・尺度の向きを照合します。最後に重い場を消去する小模型で、有効場の理論の「高エネルギーの詳細を低エネルギーの係数へ畳み込む」という意味を計算します。
 
-以下は $d$ 次元Euclid空間の実スカラー場を主に扱い、$\hbar=c=1$、Fourier変換を $\phi(x)=\int d^dp/(2\pi)^d\,e^{ipx}\widetilde\phi(p)$ とします。無限次元の「測度」を構成済みと仮定せず、まず有限の周期箱・有限Fourierモードで通常の積分として定義し、その後で体積の大きい極限や摂動的な連続記法を使います。[QFT19の有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)と[QFT22のカットオフ積分](../QFT22/index.md#thm-qft22-cutoff-integrals)が出発点です。
+以下は $d$ 次元Euclid空間の実スカラー場を主に扱い、$\hbar=c=1$ とします。
+
+まず一辺 $L$ の周期箱で、[QFT22の有限Fourierモード](../QFT22/index.md#def-qft22-sharp-cutoff)と同様に体積 $V=L^d$、運動量 $p_i=2\pi n_i/L$ とします。実場の有限Fourier表示は
+
+$$
+\phi(x)=V^{-1/2}\sum_p e^{ipx}\phi_p
+$$
+
+です。各独立な実Fourier成分を通常の有限次元積分で扱い、無限次元の「測度」を構成済みとは仮定しません。
+
+連続運動量の式は、正の質量と固定カットオフの下で先に $L\to\infty$ として和を積分へ移した摂動的記法です。連続Fourier規約は
+
+$$
+\phi(x)=\int\frac{d^dp}{(2\pi)^d}\,e^{ipx}\widetilde\phi(p)
+$$
+
+とします。[QFT19の有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)と[QFT22のカットオフ積分](../QFT22/index.md#thm-qft22-cutoff-integrals)が出発点です。
 
 ## 1. 高運動量の場を消しても低運動量の予測を残せるか
 
-周期箱の一辺を $L$ として運動量 $p_i=2\pi n_i/L$ を離散化し、$|p|<\Lambda$ の有限モードだけを残します。実場では $\widetilde\phi(-p)=\overline{\widetilde\phi(p)}$ です。$b>1$ を固定し、低運動量領域 $|p|<\Lambda/b$ の成分を $\phi_<$、残りの殻 $\Lambda/b\le |p|<\Lambda$ の成分を $\phi_>$ とします。$p$ の支持が交わらないので、自由二次作用の交差項はありません。
+周期箱の一辺を $L$ として運動量 $p_i=2\pi n_i/L$ を離散化し、$|p|<\Lambda$ の有限モードだけを残します。実場では有限箱の係数が $\phi_{-p}=\overline{\phi_p}$ を満たします。$b>1$ を固定し、低運動量領域 $|p|<\Lambda/b$ の成分を $\phi_<$、残りの殻 $\Lambda/b\le |p|<\Lambda$ の成分を $\phi_>$ とします。$p$ の支持が交わらないので、自由二次作用の交差項はありません。
 
 有限モードの実独立変数を積分する記号を $D\phi_<$、$D\phi_>$ と書きます。$S_\Lambda[\phi]$ は全モードのEuclid作用です。積分に現れる正規化因子は低運動量の期待値には影響しないため、$\phi_<$ に無関係な定数は作用から除いてよいことにします。
 
@@ -34,10 +50,18 @@ $$
 
 $$
 S_\Lambda[\phi]=\frac12\sum_{|p|<\Lambda}
-(p^2+m^2)|\widetilde\phi(p)|^2
+(p^2+m^2)|\phi_p|^2
 $$
 
-を実独立モードの二次形式として書きます（Fourier係数の体積規格化を和へ含めます）。各固有値が正なので有限Gaussian積分は正かつ有限です。低・高成分の直交性から $S_\Lambda=S_<+S_>$。$N_>=\int D\phi_>\,e^{-S_>}$ と選べば、定義式は $e^{-S_<}$ そのものです。従って $S_{\Lambda/b}^{\mathrm W}[\phi_<]=S_<[\phi_<]$。自由模型でも全く「何も消していない」のではなく、高いモードの積分が低いモードへ依存しない定数だけを与えたのです。
+を考えます。これは[QFT22の実Fourier正規直交基底](../QFT22/index.md#def-qft22-sharp-cutoff)で書いた自由二次形式です。運動項と質量項を基底展開すると、異なる運動量の内積は零となり、各独立実座標の二乗係数は $p^2+m^2>0$ です。従って二次形式は正定値で、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)により積分は正かつ有限です。
+
+低モードと高モードが同じ実直交基底の互いに交わらない部分を占めるため、交差項は消え、
+
+$$
+S_\Lambda[\phi_<+\phi_>]=S_<[\phi_<]+S_>[\phi_>].
+$$
+
+ここで $N_>=\int D\phi_>\,e^{-S_>}$ と選ぶと、定義式は $e^{-S_<}$ そのものです。よって $S_{\Lambda/b}^{\mathrm W}[\phi_<]=S_<[\phi_<]$。これは、高いモードの積分が低いモードへ依存しない定数だけを与え、低モードの作用を変えない例です。
 <!-- definition-example-end -->
 
 相互作用があると、例えば $\lambda\phi^4$ を $\phi_<+\phi_>$ で展開した混合項が残るため、作用は単なる「高いFourier係数をゼロにする操作」と違います。
@@ -80,20 +104,35 @@ $$
 
 ## 2. 同じカットオフへ戻して項の重要度を測る
 
-一段積分消去すると許された運動量は $|p|<\Lambda/b$ へ狭まります。この状態を次の段階と比較するには、$p'=bp$ と置いて $|p'|<\Lambda$ に戻すと便利です。空間座標は $x'=x/b$ です。自由運動項 $\frac12\int d^dx\,(\partial\phi)^2$ の係数を $1$ に保つよう場も変換します。
+一段積分消去すると許された運動量は $|p|<\Lambda/b$ へ狭まります。次の段階と比較するため $p'=bp$ と置き、運動量の範囲を元の $|p'|<\Lambda$ に戻します。対応する空間座標は $x'=x/b$ です。
+
+$x_i$ に関する偏微分を $\partial_i$、$x'_i$ に関する偏微分を $\partial'_i$ と書きます。連鎖律とJacobianは
+
+$$
+\partial_i=b^{-1}\partial'_i,\qquad d^dx=b^d d^dx'
+$$
+
+です。自由運動項の係数を不変にするには
+
+$$
+\frac12\int d^dx\,(\partial\phi_<)^2
+=\frac12\int d^dx'\,b^{d-2}(\partial'\phi_<(bx'))^2
+$$
+
+から、$\phi_<(bx')=b^{-(d-2)/2}\phi'(x')$ と選びます。この指数は自由運動項を規格化するためのもので、相互作用のループ補正はまだ含めていません。
 
 <a id="def-qft26-rescaling"></a>
 
 <!-- formal-statement-start -->
 > **定義（再スケーリングと局所演算子のスケーリング指数）**
-> $d>2$ 次元Euclid実スカラー場で、自由二次運動項の係数を $1/2$ とする。$b>1$、$x'=x/b$、$p'=bp$ とし、
+> $d>2$ 次元Euclid実スカラー場で、自由二次運動項の係数を $1/2$ とする。運動項を規格化する場の**工学的質量次元**を $[\phi]_{\mathrm{eng}}=(d-2)/2$ と定める。$b>1$、$x'=x/b$、$p'=bp$ とし、
 
 $$
 \phi'(x')=b^{(d-2)/2}\phi_<(bx'),\qquad
 \widetilde\phi'(p')=b^{-(d+2)/2}\widetilde\phi_<(p'/b)
 $$
 
-> で場を再スケーリングする。$n$ 個の場と総計 $s$ 階の空間微分を含む並進不変な局所単項式 $\mathcal O_{n,s}$ を、指数・添字の縮約が定まっているものとする。その作用項 $\int d^dx\,g_{n,s}\mathcal O_{n,s}$ の**木レベルスケーリング指数**を
+> で場を再スケーリングする。$\widetilde\phi$ を使う第二式は、無限体積での連続Fourier規約に対する式である。第一式のFourier変換で $x=bx'$、$d^dx'=b^{-d}d^dx$ と置けば、係数は $b^{(d-2)/2-d}=b^{-(d+2)/2}$ となる。$n$ 個の場と総計 $s$ 階の空間微分を含む並進不変な局所単項式 $\mathcal O_{n,s}$ を、指数・添字の縮約が定まっているものとする。その作用項 $\int d^dx\,g_{n,s}\mathcal O_{n,s}$ の**木レベルスケーリング指数**を
 
 $$
 y_{n,s}=d-\frac{n(d-2)}2-s
@@ -178,9 +217,13 @@ S_\Lambda[\phi]=\int d^4x\left[
 \right]
 $$
 
-とします。$\lambda\ge0$、$m^2>0$ を基準に有限モード積分を定義し、必要な式では $m^2/\Lambda^2\to0$ の極限を取ります。$b=e^{\delta t}$、$\delta t>0$ は小さいとし、$t=\log(\Lambda_0/\Lambda_{\mathrm{running}})$ を**赤外へ向かって増える**流れの時間とします。まず殻を積分し、低モードの運動項が $1/2$ に戻るよう再スケーリングします。
+とします。$\lambda\ge0$、$m^2>0$ を基準に有限モード積分を定義し、必要な式では質量比 $m^2/\Lambda^2\to0$ の極限を取ります。
 
-定数の背景場 $\varphi$ を低モードに置くと、殻の二次変動核には $\lambda\varphi^2/2$ が加わります。したがって一ループの場依存寄与は、[QFT19のGaussian積分公式](../QFT19/index.md#thm-qft19-gaussian)を各殻モードに適用した
+薄殻の幅を $b=e^{\delta t}$、$\delta t>0$ と表し、$t=\log(\Lambda_0/\Lambda_{\mathrm{running}})$ を**赤外へ向かって増える**流れの時間とします。
+
+以下の殻積分と $d/dt$ は、固定 $L$ の離散殻を微分したものではありません。固定した正の質量とカットオフの下で先に $L\to\infty$ としてモード和を積分へ移し、次に $\delta t\downarrow0$ を取ります。固定の有限箱では殻のモード数が階段状に変わるため、この順序が必要です。最後に低モードの運動項が $1/2$ に戻るよう再スケーリングします。
+
+定数の背景場 $\varphi$ を低モードに置くと、殻の二次変動核には $\lambda\varphi^2/2$ が加わります。したがって一ループの場依存寄与は、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を各殻モードに適用した
 
 $$
 \Delta V(\varphi)=\frac12\int_{\Lambda/b<|q|<\Lambda}
@@ -308,7 +351,7 @@ S[\phi,\chi]=S_{\mathrm{light}}[\phi]
 +\frac h2\int d^4x\,\chi\phi^2,\qquad M>0
 $$
 
-とします。$S_{\mathrm{light}}$ は軽い場の運動・十分安定化する正の四次項を含むとし、境界項が消える周期境界条件を使います。$\chi$ はGaussianなので、この例では積分消去を厳密に計算できます。
+とします。$S_{\mathrm{light}}$ は軽い場の運動項と、消去後も全体を下に有界にする十分な正の四次項を含むとし、境界項が消える周期境界条件を使います。重い場の二次核 $K=M^2-\partial^2$ は、Fourier基底 $e^{ipx}$ に作用すると $K e^{ipx}=(M^2+p^2)e^{ipx}$ となります。各固有値が $M^2+p^2>0$ だから、重い場の実独立Fourier座標では正定値の行列です。このため[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を適用できます。線形源 $\phi^2$ の全モードが重い場の積分空間に入っているかも確認してから平方完成します。
 
 <a id="prop-qft26-heavy-matching"></a>
 
@@ -322,17 +365,24 @@ S_{\mathrm{eff}}[\phi]
 -\frac{h^2}{8}\int d^4x\,\phi^2K^{-1}\phi^2.
 $$
 
-> ここで $\phi^2$ のFourier支持について $|p|/M\ll1$ なら、低運動量展開の最初の二項は
+> ここで $\phi^2$ のFourier支持について $P/M\ll1$ なら、低運動量展開の最初の二項は
 
 $$
 S_{\mathrm{eff}}[\phi]
 =S_{\mathrm{light}}[\phi]
 -\frac{h^2}{8M^2}\int d^4x\,\phi^4
 +\frac{h^2}{8M^4}\int d^4x\,|\partial(\phi^2)|^2
-+O(P^4/M^6)
++\mathcal R[\phi]
 $$
 
-> となる。最後の剰余記号は固定された場で核の $p^4/M^6$ 以降の項を指し、任意の高運動量・任意の場振幅に対する一様誤差評価ではない。
+> となる。剰余は固定した有限モード場について次の明示的な評価を満たす。
+
+$$
+-\frac{h^2P^4}{8M^6}\int d^4x\,\phi^4
+\le \mathcal R[\phi]\le0.
+$$
+
+> これは $\phi^2$ の運動量支持を制限した評価であり、任意の高運動量場に対する展開ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -360,20 +410,23 @@ $$
 +\frac{p^4}{M^4(M^2+p^2)}
 $$
 
-が厳密に成り立ちます。$\int f(-\partial^2)f=\int|\partial f|^2$ を周期境界で部分積分し、$f=\phi^2$ を代入すると
+が厳密に成り立ちます。周期境界で $\langle f,-\partial^2 f\rangle=\int d^4x\,|\partial f|^2$ と部分積分し、$f=\phi^2$ を代入すると
 
 $$
 -\frac{h^2}{8}\langle f,K^{-1}f\rangle
-=-\frac{h^2}{8M^2}\int f^2
-+\frac{h^2}{8M^4}\int|\partial f|^2
--\frac{h^2}{8}\int\frac{d^4p}{(2\pi)^4}
-\frac{p^4|\widetilde f(p)|^2}{M^4(M^2+p^2)}.
+=-\frac{h^2}{8M^2}\int d^4x\,f^2
++\frac{h^2}{8M^4}\int d^4x\,|\partial f|^2+\mathcal R[\phi],
 $$
 
-最後の積分は $|p|\le P\ll M$ では $\le P^4/M^6$ に比例する核の誤差であり、最初の二項を与えます。なお $\phi$ が $P$ 以下でも $\phi^2$ の支持は一般に $2P$ まで広がるため、命題では **$\phi^2$ の支持** を条件にしたことが重要です。
+$$
+\mathcal R[\phi]=-\frac{h^2}{8}
+\left\langle f,\frac{(-\partial^2)^2}{M^4(M^2-\partial^2)}f\right\rangle.
+$$
+
+この剰余演算子のFourier固有値は $p^4/[M^4(M^2+p^2)]$ で、$|p|\le P$ では $0\le p^4/[M^4(M^2+p^2)]\le P^4/M^6$。実直交Fourier基底のParseval等式 $\langle f,f\rangle=\int d^4x\,f^2$ によって命題の剰余評価を得ます。なお $\phi$ が $P$ 以下でも積 $\phi^2$ の支持は一般に $2P$ まで広がるため、命題では **$\phi^2$ の支持** を条件にしたことが重要です。
 <!-- proof-end -->
 
-この結果で $\phi^4$ の係数は $-h^2/(8M^2)$ だけずれます。元の四次項が $\lambda\phi^4/4!$ なら $\Delta\lambda=-3h^2/M^2$ です。また導関数付きの $\lvert\partial(\phi^2)\rvert^2$ は四次元で場四個・微分二個、[スケーリング指数](#def-qft26-rescaling)は $y=-2$。従って典型的な外部運動量 $Q\ll M$ では、局所四次項に対する相対補正が $O(Q^2/M^2)$ になります。厳密な打切り精度は係数の相殺や外部場の配置にも依存します。
+この結果で $\phi^4$ の係数は $-h^2/(8M^2)$ だけずれます。元の四次項が $\lambda\phi^4/4!$ なら $\Delta\lambda=-3h^2/M^2$ です。また連鎖律 $\partial_i(\phi^2)=2\phi\,\partial_i\phi$ より $|\partial(\phi^2)|^2=4\phi^2|\partial\phi|^2$ です。従って導関数付き項は四次元で場四個・微分二個となり、[スケーリング指数](#def-qft26-rescaling)は $y=-2$。従って典型的な外部運動量 $Q\ll M$ では、局所四次項に対する相対補正が $O(Q^2/M^2)$ になります。厳密な打切り精度は係数の相殺や外部場の配置にも依存します。
 
 ## 5. 演習：殻積分から低エネルギーの予測へ
 
@@ -393,7 +446,18 @@ e^{-S^{\mathrm W}(x)}
 \int_{\mathbb R}e^{-cy^2/2}dy=e^{-ax^2/2}.
 $$
 
-従って $S^{\mathrm W}(x)=ax^2/2$ です。元の模型では $y$ の積分が分子・分母で消え、$\langle x^2\rangle=(\int x^2e^{-ax^2/2}dx)/(\int e^{-ax^2/2}dx)$。分母を $a$ で微分して $-2\partial_a\log\int e^{-ax^2/2}dx=1/a$、有効模型でも同じ $1/a$ です。
+従って $S^{\mathrm W}(x)=ax^2/2$ です。元の模型では $y$ の積分が分子・分母で消えます。ここで $a$ による偏微分 $\partial_a$ は、積分変数 $x$ を固定して係数 $a$ を動かす操作です。$a>0$ なので積分内微分が可能で、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)から
+
+$$
+\begin{aligned}
+Z(a)&=\int_{\mathbb R}e^{-ax^2/2}\,dx=\sqrt{\frac{2\pi}{a}},\\
+-2\partial_a\log Z(a)
+&=\frac{\int_{\mathbb R}x^2e^{-ax^2/2}\,dx}{Z(a)}
+=\frac1a.
+\end{aligned}
+$$
+
+有効模型でも $x$ の重みは同一なので、$\langle x^2\rangle=1/a$ です。
 <!-- solution-end -->
 
 ### 演習 QFT26-A2：運動項を保つ場の変換
@@ -423,7 +487,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$y=4-n-s$ を使用します。順に $(n,s,y)=(2,0,2)$ で関連、$(4,0,0)$ で周辺、$(6,0,-2)$ で無関連、$(2,2,0)$ で周辺、$(4,2,-2)$ で無関連です。最後は $\phi^2$ が2個、$(\partial\phi)^2$ の中に場が2個・微分が2個あるため $n=4,s=2$。運動項は場の規格化に使用済みで、独立の周辺結合が必ず増えるわけではありません。
+[木レベル指数](#thm-qft26-tree-scaling)に $d=4$ を代入すると $y_{n,s}=4-n-s$ です。各項の場の個数と総微分数を数えると
+
+$$
+\begin{aligned}
+\phi^2 &: (n,s,y)=(2,0,2) &&\text{関連},\\
+\phi^4 &: (4,0,0) &&\text{周辺},\\
+\phi^6 &: (6,0,-2) &&\text{無関連},\\
+(\partial\phi)^2 &: (2,2,0) &&\text{周辺},\\
+\phi^2(\partial\phi)^2 &: (4,2,-2) &&\text{無関連}.
+\end{aligned}
+$$
+
+最後の項は、前の $\phi^2$ に場が2個、後の $(\partial\phi)^2$ に場が2個・微分が2個あるので $n=4,s=2$ です。運動項は場の規格化に使用済みで、独立の周辺結合が必ず増えるわけではありません。
 <!-- solution-end -->
 
 ### 演習 QFT26-A4：四次元の殻積分
@@ -446,7 +522,7 @@ I_2=\frac1{8\pi^2}\int_{\Lambda/b}^{\Lambda}\frac{dq}{q}
 =\frac{\log b}{8\pi^2}.
 $$
 
-$b=e^{\delta t}$ なら $I_1=\Lambda^2\delta t/(8\pi^2)+O(\delta t^2)$、$I_2=\delta t/(8\pi^2)$ です。
+$b=e^{\delta t}$ なら $I_1=\Lambda^2\delta t/(8\pi^2)+O(\Lambda^2\delta t^2)$、$I_2=\delta t/(8\pi^2)$ です。後者は $\log b=\delta t$ によりこの殻積分で厳密です。
 <!-- solution-end -->
 
 ### 演習 QFT26-A5：一次・二次のlog展開
@@ -464,7 +540,19 @@ $$
 -\frac{\lambda^2\varphi^4}{16(q^2+m^2)^2}+O(\varphi^6).
 $$
 
-殻積分 $I_1,I_2$ を掛けると二次の係数は $\lambda I_1/4=\delta m^2/2$、よって $\delta m^2=\lambda I_1/2$。四次は $-\lambda^2I_2/16=\delta\lambda/24$、従って $\delta\lambda=-3\lambda^2I_2/2$ です。$4!=24$ を落とすと一ループの係数が誤ります。
+[殻積分と一ループ流](#thm-qft26-shell-flow)の $I_1,I_2$ を掛け、作用の二次係数・四次係数にそれぞれ合わせると
+
+$$
+\frac{\delta m^2}{2}=\frac{\lambda I_1}{4},
+\qquad \delta m^2=\frac{\lambda I_1}{2},
+$$
+
+$$
+\frac{\delta\lambda}{24}=-\frac{\lambda^2I_2}{16},
+\qquad \delta\lambda=-\frac{3\lambda^2}{2}I_2.
+$$
+
+$4!=24$ を落とすと一ループの係数が誤ります。
 <!-- solution-end -->
 
 ### 演習 QFT26-B1：赤外向きの四次結合
@@ -507,7 +595,7 @@ $r=0$ のループ係数に対し $r=9$ は $(1+9)^{-2}=1/100$ です。これ�
 ### 演習 QFT26-B3：重い場の平方完成
 
 - Level: B
-- 問題：周期境界の有限モード模型で $K=M^2-\partial^2>0$、重い実場 $\chi$ に $S_\chi=\frac12\langle\chi,K\chi\rangle+(h/2)\langle\chi,\phi^2\rangle$ が作用する。$\chi$ を積分して誘導される $\phi^4$ の係数と $|\partial(\phi^2)|^2$ の係数を $1/M$ の展開で求めよ。
+- 問題：周期境界の有限モード模型で $K=M^2-\partial^2>0$、重い実場 $\chi$ に $S_\chi=\frac12\langle\chi,K\chi\rangle+(h/2)\langle\chi,\phi^2\rangle$ が作用する。$\chi$ のモード集合は $\phi^2$ のFourier支持をすべて含み、その運動量は $|p|\le P\ll M$ とする。$\chi$ を積分して誘導される $\phi^4$ の係数と $|\partial(\phi^2)|^2$ の係数を $1/M$ の展開で求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -518,7 +606,7 @@ $$
 S_\chi=\frac12\langle\chi',K\chi'\rangle-\frac12\langle J,K^{-1}J\rangle.
 $$
 
-Gaussian積分は第二項だけを低場の作用に残すので $\Delta S=-h^2\langle\phi^2,K^{-1}\phi^2\rangle/8$。$K^{-1}(p)=M^{-2}-p^2M^{-4}+O(p^4/M^6)$ を代入し、$p^2$ を $-\partial^2$ へ戻すと
+[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)では平行移動した積分は $\phi$ に依存しないので、第二項だけが低場の作用に残り、$\Delta S=-h^2\langle\phi^2,K^{-1}\phi^2\rangle/8$ です。$\phi^2$ の支持が $|p|\le P\ll M$ なので、$K^{-1}(p)=M^{-2}-p^2M^{-4}+O(p^4/M^6)$ を代入でき、$p^2$ を $-\partial^2$ へ戻すと
 
 $$
 \Delta S=-\frac{h^2}{8M^2}\int\phi^4
@@ -536,7 +624,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\phi^4$ は $(n,s)=(4,0)$ で $y=0$、$\phi^2(\partial\phi)^2$ は $(4,2)$ で $y=-2$ です。運動量表示では導関数二つが $Q^2$ を生むため、係数が同程度なら振幅の相対的大きさは $(c_6/c_4)(Q^2/M^2)$ の次数です。$c_4=0$ なら分母にする四次振幅がないので「それに対する相対抑制」は定義できません。無関連項が最初の非零寄与になる可能性があります。
+[木レベル指数](#thm-qft26-tree-scaling)から、$\phi^4$ は $(n,s)=(4,0)$ で $y=0$、$\phi^2(\partial\phi)^2$ は $(4,2)$ で $y=-2$ です。典型的な外部運動量が $Q$ のとき、微分二つが $Q^2$ を生むので、四点接触項の係数を比べると
+
+$$
+\frac{\text{導関数付き項の大きさ}}{\text{四次項の大きさ}}
+=O\!\left(\left|\frac{c_6}{c_4}\right|\frac{Q^2}{M^2}\right)
+\qquad(c_4\ne0)
+$$
+
+です。$c_4=0$ なら分母にする四次振幅がないので「それに対する相対抑制」は定義できません。無関連項が最初の非零寄与になる可能性があります。
 <!-- solution-end -->
 
 ### 演習 QFT26-C1：Wilson流と有効場の理論の整合

@@ -1,0 +1,55 @@
+chapter: QFT27
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT12, QFT13, QFT15, QFT17, QFT18]
+forward_references: []
+
+concepts:
+  - id: qft.soft-photon-external-current
+    name: 外線の軟光子電流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（外線の軟光子電流）]
+    requires: [qft.qed-three-point-vertex, qft.maxwell-two-polarizations]
+
+  - id: qft.soft-photon-factor
+    name: 質量を持つ外線からの軟光子放出因子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量を持つ外線からの軟光子放出因子）]
+    requires: [qft.soft-photon-external-current, qft.on-shell-ward-identity]
+
+  - id: qft.soft-angular-coefficient
+    name: 軟放射の角度係数と平均個数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（軟放射の角度係数と平均個数）]
+    requires: [qft.soft-photon-factor, qft.final-state-invariant-phase-space]
+
+  - id: qft.soft-energy-log
+    name: 軟光子位相空間の対数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（軟光子位相空間の対数）]
+    requires: [qft.soft-angular-coefficient]
+
+  - id: qft.soft-deflection-coefficient
+    name: 一荷電粒子の方向転換と角度係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一荷電粒子の方向転換と角度係数）]
+    requires: [qft.soft-angular-coefficient]
+
+  - id: qft.soft-inclusive-probability
+    name: 軟光子について包摂的な確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（軟光子について包摂的な確率）]
+    requires: [qft.inclusive-final-state-sum, qft.soft-energy-log]
+
+  - id: qft.soft-real-virtual-cancellation
+    name: 先頭軟対数の実・仮想相殺
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（先頭軟対数の実・仮想相殺）]
+    requires: [qft.soft-inclusive-probability, qft.soft-photon-factor, qft.fock-ccr]
