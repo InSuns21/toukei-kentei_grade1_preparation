@@ -20,7 +20,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（くりこみ群β関数と場の異常次元）**
-> $d=4-2\varepsilon$ の正則化付き理論で、裸の結合 $\lambda_B$、裸の質量 $m_B^2$、裸の場 $\phi_B$ と、$\mu>0$ に依存し得るくりこみ済み量 $\lambda,m^2,\phi_R$ があり、$\phi_B=Z_\phi^{1/2}\phi_R$ とする。裸の量と正則化パラメータ $\varepsilon$ を固定した全微分により
+> $d=4-2\varepsilon$ の正則化付き理論で、裸の結合 $\lambda_B$、裸の質量 $m_B^2$、裸の場 $\phi_B$ と、$\mu>0$ に依存し得るくりこみ済み量 $\lambda,m^2,\phi_R$ があり、$\phi_B=Z_\phi^{1/2}\phi_R$ とする。$Z_\phi$ は正で対数微分可能とするか、摂動論では定数項が1の形式的級数として平方根・対数を解釈する。裸の量と正則化パラメータ $\varepsilon$ を固定した全微分により
 
 $$
 \beta_\lambda=\left.\mu\frac{d\lambda}{d\mu}\right|_{\mathrm{bare}},
@@ -232,7 +232,7 @@ e_BZ_2Z_3^{1/2}=\mu^\varepsilon Z_1e,
 e_B=\mu^\varepsilon Z_1Z_2^{-1}Z_3^{-1/2}e.
 $$
 
-ゲージ不変な方式で**完全な量子Ward–Takahashi恒等式**が成り立ち $Z_1=Z_2$ を満たすと仮定して、はじめて $e_B=\mu^\varepsilon Z_3^{-1/2}e$ を得ます。この等式は**QFT24の二点横性だけでは証明されません**。以下は量子Ward恒等式を保存するQED摂動論での条件付きの計算です。
+ここで $Z_1,Z_2,Z_3$ は定数項1の形式的摂動級数として逆数・平方根・対数を計算し、$\varepsilon$ の極を整理してから四次元極限を取ります。ゲージ不変な方式で**完全な量子Ward–Takahashi恒等式**が成り立ち $Z_1=Z_2$ を満たすと仮定して、はじめて $e_B=\mu^\varepsilon Z_3^{-1/2}e$ を得ます。この等式は**QFT24の二点横性だけでは証明されません**。以下は量子Ward恒等式を保存するQED摂動論での条件付きの計算です。
 
 一種類の質量 $m>0$、電荷の絶対値 $e>0$ のDirac場について、[QFT24の光子反項](../QFT24/index.md#thm-qft24-renormalized-photon)は
 
