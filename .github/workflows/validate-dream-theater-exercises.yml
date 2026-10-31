@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'textbook/dream-theater.md'
+      - 'textbook/dream-theater-toc/**'
       - 'textbook/DREAM_THEATER_EXERCISE_POLICY.md'
       - 'textbook/volumes/**'
       - 'scripts/validate-dream-theater-exercise-counts.mjs'
@@ -15,6 +16,7 @@ on:
       - main
     paths:
       - 'textbook/dream-theater.md'
+      - 'textbook/dream-theater-toc/**'
       - 'textbook/DREAM_THEATER_EXERCISE_POLICY.md'
       - 'textbook/volumes/**'
       - 'scripts/validate-dream-theater-exercise-counts.mjs'

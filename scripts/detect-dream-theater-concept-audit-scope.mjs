@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { parseDreamTheaterFacade } from './lib/dream-theater-public-catalog.mjs';
+import { parseDreamTheaterFacade, readDreamTheaterContents, readDreamTheaterContentsAtRef } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const indexRel = 'textbook/dream-theater.md';
+const tocPrefix = 'textbook/dream-theater-toc/';
 const args = process.argv.slice(2);
 
 if (args.includes('--self-test')) {
@@ -27,11 +28,11 @@ for (const change of changes) {
   }
 }
 
-const indexChange = changes.find((change) => change.path === indexRel);
+const indexChange = changes.some((change) => change.path === indexRel || change.path.startsWith(tocPrefix));
 if (indexChange) {
   try {
-    const before = parseDreamTheaterFacade(gitShow(base, indexRel));
-    const after = parseDreamTheaterFacade(fs.readFileSync(path.join(root, indexRel), 'utf8'));
+    const before = parseDreamTheaterFacade(readDreamTheaterContentsAtRef(base, root));
+    const after = parseDreamTheaterFacade(readDreamTheaterContents(root));
     const result = classifyIndexChange(before, after);
     if (!result.pureAdd) reasons.push(`index が pure-add ではありません: ${result.reason}`);
     else console.log(`DREAM THEATER index: pure-add (${result.addedPaths.length} path追加)`);
@@ -77,6 +78,7 @@ function collectChanges(baseSha) {
 
 function isGlobalAuditTrigger(relPath) {
   if (relPath === indexRel) return false;
+  if (relPath.startsWith(tocPrefix)) return false;
   if (relPath === 'textbook/dream-theater-knowledge.yaml') return true;
   if (relPath === 'textbook/dream-theater-inference-rules.yaml') return true;
   if (relPath === 'package.json' || relPath === 'package-lock.json') return true;
@@ -179,14 +181,6 @@ function stableJson(value) {
     return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(',')}}`;
   }
   return JSON.stringify(value);
-}
-
-function gitShow(baseSha, relPath) {
-  return execFileSync('git', ['show', `${baseSha}:${relPath}`], {
-    cwd: root,
-    encoding: 'utf8',
-    maxBuffer: 20 * 1024 * 1024,
-  });
 }
 
 function valueAfter(flag) {

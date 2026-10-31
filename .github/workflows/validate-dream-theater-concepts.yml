@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'textbook/dream-theater.md'
+      - 'textbook/dream-theater-toc/**'
       - 'textbook/dream-theater-knowledge.yaml'
       - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'
@@ -29,6 +30,7 @@ on:
       - main
     paths:
       - 'textbook/dream-theater.md'
+      - 'textbook/dream-theater-toc/**'
       - 'textbook/dream-theater-knowledge.yaml'
       - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'

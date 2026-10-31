@@ -1,9 +1,87 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const CHAPTER_ROOT = 'textbook/volumes/dream_thater';
-const FACADE = 'textbook/dream-theater.md';
+const TOC_ROOT = 'textbook/dream-theater-toc';
 const CHAPTER_LINK_RE = /\[([^\]]+)\]\((textbook\/volumes\/(?:dream_thater|00_foundations)\/[^)]+\/index\.md)\)/gu;
+
+/**
+ * Source of the public Markdown page. Each subject owns one file; the numeric
+ * prefixes of directory and file names own category and subject order. No
+ * generated, shared dream-theater.md is checked into Git.
+ */
+export function assembleDreamTheaterContents(sourceFiles) {
+  const intro = sourceFiles.get(`${TOC_ROOT}/intro.md`);
+  if (!intro?.startsWith('# DREAM THEATER 本編\n')) {
+    throw new Error('missing DREAM THEATER introduction: ' + TOC_ROOT + '/intro.md');
+  }
+  const categories = new Map();
+  for (const [file, content] of sourceFiles) {
+    if (file === `${TOC_ROOT}/intro.md`) continue;
+    const match = /^textbook\/dream-theater-toc\/(\d{3})_([^/]+)\/(\d{3})_([a-z0-9-]+)\.md$/u.exec(file);
+    if (!match) throw new Error('unexpected DREAM THEATER contents source: ' + file);
+    const [, categoryOrder, category, subjectOrder] = match;
+    const entry = categories.get(categoryOrder) ?? { category, subjects: new Map() };
+    if (entry.category !== category) throw new Error('duplicate DREAM THEATER category order: ' + categoryOrder);
+    if (entry.subjects.has(subjectOrder)) throw new Error('duplicate DREAM THEATER subject order: ' + file);
+    if (!/^<a id="dt-subject-[^"]+"><\/a>\n/u.test(content) ||
+        (content.match(/^###\s+.+$/gmu) ?? []).length !== 1 ||
+        /^##\s/mu.test(content)) {
+      throw new Error('invalid DREAM THEATER subject fragment: ' + file);
+    }
+    entry.subjects.set(subjectOrder, content);
+    categories.set(categoryOrder, entry);
+  }
+  if (!categories.size) throw new Error('DREAM THEATER contents have no subjects');
+  const pieces = [intro];
+  const anchors = new Set();
+  for (const [, { category, subjects }] of [...categories].sort(([a], [b]) => a.localeCompare(b))) {
+    pieces.push(`## ${category}\n\n`);
+    for (const [, fragment] of [...subjects].sort(([a], [b]) => a.localeCompare(b))) {
+      for (const [, anchor] of fragment.matchAll(/^<a id="([^"]+)"><\/a>$/gmu)) {
+        if (anchors.has(anchor)) throw new Error('duplicate DREAM THEATER anchor: ' + anchor);
+        anchors.add(anchor);
+      }
+      pieces.push(fragment);
+    }
+  }
+  return pieces.join('');
+}
+
+/** Reads only source fragments, without touching the generated Pages artifact. */
+export function readDreamTheaterContents(root = process.cwd()) {
+  const sourceRoot = path.join(root, TOC_ROOT);
+  const files = new Map();
+  files.set(`${TOC_ROOT}/intro.md`, fs.readFileSync(path.join(sourceRoot, 'intro.md'), 'utf8'));
+  for (const category of fs.readdirSync(sourceRoot, { withFileTypes: true })) {
+    if (category.name === 'intro.md') continue;
+    if (!category.isDirectory()) throw new Error('unexpected DREAM THEATER contents source: ' + category.name);
+    const categoryRoot = path.join(sourceRoot, category.name);
+    for (const subject of fs.readdirSync(categoryRoot, { withFileTypes: true })) {
+      if (!subject.isFile()) throw new Error('unexpected DREAM THEATER contents directory: ' + subject.name);
+      const relative = `${TOC_ROOT}/${category.name}/${subject.name}`;
+      files.set(relative, fs.readFileSync(path.join(categoryRoot, subject.name), 'utf8'));
+    }
+  }
+  return assembleDreamTheaterContents(files);
+}
+
+/** Compare PR merge bases without materializing the generated Markdown in Git. */
+export function readDreamTheaterContentsAtRef(ref, root = process.cwd()) {
+  const git = (...args) => execFileSync('git', args, {
+    cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024,
+  });
+  const paths = git('-c', 'core.quotepath=false', 'ls-tree', '-r', '--name-only', ref, '--', TOC_ROOT)
+    .split(/\r?\n/u).filter(Boolean);
+  if (!paths.length) {
+    // Only for PRs straddling the flat-to-fragment migration.
+    return git('show', `${ref}:textbook/dream-theater.md`);
+  }
+  return assembleDreamTheaterContents(new Map(
+    paths.map((file) => [file, git('show', `${ref}:${file}`)]),
+  ));
+}
 
 /**
  * The reader-facing contents page owns category and display order. Chapter
@@ -68,7 +146,7 @@ export function discoverDreamTheaterChapters(root = process.cwd()) {
  * unpublished or forgotten chapters cannot silently enter or leave the site.
  */
 export function loadDreamTheaterIndex(root = process.cwd()) {
-  const index = parseDreamTheaterFacade(fs.readFileSync(path.join(root, FACADE), 'utf8'));
+  const index = parseDreamTheaterFacade(readDreamTheaterContents(root));
   const listed = index.sections.flatMap((section) => section.paths);
   const listedSet = new Set(listed);
   const discovered = discoverDreamTheaterChapters(root);

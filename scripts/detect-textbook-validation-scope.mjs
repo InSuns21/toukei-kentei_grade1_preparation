@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
-import { parseDreamTheaterFacade } from './lib/dream-theater-public-catalog.mjs';
+import { parseDreamTheaterFacade, readDreamTheaterContents, readDreamTheaterContentsAtRef } from './lib/dream-theater-public-catalog.mjs';
 
 const indexRel = 'textbook/dream-theater.md';
+const tocPrefix = 'textbook/dream-theater-toc/';
 
 function argValue(name) {
   const i = process.argv.indexOf(name);
@@ -48,7 +49,7 @@ if (!base) {
   process.exit(2);
 }
 
-const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
+const diff = spawnSync('git', ['-c', 'core.quotepath=false', 'diff', '--name-only', '--diff-filter=ACDMR', base + '...HEAD'], {
   encoding: 'utf8',
   stdio: ['ignore', 'pipe', 'pipe'],
 });
@@ -61,10 +62,11 @@ const files = diff.stdout.split(/\r?\n/u).map((x) => x.trim()).filter(Boolean);
 
 let full = false;
 let reason = 'leaf textbook change';
+let indexChange = null;
 
 for (const file of files) {
-  if (file === indexRel) {
-    const indexChange = classifyCurrentIndexChange();
+  if (file === indexRel || file.startsWith(tocPrefix)) {
+    indexChange ??= classifyCurrentIndexChange();
     if (!indexChange.pureAdd) {
       full = true;
       reason = 'global-impact DREAM THEATER index change: ' + indexChange.reason;
@@ -105,15 +107,8 @@ if (process.argv.includes('--github-output')) {
 
 function classifyCurrentIndexChange() {
   try {
-    const beforeResult = spawnSync('git', ['show', base + ':' + indexRel], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-    if (beforeResult.status !== 0) {
-      return { pureAdd: false, reason: 'base index could not be read' };
-    }
-    const before = parseDreamTheaterFacade(beforeResult.stdout);
-    const after = parseDreamTheaterFacade(fs.readFileSync(indexRel, 'utf8'));
+    const before = parseDreamTheaterFacade(readDreamTheaterContentsAtRef(base));
+    const after = parseDreamTheaterFacade(readDreamTheaterContents());
     return classifyIndexChange(before, after);
   } catch (error) {
     return { pureAdd: false, reason: 'index semantic comparison failed: ' + error.message };
@@ -245,6 +240,7 @@ function runSelfTests() {
 
   assertPure({ version: 1, ...baseIndex }, { version: 2, ...baseIndex }, false, 'metadata change');
   assertFastPath('textbook/dream-theater.md', true, 'DREAM THEATER subject routing');
+  assertFastPath('textbook/dream-theater-toc/010_基礎科目/010_set-theory.md', false, 'DREAM THEATER subject source has special semantic scope');
   assertFastPath('textbook/dream-theater-standard-math-core.md', true, 'DREAM THEATER standard math routing');
   assertFastPath('textbook/unknown-global.md', false, 'unknown top-level textbook markdown');
   console.log('Textbook validation scope semantic index/path self-test: OK');

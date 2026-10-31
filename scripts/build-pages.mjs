@@ -1,6 +1,7 @@
 import { access, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
+import { readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 import './validate-numerical-lab-runtime.mjs';
 import './validate-simulation-phase0.mjs';
 import './validate-simulation-phase1.mjs';
@@ -251,9 +252,11 @@ await cp(textbookSourceDir, textbookTargetDir, {
     const relative = path.relative(textbookSourceDir, source);
     if (relative === '') return true;
     if (path.basename(relative) === 'AGENTS.md') return false;
-    return relative.split(path.sep)[0] !== 'templates';
+    return !['templates', 'dream-theater-toc'].includes(relative.split(path.sep)[0]);
   },
 });
+// The route stays the same, but its Git-tracked source is split per subject.
+await writeFile(path.join(textbookTargetDir, 'dream-theater.md'), readDreamTheaterContents(root), 'utf8');
 await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');
 
 const curriculum = YAML.parse(await readFile(path.join(textbookSourceDir, 'curriculum.yaml'), 'utf8'));

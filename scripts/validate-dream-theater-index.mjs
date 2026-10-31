@@ -1,12 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
+import { loadDreamTheaterIndex, readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 const facadeOnly = process.argv.includes('--facade-only');
 let YAML;
 if (!facadeOnly) ({ default: YAML } = await import('yaml'));
 
 const repoRoot = process.cwd();
-const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
 const archivePath = path.join(repoRoot, 'textbook', 'dream-theater-archive.json');
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
 const calculationReaderSupportPrefix = 'F0_00CALC_';
@@ -74,7 +73,7 @@ const fail = (messages) => {
   process.exit(1);
 };
 
-for (const required of [facadePath, archivePath, foundationsDir]) {
+for (const required of [path.join(repoRoot, 'textbook', 'dream-theater-toc', 'intro.md'), archivePath, foundationsDir]) {
   if (!fs.existsSync(required)) fail([`required path does not exist: ${toPosix(path.relative(repoRoot, required))}`]);
 }
 
@@ -198,7 +197,7 @@ for (const p of expected) {
   if (!discoveredSet.has(p)) errors.push(`manifest entry is not a discovered DREAM THEATER chapter: ${p}`);
 }
 
-const facade = fs.readFileSync(facadePath, 'utf8');
+const facade = readDreamTheaterContents(repoRoot);
 const chapterLinkPattern = /\[([^\]]+)\]\((textbook\/volumes\/(?:00_foundations|dream_thater)\/[^)]+\/index\.md)\)/g;
 const actualLinks = [...facade.matchAll(chapterLinkPattern)]
   .map((m) => ({ label: m[1], path: m[2] }))
