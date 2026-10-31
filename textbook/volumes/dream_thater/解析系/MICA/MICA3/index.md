@@ -193,7 +193,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $x_0\in U$ と $\xi_0\ne0$ を固定します。$u$ が $(x_0,\xi_0)$ で規則的なら、そのcutoff $\chi_u=1$ が成り立つ開近傍 $V$ と急減少を満たす開錐 $\Gamma\ni\xi_0$ が存在します。$U\cap V$ に台を持つ新しいcutoff $\psi=1$ near $x_0$ を選びます。$\xi_0$ を含み球面上の閉包が $\Gamma$ の内側に入る小錐 $\Gamma'$ を選べば[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)から $\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。$\operatorname{supp}\psi\subset U$ より $\psi u=\psi v$ なので $v$ も規則的です。$u,v$ を交換すれば逆も成り立ちます。$\square$
+任意の $x_0\in U$ と $\xi_0\ne0$ を固定します。$u$ が $(x_0,\xi_0)$ で規則的なら、そのcutoff $\chi_u=1$ が成り立つ開近傍 $V$ と、急減少を満たす開錐 $\Gamma\ni\xi_0$ が存在します。
+
+$U\cap V$ に台を持つ新しいcutoff $\psi=1$ near $x_0$ を選びます。$\xi_0$ を含み、球面上の閉包が $\Gamma$ の内側に入る小錐 $\Gamma'$ を取ります。[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)により、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。
+
+$\operatorname{supp}\psi\subset U$ より $\psi u=\psi v$ なので $v$ も規則的です。$u,v$ を交換すれば逆も成り立ちます。$\square$
 <!-- proof-end -->
 
 <a id="prop-mica3-sum"></a>
@@ -215,7 +219,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(x_0,\xi_0)\notin WF(u)\cup WF(v)$ を固定します。それぞれにcutoff $\chi_u,\chi_v$ と開錐 $\Gamma_u,\Gamma_v$ が存在します。$\Gamma_u\cap\Gamma_v$ は $\xi_0$ を含む開錐なので、球面上の閉包がこの交叉に収まる小錐 $\Gamma'$ を取れます。$\chi_u=\chi_v=1$ となる $x_0$ の共通開近傍 $U$ に台を持ち、$x_0$ 近くで $1$ となる $\psi$ を選びます。
+$(x_0,\xi_0)\notin WF(u)\cup WF(v)$ を固定します。それぞれにcutoff $\chi_u,\chi_v$ と開錐 $\Gamma_u,\Gamma_v$ が存在します。$\Gamma_u\cap\Gamma_v$ は $\xi_0$ を含む開錐なので、球面上の閉包がこの交叉に収まる小錐 $\Gamma'$ を取れます。
+
+次に、$\chi_u=\chi_v=1$ となる $x_0$ の共通開近傍 $U$ に台を持ち、$x_0$ 近くで $1$ となる $\psi$ を選びます。
 
 [cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)をそれぞれに適用すると、$\widehat{\psi u}$ と $\widehat{\psi v}$ は $\Gamma'$ 上で任意次数の急減少を持ちます。Fourier変換の線形性と三角不等式で
 
@@ -263,7 +269,9 @@ $u$ に使ったcutoffが $1$ である領域の内側で $au$ を切り出し�
 <!-- proof-start -->
 ### 証明
 
-$(x_0,\xi_0)\notin WF(u)$ とします。[定義](#def-mica3-wavefront)から、$\chi=1$ on $U$ と開錐 $\Gamma\ni\xi_0$ を取り、$\widehat{\chi u}$ が $\Gamma$ 上で急減少するとします。$\operatorname{supp}\psi\subset U$、$\psi=1$ near $x_0$ の $\psi\in C_c^\infty$ を選び、$\xi_0$ を含み球面上の閉包が $\Gamma$ の内側にある開錐 $\Gamma'$ を取ります。
+$(x_0,\xi_0)\notin WF(u)$ とします。[定義](#def-mica3-wavefront)から、$\chi=1$ on $U$ と開錐 $\Gamma\ni\xi_0$ を取り、$\widehat{\chi u}$ が $\Gamma$ 上で急減少するとします。
+
+$\operatorname{supp}\psi\subset U$、$\psi=1$ near $x_0$ の $\psi\in C_c^\infty$ を選び、$\xi_0$ を含み球面上の閉包が $\Gamma$ の内側にある開錐 $\Gamma'$ を取ります。
 
 $a\psi\in C_c^\infty$ で $\operatorname{supp}(a\psi)\subset U$、さらに
 
@@ -273,7 +281,9 @@ $$
 
 です。[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)を、元のcutoff $\chi$、新しい関数 $a\psi$、錐 $\Gamma'$ に適用すると $\widehat{\psi(au)}$ が $\Gamma'$ 上で急減少します。$\psi=1$ near $x_0$ なので $(x_0,\xi_0)\notin WF(au)$、第一の包含が得られました。
 
-次に $a(x_0)\ne0$ とします。連続性から $a$ は $x_0$ のある開近傍 $V$ で零になりません。$\rho\in C_c^\infty(V)$ を $x_0$ 近傍で $1$ とし、$b=\rho/a$ を $V$ 外で零として延長すると $b\in C^\infty(\mathbb R^n)$ です。$ab=1$ near $x_0$ だから、その近くで $u=b(au)$ と一致します。[局所性補題](#lem-mica3-locality)と、今証明した包含を $b$ に適用して
+次に $a(x_0)\ne0$ とします。連続性から $a$ は $x_0$ のある開近傍 $V$ で零になりません。$\rho\in C_c^\infty(V)$ を $x_0$ 近傍で $1$ とし、$b=\rho/a$ を $V$ 外で零として延長すると $b\in C^\infty(\mathbb R^n)$ です。
+
+$ab=1$ near $x_0$ だから、その近くで $u=b(au)$ と一致します。[局所性補題](#lem-mica3-locality)と、今証明した包含を $b$ に適用して
 
 $$
 WF(u)|_{x_0}=WF(b(au))|_{x_0}
@@ -391,7 +401,15 @@ $a=(2,-1)\in\mathbb R^2$、$u=\delta_a$ とする。$(0,0)$ の上の全非零�
 
 原点の近傍で $1$ となり、$a$ を含まない小球に台を持つcutoff $\chi$ を選びます。$\chi(a)=0$ なので $\widehat{\chi\delta_a}=0$ です。任意の非零方向の開錐で $C_N=0$ を選べ、$((0,0),\xi)\notin WF(u)$ が分かります。
 
-$a$ の近傍で $1$ となる**任意の**cutoffは $\chi(a)=1$ なので $\widehat{\chi\delta_a}(\eta)=e^{-ia\cdot\eta}$ で絶対値は $1$ です。どの開錐 $\Gamma$ が $(1,3)$ を含んでも $t(1,3)\in\Gamma$ で、$N=1$ の評価 $1\le C_1(1+t\sqrt{10})^{-1}$ は $t\to\infty$ で破れます。$(-1,-3)$ でも $\eta=t(-1,-3)$ とするだけで同じ矛盾です。正の拡大のみを使い、二つの向きを同一視していません。[波面集合の定義](#def-mica3-wavefront)により両方とも属します。
+$a$ の近傍で $1$ となる**任意の**cutoffは $\chi(a)=1$ なので、$\widehat{\chi\delta_a}(\eta)=e^{-ia\cdot\eta}$ で絶対値は $1$ です。
+
+どの開錐 $\Gamma$ が $(1,3)$ を含んでも $t(1,3)\in\Gamma$ で、$N=1$ の評価は
+
+$$
+1\le C_1(1+t\sqrt{10})^{-1}
+$$
+
+となりますが、$t\to\infty$ で破れます。$(-1,-3)$ でも $\eta=t(-1,-3)$ とするだけで同じ矛盾です。正の拡大のみを使い、二つの向きを同一視していません。[波面集合の定義](#def-mica3-wavefront)により両方とも属します。
 <!-- solution-end -->
 
 ### 演習 MICA3-A2：正の錐性と零方向
@@ -457,9 +475,13 @@ $u,v\in\mathcal D'(\mathbb R^n)$ が開集合 $U$ 上で一致し、$x_0\in U$ �
 <!-- solution-start -->
 #### 詳細解答
 
-$u$ の規則性から $\chi_u=1$ near $x_0$ と開錐 $\Gamma\ni\xi_0$ が存在し、$\widehat{\chi_u u}$ は $\Gamma$ 上で急減少します。$\chi_u=1$ が成り立つ開近傍 $V$ を取り、$U\cap V$ の中に台を持ち $x_0$ 近傍で $1$ となる $\psi\in C_c^\infty$ を選びます。$\xi_0$ の開錐 $\Gamma'$ を、球面上の閉包が $\Gamma$ 内に入るよう狭めます。
+$u$ の規則性から $\chi_u=1$ near $x_0$ と開錐 $\Gamma\ni\xi_0$ が存在し、$\widehat{\chi_u u}$ は $\Gamma$ 上で急減少します。
 
-[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)は $\operatorname{supp}\psi\subset V$ により適用でき、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。また $\operatorname{supp}\psi\subset U$ で $u=v$ だから $\psi u=\psi v$ です。$\psi=1$ near $x_0$ より、同じ $\psi,\Gamma'$ は $v$ の規則性の定義を満たします。$U$ に最初のcutoff全体が入ると仮定していない点が核心です。
+$\chi_u=1$ が成り立つ開近傍 $V$ を取り、$U\cap V$ の中に台を持ち $x_0$ 近傍で $1$ となる $\psi\in C_c^\infty$ を選びます。$\xi_0$ の開錐 $\Gamma'$ を、球面上の閉包が $\Gamma$ 内に入るよう狭めます。
+
+[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)は $\operatorname{supp}\psi\subset V$ により適用でき、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。また $\operatorname{supp}\psi\subset U$ で $u=v$ だから $\psi u=\psi v$ です。
+
+$\psi=1$ near $x_0$ より、同じ $\psi,\Gamma'$ は $v$ の規則性の定義を満たします。$U$ に最初のcutoff全体が入ると仮定していない点が核心です。
 <!-- solution-end -->
 
 ### 演習 MICA3-B2：非零係数による局所逆向き
@@ -532,7 +554,9 @@ $u=\delta_0$、$v=-\delta_0+f$ を $\mathbb R$ 上の分布とし、$f\in C^\inf
 <!-- solution-start -->
 #### 詳細解答
 
-[Dirac分布の直接計算](#def-mica3-wavefront)から $WF(u)=\{(0,\xi):\xi\ne0\}$ です。[和の包含](#prop-mica3-sum)と $WF(f)=\varnothing$ により $WF(v)\subset WF(-\delta_0)$、逆に $-\delta_0=v-f$ に同じ包含を使い $WF(-\delta_0)\subset WF(v)$ です。$-\delta_0$ は $\delta_0$ のFourier変換を $-1$ 倍するだけなので $WF(-\delta_0)=WF(\delta_0)$、従って $WF(v)=WF(u)$ です。
+[Dirac分布の直接計算](#def-mica3-wavefront)から $WF(u)=\{(0,\xi):\xi\ne0\}$ です。[和の包含](#prop-mica3-sum)と $WF(f)=\varnothing$ により $WF(v)\subset WF(-\delta_0)$ です。
+
+逆に $-\delta_0=v-f$ に同じ包含を使うと $WF(-\delta_0)\subset WF(v)$ です。$-\delta_0$ は $\delta_0$ のFourier変換を $-1$ 倍するだけなので $WF(-\delta_0)=WF(\delta_0)$、従って $WF(v)=WF(u)$ です。
 
 しかし $u+v=f$ は滑らかなので $WF(u+v)=\varnothing$。右辺 $WF(u)\cup WF(v)$ は空でなく、[和の包含](#prop-mica3-sum)は真の包含です。個別の特異性が一致しても、和では位相・係数による相殺が起こります。
 <!-- solution-end -->
@@ -573,7 +597,11 @@ $$
 \le B_N\max(1,c^{-N})(1+|\xi|)^{-N}.
 $$
 
-よって非水平方向は規則的です。一方、$g$ は零関数でないため[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)から $\widehat g(\beta)\ne0$ となる $\beta\in\mathbb R$ が存在します。任意の水平右向きの開錐には十分大きい $r>0$ に対し $(r,\beta)$ が入り、同様に水平左向きの開錐には $(-r,\beta)$ が入ります。それらの列上で変換は $\widehat g(\beta)$ のままで $N=1$ の急減少に反します。$\chi$ は任意なので両水平方向が残り、示す等式が成立します。
+よって非水平方向は規則的です。一方、$g$ は零関数でないため[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)から $\widehat g(\beta)\ne0$ となる $\beta\in\mathbb R$ が存在します。
+
+任意の水平右向きの開錐には、十分大きい $r>0$ に対し $(r,\beta)$ が入ります。同様に水平左向きの開錐には $(-r,\beta)$ が入ります。
+
+それらの列上でFourier変換は $\widehat g(\beta)$ のままで、$N=1$ の急減少に反します。$\chi$ は任意なので両水平方向が残り、示す等式が成立します。
 
 **（2）微分。** $\partial_{x_2}u=0$ は試験関数 $\varphi$ に対する
 
