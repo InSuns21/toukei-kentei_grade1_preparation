@@ -688,7 +688,21 @@ $$
 
 二つ目の等式は $\int q'h'=[q'h]_{-\infty}^{\infty}-\int q''h$ で境界項が零になることを使いました。よって $L=-\partial_\tau^2+\omega^2$ です。
 
-**(2) 逆核の係数。** $\tau\ne0$ では $LC=0$、両端で減衰する解は $\tau>0$ で $Ae^{-\omega\tau}$、$\tau<0$ で $Be^{\omega\tau}$ です。$C$ の跳びがあると $\delta'$ が生じるので連続性を要し、$A=B$ です。$LC=\delta$ のためには $C'(0+)-C'(0-)=-1$ が必要です。これは $-\omega A-\omega A=-2\omega A=-1$ なので $A=1/(2\omega)$ です。
+**(2) 逆核の係数。** $\tau\ne0$ では $LC=0$ なので、両端で減衰する解は
+
+$$
+C(\tau)=\begin{cases}
+Ae^{-\omega\tau}&(\tau>0),\\
+Be^{\omega\tau}&(\tau<0)
+\end{cases}
+$$
+
+と書けます。$C$ 自体に跳びがあると二階分布微分に $\delta'$ が生じます。右辺が $\delta$ だけなので連続性が必要であり、$A=B$ です。一階微分の跳びが $-1$ という条件を使うと
+
+$$
+C'(0+)-C'(0-)=-\omega A-\omega B=-2\omega A=-1,
+\qquad A=B=\frac1{2\omega}.
+$$
 
 $$
 C(\tau)=\frac{e^{-\omega|\tau|}}{2\omega}.
