@@ -4,7 +4,7 @@
 
 この雛形は通常章・章内演習・30分ドリルの生成用である。`anki/` のカード生成には適用せず、Ankiカードは `AGENTS.md` のAnki規約に従う。
 
-まず対象 `index.md` が `textbook/dream-theater.md` の公開目次に掲載される DREAM THEATER ページかを判定する。
+まず対象 `index.md` が `textbook/dream-theater.md` の公開目次に掲載される DREAM THEATER ページかを判定する。新章の公開目次は `textbook/dream-theater-toc/` の該当科目ファイルに追加し、Pages 生成物の `textbook/dream-theater.md` は作成・編集・コミットしない。
 
 ## 共通で読む正本
 

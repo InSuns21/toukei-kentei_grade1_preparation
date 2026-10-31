@@ -1,20 +1,17 @@
 import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
+import { loadDreamTheaterIndex, readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const siteDir = path.join(root, '_site');
-const facadePath = path.join(root, 'textbook', 'dream-theater.md');
 const coursesPath = path.join(root, 'textbook', 'dream-theater-courses.json');
 const outputPath = path.join(siteDir, 'dream-theater-navigation.js');
 const publishedFacadePath = path.join(siteDir, 'textbook', 'dream-theater.md');
 
 await access(siteDir);
 
-const [facade, courseText] = await Promise.all([
-  readFile(facadePath, 'utf8'),
-  readFile(coursesPath, 'utf8'),
-]);
+const facade = readDreamTheaterContents(root);
+const courseText = await readFile(coursesPath, 'utf8');
 const manifest = loadDreamTheaterIndex(root);
 const courseCatalog = JSON.parse(courseText);
 const expectedPaths = manifest.sections.flatMap((section) => section.paths);

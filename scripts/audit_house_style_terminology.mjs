@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 
 // house style は用語ごとに段階移行する。
 // 既存の地下世界を一括置換せず、監査済みの章をここへ追加して再発を防ぐ。
 const migratedFiles = [
-  'textbook/dream-theater.md',
   'textbook/volumes/dream_thater/基礎科目/F0/F0-00D/index.md',
 ];
 
@@ -17,14 +17,14 @@ const rules = [
 
 const findings = [];
 
-for (const rel of migratedFiles) {
+for (const rel of ['textbook/dream-theater.md', ...migratedFiles]) {
   const file = path.join(root, rel);
-  if (!fs.existsSync(file)) {
+  if (rel !== 'textbook/dream-theater.md' && !fs.existsSync(file)) {
     findings.push({ file: rel, line: 0, token: 'missing file', preferred: '存在する監査対象' });
     continue;
   }
 
-  const source = fs.readFileSync(file, 'utf8');
+  const source = rel === 'textbook/dream-theater.md' ? readDreamTheaterContents(root) : fs.readFileSync(file, 'utf8');
   const searchable = stripNonProse(source);
 
   for (const currentRule of rules) {
@@ -40,7 +40,7 @@ for (const rel of migratedFiles) {
 }
 
 console.log('地下世界 house style 用語監査');
-console.log(`移行済み章: ${migratedFiles.length} / 表記揺れ: ${findings.length} 件`);
+console.log(`移行済み章: ${migratedFiles.length + 1} / 表記揺れ: ${findings.length} 件`);
 for (const item of findings) {
   console.log(`- ${item.file}:${item.line} ${item.token} -> ${item.preferred}`);
 }

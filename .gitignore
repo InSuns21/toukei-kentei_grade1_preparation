@@ -5,3 +5,5 @@ anki/dist/
 anki/.state/
 .playwright-cli/
 .codex_tmp_*
+# The DREAM THEATER public contents page is generated in _site only.
+/textbook/dream-theater.md

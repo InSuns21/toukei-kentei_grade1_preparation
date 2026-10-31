@@ -18,6 +18,8 @@
 
 対象 `index.md` が `textbook/dream-theater.md` の公開目次に掲載される場合、必要な範囲で次を確認する。章の実在は `textbook/volumes/dream_thater/` のディレクトリ走査で照合する。
 
+**目次への章追加は `textbook/dream-theater-toc/` の該当科目ファイルを編集する。** `textbook/dream-theater.md` は Pages 組み立て時の生成物であり、ソースに再作成・コミットしてはならない。大分類・科目順序と stable anchor を維持する。
+
 1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
 2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
 3. `textbook/formal-statement-presentation-guide.md`

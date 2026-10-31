@@ -2,7 +2,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import YAML from 'yaml';
-import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
+import { loadDreamTheaterIndex, readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 const base='textbook/dream-theater-courses';
 const mode=process.argv.includes('--self-test')?'test':process.argv.includes('--write')?'write':'check';
 const id=p=>path.posix.basename(path.posix.dirname(p));
@@ -193,9 +193,8 @@ function test(){
 }
 if(mode==='test')test();
 else{
- const [facade,rawConfig]=await Promise.all([
-  readFile('textbook/dream-theater.md','utf8'),
-  readFile('textbook/dream-theater-courses.json','utf8')]);
+ const facade=readDreamTheaterContents();
+ const rawConfig=await readFile('textbook/dream-theater-courses.json','utf8');
  const paths=loadDreamTheaterIndex().sections.flatMap(s=>s.paths);
  const subjects=parse(facade,paths);
  const titles=new Map(await Promise.all(paths.map(async p=>{

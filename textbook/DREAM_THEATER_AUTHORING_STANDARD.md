@@ -121,13 +121,13 @@ CI green は必要条件であって十分条件ではない。
 - 章・ページの分割は `CONTENT_GUIDELINES.md` 5.2 に従い、学習者から見た中心問いと学習サイクルで決める。migration source、canonical owner、旧ページの境界、実装 phase を章境界として持ち込まない。
 - **DREAM THEATER 各章の公開タイトルは、その章の `index.md` の H1 を正本とする。** H1 は原則として「章ID + 学習者向けの内容名」とし、科目見出しで既に分かる情報を `標準実解析 VI：`、`標準位相 III：` のように重ねて持たせない。系列内の通し番号や制作上の区分ではなく、そのページで何を学ぶかが直接分かる題名を優先する。
 - H1 を変更したときは、同じ章の `chapter.yaml.title` も内容名へ同期する。stable ID・anchor・ディレクトリ名は、表示名を整える目的だけでは変更しない。
-- 公開 `textbook/dream-theater.md` の章リンク表示名と DREAM THEATER 専用サイドバーは、Pages 組み立て時にリンク先 H1 から生成する。したがって索引側に章タイトルの第二正本を作らない。公開目次の分類・順序・リンク先は `dream-theater.md` が担い、章の実在は `volumes/dream_thater/` を走査して照合する。章名そのものはリンク先 H1 が担う。
+- 公開 `textbook/dream-theater.md` の章リンク表示名と DREAM THEATER 専用サイドバーは、Pages 組み立て時にリンク先 H1 から生成する。したがって索引側に章タイトルの第二正本を作らない。公開目次の分類・順序・リンク先は `textbook/dream-theater-toc/` の科目別ソースが担い、公開 `dream-theater.md` はビルド生成物とする。章の実在は `volumes/dream_thater/` を走査して照合し、章名そのものはリンク先 H1 が担う。
 - 同一ページに独立した中心問いが複数あり、それぞれ別の「定義→定理→証明→演習」サイクルを形成するなら分割を検討する。
 - 反対に、前提知識が共通で一続きの理論を構成する隣接内容は、細かい別章を増やす前に節・小節としてまとめられないか確認する。
 - ページ長・文字数だけでは分割しない。一つの中心定理を最後まで構成するために長い場合は一講義としてよい。
 - 学習者向け本文・章頭・目次には、`CONTENT_GUIDELINES.md` 5.1 に定める編集履歴・管理語彙を置かない。「この章の停止線」のような編集ラベルも使わず、必要な範囲説明は通常の学習案内として書く。
 - 公開導入ページ `textbook/dream-theater.md` は、DREAM THEATER 全体の短い序文・読み方と科目索引から構成する。索引部分は `DREAM THEATER 本編` の下を **基礎科目 → 解析系 → 計算系 → 幾何系 → 代数系 → 応用系** の大分類で並べ、その下に実解析・線形代数・確率論などの科目見出しを置く。Encore・外伝・関連科目・計算数理など制作経緯由来の系列名で章立てしない。
-- `textbook/dream-theater.md` の冒頭には、DREAM THEATER 全体の目的・読み方を伝える短い序文・オリエンテーションを置いてよい。一方、各科目見出しの直下には紹介文・前置き文を置かず、科目見出しから章リンクへ直接つなぐ。ODE・Fourier解析・PDE、確率解析・時系列、数値解析・差分法・有限要素法・Monte Carlo・準 Monte Carlo のように複数科目を束ねた系列は、公開索引では科目ごとに分ける。
+- 公開目次の序文は `textbook/dream-theater-toc/intro.md`、各科目は `textbook/dream-theater-toc/<3桁順序>_<大分類>/<3桁順序>_<科目ID>.md` で管理する。新しい章は該当科目ファイルのみに追加し、既存の stable anchor・順序・説明文を維持する。大分類・科目の表示順はファイル名の3桁順序によって決まり、`textbook/dream-theater.md` を手動生成・コミットしない。各科目見出しの直下には原則として新しい紹介文・前置き文を置かず、科目見出しから章リンクへつなぐ。ODE・Fourier解析・PDE、確率解析・時系列、数値解析・差分法・有限要素法・Monte Carlo・準 Monte Carlo のように複数科目を束ねた系列は、公開索引では科目ごとに分ける。
 - `textbook/dream-theater-standard-math-core.md` は学習者向けの読む順ガイドとする。数学的な依存関係の正本をこのページ自身や別の中央カリキュラム YAML に重複保持せず、各章の `chapter.yaml` / `knowledge.yaml` の prerequisite と、各 `knowledge.yaml` の概念 `requires` を基に読む順を決める。原則として科目を章単位に細切れにせず、長大系列または科目間依存のため必要な場合だけ、内容上自然な一学期相当の境界で I / II に分ける。章別の実装状況・実装順・`core / bridge / advanced-standard` の区分・旧章との役割分担などは公開ページへ載せない。
 
 ### 4.1.1 図・SVG の利用と査読
@@ -472,13 +472,13 @@ npm run audit:formalism-pedagogy
 
 - DREAM THEATER 本文・chapter metadata の通常編集
 - 新規章の追加
-- `dream-theater.md` への既存項目を壊さない公開章リンクの純粋追加
+- `dream-theater-toc/` の対象科目ファイルへの既存項目を壊さない公開章リンクの純粋追加
 - その新規章に対する新規 `knowledge.yaml` の追加
 
 次は未変更ページへ判定が波及しうるため、PR でも **full audit** の対象とする。
 
 - 既存章の `knowledge.yaml` の変更・削除・移動
-- `dream-theater.md` における既存公開章リンク / section の削除・改名・移動・並べ替え
+- `dream-theater-toc/` における既存公開章リンク / section の削除・改名・移動・並べ替え
 - `textbook/dream-theater-knowledge.yaml`、`textbook/dream-theater-inference-rules.yaml` の変更
 - concept audit の判定ロジック・共通解決ロジック・workflow 自体の変更
 - 差分基準を安全に解決できない場合
@@ -521,7 +521,7 @@ main への push では全体監査を実行し、リポジトリ全体の drift
 - [ ] 証明を閉じても意味・重要な仮定・使い道が分かる。
 - [ ] 旧版・移管・canonical owner・archive・stable anchor・CI/監査など、編集者向けの事情が読者本文へ露出していない。
 - [ ] 「停止線」等の編集ラベルや、1リンクだけの過剰な目次見出しを増やしていない。
-- [ ] `textbook/dream-theater.md` を変更した場合、冒頭の全体向け序文・読み方の後は「大分類 → 科目 → 章リンク」の構造になり、各科目直下の紹介文や Encore/外伝等の系列見出しが再導入されていない。
+- [ ] `textbook/dream-theater-toc/` を変更した場合、組み立て後も冒頭の全体向け序文・読み方の後は「大分類 → 科目 → 章リンク」の構造になり、新しい不要な科目紹介や Encore/外伝等の系列見出しが再導入されていない。
 
 ### 定義・formal statement
 

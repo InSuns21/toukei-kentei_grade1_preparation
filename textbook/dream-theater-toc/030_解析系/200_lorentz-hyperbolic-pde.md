@@ -1,0 +1,28 @@
+<a id="dt-subject-lorentz-hyperbolic-pde"></a>
+### ローレンツ時空の双曲型偏微分方程式
+
+1. [HPDE1 1+1次元波動方程式の初期値解](textbook/volumes/dream_thater/解析系/HPDE/HPDE1/index.md)
+2. [HPDE2 高次元平坦波動とHuygens現象](textbook/volumes/dream_thater/解析系/HPDE/HPDE2/index.md)
+3. [HPDE3 時空上の分布・試験切断・密度](textbook/volumes/dream_thater/解析系/HPDE/HPDE3/index.md)
+4. [HPDE4 ベクトル束・接続・形式的随伴](textbook/volumes/dream_thater/解析系/HPDE/HPDE4/index.md)
+5. [HPDE5 主シンボルとnormally hyperbolic作用素](textbook/volumes/dream_thater/解析系/HPDE/HPDE5/index.md)
+6. [HPDE6 Cauchy超曲面・初期データ・関数空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE6/index.md)
+7. [HPDE7 エネルギー流と発散恒等式](textbook/volumes/dream_thater/解析系/HPDE/HPDE7/index.md)
+8. [HPDE8 エネルギー不等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE8/index.md)
+9. [HPDE9 高階Sobolev評価と正則性の伝播](textbook/volumes/dream_thater/解析系/HPDE/HPDE9/index.md)
+10. [HPDE10 有限伝播と依存領域の評価](textbook/volumes/dream_thater/解析系/HPDE/HPDE10/index.md)
+11. [HPDE11 局所Cauchy問題の存在](textbook/volumes/dream_thater/解析系/HPDE/HPDE11/index.md)
+12. [HPDE12 Minkowskiの先進・遅延基本解](textbook/volumes/dream_thater/解析系/HPDE/HPDE12/index.md)
+13. [HPDE13 Hadamard係数とtransport方程式](textbook/volumes/dream_thater/解析系/HPDE/HPDE13/index.md)
+14. [HPDE14 局所parametrixの誤差補正](textbook/volumes/dream_thater/解析系/HPDE/HPDE14/index.md)
+15. [HPDE15 局所解から大域解への貼り合わせ](textbook/volumes/dream_thater/解析系/HPDE/HPDE15/index.md)
+16. [HPDE16 大域Cauchy問題の存在一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE16/index.md)
+17. [HPDE17 大域安定性と因果的な解の支持](textbook/volumes/dream_thater/解析系/HPDE/HPDE17/index.md)
+18. [HPDE18 遅延・先進Green作用素の構成](textbook/volumes/dream_thater/解析系/HPDE/HPDE18/index.md)
+19. [HPDE19 Green作用素の恒等式と一意性](textbook/volumes/dream_thater/解析系/HPDE/HPDE19/index.md)
+20. [HPDE20 空間コンパクト・時間的支持空間](textbook/volumes/dream_thater/解析系/HPDE/HPDE20/index.md)
+21. [HPDE21 因果伝播子とexact sequenceの核](textbook/volumes/dream_thater/解析系/HPDE/HPDE21/index.md)
+22. [HPDE22 exact sequenceの全射性と切断](textbook/volumes/dream_thater/解析系/HPDE/HPDE22/index.md)
+23. [HPDE23 実Klein–Gordon解のシンプレクティック構造](textbook/volumes/dream_thater/解析系/HPDE/HPDE23/index.md)
+24. [HPDE24 反例・模型・AQFT/MICAへの橋](textbook/volumes/dream_thater/解析系/HPDE/HPDE24/index.md)
+
