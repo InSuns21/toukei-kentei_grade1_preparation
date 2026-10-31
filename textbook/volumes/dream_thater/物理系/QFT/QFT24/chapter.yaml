@@ -1,0 +1,42 @@
+id: QFT24
+title: "QEDの一ループ真空偏極・Ward恒等式と電荷のくりこみ"
+volume: foundations
+status: supplementary
+prerequisites: [QFT18, QFT19, QFT21, QFT23]
+official_scope: []
+learning_objectives:
+  - Euclid Dirac核とフェルミオン行列式の対数展開から真空偏極テンソルの閉ループ符号を導ける
+  - Dirac逆核の差と正則化された積分の平行移動から一ループ真空偏極の横性を証明できる
+  - gamma行列trace・Feynmanパラメータ・次元積分から横方向係数と一ループ発散を求められる
+  - 光子の場の強さ反項と零運動量減算法・修正最小減算法の差を導ける
+  - くりこみ後の低・高運動量展開を計算し電荷遮蔽の符号と適用限界を説明できる
+  - 鋭い球形カットオフの境界項を計算しゲージ不変でない正則化の失敗機構を示せる
+definitions:
+  - { id: QFT24-DEF-01, name: 一ループ真空偏極テンソル }
+  - { id: QFT24-DEF-02, name: 光子場反項と零運動量減算法 }
+theorems:
+  - { id: QFT24-THM-01, name: 一ループ真空偏極の横性 }
+  - { id: QFT24-THM-02, name: 真空偏極のFeynmanパラメータ表示 }
+  - { id: QFT24-THM-03, name: 一ループ光子反項と有限真空偏極 }
+  - { id: QFT24-PROP-01, name: 質量がある場合の低・高運動量展開 }
+  - { id: QFT24-PROP-02, name: 鋭い球形カットオフのゲージ非不変な境界項 }
+canonical_examples:
+  - 零外部運動量で閉ループ分子のtraceと符号を直接検査する
+  - 自由Maxwell場に零運動量減算を適用して規格化の役割を確認する
+  - 零運動量のGamma関数の極係数を計算する
+  - 重い荷電粒子の寄与が低運動量で抑えられることを比較する
+problem_patterns:
+  - QFT24-EUCLIDEAN-GAMMA-TRACE
+  - QFT24-FEYNMAN-PARAMETER-SHIFT
+  - QFT24-ONE-LOOP-POLE
+  - QFT24-ZERO-MOMENTUM-SLOPE
+  - QFT24-SPHERICAL-BOUNDARY
+  - QFT24-WARD-CANCELLATION
+  - QFT24-SCHEME-CONVERSION
+  - QFT24-HIGH-MOMENTUM-ASYMPTOTIC
+  - QFT24-MULTI-FLAVOR-DECOUPLING
+  - QFT24-INTEGRATED-QED-VACUUM-POLARIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 5 }
