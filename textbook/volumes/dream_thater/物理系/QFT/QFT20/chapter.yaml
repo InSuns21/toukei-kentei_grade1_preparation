@@ -1,0 +1,44 @@
+id: QFT20
+title: "Euclid化・Wick回転と反射陽性"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT6, CA5, F0-00P3]
+official_scope: []
+learning_objectives:
+  - Minkowski自由スカラー作用からEuclid作用への符号変換を連鎖律と時間積分の変換で検算できる
+  - Euclid自由二点核のGreen方程式・Fourier表示・実時間Feynman境界値を導ける
+  - Wick回転の積分路条件と極を横断する反例を留数計算によって判定できる
+  - 反射陽性を定義し自由場の反射二次形式を絶対値二乗へ変形できる
+  - 通常の正定値共分散と反射陽性を反例で区別しOS再構成に必要な追加条件を説明できる
+definitions:
+  - { id: QFT20-DEF-01, name: 自由スカラー場のEuclid作用 }
+  - { id: QFT20-DEF-02, name: 自由場のEuclid二点関数 }
+  - { id: QFT20-DEF-03, name: 積分路によるWick回転 }
+  - { id: QFT20-DEF-04, name: 反射陽性 }
+  - { id: QFT20-DEF-05, name: 再構成を目指すEuclid相関関数のデータ }
+theorems:
+  - { id: QFT20-THM-01, name: Euclid自由共分散と時間順序境界値 }
+  - { id: QFT20-PROP-01, name: 極を横断する回転の補正項 }
+  - { id: QFT20-THM-02, name: 自由スカラー二点核の反射二次形式 }
+  - { id: QFT20-PROP-02, name: 共分散が正でも反射陽性とは限らない }
+canonical_examples:
+  - 一振動子のMinkowski作用とEuclid作用の符号
+  - Euclid自由二点核の指数減衰と時間原点での微分の跳び
+  - 第一象限の極を避ける回転と横断する回転の留数差
+  - 二つの正時刻における反射二次形式の絶対値二乗
+  - Fourier共分散は正だが反射陽性が負になる具体核
+problem_patterns:
+  - QFT20-EUCLIDEAN-ACTION
+  - QFT20-GREEN-JUMP
+  - QFT20-FOURIER-KERNEL
+  - QFT20-REFLECTION-QUADRATIC
+  - QFT20-MASSLESS-ZERO-MODE
+  - QFT20-CROSSED-POLE
+  - QFT20-TIME-ORDERED-BOUNDARY
+  - QFT20-POSITIVE-NOT-REFLECTION
+  - QFT20-REFLECTION-GRAM
+  - QFT20-EUCLIDEAN-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 4 }
