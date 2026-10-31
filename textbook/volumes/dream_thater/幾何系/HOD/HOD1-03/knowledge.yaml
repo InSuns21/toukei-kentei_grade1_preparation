@@ -1,0 +1,48 @@
+chapter: HOD1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-02
+concepts:
+  - id: hodge.sl2-lefschetz-relations
+    name: Lefschetz作用素のsl2交換関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lefschetz作用素のsl2交換関係）"]
+    requires: [hodge.lefschetz-commutator-degree]
+  - id: hodge.primitive-form
+    name: 原始形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（原始形式）"]
+    requires: [hodge.lefschetz-adjoint]
+  - id: hodge.primitive-ladder
+    name: 原始形式のLefschetz列公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（原始形式のLefschetz列公式）"]
+    requires: [hodge.primitive-form, hodge.sl2-lefschetz-relations]
+  - id: hodge.pointwise-lefschetz-decomposition
+    name: 点ごとのLefschetz直交分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点ごとのLefschetz直交分解）"]
+    requires: [hodge.primitive-ladder]
+  - id: hodge.pointwise-lefschetz-isomorphism
+    name: 点ごとのLefschetz同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点ごとのLefschetz同型）"]
+    requires: [hodge.pointwise-lefschetz-decomposition]
+  - id: hodge.primitive-power-kernel
+    name: 原始形式の高冪による特徴付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（原始形式の高冪による特徴付け）"]
+    requires: [hodge.pointwise-lefschetz-decomposition, hodge.primitive-ladder]
+  - id: hodge.primitive-dimension
+    name: 原始形式の次元
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（原始形式の次元）"]
+    requires: [hodge.pointwise-lefschetz-decomposition]
