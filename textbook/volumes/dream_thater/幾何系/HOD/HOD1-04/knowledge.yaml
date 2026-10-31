@@ -1,0 +1,43 @@
+chapter: HOD1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-03
+  - KAH1-03
+concepts:
+  - id: hodge.kahler-normal-holomorphic-coordinates
+    name: Kähler正規正則座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler正規正則座標）"]
+    requires: [kahler.connection-equivalences]
+  - id: hodge.kahler-normal-coordinate-existence
+    name: Kähler正規正則座標の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler正規正則座標の存在）"]
+    requires: [hodge.kahler-normal-holomorphic-coordinates]
+  - id: hodge.local-lefschetz-commutators
+    name: 外積とLefschetz随伴の局所交換子
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（外積とLefschetz随伴の局所交換子）"]
+    requires: [hodge.lefschetz-adjoint]
+  - id: hodge.kahler-local-formal-adjoints
+    name: Kähler正規枠での形式的随伴
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kähler正規枠での形式的随伴）"]
+    requires: [hodge.dolbeault-formal-adjoints, hodge.kahler-normal-holomorphic-coordinates]
+  - id: hodge.kahler-identities
+    name: Kähler恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler恒等式）"]
+    requires: [hodge.local-lefschetz-commutators, hodge.kahler-local-formal-adjoints]
+  - id: hodge.non-kahler-identity-obstruction
+    name: 非Kähler共形計量での恒等式の破れ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非Kähler共形計量での恒等式の破れ）"]
+    requires: [hodge.kahler-identities]
