@@ -114,7 +114,22 @@ $$
 $k=0,1$ なら $\Lambda$ の行き先が零空間なので $\mathcal A^0=P^0$、$\mathcal A^1=P^1$。$k\ge2$ では $\Lambda\alpha=0$ を実際に計算する必要がある。$k>n$ で本当に $\ker\Lambda=0$ となることは第4節で証明する。
 
 <!-- definition-example-start: def-hod1-03-primitive -->
-**定義の確認**（複素次元2）。[随伴のunitary余標構表示](../HOD1-02/index.md#prop-hod1-02-frame-adjoint)を使う。$\xi_j=\theta^j\wedge\bar\theta^j$、$\omega=i(\xi_1+\xi_2)$ とすれば
+**定義の確認**（複素次元2）。[随伴のunitary余標構表示](../HOD1-02/index.md#prop-hod1-02-frame-adjoint)を使う。点ごとの正規直交複素余標構 $\theta^1,\theta^2$ とその共役を固定し、次のように置く。
+
+$$
+\xi_j=\theta^j\wedge\bar\theta^j\quad(j=1,2),\qquad
+\omega=i(\xi_1+\xi_2).
+$$
+
+原始条件 $\Lambda\alpha=0$ を判定するため、まず
+
+$$
+\Lambda=-i\sum_{j=1}^2\bar I_jI_j
+$$
+
+で各外積基底を調べる。ここで $I_j$ は $\theta^j$ を、$\bar I_j$ は $\bar\theta^j$ を取り除く収縮である。
+
+同じ添字の組では $I_j\xi_j=\bar\theta^j$、$\bar I_j\bar\theta^j=1$ となる。一方、異なる添字の交差項では、二つの収縮を連続して非零にする組がない。従って
 
 $$
 \Lambda\xi_1=\Lambda\xi_2=-i,\qquad
@@ -122,7 +137,7 @@ $$
 =\Lambda(\theta^2\wedge\bar\theta^1)=0.
 $$
 
-前者は $\bar I_jI_j\xi_j=1$ から、後者は同じ添字の $\theta^j$ と $\bar\theta^j$ が同時に存在しないことから従う。また、$\Lambda$ は $(2,0)$、$(0,2)$ 形式では対応する型の行き先が零だから消える。よって
+また、[複素型と随伴の作用次数](../HOD1-02/index.md#prop-hod1-02-bidegree)から、$(2,0)$、$(0,2)$ 形式の $\Lambda$ による行き先はそれぞれ $(1,-1)$、$(-1,1)$ 型の零空間である。したがってこれらも原始条件を満たす。以上を合わせて
 
 $$
 \begin{aligned}
@@ -134,7 +149,7 @@ P^2=\operatorname{span}_{\mathbb C}\{&
 \end{aligned}
 $$
 
-五つは外積単項式の独立な組合せであり、$\dim P^2=5$。一方 $\Lambda\omega=2$ だから $\omega\notin P^2$。$\mathcal A^2$ の次元は $\binom42=6$ で、ちょうど $\mathbb C\omega$ 方向だけが残る。
+五つは外積単項式の独立な組合せである。さらに $\mathcal A^2$ の外積基底は6個で、$\Lambda\xi_1=-i\ne0$ だから $\Lambda:\mathcal A^2\to\mathcal A^0$ の像は1次元、核は5次元である。従って列挙した五つが核 $P^2$ を尽くす。一方 $\Lambda\omega=2$ だから $\omega\notin P^2$ であり、残りはちょうど $\mathbb C\omega$ 方向である。
 <!-- definition-example-end -->
 
 原始形式を「$L$ で零になる形式」と定義しない点に注意したい。上の $n=2,k=2$ ではたまたま二つの条件が一致するが、一般には $L^{n-k+1}$ という **次数に応じた冪** が対応する。後で証明する。
@@ -295,11 +310,25 @@ $$
 \mathcal A^q=\sum_{r=0}^{\lfloor q/2\rfloor}L^rP^{q-2r}
 $$
 
-を得る。各 $L^rP^{q-2r}$ は[列公式](#lem-hod1-03-primitive-ladder)の $r\le n-(q-2r)$ を満たすので零でない列として扱える。
+を得る。この段階では各成分の直交性はまだ主張していない（$L$ が任意の直交対を直交対へ移すとは限らない）。ただし各 $L^rP^{q-2r}$ は[列公式](#lem-hod1-03-primitive-ladder)の $r\le n-(q-2r)$ を満たすので、対応する $L^r$ は原始空間上で単射である。
 
 **高次数 $n<q\le2n$。** 上で示した通り $\Lambda|_{\mathcal A^q}$ は単射で、その随伴 $L:\mathcal A^{q-2}\to\mathcal A^q$ は全射である。したがって $\mathcal A^q=L\mathcal A^{q-2}$ と書ける。低次数で得た列を $L$ で繰り返し上げると、$L^{n-j+1}P^j=0$ を除いた、定理の指数範囲の項がすべてを張る。
 
-**直交性と一意性。** 同じ次数 $q$ に属する $L^rv$（$v\in P^j$）と $L^sw$（$w\in P^\ell$）をとる。$j\ne\ell$ なら $j+2r=\ell+2s=q$ なので $r\ne s$。仮に $r>s$ とする。このとき $\Lambda^{s+1}L^sw=0$ である。なぜなら[列公式](#lem-hod1-03-primitive-ladder)を $s$ 回使うと $L^sw$ は $w$ の定数倍まで下がり、さらに $\Lambda w=0$ だからである。よって
+**直交性と一意性。** 同じ次数 $q$ に属する二つの元をとる。
+
+$$
+L^rv\quad(v\in P^j),\qquad L^sw\quad(w\in P^\ell),
+\qquad j+2r=\ell+2s=q.
+$$
+
+出発次数 $j\ne\ell$ なら $r\ne s$。仮に $r>s$ とする。[列公式](#lem-hod1-03-primitive-ladder)を $s$ 回使うと $L^sw$ は $w$ の定数倍まで下がり、さらに原始条件 $\Lambda w=0$ から
+
+$$
+\Lambda^{s+1}L^sw=0,\qquad
+\Lambda^rL^sw=\Lambda^{r-s-1}(\Lambda^{s+1}L^sw)=0.
+$$
+
+ここで指数 $r-s-1$ は非負整数である。随伴性を $r$ 回使えば
 
 $$
 \langle L^rv,L^sw\rangle
@@ -538,7 +567,7 @@ $$
 \Lambda L^2v=2(2-2+1)Lv=2Lv.
 $$
 
-随伴性と $\|v\|=1$ から
+[点ごとの随伴性](../HOD1-02/index.md#def-hod1-02-lambda)と $\|v\|=1$ から
 
 $$
 \|Lv\|^2=\langle v,\Lambda Lv\rangle=2,\qquad
@@ -620,12 +649,18 @@ $$
 #### HOD1-03-B02 階乗係数の再導出
 - Level: B
 
-複素次元 $n$ のHermiteベクトル空間で $v\in P^k$、$m=n-k$、$v\ne0$ とする。[原始列の交換子公式](#lem-hod1-03-primitive-ladder)の $\Lambda L^rv=r(m-r+1)L^{r-1}v$ を使い、$0\le r\le m$ のノルム公式を帰納法で再導出せよ。その上で $n=4,k=1$、$\|v\|=1$ のとき $\|L^2v\|^2$、$\|L^3v\|^2$、$L^4v$ を求めよ。
+複素次元 $n$ のHermiteベクトル空間で、非零原始形式 $v\in P^k$ と $m=n-k$ をとる。[原始列の交換子公式](#lem-hod1-03-primitive-ladder)
+
+$$
+\Lambda L^rv=r(m-r+1)L^{r-1}v
+$$
+
+を使い、$0\le r\le m$ のノルム公式を帰納法で再導出せよ。その上で $n=4,k=1$、$\|v\|=1$ のとき、$\|L^2v\|^2$、$\|L^3v\|^2$、$L^4v$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$r=0$ では $0!m!/(m-0)!=1$ なので成り立つ。$r-1$ までの式を仮定し、随伴性に原始列公式を代入する。
+$r=0$ では $0!m!/(m-0)!=1$ なので成り立つ。$r-1$ までの式を仮定し、[点ごとの随伴関係](../HOD1-02/index.md#def-hod1-02-lambda)に[原始列公式](#lem-hod1-03-primitive-ladder)を代入する。
 
 $$
 \begin{aligned}
@@ -768,7 +803,20 @@ $$
 
 最右辺の6形式は非零であるから $L^2\alpha=0$ と $S=0$ は同値。最初に求めた $\Lambda\alpha=-iS$ も同時に零となるので、原始判定が両方向に確かめられた。
 
-**3. 同型の列ごとの確認。** $n=3$ で $P^2$ の元は $m=3-2=1$ なので列 $v,Lv$ を作り、[ノルム公式](#lem-hod1-03-primitive-ladder)では $\|Lv\|^2=\|v\|^2$。したがって $L:P^2\to LP^2$ は単射かつ像への同型である。一方 $P^0$ の元 $1$ は $m=3$ の列 $1,\omega,\omega^2,\omega^3$ を作る。$L:LP^0\to L^2P^0$ は $c\omega\mapsto c\omega^2$ で、$\omega^2\ne0$（上の式の三項が独立）だから同型。
+**3. 同型の列ごとの確認。** $n=3$ で $v\in P^2$ とすると $m=3-2=1$ であり、[ノルム公式](#lem-hod1-03-primitive-ladder)から
+
+$$
+v\xrightarrow{L}Lv,\qquad \|Lv\|^2=\|v\|^2.
+$$
+
+従って $L:P^2\to LP^2$ は単射かつ像への同型である。一方 $P^0$ の元 $1$ は $m=3$ の列を作る。
+
+$$
+1\xrightarrow{L}\omega\xrightarrow{L}\omega^2
+\xrightarrow{L}\omega^3.
+$$
+
+$L:LP^0\to L^2P^0$ は $c\omega\mapsto c\omega^2$ で、$\omega^2\ne0$（上の式の三項が独立）だから同型である。
 
 [点ごとのLefschetz分解](#thm-hod1-03-decomposition)により
 
