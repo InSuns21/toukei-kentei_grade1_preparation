@@ -1,0 +1,44 @@
+id: "MICA4"
+title: "基本分布の波面集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA3
+official_scope: []
+learning_objectives:
+  - 点デルタの全非零方向とHeaviside関数の両側方向をcutoffの任意性を含めて計算できる
+  - 超平面に集中するデルタの波面方向が法線共変ベクトルであることをFourier積分から導ける
+  - 斜めのアフィン超平面デルタについて法線方向と非法線方向を直接判定できる
+  - 片側境界値分布の存在とFourier積分を示し、正負の周波数方向を符号付きで区別できる
+  - 和・滑らかな乗算と方向別規則性を用いて特異方向の相殺と保持を判定できる
+definitions:
+  - { id: MICA4-DEF-03, name: 全実線上のHeaviside分布 }
+  - { id: MICA4-DEF-01, name: アフィン超平面デルタ }
+  - { id: MICA4-DEF-02, name: 片側境界値分布 }
+theorems:
+  - { id: MICA4-PROP-01, name: 点デルタの波面集合 }
+  - { id: MICA4-THM-01, name: Heaviside関数の波面集合 }
+  - { id: MICA4-THM-02, name: アフィン超平面デルタの波面集合 }
+  - { id: MICA4-PROP-03, name: 境界値の分布公式 }
+  - { id: MICA4-THM-03, name: 片側境界値分布の波面集合 }
+  - { id: MICA4-PROP-02, name: 半空間のHeaviside関数 }
+canonical_examples:
+  - 原点・平行移動点のDiracデルタの正負全方向
+  - Heaviside関数の境界項と両方向の代数減衰
+  - 水平直線・斜め直線のデルタと法線方向
+  - 上下の片側境界値と周波数半直線
+  - 滑らかな係数xを掛けたHeaviside関数の有限階正則化
+problem_patterns:
+  - MICA4-SHIFTED-POINT-DELTA
+  - MICA4-SHIFTED-HEAVISIDE
+  - MICA4-FLAT-DELTA-NORMAL
+  - MICA4-BOUNDARY-VALUE-SIGN
+  - MICA4-PRINCIPAL-VALUE
+  - MICA4-TILTED-DELTA
+  - MICA4-VANISHING-MULTIPLIER
+  - MICA4-BOUNDARY-CANCELLATION
+  - MICA4-CROSSING-SINGULAR-SETS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
