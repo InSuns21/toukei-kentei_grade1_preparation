@@ -1,0 +1,46 @@
+id: QFT23
+title: "φ⁴模型の正則化・くりこみ条件・反項と波動関数くりこみ"
+volume: foundations
+status: supplementary
+prerequisites: [QFT22, CA11]
+official_scope: []
+learning_objectives:
+  - 裸の作用をくりこみ済み係数と局所反項に分解し二点・四点頂点への寄与を導ける
+  - 零運動量の二点値・傾き・四点値という三つのくりこみ条件から一ループ反項を求められる
+  - 鋭いカットオフの一ループbubble差の有限極限をFeynmanパラメータで導ける
+  - 次元正則化のGamma関数公式と一ループ二点・四点の極を導出できる
+  - 修正最小減算法と零運動量減算法の反項・有限部分・方式依存を区別できる
+  - 四次元φ⁴模型の一ループ波動関数反項が零となる理由と摂動論の適用境界を説明できる
+definitions:
+  - { id: QFT23-DEF-01, name: 裸の作用・くりこみ済み係数・反項 }
+  - { id: QFT23-DEF-02, name: 零運動量のくりこみ条件 }
+  - { id: QFT23-DEF-03, name: 次元正則化と基準スケール }
+  - { id: QFT23-DEF-04, name: 修正最小減算法 }
+theorems:
+  - { id: QFT23-THM-01, name: 零運動量減算法の一ループ反項 }
+  - { id: QFT23-PROP-01, name: 差し引いたbubbleの有限極限 }
+  - { id: QFT23-COR-01, name: 零運動量減算法の一ループ有限四点頂点 }
+  - { id: QFT23-THM-02, name: 次元正則化した二点・四点の基本積分 }
+  - { id: QFT23-THM-03, name: 修正最小減算法の一ループ反項 }
+  - { id: QFT23-PROP-02, name: 次元正則化の外部運動量差 }
+canonical_examples:
+  - 反項のFourier変換で二点の運動量依存と四点の4階微分を確認する
+  - 自由場で零運動量の三つのくりこみ条件を直接検査する
+  - 質量とカットオフを等しくした反項の符号を確認する
+  - Gamma関数の極と鋭いカットオフの二次発散を比較する
+  - 修正最小減算法で有限対数が残ることを確認する
+problem_patterns:
+  - QFT23-COUNTERTERM-DERIVATIVES
+  - QFT23-ZERO-MOMENTUM-CONDITIONS
+  - QFT23-ONE-LOOP-COUNTERTERM
+  - QFT23-SUBTRACTED-BUBBLE
+  - QFT23-GAMMA-LAURENT
+  - QFT23-DIMENSIONAL-REGULARIZATION
+  - QFT23-MS-BAR
+  - QFT23-WAVEFUNCTION-SLOPE
+  - QFT23-SCHEME-CONVERSION
+  - QFT23-INTEGRATED-ONE-LOOP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 5 }
