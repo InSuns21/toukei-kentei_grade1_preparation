@@ -81,7 +81,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf32-deficit -->
-**定義の確認**。$m=2$ で $I_2/2$ は $S=1$ より $\Delta_2=0$。純粋状態 $|0\rangle\langle0|$ は $S=0$ より $\Delta_2=1$ です。これは[エントロピーの最大値と等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)から確かに非負です。
+**定義の確認**。$m=2$ で最大混合状態 $I_2/2$ の固有値は $(1/2,1/2)$、純粋状態 $|0\rangle\langle0|$ の固有値は $(1,0)$ です。したがって
+
+$$
+\begin{aligned}
+S(I_2/2)&=-2\cdot\frac12\log_2\frac12=1,
+&\Delta_2(I_2/2)&=1-1=0,\\
+S(|0\rangle\langle0|)&=0,
+&\Delta_2(|0\rangle\langle0|)&=1-0=1.
+\end{aligned}
+$$
+
+これは[エントロピーの最大値と等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)とも整合し、欠損は確かに非負です。
 <!-- definition-example-end -->
 
 ## 3. purityと二種類のエントロピーを挟む
@@ -467,7 +478,22 @@ $$
 - 問題: $m=1,n\ge1$ のHaar模型で $\rho$、$P$、$S_2$、$S$、欠損界、確率界をすべて確かめてください。
 
 <!-- solution-start -->
-**詳細解答**。一次元の密度演算子は $\rho=(1)$ のみです。従って $P=1$、$S_2=S=0$、$\Delta_1=0$ です。[平均評価](#thm-qinf32-page-type-mean)の下界は $\log_2[(n+1)/(n+1)]=0$、上界も $\log_21=0$。欠損の上界は $(1^2-1)/[(n+1)\ln2]=0$ です。任意の $\varepsilon>0$ に対し $\Pr(\Delta_1\ge\varepsilon)=0$、[確率界](#thm-qinf32-entropy-tail)の右辺も0です。境界の場合にも式は整合しています。
+**詳細解答**。一次元の密度演算子は $\rho=(1)$ のみです。固有値は1なので
+
+$$
+P=1,\qquad S_2=-\log_2 1=0,\qquad
+S=0,\qquad \Delta_1=\log_2 1-S=0.
+$$
+
+[平均評価](#thm-qinf32-page-type-mean)の上下界と欠損の上界はそれぞれ
+
+$$
+\log_2\frac{n+1}{n+1}=0\le\mathbb ES\le\log_2 1=0,
+\qquad
+0\le\mathbb E\Delta_1\le\frac{1^2-1}{(n+1)\ln2}=0.
+$$
+
+任意の $\varepsilon>0$ で $\Delta_1=0$ だから $\Pr(\Delta_1\ge\varepsilon)=0$ です。[確率界](#thm-qinf32-entropy-tail)の右辺も分子が $1^2-1=0$ なので0になります。境界の場合にもすべての式は整合しています。
 <!-- solution-end -->
 
 <a id="ex-qinf32-b01"></a>
