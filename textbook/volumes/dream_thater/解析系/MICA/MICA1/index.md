@@ -316,7 +316,15 @@ $$
 
 を得ます。一変数の[Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)は $\varphi$ と $\widehat\varphi$ が可積分かつ $\varphi$ が連続なので使え、$n$ 変数への反復では急減少によってFubiniの定理が使えます。
 
-ここで $\rho=1$ が $\operatorname{supp}T$ の近くで成り立つコンパクト支持cutoffを選びます。$\langle T,\varphi\rangle=\langle T,\rho\varphi\rangle$ です。逆変換を $\rho$ 倍してから作用させると、[超関数の局所有限階評価](../../GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により積分の打切りを外すことができます。実際、$x$ 微分を $m$ 回まで取った積分の絶対値は $\int(1+|\xi|)^m|\widehat\varphi(\xi)|\,d\xi<\infty$ により支配されます。従って
+ここで $\rho=1$ が $\operatorname{supp}T$ の近くで成り立つコンパクト支持cutoffを選びます。すると $\langle T,\varphi\rangle=\langle T,\rho\varphi\rangle$ です。
+
+逆変換を $\rho$ 倍してから作用させると、[超関数の局所有限階評価](../../GPDE/GPDE1/index.md#prop-gpde1-local-finite-order)により積分の打切りを外すことができます。実際、$x$ 微分を $m$ 回まで取った積分は
+
+$$
+\int_{\mathbb R^n}(1+|\xi|)^m|\widehat\varphi(\xi)|\,d\xi<\infty
+$$
+
+の定数倍で支配されます。従って
 
 $$
 \begin{aligned}
@@ -361,7 +369,9 @@ $$
 <!-- definition-example-start: def-mica1-local-criterion -->
 ### 直接例：同じデルタでも基点によって答えが変わる
 
-**定義の確認**。$u=\delta_0$、$x_0=a\ne0$ とし、$a$ の周りの小球に台を持ち、その内側で $1$ となる $\chi$ を選びます。$\chi(0)=0$ なので $\widehat{\chi u}=0$ であり、任意の $N$ に $C_N=0$ を選べます。ゆえに $a$ では局所Fourier判定が成立します。
+**定義の確認**。$u=\delta_0$、$x_0=a\ne0$ とし、$a$ の周りの小球に台を持ち、その内側で $1$ となる $\chi$ を選びます。
+
+原点はこの台の外なので $\chi(0)=0$、従って $\widehat{\chi u}=0$ です。任意の $N$ に $C_N=0$ を選べるため、$a$ では局所Fourier判定が成立します。
 
 $x_0=0$ では、そこで $1$ となるどのcutoffに対しても $\widehat{\chi\delta_0}=1$ です。$N=1$ の急減少条件は満たせません。したがって原点では局所Fourier判定が成立しません。
 <!-- definition-example-end -->
@@ -383,7 +393,9 @@ $x_0=0$ では、そこで $1$ となるどのcutoffに対しても $\widehat{\c
 <!-- proof-start -->
 ### 証明
 
-**(1) から (2)。** $U$ 上で $u=T_f$、$f\in C^\infty(U)$ とします。$x_0$ を含む開球の閉包が $U$ に収まるよう選び、その球に台を持ち $x_0$ の近傍で $1$ となる $\chi\in C_c^\infty$ を取ります。$\chi f$ を $U$ 外では零として延長すると $C_c^\infty(\mathbb R^n)$ に属します。任意の試験関数 $\varphi$ に対し
+**(1) から (2)。** $U$ 上で $u=T_f$、$f\in C^\infty(U)$ とします。$x_0$ を含む開球の閉包が $U$ に収まるよう選び、その球に台を持ち $x_0$ の近傍で $1$ となる $\chi\in C_c^\infty$ を取ります。
+
+$\chi f$ を $U$ 外では零として延長すると、境界の近くでは $\chi=0$ なので $C_c^\infty(\mathbb R^n)$ に属します。任意の試験関数 $\varphi$ に対し
 
 $$
 \langle\chi u,\varphi\rangle
@@ -393,7 +405,9 @@ $$
 
 従って $\chi u=T_{\chi f}$ です。[コンパクト支持超関数のFourier急減少と滑らかさの同値](#thm-mica1-smooth-rapid)から $\widehat{\chi u}$ は急減少します。
 
-**(2) から (1)。** $\chi=1$ が $x_0$ を含む開近傍 $V$ で成立し、$\widehat{\chi u}$ が急減少するとします。$\chi u$ はコンパクト支持なので[同じ定理](#thm-mica1-smooth-rapid)によって $\chi u=T_g$、$g\in C_c^\infty(\mathbb R^n)$ です。$\operatorname{supp}\varphi\subset V$ の試験関数では $\chi\varphi=\varphi$ なので
+**(2) から (1)。** $\chi=1$ が $x_0$ を含む開近傍 $V$ で成立し、$\widehat{\chi u}$ が急減少するとします。$\chi u$ はコンパクト支持なので[同じ定理](#thm-mica1-smooth-rapid)によって $\chi u=T_g$、$g\in C_c^\infty(\mathbb R^n)$ です。
+
+$\operatorname{supp}\varphi\subset V$ の試験関数では $\chi\varphi=\varphi$ なので
 
 $$
 \langle u,\varphi\rangle
@@ -705,7 +719,9 @@ $$
 
 ただし $R_b$ は急減少です。
 
-**(3)** $a$ では右辺の絶対値が $1$ に、$b$ では $2$ に近づきます。したがってどちらも $|\xi\widehat{\chi u}|\to0$ にはなりません。もし、より大きな別のcutoffで急減少できたと仮定すれば、[局所判定定理](#thm-mica1-local-smooth)によりその点の近傍で $u$ が滑らかになります。その場合は (2) の小cutoffでも急減少するはずですが、いま計算した漸近式に反します。よって、滑らかでない点の集合は正確に
+**(3)** $a$ では右辺の絶対値が $1$ に、$b$ では $2$ に近づきます。したがってどちらも $|\xi\widehat{\chi u}|\to0$ にはなりません。
+
+もし、より大きな別のcutoffで急減少できたと仮定すれば、[局所判定定理](#thm-mica1-local-smooth)によりその点の近傍で $u$ が滑らかになります。その場合は (2) の小cutoffでも急減少するはずですが、いま計算した漸近式に反します。よって、滑らかでない点の集合は正確に
 
 $$
 \{a,b\}
