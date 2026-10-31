@@ -1,0 +1,37 @@
+chapter: HOD1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-05
+  - CM2-04
+concepts:
+  - id: hodge.green-type-preservation
+    name: 調和射影とGreen作用素の型保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（調和射影とGreen作用素の型保存）"]
+    requires: [hodge.harmonic-type-preservation, geometric-analysis.hodge-green, hodge.type-orthogonality]
+  - id: hodge.dolbeault-green
+    name: 型別Green作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別Green作用素）"]
+    requires: [hodge.green-type-preservation, hodge.kahler-laplacian-equality]
+  - id: hodge.dolbeault-harmonic-representative
+    name: Dolbeaultコホモロジーの調和代表
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Dolbeaultコホモロジーの調和代表）"]
+    requires: [hodge.dolbeault-green, complex-manifolds.dolbeault-cohomology, hodge.harmonic-type-preservation]
+  - id: hodge.de-rham-hodge-summand
+    name: de RhamコホモロジーのHodge型部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（de RhamコホモロジーのHodge型部分空間）"]
+    requires: [geometric-analysis.hodge-de-rham, hodge.harmonic-type-preservation]
+  - id: hodge.kahler-hodge-decomposition
+    name: コンパクトKähler多様体のHodge分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクトKähler多様体のHodge分解）"]
+    requires: [hodge.dolbeault-harmonic-representative, hodge.de-rham-hodge-summand, geometric-analysis.hodge-de-rham]

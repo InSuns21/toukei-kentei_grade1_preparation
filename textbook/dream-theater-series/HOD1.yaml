@@ -28,7 +28,7 @@ chapters:
     title: "Laplacian一致と調和形式の型保存"
   - id: HOD1-06
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-06
-    status: planned
+    status: completed
     title: "Kähler多様体のHodge分解"
   - id: HOD1-07
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-07
