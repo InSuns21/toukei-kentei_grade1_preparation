@@ -1,7 +1,7 @@
 chapter: QFT23
 scope: dream-theater
 coverage: complete
-prerequisites: [QFT19, QFT20, QFT21, QFT22]
+prerequisites: [QFT22, CA11]
 forward_references: []
 
 concepts:
@@ -45,14 +45,14 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（次元正則化と基準スケール）]
-    requires: [qft.phi4-cutoff-integrals]
+    requires: [qft.phi4-cutoff-integrals, complex-analysis.gamma-meromorphic-continuation]
 
   - id: qft.dimensional-loop-integrals
     name: 次元正則化した二点・四点の基本積分
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（次元正則化した二点・四点の基本積分）]
-    requires: [qft.dimensional-regularization]
+    requires: [qft.dimensional-regularization, complex-analysis.gamma-functional-equation, complex-analysis.euler-mascheroni-constant]
 
   - id: qft.modified-minimal-subtraction
     name: 修正最小減算法
