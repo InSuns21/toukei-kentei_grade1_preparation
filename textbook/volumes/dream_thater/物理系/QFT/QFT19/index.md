@@ -157,7 +157,7 @@ $$
 <!-- definition-example-start: def-qft19-connected-two-point -->
 ### 例：一変数で平均の寄与を引く
 
-**定義の確認**：$A=(a)$、$a>0$ なら[Gaussian生成公式](#thm-qft19-gaussian)から $Z_B(J)=\sqrt{2\pi/a}\,e^{J^2/(2a)}$ です。$J$ で一階・二階微分して各々 $Z_B(J)$ で割ると、平均は $J/a$、二乗の平均は $1/a+J^2/a^2$ です。よって
+**定義の確認**：$A=(a)$、$a>0$ なら[有限次元Gaussian生成公式](#thm-qft19-gaussian)から $Z_B(J)=\sqrt{2\pi/a}\,e^{J^2/(2a)}$ です。$J$ で一階・二階微分して各々 $Z_B(J)$ で割ると、平均は $J/a$、二乗の平均は $1/a+J^2/a^2$ です。よって
 
 $$
 \langle x^2\rangle_{J,c}
@@ -334,7 +334,7 @@ $$
 \theta_1\bar\theta_1\cdots\theta_n\bar\theta_n
 $$
 
-となります。後半の符号は、$\bar\theta_i$ の位置を保って $\theta$ の割当を基準順へ戻す際の置換の偶奇です。特に恒等置換は正号、二つの $\theta$ の割当交換は負号です。基準積の積分が1なので
+となります。後半の符号は、$\bar\theta_i$ の位置を保って $\theta$ の割当を基準順へ戻すときの、[反交換する因子の入れ替え回数](../QFT9/index.md#thm-qft9-fermion-wick)で決まります。交換が偶数回なら正号、奇数回なら負号です。基準積の積分が1なので
 
 $$
 \int D(\bar\theta,\theta)e^X
