@@ -18,6 +18,7 @@ theorems:
   - { id: MICA4-PROP-01, name: 点デルタの波面集合 }
   - { id: MICA4-THM-01, name: Heaviside関数の波面集合 }
   - { id: MICA4-THM-02, name: アフィン超平面デルタの波面集合 }
+  - { id: MICA4-PROP-03, name: 境界値の分布公式 }
   - { id: MICA4-THM-03, name: 片側境界値分布の波面集合 }
   - { id: MICA4-PROP-02, name: 半空間のHeaviside関数 }
 canonical_examples:
