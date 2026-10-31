@@ -69,7 +69,7 @@ $$
 <a id="def-mica4-heaviside"></a>
 
 <!-- formal-statement-start -->
-> **定義（Heaviside関数）**
+> **定義（全実線上のHeaviside分布）**
 >
 > $\mathbb R$ 上の局所可積分関数 $H$ を $H(x)=0$（$x<0$）、$H(x)=1$（$x>0$）で定める。この関数が定める分布も $H$ と書き、試験関数 $\varphi\in C_c^\infty(\mathbb R)$ に
 
