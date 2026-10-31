@@ -27,7 +27,7 @@ $$
 
 ## 2. Green作用素も型を混ぜない
 
-[GA6のHodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)は、Laplacianの零固有空間では零とし、正固有空間では固有値で割る作用素だった。これを複素数値形式へ**複素線形**に延長したものを次数$k$で$G_k$と記す。$P_k$を$\mathcal H^k(X)$への$L^2$直交射影とすると、[GA6のHodge分解定理](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)から滑らかな形式$\alpha$について
+[GA6のHodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)は、Laplacianの零固有空間では零とし、正固有空間では固有値で割る作用素だった。これを複素数値形式へ**複素線形**に延長したものを次数$k$で$G_k$と記す。$P_k$を$\mathcal H^k(X)$への$L^2$直交射影とすると、[GA6のHodge分解](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)から滑らかな形式$\alpha$について
 
 $$
 \Delta_dG_k\alpha=\alpha-P_k\alpha,
