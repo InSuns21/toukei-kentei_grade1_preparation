@@ -195,7 +195,7 @@ $$
 
 任意の $x_0\in U$ と $\xi_0\ne0$ を固定します。$u$ が $(x_0,\xi_0)$ で規則的なら、そのcutoff $\chi_u=1$ が成り立つ開近傍 $V$ と、急減少を満たす開錐 $\Gamma\ni\xi_0$ が存在します。
 
-$U\cap V$ に台を持つ新しいcutoff $\psi=1$ near $x_0$ を選びます。$\xi_0$ を含み、球面上の閉包が $\Gamma$ の内側に入る小錐 $\Gamma'$ を取ります。[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)により、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。
+$U\cap V$ に台を持つ新しいcutoff $\psi=1$ near $x_0$ を選びます。$\xi_0$ を含み、球面上の閉包が $\Gamma$ の内側に入る小錐 $\Gamma'$ を取ります。[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)により、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。
 
 $\operatorname{supp}\psi\subset U$ より $\psi u=\psi v$ なので $v$ も規則的です。$u,v$ を交換すれば逆も成り立ちます。$\square$
 <!-- proof-end -->
@@ -223,7 +223,7 @@ $(x_0,\xi_0)\notin WF(u)\cup WF(v)$ を固定します。それぞれにcutoff $
 
 次に、$\chi_u=\chi_v=1$ となる $x_0$ の共通開近傍 $U$ に台を持ち、$x_0$ 近くで $1$ となる $\psi$ を選びます。
 
-[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)をそれぞれに適用すると、$\widehat{\psi u}$ と $\widehat{\psi v}$ は $\Gamma'$ 上で任意次数の急減少を持ちます。Fourier変換の線形性と三角不等式で
+[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)をそれぞれに適用すると、$\widehat{\psi u}$ と $\widehat{\psi v}$ は $\Gamma'$ 上で任意次数の急減少を持ちます。Fourier変換の線形性と三角不等式で
 
 $$
 |\widehat{\psi(u+v)}(\xi)|
@@ -279,7 +279,7 @@ $$
 \psi(au)=(a\psi)u=(a\psi)(\chi u)
 $$
 
-です。[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)を、元のcutoff $\chi$、新しい関数 $a\psi$、錐 $\Gamma'$ に適用すると $\widehat{\psi(au)}$ が $\Gamma'$ 上で急減少します。$\psi=1$ near $x_0$ なので $(x_0,\xi_0)\notin WF(au)$、第一の包含が得られました。
+です。[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)を、元のcutoff $\chi$、新しい関数 $a\psi$、錐 $\Gamma'$ に適用すると $\widehat{\psi(au)}$ が $\Gamma'$ 上で急減少します。$\psi=1$ near $x_0$ なので $(x_0,\xi_0)\notin WF(au)$、第一の包含が得られました。
 
 次に $a(x_0)\ne0$ とします。連続性から $a$ は $x_0$ のある開近傍 $V$ で零になりません。$\rho\in C_c^\infty(V)$ を $x_0$ 近傍で $1$ とし、$b=\rho/a$ を $V$ 外で零として延長すると $b\in C^\infty(\mathbb R^n)$ です。
 
@@ -340,7 +340,7 @@ $$
 
 $(x_0,\xi_0)\notin WF(u)$ を固定し、$\chi=1$ が成り立つ開近傍 $U$ と、$\widehat{\chi u}$ が急減少する開錐 $\Gamma\ni\xi_0$ を取ります。$\psi\in C_c^\infty$ を $\psi=1$ near $x_0$ かつ $\operatorname{supp}\psi\subset U$ とし、球面上の閉包が $\Gamma$ に収まる開錐 $\Gamma'\ni\xi_0$ を選びます。
 
-$\psi$ と $\partial_j\psi$ はいずれも $C_c^\infty$ で台が $U$ に含まれます。[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)をそれぞれに適用すると、任意の $N\ge0$ に対し
+$\psi$ と $\partial_j\psi$ はいずれも $C_c^\infty$ で台が $U$ に含まれます。[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)をそれぞれに適用すると、任意の $N\ge0$ に対し
 
 $$
 |\widehat{\psi u}(\xi)|\le A_N(1+|\xi|)^{-N},
@@ -479,7 +479,7 @@ $u$ の規則性から $\chi_u=1$ near $x_0$ と開錐 $\Gamma\ni\xi_0$ が存�
 
 $\chi_u=1$ が成り立つ開近傍 $V$ を取り、$U\cap V$ の中に台を持ち $x_0$ 近傍で $1$ となる $\psi\in C_c^\infty$ を選びます。$\xi_0$ の開錐 $\Gamma'$ を、球面上の閉包が $\Gamma$ 内に入るよう狭めます。
 
-[cutoff縮小定理](../MICA2/index.md#thm-mica2-cutoff-stability)は $\operatorname{supp}\psi\subset V$ により適用でき、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。また $\operatorname{supp}\psi\subset U$ で $u=v$ だから $\psi u=\psi v$ です。
+[cutoffの縮小に対する錐急減少の保存](../MICA2/index.md#thm-mica2-cutoff-stability)は $\operatorname{supp}\psi\subset V$ により適用でき、$\widehat{\psi u}$ は $\Gamma'$ 上で急減少します。また $\operatorname{supp}\psi\subset U$ で $u=v$ だから $\psi u=\psi v$ です。
 
 $\psi=1$ near $x_0$ より、同じ $\psi,\Gamma'$ は $v$ の規則性の定義を満たします。$U$ に最初のcutoff全体が入ると仮定していない点が核心です。
 <!-- solution-end -->
