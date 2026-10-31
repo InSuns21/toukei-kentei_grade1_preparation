@@ -32,7 +32,7 @@ chapters:
     title: "Kähler多様体のHodge分解"
   - id: HOD1-07
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-07
-    status: planned
+    status: completed
     title: "Hodge数の対称性と位相的制約"
   - id: HOD1-08
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-08

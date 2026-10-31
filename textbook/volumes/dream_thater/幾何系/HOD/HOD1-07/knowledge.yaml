@@ -1,0 +1,54 @@
+chapter: HOD1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-06
+concepts:
+  - id: hodge.hodge-numbers
+    name: Hodge数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodge数）"]
+    requires: [hodge.dolbeault-harmonic-representative, hodge.kahler-hodge-decomposition]
+  - id: hodge.conjugation-harmonic
+    name: 複素共役による調和形式の型交換
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（複素共役による調和形式の型交換）"]
+    requires: [hodge.harmonic-type-preservation, geometric-analysis.codifferential]
+  - id: hodge.hodge-conjugation-symmetry
+    name: Hodge数の共役対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodge数の共役対称性）"]
+    requires: [hodge.hodge-numbers, hodge.conjugation-harmonic]
+  - id: hodge.star-laplacian-commutation
+    name: Hodge星とHodge Laplacianの可換性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Hodge星とHodge Laplacianの可換性）"]
+    requires: [geometric-analysis.hodge-star, geometric-analysis.codifferential, geometric-analysis.hodge-laplacian]
+  - id: hodge.hodge-duality
+    name: Hodge数の補次数対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodge数の補次数対称性）"]
+    requires: [hodge.star-laplacian-commutation, hodge.conjugation-harmonic, hodge.star-adjoint-identities]
+  - id: hodge.complementary-pairing
+    name: 相補Hodge型の積分対
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相補Hodge型の積分対）"]
+    requires: [hodge.dolbeault-harmonic-representative, hodge.hodge-duality]
+  - id: hodge.perfect-pairing
+    name: 相補Hodge型の非退化積分対
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相補Hodge型の非退化積分対）"]
+    requires: [hodge.complementary-pairing, hodge.hodge-duality, hodge.complex-form-inner-product]
+  - id: hodge.betti-constraints
+    name: Betti数に対するKähler制約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Betti数に対するKähler制約）"]
+    requires: [hodge.hodge-numbers, hodge.hodge-conjugation-symmetry, hodge.hodge-duality, hodge.kahler-hodge-decomposition]

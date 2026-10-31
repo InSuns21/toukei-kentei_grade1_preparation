@@ -1,0 +1,42 @@
+id: "HOD1-07"
+title: "Hodge数の対称性と位相的制約"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-06
+official_scope: []
+learning_objectives:
+  - 複素共役とHodge星の線形性・反線形性と型の写り方を区別して調和形式の同型を証明できる
+  - Hodge数の共役対称性と補次数対称性をKählerの仮定の下で導ける
+  - 相補型の積分対が非退化であることをHodge星と正値内積で証明できる
+  - Betti数のHodge数による和と奇数次Betti数の偶数性を証明できる
+  - 複素曲面のHodge数を整理し必要条件と十分条件の違いを説明できる
+definitions:
+  - { id: HOD1-07-DEF-01, name: "Hodge数" }
+  - { id: HOD1-07-DEF-02, name: "相補Hodge型の積分対" }
+theorems:
+  - { id: HOD1-07-LEM-01, name: "複素共役による調和形式の型交換" }
+  - { id: HOD1-07-THM-01, name: "Hodge数の共役対称性" }
+  - { id: HOD1-07-LEM-02, name: "Hodge星とHodge Laplacianの可換性" }
+  - { id: HOD1-07-THM-02, name: "Hodge数の補次数対称性" }
+  - { id: HOD1-07-THM-03, name: "相補Hodge型の非退化積分対" }
+  - { id: HOD1-07-THM-04, name: "Betti数に対するKähler制約" }
+canonical_examples:
+  - 平坦楕円曲線のHodge数と複素共役・星作用の符号
+  - 楕円曲線の相補型積分と正値内積
+  - 連結複素曲面のHodge数とBetti数の表
+problem_patterns:
+  - HOD1-07-STAR-CONJUGATION-TYPES
+  - HOD1-07-ANTILINEAR-BASIS
+  - HOD1-07-ODD-BETTI-SUM
+  - HOD1-07-PAIRING-SIGN
+  - HOD1-07-STAR-LAPLACIAN-COMMUTATION
+  - HOD1-07-SURFACE-HODGE-UNKNOWN
+  - HOD1-07-TOPOLOGICAL-OBSTRUCTION
+  - HOD1-07-PAIRING-REPRESENTATIVE
+  - HOD1-07-THREEFOLD-BETTI
+  - HOD1-07-SYMMETRY-PAIRING-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }
