@@ -1,0 +1,43 @@
+id: "HOD1-10"
+title: "調和形式上のLefschetz作用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-09
+  - KAH1-13
+official_scope: []
+learning_objectives:
+  - de Rham類の積を閉形式の楔積から定義し、両代表を変えても同じ類になることを符号込みで示せる
+  - Kähler基本形式の閉性とLaplacian可換性が担う異なる役割を区別できる
+  - 調和形式上のLefschetz作用とコホモロジー上のKähler類のcup積が一致することを証明できる
+  - Lの高冪とHodge型の移動および随伴Lambdaの調和空間上での作用を説明できる
+  - 楕円曲線と射影直線およびその積で正規化係数とLefschetz像を計算できる
+  - 閉だが固定計量の調和形式を保たない作用と非閉形式の反例を区別できる
+  - 調和代表上の作用を得たこととHard Lefschetz同型の証明を区別できる
+definitions:
+  - { id: HOD1-10-DEF-01, name: "de Rham類の積" }
+theorems:
+  - { id: HOD1-10-PROP-01, name: "外積によるde Rham積のwell-defined性" }
+  - { id: HOD1-10-THM-01, name: "調和代表とコホモロジー上のLefschetz作用" }
+  - { id: HOD1-10-PROP-02, name: "Lefschetz作用とHodge型" }
+  - { id: HOD1-10-PROP-03, name: "調和形式上のLefschetz三作用素" }
+canonical_examples:
+  - 実二次元平坦トーラスの一次類の積と代表非依存性
+  - 楕円曲線上の基本形式と格子面積の対応
+  - 射影直線上のFubini–Study形式の2pi正規化
+  - CP1 x CP1での中央次数の核と基本類への二乗作用
+  - 固定平坦計量で閉だが非調和な可変係数2形式
+problem_patterns:
+  - HOD1-10-GRADED-DE-RHAM-PRODUCT
+  - HOD1-10-REPRESENTATIVE-INDEPENDENCE
+  - HOD1-10-HARMONIC-LEFSCHETZ-INTERTWINING
+  - HOD1-10-TYPE-SHIFT
+  - HOD1-10-FS-NORMALIZATION
+  - HOD1-10-NONHARMONIC-CLOSED-COUNTEREXAMPLE
+  - HOD1-10-ADJOINT-REPRESENTATIVE
+  - HOD1-10-TORUS-PAIRING
+  - HOD1-10-CP1XCP1-KERNEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
