@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
+import { parseDreamTheaterFacade } from './lib/dream-theater-public-catalog.mjs';
 
-const indexRel = 'textbook/dream-theater-index.json';
+const indexRel = 'textbook/dream-theater.md';
 
 function argValue(name) {
   const i = process.argv.indexOf(name);
@@ -111,8 +112,8 @@ function classifyCurrentIndexChange() {
     if (beforeResult.status !== 0) {
       return { pureAdd: false, reason: 'base index could not be read' };
     }
-    const before = JSON.parse(beforeResult.stdout);
-    const after = JSON.parse(fs.readFileSync(indexRel, 'utf8'));
+    const before = parseDreamTheaterFacade(beforeResult.stdout);
+    const after = parseDreamTheaterFacade(fs.readFileSync(indexRel, 'utf8'));
     return classifyIndexChange(before, after);
   } catch (error) {
     return { pureAdd: false, reason: 'index semantic comparison failed: ' + error.message };

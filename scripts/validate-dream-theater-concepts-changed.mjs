@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 import { buildLocalAliasIntroductions, normalizeAlias as normalizeResolvedAlias } from './lib/dream-theater-concept-resolution.mjs';
 
 const base = process.env.DREAM_THEATER_BASE_SHA?.trim() || process.env.TERMINOLOGY_BASE_SHA?.trim();
@@ -142,7 +143,7 @@ function collectChangedMarkdown(baseSha) {
 
 function loadConceptAliases() {
   const root = process.cwd();
-  const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
+  const index = loadDreamTheaterIndex(root);
   const policy = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-knowledge.yaml'), 'utf8')) ?? {};
   const metadataFile = policy.metadata_file || 'knowledge.yaml';
   const out = new Map();

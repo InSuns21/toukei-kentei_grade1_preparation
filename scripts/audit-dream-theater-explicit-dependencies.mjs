@@ -2,17 +2,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
-const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 
-if (!fs.existsSync(indexPath)) fatal('textbook/dream-theater-index.json が見つかりません。');
 if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が見つかりません。');
 
-const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+const index = loadDreamTheaterIndex(root);
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
 const reachabilityExemptConceptIds = new Set(
@@ -400,7 +399,7 @@ function collectChangedFiles() {
       '-c', 'core.quotepath=false',
       'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--',
       'textbook/volumes/dream_thater',
-      'textbook/dream-theater-index.json',
+      'textbook/dream-theater.md',
       'textbook/dream-theater-knowledge.yaml',
     ], { cwd: root, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
     return new Set(output.split('\n').map((value) => value.trim()).filter(Boolean));

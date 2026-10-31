@@ -41,8 +41,8 @@ PRの軽量化を理由に品質ゲートを削除しない。full audit は mai
 
 ## 並行マージと Pages の公開安全ゲート
 
-- DREAM THEATER の章追加・修正PRでは、公開索引 `textbook/dream-theater-index.json` と `textbook/dream-theater.md`、章本文の formal statement を **PR の統合結果** で検査する。両検査（`validate:dream-theater-index`、`validate:formal-statements`）は `Validate textbook` CI の共通 blocking step とし、changed-only 判定で省かない。
-- 他のPRが `main` に入った後、以前の green CI をそのままマージ根拠として再利用しない。PRを最新の `main` に追従させ、更新後の merge result に対して必須チェックが成功したことを確認してからマージする。とくに複数の章が同一の公開索引・目次を触る場合は、新たに追加されたすべての章を消していないか最終差分を確認する。
+- DREAM THEATER の章追加・修正PRでは、`textbook/volumes/dream_thater/` の実在する章と公開目次 `textbook/dream-theater.md` の一致、章本文の formal statement を **PR の統合結果** で検査する。両検査（`validate:dream-theater-index`、`validate:formal-statements`）は `Validate textbook` CI の共通 blocking step とし、changed-only 判定で省かない。別管理の JSON 索引は作らない。
+- 他のPRが `main` に入った後、以前の green CI をそのままマージ根拠として再利用しない。PRを最新の `main` に追従させ、更新後の merge result に対して必須チェックが成功したことを確認してからマージする。とくに複数の章が同一の公開目次を触る場合は、新たに追加されたすべての章を消していないか最終差分を確認する。
 - GitHub の `main` branch protection / ruleset では `Require status checks to pass before merging` に `Validate textbook` と `Validate Pages assembly` を必須登録し、`Require branches to be up to date before merging` （strict）を有効にする。merge queue を採用する場合は queue 上の統合結果にも同等の検証を必須とする。workflow にチェックを書くだけでは古い green の再利用を禁止できないため、リポジトリ設定とセットで運用する。
 - main 上の publish 検証失敗はデプロイ再実行だけで済ませず、失敗時コミットと最新 main の索引・formal statement 差分を確認し、修正PRで解消する。
 

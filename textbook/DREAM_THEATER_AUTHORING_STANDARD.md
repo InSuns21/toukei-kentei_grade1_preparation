@@ -1,6 +1,6 @@
 # DREAM THEATER 執筆・査読統合規約
 
-このファイルを、`textbook/dream-theater-index.json` に掲載される **DREAM THEATER 数学講座の執筆・改稿・査読における入口となる正本**とする。
+このファイルを、`textbook/dream-theater.md` の公開目次に掲載される **DREAM THEATER 数学講座の執筆・改稿・査読における入口となる正本**とする。
 
 目的は、散在していた共通規約・表示規約・演習規約・旧監査台帳の判断基準を一つの順序へ整理し、AI・人間のどちらが編集しても「CI は通ったが教材として薄い」「古い監査記録を現行規約だと誤読した」という状態を防ぐことである。
 
@@ -10,7 +10,7 @@
 
 ## 1. 適用範囲と規約の読み順
 
-対象 `index.md` が `textbook/dream-theater-index.json` に掲載される場合、この規約を適用する。
+対象 `index.md` が `textbook/dream-theater.md` に掲載される場合、この規約を適用する。
 
 作業前に少なくとも次を確認する。
 
@@ -121,7 +121,7 @@ CI green は必要条件であって十分条件ではない。
 - 章・ページの分割は `CONTENT_GUIDELINES.md` 5.2 に従い、学習者から見た中心問いと学習サイクルで決める。migration source、canonical owner、旧ページの境界、実装 phase を章境界として持ち込まない。
 - **DREAM THEATER 各章の公開タイトルは、その章の `index.md` の H1 を正本とする。** H1 は原則として「章ID + 学習者向けの内容名」とし、科目見出しで既に分かる情報を `標準実解析 VI：`、`標準位相 III：` のように重ねて持たせない。系列内の通し番号や制作上の区分ではなく、そのページで何を学ぶかが直接分かる題名を優先する。
 - H1 を変更したときは、同じ章の `chapter.yaml.title` も内容名へ同期する。stable ID・anchor・ディレクトリ名は、表示名を整える目的だけでは変更しない。
-- 公開 `textbook/dream-theater.md` の章リンク表示名と DREAM THEATER 専用サイドバーは、Pages 組み立て時にリンク先 H1 から生成する。したがって索引側に章タイトルの第二正本を作らない。索引の分類・順序・リンク先は `dream-theater-index.json` と `dream-theater.md` が担い、章名そのものはリンク先 H1 が担う。
+- 公開 `textbook/dream-theater.md` の章リンク表示名と DREAM THEATER 専用サイドバーは、Pages 組み立て時にリンク先 H1 から生成する。したがって索引側に章タイトルの第二正本を作らない。公開目次の分類・順序・リンク先は `dream-theater.md` が担い、章の実在は `volumes/dream_thater/` を走査して照合する。章名そのものはリンク先 H1 が担う。
 - 同一ページに独立した中心問いが複数あり、それぞれ別の「定義→定理→証明→演習」サイクルを形成するなら分割を検討する。
 - 反対に、前提知識が共通で一続きの理論を構成する隣接内容は、細かい別章を増やす前に節・小節としてまとめられないか確認する。
 - ページ長・文字数だけでは分割しない。一つの中心定理を最後まで構成するために長い場合は一講義としてよい。
@@ -189,7 +189,7 @@ CI green は必要条件であって十分条件ではない。
 
 複数 concept を同じ理由で除外する場合は ID をカンマ区切りにしてよい。理由のない skip、対象定義より後の skip、別ページや非 definition concept を指す skip は無効とする。ページ全体を loose にする包括的な除外は設けない。
 
-実装上、この検査は既存の `audit-dream-theater-concepts.mjs --strict --changed-only` に統合する。concept audit がすでに読み込んだ `dream-theater-index.json`、各 `knowledge.yaml`、本文を再利用し、導入検査だけの別ジョブ・別全体走査は追加しない。これにより PR では変更ページだけを blocking 対象とし、CI 時間の増加を小さく保つ。
+実装上、この検査は既存の `audit-dream-theater-concepts.mjs --strict --changed-only` に統合する。concept audit が公開目次と章ディレクトリから取得した章一覧、各 `knowledge.yaml`、本文を再利用し、導入検査だけの別ジョブ・別全体走査は追加しない。これにより PR では変更ページだけを blocking 対象とし、CI 時間の増加を小さく保つ。
 
 ---
 
@@ -348,7 +348,7 @@ DREAM THEATER では各演習に **詳細解答**を必須とする。
 
 ### 公開ページの直接前提講座リンク
 
-DREAM THEATER の各章の公開ページでは、H1の直下に **「前提講座（直接）」** を表示する。対象は公開索引 `textbook/dream-theater-index.json` に掲載された全章とし、先頭講だけに限定しない。
+DREAM THEATER の各章の公開ページでは、H1の直下に **「前提講座（直接）」** を表示する。対象は `textbook/dream-theater.md` に掲載された全章とし、先頭講だけに限定しない。
 
 - **直接1階層**だけを表示し、前提先の前提へ再帰的にたどらない。
 - 各章の `chapter.yaml` の `prerequisites` を唯一の正本とし、参照先の `chapter.yaml` の章IDと題名を使ってリンク名を付ける。
@@ -472,13 +472,13 @@ npm run audit:formalism-pedagogy
 
 - DREAM THEATER 本文・chapter metadata の通常編集
 - 新規章の追加
-- `dream-theater-index.json` への既存項目を壊さない path の純粋追加
+- `dream-theater.md` への既存項目を壊さない公開章リンクの純粋追加
 - その新規章に対する新規 `knowledge.yaml` の追加
 
 次は未変更ページへ判定が波及しうるため、PR でも **full audit** の対象とする。
 
 - 既存章の `knowledge.yaml` の変更・削除・移動
-- `dream-theater-index.json` における既存 path / section の削除・改名・移動・並べ替え
+- `dream-theater.md` における既存公開章リンク / section の削除・改名・移動・並べ替え
 - `textbook/dream-theater-knowledge.yaml`、`textbook/dream-theater-inference-rules.yaml` の変更
 - concept audit の判定ロジック・共通解決ロジック・workflow 自体の変更
 - 差分基準を安全に解決できない場合

@@ -3,9 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
-const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const minimums = new Map([
   ['A', 4],
   ['B', 3],
@@ -85,7 +85,7 @@ console.log(
 );
 
 function loadDreamTheaterPaths() {
-  const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+  const index = loadDreamTheaterIndex(root);
   return new Set(
     (index.sections ?? [])
       .flatMap((section) => section.paths ?? [])

@@ -2,19 +2,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
-const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 const inferencePath = path.join(root, 'textbook/dream-theater-inference-rules.yaml');
 
-if (!fs.existsSync(indexPath)) fatal('textbook/dream-theater-index.json が見つかりません。');
 if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が見つかりません。');
 if (!fs.existsSync(inferencePath)) fatal('textbook/dream-theater-inference-rules.yaml が見つかりません。');
 
-const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+const index = loadDreamTheaterIndex(root);
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const inferencePolicy = YAML.parse(fs.readFileSync(inferencePath, 'utf8')) ?? {};
 const reachabilityExemptConceptIds = new Set(

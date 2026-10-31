@@ -37,21 +37,7 @@ jobs:
           git grep -l '00_foundations' -- scripts pages .github/workflows | sort || true
           echo '== Number of old-root references in tracked files =='
           git grep -l '00_foundations' -- ':!package-lock.json' | wc -l || true
-      - name: Verify category mapping and chapter IDs
-        run: |
-          if grep -q 'textbook/volumes/00_foundations/' textbook/dream-theater-index.json; then
-            node scripts/dream-theater-layout-inventory.mjs --strict
-          else
-            node scripts/migrate-dream-theater-courses.mjs --check
-          fi
-      - name: Verify content preservation when category migration is proposed
-        if: github.event_name == 'pull_request'
-        run: |
-          BASE="$(git merge-base origin/main HEAD)"
-          if git show "$BASE:textbook/dream-theater-index.json" | grep -q 'textbook/volumes/00_foundations/'; then
-            node scripts/verify-dream-theater-category-relocation.mjs --base "$BASE"
-          elif git show "$BASE:textbook/dream-theater-index.json" | grep -q 'textbook/volumes/dream_thater/基礎科目/F0-00A/index.md'; then
-            node scripts/verify-dream-theater-course-relocation.mjs --base "$BASE"
-          else
-            echo 'No bulk relocation proposed relative to base'
-          fi
+      # The 2026 category/course moves are complete. Keep a read-only current
+      # layout check; historical migration scripts require their old commit.
+      - name: Verify current chapter layout and public contents
+        run: npm run validate:dream-theater-index

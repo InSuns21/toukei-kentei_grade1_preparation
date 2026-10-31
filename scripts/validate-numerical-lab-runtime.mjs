@@ -4,11 +4,10 @@ import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import YAML from 'yaml';
 import {chapterPathsFromIndex} from './lib/dream-theater-chapter-paths.mjs';
+import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
-const indexedChapters = chapterPathsFromIndex(JSON.parse(
-  await readFile(path.join(root, 'textbook/dream-theater-index.json'), 'utf8')
-));
+const indexedChapters = chapterPathsFromIndex(loadDreamTheaterIndex(root));
 
 async function read(relative) {
   return readFile(path.join(root, relative), 'utf8');

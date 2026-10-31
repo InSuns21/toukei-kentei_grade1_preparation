@@ -19,7 +19,7 @@
 - coreの不可能性（SQC2–4、SQC6–7）は証明を完結させる。SQC8–12の研究級定理は証明アーキテクチャと引用範囲を明示する。
 - SVGの候補：直線・円の交点、平方根作図、立方体倍積の幾何、角の三等分試行、17角形、等積分割と等分解。ただし静止図・ラベル・代替説明・モーション削減を満たし、図が証明の代用にならない。
 - 機械チェック：frontmatter/ID・prerequisite・DAG循環・リンク・KaTeX・演習/解答対応・見出し・SVG。数理査読：最小多項式の既約性、作図可能性の「必要 vs 十分」、Euler式、等分解定理の量化。
-- 章単位でのみ `textbook/dream-theater-index.json`、knowledge DAG、科目一覧、manifestへ公開登録。未実装の12章を公開済みと記録しない。
+- 章単位でのみ `textbook/dream-theater.md`、knowledge DAG、系列 manifest へ公開登録。`volumes/dream_thater/` の実在章との一致を検証し、未実装の12章を公開済みと記録しない。
 
 ## 4. 実装順・終了条件
 

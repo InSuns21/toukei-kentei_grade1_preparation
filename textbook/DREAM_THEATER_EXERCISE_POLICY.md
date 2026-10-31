@@ -1,6 +1,6 @@
 # DREAM THEATER 演習・解答ポリシー
 
-このファイルは、`textbook/dream-theater-index.json` に掲載される DREAM THEATER ページに対する **演習量と解答形式だけの差分正本**である。
+このファイルは、`textbook/dream-theater.md` に掲載される DREAM THEATER ページに対する **演習量と解答形式だけの差分正本**である。
 
 DREAM THEATER 全体の本文品質、証明粒度、定義例、依存関係、完成条件は [`DREAM_THEATER_AUTHORING_STANDARD.md`](DREAM_THEATER_AUTHORING_STANDARD.md) を入口の正本とする。本ファイルはそのうち演習数と解答形式を具体化する。
 

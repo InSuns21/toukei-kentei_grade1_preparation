@@ -3,7 +3,7 @@ name: Validate DREAM THEATER concepts
 on:
   pull_request:
     paths:
-      - 'textbook/dream-theater-index.json'
+      - 'textbook/dream-theater.md'
       - 'textbook/dream-theater-knowledge.yaml'
       - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'
@@ -17,6 +17,7 @@ on:
       - 'scripts/audit-dream-theater-undefined-terms.mjs'
       - 'scripts/audit-dream-theater-undefined-terms-filtered.mjs'
       - 'scripts/lib/dream-theater-concept-resolution.mjs'
+      - 'scripts/lib/dream-theater-public-catalog.mjs'
       - 'scripts/validate-dream-theater-concepts-changed.mjs'
       - 'scripts/run-dream-theater-concept-changed-audits.mjs'
       - 'scripts/detect-dream-theater-concept-audit-scope.mjs'
@@ -27,7 +28,7 @@ on:
     branches:
       - main
     paths:
-      - 'textbook/dream-theater-index.json'
+      - 'textbook/dream-theater.md'
       - 'textbook/dream-theater-knowledge.yaml'
       - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'
@@ -41,6 +42,7 @@ on:
       - 'scripts/audit-dream-theater-undefined-terms.mjs'
       - 'scripts/audit-dream-theater-undefined-terms-filtered.mjs'
       - 'scripts/lib/dream-theater-concept-resolution.mjs'
+      - 'scripts/lib/dream-theater-public-catalog.mjs'
       - 'scripts/validate-dream-theater-concepts-changed.mjs'
       - 'scripts/run-dream-theater-concept-changed-audits.mjs'
       - 'scripts/detect-dream-theater-concept-audit-scope.mjs'

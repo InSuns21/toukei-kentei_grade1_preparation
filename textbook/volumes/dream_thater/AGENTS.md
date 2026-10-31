@@ -16,7 +16,7 @@
 
 ## 執筆前に読む正本
 
-対象ページが `textbook/dream-theater-index.json` に掲載される場合、必要な範囲で次を確認する。
+対象 `index.md` が `textbook/dream-theater.md` の公開目次に掲載される場合、必要な範囲で次を確認する。章の実在は `textbook/volumes/dream_thater/` のディレクトリ走査で照合する。
 
 1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
 2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`

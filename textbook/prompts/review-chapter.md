@@ -6,7 +6,7 @@
 
 査読開始時に担当区分と実行日時を記録する。通常教材は既存の `review/validation.md` を使う。DREAM THEATER は章ごとの `review/validation.md` が通常存在しないため、**PR本文の章別査読証拠**（PRを使わないときは同等の明示的記録）を使う。`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.1節の形式で、実ファイルの位置と再計算根拠を残す。単に「査読完了」と記さない。最初に `chapter.yaml` の `prerequisites`、関連する knowledge DAG と前提章を確認し、**未修用語と既習用語を区別してから**指摘を出す。
 
-対象 `index.md` が `textbook/dream-theater-index.json` に掲載される DREAM THEATER ページなら、次を必ず確認する。
+対象 `index.md` が `textbook/dream-theater.md` の公開目次に掲載される DREAM THEATER ページなら、次を必ず確認する。
 
 1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
 2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
