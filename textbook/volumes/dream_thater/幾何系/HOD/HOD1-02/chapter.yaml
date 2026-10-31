@@ -1,0 +1,40 @@
+id: "HOD1-02"
+title: "Lefschetz作用素とその随伴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-01
+  - KAH1-02
+official_scope: []
+learning_objectives:
+  - 基本2形式のunitary余標構表示からLefschetz作用素Lと点ごとの随伴Lambdaを定義できる
+  - 外積作用と収縮作用の随伴を符号込みで導出できる
+  - 一複素次元の4状態を使い交換子[Lambda,L]の一般次数公式を証明できる
+  - 複素次元1・2の(p,q)基底でLとLambdaを具体計算できる
+  - 点ごとのHermite線形代数とKähler条件・大域解析を区別できる
+definitions:
+  - { id: HOD1-02-DEF-01, name: "Lefschetz作用素" }
+  - { id: HOD1-02-DEF-02, name: "Lefschetz随伴作用素" }
+  - { id: HOD1-02-DEF-03, name: "収縮作用素" }
+theorems:
+  - { id: HOD1-02-PROP-01, name: "随伴のunitary余標構表示" }
+  - { id: HOD1-02-THM-01, name: "Lefschetz交換子の次数公式" }
+  - { id: HOD1-02-PROP-02, name: "複素型と随伴の作用次数" }
+canonical_examples:
+  - 複素次元1の空・片側・両側の4基底状態
+  - 複素次元2の基本形式・交差型・跡零(1,1)形式
+  - 非KählerなHermite計量でも成立する点ごとの交換子
+problem_patterns:
+  - HOD1-02-ONE-PAIR
+  - HOD1-02-TWO-PAIR
+  - HOD1-02-BIDEGREE
+  - HOD1-02-ADJOINT-SIGN
+  - HOD1-02-PRIMITIVE-EXAMPLES
+  - HOD1-02-OMEGA-POWERS
+  - HOD1-02-NONKAHLER
+  - HOD1-02-POINTWISE-ADJOINT
+  - HOD1-02-PRIMITIVE-SPLIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }

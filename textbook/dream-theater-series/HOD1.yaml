@@ -12,7 +12,7 @@ chapters:
     title: "実Hodge理論から複素形式の随伴へ"
   - id: HOD1-02
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-02
-    status: planned
+    status: completed
     title: "Lefschetz作用素とその随伴"
   - id: HOD1-03
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-03
