@@ -23,7 +23,9 @@ $$
 \frac{\partial F}{\partial X_i}=5X_i^4\quad(0\le i\le4).
 $$
 
-五つが同時に零なら $X_0=\cdots=X_4=0$ となるが、これは射影点ではない。また $F$ が非定数の平方因子 $H^2$ を持つなら、$H=0$ の射影点で全偏微分が零となって矛盾する。従って $F$ は平方因子を持たず、[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定を満たすので、$Q$ は滑らかである。
+五つが同時に零なら $X_0=\cdots=X_4=0$ となるが、これは射影点ではない。
+
+また $F$ が非定数の平方因子 $H^2$ を持つなら、$H=0$ の射影点で全偏微分が零となって矛盾する。従って $F$ は平方因子を持たず、[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定を満たすので、$Q$ は滑らかである。
 
 例えば $U_0=\{X_0\ne0\}$ では $x_j=X_j/X_0$（$1\le j\le4$）と置く。このチャート上の方程式は
 
@@ -32,7 +34,9 @@ f_0=1+x_1^5+x_2^5+x_3^5+x_4^5=0,
 \qquad df_0=\sum_{j=1}^4 5x_j^4\,dx_j.
 $$
 
-点 $p\in Q\cap U_0$ で $x_1=\cdots=x_4=0$ は $f_0(p)=1$ に反する。従ってある $x_r(p)\ne0$ があり、$\partial f_0/\partial x_r=5x_r^4$ はその点の近傍で正則単元である。[局所余接基底](../../AG/AG2-11/index.md#prop-ag2-11-local-basis)により残る三つの $dx_j$ が余接層の局所基底となる。解析側でも[余法完全列と陰関数定理による局所座標](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)により、残りの三変数を正則局所座標に選べる。こうして $M$ は複素次元 $4-1=3$ の多様体になる。
+点 $p\in Q\cap U_0$ で $x_1=\cdots=x_4=0$ は $f_0(p)=1$ に反する。従ってある $x_r(p)\ne0$ があり、$\partial f_0/\partial x_r=5x_r^4$ はその点の近傍で正則単元である。
+
+[局所余接基底](../../AG/AG2-11/index.md#prop-ag2-11-local-basis)により残る三つの $dx_j$ が余接層の局所基底となる。解析側でも[余法完全列と陰関数定理による局所座標](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)により、残りの三変数を正則局所座標に選べる。こうして $M$ は複素次元 $4-1=3$ の多様体になる。
 
 次に[代数的随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)へ周囲の次元 $n=4$ と方程式次数 $d=5$ を代入する。射影空間側の $K_{\mathbb P^4}\simeq\mathcal O(-5)$ と、超曲面の法方向に相当する $\mathcal O(5)$ が相殺され、
 
@@ -46,7 +50,13 @@ $$
 
 $U_i=\{X_i\ne0\}$ のアフィン座標を $x_a^{(i)}=X_a/X_i$（$a\ne i$）とし、添字を昇順に並べた四つを $z_1,z_2,z_3,z_4$ と略記する。局所方程式は $f_i=F/X_i^5$ である。$a_r=\partial f_i/\partial z_r\ne0$ の領域では、$df_i=0$ により $dz_r$ をほかの三つの微分で表せる。
 
-ここで $\partial f_i/\partial z_r$ は周囲のアフィンチャートで他の $z$ を固定した偏微分、$df_i=\sum_{r=1}^4a_r\,dz_r$ はその全微分である。$df_i=0$ は**超曲面の余接層 $\Omega_M^1$ での関係**を意味する。一方、周囲の余接束を $M$ に制限した中では $df_i$ が非零の法方向として残る。この二つを区別する根拠は[解析的余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)である。
+ここで $\partial f_i/\partial z_r$ は周囲のアフィンチャートで他の $z$ を固定した偏微分である。周囲での全微分は
+
+$
+df_i=\sum_{r=1}^4a_r\,dz_r
+$
+
+となる。$df_i=0$ は**超曲面の余接層 $\Omega_M^1$ での関係**を意味する。一方、周囲の余接束を $M$ に制限した中では $df_i$ が非零の法方向として残る。この二つを区別する根拠は[解析的余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)である。
 
 周囲の四形式 $\tau_i=dz_1\wedge dz_2\wedge dz_3\wedge dz_4$ から $df_i$ の方向を取り除く[局所正則随伴形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を使う。以下、$\widehat{dz_r}$ は楔積から $dz_r$ を除く記号とする。すると、
 
@@ -410,7 +420,9 @@ $$
 dg_k=s^{-5}dg_i-5s^{-6}g_i\,ds=s^{-5}dg_i.
 $$
 
-一方 $y_i=s^{-1}$、$y_b=x_b/s$ を微分する。四形式では $dy_i$ 以外から $ds$ を選ぶ項が消える。生き残る係数は $(-s^{-2})s^{-3}=-s^{-5}$ である。$i<k$ なら $dx_k$ を昇順の位置へ戻す交換は $k-i-1$ 回、$i>k$ なら $i-k-1$ 回である。負号と合わせて両場合とも $(-1)^{i+k}$ となるから、
+一方 $y_i=s^{-1}$、$y_b=x_b/s$ を微分する。四形式では $dy_i$ 以外から $ds$ を選ぶ項が消える。生き残る係数は $(-s^{-2})s^{-3}=-s^{-5}$ である。
+
+$i<k$ なら $dx_k$ を昇順の位置へ戻す交換は $k-i-1$ 回、$i>k$ なら $i-k-1$ 回である。負号と合わせて両場合とも $(-1)^{i+k}$ となるから、
 
 $$
 \tau_k=(-1)^{i+k}s^{-5}\tau_i.
@@ -504,7 +516,22 @@ $Q=V_+(\sum X_i^5)\subset\mathbb P^4$ と $M=Q^{\mathrm{an}}$ について、次
 
 $U_i$ で $\partial f_i/\partial z_r\ne0$ の領域の $\eta_{i,r}=(-1)^{r-1}\bigwedge_{a\ne r}dz_a/(\partial f_i/\partial z_r)$ は正則単元で割った局所基底。[CAG1-11の正則形式の構成](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から消去変数によらない。$s=X_k/X_i$ について $df_k=s^{-5}df_i$、$\tau_k=(-1)^{i+k}s^{-5}\tau_i$ なので $\eta_k=(-1)^{i+k}\eta_i$、従って $(-1)^i\eta_i$ が非消失な $\Omega$ を与える。
 
-制限完全列 $0\to\mathcal O(-5)\xrightarrow{F}\mathcal O\to i_*\mathcal O_Q\to0$ の[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)を取る。[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=4,d=-5$ を入れると $H^0(\mathbb P^4,\mathcal O(-5))=H^1(\mathbb P^4,\mathcal O(-5))=0$ となり、$d=0$ では $H^0(\mathbb P^4,\mathcal O)=\mathbb C$。従って長完全列の完全性から $H^0(Q,\mathcal O_Q)=\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)に $q=0$、$\mathcal F=\mathcal O_Q$ を代入すると $H^0(M,\mathcal O_M)=\mathbb C$。$\Omega$ が零にならないので掛け算は $\mathcal O_M\simeq K_M$ を与え、$H^0(M,K_M)=\mathbb C\Omega$。
+制限完全列
+
+$
+0\to\mathcal O_{\mathbb P^4}(-5)\xrightarrow{F}\mathcal O_{\mathbb P^4}\to i_*\mathcal O_Q\to0
+$
+
+の[長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)を取る。[ねじり層の計算](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $n=4,d=-5$ と $d=0$ を入れると、
+
+$
+H^0(\mathbb P^4,\mathcal O(-5))=H^1(\mathbb P^4,\mathcal O(-5))=0,
+\qquad H^0(\mathbb P^4,\mathcal O)=\mathbb C.
+$
+
+従って長完全列の完全性から $H^0(Q,\mathcal O_Q)=\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)に $q=0$、$\mathcal F=\mathcal O_Q$ を代入すると $H^0(M,\mathcal O_M)=\mathbb C$。
+
+$\Omega$ が零にならないので掛け算は $\mathcal O_M\simeq K_M$ を与え、$H^0(M,K_M)=\mathbb C\Omega$。
 
 以上は正則微分形式・層コホモロジー・随伴公式についての代数／解析比較であり、非線形なRicci曲率方程式を解いた段階は一度もない。従ってRicci平坦なKähler計量の存在も、全ホロノミーも未証明のままである。
 <!-- solution-end -->
