@@ -12,7 +12,15 @@
 
 これらは別々の主張なので、順に接続していく。以下では特に断らなければ、$X$ は**複素次元 $n\ge1$ の滑らか・コンパクト・境界なしのKähler多様体**、$\omega$ はその実基本 $(1,1)$ 形式、微分形式は複素数値で滑らかなものとする。連結性は要求しない。$0\le k\le2n$ とし、範囲外の次数の形式空間・コホモロジーは零と約束する。
 
-微分形式の次数を $\deg\alpha$、閉形式 $\alpha$ のde Rham類を $[\alpha]_d$、その次数 $k$ の群を $H^k_{\mathrm{dR}}(X;\mathbb C)$ と書く。[閉形式・完全形式](../../GEO/GEO9/index.md#def-geo9-closed-exact)および[de Rhamコホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は既習である。$L^0=I$、$L^r\alpha=\omega^r\wedge\alpha$（$r\ge1$）とし、$\omega^r$ は $r$ 回の外積を表す。$\omega$ と積の記法で出る指数を、スカラーのべきと混同しない。
+微分形式の次数は $\deg\alpha$、閉形式のde Rham類は $[\alpha]_d$、その次数 $k$ の群は $H^k_{\mathrm{dR}}(X;\mathbb C)$ と記す。[閉形式・完全形式](../../GEO/GEO9/index.md#def-geo9-closed-exact)および[de Rhamコホモロジー](../../GEO/GEO9/index.md#def-geo9-de-rham-cohomology)は既習である。
+
+作用素の高冪については $L^0=I$ と約束し、整数 $r\ge1$ に対して
+
+$$
+L^r\alpha=\omega^r\wedge\alpha
+$$
+
+と書く。ここで $\omega^r$ は基本2形式の $r$ 回の外積を表し、スカラーのべきとは区別する。
 
 ## 2. なぜ閉形式の外積でコホモロジーの積を作れるか
 
@@ -250,7 +258,15 @@ $L$ と $\Lambda$ が調和形式を保てば、その合成と差 $H$ も保つ
 <!-- proof-start -->
 ### 証明
 
-[調和性と両作用素の可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)より、$\Delta_dh=0$ なら $\Delta_d(Lh)=\Delta_d(\Lambda h)=0$ である。従って $\Lambda Lh$ と $L\Lambda h$ も調和であり、その差 $Hh$ も調和である。任意の点 $x\in X$ では、$h_x$ は次数 $k$ の外積代数の元だから[次数公式](../HOD1-02/index.md#thm-hod1-02-commutator)を当てると
+[調和性と両作用素の可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)を調和 $k$ 形式 $h$ に適用すると
+
+$$
+\Delta_d(Lh)=L(\Delta_dh)=0,
+\qquad
+\Delta_d(\Lambda h)=\Lambda(\Delta_dh)=0.
+$$
+
+従って $\Lambda Lh$ と $L\Lambda h$ も調和であり、その差 $Hh$ も調和である。任意の点 $x\in X$ で、次数 $k$ の外積代数の元 $h_x$ に[次数公式](../HOD1-02/index.md#thm-hod1-02-commutator)を当てると
 
 $$
 (Hh)_x=(n-k)h_x.
@@ -269,7 +285,7 @@ $$
 \omega=dx\wedge dy=\frac{i}{2}dz\wedge d\bar z.
 $$
 
-これは $\omega=i\,g_{z\bar z}dz\wedge d\bar z$ という規約で $g_{z\bar z}=1/2$ に対応する。格子の基本平行四辺形を $(s,t)\mapsto(s+at,bt)$（$0\le s,t\le1$）で置くと
+これは $\omega=i\,g_{z\bar z}dz\wedge d\bar z$ という規約で $g_{z\bar z}=1/2$ に対応する。格子の二つの生成元 $1,\tau$ が張る平行四辺形を $(s,t)\mapsto(s+at,bt)$（$0\le s,t\le1$）で置くと
 
 $$
 \int_{E_\tau}\omega
@@ -306,7 +322,7 @@ $$
 
 ## 6. 閉性と調和性を混同すると何が壊れるか
 
-閉2形式 $\eta$ があれば、[de Rham積の命題](#prop-hod1-10-product-well-defined)により $[\eta]$ との外積は類上でwell-definedである。しかし、**任意の閉2形式で調和代表がそのまま調和へ移るわけではない**。
+閉2形式 $\eta$ があれば、[外積によるde Rham積のwell-defined性](#prop-hod1-10-product-well-defined)により $[\eta]$ との外積は類上でwell-definedである。しかし、**任意の閉2形式で調和代表がそのまま調和へ移るわけではない**。
 
 標準平坦トーラス $T=\mathbb R^2/\mathbb Z^2$ の固定したEuclid計量に対して、$0<\varepsilon<1$ として
 
@@ -363,13 +379,13 @@ $E=\mathbb C/(\mathbb Z+2i\mathbb Z)$ に標準Euclid計量を入れる。$\omeg
 <!-- solution-start -->
 ### 詳細解答
 
-格子の基本平行四辺形を $z=s+2it$ とおけば $x=s,y=2t$ であり、$dx\wedge dy=2\,ds\wedge dt$。従って
+格子の二つの生成元 $1,2i$ が張る平行四辺形を $z=s+2it$ とおけば $x=s,y=2t$ であり、$dx\wedge dy=2\,ds\wedge dt$。従って
 
 $$
 \int_E\omega=\int_0^1\!\int_0^1 2\,ds\,dt=2.
 $$
 
-[Lefschetz作用の定理](#thm-hod1-10-harmonic-lefschetz)から $L_H[1]_d=[\omega]_d$ であり、積分が $2$ なので非零。$dx$ は一次形式で $\omega\wedge dx=dx\wedge dy\wedge dx=0$（$dx$ が二度現れる）。ゆえに $L_H[dx]_d=0$。複素次元1では次数3のコホモロジー群自体が零であることとも一致する。
+[調和代表とコホモロジー上のLefschetz作用](#thm-hod1-10-harmonic-lefschetz)から $L_H[1]_d=[\omega]_d$ であり、積分が $2$ なので非零。$dx$ は一次形式で $\omega\wedge dx=dx\wedge dy\wedge dx=0$（$dx$ が二度現れる）。ゆえに $L_H[dx]_d=0$。複素次元1では次数3のコホモロジー群自体が零であることとも一致する。
 <!-- solution-end -->
 
 <a id="ex-hod1-10-a03"></a>
@@ -493,7 +509,16 @@ $$
 \Delta_d(\Lambda h)=\Lambda(\Delta_dh)=0.
 $$
 
-従って $\Lambda h$ は調和で、特にコンパクト境界なしなら[エネルギー判定](../HOD1-05/index.md#thm-hod1-05-harmonic-types)により閉形式である。一方、一般の閉 $\alpha$ では $d\Lambda\alpha=0$ が保証されない。例えば平坦複素一次元トーラスで、閉2形式 $\alpha=f\omega$、$f=1+\frac12\cos2\pi x$ を取ると、[次数公式](../HOD1-02/index.md#thm-hod1-02-commutator)により $\Lambda\omega=1$ だから $\Lambda\alpha=f$、かつ $df\ne0$ である。従ってそもそも $[\Lambda\alpha]_d$ が定義できない。類 $[\alpha]_d$ に対してまず[一意な調和代表](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition) $h$ を選び、その後 $[\Lambda h]_d$ とする必要がある。この操作は $[\omega]\smile(-)$ と違って任意代表への外積式ではない。
+従って $\Lambda h$ は調和で、コンパクト境界なしなら[エネルギー判定](../HOD1-05/index.md#thm-hod1-05-harmonic-types)により閉形式である。一方、一般の閉形式を $\Lambda$ が閉形式へ送る保証はない。
+
+平坦複素一次元トーラスで非定数周期関数 $f(x)=1+\frac12\cos2\pi x$ を取り、閉2形式 $\alpha=f\omega$ を作る。[次数公式](../HOD1-02/index.md#thm-hod1-02-commutator)から $\Lambda\omega=1$ なので
+
+$$
+\Lambda\alpha=f,
+\qquad d(\Lambda\alpha)=df=-\pi\sin2\pi x\,dx\ne0.
+$$
+
+従って $[\Lambda\alpha]_d$ は定義できない。類 $[\alpha]_d$ に対してまず[一意な調和代表](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition) $h$ を選び、その後 $[\Lambda h]_d$ とする必要がある。この操作は $[\omega]\smile(-)$ と違って任意代表への外積式ではない。
 <!-- solution-end -->
 
 ### Level C：複数の作用を一度につなぐ
