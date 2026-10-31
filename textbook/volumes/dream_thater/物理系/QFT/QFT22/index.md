@@ -92,7 +92,20 @@ $\Gamma$ の一ループ項はHessianの行列式から生じます。$\log(1+X)
 <!-- proof-start -->
 ### 証明
 
-有限次元なので正のHessian $H_\varphi$ の周りでGaussian積分と鞍点展開を行えます。ソース $J$ に対する鞍点を $q_J$ とすると、$\hbar\log Z[J]$ の一ループ項は $-\hbar\operatorname{Tr}\log H_{q_J}/2$ です。[Legendre双対](../QFT21/index.md#thm-qft21-legendre-hessian)で $J\varphi-W[J]$ を作る際、鞍点の $\hbar$ 次の移動による寄与は、木レベルの停留条件により相殺されます。したがって $\Gamma=S+\hbar\operatorname{Tr}\log H_\varphi/2+O(\hbar^2)$ です。
+有限次元なので、正のHessianの周りでGaussian積分と鞍点展開を行えます。ソース $J$ に対する鞍点を $q_J$ とし、$W[J]=\hbar\log Z[J]$ の $\hbar$ 一次係数を $W_1[J]$ と書くと
+
+$$
+W_1[J]=-\frac12\operatorname{Tr}\log H_{q_J}
+$$
+
+です。[Legendre双対](../QFT21/index.md#thm-qft21-legendre-hessian)で平均場へ変数を替える際、鞍点の一次の移動による寄与は木レベルの停留条件により相殺されます。このため
+
+$$
+\Gamma_\Lambda[\varphi]=S_\Lambda[\varphi]
++\frac{\hbar}{2}\operatorname{Tr}\log H_\varphi+O(\hbar^2)
+$$
+
+を得ます。後でHessianの自由部分の行列式だけを背景独立な定数として差し引きます。
 
 $H_\varphi=K_\Lambda(1+C_\Lambda M_\varphi)$ と分解し、$\operatorname{Tr}\log K_\Lambda$ を背景独立な定数として差し引きます。有限次元の解析的な $\log\det$ 展開を $\varphi=0$ の近傍で行うと
 
