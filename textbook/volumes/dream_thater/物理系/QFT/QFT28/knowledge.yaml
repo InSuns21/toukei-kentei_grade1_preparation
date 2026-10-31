@@ -1,0 +1,55 @@
+chapter: QFT28
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT15, QFT17, LIE4]
+forward_references: []
+
+concepts:
+  - id: qft.sun-covariant-derivative
+    name: SU(N)ゲージ場と基本表現の共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（SU(N)ゲージ場と基本表現の共変微分）]
+    requires: [qft.local-u1-gauge, qft.charged-dirac-covariant-derivative]
+
+  - id: qft.nonabelian-gauge-covariance
+    name: 非可換ゲージ変換の共変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非可換ゲージ変換の共変性）]
+    requires: [qft.sun-covariant-derivative]
+
+  - id: qft.yang-mills-curvature
+    name: Yang–Mills曲率と随伴共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Yang–Mills曲率と随伴共変微分）]
+    requires: [qft.sun-covariant-derivative]
+
+  - id: qft.yang-mills-bianchi
+    name: 曲率の共変変換とBianchi恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（曲率の共変変換とBianchi恒等式）]
+    requires: [qft.nonabelian-gauge-covariance, qft.yang-mills-curvature]
+
+  - id: qft.yang-mills-action
+    name: Yang–Mills作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Yang–Mills作用）]
+    requires: [qft.yang-mills-curvature, qft.maxwell-source-action]
+
+  - id: qft.yang-mills-eom
+    name: Yang–Mills作用の不変性と真空場方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Yang–Mills作用の不変性と真空場方程式）]
+    requires: [qft.yang-mills-action, qft.yang-mills-bianchi]
+
+  - id: qft.gauge-self-interactions
+    name: 三点・四点ゲージ場自己相互作用の展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三点・四点ゲージ場自己相互作用の展開）]
+    requires: [qft.yang-mills-action]
