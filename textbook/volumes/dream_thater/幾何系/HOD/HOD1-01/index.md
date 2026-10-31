@@ -8,11 +8,11 @@
 
 ここで問題になるのは、**微分形式が型ごとに分かれることと、Laplacianの調和形式が型ごとに分かれることは別**だという点である。後者を調べるため、まず複素形式の内積を確定し、$\partial,\bar\partial$ を内積の反対側へ移す演算を作る。
 
-以下、$X$ は複素次元 $n\ge1$ の滑らかな複素多様体で、[Hermite計量](../../CM/CM2-09/index.md#def-cm2-09-hermitian-metric)と対応する実Riemann計量 $g_{\mathbb R}$ を持つ。実次元は $m=2n$、向きは複素構造の定める向きとする。
+以下、$X$ は複素次元 $n\ge1$ の滑らかな複素多様体で、[Hermite計量](../../CM/CM2-09/index.md#def-cm2-09-hermitian-metric)を接束に持つ。[両立する実Riemann計量](../../KAH/KAH1-01/index.md#def-kah1-01-compatible-metric)を $g_{\mathbb R}$、複素構造を $J$ とする。実次元は $m=2n$、向きは $J$ の定める向きとする。
 
 $\Omega^{p,q}(X)$ は滑らかな複素値 $(p,q)$ 形式、$\Omega_c^{p,q}(X)$ はコンパクト台を持つものとする。次数が負または $n$ より大きい型の形式空間は $0$ と約束する。
 
-この節から第4節までは **Kähler条件 $d\omega=0$ を仮定しない**。
+この節から第4節までは、[基本形式](../../KAH/KAH1-01/index.md#def-kah1-01-fundamental-form) $\omega$ が閉じているという **Kähler条件 $d\omega=0$ を仮定しない**。
 
 [Hodge星作用素](../../GA/GA6/index.md#def-ga6-hodge-star) $*$ は実形式から複素係数へ **複素線形**に拡張する。つまり $*(i\alpha)=i*\alpha$ である。複素共役を伴う反線形な演算と混同しない。
 
@@ -47,7 +47,13 @@ $$
 となる。最初の形式だけに共役を付ける順序が重要である。$\alpha\wedge*\overline\beta$ を用いる流儀は第1変数線形の内積に対応する。
 
 <!-- definition-example-start: def-hod1-01-complex-inner-product -->
-**定義の確認**。$\mathbb C$ に $z=x+iy$、実計量 $dx^2+dy^2$ と向き $dx\wedge dy$ を入れる。実正規直交余標構 $(dx,dy)$ から $dz=dx+i,dy$、$d\bar z=dx-i,dy$ なので
+**定義の確認**。$\mathbb C$ に $z=x+iy$、実計量 $dx^2+dy^2$ と向き $dx\wedge dy$ を入れる。実正規直交余標構 $(dx,dy)$ で複素化した余標構を展開すると
+
+$$
+dz=dx+i\,dy,\qquad d\bar z=dx-i\,dy.
+$$
+
+ゆえに内積の係数は $(1,i)$、$(1,-i)$ となり、定義に代入して
 
 $$
 \begin{aligned}
@@ -64,12 +70,12 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Hermite計量による複素型の直交性）**
-> 複素次元 $n$ のHermite多様体 $X$ 上で、$(p,q)\ne(r,s)$ なら、任意の $\alpha\in\Omega^{p,q}(X)$、$\beta\in\Omega^{r,s}(X)$ は点ごとに直交する。したがって $p+q=k$ の型への射影 $P_{p,q}:\Omega^k(X;\mathbb C)\to\Omega^{p,q}(X)$ は点ごとの直交射影であり、コンパクト台の内積についても直交する。
+> 複素次元 $n$ のHermite多様体 $X$ 上で、$(p,q)\ne(r,s)$ なら、任意の $\alpha\in\Omega^{p,q}(X)$、$\beta\in\Omega^{r,s}(X)$ は点ごとに直交する。したがって $p+q=k$ の型への射影 $P_{p,q}:\Omega^k(X;\mathbb C)\to\Omega^{p,q}(X)$ は点ごとの直交射影であり、コンパクト台の内積についても直交する。添字が範囲外の $P_{p,q}$ は零作用素と約束する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-実計量と両立する複素構造の下で、各実正規直交対 $(e^j,Je^j)$ に相当する $(1,0)$ と $(0,1)$ の余標構を作り、その内積を上の一次元例へ還元する。
+実計量と両立する複素構造の下で、接ベクトルの実正規直交対 $(u_j,Ju_j)$ に双対な余標構を作り、その $(1,0)$ と $(0,1)$ の内積を上の一次元例へ還元する。
 
 <!-- proof-start -->
 ### 証明
@@ -79,9 +85,20 @@ $$
 一次元での計算を各 $j$ に適用すると、$\theta^j$ と $\overline{\theta^\ell}$ は相互直交し、$\langle\theta^j,\theta^\ell\rangle=\langle\overline{\theta^j},\overline{\theta^\ell}\rangle=\delta_{j\ell}$ である。これらの外積の昇順基底は誘導内積でも正規直交なので、$\theta^{I}\wedge\overline{\theta^{J}}$ と $\theta^{K}\wedge\overline{\theta^{L}}$ が内積で非零になるのは $I=K,J=L$ の場合だけである。異なる $(p,q)$ 型では添字の個数が違い、その場合は起こらない。点ごとの結論を積分すれば $L^2$ でも直交する。$\square$
 <!-- proof-end -->
 
+この $P_{p,q}$ は、[CM2-02の型射影](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators) $\pi^{p,q}$ と線形写像として同じである。本章ではHermite計量により直交射影でもあることを示したため、$P$ と記す。
+
 ## 2. $\partial$ と $\bar\partial$ を内積の反対側へ移す
 
 [Dolbeault作用素](../../CM/CM2-02/index.md#def-cm2-02-dolbeault-operators)は $\partial:\Omega^{p,q}\to\Omega^{p+1,q}$ と $\bar\partial:\Omega^{p,q}\to\Omega^{p,q+1}$ である。実Hodge理論の[余微分と随伴関係](../../GA/GA6/index.md#prop-ga6-adjoint)を型ごとに取り出すと、各作用素の次数を戻す演算が得られる。最初に滑らかなコンパクト台形式で部分積分を確定する。
+
+局所座標 $z=x+iy$ での[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を先に記しておく。$\partial_x$ は $y$ を固定して $x$ で、$\partial_y$ は $x$ を固定して $y$ で微分する作用素であり、
+
+$$
+\partial_z=\frac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\frac12(\partial_x+i\partial_y).
+$$
+
+したがって $\partial u=(\partial_z u)\,dz$ であり、複素共役すると $\overline{\partial_z u}=\partial_{\bar z}\bar u$ となる。$z,\bar z$ を形式的に独立変数とみなす記法は、この実偏微分の組合せの略記である。
 
 <a id="def-hod1-01-dolbeault-adjoints"></a>
 
@@ -147,23 +164,30 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-hod1-01-dolbeault-adjoints -->
-**定義の確認**。平坦な $\mathbb C$ 上で $u$ をコンパクト台の滑らかな関数、$a$ をコンパクト台の滑らかな複素関数とする。$\partial u=(\partial_z u)dz$、$\langle dz,dz\rangle=2$ を使うと
+**定義の確認**。平坦な $\mathbb C$ 上で $u$ をコンパクト台の滑らかな関数、$a$ をコンパクト台の滑らかな複素関数とする。上記のWirtinger微分と $\langle dz,dz\rangle=2$ を使うと
 
 $$
 \begin{aligned}
-(\partial u,a,dz)_2
+(\partial u,a\,dz)_2
 &=2\int_{\mathbb C}\overline{\partial_z u}\,a\,dx\,dy\\
 &=2\int_{\mathbb C}(\partial_{\bar z}\bar u)a\,dx\,dy\\
 &=-2\int_{\mathbb C}\bar u(\partial_{\bar z}a)\,dx\,dy.
 \end{aligned}
 $$
 
-境界項が零なのは二つの関数がコンパクト台を持つからである。従ってこの計量で $\partial^*(a,dz)=-2\partial_{\bar z}a$ が得られる。同じ計算で $\bar\partial^*(b,d\bar z)=-2\partial_z b$。**偏微分の添字が複素共役側へ移ること、係数が2となること**を定義そのものから確認できた。
+境界項が零なのは二つの関数がコンパクト台を持つからである。従ってこの計量で
+
+$$
+\partial^*(a\,dz)=-2\partial_{\bar z}a,\qquad
+\bar\partial^*(b\,d\bar z)=-2\partial_z b
+$$
+
+が得られる。**偏微分の添字が複素共役側へ移ること、係数が2となること**を定義そのものから確認できた。
 <!-- definition-example-end -->
 
 ## 3. Hodge星による公式と作用素の定義域
 
-前節では射影によって随伴を構成した。具体的な局所計算では、[Hodge星の二乗公式](../../GA/GA6/index.md#def-ga6-hodge-star)と、実次元 $m=2n$ で $d^*=-*d*$ となる式も便利である。星作用素が複素形式の型をどう入れ替えるかを先に調べる。
+前節では射影によって随伴を構成した。具体的な局所計算では、[Hodge星の二乗公式](../../GA/GA6/index.md#def-ga6-hodge-star)と、実次元 $m=2n$ で $d^*=-*d*$ となる式も便利である。右辺の二つの $*$ は形式の次数を変える Hodge星で、左辺の肩の $*$ は余微分（随伴）を表す。星作用素が複素形式の型をどう入れ替えるかを先に調べる。
 
 <a id="prop-hod1-01-star-formulas"></a>
 
@@ -192,9 +216,21 @@ $$
 
 点 $x$ で前節の正規直交複素余標構 $\theta^j,\overline{\theta^j}$ をとる。星は、実正規直交基底の $k$ 次外積の各項を向き付き直交補 $(2n-k)$ 次外積へ写す。
 
-型の直交性により $\gamma\in\Lambda^{p,q}$ と $\beta\in\Lambda^{r,s}$ が異なる型なら $\bar\beta\wedge*\gamma=0$ である。一方 $\bar\beta$ は $(s,r)$ 型である。これを $*\gamma$ の $(a,b)$ 型成分と外積して最上次数 $(n,n)$ を得るには、$s+a=n$ と $r+b=n$ が必要になる。
+まず $\gamma\in\Lambda^{p,q}$ を固定し、$\beta\in\Lambda^{r,s}$ は **同じ全次数** $r+s=p+q=k$ の形式とする。複素内積の定義から
 
-$\beta$ の型を $\gamma$ と同じ $(p,q)$ に選ぶと、内積の非退化性から検出される成分は $a=n-q,b=n-p$ に限られる。したがって星の型の式が従う。
+$$
+\bar\beta\wedge*\gamma=\langle\beta,\gamma\rangle_{\mathbb C}\,dV_g.
+$$
+
+$\bar\beta$ は $(s,r)$ 型である。$*\gamma$ の $(a,b)$ 型成分との外積が最上次数 $(n,n)$ に寄与するには
+
+$$
+s+a=n,\qquad r+b=n
+$$
+
+が必要である。$(r,s)\ne(p,q)$ のとき右辺は[型の直交性](#prop-hod1-01-type-orthogonality)で零になる。
+
+逆に $*\gamma$ の $(n-s,n-r)$ 型成分が非零なら、その多重添字に相補な $(s,r)$ 型の基底外積を選ぶと、符号を除き非零の体積形式との積が得られる。これは零という結論に反するため、その成分は消える。残るのは $r=p,s=q$ の場合だけであり、$*\gamma$ は $(n-q,n-p)$ 型である。この議論で次数が異なる $\beta$ を使ってはいない。
 
 実次元 $m=2n$ なので、[余微分の星による公式](../../GA/GA6/index.md#def-ga6-codifferential)の符号 $(-1)^{m(k+1)+1}$ は任意の次数 $k$ で $-1$ であり、$d^*=-*d*$。$(p,q)$ 型の $\eta$ に対し $*\eta$ は $(n-q,n-p)$ 型だから
 
@@ -238,7 +274,33 @@ $v$ が滑らかなコンパクト台形式なら、前節の部分積分式に�
 一般の $L^2$ 形式では、分布の意味で微分した結果が $L^2$ に入るかなどの条件が必要である。境界を持つ領域では境界条件も重要になる。形式的随伴の式だけで、任意の $L^2$ 形式へ無制限に作用できると考えてはならない。
 
 <!-- definition-example-start: def-hod1-01-hilbert-domain -->
-**定義の確認**。コンパクトな平坦トーラス $T$ で $v=e^{ix}dz$ をとる。$\|v\|_2^2=2(2\pi)^2<\infty$ であり、局所随伴式から $w=\partial^*v=-i e^{ix}$、$\|w\|_2^2=(2\pi)^2<\infty$ である。任意の滑らかな周期関数 $u$ に対して周期境界項が相殺され、$(\partial u,v)_2=(u,w)_2$。定義の「$v,w\in L^2$」「すべての試験形式での等式」を両方確認したので $v\in D(\partial^\dagger)$、$\partial^\dagger v=w$ となる。
+**定義の確認**。[平坦複素トーラス](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)の一次元模型を取る。
+
+$$
+T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z),\qquad
+g=dx^2+dy^2,\qquad v=e^{ix}dz.
+$$
+
+$x,y$ は周期 $2\pi$ の座標で、面積は $(2\pi)^2$ である。$\langle dz,dz\rangle=2$ と[局所随伴式](#def-hod1-01-dolbeault-adjoints)を用いると
+
+$$
+\|v\|_2^2=2(2\pi)^2<\infty,\qquad
+w=\partial^*v=-i e^{ix},\qquad
+\|w\|_2^2=(2\pi)^2<\infty.
+$$
+
+任意の滑らかな周期関数 $u$ に対して、周期境界項が相殺されるので
+
+$$
+\begin{aligned}
+(\partial u,v)_2
+&=\int_T(\partial_x+i\partial_y)\bar u\,e^{ix}\,dx\,dy\\
+&=-\int_T\bar u(\partial_x+i\partial_y)e^{ix}\,dx\,dy\\
+&=-i\int_T\bar u e^{ix}\,dx\,dy=(u,w)_2.
+\end{aligned}
+$$
+
+これで定義の「$v,w\in L^2$」「すべての試験形式での等式」を両方確認したので、$v\in D(\partial^\dagger)$、$\partial^\dagger v=w$ となる。
 <!-- definition-example-end -->
 
 次章以降で使う型別の非負Laplacianも、まず滑らかな形式上で次のように定義する。
@@ -260,7 +322,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-01-type-laplacians -->
-**定義の確認**。平坦複素トーラスで $f=e^{ix}$ とする。関数の次数では $\partial^*f=0$ だから、定義の第一項 $\partial\partial^*f$ は零となる。$\partial f=(i/2)f,dz$ と $\partial^*(a,dz)=-2\partial_{\bar z}a$ より、第二項は $\partial^*\partial f=\frac12 f$。したがって $\Delta_\partial f=\frac12 f$。同様に $\Delta_{\bar\partial}f=\frac12 f$ であり、実作用素 $\Delta_df=f$ と係数が二倍異なる。各項の作用型は $(0,0)$ へ戻り、非負性も $(\Delta_\partial f,f)_2=\frac12\|f\|_2^2>0$ と確認できる。
+**定義の確認**。直前の平坦複素トーラス $T$ で $f=e^{ix}$ とする。関数の次数では $\partial^*f=0$ だから、定義の第一項 $\partial\partial^*f$ は零となる。[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)と[局所随伴式](#def-hod1-01-dolbeault-adjoints)より
+
+$$
+\partial f=\frac i2f\,dz,\qquad
+\partial^*\partial f=-2\partial_{\bar z}\left(\frac i2 f\right)
+=-2\cdot\frac i2\cdot\frac i2 f=\frac12 f.
+$$
+
+したがって $\Delta_\partial f=\frac12 f$。もう一方も $\bar\partial f=(i/2)f\,d\bar z$ と $\bar\partial^*(b\,d\bar z)=-2\partial_zb$ を用い、$-2(i/2)(i/2)f=f/2$ となる。[GA6のエネルギー恒等式](../../GA/GA6/index.md#thm-ga6-energy)の0形式への特殊化から $\Delta_df=f$ であり、係数が二倍異なる。各項の作用型は $(0,0)$ へ戻り、非負性も $(\Delta_\partial f,f)_2=\frac12\|f\|_2^2>0$ と確認できる。
 <!-- definition-example-end -->
 
 コンパクト境界なしの $X$ では部分積分により
@@ -274,7 +344,7 @@ $$
 
 ## 4. 平坦複素トーラスのFourierモードで符号と係数を確かめる
 
-[複素トーラスの平坦模型](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)の一次元の場合を使う。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$ に実計量 $dx^2+dy^2$ を入れると、$x,y$ は周期 $2\pi$ の座標であり、$dz,d\bar z$ は商へ降りる。$\partial_z=\tfrac12(\partial_x-i\partial_y)$、$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$ は [Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators) である。
+第3節で定めた[平坦トーラスの模型](../../KAH/KAH1-05/index.md#prop-kah1-05-torus) $T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$ を使う。$x,y$ は周期 $2\pi$ の座標であり、$dz,d\bar z$ は商へ降りる。以下の $\partial_z,\partial_{\bar z}$ は第2節で導入したWirtinger微分である。
 
 <a id="prop-hod1-01-flat-torus-adjoints"></a>
 
@@ -321,7 +391,16 @@ $$
 \end{aligned}
 $$
 
-$\Delta_{\bar\partial}f=-2\partial_z\partial_{\bar z}f$ も同様に一変数ずつ微分して同じ固有値になる。[実Hodgeの0形式上の符号](../../GA/GA6/index.md#thm-ga6-energy)から、$\Delta_df=-(\partial_x^2+\partial_y^2)f$ であり、$\partial_x^2f_{r,s}=-r^2f_{r,s}$、$\partial_y^2f_{r,s}=-s^2f_{r,s}$ を代入して最後の式を得る。$\square$
+もう一方も同じ計量で
+
+$$
+\Delta_{\bar\partial}f_{r,s}
+=-2\partial_z\partial_{\bar z}f_{r,s}
+=-2\frac{(ir+s)(ir-s)}4f_{r,s}
+=\frac{r^2+s^2}{2}f_{r,s}.
+$$
+
+[実Hodgeの0形式上の符号](../../GA/GA6/index.md#thm-ga6-energy)から、$\Delta_df=-(\partial_x^2+\partial_y^2)f$ であり、$\partial_x^2f_{r,s}=-r^2f_{r,s}$、$\partial_y^2f_{r,s}=-s^2f_{r,s}$ を代入して最後の式を得る。$\square$
 <!-- proof-end -->
 
 ここで $\Delta_d=2\Delta_\partial=2\Delta_{\bar\partial}$ を**関数の平坦模型上**で確かめた。一般の $(p,q)$ 形式に対する大域的な恒等式の証明ではない。任意のHermite計量で誤用しないよう注意したい。
@@ -361,11 +440,11 @@ $$
 [Hodge星作用素](../../GA/GA6/index.md#def-ga6-hodge-star)について $*dx=dy,*dy=-dx$ なので
 
 $$
-*dz=dy+i(-dx)=-i(dx+i,dy)=-i,dz,
+*dz=dy+i(-dx)=-i(dx+i\,dy)=-i\,dz,
 $$
 
 $$
-*d\bar z=dy-i(-dx)=i(dx-i,dy)=i,d\bar z.
+*d\bar z=dy-i(-dx)=i(dx-i\,dy)=i\,d\bar z.
 $$
 
 複素線形性から $*(*dz)=*(-i\,dz)=(-i)(-i)dz=-dz$。係数 $-i$ を共役して $+i$ に変えない。
@@ -454,7 +533,7 @@ $$
 #### HOD1-01-B02 実余微分は型別随伴の和
 - Level: B
 
-平坦複素トーラスの実1形式 $\eta=\sin x\,dx+\cos y\,dy$ を $a\,dz+b\,d\bar z$ と書き、$\partial^*(a,dz)+\bar\partial^*(b,d\bar z)$ を求めよ。実形式の余微分との一致も確認せよ。
+平坦複素トーラスの実1形式 $\eta=\sin x\,dx+\cos y\,dy$ を $a\,dz+b\,d\bar z$ と書き、$\partial^*(a\,dz)+\bar\partial^*(b\,d\bar z)$ を求めよ。実形式の余微分との一致も確認せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -469,12 +548,12 @@ $$
 各偏微分は $\partial_xa=\partial_xb=\cos x/2$、$\partial_ya=i\sin y/2$、$\partial_yb=-i\sin y/2$。従って
 
 $$
-\partial^*(a,dz)=-(\partial_x+i\partial_y)a
+\partial^*(a\,dz)=-(\partial_x+i\partial_y)a
 =\frac{-\cos x+\sin y}{2},
 $$
 
 $$
-\bar\partial^*(b,d\bar z)=-(\partial_x-i\partial_y)b
+\bar\partial^*(b\,d\bar z)=-(\partial_x-i\partial_y)b
 =\frac{-\cos x+\sin y}{2}.
 $$
 
@@ -485,15 +564,15 @@ $$
 #### HOD1-01-B03 境界のある領域と形式的随伴
 - Level: B
 
-正方形 $Q=[0,1]^2\subset\mathbb C$ に平坦計量を入れ、$u=1$、$a=x$ とする。境界条件を課さないまま $\partial^*(a,dz)=-2\partial_{\bar z}a$ を積分の随伴関係に代入した場合、左右がどうなるか求め、差の理由を述べよ。
+正方形 $Q=[0,1]^2\subset\mathbb C$ に平坦計量を入れ、$u=1$、$a=x$ とする。境界条件を課さないまま $\partial^*(a\,dz)=-2\partial_{\bar z}a$ を積分の随伴関係に代入した場合、左右がどうなるか求め、差の理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-$\partial u=0$ だから $(\partial u,a,dz)_{L^2(Q)}=0$。局所公式は $\partial^*(x,dz)=-(\partial_x+i\partial_y)x=-1$ を与えるため
+$\partial u=0$ だから $(\partial u,a\,dz)_{L^2(Q)}=0$。局所公式は $\partial^*(x\,dz)=-(\partial_x+i\partial_y)x=-1$ を与えるため
 
 $$
-(u,\partial^*(a,dz))_{L^2(Q)}
+(u,\partial^*(a\,dz))_{L^2(Q)}
 =\int_Q1\cdot(-1)\,dx\,dy=-1.
 $$
 
@@ -509,7 +588,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\partial f=((ir+s)/2)f,dz$ なので、$|f|=1$、$\langle dz,dz\rangle=2$ と面積 $A=(2\pi)^2$ により
+$\partial f=((ir+s)/2)f\,dz$ なので、$|f|=1$、$\langle dz,dz\rangle=2$ と面積 $A=(2\pi)^2$ により
 
 $$
 \|\partial f\|_2^2
@@ -526,7 +605,11 @@ $$
 #### HOD1-01-C01 $(1,0)$ Fourier形式の全Hodge Laplacian
 - Level: C
 
-平坦複素トーラス $T$ と $r,s\in\mathbb Z$ に対し、$f=e^{i(rx+sy)}$、$\eta=f,dz$ とおく。次の順に実Hodge Laplacianを再構成せよ。(i) $\partial\eta,\bar\partial\eta,\partial^*\eta,\bar\partial^*\eta$ を求める。(ii) $d(d^*\eta)$ と $d^*(d\eta)$ を $(1,0),(0,1)$ 型成分に分けて求める。(iii) 和が $(r^2+s^2)\eta$ になることを確認し、$(0,1)$ 成分が消える理由と一般Hermite多様体への外挿の限界を説明せよ。
+平坦複素トーラス $T$ と $r,s\in\mathbb Z$ に対し、$f=e^{i(rx+sy)}$、$\eta=f\,dz$ とおく。次の順に実Hodge Laplacianを再構成せよ。
+
+1. $\partial\eta,\bar\partial\eta,\partial^*\eta,\bar\partial^*\eta$ を求める。
+2. $d(d^*\eta)$ と $d^*(d\eta)$ を $(1,0),(0,1)$ 型成分に分けて求める。
+3. 和が $(r^2+s^2)\eta$ になることを確認し、$(0,1)$ 成分が消える理由と一般Hermite多様体への外挿の限界を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -536,8 +619,8 @@ $$
 (i) $dz$ は閉じており、$dz\wedge dz=0$ なので
 
 $$
-\partial\eta=Af,dz\wedge dz=0,
-\qquad \bar\partial\eta=Bf,d\bar z\wedge dz=-Bf,dz\wedge d\bar z.
+\partial\eta=Af\,dz\wedge dz=0,
+\qquad \bar\partial\eta=Bf\,d\bar z\wedge dz=-Bf\,dz\wedge d\bar z.
 $$
 
 [型別随伴の公式](#prop-hod1-01-flat-torus-adjoints)から
@@ -551,10 +634,10 @@ $$
 (ii) $d^*\eta=Cf$ なので、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)から
 
 $$
-d(d^*\eta)=CAf,dz+CBf,d\bar z.
+d(d^*\eta)=CAf\,dz+CBf\,d\bar z.
 $$
 
-他方、$dz\wedge d\bar z=-2i,dx\wedge dy$ より
+他方、$dz\wedge d\bar z=-2i\,dx\wedge dy$ より
 
 $$
 d\eta=-Bf\,dz\wedge d\bar z=2iBf\,dx\wedge dy.
@@ -574,7 +657,7 @@ $$
 $dx=(dz+d\bar z)/2$、$dy=(dz-d\bar z)/(2i)$ を代入すると
 
 $$
-d^*(d\eta)=-B(s+ir)f,dz-B(s-ir)f,d\bar z.
+d^*(d\eta)=-B(s+ir)f\,dz-B(s-ir)f\,d\bar z.
 $$
 
 (iii) $(0,1)$ 型の係数は $CB-B(s-ir)=0$。$(1,0)$ 型は
