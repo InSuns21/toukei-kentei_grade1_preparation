@@ -460,7 +460,7 @@ $$
 \mathbb EP=\frac{2+2}{2\cdot2+1}=\frac45.
 $$
 
-各状態で[挟み撃ち補題](#lem-qinf32-entropy-sandwich)により $S\ge-\log_2P$ です。$a=\mathbb EP=4/5$ とおき、$\ln(P/a)\le P/a-1$ を平均すると $\mathbb E\ln P\le\ln a$ なので、
+[purityとエントロピーの挟み撃ち](#lem-qinf32-entropy-sandwich)により、各状態で $S\ge-\log_2P$ です。$a=\mathbb EP=4/5$ とおき、$\ln(P/a)\le P/a-1$ を平均すると $\mathbb E\ln P\le\ln a$ なので、
 
 $$
 \mathbb ES\ge-\log_2\mathbb EP
