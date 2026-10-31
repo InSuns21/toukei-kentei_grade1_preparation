@@ -1289,6 +1289,7 @@
 15. [QFT15 Maxwell場の作用・ゲージ冗長性と二つの物理偏極](textbook/volumes/dream_thater/物理系/QFT/QFT15/index.md)
 16. [QFT16 共変ゲージ固定・光子伝播関数と保存電流](textbook/volumes/dream_thater/物理系/QFT/QFT16/index.md)
 17. [QFT17 Dirac場の最小結合・QED頂点と電子–ミューオン散乱](textbook/volumes/dream_thater/物理系/QFT/QFT17/index.md)
+18. [QFT18 QEDのWard–Takahashi恒等式と木レベル光子ゲージ不変性](textbook/volumes/dream_thater/物理系/QFT/QFT18/index.md)
 
 <a id="dt-subject-general-relativity-i"></a>
 ### 一般相対論 I

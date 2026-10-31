@@ -1,0 +1,62 @@
+chapter: QFT18
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT17, QFT8, QFT9, QFT11]
+forward_references: []
+
+concepts:
+  - id: qft.free-dirac-inverse-kernel
+    name: 自由Dirac逆核と切断前の伝播核
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由Dirac逆核と切断前の伝播核）]
+    requires: [qft.dirac-feynman-propagator, qft.dirac-plane-wave-spinors]
+
+  - id: qft.tree-ward-takahashi-vertex
+    name: 木レベル三点頂点のWard–Takahashi恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（木レベル三点頂点のWard–Takahashi恒等式）]
+    requires: [qft.free-dirac-inverse-kernel, qft.qed-three-point-vertex]
+
+  - id: qft.tree-three-point-contact-kernel
+    name: 木レベル三点核と接触項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（木レベル三点核と接触項）]
+    requires: [qft.tree-ward-takahashi-vertex, qft.free-dirac-inverse-kernel]
+
+  - id: qft.tree-three-point-contact-identity
+    name: 非切断三点核の接触項恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非切断三点核の接触項恒等式）]
+    requires: [qft.tree-three-point-contact-kernel, qft.tree-ward-takahashi-vertex]
+
+  - id: qft.tree-on-shell-ward
+    name: 質量殻外線のWard恒等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（質量殻外線のWard恒等式）]
+    requires: [qft.tree-ward-takahashi-vertex, qft.on-shell-ward-identity]
+
+  - id: qft.compton-two-tree-diagrams
+    name: Compton散乱の二つの木図
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Compton散乱の二つの木図）]
+    requires: [qft.qed-three-point-vertex, qft.free-dirac-inverse-kernel]
+
+  - id: qft.compton-tree-transversality
+    name: Compton散乱の二つの光子脚の横性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Compton散乱の二つの光子脚の横性）]
+    requires: [qft.compton-two-tree-diagrams, qft.tree-ward-takahashi-vertex]
+
+  - id: qft.compton-photon-gauge-invariance
+    name: 外部偏極のゲージシフトに対する振幅不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（外部偏極のゲージシフトに対する振幅不変性）]
+    requires: [qft.compton-tree-transversality]

@@ -74,3 +74,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT17
     status: completed
     title: "Dirac場の最小結合・QED頂点と電子–ミューオン散乱"
+  - id: QFT18
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT18
+    status: completed
+    title: "QEDのWard–Takahashi恒等式と木レベル光子ゲージ不変性"
