@@ -1,0 +1,62 @@
+chapter: QFT22
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT10, QFT19, QFT20, QFT21]
+forward_references: []
+
+concepts:
+  - id: qft.sharp-momentum-cutoff
+    name: 有限モードφ⁴模型と鋭い運動量カットオフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限モードφ⁴模型と鋭い運動量カットオフ）]
+    requires: [qft.euclidean-scalar-action, qft.finite-gaussian-generating-formula]
+
+  - id: qft.one-loop-determinant-expansion
+    name: 有限モードの一ループ行列式展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限モードの一ループ行列式展開）]
+    requires: [qft.sharp-momentum-cutoff, qft.one-loop-finite-saddle]
+
+  - id: qft.one-loop-proper-vertices
+    name: 一ループ1PI二点・四点頂点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一ループ1PI二点・四点頂点）]
+    requires: [qft.euclidean-effective-action, qft.sharp-momentum-cutoff]
+
+  - id: qft.phi4-one-loop-vertices
+    name: 二点tadpoleと三チャネル四点bubble
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二点tadpoleと三チャネル四点bubble）]
+    requires: [qft.one-loop-proper-vertices, qft.one-loop-determinant-expansion]
+
+  - id: qft.phi4-cutoff-integrals
+    name: 四次元カットオフ積分の厳密評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四次元カットオフ積分の厳密評価）]
+    requires: [qft.phi4-one-loop-vertices]
+
+  - id: qft.superficial-degree-divergence
+    name: 表面的発散次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（表面的発散次数）]
+    requires: [qft.sharp-momentum-cutoff, qft.scalar-contraction-graph]
+
+  - id: qft.phi4-power-counting
+    name: φ⁴グラフの表面的発散次数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（φ⁴グラフの表面的発散次数）]
+    requires: [qft.superficial-degree-divergence]
+
+  - id: qft.bubble-log-universality
+    name: 固定外部運動量での対数発散係数の普遍性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定外部運動量での対数発散係数の普遍性）]
+    requires: [qft.phi4-cutoff-integrals, qft.phi4-one-loop-vertices]

@@ -1,0 +1,44 @@
+id: QFT22
+title: "φ⁴模型の1ループ二点・四点関数と運動量カットオフ"
+volume: foundations
+status: supplementary
+prerequisites: [QFT10, QFT19, QFT20, QFT21]
+official_scope: []
+learning_objectives:
+  - 有限体積・有限運動量カットオフでEuclid型φ⁴模型と1PI頂点の規約を設定できる
+  - 有限次元のGaussian行列式から1ループ有効作用の二次・四次項を導出できる
+  - 二点tadpoleと四点の三つのbubbleチャネルを符号・対称因子込みで計算できる
+  - 4次元のカットオフ積分を厳密評価し二次・対数発散を区別できる
+  - 表面的発散次数をグラフの辺・頂点・ループ数から導ける
+  - カットオフの運動量シフト制限と有限部分・反項の意味を説明できる
+definitions:
+  - { id: QFT22-DEF-01, name: 有限モードφ⁴模型と鋭い運動量カットオフ }
+  - { id: QFT22-DEF-02, name: 一ループ1PI二点・四点頂点 }
+  - { id: QFT22-DEF-03, name: 表面的発散次数 }
+theorems:
+  - { id: QFT22-THM-01, name: 有限モードの一ループ行列式展開 }
+  - { id: QFT22-THM-02, name: 二点tadpoleと三チャネル四点bubble }
+  - { id: QFT22-THM-03, name: 四次元カットオフ積分の厳密評価 }
+  - { id: QFT22-THM-04, name: φ⁴グラフの表面的発散次数 }
+  - { id: QFT22-PROP-01, name: 固定外部運動量での対数発散係数の普遍性 }
+canonical_examples:
+  - 有限体積で零モードが許容されることと自由伝播核の正値性
+  - 定数背景でTr logから二点・四点係数を読み取る
+  - 三種類の外線の組分けと同一bubble積分
+  - 質量とカットオフを等しくした積分値の検算
+  - 運動量シフトがカットオフ領域を変える例
+problem_patterns:
+  - QFT22-MODE-CUTOFF
+  - QFT22-TADPOLE-RADIAL
+  - QFT22-BUBBLE-RADIAL
+  - QFT22-FOUR-PAIRINGS
+  - QFT22-TRACE-LOG
+  - QFT22-POWER-COUNT
+  - QFT22-CUTOFF-SHIFT
+  - QFT22-MASS-DERIVATIVE
+  - QFT22-COUNTERTERM
+  - QFT22-INTEGRATED-VERTEX
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 5 }
