@@ -36,7 +36,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-07-hodge-numbers -->
-**定義の確認**（平坦な楕円曲線）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$に平坦計量を入れる。[平坦トーラスのFourier計算](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)は、関数の非零Fourierモードに正のLaplacian固有値を与える。形式にもこの判定を使えることを確かめよう。$f_x=\partial f/\partial x$、$f_{xy}=\partial^2f/\partial x\partial y$などと書く。平坦計量の星と余微分の公式から
+**定義の確認**（平坦な楕円曲線）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$に平坦計量を入れる。[平坦トーラスのFourier計算](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)は、関数の非零Fourierモードに正のLaplacian固有値を与える。形式にもこの判定を使えることを確かめよう。$f_x=\partial f/\partial x$、$f_{xy}=\partial^2f/\partial x\partial y$などと書く。[実Hodge星の定義](../../GA/GA6/index.md#def-ga6-hodge-star)と[余微分公式](../../GA/GA6/index.md#def-ga6-codifferential)を平坦計量に適用すると
 
 $$
 \begin{aligned}
