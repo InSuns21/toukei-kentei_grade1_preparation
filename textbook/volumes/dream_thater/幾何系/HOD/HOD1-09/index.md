@@ -17,17 +17,19 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-09-hodge-diamond -->
-**定義の確認**。正方格子の楕円曲線 $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ は[平坦Kähler](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)であり、[全Dolbeault群の計算](../../CM/CM2-05/index.md#thm-cm2-05-torus-four-groups)によれば四つのHodge数は全て $1$ である。複素次元 $1$ なら $k=0$ の型は $(0,0)$、$k=1$ では $(1,0),(0,1)$、$k=2$ では $(1,1)$ だけである。したがってダイヤモンドは
+**定義の確認**。正方格子の楕円曲線 $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ は[平坦Kähler](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)である。[全Dolbeault群の計算](../../CM/CM2-05/index.md#thm-cm2-05-torus-four-groups)によれば四つのHodge数は全て $1$。
+
+この曲線は複素次元 $1$ なので、総次数 $0$ の行は型 $(0,0)$ だけである。総次数 $1$ では $(1,0)$ と $(0,1)$ を第一添字の大きい順に並べる。最後の総次数 $2$ では $(1,1)$ だけが残る。従って、数字を直接入れたダイヤモンドは
 
 $$
 \begin{array}{ccc}
-&h^{0,0}&\\
-h^{1,0}&&h^{0,1}\\
-&h^{1,1}&
+&1&\\
+1&&1\\
+&1&
 \end{array}
 $$
 
-となり、この例では三段の各数が $1$ である。$h^{1,0}=h^{0,1}$ は[共役対称性](../HOD1-07/index.md#thm-hod1-07-hodge-conjugation)によるが、値そのものは多様体ごとに計算する必要がある。
+となる。左右の値が等しいことは[共役対称性](../HOD1-07/index.md#thm-hod1-07-hodge-conjugation)によるが、両方が $1$ であることは楕円曲線についての計算から得た。
 <!-- definition-example-end -->
 
 ダイヤモンドの行を目で足す代わりに、指数に型 $(p,q)$ を記録しておくと積に便利である。その記録を多項式と呼ぼう。
