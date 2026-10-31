@@ -111,3 +111,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT26
     status: completed
     title: "Wilson流・関連／無関連／周辺演算子と有効場の理論"
+  - id: QFT27
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT27
+    status: completed
+    title: "赤外発散・軟光子と包摂的観測量"
