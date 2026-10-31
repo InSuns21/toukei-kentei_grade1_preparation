@@ -197,7 +197,7 @@ $$
 \qquad d\Omega_{\Lambda}=D^{-2}d\Omega.
 $$
 
-後の等号では、方向を固定した $D$ が $\omega$ に依存せず、$d\omega_{\Lambda}=D\,d\omega$ となることを使いました。外線 $p_i$ も同じ $\Lambda$ で変換すると、四元内積の不変性と[軟電流の定義](#def-qft27-soft-current)から
+後の等号では、方向を固定した $D$ が $\omega$ に依存せず、$d\omega_{\Lambda}=D\,d\omega$ となることを使いました。外線 $p_i$ も同じ $\Lambda$ で変換します。Lorentz変換で四元内積は保たれ、分母は $(\Lambda p_i)\cdot(\Lambda k)=p_i\cdot k$ です。[軟電流の定義](#def-qft27-soft-current)の各項にこの等式を使うと
 
 $$
 J_{\Lambda}(k_{\Lambda})=\Lambda J(k),
