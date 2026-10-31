@@ -61,7 +61,7 @@ $$
 
 複素トーラスは、複素空間 $\mathbb C^n$ を並進で割って作る。$\Lambda\subset\mathbb C^n$ を実線形独立な $2n$ 個のベクトルの整数係数結合でできる**全格子**とし、$T=\mathbb C^n/\Lambda$ とおく。全格子であるため、実 $2n$ 次元の基本平行多面体はコンパクトであり、その向かい合う面を同一視した $T$ もコンパクトとなる。[商の複素構造](../../CM/CM1-09/index.md#thm-cm1-09-quotient-atlas)と[平坦Kähler計量](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)を持つ。
 
-一定の実計量を降ろすと、その局所的な微分は普通のユークリッド微分になる。これが、無限個ある滑らかな周期関数の中から調和形式だけを取り出す近道である。
+一定の実計量を降ろすと、その局所的な微分は普通のユークリッド微分になる。**平行な余標構**とは、被覆空間で係数一定の1形式からなる基底で、Levi–Civita接続による共変微分が零のものをいう。これが、無限個ある滑らかな周期関数の中から調和形式だけを取り出す近道である。
 
 <a id="lem-hod1-09-flat-harmonic"></a>
 
@@ -77,13 +77,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-被覆空間で定数の正規直交余標構 $e^1,\ldots,e^m$ を選び、対応する定数ベクトル場による微分を $\partial_a$ と書く。昇順の添字集合 $I$ に対し $e^I$ を楔積基底とし、
+被覆空間で定数の正規直交余標構 $e^1,\ldots,e^m$ を選び、その双対である定数ベクトル場 $e_a$（$e^a(e_b)=\delta_{ab}$）の方向微分を $\partial_a$ と書く。$\iota_{e_a}$ は微分形式の第一引数に $e_a$ を代入する縮約である。昇順の添字集合 $I$ に対し $e^I$ を楔積基底とし、
 
 $$
 \alpha=\sum_{|I|=k}f_I e^I
 $$
 
-と一意に書く。各 $f_I$ は $\Gamma$ 周期的な滑らかな関数である。[外微分と余微分の定義](../../GA/GA6/index.md#def-ga6-codifferential)を定数余標構で展開すると
+と一意に書く。各 $f_I$ は $\Gamma$ 周期的な滑らかな関数である。$de^a=0$ なので、係数へのLeibniz則から外微分の表示が得られる。また $d^*$ は[余微分](../../GA/GA6/index.md#def-ga6-codifferential) $\delta$ と同じ作用素である。周期境界条件による部分積分では $\partial_a$ の形式的随伴は $-\partial_a$、正規直交余標構では楔積作用 $e^a\wedge$ の随伴は $\iota_{e_a}$ だから、
 
 $$
 d=\sum_a e^a\wedge\partial_a,\qquad
@@ -222,7 +222,7 @@ $$
 =\frac1b\,dx\wedge dy,\qquad \int_{E_\tau}\omega=1.
 $$
 
-正値Hermite計量から来るこの $\omega$ は閉であり、[Kähler形式の定義](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)を満たす。$b>0$ を外すと格子が実二次元を張らず、このコンパクトな曲線の構成が壊れる。
+この $\omega$ は $H=(2b)^{-1}>0$ という定数Hermite係数の基本形式で、$d\omega=0$ でもあるから、[平坦トーラスのKähler構造](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)の仮定を満たす。$b=0$ なら $1,\tau$ は実線形従属となって全格子を作らない。$b<0$ でも全格子は作れるが、ここで選んだ $H=(2b)^{-1}$ は正値でなくなる。格子の生成元 $\tau$ を $-\tau$ に替えれば同じ格子を正の虚部で表せる。
 
 楕円曲線のHodgeダイヤモンドは上下左右が全て $1$ で、$P_{E_\tau}=(1+u)(1+v)$ となる。格子の形は周期の値 $\tau$ には反映されるが、四つのHodge数には反映されない。
 
@@ -261,7 +261,7 @@ $$
 
 Kähler性から[調和代表によるHodge数の定義](../HOD1-07/index.md#def-hod1-07-hodge-numbers)へ移せるので係数は $1,0,0,1$。[Betti数の和](../HOD1-07/index.md#thm-hod1-07-betti-constraints)で $b_0=1$、$b_1=0$、$b_2=1$。
 
-面積は $z=re^{i\theta}$ と置き、$i\,dz\wedge d\bar z=2r\,dr\wedge d\theta$ を使う。無限遠の一点を外して積分してよいのは、この点が二次元体積零で形式が滑らかに延長するからである。従って
+面積は $z=re^{i\theta}$（$r\ge0$、$0\le\theta<2\pi$）と置いて求める。この変数変換で $dz=e^{i\theta}(dr+ir\,d\theta)$、$d\bar z=e^{-i\theta}(dr-ir\,d\theta)$ だから、楔積の反対称性より $i\,dz\wedge d\bar z=2r\,dr\wedge d\theta$ となる。無限遠の一点を外して積分してよいのは、この点が二次元体積零で形式が滑らかに延長するからである。従って
 
 $$
 \begin{aligned}
@@ -327,7 +327,7 @@ d(\alpha\boxtimes\beta)
 +(-1)^r\alpha\boxtimes(d_Y\beta).
 $$
 
-積計量の各因子から得た直交余標構を連結し、[余微分の定義](../../GA/GA6/index.md#def-ga6-codifferential)を適用する。第一因子の方向の縮約は $\alpha$ に作用し、第二因子の方向の縮約は $r$ 個の第一因子の余標構を通過するから $(-1)^r$ を得る。従って
+積計量の各因子から得た直交余標構を連結し、[余微分の定義](../../GA/GA6/index.md#def-ga6-codifferential)を適用する。任意の点で各因子の正規直交枠を選ぶと、その点では $d^*=-\sum_j\iota_{E_j}\nabla_{E_j}$ と書ける。積接続は第一・第二因子の方向を混ぜないため、第一因子の方向の縮約は $\alpha$ に作用し、第二因子の方向の縮約は $r$ 個の第一因子の余標構を通過して $(-1)^r$ を得る。従って
 
 $$
 d^*(\alpha\boxtimes\beta)
