@@ -811,6 +811,7 @@
 5. [HOD1-05 Laplacian一致と調和形式の型保存](textbook/volumes/dream_thater/幾何系/HOD/HOD1-05/index.md)
 6. [HOD1-06 Kähler多様体のHodge分解](textbook/volumes/dream_thater/幾何系/HOD/HOD1-06/index.md)
 7. [HOD1-07 Hodge数の対称性と位相的制約](textbook/volumes/dream_thater/幾何系/HOD/HOD1-07/index.md)
+8. [HOD1-08 大域$\partial\bar\partial$補題](textbook/volumes/dream_thater/幾何系/HOD/HOD1-08/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I

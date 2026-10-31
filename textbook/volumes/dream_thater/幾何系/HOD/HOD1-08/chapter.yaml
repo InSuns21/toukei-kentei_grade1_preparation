@@ -1,0 +1,47 @@
+id: "HOD1-08"
+title: '大域$\partial\bar\partial$補題'
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-06
+  - KAH1-04
+official_scope: []
+learning_objectives:
+  - 純型形式でのpartial完全とbarpartial閉、barpartial完全とpartial閉、partial barpartial完全の三条件を区別できる
+  - Green作用素が型別微分および随伴と交換することを、コンパクトKählerの仮定の下で証明できる
+  - 大域partial barpartial補題の両方向の包含を原始形式の具体的構成と符号を含めて証明できる
+  - 純型のd完全形式がpartial barpartial完全であることを、調和射影とGreen作用素から導ける
+  - 局所Kählerポテンシャルと大域補題を区別し、非コンパクト反例とコンパクト上の積分障害を説明できる
+  - Bott–Chern群とAeppli群を定義し、コンパクトKähler上でBott–Chern群とDolbeault群が同型となることを示せる
+definitions:
+  - { id: HOD1-08-DEF-01, name: "∂∂̄完全形式" }
+  - { id: HOD1-08-DEF-02, name: "Bott–Chernコホモロジー" }
+  - { id: HOD1-08-DEF-03, name: "Aeppliコホモロジー" }
+theorems:
+  - { id: HOD1-08-LEM-01, name: "常に成り立つ包含" }
+  - { id: HOD1-08-LEM-02, name: "Green作用素と型別微分・随伴の可換性" }
+  - { id: HOD1-08-THM-01, name: "大域∂∂̄補題" }
+  - { id: HOD1-08-COR-01, name: "純型のd完全形式" }
+  - { id: HOD1-08-PROP-01, name: "純型閉形式の調和代表と二重完全成分" }
+  - { id: HOD1-08-PROP-02, name: "コンパクトKähler形式に大域ポテンシャルはない" }
+  - { id: HOD1-08-PROP-03, name: "コンパクトKähler上のBott–Chern類とDolbeault類" }
+canonical_examples:
+  - 複素平面の二重完全な(1,1)形式の直接計算
+  - 非コンパクトKähler多様体C上のdzによる失敗例
+  - 大域Kählerポテンシャルと積分の矛盾
+  - Bott–ChernとAeppliの(0,0)型の違い
+problem_patterns:
+  - HOD1-08-BIGRADE-SIGNS
+  - HOD1-08-BOUNDARY-DEGREE
+  - HOD1-08-DC-NORMALIZATION
+  - HOD1-08-GREEN-TYPE
+  - HOD1-08-GREEN-SECOND-INCLUSION
+  - HOD1-08-BC-DOLBEAULT-ISOMORPHISM
+  - HOD1-08-GLOBAL-POTENTIAL-OBSTRUCTION
+  - HOD1-08-D-EXACT-GREEN
+  - HOD1-08-HARMONIC-BC-IDENTIFICATION
+  - HOD1-08-COMPACTNESS-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }
