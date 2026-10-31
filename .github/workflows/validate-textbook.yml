@@ -85,6 +85,17 @@ jobs:
           TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: node scripts/detect-textbook-validation-scope.mjs --github-output
 
+      # Nonblocking notice: a PR may have accidentally carried unrelated chapter edits.
+      - name: Self-test DREAM THEATER PR chapter scope advisory
+        if: github.event_name == 'pull_request'
+        run: node scripts/warn-dream-theater-pr-scope.mjs --self-test
+
+      - name: Warn on unexpected DREAM THEATER chapter changes
+        if: github.event_name == 'pull_request'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: node scripts/warn-dream-theater-pr-scope.mjs --base "$TEXTBOOK_BASE_SHA"
+
       - name: Self-test DREAM THEATER review evidence coverage
         if: github.event_name == 'pull_request'
         run: node scripts/validate-dream-theater-review-evidence.mjs --self-test
