@@ -381,7 +381,7 @@ $$
 =-2\pi\zeta\,\mathbf1_{\{\zeta>0\}}.
 $$
 
-一方、[分布微分のFourier公式](../MICA1/index.md#prop-mica1-fourier-derivative)により、微分はFourier側で $i\zeta$ の乗算になるので
+一方、[超関数微分のFourier表示](../MICA1/index.md#prop-mica1-fourier-derivative)により、微分はFourier側で $i\zeta$ の乗算になるので
 
 $$
 \widehat{-\partial_xu_+}(\zeta)
@@ -430,7 +430,11 @@ $$
 
 ## 6. 交叉する特異集合の積
 
-$\mathbb R^2$ で $u(x,y)=\delta(x)$ と $v(x,y)=H(y)$ を考えます。前者の波面方向は $x$ 軸方向、後者は $y$ 軸方向なので、原点でも互いに逆向きにはなりません。$u$ には[超平面デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)を適用します。$v=H(y)$ は、[半空間Heavisideの波面](../MICA4/index.md#prop-mica4-halfspace)で扱った $H(x)$ の座標を $F(x,y)=(y,x)$ で交換したものです。座標基底 $e_x,e_y$ に対して $DF(e_x)=e_y$、$DF(e_y)=e_x$ なので、その行列は
+$\mathbb R^2$ で $u(x,y)=\delta(x)$ と $v(x,y)=H(y)$ を考えます。前者の波面方向は $x$ 軸方向、後者は $y$ 軸方向なので、原点でも互いに逆向きにはなりません。
+
+$u$ には[超平面デルタの波面](../MICA4/index.md#thm-mica4-hyperplane)を適用します。$v=H(y)$ は、[半空間Heavisideの波面](../MICA4/index.md#prop-mica4-halfspace)で扱った $H(x)$ を $F(x,y)=(y,x)$ により座標交換したものです。
+
+座標基底 $e_x,e_y$ に対して $DF(e_x)=e_y$、$DF(e_y)=e_x$ なので、その行列は
 
 $$
 DF=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad (DF)^{-\mathsf T}=DF
