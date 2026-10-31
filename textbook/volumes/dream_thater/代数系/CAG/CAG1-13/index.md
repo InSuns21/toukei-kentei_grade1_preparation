@@ -23,7 +23,7 @@ $$
 \frac{\partial F}{\partial X_i}=5X_i^4\quad(0\le i\le4).
 $$
 
-五つが同時に零なら $X_0=\cdots=X_4=0$ となるが、これは射影点ではない。したがって[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定を満たし、$Q$ は滑らかである。
+五つが同時に零なら $X_0=\cdots=X_4=0$ となるが、これは射影点ではない。また $F$ が非定数の平方因子 $H^2$ を持つなら、$H=0$ の射影点で全偏微分が零となって矛盾する。従って $F$ は平方因子を持たず、[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定を満たすので、$Q$ は滑らかである。
 
 例えば $U_0=\{X_0\ne0\}$ では $x_j=X_j/X_0$（$1\le j\le4$）と置く。このチャート上の方程式は
 
@@ -32,7 +32,7 @@ f_0=1+x_1^5+x_2^5+x_3^5+x_4^5=0,
 \qquad df_0=\sum_{j=1}^4 5x_j^4\,dx_j.
 $$
 
-点 $p\in Q\cap U_0$ で $x_1=\cdots=x_4=0$ は $f_0(p)=1$ に反する。従ってある $x_r(p)\ne0$ があり、$\partial f_0/\partial x_r=5x_r^4$ はその点の近傍で正則単元である。[局所余接基底](../../AG/AG2-11/index.md#prop-ag2-11-local-basis)により残る三つの $dx_j$ が $\Omega_M^1$ の局所基底となる。こうして $M$ は複素次元 $4-1=3$ の多様体になる。
+点 $p\in Q\cap U_0$ で $x_1=\cdots=x_4=0$ は $f_0(p)=1$ に反する。従ってある $x_r(p)\ne0$ があり、$\partial f_0/\partial x_r=5x_r^4$ はその点の近傍で正則単元である。[局所余接基底](../../AG/AG2-11/index.md#prop-ag2-11-local-basis)により残る三つの $dx_j$ が余接層の局所基底となる。解析側でも[余法完全列と陰関数定理による局所座標](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)により、残りの三変数を正則局所座標に選べる。こうして $M$ は複素次元 $4-1=3$ の多様体になる。
 
 次に[代数的随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)へ周囲の次元 $n=4$ と方程式次数 $d=5$ を代入する。射影空間側の $K_{\mathbb P^4}\simeq\mathcal O(-5)$ と、超曲面の法方向に相当する $\mathcal O(5)$ が相殺され、
 
@@ -46,6 +46,8 @@ $$
 
 $U_i=\{X_i\ne0\}$ のアフィン座標を $x_a^{(i)}=X_a/X_i$（$a\ne i$）とし、添字を昇順に並べた四つを $z_1,z_2,z_3,z_4$ と略記する。局所方程式は $f_i=F/X_i^5$ である。$a_r=\partial f_i/\partial z_r\ne0$ の領域では、$df_i=0$ により $dz_r$ をほかの三つの微分で表せる。
 
+ここで $\partial f_i/\partial z_r$ は周囲のアフィンチャートで他の $z$ を固定した偏微分、$df_i=\sum_{r=1}^4a_r\,dz_r$ はその全微分である。$df_i=0$ は**超曲面の余接層 $\Omega_M^1$ での関係**を意味する。一方、周囲の余接束を $M$ に制限した中では $df_i$ が非零の法方向として残る。この二つを区別する根拠は[解析的余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)である。
+
 周囲の四形式 $\tau_i=dz_1\wedge dz_2\wedge dz_3\wedge dz_4$ から $df_i$ の方向を取り除く[局所正則随伴形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を使うと、
 
 $$
@@ -55,7 +57,7 @@ dz_1\wedge\cdots\wedge\widehat{dz_r}\wedge\cdots\wedge dz_4}
 {a_r}.
 $$
 
-これは $a_r\ne0$ の領域でのみ書いた式である。そこでは分母は正則単元であり、残りの微分は局所基底だから、$\eta_{i,r}$ は**零にも極にもならない**。一つの分数式を分母零の点へ強引に延長する必要はない。
+ここで帽子 $\widehat{dz_r}$ はその微分因子を外積から除く記号である。これは $a_r\ne0$ の領域でのみ書いた式である。そこでは分母は正則単元であり、残りの微分は局所基底だから、$\eta_{i,r}$ は**零にも極にもならない**。一つの分数式を分母零の点へ強引に延長する必要はない。
 
 例えば $U_0$ で $x_4\ne0$ なら、
 
@@ -76,7 +78,7 @@ $$
 +5x_4^4\,dx_1\wedge dx_2\wedge dx_4=0.
 $$
 
-両係数が単元なので $5x_3^4\cdot5x_4^4$ で割れば上の二形式が一致する。これは[代数側の局所3形式](../../AG/AG2-12/index.md#prop-ag2-12-local-three-form)を解析化しているのであり、独立した別の微分形式を発明したわけではない。
+両係数が単元なので $5x_3^4\cdot5x_4^4$ で割れば上の二つの3形式が一致する。これは[代数側の局所3形式](../../AG/AG2-12/index.md#prop-ag2-12-local-three-form)を解析化しているのであり、独立した別の微分形式を発明したわけではない。
 
 ## 3. 異なる射影チャートでも一つの正則3形式にする
 
@@ -125,7 +127,7 @@ $$
 =(-1)^{i+k}s^{-5}\tau_i.
 $$
 
-一方、$F$ は次数5の斉次式だから $f_k=s^{-5}f_i$。積の微分と $f_i|_M=0$ より、
+一方、$F$ は次数5の斉次式だから $f_k=s^{-5}f_i$。ここでは周囲の余接束の元として微分し、$f_i|_M=0$ を代入するので、
 
 $$
 df_k|_M
@@ -133,7 +135,7 @@ df_k|_M
 =s^{-5}df_i|_M.
 $$
 
-各チャートの $\eta$ は、周囲の余接層の行列式で $df_i\wedge\eta_i=\tau_i$ と対応する。[余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)によって $df_i\wedge(-)$ は残る三次外冪上で単射なので、
+各チャートの $\eta$ は、[余法完全列](../CAG1-11/index.md#prop-cag1-11-analytic-conormal)の中央項である周囲の余接束の行列式を通じて $df_i\wedge\eta_i=\tau_i$ に対応する。実際 $a_r\ne0$ の場所では、$df_i$ と残る三つの $dz_j$ が周囲の余接束の基底となり、$df_i\wedge(-)$ は商の最高次外冪から周囲の四次外冪への同型となる。従って
 
 $$
 df_i\wedge\eta_k=(-1)^{i+k}\tau_i
@@ -327,7 +329,7 @@ $$
 \eta_{0,4}=-\frac{dx_1\wedge dx_2\wedge dx_3}{5x_4^4}.
 $$
 
-$df_0=\sum_{j=1}^4 5x_j^4dx_j=0$ に $dx_1\wedge dx_2$ を左から掛けると $5x_3^4dx_1\wedge dx_2\wedge dx_3+5x_4^4dx_1\wedge dx_2\wedge dx_4=0$。$x_3x_4\ne0$ なので $25x_3^4x_4^4$ で割り、二形式が等しいと分かる。
+$df_0=\sum_{j=1}^4 5x_j^4dx_j=0$ に $dx_1\wedge dx_2$ を左から掛けると $5x_3^4dx_1\wedge dx_2\wedge dx_3+5x_4^4dx_1\wedge dx_2\wedge dx_4=0$。$x_3x_4\ne0$ なので $25x_3^4x_4^4$ で割り、二つの3形式が等しいと分かる。
 <!-- solution-end -->
 
 <a id="ex-cag1-13-a03"></a>
