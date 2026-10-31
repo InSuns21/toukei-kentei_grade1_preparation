@@ -1,0 +1,38 @@
+id: QFT26
+title: "Wilson流・関連／無関連／周辺演算子と有効場の理論"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT22, QFT25]
+official_scope: []
+learning_objectives:
+  - 有限モードEuclid模型で高運動量殻を積分消去し低運動量の観測量を保つWilson作用を定義できる
+  - 運動量と場の再スケーリングを導き局所演算子の関連・無関連・周辺性を工学的次元で判定できる
+  - 四次元φ⁴模型の薄い殻積分から質量・四点結合の一ループ流の係数と符号を求められる
+  - Wilsonの赤外向き流と固定裸量のくりこみ群β関数を向き・方式・閾値に注意して比較できる
+  - 重い場を消去した非局所核を低運動量で展開し有効場の理論の抑制次数と有効範囲を説明できる
+definitions:
+  - { id: QFT26-DEF-01, name: 高運動量殻の積分消去とWilson作用 }
+  - { id: QFT26-DEF-02, name: 再スケーリングと局所演算子のスケーリング指数 }
+  - { id: QFT26-DEF-03, name: 関連・無関連・周辺演算子とGaussian固定点 }
+theorems:
+  - { id: QFT26-PROP-01, name: Wilson積分消去と低運動量期待値の保存 }
+  - { id: QFT26-THM-01, name: 局所単項式の木レベルスケーリング }
+  - { id: QFT26-THM-02, name: φ⁴模型の一ループ薄殻Wilson流 }
+  - { id: QFT26-PROP-02, name: 重いGaussian場の消去と低エネルギー展開 }
+canonical_examples:
+  - 自由場の高運動量積分で定数だけが生じることを確認する
+  - 四次元でφ²、φ⁴、φ⁶および二階微分演算子の指数を直接計算する
+  - 四次元薄殻のtadpoleとbubbleの測度・組合せ係数を導く
+  - 赤外向き一ループ流の符号をQFT25の紫外向きβ関数と照合する
+  - 重い場の逆核を展開してφ⁴と導関数付き演算子の係数を求める
+problem_patterns:
+  - QFT26-SHELL-EXPECTATION
+  - QFT26-MOMENTUM-RESCALING
+  - QFT26-OPERATOR-CLASSIFICATION
+  - QFT26-FOUR-DIMENSIONAL-SHELL
+  - QFT26-WILSON-BETA
+  - QFT26-THRESHOLD
+  - QFT26-HEAVY-FIELD-MATCHING
+  - QFT26-EFT-POWER-COUNTING
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 15, review: 5 }
