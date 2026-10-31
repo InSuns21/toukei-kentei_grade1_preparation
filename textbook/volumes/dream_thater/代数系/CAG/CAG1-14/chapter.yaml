@@ -1,0 +1,38 @@
+id: "CAG1-14"
+title: "GAGAの総合演習とHodge数への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAG1-13
+official_scope: []
+learning_objectives:
+  - アフィン直線の大域正則関数が代数的関数と一致しない具体的反例を再導出し、射影版GAGAの適用条件と区別できる
+  - GAGAの連接層・Hom・コホモロジー比較を線束・曲線の種数・正則射の代数化の三つに適用できる
+  - Fermat五次三次元超曲面の滑らかさと標準束を再確認し、制限完全列から構造層の全次数のコホモロジーを計算できる
+  - Hodge数の定義と構造層・標準束の既知の次元を区別し、h11・h21に必要な余接層コホモロジーと未証明の理論を挙げられる
+  - 非射影・特異・六次の三例で、どの比較定理・随伴公式・局所構成の仮定を失ったか判別できる
+definitions: []
+theorems:
+  - { id: CAG1-14-PROP-01, name: 射影GAGAから得られる三つの帰結 }
+  - { id: CAG1-14-PROP-02, name: 滑らかな五次超曲面の構造層コホモロジー }
+canonical_examples:
+  - アフィン直線上のeのz乗と射影直線のねじり層の切断
+  - 二次Veronese写像と像の斉次二次方程式
+  - 五次超曲面の制限完全列と四次から三次へのコホモロジー移行
+  - 構造層と標準束の既知の次元からはHodge数h11・h21が未決定であること
+problem_patterns:
+  - CAG1-14-A01
+  - CAG1-14-A02
+  - CAG1-14-A03
+  - CAG1-14-A04
+  - CAG1-14-A05
+  - CAG1-14-B01
+  - CAG1-14-B02
+  - CAG1-14-B03
+  - CAG1-14-B04
+  - CAG1-14-C01
+  - CAG1-14-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 5 }
