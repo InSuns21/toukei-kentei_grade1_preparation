@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-28（標準教科書・公開講義ノートとの照合、証明境界・依存・具体例の再設計）  
-状態: in progress（CAG1-01〜14 を実装。全系列横断監査は未完了）
+状態: completed（CAG1-01〜14 の実装、系列横断確認、CAG1-14 追跡監査を完了）
 
 ## 中心問いと到達点
 
@@ -17,10 +17,10 @@
 
 ## 前提・責務境界（2026-10-28 のリポジトリ照合）
 
-- [代数幾何学 I〜III：AG1〜AG3](../plan_done/DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md) は全38章が完成。AG2-01/05/06/07/08/09/10/12（射影空間・構造層・線束・標準束・随伴公式・quintic）、AG3-06/07/08/10/11（連接層・コホモロジー・種数）を主に再利用する。一般のSerre双対性・交叉理論をAG3で証明済みと見なさない。
-- [複素多様体論 I・II：CM1/CM2](../plan_done/DREAM_THEATER_COMPLEX_MANIFOLDS_I_II_PLAN.md) は全21章が完成。CM1-10（複素射影空間）、CM2-04〜08（Dolbeault・正則束・標準束）を再利用する。解析空間は特異点・非被約構造を許すため、**複素多様体**だけの定義とは区別する。
-- [Kähler幾何学：KAH1](../plan_done/DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md) は全16章が完成。KAH1-07/12〜14（Fubini–Study形式、第一Chern類、Kähler class、射影多様体）を再利用する。CAG1でKähler接続・曲率を重複証明しない。
-- [Kähler–Hodge理論：HOD1](DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md) はHOD1-01まで着手済み。Hodge分解、Hard Lefschetz、Hodge数の対称性・原始コホモロジーの**証明 owner**であり、本PLANの完成をこれら未完成の定理の既習扱いに依存させない。
+- [代数幾何学 I〜III：AG1〜AG3](DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md) は全38章が完成。AG2-01/05/06/07/08/09/10/12（射影空間・構造層・線束・標準束・随伴公式・quintic）、AG3-06/07/08/10/11（連接層・コホモロジー・種数）を主に再利用する。一般のSerre双対性・交叉理論をAG3で証明済みと見なさない。
+- [複素多様体論 I・II：CM1/CM2](DREAM_THEATER_COMPLEX_MANIFOLDS_I_II_PLAN.md) は全21章が完成。CM1-10（複素射影空間）、CM2-04〜08（Dolbeault・正則束・標準束）を再利用する。解析空間は特異点・非被約構造を許すため、**複素多様体**だけの定義とは区別する。
+- [Kähler幾何学：KAH1](DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md) は全16章が完成。KAH1-07/12〜14（Fubini–Study形式、第一Chern類、Kähler class、射影多様体）を再利用する。CAG1でKähler接続・曲率を重複証明しない。
+- [Kähler–Hodge理論：HOD1](../plans_progress/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md) はHOD1-01まで着手済み。Hodge分解、Hard Lefschetz、Hodge数の対称性・原始コホモロジーの**証明 owner**であり、本PLANの完成をこれら未完成の定理の既習扱いに依存させない。
 - [Calabi–Yau幾何学：CYG1](../plans/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md) は計画のみ。Calabi–Yau の諸定義・quintic の **Hodge 数の実計算**・変形への入口を所有する。CAG1はquinticの滑らかさ・随伴公式と正則3形式の入口までを担当する。
 
 このPLANの固有責務は**代数化／解析化の比較の仕組み（GAGA）と、その線束・射・具体例への適用**である。一般Hodge理論、Kodaira消滅・埋め込みの完全証明、Calabi–Yau定理、一般のGrothendieck双対、変形理論は本講に押し込まない。Kodaira埋め込み定理は仮定と結論のみ必要箇所で紹介し、完全証明を掲載する別の正本が決まるまでは「既証明」としない。
@@ -102,8 +102,18 @@
 
 ## 着手・査読・完成条件
 
-1. CAG1-01〜14 の本文・系列 manifest・公開索引を登録済み。全系列横断監査・検証が残るため、本PLANを **textbook/plans_progress/** に保つ。
+1. CAG1-01〜14 の本文・系列 manifest・公開索引を登録済み。2026-10-31 に系列横断監査と最終章の追跡監査を実施し、本PLANを **textbook/plan_done/** に移動する。
 2. 正式着手時に仮IDの衝突、完成済みAG・CM・KAHの実在する章・stable anchor、未完成HOD・CYGの現在地、必要な解析的入力の証明ownerを照合する。章別の直接 prerequisite は「この章が実際に使うもの」に絞り、前提を無意味に増やさない。
 3. 各章は動機→定義の通常文での導入→条件を検算する直接例→主要結果と証明→独習用演習と全詳細解答の順を基準とする。既習結果を実際に使う文からcanonical stable anchorへリンクする。
 4. 新規本文は現行 [執筆基準](../DREAM_THEATER_AUTHORING_STANDARD.md) の区分Cに従い、全主要証明・全演習解答の棚卸しと出発点からの再計算、完成本文の別観点再読を行う。同じ担当者の再読を第三者の独立査読と呼ばない。**別の完成章の追跡監査は章IDを指定された場合のみ**実施する。
 5. 変更スコープに応じた教材・knowledge・concept・exercise-count・数式・リンク検証とCIを通し、最終的に系列 manifest、必要な索引・routing、公開先、依存の向きと証明停止線を横断確認する。全learning objectivesの証拠が揃うまでPLANはcompletedにしない。
+
+## 系列横断監査・完了記録（2026-10-31）
+
+- **対象とルーティング**：CAG1-01〜14 の全14章が系列 manifest で連続して completed。各章の本文・chapter.yaml・knowledge.yaml は同じ章IDを持ち、knowledge coverage は complete。公開索引と全体目次に14章が一度ずつ登録されていることを確認した。
+- **棚卸しと参照整合**：全14章で formal statement 87個、proof block 63個、演習149題（A69・B55・C25）と対応する詳細解答149個を照合。各章の problem_patterns と本文の演習IDは一致。CAG本文にある相対Markdown参照780件について、参照先ファイルと実在する明示的anchorを照合し、欠落0件（同一リンクの反復も件数に含む）。参照先はCAG系列全章と、実際にリンクしたAG・CM・CA・KAH等の必要な先行章を含む。
+- **主要論理の横断再読**：解析化と局所環（01〜03）、解析的Čechとねじり層（04）、次数降下によるGAGA I（05）、内部HomによるGAGA II（06）、二項表示と余核によるGAGA III（07）、射影／固有版の境界（08）、Chowとグラフの代数化（09）、Picardと忠実平坦降下（10）、随伴公式の代数・解析比較（11）、曲線の種数とDolbeault解消（12）、Fermat quinticのJacobian・正則3形式の貼り合わせ（13）、構造層コホモロジーとHodge理論の停止線（14）の主要結果と前提の向きを照合した。全63証明の独立再導出を行ったという意味ではない。
+- **代表検算**：CAG1-14で $i:Q\hookrightarrow P=\mathbb P^4$、$0\to\mathcal O_P(-5)\to\mathcal O_P\to i_*\mathcal O_Q\to0$ を使い、$H^q(P,i_*\mathcal O_Q)\simeq H^q(Q,\mathcal O_Q)$ の根拠をCAG1-05に接続。$H^4(P,\mathcal O_P(-5))$ の唯一のLaurent指数 $(-1,-1,-1,-1,-1)$ から $h^0(\mathcal O_Q)=h^3(\mathcal O_Q)=1$、$h^1=h^2=0$ を再計算。六次の場合は $K_Z\simeq\mathcal O_Z(1)$ と $0\to\mathcal O_P(-5)\to\mathcal O_P(1)\to i_*\mathcal O_Z(1)\to0$ より $h^0(K_Z)=5$。三本柱と射の代数性はCAG1-05〜10の仮定・結論に戻って確認した。
+- **境界**：Weierstrassの準備・除法、Cartan A/B、解析的Serre型大域生成、固有版GAGAの一般証明などは本文で外部入力・停止線として区別され、既証明と偽っていない。Hodge分解・Lefschetz型定理、quinticの $h^{1,1},h^{2,1}$ の実計算は未完成HOD1・CYG1の責務として残すが、CAG1固有の未実装タスクとはしない。
+- **最終章の追跡監査**：CAG1-14の主要命題2件・演習11題すべての出発点、仮定、数値、リンクと記法を検算。閉埋込み直像によるコホモロジーの読み替え、代数的／解析的随伴公式の使い分け、$i_d$・$F_6$ の導入、六次の制限列を局所修正した。変更区分Bの影響範囲は命題2とB02・B03・B04・C01・C02、および同じJacobianと随伴公式を使うA05へ限定した。
+- **実施主体**：ChatGPTによる同一担当の数学的再計算と別観点の読者査読。第三者による独立査読は実施していない。CIの実行結果とマージ時点の最新mainとの整合は対応PRへ記録し、必須チェックの成功をマージ条件とする。
