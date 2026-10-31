@@ -8,6 +8,8 @@
 
 ここで使えるのが[閉多様体のHodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)である。各de Rham類から**一意な調和代表**を取り出せば、その代表は型ごとに分解できる。一方、[Dolbeaultコホモロジー](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)では、$\bar\partial$閉形式を$\bar\partial$完全形式で割る。二つの商空間を結ぶには、Dolbeault類も調和代表を一意に持つことを証明する必要がある。
 
+以下、$d$閉形式$\alpha$のde Rham類は$[\alpha]_d$、$\bar\partial$閉形式$\beta$のDolbeault類は$[\beta]_{\bar\partial}$と書き分ける。前者の代表元には$d\alpha=0$、後者には$\bar\partial\beta=0$が必要であり、二つの角括弧を無条件に置き換えてはならない。
+
 本章では次の三段階を順に確かめる。
 
 1. 実Hodge理論の調和射影とGreen作用素が、Kähler条件の下で型を保つ。
@@ -16,7 +18,9 @@
 
 以下、$X$は複素次元$n\ge1$の**滑らか・コンパクト・境界なしのKähler多様体**とする。連結性は仮定しない。複素構造は向きを与える。微分形式は滑らかな複素数値形式、$L^2$内積は第一変数を共役線形とし、$k$は$0\le k\le2n$の整数とする。
 
-[複素型の直交分解](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)に従い、$k$形式の$(p,q)$成分を取り出す直交射影を$\pi_{p,q}$と記す（$p+q=k$）。[型別調和形式](../HOD1-05/index.md#def-hod1-05-harmonic-pq)の空間は$\mathcal H^{p,q}(X)$、全次数の調和空間は$\mathcal H^k(X)$である。微分作用素は
+[複素型の直交分解](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)に従い、$k$形式の$(p,q)$成分を取り出す直交射影を$\pi_{p,q}$と記す（$p+q=k$）。HOD1-01ではこれを$P_{p,q}$とも書いたが、本章の$P_{p,q}$は**調和$(p,q)$形式への直交射影**に使い、型射影$\pi_{p,q}$と区別する。
+
+[型別調和形式](../HOD1-05/index.md#def-hod1-05-harmonic-pq)の空間は$\mathcal H^{p,q}(X)$、全次数の調和空間は$\mathcal H^k(X)$である。微分作用素は
 
 $$
 \Delta_d=dd^*+d^*d,\qquad
@@ -116,7 +120,13 @@ $$
 と計算できるためである。射影への直交性は直前の補題から従う。
 
 <!-- definition-example-start: def-hod1-06-dolbeault-green -->
-**定義の確認**（非零周波数と零周波数）。平坦トーラス$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$で$f(x,y)=e^{i(x+2y)}$とする。[平坦Fourierモードの固有値](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)は$\Delta_df=5f$、$\Delta_{\bar\partial}f=\tfrac52f$である。$f$は零平均なので$P_{0,0}f=0$、従って
+**定義の確認**（非零周波数と零周波数）。平坦トーラス$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$で$f(x,y)=e^{i(x+2y)}$とする。[平坦Fourierモードの固有値](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)から
+
+$$
+\Delta_df=5f,\qquad \Delta_{\bar\partial}f=\frac52f
+$$
+
+である。[調和性のエネルギー判定](../../GA/GA6/index.md#thm-ga6-energy)より調和0形式は$dg=0$を満たし、連結な$T$では定数関数に限られる。$f$の平均は零だから定数関数に直交し、$P_{0,0}f=0$。正固有値を逆にすれば
 
 $$
 G_0f=\frac15f,\qquad
@@ -228,9 +238,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-06-hodge-summand -->
-**定義の確認**（楕円曲線の二つの型）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$の標準平坦計量で、$dz=dx+i\,dy$と$d\bar z=dx-i\,dy$はそれぞれ$(1,0)$型、$(0,1)$型で、係数一定だから$d$と$d^*$の双方で零となる。従って$\Delta_d dz=\Delta_d d\bar z=0$である。
+**定義の確認**（楕円曲線の二つの型）。$T=\mathbb C/(2\pi\mathbb Z+2\pi i\mathbb Z)$の標準平坦計量で、$dz=dx+i\,dy$と$d\bar z=dx-i\,dy$はそれぞれ$(1,0)$型、$(0,1)$型である。[平坦計量の余微分の座標計算](../HOD1-05/index.md#def-hod1-05-harmonic-pq)では、1形式$a\,dx+b\,dy$に対して$d^*(a\,dx+b\,dy)=-(\partial_xa+\partial_yb)$となる。$dz,d\bar z$は係数一定だから$d$と$d^*$の双方で零となり、$\Delta_d dz=\Delta_d d\bar z=0$である。$x,y$自体は商$T$上の大域関数ではないが、$dx,dy$は格子平行移動で不変なので大域1形式を定める。
 
-$x$方向の基本閉路$\gamma_x$と$y$方向の基本閉路$\gamma_y$について
+$x$方向の基本閉路$\gamma_x(t)=[t]$と$y$方向の基本閉路$\gamma_y(t)=[it]$（$0\le t\le2\pi$）を取る。閉形式のde Rham類を積分で判定できるのは、完全1形式$dF$を閉路で積分すると、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)（または一変数の微積分学の基本定理）により
+
+$$
+\int_\gamma dF=F(\gamma(2\pi))-F(\gamma(0))=0
+$$
+
+となり、積分値が代表元の取り方によらないからである。二つの閉路の周期を列に並べると
 
 $$
 \begin{pmatrix}
@@ -241,7 +257,13 @@ $$
 \qquad \det=-8\pi^2i\ne0.
 $$
 
-両形式は閉で非完全かつde Rham類が一次独立なので、$[dz]_d$と$[d\bar z]_d$は、それぞれ異なるHodge型部分空間の非零元となる。型、調和性、de Rham類の非零性の三条件をそれぞれ検証した。
+この行列を$M$とし、$c_1,c_2\in\mathbb C$について$c_1[dz]_d+c_2[d\bar z]_d=0$と仮定する。閉形式$c_1\,dz+c_2\,d\bar z$は完全なので、二つの閉路で積分すると
+
+$$
+M\begin{pmatrix}c_1\\c_2\end{pmatrix}=0
+$$
+
+となる。$\det M\ne0$だから$c_1=c_2=0$であり、二つの類は非零かつ一次独立である。従って$[dz]_d$と$[d\bar z]_d$は、それぞれ異なるHodge型部分空間の非零元となる。型、調和性、de Rham類の非零性の三条件をそれぞれ検証した。
 <!-- definition-example-end -->
 
 ## 5. Kähler多様体のHodge分解
@@ -312,7 +334,7 @@ $$
 
 で得られる。$P_k\alpha$はde Rham類の一意な調和代表だから、$\alpha$を完全形式だけ変えても値は変わらない。
 
-**注意：Dolbeault代表元をそのまま写してはいけない。** 平坦楕円曲線で$u(x,y)=\cos x$とすると、$\alpha=\bar\partial u=-\tfrac12\sin x\,d\bar z$はDolbeaultの零類だが
+**注意：Dolbeault代表元をそのまま写してはいけない。** 平坦楕円曲線で$u(x,y)=\cos x$とすると、$\alpha=\bar\partial u=-\tfrac12\sin x\,d\bar z$はDolbeaultの零類だが、[型別外微分の恒等式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)による$d\bar\partial u=\partial\bar\partial u$を使えば
 
 $$
 d\alpha=\partial\bar\partial u
@@ -522,13 +544,29 @@ $a,b$は実数なので、第一の形式を複素共役すると第二の形式
 <!-- solution-start -->
 ### 詳細解答
 
-$\alpha$は複素次元1の$(0,1)$形式なので、$\bar\partial\alpha$は型$(0,2)$となり零である。一方、$e^{ix}$は非零Fourierモードなので$P_{0,1}\alpha=0$。[平坦Laplacianの固有値](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)は次数によらずこの定数余標構の係数に作用し、$\Delta_d\alpha=1\cdot\alpha$を与える。従って
+$\alpha$は複素次元1の$(0,1)$形式なので、$\bar\partial\alpha$は型$(0,2)$となり零である。[平坦1形式上のHodge Laplacianの再計算](../HOD1-01/index.md#ex-hod1-01-c01)では、Fourierモード$f_{r,s}$に対して
+
+$$
+\Delta_d(f_{r,s}dz)=(r^2+s^2)f_{r,s}dz
+$$
+
+を得た。実計量から作る$\Delta_d$は複素共役と可換なので、共役前のモードを$e^{-ix}dz$として
+
+$$
+\Delta_d(e^{ix}d\bar z)
+=\overline{\Delta_d(e^{-ix}dz)}
+=e^{ix}d\bar z=\alpha
+$$
+
+となる。
+
+固有値$1$は正なので$\alpha$は零固有空間に直交し、$P_{0,1}\alpha=0$である。正固有値の逆を取り、[型別Green作用素の定義](#def-hod1-06-dolbeault-green)を使うと
 
 $$
 G_{\bar\partial}^{0,1}\alpha=2G_1\alpha=2\alpha.
 $$
 
-Euclid計量では$\bar\partial f=\frac12(\partial_x+i\partial_y)f\,d\bar z$であり、$\|d\bar z\|^2=2$なので、部分積分して得る随伴の係数式は
+Euclid計量では$\bar\partial f=\frac12(\partial_x+i\partial_y)f\,d\bar z$であり、$\|d\bar z\|^2=2$なので、[平坦トーラスの随伴公式](../HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)に従って部分積分すると
 
 $$
 \bar\partial^*(g\,d\bar z)
@@ -575,7 +613,7 @@ $$
 
 まず$dz^j,d\bar z^j$は大域的な閉1形式なので、先頭の楔積三項の外微分はすべて零。末尾は外微分の二乗零から$d^2(\cos x_1\,dy_2)=0$であり、$d\alpha=0$である。
 
-平坦トーラス上の定数係数形式は$d$と$d^*$の両方で零なので調和である。また[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)の単射性により、調和形式への直交射影は完全形式を零へ写す。従って$P_2\bigl(d(\cos x_1\,dy_2)\bigr)=0$。直接確かめるなら
+平坦トーラス上の定数係数形式は$d$と$d^*$の両方で零なので調和である。また[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から、閉形式の類とその調和射影の類は一致する。$\xi=d(\cos x_1\,dy_2)$と置くと$[\xi]_d=0$なので、$[P_2\xi]_d=[\xi]_d=0$となる。同型の単射性より$P_2\xi=0$である。直接確かめるなら
 
 $$
 d(\cos x_1\,dy_2)=-\sin x_1\,dx_1\wedge dy_2
