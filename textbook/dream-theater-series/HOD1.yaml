@@ -44,7 +44,7 @@ chapters:
     title: "具体例とHodgeダイヤモンドI"
   - id: HOD1-10
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-10
-    status: planned
+    status: completed
     title: "調和形式上のLefschetz作用"
   - id: HOD1-11
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-11
