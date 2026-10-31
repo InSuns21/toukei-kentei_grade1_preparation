@@ -6,11 +6,20 @@
 
 必要なのは、演算子を周波数方向ごとに調べ、**逆に解ける方向だけ**で正則性を回収することです。そのため微分作用素より広い「擬微分作用素」を作り、主シンボルと楕円性を定義します。特異性が**どこからどこへ動くか**は次の MICA9・10 の課題であり、この章では「どの方向で消せないか」を確定します。
 
-舞台は開集合 $X\subset\mathbb R^n$ です。[MICA1のFourier変換](../MICA1/index.md#def-mica1-local-fourier)の規約を用い、$D_j=(1/i)\partial_{x_j}=-i\partial_{x_j}$、$\langle\xi\rangle=(1+|\xi|^2)^{1/2}$ と置きます。記号 $\alpha,\beta\in\mathbb N_0^n$ は多重指数で、$|\alpha|=\sum_j\alpha_j$、$\alpha!=\prod_j\alpha_j!$、$\partial_\xi^\alpha=\prod_j\partial_{\xi_j}^{\alpha_j}$ です。以下は複素数値のスカラー作用素を扱い、座標変換や束への拡張は必要な局所表示に限ります。
+舞台は開集合 $X\subset\mathbb R^n$ です。[MICA1のFourier変換](../MICA1/index.md#def-mica1-local-fourier)の規約を用い、$D_j=(1/i)\partial_{x_j}=-i\partial_{x_j}$、$\langle\xi\rangle=(1+|\xi|^2)^{1/2}$ と置きます。記号 $\alpha,\beta\in\mathbb N_0^n$ は多重指数で、$|\alpha|=\sum_j\alpha_j$、$\alpha!=\prod_j\alpha_j!$ です。成分の積と反復微分は
+
+$
+\xi^\alpha=\prod_{j=1}^n\xi_j^{\alpha_j},\qquad
+D^\alpha=\prod_{j=1}^nD_j^{\alpha_j},\qquad
+\partial_x^\alpha=\prod_{j=1}^n\partial_{x_j}^{\alpha_j},\qquad
+\partial_\xi^\beta=\prod_{j=1}^n\partial_{\xi_j}^{\beta_j}
+$
+
+と表します。各微分は指定された変数について行い、他の変数を固定します。以下は複素数値のスカラー作用素を扱い、座標変換や束への拡張は必要な局所表示に限ります。
 
 ## 1. 微分作用素を周波数ごとに見る
 
-滑らかな係数 $c_\alpha(x)$ を持つ有限階微分作用素
+$m\in\mathbb N_0$ とし、滑らかな係数 $c_\alpha(x)$ を持つ $m$ 階以下の微分作用素
 
 $$
 P=\sum_{|\alpha|\le m}c_\alpha(x)D^\alpha
@@ -141,9 +150,11 @@ $$
 <!-- definition-example-start: def-mica8-psi -->
 ### 直接例：Fourier乗数と微分の再現
 
-**定義の確認**。量子化の指数積分に Fourier反転を当てはめ、微分作用素が再現されることを確認します。
+**定義の確認**。まず記号の微分条件を確認します。$a(x,\xi)=c(x)\xi_j$ で $c\in C^\infty(X)$ とすると、各コンパクト集合上で $c$ の任意階微分は有界です。$\xi_j$ の周波数微分は一階で定数となり二階以上で零なので、[記号クラスの評価](#def-mica8-symbol-class)を全ての $\alpha,\beta$ に対して満たし、$a\in S^1_{1,0}$ です。$c=1$ でも同じです。
 
-$a(x,\xi)=\xi_j$ なら、Fourier反転で $\operatorname{Op}(a)u=D_ju$ です。$a(x,\xi)=c(x)\xi_j$ なら $\operatorname{Op}(a)u=c(x)D_ju$ となります。$a(\xi)=(1+\xi^2)^{-1}$（一次元）は、周波数 $\xi$ ごとに $(1+\xi^2)^{-1}$ を掛ける次数 $-2$ の作用素を作ります。
+次に[MICA1で用いたFourier反転](../MICA1/index.md#thm-mica1-smooth-rapid)を試験関数に適用し、$a=\xi_j$ なら $\operatorname{Op}(a)u=D_ju$、$a=c(x)\xi_j$ なら $\operatorname{Op}(a)u=c(x)D_ju$ と分かります。これらの微分作用素の核は対角線 $x=y$ 上に支持されるため、コンパクト集合の逆像上で両射影がコンパクトになり、適切に支持されています。
+
+$a(\xi)=(1+\xi^2)^{-1}$（一次元）も前節で $S^{-2}$ と検証しました。その量子化は、周波数 $\xi$ ごとに $(1+\xi^2)^{-1}$ を掛ける次数 $-2$ の作用素を作ります。ただしこのFourier乗数の核は一般に対角線だけに支持されないので、次の局所化が必要です。
 
 局所化に注意します。Fourier乗数の核は一般に遠方まで広がるので、そのままの畳み込み作用素は適切な支持を持たない場合があります。対角線 $x=y$ の近くで $1$ となる滑らかな $\kappa(x,y)$ を核に掛けて局所化すると、対角線外の部分は下記の理由で滑らかな核になり、**波面集合の局所判定**は変わりません。
 <!-- definition-example-end -->
@@ -169,7 +180,7 @@ $$
 
 ## 4. 合成すると主シンボルは掛け算になる
 
-二つの作用素 $A=\operatorname{Op}(a)$、$B=\operatorname{Op}(b)$ を合成すると、$a(x,\xi)b(x,\xi)$ だけでは終わりません。$b$ の $x$ 依存性を微分した補正が出ます。以降の計算はまず台を局所化した記号について行い、適切な支持と滑らかな核の項を戻すものとします。
+二つの作用素 $A=\operatorname{Op}(a)$、$B=\operatorname{Op}(b)$ を合成すると、$a(x,\xi)b(x,\xi)$ だけでは終わりません。$b$ の $x$ 依存性を微分した補正が出ます。$AB=A\circ B$ の左量子化による**全記号**を $a\# b$（記号積）と書きます。$A$ が $B$ の後に作用する順序なので、一般に $a\#b\ne b\#a$ です。以降の計算はまず台を局所化した記号について行い、適切な支持と滑らかな核の項を戻すものとします。
 
 <a id="lem-mica8-composition"></a>
 
@@ -214,7 +225,7 @@ y^\alpha e^{-iy\cdot\eta}
 =i^{|\alpha|}\partial_\eta^\alpha e^{-iy\cdot\eta}
 $$
 
-として $\eta$ で部分積分すれば、係数は $(-i)^{|\alpha|}\partial_\xi^\alpha a\,\partial_x^\alpha b=D_x^\alpha b\,\partial_\xi^\alpha a$ です。$\eta$ の積分はFourier反転により $y=0$ を選び、記載した有限和になります。
+として $\eta$ で部分積分すれば、係数は $(-i)^{|\alpha|}\partial_\xi^\alpha a\,\partial_x^\alpha b=D_x^\alpha b\,\partial_\xi^\alpha a$ です。$\eta$ の積分は、切り取った振動積分に[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)を適用して $y=0$ を選び、記載した有限和になります。
 
 剰余の次数を確認します。$R_N$ に含まれる $y^\alpha$（$|\alpha|=N$）を移すと、$a$ には $N$ 階の $\eta$ 微分が付き、$S^{m-N}$ の評価になります。$b$ の $x$ 微分は $\xi$ の次数を増やしません。
 
@@ -237,8 +248,8 @@ $$
 一次元で $A=D_x$、$B$ を $x$ の乗算とします。$a=\xi$、$b=x$ なので [合成公式](#lem-mica8-composition) は二項で打ち切れ、
 
 $$
-\sigma(AB)=x\xi+\frac1i,\qquad
-\sigma(BA)=x\xi.
+a\# b=x\xi+\frac1i,\qquad
+b\# a=x\xi.
 $$
 
 従って $(D_xx-xD_x)u=(1/i)u=-iu$ です。直接 Leibniz 則で $D_x(xu)=xD_xu+(1/i)u$ と計算しても一致します。**主シンボルは掛け算として交換可能でも、作用素全体には一階低い非可換補正がある**わけです。
@@ -257,7 +268,7 @@ $$
 <!-- definition-example-start: def-mica8-elliptic -->
 ### 直接例：$D_y$ と $1-\Delta$
 
-**定義の確認**。記号を非零余ベクトルに代入し、主シンボルが零になる方向を除いた集合とその補集合をそれぞれ求めます。
+**定義の確認**。二次元では余ベクトルを $\xi=(\xi_x,\xi_y)$ と表示し、$\Delta=\partial_x^2+\partial_y^2$ をラプラシアンと書きます。まず[全記号の定義](#def-mica8-differential-symbol)で $D_j$ を $\xi_j$ に置き換え、最高次の同次部分 $a_m$ を取ります。次に非零余ベクトルを代入し、[楕円性の定義](#def-mica8-elliptic)の条件 $a_m\ne0$ と比較します。
 
 $D_y$（$\mathbb R^2$）では $a_1(\xi_x,\xi_y)=\xi_y$ です。$(\xi_x,\xi_y)\ne(0,0)$ のうち $\xi_y\ne0$ が楕円集合で、$\xi_y=0$ が非楕円方向です。$\xi_y\ne0$ を固定すれば近くの閉錐で $|\xi_y|\ge c|\xi|$ となり、逆数は $|\xi|^{-1}$ 程度です。
 
@@ -379,7 +390,13 @@ $$
 \langle\xi\rangle^{-M}
 $$
 
-が $r$ の $S^{-\infty}$ 性の成立する錐で任意の $L,M$ に対して成り立ちます。$\eta$ をその内側の錐に限定し、積分を $\xi$ がやや広い錐内の場合とその外に分けます。前者では上式の任意次数 $\xi$ 減衰を使い、後者では錐の角度分離から $|\eta-\xi|\ge c(|\eta|+|\xi|)$ を使います。どちらも $\eta$ の任意次数の急減少を与えます。
+が $r$ の $S^{-\infty}$ 性の成立する錐で任意の $L,M$ に対して成り立ちます。$\eta$ をその内側の錐に限定し、積分を $\xi$ がやや広い錐内の場合とその外に分けます。前者は上式に [MICA1の多項式増大](../MICA1/index.md#prop-mica1-polynomial-growth)を掛けた積で、$L$ を積分次元より大きく、$M$ を分布の増大次数より十分大きく取れば急減少します。後者では $r$ に全域の記号評価 $|\partial_x^\alpha r|\le C\langle\xi\rangle^m$（適当な次数 $m$）だけを使いますが、錐の角度分離から
+
+$
+|\eta-\xi|\ge c(|\eta|+|\xi|)
+$
+
+となるため、$\langle\eta-\xi\rangle^{-L}\langle\xi\rangle^{m+M_0}$ を積分しても、$L>m+M_0+n+N$ と選べば任意の次数 $N$ で $O(\langle\eta\rangle^{-N})$ です（$M_0$ は $\widehat{\chi u}$ の多項式増大次数）。内外の双方で $\eta$ の任意次数の急減少を得ます。
 
 $Q$ の記号が小錐で $1$ の場合は $I-Q$ の記号がそこで $0$、従って $S^{-\infty}$ です。今示した評価を $r=1-q$ に適用すれば $u-Qu$ はその方向で滑らかになります。
 <!-- proof-end -->
@@ -463,7 +480,7 @@ $Q$ の記号はより小さい錐で $1$ です。[局所化補題](#lem-mica8-
 
 ### 楕円性が欠けると逆向きは破れる
 
-$A=D_y$、$u(x,y)=H(x)$ とします。分布として $D_yu=0$ なので $WF(Au)=\varnothing$ ですが、[Heaviside分布の波面](../MICA4/index.md#thm-mica4-heaviside)と滑らかな $y$ 方向との積から
+$A=D_y$、$u(x,y)=H(x)$ とします。分布として $D_yu=0$ なので $WF(Au)=\varnothing$ ですが、[半空間Heavisideの波面を直接計算した命題](../MICA4/index.md#prop-mica4-halfspace)から
 
 $$
 WF(u)=\{(0,y;\xi_x,0):y\in\mathbb R,\ \xi_x\ne0\}.
@@ -599,7 +616,7 @@ K(x,y)=(2\pi)^{-1}(-1)^N(ir)^{-N}
 \int e^{ir\xi}\partial_\xi^N a(x,\xi)\,d\xi.
 $$
 
-記号評価では $|\partial_\xi^Na|\le C\langle\xi\rangle^{m-N}$。$N>m+1$ なら一次元の積分が絶対収束します。$\partial_x^j\partial_y^k$ は指数因子から高々 $j+k$ 次の $\xi$ を出すほか、$r^{-N}$ の微分を出します。$|r|\ge\varepsilon$ で後者は有界なので、$N>m+j+k+1$ と取り直せば導関数を積分内に移せます。従ってすべての $j,k$ に対して連続な導関数が存在し、$K$ は対角線外で滑らかです。
+[記号クラスの評価](#def-mica8-symbol-class)では $|\partial_\xi^Na|\le C\langle\xi\rangle^{m-N}$。$\theta\in C_c^\infty(\mathbb R)$ を原点近くで $1$ となる滑らかな関数とし、周波数切り取り $\theta(\xi/R)$ を挿入してから部分積分し、$R\to\infty$ とします。切り取りを微分した項は $|\xi|\asymp R$ で大きさ $O(R^{m-N})$、積分区間の長さが $O(R)$ なので $N>m+1$ なら $O(R^{m-N+1})\to0$ です。残る積分は絶対収束し、表示式が正当化されます。$\partial_x^j\partial_y^k$ は指数因子から高々 $j+k$ 次の $\xi$ を出すほか、$r^{-N}$ の微分を出します。$|r|\ge\varepsilon$ で後者は有界なので、$N>m+j+k+1$ と取り直せば導関数を積分内に移せます。従ってすべての $j,k$ に対して連続な導関数が存在し、$K$ は対角線外で滑らかです。
 <!-- solution-end -->
 
 ### 演習 MICA8-B3：円錐上の逆と非楕円方向
@@ -621,7 +638,21 @@ $$
 
 を低周波で滑らかに補えば、分母の一次同次性と微分から $S^{-1}$ です。$A$ は定数係数なので [合成公式](#lem-mica8-composition) の $x$ 微分補正は零で、内側の錐で $\operatorname{Op}(b_{-1})A=I$ が高周波で成立します。
 
-$\zeta^0$ では $a_1=-2+2=0$ なので逆数が発散し、この構成はできません。さらに $u=H(s)$、$s=y-2x$ と置くと、分布の連鎖律で $D_xu=(-2/i)\delta(s)$、$2D_yu=(2/i)\delta(s)$、ゆえに $Au=0$ です。$u$ の特異方向は $ds=(-2,1)$ の非零倍であり、非楕円方向です。特異性を見落とす機構が式で確認できました。
+$\zeta^0$ では $a_1=-2+2=0$ なので逆数が発散し、この構成はできません。さらに $u(x,y)=H(s)$、$s=y-2x$ と置きます。$ds=(-2,1)\ne0$ で、$s$ は沈め込みなので [MICA7の引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の非特性条件を満たします。[Heavisideの分布微分 $H'=\delta_0$](../MICA4/index.md#def-mica4-heaviside)をこの線形座標 $s$ に移す際の係数を試験関数で確認しましょう。$\varphi\in C_c^\infty(\mathbb R^2)$ に対し、$u$ は領域 $y>2x$ の積分ですから
+
+$
+\begin{aligned}
+\langle\partial_xu,\varphi\rangle
+&=-\iint_{y>2x}\partial_x\varphi\,dx\,dy
+=-\int_{\mathbb R}\varphi(y/2,y)\,dy
+=-2\int_{\mathbb R}\varphi(x,2x)\,dx,\\
+\langle\partial_yu,\varphi\rangle
+&=-\iint_{y>2x}\partial_y\varphi\,dx\,dy
+=\int_{\mathbb R}\varphi(x,2x)\,dx.
+\end{aligned}
+$
+
+ここで $\langle\delta(y-2x),\varphi\rangle=\int\varphi(x,2x)\,dx$ です。従って $\partial_xu=-2\delta(s)$、$\partial_yu=\delta(s)$、$D_xu=(-2/i)\delta(s)$、$2D_yu=(2/i)\delta(s)$ となり $Au=0$ です。$u$ の特異方向は $ds=(-2,1)$ の非零倍であり、非楕円方向です。特異性を見落とす機構が式で確認できました。
 <!-- solution-end -->
 
 ### 演習 MICA8-C1：楕円逆と非楕円逆の境界
