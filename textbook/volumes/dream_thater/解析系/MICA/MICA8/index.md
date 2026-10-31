@@ -8,12 +8,12 @@
 
 舞台は開集合 $X\subset\mathbb R^n$ です。[MICA1のFourier変換](../MICA1/index.md#def-mica1-local-fourier)の規約を用い、$D_j=(1/i)\partial_{x_j}=-i\partial_{x_j}$、$\langle\xi\rangle=(1+|\xi|^2)^{1/2}$ と置きます。記号 $\alpha,\beta\in\mathbb N_0^n$ は多重指数で、$|\alpha|=\sum_j\alpha_j$、$\alpha!=\prod_j\alpha_j!$ です。成分の積と反復微分は
 
-$
+$$
 \xi^\alpha=\prod_{j=1}^n\xi_j^{\alpha_j},\qquad
 D^\alpha=\prod_{j=1}^nD_j^{\alpha_j},\qquad
 \partial_x^\alpha=\prod_{j=1}^n\partial_{x_j}^{\alpha_j},\qquad
 \partial_\xi^\beta=\prod_{j=1}^n\partial_{\xi_j}^{\beta_j}
-$
+$$
 
 と表します。各微分は指定された変数について行い、他の変数を固定します。以下は複素数値のスカラー作用素を扱い、座標変換や束への拡張は必要な局所表示に限ります。
 
@@ -150,7 +150,14 @@ $$
 <!-- definition-example-start: def-mica8-psi -->
 ### 直接例：Fourier乗数と微分の再現
 
-**定義の確認**。まず記号の微分条件を確認します。$a(x,\xi)=c(x)\xi_j$ で $c\in C^\infty(X)$ とすると、各コンパクト集合上で $c$ の任意階微分は有界です。$\xi_j$ の周波数微分は一階で定数となり二階以上で零なので、[記号クラスの評価](#def-mica8-symbol-class)を全ての $\alpha,\beta$ に対して満たし、$a\in S^1_{1,0}$ です。$c=1$ でも同じです。
+**定義の確認**。まず記号の微分条件を確認します。$a(x,\xi)=c(x)\xi_j$ で $c\in C^\infty(X)$ とすると、各コンパクト集合上で $c$ の任意階微分は有界です。$\xi_j$ の周波数微分は一階で定数となり二階以上で零です。したがって、全ての多重指数 $\alpha,\beta$ について
+
+$$
+|\partial_x^\alpha\partial_\xi^\beta(c(x)\xi_j)|
+\le C_{K\alpha\beta}\langle\xi\rangle^{1-|\beta|}
+$$
+
+となり、[記号クラスの評価](#def-mica8-symbol-class)を満たすので $a\in S^1_{1,0}$ です。$c=1$ でも同じです。
 
 次に[MICA1で用いたFourier反転](../MICA1/index.md#thm-mica1-smooth-rapid)を試験関数に適用し、$a=\xi_j$ なら $\operatorname{Op}(a)u=D_ju$、$a=c(x)\xi_j$ なら $\operatorname{Op}(a)u=c(x)D_ju$ と分かります。これらの微分作用素の核は対角線 $x=y$ 上に支持されるため、コンパクト集合の逆像上で両射影がコンパクトになり、適切に支持されています。
 
@@ -390,13 +397,25 @@ $$
 \langle\xi\rangle^{-M}
 $$
 
-が $r$ の $S^{-\infty}$ 性の成立する錐で任意の $L,M$ に対して成り立ちます。$\eta$ をその内側の錐に限定し、積分を $\xi$ がやや広い錐内の場合とその外に分けます。前者は上式に [MICA1の多項式増大](../MICA1/index.md#prop-mica1-polynomial-growth)を掛けた積で、$L$ を積分次元より大きく、$M$ を分布の増大次数より十分大きく取れば急減少します。後者では $r$ に全域の記号評価 $|\partial_x^\alpha r|\le C\langle\xi\rangle^m$（適当な次数 $m$）だけを使いますが、錐の角度分離から
+が $r$ の $S^{-\infty}$ 性の成立する錐で任意の $L,M$ に対して成り立ちます。$\eta$ をその内側の錐に限定し、積分を $\xi$ がやや広い錐内の場合とその外に分けます。
 
-$
+前者は上式に[MICA1の多項式増大](../MICA1/index.md#prop-mica1-polynomial-growth)を掛けた積です。$L$ を積分次元より大きく、$M$ を分布の増大次数より十分大きく取れば急減少します。
+
+後者では $r$ の全域の記号評価（ある次数 $m$ について $|\partial_x^\alpha r|\le C\langle\xi\rangle^m$）だけを使いますが、錐の角度分離から
+
+$$
 |\eta-\xi|\ge c(|\eta|+|\xi|)
-$
+$$
 
-となるため、$\langle\eta-\xi\rangle^{-L}\langle\xi\rangle^{m+M_0}$ を積分しても、$L>m+M_0+n+N$ と選べば任意の次数 $N$ で $O(\langle\eta\rangle^{-N})$ です（$M_0$ は $\widehat{\chi u}$ の多項式増大次数）。内外の双方で $\eta$ の任意次数の急減少を得ます。
+となります。$M_0$ を $\widehat{\chi u}$ の多項式増大次数とすると、積分する上界は
+
+$$
+C\int_{\mathbb R^n}
+\langle\eta-\xi\rangle^{-L}
+\langle\xi\rangle^{m+M_0}\,d\xi.
+$$
+
+$L>m+M_0+n+N$ と選べば、この上界は内側の錐の $\eta$ について $O(\langle\eta\rangle^{-N})$ です。内外の双方で任意次数の急減少を得ます。
 
 $Q$ の記号が小錐で $1$ の場合は $I-Q$ の記号がそこで $0$、従って $S^{-\infty}$ です。今示した評価を $r=1-q$ に適用すれば $u-Qu$ はその方向で滑らかになります。
 <!-- proof-end -->
@@ -616,7 +635,21 @@ K(x,y)=(2\pi)^{-1}(-1)^N(ir)^{-N}
 \int e^{ir\xi}\partial_\xi^N a(x,\xi)\,d\xi.
 $$
 
-[記号クラスの評価](#def-mica8-symbol-class)では $|\partial_\xi^Na|\le C\langle\xi\rangle^{m-N}$。$\theta\in C_c^\infty(\mathbb R)$ を原点近くで $1$ となる滑らかな関数とし、周波数切り取り $\theta(\xi/R)$ を挿入してから部分積分し、$R\to\infty$ とします。切り取りを微分した項は $|\xi|\asymp R$ で大きさ $O(R^{m-N})$、積分区間の長さが $O(R)$ なので $N>m+1$ なら $O(R^{m-N+1})\to0$ です。残る積分は絶対収束し、表示式が正当化されます。$\partial_x^j\partial_y^k$ は指数因子から高々 $j+k$ 次の $\xi$ を出すほか、$r^{-N}$ の微分を出します。$|r|\ge\varepsilon$ で後者は有界なので、$N>m+j+k+1$ と取り直せば導関数を積分内に移せます。従ってすべての $j,k$ に対して連続な導関数が存在し、$K$ は対角線外で滑らかです。
+[記号クラスの評価](#def-mica8-symbol-class)により
+
+$$
+|\partial_\xi^Na(x,\xi)|\le C\langle\xi\rangle^{m-N}
+$$
+
+が各コンパクトな $x$ 範囲で成立します。$\theta\in C_c^\infty(\mathbb R)$ を原点近くで $1$ とし、周波数切り取り $\theta(\xi/R)$ を挿入して部分積分した後、$R\to\infty$ とします。切り取りを微分した項は $|\xi|\asymp R$ 上で大きさ $O(R^{m-N})$、積分区間の長さが $O(R)$ です。従って
+
+$$
+N>m+1
+\quad\Longrightarrow\quad
+O(R^{m-N+1})\longrightarrow0.
+$$
+
+残る積分は絶対収束し、先ほどの表示式が正当化されます。$\partial_x^j\partial_y^k$ は指数因子から高々 $j+k$ 次の $\xi$ を出すほか、$r^{-N}$ の微分を出します。$|r|\ge\varepsilon$ で後者は有界です。$N>m+j+k+1$ と選び直せば導関数を積分内に移せます。従って任意の $j,k$ で連続な導関数が存在し、$K$ は対角線外で滑らかです。
 <!-- solution-end -->
 
 ### 演習 MICA8-B3：円錐上の逆と非楕円方向
@@ -638,9 +671,13 @@ $$
 
 を低周波で滑らかに補えば、分母の一次同次性と微分から $S^{-1}$ です。$A$ は定数係数なので [合成公式](#lem-mica8-composition) の $x$ 微分補正は零で、内側の錐で $\operatorname{Op}(b_{-1})A=I$ が高周波で成立します。
 
-$\zeta^0$ では $a_1=-2+2=0$ なので逆数が発散し、この構成はできません。さらに $u(x,y)=H(s)$、$s=y-2x$ と置きます。$ds=(-2,1)\ne0$ で、$s$ は沈め込みなので [MICA7の引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の非特性条件を満たします。[Heavisideの分布微分 $H'=\delta_0$](../MICA4/index.md#def-mica4-heaviside)をこの線形座標 $s$ に移す際の係数を試験関数で確認しましょう。$\varphi\in C_c^\infty(\mathbb R^2)$ に対し、$u$ は領域 $y>2x$ の積分ですから
+$\zeta^0$ では $a_1=-2+2=0$ なので逆数が発散し、この構成はできません。
 
-$
+次に $u(x,y)=H(s)$、$s=y-2x$ と置きます。$ds=(-2,1)\ne0$ で、$s$ は沈め込みなので[MICA7の引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の非特性条件を満たします。[Heavisideの分布微分 $H'=\delta_0$](../MICA4/index.md#def-mica4-heaviside)を線形座標 $s$ に移す際の係数を、試験関数から確認しましょう。
+
+$\varphi\in C_c^\infty(\mathbb R^2)$ に対し、$u$ は領域 $y>2x$ の積分ですから
+
+$$
 \begin{aligned}
 \langle\partial_xu,\varphi\rangle
 &=-\iint_{y>2x}\partial_x\varphi\,dx\,dy
@@ -650,9 +687,17 @@ $
 &=-\iint_{y>2x}\partial_y\varphi\,dx\,dy
 =\int_{\mathbb R}\varphi(x,2x)\,dx.
 \end{aligned}
-$
+$$
 
-ここで $\langle\delta(y-2x),\varphi\rangle=\int\varphi(x,2x)\,dx$ です。従って $\partial_xu=-2\delta(s)$、$\partial_yu=\delta(s)$、$D_xu=(-2/i)\delta(s)$、$2D_yu=(2/i)\delta(s)$ となり $Au=0$ です。$u$ の特異方向は $ds=(-2,1)$ の非零倍であり、非楕円方向です。特異性を見落とす機構が式で確認できました。
+ここで $\langle\delta(y-2x),\varphi\rangle=\int\varphi(x,2x)\,dx$ です。したがって
+
+$$
+\partial_xu=-2\delta(s),\qquad
+\partial_yu=\delta(s),\qquad
+Au=\frac1i\bigl(-2\delta(s)+2\delta(s)\bigr)=0.
+$$
+
+$u$ の特異方向は $ds=(-2,1)$ の非零倍であり、非楕円方向です。特異性を見落とす機構が式で確認できました。
 <!-- solution-end -->
 
 ### 演習 MICA8-C1：楕円逆と非楕円逆の境界
