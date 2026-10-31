@@ -1,0 +1,40 @@
+id: QFT27
+title: "赤外発散・軟光子と包摂的観測量"
+volume: foundations
+status: supplementary
+prerequisites: [QFT12, QFT13, QFT15, QFT17, QFT18]
+official_scope: []
+learning_objectives:
+  - 正質量の荷電外線について質量殻伝播核から軟光子の先頭因子とWard横性を導ける
+  - 軟光子の正エネルギー位相空間から赤外対数と有限な角度係数を導き一粒子の方向転換で係数を積分できる
+  - 分解能付きの包摂的確率を定義し独立軟モード模型で仮想・未分解実光子の先頭対数の相殺を証明できる
+  - 補助赤外カットオフと測定分解能を区別し排他的な零光子極限の意味を説明できる
+  - 正質量での軟発散と質量零極限の共線発散を区別し近似の適用範囲を示せる
+definitions:
+  - { id: QFT27-DEF-01, name: 外線の軟光子電流 }
+  - { id: QFT27-DEF-02, name: 軟放射の角度係数と平均個数 }
+  - { id: QFT27-DEF-03, name: 軟光子について包摂的な確率 }
+theorems:
+  - { id: QFT27-THM-01, name: 質量を持つ外線からの軟光子放出因子 }
+  - { id: QFT27-PROP-01, name: 軟光子位相空間の対数 }
+  - { id: QFT27-PROP-02, name: 一荷電粒子の方向転換と角度係数 }
+  - { id: QFT27-THM-02, name: 先頭軟対数の実・仮想相殺 }
+canonical_examples:
+  - 入出射が同じ運動量の場合に軟電流と角度係数が零となることを確認する
+  - QEDの質量殻Dirac外線の放出からeikonal分母を導く
+  - 一荷電粒子の静止系で角度積分を行い相対速度による係数を得る
+  - 量子振動子の変位作用素と光子個数のPoisson和で軟対数を相殺する
+  - 質量を零に近づけたときの共線対数と測定分解能依存を区別する
+problem_patterns:
+  - QFT27-CHARGE-WARD
+  - QFT27-SOFT-PHASE-SPACE
+  - QFT27-NO-DEFLECTION
+  - QFT27-LOW-VELOCITY
+  - QFT27-REAL-VIRTUAL-LOG
+  - QFT27-ANGULAR-COEFFICIENT
+  - QFT27-RESOLUTION-CHANGE
+  - QFT27-POISSON-SUM
+  - QFT27-COLLINEAR-LIMIT
+  - QFT27-INCLUSIVE-CROSS-SECTION
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 5 }
