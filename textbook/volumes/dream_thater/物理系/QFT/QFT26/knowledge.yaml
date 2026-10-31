@@ -1,0 +1,55 @@
+chapter: QFT26
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT22, QFT23, QFT25]
+forward_references: []
+
+concepts:
+  - id: qft.wilsonian-shell-action
+    name: 高運動量殻の積分消去とWilson作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（高運動量殻の積分消去とWilson作用）]
+    requires: [qft.bosonic-generating-functional]
+
+  - id: qft.wilsonian-low-mode-equivalence
+    name: Wilson積分消去と低運動量期待値の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Wilson積分消去と低運動量期待値の保存）]
+    requires: [qft.wilsonian-shell-action]
+
+  - id: qft.wilsonian-rescaling-exponent
+    name: 再スケーリングと局所演算子のスケーリング指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（再スケーリングと局所演算子のスケーリング指数）]
+    requires: [qft.wilsonian-shell-action]
+
+  - id: qft.wilsonian-operator-classification
+    name: 関連・無関連・周辺演算子とGaussian固定点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（関連・無関連・周辺演算子とGaussian固定点）]
+    requires: [qft.wilsonian-rescaling-exponent]
+
+  - id: qft.wilsonian-tree-level-scaling
+    name: 局所単項式の木レベルスケーリング
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（局所単項式の木レベルスケーリング）]
+    requires: [qft.wilsonian-operator-classification]
+
+  - id: qft.phi4-one-loop-wilson-flow
+    name: φ⁴模型の一ループ薄殻Wilson流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（φ⁴模型の一ループ薄殻Wilson流）]
+    requires: [qft.wilsonian-shell-action, qft.wilsonian-tree-level-scaling, qft.phi4-one-loop-beta]
+
+  - id: qft.heavy-gaussian-field-matching
+    name: 重いGaussian場の消去と低エネルギー展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重いGaussian場の消去と低エネルギー展開）]
+    requires: [qft.wilsonian-shell-action]
