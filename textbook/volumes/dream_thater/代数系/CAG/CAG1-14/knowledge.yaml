@@ -1,0 +1,16 @@
+chapter: CAG1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [CAG1-13]
+forward_references: []
+concepts:
+  - id: complex-algebraic-geometry.projective-gaga-three-applications
+    name: 射影GAGAから得られる三つの帰結
+    kind: proposition
+    introduction: formal
+    requires: [complex-algebraic-geometry.gaga-cohomology, complex-algebraic-geometry.gaga-hom, complex-algebraic-geometry.gaga-essential-surjectivity]
+  - id: complex-algebraic-geometry.quintic-structure-sheaf-cohomology
+    name: 滑らかな五次超曲面の構造層コホモロジー
+    kind: proposition
+    introduction: formal
+    requires: [algebraic-geometry.projective-twist-cohomology, complex-algebraic-geometry.gaga-cohomology]

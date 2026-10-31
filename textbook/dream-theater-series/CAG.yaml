@@ -60,5 +60,5 @@ chapters:
     title: "滑らかなquintic threefoldと正則3形式"
   - id: CAG1-14
     path: textbook/volumes/dream_thater/代数系/CAG/CAG1-14
-    status: planned
-    title: "総合演習とHodge数への橋"
+    status: completed
+    title: "GAGAの総合演習とHodge数への橋"
