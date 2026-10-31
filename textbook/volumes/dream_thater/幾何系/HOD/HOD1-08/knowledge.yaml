@@ -1,0 +1,67 @@
+chapter: HOD1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-06
+  - KAH1-04
+concepts:
+  - id: hodge.ddbar-exact-form
+    name: ∂∂̄完全形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（∂∂̄完全形式）"]
+    requires: [complex-manifolds.dolbeault-bicomplex]
+  - id: hodge.ddbar-easy-inclusions
+    name: 二重完全形式の閉性と完全性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（常に成り立つ包含）"]
+    requires: [hodge.ddbar-exact-form]
+  - id: hodge.green-dolbeault-commutation
+    name: Green作用素と型別微分・随伴の可換性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Green作用素と型別微分・随伴の可換性）"]
+    requires: [hodge.kahler-laplacian-equality, hodge.green-type-preservation, hodge.harmonic-type-preservation]
+  - id: hodge.ddbar-lemma
+    name: 大域∂∂̄補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（大域∂∂̄補題）"]
+    requires: [hodge.ddbar-easy-inclusions, hodge.green-dolbeault-commutation, hodge.mixed-adjoint-anticommutators]
+  - id: hodge.pure-d-exact-ddbar
+    name: 純型のd完全形式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（純型のd完全形式）"]
+    requires: [hodge.ddbar-lemma, hodge.green-dolbeault-commutation]
+  - id: hodge.pure-closed-harmonic-decomposition
+    name: 純型閉形式の調和代表と二重完全成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純型閉形式の調和代表と二重完全成分）"]
+    requires: [hodge.pure-d-exact-ddbar, hodge.kahler-hodge-decomposition]
+  - id: hodge.no-global-kahler-potential
+    name: コンパクトKähler形式に大域ポテンシャルはない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（コンパクトKähler形式に大域ポテンシャルはない）"]
+    requires: [hodge.ddbar-exact-form, kahler.local-potential-gauge]
+  - id: hodge.bott-chern-cohomology
+    name: Bott–Chernコホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bott–Chernコホモロジー）"]
+    requires: [hodge.ddbar-exact-form]
+  - id: hodge.aeppli-cohomology
+    name: Aeppliコホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Aeppliコホモロジー）"]
+    requires: [hodge.ddbar-exact-form]
+  - id: hodge.bott-chern-dolbeault-isomorphism
+    name: コンパクトKähler上のBott–Chern類とDolbeault類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（コンパクトKähler上のBott–Chern類とDolbeault類）"]
+    requires: [hodge.bott-chern-cohomology, hodge.ddbar-lemma, hodge.dolbeault-harmonic-representative]
