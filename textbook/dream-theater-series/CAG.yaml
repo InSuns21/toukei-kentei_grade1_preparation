@@ -1,7 +1,7 @@
 version: 1
 id: CAG
 title: "複素代数幾何学――解析化とGAGA"
-plan: textbook/plans_progress/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 完了章だけを公開索引へ登録する。残りの章IDは暫定であり、実装時に調整できる。
