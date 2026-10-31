@@ -36,7 +36,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-08-double-exact -->
-**定義の確認**（複素平面の最小例）。$z=x+iy$の複素平面で$u(z)=z\bar z$と置く。$\bar\partial u=z\,d\bar z$であり、$\partial(d\bar z)=0$だから
+**定義の確認**（複素平面の最小例）。$z=x+iy$の複素平面で$u(z)=z\bar z$と置く。[Wirtinger微分と型別外微分の局所式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)から
+
+$$
+\bar\partial z=0,\qquad
+\bar\partial\bar z=d\bar z,\qquad
+\partial z=dz,\qquad
+\partial(d\bar z)=0
+$$
+
+なので、$\bar\partial u=z\,d\bar z$を経て
 
 $$
 \partial\bar\partial u
@@ -103,7 +112,16 @@ $$
 
 ## 3. Green作用素が型別微分と交換する
 
-逆包含を作るには原始形式を明示的に構成したい。[Hodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)を$G$、調和形式への直交射影を$P$と書く。$G$は次数ごとの作用素$G_k$をまとめた表記である。[Greenの逆作用式](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)は
+逆包含を作るには原始形式を明示的に構成したい。[Hodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)を$G$、調和形式への直交射影を$P$と書く。$G$は次数ごとの作用素$G_k$をまとめた表記である。
+
+$\partial^*$と$\bar\partial^*$は、それぞれ[型別微分の$L^2$随伴](../HOD1-01/index.md#def-hod1-01-dolbeault-adjoints)であり、次のように型の次数を1減らす。
+
+$$
+\partial^*:\Omega^{p,q}\to\Omega^{p-1,q},\qquad
+\bar\partial^*:\Omega^{p,q}\to\Omega^{p,q-1}.
+$$
+
+また[Greenの逆作用式](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)は
 
 $$
 \Delta_dG=G\Delta_d=I-P,\qquad PG=GP=0
@@ -238,7 +256,7 @@ $$
 \end{aligned}
 $$
 
-二行目は$\bar\partial^*\partial=-\partial\bar\partial^*$、三行目は$\bar\partial\partial=-\partial\bar\partial$に基づく。従って
+二行目は[混合随伴反交換子の消滅](../HOD1-05/index.md#lem-hod1-05-mixed-adjoints)による$\bar\partial^*\partial=-\partial\bar\partial^*$、三行目は[型別微分の反交換関係](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)による$\bar\partial\partial=-\partial\bar\partial$に基づく。従って
 
 $$
 u:=2\bar\partial^*G\beta\in\Omega^{p-1,q-1}(X),
@@ -410,7 +428,26 @@ $$
 
 ## 7. Bott–Chern群とAeppli群は何を測るか
 
-二つの微分に対して「両方で閉じている形式を二重完全形式で割る」方法と、「二重微分で閉じている形式を一方だけの完全形式で割る」方法がある。前者が二重完全性の障害を直接測る。分母が分子に含まれることは[二重複体の関係式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)で確かめられる。
+二つの微分に対して「両方で閉じている形式を二重完全形式で割る」方法と、「二重微分で閉じている形式を一方だけの完全形式で割る」方法がある。前者が二重完全性の障害を直接測る。どちらも商空間を作るので、分母が分子に含まれることを先に確かめる。
+
+前者では[常に成り立つ包含](#lem-hod1-08-easy-inclusions)から、$\partial\bar\partial u$は$\partial$閉かつ$\bar\partial$閉である。後者では、$a\in\Omega^{p-1,q}$、$b\in\Omega^{p,q-1}$に対し、[二重複体の関係式](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)を順に用いて
+
+$$
+\partial\bar\partial(\partial a)
+=-\partial^2\bar\partial a=0,
+\qquad
+\partial\bar\partial(\bar\partial b)
+=\partial\bar\partial^2 b=0
+$$
+
+となる。つまり
+
+$$
+\operatorname{im}\partial+\operatorname{im}\bar\partial
+\subseteq\ker(\partial\bar\partial)
+$$
+
+であり、後者の商も定義できる。ここで二つの像は同じ$(p,q)$型の空間に入っている。
 
 <a id="def-hod1-08-bott-chern"></a>
 
@@ -428,7 +465,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-08-bott-chern -->
-**定義の確認**（$\mathbb C$と定数関数）。複素平面で$(0,0)$形式を考える。$\partial f=\bar\partial f=0$は、$df=0$、すなわち連結な$\mathbb C$で$f$が定数であることと同値である。一方、分母は$\partial\bar\partial\Omega^{-1,-1}=0$である。従って$H_{\mathrm{BC}}^{0,0}(\mathbb C)\cong\mathbb C$であり、たとえば定数関数$1$が非零類を与える。二つの核と分母の型をすべて確認した。
+**定義の確認**（$\mathbb C$と定数関数）。複素平面で$(0,0)$形式を考える。[型別微分の直和](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)から、関数$f$に対し
+
+$$
+\partial f=\bar\partial f=0
+\quad\Longleftrightarrow\quad df=0
+\quad\Longleftrightarrow\quad f\text{ は定数}
+$$
+
+となる。最後の同値は$\mathbb C$が連結であることによる。一方、分母は負の型の空間を零とする約束から$\partial\bar\partial\Omega^{-1,-1}=0$である。従って
+
+$$
+H_{\mathrm{BC}}^{0,0}(\mathbb C)\cong\mathbb C
+$$
+
+であり、定数関数$1$が非零類を与える。二つの核と分母の型をすべて確認した。
 <!-- definition-example-end -->
 
 <a id="def-hod1-08-aeppli"></a>
@@ -447,7 +498,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-08-aeppli -->
-**定義の確認**（$\mathbb C$の$(0,0)$型）。この型では分母は零である。分子は$\partial\bar\partial f=0$を満たす滑らかな関数で、定数関数だけでなく$f=z$も入る。実際、$\bar\partial z=0$だから$\partial\bar\partial z=0$だが$\partial z=dz\ne0$である。従って$[z]_{\mathrm A}$は非零であり、Bott–Chern群の$(0,0)$型とは違う。分母の型が負になる場合を零とする約束もここで働いている。
+**定義の確認**（$\mathbb C$の$(0,0)$型）。この型では分母の原始形式の型が負になるため、分母は零である。分子は$\partial\bar\partial f=0$を満たす滑らかな関数で、定数関数だけでなく$f=z$も入る。実際、
+
+$$
+\bar\partial z=0\quad\Longrightarrow\quad
+\partial\bar\partial z=0,
+\qquad \partial z=dz\ne0.
+$$
+
+従って$[z]_{\mathrm A}$は非零であり、Bott–Chern群の$(0,0)$型とは違う。ここでは二重微分による閉性は満たすが、二つの微分それぞれによる閉性は満たさない。
 <!-- definition-example-end -->
 
 コンパクトKähler多様体では、Bott–Chern群から[Dolbeaultコホモロジー群](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)への自然な写像が同型になる。Aeppli群の詳細な双対理論は、ここでは導入しない。
@@ -527,7 +586,13 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$X$上では$\alpha\in E_\partial^{1,0}$だから[大域補題](#thm-hod1-08-ddbar-lemma)により$\alpha=\partial\bar\partial u$となる。ただし$u$の型は$(0,-1)$であり、$\Omega^{0,-1}=0$だから$u=0$、従って$\alpha=0$である。一方$\mathbb C$では$f=z$により$\alpha=dz\ne0$、しかも$\bar\partial dz=0$である。複素平面はKählerだが非コンパクトなので、補題の仮定を満たさない。
+$X$上では$\alpha\in E_\partial^{1,0}$だから[大域補題](#thm-hod1-08-ddbar-lemma)により$\alpha=\partial\bar\partial u$となる。ただし$u$の型は$(0,-1)$であり、$\Omega^{0,-1}=0$だから
+
+$$
+u=0,\qquad \alpha=\partial\bar\partial u=0.
+$$
+
+一方$\mathbb C$では$f=z$により$\alpha=dz\ne0$、しかも$\bar\partial dz=0$である。複素平面はKählerだが非コンパクトなので、補題の仮定を満たさない。
 <!-- solution-end -->
 
 <a id="ex-hod1-08-a03"></a>
@@ -559,12 +624,20 @@ $$
 #### HOD1-08-A04 Green作用素の次数と型
 - Level: A
 
-$\beta\in\Omega^{p-1,q}(X)$、$G$をコンパクトKähler多様体のde Rham Green作用素とする。$2\bar\partial^*G\beta$の型を答え、$\partial\bar\partial$を作用させたときの型を求めよ。$q=0$では何が起きるか。
+$\beta\in\Omega^{p-1,q}(X)$、$G$をコンパクトKähler多様体のde Rham Green作用素とする。$2\bar\partial^*G\beta$の型を答え、$\partial\bar\partial$を作用させたときの型を求めよ。$q=0$では何が起きるか。さらに$q=0$で$\alpha=\partial\beta$、$\bar\partial\alpha=0$も仮定した場合の$\alpha$について答えよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)により$G\beta\in\Omega^{p-1,q}$。[型別随伴の定義](../HOD1-01/index.md#def-hod1-01-dolbeault-adjoints)から$\bar\partial^*:\Omega^{p-1,q}\to\Omega^{p-1,q-1}$だから$u=2\bar\partial^*G\beta$は$(p-1,q-1)$型。次に$\bar\partial u$が$(p-1,q)$、$\partial\bar\partial u$が$(p,q)$型である。$q=0$では$\bar\partial^*$の値域$\Omega^{p-1,-1}$は零だから$u=0$。この場合、大域補題の対象$\alpha$も零となる。
+[Greenの型保存](../HOD1-06/index.md#lem-hod1-06-green-types)により$G\beta$は$(p-1,q)$型のままである。[型別随伴の定義](../HOD1-01/index.md#def-hod1-01-dolbeault-adjoints)から
+
+$$
+u=2\bar\partial^*G\beta\in\Omega^{p-1,q-1},\qquad
+\bar\partial u\in\Omega^{p-1,q},\qquad
+\partial\bar\partial u\in\Omega^{p,q}.
+$$
+
+$q=0$では$\bar\partial^*$の値域$\Omega^{p-1,-1}$は零だから$u=0$、従って$\partial\bar\partial u=0$である。ただし$\beta$の型だけから$\partial\beta=0$とは結論できない。追加条件$\alpha=\partial\beta$かつ$\bar\partial\alpha=0$の下では、[大域補題](#thm-hod1-08-ddbar-lemma)の第一の交差条件により$\alpha=\partial\bar\partial u=0$となる。
 <!-- solution-end -->
 
 ### Level B：Green計算とコホモロジー
@@ -586,7 +659,7 @@ $$
 =\langle\bar\partial^*h,\gamma\rangle=0.
 $$
 
-従って$P\alpha=0$。$G\partial=\partial G$より$\partial G\alpha=G\partial\alpha=0$である。[三Laplacian一致](../HOD1-05/index.md#thm-hod1-05-laplacian-equality)を適用すると
+従って$P\alpha=0$。[Greenの可換性](#lem-hod1-08-green-commutes)から$\partial G\alpha=G\partial\alpha=0$である。[三Laplacian一致](../HOD1-05/index.md#thm-hod1-05-laplacian-equality)を適用すると
 
 $$
 \alpha=\Delta_dG\alpha
@@ -712,7 +785,15 @@ $$
 
 ゆえに$h=0$で一意。
 
-(3) Bott–Chern分子は$\partial$閉かつ$\bar\partial$閉なので、純型では$d$閉な$Z_d^{p,q}$そのものである。$[\alpha]_{\mathrm{BC}}\mapsto P\alpha$を定義する。$\partial\bar\partial u=d(\bar\partial u)$は$d$完全なので調和射影が零であり、写像は代表に依らない。(1)により核はちょうど$\partial\bar\partial$完全な形式、全射性は任意の調和$(p,q)$形式$h$が両方で閉じており$Ph=h$であることによる。従って線形同型となる。
+(3) 純型では$d\alpha=\partial\alpha+\bar\partial\alpha$の二項の型が異なる。従ってBott–Chern分子は
+
+$$
+\ker\partial\cap\ker\bar\partial=Z_d^{p,q}
+$$
+
+そのものである。写像$F([\alpha]_{\mathrm{BC}})=P\alpha$を定める。$\partial\bar\partial u=d(\bar\partial u)$は$d$完全なので、任意の調和$h$と直交し、$P(\partial\bar\partial u)=0$である。よって$F$は代表の選択に依らない。
+
+(1)から$\alpha-P\alpha=\partial\bar\partial u$である。従って$F([\alpha]_{\mathrm{BC}})=0$なら$\alpha=\partial\bar\partial u$となり、核は零類だけである。他方、任意の調和$(p,q)$形式$h$は両微分で閉じ、$Ph=h$なので$F([h]_{\mathrm{BC}})=h$となる。単射かつ全射だから線形同型である。
 <!-- solution-end -->
 
 <a id="ex-hod1-08-c02"></a>
