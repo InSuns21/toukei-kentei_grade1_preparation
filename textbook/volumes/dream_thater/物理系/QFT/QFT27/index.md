@@ -189,7 +189,31 @@ $$
 
 ### 証明の見取り図
 
-入射粒子の静止系で $p=(m,\boldsymbol0)$、$p'=m\gamma(1,0,0,\beta)$ を選びます。角度積分の自己項は各 $4\pi$、交差項は $4\pi\operatorname{artanh}\beta/\beta$ です。
+まず角度係数 $B$ の座標系に依らないことを確認します。Lorentz変換 $\Lambda$ によって光子を $k_{\Lambda}=\Lambda k$ へ移し、変換後のエネルギーを $\omega_{\Lambda}=D(\boldsymbol n)\omega$（$D>0$）、方向を $\boldsymbol n_{\Lambda}$ とします。[QFT12の不変位相空間測度](../QFT12/index.md#def-qft12-phase-space)を光子に適用すると
+
+$$
+\omega\,d\omega\,d\Omega
+=\omega_{\Lambda}\,d\omega_{\Lambda}\,d\Omega_{\Lambda},
+\qquad d\Omega_{\Lambda}=D^{-2}d\Omega.
+$$
+
+後の等号では、方向を固定した $D$ が $\omega$ に依存せず、$d\omega_{\Lambda}=D\,d\omega$ となることを使いました。外線 $p_i$ も同じ $\Lambda$ で変換すると、四元内積の不変性と[軟電流の定義](#def-qft27-soft-current)から
+
+$$
+J_{\Lambda}(k_{\Lambda})=\Lambda J(k),
+\qquad H_{\Lambda}(\boldsymbol n_{\Lambda})
+=D\Lambda H(\boldsymbol n).
+$$
+
+ゆえに
+
+$$
+d\Omega_{\Lambda}\,[-H_{\Lambda}(\boldsymbol n_{\Lambda})^2]
+=D^{-2}d\Omega\,D^2[-H(\boldsymbol n)^2]
+=d\Omega\,[-H(\boldsymbol n)^2].
+$$
+
+したがって $B$ は不変で、入射粒子の静止系を選べます。$p=(m,\boldsymbol0)$ とし、出射の空間運動量の方向を第3軸に選びます。このとき $p'=m\gamma(1,0,0,\beta)$、$\gamma=(1-\beta^2)^{-1/2}$ であり、$\theta$ を放出方向と第3軸のなす角とします。角度積分の自己項は各 $4\pi$、交差項は $4\pi\operatorname{artanh}\beta/\beta$ です。
 
 <!-- proof-start -->
 ### 証明
