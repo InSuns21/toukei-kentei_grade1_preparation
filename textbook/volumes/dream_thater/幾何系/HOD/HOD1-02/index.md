@@ -6,7 +6,9 @@
 
 前章では、[複素形式のHermite内積](../HOD1-01/index.md#def-hod1-01-complex-inner-product)を作り、型ごとの形式的随伴を調べた。ここでは微分せずに、[基本2形式](../../KAH/KAH1-01/index.md#def-kah1-01-fundamental-form)を外積する操作を考える。これは $k$ 形式を $k+2$ 形式にするが、内積の反対側へ移したとき何が起きるだろうか。
 
-以下、$X$ は複素次元 $n\ge1$ の滑らかなHermite多様体とする。ここでHermite計量とは、[複素構造 $J$ と両立するRiemann計量](../../KAH/KAH1-01/index.md#def-kah1-01-compatible-metric) $g_{\mathbb R}$ のことである。各点の計算を行うので **コンパクト性もKähler条件 $d\omega=0$ も仮定しない**。$\Omega^{p,q}(X)$ のうち $p,q$ が $0,\ldots,n$ の範囲外なら零と約束する。交換子は $[A,B]=AB-BA$ の順序を用いる。
+以下、$X$ は複素次元 $n\ge1$ の滑らかなHermite多様体とする。[複素構造 $J$ と両立するRiemann計量](../../KAH/KAH1-01/index.md#def-kah1-01-compatible-metric)を $g_{\mathbb R}$ と記す。各点で計算するため、**コンパクト性もKähler条件 $d\omega=0$ も仮定しない**。
+
+$\Omega^{p,q}(X)$ は $p,q$ が $0,\ldots,n$ の範囲外なら零と約束する。交換子は $[A,B]=AB-BA$ の順序を用いる。
 
 Hermite計量と $J$ により決まる基本2形式は、実接ベクトル $u,v$ に対して $\omega(u,v)=g_{\mathbb R}(Ju,v)$ である。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)では、局所座標で $\omega=i g_{j\bar k}\,dz^j\wedge d\bar z^k$ と書く際の正規化を確定した。この $\omega$ を何度も外積する操作が、後にコホモロジーを比較するための出発点となる。
 
