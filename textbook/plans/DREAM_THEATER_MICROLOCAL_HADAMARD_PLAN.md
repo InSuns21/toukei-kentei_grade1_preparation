@@ -28,7 +28,7 @@
 | 多様体・余接束・微分形式・Hamilton力学の既習章 | 余接束、余法束、正準シンプレクティック形式、Hamiltonベクトル場 | 読者が座標表示と幾何学的定義の対応を再現できるよう補題を配置 |
 | 自由場の既習QFT／QM／AQFTの関連章 | smeared field、状態の正値性、二点分布、CCR、Klein–Gordon双解 | AQFT全系列を一律必修にしない。本PLAN内で二点分布に必要な最小限の公理を導入し、既習範囲を照合 |
 
-前提の「PLAN名」は証明済みを意味しない。着手時に実在する \`chapter.yaml\`、\`knowledge.yaml\`、canonical stable anchorと依存関係を確認する。LORG・HPDE以外の章IDはここで推測固定しない。
+前提の「PLAN名」は証明済みを意味しない。着手時に実在する `chapter.yaml`、`knowledge.yaml`、canonical stable anchorと依存関係を確認する。LORG・HPDE以外の章IDはここで推測固定しない。
 
 **学修ルート:** LORG → HPDE → MICAの解析・Hadamard部分。AQFTは作用素代数側から接続する並行分岐で、MICA全講の一律必修ではない。MICAの後半から曲がった時空の自由場へ進み、MQFC IIの摂動的くりこみへは「分布の延長」という別問題を通じて接続する。
 
@@ -110,7 +110,7 @@
 
 ## 執筆・査読・完了条件
 
-1. **設計と実装を分ける。** 本変更はPLANの推敲であり、本文・series manifestを新設せず \`plans/\` にとどめる。実装を始めるときだけ \`plans_progress/\` へ移し、series manifestと直接参照を同時に更新する。
+1. **設計と実装を分ける。** 本変更はPLANの推敲であり、本文・series manifestを新設せず `plans/` にとどめる。実装を始めるときだけ `plans_progress/` へ移し、series manifestと直接参照を同時に更新する。
 2. 各章で「なぜ必要か→最小例→定義→仮定付き定理→証明の核心→詳細解答」を実現する。初出の専門語はformal statementより前に導入し、既出定理の使用箇所から実在stable anchorへリンクする。
 3. 主要定理の数学的射程を固定する。特に非特性的な引き戻しの**十分**条件、実主型の伝播、Hadamard同値の前提、くりこみ有限項の公理依存を査読する。
 4. 新規・実質改稿した**当該章自身**の主要証明と全演習解答を再計算し、完成本文を別観点で再読する。別の完了章の追跡監査は**章IDを明示して依頼された場合のみ**行う（過去の一律「直前章追跡監査」は適用しない）。
@@ -127,6 +127,6 @@
 5. Robert M. Wald, [*Quantum Field Theory in Curved Spacetime and Black Hole Thermodynamics*](https://press.uchicago.edu/ucp/books/book/chicago/Q/bo3684008.html), 自由場・Hadamard状態・応力テンソル。**MICA11–15の物理と公理の基準**。
 6. Marek J. Radzikowski, [“Micro-Local Approach to the Hadamard Condition in Quantum Field Theory on Curved Space-Time”](https://doi.org/10.1007/BF02100096), *Commun. Math. Phys.* **179** (1996), 529–553。**WF条件とHadamard条件の同値の原論文**。
 7. Stefan Hollands and Robert M. Wald, [“Local Wick Polynomials and Time Ordered Products of Quantum Fields in Curved Spacetime”](https://arxiv.org/abs/gr-qc/0103074), *Commun. Math. Phys.* **223** (2001), 289–326。**局所共変性・有限くりこみ自由度の条件確認**（摂動的時間順序積の本体はMQFC II）。
-8. Romeo Brunetti, Klaus Fredenhagen and Michael Köhler, [“The Microlocal Spectrum Condition and Wick Polynomials of Free Fields on Curved Spacetimes”](https://doi.org/10.1007/BF02101130), *Commun. Math. Phys.* **180** (1996), 633–652。**microlocal spectrumと自由場Wick多項式の橋渡し**。
+8. Romeo Brunetti, Klaus Fredenhagen and Michael Köhler, [“The Microlocal Spectrum Condition and Wick Polynomials of Free Fields on Curved Spacetimes”](https://arxiv.org/abs/gr-qc/9510056), *Commun. Math. Phys.* **180** (1996), 633–652。**microlocal spectrumと自由場Wick多項式の橋渡し**。
 
 候補文献の証明が高次の道具を使う場合、参照を置くだけで完成扱いせず、必要な補題と導入順を本文側で確定する。
