@@ -1,0 +1,46 @@
+id: QFT21
+title: "連結Green関数・Legendre変換と1PI有効作用"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT20, RA6A]
+official_scope: []
+learning_objectives:
+  - 規格化生成関数の対数の微分が連結相関を作ることを集合分割の帰納法で説明できる
+  - ソース付き平均のJacobianが共分散となり正定値条件で局所可逆になることを示せる
+  - Euclid型有効作用のLegendre変換を実行し二点関数とHessianの逆関係を導ける
+  - 連結三点・四点を固有頂点と完全二点関数で表し1PI図との対応を説明できる
+  - 零次元四次模型を一次摂動で計算し連結四点と1PI四点の符号・係数を検算できる
+  - 有限次元の一ループ行列式と形式的な連続場の汎関数微分の適用範囲を区別できる
+definitions:
+  - { id: QFT21-DEF-01, name: 連結生成関数と連結r点関数 }
+  - { id: QFT21-DEF-02, name: 平均場とソース付き連結二点行列 }
+  - { id: QFT21-DEF-03, name: Euclid型1PI有効作用 }
+  - { id: QFT21-DEF-04, name: 有効作用のr点固有頂点 }
+theorems:
+  - { id: QFT21-THM-01, name: モーメントと連結相関の分割公式 }
+  - { id: QFT21-THM-02, name: 平均場の応答と共分散の正値性 }
+  - { id: QFT21-THM-03, name: Legendre双対と二点関数の逆行列 }
+  - { id: QFT21-THM-04, name: 連結三点・四点と固有頂点 }
+  - { id: QFT21-PROP-01, name: 零次元四次模型の連結四点と固有頂点 }
+  - { id: QFT21-PROP-02, name: 有限次元での一ループ行列式の入口 }
+canonical_examples:
+  - 独立な二つのGaussian変数で対数が交差相関を消す例
+  - 平均が非零のGaussianにおける連結二点とLegendre変換
+  - 自由二次模型の三点・四点固有頂点が消える例
+  - 零次元四次模型のGaussianモーメントと一次補正
+  - hbar付き有限次元Laplace法からの行列式
+problem_patterns:
+  - QFT21-INDEPENDENT-GAUSSIAN
+  - QFT21-SHIFTED-COVARIANCE
+  - QFT21-FOUR-PARTITIONS
+  - QFT21-LEGENDRE-GAUSSIAN
+  - QFT21-INVERSE-HESSIAN
+  - QFT21-THIRD-CUMULANT
+  - QFT21-1PI-COMPOSITION
+  - QFT21-MIXTURE-CUMULANT
+  - QFT21-HBAR-GAUSSIAN
+  - QFT21-QUARTIC-CUMULANT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 4 }

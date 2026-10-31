@@ -1,0 +1,76 @@
+chapter: QFT21
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20, RA6A]
+forward_references: []
+
+concepts:
+  - id: qft.connected-generating-functional
+    name: 連結生成関数と連結r点関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（連結生成関数と連結r点関数）]
+    requires: [qft.bosonic-generating-functional, qft.connected-two-point-function]
+
+  - id: qft.moment-cumulant-partitions
+    name: モーメントと連結相関の分割公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（モーメントと連結相関の分割公式）]
+    requires: [qft.connected-generating-functional]
+
+  - id: qft.source-mean-field
+    name: 平均場とソース付き連結二点行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平均場とソース付き連結二点行列）]
+    requires: [qft.connected-generating-functional]
+
+  - id: qft.mean-field-covariance-positive
+    name: 平均場の応答と共分散の正値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平均場の応答と共分散の正値性）]
+    requires: [qft.source-mean-field, analysis.inverse-function-theorem]
+
+  - id: qft.euclidean-effective-action
+    name: Euclid型1PI有効作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euclid型1PI有効作用）]
+    requires: [qft.source-mean-field, qft.mean-field-covariance-positive]
+
+  - id: qft.legendre-inverse-hessian
+    name: Legendre双対と二点関数の逆行列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Legendre双対と二点関数の逆行列）]
+    requires: [qft.euclidean-effective-action]
+
+  - id: qft.proper-r-point-vertex
+    name: 有効作用のr点固有頂点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有効作用のr点固有頂点）]
+    requires: [qft.euclidean-effective-action]
+
+  - id: qft.connected-to-proper-vertices
+    name: 連結三点・四点と固有頂点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連結三点・四点と固有頂点）]
+    requires: [qft.legendre-inverse-hessian, qft.proper-r-point-vertex]
+
+  - id: qft.zero-dimensional-quartic-vertices
+    name: 零次元四次模型の連結四点と固有頂点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（零次元四次模型の連結四点と固有頂点）]
+    requires: [qft.moment-cumulant-partitions, qft.connected-to-proper-vertices, qft.finite-gaussian-generating-formula]
+
+  - id: qft.one-loop-finite-saddle
+    name: 有限次元での一ループ行列式の入口
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限次元での一ループ行列式の入口）]
+    requires: [qft.euclidean-effective-action, qft.finite-gaussian-generating-formula]

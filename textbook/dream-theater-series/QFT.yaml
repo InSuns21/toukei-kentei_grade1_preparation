@@ -86,3 +86,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT20
     status: completed
     title: "Euclid化・Wick回転と反射陽性"
+  - id: QFT21
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT21
+    status: completed
+    title: "連結Green関数・Legendre変換と1PI有効作用"
