@@ -1,0 +1,47 @@
+chapter: MICA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA1
+forward_references: []
+concepts:
+  - id: microlocal.mica2-open-cone
+    name: 開錐と錐近傍
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier]
+  - id: microlocal.mica2-conic-rapid
+    name: 開錐における急減少
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica2-open-cone, microlocal.mica1-rapid-decay]
+  - id: microlocal.mica2-cutoff-convolution
+    name: 滑らかな乗算のFourier畳み込み表示
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica1-polynomial-growth, fourier.fou3-inversion]
+  - id: microlocal.mica2-angular-separation
+    name: 角度の余裕と周波数差
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica2-open-cone]
+  - id: microlocal.mica2-cutoff-stability
+    name: cutoffの縮小に対する錐急減少の保存
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica2-cutoff-convolution, microlocal.mica2-angular-separation, microlocal.mica2-conic-rapid]
+  - id: microlocal.mica2-directional-regularity
+    name: 点と非零方向でのFourier規則性
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica2-conic-rapid, microlocal.mica1-local-fourier]
+  - id: microlocal.mica2-regularity-open
+    name: 方向別規則性が成り立つ位置と方向の開放性
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica2-directional-regularity]
+  - id: microlocal.mica2-all-directions
+    name: 全非零方向での規則性と滑らかさ
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica2-directional-regularity, microlocal.mica2-cutoff-stability, microlocal.mica1-local-equivalence]

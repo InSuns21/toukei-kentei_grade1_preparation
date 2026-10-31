@@ -1,0 +1,42 @@
+id: "MICA2"
+title: "錐領域での減衰"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA1
+official_scope: []
+learning_objectives:
+  - 開錐と角度の余裕を定義し、非零周波数方向での減衰条件を判定できる
+  - 錐上の急減少と全方向の急減少を区別し、二次元の直線デルタで検算できる
+  - 滑らかなcutoffを掛けたコンパクト支持超関数のFourier畳み込み公式を証明できる
+  - 角度分離と近遠の周波数分割からcutoff縮小時の錐急減少保存を証明できる
+  - 点と方向のFourier規則性を判定し、全非零方向の規則性と局所滑らかさの同値を証明できる
+definitions:
+  - { id: MICA2-DEF-01, name: 開錐と錐近傍 }
+  - { id: MICA2-DEF-02, name: 開錐における急減少 }
+  - { id: MICA2-DEF-03, name: 点と非零方向でのFourier規則性 }
+theorems:
+  - { id: MICA2-PROP-01, name: 滑らかな乗算のFourier畳み込み表示 }
+  - { id: MICA2-LEM-01, name: 角度の余裕と周波数差 }
+  - { id: MICA2-THM-01, name: cutoffの縮小に対する錐急減少の保存 }
+  - { id: MICA2-PROP-02, name: 方向別規則性が成り立つ位置と方向の開放性 }
+  - { id: MICA2-THM-02, name: 全非零方向での規則性と滑らかさ }
+canonical_examples:
+  - 二つの上向き開錐の球面閉包と角度の余裕
+  - 直線デルタの上下方向での急減少と左右方向での非減衰
+  - 広いcutoffが遠方の特異点を拾う反例
+  - 二本の直線デルタの交点における軸方向と斜め方向
+problem_patterns:
+  - MICA2-CONE-GEOMETRY
+  - MICA2-ONE-SIDED-DECAY
+  - MICA2-LINE-DELTA
+  - MICA2-WIDE-CUTOFF-COUNTEREXAMPLE
+  - MICA2-CONVOLUTION-DELTA
+  - MICA2-FAR-FREQUENCY-BOUND
+  - MICA2-FINITE-CONE-COVER
+  - MICA2-ARBITRARY-CUTOFF
+  - MICA2-CROSSING-LINE-DELTA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
