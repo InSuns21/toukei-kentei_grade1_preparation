@@ -1,0 +1,52 @@
+chapter: MICA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA2
+forward_references: []
+concepts:
+  - id: microlocal.mica3-wavefront
+    name: 波面集合
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica2-directional-regularity]
+  - id: microlocal.mica3-closed-conic
+    name: 波面集合の相対閉性と正の錐性
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica2-regularity-open]
+  - id: microlocal.mica3-singular-support
+    name: 特異支持
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-equivalence]
+  - id: microlocal.mica3-projection
+    name: 波面集合の射影と特異支持
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica3-singular-support, microlocal.mica2-all-directions]
+  - id: microlocal.mica3-locality
+    name: 波面集合の局所性
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica2-cutoff-stability]
+  - id: microlocal.mica3-sum
+    name: 和の波面集合の包含
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica2-cutoff-stability]
+  - id: microlocal.mica3-smooth-multiplier
+    name: 滑らかな係数との積
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica2-cutoff-stability, microlocal.mica3-locality]
+  - id: microlocal.mica3-derivative
+    name: 微分による波面集合の非増大
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica2-cutoff-stability, microlocal.mica1-differentiation]
+  - id: microlocal.mica3-differential-operator
+    name: 滑らかな係数の微分作用素
+    kind: corollary
+    introduction: formal
+    requires: [microlocal.mica3-sum, microlocal.mica3-smooth-multiplier, microlocal.mica3-derivative]

@@ -1,0 +1,44 @@
+id: "MICA3"
+title: "波面集合の定義と基本性質"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA2
+official_scope: []
+learning_objectives:
+  - 方向別Fourier規則性の補集合として波面集合を定義し、Dirac分布の波面集合を量化順序から計算できる
+  - 波面集合の相対閉性と正の錐性を証明し、零方向を含めない理由を説明できる
+  - 特異支持を定義して波面集合の位置射影との一致と空な波面集合の滑らかさ同値を証明できる
+  - 局所性と和の包含をcutoffの共通化で導ける
+  - 滑らかな係数との積による非増大と係数非零点での等号を証明し、零点での相殺を計算できる
+  - 微分による波面集合の非増大をcutoffの微分項まで評価し、有限階の滑らかな係数微分作用素へ拡張できる
+definitions:
+  - { id: MICA3-DEF-01, name: 波面集合 }
+  - { id: MICA3-DEF-02, name: 特異支持 }
+theorems:
+  - { id: MICA3-PROP-01, name: 波面集合の相対閉性と正の錐性 }
+  - { id: MICA3-THM-01, name: 波面集合の射影と特異支持 }
+  - { id: MICA3-LEM-01, name: 波面集合の局所性 }
+  - { id: MICA3-PROP-02, name: 和の波面集合の包含 }
+  - { id: MICA3-THM-02, name: 滑らかな係数との積 }
+  - { id: MICA3-THM-03, name: 微分による波面集合の非増大 }
+  - { id: MICA3-COR-01, name: 滑らかな係数の微分作用素 }
+canonical_examples:
+  - 点デルタの波面集合と滑らかな定数分布との対比
+  - 特異支持と通常の台の違い
+  - 滑らかな係数の零点でxデルタが消える例
+  - 直線デルタの方向と接線方向の微分による消滅
+problem_patterns:
+  - MICA3-TRANSLATED-DELTA
+  - MICA3-POSITIVE-CONIC
+  - MICA3-SMOOTH-MULTIPLIER-ZERO
+  - MICA3-SUPPORT-SINGULAR-SUPPORT
+  - MICA3-LOCALITY-CUTOFF
+  - MICA3-LOCAL-INVERSE
+  - MICA3-DIFFERENTIAL-OPERATOR
+  - MICA3-SUM-CANCELLATION
+  - MICA3-LINE-DELTA-DERIVATIVES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
