@@ -1,0 +1,52 @@
+chapter: MICA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA3
+forward_references: []
+concepts:
+  - id: microlocal.mica4-point-delta-wf
+    name: 点デルタの波面集合
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica3-wavefront]
+  - id: microlocal.mica4-heaviside
+    name: 全実線上のHeaviside分布
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier]
+  - id: microlocal.mica4-heaviside-wf
+    name: Heaviside関数の波面集合
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica4-heaviside, microlocal.mica3-wavefront, microlocal.mica1-smoothness-equivalence]
+  - id: microlocal.mica4-hyperplane-delta
+    name: アフィン超平面デルタ
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica3-wavefront]
+  - id: microlocal.mica4-hyperplane-wf
+    name: アフィン超平面デルタの波面集合
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica4-hyperplane-delta, microlocal.mica1-smoothness-equivalence]
+  - id: microlocal.mica4-boundary-value
+    name: 片側境界値分布
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier]
+  - id: microlocal.mica4-sokhotski
+    name: 境界値の分布公式
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica4-boundary-value]
+  - id: microlocal.mica4-boundary-wf
+    name: 片側境界値分布の波面集合
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica4-boundary-value, microlocal.mica4-sokhotski, microlocal.mica3-wavefront]
+  - id: microlocal.mica4-halfspace-wf
+    name: 半空間のHeaviside関数
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica4-heaviside-wf, microlocal.mica4-hyperplane-wf]
