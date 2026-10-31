@@ -1,0 +1,47 @@
+id: "MICA9"
+title: "特性集合とHamilton流"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA8
+  - SYM4
+  - LORG4
+  - HPDE5
+official_scope: []
+learning_objectives:
+  - スカラー微分作用素の主シンボルから非零余接束上の特性集合を求め、楕円正則性の制約と区別できる
+  - 正準シンプレクティック形式から主シンボルのHamilton方程式を符号込みで導き、保存量と双特性曲線を検証できる
+  - 実主型条件の意味と、主シンボルの重根でHamilton流が止まる反例を説明できる
+  - Klein–Gordon作用素の主シンボルが質量項・零階ポテンシャルに依存しないことを検算できる
+  - Minkowski時空と時間依存計量で光的特性曲線を具体計算できる
+  - 一般Lorentz計量についてHamilton双特性曲線の射影がアフィンパラメータ付き零測地線になることを証明できる
+  - 特性集合への波面の包含と、特異性の伝播定理が別の主張であることを区別できる
+definitions:
+  - { id: MICA9-DEF-01, name: 特性集合と非特性方向の再確認 }
+  - { id: MICA9-DEF-02, name: 双特性曲線 }
+  - { id: MICA9-DEF-03, name: 実主型特性点 }
+theorems:
+  - { id: MICA9-PROP-01, name: 特性方向への波面の制限 }
+  - { id: MICA9-PROP-02, name: Hamilton流による主シンボルの保存 }
+  - { id: MICA9-LEM-01, name: 同次性と双特性曲線の再パラメータ化 }
+  - { id: MICA9-PROP-03, name: Klein–Gordon作用素の光的特性と実主型性 }
+  - { id: MICA9-THM-01, name: Klein–Gordon双特性曲線と零測地線 }
+canonical_examples:
+  - 定係数楕円型と波動型の特性集合比較
+  - 波動作用素の二乗で実主型性が失われる例
+  - Minkowski時空の未来向き光線と余接方向
+  - 時間依存スケール因子を持つ1+1次元計量での光的Hamilton曲線
+  - 共形変換で光線の軌跡だけが保たれパラメータは変わる例
+problem_patterns:
+  - MICA9-CHARACTERISTIC-SETS
+  - MICA9-HAMILTON-SIGN
+  - MICA9-KG-LOWER-ORDER
+  - MICA9-MINKOWSKI-RAYS
+  - MICA9-VARIABLE-METRIC
+  - MICA9-MULTIPLE-CHARACTERISTICS
+  - MICA9-HOMOGENEOUS-RESCALING
+  - MICA9-CONFORMAL-NULL-GEODESICS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
