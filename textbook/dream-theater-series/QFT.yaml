@@ -107,3 +107,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT25
     status: completed
     title: "くりこみ群方程式・β関数・異常次元と一ループの走る結合"
+  - id: QFT26
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT26
+    status: completed
+    title: "Wilson流・関連／無関連／周辺演算子と有効場の理論"
