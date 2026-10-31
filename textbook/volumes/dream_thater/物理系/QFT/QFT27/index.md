@@ -217,7 +217,15 @@ $$
 \end{aligned}
 $$
 
-従って $\int d\Omega(-H^2)=8\pi q^2(\operatorname{artanh}\beta/\beta-1)$。係数 $1/[2(2\pi)^3]=1/(16\pi^3)$ を掛けて結論を得ます。$\operatorname{artanh}\beta/\beta=1+\beta^2/3+O(\beta^4)$ なので $B\ge0$ であり、$\beta=0$ で零となります。
+従って $\int d\Omega(-H^2)=8\pi q^2(\operatorname{artanh}\beta/\beta-1)$。係数 $1/[2(2\pi)^3]=1/(16\pi^3)$ を掛けて結論を得ます。$0<\beta<1$ では
+
+$$
+\operatorname{artanh}\beta-\beta
+=\int_0^\beta\left(\frac1{1-t^2}-1\right)dt
+=\int_0^\beta\frac{t^2}{1-t^2}\,dt>0
+$$
+
+なので $B\ge0$（$q\ne0$ なら $B>0$）です。$\beta\downarrow0$ では $\operatorname{artanh}\beta/\beta=1+\beta^2/3+O(\beta^4)$ となるので、連続拡張した $B(0)=0$ と整合します。
 <!-- proof-end -->
 
 ここで見えた対数は紫外の[QFT25のくりこみ群対数](../QFT25/index.md#def-qft25-rg-equation)とは異なります。積分が問題になるのは**光子のエネルギーの下端**であり、結合の走りを指定しただけでは消えません。
@@ -321,7 +329,7 @@ $$
 
 大きな $\Delta$ は多くの放射を「未検出」とみなすため確率が増えます。補助下限 $\lambda$ が消えても、**実験的な分解能 $\Delta$ の依存は残る**のです。$E$ 付近の非軟領域まで含む予測では、軟近似と硬い光子の計算を重複なく接続する必要があります。
 
-### 荷電粒子の質量を零へ近づけると
+### 共線方向の下界が失われる極限
 
 [方向転換の係数](#prop-qft27-deflection-coefficient)では $\beta\to1$ とすると
 
@@ -330,7 +338,7 @@ $$
 =\frac12\log\frac{1+\beta}{1-\beta}\to\infty.
 $$
 
-これは光子のエネルギーが零になる**軟発散**とは異なり、光子がほぼ荷電粒子の進行方向へ平行になる**共線発散**です。粒子質量 $m>0$ の下では角度分母が $1-|\boldsymbol v|>0$ で抑えられますが、$m\to0$ でこの下限が失われます。質量のない荷電粒子を扱うには、同じ方向へ細く集まる粒子群を同一の観測結果とみなす定義や、必要な初期状態の扱いも検討しなければなりません。
+$\beta\to1$ は外線間の相対的な高速化を表します。例えば入出射エネルギーと非零の散乱角を固定して $m\to0$ とする場合にも、$m>0$ を固定して相対エネルギーを大きくする場合にも起こります。これは光子のエネルギーが零になる**軟発散**とは異なり、光子が荷電粒子の進行方向へ近づく**共線領域**から生じる増大です。各固定運動量の正質量外線では $1-\boldsymbol v\cdot\boldsymbol n\ge1-|\boldsymbol v|>0$ ですが、$|\boldsymbol v|\to1$ という運動量の族ではその下界が零に近づき、角度積分を一様には抑えられません。質量零の荷電粒子を扱うには、同じ方向へ細く集まる粒子群を同一の観測結果とみなす定義や、必要な初期状態の扱いも検討しなければなりません。
 
 また、$\Delta\downarrow0$ の「正確に光子零個」の確率は $B>0$ なら零へ近づきます。正の確率を持つ硬い散乱そのものが消えたのではなく、分解能を無限に上げた**排他的な終状態の定義**が適切でないことを表します。長距離QEDでは裸の荷電粒子を通常の自由Fock漸近状態と同一視できないこともあり、[QFT11のLSZに必要な漸近粒子の仮定](../QFT11/index.md#def-qft11-asymptotic-s)を無条件には適用できません。
 
@@ -502,7 +510,7 @@ $$
 ### 演習 QFT27-B4：共線極限の別の発散
 
 - Level: B
-- 問題：電荷 $q\ne0$ の正質量粒子について、$B=q^2[\operatorname{artanh}\beta/\beta-1]/(2\pi^2)$、$\beta=\sqrt{1-\gamma^{-2}}$ とする。$\gamma\gg1$ での $B$ の先頭を求め、どの仮定が $\gamma\to\infty$ で失われるか説明せよ。
+- 問題：電荷 $q\ne0$ の正質量粒子について、$B=q^2[\operatorname{artanh}\beta/\beta-1]/(2\pi^2)$、$\beta=\sqrt{1-\gamma^{-2}}$ とする。$\gamma\gg1$ での $B$ の先頭を求め、放出方向が出射速度方向に近いときの角度分母 $1-\beta\cos\theta$ の下界を調べよ。この極限は、各有限 $\gamma$ で質量 $m>0$ を保つ仮定と矛盾するか。
 
 <!-- solution-start -->
 **詳細解答**
@@ -522,7 +530,15 @@ B=\frac{q^2}{2\pi^2}
 \left[\log(2\gamma)-1+O\left(\frac{\log\gamma}{\gamma^2}\right)\right].
 $$
 
-正の質量を固定した有限な $\gamma$ では角度分母が下から正に抑えられますが、質量を零に近づけて $\gamma\to\infty$ とすると、$\boldsymbol n$ が速度方向に近い部分で $1-\boldsymbol v\cdot\boldsymbol n$ が零に近づきます。これはエネルギー下限 $\lambda$ を除いても残る共線の問題です。
+入射静止系では出射速度の大きさが $\beta$ です。$u=\cos\theta\le1$ と置けば角度分母の下界は
+
+$$
+1-\beta u\ge1-\beta
+=\frac{1}{\gamma^2(1+\beta)}
+\sim\frac{1}{2\gamma^2}.
+$$
+
+各有限 $\gamma$ では正ですが、$\gamma\to\infty$ の族では**一様な正の下界**が失われます。$m>0$ を固定して出射エネルギー $m\gamma$ を増やしても起こるので、$\gamma\to\infty$ と $m\to0$ は同義ではありません。これはエネルギー下限 $\lambda$ を除いても残る共線の問題です。
 <!-- solution-end -->
 
 ### 演習 QFT27-C1：硬い散乱から測定確率まで
