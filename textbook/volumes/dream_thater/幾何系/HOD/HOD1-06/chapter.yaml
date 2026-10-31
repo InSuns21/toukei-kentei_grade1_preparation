@@ -1,0 +1,39 @@
+id: "HOD1-06"
+title: "Kähler多様体のHodge分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-05
+  - CM2-04
+official_scope: []
+learning_objectives:
+  - コンパクトKähler上の調和射影とGreen作用素が複素型を保つことを一意性から証明できる
+  - 型別Green作用素とbar∂-Laplacianの恒等式・正規化係数2を検算できる
+  - Dolbeault類の存在・一意な調和代表をHodge直交分解から構成できる
+  - de Rham類のHodge型部分空間を定義し全次数のHodge直和分解を証明できる
+  - Dolbeault代表元をそのままde Rham類とみなせない理由とコンパクト性の役割を具体例で説明できる
+definitions:
+  - { id: HOD1-06-DEF-01, name: "型別Green作用素" }
+  - { id: HOD1-06-DEF-02, name: "de RhamコホモロジーのHodge型部分空間" }
+theorems:
+  - { id: HOD1-06-LEM-01, name: "調和射影とGreen作用素の型保存" }
+  - { id: HOD1-06-THM-01, name: "Dolbeaultコホモロジーの調和代表" }
+  - { id: HOD1-06-THM-02, name: "コンパクトKähler多様体のHodge分解" }
+canonical_examples:
+  - 平坦複素トーラスの非零Fourierモードと型別Green作用素
+  - 楕円曲線の調和代表とde Rham一次類の二つの型
+  - bar∂-完全だがd-閉でない代表元による写像の誤用防止
+problem_patterns:
+  - HOD1-06-HARMONIC-PROJECTION
+  - HOD1-06-GREEN-FACTOR
+  - HOD1-06-HARMONIC-EXACT-ZERO
+  - HOD1-06-TYPE-CLOSED
+  - HOD1-06-NONCLOSED-REPRESENTATIVE
+  - HOD1-06-EXACT-TYPE-MIXING
+  - HOD1-06-HARMONIC-PROJECTION-COORDINATES
+  - HOD1-06-DBAR-GREEN-SOLUTION
+  - HOD1-06-TWO-TORUS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
