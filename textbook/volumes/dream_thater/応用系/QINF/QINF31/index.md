@@ -10,7 +10,7 @@
 
 ## 2. ランダム純粋状態をどう作るか
 
-まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$。$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた列ベクトル $g=(z_1,\ldots,z_D)^{\mathsf T}$ を取ります。ここで $^{\mathsf T}$ は転置、$^\dagger$ は[随伴の行列表現](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)としての共役転置を表し、$g^\dagger g=\sum_{r=1}^D|z_r|^2=\|g\|^2$ です。$g$ の密度は
+まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$。$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた列ベクトル $g=(z_1,\ldots,z_D)^{\mathsf T}$ を取ります。ここで上付きの $\mathsf T$ は転置を表し、$g^\dagger$ は[随伴の行列表現](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)としての共役転置です。したがって $g^\dagger g=\sum_{r=1}^D|z_r|^2=\|g\|^2$ です。$g$ の密度は
 
 $$
 p(g)=\pi^{-D}\exp(-g^\dagger g)
