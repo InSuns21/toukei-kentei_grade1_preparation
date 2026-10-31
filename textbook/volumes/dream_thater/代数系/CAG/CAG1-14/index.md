@@ -133,9 +133,9 @@ $$
 
 が完全である。右端の核は局所的に $F$ の倍数である。ここから $Q$ 上のコホモロジーを読むには、[閉埋込みの直像とコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を使う。すなわち各 $q\ge0$ について
 
-$
+$$
 H^q(P,i_*\mathcal O_Q)\simeq H^q(Q,\mathcal O_Q)
-$
+$$
 
 である。この同型の下で長完全列を読み替える。射影空間の[ねじり層コホモロジーの公式](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $(n,d)=(4,-5)$ と $(4,0)$ を代入すると、
 
@@ -332,10 +332,10 @@ $$
 <!-- solution-start -->
 **詳細解答。** $P=\mathbb P^4$、$i:Q\hookrightarrow P$ と置く。斉次五次式 $F$ を掛ける短完全列は
 
-$
+$$
 0\to\mathcal O_P(-5)\xrightarrow{\cdot F}\mathcal O_P
 \to i_*\mathcal O_Q\to0
-$
+$$
 
 である。[閉埋込みの直像のコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)から $H^q(P,i_*\mathcal O_Q)\simeq H^q(Q,\mathcal O_Q)$ である。[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $H^q(P,\mathcal O_P)=0$（$q>0$）、$H^q(P,\mathcal O_P(-5))=0$（$q\ne4$）、$H^4(P,\mathcal O_P(-5))\simeq\mathbb C$。
 
@@ -434,17 +434,17 @@ $$
 2. $P=[0:0:0:0:1]$ は $Y$ に属する。定義式は $X_4$ に依存せず、残りの偏微分も $P$ で零だから、[Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により特異点である。$P$ では局所方程式のどの偏微分も単元として割れず、[滑らかな超曲面の正則余形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を局所基底にする手順が止まる。一方 $Y$ 自体は射影スキームなので、**その連接層についてのGAGA**は依然適用できる。滑らかな三次元多様体の標準束と特異スキームの双対化層を同一視しない。
 3. $Z$ が滑らかであるから[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)を適用できるが、$d-n-1=6-4-1=1$ となり $K_{Z^{\mathrm{an}}}\simeq\mathcal O_{Z^{\mathrm{an}}}(1)$。五次の非消失定数係数3形式と同じ貼り合わせは成立しない。一方、射影性を保つので連接層GAGAは使える。六次式を $F_6$、閉埋込みを $i:Z\hookrightarrow\mathbb P^4$ と書けば、制限列を1だけねじった
 
-$
+$$
 0\to\mathcal O_{\mathbb P^4}(-5)
 \xrightarrow{\cdot F_6}\mathcal O_{\mathbb P^4}(1)
 \to i_*\mathcal O_Z(1)\to0
-$
+$$
 
 に[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)と[閉埋込みの直像の比較](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を適用する。両端の $H^0(\mathbb P^4,\mathcal O(-5))$、$H^1(\mathbb P^4,\mathcal O(-5))$ が零だから、
 
-$
+$$
 H^0(Z,K_Z)\simeq H^0(\mathbb P^4,\mathcal O(1))\simeq\mathbb C^5
-$
+$$
 
 と計算できる。
 
