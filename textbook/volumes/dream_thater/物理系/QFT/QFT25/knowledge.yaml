@@ -1,0 +1,55 @@
+chapter: QFT25
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT21, QFT23, QFT24]
+forward_references: []
+
+concepts:
+  - id: qft.renormalization-group-functions
+    name: くりこみ群β関数と場の異常次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（くりこみ群β関数と場の異常次元）]
+    requires: [qft.phi4-bare-counterterms, qft.modified-minimal-subtraction]
+
+  - id: qft.phi4-one-loop-beta
+    name: φ⁴模型の一ループβ関数と質量の走り
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（φ⁴模型の一ループβ関数と質量の走り）]
+    requires: [qft.renormalization-group-functions, qft.msbar-counterterms]
+
+  - id: qft.rg-equation-running-coupling
+    name: くりこみ群方程式と走る結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（くりこみ群方程式と走る結合）]
+    requires: [qft.renormalization-group-functions, qft.proper-r-point-vertex]
+
+  - id: qft.rg-one-particle-irreducible
+    name: 1PI頂点のくりこみ群方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（1PI頂点のくりこみ群方程式）]
+    requires: [qft.rg-equation-running-coupling, qft.phi4-one-loop-beta]
+
+  - id: qft.qed-one-loop-beta
+    name: QEDの一ループ電荷β関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（QEDの一ループ電荷β関数）]
+    requires: [qft.vacuum-polarization-asymptotics, qft.finite-renormalized-vacuum-polarization, qft.renormalization-group-functions]
+
+  - id: qft.one-loop-rg-flow
+    name: 一ループの流れの積分と有効域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一ループの流れの積分と有効域）]
+    requires: [qft.phi4-one-loop-beta, qft.qed-one-loop-beta]
+
+  - id: qft.scheme-universal-one-loop
+    name: 有限な結合再定義と一ループ係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限な結合再定義と一ループ係数）]
+    requires: [qft.one-loop-rg-flow, qft.modified-minimal-subtraction]

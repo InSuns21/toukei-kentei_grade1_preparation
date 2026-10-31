@@ -103,3 +103,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT24
     status: completed
     title: "QEDの一ループ真空偏極・Ward恒等式と電荷のくりこみ"
+  - id: QFT25
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT25
+    status: completed
+    title: "くりこみ群方程式・β関数・異常次元と一ループの走る結合"
