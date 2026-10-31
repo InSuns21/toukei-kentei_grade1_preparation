@@ -1,0 +1,46 @@
+id: QFT19
+title: "Gaussian・Grassmann積分と生成汎関数"
+volume: foundations
+status: supplementary
+prerequisites: [QFT9, QFT8, QFT4]
+official_scope: []
+learning_objectives:
+  - 有限次元の正定値二次形式のGaussian積分を平方完成で評価し逆行列から二点・四点関数を導ける
+  - Grassmann代数の反交換性・Berezin積分の順序規約を使い行列式を符号付きで導ける
+  - ボース・フェルミオン双方のソース付き生成汎関数を導きWickの組合せと符号を再現できる
+  - 有限格子の生成汎関数から自由場の形式的汎関数へ対応付け収束・正則化の限界を説明できる
+definitions:
+  - { id: QFT19-DEF-01, name: 正定値Gaussian重みと期待値 }
+  - { id: QFT19-DEF-02, name: ボース生成汎関数 }
+  - { id: QFT19-DEF-07, name: 連結二点関数 }
+  - { id: QFT19-DEF-03, name: Grassmann代数 }
+  - { id: QFT19-DEF-04, name: Berezin積分と積分順序 }
+  - { id: QFT19-DEF-05, name: フェルミオン生成汎関数 }
+  - { id: QFT19-DEF-06, name: 有限格子からの形式的場の生成汎関数 }
+theorems:
+  - { id: QFT19-THM-01, name: 有限次元Gaussian生成公式 }
+  - { id: QFT19-THM-02, name: ボースGaussianのWick対合公式 }
+  - { id: QFT19-THM-03, name: Berezin Gaussianの行列式公式 }
+  - { id: QFT19-THM-04, name: フェルミオンGaussianのソース公式 }
+  - { id: QFT19-PROP-01, name: フェルミオンの二点・四点収縮 }
+  - { id: QFT19-PROP-02, name: 有限格子の共分散と形式的連続核 }
+canonical_examples:
+  - 二変数正定値行列の逆行列と共分散
+  - 四点Gaussian対合の三項
+  - 一組のGrassmann生成子による積分順序と符号
+  - 二組のGrassmann生成子と行列式の負項
+  - 二点・四点フェルミオンの符号付き収縮
+problem_patterns:
+  - QFT19-GAUSSIAN-2D
+  - QFT19-SOURCE-DERIVATIVE
+  - QFT19-BOSON-FOUR-POINT
+  - QFT19-GRASSMANN-ORDER
+  - QFT19-BEREZIN-DET
+  - QFT19-FERMION-SOURCE
+  - QFT19-FERMION-FOUR-POINT
+  - QFT19-LATTICE-TO-CONTINUUM
+  - QFT19-REGULATOR-AND-ZERO-MODE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 4 }
