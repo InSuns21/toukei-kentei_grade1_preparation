@@ -94,7 +94,7 @@ $$
 
 ## 3. 五次三次元超曲面で、層コホモロジーをもう一段計算する
 
-$P=\mathbb P^4_{\mathbb C}$ とし、$F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5$ の零点集合を $Q\subset P$、$M=Q^{\mathrm{an}}$ と書く。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で、偏微分 $\partial F/\partial X_j=5X_j^4$（$0\le j\le4$）が射影点で同時に零にならないことから、$Q$ は滑らかな複素次元3の射影超曲面である。また前章の[正則3形式の貼り合わせ](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)と[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
+$P=\mathbb P^4_{\mathbb C}$ とし、$F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5$ の零点集合を $Q\subset P$、$M=Q^{\mathrm{an}}$ と書く。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で、ほかの斉次座標を固定した偏微分 $\partial F/\partial X_j=5X_j^4$（$0\le j\le4$）が射影点で同時に零にならないことから、$Q$ は滑らかな複素次元3の射影超曲面である。また前章の[正則3形式の貼り合わせ](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)と[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
 
 一つの非消失正則3形式があるという事実は、すべての微分形式のコホモロジーを求めたという意味ではない。しかし $\mathcal O_Q$ のコホモロジーなら、これまでの代数的な計算だけで全次数を決められる。
 
@@ -349,9 +349,36 @@ $
 $Y_d\subset\mathbb P^4$ が滑らかな超曲面で、$d=5$ または $6$ とする。$K_{Y_d}$ と $\dim H^0(Y_d,K_{Y_d})$ を両方求めよ。GAGAで解析側も一致することを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)を周囲 $\mathbb P^4$ へ適用すると $K_{Y_d}\simeq\mathcal O_{Y_d}(d-5)$。$d=5$ では $K_{Y_5}\simeq\mathcal O_{Y_5}$。制限列 $0\to\mathcal O_P(-5)\to\mathcal O_P\to i_*\mathcal O_{Y_5}\to0$ の零次部分で $H^0(P,\mathcal O_P(-5))=H^1(P,\mathcal O_P(-5))=0$ だから $H^0(Y_5,K_{Y_5})\simeq\mathbb C$。
+**詳細解答。** $P=\mathbb P^4$、各 $d$ に対する閉埋込みを $i_d:Y_d\hookrightarrow P$ と置く。[代数的随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)に周囲の次元 $n=4$ を代入すると、
 
-$d=6$ では $K_{Y_6}\simeq\mathcal O_{Y_6}(1)$。六次式の制限列を1だけねじると $0\to\mathcal O_P(-5)\to\mathcal O_P(1)\to i_*\mathcal O_{Y_6}(1)\to0$。同じ零群に挟まれ、$H^0(Y_6,K_{Y_6})\simeq H^0(P,\mathcal O_P(1))\simeq\mathbb C^5$。したがって次元は順に $1,5$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)は両者が射影的で標準束が連接であるため適用でき、解析側の大域正則3形式の次元も $1,5$ である。
+$$
+K_{Y_d}\simeq\mathcal O_{Y_d}(d-4-1)
+=\mathcal O_{Y_d}(d-5)
+$$
+
+を得る。$d=5$ では $K_{Y_5}\simeq\mathcal O_{Y_5}$。五次式を掛ける制限列は
+
+$$
+0\to\mathcal O_P(-5)\to\mathcal O_P
+\to(i_5)_*\mathcal O_{Y_5}\to0
+$$
+
+である。$d=6$ では $K_{Y_6}\simeq\mathcal O_{Y_6}(1)$。六次式の制限列を1だけねじると
+
+$$
+0\to\mathcal O_P(-5)\to\mathcal O_P(1)
+\to(i_6)_*\mathcal O_{Y_6}(1)\to0
+$$
+
+となる。[閉埋込みの直像のコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)により $P$ 上の長完全列を各 $Y_d$ 上の群へ読み替える。[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)から $H^0(P,\mathcal O_P(-5))=H^1(P,\mathcal O_P(-5))=0$ なので、いずれの列でも中央の大域切断から右端への写像が同型になる。従って
+
+$$
+H^0(Y_5,K_{Y_5})\simeq H^0(P,\mathcal O_P)\simeq\mathbb C,
+\qquad
+H^0(Y_6,K_{Y_6})\simeq H^0(P,\mathcal O_P(1))\simeq\mathbb C^5.
+$$
+
+次元は順に $1,5$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)は両者が射影的で標準束が連接であるため適用でき、解析側の大域正則3形式の次元も $1,5$ である。
 <!-- solution-end -->
 
 <a id="ex-cag1-14-b04"></a>
@@ -413,7 +440,13 @@ $
 \to i_*\mathcal O_Z(1)\to0
 $
 
-に[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)と[閉埋込みの直像の比較](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を適用する。両端の $H^0(\mathcal O(-5))$、$H^1(\mathcal O(-5))$ が零だから、$H^0(Z,K_Z)\simeq H^0(\mathbb P^4,\mathcal O(1))\simeq\mathbb C^5$ と計算できる。
+に[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)と[閉埋込みの直像の比較](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を適用する。両端の $H^0(\mathbb P^4,\mathcal O(-5))$、$H^1(\mathbb P^4,\mathcal O(-5))$ が零だから、
+
+$
+H^0(Z,K_Z)\simeq H^0(\mathbb P^4,\mathcal O(1))\simeq\mathbb C^5
+$
+
+と計算できる。
 
 従って「GAGAは滑らかなものにしか使えない」は誤り。GAGAの射影性という仮定、随伴公式の滑らかさという仮定、五次で指数が消えるという算術的条件は別々に検査する。
 <!-- solution-end -->
