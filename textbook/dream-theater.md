@@ -416,6 +416,7 @@
 1. [MICA1 局所Fourier変換と滑らかさ](textbook/volumes/dream_thater/解析系/MICA/MICA1/index.md)
 2. [MICA2 錐領域での減衰](textbook/volumes/dream_thater/解析系/MICA/MICA2/index.md)
 3. [MICA3 波面集合の定義と基本性質](textbook/volumes/dream_thater/解析系/MICA/MICA3/index.md)
+4. [MICA4 基本分布の波面集合](textbook/volumes/dream_thater/解析系/MICA/MICA4/index.md)
 
 <a id="dt-subject-variational-problems"></a>
 ### 変分問題・幾何的第二変分
