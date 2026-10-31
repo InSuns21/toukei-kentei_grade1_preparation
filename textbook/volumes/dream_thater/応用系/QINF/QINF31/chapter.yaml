@@ -1,0 +1,33 @@
+id: QINF31
+title: "Haar測度とランダム純粋状態"
+volume: foundations
+status: supplementary
+prerequisites: [F0-00E2, F0-00P2A, LA5, QINF1, QINF2, QINF3, QINF6, QINF11, QINF17]
+official_scope: []
+learning_objectives:
+  - 複素Gaussian行列のQR分解から有限次元ユニタリ群のHaar分布を構成し、不変性と一意性を説明できる
+  - 複素Gaussianベクトルの正規化でHaarランダム純粋状態を生成し、平均状態を計算できる
+  - swap trickを添字または基底で証明し、部分系purityを二コピーのトレースへ書き換えられる
+  - 位相不変性と二次元回転からHaar純粋状態の二次モーメントを導出できる
+  - 二部系の平均purityが(d_A+d_B)/(d_A d_B+1)になることを再導出できる
+  - 平均状態・平均purity・高確率評価・平均エントロピーの相違を定量的に説明できる
+  - 乱数種と標本数を指定した複素Gaussianサンプリングで解析値と標準誤差を比較できる
+definitions:
+  - { id: QINF31-DEF-01, name: "Haar分布とHaarランダム純粋状態" }
+  - { id: QINF31-DEF-02, name: "交換作用素" }
+theorems:
+  - { id: QINF31-THM-01, name: "複素GaussianによるHaar分布の構成と一意性" }
+  - { id: QINF31-PROP-01, name: "Haar純粋状態の一次モーメント" }
+  - { id: QINF31-LEM-01, name: "swap trick" }
+  - { id: QINF31-THM-02, name: "Haar純粋状態の二次モーメント" }
+  - { id: QINF31-THM-03, name: "二部系の平均purity" }
+  - { id: QINF31-PROP-02, name: "最大混合からの平均偏差と確率評価" }
+canonical_examples:
+  - "2量子ビットのBell状態・積状態を固定してHaarランダム状態と区別する"
+  - "2×2では平均purity 4/5、2×3では5/7となることを交換作用素のトレースから検算"
+  - "固定d_Aでd_Bを増やしたときの平均偏差とMarkov界を検算"
+problem_patterns: [QINF31-GAUSSIAN, QINF31-HAAR, QINF31-SWAP, QINF31-MOMENT, QINF31-PURITY, QINF31-TYPICAL, QINF31-SAMPLING]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 4.0 }
