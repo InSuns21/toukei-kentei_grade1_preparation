@@ -23,14 +23,14 @@
 - II: I、複素積分・漸近評価、必要なLie代数。ゲージ固定、Faddeev–Popov、正則化はIIで初出導入する。
 - III: II、群・表現の最低限（I／IIの復習を含む）。QCDの閉じ込めと質量ギャップは一般的に証明済みと扱わない。
 - IV: I、IIの経路積分・Ward恒等式・RGの必要部分、複素解析。有限次元の量子エントロピーは[QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)が正本。IVにIIIは原則不要。
-- Lorentz計量・因果幾何は[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、Lorentz多様体上のGreen作用素は[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)。厳密な波面集合は[MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、局所演算子環の一般理論は[AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。これら全部をQFT Iの入学条件にしない。
+- Lorentz計量・因果幾何は[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、Lorentz多様体上のGreen作用素は[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)。厳密な波面集合は[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、局所演算子環の一般理論は[AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。これら全部をQFT Iの入学条件にしない。
 - 先行PLAN未実装の箇所は既習定理として使わない。実装時に直接必要な概念を本文で導入するか、公開済みcanonical dependencyを確認する。
 
 ### 1.1 数学的不足の追加監査（2026-10-13）
 
 | 数学的論点 | 前提となる既存正本／追加する正本 | QFT本編に必要なこと |
 |---|---|---|
-| Schwartz試験関数・温度分布・Fourier変換 | 既存FOU・GPDE；発展的波面集合は[MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | **場を点ごとの作用素と置かず、smearingした作用素値分布**と共通定義域を明記して自由場の交換関係を導く |
+| Schwartz試験関数・温度分布・Fourier変換 | 既存FOU・GPDE；発展的波面集合は[MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | **場を点ごとの作用素と置かず、smearingした作用素値分布**と共通定義域を明記して自由場の交換関係を導く |
 | Hilbert空間・非有界作用素・CCR／Weyl関係 | 既存QM・FA・OA | Fockの有限粒子稠密領域・無限自由度の表現非一意性・自由真空の仮定を区別する |
 | Lorentz表現・スピノル・Poincaré粒子表現 | [LREP：Lie群の表現とスピノル](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)（追加・未着手） | QFT IのDirac／Weyl、QFT IIIの質量・ヘリシティは必要な具体計算を本文に置き、一般分類の証明はLREPへ |
 | 主G束・接続・Chern–Weil・spin構造 | [GBG：主束とゲージ幾何](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)（追加・未着手） | QFT IIでは平坦時空の局所ゲージ変換と曲率を導く。非自明束・monopole／instanton／特性類はGBGへ |
@@ -150,7 +150,7 @@
 | Higgs・標準模型・QCD・EFT | **QFT III**（他に直接の正本なし） | 閉じ込め／質量ギャップの一般証明 |
 | CFT・Virasoro・レプリカ区間計算 | **QFT IV**（HOLO・BHI IIのCFT入口） | AdS/CFT辞書・RT/HRT・islandの重力計算はHOLO／BHI |
 | 非慣性観測者・粒子生成・Unruh／Hawking | [QCURV](../plans/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md) | QFT Iでは自由場と変換の準備まで。温度の物理的導出を二重所有しない |
-| Hadamard・波面集合・曲がった時空の局所くりこみ | [MICA](../plans/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、QCURV | QFT IIの平坦摂動論の反項と混同しない |
+| Hadamard・波面集合・曲がった時空の局所くりこみ | [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、QCURV | QFT IIの平坦摂動論の反項と混同しない |
 | Weyl代数・局所環・Type III・Tomita–Takesaki | [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md) | QFT IVで必要な問題の動機と参照にとどめる |
 | von Neumann entropy・量子チャネル・誤り訂正 | [QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | QFT IVは連続場の局所性・UV・CFTに固有の計算 |
 | AdS/CFT・RT/HRT・量子極値曲面 | [HOLO](../plans/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md) | QFT IVのCFTは境界側だけ |

@@ -1,0 +1,26 @@
+version: 1
+id: MICA
+title: "超局所解析・Hadamard条件 I"
+plan: textbook/plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# MICA2 以降の題名・分割は進捗と証明依存に応じて見直せる。
+chapters:
+  - id: MICA1
+    path: textbook/volumes/dream_thater/解析系/MICA/MICA1
+    status: completed
+    title: "局所Fourier変換と滑らかさ"
+  - { id: MICA2, path: textbook/volumes/dream_thater/解析系/MICA/MICA2, status: planned, title: "錐領域での減衰" }
+  - { id: MICA3, path: textbook/volumes/dream_thater/解析系/MICA/MICA3, status: planned, title: "波面集合の定義と基本性質" }
+  - { id: MICA4, path: textbook/volumes/dream_thater/解析系/MICA/MICA4, status: planned, title: "基本分布の波面集合" }
+  - { id: MICA5, path: textbook/volumes/dream_thater/解析系/MICA/MICA5, status: planned, title: "座標変換と余法束" }
+  - { id: MICA6, path: textbook/volumes/dream_thater/解析系/MICA/MICA6, status: planned, title: "分布の積" }
+  - { id: MICA7, path: textbook/volumes/dream_thater/解析系/MICA/MICA7, status: planned, title: "引き戻しと部分多様体への制限" }
+  - { id: MICA8, path: textbook/volumes/dream_thater/解析系/MICA/MICA8, status: planned, title: "擬微分作用素と主シンボル" }
+  - { id: MICA9, path: textbook/volumes/dream_thater/解析系/MICA/MICA9, status: planned, title: "特性集合とHamilton流" }
+  - { id: MICA10, path: textbook/volumes/dream_thater/解析系/MICA/MICA10, status: planned, title: "特異性の伝播" }
+  - { id: MICA11, path: textbook/volumes/dream_thater/解析系/MICA/MICA11, status: planned, title: "自由場の二点分布" }
+  - { id: MICA12, path: textbook/volumes/dream_thater/解析系/MICA/MICA12, status: planned, title: "局所Hadamard parametrix" }
+  - { id: MICA13, path: textbook/volumes/dream_thater/解析系/MICA/MICA13, status: planned, title: "Radzikowskiの波面集合条件" }
+  - { id: MICA14, path: textbook/volumes/dream_thater/解析系/MICA/MICA14, status: planned, title: "対角制限とHadamard subtraction" }
+  - { id: MICA15, path: textbook/volumes/dream_thater/解析系/MICA/MICA15, status: planned, title: "応力テンソルと局所共変性" }

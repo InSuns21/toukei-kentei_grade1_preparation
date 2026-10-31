@@ -1,0 +1,42 @@
+id: "MICA1"
+title: "局所Fourier変換と滑らかさ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE2
+  - FOU3
+official_scope: []
+learning_objectives:
+  - 試験関数で超関数を局所化し、cutoffの支持と基点近傍での値を区別できる
+  - コンパクト支持超関数のFourier変換を定義し、滑らかさと多項式増大評価を証明できる
+  - 超関数微分がFourier側で周波数乗算になることを符号込みで導出できる
+  - コンパクト支持の滑らかな関数と急減少Fourier変換の同値を両方向に証明できる
+  - 局所Fourier判定を使って滑らかな点と特異点を区別し、デルタ・跳躍・尖点を検算できる
+definitions:
+  - { id: MICA1-DEF-01, name: 超関数の局所化と局所Fourier変換 }
+  - { id: MICA1-DEF-02, name: Fourier変換の急減少 }
+  - { id: MICA1-DEF-03, name: 点での局所Fourier滑らかさ判定 }
+theorems:
+  - { id: MICA1-PROP-01, name: コンパクト支持超関数のFourier変換の多項式増大 }
+  - { id: MICA1-PROP-02, name: 超関数微分のFourier表示 }
+  - { id: MICA1-THM-01, name: コンパクト支持超関数のFourier急減少と滑らかさの同値 }
+  - { id: MICA1-THM-02, name: 局所Fourier判定と点近傍での滑らかさの同値 }
+canonical_examples:
+  - 0と離れた基点でのDirac超関数の局所化
+  - 滑らかなGaussianとcutoffの組
+  - Heaviside関数の跳躍と一次の周波数減衰
+  - 絶対値関数の尖点と二次の周波数減衰
+problem_patterns:
+  - MICA1-CUTOFF-DELTA
+  - MICA1-SMOOTH-DECAY
+  - MICA1-DERIVATIVE-DELTA
+  - MICA1-JUMP-ASYMPTOTIC
+  - MICA1-POLYNOMIAL-GROWTH
+  - MICA1-LOCAL-CUTOFF
+  - MICA1-CUSP-DECAY
+  - MICA1-RECONSTRUCTION
+  - MICA1-SINGULAR-SUPPORT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
