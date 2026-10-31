@@ -1,0 +1,69 @@
+chapter: HOD1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-07
+  - CM2-05
+  - KAH1-05
+  - KAH1-07
+concepts:
+  - id: hodge.hodge-diamond
+    name: Hodgeダイヤモンド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodgeダイヤモンド）"]
+    requires: [hodge.hodge-numbers]
+  - id: hodge.hodge-polynomial
+    name: Hodge多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodge多項式）"]
+    requires: [hodge.hodge-numbers]
+  - id: hodge.flat-torus-harmonic-constant
+    name: 平坦トーラスの調和形式の定数性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（平坦トーラスの調和形式の定数性）"]
+    requires: [hodge.harmonic-type-preservation, kahler.flat-torus-kahler]
+  - id: hodge.complex-torus-hodge-numbers
+    name: 複素トーラスのHodge数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素トーラスのHodge数）"]
+    requires: [hodge.flat-torus-harmonic-constant, hodge.dolbeault-harmonic-representative, hodge.hodge-numbers]
+  - id: hodge.elliptic-period-diamond
+    name: 楕円曲線の周期とHodgeダイヤモンド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（楕円曲線の周期とHodgeダイヤモンド）"]
+    requires: [hodge.complex-torus-hodge-numbers, hodge.hodge-diamond]
+  - id: hodge.projective-line-diamond
+    name: 射影直線のHodgeダイヤモンド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線のHodgeダイヤモンド）"]
+    requires: [complex-manifolds.projective-line-dolbeault-groups, hodge.hodge-diamond, kahler.projective-line-fs-area]
+  - id: hodge.product-laplacian-splitting
+    name: 積上のHodge Laplacianの分解
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（積上のHodge Laplacianの分解）"]
+    requires: [hodge.kahler-laplacian-equality, kahler.kahler-product]
+  - id: hodge.product-hodge-kunneth
+    name: 積のHodge数とHodge多項式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（積のHodge数とHodge多項式）"]
+    requires: [hodge.product-laplacian-splitting, hodge.dolbeault-harmonic-representative, hodge.hodge-polynomial]
+  - id: hodge.odd-b1-obstruction
+    name: 奇数の第一Betti数による非Kähler障害
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（奇数の第一Betti数による非Kähler障害）"]
+    requires: [hodge.betti-constraints]
+  - id: hodge.hopf-surface-obstruction
+    name: 一次Hopf曲面の位相と非Kähler性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次Hopf曲面の位相と非Kähler性）"]
+    requires: [hodge.odd-b1-obstruction, complex-manifolds.torus-quotient-atlas]

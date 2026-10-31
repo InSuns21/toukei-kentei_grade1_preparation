@@ -9,4 +9,5 @@
 6. [HOD1-06 Kähler多様体のHodge分解](textbook/volumes/dream_thater/幾何系/HOD/HOD1-06/index.md)
 7. [HOD1-07 Hodge数の対称性と位相的制約](textbook/volumes/dream_thater/幾何系/HOD/HOD1-07/index.md)
 8. [HOD1-08 大域$\partial\bar\partial$補題](textbook/volumes/dream_thater/幾何系/HOD/HOD1-08/index.md)
+9. [HOD1-09 具体例とHodgeダイヤモンドI](textbook/volumes/dream_thater/幾何系/HOD/HOD1-09/index.md)
 
