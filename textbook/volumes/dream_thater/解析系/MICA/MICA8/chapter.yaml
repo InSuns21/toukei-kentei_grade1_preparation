@@ -1,0 +1,45 @@
+id: "MICA8"
+title: "擬微分作用素と主シンボル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA7
+official_scope: []
+learning_objectives:
+  - 微分作用素のFourier表示から全記号・主シンボルを導き、D=-i∂の符号規約で検算できる
+  - symbol class S^m_{1,0} と古典記号を定義し、直接例の全微分評価を確認できる
+  - 擬微分作用素の量子化と適切な支持・対角線外での核の滑らかさを説明できる
+  - 合成記号のTaylor展開と低次補正を導き、主シンボルの積法則を検証できる
+  - 楕円錐上で漸近和を使ったmicrolocal parametrixを構成できる
+  - 擬局所性と楕円正則性の二方向の波面包含を証明し、非楕円方向の反例と区別できる
+definitions:
+  - { id: MICA8-DEF-00, name: 微分作用素の全記号 }
+  - { id: MICA8-DEF-01, name: 記号クラス }
+  - { id: MICA8-DEF-02, name: 古典記号と主シンボル }
+  - { id: MICA8-DEF-03, name: Kohn–Nirenberg量子化・擬微分作用素 }
+  - { id: MICA8-DEF-04, name: 楕円集合と非楕円方向 }
+theorems:
+  - { id: MICA8-LEM-01, name: 擬微分作用素の合成公式 }
+  - { id: MICA8-LEM-02, name: 記号の漸近和 }
+  - { id: MICA8-THM-01, name: 楕円方向のmicrolocal parametrix }
+  - { id: MICA8-LEM-03, name: 周波数局所化と波面 }
+  - { id: MICA8-THM-02, name: 擬微分作用素の擬局所性 }
+  - { id: MICA8-THM-03, name: スカラー擬微分作用素の楕円正則性 }
+canonical_examples:
+  - 1+D_x²とその逆Fourier乗数の記号評価
+  - D_xとxの乗算の非可換補正
+  - D_yの非楕円周波数とHeaviside分布の消失
+  - 1-∂_x²の基本解の微分の跳びと楕円正則性
+problem_patterns:
+  - MICA8-DIFFERENTIAL-SYMBOL
+  - MICA8-SYMBOL-ESTIMATES
+  - MICA8-ELLIPTIC-CONE
+  - MICA8-SMOOTHING-MULTIPLIER
+  - MICA8-COMPOSITION
+  - MICA8-OFF-DIAGONAL-KERNEL
+  - MICA8-MICROLOCAL-INVERSE
+  - MICA8-ELLIPTIC-REGULARITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 6 }
