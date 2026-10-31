@@ -8,6 +8,15 @@
 
 時空は四次元Euclid空間、$\hbar=1$、$m_R^2>0$、$\lambda_R\ge0$ とします。添字 $R$ は指定した条件で定める**くりこみ済み**の量を表します。$\Lambda>0$ は鋭い球形UVカットオフで、必要なら先に有限体積・有限Fourierモードで計算してから体積を無限にします。[有限モードの定義](../QFT22/index.md#def-qft22-sharp-cutoff)と同じ正のEuclid伝播核を使用します。
 
+以下の $\partial_\mu\phi$ の下添字 $\mu=1,2,3,4$ はEuclid座標成分を表し、繰り返し現れる添字は和を取ります。運動量についても同じ規約で
+
+$$
+(\partial_\mu\phi)^2=\sum_{\mu=1}^4(\partial_\mu\phi)^2,
+\qquad p^2=\sum_{\mu=1}^4p_\mu^2
+$$
+
+とします。第5節で導入する正の**基準スケール** $\mu$ は、この座標添字とは異なる対象です。
+
 もともとの作用の係数は、正則化を変えると別の値に調整されるため「裸の」係数 $m_B^2,\lambda_B,Z_B$ と区別します。基準となる $m_R^2,\lambda_R$ の周りで計算し、その差を反項 $\delta m^2,\delta\lambda,\delta Z$ として頂点に追加するのが手順です。$Z_B$ は場の勾配の二次項の係数で、粒子の伝播の運動量依存を規格化する役割を持ちます。
 
 <a id="def-qft23-bare-counterterms"></a>
@@ -172,13 +181,21 @@ $$
 \frac1{AB}=\int_0^1\frac{dx}{\{xA+(1-x)B\}^2}
 $$
 
-を使います。この公式は $A,B>0$ のとき、$y=xA+(1-x)B$ と置いて $\int_A^B y^{-2}dy/(B-A)=1/(AB)$ を計算して確かめられます。$A=k^2+m^2$、$B=(k+P)^2+m^2$ とすると
+を使います。この公式は $A,B>0$ のとき、$A\ne B$ なら $y=xA+(1-x)B$ と置いて $\int_A^B y^{-2}dy/(B-A)=1/(AB)$ を計算して確かめられます。$A=B$ なら両辺とも $A^{-2}$ です。$A=k^2+m^2$、$B=(k+P)^2+m^2$ とすると
 
 $$
 xA+(1-x)B=\{k+(1-x)P\}^2+m^2+x(1-x)P^2.
 $$
 
-各項を無限領域で別々に積分すると発散するため、次の**差全体**に対してのみ平行移動と極限操作をします。$M_x^2=m^2+x(1-x)P^2$ と書き、絶対可積分な差をFourier運動量の $q$ で積分すると
+各項を無限領域で別々に積分すると発散するため、次の**差全体**に対してのみ平行移動と極限操作をします。有限 $\Lambda$ のbubbleの領域は $\{|k|\le\Lambda,|k+P|\le\Lambda\}$ であり、$q=k+(1-x)P$ と移れば領域も移ります。
+
+[前講の境界殻評価](../QFT22/index.md#prop-qft22-bubble-difference)と同様に、固定した $P$ に対して移動による境界の差は厚さ $O(|P|)$、体積 $O(|P|\Lambda^3)$ の殻に含まれます。そこでは二伝播線の積が $O(\Lambda^{-4})$ なので、その寄与は
+
+$$
+O(|P|\Lambda^3)\,O(\Lambda^{-4})=O(|P|/\Lambda)\longrightarrow0
+$$
+
+です。$M_x^2=m^2+x(1-x)P^2$ と書き、絶対可積分な差をFourier運動量の $q$ で積分すると
 
 $$
 \lim_{\Lambda\to\infty}(B_\Lambda(P)-I_2)
@@ -244,9 +261,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft23-dimensional-regularization -->
-### 例：Gamma関数の引数を代入する
+### 例：収束域とスケールを直接検査する
 
-**定義の確認**：四点bubbleの零外部運動量は分母が二乗なので $\alpha=2$ です。$d/2=2-\varepsilon$ から $\alpha-d/2=\varepsilon$ となり、$J_2$ は $\Gamma(\varepsilon)$ を含みます。$\Gamma(\varepsilon)\sim1/\varepsilon$ が四次元での対数発散に対応します。質量 $m>0$ により赤外の零運動量発散とは区別できます。
+**定義の確認**：四点bubbleの零外部運動量は二本の伝播線が同じ分母を持つため $\alpha=2$ です。大きな運動量における $d$ 次元の動径積分は、球殻の因子と二本の伝播線から
+
+$$
+r^{d-1}\cdot r^{-4}=r^{d-5}
+$$
+
+の次数になります。無限遠での収束条件は $d<4=2\alpha$ です。原点では $m>0$ が分母を零から離し、$d>0$ なら収束します。
+
+実際に整数次元 $d=2$（従って $\varepsilon=1$）を選ぶと、二次元の極座標 $d^2k=2\pi r\,dr$ によって
+
+$$
+J_2(2;m,\mu)=\frac{\mu^2}{2\pi}\int_0^\infty\frac{r\,dr}{(r^2+m^2)^2}=\frac{\mu^2}{4\pi m^2}.
+$$
+
+$u=r^2+m^2$ と置けば、積分は
+
+$$
+\frac12\int_{m^2}^\infty u^{-2}du=\frac1{2m^2}
+$$
+
+です。$d=2$ の裸の積分は質量次元 $-2$ ですが、$\mu^{2\varepsilon}=\mu^2$ を掛けると $J_2$ の質量次元は四次元と同じ $0$ になります。非整数次元への解析接続と $d\to4$ での極は、次の定理でGamma関数を使って導きます。
 <!-- definition-example-end -->
 
 <a id="thm-qft23-dimensional-integral"></a>
