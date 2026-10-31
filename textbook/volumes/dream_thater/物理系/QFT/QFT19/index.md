@@ -323,8 +323,14 @@ $$
 
 の最終項だけです。$n$ 個の偶次数因子は互いに交換できるため、$1/n!$ はそれらの並べ方 $n!$ 通りを消します。残るのは、各 $\bar\theta_i$ をちょうど一回使い、$\theta_{\sigma(i)}$ を重複なく選ぶ置換 $\sigma\in S_n$ の項です。
 
-各項で $-\bar\theta_i A_{i,\sigma(i)}\theta_{\sigma(i)}
-=A_{i,\sigma(i)}\theta_{\sigma(i)}\bar\theta_i$ と直せます。したがって選んだ $n$ 因子の積は、偶次数因子同士の並べ替えによる符号を伴わず、
+各項で反交換性から
+
+$$
+-\bar\theta_i A_{i,\sigma(i)}\theta_{\sigma(i)}
+=A_{i,\sigma(i)}\theta_{\sigma(i)}\bar\theta_i
+$$
+
+と直せます。したがって選んだ $n$ 因子の積は、偶次数因子同士の並べ替えによる符号を伴わず、
 
 $$
 \left(\prod_{i=1}^n A_{i,\sigma(i)}\right)
