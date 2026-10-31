@@ -23,9 +23,9 @@ theorems:
   - { id: QFT19-THM-03, name: Berezin Gaussianの行列式公式 }
   - { id: QFT19-THM-04, name: フェルミオンGaussianのソース公式 }
   - { id: QFT19-PROP-01, name: フェルミオンの二点・四点収縮 }
-  - { id: QFT19-PROP-02, name: 有限格子の共分散と形式的連続核 }
+  - { id: QFT19-PROP-02, name: 有限格子の二点関数と形式的連続核 }
 canonical_examples:
-  - 二変数正定値行列の逆行列と共分散
+  - 二変数正定値行列の逆行列と二点期待値
   - 四点Gaussian対合の三項
   - 一組のGrassmann生成子による積分順序と符号
   - 二組のGrassmann生成子と行列式の負項

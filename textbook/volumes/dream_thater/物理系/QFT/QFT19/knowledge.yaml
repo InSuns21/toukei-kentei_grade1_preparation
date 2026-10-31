@@ -90,8 +90,8 @@ concepts:
     requires: [qft.finite-gaussian-generating-formula, qft.fermionic-gaussian-source-formula]
 
   - id: qft.lattice-covariance-continuum-kernel
-    name: 有限格子の共分散と形式的連続核
+    name: 有限格子の二点関数と形式的連続核
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（有限格子の共分散と形式的連続核）]
+    introduction_aliases: [命題（有限格子の二点関数と形式的連続核）]
     requires: [qft.formal-lattice-functional]

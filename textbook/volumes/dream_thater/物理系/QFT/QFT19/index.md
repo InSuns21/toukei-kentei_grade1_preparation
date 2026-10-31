@@ -555,7 +555,7 @@ $\phi^TA_2\phi=(\phi_1-\phi_2)^2+m^2(\phi_1^2+\phi_2^2)>0$（$\phi\ne0$）なの
 <a id="prop-qft19-lattice-covariance"></a>
 
 <!-- formal-statement-start -->
-> **命題（有限格子の共分散と形式的連続核）**  
+> **命題（有限格子の二点関数と形式的連続核）**  
 > 実対称正定値 $A_N$ を持つ有限格子のEuclid生成汎関数について $G_N=A_N^{-1}$ とすると
 
 $$
