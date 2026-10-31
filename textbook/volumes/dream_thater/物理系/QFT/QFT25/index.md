@@ -224,7 +224,7 @@ $$
 
 QEDでは裸の電子場 $\psi_B=Z_2^{1/2}\psi_R$ と光子場 $A_B=Z_3^{1/2}A_R$ を使い、$Z_2$ を電子場、$Z_3$ を光子場のくりこみ因子とします。
 
-[QFT17の最小結合頂点](../QFT17/index.md#def-qft17-qed-action)の係数を考え、くりこみ済み場で書いた頂点係数を $\mu^\varepsilon Z_1e$ と定義します。ここで $Z_1$ は頂点のくりこみ因子です。裸の相互作用項で $\bar\psi_B A_B\psi_B=Z_2Z_3^{1/2}\bar\psi_R A_R\psi_R$ と置き換え、両方の頂点係数を照合すると
+[QFT17の最小結合頂点](../QFT17/index.md#def-qft17-qed-action)の係数を考え、くりこみ済み場で書いた頂点係数を $\mu^\varepsilon Z_1e$ と定義します。ここで $Z_1$ は頂点のくりこみ因子です。裸の相互作用項で $\bar\psi_B\gamma^\nu A_{B,\nu}\psi_B=Z_2Z_3^{1/2}\bar\psi_R\gamma^\nu A_{R,\nu}\psi_R$ と置き換え、両方の頂点係数を照合すると
 
 $$
 e_BZ_2Z_3^{1/2}=\mu^\varepsilon Z_1e,
