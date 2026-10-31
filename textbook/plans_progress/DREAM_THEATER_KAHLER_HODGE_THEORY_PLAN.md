@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-28（標準教科書・講義ノートとの照合、依存・証明責務・学修順序の再設計）  
-状態: in_progress（HOD1-01実装・査読完了、HOD1-02〜16はplanned）
+状態: in_progress（HOD1-01・02実装・査読完了、HOD1-03〜16はplanned）
 
 ## 中心問いと到達点
 
@@ -28,7 +28,7 @@
 | Kähler恒等式、複素Hodge分解、$\partial\bar\partial$-補題、Hard Lefschetz、原始分解、Hodge–Riemann関係 | **HOD1が証明の正本**。KAH1/GA6に重複移植しない。 |
 | Kodaira埋め込み、一般Chern–Weil、Calabi予想、Hodge予想、周期写像の変動理論 | 各専用科目または後続に残す。HOD1では結果の使い道・入口を説明しても**未証明を既証明扱いしない**。 |
 
-HOD1系列manifestを初期化し、HOD1-01の本文・`chapter.yaml`・`knowledge.yaml`を実装した。HOD1-02以降は未実装であり、各章の着手時に最小prerequisiteと実在する公開stable anchorを再確認する。上の科目名だけを全章の一括prerequisiteにしない。
+HOD1系列manifestを初期化し、HOD1-01・02の本文・`chapter.yaml`・`knowledge.yaml`を実装した。HOD1-03以降は未実装であり、各章の着手時に最小prerequisiteと実在する公開stable anchorを再確認する。上の科目名だけを全章の一括prerequisiteにしない。
 
 ## 仮定・記号・正規化（初章から一貫して使う）
 

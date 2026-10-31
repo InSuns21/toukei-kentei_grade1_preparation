@@ -1,0 +1,43 @@
+chapter: HOD1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-01
+  - KAH1-02
+concepts:
+  - id: hodge.lefschetz-operator
+    name: Lefschetz作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lefschetz作用素）"]
+    requires: [kahler.fundamental-form, geometry.form-wedge-product]
+  - id: hodge.lefschetz-adjoint
+    name: Lefschetz随伴作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lefschetz随伴作用素）"]
+    requires: [hodge.lefschetz-operator, hodge.complex-form-inner-product]
+  - id: hodge.exterior-contraction-operators
+    name: 収縮作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（収縮作用素）"]
+    requires: [hodge.lefschetz-adjoint, hodge.type-orthogonality]
+  - id: hodge.lefschetz-adjoint-frame-formula
+    name: 随伴のunitary余標構表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（随伴のunitary余標構表示）"]
+    requires: [hodge.exterior-contraction-operators]
+  - id: hodge.lefschetz-commutator-degree
+    name: Lefschetz交換子の次数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lefschetz交換子の次数公式）"]
+    requires: [hodge.lefschetz-adjoint-frame-formula]
+  - id: hodge.lefschetz-bidegree
+    name: 複素型と随伴の作用次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素型と随伴の作用次数）"]
+    requires: [hodge.lefschetz-adjoint-frame-formula, complex-manifolds.pq-differential-forms]
