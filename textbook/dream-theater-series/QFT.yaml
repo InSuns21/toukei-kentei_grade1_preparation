@@ -78,3 +78,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT18
     status: completed
     title: "QEDのWard–Takahashi恒等式と木レベル光子ゲージ不変性"
+  - id: QFT19
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT19
+    status: completed
+    title: "Gaussian・Grassmann積分と生成汎関数"
