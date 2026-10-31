@@ -607,7 +607,7 @@ $$
 \widehat{\chi u_-}(\xi)=i\int_{\xi}^{\infty}\widehat\chi(s)\,ds.
 $$
 
-$\chi(0)=1$ とFourier反転から全積分は $2\pi$ です。$\widehat\chi$ はSchwartz関数なので尾部積分は $0$ へ収束し、
+$\chi(0)=1$ とFourier反転から全積分は $2\pi$ です。$\widehat\chi$ は任意次数で急減少するので尾部積分は $0$ へ収束し、
 
 $$
 \lim_{\xi\to+\infty}\widehat{\chi u_+}(\xi)=-2\pi i,
