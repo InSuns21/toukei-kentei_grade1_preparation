@@ -19,12 +19,22 @@ $$
 
 です。ここで添字 $M$ はMinkowskiを表します。時間を $t=-i\tau$ と置き、$\phi_E(\tau,\boldsymbol x)=\phi(-i\tau,\boldsymbol x)$ と書くことを考えます。これは任意の実時間の関数を複素時間へ延長できるという主張ではありません。まず**解析的な関数に対する代入**として計算し、場の理論へ適用するための条件は後で確認します。
 
-微分の連鎖律と微小時間の変換は
+空間座標 $\boldsymbol x$ を固定して微分します。$\partial_t$ は実時間 $t$ に関する偏微分、$\partial_\tau$ はEuclid時間 $\tau$ に関する偏微分です。連鎖律と積分変数の変換は
 
 $$
-\partial_t\phi=i\partial_\tau\phi_E,
+\partial_\tau\phi_E=-i\left.(\partial_t\phi)\right|_{t=-i\tau},
+\qquad \left.(\partial_t\phi)\right|_{t=-i\tau}=i\partial_\tau\phi_E,
 \qquad dt=-i\,d\tau.
 $$
+
+一自由度の関数 $q(t)$ を用いるときのドットとプライムは、それぞれの時間に関する通常の導関数を表します。
+
+$$
+\dot q=\frac{dq}{dt},\qquad q_E'=\frac{dq_E}{d\tau},
+\qquad \left.\dot q\right|_{t=-i\tau}=iq_E'.
+$$
+
+モードのラベルは微分時に固定します。
 
 したがって $iS_M$ の指数の符号は変わり、実変数で正の二次形式が現れます。
 
@@ -158,7 +168,16 @@ $$
 二つを合わせると $e^{-i\omega|t|}/(2\omega)$ です。これは固定した自由モードでの解析接続であって、任意の相互作用の分布が同じ手順で接続できることは示していません。
 <!-- proof-end -->
 
-この核は [QFT19のGaussian二点公式](../QFT19/index.md#thm-qft19-gaussian)の連続版に対応します。ただし $(-\partial_\tau^2-\Delta+m^2)^{-1}$ は無限次元作用素の逆核であり、全時空点での有限な数ではありません。有限の空間モードと有限個の時刻に制限すれば、$C_E$ は正定値の共分散行列を与えます。ここで共分散の意味は、[確率変数の共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を場の線形測定に適用したものです。
+この核は [QFT19のGaussian二点公式](../QFT19/index.md#thm-qft19-gaussian)の連続版に対応します。ただし $(-\partial_\tau^2-\Delta+m^2)^{-1}$ は無限次元作用素の逆核であり、全時空点での有限な数ではありません。[確率変数の共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を場の線形測定に適用すると、有限の空間モードと有限個の時刻については**正半定値**の共分散行列が得られます。実際、固定した空間運動量で時刻 $\tau_j$ と係数 $c_j\in\mathbb C$ を選び、[上のFourier表示](#thm-qft20-euclidean-kernel)を代入すると
+
+$$
+\sum_{j,k}\overline{c_j}C_E(\tau_j-\tau_k,\boldsymbol p)c_k
+=\int_{\mathbb R}\frac{dp_4}{2\pi}\,
+\frac{\left|\sum_j c_je^{-ip_4\tau_j}\right|^2}
+{p_4^2+\omega_{\boldsymbol p}^2}\ge0.
+$$
+
+時刻や測定の重複があれば零固有値を持ち得るので、一般に正定値とまでは言えません。これは通常の共分散の正値性であり、第4節で導入する、時刻を反射した後の二次形式の非負性とは異なる検査です。
 
 ## 3. Wick回転を積分路で実施するための条件
 
@@ -168,7 +187,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（積分路によるWick回転）**
-> 複素変数 $z$ の有理型関数 $f$ に対し、正の実半直線 $[0,\infty)$ 上の積分を正の虚半直線 $i[0,\infty)$ 上の積分へ変える操作を考える。回転する第一象限に極がなく、四分円 $|z|=R$ 上の積分が $R\to\infty$ で零になり、両半直線の積分が定まるとき、Cauchyの積分定理によって
+> 複素変数 $z$ の有理型関数 $f$ に対し、正の実半直線 $[0,\infty)$ 上の積分を正の虚半直線 $i[0,\infty)$ 上の積分へ変える操作を考える。回転する閉第一象限（両軸と原点を含む）に極がなく、四分円 $|z|=R$ 上の積分が $R\to\infty$ で零になり、両半直線の積分が定まるとき、[CA2のCauchy積分定理](../../../解析系/CA/CA2/index.md#thm-ca2-cauchy-simply-connected)を四分円内に適用して
 
 $$
 \int_0^\infty f(x)\,dx
@@ -391,7 +410,22 @@ $$
 <!-- definition-example-start: def-qft20-os-data -->
 ### 例：自由二点核が満たす検査と、未検査の部分
 
-**定義の確認**：$C_E$ は $(-\Delta_E+m^2)^{-1}$ の核なのでFourier表示は $1/(p_4^2+|\boldsymbol p|^2+m^2)$ であり、Euclid回転によって分母は変わりません。$C_E(x-y)=C_E(y-x)$ も成り立ちます。[反射二次形式の定理](#thm-qft20-free-reflection)で、線形汎関数についての(iv)も検査しました。$S_4$ などは [QFT19のWick対合](../QFT19/index.md#thm-qft19-boson-wick)によって構成できますが、これらを示しただけで任意の相互作用模型の全公理を満たしたとは言えません。
+**定義の確認**：二点関数について、時間・空間Fourier変数をまとめて $p_E=(p_4,\boldsymbol p)$ と書けば、[Euclid自由共分散のFourier表示](#thm-qft20-euclidean-kernel)は
+
+$$
+\widehat C_E(p_E)=\frac1{p_4^2+|\boldsymbol p|^2+m^2}
+=\frac1{|p_E|^2+m^2}.
+$$
+
+従って(i) Euclid平行移動では差 $x-y$ が変わらず、直交回転では $|p_E|^2$ が不変です。(ii) 分母は $p_E\mapsto-p_E$ に関して偶なので $C_E(x-y)=C_E(y-x)$ です。(iii) 相対座標のSchwartz試験関数 $h$ に対する作用は、$m>0$ を用いて
+
+$$
+|\langle C_E,h\rangle|
+\le \frac1{m^2}\int_{\mathbb R^4}\frac{d^4p_E}{(2\pi)^4}
+|\widehat h(p_E)|<\infty
+$$
+
+と評価でき、二点核が緩増加分布であることを確認できます。(iv) [反射二次形式の定理](#thm-qft20-free-reflection)で、線形汎関数について検査しました。高次の $S_{2r}$ は [QFT19のWick対合](../QFT19/index.md#thm-qft19-boson-wick)を使って有限個の二点収縮の和として構成できます。ただし**二点・線形汎関数だけの検査**では、全ての多点関数の連続性や全多項式の反射陽性まで確認したことにはなりません。まして任意の相互作用模型の全公理を満たしたとは言えません。
 <!-- definition-example-end -->
 
 Osterwalder–Schraderの再構成の考え方は、正時刻汎関数に $\langle\Theta F\,G\rangle_E$ という半正定値の内積を入れ、零ノルムの元を割って完成したHilbert空間を得ることです。時間の正方向への平行移動はこの空間上でノルムを増やさない作用素となり、適切な公理の下で非負のHamiltonianへ接続されます。**反射陽性が欠けると、この「ノルム二乗」から負の値が出て、物理的Hilbert空間への道筋が壊れます。** 一般の再構成定理は正則性・対称性その他の公理も要し、その証明は別の数理QFTの課題です。
@@ -436,7 +470,18 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\tau>0$ で $C'=-(1/2)e^{-3\tau}$、$\tau<0$ で $C'=(1/2)e^{3\tau}$ です。従って $C'(0+)=-1/2$、$C'(0-)=+1/2$、跳びは $-1$ です。零以外では $C''=9C$、零での跳びによる分布微分を加えると
+$\tau>0$ と $\tau<0$ でそれぞれ微分すると
+
+$$
+C'(\tau)=\begin{cases}
+-\frac12e^{-3\tau}&(\tau>0),\\
+\frac12e^{3\tau}&(\tau<0),
+\end{cases}
+\qquad
+C''(\tau)=9C(\tau)\quad(\tau\ne0).
+$$
+
+従って $C'(0+)=-1/2$、$C'(0-)=+1/2$ で、跳びは $-1$ です。零での跳びによる分布微分を加えると
 
 $$
 C''=9C+[C'(0+)-C'(0-)]\delta=9C-\delta.
@@ -499,7 +544,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$C_E(0,0)=1/(2m)\to\infty$ です。固定した $\tau$ について $e^{-m|\tau|}=1-m|\tau|+O(m^2)$ だから
+零空間運動量では $\omega_{\boldsymbol 0}=m$ です。従って $C_E(0,0)=1/(2m)\to\infty$ です。固定した $\tau$ について、指数関数のTaylor展開から
+
+$$
+e^{-m|\tau|}=1-m|\tau|+O(m^2)\qquad(m\downarrow0)
+$$
+
+なので
 
 $$
 C_E(\tau,0)=\frac1{2m}-\frac{|\tau|}{2}+O(m),
@@ -516,7 +567,14 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-第一象限の極は $z_0=1+i$、下側の極は $-i$ です。$0\to R\to iR\to0$ の反時計回りの四分円を考えると、$|f(z)|=O(R^{-2})$、弧長 $O(R)$ より弧積分は $O(R^{-1})\to0$ です。虚軸の戻りは $-iI_I$ です。留数は
+第一象限の極は $z_0=1+i$、下側の極は $-i$ です。$R>\max\{|1+i|,1\}$ とし、$0\to R\to iR\to0$ の反時計回りの四分円を考えます。弧上の $|z|=R$ では $|z-(1+i)|\ge R-|1+i|$、$|z+i|\ge R-1$ なので
+
+$$
+\left|\int_{\mathrm{arc}_R}f(z)\,dz\right|
+\le\frac{\pi R/2}{(R-|1+i|)(R-1)}=O(R^{-1})\longrightarrow0.
+$$
+
+虚軸を下る辺は $z=iy$、$y:R\to0$ だから $-iI_I$ に収束します。[CA4の留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)で使う第一象限の極の留数は
 
 $$
 \operatorname*{Res}_{z=1+i} f(z)
@@ -570,7 +628,22 @@ $$
 =\frac{(4/5)p_4^2+1/5}{(p_4^2+4)(p_4^2+1)}>0.
 $$
 
-よって $K(\tau-\sigma)$ は通常の正定値共分散です。しかし反射二次形式は $K(\tau+\sigma)$ を使います。$K(4)=e^{-8}/4-e^{-4}/10<0$ は $e^4>5/2$ から従います。正の時刻 $\tau=2$ 近くの試験関数で反射二次形式を $K(4)$ に近づけられるため、反射陽性は失敗します。二つの正値性は異なる行列を検査しています。
+Fourier係数が正なので、任意の非零Schwartz試験関数 $g$ について[本文のFourier二次形式](#prop-qft20-positive-not-reflection)により、$K(\tau-\sigma)$ は通常の正定値共分散です。しかし反射二次形式が検査するのは $K(\tau+\sigma)$ です。特に
+
+$$
+K(4)=\frac{e^{-8}}4-\frac{e^{-4}}{10}<0
+\quad\Longleftrightarrow\quad e^4>\frac52
+$$
+
+が成立します。$\rho\in C_c^\infty((-1,1))$ を非負、積分値1とし、$0<\delta<1$ に対して正時刻に台を持つ $f_\delta(\tau)=\delta^{-1}\rho((\tau-2)/\delta)$ を取ります。$\tau,\sigma$ は $2-\delta$ と $2+\delta$ の間にあるので、$\tau+\sigma\to4$ は一様です。核 $K$ の連続性から
+
+$$
+\lim_{\delta\downarrow0}\int_0^\infty\!\int_0^\infty
+f_\delta(\tau)K(\tau+\sigma)f_\delta(\sigma)
+\,d\tau\,d\sigma=K(4)<0.
+$$
+
+十分小さい $\delta$ で反射二次形式は負となります。二つの正値性は異なる行列を検査しています。
 <!-- solution-end -->
 
 ### 演習 QFT20-B4：有限個の反射行列
@@ -621,12 +694,17 @@ $$
 C(\tau)=\frac{e^{-\omega|\tau|}}{2\omega}.
 $$
 
-**(3) Fourier変換。** 二つの半直線で直接積分すれば
+**(3) Fourier変換。** $\omega>0$ なので両半直線で指数積分が収束します。負の半直線を $s=-\tau$ で置換すると
 
 $$
-\widehat C(p_4)=\frac1{2\omega}
-\left(\frac1{\omega+ip_4}+\frac1{\omega-ip_4}\right)
+\begin{aligned}
+\widehat C(p_4)
+&=\frac1{2\omega}\left[
+\int_0^\infty e^{-(\omega+ip_4)\tau}d\tau
++\int_0^\infty e^{-(\omega-ip_4)s}ds\right]\\
+&=\frac1{2\omega}\left(\frac1{\omega+ip_4}+\frac1{\omega-ip_4}\right)
 =\frac1{p_4^2+\omega^2}.
+\end{aligned}
 $$
 
 **(4) 反射二次形式。** $\tau_j>0$ と複素数 $c_j$ について
@@ -640,10 +718,15 @@ e^{-\omega\tau_j}e^{-\omega\tau_k}\\
 \end{aligned}
 $$
 
-**(5) 実時間への復帰と適用範囲。** $F_\omega(z)=e^{-\omega z}/(2\omega)$ は右半平面で正則で、$t>0$ には $z=\epsilon+it$、$t<0$ には $z=\epsilon-it$ の境界値を取ります。$\epsilon\downarrow0$ で
+**(5) 実時間への復帰と適用範囲。** $F_\omega(z)=e^{-\omega z}/(2\omega)$ は右半平面で正則です。$t>0$ には $z=\epsilon+it$、$t<0$ には $z=\epsilon-it$ の境界値を取ります。$\epsilon\downarrow0$ として、二つの場合を別々に計算すると
 
 $$
-D_F(t)=\frac{e^{-i\omega|t|}}{2\omega}
+\lim_{\epsilon\downarrow0}F_\omega(z)=
+\begin{cases}
+e^{-i\omega t}/(2\omega)&(t>0),\\
+e^{i\omega t}/(2\omega)&(t<0),
+\end{cases}
+\quad=\frac{e^{-i\omega|t|}}{2\omega}
 $$
 
 となり、[QFT6のFeynman処方](../QFT6/index.md#def-qft6-feynman-two-point)と一致します。相互作用理論では全 $n$ 点Schwinger関数の対称性・正則性・反射陽性、複素積分の極や切断、正則化と極限を追加で検査しなければなりません。有限モードの成功は一般の再構成定理の証明ではありません。
