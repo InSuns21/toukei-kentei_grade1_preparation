@@ -6,7 +6,14 @@
 
 本講の目標は、計算済みのpurityから**証明できるエントロピーの範囲**をまず確定し、その後、より精密なPageの厳密平均式を文献上の結果として比較することです。数値実験でも平均と標本ごとの揺らぎを分けます。
 
-以下、$H_A,H_B$ は有限次元複素Hilbert空間、$d_A,d_B\ge1$、$D=d_Ad_B$ とします。$|\psi\rangle$ は全系のHaarランダム単位ベクトル、$\rho_A=\operatorname{Tr}_B|\psi\rangle\langle\psi|$ です。[Schmidt分解と縮約スペクトルの一致](../QINF6/index.md#thm-qinf6-reduced-spectrum)から $\rho_A,\rho_B$ の非零固有値は一致するので、エントロピー評価では小さい側の次元を
+以下、$H_A,H_B$ は次元 $d_A,d_B\ge1$ の有限次元複素Hilbert空間、$|\psi\rangle$ は全系のHaarランダム単位ベクトルとします。両側の縮約状態を
+
+$$
+\rho_A=\operatorname{Tr}_B|\psi\rangle\langle\psi|,
+\qquad \rho_B=\operatorname{Tr}_A|\psi\rangle\langle\psi|
+$$
+
+と書きます。[Schmidt分解と縮約スペクトルの一致](../QINF6/index.md#thm-qinf6-reduced-spectrum)から両者の非零固有値は一致するので、エントロピー評価では小さい側の次元を
 
 $$
 m=\min(d_A,d_B),\qquad n=\max(d_A,d_B),\qquad 1\le m\le n
@@ -33,7 +40,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf32-renyi2 -->
-**定義の確認**。二次元の対角状態 $\rho=\operatorname{diag}(3/4,1/4)$ は固有値が非負、和が1なので密度演算子です。
+**定義の確認**。正規直交基底 $|0\rangle,|1\rangle$ で
+
+$$
+\rho=\frac34|0\rangle\langle0|+\frac14|1\rangle\langle1|
+=\operatorname{diag}(3/4,1/4)
+$$
+
+と表します。この対角行列の成分は基底ベクトルに対する固有値です。また、任意の $v=v_0|0\rangle+v_1|1\rangle$ に対して $\rho^\dagger=\rho$、
+
+$$
+\langle v,\rho v\rangle=\frac34|v_0|^2+\frac14|v_1|^2\ge0,
+\qquad \operatorname{Tr}\rho=\frac34+\frac14=1
+$$
+
+なので、[密度演算子の三条件](../QINF2/index.md#def-qinf2-ensemble-density)をすべて満たします。対角表示から $\rho^2=\operatorname{diag}(9/16,1/16)$ となるため、トレースを取って
 
 $$
 P(\rho)=\frac9{16}+\frac1{16}=\frac58,\qquad
@@ -60,7 +81,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf32-deficit -->
-**定義の確認**。$m=2$ で $I_2/2$ は $S=1$ より $\Delta_2=0$。純粋状態 $|0\rangle\langle0|$ は $S=0$ より $\Delta_2=1$ です。これは[エントロピーの最大値と等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)から確かに非負です。
+**定義の確認**。$m=2$ で最大混合状態 $I_2/2$ の固有値は $(1/2,1/2)$、純粋状態 $|0\rangle\langle0|$ の固有値は $(1,0)$ です。したがって
+
+$$
+\begin{aligned}
+S(I_2/2)&=-2\cdot\frac12\log_2\frac12=1,
+&\Delta_2(I_2/2)&=1-1=0,\\
+S(|0\rangle\langle0|)&=0,
+&\Delta_2(|0\rangle\langle0|)&=1-0=1.
+\end{aligned}
+$$
+
+これは[エントロピーの最大値と等号条件](../QINF17/index.md#thm-qinf17-entropy-bounds)とも整合し、欠損は確かに非負です。
 <!-- definition-example-end -->
 
 ## 3. purityと二種類のエントロピーを挟む
@@ -290,7 +322,7 @@ $$
 =\frac{m^2-1}{m(mn+1)}.
 $$
 
-非負確率変数 $X$ と $t>0$ に対し $\mathbb EX\ge t\Pr(X\ge t)$ です。$t=(2^\varepsilon-1)/m$ を代入して
+非負で有界な確率変数 $X$ と $t>0$ には[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)が適用でき、$\mathbb EX\ge t\Pr(X\ge t)$ です。$t=(2^\varepsilon-1)/m>0$ を代入して
 
 $$
 \Pr(\Delta_m\ge\varepsilon)
@@ -340,11 +372,20 @@ $$
 
 ## 8. 数値実験：標本平均・標準誤差・厳密式
 
-前講と同じく、独立な複素標準Gaussian係数 $g_{ia}$ を $mn$ 個生成し、ノルムで割ってHaar純粋状態を得ます。[縮約状態の成分表示](../QINF3/index.md#def-qinf3-partial-trace)は
+前講と同じく、独立な複素標準Gaussian係数 $g_{ia}$ を $mn$ 個生成します。添字 $1\le i\le m$ は小さい部分系、$1\le a\le n$ は環境側の正規直交基底を走ります。全系の振幅は
 
 $$
-\rho_{ij}=\sum_{a=1}^n
-\frac{g_{ia}\overline{g_{ja}}}{\sum_{k=1}^m\sum_{b=1}^n|g_{kb}|^2}
+Z=\sum_{k=1}^m\sum_{b=1}^n|g_{kb}|^2,
+\qquad \psi_{ia}=\frac{g_{ia}}{\sqrt Z}
+$$
+
+と正規化します。全係数が同時に0となる確率は0なので、$Z>0$ がほとんど確実に成り立ちます。これでHaar純粋状態を得ます。
+
+[部分トレースの定義](../QINF3/index.md#def-qinf3-partial-trace)で環境側の同じ添字 $a$ を足すと、縮約状態の行列成分は
+
+$$
+\rho_{ij}=\sum_{a=1}^n\psi_{ia}\overline{\psi_{ja}}
+=\sum_{a=1}^n\frac{g_{ia}\overline{g_{ja}}}{Z}
 $$
 
 です。これを対角化し、各標本の $P$、$S_2$、$S$ を求めます。付属の [page-entropy-sampling.mjs](assets/page-entropy-sampling.mjs) は標本数・乱数種を固定し、平均・標本標準誤差・理論値をJSONで出力します。
@@ -419,7 +460,7 @@ $$
 \mathbb EP=\frac{2+2}{2\cdot2+1}=\frac45.
 $$
 
-各状態で $S\ge-\log_2P$、$-\log_2$ は凸だから
+[purityとエントロピーの挟み撃ち](#lem-qinf32-entropy-sandwich)により、各状態で $S\ge-\log_2P$ です。$a=\mathbb EP=4/5$ とおき、$\ln(P/a)\le P/a-1$ を平均すると $\mathbb E\ln P\le\ln a$ なので、
 
 $$
 \mathbb ES\ge-\log_2\mathbb EP
@@ -437,7 +478,22 @@ $$
 - 問題: $m=1,n\ge1$ のHaar模型で $\rho$、$P$、$S_2$、$S$、欠損界、確率界をすべて確かめてください。
 
 <!-- solution-start -->
-**詳細解答**。一次元の密度演算子は $\rho=(1)$ のみです。従って $P=1$、$S_2=S=0$、$\Delta_1=0$ です。[平均評価](#thm-qinf32-page-type-mean)の下界は $\log_2[(n+1)/(n+1)]=0$、上界も $\log_21=0$。欠損の上界は $(1^2-1)/[(n+1)\ln2]=0$ です。任意の $\varepsilon>0$ に対し $\Pr(\Delta_1\ge\varepsilon)=0$、[確率界](#thm-qinf32-entropy-tail)の右辺も0です。境界の場合にも式は整合しています。
+**詳細解答**。一次元の密度演算子は $\rho=(1)$ のみです。固有値は1なので
+
+$$
+P=1,\qquad S_2=-\log_2 1=0,\qquad
+S=0,\qquad \Delta_1=\log_2 1-S=0.
+$$
+
+[平均評価](#thm-qinf32-page-type-mean)の上下界と欠損の上界はそれぞれ
+
+$$
+\log_2\frac{n+1}{n+1}=0\le\mathbb ES\le\log_2 1=0,
+\qquad
+0\le\mathbb E\Delta_1\le\frac{1^2-1}{(n+1)\ln2}=0.
+$$
+
+任意の $\varepsilon>0$ で $\Delta_1=0$ だから $\Pr(\Delta_1\ge\varepsilon)=0$ です。[確率界](#thm-qinf32-entropy-tail)の右辺も分子が $1^2-1=0$ なので0になります。境界の場合にもすべての式は整合しています。
 <!-- solution-end -->
 
 <a id="ex-qinf32-b01"></a>
@@ -471,7 +527,7 @@ $$
 =\frac1{8\ln2}.
 $$
 
-$S_2=\log_2(8/3)<3/2$、また $0<\log_23-3/2<1/(8\ln2)$。固有値が全て等しくないので前者の等号は成立せず、状態が $I_3/3$ でないので後者の等号も成立しません。
+$S_2=\log_2(8/3)\simeq1.4150<3/2$ です。また $\Delta_3\simeq0.0850$ に対し二次偏差界は $1/(8\ln2)\simeq0.1803$ なので、$0<\Delta_3<1/(8\ln2)$ を数値でも確認できます。固有値が全て等しくないので前者の等号は成立せず、状態が $I_3/3$ でないので後者の等号も成立しません。
 <!-- solution-end -->
 
 <a id="ex-qinf32-b02"></a>
@@ -529,7 +585,14 @@ $$
 \left(\frac23,\frac16,\frac16\right)
 $$
 
-はどちらもpurity $1/2$ ですが、前者のエントロピーは1 bit、後者は $-\frac23\log_2\frac23-\frac13\log_2\frac16>1$ bitです。従って平均purity一つから文献式の等号は導けず、縮約状態の固有値分布について追加情報が必要です。
+はどちらもpurity $1/2$ ですが、前者のエントロピーは1 bit、後者は
+
+$$
+-\frac23\log_2\frac23-\frac13\log_2\frac16
+=\frac13\log_2\frac{27}{2}\simeq1.2516>1
+$$
+
+となり、1 bitを上回ります。従って平均purity一つから文献式の等号は導けず、縮約状態の固有値分布について追加情報が必要です。
 <!-- solution-end -->
 
 <a id="ex-qinf32-b04"></a>
