@@ -2,7 +2,7 @@ id: QFT26
 title: "Wilson流・関連／無関連／周辺演算子と有効場の理論"
 volume: foundations
 status: supplementary
-prerequisites: [QFT19, QFT22, QFT23, QFT25]
+prerequisites: [QFT19, QFT22, QFT25]
 official_scope: []
 learning_objectives:
   - 有限モードEuclid模型で高運動量殻を積分消去し低運動量の観測量を保つWilson作用を定義できる
