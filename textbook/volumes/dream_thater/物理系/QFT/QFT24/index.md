@@ -8,7 +8,17 @@
 
 この講義では一種類の質量 $m>0$ のDiracフェルミオン、正の電荷の大きさ $e>0$、外部Euclid運動量 $p\in\mathbb R^4$ を考え、$\hbar=c=1$ とします。実時間の符号や極の処方は[QFT17の最小結合](../QFT17/index.md#def-qft17-qed-action)と[QFT20のWick回転の条件](../QFT20/index.md#def-qft20-contour-wick)に注意し、ここからは明示的にEuclid規約を固定します。
 
-Euclidのgamma行列は $\{\gamma_\mu,\gamma_\nu\}=2\delta_{\mu\nu}I$、$\operatorname{tr}I=4$、$\operatorname{tr}(\gamma_\mu\gamma_\nu)=4\delta_{\mu\nu}$ とし、$\not k=\gamma_\mu k_\mu$ と書きます。Fourier変換は $\partial_\mu\mapsto ik_\mu$ です。よって自由Dirac核とその逆は
+Euclidのgamma行列について、反交換関係とtraceの規約を
+
+$$
+\{\gamma_\mu,\gamma_\nu\}=2\delta_{\mu\nu}I,
+\qquad \operatorname{tr}I=4,
+\qquad \operatorname{tr}(\gamma_\mu\gamma_\nu)=4\delta_{\mu\nu}
+$$
+
+とします。四次元では $\not k=\sum_{\mu=1}^4\gamma_\mu k_\mu$ と書き、以後、添字の反復は総和を表します。次元正則化で $d=4-2\varepsilon$ へ解析接続する式では、同じ縮約を形式的に $d$ 次元で扱います。
+
+位置座標 $x_\mu$ での微分を $\partial_\mu=\partial/\partial x_\mu$ と書き、そのFourier変換は $\partial_\mu\mapsto ik_\mu$ です。よって自由Dirac核とその逆は
 
 $$
 D(k)=i\not k+m,\qquad
@@ -18,6 +28,8 @@ $$
 積 $D(k)(-i\not k+m)=(k^2+m^2)I$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford)から直接従います。ここで $S$ は実時間の $S_F$ と数値因子が異なる**Euclid核**です。
 
 光子場 $A_\mu$ に結合するEuclidのDirac作用素を $D_A=\gamma_\mu(\partial_\mu+ieA_\mu)+m$ とします。[有限次元Grassmann積分の行列式](../QFT19/index.md#thm-qft19-berezin-det)から、有限モードでフェルミオンを積分消去した作用は、光子に依存しない定数を除き $-\operatorname{Tr}\log D_A$ です。$\operatorname{Tr}$ は位置・運動量の積分とスピノル行列traceを合わせた形式的記号です。
+
+ここでいう光子二点の1PI係数は、[QFT21の有効作用の二階微分で定まる固有頂点](../QFT21/index.md#def-qft21-proper-vertex)です。以下ではこの係数を閉フェルミオンループの積分として定義し、全体符号を直後に検算します。
 
 <a id="def-qft24-vacuum-polarization"></a>
 
@@ -49,7 +61,7 @@ $$
 =-\operatorname{Tr}X+\frac12\operatorname{Tr}X^2+O(A^3).
 $$
 
-$i^2=-1$ から $\operatorname{Tr}X^2/2=-e^2\operatorname{Tr}(S\gamma A S\gamma A)/2$ です。光子二点頂点の規約は[QFT21の1PI頂点](../QFT21/index.md#def-qft21-proper-vertex)と同じ「有効作用の二階微分」です。
+$i^2=-1$ から $\operatorname{Tr}X^2/2=-e^2\operatorname{Tr}(S\gamma A S\gamma A)/2$ です。したがって、定義にある負号は有効作用の二次項と一致します。
 
 <!-- definition-example-start: def-qft24-vacuum-polarization -->
 ### 例：零外部運動量でループの二本の核を確かめる
@@ -318,9 +330,20 @@ $$
 この条件は、光子の「質量を零に設定する」という条件と同一ではありません。横性により補正は初めから $(p^2\delta_{\mu\nu}-p_\mu p_\nu)$ に比例し、零運動量で消えるのはテンソル全体です。**その前に掛かるスカラー係数**を零へ規格化することで、長距離での電荷を基準として選びます。
 
 <!-- definition-example-start: def-qft24-photon-subtraction -->
-### 例：自由Maxwell場で条件を確認する
+### 例：質量を持つ荷電場の零運動量条件を確認する
 
-**定義の確認**：$e=0$ ではフェルミオンの閉ループは消え、$\Pi=0$ です。$\delta Z_3=0$ と取れば $\Pi_R(0)=0$ で、横方向の逆核は $(p^2\delta_{\mu\nu}-p_\mu p_\nu)$ のままです。もし $\delta Z_3=c\ne0$ とすれば逆核は $(1+c)$ 倍となり、長距離での場の規格化が変わるため、条件を満たさなくなります。規格化条件が反項の有限部分を選ぶことを確認できました。
+**定義の確認**：定義と同じ $m,e>0$ を固定し、次元正則化 $d=4-2\varepsilon$ を使います。第3節で導いた積分を $p^2=0$ で評価すると、$x$ に依存しない対数を取り出して
+
+$$
+\Pi(0)=\frac{e^2}{2\pi^2}\int_0^1x(1-x)
+\left[\frac1\varepsilon-\log\frac{m^2}{\bar\mu^2}\right]dx
+=\frac{e^2}{12\pi^2}
+\left[\frac1\varepsilon-\log\frac{m^2}{\bar\mu^2}\right]+O(\varepsilon)
+$$
+
+です。ここでは $\bar\mu^2=4\pi e^{-\gamma_E}\mu^2$ としました。この値を使って $\delta Z_3^{(0)}=-\Pi(0)$ と選ぶと、定義どおり $\Pi_R(0)=\Pi(0)+\delta Z_3^{(0)}=0$ が成立します。反項の $F_{\mu\nu}F_{\mu\nu}/4$ が横方向核に $\delta Z_3^{(0)}(p^2\delta_{\mu\nu}-p_\mu p_\nu)$ を与えることは、定義直前のFourier展開で確かめました。したがって、単に数値を引いただけでなく、**同じテンソル構造の局所反項**で減算条件を満たしています。正則化を外した有限部分の詳しい導出は次の定理で行います。
+
+なお、$e=0$ の自由Maxwell場では $\Pi=0$、$\delta Z_3^{(0)}=0$ ですが、これは $e>0$ とした定義の仮定の外側にある極限の確認です。
 <!-- definition-example-end -->
 
 <a id="thm-qft24-renormalized-photon"></a>
@@ -511,7 +534,7 @@ $$
 
 ### 証明の見取り図
 
-零外部運動量での被積分関数は全微分に書けます。有限半径の球ではGaussの発散定理が球面積分を残します。球面上の単位法線の二次平均を使えば係数まで求まります。
+零外部運動量での被積分関数は全微分に書けます。有限半径の球では[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)が球面積分を残します。球面上の単位法線の二次平均を使えば係数まで求まります。
 
 <!-- proof-start -->
 ### 証明
@@ -541,7 +564,7 @@ $$
 -\frac{2k_\mu k_\nu}{(k^2+m^2)^2}
 $$
 
-を代入して確認できます。球面 $|k|=\Lambda$ で $k_\nu=\Lambda n_\nu$、外向き法線は $n_\mu$、面積は $2\pi^2\Lambda^3$ です。回転対称性と $\sum_\mu n_\mu^2=1$ により単位法線の球面上の二次平均値は $\langle n_\mu n_\nu\rangle=\delta_{\mu\nu}/4$ なので、Gaussの定理で
+を代入して確認できます。球面 $|k|=\Lambda$ で $k_\nu=\Lambda n_\nu$、外向き法線は $n_\mu$、面積は $2\pi^2\Lambda^3$ です。回転対称性と $\sum_\mu n_\mu^2=1$ により単位法線の球面上の二次平均値は $\langle n_\mu n_\nu\rangle=\delta_{\mu\nu}/4$ なので、上記の発散定理で
 
 $$
 \begin{aligned}
@@ -646,15 +669,14 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-積分の中を $Q^2$ で微分すると、連鎖律から
+ここでは $u=Q^2$ を一つの非負の実変数とみなし、$x$ と $m$ を固定して $u$ で微分します。$Q$ 自体を変数とする $d/dQ$ とは異なります。連鎖律から
 
 $$
-\frac{\partial}{\partial Q^2}
-\log\left(1+\frac{x(1-x)Q^2}{m^2}\right)
-=\frac{x(1-x)}{m^2+x(1-x)Q^2}.
+\frac{d}{du}\log\left(1+\frac{x(1-x)u}{m^2}\right)
+=\frac{x(1-x)}{m^2+x(1-x)u}.
 $$
 
-$m>0$ なので $Q^2\ge0$ の零近傍で分母は $m^2$ 以上です。導関数の絶対値は $x^2(1-x)^2/m^2$ で抑えられ、微分と積分を交換できます。従って
+$m>0$ なので $u\ge0$ の零近傍で分母は $m^2$ 以上です。積分の重み $x(1-x)$ まで掛けた導関数の絶対値は $x^2(1-x)^2/m^2$ で抑えられ、微分と積分を交換できます。従って $d/du=d/d(Q^2)$ と読み替えて
 
 $$
 \left.\frac{d\Pi_R^{(0)}}{dQ^2}\right|_{0}
@@ -680,7 +702,7 @@ $$
 =\frac{2\pi^2\Lambda^3}{4}\delta_{\mu\nu}.
 $$
 
-Gaussの発散定理を各添字成分に適用すると、境界で $k_\nu=\Lambda n_\nu$ より
+[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を各添字成分に適用すると、境界で $k_\nu=\Lambda n_\nu$ より
 
 $$
 \int_{|k|\le\Lambda}
@@ -777,7 +799,16 @@ H(t)=\log t\int_0^1a\,dx
 +\int_0^1a\log\left(1+\frac1{at}\right)dx.
 $$
 
-最初の積分は $1/6$。二番目の積分は対称性から $2\int_0^1(x-x^2)\log x\,dx$ です。$u=x^{n+1}/(n+1)$ で部分積分するか $\int_0^1x^n\log x\,dx=-1/(n+1)^2$ を導くと
+最初の積分は $1/6$。二番目の積分は対称性から $2\int_0^1(x-x^2)\log x\,dx$ です。$n>-1$ について部分積分すると、$x\downarrow0$ で $x^{n+1}\log x\to0$ なので
+
+$$
+\int_0^1x^n\log x\,dx
+=\left[\frac{x^{n+1}\log x}{n+1}\right]_0^1
+-\frac1{n+1}\int_0^1x^n\,dx
+=-\frac1{(n+1)^2}.
+$$
+
+従って $n=1,2$ を代入すると
 
 $$
 2\left[-\frac1{2^2}+\frac1{3^2}\right]
@@ -840,7 +871,17 @@ $$
 S(k+p)i\not p\,S(k)=S(k)-S(k+p).
 $$
 
-traceを巡回させ、正則化の下で $k$ を平行移動すると二項の差が相殺し、$p_\mu\Pi_{\mu\nu}=0$ です。分母をFeynmanパラメータでまとめて $\ell=k+xp$ とし、$\Delta_x=m^2+x(1-x)p^2$ と置きます。gamma traceから偶関数の分子は
+traceを巡回させると縮約した積分は
+
+$$
+p_\mu\Pi_{\mu\nu}
+=-\frac{e^2\mu^{2\varepsilon}}{i}
+\int\frac{d^dk}{(2\pi)^d}
+\operatorname{tr}\{[S(k)-S(k+p)]\gamma_\nu\}
+=0
+$$
+
+です。二項に同一の次元正則化を施し、第二項に $u=k+p$ を代入するので相殺します。通常の収束積分として別々に扱ったわけではありません。分母を[Feynmanパラメータの恒等式](../QFT23/index.md#prop-qft23-subtracted-bubble)でまとめて $\ell=k+xp$ とし、$\Delta_x=m^2+x(1-x)p^2$ と置きます。gamma traceから偶関数の分子は
 
 $$
 4e^2[2\ell_\mu\ell_\nu-\delta_{\mu\nu}\ell^2
