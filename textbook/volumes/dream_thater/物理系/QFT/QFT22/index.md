@@ -43,14 +43,36 @@ S_{\Lambda,0}=\frac12\sum_{k\in K_\Lambda}
 (k^2+m^2)|\phi_k|^2.
 $$
 
-各係数 $k^2+m^2>0$ だから実9次元のHessianは正定値です。対角要素の逆は $(k^2+m^2)^{-1}$ であり、Fourier和を元へ戻したものが $C_\Lambda$ になります。四次項も $\lambda\ge0$ なので作用は下に有界で、有限次元積分が定義できます。
+各 $\pm k$ の対から実数座標を作るときは、正規化を確かめる必要があります。$K_\Lambda^+$ を零以外の各対から一つずつ選んだ集合とし、$k\in K_\Lambda^+$ に対して
+
+$$
+q_{k,c}=\sqrt2\operatorname{Re}\phi_k,\qquad
+q_{k,s}=-\sqrt2\operatorname{Im}\phi_k
+$$
+
+と置きます。実場は正規直交関数 $V^{-1/2}$、$\sqrt{2/V}\cos(k\cdot x)$、$\sqrt{2/V}\sin(k\cdot x)$ を、それぞれ $\phi_0,q_{k,c},q_{k,s}$ 倍した和になります。$\pm k$ の二項をまとめると
+
+$$
+S_{\Lambda,0}=\frac12m^2\phi_0^2
++\frac12\sum_{k\in K_\Lambda^+}(k^2+m^2)
+(q_{k,c}^2+q_{k,s}^2).
+$$
+
+従ってこの正規直交な実座標ではHessianの固有値が $k^2+m^2>0$ となり、全9方向で正定値です。逆Hessianを基底関数で核に戻すと、各対の寄与は
+
+$$
+\frac{2\cos(k\cdot x)\cos(k\cdot y)+2\sin(k\cdot x)\sin(k\cdot y)}{V(k^2+m^2)}
+=\frac{e^{ik\cdot(x-y)}+e^{-ik\cdot(x-y)}}{V(k^2+m^2)}.
+$$
+
+零モードも合わせれば定義の $C_\Lambda(x-y)$ です。未正規化の $\operatorname{Re}\phi_k,\operatorname{Im}\phi_k$ ではHessianの対角係数が二倍になる点に注意してください。四次項も $\lambda\ge0$ なので作用は下に有界で、有限次元積分が収束します。
 <!-- definition-example-end -->
 
 以下のループ計算では、まず $L,\Lambda$ を固定し摂動展開します。次に $L\to\infty$ を固定 $\Lambda$ で取り、$V^{-1}\sum_k$ を $\int_{|k|\le\Lambda}d^4k/(2\pi)^4$ に置き換えます。最後に $\Lambda\to\infty$ を検査する順です。[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)に対応する正の重みを用いていますが、実時間の散乱振幅と無条件に同一視しません。
 
 ## 2. 有効作用の行列式を四次まで展開する
 
-自由場の逆伝播作用素を $K=-\Delta+m^2$ とすると、背景 $\varphi$ の周りの作用の二階微分は、有限モード空間への直交射影 $P_\Lambda$ を用いて
+自由場の逆伝播作用素を $K=-\Delta+m^2$ とします。$P_\Lambda$ はFourier展開のうち $k\in K_\Lambda$ の成分だけを残す直交射影です。背景 $\varphi$ の周りの作用の二階微分は
 
 $$
 H_\varphi=P_\Lambda\left(K+\frac{\lambda}{2}\varphi^2\right)P_\Lambda
@@ -58,7 +80,16 @@ H_\varphi=P_\Lambda\left(K+\frac{\lambda}{2}\varphi^2\right)P_\Lambda
 M_\varphi=P_\Lambda\frac{\lambda\varphi^2}{2}P_\Lambda.
 $$
 
-$\lambda\varphi^2/2$ が現れる理由は $(\lambda\phi^4/4!)''=\lambda\phi^2/2$ だからです。[QFT21の有限次元一ループ行列式](../QFT21/index.md#prop-qft21-one-loop-saddle)を、場の有限モードへ適用します。
+$\lambda\varphi^2/2$ が現れる理由は $(\lambda\phi^4/4!)''=\lambda\phi^2/2$ だからです。任意の実有限モード変分 $h$ に対して
+
+$$
+\langle h,H_\varphi h\rangle
+=\int_{T_L^4}\left(|\nabla h|^2+m^2h^2
++\frac\lambda2\varphi^2h^2\right)d^4x
+\ge m^2\|h\|_{L^2}^2.
+$$
+
+従ってHessianは一様に正定値で、作用から線形ソース項を引いても強凸かつ強制的に無限大へ増大し、一意の極小点を持ちます。これが[QFT21の有限次元一ループ行列式](../QFT21/index.md#prop-qft21-one-loop-saddle)を、この有限モード作用へ適用する際の主要仮定です。
 
 <a id="thm-qft22-loop-determinant"></a>
 
@@ -127,14 +158,26 @@ $$
 実自由場の核は $C_\Lambda(y-x)=C_\Lambda(x-y)$ なので、前の係数 $-1/4$ を掛けて $-\lambda^2/16$ になります。
 <!-- proof-end -->
 
-定数背景 $\varphi(x)=v$ では $M_\varphi=\lambda v^2/2$ は運動量を混ぜません。従って一ループ有効ポテンシャルの補正は
+定数背景 $\varphi(x)=v$ では $M_\varphi=\lambda v^2/2$ は運動量を混ぜません。一ループ有効ポテンシャル $U_1$ は $\Gamma_{\Lambda,1}[v]/V$ と定め、背景独立定数を差し引くと
 
 $$
 U_1(v)-U_1(0)=\frac1{2V}\sum_{k\in K_\Lambda}
 \log\left(1+\frac{\lambda v^2}{2(k^2+m^2)}\right).
 $$
 
-対数の初めの二項を展開すれば $v^2$ の係数が $\lambda I_1/4$、$v^4$ の係数が $-\lambda^2I_2/16$ になります。この小さな例が一般の二点・四点計算の符号検査に使えます。
+有限体積の和を、$j=1,2$ に対し
+
+$$
+A_{j,L}(\Lambda,m)=\frac1V\sum_{k\in K_\Lambda}(k^2+m^2)^{-j}
+$$
+
+と置きます。対数を二次まで展開すると、$v^2$ と $v^4$ の係数はそれぞれ
+
+$$
+\frac{\lambda}{4}A_{1,L},\qquad -\frac{\lambda^2}{16}A_{2,L}
+$$
+
+です。これらの無限体積極限を次節で $I_1,I_2$ と定義します。この小さな例が一般の二点・四点計算の符号検査に使えます。
 
 ## 3. 二点のtadpoleと四点の三チャネルbubble
 
@@ -157,7 +200,38 @@ $$
 <!-- definition-example-start: def-qft22-proper-vertices -->
 ### 例：定数背景の四次係数から頂点を読む
 
-**定義の確認**：定数背景の作用密度に $\lambda v^4/24$ があるとき、$v$ による四階微分は $4!\lambda/24=\lambda$ です。一ループで $- \lambda^2 I_2 v^4/16$ が追加されれば、その四階微分は $-24\lambda^2 I_2/16=-3\lambda^2 I_2/2$ です。単にポテンシャルの $v^4$ の係数を四点頂点と呼ぶと $4!$ を落としてしまいます。
+**定義の確認**：自由二次作用は
+
+$$
+S_{\Lambda,0}=\frac12\sum_{p\in K_\Lambda}(p^2+m^2)|\varphi_p|^2
+$$
+
+です。実場の独立な座標で求めた二階微分の核を運動量表示へ戻すと、$p,-p$ の組に $p^2+m^2$ が掛かるため、運動量保存因子を除いた二点頂点は $p^2+m^2$ となります。四次項ではFourier展開と直交性により
+
+$$
+\frac{\lambda}{4!}\int_{T_L^4}\varphi(x)^4d^4x
+=\frac{\lambda}{4!V}
+\sum_{p_1,\ldots,p_4\in K_\Lambda}
+\varphi_{p_1}\cdots\varphi_{p_4}
+\,\boldsymbol{1}_{\{p_1+\cdots+p_4=0\}}.
+$$
+
+ここではFourier直交性
+
+$$
+\frac1V\int_{T_L^4}e^{i(p_1+\cdots+p_4)\cdot x}d^4x
+=\boldsymbol{1}_{\{p_1+\cdots+p_4=0\}}
+$$
+
+を使いました。四回微分で $4!$ 通りの割当てが現れ、Fourier正規化と運動量保存因子を除くと四点係数は $\lambda$ です。
+
+定数背景 $\varphi(x)=v$ では作用密度の四次項が $\lambda v^4/24$ なので、$v$ に関する四階微分で $\lambda$ を再確認できます。一ループの $-\lambda^2 A_{2,L}v^4/16$ を四回微分すると
+
+$$
+-\frac{4!\lambda^2}{16}A_{2,L}=-\frac{3\lambda^2}{2}A_{2,L}
+$$
+
+です。無限体積では $A_{2,L}\to I_2$ です。単に $v^4$ の係数を四点頂点と呼ぶと $4!$ を落としてしまいます。
 <!-- definition-example-end -->
 
 まず次の二種類のカットオフ積分を置きます。$P$ は二つの外線運動量の和で、bubbleの二本の内部線は $k$ と $k+P$ の運動量を持ちます。
@@ -212,7 +286,14 @@ $$
 
 二次項は $\lambda C_\Lambda(0)\int\varphi(x)^2/4$ です。二回の汎関数微分で $2!$ が出るため、二点頂点への寄与は $\lambda C_\Lambda(0)/2$ です。無限体積極限で $C_\Lambda(0)\to I_1$ となり、これが一本の内部線を自分へ戻すtadpoleです。背景に微分が掛かっても核には外線運動量が残らないので $p$ に依存しません。
 
-四次項を $Q=-\lambda^2\int\varphi(x)^2 C_\Lambda(x-y)^2\varphi(y)^2\,dx\,dy/16$ と記します。四つの外線を $x$ の二つと $y$ の二つへ割り当てる方法は $\binom42=6$ 通りです。外線の順序を区別した一割当てについて、各点の二階微分に対応する $2!\,2!=4$ 通りがあるため、全体では $6\cdot4=24$ 通りです。ただし $(x,y)$ の交換は同じ運動量の組分けを二回数えるので、独立なのは三チャネルで各チャネル八通りです。したがって一チャネルの係数は
+四次項を
+
+$$
+Q=-\frac{\lambda^2}{16}\int\varphi(x)^2
+C_\Lambda(x-y)^2\varphi(y)^2\,d^4x\,d^4y
+$$
+
+と記します。四つの外線を $x$ の二つと $y$ の二つへ割り当てる方法は $\binom42=6$ 通りです。外線の順序を区別した一割当てについて、各点の二階微分に対応する $2!\,2!=4$ 通りがあるため、全体では $6\cdot4=24$ 通りです。ただし $(x,y)$ の交換は同じ運動量の組分けを二回数えるので、独立なのは三チャネルで各チャネル八通りです。したがって一チャネルの係数は
 
 $$
 -\frac{\lambda^2}{16}\cdot8=-\frac{\lambda^2}{2}.
@@ -223,11 +304,18 @@ $$
 $P=0$ なら三つの積分はすべて $I_2$ になります。二点に $p^2$ に比例するループ項がないことは、二次式の核が $\delta(x-y)$ に比例しFourier変換後も一定であることから従います。
 <!-- proof-end -->
 
-ここでの符号はEuclid型**1PI有効作用の微分**の符号です。散乱のMinkowski頂点の $-i\lambda$ という因子と直接比較すると符号を誤ります。木レベルの頂点規則と対称因子は[QFT10](../QFT10/index.md#thm-qft10-vertex-factor)でも導きました。ただしQFT10では正規順序相互作用を採用しましたが、今回のEuclid作用の $\phi^4$ は**正規順序していません**。したがって今回のtadpoleを、前章の正規順序で自動的に消える項と混同しないでください。
+ここでの符号はEuclid型**1PI有効作用の微分**の符号です。散乱のMinkowski頂点の $-i\lambda$ という因子と直接比較すると符号を誤ります。木レベルの頂点規則と対称因子は[QFT10の頂点係数定理](../QFT10/index.md#thm-qft10-vertex-factor)でも導きました。ただしQFT10では正規順序相互作用を採用しましたが、今回のEuclid作用の $\phi^4$ は**正規順序していません**。したがって今回のtadpoleを、QFT10の正規順序で消える自己収縮と混同しないでください。
 
 ## 4. 四次元の発散を厳密に積分する
 
-四次元の球面の面積が $2\pi^2$ であることから、回転不変な積分には $d^4k=2\pi^2 r^3dr$ を使えます。これにより二次補正と四点補正を、少なくとも外部運動量零の場合には初等関数で求められます。
+四次元の球面積を $S_3$ とします。[QFT19の有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)を各座標に用いると
+
+$$
+\pi^2=\int_{\mathbb R^4}e^{-|k|^2}d^4k
+=S_3\int_0^\infty r^3e^{-r^2}dr=\frac{S_3}{2}.
+$$
+
+ここで $u=r^2$ と置けば最後の積分は $\tfrac12\int_0^\infty ue^{-u}du=1/2$ です。従って球面積は $S_3=2\pi^2$ で、回転不変な積分には $d^4k=2\pi^2r^3dr$ を使えます。これにより二次補正と四点補正を、少なくとも外部運動量零の場合には初等関数で求められます。
 
 <a id="thm-qft22-cutoff-integrals"></a>
 
@@ -300,7 +388,7 @@ $$
 
 ## 5. なぜ二点と四点が重要か：発散次数
 
-ある図にループ積分が $L$ 個、内部伝播線が $I$ 本あるとき、各ループは四次元の $d^4k$、各内部線は大運動量で $k^{-2}$ を与えます。全内部運動量を一斉に大きくしたときの形式的なべきが、発散候補を絞る手掛かりになります。このべきを次で定義します。部分グラフの発散まで調べる検査ではありません。
+ここでは[QFT10の収縮図](../QFT10/index.md#def-qft10-contraction-graph)の半辺・内線・外線を使いますが、正規順序を課さないため、同一頂点の二つの半辺を結ぶ自己収縮も許します。ある図にループ積分が $L$ 個、内部伝播線が $I$ 本あるとき、各ループは四次元の $d^4k$、各内部線は大運動量で $k^{-2}$ を与えます。全内部運動量を一斉に大きくしたときの形式的なべきが、発散候補を絞る手掛かりになります。このべきを次で定義します。部分グラフの発散まで調べる検査ではありません。
 
 <a id="def-qft22-superficial-degree"></a>
 
@@ -318,7 +406,7 @@ $$
 <!-- definition-example-start: def-qft22-superficial-degree -->
 ### 例：tadpoleとbubbleを数える
 
-**定義の確認**：四点bubbleは二つの四価頂点を二本の内部線で接続した連結図で、$I=2,V_{\!g}=2$、独立ループ数は $L=I-V_{\!g}+1=1$ です。したがって $\omega=4-4=0$。tadpoleは四価頂点一つの残る二本を自分へつなぎ、$I=L=1$ なので $\omega=4-2=2$ です。[積分の厳密値](#thm-qft22-cutoff-integrals)でもそれぞれ対数と二次の先頭項が現れました。
+**定義の確認**：四点bubbleは二つの四価頂点を二本の内部線で接続した連結図で、$I=2,V_{\!g}=2$ です。一方の内部線の運動量を $k$ と決めると、頂点での運動量保存によりもう一方は $k+P$ と決まるため、独立ループ運動量は一個、$L=1$ です。したがって $\omega=4-4=0$。tadpoleは四価頂点一つの残る二本を自分へつなぎ、独立な内部運動量を一つ積分するので $I=L=1$、$\omega=4-2=2$ です。[積分の厳密値](#thm-qft22-cutoff-integrals)でもそれぞれ対数と二次の先頭項が現れました。一般の閉路数公式は次の定理で証明します。
 <!-- definition-example-end -->
 
 <a id="thm-qft22-power-count"></a>
@@ -528,7 +616,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-有限体積で正の固有値 $k^2+m^2$ を持つため、$|v|$ を十分小さくすると対数のTaylor展開ができます。
+有限体積で正の固有値 $k^2+m^2$ を持つため、$|v|$ を十分小さくすると[本章の一ループ行列式](#thm-qft22-loop-determinant)の対数をTaylor展開できます。
 
 $$
 \begin{aligned}
@@ -541,7 +629,7 @@ U_1(v)-U_1(0)
 \end{aligned}
 $$
 
-$U''(0)$ は $v^2$ 係数の二倍なので $\Delta\Gamma^{(2)}(0)=\lambda I_1/2$、$U^{(4)}(0)$ は $v^4$ 係数の $24$ 倍なので $\Delta\Gamma^{(4)}(0)=-24\lambda^2I_2/16=-3\lambda^2I_2/2$ です。ここでは $I_j$ を有限和 $V^{-1}\sum$ で定義し、最後に無限体積の積分へ移します。
+$U''(0)$ は $v^2$ 係数の二倍なので、有限体積では $\Delta\Gamma^{(2)}(0)=\lambda A_{1,L}/2$、$U^{(4)}(0)$ は $v^4$ 係数の $24$ 倍なので $\Delta\Gamma^{(4)}(0)=-24\lambda^2A_{2,L}/16=-3\lambda^2A_{2,L}/2$ です。ここで $A_{j,L}$ は第2節で定義した有限和であり、$L\to\infty$ として $A_{1,L}\to I_1$、$A_{2,L}\to I_2$ を得ます。
 <!-- solution-end -->
 
 ### 演習 QFT22-B2：内部線から表面的次数を得る
@@ -552,7 +640,7 @@ $U''(0)$ は $v^2$ 係数の二倍なので $\Delta\Gamma^{(2)}(0)=\lambda I_1/2
 <!-- solution-start -->
 **詳細解答**
 
-$V_{\!g}=2$、半辺は八本です。外線四本では $2I=8-4=4$ より $I=2$。連結なので $L=I-V_{\!g}+1=1$、$\omega=4L-2I=4-4=0$ です。
+$V_{\!g}=2$、半辺は八本です。[φ⁴グラフの表面的発散次数](#thm-qft22-power-count)を適用すると、外線四本では $2I=8-4=4$ より $I=2$。連結なので $L=I-V_{\!g}+1=1$、$\omega=4L-2I=4-4=0$ です。
 
 外線二本では $2I=8-2=6$ から $I=3$、$L=3-2+1=2$、$\omega=8-6=2$ です。したがってsunsetは**二ループ**であり、二点の一ループ補正に混ぜてはいけません。両者とも $\omega=4-E$ と一致します。
 <!-- solution-end -->
@@ -589,7 +677,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-計算の同じ次数では積分中の裸パラメータを $m_R,\lambda_R$ に置き換えられます。二点零運動量を一致させるには
+[二点tadpoleと三チャネル四点bubble](#thm-qft22-one-loop-vertices)の公式を使います。計算の同じ次数では積分中の裸パラメータを $m_R,\lambda_R$ に置き換えられます。二点零運動量を一致させるには
 
 $$
 m_R^2=m_R^2+\delta m^2+\frac{\lambda_R}{2}I_1(\Lambda,m_R)
@@ -614,9 +702,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**1. Hessianを求める。** $S=\int[(\nabla\varphi)^2/2+m^2\varphi^2/2+\lambda\varphi^4/24]$ を変分すると、二階微分の自由部分は $K=-\Delta+m^2$、相互作用部分は $\lambda\varphi^2/2$ です。有限モードでは両側へ射影を入れ、$H_\varphi=K_\Lambda+P_\Lambda(\lambda\varphi^2/2)P_\Lambda$ となります。
+**1. Hessianを求める。** 作用 $S$ の勾配項と質量項を二回変分すると $K=-\Delta+m^2$ が現れます。四次項の二階微分は $\lambda\varphi^2/2$ です。有限モードでは両側へ射影を入れ、
 
-**2. 一ループを展開する。** $C_\Lambda=K_\Lambda^{-1}$、$M_\varphi=P_\Lambda(\lambda\varphi^2/2)P_\Lambda$ と置きます。背景独立定数を落とすと
+$$
+H_\varphi=K_\Lambda+P_\Lambda\frac{\lambda\varphi^2}{2}P_\Lambda
+$$
+
+となります。
+
+**2. 一ループを展開する。** [本章の行列式展開](#thm-qft22-loop-determinant)を使い、$C_\Lambda=K_\Lambda^{-1}$、$M_\varphi=P_\Lambda(\lambda\varphi^2/2)P_\Lambda$ と置きます。背景独立定数を落とすと
 
 $$
 \frac12\operatorname{Tr}\log(1+C_\Lambda M_\varphi)
@@ -625,9 +719,16 @@ $$
 +O(\varphi^6).
 $$
 
-第一項は $\lambda C_\Lambda(0)\int\varphi^2/4$、第二項は $-\lambda^2\int\varphi(x)^2C_\Lambda(x-y)^2\varphi(y)^2\,dx\,dy/16$ です。
+第一項は $\lambda C_\Lambda(0)\int\varphi^2/4$ です。第二項は
 
-**3. 1PI頂点を取る。** 第一項に二回微分を行うと $2\cdot\lambda/4=\lambda/2$ です。第二項は四つの外線を二つずつ配る $6$ 通りと、それぞれ二階微分の $2!2!$ 通りから24通りを作り、$x,y$ 交換で三チャネルの各八通りとなるため、一チャネルは $-8\lambda^2/16=-\lambda^2/2$。零外線では三チャネルが一致します。従って
+$$
+-\frac{\lambda^2}{16}\int\varphi(x)^2C_\Lambda(x-y)^2
+\varphi(y)^2\,d^4x\,d^4y
+$$
+
+です。
+
+**3. 1PI頂点を取る。** 第一項に二回微分を行うと $2\cdot\lambda/4=\lambda/2$ です。第二項は四つの外線を二つずつ配る $6$ 通りと、それぞれ二階微分の $2!2!$ 通りから24通りを作ります。$x,y$ を交換した同一組分けを合わせると、三チャネルの各八通りです。よって一チャネルの係数は $-8\lambda^2/16=-\lambda^2/2$ です。零外線では三チャネルが一致します。従って
 
 $$
 \Gamma^{(2)}(p)=p^2+m^2+\frac{\lambda}{2}I_1+O(\lambda^2),\qquad
