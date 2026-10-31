@@ -1,0 +1,30 @@
+id: QINF33
+title: "可逆発展と放射への情報移送"
+volume: foundations
+status: supplementary
+prerequisites: [QINF1, QINF3, QINF6, QINF17, QINF18, QINF29, QINF32]
+official_scope: []
+learning_objectives:
+  - 固定された全Hilbert空間上のユニタリ発展と、観測可能な放射部分系の縮約を区別して記述できる
+  - 4量子ビットの段階的SWAP放出模型について全状態・縮約状態・放射エントロピーの山型履歴を計算できる
+  - 純粋全系のエントロピー等式とSchmidt上界を放射・残存系に適用できる
+  - 放射の初期部分と後期部分の相互情報量を計算し、局所混合と全体の情報保存を区別できる
+  - 参照系との相互情報量の和の保存を証明し、情報移送をBell対の例で検算できる
+  - Haar平均に基づくPage型次元分割評価と個々の放出履歴を混同せず、物理的蒸発模型に必要な追加仮定を説明できる
+definitions:
+  - { id: QINF33-DEF-01, name: "段階的SWAP放出模型" }
+  - { id: QINF33-DEF-02, name: "放射エントロピー履歴" }
+theorems:
+  - { id: QINF33-PROP-01, name: "可逆全系と縮約エントロピー" }
+  - { id: QINF33-THM-01, name: "Bell対放出模型の山型履歴" }
+  - { id: QINF33-THM-02, name: "参照系との相互情報量収支" }
+  - { id: QINF33-PROP-02, name: "Haar次元分割の平均評価" }
+canonical_examples:
+  - "Bell対(1,4)と(2,3)から成る4量子ビットを順に放出すると0,1,2,1,0 bitとなる"
+  - "積状態と非対称Bell対配置で、山型や時間反転対称が一般には成立しないことを確かめる"
+  - "Bell対の片側を参照系に保持し、SWAPで相互情報量2 bitが記憶系から放射へ移る"
+problem_patterns: [QINF33-SWAP, QINF33-REDUCTION, QINF33-CURVE, QINF33-MUTUAL, QINF33-REFERENCE, QINF33-HAAR, QINF33-ASSUMPTIONS]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 4.0 }
