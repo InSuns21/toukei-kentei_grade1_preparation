@@ -17,7 +17,7 @@ chapters:
   - { id: MICA6, path: textbook/volumes/dream_thater/解析系/MICA/MICA6, status: completed, title: "分布の積" }
   - { id: MICA7, path: textbook/volumes/dream_thater/解析系/MICA/MICA7, status: completed, title: "引き戻しと部分多様体への制限" }
   - { id: MICA8, path: textbook/volumes/dream_thater/解析系/MICA/MICA8, status: completed, title: "擬微分作用素と主シンボル" }
-  - { id: MICA9, path: textbook/volumes/dream_thater/解析系/MICA/MICA9, status: planned, title: "特性集合とHamilton流" }
+  - { id: MICA9, path: textbook/volumes/dream_thater/解析系/MICA/MICA9, status: completed, title: "特性集合とHamilton流" }
   - { id: MICA10, path: textbook/volumes/dream_thater/解析系/MICA/MICA10, status: planned, title: "特異性の伝播" }
   - { id: MICA11, path: textbook/volumes/dream_thater/解析系/MICA/MICA11, status: planned, title: "自由場の二点分布" }
   - { id: MICA12, path: textbook/volumes/dream_thater/解析系/MICA/MICA12, status: planned, title: "局所Hadamard parametrix" }
