@@ -164,7 +164,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-球面はコンパクトで、$A$ と $-B$ は交わらない閉集合です。[角距離の分離](../MICA2/index.md#lem-mica2-angular-separation)と同じ有限被覆の議論により、$A,B$ を含む開い角錐 $\Gamma_f,\Gamma_g$ を、球面上の閉包について
+球面はコンパクトで、$A$ と $-B$ は交わらない閉集合です。[角距離の分離](../MICA2/index.md#lem-mica2-angular-separation)と同じ有限被覆の議論により、$A,B$ を含む開いた錐 $\Gamma_f,\Gamma_g$ を、球面上の閉包について
 
 $$
 \overline{\Gamma_f}\cap(-\overline{\Gamma_g})=\varnothing
@@ -234,7 +234,7 @@ A_0=\{\theta\in S^{n-1}:(x_0,\theta)\in WF(u)\},
 B_0=\{\theta\in S^{n-1}:(x_0,\theta)\in WF(v)\}
 $$
 
-は閉集合で、仮定により $A_0\cap(-B_0)=\varnothing$ です。球面上の分離からこれらを含む閉い近傍 $A,B$ を $A\cap(-B)=\varnothing$ のまま選べます。波面の閉性から、十分小さい相対コンパクト近傍 $V\ni x_0$ における全波面方向も $A,B$ に収まります。実際、これが不可能なら $x_j\to x_0$ と球面方向 $\theta_j\to\theta$ を取り、$(x_0,\theta)$ が $A$ または $B$ の外にある波面点を閉性によって得て矛盾します。
+は閉集合で、仮定により $A_0\cap(-B_0)=\varnothing$ です。球面上の分離からこれらを含む閉じた近傍 $A,B$ を $A\cap(-B)=\varnothing$ のまま選べます。波面の閉性から、十分小さい相対コンパクト近傍 $V\ni x_0$ における全波面方向も $A,B$ に収まります。実際、これが不可能なら $x_j\to x_0$ と球面方向 $\theta_j\to\theta$ を取り、$(x_0,\theta)$ が $A$ または $B$ の外にある波面点を閉性によって得て矛盾します。
 
 $\chi\in C_c^\infty(V)$ を $x_0$ の近くで $1$ に取り、$f=\chi u$、$g=\chi v$ とします。[滑らかな係数との積のWF非増大](../MICA3/index.md#thm-mica3-smooth-multiplier)により、$WF(f),WF(g)$ の方向も $A,B$ の中です。従って[非衝突方向の錐分離とFourier畳み込み](#lem-mica6-cone-separation)から $f_\varepsilon g_\varepsilon$ は分布として極限を持ちます。
 
