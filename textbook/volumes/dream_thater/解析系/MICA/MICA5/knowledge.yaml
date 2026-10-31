@@ -1,0 +1,38 @@
+chapter: MICA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA4
+  - SYM6
+forward_references: []
+concepts:
+  - id: microlocal.mica5-distribution-coordinate-transfer
+    name: 微分同相による分布の座標移送
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-local-fourier, geometry.cotangent-bundle]
+  - id: microlocal.mica5-nonstationary-phase
+    name: 非停留位相の積分評価
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica1-polynomial-growth]
+  - id: microlocal.mica5-coordinate-law
+    name: 波面集合の微分同相による変換則
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica5-distribution-coordinate-transfer, microlocal.mica5-nonstationary-phase, microlocal.mica3-wavefront]
+  - id: microlocal.mica5-manifold-wavefront
+    name: 多様体上の波面集合
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica5-coordinate-law, geometry.cotangent-bundle]
+  - id: microlocal.mica5-conormal-coordinate
+    name: 余法束の局所座標と自然性
+    kind: proposition
+    introduction: formal
+    requires: [symplectic.conormal-bundle, microlocal.mica5-coordinate-law]
+  - id: microlocal.mica5-submanifold-delta
+    name: 部分多様体デルタの波面集合
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica5-coordinate-law, microlocal.mica5-conormal-coordinate, microlocal.mica4-hyperplane-wf]
