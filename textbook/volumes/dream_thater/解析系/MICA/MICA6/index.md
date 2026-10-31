@@ -143,11 +143,13 @@ $$
 
 が出発点です。分布では二つのFourier変換が多項式増大するので、この積分は自動的には収束しません。$|\eta|$ が大きく $\zeta$ が固定されると、$\eta$ と $\zeta-\eta$ はほぼ逆向きです。このとき少なくとも一方が急減少するなら、積分に意味が生まれます。
 
+分布を滑らかに近似するときには、積分が $1$ の試験関数 $\rho\in C_c^\infty(\mathbb R^n)$ を選び、$\rho_\varepsilon(x)=\varepsilon^{-n}\rho(x/\varepsilon)$ を畳み込みます。$f*\rho_\varepsilon$ は滑らかな関数となり、$\varepsilon\downarrow0$ で $f$ に試験関数への作用の意味で近づきます。以下ではこの型の平滑化核（mollifier）を使います。Fourier側では畳み込みにより $\widehat\rho(\varepsilon\xi)$ が掛かり、固定周波数でこの因子は $1$ に近づきます。
+
 <a id="lem-mica6-cone-separation"></a>
 
 <!-- formal-statement-start -->
 > **補題（非衝突方向の錐分離とFourier畳み込み）**  
-> $f,g\in\mathcal E'(\mathbb R^n)$ をコンパクト支持分布とする。単位球面上の閉集合 $A,B$ が存在し、$WF(f)$ の全方向成分は $A$、$WF(g)$ の全方向成分は $B$ に入り、$A\cap(-B)=\varnothing$ とする。このとき
+> $f,g\in\mathcal D'(\mathbb R^n)$ をコンパクト支持分布とする。単位球面上の閉集合 $A,B$ が存在し、$WF(f)$ の全方向成分は $A$、$WF(g)$ の全方向成分は $B$ に入り、$A\cap(-B)=\varnothing$ とする。このとき
 
 $$
 F(\zeta)=(2\pi)^{-n}\int_{\mathbb R^n}
