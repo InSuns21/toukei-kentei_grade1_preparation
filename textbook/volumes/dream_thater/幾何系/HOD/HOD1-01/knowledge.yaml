@@ -1,0 +1,57 @@
+chapter: HOD1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GA6
+  - CM2-02
+  - KAH1-05
+  - F0-02C3A
+concepts:
+  - id: hodge.complex-form-inner-product
+    name: 複素形式のHermite内積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素形式のHermite内積）"]
+    requires: [geometric-analysis.hodge-star, complex-manifolds.pq-differential-forms, complex-manifolds.hermitian-metric]
+  - id: hodge.type-orthogonality
+    name: Hermite計量による複素型の直交性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hermite計量による複素型の直交性）"]
+    requires: [hodge.complex-form-inner-product, complex-manifolds.cotangent-type-splitting]
+  - id: hodge.dolbeault-formal-adjoints
+    name: 型別外微分の形式的随伴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別外微分の形式的随伴）"]
+    requires: [hodge.type-orthogonality, complex-manifolds.type-exterior-derivatives, geometric-analysis.codifferential-adjoint]
+  - id: hodge.adjoint-type-projections
+    name: 実余微分の型別射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実余微分の型別射影）"]
+    requires: [hodge.dolbeault-formal-adjoints, geometric-analysis.codifferential]
+  - id: hodge.star-adjoint-identities
+    name: 複素Hodge星の型と型別随伴の公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素Hodge星の型と型別随伴の公式）"]
+    requires: [hodge.adjoint-type-projections, geometric-analysis.hodge-star]
+  - id: hodge.hilbert-adjoint-domain
+    name: 型別作用素のHilbert随伴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別作用素のHilbert随伴）"]
+    requires: [hodge.dolbeault-formal-adjoints, functional.hilbert-adjoint]
+  - id: hodge.type-laplacians
+    name: 型別Laplacian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別Laplacian）"]
+    requires: [hodge.dolbeault-formal-adjoints, geometric-analysis.hodge-laplacian]
+  - id: hodge.flat-torus-adjoints
+    name: 平坦複素トーラスの随伴と関数の固有値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦複素トーラスの随伴と関数の固有値）"]
+    requires: [hodge.type-laplacians, hodge.star-adjoint-identities, kahler.flat-torus-kahler]

@@ -1,0 +1,46 @@
+id: "HOD1-01"
+title: "実Hodge理論から複素形式の随伴へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GA6
+  - CM2-02
+  - KAH1-05
+  - F0-02C3A
+official_scope: []
+learning_objectives:
+  - 実Hodge星を複素線形に延長し、第1変数共役線形の内積と型直交性を計算できる
+  - 型別外微分の形式的随伴を部分積分で構成し、dの余微分を型別に分解できる
+  - 複素Hodge星の型の変換とpartial・barpartial随伴の星公式を証明できる
+  - 形式的随伴とHilbert随伴の定義域の違い、境界項の働きを説明できる
+  - 平坦複素トーラスのFourierモードで随伴の符号、Laplacianの係数2を検算できる
+  - 一般Hermite計量とKähler計量で未証明の恒等式を区別できる
+definitions:
+  - { id: HOD1-01-DEF-01, name: "複素形式のHermite内積" }
+  - { id: HOD1-01-DEF-02, name: "型別外微分の形式的随伴" }
+  - { id: HOD1-01-DEF-03, name: "型別作用素のHilbert随伴" }
+  - { id: HOD1-01-DEF-04, name: "型別Laplacian" }
+theorems:
+  - { id: HOD1-01-PROP-01, name: "Hermite計量による複素型の直交性" }
+  - { id: HOD1-01-PROP-02, name: "実余微分の型別射影" }
+  - { id: HOD1-01-PROP-03, name: "複素Hodge星の型と型別随伴の公式" }
+  - { id: HOD1-01-PROP-04, name: "平坦複素トーラスの随伴と関数の固有値" }
+canonical_examples:
+  - 複素Euclid直線のdzとdbar zの直交性と星作用素
+  - コンパクト台形式の部分積分による随伴公式
+  - 正方形境界での随伴関係の失敗
+  - 平坦複素トーラスのFourierモードと係数2
+problem_patterns:
+  - HOD1-01-COMPLEX-INNER-PRODUCT
+  - HOD1-01-STAR-SIGN
+  - HOD1-01-FORMAL-ADJOINT
+  - HOD1-01-FOURIER-MODE
+  - HOD1-01-PAIRING-INTEGRAL
+  - HOD1-01-CODIFFERENTIAL-TYPE
+  - HOD1-01-BOUNDARY-DOMAIN
+  - HOD1-01-ENERGY
+  - HOD1-01-ONE-FORM-LAPLACIAN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }
