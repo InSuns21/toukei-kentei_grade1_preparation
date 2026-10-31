@@ -10,13 +10,27 @@
 
 ## 2. ランダム純粋状態をどう作るか
 
-まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$。$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた列ベクトル $g=(z_1,\ldots,z_D)^{\mathsf T}$ を取ります。ここで上付きの $\mathsf T$ は転置を表し、$g^\dagger$ は[随伴の行列表現](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)としての共役転置です。したがって $g^\dagger g=\sum_{r=1}^D|z_r|^2=\|g\|^2$ です。$g$ の密度は
+まず複素標準Gaussian変数 $z=(x+iy)/\sqrt2$ を考えます。$x,y$ は独立な実標準正規変数です。このため $\mathbb E z=0$、$\mathbb E|z|^2=1$ です。
+
+$U(D)$ は $D\times D$ 複素ユニタリ行列全体の群とします。$D$ 個を独立に並べた列ベクトル $g=(z_1,\ldots,z_D)^{\mathsf T}$ を取ります。上付きの $\mathsf T$ は転置を表し、$g^\dagger$ は[随伴の行列表現](../../../基礎科目/LA/LA5/index.md#def-la5-adjoint)としての共役転置です。従って
+
+$$
+g^\dagger g=\sum_{r=1}^D|z_r|^2=\|g\|^2
+$$
+
+です。$g$ の密度は
 
 $$
 p(g)=\pi^{-D}\exp(-g^\dagger g)
 $$
 
-です。任意のユニタリ $V\in U(D)$ は $\|Vg\|=\|g\|$ を満たします。さらに複素ユニタリ変換を実 $2D$ 次元の線形変換とみなしたとき、実Jacobianの絶対値は $|\det_{\mathbb C}V|^2=1$ です。よって密度の値だけでなく体積要素も保存され、$Vg$ と $g$ は同じ分布になります。連続密度を持つので $\Pr(g=0)=0$ であり、$g/\|g\|$ はほとんど確実に定義できます。
+です。任意のユニタリ $V\in U(D)$ は $\|Vg\|=\|g\|$ を満たします。また、複素ユニタリ変換を実 $2D$ 次元の線形変換とみなしたとき、実Jacobianの絶対値は
+
+$$
+|\det_{\mathbb C}V|^2=1
+$$
+
+です。よって密度の値と体積要素の両方が保存され、$Vg$ と $g$ は同じ分布になります。連続密度を持つので $\Pr(g=0)=0$ であり、$g/\|g\|$ はほとんど確実に定義できます。
 
 正規化したベクトルの位相を変えても同じ純粋状態を表します。この点は[純粋密度演算子の定義](../QINF2/index.md#def-qinf2-pure-mixed)とも整合しています。
 
@@ -95,7 +109,14 @@ $$
 
 ## 3. 平均状態は最大混合だが、それだけでは「典型性」は分からない
 
-まず $\rho=|\psi\rangle\langle\psi|$ の平均を考えます。$\mathbb C^D$ の固定した正規直交基底 $|i\rangle$ で $|\psi\rangle=\sum_{i=1}^D\psi_i|i\rangle$ と展開し、$\psi_i=\langle i|\psi\rangle$ をその座標と呼びます。行列 $M=\mathbb E\rho$ はすべてのユニタリ $V$ に対し $VMV^\dagger=M$ を満たします。対角位相行列で非対角成分が零、基底の番号を入れ替えるユニタリで対角成分が等しいことが分かります。
+まず $\rho=|\psi\rangle\langle\psi|$ の平均を考えます。$\mathbb C^D$ の固定した正規直交基底 $|i\rangle$ で
+
+$$
+|\psi\rangle=\sum_{i=1}^D\psi_i|i\rangle,
+\qquad \psi_i=\langle i|\psi\rangle
+$$
+
+と展開し、$\psi_i$ をその座標と呼びます。行列 $M=\mathbb E\rho$ はすべてのユニタリ $V$ に対し $VMV^\dagger=M$ を満たします。対角位相行列で非対角成分が零、基底の番号を入れ替えるユニタリで対角成分が等しいことが分かります。
 
 <a id="prop-qinf31-first-moment"></a>
 
@@ -155,7 +176,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qinf31-swap -->
-**定義の確認**。$K=\mathbb C^2$ なら $F_K|01\rangle=|10\rangle$、$F_K|00\rangle=|00\rangle$ です。[積基底の定理](../QINF1/index.md#thm-qinf1-product-basis)により $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ は $K\otimes K$ の基底です。定義の $F_K|ij\rangle=|ji\rangle$ に従い、各列 $|ij\rangle$ の像が対応する行 $|ji\rangle$ に係数1を持ち、残りの成分は0です。よってこの基底での行列は
+**定義の確認**。$K=\mathbb C^2$ なら $F_K|01\rangle=|10\rangle$、$F_K|00\rangle=|00\rangle$ です。[積基底の定理](../QINF1/index.md#thm-qinf1-product-basis)により $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ は $K\otimes K$ の基底です。
+
+定義の $F_K|ij\rangle=|ji\rangle$ に従い、各列 $|ij\rangle$ の像が対応する行 $|ji\rangle$ に係数1を持ち、残りの成分は0です。よってこの基底での行列は
 
 $$
 F_K=\begin{pmatrix}1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1\end{pmatrix}.
