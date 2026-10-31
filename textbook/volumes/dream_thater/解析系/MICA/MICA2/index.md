@@ -123,6 +123,8 @@ $$
 > が、すべての $\xi\in\mathbb R^n$ に対して成り立つ。
 <!-- formal-statement-end -->
 
+ここで $\xi$ は変換後の値を求める固定した周波数、$\zeta$ は積分の中を動く周波数です。$\widehat\psi(\zeta)$ が $\widehat T(\xi-\zeta)$ の異なる周波数成分を混ぜるため、空間での乗算がこの畳み込み積分になります。$\widehat T$ は[前講のコンパクト支持超関数のFourier変換](../MICA1/index.md#prop-mica1-polynomial-growth)です。
+
 ### 証明の見取り図
 
 $\psi$ を逆Fourier積分で表し、$T$ の作用と積分を交換します。この交換を正当化するのは、$\widehat\psi$ の急減少が $\widehat T$ の多項式増大より速いことです。
@@ -130,13 +132,13 @@ $\psi$ を逆Fourier積分で表し、$T$ の作用と積分を交換します�
 <!-- proof-start -->
 ### 証明
 
-$T$ の台の近くで $1$ となる $\rho\in C_c^\infty$ を固定します。[Fourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)を $\psi$ に適用すると
+$T$ の台の近くで $1$ となる $\rho\in C_c^\infty$ を固定します。[FOU3のFourier反転](../../FOU/FOU3/index.md#thm-fou3-inversion)はまず一変数の定理ですが、$\psi\in C_c^\infty(\mathbb R^n)$ と $\widehat\psi$ の急減少を使い、各座標に反転を繰り返してFubiniで積分順を交換できます。この多変数への拡張は[前講の急減少と滑らかさの同値の証明](../MICA1/index.md#thm-mica1-smooth-rapid)でも確認しました。従って
 
 $$
 \psi(x)=\frac1{(2\pi)^n}\int_{\mathbb R^n}e^{ix\cdot\zeta}\widehat\psi(\zeta)\,d\zeta.
 $$
 
-多重指数 $\alpha$ で $|\alpha|\le m$ 回まで $x$ 微分した $\rho(x)e^{-ix\cdot\xi}e^{ix\cdot\zeta}$ は、固定した $\xi$ と $\rho$ に対して $(1+|\zeta|)^m$ 以下の多項式評価を持ちます。一方、$\widehat\psi$ は[急減少](../MICA1/index.md#thm-mica1-smooth-rapid)し、$N>m+n$ を選べば
+[既習の多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha$ で $|\alpha|\le m$ 回まで $x$ 微分した $\rho(x)e^{-ix\cdot\xi}e^{ix\cdot\zeta}$ は、固定した $\xi$ と $\rho$ に対して $(1+|\zeta|)^m$ 以下の多項式評価を持ちます。一方、$\widehat\psi$ は[急減少](../MICA1/index.md#thm-mica1-smooth-rapid)し、$N>m+n$ を選べば
 
 $$
 \int_{\mathbb R^n}(1+|\zeta|)^m|\widehat\psi(\zeta)|\,d\zeta<\infty.
@@ -282,12 +284,13 @@ $$
 |\widehat\psi(\zeta)|(1+|\zeta|)^m\,d\zeta.
 $$
 
-$\widehat\psi$ の急減少を次数 $Q=N+2m+n+1$ より大きい整数で使います（$m$ が整数ならこの $Q$ 自体でよい）。半径 $r=|\zeta|$ による積分評価から、$Q-m>n$ のとき
+$\widehat\psi$ の急減少を整数次数 $Q=N+2m+n+1$ で使います（多項式増大の次数 $m$ は非負整数に取れます）。$S^{n-1}$ の表面積を $a_n$ とすると、極座標 $r=|\zeta|$ では積分に $a_nr^{n-1}\,dr$ が現れます。$r^{n-1}\le(1+r)^{n-1}$ なので、$Q-m>n$ のとき
 
 $$
 \begin{aligned}
 \int_{|\zeta|>\epsilon|\xi|}(1+|\zeta|)^{m-Q}\,d\zeta
-&\le C_{n,m,Q}\bigl(1+\epsilon|\xi|\bigr)^{n+m-Q}\\
+&=a_n\int_{\epsilon|\xi|}^\infty r^{n-1}(1+r)^{m-Q}\,dr\\
+&\le\frac{a_n}{Q-m-n}\bigl(1+\epsilon|\xi|\bigr)^{n+m-Q}\\
 &\le C'_{n,m,Q,\epsilon}(1+|\xi|)^{n+m-Q}.
 \end{aligned}
 $$
