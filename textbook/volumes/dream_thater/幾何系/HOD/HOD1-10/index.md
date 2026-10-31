@@ -173,7 +173,7 @@ $$
 
 最後の等号では $d\omega=0$ を使った。従って $[\omega\wedge\alpha]_d$ は代表によらず、[de Rham積](#prop-hod1-10-product-well-defined)により $[\omega]_d\smile[\alpha]_d$ と等しい。これで $L_H$ はwell-definedで複素線形である。
 
-[Hodge–de Rham同型](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)によれば、$[\alpha]_d$ に対し $h\in\mathcal H^k(X)$ がただ一つ存在し、ある滑らかな $(k-1)$ 形式 $\beta$ によって $\alpha=h+d\beta$ と書ける。そこで
+[実Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)を複素線形に延長すれば、$[\alpha]_d$ に対し $h\in\mathcal H^k(X)$ がただ一つ存在し、ある滑らかな $(k-1)$ 形式 $\beta$ によって $\alpha=h+d\beta$ と書ける。そこで
 
 $$
 \begin{aligned}
@@ -222,7 +222,7 @@ $$
 
 ### 証明の見取り図
 
-型の変化と調和性の保存は異なる入力である。前者は $\omega$ の型、後者はKähler恒等式から得たLaplacian可換性を使い、最後にHodge分解の同型へ渡す。
+型の変化と調和性の保存は異なる入力である。前者は $\omega$ の型、後者は[Kähler恒等式](../HOD1-04/index.md#thm-hod1-04-kahler-identities)に基づく[Laplacian可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)を使い、最後にHodge分解の同型へ渡す。
 
 <!-- proof-start -->
 ### 証明
