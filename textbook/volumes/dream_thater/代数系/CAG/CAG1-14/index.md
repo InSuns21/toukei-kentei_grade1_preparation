@@ -94,7 +94,7 @@ $$
 
 ## 3. 五次三次元超曲面で、層コホモロジーをもう一段計算する
 
-$P=\mathbb P^4_{\mathbb C}$ とし、$F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5$ の零点集合を $Q\subset P$、$M=Q^{\mathrm{an}}$ と書く。[前章のJacobian計算](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)で $Q$ は滑らかな複素次元3の射影超曲面である。また[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
+$P=\mathbb P^4_{\mathbb C}$ とし、$F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5$ の零点集合を $Q\subset P$、$M=Q^{\mathrm{an}}$ と書く。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で、偏微分 $\partial F/\partial X_j=5X_j^4$（$0\le j\le4$）が射影点で同時に零にならないことから、$Q$ は滑らかな複素次元3の射影超曲面である。また前章の[正則3形式の貼り合わせ](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)と[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
 
 一つの非消失正則3形式があるという事実は、すべての微分形式のコホモロジーを求めたという意味ではない。しかし $\mathcal O_Q$ のコホモロジーなら、これまでの代数的な計算だけで全次数を決められる。
 
@@ -131,7 +131,13 @@ $$
 \longrightarrow i_*\mathcal O_Q\longrightarrow0
 $$
 
-が完全である。右端の核は局所的に $F$ の倍数である。射影空間の[ねじり層コホモロジーの公式](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $(n,d)=(4,-5)$ と $(4,0)$ を代入すると、
+が完全である。右端の核は局所的に $F$ の倍数である。ここから $Q$ 上のコホモロジーを読むには、[閉埋込みの直像とコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を使う。すなわち各 $q\ge0$ について
+
+$
+H^q(P,i_*\mathcal O_Q)\simeq H^q(Q,\mathcal O_Q)
+$
+
+である。この同型の下で長完全列を読み替える。射影空間の[ねじり層コホモロジーの公式](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)に $(n,d)=(4,-5)$ と $(4,0)$ を代入すると、
 
 $$
 H^q(P,\mathcal O_P(-5))=
@@ -324,7 +330,14 @@ $$
 滑らかな五次超曲面 $Q\subset\mathbb P^4$ に対し、制限完全列から $H^1(Q,\mathcal O_Q)$、$H^2(Q,\mathcal O_Q)$、$H^3(Q,\mathcal O_Q)$ を一続きで計算し、解析化後の結果を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $P=\mathbb P^4$ と置く。斉次五次式による $0\to\mathcal O_P(-5)\to\mathcal O_P\to i_*\mathcal O_Q\to0$ を作る。[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $H^q(P,\mathcal O_P)=0$（$q>0$）、$H^q(P,\mathcal O_P(-5))=0$（$q\ne4$）、$H^4(P,\mathcal O_P(-5))\simeq\mathbb C$。
+**詳細解答。** $P=\mathbb P^4$、$i:Q\hookrightarrow P$ と置く。斉次五次式 $F$ を掛ける短完全列は
+
+$
+0\to\mathcal O_P(-5)\xrightarrow{\cdot F}\mathcal O_P
+\to i_*\mathcal O_Q\to0
+$
+
+である。[閉埋込みの直像のコホモロジー](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)から $H^q(P,i_*\mathcal O_Q)\simeq H^q(Q,\mathcal O_Q)$ である。[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $H^q(P,\mathcal O_P)=0$（$q>0$）、$H^q(P,\mathcal O_P(-5))=0$（$q\ne4$）、$H^4(P,\mathcal O_P(-5))\simeq\mathbb C$。
 
 [長完全列](../../AG/AG3-08/index.md#thm-ag3-08-long-exact)により、$q=1$ と $q=2$ では $0\to H^q(Q,\mathcal O_Q)\to0$ を得る。$q=3$ では $0\to H^3(Q,\mathcal O_Q)\to H^4(P,\mathcal O_P(-5))\to0$ なので $H^3(Q,\mathcal O_Q)\simeq\mathbb C$。[GAGA I](../CAG1-05/index.md#thm-cag1-05-gaga-cohomology)の適用条件（射影・連接）を満たすから、解析側でも順に $0,0,\mathbb C$ となる。
 <!-- solution-end -->
@@ -348,7 +361,7 @@ $d=6$ では $K_{Y_6}\simeq\mathcal O_{Y_6}(1)$。六次式の制限列を1だ�
 滑らかな五次三次元超曲面 $Q$ で、$H^0(Q,\mathcal O_Q)$、$H^3(Q,\mathcal O_Q)$、$H^0(Q,K_Q)$ の次元を求めよ。これらの数だけで $h^{1,1}$ と $h^{2,1}$ の値を決定したことにならない理由を、求めるべき層の名称を挙げて説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [本章の構造層の計算](#prop-cag1-14-quintic-structure-cohomology)より最初の二群はどちらも一次元である。$K_Q\simeq\mathcal O_Q$ は[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)の $(n,d)=(4,5)$ から分かるので、三番目も $H^0(Q,\mathcal O_Q)\simeq\mathbb C$ と同じく一次元。
+**詳細解答。** [本章の構造層の計算](#prop-cag1-14-quintic-structure-cohomology)より最初の二群はどちらも一次元である。$K_Q\simeq\mathcal O_Q$ は[代数的随伴公式](../../AG/AG2-10/index.md#thm-ag2-10-adjunction)の $(n,d)=(4,5)$ から分かるので、三番目も $H^0(Q,\mathcal O_Q)\simeq\mathbb C$ と同じく一次元。
 
 一方 $h^{1,1}$ を層の言葉で読むには $H^1(Q,\Omega_Q^1)$、$h^{2,1}$ には $H^1(Q,\Omega_Q^2)$ が必要であり、さらに高次元のDolbeault同型・Hodge分解に関する正当化が要る。計算済みの $\mathcal O_Q=\Omega_Q^0$ と $K_Q=\Omega_Q^3$ だけでは $\Omega_Q^1$ と $\Omega_Q^2$ の一次群の次元は得られない。
 <!-- solution-end -->
@@ -392,7 +405,15 @@ $d=6$ では $K_{Y_6}\simeq\mathcal O_{Y_6}(1)$。六次式の制限列を1だ�
 
 1. $\mathbb A^1$ は非射影で、大域代数的関数は多項式に限るが $e^z$ は正則で多項式でない。したがって射影版GAGAの仮定を外すと $H^0$ の比較が破綻し得る。
 2. $P=[0:0:0:0:1]$ は $Y$ に属する。定義式は $X_4$ に依存せず、残りの偏微分も $P$ で零だから、[Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により特異点である。$P$ では局所方程式のどの偏微分も単元として割れず、[滑らかな超曲面の正則余形式](../CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を局所基底にする手順が止まる。一方 $Y$ 自体は射影スキームなので、**その連接層についてのGAGA**は依然適用できる。滑らかな三次元多様体の標準束と特異スキームの双対化層を同一視しない。
-3. $Z$ が滑らかであるから[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)を適用できるが、$d-n-1=6-4-1=1$ となり $K_{Z^{\mathrm{an}}}\simeq\mathcal O_{Z^{\mathrm{an}}}(1)$。五次の非消失定数係数3形式と同じ貼り合わせは成立しない。一方、射影性を保つので連接層GAGAは使える。[ねじり層の制限列](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)で $H^0(Z,K_Z)\simeq\mathbb C^5$ も計算できる。
+3. $Z$ が滑らかであるから[随伴公式](../CAG1-11/index.md#thm-cag1-11-analytic-adjunction)を適用できるが、$d-n-1=6-4-1=1$ となり $K_{Z^{\mathrm{an}}}\simeq\mathcal O_{Z^{\mathrm{an}}}(1)$。五次の非消失定数係数3形式と同じ貼り合わせは成立しない。一方、射影性を保つので連接層GAGAは使える。六次式を $F_6$、閉埋込みを $i:Z\hookrightarrow\mathbb P^4$ と書けば、制限列を1だけねじった
+
+$
+0\to\mathcal O_{\mathbb P^4}(-5)
+\xrightarrow{\cdot F_6}\mathcal O_{\mathbb P^4}(1)
+\to i_*\mathcal O_Z(1)\to0
+$
+
+に[ねじり層コホモロジー](../../AG/AG3-10/index.md#thm-ag3-10-projective-twist-cohomology)と[閉埋込みの直像の比較](../CAG1-05/index.md#prop-cag1-05-closed-pushforward)を適用する。両端の $H^0(\mathcal O(-5))$、$H^1(\mathcal O(-5))$ が零だから、$H^0(Z,K_Z)\simeq H^0(\mathbb P^4,\mathcal O(1))\simeq\mathbb C^5$ と計算できる。
 
 従って「GAGAは滑らかなものにしか使えない」は誤り。GAGAの射影性という仮定、随伴公式の滑らかさという仮定、五次で指数が消えるという算術的条件は別々に検査する。
 <!-- solution-end -->
