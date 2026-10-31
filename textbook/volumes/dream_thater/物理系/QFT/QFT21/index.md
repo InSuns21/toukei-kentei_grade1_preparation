@@ -8,7 +8,14 @@
 
 ## 1. 対数を取ると「つながった相関」になる
 
-実関数 $S(x)$ に対し $e^{-S(x)}$ を重みとし、実ソース $J$ を $J^Tx$ として加えます。最初は、$Z(J)=\int_{\mathbb R^n}e^{-S(x)+J^Tx}d^nx$ が $J=0$ の近傍で有限かつ正で、任意次数のソース微分を積分内へ入れられると仮定します。$S(x)=x^TAx/2+\lambda(x^Tx)^2$（$A$ が実対称正定値、$\lambda\ge0$）などが具体例です。
+実関数 $S(x)$ に対し $e^{-S(x)}$ を重みとし、実ソース $J=(J_1,\ldots,J_n)^T\in\mathbb R^n$ を内積として加えます。すなわち
+
+$$
+J^Tx=\sum_{i=1}^nJ_ix_i,
+\qquad Z(J)=\int_{\mathbb R^n}e^{-S(x)+J^Tx}\,d^nx
+$$
+
+です。最初は $Z(J)$ が $J=0$ の近傍で有限かつ正で、任意次数のソース微分を積分内へ入れられると仮定します。例えば $S(x)=x^TAx/2+\lambda(x^Tx)^2$（$A$ は実対称正定値、$\lambda\ge0$）なら満たされます。
 
 $Z(J)/Z(0)$ は全てのモーメントを記録しますが、積で説明できる成分を除くには対数が有効です。積が対数の下では和に変わるからです。
 
@@ -61,6 +68,8 @@ $$
 ### 証明の見取り図
 
 $r$ 回微分した $e^W$ にもう一度微分を加えると、新しい添字は既存のブロックのいずれかに入るか、単独のブロックになります。これで全ての集合分割が過不足なく一回ずつ数えられます。
+
+証明中は $\partial_i=\partial/\partial J_i$ と略し、位置の集合 $B$ について $\partial_B=\prod_{b\in B}\partial_{i_b}$ と書きます。これは $B$ に属する位置のソース成分を一回ずつ偏微分する演算子で、他の成分は固定します。同じ添字値が複数の位置に現れても、微分する回数は位置の数で数えます。仮定した滑らかさの下では偏微分の順序を交換できます。
 
 <!-- proof-start -->
 ### 証明
@@ -139,7 +148,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（平均場の応答と共分散の正値性）**  
-> $e^{-S(x)+J^Tx}$ が $\mathbb R^n$ 上でほとんど至る所正、かつ二階微分と積分交換が正当化され、二次モーメントが有限であるとする。このとき
+> 開集合 $U\subset\mathbb R^n$ の各 $J\in U$ で $0<Z(J)<\infty$、$e^{-S(x)+J^Tx}$ が $\mathbb R^n$ 上でほとんど至る所正とする。さらに $Z$ は $U$ 上 $C^2$ 級で、二階微分と積分交換が正当化され、ソース付き二次モーメントが有限であるとする。このとき
 
 $$
 C_{ij}(J)=\langle x_ix_j\rangle_J-\langle x_i\rangle_J\langle x_j\rangle_J
@@ -175,13 +184,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Euclid型1PI有効作用）**  
-> $W(J)$ が滑らかで、$C(J)=\nabla_J^2W(J)$ が正定値となる開領域を取り、その像の平均場 $\phi=\nabla_JW(J)$ からソースを $J=J(\phi)$ と逆に解く。このとき有効作用を
+> $W(J)$ が滑らかで、$C(J)=\nabla_J^2W(J)$ が正定値となる開領域の一点 $J_*$ を取る。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)によって $J_*$ の十分小さい開近傍を選び、その像の平均場 $\phi=\nabla_JW(J)$ からソースを一意に $J=J(\phi)$ と逆に解く。この局所的な平均場の領域で有効作用を
 
 $$
 \Gamma(\phi)=J(\phi)^T\phi-W(J(\phi))
 $$
 
-> と定義する。これは本章では **Euclid符号**の規約であり、Minkowski時空の作用の符号と混同しない。$W(0)=0$ という規格化では $\Gamma(\phi(0))=0$ となる。
+> と定義する。これは本章では **Euclid符号**の規約であり、Minkowski時空の作用の符号と混同しない。局所領域に $J=0$ が含まれる場合、$W(0)=0$ という規格化では $\Gamma(\phi(0))=0$ となる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft21-effective-action -->
@@ -197,6 +206,8 @@ $$
 確かに $\Gamma(0)=0$、$\Gamma'(\phi)=a\phi=J$、$\Gamma''=a>0$ で、$W''=1/a$ の逆数です。単にLegendre変換という名前を付けるだけでなく、どの変数を消去したかを示しました。
 <!-- definition-example-end -->
 
+以下で二階微分を行列として扱うときは、$\nabla_\phi^2\Gamma$ を $\phi$ 成分に関するHessian、つまり $(i,j)$ 成分が $\partial^2\Gamma/(\partial\phi_i\partial\phi_j)$ の行列とします。一般の高階微分を固有頂点と呼ぶのは第4節で定義します。
+
 <a id="thm-qft21-legendre-hessian"></a>
 
 <!-- formal-statement-start -->
@@ -210,7 +221,7 @@ $$
 C_{kj}(J(\phi))=\delta_{ij}.
 $$
 
-> 特に $\Gamma^{(2)}(\phi)=C(J(\phi))^{-1}$ であり、零ソースの平均 $\phi_0=\phi(0)$ は $\Gamma$ の停留点である。
+> 特に $\nabla_\phi^2\Gamma(\phi)=C(J(\phi))^{-1}$ であり、零ソースの平均 $\phi_0=\phi(0)$ は $\Gamma$ の停留点である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -234,17 +245,21 @@ $$
 \end{aligned}
 $$
 
-これを $\phi_j$ で微分すると $\Gamma^{(2)}_{ij}=\partial J_i/\partial\phi_j$ です。一方、[平均場の定義](#def-qft21-mean-field)より $\partial\phi_k/\partial J_j=C_{kj}$ です。$J\mapsto\phi\mapsto J$ を微分して
+これを $\phi_j$ で微分すると $(\nabla_\phi^2\Gamma)_{ij}=\partial J_i/\partial\phi_j$ です。一方、[平均場の定義](#def-qft21-mean-field)より $\partial\phi_k/\partial J_j=C_{kj}$ です。$J\mapsto\phi\mapsto J$ を微分して
 
 $$
 \sum_k\frac{\partial J_i}{\partial\phi_k}
 \frac{\partial\phi_k}{\partial J_j}=\delta_{ij}
 $$
 
-が得られます。よって $\Gamma^{(2)}C=I_n$ です。$J=0$ では $\Gamma'(\phi_0)=0$。また $\Gamma''=C^{-1}>0$ なのでこの局所領域での停留点は局所極小です。
+が得られます。よって $(\nabla_\phi^2\Gamma)C=I_n$ です。$J=0$ では $\nabla_\phi\Gamma(\phi_0)=0$。また $\nabla_\phi^2\Gamma=C^{-1}$ は正定値なので、$\phi_0$ は局所極小点です。
 <!-- proof-end -->
 
-ここが計算上の重要な違いです。**連結二点 $C$ は伝播の大きさ、$\Gamma^{(2)}$ はその逆作用素**です。連続場では行列の積を時空積分へ置き換え、場・ソース・逆核を適切な正則化と関数空間上で定めた上で形式的に
+ここが計算上の重要な違いです。**連結二点 $C$ は伝播の大きさ、$\nabla_\phi^2\Gamma$ はその逆作用素**です。
+
+[有限格子生成汎関数](../QFT19/index.md#def-qft19-lattice-functional)で添字 $i,j,k$ を格子点へ対応させると、行列の和は格子重みを伴う和となります。連続極限を形式的に取ると、この和は時空積分へ移ります。
+
+以下の $\delta/\delta J(y)$ はソース関数 $J$ を点 $y$ で変える汎関数微分です。また $\delta^{(d)}(x-z)$ は $d$ 次元のDiracデルタ分布で、有限次元の $\delta_{ij}$ に対応する恒等核です。格子重み・場・ソース・逆核を適切な正則化と関数空間上で定めた場合に限り、形式的に
 
 $$
 \int d^dy\,\frac{\delta^2\Gamma}{\delta\phi(x)\delta\phi(y)}
@@ -278,6 +293,8 @@ $$
 
 **定義の確認**：[自由Gaussianの有効作用](#def-qft21-effective-action) $\Gamma(\phi)=a\phi^2/2$ を繰り返し微分すると、$\Gamma^{(2)}=a$、$\Gamma^{(3)}=\Gamma^{(4)}=0$ です。実際、Gaussianでは三点・四点の連結関数も零です。後述の三点・四点の式に代入して整合性を確かめられます。
 <!-- definition-example-end -->
+
+以下では $W^{(r)}_{i_1\ldots i_r}(J)$ を $J_{i_1},\ldots,J_{i_r}$ に関する $r$ 階偏微分と書きます。これは零ソースでは第1節の連結 $r$ 点関数に一致します。一方、$\Gamma^{(r)}$ の微分変数は $\phi$ であって $J$ ではありません。
 
 <a id="thm-qft21-connected-1pi"></a>
 
@@ -339,7 +356,33 @@ C_{ip}C_{jb}C_{kc}C_{ld}\,
 \Gamma^{(3)}_{pde}C_{ef}\Gamma^{(3)}_{fbc}
 $$
 
-です。外側を $C_{ia}C_{jb}C_{kc}C_{ld}$ にそろえるよう内部添字を付け替えると、$\Gamma^{(3)}_{ade}C_{ef}\Gamma^{(3)}_{fbc}$ に一致します。同じ操作を $C_{jb}$ と $C_{kc}$ に行えば、残りの二通り $\Gamma^{(3)}_{bde}C_{ef}\Gamma^{(3)}_{fac}$、$\Gamma^{(3)}_{cde}C_{ef}\Gamma^{(3)}_{fab}$ が出ます。最後に $\Gamma^{(3)}_{abc}$ に微分が当たる場合は、$\partial_{J_l}\Gamma^{(3)}_{abc}=\Gamma^{(4)}_{abcd}C_{dl}$ から $-C_{ia}C_{jb}C_{kc}C_{ld}\Gamma^{(4)}_{abcd}$ が出ます。固有頂点の添字の対称性を使って三通りを並べ替えると定理の四点公式になります。
+です。実際、この項の微分前の添字を残して書くと
+
+$$
+\begin{aligned}
+&C_{ip}C_{qa}C_{el}C_{jb}C_{kc}\,
+\Gamma^{(3)}_{pqe}\Gamma^{(3)}_{abc}\\
+&=C_{ip}C_{jb}C_{kc}C_{ld}\,
+\Gamma^{(3)}_{pfd}C_{fa}\Gamma^{(3)}_{abc}
+\end{aligned}
+$$
+
+となります。二行目では総和添字 $e\to d,q\to f$ と名前を替え、$C_{el}=C_{ld}$ の対称性を使いました。外側を四本の $C$ にそろえるよう残りの総和添字を付け替えると、$\Gamma^{(3)}_{ade}C_{ef}\Gamma^{(3)}_{fbc}$ に一致します。
+
+同じ操作を $C_{jb}$ と $C_{kc}$ に行えば、残りの二通りが得られます。
+
+$$
+\Gamma^{(3)}_{bde}C_{ef}\Gamma^{(3)}_{fac},\qquad
+\Gamma^{(3)}_{cde}C_{ef}\Gamma^{(3)}_{fab}.
+$$
+
+最後に $\Gamma^{(3)}_{abc}$ に微分が当たる場合は
+
+$$
+\partial_{J_l}\Gamma^{(3)}_{abc}=\Gamma^{(4)}_{abcd}C_{dl}
+$$
+
+です。従ってこの項は $-C_{ia}C_{jb}C_{kc}C_{ld}\Gamma^{(4)}_{abcd}$ となります。固有頂点の添字の対称性を使って三通りを並べ替えると、定理の四点公式になります。
 <!-- proof-end -->
 
 一変数なら添字の和がすべて通常の積になり、特に分かりやすくなります。$C=W''=1/\Gamma''$ と置いて
@@ -454,7 +497,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限次元での一ループ行列式の入口）**  
-> $S\in C^\infty(\mathbb R^n)$ が十分速く増大し、考えるソースの近傍で $S(x)-J^Tx$ に一意の非退化大域最小点 $x_*(J)$ があり、鞍点近傍の漸近展開と残部評価が一様に成り立つとする。$x_0=x_*(0)$ とし、平均場 $\phi$ がこの近傍にあるとき、$\hbar\downarrow0$ で
+> $S\in C^\infty(\mathbb R^n)$ が十分速く増大し、考えるソースの近傍で $S(x)-J^Tx$ に一意の非退化大域最小点 $x_*(J)$ があり、鞍点近傍の漸近展開と残部評価が $J$ に関して一階微分した式も含めて局所一様に成り立つとする。$x_0=x_*(0)$ とし、平均場 $\phi$ がこの近傍にあるとき、$\hbar\downarrow0$ で
 
 $$
 \Gamma_\hbar(\phi)=S(\phi)-S(x_0)
@@ -479,7 +522,14 @@ $$
 +\frac12y^TH_Jy+O(\sqrt\hbar\,\|y\|^3).
 $$
 
-先頭のGaussian積分は $ (2\pi\hbar)^{n/2}/\sqrt{\det H_J}$ です。奇の次数の寄与はGaussianの対称性で積分すると零となり、仮定した一様な鞍点の漸近展開により
+先頭のGaussian積分は $(2\pi\hbar)^{n/2}/\sqrt{\det H_J}$ です。より詳しく $F_J$ を四次まで展開すると、指数関数の最初の補正は
+
+$$
+-\frac{\sqrt\hbar}{6}\sum_{i,j,k=1}^n
+\frac{\partial^3S}{\partial x_i\partial x_j\partial x_k}(x_*)y_iy_jy_k
+$$
+
+で、$y$ の奇関数です。これは対称な中心Gaussian積分で零となり、次に残る補正は $O(\hbar)$ です。仮定した一様な鞍点の漸近展開により
 
 $$
 \log Z_\hbar(J)=-\frac{F_J(x_*)}\hbar
@@ -493,7 +543,20 @@ W_\hbar(J)=J^Tx_*-S(x_*)+S(x_0)
 -\frac\hbar2\log\frac{\det H_J}{\det H_0}+O(\hbar^2).
 $$
 
-ここで $\nabla S(x_*)=J$。微分により $\phi=\nabla_JW_\hbar=x_*+O(\hbar)$ です。Legendre変換へ代入すると、$J\cdot(\phi-x_*)+S(x_*)$ は停留条件 $\nabla S(x_*)=J$ によって $S(\phi)+O(\hbar^2)$ に等しいです。また $\hbar\log\det H_J=\hbar\log\det S''(\phi)+O(\hbar^2)$。以上を合わせて結論を得ます。
+ここで $\nabla S(x_*)=J$ です。仮定した一様な微分可能性により、$W_\hbar$ の $O(\hbar^2)$ の剰余項はソース $J$ で微分しても同じ次数です。よって
+
+$$
+\phi=\nabla_JW_\hbar=x_*+O(\hbar).
+$$
+
+$\Delta=\phi-x_*=O(\hbar)$ と置けば、停留条件と[多変数Taylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)から
+
+$$
+S(\phi)=S(x_*)+J^T\Delta+\frac12\Delta^TS''(x_*)\Delta+O(\|\Delta\|^3)
+=S(x_*)+J^T\Delta+O(\hbar^2).
+$$
+
+また $S''$ は滑らかで $S''(x_*)$ が正定値なので、$\hbar\log\det H_J=\hbar\log\det S''(\phi)+O(\hbar^2)$。これらを $\Gamma_\hbar=J^T\phi-W_\hbar$ へ代入して結論を得ます。
 <!-- proof-end -->
 
 この $\log\det S''$ が場の1ループ補正の原型です。ただし、連続場で $\operatorname{Tr}\log$ と書いた瞬間に有限な値が定まるわけではありません。次の講義では、$\phi^4$ 模型の実際のループ積分と正則化を出発点から扱います。
@@ -584,7 +647,7 @@ C=\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix},\qquad
 \det C=1-\rho^2>0.
 $$
 
-対称行列 $C$ の固有値は $1+\rho,1-\rho$ で、$|\rho|<1$ なら両方正です。逆行列は
+ここで $v_+=(1,1)^T$ と $v_-=(1,-1)^T$ は基底をなし、$Cv_+=(1+\rho)v_+$、$Cv_-=(1-\rho)v_-$ です。従って $C$ の固有値は $1+\rho,1-\rho$ で、$|\rho|<1$ なら両方正です。任意の $u=sv_++tv_-$（$s,t$ は実数）について $u^TCu=2s^2(1+\rho)+2t^2(1-\rho)>0$（$u\ne0$）です。逆行列は
 
 $$
 \Gamma^{(2)}=C^{-1}
