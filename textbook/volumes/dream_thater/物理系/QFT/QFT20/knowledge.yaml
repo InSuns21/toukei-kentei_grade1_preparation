@@ -1,0 +1,69 @@
+chapter: QFT20
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT6, CA5, F0-00P3]
+forward_references: []
+
+concepts:
+  - id: qft.euclidean-scalar-action
+    name: 自由スカラー場のEuclid作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由スカラー場のEuclid作用）]
+    requires: [qft.finite-gaussian-weight]
+
+  - id: qft.euclidean-two-point-function
+    name: 自由場のEuclid二点関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由場のEuclid二点関数）]
+    requires: [qft.euclidean-scalar-action]
+
+  - id: qft.euclidean-free-covariance
+    name: Euclid自由共分散と時間順序境界値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euclid自由共分散と時間順序境界値）]
+    requires: [qft.euclidean-two-point-function]
+
+  - id: qft.contour-wick-rotation
+    name: 積分路によるWick回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（積分路によるWick回転）]
+    requires: [qft.euclidean-free-covariance]
+
+  - id: qft.wick-crossed-pole
+    name: 極を横断する回転の補正項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（極を横断する回転の補正項）]
+    requires: [qft.contour-wick-rotation]
+
+  - id: qft.reflection-positivity
+    name: 反射陽性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（反射陽性）]
+    requires: [qft.euclidean-two-point-function]
+
+  - id: qft.free-reflection-form
+    name: 自由スカラー二点核の反射二次形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由スカラー二点核の反射二次形式）]
+    requires: [qft.reflection-positivity, qft.euclidean-free-covariance]
+
+  - id: qft.positive-covariance-nonreflection
+    name: 共分散が正でも反射陽性とは限らない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共分散が正でも反射陽性とは限らない）]
+    requires: [qft.free-reflection-form]
+
+  - id: qft.euclidean-reconstruction-data
+    name: 再構成を目指すEuclid相関関数のデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（再構成を目指すEuclid相関関数のデータ）]
+    requires: [qft.reflection-positivity, qft.positive-covariance-nonreflection]
