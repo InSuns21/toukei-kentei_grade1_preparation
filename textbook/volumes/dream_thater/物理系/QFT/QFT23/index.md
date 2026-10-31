@@ -343,7 +343,7 @@ $$
 \boxed{\delta Z=0}
 $$
 
-> となる。表示した量は各々 $O(\lambda_R)$、$O(\lambda_R^2)$、$O(\lambda_R)$ の発散部分を定めている。二点・四点の有限値は零運動量減算法とは一般に異なる。
+> となる。質量・結合反項については、それぞれ $O(\lambda_R)$、$O(\lambda_R^2)$ の極を定めている。波動関数反項の $O(\lambda_R)$ 項は零であり、最初の非零候補は $O(\lambda_R^2)$ である。二点・四点の有限値は零運動量減算法とは一般に異なる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -611,11 +611,11 @@ $$
 
 $$
 J_{\mathrm{bub}}(P)=\frac1{16\pi^2}
-\left\{\Delta_\varepsilon+\log\mu^2-\int_0^1\log M_x^2\,dx\right\}
+\left\{\Delta_\varepsilon-\int_0^1\log\frac{M_x^2}{\mu^2}\,dx\right\}
 +O(\varepsilon).
 $$
 
-$P=0$ なら $M_x^2=m^2$ なので、差を取ると $\Delta_\varepsilon$ と $\log\mu^2$ が消えて
+$P=0$ なら $M_x^2=m^2$ なので、差を取ると $\Delta_\varepsilon$ と基準スケール $\mu$ に依存する部分が消えて
 
 $$
 \lim_{\varepsilon\to0}\{J_{\mathrm{bub}}(P)-J_{\mathrm{bub}}(0)\}
