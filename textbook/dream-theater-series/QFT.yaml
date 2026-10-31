@@ -115,3 +115,11 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT27
     status: completed
     title: "赤外発散・軟光子と包摂的観測量"
+  - id: QFT28
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT28
+    status: completed
+    title: "非可換ゲージ変換・Yang–Mills曲率とゲージ場の自己相互作用"
+  - id: QFT29
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT29
+    status: planned
+    title: "Faddeev–Popovゲージ固定・ghostとBRST対称性の入口"

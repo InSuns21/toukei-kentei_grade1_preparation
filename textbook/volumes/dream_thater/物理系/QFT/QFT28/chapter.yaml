@@ -1,0 +1,41 @@
+id: QFT28
+title: "非可換ゲージ変換・Yang–Mills曲率とゲージ場の自己相互作用"
+volume: foundations
+status: supplementary
+prerequisites: [QFT15, QFT17, LIE4]
+official_scope: []
+learning_objectives:
+  - SU(N)の生成子と構造定数の規約を具体的なSU(2)行列で検算できる
+  - 非可換な局所ゲージ変換に対する共変微分とポテンシャルの変換則を導ける
+  - 共変微分の交換子からYang–Mills曲率を導きその共変変換を証明できる
+  - 曲率のBianchi恒等式をJacobi恒等式から導ける
+  - Yang–Mills作用のゲージ不変性と真空場の方程式を変分から導ける
+  - 曲率の非線形項から三点・四点の自己相互作用を展開し非可換性の役割を説明できる
+definitions:
+  - { id: QFT28-DEF-01, name: SU(N)ゲージ場と基本表現の共変微分 }
+  - { id: QFT28-DEF-02, name: Yang–Mills曲率と随伴共変微分 }
+  - { id: QFT28-DEF-03, name: Yang–Mills作用 }
+theorems:
+  - { id: QFT28-THM-01, name: 非可換ゲージ変換の共変性 }
+  - { id: QFT28-THM-02, name: 曲率の共変変換とBianchi恒等式 }
+  - { id: QFT28-THM-03, name: Yang–Mills作用の不変性と真空場方程式 }
+  - { id: QFT28-PROP-01, name: 三点・四点ゲージ場自己相互作用の展開 }
+canonical_examples:
+  - Pauli行列からSU(2)構造定数と規格化を直接確認する
+  - 単一の固定生成子に沿う局所変換で純ゲージ場を作る
+  - 二つの一定ポテンシャル成分から非零の曲率を計算する
+  - SU(2)の一定場が一般には真空Yang–Mills方程式を満たさないことを計算する
+  - abelian極限では三点・四点の自己相互作用が消えることを確認する
+problem_patterns:
+  - QFT28-SU2-COMMUTATOR
+  - QFT28-PURE-GAUGE
+  - QFT28-CONSTANT-CURVATURE
+  - QFT28-INFINITESIMAL-GAUGE
+  - QFT28-TRACE-INVARIANCE
+  - QFT28-CURVATURE-COVARIANCE
+  - QFT28-COVARIANT-BIANCHI
+  - QFT28-YM-EULER-LAGRANGE
+  - QFT28-CUBIC-QUARTIC
+  - QFT28-SU2-FULL-CHECK
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 5 }

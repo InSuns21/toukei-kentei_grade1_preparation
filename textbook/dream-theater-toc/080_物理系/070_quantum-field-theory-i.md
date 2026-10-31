@@ -28,4 +28,5 @@
 25. [QFT25 くりこみ群方程式・β関数・異常次元と一ループの走る結合](textbook/volumes/dream_thater/物理系/QFT/QFT25/index.md)
 26. [QFT26 Wilson流・関連／無関連／周辺演算子と有効場の理論](textbook/volumes/dream_thater/物理系/QFT/QFT26/index.md)
 27. [QFT27 赤外発散・軟光子と包摂的観測量](textbook/volumes/dream_thater/物理系/QFT/QFT27/index.md)
+28. [QFT28 非可換ゲージ変換・Yang–Mills曲率とゲージ場の自己相互作用](textbook/volumes/dream_thater/物理系/QFT/QFT28/index.md)
 
