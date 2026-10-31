@@ -94,7 +94,24 @@ $$
 
 ## 3. 五次三次元超曲面で、層コホモロジーをもう一段計算する
 
-$P=\mathbb P^4_{\mathbb C}$ とし、$F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5$ の零点集合を $Q\subset P$、$M=Q^{\mathrm{an}}$ と書く。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で、ほかの斉次座標を固定した偏微分 $\partial F/\partial X_j=5X_j^4$（$0\le j\le4$）が射影点で同時に零にならないことから、$Q$ は滑らかな複素次元3の射影超曲面である。また前章の[正則3形式の貼り合わせ](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)と[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
+$P=\mathbb P^4_{\mathbb C}$ とする。Fermat五次式を
+
+$$
+F=X_0^5+X_1^5+X_2^5+X_3^5+X_4^5
+$$
+
+と置き、零点集合を $Q=V_+(F)\subset P$、その解析化を $M=Q^{\mathrm{an}}$ と書く。
+
+他の斉次座標を固定して $X_j$ で偏微分すると、
+
+$$
+\frac{\partial F}{\partial X_j}=5X_j^4
+\qquad(0\le j\le4)
+$$
+
+を得る。全偏微分が同時に零なら全斉次座標が零となり、射影点ではない。[射影Jacobian判定](../../AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)より $Q$ は滑らかな複素次元3の射影超曲面である。
+
+前章の[正則3形式の貼り合わせ](../CAG1-13/index.md#prop-cag1-13-analytic-gluing)と[正則3形式の一意性](../CAG1-13/index.md#thm-cag1-13-unique-volume)から $K_M\simeq\mathcal O_M$ かつ $\dim H^0(M,K_M)=1$ である。
 
 一つの非消失正則3形式があるという事実は、すべての微分形式のコホモロジーを求めたという意味ではない。しかし $\mathcal O_Q$ のコホモロジーなら、これまでの代数的な計算だけで全次数を決められる。
 
