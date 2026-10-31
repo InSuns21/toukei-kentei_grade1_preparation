@@ -268,7 +268,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QFT7の平面波解と規格化の定理](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。さらに[Dirac随伴の定義](../QFT7/index.md#def-qft7-adjoint-action)と、Dirac表示での $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ より、実四元運動量 $p'$ について
+[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。さらに[Dirac随伴の定義](../QFT7/index.md#def-qft7-adjoint-action)と、Dirac表示での $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ より、実四元運動量 $p'$ について
 
 $$
 \begin{aligned}
@@ -361,7 +361,7 @@ p\cdot k=mk^0_{\mathrm{rest}}>0,\qquad
 p\cdot k'=mk'^0_{\mathrm{rest}}>0.
 $$
 
-Lorentz内積は座標系に依らないので、他の系でも両内積は正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
+[Lorentzスピノル変換](../QFT7/index.md#def-qft7-spinor-transform)で用いた条件 $\Lambda^T\eta\Lambda=\eta$ より、$(\Lambda p)^T\eta(\Lambda k)=p^T\Lambda^T\eta\Lambda k=p^T\eta k$ です。したがって $p\cdot k$ と $p\cdot k'$ は座標系を替えても正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
 <!-- definition-example-end -->
 
 <a id="thm-qft18-compton-ward"></a>
