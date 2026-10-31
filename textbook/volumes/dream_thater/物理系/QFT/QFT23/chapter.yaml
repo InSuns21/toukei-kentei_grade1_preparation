@@ -2,7 +2,7 @@ id: QFT23
 title: "φ⁴模型の正則化・くりこみ条件・反項と波動関数くりこみ"
 volume: foundations
 status: supplementary
-prerequisites: [QFT19, QFT20, QFT21, QFT22]
+prerequisites: [QFT22, CA11]
 official_scope: []
 learning_objectives:
   - 裸の作用をくりこみ済み係数と局所反項に分解し二点・四点頂点への寄与を導ける
