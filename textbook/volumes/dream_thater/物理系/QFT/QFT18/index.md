@@ -141,7 +141,7 @@ $$
 R(y-z):=\int\frac{d^4r}{(2\pi)^4}e^{-ir\cdot(y-z)}R(r)
 $$
 
-です。これは二つの端点を結ぶ $4\times4$ 行列値分布です。以下、$\partial_{x^\mu}$ は他の位置 $y,z$ を固定して挿入点の座標 $x^\mu$ で偏微分する記号とし、$\partial_{x^\mu}\mathscr G^\mu$ では反復する $\mu=0,1,2,3$ を足し合わせます。
+です。これは二つの端点を結ぶ $4\times4$ 行列値分布です。以下、$\partial_{x^\mu}$ は他の位置 $y,z$ を固定して挿入点の座標 $x^\mu$ で偏微分する記号とします。上下に反復するLorentz添字 $\mu=0,1,2,3$ は総和します。
 
 <a id="def-qft18-three-point-kernel"></a>
 
