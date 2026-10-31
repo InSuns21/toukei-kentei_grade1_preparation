@@ -137,9 +137,9 @@ $$
 
 運動量空間では各組 $p,p'$ に対して $k=p'-p$ と定めますが、以下の**二重Fourier積分では $p,p'$ を独立の積分変数**として動かし、その都度 $k$ を両者の差として読みます。また、位置空間の二点核 $R(a-b)$ は、[自由Dirac逆核](#def-qft18-inverse-kernel)で導入した $R(r)$ を同じFeynman処方で逆Fourier変換した分布
 
-$
+$$
 R(a-b)=\int\frac{d^4r}{(2\pi)^4}e^{-ir\cdot(a-b)}R(r)
-$
+$$
 
 です。偏微分 $\partial_{x^\mu}$ は $y,z$ を固定して挿入位置 $x$ の第 $\mu$ 成分で微分することを意味し、指数から取り出す共変成分 $i(p'_\mu-p_\mu)=ik_\mu$ が運動量空間の縦縮約と対応します。
 
@@ -270,13 +270,13 @@ $$
 
 [QFT7の平面波解と規格化の定理](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。さらに[Dirac随伴の定義](../QFT7/index.md#def-qft7-adjoint-action)と、Dirac表示での $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ より、実四元運動量 $p'$ について
 
-$
+$$
 \begin{aligned}
 \bar u_{s'}(p')K(p')
 &=u_{s'}(p')^\dagger\gamma^0K(p')\\
 &=[K(p')u_{s'}(p')]^\dagger\gamma^0=0.
 \end{aligned}
-$
+$$
 
 したがって入射・出射の両端で対応するDirac方程式を使えます。従って
 
@@ -356,10 +356,10 @@ $$
 
 電子が未来向きの時間的ベクトル、両光子が非零の未来向き光的ベクトルであることを使います。電子の静止系では $p=(m,0,0,0)$ とでき、光子のエネルギーはどちらも正なので
 
-$
+$$
 p\cdot k=mk^0_{\mathrm{rest}}>0,\qquad
 p\cdot k'=mk'^0_{\mathrm{rest}}>0.
-$
+$$
 
 Lorentz内積は座標系に依らないので、他の系でも両内積は正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
 <!-- definition-example-end -->
