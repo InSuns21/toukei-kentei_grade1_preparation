@@ -1,0 +1,30 @@
+id: QINF32
+title: "Page型エントロピー評価"
+volume: foundations
+status: supplementary
+prerequisites: [F0-00P2A, QINF2, QINF3, QINF6, QINF17, QINF31]
+official_scope: []
+learning_objectives:
+  - 縮約状態のRényi-2エントロピーとvon Neumannエントロピーを定義から計算し大小関係と等号条件を証明できる
+  - Haar平均purityからエントロピー平均の下界・上界および最大混合からの平均欠損界を導出できる
+  - 平均と個々のサンプルを区別し、エントロピー欠損が一定値以上となる確率の上界を計算できる
+  - Pageの厳密平均式を文献定理と自力で証明した界に区別して有限次元の数値と比較できる
+  - 乱数種を固定したHaar状態サンプリングでエントロピーの標本平均・標準誤差・解析値を比較できる
+  - 部分系と環境の次元交換対称性および時間発展模型との違いを説明できる
+definitions:
+  - { id: QINF32-DEF-01, name: "Rényi-2エントロピー" }
+  - { id: QINF32-DEF-02, name: "エントロピー欠損" }
+theorems:
+  - { id: QINF32-LEM-01, name: "purityとエントロピーの挟み撃ち" }
+  - { id: QINF32-PROP-01, name: "エントロピー欠損の二次偏差界" }
+  - { id: QINF32-THM-01, name: "Haar部分系のPage型平均評価" }
+  - { id: QINF32-THM-02, name: "エントロピー欠損の確率評価" }
+canonical_examples:
+  - "二値スペクトル(3/4,1/4)でRényi-2とvon Neumannエントロピーを直接比較"
+  - "2×2および2×8の平均purity界と文献によるPage平均式を数値比較"
+  - "固定総次元16の分割1×16・2×8・4×4を比較"
+problem_patterns: [QINF32-RENYI, QINF32-SANDWICH, QINF32-MEAN, QINF32-TAIL, QINF32-PAGE, QINF32-SAMPLING, QINF32-PARTITION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 4.0 }

@@ -1059,6 +1059,7 @@
 29. [QINF29 情報漏洩・デカップリング](textbook/volumes/dream_thater/応用系/QINF/QINF29/index.md)
 30. [QINF30 近似訂正・回復写像](textbook/volumes/dream_thater/応用系/QINF/QINF30/index.md)
 31. [QINF31 Haar測度とランダム純粋状態](textbook/volumes/dream_thater/応用系/QINF/QINF31/index.md)
+32. [QINF32 Page型エントロピー評価](textbook/volumes/dream_thater/応用系/QINF/QINF32/index.md)
 
 <a id="dt-subject-machine-learning"></a>
 ### 機械学習 I
