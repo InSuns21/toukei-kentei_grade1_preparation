@@ -53,7 +53,7 @@ S_\Lambda[\phi]=\frac12\sum_{|p|<\Lambda}
 (p^2+m^2)|\phi_p|^2
 $$
 
-を考えます。これは[QFT22の実Fourier正規直交基底](../QFT22/index.md#def-qft22-sharp-cutoff)で書いた自由二次形式です。運動項と質量項を基底展開すると、異なる運動量の内積は零となり、各独立実座標の二乗係数は $p^2+m^2>0$ です。従って二次形式は正定値で、[QFT19のGaussian公式](../QFT19/index.md#thm-qft19-gaussian)により積分は正かつ有限です。
+を考えます。これは[QFT22の実Fourier正規直交基底](../QFT22/index.md#def-qft22-sharp-cutoff)で書いた自由二次形式です。運動項と質量項を基底展開すると、異なる運動量の内積は零となり、各独立実座標の二乗係数は $p^2+m^2>0$ です。従って二次形式は正定値で、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)により積分は正かつ有限です。
 
 低モードと高モードが同じ実直交基底の互いに交わらない部分を占めるため、交差項は消え、
 
@@ -119,13 +119,13 @@ $$
 =\frac12\int d^dx'\,b^{d-2}(\partial'\phi_<(bx'))^2
 $$
 
-から、$\phi_<(bx')=b^{-(d-2)/2}\phi'(x')$ と選びます。$[\phi]_{\mathrm{eng}}=(d-2)/2$ を、この運動項から決めた場の**工学的質量次元**と呼びます。相互作用のループ補正はまだ含めていません。
+から、$\phi_<(bx')=b^{-(d-2)/2}\phi'(x')$ と選びます。この指数は自由運動項を規格化するためのもので、相互作用のループ補正はまだ含めていません。
 
 <a id="def-qft26-rescaling"></a>
 
 <!-- formal-statement-start -->
 > **定義（再スケーリングと局所演算子のスケーリング指数）**
-> $d>2$ 次元Euclid実スカラー場で、自由二次運動項の係数を $1/2$ とする。$b>1$、$x'=x/b$、$p'=bp$ とし、
+> $d>2$ 次元Euclid実スカラー場で、自由二次運動項の係数を $1/2$ とする。運動項を規格化する場の**工学的質量次元**を $[\phi]_{\mathrm{eng}}=(d-2)/2$ と定める。$b>1$、$x'=x/b$、$p'=bp$ とし、
 
 $$
 \phi'(x')=b^{(d-2)/2}\phi_<(bx'),\qquad
@@ -223,7 +223,7 @@ $$
 
 以下の殻積分と $d/dt$ は、固定 $L$ の離散殻を微分したものではありません。固定した正の質量とカットオフの下で先に $L\to\infty$ としてモード和を積分へ移し、次に $\delta t\downarrow0$ を取ります。固定の有限箱では殻のモード数が階段状に変わるため、この順序が必要です。最後に低モードの運動項が $1/2$ に戻るよう再スケーリングします。
 
-定数の背景場 $\varphi$ を低モードに置くと、殻の二次変動核には $\lambda\varphi^2/2$ が加わります。したがって一ループの場依存寄与は、[QFT19のGaussian積分公式](../QFT19/index.md#thm-qft19-gaussian)を各殻モードに適用した
+定数の背景場 $\varphi$ を低モードに置くと、殻の二次変動核には $\lambda\varphi^2/2$ が加わります。したがって一ループの場依存寄与は、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を各殻モードに適用した
 
 $$
 \Delta V(\varphi)=\frac12\int_{\Lambda/b<|q|<\Lambda}
@@ -351,7 +351,7 @@ S[\phi,\chi]=S_{\mathrm{light}}[\phi]
 +\frac h2\int d^4x\,\chi\phi^2,\qquad M>0
 $$
 
-とします。$S_{\mathrm{light}}$ は軽い場の運動項と、消去後も全体を下に有界にする十分な正の四次項を含むとし、境界項が消える周期境界条件を使います。重い場の二次核 $K=M^2-\partial^2$ は、Fourier基底 $e^{ipx}$ に作用すると $K e^{ipx}=(M^2+p^2)e^{ipx}$ となります。各固有値が $M^2+p^2>0$ だから、重い場の実独立Fourier座標では正定値の行列です。このため[QFT19の有限次元Gaussian公式](../QFT19/index.md#thm-qft19-gaussian)を適用できます。線形源 $\phi^2$ の全モードが重い場の積分空間に入っているかも確認してから平方完成します。
+とします。$S_{\mathrm{light}}$ は軽い場の運動項と、消去後も全体を下に有界にする十分な正の四次項を含むとし、境界項が消える周期境界条件を使います。重い場の二次核 $K=M^2-\partial^2$ は、Fourier基底 $e^{ipx}$ に作用すると $K e^{ipx}=(M^2+p^2)e^{ipx}$ となります。各固有値が $M^2+p^2>0$ だから、重い場の実独立Fourier座標では正定値の行列です。このため[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を適用できます。線形源 $\phi^2$ の全モードが重い場の積分空間に入っているかも確認してから平方完成します。
 
 <a id="prop-qft26-heavy-matching"></a>
 
@@ -446,7 +446,7 @@ e^{-S^{\mathrm W}(x)}
 \int_{\mathbb R}e^{-cy^2/2}dy=e^{-ax^2/2}.
 $$
 
-従って $S^{\mathrm W}(x)=ax^2/2$ です。元の模型では $y$ の積分が分子・分母で消えます。ここで $a$ による偏微分 $\partial_a$ は、積分変数 $x$ を固定して係数 $a$ を動かす操作です。$a>0$ なので積分内微分が可能で、[Gaussian積分公式](../QFT19/index.md#thm-qft19-gaussian)から
+従って $S^{\mathrm W}(x)=ax^2/2$ です。元の模型では $y$ の積分が分子・分母で消えます。ここで $a$ による偏微分 $\partial_a$ は、積分変数 $x$ を固定して係数 $a$ を動かす操作です。$a>0$ なので積分内微分が可能で、[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)から
 
 $$
 \begin{aligned}
@@ -606,7 +606,7 @@ $$
 S_\chi=\frac12\langle\chi',K\chi'\rangle-\frac12\langle J,K^{-1}J\rangle.
 $$
 
-[Gaussian積分公式](../QFT19/index.md#thm-qft19-gaussian)では平行移動した積分は $\phi$ に依存しないので、第二項だけが低場の作用に残り、$\Delta S=-h^2\langle\phi^2,K^{-1}\phi^2\rangle/8$ です。$\phi^2$ の支持が $|p|\le P\ll M$ なので、$K^{-1}(p)=M^{-2}-p^2M^{-4}+O(p^4/M^6)$ を代入でき、$p^2$ を $-\partial^2$ へ戻すと
+[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)では平行移動した積分は $\phi$ に依存しないので、第二項だけが低場の作用に残り、$\Delta S=-h^2\langle\phi^2,K^{-1}\phi^2\rangle/8$ です。$\phi^2$ の支持が $|p|\le P\ll M$ なので、$K^{-1}(p)=M^{-2}-p^2M^{-4}+O(p^4/M^6)$ を代入でき、$p^2$ を $-\partial^2$ へ戻すと
 
 $$
 \Delta S=-\frac{h^2}{8M^2}\int\phi^4
