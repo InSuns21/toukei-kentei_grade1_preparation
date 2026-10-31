@@ -1,0 +1,37 @@
+chapter: HOD1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-09
+  - KAH1-13
+concepts:
+  - id: hodge.de-rham-product
+    name: de Rham類の積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（de Rham類の積）"]
+    requires: [geometry.de-rham-cohomology, geometry.exterior-derivative]
+  - id: hodge.de-rham-product-well-defined
+    name: 外積によるde Rham積のwell-defined性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外積によるde Rham積のwell-defined性）"]
+    requires: [hodge.de-rham-product, geometry.exterior-derivative-square-zero]
+  - id: hodge.harmonic-lefschetz-cohomology
+    name: 調和代表とコホモロジー上のLefschetz作用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（調和代表とコホモロジー上のLefschetz作用）"]
+    requires: [hodge.de-rham-product-well-defined, hodge.lefschetz-laplacian-commutation, hodge.kahler-hodge-decomposition, kahler.kahler-class]
+  - id: hodge.lefschetz-hodge-type-shift
+    name: Lefschetz作用とHodge型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lefschetz作用とHodge型）"]
+    requires: [hodge.harmonic-lefschetz-cohomology, hodge.de-rham-hodge-summand, hodge.lefschetz-adjoint]
+  - id: hodge.harmonic-lefschetz-sl2
+    name: 調和形式上のLefschetz三作用素
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（調和形式上のLefschetz三作用素）"]
+    requires: [hodge.harmonic-lefschetz-cohomology, hodge.sl2-lefschetz-relations, hodge.lefschetz-laplacian-commutation]
