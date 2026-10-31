@@ -1,0 +1,55 @@
+chapter: QFT24
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT18, QFT19, QFT21, QFT23]
+forward_references: []
+
+concepts:
+  - id: qft.one-loop-vacuum-polarization
+    name: 一ループ真空偏極テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一ループ真空偏極テンソル）]
+    requires: [qft.qed-three-point-vertex, qft.berezin-gaussian-determinant, qft.proper-r-point-vertex]
+
+  - id: qft.vacuum-polarization-transversality
+    name: 一ループ真空偏極の横性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一ループ真空偏極の横性）]
+    requires: [qft.one-loop-vacuum-polarization, qft.tree-ward-takahashi-vertex, qft.dimensional-regularization]
+
+  - id: qft.vacuum-polarization-parametric-integral
+    name: 真空偏極のFeynmanパラメータ表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（真空偏極のFeynmanパラメータ表示）]
+    requires: [qft.vacuum-polarization-transversality, qft.dimensional-loop-integrals]
+
+  - id: qft.photon-field-counterterm
+    name: 光子場反項と零運動量減算法
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（光子場反項と零運動量減算法）]
+    requires: [qft.vacuum-polarization-parametric-integral, qft.phi4-bare-counterterms]
+
+  - id: qft.finite-renormalized-vacuum-polarization
+    name: 一ループ光子反項と有限真空偏極
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一ループ光子反項と有限真空偏極）]
+    requires: [qft.photon-field-counterterm, qft.modified-minimal-subtraction]
+
+  - id: qft.vacuum-polarization-asymptotics
+    name: 質量がある場合の低・高運動量展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量がある場合の低・高運動量展開）]
+    requires: [qft.finite-renormalized-vacuum-polarization]
+
+  - id: qft.sharp-cutoff-gauge-breaking
+    name: 鋭い球形カットオフのゲージ非不変な境界項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鋭い球形カットオフのゲージ非不変な境界項）]
+    requires: [qft.one-loop-vacuum-polarization, qft.vacuum-polarization-transversality, qft.sharp-momentum-cutoff]
