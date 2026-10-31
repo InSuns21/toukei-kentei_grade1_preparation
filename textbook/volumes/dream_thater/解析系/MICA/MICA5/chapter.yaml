@@ -1,0 +1,41 @@
+id: "MICA5"
+title: "座標変換と余法束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA4
+  - SYM6
+official_scope: []
+learning_objectives:
+  - 微分同相によるスカラー分布の座標表示とJacobian因子を定義し、余接ベクトルの逆転置変換を導ける
+  - 局所Fourier変換の非停留位相評価を通じ、波面集合の微分同相不変性を両向きに証明できる
+  - 座標間の整合性を使い、滑らかな多様体上の波面集合を余接束の零切断を除いた部分集合として定義できる
+  - 余法束の消滅条件を適合座標で表し、余法線と接方向を区別できる
+  - 部分多様体上の非消失密度が定めるデルタ分布の波面集合を余法束と同定できる
+  - 曲線の座標変換と交叉する特異集合で、波面の方向を追跡できる
+definitions:
+  - { id: MICA5-DEF-01, name: 微分同相による分布の座標移送 }
+  - { id: MICA5-DEF-02, name: 多様体上の波面集合 }
+theorems:
+  - { id: MICA5-LEM-01, name: 非停留位相の積分評価 }
+  - { id: MICA5-THM-01, name: 波面集合の微分同相による変換則 }
+  - { id: MICA5-PROP-01, name: 余法束の局所座標と自然性 }
+  - { id: MICA5-THM-02, name: 部分多様体デルタの波面集合 }
+canonical_examples:
+  - 線形せん断による水平直線の法線方向の変換
+  - 放物線の余法束と接ベクトルへの消滅条件
+  - 正の密度付き部分多様体デルタの法線方向
+  - 非線形座標変換後に交叉する特異方向
+problem_patterns:
+  - MICA5-LINEAR-SHEAR
+  - MICA5-PARABOLA-CONORMAL
+  - MICA5-CODIMENSION-TWO
+  - MICA5-INVERSE-TRANSPOSE
+  - MICA5-CONORMAL-NATURALITY
+  - MICA5-WEIGHTED-DELTA
+  - MICA5-HEAVISIDE-LEVELSET
+  - MICA5-CROSSING-CURVED-SETS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
