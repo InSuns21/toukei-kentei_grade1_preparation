@@ -92,7 +92,7 @@ $x$ を $GJ$ だけ平行移動すると、ソースを含む項は積分の外�
 <!-- proof-start -->
 ### 証明
 
-対称正定値なので実直交行列 $U$ と正の固有値 $\lambda_1,\ldots,\lambda_n$ について $A=U\operatorname{diag}(\lambda_i)U^T$ と書けます。$G=A^{-1}$ は対称で $AG=I_n$ です。まず
+実対称行列の直交対角化により、実直交行列 $U$ と実固有値 $\lambda_1,\ldots,\lambda_n$ について $A=U\operatorname{diag}(\lambda_i)U^T$ と書けます。各単位固有ベクトル $u_r$ に対して $u_r^TAu_r=\lambda_r>0$ なので、固有値は全て正です。したがって $A$ は可逆で、$G=A^{-1}$ は対称、$AG=I_n$ です。まず
 
 $$
 \begin{aligned}
@@ -157,7 +157,7 @@ $$
 <!-- definition-example-start: def-qft19-connected-two-point -->
 ### 例：一変数で平均の寄与を引く
 
-**定義の確認**：$A=(a)$、$a>0$ として $Z_B(J)\propto e^{J^2/(2a)}$ を微分すると、平均は $J/a$、二乗の平均は $1/a+J^2/a^2$ です。よって
+**定義の確認**：$A=(a)$、$a>0$ なら[Gaussian生成公式](#thm-qft19-gaussian)から $Z_B(J)=\sqrt{2\pi/a}\,e^{J^2/(2a)}$ です。$J$ で一階・二階微分して各々 $Z_B(J)$ で割ると、平均は $J/a$、二乗の平均は $1/a+J^2/a^2$ です。よって
 
 $$
 \langle x^2\rangle_{J,c}
@@ -323,7 +323,18 @@ $$
 
 の最終項だけです。$n$ 個の偶次数因子は互いに交換できるため、$1/n!$ はそれらの並べ方 $n!$ 通りを消します。残るのは、各 $\bar\theta_i$ をちょうど一回使い、$\theta_{\sigma(i)}$ を重複なく選ぶ置換 $\sigma\in S_n$ の項です。
 
-基準の積 $\theta_1\bar\theta_1\cdots\theta_n\bar\theta_n$ へ並べ替えた係数は、$\sigma=\operatorname{id}$ で $\prod_i A_{ii}$、二つの $\theta$ の割当を一度交換すると反交換性で符号が一回反転します。従って置換 $\sigma$ の係数は $\operatorname{sgn}(\sigma)\prod_iA_{i,\sigma(i)}$ です。基準積の積分が1なので
+各項で $-\bar\theta_i A_{i,\sigma(i)}\theta_{\sigma(i)}
+=A_{i,\sigma(i)}\theta_{\sigma(i)}\bar\theta_i$ と直せます。したがって選んだ $n$ 因子の積は、偶次数因子同士の並べ替えによる符号を伴わず、
+
+$$
+\left(\prod_{i=1}^n A_{i,\sigma(i)}\right)
+\theta_{\sigma(1)}\bar\theta_1\cdots\theta_{\sigma(n)}\bar\theta_n
+=\operatorname{sgn}(\sigma)
+\left(\prod_{i=1}^n A_{i,\sigma(i)}\right)
+\theta_1\bar\theta_1\cdots\theta_n\bar\theta_n
+$$
+
+となります。後半の符号は、$\bar\theta_i$ の位置を保って $\theta$ の割当を基準順へ戻す際の置換の偶奇です。特に恒等置換は正号、二つの $\theta$ の割当交換は負号です。基準積の積分が1なので
 
 $$
 \int D(\bar\theta,\theta)e^X
@@ -465,6 +476,8 @@ $$
 <!-- proof-start -->
 ### 証明
 
+以下、$\partial/\partial A_{ji}$ は、複素行列の各成分 $A_{uv}$ を独立な変数として、他の成分を固定する多項式（可逆行列上では有理式）の微分です。$e_j$ を標準基底の第 $j$ 列ベクトル、$E_{ji}=e_je_i^T$ を $(j,i)$ 成分だけが $1$ の行列とします。
+
 [Berezin Gaussianの行列式公式](#thm-qft19-berezin-det)を $A_{ji}$ で微分すると、有限多項式の微分と積分は交換でき、
 
 $$
@@ -475,7 +488,15 @@ $$
 \theta_i\bar\theta_j e^{-\bar\theta A\theta}.
 $$
 
-一方、可逆行列の行列式の微分は $\partial_{A_{ji}}\det A=(\det A)G_{ij}$ なので二点式を得ます。逆行列の微分は $AG=I$ を微分して
+一方、$G=A^{-1}$ を用いて $A+tE_{ji}=A(I+tGe_je_i^T)$ と因数分解します。行列式の列に関する多重線形性から $\det(I+tuv^T)=1+t\,v^Tu$ なので、
+
+$$
+\det(A+tE_{ji})=(\det A)(1+tG_{ij}),
+\qquad
+\frac{\partial\det A}{\partial A_{ji}}=(\det A)G_{ij}.
+$$
+
+積分側と比較して二点式を得ます。逆行列の微分は $AG=I$ を $A_{ji}$ で微分して
 
 $$
 \frac{\partial G_{ab}}{\partial A_{ji}}
@@ -495,7 +516,42 @@ $$
 \end{aligned}
 $$
 
-積分側では二つの偶次数因子 $\theta_i\bar\theta_j$ と $\theta_k\bar\theta_l$ が現れるので、この順で並べた四点式です。一般の $r$ 回微分では、行列式の多重線形性によって選んだ行・列の小行列式になり、$\det G$ の対応する小行列式へ帰着します。これが[QFT9のフェルミオンWick符号](../QFT9/index.md#thm-qft9-fermion-wick)の有限次元版です。
+積分側では二つの偶次数因子 $\theta_i\bar\theta_j$ と $\theta_k\bar\theta_l$ が現れるので、この順で並べた四点式です。
+
+一般の $r$ 組も出発点から確かめます。添字列 $I=(i_1,\ldots,i_r)$ と $K=(j_1,\ldots,j_r)$ を固定し、列ベクトルを並べた行列 $U,V$ と対角行列 $T$ を
+
+$$
+U=(e_{j_1},\ldots,e_{j_r}),\qquad
+V=(e_{i_1},\ldots,e_{i_r}),\qquad
+T=\operatorname{diag}(t_1,\ldots,t_r)
+$$
+
+と置きます。$t_a$ は互いに独立な可換な補助変数です。次のブロック行列を二通りの順序で消去すると
+
+$$
+\begin{aligned}
+\det\begin{pmatrix}A&U\\-TV^T&I_r\end{pmatrix}
+&=\det(A+UTV^T)\\
+&=(\det A)\det(I_r+TV^TGU)
+\end{aligned}
+$$
+
+を得ます（最初は右下の $I_r$、次は左上の可逆な $A$ を使う）。ここで $UTV^T=\sum_a t_aE_{j_ai_a}$、$(V^TGU)_{ab}=G_{i_aj_b}$ です。右辺で $t_1\cdots t_r$ を含むには、行列式の各行から $t_a(V^TGU)_{ab}$ 側を選ぶしかないので、その係数は
+
+$$
+[t_1\cdots t_r]\det(A+UTV^T)
+=(\det A)\det(G_{i_aj_b})_{a,b=1}^r.
+$$
+
+一方、左辺の同じ係数は、$A_{j_ai_a}$ について $r$ 回微分した値です。積分表示を各回微分すると偶次数の $\theta_{i_a}\bar\theta_{j_a}$ がこの順で挿入されるため、
+
+$$
+[t_1\cdots t_r]\det(A+UTV^T)
+=\int D(\bar\theta,\theta)\,
+\left(\prod_{a=1}^r\theta_{i_a}\bar\theta_{j_a}\right)e^{-\bar\theta A\theta}.
+$$
+
+二つの係数を等置し、$\det A\ne0$ で割ると一般の行列式公式が従います。添字が重複する場合も、左辺のGrassmann積は零、右辺の行列式は同じ行または列を持つため零です。同種生成子だけの積も、積分で必要な $\theta$・$\bar\theta$ の個数が釣り合わないので零になります。これが[QFT9のフェルミオンWick符号](../QFT9/index.md#thm-qft9-fermion-wick)の有限次元版です。
 <!-- proof-end -->
 
 ### 例：二組で符号の違いを測る
