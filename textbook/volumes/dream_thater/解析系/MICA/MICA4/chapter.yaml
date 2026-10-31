@@ -12,7 +12,7 @@ learning_objectives:
   - 片側境界値分布の存在とFourier積分を示し、正負の周波数方向を符号付きで区別できる
   - 和・滑らかな乗算と方向別規則性を用いて特異方向の相殺と保持を判定できる
 definitions:
-  - { id: MICA4-DEF-03, name: Heaviside関数 }
+  - { id: MICA4-DEF-03, name: 全実線上のHeaviside分布 }
   - { id: MICA4-DEF-01, name: アフィン超平面デルタ }
   - { id: MICA4-DEF-02, name: 片側境界値分布 }
 theorems:
