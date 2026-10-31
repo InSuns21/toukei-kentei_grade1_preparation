@@ -11,7 +11,21 @@ $$
 \qquad \chi\in C_c^\infty(\mathbb R^n)
 $$
 
-とします。これは[局所Fourier変換の定義](../MICA1/index.md#def-mica1-local-fourier)と同じ符号規約です。座標を固定した $\mathbb R^n$ では $\xi=\sum_j\xi_j\,dx^j$ を点 $x$ の**余ベクトル**と見なせるので、組 $(x,\xi)$ は $T^*\mathbb R^n$ の元です。ここでは $\xi=0$ を除いた部分だけを考えます。一般の座標変換で余ベクトルがどう動くかは MICA5 で証明します。
+とします。これは[局所Fourier変換の定義](../MICA1/index.md#def-mica1-local-fourier)と同じ符号規約です。
+
+座標を固定した $\mathbb R^n$ では、周波数 $\xi=(\xi_1,\ldots,\xi_n)$ から、ベクトル $v=(v_1,\ldots,v_n)$ に
+
+$$
+\xi\cdot v=\sum_{j=1}^n\xi_jv_j
+$$
+
+を対応させる線形写像を作れます。このような線形写像を**余ベクトル**と呼びます。$dx^j$ を $v$ の第 $j$ 成分を返す線形写像（$dx^j(v)=v_j$）と書けば、周波数 $\xi$ を余ベクトルと同一視する式は
+
+$$
+\xi=\sum_{j=1}^n\xi_j\,dx^j
+$$
+
+となります。$T^*\mathbb R^n$ は、各位置 $x$ とその点の余ベクトルの組 $(x,\xi)$ を集めたものです。本講義では $\xi=0$ を除いた組だけを使います。この固定座標での同一視と、一般の座標変換での余ベクトルの変換則は区別し、後者は MICA5 で証明します。
 
 ## 1. 規則的でない組を集める
 
@@ -283,7 +297,13 @@ $$
 
 次に $a(x_0)\ne0$ とします。連続性から $a$ は $x_0$ のある開近傍 $V$ で零になりません。$\rho\in C_c^\infty(V)$ を $x_0$ 近傍で $1$ とし、$b=\rho/a$ を $V$ 外で零として延長すると $b\in C^\infty(\mathbb R^n)$ です。
 
-$ab=1$ near $x_0$ だから、その近くで $u=b(au)$ と一致します。[局所性補題](#lem-mica3-locality)と、今証明した包含を $b$ に適用して
+$ab=1$ near $x_0$ だから、その近くで $u=b(au)$ と一致します。位置 $x_0$ の上に残る方向の集合を
+
+$$
+WF(w)|_{x_0}:=\{\xi\ne0:(x_0,\xi)\in WF(w)\}
+$$
+
+と書きます。[局所性補題](#lem-mica3-locality)と、今証明した包含を $b$ に適用して
 
 $$
 WF(u)|_{x_0}=WF(b(au))|_{x_0}
@@ -291,7 +311,7 @@ WF(u)|_{x_0}=WF(b(au))|_{x_0}
 \subset WF(u)|_{x_0}
 $$
 
-を得ます。ここで $WF(w)|_{x_0}:=\{\xi\ne0:(x_0,\xi)\in WF(w)\}$ です。$\square$
+を得ます。$\square$
 <!-- proof-end -->
 
 ### 具体例：係数の零点で特異性が消える
@@ -308,7 +328,9 @@ $$
 
 ## 5. 微分によって新しい方向は生まれるか
 
-[超関数の微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)は滑らかでない分布にも定義されます。コンパクト支持分布の[Fourier微分公式](../MICA1/index.md#prop-mica1-fourier-derivative)は $\partial_{x_j}$ が周波数側で $i\xi_j$ の乗算になることを述べました。多項式を掛けると急減少は任意次数のままですが、cutoffを先に掛けると積の微分から**余分な項**が出ることに注意が必要です。
+[超関数の微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)は滑らかでない分布にも定義されます。$\partial_{x_j}=\partial/\partial x_j$ は第 $j$ 座標で微分し、残りの座標を固定する演算子です。以下では同じ演算子を $\partial_j$ と略記します。また、[多重指数](../../GPDE/GPDE2/index.md#def-gpde2-multi-index) $\alpha=(\alpha_1,\ldots,\alpha_n)$ に対する $\partial_x^\alpha=\partial_{x_1}^{\alpha_1}\cdots\partial_{x_n}^{\alpha_n}$ は各座標での反復微分です。
+
+コンパクト支持分布の[Fourier微分公式](../MICA1/index.md#prop-mica1-fourier-derivative)は $\partial_{x_j}$ が周波数側で $i\xi_j$ の乗算になることを述べました。周波数に多項式を掛けても任意次数の急減少は保たれますが、cutoffを先に掛けると積の微分から**余分な項**が出ることに注意が必要です。
 
 <a id="thm-mica3-derivative"></a>
 
@@ -589,7 +611,7 @@ $$
 =\widehat g(\xi_2).
 $$
 
-$\xi_2^0\ne0$ の方向を固定します。その方向を囲む十分小さい開錐では $|\xi_2|\ge c|\xi|$（$c>0$）です。[滑らかな関数のFourier急減少](../MICA1/index.md#thm-mica1-smooth-rapid)から任意の $N$ について
+非零の基準方向 $\xi^0=(\xi_1^0,\xi_2^0)$ を $\xi_2^0\ne0$ となるように固定します（上付きの $0$ は固定した方向の目印で、べき乗ではありません）。この方向を囲む十分小さい開錐では $|\xi_2|\ge c|\xi|$（$c>0$）です。[滑らかな関数のFourier急減少](../MICA1/index.md#thm-mica1-smooth-rapid)から任意の $N$ について
 
 $$
 |\widehat g(\xi_2)|
