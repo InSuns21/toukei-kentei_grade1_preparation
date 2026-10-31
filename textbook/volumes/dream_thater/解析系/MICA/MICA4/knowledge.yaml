@@ -11,7 +11,7 @@ concepts:
     introduction: formal
     requires: [microlocal.mica3-wavefront]
   - id: microlocal.mica4-heaviside
-    name: Heaviside関数
+    name: 全実線上のHeaviside分布
     kind: definition
     introduction: formal
     requires: [microlocal.mica1-local-fourier]
