@@ -16,7 +16,7 @@ chapters:
     title: "Lefschetz作用素とその随伴"
   - id: HOD1-03
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-03
-    status: planned
+    status: completed
     title: "sl2と原始形式の線形代数"
   - id: HOD1-04
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-04
