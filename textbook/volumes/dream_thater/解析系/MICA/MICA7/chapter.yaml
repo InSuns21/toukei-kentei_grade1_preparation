@@ -1,0 +1,40 @@
+id: "MICA7"
+title: "引き戻しと部分多様体への制限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA6
+official_scope: []
+learning_objectives:
+  - 滑らかな写像の微分の転置からnormal setを定義し、座標の非依存性と直接例を確認できる
+  - 波面集合とnormal setの非交差条件のもとでFourier積分による分布の引き戻しを構成し、非停留位相の役割を説明できる
+  - 引き戻しの波面集合の上界を位相の停留条件から導出し、微分同相・射影の場合と照合できる
+  - 埋め込み部分多様体への制限を余法束で判定し、成功例と破綻例を試験関数で計算できる
+  - 対角写像のnormal setを計算し、分布の積との関係と十分条件の限界を区別できる
+definitions:
+  - { id: MICA7-DEF-01, name: 写像のnormal set }
+theorems:
+  - { id: MICA7-LEM-01, name: 非特性方向の一様非停留位相 }
+  - { id: MICA7-THM-01, name: 分布の非特性的引き戻し }
+  - { id: MICA7-THM-02, name: 引き戻しの波面集合評価 }
+  - { id: MICA7-COR-01, name: 部分多様体への制限 }
+  - { id: MICA7-PROP-01, name: 対角引き戻しと分布の積 }
+canonical_examples:
+  - 射影によるデルタ分布の引き戻しと波面方向
+  - 放物線へのデルタ分布の制限
+  - 制限面上に集中するデルタの正則化発散
+  - 二乗写像とHeaviside分布の条件外の引き戻し極限
+  - 対角線の逆向き波面と分布の積
+problem_patterns:
+  - MICA7-NORMAL-SET
+  - MICA7-SUBMERSION
+  - MICA7-CONORMAL-TEST
+  - MICA7-DIAGONAL
+  - MICA7-DELTA-RESTRICTION
+  - MICA7-FOLD-MAP
+  - MICA7-WF-PULLBACK
+  - MICA7-CURVE-AND-DELTA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 11, review: 5 }
