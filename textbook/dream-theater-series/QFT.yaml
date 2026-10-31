@@ -82,3 +82,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT19
     status: completed
     title: "Gaussian・Grassmann積分と生成汎関数"
+  - id: QFT20
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT20
+    status: completed
+    title: "Euclid化・Wick回転と反射陽性"
