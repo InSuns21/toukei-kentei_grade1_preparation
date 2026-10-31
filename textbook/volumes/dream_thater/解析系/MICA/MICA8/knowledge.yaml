@@ -1,0 +1,62 @@
+chapter: MICA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA7
+forward_references: []
+concepts:
+  - id: microlocal.mica8-differential-symbol
+    name: 微分作用素の全記号
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-differentiation]
+  - id: microlocal.mica8-symbol-class
+    name: 記号クラス
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica1-polynomial-growth, microlocal.mica1-local-fourier]
+  - id: microlocal.mica8-classical-symbol
+    name: 古典記号と主シンボル
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica8-symbol-class]
+  - id: microlocal.mica8-quantization
+    name: Kohn–Nirenberg量子化・擬微分作用素
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica8-symbol-class, microlocal.mica1-differentiation]
+  - id: microlocal.mica8-composition
+    name: 擬微分作用素の合成公式
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica8-quantization, microlocal.mica8-classical-symbol]
+  - id: microlocal.mica8-ellipticity
+    name: 楕円集合と非楕円方向
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica8-classical-symbol]
+  - id: microlocal.mica8-asymptotic-sum
+    name: 記号の漸近和
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica8-symbol-class]
+  - id: microlocal.mica8-parametrix
+    name: 楕円方向のmicrolocal parametrix
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica8-ellipticity, microlocal.mica8-asymptotic-sum, microlocal.mica8-composition]
+  - id: microlocal.mica8-cutoff
+    name: 周波数局所化と波面
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica8-quantization, microlocal.mica3-wavefront, microlocal.mica1-polynomial-growth]
+  - id: microlocal.mica8-pseudolocal
+    name: 擬微分作用素の擬局所性
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica8-cutoff, microlocal.mica3-wavefront]
+  - id: microlocal.mica8-elliptic-regularity
+    name: スカラー擬微分作用素の楕円正則性
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica8-parametrix, microlocal.mica8-pseudolocal, microlocal.mica8-cutoff]
