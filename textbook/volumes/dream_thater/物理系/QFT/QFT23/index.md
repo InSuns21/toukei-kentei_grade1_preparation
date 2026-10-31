@@ -142,7 +142,7 @@ $$
 
 ## 4. カットオフを外しても残る有限な運動量依存
 
-反項を付けた後に重要なのは、$B_\Lambda(P)-B_\Lambda(0)$ の極限です。[QFT22の収束命題](../QFT22/index.md#prop-qft22-bubble-difference)により、固定 $P$ で差の極限が存在します。次に、その極限値を具体的な積分で求めます。
+反項を付けた後に重要なのは、$B_\Lambda(P)-B_\Lambda(0)$ の極限です。前講で示した[bubble差の収束](../QFT22/index.md#prop-qft22-bubble-difference)により、固定 $P$ で差の極限が存在します。次に、その極限値を具体的な積分で求めます。
 
 <a id="prop-qft23-subtracted-bubble"></a>
 
@@ -224,7 +224,7 @@ $$
 
 ## 5. 次元正則化は何を変更するのか
 
-鋭いカットオフは運動量領域を球に制限しました。別の正則化では、整数の次元 $4$ で発散する積分を、まず収束する複素パラメータ $d$ の領域で計算し、その解析接続を $d=4-2\varepsilon$ の近傍へ持ち込みます。これが**次元正則化**です。非整数次元の積分を普通の正値測度として構成した、と主張しているわけではありません。
+鋭いカットオフは運動量領域を球に制限しました。別の正則化では、整数の次元 $4$ で発散する積分を、まず収束する複素パラメータ $d$ の領域で計算し、その解析接続を $d=4-2\varepsilon$ の近傍へ持ち込みます。これが**次元正則化**です。解析接続と極を計算する道具として、既習の[Gamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)と[その有理型解析接続](../../../解析系/CA/CA11/index.md#thm-ca11-meromorphic-continuation)を使います。非整数次元の積分を普通の正値測度として構成した、と主張しているわけではありません。
 
 四次元で無次元の結合を保つため、$\varepsilon$ が零でないときには任意の基準スケール $\mu>0$ を入れます。$d=4-2\varepsilon$ では $\phi^4$ 結合の質量次元が $2\varepsilon$ なので、$\mu^{2\varepsilon}$ が次元を補います。
 
@@ -273,7 +273,7 @@ J_2=\frac1{16\pi^2}
 \left\{\Delta_\varepsilon+\log\frac{\mu^2}{m^2}\right\}+O(\varepsilon).
 $$
 
-> ここで $\gamma_E$ はEuler定数。$J_1$ の負符号は解析接続の値であって、正の積分核を持つ四次元の有限カットオフ積分が負になるという意味ではない。
+> ここで $\gamma_E$ は[Euler--Mascheroni 定数](../../../解析系/CA/CA11/index.md#def-ca11-euler-mascheroni)。$J_1$ の負符号は解析接続の値であって、正の積分核を持つ四次元の有限カットオフ積分が負になるという意味ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -299,7 +299,7 @@ J_\alpha
 \end{aligned}
 $$
 
-Gaussian積分は最初に正整数次元で各座標に分けて $(4\pi t)^{-d/2}$ を得て、その式を $d$ へ解析接続して使います。ここで $\Gamma(\varepsilon)=1/\varepsilon-\gamma_E+O(\varepsilon)$、$\Gamma(-1+\varepsilon)=\Gamma(\varepsilon)/(\varepsilon-1)=-1/\varepsilon+\gamma_E-1+O(\varepsilon)$ です。また
+Gaussian積分は最初に正整数次元で各座標に分けて $(4\pi t)^{-d/2}$ を得て、その式を $d$ へ解析接続して使います。[Gamma関数の関数等式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)と[Euler--Mascheroni 定数](../../../解析系/CA/CA11/index.md#def-ca11-euler-mascheroni)を用いると $\Gamma(\varepsilon)=1/\varepsilon-\gamma_E+O(\varepsilon)$、$\Gamma(-1+\varepsilon)=\Gamma(\varepsilon)/(\varepsilon-1)=-1/\varepsilon+\gamma_E-1+O(\varepsilon)$ です。また
 
 $$
 (4\pi)^\varepsilon\left(\frac{\mu^2}{m^2}\right)^\varepsilon
@@ -322,7 +322,13 @@ $\alpha=2$ では $\Gamma(2)=1$、$\alpha=1$ では質量因子が $m^2$ とな�
 
 <!-- formal-statement-start -->
 > **定義（修正最小減算法）**
-> $d=4-2\varepsilon$ の次元正則化において、$\varepsilon=0$ の極とともに定数 $-\gamma_E+\log(4\pi)$ を組にした $\Delta_\varepsilon=1/\varepsilon-\gamma_E+\log(4\pi)$ を反項で差し引く方式を、ここでは修正最小減算法（$\overline{\mathrm{MS}}$）とする。有限な $\log(\mu^2/m_R^2)$ や物理的な外線運動量依存は、別のくりこみ条件を加えない限り差し引かない。
+> $d=4-2\varepsilon$ の次元正則化において、次の組を反項で差し引く方式を修正最小減算法（$\overline{\mathrm{MS}}$）とする。
+
+$$
+\Delta_\varepsilon=\frac1\varepsilon-\gamma_E+\log(4\pi).
+$$
+
+> 有限な $\log(\mu^2/m_R^2)$ や外線運動量依存は、別のくりこみ条件を加えない限り差し引かない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft23-msbar -->
@@ -334,7 +340,7 @@ $\alpha=2$ では $\Gamma(2)=1$、$\alpha=1$ では質量因子が $m^2$ とな�
 <a id="thm-qft23-msbar-counterterms"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\overline{\mathrm{MS}}$ の一ループ反項）**
+> **定理（修正最小減算法の一ループ反項）**
 > $d=4-2\varepsilon$ の実スカラー $\phi^4$ 摂動論で $m_R^2>0$ とし、四次項を $\mu^{2\varepsilon}(\lambda_R+\delta\lambda)\phi^4/4!$ と定義する。$\overline{\mathrm{MS}}$ により、$\varepsilon=0$ の極に対する一ループ反項は
 
 $$
@@ -525,7 +531,7 @@ $$
 ### 演習 QFT23-A4：Gamma関数の極
 
 - Level: A
-- 問題：$\Gamma(\varepsilon)=1/\varepsilon-\gamma_E+O(\varepsilon)$ とGamma関数の漸化式 $\Gamma(z+1)=z\Gamma(z)$ を使い、$\Gamma(-1+\varepsilon)$ の定数項まで求めよ。それが $J_1$ の極に与える符号を説明せよ。
+- 問題：$\Gamma(\varepsilon)=1/\varepsilon-\gamma_E+O(\varepsilon)$ と[Gamma関数の関数等式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation) $\Gamma(z+1)=z\Gamma(z)$ を使い、$\Gamma(-1+\varepsilon)$ の定数項まで求めよ。それが $J_1$ の極に与える符号を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
