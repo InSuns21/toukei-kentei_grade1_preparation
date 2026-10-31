@@ -4,7 +4,18 @@
 
 中心問いは、**局所U(1)対称性を保って荷電Dirac場と光子を結合し、電子–ミューオンの木レベル散乱を断面積まで計算するには？** です。まず共変微分の位相を検算し、相互作用の係数から頂点規則を作ります。次に質量殻のDirac方程式で外線電流の横性を証明し、スピン平均を四本のgamma行列の跡へ変換して、最後に位相空間と接続します。
 
-以下は $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、Heaviside–Lorentz単位系です。$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford)を満たし、$\bar\psi=\psi^\dagger\gamma^0$ です。$A_\mu$ は実四元ポテンシャル、$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$。$q$ は**符号付きの電荷**で、電子とミューオンでは $q_e=q_\mu=-e$、$e>0$ とします。従って式中の頂点係数を単に「$-ie$」と覚えるのは本章の規約とは違います。
+以下は $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、Heaviside–Lorentz単位系です。座標を $x^\mu=(t,\boldsymbol x)$ とし、Lorentz添字 $\mu=0,1,2,3$ は上下に一度ずつ現れるとき総和します。微分・内積・スラッシュ記法の対応は
+
+$$
+\partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
+p\cdot x=p_\mu x^\mu,\qquad
+p^2=p\cdot p,\qquad
+\not p=\gamma^\mu p_\mu
+$$
+
+です。$\partial_\mu$ は**他の座標を固定した偏微分**で、添字の上下は $\eta$ によります。$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford)を満たし、$\bar\psi=\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。
+
+$A_\mu$ は実四元ポテンシャル、$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とします。$q$ は**符号付きの電荷**で、電子とミューオンでは $q_e=q_\mu=-e$、$e>0$ です。従って式中の頂点係数を単に「$-ie$」と覚えるのは本章の規約とは違います。
 
 古典的な変分はコンパクト台の滑らかな変分で行います。量子場の積・Dyson展開は自由場の分布をsmearingし、有限次数の摂動係数として理解します。無限次元の相互作用理論や長距離QEDの厳密な漸近状態をこの計算だけで構成したとは主張しません。散乱振幅への同定は[QFT11の漸近状態の条件](../QFT11/index.md#def-qft11-asymptotic-s)の下で行い、まず転送運動量 $t<0$ に限定します。
 
@@ -17,7 +28,19 @@ $$
 =e^{-iq\chi}\left(\partial_\mu\psi-iq(\partial_\mu\chi)\psi\right)
 $$
 
-です。この第二項を打ち消すため、[QFT15のポテンシャルのゲージ変換](../QFT15/index.md#def-qft15-gauge) $A'_\mu=A_\mu+\partial_\mu\chi$ と微分を一緒に変えることにします。位相の符号は電荷 $q$ の符号を含めて決める必要があります。
+です。ここでプライム $'$ は**変換後の場**を表し、時間導関数ではありません。積の微分では
+
+$$
+\partial_\mu(e^{-iq\chi})=-iq(\partial_\mu\chi)e^{-iq\chi}
+$$
+
+を使いました。この第二項を打ち消すため、[QFT15のポテンシャルのゲージ変換](../QFT15/index.md#def-qft15-gauge)と微分を一緒に変えることにします。
+
+$$
+A'_\mu=A_\mu+\partial_\mu\chi
+$$
+
+位相の符号は電荷 $q$ の符号を含めて決める必要があります。
 
 <a id="def-qft17-covariant-derivative"></a>
 
@@ -89,7 +112,22 @@ $$
 
 **定義の確認**：相互作用項の係数と符号を特定の外線で確認します。
 
-$p=(m,\boldsymbol0)$、[QFT7の規格化](../QFT7/index.md#thm-qft7-spin-sums)に従う正エネルギースピノル $u_s(p)$ を使うと、Dirac方程式と規格化から $\bar u_s(p)\gamma^0u_s(p)=u_s^\dagger u_s=2m$、空間成分は0です。従って定数ポテンシャル $A_\mu=(V,0,0,0)$ では一粒子の古典的な双線形に対応する相互作用密度の係数は $-2mqV$ です。電子 $q=-e$ の場合には $+2meV$ となります。これは符号付き電荷と作用にあるマイナスが別物であることの確認です。
+$p=(m,\boldsymbol0)$、[QFT7の平面波スピノル](../QFT7/index.md#def-qft7-plane-waves)と[規格化](../QFT7/index.md#thm-qft7-spin-sums)を使います。静止系では $E=m$、$\boldsymbol\sigma\cdot\boldsymbol p=0$ なので、正規化した二成分スピノル $\chi_s$ に対して
+
+$$
+u_s(p)=\sqrt{2m}\begin{pmatrix}\chi_s\\0\end{pmatrix},\qquad
+\chi_s^\dagger\chi_s=1.
+$$
+
+Dirac表示では $\gamma^0=\operatorname{diag}(I_2,-I_2)$、$\gamma^0\gamma^j$（$j=1,2,3$）は上下の二成分を入れ替える非対角ブロック行列です。よって
+
+$$
+\bar u_s\gamma^0u_s=u_s^\dagger u_s=2m,
+\qquad
+\bar u_s\gamma^ju_s=u_s^\dagger\gamma^0\gamma^ju_s=0.
+$$
+
+このように四元電流の時間成分と三つの空間成分をそれぞれ確かめました。定数ポテンシャル $A_\mu=(V,0,0,0)$ では一粒子の古典的な双線形に対応する相互作用密度の係数は $-2mqV$ です。電子 $q=-e$ の場合には $+2meV$ となります。これは符号付き電荷と作用にあるマイナスが別物であることの確認です。
 
 ここでは平面波を有限体積に制限した局所的な密度を計算したのであり、無限時空で作用が有限という主張ではありません。
 <!-- definition-example-end -->
@@ -98,7 +136,7 @@ $p=(m,\boldsymbol0)$、[QFT7の規格化](../QFT7/index.md#thm-qft7-spin-sums)�
 
 <!-- formal-statement-start -->
 > **定理（最小結合の局所U(1)不変性）**  
-> 上の定義の正則性の下で、任意の実数値 $C^2$ 関数 $\chi$ に対する局所変換は
+> [共変微分](#def-qft17-covariant-derivative)と[最小結合作用](#def-qft17-qed-action)の正則性の下で、任意の実数値 $C^2$ 関数 $\chi$ に対する局所変換は
 
 $$
 D'_\mu\psi'=e^{-iq\chi}D_\mu\psi,\qquad
@@ -405,7 +443,39 @@ T_{M,\mu\nu}
 \end{aligned}
 $$
 
-一行目の $1/4$ は**入射電子2状態×入射ミューオン2状態**の平均です。[Clifford関係](../QFT7/index.md#def-qft7-clifford)、跡の巡回性、奇数本のgamma行列の跡が0という性質から
+一行目の $1/4$ は**入射電子2状態×入射ミューオン2状態**の平均です。ここから[Clifford関係](../QFT7/index.md#def-qft7-clifford)と跡の巡回性を使ってtraceを作ります。まず補助行列を
+
+$$
+G=i\gamma^0\gamma^1\gamma^2\gamma^3
+$$
+
+と置きます。反交換関係から $G^2=I_4$、$G\gamma^\alpha=-\gamma^\alpha G$ が成り立つので、gamma行列の奇数個の積 $X$ には
+
+$$
+\operatorname{tr}(X)
+=\operatorname{tr}(GXG)
+=-\operatorname{tr}(X)=0
+$$
+
+が成り立ちます（最初の等号は $G^2=I_4$ と跡の巡回性から）。二本の跡は反交換関係の跡を取って
+
+$$
+2\operatorname{tr}(\gamma^\alpha\gamma^\beta)
+=2\eta^{\alpha\beta}\operatorname{tr}(I_4)
+=8\eta^{\alpha\beta}
+$$
+
+とすると求まります。四本の跡については $T=\operatorname{tr}(\gamma^\alpha\gamma^\mu\gamma^\beta\gamma^\nu)$ と置き、左端の $\gamma^\alpha$ を右へ順に反交換すると
+
+$$
+\begin{aligned}
+T&=2\eta^{\alpha\mu}\operatorname{tr}(\gamma^\beta\gamma^\nu)
+-2\eta^{\alpha\beta}\operatorname{tr}(\gamma^\mu\gamma^\nu)\\
+&\quad+2\eta^{\alpha\nu}\operatorname{tr}(\gamma^\mu\gamma^\beta)-T.
+\end{aligned}
+$$
+
+最後の $-T$ は跡の巡回性によるものです。これらから
 
 $$
 \begin{aligned}
@@ -419,7 +489,7 @@ $$
 \end{aligned}
 $$
 
-四本の式は、左端を反交換で右へ順に移して跡の巡回性を適用すれば、現れる三通りの計量の積がそれぞれ $+,-,+$ になることで導けます。これを代入すると
+を得ます。特に四本の式の計量の積の符号は $+,-,+$ であり、第二項の符号を落とすと質量依存項まで誤ります。スピン和の積へ代入すると
 
 $$
 \begin{aligned}
@@ -447,14 +517,16 @@ p_1\cdot p_4&=p_2\cdot p_3=\frac{S-u}{2}.
 \end{aligned}
 $$
 
-次に $A^{\mu\nu}B_{\mu\nu}$ を各項から展開すると、最初の四つの積と計量を含む交差項から
+次に $A^{\mu\nu}B_{\mu\nu}$ を各項から展開します。$p_3\cdot p_1-m^2=p_4\cdot p_2-M^2=-t/2$ より、各角括弧の計量項は $+(t/2)\eta$ です。最初の四つの運動量積、計量との交差項、計量同士の項を分けると
 
 $$
 \begin{aligned}
 A^{\mu\nu}B_{\mu\nu}
 &=2\bigl[(p_3\cdot p_4)(p_1\cdot p_2)
 +(p_3\cdot p_2)(p_1\cdot p_4)\bigr]\\
-&\quad+t(m^2+M^2)\\
+&\quad+t(p_3\cdot p_1+p_4\cdot p_2)+t^2\\
+&=2\bigl[(p_3\cdot p_4)(p_1\cdot p_2)
++(p_3\cdot p_2)(p_1\cdot p_4)\bigr]+t(m^2+M^2)\\
 &=\frac{(s-S)^2+(u-S)^2}{2}+St.
 \end{aligned}
 $$
