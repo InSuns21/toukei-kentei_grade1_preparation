@@ -133,7 +133,7 @@ chapters:
     title: "近似訂正・回復写像"
   - id: QINF31
     path: textbook/volumes/dream_thater/応用系/QINF/QINF31
-    status: planned
+    status: completed
     title: "Haar測度とランダム純粋状態"
   - id: QINF32
     path: textbook/volumes/dream_thater/応用系/QINF/QINF32

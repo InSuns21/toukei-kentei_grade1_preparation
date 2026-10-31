@@ -1,0 +1,60 @@
+chapter: QINF31
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00E2, F0-00P2A, LA5, QINF1, QINF2, QINF3, QINF6, QINF11, QINF17]
+forward_references: []
+concepts:
+  - id: quantum.haar-unitary-measure
+    name: 正規化Haar分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Haar分布とHaarランダム純粋状態）]
+    requires: [linear.unitary-operator]
+  - id: quantum.haar-random-pure-state
+    name: Haarランダム純粋状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Haar分布とHaarランダム純粋状態）]
+    requires: [quantum.haar-unitary-measure, quantum.pure-mixed-density]
+  - id: quantum.haar-unitary-construction
+    name: 複素GaussianによるHaar分布の構成と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（複素GaussianによるHaar分布の構成と一意性）]
+    requires: [quantum.haar-random-pure-state]
+  - id: quantum.haar-first-moment
+    name: Haar純粋状態の一次モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Haar純粋状態の一次モーメント）]
+    requires: [quantum.haar-random-pure-state]
+  - id: quantum.swap-operator
+    name: 交換作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（交換作用素）]
+    requires: [quantum.composite-system]
+  - id: quantum.swap-trick
+    name: swap trick
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（swap trick）]
+    requires: [quantum.swap-operator, quantum.partial-trace]
+  - id: quantum.haar-second-moment
+    name: Haar純粋状態の二次モーメント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Haar純粋状態の二次モーメント）]
+    requires: [quantum.haar-random-pure-state, quantum.swap-operator]
+  - id: quantum.haar-average-purity
+    name: 二部系の平均purity
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二部系の平均purity）]
+    requires: [quantum.haar-second-moment, quantum.swap-trick, quantum.density-purity]
+  - id: quantum.haar-typicality-bound
+    name: 最大混合からの平均偏差と確率評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（最大混合からの平均偏差と確率評価）]
+    requires: [quantum.haar-average-purity]
