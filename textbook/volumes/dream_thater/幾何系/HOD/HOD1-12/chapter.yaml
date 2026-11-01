@@ -1,0 +1,35 @@
+id: "HOD1-12"
+title: "原始コホモロジーとLefschetz分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-11
+official_scope: []
+learning_objectives:
+  - 原始コホモロジーをLefschetz作用の高冪の核として定義し、調和原始形式との対応を証明できる
+  - 調和空間の随伴・直交分解から全次数のLefschetz分解を導き、各原始列の指数範囲を示せる
+  - 原始部分のBetti数および型別Hodge数の次元公式を導ける
+  - 原始Hodge型の保存と型別Lefschetz分解を添字・次数の矛盾なく記述できる
+  - 複素二次元トーラスとCP1の積で原始成分・非原始成分を直接計算できる
+theorems:
+  - { id: HOD1-12-THM-01, name: "原始コホモロジーと調和原始形式の対応" }
+  - { id: HOD1-12-THM-02, name: "コホモロジーのLefschetz直和分解" }
+  - { id: HOD1-12-PROP-01, name: "原始Hodge型と型別Lefschetz分解" }
+  - { id: HOD1-12-COR-01, name: "原始部分の次元公式" }
+canonical_examples:
+  - CP1 x CP1の原始二次類u-vと非原始類u+v
+  - 複素二次元平坦トーラスにおける原始二次類の五次元基底
+  - 複素次元三における全次数のLefschetz列
+problem_patterns:
+  - HOD1-12-POWER-KERNEL
+  - HOD1-12-CP1-PRIMITIVE
+  - HOD1-12-TORUS-BASIS
+  - HOD1-12-HODGE-TYPE
+  - HOD1-12-LADDER-RANGE
+  - HOD1-12-PRIMITIVE-DIMENSION
+  - HOD1-12-MIDDLE-DECOMPOSITION
+  - HOD1-12-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

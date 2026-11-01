@@ -1,0 +1,42 @@
+chapter: HOD1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-11
+concepts:
+  - id: hodge.primitive-cohomology
+    name: 原始コホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（原始コホモロジー）"]
+    requires: [hodge.hard-lefschetz-theorem, hodge.harmonic-lefschetz-cohomology]
+  - id: hodge.primitive-harmonic-correspondence
+    name: 原始コホモロジーと調和原始形式の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（原始類の調和代表による判定）"]
+    requires: [hodge.primitive-cohomology, hodge.harmonic-lefschetz-sl2]
+  - id: hodge.cohomology-lefschetz-decomposition
+    name: コホモロジーのLefschetz分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全次数のLefschetz直和分解）"]
+    requires: [hodge.primitive-harmonic-correspondence, hodge.hard-lefschetz-theorem]
+  - id: hodge.primitive-hodge-type
+    name: 原始Hodge型部分空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（原始Hodge型部分空間）"]
+    requires: [hodge.primitive-cohomology, hodge.de-rham-hodge-summand]
+  - id: hodge.primitive-hodge-decomposition
+    name: 原始Hodge型と型別Lefschetz分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（原始Hodge型と型別分解）"]
+    requires: [hodge.primitive-hodge-type, hodge.cohomology-lefschetz-decomposition]
+  - id: hodge.primitive-betti-dimension
+    name: 原始部分の次元公式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（原始部分の次元）"]
+    requires: [hodge.cohomology-lefschetz-decomposition, hodge.hard-lefschetz-theorem]
