@@ -52,7 +52,7 @@ chapters:
     title: "Hard Lefschetz定理"
   - id: HOD1-12
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-12
-    status: planned
+    status: completed
     title: "原始コホモロジーとLefschetz分解"
   - id: HOD1-13
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-13
