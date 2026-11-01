@@ -73,7 +73,7 @@ $$
 \langle\xi\rangle^{2s}|\widehat v(\xi)|^2\,d\xi
 $$
 
-で定めます（一般の局所分布にはcutoffを掛けます）。$s$ は負でもよく、$s$ が大きいほど強い正則性を要求します。方向別の判定には、点 $z=(x,\xi)\ne0$ で楕円的な $A\in\Psi^s$ を選び、$Au$ の二乗可積分性を測ります。楕円性は $|\sigma_s(A)(z)|>0$ によって判定し、低周波の違いは問いません。
+で定めます（一般の局所分布にはcutoffを掛けます）。$s$ は負でもよく、$s$ が大きいほど強い正則性を要求します。方向別の判定には、点 $z=(x,\xi)\ne0$ で楕円的な $A\in\Psi^s$ を選び、$Au$ の二乗可積分性を測ります。[MICA8の楕円集合の定義](../MICA8/index.md#def-mica8-elliptic)により、楕円性は $|\sigma_s(A)(z)|>0$ で判定し、低周波の違いは問いません。
 
 <a id="def-mica10-sobolev-wavefront"></a>
 
@@ -82,10 +82,19 @@ $$
 > $u\in\mathcal D'(X)$、$s\in\mathbb R$ とする。$z\in T^*X\setminus0$ で楕円的な $A\in\Psi^s$ が存在し $Au\in L^2_{\mathrm{loc}}$ となるとき、$u$ は $z$ で **microlocalに $H^s$** であるという。そのような $A$ が存在しない点の集合を **Sobolev波面集合** $WF^s(u)$ とする。従って $z\notin WF^s(u)$ は、その余接方向で $s$ 階のSobolev正則性があることを表す。
 <!-- formal-statement-end -->
 
+**定義から周波数判定への橋渡し。** 点 $(x_0,\xi_0)$ の近くで、$x_0$ の近傍で1となるcutoff $\chi$ と、$\xi_0$ を含む開錐 $\Gamma$ 上で1となり少し広い錐に支持される滑らかな角度cutoff $\psi(\xi)$ を取ります。$\operatorname{Op}(\langle\xi\rangle^s\psi(\xi))$ は $s$ 次のFourier乗数で、$\Gamma$ の高周波で楕円的です。従って $\chi u$ に作用させたときの $L^2$ 条件はPlancherelの等式により
+
+$$
+\|\operatorname{Op}(\langle\xi\rangle^s\psi)\chi u\|_{L^2}^2
+=(2\pi)^{-n}\int\langle\xi\rangle^{2s}|\psi(\xi)\widehat{\chi u}(\xi)|^2\,d\xi<\infty
+$$
+
+です。逆に、定義で任意の楕円的 $A$ が $Au\in L^2_{\mathrm{loc}}$ を満たす場合も、[MICA8の楕円的近似逆](../MICA8/index.md#thm-mica8-parametrix)を $A$ に適用して基点と錐を縮めると、同じ周波数積分が有限になります。すなわち、**楕円的作用素による判定と局所Fourier変換の錐上の重み付き積分判定は同値**です。
+
 <!-- definition-example-start: def-mica10-sobolev-wavefront -->
 ### 直接例：一点のデルタ分布で基準を検算する
 
-**定義の確認**。$u=\delta_0$ を $\mathbb R^n$ 上で考え、$\chi(0)=1$ とします。$\widehat{\chi\delta_0}=1$ なので錐方向の高周波で必要な積分は
+**定義の確認**。$u=\delta_0$ を $\mathbb R^n$ 上で考え、$\chi(0)=1$ とします。$\widehat{\chi\delta_0}=1$ です。直前の同値な判定を使い、どの非零方向にも幅が正の開錐 $\Gamma$ を取ると、角度積分は正の有限定数となり、高周波の可積分性は次の半径積分で決まります。
 
 $$
 \int_1^\infty r^{2s+n-1}\,dr.
@@ -116,7 +125,7 @@ $$
 
 $z\notin WF(u)$ なら、[MICA3の定義](../MICA3/index.md#def-mica3-wavefront)によって、$z$ の小さい錐と基点近傍のcutoffに対し $\widehat{\chi u}$ が任意次数で減衰します。従って任意の $s$ について $\langle\xi\rangle^s\widehat{\chi u}$ のその錐での二乗積分は有限です。楕円的な錐cutoff作用素を選べるので $z\notin WF^s(u)$ です。
 
-逆向きには閉包の外にある $z$ を取ります。$z$ の一つの錐的近傍が**すべての** $WF^s(u)$ を避けるので、楕円近似逆によって、その中の少し小さい共通錐で $\langle\xi\rangle^s\widehat{\chi u}\in L^2$ がすべての $s$ について成り立ちます。固定した整数 $N\ge0$ に対して $s>N+n/2$ を選び、Cauchy–Schwarzで
+逆向きには閉包の外にある $z$ を取ります。$z$ の一つの錐的近傍が**すべての** $WF^s(u)$ を避けるので、[MICA8の楕円的近似逆](../MICA8/index.md#thm-mica8-parametrix)によって、その中の少し小さい共通錐で $\langle\xi\rangle^s\widehat{\chi u}\in L^2$ がすべての $s$ について成り立ちます。固定した整数 $N\ge0$ に対して $s>N+n/2$ を選び、Cauchy–Schwarzで
 
 $$
 \int_\Gamma \langle\xi\rangle^N|\widehat{\chi u}(\xi)|\,d\xi
@@ -125,9 +134,15 @@ $$
 \left(\int_\Gamma\langle\xi\rangle^{2(N-s)}d\xi\right)^{1/2}<\infty.
 $$
 
-これだけでは点ごとの減衰は直ちに従いません。さらに小さい錐を選び、コンパクト支持な $\chi u$ のFourier変換を周波数の単位球で平均します。その各微分は $x^\alpha\chi u$ のFourier変換であり、同じ錐内部で重み付き二乗積分評価を満たします。
+これだけでは点ごとの減衰は直ちに従いません。さらに小さい錐を選び、$F(\xi)=\widehat{\chi u}(\xi)$ と置きます。$\partial_\xi^\alpha F=(-i)^{|\alpha|}\widehat{x^\alpha\chi u}$ です。滑らかな乗算 $x^\alpha$ は超局所的な $H^s$ 正則性を失わせないので、これらの微分も小さい共通錐で任意の多項式重み付き $L^2$ に入ります。
 
-単位球上のSobolev埋め込みを有限個の微分へ適用すると、任意の整数 $N\ge0$ について
+ここで各座標方向に一変数の微積分の基本定理とCauchy–Schwarzを適用し、$n$ 回繰り返すと、単位立方体 $C_\xi=\xi+[-1,1]^n$ について
+
+$$
+|F(\xi)|^2\le C_n\sum_{\alpha\in\{0,1\}^n}\int_{C_\xi}|\partial_\eta^\alpha F(\eta)|^2\,d\eta
+$$
+
+を得ます。高周波で立方体が小さい共通錐内に収まるようにして重み付き評価を代入すると、任意の整数 $N\ge0$ について
 
 $$
 |\widehat{\chi u}(\xi)|\le C_N\langle\xi\rangle^{-N}
@@ -222,7 +237,15 @@ $$
 K_A=i(Q^*A^*A-A^*AQ)
 $$
 
-は自己共役な次数 $2s$ の作用素で、その主シンボルは $H_q(a^2)$ に、$Q^*-Q$ 由来の実数値な $c_0(x,\xi)a^2$ が加わります。$c_0$ は次数0で有界なので、(1) の指数の減衰率 $K$ をさらに増やしてこの項を負側へ吸収できます。記号計算と平方の主記号 $b^2,e^2$ から、適切な $B,E_0$ を選べば局所化後に
+は自己共役な次数 $2s$ の作用素で、その主シンボルは $H_q(a^2)$ に、$Q^*-Q$ 由来の実数値な $c_0(x,\xi)a^2$ が加わります。$c_0$ は次数0で有界なので、(1) の指数の減衰率 $K$ をさらに増やしてこの項を負側へ吸収できます。
+
+具体的には $k=\sigma_{2s}(K_A)$ と置き、入口の $e$ を正の誤差を覆うだけ大きく取ります。特性面上で $-k+e^2$ が非負となり、目標点の近くでは正になるので、管を縮めて滑らかな平方根 $b=\sqrt{-k+e^2}$ を作ります。境界ではcutoffを余裕を持って取って延長します。[実主型条件](../MICA9/index.md#def-mica9-real-principal-type)から $dq\ne0$ なので、特性面近くでは $q$ 自身を横断座標にできます。特性面上で零となる記号の差はこの座標で $q$ の倍数に分解でき、$q$ が1次なので係数は $2s-1$ 次です。従って $f\in S^{2s-1}$ を選んで主シンボルの等式を
+
+$$
+-k=b^2-e^2+2\operatorname{Re}(fq)
+$$
+
+とそろえてから作用素化します。これで次数 $2s$ の主項が相殺されるので、局所化後に
 
 $$
 -K_A=B^*B-E_0^*E_0+R+FQ+Q^*F^*,\qquad R\in\Psi^{2s-1},\quad F\in\Psi^{2s-1}
@@ -261,7 +284,14 @@ $$
 
 とします。$a_\varepsilon=aj_\varepsilon$ を(1)–(3)の記号に代入し、まず正則化した作用素について評価します。$0<\varepsilon\le1$ で記号評価が一様であり、導関数の寄与も(1)の減少率を十分大きく選べば吸収できます。
 
-この評価で得た $\|B_\varepsilon u\|_{L^2}$ の一様上界に[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を適用すると $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、[Sobolev波面集合の定義](#def-mica10-sobolev-wavefront)から、その点は $WF^s(u)$ に入りません。
+この評価で得た $\|B_\varepsilon u\|_{L^2}\le C$ は $\varepsilon$ に一様です。記号 $b\,j_\varepsilon\to b$ から $B_\varepsilon u\to Bu$ が分布の意味で従います。従って任意の試験関数 $\varphi$ に対して
+
+$$
+|\langle Bu,\varphi\rangle|=\lim_{\varepsilon\to0}|\langle B_\varepsilon u,\varphi\rangle|
+\le C\|\varphi\|_{L^2}.
+$$
+
+試験関数の $L^2$ 稠密性と $L^2$ の双対表示により $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、[Sobolev波面集合の定義](#def-mica10-sobolev-wavefront)から、その点は $WF^s(u)$ に入りません。
 <!-- proof-end -->
 
 ### 技術的な境界：何を証明して、何を使ったか
@@ -463,7 +493,13 @@ $P=\partial_t^2-\partial_x^2$、$H$ をHeaviside分布として $u(t,x)=H(t)\,\d
 <!-- solution-start -->
 #### 詳細解答
 
-$r=x-t$、$s=x+t$ とすると $t=(s-r)/2$ で $u=H((s-r)/2)\delta(r)=H(s/2)\delta(r)$ です（$r=0$ への制限は、$H$ の跳び目が $s=0$ で交差することを含め分布積として解釈でき、この式は $H(t)\otimes\delta(x-t)$ の座標変換です）。$P=-4\partial_r\partial_s$ なので
+$r=x-t$、$s=x+t$ とすると $t=(s-r)/2$ です。$H(t)$ と $\delta(x-t)$ の特異超曲面 $t=0$ と $x-t=0$ は横断的に交わるため、その積は分布として定義できます。座標変換後は $r=0$ 上への制限で
+
+$$
+u=H((s-r)/2)\delta(r)=H(s/2)\delta(r)=H(s)\delta(r)
+$$
+
+となります。実際、$dt\,dx=\tfrac12dr\,ds$ を用いた試験関数への作用は $\int_0^\infty\varphi(t,t)\,dt=\tfrac12\int_0^\infty\varphi(s/2,s/2)\,ds$ で、上の座標分布と一致します。$P=-4\partial_r\partial_s$ なので
 
 $$
 \partial_su=\delta(s)\delta(r),\qquad
