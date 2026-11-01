@@ -1,0 +1,53 @@
+chapter: MICA11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA10
+  - HPDE23
+  - MICA3
+  - LORG16
+forward_references: []
+concepts:
+  - id: microlocal.mica11-smeared-algebra
+    name: 実Klein–Gordon場のsmearing代数
+    kind: definition
+    introduction: formal
+    requires: [hpde.real-klein-gordon, hpde.causal-propagator]
+  - id: microlocal.mica11-positive-state
+    name: 正値状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [状態]
+    requires: [microlocal.mica11-smeared-algebra]
+  - id: microlocal.mica11-two-point
+    name: 分布型二点量と二点分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [二点分布, 分布型二点量]
+    requires: [microlocal.mica11-positive-state]
+  - id: microlocal.mica11-two-point-conditions
+    name: 二点分布の正値性・双解性・交換子条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [交換子条件, 双解性, 二点分布の正値性]
+    requires: [microlocal.mica11-two-point]
+  - id: microlocal.mica11-state-properties
+    name: 状態から従う二点量の性質
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica11-two-point-conditions]
+  - id: microlocal.mica11-cauchy-schwarz
+    name: 二点分布のCauchy–Schwarz評価
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica11-state-properties]
+  - id: microlocal.mica11-smooth-bisolution
+    name: 滑らかな双解による二点量の変更
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica11-two-point-conditions]
+  - id: microlocal.mica11-positive-covector
+    name: Minkowski真空の正周波数と光的余接方向
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica11-two-point, microlocal.mica3-wavefront]
