@@ -169,14 +169,14 @@ W_0(x,y)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
 e^{-i\omega_{\boldsymbol p}(t_x-t_y)+i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}
 $$
 
-で与えると、(1) Fourier変換を用いた正値性は
+で与えます。Fourier変換を用いた正値性の確認は
 
 $$
 W_0(\overline f,f)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
 |\widetilde f(\omega_{\boldsymbol p},\boldsymbol p)|^2\ge0
 $$
 
-です（$\widetilde f(E,\boldsymbol p):=\int f(t,\boldsymbol x)e^{iEt-i\boldsymbol p\cdot\boldsymbol x}\,dt\,d^3x$）。(2) 指数へ $P_x$ または $P_y$ を作用させると $-\omega_{\boldsymbol p}^2+|\boldsymbol p|^2+m^2=0$ が掛かり、双解性が成立します。(3) 二点の交換で時間差の正弦部分だけが残り、
+です（$\widetilde f(E,\boldsymbol p):=\int f(t,\boldsymbol x)e^{iEt-i\boldsymbol p\cdot\boldsymbol x}\,dt\,d^3x$）。指数へ $P_x$ または $P_y$ を作用させると $-\omega_{\boldsymbol p}^2+|\boldsymbol p|^2+m^2=0$ が掛かり、双解性が成立します。二点の交換では時間差の正弦部分だけが残り、
 
 $$
 W_0(x,y)-W_0(y,x)=-iE(x,y),\quad
@@ -185,7 +185,7 @@ E(t,\boldsymbol z)=\int\frac{d^3p}{(2\pi)^3}
 e^{i\boldsymbol p\cdot\boldsymbol z}
 $$
 
-となります。(4) 核の複素共役を取ると引数交換に等しいのでHermite性も成立します。これらはすべて試験関数に作用させた**分布恒等式**です。後でFourierの変数変換と符号を省略せずに導出します。
+となります。核の複素共役を取ると引数交換に等しいのでHermite性も成立します。これらはすべて試験関数に作用させた**分布恒等式**です。後でFourierの変数変換と符号を省略せずに導出します。
 <!-- definition-example-end -->
 
 正値性は「$W(x,y)$ が各点で非負」という主張ではありません。また、これらの条件だけを読んで「Hadamard状態が存在する」とも結論しません。Hadamard性は**特異方向への追加の制約**であり、後の章で導入します。
