@@ -1,0 +1,44 @@
+id: QFT32
+title: "Poincaré粒子表現・質量とヘリシティ・Weyl／Majorana場"
+volume: foundations
+status: supplementary
+prerequisites: [QFT31, QFT8, QFT7, QFT15, SREL3]
+official_scope: []
+learning_objectives:
+  - Poincaré群の合成則・正エネルギー質量殻の不変測度と1粒子状態のユニタリ作用を検算できる
+  - SL(2,C)の二行二列Hermitian表示から質量正・質量零のlittle groupを区別できる
+  - Wigner回転の合成則と質量零ヘリシティ表現に必要な並進部分の仮定を明示できる
+  - 局所スピノル場のLorentz表現と1粒子Hilbert空間のユニタリ表現を区別できる
+  - Weyl・Dirac・Majorana記述の条件、質量項、電荷の制約を具体的に計算できる
+theorems:
+  - { id: QFT32-PROP-01, name: 正エネルギー質量殻の不変積分 }
+  - { id: QFT32-THM-01, name: 質量正と質量零のlittle group }
+  - { id: QFT32-PROP-02, name: Wigner回転の合成則 }
+  - { id: QFT32-PROP-03, name: 質量零Weyl方程式の粒子ヘリシティ }
+  - { id: QFT32-PROP-04, name: Majorana質量と連続U(1)電荷の制約 }
+definitions:
+  - { id: QFT32-DEF-01, name: Poincaré群とユニタリ粒子表現 }
+  - { id: QFT32-DEF-02, name: little group }
+  - { id: QFT32-DEF-03, name: Wigner回転 }
+  - { id: QFT32-DEF-04, name: ヘリシティ }
+  - { id: QFT32-DEF-05, name: カイラリティとWeyl成分 }
+  - { id: QFT32-DEF-06, name: Majorana条件 }
+canonical_examples:
+  - 質量殻のdelta積分とスカラー波束のノルム保存
+  - 休止四運動量のSU(2)安定化群と光的四運動量の三角行列安定化群
+  - z方向へ進む二成分Weyl波とヘリシティの符号
+  - Dirac質量における左・右成分の連結と中性Majorana質量
+problem_patterns:
+  - QFT32-POINCARE-LAW
+  - QFT32-MASS-SHELL-MEASURE
+  - QFT32-SL2-HERMITIAN
+  - QFT32-LITTLE-GROUP
+  - QFT32-WIGNER-COCYCLE
+  - QFT32-HELICITY-CHIRALITY
+  - QFT32-DIRAC-MASS
+  - QFT32-MAJORANA-CHARGE
+  - QFT32-INTEGRATED-SPINOR-REPRESENTATIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 14, review: 5 }

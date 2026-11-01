@@ -1,0 +1,83 @@
+chapter: QFT32
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT31, QFT8, QFT7, QFT15, SREL3]
+forward_references: []
+
+concepts:
+  - id: qft.poincare-particle-representation
+    name: Poincaré群とユニタリ粒子表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Poincaré群とユニタリ粒子表現）]
+    requires: [relativity.mass-shell, qft.fermion-fock-space]
+
+  - id: qft.invariant-mass-shell-integral
+    name: 正エネルギー質量殻の不変積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正エネルギー質量殻の不変積分）]
+    requires: [qft.poincare-particle-representation]
+
+  - id: qft.little-group
+    name: little group
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（little group）]
+    requires: [qft.poincare-particle-representation]
+
+  - id: qft.massive-massless-little-groups
+    name: 質量正と質量零のlittle group
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量正と質量零のlittle group）]
+    requires: [qft.little-group]
+
+  - id: qft.wigner-rotation
+    name: Wigner回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Wigner回転）]
+    requires: [qft.little-group]
+
+  - id: qft.wigner-composition
+    name: Wigner回転の合成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Wigner回転の合成則）]
+    requires: [qft.wigner-rotation]
+
+  - id: qft.helicity
+    name: ヘリシティ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ヘリシティ）]
+    requires: [qft.massive-massless-little-groups]
+
+  - id: qft.chirality-weyl-components
+    name: カイラリティとWeyl成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（カイラリティとWeyl成分）]
+    requires: [qft.clifford-dirac-matrices, qft.lorentz-spinor-transformation]
+
+  - id: qft.weyl-particle-helicity
+    name: 質量零Weyl方程式の粒子ヘリシティ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量零Weyl方程式の粒子ヘリシティ）]
+    requires: [qft.chirality-weyl-components, qft.helicity]
+
+  - id: qft.majorana-condition
+    name: Majorana条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Majorana条件）]
+    requires: [qft.chirality-weyl-components]
+
+  - id: qft.majorana-u1-charge
+    name: Majorana質量と連続U(1)電荷の制約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Majorana質量と連続U(1)電荷の制約）]
+    requires: [qft.majorana-condition, qft.local-u1-gauge]
