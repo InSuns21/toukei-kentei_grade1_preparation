@@ -133,7 +133,7 @@ $$
 \frac{\widehat\chi(\zeta-\kappa(\boldsymbol p))}{2|\boldsymbol p|}\,d^3p.
 $$
 
-任意の単位方向 $\boldsymbol n$ と $R\to\infty$ に対し $\zeta_R=(-R,R\boldsymbol n)$ とします。$|\boldsymbol p-R\boldsymbol n|<\delta$ の固定半径の球では、逆三角不等式より
+任意の単位方向 $\boldsymbol n$ と $R\to\infty$ に対し $\zeta_R=(-R,R\boldsymbol n)$ とします。$|\boldsymbol p-R\boldsymbol n|<\delta$ の固定半径の球では、[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)より
 
 $$
 \bigl||\boldsymbol p|-R\bigr|\le|\boldsymbol p-R\boldsymbol n|<\delta,
