@@ -1,0 +1,36 @@
+chapter: MICA10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA9
+  - MICA8
+  - MICA5
+  - MICA3
+  - GPDE3
+forward_references: []
+concepts:
+  - id: microlocal.mica10-propagation
+    name: 実主型作用素の特異性伝播
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica9-real-principal-type, microlocal.mica9-bicharacteristic, microlocal.mica8-elliptic-regularity]
+  - id: microlocal.mica10-sobolev-wavefront
+    name: Sobolev波面集合
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica3-wavefront, microlocal.mica8-ellipticity]
+  - id: microlocal.mica10-sobolev-relation
+    name: Sobolev波面と通常の波面
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica10-sobolev-wavefront]
+  - id: microlocal.mica10-commutator
+    name: 交換子とHamilton微分
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica9-bicharacteristic, microlocal.mica8-composition]
+  - id: microlocal.mica10-positive-commutator
+    name: 局所正交換子評価
+    kind: lemma
+    introduction: formal
+    requires: [microlocal.mica10-sobolev-wavefront, microlocal.mica10-commutator]
