@@ -4,20 +4,34 @@
 
 本講では、行列として作用する局所対称性から共変微分を作り、その交換子を計算してYang–Mills曲率を得ます。曲率の変換則と作用原理を証明し、最後にゲージ場自身が三点・四点で相互作用する理由を式から取り出します。量子ゲージ固定、ghost、BRST、ループ補正はまだ用いません。
 
-以下では四次元Minkowski空間、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。ローマ字 $a,b,c$ は内部方向、ギリシャ字 $\mu,\nu$ は時空方向（$0,1,2,3$）を表し、同じ位置に上下で現れる添字は和を取ります。行列は時空点 $x$ に滑らかに依存し、作用の変分は境界で零になるコンパクト支持の変分で行います。結合定数 $g>0$ は実数です。
+以下では四次元Minkowski空間、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とし、結合定数 $g>0$ は実数とします。
+
+ローマ字 $a,b,c$ は内部方向（$1,\ldots,N^2-1$）、ギリシャ字 $\mu,\nu$ は時空方向（$0,1,2,3$）を表します。時空添字は上下に一度ずつ現れたとき、内部添字は同じ上付き添字が反復したときに和を取ります（内部方向の縮約には $\delta^{ab}$ を使います）。$\partial_\mu=\partial/\partial x^\mu$ は時空座標についての偏微分で、行列値場には各行列成分ごとに作用します。
+
+作用積分は有界開領域 $\Omega\subset\mathbb R^{1,3}$ 上で考え、場とゲージ変換は $\overline\Omega$ の近傍で滑らかとします。変分は $\Omega$ 内にコンパクトな台を持つものとします。
 
 ## 1. 位相から行列へ：局所変換を微分できるか
 
-複素数の位相 $e^{i\alpha}$ は掛け算の順序を入れ替えられます。一方、$N$ 成分の複素列ベクトル $\psi(x)$ に作用する行列 $U(x)$ は一般に交換しません。ここで $SU(N)$ は $U^\dagger U=I$ かつ $\det U=1$ を満たす $N\times N$ 複素行列の集まりとします。$N\ge2$ を固定します。
+複素数の位相 $e^{i\alpha}$ は掛け算の順序を入れ替えられます。一方、$N$ 成分の複素列ベクトル $\psi(x)$ に作用する行列 $U(x)$ は一般に交換しません。ここで $N\ge2$ を固定し、$SU(N)$ を、次の二条件を満たす $N\times N$ 複素行列全体の群とします。
 
-この行列群の単位行列の近くを記述するため、Hermitianかつ跡が零の行列 $T^a$（$a=1,\ldots,N^2-1$）を基底に取り、規格化と交換子を次のように固定します。
+$$
+U^\dagger U=I,\qquad \det U=1.
+$$
+
+この行列群の単位行列の近くを記述するため、Hermitian（$(T^a)^\dagger=T^a$）かつ跡が零の行列 $T^a$（$a=1,\ldots,N^2-1$）を実ベクトル空間の基底に取り、規格化と交換子を次のように固定します。
 
 $$
 \operatorname{tr}(T^aT^b)=\frac12\delta^{ab},
 \qquad [T^a,T^b]=i f^{abc}T^c.
 $$
 
-$[X,Y]=XY-YX$ は行列の交換子です。係数 $f^{abc}$ は [LIE4で導入した構造定数](../../../代数系/LIE/LIE4/index.md#def-lie4-structure-constants)をHermitian生成子の規約へ移したもので、実数であり、この規格化の下では添字に関して完全反対称です。とくに $U=e^{i\alpha^aT^a}$ は実数関数 $\alpha^a(x)$ に対して $SU(N)$ に属します。指数は行列のべき級数で定義します。
+$[X,Y]=XY-YX$ は行列の交換子です。数学的なLie環 $\mathfrak{su}(N)$ の元は反Hermitianで跡が零です。従って、その実基底は $\tau^a=iT^a$ であり、
+
+$$
+[\tau^a,\tau^b]=-[T^a,T^b]=-f^{abc}\tau^c.
+$$
+
+つまり [LIE4で導入した構造定数](../../../代数系/LIE/LIE4/index.md#def-lie4-structure-constants)をこの基底で書けば $c_{ab}^{\,c}=-f^{abc}$ です。ここでは物理で便利なHermitian生成子 $T^a$ を使うため、符号を含めて区別します。係数 $f^{abc}$ は実数であり、この規格化の下では添字に関して完全反対称です。とくに $U=e^{i\alpha^aT^a}$ は実数関数 $\alpha^a(x)$ に対して $SU(N)$ に属します。指数は行列のべき級数で定義します。
 
 完全反対称性は規格化から確認できます。$[T^a,T^b]=if^{abc}T^c$ に $T^d$ を掛けて跡を取ると
 
@@ -115,11 +129,21 @@ $$
 定義の共変性を具体的に検査できました。ポテンシャルが零でなくても、物理的な曲率が零になる場合があることは次節で確かめます。
 <!-- definition-example-end -->
 
-局所変換を $U=I+i\alpha^aT^a+O(\alpha^2)$ とすると、一次では
+滑らかな実関数 $\alpha^a(x)$ と実パラメータ $s$ を取り、局所変換を $U_s=e^{is\alpha^aT^a}=I+is\alpha^aT^a+O(s^2)$ とします。$O(s^2)$ は $s$ の二次以上の項であり、$\delta_\alpha A_\mu:=\left.\frac{d}{ds}A_\mu^{(s)}\right|_{s=0}$ はゲージ変換による場の一次変化です。[ゲージ変換則](#thm-qft28-gauge-covariance)の二項はそれぞれ
 
 $$
-\delta A_\mu^a=\frac1g\partial_\mu\alpha^a
-+f^{abc}A_\mu^b\alpha^c+O(\alpha^2).
+\begin{aligned}
+U_sA_\mu U_s^{-1}&=A_\mu+is[\alpha^aT^a,A_\mu]+O(s^2),\\
+-\frac{i}{g}(\partial_\mu U_s)U_s^{-1}
+&=\frac{s}{g}(\partial_\mu\alpha^a)T^a+O(s^2).
+\end{aligned}
+$$
+
+従って $s$ の一次係数は
+
+$$
+\delta_\alpha A_\mu^a=\frac1g\partial_\mu\alpha^a
++f^{abc}A_\mu^b\alpha^c.
 $$
 
 最初の項はU(1)と似ていますが、第二項は生成子が交換しないことから生まれます。$U(1)$ のように単一の可換方向だけを残せば第二項は零です。
@@ -250,27 +274,27 @@ $g\ne0$ なのでBianchi恒等式を得ます。ここでは場の方程式を�
 
 ## 3. 作用は何に対して不変なのか
 
-[QFT15のMaxwell作用](../QFT15/index.md#def-qft15-maxwell-action)は $F_{\mu\nu}F^{\mu\nu}$ を積分しました。行列値の曲率は共役で変換するため、そのまま各行列成分を固定して比べるのではなく、跡を取って内部方向の回転を取り除きます。
+[QFT15のMaxwell作用](../QFT15/index.md#def-qft15-maxwell-action)は $F_{\mu\nu}F^{\mu\nu}$ を積分しました。[曲率の共変変換](#thm-qft28-curvature-bianchi)では行列値の曲率が共役で変換するため、そのまま各行列成分を固定して比べるのではなく、跡を取って内部方向の回転を取り除きます。
 
 <a id="def-qft28-yang-mills-action"></a>
 
 <!-- formal-statement-start -->
 > **定義（Yang–Mills作用）**  
-> 四次元Minkowski空間上の滑らかな $SU(N)$ ゲージ場 $A_\mu=A_\mu^aT^a$ に対し、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$ で時空添字を上げ下げし、真空のYang–Mills作用を
+> 有界開領域 $\Omega\subset\mathbb R^{1,3}$ の閉包の近傍で滑らかな $SU(N)$ ゲージ場 $A_\mu=A_\mu^aT^a$ に対し、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$ で時空添字を上げ下げし、真空のYang–Mills作用を
 
 $$
-S_{\mathrm{YM}}[A]
-=-\frac12\int d^4x\,\operatorname{tr}(F_{\mu\nu}F^{\mu\nu})
-=-\frac14\int d^4x\,F_{\mu\nu}^aF^{a\mu\nu}
+S_{\mathrm{YM},\Omega}[A]
+=-\frac12\int_\Omega d^4x\,\operatorname{tr}(F_{\mu\nu}F^{\mu\nu})
+=-\frac14\int_\Omega d^4x\,F_{\mu\nu}^aF^{a\mu\nu}
 $$
 
-> で定める。第二の等号には $\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ を用いる。
+> で定める。第二の等号には $\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ を用いる。閉包近くでの滑らかさと $\Omega$ の有界性により、この積分は有限である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft28-yang-mills-action -->
 ### 例：固定内部方向ならMaxwell理論に戻る
 
-**定義の確認**：作用の二つの表示が一致することを生成子の跡から確かめます。
+**定義の確認**：作用の二つの表示が一致することを生成子の跡から確かめます。一定の場でも $\Omega$ 上なら積分が定義されますが、ここではまず作用密度を計算します。
 
 $A_\mu=a_\mu T^3$ とすれば $[A_\mu,A_\nu]=0$ なので、$F_{\mu\nu}=(\partial_\mu a_\nu-\partial_\nu a_\mu)T^3$ です。規格化を跡から確認すると
 
@@ -287,7 +311,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Yang–Mills作用の不変性と真空場方程式）**  
-> $g>0$、滑らかな $SU(N)$ 接続 $A_\mu$、その曲率 $F_{\mu\nu}$、および[Yang–Mills作用](#def-qft28-yang-mills-action)を考える。局所ゲージ変換 $A'_\mu=UA_\mu U^{-1}-i(\partial_\mu U)U^{-1}/g$ は作用を不変にする。コンパクト支持の任意の実係数変分 $\delta A_\nu^a$ に対して作用が停留するための必要十分条件は、真空Yang–Mills方程式
+> 有界開領域 $\Omega\subset\mathbb R^{1,3}$ の閉包の近傍で滑らかな $SU(N)$ ゲージ場 $A_\mu$、その曲率 $F_{\mu\nu}$、および[Yang–Mills作用](#def-qft28-yang-mills-action) $S_{\mathrm{YM},\Omega}[A]$ を考える。滑らかな局所ゲージ変換 $A'_\mu=UA_\mu U^{-1}-i(\partial_\mu U)U^{-1}/g$ は作用を不変にする。$\Omega$ 内にコンパクトな台を持つ任意の滑らかな実係数変分 $\delta A_\nu^a$ に対して作用が停留するための必要十分条件は、$\Omega$ 上の真空Yang–Mills方程式
 
 $$
 \mathcal D_\mu F^{\mu\nu}=0,
@@ -300,7 +324,7 @@ $$
 
 ### 証明の見取り図
 
-不変性は曲率の共変変換と跡の巡回性から従います。場の方程式は曲率を一次変分し、通常の部分積分の代わりに交換子も合わせて移す「随伴共変微分の部分積分」を用いて求めます。
+不変性は[曲率の共変変換](#thm-qft28-curvature-bianchi)と跡の巡回性から従います。場の方程式は曲率を一次変分し、通常の部分積分の代わりに交換子も合わせて移す「随伴共変微分の部分積分」を用いて求めます。
 
 <!-- proof-start -->
 ### 証明
@@ -318,7 +342,7 @@ $$
 
 内部変換は時空座標を動かさないため、積分も不変です。
 
-次に $A\mapsto A+\epsilon\delta A$ を代入し、$\epsilon$ の一次係数を取ります。$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu-ig[A_\mu,A_\nu]$ の微分から
+次に $A\mapsto A+\epsilon\delta A$ を代入し、$\epsilon$ の一次係数を取ります。ここで $\delta A_\mu$ は任意のコンパクト支持変分であり、第1節のゲージ方向に限った $\delta_\alpha A_\mu$ とは区別します。$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu-ig[A_\mu,A_\nu]$ の微分から
 
 $$
 \begin{aligned}
@@ -332,9 +356,9 @@ $$
 曲率の反対称性と跡の巡回性を用いると
 
 $$
-\delta S_{\mathrm{YM}}
-=-\int d^4x\,\operatorname{tr}(F^{\mu\nu}\delta F_{\mu\nu})
-=-2\int d^4x\,\operatorname{tr}(F^{\mu\nu}\mathcal D_\mu\delta A_\nu).
+\delta S_{\mathrm{YM},\Omega}
+=-\int_\Omega d^4x\,\operatorname{tr}(F^{\mu\nu}\delta F_{\mu\nu})
+=-2\int_\Omega d^4x\,\operatorname{tr}(F^{\mu\nu}\mathcal D_\mu\delta A_\nu).
 $$
 
 ここで部分積分の境界項は変分のコンパクト支持で零です。交換子の項についても
@@ -347,9 +371,9 @@ $$
 なので、$\mathcal D_\mu$ を移すと符号が反転し、
 
 $$
-\delta S_{\mathrm{YM}}
-=2\int d^4x\,\operatorname{tr}((\mathcal D_\mu F^{\mu\nu})\delta A_\nu)
-=\int d^4x\,(\mathcal D_\mu F^{\mu\nu})^a\delta A_\nu^a.
+\delta S_{\mathrm{YM},\Omega}
+=2\int_\Omega d^4x\,\operatorname{tr}((\mathcal D_\mu F^{\mu\nu})\delta A_\nu)
+=\int_\Omega d^4x\,(\mathcal D_\mu F^{\mu\nu})^a\delta A_\nu^a.
 $$
 
 任意の実係数 $\delta A_\nu^a$ が局所的に取れるため、停留条件と各成分の零が同値です。最後に[随伴共変微分の成分式](#def-qft28-curvature)を $X=F^{\mu\nu}$ に適用すれば二つ目の表示が従います。
@@ -457,7 +481,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-微分項は零です。$[T^1,T^2]=iT^3$ なので $F_{12}=-ig[2T^1,3T^2]=6gT^3$、$F_{21}=-6gT^3$ です。したがって $F^3_{12}=6g,F^3_{21}=-6g$ 以外は零です。計量の空間成分は $\eta^{11}=\eta^{22}=-1$ なので $F^{3 12}=(-1)(-1)F^3_{12}=6g$。和を両方の順序で取ると
+微分項は零です。$[T^1,T^2]=iT^3$ なので
+
+$$
+F_{12}=-ig[2T^1,3T^2]=6gT^3,\qquad F_{21}=-6gT^3.
+$$
+
+従って内部成分は $F^3_{12}=6g$、$F^3_{21}=-6g$ 以外すべて零です。計量の空間成分は $\eta^{11}=\eta^{22}=-1$ なので、添字を上げると $F^{3\,12}=(-1)(-1)F^3_{12}=6g$ です。和を両方の順序で取ると
 
 $$
 F^a_{\mu\nu}F^{a\mu\nu}
@@ -468,7 +498,7 @@ $$
 ### 演習 QFT28-A4：微小ゲージ変換の符号
 
 - Level: A
-- 問題：$U=I+i\alpha+O(\alpha^2)$、$\alpha=\alpha^aT^a$ とします。有限変換から一次の $\delta A_\mu^a$ を求め、$SU(2)$ で $A_\mu=a_\mu T^1$、$\alpha=\epsilon T^2$（$\epsilon$ は定数）なら $\delta A_\mu$ がどの生成子方向か調べてください。
+- 問題：$U=I+i\alpha+O(\alpha^2)$、$\alpha=\alpha^aT^a$ とします。$\alpha$ を一次の小量として有限変換からゲージ変分 $\delta_\alpha A_\mu^a$ を求め、$SU(2)$ で $A_\mu=a_\mu T^1$、$\alpha=\epsilon T^2$（$\epsilon$ は小さい定数）なら $\delta_\alpha A_\mu$ がどの生成子方向か調べてください。
 
 <!-- solution-start -->
 **詳細解答**
@@ -476,7 +506,7 @@ $$
 $U^{-1}=I-i\alpha+O(\alpha^2)$ なので $UA_\mu U^{-1}=A_\mu+i[\alpha,A_\mu]+O(\alpha^2)$。また $-i(\partial_\mu U)U^{-1}/g=(\partial_\mu\alpha)/g+O(\alpha^2)$ です。$i[\alpha,A_\mu]=-\alpha^bA_\mu^c f^{bca}T^a=f^{abc}A_\mu^b\alpha^cT^a$ より
 
 $$
-\delta A_\mu^a=\frac1g\partial_\mu\alpha^a+f^{abc}A_\mu^b\alpha^c.
+\delta_\alpha A_\mu^a=\frac1g\partial_\mu\alpha^a+f^{abc}A_\mu^b\alpha^c.
 $$
 
 指定例では微分項が零で、$i[\epsilon T^2,a_\mu T^1]=i\epsilon a_\mu(-iT^3)=\epsilon a_\mu T^3$。従って第三方向へ回転し、符号は正です。
@@ -496,7 +526,7 @@ $$
 ### 演習 QFT28-B1：曲率の無限小変換
 
 - Level: B
-- 問題：滑らかな微小変換 $U=I+i\alpha+O(\alpha^2)$ に対して $F'_{\mu\nu}=UF_{\mu\nu}U^{-1}$ を一次まで展開し、$\delta F^a_{\mu\nu}$ の成分式を求めてください。なぜ一般には $\delta F^a_{\mu\nu}=0$ でないのか説明してください。
+- 問題：滑らかな微小変換 $U=I+i\alpha+O(\alpha^2)$ に対して $F'_{\mu\nu}=UF_{\mu\nu}U^{-1}$ を一次まで展開し、ゲージ変分 $\delta_\alpha F^a_{\mu\nu}$ の成分式を求めてください。なぜ一般には $\delta_\alpha F^a_{\mu\nu}=0$ でないのか説明してください。
 
 <!-- solution-start -->
 **詳細解答**
@@ -510,7 +540,20 @@ i[\alpha,F]
 =f^{abc}F^b_{\mu\nu}\alpha^cT^a.
 $$
 
-従って $\delta F^a_{\mu\nu}=f^{abc}F^b_{\mu\nu}\alpha^c$。非可換な内部方向は変換で互いに混ざるので各成分は不変である必要がありません。一方、$F^a_{\mu\nu}F^{a\mu\nu}$ の一次変分は $2f^{abc}F^a_{\mu\nu}F^{b\mu\nu}\alpha^c=0$ です。$F^aF^b$ が $a,b$ で対称、$f^{abc}$ が反対称だからです。
+従ってゲージ変分は
+
+$$
+\delta_\alpha F^a_{\mu\nu}=f^{abc}F^b_{\mu\nu}\alpha^c.
+$$
+
+非可換な内部方向は変換で互いに混ざるので各成分は不変である必要がありません。一方、全方向を縮約した量の一次変分は
+
+$$
+\delta_\alpha(F^a_{\mu\nu}F^{a\mu\nu})
+=2f^{abc}F^a_{\mu\nu}F^{b\mu\nu}\alpha^c=0.
+$$
+
+$F^a_{\mu\nu}F^{b\mu\nu}$ は $a,b$ で対称、$f^{abc}$ は反対称だからです。
 <!-- solution-end -->
 
 ### 演習 QFT28-B2：Bianchi恒等式を成分で読む
@@ -587,7 +630,7 @@ $$
 ### 演習 QFT28-C1：曲率・作用・運動方程式を一度に確かめる
 
 - Level: C
-- 問題：$SU(2)$、$g>0$、滑らかな時空上で、$A_0=A_3=0$、$A_1=aT^1$、$A_2=bT^2$（$a,b$ は非零定数）を考えます。
+- 問題：四次元Minkowski空間上で $SU(2)$、$g>0$、$A_0=A_3=0$、$A_1=aT^1$、$A_2=bT^2$（$a,b$ は非零実定数）を考えます。
 
 1. 曲率 $F_{\mu\nu}$ と作用密度を求めてください。
 2. 一定行列 $U=e^{i\beta T^3}$（$\beta$ は実定数）でゲージ変換した後、曲率が共役変換され、作用密度が不変であることを実際に確認してください。
@@ -604,14 +647,28 @@ F_{12}=gabT^3,\qquad F_{21}=-gabT^3,
 \qquad\mathcal L=-\frac{g^2a^2b^2}{2}.
 $$
 
-**（2）共役変換の直接検算。** $U$ は一定なので $A'_\mu=UA_\mu U^{-1}$。$[UA_1U^{-1},UA_2U^{-1}]=U[A_1,A_2]U^{-1}$ から
+**（2）共役変換の直接検算。** $U$ は時空一定なので $\partial_\mu U=0$、従って $A'_\mu=UA_\mu U^{-1}$ です。交換子 $[T^3,T^1]=iT^2$、$[T^3,T^2]=-iT^1$ を用いて指数の共役作用を展開すると
+
+$$
+\begin{aligned}
+UT^1U^{-1}&=(\cos\beta)T^1-(\sin\beta)T^2,\\
+UT^2U^{-1}&=(\sin\beta)T^1+(\cos\beta)T^2.
+\end{aligned}
+$$
+
+これを $A'_1=aUT^1U^{-1}$、$A'_2=bUT^2U^{-1}$ に代入すると、交換子の係数は $ab(\cos^2\beta+\sin^2\beta)=ab$ となります。従って
 
 $$
 F'_{12}=-ig[A'_1,A'_2]
 =U(gabT^3)U^{-1}=gabT^3.
 $$
 
-最後の等号は $U$ が $T^3$ の指数であり、$[U,T^3]=0$ だからです。この場合はたまたま第三方向の曲率成分も不変ですが、一般の $U$ では内部方向が回転します。$\operatorname{tr}((T^3)^2)=1/2$ なので、$\mathcal L'=-\operatorname{tr}(F'_{12}F'^{12})=-g^2a^2b^2/2=\mathcal L$ です（反対称な二成分の寄与を合わせました）。
+最後の等号は $U$ が $T^3$ の指数であり、$[U,T^3]=0$ だからです。この場合はたまたま第三方向の曲率成分も不変ですが、一般の $U$ では内部方向が回転します。$\operatorname{tr}((T^3)^2)=1/2$ なので、反対称な二成分の寄与を合わせれば
+
+$$
+\mathcal L'=-\operatorname{tr}(F'_{12}F'^{12})
+=-\frac{g^2a^2b^2}{2}=\mathcal L.
+$$
 
 **（3）運動方程式。** 時空微分は零ですが、随伴共変微分は零とは限りません。
 
