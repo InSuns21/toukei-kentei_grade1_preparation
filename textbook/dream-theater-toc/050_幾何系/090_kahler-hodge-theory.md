@@ -13,3 +13,4 @@
 10. [HOD1-10 調和形式上のLefschetz作用](textbook/volumes/dream_thater/幾何系/HOD/HOD1-10/index.md)
 11. [HOD1-11 Hard Lefschetz定理](textbook/volumes/dream_thater/幾何系/HOD/HOD1-11/index.md)
 12. [HOD1-12 原始コホモロジーとLefschetz分解](textbook/volumes/dream_thater/幾何系/HOD/HOD1-12/index.md)
+13. [HOD1-13 Hodge–Riemann双線形関係とHodge指数定理](textbook/volumes/dream_thater/幾何系/HOD/HOD1-13/index.md)
