@@ -1,0 +1,44 @@
+id: QFT30
+title: "Yang–Mills理論の一ループβ関数と漸近自由性"
+volume: foundations
+status: supplementary
+prerequisites: [QFT28, QFT29, QFT25, QFT20, QFT19]
+official_scope: []
+learning_objectives:
+  - 結合をゲージ場へ吸収する規約で背景場と量子揺らぎを分離し二次作用素を導ける
+  - 随伴表現の二次CasimirとSU(N)の値C_A=Nを行列計算で確認できる
+  - 一定Cartan背景のLandau準位・縮退度とゲージ場・ghostの熱核を導出できる
+  - 短時間展開からゲージ場とghostの一ループ対数係数11C_A/3を再現できる
+  - 裸結合とくりこみ結合の関係からβ関数の負号と走る結合を導ける
+  - 漸近自由性の摂動的意味と赤外強結合・閉じ込めの非自明さを区別できる
+definitions:
+  - { id: QFT30-DEF-01, name: 背景場分割と随伴背景微分 }
+  - { id: QFT30-DEF-02, name: 背景場Feynmanゲージの二次作用素 }
+  - { id: QFT30-DEF-03, name: 随伴表現の二次Casimir }
+  - { id: QFT30-DEF-04, name: 漸近自由性 }
+theorems:
+  - { id: QFT30-PROP-01, name: 背景場でのゲージ場・ghostの二次作用 }
+  - { id: QFT30-LEM-01, name: 一定色磁場のスカラー熱核 }
+  - { id: QFT30-THM-01, name: 純Yang–Millsの一ループ対数係数 }
+  - { id: QFT30-THM-02, name: SU(N)純ゲージ理論の一ループβ関数 }
+canonical_examples:
+  - SU(2)随伴表現の零・正負の色電荷
+  - SU(3)のCartan背景での随伴電荷六個と中性二個
+  - Landau準位と単位面積あたりの縮退度の直接計数
+  - ゲージ場とghostの短時間展開の係数差
+  - スケールを二倍にしたときの一ループ結合の減少
+problem_patterns:
+  - QFT30-RESCALED-CONNECTION
+  - QFT30-ADJOINT-CASIMIR
+  - QFT30-LANDAU-HEAT
+  - QFT30-HYPERBOLIC-EXPANSION
+  - QFT30-RUNNING-DIFFERENTIAL
+  - QFT30-BACKGROUND-HESSIAN
+  - QFT30-PROPER-TIME-LOG
+  - QFT30-SU3-ROOT-COUNT
+  - QFT30-RENORMALIZED-COUPLING
+  - QFT30-COMBINED-ONE-LOOP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 6 }

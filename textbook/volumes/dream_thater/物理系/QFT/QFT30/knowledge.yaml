@@ -1,0 +1,62 @@
+chapter: QFT30
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT28, QFT29, QFT25, QFT20, QFT19]
+forward_references: []
+
+concepts:
+  - id: qft.background-field-split
+    name: 背景場分割と随伴背景微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（背景場分割と随伴背景微分）]
+    requires: [qft.yang-mills-curvature, qft.fp-ghost-action]
+
+  - id: qft.background-gauge-operators
+    name: 背景場Feynmanゲージの二次作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（背景場Feynmanゲージの二次作用素）]
+    requires: [qft.background-field-split, qft.fp-gauge-fixed-action]
+
+  - id: qft.background-quadratic-action
+    name: 背景場でのゲージ場・ghostの二次作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（背景場でのゲージ場・ghostの二次作用）]
+    requires: [qft.background-gauge-operators, qft.yang-mills-action]
+
+  - id: qft.adjoint-quadratic-casimir
+    name: 随伴表現の二次Casimir
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（随伴表現の二次Casimir）]
+    requires: [qft.yang-mills-curvature]
+
+  - id: qft.constant-color-heat-kernel
+    name: 一定色磁場のスカラー熱核
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（一定色磁場のスカラー熱核）]
+    requires: [qft.background-gauge-operators, qft.adjoint-quadratic-casimir]
+
+  - id: qft.yang-mills-one-loop-log
+    name: 純Yang–Millsの一ループ対数係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純Yang–Millsの一ループ対数係数）]
+    requires: [qft.constant-color-heat-kernel, qft.background-quadratic-action]
+
+  - id: qft.asymptotic-freedom
+    name: 漸近自由性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（漸近自由性）]
+    requires: [qft.rg-equation-running-coupling]
+
+  - id: qft.pure-yang-mills-one-loop-beta
+    name: SU(N)純ゲージ理論の一ループβ関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（SU(N)純ゲージ理論の一ループβ関数）]
+    requires: [qft.yang-mills-one-loop-log, qft.asymptotic-freedom, qft.renormalization-group-functions]
