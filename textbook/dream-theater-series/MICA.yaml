@@ -21,6 +21,6 @@ chapters:
   - { id: MICA10, path: textbook/volumes/dream_thater/解析系/MICA/MICA10, status: completed, title: "特異性の伝播" }
   - { id: MICA11, path: textbook/volumes/dream_thater/解析系/MICA/MICA11, status: completed, title: "自由場の二点分布" }
   - { id: MICA12, path: textbook/volumes/dream_thater/解析系/MICA/MICA12, status: completed, title: "局所Hadamard parametrix" }
-  - { id: MICA13, path: textbook/volumes/dream_thater/解析系/MICA/MICA13, status: planned, title: "Radzikowskiの波面集合条件" }
+  - { id: MICA13, path: textbook/volumes/dream_thater/解析系/MICA/MICA13, status: completed, title: "Radzikowskiの波面集合条件" }
   - { id: MICA14, path: textbook/volumes/dream_thater/解析系/MICA/MICA14, status: planned, title: "対角制限とHadamard subtraction" }
   - { id: MICA15, path: textbook/volumes/dream_thater/解析系/MICA/MICA15, status: planned, title: "応力テンソルと局所共変性" }

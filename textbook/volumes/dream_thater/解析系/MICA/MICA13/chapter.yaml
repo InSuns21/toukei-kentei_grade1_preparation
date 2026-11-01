@@ -1,0 +1,45 @@
+id: "MICA13"
+title: "Radzikowskiの波面集合条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA12
+  - MICA11
+  - MICA10
+  - MICA9
+  - MICA7
+official_scope: []
+learning_objectives:
+  - 零測地線の余接平行移動と未来向き光的余接ベクトルから二点波面関係を定義し、第二変数の負符号を検算できる
+  - Minkowski真空の位相と質量零境界値から二点波面集合の向きと非対角での特異性を判定できる
+  - 双解性・CCR・正値性・Hadamard波面条件の論理的役割を区別できる
+  - WFの片側包含と交換子関係から等号を導く証明を再構成できる
+  - 二つのHadamard二点分布の差が滑らかになることを波面集合と転置対称性から証明できる
+  - 局所Hadamard形と波面集合条件の同値について伝播・局所大域定理・参照状態の使用箇所と仮定を説明できる
+definitions:
+  - { id: MICA13-DEF-01, name: 二点の未来向き零測地線関係 }
+  - { id: MICA13-DEF-02, name: Hadamard波面集合条件 }
+theorems:
+  - { id: MICA13-PROP-00, name: 質量零Minkowski真空の全波面方向 }
+  - { id: MICA13-PROP-01, name: 転置による正負波面の交換 }
+  - { id: MICA13-PROP-02, name: 交換子条件と片側包含から波面集合の等号 }
+  - { id: MICA13-PROP-03, name: Hadamard二点分布の差の滑らかさ }
+  - { id: MICA13-THM-01, name: RadzikowskiのHadamard同値定理 }
+canonical_examples:
+  - 平坦時空での余接平行移動と未来向き光的共変ベクトル
+  - 質量零Minkowski真空の片側境界値と共変ベクトル方向
+  - 転置した二点分布と負周波数の判定
+  - 滑らかな双解の階数一変更
+problem_patterns:
+  - MICA13-FUTURE-COVECTOR
+  - MICA13-TRANSPORT-SIGN
+  - MICA13-MINKOWSKI-CONE
+  - MICA13-TRANSPOSE
+  - MICA13-CCR-EQUALITY
+  - MICA13-SMOOTH-DIFFERENCE
+  - MICA13-LOCAL-GLOBAL
+  - MICA13-INTEGRATED-REASONING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
