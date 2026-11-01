@@ -71,7 +71,7 @@ $$
 =-[\Phi(f),\Phi(h)].
 $$
 
-ここで必要なのは試験関数の複素線形性、実関数の随伴性、$E$ の交代性です。$f,h$ の支持が空間的に分離していれば、Green作用素の因果的支持から $E(f,h)=0$ となり交換子は零ですが、積 $\Phi(f)\Phi(h)$ そのものが零になるわけではありません。
+ここで必要なのは試験関数の複素線形性、実関数の随伴性、$E$ の交代性です。さらに $\operatorname{supp}f$ と $\operatorname{supp}h$ が**因果的に分離**し、両支持の任意の二点を結ぶ因果曲線が存在しなければ、Green作用素の因果的支持から $E(f,h)=0$ となり交換子は零です。単に同時刻の空間支持が交わらないだけでは十分ではなく、積 $\Phi(f)\Phi(h)$ そのものが零になるわけでもありません。
 <!-- definition-example-end -->
 
 場の方程式 $\Phi(Pf)=0$ と交換子は矛盾しません。実際、[因果伝播子の二つの零合成と支持](../../HPDE/HPDE21/index.md#prop-hpde21-propagator-identities)より $EPf=0$ であり、形式的自己随伴性を使うと $E(Pf,h)=0$ です。従って $[\Phi(Pf),\Phi(h)]=0$ となります。
@@ -88,9 +88,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mica11-positive-state -->
-### 直接例：場の一次式から何が従うか
+### 直接例：ベクトル状態と場の一次式
 
-**定義の確認**。実試験関数 $f$ と実数 $s$ に対し $A=1+s\Phi(f)$ を取ります。$A^*=A$ であり、定義を各項へ適用して
+**定義の確認**（状態そのもの）。単位的 $*$ 代数 $\mathfrak A_P$ がHilbert空間の共通不変領域上に $*$ 表現 $\pi$ を持ち、単位ベクトル $\Omega$ がその領域に属するとします。内積を第1変数線形とし、$\pi(A^*)$ が $\pi(A)$ のこの領域での随伴であることを使い、
+
+$$
+\omega_\Omega(A):=\langle\pi(A)\Omega,\Omega\rangle,\qquad
+\omega_\Omega(1)=\|\Omega\|^2=1
+$$
+
+と置きます。$\pi$ と内積の線形性から $\omega_\Omega$ は複素線形です。また任意の代数元 $A$ について
+
+$$
+\omega_\Omega(A^*A)
+=\langle\pi(A^*A)\Omega,\Omega\rangle
+=\langle\pi(A)\Omega,\pi(A)\Omega\rangle
+=\|\pi(A)\Omega\|^2\ge0.
+$$
+
+したがって**規格化・線形性・全元に対する正値性**を確認できました。平坦時空でこの表現を実際に作る例が、[QFT4のFock空間上のsmearing](../../../物理系/QFT/QFT4/index.md#def-qft4-smeared-field)とその真空ベクトルです。交換子の符号は[QFT5のPauli–Jordan核](../../../物理系/QFT/QFT5/index.md#thm-qft5-commutator-cauchy)で照合できます。これは一般の曲時空にFock真空が一意に存在するという主張ではありません。
+
+**定義の確認**（任意の状態への帰結）。実試験関数 $f$ と実数 $s$ に対し $A=1+s\Phi(f)$ を取ります。$A^*=A$ であり、定義を各項へ適用して
 
 $$
 \omega(A^*A)=1+2s\,\omega(\Phi(f))+s^2\omega(\Phi(f)^2)\ge0.
@@ -140,6 +158,8 @@ $$
 $$
 
 第2引数も同様に線形です。一方、積の順序が入れ替わる $\omega_2(h,f)$ は、一般には $\omega_2(f,h)$ と異なります。**双線形**と、次の節で使う $\omega_2(\overline f,h)$ の**第1引数反線形**な正値形式を混同しないでください。
+
+この計算が確認したのは双線形性であって、**共同連続性や分布核の存在ではありません**。その非自明な条件を満たす具体例は、次節のMinkowski真空核 $W_0$ をFourier変換で評価して確認します。
 <!-- definition-example-end -->
 
 ## 4. 正値性・双解性・交換子は別々の条件
@@ -169,14 +189,42 @@ W_0(x,y)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
 e^{-i\omega_{\boldsymbol p}(t_x-t_y)+i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}
 $$
 
-で与えます。Fourier変換を用いた正値性の確認は
+で与えます。これは[QFT5のFock真空二点分布](../../../物理系/QFT/QFT5/index.md#thm-qft5-wightman-positive)の積分表示です。ここで時空Fourier変換の変数 $q^0\in\mathbb R$、$\boldsymbol q\in\mathbb R^3$ を
+
+$$
+\widetilde f(q^0,\boldsymbol q)
+:=\int_{\mathbb R^4}f(t,\boldsymbol x)
+e^{iq^0t-i\boldsymbol q\cdot\boldsymbol x}\,dt\,d^3x
+$$
+
+と定めます。指数の $x$ 側の積分は $\widetilde f(-\omega_{\boldsymbol p},-\boldsymbol p)$、$y$ 側は $\widetilde h(\omega_{\boldsymbol p},\boldsymbol p)$ なので、
+
+$$
+W_0(f,h)
+=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
+\widetilde f(-\omega_{\boldsymbol p},-\boldsymbol p)
+\widetilde h(\omega_{\boldsymbol p},\boldsymbol p).
+$$
+
+質量 $m>0$ により $\omega_{\boldsymbol p}\ge m$ です。コンパクト支持の滑らかな試験関数はFourier変換が急減少します。支持をコンパクト集合 $K$ に固定すると、任意の整数 $N\ge0$ について
+
+$$
+|\widetilde f(\pm\omega_{\boldsymbol p},\pm\boldsymbol p)|
+\le C_{K,N}(f)(1+|\boldsymbol p|)^{-N}
+$$
+
+となります。ここで $C_{K,N}(f)$ は $K$ 上の有限階までの微分の上限で抑えられる量です。$h$ についても同じ評価が得られます。
+
+$N=2$ を両因子に適用すれば積は $|\boldsymbol p|$ について4次減衰し、3次元の運動量積分は絶対収束します。分母も $2\omega_{\boldsymbol p}\ge2m$ なので零になりません。各固定支持上の試験関数の半ノルムで積分を抑えられるため、両引数に**共同連続**です。これで分布型二点量の非自明な条件も確認できました。
+
+さらに $\widetilde{\overline f}(-\omega,-\boldsymbol p)=\overline{\widetilde f(\omega,\boldsymbol p)}$ より、正値性は
 
 $$
 W_0(\overline f,f)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
 |\widetilde f(\omega_{\boldsymbol p},\boldsymbol p)|^2\ge0
 $$
 
-です（$\widetilde f(E,\boldsymbol p):=\int f(t,\boldsymbol x)e^{iEt-i\boldsymbol p\cdot\boldsymbol x}\,dt\,d^3x$）。指数へ $P_x$ または $P_y$ を作用させると $-\omega_{\boldsymbol p}^2+|\boldsymbol p|^2+m^2=0$ が掛かり、双解性が成立します。二点の交換では時間差の正弦部分だけが残り、
+です。$P_x$ は第1変数 $(t_x,\boldsymbol x)$、$P_y$ は第2変数 $(t_y,\boldsymbol y)$ に作用する微分作用素です。指数へそれぞれ作用させると $-\omega_{\boldsymbol p}^2+|\boldsymbol p|^2+m^2=0$ が掛かり、双解性が成立します。二点の交換では時間差の正弦部分だけが残り、
 
 $$
 W_0(x,y)-W_0(y,x)=-iE(x,y),\quad
@@ -185,7 +233,7 @@ E(t,\boldsymbol z)=\int\frac{d^3p}{(2\pi)^3}
 e^{i\boldsymbol p\cdot\boldsymbol z}
 $$
 
-となります。核の複素共役を取ると引数交換に等しいのでHermite性も成立します。これらはすべて試験関数に作用させた**分布恒等式**です。後でFourierの変数変換と符号を省略せずに導出します。
+となります。核の複素共役を取ると引数交換に等しいのでHermite性も成立します。これらはすべて試験関数に作用させた**分布恒等式**です。第5節で正周波数の意味と、交換子の変数変換・符号をさらに詳しく検算します。
 <!-- definition-example-end -->
 
 正値性は「$W(x,y)$ が各点で非負」という主張ではありません。また、これらの条件だけを読んで「Hadamard状態が存在する」とも結論しません。Hadamard性は**特異方向への追加の制約**であり、後の章で導入します。
@@ -320,15 +368,15 @@ W_0(z)=\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
 e^{-i\omega_{\boldsymbol p}z^0+i\boldsymbol p\cdot\boldsymbol z}.
 $$
 
-この振動積分は緩増加分布の意味で解釈します。$e^{-i\omega t}$ が正周波数枝であり、$e^{+i\omega t}$ を等しい重みで足すのではありません。試験関数 $f$ の時空Fourier変換は
+この振動積分は緩増加分布の意味で解釈します。$e^{-i\omega t}$ が正周波数枝であり、$e^{+i\omega t}$ を等しい重みで足すのではありません。試験関数 $f$ の時空Fourier変換は第4節と同じ規約を使い、時間周波数の変数を $q^0$、空間周波数を $\boldsymbol q$ と書きます（因果伝播子 $E$ とは区別します）。
 
 $$
-\widetilde f(E,\boldsymbol p)
+\widetilde f(q^0,\boldsymbol q)
 :=\int_{\mathbb R^4}f(t,\boldsymbol x)
-e^{iEt-i\boldsymbol p\cdot\boldsymbol x}\,dt\,d^3x
+e^{iq^0t-i\boldsymbol q\cdot\boldsymbol x}\,dt\,d^3x.
 $$
 
-とします。この符号を使えば
+この符号を使えば
 
 $$
 W_0(f,h)=\int\frac{d^3p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
@@ -506,14 +554,27 @@ $$
 追加項のHermite性も $\overline{\ell_v(\overline h)\ell_v(\overline f)}=\ell_v(h)\ell_v(f)$ から従います。最後に分布核 $\lambda v\otimes v$ は滑らかです。
 <!-- proof-end -->
 
-さらに、もとの状態 $\omega$ が**一点量零**、すなわち $\omega(\Phi(f))=0$ なら、上の $W_\lambda$ は実際に状態から得られます。実 $a$ に対する置換
+さらに、$W$ が状態 $\omega$ の二点分布なら、**一点量が零でなくても** $W_\lambda$ は実際に状態から得られます。実 $a$ に対する置換
 
 $$
 \alpha_a(\Phi(f))=\Phi(f)+a\ell_v(f)1,
 \qquad \alpha_a(1)=1
 $$
 
-は $\ell_v(Pf)=0$ と $v$ の実数値性により場の方程式と随伴を保ち、定数項が交換子に寄与しないので場の交換関係も保つ $*$ 自己同型です。逆写像は $\alpha_{-a}$ です。$\omega\circ\alpha_{\sqrt\lambda}$ と $\omega\circ\alpha_{-\sqrt\lambda}$ は正値状態であり、両者の平均も状態です。その二点量を展開すると一次項が打ち消され、$W+\lambda\ell_v\otimes\ell_v$ が残ります。従って条件を形式上満たすだけの人工的な核ではありません。
+は $\ell_v(Pf)=0$ と $v$ の実数値性により場の方程式と随伴を保ち、定数項が交換子に寄与しないので場の交換関係も保つ $*$ 自己同型です。逆写像は $\alpha_{-a}$ です。$\omega\circ\alpha_{\pm a}$ は正値状態であり、その二点量を積の展開から計算すると
+
+$$
+\begin{aligned}
+(\omega\circ\alpha_{\pm a})_2(f,h)
+&=\omega\bigl((\Phi(f)\pm a\ell_v(f)1)
+(\Phi(h)\pm a\ell_v(h)1)\bigr)\\
+&=W(f,h)\pm a\{\ell_v(f)\omega(\Phi(h))
++\ell_v(h)\omega(\Phi(f))\}\\
+&\quad+a^2\ell_v(f)\ell_v(h).
+\end{aligned}
+$$
+
+従って $a=\sqrt\lambda$ とした二状態の**平均**は、任意の一点量について一次項が相殺され、二点量 $W+\lambda\ell_v\otimes\ell_v$ を持ちます。条件を形式上満たすだけの人工的な核ではありません。
 
 一方、付加項が滑らかなので[MICA3の波面集合の和の性質](../MICA3/index.md#prop-mica3-sum)に照らし、この操作は特異方向を新たに作りません。**正値性・場の交換関係・双解性を確認すること**と、**特異方向にHadamard条件を課すこと**は、ここでも別段階の検査です。
 
@@ -747,7 +808,7 @@ $$
 を分布として用いる。さらに実滑らかな解 $v$ と $\lambda\ge0$ について $W_\lambda=W_0+\lambda v\otimes v$ とする。次を説明せよ。
 
 1. $W_0(\overline f,f)\ge0$ の直接計算と双解性を示す。
-2. $W_\lambda-W_\lambda^T$ を求め、どの符号の因果伝播子に対応するか述べる。
+2. $W_\lambda^T(x,y):=W_\lambda(y,x)$（分布核の引数交換）と定める。$W_\lambda-W_\lambda^T$ を求め、どの符号の因果伝播子に対応するか述べる。
 3. $\boldsymbol p=r\boldsymbol n$、$r\to\infty$ で位相の第1変数の余接方向を求め、その計量双対が未来光的であることを示す。
 4. 以上から「$W_\lambda$ はどの曲時空でも一意なHadamard状態である」と結論するのが誤りである理由を二つ挙げる。
 
