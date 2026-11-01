@@ -41,5 +41,5 @@ problem_patterns:
   - MICA12-HADAMARD-SYNTHESIS
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 11, exercises: 10, review: 5 }
