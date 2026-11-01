@@ -6,7 +6,12 @@
 
 [MICA3の波面集合](../MICA3/index.md#def-mica3-wavefront)、[MICA9の零測地線とHamilton流](../MICA9/index.md#thm-mica9-null-geodesic)、[MICA10の伝播定理](../MICA10/index.md#thm-mica10-propagation)を結びます。結果は、どの二点が特異に結ばれるかに加え、**一方の余接ベクトルだけを未来向きに取る**という条件です。もう一方には負符号が付きます。
 
-本章の道筋は、(1) 幾何学的な二点関係を定義し、(2) 平坦模型で向きを検算し、(3) 交換子条件による等号・二状態の滑らかな差を証明し、(4) 局所Hadamard形との同値で、何を既習定理で示し何を原論文の深い補題に依存するかを分ける、というものです。
+本章の道筋は次の通りです。
+
+1. 幾何学的な二点関係を定義する。
+2. 平坦模型で向きを検算する。
+3. 交換子条件による等号と、二状態の滑らかな差を証明する。
+4. 局所Hadamard形との同値で、既習定理で示せる部分と原論文の深い補題に依存する部分を分ける。
 
 ## 1. 二点を結ぶ零測地線と余接方向
 
@@ -168,7 +173,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s(x,y)=(y,x)$ と置けば $W^T=s^*W$ です。$ds$ は二成分を交換する線形同型で、[座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)により最初の式を得ます。$WF(W)$ の点を $(x,k_x;y,-q_y)\in\mathcal C^+$ とすると、転置で $(y,-q_y;x,k_x)$ になります。$q_y=\tau_{x\to y}k_x$ は未来向き光的であり、$-q_y$ は過去向き光的です。逆向き測地線の平行移動は $-q_y$ を $-k_x$ に写すので、$(y,-q_y;x,k_x)$ は $\mathcal C^-$ の元です。最後に、一つの非零光的共変ベクトルが未来向きと過去向きの両方になることはありません。従って両集合は交わりません。
+$s(x,y)=(y,x)$ と置けば $W^T=s^*W$ です。$ds$ は二成分を交換する線形同型なので、[座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)から最初の式を得ます。
+
+$WF(W)$ の点を $(x,k_x;y,-q_y)\in\mathcal C^+$ とすると、転置により
+
+$$
+(x,k_x;y,-q_y)\longmapsto(y,-q_y;x,k_x)
+$$
+
+と変わります。$q_y=\tau_{x\to y}k_x$ は未来向き光的なので、$-q_y$ は過去向き光的です。逆向き測地線に沿う平行移動は $-q_y$ を $-k_x$ に写し、転置後の点は $\mathcal C^-$ に属します。
+
+一つの非零光的共変ベクトルが未来向きと過去向きの両方になることはありません。従って $\mathcal C^+\cap\mathcal C^-=\varnothing$ です。
 <!-- proof-end -->
 
 交換子条件と組み合わせるには、$E$ の波面方向を知る必要があります。**次の入力は意図的に既存の大きな解析定理として使用します**：実主型Klein–Gordon作用素の因果伝播子について
@@ -456,7 +471,13 @@ $$
 - Level: B
 - 目安時間: 30分
 
-$W_1,W_2$ は同じ交換子条件と $WF(W_j)\subset\mathcal C^+$ を満たすとする。$D=W_1-W_2$ について (1) 転置対称性、(2) 波面集合の二つの包含、(3) 滑らかさを順に示せ。なぜ「二状態が一致する」とは結論できないか。
+$W_1,W_2$ は同じ交換子条件と $WF(W_j)\subset\mathcal C^+$ を満たすとする。$D=W_1-W_2$ について次を示せ。
+
+1. 転置対称性。
+2. 波面集合の二つの包含。
+3. 滑らかさ。
+
+また、なぜ「二状態が一致する」とは結論できないか説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -467,7 +488,13 @@ $$
 D-D^T=(W_1-W_1^T)-(W_2-W_2^T)=(-iE)-(-iE)=0.
 $$
 
-よって $D^T=D$ です。(2) 差のWFの包含から $WF(D)\subset\mathcal C^+$。同時に $D=D^T$ と[転置による正負波面の交換](#prop-mica13-transpose)を使うと $WF(D)=WF(D^T)\subset\mathcal C^-$。(3) 共通部分は空だから $WF(D)=\varnothing$ です。[滑らかさの判定](../MICA3/index.md#thm-mica3-projection)から $D\in C^\infty(M\times M)$。
+よって $D^T=D$ です。差のWFの包含から $WF(D)\subset\mathcal C^+$。さらに $D=D^T$ と[転置による正負波面の交換](#prop-mica13-transpose)を使うと
+
+$$
+WF(D)=WF(D^T)\subset\mathcal C^-
+$$
+
+も成立します。二つの包含の共通部分は空だから $WF(D)=\varnothing$ です。[滑らかさの判定](../MICA3/index.md#thm-mica3-projection)から $D\in C^\infty(M\times M)$ を得ます。
 
 しかし滑らかさは $D=0$ を意味しません。[滑らかな双解の変更](../MICA11/index.md#prop-mica11-smooth-shift)は $D=\lambda v\otimes v$（$\lambda>0$、$v\not\equiv0$）という非零の例を与えます。
 <!-- solution-end -->
@@ -478,7 +505,11 @@ $$
 - Level: B
 - 目安時間: 28分
 
-同じ $P,E$ の分布型二点量 $W,W_{\mathrm{ref}}$ が、凸正規近傍 $C$ で同じ全次数の局所Hadamard式 $H_{\ell,\infty}$ を持つとする。(1) $C\times C$ で差が滑らかなことを式で示せ。(2) それだけで $WF(W)\subset\mathcal C^+$ が全 $M\times M$ で従うか。(3) 一般の状態について局所―大域定理を使う際の追加の役割を挙げよ。
+同じ $P,E$ の分布型二点量 $W,W_{\mathrm{ref}}$ が、凸正規近傍 $C$ で同じ全次数の局所Hadamard式 $H_{\ell,\infty}$ を持つとする。次の順に論じよ。
+
+1. $C\times C$ で差が滑らかなことを式で示す。
+2. それだけで $WF(W)\subset\mathcal C^+$ が全 $M\times M$ で従うか判断する。
+3. 一般の状態について局所―大域定理を使う際の追加の役割を挙げる。
 
 <!-- solution-start -->
 #### 詳細解答
