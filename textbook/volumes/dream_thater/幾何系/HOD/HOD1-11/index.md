@@ -25,7 +25,7 @@ $$
 \qquad h\longmapsto[h]_d
 $$
 
-であり、両辺は有限次元となる。コホモロジー上の作用を $L_H([\alpha]_d)=[\omega]_d\smile[\alpha]_d$ と書く。この $[\omega]_d$ は**基本形式そのものの類**であって、$[\omega/(2\pi)]_d$ へ勝手に置き換えない。
+であり、両辺は有限次元となる。コホモロジー上の作用を $L_H([\alpha]_d)=[\omega]_d\smile[\alpha]_d$ と書く。この $[\omega]_d$ は**基本形式そのものの類**であって、$[\omega/(2\pi)]_d$ へ勝手に置き換えない。以後、対象の多様体が明らかなときの $H^j$ は $H_{\mathrm{dR}}^j(X;\mathbb C)$ の略記とし、$L_H^r$ はこの作用の $r$ 回の合成（$r=0$ は恒等写像）を意味する。
 
 ## 2. 調和形式の空間でも高冪が同型になる
 
@@ -86,7 +86,7 @@ $$
 =\|\Lambda^m\eta\|_{L^2}^2.
 $$
 
-正定値性と滑らかさから $\Lambda^m\eta=0$ が全点で成立する。各点で $L_x^m:\mathcal A_x^k\to\mathcal A_x^{2n-k}$ は有限次元内積空間の同型で、その随伴 $\Lambda_x^m:\mathcal A_x^{2n-k}\to\mathcal A_x^k$ も同型である（逆写像の随伴を取れば逆になる）。よって $\eta_x=0$、すなわち $\eta=0$。
+正定値性と滑らかさから $\Lambda^m\eta=0$ が全点で成立する。各点の複素化された外積空間を $\mathcal A_x^j:=\bigwedge^jT_x^*X\otimes_{\mathbb R}\mathbb C$ と書くと、$L_x^m:\mathcal A_x^k\to\mathcal A_x^{2n-k}$ は有限次元内積空間の同型で、その随伴 $\Lambda_x^m:\mathcal A_x^{2n-k}\to\mathcal A_x^k$ も同型である（逆写像の随伴を取れば逆になる）。よって $\eta_x=0$、すなわち $\eta=0$。
 
 こうして $\operatorname{im}T_k$ の直交補空間は零である。[閉多様体のHodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から $\mathcal H^{2n-k}(X)$ は有限次元なので
 
@@ -173,7 +173,9 @@ $$
 
 ## 4. 複素型ごとに見ると、どことどこが結ばれるか
 
-[Kähler–Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)では、全次数 $k$ の調和形式は $p+q=k$ の $(p,q)$ 型の直和になる。さらに[基本形式による型の移動](../HOD1-10/index.md#prop-hod1-10-hodge-type-shift)は、$L$ が両添字をそれぞれ1ずつ増やすことを述べていた。
+[Kähler–Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)では、全次数 $k$ の調和形式は $p+q=k$ の $(p,q)$ 型の直和になる。[Hodge型部分空間の定義](../HOD1-06/index.md#def-hod1-06-hodge-summand)に従い、本章では de Rham コホモロジー内の部分空間を $H^{p,q}(X):=H_{\mathrm{Hdg}}^{p,q}(X)\subset H^{p+q}(X)$ と略記する。これは Dolbeault 群 $H_{\bar\partial}^{p,q}(X)$ と最初から同じ集合であるという意味ではなく、調和代表を通した同型で結ばれる別の対象である。
+
+さらに[基本形式による型の移動](../HOD1-10/index.md#prop-hod1-10-hodge-type-shift)は、$L$ が両添字をそれぞれ1ずつ増やすことを述べていた。
 
 $m=n-k$ 回作用させたとき、出発型 $(p,q)$ の行先は
 
@@ -233,7 +235,7 @@ $$
 b_k=b_{2n-k}\qquad(0\le k\le2n)
 $$
 
-> が成立する。また $p+q\le n$ に対し $h^{p,q}=h^{n-q,n-p}$ が成立する。
+> が成立する。また $h^{p,q}:=\dim_{\mathbb C}H^{p,q}(X)$ と置くと、$p+q\le n$ に対し $h^{p,q}=h^{n-q,n-p}$ が成立する。
 <!-- formal-statement-end -->
 
 前者は $k\le n$ について[Hard Lefschetz同型](#thm-hod1-11-hard-lefschetz)の両辺の次元を取り、$k>n$ では $2n-k<n$ と置き直す。後者は[型別同型](#prop-hod1-11-type-refinement)の両辺の次元を取る。これは既習の[Hodge数の双対対称性](../HOD1-07/index.md#thm-hod1-07-hodge-duality)と整合するが、**本章ではPoincaré双対性を同型の証明の入力にしていない**。
@@ -242,7 +244,14 @@ $$
 
 ### 楕円曲線：$k=0$ と $k=1$ は別の写像
 
-$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$、$\operatorname{Im}\tau=b>0$ に標準平坦計量を入れ、$\omega=dx\wedge dy$ とする。これは滑らか・コンパクト・境界なしの複素次元1のKähler多様体であり、[格子基本領域の面積](../HOD1-10/index.md#thm-hod1-10-harmonic-lefschetz)から $\int_{E_\tau}\omega=b$ である。
+$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$、$\tau=a+ib$、$b>0$ に標準平坦計量を入れ、$\omega=dx\wedge dy$ とする。[平坦トーラスのKähler構造](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)によってこれは滑らか・コンパクト・境界なしの複素次元1のKähler多様体である。格子の基本領域を $z=s+\tau t$（$0\le s,t\le1$）と置くと、$x=s+at,\ y=bt$ なので
+
+$$
+dx\wedge dy=(ds+a\,dt)\wedge b\,dt=b\,ds\wedge dt,\qquad
+\int_{E_\tau}\omega=\int_0^1\!\int_0^1 b\,ds\,dt=b.
+$$
+
+ここで $b>0$ は基本領域の向きと面積を同時に確定する。
 
 $k=0$ では $n-k=1$ だから $L_H[1]_d=[\omega]_d$。$[\omega]_d$ は面積積分 $b>0$ によって非零で、両側は1次元なので同型である。一方 $k=1=n$ では $L_H^0=\operatorname{id}_{H^1}$。**$H^1\to H^3$ の $L_H$ を同型とする主張は存在しない**。公式の指数を固定せず覚えると、次数を取り違える。
 
@@ -265,13 +274,25 @@ $$
 
 ### 射影直線の積：中央次数からの $L$ に核があってよい
 
-$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ とし、$u,v\in H^2(Q;\mathbb C)$ を二つの因子の規格化Fubini–Study類とする。前章の[積の計算](../HOD1-10/index.md#thm-hod1-10-harmonic-lefschetz)の通り
+$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ とし、射影 $\pi_i:Q\to\mathbb{CP}^1$ により $u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d$、$v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d$ と置く。[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)は $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ であり、[Fubini–Study面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)から各因子の規格化類の積分は $1$ となる。[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)を外積で表すと
 
 $$
-[\omega]_d=2\pi(u+v),\qquad u^2=v^2=0,\qquad \int_Q u\smile v=1.
+\begin{aligned}
+[\omega]_d&=2\pi(u+v),\\
+u^2&=v^2=0\quad(\text{各因子は実次元2}),\\
+\int_Q u\smile v&=
+\left(\int_{\mathbb{CP}^1}\frac{\omega_{\mathrm{FS}}}{2\pi}\right)
+\left(\int_{\mathbb{CP}^1}\frac{\omega_{\mathrm{FS}}}{2\pi}\right)=1.
+\end{aligned}
 $$
 
-従って $n=2$ の $k=0$ に対する指定冪は
+以下、$uv:=u\smile v$ と略記する。上の積分から $uv\ne0$ であり、[積のHodge数](../HOD1-09/index.md#thm-hod1-09-product-hodge)で $\dim H^4(Q;\mathbb C)=1$ と分かるので、$uv$ は $H^4$ を張る。さらに $au+bv=0$ と仮定してそれぞれ $v,u$ を掛ければ
+
+$$
+(au+bv)v=a\,uv=0,\qquad (au+bv)u=b\,uv=0.
+$$
+
+$uv\ne0$ だから $a=b=0$ であり、$u,v$ は一次独立である。この表示から $n=2$ の $k=0$ に対する指定冪は
 
 $$
 L_H^2[1]_d=(2\pi)^2(u+v)^2
@@ -290,7 +311,7 @@ $$
 
 となり、$H^0\to H^2$ は同型でない。壊れたのは点ごとのLefschetz同型ではなく、**通常のde Rham類へ調和代表を一意に対応させるコンパクトHodge理論の段階**である。非コンパクトの任意の調和形式がde Rham類を一意に代表するという主張は成り立たない。
 
-**閉2形式とKähler基本形式の違い。** 前章の[閉だが調和形式を保たない例](../HOD1-10/index.md#thm-hod1-10-harmonic-lefschetz)では、固定した平坦計量上の $\eta=(1+\frac12\cos2\pi x)\,dx\wedge dy$ は閉形式だが $\Delta_d\eta\ne0$ だった。この $\eta$ との外積は類上の作用を作れても、**同じ固定計量の調和空間上の作用**を保証しない。したがって本章の証明を $L=\eta\wedge(-)$ にそのまま代入することはできない。ただし、この例だけで類上の同型が破れると結論してはいけない。証明手段が失われることと結論の偽は別である。
+**閉2形式とKähler基本形式の違い。** 前章の[閉だが調和形式を保たない具体的な計算](../HOD1-10/index.md#ex-hod1-10-b02)では、固定した平坦計量上の $\eta=(1+\frac12\cos2\pi x)\,dx\wedge dy$ は閉形式だが $\Delta_d\eta\ne0$ だった。この $\eta$ との外積は類上の作用を作れても、**同じ固定計量の調和空間上の作用**を保証しない。したがって本章の証明を $L=\eta\wedge(-)$ にそのまま代入することはできない。ただし、この例だけで類上の同型が破れると結論してはいけない。証明手段が失われることと結論の偽は別である。
 
 ## 7. 演習：同型の両側を自力でつなぐ
 
