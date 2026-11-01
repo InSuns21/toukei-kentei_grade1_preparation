@@ -1,0 +1,90 @@
+chapter: QFT29
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT28, QFT19, QFT16]
+forward_references: []
+
+concepts:
+  - id: qft.nonabelian-gauge-slice
+    name: ゲージ軌道とLorenzゲージ条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ゲージ軌道とLorenzゲージ条件）]
+    requires: [qft.nonabelian-gauge-covariance, qft.maxwell-gauge-zero-mode]
+
+  - id: qft.faddeev-popov-operator
+    name: Faddeev–Popov作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Faddeev–Popov作用素）]
+    requires: [qft.nonabelian-gauge-slice, qft.yang-mills-curvature]
+
+  - id: qft.fp-operator-expansion
+    name: Lorenzゲージの作用素展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Lorenzゲージの作用素展開）]
+    requires: [qft.faddeev-popov-operator]
+
+  - id: qft.local-fp-identity
+    name: 局所的Faddeev–Popov恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（局所的Faddeev–Popov恒等式）]
+    requires: [qft.faddeev-popov-operator, qft.nonabelian-gauge-slice]
+
+  - id: qft.fp-ghost-action
+    name: Faddeev–Popov ghost作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Faddeev–Popov ghost作用）]
+    requires: [qft.faddeev-popov-operator, qft.grassmann-algebra-finite, qft.berezin-integration-order]
+
+  - id: qft.fp-ghost-determinant
+    name: ghost積分と三点相互作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ghost積分と三点相互作用）]
+    requires: [qft.fp-ghost-action, qft.berezin-gaussian-determinant]
+
+  - id: qft.fp-gauge-fixed-action
+    name: 補助場を用いたゲージ固定作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（補助場を用いたゲージ固定作用）]
+    requires: [qft.fp-ghost-action, qft.covariant-gauge-fixed-action]
+
+  - id: qft.nonabelian-brst
+    name: 非可換ゲージ理論のBRST変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非可換ゲージ理論のBRST変換）]
+    requires: [qft.fp-gauge-fixed-action, qft.yang-mills-curvature]
+
+  - id: qft.brst-nilpotency
+    name: 古典BRST変換のoff-shell冪零性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（古典BRST変換のoff-shell冪零性）]
+    requires: [qft.nonabelian-brst]
+
+  - id: qft.brst-gauge-fermion
+    name: ゲージ固定フェルミオン
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ゲージ固定フェルミオン）]
+    requires: [qft.nonabelian-brst, qft.fp-gauge-fixed-action]
+
+  - id: qft.brst-exact-action
+    name: ゲージ固定作用のBRST完全性と不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ゲージ固定作用のBRST完全性と不変性）]
+    requires: [qft.brst-gauge-fermion, qft.brst-nilpotency, qft.yang-mills-action]
+
+  - id: qft.brst-cohomology
+    name: BRSTコホモロジー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（BRSTコホモロジー）]
+    requires: [qft.brst-nilpotency]
