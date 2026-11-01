@@ -4,7 +4,7 @@
 
 ## 1. 点ごとの外積を、位相的な情報へ移したい
 
-前章では、複素トーラスや射影直線の[調和代表とHodge数](../HOD1-09/index.md#thm-hod1-09-torus-numbers)を実際に数えた。一方、[Lefschetz作用素](../HOD1-02/index.md#def-hod1-02-lefschetz) $L\alpha=\omega\wedge\alpha$ は、微分形式の次数を二つ上げる。問題は、$L$ が**コホモロジー類の作用**にもなるか、さらにその類の一意な調和代表を直接移すか、という二段階に分かれる。
+前章では、[複素トーラス](../HOD1-09/index.md#thm-hod1-09-torus-numbers)や[射影直線](../HOD1-09/index.md#prop-hod1-09-projective-line)の調和代表とHodge数を実際に数えた。一方、[Lefschetz作用素](../HOD1-02/index.md#def-hod1-02-lefschetz) $L\alpha=\omega\wedge\alpha$ は、微分形式の次数を二つ上げる。問題は、$L$ が**コホモロジー類の作用**にもなるか、さらにその類の一意な調和代表を直接移すか、という二段階に分かれる。
 
 - $d\omega=0$ は、外積を閉形式・完全形式と両立させる条件である。
 - [Kähler上のLaplacian可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz) は、$L$ が調和性を保つ条件である。
@@ -43,7 +43,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-10-de-rham-product -->
-**定義の確認**（平坦な二次元トーラス）。先ほどの $T$ 上で $\alpha=dx$、$\beta=dy$ とすると、どちらも閉形式で $[dx]_d\smile[dy]_d=[dx\wedge dy]_d\ne0$ となる。さらに $f(x,y)=\sin(2\pi x)/(2\pi)$ とし、$\alpha'=dx+df$ と置く。$f$ は周期的だから $df$ は大域的な完全1形式である。$d\alpha'=d\beta=0$、$[\alpha']_d=[dx]_d$ を直接確認できる。積の差は
+**定義の確認**（平坦な二次元トーラス）。先ほどの $T$ 上で $\alpha=dx$、$\beta=dy$ とすると、$d\alpha=d\beta=0$ で両者は閉形式であり、$[dx]_d\smile[dy]_d=[dx\wedge dy]_d\ne0$ となる。さらに $f(x,y)=\sin(2\pi x)/(2\pi)$ とし、$\alpha'=dx+df$ と置く。$f$ は周期的だから $df$ は大域的な完全1形式であり、
+
+$$
+\begin{aligned}
+df&=\cos(2\pi x)\,dx,\\
+d\alpha'&=d\bigl((1+\cos(2\pi x))dx\bigr)\\
+&=-2\pi\sin(2\pi x)\,dx\wedge dx=0.
+\end{aligned}
+$$
+
+従って $[\alpha']_d=[dx]_d$ である。積の差は
 
 $$
 \alpha'\wedge\beta-\alpha\wedge\beta
@@ -69,7 +79,7 @@ $$
 
 ### 証明の見取り図
 
-[外微分の次数付きLeibniz則](../../CM/CM2-02/index.md#prop-cm2-02-graded-leibniz) を閉形式とその完全な差へ適用する。代表をどちら側で変えても、その変化が完全形式に吸収されることが核心である。
+[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を閉形式とその完全な差へ適用する。代表をどちら側で変えても、その変化が完全形式に吸収されることが核心である。
 
 <!-- proof-start -->
 ### 証明
@@ -81,7 +91,7 @@ d(\alpha\wedge\beta)
 =d\alpha\wedge\beta+(-1)^p\alpha\wedge d\beta=0.
 $$
 
-従って積は閉形式を与える。$\alpha$ の代表を $\alpha+d\sigma$（$\deg\sigma=p-1$）へ変えた場合、$d\beta=0$ を使うと
+従って積は閉形式を与える。まず $p,q\ge1$ の場合を考える。$\alpha$ の代表を $\alpha+d\sigma$（$\deg\sigma=p-1$）へ変えた場合、$d\beta=0$ を使うと
 
 $$
 \begin{aligned}
@@ -102,7 +112,7 @@ $$
 \end{aligned}
 $$
 
-ここでも $d\alpha=0$ を用いた。両側を変える場合も、先に第一代表、次に第二代表と変えればよく、途中の $\beta+d\tau$ も閉形式である。従って代表非依存性が成立する。
+ここでも $d\alpha=0$ を用いた。両側を変える場合も、先に第一代表、次に第二代表と変えればよく、途中の $\beta+d\tau$ も閉形式である。$p=0$ または $q=0$ の場合は、負次数の形式が存在せず完全0形式は零だけなので、対応する0次の代表には変更の余地がない。他方の代表の変更には上の計算をそのまま使える。従って全ての非負次数で代表非依存性が成立する。
 
 外積の双線形性・結合性から類の積にもそれぞれの性質が移る。$\alpha\wedge\beta=(-1)^{pq}\beta\wedge\alpha$ を取れば次数付き交換則を得る。また $1\wedge\alpha=\alpha=\alpha\wedge1$ である。$\square$
 <!-- proof-end -->
@@ -114,6 +124,8 @@ $$
 [Kähler類の定義](../../KAH/KAH1-13/index.md#def-kah1-13-class)により、基本形式 $\omega$ が $d\omega=0$ を満たすので $[\omega]_d\in H^2_{\mathrm{dR}}(X;\mathbb R)$ は定義できる。ここでは実類を複素係数へ自然に写し、同じ $[\omega]_d$ と書く。以下の $L$ は**$[\omega]_d$ 自身を掛ける**もので、$[\omega/(2\pi)]_d$ を掛ける作用と取り違えない。
 
 まず代表をコホモロジーへ移す写像を明示しよう。$[\alpha]_d$ に対して $[\omega\wedge\alpha]_d$ を対応させる。これは前節の積であり、$\alpha$ がどの閉代表でも同じ類を与える。次に $\alpha$ を調和代表 $h$ に取ったとき、$\omega\wedge h$ も調和になるかを調べる。
+
+類上の積 $[\omega]_d^r$ は $\smile$ 積を $r$ 回反復したものとし、$r=0$ の場合は[単位類](#prop-hod1-10-product-well-defined) $[1]_d$ とする。これに対応する類上の作用を $L_H$ と書き、微分形式上の $L$ と区別する。
 
 <a id="thm-hod1-10-harmonic-lefschetz"></a>
 
@@ -158,7 +170,7 @@ $$
 
 $\omega$ が2形式なので $Lh$ の次数は $k+2$。従って $Lh\in\mathcal H^{k+2}(X)$ である。次数上限を超えたときは零形式となる。
 
-**（2）類の作用と代表の一致。** $d\omega=0$ と、[調和形式の閉・余閉判定](../HOD1-05/index.md#thm-hod1-05-harmonic-types)から $dh=0$ を得る。よって[次数付きLeibniz則](../../CM/CM2-02/index.md#prop-cm2-02-graded-leibniz)で
+**（2）類の作用と代表の一致。** $d\omega=0$ と、[調和形式の閉・余閉判定](../HOD1-05/index.md#thm-hod1-05-harmonic-types)から $dh=0$ を得る。よって[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)で
 
 $$
 d(\omega\wedge h)=d\omega\wedge h+(-1)^2\omega\wedge dh=0.
@@ -307,7 +319,28 @@ $$
 
 ### 射影直線の積：中央次数には核もある
 
-$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ には[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product) $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ を入れる。$u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d$、$v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d$ とする。$u^2=v^2=0$ は各因子が実次元2であるため、$uv$ は積分 $\int_Q u\smile v=1$ の非零四次類である。[積のHodge数](../HOD1-09/index.md#thm-hod1-09-product-hodge)は $\dim H^2=2$、$\dim H^4=1$ を与える。そこで
+$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ には[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)を入れ、$\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ とする。二つの類を
+
+$$
+u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d,
+\qquad v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d
+$$
+
+と置く。以下ではcup積 $u\smile v$ を $uv$、反復積 $u\smile u$ を $u^2$ と略記する。[de Rham類の積](#def-hod1-10-de-rham-product)により、引き戻した形式の外積が $uv$ を代表する。各因子は実次元2なので $u^2=v^2=0$ である。
+
+類の積分は閉代表の積分を意味し、コンパクト境界なしなら[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により代表によらない。因子の順序による積の向きでは、外積の積分は各因子の積分へ分かれる。[射影直線の面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を両因子に適用すると
+
+$$
+\begin{aligned}
+\int_Q u\smile v
+&:=\int_Q\pi_1^*\left(\frac{\omega_{\mathrm{FS}}}{2\pi}\right)
+\wedge\pi_2^*\left(\frac{\omega_{\mathrm{FS}}}{2\pi}\right)\\
+&=\left(\int_{\mathbb{CP}^1}\frac{\omega_{\mathrm{FS}}}{2\pi}\right)
+\left(\int_{\mathbb{CP}^1}\frac{\omega_{\mathrm{FS}}}{2\pi}\right)=1.
+\end{aligned}
+$$
+
+従って $uv$ は非零四次類であり、[積のHodge数](../HOD1-09/index.md#thm-hod1-09-product-hodge)は $\dim H^2=2$、$\dim H^4=1$ を与える。そこで
 
 $$
 \begin{aligned}
@@ -424,7 +457,7 @@ $\omega$ は $(1,1)$ 型なので[型の移動](#prop-hod1-10-hodge-type-shift)�
 #### HOD1-10-B01 二つの代表を同時に変える
 - Level: B
 
-滑らかな多様体上の閉 $p$ 形式 $\alpha$、閉 $q$ 形式 $\beta$、$(p-1)$ 形式 $\sigma$、$(q-1)$ 形式 $\tau$ を取る。$\alpha'=\alpha+d\sigma$、$\beta'=\beta+d\tau$ に対し、$\alpha'\wedge\beta'-\alpha\wedge\beta$ が完全となる原始形式を符号込みで構成せよ。
+滑らかな多様体上で整数 $p,q\ge1$ を取り、閉 $p$ 形式 $\alpha$、閉 $q$ 形式 $\beta$、$(p-1)$ 形式 $\sigma$、$(q-1)$ 形式 $\tau$ を考える。$\alpha'=\alpha+d\sigma$、$\beta'=\beta+d\tau$ に対し、$\alpha'\wedge\beta'-\alpha\wedge\beta$ が完全となる原始形式を符号込みで構成せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -436,7 +469,7 @@ $$
 =d\sigma\wedge\beta+\alpha\wedge d\tau+d\sigma\wedge d\tau.
 $$
 
-[次数付きLeibniz則](../../CM/CM2-02/index.md#prop-cm2-02-graded-leibniz)と $d\alpha=d\beta=d^2\tau=0$ により、各項は
+[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)と $d\alpha=d\beta=d^2\tau=0$ により、各項は
 
 $$
 \begin{aligned}
@@ -483,7 +516,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$d\omega=0$ と $d\alpha=0$ を[外微分のLeibniz則](../../CM/CM2-02/index.md#prop-cm2-02-graded-leibniz)へ入れると、$d(\omega\wedge\alpha)=d\omega\wedge\alpha+\omega\wedge d\alpha=0$。さらに
+$d\omega=0$ と $d\alpha=0$ を[外微分のLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)へ入れると、$d(\omega\wedge\alpha)=d\omega\wedge\alpha+\omega\wedge d\alpha=0$。さらに
 
 $$
 \omega\wedge\alpha
