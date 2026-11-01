@@ -264,7 +264,7 @@ $$
 
 ### 楕円曲線：$k=0$ と $k=1$ は別の写像
 
-$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$、$\tau=a+ib$、$b>0$ に標準平坦計量を入れ、$\omega=dx\wedge dy$ とする。[平坦トーラスのKähler構造](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)によってこれは滑らか・コンパクト・境界なしの複素次元1のKähler多様体である。格子の基本領域を $z=s+\tau t$（$0\le s,t\le1$）と置くと、$x=s+at,\ y=bt$ なので
+$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$、$\tau=a+ib$、$b>0$ に標準平坦計量を入れ、$\omega=dx\wedge dy$ とする。[平坦トーラスのKähler構造](../../KAH/KAH1-05/index.md#prop-kah1-05-torus)によってこれは滑らか・コンパクト・境界なしの複素次元1のKähler多様体である。格子の生成元 $1,\tau$ が張る平行四辺形を $z=s+\tau t$（$0\le s,t\le1$）で表すと、$x=s+at,\ y=bt$ なので
 
 $$
 dx\wedge dy=(ds+a\,dt)\wedge b\,dt=b\,ds\wedge dt,\qquad
@@ -301,7 +301,7 @@ u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d,\qquad
 v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d
 $$
 
-と置く。[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)は $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ であり、[Fubini–Study面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)から各因子の規格化類の積分は $1$ となる。[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)を外積で表すと
+と置く。[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)は $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ であり、[Fubini–Study形式の射影直線上の面積](../../KAH/KAH1-07/index.md#thm-kah1-07-area)から各因子の規格化類の積分は $1$ となる。[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)を外積で表すと
 
 $$
 \begin{aligned}
