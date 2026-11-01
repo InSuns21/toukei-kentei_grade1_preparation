@@ -131,3 +131,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT31
     status: completed
     title: "散乱・ループ・ゲージ不変性・くりこみを結ぶ総合演習"
+  - id: QFT32
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT32
+    status: completed
+    title: "Poincaré粒子表現・質量とヘリシティ・Weyl／Majorana場"
