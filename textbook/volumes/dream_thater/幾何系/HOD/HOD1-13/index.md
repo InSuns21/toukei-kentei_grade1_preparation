@@ -62,7 +62,7 @@ $$
 \omega_j=e^j\wedge f^j=i\theta^j\wedge\bar\theta^j
 $$
 
-とおく。[型直交性](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)により外積単項式は正規直交基底となる。一つの実二次元の組では、星の定義から
+とおく。[型直交性](../HOD1-01/index.md#prop-hod1-01-type-orthogonality)により外積単項式は正規直交基底となる。一つの実二次元の組では、第 $j$ 組の向き付き実2平面に作用するHodge星を $*_j$ と書く。星の定義から
 
 $$
 *_j1=\omega_j,\quad *_j\omega_j=1,\quad
@@ -104,7 +104,7 @@ $$
 
 実際、$|T|=c-1$ は直前の原始条件そのものであり、$|T|=r<c-1$ では $T\cup\{j\}$ に対する既知の式を $j\notin T$ で足すと各 $C\supset T$ が $c-r$ 回現れる。$c-r>0$ なので主張が従う。
 
-$m=n-k=N-2c\ge0$、$S\subset R$、$|S|=c+m=N-c$ とする。$\mathbf 1_{C\cap(R\setminus S)=\varnothing}$ を包含排除で展開すれば、
+$m=n-k=N-2c\ge0$、$S\subset R$、$|S|=c+m=N-c$ とする。$\mathbf 1_E$ は条件 $E$ が成立すれば1、成立しなければ0となる指示関数である。$\mathbf 1_{C\cap(R\setminus S)=\varnothing}$ を包含排除で展開すれば、
 
 $$
 \begin{aligned}
@@ -197,7 +197,24 @@ $$
 となり、境界のないコンパクト $X$ 上で積分は0である。$b$ の代表についても同様である。外積の次数がともに $k$ なので $Q_k(b,a)=(-1)^kQ_k(a,b)$。特に奇数 $k$ では $Q_k(a,a)=0$ であり、$Q_k$ 自体に「正」を期待してはいけない。
 
 <!-- definition-example-start: def-hod1-13-primitive-pairing -->
-**定義の確認**。上節の複素曲面の実原始 $(1,1)$ 形式 $\alpha=\omega_1-\omega_2$ を、コンパクト平坦複素二次元トーラス上に定数係数形式として取る。[定数係数形式の調和性](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)から $[\alpha]_d\in P_H^{1,1}$ である。$k=2$ だから $m=0$、共役は $\overline\alpha=\alpha$、位相因子は $(-1)^1i^0=-1$。従って
+**定義の確認**。ここでは $X=T=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ を平坦複素二次元トーラスとし、実座標 $z_j=x_j+iy_j$ により
+
+$$
+e^j=dx_j,\qquad f^j=dy_j,\qquad
+\omega_j=e^j\wedge f^j,\qquad \omega=\omega_1+\omega_2
+$$
+
+とする。これらは商空間上でも大域的に定義される。上節の実 $(1,1)$ 形式 $\alpha=\omega_1-\omega_2$ は $\Lambda\alpha=1-1=0$ を満たし、[定数係数形式の調和性](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)から調和でもある。[原始類の調和代表による判定](../HOD1-12/index.md#thm-hod1-12-harmonic-primitive)により
+
+$$
+\Lambda\alpha=0,\quad\Delta_d\alpha=0
+\quad\Longrightarrow\quad
+[\alpha]_d\in P_H^{1,1}
+$$
+
+となる。単に調和であるだけでは原始性は従わず、$\Lambda\alpha=0$ の確認が必要だった。
+
+$k=2$ だから $m=0$、共役は $\overline\alpha=\alpha$、位相因子は $(-1)^1i^0=-1$。従って
 
 $$
 Q_2([\alpha],[\alpha])=-2\operatorname{Vol}(X),\qquad
@@ -371,13 +388,26 @@ $$
 $v\ne0$ なら $\nu\ne0$ で、右辺は厳密に負である。したがって正の一次元直和と負の $(h^{1,1}-1)$ 次元直和を得る。両方で非退化なので全体でも非退化である。$\square$
 <!-- proof-end -->
 
-**交叉行列を実際に対角化する。** $Q=\mathbb{CP}^1\times\mathbb{CP}^1$ では $(u,v)$ 基底に関する $I$ の行列は
+**交叉行列を実際に対角化する。** $Q=\mathbb{CP}^1\times\mathbb{CP}^1$ では、[原始類の具体例](../HOD1-12/index.md#def-hod1-12-primitive-cohomology)で確認した $u^2=v^2=0$、$\int_Q u\smile v=1$ を使う。任意の実数 $x,y,x',y'$ について、定義 $I(a,b)=\int_Q a\smile b$ を基底 $u,v$ で展開すると
 
 $$
-\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+I(xu+yv,x'u+y'v)=xy'+yx'.
 $$
 
-基底を $u+v,u-v$ に替えると、
+この係数式が、$(u,v)$ 基底に関する $I$ の対称行列
+
+$$
+G=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+$$
+
+を与える。新しい基底 $u+v,u-v$ の旧基底での列を並べると、基底変換行列とその行列式は
+
+$$
+P=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad
+\det P=-2\ne0
+$$
+
+となり、正当な基底変更である。実際、
 
 $$
 I(u+v,u-v)=0,\quad
