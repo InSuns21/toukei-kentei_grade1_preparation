@@ -123,3 +123,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT29
     status: completed
     title: "Faddeev–Popovゲージ固定・ghostとBRST対称性"
+  - id: QFT30
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT30
+    status: completed
+    title: "Yang–Mills理論の一ループβ関数と漸近自由性"
