@@ -6,7 +6,7 @@
 
 この章のゴールは、曲がった時空でも **Klein–Gordon 作用素の特性方向に沿う Hamilton 曲線を射影すると、アフィンパラメータ付き零測地線になる**ことを、添字・符号を含めて証明することです。曲線の正式な名称は後で導入します。特異性が曲線の**全体に伝播する**というさらに強い定理は MICA10 で証明します。
 
-記号を固定します。$X$ は境界のない滑らかな多様体、$T^*X\setminus0$ は零余ベクトルを除いた余接束です。局所座標は $(x^a,\xi_a)$、$D_a=-i\partial_{x^a}$、同じ添字の上下の反復は総和とします。以下、特性方向を扱う作用素は滑らかな係数を持つ**スカラー**微分作用素（必要に応じ古典擬微分作用素）で、主シンボル $p_m(x,\xi)$ は実数値、滑らかで周波数について $m$ 次同次とします。$m\ge1$ とし、係数と関数は十分滑らかです。
+記号を固定します。$X$ は境界のない滑らかな多様体、$T^*X\setminus0$ は零余ベクトルを除いた余接束です。局所座標は $(x^a,\xi_a)$、$D_a=-i\partial_{x^a}$、同じ添字の上下の反復は総和とします。以下、特性方向を扱う作用素は滑らかな係数を持つ**スカラー**微分作用素を基本とし、擬微分作用素を使う場合はスカラー古典擬微分作用素を考えます。波面集合に作用させる際は適切な支持条件を課します。主シンボル $p_m(x,\xi)$ は実数値、滑らかで周波数について $m$ 次同次とします。$m\ge1$ とし、係数と関数は十分滑らかです。
 
 Lorentz 計量を使う節では、[LORG2の符号規約](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)に従って $(-,+,\ldots,+)$ を採用します。$\Box_g u=g^{ab}(\partial_a\partial_bu-\Gamma^c_{ab}\partial_cu)$ です。[HPDE5の主シンボル](../../HPDE/HPDE5/index.md#def-hpde5-principal-symbol)は $\partial$ の係数による規約ですが、この章では MICA8 と同じく $D=-i\partial$ の記号を使います。この違いは二階主シンボルに負号を付けるため、必要な箇所で明示します。
 
@@ -43,7 +43,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（特性方向への波面の制限）**  
-> $P$ を開集合 $X$ 上の滑らかな係数を持つスカラー古典作用素、$u\in\mathcal D'(X)$ とする。$Pu\in C^\infty(X)$ なら
+> $P$ を $X$ 上の滑らかな係数を持つスカラー微分作用素、または適切に支持されたスカラー古典擬微分作用素とし、$u\in\mathcal D'(X)$ とする。$Pu\in C^\infty(X)$ なら
 
 $$
 WF(u)\subset\operatorname{Char}(P).
@@ -61,7 +61,7 @@ $$
 
 任意の非特性方向 $z=(x,\xi)$ を取ります。[特性集合と非特性方向の再確認](#def-mica9-characteristic)より主シンボルは $p_m(z)\ne0$、従って $z$ は楕円集合に属します。
 
-[MICA8の楕円正則性](../MICA8/index.md#thm-mica8-elliptic-regularity)の第二包含に $A=P$ を代入すると、楕円集合上での波面は右辺の波面に含まれます。つまり
+微分作用素の値は評価点での有限階微分だけで決まり、離れた点の値に依存しません。このため作用素核は対角線上に支持され、適切に支持されています。擬微分作用素の場合は命題の支持条件を用います。これで[MICA8の楕円正則性](../MICA8/index.md#thm-mica8-elliptic-regularity)の仮定が揃い、その第二包含に $A=P$ を代入すると、楕円集合上での波面は右辺の波面に含まれます。つまり
 
 $$
 z\in WF(u)\cap\operatorname{Ell}(P)\quad\Longrightarrow\quad z\in WF(Pu).
@@ -83,7 +83,7 @@ H_p=\sum_a\left(
 \right).
 $$
 
-主シンボルの添字 $m$ は省略して $p$ と書きます。この構成は $p$ を関数として使うので、変数 $\xi_a$ が**余接座標**であることが必要です。位相空間 $T^*X$ の点は、位置と周波数方向を一緒に持ちます。
+主シンボルの添字 $m$ は省略して $p$ と書きます。この構成は $p$ を関数として使うので、変数 $\xi_a$ が**余接座標**であることが必要です。位相空間 $T^*X$ の点は、位置と周波数方向を一緒に持ちます。曲線 $z(s)$ 上での点（例：$\dot x^a$）は $s$ に関する通常の導関数 $dx^a/ds$ を表し、$\partial_{x^a}p$ と $\partial_{\xi_a}p$ は他方の座標を固定した偏導関数です。
 
 <a id="def-mica9-bicharacteristic"></a>
 
@@ -117,7 +117,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Hamilton流による主シンボルの保存）**  
-> $p\in C^\infty(T^*X\setminus0,\mathbb R)$ とし、$z(s)$ を $H_p$ の積分曲線とする。その存在する任意の区間で $p(z(s))$ は一定である。従って、初期点が $p=0$ にあれば曲線は $\operatorname{Char}(P)$ に留まる。
+> $p\in C^\infty(T^*X\setminus0,\mathbb R)$ とし、$z(s)$ を $H_p$ の積分曲線とする。その存在する任意の区間で $p(z(s))$ は一定である。従って、特に $p$ が作用素 $P$ の主シンボルなら、初期点が $p=0$ にあれば曲線は $\operatorname{Char}(P)$ に留まる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -278,7 +278,13 @@ $$
 \partial_c g^{ab}=-g^{ad}g^{be}\partial_c g_{de}
 $$
 
-となることを使います。これは $g^{ad}g_{db}=\delta^a_b$ を $x^c$ で微分し、逆行列を掛けた恒等式です。
+となることを使います。実際、$g^{ad}g_{db}=\delta^a_b$ を $x^c$ で微分すると
+
+$$
+0=(\partial_c g^{ad})g_{db}+g^{ad}\partial_c g_{db}.
+$$
+
+両辺に $g^{be}$ を掛け、$g_{db}g^{be}=\delta_d^e$ を用いれば $\partial_cg^{ae}=-g^{ad}g^{be}\partial_cg_{db}$ となり、添字を付け替えて上の恒等式が得られます。
 
 <a id="thm-mica9-null-geodesic"></a>
 
@@ -297,7 +303,7 @@ $$
 
 ### 証明の見取り図
 
-$v^a=g^{ab}\xi_b$ と置き、Hamilton方程式の第一式で $\dot x=2v$ とします。$\dot\xi_a$ の表示と、上で導いた逆計量の微分恒等式を組み合わせて $\dot v^a=-2\Gamma^a_{bc}v^bv^c$ を得ることが核心です。逆向きでは[測地線方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)を使って $\dot\xi_a$ を復元します。
+$v^a=g^{ab}\xi_b$ と置き、Hamilton方程式の第一式で $\dot x=2v$ とします。$\dot\xi_a$ の表示と、上で導いた逆計量の微分恒等式を組み合わせて $\dot v^a=-2\Gamma^a_{bc}v^bv^c$ を得ることが核心です。逆向きでは[LORG4のLorentz測地線方程式](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)の局所座標式を使って $\dot\xi_a$ を復元します。この計算は局所的であり、時空全体の時間向き付けを必要としません。
 
 <!-- proof-start -->
 ### 証明
@@ -336,7 +342,7 @@ $$
 
 **(3) 逆向き。** 零測地線 $x(s)$ から $\xi_a=\tfrac12g_{ab}\dot x^b$ と定めます。$\dot x\ne0$ なので $\xi\ne0$、また $p=\tfrac14g_{ab}\dot x^a\dot x^b=0$ です。逆行列を掛ければ $2g^{ab}\xi_b=\dot x^a$ で、Hamiltonの第一式が成立します。
 
-第二式について積を微分し、[測地線方程式](../../../幾何系/GEO/GEO14/index.md#prop-geo14-geodesic-equation)を代入します。
+第二式について積を微分し、[LORG4のLorentz測地線方程式](../../../幾何系/LORG/LORG4/index.md#prop-lorg4-geodesic-causal-type)の座標式を代入します。
 
 $$
 \dot\xi_a=\frac12(\partial_cg_{ab})\dot x^c\dot x^b
@@ -361,7 +367,7 @@ $$
 
 ### 曲がった時空での直接計算
 
-$1+1$ 次元の $g=-dt^2+a(t)^2dx^2$、$a(t)>0$ は滑らかとします。逆計量は $g^{tt}=-1$、$g^{xx}=a^{-2}$。したがって
+$1+1$ 次元の $g=-dt^2+a(t)^2dx^2$、$a(t)>0$ は滑らかとします。ここで $a'(t)=da/dt$ は座標時刻 $t$ での微分であり、Hamilton曲線上の点 $\dot t=dt/ds$ とは微分変数が異なります。逆計量は $g^{tt}=-1$、$g^{xx}=a^{-2}$。したがって
 
 $$
 p=-\tau^2+\frac{\kappa^2}{a(t)^2},\qquad
@@ -371,7 +377,7 @@ p=-\tau^2+\frac{\kappa^2}{a(t)^2},\qquad
 \dot\kappa=0.
 $$
 
-未来向きの枝を $\kappa>0$、$\tau=-\kappa/a(t)$ として選ぶと $\dot t=2\kappa/a(t)>0$ であり、光線の傾きは
+未来向きの枝を $\kappa>0$、$\tau=-\kappa/a(t)$ として選ぶと $\dot t=2\kappa/a(t)>0$ です。この非零条件により曲線の小区間で時刻座標 $t$ を変数として使え、連鎖律 $dx/ds=(dx/dt)(dt/ds)$ から光線の傾きは
 
 $$
 \frac{dx}{dt}=\frac{\dot x}{\dot t}=\frac1{a(t)}.
@@ -381,7 +387,9 @@ $$
 
 ## 6. 零集合と曲線の軌跡、伝播定理を区別する
 
-主シンボルを零にならない滑らかな実関数 $b(x,\xi)>0$ 倍した $\widetilde p=bp$ を考えると、$\{\widetilde p=0\}=\{p=0\}$ です。積の微分から $H_{bp}=bH_p+pH_b$ なので、特性集合上では $H_{bp}=bH_p$。同じ向きの**パラメータを付けない軌跡**が得られますが、その速度・アフィンパラメータは一般に変わります。
+Hamilton関数 $p$ を滑らかな正関数 $b(x,\xi)>0$ 倍した $\widetilde p=bp$ を考えると、$\{\widetilde p=0\}=\{p=0\}$ です。積の微分から $H_{bp}=bH_p+pH_b$ なので、特性集合上では $H_{bp}=bH_p$。同じ向きの**パラメータを付けない軌跡**が得られますが、その速度・アフィンパラメータは一般に変わります。
+
+ただし $\widetilde p$ も $m$ 次同次の主シンボルとして扱うには、$b(x,\lambda\xi)=b(x,\xi)$（$\lambda>0$）という零次同次性が必要です。Hamilton流の特性集合上での比較自体は、任意の滑らかな正関数 $b$ に対して成り立ちます。
 
 これは曲がった計量の共形変換にも使えます。$\widetilde g=\Omega^2g$（$\Omega>0$）なら $\widetilde g^{ab}=\Omega^{-2}g^{ab}$ なので、光的特性集合と非パラメータ化した零測地線の軌跡は共通です。ただし各計量に関するアフィンパラメータは一般には共通ではありません。
 
@@ -402,7 +410,16 @@ $\mathbb R^2$ 上の $P_1=D_x^2+4D_y^2+3$、$P_2=D_x^2-4D_y^2+3$ の特性集合
 
 [MICA8の主シンボルの定義](../MICA8/index.md#def-mica8-differential-symbol)に従い最高二階だけを取ると $p_1=\xi_x^2+4\xi_y^2$、$p_2=\xi_x^2-4\xi_y^2$ です。非零方向について $p_1>0$ だから $\operatorname{Char}(P_1)=\varnothing$ です。$p_2=0$ は $\xi_x=2\xi_y$ または $\xi_x=-2\xi_y$ であり、零余ベクトルを除いた二本の錐が特性集合です。
 
-$(2,1)$ では $p_2=4-4=0$、$(0,1)$ では $p_2=-4\ne0$ です。$p_1(2,1)=8$、$p_1(0,1)=4$ なのでいずれも非特性です。$+3$ は零階であり、どちらの二階主シンボルにも入りません。
+指定された二方向に主シンボルを代入すると
+
+$$
+\begin{aligned}
+p_1(2,1)&=2^2+4\cdot1^2=8,& p_2(2,1)&=2^2-4\cdot1^2=0,\\
+p_1(0,1)&=0^2+4\cdot1^2=4,& p_2(0,1)&=0^2-4\cdot1^2=-4.
+\end{aligned}
+$$
+
+したがって $(2,1)$ は $P_2$ に限り特性で、$(0,1)$ は両作用素で非特性です。$+3$ は零階であり、どちらの二階主シンボルにも入りません。
 <!-- solution-end -->
 
 <a id="ex-mica9-a02"></a>
