@@ -20,7 +20,7 @@ $$
 
 とします。場の入力は、実数値の滑らかなコンパクト支持試験関数の空間 $\mathcal D_{\mathbb R}(M)=C_c^\infty(M;\mathbb R)$ です。複素試験関数には $\mathcal D_{\mathbb C}(M)=C_c^\infty(M;\mathbb C)$ を使います。
 
-古典場なら $\int_M f(x)u(x)\,d\mu_g(x)$ は $u$ を $f$ の支持内で平均した値です。量子場では点ごとの $\Phi(x)$ を先に作用素として定義せず、この平均に対応する記号 $\Phi(f)$ を基本対象とします。これを**試験関数でならした場（smeared field）**と呼びます。
+古典場なら $\int_M f(x)u(x)\,d\mu_g(x)$ は $u$ を $f$ の支持内で平均した値です。量子場では点ごとの $\Phi(x)$ を先に作用素として定義せず、この平均に対応する記号 $\Phi(f)$ を基本対象とします。試験関数で場をならす（smearing）という考え方を、以下では代数の関係式として具体化します。
 
 [因果伝播子の定義](../../HPDE/HPDE21/index.md#def-hpde21-causal-propagator)に従い
 
