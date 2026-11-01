@@ -1,0 +1,45 @@
+chapter: MICA12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA11
+  - HPDE13
+  - LORG5
+  - MICA4
+forward_references: []
+concepts:
+  - id: microlocal.mica12-positive-boundary
+    name: 正周波数境界値
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica11-two-point, microlocal.mica11-positive-covector]
+  - id: microlocal.mica12-massless-boundary
+    name: 質量零Minkowski真空の正規化
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica12-positive-boundary]
+  - id: microlocal.mica12-hadamard-coefficients
+    name: 局所Hadamard係数の形式漸近展開
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica12-positive-boundary]
+  - id: microlocal.mica12-transport
+    name: 4次元対数係数の輸送方程式と一意な滑らかな解
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica12-hadamard-coefficients]
+  - id: microlocal.mica12-massive-coefficients
+    name: 質量付き平坦時空の全対数係数
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica12-transport]
+  - id: microlocal.mica12-parametrix
+    name: 4次元局所Hadamard parametrixとHadamard余り
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica12-transport, microlocal.mica11-two-point-conditions]
+  - id: microlocal.mica12-scale-shift
+    name: 長さスケールの変更
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica12-parametrix]
