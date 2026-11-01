@@ -25,7 +25,15 @@ $$
 \qquad h\longmapsto[h]_d
 $$
 
-であり、両辺は有限次元となる。コホモロジー上の作用を $L_H([\alpha]_d)=[\omega]_d\smile[\alpha]_d$ と書く。この $[\omega]_d$ は**基本形式そのものの類**であって、$[\omega/(2\pi)]_d$ へ勝手に置き換えない。以後、対象の多様体が明らかなときの $H^j$ は $H_{\mathrm{dR}}^j(X;\mathbb C)$ の略記とし、$L_H^r$ はこの作用の $r$ 回の合成（$r=0$ は恒等写像）を意味する。
+であり、両辺は有限次元となる。コホモロジー上の作用を $L_H([\alpha]_d)=[\omega]_d\smile[\alpha]_d$ と書く。この $[\omega]_d$ は**基本形式そのものの類**であって、$[\omega/(2\pi)]_d$ へ勝手に置き換えない。
+
+以後、対象の多様体が明らかなときは、複素係数de Rham群を
+
+$$
+H^j(X):=H_{\mathrm{dR}}^j(X;\mathbb C)
+$$
+
+と略記する。また $L_H^r$ は上記の類上の作用の $r$ 回の合成（$r=0$ は恒等写像）とする。
 
 ## 2. 調和形式の空間でも高冪が同型になる
 
@@ -86,7 +94,13 @@ $$
 =\|\Lambda^m\eta\|_{L^2}^2.
 $$
 
-正定値性と滑らかさから $\Lambda^m\eta=0$ が全点で成立する。各点の複素化された外積空間を $\mathcal A_x^j:=\bigwedge^jT_x^*X\otimes_{\mathbb R}\mathbb C$ と書くと、$L_x^m:\mathcal A_x^k\to\mathcal A_x^{2n-k}$ は有限次元内積空間の同型で、その随伴 $\Lambda_x^m:\mathcal A_x^{2n-k}\to\mathcal A_x^k$ も同型である（逆写像の随伴を取れば逆になる）。よって $\eta_x=0$、すなわち $\eta=0$。
+正定値性と滑らかさから $\Lambda^m\eta=0$ が全点で成立する。各点の複素化された外積空間を
+
+$$
+\mathcal A_x^j:=\bigwedge^jT_x^*X\otimes_{\mathbb R}\mathbb C
+$$
+
+と書く。[点ごとの同型](../HOD1-03/index.md#thm-hod1-03-pointwise-isomorphism)による $L_x^m:\mathcal A_x^k\to\mathcal A_x^{2n-k}$ は有限次元内積空間の同型であり、その随伴 $\Lambda_x^m:\mathcal A_x^{2n-k}\to\mathcal A_x^k$ も同型である（逆写像の随伴を取れば逆になる）。よって $\eta_x=0$、すなわち $\eta=0$。
 
 こうして $\operatorname{im}T_k$ の直交補空間は零である。[閉多様体のHodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から $\mathcal H^{2n-k}(X)$ は有限次元なので
 
@@ -173,7 +187,13 @@ $$
 
 ## 4. 複素型ごとに見ると、どことどこが結ばれるか
 
-[Kähler–Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)では、全次数 $k$ の調和形式は $p+q=k$ の $(p,q)$ 型の直和になる。[Hodge型部分空間の定義](../HOD1-06/index.md#def-hod1-06-hodge-summand)に従い、本章では de Rham コホモロジー内の部分空間を $H^{p,q}(X):=H_{\mathrm{Hdg}}^{p,q}(X)\subset H^{p+q}(X)$ と略記する。これは Dolbeault 群 $H_{\bar\partial}^{p,q}(X)$ と最初から同じ集合であるという意味ではなく、調和代表を通した同型で結ばれる別の対象である。
+[Kähler–Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)では、全次数 $k$ の調和形式は $p+q=k$ の $(p,q)$ 型の直和になる。[Hodge型部分空間の定義](../HOD1-06/index.md#def-hod1-06-hodge-summand)に従い、本章では de Rham コホモロジー内の型部分空間を
+
+$$
+H^{p,q}(X):=H_{\mathrm{Hdg}}^{p,q}(X)\subset H^{p+q}(X)
+$$
+
+と略記する。これは Dolbeault 群 $H_{\bar\partial}^{p,q}(X)$ と最初から同じ集合であるという意味ではなく、調和代表を通した同型で結ばれる別の対象である。
 
 さらに[基本形式による型の移動](../HOD1-10/index.md#prop-hod1-10-hodge-type-shift)は、$L$ が両添字をそれぞれ1ずつ増やすことを述べていた。
 
@@ -274,7 +294,14 @@ $$
 
 ### 射影直線の積：中央次数からの $L$ に核があってよい
 
-$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ とし、射影 $\pi_i:Q\to\mathbb{CP}^1$ により $u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d$、$v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d$ と置く。[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)は $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ であり、[Fubini–Study面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)から各因子の規格化類の積分は $1$ となる。[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)を外積で表すと
+$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ とし、射影 $\pi_i:Q\to\mathbb{CP}^1$ によって二つの規格化類を
+
+$$
+u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d,\qquad
+v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d
+$$
+
+と置く。[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)は $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ であり、[Fubini–Study面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)から各因子の規格化類の積分は $1$ となる。[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)を外積で表すと
 
 $$
 \begin{aligned}
