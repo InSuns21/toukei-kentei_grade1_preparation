@@ -45,10 +45,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft30-background-split -->
-**定義の確認**：$\mathcal B_1=0$、$\mathcal B_2=x_1hT^3$、他を零とする $SU(2)$ の背景では $\mathcal F_{12}=hT^3$ で、他の成分は零です。実際、$\partial_1\mathcal B_2=hT^3$、$\partial_2\mathcal B_1=0$、$[\mathcal B_1,\mathcal B_2]=0$ です。また、随伴ベクトル $v$ への交換子は色空間の回転なので、場そのものの時空回転と混同しません。
+**定義の確認**：$\mathcal B_1=0$、$\mathcal B_2=x_1hT^3$、他を零とする $SU(2)$ の背景を取ります。ここで $h$ は実定数、$T^3$ は色の生成子、$x_1$ は第一時空座標です。曲率の非零成分を実際に計算すると
+
+$$
+\mathcal F_{12}=\partial_1\mathcal B_2-\partial_2\mathcal B_1+[\mathcal B_1,\mathcal B_2]
+=hT^3-0+0=hT^3,
+$$
+
+他の成分は零です。さらに $SU(2)$ の $f^{abc}=\varepsilon^{abc}$ を用いて、任意の滑らかな随伴ベクトル $v^a$ への作用を成分で調べると
+
+$$
+(\mathcal D_2v)^a=\partial_2v^a+x_1h\varepsilon^{a3c}v^c,
+\qquad
+([\mathcal D_1,\mathcal D_2]v)^a=h\varepsilon^{a3c}v^c
+=([\mathcal F_{12},v])^a.
+$$
+
+$\mathcal D_1=\partial_1$ なので、交換子では $x_1$ を微分する項だけが残ります。これで曲率の式と共変微分の交換関係を両方確かめました。後者の $\varepsilon^{a3c}$ は色成分の間の回転であり、時空座標の回転ではありません。
 <!-- definition-example-end -->
 
-この $\mathcal B$ は、$\mathcal D_\mu\mathcal F_{\mu\nu}=0$ も満たします。そのため作用の $a$ に一次の項が消え、Gaussian積分の二次部分を読みやすくします。一般の背景では一次の項が残りますが、背景場有効作用の局所的な $\mathcal F^2$ 係数は、ここで選んだ非零の背景によって測れます。
+この $\mathcal B$ は、$\partial_\mu\mathcal F_{\mu\nu}=0$ と $[\mathcal B_\mu,\mathcal F_{\mu\nu}]=0$ がそれぞれ成立するので $\mathcal D_\mu\mathcal F_{\mu\nu}=0$ も満たします。そのため[QFT28のYang–Mills場方程式](../QFT28/index.md#thm-qft28-action-eom)に対応する作用の $a$ に一次の項が消え、Gaussian積分の二次部分を読みやすくします。一般の背景では一次の項が残りますが、背景場有効作用の局所的な $\mathcal F^2$ 係数は、ここで選んだ非零の背景によって測れます。
 
 ## 2. ゲージ場とghostの二次作用素
 
@@ -73,7 +89,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft30-background-operators -->
-**定義の確認**：零背景では $\mathcal D_\mu=\partial_\mu$、$\mathcal F=0$ なので $\Delta_0=-\partial^2$、$(\Delta_1)_{\mu\nu}=-\partial^2\delta_{\mu\nu}$ です。非零の一定色磁場では $-2\operatorname{ad}(\mathcal F_{12})$ がベクトルの第1・第2成分を混ぜます。この混合が、スカラーghostと異なる対数係数を作ります。
+**定義の確認**：零背景では $\mathcal D_\mu=\partial_\mu$、$\mathcal F=0$ なので $\Delta_0=-\partial^2$、$(\Delta_1)_{\mu\nu}=-\partial^2\delta_{\mu\nu}$ です。第一節の $\mathcal F_{12}=hT^3$ を使うと、曲率による混合成分は
+
+$$
+(\Delta_1)_{12}=-2\operatorname{ad}(hT^3),\qquad
+(\Delta_1)_{21}=+2\operatorname{ad}(hT^3)
+$$
+
+で、他は零になります。これは $\Delta_1$ の**時空成分を行列の行・列にした表示**であり、各成分の中の $\operatorname{ad}(hT^3)$ は色ベクトルに作用します。第5節では色を固有モードへ分け、この二成分行列を対角化します。スカラーghostにはこの時空成分の混合がありません。
 <!-- definition-example-end -->
 
 <a id="prop-qft30-quadratic-action"></a>
@@ -152,14 +175,16 @@ $$
 =-\frac12\int a_\mu\mathcal D_\mu\mathcal D_\nu a_\nu.
 $$
 
-ゆえに混合二階微分が消え、曲率項は合計 $-2\operatorname{ad}(\mathcal F_{\mu\nu})$ となります。ghostについては[QFT29のGrassmann行列式](../QFT29/index.md#prop-qft29-ghost-determinant)が $\det\Delta_0$ を与え、実ボース場のGaussian積分が $(\det\Delta_1)^{-1/2}$ を与えます。$-\log Z$ を取れば表示式です。
+ゆえに混合二階微分が消え、曲率項は合計 $-2\operatorname{ad}(\mathcal F_{\mu\nu})$ となります。ghostについては[QFT29のGrassmann行列式](../QFT29/index.md#prop-qft29-ghost-determinant)が $\det\Delta_0$ を与え、[QFT19の実Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)を有限モードのゲージ揺らぎへ適用すると $(\det\Delta_1)^{-1/2}$ を得ます。$-\log Z$ を取れば表示式です。背景により負固有値が生じる場合は、ここでは紫外係数の形式的摂動計算だけを用い、積分の赤外処方を別に定めます。
 <!-- proof-end -->
 
 零背景では4成分の実ボース自由度が $4/2=2$、複素Grassmann対が $-1$ を対数行列式の重みとして持つため、合計 $1$、すなわち物理的な実偏極2個の $2/2$ に一致します。ただし「ghostは実在する負の粒子」と解釈するのでなく、ゲージ冗長性のJacobianを補正する計算上の場です。
 
 ## 3. 色電荷の二乗を数える
 
-一定色磁場を使う前に、非可換群の色方向をどれだけ数えるか確認します。背景をCartan方向へ置くと、随伴表現の各成分は、その方向に対して中性または正負の「色電荷」を持つ複素化固有モードへ分解できます。その電荷の二乗和が群に依存する唯一の係数です。
+一定色磁場を使う前に、非可換群の色方向をどれだけ数えるか確認します。ここでいう **Cartan方向** は、互いに可換な対角・traceless Hermitian生成子が張る空間の中の一方向です。任意のHermitian色行列 $H$ は[LA5の複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)によってユニタリ対角化できるので、単一の背景色方向を調べるときはこの表示を選べます。「随伴表現」とは[QFT28の随伴共変微分](../QFT28/index.md#def-qft28-curvature)で使った、色ベクトル $v$ に交換子 $[H,v]$ を作用させる表現です。
+
+色ベクトルの基底 $T^a$ に関する随伴作用の行列は、$(\operatorname{ad}H)_{ac}=f^{abc}H^b$ です。$f^{abc}$ は完全反対称だから、この実行列は転置すると負になります。従って複素化すると反Hermitian、特に正規行列となるので、上記の[スペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)で固有モードに分解でき、その固有値は純虚数 $iq_r$（$q_r\in\mathbb R$）です。各 $q_r$ を背景方向の「色電荷」と呼びます。$q_r$ は中性の零や正負の値を取り、その二乗和が群に依存する係数になります。これは色成分の線形変換であり、時空ベクトル成分の混合とは区別します。
 
 <a id="def-qft30-adjoint-casimir"></a>
 
@@ -175,7 +200,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft30-adjoint-casimir -->
-**定義の確認**：$SU(2)$ は $f^{abc}=\varepsilon^{abc}$ です。$a=b=3$ なら非零項は $(c,d)=(1,2),(2,1)$ の二つで、$(\varepsilon^{312})^2+(\varepsilon^{321})^2=2$。$a\ne b$ では反対称性から和は零です。ゆえに $C_A=2$ と定義式の全成分を確認できます。
+**定義の確認**：$SU(2)$ は $f^{abc}=\varepsilon^{abc}$ です。$a=b=3$ なら非零項は $(c,d)=(1,2),(2,1)$ の二つなので
+
+$$
+\sum_{c,d}\varepsilon^{3cd}\varepsilon^{3cd}
+=(\varepsilon^{312})^2+(\varepsilon^{321})^2=2.
+$$
+
+$a=b=1,2$ も添字の置換で同じ値です。一方 $a\ne b$ では、$\varepsilon^{acd}$ と $\varepsilon^{bcd}$ が非零となる $(c,d)$ の組は重ならないので各積が零です。ゆえに $f^{acd}f^{bcd}=2\delta^{ab}$ を全成分で確認でき、$C_A=2$ です。
 <!-- definition-example-end -->
 
 $SU(N)$ で $C_A=N$ になる理由も確かめます。$N\times N$ のtraceless行列 $X$ に対し、Hermitian生成子の完全性関係
@@ -186,7 +218,14 @@ $$
 -\frac1N\delta_{ij}\delta_{kl}\right)
 $$
 
-を使います。これは $\{\sqrt2T^a,I/\sqrt N\}$ がHermitian行列の実内積 $\operatorname{tr}(XY)$ に関する正規直交基底をなすことから、成分ごとの恒等分解として得られます。実際、$\operatorname{tr}X=0$ なら
+を使います。これは $\{\sqrt2T^a,I/\sqrt N\}$ がHermitian行列の実内積 $\operatorname{tr}(XY)$ に関する正規直交基底をなすことから、成分ごとの恒等分解として得られます。$(\sum_aT^aXT^a)_{il}$ を行列成分に戻して代入すると
+
+$$
+\sum_{a,j,k}(T^a)_{ij}X_{jk}(T^a)_{kl}
+=\frac12\left(\delta_{il}\operatorname{tr}X-\frac{X_{il}}N\right).
+$$
+
+従って $\operatorname{tr}X=0$ なら
 
 $$
 \sum_aT^aXT^a=-\frac{X}{2N},\qquad
@@ -252,7 +291,30 @@ $$
 =-\frac{d^2}{dx_1^2}+(k_2+qx_1)^2.
 $$
 
-$q\ne0$ なら中心 $x_1=-k_2/q$、振動数 $|q|$ の調和振動子です。生成消滅演算子を使うかHermite方程式を解くと、固有値は $|q|(2n+1)$（$n=0,1,\ldots$）となります。
+$q\ne0$ なら中心 $x_1=-k_2/q$ の調和振動子です。無次元座標 $y=\sqrt{|q|}(x_1+k_2/q)$ と、$y$ について微分する演算子
+
+$$
+b=\frac1{\sqrt2}\left(y+\frac d{dy}\right),\qquad
+b^\dagger=\frac1{\sqrt2}\left(y-\frac d{dy}\right)
+$$
+
+を置くと、$[d/dy,y]=1$ から $[b,b^\dagger]=1$ です。従って固有値問題は
+
+$$
+-\frac{d^2}{dx_1^2}+(k_2+qx_1)^2
+=|q|\left(-\frac{d^2}{dy^2}+y^2\right)
+=|q|(2b^\dagger b+1)
+$$
+
+となります。励起数作用素 $\widehat n$ を次で定義すると、部分積分で $b^\dagger$ が $b$ の随伴であることから非負性が従います。
+
+$$
+\widehat n=b^\dagger b,\qquad
+\langle\phi,\widehat n\phi\rangle=\lVert b\phi\rVert^2\ge0,\qquad
+[\widehat n,b]=-b.
+$$
+
+従って $\widehat n\phi=\lambda\phi$ なら、$b\phi$ が零でない限り固有値は $\lambda-1$ に下がり、負には下がれません。よって正規化可能な固有関数の $\lambda$ は非負整数に限られます。$b\,e^{-y^2/2}=0$ を満たす関数から $b^\dagger$ を $n$ 回作用させれば各整数 $n=0,1,\ldots$ が実現するため、準位は $|q|(2n+1)$ です。この変数変換では $q\ne0$ が必要で、$q=0$ は最後に熱核の極限で扱います。
 
 面積 $L_1L_2$ の箱で中心が $0\le-k_2/q<L_1$ に入る $k_2=2\pi m/L_2$ の数は、境界の $O(L_1+L_2)$ の補正を除き $|q|L_1L_2/(2\pi)$ 個です。したがって一準位の単位面積あたり縮退度は $|q|/(2\pi)$。残り二方向は
 
@@ -290,7 +352,14 @@ $$
 
 ## 5. 4成分の混合とghostを合わせる
 
-色電荷 $q$ のモードでは $\operatorname{ad}(\mathcal F_{12})$ の固有値が $iq$ です。第1・第2ベクトル成分に働く $\Delta_1$ の行列部分 $-2\operatorname{ad}(\mathcal F_{\mu\nu})$ は、Lorentz添字の二次元ブロック上で固有値 $+2q,-2q$ を持ちます。残り第3・第4成分への作用は零です。したがって熱核のベクトル成分traceの追加因子は
+色電荷 $q$ のモードでは $\operatorname{ad}(\mathcal F_{12})$ の固有値が $iq$ です。第1・第2ベクトル成分に働く $\Delta_1$ の曲率行列部分は、色空間を複素化してこの固有モードへ制限すると
+
+$$
+M_q=\begin{pmatrix}0&-2iq\\2iq&0\end{pmatrix},\qquad
+\det(\lambda I-M_q)=\lambda^2-4q^2.
+$$
+
+ここで行列の行・列は時空添字 $(1,2)$ で、$iq$ は固定した色モードに作用する値です。従って固有値は $+2q,-2q$、残り第3・第4成分への曲率作用は零です。したがって熱核のベクトル成分traceの追加因子は
 
 $$
 e^{-t(-2q)}+e^{-t(2q)}+1+1
@@ -673,7 +742,7 @@ $$
 - 問題: 純 $SU(2)$ の一ループ近似で $g_R^2(\mu_0)=1/2$ とする。$g_R^2(4\mu_0)$ の式と、$\alpha_s(\mu_0)/\alpha_s(4\mu_0)$ を求めよ。$\alpha_s=g_R^2/(4\pi)$、$b_0=11N/3$ を用いてよい。
 
 <!-- solution-start -->
-**詳細解答。** $N=2$ だから $b_0=22/3$ です。$\mu/\mu_0=4$ の一ループ式へ代入すると
+**詳細解答。** $N=2$ だから $b_0=22/3$ です。[本章の一ループ流](#thm-qft30-beta-function)を $\mu/\mu_0=4$ へ適用すると
 
 $$
 \frac1{g_R^2(4\mu_0)}
