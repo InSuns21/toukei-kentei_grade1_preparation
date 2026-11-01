@@ -197,7 +197,7 @@ $$
 となり、境界のないコンパクト $X$ 上で積分は0である。$b$ の代表についても同様である。外積の次数がともに $k$ なので $Q_k(b,a)=(-1)^kQ_k(a,b)$。特に奇数 $k$ では $Q_k(a,a)=0$ であり、$Q_k$ 自体に「正」を期待してはいけない。
 
 <!-- definition-example-start: def-hod1-13-primitive-pairing -->
-**定義の確認。** 上節の複素曲面の実原始 $(1,1)$ 形式 $\alpha=\omega_1-\omega_2$ を、コンパクト平坦複素二次元トーラス上に定数係数形式として取る。[定数係数形式の調和性](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)から $[\alpha]_d\in P_H^{1,1}$ である。$k=2$ だから $m=0$、共役は $\overline\alpha=\alpha$、位相因子は $(-1)^1i^0=-1$。従って
+**定義の確認**。上節の複素曲面の実原始 $(1,1)$ 形式 $\alpha=\omega_1-\omega_2$ を、コンパクト平坦複素二次元トーラス上に定数係数形式として取る。[定数係数形式の調和性](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)から $[\alpha]_d\in P_H^{1,1}$ である。$k=2$ だから $m=0$、共役は $\overline\alpha=\alpha$、位相因子は $(-1)^1i^0=-1$。従って
 
 $$
 Q_2([\alpha],[\alpha])=-2\operatorname{Vol}(X),\qquad
