@@ -326,7 +326,7 @@ u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d,
 \qquad v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d
 $$
 
-と置く。以下ではcup積 $u\smile v$ を $uv$、反復積 $u\smile u$ を $u^2$ と略記する。[de Rham積の定義](#def-hod1-10-de-rham-product)により、引き戻した形式の外積が $uv$ を代表する。各因子は実次元2なので $u^2=v^2=0$ である。
+と置く。以下ではcup積 $u\smile v$ を $uv$、反復積 $u\smile u$ を $u^2$ と略記する。[de Rham類の積](#def-hod1-10-de-rham-product)により、引き戻した形式の外積が $uv$ を代表する。各因子は実次元2なので $u^2=v^2=0$ である。
 
 類の積分は閉代表の積分を意味し、コンパクト境界なしなら[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により代表によらない。因子の順序による積の向きでは、外積の積分は各因子の積分へ分かれる。[射影直線の面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を両因子に適用すると
 
