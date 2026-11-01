@@ -1,0 +1,38 @@
+chapter: HOD1-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-13
+  - GRP3
+  - LIE3
+concepts:
+  - id: hodge.projective-space-cohomology
+    name: 複素射影空間のHodge数とコホモロジー環
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素射影空間のHodge数とコホモロジー環）"]
+    requires: [hodge.harmonic-lefschetz-cohomology, hodge.de-rham-hodge-summand]
+  - id: hodge.fubini-study-top-integral
+    name: Fubini–Study形式の最高次積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fubini–Study形式の最高次積分）"]
+    requires: [hodge.projective-space-cohomology]
+  - id: hodge.typewise-lefschetz-monotonicity
+    name: Hodge数のLefschetz単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（低次数Lefschetz単射性とHodge数の単調性）"]
+    requires: [hodge.hard-lefschetz-theorem, hodge.cohomology-lefschetz-decomposition]
+  - id: hodge.kahler-class-powers-nonzero
+    name: Kähler類の冪の非零性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Kähler類の冪の非零性）"]
+    requires: [hodge.hard-lefschetz-theorem]
+  - id: hodge.surface-example-intersection-comparison
+    name: 複素曲面三例の原始部分と交叉形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素曲面三例の原始部分と交叉形式）"]
+    requires: [hodge.hodge-index-surface, hodge.projective-space-cohomology]

@@ -1,0 +1,37 @@
+id: "HOD1-14"
+title: "HodgeダイヤモンドIIと大域制約"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-13
+  - GRP3
+  - LIE3
+official_scope: []
+learning_objectives:
+  - Fubini–Study計量のユニタリ対称性と調和代表の一意性からCP^nのHodge数とコホモロジー環を導ける
+  - Fubini–Study形式の最高次積分を局所座標で計算し2πの正規化を検算できる
+  - Hard Lefschetzの低次数単射性からBetti数とHodge数の不等式を次数条件付きで導ける
+  - Kähler類の冪の非零性と正の交叉積分を説明できる
+  - CP^n、CP^1×CP^1、複素二次元トーラスのHodge数・原始部分・交叉形式を比較できる
+theorems:
+  - { id: HOD1-14-THM-01, name: "複素射影空間のHodge数とコホモロジー環" }
+  - { id: HOD1-14-PROP-01, name: "Fubini–Study形式の最高次積分" }
+  - { id: HOD1-14-PROP-02, name: "低次数Lefschetz単射性とHodge数の単調性" }
+  - { id: HOD1-14-COR-01, name: "Kähler類の冪の非零性" }
+  - { id: HOD1-14-PROP-03, name: "複素曲面三例の原始部分と交叉形式" }
+canonical_examples:
+  - CP^2のHodgeダイヤモンドと規格化交叉積分
+  - CP^1×CP^1の二つの二次類と原始方向
+  - 複素二次元トーラスの中央Hodge数と交叉形式の符号
+problem_patterns:
+  - HOD1-14-PROJECTIVE-COHOMOLOGY
+  - HOD1-14-FS-VOLUME
+  - HOD1-14-LEFSCHETZ-INEQUALITY
+  - HOD1-14-HODGE-TYPE-MONOTONICITY
+  - HOD1-14-KAHLER-POWER
+  - HOD1-14-SURFACE-SIGNATURE
+  - HOD1-14-OBSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }

@@ -60,7 +60,7 @@ chapters:
     title: "Hodge–Riemann双線形関係とHodge指数定理"
   - id: HOD1-14
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-14
-    status: planned
+    status: completed
     title: "HodgeダイヤモンドIIと大域制約"
   - id: HOD1-15
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-15
