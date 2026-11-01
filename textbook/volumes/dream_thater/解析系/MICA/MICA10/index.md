@@ -125,7 +125,15 @@ $$
 \left(\int_\Gamma\langle\xi\rangle^{2(N-s)}d\xi\right)^{1/2}<\infty.
 $$
 
-これだけでは点ごとの減衰は直ちに従わないため、さらに小さい錐を選び、$\chi u$ のコンパクト支持性を使って Fourier変換を近傍の周波数球で平均します。$\widehat{\chi u}$ の各微分は $x^\alpha\chi u$ のFourier変換であり、同じ錐内部の重み付き $L^2$ 評価が成立します。周波数単位球上のSobolev埋め込み（有限個の微分の $L^2$ ノルムで上限を抑える）を適用すると $|\widehat{\chi u}(\xi)|\le C_N\langle\xi\rangle^{-N}$ が得られます。よって $z\notin WF(u)$。逆の包含は $WF^s(u)\subset WF(u)$ と $WF(u)$ の閉性から従います。最後の単調性は $\langle\xi\rangle^{s_1}\le\langle\xi\rangle^{s_2}$（$s_1\le s_2$）から従います。
+これだけでは点ごとの減衰は直ちに従いません。さらに小さい錐を選び、コンパクト支持な $\chi u$ のFourier変換を周波数の単位球で平均します。その各微分は $x^\alpha\chi u$ のFourier変換であり、同じ錐内部で重み付き二乗積分評価を満たします。
+
+単位球上のSobolev埋め込みを有限個の微分へ適用すると、任意の整数 $N\ge0$ について
+
+$$
+|\widehat{\chi u}(\xi)|\le C_N\langle\xi\rangle^{-N}
+$$
+
+が得られ、$z\notin WF(u)$ です。逆の包含は各 $WF^s(u)\subset WF(u)$ と通常の波面集合の閉性によります。単調性は、$s_1\le s_2$ なら $\langle\xi\rangle^{s_1}\le\langle\xi\rangle^{s_2}$ であることから従います。
 <!-- proof-end -->
 
 ## 4. Hamilton流は交換子の主項に現れる
@@ -244,7 +252,16 @@ $$
 
 となります。ここで $G_0,G_1$ は管に支持される次数0のcutoffで、各項の有限性は仮定によります。管の外からの平滑な剰余は、コンパクト支持した $u$ の十分低いSobolevノルムで抑えます。
 
-**(4) 分布への拡張。** 分布 $u$ に形式的に $B$ を当てて二乗ノルムを書いてはいけません。$\rho$ の高周波で $j_\varepsilon(\rho)=(1+\varepsilon\rho)^{-M}$（$M$ を十分大きく取る）を掛けた $a_\varepsilon$ を使い、(1)–(3) をまず正則化した作用素に適用します。$j_\varepsilon$ の記号評価は $0<\varepsilon\le1$ で一様で、その微分は $-M\varepsilon(1+\varepsilon\rho)^{-M-1}$ と符号を制御できるので、減少率を選んだ(1)の不等式を壊しません。得られた $\|B_\varepsilon u\|_{L^2}$ の一様上界に Fatou の補題を適用すると $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、定義により $z_0\notin WF^s(u)$ です。
+**(4) 分布への拡張。** 分布に形式的に $B$ を当てて二乗ノルムを書いてはいけません。$M$ を十分大きく選び、高周波の正則化因子を
+
+$$
+j_\varepsilon(\rho)=(1+\varepsilon\rho)^{-M},\qquad
+\frac{dj_\varepsilon}{d\rho}=-M\varepsilon(1+\varepsilon\rho)^{-M-1}
+$$
+
+とします。$a_\varepsilon=aj_\varepsilon$ を(1)–(3)の記号に代入し、まず正則化した作用素について評価します。$0<\varepsilon\le1$ で記号評価が一様であり、導関数の寄与も(1)の減少率を十分大きく選べば吸収できます。
+
+この評価で得た $\|B_\varepsilon u\|_{L^2}$ の一様上界にFatouの補題を適用すると $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、[Sobolev波面集合の定義](#def-mica10-sobolev-wavefront)から、その点は $WF^s(u)$ に入りません。
 <!-- proof-end -->
 
 ### 技術的な境界：何を証明して、何を使ったか
@@ -262,7 +279,15 @@ $$
 
 まず[非特性方向の楕円正則性](../MICA9/index.md#prop-mica9-wavefront-confinement)から $WF(u)\subset\operatorname{Char}(P)$ です。特性上では第5節の $Q=LP$ が同じ向きの双特性曲線を持ち、$Qu$ は滑らかです。
 
-特性曲線 $\gamma$ 上の点 $\gamma(s_0)$ で $u$ が滑らかだとします。任意の $s\in\mathbb R$ を固定し、$s_0$ の小さい錐的近傍では $u$ がmicrolocalに $H^s$ です。任意のコンパクトな短い曲線区間の近くで、$u$ は分布だから $H^{-N}$ に属します。十分負の階数 $s_*=-N$ を選び、第5節の[局所正交換子評価](#lem-mica10-positive-commutator)を $s=s_*+1/2$ から適用します。入口の $H^s$ と管上の $H^{s-1/2}$ を仮定し、出口の $H^s$ を得ます。
+特性曲線 $\gamma$ 上の点 $\gamma(s_0)$ で $u$ が滑らかだとします。任意のSobolev階数 $s$ を固定すると、$s_0$ の小さい錐的近傍では $u$ はその階数の正則性を持ちます。
+
+一方、コンパクトな短い曲線区間の近くでは、分布 $u$ は十分負の階数 $s_*=-N$ のSobolev空間に属します。第5節の[局所正交換子評価](#lem-mica10-positive-commutator)を最初に
+
+$$
+s=s_*+\tfrac12,\qquad s-\tfrac12=s_*
+$$
+
+として使います。入口ではすでに $H^s$、管の全体では $H^{s-1/2}$ が既知なので、出口にも $H^s$ が得られます。
 
 同じ流れの箱を少しずつ重ね、$s_*+1/2,s_*+1,\ldots$ と反復します。右辺 $Qu$ は滑らかなので、各段階の $H^s$ 条件を満たします。有限回の反復で任意に指定した $s$ に届きます。したがって各 $WF^s(u)$ はHamilton流に沿って不変です。これらの集合の和集合の閉包も、連続な流れと逆向きの流れによって不変です。[Sobolev波面と通常の波面](#lem-mica10-sobolev-wavefront)の補題から、これは通常の $WF(u)$ の不変性そのものです。
 
@@ -389,7 +414,20 @@ $P\in\Psi^m$ の実主シンボルを $p_m$ とし、$L\in\Psi^{1-m}$ の主シ�
 <!-- solution-start -->
 #### 詳細解答
 
-[MICA8の擬微分作用素の合成公式](../MICA8/index.md#lem-mica8-composition)から $Q\in\Psi^1$、$\sigma_1(Q)=\ell p_m$ です。$\ell>0$ なので $\ell p_m=0\iff p_m=0$。積の微分から $H_{\ell p_m}=\ell H_{p_m}+p_mH_\ell$ を得て、特性集合上では第二項が零となります。したがって積分曲線の向きは保たれ、パラメータの速さだけが $\ell$ 倍されます。ただし $Q=LP$ には $L$ と $P$ の低階記号の積や合成の微分補正が残ります。$Pu=0$ と $Qu=0$ の解集合は近似逆を伴う議論なしには同一とは断定できず、ここで使うのは $Pu$ が滑らかなら $Qu$ も滑らか、という擬局所性です。
+[MICA8の擬微分作用素の合成公式](../MICA8/index.md#lem-mica8-composition)から、一階の主シンボルは
+
+$$
+Q\in\Psi^1,\qquad \sigma_1(Q)=\ell p_m
+$$
+
+です。$\ell>0$ なので、その零集合は元の主シンボルと同じです。積の微分を行うと
+
+$$
+H_{\ell p_m}=\ell H_{p_m}+p_mH_\ell,
+\qquad H_{\ell p_m}|_{p_m=0}=\ell H_{p_m}|_{p_m=0}.
+$$
+
+従って特性曲線の向きは保たれ、パラメータの速さだけが正の倍率で変わります。ただし $Q=LP$ には両作用素の低階記号の積や合成の微分補正が残ります。二つの同次方程式の解集合は近似逆を伴う議論なしには同一と断定できません。ここで必要なのは、元の右辺 $Pu$ が滑らかなら $Qu$ も滑らか、という擬局所性です。
 <!-- solution-end -->
 
 <a id="ex-mica10-b03"></a>
