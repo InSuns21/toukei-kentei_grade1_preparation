@@ -1,0 +1,45 @@
+id: "MICA12"
+title: "局所Hadamard parametrix"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA11
+  - HPDE13
+  - LORG5
+  - MICA4
+official_scope: []
+learning_objectives:
+  - 測地的凸近傍で世界関数とvan Vleck因子を用い、4次元の局所Hadamard特異構造を説明できる
+  - Minkowski質量零模型の正周波数二点分布からi0境界値の符号と8π²の正規化を検算できる
+  - Uおよび対数係数v_nの輸送方程式を特異項の相殺から導き、測地線積分で解ける
+  - 質量付き平坦模型でv_0とv_1を計算し、曲率結合を含むv_0の対角値を検算できる
+  - 有限次Hadamard切断と全次数の局所特異構造を区別し、滑らかな状態依存部分の意味を説明できる
+  - 長さスケールの変更が滑らかな局所項を変えるだけであることを計算できる
+definitions:
+  - { id: MICA12-DEF-01, name: 正周波数境界値 }
+  - { id: MICA12-DEF-02, name: 局所Hadamard係数の形式漸近展開 }
+  - { id: MICA12-DEF-03, name: 4次元局所Hadamard parametrixとHadamard余り }
+theorems:
+  - { id: MICA12-PROP-01, name: 質量零Minkowski真空の正規化 }
+  - { id: MICA12-THM-01, name: 4次元対数係数の輸送方程式と一意な滑らかな解 }
+  - { id: MICA12-PROP-02, name: 質量付き平坦時空の全対数係数 }
+  - { id: MICA12-PROP-03, name: 長さスケールの変更 }
+canonical_examples:
+  - 平坦な世界関数とvan Vleck因子の条件確認
+  - 質量零の正周波数Fourier積分からの境界値
+  - 質量付き平坦時空のv_0とv_1
+  - 有限次数のσべき乗対数の微分可能性
+problem_patterns:
+  - MICA12-SYNGE-AND-U
+  - MICA12-BOUNDARY-ORIENTATION
+  - MICA12-MASSLESS-FOURIER
+  - MICA12-TRANSPORT-INITIAL
+  - MICA12-RECURSION
+  - MICA12-CURVATURE-DIAGONAL
+  - MICA12-TRUNCATION-REGULARITY
+  - MICA12-SCALE-SHIFT
+  - MICA12-HADAMARD-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
