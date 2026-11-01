@@ -1,5 +1,7 @@
 # QFT29 Faddeev–Popovゲージ固定・ghostとBRST対称性
 
+<!-- definition-example-audit: strict -->
+
 [QFT28のYang–Mills作用](../QFT28/index.md#def-qft28-yang-mills-action)は、局所変換で形が変わらない古典理論でした。しかし量子論の経路積分で全ての $A_\mu$ をそのまま積分すると、同じ物理的な場を表す無数のゲージ変換像を重ねて数えてしまいます。さらに作用の二次部分はゲージ方向に零モードを持ち、伝播関数を一意に反転できません。これは[QFT16のMaxwell場の零方向](../QFT16/index.md#prop-qft16-zero-mode)の非可換版です。
 
 この重複を減らすため、各ゲージ軌道から条件を満たす代表を選びます。ただし「条件を一つ課す」だけでは積分の体積要素が変わります。そのJacobianがFaddeev–Popov行列式であり、Grassmann変数で表したものがghostです。最後に、ゲージ固定後にも残る代数的な対称性としてBRSTを導きます。
@@ -49,13 +51,15 @@ $$
 > である。条件を満たす場の集合をゲージ条件面（局所的な切断）と呼ぶ。この条件が各軌道から大域的に一意な代表を選ぶとは仮定しない。
 <!-- formal-statement-end -->
 
-**直接例。** $A_\mu=0$ は $G^a=0$ を満たします。それにもかかわらず、$A_\mu'=(\partial_\mu\theta)T^3/g$ という[QFT28の純ゲージ例](../QFT28/index.md#thm-qft28-gauge-covariance)では、
+<!-- definition-example-start: def-qft29-gauge-slice -->
+**定義の確認**：$A_\mu=0$ は $G^a=0$ を満たします。それにもかかわらず、$A_\mu'=(\partial_\mu\theta)T^3/g$ という[QFT28の純ゲージ例](../QFT28/index.md#thm-qft28-gauge-covariance)では、
 
 $$
 G'^3=\frac1g\Box\theta,\qquad G'^{a\ne3}=0.
 $$
 
 $\Box\theta=0$ を満たす非定数の $\theta$ が許される境界条件なら、異なるポテンシャルが同じLorenz条件を満たします。よってゲージ固定は境界条件と残余変換の扱いを必要とします。
+<!-- definition-example-end -->
 
 ## 2. ゲージ条件のJacobianからFaddeev–Popov作用素へ
 
@@ -79,6 +83,16 @@ $$
 
 > と定義する。符号は積分の規約であり、一定の符号因子を除けば行列式に本質的な差はない。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-qft29-fp-operator -->
+**定義の確認**：零背景 $A=0$ では $\mathscr D_\mu=\partial_\mu I$ なので、任意の滑らかな随伴関数 $v$ に
+
+$$
+(Mv)^a=-\partial^\mu\partial_\mu v^a=-\Box v^a
+$$
+
+と作用します。Lorenz条件の微分は $\delta G^a=\Box\omega^a$ であり、定義した $M$ とは確かに負号だけ異なります。
+<!-- definition-example-end -->
 
 ここで $\mathscr D_\mu$ は第1節で成分まで定義した作用素です。定義に現れる $\partial^\mu\mathscr D_\mu$ は二つの微分を順に作用させることを表し、$\partial^\mu$ が $A_\mu$ にもかかる点が重要です。
 
@@ -186,7 +200,9 @@ $$
 > とする。$c,\bar c$ は互いに独立な積分変数であって、通常の複素共役関係は仮定しない。
 <!-- formal-statement-end -->
 
-**直接例。** $A=0$ では $S_{\rm gh}=-\int\bar c^a\Box c^a$ です。境界項を捨てて一度部分積分すれば $\int(\partial^\mu\bar c^a)(\partial_\mu c^a)$ となり、二次作用素 $M=-\Box$ を取り出せます。$SU(N)$ の場合、$g f^{abc}A_\mu^b c^c$ の分だけ相互作用が加わります。
+<!-- definition-example-start: def-qft29-ghost-action -->
+**定義の確認**：$A=0$ では $S_{\rm gh}=-\int\bar c^a\Box c^a$ です。境界項を捨てて一度部分積分すれば $\int(\partial^\mu\bar c^a)(\partial_\mu c^a)$ となり、二次作用素 $M=-\Box$ を取り出せます。$SU(N)$ の場合、$g f^{abc}A_\mu^b c^c$ の分だけ相互作用が加わります。
+<!-- definition-example-end -->
 
 <a id="prop-qft29-ghost-determinant"></a>
 
@@ -258,7 +274,8 @@ $$
 > と定義する。全作用は $S_{\rm YM}+S_{\rm gf+gh}$ とする。ここで $G^a=\partial^\mu A_\mu^a$、$M=-\partial^\mu\mathscr D_\mu$ である。
 <!-- formal-statement-end -->
 
-**直接確認。** 固定した $A,c,\bar c$ に対して $B$ で変分すると、各成分ごとに
+<!-- definition-example-start: def-qft29-gauge-fixed-action -->
+**定義の確認**：固定した $A,c,\bar c$ に対して $B$ で変分すると、各成分ごとに
 
 $$
 G^a+\xi B^a=0,\qquad B^a=-\frac{G^a}{\xi}.
@@ -283,6 +300,7 @@ S_{\rm gf+gh}
 $$
 
 です。$B$ のGaussian積分で出る定数は $A,c,\bar c$ に依存しません。実時間の振動積分には $i\varepsilon$ や積分路の処方が必要であり、Euclid形式では $B$ の積分路を含めた符号規約を改めて選びます。
+<!-- definition-example-end -->
 
 ## 5. BRST：ゲージ固定後の作用を保つ奇の変換
 
@@ -314,7 +332,8 @@ $$
 > と定義する。$s$ は時空微分と交換し、積には上記の符号付きLeibniz則を適用する。
 <!-- formal-statement-end -->
 
-**直接例：$SU(2)$ のghost。** $f^{abc}=\varepsilon^{abc}$ では
+<!-- definition-example-start: def-qft29-brst -->
+**定義の確認**：$SU(2)$ のghostでは $f^{abc}=\varepsilon^{abc}$ なので
 
 $$
 sc^1=-\frac g2(\varepsilon^{123}c^2c^3
@@ -322,6 +341,7 @@ sc^1=-\frac g2(\varepsilon^{123}c^2c^3
 $$
 
 $c^3c^2=-c^2c^3$ であることが係数2の理由です。同様に $sc^2=-gc^3c^1$、$sc^3=-gc^1c^2$。一成分だけを取り出して $c^2=0$ と置くと $sc^1=0$ となり、可換部分ではghostの非線形項が消えることも分かります。
+<!-- definition-example-end -->
 
 <a id="thm-qft29-brst-nilpotent"></a>
 
@@ -398,6 +418,17 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qft29-gauge-fermion -->
+**定義の確認**：$\xi=1$ と選ぶと $\Psi=\int\bar c^a(G^a+B^a/2)$ です。$\bar c$ は奇、括弧内は偶なので $\Psi$ は奇であり、ghost数は $-1+0=-1$ です。さらに[BRST変換](#def-qft29-brst)を一度作用させれば
+
+$$
+s\Psi=\int d^4x\,\left[B^aG^a+\frac12B^aB^a
+-\bar c^a\partial^\mu(\mathscr D_\mu c)^a\right]
+$$
+
+となり、実際に $\xi=1$ のゲージ固定作用を再現します。
+<!-- definition-example-end -->
+
 <a id="thm-qft29-brst-action"></a>
 
 <!-- formal-statement-start -->
@@ -469,7 +500,9 @@ $$
 > を次数 $n$ のBRSTコホモロジーとする。量子化後に冪零なBRST電荷 $Q$ が状態空間で定義され、適切な定義域・内積・ghost数条件が満たされる場合には、物理状態の候補を通常 $H^0(Q)$ として捉える。
 <!-- formal-statement-end -->
 
-**直接例。** $s\bar c^a=B^a$、$sB^a=0$ なので $B^a$ は閉じていると同時に正確（$s$ の像）です。したがって $B^a$ が表すコホモロジー類は零です。一方、[曲率の変換則](../QFT28/index.md#thm-qft28-curvature-bianchi)から $s\operatorname{tr}(F_{\mu\nu}F^{\mu\nu})=0$。これは閉じたゲージ不変量の例ですが、「正確でない」ことまでこの計算だけで証明したわけではありません。
+<!-- definition-example-start: def-qft29-brst-cohomology -->
+**定義の確認**：$s\bar c^a=B^a$、$sB^a=0$ なので $B^a$ は閉じていると同時に正確（$s$ の像）です。したがって $B^a$ が表すコホモロジー類は零です。一方、[曲率の変換則](../QFT28/index.md#thm-qft28-curvature-bianchi)から $s\operatorname{tr}(F_{\mu\nu}F^{\mu\nu})=0$。これは閉じたゲージ不変量の例ですが、「正確でない」ことまでこの計算だけで証明したわけではありません。
+<!-- definition-example-end -->
 
 **何がまだ必要か。** ここで証明したのは古典的な局所多項式のBRST代数です。量子論での $Q$ の存在と冪零性、負ノルム状態の除去、物理的な内積の正値性、ゲージ固定パラメータへの観測量の非依存性には、正則化・測度・Ward／Slavnov–Taylor恒等式と異常の不在を別途確認する必要があります。非摂動的なGribovコピーがある領域では、局所的なFaddeev–Popov論証をそのまま大域的な構成へ拡張できません。
 
