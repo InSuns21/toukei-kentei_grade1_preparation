@@ -73,13 +73,13 @@ $$
 \langle\xi\rangle^{2s}|\widehat v(\xi)|^2\,d\xi
 $$
 
-で定めます（一般の局所分布にはcutoffを掛けます）。$s$ は負でもよく、$s$ が大きいほど強い正則性を要求します。$A\in\Psi^s$ が点 $z=(x,\xi)\ne0$ で楕円的で $Au\in L^2_{\mathrm{loc}}$ なら、$u$ は **$z$ でmicrolocalに $H^s$** と呼びます。後者の楕円性は $|\sigma_s(A)(z)|>0$ によって判定し、低周波の違いは問いません。
+で定めます（一般の局所分布にはcutoffを掛けます）。$s$ は負でもよく、$s$ が大きいほど強い正則性を要求します。方向別の判定には、点 $z=(x,\xi)\ne0$ で楕円的な $A\in\Psi^s$ を選び、$Au$ の二乗可積分性を測ります。楕円性は $|\sigma_s(A)(z)|>0$ によって判定し、低周波の違いは問いません。
 
 <a id="def-mica10-sobolev-wavefront"></a>
 
 <!-- formal-statement-start -->
 > **定義（Sobolev波面集合）**  
-> $u\in\mathcal D'(X)$、$s\in\mathbb R$ に対し $WF^s(u)$ は、$z\in T^*X\setminus0$ の任意の錐的近傍において、$z$ で楕円的な $A\in\Psi^s$ を選んでも $Au\in L^2_{\mathrm{loc}}$ とできない点の集合とする。従って $z\notin WF^s(u)$ は「その余接方向で $s$ 階のSobolev正則性がある」ことを表す。
+> $u\in\mathcal D'(X)$、$s\in\mathbb R$ とする。$z\in T^*X\setminus0$ で楕円的な $A\in\Psi^s$ が存在し $Au\in L^2_{\mathrm{loc}}$ となるとき、$u$ は $z$ で **microlocalに $H^s$** であるという。そのような $A$ が存在しない点の集合を **Sobolev波面集合** $WF^s(u)$ とする。従って $z\notin WF^s(u)$ は、その余接方向で $s$ 階のSobolev正則性があることを表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mica10-sobolev-wavefront -->
