@@ -1,0 +1,30 @@
+chapter: HOD1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-10
+concepts:
+  - id: hodge.harmonic-lefschetz-isomorphism
+    name: 調和空間上のLefschetz同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（調和空間上のLefschetz同型）"]
+    requires: [hodge.pointwise-lefschetz-isomorphism, hodge.harmonic-lefschetz-sl2]
+  - id: hodge.hard-lefschetz-theorem
+    name: Hard Lefschetz定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hard Lefschetz定理）"]
+    requires: [hodge.harmonic-lefschetz-isomorphism, hodge.harmonic-lefschetz-cohomology, hodge.kahler-hodge-decomposition]
+  - id: hodge.hard-lefschetz-type
+    name: 型別Hard Lefschetz同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（型別Hard Lefschetz同型）"]
+    requires: [hodge.hard-lefschetz-theorem, hodge.lefschetz-hodge-type-shift, hodge.de-rham-hodge-summand]
+  - id: hodge.hard-lefschetz-betti-symmetry
+    name: Betti数の次数対称性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Betti数の次数対称性）"]
+    requires: [hodge.hard-lefschetz-theorem]
