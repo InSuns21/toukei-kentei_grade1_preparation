@@ -1,0 +1,45 @@
+id: "MICA10"
+title: "特異性の伝播"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA9
+  - MICA8
+  - MICA5
+  - MICA3
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 平坦波動方程式の分布解を光的座標で求め、波面とHamilton流の一致を検算できる
+  - 実主型の伝播定理の対象、滑らかな右辺、双特性曲線に沿う不変性の射程を述べられる
+  - Sobolev波面集合の方向別正則性と通常の波面集合との関係を説明できる
+  - 擬微分作用素の交換子の主シンボルがHamilton微分になることを合成公式から導ける
+  - 正交換子のescape functionと低階剰余のSobolev制御を再現できる
+  - 一階への還元、半階ずつの反復、逆向きの流れから伝播を組み立てられる
+  - Klein–Gordon作用素の光的伝播と特異な右辺による発生を区別できる
+definitions:
+  - { id: MICA10-DEF-01, name: Sobolev波面集合 }
+theorems:
+  - { id: MICA10-THM-01, name: 実主型作用素の特異性伝播 }
+  - { id: MICA10-LEM-01, name: Sobolev波面と通常の波面 }
+  - { id: MICA10-LEM-02, name: 交換子とHamilton微分 }
+  - { id: MICA10-LEM-03, name: 局所正交換子評価 }
+canonical_examples:
+  - 光的座標による平坦波動方程式の分布解
+  - null超曲面デルタ分布の波面とHamilton流
+  - デルタ分布のSobolev正則性の閾値
+  - D_tと減少する重みの乗算作用素の交換子
+  - 時間局在した点状発生源と滑らかな右辺の差
+problem_patterns:
+  - MICA10-NULL-COORDINATES
+  - MICA10-DELTA-WAVEFRONT
+  - MICA10-SOBOLEV-THRESHOLD
+  - MICA10-COMMUTATOR-SIGN
+  - MICA10-CONSTANT-SPEED
+  - MICA10-ORDER-REDUCTION
+  - MICA10-LOWER-ORDER-ERROR
+  - MICA10-SOURCE-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 6 }
