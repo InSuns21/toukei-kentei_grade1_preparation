@@ -21,7 +21,9 @@ $$
 P=-\Box_g+q,\qquad q=m^2+\xi R
 $$
 
-と置きます。$R$ はスカラー曲率、$q$ は実数値の滑らかなポテンシャルです。この作用素は[MICA11で固定したKlein–Gordon作用素](../MICA11/index.md#def-mica11-smeared-algebra)と同じです。以下、微分は特記しない限り第一変数 $x$ に作用し、$d\mu_g$ を使って分布核を解釈します。$\Box_x$ は $y$ を固定して $x$ に作用する $\Box_g$ の略記であり、$\partial_{t_x}$ も $t_y$ を固定する偏微分です。
+と置きます。$R$ はスカラー曲率、$q$ は実数値の滑らかなポテンシャルです。この作用素は[MICA11で固定したKlein–Gordon作用素](../MICA11/index.md#def-mica11-smeared-algebra)と同じです。
+
+以下、微分は特記しない限り第一変数 $x$ に作用し、$d\mu_g$ を使って分布核を解釈します。$\Box_x$ は $y$ を固定して $x$ に作用する $\Box_g$ の略記です。同様に、$\partial_{t_x}$ は $t_y$ を固定した偏微分を表します。
 
 [LORG5の測地的凸正規近傍](../../../幾何系/LORG/LORG5/index.md#def-lorg5-convex-normal) $C$ を一つ選び、$x,y\in C$ を結ぶ一意な測地線を $\gamma_{xy}(s)=\exp_y(sv)$（$0\le s\le1$、$x=\exp_yv$）とします。これは光が必ず $x$ から $y$ へ到達するという主張ではありません。この近傍の中で短い測地線が一意だという仮定です。
 
@@ -67,7 +69,14 @@ $$
 \qquad -\partial_{x^a}\partial_{y^b}\sigma=g_{ab}.
 $$
 
-この行列は[van Vleck–Morette因子の定義](../../HPDE/HPDE13/index.md#def-hpde13-van-vleck)の分子に入るもので、両端の計量の体積密度で割る必要があります。$|\det g|=1$ だから分子 $|\det g|=1$、分母 $\sqrt{|\det g(x)|}\sqrt{|\det g(y)|}=1$ であり、$\Delta=1$、正の平方根は $U=1$ です。従って $DU=0$ と $\Box_x\sigma-4=0$ の両方を確かめ、輸送式も満たします。$\sigma=0$ は光円錐であり、$\sigma$ の符号を「常に正の距離の二乗」として扱うのは誤りです。
+この行列は[van Vleck–Morette因子の定義](../../HPDE/HPDE13/index.md#def-hpde13-van-vleck)の分子に入るもので、両端の計量の体積密度で割る必要があります。ここでは各点で $|\det g|=1$ なので
+
+$$
+\Delta(x,y)=\frac{|\det g|}{\sqrt{|\det g(x)|}\sqrt{|\det g(y)|}}=1,
+\qquad U=\sqrt\Delta=1.
+$$
+
+従って $DU=0$ と $\Box_x\sigma-4=0$ の両方を確かめ、輸送式も満たします。$\sigma=0$ は光円錐であり、$\sigma$ の符号を「常に正の距離の二乗」として扱うのは誤りです。
 
 ## 2. 正周波数を $i0$ 境界値に移す
 
