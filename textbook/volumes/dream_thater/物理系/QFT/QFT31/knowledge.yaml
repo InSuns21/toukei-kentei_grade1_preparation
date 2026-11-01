@@ -1,0 +1,27 @@
+chapter: QFT31
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT30, QFT27, QFT26, QFT24, QFT23, QFT18, QFT17, QFT21]
+forward_references: []
+
+concepts:
+  - id: qft.integrated-qed-gauge-scattering
+    name: 質量殻電流・共変ゲージ・断面積の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量殻電流・共変ゲージ・断面積の一致）]
+    requires: [qft.qed-tree-photon-exchange, qft.on-shell-ward-identity, qft.qed-spin-averaged-amplitude, qft.cm-two-body-cross-section]
+
+  - id: qft.integrated-subtracted-phi4-vertex
+    name: 減算四点頂点と二つの運動量での検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（減算四点頂点と二つの運動量での検算）]
+    requires: [qft.subtracted-bubble-limit, qft.phi4-one-loop-vertices]
+
+  - id: qft.integrated-three-one-loop-flows
+    name: 三つの一ループ流の符号の対比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三つの一ループ流の符号の対比）]
+    requires: [qft.phi4-one-loop-beta, qft.qed-one-loop-beta, qft.pure-yang-mills-one-loop-beta]

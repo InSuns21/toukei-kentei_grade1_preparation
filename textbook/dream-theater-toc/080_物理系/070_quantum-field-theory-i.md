@@ -31,4 +31,5 @@
 28. [QFT28 非可換ゲージ変換・Yang–Mills曲率とゲージ場の自己相互作用](textbook/volumes/dream_thater/物理系/QFT/QFT28/index.md)
 29. [QFT29 Faddeev–Popovゲージ固定・ghostとBRST対称性](textbook/volumes/dream_thater/物理系/QFT/QFT29/index.md)
 30. [QFT30 Yang–Mills理論の一ループβ関数と漸近自由性](textbook/volumes/dream_thater/物理系/QFT/QFT30/index.md)
+31. [QFT31 散乱・ループ・ゲージ不変性・くりこみを結ぶ総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT31/index.md)
 
