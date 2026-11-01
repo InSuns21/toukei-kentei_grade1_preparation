@@ -319,7 +319,16 @@ $$
 
 ### 射影直線の積：中央次数には核もある
 
-$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ には[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product) $\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ を入れる。$u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d$、$v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d$ とする。以下では類の積 $u\smile v$ を $uv$、反復積 $u\smile u$ を $u^2$ と略記する。引き戻した形式の積は[de Rham積の定義](#def-hod1-10-de-rham-product)から $uv$ を代表する。各因子は実次元2なので $u^2=v^2=0$ である。ここで類の積分は閉代表の積分を意味し、コンパクト境界なしなら[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により代表によらない。因子の順序による積の向きでは、外積の積分は各因子の積分へ分かれる。[射影直線の面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を両因子に適用すると
+$Q=\mathbb{CP}^1\times\mathbb{CP}^1$ には[積Kähler形式](../../KAH/KAH1-05/index.md#thm-kah1-05-product)を入れ、$\omega=\pi_1^*\omega_{\mathrm{FS}}+\pi_2^*\omega_{\mathrm{FS}}$ とする。二つの類を
+
+$$
+u=[\pi_1^*\omega_{\mathrm{FS}}/(2\pi)]_d,
+\qquad v=[\pi_2^*\omega_{\mathrm{FS}}/(2\pi)]_d
+$$
+
+と置く。以下ではcup積 $u\smile v$ を $uv$、反復積 $u\smile u$ を $u^2$ と略記する。[de Rham積の定義](#def-hod1-10-de-rham-product)により、引き戻した形式の外積が $uv$ を代表する。各因子は実次元2なので $u^2=v^2=0$ である。
+
+類の積分は閉代表の積分を意味し、コンパクト境界なしなら[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により代表によらない。因子の順序による積の向きでは、外積の積分は各因子の積分へ分かれる。[射影直線の面積公式](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を両因子に適用すると
 
 $$
 \begin{aligned}
