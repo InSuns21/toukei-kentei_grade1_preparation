@@ -1,0 +1,48 @@
+id: "MICA11"
+title: "自由場の二点分布"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA10
+  - HPDE23
+  - MICA3
+  - LORG16
+official_scope: []
+learning_objectives:
+  - 時間向き付き大域双曲時空で実Klein–Gordon場のsmearingと場代数の関係式を定義できる
+  - 状態の線形性・規格化・正値性から二点量のHermite性と正値性を導ける
+  - 二点量が分布核になるには試験関数に関する連続性が別途必要なことを説明できる
+  - 二点分布の双解性と交換子の反対称部分を因果伝播子の符号規約込みで検算できる
+  - Minkowski真空の正周波数表示から正値性・質量殻・等時刻交換子を再計算できる
+  - 高周波極限の光的余接方向と有限運動量の質量殻を区別できる
+  - 双解性・CCR・正値性の役割と二点分布の非一意性を具体的に示せる
+definitions:
+  - { id: MICA11-DEF-01, name: 実Klein–Gordon場のsmearing代数 }
+  - { id: MICA11-DEF-02, name: 正値状態 }
+  - { id: MICA11-DEF-03, name: 分布型二点量と二点分布 }
+  - { id: MICA11-DEF-04, name: 二点分布の正値性・双解性・交換子条件 }
+theorems:
+  - { id: MICA11-PROP-01, name: 状態から従う二点量の性質 }
+  - { id: MICA11-PROP-02, name: 二点分布のCauchy–Schwarz評価 }
+  - { id: MICA11-PROP-03, name: 滑らかな双解による二点量の変更 }
+  - { id: MICA11-PROP-04, name: Minkowski真空の正周波数と光的余接方向 }
+canonical_examples:
+  - 零でない実試験関数による場代数の随伴と交換子
+  - 平坦時空の真空二点核のFourier質量殻と正値性
+  - 正弦核の時間微分からの等時刻交換子
+  - 高運動量極限の未来向き零余接方向
+  - 実Klein–Gordon双解の階数一の滑らかな付加項
+problem_patterns:
+  - MICA11-SMEARING-STAR
+  - MICA11-STATE-POSITIVITY
+  - MICA11-KG-BISOLUTION
+  - MICA11-MASS-SHELL
+  - MICA11-COVECTOR-ORIENTATION
+  - MICA11-CCR-CAUCHY-DATA
+  - MICA11-CAUCHY-SCHWARZ
+  - MICA11-SMOOTH-STATE-SHIFT
+  - MICA11-SPECTRUM-VS-HADAMARD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
