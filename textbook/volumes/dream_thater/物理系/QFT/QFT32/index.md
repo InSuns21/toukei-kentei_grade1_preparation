@@ -145,7 +145,20 @@ $$
 \det X(p)=(p^0)^2-(p^3)^2-(p^1)^2-(p^2)^2=p^2.
 $$
 
-$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性、正の時間方向、行列式が保たれます。$A$ と $-A$ は同じ四元ベクトル変換を与え、回転・boostを生成する連結成分を覆います。したがって $SL(2,\mathbb C)$ は $SO^+(1,3)$ の二重被覆であり、スピノルの符号も保持できます。この被覆の一般的な表現分類ではなく、次の安定化行列を直接求めます。
+$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性、正の時間方向、行列式が保たれます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
+
+まず $A=\operatorname{diag}(e^{\rho/2},e^{-\rho/2})$（実数 $\rho$）を代入すると、$X(p)$ の対角成分は $e^\rho(p^0+p^3)$ と $e^{-\rho}(p^0-p^3)$、非対角成分は不変です。和と差を取れば
+
+$$
+p'{}^0=\cosh\rho\,p^0+\sinh\rho\,p^3,\qquad
+p'{}^3=\sinh\rho\,p^0+\cosh\rho\,p^3.
+$$
+
+これは $z$ 方向のboostです。一方 $A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ なら非対角成分 $p^1-ip^2$ は $e^{-i\theta}$ 倍となり、$z$ 軸回転を与えます。座標軸を回してこれらを組み合わせれば任意方向のboostと回転を作れます。
+
+実際、任意の $\Lambda\in SO^+(1,3)$ に対し、$u=\Lambda(1,0,0,0)$ は $u^2=1,u^0>0$ を満たします。$\boldsymbol\beta=\boldsymbol u/u^0$ と置けば $|\boldsymbol\beta|<1$、$\gamma=(1-|\boldsymbol\beta|^2)^{-1/2}=u^0$ です。この速度のboost $B$ は $(1,0,0,0)$ を $u$ へ移します。そこで $B^{-1}\Lambda$ は $(1,0,0,0)$ を固定するので空間回転です。よってboostと回転の積で全群を覆います。
+
+また全てのHermitian $X$ を固定する $A$ は、$X=I$ を使うと $AA^\dagger=I$、さらに $A\sigma_i=\sigma_iA$（$i=1,2,3$）です。$\sigma_3$ と可換なら $A$ は対角、$\sigma_1$ とも可換なら $A=\lambda I$ であり、$\det A=1$ から $\lambda=\pm1$ です。従って核はちょうど $\{I,-I\}$。これで $SL(2,\mathbb C)\to SO^+(1,3)$ が二対一であることと、スピノルに符号が残る理由を確かめました。この被覆の全既約表現を分類するのではなく、次に安定化行列を直接求めます。
 
 <a id="thm-qft32-little-groups"></a>
 
