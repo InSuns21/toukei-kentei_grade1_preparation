@@ -1,0 +1,33 @@
+id: "HOD1-13"
+title: "Hodge–Riemann双線形関係とHodge指数定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-12
+official_scope: []
+learning_objectives:
+  - 原始(p,q)形式のHodge星公式をunitary余標構で証明し、位相因子と階乗を検算できる
+  - 原始Hodge型の交叉積分からHodge–Riemann正値性とHermite形式を導ける
+  - 複素曲面の実(1,1)部分をKähler類と原始部分へ分解し交叉形式の符号を判定できる
+  - Hodge指数定理の適用範囲と実二次コホモロジー全体の符号を区別できる
+theorems:
+  - { id: HOD1-13-THM-01, name: "原始形式のHodge星公式" }
+  - { id: HOD1-13-THM-02, name: "Hodge–Riemann双線形関係" }
+  - { id: HOD1-13-THM-03, name: "複素曲面のHodge指数定理" }
+  - { id: HOD1-13-COR-01, name: "二次実コホモロジーの交叉形式の符号" }
+canonical_examples:
+  - 複素二次元の原始実(1,1)形式の反自己双対性
+  - CP1 x CP1の交叉行列と正負方向
+  - 複素三次元で原始二次形式に残るomegaの一因子
+problem_patterns:
+  - HOD1-13-STAR-SIGN
+  - HOD1-13-PRIMITIVE-INTEGRAL
+  - HOD1-13-HERMITIAN-PAIRING
+  - HOD1-13-SURFACE-PROJECTION
+  - HOD1-13-INTERSECTION-SIGNATURE
+  - HOD1-13-HODGE-TYPE-ORTHOGONALITY
+  - HOD1-13-INCIDENCE-IDENTITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }

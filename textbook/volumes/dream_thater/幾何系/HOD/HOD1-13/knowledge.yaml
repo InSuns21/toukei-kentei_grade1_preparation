@@ -1,0 +1,37 @@
+chapter: HOD1-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-12
+concepts:
+  - id: hodge.primitive-star-formula
+    name: 原始形式のHodge星公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（原始形式のHodge星公式）"]
+    requires: [hodge.primitive-form, hodge.lefschetz-adjoint]
+  - id: hodge.primitive-intersection-pairing
+    name: 原始交叉形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（原始交叉形式と符号付きHermite形式）"]
+    requires: [hodge.primitive-hodge-type]
+  - id: hodge.hodge-riemann-bilinear-relations
+    name: Hodge–Riemann双線形関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodge–Riemann双線形関係）"]
+    requires: [hodge.primitive-intersection-pairing, hodge.primitive-star-formula]
+  - id: hodge.hodge-index-surface
+    name: 複素曲面のHodge指数定理
+    kind: theorem
+    introduction: formal
+    aliases: ["Hodge指数定理"]
+    introduction_aliases: ["定理（複素曲面のHodge指数定理）"]
+    requires: [hodge.hodge-riemann-bilinear-relations, hodge.cohomology-lefschetz-decomposition]
+  - id: hodge.surface-full-intersection-signature
+    name: 複素曲面の実二次交叉形式の符号
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（実二次コホモロジー全体の符号）"]
+    requires: [hodge.hodge-index-surface, hodge.hodge-riemann-bilinear-relations]
