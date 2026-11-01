@@ -206,7 +206,16 @@ W_0(f,h)
 \widetilde h(\omega_{\boldsymbol p},\boldsymbol p).
 $$
 
-$m>0$ なら $\omega_{\boldsymbol p}\ge m$ です。コンパクト支持の滑らかな $f,h$ のFourier変換は急減少し、質量殻へ代入した二因子も $|\boldsymbol p|\to\infty$ で任意次数だけ減衰します。例えば各因子を $C_{K,N}(1+|\boldsymbol p|)^{-N}$ と評価して $N=2$ を取れば絶対積分可能です。固定した試験関数の支持 $K$ では $C_{K,N}$ は有限個の微分の上限で抑えられるため、積分は両引数に共同連続です。従ってここでは単に双線形な数値を得るだけでなく、**分布型二点量**の条件も確認できました。
+質量 $m>0$ により $\omega_{\boldsymbol p}\ge m$ です。コンパクト支持の滑らかな試験関数はFourier変換が急減少します。支持をコンパクト集合 $K$ に固定すると、任意の整数 $N\ge0$ について
+
+$$
+|\widetilde f(\pm\omega_{\boldsymbol p},\pm\boldsymbol p)|
+\le C_{K,N}(f)(1+|\boldsymbol p|)^{-N}
+$$
+
+となります。ここで $C_{K,N}(f)$ は $K$ 上の有限階までの微分の上限で抑えられる量です。$h$ についても同じ評価が得られます。
+
+$N=2$ を両因子に適用すれば積は $|\boldsymbol p|$ について4次減衰し、3次元の運動量積分は絶対収束します。分母も $2\omega_{\boldsymbol p}\ge2m$ なので零になりません。各固定支持上の試験関数の半ノルムで積分を抑えられるため、両引数に**共同連続**です。これで分布型二点量の非自明な条件も確認できました。
 
 さらに $\widetilde{\overline f}(-\omega,-\boldsymbol p)=\overline{\widetilde f(\omega,\boldsymbol p)}$ より、正値性は
 
