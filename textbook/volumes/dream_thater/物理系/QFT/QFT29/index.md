@@ -25,7 +25,14 @@ $$
 =\partial_\mu\omega^a+g f^{abc}A_\mu^b\omega^c.
 $$
 
-ここで $\omega^a$ は滑らかな実関数です。右辺は行列値場に作用する[QFT28の随伴共変微分](../QFT28/index.md#def-qft28-curvature)の成分です。以下では、随伴表現の色添字を持つ実係数関数 $v^a$ に対して
+ここで $\omega^a$ は滑らかな実関数です。[QFT28の随伴共変微分](../QFT28/index.md#def-qft28-curvature)は行列値場 $X=v^aT^a$ に $\mathcal D_\mu X=\partial_\mu X-ig[A_\mu,X]$ と作用します。生成子 $T^a$ の基底で係数を比較すると、$[T^b,T^c]=if^{bca}T^a$ と $f^{bca}=f^{abc}$ によって
+
+$$
+\mathcal D_\mu(v^aT^a)
+=\left(\partial_\mu v^a+g f^{abc}A_\mu^b v^c\right)T^a
+$$
+
+です。この係数を随伴表現の関数 $v^a$ へ直接作用させる演算子として、以下では $\mathscr D_\mu$ と書きます。
 
 $$
 (\mathscr D_\mu v)^a
@@ -133,7 +140,14 @@ $$
 定義の負号を掛けます。$G^b=\partial^\mu A_\mu^b=0$ の場では第二項のみが消えます。
 <!-- proof-end -->
 
-**直接例。** $A=0$ なら $M=-\Box I$ です。Euclid空間へ移った正則化で $-\partial_E^2$ を周期箱の非零Fourierモード $e^{ikx}$ に作用させれば、固有値 $|k|^2>0$ が得られます。定数モードは固有値零であり、これは大域的な残余ゲージ変換に対応します。行列式を使う場合は、その零モードを除去するか境界条件で固定する必要があります。Lorentz時空の $\Box$ とEuclid空間の $\partial_E^2$ の符号を混同しないでください。
+**直接例。** $A=0$ なら $M=-\Box I$ で、$\Box=\partial_t^2-\sum_{j=1}^3\partial_j^2$ です。零モードの判定を別の正定値な模型で確かめるため、周期箱のEuclid座標 $x_E=(x_E^1,\ldots,x_E^4)$ に $\partial_{E,j}=\partial/\partial x_E^j$、$\partial_E^2=\sum_{j=1}^4\partial_{E,j}^2$ を定めます。$k$ を周期箱のFourier波数とすると
+
+$$
+\partial_{E,j}e^{ik\cdot x_E}=ik_j e^{ik\cdot x_E},\qquad
+-\partial_E^2e^{ik\cdot x_E}=|k|^2e^{ik\cdot x_E}.
+$$
+
+従って非零モードでは固有値が正、定数モード $k=0$ では零です。後者は大域的な残余ゲージ変換に対応し、行列式を使う場合は除去するか境界条件で固定する必要があります。これはEuclid模型での確認であり、Minkowski時空の $-\Box$ を正定値と主張したものではありません。
 
 ### 有限次元の模型でJacobianを確かめる
 
@@ -168,15 +182,44 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限次元の群座標を $\omega^1,\ldots,\omega^m$ とし、固定した $A$ について $H(\omega)=G(A^\omega)$ と置きます。唯一の根 $\omega_*$ の近くで $J_{ab}=\partial H^a/\partial\omega^b$ が可逆なら、逆関数定理によって $u=H(\omega)$ を局所座標にできます。従って
+有限次元の群座標 $\omega^1,\ldots,\omega^m$ に対応する群元を $U(\omega)$ とし、固定した $A$ について $H(U)=G(A^U)$、$H(\omega)=H(U(\omega))$ と置きます。非可換群では、座標 $\omega$ の微分と、変換後の場における無限小ゲージ変換を区別する必要があります。行列 $L^b{}_j(\omega)$ を
 
 $$
-\int d^m\omega\,
-\delta^{(m)}(H(\omega))\,|\det J(\omega)|
-=\int d^m u\,\delta^{(m)}(u)=1.
+U(\omega+d\omega)U(\omega)^{-1}
+=I+igT^bL^b{}_j(\omega)d\omega^j+O(|d\omega|^2)
 $$
 
-$M=-J$ なので $\det M=(-1)^m\det J$ です。Jacobianの符号が領域内で一定なら、$\det M$ と $|\det J|$ の違いは全体定数に吸収できます。ゲージ不変な作用と測度にこの恒等式を挿入し、積分順序を入れ替え、変数をゲージ変換すると、軌道積分が一定の群体積因子になり、条件面の積分が残ります。無限次元での測度と積分交換はここからは証明されず、有限化した摂動論からの形式的記法です。
+で定義します。[QFT28の無限小ゲージ変換](../QFT28/index.md#thm-qft28-gauge-covariance)を $A^{U(\omega)}$ に作用させると、$J^a{}_j=\partial H^a/\partial\omega^j$ は
+
+$$
+J^a{}_j(\omega)=-M^{ab}[A^{U(\omega)}]L^b{}_j(\omega)
+$$
+
+となります。つまり $M$ はゲージ軌道方向の微分を色基底で表す行列で、一般の群座標のJacobian $J$ そのものではありません。
+
+[左Maurer–Cartan形式](../../../代数系/LIE/LIE4/index.md#def-lie4-maurer-cartan-form)と比較し、ここでは右版を使っています。その基底展開は
+
+$$
+dU\,U^{-1}=igT^bL^b{}_j(\omega)d\omega^j
+$$
+
+です。これらの独立な1形式の最高次外積から得る体積要素は右不変で、有限格子の $SU(N)$ の直積はコンパクト群なので左不変でもあります。従って不変測度は局所座標で
+
+$$
+d\mu(U)=C_0|\det L(\omega)|\,d^m\omega
+$$
+
+と書けます。唯一の根 $\omega_*$ の近くで $M,L$ が可逆なら、$J$ も可逆です。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $u=H(\omega)$ を局所座標にできます。従って
+
+$$
+\begin{aligned}
+&\int d\mu(U)\,\delta^{(m)}(H(U))\,|\det M[A^U]|\\
+&\qquad=C_0\int d^m\omega\,\delta^{(m)}(H(\omega))\,|\det J(\omega)|\\
+&\qquad=C_0\int d^m u\,\delta^{(m)}(u)=C_0.
+\end{aligned}
+$$
+
+$\det J=(-1)^m(\det M)(\det L)$ なので、上の不変測度の因子と打ち消し合います。$\det M$ の符号が領域内で一定なら絶対値を外した差も全体定数へ吸収できます。ゲージ不変な作用と測度にこの恒等式を挿入し、積分順序を入れ替え、変数をゲージ変換すると、軌道積分が一定の群体積因子になり、条件面の積分が残ります。無限次元での測度と積分交換はここからは証明されず、有限化した摂動論からの形式的記法です。
 <!-- proof-end -->
 
 **注意。** 適切なゲージ群の局所領域を離れると、同じ軌道が条件面を複数回横切るGribovコピーや、$M$ の零モードが起こりえます。このとき上の「各軌道に一度」の仮定は破れ、符号付き行列式を形式的に挿入しても大域的な一意性は回復しません。
@@ -233,7 +276,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限モードの $c_i,\bar c_i$ に対して、指数は $e^{i\bar c_iM_{ij}c_j}$ です。[Berezin Gaussianの行列式公式](../QFT19/index.md#thm-qft19-berezin-det)に行列 $iM$ を入力すると、積分は $\det(iM)=i^m\det M$（$m$ はモード数）に等しくなります。$i^m$ と積分順序の固定符号は $A$ に依存しない $C'$ に入れます。
+有限モードの $c_i,\bar c_i$ に対し、$m$ をモード数とします。[Berezin Gaussianの行列式公式](../QFT19/index.md#thm-qft19-berezin-det)は指数に負号を付けた形なので、入力行列を次のように選びます。
+
+$$
+e^{i\bar c_iM_{ij}c_j}=e^{-\bar c_iK_{ij}c_j},\qquad K=-iM.
+$$
+
+その結果、積分は
+
+$$
+\int D(\bar c,c)\,e^{i\bar c_iM_{ij}c_j}
+=\det(-iM)=(-i)^m\det M
+$$
+
+です。$(-i)^m$ と積分順序の固定符号は場 $A$ に依存しない $C'$ に入ります。正負の指数を取り違えると奇数モードの場合の符号が反転するため、この対応を明示しておきます。
 
 一方、
 
@@ -394,7 +450,17 @@ s^2c=-\frac g2s[c,c]
 =-g[sc,c]=\frac{g^2}{2}[[c,c],c].
 $$
 
-右端は、Grassmann係数を含む[交換子のJacobi恒等式](../../../幾何系/GEO/GEO5/index.md#thm-geo5-bracket-identities)（結合的な行列代数でも同じ展開で成立）を三つの奇元 $c,c,c$ に適用した式で零です。成分表示で確認しても、$f^{ade}f^{dbc}c^bc^cc^e$ の完全反対称部分がJacobi恒等式で消えます。最後に
+右端は、[Lie括弧のJacobi恒等式](../../../幾何系/GEO/GEO5/index.md#thm-geo5-bracket-identities)を構造定数に適用した式で零です。Grassmann奇の三成分の積は完全反対称なので、成分表示でも
+
+$$
+\begin{aligned}
+[[c,c],c]^a
+&=f^{ade}f^{dbc}c^bc^cc^e\\
+&=\frac13\left(f^{ade}f^{dbc}+f^{adb}f^{dce}+f^{adc}f^{deb}\right)c^bc^cc^e=0
+\end{aligned}
+$$
+
+と確認できます。最後に
 
 $$
 s^2\bar c^a=sB^a=0,\qquad s^2B^a=0.
@@ -518,7 +584,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[QFT28の微小ゲージ変換](../QFT28/index.md#thm-qft28-gauge-covariance)を $\alpha=g\omega$ として書けば、$\delta A_0^a=\partial_0\omega^a+g\varepsilon^{a3c}a\omega^c$ です。従って
+[QFT28の微小ゲージ変換](../QFT28/index.md#thm-qft28-gauge-covariance)を $\alpha=g\omega$ として書けば、$\delta A_0^a=\partial_0\omega^a+g\varepsilon^{a3c}a\omega^c$ です。ここでは $u,v$ が時刻 $t$ だけの関数なので、プライムは $u'=du/dt$、$v'=dv/dt$ を表し、$\partial_0u=du/dt$ です。従って
 
 $$
 \delta A_0^1=u'-gav,\qquad
@@ -537,7 +603,7 @@ $\varepsilon^{132}=-1$ と $\varepsilon^{231}=1$ に注意します。$\omega^3=
 <!-- solution-start -->
 **詳細解答**
 
-時間成分だけが変化し、$\partial^0=\partial_0=d/dt$ です。A1の結果を微分すると
+時間成分だけが変化し、時刻だけに依存する関数へ作用する場合は $\partial^0=\partial_0=d/dt$ です。ここで $u''=d^2u/dt^2$、$v''=d^2v/dt^2$ としてA1の結果を微分すると
 
 $$
 \delta G^1=u''-gav',\qquad
@@ -743,7 +809,7 @@ $$
 
 零背景での $-\Box I$ と違い、第一・第二色成分は $ga\,d/dt$ で混ざります。
 
-**（2）ghost作用。** $\omega$ の代わりに独立なGrassmann奇関数 $c^a$ を代入し、
+**（2）ghost作用。** $\omega$ の代わりに独立なGrassmann奇関数 $c^a$ を代入します。以下の点は時刻 $t$ による微分で、$\dot c^a=dc^a/dt$、$\ddot c^a=d^2c^a/dt^2$、$\dot{\bar c}^a=d\bar c^a/dt$ を表します。すると
 
 $$
 \mathcal L_{\rm gh}
