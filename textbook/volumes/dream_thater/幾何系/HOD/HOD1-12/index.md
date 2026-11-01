@@ -68,7 +68,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-12-primitive-cohomology -->
-**定義の確認：射影直線の積。** 上の $Q$ は $n=2$ であり、$k=2$ では指数 $n-k+1=1$ となる。任意の $a,b\in\mathbb C$ に対して
+**定義の確認**（射影直線の積）。上の $Q$ は $n=2$ であり、$k=2$ では指数 $n-k+1=1$ となる。任意の $a,b\in\mathbb C$ に対して
 
 $$
 L_H(au+bv)=2\pi(a+b)uv.
@@ -317,7 +317,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-12-primitive-hodge -->
-**定義の確認：複素二次元平坦トーラス。** $T=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ で、実座標を $z_j=x_j+iy_j$、$\omega=e_1+e_2$、$e_j=dx_j\wedge dy_j$ とする。平坦トーラスの[定数係数調和形式](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)を使う。$(2,0)$ 型の $dz_1\wedge dz_2$ は $\Lambda$ の行き先が $(1,-1)$ 型の零空間だから原始である。同じ理由で $d\bar z_1\wedge d\bar z_2$ は原始 $(0,2)$ 型である。
+**定義の確認**（複素二次元平坦トーラス）。$T=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ で、実座標を $z_j=x_j+iy_j$、$\omega=e_1+e_2$、$e_j=dx_j\wedge dy_j$ とする。平坦トーラスの[定数係数調和形式](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)を使う。$(2,0)$ 型の $dz_1\wedge dz_2$ は $\Lambda$ の行き先が $(1,-1)$ 型の零空間だから原始である。同じ理由で $d\bar z_1\wedge d\bar z_2$ は原始 $(0,2)$ 型である。
 
 $(1,1)$ 型では $e_1-e_2$ と $dz_1\wedge d\bar z_2$、$dz_2\wedge d\bar z_1$ を取る。それぞれに $\omega$ を外積すると、前者は
 
