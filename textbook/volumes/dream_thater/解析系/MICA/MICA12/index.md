@@ -745,28 +745,28 @@ $$
 - Level: B
 - 目安時間: 30分
 
-同じ4次元大域双曲時空の実Klein–Gordon作用素 $P$ について、$W_\omega$ を局所Hadamard二点分布とする。$v$ は実滑らかな双曲方程式の解 $Pv=0$、$\lambda\ge0$ とし、$W_\lambda=W_\omega+\lambda v\otimes v$ が[MICA11の状態の変更](../MICA11/index.md#prop-mica11-smooth-shift)から得られるとする。
+同じ4次元大域双曲時空の実Klein–Gordon作用素 $P$ について、$\omega_{2,\omega}$ を局所Hadamard二点分布（滑らかな余り $W_{\omega,\ell}$ とは別の分布）とする。$v$ は実滑らかな双曲方程式の解 $Pv=0$、$\lambda\ge0$ とし、$\omega_{2,\lambda}=\omega_{2,\omega}+\lambda v\otimes v$ が[MICA11の状態の変更](../MICA11/index.md#prop-mica11-smooth-shift)から得られるとする。
 
-1. 同じ局所Hadamard式 $H_{\ell,\infty}$ に対する $W_\lambda-H_{\ell,\infty}$ の正則性を求めよ。
+1. 同じ局所Hadamard式 $H_{\ell,\infty}$ に対する $\omega_{2,\lambda}-H_{\ell,\infty}$ の正則性を求めよ。
 2. $\ell'=e^s\ell$ としたとき、同じ尺度で比べる二状態の滑らかな余りの差は変わるか。
 
 <!-- solution-start -->
 #### 詳細解答
 
-初めに $F_\omega=W_\omega-H_{\ell,\infty}\in C^\infty(C\times C)$ と置きます。$v$ は滑らかなので $(x,y)\mapsto v(x)v(y)$ も滑らかです。従って
+初めに $W_{\omega,\ell}=\omega_{2,\omega}-H_{\ell,\infty}\in C^\infty(C\times C)$ と置きます。$v$ は滑らかなので $(x,y)\mapsto v(x)v(y)$ も滑らかです。従って
 
 $$
-W_\lambda-H_{\ell,\infty}
-=F_\omega+\lambda v(x)v(y)\in C^\infty(C\times C).
+\omega_{2,\lambda}-H_{\ell,\infty}
+=W_{\omega,\ell}+\lambda v(x)v(y)\in C^\infty(C\times C).
 $$
 
 これは滑らかさの主張であり、状態の正値性と場の交換関係は[引用したMICA11の命題](../MICA11/index.md#prop-mica11-smooth-shift)の仮定の下で別途保証されます。尺度変更では[本章の尺度命題](#prop-mica12-scale-shift)から両状態の余りに同じ $sV_\infty/(4\pi^2)$ が加わります。従って差を取ると
 
 $$
 \begin{aligned}
-(W_\lambda-H_{\ell',\infty})
- -(W_\omega-H_{\ell',\infty})
-&=W_\lambda-W_\omega\\
+(\omega_{2,\lambda}-H_{\ell',\infty})
+ -(\omega_{2,\omega}-H_{\ell',\infty})
+&=\omega_{2,\lambda}-\omega_{2,\omega}\\
 &=\lambda v(x)v(y),
 \end{aligned}
 $$
