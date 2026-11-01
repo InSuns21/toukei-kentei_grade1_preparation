@@ -147,7 +147,7 @@ $$
 +O(\lambda_R^3).
 $$
 
-> 特に全外線運動量が零なら $\Gamma_R^{(4)}=\lambda_R$ である。また、実ベクトル $P\ne0$ に対し $p_1=p_2=P/2$、$p_3=p_4=-P/2$ と置く実現可能な外線配置では、$P_{12}^2=P^2>0$、他の二チャネルは零となるので、表示した一ループ補正は正となる。
+> 特に全外線運動量が零なら $\Gamma_R^{(4)}=\lambda_R$ である。また、実ベクトル $P\ne0$ に対し $p_1=p_2=P/2$、$p_3=p_4=-P/2$ と置く実現可能な外線配置では、$P_{12}^2=P^2>0$、他の二チャネルは零となるので、表示した一ループ補正は $\lambda_R>0$ なら正、$\lambda_R=0$ なら零となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -184,7 +184,7 @@ $$
 \log\left(1+\frac{x(1-x)P_{ij}^2}{m_R^2}\right)dx.
 $$
 
-したがって $-\lambda_R^2/2$ との積は $+\lambda_R^2/(32\pi^2)$ です。$P_{ij}=0$ では対数は $\log1=0$。$P_{ij}^2>0$ なら $0<x<1$ で対数の中身が1より大きく、非負の結合で補正は正です。
+したがって $-\lambda_R^2/2$ との積は $+\lambda_R^2/(32\pi^2)$ です。$P_{ij}=0$ では対数は $\log1=0$。$P_{ij}^2>0$ なら $0<x<1$ で対数の中身が1より大きく、$\lambda_R>0$ なら補正は正、$\lambda_R=0$ なら零です。
 <!-- proof-end -->
 
 **運動量配置に関する注意。** Euclidの四本の実運動量には保存則があるので、任意の三つの $P_{ij}^2$ を自由に指定できるとは限りません。定理に使った配置では $p_1+p_2=P$、$p_1+p_3=p_1+p_4=0$ を直接確認できます。この具体的な配置なら、三チャネルのうち一つだけ非零という検算が成立します。
@@ -394,7 +394,7 @@ $\mu>\mu_0$ では分母が1より大きく、$g$ が小さくなります。$\m
 ### 演習 QFT31-A6：ゲージ場とghostの係数
 
 - Level: A
-- 問題: 四次元Euclidの純 $SU(N)$ Yang–Millsで、一定Cartan背景の一色電荷 $q$ に対するスカラー熱核が $(4\pi t)^{-2}[1-(qt)^2/6+O(t^4)]$、ゲージ4成分のtraceが $2+2\cosh(2qt)$ とする。ボース場の重み $1/2$、Grassmann ghost対の重み $-1$ を加え、曲率二次の $(qt)^2$ 係数を計算せよ。
+- 問題: 四次元Euclidの純 $SU(N)$ Yang–Millsで、一定Cartan背景の一色電荷 $q$ に対するスカラー熱核が $(4\pi t)^{-2}[1-(qt)^2/6+O(t^4)]$、ゲージ4成分のtraceが $2+2\cosh(2qt)$ とする。ここで $t>0$ は熱核の固有時間であり、第1節のMandelstam変数 $t=k^2$ とは別の変数である。ボース場の重み $1/2$、Grassmann ghost対の重み $-1$ を加え、曲率二次の $(qt)^2$ 係数を計算せよ。
 
 <!-- solution-start -->
 **詳細解答。** まず$\cosh(2qt)=1+2(qt)^2+O(t^4)$ です。したがって4成分の半分とghostの差は
@@ -423,7 +423,13 @@ $$
 - 問題: 対称正定値行列 $K\in\mathbb R^{2\times2}$ を持つ有限次元Euclid Gaussian模型 $Z(J)=\int_{\mathbb R^2}\exp[-\tfrac12x^TKx+J^Tx]dx$ を考え、$W(J)=\log[Z(J)/Z(0)]$、$\varphi=\nabla_JW$、$\Gamma(\varphi)=J^T\varphi-W(J)$ とする。$K=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ の場合に $W,\varphi,\Gamma$ を求め、連結二点共分散と1PI二点Hessianが逆行列になることを具体的に示せ。
 
 <!-- solution-start -->
-**詳細解答。** $K$ の固有値は1と3で正なのでGaussian積分が有限です。平方完成を行うと
+**詳細解答。** [QFT19の正定値Gaussian重み](../QFT19/index.md#def-qft19-gaussian-weight)の条件は、任意の $x\ne0$ について $x^TKx>0$ となることです。$K$ は実対称なので、直交する単位固有ベクトル $v_-=(1,-1)^T/\sqrt2$、$v_+=(1,1)^T/\sqrt2$ を基底に取れます。固有値が順に $1,3$ であることを $Kv_-=v_-$、$Kv_+=3v_+$ から確かめ、$x=y_-v_-+y_+v_+$ と展開すると
+
+$$
+x^TKx=y_-^2+3y_+^2>0\qquad(x\ne0).
+$$
+
+これにより、**固有値の正性が元の正定値条件を判定できる理由**が分かります。直交座標変換のJacobianの絶対値は1で、$e^{-x^TKx/2}=e^{-y_-^2/2}e^{-3y_+^2/2}$ は可積分です。したがって[QFT19の有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)も適用できます。平方完成を行うと
 
 $$
 -\frac12x^TKx+J^Tx
@@ -562,7 +568,7 @@ $$
 
 $n=2$ は $b^2$ で増え関連、$n=4$ は $b^0$ で周辺、$n=6$ は $b^{-2}$ で減り無関連です。これは[QFT26の木レベルスケーリング](../QFT26/index.md#thm-qft26-tree-scaling)です。
 
-重い場の二次作用素を $K=-\partial^2+M^2$ とします。有限モードのFourier基底では固有値 $p^2+M^2>0$ なのでGaussian積分が実行でき、平方完成すると
+重い場の二次作用素を $K=-\partial^2+M^2$ とします。以下の $HKH$ や $H\phi^2$ は、有限モードの内積 $\langle f,g\rangle=\int f(x)g(x)d^4x$ による積分の略記です。周期境界のFourier基底 $e^{ip\cdot x}$ に作用させると $K e^{ip\cdot x}=(p^2+M^2)e^{ip\cdot x}$ なので、各固有値は $p^2+M^2>0$ です。この正定値性によって[QFT19のGaussian公式](../QFT19/index.md#thm-qft19-gaussian)を適用でき、平方完成すると
 
 $$
 \frac12HKH+g_HH\phi^2
@@ -643,7 +649,7 @@ $$
 
   **(a)** Euclid実 $\phi^4$ は $m_R>0$、$\lambda_R>0$、鋭いカットオフ $\Lambda$ を持ち、四点頂点が $\Gamma^{(4)}(p_i)=\lambda_R+\delta\lambda-(\lambda_R^2/2)\sum_{(ij)}B_\Lambda(p_i+p_j;m_R)+O(\lambda_R^3)$、$B_\Lambda(0;m_R)=I_2$ である。$\Gamma^{(4)}(0)=\lambda_R$ の反項、$p_1=p_2=P/2$、$p_3=p_4=-P/2$（$P^2>0$）で $\Lambda\to\infty$ 後の四点頂点、および $P^2\ll m_R^2$ の最初の補正を求めよ。有限bubble差は $-F(P^2/m_R^2)/(16\pi^2)$、$F(z)=\int_0^1\log[1+x(1-x)z]dx$ としてよい。
 
-  **(b)** 四次元Euclid純 $SU(2)$ Yang–Millsで、一定色磁場の背景場法による色電荷を $(h,-h,0)$、$h>0$ とする。各荷電色の熱核の曲率二次係数は、ゲージ場とghostを合わせて $11q^2/6$。曲率ノルムは次のとおりとする。
+  **(b)** 四次元Euclid純 $SU(2)$ Yang–Millsで、一定色磁場の背景場法による色電荷を $(h,-h,0)$、$h>0$ とする。各荷電色の熱核の曲率二次係数は、ゲージ場とghostを合わせて $11q^2/6$。曲率ノルムは色添字 $a$ とEuclid添字 $\mu,\nu$ について和を取り、以下 $\mathcal F^2\coloneqq\mathcal F_{\mu\nu}^a\mathcal F_{\mu\nu}^a$ と略記する。この背景では次のとおりとする。
 
 $$
 \mathcal F_{\mu\nu}^a\mathcal F_{\mu\nu}^a=2h^2.
