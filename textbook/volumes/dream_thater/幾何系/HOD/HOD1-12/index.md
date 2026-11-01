@@ -317,7 +317,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-hod1-12-primitive-hodge -->
-**定義の確認**（複素二次元平坦トーラス）。$T=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ で、実座標を $z_j=x_j+iy_j$、$\omega=e_1+e_2$、$e_j=dx_j\wedge dy_j$ とする。平坦トーラスの[定数係数調和形式](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)を使う。$(2,0)$ 型の $dz_1\wedge dz_2$ は $\Lambda$ の行き先が $(1,-1)$ 型の零空間だから原始である。同じ理由で $d\bar z_1\wedge d\bar z_2$ は原始 $(0,2)$ 型である。
+**定義の確認**（複素二次元平坦トーラス）。$T=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ で、複素座標を $z_j=x_j+iy_j$、実2形式を $e_j=dx_j\wedge dy_j$、基本形式を $\omega=e_1+e_2$ とする。ここで $dz_j=dx_j+i\,dy_j$、$d\bar z_j=dx_j-i\,dy_j$ なので
+
+$$
+dz_j\wedge d\bar z_j=-2i\,dx_j\wedge dy_j,
+\qquad e_j=\frac{i}{2}\,dz_j\wedge d\bar z_j.
+$$
+
+従って各 $e_j$ は $(1,1)$ 型である。以下、$e_ie_j$ と $e_j^2$ はそれぞれ外積 $e_i\wedge e_j$ と $e_j\wedge e_j$ の略記とする。平坦トーラスの[定数係数調和形式](../HOD1-09/index.md#lem-hod1-09-flat-harmonic)を使って各類の型と原始条件を調べる。
+
+$(2,0)$ 型の $dz_1\wedge dz_2$ は、$\Lambda$ の行き先が $(1,-1)$ 型の零空間だから原始である。同じ理由で $d\bar z_1\wedge d\bar z_2$ は原始 $(0,2)$ 型である。
 
 $(1,1)$ 型では $e_1-e_2$ と $dz_1\wedge d\bar z_2$、$dz_2\wedge d\bar z_1$ を取る。それぞれに $\omega$ を外積すると、前者は
 
@@ -331,7 +340,15 @@ $$
 \omega\wedge\omega=2e_1\wedge e_2\ne0
 $$
 
-だから原始でない。このように $(1,1)$ 型4次元のうち3次元が原始で、残り1次元は $L_HP_H^{0,0}$ となる。型別の全次元は $1+4+1=6$、原始部分は $1+3+1=5$ である。
+だから原始でない。
+
+上の三つの原始 $(1,1)$ 形式は、$dz_1\wedge d\bar z_1$ と $dz_2\wedge d\bar z_2$ の差、および添字の異なる二つの外積単項式に対応するので一次独立である。[平坦トーラスのHodge数](../HOD1-09/index.md#thm-hod1-09-torus-numbers)から
+
+$$
+h^{1,1}=\binom21^2=4
+$$
+
+と分かる。さらに $\omega$ は原始でないので、三つの原始形式とは独立である。従って $(1,1)$ 型4次元のうち3次元が原始で、残り1次元は $L_HP_H^{0,0}$ となる。型別の全次元は $1+4+1=6$、原始部分は $1+3+1=5$ である。
 <!-- definition-example-end -->
 
 <a id="prop-hod1-12-type-decomposition"></a>
@@ -636,7 +653,7 @@ $e_j^2=0$、$e_1e_2=e_2e_1$ より $(e_1+e_2)(e_1-e_2)=0$ である。
 
 残る四つの混合項は、$e_1$ と外積すると $dx_1$ または $dy_1$ が重複し、$e_2$ と外積すると $dx_2$ または $dy_2$ が重複する。従って $\omega$ との外積はどれも零になる。定数係数形式は調和であり、$n=k=2$ の[原始判定](#thm-hod1-12-harmonic-primitive)により五つとも原始である。
 
-定数係数2形式の六つの基底のうち、$e_1,e_2$ の組を $e_1-e_2,e_1+e_2$ に置き換える変換行列の行列式は2（符号を除く）なので可逆である。従って五つの原始類は独立で、残り $[e_1+e_2]_d=L_H[1]_d$ と合わせて $H^2$ 全体を張る。
+元の定数係数2形式の六つの基底のうち、$e_1,e_2$ を $e_1-e_2,e_1+e_2$ に置き換えても基底である。実際、$A(e_1-e_2)+B(e_1+e_2)=0$ とおけば、$e_1,e_2$ の係数はそれぞれ $A+B=0$、$-A+B=0$ なので $A=B=0$。さらに $e_1=((e_1+e_2)+(e_1-e_2))/2$、$e_2=((e_1+e_2)-(e_1-e_2))/2$ と戻せる。従って五つの原始類は独立で、残り $[e_1+e_2]_d=L_H[1]_d$ と合わせて $H^2$ 全体を張る。
 
 **2.** 型別の[原始次元公式](#prop-hod1-12-type-decomposition)を次数2に用いる。$h^{1,-1}=h^{-1,1}=0$、$h^{0,0}=1$ だから
 
@@ -664,7 +681,7 @@ $$
 #### HOD1-12-C02 一般分解を随伴性から再構成する
 - Level: C
 
-$X$ を複素次元 $n$ のコンパクトKähler多様体とする。[調和代表の存在・一意性](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)、[LとLambdaの調和性保存](../HOD1-10/index.md#prop-hod1-10-harmonic-sl2)、[点ごとの原始列と直交分解](../HOD1-03/index.md#thm-hod1-03-decomposition)だけを入力としてよい。
+$X$ を複素次元 $n$ のコンパクトKähler多様体とする。[調和代表の存在・一意性](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)、[LとLambdaの調和性保存](../HOD1-10/index.md#prop-hod1-10-harmonic-sl2)、[点ごとの原始列と直交分解](../HOD1-03/index.md#thm-hod1-03-decomposition)を入力としてよい。コホモロジーへ移すときは、本章の[原始類の調和判定](#thm-hod1-12-harmonic-primitive)と[調和代表と類上の作用の一致](../HOD1-10/index.md#thm-hod1-10-harmonic-lefschetz)を用いてよい。
 
 1. $q\le n$ で $\mathcal H^q=\mathcal P^q\oplus^\perp L\mathcal H^{q-2}$ を示せ。
 2. $q>n$ で $L:\mathcal H^{q-2}\to\mathcal H^q$ が全射であることを示せ。
@@ -695,7 +712,14 @@ $$
 \max(0,q-n)\le r\le\lfloor q/2\rfloor.
 $$
 
-異なる原始出発次数から伸びる $L^r\mathcal P^j$ は、[点ごとのLefschetz直交分解](../HOD1-03/index.md#thm-hod1-03-decomposition)により各点で直交するので、積分した調和空間の内積でも直交する。各原始列上の $L^r$ の単射性は[原始列の正のノルム係数](../HOD1-03/index.md#lem-hod1-03-primitive-ladder)による。これで調和空間に直交直和を得る。最後に調和代表の同型 $\Phi_q$ で各部分空間をコホモロジーに送れば直和性は保たれる。ただしコホモロジー群に、代表を指定しないまま「調和形式の $L^2$ 内積で直交する」と述べるのでなく、**調和代表の上で直交**と明記する。
+異なる原始出発次数から伸びる $L^r\mathcal P^j$ は、[点ごとのLefschetz直交分解](../HOD1-03/index.md#thm-hod1-03-decomposition)により各点で直交するので、積分した調和空間の内積でも直交する。各原始列上の $L^r$ の単射性は[原始列の正のノルム係数](../HOD1-03/index.md#lem-hod1-03-primitive-ladder)による。これで調和空間に直交直和を得る。最後に[調和代表と類上の作用の一致](../HOD1-10/index.md#thm-hod1-10-harmonic-lefschetz)を $v\in\mathcal P^j$ に適用すると
+
+$$
+\Phi_{j+2r}(L^rv)=[\omega^r\wedge v]_d
+=L_H^r\Phi_j(v),
+$$
+
+さらに[原始類の調和判定](#thm-hod1-12-harmonic-primitive)より $\Phi_j(\mathcal P^j)=P_H^j$ だから、各調和部分空間の像は指定された $L_H^rP_H^j$ であり、同型 $\Phi_q$ は直和性を保つ。ただしコホモロジー群に、代表を指定しないまま「調和形式の $L^2$ 内積で直交する」と述べるのでなく、**調和代表の上で直交**と明記する。
 <!-- solution-end -->
 
 ## 8. 次へ：原始成分の交叉形式にはどんな符号があるか
