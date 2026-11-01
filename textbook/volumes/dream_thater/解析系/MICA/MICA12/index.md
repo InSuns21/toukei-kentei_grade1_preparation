@@ -21,7 +21,9 @@ $$
 P=-\Box_g+q,\qquad q=m^2+\xi R
 $$
 
-と置きます。$R$ はスカラー曲率、$q$ は実数値の滑らかなポテンシャルです。この作用素は[MICA11で固定したKlein–Gordon作用素](../MICA11/index.md#def-mica11-smeared-algebra)と同じです。以下、微分は特記しない限り第一変数 $x$ に作用し、$d\mu_g$ を使って分布核を解釈します。
+と置きます。$R$ はスカラー曲率、$q$ は実数値の滑らかなポテンシャルです。この作用素は[MICA11で固定したKlein–Gordon作用素](../MICA11/index.md#def-mica11-smeared-algebra)と同じです。
+
+以下、微分は特記しない限り第一変数 $x$ に作用し、$d\mu_g$ を使って分布核を解釈します。$\Box_x$ は $y$ を固定して $x$ に作用する $\Box_g$ の略記です。同様に、$\partial_{t_x}$ は $t_y$ を固定した偏微分を表します。
 
 [LORG5の測地的凸正規近傍](../../../幾何系/LORG/LORG5/index.md#def-lorg5-convex-normal) $C$ を一つ選び、$x,y\in C$ を結ぶ一意な測地線を $\gamma_{xy}(s)=\exp_y(sv)$（$0\le s\le1$、$x=\exp_yv$）とします。これは光が必ず $x$ から $y$ へ到達するという主張ではありません。この近傍の中で短い測地線が一意だという仮定です。
 
@@ -60,13 +62,27 @@ D=\tau\partial_\tau+\sum_{j=1}^3 r^j\partial_{r^j},\quad
 \Box_x\sigma=4.
 $$
 
-混合二階微分行列は $-\partial_x\partial_y\sigma=g$、体積密度の行列式は $|\det g|=1$ なので、[van Vleck–Morette因子](../../HPDE/HPDE13/index.md#def-hpde13-van-vleck)の定義から $\Delta=1$、$U=1$ です。従って $DU=0$ と $\Box\sigma-4=0$ の両方を確かめ、輸送式も満たします。$\sigma=0$ は光円錐であり、$\sigma$ の符号を「常に正の距離の二乗」として扱うのは誤りです。
+ここで混合二階微分行列は、$y$ を固定した $x$ 微分の後、今度は $x$ を固定して $y$ で微分して作ります。$g_{ab}$ が一定なので
+
+$$
+\partial_{x^a}\sigma=g_{ab}(x-y)^b,
+\qquad -\partial_{x^a}\partial_{y^b}\sigma=g_{ab}.
+$$
+
+この行列は[van Vleck–Morette因子の定義](../../HPDE/HPDE13/index.md#def-hpde13-van-vleck)の分子に入るもので、両端の計量の体積密度で割る必要があります。ここでは各点で $|\det g|=1$ なので
+
+$$
+\Delta(x,y)=\frac{|\det g|}{\sqrt{|\det g(x)|}\sqrt{|\det g(y)|}}=1,
+\qquad U=\sqrt\Delta=1.
+$$
+
+従って $DU=0$ と $\Box_x\sigma-4=0$ の両方を確かめ、輸送式も満たします。$\sigma=0$ は光円錐であり、$\sigma$ の符号を「常に正の距離の二乗」として扱うのは誤りです。
 
 ## 2. 正周波数を $i0$ 境界値に移す
 
 正周波数の意味を符号ごと確定するため、$C$ 上で未来に増加する滑らかな時間関数 $T$（勾配が時間的で、未来向き因果曲線上で増加）を選びます。$T(x)-T(y)$ は **二点の時間の順序**を指定します。時空全体の時間並進対称性は要求しません。
 
-分布には点ごとの分母の零割りが許されないため、正の $\varepsilon$ を導入してから**分布として極限**を取ります。
+分布には点ごとの分母の零割りが許されないため、正の $\varepsilon$ を導入してから**分布として極限**を取ります。実際、$T(x)\ne T(y)$ なら正則化した分母の虚部は非零です。$T(x)=T(y)$ で $x\ne y$ なら時間関数の単調性により二点を結ぶ短い測地線は因果的ではなく、$\sigma>0$ です。$x=y$ でも分母は $\varepsilon^2/2>0$ となり、$\varepsilon>0$ の間は零割りが起こりません。
 
 <a id="def-mica12-positive-boundary"></a>
 <!-- formal-statement-start -->
@@ -164,7 +180,7 @@ e^{-(\varepsilon+i\tau)p}\sin(pr)\,dp\\
 \end{aligned}
 $$
 
-第2等号では $\operatorname{Re}(\varepsilon+i\tau)>0$ なので、$\int_0^\infty e^{-ap}\sin(pr)\,dp=r/(a^2+r^2)$ を使えます。この式は $r=0$ にも連続延長できます。$\varepsilon$ を下げると、左辺は正周波数の緩増加分布へ、右辺は定義した境界値へ収束します。よって分布恒等式が成立します。$\square$
+第2等号では $\operatorname{Re}(\varepsilon+i\tau)>0$ なので、$\int_0^\infty e^{-ap}\sin(pr)\,dp=r/(a^2+r^2)$ を使えます。この式は $r=0$ にも連続延長できます。$\varepsilon$ を下げると、左辺は正周波数の緩増加分布へ、右辺は定義した境界値へ収束します。実際、任意のSchwartz試験関数で対にすると、そのFourier変換は高運動量で急減少し、原点の $d^3p/|\boldsymbol p|$ も局所可積分です。従って $0<e^{-\varepsilon|\boldsymbol p|}\le1$ を使う優収束で左辺の分布極限を正当化できます。よって分布恒等式が成立します。$\square$
 <!-- proof-end -->
 
 この計算で得た $1/(8\pi^2)$ は、平坦時空での正周波数の正規化です。遅延Green関数の円錐上デルタの正規化をそのまま流用した数字ではありません。
@@ -182,7 +198,7 @@ $$
 V(x,y)\sim\sum_{n=0}^{\infty}v_n(x,y)\sigma(x,y)^n
 $$
 
-> と展開する。この $v_n\in C^\infty(C\times C)$ を、次の定理の輸送方程式で順に定まる**二点分布のHadamard係数**と呼ぶ。記号 $\sim$ は漸近展開であり、一般の滑らかな計量について級数の収束を意味しない。
+> と展開する。この $v_n\in C^\infty(C\times C)$ を、次の定理の輸送方程式で順に定まる**二点分布のHadamard係数**と呼ぶ。記号 $\sim$ は $\sigma$ の非負整数べきに沿った形式的な漸近展開を表し、一般の滑らかな計量について級数の収束を意味しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mica12-hadamard-coefficients -->
@@ -192,6 +208,8 @@ $$
 
 平坦な質量零模型では $U=1$、$P1=0$ です。このとき以下の輸送式から $v_0=0$、帰納的に $v_n=0$ が得られ、対数項は消えます。一方、$m>0$ の平坦模型では $v_0=m^2/2$ となります。いずれも**係数の列**についての主張であり、任意の無限和が収束するという意味ではありません。遅延基本解の[HPDE13のRiesz係数](../../HPDE/HPDE13/index.md#def-hpde13-hadamard-coefficients)と同じ $V_k$ を代入することもできません。
 <!-- definition-example-end -->
+
+対角値の記法は $[F](y):=F(y,y)$ とします。これは $F(x,y)$ を分布のまま対角評価する操作ではなく、ここでは滑らかな係数 $F$ の通常の関数値だけに使います。
 
 <a id="thm-mica12-transport"></a>
 <!-- formal-statement-start -->
@@ -221,7 +239,7 @@ v_{n+1}(x,y)
 \end{aligned}
 $$
 
-> 特に $[v_0]=[P_xU]/2$、$[v_{n+1}]=[P_xv_n]/\{2(n+1)(n+2)\}$ である。角括弧 $[F]$ は $x=y$ での対角値を表す。
+> 特に $[v_0]=[P_xU]/2$、$[v_{n+1}]=[P_xv_n]/\{2(n+1)(n+2)\}$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -736,28 +754,28 @@ $$
 - Level: B
 - 目安時間: 30分
 
-同じ4次元大域双曲時空の実Klein–Gordon作用素 $P$ について、$W_\omega$ を局所Hadamard二点分布とする。$v$ は実滑らかな双曲方程式の解 $Pv=0$、$\lambda\ge0$ とし、$W_\lambda=W_\omega+\lambda v\otimes v$ が[MICA11の状態の変更](../MICA11/index.md#prop-mica11-smooth-shift)から得られるとする。
+同じ4次元大域双曲時空の実Klein–Gordon作用素 $P$ について、$\omega_{2,\omega}$ を局所Hadamard二点分布（滑らかな余り $W_{\omega,\ell}$ とは別の分布）とする。$v$ は実滑らかな双曲方程式の解 $Pv=0$、$\lambda\ge0$ とし、$\omega_{2,\lambda}=\omega_{2,\omega}+\lambda v\otimes v$ が[MICA11の状態の変更](../MICA11/index.md#prop-mica11-smooth-shift)から得られるとする。
 
-1. 同じ局所Hadamard式 $H_{\ell,\infty}$ に対する $W_\lambda-H_{\ell,\infty}$ の正則性を求めよ。
+1. 同じ局所Hadamard式 $H_{\ell,\infty}$ に対する $\omega_{2,\lambda}-H_{\ell,\infty}$ の正則性を求めよ。
 2. $\ell'=e^s\ell$ としたとき、同じ尺度で比べる二状態の滑らかな余りの差は変わるか。
 
 <!-- solution-start -->
 #### 詳細解答
 
-初めに $F_\omega=W_\omega-H_{\ell,\infty}\in C^\infty(C\times C)$ と置きます。$v$ は滑らかなので $(x,y)\mapsto v(x)v(y)$ も滑らかです。従って
+初めに $W_{\omega,\ell}=\omega_{2,\omega}-H_{\ell,\infty}\in C^\infty(C\times C)$ と置きます。$v$ は滑らかなので $(x,y)\mapsto v(x)v(y)$ も滑らかです。従って
 
 $$
-W_\lambda-H_{\ell,\infty}
-=F_\omega+\lambda v(x)v(y)\in C^\infty(C\times C).
+\omega_{2,\lambda}-H_{\ell,\infty}
+=W_{\omega,\ell}+\lambda v(x)v(y)\in C^\infty(C\times C).
 $$
 
 これは滑らかさの主張であり、状態の正値性と場の交換関係は[引用したMICA11の命題](../MICA11/index.md#prop-mica11-smooth-shift)の仮定の下で別途保証されます。尺度変更では[本章の尺度命題](#prop-mica12-scale-shift)から両状態の余りに同じ $sV_\infty/(4\pi^2)$ が加わります。従って差を取ると
 
 $$
 \begin{aligned}
-(W_\lambda-H_{\ell',\infty})
- -(W_\omega-H_{\ell',\infty})
-&=W_\lambda-W_\omega\\
+(\omega_{2,\lambda}-H_{\ell',\infty})
+ -(\omega_{2,\omega}-H_{\ell',\infty})
+&=\omega_{2,\lambda}-\omega_{2,\omega}\\
 &=\lambda v(x)v(y),
 \end{aligned}
 $$
