@@ -61,7 +61,7 @@ $$
 
 任意の非特性方向 $z=(x,\xi)$ を取ります。[特性集合と非特性方向の再確認](#def-mica9-characteristic)より主シンボルは $p_m(z)\ne0$、従って $z$ は楕円集合に属します。
 
-微分作用素は局所作用素なので適切に支持されています。擬微分作用素の場合は命題の支持条件を用います。これで[MICA8の楕円正則性](../MICA8/index.md#thm-mica8-elliptic-regularity)の仮定が揃い、その第二包含に $A=P$ を代入すると、楕円集合上での波面は右辺の波面に含まれます。つまり
+微分作用素の値は評価点での有限階微分だけで決まり、離れた点の値に依存しません。このため作用素核は対角線上に支持され、適切に支持されています。擬微分作用素の場合は命題の支持条件を用います。これで[MICA8の楕円正則性](../MICA8/index.md#thm-mica8-elliptic-regularity)の仮定が揃い、その第二包含に $A=P$ を代入すると、楕円集合上での波面は右辺の波面に含まれます。つまり
 
 $$
 z\in WF(u)\cap\operatorname{Ell}(P)\quad\Longrightarrow\quad z\in WF(Pu).
@@ -377,7 +377,7 @@ p=-\tau^2+\frac{\kappa^2}{a(t)^2},\qquad
 \dot\kappa=0.
 $$
 
-未来向きの枝を $\kappa>0$、$\tau=-\kappa/a(t)$ として選ぶと $\dot t=2\kappa/a(t)>0$ です。この非零条件により $t$ を局所パラメータに使え、連鎖律 $dx/ds=(dx/dt)(dt/ds)$ から光線の傾きは
+未来向きの枝を $\kappa>0$、$\tau=-\kappa/a(t)$ として選ぶと $\dot t=2\kappa/a(t)>0$ です。この非零条件により曲線の小区間で時刻座標 $t$ を変数として使え、連鎖律 $dx/ds=(dx/dt)(dt/ds)$ から光線の傾きは
 
 $$
 \frac{dx}{dt}=\frac{\dot x}{\dot t}=\frac1{a(t)}.
