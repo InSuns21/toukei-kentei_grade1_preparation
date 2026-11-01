@@ -90,7 +90,7 @@ $$
 <!-- definition-example-start: def-mica11-positive-state -->
 ### 直接例：ベクトル状態と場の一次式
 
-**定義の確認（状態そのもの）**。単位的 $*$ 代数 $\mathfrak A_P$ がHilbert空間の共通不変領域上に $*$ 表現 $\pi$ を持ち、単位ベクトル $\Omega$ がその領域に属するとします。内積を第1変数線形とし、$\pi(A^*)$ が $\pi(A)$ のこの領域での随伴であることを使い、
+**定義の確認**（状態そのもの）。単位的 $*$ 代数 $\mathfrak A_P$ がHilbert空間の共通不変領域上に $*$ 表現 $\pi$ を持ち、単位ベクトル $\Omega$ がその領域に属するとします。内積を第1変数線形とし、$\pi(A^*)$ が $\pi(A)$ のこの領域での随伴であることを使い、
 
 $$
 \omega_\Omega(A):=\langle\pi(A)\Omega,\Omega\rangle,\qquad
@@ -108,7 +108,7 @@ $$
 
 したがって**規格化・線形性・全元に対する正値性**を確認できました。平坦時空でこの表現を実際に作る例が、[QFT4のFock空間上のsmearing](../../../物理系/QFT/QFT4/index.md#def-qft4-smeared-field)とその真空ベクトルです。交換子の符号は[QFT5のPauli–Jordan核](../../../物理系/QFT/QFT5/index.md#thm-qft5-commutator-cauchy)で照合できます。これは一般の曲時空にFock真空が一意に存在するという主張ではありません。
 
-**定義の確認（任意の状態への帰結）**。実試験関数 $f$ と実数 $s$ に対し $A=1+s\Phi(f)$ を取ります。$A^*=A$ であり、定義を各項へ適用して
+**定義の確認**（任意の状態への帰結）。実試験関数 $f$ と実数 $s$ に対し $A=1+s\Phi(f)$ を取ります。$A^*=A$ であり、定義を各項へ適用して
 
 $$
 \omega(A^*A)=1+2s\,\omega(\Phi(f))+s^2\omega(\Phi(f)^2)\ge0.
