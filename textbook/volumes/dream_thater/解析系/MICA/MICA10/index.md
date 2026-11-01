@@ -261,12 +261,12 @@ $$
 
 とします。$a_\varepsilon=aj_\varepsilon$ を(1)–(3)の記号に代入し、まず正則化した作用素について評価します。$0<\varepsilon\le1$ で記号評価が一様であり、導関数の寄与も(1)の減少率を十分大きく選べば吸収できます。
 
-この評価で得た $\|B_\varepsilon u\|_{L^2}$ の一様上界にFatouの補題を適用すると $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、[Sobolev波面集合の定義](#def-mica10-sobolev-wavefront)から、その点は $WF^s(u)$ に入りません。
+この評価で得た $\|B_\varepsilon u\|_{L^2}$ の一様上界に[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を適用すると $Bu\in L^2$ です。$B$ は $z_0$ で楕円的なので、[Sobolev波面集合の定義](#def-mica10-sobolev-wavefront)から、その点は $WF^s(u)$ に入りません。
 <!-- proof-end -->
 
 ### 技術的な境界：何を証明して、何を使ったか
 
-この局所評価の本体は、流れの箱でのescape function、交換子の $H_q$ 主項、$2s-1$ 次への剰余の下降、正則化後の極限です。道具としては[MICA8の合成計算](../MICA8/index.md#lem-mica8-composition)と[楕円的近似逆](../MICA8/index.md#thm-mica8-parametrix)を使いました。流れの箱の存在は滑らかなODEの局所存在一意性と逆関数定理から従います。ここで必要なのは短い流線管であり、全域での正準変換やFourier積分作用素の構成ではありません。
+この局所評価の本体は、流れの箱でのescape function、交換子の $H_q$ 主項、$2s-1$ 次への剰余の下降、正則化後の極限です。道具としては[MICA8の合成計算](../MICA8/index.md#lem-mica8-composition)と[楕円的近似逆](../MICA8/index.md#thm-mica8-parametrix)を使いました。流れの箱の存在は滑らかなODEの局所存在一意性と[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から従います。ここで必要なのは短い流線管であり、全域での正準変換やFourier積分作用素の構成ではありません。
 
 ## 6. 局所評価から伝播定理を導く
 
