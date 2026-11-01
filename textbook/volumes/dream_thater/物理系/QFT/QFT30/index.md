@@ -696,7 +696,23 @@ $$
 ### 演習 QFT30-C1：SU(2)の一ループ係数を全経路で復元
 
 - Level: C
-- 問題: 四次元Euclidの純 $SU(2)$ Yang–Mills理論を考える。背景場Feynmanゲージで、$\mathcal F_{12}=hT^3$（$h>0$）、他成分は零とする。背景随伴微分から $\Delta_0=-\mathcal D^2$、$\Delta_{1,\mu\nu}=-\mathcal D^2\delta_{\mu\nu}-2\operatorname{ad}(\mathcal F_{\mu\nu})$ が得られたものとし、電荷は $q=0,\pm h$ である。荷電スカラーの単位四体積あたり熱核を $K_0(t;q)=(4\pi t)^{-2}|q|t/\sinh(|q|t)$ とする。(1) ベクトルのLorentz成分traceを求めよ。(2) ghostを差し引いた曲率二次の短時間係数を全色で求めよ。(3) $\log\det$ のproper-timeの符号、裸結合との合成、固定裸量微分を順に行い、$\beta(g_R)$ を求めよ。(4) ghostを誤って落とした場合の係数と、赤外外挿から閉じ込めを証明できない理由を説明せよ。
+- 問題: 四次元Euclidの純 $SU(2)$ Yang–Mills理論を考える。背景場Feynmanゲージで、$\mathcal F_{12}=hT^3$（$h>0$）、他成分は零とする。背景随伴色電荷は $q=0,\pm h$ である。
+
+  背景二次作用素と、荷電スカラーの単位四体積あたり熱核を次のように与える。
+
+$$
+\begin{aligned}
+\Delta_0&=-\mathcal D^2,\qquad
+\Delta_{1,\mu\nu}=-\mathcal D^2\delta_{\mu\nu}
+-2\operatorname{ad}(\mathcal F_{\mu\nu}),\\
+K_0(t;q)&=(4\pi t)^{-2}\frac{|q|t}{\sinh(|q|t)}.
+\end{aligned}
+$$
+
+  1. ベクトルのLorentz成分traceを求めよ。
+  2. ghostを差し引いた曲率二次の短時間係数を全色で求めよ。
+  3. $\log\det$ のproper-timeの符号、裸結合との合成、固定裸量微分を順に行い、$\beta(g_R)$ を求めよ。
+  4. ghostを誤って落とした場合の係数と、赤外外挿から閉じ込めを証明できない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。**
