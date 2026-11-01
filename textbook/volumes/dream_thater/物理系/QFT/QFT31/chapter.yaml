@@ -1,0 +1,43 @@
+id: QFT31
+title: "散乱・ループ・ゲージ不変性・くりこみを結ぶ総合演習"
+volume: foundations
+status: supplementary
+prerequisites: [QFT30, QFT27, QFT26, QFT24, QFT23, QFT18, QFT17, QFT21]
+official_scope: []
+learning_objectives:
+  - 電子–ミューオン散乱で質量殻Ward縮約・共変ゲージパラメータ消失・非偏極断面積を一続きに検算できる
+  - 実φ⁴の反項とbubble差の有限極限・低運動量展開を具体的に計算できる
+  - 連結二点関数と1PI二点頂点の逆関係および方式間の有限な結合再定義を確認できる
+  - φ⁴・QED・純Yang–Millsの一ループβ関数を固定裸量の条件とともに比較できる
+  - ゲージ場・ghostの熱核係数とSU(2)純Yang–Millsの漸近自由性の符号を再構成できる
+  - 軟光子の実・仮想相殺とUVくりこみ尺度を区別しWilson流・有効作用の適用範囲を判定できる
+theorems:
+  - { id: QFT31-PROP-01, name: 質量殻電流・共変ゲージ・断面積の一致 }
+  - { id: QFT31-PROP-02, name: 減算四点頂点と二つの運動量での検算 }
+  - { id: QFT31-PROP-03, name: 三つの一ループ流の符号の対比 }
+definitions: []
+canonical_examples:
+  - 質量零近似の直角電子–ミューオン散乱と同種終状態因子の不在
+  - 四点外線の具体的な運動量配置による一チャネル有限bubble差
+  - 低運動量での対数積分のTaylor係数
+  - 有限次元Gaussian模型の連結共分散と1PI Hessian
+  - 一定色磁場でのゲージ場・ghost熱核係数の比較
+  - 正質量軟光子の包摂的確率で赤外下限を消す計算
+problem_patterns:
+  - QFT31-WARD-MASS-CHECK
+  - QFT31-CM-SCATTERING
+  - QFT31-COUNTERTERM-CONDITIONS
+  - QFT31-BUBBLE-TAYLOR
+  - QFT31-ASYMPTOTIC-FREEDOM
+  - QFT31-GHOST-HEAT-CHECK
+  - QFT31-LEGENDRE-HESSIAN
+  - QFT31-SCHEME-MATCHING
+  - QFT31-QED-CHARGE-RENORMALIZATION
+  - QFT31-INCLUSIVE-SOFT
+  - QFT31-WILSON-HEAVY-MATCHING
+  - QFT31-INTEGRATED-QED-SCATTERING
+  - QFT31-INTEGRATED-UV-LOOPS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 5, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 18, review: 6 }
