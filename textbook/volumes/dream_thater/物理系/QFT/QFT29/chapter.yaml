@@ -1,0 +1,50 @@
+id: QFT29
+title: "Faddeev–Popovゲージ固定・ghostとBRST対称性"
+volume: foundations
+status: supplementary
+prerequisites: [QFT28, QFT19, QFT16]
+official_scope: []
+learning_objectives:
+  - 非可換ゲージ軌道とLorenzゲージ条件面の関係、局所一意性とGribovコピーの違いを具体例で説明できる
+  - 随伴共変微分からFaddeev–Popov作用素を導出し零モード・符号・作用域を検査できる
+  - 有限次元JacobianとBerezin積分の行列式を対応付けghostの三点相互作用を導出できる
+  - 補助場Bの平方完成から共変ゲージ固定項を導きその役割を説明できる
+  - BRST変換のGrassmann符号とJacobi恒等式を使ってoff-shell冪零性を証明できる
+  - ゲージ固定フェルミオンのBRST変換からghostを含む作用と不変性を導ける
+  - BRSTコホモロジーの定義と物理状態解釈の条件、量子異常・Gribov問題の限界を区別できる
+definitions:
+  - { id: QFT29-DEF-01, name: ゲージ軌道とLorenzゲージ条件 }
+  - { id: QFT29-DEF-02, name: Faddeev–Popov作用素 }
+  - { id: QFT29-DEF-03, name: Faddeev–Popov ghost作用 }
+  - { id: QFT29-DEF-04, name: 補助場を用いたゲージ固定作用 }
+  - { id: QFT29-DEF-05, name: 非可換ゲージ理論のBRST変換 }
+  - { id: QFT29-DEF-06, name: ゲージ固定フェルミオン }
+  - { id: QFT29-DEF-07, name: BRSTコホモロジー }
+theorems:
+  - { id: QFT29-PROP-01, name: Lorenzゲージの作用素展開 }
+  - { id: QFT29-THM-01, name: 局所的Faddeev–Popov恒等式 }
+  - { id: QFT29-PROP-02, name: ghost積分と三点相互作用 }
+  - { id: QFT29-THM-02, name: 古典BRST変換のoff-shell冪零性 }
+  - { id: QFT29-THM-03, name: ゲージ固定作用のBRST完全性と不変性 }
+canonical_examples:
+  - SU(2)の純ゲージ場がLorenz条件を保つための波動方程式
+  - SU(2)の一定時間成分によるFaddeev–Popov作用素の色混合
+  - 平面回転のゲージ軌道と二重交差・Jacobian
+  - 二組のGrassmann変数が行列式を生む直接展開
+  - SU(2)のghost非線形変換とBRSTの二回作用
+  - BRST doubletのBが閉じていて正確なことの確認
+problem_patterns:
+  - QFT29-INFINITESIMAL-ADJOINT
+  - QFT29-FP-SU2-OPERATOR
+  - QFT29-GRASSMANN-DET
+  - QFT29-AUXILIARY-SQUARE
+  - QFT29-GHOST-GRADING
+  - QFT29-ROTATION-JACOBIAN
+  - QFT29-BRST-SU2-NILPOTENCY
+  - QFT29-GHOST-THREE-POINT
+  - QFT29-GAUGE-FERMION
+  - QFT29-FULL-SU2-GAUGE-FIXING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 5 }
