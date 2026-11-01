@@ -1,0 +1,46 @@
+chapter: MICA13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA12
+  - MICA11
+  - MICA10
+  - MICA9
+  - MICA7
+forward_references: []
+concepts:
+  - id: microlocal.mica13-null-pair
+    name: 二点の未来向き零測地線関係
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica9-null-geodesic-projection, microlocal.mica11-positive-covector]
+  - id: microlocal.mica13-wfsc
+    name: Hadamard波面集合条件
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica13-null-pair, microlocal.mica11-two-point-conditions]
+  - id: microlocal.mica13-flat-wavefront
+    name: 質量零Minkowski真空の全波面方向
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-wfsc, microlocal.mica12-massless-boundary, microlocal.mica4-boundary-wf]
+  - id: microlocal.mica13-transpose
+    name: 転置による正負波面の交換
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-null-pair, microlocal.mica3-wavefront]
+  - id: microlocal.mica13-ccr-equality
+    name: 交換子条件と片側包含から波面集合の等号
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-transpose, microlocal.mica11-two-point-conditions]
+  - id: microlocal.mica13-smooth-difference
+    name: Hadamard二点分布の差の滑らかさ
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-transpose, microlocal.mica3-projection]
+  - id: microlocal.mica13-equivalence
+    name: RadzikowskiのHadamard同値定理
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica13-ccr-equality, microlocal.mica13-smooth-difference, microlocal.mica12-parametrix, microlocal.mica10-propagation]

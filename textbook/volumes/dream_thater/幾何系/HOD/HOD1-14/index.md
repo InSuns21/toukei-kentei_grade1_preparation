@@ -12,7 +12,11 @@
 2. [Hard Lefschetz定理](../HOD1-11/index.md#thm-hod1-11-hard-lefschetz)は、各次数・各型の次元にどのような不等式を強制するか。
 3. $\mathbb{CP}^2$、$\mathbb{CP}^1\times\mathbb{CP}^1$、複素二次元トーラスでは、中央の原始類と交叉形式がどう違うか。
 
-特に断らない限り、$X$ は滑らか・コンパクト・境界なしの複素次元 $n\ge1$ のKähler多様体、$\omega$ は実基本 $(1,1)$ 形式である。$H^k(X)$ は複素係数de Rhamコホモロジー、$H^{p,q}(X)$ は[Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)で $H^{p+q}(X)$ に入る型別成分、$b_k=\dim_{\mathbb C}H^k(X)$ とする。$h^{p,q}=\dim_{\mathbb C}H^{p,q}$ は[Hodge数](../HOD1-07/index.md#def-hod1-07-hodge-numbers)である。$L_Ha=[\omega]_d\smile a$ は[de Rham積](../HOD1-10/index.md#def-hod1-10-de-rham-product)によるLefschetz作用で、$L_H^0=I$ と約束する。
+特に断らない限り、$X$ は滑らか・コンパクト・境界なしの複素次元 $n\ge1$ のKähler多様体、$\omega$ は実基本 $(1,1)$ 形式である。
+
+$H^k(X)$ は複素係数de Rhamコホモロジー、$H^{p,q}(X)$ は[Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)で $H^{p+q}(X)$ に入る型別成分とする。Betti数とHodge数はそれぞれ $b_k=\dim_{\mathbb C}H^k(X)$、$h^{p,q}=\dim_{\mathbb C}H^{p,q}$ と書く（[Hodge数の定義](../HOD1-07/index.md#def-hod1-07-hodge-numbers)）。
+
+$L_Ha=[\omega]_d\smile a$ は[de Rham積](../HOD1-10/index.md#def-hod1-10-de-rham-product)によるLefschetz作用で、$L_H^0=I$ と約束する。
 
 ## 2. 射影空間は対称性だけで全ての調和形式を数えられる
 
@@ -57,7 +61,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**（1）調和形式はユニタリ作用で不変。** $\alpha$ を任意の調和 $k$ 形式とする。$g\in U(n+1)$ はFubini–Study計量を保つので、Hodge星・$d$・$d^*$ と可換であり、$g^*\alpha$ も調和的である。他方、上で作った $g_t$ によって $g$ は恒等写像と滑らかにホモトピックだから、[ホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)で $[g^*\alpha]_d=[\alpha]_d$。そこで[一意な調和代表](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を適用すると $g^*\alpha=\alpha$ となる。型も保つので、$(p,q)$ 型ごとに論じてよい。
+**（1）調和形式はユニタリ作用で不変。** $\alpha$ を任意の調和 $k$ 形式とする。$g\in U(n+1)$ はFubini–Study計量を保つので、Hodge星・$d$・$d^*$ と可換であり、$g^*\alpha$ も調和的である。
+
+他方、上で作った $g_t$ によって $g$ は恒等写像と滑らかにホモトピックだから、[ホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)で $[g^*\alpha]_d=[\alpha]_d$。そこで[一意な調和代表](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を適用すると $g^*\alpha=\alpha$ となる。型も保つので、$(p,q)$ 型ごとに論じてよい。
 
 **（2）一点の不変形式を分類。** 基点を $o=[1:0:\cdots:0]$ とする。$o$ を固定する行列 $\operatorname{diag}(1,A)$（$A\in U(n)$）は、局所座標 $z=(Z_1/Z_0,\ldots,Z_n/Z_0)$ に $z\mapsto Az$ と作用する。従って接空間で完全な $U(n)$ 作用が得られる。
 
@@ -75,7 +81,9 @@ $$
 
 **（3）候補は全て存在する。** 定数関数 $1$ は調和 $0$ 形式である。[Kähler上のLaplacianとLの可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)を $r$ 回使えば $\omega_{\mathrm{FS}}^r=L^r1$ も調和的である。Kähler正値性から点ごとに $\omega_{\mathrm{FS}}^r\ne0$（$0\le r\le n$）。したがって各 $(r,r)$ の調和形式はこの一つで尽くされ、他の型には調和形式がない。[型別調和代表との同型](../HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)からHodge数の公式が従う。
 
-**（4）積構造。** [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)を複素化し、[型別Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と合わせると $H^{2r}=\mathbb C[\omega_{\mathrm{FS}}^r]_d$、奇数次は零となる。$x=[\omega_{\mathrm{FS}}/(2\pi)]_d$ の積 $x^r$ は非零の $[\omega_{\mathrm{FS}}^r/(2\pi)^r]_d$ であり、各偶数次の基底となる。一方、実次元は $2n$ なので $x^{n+1}=0$。従って $1,x,\ldots,x^n$ を基底に持ち、関係は $x^{n+1}=0$ のみである。$\square$
+**（4）積構造。** [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)を複素化し、[型別Hodge分解](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と合わせると $H^{2r}=\mathbb C[\omega_{\mathrm{FS}}^r]_d$、奇数次は零となる。
+
+$x=[\omega_{\mathrm{FS}}/(2\pi)]_d$ の積 $x^r$ は非零の $[\omega_{\mathrm{FS}}^r/(2\pi)^r]_d$ であり、各偶数次の基底となる。一方、実次元は $2n$ なので $x^{n+1}=0$。従って $1,x,\ldots,x^n$ を基底に持ち、関係は $x^{n+1}=0$ のみである。$\square$
 <!-- proof-end -->
 
 この証明は射影空間のセル分解や一般の特異コホモロジーの計算を仮定しない。必要だったのはFubini–Studyの等長対称性、群の連結性、調和代表の一意性、点ごとのユニタリ線形代数である。**単なる複素多様体の自己同型であれば調和形式を保つとは限らない**ので、「等長作用」を抜かして同じ議論をしてはいけない。
@@ -204,7 +212,9 @@ $$
 
 [Hard Lefschetz同型](../HOD1-11/index.md#thm-hod1-11-hard-lefschetz)の定義域はちょうどこの $H^k$ であり、単射だから $a=0$。有限次元空間の単射なので $b_k\le b_{k+2}$。
 
-$[\omega]_d$ は $(1,1)$ 型なので、[型の移動](../HOD1-10/index.md#prop-hod1-10-hodge-type-shift)によって $L_H$ は $H^{p,q}$ を $H^{p+1,q+1}$ に写す。全空間で単射な写像の制限も単射ゆえ $h^{p,q}\le h^{p+1,q+1}$。さらに $p+q+2\le n$ のとき、[原始Hodge型による直和](../HOD1-12/index.md#prop-hod1-12-type-decomposition)を次数 $k+2$ に適用して
+$[\omega]_d$ は $(1,1)$ 型なので、[型の移動](../HOD1-10/index.md#prop-hod1-10-hodge-type-shift)によって $L_H$ は $H^{p,q}$ を $H^{p+1,q+1}$ に写す。全空間で単射な写像の制限も単射ゆえ $h^{p,q}\le h^{p+1,q+1}$。
+
+さらに $p+q+2\le n$ のとき、[原始Hodge型による直和](../HOD1-12/index.md#prop-hod1-12-type-decomposition)を次数 $k+2$ に適用して
 
 $$
 H^{p+1,q+1}=P_H^{p+1,q+1}\oplus L_HH^{p,q}
@@ -213,7 +223,9 @@ $$
 を得る。右辺第二項の次元は単射性で $h^{p,q}$ なので、差の式が従う。$k=n-1$ のときは $n-k=1$ だから[型別Hard Lefschetz同型](../HOD1-11/index.md#prop-hod1-11-type-refinement)がそのまま $L_H$ の同型性を与える。$\square$
 <!-- proof-end -->
 
-**不等式の読み方。** 偶数列 $b_0\le b_2\le b_4\le\cdots$ と奇数列 $b_1\le b_3\le\cdots$ は、いずれも**次数が $n$ を超える手前まで**増加する。上半分は[Hard Lefschetzの次数対称性](../HOD1-11/index.md#cor-hod1-11-betti-symmetry)で折り返す。例えば $n=3$ なら $b_0\le b_2$、$b_1\le b_3$、$b_2\le b_4$ だが、最後は $b_2=b_4$ でもある。$b_3\le b_5$ はこの命題からは出ず、実際 $b_3$ が $b_5$ より大きい例もある。
+**不等式の読み方。** 偶数列 $b_0\le b_2\le b_4\le\cdots$ と奇数列 $b_1\le b_3\le\cdots$ は、いずれも**次数が $n$ を超える手前まで**増加する。上半分は[Hard Lefschetzの次数対称性](../HOD1-11/index.md#cor-hod1-11-betti-symmetry)で折り返す。
+
+例えば $n=3$ なら $b_0\le b_2$、$b_1\le b_3$、$b_2\le b_4$ だが、最後は $b_2=b_4$ でもある。$b_3\le b_5$ はこの命題からは出ず、実際 $b_3$ が $b_5$ より大きい例もある。
 
 **中央で止まる理由。** $X=\mathbb{CP}^1\times\mathbb{CP}^1$ は $n=2$、$H^2$ の次元が $2$、$H^4$ の次元が $1$ なので、$L_H:H^2\to H^4$ は単射になれない。中央次数 $k=n$ まで不等式を延長して $b_2\le b_4$ とするのは誤りである。
 
@@ -275,20 +287,21 @@ $$
 > **命題（複素曲面三例の原始部分と交叉形式）**
 > $X$ を次のいずれかの滑らか・連結・コンパクトKähler曲面とする。原始二次類は[原始コホモロジー](../HOD1-12/index.md#def-hod1-12-primitive-cohomology)の $P_H^2=\ker(L_H:H^2\to H^4)$ とする。
 >
-> 1. 射影平面 $X=\mathbb{CP}^2$、$x=[\omega_{\mathrm{FS}}/(2\pi)]_d$ について
+> **（1）射影平面。** $X=\mathbb{CP}^2$、$x=[\omega_{\mathrm{FS}}/(2\pi)]_d$ について
 
 $$
 H^2(X)=\mathbb Cx,\qquad P_H^2=0,\qquad Q_X(x,x)=1.
 $$
 
-> 2. 射影直線の積 $X=\mathbb{CP}^1\times\mathbb{CP}^1$ では、二因子からの規格化二次類を $u,v$、$[\omega]_d=2\pi(au+bv)$（$a,b>0$）とすると
+> **（2）射影直線の積。** $X=\mathbb{CP}^1\times\mathbb{CP}^1$ では、二因子からの規格化二次類を $u,v$、$[\omega]_d=2\pi(au+bv)$（$a,b>0$）とすると
 
 $$
 u^2=v^2=0,\quad \int_Xuv=1,\quad P_H^2=\mathbb C(au-bv).
 $$
 
 > 実二次交叉形式の符号は $(1,1)$ である。
-> 3. $X=T=\mathbb C^2/\Lambda$ に定数正定値Hermite計量を降ろすと
+>
+> **（3）複素二次元トーラス。** $X=T=\mathbb C^2/\Lambda$ に定数正定値Hermite計量を降ろすと
 
 $$
 \dim_{\mathbb C}P_H^2=5,\qquad
@@ -330,7 +343,9 @@ $$
 
 と直接検算できる。原始方向の自己交叉は $Q_X(au-bv,au-bv)=-2ab<0$。なお $\int\omega^2=2(2\pi)^2ab>0$ であり、[Kähler類の非零性](#cor-hod1-14-kahler-powers)と一致する。
 
-**（3）複素二次元トーラス。** [トーラスのHodge数](../HOD1-09/index.md#thm-hod1-09-torus-numbers)から $b_2=6$、$b_0=1$、$h^{1,1}=4$、$h^{2,0}=1$。[原始次元公式](../HOD1-12/index.md#cor-hod1-12-primitive-dimensions)を $n=k=2$ に適用して $\dim P_H^2=b_2-b_0=5$。また[型別原始分解](../HOD1-12/index.md#prop-hod1-12-type-decomposition)により $H^{1,1}=P_H^{1,1}\oplus\mathbb C[\omega]_d$ である。従って原始 $(1,1)$ は $4-1=3$ 次元で、残りの原始 $(2,0),(0,2)$ は各一次元である。
+**（3）複素二次元トーラス。** [トーラスのHodge数](../HOD1-09/index.md#thm-hod1-09-torus-numbers)から $b_2=6$、$b_0=1$、$h^{1,1}=4$、$h^{2,0}=1$。[原始次元公式](../HOD1-12/index.md#cor-hod1-12-primitive-dimensions)を $n=k=2$ に適用して $\dim P_H^2=b_2-b_0=5$。
+
+また[型別原始分解](../HOD1-12/index.md#prop-hod1-12-type-decomposition)により $H^{1,1}=P_H^{1,1}\oplus\mathbb C[\omega]_d$ である。従って原始 $(1,1)$ は $4-1=3$ 次元で、残りの原始 $(2,0),(0,2)$ は各一次元である。
 
 [実二次交叉形式の符号公式](../HOD1-13/index.md#cor-hod1-13-full-signature)では正方向が $1+2h^{2,0}=3$、負方向が $h^{1,1}-1=3$ となる。$H^{2,0}\oplus H^{0,2}$ の二つの複素一次元を実空間の正方向 **4次元** と二重に数えてはいけない。複素共役で結び付いた実部分空間の実次元は $2h^{2,0}=2$ で、これに実Kähler方向の $1$ を足す。$\square$
 <!-- proof-end -->
@@ -518,9 +533,17 @@ $X=\mathbb{CP}^n$（$n\ge1$）にFubini–Study計量を与える。次を順に
 
 **(ii)** 等長性により $g^*$ は $d,d^*,\Delta_d$ と可換だから、調和形式 $\alpha$ に対し $g^*\alpha$ も調和的。(i) の[滑らかなホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)で $[g^*\alpha]_d=[\alpha]_d$ であり、[調和代表の一意性](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)から $g^*\alpha=\alpha$。複素構造も保つため $(p,q)$ 型ごとに成立する。
 
-**(iii)** 基点 $[1:0:\cdots:0]$ の[安定化群](../../../代数系/GRP/GRP3/index.md#def-grp3-orbit-stabilizer)に含まれる $\operatorname{diag}(1,A)$（$A\in U(n)$）は接空間に $A$ として作用する。余標構 $\theta^j$ に対する対角回転では単項式 $\theta^I\wedge\bar\theta^J$ の重みは $\prod_{j\in I}e^{it_j}\prod_{j\in J}e^{-it_j}$。全ての $t_j$ に対して重みが $1$ なら $I=J$。従って $p=q=r$、候補は $\omega_I=\bigwedge_{j\in I}(i\theta^j\wedge\bar\theta^j)$ の和。座標置換で全係数が同じになるので $\sum_{|I|=r}\omega_I=\omega^r/r!$ の倍数に限る。推移性により全体でも同じである。
+**(iii)** 基点 $[1:0:\cdots:0]$ の[安定化群](../../../代数系/GRP/GRP3/index.md#def-grp3-orbit-stabilizer)に含まれる $\operatorname{diag}(1,A)$（$A\in U(n)$）は接空間に $A$ として作用する。
 
-**(iv)** 定数 $1$ は調和的であり、[LaplacianとLの可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)から $\omega^r=L^r1$ も調和的。$\omega^n/n!$ が正の体積形式であるため $0\le r\le n$ の $\omega^r$ は非零である。ゆえに $H^{r,r}=\mathbb C[\omega^r]$、その他の $H^{p,q}$ は零。[de Rhamの積](../HOD1-10/index.md#def-hod1-10-de-rham-product)で $x^r=[\omega^r/(2\pi)^r]_d$ が偶数次数の基底となり、実次元 $2n$ より $x^{n+1}=0$。従って環は $\mathbb C[x]/(x^{n+1})$。$\square$
+余標構 $\theta^j$ に対する対角回転では単項式 $\theta^I\wedge\bar\theta^J$ の重みは $\prod_{j\in I}e^{it_j}\prod_{j\in J}e^{-it_j}$。全ての $t_j$ に対して重みが $1$ なら $I=J$。
+
+従って $p=q=r$、候補は $\omega_I=\bigwedge_{j\in I}(i\theta^j\wedge\bar\theta^j)$ の和。座標置換で全係数が同じになるので $\sum_{|I|=r}\omega_I=\omega^r/r!$ の倍数に限る。推移性により全体でも同じである。
+
+**(iv)** 定数 $1$ は調和的であり、[LaplacianとLの可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)から $\omega^r=L^r1$ も調和的。$\omega^n/n!$ が正の体積形式であるため $0\le r\le n$ の $\omega^r$ は非零である。
+
+ゆえに $H^{r,r}=\mathbb C[\omega^r]$、その他の $H^{p,q}$ は零。[de Rhamの積](../HOD1-10/index.md#def-hod1-10-de-rham-product)で $x^r=[\omega^r/(2\pi)^r]_d$ が偶数次数の基底となる。
+
+実次元 $2n$ より $x^{n+1}=0$。従って環は $\mathbb C[x]/(x^{n+1})$。$\square$
 <!-- solution-end -->
 
 <a id="ex-hod1-14-c02"></a>
