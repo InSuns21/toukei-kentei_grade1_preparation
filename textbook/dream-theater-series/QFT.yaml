@@ -121,5 +121,5 @@ chapters:
     title: "非可換ゲージ変換・Yang–Mills曲率とゲージ場の自己相互作用"
   - id: QFT29
     path: textbook/volumes/dream_thater/物理系/QFT/QFT29
-    status: planned
-    title: "Faddeev–Popovゲージ固定・ghostとBRST対称性の入口"
+    status: completed
+    title: "Faddeev–Popovゲージ固定・ghostとBRST対称性"
