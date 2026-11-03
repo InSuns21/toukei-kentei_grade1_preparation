@@ -1,0 +1,55 @@
+id: "MICA15"
+title: "応力テンソルと局所共変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICA14
+  - MICA13
+  - MICA12
+  - MICA11
+  - LORG4
+  - LORG5
+  - HPDE16
+  - HPDE7
+  - GR7
+official_scope: []
+learning_objectives:
+  - 古典Klein–Gordon場の曲率結合を含む応力テンソルと保存恒等式を計量符号・曲率項を確認して導出できる
+  - 平行移動で異なる点の添字を比較し、二点微分後に対角制限する双微分作用を再構成できる
+  - 同じ場のHadamard状態間の滑らかな双解の差から保存的な応力テンソル期待値差を計算できる
+  - parametrixが厳密な双解でないため個々の期待値に局所的な保存補正が必要な理由を説明できる
+  - 局所共変性を等長埋め込みと状態引き戻しで検査し、保存的な曲率テンソルの有限自由度を区別できる
+  - 長さスケール変更と状態変更の差、古典的共形トレースと量子trace anomalyの違いを説明できる
+definitions:
+  - { id: MICA15-DEF-01, name: 曲率結合した実スカラー場の古典的応力テンソル }
+  - { id: MICA15-DEF-02, name: 点分離応力テンソルの双微分作用 }
+  - { id: MICA15-DEF-03, name: 保存的な点分離応力テンソルの期待値 }
+  - { id: MICA15-DEF-04, name: 応力テンソル期待値の局所共変性 }
+  - { id: MICA15-DEF-05, name: 局所曲率作用の変分テンソル }
+theorems:
+  - { id: MICA15-PROP-01, name: 古典的保存恒等式 }
+  - { id: MICA15-PROP-02, name: 双微分作用と古典テンソルの対応 }
+  - { id: MICA15-THM-01, name: 応力テンソル期待値の状態間差 }
+  - { id: MICA15-PROP-03, name: 曲率変分テンソルの保存性 }
+  - { id: MICA15-THM-02, name: 4次元スカラー場の有限なくりこみ自由度 }
+canonical_examples:
+  - Minkowski定数場と時間一次関数の古典応力テンソル
+  - 分離変数二点関数の混合微分と平行移動
+  - 同じHadamard状態の滑らかな定数解の加算と状態間差
+  - 曲率二乗作用の平坦背景での一次変分
+  - Minkowski平行移動での局所共変性
+problem_patterns:
+  - MICA15-CLASSICAL-ENERGY
+  - MICA15-DIAGONAL-CHAIN-RULE
+  - MICA15-STATE-SHIFT
+  - MICA15-SMOOTH-NONCONSERVATION
+  - MICA15-DIMENSION
+  - MICA15-CONFORMAL-TRACE
+  - MICA15-POLARIZED-BISOLUTION
+  - MICA15-SCALE-STATE-DIFFERENCE
+  - MICA15-DIFFEO-NOETHER
+  - MICA15-INTEGRATED-POINT-SPLITTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

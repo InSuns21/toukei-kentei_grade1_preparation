@@ -34,7 +34,7 @@ $$
 <!-- definition-example-start: def-qft35-representation -->
 ### 例：六成分なのに二種類の添字を持つ
 
-$(\mathbf3,\mathbf2)_{1/6}$ の場 $X^{ai}$ は $3\times2=6$ 個の複素成分を持ちます。$U_3=I_3$、$U_2=\operatorname{diag}(e^{it/2},e^{-it/2})$、$\beta=0$ を選べば、すべての色 $a$ で $X^{a1}\mapsto e^{it/2}X^{a1}$、$X^{a2}\mapsto e^{-it/2}X^{a2}$ です。逆に $U_2=I_2$ として色変換すると、同じ $i$ の三成分だけが混ざります。表現ラベルの**三つの因子と作用する添字**を直接確認しました。
+**定義の確認**：$(\mathbf3,\mathbf2)_{1/6}$ の場 $X^{ai}$ は $3\times2=6$ 個の複素成分を持ちます。$U_3=I_3$、$U_2=\operatorname{diag}(e^{it/2},e^{-it/2})$、$\beta=0$ を選べば、すべての色 $a$ で $X^{a1}\mapsto e^{it/2}X^{a1}$、$X^{a2}\mapsto e^{-it/2}X^{a2}$ です。逆に $U_2=I_2$ として色変換すると、同じ $i$ の三成分だけが混ざります。$U_2=I_2,U_3=I_3,\beta=s$ ならすべての成分が $e^{is/6}$ 倍になります。表現ラベルの**三つの因子と作用する添字**を直接確認しました。
 <!-- definition-example-end -->
 
 **超電荷の正規化の注意。** 物理で使う $Y=1/6$ などの分数を、周期 $2\pi$ の $U(1)$ 座標 $\beta$ に無条件で代入すると、$\beta\mapsto\beta+2\pi$ で同じ変換になりません。厳密な大域群の座標としては $q=6Y\in\mathbb Z$ とおき、周期 $2\pi$ の $\alpha$ に $e^{iq\alpha}$ と作用させればよいです。以下の $e^{iY\beta}$ は $\beta=6\alpha$ とした**局所Lie代数側の慣用規約**です。大域群の中心による商の選択まで、この局所作用だけで決めたわけではありません。
@@ -65,7 +65,7 @@ $$
 <!-- definition-example-start: def-qft35-hypercharge -->
 ### 例：レプトン二重項の中性と負電荷
 
-$L_L=(\nu_L,e_L)^T$ の表示を $(\mathbf1,\mathbf2)_{-1/2}$ とすると、$T_3$ の上側固有値は $1/2$、下側は $-1/2$ です。$YI=-I/2$ を加えると $Q=\operatorname{diag}(0,-1)$。これで**上側が中性、下側が負電荷**という定義の各条件を行列の作用で直接判定できます。
+**定義の確認**：$L_L=(\nu_L,e_L)^T$ の表示を $(\mathbf1,\mathbf2)_{-1/2}$ とすると、$T_3$ の上側固有値は $1/2$、下側は $-1/2$ です。$YI=-I/2$ を加えると $Q=\operatorname{diag}(0,-1)$。これで**上側が中性、下側が負電荷**という定義の各条件を行列の作用で直接判定できます。
 <!-- definition-example-end -->
 
 <a id="prop-qft35-doublet-charges"></a>
@@ -153,7 +153,7 @@ $$
 <!-- definition-example-start: def-qft35-product-derivative -->
 ### 例：弱二重項と右巻き電子の違い
 
-色一重項のレプトン二重項 $L_L$ には $t^A=0$、$\tau^I=\sigma^I/2$、$Y=-1/2$ を代入するので
+**定義の確認**：色一重項のレプトン二重項 $L_L$ には $t^A=0$、$\tau^I=\sigma^I/2$、$Y=-1/2$ を代入するので
 
 $$
 D_\mu L_L=\left(\partial_\mu-\frac{ig}{2}W_\mu^I\sigma^I
@@ -255,7 +255,7 @@ $$
 <!-- definition-example-start: def-qft35-higgs-yukawa -->
 ### 例：共役二重項の成分と超電荷
 
-$H=(h_1,h_2)^T$ に対して $\epsilon H^*=(h_2^*,-h_1^*)^T$ です。$U(1)_Y$ の位相 $e^{i\beta/2}$ を掛けた $H$ は、複素共役後に $e^{-i\beta/2}$ を持ちます。従って $\widetilde H$ の超電荷は $-1/2$。上下の電荷は[弱二重項の電荷固有値](#prop-qft35-doublet-charges)から $0,-1$ で、実際 $(H^{0*},-H^{+*})$ と一致します。
+**定義の確認**：$H=(h_1,h_2)^T$ に対して $\epsilon H^*=(h_2^*,-h_1^*)^T$ です。$U(1)_Y$ の位相 $e^{i\beta/2}$ を掛けた $H$ は、複素共役後に $e^{-i\beta/2}$ を持ちます。従って $\widetilde H$ の超電荷は $-1/2$。上下の電荷は[弱二重項の電荷固有値](#prop-qft35-doublet-charges)から $0,-1$ で、実際 $(H^{0*},-H^{+*})$ と一致します。
 <!-- definition-example-end -->
 
 <a id="prop-qft35-conjugate-higgs"></a>
