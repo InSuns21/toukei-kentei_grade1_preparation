@@ -1,0 +1,62 @@
+chapter: QFT35
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT34, QFT32, QFT28, QFT17]
+forward_references: []
+
+concepts:
+  - id: qft.standard-model-gauge-representation
+    name: 標準模型のゲージ表現ラベル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標準模型のゲージ表現ラベル）]
+    requires: [qft.sun-covariant-derivative, qft.chirality-weyl-components]
+
+  - id: qft.standard-model-hypercharge-operator
+    name: 超電荷と電荷演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（超電荷と電荷演算子）]
+    requires: [qft.standard-model-gauge-representation]
+
+  - id: qft.weak-doublet-charge-eigenvalues
+    name: 弱二重項の電荷固有値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（弱二重項の電荷固有値）]
+    requires: [qft.standard-model-hypercharge-operator]
+
+  - id: qft.standard-model-product-covariant-derivative
+    name: 標準模型の積群共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標準模型の積群共変微分）]
+    requires: [qft.standard-model-gauge-representation, qft.nonabelian-gauge-covariance]
+
+  - id: qft.standard-model-kinetic-covariance
+    name: 積群共変微分と運動項のゲージ共変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（積群共変微分と運動項のゲージ共変性）]
+    requires: [qft.standard-model-product-covariant-derivative]
+
+  - id: qft.conjugate-higgs-doublet
+    name: Higgs共役二重項とYukawa結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Higgs共役二重項とYukawa結合）]
+    requires: [qft.standard-model-hypercharge-operator, qft.abelian-higgs-model]
+
+  - id: qft.higgs-conjugate-transformation
+    name: 共役Higgs二重項の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共役Higgs二重項の変換）]
+    requires: [qft.conjugate-higgs-doublet]
+
+  - id: qft.yukawa-gauge-invariance
+    name: 標準模型Yukawa項のゲージ不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標準模型Yukawa項のゲージ不変性）]
+    requires: [qft.higgs-conjugate-transformation, qft.standard-model-gauge-representation]

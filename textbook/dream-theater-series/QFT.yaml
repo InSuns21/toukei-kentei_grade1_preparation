@@ -143,3 +143,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT34
     status: completed
     title: "局所U(1)対称性・Abelian Higgs機構・ゲージ固定と物理自由度"
+  - id: QFT35
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT35
+    status: completed
+    title: "標準模型のゲージ群・フェルミオン表現・超電荷とHiggs結合"
