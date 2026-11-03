@@ -1,0 +1,49 @@
+id: "COMB6"
+title: "有限差分と Newton 展開"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB5
+official_scope: []
+learning_objectives:
+  - シフト・前進差分・後退差分の作用対象と符号を区別し、反復差分の交互和を証明できる
+  - 下降階乗と一般化二項多項式を定義から検算し、その前進差分公式を証明できる
+  - 二項多項式が実係数多項式の基底をなすことを示し、差分係数から Newton 前進展開を導ける
+  - 有限差分表から等間隔データの一意な低次数補間多項式を構成し、外挿の仮定を説明できる
+  - 多項式の次数と高階差分の消失を結びつけ、全時刻の差分条件と有限データを区別できる
+  - 任意の始点と非零刻み幅の Newton 展開へ変数変換できる
+definitions:
+  - { id: COMB6-DEF-01, name: シフト作用素・前進差分・後退差分 }
+  - { id: COMB6-DEF-02, name: 下降階乗と一般化二項多項式 }
+  - { id: COMB6-DEF-03, name: 有限差分表 }
+theorems:
+  - { id: COMB6-PROP-01, name: 差分作用素の関係 }
+  - { id: COMB6-THM-01, name: 反復前進差分の交互和 }
+  - { id: COMB6-THM-02, name: 下降階乗の差分 }
+  - { id: COMB6-COR-01, name: 二項多項式の反復差分 }
+  - { id: COMB6-THM-03, name: 二項多項式の基底 }
+  - { id: COMB6-THM-04, name: Newton 前進展開：多項式版 }
+  - { id: COMB6-THM-05, name: 等間隔有限データの一意な補間 }
+  - { id: COMB6-THM-06, name: 差分による多項式の次数判定 }
+  - { id: COMB6-PROP-02, name: 差分が消える数列 }
+  - { id: COMB6-THM-07, name: 任意の始点・非零刻み幅での Newton 展開 }
+canonical_examples:
+  - 二乗関数の前進差分・後退差分と二回差分
+  - 下降階乗の k=0,1,3 と一般化二項多項式の整数値
+  - 二乗多項式の Newton 前進展開と係数の検算
+  - 四つの数値データ 2,5,10,17 の有限差分表と一意補間
+  - 刻み幅2の三点データと変数変換
+  - 補間次数の制限を外したときの外挿の非一意性
+problem_patterns:
+  - COMB6-FORWARD-BACKWARD-DIFFERENCE
+  - COMB6-ITERATED-DIFFERENCE
+  - COMB6-FALLING-FACTORIAL-BASIS
+  - COMB6-NEWTON-POLYNOMIAL
+  - COMB6-FINITE-TABLE-INTERPOLATION
+  - COMB6-POLYNOMIAL-DEGREE-TEST
+  - COMB6-ARBITRARY-STEP
+  - COMB6-EXTRAPOLATION-AMBIGUITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
