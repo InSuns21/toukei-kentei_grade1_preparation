@@ -30,7 +30,9 @@ $$
 
 ## 2. 行列式を追うと、どの曲率が残るか
 
-接束 $T^{1,0}X$ の基底 $e_1,\ldots,e_n$ に沿って接続を $De_j=\sum_k e_k A^k{}_j$ と表示する。最高外冪 $L=\det T^{1,0}X=K_X^{-1}$ では、同じ接続が誘導する係数は $\operatorname{tr}A$ となる。なぜなら
+[標準束と反標準束の定義](../../KAH/KAH1-12/index.md#def-kah1-12-canonical)に従い、接束 $T^{1,0}X$ の最高外冪を $L=\det T^{1,0}X=K_X^{-1}$ と書く。
+
+接束の局所基底 $e_1,\ldots,e_n$ に沿って接続を $De_j=\sum_k e_k A^k{}_j$ と表示すると、同じ接続が $L$ に誘導する係数は $\operatorname{tr}A$ となる。なぜなら
 
 $$
 D(e_1\wedge\cdots\wedge e_n)
@@ -74,7 +76,17 @@ U_1(1)\wedge\cdots\wedge U_n(1)
 =\det_{\mathbb C}(P_\gamma)\,u_1\wedge\cdots\wedge u_n.
 $$
 
-縮められる閉路 $\gamma$ を張る円板上で $L$ の単位枠を取り、誘導接続を $d+a$ と書く。線束の曲率は $da=F_L$、平行切断の係数 $c$ は $\dot c+a(\dot\gamma)c=0$ を満たす。したがって[閉路の行列式と円板積分の既習計算](../../KAH/KAH1-16/index.md#thm-kah1-16-su-restricted)のとおり
+縮められる閉路 $\gamma:[0,1]\to X$ を張る円板上で $L$ の単位枠を取り、誘導接続を $d+a$ と書く。ここで $a$ は接続の1形式であり、曲率は円板へ引き戻した $F_L$ に対して $da=F_L$ となる。
+
+平行切断の係数を $c(t)$ と書く。点は曲線のパラメータ $t$ による微分、$a(\dot\gamma)$ は接ベクトル $\dot\gamma(t)$ での1形式の評価である。平行方程式から
+
+$$
+\dot c+a(\dot\gamma)c=0
+\quad\Longrightarrow\quad
+\frac{\dot c}{c}=-a(\dot\gamma)
+$$
+
+を得る。初期値 $c(0)\ne0$ は平行移動中も非零だから積分でき、[閉路の行列式と円板積分の既習計算](../../KAH/KAH1-16/index.md#thm-kah1-16-su-restricted)のとおり
 
 $$
 \det_{\mathbb C}P_\gamma
@@ -156,7 +168,9 @@ $$
 =-i\rho.
 $$
 
-$\rho=0$ なら実関数 $\log q$ はKähler Laplacianに関して調和的である。$X$ が連結コンパクトかつ境界なしなら、[積分による調和関数の定数性](../CYG1-01/index.md#thm-cyg1-01-parallel-volume)により $\log q$ は定数となる。次に $\Omega$ 自体を正則枠として見たChern接続の $(1,0)$ 係数は $\partial\log q$、$(0,1)$ 係数は0だから、
+$\rho=0$ なら実関数 $\log q$ はKähler Laplacianに関して調和的である。$X$ が連結コンパクトかつ境界なしなら、[積分による調和関数の定数性とChern接続の既習計算](../CYG1-01/index.md#thm-cyg1-01-parallel-volume)により $\log q$ は定数となる。
+
+このとき、直前に参照した証明に従えば、$\Omega$ 自体を正則枠として見たChern接続の $(1,0)$ 係数は $\partial\log q$、$(0,1)$ 係数は0だから、
 
 $$
 \nabla\Omega=(\partial\log q)\otimes\Omega=0.
@@ -206,13 +220,14 @@ $$
 
 格子商の上で $\sigma^2=\mathrm{id}$。固定点があるなら第1座標で $1/2\in\mathbb Z+i\mathbb Z$ が必要となり矛盾するため、作用は自由である。また $\sigma$ は平坦計量を保ち、商 $X=Y/\langle\sigma\rangle$ はコンパクト平坦Kähler曲面となる。
 
-[平坦商のホロノミー計算](../../KAH/KAH1-16/index.md#prop-kah1-16-flat-quotient)では、$Y$ 上で定数枠の平行移動は $I$ だが、$X$ で閉じる経路を $Y$ に持ち上げると終点が $\sigma$ によって移動する場合があり、その接空間の同一視は
+[平坦商のホロノミー計算](../../KAH/KAH1-16/index.md#prop-kah1-16-flat-quotient)では、$Y$ 上で定数枠の平行移動は $I$ だが、$X$ で閉じる経路を $Y$ に持ち上げると終点が $\sigma$ によって移動する場合がある。接ベクトル $(\delta z,\delta w)$ への微分は、$z\mapsto z+1/2$ の微分が1、$w\mapsto-w$ の微分が $-1$、混合偏微分が零であることから
 
 $$
-d\sigma=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+d\sigma(\delta z,\delta w)=(\delta z,-\delta w),\qquad
+[d\sigma]=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 $$
 
-ゆえに
+商の終点の接空間を始点へ戻すのは $d\sigma^{-1}$ であるが、$\sigma^2=\mathrm{id}$ なので $d\sigma^{-1}=d\sigma$ である。従ってこの行列は閉路のホロノミーを表し、全閉路の終点は二枚の被覆のいずれかに限られるので
 
 $$
 \rho=0,\qquad
@@ -228,7 +243,7 @@ $$
 \det\operatorname{Hol}:\pi_1(X,x)\longrightarrow U(1)
 $$
 
-を定める。この例ではその像が $\{1,-1\}$ である。基本群からのこの情報を、点ごとのRicci形式の消失だけで読み取ることはできない。
+を定める。これは平坦な行列式線束の**モノドロミー表現**であり、この例ではその像が $\{1,-1\}$ である。基本群からのこの情報を、点ごとのRicci形式の消失だけで読み取ることはできない。
 
 ## 6. 積のRicci平坦計量が教える「包含」と「等号」
 
@@ -258,13 +273,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各因子の局所座標を $z^a$、$w^\mu$ とすると、計量行列は
+各因子の局所正則座標を $z^a$（$1\le a\le n_1$）、$w^\mu$（$1\le\mu\le n_2$）とする。Hermite計量の係数は各因子の座標とその共役に依存し、積計量の行列は
 
 $$
-G=\begin{pmatrix}G_1(z)&0\\0&G_2(w)\end{pmatrix}.
+G=\begin{pmatrix}G_1(z,\bar z)&0\\0&G_2(w,\bar w)\end{pmatrix}.
 $$
 
-Kähler接続の正則係数 $\Gamma^k_{ij}=g^{k\bar\ell}\partial_i g_{j\bar\ell}$ では、異なる因子間の成分は0である。実際、$z$ 微分は $G_2(w)$ を変えず、$w$ 微分は $G_1(z)$ を変えず、逆行列もブロック対角だからである。したがって積の曲線 $\gamma(t)=(\gamma_1(t),\gamma_2(t))$ に沿う平行方程式は二本に分離し、
+[Kähler接続の座標係数](../../KAH/KAH1-03/index.md#prop-kah1-03-chern-coefficients)は
+
+$$
+\Gamma^k_{ij}=\sum_\ell g^{k\bar\ell}\partial_i g_{j\bar\ell}
+$$
+
+である。$\partial_i$ は全座標 $(z,w)$ の第 $i$ 成分による偏微分、$g^{k\bar\ell}$ は計量行列の逆行列の成分を表す。例えば $i=a$ が第1因子、$j=\mu$ が第2因子なら
+
+$$
+\partial_{z^a}g_{\mu\bar\nu}=0,\qquad
+g_{\mu\bar b}=0
+$$
+
+となる。前者は第2因子の計量係数が第1因子の座標に依存しないため、後者は混合ブロックが零であるためである。逆行列もブロック対角なので、出力添字 $k$ がどちらの因子でも $\Gamma^k_{a\mu}=0$。$z,w$ を交換した場合も同様で、異なる因子間の係数はすべて零となる。
+
+したがって積の曲線 $\gamma(t)=(\gamma_1(t),\gamma_2(t))$ に沿う平行方程式は二本に分離し、
 
 $$
 P_\gamma=\operatorname{diag}(P_{\gamma_1},P_{\gamma_2}).
@@ -446,13 +476,21 @@ $$
 複素次元 $p,q$ のKähler多様体に積計量を入れる。各因子の正則座標で、積の混合Christoffel記号が零であることを確かめ、$\operatorname{Hol}(g_1\oplus g_2)=\operatorname{Hol}(g_1)\times\operatorname{Hol}(g_2)$ をブロック埋め込みの意味で示せ。
 
 <!-- solution-start -->
-**詳細解答。** 積計量の行列は次のブロック表示を持ち、逆行列も同じ構造である。
+**詳細解答。** 各因子の正則座標を $z,w$ と書く。積計量の係数は $z,\bar z$ または $w,\bar w$ にだけ依存するため、行列は次のブロック表示を持ち、逆行列も同じ構造である。
 
 $$
-G=\operatorname{diag}(G_1(z),G_2(w)).
+G=\operatorname{diag}(G_1(z,\bar z),G_2(w,\bar w)).
 $$
 
-Kähler接続の係数は $\Gamma^k_{ij}=\sum_{\bar\ell}g^{k\bar\ell}\partial_i g_{j\bar\ell}$。$i$ が $z$ 添字で $j$ が $w$ 添字なら、第2因子の係数は $z$ に依存しないため偏微分が零となる。他の混合配置も、ブロックの零成分または因子外の方向の微分が零になることから消える。よって平行移動方程式は分離し、
+[Kähler接続の座標係数](../../KAH/KAH1-03/index.md#prop-kah1-03-chern-coefficients)は
+
+$$
+\Gamma^k_{ij}=\sum_\ell g^{k\bar\ell}\partial_i g_{j\bar\ell}
+$$
+
+である。ここで $\partial_i$ は第 $i$ 正則座標の偏微分である。$i$ が第1因子、$j$ が第2因子の添字なら、$g_{j\bar\ell}$ は第2因子の座標にのみ依存するか、零ブロックに属するため、その第1因子方向の偏微分が零となる。
+
+$i$ と $j$ の因子を交換した場合も同様であり、異なる因子の方向を混ぜる係数は零となる。よって平行移動方程式は分離し、
 
 $$
 P_{(\gamma_1,\gamma_2)}
