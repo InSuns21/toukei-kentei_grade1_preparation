@@ -24,7 +24,7 @@ $$
 N(\phi)=\frac{a}{\sqrt{1-e^2\sin^2\phi}}
 $$
 
-です。$-\pi/2\le\phi\le\pi/2$ は測地緯度、$\lambda$ は東正の経度です。楕円体表面の点と単位外向き法線は、既習の結果から
+です。$-\pi/2\le\phi\le\pi/2$ は測地緯度、$\lambda$ は東正の経度です。[GEOD3 の表面表示](../GEOD3/index.md#prop-geod3-surface-parameterization)では $\lambda\in(-\pi,\pi]$ を代表値としていましたが、ここでは三角関数の $2\pi$ 周期性によって同じ式を $\lambda\in\mathbb R$ へ延長して使います。楕円体表面の点と単位外向き法線は、既習の結果から
 
 $$
 \begin{aligned}
