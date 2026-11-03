@@ -49,7 +49,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod4-curvature-radii -->
-**定義の確認。** $a=5$、$b=4$ なら $e^2=1-16/25=9/25$ です。赤道 $\phi=0$ では $D=1$ なので
+**定義の確認**　$a=5$、$b=4$ なら $e^2=1-16/25=9/25$ です。赤道 $\phi=0$ では $D=1$ なので
 
 $$
 N(0)=5,\qquad M(0)=5\cdot\frac{16}{25}=\frac{16}{5}.
@@ -181,7 +181,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod4-first-fundamental-form -->
-**定義の確認。** 赤道・経度 $0$ の $a=5,b=4$ の例で、先ほどの偏微分を使って $\boldsymbol v=\boldsymbol r_\phi+\boldsymbol r_\lambda=(0,5,16/5)$ を得ます。内積の定義から
+**定義の確認**　赤道・経度 $0$ の $a=5,b=4$ の例で、先ほどの偏微分を使って $\boldsymbol v=\boldsymbol r_\phi+\boldsymbol r_\lambda=(0,5,16/5)$ を得ます。内積の定義から
 
 $$
 g(\boldsymbol v,\boldsymbol v)=0^2+5^2+(16/5)^2
@@ -273,12 +273,12 @@ $$
 
 半径という語を長さ換算係数の別名で済ませないために、曲がり方を定義から確かめます。曲面上の点 $P$ と、そこで曲面に接する長さ $1$ の方向 $\boldsymbol u$ を選びます。その点の単位外向き法線 $\boldsymbol\nu$ と $\boldsymbol u$ の張る平面で楕円体を切ります。
 
-この切断面を**法截面**、切り口の平面曲線を**法截線**と呼びます。法截線を弧長でたどって得られる二階微分の大きさが曲率で、その逆数が曲率半径です。ここでは楕円体が凸で、対応する曲率が正になることを後で計算して確かめます。
+切り口は平面曲線になります。その曲線を弧長でたどって得られる二階微分の大きさから、曲がり方を数値で測ります。楕円体は凸なので、対応する曲率が正になることも後で計算して確かめます。
 
 <a id="def-geod4-normal-section-radius"></a>
 <!-- formal-statement-start -->
 > **定義（法截面の曲率半径）**
-> $a\ge b>0$ の回転楕円体上の点 $P$、長さ $1$ の接方向ベクトル $\boldsymbol u$、単位外向き法線 $\boldsymbol\nu$ をとる。$P$ を通り $\boldsymbol u,\boldsymbol\nu$ を含む平面と楕円体との交線を $P$ の近くで弧長 $s$ により $\boldsymbol\gamma(0)=P$、$\boldsymbol\gamma'(0)=\boldsymbol u$ と表す。その点の曲率半径を
+> $a\ge b>0$ の回転楕円体上の点 $P$、長さ $1$ の接方向ベクトル $\boldsymbol u$、単位外向き法線 $\boldsymbol\nu$ をとる。$P$ を通り $\boldsymbol u,\boldsymbol\nu$ を含む平面を**法截面**、その平面と楕円体との交線を**法截線**と定義する。法截線を $P$ の近くで弧長 $s$ により $\boldsymbol\gamma(0)=P$、$\boldsymbol\gamma'(0)=\boldsymbol u$ と表す。その点の曲率半径を
 
 $$
 R_{\boldsymbol u}=\frac{1}{\|\boldsymbol\gamma''(0)\|}
@@ -288,7 +288,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod4-normal-section-radius -->
-**定義の確認。** 球 $a=b=R$ で任意の点・接方向を選ぶと、法截面は球の中心を通る平面になり、交線は半径 $R$ の円です。円を弧長で表すと $\|\boldsymbol\gamma''(0)\|=1/R$ なので $R_{\boldsymbol u}=R$ です。方向によらないことも、球の回転対称性と一致します。
+**定義の確認**　球 $a=b=R$ で任意の点・接方向を選ぶと、法截面は球の中心を通る平面になり、交線は半径 $R$ の円です。円を弧長で表すと $\|\boldsymbol\gamma''(0)\|=1/R$ なので $R_{\boldsymbol u}=R$ です。方向によらないことも、球の回転対称性と一致します。
 <!-- definition-example-end -->
 
 求めたいのは法截線を全部解くことではなく、**点での二階微分**です。楕円体を定める関数を
