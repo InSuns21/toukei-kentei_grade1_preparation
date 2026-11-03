@@ -44,12 +44,18 @@ $$
 > と定める。$v\in V_{\mathbb Q}$、$c\in\mathbb C$ に対し $\overline{v\otimes c}=v\otimes\bar c$ と定めた反線形写像を**有理構造に関する複素共役**という。de Rham比較同型を通して $V_{\mathbb C}$ を $H^k_{\mathrm{dR}}(X;\mathbb C)$ と同定する。
 <!-- formal-statement-end -->
 
-ここで $v\otimes c$ は有理基底 $e_j$ を選んだときの複素係数表示 $\sum_jc_je_j$ を意味する。したがって共役は $\sum_jc_je_j\mapsto\sum_j\bar c_je_j$ であり、基底の選び方に依存しない。微分形式の係数の複素共役と一致するのは比較写像が実係数の積分を保つためである。
+ここで有理基底 $e_j$ を選び、$v=\sum_jq_je_j$（$q_j\in\mathbb Q$）と書くと、$v\otimes c$ は $\sum_j(q_jc)e_j$ に対応する。一般の複素化の元については
+
+$$
+\overline{\sum_jc_je_j}=\sum_j\bar c_je_j
+$$
+
+となる。有理基底の変更行列の成分は実数なので、係数の共役と基底変更が可換であり、この操作は基底の選び方に依存しない。微分形式の係数の複素共役と一致するのは比較写像が実係数の積分を保つためである。
 
 <!-- definition-example-start: def-hod1-15-rational-complexification -->
 **定義の確認**
 
-平坦トーラス $E_i$ の基本閉路を $x$ 方向と $y$ 方向の長さ1の閉路とする。$\int_{\gamma_x}dx=1$、$\int_{\gamma_y}dy=1$、交差する積分は0なので、$[dx],[dy]$ は一次有理コホモロジーの基底を与える。二つの基底は実形式で表され、
+平坦トーラス $E_i$ の基本閉路を $\gamma_x(t)=[t]$、$\gamma_y(t)=[it]$（$0\le t\le1$）とする。[楕円曲線の周期計算](../HOD1-09/index.md#prop-hod1-09-elliptic-periods)と同じ持ち上げで $\int_{\gamma_x}dx=1$、$\int_{\gamma_y}dy=1$、交差する積分は0となる。これらは二本の格子生成方向の閉路であり、一次コホモロジーの次元も2なので、$[dx],[dy]$ は一次有理コホモロジーの基底を与える。二つの基底は実形式で表され、
 
 $$
 \overline{[dx]+i[dy]}=[dx]-i[dy],\qquad
@@ -90,7 +96,7 @@ $$
 V^{1,0}=\mathbb C[dz],\qquad V^{0,1}=\mathbb C[d\bar z].
 $$
 
-二つの生成元を有理基底 $[dx],[dy]$ で書いた列は $(1,i)^T,(1,-i)^T$。行列式 $-2i\ne0$ より複素二次元を直和で張る。共役は実基底の係数だけを共役にするから $V^{1,0}$ と $V^{0,1}$ を交換する。両者の添字の和は $1$ であり、定義の非自明な条件をすべて満たす。
+二つの生成元は $[dz]=[dx]+i[dy]$、$[d\bar z]=[dx]-i[dy]$ だから、有理基底 $([dx],[dy])$ に関する係数列は $(1,i)^{\mathsf T},(1,-i)^{\mathsf T}$ となる。この列を並べた行列が、二つの生成元の係数から元の複素二次元空間への線形写像を表す。行列式 $-2i\ne0$ よりこの写像は可逆なので、二つの一次元部分空間の交差は零で、和は全体となる。共役は実基底の係数だけを共役にするから $V^{1,0}$ と $V^{0,1}$ を交換する。両者の添字の和は $1$ であり、定義の非自明な条件をすべて満たす。
 <!-- definition-example-end -->
 
 <a id="thm-hod1-15-kahler-pure-hodge"></a>
@@ -255,7 +261,15 @@ $$
 dx_1\wedge dy_1=\frac{i}{2}dz_1\wedge d\bar z_1
 $$
 
-なので $a\in H^{1,1}$ で、有理Hodge類である。一方 $b=[dx_1\wedge dx_2]$ は有理でも
+が成り立つ。この係数は次の外積展開から決まる。
+
+$$
+dz_1\wedge d\bar z_1
+=(dx_1+i\,dy_1)\wedge(dx_1-i\,dy_1)
+=-2i\,dx_1\wedge dy_1.
+$$
+
+従って $a\in H^{1,1}$ で、有理Hodge類である。一方 $b=[dx_1\wedge dx_2]$ は有理でも
 
 $$
 dx_1\wedge dx_2=\frac14\bigl(
@@ -270,9 +284,9 @@ $$
 
 ## 6. 原始部分はいつ有理polarizationを持つか
 
-[原始コホモロジー](../HOD1-12/index.md#def-hod1-12-primitive-cohomology)は、Kähler類 $[\omega]$ を繰り返し掛けたときの核で定義した。これはまず複素・実ベクトル空間の定義である。$[\omega]$ が有理コホモロジーから来る場合に限って、その同じ写像を有理係数上で定義できる。交叉積分の符号を調べる前に、係数体を区別しよう。
+[原始コホモロジー](../HOD1-12/index.md#def-hod1-12-primitive-cohomology)は、Kähler類 $[\omega]$ を繰り返し掛けたときの核で定義した。これはまず複素・実ベクトル空間の定義である。$[\omega]$ が有理コホモロジーから来る場合に限って、その同じ写像を有理係数上で定義できる。以下の $a\smile b$ は[de Rham類の積](../HOD1-10/index.md#def-hod1-10-de-rham-product)であり、閉代表 $\alpha,\beta$ を用いると $[\alpha\wedge\beta]$ に対応する。$w^j$ はこの積を $j$ 回行う記法である。交叉積分の符号を調べる前に、係数体を区別しよう。
 
-有理純Hodge構造の上の**polarization（偏極）**は、共役と組み合わせると各Hodge型で正になる有理双線形形式である。単なる正定値内積とは異なり、重さが奇数なら交代形式になる。
+有理純Hodge構造の上の**polarization（偏極）**は、共役と組み合わせると各Hodge型で正になる有理双線形形式である。[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)の二変数それぞれについて線形という条件を、ここでは係数体 $\mathbb Q$ で用い、複素化後も両変数について**複素線形**に延長する。これは[前章のHermite形式](../HOD1-13/index.md#def-hod1-13-primitive-pairing)の第1変数にある共役線形性とは異なる。単なる正定値内積とは異なり、重さが奇数なら交代形式になる。
 
 <a id="def-hod1-15-polarization"></a>
 
@@ -296,13 +310,20 @@ $$
 <!-- definition-example-start: def-hod1-15-polarization -->
 **定義の確認**
 
-楕円曲線 $E_i$ に $\int_{E_i}dx\wedge dy=1$ の向きを取り、$V_{\mathbb Q}=H^1(E_i;\mathbb Q)$、$Q(a,b)=\int_{E_i}a\wedge b$ とする。有理基底 $(dx,dy)$ における行列は
+楕円曲線 $E_i$ に $\int_{E_i}dx\wedge dy=1$ の向きを取り、$V_{\mathbb Q}=H^1(E_i;\mathbb Q)$ とする。ここで $a=[\alpha],b=[\beta]$ に対し $Q(a,b)=\int_{E_i}\alpha\wedge\beta$ であり、積分には閉形式の代表を用いる。二つの一次形式の積は二次形式で、$dx\wedge dx=dy\wedge dy=0$、$dy\wedge dx=-dx\wedge dy$ である。よって
+
+$$
+Q([dx],[dx])=Q([dy],[dy])=0,\qquad
+Q([dx],[dy])=1,\quad Q([dy],[dx])=-1.
+$$
+
+これらは[双線形形式の行列表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)と同じ基底展開（ここでは $\mathbb Q$ 係数）で任意の $Q(a,b)$ を決める。有理基底 $([dx],[dy])$ における行列は
 
 $$
 \begin{pmatrix}0&1\\-1&0\end{pmatrix}
 $$
 
-で有理、交代、非退化である。同型の型 $(1,0)$ と $(1,0)$ の組では二つの $(1,0)$ 形式を楔積すると零であり、同じことが $(0,1)$ 型でも成り立つからP2を満たす。$v=c[dz]$ に対して
+で有理、交代、行列式は $1\ne0$ なので非退化である。同じ型 $(1,0)$ と $(1,0)$ の組では二つの $(1,0)$ 形式を楔積すると零であり、同じことが $(0,1)$ 型でも成り立つからP2を満たす。$v=c[dz]$ に対して
 
 $$
 Q(\bar v,v)=|c|^2\int(d\bar z)\wedge dz
@@ -310,7 +331,13 @@ Q(\bar v,v)=|c|^2\int(d\bar z)\wedge dz
 \qquad i^{-1}Q(\bar v,v)=2|c|^2>0.
 $$
 
-$(0,1)$ 型でも共役で同じ正値を得る。重さ1の交代形式を、誤って実対称な正定値形式と考えないことが肝心である。
+$(0,1)$ 型の $v=c[d\bar z]$ では
+
+$$
+Q(\bar v,v)=-2i|c|^2,\qquad i^{1-0}Q(\bar v,v)=2|c|^2>0
+$$
+
+となり、こちらでもP3を確認できる。重さ1の交代形式を、誤って実対称な正定値形式と考えないことが肝心である。
 <!-- definition-example-end -->
 
 <a id="thm-hod1-15-primitive-polarization"></a>
@@ -341,7 +368,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有理係数の写像 $w^{n-k+1}$ は線形であり、$\mathbb C$ へのテンソル積は有限次元ベクトル空間上で完全なので
+有理係数の写像 $w^{n-k+1}$ は線形である。有理基底を選ぶとこの写像は有理数成分の行列 $A$ で表され、$A$ を有理数上で行基本変形すれば核の基底が取れる。同じ変形は複素数上でも可逆だから、複素係数の核は有理係数の核の基底を複素係数で張ったものに等しい。従って
 
 $$
 P^k_{\mathbb Q}\otimes\mathbb C
@@ -594,7 +621,20 @@ $$
 \dim F^0=1+4+1=6.
 $$
 
-$dx_j=(dz_j+d\bar z_j)/2$ と $dy_j=(dz_j-d\bar z_j)/(2i)$ を用い、各外積へ分配する。$1/(2i)^2=-1/4$ なので
+$dx_j=(dz_j+d\bar z_j)/2$ と $dy_j=(dz_j-d\bar z_j)/(2i)$ を用い、各外積へ分配する。$1/(2i)^2=-1/4$ に注意すると、括弧を外した段階では
+
+$$
+\begin{aligned}
+dx_1\wedge dx_2
+&=\tfrac14(dz_1\wedge dz_2+dz_1\wedge d\bar z_2
++d\bar z_1\wedge dz_2+d\bar z_1\wedge d\bar z_2),\\
+dy_1\wedge dy_2
+&=-\tfrac14(dz_1\wedge dz_2-dz_1\wedge d\bar z_2
+-d\bar z_1\wedge dz_2+d\bar z_1\wedge d\bar z_2).
+\end{aligned}
+$$
+
+従って和では同型の両端成分が消え、差では中央二成分が消える。
 
 $$
 \begin{aligned}
