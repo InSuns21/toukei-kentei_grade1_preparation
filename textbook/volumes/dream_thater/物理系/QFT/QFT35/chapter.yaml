@@ -1,0 +1,43 @@
+id: QFT35
+title: "標準模型のゲージ群・フェルミオン表現・超電荷とHiggs結合"
+volume: foundations
+status: supplementary
+prerequisites: [QFT34, QFT32, QFT28, QFT17]
+official_scope: []
+learning_objectives:
+  - SU(3)×SU(2)×U(1)の表現ラベルと世代・色・弱二重項の添字を区別できる
+  - Q=T3+Yの規約から標準模型の各成分の電荷を導出し、左右のカイラリティの表現の違いを説明できる
+  - 三つのゲージ因子の共変微分を構成し、局所変換での共変性と運動項の不変性を検算できる
+  - Higgs二重項と共役二重項の変換を導き、Yukawa結合の群表示と超電荷の条件を確認できる
+  - 最小標準模型の場一覧と世代の反復、右巻きニュートリノの任意性、量子異常検査との違いを識別できる
+definitions:
+  - { id: QFT35-DEF-01, name: 標準模型のゲージ表現ラベル }
+  - { id: QFT35-DEF-02, name: 超電荷と電荷演算子 }
+  - { id: QFT35-DEF-03, name: 標準模型の積群共変微分 }
+  - { id: QFT35-DEF-04, name: Higgs共役二重項とYukawa結合 }
+theorems:
+  - { id: QFT35-PROP-01, name: 弱二重項の電荷固有値 }
+  - { id: QFT35-THM-01, name: 積群共変微分と運動項のゲージ共変性 }
+  - { id: QFT35-PROP-02, name: 共役Higgs二重項の変換 }
+  - { id: QFT35-THM-02, name: 標準模型Yukawa項のゲージ不変性 }
+canonical_examples:
+  - レプトン弱二重項の上下成分の電荷
+  - 三色クォーク二重項の成分と左右の表現
+  - 局所U(1)変換における共変微分の余分な項の相殺
+  - Higgs真空代表の電荷中性条件
+  - 上型・下型・荷電レプトンYukawa項の超電荷検算
+problem_patterns:
+  - QFT35-REPRESENTATION-COMPONENTS
+  - QFT35-DOUBLETS-CHARGE
+  - QFT35-SINGLET-CHARGE
+  - QFT35-HYPERCHARGE-NORMALIZATION
+  - QFT35-COVARIANT-DERIVATIVE
+  - QFT35-CONJUGATE-HIGGS
+  - QFT35-YUKAWA-NEUTRALITY
+  - QFT35-CHIRAL-CONTENT
+  - QFT35-HIGGS-VEV-NEUTRALITY
+  - QFT35-INTEGRATED-GAUGE-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 5 }
