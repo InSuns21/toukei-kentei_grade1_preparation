@@ -114,7 +114,7 @@ $$
 \end{aligned}
 $$
 
-曲率を確認します。$\mathcal H=a'/a$、$\partial_i a=0$ をChristoffel公式へ入れると、非零の成分は $\Gamma^\eta_{\eta\eta}=\mathcal H$、$\Gamma^\eta_{ij}=\mathcal H\delta_{ij}$、$\Gamma^i_{\eta j}=\Gamma^i_{j\eta}=\mathcal H\delta^i_j$ です。[GR6の曲率成分公式](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)をRicciテンソルへ縮約した式は
+曲率を確認します。$\mathcal H=a'/a$、$\partial_i a=0$ を[LORG4のLevi-Civita接続の係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)へ入れると、非零の成分は $\Gamma^\eta_{\eta\eta}=\mathcal H$、$\Gamma^\eta_{ij}=\mathcal H\delta_{ij}$、$\Gamma^i_{\eta j}=\Gamma^i_{j\eta}=\mathcal H\delta^i_j$ です。[GR6の曲率成分公式](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)をRicciテンソルへ縮約した式は
 
 $$
 R_{\mu\nu}
