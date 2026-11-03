@@ -415,7 +415,7 @@ $$
 
 よって各変数の微小変化による地心直交変位は
 
-$
+$$
 \begin{aligned}
 d\boldsymbol P
 &=\boldsymbol P_\phi\,d\phi+\boldsymbol P_\lambda\,d\lambda+\boldsymbol P_h\,dh\\
@@ -423,7 +423,7 @@ d\boldsymbol P
  +(N+h)\cos\phi\,\boldsymbol e_{\mathrm E}\,d\lambda
  +\boldsymbol e_{\mathrm U}\,dh.
 \end{aligned}
-$
+$$
 
 基準点でこの式を[ENUの三方向](#def-geod5-enu)へ内積射影します。直交性から東方向には $d\lambda$ の項だけ、北方向には $d\phi$ の項だけ、上方向には $dh$ の項だけが残り、命題の三式とJacobianが得られます。$M_0,N_0>0$、$h_0\ge0$、$\cos\phi_0>0$ だからJacobianの行列式は
 
