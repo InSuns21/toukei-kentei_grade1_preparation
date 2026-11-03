@@ -13,7 +13,7 @@ chapters:
   - { id: COMB7, path: textbook/volumes/dream_thater/計算系/COMB/COMB7, status: completed, title: "離散和分と二項反転" }
   - { id: COMB8, path: textbook/volumes/dream_thater/計算系/COMB/COMB8, status: completed, title: "線形差分方程式と初期値" }
   - { id: COMB9, path: textbook/volumes/dream_thater/計算系/COMB/COMB9, status: completed, title: "形式冪級数と普通母関数" }
-  - { id: COMB10, path: textbook/volumes/dream_thater/計算系/COMB/COMB10, status: planned, title: "構造分解と母関数" }
+  - { id: COMB10, path: textbook/volumes/dream_thater/計算系/COMB/COMB10, status: completed, title: "構造分解と母関数" }
   - { id: COMB11, path: textbook/volumes/dream_thater/計算系/COMB/COMB11, status: planned, title: "整数分割と Euler 積" }
   - { id: COMB12, path: textbook/volumes/dream_thater/計算系/COMB/COMB12, status: planned, title: "指数型母関数と標識付き構造" }
   - { id: COMB13, path: textbook/volumes/dream_thater/計算系/COMB/COMB13, status: planned, title: "形式的反転と再帰構造" }
