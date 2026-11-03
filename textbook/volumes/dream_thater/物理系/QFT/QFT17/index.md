@@ -324,7 +324,20 @@ $$
 \bigl[\bar u_\mu(p_4)\gamma_\mu u_\mu(p_2)\bigr].
 $$
 
-> 電荷込みの外線電流を $j_e^\alpha=-iq_e\bar u_e(p_3)\gamma^\alpha u_e(p_1)$、$j_\mu^\alpha=-iq_\mu\bar u_\mu(p_4)\gamma^\alpha u_\mu(p_2)$ と書けば、同じ振幅は $\mathcal M=-j_e\cdot j_\mu/t$ である。符号は電流に含まれる $(-i)^2=-1$ による。
+> 電荷込みの外線電流を
+
+$$
+j_e^\alpha=-iq_e\bar u_e(p_3)\gamma^\alpha u_e(p_1),\qquad
+j_\mu^\alpha=-iq_\mu\bar u_\mu(p_4)\gamma^\alpha u_\mu(p_2)
+$$
+
+> と書けば、同じ振幅は
+
+$$
+\mathcal M=-\frac{j_e\cdot j_\mu}{t}
+$$
+
+> である。符号は電流に含まれる $(-i)^2=-1$ による。
 
 > 外線の各スピン添字は省略している。光子は仮想内部線であり、正エネルギー光子の外線状態ではない。
 <!-- formal-statement-end -->
