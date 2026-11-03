@@ -8,6 +8,7 @@ prerequisites:
   - MICA10
   - MICA9
   - MICA7
+  - F0-00E2
 official_scope: []
 learning_objectives:
   - 零測地線の余接平行移動と未来向き光的余接ベクトルから二点波面関係を定義し、第二変数の負符号を検算できる
