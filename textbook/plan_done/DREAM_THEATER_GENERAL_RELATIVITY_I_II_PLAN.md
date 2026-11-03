@@ -30,7 +30,7 @@ GR I（GR1–24）とGR II（GR25–46）の全46講について、各章の `in
 | 既知の幾何の数学的定義、Levi-Civita接続、曲率・Jacobi場、因果階層、Cauchy面、大域双曲性 | **GEO／LORG**。GRでは物理的使用箇所で実在するstable anchorを参照して、必要な座標計算を実行する |
 | Schwarzschildの延長、RN／Kerr、地平線の種類、古典的崩壊・光線束、特異点の物理的意味 | **GR II**。LORGの一般的因果定理自体を二重に証明しない |
 | ブラックホール熱力学の四法則、第一法則、Waldエントロピー、温度・エントロピーの導出 | [BHT](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)。GRではsurface gravityの幾何学的定義・例の計算までを扱い、熱力学的同定の証明を横取りしない |
-| 曲がった時空の量子場、Bogoliubov変換、Unruh効果・Hawking放射 | [QCURV](../plans/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)。GRは古典的背景計量と因果構造を提供する |
+| 曲がった時空の量子場、Bogoliubov変換、Unruh効果・Hawking放射 | [QCURV](../plans_progress/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)。GRは古典的背景計量と因果構造を提供する |
 
 横断の全体配置は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)および[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)を参照する。
 

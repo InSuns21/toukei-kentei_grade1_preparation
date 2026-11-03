@@ -1,0 +1,45 @@
+chapter: QCURV1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QFT1
+  - GR6
+  - GR9
+  - HPDE16
+forward_references: []
+concepts:
+  - id: qcurv.fixed-background-real-scalar
+    name: 固定背景上の実スカラー場
+    kind: definition
+    introduction: formal
+    requires: [qft.real-scalar-field, lorentz-geometry.lorentz-metric]
+  - id: qcurv.curvature-coupled-action
+    name: 曲率結合スカラー場の作用
+    kind: definition
+    introduction: formal
+    requires: [qcurv.fixed-background-real-scalar, gravity.local-matter-action, gravity.lorentz-scalar-curvature]
+  - id: qcurv.curvature-coupled-kg
+    name: 曲率結合Klein–Gordon作用素
+    kind: definition
+    introduction: formal
+    requires: [qcurv.curvature-coupled-action, hpde.normally-hyperbolic]
+  - id: qcurv.kg-coordinate-form
+    name: 曲率結合Klein–Gordon作用素の座標表示
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.curvature-coupled-kg]
+  - id: qcurv.action-stationarity
+    name: 曲率結合作用の停留条件
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.curvature-coupled-action, qcurv.kg-coordinate-form]
+  - id: qcurv.ultrastatic-equation
+    name: 超静的背景での場の方程式
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.curvature-coupled-kg, gravity.lorentz-scalar-curvature]
+  - id: qcurv.kg-global-cauchy
+    name: 曲率結合場の大域Cauchy問題
+    kind: corollary
+    introduction: formal
+    requires: [qcurv.curvature-coupled-kg, hpde.global-cauchy-theorem]

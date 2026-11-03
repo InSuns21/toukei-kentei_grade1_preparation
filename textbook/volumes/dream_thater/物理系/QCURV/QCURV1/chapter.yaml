@@ -1,0 +1,45 @@
+id: QCURV1
+title: "曲率結合Klein–Gordon場の作用とCauchy問題"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QFT1
+  - GR6
+  - GR9
+  - HPDE16
+official_scope: []
+learning_objectives:
+  - 固定背景、実スカラー場、計量符号・曲率結合の各仮定を区別し、曲がった時空の作用を定義できる
+  - 体積密度と共変発散を座標表示へ直し、コンパクト支持変分から場の方程式を符号付きで導出できる
+  - Minkowski極限と静的な曲率背景の直接例で質量項・曲率結合の寄与を検算できる
+  - 大域双曲性・normally hyperbolic性・初期データの条件を照合し、古典Cauchy問題の存在一意性と有限伝播を説明できる
+  - 古典的な解の一意性と量子真空・粒子数の選択が別問題であることを説明できる
+definitions:
+  - { id: QCURV1-DEF-01, name: 固定背景上の実スカラー場 }
+  - { id: QCURV1-DEF-02, name: 曲率結合スカラー場の作用 }
+  - { id: QCURV1-DEF-03, name: 曲率結合Klein–Gordon作用素 }
+theorems:
+  - { id: QCURV1-THM-01, name: 曲率結合作用の停留条件 }
+  - { id: QCURV1-PROP-01, name: 曲率結合Klein–Gordon作用素の座標表示 }
+  - { id: QCURV1-PROP-02, name: 超静的背景での場の方程式 }
+  - { id: QCURV1-COR-01, name: 曲率結合場の大域Cauchy問題 }
+canonical_examples:
+  - 定数場と固定背景という仮定の確認
+  - 有限時間の円筒領域での作用と停留性の直接確認
+  - Minkowski符号切替と平面波の分散関係
+  - 時間と半径が固定されたR×S3上の曲率結合モード
+  - コンパクト支持初期データと有限伝播
+problem_patterns:
+  - QCURV1-SIGN-FLAT-LIMIT
+  - QCURV1-VOLUME-DENSITY
+  - QCURV1-CONSTANT-FIELD
+  - QCURV1-MODE-INITIAL-DATA
+  - QCURV1-VARIATION
+  - QCURV1-ULTRASTATIC
+  - QCURV1-CAUCHY-FINITE-PROPAGATION
+  - QCURV1-BOUNDARY-TERMS
+  - QCURV1-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
