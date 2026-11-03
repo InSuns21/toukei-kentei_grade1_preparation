@@ -36,8 +36,13 @@ concepts:
     kind: proposition
     introduction: formal
     requires: [qcurv.instantaneous-mode-amplitudes, qcurv.bogoliubov-particle-number, complex-analysis.residue-theorem-simple-curve]
+  - id: qcurv.conformal-vacuum
+    name: 共形真空
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes, qcurv.bogoliubov-coefficients]
   - id: qcurv.conformal-no-creation
     name: 質量零共形結合場の非生成
     kind: theorem
     introduction: formal
-    requires: [qcurv.flrw-rescaled-modes, qcurv.flrw-in-out-modes]
+    requires: [qcurv.flrw-rescaled-modes, qcurv.flrw-in-out-modes, qcurv.conformal-vacuum]
