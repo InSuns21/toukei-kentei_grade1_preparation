@@ -53,7 +53,13 @@ $$
 
 偏導関数は $\partial F/\partial z_j=4z_j^3$（$j=0,1,2,3$）。これらがすべて零なら $z_0=\cdots=z_3=0$ となるが、零ベクトルは射影点を表さない。したがって[射影超曲面のJacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定（標数0の同次多項式、共通の非零零点がない）を満たし、$X$ は滑らかである。
 
-$X$ は $\mathbb P^3$ の閉部分集合としてコンパクト。二つの異なる非空な射影曲面が $\mathbb P^3$ 内で交わらずに存在することはできない（例えば正次元射影超曲面の交差に関する基本事実）。より直接には $F$ が既約である。もし $F=GH$ と正次数の斉次多項式へ分解すれば、$\{G=0\}$ と $\{H=0\}$ は $\mathbb P^3$ で交わり、その交点では $dF=G\,dH+H\,dG=0$ となり、滑らかさに反する。よって $F$ は既約で $X$ は連結。射影的かつ滑らかであるため[射影多様体のKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)を適用できる。
+$X$ は射影空間の閉部分集合としてコンパクトである。連結性については、$F$ が既約であることを使う。仮に正次数の斉次多項式 $G,H$ により $F=GH$ と分解できるとする。二つの正次数射影超曲面は $\mathbb P^3$ で交わる（射影空間の交差次元に関する標準事実）。交点では
+
+$$
+G=H=0,\qquad dF=G\,dH+H\,dG=0
+$$
+
+となり、すでに示した滑らかさに反する。従って $F$ は既約で $X$ は連結である。最後に、滑らかな射影部分多様体であるため[射影多様体のKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)を適用できる。
 
 [滑らかな超曲面の随伴公式](../../../代数系/CAG/CAG1-11/index.md#thm-cag1-11-analytic-adjunction)を次数 $d=4$、周囲 $\mathbb P^m$ の $m=3$ に代入すると
 
@@ -121,7 +127,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-cyg1-05-k3 -->
-**定義の全条件の確認（Fermat四次）。** $X=\{\sum_{j=0}^3z_j^4=0\}\subset\mathbb P^3$ について、条件を分けて照合する。
+**定義の確認**（Fermat四次の全条件）。$X=\{\sum_{j=0}^3z_j^4=0\}\subset\mathbb P^3$ について、条件を分けて照合する。
 
 1. **滑らか・複素次元2：** $\partial F/\partial z_j=4z_j^3$ は非零射影点で同時に零にならないのでJacobian判定を満たす。一つの方程式の余次元は1で、$\dim_{\mathbb C}X=3-1=2$。
 2. **連結・コンパクト：** [滑らかな四次曲面の命題](#prop-cyg1-05-fermat-smooth-canonical)で連結性を検証し、射影閉部分集合としてコンパクト性も確認した。
@@ -378,7 +384,25 @@ $X_d\subset\mathbb P^3$ を滑らかな次数 $d$ の超曲面とする。$d=3,4
 $Y$ を連結・コンパクトKähler複素曲面で $K_Y\simeq\mathcal O_Y$、$b_1=0$、$b_2=22$ とする。$h^{p,q}$ をすべて求めよ。$K_Y$ 自明から $h^{2,0}=1$ となる理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 正則自明化 $\Omega$ が零にならないので、正則2形式は $f\Omega$ の形。連結コンパクト上の正則関数 $f$ は定数だから $h^{2,0}=1$、複素共役で $h^{0,2}=1$。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の次数1で $0=b_1=h^{1,0}+h^{0,1}$、両者非負整数なのでともに0。次数2で $22=1+h^{1,1}+1$ から $h^{1,1}=20$。$b_3=b_1=0$ だから $h^{2,1}=h^{1,2}=0$。連結性とPoincaré双対性から $h^{0,0}=h^{2,2}=1$。従って行を$p$、列を$q$とする行列は $\begin{pmatrix}1&0&1\\0&20&0\\1&0&1\end{pmatrix}$。
+**詳細解答。** 正則自明化 $\Omega$ は零にならず、任意の正則2形式は $f\Omega$ と書ける。連結コンパクト上の正則関数 $f$ は定数だから $h^{2,0}=1$。複素共役により $h^{0,2}=1$ でもある。
+
+[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を次数1に適用すると、
+
+$$
+0=b_1=h^{1,0}+h^{0,1}.
+$$
+
+両者は非負整数なのでそれぞれ零。次数2では
+
+$$
+22=b_2=1+h^{1,1}+1,\qquad h^{1,1}=20.
+$$
+
+またPoincaré双対性から $b_3=b_1=0$。よって $h^{2,1}=h^{1,2}=0$。連結性および[Hodge数の補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-duality)により $h^{0,0}=h^{2,2}=1$。行を $p$、列を $q$ とする全行列は
+
+$$
+(h^{p,q})=\begin{pmatrix}1&0&1\\0&20&0\\1&0&1\end{pmatrix}.
+$$
 <!-- solution-end -->
 
 <a id="ex-cyg1-05-b03"></a>
@@ -398,7 +422,21 @@ $Y=\{z_0^4+z_1^4+z_2^4=0\}\subset\mathbb P^3$ を考える。$[0:0:0:1]$ のJaco
 $T=E\times E$（$E=\mathbb C/(\mathbb Z+i\mathbb Z)$）とFermat四次曲面 $X$ について、両者の $K$、$\pi_1$、$b_2$、$h^{1,1}$、$\chi_{\mathrm{top}}$ を比較し、K3の定義のどの条件が $T$ で破れるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $K_T\simeq\mathcal O_T$ は[トーラスの最高次形式](../CYG1-04/index.md#prop-cyg1-04-volume-form)により、$K_X\simeq\mathcal O_X$ は[本章の随伴計算](#prop-cyg1-05-fermat-smooth-canonical)により成り立つ。$\pi_1(T)\simeq\mathbb Z^4$（格子商の被覆による）、$\pi_1(X)=0$ は[Lefschetz入力を使った結論](#prop-cyg1-05-k3)。[トーラスのHodge数公式](../../HOD/HOD1-09/index.md#thm-hod1-09-torus-numbers)では $b_2(T)=\binom42=6,h^{1,1}(T)=\binom21^2=4$、Euler列 $(1,4,6,4,1)$ の交代和は0。一方 $X$ は $b_2=22,h^{1,1}=20,\chi=24$。$T$ がK3でない理由は、同じ標準束条件を満たしても**単連結性**が破れることである。
+**詳細解答。** 標準束については[トーラスの最高次形式](../CYG1-04/index.md#prop-cyg1-04-volume-form)と[本章の随伴計算](#prop-cyg1-05-fermat-smooth-canonical)から、それぞれ
+
+$$
+K_T\simeq\mathcal O_T,\qquad K_X\simeq\mathcal O_X.
+$$
+
+一方、$T$ の普遍被覆は $\mathbb C^2$ であり、デッキ変換群が全格子なので $\pi_1(T)\simeq\mathbb Z^4$。[Lefschetz入力を使った結論](#prop-cyg1-05-k3)より $\pi_1(X)=0$。
+
+[複素トーラスのHodge数](../../HOD/HOD1-09/index.md#thm-hod1-09-torus-numbers)を $n=2$ に代入して
+
+$$
+b_2(T)=\binom42=6,\qquad h^{1,1}(T)=\binom21^2=4.
+$$
+
+Betti数列 $(1,4,6,4,1)$ の交代和は $1-4+6-4+1=0$。これに対して[四次K3のHodge数](#prop-cyg1-05-hodge)から $b_2(X)=22,h^{1,1}(X)=20,\chi_{\mathrm{top}}(X)=24$。両者は標準束の条件を共有するが、$T$ では**単連結性**が破れているためK3ではない。
 <!-- solution-end -->
 
 <a id="ex-cyg1-05-c01"></a>
