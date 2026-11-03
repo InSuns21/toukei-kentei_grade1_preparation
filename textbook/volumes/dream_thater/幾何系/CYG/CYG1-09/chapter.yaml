@@ -1,0 +1,47 @@
+id: "CYG1-09"
+title: "完全交叉の随伴公式と計算が壊れる境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-02
+  - CYG1-07
+  - CYG1-08
+official_scope: []
+learning_objectives:
+  - 余次元とJacobian階数を区別して滑らかな射影完全交叉を判定できる
+  - 三次二式の具体例で非空性とJacobian階数二を確認できる
+  - 法束完全列の全射性と遷移関数から随伴公式を証明できる
+  - 完全交叉のChern類と超平面類のトップ積分を導出できる
+  - 滑らかな(3,3)三次元完全交叉のEuler標数とHodge数1,73を再計算できる
+  - 弱LefschetzとHard Lefschetzの写像を区別できる
+  - 特異、非コンパクト、非横断・重複交叉で失われる仮定と残る公式を判定できる
+theorems:
+  - { id: CYG1-09-DEF-01, name: "滑らかな射影完全交叉" }
+  - { id: CYG1-09-PROP-01, name: "滑らかな完全交叉の法束完全列" }
+  - { id: CYG1-09-PROP-02, name: "滑らかな完全交叉の随伴公式" }
+  - { id: CYG1-09-PROP-03, name: "滑らかな完全交叉のChern類とEuler標数" }
+  - { id: CYG1-09-THM-01, name: "完全交叉の弱Lefschetz（外部入力）" }
+  - { id: CYG1-09-PROP-04, name: "滑らかな三次二式の三次元完全交叉のHodge数" }
+canonical_examples:
+  - 係数が相異なる二つの対角三次式による滑らかな(3,3)のJacobian判定
+  - 法束列の局所微分とチャート間の貼り合わせ
+  - 三次二式のChern多項式とトップ積分の計算
+  - (2,4)および(2,2,2,2)とのHodge数の比較
+  - 特異五次錐と双対化層の随伴公式の区別
+  - 非コンパクト化と接する局所二方程式の破綻
+problem_patterns:
+  - CYG1-09-TWO-JACOBIAN
+  - CYG1-09-ADJUNCTION-EXPONENT
+  - CYG1-09-POWER-SERIES
+  - CYG1-09-DEGREE-INTEGRAL
+  - CYG1-09-TANGENTIAL-LOCAL-RING
+  - CYG1-09-24-EULER-HODGE
+  - CYG1-09-2222-EULER-HODGE
+  - CYG1-09-LEFSCHETZ-DISTINCTION
+  - CYG1-09-FAILURE-BOUNDARIES
+  - CYG1-09-FULL-33-CHAIN
+  - CYG1-09-COMPARE-CICY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 10, review: 5 }

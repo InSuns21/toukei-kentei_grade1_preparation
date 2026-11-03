@@ -1,0 +1,41 @@
+chapter: CYG1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-02, CYG1-07, CYG1-08]
+concepts:
+  - id: cyg.smooth-projective-complete-intersection
+    name: 滑らかな射影完全交叉
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな射影完全交叉）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion]
+  - id: cyg.complete-intersection-normal-sequence
+    name: 滑らかな完全交叉の法束完全列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな完全交叉の法束完全列）"]
+    requires: [cyg.smooth-projective-complete-intersection, cyg.hypersurface-normal-sequence]
+  - id: cyg.complete-intersection-adjunction
+    name: 滑らかな完全交叉の随伴公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな完全交叉の随伴公式）"]
+    requires: [cyg.complete-intersection-normal-sequence, cyg.hypersurface-degree-criterion]
+  - id: cyg.complete-intersection-chern-euler
+    name: 滑らかな完全交叉のChern類とEuler標数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな完全交叉のChern類とEuler標数）"]
+    requires: [cyg.complete-intersection-normal-sequence, cyg.euler-sequence-coordinate, cyg.gauss-bonnet-top-chern]
+  - id: cyg.complete-intersection-weak-lefschetz
+    name: 滑らかな射影完全交叉の弱Lefschetz
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな射影完全交叉の弱Lefschetz：外部入力）"]
+    requires: [cyg.smooth-projective-complete-intersection, cyg.quintic-weak-lefschetz]
+  - id: cyg.bidegree-33-hodge
+    name: 滑らかな三次二式の三次元完全交叉のHodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな三次二式の三次元完全交叉のHodge数）"]
+    requires: [cyg.complete-intersection-adjunction, cyg.complete-intersection-chern-euler, cyg.complete-intersection-weak-lefschetz, cyg.threefold-hodge-skeleton]
