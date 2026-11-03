@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
 import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
@@ -12,11 +13,15 @@ const full=process.argv.includes('--all');
 const strict=process.argv.includes('--strict');
 const changedOnly=process.argv.includes('--changed-only');
 const baseline=process.env.DREAM_THEATER_BASE_SHA||process.env.TEXTBOOK_BASE_SHA;
+function changedPaths(base,cwd=root){
+ // -z emits the original UTF-8 filenames even when core.quotePath is enabled.
+ const diff=execFileSync('git',['diff','--name-only','-z',base+'...HEAD'],{cwd,encoding:'utf8'});
+ return diff.split('\0').filter(Boolean);
+}
 const changed=new Set();
 if(changedOnly){
  if(!baseline)throw Error('--changed-only needs DREAM_THEATER_BASE_SHA or TEXTBOOK_BASE_SHA');
- const diff=execFileSync('git',['diff','--name-only',baseline+'...HEAD'],{encoding:'utf8'});
- for(const item of diff.split(/\r?\n/u).filter(Boolean))changed.add(item.trim());
+ for(const item of changedPaths(baseline))changed.add(item);
 }
 const paths=loadDreamTheaterIndex(root).sections.flatMap(s=>s.paths);
 const indexed=new Set(paths);
@@ -93,6 +98,20 @@ function selfTest(){
  assert(!reasoning('QM6を紹介する'));
  assert(forward('次章で扱います'));
  assert(resolve('textbook/volumes/dream_thater/物理系/MQ/MQ1/index.md','../../../解析系/QM/QM6/index.md')==='textbook/volumes/dream_thater/解析系/QM/QM6/index.md');
+ // Regression: ordinary git diff quotes Japanese paths without -z, making
+ // changed-only audits silently visit zero chapters.
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'dt-prose-prereq-'));
+ try{
+  const git=(...args)=>execFileSync('git',args,{cwd:temp,encoding:'utf8'});
+  git('init','--quiet');
+  git('-c','user.name=CI Test','-c','user.email=ci@example.invalid','commit','--quiet','--allow-empty','-m','base');
+  const changedFile='textbook/volumes/dream_thater/幾何系/CYG/CYG1-12/index.md';
+  fs.mkdirSync(path.dirname(path.join(temp,changedFile)),{recursive:true});
+  fs.writeFileSync(path.join(temp,changedFile),'# test\n');
+  git('add','--',changedFile);
+  git('-c','user.name=CI Test','-c','user.email=ci@example.invalid','commit','--quiet','-m','chapter');
+  assert(changedPaths('HEAD^',temp).includes(changedFile));
+ }finally{fs.rmSync(temp,{recursive:true,force:true});}
  console.log('Narrative prerequisite audit self-test passed');
 }
 if(process.argv.includes('--self-test')){selfTest();process.exit(0);}
@@ -149,6 +168,12 @@ for(const md of paths){
  }
 }
 const count={unreachable:0,transitive:0,'metadata-drift':0};
+if(changedOnly&&visited===0){
+ const changedIndexed=[...changed].filter(p=>
+  /\/(?:index\.md|chapter\.yaml|knowledge\.yaml)$/u.test(p)
+  && indexed.has(path.posix.join(path.posix.dirname(p),'index.md')));
+ if(changedIndexed.length)throw Error('changed-only audit selected 0 indexed chapters despite changed source files: '+changedIndexed.join(', '));
+}
 for(const item of found)count[item.kind]++;
 found.sort((a,b)=>({unreachable:0,'metadata-drift':1,transitive:2}[a.kind]-{unreachable:0,'metadata-drift':1,transitive:2}[b.kind])||a.source.localeCompare(b.source)||a.line-b.line);
 console.log('DREAM THEATER prose prerequisite audit: '+visited+'/'+paths.length+' indexed chapters, '+JSON.stringify(count)+', missing knowledge.yaml='+missingKnowledge);

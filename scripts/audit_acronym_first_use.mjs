@@ -138,12 +138,12 @@ function collectChangedMarkdownFiles() {
   }
 
   try {
-    const output = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', ...targetRoots], {
+    const output = execFileSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base, 'HEAD', '--', ...targetRoots], {
       cwd: root,
       encoding: 'utf8',
       maxBuffer: 20 * 1024 * 1024,
     });
-    return [...new Set(output.split('\n').map((value) => value.trim()).filter((value) => value.endsWith('.md')))];
+    return [...new Set(output.split('\0').filter((value) => value.endsWith('.md')))];
   } catch (error) {
     console.warn(`git diff に失敗したため、変更ページは0件として扱います: ${error.message}`);
     return [];

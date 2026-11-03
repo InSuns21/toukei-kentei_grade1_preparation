@@ -30,7 +30,7 @@ if (changedOnly) {
     console.error('SVG layout validation requires --base <sha> or TEXTBOOK_BASE_SHA in --changed-only mode.');
     process.exit(2);
   }
-  const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
+  const diff = spawnSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base + '...HEAD'], {
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
   });
@@ -38,7 +38,7 @@ if (changedOnly) {
     console.error(diff.stderr || 'git diff failed');
     process.exit(diff.status || 2);
   }
-  files = diff.stdout.split(/\r?\n/u).map((x) => x.trim()).filter((x) => x.endsWith('.svg'));
+  files = diff.stdout.split('\0').filter((x) => x.endsWith('.svg'));
 } else {
   files = recursiveSvgFiles(path.join(root, 'textbook')).map((abs) => path.relative(root, abs).replaceAll('\\', '/'));
 }
