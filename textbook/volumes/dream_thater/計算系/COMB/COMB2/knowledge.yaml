@@ -1,0 +1,84 @@
+chapter: COMB2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB1
+forward_references: []
+
+concepts:
+  - id: combinatorics.ordered-selection
+    name: 重複のない順序付き選択
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重複のない順序付き選択と階乗）]
+    requires: [combinatorics.multiplication-principle, combinatorics.finite-cardinality]
+
+  - id: combinatorics.falling-factorial-count
+    name: 順序付き選択の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（順序付き選択の計数）]
+    requires: [combinatorics.ordered-selection, combinatorics.multiplication-principle]
+
+  - id: combinatorics.binomial-coefficient
+    name: 二項係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二項係数）]
+    requires: [combinatorics.falling-factorial-count, combinatorics.bijection-principle]
+
+  - id: combinatorics.binomial-count
+    name: 二項係数の計数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二項係数の計数公式）]
+    requires: [combinatorics.binomial-coefficient, combinatorics.falling-factorial-count]
+
+  - id: combinatorics.pascal-identity
+    name: Pascal の恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Pascal の恒等式）]
+    requires: [combinatorics.binomial-count, combinatorics.addition-principle]
+
+  - id: combinatorics.binomial-coefficient-interpretation
+    name: 二項定理の組合せ的係数解釈
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二項定理）]
+    requires: [combinatorics.binomial-count]
+
+  - id: combinatorics.multinomial-coefficient
+    name: 多項係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多項係数）]
+    requires: [combinatorics.binomial-count]
+
+  - id: combinatorics.multinomial-theorem
+    name: 多項係数と多項定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（多項係数と多項定理）]
+    requires: [combinatorics.multinomial-coefficient, combinatorics.multiplication-principle]
+
+  - id: combinatorics.multiset
+    name: 多重集合と重複組合せ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多重集合と重複組合せ）]
+    requires: [combinatorics.binomial-coefficient, combinatorics.finite-cardinality]
+
+  - id: combinatorics.stars-bars
+    name: 仕切りの全単射と非負整数解の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（仕切りと非負整数解）]
+    requires: [combinatorics.multiset, combinatorics.binomial-count, combinatorics.bijection-principle]
+
+  - id: combinatorics.positive-composition
+    name: 正整数解の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正整数解の計数）]
+    requires: [combinatorics.stars-bars]

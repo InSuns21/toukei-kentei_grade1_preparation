@@ -1,0 +1,44 @@
+id: "COMB2"
+title: "順列・組合せ・多重集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB1
+official_scope: []
+learning_objectives:
+  - 順序付きの重複しない選択を下降階乗で数え、階乗の端点を説明できる
+  - 順序を忘れる写像の繊維を数えて二項係数と対称性・Pascal の恒等式を導ける
+  - 多項係数を互いに素な標識付き分類から導き、多項定理を組合せ的に証明できる
+  - 非負整数解と仕切りの全単射を構成し、重複組合せ・正整数解の境界を扱える
+  - 順序付き列・部分集合・多重集合・箱への配分で異なる計数対象を識別できる
+definitions:
+  - { id: COMB2-DEF-01, name: 重複のない順序付き選択・階乗 }
+  - { id: COMB2-DEF-02, name: 二項係数 }
+  - { id: COMB2-DEF-03, name: 多項係数 }
+  - { id: COMB2-DEF-04, name: 多重集合と重複組合せ }
+theorems:
+  - { id: COMB2-THM-01, name: 順序付き選択の計数 }
+  - { id: COMB2-THM-02, name: 二項係数の計数公式 }
+  - { id: COMB2-THM-03, name: Pascal の恒等式 }
+  - { id: COMB2-THM-04, name: 二項定理 }
+  - { id: COMB2-THM-05, name: 多項係数と多項定理 }
+  - { id: COMB2-THM-06, name: 仕切りの全単射と非負整数解の計数 }
+  - { id: COMB2-THM-07, name: 正整数解の計数 }
+canonical_examples:
+  - 異なる札から順序付き2枚と順序なし2枚を選ぶ比較
+  - 二項係数の端点と Pascal の分類
+  - 多項係数による文字列の個数
+  - 星と仕切りから非負整数解を復元する直接例
+  - 空集合からの重複選択と正整数解がない場合
+problem_patterns:
+  - COMB2-ORDERED-WITHOUT-REPLACEMENT
+  - COMB2-BINOMIAL-PASCAL
+  - COMB2-BINOMIAL-THEOREM
+  - COMB2-MULTINOMIAL-WORDS
+  - COMB2-STARS-BARS
+  - COMB2-MULTISETS
+  - COMB2-COMBINED-COUNT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 1 }
