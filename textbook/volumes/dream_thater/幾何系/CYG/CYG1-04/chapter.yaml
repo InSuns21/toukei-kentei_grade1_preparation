@@ -1,0 +1,42 @@
+id: "CYG1-04"
+title: "楕円曲線と複素トーラス：標準束とホロノミーを手で確かめる"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-03
+  - CM1-09
+  - HOD1-09
+official_scope: []
+learning_objectives:
+  - 階数2nの全格子から複素トーラスを構成し、滑らかさ・コンパクト性・局所正則座標を確認できる
+  - 不変な正則1形式の貼り合わせを証明し、正則体積形式、標準束の自明性、最高次正則形式の次元を求められる
+  - 定数正定値Hermitian計量のKähler性とRicci形式を計算し、閉路の持ち上げと格子移動の微分から全ホロノミーの自明性を証明できる
+  - Fourierモードによる調和形式の判定から複素トーラスのHodge数公式を導き、楕円曲線のHodgeダイヤモンドと複素2次元例を計算できる
+  - 正のRiemann形式の各条件を直接検証し、射影性判定が外部定理を必要とすることと、高次元非射影トーラスの存在を説明できる
+  - 標準束の正則自明性、Ricci平坦な指定計量、全ホロノミーの等号、および射影性が異なる条件であることを反例・計算で区別できる
+definitions:
+  - { id: CYG1-04-DEF-02, name: 正のRiemann形式 }
+theorems:
+  - { id: CYG1-04-PROP-01, name: 複素トーラスの標準束と正則最高次形式 }
+  - { id: CYG1-04-PROP-02, name: 一定Hermitian計量のRicci形式と全ホロノミー }
+  - { id: CYG1-04-THM-02, name: 複素トーラスの射影性判定（外部入力） }
+canonical_examples:
+  - 正方格子と斜め格子の一次元複素トーラス、面積と正則1形式
+  - 複素2次元積トーラスの正則体積形式と自明全ホロノミー
+  - 定数Hermitian行列の正値性、Kähler条件、Ricci形式
+  - 楕円曲線のHodgeダイヤモンドと複素2次元トーラスのh11およびBetti数
+  - Riemann形式と偏極の存在が射影性に関係し、非射影複素トーラスを許す境界
+problem_patterns:
+  - CYG1-04-FULL-LATTICE
+  - CYG1-04-HOLOMORPHIC-VOLUME
+  - CYG1-04-CONSTANT-HERMITIAN
+  - CYG1-04-ELLIPTIC-HODGE
+  - CYG1-04-SKEW-LATTICE-AREA
+  - CYG1-04-HODGE-BETTI-EULER
+  - CYG1-04-METRIC-VERSUS-CHERN
+  - CYG1-04-RIEMANN-FORM
+  - CYG1-04-TORUS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

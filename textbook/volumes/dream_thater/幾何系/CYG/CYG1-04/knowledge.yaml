@@ -1,0 +1,29 @@
+chapter: CYG1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-03, CM1-09, HOD1-09]
+concepts:
+  - id: cyg.torus-holomorphic-volume
+    name: 複素トーラスの標準束と正則最高次形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素トーラスの標準束と正則最高次形式）"]
+    requires: [complex-manifolds.higher-complex-torus, cyg.volume-trivialization-test]
+  - id: cyg.torus-flat-holonomy
+    name: 一定Hermitian計量のRicci形式と全ホロノミー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定Hermitian計量のRicci形式と全ホロノミー）"]
+    requires: [complex-manifolds.higher-complex-torus, kahler.holonomy-group, kahler.flat-torus-curvature]
+  - id: cyg.positive-riemann-form
+    name: 正のRiemann形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正のRiemann形式）"]
+    requires: [complex-manifolds.higher-complex-torus]
+  - id: cyg.torus-projectivity
+    name: 複素トーラスの射影性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素トーラスの射影性判定：外部入力）"]
+    requires: [cyg.positive-riemann-form]

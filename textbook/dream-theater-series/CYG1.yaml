@@ -20,7 +20,7 @@ chapters:
     title: "整係数・実係数の差、torsionの反例"
   - id: CYG1-04
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-04
-    status: planned
+    status: completed
     title: "楕円曲線と複素トーラス"
   - id: CYG1-05
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-05
