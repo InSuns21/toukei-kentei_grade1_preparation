@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - COMB5
+  - F0-00B0
 forward_references: []
 
 concepts:
@@ -88,7 +89,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [命題（差分が消える数列）]
-    requires: [combinatorics.finite-newton-interpolation, combinatorics.polynomial-difference-degree]
+    requires: [analysis.real-sequence, combinatorics.finite-newton-interpolation, combinatorics.polynomial-difference-degree]
 
   - id: combinatorics.newton-arbitrary-step
     name: 任意の始点・非零刻み幅での Newton 展開
