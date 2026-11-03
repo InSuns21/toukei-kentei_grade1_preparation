@@ -1,0 +1,43 @@
+chapter: QCURV5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV4
+  - MICA13
+forward_references: []
+concepts:
+  - id: qcurv.wkb-mode
+    name: FLRWモードのWKB試行解
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes]
+  - id: qcurv.wkb-residual
+    name: WKB残差と保存Wronskian
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.wkb-mode, qcurv.flrw-wronskian-number]
+  - id: qcurv.adiabatic-order
+    name: 断熱次数と零次・二次周波数
+    kind: definition
+    introduction: formal
+    requires: [qcurv.wkb-residual]
+  - id: qcurv.second-order-frequency
+    name: 二次断熱周波数の導出
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.adiabatic-order]
+  - id: qcurv.adiabatic-initial-state
+    name: 断熱初期データからのモード状態
+    kind: definition
+    introduction: formal
+    requires: [qcurv.adiabatic-order, qcurv.flrw-wronskian-number]
+  - id: qcurv.adiabatic-initial-normalization
+    name: 初期データのKG規格化
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.adiabatic-initial-state, qcurv.wkb-residual]
+  - id: qcurv.power-tail-not-hadamard
+    name: 有限冪の高周波混合ではHadamard性を保証しない
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.adiabatic-initial-state, microlocal.mica13-smooth-difference, microlocal.mica13-wfsc]

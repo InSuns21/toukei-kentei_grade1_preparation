@@ -1,0 +1,70 @@
+chapter: COMB10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB9
+forward_references: []
+
+concepts:
+  - id: combinatorics.graded-class
+    name: 大きさ付き組合せクラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（大きさ付き組合せクラス）]
+    requires: [combinatorics.ordinary-generating-function]
+
+  - id: combinatorics.tagged-sum
+    name: タグ付き和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（タグ付き和と大きさ加法的な直積）]
+    requires: [combinatorics.graded-class]
+
+  - id: combinatorics.size-additive-product
+    name: 大きさ加法的な直積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（タグ付き和と大きさ加法的な直積）]
+    requires: [combinatorics.graded-class]
+
+  - id: combinatorics.sum-product-ogf
+    name: 和・積の普通母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（和・積の普通母関数）]
+    requires: [combinatorics.tagged-sum, combinatorics.size-additive-product, combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.ordered-sequence
+    name: 正の大きさの部品からなる有限列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正の大きさの部品からなる有限列）]
+    requires: [combinatorics.graded-class]
+
+  - id: combinatorics.sequence-ogf
+    name: 列の普通母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（列の普通母関数）]
+    requires: [combinatorics.ordered-sequence, combinatorics.sum-product-ogf, combinatorics.formal-geometric-series]
+
+  - id: combinatorics.size-decreasing-recursion
+    name: サイズを減らす再帰分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（サイズを減らす再帰分解）]
+    requires: [combinatorics.graded-class]
+
+  - id: combinatorics.proper-recursion-uniqueness
+    name: 正のサイズを消費する再帰仕様の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正のサイズを消費する再帰仕様の一意性）]
+    requires: [combinatorics.size-decreasing-recursion, combinatorics.formal-unit-criterion]
+
+  - id: combinatorics.binary-tree-ogf
+    name: 順序付き完全二分木の再帰母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（順序付き完全二分木の再帰母関数）]
+    requires: [combinatorics.sum-product-ogf, combinatorics.catalan-number]

@@ -1,0 +1,35 @@
+chapter: CYG1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-03, CYG1-04, CYG1-09, HOD1-08, KAH1-15]
+concepts:
+  - id: cyg.ricci-volume-ratio
+    name: Ricci形式の差と体積比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Ricci形式の差と体積比）"]
+    requires: [kahler.ricci-determinant-formula]
+  - id: cyg.ricci-monge-ampere-reduction
+    name: Ricci形式指定と体積方程式の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Ricci形式指定と体積方程式の同値性）"]
+    requires: [cyg.ricci-volume-ratio, hodge.pure-d-exact-ddbar, kahler.kahler-class]
+  - id: cyg.yau-prescribed-ricci
+    name: YauのRicci形式指定定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（YauのRicci形式指定定理：存在を外部入力とする）"]
+    requires: [kahler.ricci-chern-identification, kahler.kahler-class, cyg.ricci-monge-ampere-reduction]
+  - id: cyg.fixed-class-ricci-uniqueness
+    name: 同じKähler類とRicci形式を持つ計量の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同じKähler類とRicci形式を持つ計量の一意性）"]
+    requires: [cyg.ricci-volume-ratio, hodge.pure-d-exact-ddbar, kahler.compact-class-nonzero]
+  - id: cyg.ricci-flat-existence
+    name: 実第一Chern類の消失とRicci平坦計量の存在
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（実第一Chern類の消失とRicci平坦計量の存在）"]
+    requires: [cyg.yau-prescribed-ricci, kahler.ke-cohomology-obstruction]
