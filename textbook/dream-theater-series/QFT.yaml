@@ -159,3 +159,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT38
     status: completed
     title: "弱崩壊・Fermi四フェルミオン相互作用と低エネルギー有効理論"
+  - id: QFT39
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT39
+    status: completed
+    title: "カイラル対称性の量子異常・FujikawaのJacobianと軸性Ward恒等式"
