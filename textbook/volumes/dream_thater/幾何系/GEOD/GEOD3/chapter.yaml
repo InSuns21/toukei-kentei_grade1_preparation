@@ -1,0 +1,45 @@
+id: "GEOD3"
+title: "回転楕円体の幾何と測地緯度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD1
+  - GEOD2
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 回転楕円体の二軸と扁平率・第一離心率・第三扁平率の定義、相互関係、許容範囲を検算できる
+  - 楕円体方程式の勾配から単位外向き法線を導出し、測地緯度を定義から計算できる
+  - 表面上の測地緯度と地心緯度の関係を導出し、符号・赤道・極・球面極限を扱える
+  - 測地緯度と経度から楕円体表面上の一点を構成して一意性と法線条件を証明できる
+  - 子午断面・緯線とGRS80における緯度差を検算し、高さやCRSの条件を取り違えない
+definitions:
+  - { id: GEOD3-DEF-01, name: 扁平な回転楕円体 }
+  - { id: GEOD3-DEF-02, name: 扁平率・第一離心率・第三扁平率 }
+  - { id: GEOD3-DEF-03, name: 子午断面と緯線 }
+  - { id: GEOD3-DEF-04, name: 表面上の測地緯度 }
+  - { id: GEOD3-DEF-05, name: 表面上の地心緯度 }
+theorems:
+  - { id: GEOD3-PROP-01, name: 楕円体表面の測地緯度と地心緯度 }
+  - { id: GEOD3-PROP-02, name: 測地緯度・経度による楕円体表面表示 }
+canonical_examples:
+  - a=5・b=4の楕円体で面上点・法線・緯度2種類を直接計算
+  - 赤道・南北極で緯度が一致して経度が退化する例
+  - 球面極限で法線と地心方向・表面表示が一致する例
+  - GRS80の形状定数と測地緯度45度での約11分33秒角の差
+  - 緯度差が最大になる測地緯度と最大差の導出
+problem_patterns:
+  - GEOD3-ELLIPSOID-SHAPE
+  - GEOD3-SURFACE-NORMAL
+  - GEOD3-LATITUDE-DIRECTIONS
+  - GEOD3-EQUATOR-POLES
+  - GEOD3-SPHERE-LIMIT
+  - GEOD3-SOUTHERN-HEMISPHERE
+  - GEOD3-SURFACE-INVERSION
+  - GEOD3-LATITUDE-DIFFERENCE-MAXIMUM
+  - GEOD3-REVERSE-CONVERSION
+  - GEOD3-GIS-LATITUDE-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
