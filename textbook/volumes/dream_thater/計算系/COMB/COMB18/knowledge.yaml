@@ -1,0 +1,60 @@
+chapter: COMB18
+scope: dream-theater
+coverage: complete
+prerequisites: [COMB10]
+forward_references: []
+concepts:
+  - id: combinatorics.finite-state-construction
+    name: 有限状態逐次構成と状態の十分性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態逐次構成と状態の十分性）", "状態"]
+    requires: [combinatorics.graded-class]
+  - id: combinatorics.dynamic-programming-count-table
+    name: 状態別計数表と動的計画法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態別計数表と動的計画法）"]
+    requires: [combinatorics.finite-state-construction]
+  - id: combinatorics.dp-count-invariant
+    name: DPの計数不変条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（DPの計数不変条件）"]
+    requires: [combinatorics.dynamic-programming-count-table]
+  - id: combinatorics.transfer-matrix
+    name: 転送行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（転送行列）"]
+    requires: [combinatorics.finite-state-construction]
+  - id: combinatorics.transfer-matrix-counting
+    name: 転送行列による計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（転送行列による計数）"]
+    requires: [combinatorics.transfer-matrix, combinatorics.dp-count-invariant]
+  - id: combinatorics.memoized-completion-count
+    name: 完成数とメモ化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完成数とメモ化）"]
+    requires: [combinatorics.finite-state-construction]
+  - id: combinatorics.memoization-correctness
+    name: メモ化再帰の正当性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（メモ化再帰の正当性）"]
+    requires: [combinatorics.memoized-completion-count, combinatorics.dp-count-invariant]
+  - id: combinatorics.depth-first-enumeration
+    name: 深さ優先列挙
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深さ優先列挙）"]
+    requires: [combinatorics.finite-state-construction]
+  - id: combinatorics.depth-first-enumeration-correctness
+    name: 列挙の健全性・完全性・一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（列挙の健全性・完全性・一意性）"]
+    requires: [combinatorics.depth-first-enumeration, combinatorics.dp-count-invariant]
