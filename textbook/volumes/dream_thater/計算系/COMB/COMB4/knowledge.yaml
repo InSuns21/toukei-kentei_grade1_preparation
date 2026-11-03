@@ -1,0 +1,84 @@
+chapter: COMB4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB3
+forward_references: []
+
+concepts:
+  - id: combinatorics.monotone-lattice-path
+    name: 単調格子路と高さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（単調格子路と高さ）]
+    requires: [combinatorics.finite-cardinality]
+
+  - id: combinatorics.monotone-path-count
+    name: 単調格子路の全数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単調格子路の全数）]
+    requires: [combinatorics.monotone-lattice-path, combinatorics.binomial-count]
+
+  - id: combinatorics.path-reflection
+    name: 格子路の反射原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（格子路の反射原理）]
+    requires: [combinatorics.monotone-lattice-path, combinatorics.monotone-path-count]
+
+  - id: combinatorics.balanced-parentheses
+    name: 正しい括弧列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正しい括弧列と Dyck 路）]
+    requires: [combinatorics.monotone-lattice-path]
+
+  - id: combinatorics.dyck-path
+    name: Dyck 路
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正しい括弧列と Dyck 路）]
+    requires: [combinatorics.monotone-lattice-path]
+
+  - id: combinatorics.parentheses-dyck-bijection
+    name: 括弧列と Dyck 路の全単射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（括弧列と Dyck 路の全単射）]
+    requires: [combinatorics.balanced-parentheses, combinatorics.dyck-path, combinatorics.bijection-principle]
+
+  - id: combinatorics.catalan-number
+    name: Catalan 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Catalan 数）]
+    requires: [combinatorics.dyck-path]
+
+  - id: combinatorics.catalan-binomial-formula
+    name: Catalan 数の二項係数表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Catalan 数の二項係数表示）]
+    requires: [combinatorics.catalan-number, combinatorics.path-reflection, combinatorics.binomial-count]
+
+  - id: combinatorics.catalan-first-return
+    name: 最初の帰還による Catalan 漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（最初の帰還による Catalan 漸化式）]
+    requires: [combinatorics.catalan-number, combinatorics.dyck-path, combinatorics.addition-principle, combinatorics.multiplication-principle]
+
+  - id: combinatorics.ordered-full-binary-tree
+    name: 根付き順序付き完全二分木
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（根付き順序付き完全二分木）]
+    requires: [combinatorics.finite-cardinality]
+
+  - id: combinatorics.catalan-tree-bijection
+    name: 完全二分木と Dyck 路の全単射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（完全二分木と Dyck 路の全単射）]
+    requires: [combinatorics.ordered-full-binary-tree, combinatorics.catalan-first-return, combinatorics.parentheses-dyck-bijection]
