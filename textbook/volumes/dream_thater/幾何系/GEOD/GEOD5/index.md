@@ -246,7 +246,15 @@ $$
 \end{aligned}
 $$
 
-> と定める。同じ地心直交座標系で表した点 $\boldsymbol P$ に対して、差 $\boldsymbol d=\boldsymbol P-\boldsymbol P_0$ のENU成分を $E=\boldsymbol e_{\mathrm E}\cdot\boldsymbol d$、$N_{\mathrm{loc}}=\boldsymbol e_{\mathrm N}\cdot\boldsymbol d$、$U=\boldsymbol e_{\mathrm U}\cdot\boldsymbol d$ と定義する。
+> と定める。同じ地心直交座標系で表した点 $\boldsymbol P$ に対し、差 $\boldsymbol d=\boldsymbol P-\boldsymbol P_0$ のENU成分を
+
+$$
+E=\boldsymbol e_{\mathrm E}\cdot\boldsymbol d,\qquad
+N_{\mathrm{loc}}=\boldsymbol e_{\mathrm N}\cdot\boldsymbol d,\qquad
+U=\boldsymbol e_{\mathrm U}\cdot\boldsymbol d
+$$
+
+> と定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod5-enu -->
@@ -258,7 +266,18 @@ $$
 \boldsymbol e_{\mathrm U}=(1,0,0).
 $$
 
-同じ地心直交座標系の点 $\boldsymbol P=(7,3,4)$ を選ぶと、差は $\boldsymbol d=\boldsymbol P-\boldsymbol P_0=(2,3,4)$ です。定義の内積により $(E,N_{\mathrm{loc}},U)=(3,4,2)$ を得ます。この三方向はそれぞれ長さ1、二つずつの内積が0で、さらに $\boldsymbol e_{\mathrm E}\times\boldsymbol e_{\mathrm N}=\boldsymbol e_{\mathrm U}$ です。したがって基準点の正規直交な右手系への成分表示となり、元の差も $3\boldsymbol e_{\mathrm E}+4\boldsymbol e_{\mathrm N}+2\boldsymbol e_{\mathrm U}=(2,3,4)$ と復元できます。北は $+Z$、上は $+X$ であり、軸の名称と地心成分名を混同できません。
+同じ地心直交座標系の点 $\boldsymbol P=(7,3,4)$ を選ぶと、差は $\boldsymbol d=\boldsymbol P-\boldsymbol P_0=(2,3,4)$ です。三方向はそれぞれ長さ1、二つずつの内積が0で、さらに $\boldsymbol e_{\mathrm E}\times\boldsymbol e_{\mathrm N}=\boldsymbol e_{\mathrm U}$ です。
+
+定義の内積から $(E,N_{\mathrm{loc}},U)=(3,4,2)$ を得ます。正規直交な三方向の成分で元の差が復元できることも、
+
+$$
+3\boldsymbol e_{\mathrm E}
++4\boldsymbol e_{\mathrm N}
++2\boldsymbol e_{\mathrm U}
+=(2,3,4)=\boldsymbol d
+$$
+
+で確かめられます。北は $+Z$、上は $+X$ であり、軸の名称と地心成分名を混同できません。
 <!-- definition-example-end -->
 
 ### ENU行列と逆回転
@@ -346,7 +365,9 @@ $$
 
 ENUの式は任意に離れた二点の**地心直交差ベクトル**を正確に表します。しかし、緯度差から $(M+h)\Delta\phi$ のように変位を見積もる式は基準点付近の一次近似です。両者を分けます。
 
-ここで $\boldsymbol P_\phi=\partial\boldsymbol P/\partial\phi$ は $\lambda,h$ を固定して $\phi$ だけを変えた偏微分、$\boldsymbol P_\lambda$ は $\phi,h$ を固定した偏微分、$\boldsymbol P_h$ は $\phi,\lambda$ を固定した偏微分です。$d\phi,d\lambda,dh$ はそれぞれの微小変化、$\Delta\phi,\Delta\lambda,\Delta h$ は二点間の有限な座標差を表します。**Jacobian（ヤコビ行列）**は、入力順 $(\phi,\lambda,h)$ の各変数について偏微分したENU成分を列に並べた $3\times3$ 行列です。微分による等式と有限差の一次近似は、この意味で区別します。
+ここで $\boldsymbol P_\phi=\partial\boldsymbol P/\partial\phi$ は $\lambda,h$ を固定して $\phi$ だけを変えた偏微分です。同様に $\boldsymbol P_\lambda$ は $\phi,h$ を固定し、$\boldsymbol P_h$ は $\phi,\lambda$ を固定します。
+
+$d\phi,d\lambda,dh$ は各変数の微小変化、$\Delta\phi,\Delta\lambda,\Delta h$ は二点間の有限な座標差です。**Jacobian（ヤコビ行列）**は、入力順 $(\phi,\lambda,h)$ の各変数について偏微分したENU成分を列に並べた $3\times3$ 行列です。微分による等式と有限差の一次近似は区別します。
 
 <a id="prop-geod5-local-jacobian"></a>
 <!-- formal-statement-start -->
@@ -643,7 +664,21 @@ $a=5,b=4$ の楕円体と同一の基準・時点で、基準点は $(\phi_0,\la
    \frac{25\cdot3}{25+t_*},\frac{16\cdot2}{16+t_*}\right)
    $$
 
-   とし、$\boldsymbol w=(Q_X/25,Q_Y/25,Q_Z/16)$、$h=t_*\|\boldsymbol w\|$、$\phi=\operatorname{atan2}(w_Z,\sqrt{w_X^2+w_Y^2})$、$\lambda=\operatorname{atan2}(3,6)=\arctan(1/2)$ として再構成します。数値的には $t_*\simeq10.2203854$、$\boldsymbol Q\simeq(4.2588972,2.1294486,1.2204245)$、$\phi\simeq0.3809185$ rad、$\lambda\simeq0.4636476$ rad、$h\simeq2.0969113$ です。$\boldsymbol Q$ が楕円体方程式を満たすことと、$\boldsymbol Q+t_*\boldsymbol w=\boldsymbol P$ を往復残差で検算します。
+   とします。さらに $\boldsymbol w=(Q_X/25,Q_Y/25,Q_Z/16)$ を作り、$h=t_*\|\boldsymbol w\|$、$\phi=\operatorname{atan2}(w_Z,\sqrt{w_X^2+w_Y^2})$、$\lambda=\operatorname{atan2}(3,6)=\arctan(1/2)$ で再構成します。
+
+   数値的には
+
+   $$
+   \begin{aligned}
+   t_*&\simeq10.2203854,\\
+   \boldsymbol Q&\simeq(4.2588972,2.1294486,1.2204245),\\
+   \phi&\simeq0.3809185\ \mathrm{rad},\qquad
+   \lambda\simeq0.4636476\ \mathrm{rad},\\
+   h&\simeq2.0969113
+   \end{aligned}
+   $$
+
+   です。$\boldsymbol Q$ が楕円体方程式を満たすことと、$\boldsymbol Q+t_*\boldsymbol w=\boldsymbol P$ を往復残差で検算します。
 
 3. 基準点のENU基底は東 $(0,1,0)$、北 $(0,0,1)$、上 $(1,0,0)$ です。差は $\boldsymbol d=\boldsymbol P-\boldsymbol P_0=(0,3,2)$ なので
 
