@@ -1,0 +1,70 @@
+chapter: COMB11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB10
+forward_references: []
+
+concepts:
+  - id: combinatorics.integer-partition
+    name: 整数分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（整数分割）]
+    requires: [combinatorics.graded-class]
+
+  - id: combinatorics.local-euler-product
+    name: 局所有限な Euler 積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所有限な Euler 積）]
+    requires: [combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.partition-euler-product
+    name: 整数分割の Euler 積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数分割の Euler 積）]
+    requires: [combinatorics.integer-partition, combinatorics.local-euler-product, combinatorics.formal-geometric-series]
+
+  - id: combinatorics.restricted-partition-product
+    name: 制限付き分割の積表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（制限付き分割の積表示）]
+    requires: [combinatorics.partition-euler-product]
+
+  - id: combinatorics.euler-odd-distinct
+    name: Euler の奇数部分・相異なる部分の等数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler の奇数部分・相異なる部分の等数定理）]
+    requires: [combinatorics.restricted-partition-product]
+
+  - id: combinatorics.ferrers-conjugate
+    name: Ferrers 図形と共役分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Ferrers 図形と共役分割）]
+    requires: [combinatorics.integer-partition]
+
+  - id: combinatorics.partition-conjugation
+    name: 共役による制限の交換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共役による制限の交換）]
+    requires: [combinatorics.ferrers-conjugate, combinatorics.restricted-partition-product]
+
+  - id: combinatorics.coin-change-count
+    name: 額面別のコイン交換数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（額面別のコイン交換数）]
+    requires: [combinatorics.integer-partition]
+
+  - id: combinatorics.coin-change-product-recurrence
+    name: コイン交換の積と漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（コイン交換の積と漸化式）]
+    requires: [combinatorics.coin-change-count, combinatorics.restricted-partition-product]
