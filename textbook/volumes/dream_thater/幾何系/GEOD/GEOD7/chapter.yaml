@@ -1,0 +1,45 @@
+id: "GEOD7"
+title: "測地測量の観測モデル：距離・角度・水準"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD6
+official_scope: []
+learning_objectives:
+  - 観測値・未知量・系統偏り・偶然誤差・外れ値を区別して単位つきの観測方程式を立てられる
+  - 斜距離・天頂角・水平角から局所東北上成分を導き、器械高と目標高の符号を検算できる
+  - 水平角の方向差と器械の方向零点の相殺を導出し、角度の折返しを扱える
+  - 水準測量の後視・前視から高低差を求め、閉合差が観測の冗長性を表すことを証明できる
+  - 球面局所模型で地球曲率補正の大きさ・符号を計算し、大気屈折・較正との区別を説明できる
+definitions:
+  - { id: GEOD7-DEF-01, name: 測量の観測方程式 }
+  - { id: GEOD7-DEF-02, name: 斜距離・天頂角・水平方位角 }
+  - { id: GEOD7-DEF-03, name: 水平角と方向読値 }
+  - { id: GEOD7-DEF-04, name: 水準測量の後視と前視 }
+  - { id: GEOD7-DEF-05, name: 閉合差と冗長観測 }
+theorems:
+  - { id: GEOD7-PROP-01, name: 極観測から局所位置への変換 }
+  - { id: GEOD7-PROP-02, name: 水平角における方向零点の相殺 }
+  - { id: GEOD7-PROP-03, name: 水準測量の高低差と閉合式 }
+  - { id: GEOD7-PROP-04, name: 球面模型の曲率補正と釣合い }
+canonical_examples:
+  - 観測値の較正値と残差・外れ値の区別
+  - 天頂角と器械高・反射鏡高を含むENU成分の導出
+  - 360度をまたぐ方向読値からの水平角
+  - 二据付の後視・前視と既知標高への閉合
+  - 視準距離不均衡での曲率補正の符号と大きさ
+problem_patterns:
+  - GEOD7-CALIBRATION
+  - GEOD7-ZENITH-ENU
+  - GEOD7-ANGLE-WRAP
+  - GEOD7-LEVEL-READINGS
+  - GEOD7-CLOSURE
+  - GEOD7-INVERSE-OBSERVATION
+  - GEOD7-LEVEL-TELESCOPE
+  - GEOD7-CURVATURE-IMBALANCE
+  - GEOD7-ORIENTATION-CANCELLATION
+  - GEOD7-INTEGRATED-SURVEY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
