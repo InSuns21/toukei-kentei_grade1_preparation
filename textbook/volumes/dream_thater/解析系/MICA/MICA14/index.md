@@ -458,10 +458,10 @@ $F(x,y)=x^2y+3xy^2$（$x,y\in\mathbb R$）とする。$(\partial_x\partial_yF)(x
 
 まず二変数で微分すると $\partial_yF=x^2+6xy$、さらに $\partial_x\partial_yF=2x+6y$ なので対角値は $8x$ です。一方、先に対角へ制限すると $F(x,x)=4x^3$、一変数の二階微分は $24x$ です。違いは対角写像 $x\mapsto(x,x)$ の連鎖律によります。まず $\frac{d}{dx}F(x,x)=(\partial_xF+\partial_yF)(x,x)$、もう一度微分すると
 
-$
+$$
 \frac{d^2}{dx^2}F(x,x)
 =(\partial_x^2F+2\partial_x\partial_yF+\partial_y^2F)(x,x).
-$
+$$
 
 ここで $\partial_x^2F=2y$、$\partial_y^2F=6x$、$\partial_x\partial_yF=2x+6y$ だから、対角上では $2x+16x+6x=24x$ となります。応力テンソルの点分離では、指定された**双微分作用素を先に**使わなければなりません。
 <!-- solution-end -->
