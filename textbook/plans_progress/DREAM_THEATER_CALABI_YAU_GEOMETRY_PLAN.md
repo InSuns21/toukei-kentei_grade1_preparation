@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-11-03（標準教科書・大学院講義ノートとの照合、定義・具体計算・証明境界・学修順序の再設計）  
-状態: planned（PLAN設計のみ。本文・系列manifestは未実装）
+状態: in_progress（2026-11-03にCYG1-01本文・系列manifestを実装開始。後続章と系列横断監査は未完了）
 
 ## 中心問いと到達点
 
@@ -24,11 +24,11 @@
 | 複素多様体・正則束・複素型 | 完了済み [CM1/CM2](../plan_done/DREAM_THEATER_COMPLEX_MANIFOLDS_I_II_PLAN.md) の定義・Dolbeault・標準束を参照。 |
 | Kähler条件、Ricci形式、第一Chern類、Kähler class、$U(n)$ ホロノミー | 完了済み [KAH1](../plan_done/DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md)、特にKAH1-11/12/13/15/16。Ricci形式の規格化と制限ホロノミーへの含意を借り、重複証明しない。 |
 | Hodge分解・対称性・Hard Lefschetz | 完了済み [HOD1](../plan_done/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md)、特にHOD1-06/07/11〜14。**Hard Lefschetzと弱Lefschetz超平面定理は別物**である。 |
-| 全Chern類・Euler標数・弱Lefschetz超平面定理 | quintic・K3の計算に不可欠な入力。既存の実証明ownerを正式着手時に確認し、ないものはCYG1内に必要部分の導出を置くか、**精密に仮定を述べた外部定理**として明示する。単にHOD1から証明済みとみなさない。一般Chern–Weil理論のownerは [GBG](DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)。 |
-| Ricci平坦Kähler計量の存在・一意性の**完全証明** | 後続 [YAU1](DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)。CYG1はYauの定理を**未証明の外部入力／後続予告**として正確に述べ、定義の比較・幾何的帰結に用いる。YAU1がCYG1を参照する循環は「証明済み依存」では作らない。 |
+| 全Chern類・Euler標数・弱Lefschetz超平面定理 | quintic・K3の計算に不可欠な入力。既存の実証明ownerを正式着手時に確認し、ないものはCYG1内に必要部分の導出を置くか、**精密に仮定を述べた外部定理**として明示する。単にHOD1から証明済みとみなさない。一般Chern–Weil理論のownerは [GBG](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)。 |
+| Ricci平坦Kähler計量の存在・一意性の**完全証明** | 後続 [YAU1](../plans/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)。CYG1はYauの定理を**未証明の外部入力／後続予告**として正確に述べ、定義の比較・幾何的帰結に用いる。YAU1がCYG1を参照する循環は「証明済み依存」では作らない。 |
 | 一般のKodaira–Spencer/Kuranishi変形理論、Bogomolov–Tian–Todorov、mirror symmetryの証明 | 必要な一次変形の意味だけ本科目で導入。一般の無障害性・周期写像・mirror定理・Gromov–Witten不変量は本文の主証明対象にしない。 |
 
-**PLANの状態**：2026-11-03時点ではCYGの系列manifest、章本文を作成していない。設計推敲だけでは `plans_progress/` に移さない。上の完成・未完成状態、章ID、直接prerequisiteは着手直前にGitHubの最新版へ再照合する。系列manifestを新設した場合も実装前にそのIDの衝突を確認する。
+**PLANの状態**：2026-11-03にCYG1系列manifestとCYG1-01の章本文を新設した。CYG1-02以降は未完成で、完了済み章と次の予定章は [`CYG1.yaml`](../dream-theater-series/CYG1.yaml) の章statusを正本とする。系列全体の完了判定と横断監査は今後行う。
 
 ## 対象・記号・定義の安全柵
 

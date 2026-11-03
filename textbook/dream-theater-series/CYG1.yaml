@@ -1,0 +1,64 @@
+version: 1
+id: CYG1
+title: "Calabi–Yau幾何学"
+plan: textbook/plans_progress/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 完成章のみ公開索引に載せる。後続章IDは計画上の暫定ID。
+chapters:
+  - id: CYG1-01
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-01
+    status: completed
+    title: "標準束、Chern類、ホロノミーは同じ定義か"
+  - id: CYG1-02
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-02
+    status: planned
+    title: "標準束の自明性をどう手で確かめるか"
+  - id: CYG1-03
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-03
+    status: planned
+    title: "整係数・実係数の差、torsionの反例"
+  - id: CYG1-04
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-04
+    status: planned
+    title: "楕円曲線と複素トーラス"
+  - id: CYG1-05
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-05
+    status: planned
+    title: "四次K3曲面とSU(2)の前提"
+  - id: CYG1-06
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-06
+    status: planned
+    title: "Hodgeダイヤモンドを何が制約するか"
+  - id: CYG1-07
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-07
+    status: planned
+    title: "接束のChern類とEuler標数"
+  - id: CYG1-08
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-08
+    status: planned
+    title: "quintic threefoldのHodge数1,101"
+  - id: CYG1-09
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-09
+    status: planned
+    title: "完全交叉と計算の適用限界"
+  - id: CYG1-10
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-10
+    status: planned
+    title: "Yauの定理が付け加える存在量化"
+  - id: CYG1-11
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-11
+    status: planned
+    title: "Ricci平坦性と特殊ホロノミー"
+  - id: CYG1-12
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-12
+    status: planned
+    title: "複素構造の一次変形と正則体積形式"
+  - id: CYG1-13
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-13
+    status: planned
+    title: "quinticの複素変形とKähler方向"
+  - id: CYG1-14
+    path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-14
+    status: planned
+    title: "総合判定とmirror symmetryへの入口"
