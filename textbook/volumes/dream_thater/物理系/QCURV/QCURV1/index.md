@@ -4,24 +4,24 @@
 
 [QFT1の自由スカラー場](../../QFT/QFT1/index.md#def-qft1-real-scalar)は平坦時空で波を記述できました。[GR6のスカラー曲率](../../GR/GR6/index.md#def-gr6-ricci-scalar)は背景時空の曲がり具合を一つの実数で表します。では背景を曲げたとき、場の方程式を単に $\partial_\mu$ から $\nabla_a$ に置き換えるだけでよいのでしょうか。
 
-曲がった時空には、場の質量と同じ次元を持つ曲率 $R$ があります。そのため、自由場の作用には $R\phi^2$ という新しい二次項を置けます。まず**古典的な背景計量を固定**し、その上で実スカラー場だけを変分して方程式を導きます。次に、その方程式を初期値から一意に解ける条件を確認します。この段階では量子真空も粒子も選んでいません。
+曲がった時空には、場の質量の二乗と同じ次元を持つスカラー曲率 $R$ があります。そのため、自由場の作用には $R\phi^2$ という新しい二次項を置けます。まず**古典的な背景計量を固定**し、その上で実スカラー場だけを変分して方程式を導きます。次に、その方程式を初期値から一意に解ける条件を確認します。この段階では量子真空も粒子も選んでいません。
 
 ## 1. 背景と未知関数を分ける
 
-$(M,g)$ は境界のない、滑らかで時間向きの付いた4次元[大域双曲Lorentz時空](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)とし、計量の符号は $(-,+,+,+)$ に固定します。[LORG20の滑らかな時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)から、時空を横切る滑らかな空間的[Cauchy超曲面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy) $\Sigma$ を取れます。$g$ とその[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita) $\nabla$ は**与えられた古典的データ**であり、以下の場の変分では動かしません。
+$(M,g)$ は境界がなく連結で、滑らかで時間向きの付いた4次元[大域双曲Lorentz時空](../../../幾何系/LORG/LORG16/index.md#def-lorg16-global-hyperbolicity)とし、計量の符号は $(-,+,+,+)$ に固定します。[LORG20の滑らかな時間分割](../../../幾何系/LORG/LORG20/index.md#thm-lorg20-orthogonal-splitting)から、時空を横切る滑らかな空間的[Cauchy超曲面](../../../幾何系/LORG/LORG15/index.md#def-lorg15-cauchy) $\Sigma$ を取れます。$g$ とその[Levi-Civita接続](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita) $\nabla$ は**与えられた古典的データ**であり、以下の場の変分では動かしません。
 
-局所座標を $x^a$（$a=0,1,2,3$）とし、上下に重複する添字は和を取ります。$g^{ab}$ は $g_{ab}$ の逆行列、$R=g^{ab}R_{ab}$ は[曲率の縮約](../../GR/GR6/index.md#def-gr6-ricci-scalar)です。自然単位 $\hbar=c=k_B=G=1$ を用います。符号の異なるQFT1では $g_{+---}$ を使いましたが、**本章の** $g_{-+++}$ では波動演算子の符号が逆になります。
+局所座標を $x^a$（$a=0,1,2,3$）とし、上下に重複する添字は和を取ります。$g_{ab}=g(\partial/\partial x^a,\partial/\partial x^b)$ は座標基底での計量成分、$g^{ab}$ はその逆行列の成分、$R=g^{ab}R_{ab}$ は[曲率の縮約](../../GR/GR6/index.md#def-gr6-ricci-scalar)です。自然単位 $\hbar=c=k_B=G=1$ を用います。符号の異なるQFT1では $g_{+---}$ を使いましたが、**本章の** $g_{-+++}$ では波動演算子の符号が逆になります。
 
-平坦な座標の値 $\phi(x)$ は座標を変えても同じ事象の物理的な値です。これを一般の時空で、各点に一つの実数を割り当てる滑らかな関数として扱います。
+平坦時空でのスカラー場の値と同様、一般の時空でも同じ事象の物理的な値は座標に依存しません。各点に一つの実数を割り当てる滑らかな関数として扱います。座標図 $(U,x)$ では $\phi_x=\phi\circ x^{-1}$ と書き、別の座標図 $(W,y)$ と比較するときは両方の座標が使える $p\in U\cap W$ に限ります。
 
 <a id="def-qcurv1-background-field"></a>
 
 <!-- formal-statement-start -->
 > **定義（固定背景上の実スカラー場）**
-> 時間向き付き滑らかな4次元Lorentz多様体 $(M,g)$ の計量を固定する。滑らかな実数値関数 $\phi:M\to\mathbb R$ を、この固定背景上の古典的な実スカラー場とする。局所座標表示は同じ点で次の変換則を満たす。
+> 時間向き付き滑らかな4次元Lorentz多様体 $(M,g)$ の計量を固定する。滑らかな実数値関数 $\phi:M\to\mathbb R$ を、この固定背景上の古典的な実スカラー場とする。任意の座標図 $(U,x)$、$(W,y)$ に対する局所表示 $\phi_x=\phi\circ x^{-1}$、$\phi_y=\phi\circ y^{-1}$ は、重なり $U\cap W$ の同じ点で次の変換則を満たす。
 
 $$
-\phi_y(y(p))=\phi_x(x(p))\qquad(p\in M).
+\phi_y(y(p))=\phi_x(x(p))\qquad(p\in U\cap W).
 $$
 <!-- formal-statement-end -->
 
@@ -30,7 +30,7 @@ $$
 
 **定義の確認**：定義域、実数値性、滑らかさ、座標変換則をそれぞれ調べます。
 
-任意の $c\in\mathbb R$ を固定して $\phi(p)=c$ と置きます。値は実数で、任意回微分可能であり、どの座標でも $\phi_y(y(p))=c=\phi_x(x(p))$ です。定義の三条件（定義域・正則性・変換則）を直接満たします。ただし**場として許される**ことは、これから作る方程式の**解である**ことと同じではありません。
+任意の $c\in\mathbb R$ を固定して $\phi(p)=c$ と置きます。値は実数で、任意回微分可能であり、どの座標でも $\phi_y(y(p))=c=\phi_x(x(p))$ です。定義域・実数値性・滑らかさ・座標変換則の四点を直接満たします。ただし**場として許される**ことは、これから作る方程式の**解である**ことと同じではありません。
 <!-- definition-example-end -->
 
 場の変分は、滑らかで**コンパクトな台**を持つ実数値 $\chi\in C_c^\infty(M)$ に対して $\phi_\varepsilon=\phi+\varepsilon\chi$ と置く操作です。ここで $\varepsilon$ は実数パラメータ、台とは関数が零でない点の閉包です。[QFT1の第一変分](../../QFT/QFT1/index.md#def-qft1-action)と同じく、時刻を進める操作ではありません。
@@ -51,7 +51,21 @@ $$
 d\mathrm{vol}_g=\sqrt{-\det(g_{ab})}\,d^4x
 $$
 
-です。計量符号が $(-,+,+,+)$ なので行列式は負です。[GR9の局所物質作用](../../GR/GR9/index.md#def-gr9-matter-action)と同様、座標表示を変えても積分値が一致する幾何学的な密度で積分します。全時空の作用が発散し得るため、まず相対コンパクトな開領域 $\Omega\subset M$ で考え、変分の台をその内部に取ります。
+です。計量符号が $(-,+,+,+)$ なので行列式は負です。座標変換 $x=x(y)$ のJacobianを $J^a{}_b=\partial x^a/\partial y^b$ とし、計量行列を $G_x=(g_{ab})$、$G_y$ と記すと、座標基底の変換から
+
+$$
+G_y=J^{\mathsf T}G_xJ,
+\qquad \det G_y=(\det J)^2\det G_x
+$$
+
+です。したがって
+
+$$
+\sqrt{|\det G_y|}\,d^4y
+=\sqrt{|\det G_x|}\,|\det J|\,d^4y
+$$
+
+は変数変換で同じ密度を表します。[GR9の局所物質作用](../../GR/GR9/index.md#def-gr9-matter-action)と同様、座標表示を変えても積分値が一致する幾何学的な密度で積分します。全時空の作用が発散し得るため、まず相対コンパクトな開領域 $\Omega\subset M$ で考え、変分の台をその内部に取ります。
 
 <a id="def-qcurv1-curved-action"></a>
 
@@ -132,13 +146,13 @@ $$
 
 **定義の確認**：作用素に計量を実際に代入し、平坦時空の方程式との一致を検算します。
 
-$g_{ab}=\operatorname{diag}(-1,1,1,1)$、$R=0$ とします。接続係数は零なので $\Box_g=-\partial_t^2+\Delta$、従って
+ここでは $x^0=t$、$\boldsymbol x=(x^1,x^2,x^3)$ とし、$\Delta=\sum_{i=1}^3\partial_i^2$ を空間Laplacianとします。$g_{ab}=\operatorname{diag}(-1,1,1,1)$、$R=0$ とします。接続係数は零なので $\Box_g=-\partial_t^2+\Delta$、従って
 
 $$
 P_g=\partial_t^2-\Delta+m^2.
 $$
 
-この式を $\phi=A\cos(\omega t-\boldsymbol k\cdot\boldsymbol x)$ に適用すると
+振幅 $A\in\mathbb R\setminus\{0\}$、角振動数 $\omega\in\mathbb R$、波数ベクトル $\boldsymbol k\in\mathbb R^3$ を固定し、この式を $\phi=A\cos(\omega t-\boldsymbol k\cdot\boldsymbol x)$ に適用すると
 
 $$
 P_g\phi=(-\omega^2+|\boldsymbol k|^2+m^2)\phi.
@@ -267,7 +281,15 @@ $$
 \left(\sqrt{\det h}\,h^{ij}\partial_jf\right)
 $$
 
-とします。これは符号規約として通常のEuclid空間で $\sum_i\partial_i^2$ に戻るものです。
+とします。これは符号規約として通常のEuclid空間で $\sum_i\partial_i^2$ に戻るものです。空間一定の場を $\phi(t,x)=q(t)$ と置くと、
+
+$$
+\partial_t\phi=\frac{dq}{dt}=\dot q,\qquad
+\partial_t^2\phi=\frac{d^2q}{dt^2}=\ddot q,
+\qquad \partial_i\phi=0
+$$
+
+です。点記法は時間 $t$ に関する通常の導関数を表し、一般の場に対する偏微分とは区別します。
 
 <a id="prop-qcurv1-ultrastatic"></a>
 
@@ -324,7 +346,7 @@ $$
 f=\phi|_\Sigma,\qquad h=n^a\nabla_a\phi|_\Sigma
 $$
 
-を与えます。$f$ と $h$ はそれぞれ場の初期値・法線方向微分です。量子論で状態を与える操作とはまだ異なります。
+を与えます。$f$ と $h$ はそれぞれ場の初期値・法線方向微分です。ここで初期データの $h$ は第4節の空間計量 $h_{ij}$ とは異なる量です。量子論で状態を与える操作とはまだ異なります。
 
 <a id="cor-qcurv1-cauchy"></a>
 
@@ -461,7 +483,7 @@ $$
 \end{aligned}
 $$
 
-$\partial_tN=\partial_yN=\partial_zN=0$ なので
+ここで $N'(x)=dN/dx$ と記します。$\partial_tN=\partial_yN=\partial_zN=0$ なので
 
 $$
 \Box_g\phi=-N^{-2}\partial_t^2\phi
@@ -469,7 +491,7 @@ $$
 +\partial_y^2\phi+\partial_z^2\phi.
 $$
 
-$N'$ は $dN/dx$ であり、$x$ 方向だけに一次微分の補正が残ります。
+$x$ 方向だけに一次微分の補正が残ります。
 <!-- solution-end -->
 
 <a id="ex-qcurv1-a03"></a>
@@ -536,7 +558,16 @@ $$
 #### QCURV1-B01 計量密度からEuler–Lagrange方程式
 - Level: B
 
-4次元の滑らかな固定Lorentz背景 $(M,g)$ の相対コンパクト開領域 $\Omega$ 上で、$\chi\in C_c^\infty(\Omega)$ とする。$V=m^2+\xi R$、$S_\Omega[\phi;g]=-\frac12\int_\Omega(g^{ab}\partial_a\phi\partial_b\phi+V\phi^2)\sqrt{-\det g}\,d^4x$ から、座標微分だけで停留条件の局所式を導け。
+4次元の滑らかな固定Lorentz背景 $(M,g)$ の一つの座標近傍に含まれる相対コンパクト開領域 $\Omega$ 上で、$\chi\in C_c^\infty(\Omega)$ とする。$V=m^2+\xi R$ と置き、座標表示した作用
+
+$$
+S_\Omega[\phi;g]
+=-\frac12\int_\Omega
+(g^{ab}\partial_a\phi\partial_b\phi+V\phi^2)
+\sqrt{-\det g}\,d^4x
+$$
+
+から、座標微分だけで停留条件の局所式を導け。
 
 <!-- solution-start -->
 **詳細解答。** $\rho=\sqrt{-\det g}>0$ と略記します。$\rho,g^{ab},V$ は固定なので、変分で
@@ -644,10 +675,10 @@ $$
 #### QCURV1-C01 Einstein静的宇宙の二つの場
 - Level: C
 
-$M=\mathbb R\times S^3_a$、$g=-dt^2+h_a$（$a>0$）、$R=6/a^2$ とする。実スカラー場は空間一定 $\phi(t,x)=q(t)$、$m=0$ とし、初期値 $q(0)=1,\dot q(0)=0$ を与える。
+$M=\mathbb R\times S^3_a$、$g=-dt^2+h_a$（$a>0$）、$R=6/a^2$ とし、有限な時刻 $t_0<0<t_1$ に対して作用の領域を $\Omega=(t_0,t_1)\times S^3_a$ とする。実スカラー場は空間一定 $\phi(t,x)=q(t)$、$m=0$ とし、初期値 $q(0)=1,\dot q(0)=0$ を与える。
 
-1. $S[q]$ を空間積分した形へ直し、コンパクト支持する時間変分で運動方程式を導け。
-2. $\xi=0$ と $\xi=1/6$ の二場合で初期値を満たす解をそれぞれ求めよ。
+1. $S_\Omega[q]$ を空間積分した形へ直し、$(t_0,t_1)$ 内にコンパクトな台を持つ時間変分で運動方程式を導け。
+2. (1) で得た定数係数の運動方程式を全時刻 $t\in\mathbb R$ へ延長し、$\xi=0$ と $\xi=1/6$ の二場合で初期値を満たす大域解をそれぞれ求めよ。
 3. $\xi=1/6$ の場合、$E=(C/2)(\dot q^2+a^{-2}q^2)$（$C=\operatorname{Vol}(S^3_a)$）が保存することを微分で示し、初期値から値を求めよ。
 4. 二場合で背景時空と初期データは同じなのに時間発展が異なる理由と、ここから量子真空の一意性が従わない理由を説明せよ。
 
@@ -656,23 +687,23 @@ $M=\mathbb R\times S^3_a$、$g=-dt^2+h_a$（$a>0$）、$R=6/a^2$ とする。実
 
 $$
 \begin{aligned}
-S[q]
-&=-\frac12\int dt\int_{S^3_a}
+S_\Omega[q]
+&=-\frac12\int_{t_0}^{t_1}dt\int_{S^3_a}
 (-\dot q^2+6\xi a^{-2}q^2)\,d\mathrm{vol}_{h_a}\\
-&=\frac C2\int(\dot q^2-6\xi a^{-2}q^2)\,dt.
+&=\frac C2\int_{t_0}^{t_1}(\dot q^2-6\xi a^{-2}q^2)\,dt.
 \end{aligned}
 $$
 
-時間方向にコンパクトな台を持つ変分 $q+\varepsilon\chi$ を使うと、
+$(t_0,t_1)$ の内部にコンパクトな台を持つ変分 $q+\varepsilon\chi$ を使うと、
 
 $$
-\delta S=C\int(\dot q\dot\chi-6\xi a^{-2}q\chi)\,dt.
+\delta S=C\int_{t_0}^{t_1}(\dot q\dot\chi-6\xi a^{-2}q\chi)\,dt.
 $$
 
 部分積分で端点項が零になり、
 
 $$
-\delta S=-C\int(\ddot q+6\xi a^{-2}q)\chi\,dt.
+\delta S=-C\int_{t_0}^{t_1}(\ddot q+6\xi a^{-2}q)\chi\,dt.
 $$
 
 $C>0$ と試験関数の任意性から $\ddot q+6\xi a^{-2}q=0$ を得ます。
