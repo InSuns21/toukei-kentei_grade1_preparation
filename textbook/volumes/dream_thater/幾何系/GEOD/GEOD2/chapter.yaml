@@ -1,0 +1,45 @@
+id: "GEOD2"
+title: "測地基準系・座標参照系・観測の入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD1
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 測地基準系・基準座標系の実現・datum・準拠楕円体・CRSの役割を区別できる
+  - 同一datumでの座標換算とdatum間の座標変換を区別し、二次元剛体模型の順逆計算と距離不変性を検算できる
+  - 基準時点・座標時点・観測時刻を区別し、一定速度模型による座標更新を計算できる
+  - 距離・角・GNSSなどの観測量と位置の違いを説明し、共通の系統ずれが未知の場合の非識別性を証明できる
+  - JGD2024への名称変更・水平成果の継承・標高成果の改定を国土地理院の一次資料に即して区別できる
+definitions:
+  - { id: GEOD2-DEF-01, name: 測地基準系 }
+  - { id: GEOD2-DEF-02, name: 基準座標系による実現 }
+  - { id: GEOD2-DEF-03, name: 測地datum }
+  - { id: GEOD2-DEF-04, name: 座標参照系 }
+  - { id: GEOD2-DEF-05, name: 座標換算 }
+  - { id: GEOD2-DEF-06, name: 座標変換 }
+  - { id: GEOD2-DEF-07, name: 座標時点 }
+  - { id: GEOD2-DEF-08, name: 観測値と誤差の単純模型 }
+theorems:
+  - { id: GEOD2-PROP-01, name: 直交する座標軸間の表示と距離 }
+  - { id: GEOD2-PROP-02, name: 共通ずれが未知なら位置と分離できない }
+canonical_examples:
+  - 基準系の規約と基準点成果・速度の違い
+  - 同一datumで軸順を交換するだけの座標換算
+  - 原点移動と直交回転を伴う二次元基準変換の順逆計算
+  - 座標時点差と一定速度モデルの単位付き更新
+  - 偶然誤差が打ち消されても共通ずれが残る反例
+  - JGD2024の水平成果と標高成果の改定項目の区別
+problem_patterns:
+  - GEOD2-SYSTEM-FRAME-DATUM
+  - GEOD2-CRS-AXIS-ORDER
+  - GEOD2-RIGID-COORDINATE-OPERATION
+  - GEOD2-COORDINATE-EPOCH
+  - GEOD2-OBSERVATION-BIAS
+  - GEOD2-JGD2024-CHANGE
+  - GEOD2-INTEGRATED-CRS-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
