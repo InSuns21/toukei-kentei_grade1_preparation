@@ -1,0 +1,49 @@
+id: QCURV7
+title: "Rindlerくさび・等加速度世界線と真空の制限"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV6
+  - QCURV2
+  - QFT5
+  - SREL8
+official_scope: []
+learning_objectives:
+  - 右左RindlerくさびをMinkowskiの不等式とnull座標で特徴付け、両くさびの時間向きを区別できる
+  - Rindler変換の逆写像・計量・Killing生成子・地平線を座標変換から導出できる
+  - 等加速度軌道の固有時間・四元速度・四元加速度を計算し、boost時間との規格化を説明できる
+  - 自由Klein–Gordon方程式のRindlerモード方程式と正振動数の符号を、KG内積から導出できる
+  - Minkowski真空の二点分布を右くさびと等加速度世界線へ制限し、定常性・短距離極限・左右相関を検算できる
+  - くさび上の状態の制限とRindler真空の選択、KMS条件・検出器の熱応答を混同しない
+definitions:
+  - { id: QCURV7-DEF-01, name: 右左Rindlerくさびと座標 }
+  - { id: QCURV7-DEF-02, name: Rindler静止観測者とboost時間 }
+  - { id: QCURV7-DEF-03, name: Rindler正振動数モード }
+  - { id: QCURV7-DEF-04, name: Minkowski真空のくさび制限 }
+theorems:
+  - { id: QCURV7-PROP-01, name: Rindler計量と地平線 }
+  - { id: QCURV7-PROP-02, name: 固有加速度の計量符号整合 }
+  - { id: QCURV7-PROP-03, name: Rindlerモード方程式とKG符号 }
+  - { id: QCURV7-PROP-04, name: Minkowski二点分布の等加速度引戻し }
+  - { id: QCURV7-PROP-05, name: 右左くさびにまたがるMinkowski真空の相関 }
+canonical_examples:
+  - 右くさびの一点と左くさびの一点で逆変換・時間向きを直接確認
+  - 一定Rindler半径の双曲線と固有加速度の計算
+  - 分離したモードのKG正値性と左くさびのboost符号
+  - 質量零Minkowski真空の等加速度二点分布と慣性短距離極限
+  - 等時刻で右左くさびにまたがる二点相関
+problem_patterns:
+  - QCURV7-WEDGE-INVERSE
+  - QCURV7-METRIC
+  - QCURV7-ACCELERATION
+  - QCURV7-NULL-HORIZON
+  - QCURV7-LEFT-ORIENTATION
+  - QCURV7-SEPARATED-KG
+  - QCURV7-KG-NORM
+  - QCURV7-WIGHTMAN-PULLBACK
+  - QCURV7-CROSS-WEDGE
+  - QCURV7-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

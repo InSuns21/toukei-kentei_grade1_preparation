@@ -30,3 +30,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV6
     status: completed
     title: "粒子数とUnruh–DeWitt検出器の応答"
+  - id: QCURV7
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV7
+    status: completed
+    title: "Rindlerくさび・等加速度世界線と真空の制限"
