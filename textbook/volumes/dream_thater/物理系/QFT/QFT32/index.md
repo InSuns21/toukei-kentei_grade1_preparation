@@ -48,7 +48,7 @@ $$
 > $(U(a,\Lambda)f)(p)=e^{ip\cdot a}f(\Lambda^{-1}p)$（$p$ は正エネルギー質量殻上）はユニタリ表現になる。
 <!-- formal-statement-end -->
 
-デルタ関数は4次元体積から質量殻を抜き出すために使います。$p^0$ だけ積分すると係数 $1/(2E_{\boldsymbol p})$ が生じる、というのが測度の由来です。
+デルタ関数は4次元体積から質量殻を抜き出すために使います。ここで $\theta(s)$ は $s>0$ で1、$s<0$ で0となる階段関数で、$\theta(p^0)$ が正エネルギー枝を選びます。$p^0$ だけ積分すると係数 $1/(2E_{\boldsymbol p})$ が生じる、というのが測度の由来です。
 
 ### 証明の見取り図
 
@@ -145,7 +145,7 @@ $$
 \det X(p)=(p^0)^2-(p^3)^2-(p^1)^2-(p^2)^2=p^2.
 $$
 
-$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性、正の時間方向、行列式が保たれます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
+$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性と行列式が保たれます。正の時間方向についても、Pauli行列の反交換関係から $(\boldsymbol p\cdot\boldsymbol\sigma)^2=|\boldsymbol p|^2I$ なので、$X(p)$ の固有値は $p^0\pm|\boldsymbol p|$ です。正エネルギーの非零質量殻上では両固有値が非負で、$X(p)$ は非零の半正定値Hermitian行列です。合同変換 $AXA^\dagger$ も非零半正定値で、$\operatorname{tr}(AXA^\dagger)=2p'{}^0>0$ となるため、未来向きの枝も保ちます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
 
 まず $A=\operatorname{diag}(e^{\rho/2},e^{-\rho/2})$（実数 $\rho$）を代入すると、$X(p)$ の対角成分は $e^\rho(p^0+p^3)$ と $e^{-\rho}(p^0-p^3)$、非対角成分は不変です。和と差を取れば
 
@@ -158,7 +158,9 @@ $$
 
 実際、任意の $\Lambda\in SO^+(1,3)$ に対し、$u=\Lambda(1,0,0,0)$ は $u^2=1,u^0>0$ を満たします。$\boldsymbol\beta=\boldsymbol u/u^0$ と置けば $|\boldsymbol\beta|<1$、$\gamma=(1-|\boldsymbol\beta|^2)^{-1/2}=u^0$ です。この速度のboost $B$ は $(1,0,0,0)$ を $u$ へ移します。そこで $B^{-1}\Lambda$ は $(1,0,0,0)$ を固定するので空間回転です。よってboostと回転の積で全群を覆います。
 
-また全てのHermitian $X$ を固定する $A$ は、$X=I$ を使うと $AA^\dagger=I$、さらに $A\sigma_i=\sigma_iA$（$i=1,2,3$）です。$\sigma_3$ と可換なら $A$ は対角、$\sigma_1$ とも可換なら $A=\lambda I$ であり、$\det A=1$ から $\lambda=\pm1$ です。従って核はちょうど $\{I,-I\}$。これで $SL(2,\mathbb C)\to SO^+(1,3)$ が二対一であることと、スピノルに符号が残る理由を確かめました。この被覆の全既約表現を分類するのではなく、次に安定化行列を直接求めます。
+また全てのHermitian $X$ を固定する $A$ は、$X=I$ を使うと $AA^\dagger=I$、さらに $A\sigma_i=\sigma_iA$（$i=1,2,3$）です。$\sigma_3$ と可換なら $A$ は対角、$\sigma_1$ とも可換なら $A=\lambda I$ であり、$\det A=1$ から $\lambda=\pm1$ です。従って核はちょうど $\{I,-I\}$。これで $SL(2,\mathbb C)\to SO^+(1,3)$ が二対一であることと、スピノルに符号が残る理由を確かめました。
+
+次の安定化群を比較するため、$SU(2)=\{A\in SL(2,\mathbb C):AA^\dagger=I\}$ を特殊ユニタリ群と呼びます。また $ISO(2)=\mathbb R^2\rtimes SO(2)$ は平面の向きを保つ剛体運動群で、回転と平行移動を含みます。被覆群の全既約表現を分類するのではなく、安定化行列を直接求めます。
 
 <a id="thm-qft32-little-groups"></a>
 
@@ -324,7 +326,9 @@ $$
 =\begin{pmatrix}-I&0\\0&I\end{pmatrix}.
 $$
 
-ここで場のLorentz変換を成分まで確定しておきます。前節の $X(p)=p^0I+\boldsymbol p\cdot\boldsymbol\sigma$ に対し
+ここで $\sigma_1\sigma_2=i\sigma_3$ と $\sigma_3^2=I$ を使うと、$\gamma^0\gamma^1\gamma^2\gamma^3=\operatorname{diag}(iI,-iI)$ となり、上の $\gamma^5$ の符号を検算できます。
+
+場のLorentz変換を成分まで確定しておきます。前節の $X(p)=p^0I+\boldsymbol p\cdot\boldsymbol\sigma$ に対し
 
 $$
 \bar X(p)=p^0I-\boldsymbol p\cdot\boldsymbol\sigma
@@ -337,7 +341,31 @@ $$
 \bar X'=(A^\dagger)^{-1}\bar X A^{-1}.
 $$
 
-したがって左成分 $\chi_L\mapsto A\chi_L$ と右成分 $\chi_R\mapsto(A^\dagger)^{-1}\chi_R$ を選べば、$\bar X\chi_L=0$ と $X\chi_R=0$ の解空間はそれぞれ変換後の解空間へ写ります。$A$ は一般にユニタリではなく、例えば $A=\operatorname{diag}(e^{\rho/2},e^{-\rho/2})$ は実数 $\rho\ne0$ で $A^\dagger A\ne I$ です。場の二成分ノルムを確率とはみなさない理由が具体的に見えます。
+ここで四元運動量の添字を下げると $p_\mu=(p^0,-\boldsymbol p)$ なので、質量零のWeyl方程式に出る行列は
+$$
+\bar\sigma^\mu p_\mu=X(p),\qquad \sigma^\mu p_\mu=\bar X(p)
+$$
+です。$\bar\sigma^\mu$ と $\bar X$ は同じ記号「バー」があっても、前者には下付き運動量との縮約があるため取り違えてはいけません。$A_L=(A^\dagger)^{-1}\in SL(2,\mathbb C)$ とおくと、左成分は $\chi_L\mapsto A_L\chi_L$、右成分は $\chi_R\mapsto A\chi_R$ と変換します。実際、
+$$
+X'(A_L\chi_L)=AX\chi_L,\qquad
+\bar X'(A\chi_R)=A_L\bar X\chi_R
+$$
+ですから、**左の $X\chi_L=0$ と右の $\bar X\chi_R=0$** はそれぞれ変換後も成立します。
+
+この向きは[質量零のlittle group](#thm-qft32-little-groups)で直接検算できます。$k=(\kappa,0,0,\kappa)$、左の正エネルギー解 $\xi_L=e_2=(0,1)^T$ を取り、運動量を固定する三角行列を
+$$
+A_z=\begin{pmatrix}1&z\\0&1\end{pmatrix},\qquad
+L_z=(A_z^\dagger)^{-1}
+=\begin{pmatrix}1&0\\-z^*&1\end{pmatrix}
+$$
+とします。$X(k)e_2=0$ であり、正しい左成分変換なら $B_ze_2=e_2$ と解を保ちます。一方、右成分用の $A_z$ を誤って左へ使うと
+$$
+A_ze_2=\begin{pmatrix}z\\1\end{pmatrix},
+\qquad
+X(k)A_ze_2=\begin{pmatrix}2\kappa z\\0\end{pmatrix}\ne0
+\quad(z\ne0)
+$$
+となり、Weyl方程式自体に反します。$A$ も $A_L$ も一般にはユニタリではなく、例えば実数 $\rho\ne0$ のboostで $A^\dagger A\ne I$ です。場の二成分ノルムを確率とはみなさない理由が具体的に見えます。
 
 $\gamma^5$ は四成分を固有値 $-1$ と $+1$ に分けます。この分割が**カイラリティ**であり、運動量に沿ったスピンであるヘリシティとは別の定義です。
 
@@ -414,9 +442,15 @@ $$
 
 例えば休止運動量 $p=(m,\boldsymbol0)$ では $\xi_R=\xi_L$ であり、片方だけを非零にした質量正解は作れません。これは[QFT7の平面波Dirac解](../QFT7/index.md#def-qft7-plane-waves)の二成分分解を直接確認したものです。
 
-Dirac質量を持つ二成分場では、Lorentz不変な項 $-m(\chi_R^\dagger\chi_L+\chi_L^\dagger\chi_R)$ が左右を結びます。これは電荷を持つDirac粒子でも許されますが、左右が適切に同じゲージ表現の電荷を持つことが必要です。標準模型では後のHiggs結合を介するまで電弱対称性の下でこの形の質量項が許されない場合があります。
+Dirac質量を持つ二成分場では、Lorentz不変な項 $-m(\chi_R^\dagger\chi_L+\chi_L^\dagger\chi_R)$ が左右を結びます。実際、上の変換則と $A^\dagger A_L=I$ から
+$$
+\chi_R^\dagger\chi_L
+\longmapsto\chi_R^\dagger A^\dagger A_L\chi_L
+=\chi_R^\dagger\chi_L
+$$
+です。連続 $U(1)$ で左右の電荷を $q_L,q_R$ とすれば、この積には $e^{i(q_L-q_R)\alpha}$ が掛かるため、非零質量を許すには $q_L=q_R$ が必要です。これは電荷を持つDirac粒子でも許されますが、左右が適切に同じゲージ表現の電荷を持つことが必要です。標準模型では後のHiggs結合を介するまで電弱対称性の下でこの形の質量項が許されない場合があります。
 
-一方、左Weyl場だけでも、反交換する場を使えば二つの成分を反対称行列で縮約できます。ここでは $\varepsilon=i\sigma_2=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とし、Grassmann成分の積の順序を保持します。
+一方、左Weyl場だけでも、[QFT19で導入したGrassmann反交換性](../QFT19/index.md#def-qft19-grassmann)を持つ場なら、二つの成分を反対称行列で縮約できます。ここでは $\varepsilon=i\sigma_2=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ とし、Grassmann成分の積の順序を保持します。
 
 <a id="def-qft32-majorana"></a>
 
@@ -449,7 +483,16 @@ $$
 \varepsilon\chi_R^*=\varepsilon(-\varepsilon\chi)=-\varepsilon^2\chi=\chi,
 $$
 
-下成分は $-\varepsilon\chi_L^*=-\varepsilon\chi^*$ です。ゆえに $\Psi_M^c=\Psi_M$ を二成分とも直接確かめました。$\chi$ は任意の二成分でよいものの、質量項が対称性を保つかは次の電荷の制約によって決まります。
+下成分は $-\varepsilon\chi_L^*=-\varepsilon\chi^*$ です。ゆえに $\Psi_M^c=\Psi_M$ を二成分とも直接確かめました。
+
+さらに $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$、$ad-bc=1$ なら二行二列の積から $A\varepsilon A^T=(ad-bc)\varepsilon=\varepsilon$ です。従って $A_L=(A^\dagger)^{-1}$ として
+$$
+-\varepsilon(A_L\chi)^*
+=-\varepsilon(A^T)^{-1}\chi^*
+=-A\varepsilon\chi^*
+=A(-\varepsilon\chi^*)
+$$
+となり、右成分の規則 $\chi_R\mapsto A\chi_R$ と一致します。これはMajorana条件がLorentz変換に対して閉じることの確認です。$\chi$ は任意の二成分でよいものの、質量項が対称性を保つかは次の電荷の制約によって決まります。
 <!-- definition-example-end -->
 
 <a id="prop-qft32-majorana-u1"></a>
@@ -481,7 +524,13 @@ A^T\varepsilon A
 =(\det A)\varepsilon=\varepsilon.
 $$
 
-左Weyl成分は $A\chi$ と変換するので、$\chi^T\varepsilon\chi$ は $\chi^TA^T\varepsilon A\chi=\chi^T\varepsilon\chi$ となります。また反交換性 $\chi_1\chi_2=-\chi_2\chi_1$ より $\chi^T\varepsilon\chi=2\chi_1\chi_2$ で、数値的な可換成分の積なら零になる点も区別します。
+左Weyl成分の実際の変換は $A_L\chi$（$A_L=(A^\dagger)^{-1}$）です。$\det A_L=1$ なので、上で任意の行列式1の行列について導いた恒等式を $A_L$ に適用すると
+$$
+(A_L\chi)^T\varepsilon(A_L\chi)
+=\chi^TA_L^T\varepsilon A_L\chi
+=\chi^T\varepsilon\chi
+$$
+です。また反交換性 $\chi_1\chi_2=-\chi_2\chi_1$ より $\chi^T\varepsilon\chi=2\chi_1\chi_2$ で、数値的な可換成分の積なら零になる点も区別します。
 
 連続位相変換では
 
@@ -663,7 +712,14 @@ $$
 A^\dagger A=\begin{pmatrix}e^\rho&0\\0&e^{-\rho}\end{pmatrix}\ne I
 $$
 
-なので二成分の通常のEuclidノルムは変わります。例えば $\chi=(1,0)^T$ のノルム二乗は $1$ から $e^\rho$ へ変化します。一方、[ユニタリ粒子表現](#def-qft32-poincare)では運動量そのものも $\Lambda^{-1}p$ へ移し、$d^3p/(2E)$ の不変性とlittle groupのユニタリ行列 $D(W)$ を組み合わせるため波束のHilbertノルムを保存します。**固定時空点での場の成分ノルム**と**全運動量の波束ノルム**を比べていたことが誤った同一視の原因です。
+なので二成分の通常のEuclidノルムは変わります。例えば $\chi_R=\chi_L=(1,0)^T$ をそれぞれ右・左Weyl成分の初期値として選ぶと、$A$ と $A_L=(A^\dagger)^{-1}$ の変換で
+$
+\|A\chi_R\|^2=e^\rho,\qquad
+\|A_L\chi_L\|^2=e^{-\rho}
+$
+となり、元のノルム二乗1とは異なります。
+
+一方、[ユニタリ粒子表現](#def-qft32-poincare)では運動量そのものも $\Lambda^{-1}p$ へ移し、$d^3p/(2E)$ の不変性とlittle groupのユニタリ行列 $D(W)$ を組み合わせるため波束のHilbertノルムを保存します。**固定時空点での場の成分ノルム**と**全運動量の波束ノルム**を比べていたことが誤った同一視の原因です。
 <!-- solution-end -->
 
 ### 演習 QFT32-C1：質量零粒子から中性質量項までの統合判定
@@ -678,22 +734,32 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-1. Pauli表示に代入すると
+1. [光的little groupの定理](#thm-qft32-little-groups)の行列表示を直接検算します。Pauli表示に代入すると
 
-   $$
+   $
    X(k)=\begin{pmatrix}2\kappa&0\\0&0\end{pmatrix},\qquad
    \det X(k)=0.
    $$
 
    $A X(k)A^\dagger=2\kappa(Ae_1)(Ae_1)^\dagger$ です。$Ae_1=(e^{-i\theta/2},0)^T$ なら固定条件を満たし、第2列の第1成分 $z$ はこの積に現れません。$\det A=1$ から下対角は $e^{i\theta/2}$ と決まるので、任意の複素数 $z$ が残ります。
 
-2. [Weyl粒子ヘリシティの命題](#prop-qft32-weyl-helicity)で $\chi_L$ の振幅は $\xi_L=(0,1)^T$ に比例します。$R_z(\theta)$ の被覆行列は $\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ だから
+2. [Weyl粒子ヘリシティの命題](#prop-qft32-weyl-helicity)で $\chi_L$ の振幅は $\xi_L=(0,1)^T$ に比例します。[光的little group](#thm-qft32-little-groups)の一般元と左Weyl成分の変換行列は
 
    $$
-   A\xi_L=e^{i\theta/2}\xi_L=e^{-i(-1/2)\theta}\xi_L.
+   A=\begin{pmatrix}e^{-i\theta/2}&z\\0&e^{i\theta/2}\end{pmatrix},
+   \qquad
+   A_L=(A^\dagger)^{-1}
+   =\begin{pmatrix}e^{-i\theta/2}&0\\-z^*&e^{i\theta/2}\end{pmatrix}
    $$
 
-   [ヘリシティの定義](#def-qft32-helicity)と比較して $h=-1/2$ です。$z$ 部分の自明作用を課さないまま「little groupは1次元」と断定していない点が必要です。
+   です。$\bar\sigma^\mu p_\mu=X(k)$ の零空間である $\xi_L$ に実際に作用させると
+
+   $$
+   A_L\xi_L=e^{i\theta/2}\xi_L
+   =e^{-i(-1/2)\theta}\xi_L.
+   $$
+
+   [ヘリシティの定義](#def-qft32-helicity)と比較して $h=-1/2$ です。$z$ 部分はこの正エネルギー解に自明に作用しますが、一般のlittle group表現に最初から自明作用を仮定してよいわけではありません。
 
 3. $\varepsilon^*=\varepsilon$、$\varepsilon^2=-I$ を使います。[Majorana条件](#def-qft32-majorana)による電荷共役は
 
@@ -704,7 +770,7 @@ $$
    =\Psi_M.
    $$
 
-4. 非零質量 $m$ の二次項は $\chi^T\varepsilon\chi$ とそのHermitian共役です。$\chi\mapsto e^{iq\alpha}\chi$ で前者に $e^{2iq\alpha}$ が掛かるため、任意の $\alpha$ で不変となるには $q=0$ が必要です。$q\ne0$ なら質量項は禁じられます。質量零のヘリシティは**運動量を固定する時空対称性の表現**の情報で、Majorana条件は**場とその電荷共役を同一視する条件**です。前者だけでは後者も、質量項の許可も導けません。
+4. 非零質量 $m$ の二次項は $\chi^T\varepsilon\chi$ とそのHermitian共役です。$\chi\mapsto e^{iq\alpha}\chi$ で前者に $e^{2iq\alpha}$ が掛かるため、任意の $\alpha$ で不変となるには $q=0$ が必要です。$q\ne0$ なら[Majorana質量の命題](#prop-qft32-majorana-u1)の条件に反して質量項は禁じられます。質量零のヘリシティは**運動量を固定する時空対称性の表現**の情報で、Majorana条件は**場とその電荷共役を同一視する条件**です。前者だけでは後者も、質量項の許可も導けません。
 <!-- solution-end -->
 
 ## 6. まとめ：次に「どの対称性が破れるか」を問う
