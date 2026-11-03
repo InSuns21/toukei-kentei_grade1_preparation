@@ -1,0 +1,41 @@
+chapter: CYG1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-05, CYG1-06]
+concepts:
+  - id: cyg.euler-sequence-coordinate
+    name: 射影空間のEuler列と接束の全Chern類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影空間のEuler列と接束の全Chern類）"]
+    requires: [cyg.whitney-product-rule]
+  - id: cyg.hypersurface-normal-sequence
+    name: 滑らかな超曲面の法束完全列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな超曲面の法束完全列）"]
+    requires: [algebraic-geometry.hypersurface-jacobian-criterion]
+  - id: cyg.hypersurface-chern-general
+    name: 滑らかな射影超曲面の全Chern類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな射影超曲面の全Chern類）"]
+    requires: [cyg.euler-sequence-coordinate, cyg.hypersurface-normal-sequence, cyg.whitney-product-rule]
+  - id: cyg.gauss-bonnet-top-chern
+    name: トップChern類とEuler標数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（トップChern類とEuler標数：外部入力）"]
+    requires: [cyg.gauss-bonnet-surface]
+  - id: cyg.hypersurface-euler-polynomial
+    name: 超曲面のEuler標数の一般公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超曲面のEuler標数の一般公式）"]
+    requires: [cyg.hypersurface-chern-general, cyg.gauss-bonnet-top-chern]
+  - id: cyg.quintic-chern-euler
+    name: 滑らかなFermat五次超曲面のChern数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなFermat五次超曲面のChern数）"]
+    requires: [cyg.hypersurface-euler-polynomial, cyg.hypersurface-chern-general]

@@ -1,0 +1,45 @@
+id: "CYG1-07"
+title: "接束のChern類とEuler標数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-05
+  - CYG1-06
+official_scope: []
+learning_objectives:
+  - 射影空間のEuler列を局所座標で説明し接束の全Chern類を導ける
+  - 滑らかな次数d超曲面の法束列をJacobian判定と結び付けて説明できる
+  - Whitney積公式から一般の超曲面の全Chern類を複素次元で打ち切って計算できる
+  - トップChern類の積分と位相的Euler標数を結ぶ外部定理の仮定と結論を区別できる
+  - 平面曲線・四次K3・五次三次元超曲面の係数と符号を再計算できる
+  - 特異超曲面で通常の接束計算をそのまま適用できない理由を指摘できる
+theorems:
+  - { id: CYG1-07-PROP-01, name: "射影空間のEuler列と接束の全Chern類" }
+  - { id: CYG1-07-PROP-02, name: "滑らかな超曲面の法束完全列" }
+  - { id: CYG1-07-PROP-03, name: "滑らかな射影超曲面の全Chern類" }
+  - { id: CYG1-07-THM-01, name: "トップChern類とEuler標数（外部入力）" }
+  - { id: CYG1-07-PROP-04, name: "超曲面のEuler標数の一般公式" }
+  - { id: CYG1-07-PROP-05, name: "滑らかなFermat五次超曲面のChern数" }
+canonical_examples:
+  - 射影直線のEuler列を局所座標で確かめる
+  - 法方向の微分とJacobianの非零条件を確かめる
+  - 平面三次曲線のEuler標数ゼロ
+  - 四次K3曲面のc2と24の再計算
+  - Fermat五次三次元超曲面のc2,c3と-200
+  - 特異超曲面における法束列の破綻
+problem_patterns:
+  - CYG1-07-EULER-LOCAL
+  - CYG1-07-CHERN-DIRECT-SUM
+  - CYG1-07-INVERSE-TRUNCATION
+  - CYG1-07-DEGREE-INTEGRAL
+  - CYG1-07-PLANE-CUBIC
+  - CYG1-07-NORMAL-SEQUENCE
+  - CYG1-07-GENERAL-COEFFICIENT
+  - CYG1-07-QUARTIC-RECALC
+  - CYG1-07-SINGULAR-BOUNDARY
+  - CYG1-07-QUINTIC-FULL
+  - CYG1-07-TOPOLOGY-CROSSCHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
