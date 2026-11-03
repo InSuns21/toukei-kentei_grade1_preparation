@@ -1,0 +1,59 @@
+chapter: CYG1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-04, CYG1-02, AG2-11, CAG1-11, KAH1-14, KAH1-16, HOD1-06, HOD1-09]
+concepts:
+  - id: cyg.k3-surface
+    name: K3曲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（K3曲面）"]
+    requires: [cyg.volume-trivialization-test, cyg.torus-holomorphic-volume]
+  - id: cyg.quartic-smooth-canonical
+    name: Fermat四次曲面の滑らかさと標準束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat四次曲面の滑らかさと標準束）"]
+    requires: [cyg.hypersurface-degree-criterion, algebraic-geometry.hypersurface-jacobian-criterion]
+  - id: cyg.lefschetz-quartic-input
+    name: 滑らかな射影超曲面のLefschetz定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな射影超曲面のLefschetz定理：外部入力）"]
+    requires: [cyg.quartic-smooth-canonical]
+  - id: cyg.quartic-k3-test
+    name: Fermat四次曲面はK3曲面
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat四次曲面はK3曲面）"]
+    requires: [cyg.k3-surface, cyg.lefschetz-quartic-input, cyg.quartic-smooth-canonical]
+  - id: cyg.whitney-product-rule
+    name: 全Chern類のWhitney積公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全Chern類のWhitney積公式：外部入力）"]
+    requires: [cyg.quartic-smooth-canonical]
+  - id: cyg.hypersurface-total-chern
+    name: 超曲面の全Chern類の計算規則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超曲面の全Chern類の計算規則：外部入力）"]
+    requires: [cyg.quartic-smooth-canonical, cyg.whitney-product-rule]
+  - id: cyg.gauss-bonnet-surface
+    name: 複素曲面のChern–Gauss–Bonnet
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素曲面のChern–Gauss–Bonnet：外部入力）"]
+    requires: [cyg.hypersurface-total-chern]
+  - id: cyg.quartic-euler
+    name: Fermat四次曲面のChern類とEuler標数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat四次曲面のChern類とEuler標数）"]
+    requires: [cyg.gauss-bonnet-surface, cyg.hypersurface-total-chern]
+  - id: cyg.quartic-hodge
+    name: Fermat四次K3のBetti数とHodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat四次K3のBetti数とHodge数）"]
+    requires: [cyg.quartic-euler, cyg.quartic-k3-test]
