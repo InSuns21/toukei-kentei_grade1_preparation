@@ -31,7 +31,14 @@ $$
 
 とする。$U(n+1)$ は標準Hermite内積を保つ複素行列の群であり、同次座標に作用する。二つの単位ベクトルをそれぞれ正規直交基底へ延長すれば、その基底を移すユニタリ行列が作れる。従って作用は射影空間上で推移的である。$\log\|Z\|^2$ の $i\partial\bar\partial$ という表示から、$\|UZ\|=\|Z\|$ を使えば $\omega_{\mathrm{FS}}$ も保たれる。これは単なる複素構造の自己同型ではなく**計量を保つ作用**である。
 
-この対称性が調和形式を縛る。$g\in U(n+1)$ に対し、スペクトル定理で $g=V\operatorname{diag}(e^{i\theta_0},\ldots,e^{i\theta_n})V^*$ と書ける。$g_t=V\operatorname{diag}(e^{it\theta_0},\ldots,e^{it\theta_n})V^*$（$0\le t\le1$）は単位行列から $g$ への滑らかな道で、各 $g_t$ の射影作用は微分同相写像である。したがって $g$ の作用は恒等写像と滑らかにホモトピックであり、[de Rhamコホモロジーのホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)により類への引き戻しは恒等作用になる。
+この対称性が調和形式を縛る。$g\in U(n+1)$ に対し、[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用する。$V$ をユニタリ行列、$V^*$ をその共役転置、$\theta_j\in\mathbb R$ として
+
+$$
+g=V\operatorname{diag}(e^{i\theta_0},\ldots,e^{i\theta_n})V^*,\qquad
+g_t=V\operatorname{diag}(e^{it\theta_0},\ldots,e^{it\theta_n})V^*.
+$$
+
+$0\le t\le1$ において $g_t$ は単位行列から $g$ への滑らかな道で、各 $g_t$ の射影作用は微分同相写像である。したがって $g$ の作用は恒等写像と滑らかにホモトピックであり、[de Rhamコホモロジーのホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)により類への引き戻しは恒等作用になる。
 
 <a id="thm-hod1-14-projective-hodge"></a>
 
@@ -67,7 +74,11 @@ $$
 
 **（2）一点の不変形式を分類。** 基点を $o=[1:0:\cdots:0]$ とする。$o$ を固定する行列 $\operatorname{diag}(1,A)$（$A\in U(n)$）は、局所座標 $z=(Z_1/Z_0,\ldots,Z_n/Z_0)$ に $z\mapsto Az$ と作用する。従って接空間で完全な $U(n)$ 作用が得られる。
 
-点 $o$ でunitary $(1,0)$ 余標構 $\theta^1,\ldots,\theta^n$ を選ぶ。$(p,q)$ 形式は $\theta^I\wedge\bar\theta^J$（$|I|=p,|J|=q$、添字は昇順）の線形結合である。対角回転 $A=\operatorname{diag}(e^{it_1},\ldots,e^{it_n})$ による引き戻しでは、各添字 $j$ の因子は $e^{it_j}$ と $e^{-it_j}$ の積である。全ての $t_j$ に対し不変であるには、$j$ が $I$ と $J$ の両方に現れるか、どちらにも現れない必要がある。ゆえに $I=J$、従って $p=q=r$ に限られる。
+点 $o$ で計量の正規直交基底に双対な [unitary $(1,0)$ 余標構](../HOD1-02/index.md#prop-hod1-02-frame-adjoint) $\theta^1,\ldots,\theta^n$ を選ぶ。ここでは局所座標の $z=0$ でFubini–Study係数が単位行列になるため、$\theta^j=dz^j|_o$ と取れる。
+
+$(p,q)$ 形式は $\theta^I\wedge\bar\theta^J$（$|I|=p,|J|=q$、添字は昇順）の線形結合である。対角回転 $A=\operatorname{diag}(e^{it_1},\ldots,e^{it_n})$（$t_j\in\mathbb R$）による引き戻しでは、各添字 $j$ の因子は $e^{it_j}$ と $e^{-it_j}$ の積になる。
+
+全ての $t_j$ に対し不変であるには、$j$ が $I$ と $J$ の両方に現れるか、どちらにも現れない必要がある。ゆえに $I=J$、従って $p=q=r$ に限られる。
 
 $\omega_j=i\theta^j\wedge\bar\theta^j$ とおけば、不変候補は $\omega_I=\bigwedge_{j\in I}\omega_j$（$|I|=r$）の線形結合である。座標を置換するユニタリ行列は $\omega_I$ を $\omega_{\sigma(I)}$ に移す。二形式 $\omega_j$ 同士の入れ替えには符号がないため、全ての $r$ 元部分集合の係数は等しくなければならない。従って不変形式の空間は高々一次元であり、
 
@@ -126,16 +137,44 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$r^2=\sum_j|z^j|^2$、$A=1+r^2$ と置く。[Fubini–Study局所表示](../../KAH/KAH1-06/index.md#def-kah1-06-local-fs)を $z^j,\bar z^k$ で微分すれば
+$z^j=x^j+iy^j$ とし、$r^2=\sum_j|z^j|^2$、$A=1+r^2$ と置く。[Fubini–Study局所表示](../../KAH/KAH1-06/index.md#def-kah1-06-local-fs)を
+
+$$
+\omega_{\mathrm{FS}}=i\sum_{j,k=1}^n g_{j\bar k}\,dz^j\wedge d\bar z^k,
+\qquad g_{j\bar k}=\frac{\partial^2\log A}{\partial z^j\partial\bar z^k}
+$$
+
+と係数行列で表す。$\partial A/\partial z^j=\bar z^j$、$\partial A/\partial\bar z^k=z^k$ に注意して実際に微分すると
+
+$$
+\frac{\partial}{\partial\bar z^k}\left(\frac{\bar z^j}{A}\right)
+=\frac{\delta_{jk}}{A}-\frac{\bar z^jz^k}{A^2},
+$$
+
+すなわち
 
 $$
 g_{j\bar k}=\frac{A\delta_{jk}-\bar z^jz^k}{A^2}.
 $$
 
-階数一の行列 $(\bar z^jz^k)$ は $z$ に沿う複素一次元で固有値 $r^2$、その直交補で固有値零を持つ。従って $g$ はその一次元上で $A^{-2}(A-r^2)=A^{-2}$、直交補 $n-1$ 次元上で $A^{-1}$ を固有値に持ち、
+$v=(\bar z^1,\ldots,\bar z^n)^{\mathsf T}$ とすると、階数一の項の行列は $M=(\bar z^jz^k)=vv^*$ である。$z\ne0$ のとき、$v^*v=r^2$ だから
+
+$$
+Mv=(v^*v)v=r^2v,\qquad
+Mw=v(v^*w)=0\quad(w\perp v).
+$$
+
+従って非零固有空間は $z$ ではなく **共役座標ベクトル $v=\bar z$ の方向** である。$g=A^{-1}I-A^{-2}M$ はその一次元上で $A^{-1}-r^2A^{-2}=A^{-2}$、直交補 $n-1$ 次元上で $A^{-1}$ を固有値に持つ。$z=0$ なら直接 $g=I$ となり、同じ行列式公式が成り立つ。よって
 
 $$
 \det(g_{j\bar k})=A^{-2}A^{-(n-1)}=A^{-(n+1)}.
+$$
+
+上の係数行列の行列式が体積密度に現れる理由も確認する。$\omega_{\mathrm{FS}}$ を $n$ 回楔積すると、$dz^1,\ldots,dz^n$ と $d\bar z^1,\ldots,d\bar z^n$ が重複しない項だけが残り、係数は行列式の符号付き和になる。したがって
+
+$$
+\frac{\omega_{\mathrm{FS}}^n}{n!}
+=\det(g)\bigwedge_{j=1}^n(i\,dz^j\wedge d\bar z^j).
 $$
 
 $i\,dz^j\wedge d\bar z^j=2\,dx^j\wedge dy^j$ だから、複素向きでの体積形式は
@@ -529,7 +568,14 @@ $X=\mathbb{CP}^n$（$n\ge1$）にFubini–Study計量を与える。次を順に
 <!-- solution-start -->
 ### 詳細解答
 
-**(i)** $g\in U(n+1)$ はユニタリ対角化 $g=V\operatorname{diag}(e^{i\theta_j})V^*$ を持つ。$g_t=V\operatorname{diag}(e^{it\theta_j})V^*$ は $I$ と $g$ を結び、同次座標への作用から恒等写像と $g$ の射影作用のホモトピーを得る。Fubini–Study形式は $i\partial\bar\partial\log\|Z\|^2$ の局所表示を持つので、$\|gZ\|=\|Z\|$ により不変である。従って各作用は等長変換となる。
+**(i)** $g\in U(n+1)$ は[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)によりユニタリ対角化できる。実数 $\theta_j$ とユニタリ行列 $V$ を用いて
+
+$$
+g=V\operatorname{diag}(e^{i\theta_j})V^*,\qquad
+g_t=V\operatorname{diag}(e^{it\theta_j})V^*\quad(0\le t\le1).
+$$
+
+$g_t$ は $I$ と $g$ を結び、同次座標への作用から恒等写像と $g$ の射影作用のホモトピーを得る。Fubini–Study形式は $i\partial\bar\partial\log\|Z\|^2$ の局所表示を持ち、$\|gZ\|=\|Z\|$ により不変である。従って各作用は等長変換となる。
 
 **(ii)** 等長性により $g^*$ は $d,d^*,\Delta_d$ と可換だから、調和形式 $\alpha$ に対し $g^*\alpha$ も調和的。(i) の[滑らかなホモトピー不変性](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)で $[g^*\alpha]_d=[\alpha]_d$ であり、[調和代表の一意性](../HOD1-06/index.md#thm-hod1-06-hodge-decomposition)から $g^*\alpha=\alpha$。複素構造も保つため $(p,q)$ 型ごとに成立する。
 
