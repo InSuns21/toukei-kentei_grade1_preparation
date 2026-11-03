@@ -227,7 +227,14 @@ gs_W=g'c_W
 \equiv e>0.
 $$
 
-この $e$ が正の素電荷の大きさです。中性場・荷電場と物質電流の結合を、最初に規約として固定します。$T^\pm=T^1\pm iT^2$ とおくと、基本二重項では $T^+=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix}$、$T^-=\begin{psmallmatrix}0&0\\1&0\end{psmallmatrix}$ です。
+この $e$ が正の素電荷の大きさです。中性場・荷電場と物質電流の結合を、最初に規約として固定します。$T^\pm=T^1\pm iT^2$ とおくと、基本二重項では
+
+$$
+T^+=\begin{pmatrix}0&1\\0&0\end{pmatrix},\qquad
+T^-=\begin{pmatrix}0&0\\1&0\end{pmatrix}
+$$
+
+です。
 
 <a id="def-qft36-currents"></a>
 
@@ -417,7 +424,11 @@ $$
 ### 演習 QFT36-A3：零固有値の判定
 
 - Level: A
-- 問題：$K=\begin{psmallmatrix}g^2&-gg'\\-gg'&g'^2\end{psmallmatrix}$、$g,g'>0$ とする。$\det K$、$\operatorname{tr}K$、零固有ベクトルを求め、規格化せよ。
+- 問題：$g,g'>0$ とし、次の実対称行列 $K$ の行列式、跡、零固有ベクトルを求め、零固有ベクトルを規格化せよ。
+
+$$
+K=\begin{pmatrix}g^2&-gg'\\-gg'&g'^2\end{pmatrix}.
+$$
 
 <!-- solution-start -->
 **詳細解答**：行列式は $g^2g'^2-(-gg')^2=0$、跡は $g^2+g'^2>0$。したがって固有値は $0$ と $g^2+g'^2$ です。$K(x,y)^T=0$ の第1行は $g^2x=gg'y$、すなわち $gx=g'y$。例えば $(x,y)=(g',g)$ と置けば第2行も $-gg'g'+g'^2g=0$。長さは $\sqrt{g^2+g'^2}$ なので
@@ -461,7 +472,12 @@ $$
 ### 演習 QFT36-B1：正準運動項と直交回転
 
 - Level: B
-- 問題：自由二次の中性ゲージ運動項を $-\frac14(F_{W^3,\mu\nu}F_{W^3}^{\mu\nu}+F_{B,\mu\nu}F_B^{\mu\nu})$ とする。定数直交行列 $R=\begin{psmallmatrix}c_W&-s_W\\s_W&c_W\end{psmallmatrix}$ で $(Z,A)^T=R(W^3,B)^T$ としたとき交差運動項が消えることを展開で確認し、$R$ が非直交なら何が起きるか答えよ。
+- 問題：自由二次の中性ゲージ運動項を $-\frac14(F_{W^3,\mu\nu}F_{W^3}^{\mu\nu}+F_{B,\mu\nu}F_B^{\mu\nu})$ とする。次の定数直交行列 $R$ で $(Z,A)^T=R(W^3,B)^T$ としたとき、交差運動項が消えることを展開で確認し、$R$ が非直交なら何が起きるか答えよ。
+
+$$
+R=\begin{pmatrix}c_W&-s_W\\s_W&c_W\end{pmatrix},
+\qquad c_W^2+s_W^2=1.
+$$
 
 <!-- solution-start -->
 **詳細解答**：線形な自由場強度は $F_Z=c_WF_{W^3}-s_WF_B$、$F_A=s_WF_{W^3}+c_WF_B$。従って
@@ -584,7 +600,14 @@ $$
 +\frac{v^2}{8}(gW_\mu^3-g'B_\mu)^2.
 $$
 
-中性行列は $v^2/4$ 倍の $\begin{psmallmatrix}g^2&-gg'\\-gg'&g'^2\end{psmallmatrix}$ です。行列式零、跡 $g^2+g'^2$、規格化固有ベクトルは $(g',g)/\sqrt{g^2+g'^2}$ と $(g,-g')/\sqrt{g^2+g'^2}$ です。よって
+中性質量行列は
+
+$$
+M_0^2=\frac{v^2}{4}
+\begin{pmatrix}g^2&-gg'\\-gg'&g'^2\end{pmatrix}
+$$
+
+です。この行列は行列式零、跡 $v^2(g^2+g'^2)/4$ です。括弧内の行列について、規格化固有ベクトルは $(g',g)/\sqrt{g^2+g'^2}$ と $(g,-g')/\sqrt{g^2+g'^2}$ です。よって
 
 $$
 \begin{aligned}
