@@ -79,7 +79,7 @@ $$
 
 **定義の確認**
 
-正方形の $r^2$ は $0\leftrightarrow2$、$1\leftrightarrow3$ を交換します。ここでは $r^{-2}=r^2$ なので、[誘導作用の定義](#def-comb14-induced-coloring-action)から
+正方形の $r^2$ は $0\leftrightarrow2$、$1\leftrightarrow3$ を交換します。ここでは $r^{-2}=r^2$ なので、[彩色への誘導規則](#def-comb14-induced-coloring-action)から
 
 $$
 (r^2\cdot f)(j)=f(r^{-2}(j))=f(j-2\pmod4).
@@ -261,7 +261,7 @@ $a_j=q$ と代入すると $(q^4+q^2+2q)/4$ となり、先ほどの固定彩色
 
 色ごとの使用個数まで数えたい場合、例えば赤を二つ・青を二つ使う彩色を数えたい場合は、単に $q=2$ を代入するだけでは情報が消えます。そこで赤色に変数 $u$、青色に変数 $v$ を付け、色の使用数を指数に記録します。
 
-ここで係数を取り出す記法を定めます。多項式 $F(u,v)$ に対して $[u^a v^b]F$ は単項式 $u^a v^b$ の係数（$a,b\in\mathbb N_0$）です。微分や値の代入ではなく、展開した式の係数を読み取ります。例えば[COMB2 の二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)から
+ここで係数を取り出す記法を定めます。多項式 $F(u,v)$ に対して $[u^a v^b]F$ は単項式 $u^a v^b$ の係数（$a,b\in\mathbb N_0$）です。微分や値の代入ではなく、展開した式の係数を読み取ります。例えば、[二項定理の組合せ的係数解釈](../COMB2/index.md#thm-comb2-binomial-theorem)から
 
 $$
 [u^2v^2](u+v)^4=\binom42=6.
