@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-11-03（標準教科書・大学院講義ノートとの照合、定義・具体計算・証明境界・学修順序の再設計）  
-状態: in_progress（2026-11-03にCYG1-01本文・系列manifestを実装開始。後続章と系列横断監査は未完了）
+状態: in_progress（2026-11-04にCYG1-14までの全14章を実装。系列全体の横断監査は未完了）
 
 ## 中心問いと到達点
 
@@ -28,7 +28,7 @@
 | Ricci平坦Kähler計量の存在・一意性の**完全証明** | 後続 [YAU1](../plans/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)。CYG1はYauの定理を**未証明の外部入力／後続予告**として正確に述べ、定義の比較・幾何的帰結に用いる。YAU1がCYG1を参照する循環は「証明済み依存」では作らない。 |
 | 一般のKodaira–Spencer/Kuranishi変形理論、Bogomolov–Tian–Todorov、mirror symmetryの証明 | 必要な一次変形の意味だけ本科目で導入。一般の無障害性・周期写像・mirror定理・Gromov–Witten不変量は本文の主証明対象にしない。 |
 
-**PLANの状態**：2026-11-03にCYG1系列manifestとCYG1-01の章本文を新設した。CYG1-02以降は未完成で、完了済み章と次の予定章は [`CYG1.yaml`](../dream-theater-series/CYG1.yaml) の章statusを正本とする。系列全体の完了判定と横断監査は今後行う。
+**PLANの状態**：2026-11-03にCYG1系列manifestとCYG1-01の章本文を新設し、2026-11-04にCYG1-14までの章を実装した。各章の完了状態は [`CYG1.yaml`](../dream-theater-series/CYG1.yaml) の章statusを正本とする。系列全体の横断監査は今後行うため、このPLANは `plans_progress/` に維持する。
 
 ## 対象・記号・定義の安全柵
 
