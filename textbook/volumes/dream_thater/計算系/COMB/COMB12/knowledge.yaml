@@ -1,0 +1,70 @@
+chapter: COMB12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB11
+forward_references: []
+
+concepts:
+  - id: combinatorics.labeled-class
+    name: 標識付き組合せクラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（標識付き組合せクラス）]
+    requires: [combinatorics.graded-class, combinatorics.finite-cardinality]
+
+  - id: combinatorics.exponential-generating-function
+    name: 指数型母関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（指数型母関数）]
+    requires: [combinatorics.labeled-class, combinatorics.formal-power-series]
+
+  - id: combinatorics.labeled-product-egf
+    name: 標識付き積の指数型母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標識付き積の指数型母関数）]
+    requires: [combinatorics.exponential-generating-function, combinatorics.binomial-count]
+
+  - id: combinatorics.formal-exponential
+    name: 形式的指数級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式的指数級数）]
+    requires: [combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.labeled-set-construction
+    name: 非空成分の標識付き集合構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非空成分の標識付き集合構成）]
+    requires: [combinatorics.labeled-class, combinatorics.set-partition-stirling-second]
+
+  - id: combinatorics.labeled-exponential-formula
+    name: 標識付き集合構成の指数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標識付き集合構成の指数公式）]
+    requires: [combinatorics.labeled-set-construction, combinatorics.formal-exponential, combinatorics.labeled-product-egf]
+
+  - id: combinatorics.stirling-egf
+    name: 第二種 Stirling 数の指数型母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二種 Stirling 数の指数型母関数）]
+    requires: [combinatorics.labeled-exponential-formula, combinatorics.set-partition-stirling-second]
+
+  - id: combinatorics.bell-egf
+    name: Bell 数の指数型母関数と漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bell 数の指数型母関数と漸化式）]
+    requires: [combinatorics.stirling-egf, combinatorics.bell-number]
+
+  - id: combinatorics.graph-component-egf
+    name: 標識付き単純グラフの連結計数漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標識付き単純グラフの連結計数漸化式）]
+    requires: [combinatorics.labeled-exponential-formula, combinatorics.labeled-product-egf]

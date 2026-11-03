@@ -1,0 +1,42 @@
+id: COMB12
+title: "指数型母関数と標識付き構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB11
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 標識付き構造の付け替えと指数型母関数の階乗正規化を定義例で検証し、普通母関数と区別できる
+  - 標識集合を二分して作る積の係数に二項係数が現れることを全単射で証明できる
+  - 定数項零の形式的指数級数を係数ごとの有限和として構成できる
+  - 非空連結成分の順序なし集合への一意分解から指数公式を証明し、零サイズ成分の失敗を指摘できる
+  - 第二種 Stirling 数と Bell 数の指数型母関数を導き小さい集合分割を直接列挙して検算できる
+  - 標識付き単純グラフの連結成分分解から係数漸化式を導き連結グラフ数を計算できる
+definitions:
+  - { id: COMB12-DEF-01, name: 標識付き組合せクラス }
+  - { id: COMB12-DEF-02, name: 指数型母関数 }
+  - { id: COMB12-DEF-03, name: 形式的指数級数 }
+  - { id: COMB12-DEF-04, name: 非空成分の標識付き集合構成 }
+theorems:
+  - { id: COMB12-THM-01, name: 標識付き積の指数型母関数 }
+  - { id: COMB12-THM-02, name: 標識付き集合構成の指数公式 }
+  - { id: COMB12-THM-03, name: 第二種 Stirling 数の指数型母関数 }
+  - { id: COMB12-THM-04, name: Bell 数の指数型母関数と漸化式 }
+  - { id: COMB12-THM-05, name: 標識付き単純グラフの連結計数漸化式 }
+canonical_examples:
+  - 長さ二の順序付けに標識 1・2 を配置する二通り
+  - すべての標識の赤青二色分類で 2^n を得る
+  - 二つの非空ブロックをもつ三元集合の三通り
+  - Bell 数 B3=5 の全列挙
+  - 零サイズ成分を許した場合の無限分解
+  - 三頂点の標識付き単純グラフ八個中連結四個
+problem_patterns:
+  - COMB12-LABEL-RELABELING
+  - COMB12-EGF-VS-OGF
+  - COMB12-LABELED-PRODUCT
+  - COMB12-SET-EXPONENTIAL
+  - COMB12-STIRLING-BELL
+  - COMB12-CONNECTED-GRAPHS
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
