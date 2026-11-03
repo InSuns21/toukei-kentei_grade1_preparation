@@ -587,9 +587,33 @@ d&c_1&c_2&c_3&\chi_{\mathrm{top}}\\\hline
 \end{array}
 $$
 
-四次の三次係数は $10-40+80-64=-14$、五次は $10-50+125-125=-40$ と直接検算できる。随伴公式に $m=4$ を代入すると $K_{X_d}\simeq\mathcal O_{X_d}(d-5)$ となる。$d=5$ では $K_{X_5}\simeq\mathcal O_{X_5}$、$d=4$ では $K_{X_4}\simeq\mathcal O_{X_4}(-1)$ である。後者の第一Chern類は $-H\ne0$（$H$ のKähler体積積分が正）なので正則自明ではない。
+四次の三次係数は $10-40+80-64=-14$、五次は $10-50+125-125=-40$ と直接検算できる。[標準束自明性の次数判定](../CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)に $m=4$ を代入すると
 
-この二つの超曲面ではEuler標数も $-56$ と $-200$ で異なるので、この比較だけで「同じEuler標数なら標準束も同じ」という命題を否定したことにはならない。反例として、楕円曲線 $E$ に対する $E\times E$ と $E\times\mathbb P^1$ を比べる。$E$ は $\chi(E)=0$、$K_E$ は自明なので、$E\times E$ では標準束が自明である。一方、$E\times\mathbb P^1$ の接束を積の二成分に分け、$\{e\}\times\mathbb P^1$ に制限すると、[射影直線の第一Chern類](#prop-cyg1-07-euler)によって $c_1(T(E\times\mathbb P^1))|_{\{e\}\times\mathbb P^1}=2H\ne0$ となる。従って[標準束の第一Chern類の符号](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)からこちらの標準束は自明でない。Euler標数は有限CW複体の積のセル数を数えると $\chi(E\times E)=\chi(E)^2=0$、$\chi(E\times\mathbb P^1)=\chi(E)\chi(\mathbb P^1)=0$ で一致する。つまりEuler標数だけで標準束は判定できない。
+$$
+K_{X_d}\simeq\mathcal O_{X_d}(d-5)
+$$
+
+となる。五次では自明束を得るが、四次では $K_{X_4}\simeq\mathcal O_{X_4}(-1)$。後者の第一Chern類は $-H\ne0$（$H$ のKähler体積積分が正）なので正則自明ではない。
+
+この二つの超曲面のEuler標数は異なるため、これだけでは「同じEuler標数なら標準束も同じ」という命題を否定できない。別の反例として、楕円曲線 $E$ に対する二つの積 $E\times E$ と $E\times\mathbb P^1$ を比べる。$E$ は $\chi(E)=0$、$K_E$ は自明なので、$E\times E$ の標準束も自明である。
+
+一方、$E\times\mathbb P^1$ の接束を二つの因子の接束の引戻しに分け、$\{e\}\times\mathbb P^1$ に制限する。[射影直線の第一Chern類](#prop-cyg1-07-euler)を用いると
+
+$$
+c_1(T(E\times\mathbb P^1))|_{\{e\}\times\mathbb P^1}=2H\ne0.
+$$
+
+従って[標準束の第一Chern類の符号](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)から、こちらの標準束は自明でない。
+
+Euler標数は有限CW複体の積のセル数を数えれば積に関して乗法的なので、両者とも零である。
+
+$$
+\chi(E\times E)=\chi(E)^2=0,
+\qquad
+\chi(E\times\mathbb P^1)=\chi(E)\chi(\mathbb P^1)=0.
+$$
+
+したがってEuler標数だけから標準束の自明性は判定できない。
 <!-- solution-end -->
 
 ## 8. 次のHodge数計算へ
