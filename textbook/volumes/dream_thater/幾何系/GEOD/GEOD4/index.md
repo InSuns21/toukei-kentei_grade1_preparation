@@ -66,7 +66,7 @@ $$
 
 緯度だけを変化させた速度ベクトルを $\boldsymbol r_\phi=\partial\boldsymbol r/\partial\phi$、経度だけの速度ベクトルを $\boldsymbol r_\lambda=\partial\boldsymbol r/\partial\lambda$ と書きます。偏微分は**他方の座標を固定**して行うものです。どちらも楕円体上の座標曲線に接する方向を表します。
 
-まず $N=a/D$ の微分を途中から計算します。$D^2=1-e^2\sin^2\phi$ なので
+まず $N=a/D$ を微分します。この節のプライム $D',N',\rho',z'$ は、いずれも経度 $\lambda$ を固定した緯度 $\phi$ による一変数微分（例えば $D'=dD/d\phi$）です。先ほどの偏微分 $\boldsymbol r_\phi$ も、$\lambda$ を固定して $\phi$ で微分するという意味です。$D^2=1-e^2\sin^2\phi$ なので
 
 $$
 2DD'=-2e^2\sin\phi\cos\phi,
@@ -184,6 +184,25 @@ $$
 > ただし $E=\boldsymbol r_\phi\cdot\boldsymbol r_\phi$、$F=\boldsymbol r_\phi\cdot\boldsymbol r_\lambda$、$G=\boldsymbol r_\lambda\cdot\boldsymbol r_\lambda$ とする。
 <!-- formal-statement-end -->
 
+この三つの係数が計量を表す理由を、定義に戻って確かめます。$\boldsymbol v=u_\phi\boldsymbol r_\phi+u_\lambda\boldsymbol r_\lambda$ を内積に代入して分配すると、内積の対称性から
+
+$$
+\begin{aligned}
+g(\boldsymbol v,\boldsymbol v)
+&=(u_\phi\boldsymbol r_\phi+u_\lambda\boldsymbol r_\lambda)
+\cdot(u_\phi\boldsymbol r_\phi+u_\lambda\boldsymbol r_\lambda)\\
+&=E u_\phi^2+2F u_\phi u_\lambda+G u_\lambda^2.
+\end{aligned}
+$$
+
+したがって、接方向の座標係数 $(u_\phi,u_\lambda)$ に対する計量の係数行列は
+
+$$
+\begin{pmatrix}E&F\\F&G\end{pmatrix}
+$$
+
+です。これは**接方向のベクトルを二つの座標方向へ分解した内積の表示**であり、楕円体の方程式から突然行列を作ったものではありません。
+
 <!-- definition-example-start: def-geod4-first-fundamental-form -->
 **定義の確認**　赤道・経度 $0$ の $a=5,b=4$ の例で、先ほどの偏微分を使って $\boldsymbol v=\boldsymbol r_\phi+\boldsymbol r_\lambda=(0,5,16/5)$ を得ます。内積の定義から
 
@@ -192,7 +211,17 @@ g(\boldsymbol v,\boldsymbol v)=0^2+5^2+(16/5)^2
 =25+\frac{256}{25}.
 $$
 
-座標成分 $(d\phi,d\lambda)=(1,1)$ の二乗形式 $E+2F+G$ でも $E=(16/5)^2$、$F=0$、$G=25$ なので同じ値です。この $(1,1)$ は接方向の大きさを試すための係数で、実際に一ラジアンずつ移動した弦や弧の長さと同一視しません。
+座標係数 $(u_\phi,u_\lambda)=(1,1)$ の二乗形式でも
+
+$$
+\begin{aligned}
+E&=(16/5)^2,\qquad F=0,\qquad G=25,\\
+Eu_\phi^2+2Fu_\phi u_\lambda+Gu_\lambda^2
+&=\frac{256}{25}+25.
+\end{aligned}
+$$
+
+となり一致します。この $(1,1)$ は接方向の大きさを試すための係数で、実際に一ラジアンずつ移動した弦や弧の長さと同一視しません。
 <!-- definition-example-end -->
 
 <a id="thm-geod4-ellipsoid-metric"></a>
@@ -205,7 +234,7 @@ $$
 +N(\phi)^2\cos^2\phi\,d\lambda^2}
 $$
 
-> と表される。計量の係数行列は $\operatorname{diag}(M^2,N^2\cos^2\phi)$ で、非極点では正定値である。
+> と表される。計量の係数行列は $\operatorname{diag}(M^2,N^2\cos^2\phi)$（二つの値を対角成分に持ち、非対角成分が $0$ の行列）で、非極点では正定値である。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** [測地緯度・経度の偏微分](#prop-geod4-tangent-vectors)により、南北方向と東方向は直交します。内積の交差項は $0$ となり、残りはそれぞれの速度ベクトルの長さの二乗です。
@@ -226,7 +255,7 @@ G&=\boldsymbol r_\lambda\cdot\boldsymbol r_\lambda
 \end{aligned}
 $$
 
-これらを[第一基本形式の定義](#def-geod4-first-fundamental-form)の $E,F,G$ に代入して表示式を得ます。$a\ge b>0$ より $D>0$、$q>0$ なので $M,N>0$、また非極点では $\cos\phi>0$ です。従って任意の $(u,v)\ne(0,0)$ に対して
+これらを[第一基本形式の定義](#def-geod4-first-fundamental-form)の係数 $E,F,G$ に代入して表示式を得ます。また $a\ge b>0$ なら $D,q,M,N$ はすべて正で、非極点では $\cos\phi>0$ です。従って任意の $(u,v)\ne(0,0)$ に対して
 
 $$
 M^2u^2+N^2\cos^2\phi\,v^2>0
@@ -236,6 +265,17 @@ $$
 <!-- proof-end -->
 
 この結果から、緯度一定の移動では東西の長さの変化率が $N\cos\phi$、経度一定の移動では南北の長さの変化率が $M$ です。有限の大きさを移動するときは、一点の係数を固定した式ではなく、経路の各点で長さを足し合わせます。
+
+ここからは経路のパラメータを $t$ と書きます。経路に沿う一変数微分は
+
+$$
+\phi'(t)=\frac{d\phi}{dt},\qquad
+\lambda'(t)=\frac{d\lambda}{dt}
+$$
+
+です。第2節の $N'$ などは緯度による微分だったので、プライムの微分変数が切り替わります。一方、$\boldsymbol r_\phi,\boldsymbol r_\lambda$ は他方の座標を固定する偏微分のままです。この二種類を結ぶのが連鎖律です。
+
+次の命題でいう「区分的 $C^1$ 級」とは、区間を有限個に分割した各部分で $\phi,\lambda$ が連続的に微分でき、分割点でも経路自体は連続してつながることです。この仮定の下で各部分の速さを積分して足し合わせます。
 
 <a id="prop-geod4-curve-length"></a>
 <!-- formal-statement-start -->
@@ -275,14 +315,16 @@ $$
 
 ## 4. なぜ $M,N$ を「曲率半径」と呼ぶのか
 
-半径という語を長さ換算係数の別名で済ませないために、曲がり方を定義から確かめます。曲面上の点 $P$ と、そこで曲面に接する長さ $1$ の方向 $\boldsymbol u$ を選びます。その点の単位外向き法線 $\boldsymbol\nu$ と $\boldsymbol u$ の張る平面で楕円体を切ります。
+半径という語を長さ換算係数の別名で済ませないために、曲がり方を定義から確かめます。曲面上の点 $P$ と、そこで曲面に接する長さ $1$ の方向 $\boldsymbol u$ を選びます。接方向である条件は $\boldsymbol\nu\cdot\boldsymbol u=0$ で、$\boldsymbol\nu$ は[GEOD3 で導いた単位外向き法線](../GEOD3/index.md#def-geod3-geodetic-latitude)です。この二方向の張る平面で楕円体を切ります。
 
-切り口は平面曲線になります。その曲線を弧長でたどって得られる二階微分の大きさから、曲がり方を数値で測ります。楕円体は凸なので、対応する曲率が正になることも後で計算して確かめます。
+切り口は平面曲線になります。その曲線を弧長 $s$ でたどって得られる二階微分の大きさから、曲がり方を数値で測ります。この節の $\boldsymbol\gamma'(s)$ と $\boldsymbol\gamma''(s)$ は、それぞれ $d\boldsymbol\gamma/ds$ と $d^2\boldsymbol\gamma/ds^2$ を意味します。楕円体は凸なので、対応する曲率が正になることも後で計算して確かめます。
 
 <a id="def-geod4-normal-section-radius"></a>
 <!-- formal-statement-start -->
 > **定義（法截面の曲率半径）**
-> $a\ge b>0$ の回転楕円体上の点 $P$、長さ $1$ の接方向ベクトル $\boldsymbol u$、単位外向き法線 $\boldsymbol\nu$ をとる。$P$ を通り $\boldsymbol u,\boldsymbol\nu$ を含む平面を**法截面**、その平面と楕円体との交線を**法截線**と定義する。法截線を $P$ の近くで弧長 $s$ により $\boldsymbol\gamma(0)=P$、$\boldsymbol\gamma'(0)=\boldsymbol u$ と表す。その点の曲率半径を
+> $a\ge b>0$ の回転楕円体上の点 $P$、長さ $1$ の接方向ベクトル $\boldsymbol u$、単位外向き法線 $\boldsymbol\nu$ をとる。$P$ を通り $\boldsymbol u,\boldsymbol\nu$ を含む平面を**法截面**、その平面と楕円体との交線を**法截線**と定義する。
+>
+> 法截線を $P$ の近くで弧長 $s$ により $\boldsymbol\gamma(0)=P$、$\boldsymbol\gamma'(0)=\boldsymbol u$ と表す。その点の曲率半径を
 
 $$
 R_{\boldsymbol u}=\frac{1}{\|\boldsymbol\gamma''(0)\|}
@@ -292,16 +334,38 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod4-normal-section-radius -->
-**定義の確認**　球 $a=b=R$ で任意の点・接方向を選ぶと、法截面は球の中心を通る平面になり、交線は半径 $R$ の円です。円を弧長で表すと $\|\boldsymbol\gamma''(0)\|=1/R$ なので $R_{\boldsymbol u}=R$ です。方向によらないことも、球の回転対称性と一致します。
+**定義の確認**　球 $a=b=R$ で任意の表面点 $P$ と長さ $1$ の接方向 $\boldsymbol u$ を選ぶと、$\boldsymbol\nu=P/R$、$P\cdot\boldsymbol u=0$ です。法截面は球の中心を通る平面になり、交線は半径 $R$ の円です。具体的に弧長 $s$ による表示を
+
+$$
+\boldsymbol\gamma(s)=P\cos(s/R)+R\boldsymbol u\sin(s/R)
+$$
+
+とします。直交条件と $\|P\|=R$ より
+
+$$
+\|\boldsymbol\gamma(s)\|^2
+=R^2\bigl(\cos^2(s/R)+\sin^2(s/R)\bigr)=R^2
+$$
+
+なので、この曲線は球面上にあります。また $\boldsymbol\gamma(0)=P$、$\boldsymbol\gamma'(0)=\boldsymbol u$、$\|\boldsymbol\gamma'(s)\|=1$ で、弧長表示の条件も満たします。さらに
+
+$$
+\boldsymbol\gamma''(0)=-P/R^2,\qquad
+\|\boldsymbol\gamma''(0)\|=1/R,\qquad R_{\boldsymbol u}=R
+$$
+
+となり、方向によらないことも確かめられます。
 <!-- definition-example-end -->
 
-求めたいのは法截線を全部解くことではなく、**点での二階微分**です。楕円体を定める関数を
+求めたいのは法截線を全部解くことではなく、**点での二階微分**です。第3節で混合係数に使った $F$ と区別するため、楕円体を定める関数をここでは $H$ と書き、
 
 $$
-F(X,Y,Z)=\frac{X^2+Y^2}{a^2}+\frac{Z^2}{b^2}-1
+H(X,Y,Z)=\frac{X^2+Y^2}{a^2}+\frac{Z^2}{b^2}-1
 $$
 
-とします。$F(\boldsymbol\gamma(s))=0$ を二度微分すると、法線方向の加速度を接方向だけで計算できます。
+とします。この関数について $H(\boldsymbol\gamma(s))=0$ を二度微分すると、法線方向の加速度を接方向だけで計算できます。$\nabla H$ は一階偏導関数を並べた勾配です。
+
+また、$X_1=X,X_2=Y,X_3=Z$ と番号を付け、$\operatorname{Hess}H$ は二階偏導関数 $\partial^2 H/\partial X_i\partial X_j$ を $(i,j)$ 成分に持つ $3\times3$ 行列とします。勾配とこの行列を連鎖律で結ぶと、曲率を計算できます。
 
 <a id="thm-geod4-normal-curvatures"></a>
 <!-- formal-statement-start -->
@@ -316,33 +380,60 @@ $$
 > である。ここで $M,N$ は[二つの曲率半径](#def-geod4-curvature-radii)で定義された正の関数である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $F(\boldsymbol\gamma(s))=0$ の二階微分は、曲面上の曲線の法線方向の加速度を固定します。法截線なら加速度は法截面内かつ接線と直交するため法線方向のみです。東と北の単位ベクトルを代入して、それぞれ逆半径を求めます。
+**証明の見取り図。** $H(\boldsymbol\gamma(s))=0$ の二階微分は、曲面上の曲線の法線方向の加速度を固定します。法截線なら加速度は法截面内かつ接線と直交するため法線方向のみです。東と北の単位ベクトルを代入して、それぞれ逆半径を求めます。
 
 <!-- proof-start -->
 ### 証明
 
-点 $P=\boldsymbol r(\phi,\lambda)$ を固定し、[GEOD3 の法線の計算](../GEOD3/index.md#def-geod3-geodetic-latitude)から
+点 $P=(X,Y,Z)=\boldsymbol r(\phi,\lambda)$ を固定し、[GEOD3 の法線の計算](../GEOD3/index.md#def-geod3-geodetic-latitude)と[表面表示](../GEOD3/index.md#prop-geod3-surface-parameterization)を使うと
 
 $$
-\nabla F(P)=\frac{2}{aD}\boldsymbol\nu,
+\nabla H(P)=\left(\frac{2X}{a^2},\frac{2Y}{a^2},\frac{2Z}{b^2}\right)
+=\frac{2}{aD}\boldsymbol\nu,
 \qquad
-\operatorname{Hess}F=2\,\operatorname{diag}(a^{-2},a^{-2},b^{-2})
+\operatorname{Hess}H=2\,\operatorname{diag}(a^{-2},a^{-2},b^{-2})
 $$
 
-です。$\operatorname{Hess}F$ は二階偏導関数を並べた行列で、この $F$ では対角項以外が $0$ です。法截線を弧長 $s$ で表すと、$\boldsymbol\gamma'(0)=\boldsymbol u$、$\|\boldsymbol u\|=1$ です。一階微分は $\nabla F(P)\cdot\boldsymbol u=0$、二階微分は
+です。ここでは $H$ が座標の二乗だけからなるため、二階偏導関数の行列の非対角成分は $0$ です。法截線を弧長 $s$ で表すと、$\boldsymbol\gamma'(0)=\boldsymbol u$、$\|\boldsymbol u\|=1$ です。まず連鎖律を適用すると
 
 $$
-0=\frac{d^2}{ds^2}F(\boldsymbol\gamma(s))\bigg|_{s=0}
-=\boldsymbol u^{\mathsf T}(\operatorname{Hess}F)\boldsymbol u
-+\nabla F(P)\cdot\boldsymbol\gamma''(0).
+\frac{d}{ds}H(\boldsymbol\gamma(s))
+=\nabla H(\boldsymbol\gamma(s))\cdot\boldsymbol\gamma'(s)=0,
 $$
 
-弧長表示の $\|\boldsymbol\gamma'(s)\|^2=1$ を微分すると $\boldsymbol u\cdot\boldsymbol\gamma''(0)=0$ です。また法截線は $\boldsymbol u,\boldsymbol\nu$ の平面内にあります。ゆえに $\boldsymbol\gamma''(0)$ は $\boldsymbol\nu$ の負方向で、
+$$
+\frac{d}{ds}\nabla H(\boldsymbol\gamma(s))
+=(\operatorname{Hess}H)\boldsymbol\gamma'(s)
+$$
+
+となります。一階微分を $s=0$ で評価すると $\nabla H(P)\cdot\boldsymbol u=0$ です。さらに積の微分を行って $s=0$ を代入すると
+
+$$
+0=\frac{d^2}{ds^2}H(\boldsymbol\gamma(s))\bigg|_{s=0}
+=\boldsymbol u^{\mathsf T}(\operatorname{Hess}H)\boldsymbol u
++\nabla H(P)\cdot\boldsymbol\gamma''(0).
+$$
+
+弧長表示の $\|\boldsymbol\gamma'(s)\|^2=1$ を微分すると $\boldsymbol u\cdot\boldsymbol\gamma''(0)=0$ です。また法截線は $\boldsymbol u,\boldsymbol\nu$ の平面内にあるため、$\boldsymbol\gamma''(0)=k\boldsymbol\nu$ と書けます。ただし、これだけでは $k$ の符号は決まりません。上の二階微分式と $\nabla H(P)=2\boldsymbol\nu/(aD)$ から
+
+$$
+k=-\frac{aD}{2}\boldsymbol u^{\mathsf T}
+(\operatorname{Hess}H)\boldsymbol u.
+$$
+
+$\boldsymbol u=(u_X,u_Y,u_Z)$ を $XYZ$ 座標での成分表示とします。$a,b,D>0$ かつ $\|\boldsymbol u\|=1$ なので
+
+$$
+\boldsymbol u^{\mathsf T}(\operatorname{Hess}H)\boldsymbol u
+=2\left(\frac{u_X^2+u_Y^2}{a^2}+\frac{u_Z^2}{b^2}\right)>0.
+$$
+
+従って $k<0$、すなわち加速度は外向き法線の負方向で、定義中の分母も $0$ にはなりません。これにより
 
 $$
 \frac1{R_{\boldsymbol u}}=
 -\boldsymbol\nu\cdot\boldsymbol\gamma''(0)
-=\frac{aD}{2}\boldsymbol u^{\mathsf T}(\operatorname{Hess}F)\boldsymbol u.
+=\frac{aD}{2}\boldsymbol u^{\mathsf T}(\operatorname{Hess}H)\boldsymbol u.
 $$
 
 東向き $\boldsymbol u=\boldsymbol e_{\mathrm E}=(-\sin\lambda,\cos\lambda,0)$ では
@@ -412,7 +503,19 @@ M(45^\circ)=\frac{a(1-e^2)}{(1-e^2/2)^{3/2}},
 N(45^\circ)=\frac a{\sqrt{1-e^2/2}}.
 $$
 
-数値は $M\simeq6\,367\,381.82$ m、$N\simeq6\,388\,838.29$ m となります。ここで $1^\circ=\pi/180$ rad を掛けると、緯度を $1^\circ$ 増やす局所の南北距離換算率は約 $111\,131.78$ m、経度を $1^\circ$ 増やす東西換算率は約 $78\,846.84$ m です。これは**その点での一次近似**であり、有限の一度の弧長を厳密に与える式ではありません。
+数値は $M\simeq6\,367\,381.82$ m、$N\simeq6\,388\,838.29$ m となります。角度換算 $1^\circ=\pi/180$ rad を掛けると、
+
+$$
+\begin{aligned}
+M(45^\circ)\frac{\pi}{180}&\simeq111\,131.78\ \mathrm m
+\quad\text{（南北）},\\
+N(45^\circ)\cos45^\circ\frac{\pi}{180}
+&\simeq78\,846.84\ \mathrm m
+\quad\text{（東西）}.
+\end{aligned}
+$$
+
+これは**その点での一次近似**であり、有限の一度の弧長を厳密に与える式ではありません。
 
 ---
 
@@ -538,7 +641,7 @@ $$
 
 #### B2. 法截面の曲率を二階微分で確かめる
 
-$a=5,b=4$ の赤道 $\phi=0$ において、東向き・北向きの単位接方向それぞれの法截面曲率半径を、$F=(X^2+Y^2)/25+Z^2/16-1$ の二階微分から計算せよ。
+$a=5,b=4$ の赤道 $\phi=0$ において、東向き・北向きの単位接方向それぞれの法截面曲率半径を、$H=(X^2+Y^2)/25+Z^2/16-1$ の二階微分から計算せよ。
 
 - Level: B
 - ID: GEOD4-B2
@@ -548,10 +651,10 @@ $a=5,b=4$ の赤道 $\phi=0$ において、東向き・北向きの単位接方
 
 $$
 \frac1{R_{\boldsymbol u}}=
-\frac{\boldsymbol u^{\mathsf T}(\operatorname{Hess}F)\boldsymbol u}{\|\nabla F(P)\|}.
+\frac{\boldsymbol u^{\mathsf T}(\operatorname{Hess}H)\boldsymbol u}{\|\nabla H(P)\|}.
 $$
 
-$\|\nabla F(P)\|=2/5$、$\operatorname{Hess}F=\operatorname{diag}(2/25,2/25,2/16)$ なので、東は $(2/25)/(2/5)=1/5$、北は $(2/16)/(2/5)=5/16$ です。従って $R_{\boldsymbol e_{\mathrm E}}=5$、$R_{\boldsymbol e_{\mathrm N}}=16/5$ で、[半径の定義](#def-geod4-curvature-radii)と一致します。
+$\|\nabla H(P)\|=2/5$、$\operatorname{Hess}H=\operatorname{diag}(2/25,2/25,2/16)$ なので、東は $(2/25)/(2/5)=1/5$、北は $(2/16)/(2/5)=5/16$ です。従って $R_{\boldsymbol e_{\mathrm E}}=5$、$R_{\boldsymbol e_{\mathrm N}}=16/5$ で、[半径の定義](#def-geod4-curvature-radii)と一致します。
 <!-- solution-end -->
 
 #### B3. 斜めの方向へ移動する
@@ -606,7 +709,9 @@ $a>b$ なら $1-q>0$ なので、等号は $\cos\phi=0$、すなわち南北両�
 
 #### C1. 一度をラジアンへ換算し、東西と南北を合わせる
 
-GRS80 の赤道半径を $a=6\,378\,137$ m、逆扁平率を $1/f=298.257222101$ とし、同じ楕円体上で同じ基準・同じ座標時点にある二点を考える。基準点の測地緯度は $45^\circ$、経度差は $\Delta\lambda=+0.02^\circ$、緯度差は $\Delta\phi=+0.01^\circ$ とする。両差が十分小さいとみなす**一次の局所近似**で次を求めよ。
+GRS80 の赤道半径を $a=6\,378\,137$ m、逆扁平率を $1/f=298.257222101$ とし、同じ楕円体上で同じ基準・同じ座標時点にある二点を考える。基準点の測地緯度は $45^\circ$、経度差は $\Delta\lambda=+0.02^\circ$、緯度差は $\Delta\phi=+0.01^\circ$ とする。
+
+両差が十分小さいとみなす**一次の局所近似**で次を求めよ。以下、$\Delta n$ は局所北向き距離、$\Delta e$ は局所東向き距離とし、後者の小文字 $e$ は離心率 $e$ と異なる距離の記号である。
 
 1. $f,e^2$ から基準点の $M,N$ を表す式を作る。
 2. 北成分 $\Delta n$ と東成分 $\Delta e$ を m 単位で求める式を立てる。
