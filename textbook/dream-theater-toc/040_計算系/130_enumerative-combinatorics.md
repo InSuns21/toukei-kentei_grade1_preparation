@@ -12,3 +12,4 @@
 9. [COMB9 形式冪級数と普通母関数](textbook/volumes/dream_thater/計算系/COMB/COMB9/index.md)
 10. [COMB10 構造分解と母関数](textbook/volumes/dream_thater/計算系/COMB/COMB10/index.md)
 11. [COMB11 整数分割と Euler 積](textbook/volumes/dream_thater/計算系/COMB/COMB11/index.md)
+12. [COMB12 指数型母関数と標識付き構造](textbook/volumes/dream_thater/計算系/COMB/COMB12/index.md)
