@@ -4,7 +4,20 @@
 
 では、二成分のスカラー場にあった接線方向の揺らぎは、どこへ行くのでしょうか。ここでは複素スカラーと局所U(1)ゲージ場の最小模型を使い、(i) ゲージ不変な作用、(ii) 真空周りの二次式、(iii) 正則な領域でのユニタリゲージ、(iv) 共変な $R_\xi$ ゲージ、(v) 物理的自由度を順に導きます。電弱理論の $SU(2)\times U(1)$ 質量行列は後続章で扱います。
 
-以下、$3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とし、$g,\lambda,v>0$ とします。場は必要な微分が存在する滑らかな場、変分はコンパクト支持、部分積分の境界項は零とします。**まず古典場と木レベル二次作用**を扱います。量子論の一般的な非摂動構成を仮定しません。
+以下、$3+1$ 次元Minkowski時空、$x^\mu=(t,\boldsymbol x)$、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位系 $\hbar=c=1$ で考えます。結合定数と模型のパラメータは $g,\lambda,v>0$ とします。
+
+偏微分する変数、波動演算子、縮約の略記は
+
+$$
+\partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
+\Box=\partial_\mu\partial^\mu,\qquad
+A^2=A_\mu A^\mu,\qquad
+(\partial h)^2=\partial_\mu h\,\partial^\mu h
+$$
+
+とします。添字の上げ下げは計量によって行い、反復する上下添字は和を取ります。プライム $'$ は以下では微分ではなく**ゲージ変換後**の表示を意味します。
+
+場は必要な微分が存在する滑らかな場、変分はコンパクト支持、部分積分の境界項は零とします。**まず古典場と木レベル二次作用**を扱い、量子論の一般的な非摂動構成は仮定しません。
 
 ## 1. 大域回転を局所変換へ：なぜゲージ場が必要か
 
@@ -33,10 +46,10 @@ $$
 <!-- definition-example-start: def-qft34-scalar-gauge -->
 ### 例：時間依存の位相を持つ純ゲージ配置
 
-**定義の確認**：$\Phi=v/\sqrt2$、$A_\mu=0$、$\chi(x)=ct$（$c$ は実定数）とします。変換後は $\Phi'=ve^{-igct}/\sqrt2$、$A'_0=c$、$A'_i=0$ です。直接計算すると
+**定義の確認**：$\Phi=v/\sqrt2$、$A_\mu=0$、$\chi(x)=at$（$a$ は実定数）とします。変換後は $\Phi'=ve^{-igat}/\sqrt2$、$A'_0=a$、$A'_i=0$ です。直接計算すると
 
 $$
-D'_0\Phi'=(-igc+igc)\Phi'=0,\qquad D'_i\Phi'=0,
+D'_0\Phi'=(-iga+iga)\Phi'=0,\qquad D'_i\Phi'=0,
 \qquad F'_{\mu\nu}=0.
 $$
 
@@ -108,7 +121,7 @@ $$
 <!-- definition-example-start: def-qft34-abelian-higgs -->
 ### 例：エネルギーが零の代表元とその変換
 
-**定義の確認**：$\Phi_0=v/\sqrt2$、$A_\mu=0$ なら $F=0$、$D\Phi_0=0$、ポテンシャルも零です。前節の $\chi=ct$ で動かした配置もこれら三条件を満たします。[共変性定理](#thm-qft34-covariance)によって、局所変換しても作用と局所的なゲージ不変量は変わりません。$|\Phi_0|^2=v^2/2$ はどちらの表示でも同じです。
+**定義の確認**：$\Phi_0=v/\sqrt2$、$A_\mu=0$ なら $F=0$、$D\Phi_0=0$、ポテンシャルも零です。前節の $\chi=at$ で動かした配置もこれら三条件を満たします。[共変性定理](#thm-qft34-covariance)によって、局所変換しても作用と局所的なゲージ不変量は変わりません。$|\Phi_0|^2=v^2/2$ はどちらの表示でも同じです。
 <!-- definition-example-end -->
 
 真空の一つの**ゲージ代表**を $\Phi_0=v/\sqrt2$、$A=0$ と固定して計算します。実場 $h$ は半径方向、実場 $\pi$ はこの代表周りでの位相接線方向を表します。
@@ -200,6 +213,15 @@ $$
 
 **定義の確認**：$\rho=v$、$\theta=kx^1$、$A_\mu=0$ とします。$B_1=k/(gv)$、他成分は零です。$\chi=\theta/(gv)$ の局所変換を行うと $\theta'=\theta-gv\chi=0$、$A'_1=\partial_1\chi=k/(gv)$ で、$B'_1=B_1$ です。$\rho>0$、滑らかな位相枝、ゲージ不変性を直接確かめました。
 <!-- definition-example-end -->
+
+先のCartesian揺らぎとこの極表示は同じ複素場の二つの局所座標です。両方の実部・虚部を比較すると
+
+$$
+v+h=\rho\cos(\theta/v),\qquad
+\pi=\rho\sin(\theta/v).
+$$
+
+したがって $\rho=v+h_u$ とし、真空近くで $h_u,\theta$ を一次の小量と数えれば、$h=h_u+O(2)$、$\pi=\theta+O(2)$ です。**二次作用では**この一次関係が使えますが、有限振幅で $\pi=\theta$ と同一視するわけではありません。
 
 <a id="thm-qft34-unitary-proca"></a>
 
@@ -318,6 +340,8 @@ $$
 **定義の確認**：$\xi=1$ なら $\mathcal F=\partial\cdot A-m_A\pi$ です。$-\mathcal F^2/2$ の交差項は $+m_A\pi\partial\cdot A$、もとの混合項の部分積分形は $-m_A\pi\partial\cdot A$ です。両者が打ち消し、残る $\pi$ の質量二乗は $m_A^2$ です。任意の非零 $m_A$ でこの検査が成り立ちます。
 <!-- definition-example-end -->
 
+運動量空間では、[QFT16の横・縦射影](../QFT16/index.md#def-qft16-projectors)を質量項のある二次作用素にも使います。$p^2\ne0$ で任意の四元ベクトル $X_\mu$ を $p_\mu$ に平行な $p_\mu(p\cdot X)/p^2$ と残りに分解できるため、縦射影は $P^L_{\mu\nu}=p_\mu p_\nu/p^2$、横射影は $P^T=\eta-P^L$ です。ここで「横」は四元運動量 $p$ との縮約が零という意味であり、空間三次元の横方向と同一視しません。
+
 <a id="thm-qft34-rxi-quadratic"></a>
 
 <!-- formal-statement-start -->
@@ -375,7 +399,17 @@ iK^{-1}=-i\left(
 +\frac{\xi P^L}{p^2-\xi m_A^2+i0}\right)
 $$
 
-です。$m_h^2=2\lambda v^2$ はゲージ固定前後で同じ二次係数、$\pi$ の項だけが $-\xi m_A^2\pi^2/2$ になります。
+です。これは $p^2\ne0$ での射影計算です。両分母が零でない運動量で二項を通分すると
+
+$$
+\frac{P^T_{\mu\nu}}{p^2-m_A^2}
++\frac{\xi P^L_{\mu\nu}}{p^2-\xi m_A^2}
+=\frac{\eta_{\mu\nu}}{p^2-m_A^2}
++\frac{(\xi-1)p_\mu p_\nu}
+{(p^2-m_A^2)(p^2-\xi m_A^2)}.
+$$
+
+右辺には見かけの $1/p^2$ がなく、$p^2=0$ で射影の個々が未定義になることと、質量のある伝播核全体に極があることを区別できます。Feynman境界値はこの組み合わせを質量極で処方して解釈します。$m_h^2=2\lambda v^2$ はゲージ固定前後で同じ二次係数、$\pi$ の項だけが $-\xi m_A^2\pi^2/2$ になります。
 <!-- proof-end -->
 
 ### 5.1 外部保存電流とゲージパラメータ
@@ -391,7 +425,7 @@ $$
 
 ### 5.2 Faddeev–Popov演算子の小模型
 
-量子経路積分でゲージ条件を挿入するときは、[QFT29のFaddeev–Popov演算子](../QFT29/index.md#def-qft29-fp-operator)を使います。無限小変換 $\delta\Phi=-ig\chi\Phi$ を直交成分に分けると
+量子経路積分でゲージ条件を挿入するときは、[QFT29のFaddeev–Popov作用素の構成](../QFT29/index.md#def-qft29-fp-operator)（ゲージ条件の微小変化からJacobianを作る手順）を、このAbelian模型にも適用します。無限小変換 $\delta\Phi=-ig\chi\Phi$ を直交成分に分けると
 
 $$
 \delta h=g\chi\pi,\qquad \delta\pi=-g\chi(v+h),
@@ -405,7 +439,14 @@ $$
 =\left[\Box+\xi m_A^2+\xi g m_Ah\right]\chi.
 $$
 
-真空周りのghost二次演算子は $\Box+\xi m_A^2$ です。**Abelianだからghostがあらゆるゲージで相互作用しない**わけではありません。このCartesian $R_\xi$ ゲージでは $h$ との結合が残ります。ghostは物理的な外線粒子として数えません。ここではこの行列式の局所的・摂動論的構造までを示し、非摂動的なゲージ固定一意性は仮定しません。
+ここで $\delta\mathcal F/\delta\chi$ はゲージ条件の **Jacobian** です。[QFT29の定義](../QFT29/index.md#def-qft29-fp-operator)ではFaddeev–Popov作用素をその**負号**で定めるため、この模型でその規約を使えば
+
+$$
+M=-\frac{\delta\mathcal F}{\delta\chi}
+=-\Box-\xi m_A^2-\xi g m_A h.
+$$
+
+ghost二次作用で演算子全体の符号を逆にする規約を選んでも、真空周りの逆核の極 $p^2=\xi m_A^2$ は変わりません。**Abelianだからghostがあらゆるゲージで相互作用しない**わけではありません。このCartesian $R_\xi$ ゲージでは $h$ との結合が残ります。ghostは物理的な外線粒子として数えません。ここではこの行列式の局所的・摂動論的構造までを示し、非摂動的なゲージ固定一意性は仮定しません。
 
 ## 6. 大域的Goldstone定理との違い
 
@@ -435,7 +476,14 @@ $\Phi'=ve^{-ig a\cdot x}/\sqrt2$、$A'_\mu=a_\mu$ です。$\partial_\mu\Phi'=-i
 <!-- solution-start -->
 **詳細解答**
 
-$V=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ なので最小集合は $\phi_1^2+\phi_2^2=v^2$ です。微分して
+$V=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ なので最小集合は $\phi_1^2+\phi_2^2=v^2$ です。[QFT33の質量行列の命題](../QFT33/index.md#prop-qft33-o2-masses)と同様、ここでのHessianはCartesian成分による二階偏微分です。真空 $\phi_0=(v,0)$ と小さな実二成分 $q$ に対して
+
+$$
+H_{ab}(\phi)=\frac{\partial^2V}{\partial\phi_a\partial\phi_b},\qquad
+V(\phi_0+q)=V(\phi_0)+\frac12q_aH_{ab}(\phi_0)q_b+O(|q|^3)
+$$
+
+となるため、Hessianが二次揺らぎの係数を判定します。$r^2=\phi_1^2+\phi_2^2$ と置いて微分すると
 
 $$
 \frac{\partial V}{\partial\phi_a}=\lambda(r^2-v^2)\phi_a,\qquad
@@ -501,7 +549,14 @@ $\rho=0$ なら複素数 $\Phi=0$ の偏角は定義できず、$\theta$ を滑�
 <!-- solution-start -->
 **詳細解答**
 
-ゲージ固定の展開は $-(\partial A)^2/(2\xi)+m\pi\partial A-\xi m^2\pi^2/2$ です。[二次作用](#prop-qft34-quadratic-spectrum)の混合項は部分積分で $-m\pi\partial A$ なので相殺します。$\pi$ の二次項は $[(\partial\pi)^2-\xi m^2\pi^2]/2$、したがって $m_\pi^2=\xi m^2$。$A$ のFourier二次作用素を $P^T,P^L$ で分けると
+ゲージ固定の展開を縮約記号 $\partial\cdot A=\partial_\mu A^\mu$ で書けば
+
+$$
+\mathcal L_{\rm gf}=-\frac{(\partial\cdot A)^2}{2\xi}
++m\pi\,\partial\cdot A-\frac12\xi m^2\pi^2.
+$$
+
+[二次作用](#prop-qft34-quadratic-spectrum)の混合項は部分積分で $-m\pi\,\partial\cdot A$ なので相殺します。$\pi$ の二次項は $[(\partial\pi)^2-\xi m^2\pi^2]/2$、したがって $m_\pi^2=\xi m^2$。$A$ のFourier二次作用素を $P^T,P^L$ で分けると
 
 $$
 K=-(p^2-m^2)P^T-(p^2/\xi-m^2)P^L.
@@ -579,8 +634,33 @@ $$
    $$
 
    したがって $m_h^2=2\lambda v^2$、$m_A^2=g^2v^2$、混合項の符号はプラスです。
-3. $\Phi=\rho e^{i\theta/v}/\sqrt2$ の局所表示で $B=A+\partial\theta/(gv)$ とすると、[正則な局所領域でのHiggs–Proca表示](#thm-qft34-unitary-proca)から $-G(B)^2/4+(g^2v^2/2)B^2+(\partial h_u)^2/2-(m_h^2/2)h_u^2$ を二次で得ます。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)によって $\partial\cdot B=0$ かつ $p^2=m_A^2$ の三偏極。$2$（複素スカラーの実成分）$+2$（質量零ベクトル）$=1+3=4$ です。
-4. $-(\partial A-\xi m_A\pi)^2/(2\xi)$ は $+m_A\pi\partial A$ を生み、もとの $m_AA\cdot\partial\pi=-m_A\pi\partial A$ を相殺します。$\pi$ の二次極は $p^2=\xi m_A^2$。$\delta\pi=-g\chi(v+h)$ により $\delta\mathcal F/\delta\chi=\Box+\xi m_A^2+\xi g m_Ah$ で、ghostの二次極も同じ $p^2=\xi m_A^2$ です。保存電流 $p\cdot J=p\cdot J'=0$ に対しては $JP^LJ'=0$ なので $JDJ'=-iJ\cdot J'/(p^2-m_A^2+i0)$、$\xi$ が消えます。
+3. $\Phi=\rho e^{i\theta/v}/\sqrt2$ の局所表示で $B=A+\partial\theta/(gv)$ とすると、[正則な局所領域でのHiggs–Proca表示](#thm-qft34-unitary-proca)から二次作用は
+
+   $$
+   \mathcal L_2=-\frac14G(B)_{\mu\nu}G(B)^{\mu\nu}
+   +\frac12m_A^2B_\mu B^\mu
+   +\frac12(\partial h_u)^2-\frac12m_h^2h_u^2
+   $$
+
+   となります。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)の発散制約 $\partial\cdot B=0$ と質量殻 $p^2=m_A^2$ によりベクトルは三偏極です。複素スカラーの二実成分と質量零ゲージ場の二物理偏極を合わせた四自由度は、動径場一つと質量あるベクトルの三偏極に対応し、$2+2=1+3=4$ です。
+4. ゲージ固定 $\mathcal L_{\rm gf}=-(\partial\cdot A-\xi m_A\pi)^2/(2\xi)$ は $+m_A\pi\,\partial\cdot A$ を生み、もとの $m_AA\cdot\partial\pi=-m_A\pi\,\partial\cdot A$（境界項を除く）を相殺します。残る $-\xi m_A^2\pi^2/2$ から $\pi$ の二次極は $p^2=\xi m_A^2$ です。
+
+   $\delta\pi=-g\chi(v+h)$、$\delta A_\mu=\partial_\mu\chi$ なので
+
+   $$
+   \frac{\delta\mathcal F}{\delta\chi}
+   =\Box+\xi m_A^2+\xi g m_Ah,
+   \qquad M=-\frac{\delta\mathcal F}{\delta\chi}.
+   $$
+
+   [QFT29の符号規約](../QFT29/index.md#def-qft29-fp-operator)でのghostの二次極も同じ $p^2=\xi m_A^2$ です。保存電流 $p\cdot J=p\cdot J'=0$ に対しては $JP^LJ'=0$ なので、[Rξ二次核](#thm-qft34-rxi-quadratic)から
+
+   $$
+   J^\mu D_{\mu\nu}J'^\nu
+   =-i\frac{J\cdot J'}{p^2-m_A^2+i0}
+   $$
+
+   を得て、$\xi$ が消えます。
 5. QFT33で仮定した保存電流の非零真空交換子は**大域的な物理対称性**のものです。ここで位相方向は局所ゲージ冗長性なので、$\pi$ を質量零物理粒子と断定できません。実際、$\pi$ のゲージ固定極は $\xi$ によって動き、正則な局所表示の物理的ベクトルは三偏極を持ちます。これらは定数真空周りの木レベルの計算であり、一般相互作用量子論の厳密スペクトルについての証明ではありません。
 <!-- solution-end -->
 
