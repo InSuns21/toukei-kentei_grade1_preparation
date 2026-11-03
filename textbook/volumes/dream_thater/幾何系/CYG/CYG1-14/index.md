@@ -112,9 +112,11 @@ Enriquesの正則非自明な標準束と非零の整係数torsionは[前章群�
 | 四次K3曲面 | $h^{2,0}=1$、$h^{1,1}=20$ | [K3のHodge数計算](../CYG1-05/index.md#prop-cyg1-05-hodge) |
 | quintic三次元多様体 | $h^{1,1}=1$、$h^{2,1}=101$ | [quinticのHodge数計算](../CYG1-08/index.md#prop-cyg1-08-hodge-diamond) |
 | 複素二次元トーラス | $h^{2,0}=1$、$h^{1,1}=4$ | $h^{p,q}=\binom2p\binom2q$ |
-| Enriques曲面 | $h^{2,0}=0$ | $K_X$ 非自明で非零の正則2形式が存在しない |
+| Enriques曲面 | $h^{2,0}=0$ | $K_X$ が非自明な2-torsionであることとコンパクト性 |
 
 トーラスの式は平坦座標の $dz^i$、$d\bar z^j$ の外積から得られる。二次元なら $(1,1)$ 型の候補は $dz^i\wedge d\bar z^j$（$i,j=1,2$）の4個で、平坦調和形式として独立である。なお $n=2$ のこの表と $n=3$ の $h^{2,1}$ は、同じ「Hodge数」でも添字も次元も異なる。
+
+Enriques曲面で $h^{2,0}=0$ と判定する際は、「非自明な線束には正則切断がない」とは推論しない。仮に $0\ne\Omega\in H^0(X,K_X)$ があれば、$K_X^{\otimes2}\simeq\mathcal O_X$ の自明化の下で $\Omega^{\otimes2}$ は大域正則関数に対応する。コンパクト連結性によりこの関数は定数であり、切断が零でないため定数は非零である。従って $\Omega$ はどこでも消えず、[標準束の自明化判定](../CYG1-02/index.md#prop-cyg1-02-volume-trivialization)から $K_X\simeq\mathcal O_X$ となって矛盾する。ここでは**2-torsionとコンパクト性を合わせて**判定した。
 
 ## 4. 三次元に限ってHodge数二つからEuler標数を計算する
 
@@ -174,13 +176,19 @@ $$
 \chi_{\mathrm{top}}(X)=2(1-101)=-200.
 $$
 
-この符号は、[接束のChern類の直接計算](../CYG1-07/index.md#prop-cyg1-07-quintic)による $c_3(TX)=-40H^3$ と $\int_XH^3=5$ からの $-40\cdot5=-200$ に一致する。異なる計算経路の照合が、係数や符号の取り違えを検出する。
+ここで $H=c_1(\mathcal O_{\mathbb P^4}(1))|_X\in H^2(X;\mathbb Z)$ を超平面類とする。その三乗 $H^3$ は実次元6の $X$ 上で積分できる次数6の類である。この符号は、[接束のChern類の直接計算](../CYG1-07/index.md#prop-cyg1-07-quintic)による
+
+$$
+c_3(TX)=-40H^3,\qquad \int_XH^3=5
+$$
+
+からの $-40\cdot5=-200$ に一致する。異なる計算経路の照合が、係数や符号の取り違えを検出する。
 
 ## 5. mirror symmetryが交換するもの・しないもの
 
 前節で $101$ は複素構造の一次変形と結び付く。[正則体積形式による収縮同型](../CYG1-12/index.md#thm-cyg1-12-first-order-hodge)は $H^1(X,T_X)\simeq H^{2,1}(X)$ を与え、[quinticの多項式方向の計算](../CYG1-13/index.md#thm-cyg1-13-all-first-order)はこの101方向を具体的な係数変化と接続した。他方、[Kähler錐の計算](../CYG1-13/index.md#prop-cyg1-13-kahler-ray)では $h^{1,1}=1$ がKähler類の実の一次方向を数えた。
 
-mirror symmetryの典型的な予測は、あるCalabi–Yau三次元多様体 $X$ に対して、別の三次元多様体 $Y$ が対応し、複素構造の方向と（複素化された）Kähler方向の役割が入れ替わるというものである。このとき特に期待される**数値の交換**は
+mirror symmetryの典型的な予測は、あるCalabi–Yau三次元多様体 $X$ に対して、別の三次元多様体 $Y$ が対応し、複素構造の方向と（複素化された）Kähler方向の役割が入れ替わるというものである。後者は[複素化Kählerパラメータの定義](../CYG1-13/index.md#def-cyg1-13-complexified-kahler)で扱ったとおり、複素構造を固定したままKähler類 $[\omega]$ と実の $B$ 場の類を合わせ、$[B+i\omega]$ を動かす方向である。複素構造を動かす $H^1(X,T_X)$ の方向とは異なる。このとき特に期待される**数値の交換**は
 
 $$
 h^{1,1}(Y)=h^{2,1}(X),\qquad
@@ -347,7 +355,17 @@ $$
 #### CYG1-14-A04 quinticの二経路のEuler検算
 - Level: A
 
-滑らかな五次超曲面 $X\subset\mathbb P^4$ について $c_3(TX)=-40H^3$、$\int_XH^3=5$、$h^{1,1}=1$、$h^{2,1}=101$、$h^{1,0}=h^{2,0}=0$、$K_X\simeq\mathcal O_X$ が与えられている。Euler標数をChern類とHodge数の二通りで求めよ。
+滑らかな五次超曲面 $X\subset\mathbb P^4$ とその超平面類 $H=c_1(\mathcal O_{\mathbb P^4}(1))|_X$ を考える。次の条件が与えられている。
+
+$$
+\begin{gathered}
+c_3(TX)=-40H^3,\qquad \int_XH^3=5,\\
+h^{1,1}=1,\quad h^{2,1}=101,\quad h^{1,0}=h^{2,0}=0,\\
+K_X\simeq\mathcal O_X.
+\end{gathered}
+$$
+
+Euler標数をChern類とHodge数の二通りで求めよ。
 
 <!-- solution-start -->
 **詳細解答。** [Chern–Gauss–Bonnetの入力](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)を複素三次元 $X$ へ適用すると、トップChern類は三次で
