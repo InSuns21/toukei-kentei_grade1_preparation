@@ -1,0 +1,29 @@
+chapter: CYG1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-02]
+concepts:
+  - id: cyg.torsion-holomorphic-line
+    name: 有限位数の正則線束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限位数の正則線束）"]
+    requires: [cyg.canonical-chern-implications, kahler.integral-first-chern]
+  - id: cyg.torsion-line-chern
+    name: 有限位数線束の第一Chern類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限位数線束の第一Chern類）"]
+    requires: [cyg.torsion-holomorphic-line, kahler.integral-first-chern]
+  - id: cyg.elliptic-nontrivial-flat-line
+    name: Chern類が零の非自明な2-torsion正則線束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Chern類が零の非自明な2-torsion正則線束）"]
+    requires: [cyg.torsion-line-chern, cyg.volume-trivialization-test]
+  - id: cyg.enriques-integral-chern
+    name: Enriques曲面の整係数と実係数の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Enriques曲面の整係数と実係数の差）"]
+    requires: [cyg.torsion-line-chern, cyg.canonical-chern-implications, kahler.canonical-first-chern-sign]
