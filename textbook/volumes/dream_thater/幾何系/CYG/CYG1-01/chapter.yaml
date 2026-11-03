@@ -1,0 +1,37 @@
+id: "CYG1-01"
+title: "標準束、Chern類、ホロノミーは同じ定義か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - KAH1-16
+  - KAH1-12
+official_scope: []
+learning_objectives:
+  - Calabi–Yauの正則自明型・整係数Chern類・実係数Chern類・計量・ホロノミー条件を区別できる
+  - 標準束が正則自明なら整係数第一Chern類が零であることを遷移関数から証明できる
+  - 実係数第一Chern類の消滅と整係数類のtorsionを有限生成Abel群で結び付けられる
+  - Ricci平坦性と制限SU(n)ホロノミーの同値、指定計量と存在計量の違いを説明できる
+  - Ricci平坦計量と正則体積形式から全SU(n)ホロノミー包含を証明できる
+  - 平坦トーラスと自由な有限商で逆含意や等号の失敗機構を検証できる
+  - Yauの定理を外部入力として位置付け、未証明の存在定理を用いる箇所を特定できる
+definitions:
+  - { id: CYG1-01-DEF-01, name: Calabi–Yau条件を比較するための記号 }
+theorems:
+  - { id: CYG1-01-PROP-01, name: 標準束からChern類への含意 }
+  - { id: CYG1-01-PROP-02, name: 指定したKähler計量でのRicci条件と制限ホロノミー }
+  - { id: CYG1-01-THM-01, name: 平行正則体積形式と特殊ユニタリ全ホロノミー }
+canonical_examples:
+  - 平坦複素トーラスの大域正則体積形式と自明ホロノミー
+  - 有限生成Abel群のtorsionと実係数への写像
+  - 非定数Kähler計量を持つ楕円曲線の非零Ricci形式
+  - 自由な平坦有限商の全ホロノミーにおける行列式マイナス1
+problem_patterns:
+  - CYG1-01-CHERN-IMPLICATIONS
+  - CYG1-01-COEFFICIENT-CHANGE
+  - CYG1-01-METRIC-QUANTIFIERS
+  - CYG1-01-RESTRICTED-FULL-HOLONOMY
+  - CYG1-01-PARALLEL-VOLUME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

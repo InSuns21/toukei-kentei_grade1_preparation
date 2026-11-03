@@ -1,0 +1,31 @@
+chapter: CYG1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - KAH1-16
+  - KAH1-12
+concepts:
+  - id: cyg.condition-conventions
+    name: Calabi–Yau条件を比較するための記号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Calabi–Yau条件を比較するための記号）"]
+    requires: [kahler.canonical-bundle, kahler.restricted-holonomy, kahler.integral-first-chern]
+  - id: cyg.canonical-chern-implications
+    name: 標準束からChern類への含意
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準束からChern類への含意）"]
+    requires: [cyg.condition-conventions, kahler.canonical-first-chern-sign]
+  - id: cyg.ricci-restricted-holonomy
+    name: 指定したKähler計量でのRicci条件と制限ホロノミー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指定したKähler計量でのRicci条件と制限ホロノミー）"]
+    requires: [cyg.condition-conventions, kahler.ricci-flat-su-restricted]
+  - id: cyg.parallel-volume-holonomy
+    name: 平行正則体積形式と特殊ユニタリ全ホロノミー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平行正則体積形式と特殊ユニタリ全ホロノミー）"]
+    requires: [cyg.condition-conventions, kahler.holonomy-unitary, kahler.canonical-bundle]
