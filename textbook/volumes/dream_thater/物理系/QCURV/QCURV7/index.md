@@ -6,7 +6,7 @@
 
 この章では「**Minkowski時空の一部にしかいない加速観測者は、どの時刻を使い、どの状態を見ているか**」を考えます。右左のくさびと座標 → 固有加速度 → boost正振動数 → Minkowski真空の制限と二点相関を計算します。次の主題で初めて、定常応答のFourier変換・KMS条件・Unruh温度を導きます。
 
-右くさびの幾何と固有加速度は[既習のSREL8のRindler座標](../../SREL/SREL8/index.md#def-srel8-rindler-chart)および[固有加速度の命題](../../SREL/SREL8/index.md#prop-srel8-proper-accel)に対応します。SREL8は時間正の計量 $(+,-,-,-)$ と $c>0$ を用いているため、ここでは $c=1$ として計量符号を反転し、さらに左くさびの時間向きと場の量子化に必要な式を明示します。
+右くさびの幾何と固有加速度は[既習のSREL8のRindler座標](../../SREL/SREL8/index.md#def-srel8-rindler-chart)および[固有加速度の命題](../../SREL/SREL8/index.md#prop-srel8-proper-accel)に対応します。SREL8は時間成分を正とする旧計量規約と $c>0$ を用いているため、ここでは $c=1$ として[計量規約の変換](../../../../../dream-theater-lorentz-conventions.md)を適用し、さらに左くさびの時間向きと場の量子化に必要な式を明示します。
 
 規約は[計量符号の正本](../../../../../dream-theater-lorentz-conventions.md)に従って $(-,+,+,+)$、自然単位 $\hbar=c=1$ とします。Minkowski座標を $X=(t,x,y,z)$ とし、
 
