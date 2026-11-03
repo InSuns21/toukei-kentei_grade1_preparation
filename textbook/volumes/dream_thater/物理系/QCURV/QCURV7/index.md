@@ -294,7 +294,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_{\eta\eta}=-a^2\rho^2$、$g_{\rho\rho}=g_{yy}=g_{zz}=1$、$\sqrt{|\det g|}=a\rho$ です。従って
+座標基底 $(\partial_\eta,\partial_\rho,\partial_y,\partial_z)$ で、線素の各二次係数を計量行列へ並べます。混合項は零なので
+
+$$
+(g_{\mu\nu})=\operatorname{diag}(-a^2\rho^2,1,1,1),\qquad
+\det(g_{\mu\nu})=-a^2\rho^2<0,\qquad
+\sqrt{|\det g|}=a\rho
+$$
+
+です。$a,\rho>0$ だから非退化なLorentz計量で、[QCURV1のKlein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)の仮定に合います。逆計量の非零成分は $g^{\eta\eta}=-1/(a^2\rho^2)$、$g^{\rho\rho}=g^{yy}=g^{zz}=1$ です。従って
 
 $$
 \begin{aligned}
