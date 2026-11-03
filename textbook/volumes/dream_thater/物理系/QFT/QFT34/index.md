@@ -476,7 +476,14 @@ $\Phi'=ve^{-ig a\cdot x}/\sqrt2$、$A'_\mu=a_\mu$ です。$\partial_\mu\Phi'=-i
 <!-- solution-start -->
 **詳細解答**
 
-$V=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ なので最小集合は $\phi_1^2+\phi_2^2=v^2$ です。[QFT33の質量行列の命題](../QFT33/index.md#prop-qft33-o2-masses)と同様、ここでのHessianはCartesian成分 $\phi_1,\phi_2$ による二階偏微分 $H_{ab}=\partial^2V/(\partial\phi_a\partial\phi_b)$ です。真空でのTaylor展開 $V(\phi_0+q)=V(\phi_0)+\frac12q_aH_{ab}(\phi_0)q_b+O(|q|^3)$ の二次係数を判定するために計算します。$r^2=\phi_1^2+\phi_2^2$ と置いて微分すると
+$V=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ なので最小集合は $\phi_1^2+\phi_2^2=v^2$ です。[QFT33の質量行列の命題](../QFT33/index.md#prop-qft33-o2-masses)と同様、ここでのHessianはCartesian成分による二階偏微分です。真空 $\phi_0=(v,0)$ と小さな実二成分 $q$ に対して
+
+$$
+H_{ab}(\phi)=\frac{\partial^2V}{\partial\phi_a\partial\phi_b},\qquad
+V(\phi_0+q)=V(\phi_0)+\frac12q_aH_{ab}(\phi_0)q_b+O(|q|^3)
+$$
+
+となるため、Hessianが二次揺らぎの係数を判定します。$r^2=\phi_1^2+\phi_2^2$ と置いて微分すると
 
 $$
 \frac{\partial V}{\partial\phi_a}=\lambda(r^2-v^2)\phi_a,\qquad
@@ -627,7 +634,15 @@ $$
    $$
 
    したがって $m_h^2=2\lambda v^2$、$m_A^2=g^2v^2$、混合項の符号はプラスです。
-3. $\Phi=\rho e^{i\theta/v}/\sqrt2$ の局所表示で $B=A+\partial\theta/(gv)$ とすると、[正則な局所領域でのHiggs–Proca表示](#thm-qft34-unitary-proca)から $-G(B)^2/4+(g^2v^2/2)B^2+(\partial h_u)^2/2-(m_h^2/2)h_u^2$ を二次で得ます。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)によって $\partial\cdot B=0$ かつ $p^2=m_A^2$ の三偏極。$2$（複素スカラーの実成分）$+2$（質量零ベクトル）$=1+3=4$ です。
+3. $\Phi=\rho e^{i\theta/v}/\sqrt2$ の局所表示で $B=A+\partial\theta/(gv)$ とすると、[正則な局所領域でのHiggs–Proca表示](#thm-qft34-unitary-proca)から二次作用は
+
+   $$
+   \mathcal L_2=-\frac14G(B)_{\mu\nu}G(B)^{\mu\nu}
+   +\frac12m_A^2B_\mu B^\mu
+   +\frac12(\partial h_u)^2-\frac12m_h^2h_u^2
+   $$
+
+   となります。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)の発散制約 $\partial\cdot B=0$ と質量殻 $p^2=m_A^2$ によりベクトルは三偏極です。複素スカラーの二実成分と質量零ゲージ場の二物理偏極を合わせた四自由度は、動径場一つと質量あるベクトルの三偏極に対応し、$2+2=1+3=4$ です。
 4. ゲージ固定 $\mathcal L_{\rm gf}=-(\partial\cdot A-\xi m_A\pi)^2/(2\xi)$ は $+m_A\pi\,\partial\cdot A$ を生み、もとの $m_AA\cdot\partial\pi=-m_A\pi\,\partial\cdot A$（境界項を除く）を相殺します。残る $-\xi m_A^2\pi^2/2$ から $\pi$ の二次極は $p^2=\xi m_A^2$ です。
 
    $\delta\pi=-g\chi(v+h)$、$\delta A_\mu=\partial_\mu\chi$ なので
