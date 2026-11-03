@@ -37,4 +37,5 @@
 34. [QFT34 局所U(1)対称性・Abelian Higgs機構・ゲージ固定と物理自由度](textbook/volumes/dream_thater/物理系/QFT/QFT34/index.md)
 35. [QFT35 標準模型のゲージ群・フェルミオン表現・超電荷とHiggs結合](textbook/volumes/dream_thater/物理系/QFT/QFT35/index.md)
 36. [QFT36 電弱混合・W／Z／光子の質量と荷電・中性電流](textbook/volumes/dream_thater/物理系/QFT/QFT36/index.md)
+37. [QFT37 Yukawa質量行列・世代基底の回転とCKM混合](textbook/volumes/dream_thater/物理系/QFT/QFT37/index.md)
 

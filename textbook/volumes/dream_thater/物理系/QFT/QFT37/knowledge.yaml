@@ -1,0 +1,69 @@
+chapter: QFT37
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT36, QFT35, LA6]
+forward_references: []
+
+concepts:
+  - id: qft.three-generation-yukawa-matrix
+    name: 三世代Yukawa行列と質量行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三世代Yukawa行列と質量行列）]
+    requires: [qft.conjugate-higgs-doublet, qft.yukawa-gauge-invariance]
+
+  - id: qft.yukawa-mass-generation
+    name: Higgs真空とYukawa質量の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Higgs真空とYukawa質量の対応）]
+    requires: [qft.three-generation-yukawa-matrix]
+
+  - id: qft.mass-eigenbasis-biunitary
+    name: 質量固有基底と左右回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量固有基底と左右回転）]
+    requires: [qft.yukawa-mass-generation]
+
+  - id: qft.ckm-matrix
+    name: CKM行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（CKM行列）]
+    requires: [qft.mass-eigenbasis-biunitary, qft.electroweak-fermion-couplings]
+
+  - id: qft.mass-basis-ckm-current
+    name: 質量対角化とCKM荷電電流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量対角化とCKM荷電電流）]
+    requires: [qft.ckm-matrix]
+
+  - id: qft.neutral-current-flavor-diagonality
+    name: 中性電流とHiggs結合の世代対角性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中性電流とHiggs結合の世代対角性）]
+    requires: [qft.mass-basis-ckm-current]
+
+  - id: qft.ckm-physical-parameter-count
+    name: 三世代CKMの物理パラメータ数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三世代CKMの物理パラメータ数）]
+    requires: [qft.ckm-matrix]
+
+  - id: qft.ckm-rephasing-quartet
+    name: CKMの再位相不変四重積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（CKMの再位相不変四重積）]
+    requires: [qft.ckm-physical-parameter-count]
+
+  - id: qft.ckm-cp-invariant
+    name: 再位相不変四重積とCP位相
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（再位相不変四重積とCP位相）]
+    requires: [qft.ckm-rephasing-quartet]
