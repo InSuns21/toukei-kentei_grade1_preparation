@@ -401,7 +401,19 @@ Minkowski時空の標準座標 $(t,x^1,x^2,x^3)$ で、計量の成分行列を 
 <!-- solution-start -->
 #### 詳細解答
 
-標準座標では $g^{ab}g_{bc}=\delta^a{}_c$ なので、逆計量の成分も $g^{ab}=\operatorname{diag}(-1,1,1,1)$ です。計量双対の成分は $(k^\sharp)^a=g^{ab}k_b=(a,a,0,0)$ となり、$g^{-1}(k,k)=g^{ab}k_ak_b=-a^2+a^2=0$ で光的、時間成分 $a>0$ で未来向きです。従って[二点波面関係](../MICA13/index.md#def-mica13-null-pair)の $x=y$ の条件を満たし $(x,k;x,-k)\in\mathcal C^+$ です。また[対角余法束の計算](#prop-mica14-diagonal-obstruction)から $(x,k;x,-k)\in N_\Delta$。交差が非空であり、[引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の**十分条件が失敗する**と言えます。これだけから特別な制限も含めた全面的不可能性は結論できません。
+標準座標で $g^{ab}g_{bc}=\delta^a{}_c$ を使って逆計量を求めます。共変成分 $k_b$ から計量双対の反変成分と光的条件を計算すると
+
+$$
+\begin{aligned}
+g^{ab}&=\operatorname{diag}(-1,1,1,1),\\
+(k^\sharp)^a&=g^{ab}k_b=(a,a,0,0),\\
+g^{-1}(k,k)&=g^{ab}k_ak_b=-a^2+a^2=0.
+\end{aligned}
+$$
+
+よって $k^\sharp$ は光的で、時間成分 $a>0$ なので未来向きです。[二点波面関係](../MICA13/index.md#def-mica13-null-pair)の $x=y$ の条件を満たし $(x,k;x,-k)\in\mathcal C^+$ です。
+
+[対角余法束の計算](#prop-mica14-diagonal-obstruction)から同じ点は $N_\Delta$ にも属します。交差が非空なので[引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の**十分条件が失敗する**と言えます。しかし、特別な制限も含めた全面的不可能性はこれだけでは結論できません。
 <!-- solution-end -->
 
 <a id="ex-mica14-a03"></a>
