@@ -6,7 +6,7 @@
 
 例えば同じ定数振幅でも、反応後の粒子が重すぎれば終状態は存在せず、二つの同種粒子を「粒子3、粒子4」と入れ替えて二度数えても実験結果は二倍にはなりません。この章では質量殻とエネルギー運動量保存からその両方を明示し、振幅を崩壊率・断面積に変換します。
 
-時空は $3+1$ 次元Minkowski空間、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$ とします。散乱の入出射および崩壊の終状態で扱う安定なスカラー粒子は正エネルギー質量殻 $p^2=m^2,\ p^0>0$ に乗り、[QFT11の一粒子規格化](../QFT11/index.md#def-qft11-invariant-packet)
+時空は $3+1$ 次元Minkowski空間、$\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$ とします。散乱の入出射および崩壊の終状態で扱う安定なスカラー粒子は正エネルギー質量殻 $p^2=-m^2,\ p^0>0$ に乗り、[QFT11の一粒子規格化](../QFT11/index.md#def-qft11-invariant-packet)
 
 $$
 \langle\boldsymbol p|\boldsymbol q\rangle
@@ -22,23 +22,23 @@ $$
 最初に反応 $1+2\to3+4$ を考えます。$p_1,p_2$ は入射、$p_3,p_4$ は出射の四運動量で、各粒子の質量は $m_a\ge0$ です。量子論的な頂点を一つも計算しなくても、保存則 $p_1+p_2=p_3+p_4$ が使えます。四元内積と質量殻の意味は
 
 $$
-p\cdot q=p^0q^0-\boldsymbol p\cdot\boldsymbol q,
+p\cdot q=-p^0q^0+\boldsymbol p\cdot\boldsymbol q,
 \qquad
-p^2=(p^0)^2-|\boldsymbol p|^2
+p^2=-(p^0)^2+|\boldsymbol p|^2
 $$
 
-です。全入射運動量 $P=p_1+p_2$ が時間的（$P^2>0$）なら、速度 $\boldsymbol v=\boldsymbol P/P^0$ のLorentz boostで $P=(\sqrt{P^2},\boldsymbol0)$ とでき、重心系が存在します。質量零粒子が同方向に進み $P^2=0$ となる場合には、この重心系は存在しません。
+です。全入射運動量 $P=p_1+p_2$ が時間的（$P^2<0$）なら、速度 $\boldsymbol v=\boldsymbol P/P^0$ のLorentz boostで $P=(\sqrt{-P^2},\boldsymbol0)$ とでき、重心系が存在します。質量零粒子が同方向に進み $P^2=0$ となる場合には、この重心系は存在しません。
 
 <a id="def-qft12-mandelstam"></a>
 
 <!-- formal-statement-start -->
 > **定義（Mandelstam不変量と二体反応の重心系）**  
-> 正エネルギー質量殻 $p_a^2=m_a^2$ にある四粒子が $p_1+p_2=p_3+p_4$ を満たす $2\to2$ 反応に対し、Lorentz不変量を
+> 正エネルギー質量殻 $p_a^2=-m_a^2$ にある四粒子が $p_1+p_2=p_3+p_4$ を満たす $2\to2$ 反応に対し、Lorentz不変量を
 
 $$
-s=(p_1+p_2)^2,\qquad
-t=(p_1-p_3)^2,\qquad
-u=(p_1-p_4)^2
+s=-(p_1+p_2)^2,\qquad
+t=-(p_1-p_3)^2,\qquad
+u=-(p_1-p_4)^2
 $$
 
 > とする。さらに $s>0$ の場合、全空間運動量 $\boldsymbol p_1+\boldsymbol p_2=0$ となる慣性系を**重心系**とする。この系では全エネルギーは $\sqrt s>0$、入射と出射の運動量の大きさをそれぞれ $p_{\mathrm i},p_{\mathrm f}$ と書く。入射粒子1の方向と出射粒子3の方向のなす角を $\theta$ とする。
@@ -49,7 +49,7 @@ $$
 <!-- definition-example-start: def-qft12-mandelstam -->
 ### 例：等質量の弾性散乱で三つの量を調べる
 
-**定義の確認**：四粒子の質量が同じ $m>0$ で、重心系で入射が $(E,0,0,\pm p)$、出射粒子3が $(E,p\sin\theta,0,p\cos\theta)$ なら $E^2=p^2+m^2$ です。各四運動量の二乗は $m^2$、空間運動量の和は零となり、定義の質量殻・重心系条件を満たします。定義へ代入して
+**定義の確認**：四粒子の質量が同じ $m>0$ で、重心系で入射が $(E,0,0,\pm p)$、出射粒子3が $(E,p\sin\theta,0,p\cos\theta)$ なら $E^2=p^2+m^2$ です。各四運動量の二乗は $-m^2$、空間運動量の和は零となり、定義の質量殻・重心系条件を満たします。定義へ代入して
 
 $$
 s=4E^2,\qquad
@@ -73,7 +73,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（重心系二体運動量とKällén関数）**  
-> 正エネルギー四運動量が保存する $1+2\to3+4$ について、$s=(p_1+p_2)^2$ とし、$s>(m_1+m_2)^2$、$s>(m_3+m_4)^2$ と仮定する。重心系で
+> 正エネルギー四運動量が保存する $1+2\to3+4$ について、$s=-(p_1+p_2)^2$ とし、$s>(m_1+m_2)^2$、$s>(m_3+m_4)^2$ と仮定する。重心系で
 
 $$
 \begin{aligned}
@@ -97,15 +97,15 @@ $$
 
 ### 証明の見取り図
 
-総運動量を $P=(\sqrt s,\boldsymbol0)$ と置くと、$P\cdot p_1=(s+m_1^2-m_2^2)/2$ です。これで $E_1$ が決まり、$p_{\mathrm i}^2=E_1^2-m_1^2$ を因数分解するとKällén関数になります。最後に四運動量の内積を展開します。
+総運動量を $P=(\sqrt s,\boldsymbol0)$ と置くと、$-P\cdot p_1=(s+m_1^2-m_2^2)/2$ です。これで $E_1$ が決まり、$p_{\mathrm i}^2=E_1^2-m_1^2$ を因数分解するとKällén関数になります。最後に四運動量の内積を展開します。
 
 <!-- proof-start -->
 ### 証明
 
-$p_2=P-p_1$ と $p_2^2=m_2^2$ を使うと
+$p_2=P-p_1$ と $p_2^2=-m_2^2$ を使うと
 
 $$
-m_2^2=(P-p_1)^2=s+m_1^2-2P\cdot p_1
+m_2^2=-(P-p_1)^2=s+m_1^2+2P\cdot p_1
 =s+m_1^2-2\sqrt s\,E_1.
 $$
 
@@ -141,16 +141,16 @@ $$
 $$
 \begin{aligned}
 s+t+u
-&=m_1^2+m_2^2+2p_1\cdot p_2
-+m_1^2+m_3^2-2p_1\cdot p_3\\
-&\quad +m_1^2+m_4^2-2p_1\cdot p_4\\
+&=m_1^2+m_2^2-2p_1\cdot p_2
++m_1^2+m_3^2+2p_1\cdot p_3\\
+&\quad +m_1^2+m_4^2+2p_1\cdot p_4\\
 &=3m_1^2+m_2^2+m_3^2+m_4^2
-+2p_1\cdot(p_2-p_3-p_4)\\
+-2p_1\cdot(p_2-p_3-p_4)\\
 &=\sum_{a=1}^4m_a^2
 \end{aligned}
 $$
 
-を得ます。最終行では $p_2-p_3-p_4=-p_1$ を使いました。重心系で $\boldsymbol p_1\cdot\boldsymbol p_3=p_{\mathrm i}p_{\mathrm f}\cos\theta$ とすれば $p_1\cdot p_3=E_1E_3-p_{\mathrm i}p_{\mathrm f}\cos\theta$ なので $t$ の式も従います。
+を得ます。最終行では $p_2-p_3-p_4=-p_1$ を使いました。重心系で $\boldsymbol p_1\cdot\boldsymbol p_3=p_{\mathrm i}p_{\mathrm f}\cos\theta$ とすれば $p_1\cdot p_3=-E_1E_3+p_{\mathrm i}p_{\mathrm f}\cos\theta$ なので $t$ の式も従います。
 <!-- proof-end -->
 
 この結果から、同じ $s$ でも重心系での散乱角が異なれば $t$ が変わります。逆に $p_{\mathrm i}p_{\mathrm f}>0$ であれば $t$ の変域は $\cos\theta=\pm1$ を代入して求められます。これが角度分布を $t$ について積分する際の橋になります。
@@ -163,7 +163,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Lorentz不変終状態位相空間）**  
-> 正エネルギーの安定な終状態粒子 $n$ 個の質量を $m_j\ge0$、四運動量を $k_j$ とし、時間的な全四運動量 $P$ が $P^2>0$, $P^0>0$ を満たすとする。ラベル付きの終状態位相空間測度を
+> 正エネルギーの安定な終状態粒子 $n$ 個の質量を $m_j\ge0$、四運動量を $k_j$ とし、時間的な全四運動量 $P$ が $P^2<0$, $P^0>0$ を満たすとする。ラベル付きの終状態位相空間測度を
 
 $$
 d\Phi_n(P;k_1,\ldots,k_n)
@@ -180,7 +180,7 @@ $$
 $$
 \frac{d^3\boldsymbol k}{(2\pi)^3\,2E_{\boldsymbol k}}
 =\frac{d^4k}{(2\pi)^3}\,
-\theta(k^0)\delta(k^2-m^2)
+\theta(k^0)\delta(-k^2-m^2)
 $$
 
 へ変えられます。ここで $\theta(k^0)$ は第1節の散乱角 $\theta$ ではなく、正のエネルギーで1、負のエネルギーで0をとるHeaviside階段関数です。
@@ -192,7 +192,7 @@ $\delta((k^0)^2-E_{\boldsymbol k}^2)$ の正の根を選ぶと、Jacobian $1/(2E
 <!-- definition-example-start: def-qft12-phase-space -->
 ### 例：同種二粒子のラベル交換を直接数える
 
-**定義の確認**：質量 $M>2m$ の親粒子が静止系で質量 $m>0$ の同種二粒子へ崩壊するとします。$P=(M,\boldsymbol0)$、$k_3=(E_k,\boldsymbol k)$、$k_4=(E_k,-\boldsymbol k)$、$E_k=\sqrt{|\boldsymbol k|^2+m^2}$ と置けば、各 $k_j^2=m^2$、$k_j^0=E_k>0$ であり、空間運動量は保存します。さらに定義の $\delta^{(4)}(P-k_3-k_4)$ のエネルギー条件は
+**定義の確認**：質量 $M>2m$ の親粒子が静止系で質量 $m>0$ の同種二粒子へ崩壊するとします。$P=(M,\boldsymbol0)$、$k_3=(E_k,\boldsymbol k)$、$k_4=(E_k,-\boldsymbol k)$、$E_k=\sqrt{|\boldsymbol k|^2+m^2}$ と置けば、各 $k_j^2=-m^2$、$k_j^0=E_k>0$ であり、空間運動量は保存します。さらに定義の $\delta^{(4)}(P-k_3-k_4)$ のエネルギー条件は
 
 $$
 M=2E_k
@@ -211,7 +211,7 @@ $\varphi$ は極軸まわりの方位角で、散乱なら第1節の入射粒子
 
 <!-- formal-statement-start -->
 > **命題（二体位相空間の角度表示）**  
-> 時間的な $P$ が $P^2=s>(m_3+m_4)^2$ を満たし、正エネルギーの二粒子に分解されるとする。重心系で終状態運動量の大きさを
+> 時間的な $P$ が $-P^2=s>(m_3+m_4)^2$ を満たし、正エネルギーの二粒子に分解されるとする。重心系で終状態運動量の大きさを
 
 $$
 p_{\mathrm f}=\frac{\sqrt{\lambda(s,m_3^2,m_4^2)}}{2\sqrt s}
@@ -297,7 +297,7 @@ $$
 > と表す。$E_1,E_2$ は選んだ慣性系の粒子エネルギーであり、$v_{\mathrm M}$ は入射束を計算するMøller因子である。
 <!-- formal-statement-end -->
 
-$v_{\mathrm M}$ は**一般の二粒子の相対速度の大きさではありません**。この判定式が四元内積から生じることを確かめます。選んだ慣性系で $\boldsymbol v_a=\boldsymbol p_a/E_a$ と置き、$p_a^2=m_a^2$ と第1節に示した四元内積の式を直接代入すると
+$v_{\mathrm M}$ は**一般の二粒子の相対速度の大きさではありません**。この判定式が四元内積から生じることを確かめます。選んだ慣性系で $\boldsymbol v_a=\boldsymbol p_a/E_a$ と置き、$p_a^2=-m_a^2$ と第1節に示した四元内積の式を直接代入します。ここで $p_1\cdot p_2=-E_1E_2(1-\boldsymbol v_1\cdot\boldsymbol v_2)$ であり、内積の符号は負ですが、$\mathcal F$ にはその二乗が入るため右辺の速度式は変わりません。
 
 $$
 \begin{aligned}
@@ -321,7 +321,7 @@ $$
 <!-- definition-example-start: def-qft12-rate-cross-section -->
 ### 例：静止標的に一個の粒子を当てる
 
-**定義の確認**：粒子2が静止し $p_2=(m_2,\boldsymbol0)$、粒子1が $p_1=(E_1,\boldsymbol p_1)$、$m_2>0$ なら、両者の質量殻と $E_1>0$ を満たします。この具体例で不変内積 $p_1\cdot p_2=E_1m_2$ を流束の定義へ代入すると
+**定義の確認**：粒子2が静止し $p_2=(m_2,\boldsymbol0)$、粒子1が $p_1=(E_1,\boldsymbol p_1)$、$m_2>0$ なら、両者の質量殻と $E_1>0$ を満たします。この具体例で不変内積 $p_1\cdot p_2=-E_1m_2$ を流束の定義へ代入すると
 
 $$
 \mathcal F
@@ -423,6 +423,7 @@ $v_{\mathrm M}$ は任意慣性系でこの結果がLorentz不変となるよう
 $$
 \begin{aligned}
 \mathcal F^2
+&=(p_1\cdot p_2)^2-m_1^2m_2^2\\
 &=(E_1E_2+p_{\mathrm i}^2)^2-m_1^2m_2^2\\
 &=p_{\mathrm i}^2(E_1+E_2)^2
 =s\,p_{\mathrm i}^2.
@@ -547,13 +548,13 @@ $$
 
 ## 6. 演習：振幅から観測可能な率まで計算する
 
-特に断らなければ $3+1$ 次元、$\eta=(+---)$、$c=\hbar=1$、正エネルギーの安定スカラー外線と、十分に局在した漸近波束を仮定します。質量殻測度は $d\Pi_p=d^3\boldsymbol p/[(2\pi)^3 2E_{\boldsymbol p}]$ です。振幅 $\mathcal M$ は運動量保存デルタを除いた連結振幅とし、観測量はその最低非零次数で計算します。
+特に断らなければ $3+1$ 次元、$\eta=(-+++)$、$c=\hbar=1$、正エネルギーの安定スカラー外線と、十分に局在した漸近波束を仮定します。質量殻測度は $d\Pi_p=d^3\boldsymbol p/[(2\pi)^3 2E_{\boldsymbol p}]$ です。振幅 $\mathcal M$ は運動量保存デルタを除いた連結振幅とし、観測量はその最低非零次数で計算します。
 
 ### Level A：保存則、Jacobian、流束の一つずつ
 
 ### 演習 QFT12-A1：非弾性散乱の不変量と閾値
 
-質量 $m_1,m_2$ の入射粒子から質量 $m_3,m_4$ の粒子へ変わる $2\to2$ 反応で、すべて正エネルギー質量殻にあるとする。$s=(p_1+p_2)^2$、$t=(p_1-p_3)^2$、$u=(p_1-p_4)^2$ と定める。$s+t+u$ を求め、反応の重心系で必要な $s$ の下限を示せ。
+質量 $m_1,m_2$ の入射粒子から質量 $m_3,m_4$ の粒子へ変わる $2\to2$ 反応で、すべて正エネルギー質量殻にあるとする。$s=-(p_1+p_2)^2$、$t=-(p_1-p_3)^2$、$u=-(p_1-p_4)^2$ と定める。$s+t+u$ を求め、反応の重心系で必要な $s$ の下限を示せ。
 
 - Level: A
 
@@ -565,8 +566,8 @@ $$
 $$
 \begin{aligned}
 s+t+u
-&=3p_1^2+p_2^2+p_3^2+p_4^2
-+2p_1\cdot(p_2-p_3-p_4)\\
+&=-3p_1^2-p_2^2-p_3^2-p_4^2
+-2p_1\cdot(p_2-p_3-p_4)\\
 &=3m_1^2+m_2^2+m_3^2+m_4^2-2m_1^2\\
 &=m_1^2+m_2^2+m_3^2+m_4^2.
 \end{aligned}
@@ -621,7 +622,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[不変流束の定義](#def-qft12-rate-cross-section)で $p_2=(m_2,\boldsymbol0)$ とすると $p_1\cdot p_2=m_2E_1$ です。質量殻 $E_1^2-m_1^2=|\boldsymbol p_1|^2$ を使い
+[不変流束の定義](#def-qft12-rate-cross-section)で $p_2=(m_2,\boldsymbol0)$ とすると $p_1\cdot p_2=-m_2E_1$ です。質量殻 $E_1^2-m_1^2=|\boldsymbol p_1|^2$ を使い
 
 $$
 \mathcal F
@@ -664,7 +665,7 @@ $$
 
 ### 演習 QFT12-A5：角度から運動量移行量へ
 
-等質量 $m>0$ の弾性 $2\to2$ 反応を重心系で考え、$s>4m^2$ とする。$t=(p_1-p_3)^2$ を散乱角 $\theta$ で表し、$t$ の変域と $dt/d(\cos\theta)$ を求めよ。
+等質量 $m>0$ の弾性 $2\to2$ 反応を重心系で考え、$s>4m^2$ とする。$t=-(p_1-p_3)^2$ を散乱角 $\theta$ で表し、$t$ の変域と $dt/d(\cos\theta)$ を求めよ。
 
 - Level: A
 
@@ -770,7 +771,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$p_1=(E,\boldsymbol p)$、$p_2=(E,-\boldsymbol p)$ だから $p_1\cdot p_2=E^2+p^2=m^2+2p^2$ です。[不変流束の定義](#def-qft12-rate-cross-section)から
+$p_1=(E,\boldsymbol p)$、$p_2=(E,-\boldsymbol p)$ だから $p_1\cdot p_2=-(E^2+p^2)=-(m^2+2p^2)$ です。[不変流束の定義](#def-qft12-rate-cross-section)から
 
 $$
 \begin{aligned}
@@ -846,7 +847,7 @@ $b\to0$ では振幅が $-g^2/a$ に近づくので、上式は $\sigma\to g^4/(
 実スカラー場 $\phi,\chi$ の質量をそれぞれ $m,\mu>0$ とする。相互作用 $\mathcal L_I=-\lambda\phi^2\chi^2/4$ により、二個の同種 $\phi$ が二個の同種 $\chi$ へ散乱する $2\to2$ 反応を考える。漸近粒子の存在、木レベル $\mathcal M=-\lambda$、$s>4\max(m^2,\mu^2)$ を仮定する。
 
 1. 重心系の $p_{\mathrm i},p_{\mathrm f}$ と、反応可能な $s$ の閾値を求めよ。
-2. $t=(p_1-p_3)^2$、$u=(p_1-p_4)^2$ を $\cos\theta$ で表し、$s+t+u$ を検算せよ。
+2. $t=-(p_1-p_3)^2$、$u=-(p_1-p_4)^2$ を $\cos\theta$ で表し、$s+t+u$ を検算せよ。
 3. $d\sigma/d\Omega$、全断面積 $\sigma$ を求め、終状態の同種粒子因子がどこで必要か説明せよ。
 4. $\mu>m$ の場合の出射閾値 $s\downarrow4\mu^2$ での $\sigma$ の挙動を求めよ。逆に $m>\mu$ で $s\downarrow4m^2$ のとき、入射流束と $\sigma$ の積がどうなるか説明せよ。
 
