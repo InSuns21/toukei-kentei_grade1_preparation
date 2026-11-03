@@ -1,0 +1,42 @@
+id: "GEOD5"
+title: "測地座標・地心座標・局所座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD4
+official_scope: []
+learning_objectives:
+  - 楕円体表面の位置と外向き単位法線から楕円体高を定義し、測地座標から地心直交座標への順変換を証明できる
+  - 楕円体外部の地心点の法線足点を単調方程式で求め、逆変換の一意性・極の特異性・二分法の停止と残差を説明できる
+  - ENU局所直交基底と回転行列を導き、右手系・直交性・逆回転・距離保存を検算できる
+  - 高さを含めた測地座標のJacobianからENU一次変位を導出し、極での退化と有限差分との違いを説明できる
+  - 楕円体高・標高、測地緯度・地心緯度、軸順序・角度単位・frame・epochの取り違えを発見できる
+definitions:
+  - { id: GEOD5-DEF-01, name: 楕円体高を持つ測地座標 }
+  - { id: GEOD5-DEF-02, name: 基準点のENU局所直交座標 }
+theorems:
+  - { id: GEOD5-THM-01, name: 測地座標から地心直交座標への順変換 }
+  - { id: GEOD5-THM-02, name: 楕円体の表面・外部における逆変換の存在と一意性 }
+  - { id: GEOD5-THM-03, name: ENU回転行列の直交性と右手系 }
+  - { id: GEOD5-PROP-01, name: 測地座標からENUへの局所一次変換 }
+canonical_examples:
+  - a=5・b=4の赤道と極における楕円体高と地心直交座標
+  - 外部点X=7で逆変換の一変数方程式を厳密に解く検算
+  - 非極点のENU三方向の直交性・外積・行列式
+  - 有限距離で基準点ENUの上成分0と楕円体高差0が一致しない例
+  - 球面極限・基準楕円体・座標時点・ラジアンの検算
+problem_patterns:
+  - GEOD5-FORWARD-EQUATOR
+  - GEOD5-POLE-LONGITUDE
+  - GEOD5-EXTERIOR-DOMAIN
+  - GEOD5-ENU-AXES
+  - GEOD5-HEIGHT-ONLY
+  - GEOD5-NORMAL-FORWARD-DERIVATION
+  - GEOD5-EXTERIOR-INVERSE-BISECTION
+  - GEOD5-LOCAL-JACOBIAN
+  - GEOD5-ENU-INVERSE-AND-ISOMETRY
+  - GEOD5-INTEGRATED-COORDINATE-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
