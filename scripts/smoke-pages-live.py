@@ -30,12 +30,12 @@ def changed_files(base_sha):
     if not base_sha or set(base_sha) == {"0"}:
         return []
     result = subprocess.run(
-        ["git", "diff", "--name-only", "--diff-filter=ACMR", f"{base_sha}...HEAD"],
+        ["git", "diff", "--name-only", "-z", "--diff-filter=ACMR", f"{base_sha}...HEAD"],
         check=True,
         text=True,
         capture_output=True,
     )
-    return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    return [item for item in result.stdout.split("\0") if item]
 
 
 def map_changed_paths(paths, published):
