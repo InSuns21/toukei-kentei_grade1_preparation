@@ -165,12 +165,16 @@ $$
 d\boldsymbol r=\boldsymbol r_\phi\,d\phi+\boldsymbol r_\lambda\,d\lambda.
 $$
 
+点 $P$ の**接平面内の微小変位**として見ると、南北の成分 $M\,d\phi$ と東西の成分 $N\cos\phi\,d\lambda$ が直交し、その合成が $d\boldsymbol r$ になります。下図は両微小角が正の場合の模式図です。対角線は二点を有限に移動する経路を描いたものではなく、あくまで一点での微小変位を示します。
+
+![接平面で東向きN cosφ dλ、北向きM dφが直交し、その合成ベクトルd rが直角三角形の斜辺になる図](assets/local-tangent-distance.svg)
+
 周囲の三次元空間の Euclid [内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product)を、この曲面に接する方向のベクトルに限って測ります。これによって座標の選び方によらない幾何的な長さを表したいのです。次でこの計量を定義します。
 
 <a id="def-geod4-first-fundamental-form"></a>
 <!-- formal-statement-start -->
 > **定義（楕円体上の第一基本形式）**
-> $a\ge b>0$ の楕円体表面上の非極点を、測地緯度・経度の局所座標 $(\phi,\lambda)$ で表す。曲面に接する方向のベクトルを $\boldsymbol v=u_\phi\boldsymbol r_\phi+u_\lambda\boldsymbol r_\lambda$、$\boldsymbol w=v_\phi\boldsymbol r_\phi+v_\lambda\boldsymbol r_\lambda$ と表したとき、第一基本形式 $g$ を $g(\boldsymbol v,\boldsymbol w)=\boldsymbol v\cdot\boldsymbol w$ と定める。特に微小線素の二乗は
+> $a\ge b>0$ の楕円体表面上の非極点を、測地緯度・経度の局所座標 $(\phi,\lambda)$ で表す。曲面に接する方向のベクトルを $\boldsymbol v=u_\phi\boldsymbol r_\phi+u_\lambda\boldsymbol r_\lambda$、$\boldsymbol w=v_\phi\boldsymbol r_\phi+v_\lambda\boldsymbol r_\lambda$ と表したとき、接方向ベクトル上の内積 $g$ を $g(\boldsymbol v,\boldsymbol w)=\boldsymbol v\cdot\boldsymbol w$ と定める。特に微小線素の二乗は
 
 $$
 ds^2=g(d\boldsymbol r,d\boldsymbol r)

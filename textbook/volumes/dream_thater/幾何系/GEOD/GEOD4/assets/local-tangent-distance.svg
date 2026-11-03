@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">東西と南北の微小変位を合成する</title>
+  <desc id="desc">楕円体上の点Pの接平面において、東向きN cosφ dλと北向きM dφが直角に交わり、その合成が対角線d rとなる。図は正の微小角度の場合を示す。</desc>
+  <defs>
+    <marker id="east-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8z" fill="#15607a"/></marker>
+    <marker id="north-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8z" fill="#ad5e0a"/></marker>
+    <marker id="dr-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8z" fill="#334155"/></marker>
+  </defs>
+  <rect x="64" y="30" width="407" height="256" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+  <path d="M139 245 H445 M139 245 V53" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 6" fill="none"/>
+  <path d="M139 245 H373" stroke="#15607a" stroke-width="3.2" marker-end="url(#east-arr)" data-series-group="tangent-steps" data-series-label="east"/>
+  <path d="M373 245 V91" stroke="#ad5e0a" stroke-width="3.2" stroke-dasharray="9 4" marker-end="url(#north-arr)" data-series-group="tangent-steps" data-series-label="north"/>
+  <path d="M139 245 L373 91" stroke="#334155" stroke-width="2.4" stroke-dasharray="12 4 2 4" marker-end="url(#dr-arr)" data-series-group="tangent-steps" data-series-label="resultant"/>
+  <path d="M357 245 V229 H373" stroke="#64748b" stroke-width="1.5" fill="none"/>
+  <circle cx="139" cy="245" r="4" fill="#0f172a"/>
+  <circle cx="373" cy="91" r="4" fill="#0f172a"/>
+  <text x="109" y="268" font-size="17" fill="#0f172a">P</text>
+  <text x="383" y="86" font-size="17" fill="#0f172a">Q</text>
+  <text x="447" y="225" font-size="16" fill="#475569">東</text>
+  <text x="110" y="60" font-size="16" fill="#475569">北</text>
+  <text x="221" y="223" font-size="18" fill="#15607a">N cosφ dλ</text>
+  <text x="392" y="179" font-size="18" fill="#92400e">M dφ</text>
+  <text x="210" y="148" font-size="18" fill="#334155">d r</text>
+</svg>
