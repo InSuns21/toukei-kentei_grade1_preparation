@@ -1,0 +1,43 @@
+id: QCURV4
+title: "FLRW宇宙のモード方程式と粒子生成"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV3
+  - CA4
+official_scope: []
+learning_objectives:
+  - 空間的に平坦なFLRW時空の共形時間、曲率、Klein–Gordon方程式を計量規約付きで導出できる
+  - 場の再スケーリングとFourier展開からモード振動子と保存Wronskianを導ける
+  - 漸近的な正振動数解とBogoliubov係数から各モードのout粒子数を求め、対向運動量の対生成を説明できる
+  - 滑らかな膨張模型で一次の正負振動数混合と粒子数の主要項を計算し、急変極限と緩慢極限を区別できる
+  - 四次元の質量零・共形結合場で共形真空に関する生成がないことを証明し、零モードと真空選択の条件を説明できる
+definitions:
+  - { id: QCURV4-DEF-01, name: 平坦FLRW背景と共形時間 }
+  - { id: QCURV4-DEF-02, name: FLRWのin/out正振動数モード }
+  - { id: QCURV4-DEF-03, name: 時間依存振動子の瞬間モード係数 }
+theorems:
+  - { id: QCURV4-PROP-01, name: FLRWの再スケーリング後のモード方程式 }
+  - { id: QCURV4-PROP-02, name: FLRWモードのWronskianと粒子数 }
+  - { id: QCURV4-PROP-03, name: 滑らかな弱い膨張の粒子生成 }
+  - { id: QCURV4-THM-01, name: 質量零共形結合場の非生成 }
+canonical_examples:
+  - 正で滑らかなtanh型スケール因子とCauchy面
+  - FourierモードのKG規格化と対向運動量の対応
+  - 弱い膨張のsech二乗Fourier積分と急変・緩慢極限
+  - 共形結合の非生成と質量・結合を変更した対照
+problem_patterns:
+  - QCURV4-FLRW-CONFORMAL-TIME
+  - QCURV4-KG-OPERATOR
+  - QCURV4-MODE-WRONSKIAN
+  - QCURV4-FREQUENCY-SIGN
+  - QCURV4-CONFORMAL-NO-CREATION
+  - QCURV4-OSCILLATOR-AMPLITUDES
+  - QCURV4-SMOOTH-RAMP-FOURIER
+  - QCURV4-BOGOLIUBOV-MOMENTUM
+  - QCURV4-ASYMPTOTIC-LIMITS
+  - QCURV4-COSMOLOGICAL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
