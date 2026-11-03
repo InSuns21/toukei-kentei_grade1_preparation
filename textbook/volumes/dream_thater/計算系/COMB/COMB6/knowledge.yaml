@@ -1,0 +1,99 @@
+chapter: COMB6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB5
+  - F0-00B0
+forward_references: []
+
+concepts:
+  - id: combinatorics.finite-difference-operators
+    name: シフト作用素・前進差分・後退差分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シフト作用素・前進差分・後退差分）]
+    requires: []
+
+  - id: combinatorics.difference-operator-relations
+    name: 差分作用素の関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [命題（差分作用素の関係）]
+    requires: [combinatorics.finite-difference-operators]
+
+  - id: combinatorics.iterated-forward-difference
+    name: 反復前進差分の交互和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（反復前進差分の交互和）]
+    requires: [combinatorics.finite-difference-operators, combinatorics.pascal-identity]
+
+  - id: combinatorics.falling-factorial-polynomial
+    name: 下降階乗と一般化二項多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（下降階乗と一般化二項多項式）]
+    requires: [combinatorics.ordered-selection]
+
+  - id: combinatorics.falling-factorial-difference
+    name: 下降階乗の差分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（下降階乗の差分）]
+    requires: [combinatorics.falling-factorial-polynomial, combinatorics.difference-operator-relations]
+
+  - id: combinatorics.binomial-polynomial-iterates
+    name: 二項多項式の反復差分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [系（二項多項式の反復差分）]
+    requires: [combinatorics.falling-factorial-difference]
+
+  - id: combinatorics.binomial-polynomial-basis
+    name: 二項多項式の基底
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二項多項式の基底）]
+    requires: [combinatorics.binomial-polynomial-iterates]
+
+  - id: combinatorics.newton-polynomial-expansion
+    name: Newton 前進展開：多項式版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Newton 前進展開：多項式版）]
+    requires: [combinatorics.binomial-polynomial-basis, combinatorics.iterated-forward-difference]
+
+  - id: combinatorics.finite-difference-table
+    name: 有限差分表
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限差分表）]
+    requires: [combinatorics.finite-difference-operators]
+
+  - id: combinatorics.finite-newton-interpolation
+    name: 等間隔有限データの一意な補間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等間隔有限データの一意な補間）]
+    requires: [combinatorics.finite-difference-table, combinatorics.newton-polynomial-expansion, combinatorics.binomial-coefficient-interpretation]
+
+  - id: combinatorics.polynomial-difference-degree
+    name: 差分による多項式の次数判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（差分による多項式の次数判定）]
+    requires: [combinatorics.binomial-polynomial-basis, combinatorics.binomial-polynomial-iterates]
+
+  - id: combinatorics.polynomial-sequence-difference-criterion
+    name: 差分が消える数列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [命題（差分が消える数列）]
+    requires: [analysis.real-sequence, combinatorics.finite-newton-interpolation, combinatorics.polynomial-difference-degree]
+
+  - id: combinatorics.newton-arbitrary-step
+    name: 任意の始点・非零刻み幅での Newton 展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（任意の始点・非零刻み幅での Newton 展開）]
+    requires: [combinatorics.newton-polynomial-expansion]
