@@ -1,5 +1,7 @@
 # CYG1-12 複素構造の一次変形と正則体積形式
 
+<!-- definition-example-audit: strict -->
+
 ## 1. 同じ滑らかな多様体に、別の複素座標を入れたら何が変わるか
 
 ここまでは「固定した複素多様体にRicci平坦Kähler計量を選べるか」を調べてきた。[Yauの定理](../CYG1-10/index.md#thm-cyg1-10-yau)では**複素構造を固定**してKähler類の中で計量を変えた。今回は問いを変える。同じ滑らかな多様体の上で、正則関数を定める複素座標の貼り合わせそのものを少し動かすと、独立な方向はいくつあるのだろうか。
@@ -41,7 +43,8 @@ $$
 > と定める。これらを合わせた束写像 $\mathcal I_\Omega:T_X\to\Omega_X^{n-1}$ を収縮写像という。
 <!-- formal-statement-end -->
 
-**定義の直接確認（複素二次元）。** $\Omega=dz^1\wedge dz^2$、$v=a\,\partial_{z^1}+b\,\partial_{z^2}$ とする。外積形式の定義から
+<!-- definition-example-start: def-cyg1-12-contraction -->
+**定義の確認**（複素二次元）。$\Omega=dz^1\wedge dz^2$、$v=a\,\partial_{z^1}+b\,\partial_{z^2}$ とする。外積形式の定義から
 
 $$
 \Omega(v,\partial_{z^2})=a,\qquad
@@ -55,6 +58,7 @@ $$
 $$
 
 ここで $\iota_{\partial_{z^1}}\Omega=dz^2$、$\iota_{\partial_{z^2}}\Omega=-dz^1$。符号は「先頭の引数へ $v$ を入れる」という定義から決まり、単に $dz^j$ を一つ消す操作ではない。逆に $A\,dz^1+B\,dz^2$ を得たいなら $v=B\,\partial_{z^1}-A\,\partial_{z^2}$ を選べばよい。
+<!-- definition-example-end -->
 
 一般の正則座標 $z^1,\ldots,z^n$ では $\Omega=f\,dz^1\wedge\cdots\wedge dz^n$、$v=\sum_jv^j\partial_{z^j}$ と書ける。この表示は[複素接枠の座標変換則](../../CM/CM1-05/index.md#thm-cm1-05-frame-change)および外冪の定義に従う。交代性を使って第一引数に $\partial_{z^j}$ を入れると、前にある $j-1$ 個の1形式を通過する符号が出て
 
@@ -269,13 +273,15 @@ $$
 > となるとき同値とする。同値な零類、すなわち $\mu=\bar\partial_{T_X}v$ となるものを自明な一次変形という。
 <!-- formal-statement-end -->
 
-**定義の直接確認。** $X=\mathbb C$ で $\mu=d\bar z\otimes\partial_z$ とする。複素次元1では $(0,2)$ 形式が存在しないので $\bar\partial_{T_X}\mu=0$ である。一方 $v=\bar z\,\partial_z$ は滑らかで
+<!-- definition-example-start: def-cyg1-12-first-order-beltrami -->
+**定義の確認**。$X=\mathbb C$ で $\mu=d\bar z\otimes\partial_z$ とする。複素次元1では $(0,2)$ 形式が存在しないので $\bar\partial_{T_X}\mu=0$ である。一方 $v=\bar z\,\partial_z$ は滑らかで
 
 $$
 \bar\partial_{T_X}v=d\bar z\otimes\partial_z=\mu.
 $$
 
 従ってこの $\mu$ は $\mathbb C$ 上では自明である。局所的に非零の係数を持つことと、**大域的な変形類が非零**であることは別である。
+<!-- definition-example-end -->
 
 <a id="thm-cyg1-12-first-order-classification"></a>
 
