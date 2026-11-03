@@ -165,6 +165,10 @@ $$
 d\boldsymbol r=\boldsymbol r_\phi\,d\phi+\boldsymbol r_\lambda\,d\lambda.
 $$
 
+点 $P$ の**接平面内の微小変位**として見ると、南北の成分 $M\,d\phi$ と東西の成分 $N\cos\phi\,d\lambda$ が直交し、その合成が $d\boldsymbol r$ になります。下図は両微小角が正の場合の模式図です。対角線は二点を有限に移動したときの楕円体上の測地線を意味せず、あくまで一点での微小変位を示します。
+
+![接平面で東向きN cosφ dλ、北向きM dφが直交し、その合成ベクトルd rが直角三角形の斜辺になる図](assets/local-tangent-distance.svg)
+
 周囲の三次元空間の Euclid [内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product)を、この曲面に接する方向のベクトルに限って測ります。これによって座標の選び方によらない幾何的な長さを表したいのです。次でこの計量を定義します。
 
 <a id="def-geod4-first-fundamental-form"></a>
