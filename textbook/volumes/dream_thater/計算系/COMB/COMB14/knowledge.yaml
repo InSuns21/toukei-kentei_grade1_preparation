@@ -1,0 +1,78 @@
+chapter: COMB14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB2
+  - GRP3
+forward_references: []
+
+concepts:
+  - id: combinatorics.induced-coloring-action
+    name: 彩色への誘導作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（彩色への誘導作用）"]
+    requires: [algebra.group-action, set.function]
+
+  - id: combinatorics.action-fixed-point-set
+    name: 作用による固定点集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（作用による固定点集合）"]
+    requires: [combinatorics.induced-coloring-action]
+
+  - id: combinatorics.fixed-coloring-cycles
+    name: 固定彩色と巡回の対応
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定彩色と巡回の対応）"]
+    requires: [combinatorics.action-fixed-point-set, algebra.disjoint-cycle-decomposition]
+
+  - id: combinatorics.burnside-lemma
+    name: Burnside の補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Burnside の補題）"]
+    requires: [combinatorics.action-fixed-point-set, combinatorics.double-counting-principle, algebra.orbit-stabilizer-theorem]
+
+  - id: combinatorics.permutation-cycle-count
+    name: 置換の巡回数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（置換の巡回数と巡回指標）"]
+    requires: [algebra.disjoint-cycle-decomposition]
+
+  - id: combinatorics.cycle-index
+    name: 巡回指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（置換の巡回数と巡回指標）"]
+    requires: [combinatorics.permutation-cycle-count]
+
+  - id: combinatorics.coloring-weight-inventory
+    name: 彩色軌道の重み多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（彩色軌道の重み多項式）"]
+    requires: [combinatorics.induced-coloring-action, combinatorics.cycle-index]
+
+  - id: combinatorics.polya-enumeration
+    name: Pólya の計数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Pólya の計数公式）"]
+    requires: [combinatorics.burnside-lemma, combinatorics.fixed-coloring-cycles, combinatorics.coloring-weight-inventory]
+
+  - id: combinatorics.necklace-rotation-count
+    name: 巡回群による首飾りの計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（巡回群による首飾りの計数）"]
+    requires: [combinatorics.polya-enumeration]
+
+  - id: combinatorics.even-bracelet-count
+    name: 偶数長の腕輪の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["系（偶数長の腕輪の計数）"]
+    requires: [combinatorics.polya-enumeration, algebra.dihedral-group]

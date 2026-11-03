@@ -107,7 +107,7 @@ $$
 <!-- definition-example-start: def-comb13-formal-derivative -->
 ### 例：係数と積の微分
 
-**定義の確認**として $A(u)=1+2u+3u^2+\cdots$ なら $A'(u)=2+6u+\cdots$ で、$[u]A'=2[u^2]A=6$ です。$n\geq1$ として、$A(u)B(u)$ の $u^{n-1}$ 係数を微分の前後で比べると、
+**定義の確認**として $A(u)=1+2u+3u^2+\cdots$ なら $A'(u)=2+6u+\cdots$ で、$[u]A'=2[u^2]A=6$ です。$n\geq1$ として、$A(u)B(u)$ の $u^{n-1}$ 係数を [Cauchy 積](../COMB9/index.md#def-comb9-cauchy-product)によって微分の前後で比べると、
 
 $$
 \begin{aligned}
@@ -194,13 +194,13 @@ $$
 Y=H(u)\psi(Y).
 $$
 
-一方 $u=H(u)\psi(u)$ も成立します。$H(u)=\sum_{j\geq1}q_ju^j$ と書くと、$Y=H\psi(Y)$ の次数 $n$ の係数は
+一方 $u=H(u)\psi(u)$ も成立します。$H(u)=\sum_{j\geq1}q_ju^j$、$Y(u)=\sum_{i\geq1}y_iu^i$ と書くと、$Y=H\psi(Y)$ の次数 $n$ の係数は
 
 $$
-[u^n]H\psi(Y)=\sum_{j=1}^n q_j[u^{n-j}]\psi(Y)
+y_n=[u^n]H\psi(Y)=\sum_{j=1}^n q_j[u^{n-j}]\psi(Y)
 $$
 
-です。各 $n-j\leq n-1$ なので、右辺は $Y$ の次数 $n-1$ 以下だけで決まります。[第1節と同じ係数帰納法](#thm-comb13-fixed-point)により、この方程式の定数項零の解は一意です。ゆえに $Y=u$、すなわち $F(H(u))=u$ です。
+です。各 $n-j\leq n-1$ なので、[形式的合成](../COMB9/index.md#def-comb9-composition)の係数は $y_1,\ldots,y_{n-1}$ だけから決まります。[第1節と同じ係数帰納法](#thm-comb13-fixed-point)により、この方程式の定数項零の解は一意です。ゆえに $Y=u$、すなわち $F(H(u))=u$ です。
 
 任意の別の合成逆 $\widetilde F$ は $H(\widetilde F)=x$ を満たし、従って $\widetilde F=x\psi(\widetilde F)$ なので先の一意性により $\widetilde F=F$。特例では $h=1/\phi$、$\psi=\phi$ です。
 <!-- proof-end -->
@@ -482,7 +482,7 @@ $$
 \end{aligned}
 $$
 
-ここで $\exp(u)^n=\exp(nu)$ は形式的な積の係数を比較して成立します。実際、$u^m$ の係数は多項定理により $\sum_{j_1+\cdots+j_n=m}1/(j_1!\cdots j_n!)=n^m/m!$ です。従って $r_n=n^{n-1}$。
+ここで $\exp(u)^n=\exp(nu)$ は形式的な積の係数を比較して成立します。実際、$u^m$ の係数は [多項定理](../COMB2/index.md#thm-comb2-multinomial-theorem)により $\sum_{j_1+\cdots+j_n=m}1/(j_1!\cdots j_n!)=n^m/m!$ です。従って $r_n=n^{n-1}$。
 <!-- proof-end -->
 
 $n=3$ なら各無向の三頂点の木は辺を二本持つ道で、中央の標識に三通り、根に三通りあるため $3\cdot3=9$。式でも $3^2=9$ です。根の選択は各無向木でちょうど $n$ 通りなので、$n\geq2$ の根を指定しない標識付き木の数は $n^{n-2}$ です。ただしこの割り算は**各木の根の指定が $n$ 通り**という全単射に基づき、標識なしの同型類へそのまま適用してはいけません。
