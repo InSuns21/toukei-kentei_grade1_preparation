@@ -15,7 +15,7 @@ chapters:
   - { id: COMB9, path: textbook/volumes/dream_thater/計算系/COMB/COMB9, status: completed, title: "形式冪級数と普通母関数" }
   - { id: COMB10, path: textbook/volumes/dream_thater/計算系/COMB/COMB10, status: completed, title: "構造分解と母関数" }
   - { id: COMB11, path: textbook/volumes/dream_thater/計算系/COMB/COMB11, status: completed, title: "整数分割と Euler 積" }
-  - { id: COMB12, path: textbook/volumes/dream_thater/計算系/COMB/COMB12, status: planned, title: "指数型母関数と標識付き構造" }
+  - { id: COMB12, path: textbook/volumes/dream_thater/計算系/COMB/COMB12, status: completed, title: "指数型母関数と標識付き構造" }
   - { id: COMB13, path: textbook/volumes/dream_thater/計算系/COMB/COMB13, status: planned, title: "形式的反転と再帰構造" }
   - { id: COMB14, path: textbook/volumes/dream_thater/計算系/COMB/COMB14, status: planned, title: "群作用と Burnside 計数" }
   - { id: COMB15, path: textbook/volumes/dream_thater/計算系/COMB/COMB15, status: planned, title: "有限半順序集合と Möbius 反転" }
