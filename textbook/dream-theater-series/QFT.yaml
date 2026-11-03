@@ -147,3 +147,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT35
     status: completed
     title: "標準模型のゲージ群・フェルミオン表現・超電荷とHiggs結合"
+  - id: QFT36
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT36
+    status: completed
+    title: "電弱混合・W／Z／光子の質量と荷電・中性電流"
