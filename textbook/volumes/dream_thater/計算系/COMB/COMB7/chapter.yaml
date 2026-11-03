@@ -1,0 +1,46 @@
+id: "COMB7"
+title: "離散和分と二項反転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB6
+official_scope: []
+learning_objectives:
+  - 有限和の上下端と空和を扱い、前進差分と離散和分の相互関係・定数の自由度を証明できる
+  - 離散積の法則を両方のシフト表記で導き、部分和分の境界項と符号を検算できる
+  - 二項多項式の和分を利用してべき和を Newton 基底から再構成できる
+  - 二項変換とその逆変換を定義し、二項係数の積の恒等式から反転の両方向を証明できる
+  - 有限 Newton 復元を任意の数列の整数点で導き、多項式恒等式との違いを説明できる
+definitions:
+  - { id: COMB7-DEF-01, name: 離散原始数列と不定和分 }
+  - { id: COMB7-DEF-02, name: 二項変換 }
+theorems:
+  - { id: COMB7-THM-01, name: 離散微積分の基本定理 }
+  - { id: COMB7-PROP-01, name: 離散積の法則 }
+  - { id: COMB7-THM-02, name: 部分和分 }
+  - { id: COMB7-THM-03, name: 二項多項式の和分 }
+  - { id: COMB7-THM-04, name: Newton 基底による多項式の和分 }
+  - { id: COMB7-THM-05, name: 二項反転 }
+  - { id: COMB7-COR-01, name: 符号付き二項変換の自己反転 }
+  - { id: COMB7-THM-06, name: 整数点での有限 Newton 復元 }
+canonical_examples:
+  - 奇数列の和分と任意定数
+  - 離散積の法則の二通りのシフト
+  - 部分和分の有限区間での直接検算
+  - 二乗和・三乗和を二項基底から計算
+  - 定数列の二項変換と逆変換
+  - 多項式と一般数列の有限 Newton 復元の違い
+problem_patterns:
+  - COMB7-DISCRETE-ANTIDERIVATIVE
+  - COMB7-SUMMATION-BOUNDARY
+  - COMB7-DISCRETE-PRODUCT-RULE
+  - COMB7-SUMMATION-BY-PARTS
+  - COMB7-BINOMIAL-HOCKEY-STICK
+  - COMB7-POWER-SUM
+  - COMB7-BINOMIAL-TRANSFORM
+  - COMB7-BINOMIAL-INVERSION
+  - COMB7-FINITE-NEWTON-RECOVERY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

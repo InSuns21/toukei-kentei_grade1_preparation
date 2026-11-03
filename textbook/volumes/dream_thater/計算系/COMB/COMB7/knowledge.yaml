@@ -1,0 +1,77 @@
+chapter: COMB7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB6
+forward_references: []
+
+concepts:
+  - id: combinatorics.discrete-antiderivative
+    name: 離散原始数列と不定和分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（離散原始数列と不定和分）]
+    requires: [combinatorics.finite-difference-operators]
+
+  - id: combinatorics.discrete-fundamental-theorem
+    name: 離散微積分の基本定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（離散微積分の基本定理）]
+    requires: [combinatorics.discrete-antiderivative]
+
+  - id: combinatorics.discrete-product-rule
+    name: 離散積の法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [命題（離散積の法則）]
+    requires: [combinatorics.finite-difference-operators]
+
+  - id: combinatorics.summation-by-parts
+    name: 部分和分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（部分和分）]
+    requires: [combinatorics.discrete-product-rule, combinatorics.discrete-fundamental-theorem]
+
+  - id: combinatorics.binomial-polynomial-summation
+    name: 二項多項式の和分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二項多項式の和分）]
+    requires: [combinatorics.discrete-fundamental-theorem, combinatorics.falling-factorial-difference]
+
+  - id: combinatorics.newton-basis-summation
+    name: Newton 基底による多項式の和分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Newton 基底による多項式の和分）]
+    requires: [combinatorics.binomial-polynomial-summation, combinatorics.newton-polynomial-expansion]
+
+  - id: combinatorics.binomial-transform
+    name: 二項変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二項変換）]
+    requires: [combinatorics.binomial-coefficient-interpretation]
+
+  - id: combinatorics.binomial-inversion
+    name: 二項反転
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二項反転）]
+    requires: [combinatorics.binomial-transform, combinatorics.pascal-identity]
+
+  - id: combinatorics.signed-binomial-involution
+    name: 符号付き二項変換の自己反転
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [系（符号付き二項変換の自己反転）]
+    requires: [combinatorics.binomial-inversion]
+
+  - id: combinatorics.finite-newton-recovery
+    name: 整数点での有限 Newton 復元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数点での有限 Newton 復元）]
+    requires: [combinatorics.binomial-inversion, combinatorics.iterated-forward-difference]
