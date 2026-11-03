@@ -38,4 +38,5 @@
 35. [QFT35 標準模型のゲージ群・フェルミオン表現・超電荷とHiggs結合](textbook/volumes/dream_thater/物理系/QFT/QFT35/index.md)
 36. [QFT36 電弱混合・W／Z／光子の質量と荷電・中性電流](textbook/volumes/dream_thater/物理系/QFT/QFT36/index.md)
 37. [QFT37 Yukawa質量行列・世代基底の回転とCKM混合](textbook/volumes/dream_thater/物理系/QFT/QFT37/index.md)
+38. [QFT38 弱崩壊・Fermi四フェルミオン相互作用と低エネルギー有効理論](textbook/volumes/dream_thater/物理系/QFT/QFT38/index.md)
 
