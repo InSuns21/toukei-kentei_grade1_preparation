@@ -33,7 +33,7 @@
 - https://mitpress.mit.edu/9780262049443/learning-theory-from-first-principles/
 - https://www.di.ens.fr/~fbach/ltfp/
 - https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html
-- https://www.cambridge.org/core/books/highdimensional-statistics/6DEB253AB61B7A4F08609CFF76B9C6A3
+- https://www.cambridge.org/core/books/highdimensional-statistics/contents/8368CE9B2CBFD9AC91F397CF131EC21F
 - https://arxiv.org/abs/1903.08560
 - https://arxiv.org/abs/1806.07572
 - https://arxiv.org/abs/1805.09545
