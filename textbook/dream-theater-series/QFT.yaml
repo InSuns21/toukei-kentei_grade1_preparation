@@ -171,3 +171,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT41
     status: completed
     title: "QCDの色表現・クォークとグルーオンの頂点・走る強結合"
+  - id: QFT42
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT42
+    status: completed
+    title: "QCDの漸近自由性の適用域・静的ポテンシャル・閉じ込めの境界"

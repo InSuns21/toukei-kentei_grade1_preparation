@@ -1,0 +1,69 @@
+chapter: QFT42
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT20, QFT28, QFT41]
+forward_references: []
+
+concepts:
+  - id: qft.qcd-lambda-and-perturbative-domain
+    name: 一ループQCDのΛ尺度と摂動域
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一ループQCDのΛ尺度と摂動域）]
+    requires: [qft.qcd-one-loop-beta]
+
+  - id: qft.qcd-lambda-scale-flow
+    name: 一ループ流の積分定数と尺度依存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一ループ流の積分定数と尺度依存）]
+    requires: [qft.qcd-lambda-and-perturbative-domain]
+
+  - id: qft.qcd-static-source-potential
+    name: 静的色源の相互作用ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（静的色源の相互作用ポテンシャル）]
+    requires: [qft.qcd-color-action, qft.qcd-color-invariants]
+
+  - id: qft.qcd-short-distance-potential
+    name: 短距離色一重項ポテンシャル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（短距離色一重項ポテンシャル）]
+    requires: [qft.qcd-static-source-potential, qft.qcd-color-invariants]
+
+  - id: qft.qcd-lattice-wilson-loop
+    name: 格子のWilsonループ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（格子のWilsonループ）]
+    requires: [qft.qcd-color-action]
+
+  - id: qft.qcd-wilson-loop-covariance
+    name: Wilsonループのゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Wilsonループのゲージ不変性）]
+    requires: [qft.qcd-lattice-wilson-loop]
+
+  - id: qft.qcd-lattice-wilson-action
+    name: 純ゲージWilson格子作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（純ゲージWilson格子作用）]
+    requires: [qft.qcd-lattice-wilson-loop]
+
+  - id: qft.qcd-su3-haar-orthogonality
+    name: SU(3)Haar積分の基本直交性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（SU(3)Haar積分の基本直交性）]
+    requires: [qft.qcd-lattice-wilson-action]
+
+  - id: qft.qcd-finite-loop-strong-coupling
+    name: 有限矩形Wilsonループの強結合先頭項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限矩形Wilsonループの強結合先頭項）]
+    requires: [qft.qcd-su3-haar-orthogonality, qft.qcd-wilson-loop-covariance]
