@@ -3,9 +3,9 @@ import path from 'node:path';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
 
-// SREL/GR and QFT1–20 use -+++; QFT21–26 are Euclidean-only and checked;
-// QFT27–29 are migrated to -+++.
-// Reject legacy signatures anywhere in migrated SREL/GR or checked QFT1–29 bodies and
+// SREL/GR and QFT1–20 use -+++; QFT21–26 and QFT30 are Euclidean-only and checked;
+// QFT27–29 and QFT31–32 are migrated to -+++.
+// Reject legacy signatures anywhere in migrated SREL/GR or checked QFT1–32 bodies and
 // reject new legacy metric declarations in other DREAM THEATER chapters.
 const root = process.cwd();
 const chapterRoot = 'textbook/volumes/dream_thater';
@@ -66,7 +66,7 @@ for (const series of migratedSeries) {
   }
 }
 const earlyQftRoot = path.join(root, chapterRoot, '物理系', 'QFT');
-for (let n = 1; n <= 29; n += 1) {
+for (let n = 1; n <= 32; n += 1) {
   const chapterPath = path.join(earlyQftRoot, `QFT${n}`, 'index.md');
   const lines = fs.readFileSync(chapterPath, 'utf8').split('\n');
   lines.forEach((line, i) => {
@@ -84,7 +84,7 @@ if (migratedProblems.length) {
 const baseIndex = process.argv.indexOf('--base');
 const base = baseIndex >= 0 ? process.argv[baseIndex + 1] : process.env.TEXTBOOK_BASE_SHA;
 if (!base) {
-  console.log('SREL/GR and QFT1–20 use -+++; QFT21–26 are Euclidean-only checked; QFT27–29 migrated. QFT30+ migration is pending. Use --base <SHA> to reject new legacy declarations.');
+  console.log('SREL/GR and QFT1–20 use -+++; QFT21–26 and QFT30 are Euclidean-only checked; QFT27–29 and QFT31–32 migrated. QFT33+ migration is pending. Use --base <SHA> to reject new legacy declarations.');
   process.exit(0);
 }
 
