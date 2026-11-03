@@ -1,6 +1,6 @@
 # QFT39 カイラル対称性の量子異常・FujikawaのJacobianと軸性Ward恒等式
 
-[QFT32のカイラリティ](../QFT32/index.md#def-qft32-chirality)によれば、質量零のDirac場は左成分と右成分に分かれます。[QFT33の大域対称性とNoether流](../QFT33/index.md#thm-qft33-goldstone)では、対称性と保存流を結び付けました。一方、[QFT19のBerezin積分](../QFT19/index.md#def-qft19-berezin)では、フェルミオンの積分測度が変数変換の行列式の**逆数**を受け取ることを学びました。
+[QFT32のカイラリティ](../QFT32/index.md#def-qft32-chirality)によれば、質量零のDirac場は左成分と右成分に分かれます。[QFT33の保存流とWard恒等式](../QFT33/index.md#prop-qft33-ward-pole)では、対称性と保存流を結び付けました。一方、[QFT19のBerezin積分](../QFT19/index.md#def-qft19-berezin)では、フェルミオンの積分測度が変数変換の行列式の**逆数**を受け取ることを学びました。
 
 ここには一つの緊張があります。**古典作用がカイラル回転で不変でも、量子論の積分測度まで不変とは限りません。** 本講では、質量を持たないDirac場の軸性電流を古典論で導き、有限個のGrassmann変数から測度のJacobianを計算し、ゲージ不変な熱核正則化で四次元の軸性異常を求めます。さらに、背景場が零の場合、質量が正の場合、非可換群に拡張する場合を区別します。
 
@@ -46,7 +46,16 @@ $$
 <!-- definition-example-start: def-qft39-axial-rotation -->
 ### 例：左右に逆の位相が掛かることを確かめる
 
-**定義の確認**：Weyl表示で $\gamma^5=\operatorname{diag}(-I_2,I_2)$ とすると、$e^{i\alpha\gamma^5}=\operatorname{diag}(e^{-i\alpha}I_2,e^{i\alpha}I_2)$ です。$\psi=(\chi_L,\chi_R)^T$ を直接掛ければ左右が逆位相になることが分かります。また $\gamma^0\gamma^5=-\gamma^5\gamma^0$ と $\gamma^5$ のHermitian性から、変換後の随伴は $\bar\psi e^{i\alpha\gamma^5}$ です。これが $\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
+**定義の確認**：Weyl表示で $\gamma^5=\operatorname{diag}(-I_2,I_2)$ を使うと、指数行列は固有空間ごとに計算でき、
+
+$$
+e^{i\alpha\gamma^5}
+=\operatorname{diag}(e^{-i\alpha}I_2,e^{i\alpha}I_2),\qquad
+e^{i\alpha\gamma^5}\psi
+=\begin{pmatrix}e^{-i\alpha}\chi_L\\e^{i\alpha}\chi_R\end{pmatrix}.
+$$
+
+したがって左右には逆の位相が掛かります。また $\gamma^0\gamma^5=-\gamma^5\gamma^0$ と $\gamma^5$ のHermitian性から、変換後の随伴は $\bar\psi e^{i\alpha\gamma^5}$ です。$\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
 <!-- definition-example-end -->
 
 質量項は $\bar\psi_L\psi_R+\bar\psi_R\psi_L$ を結びます。したがって $m>0$ なら軸性回転は明示的に破れます。この効果と、$m=0$ でも残る量子異常は別物です。
@@ -97,9 +106,26 @@ $$
 
 ## 2. Grassmann測度はどう変換するか
 
-[QFT19の有限次元Berezin積分](../QFT19/index.md#def-qft19-berezin)で、独立変数 $\theta_1,\ldots,\theta_N$ を $\theta'_i=U_{ij}\theta_j$ と変換すると、係数抽出を保つ測度は $d\theta'_N\cdots d\theta'_1=(\det U)^{-1}d\theta_N\cdots d\theta_1$ です。通常のLebesgue積分と**逆**になります。例えば一変数で $\theta'=u\theta$ とすると $\int d\theta'\,\theta'=1$ であるため、$d\theta'=u^{-1}d\theta$ が必要です。
+[QFT19の有限次元Berezin積分](../QFT19/index.md#def-qft19-berezin)では、独立変数 $\theta_1,\ldots,\theta_N$ を $\theta'_i=U_{ij}\theta_j$ と変換すると、係数抽出を保つ測度が
+
+$$
+d\theta'_N\cdots d\theta'_1=(\det U)^{-1}d\theta_N\cdots d\theta_1
+$$
+
+になることを使います。通常のLebesgue積分とは**逆**です。実際、一変数の $\theta'=u\theta$（$u\ne0$）について $\int d\theta'\,\theta'=1$ を保つには $d\theta'=u^{-1}d\theta$ が必要です。
 
 場の測度は無限個のモードを含むので、いきなり「行列式が1」とはできません。まず $N$ 個の直交規格化モード $\phi_n(x)$ で $\psi=\sum_n a_n\phi_n$、$\bar\psi=\sum_n\bar b_n\phi_n^\dagger$ と展開し、$a_n,\bar b_n$ を独立Grassmann変数と見ます。
+
+モードの内積を $\int d^4x\,\phi_m^\dagger\phi_n=\delta_{mn}$ と固定します。軸性回転後の場を同じ有限モード空間へ射影すると、係数の変換は次の行列表示になります。
+
+$$
+a'_m=\sum_{n=1}^N U_{mn}a_n,\qquad
+U_{mn}=\int d^4x\,\phi_m^\dagger(x)e^{i\alpha(x)\Gamma_5}\phi_n(x).
+$$
+
+独立な行係数 $\bar b$ は $\bar b'_m=\sum_n\bar b_nU_{nm}$ と変わります。したがって $a$ と $\bar b$ の各[Berezin測度](../QFT19/index.md#def-qft19-berezin)に、同じ $\det U$ の逆数が現れます。**行列式は場そのものではなく、選んだモード基底での係数変換を判定しています。** 局所回転では有限モード空間の外への成分も生じるため、無限モードの極限にはゲージ共変な正則化が必要です。
+
+Euclidの $\gamma_E^\mu$ はHermitianで、実 $A_\mu$ に対する $\nabla_\mu$ は境界項が消える設定で反Hermitianです。よって $\mathcal D_E^\dagger=-\mathcal D_E$、$K=\mathcal D_E^\dagger\mathcal D_E=-\mathcal D_E^2\ge0$ として熱核の重みを選べます。
 
 <a id="def-qft39-regulated-jacobian"></a>
 
@@ -121,13 +147,27 @@ $$
 \log J=-2i\int d^4x\,\alpha(x)\mathcal A(x)+O(\alpha^2)
 $$
 
-> で定める。局所式は平坦な $\mathbb R^4$ 上の滑らかな背景場で考え、必要なら有限体積の赤外正則化を置いてから $M\to\infty$ とする。$\operatorname{tr}_{\rm spin}$ は四成分スピノル添字の跡である。
+> で定める。$M>0$ は紫外正則化の尺度である。局所式は平坦な $\mathbb R^4$ 上の滑らかな背景場で考え、必要なら有限体積の赤外正則化を置いてから $M\to\infty$ とする。$\operatorname{tr}_{\rm spin}$ は四成分スピノル添字の跡である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft39-regulated-jacobian -->
 ### 例：二モードで符号と二倍を確認する
 
-**定義の確認**：$\Gamma_5=\operatorname{diag}(1,-1)$ とした二つの有限モードで、定数 $\alpha$ なら $U=\operatorname{diag}(e^{i\alpha},e^{-i\alpha})$、$\det U=1$ です。$a$ と $\bar b$ の測度はそれぞれ $(\det U)^{-1}$ を受けるので全体で $(\det U)^{-2}=1$。片方の固有モードだけを残した切断なら $\det U=e^{i\alpha}$、測度は $e^{-2i\alpha}$ となります。**有限切断の選び方**が重要であり、ゲージ共変な $K$ の固有モードで切断することが次の問題です。
+**定義の確認**：正規直交な二つの $\Gamma_5$ 固有モード（固有値 $+1,-1$）を選ぶと、係数空間で $\Gamma_5=\operatorname{diag}(1,-1)$ です。定数 $\alpha$ に対する射影行列とJacobianは
+
+$$
+U=\operatorname{diag}(e^{i\alpha},e^{-i\alpha}),\qquad
+\det U=e^{i\alpha}e^{-i\alpha}=1,\qquad
+J=(\det U)^{-2}=1.
+$$
+
+独立な $a$ と $\bar b$ の各測度が $1/\det U$ を受けるため、二乗しています。一方、固有値 $+1$ の一モードだけに切断すると $U=(e^{i\alpha})$ であり、
+
+$$
+\det U=e^{i\alpha},\qquad J=e^{-2i\alpha}
+$$
+
+と変わります。**有限切断の選び方**が重要であり、ゲージ共変な $K$ の固有モードで切断することが次の問題です。
 <!-- definition-example-end -->
 
 <a id="prop-qft39-jacobian-modes"></a>
@@ -156,7 +196,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\psi'=e^{i\alpha\Gamma_5}\psi$ をモード展開して左から $\phi_m^\dagger$ を積分すると上の $U_{mn}$ が出ます。$\bar b$ の変換も独立に同じ $U$ の行列式を与える（添字順の転置は行列式を変えない）ので
+$\psi'=e^{i\alpha\Gamma_5}\psi$ をモード展開して左から $\phi_m^\dagger$ を積分すると上の $U_{mn}$ が出ます。一方 $\bar\psi'=\bar\psi e^{i\alpha\Gamma_5}$ を右から $\phi_m$ に射影すると $\bar b'_m=\sum_n\bar b_nU_{nm}$ です。列係数で書けば $\bar b'=U^T\bar b$ で、$\det U^T=\det U$ なので
 
 $$
 J_N=(\det U)^{-1}(\det U)^{-1}=(\det U)^{-2}.
@@ -191,7 +231,7 @@ $$
 
 ### 証明の見取り図
 
-$K$ を二乗すると、通常の共変Laplace作用素のほかに、$F_{\mu\nu}$ と二つの $\gamma$ 行列の積が現れます。$\Gamma_5$ の跡は**四つの $\gamma$** を含まなければ零です。そこでこの曲率項を二回取ると初めて寄与し、運動量Gaussian積分が $1/(16\pi^2)$ を生みます。
+$\mathcal D_E$ を二乗すると、通常の共変Laplace作用素のほかに、$F_{\mu\nu}$ と二つの $\gamma_E$ 行列の積が現れます。$\Gamma_5$ の跡は**四つの $\gamma_E$** を含まなければ零です。そこでこの曲率項を二回取ると初めて寄与し、運動量Gaussian積分が $1/(16\pi^2)$ を生みます。
 
 <!-- proof-start -->
 ### 証明
@@ -208,7 +248,7 @@ K&=-\nabla^2-\frac{iq}{4}[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}.
 \end{aligned}
 $$
 
-計算点の近くで共変熱核を高運動量展開します。$\Gamma_5$ と $I,\gamma^\mu\gamma^\nu$ の跡は零なので、曲率項を二回選んだ次数だけが $M^0$ で残ります（共変微分の係数、曲率の導関数の項はこの次数の四つのClifford行列を作らず、次次数以降は $M\to\infty$ で消えます）。この項は
+計算点の近くで共変熱核を高運動量展開します。$\Gamma_5$ と $I,\gamma_E^\mu\gamma_E^\nu$ の跡は零なので、曲率項を二回選んだ次数だけが $M^0$ で残ります（共変微分の係数、曲率の導関数の項はこの次数の四つのClifford行列を作らず、次次数以降は $M\to\infty$ で消えます）。この項は
 
 $$
 \frac12\left(\frac{iq}{4M^2}\right)^2
@@ -218,7 +258,15 @@ F_{\mu\nu}F_{\rho\sigma}
 [\gamma_E^\rho,\gamma_E^\sigma]\right).
 $$
 
-$\operatorname{tr}(\Gamma_5\gamma_E^\mu\gamma_E^\nu\gamma_E^\rho\gamma_E^\sigma)=4\varepsilon^{\mu\nu\rho\sigma}$ で、交換子を展開するとその跡は $16\varepsilon^{\mu\nu\rho\sigma}$。一方、各点での自由Gaussian運動量積分は
+$\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4$ なので、互いに異なる四添字 $(1,2,3,4)$ では $\operatorname{tr}(\Gamma_5\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4)=\operatorname{tr}(I_4)=4$ です。添字の置換は反交換関係により符号 $\varepsilon^{\mu\nu\rho\sigma}$ を生み、添字が重なる場合は二つ以下の異なる $\gamma_E$ に帰着して跡が零です。したがって
+
+$$
+\operatorname{tr}_{\rm spin}
+(\Gamma_5\gamma_E^\mu\gamma_E^\nu\gamma_E^\rho\gamma_E^\sigma)
+=4\varepsilon^{\mu\nu\rho\sigma}.
+$$
+
+交換子の積を四項に開くと、各項は添字反転の負号と $\varepsilon$ の反対称性で同じ寄与を持つため、その跡は $16\varepsilon^{\mu\nu\rho\sigma}$ です。一方、各点での自由Gaussian運動量積分は
 
 $$
 \int_{\mathbb R^4}\frac{d^4p}{(2\pi)^4}e^{-p^2/M^2}
@@ -302,11 +350,25 @@ $$
 
 **第二の区別：軸性対称性とゲージ対称性。** ベクトル回転では $\psi\mapsto e^{i\beta}\psi$、$\bar\psi\mapsto\bar\psi e^{-i\beta}$ です。二つのBerezin Jacobianは互いに逆で相殺し、背景ゲージ不変な正則化の下でベクトルWard恒等式を守れます。**軸性の大域的対称性の異常を、直ちにゲージ理論の不整合（ゲージ異常）と呼ばない**ことが大切です。標準模型のカイラルゲージ表現の異常相殺は次の別問題です。
 
-**第三の区別：Euclid式と実時間式。** Euclidの $\Gamma_5$、$\varepsilon^{1234}=+1$、$\nabla=\partial+iqA$ で得た負符号を明記しました。Minkowskiで $F\widetilde F$ や $\boldsymbol E\cdot\boldsymbol B$ に移すには、$A_4$、$\gamma_E$、$\varepsilon^{0123}$ の解析接続規約を一式揃える必要があります。係数の絶対値と、$\psi,\bar\psi$ による二倍はその選択で変わりません。
+**第三の区別：Euclid式と実時間式。** Euclidの $\Gamma_5$、$\varepsilon^{1234}=+1$、$\nabla_\mu=\partial_\mu+iqA_\mu$ で得た負符号を明記しました。Minkowskiで $F\widetilde F$ や $\boldsymbol E\cdot\boldsymbol B$ に移すには、$A_4$、$\gamma_E$、$\varepsilon^{0123}$ の解析接続規約を一式揃える必要があります。係数の絶対値と、$\psi,\bar\psi$ による二倍はその選択で変わりません。
 
 ### 非可換背景では何が変わるか
 
-[QFT28のYang–Mills曲率](../QFT28/index.md#def-qft28-curvature)を用い、$\nabla_\mu=\partial_\mu+igA_\mu^aT_R^a$ とします。有限次元ユニタリ表現 $R$ のHermitian生成子が $\operatorname{tr}_R(T_R^aT_R^b)=T(R)\delta^{ab}$ を満たすように正規化します。この $T(R)$ は表現のDynkin指数で、[QFT30の随伴Casimir](../QFT30/index.md#def-qft30-adjoint-casimir) $C_A$ とは異なります。
+[QFT28のYang–Mills曲率](../QFT28/index.md#def-qft28-curvature)を参照しますが、本節はEuclid規約に合わせて $\nabla_\mu=\partial_\mu+igA_\mu^aT_R^a$ と書きます。QFT28の $D_\mu=\partial_\mu-igA_\mu$ とは符号が逆です。同じ接続を比較するには本節の $A_\mu^{(+)}=-A_\mu^{(28)}$ と取り、交換子を展開して
+
+$$
+\begin{aligned}
+[\nabla_\mu,\nabla_\nu]&=igF_{\mu\nu}^{(+)a}T_R^a,\\
+F_{\mu\nu}^{(+)a}
+&=\partial_\mu A_\nu^{(+)a}-\partial_\nu A_\mu^{(+)a}
+-gf^{abc}A_\mu^{(+)b}A_\nu^{(+)c}
+=-F_{\mu\nu}^{(28)a}
+\end{aligned}
+$$
+
+を得ます。以下の $A_\mu^a,F_{\mu\nu}^a$ は $+$ 規約を表します。異常に現れる曲率の積 $F_{\mu\nu}^aF_{\rho\sigma}^a$ は、この同時符号反転で不変です。
+
+有限次元ユニタリ表現 $R$ のHermitian生成子が $\operatorname{tr}_R(T_R^aT_R^b)=T(R)\delta^{ab}$ を満たすように正規化します。この $T(R)$ は表現のDynkin指数で、[QFT30の随伴Casimir](../QFT30/index.md#def-qft30-adjoint-casimir) $C_A$ とは異なります。
 
 <a id="prop-qft39-nonabelian-axial"></a>
 
@@ -365,7 +427,29 @@ $e^{i\alpha\gamma^5}\psi=(e^{-i\alpha}\chi_L,e^{i\alpha}\chi_R)^T$。$\bar\psi_L
 <!-- solution-start -->
 ### 詳細解答
 
-$\partial_\mu\bar\psi=(D_\mu\bar\psi)+iqA_\mu\bar\psi$、$\partial_\mu\psi=D_\mu\psi-iqA_\mu\psi$ なので二つの $iqA_\mu$ 項が相殺します。残りは $(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi+\bar\psi\gamma^\mu\gamma^5D_\mu\psi=im\bar\psi\gamma^5\psi-\bar\psi\gamma^5(-im\psi)=2im\bar\psi\gamma^5\psi$ です。
+共変微分の定義を解いて
+
+$$
+\partial_\mu\bar\psi=(D_\mu\bar\psi)+iqA_\mu\bar\psi,\qquad
+\partial_\mu\psi=D_\mu\psi-iqA_\mu\psi
+$$
+
+を得ます。積の微分に代入すると、二つの $iqA_\mu$ 項は符号が逆で相殺します。次に、随伴方程式と $\gamma^\mu\gamma^5=-\gamma^5\gamma^\mu$ を順に用いて
+
+$$
+\begin{aligned}
+\partial_\mu(\bar\psi\gamma^\mu\gamma^5\psi)
+&=(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi
++\bar\psi\gamma^\mu\gamma^5D_\mu\psi\\
+&=im\bar\psi\gamma^5\psi
+-\bar\psi\gamma^5(\gamma^\mu D_\mu\psi)\\
+&=im\bar\psi\gamma^5\psi
+-\bar\psi\gamma^5(-im\psi)
+=2im\bar\psi\gamma^5\psi
+\end{aligned}
+$$
+
+と導きます。質量零なら右辺は零です。
 <!-- solution-end -->
 
 ### 演習 QFT39-A3：Berezin測度の逆行列式
@@ -404,23 +488,64 @@ $a'=e^{i\beta}a$ なので $D a'=(e^{iN\beta})^{-1}Da=e^{-iN\beta}Da$。独立�
 ### 演習 QFT39-B1：熱核の係数を一から求める
 
 - Level: B
-- 問題：$K=-\nabla^2-(iq/4)[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}$、$\operatorname{tr}(\Gamma_5[\gamma^\mu,\gamma^\nu][\gamma^\rho,\gamma^\sigma])=16\varepsilon^{\mu\nu\rho\sigma}$ が与えられる。四次元Gaussian積分を実行し、$M\to\infty$ に残る $F^2$ 項の係数を求めよ。
+- 問題：Euclidの $\gamma_E^\mu$ を用い、$K=-\nabla^2-(iq/4)[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}$、$\operatorname{tr}_{\rm spin}(\Gamma_5[\gamma_E^\mu,\gamma_E^\nu][\gamma_E^\rho,\gamma_E^\sigma])=16\varepsilon^{\mu\nu\rho\sigma}$ が与えられる。四次元Gaussian積分を実行し、$M\to\infty$ に残る $F^2$ 項の係数を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-曲率項の一回目は二個の $\gamma$ しかないため $\Gamma_5$ の跡は零。二回目のTaylor係数は $\frac12(iq/4M^2)^2=-q^2/(32M^4)$ です。一次元積分 $\int dp\,e^{-p^2/M^2}=M\sqrt\pi$ を四回掛け、$(2\pi)^{-4}$ で割ると $M^4/(16\pi^2)$。従って $M^4/(16\pi^2)\times[-q^2/(32M^4)]\times16=-q^2/(32\pi^2)$ で、$\mathcal A=-q^2\varepsilon FF/(32\pi^2)$ です。
+曲率項の一回目は二個の $\gamma_E$ しかないため $\Gamma_5$ の跡は零です。二回目にはTaylor係数
+
+$$
+\frac1{2!}\left(\frac{iq}{4M^2}\right)^2
+=-\frac{q^2}{32M^4}
+$$
+
+が掛かります。一次元Gaussian積分を $p=Mu$ と置換して
+
+$$
+\int_{-\infty}^\infty dp\,e^{-p^2/M^2}
+=M\int_{-\infty}^\infty du\,e^{-u^2}
+=M\sqrt\pi
+$$
+
+と求め、四成分を積分して $(2\pi)^{-4}$ で割れば $M^4/(16\pi^2)$ です。さらに四個のClifford行列の跡は $16\varepsilon^{\mu\nu\rho\sigma}$ なので、
+
+$$
+\mathcal A(x)
+=\frac{M^4}{16\pi^2}
+\left(-\frac{q^2}{32M^4}\right)16
+\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}
+=-\frac{q^2}{32\pi^2}\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}.
+$$
+
+$M^4$ と $M^{-4}$ が打ち消し合うため、$M\to\infty$ にこの係数が残ります。
 <!-- solution-end -->
 
 ### 演習 QFT39-B2：質量とJacobianを含めたWard式
 
 - Level: B
-- 問題：$\delta S_E=i\int\alpha(-\partial j_5+2mP)$、$\delta\log J=-2i\int\alpha\mathcal A$ とする。$0=\langle-\delta S_E+\delta\log J\rangle_A$ から $\partial\langle j_5\rangle$ を導き、$m=0$ かつ $F_{12}=b,F_{34}=c$ の値を求めよ。
+- 問題：$P(x)=\bar\psi\Gamma_5\psi$、$j_{5,E}^\mu=\bar\psi\gamma_E^\mu\Gamma_5\psi$ と置き、$\delta S_E=i\int d^4x\,\alpha(-\partial_\mu j_{5,E}^\mu+2mP)$、$\delta\log J=-2i\int d^4x\,\alpha\mathcal A$ とする。$0=\langle-\delta S_E+\delta\log J\rangle_A$ から $\partial_\mu\langle j_{5,E}^\mu\rangle_A$ を導き、$m=0$ かつ $F_{12}=b,F_{34}=c$ の値を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-変分恒等式の $i\alpha$ の係数は $\langle\partial j_5\rangle-2m\langle P\rangle-2\mathcal A$ です。任意の $\alpha$ から $\partial\langle j_5\rangle=2m\langle P\rangle+2\mathcal A$。$m=0$ では $2\mathcal A=-q^2\varepsilon FF/(16\pi^2)$ です。$\varepsilon FF=8bc$ を代入すると $-q^2bc/(2\pi^2)$。$m=0$ としてもこの値は一般には消えません。
+問題で定めた $P$ と $j_{5,E}^\mu$ を使い、二つの変分を引き算すると
+
+$$
+0=i\int d^4x\,\alpha(x)
+\left[\langle\partial_\mu j_{5,E}^\mu(x)\rangle_A
+-2m\langle P(x)\rangle_A-2\mathcal A(x)\right].
+$$
+
+$\alpha\in C_c^\infty$ が任意なので角括弧内の分布は零です。[熱核係数](#thm-qft39-fujikawa-abelian)を代入すると
+
+$$
+\partial_\mu\langle j_{5,E}^\mu\rangle_A
+=2m\langle P\rangle_A
+-\frac{q^2}{16\pi^2}\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}.
+$$
+
+$m=0$ かつ $F_{12}=b,F_{34}=c$ なら八項の和は $8bc$ です。したがって発散は $-q^2(8bc)/(16\pi^2)=-q^2bc/(2\pi^2)$。質量を零にしても一般には消えません。
 <!-- solution-end -->
 
 ### 演習 QFT39-B3：$SU(2)$ の色の跡
@@ -442,7 +567,15 @@ $\operatorname{tr}(T^aT^b)=\frac14\operatorname{tr}(\sigma^a\sigma^b)=\delta^{ab
 <!-- solution-start -->
 ### 詳細解答
 
-場ごとの係数は $-q^2\varepsilon FF/(16\pi^2)$ と $-(2q)^2\varepsilon FF/(16\pi^2)=-4q^2\varepsilon FF/(16\pi^2)$。和は $-5q^2\varepsilon FF/(16\pi^2)$ です。差 $j_{5,1}-j_{5,2}/4$ では $-q^2+\frac14(4q^2)=0$ となります。ベクトル測度は $\psi$ と $\bar\psi$ の逆位相でJacobianが相殺するので、背景ゲージ不変な正則化ではこの軸性異常に対応するベクトル異常はありません。
+二つのDirac場の軸性発散の異常係数を、共通因子 $\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}/(16\pi^2)$ をくくって比較します。各場の係数は $-q^2$ と $-(2q)^2=-4q^2$ なので、
+
+$$
+\partial_\mu\langle j_{5,1}^\mu+j_{5,2}^\mu\rangle_A
+=-\frac{5q^2}{16\pi^2}
+\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}.
+$$
+
+一方、重み付き差では $-q^2-\frac14(-4q^2)=0$ です。ベクトル測度は $\psi$ と $\bar\psi$ の逆位相でJacobianが相殺するので、背景ゲージ不変な正則化ではこの軸性異常に対応するベクトル異常はありません。
 <!-- solution-end -->
 
 ### 演習 QFT39-C1：古典対称性から量子Ward式へ
@@ -451,7 +584,7 @@ $\operatorname{tr}(T^aT^b)=\frac14\operatorname{tr}(\sigma^a\sigma^b)=\delta^{ab
 - 問題：Euclid空間の一つのDirac場を考える。共変微分、カイラリティ、作用は次とする。
 
 $$
-\nabla=\partial+iqA,\qquad
+\nabla_\mu=\partial_\mu+iqA_\mu,\qquad
 \Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4,\qquad
 S_E=\int d^4x\,\bar\psi(\mathcal D_E+m)\psi.
 $$
@@ -465,11 +598,65 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**(1)** $\delta\psi=i\alpha\Gamma_5\psi$、$\delta\bar\psi=i\alpha\bar\psi\Gamma_5$ とする。$\{\Gamma_5,\mathcal D_E\}=0$ より定数 $\alpha$ の運動項は相殺し、局所性から $\delta S_E=i\int[(\partial_\mu\alpha)\bar\psi\gamma_E^\mu\Gamma_5\psi+2m\alpha\bar\psi\Gamma_5\psi]$。部分積分で $i\int\alpha(-\partial j_5+2mP)$ です。
+**(1)** $\delta\psi=i\alpha\Gamma_5\psi$、$\delta\bar\psi=i\alpha\bar\psi\Gamma_5$ とします。微分は $\alpha(x)$ にも作用するので
 
-**(2)** $N$ モードの変換行列を $U=I+i\alpha_{mn}\Gamma_{5,mn}+O(\alpha^2)$ と書くと、$\log\det U=i\operatorname{tr}(\alpha\Gamma_5)+O(\alpha^2)$。$Da$ と $D\bar b$ は各 $(\det U)^{-1}$ 倍なので $\log J=-2i\operatorname{tr}(\alpha\Gamma_5)$。無限モードでは $e^{-K/M^2}$ で正則化します。
+$$
+\mathcal D_E(\alpha\Gamma_5\psi)
+=\gamma_E^\mu(\partial_\mu\alpha)\Gamma_5\psi
++\alpha\mathcal D_E\Gamma_5\psi.
+$$
 
-**(3)** $[\nabla_\mu,\nabla_\nu]=iqF_{\mu\nu}$ から $K=-\nabla^2-(iq/4)[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}$。$\Gamma_5$ の跡に寄与するのは曲率項を二回取った次数で、$\frac12(iq/4M^2)^2=-q^2/(32M^4)$。跡 $16\varepsilon^{\mu\nu\rho\sigma}$、運動量積分 $M^4/(16\pi^2)$ を掛けて $\mathcal A=-q^2\varepsilon FF/(32\pi^2)$ です。
+$\{\Gamma_5,\mathcal D_E\}=0$ から、二つの運動項の $\alpha$ に比例する部分は相殺し、質量項は二つ足されます。よって
+
+$$
+\delta S_E=i\int d^4x\,
+\left[(\partial_\mu\alpha)j_{5,E}^\mu
++2m\alpha\bar\psi\Gamma_5\psi\right]
+=i\int d^4x\,\alpha
+\left[-\partial_\mu j_{5,E}^\mu+2mP\right],
+$$
+
+ただし $P=\bar\psi\Gamma_5\psi$ で、最後は $\alpha$ のコンパクト台を用いた部分積分です。
+
+**(2)** 有限モード基底に射影し、$\alpha(x)$ を掛けてから $\Gamma_5$ を作用させる行列を
+
+$$
+B_{mn}=\int d^4x\,\phi_m^\dagger(x)\alpha(x)\Gamma_5\phi_n(x)
+$$
+
+と置きます。局所変換の一次では $U_{mn}=\delta_{mn}+iB_{mn}+O(\alpha^2)$ なので
+
+$$
+\log\det U=i\operatorname{tr}_N B+O(\alpha^2)
+=i\sum_{n=1}^N\int d^4x\,\alpha(x)\phi_n^\dagger\Gamma_5\phi_n+O(\alpha^2).
+$$
+
+$Da$ と $D\bar b$ はそれぞれ $(\det U)^{-1}$ 倍なので $\log J_N=-2i\operatorname{tr}_N B+O(\alpha^2)$ です。ここで $\operatorname{tr}_N$ は**モード添字**の跡であり、点ごとのスピノルの跡とは区別します。無限モードでは $K\phi_n=\lambda_n\phi_n$ に対する $e^{-\lambda_n/M^2}$ を掛けてから極限を取ります。
+
+**(3)** 共変微分の交換子は $[\nabla_\mu,\nabla_\nu]=iqF_{\mu\nu}$ です。$\gamma_E^\mu\gamma_E^\nu$ の対称部と反対称部を分ければ
+
+$$
+K=-\nabla^2-\frac{iq}{4}
+[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}.
+$$
+
+$\Gamma_5$ を入れた跡は、曲率因子一つ（$\gamma_E$ 二個）では零で、二つ（$\gamma_E$ 四個）で初めて非零です。係数と積分を別々に求めると
+
+$$
+\frac12\left(\frac{iq}{4M^2}\right)^2
+=-\frac{q^2}{32M^4},\qquad
+\int\frac{d^4p}{(2\pi)^4}e^{-p^2/M^2}
+=\frac{M^4}{16\pi^2}.
+$$
+
+四個の $\gamma_E$ の跡は $16\varepsilon^{\mu\nu\rho\sigma}$ を与えるので、$M^4$ が消去され、
+
+$$
+\mathcal A=-\frac{q^2}{32\pi^2}
+\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}
+$$
+
+を得ます。
 
 **(4)** $0=\langle-\delta S_E+\delta\log J\rangle$ から $\partial\langle j_5\rangle=2m\langle P\rangle+2\mathcal A$。$m=0$、$\varepsilon FF=8bc$ なので $\partial\langle j_5\rangle=-q^2bc/(2\pi^2)$。
 
