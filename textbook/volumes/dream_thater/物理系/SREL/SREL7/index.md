@@ -6,19 +6,19 @@
 
 例えば静止した容器内で、流体は質量としてのエネルギーだけでなく内的エネルギーを持ち、容器の壁へ圧力を及ぼします。観測者が動くと、この圧力も運動量の流れに寄与します。**静止系で測定した密度・圧力から任意の慣性系の流束を作り、局所保存則から流体の運動を導けるか**が本章の問いです。
 
-平坦な四次元Minkowski時空を用い、$x^\mu=(ct,x,y,z)$、$\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、$\partial_\mu=(c^{-1}\partial_t,\partial_x,\partial_y,\partial_z)$、$c>0$ とします。ギリシャ添字は $0,1,2,3$、空間添字は $1,2,3$、反復添字は縮約します。場は議論する開領域で少なくとも $C^1$ 級、粒子の固有数密度 $n>0$、流体の三速度は $|\boldsymbol v|<c$ と仮定します。計量・四元速度は[SREL2のMinkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)と[SREL3の四元速度](../SREL3/index.md#def-srel3-four-velocity)の規約です。
+平坦な四次元Minkowski時空を用い、$x^\mu=(ct,x,y,z)$、$\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$、$\partial_\mu=(c^{-1}\partial_t,\partial_x,\partial_y,\partial_z)$、$c>0$ とします。ギリシャ添字は $0,1,2,3$、空間添字は $1,2,3$、反復添字は縮約します。場は議論する開領域で少なくとも $C^1$ 級、粒子の固有数密度 $n>0$、流体の三速度は $|\boldsymbol v|<c$ と仮定します。計量・四元速度は[SREL2のMinkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)と[SREL3の四元速度](../SREL3/index.md#def-srel3-four-velocity)の規約です。
 
 ## 1. 粒子を数える保存則：流体が動くと密度はどう見えるか
 
 まず圧力のない粒子群を想像します。流体と一緒に動く小体積で単位体積当たり $n$ 個の粒子があるなら、別の慣性系では[SREL1の長さの収縮](../SREL1/index.md#prop-srel1-length-contraction)を、流れの方向に沿う局所的な同時刻体積の収縮へ適用すると、粒子数を変えずに体積が $1/\gamma$ 倍となるため、観測系の密度は $\gamma n$ になります。ただ密度だけを変換するより、密度と流れを**四元ベクトル**にまとめる方が自然です。
 
-流体の四元速度を $u^\mu=\gamma(c,\boldsymbol v)$、$\gamma=(1-|\boldsymbol v|^2/c^2)^{-1/2}$ とし、[四元速度の規格化](../SREL3/index.md#thm-srel3-four-velocity)により $u_\mu u^\mu=c^2$ を満たします。
+流体の四元速度を $u^\mu=\gamma(c,\boldsymbol v)$、$\gamma=(1-|\boldsymbol v|^2/c^2)^{-1/2}$ とし、[四元速度の規格化](../SREL3/index.md#thm-srel3-four-velocity)により $u_\mu u^\mu=-c^2$ を満たします。
 
 <a id="def-srel7-particle-current"></a>
 
 <!-- formal-statement-start -->
 > **定義（粒子数四元流束）**  
-> Minkowski時空の開領域で、未来向き単位時間的四元速度 $u^\mu$（$u_\mu u^\mu=c^2$）と固有数密度 $n>0$ を持つ単一成分流体について、粒子数四元流束を次で定義する。
+> Minkowski時空の開領域で、未来向き単位時間的四元速度 $u^\mu$（$u_\mu u^\mu=-c^2$）と固有数密度 $n>0$ を持つ単一成分流体について、粒子数四元流束を次で定義する。
 
 $$
 N^\mu:=n u^\mu.
@@ -28,7 +28,7 @@ $$
 <!-- definition-example-start: def-srel7-particle-current -->
 ### 直接例：静止流体と等速で動く流体
 
-**定義の確認**：静止系では $u^\mu=(c,0,0,0)$ で $u_\mu u^\mu=c^2$、$n=n_0>0$ とすると $N^\mu=(cn_0,0,0,0)$ です。$x$ 方向に速さ $v$ で流れる同じ流体では、$u^\mu=(\gamma c,\gamma v,0,0)$ で $u_\mu u^\mu=\gamma^2(c^2-v^2)=c^2$、$N^\mu=(\gamma cn_0,\gamma n_0v,0,0)$。したがって観測系で測る粒子数密度は $N^0/c=\gamma n_0$、粒子数流束は $N^1=\gamma n_0v$ です。
+**定義の確認**：静止系では $u^\mu=(c,0,0,0)$ で $u_\mu u^\mu=-c^2$、$n=n_0>0$ とすると $N^\mu=(cn_0,0,0,0)$ です。$x$ 方向に速さ $v$ で流れる同じ流体では、$u^\mu=(\gamma c,\gamma v,0,0)$ で $u_\mu u^\mu=-\gamma^2(c^2-v^2)=-c^2$、$N^\mu=(\gamma cn_0,\gamma n_0v,0,0)$。したがって観測系で測る粒子数密度は $N^0/c=\gamma n_0$、粒子数流束は $N^1=\gamma n_0v$ です。
 <!-- definition-example-end -->
 
 <a id="thm-srel7-particle-continuity"></a>
@@ -92,10 +92,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（完全流体のエネルギー運動量テンソル）**  
-> Minkowski時空で $u_\mu u^\mu=c^2$ を満たす未来向き流体四元速度 $u^\mu$、固有エネルギー密度 $\varepsilon$、等方圧力 $p$ を持ち、流体静止系で熱流束・粘性応力がない連続体のエネルギー運動量テンソルを次で定義する。
+> Minkowski時空で $u_\mu u^\mu=-c^2$ を満たす未来向き流体四元速度 $u^\mu$、固有エネルギー密度 $\varepsilon$、等方圧力 $p$ を持ち、流体静止系で熱流束・粘性応力がない連続体のエネルギー運動量テンソルを次で定義する。
 
 $$
-T^{\mu\nu}:=\frac{\varepsilon+p}{c^2}u^\mu u^\nu-p\eta^{\mu\nu}.
+T^{\mu\nu}:=\frac{\varepsilon+p}{c^2}u^\mu u^\nu+p\eta^{\mu\nu}.
 $$
 <!-- formal-statement-end -->
 
@@ -115,10 +115,10 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（静止系の等方性から共変な形を導く）**  
-> $u_\mu u^\mu=c^2$ の局所静止系で $T_*^{\mu\nu}=\operatorname{diag}(\varepsilon,p,p,p)$ と測定される対称二階テンソルで、流体に付随する追加の優先方向が存在しないとする。このときどの慣性系でも
+> $u_\mu u^\mu=-c^2$ の局所静止系で $T_*^{\mu\nu}=\operatorname{diag}(\varepsilon,p,p,p)$ と測定される対称二階テンソルで、流体に付随する追加の優先方向が存在しないとする。このときどの慣性系でも
 
 $$
-T^{\mu\nu}=\frac{\varepsilon+p}{c^2}u^\mu u^\nu-p\eta^{\mu\nu}.
+T^{\mu\nu}=\frac{\varepsilon+p}{c^2}u^\mu u^\nu+p\eta^{\mu\nu}.
 $$
 <!-- formal-statement-end -->
 
@@ -134,10 +134,10 @@ $$
 共変に使える二階の対称テンソル $u^\mu u^\nu$ と $\eta^{\mu\nu}$ で $T^{\mu\nu}=Au^\mu u^\nu+B\eta^{\mu\nu}$ とおき、静止系へ代入します。空間対角成分から
 
 $$
-T_*^{ii}=0+B(-1)=p,\qquad B=-p.
+T_*^{ii}=0+B(1)=p,\qquad B=p.
 $$
 
-時間成分から $T_*^{00}=Ac^2+B=\varepsilon$ なので $A=(\varepsilon+p)/c^2$。この二つを戻して主張を得ます。テンソルの等式なので静止系で確認した形はどの慣性座標でも成立します。
+時間成分から $T_*^{00}=Ac^2-B=\varepsilon$ なので $A=(\varepsilon+p)/c^2$。この二つを戻して主張を得ます。テンソルの等式なので静止系で確認した形はどの慣性座標でも成立します。
 <!-- proof-end -->
 
 この導出では**構成則としての等方性**を使いました。電磁場の応力のような異方的な成分をもつものや、熱が流れる粘性流体を同じ二つのスカラーだけで表すことはできません。
@@ -159,7 +159,7 @@ $$
 
 ### 証明の見取り図
 
-$u^0=\gamma c$、$u^i=\gamma v_i$ を二つの添字へ代入し、$\eta^{00}=1$、$\eta^{0i}=0$、$\eta^{ij}=-\delta_{ij}$ をそれぞれ使います。
+$u^0=\gamma c$、$u^i=\gamma v_i$ を二つの添字へ代入し、$\eta^{00}=-1$、$\eta^{0i}=0$、$\eta^{ij}=\delta_{ij}$ をそれぞれ使います。
 
 <!-- proof-start -->
 ### 証明
@@ -167,18 +167,18 @@ $u^0=\gamma c$、$u^i=\gamma v_i$ を二つの添字へ代入し、$\eta^{00}=1$
 定義の二つの項を順に計算します。$\mu=\nu=0$ のとき
 
 $$
-T^{00}=\frac{\varepsilon+p}{c^2}(\gamma c)^2-p\eta^{00}
+T^{00}=\frac{\varepsilon+p}{c^2}(\gamma c)^2+p\eta^{00}
 =(\varepsilon+p)\gamma^2-p.
 $$
 
 時間空間成分は
 
 $$
-T^{0i}=\frac{\varepsilon+p}{c^2}(\gamma c)(\gamma v_i)-p\eta^{0i}
+T^{0i}=\frac{\varepsilon+p}{c^2}(\gamma c)(\gamma v_i)+p\eta^{0i}
 =(\varepsilon+p)\gamma^2v_i/c.
 $$
 
-空間成分では $\eta^{ij}=-\delta_{ij}$ だから
+空間成分では $\eta^{ij}=\delta_{ij}$ だから
 
 $$
 T^{ij}=\frac{\varepsilon+p}{c^2}(\gamma v_i)(\gamma v_j)+p\delta_{ij}.
@@ -222,12 +222,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（流体に直交する射影テンソル）**  
-> Minkowski計量 $\eta_{\mu\nu}$ と $u_\mu u^\mu=c^2$ を満たす未来向き四元速度 $u^\mu$ に対し、$u$ に直交する部分への射影を次で定義する。
+> Minkowski計量 $\eta_{\mu\nu}$ と $u_\mu u^\mu=-c^2$ を満たす未来向き四元速度 $u^\mu$ に対し、$u$ に直交する部分への射影を次で定義する。
 
 $$
-\Delta^\mu{}_\nu:=\delta^\mu{}_\nu-\frac{u^\mu u_\nu}{c^2},
+\Delta^\mu{}_\nu:=\delta^\mu{}_\nu+\frac{u^\mu u_\nu}{c^2},
 \qquad
-\Delta^{\mu\nu}:=\eta^{\mu\nu}-\frac{u^\mu u^\nu}{c^2}.
+\Delta^{\mu\nu}:=\eta^{\mu\nu}+\frac{u^\mu u^\nu}{c^2}.
 $$
 <!-- formal-statement-end -->
 
@@ -238,35 +238,35 @@ $$
 
 $$
 \Delta^\mu{}_\alpha\Delta^\alpha{}_\nu
-=\delta^\mu{}_\nu-2u^\mu u_\nu/c^2+u^\mu(u_\alpha u^\alpha)u_\nu/c^4
+=\delta^\mu{}_\nu+2u^\mu u_\nu/c^2+u^\mu(u_\alpha u^\alpha)u_\nu/c^4
 =\Delta^\mu{}_\nu
 $$
 
-なので二度射影しても変わりません。添字を上げた $\Delta_*^{ij}=-\delta_{ij}$ は負号を持つ点にも注意します。
+なので二度射影しても変わりません。静止系で添字を上げた $\Delta_*^{ij}=\delta_{ij}$ は正の空間計量となる点にも注意します。
 <!-- definition-example-end -->
 
 <a id="thm-srel7-fluid-balance"></a>
 
 <!-- formal-statement-start -->
 > **定理（完全流体の局所収支と相対論的Euler方程式）**  
-> Minkowski時空の開領域で $C^1$ 級の $\varepsilon,p,u^\mu,f^\nu$ が与えられ、$u_\mu u^\mu=c^2$ とする。完全流体の
+> Minkowski時空の開領域で $C^1$ 級の $\varepsilon,p,u^\mu,f^\nu$ が与えられ、$u_\mu u^\mu=-c^2$ とする。完全流体の
 
 $$
-T^{\mu\nu}=\frac{\varepsilon+p}{c^2}u^\mu u^\nu-p\eta^{\mu\nu}
+T^{\mu\nu}=\frac{\varepsilon+p}{c^2}u^\mu u^\nu+p\eta^{\mu\nu}
 $$
 
 > が $\partial_\mu T^{\mu\nu}=f^\nu$ を満たすことは、次のエネルギー方程式と $u$ に直交するEuler方程式の組と同値である。
 
 $$
-\boxed{D\varepsilon+(\varepsilon+p)\theta=u_\nu f^\nu}
+\boxed{D\varepsilon+(\varepsilon+p)\theta=-u_\nu f^\nu}
 $$
 
 $$
-\boxed{\frac{\varepsilon+p}{c^2}a^\alpha-\Delta^{\alpha\nu}\partial_\nu p
+\boxed{\frac{\varepsilon+p}{c^2}a^\alpha+\Delta^{\alpha\nu}\partial_\nu p
 =\Delta^\alpha{}_\nu f^\nu}
 $$
 
-> ここで $D=u^\mu\partial_\mu$、$\theta=\partial_\mu u^\mu$、$a^\alpha=Du^\alpha$、$\Delta^\alpha{}_\nu=\delta^\alpha{}_\nu-u^\alpha u_\nu/c^2$ である。
+> ここで $D=u^\mu\partial_\mu$、$\theta=\partial_\mu u^\mu$、$a^\alpha=Du^\alpha$、$\Delta^\alpha{}_\nu=\delta^\alpha{}_\nu+u^\alpha u_\nu/c^2$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -281,28 +281,28 @@ $h:=\varepsilon+p$ とおきます。Minkowski計量は一定なので、積の�
 $$
 \begin{aligned}
 \partial_\mu T^{\mu\nu}
-&=\frac1{c^2}\partial_\mu(hu^\mu u^\nu)-\partial^\nu p\\
+&=\frac1{c^2}\partial_\mu(hu^\mu u^\nu)+\partial^\nu p\\
 &=\frac{u^\nu}{c^2}\{Dh+h\theta\}
-+\frac{h}{c^2}u^\mu\partial_\mu u^\nu-\partial^\nu p\\
++\frac{h}{c^2}u^\mu\partial_\mu u^\nu+\partial^\nu p\\
 &=\frac{u^\nu}{c^2}(D\varepsilon+Dp+h\theta)
-+\frac{h}{c^2}a^\nu-\partial^\nu p.
++\frac{h}{c^2}a^\nu+\partial^\nu p.
 \end{aligned}
 $$
 
-まず $u_\nu u^\nu=c^2$ を流体方向に微分します。
+まず $u_\nu u^\nu=-c^2$ を流体方向に微分します。
 
 $$
-D(u_\nu u^\nu)=2u_\nu Du^\nu=2u_\nu a^\nu=D(c^2)=0.
+D(u_\nu u^\nu)=2u_\nu Du^\nu=2u_\nu a^\nu=D(-c^2)=0.
 $$
 
-ゆえに $u_\nu a^\nu=0$。先ほどの発散式に $u_\nu$ を掛けると、$u_\nu u^\nu=c^2$、$u_\nu\partial^\nu p=Dp$ から
+ゆえに $u_\nu a^\nu=0$。先ほどの発散式に $u_\nu$ を掛けると、$u_\nu u^\nu=-c^2$、$u_\nu\partial^\nu p=Dp$ から
 
 $$
 \begin{aligned}
 u_\nu\partial_\mu T^{\mu\nu}
-&=(D\varepsilon+Dp+h\theta)
-+\frac h{c^2}(u_\nu a^\nu)-Dp\\
-&=D\varepsilon+h\theta.
+&=-(D\varepsilon+Dp+h\theta)
++\frac h{c^2}(u_\nu a^\nu)+Dp\\
+&=-D\varepsilon-h\theta.
 \end{aligned}
 $$
 
@@ -310,15 +310,15 @@ $\partial_\mu T^{\mu\nu}=f^\nu$ なら第一式を得ます。次は射影 $\Del
 
 $$
 \Delta^\alpha{}_\nu\partial^\nu p
-=\left(\delta^\alpha{}_\nu-\frac{u^\alpha u_\nu}{c^2}\right)\partial^\nu p
-=\partial^\alpha p-\frac{u^\alpha}{c^2}Dp
+=\left(\delta^\alpha{}_\nu+\frac{u^\alpha u_\nu}{c^2}\right)\partial^\nu p
+=\partial^\alpha p+\frac{u^\alpha}{c^2}Dp
 =\Delta^{\alpha\nu}\partial_\nu p.
 $$
 
 したがって第二式が得られます。逆に任意の四元ベクトル $X^\nu:=\partial_\mu T^{\mu\nu}-f^\nu$ は
 
 $$
-X^\alpha=\frac{u^\alpha}{c^2}(u_\nu X^\nu)+\Delta^\alpha{}_\nu X^\nu
+X^\alpha=-\frac{u^\alpha}{c^2}(u_\nu X^\nu)+\Delta^\alpha{}_\nu X^\nu
 $$
 
 と分解できます。第一式が成立すれば $u_\nu X^\nu=0$、第二式が成立すれば $\Delta^\alpha{}_\nu X^\nu=0$ なので、$X^\alpha=0$。これで必要十分性も証明されました。
@@ -326,13 +326,13 @@ $$
 
 ### 静止系で符号を確認する
 
-局所的に $u^\mu=(c,0,0,0)$ となる点では、$\Delta^{ij}=-\delta_{ij}$、$\Delta^i{}_\nu f^\nu=f^i$（その点で）です。Euler方程式の空間成分は
+局所的に $u^\mu=(c,0,0,0)$ となる点では、$\Delta^{ij}=\delta_{ij}$、$\Delta^i{}_\nu f^\nu=f^i$（その点で）です。Euler方程式の空間成分は
 
 $$
 \frac{\varepsilon+p}{c^2}a^i+\partial_i p=f^i.
 $$
 
-$\partial_i p>0$ で外力がなければ、流体が負の $i$ 方向へ加速することを示します。**圧力勾配の前に正号が現れる**理由は、射影の空間成分が負符号の計量を持ち、式全体では $-\Delta^{ij}\partial_jp=+\partial_i p$ になるためです。
+$\partial_i p>0$ で外力がなければ、流体が負の $i$ 方向へ加速することを示します。**圧力勾配の前に正号が現れる**理由は、射影の空間成分が正符号の計量を持ち、式全体では $+\Delta^{ij}\partial_jp=+\partial_i p$ になるためです。
 
 ## 4. 粒子数保存と状態方程式は別の情報
 
@@ -372,7 +372,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（圧力のない粒子群の測地的な運動）**  
-> 質量 $m>0$、固有数密度 $n>0$、規格化条件 $u_\mu u^\mu=c^2$ を満たす $C^1$ 級の四元速度を考える。
+> 質量 $m>0$、固有数密度 $n>0$、規格化条件 $u_\mu u^\mu=-c^2$ を満たす $C^1$ 級の四元速度を考える。
 > 圧力が零で、固有エネルギー密度が $\varepsilon=mc^2n$ の完全流体において、粒子数とエネルギー運動量の保存式
 
 $$
@@ -478,8 +478,8 @@ $$
 さらに[直交射影](#def-srel7-orth-projector)の各成分は
 
 $$
-\Delta^{i0}=-\frac{\gamma^2v_i}{c},\qquad
-\Delta^{ij}=-\delta_{ij}-\frac{\gamma^2v_iv_j}{c^2}.
+\Delta^{i0}=\frac{\gamma^2v_i}{c},\qquad
+\Delta^{ij}=\delta_{ij}+\frac{\gamma^2v_iv_j}{c^2}.
 $$
 
 $\partial_0p=c^{-1}\partial_tp$ を忘れずに縮約すると
@@ -487,9 +487,9 @@ $\partial_0p=c^{-1}\partial_tp$ を忘れずに縮約すると
 $$
 \begin{aligned}
 \Delta^{i\nu}\partial_\nu p
-&=-\frac{\gamma^2v_i}{c^2}\partial_tp
--\partial_ip-\frac{\gamma^2v_i}{c^2}\sum_jv_j\partial_jp\\
-&=-\partial_ip-\frac{\gamma^2v_i}{c^2}D_tp.
+&=\frac{\gamma^2v_i}{c^2}\partial_tp
++\partial_ip+\frac{\gamma^2v_i}{c^2}\sum_jv_j\partial_jp\\
+&=\partial_ip+\frac{\gamma^2v_i}{c^2}D_tp.
 \end{aligned}
 $$
 
@@ -525,7 +525,7 @@ $$
 
 ### A1. 静止系と移動系の粒子数流束
 
-$n=n_0>0$、$\boldsymbol v=(v,0,0)$、$|v|<c$ の一様流体で、$N^\mu$ と観測系の数密度を計算し、$u_\mu u^\mu=c^2$ を検算せよ。
+$n=n_0>0$、$\boldsymbol v=(v,0,0)$、$|v|<c$ の一様流体で、$N^\mu$ と観測系の数密度を計算し、$u_\mu u^\mu=-c^2$ を検算せよ。
 
 - Level: A
 
@@ -535,7 +535,7 @@ $n=n_0>0$、$\boldsymbol v=(v,0,0)$、$|v|<c$ の一様流体で、$N^\mu$ と�
 $u^\mu=\gamma(c,v,0,0)$、$\gamma=(1-v^2/c^2)^{-1/2}$ とすると
 
 $$
-u_\mu u^\mu=\gamma^2c^2-\gamma^2v^2=\gamma^2(c^2-v^2)=c^2.
+u_\mu u^\mu=-\gamma^2c^2+\gamma^2v^2=-\gamma^2(c^2-v^2)=-c^2.
 $$
 
 [粒子数四元流束](#def-srel7-particle-current)により $N^\mu=n_0\gamma(c,v,0,0)$。したがって $N^0/c=\gamma n_0$、$N^1=\gamma n_0v$。一様なので全成分の偏微分が零で $\partial_\mu N^\mu=0$ も成り立ちます。
@@ -568,13 +568,13 @@ $u^\mu=(c,0,0,0)$、$\varepsilon>0$、$p>0$ の一点において、完全流体
 <!-- solution-start -->
 #### 詳細解答
 
-[完全流体の定義](#def-srel7-perfect-fluid)に $u^0=c,u^i=0$ を代入します。$T^{00}=(\varepsilon+p)-p=\varepsilon$、$T^{01}=0$。$T^{11}=-p\eta^{11}=p$、$T^{22}=-p\eta^{22}=p$ です。[射影の定義](#def-srel7-orth-projector)では
+[完全流体の定義](#def-srel7-perfect-fluid)に $u^0=c,u^i=0$ を代入します。$T^{00}=(\varepsilon+p)-p=\varepsilon$、$T^{01}=0$。$T^{11}=p\eta^{11}=p$、$T^{22}=p\eta^{22}=p$ です。[射影の定義](#def-srel7-orth-projector)では
 
 $$
-\Delta^{11}=\eta^{11}-u^1u^1/c^2=-1-0=-1.
+\Delta^{11}=\eta^{11}+u^1u^1/c^2=1+0=1.
 $$
 
-圧力は $T^{11}$ では正、上添字二つの $\Delta^{11}$ では負になります。
+圧力は $T^{11}$ では正、上添字二つの $\Delta^{11}$ でも正になります。
 <!-- solution-end -->
 
 ### A4. 動く一様流体の運動量密度
@@ -623,7 +623,7 @@ $i=1$ では $\partial_xp=0$、$i=2,3$ はもともと零です。よって $p$ 
 
 ### B1. 射影した運動方程式を出発式から再導出する
 
-$C^1$ 級の $\varepsilon,p,u^\mu$、$u_\mu u^\mu=c^2$ を持つ完全流体で、$f^\mu=0$ とする。$\partial_\mu T^{\mu\nu}=0$ から $D\varepsilon+(\varepsilon+p)\theta=0$ と $(\varepsilon+p)a^\alpha/c^2-\Delta^{\alpha\nu}\partial_\nu p=0$ をそれぞれ導け。
+$C^1$ 級の $\varepsilon,p,u^\mu$、$u_\mu u^\mu=-c^2$ を持つ完全流体で、$f^\mu=0$ とする。$\partial_\mu T^{\mu\nu}=0$ から $D\varepsilon+(\varepsilon+p)\theta=0$ と $(\varepsilon+p)a^\alpha/c^2+\Delta^{\alpha\nu}\partial_\nu p=0$ をそれぞれ導け。
 
 - Level: B
 
@@ -634,21 +634,21 @@ $C^1$ 級の $\varepsilon,p,u^\mu$、$u_\mu u^\mu=c^2$ を持つ完全流体で�
 
 $$
 \partial_\mu T^{\mu\nu}
-=\frac{u^\nu}{c^2}(Dh+h\theta)+\frac h{c^2}a^\nu-\partial^\nu p.
+=\frac{u^\nu}{c^2}(Dh+h\theta)+\frac h{c^2}a^\nu+\partial^\nu p.
 $$
 
-規格化 $u_\nu u^\nu=c^2$ の $D$ 微分で $2u_\nu a^\nu=0$。$u_\nu$ を掛けると
+規格化 $u_\nu u^\nu=-c^2$ の $D$ 微分で $2u_\nu a^\nu=0$。$u_\nu$ を掛けると
 
 $$
-u_\nu\partial_\mu T^{\mu\nu}=Dh+h\theta-Dp=D\varepsilon+h\theta=0.
+u_\nu\partial_\mu T^{\mu\nu}=-(Dh+h\theta)+Dp=-D\varepsilon-h\theta=0.
 $$
 
 一方 $\Delta^\alpha{}_\nu u^\nu=0$、$\Delta^\alpha{}_\nu a^\nu=a^\alpha$ を使い
 
 $$
 0=\Delta^\alpha{}_\nu\partial_\mu T^{\mu\nu}
-=h a^\alpha/c^2-\Delta^\alpha{}_\nu\partial^\nu p
-=h a^\alpha/c^2-\Delta^{\alpha\nu}\partial_\nu p.
+=h a^\alpha/c^2+\Delta^\alpha{}_\nu\partial^\nu p
+=h a^\alpha/c^2+\Delta^{\alpha\nu}\partial_\nu p.
 $$
 
 最後の式の空間成分は局所静止系で $ha^i/c^2+\partial_i p=0$ です。圧力勾配の符号を逆にしないことが要点です。
@@ -691,7 +691,7 @@ $$
 
 ### B3. 電磁場と流体のエネルギー収支を足す
 
-滑らかな電磁場 $T_{\mathrm{EM}}^{\mu\nu}$ と完全流体 $T_{\mathrm{fluid}}^{\mu\nu}$ が、同一の $f^\nu=F^{\nu\alpha}J_\alpha$ を用いて $\partial_\mu T_{\mathrm{EM}}^{\mu\nu}=-f^\nu$、$\partial_\mu T_{\mathrm{fluid}}^{\mu\nu}=f^\nu$ を満たすとする。全系の局所保存と、$\nu=0$ のエネルギー交換の符号を導け。$J^\mu=(c\rho,\boldsymbol j)$ とする。
+滑らかな電磁場 $T_{\mathrm{EM}}^{\mu\nu}$ と完全流体 $T_{\mathrm{fluid}}^{\mu\nu}$ が、同一の $f^\nu=-F^{\nu\alpha}J_\alpha$ を用いて $\partial_\mu T_{\mathrm{EM}}^{\mu\nu}=-f^\nu$、$\partial_\mu T_{\mathrm{fluid}}^{\mu\nu}=f^\nu$ を満たすとする。全系の局所保存と、$\nu=0$ のエネルギー交換の符号を導け。$J^\mu=(c\rho,\boldsymbol j)$ とする。
 
 - Level: B
 
@@ -705,11 +705,11 @@ $$
 =-f^\nu+f^\nu=0
 $$
 
-です。[SREL5の電磁場テンソル](../SREL5/index.md#def-srel5-field-tensor)では $F^{0i}=-E_i/c$、$J_i=-j_i$。したがって
+です。[SREL5の電磁場テンソル](../SREL5/index.md#def-srel5-field-tensor)では $F^{0i}=-E_i/c$、$J_i=j_i$。したがって
 
 $$
-f^0=\sum_iF^{0i}J_i
-=\sum_i(-E_i/c)(-j_i)=\boldsymbol j\cdot\boldsymbol E/c.
+f^0=-\sum_iF^{0i}J_i
+=-\sum_i(-E_i/c)j_i=\boldsymbol j\cdot\boldsymbol E/c.
 $$
 
 $\partial_0=\partial_t/c$ により、電磁場のエネルギー収支は
@@ -753,11 +753,11 @@ $$
 f^\mu=\partial_\nu T^{\nu\mu}=(0,\kappa,0,0).
 $$
 
-(2) $N^\mu=(cn_0,0,0,0)$ は一定なので $\partial_\mu N^\mu=0$ です。$D=c\partial_0=\partial_t$、$\theta=0$、$a^\mu=0$ だからエネルギー式の左辺は零、右辺も $u_\nu f^\nu=c f^0=0$ です。Euler式の $i=1$ は $\Delta^{11}=-1$ から
+(2) $N^\mu=(cn_0,0,0,0)$ は一定なので $\partial_\mu N^\mu=0$ です。$D=c\partial_0=\partial_t$、$\theta=0$、$a^\mu=0$ だからエネルギー式の左辺は零、右辺も $u_\nu f^\nu=-c f^0=0$ です。Euler式の $i=1$ は $\Delta^{11}=1$ から
 
 $$
-\frac{\varepsilon_0+p}{c^2}a^1-\Delta^{11}\partial_1p
-=0-(-1)\kappa=\kappa=f^1
+\frac{\varepsilon_0+p}{c^2}a^1+\Delta^{11}\partial_1p
+=0+(1)\kappa=\kappa=f^1
 $$
 
 で、$i=2,3$ は両辺零です。外力が圧力勾配に釣り合っていることを確認できました。

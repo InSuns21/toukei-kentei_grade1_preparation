@@ -12,7 +12,7 @@
 
 $$
 x^\mu=(t,x^1,x^2,x^3),\qquad
-\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)
+\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)
 $$
 
 とします。ギリシア添字 $\mu,\nu=0,1,2,3$、空間添字 $j=1,2,3$ を用い、**同じ添字が上付きと下付きに一度ずつ現れた場合**はその添字について和を取ります（Einsteinの縮約規約）。自然単位系 $c=\hbar=1$ を使うため、時間と長さは同じ次元であり、質量 $m$ は逆長さの次元を持ちます。添字の上げ下げは $\eta$ で行い、
@@ -23,7 +23,7 @@ $$
 \partial^\mu=\eta^{\mu\nu}\partial_\nu,
 \quad
 \partial_\mu\partial^\mu
-=\frac{\partial^2}{\partial t^2}-\sum_{j=1}^{3}\frac{\partial^2}{\partial(x^j)^2}
+=-\frac{\partial^2}{\partial t^2}+\sum_{j=1}^{3}\frac{\partial^2}{\partial(x^j)^2}
 $$
 
 です。$\partial_\mu$ は他の座標を固定して $x^\mu$ で偏微分する演算子です。最後の微分作用素を**ダランベール演算子（波動演算子）**と呼び、$\Box=\partial_\mu\partial^\mu$ と書きます。$\Box$（四角形）は文字化けではなく、この演算子を表す標準的な数学記号です。空間座標を $\boldsymbol x=(x^1,x^2,x^3)$ とまとめ、空間勾配とLaplacianを
@@ -33,7 +33,7 @@ $$
 \Delta\phi=\sum_{j=1}^3\partial_j^2\phi
 $$
 
-と書きます。後の演習で使う $\phi_t,\phi_{tt},\phi_x$ は、それぞれ $\partial_t\phi,\partial_t^2\phi,\partial_x\phi$ の略記です。$\phi$ は時間と空間の関数なので、$\partial_t$ では空間座標を固定します。符号は、$(-,+,+,+)$ を選ぶ教科書とは異なるので注意してください。
+と書きます。後の演習で使う $\phi_t,\phi_{tt},\phi_x$ は、それぞれ $\partial_t\phi,\partial_t^2\phi,\partial_x\phi$ の略記です。$\phi$ は時間と空間の関数なので、$\partial_t$ では空間座標を固定します。本書では計量の符号を $(-,+,+,+)$ と統一し、$\Box=-\partial_t^2+\Delta$ とします。
 
 ## 2. 一つの座標ではなく、時空の各点へ値を割り当てる
 
@@ -60,7 +60,7 @@ $$
 $\phi(x)=a$（$a\in\mathbb R$）なら、実数値で何度でも微分でき、任意のLorentz変換後も $\phi'(x')=a$ です。定義の**実数値性・正則性・変換則**を全て直接満たします。定数でない例として、原点を固定するLorentz変換では
 
 $$
-\phi(x)=t^2-|\boldsymbol x|^2
+\phi(x)=-t^2+|\boldsymbol x|^2
 =\eta_{\mu\nu}x^\mu x^\nu
 $$
 
@@ -196,11 +196,11 @@ $$
 
 ## 4. 自由場にふさわしい方程式を選ぶ
 
-空間と時間を同等の時空の成分として扱うには、[Minkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)で一階微分を縮約するのが自然です。ここで $m\ge0$ は一定の実数で、量子化後の粒子の質量と対応するパラメータです。導関数の項を正、場の二乗項を負にした密度
+空間と時間を同等の時空の成分として扱うには、[Minkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)で一階微分を縮約するのが自然です。ここで $m\ge0$ は一定の実数で、量子化後の粒子の質量と対応するパラメータです。時間微分の運動項を正、空間微分と場の二乗項を負にした密度
 
 $$
 \mathcal L_{\mathrm{free}}
-=\frac12\eta^{\mu\nu}
+=-\frac12\eta^{\mu\nu}
 (\partial_\mu\phi)(\partial_\nu\phi)
 -\frac{m^2}{2}\phi^2
 =\frac12\left[
@@ -208,7 +208,7 @@ $$
 \right]
 $$
 
-を考えます。ここで $|\nabla\phi|^2=\sum_{j=1}^3(\partial_j\phi)^2$ は第1節で導入した空間勾配の長さの二乗です。$\eta^{00}=1$、$\eta^{jj}=-1$ なので、添字の縮約は $(\partial_t\phi)^2-\sum_j(\partial_j\phi)^2$ となります。この具体式の運動方程式を計算すると、相対論的な分散関係と両立することが分かります。
+を考えます。ここで $|\nabla\phi|^2=\sum_{j=1}^3(\partial_j\phi)^2$ は第1節で導入した空間勾配の長さの二乗です。$\eta^{00}=-1$、$\eta^{jj}=1$ なので、添字の縮約へマイナスを掛けると $(\partial_t\phi)^2-\sum_j(\partial_j\phi)^2$ となります。この具体式の運動方程式を計算すると、相対論的な分散関係と両立することが分かります。
 
 <a id="def-qft1-klein-gordon"></a>
 
@@ -217,7 +217,7 @@ $$
 > 質量パラメータ $m\ge0$ を一定とする実スカラー場 $\phi\in C^2(\Omega)$ が満たす線形方程式
 
 $$
-(\Box+m^2)\phi
+=(-\Box+m^2)\phi
 =\partial_t^2\phi-\Delta\phi+m^2\phi=0
 $$
 
@@ -230,14 +230,14 @@ $$
 \frac{\partial\mathcal L_{\mathrm{free}}}{\partial\phi}
 =-m^2\phi,\qquad
 \frac{\partial\mathcal L_{\mathrm{free}}}{\partial(\partial_\mu\phi)}
-=\eta^{\mu\nu}\partial_\nu\phi=\partial^\mu\phi.
+=-\eta^{\mu\nu}\partial_\nu\phi=-\partial^\mu\phi.
 $$
 
 よって[場のEuler–Lagrange方程式](#thm-qft1-field-el)の左辺は
 
 $$
--m^2\phi-\partial_\mu\partial^\mu\phi
-=-(\Box+m^2)\phi
+-m^2\phi+\partial_\mu\partial^\mu\phi
+=-(-\Box+m^2)\phi
 $$
 
 となります。零に等しいのでちょうどKlein–Gordon方程式です。符号を反対にすると、この段階で質量殻の符号も変わってしまいます。
@@ -250,7 +250,7 @@ $$
 実定数 $a$ に対して $\phi(t,\boldsymbol x)=a$ は滑らかな実スカラー場です。時間微分も空間微分も零であるため、
 
 $$
-(\Box+m^2)a=m^2a.
+(-\Box+m^2)a=m^2a.
 $$
 
 したがって $m>0$ では $a=0$ の場合だけ解になり、$m=0$ では全ての定数場が解になります。実スカラー場であること（対象の定義）と運動方程式を満たすこと（さらに課した条件）は別だと分かります。
@@ -341,7 +341,7 @@ $$
 したがって
 
 $$
-(\Box+m^2)\phi
+(-\Box+m^2)\phi
 =A(-\omega^2+|\boldsymbol k|^2+m^2)\cos\theta.
 $$
 
@@ -412,7 +412,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（自由場のエネルギー保存）**  
-> $m\ge0$、$\phi\in C^2(\mathbb R^{1,3})$ が $(\Box+m^2)\phi=0$ を満たすとする。各時刻で $u$ が可積分であり、半径 $R$ の球面を通るフラックス（$\boldsymbol n$ は外向き単位法線、$dS$ は面積要素）
+> $m\ge0$、$\phi\in C^2(\mathbb R^{1,3})$ が $(-\Box+m^2)\phi=0$ を満たすとする。各時刻で $u$ が可積分であり、半径 $R$ の球面を通るフラックス（$\boldsymbol n$ は外向き単位法線、$dS$ は面積要素）
 
 $$
 \int_{|\boldsymbol x|=R}
@@ -558,7 +558,7 @@ $1+1$ 次元で $\phi(t,x)=2\cos(5t-4x)$、$m=3$ とする。$(\partial_t^2-\par
 
 ### 演習 QFT1-B1：線形方程式の重ね合わせ
 
-$m\ge0$ を固定し、実数値 $C^2$ 関数 $\phi_1,\phi_2$ が同じ方程式 $(\Box+m^2)\phi_i=0$ を満たすとする。任意の実定数 $a,b$ に対する $\phi=a\phi_1+b\phi_2$ が解であることを示せ。異なる二つの波数 $\boldsymbol k_1,\boldsymbol k_2$ の正振動数平面波を使い、重ね合わせた解が通常は単一の平面波にならないことも説明せよ。
+$m\ge0$ を固定し、実数値 $C^2$ 関数 $\phi_1,\phi_2$ が同じ方程式 $(-\Box+m^2)\phi_i=0$ を満たすとする。任意の実定数 $a,b$ に対する $\phi=a\phi_1+b\phi_2$ が解であることを示せ。異なる二つの波数 $\boldsymbol k_1,\boldsymbol k_2$ の正振動数平面波を使い、重ね合わせた解が通常は単一の平面波にならないことも説明せよ。
 
 - Level: B
 
@@ -569,9 +569,9 @@ $m\ge0$ を固定し、実数値 $C^2$ 関数 $\phi_1,\phi_2$ が同じ方程式
 
 $$
 \begin{aligned}
-(\Box+m^2)(a\phi_1+b\phi_2)
-&=a\Box\phi_1+b\Box\phi_2+am^2\phi_1+bm^2\phi_2\\
-&=a(\Box+m^2)\phi_1+b(\Box+m^2)\phi_2=0.
+(-\Box+m^2)(a\phi_1+b\phi_2)
+&=-a\Box\phi_1-b\Box\phi_2+am^2\phi_1+bm^2\phi_2\\
+&=a(-\Box+m^2)\phi_1+b(-\Box+m^2)\phi_2=0.
 \end{aligned}
 $$
 
@@ -598,7 +598,7 @@ $$
 
 $$
 \mathcal L_J
-=\frac12\partial_\mu\phi\,\partial^\mu\phi
+=-\frac12\partial_\mu\phi\,\partial^\mu\phi
 -\frac{m^2}{2}\phi^2+J\phi
 $$
 
@@ -615,7 +615,7 @@ $$
 \delta S_\Omega
 =\int_\Omega
 \left[
-\partial_\mu\phi\,\partial^\mu\chi
+-\partial_\mu\phi\,\partial^\mu\chi
 -m^2\phi\chi+J\chi
 \right]\,d^4x.
 $$
@@ -631,10 +631,10 @@ $$
 
 $$
 \delta S_\Omega
-=\int_\Omega[-\Box\phi-m^2\phi+J]\chi\,d^4x.
+=\int_\Omega[\Box\phi-m^2\phi+J]\chi\,d^4x.
 $$
 
-任意の局所的な $\chi$ で零という条件から $(\Box+m^2)\phi=J$ です。$J=0$ とすれば[Klein–Gordon方程式](#def-qft1-klein-gordon)へ戻ります。符号が $-J$ ではないのは密度に $+J\phi$ を加えたからです。
+任意の局所的な $\chi$ で零という条件から $(-\Box+m^2)\phi=J$ です。$J=0$ とすれば[Klein–Gordon方程式](#def-qft1-klein-gordon)へ戻ります。符号が $-J$ ではないのは密度に $+J\phi$ を加えたからです。
 <!-- solution-end -->
 
 ### 演習 QFT1-B3：有限領域でのエネルギー流

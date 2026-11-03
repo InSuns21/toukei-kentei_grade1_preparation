@@ -51,7 +51,7 @@ S=-mc\sqrt{c^2-|\boldsymbol v|^2}(t_1-t_0)
 =-mc^2\sqrt{1-|\boldsymbol v|^2/c^2}(t_1-t_0).
 $$
 
-これは[SREL4で定義した作用](../../SREL/SREL4/index.md#def-srel4-free-action)を $(-,+,+,+)$ の規約で書き直したものです。両端はこの曲線が通る二事象として固定しています。座標変換しても[GR2の固有時の不変性](../GR2/index.md#prop-gr2-coordinate-invariance)から作用の値は変わりません。
+これは[SREL4で定義した作用](../../SREL/SREL4/index.md#def-srel4-free-action)を共通の $(-,+,+,+)$ の規約で曲がった時空へ拡張したものです。両端はこの曲線が通る二事象として固定しています。座標変換しても[GR2の固有時の不変性](../GR2/index.md#prop-gr2-coordinate-invariance)から作用の値は変わりません。
 <!-- definition-example-end -->
 
 ## 2. 固有時作用を変分すると何が出るか

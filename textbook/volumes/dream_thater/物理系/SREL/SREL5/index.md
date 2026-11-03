@@ -11,7 +11,7 @@
 時空は平坦な $\mathbb R^4$、座標は $x^\mu=(ct,x,y,z)$、$\mu=0,1,2,3$、計量は
 
 $$
-\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1),\qquad
+\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1),\qquad
 c>0,\qquad \varepsilon_0\mu_0c^2=1
 $$
 
@@ -26,10 +26,10 @@ $$
 =\left(\frac1c\partial_t,\partial_x,\partial_y,\partial_z\right),
 \qquad
 \partial^\mu=\eta^{\mu\nu}\partial_\nu
-=\left(\frac1c\partial_t,-\partial_x,-\partial_y,-\partial_z\right)
+=\left(-\frac1c\partial_t,\partial_x,\partial_y,\partial_z\right)
 $$
 
-と書きます。二つ目の式は空間成分の符号が逆になる点に注意してください。
+と書きます。二つ目の式は時間成分の符号が逆になる点に注意してください。
 
 ### 1.1 三次元のMaxwell方程式を出発点とする
 
@@ -67,7 +67,7 @@ $$
 J^\mu=(c\rho,j_x,j_y,j_z)
 $$
 
-> と定める。共変成分は $J_\mu=(c\rho,-j_x,-j_y,-j_z)$ とする。異なる慣性系では四元ベクトルの法則 $J'^\mu=\Lambda^\mu{}_\nu J^\nu$ で変換することを物理モデルの一部として仮定する。
+> と定める。共変成分は $J_\mu=(-c\rho,j_x,j_y,j_z)$ とする。異なる慣性系では四元ベクトルの法則 $J'^\mu=\Lambda^\mu{}_\nu J^\nu$ で変換することを物理モデルの一部として仮定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-srel5-four-current -->
@@ -88,7 +88,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（電磁場テンソル）**  
-> 各時空点で $\boldsymbol E,\boldsymbol B$ が与えられたとき、反変電磁場テンソル $F^{\mu\nu}$ を、符号規約 $(+,-,-,-)$ に対して
+> 各時空点で $\boldsymbol E,\boldsymbol B$ が与えられたとき、反変電磁場テンソル $F^{\mu\nu}$ を、符号規約 $(-,+,+,+)$ に対して
 
 $$
 F^{0i}=-\frac{E_i}{c},\qquad
@@ -118,7 +118,7 @@ F_{0i}=-F^{0i}=E_i/c,\qquad
 F_{ij}=F^{ij}=-\epsilon_{ijk}B_k.
 $$
 
-電気成分だけ符号が反転するのは、時間方向の計量が $+1$、空間方向が $-1$ だからです。
+電気成分だけ符号が反転するのは、時間方向の計量が $-1$、空間方向が $+1$ だからです。計量全体に負号を掛けても二つの添字を下げる操作では負号が二度現れ、$F_{\mu\nu}$ の表示は旧規約と同じになります。
 
 <!-- definition-example-start: def-srel5-field-tensor -->
 ### 例：$x$ 方向の電場と $z$ 方向の磁場
@@ -553,8 +553,8 @@ $$
 下付きにするには $\eta_{00}\eta_{11}=-1$、$\eta_{11}\eta_{22}=+1$ を使うので
 
 $$
-F_{01}=(1)(-1)F^{01}=E_0/c,\qquad
-F_{12}=(-1)(-1)F^{12}=-B_0.
+F_{01}=(-1)(1)F^{01}=E_0/c,\qquad
+F_{12}=(1)(1)F^{12}=-B_0.
 $$
 
 <!-- solution-end -->

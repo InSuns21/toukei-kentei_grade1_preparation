@@ -11,10 +11,10 @@
 時空を $\mathbb R^4$ とし、事象を $X=(ct,\boldsymbol r)$、光速を $c>0$、[Minkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)を
 
 $$
-g(V,W)=V^0W^0-\sum_{i=1}^{3}V^iW^i
+g(V,W)=-V^0W^0+\sum_{i=1}^{3}V^iW^i
 $$
 
-とします。計量の符号は $(+,-,-,-)$、質点の静止質量は**一定の** $m>0$ です。対象は未来向き時間的な、必要な範囲で $C^2$ の世界線で、全点で $|\boldsymbol v|<c$ とします。角のある経路は各区間で別々に考えます。
+とします。計量の符号は $(-,+,+,+)$、質点の静止質量は**一定の** $m>0$ です。対象は未来向き時間的な、必要な範囲で $C^2$ の世界線で、全点で $|\boldsymbol v|<c$ とします。角のある経路は各区間で別々に考えます。
 
 作用の変分では**二つの端点事象**を固定します。$t$ でパラメータ表示したときには、固定した $t_0<t_1$ のもとで $\boldsymbol r(t_0)$ と $\boldsymbol r(t_1)$ も固定し、変分 $\boldsymbol h(t)$ は両端で零とします。変分の途中の曲線も未来向き時間的になるよう、十分小さい滑らかな変形だけを使います。
 
@@ -40,7 +40,7 @@ $$
 
 $$
 S_0[X]=-mc\int_{\lambda_0}^{\lambda_1}
-\sqrt{g(\dot X,\dot X)}\,d\lambda.
+\sqrt{-g(\dot X,\dot X)}\,d\lambda.
 $$
 
 > 座標時刻 $t$ で表せるときの Lagrange関数は
@@ -92,15 +92,15 @@ $$
 $$
 \frac{dX}{ds}=\frac{dX}{d\lambda}\phi'(s),
 \qquad
-\sqrt{g(dX/ds,dX/ds)}
-=\phi'(s)\sqrt{g(\dot X,\dot X)}.
+\sqrt{-g(dX/ds,dX/ds)}
+=\phi'(s)\sqrt{-g(\dot X,\dot X)}.
 $$
 
 したがって $d\lambda=\phi'(s)\,ds$ の変数変換により
 
 $$
-\int_{s_0}^{s_1}\sqrt{g(dX/ds,dX/ds)}\,ds
-=\int_{\lambda_0}^{\lambda_1}\sqrt{g(\dot X,\dot X)}\,d\lambda.
+\int_{s_0}^{s_1}\sqrt{-g(dX/ds,dX/ds)}\,ds
+=\int_{\lambda_0}^{\lambda_1}\sqrt{-g(\dot X,\dot X)}\,d\lambda.
 $$
 
 区分的な経路では各滑らかな区間で適用して加えます。
@@ -133,7 +133,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-時間的という条件から $G(\lambda)=g(\dot X,\dot X)>0$ です。$X_\varepsilon=X+\varepsilon H$ とし、$H(\lambda_0)=H(\lambda_1)=0$ を仮定します。$\dot X_\varepsilon=\dot X+\varepsilon\dot H$ なので双線形性から
+時間的という条件から $G(\lambda)=-g(\dot X,\dot X)>0$ です。$X_\varepsilon=X+\varepsilon H$ とし、$H(\lambda_0)=H(\lambda_1)=0$ を仮定します。$\dot X_\varepsilon=\dot X+\varepsilon\dot H$ なので双線形性から
 
 $$
 \left.\frac d{d\varepsilon}
@@ -145,7 +145,7 @@ $$
 
 $$
 \delta S_0
-=-mc\int_{\lambda_0}^{\lambda_1}
+=mc\int_{\lambda_0}^{\lambda_1}
 \frac{g(\dot X,\dot H)}{\sqrt G}\,d\lambda.
 $$
 
@@ -154,10 +154,10 @@ $$
 $$
 \begin{aligned}
 \delta S_0
-&=-mc\left[\frac{\dot X_\mu H^\mu}{\sqrt G}\right]_{\lambda_0}^{\lambda_1}
-+mc\int_{\lambda_0}^{\lambda_1}
+&=mc\left[\frac{\dot X_\mu H^\mu}{\sqrt G}\right]_{\lambda_0}^{\lambda_1}
+-mc\int_{\lambda_0}^{\lambda_1}
 \frac d{d\lambda}\left(\frac{\dot X_\mu}{\sqrt G}\right)H^\mu\,d\lambda\\
-&=mc\int_{\lambda_0}^{\lambda_1}
+&=-mc\int_{\lambda_0}^{\lambda_1}
 \frac d{d\lambda}\left(\frac{\dot X_\mu}{\sqrt G}\right)H^\mu\,d\lambda.
 \end{aligned}
 $$
@@ -408,7 +408,7 @@ $$
 g(U,K)=0
 $$
 
-> を満たす。逆に $P=mU$ で $K=dP/d\tau$ とし、$g(U,K)=0$ なら $g(P,P)=m^2c^2$ の値は固有時に沿って保たれる。
+> を満たす。逆に $P=mU$ で $K=dP/d\tau$ とし、$g(U,K)=0$ なら $g(P,P)=-m^2c^2$ の値は固有時に沿って保たれる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -436,10 +436,10 @@ $$
 $$
 \begin{aligned}
 g(U,K)
-&=(\gamma c)\left(\gamma\frac{\boldsymbol f\cdot\boldsymbol v}{c}\right)
--(\gamma\boldsymbol v)\cdot(\gamma\boldsymbol f)\\
-&=\gamma^2\boldsymbol f\cdot\boldsymbol v
--\gamma^2\boldsymbol v\cdot\boldsymbol f=0.
+&=-(\gamma c)\left(\gamma\frac{\boldsymbol f\cdot\boldsymbol v}{c}\right)
++(\gamma\boldsymbol v)\cdot(\gamma\boldsymbol f)\\
+&=-\gamma^2\boldsymbol f\cdot\boldsymbol v
++\gamma^2\boldsymbol v\cdot\boldsymbol f=0.
 \end{aligned}
 $$
 
@@ -458,11 +458,11 @@ $$
 
 $$
 g\left(U,\frac{dP}{d\tau}\right)
-=c^2\frac{dm}{d\tau}+m g(U,A)
-=c^2\frac{dm}{d\tau}.
+=-c^2\frac{dm}{d\tau}+m g(U,A)
+=-c^2\frac{dm}{d\tau}.
 $$
 
-一定質量の直交条件は一般には破れます。また、運動中の粒子に一律 $K=(0,F,0,0)$ を割り当てると $g(U,K)=-\gamma v_xF$ で、$v_xF\ne0$ では直交条件を満たしません。「四元力の時間成分は常に零」という思い込みが、どの仮定を壊すかが分かります。
+一定質量の直交条件は一般には破れます。また、運動中の粒子に一律 $K=(0,F,0,0)$ を割り当てると $g(U,K)=\gamma v_xF$ で、$v_xF\ne0$ では直交条件を満たしません。「四元力の時間成分は常に零」という思い込みが、どの仮定を壊すかが分かります。
 
 ## 5. 一次元の一定力を最後まで解く
 
@@ -649,8 +649,8 @@ $$
 [SREL3 の四元速度](../SREL3/index.md#def-srel3-four-velocity)は $U=(5c/4,3c/4,0,0)$ ですから
 
 $$
-g(U,K)=\frac{5c}{4}\frac{3F}{4}
--\frac{3c}{4}\frac{5F}{4}=0.
+g(U,K)=-\frac{5c}{4}\frac{3F}{4}
++\frac{3c}{4}\frac{5F}{4}=0.
 $$
 
 時間成分 $K^0$ を零にすると直交性を失います。
@@ -685,7 +685,7 @@ $0\le t\le T$ の等速世界線 $X(t)=(ct,vt,0,0)$（$|v|<c$）を、$\lambda=2
 <!-- solution-start -->
 #### 詳細解答
 
-$t$ を使うと $\dot X_t=(c,v,0,0)$、$g(\dot X_t,\dot X_t)=c^2-v^2>0$ なので、[自由作用](#def-srel4-free-action)は
+$t$ を使うと $\dot X_t=(c,v,0,0)$、$g(\dot X_t,\dot X_t)=-c^2+v^2<0$ なので、[自由作用](#def-srel4-free-action)は
 
 $$
 S_t=-mc\int_0^T\sqrt{c^2-v^2}\,dt
@@ -696,7 +696,7 @@ $\lambda=2t$ では $X(\lambda)=(c\lambda/2,v\lambda/2,0,0)$、$0\le\lambda\le2T
 
 $$
 g\left(\frac{dX}{d\lambda},\frac{dX}{d\lambda}\right)
-=\frac{c^2-v^2}{4}>0
+=-\frac{c^2-v^2}{4}<0
 $$
 
 であり
@@ -777,10 +777,10 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[四元速度](../SREL3/index.md#def-srel3-four-velocity)は $U=(\gamma c,\gamma v,0,0)$、$\gamma>0$ です。計量の符号 $(+,-,-,-)$ を用いると
+[四元速度](../SREL3/index.md#def-srel3-four-velocity)は $U=(\gamma c,\gamma v,0,0)$、$\gamma>0$ です。計量の符号 $(-,+,+,+)$ を用いると
 
 $$
-g(U,K)=(\gamma c)\,0-(\gamma v)F=-\gamma vF\ne0.
+g(U,K)=-(\gamma c)\,0+(\gamma v)F=\gamma vF\ne0.
 $$
 
 [四元力の直交条件](#thm-srel4-four-force)に反します。さらに $P=mU$ の場合、$dP/d\tau=K$ とすれば積の微分から
@@ -788,10 +788,10 @@ $$
 $$
 \frac{d}{d\tau}g(P,P)
 =2g(P,K)=2m\,g(U,K)
-=-2m\gamma vF\ne0.
+=2m\gamma vF\ne0.
 $$
 
-したがって $g(P,P)=m^2c^2$ を一定に保てません。瞬間静止系で $K^0=0$ でよい事実を、運動中の系にそのまま転用したことが誤りです。
+したがって $g(P,P)=-m^2c^2$ を一定に保てません。瞬間静止系で $K^0=0$ でよい事実を、運動中の系にそのまま転用したことが誤りです。
 <!-- solution-end -->
 
 ## Level C

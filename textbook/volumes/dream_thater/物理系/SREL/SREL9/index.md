@@ -6,7 +6,7 @@
 
 これまでの[SREL1のLorentz変換](../SREL1/index.md#thm-srel1-lorentz)、[SREL3の質量殻](../SREL3/index.md#thm-srel3-mass-shell)、[SREL5のMaxwell共変形式](../SREL5/index.md#thm-srel5-covariance)、[SREL6の電磁場の収支](../SREL6/index.md#thm-srel6-field-balance)、[SREL7の完全流体](../SREL7/index.md#def-srel7-perfect-fluid)、[SREL8のRindler因果構造](../SREL8/index.md#thm-srel8-causal-domain)を、一連の問題として接続します。
 
-四次元Minkowski時空で $x^\mu=(ct,x,y,z)$、$c>0$、計量 $g_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、$x^0=ct$、$\partial_0=c^{-1}\partial_t$ を固定します。ギリシャ添字は $0,1,2,3$ を走り、重複添字を縮約します。一次元boostの速さ $w$ は $|w|<c$ とし、$\beta=w/c$、$\Gamma=(1-\beta^2)^{-1/2}$ と書きます。流体、電磁場、粒子を同時に扱う場合にも、どの量が粒子単体のものか、どの量が系全体のものかを指定します。
+四次元Minkowski時空で $x^\mu=(ct,x,y,z)$、$c>0$、計量 $g_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$、$x^0=ct$、$\partial_0=c^{-1}\partial_t$ を固定します。ギリシャ添字は $0,1,2,3$ を走り、重複添字を縮約します。一次元boostの速さ $w$ は $|w|<c$ とし、$\beta=w/c$、$\Gamma=(1-\beta^2)^{-1/2}$ と書きます。流体、電磁場、粒子を同時に扱う場合にも、どの量が粒子単体のものか、どの量が系全体のものかを指定します。
 
 ## 1. 孤立系の四元運動量は何を保存するか
 
@@ -21,7 +21,7 @@
 > 平坦時空で、ある衝突前後に全構成物を含む系を考える。各段階で同じ慣性系における全四元運動量を $P^\mu=(E_{\rm tot}/c,\boldsymbol p_{\rm tot})$ とする。$P^\mu$ が未来向き時間的なら、系の不変質量 $M>0$ を
 >
 $$
-M^2c^2=P_\mu P^\mu
+M^2c^2=-P_\mu P^\mu
 =\frac{E_{\rm tot}^2}{c^2}-|\boldsymbol p_{\rm tot}|^2
 $$
 >
@@ -100,7 +100,7 @@ P'^1&=\Gamma(P^1-\beta P^0)=-2\Gamma\gamma_v m w.
 \end{aligned}
 $$
 
-この系での結合体の速度は $cP'^1/P'^0=-w$ であり、不変ノルムは $(P'^0)^2-(P'^1)^2=4\gamma_v^2m^2c^2$ と一致します。
+この系での結合体の速度は $cP'^1/P'^0=-w$ であり、負の不変ノルムは $-P'_\mu P'^\mu=(P'^0)^2-(P'^1)^2=4\gamma_v^2m^2c^2$ と一致します。
 
 ## 2. 電磁波・Maxwell方程式・エネルギー流を一度につなぐ
 
@@ -316,7 +316,7 @@ $$
 
 ## 演習
 
-以下はすべて $g=\operatorname{diag}(1,-1,-1,-1)$、$x^0=ct$ に従います。各問の計算では係数の次元と符号も検算してください。
+以下はすべて $g=\operatorname{diag}(-1,1,1,1)$、$x^0=ct$ に従います。各問の計算では係数の次元と符号も検算してください。
 
 ### Level A
 
@@ -335,7 +335,7 @@ $$
 P^\mu=(K/c,K/c,0,0)+(K/c,-K/c,0,0)=(2K/c,0,0,0).
 $$
 
-$P_\mu P^\mu=(2K/c)^2$、$M^2c^2=4K^2/c^2$ なので $M=2K/c^2$ です。各光子単体には[SREL3の光的質量殻](../SREL3/index.md#def-srel3-mass-shell)を使いますが、合計は時間的四元ベクトルになります。
+$P_\mu P^\mu=-(2K/c)^2$、$M^2c^2=4K^2/c^2$ なので $M=2K/c^2$ です。各光子単体には[SREL3の光的質量殻](../SREL3/index.md#def-srel3-mass-shell)を使いますが、合計は時間的四元ベクトルになります。
 <!-- solution-end -->
 
 ### A2. boostした衝突系の速さ

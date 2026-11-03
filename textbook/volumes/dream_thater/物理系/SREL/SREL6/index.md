@@ -8,7 +8,7 @@
 
 ## 1. 単位・記号とLorentz変換の再確認
 
-時空座標を $x^\mu=(ct,x,y,z)$、計量を $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$ とします。光速 $c>0$、真空定数 $\varepsilon_0,\mu_0>0$ は $\varepsilon_0\mu_0c^2=1$ を満たすSI単位系です。$F$ は少なくとも $C^1$ 級で、局所収支には $C^2$ 級の $F$ と $C^1$ 級の四元電流 $J^\mu=(c\rho,\boldsymbol j)$ を仮定します。分布的な点電荷や媒質の内部は扱いません。
+時空座標を $x^\mu=(ct,x,y,z)$、計量を $\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ とします。光速 $c>0$、真空定数 $\varepsilon_0,\mu_0>0$ は $\varepsilon_0\mu_0c^2=1$ を満たすSI単位系です。$F$ は少なくとも $C^1$ 級で、局所収支には $C^2$ 級の $F$ と $C^1$ 級の四元電流 $J^\mu=(c\rho,\boldsymbol j)$ を仮定します。分布的な点電荷や媒質の内部は扱いません。
 
 [既出の電磁場テンソルの定義](../SREL5/index.md#def-srel5-field-tensor)を繰り返し使います。
 
@@ -181,20 +181,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（電磁場のエネルギー運動量テンソル）**  
-> 平坦時空、SI単位系、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$ において、電磁場テンソル $F$ から対称二階テンソルを
+> 平坦時空、SI単位系、計量 $\eta=\operatorname{diag}(-1,1,1,1)$ において、電磁場テンソル $F$ から対称二階テンソルを
 
 $$
 T^{\mu\nu}
 =\frac1{\mu_0}\left(
--F^{\mu\alpha}F^\nu{}_\alpha
-+\frac14\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}
+F^{\mu\alpha}F^\nu{}_\alpha
+-\frac14\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}
 \right)
 $$
 
 > と定める。$F^\nu{}_\alpha=\eta_{\alpha\beta}F^{\nu\beta}$ とし、$\alpha,\beta$ は $0$ から $3$ まで縮約する。
 <!-- formal-statement-end -->
 
-前の式の最初のマイナスは計量の符号に依存します。この符号規約では、電磁場が零でないときのエネルギー密度が負にならないために必要です。
+第1項のプラスと計量項のマイナスは $(-+++)$ に対応します。計量を反転させると縮約項・計量項の符号も変わりますが、エネルギー密度 $T^{00}$ は引き続き非負です。
 
 <!-- definition-example-start: def-srel6-em-energy-momentum -->
 ### 直接例：一方向だけの静電場
@@ -202,7 +202,7 @@ $$
 **定義の確認**：$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=\boldsymbol0$ とします。$F^{02}=-E_0/c$、$F^{20}=E_0/c$ だけが非零です。従って
 
 $$
-F^{0\alpha}F^0{}_\alpha=-E_0^2/c^2,\qquad
+F^{0\alpha}F^0{}_\alpha=E_0^2/c^2,\qquad
 F_{\alpha\beta}F^{\alpha\beta}=-2E_0^2/c^2.
 $$
 
@@ -214,11 +214,11 @@ E_0^2/c^2-E_0^2/(2c^2)\right)
 =\frac{\varepsilon_0E_0^2}{2}>0.
 $$
 
-混合成分は、$F^{1\alpha}=0$ と $\eta^{01}=0$ から $T^{01}=0$ です。一方、同じ $F^{1\alpha}=0$ と $\eta^{11}=-1$ を定義へ代入すると
+混合成分は、$F^{1\alpha}=0$ と $\eta^{01}=0$ から $T^{01}=0$ です。一方、同じ $F^{1\alpha}=0$ と $\eta^{11}=1$ を定義へ代入すると
 
 $$
 T^{11}=\frac1{\mu_0}\left[
-0+\frac14(-1)\left(-\frac{2E_0^2}{c^2}\right)\right]
+0-\frac14(1)\left(-\frac{2E_0^2}{c^2}\right)\right]
 =\frac{\varepsilon_0E_0^2}{2}.
 $$
 
@@ -266,11 +266,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $F^{0i}=-E_i/c$、$F^0{}_i=E_i/c$、$F^{00}=0$ です。従って
+まず $F^{0i}=-E_i/c$、$F^0{}_i=-E_i/c$、$F^{00}=0$ です。従って
 
 $$
--F^{0\alpha}F^0{}_\alpha
-=-\sum_i(-E_i/c)(E_i/c)=|\boldsymbol E|^2/c^2.
+F^{0\alpha}F^0{}_\alpha
+=\sum_i(-E_i/c)(-E_i/c)=|\boldsymbol E|^2/c^2.
 $$
 
 [前節の不変量](#prop-srel6-field-invariants)により $F_{\alpha\beta}F^{\alpha\beta}=2(|\boldsymbol B|^2-|\boldsymbol E|^2/c^2)$ なので、$T^{00}=(|\boldsymbol E|^2/c^2+|\boldsymbol B|^2)/(2\mu_0)=u$ です。
@@ -280,14 +280,14 @@ $$
 $$
 \begin{aligned}
 T^{0i}
-&=-\frac1{\mu_0}\sum_jF^{0j}F^i{}_j
-=-\frac1{\mu_0}\sum_j(-E_j/c)(+\epsilon_{ijk}B_k)\\
+&=\frac1{\mu_0}\sum_jF^{0j}F^i{}_j
+=\frac1{\mu_0}\sum_j(-E_j/c)(-\epsilon_{ijk}B_k)\\
 &=\frac1{\mu_0c}\sum_{jk}\epsilon_{ijk}E_jB_k
 =\frac{S_i}{c}.
 \end{aligned}
 $$
 
-ここでは $F^i{}_j=-F^{ij}=+\epsilon_{ijk}B_k$ としており、添字を一つ下げる符号を省略していません。$F^{\mu\alpha}F^\nu{}_\alpha$ は $F$ の二つの行を計量で内積したものなので $\mu,\nu$ の交換で対称です。計量項も対称であるため $T^{i0}=T^{0i}$ です。
+ここでは $F^i{}_j=F^{ij}=-\epsilon_{ijk}B_k$ としており、添字を一つ下げる符号を省略していません。$F^{\mu\alpha}F^\nu{}_\alpha$ は $F$ の二つの行を計量で内積したものなので $\mu,\nu$ の交換で対称です。計量項も対称であるため $T^{i0}=T^{0i}$ です。
 
 空間二成分については
 
@@ -295,13 +295,13 @@ $$
 \begin{aligned}
 F^{i\alpha}F^j{}_\alpha
 &=F^{i0}F^j{}_0+\sum_kF^{ik}F^j{}_k\\
-&=\frac{E_iE_j}{c^2}
--\sum_{k,\ell,m}\epsilon_{ik\ell}\epsilon_{jkm}B_\ell B_m\\
-&=\frac{E_iE_j}{c^2}-\delta_{ij}|\boldsymbol B|^2+B_iB_j.
+&=-\frac{E_iE_j}{c^2}
++\sum_{k,\ell,m}\epsilon_{ik\ell}\epsilon_{jkm}B_\ell B_m\\
+&=-\frac{E_iE_j}{c^2}+\delta_{ij}|\boldsymbol B|^2-B_iB_j.
 \end{aligned}
 $$
 
-$\eta^{ij}=-\delta_{ij}$ を代入すると
+$\eta^{ij}=\delta_{ij}$ を代入すると
 
 $$
 \begin{aligned}
@@ -366,8 +366,8 @@ $$
 $$
 T'^{\mu\nu}
 =\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma
-\frac1{\mu_0}\left(-F^{\rho\lambda}F^\sigma{}_\lambda
-+\frac14\eta^{\rho\sigma}Q\right)
+\frac1{\mu_0}\left(F^{\rho\lambda}F^\sigma{}_\lambda
+-\frac14\eta^{\rho\sigma}Q\right)
 =\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma T^{\rho\sigma}.
 $$
 
@@ -378,9 +378,9 @@ $$
 $$
 \begin{aligned}
 \mu_0\eta_{\mu\nu}T^{\mu\nu}
-&=-\eta_{\mu\nu}F^{\mu\alpha}F^\nu{}_\alpha
-+\tfrac14(\eta_{\mu\nu}\eta^{\mu\nu})F_{\alpha\beta}F^{\alpha\beta}\\
-&=-F_{\mu\alpha}F^{\mu\alpha}+\tfrac44F_{\alpha\beta}F^{\alpha\beta}=0.
+&=\eta_{\mu\nu}F^{\mu\alpha}F^\nu{}_\alpha
+-\tfrac14(\eta_{\mu\nu}\eta^{\mu\nu})F_{\alpha\beta}F^{\alpha\beta}\\
+&=F_{\mu\alpha}F^{\mu\alpha}-\tfrac44F_{\alpha\beta}F^{\alpha\beta}=0.
 \end{aligned}
 $$
 
@@ -427,7 +427,7 @@ $$
 
 $$
 \boxed{\partial_\mu T^{\mu\nu}=-f^\nu,\qquad
-f^\nu=F^{\nu\alpha}J_\alpha}
+f^\nu=-F^{\nu\alpha}J_\alpha}
 $$
 
 > が成立する。四元力密度の時間成分と空間成分は
@@ -452,9 +452,9 @@ $T$ を積の微分で展開すると、非斉次Maxwell方程式が源の項に
 $$
 \begin{aligned}
 \mu_0\partial_\mu T^{\mu\nu}
-&=-(\partial_\mu F^{\mu\alpha})F^\nu{}_\alpha
--F^{\mu\alpha}\partial_\mu F^\nu{}_\alpha
-+\tfrac14\partial^\nu Q.
+&=(\partial_\mu F^{\mu\alpha})F^\nu{}_\alpha
++F^{\mu\alpha}\partial_\mu F^\nu{}_\alpha
+-\tfrac14\partial^\nu Q.
 \end{aligned}
 $$
 
@@ -502,16 +502,16 @@ $$
 
 $$
 \partial_\mu T^{\mu\nu}
-=-J^\alpha F^\nu{}_\alpha
-=-F^{\nu\alpha}J_\alpha.
+=J^\alpha F^\nu{}_\alpha
+=F^{\nu\alpha}J_\alpha=-f^\nu.
 $$
 
-さらに $J_0=c\rho$、$J_i=-j_i$、$F^{0i}=-E_i/c$、$F^{i0}=E_i/c$、$F^{ij}=-\epsilon_{ijk}B_k$ だから
+さらに $J_0=-c\rho$、$J_i=j_i$、$F^{0i}=-E_i/c$、$F^{i0}=E_i/c$、$F^{ij}=-\epsilon_{ijk}B_k$ だから
 
 $$
 \begin{aligned}
-f^0&=\sum_i(-E_i/c)(-j_i)=\boldsymbol j\cdot\boldsymbol E/c,\\
-f^i&=(E_i/c)(c\rho)+\sum_j(-\epsilon_{ijk}B_k)(-j_j)
+f^0&=-\sum_i(-E_i/c)j_i=\boldsymbol j\cdot\boldsymbol E/c,\\
+f^i&=-\left[(E_i/c)(-c\rho)+\sum_j(-\epsilon_{ijk}B_k)j_j\right]
 =\rho E_i+(\boldsymbol j\times\boldsymbol B)_i.
 \end{aligned}
 $$
@@ -722,7 +722,7 @@ $\eta^{\mu\nu}$ も対称なので $T^{\mu\nu}=T^{\nu\mu}$ です。一方 $Q=F_
 
 $$
 \eta_{\mu\nu}T^{\mu\nu}
-=\frac1{\mu_0}\left(-Q+\tfrac14\cdot 4Q\right)=0.
+=\frac1{\mu_0}\left(Q-\tfrac14\cdot 4Q\right)=0.
 $$
 
 四次元では $\eta_{\mu\nu}\eta^{\mu\nu}=4$ なので係数が $1/4$ です。次元数が変わればこの打ち消しの計算も変わります。
@@ -730,22 +730,22 @@ $$
 
 ### B3. 場が物質へ渡す力の符号
 
-$J^\mu=(c\rho,\boldsymbol j)$ とする。$f^\nu=F^{\nu\alpha}J_\alpha$ を四成分で展開し、$\partial_\mu T^{\mu\nu}=-f^\nu$ からPoynting収支式を導け。
+$J^\mu=(c\rho,\boldsymbol j)$ とする。$f^\nu=-F^{\nu\alpha}J_\alpha$ を四成分で展開し、$\partial_\mu T^{\mu\nu}=-f^\nu$ からPoynting収支式を導け。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-[四元電流](../SREL5/index.md#def-srel5-four-current)を下げると $J_0=c\rho$、$J_i=-j_i$ です。[電磁場テンソルの定義](../SREL5/index.md#def-srel5-field-tensor)を用いて
+[四元電流](../SREL5/index.md#def-srel5-four-current)を下げると $J_0=-c\rho$、$J_i=j_i$ です。[電磁場テンソルの定義](../SREL5/index.md#def-srel5-field-tensor)を用いて
 
 $$
 \begin{aligned}
-f^0&=\sum_iF^{0i}J_i
-=\sum_i(-E_i/c)(-j_i)=\boldsymbol E\cdot\boldsymbol j/c,\\
-f^i&=F^{i0}J_0+\sum_jF^{ij}J_j\\
-&=(E_i/c)(c\rho)
-+\sum_{jk}(-\epsilon_{ijk}B_k)(-j_j)
+f^0&=-\sum_iF^{0i}J_i
+=-\sum_i(-E_i/c)j_i=\boldsymbol E\cdot\boldsymbol j/c,\\
+f^i&=-F^{i0}J_0-\sum_jF^{ij}J_j\\
+&=-(E_i/c)(-c\rho)
+-\sum_{jk}(-\epsilon_{ijk}B_k)j_j
 =\rho E_i+(\boldsymbol j\times\boldsymbol B)_i.
 \end{aligned}
 $$
