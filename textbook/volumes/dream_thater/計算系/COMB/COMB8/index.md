@@ -138,7 +138,22 @@ $\lambda\ne0$ なので全ての $n$ で $\lambda^n\ne0$ です。したがっ�
 
 ### 重根ではなぜ $n$ が掛かるのか
 
-$p(z)=(z-2)^2$ の場合、$2^n$ だけでは初期値二個を自由に指定できません。そこで $n2^n$ を試します。[前進差分の定義](../COMB6/index.md#def-comb6-shift-differences)を非負整数上の数列 $P(n)$ に用い、$\Delta P(n)=P(n+1)-P(n)$ とします。数列に作用するシフト $E$ は $(Ea)_n=a_{n+1}$、反復シフトは $(E^ja)_n=a_{n+j}$（$j\geq0$、$E^0=I$）です。したがって特性多項式 $p$ を $E$ に代入した作用素は
+$p(z)=(z-2)^2$ の場合、$2^n$ だけでは初期値二個を自由に指定できません。そこで $n2^n$ を試します。
+
+[前進差分の定義](../COMB6/index.md#def-comb6-shift-differences)を非負整数上の数列 $P$ に用いると
+
+$$
+(\Delta P)(n)=P(n+1)-P(n)
+$$
+
+です。以下では $(\Delta P)(n)$ を $\Delta P(n)$ とも書きます。数列に作用するシフト $E$ とその反復は
+
+$$
+(Ea)_n=a_{n+1},\qquad
+(E^ja)_n=a_{n+j}\quad(j\geq0,\ E^0=I)
+$$
+
+です。したがって特性多項式 $p$ を $E$ に代入した作用素は
 
 $$
 (p(E)a)_n=(E^da)_n+\sum_{j=0}^{d-1}c_j(E^ja)_n
@@ -155,7 +170,16 @@ $$
 \end{aligned}
 $$
 
-従って $(E-\lambda)^m(\lambda^nP(n))=\lambda^{n+m}\Delta^mP(n)$ です。$P$ が次数 $m-1$ 以下の多項式なら、[差分による次数判定](../COMB6/index.md#thm-comb6-degree-test)から $\Delta^mP=0$ です。同定理は実係数多項式で述べていますが、$r\geq1$ に対する $\Delta(n^r)=(n+1)^r-n^r$ の最高次項は $rn^{r-1}$ なので、差分が次数を一つ下げる計算は複素係数でも成立します。以降の複素係数多項式 $P_i$ にもこの事実を使います。
+この操作を $m$ 回繰り返すと
+
+$$
+(E-\lambda)^m(\lambda^nP(n))
+=\lambda^{n+m}\Delta^mP(n)
+$$
+
+です。$P$ が次数 $m-1$ 以下の多項式なら、[差分による次数判定](../COMB6/index.md#thm-comb6-degree-test)から $\Delta^mP=0$ です。
+
+この既習定理は実係数多項式について述べていますが、整数 $r\geq1$ に対する $\Delta(n^r)=(n+1)^r-n^r$ の最高次項は $rn^{r-1}$ です。したがって差分が次数を一つ下げる計算は複素係数でも成立し、以降の複素係数多項式 $P_i$ にも使えます。
 
 <a id="thm-comb8-repeated-nonzero-roots"></a>
 
