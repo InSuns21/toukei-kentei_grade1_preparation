@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - GEOD1
   - F0-00E1
+  - F0-00F
 official_scope: []
 learning_objectives:
   - 測地基準系・基準座標系の実現・datum・準拠楕円体・CRSの役割を区別できる

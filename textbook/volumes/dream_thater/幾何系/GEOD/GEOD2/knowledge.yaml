@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GEOD1
   - F0-00E1
+  - F0-00F
 forward_references: []
 
 concepts:
@@ -54,7 +55,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（直交する座標軸間の表示と距離）]
-    requires: [geodesy.reference-frame, geodesy.coordinate-transformation]
+    requires: [geodesy.reference-frame, geodesy.coordinate-transformation, linear.representation-matrix]
 
   - id: geodesy.coordinate-epoch
     name: 座標時点
