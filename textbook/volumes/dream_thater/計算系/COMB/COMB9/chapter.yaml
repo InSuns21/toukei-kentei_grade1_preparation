@@ -1,0 +1,47 @@
+id: "COMB9"
+title: "形式冪級数と普通母関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB8
+forward_references:
+  - RA1
+official_scope: []
+learning_objectives:
+  - 形式冪級数を係数列として定義し、普通母関数の等号と解析的級数の収束を区別できる
+  - 形式的 Cauchy 積の係数を有限畳み込みで計算し、環の結合・交換・分配法則を係数から証明できる
+  - 定数項による逆元の必要十分条件と係数の再帰構成を証明できる
+  - 定数項零の形式冪級数について幾何級数と合成の局所有限性を証明し、不適切な代入を識別できる
+  - 定数係数線形漸化式と有理型普通母関数を往復し、初期項・添字の整合を検算できる
+  - 部分和の普通母関数を積から導いて係数を回収できる
+definitions:
+  - { id: COMB9-DEF-01, name: 形式冪級数と係数抽出 }
+  - { id: COMB9-DEF-02, name: 普通母関数 }
+  - { id: COMB9-DEF-03, name: 形式冪級数の和と Cauchy 積 }
+  - { id: COMB9-DEF-04, name: 形式冪級数の逆元 }
+  - { id: COMB9-DEF-05, name: 形式冪級数の合成 }
+theorems:
+  - { id: COMB9-THM-01, name: 形式冪級数の演算法則 }
+  - { id: COMB9-THM-02, name: 形式冪級数の可逆性判定 }
+  - { id: COMB9-THM-03, name: 形式的等比級数 }
+  - { id: COMB9-THM-04, name: 形式的合成の代数法則 }
+  - { id: COMB9-THM-05, name: 定数係数線形漸化式と有理型普通母関数 }
+canonical_examples:
+  - 形式冪級数の係数一致と切詰め多項式の差
+  - Cauchy 積の低次係数の有限畳み込み
+  - 逆元の再帰係数計算と定数項零の障害
+  - 形式的等比級数と数値的発散の両立
+  - x の二乗への合成と定数項非零への不適切な合成
+  - 二階初期値問題からの有理型普通母関数と係数回収
+  - 部分和の普通母関数
+problem_patterns:
+  - COMB9-COEFFICIENTS
+  - COMB9-UNIT-RECURSION
+  - COMB9-COMPOSITION-LOCAL-FINITENESS
+  - COMB9-FORMAL-VS-ANALYTIC
+  - COMB9-RECURRENCE-RATIONAL-OGF
+  - COMB9-PARTIAL-SUM-OGF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
