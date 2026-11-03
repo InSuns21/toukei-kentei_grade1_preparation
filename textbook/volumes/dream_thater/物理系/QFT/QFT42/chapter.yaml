@@ -14,7 +14,8 @@ definitions:
   - { id: QFT42-DEF-01, name: 一ループQCDのΛ尺度と摂動域 }
   - { id: QFT42-DEF-02, name: 静的色源の相互作用ポテンシャル }
   - { id: QFT42-DEF-03, name: 格子のWilsonループ }
-  - { id: QFT42-DEF-04, name: 純ゲージWilson格子作用 }
+  - { id: QFT42-DEF-04, name: SU(3)上のHaar確率測度 }
+  - { id: QFT42-DEF-05, name: 純ゲージWilson格子作用 }
 theorems:
   - { id: QFT42-PROP-01, name: 一ループ流の積分定数と尺度依存 }
   - { id: QFT42-PROP-02, name: 短距離色一重項ポテンシャル }
@@ -25,6 +26,7 @@ canonical_examples:
   - 三フレーバーでQ/Λがexp(5)とexp(2)の場合の一ループ結合
   - 三色一重項の色二次CasimirとCoulomb係数
   - 対角リンクの一周積と局所変換の相殺
+  - Haar確率測度の中心元による積分判定
   - 一つと二つのplaquetteについてのHaar積分
   - 動的クォークがある場合の弦の切断と面積則の適用限界
 problem_patterns:

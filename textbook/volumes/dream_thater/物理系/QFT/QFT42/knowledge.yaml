@@ -47,19 +47,26 @@ concepts:
     introduction_aliases: [命題（Wilsonループのゲージ不変性）]
     requires: [qft.qcd-lattice-wilson-loop]
 
+  - id: qft.qcd-su3-haar-measure
+    name: SU(3)上のHaar確率測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（SU(3)上のHaar確率測度）]
+    requires: [qft.qcd-lattice-wilson-loop]
+
   - id: qft.qcd-lattice-wilson-action
     name: 純ゲージWilson格子作用
     kind: definition
     introduction: formal
     introduction_aliases: [定義（純ゲージWilson格子作用）]
-    requires: [qft.qcd-lattice-wilson-loop]
+    requires: [qft.qcd-lattice-wilson-loop, qft.qcd-su3-haar-measure]
 
   - id: qft.qcd-su3-haar-orthogonality
     name: SU(3)Haar積分の基本直交性
     kind: lemma
     introduction: formal
     introduction_aliases: [補題（SU(3)Haar積分の基本直交性）]
-    requires: [qft.qcd-lattice-wilson-action]
+    requires: [qft.qcd-lattice-wilson-action, qft.qcd-su3-haar-measure]
 
   - id: qft.qcd-finite-loop-strong-coupling
     name: 有限矩形Wilsonループの強結合先頭項
