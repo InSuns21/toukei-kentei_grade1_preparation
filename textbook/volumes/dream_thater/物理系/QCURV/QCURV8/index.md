@@ -237,7 +237,34 @@ f_\alpha(E):=\int_{\mathbb R}e^{-iEs}w_\alpha(s)\,ds
 =\frac{E}{2\pi(e^{\beta E}-1)},\qquad E\ne0
 $$
 
-を得ます。これは分布のFourier変換で、境界の $i0$ は積分経路のどちら側に二重極があるかを指定しています。経路の閉じ方は次のように正当化できます。まず $\varepsilon\in(0,\beta/2)$ を固定し、実軸を一方の水平辺として $E>0$ では下辺を $\operatorname{Im}s=-(N+1/2)\beta$、$E<0$ では上辺を $\operatorname{Im}s=(N+1/2)\beta$ に取る長方形を考えます。幅 $R$ を無限大へ送ると縦辺の積分は $\sinh^{-2}$ の $O(e^{-\alpha R})$ という減衰で消えます。遠方の水平辺では $\sinh^{-2}$ は極から一様に離れた有界な可積分関数で、$e^{-iEs}$ の絶対値が $e^{-|E|(N+1/2)\beta}$ となるため、$N\to\infty$ で消えます。従って上記の極の集合・向きで留数の和が確定します。最後に $\varepsilon\downarrow0$ として境界値を取ります。$E\to0$ では $e^{\beta E}-1=\beta E+O(E^2)$ より $f_\alpha(0)=1/(2\pi\beta)=\alpha/(4\pi^2)$。$|E|\to\infty$ での増大は高々一次です。
+を得ます。これは分布のFourier変換であり、境界の $i0$ は積分経路のどちら側に二重極があるかを指定します。
+
+積分経路の閉じ方を確かめます。まず $0<\varepsilon<\beta/2$ を固定し、実軸を一方の水平辺とする長方形を取ります。もう一つの水平辺は $E$ の符号に応じて
+
+$$
+\operatorname{Im}s=
+\begin{cases}
+-(N+1/2)\beta &(E>0),\\
++(N+1/2)\beta &(E<0)
+\end{cases}
+$$
+
+とします。縦辺の実部を $\pm R$ に置くと、固定した $N$ について $\sinh^{-2}$ の $O(e^{-\alpha R})$ という減衰で縦辺の積分は消えます。遠方の水平辺は極から一様に離れており、そこでは指数因子の絶対値が
+
+$$
+|e^{-iEs}|=e^{-|E|(N+1/2)\beta}
+$$
+
+です。残りの $\sinh^{-2}$ はその水平辺上で可積分かつ一様有界なので、$N\to\infty$ で水平辺も消えます。従って上記の極の集合と経路の向きが正当化され、最後に $\varepsilon\downarrow0$ の分布境界値を取れます。
+
+$E=0$ は直接積分でなく連続延長により求めます。$e^{\beta E}-1=\beta E+O(E^2)$ から
+
+$$
+f_\alpha(0)=\lim_{E\to0}\frac{E}{2\pi(e^{\beta E}-1)}
+=\frac1{2\pi\beta}=\frac{\alpha}{4\pi^2}.
+$$
+
+また $|E|\to\infty$ での増大は高々一次です。
 
 次に長時間率へ接続します。$w_\alpha$ の逆Fourier表示と[QCURV6の切替応答](../QCURV6/index.md#def-qcurv6-response)から、$\widehat\chi(p)=\int\chi(\tau)e^{-ip\tau}\,d\tau$ として
 
@@ -331,7 +358,9 @@ $q<0$ では $E-q/T\to+\infty$ で指数分母が勝ち、極限は0です。$f_
 
 二点分布の議論とは別に、Minkowskiの正振動数と[Rindlerの正振動数](../QCURV7/index.md#def-qcurv7-modes)が一致しないことを、Fourier積分で見ることもできます。ここでは横方向を持たない**1+1次元の質量零・右向き伝播成分**を用いた計算模型を使います。これは4次元場の全モードの正規化や、くさび代数のKMS性の一般証明の代わりではありません。
 
-null座標 $U=t-x$ の右くさび $U<0$ 上では、$\nu=\omega/a>0$ として正のboost振動数の因子は $(-aU)^{i\nu}$ です。Minkowskiの右向き正振動数因子は $e^{-ikU}$（$k>0$）。$U<0$ で $q=-U>0$ と置いて両者をFourier比較します。ここでの「Minkowski正振動数の係数」は、$e^{-ikU}$ に掛かるFourier展開係数を意味します。その係数を抽出する積分では複素共役の $e^{+ikU}$ を掛けるので、$U=-q$ と変数変換すると（規格化に共通な因子を除き）
+null座標 $U=t-x$ の右くさび $U<0$ 上では、$\nu=\omega/a>0$ として正のboost振動数の因子は $(-aU)^{i\nu}$ です。一方、Minkowskiの右向き正振動数因子は $e^{-ikU}$（$k>0$）です。
+
+$U<0$ で $q=-U>0$ と置いてFourier係数を比較します。「正振動数の係数」とは $e^{-ikU}$ に掛かるFourier展開係数です。その射影積分では複素共役の $e^{+ikU}$ を掛けます。従って $U=-q$ の変数変換により、規格化に共通な因子を除けば
 
 $$
 \begin{aligned}
@@ -376,7 +405,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z=1+i\nu$、$h=\delta\pm ik$ と置けば $\operatorname{Re}z=1>0$、$\operatorname{Re}h=\delta>0$ です。[CA11のEuler積分によるGamma関数の定義](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)から、まず実数 $h>0$ に対して $t=hq$ と置くと $\int_0^\infty q^{z-1}e^{-hq}dq=h^{-z}\Gamma(z)$ です。左辺は $\operatorname{Re}h>0$ で局所一様収束して正則、右辺も主値対数による冪として正則です。実軸上で一致するので複素解析の一致の定理により同じ右半平面で等しく、
+$z=1+i\nu$、$h=\delta\pm ik$ と置きます。適用条件は
+
+$$
+\operatorname{Re}z=1>0,\qquad
+\operatorname{Re}h=\delta>0
+$$
+
+です。[CA11のEuler積分によるGamma関数の定義](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)に対して、まず実数 $h>0$ で $t=hq$ と置けば
+
+$$
+\int_0^\infty q^{z-1}e^{-hq}\,dq=h^{-z}\Gamma(z)
+$$
+
+を得ます。左辺は右半平面で局所一様収束するため $h$ に関して正則であり、右辺も主値対数による複素冪として正則です。実数 $h>0$ 上で一致するので、[CA3の恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)の仮定を右半平面上で満たし、複素数 $h=\delta\pm ik$ に対しても
 
 $$
 I_\pm(k;\delta)
@@ -645,7 +687,7 @@ I_+(E)
 \end{aligned}
 $$
 
-一方 $E<0$ では上半平面へ反時計回りに閉じ、$n=0,1,\dots$ を拾います。従って
+一方 $E<0$ では虚部が正の側へ反時計回りに閉じ、$n=0,1,\dots$ を拾います。従って
 
 $$
 \begin{aligned}
@@ -798,7 +840,7 @@ $$
    \end{aligned}
    $$
 
-   従って[本章のKMS定義](#def-qcurv8-kms)により $\beta_\tau=2\pi/\alpha$ です。
+   従って[定常二点分布のKMS境界条件](#def-qcurv8-kms)により $\beta_\tau=2\pi/\alpha$ です。
 
 2. **正負の率**。$\varepsilon>0$ では極は $s_n=i\varepsilon+in\beta$ で、二重極の係数 $4/\alpha^2$ と $(e^{-iEs})'=-iE e^{-iEs}$ から留数は $-4iE e^{-iEs_n}/\alpha^2$ です。$E>0$ では時計回りに下の極 $n=-1,-2,\ldots$ を、$E<0$ では反時計回りに上の極 $n=0,1,\ldots$ を拾います。二点分布の係数を掛ける**前**の積分はそれぞれ
 
