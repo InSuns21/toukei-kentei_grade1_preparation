@@ -6,7 +6,7 @@
 
 この講義の中心問いは、**いつ実時間の相関関数をEuclid時間で計算でき、得られたEuclid相関関数から物理的な実時間理論へ戻るには何が必要か**です。自由スカラー場の一つの運動量モードから始め、[複素解析で学んだ解析接続](../../../解析系/CA/CA5/index.md#def-ca5-analytic-continuation-along-path)を時間変数に応用する際の条件、積分路の障害、Euclid二点核を導きます。さらに、時間を反射して得る二次形式が非負になるかを調べます。
 
-時空は $3+1$ 次元、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$m>0$、$\hbar=c=1$ とします。空間運動量 $\boldsymbol p$ に対する正の振動数を $\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。Fourier規約は [QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と合わせ、実時間では $e^{-ip^0t+i\boldsymbol p\cdot\boldsymbol x}$ を用います。全ての連続場の式はまず自由場の分布として扱い、必要に応じて有限個の空間Fourierモードへ切り詰めます。
+時空は $3+1$ 次元、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$m>0$、$\hbar=c=1$ とします。空間運動量 $\boldsymbol p$ に対する正の振動数を $\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。Fourier規約は [QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と合わせ、実時間では $e^{-ip^0t+i\boldsymbol p\cdot\boldsymbol x}=e^{+ip\cdot x}$ を用います。ここで $p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$、$p^2=-(p^0)^2+|\boldsymbol p|^2$ であり、質量殻条件は $p^2=-m^2$ です。全ての連続場の式はまず自由場の分布として扱い、必要に応じて有限個の空間Fourierモードへ切り詰めます。
 
 ## 1. 実時間の振動を虚時間の減衰へ変える
 
@@ -17,7 +17,13 @@ S_M[\phi]=\frac12\int_{\mathbb R^{1+3}}
 \left[(\partial_t\phi)^2-|\nabla\phi|^2-m^2\phi^2\right]dt\,d^3x
 $$
 
-です。ここで添字 $M$ はMinkowskiを表します。時間を $t=-i\tau$ と置き、$\phi_E(\tau,\boldsymbol x)=\phi(-i\tau,\boldsymbol x)$ と書くことを考えます。これは任意の実時間の関数を複素時間へ延長できるという主張ではありません。まず**解析的な関数に対する代入**として計算し、場の理論へ適用するための条件は後で確認します。
+です。ここで添字 $M$ はMinkowskiを表します。新しい計量では $\eta^{00}=-1$、$\eta^{jj}=+1$ なので、[QFT1の自由場の密度](../QFT1/index.md#def-qft1-klein-gordon)にある $-\eta^{\mu\nu}\partial_\mu\phi\partial_\nu\phi$ を成分に直すと $+(\partial_t\phi)^2-|\nabla\phi|^2$ です。したがって作用の**成分表示そのものは変わりません**。また、自由二点核の分母も
+
+$$
+(p^0)^2-\omega_{\boldsymbol p}^2+i0=-p^2-m^2+i0
+$$
+
+であり、[QFT6の伝播核](../QFT6/index.md#def-qft6-feynman-two-point)と整合します。時間を $t=-i\tau$ と置き、$\phi_E(\tau,\boldsymbol x)=\phi(-i\tau,\boldsymbol x)$ と書くことを考えます。これは任意の実時間の関数を複素時間へ延長できるという主張ではありません。まず**解析的な関数に対する代入**として計算し、場の理論へ適用するための条件は後で確認します。
 
 空間座標 $\boldsymbol x$ を固定して微分します。$\partial_t$ は実時間 $t$ に関する偏微分、$\partial_\tau$ はEuclid時間 $\tau$ に関する偏微分です。連鎖律と積分変数の変換は
 
