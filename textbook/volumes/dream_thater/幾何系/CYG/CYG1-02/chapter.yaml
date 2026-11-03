@@ -1,0 +1,40 @@
+id: "CYG1-02"
+title: "標準束の自明性をどう手で確かめるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-01
+  - CAG1-11
+  - CAG1-13
+  - AG2-11
+  - KAH1-14
+official_scope: []
+learning_objectives:
+  - 局所正則最高次形式の係数変換を計算し、非消失な大域形式と標準束の正則自明性が同値であることを往復で証明できる
+  - 局所形式の存在と貼り合わせられる大域形式の存在を区別し、射影直線の座標変換で失敗を確認できる
+  - 滑らかな射影超曲面でJacobian判定と随伴公式の仮定を確かめ、標準束のねじり指数を導ける
+  - 正次元の滑らかな射影超曲面では標準束の自明性と次数d=m+1が同値であることを正のKähler類の積分から証明できる
+  - 局所随伴形式の分母・消去座標と貼り合わせ条件を区別し、Fermat型の三次曲線・四次曲面・五次三次元超曲面で確認できる
+  - 特異な超曲面や次数のずれでどの仮定・機構が失われるかを特定し、正則自明性とRicci平坦性を混同しない
+definitions: []
+theorems:
+  - { id: CYG1-02-PROP-01, name: 大域正則体積形式による標準束の自明化 }
+  - { id: CYG1-02-THM-01, name: 滑らかな射影超曲面の標準束自明性の次数判定 }
+  - { id: CYG1-02-PROP-02, name: Fermat型超曲面の局所随伴形式の直接判定 }
+canonical_examples:
+  - 射影直線の座標変換でdzが極を持ち大域形式でないこと
+  - Fermat平面三次曲線上で消去方向を替えても局所形式が一致すること
+  - Fermat四次曲面と五次三次元超曲面のJacobian・標準束指数の比較
+  - 特異五次錐の頂点でJacobian判定と局所随伴構成が失敗すること
+problem_patterns:
+  - CYG1-02-LOCAL-GLOBAL-TRIVIALIZATION
+  - CYG1-02-PROJECTIVE-COORDINATES
+  - CYG1-02-JACOBIAN-CRITERION
+  - CYG1-02-ADJUNCTION-DEGREE
+  - CYG1-02-RESIDUE-CHART-CHANGE
+  - CYG1-02-POSITIVE-CLASS-OBSTRUCTION
+  - CYG1-02-SINGULARITY-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
