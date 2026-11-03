@@ -36,7 +36,7 @@ chapters:
     title: "接束のChern類とEuler標数"
   - id: CYG1-08
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-08
-    status: planned
+    status: completed
     title: "quintic threefoldのHodge数1,101"
   - id: CYG1-09
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-09

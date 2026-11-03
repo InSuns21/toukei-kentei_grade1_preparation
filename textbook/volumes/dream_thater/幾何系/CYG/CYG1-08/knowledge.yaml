@@ -1,0 +1,29 @@
+chapter: CYG1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-02, CYG1-06, CYG1-07]
+concepts:
+  - id: cyg.quintic-smooth-canonical
+    name: Fermat五次の滑らかさと標準束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat五次の滑らかさと標準束）"]
+    requires: [cyg.hypersurface-degree-criterion, algebraic-geometry.hypersurface-jacobian-criterion]
+  - id: cyg.quintic-weak-lefschetz
+    name: 滑らかな五次三次元超曲面の弱Lefschetz定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな五次三次元超曲面の弱Lefschetz定理：外部入力）"]
+    requires: [cyg.quintic-smooth-canonical, cyg.lefschetz-quartic-input]
+  - id: cyg.quintic-low-hodge
+    name: 五次三次元超曲面の低次Hodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（五次三次元超曲面の低次Hodge数）"]
+    requires: [cyg.quintic-weak-lefschetz, cyg.hodge-constraint-application]
+  - id: cyg.quintic-hodge-diamond
+    name: 五次三次元超曲面のHodgeダイヤモンド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（五次三次元超曲面のHodgeダイヤモンド）"]
+    requires: [cyg.quintic-low-hodge, cyg.quintic-chern-euler, cyg.threefold-hodge-skeleton]
