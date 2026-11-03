@@ -8,7 +8,7 @@ chapters:
   - { id: GEOD2, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD2, status: completed, title: "測地基準系・座標参照系・観測の入口" }
   - { id: GEOD3, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD3, status: completed, title: "回転楕円体の幾何と測地緯度" }
   - { id: GEOD4, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD4, status: completed, title: "曲率半径と楕円体の計量" }
-  - { id: GEOD5, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD5, status: planned, title: "測地座標・地心座標・局所座標" }
+  - { id: GEOD5, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD5, status: completed, title: "測地座標・地心座標・局所座標" }
   - { id: GEOD6, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD6, status: planned, title: "高さ・ジオイド・鉛直基準の導入" }
   - { id: GEOD7, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD7, status: planned, title: "測地測量の観測モデル：距離・角度・水準" }
   - { id: GEOD8, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD8, status: planned, title: "測量網の平差・datum の拘束・不確かさ" }
