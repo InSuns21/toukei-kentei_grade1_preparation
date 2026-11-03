@@ -676,7 +676,7 @@ $$
 w_0(s)=\frac1{4\pi^2}\int_0^\infty\omega e^{-i\omega s}d\omega
 $$
 
-を得ます。[切替スペクトルの命題](#prop-qcurv6-inertial-spectrum)から
+を得ます。[慣性検出器の切替スペクトル](#prop-qcurv6-inertial-spectrum)から
 
 $$
 \mathcal F_\chi(+\Omega)
