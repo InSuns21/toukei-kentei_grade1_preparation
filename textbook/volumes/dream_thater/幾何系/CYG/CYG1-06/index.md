@@ -79,9 +79,26 @@ $$
 
 ## 3. 三つの制約は何を写し、何を写さないか
 
-まず既習の結果の**対象と写像**を並べて照合する。ここで記号を区別しておく。[de RhamコホモロジーのHodge型部分空間](../../HOD/HOD1-06/index.md#def-hod1-06-hodge-summand)は $H_{\mathrm{Hdg}}^{p,q}(X)\subset H_{\mathrm{dR}}^{p+q}(X;\mathbb C)$ であり、§1でHodge数を定めたDolbeault群 $H_{\bar\partial}^{p,q}(X)$ と最初から同一の集合ではない。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)によってDolbeault類の一意な調和代表 $h$ を選び、de Rham類 $[h]_d$ へ写すと両者が同型になる。本節以下の $H^{p,q}$ は、型別Lefschetzを述べるときの略記 $H_{\mathrm{Hdg}}^{p,q}(X)$ とし、$\dim_{\mathbb C}H^{p,q}=h^{p,q}$ である。
+まず既習の結果の**対象と写像**を並べて照合する。ここで記号を区別しておく。[de RhamコホモロジーのHodge型部分空間](../../HOD/HOD1-06/index.md#def-hod1-06-hodge-summand)は次の部分空間であり、§1でHodge数を定めたDolbeault群とは最初から同一の集合ではない。
 
-Kähler形式 $\omega$ は $(1,1)$ 型だから、$H^{p,q}$ の類 $[\alpha]_d$ に対して $L([\alpha]_d)=[\omega\wedge\alpha]_d$ とすると、楔積の型が $(p+1,q+1)$ になる。以下の表で $L^{n-k}$ と書くときは、**同じ作用素を $n-k$ 回合成する**意味である。
+$$
+H_{\mathrm{Hdg}}^{p,q}(X)\subset H_{\mathrm{dR}}^{p+q}(X;\mathbb C).
+$$
+
+[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)によってDolbeault類の一意な調和代表 $h$ を選び、de Rham類 $[h]_d$ へ写すと両者が同型になる。本節以下では型別Lefschetzと同じ略記を採用する。
+
+$$
+H^{p,q}:=H_{\mathrm{Hdg}}^{p,q}(X),\qquad
+\dim_{\mathbb C}H^{p,q}=h^{p,q}.
+$$
+
+Kähler形式 $\omega$ は $(1,1)$ 型だから、$H^{p,q}$ の類 $[\alpha]_d$ に対する作用を
+
+$$
+L([\alpha]_d)=[\omega\wedge\alpha]_d
+$$
+
+と定めると、楔積の型が $(p+1,q+1)$ になる。以下の表で $L^{n-k}$ と書くときは、**同じ作用素を $n-k$ 回合成する**意味である。
 
 | 入力 | 必要な条件 | 得られる関係 |
 | --- | --- | --- |
