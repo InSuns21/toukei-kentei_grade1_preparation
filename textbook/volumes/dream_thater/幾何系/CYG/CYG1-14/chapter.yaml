@@ -1,0 +1,48 @@
+id: "CYG1-14"
+title: "Calabi–Yauの総合判定とmirror symmetryへの入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-03
+  - CYG1-05
+  - CYG1-08
+  - CYG1-09
+  - CYG1-10
+  - CYG1-11
+  - CYG1-12
+  - CYG1-13
+official_scope: []
+learning_objectives:
+  - 標準束自明・整係数と実係数の第一Chern類・Ricci平坦計量存在の論理と非同値性を条件付きで判定できる
+  - 制限ホロノミーと全ホロノミーの包含・等号を混同せず具体例に適用できる
+  - 平面三次曲線・四次K3・五次三次元多様体・複素トーラス・Enriques曲面を同じ条件表で比較できる
+  - 三次元のHodge対称性からEuler標数と二つのHodge数の関係を再導出できる
+  - quinticと鏡像候補のHodge数交換からEuler標数の符号を検算できる
+  - Fermat型quinticの位相対称群と1パラメータ族の関係を確認しmirror構成の外部入力と区別できる
+  - 一次変形次元・Kähler方向・複素化Kählerパラメータとmirror symmetryの主張の境界を説明できる
+theorems:
+  - { id: CYG1-14-PROP-01, name: "Calabi–Yau条件の判定順序" }
+  - { id: CYG1-14-PROP-02, name: "Calabi–Yau三次元のEuler標数とHodge数" }
+  - { id: CYG1-14-PROP-03, name: "Hodge数交換のEuler標数への帰結" }
+  - { id: CYG1-14-PROP-04, name: "Fermat型族の位相対称群の位数" }
+canonical_examples:
+  - 平面三次曲線・K3・quintic・複素トーラス・Enriquesの比較表
+  - Enriquesの非零2-torsionと実係数での消失
+  - quinticのEuler標数-200とHodge数1・101
+  - 位相群の125元と不変なFermat型quintic族
+  - Hodge数を交換した鏡像候補のEuler標数+200
+problem_patterns:
+  - CYG1-14-IMPLICATIONS
+  - CYG1-14-ENRIQUES
+  - CYG1-14-HOLONOMY
+  - CYG1-14-HODGE-RECOUNT
+  - CYG1-14-PHASE-GROUP
+  - CYG1-14-COUNTEREXAMPLE
+  - CYG1-14-MIRROR-NUMERICS
+  - CYG1-14-PARAMETER-BOUNDARY
+  - CYG1-14-INTEGRATED-DIAGNOSIS
+  - CYG1-14-MIRROR-LOGIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 4 }
