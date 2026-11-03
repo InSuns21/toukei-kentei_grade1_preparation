@@ -1,0 +1,55 @@
+chapter: QFT33
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT32, QFT2, QFT1, QFT4, QFT5]
+forward_references: []
+
+concepts:
+  - id: qft.spontaneous-global-symmetry-breaking
+    name: 真空多様体と自発的対称性の破れ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（真空多様体と自発的対称性の破れ）]
+    requires: [qft.scalar-action, qft.field-euler-lagrange, qft.internal-continuous-symmetry]
+
+  - id: qft.order-parameter-broken-generator
+    name: 秩序変数と破れた生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（秩序変数と破れた生成子）]
+    requires: [qft.spontaneous-global-symmetry-breaking, qft.noether-current]
+
+  - id: qft.o2-vacuum-mass-matrix
+    name: O(2)スカラー模型の真空と質量行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（O(2)スカラー模型の真空と質量行列）]
+    requires: [qft.spontaneous-global-symmetry-breaking]
+
+  - id: qft.hessian-symmetry-zero-direction
+    name: 停留点における対称性軌道のHessian零方向
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（停留点における対称性軌道のHessian零方向）]
+    requires: [qft.o2-vacuum-mass-matrix]
+
+  - id: qft.goldstone-current-ward-pole
+    name: 保存流・接触項と質量零極：二次近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（保存流・接触項と質量零極：二次近似）]
+    requires: [qft.order-parameter-broken-generator, qft.noether-current]
+
+  - id: qft.goldstone-spectral-theorem
+    name: 大域的内部対称性のGoldstone定理：スペクトル形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（大域的内部対称性のGoldstone定理：スペクトル形）]
+    requires: [qft.goldstone-current-ward-pole]
+
+  - id: qft.pseudo-goldstone-explicit-breaking
+    name: 明示的破れによる擬Goldstone質量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（明示的破れによる擬Goldstone質量）]
+    requires: [qft.o2-vacuum-mass-matrix, qft.goldstone-current-ward-pole]

@@ -1,0 +1,41 @@
+id: QFT33
+title: "大域対称性の自発的破れ・真空多様体・Goldstoneの定理"
+volume: foundations
+status: supplementary
+prerequisites: [QFT32, QFT2, QFT1, QFT4, QFT5]
+official_scope: []
+learning_objectives:
+  - 大域連続対称性と真空の非不変性を区別し、秩序変数と真空多様体を具体模型で検査できる
+  - O(2)スカラー模型の停留条件・Hessian・二次作用から動径モードと零質量接線モードを導ける
+  - 対称性と停留条件を微分してHessianの零固有方向を導き、その限界を説明できる
+  - Noether流と秩序変数の交換子・Ward恒等式を質量零励起の条件へ接続できる
+  - 明示的対称性破れ・有限体積・低次元・局所ゲージ冗長性を自発的破れと区別できる
+definitions:
+  - { id: QFT33-DEF-01, name: 真空多様体と自発的対称性の破れ }
+  - { id: QFT33-DEF-02, name: 秩序変数と破れた生成子 }
+theorems:
+  - { id: QFT33-PROP-01, name: O(2)スカラー模型の真空と質量行列 }
+  - { id: QFT33-THM-01, name: 停留点における対称性軌道のHessian零方向 }
+  - { id: QFT33-PROP-02, name: 保存流・接触項と質量零極：二次近似 }
+  - { id: QFT33-THM-02, name: 大域的内部対称性のGoldstone定理：スペクトル形 }
+  - { id: QFT33-PROP-03, name: 明示的破れによる擬Goldstone質量 }
+canonical_examples:
+  - 二実成分スカラーの円形真空と動径・接線Hessian固有ベクトル
+  - Cartesian展開と極座標展開で一致する質量零の自由度
+  - Noether流と場の等時刻交換子からのWard接触項
+  - 小さな線形源による擬Goldstone質量と有限体積回転子
+problem_patterns:
+  - QFT33-VACUUM-MANIFOLD
+  - QFT33-HESSIAN-EIGENMODES
+  - QFT33-NOETHER-CURRENT
+  - QFT33-POLAR-COORDINATES
+  - QFT33-ON-COUNTEREXAMPLE
+  - QFT33-ZERO-DIRECTION-PROOF
+  - QFT33-WARD-POLE
+  - QFT33-EXPLICIT-BREAKING
+  - QFT33-FINITE-VOLUME
+  - QFT33-INTEGRATED-GOLDSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 5 }

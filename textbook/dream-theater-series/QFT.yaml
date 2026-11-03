@@ -135,3 +135,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT32
     status: completed
     title: "Poincaré粒子表現・質量とヘリシティ・Weyl／Majorana場"
+  - id: QFT33
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT33
+    status: completed
+    title: "大域対称性の自発的破れ・真空多様体・Goldstoneの定理"
