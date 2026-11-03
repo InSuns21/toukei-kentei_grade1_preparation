@@ -1,0 +1,48 @@
+id: "COMB8"
+title: "線形差分方程式と初期値"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB7
+  - F0-00E
+official_scope: []
+learning_objectives:
+  - 定数係数線形差分方程式の階数・斉次性・初期値を定義し、前向き反復による存在と一意性を証明できる
+  - 特性多項式と非零特性根の指数解を代入から導き、異なる根の係数を初期値から決定できる
+  - 重根に対して差分作用素から n の多項式倍が生じる理由を証明し、零根の初期時刻解を区別できる
+  - 特性多項式の因数分解を仮定して斉次解全体の一次独立性・完全性を証明できる
+  - 特解と斉次解の分解、指数右辺の非共振・共振の特解を条件と中間計算付きで導ける
+  - 特性多項式と有限係数の母関数表示の対応を示し、形式的な計算と解析的収束を区別できる
+definitions:
+  - { id: COMB8-DEF-01, name: 定数係数線形差分方程式と初期値問題 }
+  - { id: COMB8-DEF-02, name: 特性多項式・特性根・重複度 }
+  - { id: COMB8-DEF-03, name: 差分方程式の共振 }
+theorems:
+  - { id: COMB8-THM-01, name: 初期値問題の存在と一意性 }
+  - { id: COMB8-PROP-01, name: 非零特性根の指数解 }
+  - { id: COMB8-THM-02, name: 非零重根の解 }
+  - { id: COMB8-PROP-02, name: 零特性根の初期時刻解 }
+  - { id: COMB8-THM-03, name: 因数分解できる場合の斉次解の全体 }
+  - { id: COMB8-THM-04, name: 非同次解＝特解＋斉次解 }
+  - { id: COMB8-THM-05, name: 指数右辺の特解と共振 }
+canonical_examples:
+  - 二階漸化式の解と初期値の直接確認
+  - 異なる二根から線形結合の係数決定
+  - 二重根に対する n の多項式倍
+  - 零根によって初期時刻だけに現れる自由度
+  - 共役複素根による実数列
+  - 定数外力と指数外力の非共振・共振
+  - 有限多項式の係数による母関数への橋渡し
+problem_patterns:
+  - COMB8-FORWARD-UNIQUENESS
+  - COMB8-CHARACTERISTIC-ROOTS
+  - COMB8-REPEATED-ROOTS
+  - COMB8-ZERO-ROOT-INITIAL-INDEX
+  - COMB8-HOMOGENEOUS-BASIS
+  - COMB8-PARTICULAR-SOLUTION
+  - COMB8-RESONANT-FORCING
+  - COMB8-OGF-COEFFICIENT-BRIDGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

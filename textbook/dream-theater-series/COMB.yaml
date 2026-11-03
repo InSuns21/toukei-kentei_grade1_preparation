@@ -11,7 +11,7 @@ chapters:
   - { id: COMB5, path: textbook/volumes/dream_thater/計算系/COMB/COMB5, status: completed, title: "順列統計と集合分割" }
   - { id: COMB6, path: textbook/volumes/dream_thater/計算系/COMB/COMB6, status: completed, title: "有限差分と Newton 展開" }
   - { id: COMB7, path: textbook/volumes/dream_thater/計算系/COMB/COMB7, status: completed, title: "離散和分と二項反転" }
-  - { id: COMB8, path: textbook/volumes/dream_thater/計算系/COMB/COMB8, status: planned, title: "線形差分方程式と初期値" }
+  - { id: COMB8, path: textbook/volumes/dream_thater/計算系/COMB/COMB8, status: completed, title: "線形差分方程式と初期値" }
   - { id: COMB9, path: textbook/volumes/dream_thater/計算系/COMB/COMB9, status: planned, title: "形式冪級数と普通母関数" }
   - { id: COMB10, path: textbook/volumes/dream_thater/計算系/COMB/COMB10, status: planned, title: "構造分解と母関数" }
   - { id: COMB11, path: textbook/volumes/dream_thater/計算系/COMB/COMB11, status: planned, title: "整数分割と Euler 積" }
