@@ -1,0 +1,45 @@
+id: QFT34
+title: "局所U(1)対称性・Abelian Higgs機構・ゲージ固定と物理自由度"
+volume: foundations
+status: supplementary
+prerequisites: [QFT33, QFT15, QFT16, QFT17, QFT29]
+official_scope: []
+learning_objectives:
+  - 複素スカラーとゲージ場の局所U(1)変換を定め、共変微分と場の強さの不変性を直接計算できる
+  - Abelian Higgs模型の真空と二次作用を展開して動径質量・ゲージ場質量・位相場との混合を検算できる
+  - 非零スカラー領域の局所ユニタリゲージとゲージ不変ベクトルを構成し、適用限界を説明できる
+  - Proca方程式の発散制約から三偏極を導き、Higgs機構前後の物理自由度を計数できる
+  - Rxiゲージの混合相殺・位相場とghostのゲージ依存極・保存電流交換核を計算できる
+  - 大域的Goldstone定理と局所ゲージ冗長性を区別し、木レベル計算の量子論的限界を述べられる
+definitions:
+  - { id: QFT34-DEF-01, name: 荷電スカラー場の局所U(1)変換と共変微分 }
+  - { id: QFT34-DEF-02, name: Abelian Higgs模型 }
+  - { id: QFT34-DEF-03, name: 非零スカラー領域のゲージ不変ベクトル }
+  - { id: QFT34-DEF-04, name: Abelian Higgs模型のRξゲージ固定 }
+theorems:
+  - { id: QFT34-THM-01, name: 共変微分とAbelian場の強さのゲージ変換 }
+  - { id: QFT34-PROP-01, name: 真空周りの二次作用と木レベル質量 }
+  - { id: QFT34-THM-02, name: 正則な局所領域でのHiggs–Proca表示 }
+  - { id: QFT34-THM-03, name: 正の質量を持つProca場の三偏極 }
+  - { id: QFT34-THM-04, name: Rξ二次作用の対角化と非物理的な質量 }
+canonical_examples:
+  - 時間依存の純ゲージ位相と共変微分の相殺
+  - 円形真空における動径・接線Hessianとゲージ同値性
+  - ゲージ不変ベクトルによるHiggs–Proca表示
+  - Rxiゲージでの混合の相殺と質量二乗の比較
+  - 保存電流の交換核における縦射影の消滅
+problem_patterns:
+  - QFT34-GAUGE-COVARIANCE
+  - QFT34-VACUUM-HESSIAN
+  - QFT34-QUADRATIC-MIXING
+  - QFT34-UNITARY-LOCAL-PATCH
+  - QFT34-PROCA-POLARIZATIONS
+  - QFT34-RXI-DIAGONALIZATION
+  - QFT34-CONSERVED-CURRENT
+  - QFT34-STUECKELBERG-LIMIT
+  - QFT34-PHASE-WINDING
+  - QFT34-INTEGRATED-HIGGS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 14, review: 5 }

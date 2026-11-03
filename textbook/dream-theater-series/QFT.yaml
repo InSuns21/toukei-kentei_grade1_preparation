@@ -139,3 +139,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT33
     status: completed
     title: "大域対称性の自発的破れ・真空多様体・Goldstoneの定理"
+  - id: QFT34
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT34
+    status: completed
+    title: "局所U(1)対称性・Abelian Higgs機構・ゲージ固定と物理自由度"
