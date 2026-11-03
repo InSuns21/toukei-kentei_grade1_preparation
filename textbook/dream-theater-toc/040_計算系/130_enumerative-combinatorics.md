@@ -7,3 +7,4 @@
 4. [COMB4 格子路・括弧列・Catalan 数](textbook/volumes/dream_thater/計算系/COMB/COMB4/index.md)
 5. [COMB5 順列統計と集合分割](textbook/volumes/dream_thater/計算系/COMB/COMB5/index.md)
 6. [COMB6 有限差分と Newton 展開](textbook/volumes/dream_thater/計算系/COMB/COMB6/index.md)
+7. [COMB7 離散和分と二項反転](textbook/volumes/dream_thater/計算系/COMB/COMB7/index.md)
