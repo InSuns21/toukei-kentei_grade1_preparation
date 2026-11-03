@@ -1,0 +1,56 @@
+chapter: GEOD4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD3
+forward_references: []
+
+concepts:
+  - id: geodesy.ellipsoid-curvature-radii
+    name: 回転楕円体の二つの曲率半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（回転楕円体の二つの曲率半径）]
+    requires: [geodesy.ellipsoid-surface-parameterization, geodesy.shape-parameters]
+
+  - id: geodesy.ellipsoid-tangent-vectors
+    name: 測地緯度・経度の偏微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（測地緯度・経度の偏微分）]
+    requires: [geodesy.ellipsoid-curvature-radii, geodesy.ellipsoid-surface-parameterization]
+
+  - id: geodesy.ellipsoid-first-fundamental-form
+    name: 楕円体上の第一基本形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（楕円体上の第一基本形式）, 第一基本形式]
+    requires: [geodesy.ellipsoid-tangent-vectors]
+
+  - id: geodesy.ellipsoid-metric-formula
+    name: 回転楕円体の第一基本形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（回転楕円体の第一基本形式）]
+    requires: [geodesy.ellipsoid-first-fundamental-form, geodesy.ellipsoid-tangent-vectors]
+
+  - id: geodesy.ellipsoid-curve-length
+    name: 楕円体上の曲線の長さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（楕円体上の曲線の長さ）]
+    requires: [geodesy.ellipsoid-metric-formula]
+
+  - id: geodesy.normal-section-radius
+    name: 法截面の曲率半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（法截面の曲率半径）]
+    requires: [geodesy.ellipsoid-tangent-vectors]
+
+  - id: geodesy.ellipsoid-normal-curvature-radii
+    name: 子午・卯酉線方向の法截面曲率半径
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（子午・卯酉線方向の法截面曲率半径）]
+    requires: [geodesy.normal-section-radius, geodesy.ellipsoid-curvature-radii, geodesy.ellipsoid-tangent-vectors]
