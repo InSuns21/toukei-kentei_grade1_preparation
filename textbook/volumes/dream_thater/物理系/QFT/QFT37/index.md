@@ -10,7 +10,7 @@
 
 世代ごとに[同じゲージ表現](../QFT35/index.md#def-qft35-representation)が反復されます。左クォーク二重項 $Q_L^i=(u_L^i,d_L^i)^T$、左レプトン二重項 $L_L^i=(\nu_L^i,e_L^i)^T$ と、右一重項 $u_R^j,d_R^j,e_R^j$ を取ります。上・下の二重項成分はそれぞれWeyl成分であり、右一重項は別のカイラル場です。
 
-一世代のYukawa係数を世代番号つきの複素数 $(Y_f)_{ij}$ に置き換えます。$f=u,d,e$ は上型・下型・荷電レプトンの種類です。これは世代空間の線形写像を表す行列であって、弱二重項の二成分や色三成分に作用する行列ではありません。
+一世代のYukawa係数を世代番号つきの複素数 $(Y_f)_{ij}$ に置き換えます。$f=u,d,e$ は上型・下型・荷電レプトンの種類です。これは右カイラル場の世代列から左カイラル場の世代列への係数写像であり、$(Y_f f_R)_i=\sum_j(Y_f)_{ij}(f_R)_j$ と成分表示します。弱二重項の二成分や色三成分に作用する行列ではありません。
 
 <a id="def-qft37-yukawa-matrices"></a>
 
@@ -131,6 +131,16 @@ $$
 
 したがって定義の非負対角性、左右のユニタリ性、元の質量行列への再構成をすべて確認できます。$a=b$ の場合は左右同時の追加回転でも対角のままであり、固有基底は一意ではありません。
 <!-- definition-example-end -->
+
+零質量の自由度は、正の縮退質量の場合と区別できます。二世代で $D=\operatorname{diag}(a,0)$（$a>0$）がすでに質量行列だとすると、任意の実数 $\phi,\psi$ に対して
+
+$$
+U_L=\operatorname{diag}(1,e^{i\phi}),\qquad
+U_R=\operatorname{diag}(1,e^{i\psi}),\qquad
+U_L^\dagger D U_R=D
+$$
+
+です。零成分には $e^{-i\phi}0e^{i\psi}=0$ しか現れず、左右の位相は独立です。一方、正の縮退質量 $D=aI_2$ を保つには、$U_L^\dagger D U_R=aU_L^\dagger U_R=D$ から $U_R=U_L$ が必要です。前者は零質量の左右を別々に取り直せる自由度、後者は同じ質量を持つ場を左右同時に回す自由度です。
 
 質量対角化の実際の意味は
 
@@ -284,6 +294,8 @@ $$
 
 ## 4. 再位相付けと三世代のCP位相
 
+ここで $C$ は粒子と反粒子を交換する**荷電共役**、$P$ は空間座標を $(t,\boldsymbol x)\mapsto(t,-\boldsymbol x)$ と反転する操作で、両者の合成を $CP$ と呼びます。荷電弱電流のCKM係数は、$CP$ で複素共役 $V_{\alpha\beta}^*$ に対応します（場の位相選択を除く）。正で非縮退な質量を仮定したCKM部門では、場の位相を選んで $V$ を実行列にできるかが、$CP$ 保存を調べる基準になります。
+
 質量固有状態の各場は、正の質量項を変えずに左・右の両方へ同一の複素数 $e^{i\chi}$（$|e^{i\chi}|=1$）を掛け替えられます。この操作を再位相付けと呼びます。$u_\alpha^{\,m}\mapsto e^{i\phi_\alpha}u_\alpha^{\,m}$、$d_\beta^{\,m}\mapsto e^{i\psi_\beta}d_\beta^{\,m}$ とすると、$\overline u_\alpha d_\beta$ の位相因子は $e^{-i\phi_\alpha+i\psi_\beta}$ なので、同じラグランジアンを新しい場で書くCKM係数は
 
 $$
@@ -411,7 +423,14 @@ $$
 ### 演習 QFT37-A1：真空代入の係数
 
 - Level: A
-- 問題：二世代Yukawa行列 $Y_d=\begin{pmatrix}a&b\\c&d\end{pmatrix}$、$H=(0,(v+h)/\sqrt2)^T$ とする。$d_L^i,d_R^j$ に対する質量項と $h$ 結合の行列をそれぞれ求めよ。
+- 問題：二世代Yukawa行列とHiggs場を
+
+$$
+Y_d=\begin{pmatrix}a&b\\c&d\end{pmatrix},\qquad
+H=\frac{v+h}{\sqrt2}\binom01
+$$
+
+とする。$d_L^i,d_R^j$ に対する質量項と $h$ 結合の行列をそれぞれ求めよ。
 
 <!-- solution-start -->
 **詳細解答**：[Higgs真空の代入](#thm-qft37-yukawa-mass)で $\overline Q_L^iHd_R^j=(v+h)\overline d_L^id_R^j/\sqrt2$ です。よって
@@ -428,7 +447,14 @@ $$
 ### 演習 QFT37-A2：二世代の特異値分解
 
 - Level: A
-- 問題：$M=\begin{pmatrix}3/5&-8/5\\4/5&6/5\end{pmatrix}$ とする。$U_L=\begin{pmatrix}3/5&-4/5\\4/5&3/5\end{pmatrix}$、$U_R=I$ により、質量固有値が $1,2$ となることを確かめよ。
+- 問題：次の二世代質量行列と左右回転を考える。
+
+$$
+M=\begin{pmatrix}3/5&-8/5\\4/5&6/5\end{pmatrix},\qquad
+U_L=\begin{pmatrix}3/5&-4/5\\4/5&3/5\end{pmatrix},\qquad U_R=I.
+$$
+
+質量固有値が $1,2$ となることを確かめよ。
 
 <!-- solution-start -->
 **詳細解答**：$U_L^TU_L=I$ は各列の長さ $(9+16)/25=1$ と内積 $-12/25+12/25=0$ から確認できます。[質量固有基底の定義](#def-qft37-mass-basis)で
@@ -540,7 +566,13 @@ $n=2$ なら全体1、位相0、角1。$n=3$ なら全体4、位相1、角3で�
 ### 演習 QFT37-B3：第二のYukawa行列はなぜ危険か
 
 - Level: B
-- 問題：二世代の質量基底で $M=\operatorname{diag}(m_1,m_2)$、$m_1\ne m_2>0$ とし、別のスカラーに結合する $N=\begin{pmatrix}0&\lambda\\0&0\end{pmatrix}$、$\lambda\ne0$ を考える。結合のどの成分が世代を変えるか示し、$N\propto M$ の場合と比べよ。
+- 問題：二世代の質量基底で $M=\operatorname{diag}(m_1,m_2)$、$m_1\ne m_2>0$ とし、別のスカラーに結合する行列を
+
+$$
+N=\begin{pmatrix}0&\lambda\\0&0\end{pmatrix},\qquad\lambda\ne0
+$$
+
+とする。結合のどの成分が世代を変えるか示し、$N\propto M$ の場合と比べよ。
 
 <!-- solution-start -->
 **詳細解答**：追加スカラー $s$ の項を $-s(\overline f_LNf_R+\overline f_RN^\dagger f_L)$ と書きます。成分を展開すると
