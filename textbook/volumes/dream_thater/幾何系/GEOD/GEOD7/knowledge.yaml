@@ -1,0 +1,70 @@
+chapter: GEOD7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD6
+forward_references: []
+
+concepts:
+  - id: geodesy.observation-equation
+    name: 測量の観測方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（測量の観測方程式）]
+    requires: [geodesy.geodetic-enu-jacobian]
+
+  - id: geodesy.slope-zenith-azimuth
+    name: 斜距離・天頂角・水平方位角
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（斜距離・天頂角・水平方位角）]
+    requires: [geodesy.observation-equation]
+
+  - id: geodesy.polar-enu-observation
+    name: 極観測から局所位置への変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（極観測から局所位置への変換）]
+    requires: [geodesy.slope-zenith-azimuth, geodesy.geodetic-enu-jacobian]
+
+  - id: geodesy.horizontal-angle-reading
+    name: 水平角と方向読値
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（水平角と方向読値）]
+    requires: [geodesy.slope-zenith-azimuth]
+
+  - id: geodesy.horizontal-circle-cancellation
+    name: 水平角における方向零点の相殺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（水平角における方向零点の相殺）]
+    requires: [geodesy.horizontal-angle-reading]
+
+  - id: geodesy.leveling-sights
+    name: 水準測量の後視と前視
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（水準測量の後視と前視）]
+    requires: [geodesy.observation-equation, geodesy.orthometric-height]
+
+  - id: geodesy.level-closure
+    name: 閉合差と冗長観測
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（閉合差と冗長観測）]
+    requires: [geodesy.leveling-sights]
+
+  - id: geodesy.leveling-telescope
+    name: 水準測量の高低差と閉合式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（水準測量の高低差と閉合式）]
+    requires: [geodesy.level-closure]
+
+  - id: geodesy.leveling-curvature
+    name: 球面模型の曲率補正と釣合い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面模型の曲率補正と釣合い）]
+    requires: [geodesy.leveling-sights]
