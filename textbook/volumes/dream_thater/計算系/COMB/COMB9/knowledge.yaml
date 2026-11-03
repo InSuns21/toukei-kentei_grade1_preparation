@@ -1,0 +1,86 @@
+chapter: COMB9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB8
+forward_references:
+  - analysis.series
+  - analysis.power-series
+
+concepts:
+  - id: combinatorics.formal-power-series
+    name: 形式冪級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式冪級数と係数抽出）]
+    requires: []
+
+  - id: combinatorics.formal-coefficient-extraction
+    name: 係数抽出
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式冪級数と係数抽出）]
+    requires: [combinatorics.formal-power-series]
+
+  - id: combinatorics.ordinary-generating-function
+    name: 普通母関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（普通母関数）]
+    requires: [combinatorics.formal-power-series]
+
+  - id: combinatorics.formal-cauchy-product
+    name: Cauchy 積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式冪級数の和と Cauchy 積）]
+    requires: [combinatorics.formal-coefficient-extraction]
+
+  - id: combinatorics.formal-series-algebra-laws
+    name: 形式冪級数の演算法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（形式冪級数の演算法則）]
+    requires: [combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.formal-power-series-unit
+    name: 形式冪級数の逆元
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式冪級数の逆元）]
+    requires: [combinatorics.formal-series-algebra-laws]
+
+  - id: combinatorics.formal-unit-criterion
+    name: 形式冪級数の可逆性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（形式冪級数の可逆性判定）]
+    requires: [combinatorics.formal-power-series-unit, combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.formal-geometric-series
+    name: 形式的等比級数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（形式的等比級数）]
+    requires: [combinatorics.formal-unit-criterion]
+
+  - id: combinatorics.formal-composition
+    name: 形式冪級数の合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式冪級数の合成）]
+    requires: [combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.formal-composition-laws
+    name: 形式的合成の代数法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（形式的合成の代数法則）]
+    requires: [combinatorics.formal-composition, combinatorics.formal-unit-criterion]
+
+  - id: combinatorics.recurrence-rational-ogf
+    name: 定数係数線形漸化式と有理型普通母関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（定数係数線形漸化式と有理型普通母関数）]
+    requires: [combinatorics.ordinary-generating-function, combinatorics.formal-unit-criterion, combinatorics.linear-recurrence-initial-value]

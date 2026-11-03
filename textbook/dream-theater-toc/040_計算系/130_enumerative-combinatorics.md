@@ -9,3 +9,4 @@
 6. [COMB6 有限差分と Newton 展開](textbook/volumes/dream_thater/計算系/COMB/COMB6/index.md)
 7. [COMB7 離散和分と二項反転](textbook/volumes/dream_thater/計算系/COMB/COMB7/index.md)
 8. [COMB8 線形差分方程式と初期値](textbook/volumes/dream_thater/計算系/COMB/COMB8/index.md)
+9. [COMB9 形式冪級数と普通母関数](textbook/volumes/dream_thater/計算系/COMB/COMB9/index.md)
