@@ -341,7 +341,7 @@ $$
 \frac{\partial F}{\partial Z_j}=5Z_j^4\quad(0\le j\le4).
 $$
 
-これが全て零なら $Z_j=0$ が全 $j$ で成り立つが、原点は射影空間の点ではない。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により $X$ は滑らか。射影空間の閉部分集合なのでコンパクトである。
+これが全て零なら $Z_j=0$ が全 $j$ で成り立つが、原点は射影空間の点ではない。また $F$ に平方因子 $G^2$ があれば、$G=0$ 上では全偏導関数が零になるはずなので、$F$ に平方因子はない。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定がそろい、$X$ は滑らか。射影空間の閉部分集合なのでコンパクトである。
 
 $\dim_{\mathbb C}X=4-1=3$ だから $H^4=0$。[全Chern類の式](#prop-cyg1-07-total-chern)を用い、分子と分母の逆元をそれぞれ三次まで書くと
 
@@ -569,7 +569,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-1. $\partial F/\partial Z_j=5Z_j^4$ が全て零なら全 $Z_j=0$ となり、射影点ではない。[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で滑らか。超曲面なので複素次元 $4-1=3$、射影空間内の閉集合なのでコンパクトである。
+1. $\partial F/\partial Z_j=5Z_j^4$ が全て零なら全 $Z_j=0$ となり、射影点ではない。平方因子があればその零点で全偏導関数が零になるので、平方因子もない。[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で滑らか。超曲面なので複素次元 $4-1=3$、射影空間内の閉集合なのでコンパクトである。
 2. $H^4=0$ として
 
 $$
