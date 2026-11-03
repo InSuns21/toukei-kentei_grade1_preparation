@@ -17,3 +17,4 @@
 14. [COMB14 群作用と Burnside 計数](textbook/volumes/dream_thater/計算系/COMB/COMB14/index.md)
 15. [COMB15 有限半順序集合と Möbius 反転](textbook/volumes/dream_thater/計算系/COMB/COMB15/index.md)
 16. [COMB16 重み付き計数と q-二項係数](textbook/volumes/dream_thater/計算系/COMB/COMB16/index.md)
+17. [COMB17 有理型母関数と係数漸近](textbook/volumes/dream_thater/計算系/COMB/COMB17/index.md)
