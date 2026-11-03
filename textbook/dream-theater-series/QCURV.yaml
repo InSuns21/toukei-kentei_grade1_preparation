@@ -34,3 +34,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV7
     status: completed
     title: "Rindlerくさび・等加速度世界線と真空の制限"
+  - id: QCURV8
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV8
+    status: completed
+    title: "Unruh温度・KMS条件と検出器応答"
