@@ -1,0 +1,41 @@
+id: QCURV5
+title: "断熱真空・WKB近似とHadamard性"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV4
+  - MICA13
+official_scope: []
+learning_objectives:
+  - FLRWモードに対する正規化WKBモードと残差を導出し、厳密解との違いを説明できる
+  - 微分次数による断熱展開から零次と二次の周波数を計算し、近似の正値性・適用域を判定できる
+  - WKB初期値から厳密な規格化モードと状態を作り、時間・低周波選択への依存を説明できる
+  - 局所Hadamard形と波面集合条件の意味を既習の正本へ接続し、状態の一意性を誤って主張しない
+  - 高周波で有限冪の減衰と全次数の短距離正則性を区別し、有限次数だけではHadamard性を保証しないことを検算できる
+definitions:
+  - { id: QCURV5-DEF-01, name: FLRWモードのWKB試行解 }
+  - { id: QCURV5-DEF-02, name: 断熱次数と零次・二次周波数 }
+  - { id: QCURV5-DEF-03, name: 断熱初期データからのモード状態 }
+theorems:
+  - { id: QCURV5-PROP-01, name: WKB残差と保存Wronskian }
+  - { id: QCURV5-PROP-02, name: 二次断熱周波数の導出 }
+  - { id: QCURV5-PROP-03, name: 初期データのKG規格化 }
+  - { id: QCURV5-PROP-04, name: 有限冪の高周波混合ではHadamard性を保証しない }
+canonical_examples:
+  - 定常背景および質量零共形結合場でWKBが厳密解となる例
+  - 二次曲率を持つスケール因子で零次と二次の差を計算する例
+  - 初期データの複素位相とWronskian規格化の検算
+  - 高周波squeezeで非滑らかな二点分布差を得る反例
+problem_patterns:
+  - QCURV5-WKB-RESIDUAL
+  - QCURV5-WRONSKIAN
+  - QCURV5-SECOND-ORDER
+  - QCURV5-LOCAL-ADIABATIC
+  - QCURV5-IR-POSITIVITY
+  - QCURV5-HADAMARD-PARAMETRIX
+  - QCURV5-BOGOLIUBOV-TAIL
+  - QCURV5-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
