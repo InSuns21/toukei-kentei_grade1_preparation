@@ -45,12 +45,18 @@ $$
 
 **定義の確認**：最小値の条件、群の作用、固定部分群を別々に検査します。
 
-上の $V$ では $\mathcal M=\{v(\cos\alpha,\sin\alpha):0\le\alpha<2\pi\}$ です。$\phi_0=(v,0)^T$ を選べば、$R(\alpha)\phi_0=(v\cos\alpha,v\sin\alpha)^T$ は $\alpha\notin2\pi\mathbb Z$ で $\phi_0$ と異なります。連結な回転群 $SO(2)$ の中で固定するのは恒等元だけです。ただし反射も含む $O(2)$ を考えるなら、$\phi_2\mapsto-\phi_2$ という反射は $\phi_0$ を固定します。**どの群を用いるか**で固定部分群の記述は変わります。
+上の $V$ は非負で、最小値0を取る条件が $\phi_1^2+\phi_2^2=v^2$ なので、真空多様体は
+
+$$
+\mathcal M=\{v(\cos\alpha,\sin\alpha):0\le\alpha<2\pi\}.
+$$
+
+$\phi_0=(v,0)^T$ を選ぶと、$R(\alpha)\phi_0=(v\cos\alpha,v\sin\alpha)^T$ は $\alpha\notin2\pi\mathbb Z$ で別の最小点になります。行列式1の回転群 $SO(2)$ の中で固定するのは恒等元だけです。一方、反射も含む直交群 $O(2)$ なら、$\phi_2\mapsto-\phi_2$ という反射が $\phi_0$ を固定します。**どの群を用いるか**で固定部分群は変わります。
 <!-- definition-example-end -->
 
-より一般に、真空の連続軌道は $G/H_{\phi_0}$ と対応します。ただし $\mathcal M$ 全体が一つの軌道とは限りません。異なる軌道や偶然の縮退もあり得るからです。ここでは上の円周がちょうど一つの $SO(2)$ 軌道となっています。
+より一般に、真空の連続軌道は $G/H_{\phi_0}$ と対応します。これは群の元 $g,g'$ を、$g\phi_0=g'\phi_0$、すなわち $g^{-1}g'\in H_{\phi_0}$ のとき同一視するという意味です。ただし $\mathcal M$ 全体が一つの軌道とは限りません。異なる軌道や偶然の縮退もあり得るからです。ここでは上の円周がちょうど一つの $SO(2)$ 軌道となっています。
 
-量子論で破れを検査するには、選ばれた真空を観測する演算子が必要です。例えば $\langle\phi_1\rangle=v$、$\langle\phi_2\rangle=0$ という期待値は、回転により向きが変わるため対称性の破れを示します。このとき考えるのは、異なる向きの真空を確率的に混ぜた状態ではなく、一つの向きを選んだ**純粋な真空相**です。このような期待値を秩序変数として整理します。
+量子論で破れを検査するには、選ばれた真空を観測する演算子が必要です。例えば $\langle\phi_1\rangle=v$、$\langle\phi_2\rangle=0$ という期待値は、回転により向きが変わるため対称性の破れを示します。このとき考えるのは、異なる向きの真空を確率的に混ぜた状態ではなく、一つの向きを選んだ**純粋な真空相**です。このような期待値を秩序変数として整理します。以下の $T$ は[QFT2の内部連続変換の生成子](../QFT2/index.md#def-qft2-internal-symmetry)を行列で表したものです。
 
 <a id="def-qft33-order-parameter"></a>
 
@@ -68,7 +74,22 @@ $$
 <!-- definition-example-start: def-qft33-order-parameter -->
 ### 例：第二成分を秩序変数の試験に使う
 
-**定義の確認**：$T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$O=\phi_2$ と取ると $\delta\phi_2=\alpha\phi_1$ です。よって $\langle\phi_1\rangle=v$ を持つ真空では、$\langle\delta\phi_2\rangle/\alpha=v\ne0$ です。切断した保存電荷との交換子が同じ変換を実現すれば、定義の非零条件を満たします。この後で等時刻交換子から係数と符号を直接求めます。
+**定義の確認**：回転の生成子を $T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、試験する演算子を $O=\phi_2$ とします。すると $\delta\phi_2=\alpha\phi_1$ で、$T(v,0)^T=(0,v)^T\ne0$ より真空の向きが変わります。
+
+次に[QFT2のNoether流の定義](../QFT2/index.md#def-qft2-noether-current)へ $\Delta\phi=(-\phi_2,\phi_1)$ と正準運動量 $\Pi_a=\partial_0\phi_a$ を代入して $j^0=\phi_1\Pi_2-\phi_2\Pi_1$ を得ます。量子論の等時刻正準交換関係
+
+$$
+[\Pi_a(0,\boldsymbol x),\phi_b(0)]=-i\delta_{ab}\delta^3(\boldsymbol x)
+$$
+
+を仮定すれば、
+
+$$
+i[Q_R,\phi_2(0)]=i\int d^3x\,f_R(\boldsymbol x)\phi_1(0,\boldsymbol x)[\Pi_2(0,\boldsymbol x),\phi_2(0)]
+=f_R(0)\phi_1(0).
+$$
+
+$f_R(0)=1$ と $\langle\phi_1\rangle=v$ なら $\langle i[Q_R,\phi_2(0)]\rangle=v\ne0$ です。これで局所演算子、非零の交換子、切断極限という定義の条件を直接検査しました。ここでの正準計算は量子場の構成を証明するものではなく、第4節で保存則・Ward恒等式と合わせて再使用します。
 <!-- definition-example-end -->
 
 ## 2. 谷に沿う振動と谷を横切る振動
@@ -82,7 +103,14 @@ V(\phi_0+\xi)=V(\phi_0)
 H_{ab}=\frac{\partial^2V}{\partial\phi_a\partial\phi_b}
 $$
 
-となります。運動項が $\frac12(\partial\xi_a)^2$ に正準規格化されているので、**質量二乗行列**は $H(\phi_0)$ に等しくなります。非正準運動項なら単純なHessianの固有値を物理的質量と同一視できません。
+となります。Hessianは実対称行列なので、正規直交固有ベクトル $u_i$ によって $H(\phi_0)u_i=m_i^2u_i$ と対角化できます。$\xi=\sum_i q_i u_i$ を代入し、$u_i^Tu_j=\delta_{ij}$ を使うと、二次のラグランジアンは
+
+$$
+\mathcal L_2=\frac12\sum_i\bigl(\partial_\mu q_i\partial^\mu q_i-m_i^2q_i^2\bigr),
+\qquad (\Box+m_i^2)q_i=0.
+$$
+
+従って、運動項がこのように正準規格化されているときに限り、**質量二乗行列**は $H(\phi_0)$ に等しくなります。最小点では二階微分の二次形式が非負なので $m_i^2\ge0$ です。非正準運動項なら単純なHessianの固有値を物理的質量と同一視できません。
 
 <a id="prop-qft33-o2-masses"></a>
 
@@ -155,7 +183,7 @@ $$
 \phi_2=(v+\rho)\sin(\theta/v)
 $$
 
-を置きます。$\rho>-v$、角度は $\theta\equiv\theta+2\pi v$ と同一視するので、この表示は**円全体で一価な実数座標ではありません**。微分して二乗和を取ると交差項が消え、
+を置きます。$\rho>-v$、角度は $\theta\equiv\theta+2\pi v$ と同一視するので、この表示は**円全体で一価な実数座標ではありません**。以下の $(\partial f)^2$ は $\partial_\mu f\partial^\mu f$ の略記です。微分して二乗和を取ると交差項が消え、
 
 $$
 \begin{aligned}
@@ -169,11 +197,20 @@ $$
 \end{aligned}
 $$
 
-$\rho=0$ 付近の二次項は $\frac12(\partial\rho)^2+\frac12(\partial\theta)^2-\lambda v^2\rho^2$ です。$\theta$ の**非微分**のポテンシャルがなく、$\theta$ は $\theta\mapsto\theta+v\alpha$ と移ります。$\rho$ と $\theta$ は二つの実自由度の座標変換であり、粒子数が増えたのではありません。$\theta=\pi+O(h\pi,\pi^3)$ なのでCartesian表示の質量と一致します。
+$\rho=0$ 付近の二次項は $\frac12(\partial\rho)^2+\frac12(\partial\theta)^2-\lambda v^2\rho^2$ です。$\theta$ の**非微分**のポテンシャルがなく、回転すると $\theta\mapsto\theta+v\alpha$ と移ります。$\rho$ と $\theta$ は元の二つの実自由度の座標変換であり、粒子数が増えたのではありません。
+
+実際、真空近傍でCartesian変数と比べると
+
+$$
+\theta=v\arctan\left(\frac{\pi}{v+h}\right)
+=\pi-\frac{h\pi}{v}+O\!\left(\frac{(|h|+|\pi|)^3}{v^2}\right).
+$$
+
+線形次数では $\theta=\pi$ なので、Cartesian表示の質量と一致します。
 
 ## 3. 一般の対称性からHessianの零方向を導く
 
-円形ポテンシャルで零固有値が出たのは特別な多項式の偶然ではありません。対称変換に沿って真空を動かしてもポテンシャル値が変わらず、その変換が**真空の位置を実際に動かす**なら、Hessianはその方向で零になります。これを一般の有限成分模型で証明します。
+円形ポテンシャルで零固有値が出たのは特別な多項式の偶然ではありません。対称変換に沿って真空を動かしてもポテンシャル値が変わらず、その変換が**真空の位置を実際に動かす**なら、Hessianはその方向で零になります。これを一般の有限成分模型で証明します。以下の $T$ は実 $n\times n$ 行列で、$e^{tT}$ はその行列指数関数（$t=0$ で $I$、微分が $T$）です。
 
 <a id="thm-qft33-hessian-zero"></a>
 
@@ -216,7 +253,14 @@ $\phi=\phi_0$ において第二項は $\nabla V(\phi_0)=0$ により消えま�
 
 $SO(2)$ の生成子 $T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ と $\phi_0=(v,0)^T$ なら $T\phi_0=(0,v)^T\ne0$ です。[質量行列](#prop-qft33-o2-masses)との積は零になります。
 
-$n=3$ に拡張した $V=\lambda(|\phi|^2-v^2)^2/4$、$G=SO(3)$、$\phi_0=(0,0,v)^T$ では、$x$ 軸・$y$ 軸回転の生成子が互いに独立な接線方向を作ります。$z$ 軸回転は $\phi_0$ を固定します。Hessianは $2\lambda v^2\operatorname{diag}(0,0,1)$ なので**独立な零方向は二つ**であり、$SO(3)/SO(2)$ の二次元軌道と合います。一般の $O(N)$ 模型なら $N-1$ 個です。
+三成分の $V=\lambda(|\phi|^2-v^2)^2/4$、$G=SO(3)$ へ拡張します。$\phi_0=(0,0,v)^T$ を選び、$T_i\phi=e_i\times\phi$ と定めた各軸回転の生成子を作用させると
+
+$$
+T_x\phi_0=(0,-v,0)^T,\quad
+T_y\phi_0=(v,0,0)^T,\quad T_z\phi_0=0.
+$$
+
+Hessianは $H(\phi_0)=2\lambda v^2\operatorname{diag}(0,0,1)$ なので、最初の二方向は核に入り互いに独立です。$z$ 軸回転は真空を固定し、**独立な零方向は二つ**であって $SO(3)/SO(2)$ の二次元軌道と合います。一般の $O(N)$ 模型なら $N-1$ 個です。
 
 逆は成り立ちません。例えば $V(\phi_1,\phi_2)=\phi_1^2+\phi_2^4$ は原点でHessianに一つの零固有方向を持ちますが、その零方向は連続する**縮退した最小点の軌道**ではありません。Hessianが零でも四次の復元力を持ち、真空を動かす対称性の存在は導けません。
 
@@ -250,7 +294,7 @@ i[Q_R,\phi_2(t,\boldsymbol y)]
 =f_R(\boldsymbol y)\phi_1(t,\boldsymbol y).
 $$
 
-選ばれた真空で $\langle\phi_1\rangle=v$ なら、この交換子の期待値が消えません。
+選ばれた真空で $\langle\phi_1\rangle=v$ なら、この交換子の期待値が消えません。以下の相関関数に付く $T$ は演算子を**時間順序**に並べる記号であり、第1・3節の内部回転の生成行列 $T$ とは別物です。また $i0$ は[QFT6のFeynman処方](../QFT6/index.md#thm-qft6-feynman-poles)と同じ分布の境界値を表します。
 
 <a id="prop-qft33-ward-pole"></a>
 
@@ -282,7 +326,14 @@ j^\mu=(v+h)\partial^\mu\pi-\pi\partial^\mu h
 =v\partial^\mu\pi+h\partial^\mu\pi-\pi\partial^\mu h
 $$
 
-です。二次の自由理論で $\pi$ のFeynman二点分布は [QFT6の時間順序伝播関数](../QFT6/index.md#def-qft6-feynman-two-point) の質量零版で
+です。二次の自由理論で $\pi$ のFeynman二点分布は [QFT6の時間順序伝播関数](../QFT6/index.md#def-qft6-feynman-two-point) の質量零版です。QFT6の定義は $m>0$ ですが、ここで使う $3+1$ 次元では $m\downarrow0$ の赤外端における一粒子測度は局所的に可積分です。実際、固定した $\delta>0$ に対し
+
+$$
+\int_0^\delta\frac{p^2\,dp}{2\sqrt{p^2+m^2}}
+\le\int_0^\delta\frac{p\,dp}{2}=\frac{\delta^2}{4}.
+$$
+
+従って局所的に平滑化した二点分布の質量零極限を取り、そのFourier境界値を用いると
 
 $$
 \int d^4x\,e^{ip\cdot x}\langle T\pi(x)\pi(0)\rangle
@@ -297,7 +348,15 @@ $$
 =\frac{vp^\mu}{p^2+i0}.
 $$
 
-一方、時間順序積の定義で $\theta(x^0)$ を微分すると
+一方、時間順序積では、角度場 $\theta$ と区別して階段関数を $\Theta(t)$（正の引数で1、負の引数で0）と書きます。[QFT6の時間順序二点分布の定義](../QFT6/index.md#def-qft6-feynman-two-point)と同様に
+
+$$
+\langle Tj^\mu(x)\pi(0)\rangle
+=\Theta(x^0)\langle j^\mu(x)\pi(0)\rangle
++\Theta(-x^0)\langle\pi(0)j^\mu(x)\rangle
+$$
+
+と分け、$d\Theta(t)/dt=\delta(t)$ を用いると
 
 $$
 \partial_\mu\langle Tj^\mu(x)\pi(0)\rangle
@@ -349,7 +408,7 @@ $$
 E_{s,\boldsymbol p}=\sqrt{|\boldsymbol p|^2+s},\qquad p^0=E_{s,\boldsymbol p}
 $$
 
-と書けます。ここでは $\rho$ を局所有限なスペクトル測度として扱い、質量殻以外の接触項を含めない仮定を用いています。[QFT32の不変質量殻積分](../QFT32/index.md#prop-qft32-mass-shell-measure)のため、各 $\Delta$ はLorentz共変なスカラー分布です。
+と書けます。ここで $\rho(s)$ は第2節の動径場 $\rho(x)$ と異なり、質量二乗 $s\ge0$ に関する局所有限なスペクトル測度です。質量殻以外の接触項を含めない仮定を用いています。[QFT32の不変質量殻積分](../QFT32/index.md#prop-qft32-mass-shell-measure)のため、各 $\Delta$ はLorentz共変なスカラー分布です。
 
 各質量殻で $(\Box+s)\Delta(x;s)=0$ なので保存則から
 
@@ -459,7 +518,14 @@ p_\alpha=\mathcal V v^2\dot\alpha,\qquad
 H_{\mathrm{zero}}=\frac{p_\alpha^2}{2\mathcal V v^2}.
 $$
 
-$\alpha\equiv\alpha+2\pi$ なので波動関数 $e^{i\ell\alpha}$ は整数 $\ell$ を持ち、回転子のエネルギーは $E_\ell=\ell^2/(2\mathcal V v^2)$ です。有限 $\mathcal V$ で一意な基底 $\ell=0$ は回転不変で、$\langle\phi_1\rangle=\langle\phi_2\rangle=0$。しかし最初の励起ギャップは $1/(2\mathcal V v^2)\to0$ です。この**零モード近似**は高運動量の場を無視していますが、「有限体積では真空を一点に固定できない」と「無限体積で対称性を破る純粋相を選べる」が矛盾しないことを示します。
+$\alpha\equiv\alpha+2\pi$ なので、量子化では周期波動関数に $p_\alpha=-i\,d/d\alpha$ を作用させます。周期境界条件を満たす規格化固有関数と固有値は
+
+$$
+\psi_\ell(\alpha)=\frac{e^{i\ell\alpha}}{\sqrt{2\pi}},\qquad
+p_\alpha\psi_\ell=\ell\psi_\ell,\qquad \ell\in\mathbb Z.
+$$
+
+従ってエネルギーは $E_\ell=\ell^2/(2\mathcal V v^2)$ です。有限体積で一意な基底 $\ell=0$ は回転不変で、$\langle\phi_1\rangle=\langle\phi_2\rangle=0$ となります。一方、最初の励起ギャップは $1/(2\mathcal V v^2)\to0$ です。この**零モード近似**は高運動量の場を無視していますが、「有限体積では真空を一点に固定できない」と「無限体積で対称性を破る純粋相を選べる」が矛盾しないことを示します。
 
 小さな外部源を加えて向きを決め、先に $\mathcal V\to\infty$、後で $\varepsilon\to0^+$ とする極限は、有限体積で先に $\varepsilon\to0$ として回転対称な基底を取る極限と一般には交換しません。量子真空での $v$ はくりこまれた秩序変数へ読み替え、古典 $v$ をそのまま厳密値とはしません。
 
