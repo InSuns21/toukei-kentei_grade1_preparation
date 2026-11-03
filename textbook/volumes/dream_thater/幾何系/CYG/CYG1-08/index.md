@@ -12,7 +12,17 @@ $$
 X=\{[Z_0:\cdots:Z_4]\in\mathbb P^4_{\mathbb C}\mid F(Z_0,\ldots,Z_4)=0\}.
 $$
 
-$X$ は複素次元 $3$（実次元 $6$）であり、$i:X\hookrightarrow\mathbb P^4$ は包含写像とする。$H=c_1(\mathcal O_{\mathbb P^4}(1)|_X)$ を超平面類と呼び、$b_k=\dim_{\mathbb C}H^k(X;\mathbb C)$、$h^{p,q}=\dim_{\mathbb C}H^{p,q}_{\bar\partial}(X)$ と記す。$H^k$ は通常のコホモロジー次数 $k$、一方 $H^j$（超平面類の冪）は実次数 $2j$ の類なので、両者の意味を文脈で区別する。
+$X$ は複素次元 $3$（実次元 $6$）であり、$i:X\hookrightarrow\mathbb P^4$ は包含写像とする。超平面線束の第一Chern類を超平面類 $H$ と呼び、Betti数・Hodge数をそれぞれ次のように記す。
+
+$$
+\begin{aligned}
+H&=c_1(\mathcal O_{\mathbb P^4}(1)|_X),\\
+b_k&=\dim_{\mathbb C}H^k(X;\mathbb C),\\
+h^{p,q}&=\dim_{\mathbb C}H^{p,q}_{\bar\partial}(X).
+\end{aligned}
+$$
+
+$H^k(X;\mathbb C)$ は通常のコホモロジー次数 $k$ の群、一方 $H^j$（超平面類の $j$ 回の杯積）は実次数 $2j$ の類なので、両者の意味を文脈で区別する。
 
 ## 2. 最初に滑らかさと標準束を判定する
 
@@ -23,6 +33,24 @@ F(Z_0,\ldots,Z_4)=Z_0^5+Z_1^5+Z_2^5+Z_3^5+Z_4^5.
 $$
 
 多項式の次数が五であるだけでは、後で用いるLefschetz定理やHodge分解の滑らかな対象に関する仮定を満たすとは限らない。そこで[射影超曲面のJacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)に照らして確かめる。
+
+この判定で斉次偏微分を使える理由も押さえよう。$Z_a\ne0$ のチャートでは $x_j=Z_j/Z_a$（$j\ne a$）、$f_a(x)=F(x_0,\ldots,1,\ldots,x_4)$ と置く。局所方程式 $f_a=0$ の接方向を調べるのは $\partial f_a/\partial x_j$ であり、斉次偏微分との対応は
+
+$$
+\frac{\partial f_a}{\partial x_j}
+=\left.\frac{\partial F}{\partial Z_j}\right|_{Z_a=1}
+\qquad(j\ne a)
+$$
+
+である。さらに[斉次式のEuler恒等式とチャートJacobian](../../../代数系/AG/AG2-11/index.md#prop-ag2-11-euler-gradient)を $d=5$ に適用すると、$f_a=0$ 上では
+
+$$
+\left.\frac{\partial F}{\partial Z_a}\right|_{Z_a=1}
+=5f_a-\sum_{j\ne a}x_j\frac{\partial f_a}{\partial x_j}
+=-\sum_{j\ne a}x_j\frac{\partial f_a}{\partial x_j}.
+$$
+
+つまり局所の四つの偏微分が全て零になることと、斉次の五つの偏微分が全て零になることは、$F=0$ 上で同値である。どの射影点も少なくとも一つの $Z_a\ne0$ のチャートに入るので、斉次勾配の同時零を全域で調べればよい。
 
 <a id="prop-cyg1-08-smooth-canonical"></a>
 
@@ -49,7 +77,13 @@ $$
 \frac{\partial F}{\partial Z_j}=5Z_j^4\qquad(0\le j\le4).
 $$
 
-すべてが零なら $Z_0=\cdots=Z_4=0$ だが、零ベクトルは射影点を定めない。さらに平方因子 $G^2$ が $F$ を割れば、正次数の $G$ の零点上で[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)により $dF=2GQ\,dG+G^2\,dQ=0$ となる。これは先ほどの同時非消滅に矛盾する。したがって[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の平方因子に関する仮定も満たし、$X$ は滑らかである。
+すべてが零なら $Z_0=\cdots=Z_4=0$ だが、零ベクトルは射影点を定めない。平方因子の有無も確かめる。もし $F=G^2Q$ と正次数の斉次式 $G$ を用いて書けるなら、$G=0$ の射影点（複素数体上では存在する）で、[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)により
+
+$$
+dF=2GQ\,dG+G^2\,dQ=0
+$$
+
+となる。これは上の勾配の同時非消滅に矛盾する。したがって[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の平方因子に関する仮定も満たし、$X$ は滑らかである。
 
 $X$ は射影空間の閉部分集合だからコンパクト。滑らかな超曲面であるから、複素次元は $4-1=3$。[射影埋め込みからのKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)によってKähler計量を持つ。
 
@@ -104,7 +138,13 @@ $$
 
 Betti数は複素次数 $p+q=k$ のHodge数の和となる。しかし「$b_2=1$ だから $h^{1,1}=1$」と直行はできない。$H^{2,0}$ と $H^{0,2}$ に一次元が割り当てられる可能性を消さなければならない。
 
-射影空間のFubini–Study形式の制限 $\omega$ はKähler形式で、超平面類 $H$ と同じ実コホモロジー方向にある。Kähler形式は $(1,1)$ 型で、$\int_X\omega^3>0$ となる。もし $[\omega]=0$ なら $\omega=d\eta$ と書けるため、$d\omega=0$ と[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)から
+射影空間のFubini–Study形式を $X$ に制限した $\omega$ は、[射影埋め込みからのKähler性と整数型Kähler類](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)によりKähler形式である。超平面類 $H$ の実係数像を $H_{\mathbb R}$ とすれば、規格化は
+
+$$
+[\omega]=2\pi H_{\mathbb R}
+$$
+
+である。$\omega$ は実閉 $(1,1)$ 形式で、$\int_X\omega^3>0$ となる。もしそのde Rham類 $[\omega]=0$ なら $\omega=d\eta$（$\eta$ は実1形式）と書けるため、$d\omega=0$ と[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)から
 
 $$
 \int_X\omega^3=\int_Xd(\eta\wedge\omega^2)=0
@@ -178,7 +218,7 @@ c(TX)&=\frac{(1+H)^5}{1+5H},\\
 \end{aligned}
 $$
 
-係数を順に掛けると
+ここで $[H^j]$ は形式的な多項式展開における $H^j$ の**係数**を取り出す記号であり、先ほどのコホモロジー類 $[\omega]$ の括弧とは意味が異なる。係数を順に掛けると
 
 $$
 \begin{aligned}
@@ -299,7 +339,14 @@ K_{Y_d}\simeq\mathcal O_{Y_d}(d-m-1)
 =\mathcal O_{Y_d}(d-5).
 $$
 
-$d=5$ では指数零なので正則自明、$d=4$ では $\mathcal O_{Y_4}(-1)$ であり、正の超平面類との積分を使った同次数判定から正則自明ではない。どちらも滑らかな場合に適用した。
+$d=5$ では指数零なので正則自明である。$d=4$ では $K_{Y_4}\simeq\mathcal O_{Y_4}(-1)$ となる。ここでは $Y_4$ 上の超平面類を $H_4=c_1(\mathcal O_{Y_4}(1))$ と区別して書く。第一Chern類の加法性と次数計算から
+
+$$
+c_1(K_{Y_4})=-H_4,\qquad
+\int_{Y_4}H_4^3=4>0.
+$$
+
+よって $H_4\ne0$、したがって $c_1(K_{Y_4})\ne0$ であり、正則自明ではない。どちらも滑らかな場合に適用した。
 <!-- solution-end -->
 
 <a id="ex-cyg1-08-a03"></a>
@@ -361,7 +408,7 @@ $$
 $X$ を滑らかな五次超曲面とする。弱Lefschetzから低次Betti数を求め、Poincaré双対性を使って $b_3$ 以外の $b_0,\ldots,b_6$ を決定せよ。
 
 <!-- solution-start -->
-**詳細解答。** [弱Lefschetz定理](#thm-cyg1-08-weak-lefschetz)に $k=0,1,2$ を代入すると $b_0=1,b_1=0,b_2=1$。$X$ は滑らか・コンパクト・向き付け可能な実6次元だから[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)が使える。従って
+**詳細解答。** [弱Lefschetz定理](#thm-cyg1-08-weak-lefschetz)に $k=0,1,2$ を代入すると $b_0=1,b_1=0,b_2=1$。$X$ は滑らか・コンパクト・向き付け可能な実6次元だから[Poincaré双対性とBetti数の対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)が使える。従って
 
 $$
 b_6=b_0=1,\quad b_5=b_1=0,\quad b_4=b_2=1.
@@ -377,7 +424,7 @@ $$
 滑らかな五次超曲面 $X$ について、$b_1=0,b_2=1$ から $h^{1,0}=0,h^{2,0}=0,h^{1,1}=1$ へ到達する際、使った定理・追加情報を順に書け。単に $b_2=1$ だけで $h^{1,1}=1$ としてよいか判定せよ。
 
 <!-- solution-start -->
-**詳細解答。** 射影的なのでKählerであり、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と共役対称性が使える。まず
+**詳細解答。** 射影的なのでKählerであり、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と[共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)が使える。まず
 
 $$
 0=b_1=2h^{1,0}\quad\Rightarrow\quad h^{1,0}=0.
@@ -401,7 +448,7 @@ Kähler類が非零の $(1,1)$ 型であることから $h^{1,1}\ge1$。この�
 滑らかな五次超曲面 $X$ で $\chi_{\mathrm{top}}=-200$、Betti数が $(1,0,1,b_3,1,0,1)$、$K_X\simeq\mathcal O_X$ とする。$b_3$ と $h^{2,1}$ を順に求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 交代和は $1-0+1-b_3+1-0+1=4-b_3$。$4-b_3=-200$ なので $b_3=204$。連結性と[正則体積形式の一意性](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$、共役対称性から $h^{0,3}=1,h^{1,2}=h^{2,1}$。したがって
+**詳細解答。** 交代和は $1-0+1-b_3+1-0+1=4-b_3$。$4-b_3=-200$ なので $b_3=204$。連結性と[正則体積形式の一意性](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$、[共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)から $h^{0,3}=1,h^{1,2}=h^{2,1}$。したがって
 
 $$
 204=b_3=1+h^{2,1}+h^{2,1}+1
@@ -430,7 +477,7 @@ $X=\{\sum_{j=0}^4Z_j^5=0\}\subset\mathbb P^4_{\mathbb C}$ とし、$H=c_1(\mathc
 <!-- solution-start -->
 **詳細解答。** 斉次偏微分 $5Z_j^4$ は非零射影点で同時零にならず、平方因子もないから[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により滑らか。射影閉部分集合なのでコンパクト、[射影的Kähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)が成立する。複素次元は3、[随伴公式](../CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)で $K_X=\mathcal O_X(5-5)\simeq\mathcal O_X$。
 
-ここから[弱Lefschetzの外部入力](#thm-cyg1-08-weak-lefschetz)を滑らかな正の超曲面に適用する。$k<3$ で $H^k(\mathbb P^4;\mathbb Z)\simeq H^k(X;\mathbb Z)$ だから $(b_0,b_1,b_2)=(1,0,1)$。連結性も得る。非零Kähler類は $(1,1)$ 型なので $h^{1,1}\ge1$、[Hodge分解と共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)より
+ここから[弱Lefschetzの外部入力](#thm-cyg1-08-weak-lefschetz)を滑らかな正の超曲面に適用する。$k<3$ で $H^k(\mathbb P^4;\mathbb Z)\simeq H^k(X;\mathbb Z)$ だから $(b_0,b_1,b_2)=(1,0,1)$。連結性も得る。非零Kähler類は $(1,1)$ 型なので $h^{1,1}\ge1$、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と[共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)より
 
 $$
 b_1=2h^{1,0}=0,\qquad
@@ -446,14 +493,18 @@ c(TX)&=(1+5H+10H^2+10H^3)(1-5H+25H^2-125H^3)\\
 \end{aligned}
 $$
 
-$\int_XH^3=5$ と滑らかなコンパクト複素三次元に対する[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)から $\chi=-40\cdot5=-200$。[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)によりBetti数列は $(1,0,1,b_3,1,0,1)$、交代和から $b_3=4-(-200)=204$。[正則体積形式と最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)を $K_X$ 正則自明・連結・コンパクトに適用すると $h^{3,0}=h^{0,3}=1$ で、
+$\int_XH^3=5$ と滑らかなコンパクト複素三次元に対する[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)から $\chi=-40\cdot5=-200$ を得る。
+
+[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)によりBetti数列は $(1,0,1,b_3,1,0,1)$。交代和は $\chi=4-b_3$ なので、$b_3=4-(-200)=204$ となる。
+
+[正則体積形式と最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)を $K_X$ の正則自明性・連結性・コンパクト性に適用すると $h^{3,0}=h^{0,3}=1$ で、
 
 $$
 204=b_3=1+2h^{2,1}+1
 \quad\Rightarrow\quad h^{2,1}=101.
 $$
 
-補次数対称性を使った行列は
+[補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-duality)を使った行列は
 
 $$
 \begin{pmatrix}
@@ -474,7 +525,7 @@ Betti数列は $(1,0,1,204,1,0,1)$。その交代和 $-200$ で検算できる�
 ある学生は「滑らかな五次超曲面 $X$ はコンパクトKählerであり、Hard Lefschetzがある。よって $H^2(X)$ は一次元、$h^{1,1}=1$、従って $h^{2,1}=101$」と述べた。この推論の欠落を、実際にHard Lefschetzが述べる写像と弱Lefschetzが述べる写像をそれぞれ示して修正せよ。
 
 <!-- solution-start -->
-**詳細解答。** 複素次元3の[Hard Lefschetz](../CYG1-06/index.md#prop-cyg1-06-kahler-constraints)は、Kähler類 $[\omega]$ について
+**詳細解答。** 複素次元3の[Hard Lefschetz定理](../../HOD/HOD1-11/index.md#thm-hod1-11-hard-lefschetz)は、Kähler類 $[\omega]$ について
 
 $$
 L:H^2(X;\mathbb C)\longrightarrow H^4(X;\mathbb C),
