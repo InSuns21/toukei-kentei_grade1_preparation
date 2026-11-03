@@ -10,7 +10,15 @@
 
 $\tau=a+ib$、$b>0$ とし、$\Lambda_\tau=\mathbb Z+\tau\mathbb Z$、$E_\tau=\mathbb C/\Lambda_\tau$ とする。$b>0$ により $1,\tau$ は実線形独立で、商はコンパクトな実二次元トーラスとなる。
 
-実数 $u,v$ を用いて $z=u+\tau v$ と書けば、$u,v$ の整数だけの変更は同じ点を表す。従って $du,dv$ は商上の大域的な実閉一次形式である。二本の向き付けられた基本閉路を
+実数 $u,v$ を用いて $z=u+\tau v$ と書けば、$u,v$ の整数だけの変更は同じ点を表す。ここで微分 $d$ は**固定した $E_\tau$ 上の座標 $u,v$ に関する外微分**であって、曲線のパラメータ $\tau$ は動かさない。従って連鎖律（線形座標変換の微分）から
+
+$$
+dz=\frac{\partial z}{\partial u}du+\frac{\partial z}{\partial v}dv
+=du+\tau\,dv,\qquad
+d\bar z=du+\bar\tau\,dv
+$$
+
+となる。$du,dv$ は商上の大域的な実閉一次形式である。二本の向き付けられた基本閉路を
 
 $$
 \gamma_1(t)=[t],\qquad \gamma_2(t)=[\tau t]\quad (0\le t\le1)
@@ -32,7 +40,7 @@ $$
 > となる整数係数一次コホモロジーの基底 $e_1=[du],e_2=[dv]$ を、基本閉路に双対な周期基底と呼ぶ。$[du]\smile[dv]$ が正の向きの基本二次類を表すように向きを固定する。
 <!-- formal-statement-end -->
 
-ここで「整数係数」とは係数が点ごとに整数という意味ではない。$du,dv$ の閉路周期が整数であることに対応し、実トーラス $(\mathbb R/\mathbb Z)^2$ の整数コホモロジー基底を与えるという意味である。[有理コホモロジーの複素化](../HOD1-15/index.md#def-hod1-15-rational-complexification)では、この基底を固定してから複素係数を使う。
+ここで「整数係数」とは係数が点ごとに整数という意味ではない。$du,dv$ の閉路周期が整数であることに対応し、実トーラス $(\mathbb R/\mathbb Z)^2$ の整数コホモロジー基底を与えるという意味である。実際、任意の整数一次ホモロジー類は $m\gamma_1+n\gamma_2$（$m,n\in\mathbb Z$）と書け、その上の $du,dv$ の周期はそれぞれ $m,n$ になる。[有理コホモロジーの複素化](../HOD1-15/index.md#def-hod1-15-rational-complexification)では、この基底を固定してから複素係数を使う。
 
 <!-- definition-example-start: def-hod1-16-dual-period-basis -->
 **定義の確認**：$E_i$。$z=u+iv$ だから $dz=du+i\,dv$。上で与えたパラメータ表示へ引き戻すと
@@ -113,7 +121,24 @@ $$
 
 ## 3. 閉路基底を替えると$\tau$はどう変わるか
 
-整数コホモロジーを固定したまま閉路を選び直す。$M=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ の成分はここだけ整数とし、先の $\tau$ の実部 $a$ とは別の変数である。混同を避けるため、以下の定理では整数行列の成分を $r,s,t,u$ と書く。
+整数コホモロジーを固定したまま閉路を選び直す。$\tau$ の実部と混同しないよう、閉路変換の整数行列の成分を $r,s,t,u$ と書く。列ベクトルで閉路を並べる約束なら
+
+$$
+\begin{pmatrix}\gamma'_1\\\gamma'_2\end{pmatrix}
+=\underbrace{\begin{pmatrix}r&s\\t&u\end{pmatrix}}_{N}
+\begin{pmatrix}\gamma_1\\\gamma_2\end{pmatrix}.
+$$
+
+新閉路に双対なコホモロジー基底 $e'_1,e'_2$ は $\int_{\gamma'_j}e'_i=\delta_{ij}$ で決まる。旧基底の周期行列が単位行列だから、$e'_i=\sum_k C_{ik}e_k$ と展開した新旧の係数行列 $C$ には $CN^{\mathsf T}=I$ が必要である。従って、$\det N=1$ なら
+
+$$
+\begin{pmatrix}e'_1\\e'_2\end{pmatrix}
+=(N^{-1})^{\mathsf T}\begin{pmatrix}e_1\\e_2\end{pmatrix}
+=\begin{pmatrix}u&-t\\-s&r\end{pmatrix}
+\begin{pmatrix}e_1\\e_2\end{pmatrix}.
+$$
+
+この逆転置が「閉路を変えると双対基底も変わる」理由である。また[双線形形式の基底表示](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)に従い $Q(e'_1,e'_2)=(ru-st)Q(e_1,e_2)$ となる。後の総合演習でも、この式で向きと正値性を検算する。
 
 向きを保つ基底変更とは $ru-st=1$ の場合である。これは二本の新しい閉路が整数ホモロジー群の基底であり、基本交叉数の符号が保存される条件でもある。
 
@@ -191,6 +216,8 @@ Q(e_1,e_2)=1,\quad Q(e_j,e_j)=0.
 $$
 
 重さ1の[polarizationの定義](../HOD1-15/index.md#def-hod1-15-polarization)では、$v\in H^{1,0}\setminus\{0\}$ に対して $i^{-1}Q(\bar v,v)=-iQ(\bar v,v)>0$ が必要である。ここから、楕円曲線を先に与えず「どの複素直線が許されるか」を調べられる。
+
+この二次元の模型で $Q$ は複素双線形に延長した**交代**形式であり、一次元の $F=\mathbb Cv$ に対して $Q(F,F)=0$ は $Q(v,v)=0$ から従う。$\bar F$ でも同様なので、上記のpolarization条件P2は自動的に成立する。残る非自明な検査は、有理格子からの共役に関する直和性とP3の正値性である。ここでは第1変数を共役するHermite形式と、両変数で複素線形な $Q$ 自身を混同しない。
 
 <a id="def-hod1-16-positive-hodge-line"></a>
 
@@ -558,13 +585,20 @@ $$
 
 (3) 直接計算で $\operatorname{Im}\tau'=1/5$、[虚部変換定理](#thm-hod1-16-period-basis-change)でも $1/|2+i|^2=1/5$。二つは一致し、正である。
 
-(4) 新閉路に双対な整数基底を $e'_1,e'_2$ とすれば、$dz'=e'_1+\tau'e'_2$ が成り立ち、
+(4) [双対基底の変換式](#thm-hod1-16-period-basis-change)の直前の導出へ $r=2,s=t=u=1$ を代入すると、$e'_1=e_1-e_2$、$e'_2=-e_1+2e_2$ である。両者の新閉路上の周期は単位行列になる。また旧基底での $[dz]=e_1+ie_2$ を用いると
+
+$$
+[dz'] = \frac{e_1+ie_2}{2+i}
+=e'_1+\frac{1+i}{2+i}e'_2=e'_1+\tau'e'_2.
+$$
+
+従って
 
 $$
 F^1=\mathbb C(e'_1+\tau'e'_2).
 $$
 
-$Q(e'_1,e'_2)=1$ は向き保存による。$v'=e'_1+\tau'e'_2$ について
+$Q(e'_1,e'_2)=Q(e_1-e_2,-e_1+2e_2)=2-1=1$ は交代性と向き保存による。$v'=e'_1+\tau'e'_2$ について
 
 $$
 Q(\bar v',v')=\tau'-\bar\tau'=\frac{2i}{5},\qquad

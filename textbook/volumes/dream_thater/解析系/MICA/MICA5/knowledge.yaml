@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - MICA4
   - SYM6
+  - GEO3
 forward_references: []
 concepts:
   - id: microlocal.mica5-distribution-coordinate-transfer
