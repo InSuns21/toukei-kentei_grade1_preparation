@@ -1,0 +1,43 @@
+id: "COMB4"
+title: "格子路・括弧列・Catalan 数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB3
+official_scope: []
+learning_objectives:
+  - 単調格子路を E/N の語と一対一に表し、途中の高さ制約を全ての先頭部分で判定できる
+  - 最初の違反地点以後を反射する写像と逆写像を構成し、制約付き長方形格子路を数えられる
+  - Dyck 路と正しい括弧列を全単射で対応させ、空路を含む Catalan 数の閉形式を証明できる
+  - 最初の帰還の一意分解から Catalan 漸化式を導出し、閉形式と独立に検算できる
+  - 根付き順序付き完全二分木の左右の部分木と括弧列の全単射を構成できる
+definitions:
+  - { id: COMB4-DEF-01, name: 単調格子路と高さ }
+  - { id: COMB4-DEF-02, name: 正しい括弧列と Dyck 路 }
+  - { id: COMB4-DEF-03, name: Catalan 数 }
+  - { id: COMB4-DEF-04, name: 根付き順序付き完全二分木 }
+theorems:
+  - { id: COMB4-THM-01, name: 単調格子路の全数 }
+  - { id: COMB4-THM-02, name: 格子路の反射原理 }
+  - { id: COMB4-THM-03, name: 括弧列と Dyck 路の全単射 }
+  - { id: COMB4-THM-04, name: Catalan 数の二項係数表示 }
+  - { id: COMB4-THM-05, name: 最初の帰還による Catalan 漸化式 }
+  - { id: COMB4-THM-06, name: 完全二分木と Dyck 路の全単射 }
+canonical_examples:
+  - EENN と ENNE の途中高さを全時刻で照合
+  - 半長2の Dyck 路と正しい括弧列の全列挙
+  - 反射後の終点の変化と逆写像の確認
+  - 最初の帰還の位置による半長3・4の列挙
+  - 左右を区別する内部頂点2個の完全二分木
+problem_patterns:
+  - COMB4-LATTICE-PATH-HEIGHT
+  - COMB4-REFLECTION-BALLOT
+  - COMB4-DYCK-PARENTHESIS
+  - COMB4-CATALAN-EXPLICIT
+  - COMB4-FIRST-RETURN
+  - COMB4-FULL-BINARY-TREE
+  - COMB4-MIXED-STRUCTURES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 1 }
