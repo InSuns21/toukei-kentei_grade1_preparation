@@ -20,7 +20,7 @@ if (!base) {
   process.exit(2);
 }
 
-const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
+const diff = spawnSync('git', ['-c', 'core.quotePath=false', 'diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
   encoding: 'utf8',
   stdio: ['ignore', 'pipe', 'pipe'],
 });
