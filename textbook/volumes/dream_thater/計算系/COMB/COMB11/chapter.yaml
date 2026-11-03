@@ -1,0 +1,45 @@
+id: COMB11
+title: "整数分割と Euler 積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB10
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 整数分割を非増加列と使用回数列で一対一に表し空分割を含めて正しく数えられる
+  - Euler の形式的無限積を係数ごとの有限積として定義し分割との全単射を証明できる
+  - 使用可能な部分・重複可否の条件から制限付き分割の積表示を導ける
+  - 奇数部分と相異なる部分の等数性を二進表示の全単射で証明できる
+  - Ferrers 図形の共役を定義し部分数上限と最大部分上限の対応を証明できる
+  - コイン交換の額面別積表示と枚数による漸化式を導き独立に検算できる
+definitions:
+  - { id: COMB11-DEF-01, name: 整数分割 }
+  - { id: COMB11-DEF-02, name: 局所有限な Euler 積 }
+  - { id: COMB11-DEF-03, name: Ferrers 図形と共役分割 }
+  - { id: COMB11-DEF-04, name: 額面別のコイン交換数 }
+theorems:
+  - { id: COMB11-THM-01, name: 整数分割の Euler 積 }
+  - { id: COMB11-THM-02, name: 制限付き分割の積表示 }
+  - { id: COMB11-THM-03, name: Euler の奇数部分・相異なる部分の等数定理 }
+  - { id: COMB11-THM-04, name: 共役による制限の交換 }
+  - { id: COMB11-THM-05, name: コイン交換の積と漸化式 }
+canonical_examples:
+  - 4 の全分割と空分割
+  - 次数4での Euler 積の局所有限性
+  - 部分が1と3だけの制限付き分割
+  - 5 の奇数分割と相異なる分割
+  - Ferrers 図形の共役 (4,2,1) と (3,2,1,1)
+  - 1・3・4 円硬貨による 6 円の交換
+  - 大きさ零の部品と同額硬貨のラベル付き扱いによる失敗例
+problem_patterns:
+  - COMB11-PARTITION-ENUMERATION
+  - COMB11-EULER-PRODUCT
+  - COMB11-RESTRICTED-PARTS
+  - COMB11-ODD-DISTINCT-BIJECTION
+  - COMB11-FERRERS-CONJUGATION
+  - COMB11-COIN-CHANGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
