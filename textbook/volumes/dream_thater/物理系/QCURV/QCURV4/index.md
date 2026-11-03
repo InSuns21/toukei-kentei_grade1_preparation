@@ -14,6 +14,15 @@
 
 $a(t)>0$ の間、$d\eta=dt/a(t)$ で新しい時間 $\eta$ を取れます。これを**共形時間**といい、プライム $'$ は以後 $\eta$ に関する通常微分、$\dot a=da/dt$ は固有時間微分です。連鎖律から $a'=a\dot a$ なので、異なる微分を無言で取り替えません。空間は最初、辺の共動長さ $L>0$ の平坦な三次元トーラス $\mathbb T_L^3$ とし、周期境界条件を課します。これにより運動量は $\boldsymbol k=(2\pi/L)\boldsymbol n$（$\boldsymbol n\in\mathbb Z^3$）となり、無限体積のデルタ関数を使わずに規格化を議論できます。
 
+共形座標では空間方向の線素を次のように書きます。
+
+$$
+d\boldsymbol x^2=\sum_{i=1}^3(dx^i)^2
+=\sum_{i,j=1}^3\delta_{ij}\,dx^i dx^j.
+$$
+
+ここで $\delta_{ij}$ はKroneckerのデルタ（$i=j$ なら1、それ以外は0）です。以下、上下に反復する空間添字については $1,2,3$ の和を取ります。したがって計量の座標成分は $g_{\eta\eta}=-a^2$、$g_{\eta i}=0$、$g_{ij}=a^2\delta_{ij}$ です。
+
 <a id="def-qcurv4-flrw"></a>
 
 <!-- formal-statement-start -->
@@ -38,7 +47,30 @@ a(\eta)^2=a_0^2[1+\varepsilon s(\eta)],
 \qquad s(\eta)=\frac{1+\tanh(\eta/T)}2
 $$
 
-と置きます。$0<s<1$、$s'=\operatorname{sech}^2(\eta/T)/(2T)>0$ ですから $a$ は正で滑らかに増大し、過去に $a_0$、未来に $a_0\sqrt{1+\varepsilon}$ へ近づきます。$g_{\eta\eta}=-a^2<0$、空間成分は $a^2\delta_{ij}$ で正定値です。したがって定義の計量符号と各時刻の空間切片を直接確認できます。$a$ は上下に正の定数で挟まれるので、$\eta$ 全域にわたる共動観測者の固有時間も $t=\int a\,d\eta$ により全実数を走り、各 $\eta=\text{const}$ はCauchy面です。
+と置きます。$0<s<1$、$s'=\operatorname{sech}^2(\eta/T)/(2T)>0$ ですから $a$ は正で滑らかに増大し、過去に $a_0$、未来に $a_0\sqrt{1+\varepsilon}$ へ近づきます。
+
+定義の計量条件を成分から確かめます。時間方向は負であり、空間切片の零でない接ベクトル $v=v^i\partial_i$ に対しては
+
+$$
+g(\partial_\eta,\partial_\eta)=-a^2<0,\qquad
+g(v,v)=a^2\sum_{i=1}^3(v^i)^2>0.
+$$
+
+ここでは前段で確認した $g_{ij}=a^2\delta_{ij}$ を $v$ の成分に適用しました。時間と空間の交差成分は零なので、Lorentz符号 $(-,+,+,+)$ と空間切片の正定値性が従います。
+
+Cauchy面であることも別に確認します。正の因子 $a^2$ は光円錐を変えません。未来向き因果曲線を $\gamma(\eta)=(\eta,\boldsymbol x(\eta))$ と媒介変数化します。平坦トーラス上の局所的なEuclidノルムを $|\cdot|$ と書くと、因果条件は
+
+$$
+g\left(\frac{d\gamma}{d\eta},\frac{d\gamma}{d\eta}\right)
+=a^2\left(-1+\left|\frac{d\boldsymbol x}{d\eta}\right|^2\right)
+\le0
+\quad\Longrightarrow\quad
+\left|\frac{d\boldsymbol x}{d\eta}\right|\le1
+$$
+
+です。有限の共形時間で曲線が止まるなら、空間座標はこの速度上界によって極限を持ち、平坦トーラス上で因果曲線を延長できてしまいます。ゆえに延長不能な因果曲線はすべての共形時間を走り、各 $\eta=\text{const}$ をちょうど一度通ります。
+
+また $a_0\le a\le a_0\sqrt{1+\varepsilon}$ なので、$t(\eta)=\int_0^\eta a(u)\,du$ も $\eta\to\pm\infty$ に従い正負の無限大へ向かいます。
 
 **定義の確認**：$I=\mathbb R$、$a\in C^\infty(\mathbb R,(0,\infty))$、$L>0$、時間方向の負符号と空間方向の正符号が揃い、$dt=a\,d\eta$ も成立するため、FLRW背景の定義の条件をすべて満たします。
 <!-- definition-example-end -->
@@ -94,12 +126,28 @@ $$
 \end{aligned}
 $$
 
-曲率を確認します。$\mathcal H=a'/a$、$\partial_i a=0$ をChristoffel公式へ入れると、非零の成分は $\Gamma^\eta_{\eta\eta}=\mathcal H$、$\Gamma^\eta_{ij}=\mathcal H\delta_{ij}$、$\Gamma^i_{\eta j}=\Gamma^i_{j\eta}=\mathcal H\delta^i_j$ です。[GR6の曲率規約](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)でRicciテンソルを計算すると
+曲率を確認します。$\mathcal H=a'/a$、$\partial_i a=0$ を[LORG4のLevi-Civita接続の係数公式](../../../幾何系/LORG/LORG4/index.md#thm-lorg4-lorentz-levi-civita)へ入れると、非零の成分は $\Gamma^\eta_{\eta\eta}=\mathcal H$、$\Gamma^\eta_{ij}=\mathcal H\delta_{ij}$、$\Gamma^i_{\eta j}=\Gamma^i_{j\eta}=\mathcal H\delta^i_j$ です。[GR6の曲率成分公式](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)をRicciテンソルへ縮約した式は
 
 $$
-R_{\eta\eta}=-3\mathcal H',
-\qquad
-R_{ij}=(\mathcal H'+2\mathcal H^2)\delta_{ij}.
+R_{\mu\nu}
+=\partial_\lambda\Gamma^\lambda_{\mu\nu}
+-\partial_\nu\Gamma^\lambda_{\mu\lambda}
++\Gamma^\lambda_{\lambda\rho}\Gamma^\rho_{\mu\nu}
+-\Gamma^\lambda_{\nu\rho}\Gamma^\rho_{\mu\lambda}.
+$$
+
+この式の四項を時間・空間成分ごとに代入すると、$\Gamma^\lambda_{\eta\lambda}=4\mathcal H$ と $\partial_j\mathcal H=0$ により
+
+$$
+\begin{aligned}
+R_{\eta\eta}
+&=\mathcal H'-4\mathcal H'+4\mathcal H^2-4\mathcal H^2
+=-3\mathcal H',\\
+R_{ij}
+&=\mathcal H'\delta_{ij}+4\mathcal H^2\delta_{ij}
+-2\mathcal H^2\delta_{ij}
+=(\mathcal H'+2\mathcal H^2)\delta_{ij}.
+\end{aligned}
 $$
 
 よって
@@ -138,7 +186,7 @@ $a=a_0$ 一定なら $a''=0$ で $\Omega_k^2=k^2+m^2a_0^2$ です。固有時間
 
 ## 3. in/outモードを何に対して規格化するか
 
-[QCURV2の保存KG内積](../QCURV2/index.md#def-qcurv2-kg-pairing)はCauchy面によらず、ここでは $n^a=a^{-1}(\partial_\eta)^a$、$d\Sigma=a^3d^3x$ です。従って
+[QCURV2の保存KG内積](../QCURV2/index.md#def-qcurv2-kg-pairing)はCauchy面によらずに計算できます。$\eta=\text{const}$ では $g_{\eta\eta}=-a^2$ なので、未来向き単位法線は $n^a=a^{-1}(\partial_\eta)^a$（$g(n,n)=-1$）です。誘導空間計量 $h_{ij}=a^2\delta_{ij}$ の行列式は $a^6$ だから $d\Sigma=\sqrt{\det h}\,d^3x=a^3d^3x$ です。この二式を内積の定義へ代入すると
 
 $$
 (u,v)_{\rm KG}=i\int_{\mathbb T_L^3}a^2
@@ -153,7 +201,7 @@ $$
 i(\bar\chi_k\chi_k'-\bar\chi_k'\chi_k).
 $$
 
-単位ノルムには、右辺の括弧に現れる時間部分を $1$ と取ります。実係数の振動子方程式からその値は保存されます。対称な背景では $\chi_k=\chi_{-k}$ を選べるので、正モードと負モードの内積も零です。
+単位ノルムには、右辺の括弧に現れる時間部分を $1$ と取ります。実係数の振動子方程式からその値は保存されます。正モード $u_{\boldsymbol k}$ と負モード $\bar u_{\boldsymbol l}$ の内積では、空間積分は $\boldsymbol k=-\boldsymbol l$ のときだけ非零になり得ます。しかし等方的な背景では $\chi_k=\chi_{-k}$ を選べるため、この場合の時間部分は $i(\bar\chi_k\bar\chi_k'-\bar\chi_k'\bar\chi_k)=0$ です。よって正負モードは直交します。
 
 十分速く定数背景へ近づくと、過去と未来それぞれに $e^{-i\omega\eta}$ に漸近する解を選べます。この二つを比較するのがin/out量子化です。一般には遠い過去・未来でどちらの基底を使うかが指定できない場合があり、そのとき自然なin/out粒子数を無条件には主張しません。
 
