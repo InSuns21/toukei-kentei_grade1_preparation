@@ -39,6 +39,8 @@ a(\eta)^2=a_0^2[1+\varepsilon s(\eta)],
 $$
 
 と置きます。$0<s<1$、$s'=\operatorname{sech}^2(\eta/T)/(2T)>0$ ですから $a$ は正で滑らかに増大し、過去に $a_0$、未来に $a_0\sqrt{1+\varepsilon}$ へ近づきます。$g_{\eta\eta}=-a^2<0$、空間成分は $a^2\delta_{ij}$ で正定値です。したがって定義の計量符号と各時刻の空間切片を直接確認できます。$a$ は上下に正の定数で挟まれるので、$\eta$ 全域にわたる共動観測者の固有時間も $t=\int a\,d\eta$ により全実数を走り、各 $\eta=\text{const}$ はCauchy面です。
+
+**定義の確認**：$I=\mathbb R$、$a\in C^\infty(\mathbb R,(0,\infty))$、$L>0$、時間方向の負符号と空間方向の正符号が揃い、$dt=a\,d\eta$ も成立するため、FLRW背景の定義の条件をすべて満たします。
 <!-- definition-example-end -->
 
 ## 2. 波動方程式は時間依存振動子になる
@@ -190,6 +192,8 @@ i(\bar\chi\chi'-\bar\chi'\chi)
 $$
 
 時間の両端で同じ正振動数条件を満たし、必要な規格化も満たすので $u^{\rm in}=u^{\rm out}$ です。背景が定数なら、同じ正振動数の選択について粒子数の混合は起こりません。
+
+**定義の確認**：$a_-=a_+=a_0$、$a''/a=0$、$\omega_\pm=\omega>0$、関数値・一階微分ともに所定の振動漸近を満たすため、in/outの存在・規格化条件を直接検証しました。
 <!-- definition-example-end -->
 
 <a id="prop-qcurv4-wronskian-number"></a>
@@ -304,6 +308,8 @@ B=e^{-i\omega\eta}(\tfrac12-\tfrac12)e^{-i\omega\eta}=0.
 $$
 
 二つの定義式を再び満たし、$\Omega'=0$ なので混合がないことを直接確認できました。
+
+**定義の確認**：$\Omega=\omega>0$ は滑らかで、与えた $\chi$ は方程式 $\chi''+\omega^2\chi=0$ を満たします。位置と速度の二式から $A=1,B=0$ が一意に決まることも確かめました。
 <!-- definition-example-end -->
 
 <a id="prop-qcurv4-smooth-ramp"></a>
