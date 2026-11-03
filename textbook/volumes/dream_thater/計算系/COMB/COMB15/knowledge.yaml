@@ -1,0 +1,72 @@
+chapter: COMB15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1D
+  - COMB3
+  - NT5
+forward_references: []
+
+concepts:
+  - id: combinatorics.poset-interval
+    name: 順序区間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（順序区間）"]
+    requires: [set.partial-order]
+
+  - id: combinatorics.incidence-convolution
+    name: 接合代数と区間畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接合代数と区間畳み込み）"]
+    requires: [combinatorics.poset-interval]
+
+  - id: combinatorics.poset-delta-zeta
+    name: 単位関数とゼータ関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単位関数とゼータ関数）"]
+    requires: [combinatorics.incidence-convolution]
+
+  - id: combinatorics.incidence-convolution-laws
+    name: 区間畳み込みの結合則と単位元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（区間畳み込みの結合則と単位元）"]
+    requires: [combinatorics.incidence-convolution, combinatorics.poset-delta-zeta]
+
+  - id: combinatorics.strict-poset-chain
+    name: 厳密鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（厳密鎖）"]
+    requires: [set.chain]
+
+  - id: combinatorics.poset-mobius-function
+    name: 半順序集合の Möbius 関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Möbius 関数の存在・一意性と鎖表示）"]
+    requires: [combinatorics.incidence-convolution-laws, combinatorics.strict-poset-chain]
+
+  - id: combinatorics.poset-mobius-inversion
+    name: 有限半順序集合の Möbius 反転
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限半順序集合の Möbius 反転）"]
+    requires: [combinatorics.poset-mobius-function]
+
+  - id: combinatorics.boolean-lattice-mobius
+    name: Boolean 束の Möbius 関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（Boolean 束の Möbius 関数）"]
+    requires: [combinatorics.poset-mobius-function, combinatorics.binomial-count]
+
+  - id: combinatorics.divisor-poset-mobius
+    name: 約数順序の Möbius 関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（約数順序の Möbius 関数）"]
+    requires: [combinatorics.poset-mobius-function, number-theory.mobius-convolution-inverse]
