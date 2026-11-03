@@ -58,7 +58,19 @@ $$
 
 ここでは前段で確認した $g_{ij}=a^2\delta_{ij}$ を $v$ の成分に適用しました。時間と空間の交差成分は零なので、Lorentz符号 $(-,+,+,+)$ と空間切片の正定値性が従います。
 
-Cauchy面であることも別に確認します。正の因子 $a^2$ は光円錐を変えず、未来向き因果曲線では $\eta$ が増加し、$\eta$ を媒介変数にした空間速度は $|d\boldsymbol x/d\eta|\le1$ です。有限の $\eta$ で止まるなら、コンパクトな平坦トーラス上で空間座標にも極限があり、因果曲線を延長できてしまいます。ゆえに延長不能な因果曲線の $\eta$ は $-\infty$ から $+\infty$ まで走り、各 $\eta=\text{const}$ をちょうど一度通ります。また $a_0\le a\le a_0\sqrt{1+\varepsilon}$ なので、$t=\int_0^\eta a(u)\,du$ も全実数を走ります。
+Cauchy面であることも別に確認します。正の因子 $a^2$ は光円錐を変えません。未来向き因果曲線を $\eta$ で媒介変数化すると、因果条件は
+
+$$
+g\left(\frac{d\gamma}{d\eta},\frac{d\gamma}{d\eta}\right)
+=a^2\left(-1+\left|\frac{d\boldsymbol x}{d\eta}\right|^2\right)
+\le0
+\quad\Longrightarrow\quad
+\left|\frac{d\boldsymbol x}{d\eta}\right|\le1
+$$
+
+です。有限の共形時間で曲線が止まるなら、空間座標はこの速度上界によって極限を持ち、平坦トーラス上で因果曲線を延長できてしまいます。ゆえに延長不能な因果曲線はすべての共形時間を走り、各 $\eta=\text{const}$ をちょうど一度通ります。
+
+また $a_0\le a\le a_0\sqrt{1+\varepsilon}$ なので、$t(\eta)=\int_0^\eta a(u)\,du$ も $\eta\to\pm\infty$ に従い正負の無限大へ向かいます。
 
 **定義の確認**：$I=\mathbb R$、$a\in C^\infty(\mathbb R,(0,\infty))$、$L>0$、時間方向の負符号と空間方向の正符号が揃い、$dt=a\,d\eta$ も成立するため、FLRW背景の定義の条件をすべて満たします。
 <!-- definition-example-end -->
