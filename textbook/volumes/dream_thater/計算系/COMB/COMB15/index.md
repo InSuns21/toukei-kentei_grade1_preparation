@@ -8,7 +8,7 @@
 
 ## 1. 足す範囲を区間として取り出す
 
-半順序は反射律・反対称律・推移律を満たす関係です（[順序関係の定義](../../../基礎科目/F0/F0-00A1D/index.md#def-f0-00a1d-partial-order)）。以下、有限かつ空でない半順序集合を $(P,\leq)$ とし、$x\leq y$ のときに限り二元を比較できるものとします。
+半順序は反射律・反対称律・推移律を満たす関係です（[順序関係の定義](../../../基礎科目/F0/F0-00A1D/index.md#def-f0-00a1d-partial-order)）。以下、有限かつ空でない半順序集合を $(P,\leq)$ とします。二元 $x,y$ が比較可能とは、$x\leq y$ **または** $y\leq x$ が成り立つことです。ただし、この章で区間や区間関数の引数として使うのは、向きを固定した $x\leq y$ の組 $(x,y)$ に限ります。
 
 二元 $x\leq y$ の間に入る全要素をまとめた集合が、順序の**区間**です。実数の区間とは違い、間の元を一列に並べられるとは限りません。
 
@@ -28,7 +28,13 @@ $$
 <!-- definition-example-start: def-comb15-interval -->
 ### 例：包含順序の区間
 
-**定義の確認**として、$U=\{a,b\}$ のべき集合 $P=\mathcal P(U)$ を包含関係で順序付けます。[包含半順序の例](../../../基礎科目/F0/F0-00A1D/index.md#def-f0-00a1d-poset)で確かめたとおり、これは半順序集合です。
+**定義の確認**として、$U=\{a,b\}$ のべき集合 $P=\mathcal P(U)$ を包含関係で順序付けます。任意の部分集合 $A,B,C\subseteq U$ について、次を確認します。
+
+- 反射律：$A\subseteq A$。
+- 反対称律：$A\subseteq B$ かつ $B\subseteq A$ なら $A=B$。
+- 推移律：$A\subseteq B$ かつ $B\subseteq C$ なら $A\subseteq C$。
+
+[包含半順序の例](../../../基礎科目/F0/F0-00A1D/index.md#def-f0-00a1d-poset)と同じく反射律・反対称律・推移律が成立するので、$P$ は半順序集合です。
 
 $$
 [\varnothing,U]_P=\{\varnothing,\{a\},\{b\},U\},\qquad
@@ -333,7 +339,7 @@ $$
 
 ### 四元の包含順序で確かめる
 
-$P=\mathcal P(\{a,b\})$ で $f(\varnothing)=2$、$f(\{a\})=3$、$f(\{b\})=5$、$f(U)=7$ とします。下側の和を定義どおり求めると
+$U=\{a,b\}$、$P=\mathcal P(U)$ で $f(\varnothing)=2$、$f(\{a\})=3$、$f(\{b\})=5$、$f(U)=7$ とします。下側の和を定義どおり求めると
 
 | $x$ | $\varnothing$ | $\{a\}$ | $\{b\}$ | $U$ |
 |---|---:|---:|---:|---:|
@@ -382,7 +388,7 @@ $$
 \end{aligned}
 $$
 
-$k=0$ のときは和が1（空積を1とする）、$k>0$ のときは0です。従って $\nu*\zeta=\delta$。[Möbius 逆元の存在](#thm-comb15-mobius-existence)から $\zeta*\mu=\delta$ なので、[結合則](#prop-comb15-convolution-laws)を使って $\nu=(\nu*\zeta)*\mu=\delta*\mu=\mu$ です。なお最後の交代和は $k>0$ のとき一つの指定要素の採否を切り替える符号反転の全単射でも0と確認できます。
+最後の等式は[二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)に $1$ と $-1$ を代入したものです。$k=0$ のときは和が1（空積を1とする）、$k>0$ のときは0です。従って $\nu*\zeta=\delta$。[Möbius 逆元の存在](#thm-comb15-mobius-existence)から $\zeta*\mu=\delta$ なので、[結合則](#prop-comb15-convolution-laws)を使って $\nu=(\nu*\zeta)*\mu=\delta*\mu=\mu$ です。なお最後の交代和は $k>0$ のとき一つの指定要素の採否を切り替える符号反転の全単射でも0と確認できます。
 <!-- proof-end -->
 
 特に、$F(B)=\sum_{A\subseteq B}f(A)$ として[半順序集合の反転公式](#thm-comb15-poset-inversion)へ代入すれば
@@ -494,7 +500,7 @@ $U=\{a,b\}$、$P=\mathcal P(U)$ とする。$\mu(\varnothing,U)$、$\mu(\{a\},U)
 
 #### A3. 下側の和の復元
 
-$P=\mathcal P(\{a,b\})$ 上で $F(\varnothing)=1$、$F(\{a\})=4$、$F(\{b\})=6$、$F(U)=15$ とする。$F(x)=\sum_{y\subseteq x}f(y)$ を満たす $f$ を全点で求めよ。
+$U=\{a,b\}$、$P=\mathcal P(U)$ 上で $F(\varnothing)=1$、$F(\{a\})=4$、$F(\{b\})=6$、$F(U)=15$ とする。$F(x)=\sum_{y\subseteq x}f(y)$ を満たす $f$ を全点で求めよ。
 
 - Level: A
 - ID: COMB15-A3
@@ -555,7 +561,7 @@ $$
 
 #### B1. 上側の和の復元
 
-$P=\mathcal P(\{a,b\})$ で $G(\varnothing)=15$、$G(\{a\})=10$、$G(\{b\})=12$、$G(U)=8$ とする。$G(T)=\sum_{S\supseteq T}g(S)$ を満たす $g$ の値を全て求めよ。
+$U=\{a,b\}$、$P=\mathcal P(U)$ で $G(\varnothing)=15$、$G(\{a\})=10$、$G(\{b\})=12$、$G(U)=8$ とする。$G(T)=\sum_{S\supseteq T}g(S)$ を満たす $g$ の値を全て求めよ。
 
 - Level: B
 - ID: COMB15-B1
