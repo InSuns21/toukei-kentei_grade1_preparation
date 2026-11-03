@@ -6,3 +6,4 @@
 3. [GEOD3 回転楕円体の幾何と測地緯度](textbook/volumes/dream_thater/幾何系/GEOD/GEOD3/index.md)
 4. [GEOD4 曲率半径と楕円体の計量](textbook/volumes/dream_thater/幾何系/GEOD/GEOD4/index.md)
 5. [GEOD5 測地座標・地心座標・局所座標](textbook/volumes/dream_thater/幾何系/GEOD/GEOD5/index.md)
+6. [GEOD6 高さ・ジオイド・鉛直基準の導入](textbook/volumes/dream_thater/幾何系/GEOD/GEOD6/index.md)
