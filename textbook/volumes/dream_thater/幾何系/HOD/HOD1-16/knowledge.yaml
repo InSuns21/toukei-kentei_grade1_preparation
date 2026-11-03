@@ -1,0 +1,44 @@
+chapter: HOD1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-15
+forward_references:
+  - modular-forms.upper-half-plane
+concepts:
+  - id: hodge.elliptic-integral-dual-basis
+    name: 楕円曲線の整数周期双対基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基本閉路に双対な周期基底）"]
+    requires: [hodge.elliptic-period-diamond, hodge.rational-cohomology-complexification]
+  - id: hodge.elliptic-period-hodge-line
+    name: 周期から得る重さ1のHodge直線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期から得る重さ1のHodge直線）"]
+    requires: [hodge.elliptic-integral-dual-basis, hodge.hodge-filtration, hodge.elliptic-period-diamond]
+  - id: hodge.elliptic-period-basis-change
+    name: 整数基底変更と規格化周期
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基底変更と周期パラメータの変換）"]
+    requires: [hodge.elliptic-period-hodge-line]
+  - id: hodge.positive-weight-one-hodge-line
+    name: 正の重さ1のHodge直線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の重さ1のHodge直線）"]
+    requires: [hodge.pure-hodge-polarization, hodge.rational-cohomology-complexification]
+  - id: hodge.positive-hodge-line-upper-half-plane
+    name: 正のHodge直線と上半平面
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正のHodge直線と上半平面）"]
+    requires: [hodge.elliptic-period-hodge-line, hodge.positive-weight-one-hodge-line]
+  - id: hodge.elliptic-hodge-lefschetz-chain
+    name: 楕円曲線でのHodge–Lefschetz経路
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（楕円曲線でのHodge–Lefschetz経路）"]
+    requires: [hodge.kahler-laplacian-equality, hodge.kahler-hodge-decomposition, hodge.hard-lefschetz-theorem, hodge.elliptic-period-hodge-line]

@@ -68,5 +68,5 @@ chapters:
     title: "Hodgeフィルトレーションと純Hodge構造"
   - id: HOD1-16
     path: textbook/volumes/dream_thater/幾何系/HOD/HOD1-16
-    status: planned
+    status: completed
     title: "楕円曲線の周期と総合演習"
