@@ -1,0 +1,44 @@
+chapter: QCURV6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV5
+  - QCURV2
+  - QFT5
+forward_references: []
+concepts:
+  - id: qcurv.udd-detector-switching
+    name: Unruh–DeWitt検出器と切替
+    kind: definition
+    introduction: formal
+    requires: [qcurv.fock-wightman]
+  - id: qcurv.detector-response
+    name: 二点分布による検出器応答関数
+    kind: definition
+    introduction: formal
+    requires: [qcurv.udd-detector-switching, qcurv.fock-wightman]
+  - id: qcurv.detector-perturbation
+    name: 一次摂動からの応答公式
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.detector-response, qcurv.wightman-positivity]
+  - id: qcurv.hadamard-worldline-pullback
+    name: Hadamard二点分布の世界線引戻し
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.detector-response, microlocal.mica13-wfsc]
+  - id: qcurv.stationary-detector-rate
+    name: 定常世界線の遷移率
+    kind: definition
+    introduction: formal
+    requires: [qcurv.detector-response]
+  - id: qcurv.inertial-switching-spectrum
+    name: 慣性検出器の切替スペクトル
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.detector-response]
+  - id: qcurv.inertial-long-time-rate
+    name: Minkowski慣性検出器の長時間遷移率
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.inertial-switching-spectrum]

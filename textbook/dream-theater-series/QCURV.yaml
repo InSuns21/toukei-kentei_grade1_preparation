@@ -26,3 +26,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV5
     status: completed
     title: "断熱真空・WKB近似とHadamard性"
+  - id: QCURV6
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV6
+    status: completed
+    title: "粒子数とUnruh–DeWitt検出器の応答"
