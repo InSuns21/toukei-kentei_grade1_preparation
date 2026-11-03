@@ -1,0 +1,37 @@
+chapter: QCURV3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV2
+forward_references: []
+concepts:
+  - id: qcurv.bogoliubov-coefficients
+    name: Bogoliubov係数とin/outモード変換
+    kind: definition
+    introduction: formal
+    requires: [qcurv.curved-kg-pairing, qcurv.positive-frequency-projection]
+  - id: qcurv.bogoliubov-canonical
+    name: Bogoliubov係数の正準条件
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.bogoliubov-coefficients, qft.fock-ccr]
+  - id: qcurv.bogoliubov-particle-number
+    name: in真空のout粒子数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.bogoliubov-canonical, qft.number-and-normal-hamiltonian]
+  - id: qcurv.quench-particle-creation
+    name: 周波数急変振動子の粒子生成
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.bogoliubov-particle-number, qcurv.bogoliubov-coefficients]
+  - id: qcurv.wavepacket-hilbert-schmidt
+    name: 波束粒子数とHilbert–Schmidt条件
+    kind: definition
+    introduction: formal
+    requires: [qcurv.bogoliubov-particle-number]
+  - id: qcurv.diagonal-squeeze-criterion
+    name: 対角squeeze列のFock真空と総粒子数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.wavepacket-hilbert-schmidt, qcurv.bogoliubov-canonical]
