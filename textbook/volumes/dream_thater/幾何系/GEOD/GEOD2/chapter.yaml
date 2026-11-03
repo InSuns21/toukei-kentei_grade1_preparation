@@ -23,7 +23,7 @@ definitions:
   - { id: GEOD2-DEF-08, name: 観測値と誤差の単純模型 }
 theorems:
   - { id: GEOD2-PROP-01, name: 直交する座標軸間の表示と距離 }
-  - { id: GEOD2-PROP-02, name: 共通ずれが未知なら位置と分離できない }
+  - { id: GEOD2-PROP-02, name: 共通ずれが未知なら真値と分離できない }
 canonical_examples:
   - 基準系の規約と基準点成果・速度の違い
   - 同一datumで軸順を交換するだけの座標換算
