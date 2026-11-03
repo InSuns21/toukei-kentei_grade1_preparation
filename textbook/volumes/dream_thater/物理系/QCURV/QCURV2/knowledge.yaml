@@ -1,0 +1,53 @@
+chapter: QCURV2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV1
+  - QFT4
+forward_references: []
+concepts:
+  - id: qcurv.real-symplectic-form
+    name: 実Klein–Gordon解のシンプレクティック形式
+    kind: definition
+    introduction: formal
+    requires: [qcurv.kg-global-cauchy, qft.klein-gordon-pairing]
+  - id: qcurv.curved-kg-pairing
+    name: 曲がった背景上のKlein–Gordon内積
+    kind: definition
+    introduction: formal
+    requires: [qcurv.real-symplectic-form, qft.klein-gordon-pairing]
+  - id: qcurv.kg-pairing-conservation
+    name: 保存内積とCauchy面独立性
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.curved-kg-pairing, qcurv.kg-global-cauchy]
+  - id: qcurv.symplectic-nondegeneracy
+    name: 実解空間での非退化性
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.real-symplectic-form, qcurv.kg-global-cauchy]
+  - id: qcurv.positive-complex-structure
+    name: 正の両立複素構造
+    kind: definition
+    introduction: formal
+    requires: [qcurv.symplectic-nondegeneracy, qft.frequency-splitting]
+  - id: qcurv.positive-frequency-projection
+    name: 正振動数射影と正定値内積
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.positive-complex-structure, qcurv.curved-kg-pairing]
+  - id: qcurv.fock-wightman
+    name: Fock真空のWightman二点分布
+    kind: definition
+    introduction: formal
+    requires: [qcurv.positive-frequency-projection, qft.bosonic-fock-space]
+  - id: qcurv.wightman-positivity
+    name: 二点分布の正値性・方程式・交換子
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.fock-wightman, qft.fock-ccr]
+  - id: qcurv.ultrastatic-vacuum
+    name: 超静的背景の規格化モードと真空
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.fock-wightman, qcurv.curved-kg-pairing, qcurv.ultrastatic-equation]
