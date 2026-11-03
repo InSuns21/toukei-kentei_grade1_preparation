@@ -62,6 +62,16 @@ $a=2$、$\rho=3$、$\eta=0$ とすると、右の点は $(t,x)=(0,3)$ で $U=-3,
 
 座標の変換で計量が変わって見えても、時空の曲率が現れたわけではありません。Jacobianを計算すると二つのくさびで同じ計量表示になり、boost時間に沿う移動が計量を保つことも分かります。
 
+以下の $\partial_\eta$ は $\rho,y,z$ を固定した微分であり、$\partial_t,\partial_x$ はそれぞれ他のMinkowski座標を固定した微分です。したがって二つの座標表示の関係に連鎖律を適用すると
+
+$$
+\partial_\eta
+=\frac{\partial t}{\partial\eta}\partial_t
++\frac{\partial x}{\partial\eta}\partial_x
+$$
+
+と計算します。
+
 <a id="prop-qcurv7-metric"></a>
 
 <!-- formal-statement-start -->
@@ -214,6 +224,8 @@ $u^0=\cosh q>0$ だから未来向きです。一定の $\rho_0$ でも加速度
 
 まず右くさびで $m\ge0$ の自由スカラー場の方程式 $(-\Box+m^2)\phi=0$ を考えます。$x_\perp=(y,z)$、横方向波数 $k_\perp=(k_y,k_z)$、$\kappa^2=m^2+|k_\perp|^2$ とします。
 
+この節の $u$ は前節の四元速度ではなく**場の複素モード**です。動径関数 $f=f(\rho)$ の $f',f''$ は、それぞれ $\rho$ に関する一階・二階の通常の導関数を表します。
+
 <a id="def-qcurv7-modes"></a>
 
 <!-- formal-statement-start -->
@@ -239,9 +251,16 @@ u(\eta,\rho)=e^{-i\omega\eta}(a\rho)^{i\omega/a}
 =(-aU)^{i\omega/a}
 $$
 
-を考えます。$-aU>0$ なので複素冪は実対数を用いて滑らかに定まります。$ds^2=-dU\,dV+dy^2+dz^2$ により $\Box=-4\partial_U\partial_V+\partial_y^2+\partial_z^2$ です。$u$ は $U$ だけの関数なので $\Box u=0$、自由質量零場の方程式を満たします。さらに $i\partial_\eta u=\omega u$ です。
+を考えます。$-aU>0$ なので複素冪は実対数を用いて滑らかに定まります。$U=t-x,V=t+x$ の連鎖律から、$\partial_t=\partial_U+\partial_V$、$\partial_x=-\partial_U+\partial_V$ です（$\partial_U$ は $V,y,z$ を固定する微分）。よって
 
-右で未来向き単位法線は $n=(a\rho)^{-1}\partial_\eta$。よってKG内積の局所的な密度は
+$$
+\Box=-\partial_t^2+\partial_x^2+\partial_y^2+\partial_z^2
+=-4\partial_U\partial_V+\partial_y^2+\partial_z^2.
+$$
+
+$u$ は $U$ だけの関数なので $\Box u=0$、自由質量零場の方程式を満たします。さらに $i\partial_\eta u=\omega u$ です。
+
+右で未来向き単位法線は $n=(a\rho)^{-1}\partial_\eta$。よって[KG内積の定義](../QCURV2/index.md#def-qcurv2-kg-pairing)の局所的な密度は
 
 $$
 i\{u^*n(u)-n(u^*)u\}
@@ -275,7 +294,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_{\eta\eta}=-a^2\rho^2$、$g_{\rho\rho}=g_{yy}=g_{zz}=1$、$\sqrt{|\det g|}=a\rho$ です。従って
+座標基底 $(\partial_\eta,\partial_\rho,\partial_y,\partial_z)$ で、線素の各二次係数を計量行列へ並べます。混合項は零なので
+
+$$
+(g_{\mu\nu})=\operatorname{diag}(-a^2\rho^2,1,1,1),\qquad
+\det(g_{\mu\nu})=-a^2\rho^2<0,\qquad
+\sqrt{|\det g|}=a\rho
+$$
+
+です。$a,\rho>0$ だから非退化なLorentz計量で、[QCURV1のKlein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)の仮定に合います。逆計量の非零成分は $g^{\eta\eta}=-1/(a^2\rho^2)$、$g^{\rho\rho}=g^{yy}=g^{zz}=1$ です。従って
 
 $$
 \begin{aligned}
@@ -313,6 +340,26 @@ $\kappa>0$ の動径モードは上の微分方程式の適切な解を選ぶ必
 
 [QCURV2の二点分布](../QCURV2/index.md#def-qcurv2-wightman)を用います。以下、明示計算は**4次元・質量零・自由実スカラー場のMinkowski真空**に限定します。時間の $i0$ は正周波数境界値の分布処方であり、実数を単に0で割るという意味ではありません。
 
+二点分布の具体式は、[QCURV6で用いた質量零の正振動数平面波表示](../QCURV6/index.md#prop-qcurv6-inertial-spectrum)を一般の時空差へ適用して確認できます。$\Delta t=t-t'$、$\boldsymbol r=(x-x',y-y',z-z')$、$r=|\boldsymbol r|>0$ と置き、$\epsilon>0$ により各周波数へ $e^{-\epsilon|\boldsymbol k|}$ を掛けます。角度積分
+
+$$
+\int_{S^2}e^{ikr\cos\theta}d\Omega=\frac{4\pi\sin(kr)}{kr}
+$$
+
+を使うと
+
+$$
+\begin{aligned}
+W_{M,\epsilon}(X,X')
+&=\int\frac{d^3\boldsymbol k}{(2\pi)^3\,2|\boldsymbol k|}
+e^{-i|\boldsymbol k|\Delta t-\epsilon|\boldsymbol k|+i\boldsymbol k\cdot\boldsymbol r}\\
+&=\frac1{4\pi^2r}\int_0^\infty e^{-(\epsilon+i\Delta t)k}\sin(kr)\,dk\\
+&=\frac1{4\pi^2\{r^2-(\Delta t-i\epsilon)^2\}}.
+\end{aligned}
+$$
+
+最後の積分は $\operatorname{Re}(\epsilon+i\Delta t)>0$ の下で、$\int_0^\infty e^{-zk}\sin(kr)\,dk=r/(z^2+r^2)$ を使いました。$\epsilon\downarrow0$ の分布極限が次の式で、$r=0$ にも分布として延長します。
+
 <a id="def-qcurv7-restriction"></a>
 
 <!-- formal-statement-start -->
@@ -343,9 +390,17 @@ $$
 W_R(X,X')=-\frac1{4\pi^2(0-1)}=\frac1{4\pi^2}.
 $$
 
-これは二点が一致しないため通常の滑らかな値として評価できます。一般の $W_R(f,g)$ は正の状態からの制限なので、$\overline f$ を第一変数に持つ二点形式の正値性を継承します。ただし $W_R(X,X)$ はこの操作では定義されず、異なる正振動数選択の真空と同一であることも従いません。
+ここでは二点間のMinkowski間隔二乗が $-\Delta t^2+|\Delta\boldsymbol x|^2=1>0$ で**空間的に分離**しているため、分布核を滑らかな関数として評価できます。二点が異なるだけでは十分ではなく、光的に分離する異なる二点には特異性があります。
 
-**定義の確認**：二点は $R$ 内で、互いに異なるため分布核は滑らかに評価できます。コンパクト支持の試験関数へ拡張した制限は元の正値性を引き継ぎ、対角評価や新たな真空選択を含まないことも確認しました。
+試験関数 $f\in C_c^\infty(R)$ を $R$ の外で零に延長した関数を $\widetilde f$ とします。支持が $R$ の内部でコンパクトなので、この延長も滑らかです。[二点分布の正値性](../QCURV2/index.md#prop-qcurv2-wightman-properties)を適用すると
+
+$$
+W_R(\bar f,f)=W_M(\overline{\widetilde f},\widetilde f)\ge0
+$$
+
+となり、制限状態の正値性も確かめられます。ただし $W_R(X,X)$ はこの操作では定義されず、異なる正振動数選択の真空と同一であることも従いません。
+
+**定義の確認**：二点は $R$ 内で、間隔二乗が正なので分布核は滑らかに評価できます。コンパクト支持の試験関数へ拡張した制限は元の正値性を引き継ぎ、対角・光的分離での点評価や新たな真空選択を含まないことも確認しました。
 <!-- definition-example-end -->
 
 具体的な等加速度世界線で二点分布を評価すると、$t$ と $\eta$ の時間選択が異なることを式で見られます。
@@ -384,7 +439,30 @@ $$
 \end{aligned}
 $$
 
-二行目では $\cosh^2q-\sinh^2q=1$ と $\cosh(q-q')=\cosh q\cosh q'-\sinh q\sinh q'$ を使いました。$y,z$ は一定です。時間向きは $\Delta t$ と $s$ が同符号なので、正周波数境界値を保った $s\mapsto s-i0$ の処方が使えます。これを[二点分布](#def-qcurv7-restriction)へ代入すると
+二行目では $\cosh^2q-\sinh^2q=1$ と $\cosh(q-q')=\cosh q\cosh q'-\sinh q\sinh q'$ を使いました。$y,z$ は一定です。$\Delta t=2\rho_0\cosh((q+q')/2)\sinh((q-q')/2)$ なので、$\Delta t$ と $s$ は同符号です。
+
+ただし、これだけで分布の $i0$ を代入できるわけではありません。[正周波数の平面波表示](../QCURV6/index.md#prop-qcurv6-inertial-spectrum)に基づき、$\tau$ を $\tau-i\delta$（$0<\delta<\pi\rho_0$）へ動かすと
+
+$$
+\operatorname{Im}X(\tau-i\delta)
+=-\rho_0\sin(\delta/\rho_0)(\cosh q,\sinh q,0,0)
+$$
+
+は未来向き四元速度の負の倍数です。正エネルギーの平面波（$\omega=|\boldsymbol k|>0$）には
+
+$$
+\exp\!\left[-\rho_0\sin(\delta/\rho_0)
+(\omega\cosh q-k_x\sinh q)\right]
+$$
+
+という減衰因子が掛かり、$\omega\cosh q-k_x\sinh q\ge\omega(\cosh q-|\sinh q|)>0$ です。よってこの複素化は正周波数の分布境界値を保ちます。複素化した二点間隔は
+
+$$
+(\Delta t_\delta)^2-(\Delta x_\delta)^2
+=4\rho_0^2\sinh^2\!\left(\frac{s-i\delta}{2\rho_0}\right).
+$$
+
+この境界値を $\delta\downarrow0$ として取ることが $s-i0$ の意味です。これを[二点分布](#def-qcurv7-restriction)へ代入すると
 
 $$
 w_{\rho_0}(s)
@@ -562,7 +640,19 @@ $$
 \end{aligned}
 $$
 
-ここで $\cosh(q-q')=\cosh q\cosh q'-\sinh q\sinh q'$ を使用しました。$\Delta t$ と $s$ は同符号なのでWightman境界値は $s-i0$ として
+ここで $\cosh(q-q')=\cosh q\cosh q'-\sinh q\sinh q'$ を使用しました。時間差
+
+$$
+\Delta t=2\rho_0\cosh((q+q')/2)\sinh((q-q')/2)
+$$
+
+は $s$ と同符号です。さらに $\tau\mapsto\tau-i\delta$ と複素化したとき、$u(\tau)=dX/d\tau$ として
+
+$$
+\operatorname{Im}X(\tau-i\delta)=-\rho_0\sin(\delta/\rho_0)u(\tau)
+$$
+
+は過去向き時間的です。このため[正周波数の引戻し](#prop-qcurv7-wightman)と同じ境界値を $\delta\downarrow0$ で取り、
 
 $$
 w_{\rho_0}(s)=-\frac1{16\pi^2\rho_0^2\sinh^2((s-i0)/(2\rho_0))}.
@@ -629,7 +719,13 @@ $$
 
 です。この問いでは質量零なので $m=0$ です。右の未来向き法線 $n_R=(a\rho)^{-1}\partial_\eta$ では $e^{-i\omega\eta}$ に対するKG密度が $2\omega|u|^2/(a\rho)>0$。左では未来向き法線が $n_L=-(a\rho)^{-1}\partial_\eta$ なので、正の密度には $e^{+i\omega\eta}$ が必要です。
 
-**(4)** $s=\tau-\tau'$ とすると、世界線上の二点間隔は $(\Delta t)^2-(\Delta x)^2=4a^{-2}\sinh^2(as/2)$。正周波数の $i0$ 処方を保持して
+**(4)** $s=\tau-\tau'$ とすると、世界線上の二点間隔は
+
+$$
+(\Delta t)^2-(\Delta x)^2=4a^{-2}\sinh^2(as/2)
+$$
+
+です。[等加速度引戻しの命題](#prop-qcurv7-wightman)のように $\tau\mapsto\tau-i\delta$ を使うと、虚部は $-a^{-1}\sin(a\delta)u(\tau)$ で過去向き時間的です。よって正周波数の $i0$ 処方を保持して
 
 $$
 w_a(s)=-\frac{a^2}{16\pi^2\sinh^2(a(s-i0)/2)}.
