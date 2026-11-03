@@ -1,0 +1,58 @@
+chapter: GEOD3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD1
+  - GEOD2
+  - F0-00E1
+forward_references: []
+
+concepts:
+  - id: geodesy.oblate-ellipsoid
+    name: 扁平な回転楕円体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（扁平な回転楕円体）]
+    requires: [geodesy.reference-ellipsoid]
+
+  - id: geodesy.shape-parameters
+    name: 扁平率・第一離心率・第三扁平率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（扁平率・第一離心率・第三扁平率）]
+    requires: [geodesy.oblate-ellipsoid]
+
+  - id: geodesy.meridian-parallel
+    name: 子午断面と緯線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（子午断面と緯線）]
+    requires: [geodesy.oblate-ellipsoid]
+
+  - id: geodesy.ellipsoid-geodetic-latitude
+    name: 表面上の測地緯度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（表面上の測地緯度）]
+    requires: [geodesy.latitude-directions, geodesy.oblate-ellipsoid]
+
+  - id: geodesy.ellipsoid-geocentric-latitude
+    name: 表面上の地心緯度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（表面上の地心緯度）]
+    requires: [geodesy.latitude-directions, geodesy.oblate-ellipsoid]
+
+  - id: geodesy.ellipsoid-latitude-relation
+    name: 楕円体表面の測地緯度と地心緯度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（楕円体表面の測地緯度と地心緯度）]
+    requires: [geodesy.shape-parameters, geodesy.ellipsoid-geodetic-latitude, geodesy.ellipsoid-geocentric-latitude]
+
+  - id: geodesy.ellipsoid-surface-parameterization
+    name: 測地緯度・経度による楕円体表面表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（測地緯度・経度による楕円体表面表示）]
+    requires: [geodesy.shape-parameters, geodesy.ellipsoid-geodetic-latitude, geodesy.meridian-parallel]
