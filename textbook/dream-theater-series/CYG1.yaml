@@ -56,7 +56,7 @@ chapters:
     title: "複素構造の一次変形と正則体積形式"
   - id: CYG1-13
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-13
-    status: planned
+    status: completed
     title: "quinticの複素変形とKähler方向"
   - id: CYG1-14
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-14

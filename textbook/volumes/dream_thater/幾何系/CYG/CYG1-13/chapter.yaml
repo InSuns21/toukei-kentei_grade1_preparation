@@ -1,0 +1,48 @@
+id: "CYG1-13"
+title: "quinticの複素変形101方向とKähler錐"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-08
+  - CYG1-12
+  - KAH1-13
+  - AG2-09
+  - AG3-10
+  - CAG1-05
+official_scope: []
+learning_objectives:
+  - 五変数五次斉次単項式を重複なく数え126次元を導ける
+  - 方程式のスカラー倍とPGL(5)の座標変換を接ベクトルで区別できる
+  - Fermat五次のJacobian次数五部分を25個の単項式で計算し101を得られる
+  - 接Euler列と法束列のコホモロジーから多項式方向が全一次変形を尽くす理由を証明できる
+  - 一次変形101次元と実際のモジュライの滑らかさ・無障害性を区別できる
+  - h11=1と正値性からquinticのKähler錐を一つの正半直線と示せる
+  - Kähler錐と複素化Kählerパラメータと複素構造の変形方向を区別できる
+theorems:
+  - { id: CYG1-13-DEF-01, name: "五次式の一次多項式変形" }
+  - { id: CYG1-13-PROP-01, name: "Fermat五次の多項式一次変形は101次元" }
+  - { id: CYG1-13-THM-01, name: "滑らかなquinticの多項式方向と全一次変形の同型" }
+  - { id: CYG1-13-PROP-02, name: "quinticのKähler錐は正半直線" }
+  - { id: CYG1-13-DEF-02, name: "複素化Kählerパラメータ" }
+canonical_examples:
+  - 五次単項式126個と二変数一次式の星取り法
+  - Fermat五次における座標変換の25個のJacobian単項式
+  - z0z1z2z3z4の非自明な一次方向
+  - 法束列とEuler列によるH1(TX)の次元計算
+  - 超平面類Hの正値性と負係数による失敗
+  - Fermat型一パラメータ族の特異値と一次変形の限界
+problem_patterns:
+  - CYG1-13-MONOMIAL-COUNT
+  - CYG1-13-COORDINATE-DERIVATIVE
+  - CYG1-13-FERMAT-JACOBIAN
+  - CYG1-13-KAHLER-POSITIVE-RAY
+  - CYG1-13-PRODUCT-MONOMIAL
+  - CYG1-13-EULER-NORMAL-COHOMOLOGY
+  - CYG1-13-COMPLEXIFIED-PARAMETER
+  - CYG1-13-SINGULAR-BOUNDARY
+  - CYG1-13-FULL-TANGENT-COUNT
+  - CYG1-13-COMPLEX-VERSUS-KAHLER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
