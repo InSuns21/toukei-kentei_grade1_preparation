@@ -11,7 +11,7 @@
 時空は $3+1$ 次元のMinkowski空間、自然単位系は $c=\hbar=1$ です。$\boldsymbol x,\boldsymbol p\in\mathbb R^3$ を空間位置と運動量、$m\ge0$ を一定の質量パラメータとします。計量、空間内積、角振動数は次の規約で固定します。
 
 $$
-\eta=\operatorname{diag}(1,-1,-1,-1),\qquad
+\eta=\operatorname{diag}(-1,1,1,1),\qquad
 \boldsymbol p\cdot\boldsymbol x=\sum_{j=1}^3p_jx^j,\qquad
 \omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}.
 $$
@@ -704,7 +704,7 @@ $$
 です。
 <!-- definition-example-end -->
 
-以下、$\Box=\partial_t^2-\Delta$ は[QFT1のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)で使った波動作用素です。$\partial_t$ は空間座標を固定し、$\Delta=\sum_j\partial_j^2$ は時刻を固定して作用します。
+以下、$\Box=-\partial_t^2+\Delta$ は[QFT1のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)で使った波動作用素です。$\partial_t$ は空間座標を固定し、$\Delta=\sum_j\partial_j^2$ は時刻を固定して作用します。
 
 <a id="prop-qft3-distribution"></a>
 
@@ -719,7 +719,7 @@ $$
 > と定める。$\Phi_\phi$ は時空Schwartz空間上連続な緩増加超関数であり、任意の $\chi\in\mathcal S(\mathbb R^4)$ について
 
 $$
-\Phi_\phi[(\Box+m^2)\chi]=0
+\Phi_\phi[(-\Box+m^2)\chi]=0
 $$
 
 > を満たす。つまり自由Klein–Gordon方程式は試験関数への作用としても成り立つ。
@@ -755,13 +755,13 @@ $$
 
 後ろの積分は有限なので、Schwartz空間の半ノルムで連続性を示しました。[GPDE1の超関数の定義](../../../解析系/GPDE/GPDE1/index.md#def-gpde1-distribution)をコンパクト台関数から急減少関数へ拡張した緩増加超関数になっています。
 
-次に $(\Box+m^2)\chi$ もSchwartz関数です。時間と空間の両端で $\chi$ とその微分が急減少し、$\phi$ と必要な導関数が有界なので、各変数で二度の部分積分が許されます。$\Box=\partial_t^2-\Delta$ は定数係数の二階微分作用素であり、二度の部分積分では符号が元へ戻るため、
+次に $(-\Box+m^2)\chi$ もSchwartz関数です。時間と空間の両端で $\chi$ とその微分が急減少し、$\phi$ と必要な導関数が有界なので、各変数で二度の部分積分が許されます。$\Box=-\partial_t^2+\Delta$ は定数係数の二階微分作用素であり、二度の部分積分では符号が元へ戻るため、
 
 $$
 \begin{aligned}
-\Phi_\phi[(\Box+m^2)\chi]
-&=\int_{\mathbb R^4}\phi(\Box+m^2)\chi\,d^4x\\
-&=\int_{\mathbb R^4}[(\Box+m^2)\phi]\chi\,d^4x
+\Phi_\phi[(-\Box+m^2)\chi]
+&=\int_{\mathbb R^4}\phi(-\Box+m^2)\chi\,d^4x\\
+&=\int_{\mathbb R^4}[(-\Box+m^2)\phi]\chi\,d^4x
 =0.
 \end{aligned}
 $$
@@ -1044,7 +1044,7 @@ $$
 $m\ge0$ とし、$\phi\in C^2(\mathbb R^{1,3})$ が自由Klein–Gordon方程式を満たし、$\phi$ とその一階微分が有界とする。コンパクト台の滑らかな試験関数 $\chi$ に対し、積分の部分積分を行って
 
 $$
-\int_{\mathbb R^4}\phi(\Box+m^2)\chi\,d^4x=0
+\int_{\mathbb R^4}\phi(-\Box+m^2)\chi\,d^4x=0
 $$
 
 を示せ。さらに時間微分の一階だけを移すときの負号と、二階を移すときの符号をそれぞれ明記せよ。
@@ -1073,7 +1073,7 @@ $$
 
 $$
 \begin{aligned}
-\int\phi(\Box+m^2)\chi\,d^4x
+\int\phi(-\Box+m^2)\chi\,d^4x
 &=\int[(\partial_t^2-\Delta+m^2)\phi]\chi\,d^4x\\
 &=0.
 \end{aligned}
@@ -1097,7 +1097,7 @@ $$
 2. 係数 $a_\pm$ を求め、純正振動数であることを示せ。
 3. $(\phi,\phi)_{\mathrm{KG}}$ と $E[\phi]$ をFourier積分で計算し、それぞれの符号を示せ。
 4. 反対に初期速度を零へ変更すると、実場のKlein–Gordon自己形式とエネルギーがそれぞれどうなるか述べよ。
-5. 任意の時空Schwartz関数 $\chi$ に対し、$\Phi_\phi[(\Box+m^2)\chi]=0$ が成立する理由を、積分の定義域・境界項も含めて説明せよ。
+5. 任意の時空Schwartz関数 $\chi$ に対し、$\Phi_\phi[(-\Box+m^2)\chi]=0$ が成立する理由を、積分の定義域・境界項も含めて説明せよ。
 
 - Level: C
 
@@ -1154,11 +1154,11 @@ $$
 
 です。これは「自己形式が零なのにエネルギーは正」の具体例です。
 
-**(5)** 第2節の解の積分表示から $\phi$ と必要な導関数は時空全体で有界です。$\chi$ とその導関数は全方向で急減少するので、$\Phi_\phi[\chi]$ および $\Phi_\phi[(\Box+m^2)\chi]$ は絶対収束します。各時間・空間座標で二度部分積分すると境界項が零になり、
+**(5)** 第2節の解の積分表示から $\phi$ と必要な導関数は時空全体で有界です。$\chi$ とその導関数は全方向で急減少するので、$\Phi_\phi[\chi]$ および $\Phi_\phi[(-\Box+m^2)\chi]$ は絶対収束します。各時間・空間座標で二度部分積分すると境界項が零になり、
 
 $$
-\Phi_\phi[(\Box+m^2)\chi]
-=\int[(\Box+m^2)\phi]\chi\,d^4x=0
+\Phi_\phi[(-\Box+m^2)\chi]
+=\int[(-\Box+m^2)\phi]\chi\,d^4x=0
 $$
 
 です。最後の零は第2節で古典的に検証した方程式から従います。ここで得たのは数値を返す超関数であり、量子場の作用素を定義したわけではありません。

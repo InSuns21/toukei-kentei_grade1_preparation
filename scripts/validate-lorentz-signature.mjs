@@ -3,8 +3,8 @@ import path from 'node:path';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
 
-// SREL has migrated to -+++; QFT chapters still require mathematical migration.
-// Reject legacy signatures anywhere in migrated SREL/GR chapter bodies and
+// SREL and QFT1–6 have migrated to -+++; later QFT chapters still require migration.
+// Reject legacy signatures anywhere in migrated SREL/GR/QFT1–6 bodies and
 // reject new legacy metric declarations in other DREAM THEATER chapters.
 const root = process.cwd();
 const chapterRoot = 'textbook/volumes/dream_thater';
@@ -64,6 +64,16 @@ for (const series of migratedSeries) {
     });
   }
 }
+const earlyQftRoot = path.join(root, chapterRoot, '物理系', 'QFT');
+for (let n = 1; n <= 6; n += 1) {
+  const chapterPath = path.join(earlyQftRoot, `QFT${n}`, 'index.md');
+  const lines = fs.readFileSync(chapterPath, 'utf8').split('\n');
+  lines.forEach((line, i) => {
+    if (legacyDeclaration.test(line)) {
+      migratedProblems.push(`${path.relative(root, chapterPath)}:${i + 1}: legacy (+---) signature in migrated QFT chapter`);
+    }
+  });
+}
 if (migratedProblems.length) {
   console.error('Migrated Lorentz-signature series regressed:');
   for (const problem of migratedProblems) console.error(`- ${problem}`);
@@ -73,7 +83,7 @@ if (migratedProblems.length) {
 const baseIndex = process.argv.indexOf('--base');
 const base = baseIndex >= 0 ? process.argv[baseIndex + 1] : process.env.TEXTBOOK_BASE_SHA;
 if (!base) {
-  console.log('Migrated SREL/GR chapters use -+++; legacy QFT migration is pending. Use --base <SHA> to reject new legacy declarations.');
+  console.log('Migrated SREL/GR and QFT1–6 chapters use -+++; later QFT migration is pending. Use --base <SHA> to reject new legacy declarations.');
   process.exit(0);
 }
 
