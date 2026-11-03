@@ -314,7 +314,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（大域的内部対称性のGoldstone定理：スペクトル形）**
-> $3+1$ 次元の相対論的局所量子場理論に、(1) 正エネルギースペクトル条件と並進・Lorentz不変な純粋真空、(2) 異常のない保存された局所的な**大域内部対称性**の電流 $j^\mu$、(3) Lorentzスカラー局所演算子 $O$ と適切な切断電荷 $Q_R$ が存在し、
+> $3+1$ 次元の相対論的局所量子場理論で、以下を仮定する。
+>
+> 1. 正エネルギースペクトル条件と並進・Lorentz不変な純粋真空。
+> 2. 異常のない保存された局所的な**大域内部対称性**の電流 $j^\mu$。
+> 3. Lorentzスカラー局所演算子 $O$ と適切な切断電荷 $Q_R$ が存在する。
+>
+> さらに切断電荷の交換子が
 
 $$
 c=\lim_{R\to\infty}\langle\Omega|\,i[Q_R,O(0)]\,|\Omega\rangle\ne0
@@ -468,7 +474,11 @@ $\alpha\equiv\alpha+2\pi$ なので波動関数 $e^{i\ell\alpha}$ は整数 $\el
 ### 演習 QFT33-A1：真空円と非破れ部分群
 
 - Level: A
-- 問題：$\lambda=2,\ v=3$ として $V(\phi_1,\phi_2)=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ を考える。(1) 大域最小値と最小点の集合を求めよ。(2) $SO(2)$ の回転で $(3,0)$ を固定する角度を求め、$\alpha=\pi/2$ で何が起こるか述べよ。(3) $O(2)$ に拡張すると固定部分群に加わる要素を挙げよ。
+- 問題：$\lambda=2,\ v=3$ として $V(\phi_1,\phi_2)=\lambda(\phi_1^2+\phi_2^2-v^2)^2/4$ を考え、次を求めよ。
+
+  1. 大域最小値と最小点の集合。
+  2. $SO(2)$ の回転で $(3,0)$ を固定する角度と、$\alpha=\pi/2$ による変化。
+  3. $O(2)$ に拡張したとき固定部分群に加わる要素。
 
 <!-- solution-start -->
 **詳細解答**
@@ -499,7 +509,10 @@ $$
 ### 演習 QFT33-A3：保存流の発散と電荷の作用
 
 - Level: A
-- 問題：$\mathcal L=\frac12(\partial\phi_a)^2-\lambda(\phi_a\phi_a-v^2)^2/4$ で、$j^\mu=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1$ を考える。(1) 運動方程式を使って $\partial_\mu j^\mu=0$ を示せ。(2) 等時刻正準交換関係から、切断 $f_R(\boldsymbol y)=1$ の点で $i[Q_R,\phi_1(\boldsymbol y)]$ を求めよ。
+- 問題：$\mathcal L=\frac12(\partial\phi_a)^2-\lambda(\phi_a\phi_a-v^2)^2/4$ で、$j^\mu=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1$ を考えよ。
+
+  1. 運動方程式から $\partial_\mu j^\mu=0$ を示せ。
+  2. 等時刻正準交換関係から、切断 $f_R(\boldsymbol y)=1$ の点で $i[Q_R,\phi_1(\boldsymbol y)]$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -534,7 +547,11 @@ $$
 ### 演習 QFT33-A4：極座標の運動項と周期
 
 - Level: A
-- 問題：$\phi=(v+\rho)(\cos(\theta/v),\sin(\theta/v))$、$v>0$ である。(1) $\partial_\mu\phi_a\partial^\mu\phi_a$ を $\rho,\theta$ で計算せよ。(2) $\rho=0$ での $\theta$ の周期と二次作用を求めよ。(3) $\rho=-v$ で座標が壊れる理由を説明せよ。
+- 問題：$\phi=(v+\rho)(\cos(\theta/v),\sin(\theta/v))$、$v>0$ とする。
+
+  1. $\partial_\mu\phi_a\partial^\mu\phi_a$ を $\rho,\theta$ で計算せよ。
+  2. $\rho=0$ での $\theta$ の周期と二次作用を求めよ。
+  3. $\rho=-v$ で座標が壊れる理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -553,7 +570,11 @@ $$
 ### 演習 QFT33-A5：破れと零Hessianは同値か
 
 - Level: A
-- 問題：$V(x,y)=x^2+y^4$ を考える。(1) 最も低いポテンシャル値を与える点とHessianを求めよ。(2) $y$ 方向のHessian固有値が零であることから「真空が連続対称性を自発的に破る」と結論できるか。(3) $y$ を小さく動かすとエネルギーはどう変わるか。
+- 問題：$V(x,y)=x^2+y^4$ を考え、次を検討せよ。
+
+  1. 最も低いポテンシャル値を与える点とHessianを求めよ。
+  2. $y$ 方向のHessian固有値が零であることから「真空が連続対称性を自発的に破る」と結論できるか。
+  3. $y$ を小さく動かすとエネルギーはどう変わるか。
 
 <!-- solution-start -->
 **詳細解答**
@@ -566,7 +587,11 @@ $$
 ### 演習 QFT33-B1：$SO(3)$ の破れた生成子
 
 - Level: B
-- 問題：実三成分場の $V=\lambda(|\phi|^2-v^2)^2/4$、$\phi_0=(0,0,v)^T$ を考える。$T_x,T_y,T_z$ を三次元ベクトルの通常の右手系の微小回転生成子とする。(1) それぞれの $T_i\phi_0$ を求めよ。(2) Hessianの核と一致することを示せ。(3) 生成子は3個あるのにGoldstone方向が2個である理由を説明せよ。
+- 問題：実三成分場の $V=\lambda(|\phi|^2-v^2)^2/4$、$\phi_0=(0,0,v)^T$ を考える。$T_x,T_y,T_z$ を三次元の右手系の微小回転生成子とする。
+
+  1. それぞれの $T_i\phi_0$ を求めよ。
+  2. Hessianの核と一致することを示せ。
+  3. 生成子は3個あるのにGoldstone方向が2個である理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -593,7 +618,11 @@ $$
 ### 演習 QFT33-B2：Ward接触項から極を検算する
 
 - Level: B
-- 問題：正準規格化された質量零実場 $\pi$ で $\widetilde{\langle T\pi\pi\rangle}(p)=i/(p^2+i0)$、電流の線形部分が $j^\mu=v\partial^\mu\pi$（$v\ne0$）とする。(1) 規約 $\widetilde F(p)=\int e^{ipx}F(x)d^4x$ で $G^\mu(p)=\widetilde{\langle Tj^\mu\pi\rangle}$ を求めよ。(2) $-ip_\mu G^\mu=-iv$ を検算せよ。(3) 同じ条件で $G^\mu=p^\mu F(p^2)$ が $p=0$ 近くで正則だと仮定すると何が矛盾するか。
+- 問題：正準規格化された質量零実場 $\pi$ で $\widetilde{\langle T\pi\pi\rangle}(p)=i/(p^2+i0)$、電流の線形部分が $j^\mu=v\partial^\mu\pi$（$v\ne0$）とする。
+
+  1. 規約 $\widetilde F(p)=\int e^{ipx}F(x)d^4x$ で $G^\mu(p)=\widetilde{\langle Tj^\mu\pi\rangle}$ を求めよ。
+  2. $-ip_\mu G^\mu=-iv$ を検算せよ。
+  3. 同じ条件で $G^\mu=p^\mu F(p^2)$ が $p=0$ 近くで正則だと仮定すると何が矛盾するか。
 
 <!-- solution-start -->
 **詳細解答**
@@ -618,7 +647,12 @@ $$
 ### 演習 QFT33-B3：外部源と質量の符号
 
 - Level: B
-- 問題：$V_\varepsilon(\phi)=\lambda(|\phi|^2-v^2)^2/4-\varepsilon\phi_1$、$\lambda,v,\varepsilon>0$ とする。(1) 最小点の条件を求め、その解 $w$ が $v$ より大きい理由を述べよ。(2) 接線質量二乗を求めよ。(3) $\varepsilon$ が小さいとき $w=v+\delta$ として $\delta$ と $m_\perp^2$ の先頭項を導け。(4) $\partial_\mu j^\mu$ の符号を検算せよ。
+- 問題：$V_\varepsilon(\phi)=\lambda(|\phi|^2-v^2)^2/4-\varepsilon\phi_1$、$\lambda,v,\varepsilon>0$ とする。
+
+  1. 最小点の条件を求め、その解 $w$ が $v$ より大きい理由を述べよ。
+  2. 接線質量二乗を求めよ。
+  3. $\varepsilon$ が小さいとき $w=v+\delta$ として $\delta$ と $m_\perp^2$ の先頭項を導け。
+  4. $\partial_\mu j^\mu$ の符号を検算せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -646,7 +680,11 @@ $$
 ### 演習 QFT33-B4：有限体積回転子と量子真空
 
 - Level: B
-- 問題：体積 $\mathcal V$ の箱内で一様な場 $\phi=v(\cos\alpha,\sin\alpha)$ を保ち、$L=\mathcal V v^2\dot\alpha^2/2$ とする。(1) 正準運動量とHamiltonianを求めよ。(2) 周期境界条件を課して固有状態とエネルギーを求めよ。(3) 基底の $\langle\phi_1\rangle$ が零であることと、励起ギャップの体積依存を比較せよ。
+- 問題：体積 $\mathcal V$ の箱内で一様な場 $\phi=v(\cos\alpha,\sin\alpha)$ を保ち、$L=\mathcal V v^2\dot\alpha^2/2$ とする。
+
+  1. 正準運動量とHamiltonianを求めよ。
+  2. 周期境界条件を課して固有状態とエネルギーを求めよ。
+  3. 基底の $\langle\phi_1\rangle$ が零であることと、励起ギャップの体積依存を比較せよ。
 
 <!-- solution-start -->
 **詳細解答**
