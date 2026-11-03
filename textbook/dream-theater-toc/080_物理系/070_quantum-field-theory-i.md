@@ -40,4 +40,5 @@
 37. [QFT37 Yukawa質量行列・世代基底の回転とCKM混合](textbook/volumes/dream_thater/物理系/QFT/QFT37/index.md)
 38. [QFT38 弱崩壊・Fermi四フェルミオン相互作用と低エネルギー有効理論](textbook/volumes/dream_thater/物理系/QFT/QFT38/index.md)
 39. [QFT39 カイラル対称性の量子異常・FujikawaのJacobianと軸性Ward恒等式](textbook/volumes/dream_thater/物理系/QFT/QFT39/index.md)
+40. [QFT40 標準模型のカイラルゲージ異常・三角係数と相殺条件](textbook/volumes/dream_thater/物理系/QFT/QFT40/index.md)
 
