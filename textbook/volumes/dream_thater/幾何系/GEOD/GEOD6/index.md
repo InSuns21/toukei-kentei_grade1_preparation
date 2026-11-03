@@ -153,7 +153,16 @@ $$
 <a id="prop-geod6-potential-height"></a>
 <!-- formal-statement-start -->
 > **命題（鉛直線に沿うポテンシャル差）**  
-> [正標高](#def-geod6-orthometric-height)の仮定の下で、$Q$ を $s=0$、$P$ を $s=H$ とする上向き符号付き弧長座標を取り、両点間で $g(s)>0$ が連続であるとする（$H<0$ なら積分区間の向きが逆になる）。$C(P):=W_0-W(P)$ とおくと、
+> [正標高](#def-geod6-orthometric-height)の仮定の下で、点 $Q$ と $P$ を結ぶ鉛直線を、上向き符号付き弧長 $s$ を用いて $\boldsymbol c(s)$ と表す。端点と重力の大きさを次のように定める。
+
+$$
+\boldsymbol c(0)=Q,\qquad \boldsymbol c(H)=P,
+\qquad g(s):=\|\nabla W(\boldsymbol c(s))\|>0.
+$$
+
+> $g$ は両点間で連続とする。$H<0$ なら積分区間の向きが逆になる。
+>
+> ポテンシャル差を $C(P):=W_0-W(P)$ とおくと、
 
 $$
 C(P)=\int_0^H g(s)\,ds=\bar g\,H,
