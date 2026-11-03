@@ -1,0 +1,53 @@
+chapter: CYG1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-02, CYG1-04, CYG1-08, CM1-05, CM1-06, CM2-04, HOD1-06]
+concepts:
+  - id: cyg.volume-contraction
+    name: 正則体積形式による収縮写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則体積形式による収縮）"]
+    requires: [cyg.volume-trivialization-test, complex-manifolds.dolbeault-complex]
+  - id: cyg.contraction-bundle-isomorphism
+    name: 収縮による正則ベクトル束の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則体積形式による束同型）"]
+    requires: [cyg.volume-contraction]
+  - id: cyg.holomorphic-bundle-dolbeault
+    name: 正則ベクトル束版Dolbeaultの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則ベクトル束版Dolbeaultの定理：外部入力）"]
+    requires: [complex-manifolds.dolbeault-cohomology]
+  - id: cyg.contraction-dolbeault-isomorphism
+    name: 収縮によるDolbeaultコホモロジーの同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（収縮によるDolbeaultコホモロジーの同型）"]
+    requires: [cyg.contraction-bundle-isomorphism, cyg.holomorphic-bundle-dolbeault]
+  - id: cyg.infinitesimal-beltrami-deformation
+    name: 一次Beltrami変形と自明変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次Beltrami変形と同値）"]
+    requires: [complex-manifolds.dolbeault-complex]
+  - id: cyg.first-order-deformation-cohomology
+    name: 一次複素構造変形とDolbeault類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一次複素構造変形の分類）"]
+    requires: [cyg.infinitesimal-beltrami-deformation, cyg.holomorphic-bundle-dolbeault]
+  - id: cyg.infinitesimal-hodge-identification
+    name: 一次変形空間とHodge群の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一次変形とHodge群の対応）"]
+    requires: [cyg.contraction-dolbeault-isomorphism, cyg.first-order-deformation-cohomology, complex-manifolds.dolbeault-cohomology]
+  - id: cyg.torus-constant-deformations
+    name: トーラス上の定数係数一次変形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素トーラスの定数係数一次変形）"]
+    requires: [cyg.infinitesimal-hodge-identification]
