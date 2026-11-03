@@ -223,7 +223,9 @@ $F(j)=\binom j{k+1}$ とすると、差分は $\binom jk$ です。全ての項�
 <!-- proof-start -->
 ### 証明
 
-[下降階乗と一般化二項多項式](../COMB6/index.md#def-comb6-falling-factorial)により $k+1\geq1$ で $\binom0{k+1}=0$ です。[下降階乗の差分定理](../COMB6/index.md#thm-comb6-falling-difference)を次数 $k+1$、整数評価点 $j$ に適用すれば
+[下降階乗と一般化二項多項式](../COMB6/index.md#def-comb6-falling-factorial)により $k+1\geq1$ で $\binom0{k+1}=0$ です。
+
+次に[下降階乗の差分定理](../COMB6/index.md#thm-comb6-falling-difference)を次数 $k+1$、整数評価点 $j$ に適用すれば
 
 $$
 \Delta\binom{j}{k+1}
@@ -308,7 +310,9 @@ $$
 
 ## 4. 二項係数で混ぜた数列を戻す
 
-和分では「隣との差」の情報から、初期値を指定して数列を戻しました。今度は各 $a_k$ を二項係数 $\binom nk$ で重み付けして $b_n$ を作り、全ての $b_n$ から $a_n$ を取り戻します。$b_0$ は $a_0$ だけ、$b_1$ は $a_0,a_1$ だけという三角形の構造が鍵です。
+和分では「隣との差」の情報から、初期値を指定して数列を戻しました。今度は各 $a_k$ を二項係数 $\binom nk$ で重み付けして $b_n$ を作り、全ての $b_n$ から $a_n$ を取り戻します。
+
+$b_0$ は $a_0$ だけ、$b_1$ は $a_0,a_1$ だけという三角形の構造が鍵です。
 
 <a id="def-comb7-binomial-transform"></a>
 
@@ -326,7 +330,13 @@ $$
 <!-- definition-example-start: def-comb7-binomial-transform -->
 ### 例：定数列を混ぜる
 
-**定義の確認**：$a_k=1$（全ての $k\geq0$）とすると、$n=0$ は $b_0=\binom00a_0=1$、$n=1$ は $b_1=1+1=2$、$n=2$ は $b_2=1+2+1=4$ です。一般の $n$ では[二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)を $(1+1)^n$ に適用して
+**定義の確認**：$a_k=1$（全ての $k\geq0$）とすると、最初の3項は次の通りです。
+
+$$
+b_0=1,\qquad b_1=1+1=2,\qquad b_2=1+2+1=4.
+$$
+
+一般の $n$ では[二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)を $(1+1)^n$ に適用して
 
 $$
 b_n=\sum_{k=0}^{n}\binom nk=2^n
@@ -353,7 +363,9 @@ $$
 
 ### 証明の見取り図
 
-二重和の順序を交換し、元の $a_j$（逆方向では $b_j$）の係数を計算します。[二項係数の計数公式](../COMB2/index.md#thm-comb2-binomial-count)から、入れ子に選ぶ組合せは「まず $j$ 個選び、残りからさらに選ぶ」場合に書き換えられます。最後に [二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)の $(1-1)^m$ によって、最後の一項以外が消えます。
+二重和の順序を交換し、元の $a_j$（逆方向では $b_j$）の係数を計算します。
+
+[二項係数の計数公式](../COMB2/index.md#thm-comb2-binomial-count)から、入れ子に選ぶ組合せは「まず $j$ 個選び、残りからさらに選ぶ」場合に書き換えられます。最後に[二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)の $(1-1)^m$ によって、最後の一項以外が消えます。
 
 <!-- proof-start -->
 ### 証明
@@ -447,7 +459,9 @@ $$
 
 ## 5. 差分係数と二項反転は同じ復元
 
-前章では多項式 $p(x)$ について、$\Delta^kp(0)$ を係数にして $p(x)$ を全実数 $x$ で表す [Newton 前進展開](../COMB6/index.md#thm-comb6-newton-polynomial)を得ました。数列 $f(0),f(1),\ldots$ が多項式由来と分からない場合でも、**整数点の値だけ**なら同じ形の有限和で戻せます。
+前章では多項式 $p(x)$ について、$\Delta^kp(0)$ を係数にして $p(x)$ を全実数 $x$ で表す[Newton 前進展開](../COMB6/index.md#thm-comb6-newton-polynomial)を得ました。
+
+数列 $f(0),f(1),\ldots$ が多項式由来と分からない場合でも、**整数点の値だけ**なら同じ形の有限和で戻せます。
 
 <a id="thm-comb7-finite-newton-recovery"></a>
 
@@ -626,7 +640,9 @@ $$
 \Delta F(j)=\binom{j+1}{k+1}-\binom j{k+1}=\binom jk.
 $$
 
-したがって[離散微積分の基本定理](#thm-comb7-discrete-fundamental)を区間 $[a,b)$ に適用すると和は $\binom b{k+1}-\binom a{k+1}$ です。$a=b$ なら両辺0。$b\leq k$ なら $j\leq b-1<k$ で左辺の各項は0、右辺も $a,b\leq k<k+1$ より両方の二項係数が0です。
+したがって[離散微積分の基本定理](#thm-comb7-discrete-fundamental)を区間 $[a,b)$ に適用すると、和は $\binom b{k+1}-\binom a{k+1}$ です。
+
+$a=b$ なら両辺0です。$b\leq k$ なら $j\leq b-1<k$ で左辺の各項は0、右辺も $a,b\leq k<k+1$ より両方の二項係数が0です。
 <!-- solution-end -->
 
 #### B2. 部分和分で指数付き和を求める
@@ -722,7 +738,16 @@ $n=0$ では両方空和0、閉じた式も $\binom1{r+2}=0$（$r\geq0$）です
 
 #### C1. 三乗和を Newton 基底から作る
 
-$p(x)=x^3$ とする。(1) $p(0),p(1),p(2),p(3)$ から $c_k=\Delta^kp(0)$（$k=0,1,2,3$）を求めよ。(2) [Newton 基底による多項式の和分](#thm-comb7-newton-summation)で $\sum_{j=0}^{n-1}j^3$ を求め、通常の多項式へ展開して公式を証明せよ。(3) $n=0,2$ を検算せよ。
+$p(x)=x^3$ とする。次の問いに答えよ。
+
+1. $p(0),p(1),p(2),p(3)$ から $c_k=\Delta^kp(0)$（$k=0,1,2,3$）を求めよ。
+2. [Newton 基底による多項式の和分](#thm-comb7-newton-summation)で次の和を求め、通常の多項式へ展開して公式を証明せよ。
+
+   $$
+   \sum_{j=0}^{n-1}j^3
+   $$
+
+3. $n=0,2$ を検算せよ。
 
 - Level: C
 - ID: COMB7-C1
@@ -769,7 +794,11 @@ $$
 
 #### C2. 二項変換した列を和分し、反転で戻す
 
-$a_k=k+1$（$k\geq0$）を[二項変換](#def-comb7-binomial-transform)した $b_n$ を考える。(1) $b_n$ を $n$ の式で求めよ。(2) $S(n)=\sum_{j=0}^{n-1}b_j$ を[部分和分](#thm-comb7-summation-by-parts)を使って求めよ。(3) [二項反転](#thm-comb7-binomial-inversion)の式へ求めた $b_k$ を代入し、全ての $a_n=n+1$ が戻ることを直接示せ。$n=0$ を別に確かめよ。
+$a_k=k+1$（$k\geq0$）を[二項変換](#def-comb7-binomial-transform)した $b_n$ を考える。
+
+1. $b_n$ を $n$ の式で求めよ。
+2. $S(n)=\sum_{j=0}^{n-1}b_j$ を[部分和分](#thm-comb7-summation-by-parts)を使って求めよ。
+3. [二項反転](#thm-comb7-binomial-inversion)の式へ求めた $b_k$ を代入し、全ての $a_n=n+1$ が戻ることを直接示せ。$n=0$ を別に確かめよ。
 
 - Level: C
 - ID: COMB7-C2
