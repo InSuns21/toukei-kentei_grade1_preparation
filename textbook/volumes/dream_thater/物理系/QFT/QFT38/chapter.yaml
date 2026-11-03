@@ -1,0 +1,42 @@
+id: QFT38
+title: "弱崩壊・Fermi四フェルミオン相互作用と低エネルギー有効理論"
+volume: foundations
+status: supplementary
+prerequisites: [QFT37, QFT12, QFT26, QFT17]
+official_scope: []
+learning_objectives:
+  - 質量基底の荷電弱電流をCKM因子と共役の向きまで正しく書ける
+  - 重いWの代数的消去から次元6のFermi演算子の係数を導き、微分補正の適用範囲を言える
+  - 左射影子二つの係数を追ってFermi定数と電弱真空期待値の木レベル関係を導ける
+  - ミューオン崩壊のV-Aスピン和と三体位相空間の積分を出発点から計算できる
+  - 半レプトン過程のCKM因子とハドロン行列要素の必要性を区別できる
+definitions:
+  - { id: QFT38-DEF-01, name: 質量基底での荷電弱電流 }
+  - { id: QFT38-DEF-02, name: Fermi四フェルミオン演算子 }
+  - { id: QFT38-DEF-03, name: Fermi定数とV-A規約 }
+theorems:
+  - { id: QFT38-THM-01, name: 木レベルのW消去とFermi係数 }
+  - { id: QFT38-THM-02, name: ミューオン崩壊のスピン平均振幅 }
+  - { id: QFT38-THM-03, name: 質量零・木レベルでのミューオン全崩壊率 }
+  - { id: QFT38-PROP-01, name: 半レプトン崩壊のCKM係数 }
+canonical_examples:
+  - udクォーク・電子荷電電流の電荷と共役係数
+  - muon崩壊の四フェルミオン場の選択と質量次元
+  - 左射影子二つによるFermi定数の係数検算
+  - 質量零ミューオン三体位相空間を不変質量で因数分解
+  - 中性子beta崩壊で必要なハドロン行列要素
+problem_patterns:
+  - QFT38-CHARGED-CURRENT-CHARGES
+  - QFT38-HEAVY-COMPLEX-FIELD-ELIMINATION
+  - QFT38-V-A-PROJECTORS
+  - QFT38-DIMENSIONAL-ANALYSIS
+  - QFT38-THREE-BODY-INVARIANT-MASS
+  - QFT38-PROPAGATOR-EXPANSION
+  - QFT38-MUON-PHASE-SPACE
+  - QFT38-CKM-UNITARITY-THRESHOLD
+  - QFT38-CHIRALITY-HELICITY
+  - QFT38-INTEGRATED-WEAK-DECAY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 5 }
