@@ -464,7 +464,29 @@ $$
 A:=\int_XH^r=(2\pi)^{-r}\int_X\omega^r>0.
 $$
 
-正則自明な線束の第一Chern類は零なので、$\mathcal O_X(k)$ が自明なら $c_1(\mathcal O_X(k))_{\mathbb R}=0$。[テンソル冪の第一Chern形式](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)から正の $k$ について $c_1(\mathcal O_X(k))_{\mathbb R}=kH$。負の $k$ でも $\mathcal O_X(1)$ の局所枠の計量を $h$ とすれば双対枠の計量は $h^{-1}$ となり、Chern接続形式が $\partial\log h$ から $-\partial\log h$ に変わるため曲率も負号を得る。よって負の $k$ でも同じ等式が成り立ち、$kH=0$。両辺へ $H^{r-1}$ を掛けて積分すると $0=kA$。$A>0$ から $k=0$ が従う。これは「正の束が自明でない」というだけでなく、負の指数にも通用する証明である。
+正則自明な線束の第一Chern類は零なので、$\mathcal O_X(k)$ が自明なら $c_1(\mathcal O_X(k))_{\mathbb R}=0$ である。
+
+一方、[テンソル冪の第一Chern形式](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)から、正の整数 $k$ に対しては
+
+$$
+c_1(\mathcal O_X(k))_{\mathbb R}=kH
+$$
+
+である。負の $k$ も確かめる。$\mathcal O_X(1)$ の局所枠の計量を $h$ とすれば、双対枠の計量は $h^{-1}$ となる。そのChern接続形式は
+
+$$
+\partial\log(h^{-1})=-\partial\log h
+$$
+
+なので、曲率も負号を得る。これを正のテンソル冪に適用すれば、負の整数 $k$ についても同じ第一Chern類の等式が成立する。
+
+すべての整数 $k$ に対し、正則自明性から $kH=0$。両辺へ $H^{r-1}$ を掛けて積分すれば
+
+$$
+0=k\int_XH^r=kA.
+$$
+
+$A>0$ から $k=0$ が従う。これは正の指数だけでなく、負の指数にも通用する証明である。
 <!-- solution-end -->
 
 <a id="ex-cyg1-02-c01"></a>
