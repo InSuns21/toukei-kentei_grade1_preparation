@@ -1,0 +1,41 @@
+id: QFT36
+title: "電弱混合・W／Z／光子の質量と荷電・中性電流"
+volume: foundations
+status: supplementary
+prerequisites: [QFT35, QFT34]
+official_scope: []
+learning_objectives:
+  - Higgs二重項の共変微分を真空代表で展開し、荷電・中性ゲージ場の二次質量項を係数まで導ける
+  - 中性質量行列の零固有値と正固有値を対角化し、電弱混合角とW・Z・光子の正準規格化を検算できる
+  - 残存する電荷生成子と光子の結合を対応させ、e=gsinθW=g'cosθWを導ける
+  - 荷電電流・中性電流の左／右カイラル結合を表現と超電荷から計算できる
+  - 木レベルの質量関係・Higgs結合・自由度計数の成立条件と量子補正の限界を説明できる
+definitions:
+  - { id: QFT36-DEF-01, name: 電弱混合角と質量固有場 }
+  - { id: QFT36-DEF-02, name: 電弱電流の結合規約 }
+theorems:
+  - { id: QFT36-THM-01, name: Higgs真空からの電弱ゲージ場質量行列 }
+  - { id: QFT36-THM-02, name: 中性質量行列の対角化と無質量光子 }
+  - { id: QFT36-THM-03, name: 電弱質量固有場のフェルミオン結合 }
+  - { id: QFT36-PROP-01, name: 木レベル質量比とHiggs結合 }
+canonical_examples:
+  - Higgs真空における共変微分の上下成分と非対角項
+  - 同じ結合g=g'での45度混合と零固有ベクトル
+  - 電子左右成分とニュートリノの光子・Z結合
+  - 弱二重項の荷電電流と右巻き一重項の不参加
+  - 単一二重項の自由度保存と質量比の検算
+problem_patterns:
+  - QFT36-HIGGS-MASS-EXPANSION
+  - QFT36-CHARGED-NORMALIZATION
+  - QFT36-NEUTRAL-EIGENSYSTEM
+  - QFT36-PHOTON-COUPLING
+  - QFT36-NEUTRAL-COUPLING
+  - QFT36-CHARGED-CURRENT
+  - QFT36-RHO-PARAMETER
+  - QFT36-DOF-COUNT
+  - QFT36-HIGGS-VECTOR-COUPLING
+  - QFT36-INTEGRATED-ELECTROWEAK-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 5 }

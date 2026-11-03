@@ -1,0 +1,48 @@
+chapter: QFT36
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT35, QFT34]
+forward_references: []
+
+concepts:
+  - id: qft.electroweak-gauge-mass-matrix
+    name: Higgs真空からの電弱ゲージ場質量行列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Higgs真空からの電弱ゲージ場質量行列）]
+    requires: [qft.standard-model-product-covariant-derivative, qft.standard-model-hypercharge-operator]
+
+  - id: qft.electroweak-mixing-fields
+    name: 電弱混合角と質量固有場
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電弱混合角と質量固有場）]
+    requires: [qft.electroweak-gauge-mass-matrix]
+
+  - id: qft.electroweak-mass-eigenstates
+    name: 中性質量行列の対角化と無質量光子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中性質量行列の対角化と無質量光子）]
+    requires: [qft.electroweak-mixing-fields]
+
+  - id: qft.electroweak-current-convention
+    name: 電弱電流の結合規約
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電弱電流の結合規約）]
+    requires: [qft.electroweak-mass-eigenstates, qft.standard-model-gauge-representation]
+
+  - id: qft.electroweak-fermion-couplings
+    name: 電弱質量固有場のフェルミオン結合
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（電弱質量固有場のフェルミオン結合）]
+    requires: [qft.electroweak-current-convention, qft.standard-model-product-covariant-derivative]
+
+  - id: qft.electroweak-tree-mass-relations
+    name: 木レベル質量比とHiggs結合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（木レベル質量比とHiggs結合）]
+    requires: [qft.electroweak-mass-eigenstates]
