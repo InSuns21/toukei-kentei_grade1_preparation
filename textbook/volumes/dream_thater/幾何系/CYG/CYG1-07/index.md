@@ -548,7 +548,11 @@ $$
 =(4Z_0^3,4Z_1^3,4Z_2^3,0)
 $$
 
-であり、$p$ で全て零になる。ここで、もし $F$ が平方因子 $G^2$ を持てば、積の微分から $G$ は全偏導関数の共通因子になる。しかし非零な三つの偏導関数 $4Z_0^3,4Z_1^3,4Z_2^3$ の最大公約因子は $1$ なので、$F$ に平方因子はない。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の被約性の仮定も満たし、$p$ は特異点である。局所法方向写像 $dF:T\mathbb P^3|_Y\to\mathcal O_Y(4)$ は $p$ のファイバーで零写像となり、全射でない。したがって滑らかな階数2の $TY$ を核とする[法束完全列](#prop-cyg1-07-normal)が成立しない。次数が4というだけでは[全Chern類公式](#prop-cyg1-07-total-chern)や滑らかな複素曲面に対する[トップChern類定理](#thm-cyg1-07-gauss-bonnet)の仮定を満たさない。
+であり、$p$ で全て零になる。もし $F$ が平方因子 $G^2$ を持てば、積の微分から $G$ は全偏導関数の共通因子になる。しかし、非零な三つの偏導関数 $4Z_0^3,4Z_1^3,4Z_2^3$ の最大公約因子は $1$ なので、$F$ に平方因子はない。
+
+従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の被約性の仮定を満たし、$p$ は特異点である。局所法方向写像 $dF:T\mathbb P^3|_Y\to\mathcal O_Y(4)$ は $p$ のファイバーで零写像となり、全射でない。
+
+したがって滑らかな階数2の $TY$ を核とする[法束完全列](#prop-cyg1-07-normal)が成立しない。次数が4というだけでは[全Chern類公式](#prop-cyg1-07-total-chern)や滑らかな複素曲面に対する[トップChern類定理](#thm-cyg1-07-gauss-bonnet)の仮定を満たさない。
 <!-- solution-end -->
 
 <a id="ex-cyg1-07-c01"></a>
@@ -580,7 +584,13 @@ $$
 \chi=5+\frac{(1-5)^5-1}{5}=5+\frac{-1024-1}{5}=-200.
 $$
 
-4. [三次元Hodge数の関係](../CYG1-06/index.md#prop-cyg1-06-threefold-skeleton)の仮定も照合する。滑らかな射影多様体なので[射影多様体のKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)が使え、[標準束の次数判定](../CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)では $d=m+1=5$ だから $K_X\simeq\mathcal O_X$。さらに滑らかな正次数超曲面は連結である（もし $F=GH$ と非自明に分解すれば、射影空間で正次数の二つの超曲面 $G=0,H=0$ は交わり、その交点では $dF=G\,dH+H\,dG=0$ となって滑らかさに反する）。従って同命題が適用でき、$\chi=2(c+2b-2a-e)$。ただしこのEuler数だけでは $a,b,c,e$ は決定しない。$h^{2,1}=101$ には次章で弱Lefschetzなどから $a=b=0,c=1$ を別に示す必要がある。
+4. [三次元Hodge数の関係](../CYG1-06/index.md#prop-cyg1-06-threefold-skeleton)を使う前に、その仮定を照合する。
+
+   滑らかな射影多様体なので[射影多様体のKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)が使える。また[標準束の次数判定](../CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)では $d=m+1=5$ だから $K_X\simeq\mathcal O_X$。
+
+   さらに正次数超曲面 $X$ は連結である。もし $F=GH$ と非自明に分解すれば、射影空間で正次数の二つの超曲面 $G=0,H=0$ は交わり、その交点では $dF=G\,dH+H\,dG=0$ となり、滑らかさに反する。
+
+   よって同命題が適用でき、$\chi=2(c+2b-2a-e)$。ただし、このEuler数だけでは $a,b,c,e$ は決定しない。$h^{2,1}=101$ には次章で弱Lefschetzなどから $a=b=0,c=1$ を別に示す必要がある。
 <!-- solution-end -->
 
 <a id="ex-cyg1-07-c02"></a>
