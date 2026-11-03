@@ -214,6 +214,15 @@ $$
 **定義の確認**：$\rho=v$、$\theta=kx^1$、$A_\mu=0$ とします。$B_1=k/(gv)$、他成分は零です。$\chi=\theta/(gv)$ の局所変換を行うと $\theta'=\theta-gv\chi=0$、$A'_1=\partial_1\chi=k/(gv)$ で、$B'_1=B_1$ です。$\rho>0$、滑らかな位相枝、ゲージ不変性を直接確かめました。
 <!-- definition-example-end -->
 
+先のCartesian揺らぎとこの極表示は同じ複素場の二つの局所座標です。両方の実部・虚部を比較すると
+
+$$
+v+h=\rho\cos(\theta/v),\qquad
+\pi=\rho\sin(\theta/v).
+$$
+
+したがって $\rho=v+h_u$ とし、真空近くで $h_u,\theta$ を一次の小量と数えれば、$h=h_u+O(2)$、$\pi=\theta+O(2)$ です。**二次作用では**この一次関係が使えますが、有限振幅で $\pi=\theta$ と同一視するわけではありません。
+
 <a id="thm-qft34-unitary-proca"></a>
 
 <!-- formal-statement-start -->
