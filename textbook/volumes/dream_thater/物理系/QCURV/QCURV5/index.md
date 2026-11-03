@@ -17,7 +17,14 @@ g=a(\eta)^2(-d\eta^2+d\boldsymbol x^2),\qquad
 \boldsymbol x\in\mathbb T_L^3,\quad a>0
 $$
 
-です。共形時間についての微分をプライムで表し、$a\in C^\infty(I,(0,\infty))$ とします。モードの空間波数は $\boldsymbol k=2\pi\boldsymbol n/L$、$k=|\boldsymbol k|$ です。実スカラー場の古典解を複素化し、$\phi=a^{-1}L^{-3/2}\sum_{\boldsymbol k}\chi_{\boldsymbol k}e^{i\boldsymbol k\cdot\boldsymbol x}$ と展開すると、[FLRWの再スケーリング後のモード方程式](../QCURV4/index.md#prop-qcurv4-mode)から
+です。共形時間 $\eta$ についての微分をプライムで表し、$a\in C^\infty(I,(0,\infty))$ とします。空間波数は $\boldsymbol k=2\pi\boldsymbol n/L$（$\boldsymbol n\in\mathbb Z^3$）、その大きさは $k=|\boldsymbol k|\ge0$ です。実スカラー場の古典解を複素化し、[QCURV4の空間Fourier展開](../QCURV4/index.md#prop-qcurv4-mode)と同じく
+
+$$
+\phi(\eta,\boldsymbol x)=\frac1{a(\eta)L^{3/2}}
+\sum_{\boldsymbol k}\chi_{\boldsymbol k}(\eta)e^{i\boldsymbol k\cdot\boldsymbol x}
+$$
+
+と展開します。各ベクトル $\boldsymbol k$ の係数が満たす方程式は $k$ の大きさだけに依存するので、以下の等方的なWKB周波数の計算では添字を $k$ と略します。[FLRWの再スケーリング後のモード方程式](../QCURV4/index.md#prop-qcurv4-mode)から
 
 $$
 \chi_k''+\Omega_k^2\chi_k=0,\qquad
@@ -236,77 +243,141 @@ $$
 
 近似関数 $f_{W,k}$ をそのまま解だと思って量子化してはいけません。通常の構成では、指定時刻の**値と一階微分だけ**を近似式から取り、その後は厳密なモード方程式で時間発展させます。[QCURV4のWronskian保存](../QCURV4/index.md#prop-qcurv4-wronskian-number)があるため、初期値の規格化が全時刻へ伝わります。
 
+ここからは波数の**ベクトルラベル**を $\boldsymbol k$ と明記します。$W_{\boldsymbol k}$ はそのモードに選ぶ補助周波数、プライムは引き続き $\eta$ に関する導関数です。
+
+第2節の等方的な選択は $W_{\boldsymbol k}=W_{|\boldsymbol k|}^{[r]}$ という特別な場合です。$-\boldsymbol k$ は反対向きの波数ベクトルで、非負の大きさ $k$ の負数という意味ではありません。
+
 <a id="def-qcurv5-adiabatic-data"></a>
 
 <!-- formal-statement-start -->
 > **定義（断熱初期データからのモード状態）**
-> 平坦FLRWの三次元トーラス上で $\eta_0\in I$ を選び、各波数に正の実数 $W_k(\eta_0)>0$ と実数 $W_k'(\eta_0)$ を指定する。$W_{-k}=W_k$ と $W_{-k}'=W_k'$ を仮定する。$\Omega_k^2$ は実で滑らかとする。各波数について厳密方程式 $\chi_k''+\Omega_k^2\chi_k=0$ を、初期値
+> 平坦FLRWの三次元トーラス上で $\eta_0\in I$ を選び、各 $\boldsymbol k\in(2\pi/L)\mathbb Z^3$ について $\eta_0$ の近傍で正の $C^2$ 実関数 $W_{\boldsymbol k}(\eta)$ を選ぶ。以下の偶性を課し、$\Omega_k^2$ は実で滑らかとする。
 
 $$
-\chi_k(\eta_0)=\frac1{\sqrt{2W_k(\eta_0)}},\qquad
-\chi_k'(\eta_0)=
-\left[-iW_k(\eta_0)-\frac{W_k'(\eta_0)}{2W_k(\eta_0)}\right]\chi_k(\eta_0)
+W_{-\boldsymbol k}(\eta_0)=W_{\boldsymbol k}(\eta_0),\qquad
+W_{-\boldsymbol k}'(\eta_0)=W_{\boldsymbol k}'(\eta_0).
 $$
 
-> から解く。対応する正規化モード $u_{\boldsymbol k}=L^{-3/2}a^{-1}\chi_ke^{i\boldsymbol k\cdot\boldsymbol x}$ を正振動数部分空間として選び、二点分布 $W(x,y)=\sum_{\boldsymbol k}u_{\boldsymbol k}(x)\overline{u_{\boldsymbol k}(y)}$ で定まる純粋準自由モード状態を考える。和は分布として解釈し、状態の構成には高周波で通常の正の主周波数に漸近する等の標準的な分布収束条件を課す。断熱展開 $W^{[r]}$ を採用するときは、必要なら**低波数だけ**正値のデータへ調整する。
+> さらに $k=|\boldsymbol k|\to\infty$ で、前節の $\omega_k$ に対し波数の方向によらず一様に
+
+$$
+W_{\boldsymbol k}(\eta_0)=\omega_k(\eta_0)+O(k^{-1}),\qquad
+W_{\boldsymbol k}'(\eta_0)=O(k^{-1})
+$$
+
+> とする。各波数について厳密方程式 $\chi_{\boldsymbol k}''+\Omega_k^2\chi_{\boldsymbol k}=0$ を、次の初期値から解く。
+
+$$
+\chi_{\boldsymbol k}(\eta_0)=\frac1{\sqrt{2W_{\boldsymbol k}(\eta_0)}},\qquad
+\chi_{\boldsymbol k}'(\eta_0)=
+\left[-iW_{\boldsymbol k}(\eta_0)-\frac{W_{\boldsymbol k}'(\eta_0)}{2W_{\boldsymbol k}(\eta_0)}\right]\chi_{\boldsymbol k}(\eta_0)
+$$
+
+> 対応する正規化モード $u_{\boldsymbol k}$ と二点分布を
+
+$$
+u_{\boldsymbol k}=\frac{\chi_{\boldsymbol k}(\eta)e^{i\boldsymbol k\cdot\boldsymbol x}}{a(\eta)L^{3/2}},\qquad
+W(x,y)=\sum_{\boldsymbol k}u_{\boldsymbol k}(x)\overline{u_{\boldsymbol k}(y)}
+$$
+
+> とし、正振動数部分空間を選んだ純粋準自由モード状態を考える。和は分布として解釈する。上記の高波数条件はその成立を保証する十分条件であり、Hadamard性の十分条件ではない。断熱展開 $W^{[r]}$ を採用するときは、必要なら**低波数だけ**正値のデータへ調整する。
 <!-- formal-statement-end -->
+
+なぜこの条件で二点分布を作れるのでしょうか。固定した $\eta_0$ で $\omega_k\sim k$ だから、初期値は $\chi_{\boldsymbol k}=O(k^{-1/2})$、$\chi_{\boldsymbol k}'=O(k^{1/2})$ です。コンパクトな時間区間で $\Omega_k^2=k^2+V(\eta)$、$V=m^2a^2+(6\xi-1)a''/a$ は有界です。$E_k=|\chi_{\boldsymbol k}'|^2+(k^2+1)|\chi_{\boldsymbol k}|^2$ と置くと、方程式から
+
+$$
+E_k'=2(1-V)\operatorname{Re}(\overline{\chi_{\boldsymbol k}}\chi_{\boldsymbol k}'),\qquad
+|E_k'|\le\frac{|1-V|}{\sqrt{k^2+1}}E_k.
+$$
+
+従って積分による評価で $E_k$ はコンパクトな時間区間で高々多項式増大し、方程式を繰り返し微分しても同様です。空間Fourier係数が多項式増大以下であることから、滑らかな試験関数の急減少するFourier係数との和は収束し、二点分布が得られます。ここでは[MICA1の滑らかな関数のFourier急減少](../../../解析系/MICA/MICA1/index.md#thm-mica1-smooth-rapid)を周期Fourier級数に適用しています。これは**分布の存在**の判定であり、Hadamard波面集合の判定ではありません。
+
+第2節の二次断熱データでこの条件を照合すると、固定時刻の滑らかな $a$ に対して $q=O(1)$、$\omega_k\sim k$、$\omega_k'=O(k^{-1})$、$\omega_k''=O(k^{-1})$ です。従って[二次周波数の式](#prop-qcurv5-second-order)から $W_k^{[2]}-\omega_k=O(k^{-1})$、その $\eta$ 微分も $O(k^{-1})$ となります。高波数の分布条件は満たしますが、低波数の正値性とHadamard性は依然として別の検査です。
 
 <!-- definition-example-start: def-qcurv5-adiabatic-data -->
 ### 直接例：定数背景の真空
 
-$a=a_0$、$\omega_k>0$ で $W_k=\omega_k$ と取れば $W_k'=0$、初期値は $\chi_k(\eta_0)=(2\omega_k)^{-1/2}$、$\chi_k'=-i\omega_k\chi_k$ です。実係数二階常微分方程式の一意性から
+$a=a_0$、$\omega_k>0$ で $W_{\boldsymbol k}=\omega_k$ と取れば $W_{\boldsymbol k}'=0$、初期値は $\chi_{\boldsymbol k}(\eta_0)=(2\omega_k)^{-1/2}$、$\chi_{\boldsymbol k}'=-i\omega_k\chi_{\boldsymbol k}$ です。実係数二階常微分方程式の一意性から
 
 $$
-\chi_k(\eta)=\frac{e^{-i\omega_k(\eta-\eta_0)}}{\sqrt{2\omega_k}}
+\chi_{\boldsymbol k}(\eta)=\frac{e^{-i\omega_k(\eta-\eta_0)}}{\sqrt{2\omega_k}}
 $$
 
-が全時刻の解です。$W_{-k}=W_k$、正値性、分布としてのモード和を満たし、位相の基準 $\eta_0$ の違いで同じ二点分布になります。**定義の確認**：方程式、初期値、規格化、正負波数の一致を直接確かめました。
+が全時刻の解です。$W_{-\boldsymbol k}=W_{\boldsymbol k}$、正値性、高波数条件 $W_{\boldsymbol k}-\omega_k=0$ と $W_{\boldsymbol k}'=0$ を満たし、上記の評価によりモード和は分布として定義できます。位相の基準 $\eta_0$ の違いで同じ二点分布になります。**定義の確認**：方程式、初期値、規格化、正負波数の一致と分布成立条件を直接確かめました。
 <!-- definition-example-end -->
 
 <a id="prop-qcurv5-initial-normalization"></a>
 
 <!-- formal-statement-start -->
 > **命題（初期データのKG規格化）**
-> 上記の正の初期周波数データから作った各厳密解 $\chi_k$ は、全時刻で
+> 平坦FLRWの実で滑らかな $\Omega_k^2$ と、[断熱初期データ](#def-qcurv5-adiabatic-data)の $W_{\boldsymbol k}(\eta_0)>0$、$W_{\boldsymbol k}'(\eta_0)\in\mathbb R$ から作った各厳密解 $\chi_{\boldsymbol k}$ は、全時刻で
 
 $$
-i(\overline{\chi_k}\chi_k'-\overline{\chi_k'}\chi_k)=1
+i(\overline{\chi_{\boldsymbol k}}\chi_{\boldsymbol k}'-\overline{\chi_{\boldsymbol k}'}\chi_{\boldsymbol k})=1
 $$
 
-> を満たす。$W_{-k}=W_k$ を課した対称なモードでは、対応する全時空モードはKG正規直交し、正負モードの混合内積も零となる。これは規格化の主張であって、選んだ状態のHadamard性の主張ではない。
+> を満たす。$W_{-\boldsymbol k}(\eta_0)=W_{\boldsymbol k}(\eta_0)$ とその一階微分の偶性を課したモードでは、対応する全時空モードはKG正規直交し、正負モードの混合内積も零となる。これは規格化の主張であって、選んだ状態のHadamard性の主張ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-値と速度の両方を用いたため、実数の $W_k'/W_k$ は共役差で消えます。残る $-2iW_k$ が振幅の $1/(2W_k)$ と打ち消し合います。時間発展では実係数方程式がWronskianを保存します。
+値と速度の両方を用いたため、実数の $W_{\boldsymbol k}'/W_{\boldsymbol k}$ は共役差で消えます。残る $-2iW_{\boldsymbol k}$ が振幅の $1/(2W_{\boldsymbol k})$ と打ち消し合います。時間発展では実係数方程式がWronskianを保存します。
 
 <!-- proof-start -->
 ### 証明
 
-初期時刻で $c_k=(2W_k)^{-1/2}>0$、$d_k=-W_k'/(2W_k)\in\mathbb R$ と置けば
+初期時刻 $\eta_0$ で $c_{\boldsymbol k}=(2W_{\boldsymbol k})^{-1/2}>0$、$d_{\boldsymbol k}=-W_{\boldsymbol k}'/(2W_{\boldsymbol k})\in\mathbb R$ と略記すれば
 
 $$
-\chi_k=c_k,\quad \chi_k'=(d_k-iW_k)c_k,\quad
-\overline{\chi_k'}=(d_k+iW_k)c_k.
+\chi_{\boldsymbol k}=c_{\boldsymbol k},\quad
+\chi_{\boldsymbol k}'=(d_{\boldsymbol k}-iW_{\boldsymbol k})c_{\boldsymbol k},\quad
+\overline{\chi_{\boldsymbol k}'}=(d_{\boldsymbol k}+iW_{\boldsymbol k})c_{\boldsymbol k}.
 $$
 
 従って
 
 $$
-i(\bar\chi_k\chi_k'-\overline{\chi_k'}\chi_k)
-=ic_k^2[(d_k-iW_k)-(d_k+iW_k)]
-=\frac{i(-2iW_k)}{2W_k}=1.
+\begin{aligned}
+i(\overline{\chi_{\boldsymbol k}}\chi_{\boldsymbol k}'
+-\overline{\chi_{\boldsymbol k}'}\chi_{\boldsymbol k})
+&=ic_{\boldsymbol k}^2[(d_{\boldsymbol k}-iW_{\boldsymbol k})-(d_{\boldsymbol k}+iW_{\boldsymbol k})]\\
+&=\frac{i(-2iW_{\boldsymbol k})}{2W_{\boldsymbol k}}=1.
+\end{aligned}
 $$
 
 厳密方程式の係数 $\Omega_k^2$ は実なので、時間微分は
 
 $$
-i(\bar\chi_k\chi_k''-\overline{\chi_k''}\chi_k)
-=i(-\Omega_k^2\bar\chi_k\chi_k+
-\Omega_k^2\bar\chi_k\chi_k)=0.
+\begin{aligned}
+i(\overline{\chi_{\boldsymbol k}}\chi_{\boldsymbol k}''
+-\overline{\chi_{\boldsymbol k}''}\chi_{\boldsymbol k})
+&=i(-\Omega_k^2|\chi_{\boldsymbol k}|^2
++\Omega_k^2|\chi_{\boldsymbol k}|^2)=0.
+\end{aligned}
 $$
 
-故に全時刻で1です。全時空のKG内積では空間積分が $\delta_{\boldsymbol k\boldsymbol l}$ を与えます。$W_k,W_k'$ が $k$ の絶対値だけに依存する条件で、$\chi_{-k}=\chi_k$ は初期値と一意性から従い、正モードと負モードの交差内積は共役Wronskianの組で相殺されます（[QCURV4の規格化の証明](../QCURV4/index.md#prop-qcurv4-wronskian-number)）。
+故に全時刻で1です。全時空の[KG内積の空間積分](../QCURV4/index.md#prop-qcurv4-wronskian-number)では、$a^{-1}$ に伴う項が共役差で相殺され、Fourier基底の積分が $\delta_{\boldsymbol k\boldsymbol l}$ を与えます。従って
+
+$$
+(u_{\boldsymbol k},u_{\boldsymbol l})_{\rm KG}
+=\delta_{\boldsymbol k\boldsymbol l}\,
+i(\overline{\chi_{\boldsymbol k}}\chi_{\boldsymbol l}'
+-\overline{\chi_{\boldsymbol k}'}\chi_{\boldsymbol l})
+=\delta_{\boldsymbol k\boldsymbol l}.
+$$
+
+正負モードの交差では空間因子の積分が $\delta_{\boldsymbol k,-\boldsymbol l}$ となります。その場合、初期値の偶性と方程式の一意性から $\chi_{-\boldsymbol k}=\chi_{\boldsymbol k}$ であるため
+
+$$
+(u_{\boldsymbol k},\overline{u_{\boldsymbol l}})_{\rm KG}
+=\delta_{\boldsymbol k,-\boldsymbol l}\,
+i(\overline{\chi_{\boldsymbol k}}\,\overline{\chi_{\boldsymbol l}'}
+-\overline{\chi_{\boldsymbol k}'}\,\overline{\chi_{\boldsymbol l}})=0.
+$$
+
+この式では $\boldsymbol l=-\boldsymbol k$ のとき括弧内が同じ関数の積の交換で零になるのであり、$\chi_{\boldsymbol k}$ が波数の**大きさだけ**に依存するという強い仮定は不要です。
+
+さらにWronskianが零でないため、$\chi_{\boldsymbol k}$ とその共役は各波数の二階方程式の解空間を張ります。任意の試験関数 $F$ に対して二点分布の正値性は、[QCURV2のモード和の正値性](../QCURV2/index.md#prop-qcurv2-wightman-properties)と同じく、$W(\overline F,F)$ が各モードへの積分の絶対値二乗の和になることで従います。したがって正負モードの完全な選択が準自由状態へつながります。
 <!-- proof-end -->
 
 高周波での断熱式を低波数へ延長する方法、初期時刻、断熱次数を変えると、一般に**異なる状態**になります。特に「断熱真空」という名前だけで唯一の物理的真空を指定したことにはなりません。
@@ -366,11 +437,11 @@ u_{\boldsymbol k}(t,\boldsymbol x)
 {L^{3/2}\sqrt{2\omega_k}}
 $$
 
-> に対し、実数 $\beta_k=(1+k^2/\mu^2)^{-2}$（$\mu>0$）、$\alpha_k=\sqrt{1+\beta_k^2}$ とする。新モード
+> に対し、$k=|\boldsymbol k|$ として実数 $\beta_{\boldsymbol k}=(1+k^2/\mu^2)^{-2}$（$\mu>0$）、$\alpha_{\boldsymbol k}=\sqrt{1+\beta_{\boldsymbol k}^2}$ とする。新モード
 
 $$
-v_{\boldsymbol k}=\alpha_k u_{\boldsymbol k}
-+\beta_k\overline{u_{-\boldsymbol k}}
+v_{\boldsymbol k}=\alpha_{\boldsymbol k}u_{\boldsymbol k}
++\beta_{\boldsymbol k}\overline{u_{-\boldsymbol k}}
 $$
 
 > が定める正値の規格化準自由状態の二点分布 $W_v$ は、一般にHadamardではない。具体的には平坦真空二点分布 $W_0$ との差が滑らかでない。
@@ -383,39 +454,70 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\beta_{-k}=\beta_k$、$\alpha_{-k}=\alpha_k$ です。従って $u_{\boldsymbol k}$ と $\overline{u_{-\boldsymbol k}}$ は同じ空間因子を持ち、[QCURV3の正準条件](../QCURV3/index.md#thm-qcurv3-canonical)から
+まず $\beta_{-\boldsymbol k}=\beta_{\boldsymbol k}$、$\alpha_{-\boldsymbol k}=\alpha_{\boldsymbol k}$ です。従って $u_{\boldsymbol k}$ と $\overline{u_{-\boldsymbol k}}$ は同じ空間因子を持ち、[QCURV3の正準条件](../QCURV3/index.md#thm-qcurv3-canonical)から
 
 $$
-|\alpha_k|^2-|\beta_k|^2=(1+\beta_k^2)-\beta_k^2=1
+|\alpha_{\boldsymbol k}|^2-|\beta_{\boldsymbol k}|^2
+=(1+\beta_{\boldsymbol k}^2)-\beta_{\boldsymbol k}^2=1
 $$
 
-が正規化を保証します。各モードは自由方程式の解です。$\sum_k|\beta_k|^2<\infty$ であり（三次元の格子で $k^{-8}$ は総和可能）、[QCURV3のHilbert–Schmidt条件](../QCURV3/index.md#def-qcurv3-wavepacket-hs)にも従います。よってこの例ではFock表示の同値性に問題はありません。
+が正規化を保証します。$\alpha_{\boldsymbol k}\beta_{-\boldsymbol k}-\beta_{\boldsymbol k}\alpha_{-\boldsymbol k}=0$ も成立するので、正負モードの直交性を壊しません。各モードは自由方程式の解です。$\sum_{\boldsymbol k}|\beta_{\boldsymbol k}|^2<\infty$ であり（三次元の格子で $k^{-8}$ は総和可能）、[QCURV3のHilbert–Schmidt条件](../QCURV3/index.md#def-qcurv3-wavepacket-hs)にも従います。よってこの例ではFock表示の同値性に問題はありません。
 
-$t_x=t_y=0$ とおくと、$\alpha_k,\beta_k$ は実なので、$v_{\boldsymbol k}(0,\boldsymbol x)=(\alpha_k+\beta_k)u_{\boldsymbol k}(0,\boldsymbol x)$ です。従って差の等時刻核は
+$t_x=t_y=0$ とおくと、$\alpha_{\boldsymbol k},\beta_{\boldsymbol k}$ は実なので、$v_{\boldsymbol k}(0,\boldsymbol x)=(\alpha_{\boldsymbol k}+\beta_{\boldsymbol k})u_{\boldsymbol k}(0,\boldsymbol x)$ です。従って差の等時刻核は
 
 $$
 (W_v-W_0)(0,\boldsymbol x;0,\boldsymbol y)
 =\frac1{L^3}\sum_{\boldsymbol k}
-c_k e^{i\boldsymbol k\cdot(\boldsymbol x-\boldsymbol y)},
+c_{\boldsymbol k} e^{i\boldsymbol k\cdot(\boldsymbol x-\boldsymbol y)},
 $$
 
 $$
-c_k=\frac{(\alpha_k+\beta_k)^2-1}{2\omega_k}
-=\frac{\beta_k^2+\alpha_k\beta_k}{\omega_k}.
+c_{\boldsymbol k}=\frac{(\alpha_{\boldsymbol k}+\beta_{\boldsymbol k})^2-1}{2\omega_k}
+=\frac{\beta_{\boldsymbol k}^2+\alpha_{\boldsymbol k}\beta_{\boldsymbol k}}{\omega_k}.
 $$
 
-最後の式では $\alpha_k^2=1+\beta_k^2$ を代入しました。$k\to\infty$ では
+最後の式では $\alpha_{\boldsymbol k}^2=1+\beta_{\boldsymbol k}^2$ を代入しました。$k=|\boldsymbol k|\to\infty$ では
 
 $$
-\beta_k\sim\mu^4 k^{-4},\quad
-\alpha_k=1+O(k^{-8}),\quad
+\beta_{\boldsymbol k}\sim\mu^4 k^{-4},\quad
+\alpha_{\boldsymbol k}=1+O(k^{-8}),\quad
 \omega_k\sim k,\quad
-c_k\sim\mu^4k^{-5}.
+c_{\boldsymbol k}\sim\mu^4k^{-5}.
 $$
 
-この級数は絶対収束しますが、係数は任意の次数に急減少しません。もし核が $t_x=t_y=0$ で滑らかな周期関数なら、空間変数で任意回数部分積分したFourier係数はすべての $N$ について $O((1+k)^{-N})$ となり、$c_k\sim k^{-5}$ に矛盾します。従って等時刻の差は滑らかでありません。
+この級数は絶対収束しますが、係数は任意の次数に急減少しません。もし核が $t_x=t_y=0$ で滑らかな周期関数なら、空間変数で任意回数部分積分すると、[MICA1のFourier急減少の周期版](../../../解析系/MICA/MICA1/index.md#thm-mica1-smooth-rapid)により係数はすべての $N$ について $O((1+k)^{-N})$ となります。これは $c_{\boldsymbol k}\sim k^{-5}$ に矛盾します。従って等時刻の差は滑らかでありません。
 
-平坦トーラスの基準真空 $W_0$ は局所的にMinkowski真空と同じ正の高周波特異性を持ち、Hadamardです（[MICA13の平坦真空の波面計算](../../../解析系/MICA/MICA13/index.md#prop-mica13-flat-wavefront)を周期局所表示に適用）。仮に $W_v$ もHadamardなら、[二つのHadamard二点分布の滑らかな差](../../../解析系/MICA/MICA13/index.md#prop-mica13-smooth-difference)と矛盾します。よって $W_v$ はHadamardではありません。
+最後に、基準真空 $W_0$ がHadamardであることを確認します。質量 $m>0$ のMinkowski正エネルギー核を $z=(\tau,\boldsymbol r)=x-y$ について書きます。以下の積分変数 $\boldsymbol p\in\mathbb R^3$ は覆い空間の連続運動量であり、トーラスの離散ラベル $\boldsymbol k$ とは区別します。
+
+$$
+W_{m,\mathbb R^{1,3}}(z)=\int_{\mathbb R^3}
+\frac{d^3\boldsymbol p}{(2\pi)^3\,2\omega_{\boldsymbol p}}
+e^{-i\omega_{\boldsymbol p}\tau+i\boldsymbol p\cdot\boldsymbol r},
+\qquad \omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}.
+$$
+
+高周波の位相と、積分変数 $\boldsymbol p$ に関する勾配は
+
+$$
+\varphi=-\omega_{\boldsymbol p}\tau+\boldsymbol p\cdot\boldsymbol r,\qquad
+\nabla_{\boldsymbol p}\varphi=\boldsymbol r-\frac{\boldsymbol p}{\omega_{\boldsymbol p}}\tau
+$$
+
+です。$|\boldsymbol p|\to\infty$ で $|\nabla_{\boldsymbol p}\varphi|$ が零から離れた方向では
+
+$$
+e^{i\varphi}=\frac{\nabla_{\boldsymbol p}\varphi\cdot\nabla_{\boldsymbol p}e^{i\varphi}}{i|\nabla_{\boldsymbol p}\varphi|^2}
+$$
+
+を使って積分を繰り返し部分積分できます。振幅の運動量微分で高波数の減衰冪を増やせるため、そこに波面方向は残りません。停留し得る方向では $\boldsymbol r=\tau\boldsymbol n$（$|\boldsymbol n|=1$）となります。第一変数の高周波共変ベクトルは $(-1,\boldsymbol n)$ の正倍で、$(-,+,+,+)$ 計量で持ち上げると未来向きです。第二変数ではその負号を取ります。
+
+従って[MICA13の未来向き零測地線関係](../../../解析系/MICA/MICA13/index.md#def-mica13-wfsc)の外に波面はありません。これは[MICA13の質量零模型](../../../解析系/MICA/MICA13/index.md#prop-mica13-flat-wavefront)で調べた向きと一致しますが、質量を零と置いたわけではありません。
+
+トーラス真空はこの核を空間周期化したものです。対角の十分小さな測地的凸近傍では零でない格子移動像がすべて空間的に離れ、$m>0$ の核の空間的減衰によりその像の和と全導関数は収束して滑らかな寄与だけを与えます。離れた二点の像からの特異方向も、トーラスを周回する未来向き零測地線関係に含まれます。
+
+真空の正準規格化から交換子条件が成立するので、[MICA13の波面包含から等号への命題](../../../解析系/MICA/MICA13/index.md#prop-mica13-ccr-equality)と[局所形・波面条件の同値](../../../解析系/MICA/MICA13/index.md#thm-mica13-equivalence)により $W_0$ はHadamardです。質量付きの局所形には[MICA12の平坦な対数係数](../../../解析系/MICA/MICA12/index.md#prop-mica12-flat-mass)が現れます。
+
+仮に $W_v$ もHadamardなら、[二つのHadamard二点分布の滑らかな差](../../../解析系/MICA/MICA13/index.md#prop-mica13-smooth-difference)と矛盾します。よって $W_v$ はHadamardではありません。
 <!-- proof-end -->
 
 この反例は「有限次のWKBから作ったすべての状態が非Hadamard」という証明ではありません。定数背景で厳密な $W_k=\omega_k$ を選べば零次でもHadamardです。証明したのは**有限冪の高周波制御やFock表現の同値性だけではHadamard性を結論できない**ということです。
@@ -546,17 +648,26 @@ $h$ が零でない区間では $f=e^{-i\omega(\eta-\eta_0)}/\sqrt{2\omega}$ は
 #### QCURV5-B03 高周波squeezeと滑らかさ
 - Level: B
 
-三次元トーラス上の質量 $m>0$ の自由場で $\beta_k=(1+k^2/\mu^2)^{-p/2}$、$\alpha_k=\sqrt{1+\beta_k^2}$、$p>3/2$ として $v_k=\alpha_ku_k+\beta_k\bar u_{-k}$ を作る。等時刻の二点分布差のFourier係数の減衰次数を求め、$p$ が有限であればHadamard性をこの方法から結論できない理由を述べよ。
-
-<!-- solution-start -->
-**詳細解答。** $\beta_k\sim\mu^pk^{-p}$、$\alpha_k=1+O(k^{-2p})$ です。$t=0$ における差の係数は[高周波混合の命題](#prop-qcurv5-power-tail)と同じ代数で
+三次元トーラス上の質量 $m>0$ の自由場で $k=|\boldsymbol k|$、$\mu>0$、$p>3/2$ とし、次の混合モードを作る。
 
 $$
-c_k=\frac{\beta_k^2+\alpha_k\beta_k}{\omega_k}
+\beta_{\boldsymbol k}=(1+k^2/\mu^2)^{-p/2},\quad
+\alpha_{\boldsymbol k}=\sqrt{1+\beta_{\boldsymbol k}^2},\quad
+v_{\boldsymbol k}=\alpha_{\boldsymbol k}u_{\boldsymbol k}
++\beta_{\boldsymbol k}\overline{u_{-\boldsymbol k}}.
+$$
+
+等時刻の二点分布差のFourier係数の減衰次数を求め、$p$ が有限であればHadamard性をこの方法から結論できない理由を述べよ。
+
+<!-- solution-start -->
+**詳細解答。** $\beta_{\boldsymbol k}\sim\mu^pk^{-p}$、$\alpha_{\boldsymbol k}=1+O(k^{-2p})$ です。$t=0$ における差の係数は[高周波混合の命題](#prop-qcurv5-power-tail)と同じ代数で
+
+$$
+c_{\boldsymbol k}=\frac{\beta_{\boldsymbol k}^2+\alpha_{\boldsymbol k}\beta_{\boldsymbol k}}{\omega_k}
 \sim\mu^p k^{-(p+1)}.
 $$
 
-$p>3/2$ だから $\sum_{\boldsymbol k}|\beta_k|^2<\infty$ で、変換のFock実装可能性は妨げられません。しかし有限 $p$ では $c_k$ が任意の冪より速く減衰する条件を満たさないため、等時刻差は滑らかでありません。基準真空がHadamardであれば、[Hadamard二点分布の差の滑らかさ](../../../解析系/MICA/MICA13/index.md#prop-mica13-smooth-difference)から新状態はHadamardではありません。Hilbert–Schmidt条件とHadamard条件は異なる強さです。
+$p>3/2$ だから $\sum_{\boldsymbol k}|\beta_{\boldsymbol k}|^2<\infty$ で、変換のFock実装可能性は妨げられません。しかし有限 $p$ では $c_{\boldsymbol k}$ が任意の冪より速く減衰する条件を満たさないため、等時刻差は滑らかでありません。基準真空のHadamard性は[高周波混合の命題の証明](#prop-qcurv5-power-tail)で確認したので、[Hadamard二点分布の差の滑らかさ](../../../解析系/MICA/MICA13/index.md#prop-mica13-smooth-difference)から新状態はHadamardではありません。Hilbert–Schmidt条件とHadamard条件は異なる強さです。
 <!-- solution-end -->
 
 <a id="ex-qcurv5-b04"></a>
