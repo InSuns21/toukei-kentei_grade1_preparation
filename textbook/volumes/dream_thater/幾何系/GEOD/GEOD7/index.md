@@ -134,13 +134,13 @@ $$
 
 なお上式を未知量側から使うときは、斜距離と角度を地上点間の ENU 変位の関数と見ます。まず器械中心から目標中心への上成分は $v_U=\Delta U+t-i$、水平成分は $(v_E,v_N)=(\Delta E,\Delta N)$ です。[斜距離・角度の定義](#def-geod7-polar-observation)に戻すと、$d>0$ において
 
-$
+$$
 \begin{aligned}
 s^2&=d^2+v_U^2,\\
 \sin z&=\frac d s,\qquad\cos z=\frac{v_U}s,\\
 \sin\alpha&=\frac{\Delta E}{d},\qquad\cos\alpha=\frac{\Delta N}{d}.
 \end{aligned}
-$
+$$
 
 これら二つずつの正弦・余弦から象限を失わずに角度を戻すため、$\operatorname{atan2}(y,x)$ を使います。これは平面ベクトル $(x,y)$ の方向角を返す関数で、必要な範囲へ一周分を加減して表します。従って
 
@@ -176,12 +176,12 @@ $$
 <!-- definition-example-start: def-geod7-horizontal-angle -->
 **定義の確認**。$\alpha_B=350^\circ,\alpha_C=25^\circ$ なら、差は $25-350=-325^\circ$ です。$360^\circ$ を加えると $\beta=35^\circ\in[0,360^\circ)$ となります。さらに同じ据付で器械の零方向が $\omega=40^\circ$ なら、方向読値は
 
-$
+$$
 \begin{aligned}
 r_B&=(350-40)^\circ=310^\circ,\\
 r_C&=(25-40)^\circ\bmod360^\circ=345^\circ.
 \end{aligned}
-$
+$$
 
 従って $r_C-r_B=35^\circ$ となり、二方向の読値で水平角を判定できます。方位を西回りの差として $325^\circ$ と読まないことが重要です。
 <!-- definition-example-end -->
