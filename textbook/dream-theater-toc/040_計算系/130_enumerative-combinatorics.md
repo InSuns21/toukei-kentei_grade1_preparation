@@ -11,3 +11,4 @@
 8. [COMB8 線形差分方程式と初期値](textbook/volumes/dream_thater/計算系/COMB/COMB8/index.md)
 9. [COMB9 形式冪級数と普通母関数](textbook/volumes/dream_thater/計算系/COMB/COMB9/index.md)
 10. [COMB10 構造分解と母関数](textbook/volumes/dream_thater/計算系/COMB/COMB10/index.md)
+11. [COMB11 整数分割と Euler 積](textbook/volumes/dream_thater/計算系/COMB/COMB11/index.md)
