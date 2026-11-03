@@ -28,7 +28,7 @@ chapters:
     title: "四次K3曲面：滑らかさからHodgeダイヤモンドまで"
   - id: CYG1-06
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-06
-    status: planned
+    status: completed
     title: "Hodgeダイヤモンドを何が制約するか"
   - id: CYG1-07
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-07

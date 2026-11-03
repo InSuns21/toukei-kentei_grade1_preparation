@@ -1,0 +1,46 @@
+id: "CYG1-06"
+title: "Hodgeダイヤモンドを何が制約するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-02
+  - CYG1-04
+  - CYG1-05
+  - HOD1-07
+  - HOD1-11
+  - HOD1-14
+official_scope: []
+learning_objectives:
+  - コンパクトKähler多様体のHodge分解・共役対称性・補次数対称性とHard Lefschetzの仮定・添字・適用限界を区別できる
+  - 連結コンパクトな標準束正則自明の複素n次元多様体でh^(n,0)=1を正則体積形式と最大値原理から導ける
+  - Hard Lefschetzの低次数単射性とKähler類の冪の非零性からHodge数の不等式を導ける
+  - トーラスとK3を直接計算して標準束自明性だけでは中間正則形式の消滅やHodgeダイヤモンド全体を決められないと説明できる
+  - 複素次元2と3のダイヤモンドを独立成分で表し、位相的入力が与えられたときの復元手順と未決定部分を区別できる
+theorems:
+  - { id: CYG1-06-PROP-01, name: "正則体積形式と最高Hodge数" }
+  - { id: CYG1-06-PROP-02, name: "Hodge対称性とKähler性の制約の適用" }
+  - { id: CYG1-06-PROP-03, name: "標準束自明な曲面のHodge数の数値骨格" }
+  - { id: CYG1-06-PROP-04, name: "標準束自明な三次元多様体のBetti数とEuler標数" }
+  - { id: CYG1-06-PROP-05, name: "トーラスによる中間正則形式消滅の反例" }
+canonical_examples:
+  - 正則体積形式による最高次正則形式の一次元性
+  - K3と二次元複素トーラスのHodgeダイヤモンドの相違
+  - 三次元複素トーラスの非零な中間正則形式
+  - 三次元のHodge数からBetti数・Euler標数への変換
+  - Kähler類が存在し得ない仮想ダイヤモンド
+problem_patterns:
+  - CYG1-06-HODGE-INDEX
+  - CYG1-06-VOLUME-UNIQUENESS
+  - CYG1-06-TORUS-BINOMIAL
+  - CYG1-06-LEFSCHETZ-RANGE
+  - CYG1-06-KAHLER-DIAGONAL
+  - CYG1-06-SURFACE-MATRIX
+  - CYG1-06-K3-TORUS-COMPARISON
+  - CYG1-06-THREEFOLD-BETTI
+  - CYG1-06-SYMMETRY-NOT-SUFFICIENT
+  - CYG1-06-CY3-RECONSTRUCTION
+  - CYG1-06-FALSE-VANISHING-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
