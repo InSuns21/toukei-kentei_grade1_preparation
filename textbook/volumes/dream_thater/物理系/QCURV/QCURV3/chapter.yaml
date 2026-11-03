@@ -1,0 +1,42 @@
+id: QCURV3
+title: "Bogoliubov変換と粒子数・表現の同値性"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV2
+official_scope: []
+learning_objectives:
+  - 二つの完全な正負KGモード系を比較し、Bogoliubov係数の共役・符号・添字を固定して展開できる
+  - KG規格化およびCCRから二組の正準条件と逆変換を導出できる
+  - in真空のout粒子数を消滅・生成演算子から計算し、基底の単なる回転と正負混合を区別できる
+  - 周波数急変振動子の接続条件から係数と生成粒子数を検算できる
+  - 連続スペクトルの波束化を説明し、Hilbert–Schmidt条件と無限自由度での実装可能性の範囲を区別できる
+definitions:
+  - { id: QCURV3-DEF-01, name: Bogoliubov係数とin/outモード変換 }
+  - { id: QCURV3-DEF-02, name: 波束粒子数とHilbert–Schmidt条件 }
+theorems:
+  - { id: QCURV3-THM-01, name: Bogoliubov係数の正準条件 }
+  - { id: QCURV3-PROP-01, name: annihilatorの変換と真空のout粒子数 }
+  - { id: QCURV3-PROP-02, name: 周波数急変振動子の粒子生成 }
+  - { id: QCURV3-PROP-03, name: 対角squeeze列のFock真空と総粒子数 }
+canonical_examples:
+  - 一モードのsqueezeのKG規格化・係数・消滅演算子
+  - 二モードのユニタリ基底回転と零のbeta
+  - 周波数急変の初期値接続と規格化
+  - 規格化された出射波束と粒子数の有限期待値
+  - 対角squeeze列における有限・発散総粒子数
+problem_patterns:
+  - QCURV3-COEFFICIENT-CONVENTION
+  - QCURV3-CANONICAL-MATRIX
+  - QCURV3-PURE-ROTATION
+  - QCURV3-OPERATOR-NUMBER
+  - QCURV3-WAVEPACKET
+  - QCURV3-CCR-REVERSE
+  - QCURV3-FREQUENCY-QUENCH
+  - QCURV3-INFINITE-SQUEEZE
+  - QCURV3-TWO-MODE-SQUEEZE
+  - QCURV3-HILBERT-SCHMIDT-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
