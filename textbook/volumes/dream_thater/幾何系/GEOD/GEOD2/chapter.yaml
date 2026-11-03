@@ -17,9 +17,10 @@ definitions:
   - { id: GEOD2-DEF-02, name: 基準座標系による実現 }
   - { id: GEOD2-DEF-03, name: 測地datum }
   - { id: GEOD2-DEF-04, name: 座標参照系 }
-  - { id: GEOD2-DEF-05, name: 座標換算と座標変換 }
-  - { id: GEOD2-DEF-06, name: 座標時点 }
-  - { id: GEOD2-DEF-07, name: 観測値と誤差の単純模型 }
+  - { id: GEOD2-DEF-05, name: 座標換算 }
+  - { id: GEOD2-DEF-06, name: 座標変換 }
+  - { id: GEOD2-DEF-07, name: 座標時点 }
+  - { id: GEOD2-DEF-08, name: 観測値と誤差の単純模型 }
 theorems:
   - { id: GEOD2-PROP-01, name: 直交する座標軸間の表示と距離 }
   - { id: GEOD2-PROP-02, name: 共通ずれが未知なら位置と分離できない }

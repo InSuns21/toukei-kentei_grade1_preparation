@@ -35,11 +35,18 @@ concepts:
     introduction_aliases: [定義（座標参照系）]
     requires: [geodesy.datum]
 
-  - id: geodesy.coordinate-operation
-    name: 座標換算と座標変換
+  - id: geodesy.coordinate-conversion
+    name: 座標換算
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（座標換算と座標変換）]
+    introduction_aliases: [定義（座標換算）]
+    requires: [geodesy.crs, geodesy.datum]
+
+  - id: geodesy.coordinate-transformation
+    name: 座標変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（座標変換）]
     requires: [geodesy.crs, geodesy.datum]
 
   - id: geodesy.rigid-frame-coordinate-relation
@@ -47,7 +54,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（直交する座標軸間の表示と距離）]
-    requires: [geodesy.reference-frame, geodesy.coordinate-operation]
+    requires: [geodesy.reference-frame, geodesy.coordinate-transformation]
 
   - id: geodesy.coordinate-epoch
     name: 座標時点
