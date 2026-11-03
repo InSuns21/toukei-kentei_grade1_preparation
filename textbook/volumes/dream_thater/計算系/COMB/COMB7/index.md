@@ -324,7 +324,7 @@ $$
 b_n=\sum_{k=0}^{n}\binom nk a_k\qquad(n\geq0)
 $$
 
-> で定めるとき、$b$ を $a$ の**二項変換**という。ここで $\binom nk$ は非負整数 $0\leq k\leq n$ の通常の二項係数である。
+> で定めるとき、$b$ を $a$ の**二項変換**という。ここで $\binom nk$ は[二項係数の定義](../COMB2/index.md#def-comb2-binomial)を非負整数 $0\leq k\leq n$ に適用したものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-comb7-binomial-transform -->
@@ -500,7 +500,13 @@ $$
 を得ます。$n=0$ は $\binom00\Delta^0f(0)=f(0)$ です。
 <!-- proof-end -->
 
-任意の数列では上端の $k$ が $n$ に依存し、全実数 $x$ で成立する一つの多項式恒等式を主張していません。例えば $f(n)=2^n$ の差分は $\Delta^kf(0)=1$（$k\geq0$）なので、整数 $n$ で
+任意の数列では上端の $k$ が $n$ に依存し、全実数 $x$ で成立する一つの多項式恒等式を主張していません。例えば $f(j)=2^j$ なら
+
+$$
+(\Delta f)(j)=2^{j+1}-2^j=2^j=f(j)
+$$
+
+です。$\Delta^0f=f$ から同じ差分を何回取っても $\Delta^kf=f$ となり、$k\geq0$ で $(\Delta^kf)(0)=f(0)=1$ です。よって整数 $n$ で
 
 $$
 2^n=\sum_{k=0}^{n}\binom nk
@@ -546,13 +552,28 @@ $F(j)=j^3$ とする。$\sum_{j=2}^{4}\Delta F(j)$ を、端点差と各項の�
 <!-- solution-start -->
 **詳細解答**
 
-和は $j=2,3,4$ の3項なので、[離散微積分の基本定理](#thm-comb7-discrete-fundamental)へ $a=2,b=5$ を代入し、$F(5)-F(2)=125-8=117$ です。各項では
+和は $j=2,3,4$ の3項なので、[離散微積分の基本定理](#thm-comb7-discrete-fundamental)へ $a=2,b=5$ を代入すると
+
+$$
+\sum_{j=2}^{4}\Delta F(j)=F(5)-F(2)=125-8=117
+$$
+
+です。各項では
 
 $$
 \Delta F(j)=(j+1)^3-j^3=3j^2+3j+1
 $$
 
-なので $\Delta F(2)=19,\ \Delta F(3)=37,\ \Delta F(4)=61$、和は $19+37+61=117$ となります。$F(4)-F(2)$ では末尾の項を一つ落とします。
+なので
+
+$$
+\begin{aligned}
+\Delta F(2)&=19, &\Delta F(3)&=37, &\Delta F(4)&=61,\\
+\sum_{j=2}^{4}\Delta F(j)&=19+37+61=117.
+\end{aligned}
+$$
+
+$F(4)-F(2)$ では末尾の項を一つ落とします。
 <!-- solution-end -->
 
 #### A3. 積の法則のシフト
@@ -665,7 +686,18 @@ $$
 \end{aligned}
 $$
 
-有限等比和は $G(n)=\sum_{j=0}^{n-1}2^j$ について $2G(n)-G(n)=2^n-1$（$n\geq0$、$n=0$ は空和）なので $G(n)=2^n-1$ です。従って
+有限等比和を $G(n)=\sum_{j=0}^{n-1}2^j$ と置くと、添字を1だけずらして
+
+$$
+\begin{aligned}
+2G(n)-G(n)
+&=\sum_{j=0}^{n-1}2^{j+1}-\sum_{j=0}^{n-1}2^j\\
+&=\sum_{j=1}^{n}2^j-\sum_{j=0}^{n-1}2^j\\
+&=2^n-1.
+\end{aligned}
+$$
+
+$n=0$ ではどちらの和も空和で、この等式は $0=1-1$ です。従って $G(n)=2^n-1$ となり、
 
 $$
 \sum_{j=0}^{n-1}j2^j=n2^n-2(2^n-1)=(n-2)2^n+2.
@@ -717,7 +749,9 @@ $$
 \sum_{k=0}^{j}\binom kr=\binom{j+1}{r+1}.
 $$
 
-そこで $m=j+1$ と置けば $m=1,\ldots,n$ となり、$\binom0{r+1}=0$ に注意して
+そこで $m=j+1$ と置けば $m=1,\ldots,n$ となり、$\binom0{r+1}=0$ に注意します。
+
+[二項多項式の和分](#thm-comb7-binomial-sum)を再び $k=r+1$、定理の上端パラメータを $n+1$ として適用すると
 
 $$
 T(n,r)=\sum_{m=1}^{n}\binom m{r+1}
@@ -806,7 +840,18 @@ $a_k=k+1$（$k\geq0$）を[二項変換](#def-comb7-binomial-transform)した $b
 <!-- solution-start -->
 **詳細解答**
 
-(1) $b_n=\sum_{k=0}^{n}\binom nk(k+1)$ です。[二項係数の計数公式](../COMB2/index.md#thm-comb2-binomial-count)の階乗表示から $k\binom nk=n\binom{n-1}{k-1}$（$1\leq k\leq n$）となります。$n\geq1$ で
+(1) $b_n=\sum_{k=0}^{n}\binom nk(k+1)$ です。[二項係数の計数公式](../COMB2/index.md#thm-comb2-binomial-count)の階乗表示を $n\geq1$、$1\leq k\leq n$ で使うと
+
+$$
+\begin{aligned}
+k\binom nk
+&=\frac{kn!}{k!(n-k)!}\\
+&=\frac{n(n-1)!}{(k-1)!(n-k)!}\\
+&=n\binom{n-1}{k-1}.
+\end{aligned}
+$$
+
+$k=0$ の項は0なので、$n\geq1$ で
 
 $$
 \begin{aligned}
