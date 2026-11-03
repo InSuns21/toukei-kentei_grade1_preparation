@@ -1,0 +1,36 @@
+chapter: QCURV9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV8
+  - GR26
+  - GR27
+  - GR29
+  - GR45
+forward_references: []
+concepts:
+  - id: qcurv.static-infinity-frequency
+    name: 無限遠基準の周波数と静止時計の局所周波数
+    kind: definition
+    introduction: formal
+    requires: [gravity.schwarzschild-vacuum-metric, gravity.surface-gravity-normalization]
+  - id: qcurv.killing-frequency-redshift
+    name: Killing周波数の保存と赤方偏移
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.static-infinity-frequency, gravity.redshifted-static-acceleration]
+  - id: qcurv.outgoing-arrival-clock
+    name: 出射零時刻と静止時計の到着間隔
+    kind: proposition
+    introduction: formal
+    requires: [gravity.eddington-finkelstein-null-times, qcurv.static-infinity-frequency]
+  - id: qcurv.schwarzschild-kappa-calibration
+    name: 無限遠規格化のSchwarzschild表面重力
+    kind: proposition
+    introduction: formal
+    requires: [gravity.static-spherical-surface-gravity, gravity.surface-gravity-normalization]
+  - id: qcurv.kruskal-outgoing-compression
+    name: Kruskal出射ラベルの指数圧縮と地平線近傍の線形性
+    kind: theorem
+    introduction: formal
+    requires: [gravity.kruskal-exterior-null-coordinates, qcurv.schwarzschild-kappa-calibration, qcurv.outgoing-arrival-clock]

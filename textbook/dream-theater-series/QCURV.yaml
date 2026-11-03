@@ -38,3 +38,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV8
     status: completed
     title: "Unruh温度・KMS条件と検出器応答"
+  - id: QCURV9
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV9
+    status: completed
+    title: "地平線・表面重力と遠方観測者の時刻"

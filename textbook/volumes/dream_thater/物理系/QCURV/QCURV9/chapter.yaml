@@ -1,0 +1,44 @@
+id: QCURV9
+title: "地平線・表面重力と遠方観測者の時刻"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV8
+  - GR26
+  - GR27
+  - GR29
+  - GR45
+official_scope: []
+learning_objectives:
+  - Schwarzschild外部の静止時計・無限遠で規格化したKilling周波数・局所測定周波数を計算し、地平線での極限と適用域を区別できる
+  - tortoise座標と入射・出射零時刻を動径零条件から検算し、固定半径での光線到着間隔を固有時間へ換算できる
+  - 正則な入射EF表示とGR45の表面重力定理から、無限遠規格化のκ=1/(4M)と規格化変更時の係数を導出できる
+  - Kruskal零座標Uの指数関係・導関数・固定vでの近地平線漸近式を符号と定義域込みで計算できる
+  - 未来事象・見かけ・Killing・Rindlerの各地平線の判定法と一致条件を区別し、永遠の外部の座標変換だけでは崩壊光線のin/out対応を証明できないことを説明できる
+definitions:
+  - { id: QCURV9-DEF-01, name: 無限遠基準の周波数と静止時計の局所周波数 }
+theorems:
+  - { id: QCURV9-PROP-01, name: Killing周波数の保存と赤方偏移 }
+  - { id: QCURV9-PROP-02, name: 出射零時刻と静止時計の到着間隔 }
+  - { id: QCURV9-PROP-03, name: 無限遠規格化のSchwarzschild表面重力 }
+  - { id: QCURV9-THM-01, name: Kruskal出射ラベルの指数圧縮と地平線近傍の線形性 }
+canonical_examples:
+  - r=4Mの静止時計と遠方時計で測った同一光線の周波数・間隔
+  - 正則EF座標上での地平線生成場のノルムと表面重力
+  - 二本の出射光線のKruskalラベル比と固定vでの近地平線極限
+  - 永遠のSchwarzschild地平線と平坦Rindler地平線の比較
+problem_patterns:
+  - QCURV9-CLOCKS
+  - QCURV9-TORTOISE
+  - QCURV9-NULL-DIRECTIONS
+  - QCURV9-NORMALIZATION
+  - QCURV9-KRUSKAL-RATIO
+  - QCURV9-KILLING-ENERGY
+  - QCURV9-ACCELERATION
+  - QCURV9-NEAR-HORIZON
+  - QCURV9-HORIZON-CLASSIFICATION
+  - QCURV9-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 6 }
