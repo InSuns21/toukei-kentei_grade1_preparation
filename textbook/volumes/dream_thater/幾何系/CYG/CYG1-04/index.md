@@ -153,7 +153,16 @@ h^{p,q}(T)=\binom np\binom nq,
 \qquad b_k(T)=\binom{2n}{k}.
 $$
 
-**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ で $z=\sum_at^a\lambda_a$ と置くと、$t^a$ は $\mathbb R/\mathbb Z$ 値の実座標である。座標ベクトル $\partial/\partial t^a$ は被覆上で $\lambda_a$ に対応するから、実計量の成分行列は $G_{ab}=g_H(\lambda_a,\lambda_b)$ であり、$\lambda_a$ が実基底なので $G$ は正定値である。[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)の証明のように、定数余標構における $\Delta_d$ は形式の各係数へ同じスカラー作用素
+**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ に対して、被覆上の点を実座標 $t^a$ で表示する。
+
+$$
+z=\sum_{a=1}^{2n}t^a\lambda_a,\qquad
+G_{ab}=g_H(\lambda_a,\lambda_b).
+$$
+
+商では $t^a$ を $\mathbb R/\mathbb Z$ 値と見なす。座標ベクトル $\partial/\partial t^a$ は被覆上で $\lambda_a$ に対応するため、$G$ が実計量の成分行列になる。$\lambda_a$ は実基底で $g_H$ は正定値だから、$G$ も正定値である。
+
+[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)の証明のように、定数余標構における $\Delta_d$ は形式の各係数へ同じスカラー作用素
 
 $$
 -\sum_{a,b=1}^{2n}(G^{-1})^{ab}\frac{\partial^2}{\partial t^a\partial t^b}
@@ -346,7 +355,23 @@ $$
 $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $z=x+iy$ とし、$g_{z\bar z}=e^{\varepsilon\cos(2\pi x)}$（$\varepsilon\in\mathbb R\setminus\{0\}$）を与える。Kähler性、Ricci形式の非零性、実係数第一Chern類との関係を調べよ。
 
 <!-- solution-start -->
-**詳細解答。** $g_{z\bar z}>0$ かつ周期1の滑らかな関数なので、格子商へ降りる。複素次元1ではKähler形式は実2形式で、その外微分は実3形式となり必ず零。従ってKähler計量である。関数を微分するときの記法は $\partial f=f_z\,dz$、$\bar\partial f=f_{\bar z}\,d\bar z$ で、$\partial_z=(\partial_x-i\partial_y)/2$、$\partial_{\bar z}=(\partial_x+i\partial_y)/2$ とする。この対応を順に適用すると $f_{z\bar z}=(f_{xx}+f_{yy})/4$ だから、$\partial\bar\partial f=(1/4)(f_{xx}+f_{yy})dz\wedge d\bar z$ である。これを $f=\log g=\varepsilon\cos(2\pi x)$ に適用すると
+**詳細解答。** $g_{z\bar z}>0$ かつ周期1の滑らかな関数なので、格子商へ降りる。複素次元1ではKähler形式は実2形式で、その外微分は実3形式となり必ず零。従ってKähler計量である。
+
+関数に作用する微分を $\partial f=f_z\,dz$、$\bar\partial f=f_{\bar z}\,d\bar z$ と書く。このとき $x,y$ の偏微分との対応は
+
+$$
+\partial_z=\tfrac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)
+$$
+
+である。この二つを順に適用すると
+
+$$
+f_{z\bar z}=\tfrac14(f_{xx}+f_{yy}),\qquad
+\partial\bar\partial f=f_{z\bar z}\,dz\wedge d\bar z.
+$$
+
+これを $f=\log g=\varepsilon\cos(2\pi x)$ に適用すると
 
 $$
 f_{xx}=-4\pi^2\varepsilon\cos(2\pi x),\quad f_{yy}=0,
