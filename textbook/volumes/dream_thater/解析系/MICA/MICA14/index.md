@@ -250,7 +250,7 @@ $$
 を得ます。定義により左辺がWick平方期待値の差、右辺が $D(x,x)$ です。共通に選んだ $c(x)$ を加える場合は $(Q_\omega+c)-(Q_{\omega'}+c)=Q_\omega-Q_{\omega'}$。尺度や処方の変更も、**両状態に同一の滑らかな変化**を与える限り打ち消されます。
 <!-- proof-end -->
 
-二点分布のHermite性 $\omega_2(x,y)=\overline{\omega_2(y,x)}$ と、同じ交換子条件による $D=D^T$ を合わせると
+[二点分布のHermite性](../MICA11/index.md#def-mica11-two-point-conditions) $\omega_2(x,y)=\overline{\omega_2(y,x)}$ と、同じ交換子条件による $D=D^T$ を合わせると
 
 $$
 D(x,y)=D(y,x)=\overline{D(x,y)}.
@@ -380,7 +380,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$h\in T_xM$ を小さい曲線の接ベクトルとして $\Delta(x+sh)=(x+sh,x+sh)$ を微分すれば $d\Delta_x(h)=(h,h)$ です。双対では
+$h\in T_xM$ を任意に取り、局所座標で $c(0)=x$、$c'(0)=h$ となる滑らかな曲線 $c(s)$ を選びます。$\Delta\circ c(s)=(c(s),c(s))$ を $s=0$ で微分すれば $d\Delta_x(h)=(h,h)$ です。双対では
 
 $$
 ({}^{\mathsf T}d\Delta_x)(\alpha,\beta)(h)
@@ -396,12 +396,24 @@ $$
 - Level: A
 - 目安時間: 17分
 
-$g=\operatorname{diag}(-1,1,1,1)$ とし、$k=(-a,a,0,0)$、$a>0$ とする。$k^\sharp$ の時間向きを求め、$(x,k;x,-k)$ がHadamard波面関係 $\mathcal C^+$ と $N_\Delta$ の両方に属することを示せ。この事実から**何だけ**が結論できるか述べよ。
+Minkowski時空の標準座標 $(t,x^1,x^2,x^3)$ で、計量の成分行列を $g_{ab}=\operatorname{diag}(-1,1,1,1)$ とし、**共変ベクトルの成分**を $k_a=(-a,a,0,0)$、$a>0$ とする。$k^\sharp$ の時間向きを求め、$(x,k;x,-k)$ がHadamard波面関係 $\mathcal C^+$ と $N_\Delta$ の両方に属することを示せ。この事実から**何だけ**が結論できるか述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$g^{-1}(k,k)=-a^2+a^2=0$、$k^\sharp=(a,a,0,0)$ は未来向きです。従って[二点波面関係](../MICA13/index.md#def-mica13-null-pair)の $x=y$ の条件を満たし $(x,k;x,-k)\in\mathcal C^+$ です。また[対角余法束の計算](#prop-mica14-diagonal-obstruction)から $(x,k;x,-k)\in N_\Delta$。交差が非空であり、[引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の**十分条件が失敗する**と言えます。これだけから特別な制限も含めた全面的不可能性は結論できません。
+標準座標で $g^{ab}g_{bc}=\delta^a{}_c$ を使って逆計量を求めます。共変成分 $k_b$ から計量双対の反変成分と光的条件を計算すると
+
+$$
+\begin{aligned}
+g^{ab}&=\operatorname{diag}(-1,1,1,1),\\
+(k^\sharp)^a&=g^{ab}k_b=(a,a,0,0),\\
+g^{-1}(k,k)&=g^{ab}k_ak_b=-a^2+a^2=0.
+\end{aligned}
+$$
+
+よって $k^\sharp$ は光的で、時間成分 $a>0$ なので未来向きです。[二点波面関係](../MICA13/index.md#def-mica13-null-pair)の $x=y$ の条件を満たし $(x,k;x,-k)\in\mathcal C^+$ です。
+
+[対角余法束の計算](#prop-mica14-diagonal-obstruction)から同じ点は $N_\Delta$ にも属します。交差が非空なので[引き戻し定理](../MICA7/index.md#thm-mica7-pullback)の**十分条件が失敗する**と言えます。しかし、特別な制限も含めた全面的不可能性はこれだけでは結論できません。
 <!-- solution-end -->
 
 <a id="ex-mica14-a03"></a>
@@ -456,7 +468,14 @@ $F(x,y)=x^2y+3xy^2$（$x,y\in\mathbb R$）とする。$(\partial_x\partial_yF)(x
 <!-- solution-start -->
 #### 詳細解答
 
-まず二変数で微分すると $\partial_yF=x^2+6xy$、さらに $\partial_x\partial_yF=2x+6y$ なので対角値は $8x$ です。一方、先に対角へ制限すると $F(x,x)=4x^3$、一変数の二階微分は $24x$ です。後者には連鎖律による $\partial_x^2F$ と $\partial_y^2F$ なども含まれます。応力テンソルの点分離では、指定された**双微分作用素を先に**使わなければなりません。
+まず二変数で微分すると $\partial_yF=x^2+6xy$、さらに $\partial_x\partial_yF=2x+6y$ なので対角値は $8x$ です。一方、先に対角へ制限すると $F(x,x)=4x^3$、一変数の二階微分は $24x$ です。違いは対角写像 $x\mapsto(x,x)$ の連鎖律によります。まず $\frac{d}{dx}F(x,x)=(\partial_xF+\partial_yF)(x,x)$、もう一度微分すると
+
+$$
+\frac{d^2}{dx^2}F(x,x)
+=(\partial_x^2F+2\partial_x\partial_yF+\partial_y^2F)(x,x).
+$$
+
+ここで $\partial_x^2F=2y$、$\partial_y^2F=6x$、$\partial_x\partial_yF=2x+6y$ だから、対角上では $2x+16x+6x=24x$ となります。応力テンソルの点分離では、指定された**双微分作用素を先に**使わなければなりません。
 <!-- solution-end -->
 
 <a id="ex-mica14-b01"></a>
@@ -477,7 +496,7 @@ D-D^T=(\omega_{2,1}-\omega_{2,1}^T)
 -(\omega_{2,2}-\omega_{2,2}^T)=0,
 $$
 
-よって $D=D^T$。波面集合の和の包含から $WF(D)\subset\mathcal C^+$ です。一方、[転置の波面方向の交換](../MICA13/index.md#prop-mica13-transpose)を $D=D^T$ へ適用すれば $WF(D)\subset\mathcal C^-$ も成立します。未来と過去は非零光的方向では交わらないので
+よって $D=D^T$。[波面集合の和の包含](../MICA3/index.md#prop-mica3-sum)から $WF(D)\subset\mathcal C^+$ です。一方、[転置の波面方向の交換](../MICA13/index.md#prop-mica13-transpose)を $D=D^T$ へ適用すれば $WF(D)\subset\mathcal C^-$ も成立します。未来と過去は非零光的方向では交わらないので
 
 $$
 WF(D)\subset\mathcal C^+\cap\mathcal C^-=\varnothing.
