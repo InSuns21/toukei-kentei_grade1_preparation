@@ -292,7 +292,15 @@ $$
 b_0=1,\qquad b_1=0,\qquad b_2=1.
 $$
 
-$b_0=1$ から連結。滑らかな射影多様体だからコンパクトKählerで、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と[共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)が使える。Kähler形式 $\omega$ の類は $(1,1)$ 型かつ非零である。実際 $[\omega]=0$ なら $\omega=d\eta$ と書け、閉性 $d\omega=0$ と[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)により $\int_X\omega^3=\int_Xd(\eta\wedge\omega^2)=0$ となるが、Kähler体積は正なので矛盾する。従って $h^{1,1}\ge1$、さらに
+$b_0=1$ から連結。滑らかな射影多様体だからコンパクトKählerで、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と[共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)が使える。
+
+Kähler形式 $\omega$ の類は $(1,1)$ 型かつ非零である。もし $[\omega]=0$ なら $\omega=d\eta$ と書ける。閉性 $d\omega=0$ と[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)を使うと
+
+$$
+\int_X\omega^3=\int_Xd(\eta\wedge\omega^2)=0
+$$
+
+となるが、Kähler体積は正なので矛盾する。よって $h^{1,1}\ge1$。これを次数一・二のHodge分解に入れると
 
 $$
 0=b_1=2h^{1,0},\qquad
@@ -368,7 +376,15 @@ $$
 $F=\sum_{j=0}^{5}Z_j^3$、$G=\sum_{j=0}^{5}jZ_j^3$ の共通零点 $X\subset\mathbb P^5$ について、非空な点を一つ与え、$X$ 上でJacobianの階数が二になることを説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $u^3=-2$ を取ると $[1:u:1:0:0:0]$ で $F=1-2+1=0$、$G=0-2+2=0$。偏微分の行は $(3Z_j^2)_j$ と $(3jZ_j^2)_j$。もし従属なら、非零 $Z_j$ に対して二行の成分比がすべて同じ整数 $j$ となる。しかし異なる $j$ は同じ比を持たないので、非零座標は一つ以下。射影点に非零座標は少なくとも一つあり、一つだけなら $F=Z_j^3\ne0$ となる。矛盾するので階数は二。$F(tZ)=t^3F(Z)$ と $G(tZ)=t^3G(Z)$ を $t=1$ で微分すると、共通零点では放射方向が両微分の核に入る。したがって局所Jacobianも階数二であり、複素次元は $5-2=3$ である。
+**詳細解答。** $u^3=-2$ と取る。点 $P=[1:u:1:0:0:0]$ では
+
+$$
+F(P)=1-2+1=0,\qquad G(P)=0-2+2=0.
+$$
+
+偏微分の行は $(3Z_j^2)_j$ と $(3jZ_j^2)_j$ である。これらが従属なら、非零の $Z_j$ を持つ添字では二行の成分比がすべて同じ整数 $j$ となる。異なる添字は同じ比を持たないので、非零座標は高々一つ。
+
+しかし射影点に非零座標は少なくとも一つあり、一つだけなら $F=Z_j^3\ne0$ となって矛盾する。よって階数は二である。斉次性 $F(tZ)=t^3F(Z)$、$G(tZ)=t^3G(Z)$ を $t=1$ で微分すれば、共通零点では放射方向が両微分の核に入る。局所Jacobianも階数二を保ち、複素次元は $5-2=3$ である。
 <!-- solution-end -->
 
 <a id="ex-cyg1-09-a02"></a>
@@ -468,7 +484,28 @@ $$
 滑らかな $(3,3)\subset\mathbb P^5$ の $b_2=1$ を、Hard Lefschetzだけから結論できるか。使う写像の定義域と行き先をそれぞれ示し、どちらを用いて $h^{1,1}=1$ を確定するか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** Hard Lefschetzでは複素次元三の $X$ 内で $L:H^2(X;\mathbb C)\to H^4(X;\mathbb C)$、$\alpha\mapsto[\omega]\smile\alpha$ が同型。両群の次元が等しいとはいえるが、それが一だとは分からない。一方[完全交叉の弱Lefschetz](#thm-cyg1-09-weak-lefschetz)は包含 $i$ について $i^*:H^2(\mathbb P^5;\mathbb Z)\to H^2(X;\mathbb Z)$ が同型。周囲の $H^2\simeq\mathbb Z$ から $b_2=1$ が決まる。Kähler類は非零の $(1,1)$ 型なので $h^{1,1}\ge1$、Hodge分解と共役対称性から $1=b_2=2h^{2,0}+h^{1,1}$。よって $h^{1,1}=1$ である。
+**詳細解答。** [Hard Lefschetz](../CYG1-06/index.md#prop-cyg1-06-kahler-constraints)は複素次元三の $X$ **内部**で
+
+$$
+L:H^2(X;\mathbb C)\longrightarrow H^4(X;\mathbb C),
+\qquad\alpha\longmapsto[\omega]\smile\alpha
+$$
+
+が同型と述べる。これは両群の次元の一致であって、値が一という情報ではない。
+
+これに対し[完全交叉の弱Lefschetz](#thm-cyg1-09-weak-lefschetz)は包含 $i:X\hookrightarrow\mathbb P^5$ について
+
+$$
+i^*:H^2(\mathbb P^5;\mathbb Z)\xrightarrow{\simeq}H^2(X;\mathbb Z)
+$$
+
+を与える。周囲の $H^2(\mathbb P^5;\mathbb Z)\simeq\mathbb Z$ から $b_2=1$ が決まる。Kähler類は非零の $(1,1)$ 型なので $h^{1,1}\ge1$。Hodge分解と共役対称性で
+
+$$
+1=b_2=2h^{2,0}+h^{1,1}
+$$
+
+と分ければ、$h^{1,1}=1$ である。
 <!-- solution-end -->
 
 <a id="ex-cyg1-09-b04"></a>
@@ -513,7 +550,23 @@ $$
 
 積分値は $\int_XH^3=3\cdot3=9$。滑らか・境界なし・コンパクトという条件を確認した上で[トップChern類の定理](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)を使うと $\chi=-16\cdot9=-144$。
 
-[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)の $k<3$ の同型から $b_0=1,b_1=0,b_2=1$。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と非零Kähler類が $(1,1)$ 型であることから $h^{1,0}=h^{2,0}=0,h^{1,1}=1$。[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)は標準束自明と連結・コンパクトから $h^{3,0}=1$。Poincaré双対性でBetti数列 $(1,0,1,b_3,1,0,1)$ を得て、$-144=4-b_3$ より $b_3=148$。共役対称性で $148=2+2h^{2,1}$、従って $h^{2,1}=73$。最後に $2(1-73)=-144$ で再検算できる。
+[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)の $k<3$ の同型を射影空間のコホモロジーへ適用し、$b_0=1,b_1=0,b_2=1$ を得る。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と非零Kähler類の $(1,1)$ 型から
+
+$$
+h^{1,0}=0,\qquad h^{2,0}=0,\qquad h^{1,1}=1.
+$$
+
+標準束が正則自明かつ $X$ が連結コンパクトなので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)は $h^{3,0}=h^{0,3}=1$ となる。Poincaré双対性でBetti数列は $(1,0,1,b_3,1,0,1)$。Euler標数の交代和と共役対称性から
+
+$$
+-144=4-b_3,\qquad b_3=148,
+$$
+
+$$
+148=1+h^{2,1}+h^{1,2}+1=2+2h^{2,1}.
+$$
+
+従って $h^{2,1}=73$ であり、$2(1-73)=-144$ と戻して検算できる。
 <!-- solution-end -->
 
 <a id="ex-cyg1-09-c02"></a>
