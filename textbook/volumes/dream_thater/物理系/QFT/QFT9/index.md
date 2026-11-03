@@ -6,7 +6,7 @@
 
 この章の中心問いは、**自由場の二点関数だけを道具として、相互作用の有限次数の量子計算をどう組み立てるか**です。まず自由な時間発展と相互作用による変化を分け、次に時間順序を保って展開します。その各項の多数の場を二点関数へ分解するのがWickの定理です。最後に真空だけで閉じた寄与の規格化まで追います。
 
-時空はMinkowski空間 $\mathbb R^{1,3}$、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、スカラー・Dirac自由場の質量は $m>0$ とします。
+時空はMinkowski空間 $\mathbb R^{1,3}$、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$、スカラー・Dirac自由場の質量は $m>0$ とします。伝播関数の具体式は、この規約へ移行済みの[QFT6のスカラー核](../QFT6/index.md#thm-qft6-feynman-poles)と[QFT8のDirac核](../QFT8/index.md#thm-qft8-propagator)に従います。本章のDyson級数とWickの対合・置換符号自体は計量の選択に依存しません。
 
 自由真空を $\Omega$、実スカラー場を $\phi_I(x)$、Dirac場を $\psi_I(x)$ と書きます。
 
