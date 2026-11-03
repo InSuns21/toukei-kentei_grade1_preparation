@@ -155,3 +155,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT37
     status: completed
     title: "Yukawa質量行列・世代基底の回転とCKM混合"
+  - id: QFT38
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT38
+    status: completed
+    title: "弱崩壊・Fermi四フェルミオン相互作用と低エネルギー有効理論"
