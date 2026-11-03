@@ -8,7 +8,7 @@ chapters:
   - { id: COMB2, path: textbook/volumes/dream_thater/計算系/COMB/COMB2, status: completed, title: "順列・組合せ・多重集合" }
   - { id: COMB3, path: textbook/volumes/dream_thater/計算系/COMB/COMB3, status: completed, title: "包除原理と制約付き配置" }
   - { id: COMB4, path: textbook/volumes/dream_thater/計算系/COMB/COMB4, status: completed, title: "格子路・括弧列・Catalan 数" }
-  - { id: COMB5, path: textbook/volumes/dream_thater/計算系/COMB/COMB5, status: planned, title: "順列統計と集合分割" }
+  - { id: COMB5, path: textbook/volumes/dream_thater/計算系/COMB/COMB5, status: completed, title: "順列統計と集合分割" }
   - { id: COMB6, path: textbook/volumes/dream_thater/計算系/COMB/COMB6, status: planned, title: "有限差分と Newton 展開" }
   - { id: COMB7, path: textbook/volumes/dream_thater/計算系/COMB/COMB7, status: planned, title: "離散和分と二項反転" }
   - { id: COMB8, path: textbook/volumes/dream_thater/計算系/COMB/COMB8, status: planned, title: "線形差分方程式と初期値" }
