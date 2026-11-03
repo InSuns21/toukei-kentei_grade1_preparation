@@ -146,7 +146,7 @@ function collectChangedMarkdownFiles() {
 
   let output;
   try {
-    output = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', ...targetRoots], {
+    output = execFileSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base, 'HEAD', '--', ...targetRoots], {
       cwd: root,
       encoding: 'utf8',
       maxBuffer: 10 * 1024 * 1024,
@@ -157,8 +157,7 @@ function collectChangedMarkdownFiles() {
   }
 
   return output
-    .split('\n')
-    .map((value) => value.trim())
+    .split('\0')
     .filter((value) => value.endsWith('.md'))
     .filter((value) => !value.split('/').includes('review'))
     .map((value) => path.join(root, value));
