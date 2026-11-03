@@ -80,7 +80,14 @@ $$
 
 ## 4. 平坦Kähler計量と全ホロノミー
 
-前節の座標を使うと一定係数のHermitian行列 $H=(h_{j\bar k})$ を選べる。ここで $H^*=H$ かつ $v^*Hv>0$（$v\ne0$）を仮定する。これは「接ベクトルの長さの二乗が正」という条件を座標にしたもの。対応する実のRiemann計量とKähler形式を、それぞれ $g_H$、
+前節の正則座標の基底に関して、一定係数のHermitian行列 $H=(h_{j\bar k})$ を選ぶ。ここで $H^*=H$ かつ $v^*Hv>0$（$v\ne0$）を仮定する。これは[定数Hermite行列から実計量への対応](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)で使う正値性である。実接ベクトル $u$ の座標成分を $a^j=dz^j(u)$ とすれば、対応する実Riemann計量は
+
+$$
+g_H(u,v)=2\operatorname{Re}\sum_{j,k}h_{j\bar k}\,dz^j(u)\overline{dz^k(v)},\qquad
+g_H(u,u)=2(\bar a)^*H\bar a>0\quad(u\ne0).
+$$
+
+最後の不等式は、$u\ne0$ なら $a\ne0$ であり、$\bar a$ も非零だから従う。つまり $H$ は実計量の成分行列そのものではなく、正則座標でのHermite係数行列である。対応するKähler形式を
 
 $$
 \omega_H=i\sum_{j,k=1}^nh_{j\bar k}\,dz^j\wedge d\bar z^k
@@ -146,7 +153,22 @@ h^{p,q}(T)=\binom np\binom nq,
 \qquad b_k(T)=\binom{2n}{k}.
 $$
 
-**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ で $z=\sum_at^a\lambda_a$ と置くと、$t^a$ は $\mathbb R/\mathbb Z$ 値の実座標であり、計量は定数正定値実行列 $G$ で表される。非零FourierモードのLaplacian固有値は
+**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ に対して、被覆上の点を実座標 $t^a$ で表示する。
+
+$$
+z=\sum_{a=1}^{2n}t^a\lambda_a,\qquad
+G_{ab}=g_H(\lambda_a,\lambda_b).
+$$
+
+商では $t^a$ を $\mathbb R/\mathbb Z$ 値と見なす。座標ベクトル $\partial/\partial t^a$ は被覆上で $\lambda_a$ に対応するため、$G$ が実計量の成分行列になる。$\lambda_a$ は実基底で $g_H$ は正定値だから、$G$ も正定値である。
+
+[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)の証明のように、定数余標構における $\Delta_d$ は形式の各係数へ同じスカラー作用素
+
+$$
+-\sum_{a,b=1}^{2n}(G^{-1})^{ab}\frac{\partial^2}{\partial t^a\partial t^b}
+$$
+
+を作用させる。$m\in\mathbb Z^{2n}$ に対し $\partial_{t^a}e^{2\pi i m\cdot t}=2\pi i m_a e^{2\pi i m\cdot t}$ なので、非零FourierモードのLaplacian固有値は
 
 $$
 \Delta_d e^{2\pi i m\cdot t}
@@ -174,7 +196,7 @@ h^{1,0}=1&&h^{0,1}=1\\
 \end{matrix}
 $$
 
-であり、$b_0=1,b_1=2,b_2=1$。これは既習の[HOD1-07の楕円曲線計算](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)と同じ値だが、今回は格子商から始めて一般 $n$ へ拡張した。
+であり、$b_0=1,b_1=2,b_2=1$。これは既習の[楕円曲線の周期とHodgeダイヤモンドの計算](../../HOD/HOD1-09/index.md#prop-hod1-09-elliptic-periods)と同じ値だが、今回は格子商から始めて一般 $n$ へ拡張した。
 
 **複素2次元なら。** $n=2$ の中央の行は $h^{2,0}=1,h^{1,1}=4,h^{0,2}=1$ となり、$b_2=6$。特に $h^{1,0}=2$ である。標準束が自明でも中間の正則形式が消えるとは限らないという、後のCalabi–Yauの定義差に重要な例になる。
 
@@ -333,7 +355,23 @@ $$
 $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $z=x+iy$ とし、$g_{z\bar z}=e^{\varepsilon\cos(2\pi x)}$（$\varepsilon\in\mathbb R\setminus\{0\}$）を与える。Kähler性、Ricci形式の非零性、実係数第一Chern類との関係を調べよ。
 
 <!-- solution-start -->
-**詳細解答。** $g_{z\bar z}>0$ かつ周期1の滑らかな関数なので、格子商へ降りる。複素次元1ではKähler形式は実2形式で、その外微分は実3形式となり必ず零。従ってKähler計量である。$\partial\bar\partial f=(1/4)(f_{xx}+f_{yy})dz\wedge d\bar z$ を $f=\log g=\varepsilon\cos(2\pi x)$ に適用すると
+**詳細解答。** $g_{z\bar z}>0$ かつ周期1の滑らかな関数なので、格子商へ降りる。複素次元1ではKähler形式は実2形式で、その外微分は実3形式となり必ず零。従ってKähler計量である。
+
+関数に作用する微分を $\partial f=f_z\,dz$、$\bar\partial f=f_{\bar z}\,d\bar z$ と書く。このとき $x,y$ の偏微分との対応は
+
+$$
+\partial_z=\tfrac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)
+$$
+
+である。この二つを順に適用すると
+
+$$
+f_{z\bar z}=\tfrac14(f_{xx}+f_{yy}),\qquad
+\partial\bar\partial f=f_{z\bar z}\,dz\wedge d\bar z.
+$$
+
+これを $f=\log g=\varepsilon\cos(2\pi x)$ に適用すると
 
 $$
 f_{xx}=-4\pi^2\varepsilon\cos(2\pi x),\quad f_{yy}=0,
@@ -343,7 +381,14 @@ $$
 \rho=-i\partial\bar\partial f=i\pi^2\varepsilon\cos(2\pi x)\,dz\wedge d\bar z.
 $$
 
-$x=0$ で非零だから指定計量はRicci平坦ではない。しかし $\rho=-i\partial\bar\partial f$ は大域関数から作る完全な実2形式で、$[\rho]=0$。実係数第一Chern類は[Ricci–Chern対応](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から零であり、$K_E$ 自明という結果と矛盾しない。前節のRicci形式零は**定数係数の計量を選んだとき**の結論だった。
+$x=0$ で非零だから指定計量はRicci平坦ではない。しかし $f$ は格子周期的な大域実関数なので、実1形式 $\theta=(i/2)(\partial f-\bar\partial f)$ も大域的に定まる。$\partial^2f=\bar\partial^2f=0$、$\bar\partial\partial f=-\partial\bar\partial f$ を使うと
+
+$$
+d\theta=\frac i2(\bar\partial\partial f-\partial\bar\partial f)
+=-i\partial\bar\partial f=\rho.
+$$
+
+よって $\rho$ は完全な実2形式で $[\rho]=0$。実係数第一Chern類は[Ricci–Chern対応](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から零であり、$K_E$ 自明という結果と矛盾しない。前節のRicci形式零は**定数係数の計量を選んだとき**の結論だった。
 <!-- solution-end -->
 
 <a id="ex-cyg1-04-b04"></a>
