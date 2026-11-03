@@ -17,7 +17,7 @@ g=a(\eta)^2(-d\eta^2+d\boldsymbol x^2),\qquad
 \boldsymbol x\in\mathbb T_L^3,\quad a>0
 $$
 
-です。共形時間についての微分をプライムで表し、$a\in C^\infty(I,(0,\infty))$ とします。モードの空間波数は $\boldsymbol k=2\pi\boldsymbol n/L$、$k=|\boldsymbol k|$ です。実スカラー場を $\phi=a^{-1}L^{-3/2}\sum_{\boldsymbol k}\chi_{\boldsymbol k}e^{i\boldsymbol k\cdot\boldsymbol x}$ と展開すると、[FLRWの再スケーリング後のモード方程式](../QCURV4/index.md#prop-qcurv4-mode)から
+です。共形時間についての微分をプライムで表し、$a\in C^\infty(I,(0,\infty))$ とします。モードの空間波数は $\boldsymbol k=2\pi\boldsymbol n/L$、$k=|\boldsymbol k|$ です。実スカラー場の古典解を複素化し、$\phi=a^{-1}L^{-3/2}\sum_{\boldsymbol k}\chi_{\boldsymbol k}e^{i\boldsymbol k\cdot\boldsymbol x}$ と展開すると、[FLRWの再スケーリング後のモード方程式](../QCURV4/index.md#prop-qcurv4-mode)から
 
 $$
 \chi_k''+\Omega_k^2\chi_k=0,\qquad
