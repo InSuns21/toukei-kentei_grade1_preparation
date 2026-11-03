@@ -1,0 +1,48 @@
+chapter: QCURV4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV3
+  - CA4
+forward_references: []
+concepts:
+  - id: qcurv.flrw-conformal-background
+    name: 平坦FLRW背景と共形時間
+    kind: definition
+    introduction: formal
+    requires: [qcurv.curvature-coupled-kg]
+  - id: qcurv.flrw-rescaled-modes
+    name: FLRWの再スケーリング後のモード方程式
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.flrw-conformal-background, qcurv.kg-coordinate-form]
+  - id: qcurv.flrw-in-out-modes
+    name: FLRWのin/out正振動数モード
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes, qcurv.bogoliubov-coefficients]
+  - id: qcurv.flrw-wronskian-number
+    name: FLRWモードのWronskianと粒子数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.flrw-in-out-modes, qcurv.bogoliubov-particle-number, qcurv.curved-kg-pairing]
+  - id: qcurv.instantaneous-mode-amplitudes
+    name: 時間依存振動子の瞬間モード係数
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes, qcurv.flrw-wronskian-number]
+  - id: qcurv.smooth-flrw-particle-creation
+    name: 滑らかな弱い膨張の粒子生成
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.instantaneous-mode-amplitudes, qcurv.bogoliubov-particle-number, complex-analysis.residue-theorem-simple-curve]
+  - id: qcurv.conformal-vacuum
+    name: 共形真空
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes, qcurv.bogoliubov-coefficients]
+  - id: qcurv.conformal-no-creation
+    name: 質量零共形結合場の非生成
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.flrw-rescaled-modes, qcurv.flrw-in-out-modes, qcurv.conformal-vacuum]
