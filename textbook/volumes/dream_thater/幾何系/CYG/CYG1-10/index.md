@@ -25,7 +25,13 @@ $$
 
 ## 2. Ricci形式は、体積比の対数でどう変わるか
 
-異なる二つのKähler計量の比較では、係数行列の全成分を比べる代わりに、その行列式（局所体積密度）を比べるのが近道である。正の計量なので行列式は正であり、対数を取れる。$\omega_1^n/\omega_0^n$ は両者の最高次外積の比で、正則座標の選び方によらない正の滑らかな関数になる。
+異なる二つのKähler計量の比較では、係数行列の全成分を比べる代わりに、その行列式（局所体積密度）を比べるのが近道である。[Kähler形式と正定値Hermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)によれば、正則座標で $\omega=i g_{j\bar k}dz^j\wedge d\bar z^k$ と書いたとき、接ベクトル $v=v^j\partial_j$ に対する正値条件は
+
+$$
+-i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}v^j\overline{v^k}>0\qquad(v\ne0)
+$$
+
+に等しい。従って係数行列 $G=(g_{j\bar k})$ は正定値で、$\det G>0$ だから対数を取れる。$\omega_1^n/\omega_0^n$ は両者の最高次外積の比で、正則座標の選び方によらない正の滑らかな関数になる。
 
 <a id="prop-cyg1-10-ricci-volume-ratio"></a>
 
@@ -126,7 +132,13 @@ $$
 \left(\log\frac{\omega_\varphi^n}{\omega^n}+u\right)=0.
 $$
 
-括弧内は大域的な滑らかな実関数 $h$ であり、$i\partial\bar\partial h=0$ ならKähler計量でのLaplacianは $\Delta_\omega h=2g^{j\bar k}\partial_j\partial_{\bar k}h=0$ となる。コンパクト・連結・境界なしの $X$ では調和実関数は定数だから、$h=C$。ゆえに
+括弧内は大域的な滑らかな実関数 $h$ である。$G^{-1}=(g^{j\bar k})$ は計量係数行列の逆行列、$\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ は各複素座標に関する偏微分を表す。$i\partial\bar\partial h=0$ はすべての $\partial_j\partial_{\bar k}h$ が零ということなので、計量による複素跡も
+
+$$
+2\sum_{j,k}g^{j\bar k}\partial_j\partial_{\bar k}h=0
+$$
+
+となる。これは実Laplacianが零という条件である（Hodge Laplacianを非負に取る流儀では全体に負号が付くが、零条件は同じ）。コンパクト・連結・境界なしの $X$ では調和実関数は定数だから、$h=C$。ゆえに
 
 $$
 \log(\omega_\varphi^n/\omega^n)=C-u,\qquad
@@ -183,7 +195,7 @@ $$
 \rho(\omega_{\alpha,\eta})=\eta
 $$
 
-> を満たす。複素構造 $X$ は固定される。潜在関数 $\varphi$ の一意性は加法定数を除く意味である。
+> を満たす。複素構造 $X$ は固定される。ポテンシャル関数 $\varphi$ の一意性は加法定数を除く意味である。
 <!-- formal-statement-end -->
 
 この定理の存在部分は証明せず、外部入力であると明示して用いる。一意性は次節で既習結果から導く。定理が言っている量化の順序は
@@ -253,7 +265,14 @@ $$
 =-\int_Xi\partial\psi\wedge\bar\partial\psi\wedge S.
 $$
 
-各点で $\omega_1,\omega_2$ は正定値だから、各 $\omega_2^k\wedge\omega_1^{n-1-k}$ と $i\partial\psi\wedge\bar\partial\psi$ の積は非負の体積密度になる。特に $\omega_1$ に関する正規直交座標で $\partial\psi=\sum_j\psi_jdz^j$ と書けば、$\omega_1^{n-1}$ の項は
+ここで積の符号を確かめる。各点で $\omega_1$ に関して正規直交となり、同時に $\omega_2$ が対角となる正則座標の一次変換を選ぶと、その点では
+
+$$
+\omega_1=i\sum_{j=1}^n dz^j\wedge d\bar z^j,\qquad
+\omega_2=i\sum_{j=1}^n\lambda_j\,dz^j\wedge d\bar z^j,\quad\lambda_j>0.
+$$
+
+この枠で $\partial\psi=\sum_j\psi_jdz^j$ とすると、$i\partial\psi\wedge\bar\partial\psi\wedge\omega_2^k\wedge\omega_1^{n-1-k}$ の係数には $|\psi_j|^2$ と、$j$ 以外の添字から選んだ $k$ 個の $\lambda_\ell$ の積が現れる。すべて非負なので各混合外積の被積分密度は非負である。特に $k=0$、すなわち $\omega_1^{n-1}$ の項は
 
 $$
 i\partial\psi\wedge\bar\partial\psi\wedge\omega_1^{n-1}
@@ -313,7 +332,14 @@ $$
 \omega_\varepsilon=f(x)\,i\,dz\wedge d\bar z
 $$
 
-を考える。$f>0$ であり、実二次元では任意の2形式は閉じるからKähler形式である。$\varphi(x)=-\varepsilon\cos(2\pi x)/\pi^2$ と置けば、$\partial_z\partial_{\bar z}=\tfrac14(\partial_x^2+\partial_y^2)$ なので
+を考える。$f>0$ であり、実二次元では任意の2形式は閉じるからKähler形式である。ここで複素偏微分と実偏微分の対応を明示しておく。$\partial_z=\tfrac12(\partial_x-i\partial_y)$、$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$ はそれぞれ $z,\bar z$ を独立な座標として微分する演算子であり、滑らかな関数に作用させると
+
+$$
+\partial_z\partial_{\bar z}=\tfrac14(\partial_x^2+\partial_y^2),\qquad
+\partial\bar\partial\varphi=(\partial_z\partial_{\bar z}\varphi)\,dz\wedge d\bar z.
+$$
+
+$\varphi(x)=-\varepsilon\cos(2\pi x)/\pi^2$ と置けば、$\partial_x^2\varphi=4\varepsilon\cos(2\pi x)$、$\partial_y\varphi=0$ なので
 
 $$
 i\partial\bar\partial\varphi
@@ -332,7 +358,7 @@ $$
 
 ### 仮定が破れると何が起きるか
 
-- **Chern類を間違える：** $\mathbb{CP}^1$ のFubini–Study形式を $\omega_{\mathrm{FS}}=i\partial\bar\partial\log(1+|z|^2)$ と正規化すると、$\rho(\omega_{\mathrm{FS}})=2\omega_{\mathrm{FS}}$。$c_1(\mathbb{CP}^1)_{\mathbb R}\ne0$ なので $\eta=0$ は許されない。存在定理が失敗したのではなく、入力条件を満たしていない。
+- **Chern類を間違える：** $\mathbb{CP}^1$ のFubini–Study形式はアフィン座標 $z$ 上では局所的に $\omega_{\mathrm{FS}}=i\partial\bar\partial\log(1+|z|^2)$ と表せ、$\rho(\omega_{\mathrm{FS}})=2\omega_{\mathrm{FS}}$。対数の式は大域的なポテンシャル関数ではなく、各チャートでの表示である。$c_1(\mathbb{CP}^1)_{\mathbb R}\ne0$ なので $\eta=0$ は許されない。存在定理が失敗したのではなく、入力条件を満たしていない。
 - **Kähler類を固定しない：** 平坦トーラスの $\omega_0$ と $2\omega_0$ は同じRicci形式だが違う類に属する。一意性の結論を大域的に拡張してはいけない。
 - **コンパクト性を外す：** $\mathbb C$ 上の $\omega_0=i\,dz\wedge d\bar z$ と $2\omega_0$ は共にRicci平坦で、$H^2_{\mathrm{dR}}(\mathbb C;\mathbb R)=0$ だから同じ類にある。一意性の証明で使ったコンパクトな積分と最大値原理が失われ、実際に一意性は偽になる。
 - **Kähler性を外す：** 大域 $\partial\bar\partial$ 補題と正値性の議論をそのまま使えなくなる。非Kähler空間にこの定理を無条件に拡張してはいけない。
@@ -376,7 +402,7 @@ $$
 #### CYG1-10-A03 許されないRicci形式を見抜く
 - Level: A
 
-$X=\mathbb{CP}^1$ 上のFubini–Study形式 $\omega_{\mathrm{FS}}=i\partial\bar\partial\log(1+|z|^2)$ を考える。$\rho(\omega_{\mathrm{FS}})=2\omega_{\mathrm{FS}}$ を用い、目標 $\eta=0$ が[YauのRicci形式指定定理](#thm-cyg1-10-yau)の仮定を満たすか判定せよ。
+$X=\mathbb{CP}^1$ 上のFubini–Study形式を考える。アフィン座標 $z$ 上では $\omega_{\mathrm{FS}}=i\partial\bar\partial\log(1+|z|^2)$ と局所表示される。$\rho(\omega_{\mathrm{FS}})=2\omega_{\mathrm{FS}}$ を用い、目標 $\eta=0$ が[YauのRicci形式指定定理](#thm-cyg1-10-yau)の仮定を満たすか判定せよ。
 
 <!-- solution-start -->
 **詳細解答。** [Ricci形式のChern類表示](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)により $2\pi c_1(X)_{\mathbb R}=2[\omega_{\mathrm{FS}}]$。コンパクトKähler類は[非零](../../KAH/KAH1-13/index.md#thm-kah1-13-compact-nonzero)なので $2[\omega_{\mathrm{FS}}]\ne0$。一方 $[\eta]=[0]=0$。ゆえに $[\eta]\ne2\pi c_1(X)_{\mathbb R}$ となり、定理の入力条件を満たさない。
