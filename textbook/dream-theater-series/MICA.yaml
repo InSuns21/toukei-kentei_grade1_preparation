@@ -23,4 +23,4 @@ chapters:
   - { id: MICA12, path: textbook/volumes/dream_thater/解析系/MICA/MICA12, status: completed, title: "局所Hadamard parametrix" }
   - { id: MICA13, path: textbook/volumes/dream_thater/解析系/MICA/MICA13, status: completed, title: "Radzikowskiの波面集合条件" }
   - { id: MICA14, path: textbook/volumes/dream_thater/解析系/MICA/MICA14, status: completed, title: "対角制限とHadamard subtraction" }
-  - { id: MICA15, path: textbook/volumes/dream_thater/解析系/MICA/MICA15, status: planned, title: "応力テンソルと局所共変性" }
+  - { id: MICA15, path: textbook/volumes/dream_thater/解析系/MICA/MICA15, status: completed, title: "応力テンソルと局所共変性" }
