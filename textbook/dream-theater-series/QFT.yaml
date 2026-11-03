@@ -167,3 +167,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT40
     status: completed
     title: "標準模型のカイラルゲージ異常・三角係数と相殺条件"
+  - id: QFT41
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT41
+    status: completed
+    title: "QCDの色表現・クォークとグルーオンの頂点・走る強結合"
