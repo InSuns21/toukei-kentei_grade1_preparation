@@ -394,7 +394,36 @@ e^{-2i\omega Tx}dx\\
 \end{aligned}
 $$
 
-最後の等号を確かめるには、$q>0$ に対して $J(q)=\int_{\mathbb R}\operatorname{sech}^2x\,e^{-iqx}dx$ と置きます。[CA4の留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)を $\operatorname{sech}^2z\,e^{-iqz}$ と、高さ $i\pi$ の長方形へ適用します。実部 $\pm R$ の辺を持つとき、$R\to\infty$ で垂直辺の積分は $\operatorname{sech}^2(\pm R+iy)=O(e^{-2R})$ により消えます。上辺は $-e^{q\pi}J(q)$（向きが反転）、内側の二位の極 $z=i\pi/2$ の留数は $iqe^{q\pi/2}$ です。後者は $\cosh z=i(z-i\pi/2)+O((z-i\pi/2)^3)$ から $\operatorname{sech}^2z=-(z-i\pi/2)^{-2}+O(1)$ を代入し、指数の一次項を読むと得られます。従って $(1-e^{q\pi})J(q)=2\pi i(iq e^{q\pi/2})$ となり、$J(q)=\pi q/\sinh(\pi q/2)$ です。$q=2\omega T$ を代入すれば上式です。
+最後の等号は[CA4の留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)で検算できます。$q>0$ とし、実積分と複素被積分関数を
+
+$$
+J(q)=\int_{-\infty}^{\infty}\operatorname{sech}^2x\,e^{-iqx}dx,
+\qquad F(z)=\operatorname{sech}^2z\,e^{-iqz}
+$$
+
+と置きます。$F$ を高さ $i\pi$、実部が $-R$ から $R$ の長方形に沿って積分します。垂直辺では、$0\le y\le\pi$ に一様に
+
+$$
+F(\pm R+iy)=O(e^{-2R})\qquad(R\to\infty)
+$$
+
+となるので、その辺の寄与は消えます。上辺は向きが反対で、$F(x+i\pi)=e^{q\pi}F(x)$ ですから、上下辺の和は $(1-e^{q\pi})J(q)$ です。
+
+長方形内の唯一の極は $z_0=i\pi/2$ で二位です。$h=z-z_0$ とすると
+
+$$
+\cosh(z_0+h)=ih+O(h^3),\qquad
+\operatorname{sech}^2(z_0+h)=-h^{-2}+O(1).
+$$
+
+ここへ $e^{-iq(z_0+h)}=e^{q\pi/2}(1-iqh+O(h^2))$ を掛けると、$h^{-1}$ の係数（留数）は $iqe^{q\pi/2}$。従って留数定理から
+
+$$
+(1-e^{q\pi})J(q)=2\pi i(iq e^{q\pi/2}),
+\qquad J(q)=\frac{\pi q}{\sinh(\pi q/2)}.
+$$
+
+最後に $q=2\omega T$ を代入します。
 
 よって $B_k=\varepsilon\pi\mu^2T/[4\omega\sinh(\pi\omega T)]+O(\varepsilon^2)$（漸近基底の位相を除く）。最後に[粒子数命題](#prop-qcurv4-wronskian-number)で $|B_k|^2$ を取ると、交差項は $O(\varepsilon^3)$ であり結論を得ます。
 <!-- proof-end -->
@@ -439,7 +468,17 @@ $$
 全時刻で $\chi_k$ の正振動数は同じ $k$ です。さらに背景が[本章のin/out条件](#def-qcurv4-in-out)を満たす場合、共形時間に基づく両基底は同じ関数を使えます。[Bogoliubov展開](../QCURV3/index.md#def-qcurv3-bogoliubov)では $A_k=1$、$B_k=0$ なので[粒子数命題](#prop-qcurv4-wronskian-number)から $\langle N_{\boldsymbol k}^{\rm out}\rangle_{\rm in}=0$ です。
 <!-- proof-end -->
 
-注意点は三つあります。第一に、$k=0$ では $\chi_0''=0$ となり、$1/\sqrt{2k}$ は定義できず、零モードを別に量子化する必要があります。第二に、**共形真空を選んだ場合**の主張であって、別の正振動数分解に対する粒子数まで零とするものではありません。第三に、$\xi=1/6$ でも $m>0$ なら $m^2a^2$ が残り、第4節のように生成が起こり得ます。逆に $m=0$ でも $\xi\ne1/6$ なら $(6\xi-1)a''/a$ が一般には残ります。「曲率が非零なら必ず生成」という推論はこの例で破れ、その推論が前提にした実効振動数の変化そのものが消えるのが理由です。
+注意点は三つあります。
+
+1. **零モード**：$k=0$ では $\chi_0''=0$ となり、正振動数規格化の分母 $\sqrt{2k}$ が零です。このモードは別に量子化する必要があります。
+2. **真空の選択**：共形真空についての主張です。別の正振動数分解に対する粒子数まで零とするものではありません。
+3. **質量と曲率結合**：共形結合 $\xi=1/6$ でも $m>0$ なら、実効振動数に $m^2a^2$ が残り、第4節のような生成が起こり得ます。逆に $m=0$ でも $\xi\ne1/6$ なら、曲率の寄与は一般に残ります。
+
+$$
+\Omega_k^2=k^2+(6\xi-1)\frac{a''}{a}.
+$$
+
+「曲率が非零なら必ず生成」という推論は、この共形結合の例で破れます。実効振動数の時間変化という、正負混合を引き起こす仕組み自体が消えるためです。
 
 ## 6. 観測量と近似の射程
 
