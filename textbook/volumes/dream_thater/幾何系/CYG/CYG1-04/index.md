@@ -82,10 +82,10 @@ $$
 
 前節の正則座標の基底に関して、一定係数のHermitian行列 $H=(h_{j\bar k})$ を選ぶ。ここで $H^*=H$ かつ $v^*Hv>0$（$v\ne0$）を仮定する。これは[定数Hermite行列から実計量への対応](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)で使う正値性である。実接ベクトル $u$ の座標成分を $a^j=dz^j(u)$ とすれば、対応する実Riemann計量は
 
-$
+$$
 g_H(u,v)=2\operatorname{Re}\sum_{j,k}h_{j\bar k}\,dz^j(u)\overline{dz^k(v)},\qquad
 g_H(u,u)=2(\bar a)^*H\bar a>0\quad(u\ne0).
-$
+$$
 
 最後の不等式は、$u\ne0$ なら $a\ne0$ であり、$\bar a$ も非零だから従う。つまり $H$ は実計量の成分行列そのものではなく、正則座標でのHermite係数行列である。対応するKähler形式を
 
@@ -155,9 +155,9 @@ $$
 
 **なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ で $z=\sum_at^a\lambda_a$ と置くと、$t^a$ は $\mathbb R/\mathbb Z$ 値の実座標である。座標ベクトル $\partial/\partial t^a$ は被覆上で $\lambda_a$ に対応するから、実計量の成分行列は $G_{ab}=g_H(\lambda_a,\lambda_b)$ であり、$\lambda_a$ が実基底なので $G$ は正定値である。[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)の証明のように、定数余標構における $\Delta_d$ は形式の各係数へ同じスカラー作用素
 
-$
+$$
 -\sum_{a,b=1}^{2n}(G^{-1})^{ab}\frac{\partial^2}{\partial t^a\partial t^b}
-$
+$$
 
 を作用させる。$m\in\mathbb Z^{2n}$ に対し $\partial_{t^a}e^{2\pi i m\cdot t}=2\pi i m_a e^{2\pi i m\cdot t}$ なので、非零FourierモードのLaplacian固有値は
 
@@ -358,10 +358,10 @@ $$
 
 $x=0$ で非零だから指定計量はRicci平坦ではない。しかし $f$ は格子周期的な大域実関数なので、実1形式 $\theta=(i/2)(\partial f-\bar\partial f)$ も大域的に定まる。$\partial^2f=\bar\partial^2f=0$、$\bar\partial\partial f=-\partial\bar\partial f$ を使うと
 
-$
+$$
 d\theta=\frac i2(\bar\partial\partial f-\partial\bar\partial f)
 =-i\partial\bar\partial f=\rho.
-$
+$$
 
 よって $\rho$ は完全な実2形式で $[\rho]=0$。実係数第一Chern類は[Ricci–Chern対応](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から零であり、$K_E$ 自明という結果と矛盾しない。前節のRicci形式零は**定数係数の計量を選んだとき**の結論だった。
 <!-- solution-end -->
