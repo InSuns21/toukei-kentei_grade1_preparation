@@ -73,6 +73,19 @@ $$
 
 なので、$v_j=\delta Z_j/Z_i$ がこの係数に対応する。第一写像の像では $v_j=ax_j$、$v_i=a$ だから全ての係数が零。逆に第二写像の核では $v_j=x_jv_i$（全ての $j\ne i$）となり、$v_i$ 倍の $(x_0,\ldots,x_m)$ に限られる。さらに任意の接ベクトル $\sum_{j\ne i}b_j\partial_{x_j}$ に対し、$v_i=0$、$v_j=b_j$ と選べば像となる。各チャートで核と像、全射性を確かめたので列は完全である。
 
+この局所表示がチャートの重なりで一致することも確認する。$U_i\cap U_\ell$ では $x_\ell\ne0$ であり、新しい座標を $y_j=Z_j/Z_\ell=x_j/x_\ell$ と置く。$\mathcal O(1)$ の局所枠が $Z_i$ から $Z_\ell$ に変わるので、中央の束の係数は $v_j^{(\ell)}=v_j/x_\ell$ に変わる。一方、商の微分に $\delta x_j=v_j-x_jv_i$（$x_i=1$ なら $\delta x_i=0$）を代入すると、$j\ne\ell$ に対して
+
+$$
+\begin{aligned}
+\delta y_j
+&=\frac{x_\ell\delta x_j-x_j\delta x_\ell}{x_\ell^2}\\
+&=\frac{x_\ell(v_j-x_jv_i)-x_j(v_\ell-x_\ell v_i)}{x_\ell^2}\\
+&=v_j^{(\ell)}-y_jv_\ell^{(\ell)}.
+\end{aligned}
+$$
+
+従って第二写像は新しい局所枠でも同じ形を持つ。第一写像も $a(x_j/x_\ell)=ay_j$ へ移るので、両写像は貼り合わさって束の短完全列を与える。
+
 自明線束の全Chern類は $c(\mathcal O)=1$、線束 $\mathcal O(1)$ の全Chern類は $1+H$ である。ここで[全Chern類のWhitney積公式](../CYG1-05/index.md#thm-cyg1-05-whitney)を使う。
 
 $$
@@ -328,7 +341,7 @@ $$
 \frac{\partial F}{\partial Z_j}=5Z_j^4\quad(0\le j\le4).
 $$
 
-これが全て零なら $Z_j=0$ が全 $j$ で成り立つが、原点は射影空間の点ではない。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により $X$ は滑らか。射影空間の閉部分集合なのでコンパクトである。
+これが全て零なら $Z_j=0$ が全 $j$ で成り立つが、原点は射影空間の点ではない。また $F$ に平方因子 $G^2$ があれば、$G=0$ 上では全偏導関数が零になるはずなので、$F$ に平方因子はない。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の仮定がそろい、$X$ は滑らか。射影空間の閉部分集合なのでコンパクトである。
 
 $\dim_{\mathbb C}X=4-1=3$ だから $H^4=0$。[全Chern類の式](#prop-cyg1-07-total-chern)を用い、分子と分母の逆元をそれぞれ三次まで書くと
 
@@ -339,7 +352,7 @@ $$
 \end{aligned}
 $$
 
-積の各係数は
+ここで $[H^j]$ はこの展開式の $H^j$ の係数を取り出す記号とし、コホモロジー類の括弧ではない。積の各係数は
 
 $$
 \begin{aligned}
@@ -349,7 +362,7 @@ $$
 \end{aligned}
 $$
 
-ここで $[H^j]$ はこの式における $H^j$ の**係数を取り出す記法**であり、コホモロジー類の括弧記号ではない。よって $c(TX)=1+10H^2-40H^3$。
+よって $c(TX)=1+10H^2-40H^3$。
 
 最後に $X$ が滑らか・コンパクトな複素三次元であることを確認済みなので[トップChern類とEuler標数](#thm-cyg1-07-gauss-bonnet)を適用できる。$\int_XH^3=5$ を代入し
 
@@ -535,7 +548,11 @@ $$
 =(4Z_0^3,4Z_1^3,4Z_2^3,0)
 $$
 
-であり、$p$ で全て零になる。従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)により $p$ は特異点。局所法方向写像 $dF:T\mathbb P^3|_Y\to\mathcal O_Y(4)$ は $p$ のファイバーで零写像となり、全射でない。したがって滑らかな階数2の $TY$ を核とする[法束完全列](#prop-cyg1-07-normal)が成立しない。次数が4というだけでは[全Chern類公式](#prop-cyg1-07-total-chern)や滑らかな複素曲面に対する[トップChern類定理](#thm-cyg1-07-gauss-bonnet)の仮定を満たさない。
+であり、$p$ で全て零になる。もし $F$ が平方因子 $G^2$ を持てば、積の微分から $G$ は全偏導関数の共通因子になる。しかし、非零な三つの偏導関数 $4Z_0^3,4Z_1^3,4Z_2^3$ の最大公約因子は $1$ なので、$F$ に平方因子はない。
+
+従って[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)の被約性の仮定を満たし、$p$ は特異点である。局所法方向写像 $dF:T\mathbb P^3|_Y\to\mathcal O_Y(4)$ は $p$ のファイバーで零写像となり、全射でない。
+
+したがって滑らかな階数2の $TY$ を核とする[法束完全列](#prop-cyg1-07-normal)が成立しない。次数が4というだけでは[全Chern類公式](#prop-cyg1-07-total-chern)や滑らかな複素曲面に対する[トップChern類定理](#thm-cyg1-07-gauss-bonnet)の仮定を満たさない。
 <!-- solution-end -->
 
 <a id="ex-cyg1-07-c01"></a>
@@ -552,7 +569,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-1. $\partial F/\partial Z_j=5Z_j^4$ が全て零なら全 $Z_j=0$ となり、射影点ではない。[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で滑らか。超曲面なので複素次元 $4-1=3$、射影空間内の閉集合なのでコンパクトである。
+1. $\partial F/\partial Z_j=5Z_j^4$ が全て零なら全 $Z_j=0$ となり、射影点ではない。平方因子があればその零点で全偏導関数が零になるので、平方因子もない。[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)で滑らか。超曲面なので複素次元 $4-1=3$、射影空間内の閉集合なのでコンパクトである。
 2. $H^4=0$ として
 
 $$
@@ -567,7 +584,13 @@ $$
 \chi=5+\frac{(1-5)^5-1}{5}=5+\frac{-1024-1}{5}=-200.
 $$
 
-4. [三次元Hodge数の関係](../CYG1-06/index.md#prop-cyg1-06-threefold-skeleton)は $\chi=2(c+2b-2a-e)$ であり、このEuler数だけでは $a,b,c,e$ は決定しない。$h^{2,1}=101$ には次章で弱Lefschetzなどから $a=b=0,c=1$ を別に示す必要がある。
+4. [三次元Hodge数の関係](../CYG1-06/index.md#prop-cyg1-06-threefold-skeleton)を使う前に、その仮定を照合する。
+
+   滑らかな射影多様体なので[射影多様体のKähler性](../../KAH/KAH1-14/index.md#thm-kah1-14-projective-integral)が使える。また[標準束の次数判定](../CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)では $d=m+1=5$ だから $K_X\simeq\mathcal O_X$。
+
+   さらに正次数超曲面 $X$ は連結である。もし $F=GH$ と非自明に分解すれば、射影空間で正次数の二つの超曲面 $G=0,H=0$ は交わり、その交点では $dF=G\,dH+H\,dG=0$ となり、滑らかさに反する。
+
+   よって同命題が適用でき、$\chi=2(c+2b-2a-e)$。ただし、このEuler数だけでは $a,b,c,e$ は決定しない。$h^{2,1}=101$ には次章で弱Lefschetzなどから $a=b=0,c=1$ を別に示す必要がある。
 <!-- solution-end -->
 
 <a id="ex-cyg1-07-c02"></a>
@@ -593,11 +616,11 @@ $$
 K_{X_d}\simeq\mathcal O_{X_d}(d-5)
 $$
 
-となる。五次では自明束を得るが、四次では $K_{X_4}\simeq\mathcal O_{X_4}(-1)$。後者の第一Chern類は $-H\ne0$（$H$ のKähler体積積分が正）なので正則自明ではない。
+となる。五次では自明束を得るが、四次では $K_{X_4}\simeq\mathcal O_{X_4}(-1)$。後者の第一Chern類は $-H$ であり、$\int_{X_4}H^3=4\ne0$ なので $H\ne0$、従って正則自明ではない。
 
 この二つの超曲面のEuler標数は異なるため、これだけでは「同じEuler標数なら標準束も同じ」という命題を否定できない。別の反例として、楕円曲線 $E$ に対する二つの積 $E\times E$ と $E\times\mathbb P^1$ を比べる。$E$ は $\chi(E)=0$、$K_E$ は自明なので、$E\times E$ の標準束も自明である。
 
-一方、$E\times\mathbb P^1$ の接束を二つの因子の接束の引戻しに分け、$\{e\}\times\mathbb P^1$ に制限する。[射影直線の第一Chern類](#prop-cyg1-07-euler)を用いると
+一方、$E\times\mathbb P^1$ の二つの射影を $\pi_1,\pi_2$ とすると、積の局所座標の接方向から $T(E\times\mathbb P^1)\simeq\pi_1^*TE\oplus\pi_2^*T\mathbb P^1$ である。任意の点 $e\in E$ に対し、$\{e\}\times\mathbb P^1$ に制限した第一項は固定ベクトル空間 $T_eE$ をファイバーに持つ自明線束なので、その第一Chern類は零。[Whitney積公式](../CYG1-05/index.md#thm-cyg1-05-whitney)と[射影直線の第一Chern類](#prop-cyg1-07-euler)を用いると
 
 $$
 c_1(T(E\times\mathbb P^1))|_{\{e\}\times\mathbb P^1}=2H\ne0.
