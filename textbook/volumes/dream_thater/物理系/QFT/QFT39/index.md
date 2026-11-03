@@ -46,7 +46,16 @@ $$
 <!-- definition-example-start: def-qft39-axial-rotation -->
 ### 例：左右に逆の位相が掛かることを確かめる
 
-**定義の確認**：Weyl表示で $\gamma^5=\operatorname{diag}(-I_2,I_2)$ とすると、$e^{i\alpha\gamma^5}=\operatorname{diag}(e^{-i\alpha}I_2,e^{i\alpha}I_2)$ です。$\psi=(\chi_L,\chi_R)^T$ を直接掛ければ左右が逆位相になることが分かります。また $\gamma^0\gamma^5=-\gamma^5\gamma^0$ と $\gamma^5$ のHermitian性から、変換後の随伴は $\bar\psi e^{i\alpha\gamma^5}$ です。これが $\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
+**定義の確認**：Weyl表示で $\gamma^5=\operatorname{diag}(-I_2,I_2)$ を使うと、指数行列は固有空間ごとに計算でき、
+
+$$
+e^{i\alpha\gamma^5}
+=\operatorname{diag}(e^{-i\alpha}I_2,e^{i\alpha}I_2),\qquad
+e^{i\alpha\gamma^5}\psi
+=\begin{pmatrix}e^{-i\alpha}\chi_L\\e^{i\alpha}\chi_R\end{pmatrix}.
+$$
+
+したがって左右には逆の位相が掛かります。また $\gamma^0\gamma^5=-\gamma^5\gamma^0$ と $\gamma^5$ のHermitian性から、変換後の随伴は $\bar\psi e^{i\alpha\gamma^5}$ です。$\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
 <!-- definition-example-end -->
 
 質量項は $\bar\psi_L\psi_R+\bar\psi_R\psi_L$ を結びます。したがって $m>0$ なら軸性回転は明示的に破れます。この効果と、$m=0$ でも残る量子異常は別物です。
@@ -97,7 +106,13 @@ $$
 
 ## 2. Grassmann測度はどう変換するか
 
-[QFT19の有限次元Berezin積分](../QFT19/index.md#def-qft19-berezin)で、独立変数 $\theta_1,\ldots,\theta_N$ を $\theta'_i=U_{ij}\theta_j$ と変換すると、係数抽出を保つ測度は $d\theta'_N\cdots d\theta'_1=(\det U)^{-1}d\theta_N\cdots d\theta_1$ です。通常のLebesgue積分と**逆**になります。例えば一変数で $\theta'=u\theta$ とすると $\int d\theta'\,\theta'=1$ であるため、$d\theta'=u^{-1}d\theta$ が必要です。
+[QFT19の有限次元Berezin積分](../QFT19/index.md#def-qft19-berezin)では、独立変数 $\theta_1,\ldots,\theta_N$ を $\theta'_i=U_{ij}\theta_j$ と変換すると、係数抽出を保つ測度が
+
+$$
+d\theta'_N\cdots d\theta'_1=(\det U)^{-1}d\theta_N\cdots d\theta_1
+$$
+
+になることを使います。通常のLebesgue積分とは**逆**です。実際、一変数の $\theta'=u\theta$（$u\ne0$）について $\int d\theta'\,\theta'=1$ を保つには $d\theta'=u^{-1}d\theta$ が必要です。
 
 場の測度は無限個のモードを含むので、いきなり「行列式が1」とはできません。まず $N$ 個の直交規格化モード $\phi_n(x)$ で $\psi=\sum_n a_n\phi_n$、$\bar\psi=\sum_n\bar b_n\phi_n^\dagger$ と展開し、$a_n,\bar b_n$ を独立Grassmann変数と見ます。
 
@@ -138,7 +153,21 @@ $$
 <!-- definition-example-start: def-qft39-regulated-jacobian -->
 ### 例：二モードで符号と二倍を確認する
 
-**定義の確認**：正規直交な二つの $\Gamma_5$ 固有モード（固有値 $+1,-1$）を選べば、その係数空間で $\Gamma_5=\operatorname{diag}(1,-1)$ です。定数 $\alpha$ に対し上の射影積分は $U=\operatorname{diag}(e^{i\alpha},e^{-i\alpha})$、$\det U=1$ を与えます。$a$ と $\bar b$ の測度はそれぞれ $(\det U)^{-1}$ を受けるので全体で $(\det U)^{-2}=1$。片方の固有モードだけを残した切断なら $\det U=e^{i\alpha}$、測度は $e^{-2i\alpha}$ となります。**有限切断の選び方**が重要であり、ゲージ共変な $K$ の固有モードで切断することが次の問題です。
+**定義の確認**：正規直交な二つの $\Gamma_5$ 固有モード（固有値 $+1,-1$）を選ぶと、係数空間で $\Gamma_5=\operatorname{diag}(1,-1)$ です。定数 $\alpha$ に対する射影行列とJacobianは
+
+$$
+U=\operatorname{diag}(e^{i\alpha},e^{-i\alpha}),\qquad
+\det U=e^{i\alpha}e^{-i\alpha}=1,\qquad
+J=(\det U)^{-2}=1.
+$$
+
+独立な $a$ と $\bar b$ の各測度が $1/\det U$ を受けるため、二乗しています。一方、固有値 $+1$ の一モードだけに切断すると $U=(e^{i\alpha})$ であり、
+
+$$
+\det U=e^{i\alpha},\qquad J=e^{-2i\alpha}
+$$
+
+と変わります。**有限切断の選び方**が重要であり、ゲージ共変な $K$ の固有モードで切断することが次の問題です。
 <!-- definition-example-end -->
 
 <a id="prop-qft39-jacobian-modes"></a>
@@ -202,7 +231,7 @@ $$
 
 ### 証明の見取り図
 
-$K$ を二乗すると、通常の共変Laplace作用素のほかに、$F_{\mu\nu}$ と二つの $\gamma$ 行列の積が現れます。$\Gamma_5$ の跡は**四つの $\gamma$** を含まなければ零です。そこでこの曲率項を二回取ると初めて寄与し、運動量Gaussian積分が $1/(16\pi^2)$ を生みます。
+$\mathcal D_E$ を二乗すると、通常の共変Laplace作用素のほかに、$F_{\mu\nu}$ と二つの $\gamma_E$ 行列の積が現れます。$\Gamma_5$ の跡は**四つの $\gamma_E$** を含まなければ零です。そこでこの曲率項を二回取ると初めて寄与し、運動量Gaussian積分が $1/(16\pi^2)$ を生みます。
 
 <!-- proof-start -->
 ### 証明
@@ -219,7 +248,7 @@ K&=-\nabla^2-\frac{iq}{4}[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}.
 \end{aligned}
 $$
 
-計算点の近くで共変熱核を高運動量展開します。$\Gamma_5$ と $I,\gamma^\mu\gamma^\nu$ の跡は零なので、曲率項を二回選んだ次数だけが $M^0$ で残ります（共変微分の係数、曲率の導関数の項はこの次数の四つのClifford行列を作らず、次次数以降は $M\to\infty$ で消えます）。この項は
+計算点の近くで共変熱核を高運動量展開します。$\Gamma_5$ と $I,\gamma_E^\mu\gamma_E^\nu$ の跡は零なので、曲率項を二回選んだ次数だけが $M^0$ で残ります（共変微分の係数、曲率の導関数の項はこの次数の四つのClifford行列を作らず、次次数以降は $M\to\infty$ で消えます）。この項は
 
 $$
 \frac12\left(\frac{iq}{4M^2}\right)^2
@@ -321,7 +350,7 @@ $$
 
 **第二の区別：軸性対称性とゲージ対称性。** ベクトル回転では $\psi\mapsto e^{i\beta}\psi$、$\bar\psi\mapsto\bar\psi e^{-i\beta}$ です。二つのBerezin Jacobianは互いに逆で相殺し、背景ゲージ不変な正則化の下でベクトルWard恒等式を守れます。**軸性の大域的対称性の異常を、直ちにゲージ理論の不整合（ゲージ異常）と呼ばない**ことが大切です。標準模型のカイラルゲージ表現の異常相殺は次の別問題です。
 
-**第三の区別：Euclid式と実時間式。** Euclidの $\Gamma_5$、$\varepsilon^{1234}=+1$、$\nabla=\partial+iqA$ で得た負符号を明記しました。Minkowskiで $F\widetilde F$ や $\boldsymbol E\cdot\boldsymbol B$ に移すには、$A_4$、$\gamma_E$、$\varepsilon^{0123}$ の解析接続規約を一式揃える必要があります。係数の絶対値と、$\psi,\bar\psi$ による二倍はその選択で変わりません。
+**第三の区別：Euclid式と実時間式。** Euclidの $\Gamma_5$、$\varepsilon^{1234}=+1$、$\nabla_\mu=\partial_\mu+iqA_\mu$ で得た負符号を明記しました。Minkowskiで $F\widetilde F$ や $\boldsymbol E\cdot\boldsymbol B$ に移すには、$A_4$、$\gamma_E$、$\varepsilon^{0123}$ の解析接続規約を一式揃える必要があります。係数の絶対値と、$\psi,\bar\psi$ による二倍はその選択で変わりません。
 
 ### 非可換背景では何が変わるか
 
@@ -538,7 +567,15 @@ $\operatorname{tr}(T^aT^b)=\frac14\operatorname{tr}(\sigma^a\sigma^b)=\delta^{ab
 <!-- solution-start -->
 ### 詳細解答
 
-場ごとの係数は $-q^2\varepsilon FF/(16\pi^2)$ と $-(2q)^2\varepsilon FF/(16\pi^2)=-4q^2\varepsilon FF/(16\pi^2)$。和は $-5q^2\varepsilon FF/(16\pi^2)$ です。差 $j_{5,1}-j_{5,2}/4$ では $-q^2+\frac14(4q^2)=0$ となります。ベクトル測度は $\psi$ と $\bar\psi$ の逆位相でJacobianが相殺するので、背景ゲージ不変な正則化ではこの軸性異常に対応するベクトル異常はありません。
+二つのDirac場の軸性発散の異常係数を、共通因子 $\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}/(16\pi^2)$ をくくって比較します。各場の係数は $-q^2$ と $-(2q)^2=-4q^2$ なので、
+
+$$
+\partial_\mu\langle j_{5,1}^\mu+j_{5,2}^\mu\rangle_A
+=-\frac{5q^2}{16\pi^2}
+\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}.
+$$
+
+一方、重み付き差では $-q^2-\frac14(-4q^2)=0$ です。ベクトル測度は $\psi$ と $\bar\psi$ の逆位相でJacobianが相殺するので、背景ゲージ不変な正則化ではこの軸性異常に対応するベクトル異常はありません。
 <!-- solution-end -->
 
 ### 演習 QFT39-C1：古典対称性から量子Ward式へ
