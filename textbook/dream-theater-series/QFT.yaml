@@ -151,3 +151,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT36
     status: completed
     title: "電弱混合・W／Z／光子の質量と荷電・中性電流"
+  - id: QFT37
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT37
+    status: completed
+    title: "Yukawa質量行列・世代基底の回転とCKM混合"

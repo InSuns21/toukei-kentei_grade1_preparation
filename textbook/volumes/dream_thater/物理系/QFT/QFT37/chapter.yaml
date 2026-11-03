@@ -1,0 +1,43 @@
+id: QFT37
+title: "Yukawa質量行列・世代基底の回転とCKM混合"
+volume: foundations
+status: supplementary
+prerequisites: [QFT36, QFT35, LA6]
+official_scope: []
+learning_objectives:
+  - 三世代のゲージ不変Yukawa結合を添字つきで書き、Higgs真空からフェルミオン質量行列とHiggs結合を導ける
+  - 複素特異値分解で左右の場を別々にユニタリ回転し、質量固有場と零質量・縮退時の基底の非一意性を説明できる
+  - 荷電弱電流の相対回転からCKM行列のユニタリ性を導き、光子・Z・Higgsの木レベル中性結合が対角であることを確かめられる
+  - 三世代の再位相付けと物理パラメータ数を導き、再位相不変量でCP位相を検査できる
+  - ニュートリノ質量を持たない最小模型のレプトン混合と、量子補正・質量縮退への主張の限界を区別できる
+definitions:
+  - { id: QFT37-DEF-01, name: 三世代Yukawa行列と質量行列 }
+  - { id: QFT37-DEF-02, name: 質量固有基底と左右回転 }
+  - { id: QFT37-DEF-03, name: CKM行列 }
+  - { id: QFT37-DEF-04, name: CKMの再位相不変四重積 }
+theorems:
+  - { id: QFT37-THM-01, name: Higgs真空とYukawa質量の対応 }
+  - { id: QFT37-THM-02, name: 質量対角化とCKM荷電電流 }
+  - { id: QFT37-THM-03, name: 中性電流とHiggs結合の世代対角性 }
+  - { id: QFT37-PROP-01, name: 三世代CKMの物理パラメータ数 }
+  - { id: QFT37-PROP-02, name: 再位相不変四重積とCP位相 }
+canonical_examples:
+  - Higgs真空で上下成分を代入してYukawa質量の係数を確認
+  - 実二世代回転の特異値分解とCKM行列
+  - 三世代Fourier型ユニタリ行列の非零CP不変量
+  - 等しい左右回転でCKM行列が単位行列となる例
+problem_patterns:
+  - QFT37-HIGGS-YUKAWA-MASS
+  - QFT37-MATRIX-INDICES
+  - QFT37-TWO-FAMILY-SVD
+  - QFT37-CKM-UNITARITY
+  - QFT37-NEUTRAL-CURRENT
+  - QFT37-HIGGS-ALIGNMENT
+  - QFT37-REPHASING
+  - QFT37-PARAMETER-COUNT
+  - QFT37-FOURIER-CP-INVARIANT
+  - QFT37-INTEGRATED-MASS-MIXING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 5 }
