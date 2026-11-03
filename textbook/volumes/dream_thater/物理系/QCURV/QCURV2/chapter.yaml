@@ -1,0 +1,47 @@
+id: QCURV2
+title: "保存内積・正振動数分解・量子状態"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV1
+  - QFT4
+official_scope: []
+learning_objectives:
+  - コンパクト支持Cauchyデータを持つ実・複素KG解から保存シンプレクティック形式と不定符号KG内積を構成できる
+  - 保存流とCauchy面のStokesによって内積の面独立性を証明し、非退化性を初期データから示せる
+  - 正の両立複素構造の三条件を確認し、正振動数射影と正定値一粒子内積の関係を導出できる
+  - Fock真空のWightman二点分布から正値性・場の方程式・交換子を導出できる
+  - 超静的背景の正モードを規格化し、別の正振動数選択が異なる揺らぎを生むことと零モードの制約を説明できる
+definitions:
+  - { id: QCURV2-DEF-01, name: 実Klein–Gordon解のシンプレクティック形式 }
+  - { id: QCURV2-DEF-02, name: 曲がった背景上のKlein–Gordon内積 }
+  - { id: QCURV2-DEF-03, name: 正の両立複素構造 }
+  - { id: QCURV2-DEF-04, name: Fock真空のWightman二点分布 }
+theorems:
+  - { id: QCURV2-THM-01, name: 保存内積とCauchy面独立性 }
+  - { id: QCURV2-PROP-01, name: 実解空間での非退化性 }
+  - { id: QCURV2-PROP-02, name: 正振動数射影と正定値内積 }
+  - { id: QCURV2-PROP-03, name: 二点分布の正値性・方程式・交換子 }
+  - { id: QCURV2-PROP-04, name: 超静的背景の規格化モードと真空 }
+canonical_examples:
+  - 一振動モードの初期値によるシンプレクティック形式の符号検算
+  - 正負モードのKGノルムと直交性
+  - 調和振動子上の両立複素構造の全条件
+  - 二点関数の一モード表示と真空期待値
+  - 正の空間作用素を持つ超静的背景と真空の時間並進不変性
+  - 一モードのsqueezed状態と零モード例外
+problem_patterns:
+  - QCURV2-KG-SIGN
+  - QCURV2-SYMPLECTIC-CONSERVATION
+  - QCURV2-COMPLEX-STRUCTURE
+  - QCURV2-WIGHTMAN-COMMUTATOR
+  - QCURV2-ZERO-MODE
+  - QCURV2-TIME-DEPENDENT-WRONSKIAN
+  - QCURV2-MODE-ORTHOGONALITY
+  - QCURV2-EQUAL-TIME-CCR
+  - QCURV2-SQUEEZED-VACUUM
+  - QCURV2-TWO-MODE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }
