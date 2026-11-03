@@ -276,7 +276,7 @@ $$
 
 ### 証明の見取り図
 
-[二項多項式の基底](#thm-comb6-binomial-basis)に展開した係数を差分で読んだものが、この式です。$\Delta^k p(0)$ は [反復差分の交互和](#thm-comb6-iterated-difference)により、$p(0),\ldots,p(k)$ だけを使うので、導関数も極限も要りません。
+[二項多項式の基底](#thm-comb6-binomial-basis)に展開した係数を差分で読んだものが、この式です。$\Delta^k p(0)$ は [反復差分の交互和](#thm-comb6-iterated-difference)により、$p(0),\ldots,p(k)$ だけを使うので、各係数を有限回の引き算だけで計算できます。
 
 <!-- proof-start -->
 ### 証明
@@ -382,7 +382,16 @@ P(j)
 \end{aligned}
 $$
 
-第二行は $\binom jk\binom ki=\binom ji\binom{j-i}{k-i}$ という階乗公式からの等式を使い、第三行は $k-i=t$ と置いて [二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)を $1+(-1)$ に適用しました。指数0の場合の $(1-1)^0$ は空積1であり、$i=j$ の項だけが残ります。
+第二行で使った係数の積は、$0\leq i\leq k\leq j$ のもとで [二項係数の計数公式](../COMB2/index.md#thm-comb2-binomial-count)を両辺に適用すると
+
+$$
+\binom jk\binom ki
+=\frac{j!}{k!(j-k)!}\frac{k!}{i!(k-i)!}
+=\frac{j!}{i!(j-i)!}\frac{(j-i)!}{(k-i)!(j-k)!}
+=\binom ji\binom{j-i}{k-i}
+$$
+
+と検算できます。ここで全ての階乗の添字は非負です。第三行は $k-i=t$ と置いて [二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)を $1+(-1)$ に適用しました。指数0の場合の $(1-1)^0$ は空積1であり、$i=j$ の項だけが残ります。
 
 別の次数 $m$ 以下の多項式 $Q$ も同じ各点の値を持つと仮定します。[Newton 前進展開](#thm-comb6-newton-polynomial)により $Q$ の $\binom xk$ の係数は $\Delta^kQ(0)$ ですが、この値は $Q(0),\ldots,Q(k)$、すなわち $a_0,\ldots,a_k$ のみで決まります。よって係数は全て $\Delta^ka_0$ で $P$ と同じ、従って $Q=P$ です。
 <!-- proof-end -->
@@ -419,7 +428,7 @@ $$
 もし $q>d$ なら $\Delta^dp$ に最高次数 $q-d\geq1$ の項 $c_q\binom{x}{q-d}$ が残り、その最高次係数は $c_q/(q-d)!\ne0$ です。従って $\Delta^dp$ は定数になり得ません。一方 $q<d$ なら $\Delta^dp=0$ です。結局 $\Delta^dp$ が非零定数となるのは $q=d$ のときだけで、その値は $d!a_d$ です。
 <!-- proof-end -->
 
-数列についても、**すべての位置**で差分が消えるという強い条件があれば結論を得られます。
+数列についても、**すべての位置**で差分が消えるという強い条件があれば結論を得られます。[実数列の定義](../../../基礎科目/F0/F0-00B0/index.md#def-f0-00b0-real-sequence)では添字を1から数えましたが、ここでは最初の項を $a_0$ とします。
 
 <a id="prop-comb6-sequence-polynomial"></a>
 
@@ -441,7 +450,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限データの補間定理](#thm-comb6-finite-interpolation)を $a_0,\ldots,a_d$ に適用し、次数 $d$ 以下の $P(x)=\sum_{k=0}^d\Delta^ka_0\binom xk$ を得ます。[次数判定の定理](#thm-comb6-degree-test)および零多項式の場合から、$\Delta^{d+1}P(n)=0$ は全ての $n$ で成り立ちます。
+[等間隔有限データの一意な補間](#thm-comb6-finite-interpolation)を $a_0,\ldots,a_d$ に適用し、次数 $d$ 以下の $P(x)=\sum_{k=0}^d\Delta^ka_0\binom xk$ を得ます。[次数判定の定理](#thm-comb6-degree-test)および零多項式の場合から、$\Delta^{d+1}P(n)=0$ は全ての $n$ で成り立ちます。
 
 $b_n=a_n-P(n)$ と置くと $b_0=\cdots=b_d=0$、$\Delta^{d+1}b_n=0$ です。[反復前進差分の交互和](#thm-comb6-iterated-difference)は数列にも適用できるため
 
@@ -576,7 +585,7 @@ $$
 
 [差分表の定義](#def-comb6-finite-difference-table)で差を取ります。第一段は $8-3=5,15-8=7,24-15=9$、第二段は $7-5=2,9-7=2$、第三段は $2-2=0$ です。先頭列は $(3,5,2,0)$ となります。
 
-[有限データの補間定理](#thm-comb6-finite-interpolation)から
+[等間隔有限データの一意な補間](#thm-comb6-finite-interpolation)から
 
 $$
 \begin{aligned}
@@ -588,7 +597,7 @@ $$
 確認すると $P(0)=3,P(1)=8,P(2)=15,P(3)=24$ です。三回差分の先頭が0であることは、補間多項式が実際には次数2以下であることを示します。
 <!-- solution-end -->
 
-#### A5. 多項式の次数と高階差分
+#### A5. 最高次係数と高階差分
 
 実数上の多項式 $p(x)=3x^3-x$ について、$\Delta^3p$ と $\Delta^4p$ を求めよ。最高次係数と $p(0),p(1),p(2),p(3)$ の両方を使って検算せよ。
 
@@ -653,7 +662,7 @@ $a_0=1,a_1=4,a_2=11,a_3=22$ を通る次数3以下の多項式 $P$ を求め、$
 <!-- solution-start -->
 **詳細解答**
 
-第一差分は $4-1=3,11-4=7,22-11=11$。第二差分は $7-3=4,11-7=4$。第三差分は $4-4=0$ です。[有限データの補間定理](#thm-comb6-finite-interpolation)から
+第一差分は $4-1=3,11-4=7,22-11=11$。第二差分は $7-3=4,11-7=4$。第三差分は $4-4=0$ です。[等間隔有限データの一意な補間](#thm-comb6-finite-interpolation)から
 
 $$
 \begin{aligned}
@@ -723,7 +732,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(1) 第一差分は $4-1=3,9-4=5,16-9=7$、第二差分は $5-3=2,7-5=2$、第三差分は $2-2=0$。従って[有限データの補間定理](#thm-comb6-finite-interpolation)から
+(1) 第一差分は $4-1=3,9-4=5,16-9=7$、第二差分は $5-3=2,7-5=2$、第三差分は $2-2=0$。従って[等間隔有限データの一意な補間](#thm-comb6-finite-interpolation)から
 
 $$
 \begin{aligned}
