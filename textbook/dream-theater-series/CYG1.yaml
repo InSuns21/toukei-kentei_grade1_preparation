@@ -32,7 +32,7 @@ chapters:
     title: "Hodgeダイヤモンドを何が制約するか"
   - id: CYG1-07
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-07
-    status: planned
+    status: completed
     title: "接束のChern類とEuler標数"
   - id: CYG1-08
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-08
