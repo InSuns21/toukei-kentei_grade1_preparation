@@ -1,0 +1,98 @@
+chapter: COMB5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB4
+forward_references: []
+
+concepts:
+  - id: combinatorics.permutation-cycles
+    name: 置換の巡回分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（置換の巡回分解）]
+    requires: [combinatorics.ordered-selection, combinatorics.bijection-principle]
+
+  - id: combinatorics.cycle-decomposition-uniqueness
+    name: 巡回分解の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（巡回分解の存在と一意性）]
+    requires: [combinatorics.permutation-cycles]
+
+  - id: combinatorics.unsigned-stirling-first
+    name: 符号なし第一種 Stirling 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（符号なし第一種 Stirling 数）]
+    requires: [combinatorics.permutation-cycles]
+
+  - id: combinatorics.stirling-first-recurrence
+    name: 第一種 Stirling 数の挿入漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第一種 Stirling 数の挿入漸化式）]
+    requires: [combinatorics.unsigned-stirling-first, combinatorics.cycle-decomposition-uniqueness]
+
+  - id: combinatorics.set-partition-stirling-second
+    name: 集合分割と第二種 Stirling 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（集合分割と第二種 Stirling 数）]
+    requires: [combinatorics.finite-cardinality]
+
+  - id: combinatorics.stirling-second-recurrence
+    name: 第二種 Stirling 数の挿入漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二種 Stirling 数の挿入漸化式）]
+    requires: [combinatorics.set-partition-stirling-second, combinatorics.addition-principle]
+
+  - id: combinatorics.bell-number
+    name: Bell 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Bell 数）]
+    requires: [combinatorics.set-partition-stirling-second]
+
+  - id: combinatorics.bell-block-recurrence
+    name: Bell 数の特別なブロックによる漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Bell 数の特別なブロックによる漸化式）]
+    requires: [combinatorics.bell-number, combinatorics.binomial-count]
+
+  - id: combinatorics.surjection-stirling-second
+    name: 第二種 Stirling 数と全射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二種 Stirling 数と全射）]
+    requires: [combinatorics.set-partition-stirling-second, combinatorics.inclusion-exclusion]
+
+  - id: combinatorics.eulerian-descents
+    name: 下降数と Eulerian 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（下降数と Eulerian 数）]
+    requires: [combinatorics.ordered-selection]
+
+  - id: combinatorics.eulerian-insertion-recurrence
+    name: Eulerian 数の挿入漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Eulerian 数の挿入漸化式）]
+    requires: [combinatorics.eulerian-descents]
+
+  - id: combinatorics.eulerian-symmetry
+    name: Eulerian 数の対称性と総和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Eulerian 数の対称性と総和）]
+    requires: [combinatorics.eulerian-descents]
+
+  - id: combinatorics.cycle-partition-weight
+    name: 巡回を忘れる写像と重み付き分割
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（巡回を忘れる写像と重み付き分割）]
+    requires: [combinatorics.cycle-decomposition-uniqueness, combinatorics.set-partition-stirling-second]
