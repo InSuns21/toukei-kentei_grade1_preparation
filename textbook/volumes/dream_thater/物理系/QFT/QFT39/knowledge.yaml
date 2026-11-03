@@ -1,0 +1,61 @@
+chapter: QFT39
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20, QFT28, QFT30, QFT32, QFT33]
+forward_references: []
+
+concepts:
+  - id: qft.euclidean-four-dimensional-background
+    name: 四次元Euclid空間
+    kind: term
+    introduction: prose
+    requires: [qft.euclidean-scalar-action]
+
+  - id: qft.axial-vector-rotation-current
+    name: ベクトル・軸性回転と電流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ベクトル・軸性回転と電流）]
+    requires: [qft.chirality-weyl-components]
+
+  - id: qft.classical-axial-current-divergence
+    name: 古典軸性電流の発散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（古典軸性電流の発散）]
+    requires: [qft.axial-vector-rotation-current]
+
+  - id: qft.regulated-axial-jacobian
+    name: 正則化した軸性Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則化した軸性Jacobian）]
+    requires: [qft.axial-vector-rotation-current, qft.berezin-integration-order]
+
+  - id: qft.finite-mode-fujikawa-measure
+    name: 有限モードのJacobianから熱核へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限モードのJacobianから熱核へ）]
+    requires: [qft.regulated-axial-jacobian, qft.berezin-integration-order]
+
+  - id: qft.euclidean-axial-heat-kernel-coefficient
+    name: 四次元Euclid Dirac場の軸性熱核係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四次元Euclid Dirac場の軸性熱核係数）]
+    requires: [qft.regulated-axial-jacobian, qft.yang-mills-curvature]
+
+  - id: qft.axial-ward-abj-anomaly
+    name: Euclid軸性Ward恒等式とABJ異常
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euclid軸性Ward恒等式とABJ異常）]
+    requires: [qft.finite-mode-fujikawa-measure, qft.euclidean-axial-heat-kernel-coefficient]
+
+  - id: qft.nonabelian-dirac-axial-anomaly
+    name: Dirac表現Rにおける非可換軸性異常
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Dirac表現Rにおける非可換軸性異常）]
+    requires: [qft.axial-ward-abj-anomaly, qft.yang-mills-curvature]

@@ -1,0 +1,41 @@
+id: QFT39
+title: "カイラル対称性の量子異常・FujikawaのJacobianと軸性Ward恒等式"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT20, QFT28, QFT30, QFT32, QFT33]
+official_scope: []
+learning_objectives:
+  - 質量零Dirac場の軸性回転とベクトル回転を区別し、古典電流の発散を導ける
+  - 有限次元Grassmann測度の逆行列式からFujikawaの正則化Jacobianを構成できる
+  - Euclidのgamma行列・曲率・Gaussian積分から四次元の軸性異常係数を導ける
+  - 質量項と測度異常を分離して軸性Ward恒等式を導ける
+  - 大域軸性異常とゲージ異常を区別し、非可換表現の色の跡を検算できる
+definitions:
+  - { id: QFT39-DEF-01, name: ベクトル・軸性回転と電流 }
+  - { id: QFT39-DEF-02, name: 正則化した軸性Jacobian }
+theorems:
+  - { id: QFT39-THM-01, name: 古典軸性電流の発散 }
+  - { id: QFT39-PROP-01, name: 有限モードのJacobianから熱核へ }
+  - { id: QFT39-THM-02, name: 四次元Euclid Dirac場の軸性熱核係数 }
+  - { id: QFT39-THM-03, name: Euclid軸性Ward恒等式とABJ異常 }
+  - { id: QFT39-PROP-02, name: Dirac表現Rにおける非可換軸性異常 }
+canonical_examples:
+  - Weyl表示で軸性回転の左右逆位相と質量項の変換を確認
+  - 二モードBerezin Jacobianで符号と二倍を検算
+  - 二つの独立な曲率成分からepsilon FFの八項を確認
+  - SU(2)基本表現のDynkin指数をPauli行列で確認
+problem_patterns:
+  - QFT39-CHIRAL-MASS-PHASE
+  - QFT39-CLASSICAL-AXIAL-DIVERGENCE
+  - QFT39-BEREZIN-INVERSE-DETERMINANT
+  - QFT39-EPSILON-F-F-COUNTING
+  - QFT39-VECTOR-JACOBIAN-CANCELLATION
+  - QFT39-HEAT-KERNEL-COEFFICIENT
+  - QFT39-EUCLIDEAN-WARD-IDENTITY
+  - QFT39-NONABELIAN-REPRESENTATION-TRACE
+  - QFT39-MULTIFLAVOR-ANOMALY-CANCELLATION
+  - QFT39-INTEGRATED-ANOMALY-DERIVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 15, review: 6 }

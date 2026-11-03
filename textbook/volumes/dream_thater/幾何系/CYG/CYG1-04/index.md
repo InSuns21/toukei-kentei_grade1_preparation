@@ -116,7 +116,15 @@ $$
 
 である。$H$ の行列式は正の**定数**なので対数が取れ、その偏微分は零。
 
-任意の $x=[z_0]$ を始点・終点とする区分的滑らかな閉路 $\gamma$ を取り、被覆空間で $z_0$ から始まる持ち上げ $\widetilde\gamma$ を考える。その終点は $z_0+\lambda$（$\lambda\in\Lambda$）。一定係数の接続での平行ベクトルは成分が一定である。終点の接空間を始点へ戻す貼り合わせは $\tau_{-\lambda}$ で、その微分は $d\tau_{-\lambda}=I_n$。ゆえに $P_\gamma=I_n$ が**すべての**閉路で成り立つ。[ホロノミー群](../../KAH/KAH1-16/index.md#def-kah1-16-holonomy)の定義より $\operatorname{Hol}_x(g_H)=\{I_n\}$。その部分群である制限群も同じ。$\square$
+任意の基点 $x=[z_0]$ における区分的滑らかな閉路 $\gamma$ を取り、被覆空間で $z_0$ から始まる持ち上げを考える。その終点は格子ベクトル $\lambda\in\Lambda$ を用いて $z_0+\lambda$ と書ける。
+
+一定係数の接続では平行ベクトルの成分は変わらない。終点の接空間を始点へ戻す貼り合わせは格子平行移動 $\tau_{-\lambda}$ であり、その微分は恒等写像である。従って任意の閉路で
+
+$$
+d\tau_{-\lambda}=I_n,\qquad P_\gamma=I_n
+$$
+
+となる。[ホロノミー群](../../KAH/KAH1-16/index.md#def-kah1-16-holonomy)の定義から全群は $\{I_n\}$、その部分群である制限群も同じである。$\square$
 <!-- proof-end -->
 
 これは「$K_T$ は正則自明」「$\rho_{g_H}=0$」「$\operatorname{Hol}(g_H)=\{I_n\}$」が同時に実現する例だが、それぞれ**別の計算**で確認した。$n\ge2$ なら $SU(n)$ には恒等行列以外の行列があるため、
@@ -138,7 +146,23 @@ h^{p,q}(T)=\binom np\binom nq,
 \qquad b_k(T)=\binom{2n}{k}.
 $$
 
-**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ で $z=\sum_at^a\lambda_a$ と置けば、$t^a$ は $\mathbb R/\mathbb Z$ 値の実座標となり、計量は定数正定値実行列 $G$ で表される。非零Fourierモード $e^{2\pi i m\cdot t}$ のLaplacian固有値は $4\pi^2m^TG^{-1}m>0$。ゆえに調和形式には定数係数だけが残り、$n$ 個の $\alpha^j$ から $p$ 個、$n$ 個の $\bar\alpha^j$ から $q$ 個を選ぶ。$b_k$ は[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の $\sum_{p+q=k}h^{p,q}$ で、$(1+s)^n(1+s)^n=(1+s)^{2n}$ の係数から得られる。この経路の一般証明は上記のHOD1-09にある。
+**なぜこの公式が適用できるか。** 格子基底 $\lambda_a$ で $z=\sum_at^a\lambda_a$ と置くと、$t^a$ は $\mathbb R/\mathbb Z$ 値の実座標であり、計量は定数正定値実行列 $G$ で表される。非零FourierモードのLaplacian固有値は
+
+$$
+\Delta_d e^{2\pi i m\cdot t}
+=4\pi^2(m^TG^{-1}m)e^{2\pi i m\cdot t},\qquad
+m\ne0\ \Longrightarrow\ m^TG^{-1}m>0.
+$$
+
+ゆえに調和形式には定数係数だけが残る。型 $(p,q)$ を数えるには、$n$ 個の $\alpha^j$ から $p$ 個、$n$ 個の $\bar\alpha^j$ から $q$ 個選べばよい。
+
+Betti数は[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)で型別次元を足す。二項式の積
+
+$$
+\sum_{k=0}^{2n}b_ks^k=(1+s)^n(1+s)^n=(1+s)^{2n}
+$$
+
+の係数比較から得られる。この経路の一般証明は上記のHOD1-09にある。
 
 **楕円曲線のダイヤモンド。** $n=1$ では $\{1,dz,d\bar z,dz\wedge d\bar z\}$ が各型の調和基底である。従って
 
@@ -259,7 +283,23 @@ $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ の平坦計量で $h^{0,0},h^{1,0},h^{0,1}
 $\operatorname{Im}\tau>0$ とし $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ に $\omega=(i/2)dz\wedge d\bar z$ を入れる。$\omega$ がKähler形式として降りること、$\int_{E_\tau}\omega=\operatorname{Im}\tau$、全ホロノミーが自明なことを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\tau=s+it$（$t>0$）と置くと格子の実基底 $1,\tau$ の行列式は $t>0$ なので全格子である。$\omega=(i/2)(dx+i\,dy)\wedge(dx-i\,dy)=dx\wedge dy$ は正の面積形式で係数一定、従って $d\omega=0$ かつ格子移動で不変。頂点 $0,1,\tau,1+\tau$ の平行四辺形を $z=a+b\tau$（$0\le a,b\le1$）で表すと $x=a+bs$、$y=bt$ なので $dx\wedge dy=t\,da\wedge db$。積分すると $\int_{E_\tau}\omega=t=\operatorname{Im}\tau$。被覆上の平行移動はベクトルの定数成分を保ち、閉路終点を格子移動で戻す微分も $1$ だから、[ホロノミー群](../../KAH/KAH1-16/index.md#def-kah1-16-holonomy)の定義より群は $\{1\}$。
+**詳細解答。** $\tau=s+it$（$t>0$）と置くと、格子の実基底 $1,\tau$ の行列式は $t>0$ なので全格子である。まず
+
+$$
+\omega=\frac i2(dx+i\,dy)\wedge(dx-i\,dy)=dx\wedge dy
+$$
+
+は正の面積形式で係数一定。従って $d\omega=0$ であり、格子移動の下でも不変だから商上のKähler形式となる。
+
+頂点 $0,1,\tau,1+\tau$ の平行四辺形を $z=a+b\tau$（$0\le a,b\le1$）で表すと、$x=a+bs,\ y=bt$ である。したがって
+
+$$
+dx\wedge dy=t\,da\wedge db,\qquad
+\int_{E_\tau}\omega=\int_0^1\int_0^1t\,da\,db
+=t=\operatorname{Im}\tau.
+$$
+
+被覆上の平行移動はベクトルの定数成分を保ち、閉路終点を格子移動で戻す微分も $1$ である。よって[ホロノミー群](../../KAH/KAH1-16/index.md#def-kah1-16-holonomy)の定義から全群は $\{1\}$。
 <!-- solution-end -->
 
 <a id="ex-cyg1-04-b02"></a>
@@ -269,7 +309,21 @@ $\operatorname{Im}\tau>0$ とし $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ �
 $T=\mathbb C^2/\Lambda$ について $h^{2,0},h^{1,1},h^{0,2}$、$b_0,\ldots,b_4$、位相的Euler標数 $\chi_{\mathrm{top}}(T)$ を求めよ。また $K_T\simeq\mathcal O_T$ と $h^{1,0}$ の値を比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** [HOD1-09のHodge数定理](../../HOD/HOD1-09/index.md#thm-hod1-09-torus-numbers)を $n=2$ に適用し $h^{2,0}=\binom22\binom20=1$、$h^{1,1}=\binom21^2=4$、$h^{0,2}=1$。Betti数は $b_k=\binom4k$ なので $(b_0,b_1,b_2,b_3,b_4)=(1,4,6,4,1)$。交代和は $\chi_{\mathrm{top}}=1-4+6-4+1=0$。一方 $h^{1,0}=\binom21\binom20=2$ であり、$K_T$ は[本章の大域体積形式命題](#prop-cyg1-04-volume-form)から自明である。最高次の $(2,0)$ 形式の存在は、中間次数の $(1,0)$ 形式が零になることを意味しない。
+**詳細解答。** [HOD1-09のHodge数定理](../../HOD/HOD1-09/index.md#thm-hod1-09-torus-numbers)を $n=2$ に適用する。次数2の三つのHodge数は
+
+$$
+h^{2,0}=\binom22\binom20=1,\qquad
+h^{1,1}=\binom21^2=4,\qquad
+h^{0,2}=\binom20\binom22=1.
+$$
+
+Betti数は $b_k=\binom4k$ なので列は $(1,4,6,4,1)$ である。交代和を計算すると
+
+$$
+\chi_{\mathrm{top}}(T)=1-4+6-4+1=0.
+$$
+
+一方 $h^{1,0}=\binom21\binom20=2$ であり、標準束は[本章の大域体積形式命題](#prop-cyg1-04-volume-form)から自明である。最高次の $(2,0)$ 形式の存在は、中間次数の $(1,0)$ 形式が零になることを意味しない。
 <!-- solution-end -->
 
 <a id="ex-cyg1-04-b03"></a>
