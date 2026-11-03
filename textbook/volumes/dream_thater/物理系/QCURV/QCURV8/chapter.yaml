@@ -1,0 +1,47 @@
+id: QCURV8
+title: "Unruh温度・KMS条件と検出器応答"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV7
+  - QCURV6
+  - QCURV3
+  - CA11
+official_scope: []
+learning_objectives:
+  - 定常二点分布のKMS境界条件を解析帯と時間反転の境界値から定義し、具体例で確認できる
+  - 等加速度世界線のWightman二点分布を解析接続し、固有時間の逆温度が2πρ₀となることを導出できる
+  - 二重極の留数とFourier変換の符号を検算して、正負の検出器遷移率と詳細釣合いを導出できる
+  - 長時間の定常率と有限時間の切替応答を区別し、切替により厳密な熱比が一般に破れることを説明できる
+  - RindlerモードのMellin係数の指数比と正準規格化からPlanck因子を再構成し、くさび制限との関係・限界を述べられる
+  - 座標尺度a、boost時間、固有時間、固有加速度の温度換算を検算できる
+definitions:
+  - { id: QCURV8-DEF-01, name: 定常二点分布のKMS境界条件 }
+  - { id: QCURV8-DEF-02, name: 検出器の熱的詳細釣合いと温度 }
+theorems:
+  - { id: QCURV8-PROP-01, name: 加速軌道二点分布のKMS性 }
+  - { id: QCURV8-THM-01, name: Unruh検出器の定常率と温度 }
+  - { id: QCURV8-PROP-02, name: 切替応答の周波数畳込みと短時間極限 }
+  - { id: QCURV8-PROP-03, name: RindlerモードMellin係数の指数比 }
+  - { id: QCURV8-PROP-04, name: 正準二モード模型の熱的占有数 }
+canonical_examples:
+  - 単一調和モードの熱二点関数によるKMS境界条件の直接確認
+  - Rindler半径を変えた観測者の固有温度とboost逆温度の比較
+  - 正負のエネルギーギャップにおける遷移率と零加速度極限
+  - 有限時間切替の短時間極限と定常詳細釣合いの不一致
+  - Mellin積分の位相差と二モード正準変換の幾何級数
+problem_patterns:
+  - QCURV8-KMS-OSCILLATOR
+  - QCURV8-BOOST-PROPER
+  - QCURV8-RATE-SIGNS
+  - QCURV8-INERTIAL-LIMIT
+  - QCURV8-MELLIN-RATIO
+  - QCURV8-RESIDUE
+  - QCURV8-SWITCHING
+  - QCURV8-TWO-MODE
+  - QCURV8-TEMPERATURE-COMPARISON
+  - QCURV8-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 6 }
