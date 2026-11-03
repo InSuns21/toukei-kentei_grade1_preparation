@@ -74,6 +74,15 @@ jobs:
       - name: Validate DREAM THEATER work-state router
         run: npm run validate:dream-theater-work
 
+      - name: Self-test Lorentz metric sign convention
+        run: npm run validate:lorentz-signature -- --self-test
+
+      - name: Reject new positive-time Lorentz metric declarations
+        if: github.event_name == 'pull_request'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: npm run validate:lorentz-signature -- --base "$TEXTBOOK_BASE_SHA"
+
       - name: Self-test validation scope semantics
         if: github.event_name == 'pull_request'
         run: node scripts/detect-textbook-validation-scope.mjs --self-test
