@@ -10,6 +10,16 @@
 
 一つの四成分Dirac場を左・右に分けるには[カイラリティ射影](../QFT32/index.md#def-qft32-chirality) $P_{L,R}=(1\mp\gamma^5)/2$ を使います。右巻きWeyl場の**電荷共役**とは、複素共役した内部表現に属する左巻き場として同じ自由度を言い直したものです。内部群の表現行列が $U_R$ なら共役場の行列は $U_R^*$ であり、$U(1)$ 位相 $e^{iY\beta}$ は $e^{-iY\beta}$ に変わります。新しい独立粒子を一つ増やす操作ではありません。
 
+左巻きになることは、[QFT32の電荷共役スピノル](../QFT32/index.md#def-qft32-majorana)から直接確かめられます。Weyl表示で右成分だけを持つ $\Psi=(0,\xi_R)^T$ に電荷共役を施すと、スピノル添字に作用する $\varepsilon=i\sigma^2$ により
+
+$$
+\Psi^c=
+\begin{pmatrix}\varepsilon\xi_R^*\\0\end{pmatrix},
+\qquad P_L\Psi^c=\Psi^c.
+$$
+
+となります。内部群の $U_R$ はスピノル添字に作用しないので、$\xi_R\mapsto U_R\xi_R$ の下で $\varepsilon\xi_R^*\mapsto U_R^*(\varepsilon\xi_R^*)$ です。したがって「左巻きへの移行」と「内部表現の複素共役」は同じ電荷共役操作の二つの側面です。
+
 <a id="def-qft40-left-handed-list"></a>
 
 <!-- formal-statement-start -->
@@ -81,14 +91,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-四次元Euclidで $\mathcal D_E=\gamma_E^\mu(\partial_\mu+iA_\mu^AT^A)$ と置き、$F_{\mu\nu}=F_{\mu\nu}^AT^A$ を $[\nabla_\mu,\nabla_\nu]=iF_{\mu\nu}$ で定めます。[QFT39の二乗計算](../QFT39/index.md#thm-qft39-fujikawa-abelian)と同じく
+四次元Euclidで $\nabla_\mu=\partial_\mu+iA_\mu^AT^A$、$\mathcal D_E=\gamma_E^\mu\nabla_\mu$ と置き、$F_{\mu\nu}=F_{\mu\nu}^AT^A$ を $[\nabla_\mu,\nabla_\nu]=iF_{\mu\nu}$ で定めます。ここで $\mu,\nu=1,\ldots,4$ はEuclidの時空添字で、$A$ は第2節冒頭の内部生成子添字です。[QFT39のEuclid規約と熱核計算](../QFT39/index.md#thm-qft39-fujikawa-abelian)に従い、$\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4$（Minkowskiの $\gamma^5$ と記法を区別）を用います。同じ二乗計算より
 
 $$
 \mathcal D_E^2=\nabla_\mu\nabla_\mu+
 \frac{i}{4}[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}.
 $$
 
-挿入 $T^A$ を含む熱核のカイラリティ奇部分を抽出すると、$M^{-4}$ 次の曲率二個を選ぶ必要があります。スピノル跡は
+熱核は $K=-\mathcal D_E^2$ に対する $e^{-K/M^2}$ です。$B=(i/4)[\gamma_E^\mu,\gamma_E^\nu]F_{\mu\nu}$ と置くと、局所短時間展開で $\Gamma_5$ を挿入した跡のうち、$B$ を零回または一回選ぶ項はClifford行列の個数が足りず消えます。最初に残る候補は $B^2/(2M^4)$ であり、
+
+$$
+\frac{B^2}{2M^4}
+=-\frac{1}{32M^4}
+[\gamma_E^\mu,\gamma_E^\nu]
+[\gamma_E^\rho,\gamma_E^\sigma]
+F_{\mu\nu}^BF_{\rho\sigma}^C T^BT^C
+$$
+
+です。$\Gamma_5$ を含むスピノル跡は
 
 $$
 \operatorname{tr}_{\rm spin}\!\left(
@@ -128,7 +148,21 @@ $$
 
 $SU(N)$ の非自明な基本生成子は跡が零なので、一つの非可換生成子と二つの $U(1)$ 生成子を挿入すると $\operatorname{tr}(T^aY^2)=Y^2\operatorname{tr}(T^a)=0$ です。色 $SU(3)$ と弱 $SU(2)$ の生成子を一つずつ混ぜても、どちらかの因子の生成子の跡が零なので候補は消えます。
 
-残る独立な種類は次のとおりです。$T(\mathbf N)=T(\overline{\mathbf N})=1/2$ を $\operatorname{tr}_R(t^at^b)=T(R)\delta^{ab}$ で定義します。
+残る独立な種類を列挙します。$T(\mathbf N)=T(\overline{\mathbf N})=1/2$ を $\operatorname{tr}_R(t^at^b)=T(R)\delta^{ab}$ で定義します。
+
+積表現 $R_3\otimes R_2$ で色生成子は $t_{R_3}^a\otimes I_{R_2}$、超電荷生成子は $Y I_{R_3}\otimes I_{R_2}$ です。[QFT35のテンソル積表示](../QFT35/index.md#def-qft35-representation)と、有限行列の跡 $\operatorname{tr}(X\otimes Z)=\operatorname{tr}X\,\operatorname{tr}Z$ から
+
+$$
+\begin{aligned}
+\operatorname{tr}_{R_3\otimes R_2}
+\bigl((t^a\otimes I)(t^b\otimes I)(YI\otimes I)\bigr)
+&=Y\operatorname{tr}_{R_3}(t^at^b)\operatorname{tr}_{R_2}(I)\\
+&=d_2\,Y\,T(R_3)\delta^{ab},\\
+\operatorname{tr}_{R_3\otimes R_2}((YI)^3)&=d_3d_2Y^3.
+\end{aligned}
+$$
+
+弱生成子二つのときは色・弱を入れ替えます。反交換子による共通因子 $2$ は零判定を変えないので、以下の縮約係数では除きます。
 
 | 三角図のゲージ脚 | 検算する縮約係数（一世代） |
 | --- | --- |
@@ -138,7 +172,7 @@ $SU(N)$ の非自明な基本生成子は跡が零なので、一つの非可換
 | $SU(2)_L^2U(1)_Y$ | $\sum_f d_3(f)Y_fT(R_2(f))$ |
 | $U(1)_Y^3$ | $\sum_f d_3(f)d_2(f)Y_f^3$ |
 
-色・弱一重項の $T$ と $d^{abc}$ は零とし、三次跡に共通する非零の係数2を最後の三列では省きました。さらに曲がった背景での**混合重力–超電荷異常**には $\sum_f d_3(f)d_2(f)Y_f$ の検査があります。これは三つのゲージ脚の三角図とは違い、二つの重力脚を含むため、本講では群論係数だけを確かめます。
+色・弱一重項の $T$ と $d^{abc}$ は零としました。さらに曲がった背景での**混合重力–超電荷異常**には $\sum_f d_3(f)d_2(f)Y_f$ の検査があります。これは三つのゲージ脚の三角図とは違い、二つの重力脚を含むため、本講では群論係数だけを確かめます。
 
 <a id="prop-qft40-nonabelian-cubic"></a>
 
