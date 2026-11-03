@@ -170,7 +170,7 @@ $$
 
 $\rho=0$ なら実関数 $\log q$ はKähler Laplacianに関して調和的である。$X$ が連結コンパクトかつ境界なしなら、[積分による調和関数の定数性とChern接続の既習計算](../CYG1-01/index.md#thm-cyg1-01-parallel-volume)により $\log q$ は定数となる。
 
-次に同じ既習計算のChern接続公式を用いる。$\Omega$ 自体を正則枠として見た接続の $(1,0)$ 係数は $\partial\log q$、$(0,1)$ 係数は0だから、
+このとき、直前に参照した証明に従えば、$\Omega$ 自体を正則枠として見たChern接続の $(1,0)$ 係数は $\partial\log q$、$(0,1)$ 係数は0だから、
 
 $$
 \nabla\Omega=(\partial\log q)\otimes\Omega=0.
