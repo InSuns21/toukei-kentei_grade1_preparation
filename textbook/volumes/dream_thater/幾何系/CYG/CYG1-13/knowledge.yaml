@@ -1,0 +1,35 @@
+chapter: CYG1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-08, CYG1-12, KAH1-13, AG2-09, AG3-10, CAG1-05]
+concepts:
+  - id: cyg.quintic-polynomial-first-order
+    name: 五次式の一次多項式変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（五次式の一次多項式変形）"]
+    requires: [cyg.infinitesimal-hodge-identification, algebraic-geometry.projective-tangent-euler]
+  - id: cyg.fermat-jacobian-quotient
+    name: Fermat五次の多項式一次変形の次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat五次の多項式一次変形の次元）"]
+    requires: [cyg.quintic-polynomial-first-order]
+  - id: cyg.quintic-all-first-order
+    name: 滑らかなquinticの多項式方向と全一次変形の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかなquinticの多項式方向と全一次変形）"]
+    requires: [cyg.quintic-polynomial-first-order, algebraic-geometry.projective-tangent-euler, algebraic-geometry.projective-twist-cohomology, cyg.infinitesimal-hodge-identification]
+  - id: cyg.quintic-kahler-ray
+    name: quinticのKähler錐は正半直線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticのKähler錐）"]
+    requires: [cyg.quintic-low-hodge, kahler.kahler-cone]
+  - id: cyg.complexified-kahler-parameter
+    name: 複素化Kählerパラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素化Kählerパラメータ）"]
+    requires: [cyg.quintic-kahler-ray, kahler.kahler-cone]

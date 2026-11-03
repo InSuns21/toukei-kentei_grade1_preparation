@@ -13,3 +13,4 @@
 10. [CYG1-10 Yauの定理は何を存在させ、一意にするか](textbook/volumes/dream_thater/幾何系/CYG/CYG1-10/index.md)
 11. [CYG1-11 Ricci平坦性と特殊ホロノミー](textbook/volumes/dream_thater/幾何系/CYG/CYG1-11/index.md)
 12. [CYG1-12 複素構造の一次変形と正則体積形式](textbook/volumes/dream_thater/幾何系/CYG/CYG1-12/index.md)
+13. [CYG1-13 quinticの複素変形101方向とKähler錐](textbook/volumes/dream_thater/幾何系/CYG/CYG1-13/index.md)
