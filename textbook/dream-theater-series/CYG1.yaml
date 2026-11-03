@@ -12,7 +12,7 @@ chapters:
     title: "標準束、Chern類、ホロノミーは同じ定義か"
   - id: CYG1-02
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-02
-    status: planned
+    status: completed
     title: "標準束の自明性をどう手で確かめるか"
   - id: CYG1-03
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-03
