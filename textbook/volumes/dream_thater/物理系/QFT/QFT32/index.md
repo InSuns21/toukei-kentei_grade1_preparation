@@ -145,7 +145,24 @@ $$
 \det X(p)=(p^0)^2-(p^3)^2-(p^1)^2-(p^2)^2=p^2.
 $$
 
-$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性と行列式が保たれます。正の時間方向についても、Pauli行列の反交換関係から $(\boldsymbol p\cdot\boldsymbol\sigma)^2=|\boldsymbol p|^2I$ なので、$X(p)$ の固有値は $p^0\pm|\boldsymbol p|$ です。正エネルギーの非零質量殻上では両固有値が非負で、$X(p)$ は非零の半正定値Hermitian行列です。合同変換 $AXA^\dagger$ も非零半正定値で、$\operatorname{tr}(AXA^\dagger)=2p'{}^0>0$ となるため、未来向きの枝も保ちます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
+$A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性と行列式が保たれます。
+
+未来向きであることも行列から判定できます。Pauli行列の反交換関係と $\operatorname{tr}(\boldsymbol p\cdot\boldsymbol\sigma)=0$ から、固有値は次のように求まります。
+$
+(\boldsymbol p\cdot\boldsymbol\sigma)^2=|\boldsymbol p|^2I,
+\qquad
+\lambda_\pm(X(p))=p^0\pm|\boldsymbol p|
+$
+です。正エネルギーの非零質量殻上では両固有値が非負で、$X(p)$ は非零の半正定値Hermitian行列です。任意の二成分列ベクトル $v$ について
+$
+v^\dagger AX(p)A^\dagger v
+=(A^\dagger v)^\dagger X(p)(A^\dagger v)\ge0
+$
+であり、$\det A=1$ から $A$ は可逆なので、合同変換後も非零半正定値です。従って
+$
+p'{}^0=\frac12\operatorname{tr}(AX(p)A^\dagger)>0
+$
+となり、未来向きの枝を保ちます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
 
 まず $A=\operatorname{diag}(e^{\rho/2},e^{-\rho/2})$（実数 $\rho$）を代入すると、$X(p)$ の対角成分は $e^\rho(p^0+p^3)$ と $e^{-\rho}(p^0-p^3)$、非対角成分は不変です。和と差を取れば
 
