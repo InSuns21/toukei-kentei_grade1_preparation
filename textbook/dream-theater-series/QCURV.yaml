@@ -1,0 +1,12 @@
+version: 1
+id: QCURV
+title: "曲がった時空の量子場 I"
+plan: textbook/plans_progress/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# PLANの論点番号は固定講数ではない。章IDは実装時に順次確定する。
+chapters:
+  - id: QCURV1
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV1
+    status: completed
+    title: "曲率結合Klein–Gordon場の作用とCauchy問題"

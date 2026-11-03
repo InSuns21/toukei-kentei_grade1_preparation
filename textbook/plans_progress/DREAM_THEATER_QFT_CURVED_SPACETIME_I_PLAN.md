@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-11-03（標準教科書・公開講義ノート・原論文との範囲照合）  
-状態: planned（PLAN推敲のみ。章本文・系列manifest・公開導線は未着手）
+状態: in_progress（QCURV1の実装・査読・公開導線を開始。以降の章と横断監査は未完了）
 
 ## 0. 中心問いと到達点
 
@@ -31,7 +31,7 @@
 | [Lorentz多様体上の双曲型PDE（HPDE）](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 古典Klein–Gordon初期値、Green作用素、シンプレクティック解空間 | 量子状態の物理・検出器はQCURVが所有 |
 | [超局所解析・Hadamard条件（MICA）](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | Hadamard二点関数、点分離、局所共変な応力テンソル | 一般的な数学証明はMICA。QCURVは物理的状態と流束の具体計算 |
 | [量子情報（QINF）](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | 縮約状態・熱的混合状態・エンタングルメントの入口 | くさびへの制限に必要な結果だけ参照し、全講必修とはしない |
-| [数学基盤ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)、[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) | 学修経路と他科目との境界 | 参照先の未実装結果を既証扱いしない |
+| [数学基盤ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)、[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) | 学修経路と他科目との境界 | 参照先の未実装結果を既証扱いしない |
 
 - **最小学修路**：QFT Iの自由場、LORG/HPDEの必要結果、GRのブラックホール幾何 → QCURV。MICAの厳密Hadamard理論を深掘りする路と、QINF/AQFTによる状態・代数の路は必要箇所から分岐させる。MICAが完成済みであっても、QCURVでの物理的適用は別途導出する。
 - **QCURVの所有範囲**：背景依存の真空・粒子生成、検出器の物理的応答、Rindler/Unruh、重力崩壊/Hawking、ブラックホールの代表的量子状態、エネルギー流・半古典的近似。
@@ -148,7 +148,7 @@
 
 ## 6. PLANのライフサイクルと完了条件
 
-1. 今回の改訂では**PLANだけ**を更新し、未執筆章を系列manifest、knowledge DAG、公開目次へ先取り登録しない。引き続き textbook/plans/ に置く。
-2. 最初のQCURV章を実装するときは textbook/AGENTS.md に従って本PLANを textbook/plans_progress/ に**移動**し、参照元リンクと新設するQCURV系列manifestのplanパスを同期する。QCURV1以降の候補IDは正式採番前に衝突確認する。
+1. QCURV1の実装着手に伴い、本PLANを textbook/plans_progress/ に移した。未執筆の章を系列manifest、knowledge DAG、公開目次へ先取り登録しない。
+2. 新設したQCURV系列manifestのplanパスと参照元リンクを同期する。QCURV2以降の候補IDは正式採番前に衝突と直接依存を確認する。
 3. 章ごとの直接prerequisiteは実装した chapter.yaml / knowledge.yaml を正本とし、MICA・QINFの全講を一律必修化せず、必要な概念・結果へ絞る。
 4. 全学修目標の実計算・主要証明・演習詳細解答・状態と観測量の対照・学修ルート・公開リンク・科目横断監査まで揃って初めて textbook/plan_done/ へ移す。BHTへ温度と流束のモデル条件、BHIへ情報問題に別途必要な仮定、宇宙論の後続へFLRW/de Sitter模型の限界を引き渡す。
