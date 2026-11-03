@@ -1,0 +1,70 @@
+chapter: COMB3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB2
+forward_references: []
+
+concepts:
+  - id: combinatorics.forbidden-event-family
+    name: 禁止集合族と同時違反
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（禁止集合族と同時違反）]
+    requires: [combinatorics.finite-cardinality, combinatorics.disjoint-partition]
+
+  - id: combinatorics.inclusion-exclusion
+    name: 有限包除原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限包除原理）]
+    requires: [combinatorics.forbidden-event-family, combinatorics.binomial-coefficient-interpretation]
+
+  - id: combinatorics.derangement
+    name: 錯置と錯置数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（固定点と錯置・錯置数）]
+    requires: [combinatorics.ordered-selection]
+
+  - id: combinatorics.derangement-inclusion-exclusion
+    name: 錯置数の包除表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（錯置数の包除表示）]
+    requires: [combinatorics.derangement, combinatorics.inclusion-exclusion, combinatorics.binomial-count]
+
+  - id: combinatorics.derangement-recurrence
+    name: 錯置数の漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（錯置数の漸化式）]
+    requires: [combinatorics.derangement, combinatorics.addition-principle]
+
+  - id: combinatorics.exact-fixed-point-count
+    name: 固定点がちょうど指定個数の順列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（固定点がちょうど指定個数の順列）]
+    requires: [combinatorics.derangement, combinatorics.binomial-count]
+
+  - id: combinatorics.rook-number
+    name: 非攻撃 rook 配置と rook 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非攻撃 rook 配置と rook 数）]
+    requires: [combinatorics.ordered-selection]
+
+  - id: combinatorics.rook-inclusion-exclusion
+    name: rook 数による禁止配置の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（rook 数による禁止配置の計数）]
+    requires: [combinatorics.rook-number, combinatorics.inclusion-exclusion]
+
+  - id: combinatorics.bounded-compositions
+    name: 上限付き非負整数解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（上限付き非負整数解）]
+    requires: [combinatorics.stars-bars, combinatorics.inclusion-exclusion]
