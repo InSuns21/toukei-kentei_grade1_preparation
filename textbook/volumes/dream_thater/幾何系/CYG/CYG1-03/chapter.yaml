@@ -1,0 +1,36 @@
+id: "CYG1-03"
+title: "整係数・実係数の差とtorsionの反例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-02
+official_scope: []
+learning_objectives:
+  - 有限生成Abel群のtorsion元の位数を計算し、整係数から実係数への写像の核がtorsion部分群となる理由を説明できる
+  - 正則線束のテンソル位数と第一Chern類の位数を区別し、前者が後者の倍数となることを遷移関数から証明できる
+  - 楕円曲線上の符号指標による非自明な2-torsion正則線束を構成し、その整数Chern類が零になることを検証できる
+  - Enriques曲面の標準束が非自明な2-torsionであるという外部入力と指数完全列から非零整係数Chern類を導ける
+  - 整係数・実係数・正則自明性および周期積分の各判定が何を検出できないか、反例とともに説明できる
+  - 曲率の代表とコホモロジー類、一般線束と標準束を混同せず、逆含意の失敗範囲を判定できる
+definitions:
+  - { id: CYG1-03-DEF-01, name: 有限位数の正則線束 }
+theorems:
+  - { id: CYG1-03-PROP-01, name: 有限位数線束の第一Chern類 }
+  - { id: CYG1-03-PROP-02, name: Chern類が零の非自明な2-torsion正則線束 }
+  - { id: CYG1-03-PROP-03, name: Enriques曲面の整係数と実係数の差 }
+canonical_examples:
+  - 有限生成Abel群の自由成分と位数6のtorsion元
+  - 楕円曲線上の符号指標による非自明線束と零の整係数Chern類
+  - Enriques曲面の標準束、指数完全列および非零位数2のChern類
+  - 整係数コホモロジー類の周期評価でtorsionが消える機構
+problem_patterns:
+  - CYG1-03-TORSION-ORDER
+  - CYG1-03-CHERN-COEFFICIENT-KERNEL
+  - CYG1-03-TENSOR-POWER
+  - CYG1-03-ELLIPTIC-FLAT-LINE
+  - CYG1-03-ENRIQUES-INTEGRAL-CHERN
+  - CYG1-03-CURVATURE-VERSUS-CLASS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }
