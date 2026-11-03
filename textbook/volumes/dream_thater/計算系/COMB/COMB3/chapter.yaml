@@ -1,0 +1,41 @@
+id: "COMB3"
+title: "包除原理と制約付き配置"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB2
+official_scope: []
+learning_objectives:
+  - 禁止集合族と同時違反を区別し、0と1の判定値の積を展開して有限包除原理を証明できる
+  - 錯置数の包除式と初期値を計算し、二場合分けによる漸化式を独立に導出できる
+  - 固定点がちょうど指定個数の順列を数え、全順列への分類で検算できる
+  - 禁止マスを非攻撃 rook 配置へ変換し、同時に満たせない条件を除いて計数できる
+  - 上限付き非負整数解を超過分の平行移動と包除原理で数え、端点を説明できる
+definitions:
+  - { id: COMB3-DEF-01, name: 禁止集合族と同時違反 }
+  - { id: COMB3-DEF-02, name: 固定点と錯置・錯置数 }
+  - { id: COMB3-DEF-03, name: 非攻撃 rook 配置と rook 数 }
+theorems:
+  - { id: COMB3-THM-01, name: 有限包除原理 }
+  - { id: COMB3-THM-02, name: 錯置数の包除表示 }
+  - { id: COMB3-THM-03, name: 錯置数の漸化式 }
+  - { id: COMB3-THM-04, name: 固定点がちょうど指定個数の順列 }
+  - { id: COMB3-THM-05, name: rook 数による禁止配置の計数 }
+  - { id: COMB3-THM-06, name: 上限付き非負整数解 }
+canonical_examples:
+  - 重なる二つの禁止集合を使った空交叉の直接確認
+  - 三人の錯置と四人の錯置の独立検算
+  - 行・列を共有する禁止マスを除いた rook 配置
+  - 三種類の上限付き整数解の直接列挙
+problem_patterns:
+  - COMB3-INCLUSION-EXCLUSION
+  - COMB3-DERANGEMENT-EXPLICIT
+  - COMB3-DERANGEMENT-RECURRENCE
+  - COMB3-EXACT-FIXED-POINTS
+  - COMB3-ROOK-FORBIDDEN-SQUARES
+  - COMB3-BOUNDED-COMPOSITIONS
+  - COMB3-COMBINED-CONSTRAINTS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 1 }
