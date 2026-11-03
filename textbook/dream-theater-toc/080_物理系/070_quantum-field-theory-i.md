@@ -33,4 +33,5 @@
 30. [QFT30 Yang–Mills理論の一ループβ関数と漸近自由性](textbook/volumes/dream_thater/物理系/QFT/QFT30/index.md)
 31. [QFT31 散乱・ループ・ゲージ不変性・くりこみを結ぶ総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT31/index.md)
 32. [QFT32 Poincaré粒子表現・質量とヘリシティ・Weyl／Majorana場](textbook/volumes/dream_thater/物理系/QFT/QFT32/index.md)
+33. [QFT33 大域対称性の自発的破れ・真空多様体・Goldstoneの定理](textbook/volumes/dream_thater/物理系/QFT/QFT33/index.md)
 
