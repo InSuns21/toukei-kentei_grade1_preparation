@@ -169,19 +169,19 @@ $x+1$ から始まる積と $x$ から始まる積を引きます。共通する
 <!-- proof-start -->
 ### 証明
 
-$k=0$ なら $\binom x0=x^{\underline0}=1$ は定数で、差分は0です。$k\geq2$ では
+$k=0$ なら $\binom x0=x^{\underline0}=1$ は定数で、差分は0です。$k\geq1$ なら、両方の積に共通な $k-1$ 個の因子をくくります。
 
 $$
 \begin{aligned}
-(x+1)^{\underline k}-x^{\underline k}
-&=(x+1)x(x-1)\cdots(x-k+2)\\
-&\quad-x(x-1)\cdots(x-k+2)(x-k+1)\\
-&=x(x-1)\cdots(x-k+2)\{(x+1)-(x-k+1)\}\\
+\Delta x^{\underline k}
+&=(x+1)\prod_{j=0}^{k-2}(x-j)
+ -(x-k+1)\prod_{j=0}^{k-2}(x-j)\\
+&=\{(x+1)-(x-k+1)\}\prod_{j=0}^{k-2}(x-j)\\
 &=k x^{\underline{k-1}}.
 \end{aligned}
 $$
 
-$k=1$ では共通因子の積を空積1と解釈し、$(x+1)-x=1$ です。[前進差分の線形性](#prop-comb6-operator-relations)から定数 $1/k!$ を外に出して
+$k=1$ では $\prod_{j=0}^{-1}$ を空積1と解釈し、$(x+1)-x=1$ を得ます。[前進差分の線形性](#prop-comb6-operator-relations)から定数 $1/k!$ を外に出して
 
 $$
 \Delta\binom{x}{k}=\frac{k}{k!}x^{\underline{k-1}}
