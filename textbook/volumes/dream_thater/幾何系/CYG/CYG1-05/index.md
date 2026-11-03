@@ -120,6 +120,17 @@ $$
 有理係数ないし実係数に変えても一次コホモロジーは零で、$b_1(X)=\dim_{\mathbb Q}H^1(X;\mathbb Q)=0$。よって[本章のK3の定義](#def-cyg1-05-k3)の二条件を満たす。$\square$
 <!-- proof-end -->
 
+<!-- definition-example-start: def-cyg1-05-k3 -->
+**定義の全条件の確認（Fermat四次）。** $X=\{\sum_{j=0}^3z_j^4=0\}\subset\mathbb P^3$ について、条件を分けて照合する。
+
+1. **滑らか・複素次元2：** $\partial F/\partial z_j=4z_j^3$ は非零射影点で同時に零にならないのでJacobian判定を満たす。一つの方程式の余次元は1で、$\dim_{\mathbb C}X=3-1=2$。
+2. **連結・コンパクト：** [滑らかな四次曲面の命題](#prop-cyg1-05-fermat-smooth-canonical)で連結性を検証し、射影閉部分集合としてコンパクト性も確認した。
+3. **単連結：** [Lefschetzのホモトピー版](#thm-cyg1-05-lefschetz-input)で $\pi_1(X)=\pi_1(\mathbb P^3)=0$。
+4. **標準束が正則自明：** 滑らかさを確認して[随伴公式](../../../代数系/CAG/CAG1-11/index.md#thm-cag1-11-analytic-adjunction)を $d=4,m=3$ に適用し、$K_X\simeq\mathcal O_X(0)$ を得た。
+
+したがって単に「標準束が自明」なのではなく、[K3の定義](#def-cyg1-05-k3)のすべての仮定を満たす実例になっている。
+<!-- definition-example-end -->
+
 ## 4. Euler標数24はどの係数から出るか
 
 曲面のEuler標数 $\chi_{\mathrm{top}}(X)$ はBetti数の交代和 $\sum_{k=0}^4(-1)^kb_k$ である。別の計算法は接束 $TX$ の**全Chern類**を使う。複素階数2の束では $c(TX)=1+c_1(TX)+c_2(TX)$ と書き、$c_j(TX)\in H^{2j}(X;\mathbb Z)$ である。第一Chern類だけでなく第二Chern類も必要になる。
