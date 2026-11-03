@@ -4,6 +4,8 @@
 
 教材固有の `notation.md` は、このファイルとの差分・追加だけを記載する。共通記号をローカル側で再定義しない。分布の台・母数化・確率質量関数・確率密度関数は [`distribution-notation-guide.md`](distribution-notation-guide.md)、用語・略語・日本語表記は [`terminology-guide.md`](terminology-guide.md) を正本とする。
 
+Lorentz幾何・相対論・場の理論で使う計量・波動演算子・曲率の符号規約は [`textbook/dream-theater-lorentz-conventions.md`](../textbook/dream-theater-lorentz-conventions.md) を専門正本とする。新規の物理講義では計量符号 $(-,+,+,+)$ を採用し、$ (+,-,-,-) $ の古い章や文献と照合する際は変換を明示する。
+
 ## 1. 確率・標本
 
 - 確率測度は $P$、期待値は $E[X]$、分散は $\operatorname{Var}(X)$、共分散は $\operatorname{Cov}(X,Y)$ とする。

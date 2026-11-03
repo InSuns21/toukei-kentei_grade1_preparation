@@ -28,6 +28,8 @@
 
 用語・一般記号・分布記法・KaTeX・formal statement・proof marker など、より専門の正本がある事項はその専門正本に従う。
 
+物理系とLorentz幾何の符号・計量は [`dream-theater-lorentz-conventions.md`](dream-theater-lorentz-conventions.md) を専門正本とし、新規の講義では $(-,+,+,+)$ を使う。既存の旧規約を含む章の移行は [`prompts/lorentz-signature-migration.md`](prompts/lorentz-signature-migration.md) に従い、符号の文字列置換ではなく定義・物理的不変量・式の波及先を再検算する。
+
 PYNUM1 または NUMLAB0–NUMLAB5 を編集する場合は、上記に加えて **`textbook/NUMERICAL_LAB_AUTHORING_STANDARD.md`** を必ず読む。数値ラボの穴埋め演習形式、模範解答、自動判定、theory/lab 台帳、free mode の例外範囲は同ファイルを専門正本とする。
 
 ### 1.1 旧監査Markdownを規約として使わない
