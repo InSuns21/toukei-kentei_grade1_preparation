@@ -117,7 +117,7 @@ $$
 
 $Pu=Pv=0$ かつ $V$ が実なので、$\Box_gv=Vv$、$\Box_g\bar u=V\bar u$。従って発散は $i(\bar uVv-vV\bar u)=0$ です。
 
-まず同じ大域時間関数の二枚のレベル面 $\Sigma_{t_1},\Sigma_{t_2}$ を取ります。初期データの支持を $K$ とすると、[QCURV1の因果的支持評価](../QCURV1/index.md#cor-qcurv1-cauchy)で $j$ の支持は $J(K)$ に含まれ、二つのCauchy面間の時間スラブ内では適切な大きなコンパクト領域の側面で $j=0$ とできます（大域双曲性による有限時間の因果影のコンパクト性を使います）。[曲率結合Klein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)の導出で使った発散公式により $\sqrt{-\det g}\,\nabla_aj^a=\partial_a(\sqrt{-\det g}\,j^a)$ です。局所座標片で積分すると、隣接片の内側の境界流束は逆向きで相殺し、時間スラブの外側の境界だけが残ります。未来端と過去端の外向き法線の違いを入れると
+まず同じ大域時間関数の二枚のレベル面 $\Sigma_{t_1},\Sigma_{t_2}$ を取ります。初期データの支持を $K$ とすると、[QCURV1の因果的支持評価](../QCURV1/index.md#cor-qcurv1-cauchy)で $j$ の支持は $J(K)$ に含まれ、二つのCauchy面間の時間スラブ内では適切な大きなコンパクト領域の側面で $j=0$ とできます（大域双曲性による有限時間の因果影のコンパクト性を使います）。[曲率結合Klein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)を導出したとき、$\sqrt{-\det g}\,\nabla_aj^a=\partial_a(\sqrt{-\det g}\,j^a)$ を示しました。局所座標片で積分すると、隣接片の内側の境界流束は逆向きで相殺し、時間スラブの外側の境界だけが残ります。未来端と過去端の外向き法線の違いを入れると
 
 $$
 0=\int_{\mathrm{slab}}\nabla_aj^a\,d\mathrm{vol}_g
