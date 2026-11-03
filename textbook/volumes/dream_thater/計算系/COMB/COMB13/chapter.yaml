@@ -1,0 +1,45 @@
+id: COMB13
+title: "形式的反転と再帰構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB12
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 根を一個消費する形式的再帰方程式を構造分解から立て、係数帰納法による解の存在一意性を証明できる
+  - 形式的微分と合成逆を定義し、一次係数非零の仮定の必要性と両方向の合成恒等式を検証できる
+  - 形式的 Laurent 級数の留数と変数変換を係数演算から証明できる
+  - Lagrange 反転公式の仮定と中間式を再導出し、合成式や再帰解の冪の係数を計算できる
+  - Catalan 数の二項係数表示を形式的反転で証明し、再帰と直接計数で検算できる
+  - 標識付き根付き木の構造分解に指数公式を適用し、r_n=n^{n-1} を導き、非標識・順序付きの木と区別できる
+definitions:
+  - { id: COMB13-DEF-01, name: 根を一個消費する形式的再帰方程式 }
+  - { id: COMB13-DEF-02, name: 形式的微分 }
+  - { id: COMB13-DEF-03, name: 形式的合成逆 }
+  - { id: COMB13-DEF-04, name: 形式的 Laurent 級数の留数 }
+theorems:
+  - { id: COMB13-THM-01, name: 形式的再帰方程式の存在と一意性 }
+  - { id: COMB13-THM-02, name: 一次係数非零の級数の形式的合成逆 }
+  - { id: COMB13-LEM-01, name: 形式的留数の変数変換 }
+  - { id: COMB13-THM-03, name: Lagrange 反転公式 }
+  - { id: COMB13-COR-01, name: 再帰解の冪の係数 }
+  - { id: COMB13-THM-04, name: Catalan 数の形式的反転による表示 }
+  - { id: COMB13-THM-05, name: 標識付き根付き木の計数 }
+canonical_examples:
+  - 左右の子の場所をもつ木の係数 1,2,5,14 の再帰検算
+  - H(u)=u/(1+u) と F(x)=x/(1-x) の両方向の合成
+  - Laurent 留数の微分が零になる係数の理由
+  - φ(u)=(1+u)^2 による Catalan 数の再導出
+  - 三標識の根付き木の直接計数 9 通り
+  - H(u)=u^2 に合成逆が存在しない反例
+problem_patterns:
+  - COMB13-RECURSION-TRIANGULAR
+  - COMB13-FORMAL-DERIVATIVE
+  - COMB13-COMPOSITIONAL-INVERSE
+  - COMB13-RESIDUE-SUBSTITUTION
+  - COMB13-LAGRANGE-COEFFICIENT
+  - COMB13-CATALAN-TREES
+  - COMB13-LABELED-ROOTED-TREES
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

@@ -29,24 +29,24 @@ $$
 <!-- formal-statement-start -->
 > **定義（右左Rindlerくさびと座標）**
 > 4次元Minkowski時空 $(\mathbb R^4,\operatorname{diag}(-1,1,1,1))$ の開領域を
->
-> $$
-> R=\{(t,x,y,z):x>|t|\},\qquad
-> L=\{(t,x,y,z):x<-|t|\}
-> $$
->
+
+$$
+R=\{(t,x,y,z):x>|t|\},\qquad
+L=\{(t,x,y,z):x<-|t|\}
+$$
+
 > とする。各領域で $(\eta,\rho,y,z)\in\mathbb R\times(0,\infty)\times\mathbb R^2$ を、右では
->
-> $$
-> t=\rho\sinh(a\eta),\qquad x=\rho\cosh(a\eta),
-> $$
->
+
+$$
+t=\rho\sinh(a\eta),\qquad x=\rho\cosh(a\eta),
+$$
+
 > 左では
->
-> $$
-> t=-\rho\sinh(a\eta),\qquad x=-\rho\cosh(a\eta)
-> $$
->
+
+$$
+t=-\rho\sinh(a\eta),\qquad x=-\rho\cosh(a\eta)
+$$
+
 > によって定める。$U=t-x$、$V=t+x$ をnull座標と呼ぶ。$R$ では $U<0<V$、$L$ では $V<0<U$ である。
 <!-- formal-statement-end -->
 
@@ -67,24 +67,24 @@ $a=2$、$\rho=3$、$\eta=0$ とすると、右の点は $(t,x)=(0,3)$ で $U=-3,
 <!-- formal-statement-start -->
 > **命題（Rindler計量と地平線）**
 > [上のRindler座標](#def-qcurv7-wedges)において、左右いずれのくさびでも
->
-> $$
-> ds^2=-a^2\rho^2d\eta^2+d\rho^2+dy^2+dz^2
-> $$
->
+
+$$
+ds^2=-a^2\rho^2d\eta^2+d\rho^2+dy^2+dz^2
+$$
+
 > となる。右くさびのnull座標とboost生成子には
->
-> $$
-> U=-\rho e^{-a\eta},\qquad V=\rho e^{a\eta},
-> \qquad K=x\partial_t+t\partial_x
-> $$
->
+
+$$
+U=-\rho e^{-a\eta},\qquad V=\rho e^{a\eta},
+\qquad K=x\partial_t+t\partial_x
+$$
+
 > の関係があり、境界は $U=0$ または $V=0$ のnull面に沿う。両くさびで
->
-> $$
-> \partial_\eta=aK,\qquad g(K,K)=-\rho^2
-> $$
->
+
+$$
+\partial_\eta=aK,\qquad g(K,K)=-\rho^2
+$$
+
 > が成り立つ。$\rho=0$ は座標領域外の地平線への境界で、Minkowski時空の曲率特異点ではない。
 <!-- formal-statement-end -->
 
@@ -137,17 +137,17 @@ Rindler座標で「静止」とは $\rho,y,z$ が一定という意味です。M
 <!-- formal-statement-start -->
 > **定義（Rindler静止観測者とboost時間）**
 > [右Rindlerくさび](#def-qcurv7-wedges)でRindler空間座標を一定にした曲線
->
-> $$
-> \rho=\rho_0>0,\qquad y=y_0,\qquad z=z_0
-> $$
->
+
+$$
+\rho=\rho_0>0,\qquad y=y_0,\qquad z=z_0
+$$
+
 > を右のRindler静止観測者と呼ぶ。boost時間を生成する場は $K=x\partial_t+t\partial_x$ であるが、固有時間とは異なる。加法定数を0として未来向き固有時間は、右と左でそれぞれ
->
-> $$
-> \tau_R=a\rho_0\eta,\qquad \tau_L=-a\rho_0\eta
-> $$
->
+
+$$
+\tau_R=a\rho_0\eta,\qquad \tau_L=-a\rho_0\eta
+$$
+
 > と取る。
 <!-- formal-statement-end -->
 
@@ -164,18 +164,18 @@ $\rho_0=1/a$ の右の軌道だけは $\tau=\eta$ です。$\rho_0=2/a$ なら $
 <!-- formal-statement-start -->
 > **命題（固有加速度の計量符号整合）**
 > 計量 $(-,+,+,+)$ のMinkowski時空で、右くさびの[静止軌道](#def-qcurv7-observer)を未来向き固有時間 $\tau$ で表示すると
->
-> $$
-> X(\tau)=\left(\rho_0\sinh(\tau/\rho_0),
-> \rho_0\cosh(\tau/\rho_0),y_0,z_0\right)
-> $$
->
+
+$$
+X(\tau)=\left(\rho_0\sinh(\tau/\rho_0),
+\rho_0\cosh(\tau/\rho_0),y_0,z_0\right)
+$$
+
 > である。四元速度と四元加速度を $u=dX/d\tau$、$A=du/d\tau$ とすれば
->
-> $$
-> g(u,u)=-1,\qquad g(u,A)=0,\qquad g(A,A)=\rho_0^{-2}
-> $$
->
+
+$$
+g(u,u)=-1,\qquad g(u,A)=0,\qquad g(A,A)=\rho_0^{-2}
+$$
+
 > を満たす。固有加速度の大きさは $1/\rho_0$ で、尺度 $a$ ではなく軌道の半径が決める。
 <!-- formal-statement-end -->
 
@@ -219,13 +219,13 @@ $u^0=\cosh q>0$ だから未来向きです。一定の $\rho_0$ でも加速度
 <!-- formal-statement-start -->
 > **定義（Rindler正振動数モード）**
 > 右Rindlerくさびにおいて、自由Klein–Gordon方程式の複素解のうち、boost時間依存が
->
-> $$
-> u_{\omega,k_\perp}(\eta,\rho,x_\perp)
-> =e^{-i\omega\eta+i k_\perp\cdot x_\perp}f_{\omega,k_\perp}(\rho),
-> \qquad \omega>0
-> $$
->
+
+$$
+u_{\omega,k_\perp}(\eta,\rho,x_\perp)
+=e^{-i\omega\eta+i k_\perp\cdot x_\perp}f_{\omega,k_\perp}(\rho),
+\qquad \omega>0
+$$
+
 > と書けるものを正のRindler振動数 $\omega$ を持つ（一般化）モードと呼ぶ。$f$ には方程式、くさび内の適切な境界・規格化条件を課す。左くさびでは未来向き時間が $-\eta$ なので、未来向き正振動数の時間因子は $e^{+i\omega\eta}$ とする。単一の連続スペクトルモードはデルタ規格化であり、正規化可能な一粒子状態は波束から作る。
 <!-- formal-statement-end -->
 
@@ -258,13 +258,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（Rindlerモード方程式とKG符号）**
 > [Rindler計量](#prop-qcurv7-metric)上の自由場 $(-\Box+m^2)\phi=0$ に対して、[分離形](#def-qcurv7-modes)の動径関数 $f$ は
->
-> $$
-> f''(\rho)+\frac1\rho f'(\rho)
-> +\left(\frac{\omega^2}{a^2\rho^2}-\kappa^2\right)f(\rho)=0,
-> \qquad \kappa^2=m^2+|k_\perp|^2
-> $$
->
+
+$$
+f''(\rho)+\frac1\rho f'(\rho)
++\left(\frac{\omega^2}{a^2\rho^2}-\kappa^2\right)f(\rho)=0,
+\qquad \kappa^2=m^2+|k_\perp|^2
+$$
+
 > を満たす。右の $\eta=\mathrm{const.}$ 面で、十分な減衰・境界条件を満たす正振動数解のKG規格化密度は $2\omega |u|^2/(a\rho)$ で正、左では未来向き周波数を反転したとき正となる。$\kappa=0$ なら動径の独立解は $\rho^{\pm i\omega/a}$ であり、$\rho\to0$ の振動は直ちに時空の曲率特異性を意味しない。
 <!-- formal-statement-end -->
 
@@ -318,19 +318,19 @@ $\kappa>0$ の動径モードは上の微分方程式の適切な解を選ぶ必
 <!-- formal-statement-start -->
 > **定義（Minkowski真空のくさび制限）**
 > 4次元Minkowski時空上の質量零自由実スカラー場のMinkowski真空 $\omega_M$ と、そのWightman二点分布 $W_M$ を固定する。右くさび $R$ に支持を持つ試験関数 $f,g\in C_c^\infty(R)$ について、制限状態の二点分布を
->
-> $$
-> W_R(f,g)=W_M(f,g)
-> $$
->
+
+$$
+W_R(f,g)=W_M(f,g)
+$$
+
 > と定める。慣性座標で
->
-> $$
-> W_M(X,X')
-> =-\frac1{4\pi^2}\lim_{\epsilon\downarrow0}
-> \frac1{(t-t'-i\epsilon)^2-(x-x')^2-|x_\perp-x'_\perp|^2}
-> $$
->
+
+$$
+W_M(X,X')
+=-\frac1{4\pi^2}\lim_{\epsilon\downarrow0}
+\frac1{(t-t'-i\epsilon)^2-(x-x')^2-|x_\perp-x'_\perp|^2}
+$$
+
 > である（極限は分布の意味）。同様に左くさび $L$ にも制限できる。これはくさびのboost正振動数から新しく定める真空の定義ではない。
 <!-- formal-statement-end -->
 
@@ -355,13 +355,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（Minkowski二点分布の等加速度引戻し）**
 > 上の質量零Minkowski真空と、[右Rindler静止観測者](#def-qcurv7-observer)の未来向き固有時間軌道 $X(\tau)$ を取る。$s=\tau-\tau'$、固有加速度 $\alpha=1/\rho_0>0$ とすると、引戻しは分布として
->
-> $$
-> w_{\rho_0}(s)
-> =-\frac{\alpha^2}{16\pi^2}
-> \frac1{\sinh^2\!\left(\frac{\alpha(s-i0)}2\right)}
-> $$
->
+
+$$
+w_{\rho_0}(s)
+=-\frac{\alpha^2}{16\pi^2}
+\frac1{\sinh^2\!\left(\frac{\alpha(s-i0)}2\right)}
+$$
+
 > である。この二点分布は固有時間差だけに依存して定常的で、$\alpha\to0$ の固定 $s$ の極限ではMinkowski慣性静止軌道の $-1/[4\pi^2(s-i0)^2]$ を回復する。$s=0$ での値を通常の関数として評価してはならない。
 <!-- formal-statement-end -->
 
@@ -414,11 +414,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（右左くさびにまたがるMinkowski真空の相関）**
 > 上の4次元質量零Minkowski真空において、$\rho_R,\rho_L>0$ とし、$X_R=(0,\rho_R,0,0)\in R$、$X_L=(0,-\rho_L,0,0)\in L$ とする。この二点は空間的に分離され、
->
-> $$
-> W_M(X_R,X_L)=\frac1{4\pi^2(\rho_R+\rho_L)^2}>0
-> $$
->
+
+$$
+W_M(X_R,X_L)=\frac1{4\pi^2(\rho_R+\rho_L)^2}>0
+$$
+
 > である。これは左右のくさび間に二点相関がある具体例であるが、**この値が非零という事実だけ**で、熱性や量子エンタングルメントの一般判定が完了したとは言えない。
 <!-- formal-statement-end -->
 
