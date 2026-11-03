@@ -98,6 +98,8 @@ a\mapsto n,\qquad n\mapsto b.
 $$
 
 この挿入と削除は互いに逆です。選択は置換が $c(n-1,k)$ 通り、挿入位置が $n-1$ 通り。二つの場合は互いに素で全てを尽くすので、[加法原理](../COMB1/index.md#thm-comb1-addition)と[乗法原理](../COMB1/index.md#thm-comb1-multiplication)から式を得ます。
+
+$n=1,k=1$ の境界でも、$(1)$ という巡回だけがあり、右辺は $c(0,0)+0c(0,1)=1$ です。空置換から1元の巡回を加える構成と一致します。
 <!-- proof-end -->
 
 ## 2. 名前のない班を作る：第二種 Stirling 数
