@@ -1,0 +1,71 @@
+chapter: GEOD2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD1
+  - F0-00E1
+forward_references: []
+
+concepts:
+  - id: geodesy.reference-system
+    name: 測地基準系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（測地基準系）]
+    requires: [geodesy.position-metadata]
+
+  - id: geodesy.reference-frame
+    name: 基準座標系による実現
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（基準座標系による実現）]
+    requires: [geodesy.reference-system]
+
+  - id: geodesy.datum
+    name: 測地datum
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（測地 datum）]
+    requires: [geodesy.reference-system, geodesy.reference-frame, geodesy.reference-ellipsoid]
+
+  - id: geodesy.crs
+    name: 座標参照系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（座標参照系）]
+    requires: [geodesy.datum]
+
+  - id: geodesy.coordinate-operation
+    name: 座標換算と座標変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（座標換算と座標変換）]
+    requires: [geodesy.crs, geodesy.datum]
+
+  - id: geodesy.rigid-frame-coordinate-relation
+    name: 直交する座標軸間の表示と距離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（直交する座標軸間の表示と距離）]
+    requires: [geodesy.reference-frame, geodesy.coordinate-operation]
+
+  - id: geodesy.coordinate-epoch
+    name: 座標時点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（座標時点）]
+    requires: [geodesy.reference-frame]
+
+  - id: geodesy.observation-model
+    name: 観測値と誤差の単純模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（観測値と誤差の単純模型）]
+    requires: [geodesy.reference-frame]
+
+  - id: geodesy.bias-nonidentifiability
+    name: 共通ずれが未知なら位置と分離できない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共通ずれが未知なら位置と分離できない）]
+    requires: [geodesy.observation-model]
