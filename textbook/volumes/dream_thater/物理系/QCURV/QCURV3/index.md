@@ -27,7 +27,7 @@ $$
 
 です。ここで $i,j$ はinモードの、$a,b$ はoutモードのラベルです。有限モードの場合には両者の個数は同じ $n$ です。KG内積は**第一引数に共役線形**なので、係数の複素共役を落とすと後の行列式の向きが変わってしまいます。
 
-各outモードをinの正・負モードへ展開し、正負の混ざり方を数で測ることにします。これがBogoliubov係数を導入する理由です。正準条件を $\alpha\alpha^\dagger-\beta\beta^\dagger=I$ と書けるよう、次の規約を固定します。
+各outモードをinの正・負モードへ展開し、正負の混ざり方を数で測ることにします。これがBogoliubov係数を導入する理由です。次節で保存内積の条件を行列にまとめる際の符号と添字を一意にするため、まず次の展開規約を固定します。
 
 <a id="def-qcurv3-bogoliubov"></a>
 
@@ -47,7 +47,20 @@ $$
 > で定める。$\alpha$ は正振動数同士の成分、$\beta$ は正負振動数間の混合を記述する。和が無限のときは、選んだ解空間と位相においてモード展開が意味を持つことを別途仮定する。
 <!-- formal-statement-end -->
 
-定義式の係数を[KG内積の正負規格化](../QCURV2/index.md#prop-qcurv2-ultrastatic-modes)へ代入して確かめます。第一引数が $v_a$ なので $\overline{\alpha_{aj}}$ は共役されて $\alpha_{aj}$ になり、負ノルムの $\bar u_j$ に付けた負符号は打ち消されて $\beta_{aj}$ になります。これは係数を**規格化から取り出す**仕組みで、記号の都合だけで符号を決めてはいません。
+定義式の係数を、第1節で仮定した正負規格化と[KG内積の共役線形性](../QCURV2/index.md#def-qcurv2-kg-pairing)から取り出して確かめます。$v_a$ が第一引数なので展開係数は共役され、任意のinラベル $k$ について
+
+$$
+\begin{aligned}
+(v_a,u_k)_{\mathrm{KG}}
+&=\sum_j\bigl(\alpha_{aj}(u_j,u_k)_{\mathrm{KG}}-\beta_{aj}(\bar u_j,u_k)_{\mathrm{KG}}\bigr)
+=\alpha_{ak},\\
+(v_a,\bar u_k)_{\mathrm{KG}}
+&=\sum_j\bigl(\alpha_{aj}(u_j,\bar u_k)_{\mathrm{KG}}-\beta_{aj}(\bar u_j,\bar u_k)_{\mathrm{KG}}\bigr)
+=\beta_{ak}.
+\end{aligned}
+$$
+
+後者では負ノルムと展開の負符号が打ち消し合います。これは係数を**規格化から取り出す**仕組みで、超静的背景に限ったモード公式を一般の場合へ仮定なしに適用しているわけではありません。
 
 <!-- definition-example-start: def-qcurv3-bogoliubov -->
 ### 直接例：一つの振動子の二つの正振動数
@@ -61,16 +74,23 @@ $$
 と置きます。[$(u,u)=1$、$(\bar u,\bar u)=-1$](../QCURV2/index.md#def-qcurv2-kg-pairing)と交差項の零により
 
 $$
-(v,v)=\cosh^2r-\sinh^2r=1,\qquad
-(v,\bar v)=0,\qquad(\bar v,\bar v)=-1.
+\begin{aligned}
+(v,v)&=\cosh^2r-\sinh^2r=1,\\
+(v,\bar v)&=-\cosh r\sinh r+\sinh r\cosh r=0,\\
+(\bar v,\bar v)&=\sinh^2r-\cosh^2r=-1.
+\end{aligned}
 $$
 
-**定義の確認**：従って、正負に対する全規格化を満たします。定義に直接代入すると $\alpha=\cosh r$、$\beta=\sinh r$ です。$r=0$ なら同じ正振動数を選び、$r\ne0$ なら $v$ に初めの負振動数が混ざります。この例では $\cosh^2r-\sinh^2r=1$ が保存内積の条件を満たす鍵です。
+**定義の確認**：従って、正負に対する全規格化を満たします。定義に直接代入すると $\alpha=\cosh r$、$\beta=\sinh r$ です。
+
+$r=0$ なら同じ正振動数を選び、$r\ne0$ なら $v$ に初めの負振動数が混ざります。この例では $\cosh^2r-\sinh^2r=1$ が保存内積の条件を満たす鍵です。
 <!-- definition-example-end -->
 
 ## 2. 保存内積は係数を自由にはしない
 
-任意の二つの行列 $\alpha,\beta$ を選ぶと、outモードは正規化を失ってしまいます。さらに場の量子化後には消滅・生成演算子の交換関係も失いかねません。保存内積が課す二組の条件を、ここで全成分から導きます。有限次元では $\dagger$ を共役転置、$T$ を転置とします。
+任意の二つの係数配列を選ぶと、outモードは正規化を失ってしまいます。さらに場の量子化後には消滅・生成演算子の交換関係も失いかねません。保存内積が課す二組の条件を、ここで全成分から導きます。
+
+有限モードでは $\alpha=(\alpha_{aj})$、$\beta=(\beta_{aj})$ を、outラベル $a$ を行、inラベル $j$ を列とする $n\times n$ 行列とします。記号 $\dagger$ は共役転置、$T$ は転置、$I$ はこの $n$ 次の単位行列です。これで行列積の添字の縮約方向も固定されます。
 
 <a id="thm-qcurv3-canonical"></a>
 
@@ -136,14 +156,32 @@ $$
 \begin{pmatrix}u\\\bar u\end{pmatrix}
 $$
 
-と書きます。符号付きKGのGram行列を $\eta=\operatorname{diag}(I,-I)$ とすると、上の二条件は $C\eta C^\dagger=\eta$ に相当します。有限次元で $\eta$ は可逆だから、$C$ も可逆で
+と書きます。ここで $u,v$ はそれぞれ正モードを列に並べたもの、$\bar u,\bar v$ はその成分ごとの共役です。
+
+ここで $\operatorname{diag}(I,-I)$ は対角ブロックに $I,-I$ を置き、他を零とする行列です。符号付きKGのGram行列を $\eta=\operatorname{diag}(I,-I)$ とします。第一引数の共役線形性により変換後のGram行列は $\bar C\eta C^T$ です。これは実行列 $\eta$ に等しく、複素共役を取れば $C\eta C^\dagger=\eta$ となります。実際、左上・右上ブロックは先ほどの二条件の複素共役で
+
+$$
+\bar\alpha\alpha^T-\bar\beta\beta^T=I,
+\qquad -\bar\alpha\beta^\dagger+\bar\beta\alpha^\dagger=0
+$$
+
+です。
+
+有限次元では $\eta$ が可逆であり、$C\eta C^\dagger=\eta$ から $C$ は全射、したがって正方行列として可逆です。よって
 
 $$
 C^{-1}=\eta C^\dagger\eta
 =\begin{pmatrix}\alpha^T&\beta^\dagger\\\beta^T&\alpha^\dagger\end{pmatrix}.
 $$
 
-この式を $C^{-1}C=I$ に代入し、左上・右上の成分をそれぞれ取ると、その複素共役を通じて
+この式を $C^{-1}C=I$ に代入し、左上・右上のブロックを取ると
+
+$$
+\alpha^T\bar\alpha-\beta^\dagger\beta=I,
+\qquad -\alpha^T\bar\beta+\beta^\dagger\alpha=0
+$$
+
+です。両式の複素共役を取って
 
 $$
 \alpha^\dagger\alpha-\beta^T\bar\beta=I,\qquad
@@ -157,11 +195,24 @@ $$
 
 ### 例：混合のない基底回転
 
-同じ正振動数空間の中で $v_a=\sum_j\bar U_{aj}u_j$ と置き、$U$ をユニタリ行列（$UU^\dagger=I$）とします。この場合 $\alpha=U$、$\beta=0$ であり、二条件は $UU^\dagger=I$ と $0=0$ になります。モードの名札や基底を替えても、負振動数が混ざらなければ粒子は生成されません。
+同じ正振動数空間の中で、ユニタリ行列 $U$（$UU^\dagger=I$）を使い
+
+$$
+v_a=\sum_j\bar U_{aj}u_j
+$$
+
+と置きます。この場合 $\alpha=U$、$\beta=0$ であり、二条件は $UU^\dagger=I$ と $0=0$ になります。モードの名札や基底を替えても、負振動数が混ざらなければ粒子は生成されません。
 
 ## 3. in真空からout粒子が見える仕組み
 
-[$u_j$ によるFock量子化](../QCURV2/index.md#def-qcurv2-wightman)では場を $\widehat\phi=\sum_j(a_ju_j+a_j^\dagger\bar u_j)$ と展開し、$a_j|0_{\mathrm{in}}\rangle=0$ とします。もう一方で $\widehat\phi=\sum_a(b_av_a+b_a^\dagger\bar v_a)$ と展開します。$b_a$ は**outモードを正振動数として測る粒子の消滅演算子**です。
+[$u_j$ によるFock量子化](../QCURV2/index.md#def-qcurv2-wightman)では $a_j|0_{\mathrm{in}}\rangle=0$ とし、同じ場を二組のモードで次のように展開します。
+
+$$
+\widehat\phi=\sum_j(a_ju_j+a_j^\dagger\bar u_j)
+=\sum_a(b_av_a+b_a^\dagger\bar v_a).
+$$
+
+$b_a$ は**outモードを正振動数として測る粒子の消滅演算子**です。
 
 [QFT4のFock交換関係](../../QFT/QFT4/index.md#thm-qft4-fock-ccr)を使い、有限粒子領域で $[a_i,a_j^\dagger]=\delta_{ij}$、$[a_i,a_j]=0$ とします。Bogoliubov変換はこの交換子を保たなければなりません。
 
@@ -200,7 +251,20 @@ $$
 \sum_a\left(\bar\alpha_{aj}b_a-\beta_{aj}b_a^\dagger\right).
 $$
 
-これをin表示の $a_j$ と比較して逆関係を得ます。第2節の逆正準条件を使えば、その逆を解いた式が $b_a=\sum_j(\alpha_{aj}a_j+\beta_{aj}a_j^\dagger)$ です。直接検算もできます：
+これをin表示の $a_j$ と比較して逆関係を得ます。その随伴は
+
+$$
+a_j^\dagger=\sum_c(\alpha_{cj}b_c^\dagger-\bar\beta_{cj}b_c)
+$$
+
+です。両式を $\sum_j(\alpha_{aj}a_j+\beta_{aj}a_j^\dagger)$ に代入すると、$b_c$ の係数と $b_c^\dagger$ の係数はそれぞれ
+
+$$
+(\alpha\alpha^\dagger-\beta\beta^\dagger)_{ac}=\delta_{ac},
+\qquad -(\alpha\beta^T-\beta\alpha^T)_{ac}=0
+$$
+
+となり、求める $b_a$ を再現します。[正準条件](#thm-qcurv3-canonical)による逆変換の検算です。さらに交換関係を直接検算すると
 
 $$
 \begin{aligned}
@@ -236,11 +300,32 @@ $$
 
 場の各モードが時間依存を受けると、初期に正振動数だった解が後期には正・負の混合になります。その最小模型として、時刻 $t=0$ に振動数が急に切り替わる一つの振動子を考えます。これは背景曲率についての一般定理ではなく、モード接続の**計算模型**です。
 
+ここで $q=q(t)$ は一変数の複素値解で、時間微分記法は
+
+$$
+q'=\frac{dq}{dt},\qquad q''=\frac{d^2q}{dt^2}
+$$
+
+とします。空間座標を固定する偏微分 $\partial_t$ とは異なり、独立変数は $t$ だけです。区分的に一定で有限な $\omega(t)^2$ を用い、切替点でデルタ型の外力を加えないことを仮定します。
+
 <a id="prop-qcurv3-quench"></a>
 
 <!-- formal-statement-start -->
 > **命題（周波数急変振動子の粒子生成）**
-> 実関数 $\omega(t)^2$ が $t<0$ で $\omega_{\mathrm{in}}^2>0$、$t>0$ で $\omega_{\mathrm{out}}^2>0$ を取り、$q''+\omega(t)^2q=0$ を満たすとする。$q,q'$ を $t=0$ で連続に接続し、各領域の正振動数解を $e^{-i\omega_{\mathrm{in}}t}/\sqrt{2\omega_{\mathrm{in}}}$ および $e^{-i\omega_{\mathrm{out}}t}/\sqrt{2\omega_{\mathrm{out}}}$ と規格化する。両者を同じ全時刻の解として接続したin/outモードのBogoliubov係数は
+> 正の定数 $\omega_{\mathrm{in}},\omega_{\mathrm{out}}$ に対し、実関数 $\omega(t)^2$ が $t<0$ で $\omega_{\mathrm{in}}^2$、$t>0$ で $\omega_{\mathrm{out}}^2$ を取り、次の方程式を満たすとする。
+
+$$
+q''+\omega(t)^2q=0
+$$
+
+> $q,q'$ を $t=0$ で連続に接続し、各領域の正振動数解をそれぞれ
+
+$$
+\frac{e^{-i\omega_{\mathrm{in}}t}}{\sqrt{2\omega_{\mathrm{in}}}},
+\qquad \frac{e^{-i\omega_{\mathrm{out}}t}}{\sqrt{2\omega_{\mathrm{out}}}}
+$$
+
+> と規格化する。両者を同じ全時刻の解として接続したin/outモードのBogoliubov係数は
 
 $$
 \alpha=\frac12\left(\sqrt{\frac{\omega_{\mathrm{out}}}{\omega_{\mathrm{in}}}}
@@ -262,7 +347,18 @@ $$
 
 ### 証明の見取り図
 
-急変点で場とその時間微分を保ちます。out正振動数解をin側へ延長して正・負の線形結合にし、接続条件を二本の一次方程式にします。係数の差には時間微分の符号が効きます。
+急変点で場とその時間微分を保ちます。区分的に滑らかな解をデルタ型の外力なしに接続するには、$q,q'$ の片側極限が一致する必要があります。両者が局所有界であれば、微分方程式を切替点の両側にわたって積分して
+
+$$
+\begin{aligned}
+q'(\varepsilon)-q'(-\varepsilon)
+&=-\int_{-\varepsilon}^{\varepsilon}\omega(t)^2q(t)\,dt\longrightarrow0,\\
+q(\varepsilon)-q(-\varepsilon)
+&=\int_{-\varepsilon}^{\varepsilon}q'(t)\,dt\longrightarrow0
+\end{aligned}
+$$
+
+となります。out正振動数解をin側へ延長して正・負の線形結合にし、接続条件を二本の一次方程式にします。係数の差には時間微分の符号が効きます。
 
 <!-- proof-start -->
 ### 証明
@@ -317,7 +413,23 @@ $$
 
 連続スペクトルでは正規化が $\delta(\omega-\omega')$ になります。このとき一つの厳密な周波数 $\omega$ の演算子 $b_\omega$ は演算子値分布であり、$b_\omega^\dagger b_\omega$ をそのまま一個の粒子数と呼ぶと $\delta(0)$ のような無意味な記号を生みます。測定する周波数帯を**波束**としてまとめます。
 
-ここでは連続ラベルを $\omega$、in側のラベルを $\lambda$ とし、$f\in L^2(d\omega)$ を $\int|f(\omega)|^2d\omega=1$ を満たす複素関数とします。$\beta(\omega,\lambda)$ は連続ラベル版の第1節の係数です。波束に対する線形結合 $b_f=\int f(\omega)b_\omega\,d\omega$ を考えると、$[b_f,b_f^\dagger]=1$ です。係数を重ねる際には複素位相も残す必要があります。
+連続ラベルを $\omega$、in側のラベルを $\lambda$ とします。$f\in L^2(d\omega)$ は次を満たす複素関数とします。
+
+$$
+\int|f(\omega)|^2d\omega=1
+$$
+
+$\beta(\omega,\lambda)$ は連続ラベル版の第1節の係数です。ここでの波束規約は $b_f=\int f(\omega)b_\omega\,d\omega$（$f$ に関して線形）で、その随伴には $\overline{f(\omega)}$ が付きます。
+
+分布としての交換関係 $[b_\omega,b_{\omega'}^\dagger]=\delta(\omega-\omega')$ を正規化された試験波束に作用させると
+
+$$
+[b_f,b_f^\dagger]
+=\iint f(\omega)\overline{f(\omega')}\delta(\omega-\omega')\,d\omega\,d\omega'
+=\int|f(\omega)|^2d\omega=1.
+$$
+
+係数 $\beta$ を重ねる際にも $f$（共役ではない）を掛けるため、複素位相が残ります。以下の積分はsmearingが定義できる条件の下で読みます。
 
 また無限個のモードでは、各出射モードの粒子数が有限でも、全出射モードを足すと発散することがあります。二重和の二乗可和性を測る **Hilbert–Schmidt（HS）条件** が、Fock表現の同値性と関係します。
 
@@ -345,7 +457,15 @@ $$
 <!-- definition-example-start: def-qcurv3-wavepacket-hs -->
 ### 直接例：二つの独立モードの波束
 
-二つの独立した同じ強さのsqueeze、すなわち $\alpha=\cosh r\,I_2$、$\beta=\sinh r\,I_2$ を取ります。両行列は第2節の二条件を満たします。$f=(1,i)/\sqrt2$ とすれば
+二つの独立した同じ強さのsqueeze、すなわち $\alpha=\cosh r\,I_2$、$\beta=\sinh r\,I_2$ を取ります。第2節の[正準条件](#thm-qcurv3-canonical)は
+
+$$
+\alpha\alpha^\dagger-\beta\beta^\dagger
+=(\cosh^2r-\sinh^2r)I_2=I_2,
+\qquad \alpha\beta^T-\beta\alpha^T=0
+$$
+
+と確かめられます。$f=(1,i)/\sqrt2$ とすれば
 
 $$
 b_f=\frac{b_1+i b_2}{\sqrt2},
@@ -391,14 +511,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一モードで $r\ge0$、$c=\cosh r$、$s=\sinh r$ と置き、$|\psi\rangle=C\exp[-\tfrac12(s/c)(a^\dagger)^2]|0\rangle$ を考えます。$[a,(a^\dagger)^2]=2a^\dagger$ なので、有限粒子上で項別に作用させて
+一モードで $r\ge0$ とし、以下の略記を使います。
+
+$$
+c=\cosh r,\qquad s=\sinh r,\qquad t=s/c=\tanh r\in[0,1)
+$$
+
+真空候補を $|\psi\rangle=C\exp[-t(a^\dagger)^2/2]|0\rangle$ とします。まず指数をFock基底の級数として展開します。係数のノルム二乗は
+
+$$
+\sum_{k\ge0}\binom{2k}{k}(t^2/4)^k
+$$
+
+となり、$t<1$ で収束します。その各項に $a$ を作用させても、粒子数に由来する多項式因子が掛かるだけなので収束します。$[a,(a^\dagger)^2]=2a^\dagger$ を有限部分和に適用し、ノルム極限を取ると
 
 $$
 a\exp[-t(a^\dagger)^2/2]|0\rangle
 =-t a^\dagger\exp[-t(a^\dagger)^2/2]|0\rangle
 $$
 
-（$t=s/c$）を得ます。従って $(ca+sa^\dagger)|\psi\rangle=(-ct+s)a^\dagger|\psi\rangle=0$ です。展開のノルムは
+を得ます。従って $(ca+sa^\dagger)|\psi\rangle=(-ct+s)a^\dagger|\psi\rangle=0$ です。展開のノルムは
 
 $$
 \begin{aligned}
@@ -482,10 +614,22 @@ $$
 #### QCURV3-A03 正振動数内の回転では粒子は生まれない
 - Level: A
 
-$\theta\in\mathbb R$ とし、二モードで $\alpha=\bigl(\begin{smallmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{smallmatrix}\bigr)$、$\beta=0$ とする。正準条件と二つのoutモードのin真空中の平均粒子数を求めよ。
+$\theta\in\mathbb R$ とし、二モードで次の係数を与える。正準条件と二つのoutモードのin真空中の平均粒子数を求めよ。
+
+$$
+\alpha=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix},
+\qquad \beta=0
+$$
 
 <!-- solution-start -->
-**詳細解答。** $\alpha\alpha^\dagger$ の対角成分は $\cos^2\theta+\sin^2\theta=1$、非対角成分は $\cos\theta\sin\theta-\sin\theta\cos\theta=0$ です。従って第一条件は成立し、第二条件は $\beta=0$ から零です。[粒子数命題](#prop-qcurv3-number)では各行の $\sum_j|\beta_{aj}|^2=0$、ゆえに両outモードの平均粒子数は零です。
+**詳細解答。** $\alpha\alpha^\dagger$ の対角成分と非対角成分はそれぞれ
+
+$$
+\cos^2\theta+\sin^2\theta=1,
+\qquad \cos\theta\sin\theta-\sin\theta\cos\theta=0
+$$
+
+です。従って第一条件は成立し、第二条件は $\beta=0$ から零です。[粒子数命題](#prop-qcurv3-number)では各行の $\sum_j|\beta_{aj}|^2=0$ なので、両outモードの平均粒子数は零です。
 <!-- solution-end -->
 
 <a id="ex-qcurv3-a04"></a>
@@ -650,7 +794,7 @@ $$
 =1+\frac{c^2}{j^{2p}}-\frac{c^2}{j^{2p}}=1
 $$
 
-だから $\alpha\alpha^\dagger-\beta\beta^\dagger=I$。また対角行列は交換するので $\alpha\beta^T-\beta\alpha^T=0$ です。各成分に[正準条件](#thm-qcurv3-canonical)を適用でき、各モードの変換は正準です。
+だから $\alpha\alpha^\dagger-\beta\beta^\dagger=I$。また対角行列は交換するので $\alpha\beta^T-\beta\alpha^T=0$ です。$|\beta_j|\le c$、$|\alpha_j|\le\sqrt{1+c^2}$ から、両対角作用素は二乗和有限の複素数列空間 $\ell^2$ 上有界です。有限台列で確認した恒等式は全 $\ell^2$ に延長でき、この意味で各モードの変換は正準です。
 
 [粒子数命題](#prop-qcurv3-number)では第$j$ 行の非零の $\beta$ 成分は $c/j^p$ ただ一つなので
 
@@ -661,7 +805,15 @@ $$
 =c^2\sum_{j=1}^{n}\frac1{j^{2p}}.
 $$
 
-$2p>1$、すなわち $p>1/2$ でこの級数は収束し、$\|\beta\|_{\mathrm{HS}}^2=c^2\sum_jj^{-2p}<\infty$ です。この場合 $r_j=\operatorname{arsinh}(c/j^p)$ と置くと $\sinh r_j=c/j^p$、$\cosh r_j=\sqrt{1+c^2/j^{2p}}$。[対角squeeze列のFock真空と総粒子数](#prop-qcurv3-diagonal-squeeze)により有限モードout真空はin Fock空間内で収束します。
+$2p>1$、すなわち $p>1/2$ でこの級数は収束します。そのとき
 
-一方、$0<p\le1/2$ なら $2p\le1$ で $p$ 級数は発散し、HS条件は破れます。[対角squeeze列のFock真空と総粒子数](#prop-qcurv3-diagonal-squeeze)により有限モードout真空はin Fock空間内の真空ベクトルに収束しません。すべての固定した $j$ に対して $c^2/j^{2p}<\infty$ でも、その値を**全モードで足す**操作は別の収束問題だからです。これはモードごとの正準性と、無限自由度のFock表現の実装可能性を区別する具体例です。
+$$
+\|\beta\|_{\mathrm{HS}}^2=c^2\sum_jj^{-2p}<\infty
+$$
+
+です。$\sinh$ が非負実数上で狭義単調に増加するので、$\sinh r_j=c/j^p$ を満たす $r_j\ge0$ が一意に定まり、$\cosh r_j=\sqrt{1+c^2/j^{2p}}$ です。[対角squeeze列のFock真空と総粒子数](#prop-qcurv3-diagonal-squeeze)により有限モードout真空はin Fock空間内で収束します。
+
+一方、$0<p\le1/2$ なら $2p\le1$ で $p$ 級数は発散し、HS条件は破れます。[対角squeeze列のFock真空と総粒子数](#prop-qcurv3-diagonal-squeeze)により有限モードout真空はin Fock空間内の真空ベクトルに収束しません。
+
+すべての固定した $j$ に対して $c^2/j^{2p}<\infty$ でも、その値を**全モードで足す**操作は別の収束問題だからです。これはモードごとの正準性と、無限自由度のFock表現の実装可能性を区別する具体例です。
 <!-- solution-end -->
