@@ -159,7 +159,7 @@ $$
 
 を得ます。$\psi$ の支持は任意に小さく選べます。仮に原点でこの方向が正則なら、そこで非零の正則化cutoffを選び、その内側に支持を取った上の $\chi$ も方向別に急減少するはずなので矛盾します。従って正の光的余接方向はどれも波面に属します。
 
-逆に、正の零錐から離れた閉錐方向の $\zeta$ については、$R=|\zeta|$ として $|\boldsymbol p|\le2R$ と $|\boldsymbol p|>2R$ に積分域を分けます。前者では方向の分離とコンパクト性から $|\zeta-\kappa(\boldsymbol p)|\ge cR$、後者では三角不等式から $|\zeta-\kappa(\boldsymbol p)|\ge(\sqrt2-1/2)|\boldsymbol p|$ です。$\widehat\chi$ の急減少を $|\widehat\chi(\eta)|\le C_L(1+|\eta|)^{-L}$ と書くと、球座標で
+逆に、正の零錐から離れた閉錐方向の $\zeta$ については、$R=|\zeta|$ として $|\boldsymbol p|\le2R$ と $|\boldsymbol p|>2R$ に積分域を分けます。前者では方向の分離とコンパクト性から $|\zeta-\kappa(\boldsymbol p)|\ge cR$、後者では[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)から $|\zeta-\kappa(\boldsymbol p)|\ge(\sqrt2-1/2)|\boldsymbol p|$ です。$\widehat\chi$ の急減少を $|\widehat\chi(\eta)|\le C_L(1+|\eta|)^{-L}$ と書くと、球座標で
 
 $$
 \int_{|\boldsymbol p|\le2R}\frac{d^3p}{|\boldsymbol p|}
