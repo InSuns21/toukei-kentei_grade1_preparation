@@ -1,0 +1,23 @@
+chapter: CYG1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-01, CAG1-11, CAG1-13, AG2-11, KAH1-14]
+concepts:
+  - id: cyg.volume-trivialization-test
+    name: 大域正則体積形式による標準束の自明化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（大域正則体積形式による標準束の自明化）"]
+    requires: [kahler.canonical-bundle, cyg.condition-conventions]
+  - id: cyg.hypersurface-degree-criterion
+    name: 滑らかな射影超曲面の標準束自明性の次数判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな射影超曲面の標準束自明性の次数判定）"]
+    requires: [cyg.volume-trivialization-test, complex-algebraic-geometry.analytic-adjunction-compatibility, kahler.projective-integral-class]
+  - id: cyg.fermat-local-volume-test
+    name: Fermat型超曲面の局所随伴形式の直接判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat型超曲面の局所随伴形式の直接判定）"]
+    requires: [cyg.hypersurface-degree-criterion, complex-algebraic-geometry.holomorphic-adjunction-local-form, algebraic-geometry.hypersurface-jacobian-criterion]
