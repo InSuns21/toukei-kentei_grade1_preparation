@@ -34,4 +34,5 @@
 31. [QFT31 散乱・ループ・ゲージ不変性・くりこみを結ぶ総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT31/index.md)
 32. [QFT32 Poincaré粒子表現・質量とヘリシティ・Weyl／Majorana場](textbook/volumes/dream_thater/物理系/QFT/QFT32/index.md)
 33. [QFT33 大域対称性の自発的破れ・真空多様体・Goldstoneの定理](textbook/volumes/dream_thater/物理系/QFT/QFT33/index.md)
+34. [QFT34 局所U(1)対称性・Abelian Higgs機構・ゲージ固定と物理自由度](textbook/volumes/dream_thater/物理系/QFT/QFT34/index.md)
 

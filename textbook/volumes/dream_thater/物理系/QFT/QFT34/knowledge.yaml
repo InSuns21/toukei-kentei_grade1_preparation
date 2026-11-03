@@ -1,0 +1,69 @@
+chapter: QFT34
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT33, QFT15, QFT16, QFT17, QFT29]
+forward_references: []
+
+concepts:
+  - id: qft.charged-scalar-gauge-covariant-derivative
+    name: 荷電スカラー場の局所U(1)変換と共変微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（荷電スカラー場の局所U(1)変換と共変微分）]
+    requires: [qft.local-u1-gauge, qft.charged-dirac-covariant-derivative]
+
+  - id: qft.scalar-u1-gauge-covariance
+    name: 共変微分とAbelian場の強さのゲージ変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共変微分とAbelian場の強さのゲージ変換）]
+    requires: [qft.charged-scalar-gauge-covariant-derivative]
+
+  - id: qft.abelian-higgs-model
+    name: Abelian Higgs模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Abelian Higgs模型）]
+    requires: [qft.scalar-u1-gauge-covariance, qft.spontaneous-global-symmetry-breaking]
+
+  - id: qft.abelian-higgs-quadratic-spectrum
+    name: 真空周りの二次作用と木レベル質量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（真空周りの二次作用と木レベル質量）]
+    requires: [qft.abelian-higgs-model, qft.o2-vacuum-mass-matrix]
+
+  - id: qft.higgs-gauge-invariant-vector
+    name: 非零スカラー領域のゲージ不変ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非零スカラー領域のゲージ不変ベクトル）]
+    requires: [qft.abelian-higgs-model, qft.local-u1-gauge]
+
+  - id: qft.higgs-proca-local-form
+    name: 正則な局所領域でのHiggs–Proca表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正則な局所領域でのHiggs–Proca表示）]
+    requires: [qft.higgs-gauge-invariant-vector, qft.abelian-higgs-quadratic-spectrum]
+
+  - id: qft.proca-three-polarizations
+    name: 正の質量を持つProca場の三偏極
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正の質量を持つProca場の三偏極）]
+    requires: [qft.higgs-proca-local-form, qft.photon-two-physical-polarizations]
+
+  - id: qft.abelian-higgs-rxi-gauge
+    name: Abelian Higgs模型のRξゲージ固定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Abelian Higgs模型のRξゲージ固定）]
+    requires: [qft.abelian-higgs-quadratic-spectrum, qft.covariant-gauge-fixed-action]
+
+  - id: qft.higgs-rxi-diagonal-propagator
+    name: Rξ二次作用の対角化と非物理的な質量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Rξ二次作用の対角化と非物理的な質量）]
+    requires: [qft.abelian-higgs-rxi-gauge, qft.gauge-fixed-kinetic-inverse, qft.faddeev-popov-operator]
