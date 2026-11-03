@@ -6,7 +6,15 @@
 
 この章で解く問いは「**真空のままなのに、なぜ等加速度検出器は熱的な比を測るのか**」です。まず熱平衡を二点分布の複素時間境界条件として捉え、次にその分布をFourier変換して検出器の比を直接検算します。最後に、[QCURV3のBogoliubov変換](../QCURV3/index.md#thm-qcurv3-canonical)のモード描像が同じ指数因子を与えることを、計算可能な模型で照合します。
 
-規約は[物理系の計量規約](../../../../../dream-theater-lorentz-conventions.md)の $(-,+,+,+)$、自然単位 $\hbar=c=k_B=1$ です。4次元の質量零自由実スカラー場のMinkowski真空を固定します。右Rindlerくさびの[静止世界線](../QCURV7/index.md#def-qcurv7-observer)は、$\rho_0>0$、座標尺度 $a>0$、未来向き固有時間 $\tau=a\rho_0\eta$ で表します。実際の固有加速度を $\alpha=1/\rho_0$ と書きます。$a$ はRindler座標を選ぶ尺度で、$\alpha$ とは別です。
+規約は[物理系の計量規約](../../../../../dream-theater-lorentz-conventions.md)の $(-,+,+,+)$、自然単位 $\hbar=c=k_B=1$ です。4次元の質量零自由実スカラー場のMinkowski真空を固定します。
+
+右Rindlerくさびの[静止世界線](../QCURV7/index.md#def-qcurv7-observer)では、半径 $\rho_0>0$、座標尺度 $a>0$、Rindler時間 $\eta$ を使います。未来向き固有時間と固有加速度は
+
+$$
+\tau=a\rho_0\eta,\qquad \alpha=\frac1{\rho_0}
+$$
+
+です。$a$ は座標を選ぶ尺度であり、軌道ごとに決まる $\alpha$ とは別です。
 
 ## 1. 熱平衡を時間相関から判定する
 
@@ -550,7 +558,18 @@ $E<0$ は $\operatorname{Im}s>0$ の側で減衰し、反時計回り、極は $
 #### QCURV8-C01 Unruh温度を相関・率・モードから再導出する
 
 - Level: C
-- 問題: 4次元質量零自由実スカラー場のMinkowski真空を、右Rindlerくさびの $\rho_0>0$、尺度 $a>0$ の静止世界線へ引き戻す。[QCURV7の式](../QCURV7/index.md#prop-qcurv7-wightman) $w_\alpha(s)=-\alpha^2/[16\pi^2\sinh^2(\alpha(s-i0)/2)]$、$\alpha=1/\rho_0$ を出発点とする。$(1)$ 極の位置・解析帯・二つの境界値から逆温度を特定せよ。$(2)$ 二重極の留数を用いて $E>0$ と $E<0$ のFourier率を求め、正のギャップで比を作れ。$(3)$ $\omega>0$ のRindlerモードのMellin振幅比 $e^{-\pi\omega/a}$ と正準二モード占有数を比較し、固有ギャップ $\Omega$ への換算を行え。$(4)$ 有限時間切替や全時空のMinkowski粒子数について結論できる範囲を述べよ。
+- 問題: 4次元質量零自由実スカラー場のMinkowski真空を、右Rindlerくさびの半径 $\rho_0>0$、座標尺度 $a>0$ の静止世界線へ引き戻す。固有加速度を $\alpha=1/\rho_0$ とする。[QCURV7の二点分布](../QCURV7/index.md#prop-qcurv7-wightman)の式を出発点とする。
+
+$$
+w_\alpha(s)=-\frac{\alpha^2}{16\pi^2\sinh^2(\alpha(s-i0)/2)}
+$$
+
+次の四つを順に再導出せよ。
+
+1. 極の位置、解析帯、二つの境界値から逆温度を特定せよ。
+2. 二重極の留数を用いて $E>0$ と $E<0$ のFourier率を求め、正のギャップで比を作れ。
+3. $\omega>0$ のRindlerモードのMellin振幅比 $e^{-\pi\omega/a}$ と正準二モード占有数を比較し、固有ギャップ $\Omega$ への換算を行え。
+4. 有限時間切替や全時空のMinkowski粒子数について結論できる範囲を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：$(1)$ $F(z)=-\alpha^2/[16\pi^2\sinh^2(\alpha z/2)]$ の極は $z=2\pi i n/\alpha$（$n\in\mathbb Z$）です。$-\beta<\operatorname{Im}z<0$、$\beta=2\pi/\alpha$ で正則、$\sinh(\alpha(z-i\beta)/2)=-\sinh(\alpha z/2)$ なので $F(z-i\beta)=F(z)$。上端は $F(s-i0)=w_\alpha(s)$、下端は $F(s-i\beta+i0)=F(s+i0)=F(-s-i0)=w_\alpha(-s)$。したがって固有時間KMS逆温度は $\beta=2\pi/\alpha$ です。
