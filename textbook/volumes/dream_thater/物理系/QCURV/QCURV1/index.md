@@ -281,7 +281,15 @@ $$
 \left(\sqrt{\det h}\,h^{ij}\partial_jf\right)
 $$
 
-とします。これは符号規約として通常のEuclid空間で $\sum_i\partial_i^2$ に戻るものです。空間一定の場を $\phi(t,x)=q(t)$ と置くと、$\partial_t\phi=dq/dt=\dot q$、$\partial_t^2\phi=d^2q/dt^2=\ddot q$、$\partial_i\phi=0$ です。点記法は時間 $t$ に関する通常の導関数を表し、一般の場に対する偏微分とは区別します。
+とします。これは符号規約として通常のEuclid空間で $\sum_i\partial_i^2$ に戻るものです。空間一定の場を $\phi(t,x)=q(t)$ と置くと、
+
+$$
+\partial_t\phi=\frac{dq}{dt}=\dot q,\qquad
+\partial_t^2\phi=\frac{d^2q}{dt^2}=\ddot q,
+\qquad \partial_i\phi=0
+$$
+
+です。点記法は時間 $t$ に関する通常の導関数を表し、一般の場に対する偏微分とは区別します。
 
 <a id="prop-qcurv1-ultrastatic"></a>
 
@@ -550,7 +558,16 @@ $$
 #### QCURV1-B01 計量密度からEuler–Lagrange方程式
 - Level: B
 
-4次元の滑らかな固定Lorentz背景 $(M,g)$ の一つの座標近傍に含まれる相対コンパクト開領域 $\Omega$ 上で、$\chi\in C_c^\infty(\Omega)$ とする。$V=m^2+\xi R$、$S_\Omega[\phi;g]=-\frac12\int_\Omega(g^{ab}\partial_a\phi\partial_b\phi+V\phi^2)\sqrt{-\det g}\,d^4x$ から、座標微分だけで停留条件の局所式を導け。
+4次元の滑らかな固定Lorentz背景 $(M,g)$ の一つの座標近傍に含まれる相対コンパクト開領域 $\Omega$ 上で、$\chi\in C_c^\infty(\Omega)$ とする。$V=m^2+\xi R$ と置き、座標表示した作用
+
+$$
+S_\Omega[\phi;g]
+=-\frac12\int_\Omega
+(g^{ab}\partial_a\phi\partial_b\phi+V\phi^2)
+\sqrt{-\det g}\,d^4x
+$$
+
+から、座標微分だけで停留条件の局所式を導け。
 
 <!-- solution-start -->
 **詳細解答。** $\rho=\sqrt{-\det g}>0$ と略記します。$\rho,g^{ab},V$ は固定なので、変分で
