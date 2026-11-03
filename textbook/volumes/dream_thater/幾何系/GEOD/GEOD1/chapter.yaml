@@ -1,0 +1,39 @@
+id: "GEOD1"
+title: "地球の位置を測るとは何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E1
+  - VC2
+official_scope: []
+learning_objectives:
+  - 地形面・ジオイド・準拠楕円体・球面モデルの役割と適用範囲を区別できる
+  - 地心緯度・測地緯度・天文緯度が参照する方向を特定し、鉛直線偏差の意味を説明できる
+  - 球面モデルの中心角・大円弧・弦を出発点から導き、モデル半径と距離の違いを計算できる
+  - 点の数値座標に不足する基準・単位・高さ・時点を反例で指摘できる
+definitions:
+  - { id: GEOD1-DEF-01, name: 地形面・球面モデル }
+  - { id: GEOD1-DEF-02, name: 準拠楕円体 }
+  - { id: GEOD1-DEF-03, name: ジオイド }
+  - { id: GEOD1-DEF-04, name: 地心緯度・測地緯度・天文緯度 }
+  - { id: GEOD1-DEF-05, name: 鉛直線偏差 }
+  - { id: GEOD1-DEF-06, name: 座標記述の基準情報 }
+theorems:
+  - { id: GEOD1-PROP-01, name: 球面の大円弧長と弦長 }
+  - { id: GEOD1-PROP-02, name: 球面緯度・経度表示の極での退化 }
+canonical_examples:
+  - 地形面・ジオイド・楕円体を地形高と基準面の違いで分類
+  - 楕円の地心方向と法線方向の違いを数値で確認
+  - 同じ中心角で球面半径が違うと弧長が違う例
+  - 同じ数値座標でも基準や時点・軸順序が未指定なら位置が未確定の例
+problem_patterns:
+  - GEOD1-SURFACE-ROLE
+  - GEOD1-LATITUDE-DIRECTIONS
+  - GEOD1-ARC-CHORD
+  - GEOD1-POLE-COORDINATES
+  - GEOD1-LOCATION-METADATA
+  - GEOD1-INTEGRATED-MODEL-CHOICE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 3, review: 1 }
