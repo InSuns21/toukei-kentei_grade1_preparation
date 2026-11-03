@@ -4,7 +4,7 @@
 
 中心問いは、**局所U(1)対称性を保って荷電Dirac場と光子を結合し、電子–ミューオンの木レベル散乱を断面積まで計算するには？** です。まず共変微分の位相を検算し、相互作用の係数から頂点規則を作ります。次に質量殻のDirac方程式で外線電流の横性を証明し、スピン平均を四本のgamma行列の跡へ変換して、最後に位相空間と接続します。
 
-以下は $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、Heaviside–Lorentz単位系です。座標を $x^\mu=(t,\boldsymbol x)$ とし、Lorentz添字 $\mu=0,1,2,3$ は上下に一度ずつ現れるとき総和します。微分・内積・スラッシュ記法の対応は
+以下は $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$、Heaviside–Lorentz単位系です。座標を $x^\mu=(t,\boldsymbol x)$ とし、Lorentz添字 $\mu=0,1,2,3$ は上下に一度ずつ現れるとき総和します。微分・内積・スラッシュ記法の対応は
 
 $$
 \partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
@@ -13,25 +13,25 @@ p^2=p\cdot p,\qquad
 \not p=\gamma^\mu p_\mu
 $$
 
-です。$\partial_\mu$ は**他の座標を固定した偏微分**で、添字の上下は $\eta$ によります。$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford)を満たし、$\bar\psi=\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。
+です。$p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$ であり、正エネルギーの正振動数モードは $e^{+ip\cdot x}$ です。$\partial_\mu$ は**他の座標を固定した偏微分**で、添字の上下は $\eta$ によります。$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford) $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$ を満たし、$\bar\psi=-i\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。電荷 $q$ の物理的電流は $j^\mu=-iq\bar\psi\gamma^\mu\psi$ で、$j^0=q\psi^\dagger\psi$ です。
 
-$A_\mu$ は実四元ポテンシャル、$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とします。$q$ は**符号付きの電荷**で、電子とミューオンでは $q_e=q_\mu=-e$、$e>0$ です。従って式中の頂点係数を単に「$-ie$」と覚えるのは本章の規約とは違います。
+$A_\mu$ は実四元ポテンシャル、$F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$ とします（[QFT15の $F=-dA$ の定義](../QFT15/index.md#def-qft15-potential-field)）。$q$ は**符号付きの電荷**で、電子とミューオンでは $q_e=q_\mu=-e$、$e>0$ です。旧規約の頂点係数 $-ie\gamma^\mu$ はそのまま流用できません。
 
 古典的な変分はコンパクト台の滑らかな変分で行います。量子場の積・Dyson展開は自由場の分布をsmearingし、有限次数の摂動係数として理解します。無限次元の相互作用理論や長距離QEDの厳密な漸近状態をこの計算だけで構成したとは主張しません。散乱振幅への同定は[QFT11の漸近状態の条件](../QFT11/index.md#def-qft11-asymptotic-s)の下で行い、まず転送運動量 $t<0$ に限定します。
 
 ## 1. 局所位相を微分すると余計な項が生じる
 
-自由Dirac作用の偏微分に、位置ごとに異なる位相を持つ $\psi'(x)=e^{-iq\chi(x)}\psi(x)$ を代入すると
+自由Dirac作用の偏微分に、位置ごとに異なる位相を持つ $\psi'(x)=e^{iq\chi(x)}\psi(x)$ を代入すると
 
 $$
 \partial_\mu\psi'
-=e^{-iq\chi}\left(\partial_\mu\psi-iq(\partial_\mu\chi)\psi\right)
+=e^{iq\chi}\left(\partial_\mu\psi+iq(\partial_\mu\chi)\psi\right)
 $$
 
 です。ここでプライム $'$ は**変換後の場**を表し、時間導関数ではありません。積の微分では
 
 $$
-\partial_\mu(e^{-iq\chi})=-iq(\partial_\mu\chi)e^{-iq\chi}
+\partial_\mu(e^{iq\chi})=iq(\partial_\mu\chi)e^{iq\chi}
 $$
 
 を使いました。この第二項を打ち消すため、[QFT15のポテンシャルのゲージ変換](../QFT15/index.md#def-qft15-gauge)と微分を一緒に変えることにします。
@@ -40,7 +40,7 @@ $$
 A'_\mu=A_\mu+\partial_\mu\chi
 $$
 
-位相の符号は電荷 $q$ の符号を含めて決める必要があります。
+位相の符号は電荷 $q$ の符号を含めて決める必要があります。[QFT7の自由Dirac作用](../QFT7/index.md#def-qft7-adjoint-action)が $\bar\psi(\gamma\cdot\partial-m)\psi$ であることから、共変微分もこれに合わせます。
 
 <a id="def-qft17-covariant-derivative"></a>
 
@@ -49,14 +49,14 @@ $$
 > 開領域 $\Omega\subset\mathbb R^{1,3}$、実定数 $q$、実数値 $C^1$ ポテンシャル $A_\mu$、複素四成分 $C^1$ スピノル $\psi$ に対して
 
 $$
-D_\mu\psi=(\partial_\mu+iqA_\mu)\psi
+D_\mu\psi=(\partial_\mu-iqA_\mu)\psi
 $$
 
 > と定める。実数値 $C^2$ 関数 $\chi$ による局所変換は
 
 $$
-\psi'=e^{-iq\chi}\psi,\qquad
-\bar\psi'=e^{iq\chi}\bar\psi,\qquad
+\psi'=e^{iq\chi}\psi,\qquad
+\bar\psi'=e^{-iq\chi}\bar\psi,\qquad
 A'_\mu=A_\mu+\partial_\mu\chi
 $$
 
@@ -68,18 +68,18 @@ $$
 
 **定義の確認**：共変微分が局所位相と両立することを手で確かめます。
 
-$A_\mu=0$、$\psi=u e^{-ip\cdot x}$（固定四成分 $u$）、$\chi(x)=\alpha x^0$ とします。$\alpha\in\mathbb R$ は定数です。$A'_0=\alpha$、$A'_j=0$、$\psi'=e^{-iq\alpha t}u e^{-ip\cdot x}$ となり、
+$A_\mu=0$、$\psi=u e^{+ip\cdot x}$（固定四成分 $u$）、$\chi(x)=\alpha x^0$ とします。$\alpha\in\mathbb R$ は定数です。$A'_0=\alpha$、$A'_j=0$、$\psi'=e^{iq\alpha t}u e^{+ip\cdot x}$ となり、
 
 $$
 \begin{aligned}
 D'_0\psi'
-&=(\partial_0+iq\alpha)\psi'\\
-&=(-i p_0-iq\alpha+iq\alpha)\psi'\\
-&=e^{-iq\alpha t}\partial_0\psi.
+&=(\partial_0-iq\alpha)\psi'\\
+&=(i p_0+iq\alpha-iq\alpha)\psi'\\
+&=e^{iq\alpha t}\partial_0\psi.
 \end{aligned}
 $$
 
-空間成分でも $\partial_j\chi=0$ なので $D'_j\psi'=e^{-iq\chi}\partial_j\psi$ です。**位相、四元ポテンシャル、四成分すべての共変微分**を同じ定義で確認しました。$\chi$ を変えるだけで $\psi$ を変えなければ、この相殺は起きません。
+空間成分でも $\partial_j\chi=0$ なので $D'_j\psi'=e^{iq\chi}\partial_j\psi$ です。**位相、四元ポテンシャル、四成分すべての共変微分**を同じ定義で確認しました。$\chi$ を変えるだけで $\psi$ を変えなければ、この相殺は起きません。
 <!-- definition-example-end -->
 
 ## 2. 最小結合した作用と保存電流
@@ -95,13 +95,13 @@ $$
 $$
 S_{\rm QED}[A,\psi,\bar\psi]
 =\int_\Omega\left[-\frac14F_{\mu\nu}F^{\mu\nu}
-+\bar\psi(i\gamma^\mu D_\mu-m)\psi\right]d^4x
++\bar\psi(\gamma^\mu D_\mu-m)\psi\right]d^4x
 $$
 
-> と定める。$D_\mu=\partial_\mu+iqA_\mu$ を展開すると、自由Dirac部分に加わる相互作用密度は
+> と定める。$D_\mu=\partial_\mu-iqA_\mu$ を展開すると、自由Dirac部分に加わる相互作用密度は
 
 $$
-\mathcal L_{\rm int}=-q\,\bar\psi\gamma^\mu\psi A_\mu.
+\mathcal L_{\rm int}=-iq\,\bar\psi\gamma^\mu\psi A_\mu=j^\mu A_\mu,\qquad j^\mu=-iq\bar\psi\gamma^\mu\psi.
 $$
 
 > 二種類の異なる場では二つのDirac項（質量 $m,M$ と電荷 $q_e,q_\mu$）を加算し、Maxwell項は一つだけ置く。
@@ -119,15 +119,15 @@ u_s(p)=\sqrt{2m}\begin{pmatrix}\chi_s\\0\end{pmatrix},\qquad
 \chi_s^\dagger\chi_s=1.
 $$
 
-Dirac表示では $\gamma^0=\operatorname{diag}(I_2,-I_2)$、$\gamma^0\gamma^j$（$j=1,2,3$）は上下の二成分を入れ替える非対角ブロック行列です。よって
+Dirac表示では $\gamma^0=i\operatorname{diag}(I_2,-I_2)$、$\gamma^0\gamma^j$（$j=1,2,3$）は上下の二成分を入れ替える非対角ブロック行列です。よって
 
 $$
-\bar u_s\gamma^0u_s=u_s^\dagger u_s=2m,
+(-i)\bar u_s\gamma^0u_s=u_s^\dagger u_s=2m,
 \qquad
-\bar u_s\gamma^ju_s=u_s^\dagger\gamma^0\gamma^ju_s=0.
+(-i)\bar u_s\gamma^ju_s=-u_s^\dagger\gamma^0\gamma^ju_s=0.
 $$
 
-このように四元電流の時間成分と三つの空間成分をそれぞれ確かめました。定数ポテンシャル $A_\mu=(V,0,0,0)$ では一粒子の古典的な双線形に対応する相互作用密度の係数は $-2mqV$ です。電子 $q=-e$ の場合には $+2meV$ となります。これは符号付き電荷と作用にあるマイナスが別物であることの確認です。
+このように電流 $j^\mu=-iq\bar u_s\gamma^\mu u_s$ の時間成分 $j^0=2mq$ と空間成分 $j^j=0$ を確かめました。$A^\mu=(V,0,0,0)$、すなわち $A_\mu=(-V,0,0,0)$ では相互作用密度は $j^\mu A_\mu=-2mqV$ です。電子 $q=-e$ なら $+2meV$。共変成分 $A_0$ と反変成分 $A^0$ の符号も照合しました。
 
 ここでは平面波を有限体積に制限した局所的な密度を計算したのであり、無限時空で作用が有限という主張ではありません。
 <!-- definition-example-end -->
@@ -139,7 +139,7 @@ $$
 > [共変微分](#def-qft17-covariant-derivative)と[最小結合作用](#def-qft17-qed-action)の正則性の下で、任意の実数値 $C^2$ 関数 $\chi$ に対する局所変換は
 
 $$
-D'_\mu\psi'=e^{-iq\chi}D_\mu\psi,\qquad
+D'_\mu\psi'=e^{iq\chi}D_\mu\psi,\qquad
 F'_{\mu\nu}=F_{\mu\nu}
 $$
 
@@ -154,7 +154,7 @@ $$
 
 ### 証明の見取り図
 
-微分した位相からの $-iq\partial_\mu\chi$ と、ポテンシャルの変化からの $+iq\partial_\mu\chi$ が相殺します。反対称微分では $\partial_\mu\partial_\nu\chi$ の対称性で消えます。
+微分した位相からの $+iq\partial_\mu\chi$ と、ポテンシャルの変化からの $-iq\partial_\mu\chi$ が相殺します。反対称微分では $\partial_\mu\partial_\nu\chi$ の対称性で消えます。
 
 <!-- proof-start -->
 ### 証明
@@ -164,16 +164,16 @@ $$
 $$
 \begin{aligned}
 D'_\mu\psi'
-&=(\partial_\mu+iqA_\mu+iq\partial_\mu\chi)
-(e^{-iq\chi}\psi)\\
-&=e^{-iq\chi}\bigl(
-\partial_\mu\psi-iq(\partial_\mu\chi)\psi
-+iqA_\mu\psi+iq(\partial_\mu\chi)\psi\bigr)\\
-&=e^{-iq\chi}D_\mu\psi.
+&=(\partial_\mu-iqA_\mu-iq\partial_\mu\chi)
+(e^{iq\chi}\psi)\\
+&=e^{iq\chi}\bigl(
+\partial_\mu\psi+iq(\partial_\mu\chi)\psi
+-iqA_\mu\psi-iq(\partial_\mu\chi)\psi\bigr)\\
+&=e^{iq\chi}D_\mu\psi.
 \end{aligned}
 $$
 
-第一行の微分作用先は括弧全体です。一方、$F'_{\mu\nu}-F_{\mu\nu}=\partial_\mu\partial_\nu\chi-\partial_\nu\partial_\mu\chi=0$。Dirac項では左から掛かる $\bar\psi'=e^{iq\chi}\bar\psi$ が位相を相殺し、質量項も $\bar\psi'\psi'=\bar\psi\psi$ です。したがって作用密度が点ごとに不変であり積分も不変です。場ごとに同じ計算を行えば二種類でも成立します。
+第一行の微分作用先は括弧全体です。一方、$F'_{\mu\nu}-F_{\mu\nu}=\partial_\nu\partial_\mu\chi-\partial_\mu\partial_\nu\chi=0$。Dirac項では左から掛かる $\bar\psi'=e^{-iq\chi}\bar\psi$ が位相を相殺し、質量項も $\bar\psi'\psi'=\bar\psi\psi$ です。したがって作用密度が点ごとに不変であり積分も不変です。場ごとに同じ計算を行えば二種類でも成立します。
 <!-- proof-end -->
 
 <a id="thm-qft17-eom-current"></a>
@@ -183,10 +183,10 @@ $$
 > [最小結合作用](#def-qft17-qed-action)の停留点に対し、$\bar\psi$ 変分は
 
 $$
-(i\gamma^\mu\partial_\mu-q\gamma^\mu A_\mu-m)\psi=0
+(\gamma^\mu\partial_\mu-iq\gamma^\mu A_\mu-m)\psi=0
 $$
 
-> を与え、$\psi$ 変分に対応する随伴方程式と合わせて $j^\mu=q\bar\psi\gamma^\mu\psi$ は $\partial_\mu j^\mu=0$ を満たす。Maxwell方程式は
+> を与え、$\psi$ 変分に対応する随伴方程式と合わせて $j^\mu=-iq\bar\psi\gamma^\mu\psi$ は $\partial_\mu j^\mu=0$ を満たす。Maxwell方程式は
 
 $$
 \partial_\nu F^{\nu\mu}=j^\mu
@@ -205,8 +205,8 @@ $$
 $\bar\psi$ は微分されないので、その独立変分の係数は表示されたDirac方程式です。[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)を用いて随伴方程式を取ると
 
 $$
-i(\partial_\mu\bar\psi)\gamma^\mu
-+q\bar\psi\gamma^\mu A_\mu+m\bar\psi=0.
+(\partial_\mu\bar\psi)\gamma^\mu
++iq\bar\psi\gamma^\mu A_\mu+m\bar\psi=0.
 $$
 
 前者を $\bar\psi$ から、後者を $\psi$ から掛けて並べれば
@@ -214,13 +214,13 @@ $$
 $$
 \begin{aligned}
 \bar\psi\gamma^\mu\partial_\mu\psi
-&=-i\bigl(qA_\mu\bar\psi\gamma^\mu\psi+m\bar\psi\psi\bigr),\\
+&=+iqA_\mu\bar\psi\gamma^\mu\psi+m\bar\psi\psi,\\
 (\partial_\mu\bar\psi)\gamma^\mu\psi
-&=+i\bigl(qA_\mu\bar\psi\gamma^\mu\psi+m\bar\psi\psi\bigr).
+&=-iqA_\mu\bar\psi\gamma^\mu\psi-m\bar\psi\psi.
 \end{aligned}
 $$
 
-よって二つを足した $\partial_\mu(\bar\psi\gamma^\mu\psi)$ は0です。$q$ は定数なので $\partial_\mu j^\mu=0$。また $A_\mu$ 変分では[Maxwell作用の第一変分](../QFT15/index.md#thm-qft15-euler-maxwell)から $\partial_\nu F^{\nu\mu}$ が、相互作用から $-q\bar\psi\gamma^\mu\psi$ が出ます。全てのコンパクト台変分の係数を0と置けば表示したMaxwell方程式です。
+よって二つを足した $\partial_\mu(\bar\psi\gamma^\mu\psi)$ は0です。$q$ は定数なので $\partial_\mu j^\mu=0$。また $A_\mu$ 変分では[Maxwell作用の第一変分](../QFT15/index.md#thm-qft15-euler-maxwell)から $\partial_\nu F^{\nu\mu}$ が、相互作用から $-iq\bar\psi\gamma^\mu\psi=j^\mu$ が出ます。全てのコンパクト台変分の係数を0と置けば表示したMaxwell方程式です。
 <!-- proof-end -->
 
 この保存電流は初期値と方程式を満たす荷電場の結論です。任意の四元関数 $J^\mu$ を保存電流と呼べるわけではありません。以降の摂動計算では自由な外線スピノルの電流にこの機構が現れます。
@@ -233,13 +233,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（QED三点頂点規則）**  
-> 符号付き電荷 $q$ の相互作用 $\mathcal L_{\rm int}=-q\bar\psi\gamma^\mu\psi A_\mu$ を、$S=T\exp(i\int\mathcal L_{\rm int}\,d^4x)$ の形式的Dyson係数で展開する。光子添字を $\mu$、フェルミオン線の入射・出射スピノルを $u,\bar u$ とした一次の頂点因子を
+> 符号付き電荷 $q$ の相互作用 $\mathcal L_{\rm int}=-iq\bar\psi\gamma^\mu\psi A_\mu$ を、$S=T\exp(i\int\mathcal L_{\rm int}\,d^4x)$ の形式的Dyson係数で展開する。光子添字を $\mu$、フェルミオン線の入射・出射スピノルを $u,\bar u$ とした一次の頂点因子を
 
 $$
-V^\mu=-iq\gamma^\mu
+V^\mu=q\gamma^\mu
 $$
 
-> と定める。これは演算子 $\gamma^\mu$ を含む因子であり、スピノルで挟んだ電流 $(-iq)\bar u\gamma^\mu u$ と区別する。
+> と定める。これは作用の相互作用項 $-iq\bar\psi\gamma^\mu\psi A_\mu$ にDyson展開の $i$ を掛けた $i(-iq)=q$ から出る。物理的な外線電流 $j^\mu=-iq\bar u\gamma^\mu u$ と頂点因子 $q\gamma^\mu$ は、互いに $i$ を含むかどうかが違う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft17-vertex -->
@@ -247,13 +247,13 @@ $$
 
 **定義の確認**：各頂点の係数が定義の符号付き電荷に依存することを検算します。
 
-電子・ミューオンがともに負電荷の場合、$q_e=q_\mu=-e$ です。この規約では各頂点は $-i(-e)\gamma^\mu=+ie\gamma^\mu$。電荷が逆の粒子種なら $q=+e$ で頂点は $-ie\gamma^\mu$ です。二つの頂点の積は
+電子・ミューオンがともに負電荷の場合、$q_e=q_\mu=-e$ です。この規約では各頂点は $q\gamma^\mu=-e\gamma^\mu$。電荷が逆の粒子種なら $q=+e$ で頂点は $+e\gamma^\mu$ です。二つの頂点の積は
 
 $$
-(-iq_e)(-iq_\mu)=-q_eq_\mu.
+q_e q_\mu=+e^2\qquad(q_e=q_\mu=-e).
 $$
 
-電荷を同じ符号にすると積の符号は負、反対符号なら正です。**一つの頂点の符号と二つの頂点の積**は別々に数える必要があります。
+電荷を同じ符号にすると積の符号は正、反対符号なら負です。**一つの頂点の符号と二つの頂点の積**は別々に数える必要があります。
 <!-- definition-example-end -->
 
 ## 4. 一光子交換と質量殻Ward恒等式
@@ -270,12 +270,12 @@ $$
 e^-(p_1)+\mu^-(p_2)\longrightarrow e^-(p_3)+\mu^-(p_4)
 $$
 
-> について、$p_1+p_2=p_3+p_4$、$p_1^2=p_3^2=m^2$、$p_2^2=p_4^2=M^2$、$p_i^0>0$ とし、
+> について、$p_1+p_2=p_3+p_4$、$p_1^2=p_3^2=-m^2$、$p_2^2=p_4^2=-M^2$、$p_i^0>0$ とし、
 
 $$
-s=(p_1+p_2)^2,\quad
-t=(p_3-p_1)^2,\quad
-u=(p_4-p_1)^2,\quad
+s=-(p_1+p_2)^2,\quad
+t=-(p_3-p_1)^2,\quad
+u=-(p_4-p_1)^2,\quad
 k=p_3-p_1=p_2-p_4
 $$
 
@@ -290,7 +290,7 @@ $$
 $\boldsymbol p_1=p(0,0,1)$、$\boldsymbol p_3=p(\sin\theta,0,\cos\theta)$、$p>0$ とします。弾性散乱なので電子の前後のエネルギーは等しく、$k^0=0$ です。従って
 
 $$
-t=k^2=-|\boldsymbol p_3-\boldsymbol p_1|^2
+t=-k^2=-|\boldsymbol p_3-\boldsymbol p_1|^2
 =-2p^2(1-\cos\theta)<0
 $$
 
@@ -311,9 +311,9 @@ $$
 
 $$
 i\mathcal M
-=\bigl[\bar u_e(p_3)(-iq_e\gamma^\mu)u_e(p_1)\bigr]
-\frac{-i\eta_{\mu\nu}}{t+i0}
-\bigl[\bar u_\mu(p_4)(-iq_\mu\gamma^\nu)u_\mu(p_2)\bigr],
+=\bigl[\bar u_e(p_3)(q_e\gamma^\mu)u_e(p_1)\bigr]
+\frac{+i\eta_{\mu\nu}}{t+i0}
+\bigl[\bar u_\mu(p_4)(q_\mu\gamma^\nu)u_\mu(p_2)\bigr],
 $$
 
 > すなわち
@@ -324,12 +324,14 @@ $$
 \bigl[\bar u_\mu(p_4)\gamma_\mu u_\mu(p_2)\bigr].
 $$
 
+> 電荷込みの外線電流を $j_e^\alpha=-iq_e\bar u_e(p_3)\gamma^\alpha u_e(p_1)$、$j_\mu^\alpha=-iq_\mu\bar u_\mu(p_4)\gamma^\alpha u_\mu(p_2)$ と書けば、同じ振幅は $\mathcal M=-j_e\cdot j_\mu/t$ である。符号は電流に含まれる $(-i)^2=-1$ による。
+
 > 外線の各スピン添字は省略している。光子は仮想内部線であり、正エネルギー光子の外線状態ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-Dysonの二次項は $1/2!$ を持ちますが、電子頂点とミューオン頂点を二つの時空位置へ割り当てる方法が二通りあるため相殺します。各頂点の $-iq$ と光子の $-i$ を最後に掛けます。
+Dysonの二次項は $1/2!$ を持ちますが、電子頂点とミューオン頂点を二つの時空位置へ割り当てる方法が二通りあるため相殺します。各頂点の $q$ と、$t=-k^2$ で書いた光子の $+i$ を最後に掛けます。
 
 <!-- proof-start -->
 ### 証明
@@ -346,7 +348,7 @@ $$
 四元積分は運動量保存の $(2\pi)^4\delta^{(4)}(p_1+p_2-p_3-p_4)$ を与え、[QFT11の不変振幅の規約](../QFT11/index.md#def-qft11-lsz-amputation)ではそれを取り除いた係数が $i\mathcal M$ です。$t<0$ なので $1/(t+i0)=1/t$ と通常関数で評価できます。因子の積は
 
 $$
-(-iq_e)(-i)(-iq_\mu)
+(q_e)(+i)(q_\mu)
 =i q_e q_\mu
 $$
 
@@ -359,30 +361,30 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（質量殻電流の横性とゲージパラメータ非依存性）**  
-> $p^2=p'^2=m^2$、$p^0,p'^0>0$ とし、自由Dirac方程式を満たす正エネルギースピノル $u(p),u(p')$ に対して $k=p'-p$、$J^\mu=\bar u(p')\gamma^\mu u(p)$ と置く。このとき
+> $p^2=p'^2=-m^2$、$p^0,p'^0>0$ とし、自由Dirac方程式を満たす正エネルギースピノル $u(p),u(p')$ に対して $k=p'-p$、$J^\mu=\bar u(p')\gamma^\mu u(p)$ と置く。このとき
 
 $$
 k_\mu J^\mu=0.
 $$
 
-> よって電子とミューオンの外線がそれぞれ対応する質量殻条件を満たし、$t=k^2<0$ なら、[共変ゲージの光子伝播関数](../QFT16/index.md#def-qft16-photon-propagator)を用いた上の光子交換振幅は任意の $\xi>0$ に対して同じである。
+> よって電子とミューオンの外線がそれぞれ対応する質量殻条件を満たし、$t=-k^2<0$ なら、[共変ゲージの光子伝播関数](../QFT16/index.md#def-qft16-photon-propagator)を用いた上の光子交換振幅は任意の $\xi>0$ に対して同じである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-外線が同じ質量であることが鍵です。$k_\mu\gamma^\mu=\not p'-\not p$ を二つのDirac方程式へ代入し、左右から挟まれた質量項を相殺します。縦の伝播核は両電流との縮約で消えます。
+外線が同じ質量であることが鍵です。$k_\mu\gamma^\mu=\not p'-\not p$ を二つのDirac方程式へ代入し、左右から挟まれた質量項を相殺します（$i\not p\,u=mu$）。縦の伝播核は両電流との縮約で消えます。
 
 <!-- proof-start -->
 ### 証明
 
-[QFT7の平面波Dirac方程式](../QFT7/index.md#def-qft7-plane-waves)は $(\not p-m)u(p)=0$、$\bar u(p')(\not p'-m)=0$ です。従って
+[QFT7の平面波Dirac方程式](../QFT7/index.md#def-qft7-plane-waves)は $(i\not p-m)u(p)=0$、$\bar u(p')(i\not p'-m)=0$ です。従って
 
 $$
 \begin{aligned}
 k_\mu J^\mu
 &=\bar u(p')(\not p'-\not p)u(p)\\
 &=\bar u(p')\not p' u(p)-\bar u(p')\not p u(p)\\
-&=m\bar u(p')u(p)-m\bar u(p')u(p)=0.
+&=-im\bar u(p')u(p)+im\bar u(p')u(p)=0.
 \end{aligned}
 $$
 
@@ -398,10 +400,10 @@ $$
 計算には[QFT7のスピン完全性](../QFT7/index.md#thm-qft7-spin-sums)
 
 $$
-\sum_{r=1}^{2}u_r(p)\bar u_r(p)=\not p+mI_4
+\sum_{r=1}^{2}u_r(p)\bar u_r(p)=i\not p+mI_4
 $$
 
-を使います。$I_4$ は四次元単位行列で、以下のtrace内では $mI_4$ と $MI_4$ をそれぞれ $m,M$ と略記します。複素共役を取るときには $\gamma^0(\gamma^\mu)^\dagger\gamma^0=\gamma^\mu$ を用い、二つの電子電流の積を一つの行列の跡へまとめます。
+を使います。$I_4$ は四次元単位行列で、以下のtrace内では $mI_4$ と $MI_4$ をそれぞれ $m,M$ と略記します。複素共役では $\gamma^0(\gamma^\mu)^\dagger\gamma^0=\gamma^\mu$ ですが、$\bar u=-iu^\dagger\gamma^0$ なので $(\bar a\gamma^\mu b)^*=-\bar b\gamma^\mu a$ です。電流 $-i\bar a\gamma^\mu b$ のスピン和ではこの負符号も含め、二つの電子電流の積を一つの行列の跡へまとめます。
 
 <a id="thm-qft17-spin-average"></a>
 
@@ -425,7 +427,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-電子電流を $E^\mu_{r_3r_1}=\bar u_{r_3}(p_3)\gamma^\mu u_{r_1}(p_1)$、ミューオン電流を $U_{\mu,r_4r_2}=\bar u_{r_4}(p_4)\gamma_\mu u_{r_2}(p_2)$ とします。[スピン和](../QFT7/index.md#thm-qft7-spin-sums)を一方の外線ずつ適用すると
+電子のgamma行列双線形を $E^\mu_{r_3r_1}=\bar u_{r_3}(p_3)\gamma^\mu u_{r_1}(p_1)$、ミューオン側を $U_{\mu,r_4r_2}=\bar u_{r_4}(p_4)\gamma_\mu u_{r_2}(p_2)$ とします。各双線形の複素共役には負号が一つ付くので、二本の負号が振幅二乗では相殺します。[スピン和](../QFT7/index.md#thm-qft7-spin-sums)を一方の外線ずつ適用すると
 
 $$
 \begin{aligned}
@@ -433,12 +435,12 @@ $$
 &=\frac{(q_eq_\mu)^2}{4t^2}
 T_e^{\mu\nu}T_{M,\mu\nu},\\
 T_e^{\mu\nu}
-&=\operatorname{tr}\left[
-(\not p_3+m)\gamma^\mu(\not p_1+m)\gamma^\nu
+&=-\operatorname{tr}\left[
+(i\not p_3+m)\gamma^\mu(i\not p_1+m)\gamma^\nu
 \right],\\
 T_{M,\mu\nu}
-&=\operatorname{tr}\left[
-(\not p_4+M)\gamma_\mu(\not p_2+M)\gamma_\nu
+&=-\operatorname{tr}\left[
+(i\not p_4+M)\gamma_\mu(i\not p_2+M)\gamma_\nu
 \right].
 \end{aligned}
 $$
@@ -496,12 +498,12 @@ $$
 T_e^{\mu\nu}
 &=4\left[
 p_3^\mu p_1^\nu+p_3^\nu p_1^\mu
--(p_3\cdot p_1-m^2)\eta^{\mu\nu}
+-(p_3\cdot p_1+m^2)\eta^{\mu\nu}
 \right],\\
 T_{M,\mu\nu}
 &=4\left[
 p_{4\mu}p_{2\nu}+p_{4\nu}p_{2\mu}
--(p_4\cdot p_2-M^2)\eta_{\mu\nu}
+-(p_4\cdot p_2+M^2)\eta_{\mu\nu}
 \right].
 \end{aligned}
 $$
@@ -510,21 +512,21 @@ $a\cdot b$ をMinkowski内積とし、角括弧内のテンソルをそれぞれ
 
 $$
 \begin{aligned}
-p_1\cdot p_3&=m^2-\frac t2,\qquad
-p_2\cdot p_4=M^2-\frac t2,\\
-p_1\cdot p_2&=p_3\cdot p_4=\frac{s-S}{2},\\
-p_1\cdot p_4&=p_2\cdot p_3=\frac{S-u}{2}.
+p_1\cdot p_3&=-m^2+\frac t2,\qquad
+p_2\cdot p_4=-M^2+\frac t2,\\
+p_1\cdot p_2&=p_3\cdot p_4=-\frac{s-S}{2},\\
+p_1\cdot p_4&=p_2\cdot p_3=-\frac{S-u}{2}.
 \end{aligned}
 $$
 
-次に $A^{\mu\nu}B_{\mu\nu}$ を各項から展開します。$p_3\cdot p_1-m^2=p_4\cdot p_2-M^2=-t/2$ より、各角括弧の計量項は $+(t/2)\eta$ です。最初の四つの運動量積、計量との交差項、計量同士の項を分けると
+次に $A^{\mu\nu}B_{\mu\nu}$ を各項から展開します。$p_3\cdot p_1+m^2=p_4\cdot p_2+M^2=t/2$ より、各角括弧の計量項は $-(t/2)\eta$ です。最初の四つの運動量積、計量との交差項、計量同士の項を分けると
 
 $$
 \begin{aligned}
 A^{\mu\nu}B_{\mu\nu}
 &=2\bigl[(p_3\cdot p_4)(p_1\cdot p_2)
 +(p_3\cdot p_2)(p_1\cdot p_4)\bigr]\\
-&\quad+t(p_3\cdot p_1+p_4\cdot p_2)+t^2\\
+&\quad-t(p_3\cdot p_1+p_4\cdot p_2)+t^2\\
 &=2\bigl[(p_3\cdot p_4)(p_1\cdot p_2)
 +(p_3\cdot p_2)(p_1\cdot p_4)\bigr]+t(m^2+M^2)\\
 &=\frac{(s-S)^2+(u-S)^2}{2}+St.
@@ -615,18 +617,18 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[共変微分の定義](#def-qft17-covariant-derivative)で $-iq\chi=ie\chi$ です。したがって
+[共変微分の定義](#def-qft17-covariant-derivative)で $iq\chi=-ie\chi$ です。したがって
 
 $$
 A'_\mu=(\alpha,\beta,0,0),\qquad
-\psi'=e^{ie(\alpha t+\beta x^1)}u.
+\psi'=e^{-ie(\alpha t+\beta x^1)}u.
 $$
 
-時間微分と空間微分は $\partial_0\psi'=ie\alpha\psi'$、$\partial_1\psi'=ie\beta\psi'$。$iq=-ie$ なので
+時間微分と空間微分は $\partial_0\psi'=-ie\alpha\psi'$、$\partial_1\psi'=-ie\beta\psi'$。$-iq=+ie$ なので
 
 $$
-D'_0\psi'=(ie\alpha-ie\alpha)\psi'=0,\qquad
-D'_1\psi'=(ie\beta-ie\beta)\psi'=0.
+D'_0\psi'=(-ie\alpha+ie\alpha)\psi'=0,\qquad
+D'_1\psi'=(-ie\beta+ie\beta)\psi'=0.
 $$
 
 他の成分も0です。$A'$ だけを変えてスピノルの位相を固定すると相殺しません。
@@ -635,22 +637,22 @@ $$
 ### 演習 QFT17-A2：最小結合の符号
 
 - Level: A
-- 問題：$\mathcal L_D=\bar\psi(i\gamma^\mu D_\mu-m)\psi$ を展開し、(a) $q=-e$、(b) $q=+e$ それぞれで相互作用項と頂点 $V^\mu$ の係数を求めよ。$e>0$ とする。
+- 問題：$\mathcal L_D=\bar\psi(\gamma^\mu D_\mu-m)\psi$ を展開し、(a) $q=-e$、(b) $q=+e$ それぞれで相互作用項と頂点 $V^\mu$ の係数を求めよ。$e>0$ とする。
 
 <!-- solution-start -->
 **詳細解答**
 
-$i\gamma^\mu D_\mu=i\gamma^\mu\partial_\mu+i(iq)\gamma^\mu A_\mu=i\gamma^\mu\partial_\mu-q\gamma^\mu A_\mu$ です。従って $\mathcal L_{\rm int}=-q\bar\psi\gamma^\mu\psi A_\mu$。[頂点の定義](#def-qft17-vertex)から
+$\gamma^\mu D_\mu=\gamma^\mu\partial_\mu-iq\gamma^\mu A_\mu$ です。従って $\mathcal L_{\rm int}=-iq\bar\psi\gamma^\mu\psi A_\mu$。[頂点の定義](#def-qft17-vertex)から
 
 $$
 \begin{array}{c|c|c}
 q & \mathcal L_{\rm int} & V^\mu\\ \hline
--e & +e\bar\psi\gamma^\mu\psi A_\mu & +ie\gamma^\mu\\
-+e & -e\bar\psi\gamma^\mu\psi A_\mu & -ie\gamma^\mu
+-e & +ie\bar\psi\gamma^\mu\psi A_\mu & -e\gamma^\mu\\
++e & -ie\bar\psi\gamma^\mu\psi A_\mu & +e\gamma^\mu
 \end{array}
 $$
 
-です。$i^2=-1$ と、電荷自身のマイナスを別々に使っています。
+です。頂点の係数は $i(-iq)=q$ と計算し、電荷自身の符号も保持しました。
 <!-- solution-end -->
 
 ### 演習 QFT17-A3：質量殻電流の横性
@@ -667,7 +669,7 @@ $$
 \begin{aligned}
 k_\mu\bar u(p')\gamma^\mu u(p)
 &=\bar u(p')\not p' u(p)-\bar u(p')\not p u(p)\\
-&=m\bar u(p')u(p)-m\bar u(p')u(p)=0.
+&=-im\bar u(p')u(p)+im\bar u(p')u(p)=0.
 \end{aligned}
 $$
 
@@ -714,7 +716,7 @@ $$
 ### 演習 QFT17-B1：局所位相と保存電流をつなぐ
 
 - Level: B
-- 問題：電荷 $q$ のDirac場の $\mathcal L_D=\bar\psi(i\gamma^\mu D_\mu-m)\psi$ について、(a) 局所U(1)変換による不変性を示せ。(b) 結合Dirac方程式と随伴方程式から $\partial_\mu(q\bar\psi\gamma^\mu\psi)=0$ を導け。$\psi$ と $\bar\psi$ は独立変分可能な十分滑らかな場とする。
+- 問題：電荷 $q$ のDirac場の $\mathcal L_D=\bar\psi(\gamma^\mu D_\mu-m)\psi$ について、(a) 局所U(1)変換による不変性を示せ。(b) 結合Dirac方程式と随伴方程式から $\partial_\mu(-iq\bar\psi\gamma^\mu\psi)=0$ を導け。$\psi$ と $\bar\psi$ は独立変分可能な十分滑らかな場とする。
 
 <!-- solution-start -->
 **詳細解答**
@@ -724,26 +726,26 @@ $$
 $$
 \begin{aligned}
 D'_\mu\psi'
-&=(\partial_\mu+iqA_\mu+iq\partial_\mu\chi)(e^{-iq\chi}\psi)\\
-&=e^{-iq\chi}(\partial_\mu+iqA_\mu)\psi.
+&=(\partial_\mu-iqA_\mu-iq\partial_\mu\chi)(e^{iq\chi}\psi)\\
+&=e^{iq\chi}(\partial_\mu-iqA_\mu)\psi.
 \end{aligned}
 $$
 
-従って $\bar\psi'i\gamma^\mu D'_\mu\psi'=\bar\psi i\gamma^\mu D_\mu\psi$、$\bar\psi'\psi'=\bar\psi\psi$ です。位相はスカラーなのでgamma行列と可換です。
+従って $\bar\psi'\gamma^\mu D'_\mu\psi'=\bar\psi\gamma^\mu D_\mu\psi$、$\bar\psi'\psi'=\bar\psi\psi$ です。位相はスカラーなのでgamma行列と可換です。
 
 (b) $\bar\psi$ 変分と $\psi$ 変分により
 
 $$
 \begin{aligned}
-i\gamma^\mu\partial_\mu\psi&=(q\gamma^\mu A_\mu+m)\psi,\\
-i(\partial_\mu\bar\psi)\gamma^\mu&=-\bar\psi(q\gamma^\mu A_\mu+m).
+\gamma^\mu\partial_\mu\psi&=(iq\gamma^\mu A_\mu+m)\psi,\\
+(\partial_\mu\bar\psi)\gamma^\mu&=-\bar\psi(iq\gamma^\mu A_\mu+m).
 \end{aligned}
 $$
 
-第一式を左から $\bar\psi$、第二式を右から $\psi$ で掛けて足すと、$qA_\mu\bar\psi\gamma^\mu\psi$ と $m\bar\psi\psi$ がそれぞれ相殺し、
+第一式を左から $\bar\psi$、第二式を右から $\psi$ で掛けて足すと、$iqA_\mu\bar\psi\gamma^\mu\psi$ と $m\bar\psi\psi$ がそれぞれ相殺し、
 
 $$
-i\bigl[(\partial_\mu\bar\psi)\gamma^\mu\psi+
+\bigl[(\partial_\mu\bar\psi)\gamma^\mu\psi+
 \bar\psi\gamma^\mu(\partial_\mu\psi)\bigr]=0.
 $$
 
@@ -753,7 +755,7 @@ $$
 ### 演習 QFT17-B2：二種類の場のDyson係数を数える
 
 - Level: B
-- 問題：二種類の相互作用密度 $\mathcal L_e=-q_e\bar\psi_e\gamma^\mu\psi_e A_\mu$、$\mathcal L_\mu=-q_\mu\bar\psi_\mu\gamma^\nu\psi_\mu A_\nu$ を用いる。$S^{(2)}=(i^2/2!)\int T\{(\mathcal L_e+\mathcal L_\mu)_x(\mathcal L_e+\mathcal L_\mu)_y\}\,d^4x\,d^4y$ において、一つずつ異種頂点を含む寄与の係数を整理し、Feynmanゲージの伝播核を挟んだ $i\mathcal M$ を求めよ。$t<0$、全外線は質量殻とする。
+- 問題：二種類の相互作用密度 $\mathcal L_e=-iq_e\bar\psi_e\gamma^\mu\psi_e A_\mu$、$\mathcal L_\mu=-iq_\mu\bar\psi_\mu\gamma^\nu\psi_\mu A_\nu$ を用いる。$S^{(2)}=(i^2/2!)\int T\{(\mathcal L_e+\mathcal L_\mu)_x(\mathcal L_e+\mathcal L_\mu)_y\}\,d^4x\,d^4y$ において、一つずつ異種頂点を含む寄与の係数を整理し、Feynmanゲージの伝播核を挟んだ $i\mathcal M$ を求めよ。$t<0$、全外線は質量殻とする。
 
 <!-- solution-start -->
 **詳細解答**
@@ -764,11 +766,11 @@ $$
 \frac{i^2}{2!}\cdot2=i^2.
 $$
 
-つまり異種頂点に余分な $1/2$ は残りません。電子の外線から $E^\mu=\bar u_e(p_3)\gamma^\mu u_e(p_1)$、ミューオンの外線から $U^\nu=\bar u_\mu(p_4)\gamma^\nu u_\mu(p_2)$ が出ます。[QFT16のFeynmanゲージ核](../QFT16/index.md#prop-qft16-feynman-gauge)は $-i\eta_{\mu\nu}/(t+i0)$ です。頂点をそれぞれ $-iq_e$、$-iq_\mu$ とまとめれば
+つまり異種頂点に余分な $1/2$ は残りません。電子の外線から $E^\mu=\bar u_e(p_3)\gamma^\mu u_e(p_1)$、ミューオンの外線から $U^\nu=\bar u_\mu(p_4)\gamma^\nu u_\mu(p_2)$ が出ます。[QFT16のFeynmanゲージ核](../QFT16/index.md#prop-qft16-feynman-gauge)は $-i\eta_{\mu\nu}/(k^2-i0)=+i\eta_{\mu\nu}/(t+i0)$ です。頂点をそれぞれ $q_e$、$q_\mu$ とまとめれば
 
 $$
 i\mathcal M
-=(-iq_e)E^\mu\frac{-i\eta_{\mu\nu}}{t+i0}(-iq_\mu)U^\nu
+=(q_e)E^\mu\frac{+i\eta_{\mu\nu}}{t+i0}(q_\mu)U^\nu
 =i\frac{q_eq_\mu}{t}E^\mu U_\mu.
 $$
 
@@ -778,16 +780,16 @@ $t<0$ なので $i0$ を消して通常の実分母として扱いました。$\
 ### 演習 QFT17-B3：gamma行列の跡と運動学を接続する
 
 - Level: B
-- 問題：質量 $m$ の電子電流について、$\sum u(p)\bar u(p)=\not p+mI_4$ とClifford関係から、スピン和のテンソル $T_e^{\mu\nu}$ を求めよ。その結果を質量 $M$ のミューオンのテンソルと縮約し、$S=m^2+M^2$ として $(s-S)^2+(u-S)^2+2St$ が生じることを確かめよ。
+- 問題：質量 $m$ の電子電流について、$\sum u(p)\bar u(p)=i\not p+mI_4$ とClifford関係から、スピン和のテンソル $T_e^{\mu\nu}$ を求めよ。その結果を質量 $M$ のミューオンのテンソルと縮約し、$S=m^2+M^2$ として $(s-S)^2+(u-S)^2+2St$ が生じることを確かめよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-電子の電流と複素共役をスピンで和すると、[QFT7の完全性](../QFT7/index.md#thm-qft7-spin-sums)から
+電子の物理的な電流 $-i\bar u\gamma^\mu u$ と複素共役をスピンで和すると、[QFT7の完全性](../QFT7/index.md#thm-qft7-spin-sums)とgamma行列双線形の反Hermite性から
 
 $$
 T_e^{\mu\nu}
-=\operatorname{tr}[(\not p_3+m)\gamma^\mu(\not p_1+m)\gamma^\nu].
+=-\operatorname{tr}[(i\not p_3+m)\gamma^\mu(i\not p_1+m)\gamma^\nu].
 $$
 
 展開には4本のgammaの項、2本のgammaの項、3本のgammaの項が現れます。3本の跡は0です。[Clifford関係](../QFT7/index.md#def-qft7-clifford)と跡の巡回性より、4本の跡の計量縮約を計算すると
@@ -796,17 +798,17 @@ $$
 \begin{aligned}
 T_e^{\mu\nu}
 &=4[p_3^\mu p_1^\nu+p_3^\nu p_1^\mu
--(p_3\cdot p_1)\eta^{\mu\nu}+m^2\eta^{\mu\nu}]\\
-&=4[p_3^\mu p_1^\nu+p_3^\nu p_1^\mu+\tfrac t2\eta^{\mu\nu}],
+-(p_3\cdot p_1)\eta^{\mu\nu}-m^2\eta^{\mu\nu}]\\
+&=4[p_3^\mu p_1^\nu+p_3^\nu p_1^\mu-\tfrac t2\eta^{\mu\nu}],
 \end{aligned}
 $$
 
-となります。最後は $p_3\cdot p_1=m^2-t/2$ を用いました。ミューオンも同様の展開を独立に行うと
+となります。最後は $p_3\cdot p_1=-m^2+t/2$ を用いました。ミューオンも同様の展開を独立に行うと
 
 $$
 T_{M,\mu\nu}
 =4[p_{4\mu}p_{2\nu}+p_{4\nu}p_{2\mu}
-+\tfrac t2\eta_{\mu\nu}]
+-\tfrac t2\eta_{\mu\nu}]
 $$
 
 です。よって16で割った積を展開すれば
@@ -816,13 +818,13 @@ $$
 \frac{T_e^{\mu\nu}T_{M,\mu\nu}}{16}
 &=2[(p_3\cdot p_4)(p_1\cdot p_2)
 +(p_3\cdot p_2)(p_1\cdot p_4)]\\
-&\quad+t(p_1\cdot p_3+p_2\cdot p_4)+t^2\\
+&\quad-t(p_1\cdot p_3+p_2\cdot p_4)+t^2\\
 &=2\left[\left(\frac{s-S}{2}\right)^2+
 \left(\frac{S-u}{2}\right)^2\right]+St.
 \end{aligned}
 $$
 
-二行目では $p_1\cdot p_3+p_2\cdot p_4=S-t$ を使ったため、$t(S-t)+t^2=St$ です。最初の非偏極平均にはさらに $1/4$ を掛けるので、全係数は
+二行目では $p_1\cdot p_3+p_2\cdot p_4=-S+t$ を使ったため、$-t(-S+t)+t^2=St$ です。最初の非偏極平均にはさらに $1/4$ を掛けるので、全係数は
 
 $$
 \frac14 T_e^{\mu\nu}T_{M,\mu\nu}
@@ -878,43 +880,43 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(a) 局所位相と頂点。** 各種 $a=e,\mu$ に対し $D_\mu^{(a)}=\partial_\mu+iq_aA_\mu$、$\psi_a'=e^{-iq_a\chi}\psi_a$、$A'_\mu=A_\mu+\partial_\mu\chi$ とします。直接微分すると
+**(a) 局所位相と頂点。** 各種 $a=e,\mu$ に対し $D_\mu^{(a)}=\partial_\mu-iq_aA_\mu$、$\psi_a'=e^{iq_a\chi}\psi_a$、$A'_\mu=A_\mu+\partial_\mu\chi$ とします。直接微分すると
 
 $$
 \begin{aligned}
-(\partial_\mu+iq_aA'_\mu)(e^{-iq_a\chi}\psi_a)
-&=e^{-iq_a\chi}[
-\partial_\mu\psi_a-iq_a(\partial_\mu\chi)\psi_a\\
-&\qquad+iq_aA_\mu\psi_a+iq_a(\partial_\mu\chi)\psi_a]\\
-&=e^{-iq_a\chi}D_\mu^{(a)}\psi_a.
+(\partial_\mu-iq_aA'_\mu)(e^{iq_a\chi}\psi_a)
+&=e^{iq_a\chi}[
+\partial_\mu\psi_a+iq_a(\partial_\mu\chi)\psi_a\\
+&\qquad-iq_aA_\mu\psi_a-iq_a(\partial_\mu\chi)\psi_a]\\
+&=e^{iq_a\chi}D_\mu^{(a)}\psi_a.
 \end{aligned}
 $$
 
 従って各Dirac項は不変です。作用の荷電部分を展開すると
 
 $$
-\sum_a\bar\psi_a(i\gamma^\mu D_\mu^{(a)}-m_a)\psi_a
-=\sum_a\bar\psi_a(i\not\partial-m_a)\psi_a
--\sum_a q_a\bar\psi_a\gamma^\mu\psi_a A_\mu.
+\sum_a\bar\psi_a(\gamma^\mu D_\mu^{(a)}-m_a)\psi_a
+=\sum_a\bar\psi_a(\not\partial-m_a)\psi_a
+-\sum_a iq_a\bar\psi_a\gamma^\mu\psi_a A_\mu.
 $$
 
-電子もミューオンも $q_a=-e$ なので、[頂点規則](#def-qft17-vertex)は $+ie\gamma^\mu$ です。
+電子もミューオンも $q_a=-e$ なので、[頂点規則](#def-qft17-vertex)は $-e\gamma^\mu$ です。
 
-**(b) 光子交換とゲージ独立性。** 異種頂点を二次Dyson展開で一つずつ選ぶと、場所の交換二通りで $2!$ が相殺します。Feynmanゲージで $k=p_3-p_1=p_2-p_4$、$t=k^2<0$ と置けば
+**(b) 光子交換とゲージ独立性。** 異種頂点を二次Dyson展開で一つずつ選ぶと、場所の交換二通りで $2!$ が相殺します。Feynmanゲージで $k=p_3-p_1=p_2-p_4$、$t=-k^2<0$ と置けば
 
 $$
 \begin{aligned}
 i\mathcal M
-&=(+ie)\bar u_e(p_3)\gamma^\mu u_e(p_1)
-\frac{-i\eta_{\mu\nu}}{t+i0}
-(+ie)\bar u_\mu(p_4)\gamma^\nu u_\mu(p_2)\\
+&=(-e)\bar u_e(p_3)\gamma^\mu u_e(p_1)
+\frac{+i\eta_{\mu\nu}}{t+i0}
+(-e)\bar u_\mu(p_4)\gamma^\nu u_\mu(p_2)\\
 &=\frac{ie^2}{t}
 [\bar u_e(p_3)\gamma^\mu u_e(p_1)]
 [\bar u_\mu(p_4)\gamma_\mu u_\mu(p_2)].
 \end{aligned}
 $$
 
-[質量殻電流の定理](#thm-qft17-ward)を各電流へ適用するには、電子線では $\bar u_e(p_3)(\not p_3-\not p_1)u_e(p_1)=0$、ミューオン線では $\bar u_\mu(p_4)(\not p_2-\not p_4)u_\mu(p_2)=0$ と計算します。したがって一般ゲージで加わる $k_\mu k_\nu$ 項は零です。$t<0$ なので分布の極への代入も避けられます。
+[質量殻電流の定理](#thm-qft17-ward)を各電流へ適用するには、電子線では $\bar u_e(p_3)i(\not p_3-\not p_1)u_e(p_1)=0$、ミューオン線では $\bar u_\mu(p_4)i(\not p_2-\not p_4)u_\mu(p_2)=0$ と計算します。したがって一般ゲージで加わる $k_\mu k_\nu$ 項は零です。$t<0$ なので分布の極への代入も避けられます。
 
 **(c) スピン平均と断面積。** [QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)から
 
@@ -922,13 +924,13 @@ $$
 \begin{aligned}
 \overline{|\mathcal M|^2}
 &=\frac{e^4}{4t^2}\operatorname{tr}[
-(\not p_3+m)\gamma^\mu(\not p_1+m)\gamma^\nu]\\
+(i\not p_3+m)\gamma^\mu(i\not p_1+m)\gamma^\nu]\\
 &\qquad\qquad\cdot\operatorname{tr}[
-(\not p_4+M)\gamma_\mu(\not p_2+M)\gamma_\nu].
+(i\not p_4+M)\gamma_\mu(i\not p_2+M)\gamma_\nu].
 \end{aligned}
 $$
 
-奇数gammaの跡は0、四本の跡は $4(\eta^{\alpha\mu}\eta^{\beta\nu}-\eta^{\alpha\beta}\eta^{\mu\nu}+\eta^{\alpha\nu}\eta^{\mu\beta})$ です。$S=m^2+M^2$ とすると $p_1\cdot p_2=(s-S)/2$、$p_1\cdot p_4=(S-u)/2$、$p_1\cdot p_3=m^2-t/2$、$p_2\cdot p_4=M^2-t/2$。二本のtraceを縮約して
+各gamma行列双線形の複素共役には負号が一つ付きますが、二本のtraceの積では相殺します。奇数gammaの跡は0、四本の跡は $4(\eta^{\alpha\mu}\eta^{\beta\nu}-\eta^{\alpha\beta}\eta^{\mu\nu}+\eta^{\alpha\nu}\eta^{\mu\beta})$ です。$S=m^2+M^2$ とすると $p_1\cdot p_2=-(s-S)/2$、$p_1\cdot p_4=-(S-u)/2$、$p_1\cdot p_3=-m^2+t/2$、$p_2\cdot p_4=-M^2+t/2$。二本のtraceを縮約して
 
 $$
 \overline{|\mathcal M|^2}
