@@ -1,0 +1,39 @@
+id: COMB18
+title: "動的計画法と列挙アルゴリズム"
+volume: foundations
+status: supplementary
+prerequisites: [COMB10]
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 有限状態による逐次構成の状態の十分性を確認し、不十分な状態への圧縮を反証できる
+  - 動的計画法の状態別計数不変条件を帰納法で証明し、空語と終端条件を扱える
+  - 転送行列の各成分を遷移の多重度から導き、行列積と計数を対応させられる
+  - 括弧列の高さと時刻によるDPとメモ化再帰の正当性を説明できる
+  - 深さ優先列挙の健全性・完全性・重複なしを証明し、計数との違いを説明できる
+  - 小さい入力で全探索・DP・母関数の係数を独立に照合できる
+definitions:
+  - { id: COMB18-DEF-01, name: 有限状態逐次構成と状態の十分性 }
+  - { id: COMB18-DEF-02, name: 状態別計数表と動的計画法 }
+  - { id: COMB18-DEF-03, name: 転送行列 }
+  - { id: COMB18-DEF-04, name: 完成数とメモ化 }
+  - { id: COMB18-DEF-05, name: 深さ優先列挙 }
+theorems:
+  - { id: COMB18-THM-01, name: DPの計数不変条件 }
+  - { id: COMB18-THM-02, name: 転送行列による計数 }
+  - { id: COMB18-THM-03, name: メモ化再帰の正当性 }
+  - { id: COMB18-THM-04, name: 列挙の健全性・完全性・一意性 }
+canonical_examples:
+  - 11禁止二進語の二状態と転送行列
+  - 長さだけへの状態圧縮の反例
+  - 括弧列の高さDPと完成数のメモ化
+  - 半長3の括弧列を全探索・DP・Catalan数で照合
+problem_patterns:
+  - COMB18-DP-INVARIANT
+  - COMB18-TRANSFER-MATRIX
+  - COMB18-MEMOIZED-DYCK
+  - COMB18-STATE-SUFFICIENCY
+  - COMB18-ENUMERATION-CORRECTNESS
+  - COMB18-INDEPENDENT-CHECK
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
