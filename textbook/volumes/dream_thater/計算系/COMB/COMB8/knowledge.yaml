@@ -1,0 +1,99 @@
+chapter: COMB8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB7
+  - F0-00E
+forward_references: []
+
+concepts:
+  - id: combinatorics.linear-recurrence-initial-value
+    name: 定数係数線形差分方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定数係数線形差分方程式と初期値問題）]
+    requires: [combinatorics.finite-difference-operators]
+
+  - id: combinatorics.recurrence-initial-value-problem
+    name: 初期値問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定数係数線形差分方程式と初期値問題）]
+    requires: [combinatorics.linear-recurrence-initial-value]
+
+  - id: combinatorics.recurrence-initial-uniqueness
+    name: 初期値問題の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（初期値問題の存在と一意性）]
+    requires: [combinatorics.recurrence-initial-value-problem]
+
+  - id: combinatorics.characteristic-polynomial
+    name: 特性多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（特性多項式・特性根・重複度）]
+    requires: [combinatorics.linear-recurrence-initial-value]
+
+  - id: combinatorics.characteristic-root
+    name: 特性根
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（特性多項式・特性根・重複度）]
+    requires: [combinatorics.characteristic-polynomial]
+
+  - id: combinatorics.root-multiplicity
+    name: 特性根の重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（特性多項式・特性根・重複度）]
+    requires: [combinatorics.characteristic-root]
+
+  - id: combinatorics.exponential-recurrence-modes
+    name: 非零特性根の指数解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [命題（非零特性根の指数解）]
+    requires: [combinatorics.characteristic-polynomial]
+
+  - id: combinatorics.repeated-root-modes
+    name: 非零重根の解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非零重根の解）]
+    requires: [combinatorics.characteristic-polynomial, combinatorics.polynomial-difference-degree]
+
+  - id: combinatorics.zero-root-modes
+    name: 零特性根の初期時刻解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [命題（零特性根の初期時刻解）]
+    requires: [combinatorics.characteristic-polynomial]
+
+  - id: combinatorics.complete-homogeneous-recurrence
+    name: 因数分解できる場合の斉次解の全体
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（因数分解できる場合の斉次解の全体）]
+    requires: [combinatorics.recurrence-initial-uniqueness, combinatorics.repeated-root-modes, combinatorics.zero-root-modes]
+
+  - id: combinatorics.recurrence-superposition
+    name: 非同次解＝特解＋斉次解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非同次解＝特解＋斉次解）]
+    requires: [combinatorics.linear-recurrence-initial-value]
+
+  - id: combinatorics.recurrence-resonance
+    name: 共振
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（差分方程式の共振）]
+    requires: [combinatorics.characteristic-polynomial, combinatorics.exponential-recurrence-modes]
+
+  - id: combinatorics.exponential-forcing-resonance
+    name: 指数右辺の特解と共振
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（指数右辺の特解と共振）]
+    requires: [combinatorics.recurrence-superposition, combinatorics.recurrence-resonance, combinatorics.repeated-root-modes, combinatorics.falling-factorial-difference]
