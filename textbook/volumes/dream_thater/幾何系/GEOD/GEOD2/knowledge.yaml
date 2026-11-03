@@ -71,8 +71,8 @@ concepts:
     requires: [geodesy.reference-frame]
 
   - id: geodesy.bias-nonidentifiability
-    name: 共通ずれが未知なら位置と分離できない
+    name: 共通ずれが未知なら真値と分離できない
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（共通ずれが未知なら位置と分離できない）]
+    introduction_aliases: [命題（共通ずれが未知なら真値と分離できない）]
     requires: [geodesy.observation-model]
