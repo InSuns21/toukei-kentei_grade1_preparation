@@ -416,7 +416,7 @@ $$
 \operatorname{sech}^2(z_0+h)=-h^{-2}+O(1).
 $$
 
-ここへ $e^{-iq(z_0+h)}=e^{q\pi/2}(1-iqh+O(h^2))$ を掛けると、$h^{-1}$ の係数（留数）は $iqe^{q\pi/2}$。従って留数定理から
+ここへ $e^{-iq(z_0+h)}=e^{q\pi/2}(1-iqh+O(h^2))$ を掛けると、$h^{-1}$ の係数（留数）は $iqe^{q\pi/2}$。従って[CA4の留数定理](../../../解析系/CA/CA4/index.md#thm-ca4-residue)から
 
 $$
 (1-e^{q\pi})J(q)=2\pi i(iq e^{q\pi/2}),
