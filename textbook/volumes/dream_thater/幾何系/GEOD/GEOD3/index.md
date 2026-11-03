@@ -72,7 +72,7 @@ $$
 
 ## 2. 子午断面・緯線と表面に垂直な方向
 
-任意の表面点について、回転軸からの距離を $p=\sqrt{X^2+Y^2}$ とおきます。$p\ge0$ です。北極側と南極側は $Z$ の符号で区別します。$p>0$ の点では、$XY$ 面で $+X$ 軸から $+Y$ 軸へ測る角 $\lambda\in(-\pi,\pi]$ を、二つの符号を保つ関数 $\operatorname{atan2}(Y,X)$ で表します。
+任意の表面点について、回転軸からの距離を $p=\sqrt{X^2+Y^2}$ とおきます。$p\ge0$ です。北極側と南極側は $Z$ の符号で区別します。以下、$\operatorname{atan2}(v,u)$ は $u^2+v^2>0$ のとき平面ベクトル $(u,v)$ の向きを符号付きで返す角（値域 $(-\pi,\pi]$）です。$p>0$ の点では、$XY$ 面で $+X$ 軸から $+Y$ 軸へ測る角 $\lambda=\operatorname{atan2}(Y,X)$ を経度として使います。
 
 回転軸を含む平面で面を切った**子午断面**は、$p$ と $Z$ の平面で見ると $p^2/a^2+Z^2/b^2=1$ の右半分です。一方、一定の高さ $Z=z_0$ で水平に切った**緯線の円**は、半径 $p=a\sqrt{1-z_0^2/b^2}$ を持ちます（$|z_0|<b$）。端の $z_0=\pm b$ では半径が $0$ となり、円は一点に縮みます。
 
@@ -83,7 +83,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod3-meridian-parallel -->
-**定義の確認**　$a=5,b=4$ で $Z=12/5$ の平面をとると、$p^2/25=1-(12/5)^2/16=16/25$ なので緯線半径は $p=4$ です。子午断面では $(p,Z)=(4,12/5)$ と $(-4,12/5)$ が同一楕円上の左右対称な点です（$p$ は距離なので通常は非負の側だけを使います）。
+**定義の確認**　$a=5,b=4$ で $Z=12/5$ の平面をとると、$p^2/25=1-(12/5)^2/16=16/25$ なので緯線半径は $p=4$ です。子午断面として $Y=0$ の平面を選び、そこでの**符号付き**横座標を $u=X$ とすれば、楕円の式は $u^2/25+Z^2/16=1$ です。その左右対称な点は $(u,Z)=(4,12/5)$ と $(-4,12/5)$ で、いずれも回転軸からの距離は $p=|u|=4$ です。$p$ 自体には負値を使いません。
 <!-- definition-example-end -->
 
 その点に立てた法線の向きを、図から推測する必要はありません。面の式の左辺から $1$ を引いた関数
@@ -92,7 +92,17 @@ $$
 F(X,Y,Z)=\frac{X^2+Y^2}{a^2}+\frac{Z^2}{b^2}-1
 $$
 
-を使います。面上の点で接する曲線 $r(t)$ は $F(r(t))=0$ です。両辺を $t$ で微分すると、連鎖律から $\nabla F(r(t))\cdot r'(t)=0$ です。したがって $\nabla F$ は表面に接する任意の方向と直交します。面の外側へ動くと $F$ が増えるので、これは外向きです。
+を使います。$\nabla F$ は三つの座標での偏導関数を並べた**勾配** $(\partial F/\partial X,\partial F/\partial Y,\partial F/\partial Z)$ です。面上を動く微分可能な曲線を $r(t)=(X(t),Y(t),Z(t))$ と書き、$t$ を曲線のパラメータとすると $F(r(t))=0$ です。$a,b$ は固定したまま $t$ で微分し、連鎖律を成分ごとに展開すると
+
+$$
+\begin{aligned}
+0=\frac{d}{dt}F(r(t))
+&=\frac{2X}{a^2}\frac{dX}{dt}+\frac{2Y}{a^2}\frac{dY}{dt}+\frac{2Z}{b^2}\frac{dZ}{dt}\\
+&=\nabla F(r(t))\cdot r'(t).
+\end{aligned}
+$$
+
+右辺は[内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product)ですから、$\nabla F$ は表面に接する任意の曲線の接線方向 $r'(t)$ と直交します。面の外側へ動くと $F$ が増えるので、これは外向きです。ここでの $d/dt$ は曲線に沿う一変数微分、$\partial F/\partial X$ などは他の座標を固定する偏微分であり、連鎖律が両者を結んでいます。
 
 $$
 \nabla F=\left(\frac{2X}{a^2},\frac{2Y}{a^2},\frac{2Z}{b^2}\right),
@@ -124,7 +134,7 @@ $$
 **定義の確認**　$a=5,b=4$、$P=(3,0,16/5)$ の法線は $(3,0,5)/\sqrt{34}$ です。水平成分の大きさは $3/\sqrt{34}$、鉛直成分は $5/\sqrt{34}$ なので $\tan\phi=5/3$、つまり $\phi=\arctan(5/3)$ です。外向き法線の長さは $(3^2+5^2)/34=1$ により確かめられます。
 <!-- definition-example-end -->
 
-ここで $\operatorname{atan2}(v,u)$ は $(u,v)$ の向きをその符号込みで返す角です。特に $p>0$ で $Z<0$ のとき $\phi<0$、$Z=0$ のとき $\phi=0$ です。比の逆正接だけでは象限や $p=0$ を安全に扱えません。
+上で導入した $\operatorname{atan2}$ は両成分の符号を使います。特に $p>0$ で $Z<0$ のとき $\phi<0$、$Z=0$ のとき $\phi=0$ です。比の逆正接だけでは象限や $p=0$ を安全に扱えません。
 
 他方、地球中心 $O$ から点 $P$ へ引いたベクトル $OP$ の赤道面からの符号付き角が、同じ点の**地心緯度**です。測地緯度と同じ点の角度ですが、測る線が違います。
 
@@ -306,7 +316,14 @@ $$
 
 約 $11$ 分 $33$ 秒角の差です。これは「緯度の小数桁を丸める誤差」ではなく、どの方向の角度を緯度として定義したかによる差です。
 
-さらに、この差は中緯度付近で大きく、赤道と両極では $0$ に戻ります。どこで最大になるかも導出できます。北半球 $0\le\phi\le\pi/2$ と $k=b^2/a^2$ を取り、差 $\delta(\phi)=\phi-\arctan(k\tan\phi)$ を考えます。内部で微分すると
+さらに、この差は中緯度付近で大きく、赤道と両極では $0$ に戻ります。どこで最大になるかも導出できます。北半球 $0\le\phi\le\pi/2$ と $k=b^2/a^2$ を取り、[緯度関係の命題](#prop-geod3-latitude-relation)の後で導いた極にも使える換算式により
+
+$$
+\psi(\phi)=\operatorname{atan2}(k\sin\phi,\cos\phi),
+\qquad \delta(\phi)=\phi-\psi(\phi)
+$$
+
+と定めます。これは極を含む閉区間で定義され、$\delta(0)=\delta(\pi/2)=0$ です。内部 $0<\phi<\pi/2$ だけでは $\psi(\phi)=\arctan(k\tan\phi)$ とも書けます。$k$ を固定し、$\delta'(\phi)=d\delta/d\phi$ として連鎖律で微分すると
 
 $$
 \delta'(\phi)=1-\frac{k}{\cos^2\phi+k^2\sin^2\phi}.
@@ -362,7 +379,15 @@ A2 と同じ楕円体・同じ点で、測地緯度 $\phi$ と地心緯度 $\psi
 - ID: GEOD3-A3
 
 <!-- solution-start -->
-**詳細解答。** 法線の水平・鉛直成分の比から [測地緯度](#def-geod3-geodetic-latitude)は $\tan\phi=(1/5)/(3/25)=5/3$ です。中心からの方向を使う [地心緯度](#def-geod3-geocentric-latitude)は $\tan\psi=(16/5)/3=16/15$ です。いずれも北半球の $0$ と $\pi/2$ の間で正接が単調増加し、$5/3=25/15>16/15$ なので $\phi>\psi$ です。
+**詳細解答。** 法線の水平・鉛直成分の比から[測地緯度](#def-geod3-geodetic-latitude)、中心からの方向の比から[地心緯度](#def-geod3-geocentric-latitude)を求めます。
+
+$$
+\tan\phi=\frac{1/5}{3/25}=\frac53,
+\qquad
+\tan\psi=\frac{16/5}{3}=\frac{16}{15}.
+$$
+
+いずれも北半球の $0$ と $\pi/2$ の間で正接が単調増加し、$5/3=25/15>16/15$ なので $\phi>\psi$ です。
 <!-- solution-end -->
 
 #### A4. 赤道・極と経度
@@ -397,7 +422,16 @@ $a=5,b=4$ とし、$P=(-3,0,-16/5)$ とする。面上判定、経度 $\lambda\i
 - ID: GEOD3-B1
 
 <!-- solution-start -->
-**詳細解答。** $X^2/a^2+Z^2/b^2=9/25+16/25=1$ なので面上です。$p=3$、$X<0,Y=0$ なので $\lambda=\operatorname{atan2}(0,-3)=\pi$ を選びます。未正規化法線は $(-3/25,0,-1/5)$ で水平長 $3/25$、鉛直成分 $-1/5$ です。従って $\phi=-\arctan(5/3)$、$\psi=-\arctan(16/15)$ です。$\phi<\psi<0$ となり、[緯度関係](#prop-geod3-latitude-relation)の $k=16/25$ から $\tan\psi=(16/25)(-5/3)=-16/15$ でも検算できます。
+**詳細解答。** $X^2/a^2+Z^2/b^2=9/25+16/25=1$ なので面上です。$p=3$、$X<0,Y=0$ より、経度は $\lambda=\operatorname{atan2}(0,-3)=\pi$ です。
+
+未正規化法線は $(-3/25,0,-1/5)$ で、その水平長は $3/25$、鉛直成分は $-1/5$ です。中心から点への方向の水平長と鉛直成分は $3,-16/5$ なので、それぞれの角度は
+
+$$
+\phi=-\arctan\frac53,
+\qquad \psi=-\arctan\frac{16}{15}.
+$$
+
+従って $\phi<\psi<0$ です。[緯度関係](#prop-geod3-latitude-relation)にも $k=16/25$ を入れると $\tan\psi=(16/25)(-5/3)=-16/15$ となり、符号まで一致します。
 <!-- solution-end -->
 
 #### B2. 法線の向きから表面点を自力で復元する
@@ -408,7 +442,29 @@ $a>b>0$、$0<\phi<\pi/2$、$\lambda=0$ とする。外向き法線が $(\cos\phi
 - ID: GEOD3-B2
 
 <!-- solution-start -->
-**詳細解答。** 未正規化法線が $(X/a^2,0,Z/b^2)$ なので、正の比例係数 $t$ を使って $X/a^2=t\cos\phi$、$Z/b^2=t\sin\phi$ とおきます。従って $X=a^2t\cos\phi$、$Z=b^2t\sin\phi$ です。これを $X^2/a^2+Z^2/b^2=1$ へ入れると $t^2(a^2\cos^2\phi+b^2\sin^2\phi)=1$。$t>0$ より $t=1/\sqrt{a^2\cos^2\phi+b^2\sin^2\phi}$ と唯一に決まります。$b^2=a^2(1-e^2)$ を用いれば分母は $a\sqrt{1-e^2\sin^2\phi}=aD$ なので $X=a\cos\phi/D$、$Z=a(1-e^2)\sin\phi/D$ です。これが[表面表示](#prop-geod3-surface-parameterization)の $\lambda=0$ に一致し、$t$ の一意性から点も一意です。
+**詳細解答。** 未正規化法線が $(X/a^2,0,Z/b^2)$ なので、指定された法線方向へ向くための正の比例係数 $t$ を使って
+
+$$
+\frac X{a^2}=t\cos\phi,\qquad
+\frac Z{b^2}=t\sin\phi
+$$
+
+とおきます。これより $X=a^2t\cos\phi$、$Z=b^2t\sin\phi$ です。楕円体方程式に代入すると
+
+$$
+t^2(a^2\cos^2\phi+b^2\sin^2\phi)=1,
+\qquad
+t=\frac1{\sqrt{a^2\cos^2\phi+b^2\sin^2\phi}}>0.
+$$
+
+$b^2=a^2(1-e^2)$ を用いれば、分母は $aD$（$D=\sqrt{1-e^2\sin^2\phi}>0$）なので
+
+$$
+X=\frac{a\cos\phi}{D},\qquad
+Z=\frac{a(1-e^2)\sin\phi}{D}.
+$$
+
+これは[表面表示](#prop-geod3-surface-parameterization)の $\lambda=0$ に一致します。正の $t$ が一意に定まり、$X,Z$ もそれにより決まるので、指定された法線方向の表面点は一意です。
 <!-- solution-end -->
 
 #### B3. 緯度差が最大になる条件
@@ -419,7 +475,24 @@ $a>b>0$、$k=b^2/a^2$ とする。北半球の表面点で $\delta=\phi-\psi$ �
 - ID: GEOD3-B3
 
 <!-- solution-start -->
-**詳細解答。** $0<k<1$ です。[緯度関係](#prop-geod3-latitude-relation)から $0\le\phi<\pi/2$ で $\psi=\arctan(k\tan\phi)$ です。連鎖律で $d\psi/d\phi=k(1+\tan^2\phi)/(1+k^2\tan^2\phi)=k/(\cos^2\phi+k^2\sin^2\phi)$。従って $\delta'=0$ は $(1+k^2t^2)/(1+t^2)=k$、すなわち $1-k=k(1-k)t^2$、$t^2=1/k$（$t=\tan\phi>0$）です。唯一の内部停留点で $\tan\phi=1/\sqrt{k}$、$\tan\psi=\sqrt{k}$。$\arctan(1/\sqrt{k})=\pi/2-\arctan\sqrt{k}$ より差は $\pi/2-2\arctan\sqrt{k}$ です。両端で差は $0$、内部で $\delta>0$ なので最大です。
+**詳細解答。** $0<k<1$ です。[緯度関係](#prop-geod3-latitude-relation)から、閉区間 $0\le\phi\le\pi/2$ では $\psi=\operatorname{atan2}(k\sin\phi,\cos\phi)$ と定められ、端点での差 $\delta=\phi-\psi$ はともに $0$ です。内部 $0<\phi<\pi/2$ では $\psi=\arctan(k\tan\phi)$ なので、$k$ を固定して $\phi$ で微分します。連鎖律により
+
+$$
+\frac{d\psi}{d\phi}
+=\frac{k(1+\tan^2\phi)}{1+k^2\tan^2\phi}
+=\frac{k}{\cos^2\phi+k^2\sin^2\phi}.
+$$
+
+$t=\tan\phi>0$ とおくと、$\delta'=0$ の条件は
+
+$$
+\frac{1+k^2t^2}{1+t^2}=k
+\quad\Longleftrightarrow\quad
+1-k=k(1-k)t^2
+\quad\Longleftrightarrow\quad t^2=\frac1k.
+$$
+
+$0<k<1$ なので $1-k$ で割ることができ、内部の停留点は $\tan\phi=1/\sqrt{k}$ の一点です。その点で $\tan\psi=\sqrt{k}$ となります。$\arctan(1/\sqrt{k})=\pi/2-\arctan\sqrt{k}$ より、差は $\pi/2-2\arctan\sqrt{k}$ です。両端で差は $0$、内部では $k<1$ と正接の単調増加性から $0<\psi<\phi$ なので、これが最大です。
 <!-- solution-end -->
 
 #### B4. 二つの入力緯度を逆向きに換算する
@@ -430,7 +503,18 @@ $e^2=1/4$ の扁平な回転楕円体表面上で (i) 測地緯度 $\phi=45^\cir
 - ID: GEOD3-B4
 
 <!-- solution-start -->
-**詳細解答。** $k=1-e^2=3/4$ です。(i)は [緯度関係](#prop-geod3-latitude-relation)より $\tan\psi=k\tan45^\circ=3/4$、従って $\psi=\arctan(3/4)<45^\circ$ です。(ii)は逆算して $\tan\phi=\tan45^\circ/k=4/3$、従って $\phi=\arctan(4/3)>45^\circ$ です。(i)の測地緯度は $45^\circ$、(ii)の測地緯度は $45^\circ$ より大きいので、経度を等しく選んでも同じ表面点ではありません。「45度」がどちらの定義かは省略できません。
+**詳細解答。** $k=1-e^2=3/4$ です。[緯度関係](#prop-geod3-latitude-relation)を二方向に使います。
+
+$$
+\begin{aligned}
+\text{(i)}\quad &\tan\psi=k\tan45^\circ=\frac34,
+&&\psi=\arctan\frac34<45^\circ,\\
+\text{(ii)}\quad &\tan\phi=\frac{\tan45^\circ}{k}=\frac43,
+&&\phi=\arctan\frac43>45^\circ.
+\end{aligned}
+$$
+
+(i) の測地緯度は $45^\circ$、(ii) の測地緯度はそれより大きいので、経度を等しく選んでも同じ表面点ではありません。「45度」がどちらの定義かは省略できません。
 <!-- solution-end -->
 
 ### Level C：GISデータを統合する前の緯度監査
