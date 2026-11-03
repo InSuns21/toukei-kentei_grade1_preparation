@@ -1,7 +1,7 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1・MFL2）
 
 分冊: 2026-10-11  
-改訂日: 2026-10-14（標準教科書・原著論文・現行正本照合、ML章依存の具体化）  
+改訂日: 2026-11-03（教科書再照合、ML/GA完成による依存更新、幾何と統計の保証の区別を強化）  
 状態: planned（本PLAN設計改訂のみ。MFL固有の教材本文・series manifestは未実装）
 
 ## 0. 中心問いと具体的な講義規模
@@ -11,7 +11,7 @@
 
 **執筆予定章を MFL1-01〜MFL1-21（21章）・MFL2-01〜MFL2-22（22章）、計43章に決定する。** これは主要定義・証明・数値実験・演習を独習で再現できるまとまりから決めた章数であり、**15講・15週・90分×15回の制約は一切ない**。43章も上限やノルマではない。実装時に数学的に妥当な分割・統合が必要なら、PLAN・series manifest・直接参照を同時に改訂して変更する。旧15候補テーマは範囲棚卸しとして吸収し、着手時に1テーマ＝1講へ機械的変換しない。
 
-## 1. 標準教科書・原著との比較（2026-10-14）
+## 1. 標準教科書・原著との比較（2026-11-03照合）
 
 | 比較文献 | 照合した主題 | 改訂への反映 |
 |---|---|---|
@@ -25,6 +25,8 @@
 | Bronstein, Bruna, Cohen & Veličković, *Geometric Deep Learning*（著者公開教材と2021年proto-book） | 群、格子、グラフ、幾何的グラフ、ゲージの統一 | MFL2を対称性・表現力・局所フレームの一貫した構成に再編 |
 | Xu et al., *How Powerful are Graph Neural Networks?* (2019) | 近傍集約の1-WL型識別限界 | MFL2-10：具体的な区別不能例を証明 |
 | Cohen et al., *ICML* (2019); Satorras et al., *ICML* (2021) | gauge-equivariant CNN、E(n)-equivariant GNN | MFL2-14/18〜21：群変換・frame変更の等変性を式と計算で検証 |
+| Singer & Wu, *Vector Diffusion Maps and the Connection Laplacian* (*CPAM*, 2012) | scalarのdiffusion mapsから接ベクトル場・connection Laplacianへの拡張 | MFL2-18〜21：frame間の輸送が必要な理由を小規模離散例から示し、単なるscalar graph filterと分離 |
+| McInnes, Healy & Melville, *UMAP*（原著、2018） | 局所近傍のfuzzy構造と低次元表現の最適化 | MFL1-20：近傍構成・cross-entropy・低次元距離の意味を分離し、位相保証へ飛躍しない |
 
 参考文献の確認先:
 - https://link.springer.com/book/10.1007/978-0-387-39351-3
@@ -40,6 +42,8 @@
 - https://arxiv.org/abs/1810.00826
 - https://proceedings.mlr.press/v97/cohen19d.html
 - https://proceedings.mlr.press/v139/satorras21a.html
+- https://doi.org/10.1002/cpa.21395
+- https://arxiv.org/abs/1802.03426
 
 **主要設計判断**：
 
@@ -55,9 +59,9 @@
 | LA/RA、固有値・SVD・多変数微分 | 完成済みの該当章を実装時に確認 | PCA、MDS、近傍行列の数値問題への適用 |
 | 滑らかな多様体、接空間、接続、曲率、群作用 | GEO/LIEの実在する該当章 | 観測点群・雑音・標本密度の下での幾何推定 |
 | graph Laplacian、Cheeger、random walk、固有空間摂動 | **完成済みSGT1〜SGT8**。[SGT PLAN](../plan_done/DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md)、series/SGT.yaml | 点群上で得たgraphからcontinuumへ近似するための条件と誤差 |
-| Laplace–Beltrami、熱半群・熱核・manifold Sobolev | [幾何解析 GA PLAN](DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)。改訂時点でplanned | 実装済みGA結果へリンクし、未実装なら必要な局所表示・円周モデルに限って導く。一般理論の定理は既知扱いしない |
+| Laplace–Beltrami、熱半群・熱核・manifold Sobolev | **GA1〜GA9 completed**。[幾何解析GA PLAN](../plan_done/DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)、[GA系列manifest](../dream-theater-series/GA.yaml) | GA1の座標表示、GA4のスペクトル、GA5の熱半群を必要箇所から参照。点群による統計的推定の誤差はMFLで新たに証明 |
 | 確率・集中・有限標本上界 | 基礎確率、HDPの実在する該当章 | サンプルの測度モデル・核平均のbias/variance・幾何回復 |
-| 予測・NN・逆伝播・PCA・検証一般論 | [ML1/ML2 PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)。必要章のstatus確認 | 等変性・点群による学習への適用。ML未実装の結果を既習扱いしない |
+| 予測・NN・逆伝播・PCA・検証一般論 | **ML1-01〜21・ML2-01〜25 completed**。[ML1/ML2 PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)、[ML系列manifest](../dream-theater-series/ML.yaml) | 数理アルゴリズムと学習一般論はMLの実在定理へ接続し、MFLでは幾何推定・等変構成・失敗条件を新規所有 |
 | SO(3)の一般表現論、Peter–Weyl、主束一般論 | GEO/LIE、LREP/GBGなど実在する完成章を確認 | MFL2では有限群、SO(2)、低階ベクトル表現と局所frame計算を直接閉じる。一般大定理の無証明引用は禁止 |
 | 非線形PDE、情報幾何、物理モデルの解法 | GPDE/GA/IG/PMLの該当正本 | 幾何データ・等変性・数値誤差の検証への接続のみ |
 
@@ -65,13 +69,13 @@
 
 ### 2.1 機械学習I/IIとの章別依存（ML PLANとの双方向の責務境界）
 
-[機械学習I/IIの現行PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md) と [ML系列manifest](../dream-theater-series/ML.yaml) を基準にした**具体的な設計依存**を次に固定する。2026-10-14時点でML1-01〜21・ML2-01〜25はすべてplannedであり、**PLANに記されたML結果を、証明済みの定理としては使用しない**。以下の「主要前提」は必要な数学的内容に対応する章IDであり、執筆時には完成status、使用定理のstable anchor、実際の直接prerequisiteを再確認する。
+[機械学習I/IIの現行PLAN](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md) と [ML系列manifest](../dream-theater-series/ML.yaml) を基準にした**具体的な設計依存**を次に固定する。2026-11-03時点でML1-01〜21・ML2-01〜25は**すべてcompleted**。GA1〜GA9もcompletedである。ただし系列statusは個々の定理・定義・stable anchorの存在証明ではない。以下の「主要前提」は必要な内容に対応する章IDであり、執筆時にはその章のchapter.yaml/knowledge.yaml・実際の本文証明・stable anchorと直接prerequisiteを確認する。
 
 | MFL側（導入章・利用章） | 対応するML章 | 利用する数学・手法 | 必須とする時点・重複を防ぐ境界 |
 |---|---|---|---|
 | MFL1-01〜04 | ML1-01（学習問題・標本） | データ生成・標本/母集団の区別 | **概念的な接続**。MFL1の幾何的標本モデルは基礎確率から自立して導入可能。ML1全体を開始前提としない |
 | MFL1-05、MFL1-08 | **ML1-19**（PCA・SVD） | 中心化、Gram/covariance、主成分・低ランク近似 | PCAの一般原理はML1-19または完成済みLAの同内容を参照。MFLは**局所接空間の推定誤差**・幾何への適用だけを新規所有 |
-| MFL1-06〜07 | **ML1-11**（k近傍・核密度） | kNN、半径/bandwidth、近傍探索、密度の概念 | ML1-11の一般算法とMFLのreach・幾何被覆・グラフ近傍を区別。直接のkNN定義は前提未実装時に必要範囲を説明 |
+| MFL1-06〜07 | **ML1-11**（k近傍・核密度） | kNN、半径/bandwidth、近傍探索、密度の概念 | ML1-11の一般算法とMFLのreach・幾何被覆・グラフ近傍を区別。既習のkNN定義を使用箇所でリンクし、幾何近傍と統計近傍の違いを説明 |
 | MFL1-20 | **ML2-01**（KL）、**ML1-09/10**（最適化） | t-SNEのKL損失、確率重み、勾配学習・反復 | KLの数学は完成済みINFOの該当結果でも代替可能。最適化の一般定理はML/OPTを参照し、MFLは可視化目的・非保存例を扱う |
 | MFL1-21 | **ML1-12**（検証分割・モデル選択）、必要に応じML1-21 | train/test、パラメータ調整、分布シフト | 一般的検証法はML、幾何推定の誤差指標・対照点群はMFL |
 | MFL2-01〜03 | ML2-13（後続への接続） | 等変性の問題設定、有限群と有限表現 | **NNの前段となる数学**なので、ここでML2-13のニューラルネット結果を無条件必須としない |
@@ -82,7 +86,20 @@
 | MFL2-17〜21 | **ML2-13/14**、GEO/GAの直接必要章 | 多様体場/mesh上の学習可能な線形層・局所frame | 接続・ゲージ変換の幾何はGEO/GA、層構成とgauge-equivarianceはMFL、一般NN/backpropはML |
 | MFL2-22 | **ML1-12、ML2-15** | 訓練/検証、seed、正則化、比較実験 | 通常NNとの公平な比較と、等変残差・幾何的帰納バイアスの効果の切り分け。MLのモデル評価一般論は重複所有しない |
 
-**実装時の判断**：対象ML章が未執筆なら、(A) 先にML側の当該章を実装する、(B) MFL本文で自立して証明できる有限・局所模型に対象を限定し、一般ML定理は既知とせず、完成後に正本リンクへ接続する、のいずれかを章の着手前に明示する。必須の一般ML理論を数行の無証明引用へ置き換えてはいけない。MLの予定章へ直接prerequisiteを機械的登録しない。**MFL1の前半をML2完了まで不必要に停止させず、MFL2の深層部分をMLなしで完成扱いしない**。
+**実装時の判断**：ML・GAは完成済み系列なので、MFLは必要な結果の本文・証明・stable anchorを利用できる。ただし「ML/Ga完成」を一般の幾何学習の有限標本保証、graph spectral convergence、gauge-equivarianceの証明と取り違えない。GA1/4/5は連続作用素の幾何・スペクトル・熱の正本、MFL1-13〜19は**ランダムな点群からその作用素へ近づく統計的証明**の所有者である。もし必要なML/GA定理が該当本文に実在しなければ、(A) canonical ownerを局所修正するか、(B) MFLの証明を自足する有限模型に限定し、その根拠を章冒頭に明記する。未証明の一般主張は採らない。
+
+
+### 2.2 幾何・標本・学習の三つの主張を分離する
+
+| 主張の種類 | 代表的な対象 | 新たに必要となる仮定と証明 |
+|---|---|---|
+| 決定論的な幾何 | 滑らかな $M$ 上の距離、接空間、$L_g$、熱半群 | GEO/GAの既出定義・定理を確認。ここには標本誤差はまだない |
+| 標本からの推定 | $\widehat T_{n,\varepsilon}$ が $T_\varepsilon$ や $L_g$ を近似 | 標本密度の下界、独立性、帯域、正規化の分母、確率界、境界とノイズ |
+| 表現/学習 | 埋め込みが距離・近傍を保存する、GNNが等変である | 距離・固有空間の近似にはspectral gap等が必要。等変性の代数的証明と汎化・識別力は別 |
+
+**頻出する誤接続**：局所PCAが接線を推定することは大域Isomapの測地距離を保証しない。$T_\varepsilon f\to f+\varepsilon c\Delta_gf$ を固定滑らかな$f$について示しても、固有関数全体やクラスタ分割の収束は直ちに従わない。有限グラフでGNNが頂点置換等変であっても、異なるグラフを識別できるとは限らない。
+
+**数学的な試験ケース**：同じ円周で(1)均一点群、(2)一部に偏る密度、(3)半径が近い二重円、(4)正の固定観測ノイズを比較し、どの段階の仮定が失われるかを明示する。これはMFL1-03〜19の共通反例系列として使える。曲率の大きさとreachの小ささは同値でない。
 
 ### 採用する標準模型と記法
 
@@ -111,15 +128,15 @@ $$
 | MFL1-09 | Isomapと測地距離 | 最短路距離→MDS、円弧の経路長誤差、近すぎる遠隔枝のshortcut反例 |
 | MFL1-10 | Locally Linear Embedding | 重み制約 $\sum_jw_{ij}=1$ の最小二乗、特異局所Gramの正則化、$(I-W)^T(I-W)$ の核 |
 | MFL1-11 | Laplacian Eigenmaps | graph Dirichlet energyと固有値緩和をSGTから導出し、次数正規化・孤立点を検討 |
-| MFL1-12 | Laplace–Beltramiへの橋 | 局所計量/体積要素から $L_g$ の式を既存GAへ接続。未実装時は円周モデル・限定局所式を完全導出 |
-| MFL1-13 | Kernel積分作用素のbias | 正規座標Taylor・Gaussian moment・密度/体積展開の主項、正規化定数の確認 |
-| MFL1-14 | Kernel標本平均のvariance・集中 | 固定滑らかな試験関数と固定点で平均・分散・集中界を導き、$n$ とbandwidthの同時極限の十分条件 |
+| MFL1-12 | Laplace–Beltramiへの橋 | GA1の座標式・Green公式とGA4のスペクトルを使用箇所から参照し、円周・球面の計量/体積・符号を再計算。再掲と新規のgraph推定を区別 |
+| MFL1-13 | Kernel積分作用素のbias | 固定点・内部・境界なしの正規座標Taylor、Gaussian偶奇モーメント・密度/体積展開。$O(\varepsilon)$主項とremainder、$p$の正則性を明記 |
+| MFL1-14 | Kernel標本平均のvariance・集中 | 独立なtest点でのkernel標本平均とsample点でのleave-one-outを区別。分母の非零・有限標本variance、$n,\varepsilon$同時極限の十分条件 |
 | MFL1-15 | 密度補正・極限generator | row normalizationと $\alpha$-correctionで密度由来のdriftが残る条件・消える条件を計算 |
 | MFL1-16 | Diffusion Mapsと熱の幾何 | finite Markov作用素の固有分解、diffusion distanceと時間、GA熱半群との一致条件 |
-| MFL1-17 | 境界・adaptive近傍・density shift | 区間端の核積分を直接計算しboundary biasを示す。Dirichlet/Neumann条件の違い |
+| MFL1-17 | 境界・adaptive近傍・density shift | 区間端で切断Gaussian積分を計算し$O(\sqrt\varepsilon)$の片側項を確認。反射・Neumann・Dirichletの境界条件は算法ごとに区別 |
 | MFL1-18 | 円周の離散→連続スペクトル | 等間隔周期差分Laplacianの固有値とFourier固有ベクトルを厳密計算、固定波数極限 |
-| MFL1-19 | 一般spectral consistencyの証明構造 | 点wise作用素収束≠spectral convergenceの反例。1D補間・Dirichlet energy・compactness/min–maxの模型証明。一般高次元理論を無証明のまま完了扱いしない |
-| MFL1-20 | t-SNE・UMAPと可視化の意味 | 近傍重み・目的関数の有限計算、距離/位相/クラスタが自動保存されない例 |
+| MFL1-19 | spectral consistencyへ必要な橋 | 点wise作用素整合性≠固有空間収束の反例。周期1Dで補間・二次形式・compactness/min–maxの模型証明を閉じる。高次元一般定理は追加仮定・証明範囲を明示し、無証明で完成したとは称しない |
+| MFL1-20 | t-SNE・UMAPと可視化の意味 | t-SNEの条件付き近傍確率とKL、UMAPの対称化した近傍重みとcross-entropyを**異なる目的**として計算。trustworthiness/continuityと偽のcluster分離例 |
 | MFL1-21 | near-manifold・stratified data・横断実験 | 交差線、二重螺旋、Swiss roll、外れ値で全手法を比較、仮定・推定誤差・失敗を総括 |
 
 **MFL1の停止線**：任意の層化空間での特異Laplacian、一般random graphでの固有関数一様評価、reach/minimaxの完全一般理論、一般Gamma収束の全証明を単章へ無条件に詰め込まない。採用するなら必要な新たな証明章・直接prerequisiteを追加する。点wise一致からスペクトル・クラスタ一致への飛躍は禁止。
@@ -152,6 +169,17 @@ $$
 | MFL2-22 | 分子・物理・点群の統合実験 | 通常NN/GNNと幾何的等変層の比較、剛体運動/鏡映・座標frameの対照、学習/計算量の監査 |
 
 **MFL2の停止線**：全Lie群の表現分類・Peter–Weyl一般証明、任意のGNNのuniversality/汎化保証、非コンパクト多様体での一般ゲージ理論、物理方程式の数値解の厳密性を前提なしに含めない。必要なら既存の正本へ接続するか、明示的な新章を設計する。
+
+
+### 4.1 幾何的深層学習で証明すべき「等変」と「識別」の差
+
+1. **群作用/型**：特徴の表現 $\rho(g)$ を固定し、スカラー・極ベクトル・軸ベクトルを同じ型として扱わない。特に反射 $Q$ で外積は $(Qu)\times(Qv)=\det(Q)Q(u\times v)$。回転だけの実験ではE(3)等変性を確認したことにならない。
+2. **局所座標/frame**：$e'_a=e_bR^b{}_a$ と変えたとき、同じベクトル場の成分は逆向きに変換する。離散的な辺の輸送行列も両端で対応する変換が必要。局所frameを各頂点でランダムに回し、出力が正しく変換する検算を含める。
+3. **graph近傍集約**：permutation-equivarianceの帰納法は、同型頂点への再ラベルと特徴の追従を仮定する。一方1-WLとの比較は、同じ初期特徴・同じ反復回数・aggregationの制約をそろえる。大域情報を持つ追加特徴や高次メッセージ法まで不可能とはしない。
+4. **幾何的識別**：距離のみを入力するE(n)不変模型は鏡像対を区別できない。signed volumeはSO(3)不変だがO(3)不変でない。入力対称性・出力表現・タスクの真の対称性を先に宣言する。
+5. **連続/離散の差**：有限メッシュでの厳密な変換等変性、メッシュ細分化時の離散化一致性、学習済み模型のテスト精度は別の3条件。数値誤差を「近似的な理論証明」とは呼ばない。
+
+MFL2-18〜21の補助的な接続として、Singer–Wuのvector diffusion maps/connection Laplacianを比較例に用いる。一般の主束理論を先取りするためではなく、**なぜ辺にscalar weightだけでなくframe間の輸送が要るか**を有限メッシュから説明するためである。
 
 ## 5. 読順と前提関係
 
@@ -187,7 +215,7 @@ ML2-13/14 + GEO/GA → MFL2-17〜21（manifold field・gauge）
 ML1-12 + ML2-15 → MFL2-22（対照実験）
 ~~~
 
-上図は読順であり、**全前講を各章の直接prerequisiteに機械的追加しない**。各chapter.yaml/knowledge.yamlは証明に必要な直接結果を所有する実在章・stable anchorから確定する。MFL2-09のpermutation equivarianceにMFL1-19の一般spectral convergenceは不要。MFL1-12以降が使うGAはplannedであれば未証明として扱い、一般結果が必要な章の実装を保留または局所模型へ限定する。**MLのplanned章も同様であり、章IDを書いただけでは定理の前提を満たさない**。MFL2-17以降も同様にGEO/GAの実在結果を照合する。
+上図は読順であり、**全前講を各章の直接prerequisiteに機械的追加しない**。各chapter.yaml/knowledge.yamlは証明に必要な直接結果を所有する実在章・stable anchorから確定する。MFL2-09のpermutation equivarianceにMFL1-19の一般spectral convergenceは不要。**GA1〜9とML1/2の全章はcompleted**だが、MFL1-12以降・MFL2-17以降は必要なGA/ML本文の個別定理・stable anchorと使用条件を確認する。完成済みの連続作用素の定理は、標本から作用素が収束することを自動保証しない。
 
 ## 6. 章別数値実験・対話シミュレーション
 
@@ -236,7 +264,7 @@ ML1-12 + ML2-15 → MFL2-22（対照実験）
 ## 8. series manifest・実装・完了ゲート
 
 1. 本改訂は**設計のみ**のためPLANを textbook/plans/ に留める。章が存在するかのようにmanifest、chapter.yaml、knowledge.yamlや公開indexを捏造しない。
-2. 着手前に GitHub上の本PLAN、SGT.yaml、**ML系列manifestとML1-11/12/19・ML2-13/14/15/16等の実装status**、直接必要なGEO/GA/MLの現行chapter.yaml/knowledge.yaml（未実装なら存在しないこと）、知識DAG、MFL1-01〜21・MFL2-01〜22のID衝突を確認する。
+2. 着手前にGitHub上の本PLAN、SGT.yaml、**完成済みML・GAの系列manifestと必要なchapter.yaml/knowledge.yaml・本文stable anchor**、直接必要なGEO/LA/RA/HDP、知識DAG、MFL1-01〜21・MFL2-01〜22のID衝突を確認する。
 3. MFL固有の本文・検証・系列manifestの着手時にPLANを plans_progress/ へ**移動**し、同じ作業単位で適切なseries manifest（MFL.yaml等）を実際に作成する。manifestのplan参照を新パスへ揃える。PLANを二重配置しない。
 4. manifestの上から連続するcompletedの次の最初のplannedを進め、完了時には**MFLのmanifestだけ**を更新。common routingへ単一active seriesを置かない。
 5. 新章はDREAM_THEATER_AUTHORING_STANDARDの変更区分Cに従い、全主要証明・全演習/詳細解答の出発点からの再計算と別観点再読を行う。局所数学変更は区分Bの波及先、表示のみの変更は区分Aの意味内容同値・レンダリング確認を使う。
