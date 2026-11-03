@@ -352,7 +352,7 @@ $$
 \end{aligned}
 $$
 
-積の各係数は
+ここで $[H^j]$ はこの展開式の $H^j$ の係数を取り出す記号とし、コホモロジー類の括弧ではない。積の各係数は
 
 $$
 \begin{aligned}
@@ -362,7 +362,7 @@ $$
 \end{aligned}
 $$
 
-ここで $[H^j]$ はこの式における $H^j$ の**係数を取り出す記法**であり、コホモロジー類の括弧記号ではない。よって $c(TX)=1+10H^2-40H^3$。
+よって $c(TX)=1+10H^2-40H^3$。
 
 最後に $X$ が滑らか・コンパクトな複素三次元であることを確認済みなので[トップChern類とEuler標数](#thm-cyg1-07-gauss-bonnet)を適用できる。$\int_XH^3=5$ を代入し
 
@@ -620,7 +620,7 @@ $$
 
 この二つの超曲面のEuler標数は異なるため、これだけでは「同じEuler標数なら標準束も同じ」という命題を否定できない。別の反例として、楕円曲線 $E$ に対する二つの積 $E\times E$ と $E\times\mathbb P^1$ を比べる。$E$ は $\chi(E)=0$、$K_E$ は自明なので、$E\times E$ の標準束も自明である。
 
-一方、$E\times\mathbb P^1$ の二つの射影を $\pi_1,\pi_2$ とすると、積の局所座標の接方向から $T(E\times\mathbb P^1)\simeq\pi_1^*TE\oplus\pi_2^*T\mathbb P^1$ である。$\{e\}\times\mathbb P^1$ に制限した第一項は固定ベクトル空間 $T_eE$ をファイバーに持つ自明線束なので、その第一Chern類は零。[Whitney積公式](../CYG1-05/index.md#thm-cyg1-05-whitney)と[射影直線の第一Chern類](#prop-cyg1-07-euler)を用いると
+一方、$E\times\mathbb P^1$ の二つの射影を $\pi_1,\pi_2$ とすると、積の局所座標の接方向から $T(E\times\mathbb P^1)\simeq\pi_1^*TE\oplus\pi_2^*T\mathbb P^1$ である。任意の点 $e\in E$ に対し、$\{e\}\times\mathbb P^1$ に制限した第一項は固定ベクトル空間 $T_eE$ をファイバーに持つ自明線束なので、その第一Chern類は零。[Whitney積公式](../CYG1-05/index.md#thm-cyg1-05-whitney)と[射影直線の第一Chern類](#prop-cyg1-07-euler)を用いると
 
 $$
 c_1(T(E\times\mathbb P^1))|_{\{e\}\times\mathbb P^1}=2H\ne0.
