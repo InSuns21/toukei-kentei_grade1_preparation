@@ -12,3 +12,4 @@
 9. [CYG1-09 完全交叉の随伴公式と計算が壊れる境界](textbook/volumes/dream_thater/幾何系/CYG/CYG1-09/index.md)
 10. [CYG1-10 Yauの定理は何を存在させ、一意にするか](textbook/volumes/dream_thater/幾何系/CYG/CYG1-10/index.md)
 11. [CYG1-11 Ricci平坦性と特殊ホロノミー](textbook/volumes/dream_thater/幾何系/CYG/CYG1-11/index.md)
+12. [CYG1-12 複素構造の一次変形と正則体積形式](textbook/volumes/dream_thater/幾何系/CYG/CYG1-12/index.md)
