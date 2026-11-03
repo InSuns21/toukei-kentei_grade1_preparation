@@ -1,0 +1,41 @@
+id: "COMB1"
+title: "有限集合を数える：加法・乗法・双射・二重計数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET-U2
+official_scope: []
+learning_objectives:
+  - 有限集合を明示し、区別する対象・空集合・重複の扱いを確認して数えられる
+  - 互いに素な分割から加法原理、段階的な選択から乗法原理を証明・適用できる
+  - 写像の単射・全射を確かめた双射によって異なる表現の計数を一致させられる
+  - 二重計数で同じ有限集合を二通りに数え、恒等式を導ける
+  - 鳩ノ巣原理とその一般化を、空の箱も含めて厳密に使える
+definitions:
+  - { id: COMB1-DEF-01, name: 有限集合の個数 }
+  - { id: COMB1-DEF-02, name: 互いに素な分割 }
+  - { id: COMB1-DEF-03, name: 二重計数 }
+theorems:
+  - { id: COMB1-THM-01, name: 加法原理 }
+  - { id: COMB1-THM-02, name: 乗法原理 }
+  - { id: COMB1-THM-03, name: 双射原理 }
+  - { id: COMB1-THM-04, name: 二重計数原理 }
+  - { id: COMB1-THM-05, name: 鳩ノ巣原理 }
+  - { id: COMB1-THM-06, name: 有限集合の部分集合の個数 }
+canonical_examples:
+  - 空集合・区別するラベルと分割の確認
+  - 二段階選択と選択肢が制限される反例
+  - 二進列と部分集合の双射
+  - 参加者と班の所属組から二重計数
+  - 余りによる鳩ノ巣原理
+problem_patterns:
+  - COMB1-DISJOINT-UNION
+  - COMB1-STAGED-CHOICE
+  - COMB1-BIJECTION
+  - COMB1-INCIDENCE
+  - COMB1-PIGEONHOLE
+  - COMB1-DOUBLE-COUNTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }

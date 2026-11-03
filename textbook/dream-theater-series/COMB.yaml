@@ -1,0 +1,24 @@
+version: 1
+id: COMB
+title: "列挙組合せ論・母関数・有限差分法"
+plan: textbook/plans_progress/DREAM_THEATER_ENUMERATIVE_COMBINATORICS_GENERATING_FUNCTIONS_FINITE_CALCULUS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - { id: COMB1, path: textbook/volumes/dream_thater/計算系/COMB/COMB1, status: completed, title: "有限集合を数える：加法・乗法・双射・二重計数" }
+  - { id: COMB2, path: textbook/volumes/dream_thater/計算系/COMB/COMB2, status: planned, title: "順列・組合せ・多重集合" }
+  - { id: COMB3, path: textbook/volumes/dream_thater/計算系/COMB/COMB3, status: planned, title: "包除原理と制約付き配置" }
+  - { id: COMB4, path: textbook/volumes/dream_thater/計算系/COMB/COMB4, status: planned, title: "格子路・括弧列・Catalan 数" }
+  - { id: COMB5, path: textbook/volumes/dream_thater/計算系/COMB/COMB5, status: planned, title: "順列統計と集合分割" }
+  - { id: COMB6, path: textbook/volumes/dream_thater/計算系/COMB/COMB6, status: planned, title: "有限差分と Newton 展開" }
+  - { id: COMB7, path: textbook/volumes/dream_thater/計算系/COMB/COMB7, status: planned, title: "離散和分と二項反転" }
+  - { id: COMB8, path: textbook/volumes/dream_thater/計算系/COMB/COMB8, status: planned, title: "線形差分方程式と初期値" }
+  - { id: COMB9, path: textbook/volumes/dream_thater/計算系/COMB/COMB9, status: planned, title: "形式冪級数と普通母関数" }
+  - { id: COMB10, path: textbook/volumes/dream_thater/計算系/COMB/COMB10, status: planned, title: "構造分解と母関数" }
+  - { id: COMB11, path: textbook/volumes/dream_thater/計算系/COMB/COMB11, status: planned, title: "整数分割と Euler 積" }
+  - { id: COMB12, path: textbook/volumes/dream_thater/計算系/COMB/COMB12, status: planned, title: "指数型母関数と標識付き構造" }
+  - { id: COMB13, path: textbook/volumes/dream_thater/計算系/COMB/COMB13, status: planned, title: "形式的反転と再帰構造" }
+  - { id: COMB14, path: textbook/volumes/dream_thater/計算系/COMB/COMB14, status: planned, title: "群作用と Burnside 計数" }
+  - { id: COMB15, path: textbook/volumes/dream_thater/計算系/COMB/COMB15, status: planned, title: "有限半順序集合と Möbius 反転" }
+  - { id: COMB16, path: textbook/volumes/dream_thater/計算系/COMB/COMB16, status: planned, title: "重み付き計数と q-二項係数" }
+  - { id: COMB17, path: textbook/volumes/dream_thater/計算系/COMB/COMB17, status: planned, title: "有理型母関数と係数漸近" }
+  - { id: COMB18, path: textbook/volumes/dream_thater/計算系/COMB/COMB18, status: planned, title: "動的計画法と列挙アルゴリズム" }
