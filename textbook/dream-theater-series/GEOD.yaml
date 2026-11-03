@@ -1,0 +1,28 @@
+version: 1
+id: GEOD
+title: "測地学・数理地図投影法"
+plan: textbook/plans_progress/DREAM_THEATER_GEODESY_GAUSS_KRUGER_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - { id: GEOD1, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD1, status: completed, title: "地球の位置を測るとは何か" }
+  - { id: GEOD2, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD2, status: planned, title: "測地基準系・座標参照系・観測の入口" }
+  - { id: GEOD3, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD3, status: planned, title: "回転楕円体の幾何と測地緯度" }
+  - { id: GEOD4, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD4, status: planned, title: "曲率半径と楕円体の計量" }
+  - { id: GEOD5, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD5, status: planned, title: "測地座標・地心座標・局所座標" }
+  - { id: GEOD6, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD6, status: planned, title: "高さ・ジオイド・鉛直基準の導入" }
+  - { id: GEOD7, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD7, status: planned, title: "測地測量の観測モデル：距離・角度・水準" }
+  - { id: GEOD8, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD8, status: planned, title: "測量網の平差・datum の拘束・不確かさ" }
+  - { id: GEOD9, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD9, status: planned, title: "GNSS・衛星測地学の基礎" }
+  - { id: GEOD10, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD10, status: planned, title: "重力測地学と高さ系の基礎計算" }
+  - { id: GEOD11, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD11, status: planned, title: "子午線弧長・緯線・地表測距の還元" }
+  - { id: GEOD12, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD12, status: planned, title: "楕円体の測地線と順・逆問題" }
+  - { id: GEOD13, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD13, status: planned, title: "地図投影の幾何・歪み" }
+  - { id: GEOD14, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD14, status: planned, title: "等角緯度と複素座標" }
+  - { id: GEOD15, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD15, status: planned, title: "球面メルカトルと球面横メルカトル" }
+  - { id: GEOD16, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD16, status: planned, title: "楕円体横メルカトルの特徴づけと構成" }
+  - { id: GEOD17, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD17, status: planned, title: "Krüger 級数による順変換" }
+  - { id: GEOD18, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD18, status: planned, title: "Krüger 逆級数・縮尺・子午線収差" }
+  - { id: GEOD19, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD19, status: planned, title: "等積投影と正積緯度" }
+  - { id: GEOD20, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD20, status: planned, title: "Equal Earth 図法と等積性" }
+  - { id: GEOD21, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD21, status: planned, title: "日本の平面直角座標系と UTM の比較" }
+  - { id: GEOD22, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD22, status: planned, title: "総合演習：観測から測地座標、地域図・世界図まで" }

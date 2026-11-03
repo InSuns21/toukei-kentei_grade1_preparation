@@ -1,0 +1,64 @@
+chapter: GEOD1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00E1
+  - VC2
+forward_references: []
+
+concepts:
+  - id: geodesy.terrain-surface
+    name: 地形面・球面モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（地形面と球面モデル）]
+    requires: []
+
+  - id: geodesy.reference-ellipsoid
+    name: 準拠楕円体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（準拠楕円体）]
+    requires: [geodesy.terrain-surface]
+
+  - id: geodesy.geoid
+    name: ジオイド
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ジオイド）]
+    requires: [geodesy.terrain-surface]
+
+  - id: geodesy.latitude-directions
+    name: 地心緯度・測地緯度・天文緯度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三種類の緯度）]
+    requires: [geodesy.reference-ellipsoid, geodesy.geoid]
+
+  - id: geodesy.deflection-of-vertical
+    name: 鉛直線偏差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（鉛直線偏差）]
+    requires: [geodesy.latitude-directions]
+
+  - id: geodesy.great-circle-arc-chord
+    name: 球面の大円弧長と弦長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面の大円弧長と弦長）]
+    requires: [geodesy.terrain-surface]
+
+  - id: geodesy.spherical-pole-degeneracy
+    name: 球面緯度・経度表示の極での退化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面緯度・経度表示の極での退化）]
+    requires: [geodesy.latitude-directions]
+
+  - id: geodesy.position-metadata
+    name: 座標記述の基準情報
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（位置を解釈するための基準情報）]
+    requires: [geodesy.reference-ellipsoid, geodesy.latitude-directions]
