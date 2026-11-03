@@ -43,6 +43,16 @@ $$
 > と定める。これらを合わせた束写像 $\mathcal I_\Omega:T_X\to\Omega_X^{n-1}$ を収縮写像という。
 <!-- formal-statement-end -->
 
+**座標で定義をどう確かめるか。** 複素二次元の正則座標 $(z^1,z^2)$ では、接ベクトルの座標枠 $\partial_{z^1},\partial_{z^2}$ と、その双対枠 $dz^1,dz^2$ は $dz^i(\partial_{z^j})=\delta^i_j$ を満たす。$u=u^1\partial_{z^1}+u^2\partial_{z^2}$、$w=w^1\partial_{z^1}+w^2\partial_{z^2}$ に対して外積の定義を展開すると
+
+$$
+(dz^1\wedge dz^2)(u,w)
+=dz^1(u)dz^2(w)-dz^1(w)dz^2(u)
+=u^1w^2-u^2w^1.
+$$
+
+従って次の例では、この評価式の第1引数を $v$ に固定し、第2引数を二つの座標枠に取って、収縮後の1形式の両係数を決める。
+
 <!-- definition-example-start: def-cyg1-12-contraction -->
 **定義の確認**（複素二次元）。$\Omega=dz^1\wedge dz^2$、$v=a\,\partial_{z^1}+b\,\partial_{z^2}$ とする。外積形式の定義から
 
@@ -144,7 +154,7 @@ H^q(X,E)\simeq H_{\bar\partial}^{0,q}(X,E).
 $$
 <!-- formal-statement-end -->
 
-この一般定理の理由は、正則 $E$ 切断の層から始まるベクトル束値Dolbeault複体が局所 $\bar\partial$-Poincaré補題で完全になり、その滑らかな形式の層がfineであることにある。本章ではその層コホモロジー一般論の完全証明までは行わない。
+この一般定理の理由は、正則 $E$ 切断の層から始まるベクトル束値Dolbeault複体が局所 $\bar\partial$-Poincaré補題で完全になり、滑らかな形式の層が分割1を用いた局所的な貼り合わせを許す **fine層** であることにある。本章ではその層コホモロジー一般論の完全証明までは行わない。
 
 では第2節の束同型をこの複体へ拡張しよう。局所的に
 
@@ -437,7 +447,13 @@ $$
 
 かつ $\bar\partial_{T_X}$ は各成分へ独立に $\bar\partial$ を作用させる。よって $H^1(X,T_X)$ は $n$ 個の $H_{\bar\partial}^{0,1}(X)$ の直和となる。
 
-標準平坦計量の $(0,1)$ 形式について、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を適用する。平坦トーラスで $\bar\partial$-LaplacianをFourier展開すると、零でない周波数 $m$ の係数には正の定数倍の $|m|^2$ が作用するので、調和な係数は零周波数、すなわち定数だけである。従って $H_{\bar\partial}^{0,1}(X)$ の基底は $d\bar z^1,\ldots,d\bar z^n$ である。
+標準平坦Kähler計量の $(0,1)$ 形式について、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を適用する。ここで実座標を $z^j=x^j+iy^j$ とすると、商の各 $x^j,y^j$ は周期1である。[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)の証明で使うFourierモード $e_m=e^{2\pi i m\cdot(x,y)}$（$m\in\mathbb Z^{2n}$）は、係数ごとの実Hodge Laplacianに対して
+
+$$
+\Delta_d e_m=4\pi^2|m|^2e_m
+$$
+
+を満たす。[Kähler計量でのLaplacian等式](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality) $\Delta_d=2\Delta_{\bar\partial}$ から、非零周波数 $m\ne0$ には $\bar\partial$-Laplacianの正固有値 $2\pi^2|m|^2$ が対応する。従って調和な $(0,1)$ 形式には零周波数、すなわち定数係数だけが残り、$H_{\bar\partial}^{0,1}(X)$ の基底は $d\bar z^1,\ldots,d\bar z^n$ である。
 
 各正則接枠との積を取ると $n^2$ 個の基底を得る。独立性は基本領域で係数を積分しても確かめられる。最後のHodge数との等号は[一次変形とHodge群の同型](#thm-cyg1-12-first-order-hodge)による。$\square$
 <!-- proof-end -->
@@ -509,7 +525,14 @@ $1/f$ が正則であることは $f\ne0$ から従い、逆像は正則ベク�
 $\mathbb C^2$ 上 $\Omega=dz^1\wedge dz^2$、$\mu=a(\bar z^1)\,d\bar z^1\otimes\partial_{z^1}$ とする。ただし $a(w)$ は複素変数 $w$ の正則関数とする。$\bar\partial_{T}\mu$ と $\bar\partial\mathcal I_{\Omega,1}(\mu)$ をそれぞれ計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** まず $\bar\partial a=a'(\bar z^1)d\bar z^1$ だから
+**詳細解答。** ここで $a'(w)=da/dw$ は一変数 $w$ に関する複素導関数であって、$z^1$ に関する微分ではない。$w=\bar z^1$ と置いた合成関数には連鎖律を適用し、$\partial_{\bar z^j}\bar z^1=\delta_{j1}$ から
+
+$$
+\partial_{\bar z^j}a(\bar z^1)=a'(\bar z^1)\delta_{j1},
+\qquad \bar\partial a=a'(\bar z^1)d\bar z^1
+$$
+
+を得る。従って
 
 $$
 \bar\partial_T\mu
@@ -543,7 +566,7 @@ $$
 $X=\mathbb C$ で $v=z\bar z\,\partial_z$ による一次の座標付け替えを行う。対応するBeltrami係数を求め、得られる類がなぜ零か説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $w=z+t z\bar z$ とすれば
+**詳細解答。** 元のBeltrami係数を零として $w=z+t z\bar z$ へ**押し出す向き**の一次付け替えを考える（ここでは $t^2=0$ とした形式的計算である）。すると
 
 $$
 \partial_{\bar z}w=t z,\qquad
@@ -588,7 +611,7 @@ $$
 \end{aligned}
 $$
 
-正則一形式 $dz^1,dz^2$ と反正則一形式 $d\bar z^1,d\bar z^2$ の組合せが互いに異なるので、これらは定数係数 $(1,1)$ 形式として一次独立である。コホモロジー類でも独立であることには「非零の定数係数 $(1,1)$ 形式が $\bar\partial$ 完全でない」という確認が必要で、平坦トーラスの[調和代表の一意性](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を使えば各定数係数形式は非零の調和代表である。従って四方向はコホモロジーでも独立となる。
+正則一形式 $dz^1,dz^2$ と反正則一形式 $d\bar z^1,d\bar z^2$ の組合せが互いに異なるので、これらは定数係数 $(1,1)$ 形式として一次独立である。コホモロジー類でも独立であることには「非零の定数係数 $(1,1)$ 形式が $\bar\partial$ 完全でない」という確認が必要である。[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)と[調和代表の一意性](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)より、これらの定数係数形式は非零で互いに一次独立な調和代表である。従って四方向はコホモロジーでも独立となる。
 <!-- solution-end -->
 
 <a id="ex-cyg1-12-b03"></a>
@@ -654,7 +677,7 @@ $$
 =-d\bar z^1\wedge dz^1+2d\bar z^2\wedge dz^2.
 $$
 
-これは定数係数の $(1,1)$ 形式で閉じ、平坦トーラスの調和形式である。非零の調和形式は非零のDolbeault類を与えるので、[収縮同型](#thm-cyg1-12-cohomology-isomorphism)と整合する。
+これは定数係数の $(1,1)$ 形式で閉じ、[平坦トーラスの調和形式の定数性](../../HOD/HOD1-09/index.md#lem-hod1-09-flat-harmonic)から調和形式である。非零の調和形式は[Dolbeaultの調和代表の一意性](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)により非零のDolbeault類を与えるので、[収縮同型](#thm-cyg1-12-cohomology-isomorphism)と整合する。
 
 (4) $H^1(X,T_X)$ 全体は[トーラスの命題](#prop-cyg1-12-torus-directions)から複素4次元であり、今回の $\mu$ はそのうち一つの非零ベクトルである。この4という値は一次方向の数であって、単独では一般の変形空間の滑らかさに関する定理ではない。
 <!-- solution-end -->
