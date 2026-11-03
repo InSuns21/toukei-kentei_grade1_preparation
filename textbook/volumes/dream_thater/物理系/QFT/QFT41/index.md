@@ -4,13 +4,25 @@
 
 本講の中心は**量子色力学（QCD）**です。色は可視光の色ではなく、内部対称性 $SU(3)_c$ の三成分を区別する名前です。色三成分のクォーク、八成分のグルーオン、群の行列、散乱の色平均を一つの計算につなぎます。その後、純ゲージ理論の一ループ結果にクォークループを加え、どこまでが摂動論で確かめられた主張かを分離します。
 
-以下、四次元Minkowski時空、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$、$D_\mu=\partial_\mu-ig_sG_\mu^At^A$ の符号規約です。$g_s>0$、$t^A$ はHermitianな $3\times3$ 行列、$A=1,\ldots,8$、$\operatorname{tr}(t^At^B)=\delta^{AB}/2$ とします。木レベルで外線を扱う節では通常のFeynman $i0$ 処方を用い、最後の一ループ計算ではゲージ対称性を保つ次元正則化と質量非依存の減算を仮定します。
+以下、四次元Minkowski時空で計算し、計量の符号は $\eta=\operatorname{diag}(1,-1,-1,-1)$、自然単位系は $\hbar=c=1$ とします。共変微分と生成子の規約は
+
+$$
+D_\mu=\partial_\mu-ig_sG_\mu^At^A,\qquad
+g_s>0,\qquad
+\operatorname{tr}(t^At^B)=\frac12\delta^{AB}
+$$
+
+です。$t^A$ はHermitianな $3\times3$ 行列で、随伴色添字は $A,B=1,\ldots,8$ を動きます。基本色添字は $a,b=1,2,3$、Lorentz添字は $\mu,\nu=0,1,2,3$ です。これらが反復するとそれぞれの範囲で和を取り、フレーバー $f$ の和は $\sum_f$ で明記します。
+
+木レベルの外線にはFeynmanの $i0$ 処方を使います。一ループ計算ではゲージ対称性を保つ次元正則化と質量非依存の減算を仮定します。
 
 ## 1. 三色のクォークと八つのゲージ場
 
 まず基本表示のクォーク $q=(q^1,q^2,q^3)^T$ は、局所的な $U(x)\in SU(3)$ によって $q'=Uq$ と変わります。添字 $a=1,2,3$ は**色添字**であり、Diracスピノルの添字やフレーバー（$u,d,s,\ldots$）のラベルではありません。反クォークは複素共役の**反基本表示**に属し、内部変換は $U^*$ です。[QFT40の右巻き場を共役表現で数える操作](../QFT40/index.md#def-qft40-left-handed-list)は異常計算の記法であって、ここでクォークと反クォークの物理的な状態を区別することと混同しません。
 
 一方、グルーオン場 $G_\mu=G_\mu^At^A$ は行列値です。[非可換ゲージ変換則](../QFT28/index.md#thm-qft28-gauge-covariance)から $G_\mu$ の八つの係数は互いに混ざり、**随伴表示**をなします。これは $3\times3=9$ 種類のグルーオンを意味しません。Hermitianで跡零の行列の実次元は $3^2-1=8$ だからです。
+
+ここで $f^{ABC}$ はフレーバー添字 $f$ と無関係な**構造定数**で、生成子の交換子 $[t^A,t^B]=if^{ABC}t^C$ によって決まる実数です。[QFT28の曲率の定義](../QFT28/index.md#def-qft28-curvature)に $SU(3)$ の生成子を代入し、$[D_\mu,D_\nu]q=-ig_sG_{\mu\nu}q$ を成分で展開すると、以下の偏微分項と $g_sf^{ABC}G_\mu^BG_\nu^C$ が現れます。したがって曲率の成分は任意に選んだ八つの独立なテンソルではありません。
 
 <a id="def-qft41-qcd-action"></a>
 
@@ -38,12 +50,23 @@ $$
 
 **定義の確認**：基本表示の対角生成子を
 
+対角なHermitian・跡零行列は $\operatorname{diag}(r_1,r_2,-r_1-r_2)$（$r_1,r_2\in\mathbb R$）の形なので、独立な方向は二つです。その二方向を跡内積 $\operatorname{tr}(XY)$ で直交規格化した基底として、次を選びます。この行列が色基底 $e_1,e_2,e_3$ に作用するので、対角成分が変換位相を決める固有値になります。
+
 $$
 t^3=\frac12\operatorname{diag}(1,-1,0),\qquad
 t^8=\frac1{2\sqrt3}\operatorname{diag}(1,1,-2)
 $$
 
 と選びます。どちらもHermitian、跡零です。二乗の跡はそれぞれ $1/2$、積の跡は $(1-1+0)/(4\sqrt3)=0$。$U=\exp(i\theta t^3)$ は対角成分 $(e^{i\theta/2},e^{-i\theta/2},1)$ を持ち、$U^\dagger U=I$ かつ $\det U=1$ です。従って $q^1,q^2,q^3$ は順に電荷 $1/2,-1/2,0$ のような位相を受けますが、これらは電磁電荷ではありません。反基本表示の生成子は $-(t^A)^*$ なので同じ対角方向の固有値は符号が逆になります。定義の変換・生成子条件を一つずつ確かめました。
+
+曲率の非可換項も局所的に検査します。$t^1=(e_{12}+e_{21})/2$、$t^2=(-ie_{12}+ie_{21})/2$ と置きます。ここで $e_{ij}$ は $(i,j)$ 成分だけが1の行列で、$[t^1,t^2]=it^3$ が行列の積から確かめられます。ある点の近傍で $G_1=h_1t^1$、$G_2=h_2t^2$（実定数 $h_1,h_2$）、ほかの $G_\mu=0$ とすれば、偏微分が零でも
+
+$$
+[D_1,D_2]q=-g_s^2[G_1,G_2]q=-ig_s(g_sh_1h_2t^3)q,
+\qquad G_{12}^3=g_sh_1h_2,\quad G_{21}^3=-g_sh_1h_2.
+$$
+
+つまり接続の交換子から曲率成分を判定する理由と、曲率の反対称性が直接確かめられます。これは局所的な場の例であり、時空全体で一定の場の作用積分が有限であるとは仮定していません。
 <!-- definition-example-end -->
 
 作用のゲージ不変性も確認しましょう。[QFT28の共変性](../QFT28/index.md#thm-qft28-gauge-covariance)から $D'_\mu q'_f=UD_\mu q_f$、$\bar q'_f=\bar q_fU^\dagger$ です。従って $\bar q'_f i\gamma^\mu D'_\mu q'_f=\bar q_fU^\dagger U i\gamma^\mu D_\mu q_f$ で、質量項も不変です。[曲率の共変変換](../QFT28/index.md#thm-qft28-curvature-bianchi) $G'_{\mu\nu}=UG_{\mu\nu}U^{-1}$ と跡の巡回性から $\operatorname{tr}(G'_{\mu\nu}G'^{\mu\nu})=\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})$。実際、$\operatorname{tr}(t^At^B)=\delta^{AB}/2$ なので $-\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})/2=-G_{\mu\nu}^AG^{A\mu\nu}/4$ です。この二つを足した作用が不変になります。
@@ -52,7 +75,7 @@ $$
 
 粒子を結ぶ頂点に $t^A$ が現れます。観測される散乱確率を得るには、その色行列を始状態で平均し、終状態で和を取ります。行列をただ「8個」と数えるだけでは正しい係数になりません。
 
-基本表示の生成子が何を測るかを固定します。反復色添字 $i,j,k,l$ は $1,2,3$、随伴添字 $A,B$ は $1,\ldots,8$ を動きます。
+基本表示の生成子が何を測るかを固定します。以下では $i,j,k,l$ も基本色添字 $1,2,3$ で、$A,B$ は随伴色添字 $1,\ldots,8$ です。$C_F$ は基本表現の三次元空間に作用する行列の和、[QFT30で導入した $C_A$](../QFT30/index.md#def-qft30-adjoint-casimir) は八次元の随伴表示に由来する量です。どちらも二次Casimirと呼びますが、作用する表示が異なります。
 
 <a id="def-qft41-color-invariants"></a>
 
@@ -73,7 +96,15 @@ $$
 
 **定義の確認**：上の $t^3$ について $\operatorname{tr}[(t^3)^2]=1/2$ なので $T_F=1/2$ という規格化を直接満たします。
 
-一方、$\sum_A(t^At^A)_{11}$ は $A=3$ 一個の $1/4$ ではなく八個すべての和であり、次の補題から $4/3$ と分かります。
+一方、$\sum_A(t^At^A)_{11}$ は $A=3$ 一個の $1/4$ ではなく八個すべての和です。前節の行列単位 $e_{ij}$ を用い、三組の色対 $(i,j)=(1,2),(1,3),(2,3)$ ごとに
+
+$$
+t_{ij}^{(x)}=\frac{e_{ij}+e_{ji}}2,\quad
+t_{ij}^{(y)}=\frac{-ie_{ij}+ie_{ji}}2,\quad
+(t_{ij}^{(x)})^2+(t_{ij}^{(y)})^2=\frac{e_{ii}+e_{jj}}2
+$$
+
+と置くと、六つの非対角生成子の二乗和は $I_3$ です。残る対角二つは $(t^3)^2+(t^8)^2=I_3/3$ なので、八つを合わせて $\sum_A t^At^A=(4/3)I_3$、従って $C_F=4/3$ です。以下の完全性関係からも基底を列挙せずに同じ結果を導きます。
 
 さらに[QFT30の随伴Casimir](../QFT30/index.md#def-qft30-adjoint-casimir)は $SU(N)$ で $C_A=N$ なので $SU(3)$ では $3$ です。それぞれ定義する作用空間と縮約が異なるため、これらを一つの「色因子」にまとめてはいけません。
 <!-- definition-example-end -->
@@ -235,7 +266,7 @@ $$
 \end{aligned}
 $$
 
-質量零スピン和 $\sum_su_s(p)\bar u_s(p)=\not p$ と[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)から
+[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)は $m>0$ で $\sum_su_s(p)\bar u_s(p)=\not p+mI_4$ と証明されています。外線エネルギー $p^0>0$ を保って $m\downarrow0$ とすると、同定理のスピノルの分母 $p^0+m$ は零にならず、二つのスピン状態の和は $\not p$ に連続的に移ります。この質量零スピン和と[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)から
 
 $$
 \begin{aligned}
@@ -248,7 +279,15 @@ S&=\frac14\operatorname{tr}(\not p_3\gamma^\mu
 \end{aligned}
 $$
 
-二つを縮約すると $S=8[(p_3\cdot p_4)(p_1\cdot p_2)+(p_3\cdot p_2)(p_1\cdot p_4)]$。$p_1\cdot p_2=p_3\cdot p_4=s/2$、$p_1\cdot p_4=p_2\cdot p_3=-u/2$ なので
+この二つの跡の括弧内をそれぞれ $A^{\mu\nu}$、$B_{\mu\nu}$ とすると、四次元では $\eta^\mu{}_{\mu}=4$ であり、計量を含む交差項の和 $(-4+4)(p_3\cdot p_1)(p_4\cdot p_2)$ が相殺します。残る積は
+
+$$
+A^{\mu\nu}B_{\mu\nu}
+=2[(p_3\cdot p_4)(p_1\cdot p_2)
++(p_3\cdot p_2)(p_1\cdot p_4)].
+$$
+
+したがって二つの跡に付く $4\times4/4$ を掛けて $S=8[(p_3\cdot p_4)(p_1\cdot p_2)+(p_3\cdot p_2)(p_1\cdot p_4)]$。$p_1\cdot p_2=p_3\cdot p_4=s/2$、$p_1\cdot p_4=p_2\cdot p_3=-u/2$ なので
 
 $$
 S=8\left(\frac{s^2}4+\frac{u^2}4\right)
@@ -268,7 +307,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（走る強結合と有効フレーバー数）**
-> 四次元のQCDで、質量非依存くりこみ方式により尺度 $\mu>0$ における結合 $g_s(\mu)$ を定める。強結合パラメータとβ関数を次のように定義する。
+> 四次元のQCDで、質量非依存くりこみ方式により尺度 $\mu>0$ における結合 $g_s(\mu)$ を定める。微分では裸結合と裸作用のパラメータを固定し、尺度 $\mu$ を動かす。強結合パラメータとβ関数を次のように定義する。
 
 $$
 \alpha_s(\mu)=\frac{g_s^2(\mu)}{4\pi},
@@ -342,7 +381,23 @@ $$
 
 QFT24の表示は $m>0$ で導いていますが、ここでは $p^2>0$ を固定して $m\downarrow0$ とできます。実際、$x(1-x)\log[m^2+x(1-x)p^2]$ は端点でも可積分で、紫外極の係数は質量に依存しません。非零のEuclid外部運動量で積分しているので、ここでは紫外極と赤外極を混同しません。
 
-純ゲージの反項には[QFT30の $11C_A/3$](../QFT30/index.md#thm-qft30-beta-function) が現れ、閉フェルミオンループの反項は上の $4T_Fn_f/3$ を反対方向に寄与させます。背景ゲージWard恒等式が結合と背景場の繰り込みを結び付けるため、和は $b_0=11C_A/3-4T_Fn_f/3$ です。
+符号と結合の関係を明示します。一ループの紫外係数の比較では[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)を行います。以下の $F_{\mu\nu}$ の添字 $\mu,\nu=1,\ldots,4$ はEuclid座標を動き、添字のない $\mu>0$ は引き続きくりこみ尺度です。背景場を $B_\mu^A=g_sG_\mu^A$ と再規格化すると
+
+$$
+F_{\mu\nu}^A[B]=\partial_\mu B_\nu^A-\partial_\nu B_\mu^A
++f^{ABC}B_\mu^BB_\nu^C=g_sG_{\mu\nu}^A
+$$
+
+なので、Euclid型の古典ゲージ作用は $\int F[B]^2/(4g_s^2)$ の形になります。上のクォーク二点極はこの係数に $+4T_Fn_f/3$ の寄与を与えます。一方、[QFT30の純ゲージ対数係数](../QFT30/index.md#thm-qft30-one-loop-log)は同じ $F[B]^2/4$ に $-11C_A/3$ を与えます。ここでは背景ゲージ不変性を保つ正則化を仮定しているため、二つの局所紫外補正は同じ不変な $F[B]^2$ の係数として加算でき、全係数は
+
+$$
+\Gamma_{\rm UV}^{(1)}\supset
+-\frac14\frac{b_0}{16\pi^2}\log\frac{\Lambda^2}{\mu^2}
+\int d^4x\,F_{\mu\nu}^A[B]F^{A\mu\nu}[B],
+\qquad b_0=\frac{11}{3}C_A-\frac43T_Fn_f.
+$$
+
+ここで対数は次元正則化の紫外極と同じ局所係数を表す模式的なカットオフ表記であり、両正則化の有限部分を同一視していません。この係数を $1/g_s^2$ のくりこみへ吸収する操作は[QFT30のβ導出](../QFT30/index.md#thm-qft30-beta-function)と同じです。
 
 [QFT25の固定裸結合の微分](../QFT25/index.md#def-qft25-rg-functions)と[QFT30のβ導出](../QFT30/index.md#thm-qft30-beta-function)と同じく、結合の逆二乗の尺度微分は
 
