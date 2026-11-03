@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - COMB5
+  - F0-00B0
 official_scope: []
 learning_objectives:
   - シフト・前進差分・後退差分の作用対象と符号を区別し、反復差分の交互和を証明できる
