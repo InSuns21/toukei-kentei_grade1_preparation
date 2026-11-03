@@ -66,9 +66,9 @@ $$
 
 正則 $n$ 形式は局所係数が正則な $(n,0)$ 形式であり、これは $\bar\partial\eta=0$ と同値である。$(n,-1)$ 形式は存在しないため、この次数のDolbeault群では商で消える像もなく、
 
-$
+$$
 H_{\bar\partial}^{n,0}(X)=H^0(X,K_X)=\mathbb C\Omega.
-$
+$$
 
 したがって[Hodge数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)から $h^{n,0}=1$ が従う。$\square$
 <!-- proof-end -->
