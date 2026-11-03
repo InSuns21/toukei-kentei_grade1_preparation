@@ -10,7 +10,7 @@
 
 この講義では条件を一度同じ表へ載せ、「その計量が」「ある計量が」「全閉路が」という量化を揃える。続く講義で具体的な超曲面やChern数を計算するための基準になる。
 
-以下、断りのない限り $X$ は **連結、滑らか、コンパクト、複素次元 $n\ge1$ のKähler多様体**、$g$ はその上の**指定された**Kähler計量とする。$K_X=\bigwedge^nT^{*1,0}X$、$c_1(X):=c_1(T^{1,0}X)=-c_1(K_X)$ とする。後者の符号は[標準束の第一Chern類](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)に従う。基本形式・Ricci形式の規格化は
+以下、断りのない限り $X$ は **連結、滑らか、コンパクト、複素次元 $n\ge1$ のKähler多様体**、$g$ はその上の**指定された**Kähler計量とする。$K_X=\bigwedge^nT^{*1,0}X$、$c_1(X):=c_1(T^{1,0}X)=-c_1(K_X)$ とする。後者の符号は[標準束の第一Chern類](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)に従う。正則局所座標 $z^1,\ldots,z^n$ で $G=(g_{j\bar k})$ は $g$ のHermite計量係数行列とし、以下の $j,k$ は $1,\ldots,n$ を動き、繰り返した添字について総和を取る。$\partial,\bar\partial$ はそれぞれ正則・反正則座標方向の型別微分である。基本形式・Ricci形式の規格化は
 
 $$
 \omega=i g_{j\bar k}\,dz^j\wedge d\bar z^k,\qquad
@@ -22,7 +22,7 @@ $$
 
 ## 2. 同じ名前で呼ばれがちな六つの条件
 
-正則線束 $K_X$ が **正則に自明**とは、$X\times\mathbb C$ と正則線束として同型なことをいう。これは滑らかな複素線束として自明という主張より強い。[第一Chern類の整係数構成](../../KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)は位相的な貼り合わせを記録するが、正則な枠の存在を単独では保証しない。
+正則線束 $K_X$ が **正則に自明**とは、$X\times\mathbb C$ と正則線束として同型なことをいう。この自明正則線束を $\mathcal O_X$ と書く。これは滑らかな複素線束として自明という主張より強い。[第一Chern類の整係数構成](../../KAH/KAH1-12/index.md#def-kah1-12-integral-first-chern)は位相的な貼り合わせを記録するが、正則な枠の存在を単独では保証しない。
 
 また、[全ホロノミーの定義](../../KAH/KAH1-16/index.md#def-kah1-16-holonomy)ではすべての閉路を使う。一方、[制限ホロノミー](../../KAH/KAH1-16/index.md#def-kah1-16-restricted)では縮められる閉路だけを使う。$SU(n)$ は正規直交複素基底でユニタリかつ複素行列式が $1$ である行列の群であり、群が $SU(n)$ に**含まれる**ことと、群が **$SU(n)$ そのもの**であることは違う。
 
@@ -49,7 +49,7 @@ $$
 \Omega=dz^1\wedge\cdots\wedge dz^n
 $$
 
-は非消滅の大域正則体積形式へ降り、(K) が成立する。定数正値行列 $G=I_n$ の計量も降りる。$\det G=1$ をRicci形式へ代入して
+は非消滅の大域正則体積形式へ降り、(K) が成立する。正則座標枠 $dz^1,\ldots,dz^n$ に関する係数 $g_{j\bar k}=\delta_{jk}$ の平坦計量を選ぶと、その行列 $G=I_n$ も格子平行移動で不変だから降りる。この座標表示で $\det G=1$ をRicci形式へ代入して
 
 $$
 \rho=-i\partial\bar\partial\log1=0
@@ -66,7 +66,7 @@ $$
 
 ## 3. 正則自明性から二種類のChern類へ
 
-まず計量を一切選ばずに成立する部分を確かめる。
+まず計量を一切選ばずに成立する部分を確かめる。ここで群の元 $a$ が **torsion（有限位数元）** であるとは、ある正整数 $m$ に対し $ma=0$ となることをいう。例えば $\mathbb Z/2\mathbb Z$ の $[1]$ は $2[1]=0$ を満たす。整数で測ると残るこの情報が、実係数への変更で失われるかを調べる。
 
 <a id="prop-cyg1-01-chern-chain"></a>
 
@@ -140,6 +140,8 @@ $$
 だから (F$_g$)$\Rightarrow$(R) が従う。最後の逆向きが偽であることは直後の直接計算で確かめる。$\square$
 <!-- proof-end -->
 
+<a id="ex-cyg1-01-nonflat-metric"></a>
+
 **直接反例：楕円曲線上で曲率を変える。** $E=\mathbb C/(\mathbb Z+i\mathbb Z)$、$z=x+iy$、$0<\varepsilon<1$ として、格子周期的な計量係数を
 
 $$
@@ -147,7 +149,14 @@ g_{z\bar z}=q(x):=1+\varepsilon\cos(2\pi x)>0,
 \qquad \omega=i q(x)\,dz\wedge d\bar z
 $$
 
-とする。複素次元1では実3形式が零だから $d\omega=0$、ゆえにこれはKähler計量である。$E$ の $dz$ は大域正則枠なので (K)、従って (R) が成立する。一方、$\partial_z\partial_{\bar z}f(x)=\tfrac14 f''(x)$ であり、$x=0$ では
+とする。複素次元1では実3形式が零だから $d\omega=0$、ゆえにこれはKähler計量である。$E$ の $dz$ は大域正則枠なので (K)、従って (R) が成立する。一方、$z=x+iy$ に対するWirtinger微分は
+
+$$
+\partial_z=\frac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\frac12(\partial_x+i\partial_y).
+$$
+
+$q$ は $x$ のみの関数なので、$\partial_{\bar z}\log q=\tfrac12(\log q)'(x)$、さらに $\partial_z\partial_{\bar z}\log q=\tfrac14(\log q)''(x)$ となる。ここでプライムは実変数 $x$ に関する常微分であり、$\partial_z,\partial_{\bar z}$ は $y$ を含む複素座標方向の偏微分である。$x=0$ では
 
 $$
 q(0)=1+\varepsilon,\quad q'(0)=0,\quad
@@ -191,7 +200,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-(K) から大域で零を持たない正則 $n$ 形式 $\Omega$ を取る。座標 $z^1,\ldots,z^n$ 上で $\Omega=f(z)\,dz^1\wedge\cdots\wedge dz^n$、$f$ は零を持たない正則関数と書ける。$g$ の行列を $G=(g_{j\bar k})$ とすると、誘導Hermite計量の逆行列式から
+(K) から大域で零を持たない正則 $n$ 形式 $\Omega$ を取る。座標 $z^1,\ldots,z^n$ 上で $\Omega=f(z)\,dz^1\wedge\cdots\wedge dz^n$、$f$ は零を持たない正則関数と書ける。$g$ の行列を $G=(g_{j\bar k})$ とする。[誘導Hermite計量の定義](../../CM/CM2-09/index.md#def-cm2-09-induced-metrics)をこの正則余接枠に適用すると、双対枠の計量行列は $(G^{-1})^{\mathsf T}$ である。最高外冪のノルム二乗はその行列式だから、局所枠 $\kappa=dz^1\wedge\cdots\wedge dz^n$ に対して
+
+$$
+\|\kappa\|_g^2=\det((G^{-1})^{\mathsf T})
+=\frac1{\det G}.
+$$
+
+係数 $f$ を掛けた $\Omega=f\kappa$ のノルムは $|f|^2$ 倍になる。よって
 
 $$
 \|\Omega\|_g^2=\frac{|f|^2}{\det G},\qquad
@@ -208,7 +224,7 @@ $$
 
 最後の符号は $\rho=-i\partial\bar\partial\log\det G$ から $\partial\bar\partial\log\det G=i\rho$、従って $-\partial\bar\partial\log\det G=-i\rho$ として得る。ここでは零性だけが必要である。Kähler計量のLaplacianは局所的に $g^{j\bar k}\partial_j\partial_{\bar k}u$ の非零定数倍なので、$u$ は調和関数である。
 
-実Laplacianを $\Delta u=\operatorname{div}(\nabla u)$ と書く。[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を境界のないコンパクト $X$ のベクトル場 $u\nabla u$ に適用すると
+実Laplacianを $\Delta u=\operatorname{div}(\nabla u)$ と書く。実体積形式 $dV_g$ とベクトル場 $V=u\nabla u$ に対し、$\operatorname{div}V\,dV_g=d(\iota_VdV_g)$ である。[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)をこの $(2n-1)$ 形式に、境界のないコンパクトな実 $2n$ 次元多様体 $X$ 上で適用すると
 
 $$
 0=\int_X\operatorname{div}(u\nabla u)\,dV_g
@@ -220,7 +236,13 @@ $$
 
 正則線束 $K_X$ の正則枠 $\Omega$ におけるChern接続1形式は $\partial\log\|\Omega\|_g^2=\partial u$（[Chern接続の局所公式](../../KAH/KAH1-12/index.md#prop-kah1-12-determinant-curvature)と同じ線束の計算）であり、$\partial u=0$ だから $D\Omega=0$。Kähler計量では標準束の誘導接続はLevi–Civita接続から誘導されるので、$\Omega$ はすべての曲線で平行である。
 
-最後に、$x$ のユニタリ基底で閉路の平行移動を行列 $P$ とする。[Kählerホロノミーのユニタリ性](../../KAH/KAH1-16/index.md#thm-kah1-16-unitary)から $P\in U(n)$。一方 $n$ 形式に対する誘導作用は $\det(P)$ またはその逆数であり、どちらの約束でも $\Omega_x$ の平行保存から $\det(P)=1$ を得る。よって $P\in SU(n)$。閉路は任意なので全ホロノミーが $SU(n)$ に含まれる。$\square$
+最後に、$x$ のユニタリ基底 $e_1,\ldots,e_n$ で閉路の平行移動を行列 $P$ とする。[Kählerホロノミーのユニタリ性](../../KAH/KAH1-16/index.md#thm-kah1-16-unitary)から $P\in U(n)$。平行な $\Omega$ は閉路の前後で同じ値を返すため、
+
+$$
+\Omega_x(Pe_1,\ldots,Pe_n)=\Omega_x(e_1,\ldots,e_n).
+$$
+
+左辺は交代多重線形性により $\det(P)\,\Omega_x(e_1,\ldots,e_n)$ である。$\Omega_x$ は零でないので $\det(P)=1$、よって $P\in SU(n)$。閉路は任意なので全ホロノミーが $SU(n)$ に含まれる。$\square$
 <!-- proof-end -->
 
 **全ホロノミーの包含だけからも (K) が従う。** 実際、$\operatorname{Hol}(g)\subseteq SU(n)$ なら、基点で非零の最高次共変テンソルを選び、任意の経路に沿って平行移動して大域切断を作れる。別の経路を選んでも差は閉路の作用であり、その行列式は $1$ だから結果は一致する。得た平行切断はKähler接続の $(0,1)$ 部分にも平行であり、その部分は $\bar\partial$ なので正則である。従って (S$_g$)$\Rightarrow$(K) である。この向きはコンパクト性を必要としない。
@@ -299,7 +321,29 @@ $n=2$ で $H=\{I_2\}\subset U(2)$ とする。$H\subseteq SU(2)$ か、$H=SU(2)$
 $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上の $g_{z\bar z}=1+\varepsilon\cos(2\pi x)$（$0<\varepsilon<1$）について、$x=0$ で $\rho(g)$ が零でないことを直接計算せよ。ここで $z=x+iy$ とする。
 
 <!-- solution-start -->
-**詳細解答。** $q(x)=1+\varepsilon\cos(2\pi x)$ と置く。$q(0)=1+\varepsilon>0$、$q'(0)=0$、$q''(0)=-4\pi^2\varepsilon$。商の微分公式から $(\log q)''=q''/q-(q'/q)^2$ なので、$(\log q)''(0)=-4\pi^2\varepsilon/(1+\varepsilon)$。$\partial_z=\tfrac12(\partial_x-i\partial_y)$ より $\partial_z\partial_{\bar z}\log q=\tfrac14(\log q)''$。従って $\rho=-i\partial\bar\partial\log q=i\pi^2\varepsilon/(1+\varepsilon)\,dz\wedge d\bar z$、これは零でない。正則体積形式 $dz$ があっても**この**計量はRicci平坦でない。
+**詳細解答。** $q(x)=1+\varepsilon\cos(2\pi x)$ と置き、プライムを実変数 $x$ での微分とする。まず
+
+$$
+q(0)=1+\varepsilon>0,\quad q'(0)=0,\quad
+q''(0)=-4\pi^2\varepsilon
+$$
+
+である。連鎖律から
+
+$$
+(\log q)''=\frac{q''}{q}-\left(\frac{q'}{q}\right)^2,\qquad
+(\log q)''(0)=-\frac{4\pi^2\varepsilon}{1+\varepsilon}.
+$$
+
+$z=x+iy$ だから $\partial_z=\tfrac12(\partial_x-i\partial_y)$、$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$。$q$ は $y$ に依存しないため $\partial_z\partial_{\bar z}\log q=\tfrac14(\log q)''$。よって指定計量のRicci形式は
+
+$$
+\rho(g)|_{x=0}
+=-\frac{i}{4}(\log q)''(0)\,dz\wedge d\bar z
+=\frac{i\pi^2\varepsilon}{1+\varepsilon}\,dz\wedge d\bar z\ne0.
+$$
+
+正則体積形式 $dz$ があっても、**この**計量はRicci平坦でない。
 <!-- solution-end -->
 
 <a id="ex-cyg1-01-b01"></a>
@@ -322,7 +366,7 @@ c_1(X)_{\mathbb Z}=-c_1(K_X)_{\mathbb Z}=0,
 \qquad c_1(X)_{\mathbb R}=0.
 $$
 
-しかし第4節の[楕円曲線上の非定数計量](#prop-cyg1-01-ricci-holonomy)の反例のように、同じ多様体にRicci形式が零でないKähler計量もありうる。得たのは $[\rho(g)/(2\pi)]=0$ という**類**の等式だけである。
+しかし第4節の[楕円曲線上の非定数計量](#ex-cyg1-01-nonflat-metric)の反例のように、同じ多様体にRicci形式が零でないKähler計量もありうる。得たのは $[\rho(g)/(2\pi)]=0$ という**類**の等式だけである。
 <!-- solution-end -->
 
 <a id="ex-cyg1-01-b02"></a>
