@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - MICA4
   - SYM6
+  - GEO3
 official_scope: []
 learning_objectives:
   - 微分同相によるスカラー分布の座標表示とJacobian因子を定義し、余接ベクトルの逆転置変換を導ける

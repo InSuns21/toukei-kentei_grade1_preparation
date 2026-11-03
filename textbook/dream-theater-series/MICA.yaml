@@ -1,7 +1,7 @@
 version: 1
 id: MICA
 title: "超局所解析・Hadamard条件 I"
-plan: textbook/plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # MICA2 以降の題名・分割は進捗と証明依存に応じて見直せる。

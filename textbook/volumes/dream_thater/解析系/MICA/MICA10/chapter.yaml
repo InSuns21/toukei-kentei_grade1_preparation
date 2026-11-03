@@ -8,6 +8,7 @@ prerequisites:
   - MICA5
   - MICA3
   - GPDE3
+  - RA6A
 official_scope: []
 learning_objectives:
   - 平坦波動方程式の分布解を光的座標で求め、波面とHamilton流の一致を検算できる
