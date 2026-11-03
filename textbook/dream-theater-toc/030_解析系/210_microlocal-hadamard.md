@@ -15,4 +15,5 @@
 12. [MICA12 局所Hadamard parametrix](textbook/volumes/dream_thater/解析系/MICA/MICA12/index.md)
 13. [MICA13 Radzikowskiの波面集合条件](textbook/volumes/dream_thater/解析系/MICA/MICA13/index.md)
 14. [MICA14 対角制限とHadamard subtraction](textbook/volumes/dream_thater/解析系/MICA/MICA14/index.md)
+15. [MICA15 応力テンソルと局所共変性](textbook/volumes/dream_thater/解析系/MICA/MICA15/index.md)
 

@@ -1,0 +1,65 @@
+chapter: MICA15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICA14
+  - MICA13
+  - MICA12
+  - MICA11
+  - LORG4
+  - LORG5
+  - HPDE16
+  - HPDE7
+  - GR7
+forward_references: []
+concepts:
+  - id: microlocal.mica15-classical-stress
+    name: 曲率結合した実スカラー場の古典的応力テンソル
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica11-smeared-algebra, lorentz-geometry.lorentz-levi-civita-extension, hpde.scalar-stress-energy, gravity.einstein-tensor]
+  - id: microlocal.mica15-classical-conservation
+    name: 古典的保存恒等式
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica15-classical-stress, gravity.contracted-bianchi]
+  - id: microlocal.mica15-bidifferential
+    name: 点分離応力テンソルの双微分作用
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica14-differential-restriction, lorentz-geometry.parallel-causal-cone]
+  - id: microlocal.mica15-polarization
+    name: 双微分作用と古典テンソルの対応
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica15-bidifferential, microlocal.mica15-classical-stress]
+  - id: microlocal.mica15-state-difference
+    name: 応力テンソル期待値の状態間差
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica13-smooth-difference, microlocal.mica15-polarization, microlocal.mica15-classical-conservation, hpde.global-cauchy-theorem]
+  - id: microlocal.mica15-renormalized-stress
+    name: 保存的な点分離応力テンソルの期待値
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica14-subtracted-remainder, microlocal.mica15-bidifferential, microlocal.mica15-state-difference]
+  - id: microlocal.mica15-local-covariance
+    name: 応力テンソル期待値の局所共変性
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica15-renormalized-stress]
+  - id: microlocal.mica15-curvature-variations
+    name: 局所曲率作用の変分テンソル
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica15-local-covariance]
+  - id: microlocal.mica15-conserved-curvature
+    name: 曲率変分テンソルの保存性
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica15-curvature-variations, gravity.einstein-divergence-free]
+  - id: microlocal.mica15-finite-freedom
+    name: 4次元スカラー場の有限なくりこみ自由度
+    kind: theorem
+    introduction: formal
+    requires: [microlocal.mica15-local-covariance, microlocal.mica15-conserved-curvature]
