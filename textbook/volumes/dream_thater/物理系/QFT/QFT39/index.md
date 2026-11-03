@@ -4,7 +4,26 @@
 
 ここには一つの緊張があります。**古典作用がカイラル回転で不変でも、量子論の積分測度まで不変とは限りません。** 本講では、質量を持たないDirac場の軸性電流を古典論で導き、有限個のGrassmann変数から測度のJacobianを計算し、ゲージ不変な熱核正則化で四次元の軸性異常を求めます。さらに、背景場が零の場合、質量が正の場合、非可換群に拡張する場合を区別します。
 
-まずMinkowski空間では計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$、$\gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3$ を使います。量子測度の計算では[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)の考え方に従い、正定値内積 $x\cdot y=\sum_{\mu=1}^4x^\mu y^\mu$ を持つ $\mathbb R^4$ を**四次元Euclid空間**として導入します。座標を $x^1,\ldots,x^4$、$\delta_{\mu\nu}$ を計量、$\varepsilon^{1234}=+1$ と固定します。Euclidの $\gamma_E^\mu$ はHermitianで $\{\gamma_E^\mu,\gamma_E^\nu\}=2\delta^{\mu\nu}$、$\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4$ と定めます。この規約では $\Gamma_5^2=1$ です。**Euclid式の符号を説明なしにMinkowskiの電場・磁場の式へ転写しません。**
+まずMinkowski空間では計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とし、カイラリティの行列を次で表します。
+
+$$
+\gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3.
+$$
+
+量子測度の計算では[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)の考え方に従い、正定値内積を持つ $\mathbb R^4$ を**四次元Euclid空間**として導入します。その内積は次の式で固定します。
+
+$$
+x\cdot y=\sum_{\mu=1}^4x^\mu y^\mu.
+$$
+
+座標は $x^1,\ldots,x^4$、計量は $\delta_{\mu\nu}$、向きは $\varepsilon^{1234}=+1$ とします。Euclidの $\gamma_E^\mu$ はHermitianで、次の規約を使います。
+
+$$
+\{\gamma_E^\mu,\gamma_E^\nu\}=2\delta^{\mu\nu},\qquad
+\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4,\qquad \Gamma_5^2=1.
+$$
+
+**Euclid式の符号を説明なしにMinkowskiの電場・磁場の式へ転写しません。**
 
 ## 1. 古典論では何が保存するか
 
@@ -222,7 +241,16 @@ $$
 
 ## 4. 量子Ward恒等式と三つの区別
 
-外部場を固定してDirac場だけを積分するEuclid汎関数積分を考えます。$S_E=\int d^4x\,\bar\psi(\mathcal D_E+m)\psi$ とし、$j_{5,E}^\mu=\bar\psi\gamma_E^\mu\Gamma_5\psi$ と書きます。$\psi$ と $\bar\psi$ はBerezin積分では独立です。局所軸性変換で $\alpha$ をコンパクト台に取り、外部演算子の挿入がない領域をまず考えます。零モードがある背景で $m=0$ とすると規格化因子 $Z[A]$ が零になる場合があるため、規格化期待値は $Z[A]\ne0$ の場合に用い、それ以外では未規格化の相関関数または質量正からの極限として解釈します。
+外部場を固定してDirac場だけを積分するEuclid汎関数積分を考えます。作用と軸性電流をそれぞれ次で表します。
+
+$$
+S_E=\int d^4x\,\bar\psi(\mathcal D_E+m)\psi,\qquad
+j_{5,E}^\mu=\bar\psi\gamma_E^\mu\Gamma_5\psi.
+$$
+
+$\psi$ と $\bar\psi$ はBerezin積分では独立です。局所軸性変換のパラメータ $\alpha$ をコンパクト台に取り、外部演算子の挿入がない領域をまず考えます。
+
+零モードがある背景で $m=0$ とすると、規格化因子 $Z[A]$ が零になる場合があります。規格化期待値は $Z[A]\ne0$ の場合に用い、それ以外では未規格化の相関関数または質量正からの極限として解釈します。
 
 <a id="thm-qft39-axial-ward-anomaly"></a>
 
@@ -420,7 +448,19 @@ $\operatorname{tr}(T^aT^b)=\frac14\operatorname{tr}(\sigma^a\sigma^b)=\delta^{ab
 ### 演習 QFT39-C1：古典対称性から量子Ward式へ
 
 - Level: C
-- 問題：Euclid空間の一つのDirac場について $\nabla=\partial+iqA$、$\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4$、$S_E=\int\bar\psi(\mathcal D_E+m)\psi$ とする。(1) 無限小局所軸性回転での作用の変分を導く。(2) 有限モードのBerezin測度が $-2i\operatorname{tr}(\alpha\Gamma_5)$ を与える理由を説明する。(3) 熱核の曲率項とGaussian積分を用いて係数を導く。(4) $m=0$、$F_{12}=b,F_{34}=c$ の軸性発散を求める。(5) ゲージ異常との違いを述べよ。
+- 問題：Euclid空間の一つのDirac場を考える。共変微分、カイラリティ、作用は次とする。
+
+$$
+\nabla=\partial+iqA,\qquad
+\Gamma_5=\gamma_E^1\gamma_E^2\gamma_E^3\gamma_E^4,\qquad
+S_E=\int d^4x\,\bar\psi(\mathcal D_E+m)\psi.
+$$
+
+  1. 無限小局所軸性回転での作用の変分を導く。
+  2. 有限モードのBerezin測度が $-2i\operatorname{tr}(\alpha\Gamma_5)$ を与える理由を説明する。
+  3. 熱核の曲率項とGaussian積分を用いて係数を導く。
+  4. $m=0$、$F_{12}=b,F_{34}=c$ の軸性発散を求める。
+  5. ゲージ異常との違いを述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
