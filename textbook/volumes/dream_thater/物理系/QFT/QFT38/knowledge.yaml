@@ -1,0 +1,55 @@
+chapter: QFT38
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT37, QFT12, QFT26, QFT17]
+forward_references: []
+
+concepts:
+  - id: qft.weak-mass-basis-charged-current
+    name: 質量基底での荷電弱電流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量基底での荷電弱電流）]
+    requires: [qft.mass-basis-ckm-current, qft.electroweak-fermion-couplings]
+
+  - id: qft.fermi-four-fermion-operator
+    name: Fermi四フェルミオン演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Fermi四フェルミオン演算子）]
+    requires: [qft.weak-mass-basis-charged-current, qft.heavy-gaussian-field-matching]
+
+  - id: qft.fermi-tree-matching
+    name: 木レベルのW消去とFermi係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（木レベルのW消去とFermi係数）]
+    requires: [qft.fermi-four-fermion-operator, qft.electroweak-mass-eigenstates]
+
+  - id: qft.fermi-constant-v-a
+    name: Fermi定数とV-A規約
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Fermi定数とV-A規約）]
+    requires: [qft.fermi-tree-matching]
+
+  - id: qft.muon-decay-spin-amplitude
+    name: ミューオン崩壊のスピン平均振幅
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ミューオン崩壊のスピン平均振幅）]
+    requires: [qft.fermi-constant-v-a, qft.qed-spin-averaged-amplitude]
+
+  - id: qft.muon-decay-tree-width
+    name: 質量零・木レベルでのミューオン全崩壊率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量零・木レベルでのミューオン全崩壊率）]
+    requires: [qft.muon-decay-spin-amplitude, qft.s-matrix-rate-formulas]
+
+  - id: qft.weak-semileptonic-ckm
+    name: 半レプトン崩壊のCKM係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（半レプトン崩壊のCKM係数）]
+    requires: [qft.fermi-tree-matching, qft.ckm-matrix]
