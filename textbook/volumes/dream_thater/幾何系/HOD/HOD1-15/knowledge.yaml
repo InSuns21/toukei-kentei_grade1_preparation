@@ -1,0 +1,54 @@
+chapter: HOD1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOD1-14
+concepts:
+  - id: hodge.rational-cohomology-complexification
+    name: 有理コホモロジーの複素化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有理コホモロジーの複素化）"]
+    requires: [hodge.de-rham-hodge-summand]
+  - id: hodge.pure-hodge-structure
+    name: 純Hodge構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重さkの純Hodge構造）"]
+    requires: [hodge.rational-cohomology-complexification]
+  - id: hodge.kahler-pure-hodge-structure
+    name: Kähler多様体の純Hodge構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kähler多様体の純Hodge構造）"]
+    requires: [hodge.pure-hodge-structure, hodge.kahler-hodge-decomposition, hodge.hodge-conjugation-symmetry]
+  - id: hodge.hodge-filtration
+    name: Hodgeフィルトレーション
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hodgeフィルトレーション）"]
+    requires: [hodge.pure-hodge-structure]
+  - id: hodge.opposite-filtration-reconstruction
+    name: Hodgeフィルトレーションの反対条件と型の復元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodgeフィルトレーションの反対条件と型の復元）"]
+    requires: [hodge.hodge-filtration]
+  - id: hodge.rational-hodge-class
+    name: 有理Hodge類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有理Hodge類）"]
+    requires: [hodge.pure-hodge-structure, hodge.hodge-filtration]
+  - id: hodge.pure-hodge-polarization
+    name: 純Hodge構造のpolarization
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（純Hodge構造のpolarization）"]
+    requires: [hodge.pure-hodge-structure, hodge.hodge-riemann-bilinear-relations]
+  - id: hodge.primitive-rational-polarization
+    name: 原始部分の有理polarization
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有理Kähler類から得る原始polarization）"]
+    requires: [hodge.rational-cohomology-complexification, hodge.primitive-hodge-type, hodge.pure-hodge-polarization, hodge.hodge-riemann-bilinear-relations]

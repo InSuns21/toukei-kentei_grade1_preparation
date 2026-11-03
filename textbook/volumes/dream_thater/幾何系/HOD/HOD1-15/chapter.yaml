@@ -1,0 +1,34 @@
+id: "HOD1-15"
+title: "Hodgeフィルトレーションと純Hodge構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-14
+official_scope: []
+learning_objectives:
+  - 有理・実・複素・整係数コホモロジーを区別し、de Rham比較の入力と限界を説明できる
+  - 重さkの純Hodge構造を共役条件込みで定義し、Kähler上のHodge分解から構成できる
+  - Hodgeフィルトレーションを計算し、反対フィルトレーションとの直和条件と型別成分の復元を証明できる
+  - 楕円曲線・複素二次元トーラスで有理類とHodge型の違いを検算できる
+  - 原始成分の有理polarizationに必要なKähler類の有理性とHodge–Riemannの符号を確認できる
+  - Hodge類とHodge予想の正確な主張・適用範囲を区別できる
+theorems:
+  - { id: HOD1-15-THM-01, name: "Kähler多様体の純Hodge構造" }
+  - { id: HOD1-15-THM-02, name: "Hodgeフィルトレーションの反対条件と型の復元" }
+  - { id: HOD1-15-THM-03, name: "有理Kähler類から得る原始polarization" }
+canonical_examples:
+  - E_iの一次有理基底dx,dyとdz, dbar zによる共役分解
+  - CP1の二次純Hodge構造とフィルトレーション
+  - 複素二次元トーラスにおける有理(1,1)類と非(1,1)類
+  - E_i上の一次交叉形式の偏極符号
+problem_patterns:
+  - HOD1-15-RATIONAL-COMPLEXIFICATION
+  - HOD1-15-FILTRATION-CALCULATION
+  - HOD1-15-OPPOSITE-FILTRATION
+  - HOD1-15-TORUS-HODGE-CLASS
+  - HOD1-15-PRIMITIVE-POLARIZATION
+  - HOD1-15-HODGE-CONJECTURE-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
