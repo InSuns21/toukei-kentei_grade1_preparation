@@ -1,0 +1,47 @@
+chapter: MICA14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P2A
+  - MICA13
+  - MICA12
+  - MICA11
+  - MICA7
+  - MICA3
+forward_references: []
+concepts:
+  - id: microlocal.mica14-diagonal-obstruction
+    name: Hadamard二点分布の生の対角引き戻しの障害
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-wfsc, microlocal.mica7-diagonal-product, microlocal.mica7-pullback]
+  - id: microlocal.mica14-subtracted-remainder
+    name: Hadamard subtraction後の対角余り
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica12-parametrix, microlocal.mica14-diagonal-obstruction]
+  - id: microlocal.mica14-smooth-restriction
+    name: 滑らかな差の対角制限
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica13-smooth-difference, microlocal.mica7-pullback]
+  - id: microlocal.mica14-wick-square
+    name: 点分離によるWick平方期待値
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica14-subtracted-remainder]
+  - id: microlocal.mica14-state-difference
+    name: Wick平方の状態間差
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica14-wick-square, microlocal.mica14-smooth-restriction]
+  - id: microlocal.mica14-scale-shift
+    name: 尺度変更とWick平方の局所項
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica12-scale-shift, microlocal.mica12-transport, microlocal.mica14-wick-square]
+  - id: microlocal.mica14-differential-restriction
+    name: 滑らかな余りへの微分と対角制限
+    kind: proposition
+    introduction: formal
+    requires: [microlocal.mica14-subtracted-remainder]
