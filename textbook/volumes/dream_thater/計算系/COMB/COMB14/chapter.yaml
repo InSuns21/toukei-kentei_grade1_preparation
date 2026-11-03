@@ -1,0 +1,43 @@
+id: COMB14
+title: "群作用と Burnside 計数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB2
+  - GRP3
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 位置集合への群作用から彩色全体への誘導作用を構成し、逆元を用いる理由と作用公理を確認できる
+  - 同じ彩色の意味を軌道として定義し、固定彩色と置換の巡回分解との対応を証明できる
+  - Burnside の補題を固定点をもつ組の二重計数から証明し、軌道・安定化群公式の適用条件も説明できる
+  - 正方形の二色彩色を回転・反転で数え、軌道の直接分類と固定点平均を照合できる
+  - 巡回指標と Pólya 計数を定義・証明し、色数および色ごとの使用数を係数として求められる
+  - 長さ n の首飾り・腕輪で回転と反転の巡回構造を区別し、境界例と指定色数を検算できる
+definitions:
+  - { id: COMB14-DEF-01, name: 彩色への誘導作用 }
+  - { id: COMB14-DEF-02, name: 作用による固定点集合 }
+  - { id: COMB14-DEF-03, name: 置換の巡回数と巡回指標 }
+  - { id: COMB14-DEF-04, name: 彩色軌道の重み多項式 }
+theorems:
+  - { id: COMB14-LEM-01, name: 固定彩色と巡回の対応 }
+  - { id: COMB14-THM-01, name: Burnside の補題 }
+  - { id: COMB14-THM-02, name: Pólya の計数公式 }
+  - { id: COMB14-COR-01, name: 巡回群による首飾りの計数 }
+  - { id: COMB14-COR-02, name: 偶数長の腕輪の計数 }
+canonical_examples:
+  - 正方形の頂点を二色で塗るときの六軌道の直接分類
+  - C4 と D4 の位置置換の巡回型と固定彩色数の表
+  - 正方形の二色ずつの彩色に対する重み多項式の係数
+  - 長さ六の二色首飾り十四軌道と腕輪十三軌道
+  - 六位置に三色を二個ずつ置く腕輪十一軌道
+problem_patterns:
+  - COMB14-INDUCED-COLOR-ACTION
+  - COMB14-CYCLE-FIXED-COLORING
+  - COMB14-BURNSIDE-DOUBLE-COUNT
+  - COMB14-DIHEDRAL-CLASSIFICATION
+  - COMB14-CYCLE-INDEX
+  - COMB14-POLYA-INVENTORY
+  - COMB14-NECKLACE-BRACELET
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
