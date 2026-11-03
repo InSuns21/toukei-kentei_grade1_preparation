@@ -1,0 +1,49 @@
+id: "GEOD8"
+title: "測量網の平差・datum の拘束・不確かさ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD7
+  - F0-00P3
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 非線形観測式を近似点で線形化し、Jacobianと残差を計算できる
+  - 共分散に基づく重み付き最小二乗の正規方程式と一意性を証明できる
+  - 水準閉路の平差、残差、自由度、推定共分散を手計算できる
+  - 平面測距網の並進・回転datum欠損をJacobianの核と階数で確かめられる
+  - 既知点拘束と自由網内的拘束の違いと制約付き平差を説明できる
+  - 誤差楕円、残差の共分散、条件数、系統偏りの検出限界を検算できる
+definitions:
+  - { id: GEOD8-DEF-01, name: 線形化した観測方程式 }
+  - { id: GEOD8-DEF-02, name: 観測共分散と重み行列 }
+  - { id: GEOD8-DEF-03, name: datum欠損と不定方向 }
+  - { id: GEOD8-DEF-04, name: 厳密拘束と自由網の内的拘束 }
+  - { id: GEOD8-DEF-05, name: 誤差楕円 }
+theorems:
+  - { id: GEOD8-THM-01, name: 重み付き最小二乗と正規方程式 }
+  - { id: GEOD8-PROP-01, name: 三角測距網の三つのdatum欠損 }
+  - { id: GEOD8-THM-02, name: 制約付き平差の一意性 }
+  - { id: GEOD8-PROP-02, name: 推定共分散と残差共分散 }
+  - { id: GEOD8-PROP-03, name: 誤差楕円の主軸と確率 }
+canonical_examples:
+  - 3-4-5距離観測の一次線形化
+  - 異精度2観測の重み付き平均
+  - 非共線三角測距網の階数と並進・回転ゲージ
+  - 3区間水準閉路の異精度平差と共分散
+  - 2次元共分散の誤差楕円と残差検出限界
+problem_patterns:
+  - GEOD8-DISTANCE-JACOBIAN
+  - GEOD8-WEIGHTED-MEAN
+  - GEOD8-LEVEL-DATUM
+  - GEOD8-CLOSURE
+  - GEOD8-ELLIPSE
+  - GEOD8-NORMAL-EQUATIONS
+  - GEOD8-TRIANGLE
+  - GEOD8-LEVEL-COVARIANCE
+  - GEOD8-SYSTEMATIC-BIAS
+  - GEOD8-INTEGRATED-NETWORK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
