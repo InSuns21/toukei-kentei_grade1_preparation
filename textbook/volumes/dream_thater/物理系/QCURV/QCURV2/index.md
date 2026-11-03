@@ -20,6 +20,8 @@ $$
 
 実場の二つの解 $f,h$ を比べるとき、単に $\int_\Sigma fh$ を積分しても時間発展に伴い変化することがあります。そこで場の値と法線方向微分を交差させます。これは初期値 $(f_0,f_1)$ と $(h_0,h_1)$ の組に対して $f_0h_1-f_1h_0$ を積分する操作です。
 
+各引数を別々に固定したとき、もう一方の和と実数倍に対して線形な写像を**実双線形形式**と呼びます。[双線形形式の共通定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は有限次元で述べられていますが、ここでは同じ線形性の等式を実解空間に用います。
+
 <a id="def-qcurv2-symplectic"></a>
 
 <!-- formal-statement-start -->
@@ -37,7 +39,34 @@ $$
 <!-- definition-example-start: def-qcurv2-symplectic -->
 ### 例：一つの振動モードの初期値で確認する
 
-超静的な背景 $g=-dt^2+h$ で、$L=-\Delta_h+m^2+\xi R_h$ の実固有関数 $\psi$ が $L\psi=\omega^2\psi$、$\omega>0$、$\int_\Sigma\psi^2d\Sigma=1$ を満たすとします。[$P$ の超静的表示](../QCURV1/index.md#prop-qcurv1-ultrastatic)より $f=\cos(\omega t)\psi$、$h=\omega^{-1}\sin(\omega t)\psi$ は解です。$t=0$ では $(f,\dot f)=(\psi,0)$、$(h,\dot h)=(0,\psi)$。ゆえに
+この例では $\Sigma$ をコンパクト・境界なしとし、超静的な背景 $g=-dt^2+h$ で空間作用素を
+
+$$
+L=-\Delta_h+m^2+\xi R_h
+$$
+
+と置きます。滑らかな実固有関数 $\psi$ と正の振動数 $\omega$ が次を満たすとします。
+
+$$
+L\psi=\omega^2\psi,\qquad
+\omega>0,\qquad \int_\Sigma\psi^2d\Sigma=1.
+$$
+
+コンパクトな $\Sigma$ 上の滑らかなモードは初期データのコンパクト支持条件も満たします。[$P$ の超静的表示](../QCURV1/index.md#prop-qcurv1-ultrastatic)より次の二つは実解です。
+
+$$
+f(t,x)=\cos(\omega t)\psi(x),\qquad
+h(t,x)=\omega^{-1}\sin(\omega t)\psi(x).
+$$
+
+ここで計量の $h$ と第二の解 $h(t,x)$ は別の対象です。点記法 $\dot f=\partial_t f$、$\dot h=\partial_t h$ は空間座標 $x$ を固定した時間微分を表し、この直積計量では法線微分 $n^a\nabla_a$ に一致します。従って時刻 $t=0$ での初期値は
+
+$$
+(f,\dot f)|_{t=0}=(\psi,0),\qquad
+(h,\dot h)|_{t=0}=(0,\psi).
+$$
+
+ゆえに
 
 $$
 \sigma_{t=0}(f,h)=\int_\Sigma\psi^2d\Sigma=1,
@@ -117,7 +146,16 @@ $$
 
 $Pu=Pv=0$ かつ $V$ が実なので、$\Box_gv=Vv$、$\Box_g\bar u=V\bar u$。従って発散は $i(\bar uVv-vV\bar u)=0$ です。
 
-まず同じ大域時間関数の二枚のレベル面 $\Sigma_{t_1},\Sigma_{t_2}$ を取ります。初期データの支持を $K$ とすると、[QCURV1の因果的支持評価](../QCURV1/index.md#cor-qcurv1-cauchy)で $j$ の支持は $J(K)$ に含まれ、二つのCauchy面間の時間スラブ内では適切な大きなコンパクト領域の側面で $j=0$ とできます（大域双曲性による有限時間の因果影のコンパクト性を使います）。[曲率結合Klein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)を導出したとき、$\sqrt{-\det g}\,\nabla_aj^a=\partial_a(\sqrt{-\det g}\,j^a)$ を示しました。局所座標片で積分すると、隣接片の内側の境界流束は逆向きで相殺し、時間スラブの外側の境界だけが残ります。未来端と過去端の外向き法線の違いを入れると
+まず同じ大域時間関数の二枚のレベル面 $\Sigma_{t_1},\Sigma_{t_2}$ を取ります。$u,v$ の初期データの支持の和集合を $K$ とすると、[QCURV1の因果的支持評価](../QCURV1/index.md#cor-qcurv1-cauchy)で $j$ の支持は $J(K)$ に含まれます。大域双曲性から、この有限時間スラブと $J(K)$ の共通部分はコンパクトな領域に収められるので、十分外側に側面を取れば $j=0$ です。
+
+[曲率結合Klein–Gordon作用素の座標表示](../QCURV1/index.md#prop-qcurv1-kg-coordinate)と同じ発散公式をベクトル場 $j$ に適用して
+
+$$
+\sqrt{-\det g}\,\nabla_aj^a
+=\partial_a\left(\sqrt{-\det g}\,j^a\right)
+$$
+
+を得ます。局所座標片で積分すると内側の境界流束は逆向きに相殺し、側面の流束は支持条件で零です。時間スラブの未来端では外向き単位法線が $-n_a$、過去端では $+n_a$ であることから
 
 $$
 0=\int_{\mathrm{slab}}\nabla_aj^a\,d\mathrm{vol}_g
@@ -125,12 +163,14 @@ $$
 +\int_{\Sigma_{t_1}}n_aj^a\,d\Sigma.
 $$
 
-$n_aj^a=i(\bar u\,n^a\nabla_av-v\,n^a\nabla_a\bar u)$ は定義した内積の被積分関数そのものです。任意の二枚の滑らかな空間的Cauchy面も同じ保存流を使って比較でき、必要なら共通の時間スライスを挟みます。実解 $f,h$ については $j^a(f,h)=i(f\nabla^ah-h\nabla^af)$ なので $(f,h)_{\mathrm{KG}}=i\sigma(f,h)$ が成り立ち、$\sigma$ も保存されます。
+$n_aj^a=i(\bar u\,n^a\nabla_av-v\,n^a\nabla_a\bar u)$ は定義した内積の被積分関数そのものです。任意の二枚の滑らかな空間的Cauchy面についても、保存流が各面と交わる部分はコンパクトなので、その部分を含むCauchy面の変形に同じ発散公式を適用できます。面全体が一定の時間値で上下に挟めると仮定する必要はありません。実解 $f,h$ については $j^a(f,h)=i(f\nabla^ah-h\nabla^af)$ なので $(f,h)_{\mathrm{KG}}=i\sigma(f,h)$ が成り立ち、$\sigma$ も保存されます。
 <!-- proof-end -->
 
 無限遠の流束が消えることを確認せず、任意の非減衰平面波へこの証明を適用してはいけません。平面波のデルタ規格化は別の分布的意味を持ちます。さらに $V$ が複素なら $\bar u$ は同じ方程式を満たさず、上の二つの $V$ が相殺される段階が壊れます。
 
 <a id="prop-qcurv2-nondegenerate"></a>
+
+ここで**非退化**とは、ある実解 $f$ がすべての相手 $h$ と組にしたとき $\sigma(f,h)=0$ なら $f=0$、という条件です。[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)と同じ全称条件ですが、無限次元の解空間に有限次元行列の可逆性判定を持ち込む必要はありません。$\sigma(f,f)=0$ と非退化性は両立します。
 
 <!-- formal-statement-start -->
 > **命題（実解空間での非退化性）**  
@@ -163,7 +203,11 @@ $$
 
 [QFT3の平坦時空での正負振動数分解](../../QFT/QFT3/index.md#def-qft3-frequency)は時間座標 $t$ に関して $e^{-i\omega t}$ と $e^{+i\omega t}$ を分けました。一般の曲がった背景では保存内積があっても、時間並進の対称性やすべての解に共通なエネルギー固有値が存在するとは限りません。
 
-ここで使う**複素構造**とは、実ベクトル空間の上で二回作用させると $-1$ となる実線形演算子 $J$ のことです。さらに保存形式 $\sigma$ と両立するよう選びます。複素構造は解を勝手に複素数化する操作ではなく、もとの実いくつかの自由度をどのように「正と負」に分けるかを決めます。
+ここで使う**複素構造**とは、実ベクトル空間の上で二回作用させると $-1$ となる実線形演算子 $J$ のことです。さらに保存形式 $\sigma$ と両立するよう選びます。
+
+非退化な交代実双線形形式を備えた実ベクトル空間を[実シンプレクティック空間](../../../幾何系/SYM/SYM1/index.md#def-sym1-symplectic-vector-space)と呼びます。参照先の定義は有限次元の場合ですが、本章では初期データの無限次元解空間に同じ代数的条件を使います。以下の $I$ は解空間上の恒等写像です。
+
+複素構造は解を勝手に複素数化する操作ではなく、もとの実いくつかの自由度をどのように「正と負」に分けるかを決めます。
 
 <a id="def-qcurv2-compatible-complex"></a>
 
@@ -197,7 +241,13 @@ $$
 J(q,p)=\left(-\frac p\omega,\omega q\right)
 $$
 
-とします。行列を書くなら基底 $(1,0),(0,1)$ における $J$ は $\bigl(\begin{smallmatrix}0&-1/\omega\\\omega&0\end{smallmatrix}\bigr)$ です。列が各基底ベクトルの像になっているためで、判定するのは定義の**三条件**です。
+とします。係数空間の基底を $e_q=(1,0)$、$e_p=(0,1)$ とすると $Je_q=(0,\omega)$、$Je_p=(-1/\omega,0)$ です。従って列にそれぞれの像の係数を置いた行列表示は
+
+$$
+[J]_{(e_q,e_p)}=\begin{pmatrix}0&-1/\omega\\\omega&0\end{pmatrix}
+$$
+
+です。この行列は初期値係数に作用する $J$ の表示であって、場の方程式の空間作用素 $L$ ではありません。判定するのは定義の**三条件**です。
 
 $$
 \begin{aligned}
@@ -209,7 +259,7 @@ J^2(q,p)&=(-q,-p),\\
 \end{aligned}
 $$
 
-$\mu$ は対称で、$\mu((q,p),(q,p))=\omega q^2+p^2/\omega>0$（非零のとき）です。最後に $J\cos\omega t=\sin\omega t$、$J\sin\omega t=-\cos\omega t$ から $J(e^{-i\omega t})=i e^{-i\omega t}$ を直接確認できます。これで条件・振動数の符号・選んだ基底との関係をすべて確かめました。
+$\mu$ は対称で、$\mu((q,p),(q,p))=\omega q^2+p^2/\omega>0$（非零のとき）です。$J$ は時間関数の微分演算子ではなく、実解の係数に作用します。実際 $\cos(\omega t)\psi=f_{1,0}$ と $\sin(\omega t)\psi=f_{0,\omega}$ に上の係数変換を適用すると、$J(\cos(\omega t)\psi)=\sin(\omega t)\psi$、$J(\sin(\omega t)\psi)=-\cos(\omega t)\psi$ です。これを複素線形に延長して $J(e^{-i\omega t}\psi)=i e^{-i\omega t}\psi$ を確認できます。これで条件・振動数の符号・選んだ基底との関係をすべて確かめました。
 <!-- definition-example-end -->
 
 <a id="prop-qcurv2-projection"></a>
