@@ -24,8 +24,8 @@ chapters:
     title: "楕円曲線と複素トーラス"
   - id: CYG1-05
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-05
-    status: planned
-    title: "四次K3曲面とSU(2)の前提"
+    status: completed
+    title: "四次K3曲面：滑らかさからHodgeダイヤモンドまで"
   - id: CYG1-06
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-06
     status: planned

@@ -5,3 +5,4 @@
 2. [CYG1-02 標準束の自明性をどう手で確かめるか](textbook/volumes/dream_thater/幾何系/CYG/CYG1-02/index.md)
 3. [CYG1-03 整係数・実係数の差とtorsionの反例](textbook/volumes/dream_thater/幾何系/CYG/CYG1-03/index.md)
 4. [CYG1-04 楕円曲線と複素トーラス：標準束とホロノミーを手で確かめる](textbook/volumes/dream_thater/幾何系/CYG/CYG1-04/index.md)
+5. [CYG1-05 四次K3曲面：滑らかさからHodgeダイヤモンドまで](textbook/volumes/dream_thater/幾何系/CYG/CYG1-05/index.md)

@@ -1,0 +1,52 @@
+id: "CYG1-05"
+title: "四次K3曲面：滑らかさからHodgeダイヤモンドまで"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-04
+  - CYG1-02
+  - AG2-11
+  - CAG1-11
+  - KAH1-14
+  - KAH1-16
+  - HOD1-06
+  - HOD1-09
+official_scope: []
+learning_objectives:
+  - K3曲面の単連結性と標準束自明性を区別して定義し、Fermat四次の滑らかさ・Kähler性・随伴公式を実際に確認できる
+  - 弱Lefschetz超平面定理のコホモロジー・ホモトピー版の正確な適用範囲を述べ、単連結性と一次Betti数を導ける
+  - Euler列・法束列・Whitney積公式の入力を特定し、全Chern類の逆数を展開してc2=6H^2とEuler標数24を求められる
+  - Poincaré双対性とHodge分解からb2=22およびh20=1,h11=20を中間式付きで再構成できる
+  - K3と複素トーラスを比較し、Ricci平坦計量とSU(2)等号を未証明の外部結果として分離できる
+definitions:
+  - { id: CYG1-05-DEF-01, name: K3曲面 }
+theorems:
+  - { id: CYG1-05-PROP-01, name: Fermat四次曲面の滑らかさと標準束 }
+  - { id: CYG1-05-THM-01, name: 滑らかな射影超曲面のLefschetz定理（外部入力） }
+  - { id: CYG1-05-PROP-02, name: Fermat四次曲面はK3曲面 }
+  - { id: CYG1-05-THM-04, name: 全Chern類のWhitney積公式（外部入力） }
+  - { id: CYG1-05-THM-02, name: 超曲面の全Chern類の計算規則（外部入力） }
+  - { id: CYG1-05-THM-03, name: 複素曲面のChern–Gauss–Bonnet（外部入力） }
+  - { id: CYG1-05-PROP-03, name: Fermat四次曲面のChern類とEuler標数 }
+  - { id: CYG1-05-PROP-04, name: Fermat四次K3のBetti数とHodge数 }
+canonical_examples:
+  - Fermat四次のJacobianを全斉次座標で確認する
+  - 四次と三次・五次曲面の随伴指数を比較する
+  - 超曲面の法束列と全Chern類から第二Chern数を導く
+  - K3とE×EのHodge数および基本群の比較
+  - 特異四次が滑らかさの仮定を破る例
+problem_patterns:
+  - CYG1-05-FERMAT-JACOBIAN
+  - CYG1-05-ADJUNCTION
+  - CYG1-05-CHERN-EXPANSION
+  - CYG1-05-EULER-INTEGRAL
+  - CYG1-05-WEAK-LEFSCHETZ
+  - CYG1-05-BETTI-DUALITY
+  - CYG1-05-HODGE-DIAMOND
+  - CYG1-05-SINGULAR-COUNTEREXAMPLE
+  - CYG1-05-TORUS-COMPARISON
+  - CYG1-05-INTEGRATED-QUARTIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
