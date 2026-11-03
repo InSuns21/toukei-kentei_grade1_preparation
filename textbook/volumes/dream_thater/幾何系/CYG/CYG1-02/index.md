@@ -14,7 +14,7 @@ $$
 
 は局所的に零を持たない正則 $n$ 形式になる。しかし、**局所的な枠はすべての複素多様体にある**。$K_X\simeq\mathcal O_X$ を判定するには、座標を替えても一致する零のない大域形式を一つ作らなくてはならない。
 
-例えば射影直線 $\mathbb P^1$ の二つのチャートでは $w=1/z$ だから、
+例えば射影直線 $\mathbb P^1$ の斉次座標を $[Z_0:Z_1]$ とし、$Z_0\ne0$ で $z=Z_1/Z_0$、$Z_1\ne0$ で $w=Z_0/Z_1$ とする。両チャートの重なりでは $w=1/z$ だから、
 
 $$
 dw=-z^{-2}dz,\qquad dz=-w^{-2}dw.
@@ -95,7 +95,17 @@ $$
 
 射影空間 $\mathbb P^m_{\mathbb C}$ の斉次座標を $[Z_0:\cdots:Z_m]$ とする。次数 $d\ge1$ の非零斉次多項式 $F$ による超曲面を $X_d=\{F=0\}\subset\mathbb P^m$ と書く。このとき超曲面での標準束を計算するには、まず **$X_d$ が滑らかな複素多様体であること**を確かめる必要がある。
 
-そのために、斉次勾配 $\bigl(\partial F/\partial Z_0,\ldots,\partial F/\partial Z_m\bigr)$ が射影点上で同時に零にならないか調べる。これは[射影Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)であり、滑らかなら複素次元は $m-1$。偏微分の値は斉次代表の取り方で変わるが、**全成分が零かどうか**は代表の非零スカラー倍で不変である。
+そのために、斉次勾配 $\bigl(\partial F/\partial Z_0,\ldots,\partial F/\partial Z_m\bigr)$ が $F=0$ 上の射影点で同時に零にならないか調べる。これは[射影Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)であり、滑らかなら複素次元は $m-1$。偏微分の値は斉次代表の取り方で変わるが、**全成分が零かどうか**は代表の非零スカラー倍で不変である。
+
+引用した判定定理は $F$ が平方因子を持たない場合に述べられている。実際、$F=G^2Q$ と重複因子を持つなら、$G=0$ 上で
+
+$$
+\frac{\partial F}{\partial Z_j}
+=2GQ\frac{\partial G}{\partial Z_j}+G^2\frac{\partial Q}{\partial Z_j}=0
+\quad(j=0,\ldots,m)
+$$
+
+となる。従って **勾配が同時に零にならないことを示せれば平方因子も排除できる**。
 
 滑らかさを確認できたら[解析的随伴公式](../../../代数系/CAG/CAG1-11/index.md#thm-cag1-11-analytic-adjunction)へ周囲の次元 $m$ と次数 $d$ を代入する。式は
 
@@ -121,7 +131,16 @@ $$
 =\frac1{(2\pi)^r}\int_{X_d}\omega^r>0.
 $$
 
-ここで $\mathcal O_{X_d}(k)$ が正則自明であると仮定すると、[整係数第一Chern類の自明束での消滅](../CYG1-01/index.md#prop-cyg1-01-chern-chain)からその実係数第一Chern類は零となる。しかしテンソル冪・双対の[第一Chern類の加法性](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)により、その類は $kH$ である。$H^{r-1}$ を掛けて積分すると
+ここで $\mathcal O_{X_d}(k)$ が正則自明であると仮定すると、[整係数第一Chern類の自明束での消滅](../CYG1-01/index.md#prop-cyg1-01-chern-chain)からその実係数第一Chern類は零となる。$k$ が正なら[テンソル冪の第一Chern形式](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)により、その類は $kH$ である。
+
+負の場合も確認しておく。$\mathcal O_{X_d}(1)$ の局所正則枠のHermite計量を $h$（枠の長さの二乗）とすると、双対・テンソル冪で作る $\mathcal O_{X_d}(k)$（負の $k$ では双対の $-k$ 乗）の局所計量は $h^k$ である。この局所枠でのChern接続形式を $A^{(k)}$、その曲率を $F_{D^{(k)}}$ と書くと、任意の整数 $k$ について
+
+$$
+A^{(k)}=\partial\log h^k=k\,\partial\log h,
+\qquad F_{D^{(k)}}=\bar\partial A^{(k)}=kF_{D^{(1)}}.
+$$
+
+従って[第一Chern形式と実係数類の対応](../../KAH/KAH1-12/index.md#thm-kah1-12-integrality)から $c_1(\mathcal O_{X_d}(k))_{\mathbb R}=kH$ は $k<0$ も含めて成立する。ここで $H^{r-1}$ はコホモロジー類 $H$ の $(r-1)$ 回の杯積とする。$H^{r-1}$ を掛けて積分すると
 
 $$
 0=\int_{X_d}(kH)\wedge H^{r-1}=k\int_{X_d}H^r.
@@ -226,7 +245,27 @@ $$
 
 これを $\eta_t$ の分子の外積へ代入すると、既に現れる $dx_j$ の重複項は零になり、$dx_s$ を含む項だけが残る。外積の並べ替えの符号 $(-1)^{s-1}$ と $(-1)^{t-1}$ が一致を保証する。これは[既習の消去方向の独立性の証明](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)の $f_{x_s}\ne0,f_{x_t}\ne0$ への適用である。
 
-異なる射影チャート間では[解析的随伴公式の貼り合わせ計算](../../../代数系/CAG/CAG1-11/index.md#thm-cag1-11-analytic-adjunction)により、座標Jacobianと方程式の次数因子の比が局所形式の遷移係数になる。$d=m+1$ で指数は零であるから、座標の向きに由来する符号を揃えれば各チャートの局所形式が大域の零を持たない正則形式を定める。$\square$
+異なる射影チャート間も計算する。$U_i=\{Z_i\ne0\}$、$U_j=\{Z_j\ne0\}$ で、各チャートの座標を元の斉次添字の昇順に並べ、そこで貼り合う局所形式をそれぞれ $\eta_i,\eta_j$ とする。重なりで $u=Z_j/Z_i\ne0$ と置くと、$U_i$ の座標 $x_a=Z_a/Z_i$ と $U_j$ の座標 $y_b=Z_b/Z_j$ は
+
+$$
+y_i=u^{-1},\qquad y_b=x_b/u\quad(b\ne i,j),
+$$
+
+を満たす。従って $dy_i=-u^{-2}du$、$dy_b=u^{-1}dx_b-x_bu^{-2}du$ である。周囲の $m$ 本の微分の外積では、$dy_i$ が既に $du=dx_j$ を含むため、他の因子から $du$ を選ぶ項は零となる。残る係数は $-u^{-2}(u^{-1})^{m-1}$ である。$i<j$ なら $du$ を昇順に置き直す交換回数は $j-i-1$、$i>j$ なら $i-j-1$ 回なので、最初の負号も合わせた符号は $(-1)^{i+j}$ になる。従って座標Jacobianは $(-1)^{i+j}u^{-(m+1)}$ である。
+
+一方、斉次次数 $d$ により $f_j=u^{-d}f_i$ である。両辺を微分すると
+
+$$
+df_j=u^{-d}df_i-d\,u^{-d-1}f_i\,du.
+$$
+
+超曲面上では $f_i=0$ だから $df_j|_{X_d}=u^{-d}df_i|_{X_d}$ となる。[解析的随伴公式の貼り合わせ計算](../../../代数系/CAG/CAG1-11/index.md#thm-cag1-11-analytic-adjunction)の分子Jacobianを分母の方程式変換係数で割ると
+
+$$
+\eta_j=(-1)^{i+j}u^{d-m-1}\eta_i.
+$$
+
+$d=m+1$ のとき変数 $u$ の冪は消え、$\Omega_i=(-1)^i\eta_i$ と選べば $\Omega_j=(-1)^j\eta_j=\Omega_i$。各点では滑らかさにより少なくとも一つの分母が非零で、同一チャート内でも消去方向を替えられる。よって $\Omega_i$ は全チャートを覆う零のない大域正則形式に貼り合う。$\square$
 <!-- proof-end -->
 
 **手で確かめる三次曲線の重なり。** $m=2,d=3$ で $Z_0\ne0$、$f=1+x^3+y^3$ とする。$x,y\ne0$ の領域では
@@ -425,7 +464,29 @@ $$
 A:=\int_XH^r=(2\pi)^{-r}\int_X\omega^r>0.
 $$
 
-正則自明な線束の第一Chern類は零なので、$\mathcal O_X(k)$ が自明なら $c_1(\mathcal O_X(k))_{\mathbb R}=kH=0$。[線束のテンソル冪のChern類](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)の加法性を使った。両辺へ $H^{r-1}$ を掛けて積分すると $0=kA$。$A>0$ から $k=0$ が従う。これは「正の束が自明でない」というだけでなく、負の指数にも通用する証明である。
+正則自明な線束の第一Chern類は零なので、$\mathcal O_X(k)$ が自明なら $c_1(\mathcal O_X(k))_{\mathbb R}=0$ である。
+
+一方、[テンソル冪の第一Chern形式](../../KAH/KAH1-14/index.md#prop-kah1-14-positive-curvature)から、正の整数 $k$ に対しては
+
+$$
+c_1(\mathcal O_X(k))_{\mathbb R}=kH
+$$
+
+である。負の $k$ も確かめる。$\mathcal O_X(1)$ の局所枠の計量を $h$ とすれば、双対枠の計量は $h^{-1}$ となる。そのChern接続形式は
+
+$$
+\partial\log(h^{-1})=-\partial\log h
+$$
+
+なので、曲率も負号を得る。これを正のテンソル冪に適用すれば、負の整数 $k$ についても同じ第一Chern類の等式が成立する。
+
+すべての整数 $k$ に対し、正則自明性から $kH=0$。両辺へ $H^{r-1}$ を掛けて積分すれば
+
+$$
+0=k\int_XH^r=kA.
+$$
+
+$A>0$ から $k=0$ が従う。これは正の指数だけでなく、負の指数にも通用する証明である。
 <!-- solution-end -->
 
 <a id="ex-cyg1-02-c01"></a>
