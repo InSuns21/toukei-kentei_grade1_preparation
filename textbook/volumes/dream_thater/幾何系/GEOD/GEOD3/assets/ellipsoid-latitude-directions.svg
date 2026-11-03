@@ -4,9 +4,12 @@
   <defs>
     <marker id="normal-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8z" fill="#ad5e0a"/></marker>
     <marker id="radial-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8z" fill="#15607a"/></marker>
+    <marker id="axis-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#94a3b8"/></marker>
   </defs>
-  <path d="M32 235 H500 M260 336 V34" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 5" fill="none"/>
   <ellipse cx="260" cy="235" rx="184" ry="148" fill="#f0f7f9" stroke="#475569" stroke-width="2.2"/>
+  <!-- Draw both coordinate axes above the ellipse fill; each arrow shows positive direction. -->
+  <path d="M32 235 H500" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 5" fill="none" marker-end="url(#axis-arr)"/>
+  <path d="M260 336 V34" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 5" fill="none" marker-end="url(#axis-arr)"/>
   <path d="M260 235 L390.1 130.35" stroke="#15607a" stroke-width="3.1" stroke-dasharray="9 5" fill="none" marker-end="url(#radial-arr)" data-series-group="lat-directions" data-series-label="radial"/>
   <path d="M390.1 130.35 L459.5 43.3" stroke="#ad5e0a" stroke-width="3.4" fill="none" marker-end="url(#normal-arr)" data-series-group="lat-directions" data-series-label="normal"/>
   <path d="M390.1 130.35 H518" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 5" fill="none"/>

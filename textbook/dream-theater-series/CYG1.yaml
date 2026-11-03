@@ -1,7 +1,7 @@
 version: 1
 id: CYG1
 title: "Calabi–Yau幾何学"
-plan: textbook/plans_progress/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 完成章のみ公開索引に載せる。後続章IDは計画上の暫定ID。
