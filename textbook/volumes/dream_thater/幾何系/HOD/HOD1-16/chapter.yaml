@@ -1,0 +1,33 @@
+id: "HOD1-16"
+title: "楕円曲線の周期と総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOD1-15
+official_scope: []
+learning_objectives:
+  - 格子の実座標と整数周期の双対基底を構成し、正則形式の周期とHodgeフィルトレーションを相互に復元できる
+  - 向きを保つ整数ホモロジー基底変更に対する規格化周期の変換と虚部の正値性を証明できる
+  - 交叉形式の符号・偏極正値条件・上半平面の関係を検算できる
+  - 同じHodge数を持っても有理格子に対するHodge直線の位置が異なり得ることを説明できる
+  - Kähler恒等式からLaplacian・Hodge分解・Hard Lefschetzへ至る論証を適用条件とともに再導出できる
+theorems:
+  - { id: HOD1-16-THM-01, name: "周期から得る重さ1のHodge直線" }
+  - { id: HOD1-16-THM-02, name: "基底変更と周期パラメータの変換" }
+  - { id: HOD1-16-THM-03, name: "正のHodge直線と上半平面" }
+  - { id: HOD1-16-THM-04, name: "楕円曲線でのHodge–Lefschetz経路" }
+canonical_examples:
+  - tau=iでの周期・整数双対基底・交叉形式
+  - tau=2iでのHodge数不変とフィルトレーションの違い
+  - SL2Zの二つの生成的基底変更と虚部の変換
+  - 面積1のKähler形式とLの零次から二次への作用
+problem_patterns:
+  - HOD1-16-DUAL-PERIODS
+  - HOD1-16-FILTRATION-RECONSTRUCTION
+  - HOD1-16-MODULAR-TRANSFORMATION
+  - HOD1-16-POLARIZATION-POSITIVITY
+  - HOD1-16-KAHLER-HODGE-LEFSCHETZ-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
