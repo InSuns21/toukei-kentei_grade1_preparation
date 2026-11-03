@@ -1,0 +1,48 @@
+id: "CYG1-10"
+title: "Yauの定理は何を存在させ、一意にするか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-03
+  - CYG1-04
+  - CYG1-09
+  - HOD1-08
+  - KAH1-15
+official_scope: []
+learning_objectives:
+  - Ricci形式の点ごとの零条件と実第一Chern類の消失を区別できる
+  - Ricci形式の差をKähler体積比の対数微分として導出できる
+  - 大域partial barpartial補題から固定Kähler類のポテンシャル表示を導ける
+  - Ricci形式の指定から複素Monge–Ampère体積方程式と正規化定数を計算できる
+  - Yauの定理で固定するKähler類と指定Ricci代表の量化順序を述べ存在証明の外部入力を区別できる
+  - 体積比と正の混合外積の積分から固定Kähler類での一意性を証明できる
+  - 実第一Chern類零とRicci平坦計量存在の同値性を示しquinticとEnriques曲面に適用できる
+  - コンパクト性・Kähler類固定・Ricci代表の仮定が外れる反例を作れる
+theorems:
+  - { id: CYG1-10-PROP-01, name: "Ricci形式の差と体積比" }
+  - { id: CYG1-10-PROP-02, name: "Ricci形式指定と体積方程式の同値性" }
+  - { id: CYG1-10-THM-01, name: "YauのRicci形式指定定理（存在は外部入力）" }
+  - { id: CYG1-10-PROP-03, name: "同じKähler類とRicci形式を持つ計量の一意性" }
+  - { id: CYG1-10-COR-01, name: "実第一Chern類の消失とRicci平坦計量の存在" }
+canonical_examples:
+  - 平坦複素トーラスとその定数倍はRicci形式が等しくKähler類が異なる
+  - 周期ポテンシャルで同じKähler類のRicci非平坦計量を作り直す
+  - Fubini–Study形式によりCP1では目標Ricci形式零が不可能と判定する
+  - Enriques曲面の非自明な2-torsion標準束でもRicci平坦計量は存在する
+  - 非コンパクトな複素平面上の同一類でRicci形式が等しい異なる計量
+problem_patterns:
+  - CYG1-10-RICCI-VOLUME-RATIO
+  - CYG1-10-VOLUME-NORMALIZATION
+  - CYG1-10-CP1-OBSTRUCTION
+  - CYG1-10-SCALING-CLASS
+  - CYG1-10-TORUS-POTENTIAL
+  - CYG1-10-TORUS-RICCI-PRESCRIPTION
+  - CYG1-10-UNIQUENESS-INTEGRATION
+  - CYG1-10-ENRIQUES-COUNTEREXAMPLE
+  - CYG1-10-NONCOMPACT-FAILURE
+  - CYG1-10-TORUS-INTEGRATION
+  - CYG1-10-QUINTIC-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 5 }

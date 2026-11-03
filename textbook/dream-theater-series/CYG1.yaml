@@ -44,8 +44,8 @@ chapters:
     title: "完全交叉の随伴公式と計算が壊れる境界"
   - id: CYG1-10
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-10
-    status: planned
-    title: "Yauの定理が付け加える存在量化"
+    status: completed
+    title: "Yauの定理は何を存在させ、一意にするか"
   - id: CYG1-11
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-11
     status: planned
