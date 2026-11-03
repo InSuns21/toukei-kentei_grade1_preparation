@@ -1,0 +1,55 @@
+chapter: QFT41
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT7, QFT12, QFT17, QFT24, QFT25, QFT28, QFT30, QFT35, QFT40]
+forward_references: []
+
+concepts:
+  - id: qft.qcd-color-action
+    name: QCDの色場と作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（QCDの色場と作用）]
+    requires: [qft.yang-mills-curvature, qft.standard-model-gauge-representation]
+
+  - id: qft.qcd-color-invariants
+    name: 色の二次不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（色の二次不変量）]
+    requires: [qft.qcd-color-action, qft.adjoint-quadratic-casimir]
+
+  - id: qft.su3-completeness
+    name: SU(3)基本生成子の完全性関係
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（SU(3)基本生成子の完全性関係）]
+    requires: [qft.qcd-color-invariants]
+
+  - id: qft.qcd-tree-vertices
+    name: QCD相互作用の頂点と結合次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（QCD相互作用の頂点と結合次数）]
+    requires: [qft.qcd-color-action, qft.gauge-self-interactions]
+
+  - id: qft.qcd-distinct-quark-scattering
+    name: 異種クォーク弾性散乱の色・スピン平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（異種クォーク弾性散乱の色・スピン平均）]
+    requires: [qft.qcd-tree-vertices, qft.su3-completeness]
+
+  - id: qft.qcd-running-coupling
+    name: 走る強結合と有効フレーバー数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（走る強結合と有効フレーバー数）]
+    requires: [qft.renormalization-group-functions, qft.qcd-color-action]
+
+  - id: qft.qcd-one-loop-beta
+    name: 質量零クォークを含むQCDの一ループβ関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量零クォークを含むQCDの一ループβ関数）]
+    requires: [qft.qcd-running-coupling, qft.pure-yang-mills-one-loop-beta, qft.vacuum-polarization-parametric-integral]

@@ -1,0 +1,42 @@
+id: QFT41
+title: "QCDの色表現・クォークとグルーオンの頂点・走る強結合"
+volume: foundations
+status: supplementary
+prerequisites: [QFT7, QFT12, QFT17, QFT24, QFT25, QFT28, QFT30, QFT35, QFT40]
+official_scope: []
+learning_objectives:
+  - SU(3)の基本・反基本・随伴表現を色添字と変換則から区別し、クォークとグルーオンの自由度を数えられる
+  - QCDの作用を共変微分から導き、クォーク・グルーオン頂点と三・四グルーオン相互作用の結合次数を説明できる
+  - SU(3)生成子の完全性関係、C_F=4/3、T_F=1/2、C_A=3を区別して検算できる
+  - 異種クォークの木レベル散乱の色因子と質量零のスピン平均を導出できる
+  - クォークループを含む一ループQCD β関数と有効フレーバー数、摂動論の適用限界を説明できる
+definitions:
+  - { id: QFT41-DEF-01, name: QCDの色場と作用 }
+  - { id: QFT41-DEF-02, name: 色の二次不変量 }
+  - { id: QFT41-DEF-03, name: 走る強結合と有効フレーバー数 }
+theorems:
+  - { id: QFT41-LEM-01, name: SU(3)基本生成子の完全性関係 }
+  - { id: QFT41-PROP-01, name: QCD相互作用の頂点と結合次数 }
+  - { id: QFT41-PROP-02, name: 異種クォーク弾性散乱の色・スピン平均 }
+  - { id: QFT41-THM-01, name: 質量零クォークを含むQCDの一ループβ関数 }
+canonical_examples:
+  - 二つの対角色生成子の固有値と反基本表示の符号
+  - 基本生成子の完全性からC_F=4/3を直接計算
+  - 一色だけの外線に対する色交換の非零行列要素
+  - 異種クォーク散乱の色因子2/9とスピン因子の積
+  - n_f=0とn_f=3,6のβ係数比較と閾値の条件
+problem_patterns:
+  - QFT41-COLOR-REPRESENTATIONS
+  - QFT41-DIAGONAL-COLOR-CHARGES
+  - QFT41-QUARK-GLUON-VERTEX
+  - QFT41-COLOR-SINGLET
+  - QFT41-FUNDAMENTAL-CASIMIR
+  - QFT41-COLOR-EXCHANGE
+  - QFT41-GLUON-SELF-VERTICES
+  - QFT41-FLAVOR-BETA
+  - QFT41-THRESHOLD-RUNNING
+  - QFT41-INTEGRATED-SCATTERING-RUNNING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
