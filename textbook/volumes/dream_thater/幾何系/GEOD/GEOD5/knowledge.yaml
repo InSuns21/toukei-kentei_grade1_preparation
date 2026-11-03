@@ -1,0 +1,49 @@
+chapter: GEOD5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD4
+forward_references: []
+
+concepts:
+  - id: geodesy.geodetic-coordinates-height
+    name: 楕円体高を持つ測地座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（楕円体高を持つ測地座標）]
+    requires: [geodesy.ellipsoid-surface-parameterization, geodesy.ellipsoid-tangent-vectors]
+
+  - id: geodesy.geodetic-to-ecef
+    name: 測地座標から地心直交座標への順変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（測地座標から地心直交座標への順変換）]
+    requires: [geodesy.geodetic-coordinates-height, geodesy.ellipsoid-curvature-radii]
+
+  - id: geodesy.exterior-ecef-inverse
+    name: 楕円体の表面・外部における逆変換の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（楕円体の表面・外部における逆変換の存在と一意性）]
+    requires: [geodesy.geodetic-coordinates-height, geodesy.geodetic-to-ecef]
+
+  - id: geodesy.enu-local-frame
+    name: 基準点のENU局所直交座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（基準点のENU局所直交座標）]
+    requires: [geodesy.geodetic-to-ecef, geodesy.ellipsoid-tangent-vectors]
+
+  - id: geodesy.enu-orthogonal-rotation
+    name: ENU回転行列の直交性と右手系
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ENU回転行列の直交性と右手系）]
+    requires: [geodesy.enu-local-frame]
+
+  - id: geodesy.geodetic-enu-jacobian
+    name: 測地座標からENUへの局所一次変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（測地座標からENUへの局所一次変換）]
+    requires: [geodesy.enu-local-frame, geodesy.geodetic-to-ecef, geodesy.ellipsoid-tangent-vectors]
