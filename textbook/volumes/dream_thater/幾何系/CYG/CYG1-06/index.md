@@ -64,16 +64,24 @@ H^0(X,K_X)=\mathbb C\Omega,\qquad
 \dim_{\mathbb C}H^0(X,K_X)=1.
 $$
 
-[Hodge数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)により左辺の次元は $h^{n,0}$ である。$\square$
+正則 $n$ 形式は局所係数が正則な $(n,0)$ 形式であり、これは $\bar\partial\eta=0$ と同値である。$(n,-1)$ 形式は存在しないため、この次数のDolbeault群では商で消える像もなく、
+
+$
+H_{\bar\partial}^{n,0}(X)=H^0(X,K_X)=\mathbb C\Omega.
+$
+
+したがって[Hodge数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)から $h^{n,0}=1$ が従う。$\square$
 <!-- proof-end -->
 
 **直接例。** $E=\mathbb C/(\mathbb Z+i\mathbb Z)$ とし $T=E^2$ とする。[トーラスの正則体積形式](../CYG1-04/index.md#prop-cyg1-04-volume-form)は $\Omega=dz^1\wedge dz^2$ で、格子による平行移動で変わらず、任意の点で零にならない。ゆえに $K_T$ は正則自明である。命題の証明をこの $\Omega$ へ適用すれば、正則2形式は $c\,dz^1\wedge dz^2$ の形に限られ、$h^{2,0}=1$ と実際に確認できる。
 
-複素共役によって $h^{0,n}=h^{n,0}=1$ にもなる。ただし「最高次の正則形式が一次元」から「低い次数の正則形式が零」とはまだ言っていない。
+本章のコンパクトKähler仮定に戻れば、[Hodge数の共役対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-conjugation)から $h^{0,n}=h^{n,0}=1$ にもなる。これは直前の命題とは異なり、ここではKähler性を用いた結論である。ただし「最高次の正則形式が一次元」から「低い次数の正則形式が零」とはまだ言っていない。
 
 ## 3. 三つの制約は何を写し、何を写さないか
 
-まず既習の結果の**対象と写像**を並べて照合する。
+まず既習の結果の**対象と写像**を並べて照合する。ここで記号を区別しておく。[de RhamコホモロジーのHodge型部分空間](../../HOD/HOD1-06/index.md#def-hod1-06-hodge-summand)は $H_{\mathrm{Hdg}}^{p,q}(X)\subset H_{\mathrm{dR}}^{p+q}(X;\mathbb C)$ であり、§1でHodge数を定めたDolbeault群 $H_{\bar\partial}^{p,q}(X)$ と最初から同一の集合ではない。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)によってDolbeault類の一意な調和代表 $h$ を選び、de Rham類 $[h]_d$ へ写すと両者が同型になる。本節以下の $H^{p,q}$ は、型別Lefschetzを述べるときの略記 $H_{\mathrm{Hdg}}^{p,q}(X)$ とし、$\dim_{\mathbb C}H^{p,q}=h^{p,q}$ である。
+
+Kähler形式 $\omega$ は $(1,1)$ 型だから、$H^{p,q}$ の類 $[\alpha]_d$ に対して $L([\alpha]_d)=[\omega\wedge\alpha]_d$ とすると、楔積の型が $(p+1,q+1)$ になる。以下の表で $L^{n-k}$ と書くときは、**同じ作用素を $n-k$ 回合成する**意味である。
 
 | 入力 | 必要な条件 | 得られる関係 |
 | --- | --- | --- |
@@ -82,7 +90,7 @@ $$
 | [補次数対称性](../../HOD/HOD1-07/index.md#thm-hod1-07-hodge-duality) | コンパクトKählerとしての既習証明 | $h^{p,q}=h^{n-p,n-q}$ |
 | [型別Hard Lefschetz](../../HOD/HOD1-11/index.md#prop-hod1-11-type-refinement) | コンパクトKähler、$p+q=k\le n$ | $L^{n-k}:H^{p,q}\simeq H^{n-q,n-p}$ |
 
-ここで $b_k=\dim_{\mathbb Q}H^k(X;\mathbb Q)$ はBetti数、$L(\alpha)=[\omega]\smile\alpha$ は固定したKähler形式 $\omega$ のコホモロジー類をカップ積する作用素である。$L$ はHodge型を $(p,q)$ から $(p+1,q+1)$ へ移す。
+ここで $b_k=\dim_{\mathbb Q}H^k(X;\mathbb Q)$ はBetti数であり、[既習のde RhamによるBetti数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)と同じ次元を数える。表の $L$ は $[\omega]$ とのカップ積を表し、上の楔積表示と一致する。
 
 三番目の補次数対称性は、$(p,q)\mapsto(n-p,n-q)$ という**両添字の反転**である。これは[相補Hodge型の非退化積分対](../../HOD/HOD1-07/index.md#thm-hod1-07-perfect-pairing)によるSerre型双対と整合する。二番目の複素共役 $(p,q)\mapsto(q,p)$ とも、四番目の型別Lefschetz $(p,q)\mapsto(n-q,n-p)$ とも区別する。一般のコンパクト複素多様体にはSerre双対性が成り立つが、ここで使う**de Rhamの型別分解とHard Lefschetz**まで非Kählerの場合に引き延ばしてはいけない。
 
