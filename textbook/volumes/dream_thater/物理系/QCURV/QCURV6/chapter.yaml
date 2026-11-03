@@ -1,0 +1,45 @@
+id: QCURV6
+title: "粒子数とUnruh–DeWitt検出器の応答"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV5
+  - QCURV2
+  - QFT5
+official_scope: []
+learning_objectives:
+  - 正振動数モードで定義する粒子数と局所的な検出器の遷移確率を区別できる
+  - 固有時間・世界線・滑らかな切替・エネルギー間隔からUnruh–DeWitt結合を構成できる
+  - 一次摂動振幅を二乗して場の完全系を和に取り、二点分布の応答公式を符号込みで導出できる
+  - Hadamard波面集合と時間的世界線の余法方向を比較して分布の引戻しが定義できることを説明できる
+  - Minkowski真空の慣性検出器で有限時間の励起と長時間遷移率の非励起を計算し区別できる
+  - 定常スペクトル・エネルギーギャップの符号・非定常切替を区別し熱性を性急に結論しない
+definitions:
+  - { id: QCURV6-DEF-01, name: Unruh–DeWitt検出器と切替 }
+  - { id: QCURV6-DEF-02, name: 二点分布による検出器応答関数 }
+  - { id: QCURV6-DEF-03, name: 定常世界線の遷移率 }
+theorems:
+  - { id: QCURV6-PROP-01, name: 一次摂動からの応答公式 }
+  - { id: QCURV6-PROP-02, name: Hadamard二点分布の世界線引戻し }
+  - { id: QCURV6-PROP-03, name: 慣性検出器の切替スペクトル }
+  - { id: QCURV6-PROP-04, name: Minkowski慣性検出器の長時間遷移率 }
+canonical_examples:
+  - 有限幅の滑らかな切替と静止世界線の定義条件の直接確認
+  - 一モードの二点関数からの正値応答とギャップ符号
+  - ガウス切替の有限時間励起確率の明示式
+  - 長時間の振幅スケーリングによる励起と脱励起の対比
+problem_patterns:
+  - QCURV6-DETECTOR-DATA
+  - QCURV6-MONOPOLE-PHASE
+  - QCURV6-RESPONSE-POSITIVITY
+  - QCURV6-PULLBACK
+  - QCURV6-ONE-MODE
+  - QCURV6-GAUSSIAN-SWITCH
+  - QCURV6-FOURIER-NORMALIZATION
+  - QCURV6-LONG-TIME
+  - QCURV6-SMOOTH-STATE-DIFFERENCE
+  - QCURV6-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
