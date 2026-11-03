@@ -1,0 +1,41 @@
+chapter: QFT40
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20, QFT28, QFT32, QFT35, QFT37, QFT39]
+forward_references: []
+
+concepts:
+  - id: qft.left-handed-anomaly-convention
+    name: 異常計算のための左巻き場一覧
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（異常計算のための左巻き場一覧）]
+    requires: [qft.chirality-weyl-components, qft.standard-model-gauge-representation]
+
+  - id: qft.cubic-anomaly-symmetric-trace
+    name: 三角異常の対称三次跡
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三角異常の対称三次跡）]
+    requires: [qft.left-handed-anomaly-convention, qft.standard-model-product-covariant-derivative]
+
+  - id: qft.one-loop-triangle-anomaly-factor
+    name: 一ループ局所異常の群論係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一ループ局所異常の群論係数）]
+    requires: [qft.cubic-anomaly-symmetric-trace, qft.euclidean-axial-heat-kernel-coefficient]
+
+  - id: qft.nonabelian-cubic-representation-traces
+    name: 基本・反基本と弱二重項の三次跡
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（基本・反基本と弱二重項の三次跡）]
+    requires: [qft.cubic-anomaly-symmetric-trace]
+
+  - id: qft.standard-model-local-anomaly-cancellation
+    name: 最小標準模型の一世代の摂動的ゲージ異常相殺
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（最小標準模型の一世代の摂動的ゲージ異常相殺）]
+    requires: [qft.one-loop-triangle-anomaly-factor, qft.nonabelian-cubic-representation-traces, qft.standard-model-gauge-representation]

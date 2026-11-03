@@ -5,3 +5,4 @@
 2. [COMB2 順列・組合せ・多重集合](textbook/volumes/dream_thater/計算系/COMB/COMB2/index.md)
 3. [COMB3 包除原理と制約付き配置](textbook/volumes/dream_thater/計算系/COMB/COMB3/index.md)
 4. [COMB4 格子路・括弧列・Catalan 数](textbook/volumes/dream_thater/計算系/COMB/COMB4/index.md)
+5. [COMB5 順列統計と集合分割](textbook/volumes/dream_thater/計算系/COMB/COMB5/index.md)

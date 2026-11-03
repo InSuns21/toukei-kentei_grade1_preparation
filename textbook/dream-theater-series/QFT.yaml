@@ -163,3 +163,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT39
     status: completed
     title: "カイラル対称性の量子異常・FujikawaのJacobianと軸性Ward恒等式"
+  - id: QFT40
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT40
+    status: completed
+    title: "標準模型のカイラルゲージ異常・三角係数と相殺条件"

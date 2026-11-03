@@ -1,0 +1,44 @@
+id: "COMB5"
+title: "順列統計と集合分割"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB4
+official_scope: []
+learning_objectives:
+  - 置換を一意な巡回分解に直し、符号なし第一種 Stirling 数の挿入漸化式を証明できる
+  - 非空ブロックの集合分割を定義から判定し、第二種 Stirling 数の挿入漸化式を証明できる
+  - Bell 数のブロック分類による漸化式と全射の包除式を双射から導出できる
+  - 順列の下降数を一列表示で判定し、Eulerian 数の挿入漸化式と対称性を証明できる
+  - 巡回分解から集合分割への忘却写像を構成し、巡回内部の順序による重みを計算できる
+definitions:
+  - { id: COMB5-DEF-01, name: 置換の巡回分解 }
+  - { id: COMB5-DEF-02, name: 符号なし第一種 Stirling 数 }
+  - { id: COMB5-DEF-03, name: 集合分割と第二種 Stirling 数 }
+  - { id: COMB5-DEF-04, name: Bell 数 }
+  - { id: COMB5-DEF-05, name: 下降数と Eulerian 数 }
+theorems:
+  - { id: COMB5-THM-01, name: 巡回分解の存在と一意性 }
+  - { id: COMB5-THM-02, name: 第一種 Stirling 数の挿入漸化式 }
+  - { id: COMB5-THM-03, name: 第二種 Stirling 数の挿入漸化式 }
+  - { id: COMB5-THM-04, name: Bell 数の特別なブロックによる漸化式 }
+  - { id: COMB5-THM-05, name: 第二種 Stirling 数と全射 }
+  - { id: COMB5-THM-06, name: Eulerian 数の挿入漸化式 }
+  - { id: COMB5-THM-07, name: Eulerian 数の対称性と総和 }
+  - { id: COMB5-THM-08, name: 巡回を忘れる写像と重み付き分割 }
+canonical_examples:
+  - 3元の置換を巡回個数別に全列挙
+  - 3元の集合分割をブロック数別に全列挙
+  - 3元の一列表示を下降数別に全列挙
+  - 4元2ブロックの分割と巡回の重み付き照合
+problem_patterns:
+  - COMB5-UNSIGNED-STIRLING-FIRST
+  - COMB5-STIRLING-SECOND
+  - COMB5-BELL-RECURRENCE
+  - COMB5-SURJECTION-SIEVE
+  - COMB5-EULERIAN-DESCENTS
+  - COMB5-CYCLE-PARTITION-WEIGHT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

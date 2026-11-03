@@ -1,0 +1,39 @@
+id: QFT40
+title: "標準模型のカイラルゲージ異常・三角係数と相殺条件"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT20, QFT28, QFT32, QFT35, QFT37, QFT39]
+official_scope: []
+learning_objectives:
+  - 右巻きWeyl場を電荷共役した左巻き表現で数え、超電荷と表現の共役を説明できる
+  - Fujikawaの曲率二次の熱核から対称三次跡の出現を導き、共変・整合的異常の区別を説明できる
+  - 積群の三角異常係数を色・弱多重度と二次指数を含めて列挙できる
+  - 最小標準模型一世代の全摂動的局所ゲージ異常係数を有理数で検算できる
+  - 三角ゲージ異常、混合重力異常、大域SU(2)異常と大域軸性異常の適用範囲を区別できる
+definitions:
+  - { id: QFT40-DEF-01, name: 異常計算のための左巻き場一覧 }
+  - { id: QFT40-DEF-02, name: 三角異常の対称三次跡 }
+theorems:
+  - { id: QFT40-PROP-01, name: 一ループ局所異常の群論係数 }
+  - { id: QFT40-PROP-02, name: 基本・反基本と弱二重項の三次跡 }
+  - { id: QFT40-THM-01, name: 最小標準模型の一世代の摂動的ゲージ異常相殺 }
+canonical_examples:
+  - 右巻き上クォークの共役色表現と超電荷を直接検査
+  - U(1)電荷の一次和と三次和の非同値を三つのWeyl場で確認
+  - Pauli行列の反交換子によってSU(2)三次跡が零になることを確認
+  - 標準模型五多重項の色・弱成分数と異常係数の各寄与を通分して検算
+problem_patterns:
+  - QFT40-RIGHT-HANDED-CONJUGATE
+  - QFT40-ABELIAN-CUBIC-VS-LINEAR
+  - QFT40-SU2-SQUARED-U1
+  - QFT40-SU3-SQUARED-U1
+  - QFT40-SU3-CUBIC-REPRESENTATIONS
+  - QFT40-HYPERCHARGE-CUBIC-COMPLETE
+  - QFT40-MIXED-GRAVITATIONAL-DISTINCTION
+  - QFT40-SU2-CUBIC-GLOBAL-PARITY
+  - QFT40-VECTORLIKE-VS-AXIAL
+  - QFT40-ALL-STANDARD-MODEL-ANOMALIES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 15, review: 6 }
