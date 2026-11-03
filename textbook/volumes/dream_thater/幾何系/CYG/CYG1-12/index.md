@@ -128,7 +128,19 @@ $$
 
 ここでは次の一般結果を外部定理として用いる。
 
-> **Dolbeaultの定理（正則ベクトル束版、外部入力）。** 複素多様体 $X$ とその正則ベクトル束 $E$ について、自然な同型 $H^q(X,E)\simeq H_{\bar\partial}^{0,q}(X,E)$ がある。理由は、正則 $E$ 切断の層から始まるベクトル束値Dolbeault複体が局所 $\bar\partial$-Poincaré補題で完全になり、その滑らかな形式の層がfineであることにある。本章ではその層コホモロジー一般論の完全証明までは行わない。
+<a id="thm-cyg1-12-bundle-dolbeault"></a>
+
+<!-- formal-statement-start -->
+> **定理（正則ベクトル束版Dolbeaultの定理：外部入力）**
+>
+> $X$ を複素多様体、$E$ を $X$ 上の正則ベクトル束とする。任意の整数 $q\ge0$ に対して、正則切断の層のコホモロジーとベクトル束値Dolbeaultコホモロジーには自然な同型がある。
+
+$$
+H^q(X,E)\simeq H_{\bar\partial}^{0,q}(X,E).
+$$
+<!-- formal-statement-end -->
+
+この一般定理の理由は、正則 $E$ 切断の層から始まるベクトル束値Dolbeault複体が局所 $\bar\partial$-Poincaré補題で完全になり、その滑らかな形式の層がfineであることにある。本章ではその層コホモロジー一般論の完全証明までは行わない。
 
 では第2節の束同型をこの複体へ拡張しよう。局所的に
 
@@ -175,7 +187,7 @@ H_{\bar\partial}^{0,q}(X,T_X)
 \simeq H_{\bar\partial}^{n-1,q}(X).
 $$
 
-> 特に正則ベクトル束版Dolbeaultの定理を使うと
+> 特に[正則ベクトル束版Dolbeaultの定理](#thm-cyg1-12-bundle-dolbeault)を使うと
 
 $$
 H^1(X,T_X)\simeq H_{\bar\partial}^{n-1,1}(X).
@@ -200,7 +212,7 @@ $$
 
 左辺で $(0,q)$ 形式を最初に並べたので、$q$ 次形式の微分に由来する符号は両辺で同じである。ゆえに $\bar\partial_{T_X}\alpha=0$ なら収縮像も閉であり、$\alpha=\bar\partial_{T_X}\gamma$ なら $\mathcal I_{\Omega,q}(\alpha)=\bar\partial\,\mathcal I_{\Omega,q-1}(\gamma)$ で完全となる。逆束同型にも同じ議論ができ、閉形式の商で相互に逆の写像を与える。
 
-$q=1$ と置き、上で仮定を記した正則ベクトル束版Dolbeaultの定理を $E=T_X$ へ適用すれば、層コホモロジー $H^1(X,T_X)$ も同定される。コンパクトKählerなら[Hodge分解と調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の文脈で $h^{n-1,1}(X)=\dim_{\mathbb C}H_{\bar\partial}^{n-1,1}(X)$ と読む。$\square$
+$q=1$ と置き、[正則ベクトル束版Dolbeaultの定理](#thm-cyg1-12-bundle-dolbeault)を $E=T_X$ へ適用すれば、層コホモロジー $H^1(X,T_X)$ も同定される。コンパクトKählerなら[Hodge分解と調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の文脈で $h^{n-1,1}(X)=\dim_{\mathbb C}H_{\bar\partial}^{n-1,1}(X)$ と読む。$\square$
 <!-- proof-end -->
 
 大事なのは、**この同型自体は変形理論を使わない**ことだ。$\Omega$ が存在すれば複素多様体の正則束とコホモロジーについて成立する。同型の左側をなぜ「一次変形」と呼ぶのかは次節で説明する。
@@ -309,7 +321,7 @@ $$
 
 従って一次の座標付け替えが作る差は $\bar\partial_{T_X}v$ である。逆に任意の滑らかな $v$ は $w=z+t v$ の一次座標付け替えを与え、形式的には逆 $z=w-t v(w,\bar w)$ を持つ。よって差が完全形式であることと、一次の座標付け替えで移ることは同値である。
 
-閉形式の集合をこの完全形式の集合で割った商は、[Dolbeaultの閉形式・完全形式による商](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)のベクトル束値版そのものである。最後の層コホモロジーとの同型は第3節で仮定を明示した正則ベクトル束版Dolbeaultの定理による。$\square$
+閉形式の集合をこの完全形式の集合で割った商は、[Dolbeaultの閉形式・完全形式による商](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)のベクトル束値版そのものである。最後の層コホモロジーとの同型は[正則ベクトル束版Dolbeaultの定理](#thm-cyg1-12-bundle-dolbeault)による。$\square$
 <!-- proof-end -->
 
 なお、上の「一次変形」は選んだ滑らかな同一視の下での記述である。一般の実際の複素構造変形の存在や、その族の同型の扱いを完全に分類したわけではない。二次以上では $\mu$ 同士のLie括弧を含む非線形条件が出現し、一次に閉な類が自動的に延長するとは限らない。
@@ -347,7 +359,7 @@ H^1(X,T_X)\simeq H_{\bar\partial}^{0,1}(X,T_X)
 \xrightarrow{\ \simeq\ }H_{\bar\partial}^{n-1,1}(X).
 $$
 
-最初の同型は正則ベクトル束版Dolbeaultの定理、二番目は $\Omega$ の正則性と非消滅性により得た複体同型である。$H_{\bar\partial}^{0,1}(X,T_X)$ は[一次変形の分類](#thm-cyg1-12-first-order-classification)の空間である。コンパクトKähler性の下で右辺は有限次元で、[Hodge数の定義とHodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)により複素次元が $h^{n-1,1}(X)$ となる。$\square$
+最初の同型は[正則ベクトル束版Dolbeaultの定理](#thm-cyg1-12-bundle-dolbeault)、二番目は $\Omega$ の正則性と非消滅性により得た複体同型である。$H_{\bar\partial}^{0,1}(X,T_X)$ は[一次変形の分類](#thm-cyg1-12-first-order-classification)の空間である。コンパクトKähler性の下で右辺は有限次元で、[Hodge数の定義](../../HOD/HOD1-07/index.md#def-hod1-07-hodge-numbers)により複素次元が $h^{n-1,1}(X)$ となる。$\square$
 <!-- proof-end -->
 
 **この定理が数えないもの。** ある一次類をパラメータの二次・三次へ延長し、近傍の複素構造を全部集めた空間が滑らかになることは、別の主張である。実際の変形理論ではKodaira–Spencer/Kuranishi理論が局所的な変形を扱い、コンパクトKählerで標準束が自明な場合の無障害性にはBogomolov–Tian–Todorov定理という深い入力がある。**ここではそれらを証明していない。** とくに $h^{n-1,1}$ という数を、前提を確認せず「実際のモジュライの次元」と言い換えない。
@@ -419,7 +431,7 @@ $$
 
 かつ $\bar\partial_{T_X}$ は各成分へ独立に $\bar\partial$ を作用させる。よって $H^1(X,T_X)$ は $n$ 個の $H_{\bar\partial}^{0,1}(X)$ の直和となる。
 
-標準平坦計量の $(0,1)$ 形式について、[Dolbeault調和代表の定理](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を適用する。平坦トーラスで $\bar\partial$-LaplacianをFourier展開すると、零でない周波数 $m$ の係数には正の定数倍の $|m|^2$ が作用するので、調和な係数は零周波数、すなわち定数だけである。従って $H_{\bar\partial}^{0,1}(X)$ の基底は $d\bar z^1,\ldots,d\bar z^n$ である。
+標準平坦計量の $(0,1)$ 形式について、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を適用する。平坦トーラスで $\bar\partial$-LaplacianをFourier展開すると、零でない周波数 $m$ の係数には正の定数倍の $|m|^2$ が作用するので、調和な係数は零周波数、すなわち定数だけである。従って $H_{\bar\partial}^{0,1}(X)$ の基底は $d\bar z^1,\ldots,d\bar z^n$ である。
 
 各正則接枠との積を取ると $n^2$ 個の基底を得る。独立性は基本領域で係数を積分しても確かめられる。最後のHodge数との等号は[一次変形とHodge群の同型](#thm-cyg1-12-first-order-hodge)による。$\square$
 <!-- proof-end -->
@@ -432,7 +444,7 @@ $$
 h^{2,1}(X)=101.
 $$
 
-この $X$ に第5節の定理を適用するには、複素次元 $n=3$、零にならない $\Omega\in H^0(X,K_X)$、コンパクトKähler性を確認する。すると
+この $X$ に[一次変形とHodge群の対応](#thm-cyg1-12-first-order-hodge)を適用するには、複素次元 $n=3$、零にならない $\Omega\in H^0(X,K_X)$、コンパクトKähler性を確認する。すると
 
 $$
 \dim_{\mathbb C}H^1(X,T_X)
@@ -559,7 +571,7 @@ $$
 $X=E^2$、$\Omega=dz^1\wedge dz^2$ とする。四つの定数係数 $\mu_{jk}=d\bar z^j\otimes\partial_{z^k}$（$j,k=1,2$）の収縮像を列挙し、その類が一次独立である理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [収縮の局所公式](#def-cyg1-12-contraction)から
+**詳細解答。** [正則体積形式による収縮](#def-cyg1-12-contraction)から
 
 $$
 \begin{aligned}

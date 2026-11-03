@@ -15,12 +15,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（正則体積形式による束同型）"]
     requires: [cyg.volume-contraction]
+  - id: cyg.holomorphic-bundle-dolbeault
+    name: 正則ベクトル束版Dolbeaultの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則ベクトル束版Dolbeaultの定理：外部入力）"]
+    requires: [complex-manifolds.dolbeault-cohomology]
   - id: cyg.contraction-dolbeault-isomorphism
     name: 収縮によるDolbeaultコホモロジーの同型
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（収縮によるDolbeaultコホモロジーの同型）"]
-    requires: [cyg.contraction-bundle-isomorphism, complex-manifolds.dolbeault-cohomology]
+    requires: [cyg.contraction-bundle-isomorphism, cyg.holomorphic-bundle-dolbeault]
   - id: cyg.infinitesimal-beltrami-deformation
     name: 一次Beltrami変形と自明変形
     kind: definition
@@ -32,7 +38,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（一次複素構造変形の分類）"]
-    requires: [cyg.infinitesimal-beltrami-deformation, complex-manifolds.dolbeault-cohomology]
+    requires: [cyg.infinitesimal-beltrami-deformation, cyg.holomorphic-bundle-dolbeault]
   - id: cyg.infinitesimal-hodge-identification
     name: 一次変形空間とHodge群の同型
     kind: theorem

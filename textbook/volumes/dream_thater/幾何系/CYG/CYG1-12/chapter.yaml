@@ -22,6 +22,7 @@ theorems:
   - { id: CYG1-12-DEF-01, name: "正則体積形式による収縮写像" }
   - { id: CYG1-12-THM-01, name: "収縮による正則ベクトル束の同型" }
   - { id: CYG1-12-THM-04, name: "収縮によるDolbeaultコホモロジーの同型" }
+  - { id: CYG1-12-THM-05, name: "正則ベクトル束版Dolbeaultの定理（外部入力）" }
   - { id: CYG1-12-DEF-02, name: "一次Beltrami変形と自明変形" }
   - { id: CYG1-12-THM-02, name: "一次複素構造変形とDolbeault類" }
   - { id: CYG1-12-THM-03, name: "一次変形空間とHodge群の同型" }
