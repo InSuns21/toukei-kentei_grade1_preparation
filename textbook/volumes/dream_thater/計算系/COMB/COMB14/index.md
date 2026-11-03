@@ -79,7 +79,13 @@ $$
 
 **定義の確認**
 
-正方形の $r^2$ は $0\leftrightarrow2$、$1\leftrightarrow3$ を交換します。ここでは $r^{-2}=r^2$ なので、[誘導作用の定義](#def-comb14-induced-coloring-action)から $(r^2\cdot f)(j)=f(r^{-2}(j))=f(j-2\pmod4)$ です。したがって $r^2\cdot f=f$ は、すべての $j\in V$ に対する $f(j-2)=f(j)$ と同値であり、独立な条件にまとめると
+正方形の $r^2$ は $0\leftrightarrow2$、$1\leftrightarrow3$ を交換します。ここでは $r^{-2}=r^2$ なので、[誘導作用の定義](#def-comb14-induced-coloring-action)から
+
+$$
+(r^2\cdot f)(j)=f(r^{-2}(j))=f(j-2\pmod4).
+$$
+
+したがって $r^2\cdot f=f$ は、すべての $j\in V$ に対する $f(j-2)=f(j)$ と同値です。四つの等式を独立な条件にまとめると
 
 $$
 f(0)=f(2),\qquad f(1)=f(3)
@@ -109,7 +115,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[彩色への誘導規則](#def-comb14-induced-coloring-action)から $g\cdot f=f$ は全ての $v$ で $f(g^{-1}\cdot v)=f(v)$ と同値です。ここで $v=g\cdot u$ と置くと、群作用の公理から $g^{-1}\cdot(g\cdot u)=u$ なので $f(u)=f(g\cdot u)$ です。$u$ を $v$ と書き直して固定条件を得ます。
+[彩色への誘導規則](#def-comb14-induced-coloring-action)から、固定条件 $g\cdot f=f$ は
+
+$$
+f(g^{-1}\cdot v)=f(v)\qquad(v\in V)
+$$
+
+と同値です。任意の $u\in V$ について $v=g\cdot u$ を代入すると、[群作用の公理](../../../代数系/GRP/GRP3/index.md#def-grp3-group-action)から $g^{-1}\cdot(g\cdot u)=u$ であり、
+
+$$
+f(u)=f(g^{-1}\cdot(g\cdot u))=f(g\cdot u)
+$$
+
+を得ます。$u$ を $v$ と書き直せば、固定条件は $f(v)=f(g\cdot v)$ です。
 
 一つの巡回を $(v_0\ v_1\ \cdots\ v_{\ell-1})$ と書けば、$g\cdot v_i=v_{i+1}$（末尾は $v_0$）なので
 
@@ -117,7 +135,9 @@ $$
 f(v_0)=f(v_1)=\cdots=f(v_{\ell-1}).
 $$
 
-逆に各巡回上で同色にすれば、$g\cdot v$ は $v$ と同じ巡回に入るため $f(g\cdot v)=f(v)$ がすべての $v$ で成立し、$g\cdot f=f$ です。巡回は $V$ を互いに素に覆い、$c(g)$ 個の巡回ごとに $q$ 通りの色を独立に選べるので、[乗法原理](../COMB1/index.md#thm-comb1-multiplication)により $q^{c(g)}$ です。
+逆に各巡回上で同色にすれば、$g\cdot v$ は $v$ と同じ巡回に入るため $f(g\cdot v)=f(v)$ がすべての $v$ で成立します。上の同値性により $g\cdot f=f$ です。
+
+巡回は $V$ を互いに素に覆います。$c(g)$ 個の巡回それぞれに $q$ 色の一つを独立に選べるので、[乗法原理](../COMB1/index.md#thm-comb1-multiplication)により $q^{c(g)}$ です。
 <!-- proof-end -->
 
 **注意**：一つの巡回内の色はすべて一致しますが、異なる巡回に同じ色を使っても構いません。固定彩色を数える段階で「色の種類は巡回ごとに異なる」とすると過少計数になります。
@@ -241,7 +261,11 @@ $a_j=q$ と代入すると $(q^4+q^2+2q)/4$ となり、先ほどの固定彩色
 
 色ごとの使用個数まで数えたい場合、例えば赤を二つ・青を二つ使う彩色を数えたい場合は、単に $q=2$ を代入するだけでは情報が消えます。そこで赤色に変数 $u$、青色に変数 $v$ を付け、色の使用数を指数に記録します。
 
-ここで係数を取り出す記法を定めます。多項式 $F(u,v)$ に対して $[u^a v^b]F$ は単項式 $u^a v^b$ の係数（$a,b\in\mathbb N_0$）です。微分や値の代入ではなく、展開した式の係数を読み取ります。例えば[COMB2 の二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)から $[u^2v^2](u+v)^4=\binom42=6$ です。
+ここで係数を取り出す記法を定めます。多項式 $F(u,v)$ に対して $[u^a v^b]F$ は単項式 $u^a v^b$ の係数（$a,b\in\mathbb N_0$）です。微分や値の代入ではなく、展開した式の係数を読み取ります。例えば[COMB2 の二項定理](../COMB2/index.md#thm-comb2-binomial-theorem)から
+
+$$
+[u^2v^2](u+v)^4=\binom42=6.
+$$
 
 <a id="def-comb14-color-inventory"></a>
 
@@ -623,14 +647,14 @@ $$
 
 [Pólya の計数公式](#thm-comb14-polya)では赤に $u$、青に $v$ を付け $a_j=u^j+v^j$ とします。$u^2v^2$ の係数を四項ごとに求めると
 
-$
+$$
 \begin{aligned}
 [u^2v^2](u+v)^4 &=\binom42=6,\\
 [u^2v^2]2(u^4+v^4) &=0,\\
 [u^2v^2]3(u^2+v^2)^2 &=3\cdot2=6,\\
 [u^2v^2]2(u+v)^2(u^2+v^2) &=2\cdot2=4.
 \end{aligned}
-$
+$$
 
 よって
 
