@@ -148,20 +148,20 @@ $$
 $A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性と行列式が保たれます。
 
 未来向きであることも行列から判定できます。Pauli行列の反交換関係と $\operatorname{tr}(\boldsymbol p\cdot\boldsymbol\sigma)=0$ から、固有値は次のように求まります。
-$
+$$
 (\boldsymbol p\cdot\boldsymbol\sigma)^2=|\boldsymbol p|^2I,
 \qquad
 \lambda_\pm(X(p))=p^0\pm|\boldsymbol p|
-$
+$$
 です。正エネルギーの非零質量殻上では両固有値が非負で、$X(p)$ は非零の半正定値Hermitian行列です。任意の二成分列ベクトル $v$ について
-$
+$$
 v^\dagger AX(p)A^\dagger v
 =(A^\dagger v)^\dagger X(p)(A^\dagger v)\ge0
-$
+$$
 であり、$\det A=1$ から $A$ は可逆なので、合同変換後も非零半正定値です。従って
-$
+$$
 p'{}^0=\frac12\operatorname{tr}(AX(p)A^\dagger)>0
-$
+$$
 となり、未来向きの枝を保ちます。これがなぜLorentz群の**二重被覆**になるかも確かめます。
 
 まず $A=\operatorname{diag}(e^{\rho/2},e^{-\rho/2})$（実数 $\rho$）を代入すると、$X(p)$ の対角成分は $e^\rho(p^0+p^3)$ と $e^{-\rho}(p^0-p^3)$、非対角成分は不変です。和と差を取れば
@@ -730,10 +730,10 @@ A^\dagger A=\begin{pmatrix}e^\rho&0\\0&e^{-\rho}\end{pmatrix}\ne I
 $$
 
 なので二成分の通常のEuclidノルムは変わります。例えば $\chi_R=\chi_L=(1,0)^T$ をそれぞれ右・左Weyl成分の初期値として選ぶと、$A$ と $A_L=(A^\dagger)^{-1}$ の変換で
-$
+$$
 \|A\chi_R\|^2=e^\rho,\qquad
 \|A_L\chi_L\|^2=e^{-\rho}
-$
+$$
 となり、元のノルム二乗1とは異なります。
 
 一方、[ユニタリ粒子表現](#def-qft32-poincare)では運動量そのものも $\Lambda^{-1}p$ へ移し、$d^3p/(2E)$ の不変性とlittle groupのユニタリ行列 $D(W)$ を組み合わせるため波束のHilbertノルムを保存します。**固定時空点での場の成分ノルム**と**全運動量の波束ノルム**を比べていたことが誤った同一視の原因です。
@@ -753,7 +753,7 @@ $
 
 1. [光的little groupの定理](#thm-qft32-little-groups)の行列表示を直接検算します。Pauli表示に代入すると
 
-   $
+$$
    X(k)=\begin{pmatrix}2\kappa&0\\0&0\end{pmatrix},\qquad
    \det X(k)=0.
    $$
