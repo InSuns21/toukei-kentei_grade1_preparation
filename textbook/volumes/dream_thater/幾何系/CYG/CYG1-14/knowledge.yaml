@@ -1,0 +1,29 @@
+chapter: CYG1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-03, CYG1-05, CYG1-08, CYG1-09, CYG1-10, CYG1-11, CYG1-12, CYG1-13]
+concepts:
+  - id: cyg.capstone-criteria
+    name: Calabi–Yau条件の判定順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Calabi–Yau条件の判定順序）"]
+    requires: [cyg.canonical-chern-implications, cyg.enriques-integral-chern, cyg.ricci-flat-existence, cyg.ricci-restricted-holonomy]
+  - id: cyg.threefold-euler-hodge
+    name: Calabi–Yau三次元のEuler標数とHodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元のEuler標数とHodge数）"]
+    requires: [cyg.quintic-hodge-diamond, cyg.threefold-hodge-skeleton]
+  - id: cyg.mirror-euler-sign
+    name: Hodge数交換のEuler標数への帰結
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hodge数交換がEuler標数へ与える帰結）"]
+    requires: [cyg.threefold-euler-hodge]
+  - id: cyg.fermat-phase-group
+    name: Fermat型族の位相対称群の位数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat型族を保つ位相対称群）"]
+    requires: [cyg.quintic-polynomial-first-order]

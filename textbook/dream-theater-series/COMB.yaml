@@ -19,6 +19,6 @@ chapters:
   - { id: COMB13, path: textbook/volumes/dream_thater/計算系/COMB/COMB13, status: completed, title: "形式的反転と再帰構造" }
   - { id: COMB14, path: textbook/volumes/dream_thater/計算系/COMB/COMB14, status: completed, title: "群作用と Burnside 計数" }
   - { id: COMB15, path: textbook/volumes/dream_thater/計算系/COMB/COMB15, status: completed, title: "有限半順序集合と Möbius 反転" }
-  - { id: COMB16, path: textbook/volumes/dream_thater/計算系/COMB/COMB16, status: planned, title: "重み付き計数と q-二項係数" }
+  - { id: COMB16, path: textbook/volumes/dream_thater/計算系/COMB/COMB16, status: completed, title: "重み付き計数と q-二項係数" }
   - { id: COMB17, path: textbook/volumes/dream_thater/計算系/COMB/COMB17, status: planned, title: "有理型母関数と係数漸近" }
   - { id: COMB18, path: textbook/volumes/dream_thater/計算系/COMB/COMB18, status: planned, title: "動的計画法と列挙アルゴリズム" }

@@ -60,5 +60,5 @@ chapters:
     title: "quinticの複素変形とKähler方向"
   - id: CYG1-14
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-14
-    status: planned
-    title: "総合判定とmirror symmetryへの入口"
+    status: completed
+    title: "Calabi–Yauの総合判定とmirror symmetryへの入口"
