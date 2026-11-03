@@ -6,7 +6,7 @@
 
 この重複を減らすため、各ゲージ軌道から条件を満たす代表を選びます。ただし「条件を一つ課す」だけでは積分の体積要素が変わります。そのJacobianがFaddeev–Popov行列式であり、Grassmann変数で表したものがghostです。最後に、ゲージ固定後にも残る代数的な対称性としてBRSTを導きます。
 
-四次元Minkowski空間で $\eta=\operatorname{diag}(1,-1,-1,-1)$、$g>0$、$SU(N)$（$N\ge2$）を固定し、[QFT28の生成子・共変微分](../QFT28/index.md#def-qft28-covariant-derivative)に従います。
+四次元Minkowski空間で $\eta=\operatorname{diag}(-1,1,1,1)$、$g>0$、$SU(N)$（$N\ge2$）を固定し、[QFT28の生成子・共変微分](../QFT28/index.md#def-qft28-covariant-derivative)に従います。
 
 $$
 D_\mu=\partial_\mu-igA_\mu,\qquad
@@ -32,7 +32,7 @@ $$
 =\left(\partial_\mu v^a+g f^{abc}A_\mu^b v^c\right)T^a
 $$
 
-です。この係数を随伴表現の関数 $v^a$ へ直接作用させる演算子として、以下では $\mathscr D_\mu$ と書きます。
+です。この係数を随伴表現の関数 $v^a$ へ直接作用させる演算子として、以下では $\mathscr D_\mu$ と書きます。時空微分の添字を上げる際は $\partial^0=-\partial_0$、$\partial^j=+\partial_j$ であり、$\Box=\partial^\mu\partial_\mu=-\partial_t^2+\sum_{j=1}^3\partial_j^2$ です。
 
 $$
 (\mathscr D_\mu v)^a
@@ -140,7 +140,7 @@ $$
 定義の負号を掛けます。$G^b=\partial^\mu A_\mu^b=0$ の場では第二項のみが消えます。
 <!-- proof-end -->
 
-**直接例。** $A=0$ なら $M=-\Box I$ で、$\Box=\partial_t^2-\sum_{j=1}^3\partial_j^2$ です。零モードの判定を別の正定値な模型で確かめるため、周期箱のEuclid座標 $x_E=(x_E^1,\ldots,x_E^4)$ に $\partial_{E,j}=\partial/\partial x_E^j$、$\partial_E^2=\sum_{j=1}^4\partial_{E,j}^2$ を定めます。$k$ を周期箱のFourier波数とすると
+**直接例。** $A=0$ なら $M=-\Box I$ で、$\Box=-\partial_t^2+\sum_{j=1}^3\partial_j^2$、すなわち $-\Box=\partial_t^2-\sum_j\partial_j^2$ です。零モードの判定を別の正定値な模型で確かめるため、周期箱のEuclid座標 $x_E=(x_E^1,\ldots,x_E^4)$ に $\partial_{E,j}=\partial/\partial x_E^j$、$\partial_E^2=\sum_{j=1}^4\partial_{E,j}^2$ を定めます。$k$ を周期箱のFourier波数とすると
 
 $$
 \partial_{E,j}e^{ik\cdot x_E}=ik_j e^{ik\cdot x_E},\qquad
@@ -574,7 +574,7 @@ $$
 
 ## 7. 演習
 
-各問では $D_\mu=\partial_\mu-igA_\mu$、$\mathscr D_\mu v=\partial_\mu v+g[A_\mu,v]$（成分の実Lie括弧 $[u,v]^a=f^{abc}u^bv^c$）、$\eta=\operatorname{diag}(1,-1,-1,-1)$ とします。$SU(2)$ は $f^{abc}=\varepsilon^{abc}$、$g>0$ です。Berezin積分の順序を使う問題では[QFT19の定義](../QFT19/index.md#def-qft19-berezin)に従います。
+各問では $D_\mu=\partial_\mu-igA_\mu$、$\mathscr D_\mu v=\partial_\mu v+g[A_\mu,v]$（成分の実Lie括弧 $[u,v]^a=f^{abc}u^bv^c$）、$\eta=\operatorname{diag}(-1,1,1,1)$ とします。$SU(2)$ は $f^{abc}=\varepsilon^{abc}$、$g>0$ です。Berezin積分の順序を使う問題では[QFT19の定義](../QFT19/index.md#def-qft19-berezin)に従います。
 
 ### 演習 QFT29-A1：微小変換と随伴微分
 
@@ -603,18 +603,18 @@ $\varepsilon^{132}=-1$ と $\varepsilon^{231}=1$ に注意します。$\omega^3=
 <!-- solution-start -->
 **詳細解答**
 
-時間成分だけが変化し、時刻だけに依存する関数へ作用する場合は $\partial^0=\partial_0=d/dt$ です。ここで $u''=d^2u/dt^2$、$v''=d^2v/dt^2$ としてA1の結果を微分すると
+時間成分だけが変化し、時刻だけに依存する関数へ作用する場合は $\partial^0=-\partial_0=-d/dt$ です。ここで $u''=d^2u/dt^2$、$v''=d^2v/dt^2$ としてA1の結果に $-d/dt$ を作用させると
 
 $$
-\delta G^1=u''-gav',\qquad
-\delta G^2=v''+gau'.
+\delta G^1=-u''+gav',\qquad
+\delta G^2=-v''-gau'.
 $$
 
 [FP作用素の定義](#def-qft29-fp-operator)で $M\omega=-\delta G$ なので
 
 $$
-(M\omega)^1=-u''+gav',\qquad
-(M\omega)^2=-v''-gau'.
+(M\omega)^1=u''-gav',\qquad
+(M\omega)^2=v''+gau'.
 $$
 
 背景の $G^a=0$ は、$A_0^3$ が一定であることから別途確認できます。$G=0$ でも $A\partial\omega$ の項は消えません。
@@ -798,13 +798,13 @@ $$
 この背景では時空成分の和は $\mu=0$ だけなので
 
 $$
-\delta_\omega G=(u''-gav',\ v''+gau',\ w'').
+\delta_\omega G=(-u''+gav',\ -v''-gau',\ -w'').
 $$
 
 従って
 
 $$
-M\omega=(-u''+gav',\ -v''-gau',\ -w'').
+M\omega=(u''-gav',\ v''+gau',\ w'').
 $$
 
 零背景での $-\Box I$ と違い、第一・第二色成分は $ga\,d/dt$ で混ざります。
@@ -813,17 +813,17 @@ $$
 
 $$
 \mathcal L_{\rm gh}
-=-\bar c^1(\ddot c^1-ga\dot c^2)
--\bar c^2(\ddot c^2+ga\dot c^1)
--\bar c^3\ddot c^3.
+=\bar c^1(\ddot c^1-ga\dot c^2)
++\bar c^2(\ddot c^2+ga\dot c^1)
++\bar c^3\ddot c^3.
 $$
 
-時間境界項が零なら $\int-\bar c\,\ddot c=\int\dot{\bar c}\dot c$、$\int \bar c^1ga\dot c^2=\int-ga\dot{\bar c}^1c^2$、$\int-\bar c^2ga\dot c^1=\int ga\dot{\bar c}^2c^1$ です。ゆえに
+時間境界項が零なら $\int\bar c\,\ddot c=-\int\dot{\bar c}\dot c$、$\int-ga\bar c^1\dot c^2=\int ga\dot{\bar c}^1c^2$、$\int ga\bar c^2\dot c^1=\int-ga\dot{\bar c}^2c^1$ です。ゆえに
 
 $$
 \mathcal L_{\rm gh}
-=\dot{\bar c}^a\dot c^a
-+ga\bigl(-\dot{\bar c}^1c^2+\dot{\bar c}^2c^1\bigr).
+=-\dot{\bar c}^a\dot c^a
++ga\bigl(\dot{\bar c}^1c^2-\dot{\bar c}^2c^1\bigr).
 $$
 
 ここでもghost同士を交換しないので追加符号はありません。
