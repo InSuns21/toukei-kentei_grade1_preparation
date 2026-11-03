@@ -10,7 +10,13 @@
 
 この講義では条件を一度同じ表へ載せ、「その計量が」「ある計量が」「全閉路が」という量化を揃える。続く講義で具体的な超曲面やChern数を計算するための基準になる。
 
-以下、断りのない限り $X$ は **連結、滑らか、コンパクト、複素次元 $n\ge1$ のKähler多様体**、$g$ はその上の**指定された**Kähler計量とする。$K_X=\bigwedge^nT^{*1,0}X$、$c_1(X):=c_1(T^{1,0}X)=-c_1(K_X)$ とする。後者の符号は[標準束の第一Chern類](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)に従う。正則局所座標 $z^1,\ldots,z^n$ で $G=(g_{j\bar k})$ は $g$ のHermite計量係数行列とし、以下の $j,k$ は $1,\ldots,n$ を動き、繰り返した添字について総和を取る。$\partial,\bar\partial$ はそれぞれ正則・反正則座標方向の型別微分である。基本形式・Ricci形式の規格化は
+以下、断りのない限り $X$ は **連結、滑らか、コンパクト、複素次元 $n\ge1$ のKähler多様体**、$g$ はその上の**指定された**Kähler計量とする。
+
+標準束を $K_X=\bigwedge^nT^{*1,0}X$ と書き、接束の第一Chern類を $c_1(X):=c_1(T^{1,0}X)=-c_1(K_X)$ とする。この符号は[標準束の第一Chern類](../../KAH/KAH1-12/index.md#cor-kah1-12-canonical-sign)に従う。
+
+正則局所座標 $z^1,\ldots,z^n$ では、$G=(g_{j\bar k})$ を $g$ のHermite計量係数行列とする。添字 $j,k$ は $1,\ldots,n$ を動き、繰り返し添字は総和を表す。
+
+$\partial,\bar\partial$ はそれぞれ正則・反正則座標方向の型別微分である。基本形式・Ricci形式の規格化は
 
 $$
 \omega=i g_{j\bar k}\,dz^j\wedge d\bar z^k,\qquad
@@ -200,7 +206,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-(K) から大域で零を持たない正則 $n$ 形式 $\Omega$ を取る。座標 $z^1,\ldots,z^n$ 上で $\Omega=f(z)\,dz^1\wedge\cdots\wedge dz^n$、$f$ は零を持たない正則関数と書ける。$g$ の行列を $G=(g_{j\bar k})$ とする。[誘導Hermite計量の定義](../../CM/CM2-09/index.md#def-cm2-09-induced-metrics)をこの正則余接枠に適用すると、双対枠の計量行列は $(G^{-1})^{\mathsf T}$ である。最高外冪のノルム二乗はその行列式だから、局所枠 $\kappa=dz^1\wedge\cdots\wedge dz^n$ に対して
+(K) から大域で零を持たない正則 $n$ 形式 $\Omega$ を取る。正則座標上で、零を持たない正則関数 $f$ を使い
+
+$$
+\Omega=f(z)\,dz^1\wedge\cdots\wedge dz^n
+$$
+
+と書く。$g$ のHermite計量行列を $G=(g_{j\bar k})$ とする。[誘導Hermite計量の定義](../../CM/CM2-09/index.md#def-cm2-09-induced-metrics)によれば、正則余接枠の計量行列は
+
+$$
+G^\vee=(G^{-1})^{\mathsf T}
+$$
+
+である。最高外冪のノルム二乗はその行列式だから、局所枠 $\kappa=dz^1\wedge\cdots\wedge dz^n$ に対して
 
 $$
 \|\kappa\|_g^2=\det((G^{-1})^{\mathsf T})
@@ -224,7 +242,13 @@ $$
 
 最後の符号は $\rho=-i\partial\bar\partial\log\det G$ から $\partial\bar\partial\log\det G=i\rho$、従って $-\partial\bar\partial\log\det G=-i\rho$ として得る。ここでは零性だけが必要である。Kähler計量のLaplacianは局所的に $g^{j\bar k}\partial_j\partial_{\bar k}u$ の非零定数倍なので、$u$ は調和関数である。
 
-実Laplacianを $\Delta u=\operatorname{div}(\nabla u)$ と書く。実体積形式 $dV_g$ とベクトル場 $V=u\nabla u$ に対し、$\operatorname{div}V\,dV_g=d(\iota_VdV_g)$ である。[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)をこの $(2n-1)$ 形式に、境界のないコンパクトな実 $2n$ 次元多様体 $X$ 上で適用すると
+実Laplacianを $\Delta u=\operatorname{div}(\nabla u)$ と書く。実体積形式を $dV_g$、ベクトル場を $V=u\nabla u$ とすると、
+
+$$
+\operatorname{div}V\,dV_g=d(\iota_VdV_g)
+$$
+
+である。[一般Stokes定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)をこの $(2n-1)$ 形式に適用する。$X$ は境界のないコンパクトな実 $2n$ 次元多様体なので、
 
 $$
 0=\int_X\operatorname{div}(u\nabla u)\,dV_g
@@ -234,7 +258,13 @@ $$
 
 積分される量は連続・非負だから $\nabla u=0$、連結性から $u$ は定数である。
 
-正則線束 $K_X$ の正則枠 $\Omega$ におけるChern接続1形式は $\partial\log\|\Omega\|_g^2=\partial u$（[Chern接続の局所公式](../../KAH/KAH1-12/index.md#prop-kah1-12-determinant-curvature)と同じ線束の計算）であり、$\partial u=0$ だから $D\Omega=0$。Kähler計量では標準束の誘導接続はLevi–Civita接続から誘導されるので、$\Omega$ はすべての曲線で平行である。
+正則線束 $K_X$ の正則枠 $\Omega$ におけるChern接続1形式は、[Chern接続の局所公式](../../KAH/KAH1-12/index.md#prop-kah1-12-determinant-curvature)と同じ線束の計算から $\partial\log\|\Omega\|_g^2=\partial u$ である。$u$ は定数なので、
+
+$$
+D\Omega=(\partial u)\otimes\Omega=0.
+$$
+
+Kähler計量では標準束の誘導接続はLevi–Civita接続から誘導されるので、$\Omega$ はすべての曲線で平行である。
 
 最後に、$x$ のユニタリ基底 $e_1,\ldots,e_n$ で閉路の平行移動を行列 $P$ とする。[Kählerホロノミーのユニタリ性](../../KAH/KAH1-16/index.md#thm-kah1-16-unitary)から $P\in U(n)$。平行な $\Omega$ は閉路の前後で同じ値を返すため、
 
