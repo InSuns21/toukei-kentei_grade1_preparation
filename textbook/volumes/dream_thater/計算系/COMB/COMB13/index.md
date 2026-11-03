@@ -1,6 +1,6 @@
 # COMB13 形式的反転と再帰構造
 
-[COMB10 の再帰分解](../COMB10/index.md#def-comb10-proper-recursion)では、部品へ分けると大きさが減ることから母関数の方程式を作りました。しかし $T=x(1+T)^2$ のように未知の母関数が両辺に現れると、係数を一つずつ求めることはできても、一般の第 $n$ 項はまだ見えません。方程式を形式的に解き、**任意の次数の係数を一度に取り出す**のがこの章の問いです。
+[COMB10 の再帰分解](../COMB10/index.md#def-comb10-proper-recursion)では、部品へ分けると大きさが減ることから母関数の方程式を作りました。しかし $F=x(1+F)^2$ のように未知の母関数が両辺に現れると、係数を一つずつ求めることはできても、一般の第 $n$ 項はまだ見えません。方程式を形式的に解き、**任意の次数の係数を一度に取り出す**のがこの章の問いです。
 
 以降、係数は有理数、母関数は $\mathbb Q[[x]]$ の元とします。[COMB9 で定義した係数列と係数抽出](../COMB9/index.md#def-comb9-formal-series)、[Cauchy 積](../COMB9/index.md#def-comb9-cauchy-product)、[定数項による可逆性判定](../COMB9/index.md#thm-comb9-unit-criterion)、[定数項零の対象への合成](../COMB9/index.md#def-comb9-composition)は既習です。ここでいう「形式的」は数値として評価可能かどうかや、実数値関数として微分可能かどうかを要求しない、という意味です。
 
@@ -33,7 +33,7 @@ $$
 <!-- definition-example-start: def-comb13-root-recursion -->
 ### 例：二つの子の場所を持つ木
 
-**定義の確認**として $\phi(u)=(1+u)^2=1+2u+u^2$ とします。左右の子の場所は別々で、各場所は空か、同種の木で満たされます。根を大きさ $1$ とすれば $F=x(1+F)^2$。$F=f_1x+f_2x^2+f_3x^3+\cdots$ を代入すると、
+**定義の確認**として $\phi(u)=(1+u)^2=1+2u+u^2$ とします。左右の子の場所は別々で、各場所は空か、同種の木で満たされます。[大きさ加法的な積](../COMB10/index.md#thm-comb10-sum-product)を左右の場所に用い、根を大きさ $1$ とすれば $F=x(1+F)^2$ です。定数項零の $F=f_1x+f_2x^2+f_3x^3+\cdots$ を代入すると、
 
 $$
 \begin{aligned}
@@ -107,7 +107,7 @@ $$
 <!-- definition-example-start: def-comb13-formal-derivative -->
 ### 例：係数と積の微分
 
-**定義の確認**として $A(u)=1+2u+3u^2+\cdots$ なら $A'(u)=2+6u+\cdots$ で、$[u]A'=2[u^2]A=6$ です。$A(u)B(u)$ の $u^{n-1}$ 係数を [Cauchy 積](../COMB9/index.md#def-comb9-cauchy-product)によって微分の前後で比べると、
+**定義の確認**として $A(u)=1+2u+3u^2+\cdots$ なら $A'(u)=2+6u+\cdots$ で、$[u]A'=2[u^2]A=6$ です。$n\geq1$ として、$A(u)B(u)$ の $u^{n-1}$ 係数を [Cauchy 積](../COMB9/index.md#def-comb9-cauchy-product)によって微分の前後で比べると、
 
 $$
 \begin{aligned}
@@ -118,18 +118,20 @@ $$
 \end{aligned}
 $$
 
-これは $i+j=n$ が有限個であるため成立する形式的な積の法則です。合成の連鎖律では $B(0)=0$ を仮定します。積の法則を $B^j$ に $j$ 回適用すると $(B^j)'=jB^{j-1}B'$ なので、各次数で寄与する $j$ が有限個であることを使って
+これは $i+j=n$ が有限個であるため成立する形式的な積の法則です。次に外側を $A(z)=\sum_{j\geq0}a_jz^j$、内側を $B(u)\in u\mathbb Q[[u]]$ と書きます。$A'$ は $z$、$B'$ は $u$ に関する形式的微分です。
+
+合成したものを $u$ で微分すると、連鎖律は
 
 $$
 \begin{aligned}
-(A(B(u)))'
-&=\sum_{j\geq1}a_j(B(u)^j)'\\
-&=\left(\sum_{j\geq1}j a_j B(u)^{j-1}\right)B'(u)
-=A'(B(u))B'(u)
+\frac{d}{du}A(B(u))
+&=\sum_{j\geq1}a_j\frac{d}{du}B(u)^j\\
+&=\left(\sum_{j\geq1}j a_jB(u)^{j-1}\right)B'(u)\\
+&=A'(B(u))B'(u)
 \end{aligned}
 $$
 
-を得ます。ここでは $A'$ は $A$ の形式変数を微分し、その後に $B(u)$ を代入する演算であり、$B'$ は $u$ に関する微分です。
+です。中段は形式的な積の法則を $B^j$ に $j$ 回適用したもので、次数 $u^n$ の係数に寄与するのは $j\leq n+1$ だけです。ここで $d/du$ は極限による微分ではなく、先ほど定義した係数操作を表します。
 <!-- definition-example-end -->
 
 定数項が零で一次係数が非零の $H(u)\in\mathbb Q[[u]]$ なら、別の $F\in x\mathbb Q[[x]]$ を合成し $H(F(x))=x$ とできそうです。ここで「逆数」$1/H$ と「合成逆」$F$ は異なる演算です。
@@ -192,13 +194,13 @@ $$
 Y=H(u)\psi(Y).
 $$
 
-一方 $u=H(u)\psi(u)$ も成立します。$H(u)=\sum_{j\geq1}b_ju^j$ と書き、定数項零の未知の $Y(u)=\sum_{i\geq1}y_iu^i$ について $Y=H\psi(Y)$ の $u^n$ 係数を比べると、
+一方 $u=H(u)\psi(u)$ も成立します。$H(u)=\sum_{j\geq1}q_ju^j$、$Y(u)=\sum_{i\geq1}y_iu^i$ と書くと、$Y=H\psi(Y)$ の次数 $n$ の係数は
 
 $$
-y_n=\sum_{j=1}^{n}b_j[u^{n-j}]\psi(Y(u)).
+y_n=[u^n]H\psi(Y)=\sum_{j=1}^n q_j[u^{n-j}]\psi(Y)
 $$
 
-右辺では $n-j\leq n-1$ なので、[形式的合成](../COMB9/index.md#def-comb9-composition)の各係数は $y_1,\ldots,y_{n-1}$ だけから決まります。$n=1$ から帰納すると定数項零の解は一意です。したがって二つの解 $Y$ と $u$ は一致し、$F(H(u))=u$ です。
+です。各 $n-j\leq n-1$ なので、[形式的合成](../COMB9/index.md#def-comb9-composition)の係数は $y_1,\ldots,y_{n-1}$ だけから決まります。[第1節と同じ係数帰納法](#thm-comb13-fixed-point)により、この方程式の定数項零の解は一意です。ゆえに $Y=u$、すなわち $F(H(u))=u$ です。
 
 任意の別の合成逆 $\widetilde F$ は $H(\widetilde F)=x$ を満たし、従って $\widetilde F=x\psi(\widetilde F)$ なので先の一意性により $\widetilde F=F$。特例では $h=1/\phi$、$\psi=\phi$ です。
 <!-- proof-end -->
@@ -270,7 +272,13 @@ $$
 
 $k=-1$ なら $H'/H=(uh)'/(uh)=u^{-1}+h'/h$。$h'/h\in\mathbb Q[[u]]$ には負の次数がないので、右辺の $u^{-1}$ 係数は $1$、左辺も $1$ です。
 
-一般に $A(x)=\sum_{k\geq m}a_kx^k$ とすると、$H^kH'$ の最低次数は $k$（$H$ は次数 $1$、$H'$ は定数項非零）です。従って $u^{-1}$ の係数へ寄与し得るのは $m\leq k\leq-1$ の有限個の項だけです。ここまで示した単項式の場合を係数ごとに足せば主張が従います。
+一般に $A(x)=\sum_{k\geq m}a_kx^k$ とします。$H$ は一次係数非零なので、$H^kH'$ の最低次数は整数 $k$ です。従って $u^{-1}$ の係数へ寄与し得るのは
+
+$$
+m\leq k\leq-1
+$$
+
+を満たす有限個の項だけです。ここまで示した単項式の場合を係数ごとに足せば主張が従います。
 <!-- proof-end -->
 
 <a id="thm-comb13-lagrange"></a>
@@ -348,7 +356,7 @@ $$
 <!-- formal-statement-start -->
 > **系（再帰解の冪の係数）**
 >
-> Lagrange 反転公式と同じ仮定の下、整数 $n\geq k\geq1$ に対して
+> $\phi(u)\in\mathbb Q[[u]]$、$\phi(0)\ne0$ とし、$F(x)\in x\mathbb Q[[x]]$ を $F=x\phi(F)$ の唯一の解とする。整数 $n\geq k\geq1$ に対して
 
 $$
 [x^n]F(x)^k=\frac{k}{n}[u^{n-k}]\phi(u)^n.
@@ -516,7 +524,15 @@ $H(u)=u/(2+u)$ の合成逆を求め、$H(F)=x$ と $F(H)=u$ を直接計算せ�
 <!-- solution-start -->
 **詳細解答**
 
-$x=F/(2+F)$ を $F$ について解くと $2x+xF=F$、従って $F=2x/(1-x)$。$2+u$、$1-x$ は定数項がそれぞれ $2$、$1$ で非零なので [逆元判定](../COMB9/index.md#thm-comb9-unit-criterion)から可逆です。また両方定数項零なので合成が定義されます。
+$H(F(x))=x$ を $F$ について解くと、
+
+$$
+x(2+F)=F\quad\Longleftrightarrow\quad
+(1-x)F=2x\quad\Longleftrightarrow\quad
+F=\frac{2x}{1-x}
+$$
+
+です。$2+u$ と $1-x$ は定数項がそれぞれ $2$ と $1$ で非零なので、[逆元判定](../COMB9/index.md#thm-comb9-unit-criterion)から可逆です。$H(0)=F(0)=0$ だから両方向の形式的合成も定義されます。
 
 $$
 \begin{aligned}
@@ -538,7 +554,14 @@ $H(u)=u/(1+u)$ と $A(x)=x^{-2}+3x^{-1}+x$ について、$\operatorname{Res}_x 
 <!-- solution-start -->
 **詳細解答**
 
-左は $[x^{-1}]A=3$。右は $H'=1/(1+u)^2$ を用いると
+左は $[x^{-1}]A=3$。右で使う $H'(u)$ は $u$ に関する[形式的微分](#def-comb13-formal-derivative)であり、積の法則と逆元の微分則から
+
+$$
+H'(u)=\frac{d}{du}\bigl(u(1+u)^{-1}\bigr)
+=(1+u)^{-1}-u(1+u)^{-2}=(1+u)^{-2}
+$$
+
+と求まるので、
 
 $$
 \begin{aligned}
@@ -611,7 +634,7 @@ $F=x\phi(F)$、$\phi(0)\ne0$ のもとで、$n\geq k\geq1$ の $[x^n]F^k$ を [L
 <!-- solution-start -->
 **詳細解答**
 
-[Lagrange 反転公式](#thm-comb13-lagrange)で $G(u)=u^k$ とすると、形式的微分により $G'=ku^{k-1}$。したがって
+[Lagrange 反転公式](#thm-comb13-lagrange)で $G(u)=u^k$ とすると、[形式的微分](#def-comb13-formal-derivative)により $G'=ku^{k-1}$。したがって
 
 $$
 \begin{aligned}
@@ -641,7 +664,17 @@ $$
 =\frac1n\binom{3n}{n-1}.
 $$
 
-$n=1$ で $1$、$n=2$ で $\binom61/2=3$（子の場所を選ぶ）、$n=3$ で $\binom92/3=12$。直接には、二頂点の子木を一つの場所へ置く $3\cdot3=9$ 通りと、一頂点の子を二つの異なる場所へ置く $\binom32=3$ 通り、合計 $12$ です。三つの場所を同一視すると別の計数になります。
+$n=1,2,3$ の値は順に
+
+$$
+\begin{aligned}
+n=1:&\quad \frac11\binom30=1,\\
+n=2:&\quad \frac12\binom61=3,\\
+n=3:&\quad \frac13\binom92=12.
+\end{aligned}
+$$
+
+二頂点では子の場所を三つから一つ選びます。三頂点では二頂点の子木を一つの場所へ置く $3\cdot3=9$ 通りと、一頂点の子を二つの異なる場所へ置く $\binom32=3$ 通りで、合計 $12$ です。三つの場所を同一視すると別の計数になります。
 <!-- solution-end -->
 
 #### B3. 四頂点の標識付き根付き木
@@ -676,7 +709,7 @@ $F=x(2+F)$ の解を分数形で求め、$n\geq1$ の係数を反転公式でも
 <!-- solution-start -->
 **詳細解答**
 
-方程式は $(1-x)F=2x$ なので、定数項 $1$ の $1-x$ は可逆で、
+方程式は $(1-x)F=2x$ なので、[定数項による逆元判定](../COMB9/index.md#thm-comb9-unit-criterion)により定数項 $1$ の $1-x$ は可逆で、
 
 $$
 F=\frac{2x}{1-x}
@@ -713,7 +746,7 @@ $n=0$ は $F(0)=0$ であり、公式の $1/n$ には代入しません。
 <!-- solution-start -->
 **詳細解答**
 
-1. 根を除いた左右二つの場所は、空か同種の木です。互いの順番を交換すると一般に別物なので、構造から左右の部分木への対応は一対一です。非空頂点数の OGF は $F=x(1+F)^2$。$\phi(0)=1$ なので [反転公式](#thm-comb13-lagrange)に $G(u)=u$ を入れます。
+1. 根を除いた左右二つの場所は、空か同種の木です。互いの順番を交換すると一般に別物なので、構造から左右の部分木への対応は一対一です。[和・積の普通母関数](../COMB10/index.md#thm-comb10-sum-product)から非空頂点数の OGF は $F=x(1+F)^2$。$\phi(0)=1$ なので [Lagrange 反転公式](#thm-comb13-lagrange)に $G(u)=u$ を入れます。
 
 $$
 \begin{aligned}
