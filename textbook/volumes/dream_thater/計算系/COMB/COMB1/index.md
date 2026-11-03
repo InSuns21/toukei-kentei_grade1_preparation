@@ -504,7 +504,15 @@ $A$ は $n$ 元の有限集合とする。$S\subseteq A$ と、$S$ の**異な�
 
    $k=0,1$ なら二つの異なる元は選べず0通りですが、式 $k(k-1)$ も0になるので全ての $k\geq0$ で成り立ちます。
 
-   [二重計数原理](#thm-comb1-double-counting)を「部分集合 $S$」と「順序付き二印 $(a,b)$」の所属関係に適用すると、
+   定理に適用する関係を明示します。$X=\mathcal P(A)$、$Y=\{(a,b)\in A\times A:a\ne b\}$ とし、
+
+   $$
+   Q=\{(S,(a,b))\in X\times Y:a\in S,\ b\in S\}
+   $$
+
+   と置きます。三つ組 $(S,a,b)\in R$ を組 $(S,(a,b))\in Q$ に対応させると、逆に成分をほどけるので全単射です。[双射原理](#thm-comb1-bijection)から $|R|=|Q|$ となります。
+
+   この $Q$ に[二重計数原理](#thm-comb1-double-counting)を適用し、$S$ 側の分類と $(a,b)$ 側の分類を比較すると、
 
    $$
    \boxed{\sum_{S\subseteq A}|S|(|S|-1)=n(n-1)2^{n-2}}\qquad(n\geq2)
