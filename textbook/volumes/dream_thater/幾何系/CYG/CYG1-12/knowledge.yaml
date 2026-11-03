@@ -1,7 +1,7 @@
 chapter: CYG1-12
 scope: dream-theater
 coverage: complete
-prerequisites: [CYG1-02, CYG1-04, CYG1-08, CM1-05, CM1-06, CM2-04, HOD1-06]
+prerequisites: [CYG1-02, CYG1-04, CYG1-08, CYG1-10, CM1-05, CM1-06, CM2-04, HOD1-06]
 concepts:
   - id: cyg.volume-contraction
     name: 正則体積形式による収縮写像
