@@ -1,0 +1,48 @@
+id: "MICA14"
+title: "対角制限とHadamard subtraction"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P2A
+  - MICA13
+  - MICA12
+  - MICA11
+  - MICA7
+  - MICA3
+official_scope: []
+learning_objectives:
+  - 対角埋め込みの余法束とHadamard二点分布の波面集合との交差を再導出し、引き戻し定理の不適用と制限の絶対的不可能を区別できる
+  - 正周波数Minkowski二点分布の空間的な点分離で発散を計算できる
+  - 同じ作用素と交換子を持つ二つのHadamard二点分布の滑らかな差を用いて、対角への引き戻しと状態間のWick平方期待値差を証明できる
+  - 全次数の局所Hadamard式を用いたsubtractionと有限次切断の違い、局所規約の選択を説明できる
+  - 尺度変更のWick平方への寄与をv_0の対角値から求め、状態差の不変性と局所幾何学的有限項の自由度を区別できる
+  - 微分後の点分離で必要な滑らかさと、応力テンソルの保存性が別の問題である理由を説明できる
+definitions:
+  - { id: MICA14-DEF-01, name: Hadamard subtraction後の対角余り }
+  - { id: MICA14-DEF-02, name: 点分離によるWick平方期待値 }
+theorems:
+  - { id: MICA14-PROP-01, name: Hadamard二点分布の生の対角引き戻しの障害 }
+  - { id: MICA14-PROP-02, name: 滑らかな差の対角制限 }
+  - { id: MICA14-PROP-03, name: Wick平方の状態間差 }
+  - { id: MICA14-PROP-04, name: 尺度変更とWick平方の局所項 }
+  - { id: MICA14-PROP-05, name: 滑らかな余りへの微分と対角制限 }
+canonical_examples:
+  - 対角余法束と正の零二点波面方向の交差
+  - 質量零Minkowski真空の空間的な点分離発散
+  - 滑らかな定数双解の加算によるWick平方期待値差
+  - 曲率を含むv_0の対角値と尺度変更
+problem_patterns:
+  - MICA14-DIAGONAL-CONORMAL
+  - MICA14-RAW-DIVERGENCE
+  - MICA14-SMOOTH-PULLBACK
+  - MICA14-FINITE-TRUNCATION
+  - MICA14-STATE-DIFFERENCE
+  - MICA14-HERMITICITY
+  - MICA14-SCALE-SHIFT
+  - MICA14-LOCAL-AMBIGUITY
+  - MICA14-DERIVATIVES
+  - MICA14-INTEGRATED-POINT-SPLITTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
