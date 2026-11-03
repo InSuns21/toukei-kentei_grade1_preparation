@@ -250,7 +250,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod5-enu -->
-**定義の確認**　基準点が $\phi_0=\lambda_0=0$ なら
+**定義の確認**　$a=5,b=4$、基準点を $(\phi_0,\lambda_0,h_0)=(0,0,0)$ とします。$a\ge b>0$、$|\phi_0|<\pi/2$、$h_0\ge0$ を満たし、[順変換](#thm-geod5-forward)から $\boldsymbol P_0=(5,0,0)$ です。この基準点では
 
 $$
 \boldsymbol e_{\mathrm E}=(0,1,0),\quad
@@ -258,7 +258,7 @@ $$
 \boldsymbol e_{\mathrm U}=(1,0,0).
 $$
 
-$\boldsymbol d=(2,3,4)$ を代入すると $(E,N_{\mathrm{loc}},U)=(3,4,2)$ です。各基底の長さは1で二つずつの内積は0、ゆえに三つの射影値は差ベクトルを欠損なく記述します。北は $+Z$ ですが、上は $+X$ であり、軸の名称と地心成分名を混同できません。
+同じ地心直交座標系の点 $\boldsymbol P=(7,3,4)$ を選ぶと、差は $\boldsymbol d=\boldsymbol P-\boldsymbol P_0=(2,3,4)$ です。定義の内積により $(E,N_{\mathrm{loc}},U)=(3,4,2)$ を得ます。この三方向はそれぞれ長さ1、二つずつの内積が0で、さらに $\boldsymbol e_{\mathrm E}\times\boldsymbol e_{\mathrm N}=\boldsymbol e_{\mathrm U}$ です。したがって基準点の正規直交な右手系への成分表示となり、元の差も $3\boldsymbol e_{\mathrm E}+4\boldsymbol e_{\mathrm N}+2\boldsymbol e_{\mathrm U}=(2,3,4)$ と復元できます。北は $+Z$、上は $+X$ であり、軸の名称と地心成分名を混同できません。
 <!-- definition-example-end -->
 
 ### ENU行列と逆回転
@@ -340,11 +340,13 @@ $$
 
 <!-- proof-end -->
 
-この直交回転は[GEOD2 の座標軸間の表示](../GEOD2/index.md#prop-geod2-rigid-frame)の具体例です。ただし、基準点 $\boldsymbol P_0$ の引き算を忘れると「点の絶対座標」を東西・南北の変位と読み違えます。またENUの $U$ は楕円体法線方向の成分であり、重力による水準測量の高低差と一般には同じではありません。
+この直交回転は、[GEOD2 の二次元の直交座標軸間の表示](../GEOD2/index.md#prop-geod2-rigid-frame)と同じ原理を三次元に適用したものです。三次元で必要な直交性・右手性と転置による逆変換は、上で直接確かめました。ただし、基準点 $\boldsymbol P_0$ の引き算を忘れると「点の絶対座標」を東西・南北の変位と読み違えます。またENUの $U$ は楕円体法線方向の成分であり、重力による水準測量の高低差と一般には同じではありません。
 
 ### 基準点付近の微小な緯度・経度・高さ
 
 ENUの式は任意に離れた二点の**地心直交差ベクトル**を正確に表します。しかし、緯度差から $(M+h)\Delta\phi$ のように変位を見積もる式は基準点付近の一次近似です。両者を分けます。
+
+ここで $\boldsymbol P_\phi=\partial\boldsymbol P/\partial\phi$ は $\lambda,h$ を固定して $\phi$ だけを変えた偏微分、$\boldsymbol P_\lambda$ は $\phi,h$ を固定した偏微分、$\boldsymbol P_h$ は $\phi,\lambda$ を固定した偏微分です。$d\phi,d\lambda,dh$ はそれぞれの微小変化、$\Delta\phi,\Delta\lambda,\Delta h$ は二点間の有限な座標差を表します。**Jacobian（ヤコビ行列）**は、入力順 $(\phi,\lambda,h)$ の各変数について偏微分したENU成分を列に並べた $3\times3$ 行列です。微分による等式と有限差の一次近似は、この意味で区別します。
 
 <a id="prop-geod5-local-jacobian"></a>
 <!-- formal-statement-start -->
@@ -411,7 +413,19 @@ $$
 \boldsymbol P_h=\boldsymbol\nu=\boldsymbol e_{\mathrm U}.
 $$
 
-基準点でこれらを[ENUの三行](#def-geod5-enu)へ射影すると、東・北・上の各成分は表示式に一致します。$M_0,N_0>0$、$h_0\ge0$、$\cos\phi_0>0$ だからJacobianの行列式は
+よって各変数の微小変化による地心直交変位は
+
+$
+\begin{aligned}
+d\boldsymbol P
+&=\boldsymbol P_\phi\,d\phi+\boldsymbol P_\lambda\,d\lambda+\boldsymbol P_h\,dh\\
+&=(M+h)\boldsymbol e_{\mathrm N}\,d\phi
+ +(N+h)\cos\phi\,\boldsymbol e_{\mathrm E}\,d\lambda
+ +\boldsymbol e_{\mathrm U}\,dh.
+\end{aligned}
+$
+
+基準点でこの式を[ENUの三方向](#def-geod5-enu)へ内積射影します。直交性から東方向には $d\lambda$ の項だけ、北方向には $d\phi$ の項だけ、上方向には $dh$ の項だけが残り、命題の三式とJacobianが得られます。$M_0,N_0>0$、$h_0\ge0$、$\cos\phi_0>0$ だからJacobianの行列式は
 
 $$
 -(M_0+h_0)(N_0+h_0)\cos\phi_0\ne0.
@@ -551,7 +565,7 @@ $a\ge b>0$、非極点 $(\phi,\lambda,h)$、$h\ge0$ で、$\boldsymbol P=\boldsy
 - ID: GEOD5-B3
 
 <!-- solution-start -->
-**詳細解答。** [表面の偏微分](../GEOD4/index.md#prop-geod4-tangent-vectors)と法線の成分微分を組み合わせ、
+**詳細解答。** $\lambda,h$ を固定した $\phi$ 偏微分と、$\phi,h$ を固定した $\lambda$ 偏微分を区別します。[表面の偏微分](../GEOD4/index.md#prop-geod4-tangent-vectors)に加え、法線を成分ごとに微分すると $\boldsymbol\nu_\phi=\boldsymbol e_{\mathrm N}$、$\boldsymbol\nu_\lambda=\cos\phi\,\boldsymbol e_{\mathrm E}$ です。これらを $\boldsymbol P=\boldsymbol r_0+h\boldsymbol\nu$ に代入して、
 
 $$
 \begin{aligned}
