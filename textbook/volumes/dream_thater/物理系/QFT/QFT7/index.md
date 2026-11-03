@@ -9,38 +9,38 @@
 時空はMinkowski空間 $\mathbb R^{1,3}$、自然単位系 $c=\hbar=1$、質量は **$m>0$** とします。計量の符号は
 
 $$
-\eta=\operatorname{diag}(1,-1,-1,-1)
+\eta=\operatorname{diag}(-1,1,1,1)
 $$
 
 です。[SREL3の質量殻](../../SREL/SREL3/index.md#def-srel3-mass-shell)上の正エネルギー運動量を
 
 $$
 p^\mu=(E,\boldsymbol p),\quad
-p_\mu=(E,-\boldsymbol p),\quad
+p_\mu=(-E,\boldsymbol p),\quad
 E=\sqrt{m^2+|\boldsymbol p|^2}>0
 $$
 
 と書きます。反復した上下の添字は $\mu=0,1,2,3$ について和を取り、$\partial_\mu=\partial/\partial x^\mu$ とします。四元内積と位相は
 
 $$
-p\cdot x=p_\mu x^\mu=Et-\boldsymbol p\cdot\boldsymbol x
+p\cdot x=p_\mu x^\mu=-Et+\boldsymbol p\cdot\boldsymbol x
 $$
 
 です。
 
-四元運動量の二乗は $p^2:=p_\mu p^\mu=E^2-|\boldsymbol p|^2=m^2$ と書き、通常の三次元ベクトルの長さの二乗とは区別します。
+四元運動量の二乗は $p^2:=p_\mu p^\mu=-E^2+|\boldsymbol p|^2=-m^2$ と書き、通常の三次元ベクトルの長さの二乗とは区別します。
 
 以下の $\psi(x)\in\mathbb C^4$ はまず**古典的な複素四成分場**です。スピン成分を数えられることと、Fock空間で反交換する量子場を構成したことは別であり、その量子化は次の段階で行います。
 
 ## 1. 一次方程式を可能にするClifford関係
 
-[Klein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)は $(\Box+m^2)\phi=0$ という二階の方程式でした。一次の演算子を二回作用させてこの方程式へ戻したいとします。$\partial_\mu\partial_\nu$ は入れ替えられるので、必要なのは行列積の**対称部分**が計量になることです。
+[Klein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)は $(-\Box+m^2)\phi=0$ という二階の方程式でした。一次の演算子を二回作用させてこの方程式へ戻したいとします。$\partial_\mu\partial_\nu$ は入れ替えられるので、必要なのは行列積の**対称部分**が計量になることです。
 
 <a id="def-qft7-clifford"></a>
 
 <!-- formal-statement-start -->
 > **定義（Clifford関係とDirac行列）**
-> Minkowski計量 $\eta^{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$ に対し、四つの複素 $4\times4$ 行列 $\gamma^\mu$ が
+> Minkowski計量 $\eta^{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ に対し、四つの複素 $4\times4$ 行列 $\gamma^\mu$ が
 
 $$
 \{\gamma^\mu,\gamma^\nu\}
@@ -51,7 +51,7 @@ $$
 > を満たすとき、これをClifford関係を満たすDirac行列という。$\gamma_\mu=\eta_{\mu\nu}\gamma^\nu$、四元ベクトル $a^\mu$ に対して $\not a=\gamma^\mu a_\mu$ と書く。
 <!-- formal-statement-end -->
 
-スラッシュは四元ベクトルを行列に移す略記です。時間成分が二乗で $+I_4$、空間成分が二乗で $-I_4$ になるため、すべてを同時に対角行列にはできません。
+スラッシュは四元ベクトルを行列に移す略記です。時間成分が二乗で $-I_4$、空間成分が二乗で $+I_4$ になるため、すべてを同時に対角行列にはできません。運動量に対しては $i\not p=i\gamma^\mu p_\mu$ が二乗して $m^2I_4$ となり、後で質量殻上のスピン射影に現れます。
 
 <!-- definition-example-start: def-qft7-clifford -->
 ### 例：Pauli行列を四成分のブロックへ組み立てる
@@ -71,34 +71,34 @@ $$
 Dirac表示は
 
 $$
-\gamma^0=\begin{pmatrix}I_2&0\\0&-I_2\end{pmatrix},
+\gamma^0=i\begin{pmatrix}I_2&0\\0&-I_2\end{pmatrix},
 \qquad
-\gamma^j=\begin{pmatrix}0&\sigma^j\\-\sigma^j&0\end{pmatrix}
+\gamma^j=i\begin{pmatrix}0&\sigma^j\\-\sigma^j&0\end{pmatrix}
 \quad(j=1,2,3)
 $$
 
-です。このブロックを二乗すると $(\gamma^0)^2=I_4$、$(\gamma^j)^2=-I_4$ となります。また
+です。このブロックを二乗すると $(\gamma^0)^2=-I_4$、$(\gamma^j)^2=I_4$ となります。また
 
 $$
 \gamma^0\gamma^j
-=\begin{pmatrix}0&\sigma^j\\\sigma^j&0\end{pmatrix},
+=-\begin{pmatrix}0&\sigma^j\\\sigma^j&0\end{pmatrix},
 \quad
 \gamma^j\gamma^0
-=\begin{pmatrix}0&-\sigma^j\\-\sigma^j&0\end{pmatrix}
+=\begin{pmatrix}0&\sigma^j\\\sigma^j&0\end{pmatrix}
 $$
 
 なので時間・空間の反交換子は零です。空間同士も
 
 $$
 \gamma^j\gamma^k+\gamma^k\gamma^j
-=-\begin{pmatrix}
+=\begin{pmatrix}
 \sigma^j\sigma^k+\sigma^k\sigma^j&0\\
 0&\sigma^j\sigma^k+\sigma^k\sigma^j
 \end{pmatrix}
-=-2\delta^{jk}I_4.
+=2\delta^{jk}I_4.
 $$
 
-従って全16組について定義の右辺を再現しました。さらに $(\gamma^0)^\dagger=\gamma^0$、$(\gamma^j)^\dagger=-\gamma^j$ です。後で随伴を扱う際にこの符号を使います。
+従って全16組について定義の右辺を再現しました。さらに $(\gamma^0)^\dagger=-\gamma^0$、$(\gamma^j)^\dagger=\gamma^j$ です。後で随伴を扱う際にこの符号を使います。
 <!-- definition-example-end -->
 
 <a id="thm-qft7-factorization"></a>
@@ -108,34 +108,34 @@ $$
 > 上のClifford行列を固定し、$m>0$ とする。$C^2$ 級の四成分場 $\psi$ に対し
 
 $$
-(i\gamma^\mu\partial_\mu+m)
-(i\gamma^\nu\partial_\nu-m)\psi
-=-(\Box+m^2)\psi.
+(\gamma^\mu\partial_\mu+m)
+(\gamma^\nu\partial_\nu-m)\psi
+=(\Box-m^2)\psi.
 $$
 
-> 特に一次方程式 $(i\gamma^\mu\partial_\mu-m)\psi=0$ の各成分はKlein–Gordon方程式を満たす。
+> 特に一次方程式 $(\gamma^\mu\partial_\mu-m)\psi=0$ の各成分はKlein–Gordon方程式を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-一次演算子を掛け合わせたとき、混合微分は対称なので反交換子だけが残ります。行列の符号を $(+,-,-,-)$ に合わせると、質量殻条件 $E^2-|\boldsymbol p|^2=m^2$ と同じ符号が出ます。
+一次演算子を掛け合わせたとき、混合微分は対称なので反交換子だけが残ります。計量 $(-,+,+,+)$ では質量殻条件 $-E^2+|\boldsymbol p|^2=-m^2$ と一致するよう、一次演算子を $\gamma^\mu\partial_\mu-m$ と取ります。
 
 <!-- proof-start -->
 ### 証明
 
-行列 $\gamma^\mu$ と $m$ は定数であり、偏微分は互いに可換です。二つの演算子を展開すると、一次微分の交差項は $-im\gamma^\mu\partial_\mu+im\gamma^\mu\partial_\mu=0$ と相殺します。二階項は
+行列 $\gamma^\mu$ と $m$ は定数であり、偏微分は互いに可換です。二つの演算子を展開すると、一次微分の交差項は $-m\gamma^\mu\partial_\mu+m\gamma^\mu\partial_\mu=0$ と相殺します。二階項は
 
 $$
 \begin{aligned}
--\gamma^\mu\gamma^\nu\partial_\mu\partial_\nu\psi
-&=-\frac12(\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu)
+\gamma^\mu\gamma^\nu\partial_\mu\partial_\nu\psi
+&=\frac12(\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu)
 \partial_\mu\partial_\nu\psi\\
-&=-\eta^{\mu\nu}\partial_\mu\partial_\nu\psi
-=-\Box\psi.
+&=\eta^{\mu\nu}\partial_\mu\partial_\nu\psi
+=\Box\psi.
 \end{aligned}
 $$
 
-二行目で[Clifford関係](#def-qft7-clifford)を使いました。これに $-m^2\psi$ を加えれば結論です。一次方程式の左辺が零なら左から $i\gamma^\mu\partial_\mu+m$ を作用させて、$(\Box+m^2)\psi=0$ となります。
+二行目で[Clifford関係](#def-qft7-clifford)を使いました。これに $-m^2\psi$ を加えれば結論です。一次方程式の左辺が零なら左から $\gamma^\mu\partial_\mu+m$ を作用させて、$(-\Box+m^2)\psi=0$ となります。
 <!-- proof-end -->
 
 逆は一般には成立しません。Klein–Gordon方程式を満たす四成分関数が、選んだ**片方の**一次方程式をすべて満たすわけではありません。Dirac方程式が許す振動数とスピンの組合せを、後で具体的に数えます。
@@ -203,11 +203,11 @@ $$
 <!-- definition-example-start: def-qft7-spinor-transform -->
 ### 例：z軸の回転とboostを見分ける
 
-**定義の確認**：$z$ 軸の角 $\varphi$ の回転では、$\Lambda^1{}_2=-\sin\varphi$、$\Lambda^2{}_1=\sin\varphi$ とします。生成子は
+**定義の確認**：$z$ 軸の角 $\varphi$ の回転では、$\Lambda^1{}_2=-\sin\varphi$、$\Lambda^2{}_1=\sin\varphi$ とします。計量 $(-+++)$ で添字を下げると $\omega_{12}=-\varphi$、一方で生成子は
 
 $$
 \Sigma^{12}
-=\frac12\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
+=-\frac12\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
 \quad
 S_R(\varphi)
 =\begin{pmatrix}
@@ -218,10 +218,10 @@ $$
 
 $\sigma^3e_1=e_1$、$\sigma^3e_2=-e_2$（$e_1=(1,0)^T$、$e_2=(0,1)^T$）なので、固有値は $\pm1$ です。従って $e^{-i\varphi\sigma^3/2}=\operatorname{diag}(e^{-i\varphi/2},e^{i\varphi/2})$ と成分ごとに指数を計算でき、$S_R(2\pi)=-I_4$ となります。一方、座標の回転は $\Lambda_R(2\pi)=I_4$ です。$4\pi$ 回してようやく $S_R(4\pi)=I_4$ に戻ります。
 
-$z$ 方向の速さパラメータ $\vartheta$ のboostは $\Lambda^0{}_3=\Lambda^3{}_0=\sinh\vartheta$、$\Lambda^0{}_0=\Lambda^3{}_3=\cosh\vartheta$ とします。$\omega_{03}=\vartheta$ なので
+$z$ 方向の速さパラメータ $\vartheta$ のboostは $\Lambda^0{}_3=\Lambda^3{}_0=\sinh\vartheta$、$\Lambda^0{}_0=\Lambda^3{}_3=\cosh\vartheta$ とします。$\omega_{03}=-\vartheta$ なので
 
 $$
-K:=\gamma^0\gamma^3
+K:=-\gamma^0\gamma^3
 =\begin{pmatrix}0&\sigma^3\\\sigma^3&0\end{pmatrix},
 \quad K^2=I_4,\qquad
 S_B(\vartheta)=e^{\vartheta K/2}
@@ -247,7 +247,7 @@ $K^\dagger=K$ で固有値が $\pm1$ だから $\vartheta\ne0$ では $S_B^\dagg
 > Clifford関係を満たすDirac表示の $\gamma^\mu$、$m>0$、$\Lambda\in SO^+(1,3)$ とし、恒等変換からの連続経路に沿う上記の $S$ を選ぶ。このとき $S^{-1}\gamma^\mu S=\Lambda^\mu{}_\nu\gamma^\nu$ が成立する。$C^1$ 級の場が
 
 $$
-(i\gamma^\mu\partial_\mu-m)\psi(x)=0
+(\gamma^\mu\partial_\mu-m)\psi(x)=0
 $$
 
 > を満たすなら、$\psi'(x')=S\psi(\Lambda^{-1}x')$ も同じ形の方程式を満たす。
@@ -311,10 +311,10 @@ $$
 
 $$
 \begin{aligned}
-(i\gamma^\mu\partial'_\mu-m)\psi'
-&=S\left(i\Lambda^\mu{}_\rho
+(\gamma^\mu\partial'_\mu-m)\psi'
+&=S\left(\Lambda^\mu{}_\rho
 (\Lambda^{-1})^\nu{}_\mu\gamma^\rho\partial_\nu-m\right)\psi\\
-&=S(i\gamma^\nu\partial_\nu-m)\psi=0.
+&=S(\gamma^\nu\partial_\nu-m)\psi=0.
 \end{aligned}
 $$
 
@@ -325,20 +325,20 @@ $$
 
 ## 3. 随伴を選んでLorentz不変な作用と電流を得る
 
-boostの $S_B$ がユニタリでない以上、$\psi^\dagger\psi$ はLorentzスカラーではありません。しかしDirac表示には $\gamma^0$ を挟むと保たれる組合せがあります。これにより四成分場の作用を作れます。
+boostの $S_B$ がユニタリでない以上、$\psi^\dagger\psi$ はLorentzスカラーではありません。しかしDirac表示には $H=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ を挟むと保たれる組合せがあります。$H^\dagger=H$、$H^2=I_4$ です。これにより四成分場の作用を作れます。
 
 <a id="def-qft7-adjoint-action"></a>
 
 <!-- formal-statement-start -->
 > **定義（Dirac随伴とDirac作用）**
-> Dirac表示の四成分 $C^1$ 場 $\psi$ に対し、行ベクトル $\bar\psi=\psi^\dagger\gamma^0$ をDirac随伴という。$m>0$、有界な開時空領域 $\Omega$ で自由Dirac作用を
+> Dirac表示の四成分 $C^1$ 場 $\psi$ に対し、行ベクトル $\bar\psi=\psi^\dagger H=-i\psi^\dagger\gamma^0$ をDirac随伴という。$m>0$、有界な開時空領域 $\Omega$ で自由Dirac作用を
 
 $$
 \mathcal S_\Omega[\psi,\bar\psi]
-=\int_\Omega\bar\psi(i\gamma^\mu\partial_\mu-m)\psi\,d^4x
+=\int_\Omega\bar\psi(\gamma^\mu\partial_\mu-m)\psi\,d^4x
 $$
 
-> とする。変分では $\psi,\bar\psi$ を形式的に独立とし、境界で零となるコンパクト台変分を取る。物理的な場の上では $\bar\psi=\psi^\dagger\gamma^0$ を課す。
+> とする。変分では $\psi,\bar\psi$ を形式的に独立とし、境界で零となるコンパクト台変分を取る。物理的な場の上では $\bar\psi=\psi^\dagger H=-i\psi^\dagger\gamma^0$ を課す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft7-adjoint-action -->
@@ -360,14 +360,14 @@ S_B\psi=
 =\cosh^2\frac\vartheta2-\sinh^2\frac\vartheta2=1.
 $$
 
-一方 $(S_B\psi)^\dagger S_B\psi=\cosh\vartheta$ です。随伴の $\gamma^0$ が必要なことを直接確かめられます。作用の被積分関数は四成分の積でスカラーを作り、コンパクト台変分では境界積分が消えます。
+一方 $(S_B\psi)^\dagger S_B\psi=\cosh\vartheta$ です。随伴の $H=-i\gamma^0$ が必要なことを直接確かめられます。作用の被積分関数は四成分の積でスカラーを作り、コンパクト台変分では境界積分が消えます。
 <!-- definition-example-end -->
 
 <a id="thm-qft7-current"></a>
 
 <!-- formal-statement-start -->
 > **定理（Dirac作用と保存電流）**
-> $\Lambda\in SO^+(1,3)$ に対応するDiracスピノル変換について、$S^\dagger\gamma^0S=\gamma^0$、$\bar\psi'=\bar\psi S^{-1}$ が成立する。$\Omega'=\Lambda\Omega$ と領域も変換すれば、Dirac作用は
+> $\Lambda\in SO^+(1,3)$ に対応するDiracスピノル変換について、$S^\dagger HS=H$、$\bar\psi'=\bar\psi S^{-1}$ が成立する。$\Omega'=\Lambda\Omega$ と領域も変換すれば、Dirac作用は
 
 $$
 \mathcal S_{\Omega'}[\psi',\bar\psi']
@@ -377,27 +377,27 @@ $$
 > を満たす。独立なコンパクト台変分の停留条件は
 
 $$
-(i\gamma^\mu\partial_\mu-m)\psi=0,\qquad
-i(\partial_\mu\bar\psi)\gamma^\mu+m\bar\psi=0
+(\gamma^\mu\partial_\mu-m)\psi=0,\qquad
+(\partial_\mu\bar\psi)\gamma^\mu+m\bar\psi=0
 $$
 
-> である。これらを満たす場のDirac電流 $j^\mu=\bar\psi\gamma^\mu\psi$ は $\partial_\mu j^\mu=0$、$j^0=\psi^\dagger\psi\ge0$ を満たし、Lorentz四元ベクトルとして変換する。
+> である。これらを満たす場のDirac電流 $j^\mu=-i\bar\psi\gamma^\mu\psi$ は $\partial_\mu j^\mu=0$、$j^0=\psi^\dagger\psi\ge0$ を満たし、Lorentz四元ベクトルとして変換する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-普通の内積ではなく $\gamma^0$ を挟む組合せがboostでも保たれます。この性質で作用の共変性を確かめた後、$\psi$ と $\bar\psi$ の変分を別々に計算します。二つの方程式を足すと質量項が打ち消し合い、電流が保存します。
+普通の内積ではなく $H=-i\gamma^0$ を挟む組合せがboostでも保たれます。この性質で作用の共変性を確かめた後、$\psi$ と $\bar\psi$ の変分を別々に計算します。二つの方程式を足すと質量項が打ち消し合い、電流が保存します。
 
 <!-- proof-start -->
 ### 証明
 
-[Dirac行列の直接例](#def-qft7-clifford)から、Dirac表示では $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
+[Dirac行列の直接例](#def-qft7-clifford)から、Dirac表示では $(\gamma^\mu)^\dagger=-H\gamma^\mu H$ です。$\Sigma^{\mu\nu}=i[\gamma^\mu,\gamma^\nu]/4$ のHermite共役を取ると
 
 $$
-(\Sigma^{\mu\nu})^\dagger=\gamma^0\Sigma^{\mu\nu}\gamma^0.
+(\Sigma^{\mu\nu})^\dagger=H\Sigma^{\mu\nu}H.
 $$
 
-実の反対称パラメータ $\omega_{\mu\nu}$ で $X=-i\omega_{\mu\nu}\Sigma^{\mu\nu}/2$ と置けば $X^\dagger\gamma^0=-\gamma^0X$ です。これを繰り返すと $(X^\dagger)^n\gamma^0=\gamma^0(-X)^n$ なので、指数の冪級数に項ごとに代入して $e^{X^\dagger}\gamma^0=\gamma^0e^{-X}$ を得ます。また同じ行列の指数の積は
+実の反対称パラメータ $\omega_{\mu\nu}$ で $X=-i\omega_{\mu\nu}\Sigma^{\mu\nu}/2$ と置けば $X^\dagger H=-HX$ です。これを繰り返すと $(X^\dagger)^nH=H(-X)^n$ なので、指数の冪級数に項ごとに代入して $e^{X^\dagger}H=He^{-X}$ を得ます。また同じ行列の指数の積は
 
 $$
 e^{-X}e^X
@@ -408,44 +408,44 @@ $$
 です。従って
 
 $$
-S^\dagger\gamma^0S
-=e^{X^\dagger}\gamma^0e^X
-=\gamma^0e^{-X}e^X=\gamma^0.
+S^\dagger HS
+=e^{X^\dagger}He^X
+=He^{-X}e^X=H.
 $$
 
 積の各段階で同じ等式が保たれるので連続したLorentz変換にも成立します。これを $\bar\psi'$ の定義へ入れて
 
 $$
-\bar\psi'=\psi^\dagger S^\dagger\gamma^0
-=\psi^\dagger\gamma^0S^{-1}=\bar\psi S^{-1}
+\bar\psi'=\psi^\dagger S^\dagger H
+=\psi^\dagger HS^{-1}=\bar\psi S^{-1}
 $$
 
 です。[スピノル変換則](#thm-qft7-covariance)と $d^4x'=d^4x$（$\det\Lambda=1$）を使えば、作用の密度の変換は
 
 $$
-\bar\psi'(i\gamma^\mu\partial'_\mu-m)\psi'
-=\bar\psi S^{-1}S(i\gamma^\nu\partial_\nu-m)\psi
-=\bar\psi(i\gamma^\nu\partial_\nu-m)\psi
+\bar\psi'(\gamma^\mu\partial'_\mu-m)\psi'
+=\bar\psi S^{-1}S(\gamma^\nu\partial_\nu-m)\psi
+=\bar\psi(\gamma^\nu\partial_\nu-m)\psi
 $$
 
 となります。$\Lambda\in SO^+(1,3)$ は $\det\Lambda=1$ なので、変数変換 $x'=\Lambda x$ のJacobianは1です。従って積分領域も $\Omega'=\Lambda\Omega$ に移すと
 
 $$
-\int_{\Omega'}\bar\psi'(i\gamma^\mu\partial'_\mu-m)\psi'\,d^4x'
-=\int_\Omega\bar\psi(i\gamma^\nu\partial_\nu-m)\psi\,d^4x.
+\int_{\Omega'}\bar\psi'(\gamma^\mu\partial'_\mu-m)\psi'\,d^4x'
+=\int_\Omega\bar\psi(\gamma^\nu\partial_\nu-m)\psi\,d^4x.
 $$
 
 同じ座標範囲 $\Omega$ を変換後にも固定する主張ではなく、領域ごとの作用の共変性です。
 
-停留条件では、任意のコンパクト台の $\delta\bar\psi$ に関する変分から $(i\gamma^\mu\partial_\mu-m)\psi=0$。$\delta\psi$ に関しては
+停留条件では、任意のコンパクト台の $\delta\bar\psi$ に関する変分から $(\gamma^\mu\partial_\mu-m)\psi=0$。$\delta\psi$ に関しては
 
 $$
 \begin{aligned}
 \delta_\psi\mathcal S_\Omega
-&=\int_\Omega\bigl(i\bar\psi\gamma^\mu
+&=\int_\Omega\bigl(\bar\psi\gamma^\mu
 \partial_\mu\delta\psi-m\bar\psi\delta\psi\bigr)\,d^4x\\
 &=\int_\Omega
-\bigl(-i(\partial_\mu\bar\psi)\gamma^\mu-m\bar\psi\bigr)
+\bigl(-(\partial_\mu\bar\psi)\gamma^\mu-m\bar\psi\bigr)
 \delta\psi\,d^4x,
 \end{aligned}
 $$
@@ -455,24 +455,24 @@ $$
 次に両方の運動方程式をそれぞれ解き直すと
 
 $$
-(\partial_\mu\bar\psi)\gamma^\mu=im\bar\psi,
+(\partial_\mu\bar\psi)\gamma^\mu=-m\bar\psi,
 \qquad
-\gamma^\mu\partial_\mu\psi=-im\psi.
+\gamma^\mu\partial_\mu\psi=m\psi.
 $$
 
 従って積の微分は
 
 $$
 \partial_\mu j^\mu
-=(\partial_\mu\bar\psi)\gamma^\mu\psi
-+\bar\psi\gamma^\mu\partial_\mu\psi
-=im\bar\psi\psi-im\bar\psi\psi=0.
+=-i\bigl((\partial_\mu\bar\psi)\gamma^\mu\psi
++\bar\psi\gamma^\mu\partial_\mu\psi\bigr)
+=-i(-m\bar\psi\psi+m\bar\psi\psi)=0.
 $$
 
-さらに $\bar\psi\gamma^0\psi=\psi^\dagger(\gamma^0)^2\psi=\psi^\dagger\psi\ge0$。[変換則](#def-qft7-spinor-transform)から
+さらに $-i\bar\psi\gamma^0\psi=\psi^\dagger H^2\psi=\psi^\dagger\psi\ge0$。[変換則](#def-qft7-spinor-transform)から
 
 $$
-j'^\mu=\bar\psi S^{-1}\gamma^\mu S\psi
+j'^\mu=-i\bar\psi S^{-1}\gamma^\mu S\psi
 =\Lambda^\mu{}_\nu j^\nu
 $$
 
@@ -483,12 +483,12 @@ $$
 
 ## 4. 正・負振動数の平面波を二成分から組み立てる
 
-[SREL3の正の質量殻](../../SREL/SREL3/index.md#def-srel3-mass-shell)上の $p=(E,\boldsymbol p)$ を固定します。[QFT3の正負振動数分解](../QFT3/index.md#def-qft3-frequency)と同じ指数 $e^{\mp ip\cdot x}$ を使いますが、今回は各周波数へ二つずつのスピン偏極が付いています。
+[SREL3の正の質量殻](../../SREL/SREL3/index.md#def-srel3-mass-shell)上の $p=(E,\boldsymbol p)$ を固定します。[QFT3の正負振動数分解](../QFT3/index.md#def-qft3-frequency)と同じ指数 $e^{\pm ip\cdot x}$ を使いますが、今回は各周波数へ二つずつのスピン偏極が付いています。
 
 Dirac表示のブロック行列を用いると
 
 $$
-\not p=\gamma^0E-\sum_{j=1}^3\gamma^jp_j
+i\not p=i\left(-E\gamma^0+\sum_{j=1}^3p_j\gamma^j\right)
 =\begin{pmatrix}
 EI_2&-\boldsymbol\sigma\cdot\boldsymbol p\\
 \boldsymbol\sigma\cdot\boldsymbol p&-EI_2
@@ -525,7 +525,7 @@ A\xi_s/(E+m)\\ \xi_s
 \end{pmatrix}
 $$
 
-> を定める。場 $u_s(p)e^{-ip\cdot x}$ を正振動数の平面波、$v_s(p)e^{+ip\cdot x}$ を負振動数の平面波と呼ぶ。運動量のラベル $p^0=E$ は**両方で正**に取る。
+> を定める。場 $u_s(p)e^{+ip\cdot x}$ を正振動数の平面波、$v_s(p)e^{-ip\cdot x}$ を負振動数の平面波と呼ぶ。運動量のラベル $p^0=E$ は**両方で正**に取る。
 <!-- formal-statement-end -->
 
 $E+m\ge2m>0$ なので分母は零になりません。ここで「正・負」は時間の指数の符号を区別し、$v_s$ の四元運動量ラベルを負のエネルギーに取り直す約束ではありません。
@@ -545,7 +545,7 @@ v_1(0)=\sqrt{2m}\begin{pmatrix}0\\0\\1\\0\end{pmatrix},
 v_2(0)=\sqrt{2m}\begin{pmatrix}0\\0\\0\\1\end{pmatrix}.
 $$
 
-$(\not p-m)u_s=0$ は静止系で $\operatorname{diag}(0,0,-2m,-2m)u_s=0$、$(\not p+m)v_s=0$ は $\operatorname{diag}(2m,2m,0,0)v_s=0$ から確かめられます。
+$(i\not p-m)u_s=0$ は静止系で $\operatorname{diag}(0,0,-2m,-2m)u_s=0$、$(i\not p+m)v_s=0$ は $\operatorname{diag}(2m,2m,0,0)v_s=0$ から確かめられます。
 
 非静止の $\boldsymbol p=(0,0,q)$ では $A=q\sigma^3$、$E^2=m^2+q^2$ です。例えば
 
@@ -564,11 +564,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（平面波解の規格化とスピン和）**
-> $m>0$、$p^0=E>0$、$p^2=m^2$ の下で、上記の正規直交二成分基底から作った $u_s(p),v_s(p)$ は
+> $m>0$、$p^0=E>0$、$p^2=-m^2$ の下で、上記の正規直交二成分基底から作った $u_s(p),v_s(p)$ は
 
 $$
-(\not p-m)u_s=0,\qquad
-(\not p+m)v_s=0,
+(i\not p-m)u_s=0,\qquad
+(i\not p+m)v_s=0,
 $$
 
 $$
@@ -582,12 +582,12 @@ $$
 > を満たす。さらにスピン和は、基底の取り方に依らず
 
 $$
-\sum_{s=1}^{2}u_s(p)\bar u_s(p)=\not p+mI_4,
+\sum_{s=1}^{2}u_s(p)\bar u_s(p)=i\not p+mI_4,
 \qquad
-\sum_{s=1}^{2}v_s(p)\bar v_s(p)=\not p-mI_4
+\sum_{s=1}^{2}v_s(p)\bar v_s(p)=i\not p-mI_4
 $$
 
-> となる。ここで $\bar u=u^\dagger\gamma^0$、$\bar v=v^\dagger\gamma^0$ である。
+> となる。ここで $\bar u=u^\dagger H$、$\bar v=v^\dagger H$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -597,15 +597,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A^\dagger=A$、$A^2=|\boldsymbol p|^2I_2$ です。$(\not p-m)$ と $(\not p+m)$ のブロックはそれぞれ
+$A^\dagger=A$、$A^2=|\boldsymbol p|^2I_2$ です。$(i\not p-m)$ と $(i\not p+m)$ のブロックはそれぞれ
 
 $$
-\not p-mI_4
+i\not p-mI_4
 =\begin{pmatrix}
 (E-m)I_2&-A\\A&-(E+m)I_2
 \end{pmatrix},
 \quad
-\not p+mI_4
+i\not p+mI_4
 =\begin{pmatrix}
 (E+m)I_2&-A\\A&-(E-m)I_2
 \end{pmatrix}.
@@ -625,7 +625,16 @@ $$
 =\frac{|\boldsymbol p|^2-(E^2-m^2)}{E+m}\xi_s=0.
 $$
 
-従って $u_se^{-ip\cdot x}$ と $v_se^{+ip\cdot x}$ はDirac方程式の解です。実際、前者へ $i\partial_\mu$ を作用させると $p_\mu$、後者では $-p_\mu$ が出ます。
+従って $u_se^{+ip\cdot x}$ と $v_se^{-ip\cdot x}$ はDirac方程式の解です。実際、前者へ $-i\partial_\mu$ を作用させると $p_\mu$、後者では $-p_\mu$ が出ます。元の一次作用素で書けば
+
+$$
+\begin{aligned}
+(\gamma^\mu\partial_\mu-m)(u_se^{+ip\cdot x})
+&=(i\not p-m)u_se^{+ip\cdot x}=0,\\
+(\gamma^\mu\partial_\mu-m)(v_se^{-ip\cdot x})
+&=-(i\not p+m)v_se^{-ip\cdot x}=0.
+\end{aligned}
+$$
 
 規格化を計算します。$N^2=E+m$ と略記して
 
@@ -675,7 +684,7 @@ A&-|\boldsymbol p|^2I_2/(E+m)
 \end{pmatrix}\\
 &=\begin{pmatrix}
 (E+m)I_2&-A\\A&-(E-m)I_2
-\end{pmatrix}=\not p+mI_4.
+\end{pmatrix}=i\not p+mI_4.
 \end{aligned}
 $$
 
@@ -693,7 +702,7 @@ A/(E+m)&-I_2
 (E-m)I_2&-A\\
 A&-(E+m)I_2
 \end{pmatrix}
-=\not p-mI_4.
+=i\not p-mI_4.
 \end{aligned}
 $$
 
@@ -710,29 +719,29 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（質量殻スピン射影子）**
-> $m>0$、$p^0>0$、$p^2=m^2$ の運動量について
+> $m>0$、$p^0>0$、$p^2=-m^2$ の運動量について
 
 $$
-\Pi_+(p)=\frac{\not p+mI_4}{2m},
+\Pi_+(p)=\frac{i\not p+mI_4}{2m},
 \qquad
-\Pi_-(p)=\frac{mI_4-\not p}{2m}
+\Pi_-(p)=\frac{mI_4-i\not p}{2m}
 $$
 
-> を定める。$\Pi_+$ は $\not p$ の固有値 $+m$ の空間、$\Pi_-$ は固有値 $-m$ の空間への射影候補である。
+> を定める。$\Pi_+$ は $i\not p$ の固有値 $+m$ の空間、$\Pi_-$ は固有値 $-m$ の空間への射影候補である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft7-projectors -->
 ### 例：静止系では上下二成分を選ぶ
 
-**定義の確認**：$p=(m,\boldsymbol0)$ なら $\not p=m\gamma^0$ なので
+**定義の確認**：$p=(m,\boldsymbol0)$ なら $i\not p=-im\gamma^0$ なので
 
 $$
 \Pi_+(m,\boldsymbol0)
-=\frac{I_4+\gamma^0}{2}
+=\frac{I_4-i\gamma^0}{2}
 =\begin{pmatrix}I_2&0\\0&0\end{pmatrix},
 \quad
 \Pi_-(m,\boldsymbol0)
-=\frac{I_4-\gamma^0}{2}
+=\frac{I_4+i\gamma^0}{2}
 =\begin{pmatrix}0&0\\0&I_2\end{pmatrix}.
 $$
 
@@ -743,7 +752,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（スピン和から得る相補射影）**
-> $m>0$、$p^0>0$、$p^2=m^2$ では、質量殻射影子は
+> $m>0$、$p^0>0$、$p^2=-m^2$ では、質量殻射影子は
 
 $$
 \Pi_\pm^2=\Pi_\pm,\quad
@@ -763,7 +772,7 @@ $$
 
 ### 証明の見取り図
 
-[Clifford関係](#def-qft7-clifford)によって質量殻上で $(\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
+[Clifford関係](#def-qft7-clifford)によって質量殻上で $(i\not p)^2=m^2I_4$ となります。これを射影子の積へ代入すれば相補性が分かり、階数は跡から求められます。最後の式は[スピン和の定理](#thm-qft7-spin-sums)の規格化を読み替えたものです。
 
 <!-- proof-start -->
 ### 証明
@@ -771,43 +780,43 @@ $$
 $p_\mu p_\nu$ は添字について対称なので、[Clifford関係](#def-qft7-clifford)から
 
 $$
-(\not p)^2
-=\frac12p_\mu p_\nu\{\gamma^\mu,\gamma^\nu\}
-=p_\mu p_\nu\eta^{\mu\nu}I_4
-=p^2I_4=m^2I_4.
+(i\not p)^2
+=-\frac12p_\mu p_\nu\{\gamma^\mu,\gamma^\nu\}
+=-p_\mu p_\nu\eta^{\mu\nu}I_4
+=-p^2I_4=m^2I_4.
 $$
 
 例えば $\Pi_+^2$ は
 
 $$
 \Pi_+^2
-=\frac{(\not p)^2+2m\not p+m^2I_4}{4m^2}
-=\frac{\not p+mI_4}{2m}=\Pi_+.
+=\frac{(i\not p)^2+2mi\not p+m^2I_4}{4m^2}
+=\frac{i\not p+mI_4}{2m}=\Pi_+.
 $$
 
-$\Pi_-^2$ では $\not p$ の一次項の符号だけが逆で、同じ計算から $\Pi_-^2=\Pi_-$。混合積では
+$\Pi_-^2$ では $i\not p$ の一次項の符号だけが逆で、同じ計算から $\Pi_-^2=\Pi_-$。混合積では
 
 $$
 \Pi_+\Pi_-=
-\frac{(\not p+mI_4)(mI_4-\not p)}{4m^2}
-=\frac{m^2I_4-(\not p)^2}{4m^2}=0.
+\frac{(i\not p+mI_4)(mI_4-i\not p)}{4m^2}
+=\frac{m^2I_4-(i\not p)^2}{4m^2}=0.
 $$
 
-和は分子の $\not p$ が打ち消されて $I_4$ です。ここで各射影子が取り出す**固有空間**も確かめます。[SREL3の質量殻条件](../../SREL/SREL3/index.md#def-srel3-mass-shell)から
+和は分子の $i\not p$ が打ち消されて $I_4$ です。ここで各射影子が取り出す**固有空間**も確かめます。[SREL3の質量殻条件](../../SREL/SREL3/index.md#def-srel3-mass-shell)から
 
 $$
-(\not p-mI_4)\Pi_+
-=\frac{(\not p)^2-m^2I_4}{2m}=0,
+(i\not p-mI_4)\Pi_+
+=\frac{(i\not p)^2-m^2I_4}{2m}=0,
 \qquad
-(\not p+mI_4)\Pi_-=0.
+(i\not p+mI_4)\Pi_-=0.
 $$
 
-従って $\Pi_+$ の像のベクトルは $\not p$ の固有値 $+m$ に属し、$\Pi_-$ の像は固有値 $-m$ に属します。逆に $w\in\mathbb C^4$ が固有ベクトルなら
+従って $\Pi_+$ の像のベクトルは $i\not p$ の固有値 $+m$ に属し、$\Pi_-$ の像は固有値 $-m$ に属します。逆に $w\in\mathbb C^4$ が固有ベクトルなら
 
 $$
 \begin{aligned}
-\not p\,w=mw&\ \Longrightarrow\ \Pi_+w=\frac{m+m}{2m}w=w,\\
-\not p\,w=-mw&\ \Longrightarrow\ \Pi_-w=\frac{m-(-m)}{2m}w=w.
+i\not p\,w=mw&\ \Longrightarrow\ \Pi_+w=\frac{m+m}{2m}w=w,\\
+i\not p\,w=-mw&\ \Longrightarrow\ \Pi_-w=\frac{m-(-m)}{2m}w=w.
 \end{aligned}
 $$
 
@@ -820,7 +829,7 @@ w=\Pi w+(w-\Pi w),\qquad
 \Pi(w-\Pi w)=\Pi w-\Pi^2w=0
 $$
 
-と像と核へ一意に分解され、像上の固有値は1、核上は0です。よってこの基底での対角成分の和（跡）は像の次元、すなわち階数に等しくなります。Dirac表示の四つの $\gamma^\mu$ はすべて跡が零なので、$\operatorname{tr}\not p=0$ ですから
+と像と核へ一意に分解され、像上の固有値は1、核上は0です。よってこの基底での対角成分の和（跡）は像の次元、すなわち階数に等しくなります。Dirac表示の四つの $\gamma^\mu$ はすべて跡が零なので、$\operatorname{tr}(i\not p)=0$ ですから
 
 $$
 \operatorname{rank}\Pi_\pm
@@ -835,7 +844,7 @@ $$
 
 ## 6. 演習：行列・Lorentz変換・平面波を自分でつなぐ
 
-すべて計量は $(+,-,-,-)$、$m>0$、$\gamma^\mu$ は本章のDirac表示とします。四元運動量は $p^\mu=(E,\boldsymbol p)$、$E=\sqrt{m^2+|\boldsymbol p|^2}>0$ です。二成分の標準基底は $e_1=(1,0)^T$、$e_2=(0,1)^T$ とします。
+すべて計量は $(-,+,+,+)$、$m>0$、$\gamma^\mu$ は本章のDirac表示とします。四元運動量は $p^\mu=(E,\boldsymbol p)$、$E=\sqrt{m^2+|\boldsymbol p|^2}>0$ です。二成分の標準基底は $e_1=(1,0)^T$、$e_2=(0,1)^T$ とします。
 
 ### Level A：規約と行列の基本操作
 
@@ -852,25 +861,25 @@ $\sigma^1\sigma^2=i\sigma^3$、$\sigma^2\sigma^1=-i\sigma^3$ をまず直接掛�
 
 $$
 \gamma^1\gamma^2
-=\begin{pmatrix}-\sigma^1\sigma^2&0\\0&-\sigma^1\sigma^2\end{pmatrix}
-=-i\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
+=\begin{pmatrix}\sigma^1\sigma^2&0\\0&\sigma^1\sigma^2\end{pmatrix}
+=i\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
 $$
 
 $$
 \gamma^2\gamma^1
-=+i\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
+=-i\begin{pmatrix}\sigma^3&0\\0&\sigma^3\end{pmatrix},
 \quad
 (\gamma^1)^2
-=\begin{pmatrix}-(\sigma^1)^2&0\\0&-(\sigma^1)^2\end{pmatrix}
-=-I_4.
+=\begin{pmatrix}(\sigma^1)^2&0\\0&(\sigma^1)^2\end{pmatrix}
+=I_4.
 $$
 
-従って $\{\gamma^1,\gamma^2\}=0$、$\{\gamma^1,\gamma^1\}=-2I_4$ となり、計量の空間成分の符号と一致します。
+従って $\{\gamma^1,\gamma^2\}=0$、$\{\gamma^1,\gamma^1\}=2I_4$ となり、計量の空間成分の符号と一致します。
 <!-- solution-end -->
 
 ### 演習 QFT7-A2：一次方程式の質量殻
 
-$\not p=\gamma^\mu p_\mu$ とする。$(\not p+mI_4)(\not p-mI_4)$ をClifford関係から計算し、$p^2=m^2$ ならこの積が零であることを示せ。
+$\not p=\gamma^\mu p_\mu$ とする。$(i\not p+mI_4)(i\not p-mI_4)$ をClifford関係から計算し、$p^2=-m^2$ ならこの積が零であることを示せ。
 
 - Level: A
 
@@ -881,16 +890,16 @@ $\not p=\gamma^\mu p_\mu$ とする。$(\not p+mI_4)(\not p-mI_4)$ をClifford�
 
 $$
 \begin{aligned}
-(\not p+mI_4)(\not p-mI_4)
-&=(\not p)^2-m^2I_4\\
-&=\frac12p_\mu p_\nu
+(i\not p+mI_4)(i\not p-mI_4)
+&=(i\not p)^2-m^2I_4\\
+&=-\frac12p_\mu p_\nu
 (\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu)-m^2I_4\\
-&=(p_\mu p_\nu\eta^{\mu\nu}-m^2)I_4
-=(p^2-m^2)I_4.
+&=(-p_\mu p_\nu\eta^{\mu\nu}-m^2)I_4
+=-(p^2+m^2)I_4.
 \end{aligned}
 $$
 
-質量殻条件では $p^2=m^2$ なので零行列です。これは[因数分解定理](#thm-qft7-factorization)を平面波へ適用する際の代数的な形です。
+質量殻条件では $p^2=-m^2$ なので零行列です。これは[因数分解定理](#thm-qft7-factorization)を平面波へ適用する際の代数的な形です。
 <!-- solution-end -->
 
 ### 演習 QFT7-A3：一周と二周で符号が違う
@@ -935,7 +944,7 @@ $$
 u_1^\dagger u_1=v_1^\dagger v_1=2m=2E.
 $$
 
-[Dirac随伴](#def-qft7-adjoint-action)の $\gamma^0=\operatorname{diag}(1,1,-1,-1)$ を挟むと、上成分の符号は正、下成分は負です。よって
+[Dirac随伴](#def-qft7-adjoint-action)の $H=-i\gamma^0=\operatorname{diag}(1,1,-1,-1)$ を挟むと、上成分の符号は正、下成分は負です。よって
 
 $$
 \bar u_1u_1=2m,\qquad \bar v_1v_1=-2m.
@@ -946,7 +955,7 @@ $$
 
 ### 演習 QFT7-A5：静止解をboostして運動量を持たせる
 
-$q=m\sinh\vartheta$、$E=m\cosh\vartheta$、$\vartheta\ge0$ とし、$K=\gamma^0\gamma^3$、$S_B=e^{\vartheta K/2}$ とする。静止解 $u_1(0)=\sqrt{2m}(1,0,0,0)^T$ に $S_B$ を掛け、$u_1(E,0,0,q)$ と一致することを示せ。
+$q=m\sinh\vartheta$、$E=m\cosh\vartheta$、$\vartheta\ge0$ とし、$K=-\gamma^0\gamma^3$、$S_B=e^{\vartheta K/2}$ とする。静止解 $u_1(0)=\sqrt{2m}(1,0,0,0)^T$ に $S_B$ を掛け、$u_1(E,0,0,q)$ と一致することを示せ。
 
 - Level: A
 
@@ -974,7 +983,7 @@ $$
 
 ### 演習 QFT7-B1：平面波のDirac電流
 
-$p^2=m^2$、$p^0=E>0$、$u_s(p)=\sqrt{E+m}(\chi_s,A\chi_s/(E+m))^T$、$A=\boldsymbol\sigma\cdot\boldsymbol p$、$\chi_s^\dagger\chi_s=1$ とする。$j^\mu=\bar u_s\gamma^\mu u_s$ を全成分求め、運動量との比例を示せ。
+$p^2=-m^2$、$p^0=E>0$、$u_s(p)=\sqrt{E+m}(\chi_s,A\chi_s/(E+m))^T$、$A=\boldsymbol\sigma\cdot\boldsymbol p$、$\chi_s^\dagger\chi_s=1$ とする。$j^\mu=-i\bar u_s\gamma^\mu u_s$ を全成分求め、運動量との比例を示せ。
 
 - Level: B
 
@@ -983,12 +992,12 @@ $p^2=m^2$、$p^0=E>0$、$u_s(p)=\sqrt{E+m}(\chi_s,A\chi_s/(E+m))^T$、$A=\boldsy
 
 [Dirac作用と保存電流](#thm-qft7-current)より $j^0=u_s^\dagger u_s$ で、[規格化定理](#thm-qft7-spin-sums)を条件 $E>0$、$\chi_s^\dagger\chi_s=1$ で使うと $j^0=2E$ です。
 
-空間成分には $\gamma^0\gamma^j=\begin{pmatrix}0&\sigma^j\\\sigma^j&0\end{pmatrix}$ を代入し、
+空間成分には $-\gamma^0\gamma^j=\begin{pmatrix}0&\sigma^j\\\sigma^j&0\end{pmatrix}$ を代入し、
 
 $$
 \begin{aligned}
 j^j
-&=u_s^\dagger\gamma^0\gamma^ju_s\\
+&=-u_s^\dagger\gamma^0\gamma^ju_s\\
 &=(E+m)\left(
 \chi_s^\dagger\sigma^j\frac{A\chi_s}{E+m}
 +\frac{\chi_s^\dagger A}{E+m}\sigma^j\chi_s
@@ -1003,7 +1012,7 @@ $$
 
 ### 演習 QFT7-B2：boostで微分の係数が消える
 
-$z$ 軸のLorentz boostを $\Lambda^0{}_0=\Lambda^3{}_3=\cosh\vartheta$、$\Lambda^0{}_3=\Lambda^3{}_0=\sinh\vartheta$、$\Lambda^1{}_1=\Lambda^2{}_2=1$ とし、$S=e^{\vartheta\gamma^0\gamma^3/2}$ とする。$x'=\Lambda x$、$\psi'(x')=S\psi(x)$ のとき、$i\gamma^\mu\partial'_\mu\psi'$ が $S(i\gamma^\nu\partial_\nu\psi)$ に等しいことを確かめよ。
+$z$ 軸のLorentz boostを $\Lambda^0{}_0=\Lambda^3{}_3=\cosh\vartheta$、$\Lambda^0{}_3=\Lambda^3{}_0=\sinh\vartheta$、$\Lambda^1{}_1=\Lambda^2{}_2=1$ とし、$S=e^{-\vartheta\gamma^0\gamma^3/2}$ とする。$x'=\Lambda x$、$\psi'(x')=S\psi(x)$ のとき、$\gamma^\mu\partial'_\mu\psi'$ が $S(\gamma^\nu\partial_\nu\psi)$ に等しいことを確かめよ。
 
 - Level: B
 
@@ -1031,7 +1040,7 @@ $$
 これらを時間・$z$ 方向の微分項へ代入すると、$\partial_0$ の $\gamma^0$ 係数は $\cosh^2\vartheta-\sinh^2\vartheta=1$、$\gamma^3$ 係数は $\sinh\vartheta\cosh\vartheta-\cosh\vartheta\sinh\vartheta=0$ となります。$\partial_3$ も交差項が零、$\gamma^3$ の係数が1です。$j=1,2$ は変換されないので
 
 $$
-i\gamma^\mu\partial'_\mu\psi'=S(i\gamma^\nu\partial_\nu\psi).
+\gamma^\mu\partial'_\mu\psi'=S(\gamma^\nu\partial_\nu\psi).
 $$
 
 $S$ は座標に依存しない定数行列である点も使用しました。これは[共変性定理](#thm-qft7-covariance)の一方向の具体計算です。
@@ -1039,7 +1048,7 @@ $S$ は座標に依存しない定数行列である点も使用しました。�
 
 ### 演習 QFT7-B3：負振動数のスピン和
 
-$A=\boldsymbol\sigma\cdot\boldsymbol p$、$A^2=|\boldsymbol p|^2I_2$、$v_s(p)=\sqrt{E+m}(A\xi_s/(E+m),\xi_s)^T$ とする。$\sum_s\xi_s\xi_s^\dagger=I_2$ を用い、$\sum_sv_s\bar v_s=\not p-mI_4$ をブロックで直接導け。
+$A=\boldsymbol\sigma\cdot\boldsymbol p$、$A^2=|\boldsymbol p|^2I_2$、$v_s(p)=\sqrt{E+m}(A\xi_s/(E+m),\xi_s)^T$ とする。$\sum_s\xi_s\xi_s^\dagger=I_2$ を用い、$\sum_sv_s\bar v_s=i\not p-mI_4$ をブロックで直接導け。
 
 - Level: B
 
@@ -1067,7 +1076,7 @@ $$
 A&-(E+m)I_2
 \end{pmatrix}
 =\begin{pmatrix}(E-m)I_2&-A\\A&-(E+m)I_2\end{pmatrix}
-=\not p-mI_4.
+=i\not p-mI_4.
 $$
 
 $v$ 側の右上の負符号は[Dirac随伴](#def-qft7-adjoint-action)から出ます。$v^\dagger$ との行列積を使うと、この符号を誤ります。
@@ -1075,14 +1084,14 @@ $v$ 側の右上の負符号は[Dirac随伴](#def-qft7-adjoint-action)から出�
 
 ### 演習 QFT7-B4：二つの射影と普通の直交性の違い
 
-$p^2=m^2$、$p^0=E>0$ とし、$\Pi_\pm=(mI_4\pm\not p)/(2m)$ のうち $\Pi_-=(mI_4-\not p)/(2m)$ とする。$u_s(p),v_s(p)$ について $\Pi_+u_s$、$\Pi_-v_s$、$\Pi_+v_s$ を求めよ。また $u_s^\dagger(p)v_r(-\boldsymbol p)=0$ を二成分表示から検証せよ。最後の $v_r$ の運動量引数は $(-\boldsymbol p)$、エネルギーは正の $E$ とする。
+$p^2=-m^2$、$p^0=E>0$ とし、$\Pi_\pm=(mI_4\pm i\not p)/(2m)$ のうち $\Pi_-=(mI_4-i\not p)/(2m)$ とする。$u_s(p),v_s(p)$ について $\Pi_+u_s$、$\Pi_-v_s$、$\Pi_+v_s$ を求めよ。また $u_s^\dagger(p)v_r(-\boldsymbol p)=0$ を二成分表示から検証せよ。最後の $v_r$ の運動量引数は $(-\boldsymbol p)$、エネルギーは正の $E$ とする。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-[平面波方程式](#thm-qft7-spin-sums)より $\not p\,u_s=mu_s$、$\not p\,v_s=-mv_s$ です。[射影子の定義](#def-qft7-projectors)へ代入すると
+[平面波方程式](#thm-qft7-spin-sums)より $i\not p\,u_s=mu_s$、$i\not p\,v_s=-mv_s$ です。[射影子の定義](#def-qft7-projectors)へ代入すると
 
 $$
 \Pi_+u_s=\frac{m+m}{2m}u_s=u_s,\quad
@@ -1111,17 +1120,17 @@ $$
 
 $m>0$、$\vartheta>0$ とし、$E=m\cosh\vartheta$、$q=m\sinh\vartheta$、$p^\mu=(E,0,0,q)$ とする。Dirac表示の $\gamma^\mu$ と標準二成分基底 $e_1,e_2$ を用いる。
 
-1. 静止系の $u_1(0)=\sqrt{2m}(1,0,0,0)^T$、$v_1(0)=\sqrt{2m}(0,0,1,0)^T$ を $S_B=e^{\vartheta\gamma^0\gamma^3/2}$ でboostし、$\boldsymbol p=(0,0,q)$ の $u_1(p),v_1(p)$ を得よ。
-2. $(\not p-m)u_1=0$、$(\not p+m)v_1=0$ と、$\bar u_1u_1=2m$、$\bar v_1v_1=-2m$ を確認せよ。
-3. 正振動数解 $u_1(p)e^{-ip\cdot x}$ の電流 $j^0,j^3$ を求め、静止系からの四元ベクトル変換と比較せよ。
-4. $s=1,2$ の両スピンを足して $\sum_su_s\bar u_s$ の四つのブロックを求め、$\Pi_+$ が階数2の射影であることを示せ。最後に、$v_s e^{+ip\cdot x}$ と量子論の反粒子の関係で、まだ本章が構成していないものを述べよ。
+1. 静止系の $u_1(0)=\sqrt{2m}(1,0,0,0)^T$、$v_1(0)=\sqrt{2m}(0,0,1,0)^T$ を $S_B=e^{-\vartheta\gamma^0\gamma^3/2}$ でboostし、$\boldsymbol p=(0,0,q)$ の $u_1(p),v_1(p)$ を得よ。
+2. $(i\not p-m)u_1=0$、$(i\not p+m)v_1=0$ と、$\bar u_1u_1=2m$、$\bar v_1v_1=-2m$ を確認せよ。
+3. 正振動数解 $u_1(p)e^{+ip\cdot x}$ の電流 $j^0,j^3$ を求め、静止系からの四元ベクトル変換と比較せよ。
+4. $s=1,2$ の両スピンを足して $\sum_su_s\bar u_s$ の四つのブロックを求め、$\Pi_+$ が階数2の射影であることを示せ。最後に、$v_s e^{-ip\cdot x}$ と量子論の反粒子の関係で、まだ本章が構成していないものを述べよ。
 
 - Level: C
 
 <!-- solution-start -->
 #### 詳細解答
 
-**1. boost。** [z方向boostの例](#def-qft7-spinor-transform)の $K=\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
+**1. boost。** [z方向boostの例](#def-qft7-spinor-transform)の $K=-\gamma^0\gamma^3$ は上二成分と下二成分の対応位置を $\sigma^3$ で結びます。$a=\vartheta/2$ と置けば $S_B=\cosh a\,I_4+\sinh a\,K$ なので
 
 $$
 \begin{aligned}
@@ -1142,10 +1151,10 @@ $$
 **2. 方程式と規格化。** 四成分のうち第1・第3成分へ作用する部分だけを書くと
 
 $$
-\not p-mI_4\ \longleftrightarrow\
+i\not p-mI_4\ \longleftrightarrow\
 \begin{pmatrix}E-m&-q\\q&-E-m\end{pmatrix},
 \quad
-\not p+mI_4\ \longleftrightarrow\
+i\not p+mI_4\ \longleftrightarrow\
 \begin{pmatrix}E+m&-q\\q&-E+m\end{pmatrix}.
 $$
 
@@ -1162,7 +1171,7 @@ $$
 \bar v_1v_1=\frac{q^2-(E+m)^2}{E+m}=-2m.
 $$
 
-**3. 電流。** 平面波の指数とその複素共役は電流内で相殺します。$j^0=u_1^\dagger u_1$、$j^3=u_1^\dagger\gamma^0\gamma^3u_1$ より
+**3. 電流。** 平面波の指数とその複素共役は電流内で相殺します。$j^0=u_1^\dagger u_1$、$j^3=-u_1^\dagger\gamma^0\gamma^3u_1$ より
 
 $$
 j^0=\frac{(E+m)^2+q^2}{E+m}=2E,
@@ -1180,19 +1189,19 @@ $$
 (E+m)I_2&-q\sigma^3\\
 q\sigma^3&-\frac{q^2}{E+m}I_2
 \end{pmatrix}
-=\not p+mI_4.
+=i\not p+mI_4.
 $$
 
-$q^2/(E+m)=E-m$ を使用しました。$\Pi_+=(\not p+mI_4)/(2m)$ について
+$q^2/(E+m)=E-m$ を使用しました。$\Pi_+=(i\not p+mI_4)/(2m)$ について
 
 $$
 \Pi_+^2-\Pi_+
-=\frac{(\not p)^2-m^2I_4}{4m^2}=0
+=\frac{(i\not p)^2-m^2I_4}{4m^2}=0
 $$
 
 です。また $\operatorname{tr}\Pi_+=2$ なので階数は2です。ここで質量殻 $E^2-q^2=m^2$ を使うことが不可欠です。
 
-負振動数解 $v_s e^{+ip\cdot x}$ は古典方程式の独立した解ですが、正エネルギーの反粒子状態と結び付けるには**フェルミオンの生成・消滅演算子、反交換関係、真空と粒子状態**を定める必要があります。本章の行列計算だけではその量子状態は構成されません。
+負振動数解 $v_s e^{-ip\cdot x}$ は古典方程式の独立した解ですが、正エネルギーの反粒子状態と結び付けるには**フェルミオンの生成・消滅演算子、反交換関係、真空と粒子状態**を定める必要があります。本章の行列計算だけではその量子状態は構成されません。
 <!-- solution-end -->
 
 ## 7. まとめ：次はフェルミオンを量子化する
@@ -1200,6 +1209,6 @@ $$
 - Clifford関係は一次Dirac作用素の二乗をKlein–Gordon作用素に戻し、質量殻を固定します。
 - Lorentz変換はスピノル行列 $S$ で実現されます。$2\pi$ 回転は $-I_4$ へ持ち上がり、boostの $S$ は通常の内積についてユニタリではありません。
 - Dirac随伴が作用とDirac電流の共変性を与えます。古典電流の時間成分は $\psi^\dagger\psi$ です。
-- 質量殻上の $u_s e^{-ip\cdot x}$ と $v_s e^{+ip\cdot x}$ は各二偏極を持ち、スピン和は $\not p+mI_4$ と $\not p-mI_4$ にまとまります。$\Pi_-$ には規格化上の負号が必要です。
+- 質量殻上の $u_s e^{+ip\cdot x}$ と $v_s e^{-ip\cdot x}$ は各二偏極を持ち、スピン和は $i\not p+mI_4$ と $i\not p-mI_4$ にまとまります。$\Pi_-$ には規格化上の負号が必要です。
 
 次に古典的な負振動数解を反粒子の正エネルギー励起として読み替えるには、スカラー場とは異なる反交換関係とフェルミオンFock空間を構成します。ここで得た規格化とスピン和が、その構成の整合性を判定する材料になります。
