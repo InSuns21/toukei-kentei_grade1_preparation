@@ -1,0 +1,45 @@
+id: "CYG1-08"
+title: "五次Calabi–Yau三次元多様体のHodge数1と101"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-02
+  - CYG1-06
+  - CYG1-07
+official_scope: []
+learning_objectives:
+  - Fermat五次超曲面のJacobian条件と随伴公式から滑らかさ・複素次元・標準束自明性を確認できる
+  - 弱Lefschetz超平面定理を複素次元3で正しく適用し、Hard Lefschetzとの違いを説明できる
+  - b1=0とb2=1、非零Kähler類の型からh10=h20=0とh11=1を導ける
+  - c(TX)の三次までの係数と積分の次数を検算しchi=-200に到達できる
+  - 正則体積形式・Hodge対称性・Euler標数からb3=204とh21=101を求められる
+  - Hodge数表全体の対称性・Betti数・Euler標数を相互に検算できる
+  - 滑らかさや弱Lefschetzの入力が欠けた場合に同じHodge数を主張できない理由を説明できる
+theorems:
+  - { id: CYG1-08-THM-01, name: "滑らかな五次三次元超曲面の弱Lefschetz定理（外部入力）" }
+  - { id: CYG1-08-PROP-01, name: "Fermat五次の滑らかさと標準束" }
+  - { id: CYG1-08-PROP-02, name: "五次三次元超曲面の低次Hodge数" }
+  - { id: CYG1-08-PROP-03, name: "五次三次元超曲面のHodgeダイヤモンド" }
+canonical_examples:
+  - Fermat五次の斉次偏微分と局所Jacobianの比較
+  - P4と三次元超曲面の低次コホモロジーの比較
+  - Kähler類の(1,1)型を使ったh20の消滅
+  - 五次Chern多項式の三次係数と積分の検算
+  - 交代和からb3を復元しHodge数の全表を確定する
+  - 特異五次錐で滑らかさの仮定を失う例
+problem_patterns:
+  - CYG1-08-JACOBIAN-SMOOTH
+  - CYG1-08-ADJUNCTION
+  - CYG1-08-WEAK-LEFSCHETZ-RANGE
+  - CYG1-08-KAHLER-LOW-HODGE
+  - CYG1-08-CHERN-COEFFICIENTS
+  - CYG1-08-BETTI-POINCARE
+  - CYG1-08-LOW-HODGE-LOGIC
+  - CYG1-08-MIDDLE-BETTI
+  - CYG1-08-SINGULAR-BOUNDARY
+  - CYG1-08-FULL-HODGE-CHAIN
+  - CYG1-08-HARD-WEAK-ERROR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
