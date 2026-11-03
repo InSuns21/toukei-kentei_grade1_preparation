@@ -534,7 +534,12 @@ $r,s$ は整数で、$ru-st=1$ から同時に零にはできない。従って 
 #### HOD1-16-C01 標識変更、交叉形式、偏極を一度に検算
 - Level: C
 
-$E_i$ の基本閉路から $\gamma'_1=2\gamma_1+\gamma_2$、$\gamma'_2=\gamma_1+\gamma_2$ を作る。(1) 整数基底か、(2) 新しい規格化周期、(3) その正虚部、(4) 新しい標識での $F^1$ と偏極正値条件を順に示せ。新座標を $z'=z/(2+i)$ としてよい。
+$E_i$ の基本閉路から $\gamma'_1=2\gamma_1+\gamma_2$、$\gamma'_2=\gamma_1+\gamma_2$ を作る。次を順に示せ。新座標を $z'=z/(2+i)$ としてよい。
+
+1. 二閉路が向きを保つ整数基底か判定する。
+2. 新しい規格化周期を求める。
+3. その虚部が正であることを確認する。
+4. 新しい標識での $F^1$ と偏極正値条件を検算する。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -573,7 +578,21 @@ $$
 #### HOD1-16-C02 Kähler恒等式からHodge分解とHard Lefschetzまで
 - Level: C
 
-$E_\tau$（$\operatorname{Im}\tau=b>0$）に $\omega=du\wedge dv$ を入れる。$\partial=A$、$\bar\partial=B$、$\Delta_A=AA^*+A^*A$、$\Delta_B=BB^*+B^*B$、$L=\omega\wedge(-)$、$\Lambda=L^*$ とする。(1) $[\Lambda,A]=iB^*$、$[\Lambda,B]=-iA^*$ と $A^2=B^2=AB+BA=0$ から混合随伴項の消滅と $\Delta_A=\Delta_B$ を計算し、$\Delta_d=2\Delta_B$ を示せ。(2) 調和代表の型別分解から $H^1$ を具体的に書け。(3) $L:H^0\to H^2$ が同型であることを証明し、Kähler仮定・コンパクト仮定がどこで働いたか述べよ。
+$E_\tau$（$\operatorname{Im}\tau=b>0$）に $\omega=du\wedge dv$ を入れ、次の記号を用いる。
+
+$$
+\begin{gathered}
+A=\partial,\quad B=\bar\partial,\quad
+\Delta_A=AA^*+A^*A,\quad \Delta_B=BB^*+B^*B,\\
+L=\omega\wedge(-),\qquad \Lambda=L^*.
+\end{gathered}
+$$
+
+次の三段階を示せ。
+
+1. $[\Lambda,A]=iB^*$、$[\Lambda,B]=-iA^*$ と $A^2=B^2=AB+BA=0$ から混合随伴項の消滅と $\Delta_A=\Delta_B$ を計算し、$\Delta_d=2\Delta_B$ を導く。
+2. 調和代表の型別分解から $H^1$ を具体的に求める。
+3. $L:H^0\to H^2$ が同型であることを証明し、Kähler仮定・コンパクト仮定が働いた位置を説明する。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -625,7 +644,20 @@ H^1(E_\tau;\mathbb C)
 =\mathbb C[dz]\oplus\mathbb C[d\bar z].
 $$
 
-(3) $d\omega=0$ より $L$ はde Rhamコホモロジーに作用し、[Laplacianとの可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)で調和形式を保つ。$\omega=du\wedge dv$ の積分は基本領域で1だから、$L[1]=[\omega]\ne0$。$H^0$ と $H^2$ は定数係数調和形式で各一次元なので、非零線形写像 $L$ は同型。$H^1$ では $L^{n-k}=L^0=\mathrm{id}$（$n=k=1$）で、[Hard Lefschetz](../HOD1-11/index.md#thm-hod1-11-hard-lefschetz)を全対象次数で再現した。
+(3) $d\omega=0$ より $L$ はde Rhamコホモロジーに作用し、[Laplacianとの可換性](../HOD1-05/index.md#thm-hod1-05-laplacian-lefschetz)で調和形式を保つ。基本領域における積分を計算すると
+
+$$
+\int_{E_\tau}\omega=\int_0^1\int_0^1du\,dv=1,\qquad
+L[1]=[\omega]\ne0.
+$$
+
+$H^0$ と $H^2$ は定数係数調和形式で各一次元である。従って非零線形写像 $L$ は同型となる。残る次数 $k=n=1$ では
+
+$$
+L^{n-k}=L^0=\mathrm{id}:H^1(E_\tau;\mathbb C)\longrightarrow H^1(E_\tau;\mathbb C).
+$$
+
+これで[Hard Lefschetz](../HOD1-11/index.md#thm-hod1-11-hard-lefschetz)を全対象次数で再現した。
 
 $d\omega=0$ と正定値Hermite計量は[Kähler恒等式](../HOD1-04/index.md#thm-hod1-04-kahler-identities)を適用する入口で、コンパクト・境界なしは調和代表とコホモロジーの同型に必要だった。最後の $L[1]\ne0$ は規格化面積を実際に積分して確かめた。非Kähler多様体に演算子恒等式だけを移すことも、非コンパクトの場合に同じ調和代表論を無条件に使うこともできない。
 <!-- solution-end -->
