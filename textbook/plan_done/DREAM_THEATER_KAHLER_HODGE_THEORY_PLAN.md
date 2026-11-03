@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 推敲: 2026-10-28（標準教科書・講義ノートとの照合、依存・証明責務・学修順序の再設計）  
-状態: in_progress（HOD1-01〜16の章別実装・査読完了。系列横断の最終監査・参照整合・公開確認が残る）
+状態: completed（HOD1-01〜16の章別実装・査読と2026-11-03の系列横断検証を完了）
 
 ## 中心問いと到達点
 
@@ -28,7 +28,7 @@
 | Kähler恒等式、複素Hodge分解、$\partial\bar\partial$-補題、Hard Lefschetz、原始分解、Hodge–Riemann関係 | **HOD1が証明の正本**。KAH1/GA6に重複移植しない。 |
 | Kodaira埋め込み、一般Chern–Weil、Calabi予想、Hodge予想、周期写像の変動理論 | 各専用科目または後続に残す。HOD1では結果の使い道・入口を説明しても**未証明を既証明扱いしない**。 |
 
-HOD1系列manifestを初期化し、HOD1-01〜16の章別本文・`chapter.yaml`・`knowledge.yaml`を実装した。系列全体の最終監査が完了するまでPLANは `plans_progress/` に維持する。各章の最小prerequisiteと公開stable anchorは章別に検査する。上の科目名だけを全章の一括prerequisiteにしない。
+HOD1系列manifestを初期化し、HOD1-01〜16の章別本文・`chapter.yaml`・`knowledge.yaml`を実装した。各章の最小prerequisiteと公開stable anchorは章別に検査する。上の科目名だけを全章の一括prerequisiteにしない。
 
 ## 仮定・記号・正規化（初章から一貫して使う）
 
@@ -106,3 +106,9 @@ HOD1系列manifestを初期化し、HOD1-01〜16の章別本文・`chapter.yaml`
 3. 数式の係数・符号・随伴・次数、非Kähler反例、大域のcompact仮定、実／複素／有理係数、Serre型双対の仮定を各章で監査する。
 4. 新規本文の全主要証明・全演習と詳細解答を再計算し、完成本文を読者の立場で別観点再読する。CI greenやformal statementの個数だけで完成判定しない。
 5. 全章実装、横断的な依存・anchor・Hodge/Lefschetz符号・章間重複・公開索引・系列manifest・対象CIを確認後にのみ `plan_done/` へ移す。独立第三者査読は実施した場合だけそのように記録する。
+
+## 2026-11-03 系列横断の最終確認
+
+- 16章の実ファイル `index.md`・`chapter.yaml`・`knowledge.yaml` と系列manifestのID・完了statusを照合した。全章に主要定理・命題の記述と、解答の開始・終了が一対一で対応する演習がある。公開目次 `dream-theater-toc/050_幾何系/090_kahler-hodge-theory.md` も16章すべてを順序どおり含む。
+- GA6・CM2・KAH1に置かれた実Hodge、複素型、Kähler条件と、HOD1-02の $[\Lambda,L]=n-k$、HOD1-04の交換子 $[\Lambda,\partial]=i\bar\partial^*$ / $[\Lambda,\bar\partial]=-i\partial^*$、HOD1-05の $\Delta_d=2\Delta_{\bar\partial}$、HOD1-11の $L^{n-k}$、HOD1-13の $(-1)^{k(k-1)/2}i^{p-q}$ の符号・次数の接続を横断確認した。系列全章の既出結果を名前付きanchorで参照する検査と公開ページ検証はCIと併せて行う。
+- HOD1-16の追跡監査では4主要証明と10演習解答を再計算し、閉路基底変更に伴う双対コホモロジー基底の逆転置変換、重さ1の偏極の交代性・直和・正値性への橋渡しを補った。証拠と残件は対応する2026-11-03のPRに記録する。査読は同一担当による数理再計算と別観点再読であり、独立第三者査読ではない。
