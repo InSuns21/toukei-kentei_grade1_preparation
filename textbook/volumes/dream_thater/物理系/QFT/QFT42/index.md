@@ -250,7 +250,7 @@ $$
 =\int_{SU(3)}F(U)\,dU
 $$
 
-> を満たすとき、これを規格化Haar測度と呼ぶ。以下ではその存在をコンパクト群の基本事実として使用し、必要な積分値は二条件から導く。
+> を満たす測度を対象とする。以下ではその存在をコンパクト群の基本事実として使用し、必要な積分値はこの二条件から導く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft42-haar-measure -->
@@ -288,7 +288,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（SU(3)Haar積分の基本直交性）**  
-> [上で定義した規格化Haar測度](#def-qft42-haar-measure) $dU$ について、基本表示の任意の添字 $i,j,k,l\in\{1,2,3\}$ で
+> [上で定義した確率測度](#def-qft42-haar-measure) $dU$ について、基本表示の任意の添字 $i,j,k,l\in\{1,2,3\}$ で
 
 $$
 \int dU\,U_{ij}=0,
@@ -304,7 +304,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z=e^{2\pi i/3}$ とすると $zI_3\in SU(3)$、$z\ne1$ です。Haar測度の左不変性により $\int U_{ij}dU=\int(zU)_{ij}dU=z\int U_{ij}dU$。従って第一式は零です。
+$z=e^{2\pi i/3}$ とすると $zI_3\in SU(3)$、$z\ne1$ です。[定義した測度の左不変性](#def-qft42-haar-measure)により $\int U_{ij}dU=\int(zU)_{ij}dU=z\int U_{ij}dU$。従って第一式は零です。
 
 第二式の積分を $M_{ij;kl}$ とします。左から $D=\operatorname{diag}(e^{i\theta_1},e^{i\theta_2},e^{-i(\theta_1+\theta_2)})$ を掛けると、$M$ には位相 $D_{ii}D_{kk}^*$ が掛かります。任意の $D$ で不変だから $i\ne k$ では $M=0$ です。右から独立な対角行列を掛けても同じ議論ができ、$j\ne l$ で $M=0$ です。従って $M_{ij;kl}=c_{ij}\delta_{ik}\delta_{jl}$。
 
@@ -430,7 +430,7 @@ $\sum_A(T_Q^A+T_{\bar Q}^A)^2$ を展開すると、異なるテンソル因子�
 ### 演習 QFT42-A5：一つのplaquetteの平均
 
 - Level: A
-- 問題：独立Haar測度の純 $SU(3)$ 格子で $W(\partial p)=\operatorname{tr}U_p/3$ とする。重み $e^{(\beta/3)\operatorname{Re}\operatorname{tr}U_p}$ を一次展開して $\langle W(\partial p)\rangle=\beta/18+O(\beta^2)$ を導け。
+- 問題：各リンクに[定義した確率測度](#def-qft42-haar-measure)を独立に使う純 $SU(3)$ 格子で $W(\partial p)=\operatorname{tr}U_p/3$ とする。重み $e^{(\beta/3)\operatorname{Re}\operatorname{tr}U_p}$ を一次展開して $\langle W(\partial p)\rangle=\beta/18+O(\beta^2)$ を導け。
 
 <!-- solution-start -->
 ### 詳細解答
