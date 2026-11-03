@@ -1,0 +1,35 @@
+chapter: CYG1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-02, CYG1-04, CYG1-05, HOD1-07, HOD1-11, HOD1-14]
+concepts:
+  - id: cyg.top-hodge-one
+    name: 正則体積形式と最高Hodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則体積形式と最高Hodge数）"]
+    requires: [cyg.volume-trivialization-test, hodge.hodge-numbers]
+  - id: cyg.hodge-constraint-application
+    name: Hodge対称性とKähler性の制約の適用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hodge対称性とKähler性の制約の適用）"]
+    requires: [hodge.hodge-conjugation-symmetry, hodge.hodge-duality, hodge.hard-lefschetz-type, hodge.kahler-class-powers-nonzero]
+  - id: cyg.surface-hodge-skeleton
+    name: 標準束自明な曲面のHodge数の数値骨格
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準束自明な曲面のHodge数の数値骨格）"]
+    requires: [cyg.top-hodge-one, cyg.hodge-constraint-application]
+  - id: cyg.threefold-hodge-skeleton
+    name: 標準束自明な三次元多様体のBetti数とEuler標数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標準束自明な三次元多様体のBetti数とEuler標数）"]
+    requires: [cyg.top-hodge-one, cyg.hodge-constraint-application]
+  - id: cyg.intermediate-holomorphic-nonvanishing
+    name: トーラスによる中間正則形式消滅の反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（トーラスによる中間正則形式消滅の反例）"]
+    requires: [cyg.top-hodge-one, cyg.torus-holomorphic-volume, hodge.hodge-numbers]
