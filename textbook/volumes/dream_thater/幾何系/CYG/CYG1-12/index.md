@@ -622,7 +622,12 @@ $\beta=dz^2$ となるには $z^1v^1=1$、$z^1v^2=0$ が必要である。$z^1=0
 #### CYG1-12-C01 収縮とBeltrami変形を一続きに検算する
 - Level: C
 
-$X=E^2$、$\Omega=dz^1\wedge dz^2$、$\mu=d\bar z^1\otimes\partial_{z^2}+2d\bar z^2\otimes\partial_{z^1}$ とする。(1) 一次可積分性、(2) 大域的な非自明性、(3) 収縮像のDolbeault類、(4) 次元の意味を順に判定せよ。
+$E=\mathbb C/(\mathbb Z+i\mathbb Z)$、$X=E^2$、$\Omega=dz^1\wedge dz^2$、$\mu=d\bar z^1\otimes\partial_{z^2}+2d\bar z^2\otimes\partial_{z^1}$ とする。次を順に判定せよ。
+
+1. $\mu$ の一次可積分性
+2. $\mu$ の大域的な非自明性
+3. 収縮像が与えるDolbeault類
+4. 一次変形空間全体の次元と、その意味
 
 <!-- solution-start -->
 **詳細解答。** (1) $\mu$ の係数は全て定数なので $\partial_{\bar z^i}\mu_{\bar j}^{\,k}=0$。従って[一次可積分条件](#thm-cyg1-12-first-order-classification)の $\bar\partial_T\mu=0$ が成り立つ。
