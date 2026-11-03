@@ -74,7 +74,7 @@ U_1(1)\wedge\cdots\wedge U_n(1)
 =\det_{\mathbb C}(P_\gamma)\,u_1\wedge\cdots\wedge u_n.
 $$
 
-縮められる閉路 $\gamma$ を張る円板上で $L$ の単位枠を取り、誘導接続を $d+a$ と書く。線束の曲率は $da=F_L$、平行切断の係数 $c$ は $\dot c+a(\dot\gamma)c=0$ を満たす。したがって[Stokesの定理を使う既習計算](../../KAH/KAH1-16/index.md#thm-kah1-16-su-restricted)のとおり
+縮められる閉路 $\gamma$ を張る円板上で $L$ の単位枠を取り、誘導接続を $d+a$ と書く。線束の曲率は $da=F_L$、平行切断の係数 $c$ は $\dot c+a(\dot\gamma)c=0$ を満たす。したがって[閉路の行列式と円板積分の既習計算](../../KAH/KAH1-16/index.md#thm-kah1-16-su-restricted)のとおり
 
 $$
 \det_{\mathbb C}P_\gamma
