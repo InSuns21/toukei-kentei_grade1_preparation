@@ -461,7 +461,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-スペクトル分解 $C_p=R\operatorname{diag}(\lambda_1,\lambda_2)R^{\mathsf T}$ で $R=(\boldsymbol e_1,\boldsymbol e_2)$ は直交行列です。$\boldsymbol p-\widehat{\boldsymbol p}=R\boldsymbol z$ と置くと、
+[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を、実対称かつ正定値な $2\times2$ 行列 $C_p$ に適用します。固有値は正で、正規直交固有ベクトルを列に持つ直交行列 $R=(\boldsymbol e_1,\boldsymbol e_2)$ を用いて $C_p=R\operatorname{diag}(\lambda_1,\lambda_2)R^{\mathsf T}$ と分解できます。$\boldsymbol p-\widehat{\boldsymbol p}=R\boldsymbol z$ と置くと、
 
 $$
 (R\boldsymbol z)^{\mathsf T}C_p^{-1}(R\boldsymbol z)

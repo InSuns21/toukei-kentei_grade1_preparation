@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GEOD7
   - F0-00P3
+  - F0-00F1
 forward_references: []
 concepts:
   - id: geodesy.linearized-observation
@@ -65,4 +66,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（誤差楕円の主軸と確率）]
-    requires: [geodesy.adjustment-error-ellipse]
+    requires: [geodesy.adjustment-error-ellipse, linear.spectral-theorem]
