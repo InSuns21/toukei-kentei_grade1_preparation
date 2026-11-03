@@ -467,7 +467,18 @@ $$
 c_3=(20-90+168-120)H^3=-22H^3.
 $$
 
-$\int_XH^3=2\cdot4=8$ だから[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)より $\chi=-22\cdot8=-176$。[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)で $b_1=0,b_2=1$、非零の $(1,1)$ Kähler類と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)で $h^{1,1}=1,h^{2,0}=0$。連結かつ $K_X$ 自明なので[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$。[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)で $b_3=4-\chi=180$、$b_3=2+2h^{2,1}$ から $h^{2,1}=89$。
+$\int_XH^3=2\cdot4=8$ だから、[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)より
+
+$$
+\chi_{\mathrm{top}}(X)=(-22)\cdot8=-176.
+$$
+
+[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)で $b_1=0,b_2=1$ となる。非零の $(1,1)$ Kähler類と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)を併用すると $h^{1,1}=1,h^{2,0}=0$。連結かつ $K_X$ 自明なので、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$ である。[Poincaré双対性](../../HOD/HOD1-07/index.md#thm-hod1-07-betti-constraints)により
+
+$$
+b_3=4-\chi_{\mathrm{top}}(X)=180,
+\qquad 180=2+2h^{2,1},\quad h^{2,1}=89.
+$$
 <!-- solution-end -->
 
 <a id="ex-cyg1-09-b02"></a>
@@ -490,7 +501,21 @@ $$
 (1+2H)^{-4}=1-8H+40H^2-160H^3.
 $$
 
-係数を掛けると $c_1=0$、$c_2=(28-64+40)H^2=4H^2$、$c_3=(56-224+320-160)H^3=-8H^3$。次数積は $\int_XH^3=2^4=16$、[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)より $\chi=-128$。滑らかな射影三次元完全交叉なので[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)・非零Kähler類・[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)から $h^{1,1}=1$、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$。$-128=2(1-h^{2,1})$ を解くと $h^{2,1}=65$。
+分子の係数と掛け合わせると
+
+$$
+c_1=0,\qquad c_2=(28-64+40)H^2=4H^2,
+$$
+
+$$
+c_3=(56-224+320-160)H^3=-8H^3.
+$$
+
+次数積は $\int_XH^3=2^4=16$ なので、[トップChern類とEuler標数](../CYG1-07/index.md#thm-cyg1-07-gauss-bonnet)から $\chi_{\mathrm{top}}(X)=-8\cdot16=-128$。滑らかな射影三次元完全交叉なので[弱Lefschetz](#thm-cyg1-09-weak-lefschetz)・非零Kähler類・[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)から $h^{1,1}=1$、[最高Hodge数](../CYG1-06/index.md#prop-cyg1-06-top-hodge)から $h^{3,0}=1$。よって
+
+$$
+-128=2(1-h^{2,1}),\qquad h^{2,1}=65.
+$$
 <!-- solution-end -->
 
 <a id="ex-cyg1-09-b03"></a>
