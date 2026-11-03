@@ -93,7 +93,15 @@ W_0(x,y)=\frac{1}{4\pi^2\{r^2-(\tau-i0)^2\}}
 =\frac1{8\pi^2\sigma_+(x,y)}.
 $$
 
-$z\ne0$ の光円錐の滑らかな部分では、$\sigma=(-\tau^2+r^2)/2$ が横断方向の局所座標になります。$\tau>0$ では $1/(\sigma+i0)$、$\tau<0$ では $1/(\sigma-i0)$ なので、[片側境界値の波面集合](../MICA4/index.md#thm-mica4-boundary-wf)から、前者の波面は $\lambda\,d_x\sigma$（$\lambda>0$）、後者は $\lambda\,d_x\sigma$（$\lambda<0$）です。$d_x\sigma=(-\tau,\boldsymbol r)$ の計量双対の時間成分は $\tau$ だから、いずれも $\lambda\,d_x\sigma$ の計量双対は未来向きです。$d_y\sigma=-d_x\sigma$ が第2変数の負符号を与えます。
+$z\ne0$ の光円錐の滑らかな部分では、$\sigma=(-\tau^2+r^2)/2$ が横断方向の局所座標になります。$d_x,d_y$ はそれぞれ他方の点を固定して微分する記号です。平坦座標で $z=x-y$ に連鎖律を適用すると
+
+$$
+d_x\sigma=(-\tau,\boldsymbol r),\qquad d_y\sigma=(\tau,-\boldsymbol r)
+$$
+
+となります。両者の座標成分は逆符号ですが、余接ベクトルとしては別の点の成分です。
+
+$\tau>0$ では $1/(\sigma+i0)$、$\tau<0$ では $1/(\sigma-i0)$ なので、[片側境界値の波面集合](../MICA4/index.md#thm-mica4-boundary-wf)から、前者の波面は $\lambda\,d_x\sigma$（$\lambda>0$）、後者は $\lambda\,d_x\sigma$（$\lambda<0$）です。$d_x\sigma=(-\tau,\boldsymbol r)$ の計量双対の時間成分は $\tau$ だから、いずれも $\lambda\,d_x\sigma$ の計量双対は未来向きです。$d_y\sigma$ の座標成分が $-d_x\sigma$ となることが、第2変数の負符号を与えます。
 
 対角 $z=0$ では $d\sigma=0$ となるため、今の横断座標の議論だけでは不十分です。[MICA11のFourier積分](../MICA11/index.md#prop-mica11-positive-direction)で $|\boldsymbol p|\to\infty$ の位相微分が $((-1,\boldsymbol n),(1,-\boldsymbol n))$ に近づきますが、**位相微分の極限だけはWFの下側包含の証明ではありません**。その不足は、次の命題で質量殻積分の局所Fourier変換を直接評価して補います。
 <!-- definition-example-end -->
@@ -109,7 +117,7 @@ $z\ne0$ の光円錐の滑らかな部分では、$\sigma=(-\tau^2+r^2)/2$ が�
 > $M=\mathbb R^{1+3}$、$g=-dt^2+d\boldsymbol x^2$、$P=-\Box$ において、[MICA12の正周波数二点分布](../MICA12/index.md#prop-mica12-massless-boundary)
 
 $$
-W_0(x,y)=\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3,2|\boldsymbol p|}
+W_0(x,y)=\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3\,2|\boldsymbol p|}
 e^{-i|\boldsymbol p|(t_x-t_y)+i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}
 $$
 
@@ -140,11 +148,34 @@ $$
 \qquad |\zeta_R-\kappa(\boldsymbol p)|\le2\delta.
 $$
 
-$\delta>0$ を十分小さく取ると $\widehat\chi\ge c>0$ となり、積分のこの領域への制限だけで $\widehat{\chi w_0}(\zeta_R)\ge c'/R$（$R>2\delta$）を得ます。$\psi$ の支持は任意に小さく選べます。仮に原点でこの方向が正則なら、そこで非零の正則化cutoffを選び、その内側に支持を取った上の $\chi$ も方向別に急減少するはずなので矛盾します。従って正の光的余接方向はどれも波面に属します。
+$\delta>0$ を十分小さく取ると上の球の中で $\widehat\chi\ge c>0$ です。$|\boldsymbol p|\le R+\delta$ と球の体積 $4\pi\delta^3/3$ を用い、非負の被積分関数をこの球だけで下から評価すると
 
-逆に、正の零錐から離れた閉錐方向の $\zeta$ については、$|\boldsymbol p|\le2|\zeta|$ と $|\boldsymbol p|>2|\zeta|$ に積分域を分けます。前者では $|\zeta-\kappa(\boldsymbol p)|\ge c|\zeta|$（方向の分離）、後者では $|\zeta-\kappa(\boldsymbol p)|\ge c|\boldsymbol p|$ です。$\widehat\chi$ が任意次数で急減少し、$d^3p/|\boldsymbol p|$ の原点近傍の積分も有限であることから、どちらの積分も $O(|\zeta|^{-N})$ を任意の $N$ で満たします。よって $WF(w_0)$ の原点の方向はちょうど未来向き零錐です。
+$$
+\widehat{\chi w_0}(\zeta_R)
+\ge\frac{c}{(2\pi)^3}\int_{|\boldsymbol p-R\boldsymbol n|<\delta}\frac{d^3p}{2|\boldsymbol p|}
+\ge\frac{c}{(2\pi)^3}\frac{4\pi\delta^3}{6(R+\delta)}
+\ge\frac{c'}R\quad(R>2\delta)
+$$
 
-最後に $(z,y)=(x-y,y)$ という線形座標を取れば、$w_0(z)$ は $y$ に依存しません。[波面の座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)で $(z,\zeta;y,0)$ を $(x,y)$ 座標に戻すと $(x,\zeta;y,-\zeta)$ となります。平坦な零測地線では平行移動が恒等なので、これが全ての $\mathcal C^+$ を与えます。
+を得ます。$\psi$ の支持は任意に小さく選べます。仮に原点でこの方向が正則なら、そこで非零の正則化cutoffを選び、その内側に支持を取った上の $\chi$ も方向別に急減少するはずなので矛盾します。従って正の光的余接方向はどれも波面に属します。
+
+逆に、正の零錐から離れた閉錐方向の $\zeta$ については、$R=|\zeta|$ として $|\boldsymbol p|\le2R$ と $|\boldsymbol p|>2R$ に積分域を分けます。前者では方向の分離とコンパクト性から $|\zeta-\kappa(\boldsymbol p)|\ge cR$、後者では三角不等式から $|\zeta-\kappa(\boldsymbol p)|\ge(\sqrt2-1/2)|\boldsymbol p|$ です。$\widehat\chi$ の急減少を $|\widehat\chi(\eta)|\le C_L(1+|\eta|)^{-L}$ と書くと、球座標で
+
+$$
+\int_{|\boldsymbol p|\le2R}\frac{d^3p}{|\boldsymbol p|}
+\,|\widehat\chi(\zeta-\kappa(\boldsymbol p))|
+\le C'_L R^{-L}\int_0^{2R}r\,dr=O(R^{2-L}),
+$$
+
+$$
+\int_{|\boldsymbol p|>2R}\frac{d^3p}{|\boldsymbol p|}
+\,|\widehat\chi(\zeta-\kappa(\boldsymbol p))|
+\le C''_L\int_{2R}^\infty r^{1-L}\,dr=O(R^{2-L})\quad(L>2).
+$$
+
+任意の $N$ に対して $L>N+2$ を選べるので、両方の積分は $O(R^{-N})$ です。よって $WF(w_0)$ の原点の方向はちょうど未来向き零錐です。
+
+最後に $(z,y)=(x-y,y)$ という線形座標を取れば、$w_0(z)$ は $y$ に依存しません。$dz=dx-dy$ なので、余接の線形形式 $\zeta\cdot dz$ は $\zeta\cdot dx-\zeta\cdot dy$ になります。[波面の座標変換則](../MICA5/index.md#thm-mica5-coordinate-change)で $(z,\zeta;y,0)$ を $(x,y)$ 座標に戻すと $(x,\zeta;y,-\zeta)$ となります。平坦な零測地線では平行移動が恒等なので、これが全ての $\mathcal C^+$ を与えます。
 <!-- proof-end -->
 
 ## 3. 転置と交換子条件から何が証明できるか
@@ -353,7 +384,7 @@ $g=-dt^2+dx_1^2+dx_2^2+dx_3^2$ で $a>0$ とする。$k=(-a,0,a,0)$ について
 <!-- solution-start -->
 #### 詳細解答
 
-逆計量は $\operatorname{diag}(-1,1,1,1)$ です。従って
+座標基底 $(\partial_t,\partial_{x_1},\partial_{x_2},\partial_{x_3})$ では、与えられた計量の成分行列は $g_{ab}=\operatorname{diag}(-1,1,1,1)$ です。逆計量は $g^{ab}g_{bc}=\delta^a_c$ を満たす逆行列なので、$g^{ab}=\operatorname{diag}(-1,1,1,1)$ です。従って
 
 $$
 g^{-1}(k,k)=-(-a)^2+0^2+a^2+0^2=0,
@@ -488,7 +519,7 @@ $$
 D-D^T=(W_1-W_1^T)-(W_2-W_2^T)=(-iE)-(-iE)=0.
 $$
 
-よって $D^T=D$ です。差のWFの包含から $WF(D)\subset\mathcal C^+$。さらに $D=D^T$ と[転置による正負波面の交換](#prop-mica13-transpose)を使うと
+よって $D^T=D$ です。[MICA3の波面集合の和の包含](../MICA3/index.md#prop-mica3-sum)を $D=W_1-W_2$ に適用すると $WF(D)\subset WF(W_1)\cup WF(W_2)\subset\mathcal C^+$ です。$D=D^T$ と[転置による正負波面の交換](#prop-mica13-transpose)を使うと
 
 $$
 WF(D)=WF(D^T)\subset\mathcal C^-
@@ -553,12 +584,12 @@ $$
 4次元Minkowski時空で $P=-\Box$、$E$ は[HPDE21の遅延 − 先進規約](../../HPDE/HPDE21/index.md#def-hpde21-causal-propagator)とする。質量零真空を
 
 $$
-W_0(x,y)=\frac1{8\pi^2\sigma_+(x,y)},
-\quad \sigma_+=\lim_{\varepsilon\downarrow0}
-\bigl(\sigma+i\varepsilon(t_x-t_y)+\tfrac12\varepsilon^2\bigr)
+W_0(x,y)=\frac1{8\pi^2}\frac1{\sigma_+(x,y)},
+\quad \frac1{\sigma_+}:=\lim_{\varepsilon\downarrow0}
+\frac1{\sigma+i\varepsilon(t_x-t_y)+\tfrac12\varepsilon^2}
 $$
 
-で与える。$\lambda>0$ に対して $W_\lambda=W_0+\lambda\,1\otimes1$ と置く。
+で与える。極限は[MICA12の正周波数境界値の定義](../MICA12/index.md#def-mica12-positive-boundary)と同様、分布の意味で取る。$\lambda>0$ に対して $W_\lambda=W_0+\lambda\,1\otimes1$ と置く。
 
 1. $W_0$ の非対角光円錐上の未来向き共変ベクトルを $\tau>0$ と $\tau<0$ で求めよ。
 2. $W_\lambda-W_\lambda^T$、$P_xW_\lambda$、$P_yW_\lambda$ を計算し、正値性が保たれる理由を述べよ。
@@ -592,7 +623,7 @@ $$
 WF(W_\lambda)=WF(W_0)=\mathcal C^+.
 $$
 
-ここで最後の等号は質量零Minkowski真空についての**全**波面計算を入力しています。[MICA12の質量零模型](../MICA12/index.md#prop-mica12-massless-boundary)では $U=1$ で $v_n=0$ なので、同じ尺度の局所式は $H_{\ell,\infty}=W_0$。従って
+ここで最後の等号には、質量零Minkowski真空の[全波面方向の命題](#prop-mica13-flat-wavefront)を使用しています。[MICA12の質量零模型](../MICA12/index.md#prop-mica12-massless-boundary)では $U=1$ で $v_n=0$ なので、同じ尺度の局所式は $H_{\ell,\infty}=W_0$。従って
 
 $$
 (W_\lambda-H_{\ell,\infty})-(W_0-H_{\ell,\infty})
