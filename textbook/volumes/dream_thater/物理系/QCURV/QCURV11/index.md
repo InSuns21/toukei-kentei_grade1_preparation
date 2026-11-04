@@ -277,7 +277,17 @@ $$
 
 となり、両端で発散します。これは**一個の規格化粒子の無限個生成**ではありません。単色の連続モードは到着時刻について無限に広がり、粒子数を数える正規化された波束ではないためです。
 
-帯域 $[j\epsilon,(j+1)\epsilon]$（$\epsilon>0,j\ge1$）と時刻中心 $u_n=2\pi n/\epsilon$（$n\in\mathbb Z$）を使います。ここで $\omega_j=(j+1/2)\epsilon$ は帯域中央です。$\epsilon\ll\omega_j$ かつ $\epsilon\ll\kappa$ とし、**さらに**Gamma因子の位相も含めて、後で定義する $C(\omega)$ が帯域内でほぼ一定になる範囲を考えます。これは[QCURV10の出射波束の時刻中心](../QCURV10/index.md#prop-qcurv10-packet-localization)をin周波数へ移す際に、追加の周波数依存位相で中心が大きくずれないようにする仮定です。単に $\epsilon/\kappa$ が小さいだけでは、任意に高い $\omega_j/\kappa$ でこの追加条件は保証されません。
+帯域と時刻ラベルを、幅 $\epsilon>0$、整数 $j\ge1$、$n\in\mathbb Z$ に対して
+
+$$
+[j\epsilon,(j+1)\epsilon],\qquad
+\omega_j=(j+1/2)\epsilon,\qquad
+u_n=\frac{2\pi n}{\epsilon}
+$$
+
+と置きます。$\omega_j$ は帯域中央、$u_n$ は[QCURV10の出射波束の時刻中心](../QCURV10/index.md#prop-qcurv10-packet-localization)です。
+
+$\epsilon\ll\min(\omega_j,\kappa)$ に加え、Gamma因子の位相も含めて後で定義する $C(\omega)$ が帯域内でほぼ一定になる範囲を考えます。これは追加の周波数依存位相で中心が大きくずれないようにする仮定です。単に $\epsilon/\kappa$ が小さいだけでは、任意に高い $\omega_j/\kappa$ でこの条件は保証されません。
 
 <a id="def-qcurv11-packet-mixing"></a>
 
