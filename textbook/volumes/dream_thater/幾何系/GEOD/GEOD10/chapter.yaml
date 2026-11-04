@@ -1,0 +1,45 @@
+id: "GEOD10"
+title: "重力測地学と高さ系の基礎計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD9
+official_scope: []
+learning_objectives:
+  - 実重力ポテンシャルと正常ポテンシャル・重力と正常重力を同じ符号規約で区別できる
+  - ジオポテンシャル数を重力の線積分から導き、単位・符号と経路独立性を検算できる
+  - 正標高・正常高・動的高を各平均重力の定義から計算し、基準面の仮定を説明できる
+  - ジオイド・準ジオイド・楕円体高の関係を区別し、Brunsの一次近似と適用限界を示せる
+  - 水準観測・重力観測・GNSS高を同一基準・時点にそろえた模型で結合できる
+  - 不確かさと重力模型誤差、標高成果の版差を区別して解釈できる
+definitions:
+  - { id: GEOD10-DEF-01, name: 正常ポテンシャルと正常重力 }
+  - { id: GEOD10-DEF-02, name: ジオポテンシャル数 }
+  - { id: GEOD10-DEF-03, name: 正標高・正常高・動的高の計算モデル }
+  - { id: GEOD10-DEF-04, name: 高度異常と準ジオイド }
+theorems:
+  - { id: GEOD10-PROP-01, name: 鉛直方向のジオポテンシャル数の積分 }
+  - { id: GEOD10-THM-01, name: 正標高・正常高・動的高の換算式 }
+  - { id: GEOD10-PROP-02, name: Brunsの一次近似 }
+  - { id: GEOD10-PROP-03, name: 重力を付した水準差とポテンシャル差 }
+  - { id: GEOD10-PROP-04, name: GNSS高と高さ系の結合・共分散 }
+canonical_examples:
+  - 線形の実重力ポテンシャルと正常ポテンシャルにおける勾配と単位
+  - 高さによって変わる重力からのジオポテンシャル数積分
+  - 同じジオポテンシャル数から三種類の高さを比較
+  - 正負の擾乱ポテンシャルとBruns近似の符号
+  - 水準区間の重力加重とGNSSの高さとの結合
+problem_patterns:
+  - GEOD10-POTENTIAL-SIGN
+  - GEOD10-HEIGHT-UNITS
+  - GEOD10-HEIGHT-ANOMALY
+  - GEOD10-BRUNS
+  - GEOD10-LEVELING-POTENTIAL
+  - GEOD10-VARIABLE-GRAVITY
+  - GEOD10-EQUIPOTENTIAL-HEIGHTS
+  - GEOD10-UNCERTAINTY
+  - GEOD10-INTEGRATED-HEIGHT-SURVEY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
