@@ -10,9 +10,9 @@
 
 ## 1. 遠方の低周波光を過去へ逆追跡すると
 
-過去零無限遠の入射光線ラベルを $v$、未来零無限遠の出射光線ラベルを $u$ とします。両方とも漸近平坦な遠方の時計に規格化した、長さの次元を持つ零時刻です。[QCURV10の入出射写像](../QCURV10/index.md#def-qcurv10-ray-map)を $v=p(u)$ と書きます。脱出光線上で $p'(u)>0$ とすれば逆関数 $u=q(v)$ が存在します。
+過去零無限遠の入射光線ラベルを $v$、未来零無限遠の出射光線ラベルを $u$ とします。両方とも漸近平坦な遠方の時計に規格化した、長さの次元を持つ零時刻です。[QCURV10の入出射写像](../QCURV10/index.md#def-qcurv10-ray-map)を $v=p(u)$ と書きます。プライムは各写像の引数による微分で、$p'(u)=dp/du$、逆関数については $q'(v)=dq/dv$ です。脱出光線上で $p'(u)>0$ とすれば逆関数 $u=q(v)$ が存在します。
 
-入射側で $e^{-i\Omega v}$、出射側で $e^{-i\omega u}$ を正周波数と呼ぶ規約は[QCURV10の波束定義](../QCURV10/index.md#def-qcurv10-asymptotic-packets)と同じです。出射位相を過去へ戻すと $e^{-i\omega q(v)}$。局所的な位相の変化率は
+入射側で $e^{-i\Omega v}$、出射側で $e^{-i\omega u}$ を正周波数と呼ぶ規約は[QCURV10の波束定義](../QCURV10/index.md#def-qcurv10-asymptotic-packets)と同じです。出射角周波数 $\omega>0$ を固定し、出射位相を過去へ戻すと $e^{-i\omega q(v)}$。局所的な位相の変化率は
 
 $$
 \frac{d}{dv}[\omega q(v)]
@@ -41,7 +41,16 @@ $$
 <!-- definition-example-start: def-qcurv18-backward-uv -->
 ### 直接例：線形な光線写像では増幅しない
 
-$p(u)=a u+b$、$a>0$ なら $p'(u)=a$ です。従って $\Omega_{\mathrm{back}}=\omega/a$ は時間に依らず、$v$ と $u$ の時計が同じ速さなら $a=1$、$\Omega_{\mathrm{back}}=\omega$ となります。$a,b$ は定数、$v$ と $u$ はともに長さ次元なので $a$ は無次元です。任意の $\Lambda>\omega/a$ を選べば、**超閾値領域は空**です。**定義の確認**：正の導関数、周波数の次元、閾値との比較をすべて検査しました。
+$p(u)=au+b$、$a>0$（$a,b$ は定数）なら、全実数上で微分可能で
+
+$$
+p'(u)=a>0,\qquad
+\Omega_{\mathrm{back}}(u;\omega)=\frac{\omega}{a}
+$$
+
+です。遡及周波数は時間に依存しません。入出射の時計が同じ速さなら $a=1$ で、遡及周波数は出射周波数 $\omega$ に等しくなります。
+
+$v,u$ はともに長さ次元なので $a$ は無次元、$b$ は長さ次元です。任意の $\Lambda>\omega/a$ を選べば、**超閾値領域は空**です。**定義の確認**：滑らかさと正の導関数、周波数の次元、閾値との比較をすべて検査しました。
 <!-- definition-example-end -->
 
 指数写像では事情が違います。以下は[QCURV10の後期指数則](../QCURV10/index.md#thm-qcurv10-late-exponential)の主項を**全時刻へ延長した理想模型**です。実際の崩壊の早期光線をこの式で記述したとは主張しません。
@@ -101,7 +110,16 @@ $$
 
 [QCURV11の後期波束](../QCURV11/index.md#prop-qcurv11-late-packet-planck)は有限の帯域と到着時刻を持ちます。厳密な波束は一つの入射周波数ではなく、広がった Fourier 成分を含みます。そこで、**正規化された対数周波数の比較模型**を作ります。これは実際のBogoliubov係数を勝手に高周波で切断した「新しい量子理論」ではありません。周波数が後期にずれることの含意だけを抽出する数学模型です。
 
-任意の基準周波数 $\Omega_0>0$ を選び、入射周波数 $\Omega>0$ に対し $z=\log(\Omega/\Omega_0)\in\mathbb R$ とします。正規化された形状関数 $f\in L^2(\mathbb R,dz)$、$\int_{\mathbb R}|f(t)|^2dt=1$ を、光線追跡による中心の移動
+任意の基準周波数 $\Omega_0>0$ を選び、入射周波数 $\Omega>0$ を対数座標へ写します。
+
+$$
+z=\log(\Omega/\Omega_0)\in\mathbb R,\qquad
+\frac{dz}{d\Omega}=\frac1\Omega>0.
+$$
+
+したがって積分の変数変換では $dz=d\Omega/\Omega$ となり、$\Omega\le\Lambda$ と $z\le\log(\Lambda/\Omega_0)$ は同値です。対数周波数上の重みを比較するには $d\Omega$ ではなく $dz$ で規格化します。
+
+正規化された形状関数 $f\in L^2(\mathbb R,dz)$、$\int_{\mathbb R}|f(t)|^2dt=1$ を、光線追跡による中心の移動
 
 $$
 z_c(u)=\log\!\left(\frac{\omega}{\kappa A\Omega_0}\right)
@@ -207,7 +225,18 @@ $$
 
 分母が正だから不等号は保たれます。基準の $\Omega_{\mathrm{back},0}$ と比べた相対差は、固定した $u$ で最大 $\delta/(1-\delta)$。これは**導関数が一様に近い区間**に限る評価です。$J$ の外、特に $u\to\infty$ まで保証するものではありません。
 
-熱的な粒子数には、さらに入射状態と**位相のFourier分解**が必要でした。[QCURV11の係数](../QCURV11/index.md#def-qcurv11-fourier-coefficients)は、端点正則化・モード規格化を備えた積分です。以下は、その核の安定性を見積もるために滑らかな有限窓を付けた**診断積分**です。物理的な正準係数そのものとは区別します。
+熱的な粒子数には、さらに入射状態と**位相のFourier分解**が必要でした。[QCURV11の負周波数混合係数](../QCURV11/index.md#def-qcurv11-fourier-coefficients)には $e^{-i\omega u-i\Omega p(u)}$ の位相が現れます。以下では有界な開区間 $J$ の中で実数値の切替関数 $\chi$ を掛け、その**複素共役**を使います。このとき窓付きの位相積分は
+
+$$
+\overline{\int_J\chi(u)e^{-i\omega u-i\Omega p(u)}\,du}
+=\int_J\chi(u)e^{i\omega u+i\Omega p(u)}\,du
+$$
+
+となり、絶対値を比較するときは同じ情報が残ります。
+
+$C_c^\infty(J)$ は、$J$ 内のコンパクトな集合の外で零となる滑らかな関数の集合を表します。$\operatorname{supp}\chi$ は $\chi\ne0$ となる集合の閉包（台）で、この場合は $J$ 内のコンパクトな部分集合です。
+
+このような切替関数で有限区間の内部を滑らかに切り替えれば、位相の安定性だけを調べられます。ただしQCURV11の正準係数には端点正則化とモード規格化が必要です。以下の**診断積分**を物理的な正準係数そのものとは同一視しません。
 
 <a id="def-qcurv18-finite-window"></a>
 
@@ -217,22 +246,22 @@ $$
 
 $$
 I_\chi[p](\omega,\Omega)
-:=\int_{\mathbb R}\chi(u)
+:=\int_J\chi(u)
 e^{i\omega u+i\Omega p(u)}\,du
 $$
 
-> と定める。$\chi$ は $J$ 外で0とする。$I_\chi$ は正準Bogoliubov係数ではなく、その位相積分に注目した比較用の量である。
+> と定める。$\chi$ は $J$ 外で0とするが、$p$ は $J$ 上でのみ定義されるため積分範囲も $J$ とする。$I_\chi$ は正準Bogoliubov係数ではなく、その位相積分に注目した比較用の量である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qcurv18-finite-window -->
 ### 直接例：一定の光線ラベルずれ
 
-ある連続写像 $p$ を $q(u)=p(u)+d$（$d\in\mathbb R$、長さ次元）へ変えると
+ある連続写像 $p$ を別の関数 $\widetilde p(u)=p(u)+d$（$d\in\mathbb R$、長さ次元）へ変えると
 
 $$
-I_\chi[q](\omega,\Omega)
+I_\chi[\widetilde p](\omega,\Omega)
 =e^{i\Omega d}I_\chi[p](\omega,\Omega),
-\qquad |I_\chi[q]|=|I_\chi[p]|.
+\qquad |I_\chi[\widetilde p]|=|I_\chi[p]|.
 $$
 
 $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束し、$\omega,\Omega>0$、$\Omega d$ は無次元です。**定義の確認**：位相は変わる一方で絶対値が不変と実際に計算でき、積分の存在、周波数、位相の次元も検査しました。
@@ -242,11 +271,11 @@ $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束�
 
 <!-- formal-statement-start -->
 > **命題（有限窓の位相摂動評価）**  
-> 同じ有界区間 $J$ の上の連続する二つの光線写像 $p,q:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-q(u)|\le\varepsilon<\infty$ なら
+> $J\subset\mathbb R$ を有界開区間、$p,\widetilde p:J\to\mathbb R$ を連続関数、$\chi\in C_c^\infty(J)$ を実数値の切替関数、$\omega,\Omega>0$、$0\le\varepsilon<\infty$ とする。すべての $u\in\operatorname{supp}\chi$ で $|p(u)-\widetilde p(u)|\le\varepsilon$ なら、[有限窓Fourier診断積分](#def-qcurv18-finite-window)は
 
 $$
 \boxed{\left|I_\chi[p](\omega,\Omega)
--I_\chi[q](\omega,\Omega)\right|
+-I_\chi[\widetilde p](\omega,\Omega)\right|
 \le\Omega\varepsilon\|\chi\|_{L^1}.}
 $$
 
@@ -264,21 +293,23 @@ $$
 
 $$
 \begin{aligned}
-|I_\chi[p]-I_\chi[q]|
-&\le\int_{\mathbb R}|\chi(u)|
-|e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
+|I_\chi[p]-I_\chi[\widetilde p]|
+&\le\int_J|\chi(u)|
+|e^{i\Omega p(u)}-e^{i\Omega\widetilde p(u)}|\,du\\
 &\le\int_{\operatorname{supp}\chi}|\chi(u)|
-\Omega|p(u)-q(u)|\,du\\
-&\le\Omega\varepsilon\int_{\mathbb R}|\chi(u)|\,du.
+\Omega|p(u)-\widetilde p(u)|\,du\\
+&\le\Omega\varepsilon\int_J|\chi(u)|\,du.
 \end{aligned}
 $$
 
 $0<\Omega\le\Lambda$ を追加すれば $\Omega\varepsilon\le\Lambda\varepsilon$ とでき、結論を得ます。
 <!-- proof-end -->
 
+この評価は連続関数の**位相積分**について成立し、二つの関数が物理的に許される光線写像かどうかまでは判定しません。光線の入出射対応として読む場合は、さらに対象区間での微分可能性と $p',\widetilde p'>0$ などを別途確認する必要があります。
+
 **何を証明していないか。** 有限時間・有限周波数で位相積分が連続でも、[QCURV11の熱因子](../QCURV11/index.md#thm-qcurv11-thermal-ratio)は無限区間の指数写像、Gamma積分の枝、正準規格化、適切な入射真空と後期波束の極限を用いています。上のノルム評価だけでは、UV修正後に正準交換関係が保たれるか、熱的占有数が保たれるかを証明できません。
 
-例えばある領域で分散関係を $\varpi(k)=|k|$ から $\varpi(k)=|k|\sqrt{1+k^2/\Lambda^2}$ へ変えた比較模型では、$|k|/\Lambda\ll1$ のとき
+例えば局所的な比較模型で $k\in\mathbb R$ を空間方向の波数、$\varpi(k)\ge0$ をその角振動数として、分散関係を $\varpi(k)=|k|$ から $\varpi(k)=|k|\sqrt{1+k^2/\Lambda^2}$ へ変えた場合を考えます。$|k|/\Lambda\ll1$ のとき
 
 $$
 \varpi(k)=|k|\left[1+\frac{k^2}{2\Lambda^2}
@@ -291,7 +322,15 @@ $$
 
 入出射写像がある有限区間で指数的であることと、未来へ永遠に続く事象地平線が存在することも違います。[QCURV10の正則接続の命題](../QCURV10/index.md#prop-qcurv10-smooth-transfer)では、一次係数が消えないことを明示して初めて指数率を得ました。その条件は、任意の時空が必ず地平線を持つという証明ではありません。
 
-次の**光線写像だけの反例**を作れます。$\kappa,A>0$、切替時刻 $u_2\in\mathbb R$ を取り、$u\le u_2$ では $p(u)=v_H-Ae^{-\kappa u}$ とします。$u\ge u_2+\Delta$（$\Delta>0$）では導関数を一定の $c=\kappa A e^{-\kappa u_2}>0$ にし、その間を滑らかで正の導関数で接続します。例えば $[u_2,u_2+\Delta]$ に、端点で全ての導関数が消える滑らかな切替 $h$（左端0、右端1、$0\le h\le1$）を置いて
+次の**光線写像だけの反例**を作れます。$\kappa,A>0$、切替時刻 $u_2\in\mathbb R$ を取り、その時刻までは指数模型
+
+$$
+p(u)=v_H-Ae^{-\kappa u}\qquad(u\le u_2)
+$$
+
+とします。十分後の時刻 $u\ge u_2+\Delta$（$\Delta>0$）では、導関数を正の定数 $c=\kappa Ae^{-\kappa u_2}$ に接続します。
+
+途中の区間 $[u_2,u_2+\Delta]$ では、左端で0、右端で1を取り、端点で全ての導関数が消える滑らかな切替関数 $h$ を選びます。$0\le h\le1$ として
 
 $$
 p'(u)=[1-h(u)]\kappa A e^{-\kappa u}+h(u)c
@@ -440,7 +479,13 @@ $$
 - 問題: [対数周波数窓](#def-qcurv18-uv-window-weight)の模型で $d=1$、$f(t)=1/\sqrt2$（$|t|\le1$）かつ帯外で0、$\log(\Lambda/\Omega_0)=0$ とする。中心 $z_c=-2,1/2,2$ の三場合で $P_{\le\Lambda}$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$|f|^2=1/2$ は長さ2の区間 $[z_c-1,z_c+1]$ だけに台を持つため、$P$ はこの区間と $(-\infty,0]$ の交わりの長さを2で割ったものです。$z_c=-2$ では帯は $[-3,-1]$ で全体が閾値以下だから $P=1$。$z_c=1/2$ では $[-1/2,3/2]$ で交わりは長さ $1/2$、従って $P=1/4$。$z_c=2$ では $[1,3]$ に交わりがなく $P=0$ です。各場合とも $0\le P\le1$ です。
+**詳細解答**：$|f|^2=1/2$ は長さ2の区間 $[z_c-1,z_c+1]$ だけに台を持ちます。従って $P_{\le\Lambda}$ は、この帯域と閾値以下の半直線 $(-\infty,0]$ との交差部分の長さを2で割ったものです。
+
+- $z_c=-2$：帯は $[-3,-1]$ で全体が閾値以下なので、$P_{\le\Lambda}=2/2=1$。
+- $z_c=1/2$：帯は $[-1/2,3/2]$ で交差部分の長さは $1/2$、従って $P_{\le\Lambda}=(1/2)/2=1/4$。
+- $z_c=2$：帯は $[1,3]$ で交差が空なので、$P_{\le\Lambda}=0$。
+
+いずれも定義に従う非負の重みで、上界1を超えません。
 <!-- solution-end -->
 
 ### Level B：近似の安定性と失敗機構を調べる
@@ -465,18 +510,35 @@ $$
 <a id="ex-qcurv18-b02"></a>
 #### QCURV18-B02 有限窓の位相誤差
 - Level: B
-- 問題: $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$、$\omega>0$、$0<\Omega\le\Lambda$ とする。$q(u)=p(u)+\varepsilon\sin(u/T)$（$T>0$、$\varepsilon\ge0$）なら $|I_\chi[p]-I_\chi[q]|$ の上界を求めよ。$\Omega\to\infty$ でも同じ固定定数で抑えられるか。また $q=p+d$ の場合の絶対値の変化を求めよ。
+- 問題: $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$、$\omega>0$、$0<\Omega\le\Lambda$ とする。$\widetilde p(u)=p(u)+\varepsilon\sin(u/T)$（$T>0$、$\varepsilon\ge0$）なら $|I_\chi[p]-I_\chi[\widetilde p]|$ の上界を求めよ。$\Omega\to\infty$ でも同じ固定定数で抑えられるか。また $\widetilde p=p+d$ の場合の絶対値の変化を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$|\sin(u/T)|\le1$ なので $\sup_{\operatorname{supp}\chi}|p-q|\le\varepsilon$。[位相摂動評価](#prop-qcurv18-phase-stability)から
+**詳細解答**：$|\sin(u/T)|\le1$ なので、切替関数の台に属するすべての $u$ で $|p(u)-\widetilde p(u)|\le\varepsilon$ です。[位相摂動評価](#prop-qcurv18-phase-stability)から
 
 $$
-|I_\chi[p]-I_\chi[q]|
+|I_\chi[p]-I_\chi[\widetilde p]|
 \le\Omega\varepsilon\|\chi\|_1
 =\Omega\varepsilon\le\Lambda\varepsilon.
 $$
 
-この評価の右辺は $\Omega$ とともに増えるため、有限の $\Lambda$ を外して同じ定数を得られません（もちろん個々の積分には自明な $2\|\chi\|_1$ の上界があるが、$\varepsilon\to0$ に比例する一様評価ではありません）。定数シフトなら $I_\chi[p+d]=e^{i\Omega d}I_\chi[p]$ なので $|I_\chi[p+d]|=|I_\chi[p]|$ です。一般の摂動不等式は鋭い等号を常に与えるわけではありません。
+この摂動評価の右辺は入射周波数 $\Omega$ とともに増えます。有限帯域の仮定を外すと、同じ定数で**誤差幅 $\varepsilon$ に比例する評価**は得られません。一方、三角不等式から個々の位相積分の差には $2\|\chi\|_1$ という自明な一様上界があります。これは誤差幅が零へ近づいても小さくなる評価ではありません。
+
+定数シフト $\widetilde p=p+d$ の場合は、直接積分して
+
+$$
+I_\chi[\widetilde p]=e^{i\Omega d}I_\chi[p],\qquad
+|I_\chi[\widetilde p]|=|I_\chi[p]|.
+$$
+
+一般の摂動不等式は鋭い等号を常に与えるわけではありません。
+
+なお、この問いでは $\widetilde p$ の単調性を仮定していません。$p$ が微分可能なら
+
+$$
+\widetilde p'(u)=p'(u)+\frac{\varepsilon}{T}\cos(u/T)
+$$
+
+となります。区間 $J$ で $p'(u)>\varepsilon/T$ を追加すれば $\widetilde p'(u)>0$ が保証され、二つを単調な光線写像として比較できます。
 <!-- solution-end -->
 
 <a id="ex-qcurv18-b03"></a>
@@ -520,7 +582,7 @@ $n=0$ なら $1/9$、$n=2$ なら $23/9$ です。係数はモード間の混合
 
   - (a) 遡及アフィン周波数と閾値時刻 $u_*$ を求め、$\Lambda$ の2倍への到達時刻差を求めよ。
   - (b) $\Omega_0>0$、$f(t)=1/\sqrt2$（$|t|\le1$、他で0）の対数波束を使い、中心 $z_c(u_*)$ と $P_{\le\Lambda}(u_*),P_{\le\Lambda}(u_*+2/\kappa)$ を計算せよ。
-  - (c) $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$ の有限窓で $|p-q|\le\varepsilon$、$0<\Omega\le\Lambda$ のとき位相積分の差を評価せよ。
+  - (c) $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$ の有限窓で $|p-\widetilde p|\le\varepsilon$、$0<\Omega\le\Lambda$ のとき位相積分の差を評価せよ。
   - (d) 元のHawking熱因子から4次元の遠方光度を出すため追加で必要な条件を二つ以上挙げよ。
   - (e) (a)〜(c) の結果から「UV領域で任意の修正を施しても厳密な熱スペクトルが続く」と証明できるか。理由を数式または反例に結び付けて答えよ。
 
@@ -548,10 +610,10 @@ $$
 
 $$
 \begin{aligned}
-|I_\chi[p]-I_\chi[q]|
-&\le\int|\chi(u)|\,
-|e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
-&\le\Omega\int|\chi(u)||p(u)-q(u)|\,du\\
+|I_\chi[p]-I_\chi[\widetilde p]|
+&\le\int_J|\chi(u)|\,
+|e^{i\Omega p(u)}-e^{i\Omega\widetilde p(u)}|\,du\\
+&\le\Omega\int_J|\chi(u)||p(u)-\widetilde p(u)|\,du\\
 &\le\Lambda\varepsilon\|\chi\|_1=\Lambda\varepsilon.
 \end{aligned}
 $$
