@@ -10,9 +10,9 @@
 
 ## 1. 遠方の低周波光を過去へ逆追跡すると
 
-過去零無限遠の入射光線ラベルを $v$、未来零無限遠の出射光線ラベルを $u$ とします。両方とも漸近平坦な遠方の時計に規格化した、長さの次元を持つ零時刻です。[QCURV10の入出射写像](../QCURV10/index.md#def-qcurv10-ray-map)を $v=p(u)$ と書きます。脱出光線上で $p'(u)>0$ とすれば逆関数 $u=q(v)$ が存在します。
+過去零無限遠の入射光線ラベルを $v$、未来零無限遠の出射光線ラベルを $u$ とします。両方とも漸近平坦な遠方の時計に規格化した、長さの次元を持つ零時刻です。[QCURV10の入出射写像](../QCURV10/index.md#def-qcurv10-ray-map)を $v=p(u)$ と書きます。プライムは各写像の引数による微分で、$p'(u)=dp/du$、逆関数については $q'(v)=dq/dv$ です。脱出光線上で $p'(u)>0$ とすれば逆関数 $u=q(v)$ が存在します。
 
-入射側で $e^{-i\Omega v}$、出射側で $e^{-i\omega u}$ を正周波数と呼ぶ規約は[QCURV10の波束定義](../QCURV10/index.md#def-qcurv10-asymptotic-packets)と同じです。出射位相を過去へ戻すと $e^{-i\omega q(v)}$。局所的な位相の変化率は
+入射側で $e^{-i\Omega v}$、出射側で $e^{-i\omega u}$ を正周波数と呼ぶ規約は[QCURV10の波束定義](../QCURV10/index.md#def-qcurv10-asymptotic-packets)と同じです。出射角周波数 $\omega>0$ を固定し、出射位相を過去へ戻すと $e^{-i\omega q(v)}$。局所的な位相の変化率は
 
 $$
 \frac{d}{dv}[\omega q(v)]
@@ -101,7 +101,16 @@ $$
 
 [QCURV11の後期波束](../QCURV11/index.md#prop-qcurv11-late-packet-planck)は有限の帯域と到着時刻を持ちます。厳密な波束は一つの入射周波数ではなく、広がった Fourier 成分を含みます。そこで、**正規化された対数周波数の比較模型**を作ります。これは実際のBogoliubov係数を勝手に高周波で切断した「新しい量子理論」ではありません。周波数が後期にずれることの含意だけを抽出する数学模型です。
 
-任意の基準周波数 $\Omega_0>0$ を選び、入射周波数 $\Omega>0$ に対し $z=\log(\Omega/\Omega_0)\in\mathbb R$ とします。正規化された形状関数 $f\in L^2(\mathbb R,dz)$、$\int_{\mathbb R}|f(t)|^2dt=1$ を、光線追跡による中心の移動
+任意の基準周波数 $\Omega_0>0$ を選び、入射周波数 $\Omega>0$ を対数座標へ写します。
+
+$$
+z=\log(\Omega/\Omega_0)\in\mathbb R,\qquad
+\frac{dz}{d\Omega}=\frac1\Omega>0.
+$$
+
+したがって積分の変数変換では $dz=d\Omega/\Omega$ となり、$\Omega\le\Lambda$ と $z\le\log(\Lambda/\Omega_0)$ は同値です。対数周波数上の重みを比較するには $d\Omega$ ではなく $dz$ で規格化します。
+
+正規化された形状関数 $f\in L^2(\mathbb R,dz)$、$\int_{\mathbb R}|f(t)|^2dt=1$ を、光線追跡による中心の移動
 
 $$
 z_c(u)=\log\!\left(\frac{\omega}{\kappa A\Omega_0}\right)
@@ -207,7 +216,14 @@ $$
 
 分母が正だから不等号は保たれます。基準の $\Omega_{\mathrm{back},0}$ と比べた相対差は、固定した $u$ で最大 $\delta/(1-\delta)$。これは**導関数が一様に近い区間**に限る評価です。$J$ の外、特に $u\to\infty$ まで保証するものではありません。
 
-熱的な粒子数には、さらに入射状態と**位相のFourier分解**が必要でした。[QCURV11の係数](../QCURV11/index.md#def-qcurv11-fourier-coefficients)は、端点正則化・モード規格化を備えた積分です。以下は、その核の安定性を見積もるために滑らかな有限窓を付けた**診断積分**です。物理的な正準係数そのものとは区別します。
+熱的な粒子数には、さらに入射状態と**位相のFourier分解**が必要でした。[QCURV11の負周波数混合係数](../QCURV11/index.md#def-qcurv11-fourier-coefficients)には $e^{-i\omega u-i\Omega p(u)}$ の位相が現れます。以下では有界な開区間 $J$ の中で実数値の切替関数 $\chi$ を掛け、その**複素共役**を使います。このとき窓付きの位相積分は
+
+$$
+\overline{\int_J\chi(u)e^{-i\omega u-i\Omega p(u)}\,du}
+=\int_J\chi(u)e^{i\omega u+i\Omega p(u)}\,du
+$$
+
+となり、絶対値を比較するときは同じ情報が残ります。$C_c^\infty(J)$ は、$J$ 内のコンパクトな集合の外で零となる滑らかな関数の集合を表します。このような $\chi$ で有限区間 $J$ の内部を滑らかに切り替えれば、位相の安定性だけを調べられます。ただしQCURV11の正準係数には端点正則化とモード規格化が必要です。以下の**診断積分**を物理的な正準係数そのものとは同一視しません。
 
 <a id="def-qcurv18-finite-window"></a>
 
@@ -217,11 +233,11 @@ $$
 
 $$
 I_\chi[p](\omega,\Omega)
-:=\int_{\mathbb R}\chi(u)
+:=\int_J\chi(u)
 e^{i\omega u+i\Omega p(u)}\,du
 $$
 
-> と定める。$\chi$ は $J$ 外で0とする。$I_\chi$ は正準Bogoliubov係数ではなく、その位相積分に注目した比較用の量である。
+> と定める。$\chi$ は $J$ 外で0とするが、$p$ は $J$ 上でのみ定義されるため積分範囲も $J$ とする。$I_\chi$ は正準Bogoliubov係数ではなく、その位相積分に注目した比較用の量である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qcurv18-finite-window -->
@@ -242,7 +258,7 @@ $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束�
 
 <!-- formal-statement-start -->
 > **命題（有限窓の位相摂動評価）**  
-> 同じ有界区間 $J$ の上の連続する二つの光線写像 $p,q:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-q(u)|\le\varepsilon<\infty$ なら
+> 同じ有界区間 $J$ の上の二つの連続関数 $p,q:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-q(u)|\le\varepsilon<\infty$ なら
 
 $$
 \boxed{\left|I_\chi[p](\omega,\Omega)
@@ -265,20 +281,22 @@ $$
 $$
 \begin{aligned}
 |I_\chi[p]-I_\chi[q]|
-&\le\int_{\mathbb R}|\chi(u)|
+&\le\int_J|\chi(u)|
 |e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
 &\le\int_{\operatorname{supp}\chi}|\chi(u)|
 \Omega|p(u)-q(u)|\,du\\
-&\le\Omega\varepsilon\int_{\mathbb R}|\chi(u)|\,du.
+&\le\Omega\varepsilon\int_J|\chi(u)|\,du.
 \end{aligned}
 $$
 
 $0<\Omega\le\Lambda$ を追加すれば $\Omega\varepsilon\le\Lambda\varepsilon$ とでき、結論を得ます。
 <!-- proof-end -->
 
+この評価は連続関数の**位相積分**について成立し、二つの関数が物理的に許される光線写像かどうかまでは判定しません。光線の入出射対応として読む場合は、さらに対象区間での微分可能性と $p',q'>0$ などを別途確認する必要があります。
+
 **何を証明していないか。** 有限時間・有限周波数で位相積分が連続でも、[QCURV11の熱因子](../QCURV11/index.md#thm-qcurv11-thermal-ratio)は無限区間の指数写像、Gamma積分の枝、正準規格化、適切な入射真空と後期波束の極限を用いています。上のノルム評価だけでは、UV修正後に正準交換関係が保たれるか、熱的占有数が保たれるかを証明できません。
 
-例えばある領域で分散関係を $\varpi(k)=|k|$ から $\varpi(k)=|k|\sqrt{1+k^2/\Lambda^2}$ へ変えた比較模型では、$|k|/\Lambda\ll1$ のとき
+例えば局所的な比較模型で $k\in\mathbb R$ を空間方向の波数、$\varpi(k)\ge0$ をその角振動数として、分散関係を $\varpi(k)=|k|$ から $\varpi(k)=|k|\sqrt{1+k^2/\Lambda^2}$ へ変えた場合を考えます。$|k|/\Lambda\ll1$ のとき
 
 $$
 \varpi(k)=|k|\left[1+\frac{k^2}{2\Lambda^2}
@@ -477,6 +495,7 @@ $$
 $$
 
 この評価の右辺は $\Omega$ とともに増えるため、有限の $\Lambda$ を外して同じ定数を得られません（もちろん個々の積分には自明な $2\|\chi\|_1$ の上界があるが、$\varepsilon\to0$ に比例する一様評価ではありません）。定数シフトなら $I_\chi[p+d]=e^{i\Omega d}I_\chi[p]$ なので $|I_\chi[p+d]|=|I_\chi[p]|$ です。一般の摂動不等式は鋭い等号を常に与えるわけではありません。
+なお、この問いでは $q$ の単調性を仮定していません。$p$ が微分可能なら $q'(u)=p'(u)+(\varepsilon/T)\cos(u/T)$ なので、$J$ 上で $p'(u)>\varepsilon/T$ を追加すれば $q'(u)>0$ が保証され、二つを単調な光線写像として比較できます。
 <!-- solution-end -->
 
 <a id="ex-qcurv18-b03"></a>
@@ -549,9 +568,9 @@ $$
 $$
 \begin{aligned}
 |I_\chi[p]-I_\chi[q]|
-&\le\int|\chi(u)|\,
+&\le\int_J|\chi(u)|\,
 |e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
-&\le\Omega\int|\chi(u)||p(u)-q(u)|\,du\\
+&\le\Omega\int_J|\chi(u)||p(u)-q(u)|\,du\\
 &\le\Lambda\varepsilon\|\chi\|_1=\Lambda\varepsilon.
 \end{aligned}
 $$
