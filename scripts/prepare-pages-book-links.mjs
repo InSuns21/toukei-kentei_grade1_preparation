@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 
 const root = process.cwd();
 const siteDir = path.join(root, '_site');
@@ -35,7 +36,7 @@ async function recursiveMarkdownFiles(baseDir, relativeDir = '') {
 function orientMarkdownLinks(markdown, siteRelativeFile) {
   const sourceDir = path.posix.dirname(siteRelativeFile);
 
-  return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
     // Docsify resolves image sources relative to the Markdown page. Keep image
     // paths page-relative instead of rewriting them like navigation links.
     if (open.startsWith('![')) return match;
@@ -74,7 +75,7 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
 }
 
 function canonicalizeRemovedTextbookLinks(markdown) {
-  return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
     const trimmed = rawHref.trim();
     const destination = trimmed.match(/^(\S+)(\s+(?:"[^"]*"|'[^']*'))?$/);
     if (!destination) return match;

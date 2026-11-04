@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 
 const root = process.cwd();
 const sourceRoot = path.join(root, 'textbook', 'volumes');
@@ -363,7 +364,7 @@ function demoteTopHeading(text) {
 
 function orientMarkdownLinks(markdown, siteRelativeFile) {
   const sourceDir = path.posix.dirname(siteRelativeFile);
-  return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
     const trimmed = rawHref.trim();
     if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('/') || /^(?:https?:|mailto:|tel:|data:)/i.test(trimmed)) return match;
     const destination = trimmed.match(/^(\S+)(\s+(?:"[^"]*"|'[^']*'))?$/);
