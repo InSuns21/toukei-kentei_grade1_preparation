@@ -76,13 +76,7 @@ $$
 
 自由な表面曲線は曲がったり止まったりできます。測地線には[一般の座標測地線方程式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)があり、初期点と初期速度が局所的に解を決めます。この章では計量の係数からその方程式を自分で構成します。
 
-単位速さをまだ課さない媒介変数 $t$ に対し、[曲線エネルギー](../../GEO/GEO12/index.md#def-geo12-length-energy)の被積分関数は
-
-$$
-L=\tfrac12\left(M(\phi)^2\phi_t^2+r(\phi)^2\lambda_t^2\right).
-$$
-
-添字 $t$ は $t$ 微分です。$L$ は経度 $\lambda$ そのものに依存しません。回転対称性から「東西方向の運動量」が残ることが予想できます。
+計量の係数を行列に並べると、緯度方向の長さは $M(\phi)$ 倍、経度方向の長さは $r(\phi)$ 倍です。いずれも経度 $\lambda$ には依存しません。この回転対称性により、後で「東西方向の運動量」に相当する量が保存されます。まず、[Levi-Civita接続](../../GEO/GEO13/index.md#def-geo13-levi-civita)の座標係数をこの具体的な計量から求めましょう。
 
 <a id="thm-geod12-equations"></a>
 <!-- formal-statement-start -->
@@ -99,39 +93,56 @@ $$
 > プライムは緯度 $\phi$ による微分を表す。これに初期値 $M^2\dot\phi^2+r^2\dot\lambda^2=1$ を課すと、解の速さは1のまま保存される。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $L$ を $\phi$・$\lambda$ とその速度で微分します。緯度方向は $M'$ と $r'$ の項を持ち、経度方向では $\partial L/\partial\lambda=0$ が保存則を生みます。これは[一般の測地線方程式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)を対角計量へ具体化したものです。
+**証明の見取り図。** 計量の対角成分だけを[Levi-Civita接続のChristoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)へ入れます。緯度方向は $M'$ と $r'$ の項を持ち、経度方向には $\lambda$ 自身に依存する係数がないため保存則が現れます。[一般の測地線方程式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)を具体化する計算です。
 
 <!-- proof-start -->
 ### 証明
 
-エネルギーの Euler–Lagrange 方程式 $d(\partial L/\partial\phi_t)/dt=\partial L/\partial\phi$ を使います。必要な偏微分をすべて書くと
+座標を $x^1=\phi,x^2=\lambda$ とし、計量成分と逆行列成分を
 
 $$
-\frac{\partial L}{\partial\phi_t}=M^2\phi_t,\quad
-\frac{d}{dt}(M^2\phi_t)=2MM'\phi_t^2+M^2\phi_{tt},
+g_{11}=M^2,\quad g_{22}=r^2,\quad g_{12}=0,\qquad
+g^{11}=M^{-2},\quad g^{22}=r^{-2}
 $$
 
-$$
-\frac{\partial L}{\partial\phi}
-=MM'\phi_t^2+rr'\lambda_t^2.
-$$
-
-両式の差を0として $M^2>0$ で割れば
+と置きます。$M,r>0$ なので逆成分が定まります。非零の計量微分は $\partial_1g_{11}=2MM'$、$\partial_1g_{22}=2rr'$ だけです。[Christoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
 
 $$
-\phi_{tt}+\frac{M'}M\phi_t^2-\frac{rr'}{M^2}\lambda_t^2=0.
+\Gamma^k_{ij}=\frac12g^{k\ell}
+\left(\partial_i g_{j\ell}+\partial_j g_{i\ell}-\partial_\ell g_{ij}\right)
 $$
 
-同様に
+へ、例えば $k=1,i=j=2$ を代入すると、$\ell=1$ だけが残り
 
 $$
-\frac{\partial L}{\partial\lambda_t}=r^2\lambda_t,\qquad
-\frac{\partial L}{\partial\lambda}=0
+\Gamma^1_{22}
+=-\frac12g^{11}\partial_1g_{22}
+=-\frac{rr'}{M^2}.
 $$
 
-なので、$d(r^2\lambda_t)/dt=2rr'\phi_t\lambda_t+r^2\lambda_{tt}=0$。$r>0$ で割り経度方向の式を得ます。
+同じように添字を入れると
 
-逆向きは、局所正定値計量の Levi-Civita 接続に対応するエネルギー変分方程式が測地線方程式に一致する、という[既習の座標式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)により成り立ちます。速度の二乗 $V^2=M^2\dot\phi^2+r^2\dot\lambda^2$ を微分し、
+$$
+\Gamma^1_{11}=\frac{M'}M,\qquad
+\Gamma^2_{12}=\Gamma^2_{21}=\frac{r'}r
+$$
+
+で、その他の成分は0です。[GEO14の測地線座標式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)へこれを代入すると
+
+$$
+\ddot\phi+\Gamma^1_{11}\dot\phi^2+\Gamma^1_{22}\dot\lambda^2
+=\ddot\phi+\frac{M'}M\dot\phi^2-\frac{rr'}{M^2}\dot\lambda^2=0,
+$$
+
+また
+
+$$
+\ddot\lambda+\Gamma^2_{12}\dot\phi\dot\lambda
++\Gamma^2_{21}\dot\lambda\dot\phi
+=\ddot\lambda+2\frac{r'}r\dot\phi\dot\lambda=0
+$$
+
+を得ます。一般の座標式は測地線との必要十分条件です。速度の二乗 $V^2=M^2\dot\phi^2+r^2\dot\lambda^2$ を微分し、
 
 $$
 \frac{dV^2}{ds}
