@@ -308,7 +308,7 @@ $$
 
 内部方向を一つに制限した作用密度はMaxwell型です。ただしこれは $SU(2)$ 全体をU(1)と同一視したわけではなく、交換する一方向だけに限った特例です。
 
-**前章までとの符号の接続**：[QFT15の電磁場テンソル](../QFT15/index.md#def-qft15-potential-field)は $F^{\mathrm{(EM)}}_{\mu\nu}=\partial_\nu a_\mu-\partial_\mu a_\nu$ と定義しました。一方、本講の曲率を同じポテンシャル $a_\mu$ の可換方向へ制限すると $F^{\mathrm{(YM)}}_{\mu\nu}=-F^{\mathrm{(EM)}}_{\mu\nu}T^3$ です。**テンソルの定義には全体符号の差があります**が、$F_{\mu\nu}F^{\mu\nu}$ の二次作用と無源の運動方程式は同値です。電場・磁場の成分や外部源との結合を比較する際には、この符号差を引き継がずに確認してください。
+**前章までとの符号の接続**：[QFT15の電磁場テンソル](../QFT15/index.md#def-qft15-potential-field)は $F^{\mathrm{(EM)}}_{\mu\nu}=\partial_\nu a_\mu-\partial_\mu a_\nu$ と定義しました。一方、本講の曲率を同じポテンシャル $a_\mu$ の可換方向へ制限すると $F^{\mathrm{(YM)}}_{\mu\nu}=-F^{\mathrm{(EM)}}_{\mu\nu}T^3$ です。**テンソルの定義には全体符号の差があります**が、$F_{\mu\nu}F^{\mu\nu}$ の二次作用と無源の運動方程式は同値です。電場・磁場の成分や外部源との結合を比較する際には、両者の定義へ戻って符号を確認してください。
 <!-- definition-example-end -->
 
 <a id="thm-qft28-action-eom"></a>
