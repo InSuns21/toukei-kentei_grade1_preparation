@@ -1,0 +1,46 @@
+id: QCURV19
+title: "de Sitterの宇宙論的地平線とGibbons–Hawking温度"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV4
+  - QCURV6
+  - QCURV8
+  - QCURV14
+official_scope: []
+learning_objectives:
+  - de Sitter時空の平坦FLRW表示と静的パッチ表示を変換し、宇宙論的地平線と時計の規格化を特定できる
+  - 四次元の質量零共形結合場についてBunch–Davies状態の正振動数モードと二点関数を導出できる
+  - 静的パッチ中心の自由落下検出器の二点関数をFourier変換しGibbons–Hawking温度と詳細釣合いを検算できる
+  - 静止観測者の固有時間、Tolman温度、固有加速度、地平線表面重力を区別して検算できる
+  - 質量零最小結合場の赤外例外、有限時間の切替、検出器温度とブラックホール遠方流束の違いを説明できる
+definitions:
+  - { id: QCURV19-DEF-01, name: de Sitterの平坦FLRW背景 }
+  - { id: QCURV19-DEF-02, name: de Sitter静的パッチと宇宙論的地平線 }
+  - { id: QCURV19-DEF-03, name: 共形スカラー場のBunch–Davies状態 }
+theorems:
+  - { id: QCURV19-PROP-01, name: 平坦表示から静的表示への座標変換 }
+  - { id: QCURV19-THM-01, name: 共形スカラー場のBunch–Davies二点関数 }
+  - { id: QCURV19-THM-02, name: 静的パッチ中心のGibbons–Hawking検出器温度 }
+  - { id: QCURV19-PROP-02, name: 静的パッチの局所温度と固有加速度 }
+canonical_examples:
+  - 指数スケール因子から共形時間とRicciスカラーを得る
+  - 静的パッチの中心と地平線でKilling時計がどう異なるかを検査する
+  - 正振動数共形モードから二点関数を積分する
+  - 中心世界線で二点関数の双曲正弦表示と短距離極限を確認する
+  - 任意の静止半径で固有温度と固有加速度を計算する
+problem_patterns:
+  - QCURV19-CONFORMAL-TIME
+  - QCURV19-STATIC-COORDINATE
+  - QCURV19-CONFORMAL-MODE
+  - QCURV19-HADAMARD-LIMIT
+  - QCURV19-SURFACE-GRAVITY
+  - QCURV19-WIGHTMAN-INTEGRAL
+  - QCURV19-THERMAL-FOURIER
+  - QCURV19-TOLMAN-ACCELERATION
+  - QCURV19-INFRARED-EXCEPTION
+  - QCURV19-DETECTOR-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 16, review: 8 }

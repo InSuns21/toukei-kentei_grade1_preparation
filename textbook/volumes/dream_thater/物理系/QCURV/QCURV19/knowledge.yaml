@@ -1,0 +1,45 @@
+chapter: QCURV19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV4
+  - QCURV6
+  - QCURV8
+  - QCURV14
+forward_references: []
+concepts:
+  - id: qcurv.de-sitter-flat-background
+    name: de Sitterの平坦FLRW背景
+    kind: definition
+    introduction: formal
+    requires: [qcurv.flrw-conformal-background]
+  - id: qcurv.de-sitter-static-patch
+    name: de Sitter静的パッチと宇宙論的地平線
+    kind: definition
+    introduction: formal
+    requires: [qcurv.de-sitter-flat-background]
+  - id: qcurv.de-sitter-static-transform
+    name: 平坦表示から静的表示への座標変換
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.de-sitter-static-patch]
+  - id: qcurv.bunch-davies-conformal
+    name: 共形スカラー場のBunch–Davies状態
+    kind: definition
+    introduction: formal
+    requires: [qcurv.de-sitter-flat-background, qcurv.conformal-vacuum]
+  - id: qcurv.bunch-davies-wightman
+    name: 共形スカラー場のBunch–Davies二点関数
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.bunch-davies-conformal, qcurv.de-sitter-static-transform]
+  - id: qcurv.gibbons-hawking-detector
+    name: 静的パッチ中心のGibbons–Hawking検出器温度
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.bunch-davies-wightman, qcurv.detector-detailed-balance]
+  - id: qcurv.de-sitter-tolman-acceleration
+    name: 静的パッチの局所温度と固有加速度
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.gibbons-hawking-detector, qcurv.tolman-kms-redshift]
