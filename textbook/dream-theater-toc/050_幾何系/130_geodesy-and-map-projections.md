@@ -18,3 +18,4 @@
 15. [GEOD15 球面メルカトルと球面横メルカトル](textbook/volumes/dream_thater/幾何系/GEOD/GEOD15/index.md)
 16. [GEOD16 楕円体横メルカトルの特徴づけと構成](textbook/volumes/dream_thater/幾何系/GEOD/GEOD16/index.md)
 17. [GEOD17 Krüger 級数による順変換](textbook/volumes/dream_thater/幾何系/GEOD/GEOD17/index.md)
+18. [GEOD18 Krüger 逆級数・縮尺・子午線収差](textbook/volumes/dream_thater/幾何系/GEOD/GEOD18/index.md)

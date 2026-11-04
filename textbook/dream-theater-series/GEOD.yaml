@@ -21,7 +21,7 @@ chapters:
   - { id: GEOD15, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD15, status: completed, title: "球面メルカトルと球面横メルカトル" }
   - { id: GEOD16, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD16, status: completed, title: "楕円体横メルカトルの特徴づけと構成" }
   - { id: GEOD17, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD17, status: completed, title: "Krüger 級数による順変換" }
-  - { id: GEOD18, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD18, status: planned, title: "Krüger 逆級数・縮尺・子午線収差" }
+  - { id: GEOD18, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD18, status: completed, title: "Krüger 逆級数・縮尺・子午線収差" }
   - { id: GEOD19, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD19, status: planned, title: "等積投影と正積緯度" }
   - { id: GEOD20, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD20, status: planned, title: "Equal Earth 図法と等積性" }
   - { id: GEOD21, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD21, status: planned, title: "日本の平面直角座標系と UTM の比較" }
