@@ -1,0 +1,91 @@
+chapter: COMB13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB12
+forward_references: []
+
+concepts:
+  - id: combinatorics.root-consuming-recurrence
+    name: 根を一個消費する形式的再帰方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（根を一個消費する形式的再帰方程式）]
+    requires: [combinatorics.formal-composition, combinatorics.size-decreasing-recursion]
+
+  - id: combinatorics.formal-recurrence-unique-solution
+    name: 形式的再帰方程式の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（形式的再帰方程式の存在と一意性）]
+    requires: [combinatorics.root-consuming-recurrence]
+
+  - id: combinatorics.formal-derivative
+    name: 形式的微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式的微分）]
+    requires: [combinatorics.formal-power-series, combinatorics.formal-cauchy-product]
+
+  - id: combinatorics.formal-composition-inverse
+    name: 形式的合成逆
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式的合成逆）]
+    requires: [combinatorics.formal-composition]
+
+  - id: combinatorics.formal-composition-inverse-existence
+    name: 一次係数非零の級数の形式的合成逆
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次係数非零の級数の形式的合成逆）]
+    requires: [combinatorics.formal-composition-inverse, combinatorics.formal-recurrence-unique-solution, combinatorics.formal-unit-criterion]
+
+  - id: combinatorics.formal-laurent-series
+    name: 形式的 Laurent 級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式的 Laurent 級数の留数）]
+    requires: [combinatorics.formal-power-series]
+
+  - id: combinatorics.formal-laurent-residue
+    name: 形式的 Laurent 級数の留数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（形式的 Laurent 級数の留数）]
+    requires: [combinatorics.formal-laurent-series, combinatorics.formal-coefficient-extraction, combinatorics.formal-derivative]
+
+  - id: combinatorics.formal-residue-substitution
+    name: 形式的留数の変数変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [補題（形式的留数の変数変換）]
+    requires: [combinatorics.formal-laurent-residue, combinatorics.formal-composition-inverse-existence]
+
+  - id: combinatorics.lagrange-inversion
+    name: Lagrange 反転公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lagrange 反転公式）]
+    requires: [combinatorics.formal-residue-substitution, combinatorics.formal-composition-inverse-existence]
+
+  - id: combinatorics.lagrange-inversion-powers
+    name: 再帰解の冪の係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [系（再帰解の冪の係数）]
+    requires: [combinatorics.lagrange-inversion]
+
+  - id: combinatorics.lagrange-catalan
+    name: Catalan 数の形式的反転による表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Catalan 数の形式的反転による表示）]
+    requires: [combinatorics.lagrange-inversion, combinatorics.catalan-binomial-formula]
+
+  - id: combinatorics.labeled-rooted-tree-count
+    name: 標識付き根付き木の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（標識付き根付き木の計数）]
+    requires: [combinatorics.lagrange-inversion, combinatorics.labeled-exponential-formula]

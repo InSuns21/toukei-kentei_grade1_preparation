@@ -1,0 +1,45 @@
+id: "COMB10"
+title: "構造分解と母関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB9
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 大きさ付き組合せクラスの各サイズ有限性、サイズ零の対象、対象の同一視を具体例で判定できる
+  - タグ付き和・大きさ加法的な直積を全単射で構成し、母関数の和と Cauchy 積を証明できる
+  - 正のサイズの部品からなる順序付き有限列について局所有限性を証明し、形式的等比級数を導ける
+  - 一意分解とサイズ減少を確認して再帰仕様から有理型 OGF と漸化式を導ける
+  - 根付き順序付き完全二分木を左右部分木に分解して Catalan 型の二次母関数方程式を導ける
+  - 順序付き列・多重集合・集合の違いを反例で説明し、母関数演算の適用条件を判定できる
+definitions:
+  - { id: COMB10-DEF-01, name: 大きさ付き組合せクラス }
+  - { id: COMB10-DEF-02, name: タグ付き和と大きさ加法的な直積 }
+  - { id: COMB10-DEF-03, name: 正の大きさの部品からなる有限列 }
+  - { id: COMB10-DEF-04, name: サイズを減らす再帰分解 }
+theorems:
+  - { id: COMB10-THM-01, name: 和・積の普通母関数 }
+  - { id: COMB10-THM-02, name: 列の普通母関数 }
+  - { id: COMB10-THM-03, name: 正のサイズを消費する再帰仕様の一意性 }
+  - { id: COMB10-THM-04, name: 順序付き完全二分木の再帰母関数 }
+canonical_examples:
+  - 二色の語の大きさ別有限集合と空語一個
+  - 左右のタグを残す和とサイズ加法的な直積
+  - 長さ1と2のタイル列の母関数と先頭分解
+  - 零サイズ部品からなる列の無限重複
+  - 11を禁止する二色語の排反な再帰分解
+  - 根を取り外した順序付き完全二分木の左右部分木
+  - 二色の長さ2の列と多重集合・集合の計数差
+problem_patterns:
+  - COMB10-TAGGED-SUM
+  - COMB10-CARTESIAN-PRODUCT
+  - COMB10-ORDERED-SEQUENCE
+  - COMB10-ZERO-SIZE-COUNTEREXAMPLE
+  - COMB10-RECURSIVE-SPECIFICATION
+  - COMB10-TREE-CONVOLUTION
+  - COMB10-UNORDERED-CAUTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

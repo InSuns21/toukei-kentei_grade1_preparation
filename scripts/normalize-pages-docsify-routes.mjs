@@ -1,5 +1,6 @@
 import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 
 const root = process.cwd();
 const siteDir = path.join(root, '_site');
@@ -22,7 +23,7 @@ async function recursiveMarkdownFiles(baseDir, relativeDir = '') {
 }
 
 function normalizeExplicitDocsifyRoutes(markdown) {
-  return markdown.replace(/(\[[^\]]*\]\()#\/([^\s)]+)(\))/g, (match, open, route, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(\[[^\]]*\]\()#\/([^\s)]+)(\))/g, (match, open, route, close) => {
     const suffixAt = route.search(/[?#]/);
     const routePath = suffixAt >= 0 ? route.slice(0, suffixAt) : route;
     const routeSuffix = suffixAt >= 0 ? route.slice(suffixAt) : '';
@@ -36,7 +37,7 @@ function normalizeExplicitDocsifyRoutes(markdown) {
 function normalizeVolumeRelativeLinks(markdown, relative) {
   if (!relative.startsWith('textbook/volumes/')) return markdown;
   const sourceDir = path.posix.dirname(relative);
-  return markdown.replace(/(\]\()(\.\.\/[^)\s]+)(\))/g, (match, open, href, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(\]\()(\.\.\/[^)\s]+)(\))/g, (match, open, href, close) => {
     const suffixAt = href.search(/[?#]/);
     const targetPath = suffixAt < 0 ? href : href.slice(0, suffixAt);
     const suffix = suffixAt < 0 ? '' : href.slice(suffixAt);

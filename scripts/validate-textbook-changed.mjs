@@ -20,7 +20,7 @@ if (!base) {
   process.exit(2);
 }
 
-const diff = spawnSync('git', ['-c', 'core.quotePath=false', 'diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
+const diff = spawnSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base + '...HEAD'], {
   encoding: 'utf8',
   stdio: ['ignore', 'pipe', 'pipe'],
 });
@@ -29,7 +29,7 @@ if (diff.status !== 0) {
   process.exit(diff.status || 2);
 }
 
-const changed = diff.stdout.split(/\r?\n/u).map((x) => x.trim()).filter(Boolean);
+const changed = diff.stdout.split('\0').filter(Boolean);
 const targetRe = /^(?:textbook|references|agents)\/|^(?:AGENTS|CONTENT_GUIDELINES|EXERCISE_GUIDELINES)\.md$/u;
 const targets = changed
   .filter((rel) => targetRe.test(rel) && /\.(?:md|ya?ml)$/u.test(rel))

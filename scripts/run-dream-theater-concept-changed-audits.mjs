@@ -29,6 +29,10 @@ const tasks = [
     label: 'reader prose chapter prerequisites (review queue)',
     args: ['scripts/audit-dream-theater-prose-prerequisites.mjs', '--changed-only', '--strict'],
   },
+  {
+    label: 'reader prose chapter prerequisites Unicode path regression',
+    args: ['scripts/audit-dream-theater-prose-prerequisites.mjs', '--self-test'],
+  },
 ];
 
 const startedAt = performance.now();

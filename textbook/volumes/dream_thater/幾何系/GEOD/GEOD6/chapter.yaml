@@ -1,0 +1,43 @@
+id: "GEOD6"
+title: "高さ・ジオイド・鉛直基準の導入"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD5
+official_scope: []
+learning_objectives:
+  - 重力ポテンシャルの勾配から鉛直を定義し、等ポテンシャル面との直交を連鎖律で証明できる
+  - ジオイド高・正標高・楕円体高の基準と測定方向を区別し、局所平行模型での高さ換算を導出できる
+  - 鉛直線に沿う重力加速度の積分からポテンシャル差と正標高の関係を導出できる
+  - 楕円体高一定の南北・東西微小弧長から楕円体への方向別距離還元係数を求められる
+  - 日本のJGD2024の標高成果改定と水平座標・楕円体の式の不変性を区別し、版・時点と換算誤差を検査できる
+definitions:
+  - { id: GEOD6-DEF-01, name: 物理的鉛直と鉛直線 }
+  - { id: GEOD6-DEF-02, name: ジオイド高 }
+  - { id: GEOD6-DEF-03, name: 正標高と鉛直基準 }
+theorems:
+  - { id: GEOD6-PROP-01, name: 等ポテンシャル面と鉛直の直交 }
+  - { id: GEOD6-PROP-02, name: 鉛直線に沿うポテンシャル差 }
+  - { id: GEOD6-PROP-03, name: 高さの換算と成立条件 }
+  - { id: GEOD6-PROP-04, name: 一定楕円体高での局所距離還元 }
+canonical_examples:
+  - 一様重力模型での鉛直・等ポテンシャル面・ジオイド交点の直接確認
+  - ジオイド高が正負の場合の標高換算と差分の符号
+  - 高さ依存の重力積分とポテンシャル差の単位
+  - 球面での標高120m・地表弧長1000mの楕円体面還元
+  - モデル更新による標高数値変化と地盤変動の区別
+problem_patterns:
+  - GEOD6-VERTICAL-DIRECTION
+  - GEOD6-GEOID-SIGN
+  - GEOD6-HEIGHT-RELATION
+  - GEOD6-GEOPOTENTIAL-UNITS
+  - GEOD6-HEIGHT-DIFFERENCES
+  - GEOD6-VARIABLE-GRAVITY
+  - GEOD6-SPHERICAL-REDUCTION
+  - GEOD6-MODEL-VERSION
+  - GEOD6-ERROR-BOUND
+  - GEOD6-INTEGRATED-SURVEY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 3, review: 2 }

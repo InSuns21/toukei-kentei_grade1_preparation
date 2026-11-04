@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
+import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 
 const root = process.cwd();
 const sourceRendererPath = path.join(root, 'pages', 'math-renderer.js');
@@ -13,12 +14,16 @@ const regressionPath = path.join(
   'core',
   '26_conditional_normal_partial_correlation.md',
 );
+const comb9Path = path.join(root, 'textbook', 'volumes', 'dream_thater', '計算系', 'COMB', 'COMB9', 'index.md');
+const publishedComb9Path = path.join(root, '_site', 'textbook', 'volumes', 'dream_thater', '計算系', 'COMB', 'COMB9', 'index.md');
 
 await Promise.all([
   access(sourceRendererPath),
   access(builtRendererPath),
   access(builtIndexPath),
   access(regressionPath),
+  access(comb9Path),
+  access(publishedComb9Path),
 ]);
 
 const [rendererCode, builtRendererCode, indexHtml, regressionMarkdown] = await Promise.all([
@@ -27,6 +32,33 @@ const [rendererCode, builtRendererCode, indexHtml, regressionMarkdown] = await P
   readFile(builtIndexPath, 'utf8'),
   readFile(regressionPath, 'utf8'),
 ]);
+
+// The Pages link orienter must not rewrite TeX coefficient extraction as
+// [x^0](textbook/volumes/.../AB), even though it resembles Markdown links.
+const linkLikeMath = [
+  '$$','\\begin{aligned}', '[x^0](AB)&=1,', '[x^1](AB)&=3.', '\\end{aligned}', '$$',
+  'Inline $[x^2](AB)$ and [前提 $x$](../COMB8/index.md).',
+  '`[code](untouched.md)`',
+  '```markdown', '[fenced](untouched.md)', '```',
+].join('\n');
+const linkPattern = /(!?\[[^\]]*\]\()([^)]+)(\))/g;
+const mathAware = replaceOutsideMarkdownMath(linkLikeMath, linkPattern, (match, open, href, close) =>
+  `${open}ROOT/${href}${close}`,
+);
+assert.ok(mathAware.includes('[x^0](AB)&=1,'), 'Display math must be preserved.');
+assert.ok(mathAware.includes('$[x^2](AB)$'), 'Inline math must be preserved.');
+assert.ok(mathAware.includes('[前提 $x$](ROOT/../COMB8/index.md)'), 'A real link containing math must be oriented.');
+assert.ok(mathAware.includes('`[code](untouched.md)`'), 'Inline code must be preserved.');
+assert.ok(mathAware.includes('[fenced](untouched.md)'), 'Fenced code must be preserved.');
+
+const [sourceComb9, publishedComb9] = await Promise.all([
+  readFile(comb9Path, 'utf8'),
+  readFile(publishedComb9Path, 'utf8'),
+]);
+for (const coefficient of [String.raw`[x^0](AB)&=1\cdot1=1`, String.raw`[x^1](AB)&=1\cdot1+2\cdot1=3`, String.raw`[x^2](AB)&=1\cdot1+2\cdot1+3\cdot1=6`]) {
+  assert.ok(sourceComb9.includes(coefficient), 'COMB9 must contain the source regression example.');
+  assert.ok(publishedComb9.includes(coefficient), `Pages build corrupted coefficient extraction: ${coefficient}`);
+}
 
 assert.equal(builtRendererCode, rendererCode, 'Pages build must copy math-renderer.js unchanged.');
 assert.match(indexHtml, /src=["']math-renderer\.js["']/, 'Pages index must load the local math renderer.');

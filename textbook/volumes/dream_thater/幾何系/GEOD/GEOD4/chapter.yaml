@@ -1,0 +1,43 @@
+id: "GEOD4"
+title: "曲率半径と楕円体の計量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD3
+official_scope: []
+learning_objectives:
+  - 卯酉線曲率半径と子午線曲率半径を導出し、赤道・極・球面極限で検算できる
+  - 測地緯度・経度の表面表示を偏微分し、東・北・外向き法線の直交単位ベクトルを得られる
+  - Euclid内積から楕円体の第一基本形式を導き、非極点での正定値性と経路長を証明できる
+  - 楕円体の方程式の二階微分から二方向の法截面曲率半径を導ける
+  - 極の座標退化と面の滑らかさを区別し、局所変位の距離換算に角度の単位を正しく使える
+definitions:
+  - { id: GEOD4-DEF-01, name: 回転楕円体の二つの曲率半径 }
+  - { id: GEOD4-DEF-02, name: 楕円体上の第一基本形式 }
+  - { id: GEOD4-DEF-03, name: 法截面の曲率半径 }
+theorems:
+  - { id: GEOD4-PROP-01, name: 測地緯度・経度の偏微分 }
+  - { id: GEOD4-THM-01, name: 回転楕円体の第一基本形式 }
+  - { id: GEOD4-PROP-02, name: 楕円体上の曲線の長さ }
+  - { id: GEOD4-THM-02, name: 子午・卯酉線方向の法截面曲率半径 }
+canonical_examples:
+  - a=5・b=4の赤道での曲率半径と東・北・法線の接ベクトル
+  - 内積と第一基本形式の二通りの接ベクトル長の直接検算
+  - 法截面曲率の二階微分と球面極限での検算
+  - 極で経度が退化しても面が滑らかである局所表示
+  - GRS80の測地緯度45度における微小距離換算
+problem_patterns:
+  - GEOD4-EQUATOR-RADII
+  - GEOD4-PARALLEL-RADIUS
+  - GEOD4-TANGENT-FRAME
+  - GEOD4-SPHERICAL-METRIC
+  - GEOD4-POLE-CHART
+  - GEOD4-MERIDIONAL-DERIVATIVE
+  - GEOD4-NORMAL-SECTION-CURVATURE
+  - GEOD4-OBLIQUE-SPEED
+  - GEOD4-RADII-INEQUALITY
+  - GEOD4-GRS80-LOCAL-DISTANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

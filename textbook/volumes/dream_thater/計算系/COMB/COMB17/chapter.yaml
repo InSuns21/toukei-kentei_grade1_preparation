@@ -1,0 +1,43 @@
+id: COMB17
+title: "有理型母関数と係数漸近"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - COMB9
+  - RA1
+  - CA3
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 形式冪級数としての有理型普通母関数と解析的収束を区別し、約分後の真の極を判定できる
+  - 線形因子の負整数冪の係数を二項係数として導き、重複極の役割を説明できる
+  - 分母の線形因子を一つずつ消去して部分分数分解を構成し、全係数の厳密式を求められる
+  - 真の極までの最短距離が収束半径に一致することを証明できる
+  - 支配極の絶対値と位数から指数成長・多項式因子・誤差項を導ける
+  - 同じ絶対値の複数の極による振動・消失を見抜き、不適切な単一項漸近を退けられる
+  - 定数係数線形漸化式と有理型母関数の対応を係数公式へ接続できる
+definitions:
+  - { id: COMB17-DEF-01, name: 有理型母関数と真の極 }
+  - { id: COMB17-DEF-02, name: 支配極とその位数 }
+theorems:
+  - { id: COMB17-LEM-01, name: 線形因子の負整数冪の係数 }
+  - { id: COMB17-THM-01, name: 部分分数分解と係数の厳密公式 }
+  - { id: COMB17-THM-02, name: 有理型母関数の収束半径 }
+  - { id: COMB17-THM-03, name: 支配極による係数漸近 }
+canonical_examples:
+  - 約分前に見える零点が真の極とは限らない例
+  - 一重極と二重極からの係数抽出
+  - 二つの異なる正の極を持つ母関数の係数と誤差
+  - 同一絶対値の正負の極で奇数番目が消える例
+  - 漸化式から有理型母関数を作り約分する例
+problem_patterns:
+  - COMB17-SIMPLE-POLE
+  - COMB17-REPEATED-POLE
+  - COMB17-CANCELLED-FAKE-POLE
+  - COMB17-PARTIAL-FRACTIONS
+  - COMB17-RADIUS-AND-OSCILLATION
+  - COMB17-POLYNOMIAL-PART
+  - COMB17-RECURRENCE-ASYMPTOTIC
+  - COMB17-MULTIPLE-DOMINANT-POLES
+exercise_counts: { level_a: 6, level_b: 5, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

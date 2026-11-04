@@ -1,0 +1,45 @@
+chapter: QCURV8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV7
+  - QCURV6
+  - QCURV3
+  - CA11
+forward_references: []
+concepts:
+  - id: qcurv.kms-worldline
+    name: 定常二点分布のKMS境界条件
+    kind: definition
+    introduction: formal
+    requires: [qcurv.accelerated-wightman]
+  - id: qcurv.accelerated-kms
+    name: 加速軌道二点分布のKMS性
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.kms-worldline, qcurv.accelerated-wightman]
+  - id: qcurv.detector-detailed-balance
+    name: 検出器の熱的詳細釣合いと温度
+    kind: definition
+    introduction: formal
+    requires: [qcurv.kms-worldline]
+  - id: qcurv.unruh-temperature
+    name: Unruh検出器の定常率と温度
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.accelerated-kms, qcurv.detector-detailed-balance]
+  - id: qcurv.switching-convolution
+    name: 切替応答の周波数畳込みと短時間極限
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.unruh-temperature]
+  - id: qcurv.rindler-mellin-ratio
+    name: RindlerモードMellin係数の指数比
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.rindler-positive-frequency]
+  - id: qcurv.rindler-two-mode-number
+    name: 正準二モード模型の熱的占有数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.rindler-mellin-ratio, qcurv.bogoliubov-canonical]

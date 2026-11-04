@@ -1,0 +1,69 @@
+chapter: GEOD8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD7
+  - F0-00P3
+  - F0-00F1
+forward_references: []
+concepts:
+  - id: geodesy.linearized-observation
+    name: 線形化した観測方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（線形化した観測方程式）]
+    requires: [geodesy.observation-equation]
+  - id: geodesy.observation-weight
+    name: 観測共分散と重み行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（観測共分散と重み行列）]
+    requires: [geodesy.linearized-observation]
+  - id: geodesy.weighted-normal-equations
+    name: 重み付き最小二乗と正規方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（重み付き最小二乗と正規方程式）]
+    requires: [geodesy.observation-weight]
+  - id: geodesy.datum-deficiency
+    name: datum欠損と不定方向
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（datum欠損と不定方向）]
+    requires: [geodesy.linearized-observation]
+  - id: geodesy.distance-network-gauge
+    name: 三角測距網の三つのdatum欠損
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三角測距網の三つのdatum欠損）]
+    requires: [geodesy.datum-deficiency]
+  - id: geodesy.network-constraints
+    name: 厳密拘束と自由網の内的拘束
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（厳密拘束と自由網の内的拘束）]
+    requires: [geodesy.datum-deficiency]
+  - id: geodesy.constrained-adjustment
+    name: 制約付き平差の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（制約付き平差の一意性）]
+    requires: [geodesy.network-constraints, geodesy.weighted-normal-equations]
+  - id: geodesy.adjustment-covariance
+    name: 推定共分散と残差共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（推定共分散と残差共分散）]
+    requires: [geodesy.weighted-normal-equations]
+  - id: geodesy.adjustment-error-ellipse
+    name: 誤差楕円
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（誤差楕円）]
+    requires: [geodesy.adjustment-covariance]
+  - id: geodesy.error-ellipse-axes
+    name: 誤差楕円の主軸と確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（誤差楕円の主軸と確率）]
+    requires: [geodesy.adjustment-error-ellipse, linear.spectral-theorem]

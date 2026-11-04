@@ -1,0 +1,43 @@
+id: "CYG1-11"
+title: "Ricci平坦性と特殊ホロノミー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-01
+  - CYG1-04
+  - CYG1-05
+  - CYG1-10
+  - KAH1-16
+official_scope: []
+learning_objectives:
+  - Ricci平坦と制限ホロノミーの同値を行列式接続の曲率から再構成できる
+  - 全ホロノミーのSU(n)包含と大域平行正則体積形式の同値を証明できる
+  - コンパクトRicci平坦Kählerで正則体積形式が平行であることをノルム計算で示せる
+  - 標準束非自明な平坦商が制限と全ホロノミーを分離する仕組みを説明できる
+  - 積計量のホロノミーのブロック構造を証明しSU(n)との真の包含を判定できる
+  - 単連結性・既約性・hyperkähler例を区別し等号に追加議論が要る理由を説明できる
+theorems:
+  - { id: CYG1-11-PROP-01, name: "Ricci形式と閉路の行列式" }
+  - { id: CYG1-11-THM-01, name: "全SU(n)ホロノミーと平行正則体積形式の同値" }
+  - { id: CYG1-11-COR-01, name: "コンパクトRicci平坦での標準束自明性との同値" }
+  - { id: CYG1-11-PROP-02, name: "積計量のホロノミーとブロック埋め込み" }
+canonical_examples:
+  - 格子で商を取った平坦複素トーラスの全ホロノミーは自明
+  - 固定点のない位数2の平坦商で制限ホロノミーが自明でも全ホロノミーの行列式が-1
+  - K3曲面と楕円曲線の積はRicci平坦かつ全SU(3)包含だがSU(3)と等しくない
+  - K3曲面同士の積で単連結性だけでは全SU(4)との等号に至らない
+problem_patterns:
+  - CYG1-11-DETERMINANT-CURVATURE
+  - CYG1-11-RESTRICTED-VERSUS-FULL
+  - CYG1-11-VOLUME-NORM
+  - CYG1-11-PARALLEL-VOLUME
+  - CYG1-11-TORUS-HOLONOMY
+  - CYG1-11-FLAT-QUOTIENT
+  - CYG1-11-PRODUCT-CONNECTION
+  - CYG1-11-K3-TORUS
+  - CYG1-11-SIMPLY-CONNECTED-PRODUCT
+  - CYG1-11-LOGICAL-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 5 }

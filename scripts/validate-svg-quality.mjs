@@ -157,9 +157,9 @@ if (has('--self-test')) {
   } else if (has('--changed-only')) {
     const base = has('--base') ? val('--base') : process.env.TEXTBOOK_BASE_SHA;
     if (!base) throw new Error('--changed-only requires --base or TEXTBOOK_BASE_SHA.');
-    const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], { encoding: 'utf8' });
+    const diff = spawnSync('git', ['diff', '--name-only', '-z', '--diff-filter=ACMR', base + '...HEAD'], { encoding: 'utf8' });
     if (diff.status !== 0) throw new Error(diff.stderr || 'git diff failed.');
-    files = diff.stdout.split(/\r?\n/u).filter((p) => chapterSvg.test(p));
+    files = diff.stdout.split('\0').filter((p) => chapterSvg.test(p));
   } else {
     console.log('Use --self-test, --file <svg>, --changed-only --base <sha>, or --audit-existing.');
     process.exit(0);

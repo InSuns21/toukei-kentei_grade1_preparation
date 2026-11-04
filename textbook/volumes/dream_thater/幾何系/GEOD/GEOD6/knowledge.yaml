@@ -1,0 +1,56 @@
+chapter: GEOD6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD5
+forward_references: []
+
+concepts:
+  - id: geodesy.physical-vertical
+    name: 物理的鉛直と鉛直線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（物理的鉛直と鉛直線）]
+    requires: [geodesy.geoid, geodesy.deflection-of-vertical]
+
+  - id: geodesy.level-surface-normal
+    name: 等ポテンシャル面と鉛直の直交
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（等ポテンシャル面と鉛直の直交）]
+    requires: [geodesy.physical-vertical, geodesy.geoid]
+
+  - id: geodesy.geoid-undulation
+    name: ジオイド高
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ジオイド高）]
+    requires: [geodesy.geoid, geodesy.geodetic-coordinates-height]
+
+  - id: geodesy.orthometric-height
+    name: 正標高と鉛直基準
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正標高と鉛直基準）]
+    requires: [geodesy.geoid, geodesy.physical-vertical]
+
+  - id: geodesy.potential-height-integral
+    name: 鉛直線に沿うポテンシャル差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鉛直線に沿うポテンシャル差）]
+    requires: [geodesy.orthometric-height, geodesy.physical-vertical]
+
+  - id: geodesy.height-relation
+    name: 高さの換算と成立条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（高さの換算と成立条件）]
+    requires: [geodesy.geodetic-coordinates-height, geodesy.geoid-undulation, geodesy.orthometric-height]
+
+  - id: geodesy.height-distance-reduction
+    name: 一定楕円体高での局所距離還元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一定楕円体高での局所距離還元）]
+    requires: [geodesy.geodetic-enu-jacobian, geodesy.ellipsoid-curvature-radii]

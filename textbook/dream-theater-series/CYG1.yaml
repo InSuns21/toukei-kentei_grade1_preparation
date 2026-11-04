@@ -1,7 +1,7 @@
 version: 1
 id: CYG1
 title: "Calabi–Yau幾何学"
-plan: textbook/plans_progress/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 完成章のみ公開索引に載せる。後続章IDは計画上の暫定ID。
@@ -40,25 +40,25 @@ chapters:
     title: "quintic threefoldのHodge数1,101"
   - id: CYG1-09
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-09
-    status: planned
-    title: "完全交叉と計算の適用限界"
+    status: completed
+    title: "完全交叉の随伴公式と計算が壊れる境界"
   - id: CYG1-10
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-10
-    status: planned
-    title: "Yauの定理が付け加える存在量化"
+    status: completed
+    title: "Yauの定理は何を存在させ、一意にするか"
   - id: CYG1-11
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-11
-    status: planned
+    status: completed
     title: "Ricci平坦性と特殊ホロノミー"
   - id: CYG1-12
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-12
-    status: planned
+    status: completed
     title: "複素構造の一次変形と正則体積形式"
   - id: CYG1-13
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-13
-    status: planned
+    status: completed
     title: "quinticの複素変形とKähler方向"
   - id: CYG1-14
     path: textbook/volumes/dream_thater/幾何系/CYG/CYG1-14
-    status: planned
-    title: "総合判定とmirror symmetryへの入口"
+    status: completed
+    title: "Calabi–Yauの総合判定とmirror symmetryへの入口"

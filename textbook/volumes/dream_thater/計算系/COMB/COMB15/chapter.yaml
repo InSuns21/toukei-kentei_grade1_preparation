@@ -1,0 +1,43 @@
+id: COMB15
+title: "有限半順序集合と Möbius 反転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1D
+  - COMB3
+  - NT5
+forward_references: []
+official_scope: []
+learning_objectives:
+  - 有限半順序集合の区間を列挙し、比較不能な組を関数の定義域から区別できる
+  - 接合代数の区間畳み込みを具体例で計算し、結合則と単位元を有限和から証明できる
+  - ゼータ関数の逆元として Möbius 関数を構成し、厳密鎖の交代和・再帰式と一意性を導出できる
+  - 上側・下側の順序和の両方向の Möbius 反転を証明して数値例を復元できる
+  - Boolean 束の係数を導き、有限包除原理が上側の反転であることを説明できる
+  - 約数半順序の係数と数論的 Möbius 関数を区別して対応付けられる
+definitions:
+  - { id: COMB15-DEF-01, name: 順序区間 }
+  - { id: COMB15-DEF-02, name: 接合代数と区間畳み込み }
+  - { id: COMB15-DEF-03, name: 単位関数とゼータ関数 }
+  - { id: COMB15-DEF-04, name: 長さ k の厳密鎖 }
+theorems:
+  - { id: COMB15-PROP-01, name: 区間畳み込みの結合則と単位元 }
+  - { id: COMB15-THM-01, name: Möbius 関数の存在・一意性と鎖表示 }
+  - { id: COMB15-THM-02, name: 有限半順序集合の Möbius 反転 }
+  - { id: COMB15-PROP-02, name: Boolean 束の Möbius 関数 }
+  - { id: COMB15-PROP-03, name: 約数順序の Möbius 関数 }
+canonical_examples:
+  - 二元鎖の非可換な区間畳み込み
+  - 三元鎖と四元 Boolean 束の Möbius 係数の違い
+  - 四元 Boolean 束上の総和と復元
+  - 禁止条件の正確な違反集合と包除原理
+  - D12 の区間と数論的 Möbius 関数の対応
+problem_patterns:
+  - COMB15-INTERVAL-DOMAIN
+  - COMB15-INCIDENCE-CONVOLUTION
+  - COMB15-MOBIUS-CHAIN-RECURSION
+  - COMB15-LOWER-UPPER-INVERSION
+  - COMB15-BOOLEAN-INCLUSION-EXCLUSION
+  - COMB15-DIVISOR-POSET
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

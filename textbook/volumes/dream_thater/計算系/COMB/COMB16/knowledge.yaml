@@ -1,0 +1,80 @@
+chapter: COMB16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - COMB2
+  - COMB4
+  - COMB9
+  - COMB13
+forward_references: []
+
+concepts:
+  - id: combinatorics.bivariate-weight-inventory
+    name: 有限集合の重み付き計数多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限集合の重み付き計数多項式）"]
+    requires: [combinatorics.finite-cardinality, combinatorics.formal-coefficient-extraction]
+
+  - id: combinatorics.weighted-counting-laws
+    name: 重み付き計数の加法・乗法
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（重み付き計数の加法・乗法）"]
+    requires: [combinatorics.bivariate-weight-inventory, combinatorics.addition-principle, combinatorics.multiplication-principle]
+
+  - id: combinatorics.lattice-path-area
+    name: 単調格子路の面積統計
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単調格子路の面積統計）"]
+    requires: [combinatorics.monotone-lattice-path, combinatorics.bivariate-weight-inventory]
+
+  - id: combinatorics.lattice-path-area-recurrence
+    name: 面積多項式の二方向の漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（面積多項式の二方向の漸化式）"]
+    requires: [combinatorics.lattice-path-area, combinatorics.weighted-counting-laws]
+
+  - id: combinatorics.gaussian-binomial
+    name: q-二項係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（q-二項係数）"]
+    requires: [combinatorics.lattice-path-area, combinatorics.binomial-count]
+
+  - id: combinatorics.q-pascal-recurrence
+    name: q-Pascal の二つの漸化式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（q-Pascal の二つの漸化式）"]
+    requires: [combinatorics.gaussian-binomial, combinatorics.lattice-path-area-recurrence]
+
+  - id: combinatorics.gaussian-binomial-product
+    name: q-二項係数の積公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（q-二項係数の積公式）"]
+    requires: [combinatorics.gaussian-binomial, combinatorics.q-pascal-recurrence]
+
+  - id: combinatorics.gaussian-binomial-symmetry
+    name: q-二項係数の対称性と次数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["命題（q-二項係数の対称性と次数）"]
+    requires: [combinatorics.gaussian-binomial]
+
+  - id: combinatorics.finite-q-binomial-theorem
+    name: 有限 q-二項定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限 q-二項定理）"]
+    requires: [combinatorics.gaussian-binomial, combinatorics.gaussian-binomial-symmetry]
+
+  - id: combinatorics.q-vandermonde-convolution
+    name: q-Vandermonde の畳み込み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（q-Vandermonde の畳み込み）"]
+    requires: [combinatorics.gaussian-binomial, combinatorics.weighted-counting-laws]

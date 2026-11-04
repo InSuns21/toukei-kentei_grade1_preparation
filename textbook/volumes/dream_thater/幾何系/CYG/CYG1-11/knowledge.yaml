@@ -1,0 +1,29 @@
+chapter: CYG1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-01, CYG1-04, CYG1-05, CYG1-10, KAH1-16]
+concepts:
+  - id: cyg.determinant-holonomy-comparison
+    name: Ricci形式と閉路の行列式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Ricci形式と閉路の行列式）"]
+    requires: [kahler.holonomy-determinant, kahler.ricci-flat-su-restricted]
+  - id: cyg.full-holonomy-parallel-volume
+    name: 全SU(n)ホロノミーと平行正則体積形式の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全SU(n)ホロノミーと平行正則体積形式）"]
+    requires: [cyg.determinant-holonomy-comparison]
+  - id: cyg.compact-ricci-flat-volume-equivalence
+    name: コンパクトRicci平坦での標準束自明性との同値
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Ricci平坦計量の全ホロノミーと標準束）"]
+    requires: [cyg.full-holonomy-parallel-volume, cyg.parallel-volume-holonomy]
+  - id: cyg.product-holonomy
+    name: 積計量のホロノミーとブロック埋め込み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（積計量のホロノミー）"]
+    requires: [cyg.full-holonomy-parallel-volume]

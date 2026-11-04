@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 405" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">同じ点PのA座標とB座標の関係</title>
+  <desc id="desc">右向きと上向きの矢印が座標系Aの正の軸。Bの原点O_BはAの原点O_Aより右上にあり、Bの正の第1軸は上、第2軸は左を向く。原点O_AからO_Bへの灰色の矢印d_Aに、O_BからPへの青色の矢印Qp_Bをつなぐと、O_AからPへの橙色の矢印p_Aになる。各座標軸にも正方向の矢印がある。</desc>
+  <defs>
+    <marker id="axis-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#64748b"/></marker>
+    <marker id="b-axis-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#15607a"/></marker>
+    <marker id="d-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#64748b"/></marker>
+    <marker id="v-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#15607a"/></marker>
+    <marker id="p-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7z" fill="#ad5e0a"/></marker>
+  </defs>
+  <!-- Each axis is its own directed path: arrows denote the positive directions. -->
+  <path d="M85 335 H566" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#axis-arr)"/>
+  <path d="M85 335 V31" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#axis-arr)"/>
+  <path d="M320 255 V64" fill="none" stroke="#15607a" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#b-axis-arr)"/>
+  <path d="M320 255 H145" fill="none" stroke="#15607a" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#b-axis-arr)"/>
+  <!-- A displacement is distinguished from a coordinate axis by thickness and line style. -->
+  <path d="M85 335 L320 255" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="4 5" marker-end="url(#d-arr)" data-series-group="displacements" data-series-label="origin-displacement"/>
+  <path d="M320 255 L225 95" fill="none" stroke="#15607a" stroke-width="3.3" marker-end="url(#v-arr)" data-series-group="displacements" data-series-label="new-frame-displacement"/>
+  <path d="M85 335 L225 95" fill="none" stroke="#ad5e0a" stroke-width="2.5" stroke-dasharray="11 4 2 4" marker-end="url(#p-arr)" data-series-group="displacements" data-series-label="old-frame-position"/>
+  <circle cx="85" cy="335" r="4" fill="#0f172a"/>
+  <circle cx="320" cy="255" r="4" fill="#0f172a"/>
+  <circle cx="225" cy="95" r="4" fill="#0f172a"/>
+  <text x="51" y="361" font-size="17" fill="#0f172a">O<tspan baseline-shift="sub" font-size="12">A</tspan></text>
+  <text x="331" y="278" font-size="17" fill="#0f172a">O<tspan baseline-shift="sub" font-size="12">B</tspan></text>
+  <text x="250" y="86" font-size="18" fill="#0f172a">P</text>
+  <text x="547" y="364" font-size="16" fill="#475569">A₁</text>
+  <text x="97" y="31" font-size="16" fill="#475569">A₂</text>
+  <text x="335" y="103" font-size="16" fill="#15607a">B₁</text>
+  <text x="175" y="237" font-size="16" fill="#15607a">B₂</text>
+  <text x="252" y="310" font-size="18" fill="#475569">d<tspan baseline-shift="sub" font-size="12">A</tspan></text>
+  <text x="208" y="185" font-size="18" fill="#15607a">Qp<tspan baseline-shift="sub" font-size="12">B</tspan></text>
+  <text x="103" y="199" font-size="18" fill="#92400e">p<tspan baseline-shift="sub" font-size="12">A</tspan></text>
+</svg>
