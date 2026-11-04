@@ -1,0 +1,51 @@
+id: QCURV20
+title: "時空模型の横断比較――粒子・検出器・流束は何を測るか"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV3
+  - QCURV4
+  - QCURV6
+  - QCURV8
+  - QCURV11
+  - QCURV12
+  - QCURV14
+  - QCURV15
+  - QCURV16
+  - QCURV17
+  - QCURV19
+official_scope: []
+learning_objectives:
+  - 背景・状態・世界線と時計・観測量・近似を固定し、模型間で何を比較しているか明示できる
+  - Minkowski加速検出器とde Sitter中心検出器の定常二点関数・詳細釣合いの一致を説明できる
+  - 定常検出率の時計換算からTolman温度を計算し、適用条件を述べられる
+  - 急変振動子のBogoliubov粒子数を再計算し、占有数だけではKMS状態が決まらないことを示せる
+  - 二次元Schwarzian流束とPlanck積分の係数を照合し、四次元の灰色体流束との違いを説明できる
+definitions:
+  - { id: QCURV20-DEF-01, name: 量子場の比較設定 }
+theorems:
+  - { id: QCURV20-PROP-01, name: 異なる背景で一致する定常検出率 }
+  - { id: QCURV20-PROP-02, name: 定常率と温度の時計換算 }
+  - { id: QCURV20-PROP-03, name: 急変振動子のout粒子数は熱性を意味しない }
+  - { id: QCURV20-PROP-04, name: 二次元共形模型の熱的エネルギー流束の二つの計算 }
+canonical_examples:
+  - 固定したMinkowski真空で慣性世界線と加速世界線の観測量を比較する
+  - 同じ二点関数のFourier変換が異なる時空の検出率を一致させることを確認する
+  - de Sitter静的半径で固有時間と局所温度の換算を検査する
+  - 急変振動子の非零の異常対相関から熱性の推論が失敗する機構を示す
+  - 二次元のSchwarzianとBose積分を独立に計算して係数を照合する
+problem_patterns:
+  - QCURV20-COMPARISON-CONTRACT
+  - QCURV20-CLOCK-REDSHIFT
+  - QCURV20-QUENCH-NUMBER
+  - QCURV20-DETECTOR-DEGENERACY
+  - QCURV20-SCHWARZIAN-SIGN
+  - QCURV20-SQUEEZED-NONTHERMAL
+  - QCURV20-GREYBODY-OBSERVABLE
+  - QCURV20-TWO-DIMENSIONAL-FLUX
+  - QCURV20-HORIZON-MODEL-CONTRAST
+  - QCURV20-CROSS-MODEL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 16, review: 8 }
