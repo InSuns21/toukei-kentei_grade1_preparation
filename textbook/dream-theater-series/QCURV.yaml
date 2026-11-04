@@ -58,3 +58,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV13
     status: completed
     title: "Boulware・Unruh・Hartle–Hawking状態と地平線の正則性"
+  - id: QCURV14
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV14
+    status: completed
+    title: "Unruh・Hawking・Tolman則と観測者の温度"
