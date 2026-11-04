@@ -4,7 +4,9 @@
 
 この講義の中心問いは「**冗長な四元ポテンシャルのまま計算できる伝播関数を作り、最後に物理量から冗長性が消えることを確かめるには？**」です。まず逆行列がない理由を実際に計算し、共変ゲージ固定でそれを解決します。次に運動量空間で逆作用素とFeynman境界値を区別して導き、保存電流の縮約でゲージパラメータが消えることを証明します。最後にCoulombゲージで見える二偏極と比較します。
 
-全章で $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$、Heaviside–Lorentz単位系を使います。[本教材のLorentz計量規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$x^\mu=(t,\boldsymbol x)$、$k^\mu=(k^0,\boldsymbol k)$、$k_\mu=(-k^0,\boldsymbol k)$、$k^2=-(k^0)^2+|\boldsymbol k|^2$ とします。場と外部電流は実数値です。添字は $\eta$ で上げ下げし、反復した上下添字は総和します。Fourier変換は[QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と同じ座標位相 $e^{ik^0t-i\boldsymbol k\cdot\boldsymbol x}$ となるよう
+全章で $3+1$ 次元Minkowski時空、$\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$、Heaviside–Lorentz単位系を使います。[本教材のLorentz計量規約](../../../../../dream-theater-lorentz-conventions.md)に従い、$x^\mu=(t,\boldsymbol x)$、$k^\mu=(k^0,\boldsymbol k)$、$k_\mu=(-k^0,\boldsymbol k)$、$k^2=-(k^0)^2+|\boldsymbol k|^2$ とします。
+
+場と外部電流は実数値です。添字は $\eta$ で上げ下げし、反復した上下添字は総和します。Fourier変換は[QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と同じ座標位相 $e^{ik^0t-i\boldsymbol k\cdot\boldsymbol x}$ となるよう
 
 $$
 \widehat f(k)=\int_{\mathbb R^4}e^{-ik\cdot x}f(x)\,d^4x,\qquad
