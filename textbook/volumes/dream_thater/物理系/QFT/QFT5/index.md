@@ -159,7 +159,7 @@ $$
 
 正値性は真空のHilbert空間に由来します。もう一つの制約は、真空から場を掛けて作る波束のエネルギーが正であることです。[SREL3の質量殻と正エネルギー枝の定義](../../SREL/SREL3/index.md#def-srel3-mass-shell)では四元運動量の二乗と時間成分の符号を指定しました。[QFT3の分散関係](../QFT3/index.md#thm-qft3-cauchy)も同じ代数式を満たします。ここではその集合を新たな粒子の定義と混同せず、**二点分布のFourier変数がどこに支持されるか**の条件として使います。
 
-四元運動量 $k=(k^0,\boldsymbol k)$ のMinkowski二乗を $k^2=(k^0)^2-|\boldsymbol k|^2$ とし、$\theta(k^0)$ は $k^0>0$ で1、それ以外で0となる階段関数、$\delta$ はDiracデルタ分布です。
+四元運動量 $k=(k^0,\boldsymbol k)$ のMinkowski二乗は、計量 $(-,+,+,+)$ に従い $k^2:=k_\mu k^\mu=-(k^0)^2+|\boldsymbol k|^2$ とします。従って質量 $m$ の質量殻条件は $k^2=-m^2$ です。$\theta(k^0)$ は $k^0>0$ で1、それ以外で0となる階段関数、$\delta$ はDiracデルタ分布です。
 
 <a id="def-qft5-positive-mass-shell"></a>
 
@@ -168,8 +168,11 @@ $$
 > $m>0$ に対し、正エネルギー質量殻を次の集合とする。
 
 $$
-H_m^+=\{(k^0,\boldsymbol k)\in\mathbb R^4:
-k^0>0,\ (k^0)^2-|\boldsymbol k|^2=m^2\}.
+\begin{aligned}
+H_m^+&=\{(k^0,\boldsymbol k)\in\mathbb R^4:
+k^0>0,\ k^2=-m^2\}\\
+&=\{(k^0,\boldsymbol k):k^0>0,\ (k^0)^2-|\boldsymbol k|^2=m^2\}.
+\end{aligned}
 $$
 
 > 二点分布のFourier変換がこの集合に支持されるとき、自由二点分布についての正エネルギースペクトル条件を満たすという。ここではFourier逆変換を $e^{-ik^0z^0+i\boldsymbol k\cdot\boldsymbol z}$ の指数で書く。
@@ -189,7 +192,7 @@ $$
 
 $$
 W(z)=\int_{\mathbb R^4}\frac{d^4k}{(2\pi)^4}\,
-2\pi\,\theta(k^0)\delta(k^2-m^2)
+2\pi\,\theta(k^0)\delta(k^2+m^2)
 e^{-ik^0z^0+i\boldsymbol k\cdot\boldsymbol z}
 $$
 
@@ -203,7 +206,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-固定した $\boldsymbol k$ について $\omega=\sqrt{|\boldsymbol k|^2+m^2}>0$ と置きます。$f(E)=E^2-\omega^2$ は $\pm\omega$ に単純零点を持ち、各点で $|f'(E)|=2\omega$ です。試験関数 $q(E)$ をそれぞれの零点の近くへ分割して $s=f(E)$ と変数変換すれば、$\int\delta(s)\,q(E(s))\,|dE/ds|\,ds=q(\pm\omega)/(2\omega)$ です。二つの寄与を足すと
+固定した $\boldsymbol k$ について $\omega=\sqrt{|\boldsymbol k|^2+m^2}>0$ と置きます。計量を下げた質量殻のデルタは $\delta(k^2+m^2)=\delta(-(k^0)^2+\omega^2)$ です。デルタ分布は引数の符号反転で不変なので、$\delta(-f)=\delta(f)$ を用い、$f(E)=E^2-\omega^2$ を考えます。$f$ は $\pm\omega$ に単純零点を持ち、各点で $|f'(E)|=2\omega$ です。試験関数 $q(E)$ をそれぞれの零点の近くへ分割して $s=f(E)$ と変数変換すれば、$\int\delta(s)\,q(E(s))\,|dE/ds|\,ds=q(\pm\omega)/(2\omega)$ です。二つの寄与を足すと
 
 $$
 \delta((k^0)^2-\omega^2)
@@ -464,10 +467,10 @@ $$
 
 ## 5. 離れた観測の交換子
 
-時空点 $x,y$ の差のMinkowski二乗が負、すなわち
+時空点 $x,y$ の差のMinkowski二乗が正、すなわち
 
 $$
-(x^0-y^0)^2-|\boldsymbol x-\boldsymbol y|^2<0
+-(x^0-y^0)^2+|\boldsymbol x-\boldsymbol y|^2>0
 $$
 
 なら、二点は空間的に分離しています。場は点ごとの作用素ではなく試験関数で積分するので、局所性を正確に述べるには二つの**支持全体**が分離している必要があります。
@@ -591,7 +594,7 @@ $$
 
 を使いました。元の振動積分は分布として解釈し、例えば運動量積分へ $e^{-\varepsilon|\boldsymbol p|^2}$ を挿入してGaussian積分を先に行い、$\varepsilon\downarrow0$ とすることで空間差が非零のときの表示を得ます。積分の両端は正の質量と非零の空間差により収束し、被積分関数は正です。
 
-等時刻から一般の空間的分離への橋渡しも確認します。[正エネルギー質量殻表示](#prop-qft5-spectrum-kg)の測度 $d^4k\,\theta(k^0)\delta(k^2-m^2)$ は、未来方向を保つLorentz変換で質量殻・正エネルギー枝・体積要素が保たれるため不変です。
+等時刻から一般の空間的分離への橋渡しも確認します。[正エネルギー質量殻表示](#prop-qft5-spectrum-kg)の測度 $d^4k\,\theta(k^0)\delta(k^2+m^2)$ は、未来方向を保つLorentz変換で質量殻・正エネルギー枝・体積要素が保たれるため不変です。
 
 時空差 $z=(\tau,\boldsymbol r)$ が空間的分離なら、[SREL1のLorentz boost](../../SREL/SREL1/index.md#thm-srel1-lorentz)を空間差の方向へ施せます。速度とLorentz因子を次のように選びます。
 
@@ -678,7 +681,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$f(E)=E^2-\omega_{\boldsymbol p}^2$ の零点は $E=\pm\omega_{\boldsymbol p}$、導関数の絶対値は両点で $2\omega_{\boldsymbol p}>0$ です。単純零点の公式を用いると
+$k=(E,\boldsymbol p)$ とすれば、計量 $(-+++)$ で $k^2+m^2=-(E^2-\omega_{\boldsymbol p}^2)$ です。従って設問の $\delta(E^2-\omega_{\boldsymbol p}^2)$ は、[正エネルギー質量殻のFourier表示](#prop-qft5-spectrum-kg)に現れる $\delta(k^2+m^2)$ と同じ分布です。$f(E)=E^2-\omega_{\boldsymbol p}^2$ の零点は $E=\pm\omega_{\boldsymbol p}$、導関数の絶対値は両点で $2\omega_{\boldsymbol p}>0$ です。単純零点の公式を用いると
 
 $$
 \delta(f(E))=\frac1{2\omega_{\boldsymbol p}}
