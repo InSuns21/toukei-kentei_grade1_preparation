@@ -1,0 +1,44 @@
+id: QCURV10
+title: "崩壊時空のin/out光線と波束"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV9
+  - QCURV3
+official_scope: []
+learning_objectives:
+  - 過去・未来の零無限遠と正規化した入射・出射零時刻を区別し、崩壊光線の入出射写像の定義域と値域を説明できる
+  - 内側Minkowski・外側Schwarzschildの入射薄殻模型で、殻交差半径と最後の脱出入射時刻を求め、厳密な入出射光線写像を導出できる
+  - 臨界入射時刻への接近から後期の指数則と導関数の極限を計算し、正則接続で指数形が保たれるための仮定を検証できる
+  - 正のin/out周波数基底と正規化した出射波束を定義し、直交性と到着時刻中心を積分で計算できる
+  - 幾何光学的な光線対応と量子粒子数の計算を区別し、地平線モード・正負周波数混合・灰色体因子が残る理由を説明できる
+definitions:
+  - { id: QCURV10-DEF-01, name: 崩壊光線の入出射写像 }
+  - { id: QCURV10-DEF-02, name: 殻との交差半径と最後の脱出入射時刻 }
+  - { id: QCURV10-DEF-03, name: 入出射正周波数モードと出射波束 }
+theorems:
+  - { id: QCURV10-THM-01, name: 薄殻崩壊の厳密な入出射光線写像 }
+  - { id: QCURV10-THM-02, name: 遅い出射時刻と入射ラベルの指数関係 }
+  - { id: QCURV10-PROP-01, name: 正則な接続による指数則の移送 }
+  - { id: QCURV10-PROP-02, name: 波束の直交性と到着時刻の中心 }
+canonical_examples:
+  - 平坦時空の中心反射で入出射写像が恒等写像となる例
+  - 薄殻をr=4Mで横切る光線の脱出条件と出射時刻
+  - 後期の光線写像を無次元化したy=x exp(x)の検算
+  - 正則接続の一次係数が消える指数則の反例
+  - 同じ周波数帯で異なる到着時刻の波束が直交する積分
+problem_patterns:
+  - QCURV10-SHELL-INTERSECTION
+  - QCURV10-EXACT-RAY-MAP
+  - QCURV10-ESCAPE-DOMAIN
+  - QCURV10-DERIVATIVE
+  - QCURV10-PACKET-PHASE
+  - QCURV10-INVERSE-DERIVATIVE
+  - QCURV10-LATE-EXPANSION
+  - QCURV10-SMOOTH-TRANSFER
+  - QCURV10-PACKET-ORTHOGONALITY
+  - QCURV10-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 6 }
