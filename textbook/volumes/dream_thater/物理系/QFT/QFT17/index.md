@@ -192,7 +192,7 @@ $$
 \partial_\nu F^{\nu\mu}=j^\mu
 $$
 
-> となる。複数の荷電場では右辺は各 $q_a\bar\psi_a\gamma^\mu\psi_a$ の和である。
+> となる。複数の荷電場では右辺は各 $j_a^\mu=-iq_a\bar\psi_a\gamma^\mu\psi_a$ の和である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -676,7 +676,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[平面波Dirac方程式](../QFT7/index.md#def-qft7-plane-waves)は $\not p\,u(p)=m u(p)$、$\bar u(p')\not p'=m\bar u(p')$ です。よって
+[平面波Dirac方程式](../QFT7/index.md#def-qft7-plane-waves)は $i\not p\,u(p)=m u(p)$、$\bar u(p')i\not p'=m\bar u(p')$ です。よって
 
 $$
 \begin{aligned}
