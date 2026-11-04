@@ -34,7 +34,16 @@ $$
 <!-- definition-example-start: def-qcurv17-semiclassical-equation -->
 ### 直接例：平坦真空はどの条件で解になるか
 
-$g=\operatorname{diag}(-1,1,1,1)$ のMinkowski計量、$m=0$ の自由場のMinkowski真空を取り、平坦真空の $\langle T_{ab}\rangle_{\rm ren}=0$ という処方を選びます。曲率が零なので $G_{ab}=0$ です。[MICA15の曲率変分の直接例](../../../解析系/MICA/MICA15/index.md#def-mica15-curvature-variations)により、作用の一次変分も零で $I_{ab}=J_{ab}=0$ です。したがって式は $\Lambda g_{ab}=0$ となり、非退化な計量なので **$\Lambda=0$ のときに限って**この指定の組が解になります。**定義の確認**として、計量、量子状態、曲率項、右辺、残る条件を一つずつ検査しました。
+Minkowski時空の慣性座標を $x^\mu=(t,x,y,z)$ とし、座標基底 $e_\mu=\partial/\partial x^\mu$ における計量の成分 $g_{\mu\nu}=g(e_\mu,e_\nu)$ を並べます。ここで行列は**計量という双線形形式の基底表示**であり、新しい場や条件ではありません。
+
+$
+(g_{\mu\nu})=\operatorname{diag}(-1,1,1,1),\qquad
+g(v,w)=-v^0w^0+\sum_{i=1}^3v^iw^i.
+$
+
+基底での行列式は $-1\ne0$ なので、$g(v,w)=0$ がすべての $w$ で成り立つなら $v=0$ です。時間方向の負符号一つと空間方向の正符号三つも確認でき、滑らかな非退化Lorentz計量という定義の条件を満たします。成分が一定だから接続係数が零となり、曲率は $R_{abcd}=R_{ab}=R=0$、従って $G_{ab}=0$ です。
+
+$m=0$ の自由場のHadamard状態としてMinkowski真空を選び、平坦真空の $\langle T_{ab}\rangle_{\rm ren}=0$ という保存的処方を指定します。[MICA15の曲率変分の直接例](../../../解析系/MICA/MICA15/index.md#def-mica15-curvature-variations)では、曲率二乗作用の**一次変分**にも曲率因子が残るため、ここで $I_{ab}=J_{ab}=0$ と検証できます。よって半古典方程式は $\Lambda g_{ab}=0$ に帰着します。計量が非退化なので **$\Lambda=0$ のとき、かつそのときに限って**この指定の組が解です。計量、状態、処方、曲率変分、右辺、残る方程式をそれぞれ確認しました。
 <!-- definition-example-end -->
 
 ### 状態の変更とくりこみ定数の変更
@@ -85,13 +94,15 @@ $G_N>0$ なので両辺を $8\pi G_N$ で割れます。これで必要性が示
 
 [QCURV12の灰色体付き遠方流束](../QCURV12/index.md#thm-qcurv12-greybody-flux)は定常Schwarzschild外部の後期波束についての式であり、[QCURV15のKilling光度の保存](../QCURV15/index.md#thm-qcurv15-luminosity-conservation)も**定常外部**での結論です。質量が変わる時空では $\partial_t$ は一般にKilling場ではありません。そこで、光が外へ出る時間より質量の変化が十分遅いと仮定し、短い時間窓で瞬間的なSchwarzschildの値を使います。
 
-以下では、漸近平坦な非回転・非荷電の孤立ブラックホール、質量零・自由実スカラー一種類、外部からの入射粒子が無視できる後期のUnruh型状態を考えます。未来零無限遠で正規化した遅延時刻を $u$、そこから測る系全体の重力質量を $M(u)>0$ とします。無限遠の質量の厳密な定義と損失公式の一般証明はここでは前提とし、局所のSchwarzschild質量と無限遠の質量を**準静的近似の精度で同一視**します。
+単位と記号を読み替えます。QCURV12では $G_N=1$ の幾何単位でSchwarzschildの質量パラメータを長さとして表しました。本章の $M$ はエネルギー次元 $L^{-1}$ の物理質量なので、あちらの半径尺度に対応するのは $M_{\rm geom}=G_NM$ です。したがって地平線半径は $2G_NM$、Hawking温度は $1/(8\pi G_NM)$ です。また第1・2節の $\omega$ は量子**状態**を指しましたが、以下の積分に現れる $\omega>0$ は無限遠の時刻に共役な角**周波数**です。作用対象を区別して読みます。
+
+以下では、漸近平坦な非回転・非荷電の孤立ブラックホール、質量零・自由実スカラー一種類、外部からの入射粒子が無視できる後期のUnruh型状態を考えます。未来零無限遠で正規化した遅延時刻を $u$、そこから測る系全体の重力質量を $M(u)>0$ とします。無限遠の質量の厳密な定義と損失公式の一般証明はここでは前提とし、局所のSchwarzschild質量と無限遠の質量を**準静的近似の精度で同一視**します。[QCURV12の球面調和分解](../QCURV12/index.md#thm-qcurv12-radial-equation)で固定した $\ell$ ごとに磁気量子数は $m=-\ell,\ldots,\ell$ の $2\ell+1$ 通りあり、球対称性によって同じ透過率を持つため、光度式にこの多重度が掛かります。
 
 <a id="def-qcurv17-quasistatic-luminosity"></a>
 
 <!-- formal-statement-start -->
 > **定義（準静的なHawking光度）**
-> 上の漸近平坦・後期・準静的近似において、時間 $u$ で凍結した質量 $M=M(u)>0$ のSchwarzschild散乱透過率 $0\le\Gamma_\ell(\omega;M)\le1$ を用いる。$ω>0$ は無限遠時刻に共役な角周波数、$\ell=0,1,\ldots$ は角運動量とし、積分と和が収束すると仮定して、無限遠へ出る正味光度を
+> 上の漸近平坦・後期・準静的近似において、時間 $u$ で凍結した質量 $M=M(u)>0$ のSchwarzschild散乱透過率 $0\le\Gamma_\ell(\omega;M)\le1$ を用いる。$\omega>0$ は無限遠時刻に共役な角周波数、$\ell=0,1,\ldots$ は角運動量とし、積分と和が収束すると仮定して、無限遠へ出る正味光度を
 
 $$
 \boxed{L(M):=\frac1{2\pi}\sum_{\ell=0}^\infty(2\ell+1)
@@ -203,7 +214,7 @@ $$
 <!-- definition-example-start: def-qcurv17-adiabatic-parameter -->
 ### 直接例：質量が大きいほど変化は遅い
 
-前節の逆二乗光度と $\dot M=-L$ を仮定すれば
+[前節の逆二乗光度](#thm-qcurv17-luminosity-scaling)と $\dot M=-L$ を仮定すれば
 
 $$
 \varepsilon_{\rm ad}=G_N\frac{C_s}{G_N^2M^2}
@@ -234,7 +245,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-無限遠の収支仮定に光度の式を代入して
+無限遠の収支仮定に[逆二乗光度の定理](#thm-qcurv17-luminosity-scaling)を代入して
 
 $$
 \dot M(u)=-\frac{C_s}{G_N^2M(u)^2}<0.
@@ -275,7 +286,7 @@ $$
 
 $I_{ab},J_{ab}$ は曲率を変分して作ります。曲率は計量の二階微分を含み、その変分にはさらに微分が掛かるため、半古典方程式には一般に**計量の四階微分**が現れます。二階の古典Einstein方程式と比べて追加の初期値や高周波の解がありえます。すべてが物理的な蒸発解だと結論してはいけません。
 
-問題の仕組みを、重力とは独立の一変数線形模型で確かめます。$\ell_*>0$ を短距離尺度、$f(t)$ を与えられた滑らかな外力とし、$y(t)$ を未知関数とします。
+問題の仕組みを、重力とは独立の一変数線形模型で確かめます。$\ell_*>0$ を短距離尺度、$f(t)$ を与えられた滑らかな外力とし、$y(t)$ を未知関数とします。$\ell_*$ は前節の角運動量番号 $\ell$ とは別の定数です。この節のプライムはすべて変数 $t$ による常微分で、$y''=d^2y/dt^2$、$y^{(4)}=d^4y/dt^4$、$f''=d^2f/dt^2$ を表します。質量変化の $\dot M=dM/du$ とは微分変数も対象も異なります。
 
 <a id="prop-qcurv17-order-reduction"></a>
 
@@ -311,7 +322,14 @@ $$
 =\lambda^2(1-\ell_*^2\lambda^2)=0.
 $$
 
-零根が重複し、残りは $\lambda=\pm1/\ell_*$ です。従って四階線形方程式の4本の独立解は $1,t,e^{t/\ell_*},e^{-t/\ell_*}$。次に $f=\cos(\Omega t)$、$\Omega>0$ とし $y_p=A\cos(\Omega t)$ を代入すると
+零根が重複し、残りは $\lambda=\pm1/\ell_*$ です。ここで4本が単なる解の候補でなく全解を張ることも確かめます。斉次解で $z=y''$ と置けば $z-\ell_*^2z''=0$ なので、二階定係数方程式の解は $z=Ae^{t/\ell_*}+Be^{-t/\ell_*}$ です。これを二回積分すると
+
+$
+y(t)=a+bt+\ell_*^2Ae^{t/\ell_*}
++\ell_*^2Be^{-t/\ell_*}
+$
+
+となります。$a,b,A,B$ が任意だから、$1,t,e^{t/\ell_*},e^{-t/\ell_*}$ が全斉次解空間の基底です。次に $f=\cos(\Omega t)$、$\Omega>0$ とし $y_p=A\cos(\Omega t)$ を代入すると
 
 $$
 (-\Omega^2-\ell_*^2\Omega^4)A\cos(\Omega t)
@@ -341,7 +359,25 @@ $\Omega=0$ の場合は $y_p=t^2/2$ から $y_p''=1$、$y_p^{(4)}=0$ と直接�
 - 問題: $\hbar=c=k_B=1$、$[G_N]=L^2$、$[M]=L^{-1}$ とする。4次元の半古典Einstein方程式の $G_{ab},\Lambda, I_{ab},J_{ab},\langle T_{ab}\rangle,\eta_I$ の長さ次元を求め、左辺と右辺を照合せよ。
 
 <!-- solution-start -->
-**詳細解答**：共変微分は $L^{-1}$、曲率は二階微分を含むので $[R_{ab}]=[R]=L^{-2}$ です。$G_{ab}=R_{ab}-Rg_{ab}/2$ より $[G_{ab}]=L^{-2}$、$[\Lambda]=L^{-2}$。$R^2$ と $R_{ab}R^{ab}$ の変分から作る $I,J$ は $L^{-4}$、従って $[\eta_I]=[\eta_J]=L^2$。応力テンソルはエネルギー密度なので $L^{-1}/L^3=L^{-4}$。ゆえに $[8\pi G_N\langle T\rangle]=L^2L^{-4}=L^{-2}$ です。各項が $L^{-2}$ に揃います。
+**詳細解答**：計量成分を無次元とする長さ次元で、共変微分は $L^{-1}$、曲率は二階微分を含むため $[R_{ab}]=[R]=L^{-2}$ です。[Einsteinテンソルの定義](../../../物理系/GR/GR7/index.md#def-gr7-einstein-tensor) $G_{ab}=R_{ab}-Rg_{ab}/2$ と、曲率二乗作用の変分から
+
+$
+[G_{ab}]=[\Lambda]=L^{-2},\qquad
+[I_{ab}]=[J_{ab}]=L^{-4},
+$
+
+$
+[\eta_I]=[\eta_J]=L^2,\qquad
+[\eta_I I_{ab}]=[\eta_J J_{ab}]=L^{-2}
+$
+
+です。応力テンソルはエネルギー密度の次元なので $[\langle T_{ab}\rangle]=L^{-1}/L^3=L^{-4}$。したがって
+
+$
+[8\pi G_N\langle T_{ab}\rangle]=L^2L^{-4}=L^{-2}
+$
+
+となり、左辺4項と右辺の長さ次元が一致します。
 <!-- solution-end -->
 
 <a id="ex-qcurv17-a02"></a>
@@ -350,7 +386,22 @@ $\Omega=0$ の場合は $y_p=t^2/2$ から $y_p''=1$、$y_p^{(4)}=0$ と直接�
 - 問題: $G_N,\Lambda,\eta_I,\eta_J$ を定数とし、$\nabla^aG_{ab}=\nabla^aI_{ab}=\nabla^aJ_{ab}=0$、$\nabla^ag_{ab}=0$ を使って、半古典方程式から $\nabla^a\langle T_{ab}\rangle=0$ を導け。$\Lambda=\Lambda(x)$ と置くとどこが変わるか。
 
 <!-- solution-start -->
-**詳細解答**：[保存整合性の命題](#prop-qcurv17-conservation)に従って両辺を発散させると、定数係数の微分は零で $8\pi G_N\nabla^a\langle T_{ab}\rangle=0$。$G_N>0$ なので割って結論を得ます。$\Lambda(x)$ なら積の微分で $\nabla^a(\Lambda g_{ab})=(\nabla_b\Lambda)+\Lambda\nabla^ag_{ab}=\partial_b\Lambda$ が残り、同じ証明は成立しません。右辺の発散が $\partial_b\Lambda/(8\pi G_N)$ と釣り合う新しい模型を別途指定する必要があります。
+**詳細解答**：[保存整合性の命題](#prop-qcurv17-conservation)に従って両辺を共変微分し、第一添字を計量で縮約します。係数が定数で、各幾何テンソルの発散が零なので
+
+$
+8\pi G_N\nabla^a\langle T_{ab}\rangle
+=0+\Lambda\cdot0+\eta_I\cdot0+\eta_J\cdot0=0.
+$
+
+$G_N>0$ で割って保存則を得ます。一方、$\Lambda(x)$ を時空点 $x$ の関数にすると、スカラーの共変微分は偏微分と一致し、積の微分から
+
+$
+\nabla^a(\Lambda g_{ab})
+=(\nabla^a\Lambda)g_{ab}+\Lambda\nabla^ag_{ab}
+=\partial_b\Lambda
+$
+
+が残ります。したがって同じ保存則は一般には従わず、右辺の発散を $\partial_b\Lambda/(8\pi G_N)$ と釣り合わせる追加の力学・条件が必要です。
 <!-- solution-end -->
 
 <a id="ex-qcurv17-a03"></a>
@@ -395,7 +446,7 @@ $$
 - 問題: $G_{ab}+\Lambda g_{ab}+\eta_I I_{ab}=8\pi G_N T_{ab}$ を考える。保存的な有限くりこみ変更 $T_{ab}'=T_{ab}+cI_{ab}$ を選んだとき、同じ計量を解にするため $\eta_I$ をどう変更するか。$c$ は定数とする。
 
 <!-- solution-start -->
-**詳細解答**：新しい右辺は $8\pi G_NT_{ab}'+0=8\pi G_NT_{ab}+8\pi G_NcI_{ab}$。同じ $G_{ab},g_{ab}$ を保つため新しい係数を $\eta_I'=\eta_I+8\pi G_Nc$ とすれば
+**詳細解答**：新しい右辺は $8\pi G_NT_{ab}'=8\pi G_NT_{ab}+8\pi G_NcI_{ab}$。同じ $G_{ab},g_{ab}$ を保つため新しい係数を $\eta_I'=\eta_I+8\pi G_Nc$ とすれば
 
 $$
 G_{ab}+\Lambda g_{ab}+\eta_I'I_{ab}
@@ -445,7 +496,7 @@ $$
 - 問題: 同じ $M,G_N$ に対して相互作用しない質量零スカラー $N\in\mathbb N$ 種があり、各種の散乱係数が同じ正定数 $C_s$ とする。入射なし・準静的な独立放射のもとで総光度、質量の三乗則、初期質量 $M_0$ に対する形式的寿命、断熱指標を求めよ。$N$ を増やせばいつでも近似が改善するか。
 
 <!-- solution-start -->
-**詳細解答**：独立な場のエネルギー期待値は足し合わせられるので $L_N=N C_s/(G_N^2M^2)$。質量収支は $\dot M=-N C_s/(G_N^2M^2)$ です。$3M^2$ を掛けて積分し
+**詳細解答**：独立な場のエネルギー期待値は足し合わせられるので、[逆二乗光度の定理](#thm-qcurv17-luminosity-scaling)を各種に適用すると $L_N=N C_s/(G_N^2M^2)$。質量収支は $\dot M=-N C_s/(G_N^2M^2)$ です。$3M^2$ を掛けて積分し
 
 $$
 M(u)^3=M_0^3-\frac{3NC_s}{G_N^2}(u-u_0),
