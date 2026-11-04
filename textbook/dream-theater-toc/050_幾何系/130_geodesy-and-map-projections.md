@@ -17,3 +17,4 @@
 14. [GEOD14 等角緯度と複素座標](textbook/volumes/dream_thater/幾何系/GEOD/GEOD14/index.md)
 15. [GEOD15 球面メルカトルと球面横メルカトル](textbook/volumes/dream_thater/幾何系/GEOD/GEOD15/index.md)
 16. [GEOD16 楕円体横メルカトルの特徴づけと構成](textbook/volumes/dream_thater/幾何系/GEOD/GEOD16/index.md)
+17. [GEOD17 Krüger 級数による順変換](textbook/volumes/dream_thater/幾何系/GEOD/GEOD17/index.md)

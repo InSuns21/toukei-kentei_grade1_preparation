@@ -1,0 +1,49 @@
+id: QFT43
+title: "パートン模型・深非弾性散乱と因子化の入口"
+volume: foundations
+status: supplementary
+prerequisites: [QFT12, QFT17, QFT25, QFT41, QFT42]
+official_scope: []
+learning_objectives:
+  - (-+++)計量の電子–陽子散乱からQ²、Bjorken変数、非弾性度、最終状態質量を導出できる
+  - 電磁電流の横性を確認し、非偏極DISの二つの構造関数を区別できる
+  - 零質量スピン1/2パートンの質量殻・Dirac跡からCallan–Gross関係を導き、その適用条件とスカラー反例を説明できる
+  - 価数・運動量和則と電荷二乗重みを区別し、木レベル構造関数をPDFから計算できる
+  - 係数関数とPDFのMellin型畳み込みを計算し、先頭べき因子化の成立条件・端点・低Qでの限界を判定できる
+  - 最低次のplus分布とDGLAP型尺度方程式から価数保存と一次の尺度相殺を検算できる
+definitions:
+  - { id: QFT43-DEF-01, name: 深非弾性散乱の不変運動学 }
+  - { id: QFT43-DEF-02, name: 非偏極DISの構造関数 }
+  - { id: QFT43-DEF-03, name: 先頭ツイストのパートン分布 }
+  - { id: QFT43-DEF-04, name: パートンのMellin型畳み込み }
+  - { id: QFT43-DEF-05, name: DISの先頭べき因子化表示 }
+theorems:
+  - { id: QFT43-PROP-01, name: 最終状態質量とBjorken変数 }
+  - { id: QFT43-PROP-02, name: 自由パートン質量殻とBjorken変数 }
+  - { id: QFT43-PROP-03, name: 自由DiracパートンのCallan–Gross関係 }
+  - { id: QFT43-PROP-04, name: 単純パートン模型の構造関数 }
+  - { id: QFT43-LEM-01, name: 木レベル係数の畳み込み }
+  - { id: QFT43-PROP-05, name: 最低次の非一重項クォーク数保存 }
+  - { id: QFT43-PROP-06, name: 一次精度の因子化尺度相殺 }
+canonical_examples:
+  - 固定標的の電子エネルギーと角度からx・y・W²を検算
+  - 横射影の二構造と電磁電流保存を成分で確認
+  - Dirac跡からCallan–Gross関係を導きスカラー頂点と比較
+  - 二価数u・一価数dの模型でF1・F2・運動量和則を検算
+  - z=x/ξの畳み込みとdelta関数のJacobian
+  - plus分布の仮想項相殺と非一重項価数保存
+problem_patterns:
+  - QFT43-DIS-INVARIANTS
+  - QFT43-W2-THRESHOLD
+  - QFT43-CURRENT-PROJECTOR
+  - QFT43-VALENCE-STRUCTURE
+  - QFT43-MELLIN-CONVOLUTION
+  - QFT43-CALLAN-GROSS-TRACE
+  - QFT43-SCALAR-COUNTEREXAMPLE
+  - QFT43-PLUS-QUARK-NUMBER
+  - QFT43-FACTORIZATION-SCALE
+  - QFT43-COMBINED-DIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 16, review: 7 }
