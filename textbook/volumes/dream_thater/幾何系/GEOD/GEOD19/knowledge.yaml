@@ -1,0 +1,56 @@
+chapter: GEOD19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD13
+  - GEOD18
+forward_references: []
+concepts:
+  - id: geodesy.authalic-latitude-radius
+    name: 正積緯度と正積球半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正積緯度と正積球半径）]
+    requires: [geodesy.ellipsoid-metric-formula, geodesy.directional-area-scales]
+  - id: geodesy.authalic-area-preservation
+    name: 正積緯度による面積保存と単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正積緯度による面積保存と単調性）]
+    requires: [geodesy.authalic-latitude-radius]
+  - id: geodesy.lambert-cylindrical-equal-area
+    name: Lambert 正積円筒図法
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Lambert 正積円筒図法）]
+    requires: [geodesy.authalic-area-preservation]
+  - id: geodesy.lambert-equal-area-scales
+    name: Lambert 正積円筒の面積と方向別縮尺
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lambert 正積円筒の面積と方向別縮尺）]
+    requires: [geodesy.lambert-cylindrical-equal-area, geodesy.directional-area-scales]
+  - id: geodesy.albers-equal-area-conic
+    name: Albers 正積円錐図法
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Albers 正積円錐図法）]
+    requires: [geodesy.authalic-area-preservation]
+  - id: geodesy.albers-area-standard-parallels
+    name: Albers 正積円錐の面積と標準緯線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Albers 正積円錐の面積と標準緯線）]
+    requires: [geodesy.albers-equal-area-conic, geodesy.directional-area-scales]
+  - id: geodesy.mollweide-equal-area
+    name: Mollweide 正積図法
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Mollweide 正積図法）]
+    requires: [geodesy.authalic-area-preservation]
+  - id: geodesy.mollweide-unique-area
+    name: Mollweide 補助角の一意性と等積性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Mollweide 補助角の一意性と等積性）]
+    requires: [geodesy.mollweide-equal-area, geodesy.directional-area-scales]
