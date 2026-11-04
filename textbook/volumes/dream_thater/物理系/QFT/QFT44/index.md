@@ -43,7 +43,7 @@ $$
 <!-- definition-example-start: def-qft44-matching -->
 ### 例：定数振幅なら四次項の係数を比較する
 
-軽い理論の局所相互作用が $-\lambda_{\rm E}\phi^4/4!$ だけなら、四点接触頂点から $i\mathcal M=-i\lambda_{\rm E}$ です。つまり振幅の定数項が $-\lambda_{\rm E}$ になるよう、full theory の定数項を計算して比較します。ここで一致させるのは $\lambda$ の記号ではなく、同じ四点外線で計算した振幅です。matchingをするときの $\mu$ は、分離する物理質量 $M$ と区別されます。
+**定義の確認**：軽い理論の局所相互作用が $-\lambda_{\rm E}\phi^4/4!$ だけなら、四点接触頂点から $i\mathcal M=-i\lambda_{\rm E}$ です。つまり振幅の定数項が $-\lambda_{\rm E}$ になるよう、full theory の定数項を計算して比較します。ここで一致させるのは $\lambda$ の記号ではなく、同じ四点外線で計算した振幅です。matchingをするときの $\mu$ は、分離する物理質量 $M$ と区別されます。
 <!-- definition-example-end -->
 
 <a id="prop-qft44-tree-amplitude"></a>
@@ -117,7 +117,7 @@ $$
 <!-- definition-example-start: def-qft44-operator-expansion -->
 ### 例：場と微分を一つずつ数える
 
-$[\phi^4]=4$ なので係数には $M^0$ が対応します。$\partial_\mu(\phi^2)=2\phi\partial_\mu\phi$ は次元3で、その二乗は次元6、従って係数は $1/M^2$ に無次元因子 $h^2/M^2$ を掛けた形になります。$[\Box(\phi^2)]^2$ は次元8で係数は $1/M^4$ に同じ因子 $h^2/M^2$ を掛けます。**作用の次元が4になる**ことと、特定の四点散乱に寄与することは別々に確認します。
+**定義の確認**：$[\phi^4]=4$ なので係数には $M^0$ が対応します。$\partial_\mu(\phi^2)=2\phi\partial_\mu\phi$ は次元3で、その二乗は次元6、従って係数は $1/M^2$ に無次元因子 $h^2/M^2$ を掛けた形になります。$[\Box(\phi^2)]^2$ は次元8で係数は $1/M^4$ に同じ因子 $h^2/M^2$ を掛けます。**作用の次元が4になる**ことと、特定の四点散乱に寄与することは別々に確認します。
 <!-- definition-example-end -->
 
 <a id="prop-qft44-local-matching"></a>
@@ -258,7 +258,7 @@ matchingは重い粒子の効果を係数に写す工程です。しかし、そ
 <!-- definition-example-start: def-qft44-matching-scale -->
 ### 例：尺度を二つ選ぶ
 
-$\mu_M=M$ で四点接触係数 $\lambda_{\rm E}(M)$ を定め、実験の典型エネルギーが $Q=M/e^2$ なら $\mu=Q$ に向けて $\log(\mu/M)=-2$ だけ発展させます。matchingでは $M$ をもつ伝播関数を展開し、runningでは軽い $\phi$ のループだけを使います。同じ重い交換図をrunningへもう一度足すと、その図を二度数えてしまいます。
+**定義の確認**：$\mu_M=M$ で四点接触係数 $\lambda_{\rm E}(M)$ を定め、実験の典型エネルギーが $Q=M/e^2$ なら $\mu=Q$ に向けて $\log(\mu/M)=-2$ だけ発展させます。matchingでは $M$ をもつ伝播関数を展開し、runningでは軽い $\phi$ のループだけを使います。同じ重い交換図をrunningへもう一度足すと、その図を二度数えてしまいます。
 <!-- definition-example-end -->
 
 <a id="prop-qft44-matching-running"></a>
@@ -318,7 +318,7 @@ $$
 \approx0.27705.
 $$
 
-差 $0.40\to0.28$ は重い場の**[matching](#def-qft44-matching)**、$0.28\to0.27705$ は軽い場の**running**です。後者が小さくても零とは限りません。なお一ループmatchingを落として一ループrunningだけを残しているので、これは**木レベルの閾値を境界値にしたleading-log近似**であり、完全な一ループ精度の結果とは呼びません。
+差 $0.40\to0.28$ は重い場を消す際の**Wilson係数の照合**、$0.28\to0.27705$ は軽い場の**running**です。後者が小さくても零とは限りません。なお一ループmatchingを落として一ループrunningだけを残しているので、これは**木レベルの閾値を境界値にしたleading-log近似**であり、完全な一ループ精度の結果とは呼びません。
 
 ## 6. どこまでを予測と呼べるか
 
