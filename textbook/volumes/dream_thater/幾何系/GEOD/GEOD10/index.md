@@ -304,7 +304,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Q$ の楕円体法線に沿う関数を $F(t)=W(Q+t\boldsymbol n)$ とします。ここで $t$ は上向き符号付き距離、$\partial_nT(Q):=\nabla T(Q)\cdot\boldsymbol n$ は他の方向を固定して法線へ進んだときの方向微分です。連鎖律により $F'(0)=\nabla W(Q)\cdot\boldsymbol n$ となります。次の $o(|N_g|)$ は $N_g\to0$ で $|N_g|$ で割ると0になる剰余を表します。微分可能性から
+$Q$ の楕円体法線に沿う関数を $F(t)=W(Q+t\boldsymbol n)$ とします。$t$ は上向き符号付き距離です。関数 $V=U,T$ に対し、$\partial_nV(Q)$ は他の方向を固定して法線方向へ進む方向微分を表すものとし、連鎖律から
+
+$$
+\partial_nV(Q):=\nabla V(Q)\cdot\boldsymbol n,\qquad
+F'(0)=\nabla W(Q)\cdot\boldsymbol n
+$$
+
+となります。次の $o(|N_g|)$ は $N_g\to0$ で $|N_g|$ で割ると0になる剰余を表します。微分可能性から
 
 $$
 \begin{aligned}
