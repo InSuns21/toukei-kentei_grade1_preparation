@@ -8,7 +8,7 @@
 
 ## 1. 何を固定し、何を近似するか
 
-四次元の平坦時空で自然単位 $\hbar=c=1$、[Minkowski計量](../SREL/SREL2/index.md#def-srel2-minkowski-metric) $\eta=\operatorname{diag}(-1,+1,+1,+1)$ を使います。$\phi$ は軽い実スカラー、$\chi$ は質量 $M>0$ の重い実スカラーです。軽い場の質量は本講義の木レベル散乱では $m=0$ とし、相互作用を
+四次元の平坦時空で自然単位 $\hbar=c=1$、[Minkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric) $\eta=\operatorname{diag}(-1,+1,+1,+1)$ を使います。$\phi$ は軽い実スカラー、$\chi$ は質量 $M>0$ の重い実スカラーです。軽い場の質量は本講義の木レベル散乱では $m=0$ とし、相互作用を
 
 $$
 \mathcal L_{\rm full}=-\frac12\partial_\mu\phi\partial^\mu\phi
