@@ -35,6 +35,17 @@ $$
 
 です。$D$ は場の方程式を各変数について満たす滑らかな**双解**でもあります。ここでは共通の交換子をもつ自由場の状態を比べるので、$D(x,y)=D(y,x)$ として扱えます。
 
+ここでいう**Wick平方**は、生の $\phi(x)^2$ を点で掛けたものではなく、[MICA14の点分離によるWick平方期待値](../../../解析系/MICA/MICA14/index.md#def-mica14-wick-square)のように、共通の特異部を差し引いた後の滑らかな余りを対角へ制限した局所量です。応力テンソルではさらに[MICA15の点分離双微分作用素](../../../解析系/MICA/MICA15/index.md#def-mica15-bidifferential)を使います。
+
+二点関数の $\nabla_a^x\nabla_{b'}^y$ は、$x$ と $y$ を**独立に**微分してから $y=x$ と置く操作です。先に対角へ制限して一変数で二階微分する操作とは違います。例えば滑らかな関数 $F(x,y)=t_xt_y$ では
+
+$$
+\left.\partial_{t_x}\partial_{t_y}F(x,y)\right|_{y=x}=1,
+\qquad \frac{d^2}{dt^2}F(t,t)=\frac{d^2}{dt^2}t^2=2.
+$$
+
+左辺では二つの時刻を別々に偏微分し、右辺では同じ時刻 $t$ に揃えた後で通常の微分を行っています。
+
 <a id="def-qcurv15-observable-difference"></a>
 
 <!-- formal-statement-start -->
@@ -176,7 +187,7 @@ $$
 =\frac1{12\beta^2}.
 $$
 
-応力テンソルについて、平坦・質量零・最小結合では
+応力テンソルについて、[MICA15の古典的応力テンソルの定義](../../../解析系/MICA/MICA15/index.md#def-mica15-classical-stress)で $m=\xi=0$、$g=\eta$ とすると
 
 $$
 T_{00}=\frac12\left[(\partial_t\phi)^2+
@@ -207,7 +218,22 @@ $$
 \end{aligned}
 $$
 
-空間成分は
+空間成分には、同じ古典式から $\partial_i\phi\partial_j\phi$ と、計量 $\delta_{ij}$ に比例する項の**両方**が入ります。二点分布差の混合微分を
+
+$$
+K_t:=\left.\partial_{t_x}\partial_{t_y}D_\beta\right|_{x=y},
+\qquad K_s:=\left.\sum_{i=1}^3\partial_{x^i}\partial_{y^i}D_\beta\right|_{x=y}
+$$
+
+と置くと、古典式の第2項まで含めて
+
+$$
+\Delta_\beta T_{ij}
+=\left.\partial_{x^i}\partial_{y^j}D_\beta\right|_{x=y}
++\frac12\delta_{ij}(K_t-K_s)
+$$
+
+です。$|\boldsymbol k|^2=\omega^2$ により $K_s=K_t$ なので計量に比例する項が零となり、残る空間成分は
 
 $$
 \Delta_\beta T_{ij}=\int\frac{d^3k}{(2\pi)^3}
@@ -215,8 +241,14 @@ $$
 $$
 
 です。角度積分の回転対称性から
-$\int d\Omega\,k_i k_j=(4\pi/3)\omega^2\delta_{ij}$、
-したがって $\Delta_\beta T_{ij}=(\rho/3)\delta_{ij}$ です。奇関数である $k_i$ の積分が零なので $\Delta_\beta T_{0i}=0$。成分は定数ゆえ保存し、トレースは $-\rho+3p=0$ となります。$\square$
+
+$$
+\int_{S^2}k_i k_j\,d\Omega
+=\frac{4\pi}{3}\omega^2\delta_{ij},\qquad
+\Delta_\beta T_{ij}=\frac{\rho}{3}\delta_{ij}
+$$
+
+を得ます。$\Delta_\beta T_{0i}$ は $\omega k_i$ に比例する被積分関数が $\boldsymbol k\mapsto-\boldsymbol k$ で奇となるため零です。成分は定数ゆえ保存し、トレースは $-\rho+3p=0$ となります。$\square$
 <!-- proof-end -->
 
 ### 直接計算：同じ熱状態でも測る量の温度次数が違う
@@ -266,11 +298,31 @@ $$
 
 **定義の確認**として、観測者の規格化・空間射影・各測定量を順番に調べます。
 
-[前節の熱状態差](#thm-qcurv15-thermal-observables)をMinkowski慣性枠で
-$T_{ab}=\operatorname{diag}(\rho,p,p,p)$、$\rho=3p>0$ とします。$u^a=(1,0,0,0)$ は単位時間的で、$h^{00}=0$、$h^{ij}=\delta^{ij}$ です。よって $\rho_u=\rho$、$p_u=(T_{11}+T_{22}+T_{33})/3=p$、$q_u^i=-T^{i0}u_0=T^{i0}=0$ と**各条件を実際に確認**できます。
+[前節の熱状態差](#thm-qcurv15-thermal-observables)を使います。Minkowski真空のくりこみ期待値を零とする規約を採用すれば、熱状態のテンソルそのものが慣性枠で $T_{ab}=\operatorname{diag}(\rho,p,p,p)$、$\rho=3p>0$ となります。静止観測者の四元速度と射影は
 
-次に速度 $0<v<1$ で $z$ 方向へ移動する観測者を
-$u'^a=\gamma(1,0,0,v)$、$\gamma=(1-v^2)^{-1/2}$ とします。$g(u',u')=-\gamma^2+\gamma^2v^2=-1$。その観測者の $z$ 方向の単位空間軸を $e_{\hat z}^a=\gamma(v,0,0,1)$ とすれば、$g(u',e_{\hat z})=0$、$g(e_{\hat z},e_{\hat z})=1$ です。従って
+$$
+u^a=(1,0,0,0),\quad g(u,u)=-1,\quad
+h^{00}=0,\quad h^{ij}=\delta^{ij}
+$$
+
+です。定義に戻ると
+
+$$
+\rho_u=\rho,\qquad
+p_u=\frac{T_{11}+T_{22}+T_{33}}3=p,\qquad
+q_u^i=-T^{i0}u_0=T^{i0}=0
+$$
+
+となり、規格化・射影・各測定量を**実際に確認**できます。
+
+次に速度 $0<v<1$ で $z$ 方向へ移動する観測者を取り、$\gamma=(1-v^2)^{-1/2}$ とします。その四元速度と $z$ 方向の単位空間軸は
+
+$$
+u'^a=\gamma(1,0,0,v),\qquad
+e_{\hat z}^a=\gamma(v,0,0,1)
+$$
+
+です。$g(u',u')=-\gamma^2(1-v^2)=-1$、$g(u',e_{\hat z})=0$、$g(e_{\hat z},e_{\hat z})=\gamma^2(1-v^2)=1$ を直接確認できます。従って
 
 $$
 \rho_{u'}=\gamma^2(\rho+v^2p),\qquad
@@ -339,7 +391,7 @@ ds^2=-f(r)\,dt^2+\frac{dr^2}{f(r)}
 \qquad \xi^a=(\partial_t)^a
 $$
 
-です。$\xi$ は無限遠で単位時間並進になる時間的Killingベクトルで、$r>2M$ では静止観測者 $u_{\rm stat}^a=\xi^a/\sqrt f$ が存在します。
+です。ここで $d\Omega^2$ は単位二球の計量、$d\Omega=\sin\theta\,d\theta\,d\varphi$ はその面積要素です。$\xi$ は無限遠で単位時間並進になる時間的Killingベクトルで、$r>2M$ では静止観測者 $u_{\rm stat}^a=\xi^a/\sqrt f$ が存在します。
 
 応力テンソルが保存的な規約で定義され、$\nabla_aT^{ab}=0$ とします。$\xi$ がKillingベクトルなので $\nabla_{(a}\xi_{b)}=0$ です。量子場の状態が時間並進と球対称性を保てば、テンソルの半径方向のエネルギー流を考えられます。
 
@@ -347,7 +399,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（SchwarzschildのKilling光度）**
-> $r>2M$ のSchwarzschild外部で、静的かつ球対称な実対称保存テンソル $T_{ab}$（例えば、同じ規約で定義された定常球対称Hadamard状態の応力テンソル期待値）を取る。遠方規格化したKilling場 $\xi=\partial_t$ に対して
+> $r>2M$ のSchwarzschild外部で、**定常**（時間並進不変）かつ球対称な実対称保存テンソル $T_{ab}$（例えば、同じ規約で定義された定常球対称Hadamard状態の応力テンソル期待値）を取る。遠方規格化したKilling場 $\xi=\partial_t$ に対して
 
 $$
 J^a:=-T^a{}_b\xi^b,\qquad
@@ -568,7 +620,14 @@ $\Delta_\beta\langle\phi^2\rangle=1/(12\beta^2)$。$\beta$ は逆エネルギー
 - 問題: Minkowski慣性座標で $u^a=(1,0,0,0)$、対称テンソル $T_{ab}$ の時間・空間混合成分が $T_{0z}=-F$、$F>0$ とする。$u$ が単位時間的であることを確認し、[観測者の定義](#def-qcurv15-observer-measurements)から $q^{z}$ を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：計量符号 $(-,+,+,+)$ なので $u_au^a=-1$、$u_a=(-1,0,0,0)$ です。空間射影は $h^z{}_z=1$、$h^z{}_0=0$。$T^{z0}=\eta^{zz}\eta^{00}T_{z0}=-T_{z0}=F$ です。よって
+**詳細解答**：計量符号 $(-,+,+,+)$ なので、四元速度の規格化・添字下げ・空間射影を順に確かめると
+
+$$
+u_au^a=-1,\quad u_a=(-1,0,0,0),\quad
+h^z{}_z=1,\quad h^z{}_0=0
+$$
+
+です。混合成分の添字を二つ上げると $T^{z0}=\eta^{zz}\eta^{00}T_{z0}=-T_{z0}=F$ です。よって
 
 $$
 q^z=-h^z{}_cT^{cd}u_d
@@ -702,14 +761,26 @@ $$
 
 $T^2$ と $T^4$ の違いは、二点分布の対角値に対して応力テンソルが二階の双微分を含み、モード積分の被積分関数に $\omega^2$ が増えるためです。真空の発散項を個別に対角評価したわけではありません。
 
-(2) $f=1-2M/r>0$ で $u=f^{-1/2}\partial_t$、$e_{\hat r}=f^{1/2}\partial_r$。$g(u,u)=-1$、$g(e,e)=1$、$g(u,e)=0$ が成り立ちます。$F_{\rm loc}=-T_{tr}$ で、$T^r{}_t=fT_{rt}$ から
+(2) $f=1-2M/r>0$ の外部で静止枠を
+
+$$
+u=f^{-1/2}\partial_t,\qquad e_{\hat r}=f^{1/2}\partial_r
+$$
+
+と取ります。計量から $g(u,u)=-1$、$g(e,e)=1$、$g(u,e)=0$ を順に確かめます。[観測者の流束の定義](#def-qcurv15-observer-measurements)をこの正規直交枠へ適用すると $F_{\rm loc}=-T_{tr}$ で、$T^r{}_t=fT_{rt}$ から
 
 $$
 J^r=-T^r{}_t=fF_{\rm loc},
 \qquad L_K=4\pi r^2fF_{\rm loc}.
 $$
 
-保存とKilling方程式により $\nabla_aJ^a=0$。時間・球対称のもと $\partial_r(r^2J^r)=0$ なので $L_K$ は半径一定です。保存則の証明で状態が本当に定常である仮定を使用しました。
+[Killing光度の定義](#def-qcurv15-killing-luminosity)では $L_K=4\pi r^2J^r$ です。保存とKilling方程式により $\nabla_aJ^a=0$。時間・球対称のもと
+
+$$
+0=\nabla_aJ^a=\frac1{r^2}\partial_r(r^2J^r)
+$$
+
+なので、$L_K$ は半径一定です。保存則の証明で状態が本当に定常である仮定を使用しました。
 
 (3) 地平線近傍で得られるHawking占有数は、そのまま全周波数が無損失で無限遠に達することを意味しません。[QCURV12の散乱障壁](../QCURV12/index.md#thm-qcurv12-greybody-flux)で各 $(\ell,\omega)$ の透過率 $\Gamma_\ell(\omega)\in[0,1]$ を掛け、
 
