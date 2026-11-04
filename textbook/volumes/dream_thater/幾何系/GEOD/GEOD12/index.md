@@ -547,7 +547,16 @@ $$
 \boldsymbol q\cdot\boldsymbol e=u.
 $$
 
-大円表示から $u=\sin\sigma\sin\alpha_1$、$v=\sin\sigma\cos\alpha_1$ なので $\sqrt{u^2+v^2}=\sin\sigma$（$0<\sigma<\pi$）。よって中心角と初期方位角の式が得られます。到着接線は $\boldsymbol t_2=-\sin\sigma\,\boldsymbol p+\cos\sigma\,\boldsymbol t=(\cos\sigma\,\boldsymbol q-\boldsymbol p)/\sin\sigma$ です。終点の北・東単位ベクトルを $\boldsymbol n_2,\boldsymbol e_2$ とし、$\boldsymbol q\cdot\boldsymbol n_2=\boldsymbol q\cdot\boldsymbol e_2=0$ を使うと
+大円表示から $u=\sin\sigma\sin\alpha_1$、$v=\sin\sigma\cos\alpha_1$ なので $\sqrt{u^2+v^2}=\sin\sigma$（$0<\sigma<\pi$）。よって中心角と初期方位角の式が得られます。
+
+到着接線は
+
+$$
+\boldsymbol t_2=-\sin\sigma\,\boldsymbol p+\cos\sigma\,\boldsymbol t
+=\frac{\cos\sigma\,\boldsymbol q-\boldsymbol p}{\sin\sigma}
+$$
+
+です。終点の北・東単位ベクトルを $\boldsymbol n_2,\boldsymbol e_2$ とし、$\boldsymbol q\cdot\boldsymbol n_2=\boldsymbol q\cdot\boldsymbol e_2=0$ を使うと
 
 $$
 \begin{aligned}
