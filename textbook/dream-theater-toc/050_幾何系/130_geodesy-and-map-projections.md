@@ -9,3 +9,4 @@
 6. [GEOD6 高さ・ジオイド・鉛直基準の導入](textbook/volumes/dream_thater/幾何系/GEOD/GEOD6/index.md)
 7. [GEOD7 測地測量の観測モデル：距離・角度・水準](textbook/volumes/dream_thater/幾何系/GEOD/GEOD7/index.md)
 8. [GEOD8 測量網の平差・datum の拘束・不確かさ](textbook/volumes/dream_thater/幾何系/GEOD/GEOD8/index.md)
+9. [GEOD9 GNSS・衛星測地学の基礎](textbook/volumes/dream_thater/幾何系/GEOD/GEOD9/index.md)
