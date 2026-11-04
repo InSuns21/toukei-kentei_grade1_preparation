@@ -1,0 +1,47 @@
+id: QCURV18
+title: "Hawking導出の適用範囲と超Planckian周波数の感度"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV10
+  - QCURV11
+  - QCURV13
+  - QCURV17
+official_scope: []
+learning_objectives:
+  - 指数光線写像から過去無限遠での遡及アフィン周波数とUV参照尺度への到達時刻を導き、時刻原点・周波数の規格化を検査できる
+  - 無限に高い入射周波数を逆追跡する運動学と、その波長領域でも自由場の通常分散関係を使えるという動力学的仮定を区別できる
+  - 正規化した対数周波数波束で、有限UV窓内に残る重みの後期極限を証明できる
+  - 有限時刻窓のFourier診断積分について、光線写像の小摂動に対する定量的な安定性の範囲を示せる
+  - 地平線を持たない有限指数区間模型と、入射状態変更の例からHawking熱性の適用限界を説明できる
+  - 定常性・状態・散乱・相互作用・半古典逆作用を区別し、UV頑健性が何を証明していないか整理できる
+definitions:
+  - { id: QCURV18-DEF-01, name: 遡及周波数とUV閾値 }
+  - { id: QCURV18-DEF-02, name: 対数周波数窓の低周波重み }
+  - { id: QCURV18-DEF-03, name: 有限窓Fourier診断積分 }
+theorems:
+  - { id: QCURV18-PROP-01, name: 指数光線写像の遡及周波数と閾値時刻 }
+  - { id: QCURV18-THM-01, name: 有限UV窓内の波束重みの消失 }
+  - { id: QCURV18-PROP-02, name: 有限窓の位相摂動評価 }
+  - { id: QCURV18-PROP-03, name: 入射占有数に対する出射粒子数の依存 }
+canonical_examples:
+  - 指数模型の臨界時刻と時刻原点の変換
+  - コンパクト台を持つ対数周波数波束のUV重み
+  - 定数シフトした光線写像の有限窓積分
+  - 有限指数区間の後で一定の導関数に接続する地平線なしの光線模型
+  - 単一Bogoliubovモードの真空と励起入射状態の比較
+problem_patterns:
+  - QCURV18-BACKTRACE-FREQUENCY
+  - QCURV18-UV-THRESHOLD
+  - QCURV18-CLOCK-ORIGIN
+  - QCURV18-LINEAR-RAY-MAP
+  - QCURV18-LOG-FREQUENCY-WINDOW
+  - QCURV18-PERTURBED-REDSHIFT
+  - QCURV18-FOURIER-LIPSCHITZ
+  - QCURV18-HORIZONLESS-FINITE-WINDOW
+  - QCURV18-INITIAL-STATE
+  - QCURV18-SCOPE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 14, review: 6 }
