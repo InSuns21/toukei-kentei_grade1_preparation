@@ -385,7 +385,9 @@ $k_0,A_p,M,h$ は正なので、中央子午線で真北が平面の北向きへ
 <a id="thm-geod18-convergence-scale"></a>
 <!-- formal-statement-start -->
 > **定理（子午線収差と縮尺の微分公式）**
-> $a\ge b>0$ の楕円体、非極点、$\cos\chi\cos\delta>0$ の局所枝を考える。$k_0>0$、次数 $p\ge1$ とし、[Krüger 順級数](../GEOD17/index.md#def-geod17-kruger-series)の $p$ 次有限写像 $F_p$ の導関数が非零の場所で、$A=A_p>0$ と $P,Q$ を上式で定義する。中央子午線上の基準点 $\chi_\ast$ では $P(\chi_\ast,0)>0$ とし、その点から導関数の零を横切らない局所枝を取る。この有限投影の子午線収差 $\gamma_p$ と点縮尺 $k_p$（次式では $\gamma,k$ と略記）は
+> $a\ge b>0$ の楕円体の非極点で、$\cos\chi\cos\delta>0$ の領域を考える。$k_0>0$、次数 $p\ge1$ とし、[Krüger 順級数](../GEOD17/index.md#def-geod17-kruger-series)の有限写像 $F_p$ の導関数が非零の場所で、$A=A_p>0$ と $P,Q$ を上式で定義する。
+>
+> 中央子午線上の基準点 $\chi_\ast$ では $P(\chi_\ast,0)>0$ とし、そこから導関数の零を横切らない局所枝を取る。この有限投影の子午線収差 $\gamma_p$ と点縮尺 $k_p$（次式では $\gamma,k$ と略記）は
 
 $$
 \boxed{\begin{aligned}
