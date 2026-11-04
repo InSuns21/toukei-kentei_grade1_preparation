@@ -81,7 +81,13 @@ $$
 
 自由な表面曲線は曲がったり止まったりできます。測地線には[一般の座標測地線方程式](../../GEO/GEO14/index.md#prop-geo14-geodesic-equation)があり、初期点と初期速度が局所的に解を決めます。この章では計量の係数からその方程式を自分で構成します。
 
-計量の係数を行列に並べると、緯度方向の長さは $M(\phi)$ 倍、経度方向の長さは $r(\phi)$ 倍です。いずれも経度 $\lambda$ には依存しません。この回転対称性により、後で「東西方向の保存量」が現れます。まず、[Levi-Civita接続](../../GEO/GEO13/index.md#def-geo13-levi-civita)の座標係数をこの具体的な計量から求めましょう。
+計量を座標変位 $(d\phi,d\lambda)$ の二次形式として読むと、座標順 $(\phi,\lambda)$ での係数行列は
+
+$$
+(g_{ij})=\begin{pmatrix}M(\phi)^2&0\\0&r(\phi)^2\end{pmatrix}
+$$
+
+です。この行列を座標変位で左右から挟むと $ds^2$ が戻ります。よって緯度方向の長さは $M(\phi)$ 倍、経度方向の長さは $r(\phi)$ 倍で、混合項は0です。いずれの係数も経度 $\lambda$ には依存しません。この回転対称性により、後で「東西方向の保存量」が現れます。まず、[Levi-Civita接続](../../GEO/GEO13/index.md#def-geo13-levi-civita)の座標係数をこの具体的な計量から求めましょう。
 
 <a id="thm-geod12-equations"></a>
 <!-- formal-statement-start -->
@@ -103,14 +109,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-座標を $x^1=\phi,x^2=\lambda$ とし、計量成分と逆行列成分を
+座標を $x^1=\phi,x^2=\lambda$ とし、下添字 $1,2$ がそれぞれ緯度・経度方向を表すように計量成分と逆行列成分を
 
 $$
 g_{11}=M^2,\quad g_{22}=r^2,\quad g_{12}=0,\qquad
 g^{11}=M^{-2},\quad g^{22}=r^{-2}
 $$
 
-と置きます。$M,r>0$ なので逆成分が定まります。非零の計量微分は $\partial_1g_{11}=2MM'$、$\partial_1g_{22}=2rr'$ だけです。[Christoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
+と置きます。$M,r>0$ なので逆成分が定まります。微分記号は、経度 $\lambda$ を固定する偏微分と、緯度のみの関数の通常の微分を次のように対応させます。
+
+$$
+\partial_1=\frac{\partial}{\partial\phi},\qquad
+M'=\frac{dM}{d\phi},\qquad r'=\frac{dr}{d\phi}.
+$$
+
+$M,r$ は経度に依存しないため、非零の計量微分は
+
+$$
+\partial_1g_{11}=2MM',\qquad
+\partial_1g_{22}=2rr'
+$$
+
+だけです。次の式で繰り返される添字 $\ell$ は $1,2$ にわたり和を取ります。[Christoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
 
 $$
 \Gamma^k_{ij}=\frac12g^{k\ell}
@@ -288,7 +308,7 @@ $$
 <a id="def-geod12-direct-inverse"></a>
 <!-- formal-statement-start -->
 > **定義（楕円体測地線の順問題と逆問題）**  
-> 回転楕円体 $0<b\le a$ を固定する。順問題は、非極点の始点 $(\phi_1,\lambda_1)$、始点の測地方位角 $\alpha_1$、表面上の非負弧長 $S$ を与え、その初期条件を持つ単位速さの測地線の終点 $(\phi_2,\lambda_2)$ と到着時方位角 $\alpha_2$ を求める問題である。逆問題は二点の測地緯度・経度を与え、両点を結ぶ測地線の弧長 $S$ と始点・終点の進行方位角を求める問題である。
+> 回転楕円体 $0<b\le a$ を固定する。順問題は、非極点の始点 $(\phi_1,\lambda_1)$、始点の測地方位角 $\alpha_1$、表面上の非負弧長 $S$ を与え、その初期条件を持つ単位速さの測地線を進め、終点が非極点にある場合の終点座標 $(\phi_2,\lambda_2)$ と到着時方位角 $\alpha_2$ を求める問題である。逆問題は非極点にある二点の測地緯度・経度を与え、両点を結ぶ測地線の弧長 $S$ と始点・終点の進行方位角を求める問題である。極が端点となる場合は経度と北・東基底が退化するため、別の局所座標・方向の規約を指定して扱う。
 >
 > 逆問題では、どの測地線の枝を選ぶかを指定しない限り解が複数ある場合がある。**最短距離を問う逆問題**では、二点を結ぶ候補経路のうち弧長が最小となる枝を選ぶ。一致する二点では最短距離0だが、そのとき初期方位角は一意でない。
 <!-- formal-statement-end -->
@@ -313,14 +333,14 @@ $$
 \qquad 0\le s\le S
 $$
 
-として数値積分します。右辺は極以外で滑らかなので[測地線初期値の局所一意性](../../GEO/GEO14/index.md#thm-geo14-geodesic-existence)が適用できます。例えば古典的4段Runge–Kutta法では、$y=(\phi,\lambda,\alpha)$、刻み $h=S/m$ として
+として数値積分します。右辺は極以外で滑らかなので[測地線初期値の局所一意性](../../GEO/GEO14/index.md#thm-geo14-geodesic-existence)が適用できます。例えば古典的4段Runge–Kutta法では、$y=(\phi,\lambda,\alpha)^{\mathsf T}$、$f(y)$ を直前の一階系の右辺ベクトル、$y_j$ を $j$ 番目の近似値、$h=S/m$ を刻みとして
 
 $$
 \begin{aligned}
-k_1&=F(y_j),&
-k_2&=F(y_j+\tfrac h2k_1),\\
-k_3&=F(y_j+\tfrac h2k_2),&
-k_4&=F(y_j+hk_3),\\
+k_1&=f(y_j),&
+k_2&=f(y_j+\tfrac h2k_1),\\
+k_3&=f(y_j+\tfrac h2k_2),&
+k_4&=f(y_j+hk_3),\\
 y_{j+1}&=y_j+\frac h6(k_1+2k_2+2k_3+k_4).
 \end{aligned}
 $$
@@ -345,7 +365,16 @@ $$
 =\frac{C M(\phi)}{r(\phi)^2\sqrt{1-C^2/r(\phi)^2}}
 $$
 
-と変形します。ここでは $C=5/2$、距離1では転向緯度に達しないので平方根の正の枝を取れます。$\phi_2$ を未知とする**一変数の積分**
+と変形します。北進中は $\dot\phi>0$ なので $\cos\alpha=\sqrt{1-C^2/r^2}>0$ の枝を取ります。ここで $d\lambda/d\phi$ は $s$ ではなく $\phi$ を独立変数とした導関数です。$\dot\phi\ne0$ の区間で連鎖律 $\dot\lambda=(d\lambda/d\phi)\dot\phi$ を使い、
+
+$$
+\frac{d\lambda}{d\phi}=\frac{\dot\lambda}{\dot\phi}
+=\frac{C/r^2}{\sqrt{1-C^2/r^2}/M},\qquad
+\frac{ds}{d\phi}=\frac1{\dot\phi}
+=\frac{M}{\sqrt{1-C^2/r^2}}
+$$
+
+を得ます。これは微分記号を単に分数として扱った操作ではなく、単調な区間での変数変換です。ここでは $C=5/2$、距離1では転向緯度に達しないので分母は正です。$\phi_2$ を未知とする**一変数の積分**
 
 $$
 1=\int_0^{\phi_2}
@@ -491,6 +520,16 @@ $$
 \boldsymbol q=\cos\sigma\,\boldsymbol p+\sin\sigma\,\boldsymbol t.
 $$
 
+この曲線は
+
+$$
+\lVert\boldsymbol q\rVert=1,\qquad
+\left\lVert\frac{d\boldsymbol q}{d\sigma}\right\rVert=1,\qquad
+\frac{d^2\boldsymbol q}{d\sigma^2}=-\boldsymbol q
+$$
+
+を満たします。したがって半径 $R$ の実際の曲線 $R\boldsymbol q(s/R)$ は単位速さで、加速度が球面の法線方向だけを向き、[測地線の定義](../../GEO/GEO14/index.md#def-geo14-geodesic)に合います。
+
 $\boldsymbol q$ の $z$ 成分は最初の緯度式です。$x,y$ 成分を始点経度 $\lambda_1$ だけ逆回転すると
 
 $$
@@ -508,7 +547,27 @@ $$
 \boldsymbol q\cdot\boldsymbol e=u.
 $$
 
-大円表示から $u=\sin\sigma\sin\alpha_1$、$v=\sin\sigma\cos\alpha_1$ なので $\sqrt{u^2+v^2}=\sin\sigma$（$0<\sigma<\pi$）。よって中心角と初期方位角の式が得られます。到着接線は $\boldsymbol t_2=-\sin\sigma\,\boldsymbol p+\cos\sigma\,\boldsymbol t$ です。終点の北・東基底への射影を計算するか、終点から始点への方位角へ $\pi$ を加えると、表示した $\alpha_2$ を得ます。
+大円表示から $u=\sin\sigma\sin\alpha_1$、$v=\sin\sigma\cos\alpha_1$ なので $\sqrt{u^2+v^2}=\sin\sigma$（$0<\sigma<\pi$）。よって中心角と初期方位角の式が得られます。
+
+到着接線は
+
+$$
+\boldsymbol t_2=-\sin\sigma\,\boldsymbol p+\cos\sigma\,\boldsymbol t
+=\frac{\cos\sigma\,\boldsymbol q-\boldsymbol p}{\sin\sigma}
+$$
+
+です。終点の北・東単位ベクトルを $\boldsymbol n_2,\boldsymbol e_2$ とし、$\boldsymbol q\cdot\boldsymbol n_2=\boldsymbol q\cdot\boldsymbol e_2=0$ を使うと
+
+$$
+\begin{aligned}
+\boldsymbol t_2\cdot\boldsymbol e_2
+&=\frac{\cos\phi_1\sin\Delta\lambda}{\sin\sigma},\\
+\boldsymbol t_2\cdot\boldsymbol n_2
+&=\frac{-\sin\phi_1\cos\phi_2+\cos\phi_1\sin\phi_2\cos\Delta\lambda}{\sin\sigma}.
+\end{aligned}
+$$
+
+$0<\sigma<\pi$ で $\sin\sigma>0$ なので、東成分を第1引数、北成分を第2引数とした $\operatorname{atan2}$ は表示した到着方位角 $\alpha_2$ です。
 <!-- proof-end -->
 
 **独立した往復確認。** 始点 $(0^\circ,0^\circ)$、$\alpha_1=60^\circ$、$S=\pi R/2$ なら、順問題で
@@ -735,7 +794,7 @@ $$
 - ID: GEOD12-B3
 
 <!-- solution-start -->
-**詳細解答。** $A$ を地球儀の正面赤道点とします。真北へ大円を進めば北極を通り反対経度の赤道 $B$ に達します。真南なら南極を通って $B$ へ達します。真東なら赤道に沿って半周します。いずれも球の中心を含む平面と球面の交線（大円）です。球面の任意の大円弧は測地線であり、半周の長さは $\pi R$。方位角はそれぞれ $0^\circ,180^\circ,90^\circ$ で相異なります。
+**詳細解答。** $A$ を地球儀の正面赤道点とします。真北へ大円を進めば北極を通り反対経度の赤道 $B$ に達します。真南なら南極を通って $B$ へ達します。真東なら赤道に沿って半周します。いずれも球の中心を含む平面と球面の交線（大円）です。[球面大円の測地線計算](#prop-geod12-sphere-formulas)のように加速度は球面の法線方向だけなので、いずれも測地線であり、半周の長さは $\pi R$。方位角はそれぞれ $0^\circ,180^\circ,90^\circ$ で相異なります。
 
 **最短性の確認。** 任意の区分的 $C^1$ 級の球面経路 $\boldsymbol p(t)$ に対し、始点 $\boldsymbol p_0$ と現在点の中心角を $\theta(t)\in[0,\pi]$ とします。$u(t)=\boldsymbol p_0\cdot\boldsymbol p(t)/R^2=\cos\theta(t)$ を微分し、$\boldsymbol p'(t)$ が球面の接方向であることを使うと
 
@@ -757,7 +816,22 @@ $$
 
 #### B4. 逆問題のJacobianが悪条件になる場面
 
-目標点 $Q$ が非極点にあり、終点写像の残差を $\boldsymbol F(\theta,S)=(M_Q\Delta\phi,r_Q\Delta\lambda)^{\mathsf T}$ とする。次を答えよ。
+目標点 $Q=(\phi_Q,\lambda_Q)$ が非極点にあり、順問題の終点 $G(\theta,S)=(\phi_G,\lambda_G)$ と同じ経度の枝を選ぶ。次の係数・差を定める。
+
+$$
+M_Q=M(\phi_Q),\quad r_Q=r(\phi_Q)>0,\quad
+\Delta\phi=\phi_G-\phi_Q,\quad
+\Delta\lambda=\lambda_G-\lambda_Q.
+$$
+
+このとき長さ単位の残差を
+
+$$
+\boldsymbol F(\theta,S)=
+\begin{pmatrix}M_Q\Delta\phi\\r_Q\Delta\lambda\end{pmatrix}
+$$
+
+とする。次を答えよ。
 
 1. Newton反復の二元一次方程式を書け。
 2. 完全に同一点 $P=Q$ の最短解 $S=0$ で $\theta$ が未定となる理由を、Jacobianの列から説明せよ。
