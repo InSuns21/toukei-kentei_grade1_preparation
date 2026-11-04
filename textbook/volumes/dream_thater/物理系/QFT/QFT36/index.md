@@ -4,7 +4,7 @@
 
 本講では、電弱部分 $SU(2)_L\times U(1)_Y$ を取り出し、質量行列を導出して直交変換で対角化します。さらに、同じ変換をフェルミオン相互作用へ適用して、光子・$Z$・$W^\pm$ の結合を一つの規約で導きます。色の $SU(3)_c$ はHiggsに作用しないので、この計算によってグルーオンは質量を得ません。
 
-時空は $3+1$ 次元Minkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位は $\hbar=c=1$ とします。[QFT35の電荷規約](../QFT35/index.md#def-qft35-hypercharge)を用い、弱生成子と共変微分を
+時空は $3+1$ 次元Minkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、単位は $\hbar=c=1$ とします。[QFT35の電荷規約](../QFT35/index.md#def-qft35-hypercharge)を用い、弱生成子と共変微分を
 
 $$
 T^I=\frac{\sigma^I}{2},\qquad Q=T^3+Y,\qquad
@@ -13,7 +13,7 @@ $$
 
 とします。結合 $g,g'$ は正、ゲージポテンシャル $W_\mu^I,B_\mu$ は実場です。[QFT35の共変微分の記法](../QFT35/index.md#def-qft35-product-derivative)と同じく、$\partial_\mu=\partial/\partial x^\mu$ は時空座標による偏微分、$I=1,2,3$ は弱生成子の添字で、反復する $I$ は和を取ります。
 
-上下に反復するLorentz添字 $\mu=0,1,2,3$ は計量 $\eta$ で縮約します。例えば $(W^I)^2$ は $W_\mu^I W^{I\mu}$ の略記であり、二重項の $\dagger$ は内部複素成分のHermitian共役です。古典的に滑らかな場、境界項が消える条件、正準規格化したゲージ運動項を仮定し、**木レベル**だけを扱います。
+上下に反復するLorentz添字 $\mu=0,1,2,3$ は計量 $\eta$ で縮約します。例えば $(W^I)^2$ は $W_\mu^I W^{I\mu}$ の略記であり、二重項の $\dagger$ は内部複素成分のHermitian共役です。計量 $(-+++)$ ではスカラー場の正準運動項を $-(D_\mu H)^\dagger D^\mu H$、フェルミオンの正準運動項を $\bar\psi\gamma^\mu D_\mu\psi$ とします。$\gamma^\mu$ とDirac随伴は[QFT7の規約](../QFT7/index.md#def-qft7-adjoint-action)に従います。古典的に滑らかな場、境界項が消える条件、正準規格化したゲージ運動項を仮定し、**木レベル**だけを扱います。
 
 ## 1. 二重項の真空が決める質量項
 
@@ -23,7 +23,7 @@ $$
 H_0=\frac1{\sqrt2}\binom0v,\qquad v>0
 $$
 
-とします。例えば $V(H)=-\mu^2H^\dagger H+\lambda(H^\dagger H)^2$（$\mu^2,\lambda>0$）なら、$H^\dagger H=v^2/2$ で極小となる条件は $v^2=\mu^2/\lambda$ です。これはゲージ不変なノルムを固定した代表であり、局所ゲージ冗長性そのものが物理的対称性として破れたという主張ではありません。[QFT34のAbelian Higgs模型](../QFT34/index.md#def-qft34-abelian-higgs)と同様、質量は $(D_\mu H)^\dagger D^\mu H$ の二次項に現れます。
+とします。例えば $V(H)=-\mu^2H^\dagger H+\lambda(H^\dagger H)^2$（$\mu^2,\lambda>0$）なら、$H^\dagger H=v^2/2$ で極小となる条件は $v^2=\mu^2/\lambda$ です。これはゲージ不変なノルムを固定した代表であり、局所ゲージ冗長性そのものが物理的対称性として破れたという主張ではありません。[QFT34のAbelian Higgs模型](../QFT34/index.md#def-qft34-abelian-higgs)と同様、質量は正準運動項 $-(D_\mu H)^\dagger D^\mu H$ の二次項に現れます。負号は時間微分のエネルギーを正に保つために必要で、質量二乗行列の固有値は正のままです。
 
 二重項の内部基底 $e_1=(1,0)^T,e_2=(0,1)^T$ で、[基本表現の生成子](../QFT35/index.md#def-qft35-product-derivative)を具体的に表示すると
 
@@ -50,15 +50,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Higgs真空からの電弱ゲージ場質量行列）**
-> $SU(2)_L\times U(1)_Y$ の結合 $g,g'>0$、基本生成子 $T^I=\sigma^I/2$、超電荷 $Y_H=1/2$ の複素二重項 $H$ に対し、真空代表 $H_0=(0,v/\sqrt2)^T$、$v>0$ を選ぶ。正準運動項 $(D_\mu H)^\dagger D^\mu H$ のゲージ場に関する二次項は
+> $SU(2)_L\times U(1)_Y$ の結合 $g,g'>0$、基本生成子 $T^I=\sigma^I/2$、超電荷 $Y_H=1/2$ の複素二重項 $H$ に対し、真空代表 $H_0=(0,v/\sqrt2)^T$、$v>0$ を選ぶ。正準運動項 $-(D_\mu H)^\dagger D^\mu H$ のゲージ場に関する二次項は
 
 $$
 \mathcal L_{\mathrm{mass}}
-=\frac{v^2}{8}\Big[g^2\big(W_\mu^1W^{1\mu}+W_\mu^2W^{2\mu}\big)
+=-\frac{v^2}{8}\Big[g^2\big(W_\mu^1W^{1\mu}+W_\mu^2W^{2\mu}\big)
 +(gW_\mu^3-g'B_\mu)(gW^{3\mu}-g'B^\mu)\Big].
 $$
 
-> 中性基底 $(W_\mu^3,B_\mu)$ で $\mathcal L_{\mathrm{mass,neutral}}=\frac12(W_\mu^3,B_\mu)M_0^2(W^{3\mu},B^\mu)^T$ と書くと
+> 中性基底 $(W_\mu^3,B_\mu)$ で $\mathcal L_{\mathrm{mass,neutral}}=-\frac12(W_\mu^3,B_\mu)M_0^2(W^{3\mu},B^\mu)^T$ と書くと
 
 $$
 M_0^2=\frac{v^2}{4}
@@ -91,13 +91,13 @@ $$
 となり、上・下成分のHermitian内積に交差項はありません。したがって
 
 $$
-(D_\mu H_0)^\dagger D^\mu H_0
-=\frac{v^2}{8}
+-(D_\mu H_0)^\dagger D^\mu H_0
+=-\frac{v^2}{8}
 \left[g^2(W_\mu^1W^{1\mu}+W_\mu^2W^{2\mu})
 +(gW_\mu^3-g'B_\mu)(gW^{3\mu}-g'B^\mu)\right].
 $$
 
-中性部分を展開すると $g^2(W^3)^2-2gg'W^3B+g'^2B^2$ です。実ベクトルの質量二次形式の標準形にある係数 $1/2$ を取り出すので、行列の共通係数は $v^2/4$ となります。
+中性部分の角括弧を展開すると $g^2(W^3)^2-2gg'W^3B+g'^2B^2$ です。実ベクトルの質量二次形式の標準形にある係数 $-1/2$ を取り出すので、正の質量二乗行列の共通係数は $v^2/4$ となります。
 <!-- proof-end -->
 
 例えば $W_\mu^3=B_\mu$、$g=g'$ なら中性項は消えます。逆に $W_\mu^3=-B_\mu$ なら同じ結合 $g$ で中性項は $v^2g^2(W_\mu^3)^2/2$ です。質量の有無は「どの場が存在するか」ではなく、**その線形結合が真空を動かすか**に依存します。
@@ -178,8 +178,8 @@ $$
 
 $$
 \mathcal L_{\mathrm{mass}}
-=m_W^2 W_\mu^+W^{-\mu}
-+\frac12m_Z^2Z_\mu Z^\mu,
+=-m_W^2 W_\mu^+W^{-\mu}
+-\frac12m_Z^2Z_\mu Z^\mu,
 $$
 
 > となり、木レベル質量は
@@ -207,7 +207,7 @@ W_\mu^+W^{-\mu}
 =\frac12\left(W_\mu^1W^{1\mu}+W_\mu^2W^{2\mu}\right).
 $$
 
-よって[二次質量項](#thm-qft36-mass-matrix)の荷電部分は $g^2v^2W^+W^-/4$ です。中性行列を $M_0^2=v^2K/4$ と書くと
+よって[二次質量項](#thm-qft36-mass-matrix)の荷電部分は $-g^2v^2W^+W^-/4$ です。中性行列を $M_0^2=v^2K/4$ と書くと
 
 $$
 K\binom{g'}g=\binom{g^2g'-gg'g}{-gg'g'+g'^2g}=\binom00,
@@ -275,7 +275,7 @@ G_-=\frac{g}{\sqrt2}T^-
 \end{aligned}
 $$
 
-> とする。基本弱二重項では $T^\pm$ は上下成分を互いに移す。弱一重項では $T^3=T^\pm=0$ とする。
+> とする。基本弱二重項では $T^\pm$ は上下成分を互いに移す。弱一重項では $T^3=T^\pm=0$ とする。[QFT7のDirac電流](../QFT7/index.md#thm-qft7-current)に合わせ、物理的なゲージ電流は $-i\bar\psi\gamma^\mu G_X\psi$ としてこれらの演算子を挟んで定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft36-currents -->
@@ -296,12 +296,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（電弱質量固有場のフェルミオン結合）**
-> 滑らかなフェルミオン場 $\psi$ が標準模型のユニタリ内部表現 $(R_3,R_2)_Y$ に属し、$D_\mu=\partial_\mu-igW_\mu^IT^I-ig'YB_\mu$ とする。スピノル運動項 $\overline\psi i\gamma^\mu D_\mu\psi$ の電弱ゲージ相互作用は
+> 滑らかなフェルミオン場 $\psi$ が標準模型のユニタリ内部表現 $(R_3,R_2)_Y$ に属し、$D_\mu=\partial_\mu-igW_\mu^IT^I-ig'YB_\mu$ とする。[QFT7の随伴と作用](../QFT7/index.md#def-qft7-adjoint-action)によるスピノル運動項 $\overline\psi\gamma^\mu D_\mu\psi$ の電弱ゲージ相互作用は
 
 $$
 \begin{aligned}
 \mathcal L_{\mathrm{int,EW}}
-=\overline\psi\gamma^\mu\bigg[
+=-i\overline\psi\gamma^\mu\bigg[
 &eQ A_\mu
 +\frac{g}{c_W}(T^3-s_W^2Q)Z_\mu\\
 &+\frac{g}{\sqrt2}(T^+W_\mu^++T^-W_\mu^-)
@@ -309,7 +309,7 @@ $$
 \end{aligned}
 $$
 
-> と書ける。とくに標準模型の弱二重項 $(f_u,f_d)^T_L$ には荷電電流 $g(\overline f_{uL}\gamma^\mu f_{dL}W_\mu^++\overline f_{dL}\gamma^\mu f_{uL}W_\mu^-)/\sqrt2$ があり、弱一重項にはない。色の $SU(3)$ 作用はここでは別項として保つ。
+> と書ける。とくに標準模型の弱二重項 $(f_u,f_d)^T_L$ には荷電電流 $-ig(\overline f_{uL}\gamma^\mu f_{dL}W_\mu^++\overline f_{dL}\gamma^\mu f_{uL}W_\mu^-)/\sqrt2$ があり、弱一重項にはない。色の $SU(3)$ 作用はここでは別項として保つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -319,7 +319,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[積群共変微分](../QFT35/index.md#def-qft35-product-derivative)の符号により、$i\gamma^\mu D_\mu$ からゲージ結合には $+g\gamma^\mu W_\mu^IT^I+g'\gamma^\mu YB_\mu$ が現れます。中性部分へ上記逆変換を代入すると
+[積群共変微分](../QFT35/index.md#def-qft35-product-derivative)の符号により、$\gamma^\mu D_\mu$ からゲージ結合には $-i\gamma^\mu(gW_\mu^IT^I+g'YB_\mu)$ が現れます。$(-+++)$ の[実電流の定義](../QFT7/index.md#thm-qft7-current)と同じ $-i$ が必須で、これは電荷 $eQ$ の符号を反転する操作ではありません。中性部分の括弧内へ上記逆変換を代入すると
 
 $$
 \begin{aligned}
@@ -365,7 +365,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（木レベル質量比とHiggs結合）**
-> $SU(2)_L$ の超電荷 $1/2$ の複素Higgs二重項が $H=(0,(v+h)/\sqrt2)^T$、$v>0$ の局所ゲージ表示を持ち、正準運動項 $(D_\mu H)^\dagger D^\mu H$ を採用する木レベルの標準模型では、
+> $SU(2)_L$ の超電荷 $1/2$ の複素Higgs二重項が $H=(0,(v+h)/\sqrt2)^T$、$v>0$ の局所ゲージ表示を持ち、正準運動項 $-(D_\mu H)^\dagger D^\mu H$ を採用する木レベルの標準模型では、
 
 $$
 \frac{m_W}{m_Z}=c_W,\qquad
@@ -376,8 +376,8 @@ $$
 
 $$
 \mathcal L_{\mathrm{vector,scalar}}
-=m_W^2\left(1+\frac hv\right)^2W_\mu^+W^{-\mu}
-+\frac12m_Z^2\left(1+\frac hv\right)^2Z_\mu Z^\mu.
+=-m_W^2\left(1+\frac hv\right)^2W_\mu^+W^{-\mu}
+-\frac12m_Z^2\left(1+\frac hv\right)^2Z_\mu Z^\mu.
 $$
 <!-- formal-statement-end -->
 
@@ -399,12 +399,12 @@ $$
 質量を正の平方根に選んで $m_W/m_Z=c_W$ を得ます。また $H$ の定数下成分 $v/\sqrt2$ を $(v+h)/\sqrt2$ へ置けば、ゲージ場と $h$ の微分を含まない部分に限り
 
 $$
-|D_\mu H|^2\supset
-\frac{(v+h)^2}{8}\big[g^2\{(W^1)^2+(W^2)^2\}
+-(D_\mu H)^\dagger D^\mu H\supset
+-\frac{(v+h)^2}{8}\big[g^2\{(W^1)^2+(W^2)^2\}
 +(gW^3-g'B)^2\big].
 $$
 
-前二節と同じ対角化を行うと主張の式となります。展開すれば、$hW^+W^-$ のラグランジアン係数は $2m_W^2/v$、$hZZ$ の係数は $m_Z^2/v$ です。二つの同種 $Z$ を含む頂点規則を読む際にはさらに組合せ係数が付くため、ラグランジアン係数と頂点因子を混同しません。
+前二節と同じ対角化を行うと主張の式となります。展開すれば、$hW^+W^-$ のラグランジアン係数は $-2m_W^2/v$、$hZZ$ の係数は $-m_Z^2/v$ です。二つの同種 $Z$ を含む頂点規則を読む際にはさらに組合せ係数が付くため、ラグランジアン係数と頂点因子を混同しません。
 <!-- proof-end -->
 
 この比 $\rho=1$ は**一つのHiggs二重項と木レベル**という条件付きです。追加の高次 $SU(2)$ 表現を持つスカラー真空や量子補正があれば変わり得ます。「光子が無質量」という残存ゲージ対称性の議論と、「$m_W/m_Z=c_W$」という特定の場の内容に依存する関係は、同じ強さの主張ではありません。
@@ -419,20 +419,20 @@ $$
 - 問題：$g,g',v>0$ の下で $H_0=(0,v/\sqrt2)^T$、$Y_H=1/2$ とする。$D_\mu H_0$ の下成分を導き、$W_\mu^3B^\mu$ のラグランジアン係数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[Higgsに作用する生成子](#thm-qft36-mass-matrix)で $T^3H_0=(0,-v/(2\sqrt2))^T$、$Y_HH_0=(0,v/(2\sqrt2))^T$ です。従って下成分は $-iv(-gW^3+g'B)/(2\sqrt2)$ です。その絶対値二乗の交差項は
+**詳細解答**：[Higgsに作用する生成子](#thm-qft36-mass-matrix)で $T^3H_0=(0,-v/(2\sqrt2))^T$、$Y_HH_0=(0,v/(2\sqrt2))^T$ です。従って下成分は $-iv(-gW^3+g'B)/(2\sqrt2)$ です。正準運動項にはそのHermitian縮約の**負号**が付くので、ラグランジアンの交差項は
 
 $$
-\frac{v^2}{8}(-2gg'W_\mu^3B^\mu)
-=-\frac{v^2gg'}4W_\mu^3B^\mu.
+-\frac{v^2}{8}(-2gg'W_\mu^3B^\mu)
+=+\frac{v^2gg'}4W_\mu^3B^\mu.
 $$
 
-よって係数は $-v^2gg'/4$。質量行列の非対角要素も $-v^2gg'/4$ であり、対称行列の二次形式にある $1/2$ と二つの交差項で一致します。
+よってラグランジアンの交差項係数は $+v^2gg'/4$。質量二乗行列の非対角要素は $-v^2gg'/4$ であり、二次形式の全体の $-1/2$ と二つの交差項を掛けると $+v^2gg'/4$ に戻ります。
 <!-- solution-end -->
 
 ### 演習 QFT36-A2：荷電場の規格化
 
 - Level: A
-- 問題：実場 $W^1,W^2$ に対し $W^\pm=(W^1\mp iW^2)/\sqrt2$ とする。$(W^1)^2+(W^2)^2$ を $W^+W^-$ で表し、$\mathcal L=(g^2v^2/8)[(W^1)^2+(W^2)^2]$ から質量二乗を求めよ。Lorentz添字は共通に縮約する。
+- 問題：実場 $W^1,W^2$ に対し $W^\pm=(W^1\mp iW^2)/\sqrt2$ とする。$(W^1)^2+(W^2)^2$ を $W^+W^-$ で表し、$\mathcal L=-(g^2v^2/8)[(W^1)^2+(W^2)^2]$ から質量二乗を求めよ。Lorentz添字は共通に縮約する。
 
 <!-- solution-start -->
 **詳細解答**：実場の積は交換するので
@@ -442,7 +442,7 @@ W^+W^-=\frac12(W^1-iW^2)(W^1+iW^2)
 =\frac12[(W^1)^2+(W^2)^2].
 $$
 
-従って $\mathcal L=(g^2v^2/4)W^+W^-$ となり、複素ベクトルの質量項 $m_W^2W^+W^-$ と比較して $m_W^2=g^2v^2/4$ です。実場二本の二次項の係数 $1/2$ を、複素場の質量項へもう一度付けてはいけません。
+従って $\mathcal L=-(g^2v^2/4)W^+W^-$ となり、計量 $(-+++)$ における複素ベクトルの質量項 $-m_W^2W^+W^-$ と比較して $m_W^2=g^2v^2/4$ です。実場二本の二次項の係数 $1/2$ を、複素場の質量項へもう一度付けてはいけません。
 <!-- solution-end -->
 
 ### 演習 QFT36-A3：零固有値の判定
@@ -549,7 +549,7 @@ $Z$ には左カイラル成分だけの $T^3$ が加わるため差が生じま
 **詳細解答**：下成分への作用は $T^3=-1/2$、$Y=y$ です。従って共変微分の下成分は $-iv(-gW^3/2+g'yB)/\sqrt2$、その二乗は
 
 $$
-\mathcal L_{\mathrm{neutral}}=\frac{v^2}{8}(gW^3-2g'yB)^2.
+\mathcal L_{\mathrm{neutral}}=-\frac{v^2}{8}(gW^3-2g'yB)^2.
 $$
 
 質量行列は
@@ -576,13 +576,13 @@ $$
 **詳細解答**：[木レベルHiggs結合](#prop-qft36-tree-relations)の $(1+h/v)^2=1+2h/v+h^2/v^2$ を展開します。$W$ 項では
 
 $$
-\mathcal L\supset \frac{2m_W^2}{v}hW^+W^-+\frac{m_W^2}{v^2}h^2W^+W^-.
+\mathcal L\supset -\frac{2m_W^2}{v}hW^+W^--\frac{m_W^2}{v^2}h^2W^+W^-.
 $$
 
 $Z$ 項は最初に $1/2$ があるので
 
 $$
-\mathcal L\supset \frac{m_Z^2}{v}hZ^2+\frac{m_Z^2}{2v^2}h^2Z^2.
+\mathcal L\supset -\frac{m_Z^2}{v}hZ^2-\frac{m_Z^2}{2v^2}h^2Z^2.
 $$
 
 これはラグランジアンに書いた係数です。対称な外線の交換数を数えて頂点規則に直す操作は別であり、二本の $Z$ による階乗をこの時点で再度割りません。
@@ -620,8 +620,8 @@ Hermitianノルムと $W^\pm=(W^1\mp iW^2)/\sqrt2$ から
 
 $$
 \mathcal L_{\mathrm{mass}}
-=\frac{g^2v^2}{4}W_\mu^+W^{-\mu}
-+\frac{v^2}{8}(gW_\mu^3-g'B_\mu)^2.
+=-\frac{g^2v^2}{4}W_\mu^+W^{-\mu}
+-\frac{v^2}{8}(gW_\mu^3-g'B_\mu)^2.
 $$
 
 中性質量行列は
@@ -662,10 +662,10 @@ $c_W^2=g^2/(g^2+g'^2)$ なので比 $m_W^2/(m_Z^2c_W^2)=1$ です。次に逆変
 $T^+$ の行列要素 $(T^+)_{12}=1$ から、レプトン荷電電流の係数は
 
 $$
-\frac{g}{\sqrt2}\overline\nu_L\gamma^\mu e_LW_\mu^+
+-\frac{ig}{\sqrt2}\overline\nu_L\gamma^\mu e_LW_\mu^+
 $$
 
-です。最後に真空前は無質量ゲージ場4本×2と複素Higgs二重項4実成分で $8+4=12$。真空後は重いゲージ場3本×3、光子2、動径Higgs1で $9+2+1=12$。これは物理偏極の摂動的計数です。量子補正による質量・混合角の定義方式や $\rho$ の補正量は、この木レベル計算だけでは決まりません。
+です。係数にある $-i$ は[Dirac随伴の規約](../QFT7/index.md#def-qft7-adjoint-action)から生じ、物理的な電荷や結合の大きさを変えません。最後に真空前は無質量ゲージ場4本×2と複素Higgs二重項4実成分で $8+4=12$。真空後は重いゲージ場3本×3、光子2、動径Higgs1で $9+2+1=12$。これは物理偏極の摂動的計数です。量子補正による質量・混合角の定義方式や $\rho$ の補正量は、この木レベル計算だけでは決まりません。
 <!-- solution-end -->
 
 ## 6. まとめと次の問い
