@@ -207,7 +207,7 @@ $$
 =(\alpha+\beta)(\alpha-\beta)=1
 $$
 
-なので正準規格化が維持されます。[QCURV3の粒子数公式](../QCURV3/index.md#prop-qcurv3-number)から、
+なので正準規格化が維持されます。[in真空のout粒子数](../QCURV3/index.md#prop-qcurv3-number)を与える命題から、
 
 $$
 \langle N_{\rm out}\rangle=|\beta|^2
