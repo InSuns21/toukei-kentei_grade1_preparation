@@ -192,7 +192,21 @@ $$
 <!-- definition-example-start: def-qcurv12-greybody-factor -->
 ### 直接例：障壁のない比較模型
 
-$V(x)=0$ を全実線で考え、右側から振幅1の $e^{-i\omega x}$ を入れると、解は全域で $\psi=e^{-i\omega x}$ です。したがって定義の境界条件を満たす係数は $\mathcal R=0,\ \mathcal T=1$。流束は両端で $-\omega$ なので、その比も $1$ となり $\Gamma=1$ を確かめられます。**定義の確認**：入射振幅1、反射振幅零、透過振幅1、両端の流束比1という条件を個別に確認しました。これはSchwarzschildの $V_\ell$ を零とした**比較模型**であり、実際の $\Gamma_\ell=1$ という主張ではありません。
+$V(x)=0$ を全実線で考え、右側から振幅1の左向き波を入れます。障壁がないので解は全域で
+
+$$
+\psi(x)=e^{-i\omega x}
+$$
+
+です。定義の両端の境界条件と比較すると
+
+$$
+\mathcal R=0,\qquad \mathcal T=1,\qquad
+J_{+\infty}=J_{-\infty}=-\omega,\qquad
+\Gamma=|\mathcal T|^2=1.
+$$
+
+**定義の確認**：入射振幅1、反射振幅零、透過振幅1、両端の流束比1という条件を個別に確認しました。これはSchwarzschildの動径ポテンシャルを零とした**比較模型**であり、実際の灰色体因子が常に1という主張ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-qcurv12-flux-unitarity"></a>
@@ -517,7 +531,27 @@ $$
 - 問題: Schwarzschild外部 $f=1-2M/r$ で $\Box_g\phi=0$ とする。$\phi=e^{-i\omega t}Y_{\ell m}\psi(r)/r$、$\Delta_{S^2}Y_{\ell m}=-\ell(\ell+1)Y_{\ell m}$ を用いて、$d^2\psi/dr_*^2+[\omega^2-f(\ell(\ell+1)/r^2+2M/r^3)]\psi=0$ を導け。$d/dr_*=f\,d/dr$ とする。
 
 <!-- solution-start -->
-**詳細解答**：[QCURV1の座標演算子](../QCURV1/index.md#prop-qcurv1-kg-coordinate)から $\Box_g=-f^{-1}\partial_t^2+r^{-2}\partial_r(r^2f\partial_r)+r^{-2}\Delta_{S^2}$ です。$r^2f\partial_r(\psi/r)=f(r\psi'-\psi)$ を微分すると $f'(r\psi'-\psi)+fr\psi''$。代入後、$\omega^2\psi/f+f\psi''+f'\psi'-f'\psi/r-\ell(\ell+1)\psi/r^2=0$。$f$ を掛けて $f^2\psi''+ff'\psi'=d^2\psi/dr_*^2$ と $f'=2M/r^2$ を使えば指定式です。$\omega$ を $r$ 微分していないこと、$1/r$ の微分が曲率項を作ることを確認します。
+**詳細解答**：[QCURV1の座標演算子](../QCURV1/index.md#prop-qcurv1-kg-coordinate)をこの計量に適用すると
+
+$$
+\Box_g=-f^{-1}\partial_t^2+r^{-2}\partial_r(r^2f\partial_r)
++r^{-2}\Delta_{S^2}.
+$$
+
+ここで $r^2f\partial_r(\psi/r)=f(r\psi'-\psi)$ なので、さらに微分すると
+
+$$
+\partial_r\{f(r\psi'-\psi)\}=f'(r\psi'-\psi)+fr\psi''.
+$$
+
+時間・角度成分を代入して共通因子を除き、$f$ を掛けると
+
+$$
+\omega^2\psi+f^2\psi''+ff'\psi'
+-f\left(\frac{f'}r+\frac{\ell(\ell+1)}{r^2}\right)\psi=0.
+$$
+
+$f^2\psi''+ff'\psi'=d^2\psi/dr_*^2$ と $f'=2M/r^2$ を使えば指定式です。周波数は固定パラメータであり、$1/r$ の微分が曲率項を作ることを確認します。
 <!-- solution-end -->
 
 <a id="ex-qcurv12-b02"></a>
@@ -526,7 +560,20 @@ $$
 - 問題: 実関数 $V(x)\to0$（$x\to\pm\infty$）に対し $\psi''+(\omega^2-V)\psi=0$、$\omega>0$ とする。右からのin解を $\psi^{\rm in}\sim e^{-i\omega x}+R e^{i\omega x}$（右端）、$T e^{-i\omega x}$（左端）、左からのup解を $\psi^{\rm up}\sim e^{i\omega x}+R_u e^{-i\omega x}$（左端）、$T_u e^{i\omega x}$（右端）と規格化する。$W=\psi^{\rm in}(\psi^{\rm up})'-(\psi^{\rm in})'\psi^{\rm up}$ により $T=T_u$ を示せ。
 
 <!-- solution-start -->
-**詳細解答**：二つの解へ同じ実関数 $V-\omega^2$ を掛ける形の二階方程式から $W'=\psi^{\rm in}(\psi^{\rm up})''-(\psi^{\rm in})''\psi^{\rm up}=0$。左端で $W(Te^{-i\omega x},e^{i\omega x})=2i\omega T$。$R_u e^{-i\omega x}$ は同じ進行方向同士なのでWronskianが零です。右端では $W(e^{-i\omega x},T_ue^{i\omega x})=2i\omega T_u$ で、$R e^{i\omega x}$ の項は消えます。従って $2i\omega T=2i\omega T_u$。$\omega>0$ だから $T=T_u$ です。
+**詳細解答**：二つの解は共に $\psi''=(V-\omega^2)\psi$ を満たします。したがって
+
+$$
+W'=\psi^{\rm in}(\psi^{\rm up})''
+-(\psi^{\rm in})''\psi^{\rm up}=0.
+$$
+
+左端では $R_u e^{-i\omega x}$ はin解と同じ進行方向なのでWronskianへの寄与は零です。一方、逆向きの二波について
+
+$$
+W(Te^{-i\omega x},e^{i\omega x})=2i\omega T.
+$$
+
+右端でも反射項の寄与が零になり、$W(e^{-i\omega x},T_ue^{i\omega x})=2i\omega T_u$ を得ます。保存されたWronskianの両端の値を比較すると $2i\omega T=2i\omega T_u$。$\omega>0$ なので $T=T_u$ です。
 <!-- solution-end -->
 
 <a id="ex-qcurv12-b03"></a>
@@ -582,7 +629,15 @@ $$
 <a id="ex-qcurv12-c01"></a>
 #### QCURV12-C01 後期波束・透過率・遠方パワー
 - Level: C
-- 問題: $M>0$ のSchwarzschild外部で、質量零の実自由スカラー場と無限遠からの入射真空を仮定する。後期狭帯域波束 $[j\epsilon,(j+1)\epsilon]$ の中心間隔は $2\pi/\epsilon$、地平線付近の平均占有数は $n_H(\omega)=(e^{8\pi M\omega}-1)^{-1}$ とする。各部分波には実・静的ポテンシャル $V_\ell$ と透過率 $\Gamma_\ell(\omega)$ がある。
+- 問題: $M>0$ のSchwarzschild外部で、質量零の実自由スカラー場と無限遠からの入射真空を仮定する。後期狭帯域波束の幅を $\epsilon>0$、帯域を $[j\epsilon,(j+1)\epsilon]$、中心間隔を $2\pi/\epsilon$ とする。地平線付近の平均占有数と、各部分波の透過率は次で与えられる。
+
+$$
+n_H(\omega)=\frac1{e^{8\pi M\omega}-1},
+\qquad
+\Gamma_\ell(\omega)=|\mathcal T_\ell(\omega)|^2.
+$$
+
+  角度依存は球面調和関数で分離し、各固定 $\ell$ の動径ポテンシャルは実・時間非依存とする。
   1. 保存流から $\Gamma_\ell=1-|R_\ell|^2$ を示し、反射が生成温度を変えるわけではない理由を述べよ。
   2. $m$ の縮退度と波束密度を数え、遠方の粒子数とエネルギーのスペクトルを導け。
   3. $\Gamma_0(\omega)\sim16M^2\omega^2$ を用いて低周波s波の二つのスペクトルを求め、$\Gamma_\ell=1$ と置く近似の問題点を説明せよ。
