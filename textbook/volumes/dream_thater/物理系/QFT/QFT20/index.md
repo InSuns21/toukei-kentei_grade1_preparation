@@ -6,7 +6,9 @@
 
 この講義の中心問いは、**いつ実時間の相関関数をEuclid時間で計算でき、得られたEuclid相関関数から物理的な実時間理論へ戻るには何が必要か**です。自由スカラー場の一つの運動量モードから始め、[複素解析で学んだ解析接続](../../../解析系/CA/CA5/index.md#def-ca5-analytic-continuation-along-path)を時間変数に応用する際の条件、積分路の障害、Euclid二点核を導きます。さらに、時間を反射して得る二次形式が非負になるかを調べます。
 
-時空は $3+1$ 次元、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$m>0$、$\hbar=c=1$ とします。空間運動量 $\boldsymbol p$ に対する正の振動数を $\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。Fourier規約は [QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と合わせ、実時間では $e^{-ip^0t+i\boldsymbol p\cdot\boldsymbol x}=e^{+ip\cdot x}$ を用います。ここで $p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$、$p^2=-(p^0)^2+|\boldsymbol p|^2$ であり、質量殻条件は $p^2=-m^2$ です。全ての連続場の式はまず自由場の分布として扱い、必要に応じて有限個の空間Fourierモードへ切り詰めます。
+時空は $3+1$ 次元、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$m>0$、$\hbar=c=1$ とします。空間運動量 $\boldsymbol p$ に対する正の振動数を $\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。
+
+Fourier規約は [QFT6の規約](../QFT6/index.md#def-qft6-feynman-two-point)と合わせ、実時間では $e^{-ip^0t+i\boldsymbol p\cdot\boldsymbol x}=e^{+ip\cdot x}$ を用います。ここで $p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$、$p^2=-(p^0)^2+|\boldsymbol p|^2$ であり、質量殻条件は $p^2=-m^2$ です。全ての連続場の式はまず自由場の分布として扱い、必要に応じて有限個の空間Fourierモードへ切り詰めます。
 
 ## 1. 実時間の振動を虚時間の減衰へ変える
 
