@@ -1,0 +1,43 @@
+id: QCURV14
+title: "Unruh・Hawking・Tolman則と観測者の温度"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV13
+  - QCURV9
+  - QCURV8
+  - QCURV6
+official_scope: []
+learning_objectives:
+  - 静止Killing時計の固有時と局所周波数からTolman則をKMSの時間尺度変換として証明できる
+  - Hartle–Hawking平衡状態における静止検出器の詳細釣合いを局所温度で説明できる
+  - Schwarzschildの静止加速度によるUnruh温度とTolman温度の比を計算し、地平線極限だけの一致を確かめられる
+  - 静止観測者・自由落下観測者・無限遠観測者の固有時と状態依存の応答を区別できる
+  - Boulware・Unruh・Hartle–Hawking状態で局所KMS性と遠方正味流束を混同しない
+  - 有限時間検出と定常詳細釣合い、近地平線の局所比較と崩壊Hawking放射の導出範囲を区別できる
+definitions:
+  - { id: QCURV14-DEF-01, name: 静止熱平衡の局所温度 }
+theorems:
+  - { id: QCURV14-THM-01, name: Killing-KMS状態のTolman則と詳細釣合い }
+  - { id: QCURV14-PROP-01, name: 静止加速度温度とTolman温度の比較 }
+  - { id: QCURV14-PROP-02, name: 自由落下時計とKilling時計の非比例性 }
+canonical_examples:
+  - 半径4Mの静止時計での温度と励起率比
+  - 静止加速度とTolman温度の比が1ではない半径4Mの例
+  - 地平線からの固有距離によるRindler極限
+  - 無限遠におけるHartle–HawkingとUnruhの流束の違い
+  - 有限時間に切り替えたMinkowski慣性検出器の励起
+problem_patterns:
+  - QCURV14-STATIC-REDSHIFT
+  - QCURV14-KMS-RESCALING
+  - QCURV14-DETAILED-BALANCE
+  - QCURV14-ACCELERATION-RATIO
+  - QCURV14-PROPER-DISTANCE
+  - QCURV14-INFALL-CLOCK
+  - QCURV14-STATE-FLUX
+  - QCURV14-FINITE-SWITCHING
+  - QCURV14-OBSERVER-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
