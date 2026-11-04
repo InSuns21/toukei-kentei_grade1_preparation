@@ -272,7 +272,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。出射側は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)の $\bar u=u^\dagger H$、$H=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ を使います。Dirac表示では $K(p)^\dagger H=HK(p)$ が実運動量 $p$ について成り立ちます。実際、$K(p)=i\gamma^\mu p_\mu-mI_4$、$(\gamma^0)^\dagger=-\gamma^0$、$(\gamma^j)^\dagger=\gamma^j$、$\{\gamma^0,\gamma^j\}=0$ を代入すると、時間成分・空間成分・質量項のいずれもこの式を満たします。よって
+[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。出射側は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)の $\bar u=u^\dagger H$、$H=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ を使います。Dirac表示では $K(p)^\dagger H=HK(p)$ が実運動量 $p$ について成り立ちます。
+
+実際、$K(p)=i\gamma^\mu p_\mu-mI_4$、$(\gamma^0)^\dagger=-\gamma^0$、$(\gamma^j)^\dagger=\gamma^j$、$\{\gamma^0,\gamma^j\}=0$ を代入すると、時間成分・空間成分・質量項のいずれもこの式を満たします。よって
 
 $$
 \begin{aligned}
