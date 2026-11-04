@@ -1,0 +1,44 @@
+id: "GEOD14"
+title: "等角緯度と複素座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD13
+  - CA1
+official_scope: []
+learning_objectives:
+  - 楕円体の第一基本形式から等角な緯度座標の常微分方程式を立て、赤道を原点とする一意解を積分できる
+  - 等角緯度χと等角座標ψの関係を導き、両者と測地緯度・地心緯度・求長緯度・正積緯度を区別できる
+  - 楕円体計量を等角球面の計量および平坦な複素座標の計量へ変換して、縮尺因子を検算できる
+  - Cauchy–Riemann方程式から複素正則写像と向きを保つ局所等角投影の同値性を証明し、縮尺と面積縮尺を求められる
+  - 球面極限・極の発散・経度の切れ目・正則写像の臨界点を区別できる
+definitions:
+  - { id: GEOD14-DEF-01, name: 等角な子午座標と等角座標 }
+  - { id: GEOD14-DEF-02, name: 等角緯度 }
+  - { id: GEOD14-DEF-03, name: 楕円体の局所複素座標 }
+theorems:
+  - { id: GEOD14-THM-01, name: 等角座標の方程式・一意性・積分公式 }
+  - { id: GEOD14-THM-02, name: 等角球面を用いた計量表示 }
+  - { id: GEOD14-THM-03, name: 正則写像と向きを保つ局所等角投影 }
+  - { id: GEOD14-PROP-01, name: 球面極限と極における等角座標の挙動 }
+canonical_examples:
+  - 球面でψとχの定義条件を直接確認
+  - a=5,b=4,φ=30度でψ・χ・地心緯度を別々に計算
+  - 複素一次写像のJacobianと楕円体計量を直接照合
+  - 複素二次写像の臨界点と向き反転写像の対照
+  - 経度の2π周期と極の座標退化を区別
+problem_patterns:
+  - GEOD14-ISOMETRIC-ODE
+  - GEOD14-LATITUDE-NUMERIC
+  - GEOD14-SPHERICAL-LIMIT
+  - GEOD14-LINEAR-CONFORMAL
+  - GEOD14-POLE-ASYMPTOTIC
+  - GEOD14-ODE-UNIQUENESS
+  - GEOD14-CR-QUADRATIC
+  - GEOD14-ORIENTATION-REVERSAL
+  - GEOD14-LATITUDE-CLASSIFICATION
+  - GEOD14-INTEGRATED-LOCAL-PROJECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
