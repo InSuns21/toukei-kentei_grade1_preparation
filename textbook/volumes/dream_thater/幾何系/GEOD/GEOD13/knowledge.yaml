@@ -1,0 +1,56 @@
+chapter: GEOD13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD12
+  - GEO11
+forward_references: []
+concepts:
+  - id: geodesy.map-projection-jacobian
+    name: 地図投影とJacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（地図投影とJacobian）]
+    requires: [geodesy.ellipsoid-metric-formula]
+  - id: geodesy.projection-metric-scales
+    name: 投影の計量比較と縮尺式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（投影の計量比較と縮尺式）]
+    requires: [geodesy.map-projection-jacobian, geodesy.ellipsoid-metric-formula]
+  - id: geodesy.directional-area-scales
+    name: 方向別局所縮尺と面積縮尺
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（方向別局所縮尺と面積縮尺）]
+    requires: [geodesy.map-projection-jacobian, geodesy.ellipsoid-metric-formula]
+  - id: geodesy.projection-preservation-types
+    name: 等角・等積・方向別等距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等角・等積・方向別等距離）]
+    requires: [geodesy.directional-area-scales]
+  - id: geodesy.conformal-equal-area-tests
+    name: 等角・等積の行列判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等角・等積の行列判定）]
+    requires: [geodesy.projection-preservation-types, geodesy.projection-metric-scales]
+  - id: geodesy.tissot-indicatrix
+    name: Tissotの指示楕円と主伸縮率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Tissotの指示楕円と主伸縮率）]
+    requires: [geodesy.projection-metric-scales]
+  - id: geodesy.tissot-semiaxes
+    name: Tissotの指示楕円の半軸と面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Tissotの指示楕円の半軸と面積）]
+    requires: [geodesy.tissot-indicatrix, geodesy.conformal-equal-area-tests]
+  - id: geodesy.no-sphere-plane-local-isometry
+    name: 球面から平面への局所等長投影の不可能性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面から平面への局所等長投影の不可能性）]
+    requires: [geodesy.conformal-equal-area-tests]
