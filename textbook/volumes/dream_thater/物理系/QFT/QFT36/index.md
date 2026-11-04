@@ -13,7 +13,9 @@ $$
 
 とします。結合 $g,g'$ は正、ゲージポテンシャル $W_\mu^I,B_\mu$ は実場です。[QFT35の共変微分の記法](../QFT35/index.md#def-qft35-product-derivative)と同じく、$\partial_\mu=\partial/\partial x^\mu$ は時空座標による偏微分、$I=1,2,3$ は弱生成子の添字で、反復する $I$ は和を取ります。
 
-上下に反復するLorentz添字 $\mu=0,1,2,3$ は計量 $\eta$ で縮約します。例えば $(W^I)^2$ は $W_\mu^I W^{I\mu}$ の略記であり、二重項の $\dagger$ は内部複素成分のHermitian共役です。計量 $(-+++)$ ではスカラー場の正準運動項を $-(D_\mu H)^\dagger D^\mu H$、フェルミオンの正準運動項を $\bar\psi\gamma^\mu D_\mu\psi$ とします。$\gamma^\mu$ とDirac随伴は[QFT7の規約](../QFT7/index.md#def-qft7-adjoint-action)に従います。古典的に滑らかな場、境界項が消える条件、正準規格化したゲージ運動項を仮定し、**木レベル**だけを扱います。
+上下に反復するLorentz添字 $\mu=0,1,2,3$ は計量 $\eta$ で縮約します。例えば $(W^I)^2$ は $W_\mu^I W^{I\mu}$ の略記であり、二重項の $\dagger$ は内部複素成分のHermitian共役です。
+
+計量 $(-+++)$ ではスカラー場の正準運動項を $-(D_\mu H)^\dagger D^\mu H$、フェルミオンの正準運動項を $\bar\psi\gamma^\mu D_\mu\psi$ とします。$\gamma^\mu$ とDirac随伴は[QFT7の規約](../QFT7/index.md#def-qft7-adjoint-action)に従います。古典的に滑らかな場、境界項が消える条件、正準規格化したゲージ運動項を仮定し、**木レベル**だけを扱います。
 
 ## 1. 二重項の真空が決める質量項
 
