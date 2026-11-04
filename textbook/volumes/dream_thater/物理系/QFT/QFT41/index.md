@@ -48,9 +48,7 @@ $$
 <!-- definition-example-start: def-qft41-qcd-action -->
 ### 例：二つの対角色方向
 
-**定義の確認**：基本表示の対角生成子を
-
-対角なHermitian・跡零行列は $\operatorname{diag}(r_1,r_2,-r_1-r_2)$（$r_1,r_2\in\mathbb R$）の形なので、独立な方向は二つです。その二方向を跡内積 $\operatorname{tr}(XY)$ で直交規格化した基底として、次を選びます。この行列が色基底 $e_1,e_2,e_3$ に作用するので、対角成分が変換位相を決める固有値になります。
+**定義の確認**：対角なHermitian・跡零行列は $\operatorname{diag}(r_1,r_2,-r_1-r_2)$（$r_1,r_2\in\mathbb R$）の形なので、独立な方向は二つです。その二方向を跡内積 $\operatorname{tr}(XY)$ で直交規格化した基底として、次を選びます。この行列が色基底 $e_1,e_2,e_3$ に作用するので、対角成分が変換位相を決める固有値になります。
 
 $$
 t^3=\frac12\operatorname{diag}(1,-1,0),\qquad
