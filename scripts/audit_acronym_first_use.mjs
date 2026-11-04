@@ -18,7 +18,8 @@ const targetRoots = [
 
 const rules = [
   acronym('PMF', ['確率質量関数'], ['Probability Mass Function']),
-  acronym('PDF', ['確率密度関数'], ['Probability Density Function']),
+  // PDF also means parton distribution function in QCD; recognize both expansions.
+  acronym('PDF', ['確率密度関数', 'パートン分布関数'], ['Probability Density Function', 'Parton Distribution Function']),
   acronym('CDF', ['累積分布関数'], ['Cumulative Distribution Function']),
   acronym('PGF', ['確率母関数'], ['Probability Generating Function']),
   acronym('MGF', ['モーメント母関数'], ['Moment Generating Function']),
