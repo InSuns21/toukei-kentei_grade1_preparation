@@ -73,7 +73,7 @@ $$
 一方、補正前の $a\chi\simeq1.77919072$ との差は約 $0.01959617$ です。$G$ が単なる $\chi$ の別名ではなく、必要な距離補正を担うことが分かります。
 <!-- definition-example-end -->
 
-定義から直ちに微分を計算できます。$s'(\phi)=M(\phi)$ と $d\phi/d\chi=h/M$ を順に使うと
+ここで $s'(\phi)=ds/d\phi$ は $\phi$ による微分、$G'(\chi)=dG/d\chi$ は $\chi$ による微分を表します。逆関数の微分は、$d\chi/d\phi=M/h>0$ から $d\phi/d\chi=h/M$ です。これらを連鎖律へ順に代入すると
 
 $$
 \boxed{aG'(\chi)
@@ -117,7 +117,7 @@ $$
 
 ### 2.2 中央の値が正則補正を決める
 
-実数上で $G(\chi)$ と指定しただけで、中央から離れた点の値まで決められるでしょうか。等角写像に必要な正則性を課すと、局所的には決まります。実数上で Taylor 級数に展開し、同じ係数を複素変数へ適用することが出発点です。
+実数上で $G(\chi)$ と指定しただけで、中央から離れた点の値まで決められるでしょうか。等角写像に必要な正則性を課すと、局所的には決まります。実数上で Taylor 級数に展開し、同じ係数を複素変数へ適用することが出発点です。以下、$F'(\zeta)$ は複素変数 $\zeta$ による導関数です。また $\chi'(\phi)=d\chi/d\phi$ は実変数 $\phi$ による微分、局所的に複素変数 $z$ へ延長した後の $\chi'(z)$ はその複素導関数を表します。
 
 <a id="thm-geod16-analytic-correction"></a>
 <!-- formal-statement-start -->
@@ -145,22 +145,24 @@ $$
 \chi'(\phi)=\frac{M(\phi)\cos\chi}{N(\phi)\cos\phi}>0.
 $$
 
-等角緯度の積分式も実解析関数の合成であり、$\chi$ は実解析的です。逆関数の解析性が必要なので、その理由も確かめます。$\phi_*$ の近くで $\chi$ を収束冪級数によって複素変数へ延ばし、$c=\chi'(\phi_*)>0$ とします。中心 $\phi_*$ の十分小さい凸な複素円板 $U$ で $|\chi'(z)-c|<c/2$ とできます。このとき $z,w\in U$ について線分上で積分すれば
+等角緯度の積分式も実解析関数の合成であり、$\chi$ は実解析的です。逆関数の解析性が必要なので、その理由も確かめます。実数 $\phi_*$ の近くで $\chi$ を収束冪級数によって複素変数 $z=u+iv$ へ延ばし、$c=\chi'(\phi_*)>0$ とします。$\chi(\phi_*+w)=\chi(\phi_*)+cw+O(w^2)$ だから、実部・虚部で見た一次変換は
 
 $$
-|\chi(z)-\chi(w)-c(z-w)|
-\le\frac c2|z-w|,
+\begin{pmatrix}d\operatorname{Re}\chi\\d\operatorname{Im}\chi\end{pmatrix}
+=\underbrace{\begin{pmatrix}c&0\\0&c\end{pmatrix}}_{J_\chi(\phi_*)}
+\begin{pmatrix}du\\dv\end{pmatrix},\qquad
+\det J_\chi(\phi_*)=c^2>0.
 $$
 
-よって $|\chi(z)-\chi(w)|\ge(c/2)|z-w|$。従ってこの円板で $\chi$ は単射です。各点の近くでは非零の一次項が像の近傍を与え、逆写像を微分する極限は
+よって[実二変数の逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を、複素数の実部・虚部に適用できます。$\chi$ は $\phi_*$ の十分小さい開近傍から $t_*=\chi(\phi_*)$ の開近傍への $C^1$ 級の逆写像 $z=\phi(t)$ を持ちます。さらに $t\to t_0=\chi(z_0)$ を**複素平面内で**近づけると、$z=\phi(t)\to z_0$ であり、
 
 $$
 \frac{\phi(t)-\phi(t_0)}{t-t_0}
 =\frac{z-z_0}{\chi(z)-\chi(z_0)}
-\longrightarrow\frac1{\chi'(z_0)}
+\longrightarrow\frac1{\chi'(z_0)}.
 $$
 
-となります。ゆえに逆写像 $\phi(t)$ は $t_*=\chi(\phi_*)$ の複素近傍で正則、特に実軸上で実解析的です。
+従って逆写像は複素微分可能であり、$t_*$ の複素近傍で正則です。とくに実軸上で実解析的です。
 
 したがって $G(t)=s(\phi(t))/a$ はある $r>0$ と実係数 $c_j$ を用いて
 
@@ -219,7 +221,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod16-ellipsoidal-transverse -->
-**定義の確認**（球面）。$e=0$ のとき $a=b=R$、$\chi=\phi$、$G(t)=t$、従って $F(\zeta)=\zeta$ です。上の定義は
+**定義の確認**（球面）。$e=0$ のとき $a=b=R$、$\chi=\phi$、$G(t)=t$、従って $F(\zeta)=\zeta$、$F'(\zeta)=1\ne0$ です。半球の枝 $\cos\phi\cos\delta>0$ に限れば、定義に必要な正則性・非零条件を満たします。上の定義は
 
 $$
 E=k_0R\eta,\qquad
@@ -312,7 +314,15 @@ dN_p&=k_0aF'(\chi)d\beta
 \end{aligned}
 $$
 
-地表の単位東・北を列にしたJacobianは中央で $\operatorname{diag}(k_0,k_0)$、行列式は $k_0^2>0$ です。$F'\ne0$ の連結な局所領域ではJacobianの符号は変わらないから、向きも保たれます。また中央の $D=1$、$aF'=h$ を縮尺式へ代入すると $k=k_0$ です。
+この行列表示の入力は、角度差 $(d\phi,d\delta)$ 自体ではありません。非極点で $M>0$、$N\cos\phi>0$ であり、$\lambda_0$ を固定すると $d\delta=d\lambda$ なので、地表の物理的な単位東・北方向の変位を $(du_E,du_N)=(N\cos\phi\,d\delta,M\,d\phi)$ と置けます。[GEOD13の局所縮尺とJacobianの正規化](../GEOD13/index.md#def-geod13-scales)に従い、この順の入力 $(u_E,u_N)$ から出力 $(E,N_p)$ へのJacobianを作ると
+
+$$
+\frac{\partial(E,N_p)}{\partial(u_E,u_N)}
+=\begin{pmatrix}k_0&0\\0&k_0\end{pmatrix},
+\qquad \det\frac{\partial(E,N_p)}{\partial(u_E,u_N)}=k_0^2>0.
+$$
+
+$F'\ne0$ の連結な局所領域ではJacobianの符号は変わらないから、向きも保たれます。また中央の $D=1$、$aF'=h$ を縮尺式へ代入すると $k=k_0$ です。
 
 最後に $\phi_1<\phi_2$ に対して中央での北座標差は
 
@@ -521,7 +531,7 @@ $$
 **B1　実数の条件から正則関数の一意性**（Level B）
 - Level: B
 
-実区間 $I$ の各点の近傍で実解析的な $G$ に対し、二つの正則関数 $F_1,F_2$ が $F_j(t)=G(t)$（$t\in I$）を満たすとする。一致する理由と $G'(t_*)\ne0$ から言えることを示せ。単なる滑らかな $G$ なら存在を保証できるかも答えよ。
+実区間 $I$ の各点の近傍で実解析的な $G$ と、$I$ を含む共通の連結な複素開領域 $U$ 上の正則関数 $F_1,F_2$ があり、$F_j(t)=G(t)$（$t\in I$）を満たすとする。$t_*\in I$ として、一致する理由と $G'(t_*)\ne0$ から言えることを示せ。単なる滑らかな $G$ なら存在を保証できるかも答えよ。
 
 <!-- solution-start -->
 **詳細解答。** 共通の連結な複素開領域で $H=F_1-F_2$ と置くと、これは正則で、実区間 $I$ 上で0です。実軸に沿う任意階の微分も0なので、$I$ の内点を中心とする複素 Taylor 級数は全係数0です。従ってその点の複素円板で $H=0$ です。
