@@ -1,0 +1,40 @@
+chapter: QCURV12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV11
+  - QCURV9
+  - QCURV1
+  - PDE11
+forward_references: []
+concepts:
+  - id: qcurv.schwarzschild-scalar-potential
+    name: 質量零スカラー場のSchwarzschild動径ポテンシャル
+    kind: definition
+    introduction: formal
+    requires: [qcurv.curvature-coupled-kg, qcurv.schwarzschild-kappa-calibration]
+  - id: qcurv.schwarzschild-radial-equation
+    name: 球面調和分解と一次元動径方程式
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.schwarzschild-scalar-potential, qcurv.kg-coordinate-form]
+  - id: qcurv.schwarzschild-greybody-factor
+    name: Schwarzschildの灰色体因子
+    kind: definition
+    introduction: formal
+    requires: [qcurv.schwarzschild-radial-equation]
+  - id: qcurv.schwarzschild-flux-reciprocity
+    name: 流束保存・相反性・透過確率の範囲
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.schwarzschild-greybody-factor]
+  - id: qcurv.schwarzschild-swave-low-frequency
+    name: 質量零スカラーの低周波s波透過率
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.schwarzschild-radial-equation, qcurv.schwarzschild-flux-reciprocity]
+  - id: qcurv.schwarzschild-greybody-flux
+    name: 灰色体因子付き遠方粒子数・エネルギー流束
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.schwarzschild-flux-reciprocity, qcurv.hawking-late-packet-planck]
