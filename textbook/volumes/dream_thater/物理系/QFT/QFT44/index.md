@@ -37,7 +37,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（散乱振幅によるEFT matching）**  
-> 重い質量 $M$ を含む full theory と、軽い場だけの有効場の理論（effective field theory, EFT）を考える。双方で同じ規格化の軽い外線を取り、指定した外部運動量の領域 $|p_i\cdot p_j|/M^2\le\rho<1$、摂動次数、くりこみ方式と尺度 $\mu$ において、物理的な振幅（または明示した非例外的なGreen関数）の低運動量展開を指定次数まで一致させるよう、EFTの局所演算子の係数を定める操作を matching と呼ぶ。その係数を **Wilson係数** と呼ぶ。
+> 重い質量 $M$ を含む full theory と、軽い場だけの有効場の理論（effective field theory, EFT）を考える。双方で同じ規格化の軽い外線を取り、指定した外部運動量の領域（本講義の四点散乱では $|s|,|t|,|u|\le\rho M^2$、$0\le\rho<1$）、摂動次数、くりこみ方式と尺度 $\mu$ において、物理的な振幅（または明示した非例外的なGreen関数）の低運動量展開を指定次数まで一致させるよう、EFTの局所演算子の係数を定める操作を matching と呼ぶ。その係数を **Wilson係数** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft44-matching -->
