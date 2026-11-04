@@ -13,7 +13,9 @@ p^2=p\cdot p,\qquad
 \not p=\gamma^\mu p_\mu
 $$
 
-です。$p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$ であり、正エネルギーの正振動数モードは $e^{+ip\cdot x}$ です。$\partial_\mu$ は**他の座標を固定した偏微分**で、添字の上下は $\eta$ によります。$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford) $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$ を満たし、$\bar\psi=-i\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。電荷 $q$ の物理的電流は $j^\mu=-iq\bar\psi\gamma^\mu\psi$ で、$j^0=q\psi^\dagger\psi$ です。
+です。$p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$ であり、正エネルギーの正振動数モードは $e^{+ip\cdot x}$ です。$\partial_\mu$ は**他の座標を固定した偏微分**で、添字の上下は $\eta$ によります。
+
+$\gamma^\mu$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford) $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$ を満たし、$\bar\psi=-i\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。電荷 $q$ の物理的電流は $j^\mu=-iq\bar\psi\gamma^\mu\psi$ で、$j^0=q\psi^\dagger\psi$ です。
 
 $A_\mu$ は実四元ポテンシャル、$F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$ とします（[QFT15の $F=-dA$ の定義](../QFT15/index.md#def-qft15-potential-field)）。$q$ は**符号付きの電荷**で、電子とミューオンでは $q_e=q_\mu=-e$、$e>0$ です。旧規約の頂点係数 $-ie\gamma^\mu$ はそのまま流用できません。
 
