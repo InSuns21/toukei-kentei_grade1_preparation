@@ -19,12 +19,12 @@
 
 ある基準点から新点までの水平距離の理想値は $f(x,y)=\sqrt{x^2+y^2}$ です。暫定位置 $(3,4)$ mでの予測は5 mですが、実測が5.010 mなら、新点を東へ動かすか北へ動かすかは観測一本からは決まりません。偏微分を計算すると、座標の小さな修正が予測距離をどれだけ変えるかが分かります。
 
-既知補正を引いた $m$ 個の観測値を $\boldsymbol l\in\mathbb R^m$、未知パラメータを $\boldsymbol x\in U\subset\mathbb R^n$、その理想的予測を微分可能な $\boldsymbol f:U\to\mathbb R^m$ とします。暫定値 $\boldsymbol x_0\in U$ を定め、修正量を $\boldsymbol\delta=\boldsymbol x-\boldsymbol x_0$ と書きます。$j$ 番目の観測が未知量 $x_k$ の変化でどれだけ動くかを並べた $m\times n$ 行列が設計行列です。
+既知補正を引いた $m$ 個の観測値を $\boldsymbol l\in\mathbb R^m$、未知パラメータを開集合 $U\subset\mathbb R^n$ 内の $\boldsymbol x$、その理想的予測を微分可能な $\boldsymbol f:U\to\mathbb R^m$ とします。暫定値 $\boldsymbol x_0\in U$ を定め、修正量を $\boldsymbol\delta=\boldsymbol x-\boldsymbol x_0$ と書きます。$j$ 番目の観測が未知量 $x_k$ の変化でどれだけ動くかを並べた $m\times n$ 行列が設計行列です。
 
 <a id="def-geod8-linearization"></a>
 <!-- formal-statement-start -->
 > **定義（線形化した観測方程式）**
-> $\boldsymbol f:U\subset\mathbb R^n\to\mathbb R^m$ が $\boldsymbol x_0\in U$ で微分可能であるとき、観測差 $\boldsymbol b=\boldsymbol l-\boldsymbol f(\boldsymbol x_0)$、設計行列 $A$、残差 $\boldsymbol v$ を
+> 開集合 $U\subset\mathbb R^n$ 上の $\boldsymbol f:U\to\mathbb R^m$ が $\boldsymbol x_0\in U$ で微分可能であるとき、観測差 $\boldsymbol b=\boldsymbol l-\boldsymbol f(\boldsymbol x_0)$、設計行列 $A$、残差 $\boldsymbol v$ を
 
 $$
 A_{jk}=\left.\frac{\partial f_j}{\partial x_k}\right|_{\boldsymbol x_0},
@@ -61,6 +61,16 @@ $(\delta_x,\delta_y)=(0.006,0.008)$ mとすると右辺の予測差は $0.0036+0
 
 偶然誤差 $\boldsymbol\varepsilon$ に平均0と有限な二次モーメントがあると仮定します。ここでは [F0-00P2A の二次モーメント](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-moment)と [F0-00P3 の共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を用います。共分散行列 $\Sigma$ の対角成分は各観測の分散、非対角成分は観測間の共分散です。独立なら非対角成分は零ですが、器械や環境を共有すれば相関を考慮します。
 
+共分散行列の成分を並べ直すと、任意の $\boldsymbol z\in\mathbb R^m$ に対し
+
+$$
+\Sigma_{jk}=E[\varepsilon_j\varepsilon_k],\qquad
+\boldsymbol z^{\mathsf T}\Sigma\boldsymbol z
+=\operatorname{Var}\left(\sum_jz_j\varepsilon_j\right)
+$$
+
+です。ここで使う[正定値の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)は、この量が全ての非零 $\boldsymbol z$ で正という条件です。これを仮定すれば零分散方向がなく、$\Sigma$ の逆行列を使えます。
+
 <a id="def-geod8-weight"></a>
 <!-- formal-statement-start -->
 > **定義（観測共分散と重み行列）**
@@ -82,7 +92,13 @@ Q=\begin{pmatrix}1&0\\0&4\end{pmatrix},\quad
 P=\begin{pmatrix}1&0\\0&1/4\end{pmatrix}.
 $$
 
-対角要素が正で $\det Q=4>0$ なので逆行列は存在し、精度が高い第1観測の重みは第2観測の4倍です。全重みを同じ正数倍しても最小位置は変わりませんが、推定共分散には元の $\sigma_0$ の尺度が必要です。
+これは独立な誤差を座標軸にした対角行列です。任意の非零 $\boldsymbol z=(z_1,z_2)^{\mathsf T}$ について
+
+$$
+\boldsymbol z^{\mathsf T}Q\boldsymbol z=z_1^2+4z_2^2>0
+$$
+
+なので $Q$ は対称正定値です。$\det Q=4>0$ から逆行列の存在も確かめられます。精度が高い第1観測の重みは第2観測の4倍です。全重みを同じ正数倍しても最小位置は変わりませんが、推定共分散には元の $\sigma_0$ の尺度が必要です。
 <!-- definition-example-end -->
 
 [線形化した観測式](#def-geod8-linearization)の残差 $\boldsymbol v=A\boldsymbol\delta-\boldsymbol b$ について、$S(\boldsymbol\delta)=\boldsymbol v^{\mathsf T}P\boldsymbol v$ を小さくします。別単位の観測（距離m・角度rad）が混在する場合も、**その単位に対応する共分散**を使う必要があります。
@@ -143,7 +159,23 @@ $$
 \boldsymbol v=(0.008,-0.032)^{\mathsf T}\ \mathrm m.
 $$
 
-$A^{\mathsf T}P\boldsymbol v=0.008-0.032/4=0$ で正規方程式を検算できます。正規方程式は手計算の原理であり、数値計算では明示的逆行列より重み付きQR分解などが安定なことがあります。行列 $N$ の条件数は $P^{1/2}A$ の条件数の二乗になり得るため、悪条件を隠してはいけません。
+$A^{\mathsf T}P\boldsymbol v=0.008-0.032/4=0$ で正規方程式を検算できます。正規方程式は手計算の原理であり、数値計算では明示的逆行列より重み付きQR分解などが安定なことがあります。
+
+列階数が十分な行列 $M$ について、$M^{\mathsf T}M$ の最大・最小固有値から次の条件数を定めます。
+
+$$
+\operatorname{cond}_2(M)
+=\sqrt{\frac{\lambda_{\max}(M^{\mathsf T}M)}{\lambda_{\min}(M^{\mathsf T}M)}}
+$$
+
+これは最大方向と最小方向での伸び率の比で、最小固有値が正であるため有限です。[正定値行列の平方根](../../../基礎科目/F0/F0-00F1/index.md#thm-f0-00f1-psd-square-root) $P^{1/2}$ を使うと
+
+$$
+N=(P^{1/2}A)^{\mathsf T}(P^{1/2}A),\qquad
+\operatorname{cond}_2(N)=\operatorname{cond}_2(P^{1/2}A)^2.
+$$
+
+これは正規方程式では悪条件が二乗されることを示します。実務では列ごとの単位・尺度も揃えて評価します。
 
 ---
 
@@ -432,6 +464,10 @@ $$
 
 2次元の座標推定では、東西・南北の標準偏差を別々に並べるだけでは方向による精度差を表せません。共分散の非対角成分は「東にずれたとき北にもずれる傾向」を表します。座標誤差の二次形式が一定となる点を考えると、長軸と短軸のある楕円になります。
 
+ここで平面位置のずれを $\boldsymbol z=\boldsymbol p-\widehat{\boldsymbol p}$ と書きます。東西・南北を基底に取った共分散行列 $C_p$ が正定値なら、[正定値の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)により全ての方向に正の分散があり、逆行列が存在します。
+
+その逆行列で作る $\boldsymbol z^{\mathsf T}C_p^{-1}\boldsymbol z$ は、方向ごとのばらつきで基準化したずれの二乗です。これが一定値以下の領域を取ります。
+
 <a id="def-geod8-error-ellipse"></a>
 <!-- formal-statement-start -->
 > **定義（誤差楕円）**
@@ -447,13 +483,28 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod8-error-ellipse -->
-**定義の確認**。 $C_p=\operatorname{diag}(9,4)$ mm²なら、両対角要素は正で行列式は36 mm⁴なので逆行列が存在します。東西ずれを $u$ mm、南北ずれを $v$ mmとすれば $u^2/9+v^2/4\le k^2$ となり、$k=1$ の軸半径は3 mmと2 mmです。$(u,v)=(3,0)$ は境界、$(0,0)$ は内部で、二次形式の条件を実際に満たします。
+**定義の確認**。 $C_p=\operatorname{diag}(9,4)$ mm²なら、非零 $\boldsymbol z=(z_1,z_2)^{\mathsf T}$ に対して $\boldsymbol z^{\mathsf T}C_p\boldsymbol z=9z_1^2+4z_2^2>0$ なので対称正定値です。東西ずれを $u$ mm、南北ずれを $v$ mmとすると、逆行列を代入した定義の二次形式は
+
+$$
+C_p^{-1}=\operatorname{diag}(1/9,1/4)\ \mathrm{mm}^{-2},\qquad
+\frac{u^2}{9}+\frac{v^2}{4}\le k^2
+$$
+
+となります。$k=1$ の軸半径は3 mmと2 mmです。$(u,v)=(3,0)$ は境界、$(0,0)$ は内部で、二次形式の条件を実際に満たします。
 <!-- definition-example-end -->
 
 <a id="prop-geod8-ellipse-axes"></a>
 <!-- formal-statement-start -->
 > **命題（誤差楕円の主軸と確率）**
-> 対称正定値共分散 $C_p$ の固有値を $\lambda_1\ge\lambda_2>0$、対応する正規直交固有ベクトルを $\boldsymbol e_1,\boldsymbol e_2$ とする。[誤差楕円](#def-geod8-error-ellipse) $E_k$ の主軸方向はこれらの固有ベクトルで、半軸長は $k\sqrt{\lambda_1},k\sqrt{\lambda_2}$ である。さらに $\widehat{\boldsymbol p}-\boldsymbol p_*$ が平均0、共分散 $C_p$ の2次元正規分布に従い、$C_p$ が既知なら、真の位置 $\boldsymbol p_*$ が $E_k$ に入る確率は $1-\exp(-k^2/2)$ である。
+> 対称正定値共分散 $C_p$ の固有値を $\lambda_1\ge\lambda_2>0$、対応する正規直交固有ベクトルを $\boldsymbol e_1,\boldsymbol e_2$ とする。[誤差楕円](#def-geod8-error-ellipse) $E_k$ の主軸方向はこれらの固有ベクトルで、半軸長はそれぞれ $k\sqrt{\lambda_1},k\sqrt{\lambda_2}$ である。
+>
+> さらに $\widehat{\boldsymbol p}-\boldsymbol p_*$ が平均0、共分散 $C_p$ の2次元正規分布に従い、$C_p$ が既知なら、真の位置 $\boldsymbol p_*$ が $E_k$ に入る確率は
+
+$$
+\Pr(\boldsymbol p_*\in E_k)=1-\exp(-k^2/2)
+$$
+
+> である。ここで $\Pr(\cdot)$ は確率を表し、重み行列 $P$ とは区別する。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 固有ベクトルを座標軸にすると、二次形式は二つの平方の和です。確率は標準正規変数2個の二乗和を極座標で積分します。
@@ -461,14 +512,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を、実対称かつ正定値な $2\times2$ 行列 $C_p$ に適用します。固有値は正で、正規直交固有ベクトルを列に持つ直交行列 $R=(\boldsymbol e_1,\boldsymbol e_2)$ を用いて $C_p=R\operatorname{diag}(\lambda_1,\lambda_2)R^{\mathsf T}$ と分解できます。$\boldsymbol p-\widehat{\boldsymbol p}=R\boldsymbol z$ と置くと、
+[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を、実対称かつ正定値な $2\times2$ 行列 $C_p$ に適用します。固有値は正で、正規直交固有ベクトルを列に持つ直交行列 $R=(\boldsymbol e_1,\boldsymbol e_2)$ を作れます。よって
+
+$$
+C_p=R\operatorname{diag}(\lambda_1,\lambda_2)R^{\mathsf T},\qquad R^{\mathsf T}R=I_2.
+$$
+
+$\boldsymbol p-\widehat{\boldsymbol p}=R\boldsymbol z$ と置くと、
 
 $$
 (R\boldsymbol z)^{\mathsf T}C_p^{-1}(R\boldsymbol z)
 =\frac{z_1^2}{\lambda_1}+\frac{z_2^2}{\lambda_2}.
 $$
 
-従って楕円は $z_1^2/(k^2\lambda_1)+z_2^2/(k^2\lambda_2)\le1$ です。正規分布を仮定すれば標準化変数 $Z_i=z_i/\sqrt{\lambda_i}$ は互いに独立な標準正規変数です。極座標でその同時密度 $(2\pi)^{-1}e^{-(z_1^2+z_2^2)/2}$ を半径 $0\le r\le k$、角度 $0\le\theta<2\pi$ に積分すると
+従って楕円は
+
+$$
+\frac{z_1^2}{k^2\lambda_1}+\frac{z_2^2}{k^2\lambda_2}\le1
+$$
+
+です。正規分布を仮定すれば、座標ずれ $z_i$ を各方向の標準偏差で割った $Z_i=z_i/\sqrt{\lambda_i}$ は互いに独立な標準正規変数です。ここから小文字 $z_i$ は長さの単位を持つ座標ずれ、大文字 $Z_i$ は無次元の標準化量を指します。
+
+$Z_1=r\cos\theta$、$Z_2=r\sin\theta$ と極座標に置き、同時密度 $(2\pi)^{-1}e^{-(Z_1^2+Z_2^2)/2}$ を半径 $0\le r\le k$、角度 $0\le\theta<2\pi$ に積分します。極座標の面積要素は $r\,dr\,d\theta$ なので
 
 $$
 \frac1{2\pi}\int_0^{2\pi}\!\int_0^k
@@ -485,7 +550,15 @@ $$
 C_p=\begin{pmatrix}4&1\\1&1\end{pmatrix}
 $$
 
-なら $\det C_p=3>0$、固有値は $\lambda_{1,2}=(5\pm\sqrt{13})/2$ です。半軸長は $k=1$ で約 $2.074$ cmと $0.835$ cm、長軸の東軸からの角度は $\frac12\arctan(2/3)\simeq16.85^\circ$ です。正規模型の**95%楕円**を描くには $1-e^{-k^2/2}=0.95$ を解いて $k=\sqrt{-2\log0.05}\simeq2.448$ とします。$k=1$ の2次元楕円は95%ではなく約39.3%を含むだけです。
+なら、非零 $(s,t)$ に対し
+
+$$
+4s^2+2st+t^2=(2s+t/2)^2+3t^2/4>0
+$$
+
+なので対称正定値です。固有値は $\lambda_{1,2}=(5\pm\sqrt{13})/2$ です。半軸長は $k=1$ で約 $2.074$ cmと $0.835$ cm、長軸の東軸からの角度は $\frac12\arctan(2/3)\simeq16.85^\circ$ です。
+
+正規模型の**95%楕円**を描くには $1-e^{-k^2/2}=0.95$ を解いて $k=\sqrt{-2\log0.05}\simeq2.448$ とします。$k=1$ の2次元楕円は95%ではなく約39.3%を含むだけです。
 
 誤差楕円の形状は、観測網の配置・精度・拘束・単位に依存します。小さい固有値があっても、もう一方が極端に大きければ一方向の位置が不確かです。$\operatorname{cond}_2(A)$ は列の尺度を合わせた後で評価し、フルランクの場合 $\operatorname{cond}_2(A^{\mathsf T}A)=\operatorname{cond}_2(A)^2$ です。欠損網の正規行列は特異で、逆行列もそのままの絶対座標共分散も定義できません。自由網ではゲージを固定した後の**形・距離の推定精度**と、外部基準そのものの信頼性を区別します。
 
@@ -741,7 +814,21 @@ $$
    \end{aligned}
    $$
 
-   事前 $\sigma_0^2=0.000025$ m²で割ると $S/\sigma_0^2\simeq1.93143$、冗長度は $m-n=4-2=2$ です。残差からの基準分散推定は $\widehat\sigma_0^2=S/2\simeq0.0000241429$ m²、標準偏差は約0.0049135 m。正規模型なら $S/\sigma_0^2$ は自由度2の $\chi^2$ 分布に従いますが、値が平均2に近いだけで誤差模型が証明されたわけではありません。自由度が少なく、残差は互いに相関するため、最大の生残差だけで測定を除外しません。器械較正、再測独立性、固定点datumの妥当性も確認します。
+   事前 $\sigma_0^2=0.000025$ m²で割ると $S/\sigma_0^2\simeq1.93143$、冗長度は $m-n=4-2=2$ です。残差からの基準分散推定は $\widehat\sigma_0^2=S/2\simeq0.0000241429$ m²、標準偏差は約0.0049135 m。
+
+   追加で4観測の誤差が同時正規分布に従うなら、$W=P^{1/2}A$ と $\boldsymbol e=P^{1/2}\boldsymbol\varepsilon/\sigma_0$ を置くと、$\boldsymbol e$ は共分散 $I_4$ の標準正規ベクトルです。正規方程式を代入した残差平方和は
+
+   $$
+   \frac{S}{\sigma_0^2}
+   =\boldsymbol e^{\mathsf T}
+   \{I_4-W(W^{\mathsf T}W)^{-1}W^{\mathsf T}\}\boldsymbol e.
+   $$
+
+   中括弧内は $W$ の列空間の直交補への射影で、対称かつ二乗しても変わらず、階数は $4-2=2$ です。[実対称行列の直交対角化](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)で対角成分を $(1,1,0,0)$ にできます。
+
+   標準正規の同時密度は $\exp(-\|\boldsymbol e\|^2/2)/(2\pi)^2$ です。直交変換はノルムと体積を保つため、変換後も4成分は独立な標準正規変数です。よってこの二次形式はそのうち2個の二乗和、すなわち自由度2の $\chi^2$ 分布に従います。
+
+   とはいえ、値がその平均2に近いだけで誤差模型が証明されたわけではありません。自由度が少なく、残差は互いに相関するため、最大の生残差だけで測定を除外しません。器械較正、再測独立性、固定点datumの妥当性も確認します。
 <!-- solution-end -->
 
 ---
