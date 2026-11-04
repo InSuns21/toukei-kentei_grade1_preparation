@@ -2,6 +2,7 @@ import { access, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/pro
 import path from 'node:path';
 import YAML from 'yaml';
 import { readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
+import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 import './validate-numerical-lab-runtime.mjs';
 import './validate-simulation-phase0.mjs';
 import './validate-simulation-phase1.mjs';
@@ -47,7 +48,7 @@ function linksFromIndex(indexText) {
 }
 
 function indexForPages(indexText, bookDir) {
-  return indexText.replace(/(\[[^\]]+\]\()([^)]+)(\))/g, (match, open, href, close) => {
+  return replaceOutsideMarkdownMath(indexText, /(\[[^\]]+\]\()([^)]+)(\))/g, (match, open, href, close) => {
     const trimmed = href.trim();
 
     if (
@@ -131,7 +132,7 @@ function humanizePathName(name) {
 function orientMarkdownLinks(markdown, siteRelativeFile) {
   const sourceDir = path.posix.dirname(siteRelativeFile);
 
-  return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
     const trimmed = rawHref.trim();
     if (
       !trimmed ||
