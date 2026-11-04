@@ -312,7 +312,7 @@ C(\omega):=-\frac{\sqrt\omega}{2\pi\kappa}
 e^{-\pi\omega/(2\kappa)}\Gamma(i\omega/\kappa)
 $$
 
-と定義します。$C(\omega)$ は $\omega>0$ で零にならず、以下の $\partial_\omega\log C$ は $\kappa$ を固定して帯域内の**出射周波数 $\omega$** を微分するものです（対数の局所的な枝を用い、導関数は枝の選択に依存しません）。$\epsilon$ が狭く、位相も含めて $C(\omega)\simeq C(\omega_j)$ とできれば、波束の周波数積分に残る位相は
+と定義します。$C(\omega)$ は $\omega>0$ で零になりません（[CA11のGamma関数の零点不存在](../../../解析系/CA/CA11/index.md#cor-ca11-gamma-zero-free)を使用）。以下の $\partial_\omega\log C$ は $\kappa$ を固定して帯域内の**出射周波数 $\omega$** を微分するものです（対数の局所的な枝を用い、導関数は枝の選択に依存しません）。$\epsilon$ が狭く、位相も含めて $C(\omega)\simeq C(\omega_j)$ とできれば、波束の周波数積分に残る位相は
 
 $$
 e^{i\omega\Delta},\qquad
