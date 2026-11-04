@@ -1,0 +1,40 @@
+id: "GEOD17"
+title: "Krüger 級数による順変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD16
+official_scope: []
+learning_objectives:
+  - 第三扁平率 n と平均半径 A の由来を曲率半径の積分から説明できる
+  - 正距緯度と等角緯度の二次展開を合成して Krüger 順級数の低次係数を導ける
+  - 楕円体から球面横メルカトルを経て四次順級数で E と N_p を計算できる
+  - 中央縮尺・原点緯度・偽座標の作用と対称性・次数打切り・丸め誤差を区別できる
+definitions:
+  - { id: GEOD17-DEF-01, name: 子午線平均半径 }
+  - { id: GEOD17-DEF-02, name: 正距緯度 }
+  - { id: GEOD17-DEF-03, name: Krüger 順級数とその有限次数近似 }
+  - { id: GEOD17-DEF-04, name: Krüger 順変換の平面座標 }
+theorems:
+  - { id: GEOD17-THM-01, name: Krüger 順級数の二次係数 }
+  - { id: GEOD17-PROP-01, name: 中央子午線と東西・南北の対称性 }
+canonical_examples:
+  - 球面で A=a、正距緯度と等角緯度が一致し補正が恒等写像になることを確認
+  - a=5,b=4 の第三扁平率の代数的換算を確認
+  - WGS84 の35度・中央から東3度で二次・四次・六次を比較
+  - Bessel 楕円体の中央子午線点を独立積分と PROJ 掲載値で検算
+problem_patterns:
+  - GEOD17-THIRD-FLATTENING
+  - GEOD17-MERIDIAN-AVERAGE
+  - GEOD17-COMPLEX-SINE
+  - GEOD17-SPHERE-FALSE-OFFSETS
+  - GEOD17-ORDER-AND-FREQUENCY
+  - GEOD17-RECTIFYING-LATITUDE
+  - GEOD17-ALPHA2-COMPOSITION
+  - GEOD17-ORIGIN-ORDER-CONSISTENCY
+  - GEOD17-SYMMETRY-AND-ERROR
+  - GEOD17-INTEGRATED-FORWARD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
