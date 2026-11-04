@@ -15,7 +15,7 @@ chapters:
   - { id: GEOD9, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD9, status: completed, title: "GNSS・衛星測地学の基礎" }
   - { id: GEOD10, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD10, status: completed, title: "重力測地学と高さ系の基礎計算" }
   - { id: GEOD11, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD11, status: completed, title: "子午線弧長・緯線・地表測距の還元" }
-  - { id: GEOD12, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD12, status: planned, title: "楕円体の測地線と順・逆問題" }
+  - { id: GEOD12, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD12, status: completed, title: "楕円体の測地線と順・逆問題" }
   - { id: GEOD13, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD13, status: planned, title: "地図投影の幾何・歪み" }
   - { id: GEOD14, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD14, status: planned, title: "等角緯度と複素座標" }
   - { id: GEOD15, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD15, status: planned, title: "球面メルカトルと球面横メルカトル" }
