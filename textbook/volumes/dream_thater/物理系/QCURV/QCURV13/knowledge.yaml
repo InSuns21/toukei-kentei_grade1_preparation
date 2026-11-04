@@ -1,0 +1,37 @@
+chapter: QCURV13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV12
+  - QCURV9
+  - QCURV8
+  - QCURV6
+  - QCURV5
+  - QCURV2
+forward_references: []
+concepts:
+  - id: qcurv.black-hole-horizon-state-regularity
+    name: 地平線を横断する状態の正則性
+    kind: definition
+    introduction: formal
+    requires: [qcurv.fock-wightman, qcurv.hadamard-worldline-pullback, qcurv.kruskal-outgoing-compression]
+  - id: qcurv.boulware-unruh-hartle-hawking-states
+    name: Boulware・Unruh・Hartle–Hawking状態
+    kind: definition
+    introduction: formal
+    requires: [qcurv.black-hole-horizon-state-regularity, qcurv.schwarzschild-greybody-factor, qcurv.hawking-late-packet-planck]
+  - id: qcurv.kruskal-thermal-correlator
+    name: Kruskal出射真空の外部二点関数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.boulware-unruh-hartle-hawking-states, qcurv.kms-worldline, qcurv.kruskal-outgoing-compression]
+  - id: qcurv.horizon-chiral-state-test
+    name: 二次元光線模型の地平線正則性判定
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.kruskal-thermal-correlator, qcurv.black-hole-horizon-state-regularity]
+  - id: qcurv.black-hole-state-flux
+    name: 三状態の遠方出射占有数と正味流束
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.boulware-unruh-hartle-hawking-states, qcurv.schwarzschild-flux-reciprocity, qcurv.schwarzschild-greybody-flux]
