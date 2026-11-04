@@ -10,7 +10,15 @@
 
 ## 1. 一ループ流から尺度が生まれる理由
 
-[QFT41の走る結合の定義](../QFT41/index.md#def-qft41-running-alpha)は、結合を固定値でなくくりこみ尺度 $Q$ の関数として扱いました。固定フレーバー数 $n_f$、質量閾値を跨がない区間で
+[QFT41の走る結合の定義](../QFT41/index.md#def-qft41-running-alpha)は、結合を固定値でなくくりこみ尺度の関数として扱いました。ここでは $Q>0$ を動かす一変数関数 $\alpha_s(Q)$ を考えます。$u=\log Q$ と置き、連鎖律と $dQ/du=Q$ から
+
+$$
+\frac{d\alpha_s}{d\log Q}
+=\frac{d\alpha_s}{dQ}\frac{dQ}{du}
+=Q\frac{d\alpha_s}{dQ}
+$$
+
+です。固定フレーバー数 $n_f$、質量閾値を跨がない区間では
 
 $$
 \frac{d\alpha_s}{d\log Q}
@@ -20,7 +28,7 @@ $$
 
 です。$b_0>0$、$\alpha_s>0$ とします。右辺の主要項が小さいのは $\alpha_s\ll1$ のときで、低尺度までの無条件な外挿は許されません。
 
-ここで **一ループの $\Lambda$ 尺度**を、正の結合の値と参照尺度を組み合わせた積分定数として導入します。物理的な粒子の質量を定義するものではありません。また、高次の補正を変えると $\Lambda$ の数値的な方式依存が現れます。
+ここで **一ループの $\Lambda$ 尺度**を、正の結合の値と参照尺度を組み合わせた積分定数として導入します。物理的な粒子の質量を定義するものではありません。また、高次の補正を変えると $\Lambda$ の数値的な方式依存が現れます。参照尺度からの対数 $\log(Q/Q_0)$ を固定次数の級数に展開したまま足し合わせ直していない項を、ここでは **未再和対数** と呼びます。[QFT25のくりこみ群](../QFT25/index.md#def-qft25-rg-equation)はその対数をまとめる道具であり、結合自体の小ささとは別の検査条件です。
 
 <a id="def-qft42-lambda"></a>
 
@@ -86,9 +94,19 @@ $$
 
 ## 2. 短距離で色一重項の二体力を計算する
 
-色付きクォークを遠くまで独立な漸近粒子として追うのは危険です。しかし十分短い距離 $r$ では、重いクォーク $Q$ と反クォーク $\bar Q$ を外部の静的源として置き、一グルーオン交換による**相互作用部分**を計算できます。静的近似とは源が重く、その運動エネルギーや反跳をこの次数で無視することです。
+色付きクォークを遠くまで独立な漸近粒子として追うのは危険です。しかし十分短い距離 $r$ では、重いクォーク $Q$ と反クォーク $\bar Q$ を外部の静的源として置き、一グルーオン交換による**相互作用部分**を計算できます。交換図の最低次数だけを採ることをここでは **Born近似** と呼びます。静的近似とは源が重く、その運動エネルギーや反跳をこの次数で無視することです。
 
-反クォークの色生成子は $T_{\bar Q}^A=-(t^A)^*$、クォークでは $T_Q^A=t^A$ です。二体色空間 $\mathbf3\otimes\overline{\mathbf3}$ における、規格化された色一重項を $|S\rangle=\sum_i|i\bar i\rangle/\sqrt3$ とします。この状態は同時の $SU(3)$ 変換 $U\otimes U^*$ で不変です。
+反クォークの色生成子は $T_{\bar Q}^A=-(t^A)^*$、クォークでは $T_Q^A=t^A$ です。二体色空間 $\mathbf3\otimes\overline{\mathbf3}$ における、規格化された色一重項を $|S\rangle=\sum_i|i\bar i\rangle/\sqrt3$ とします。ここで $|i\rangle$ は基本表示の正規直交色基底、$|\bar i\rangle$ はその共役基底です。
+
+この状態は同時の $SU(3)$ 変換 $U\otimes U^*$ で不変です。実際、変換後の $|j\bar k\rangle$ の係数は
+
+$$
+\frac1{\sqrt3}\sum_i U_{ji}U_{ki}^*
+=\frac{(UU^\dagger)_{jk}}{\sqrt3}
+=\frac{\delta_{jk}}{\sqrt3}
+$$
+
+となり、元の色一重項と一致します。
 
 一グルーオン交換の運動量空間Coulomb核は $1/\mathbf k^2$ を持ちます。[QFT12のMandelstam変数](../QFT12/index.md#def-qft12-mandelstam)の規約で静的な交換四元運動量を $k^\mu=(0,\mathbf k)$ とすれば、$k^2=+\mathbf k^2$、$t=-k^2=-\mathbf k^2$ です。
 
@@ -112,7 +130,19 @@ $$
 <!-- definition-example-start: def-qft42-static-potential -->
 ### 例：色一重項で引力になる条件
 
-**定義の確認**：$T^A_{\rm total}=T_Q^A\otimes I+I\otimes T_{\bar Q}^A$ が $|S\rangle$ を消すことを成分で見ると、$t^A_{ji}$ で回転するクォーク側と $-(t^A)^*_{ji}$ で回転する反クォーク側が相殺します。従って $(T_{\rm total})^2|S\rangle=0$ です。[QFT41の $C_F=4/3$](../QFT41/index.md#lem-qft41-su3-completeness)を両方の脚に適用すると
+**定義の確認**：まず色生成子は[QFT41の基本表示の定義](../QFT41/index.md#def-qft41-color-invariants)にあるHermitian行列なので、$(t^A)^*_{ij}=(t^A)_{ji}$ です。$T^A_{\rm total}=T_Q^A\otimes I+I\otimes T_{\bar Q}^A$ を $|S\rangle$ に作用させると、二つの脚から
+
+$$
+\begin{aligned}
+(T_Q^A\otimes I)|S\rangle
+&=\frac1{\sqrt3}\sum_{i,j}(t^A)_{ji}|j\bar i\rangle,\\
+(I\otimes T_{\bar Q}^A)|S\rangle
+&=-\frac1{\sqrt3}\sum_{i,j}(t^A)^*_{ji}|i\bar j\rangle
+=-\frac1{\sqrt3}\sum_{i,j}(t^A)_{ji}|j\bar i\rangle.
+\end{aligned}
+$$
+
+最後の等号は添字 $i,j$ を交換し、Hermitian性を使ったものです。従って各 $A$ で $T^A_{\rm total}|S\rangle=0$ となり、$\sum_A(T^A_{\rm total})^2|S\rangle=0$ です。[QFT41の $C_F=4/3$](../QFT41/index.md#lem-qft41-su3-completeness)を両方の脚に適用すると
 
 $$
 0=\langle S|(T_{\rm total})^2|S\rangle
@@ -233,11 +263,35 @@ $$
 閉路でなければ始点と終点の変換が違い、この議論は成立しません。
 <!-- proof-end -->
 
-長方形の空間幅を $R$、Euclid時間長を $T$ とします。正の転送行列が構成でき、Wilsonループが基底静的二体状態に非零の重なりを持つ格子理論では、スペクトル分解 $\langle W(R,T)\rangle=\sum_n c_n(R)e^{-E_n(R)T}$ から、$T\to\infty$ の対数傾きが静的二体の最低エネルギーを選びます。静的源の自己エネルギーを減算した量が距離依存のポテンシャルです。例えば $\langle W\rangle\sim e^{-\sigma RT-\kappa(R+T)}$ なら面積項の係数 $\sigma>0$ は線形エネルギー $\sigma R$ に対応します。ただしこの漸近式自体をまだ証明したわけではありません。
+長方形の空間幅を $R$、Euclid時間長を $T$ とします。格子間隔 $a$ の下で、正整数 $n,m$ を辺の格子数とすると
+
+$$
+R=na,\qquad T=ma,\qquad A=nm=\frac{RT}{a^2}
+$$
+
+です。$A$ はplaquette枚数であり、物理的な面積 $RT$ とは異なります。
+
+ここでいう **転送行列** は、組合せ論の有限状態遷移の行列ではなく、格子のEuclid時間を一刻み $a$ 進める**状態空間上の作用素** $\mathcal T_a$ です。正の自己共役作用素として構成でき、その正の固有値を $e^{-aE_j(R)}$ と書ける場合には、$m$ 刻みで $\mathcal T_a^m$ の固有値が $e^{-E_j(R)T}$ となります。これは[QFT20で自由場について確認した反射陽性](../QFT20/index.md#thm-qft20-free-reflection)を純ゲージ格子にも自動適用した主張ではなく、別途必要な仮定です。
+
+さらにWilsonループが基底静的二体状態に非零の重なりを持つ場合、エネルギー準位を $j\ge0$ で番号付けしたスペクトル分解
+
+$$
+\langle W(R,T)\rangle=\sum_{j\ge0}c_j(R)e^{-E_j(R)T}
+$$
+
+から、$T\to\infty$ の対数傾きが静的二体の最低エネルギーを選びます。静的源の自己エネルギーを減算した量が距離依存のポテンシャルです。例えば
+
+$$
+\langle W\rangle\sim e^{-\sigma RT-\kappa(R+T)}
+$$
+
+なら、面積項の係数 $\sigma>0$ は線形エネルギー $\sigma R$ に対応します。ただしこの漸近式自体をまだ証明したわけではありません。
 
 ## 4. 強結合で有限矩形ループを計算する
 
-高エネルギーでは $g_s$ を小さい量として展開しました。これと別の方法として、**有限格子**で裸結合 $g_0$ を大きくしたときの $\beta=6/g_0^2$ を小さい量として展開できます。両者の展開変数は逆向きです。ここでは動的クォークを含めません。各リンクの行列を平均するには、積分の規格化と色基底の取り替えで値が変わらない性質を先に指定する必要があります。
+高エネルギーでは $g_s$ を小さい量として展開しました。これと別の方法として、**有限格子**で裸結合 $g_0$ を大きくしたときの $\beta=6/g_0^2$ を小さい量として展開できます。ここで $\beta$ は格子作用の係数であり、[QFT41のくりこみ群のβ関数](../QFT41/index.md#def-qft41-running-alpha) $\beta(g_s)$ とは別物です。両者の展開変数は逆向きです。
+
+ここでは動的クォークを含めません。格子の最小正方形を **plaquette** と呼び、その周囲の四本のリンクの順序積を $U_p$ と記します。各リンクの行列を平均するには、積分の規格化と色基底の取り替えで値が変わらない性質を先に指定する必要があります。
 
 <a id="def-qft42-haar-measure"></a>
 
@@ -343,7 +397,11 @@ e^{(\beta/3)\operatorname{Re}\operatorname{tr}U_p}
 =1+\frac\beta6(\operatorname{tr}U_p+\operatorname{tr}U_p^*)+O(\beta^2)
 $$
 
-です。$\beta=0$ では[Haar直交性](#lem-qft42-haar)により、閉路に沿う一つだけの基本行列成分を含む辺の積分が零です。非零にするには、ループを境界とするplaquette群の境界で各辺を逆向きに組にする必要があります。平面矩形では最少のplaquette数は内側の $A=nm$ 枚です。これを選んだ寄与は、重みから $(\beta/6)^A$ を受けます。
+です。$\beta=0$ では[Haar直交性](#lem-qft42-haar)により、閉路に沿う一つだけの基本行列成分を含む辺の積分が零です。
+
+より一般に、各辺の変数を中心元 $zI_3$（$z^3=1$）倍してもHaar積分は不変です。このため、その辺に現れる $U$ と $U^\dagger$ の個数差が $3$ の倍数でなければ積分は零です。Wilsonループの外周には差が $1$ あるので、非零項を作るplaquetteトレースの向き付き面は、その境界が外周を打ち消さなければなりません。ここでは係数を $3$ を法として考えます。
+
+この面を矩形の平面へ射影すると、内側の各単位正方形に係数 $-1$ が必要です。平面外のplaquetteはその射影面積が零なので、最低でも $A=nm$ 個のplaquette因子を要します。内側の全 $A$ 枚を外周と逆向きに一度ずつ選べば、この下限に達し、重みから $(\beta/6)^A$ を受けます。
 
 まず $A=1$。$\operatorname{tr}U_p$ と $\operatorname{tr}U_p^*$ の積のHaar平均は1であり、Wilsonループの $1/3$ を合わせて
 
@@ -356,11 +414,50 @@ $$
 二枚の隣接plaquette $p_1,p_2$ では、共有辺 $U$ について[補題の成分積分](#lem-qft42-haar)を用いると
 
 $$
-\int dU\,\operatorname{tr}(AU)\operatorname{tr}(U^\dagger B)
-=\frac13\operatorname{tr}(AB).
+\int dU\,\operatorname{tr}(MU)\operatorname{tr}(U^\dagger N)
+=\frac13\operatorname{tr}(MN).
 $$
 
-ここで $A,B$ はその他の辺の順序積です。この式を繰り返して $A$ 枚の逆向きplaquetteトレースを一つの外周トレースに縫い合わせると、内部辺ごとに因子 $1/3$、最後の境界縮約も合わせて $3^{-A}$ となります。従って係数は $(\beta/6)^A3^{-A}=(\beta/18)^A$ です。期待値を定義する積分の分母は $Z(\beta)=1+O(\beta^2)$ と規格化され、固定 $A$ の先頭次数を変えません。有限個のリンクで被積分関数は解析的なので、残りは固定格子・固定閉路において高次数です。
+ここで $M,N$ は共有辺を除くリンクの順序積で、矩形面積を表す $A=nm$ とは異なります。ただし、内部辺ごとに $1/3$ を掛けるだけでは一般の矩形の係数は確定しません。内部頂点で色添字の閉じた和も生じるからです。そこで平面上の全 $A$ 枚を次のように数え直します。
+
+矩形内の**全水平リンク**と**左端の鉛直リンク**は、頂点を結ぶ閉路を持たない木をなします。リンクの局所ゲージ変換でこれらを単位行列にしても、被積分関数はゲージ不変で、Haar測度も[左右不変](#def-qft42-haar-measure)です。
+
+残る鉛直リンクを列 $i=1,\ldots,n$、行 $j=1,\ldots,m$ ごとに $H_{ij}$ とし、左端は $H_{0j}=I$ と置きます。各正方形の向きをそろえると、plaquetteの積とその逆関係は
+
+$$
+P_{ij}=H_{ij}H_{i-1,j}^{-1},\qquad
+H_{ij}=P_{ij}P_{i-1,j}\cdots P_{1j}
+$$
+
+です。この三角形型の変数変換は、各段階がHaar測度を保つ右移動なので、全 $A$ 個のplaquette行列は独立なHaar変数になります。外周の順序積は、それらの積（またはその逆向きの積）で、各行列を一度ずつ含みます。
+
+よって、外周と逆向きの各plaquetteトレースを選んだHaar平均は、$P_1,\ldots,P_A$ を外周に現れる順に並べて
+
+$$
+\begin{aligned}
+&\int\Bigl(\prod_{s=1}^A dP_s\Bigr)
+\operatorname{tr}(P_1\cdots P_A)
+\prod_{s=1}^A\operatorname{tr}(P_s^\dagger)\\
+&\quad=3^{1-A}.
+\end{aligned}
+$$
+
+実際、[Haar直交性](#lem-qft42-haar)から次の二式が成り立ちます。
+
+$$
+\int dP\,\operatorname{tr}(XP)\operatorname{tr}(P^\dagger)
+=\frac13\operatorname{tr}(X),\qquad
+\int dP\,\operatorname{tr}(P)\operatorname{tr}(P^\dagger)=1.
+$$
+
+最初の等式を一変数ずつ適用し、最後に二番目の等式で閉じます。外周Wilsonループの正規化因子も含めると
+
+$$
+\frac13\left(\frac\beta6\right)^A3^{1-A}
+=\left(\frac\beta{18}\right)^A.
+$$
+
+使っていない面外リンクのHaar積分は1です。期待値の分母は $Z(\beta)=1+O(\beta^2)$ と規格化され、固定面積の先頭次数を変えません。有限個のリンクで被積分関数は解析的なので、残りは固定格子・固定閉路において高次数です。
 <!-- proof-end -->
 
 重要な限定が二つあります。第一に、$O(\beta^{A+1})$ の定数は $A$ と格子サイズに依存しえます。**固定 $A$ の展開式をそのまま $A\to\infty$ に代入してはいけません。** 十分強結合側の純ゲージ模型で面積則を大きいループへ正当化するには、面積に一様な高次の制御が別に必要です。第二に $\beta\ll1$ は裸結合 $g_0\gg1$ であり、格子間隔 $a\to0$ へ向かう連続極限の取り方を示したわけではありません。
@@ -460,7 +557,7 @@ $$
 ### 演習 QFT42-B2：二plaquetteを縫い合わせる
 
 - Level: B
-- 問題：隣接する二つの正方形 $p_1,p_2$ を囲む $1\times2$ 矩形を考える。共有辺 $U$ を逆向きに含む二つのplaquetteトレースを $\operatorname{tr}(AU)$、$\operatorname{tr}(U^\dagger B)$ と書けるとする。共有辺の積分を計算し、$\beta^2$ の先頭係数が $1/18^2$ になることを示せ。
+- 問題：隣接する二つの正方形 $p_1,p_2$ を囲む $1\times2$ 矩形を考える。共有辺 $U$ を逆向きに含む二つのplaquetteトレースを $\operatorname{tr}(MU)$、$\operatorname{tr}(U^\dagger N)$ と書けるとする。共有辺の積分を計算し、$\beta^2$ の先頭係数が $1/18^2$ になることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -469,10 +566,10 @@ $$
 
 $$
 \begin{aligned}
-\int dU\,\operatorname{tr}(AU)\operatorname{tr}(U^\dagger B)
-&=\sum_{i,j,k,l}A_{ij}B_{kl}\int U_{ji}U^*_{kl}\,dU\\
-&=\frac13\sum_{i,j}A_{ij}B_{ji}
-=\frac13\operatorname{tr}(AB).
+\int dU\,\operatorname{tr}(MU)\operatorname{tr}(U^\dagger N)
+&=\sum_{i,j,k,l}M_{ij}N_{kl}\int U_{ji}U^*_{kl}\,dU\\
+&=\frac13\sum_{i,j}M_{ij}N_{ji}
+=\frac13\operatorname{tr}(MN).
 \end{aligned}
 $$
 
