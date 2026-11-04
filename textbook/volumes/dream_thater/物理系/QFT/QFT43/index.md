@@ -272,7 +272,19 @@ $$
 <!-- definition-example-start: def-qft43-pdf -->
 ### 例：陽子の価数を直接積分する
 
-**定義の確認**：toy model として $u_v(\xi)=4(1-\xi)$、$d_v(\xi)=2(1-\xi)$、$\bar u=\bar d=0$、その他の分布を零と置きます。$0<\xi<1$ で両密度は非負です。また、価数の積分は
+**双局所演算子の条件**：まずクォークPDFのゲージ不変性を確認します。光的な方向 $n$（$n^2=0$）に離れた二点 $0,\lambda n$ を、基本表示のWilson線 $U[0,\lambda n]$ で結ぶと、双局所演算子は $\bar\psi(0)\Gamma U[0,\lambda n]\psi(\lambda n)$ の形です。$\Gamma$ は例えば $n_\mu\gamma^\mu$ のようなDirac行列で、色変換には作用しません。[QFT42のリンクの端点変換則](../QFT42/index.md#prop-qft42-wilson-invariant)を開いた経路へ適用すると、局所ゲージ変換 $V$ に対して
+
+$$
+\begin{aligned}
+\psi(\lambda n)&\longmapsto V(\lambda n)\psi(\lambda n),\\
+U[0,\lambda n]&\longmapsto V(0)U[0,\lambda n]V(\lambda n)^\dagger,\\
+\bar\psi(0)&\longmapsto\bar\psi(0)V(0)^\dagger
+\end{aligned}
+$$
+
+となり、両端の $V$ が相殺します。これが**異なる点の場をそのまま掛けるだけでは足りず、Wilson線が必要な理由**です。相互作用を切った自由クォーク標的なら $U=I$ で、二点間の平面波位相 $e^{-i\lambda p\cdot n}$ を $\lambda$ でFourier変換するため、木レベルPDFは端点分布 $\delta(1-\xi)$ となります。自由極限では非自明なくりこみは不要ですが、相互作用のある陽子のPDFはこの検査だけでは構成できません。
+
+**価数・運動量の条件**：次に陽子の密度を表すtoy model として $u_v(\xi)=4(1-\xi)$、$d_v(\xi)=2(1-\xi)$、$\bar u=\bar d=0$、その他の分布を零と置きます。これはWilson線付き演算子から導出したPDFではなく、和則を検査する仮の先頭次数分布です。$0<\xi<1$ で両密度は非負です。また、価数の積分は
 
 $$
 \int_0^1u_v(\xi)\,d\xi=4\left(1-\frac12\right)=2,\qquad
