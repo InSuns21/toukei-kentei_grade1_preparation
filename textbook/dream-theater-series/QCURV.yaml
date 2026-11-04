@@ -82,3 +82,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV19
     status: completed
     title: "de Sitterの宇宙論的地平線とGibbons–Hawking温度"
+  - id: QCURV20
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV20
+    status: completed
+    title: "時空模型の横断比較――粒子・検出器・流束は何を測るか"
