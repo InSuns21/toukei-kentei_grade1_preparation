@@ -243,12 +243,12 @@ $$
 <!-- definition-example-start: def-qcurv18-finite-window -->
 ### 直接例：一定の光線ラベルずれ
 
-ある連続写像 $p$ を $q(u)=p(u)+d$（$d\in\mathbb R$、長さ次元）へ変えると
+ある連続写像 $p$ を別の関数 $\widetilde p(u)=p(u)+d$（$d\in\mathbb R$、長さ次元）へ変えると
 
 $$
-I_\chi[q](\omega,\Omega)
+I_\chi[\widetilde p](\omega,\Omega)
 =e^{i\Omega d}I_\chi[p](\omega,\Omega),
-\qquad |I_\chi[q]|=|I_\chi[p]|.
+\qquad |I_\chi[\widetilde p]|=|I_\chi[p]|.
 $$
 
 $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束し、$\omega,\Omega>0$、$\Omega d$ は無次元です。**定義の確認**：位相は変わる一方で絶対値が不変と実際に計算でき、積分の存在、周波数、位相の次元も検査しました。
@@ -258,11 +258,11 @@ $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束�
 
 <!-- formal-statement-start -->
 > **命題（有限窓の位相摂動評価）**  
-> 同じ有界区間 $J$ の上の二つの連続関数 $p,q:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-q(u)|\le\varepsilon<\infty$ なら
+> 同じ有界区間 $J$ の上の二つの連続関数 $p,\widetilde p:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-\widetilde p(u)|\le\varepsilon<\infty$ なら
 
 $$
 \boxed{\left|I_\chi[p](\omega,\Omega)
--I_\chi[q](\omega,\Omega)\right|
+-I_\chi[\widetilde p](\omega,\Omega)\right|
 \le\Omega\varepsilon\|\chi\|_{L^1}.}
 $$
 
@@ -280,11 +280,11 @@ $$
 
 $$
 \begin{aligned}
-|I_\chi[p]-I_\chi[q]|
+|I_\chi[p]-I_\chi[\widetilde p]|
 &\le\int_J|\chi(u)|
-|e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
+|e^{i\Omega p(u)}-e^{i\Omega\widetilde p(u)}|\,du\\
 &\le\int_{\operatorname{supp}\chi}|\chi(u)|
-\Omega|p(u)-q(u)|\,du\\
+\Omega|p(u)-\widetilde p(u)|\,du\\
 &\le\Omega\varepsilon\int_J|\chi(u)|\,du.
 \end{aligned}
 $$
@@ -292,7 +292,7 @@ $$
 $0<\Omega\le\Lambda$ を追加すれば $\Omega\varepsilon\le\Lambda\varepsilon$ とでき、結論を得ます。
 <!-- proof-end -->
 
-この評価は連続関数の**位相積分**について成立し、二つの関数が物理的に許される光線写像かどうかまでは判定しません。光線の入出射対応として読む場合は、さらに対象区間での微分可能性と $p',q'>0$ などを別途確認する必要があります。
+この評価は連続関数の**位相積分**について成立し、二つの関数が物理的に許される光線写像かどうかまでは判定しません。光線の入出射対応として読む場合は、さらに対象区間での微分可能性と $p',\widetilde p'>0$ などを別途確認する必要があります。
 
 **何を証明していないか。** 有限時間・有限周波数で位相積分が連続でも、[QCURV11の熱因子](../QCURV11/index.md#thm-qcurv11-thermal-ratio)は無限区間の指数写像、Gamma積分の枝、正準規格化、適切な入射真空と後期波束の極限を用いています。上のノルム評価だけでは、UV修正後に正準交換関係が保たれるか、熱的占有数が保たれるかを証明できません。
 
@@ -483,19 +483,19 @@ $$
 <a id="ex-qcurv18-b02"></a>
 #### QCURV18-B02 有限窓の位相誤差
 - Level: B
-- 問題: $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$、$\omega>0$、$0<\Omega\le\Lambda$ とする。$q(u)=p(u)+\varepsilon\sin(u/T)$（$T>0$、$\varepsilon\ge0$）なら $|I_\chi[p]-I_\chi[q]|$ の上界を求めよ。$\Omega\to\infty$ でも同じ固定定数で抑えられるか。また $q=p+d$ の場合の絶対値の変化を求めよ。
+- 問題: $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$、$\omega>0$、$0<\Omega\le\Lambda$ とする。$\widetilde p(u)=p(u)+\varepsilon\sin(u/T)$（$T>0$、$\varepsilon\ge0$）なら $|I_\chi[p]-I_\chi[\widetilde p]|$ の上界を求めよ。$\Omega\to\infty$ でも同じ固定定数で抑えられるか。また $\widetilde p=p+d$ の場合の絶対値の変化を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$|\sin(u/T)|\le1$ なので $\sup_{\operatorname{supp}\chi}|p-q|\le\varepsilon$。[位相摂動評価](#prop-qcurv18-phase-stability)から
+**詳細解答**：$|\sin(u/T)|\le1$ なので $\sup_{\operatorname{supp}\chi}|p-\widetilde p|\le\varepsilon$。[位相摂動評価](#prop-qcurv18-phase-stability)から
 
 $$
-|I_\chi[p]-I_\chi[q]|
+|I_\chi[p]-I_\chi[\widetilde p]|
 \le\Omega\varepsilon\|\chi\|_1
 =\Omega\varepsilon\le\Lambda\varepsilon.
 $$
 
 この評価の右辺は $\Omega$ とともに増えるため、有限の $\Lambda$ を外して同じ定数を得られません（もちろん個々の積分には自明な $2\|\chi\|_1$ の上界があるが、$\varepsilon\to0$ に比例する一様評価ではありません）。定数シフトなら $I_\chi[p+d]=e^{i\Omega d}I_\chi[p]$ なので $|I_\chi[p+d]|=|I_\chi[p]|$ です。一般の摂動不等式は鋭い等号を常に与えるわけではありません。
-なお、この問いでは $q$ の単調性を仮定していません。$p$ が微分可能なら $q'(u)=p'(u)+(\varepsilon/T)\cos(u/T)$ なので、$J$ 上で $p'(u)>\varepsilon/T$ を追加すれば $q'(u)>0$ が保証され、二つを単調な光線写像として比較できます。
+なお、この問いでは $\widetilde p$ の単調性を仮定していません。$p$ が微分可能なら $\widetilde p'(u)=p'(u)+(\varepsilon/T)\cos(u/T)$ なので、$J$ 上で $p'(u)>\varepsilon/T$ を追加すれば $\widetilde p'(u)>0$ が保証され、二つを単調な光線写像として比較できます。
 <!-- solution-end -->
 
 <a id="ex-qcurv18-b03"></a>
@@ -539,7 +539,7 @@ $n=0$ なら $1/9$、$n=2$ なら $23/9$ です。係数はモード間の混合
 
   - (a) 遡及アフィン周波数と閾値時刻 $u_*$ を求め、$\Lambda$ の2倍への到達時刻差を求めよ。
   - (b) $\Omega_0>0$、$f(t)=1/\sqrt2$（$|t|\le1$、他で0）の対数波束を使い、中心 $z_c(u_*)$ と $P_{\le\Lambda}(u_*),P_{\le\Lambda}(u_*+2/\kappa)$ を計算せよ。
-  - (c) $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$ の有限窓で $|p-q|\le\varepsilon$、$0<\Omega\le\Lambda$ のとき位相積分の差を評価せよ。
+  - (c) $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$ の有限窓で $|p-\widetilde p|\le\varepsilon$、$0<\Omega\le\Lambda$ のとき位相積分の差を評価せよ。
   - (d) 元のHawking熱因子から4次元の遠方光度を出すため追加で必要な条件を二つ以上挙げよ。
   - (e) (a)〜(c) の結果から「UV領域で任意の修正を施しても厳密な熱スペクトルが続く」と証明できるか。理由を数式または反例に結び付けて答えよ。
 
@@ -567,10 +567,10 @@ $$
 
 $$
 \begin{aligned}
-|I_\chi[p]-I_\chi[q]|
+|I_\chi[p]-I_\chi[\widetilde p]|
 &\le\int_J|\chi(u)|\,
-|e^{i\Omega p(u)}-e^{i\Omega q(u)}|\,du\\
-&\le\Omega\int_J|\chi(u)||p(u)-q(u)|\,du\\
+|e^{i\Omega p(u)}-e^{i\Omega\widetilde p(u)}|\,du\\
+&\le\Omega\int_J|\chi(u)||p(u)-\widetilde p(u)|\,du\\
 &\le\Lambda\varepsilon\|\chi\|_1=\Lambda\varepsilon.
 \end{aligned}
 $$
