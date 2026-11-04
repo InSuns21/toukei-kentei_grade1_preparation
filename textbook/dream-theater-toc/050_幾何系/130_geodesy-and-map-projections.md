@@ -11,3 +11,4 @@
 8. [GEOD8 測量網の平差・datum の拘束・不確かさ](textbook/volumes/dream_thater/幾何系/GEOD/GEOD8/index.md)
 9. [GEOD9 GNSS・衛星測地学の基礎](textbook/volumes/dream_thater/幾何系/GEOD/GEOD9/index.md)
 10. [GEOD10 重力測地学と高さ系の基礎計算](textbook/volumes/dream_thater/幾何系/GEOD/GEOD10/index.md)
+11. [GEOD11 子午線弧長・緯線・地表測距の還元](textbook/volumes/dream_thater/幾何系/GEOD/GEOD11/index.md)

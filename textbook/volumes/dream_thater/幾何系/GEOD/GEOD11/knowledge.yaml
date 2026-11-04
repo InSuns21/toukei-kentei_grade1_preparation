@@ -1,0 +1,44 @@
+chapter: GEOD11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD10
+forward_references:
+  - geometry.geodesic
+concepts:
+  - id: geodesy.signed-meridian-arc
+    name: 符号付き子午線弧長
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（符号付き子午線弧長）]
+    requires: [geodesy.ellipsoid-curve-length, geodesy.ellipsoid-curvature-radii]
+  - id: geodesy.meridian-interval-length
+    name: 同一子午線上の区間弧長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同一子午線上の区間弧長）]
+    requires: [geodesy.signed-meridian-arc, geodesy.ellipsoid-curve-length]
+  - id: geodesy.meridian-e6-series
+    name: 子午線弧長の離心率6次級数と誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（子午線弧長の離心率6次級数と誤差上界）]
+    requires: [geodesy.signed-meridian-arc, geodesy.shape-parameters]
+  - id: geodesy.oriented-parallel-arc
+    name: 有向緯線弧
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有向緯線弧）]
+    requires: [geodesy.meridian-parallel]
+  - id: geodesy.parallel-arc-azimuth
+    name: 緯線の弧長・周長・方位角
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（緯線の弧長・周長・方位角）]
+    requires: [geodesy.oriented-parallel-arc, geodesy.ellipsoid-curve-length, geodesy.ellipsoid-tangent-vectors]
+  - id: geodesy.local-slope-distance
+    name: 局所斜距離の水平成分と曲面還元の境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所斜距離の水平成分と曲面還元の境界）]
+    requires: [geodesy.height-distance-reduction, geodesy.ellipsoid-curvature-radii]
