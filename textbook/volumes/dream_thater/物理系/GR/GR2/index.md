@@ -16,7 +16,7 @@ $$
 ds_{\mathrm{SREL}}^2=-c^2dt^2+dx^2+dy^2+dz^2
 $$
 
-と書かれます。GRとLORGでも同じ計量の定義を用いるため、平坦時空では
+と書かれます。GRでも[LORG2のLorentz計量](../../../幾何系/LORG/LORG2/index.md#def-lorg2-lorentz-metric)を同じ符号で採用するため、平坦時空では
 
 $$
 ds_{\mathrm{GR}}^2=-c^2dt^2+dx^2+dy^2+dz^2=ds_{\mathrm{SREL}}^2
