@@ -1,0 +1,61 @@
+chapter: GEOD10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD9
+forward_references: []
+concepts:
+  - id: geodesy.normal-potential-gravity
+    name: 正常ポテンシャルと正常重力
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正常ポテンシャルと正常重力）]
+    requires: [geodesy.physical-vertical]
+  - id: geodesy.geopotential-number
+    name: ジオポテンシャル数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（ジオポテンシャル数）]
+    requires: [geodesy.geoid, geodesy.normal-potential-gravity]
+  - id: geodesy.geopotential-line-integral
+    name: 鉛直方向のジオポテンシャル数の積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鉛直方向のジオポテンシャル数の積分）]
+    requires: [geodesy.geopotential-number, geodesy.potential-height-integral]
+  - id: geodesy.physical-height-systems
+    name: 正標高・正常高・動的高の計算モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正標高・正常高・動的高の計算モデル）]
+    requires: [geodesy.geopotential-number, geodesy.orthometric-height, geodesy.normal-potential-gravity]
+  - id: geodesy.height-conversions
+    name: 正標高・正常高・動的高の換算式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正標高・正常高・動的高の換算式）]
+    requires: [geodesy.physical-height-systems, geodesy.geopotential-line-integral]
+  - id: geodesy.height-anomaly-quasigeoid
+    name: 高度異常と準ジオイド
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（高度異常と準ジオイド）]
+    requires: [geodesy.height-conversions, geodesy.geodetic-coordinates-height]
+  - id: geodesy.bruns-approximation
+    name: Brunsの一次近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Brunsの一次近似）]
+    requires: [geodesy.normal-potential-gravity, geodesy.geoid-undulation]
+  - id: geodesy.gravity-leveling
+    name: 重力を付した水準差とポテンシャル差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重力を付した水準差とポテンシャル差）]
+    requires: [geodesy.geopotential-number, geodesy.leveling-sights]
+  - id: geodesy.gnss-height-combination
+    name: GNSS高と高さ系の結合・共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（GNSS高と高さ系の結合・共分散）]
+    requires: [geodesy.height-anomaly-quasigeoid, geodesy.height-relation, geodesy.adjustment-covariance]

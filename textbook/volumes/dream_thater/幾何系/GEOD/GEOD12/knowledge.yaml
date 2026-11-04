@@ -1,0 +1,51 @@
+chapter: GEOD12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD11
+  - GEO14
+  - NA3
+forward_references: []
+concepts:
+  - id: geodesy.geodesic-azimuth
+    name: 測地線の方位角
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（測地線の方位角）]
+    requires: [geodesy.ellipsoid-tangent-vectors, geometry.geodesic]
+  - id: geodesy.ellipsoid-geodesic-equations
+    name: 楕円体測地線の座標方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（楕円体測地線の座標方程式）]
+    requires: [geodesy.geodesic-azimuth, geodesy.ellipsoid-curvature-radii, geometry.geodesic]
+  - id: geodesy.clairaut-relation
+    name: Clairaut関係と方位角の微分方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Clairaut関係と方位角の微分方程式）]
+    requires: [geodesy.ellipsoid-geodesic-equations, geodesy.geodesic-azimuth]
+  - id: geodesy.special-geodesics
+    name: 子午線・赤道・緯線の測地線判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（子午線・赤道・緯線の測地線判定）]
+    requires: [geodesy.clairaut-relation]
+  - id: geodesy.geodesic-direct-inverse
+    name: 楕円体測地線の順問題と逆問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（楕円体測地線の順問題と逆問題）]
+    requires: [geodesy.ellipsoid-geodesic-equations, geometry.geodesic]
+  - id: geodesy.spherical-geodesic-formulas
+    name: 球面上の順・逆問題の解析式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面上の順・逆問題の解析式）]
+    requires: [geodesy.geodesic-direct-inverse]
+  - id: geodesy.local-geodesic-inverse
+    name: 局所逆問題のNewton型線形化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所逆問題のNewton型線形化）]
+    requires: [geodesy.geodesic-direct-inverse, geodesy.ellipsoid-geodesic-equations, numerical.system-newton-method]

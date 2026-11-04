@@ -1,0 +1,45 @@
+id: "GEOD13"
+title: "地図投影の幾何・歪み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD12
+  - GEO11
+official_scope: []
+learning_objectives:
+  - 測地緯度・経度から平面への滑らかな投影とJacobianを定義し、楕円体計量から物理的な単位接方向を構成できる
+  - 楕円体計量と投影像の計量を比較して方向別局所縮尺・面積縮尺を導出できる
+  - 等角・等積・一方向の等距離の必要十分条件を区別し、具体的な写像を検算できる
+  - 正規化Jacobianの主伸縮率からTissotの指示楕円を構成し、角度・面積・方向の歪みを評価できる
+  - 曲率不変性によって球面を平面へ開集合上で等長投影できないことと、座標特異点・投影の切れ目を区別できる
+definitions:
+  - { id: GEOD13-DEF-01, name: 地図投影とJacobian }
+  - { id: GEOD13-DEF-02, name: 方向別局所縮尺と面積縮尺 }
+  - { id: GEOD13-DEF-03, name: 等角・等積・方向別等距離 }
+  - { id: GEOD13-DEF-04, name: Tissotの指示楕円と主伸縮率 }
+theorems:
+  - { id: GEOD13-THM-01, name: 投影の計量比較と縮尺式 }
+  - { id: GEOD13-THM-02, name: 等角・等積の行列判定 }
+  - { id: GEOD13-PROP-01, name: Tissotの指示楕円の半軸と面積 }
+  - { id: GEOD13-PROP-02, name: 球面から平面への局所等長投影の不可能性 }
+canonical_examples:
+  - 楕円体赤道の接方向をMとNで正規化し、Jと真の縮尺の違いを確認
+  - 単位球の正距円筒型座標写像で南北・東西縮尺と面積歪みを検算
+  - 球面の正積円筒型写像で面積が1でも角度が歪むことを検算
+  - 線形変換diag(2,1/2)のTissot楕円と等積・非等角を直接検算
+  - 曲率の保存による全方向等距離の不可能性
+problem_patterns:
+  - GEOD13-JACOBIAN-UNITS
+  - GEOD13-DIRECTIONAL-SCALE
+  - GEOD13-EQUAL-AREA-JACOBIAN
+  - GEOD13-CONFORMAL-CHECK
+  - GEOD13-TISSOT-SEMIAXES
+  - GEOD13-ELLIPSOID-LOCAL
+  - GEOD13-NONCONFORMAL-ANGLE
+  - GEOD13-SPHERE-CYLINDRICAL
+  - GEOD13-LOCAL-DISTANCE-VS-FINITE
+  - GEOD13-PROJECTION-CHOICE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }

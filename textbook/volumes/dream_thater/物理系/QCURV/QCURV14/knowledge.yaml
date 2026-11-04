@@ -1,0 +1,30 @@
+chapter: QCURV14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV13
+  - QCURV9
+  - QCURV8
+  - QCURV6
+forward_references: []
+concepts:
+  - id: qcurv.tolman-static-local-temperature
+    name: 静止熱平衡の局所温度
+    kind: definition
+    introduction: formal
+    requires: [qcurv.kms-worldline, qcurv.static-infinity-frequency]
+  - id: qcurv.tolman-kms-redshift
+    name: Killing-KMS状態のTolman則と詳細釣合い
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.tolman-static-local-temperature, qcurv.stationary-detector-rate]
+  - id: qcurv.static-acceleration-temperature-comparison
+    name: 静止加速度温度とTolman温度の比較
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.tolman-kms-redshift, qcurv.unruh-temperature, gravity.redshifted-static-acceleration]
+  - id: qcurv.infall-nonstationary-clock
+    name: 自由落下時計とKilling時計の非比例性
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.tolman-static-local-temperature, qcurv.detector-response]

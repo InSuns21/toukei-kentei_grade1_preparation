@@ -1,0 +1,44 @@
+id: "GEOD12"
+title: "楕円体の測地線と順・逆問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD11
+  - GEO14
+  - NA3
+official_scope: []
+learning_objectives:
+  - 楕円体の第一基本形式から測地線方程式を導き、子午線・赤道・一般緯線を判別できる
+  - 北基準・東回り方位角と単位速さを結び、Clairaut関係と転向緯度の条件を導ける
+  - 緯度・経度・初期方位角・楕円体上距離による順問題を定式化し、局所座標で数値積分できる
+  - 両端点からの逆問題を局所的な境界値問題として定式化し、解の多価性と最短解の区別を説明できる
+  - 球面の解析解で符号・方位角・距離を独立検算し、近接点・極・対蹠点近傍での数値的注意点を判断できる
+definitions:
+  - { id: GEOD12-DEF-01, name: 測地線の方位角 }
+  - { id: GEOD12-DEF-02, name: 楕円体測地線の順問題と逆問題 }
+theorems:
+  - { id: GEOD12-THM-01, name: 楕円体測地線の座標方程式 }
+  - { id: GEOD12-THM-02, name: Clairaut関係と方位角の微分方程式 }
+  - { id: GEOD12-PROP-01, name: 子午線・赤道・緯線の測地線判定 }
+  - { id: GEOD12-PROP-02, name: 球面上の順・逆問題の解析式 }
+  - { id: GEOD12-PROP-03, name: 局所逆問題のNewton型線形化 }
+canonical_examples:
+  - 球面で北東へ進む初速度の方位角を定義から確認
+  - 回転楕円体の赤道と子午線を方程式へ代入し、一般緯線を反例とする
+  - 球面の60度初期方位・四分の一周の順逆計算を別式で照合
+  - 長半径5短半径4の楕円体でClairaut転向緯度を計算
+  - 極の経度退化、近接点の方位不定、対蹠点の非一意性を区別
+problem_patterns:
+  - GEOD12-AZIMUTH-COMPONENTS
+  - GEOD12-EQUATOR-DIRECT
+  - GEOD12-MERIDIAN-DIRECT
+  - GEOD12-CLAIRAUT-BOUND
+  - GEOD12-LAGRANGIAN-ODE
+  - GEOD12-SPHERE-DIRECT-INVERSE
+  - GEOD12-ANTIPODAL-NONUNIQUENESS
+  - GEOD12-NEWTON-CONDITIONING
+  - GEOD12-ELLIPSOID-TURNING-AND-ROUTES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }

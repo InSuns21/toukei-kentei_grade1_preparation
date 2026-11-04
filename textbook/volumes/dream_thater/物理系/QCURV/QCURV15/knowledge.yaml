@@ -1,0 +1,46 @@
+chapter: QCURV15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV14
+  - QCURV13
+  - QCURV12
+  - MICA14
+  - MICA15
+forward_references: []
+concepts:
+  - id: qcurv.local-observable-state-difference
+    name: 二状態の局所観測量差
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica14-state-difference, microlocal.mica15-state-difference]
+  - id: qcurv.minkowski-thermal-local-observables
+    name: 質量零Minkowski熱状態の有限な観測量差
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.local-observable-state-difference, microlocal.mica15-bidifferential]
+  - id: qcurv.observer-local-energy-flux
+    name: 観測者のエネルギー密度と流束
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica15-renormalized-stress]
+  - id: qcurv.observer-state-difference
+    name: 二状態差を測る観測者の変換
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.local-observable-state-difference, qcurv.observer-local-energy-flux]
+  - id: qcurv.schwarzschild-killing-luminosity
+    name: SchwarzschildのKilling光度
+    kind: definition
+    introduction: formal
+    requires: [qcurv.observer-local-energy-flux, qcurv.schwarzschild-greybody-flux]
+  - id: qcurv.schwarzschild-luminosity-conservation
+    name: 定常球対称なKilling光度の半径独立性
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.schwarzschild-killing-luminosity, microlocal.mica15-renormalized-stress]
+  - id: qcurv.schwarzschild-local-flux-redshift
+    name: 静止局所流束と遠方光度の関係
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.schwarzschild-luminosity-conservation, qcurv.tolman-kms-redshift]

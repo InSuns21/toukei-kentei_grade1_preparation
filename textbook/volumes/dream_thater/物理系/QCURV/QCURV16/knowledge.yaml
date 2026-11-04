@@ -1,0 +1,48 @@
+chapter: QCURV16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV15
+  - QCURV10
+forward_references: []
+concepts:
+  - id: qcurv.two-dimensional-null-flux
+    name: null成分と外向き正味流束
+    kind: definition
+    introduction: formal
+    requires: [qcurv.observer-local-energy-flux]
+  - id: qcurv.two-dimensional-trace-anomaly
+    name: この模型のトレース異常
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica15-renormalized-stress]
+  - id: qcurv.two-dimensional-stress-reconstruction
+    name: 2次元共形応力テンソルの復元
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.two-dimensional-trace-anomaly, qcurv.two-dimensional-null-flux]
+  - id: qcurv.schwarzian-derivative
+    name: Schwarzian微分
+    kind: definition
+    introduction: formal
+    requires: [qcurv.kruskal-outgoing-compression]
+  - id: qcurv.schwarzian-chain-law
+    name: Schwarzianの合成則
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.schwarzian-derivative]
+  - id: qcurv.schwarzian-vacuum-flux
+    name: 状態関数の座標変換と真空流束
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.two-dimensional-stress-reconstruction, qcurv.schwarzian-derivative]
+  - id: qcurv.exponential-ray-flux
+    name: 指数光線写像の後期Schwarzian流束
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.schwarzian-vacuum-flux, qcurv.hawking-late-packet-planck]
+  - id: qcurv.static-horizon-stress
+    name: 静的null応力の地平線での相殺
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.two-dimensional-stress-reconstruction, qcurv.black-hole-horizon-state-regularity]

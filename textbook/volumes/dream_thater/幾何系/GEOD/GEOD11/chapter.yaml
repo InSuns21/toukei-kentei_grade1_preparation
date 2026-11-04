@@ -1,0 +1,41 @@
+id: "GEOD11"
+title: "子午線弧長・緯線・地表測距の還元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD10
+official_scope: []
+learning_objectives:
+  - 子午線弧長を楕円体計量から積分として定義し、緯度区間差を符号と単位に注意して計算できる
+  - 第一離心率の二乗による子午線弧長のe^6級数を導き、有限項の誤差上界と収束条件を示せる
+  - 緯線の弧長・周長・東西方位角を求め、緯線経路と最短測地線を区別できる
+  - 局所斜距離・水平直線長・高さ面弧長・楕円体弧長・投影距離を混同せず方向別に還元できる
+  - 子午線弧長の数値積分と級数近似を独立に照合し、誤差・球面極限を検算できる
+definitions:
+  - { id: GEOD11-DEF-01, name: 符号付き子午線弧長 }
+  - { id: GEOD11-DEF-02, name: 有向緯線弧 }
+theorems:
+  - { id: GEOD11-PROP-01, name: 同一子午線上の区間弧長 }
+  - { id: GEOD11-THM-01, name: 子午線弧長の離心率6次級数と誤差上界 }
+  - { id: GEOD11-PROP-02, name: 緯線の弧長・周長・方位角 }
+  - { id: GEOD11-PROP-03, name: 局所斜距離の水平成分と曲面還元の境界 }
+canonical_examples:
+  - 球面での符号付き子午線弧長と緯線半径を定義から確認
+  - GRS80で北緯45度から46度の子午線積分と局所一次近似を比較
+  - GRS80のe^6級数と複合Simpson数値積分の独立比較
+  - 球面の北緯60度で緯線半周より短い極経由経路
+  - 斜距離と一定楕円体高での局所距離還元の段階的計算
+problem_patterns:
+  - GEOD11-MERIDIAN-SPHERE
+  - GEOD11-PARALLEL-CIRCUMFERENCE
+  - GEOD11-AZIMUTH
+  - GEOD11-SLOPE-HORIZONTAL
+  - GEOD11-SERIES-DERIVATION
+  - GEOD11-PARALLEL-NONSHORTEST
+  - GEOD11-HEIGHT-DIRECTION
+  - GEOD11-SERIES-ERROR
+  - GEOD11-COMBINED-COMPUTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }

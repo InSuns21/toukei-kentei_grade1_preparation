@@ -1,0 +1,50 @@
+chapter: GEOD14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD13
+  - CA1
+forward_references: []
+concepts:
+  - id: geodesy.isometric-meridian-coordinate
+    name: 等角な子午座標と等角座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等角な子午座標と等角座標）]
+    requires: [geodesy.ellipsoid-metric-formula, geodesy.conformal-equal-area-tests]
+  - id: geodesy.isometric-latitude-formula
+    name: 等角座標の方程式・一意性・積分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等角座標の方程式・一意性・積分公式）]
+    requires: [geodesy.isometric-meridian-coordinate, geodesy.ellipsoid-curvature-radii]
+  - id: geodesy.conformal-latitude
+    name: 等角緯度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等角緯度）]
+    requires: [geodesy.isometric-latitude-formula]
+  - id: geodesy.conformal-sphere-metric
+    name: 等角球面を用いた計量表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（等角球面を用いた計量表示）]
+    requires: [geodesy.conformal-latitude, geodesy.ellipsoid-metric-formula]
+  - id: geodesy.local-complex-coordinate
+    name: 楕円体の局所複素座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（楕円体の局所複素座標）]
+    requires: [geodesy.isometric-latitude-formula, complex-analysis.holomorphic-function]
+  - id: geodesy.holomorphic-conformal-projection
+    name: 正則写像と向きを保つ局所等角投影
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正則写像と向きを保つ局所等角投影）]
+    requires: [geodesy.local-complex-coordinate, geodesy.conformal-equal-area-tests, complex-analysis.cauchy-riemann-sufficient]
+  - id: geodesy.isometric-pole-limit
+    name: 球面極限と極における等角座標の挙動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面極限と極における等角座標の挙動）]
+    requires: [geodesy.isometric-latitude-formula, geodesy.conformal-latitude]
