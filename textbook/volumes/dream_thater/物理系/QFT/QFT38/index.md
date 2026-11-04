@@ -42,7 +42,13 @@ $$
 \mathcal L_{\rm cc}=\frac g{\sqrt2}(W_\mu^+J_+^\mu+W_\mu^-J_-^\mu)
 $$
 
-> とする。$W^-=(W^+)^*$ で、$J_-^\mu=-i\left(\sum_{\alpha,\beta}V_{\alpha\beta}^*\overline d_\beta\gamma^\mu P_Lu_\alpha+\sum_\ell\overline\ell\gamma^\mu P_L\nu_\ell\right)$ である。
+> とする。$W^-=(W^+)^*$ で、Hermitian共役の電流は
+
+$$
+J_-^\mu=-i\left(\sum_{\alpha,\beta}V_{\alpha\beta}^*\overline d_\beta\gamma^\mu P_Lu_\alpha+\sum_\ell\overline\ell\gamma^\mu P_L\nu_\ell\right)
+$$
+
+> と展開できる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft38-charged-current -->
@@ -102,14 +108,27 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（木レベルのW消去とFermi係数）**
-> $m_W>0$、正準化した荷電 $W$ の質量項 $-m_W^2W_\mu^+W^{-\mu}$、[物理的な荷電電流](#def-qft38-charged-current)への結合 $g(W^+\!\cdot J_++W^-\!\cdot J_-)/\sqrt2$ を持つ理論で、$|q^2|,m_f^2\ll m_W^2$ とする。木レベルの局所展開の先頭は
+> $m_W>0$ とし、正準化した荷電 $W$ の質量項および[物理的な荷電電流](#def-qft38-charged-current)への結合をそれぞれ
+
+$$
+-m_W^2W_\mu^+W^{-\mu},
+\qquad \frac{g}{\sqrt2}(W^+\!\cdot J_++W^-\!\cdot J_-)
+$$
+
+> とする。この理論で $|q^2|,m_f^2\ll m_W^2$ なら、木レベルの局所展開の先頭は
 
 $$
 \mathcal L_{\rm eff}^{(6)}=+\frac{g^2}{2m_W^2}J_{+\mu}J_-^\mu,
 \qquad C_F=\frac{g^2}{2m_W^2}=\frac2{v^2}.
 $$
 
-> $J_\pm=-iB_\pm$ と書いた素のDirac双線形では $\mathcal L_{\rm eff}^{(6)}=-g^2B_+\cdot B_-/(2m_W^2)$ となる。微分を持つ次の補正は相対的に $O(q^2/m_W^2)$ の次数で、縦成分からは電流の発散に比例する質量抑制項も生じ得る。この等式は低エネルギーの木レベルmatchingであり、$W$ の極 $q^2=-m_W^2$ 付近では使えない。
+> $J_\pm=-iB_\pm$ と書いた素のDirac双線形では
+
+$$
+\mathcal L_{\rm eff}^{(6)}=-g^2B_+\cdot B_-/(2m_W^2)
+$$
+
+> となる。微分を持つ次の補正は相対的に $O(q^2/m_W^2)$ の次数で、縦成分からは電流の発散に比例する質量抑制項も生じ得る。この等式は低エネルギーの木レベルmatchingであり、$W$ の極 $q^2=-m_W^2$ 付近では使えない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
