@@ -90,7 +90,9 @@ $$
 
 反クォークの色生成子は $T_{\bar Q}^A=-(t^A)^*$、クォークでは $T_Q^A=t^A$ です。二体色空間 $\mathbf3\otimes\overline{\mathbf3}$ における、規格化された色一重項を $|S\rangle=\sum_i|i\bar i\rangle/\sqrt3$ とします。この状態は同時の $SU(3)$ 変換 $U\otimes U^*$ で不変です。
 
-一グルーオン交換の運動量空間Coulomb核は $1/\mathbf k^2$ を持ちます。[QFT12のMandelstam変数](../QFT12/index.md#def-qft12-mandelstam)の規約で静的な交換四元運動量を $k^\mu=(0,\mathbf k)$ とすれば、$k^2=+\mathbf k^2$、$t=-k^2=-\mathbf k^2$ です。従って静的核の正の分母 $\mathbf k^2$ は $-t$ に等しく、四次元で符号を変えたときに $1/\mathbf k^2$ を $-1/\mathbf k^2$ へ取り違えてはいけません。相互作用の符号は $\sum_AT_Q^AT_{\bar Q}^A$ の固有値で決まります。
+一グルーオン交換の運動量空間Coulomb核は $1/\mathbf k^2$ を持ちます。[QFT12のMandelstam変数](../QFT12/index.md#def-qft12-mandelstam)の規約で静的な交換四元運動量を $k^\mu=(0,\mathbf k)$ とすれば、$k^2=+\mathbf k^2$、$t=-k^2=-\mathbf k^2$ です。
+
+従って静的核の正の分母 $\mathbf k^2$ は $-t$ に等しく、四次元で符号を変えたときに $1/\mathbf k^2$ を $-1/\mathbf k^2$ へ取り違えてはいけません。相互作用の符号は $\sum_AT_Q^AT_{\bar Q}^A$ の固有値で決まります。
 
 <a id="def-qft42-static-potential"></a>
 
