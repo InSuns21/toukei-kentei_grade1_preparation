@@ -94,6 +94,8 @@ $$
 <!-- proof-start -->
 ### 証明
 
+一つの衛星 $s$ を固定し、この証明中だけ $\boldsymbol s=\boldsymbol s^s$、$\rho(\boldsymbol r)=\|\boldsymbol s-\boldsymbol r\|$、$\rho_0=\rho(\boldsymbol r_0)$ と略記します。$r_k,s_k$ は同じ直交座標系での第 $k$ 成分（$k=1,2,3$）で、衛星位置と時計偏りを固定して $r_k$ で偏微分します。
+
 $\rho(\boldsymbol r)^2=(\boldsymbol s-\boldsymbol r)^{\mathsf T}(\boldsymbol s-\boldsymbol r)$ の両辺を $r_k$ で微分すると
 
 $$
@@ -176,7 +178,7 @@ $$
 \boldsymbol u^4=(0,0,1)
 $$
 
-とします。これは同じ受信機からの方向を抽象的に指定した模型で、実際の地上点での可視性を表してはいません。行列とその逆は
+とします。これは同じ受信機からの方向を抽象的に指定した模型で、実際の地上点での可視性を表してはいません。各方向は長さ1です。[擬似距離の一次化](#prop-geod9-range-jacobian)で得た行 $(-u_x^s,-u_y^s,-u_z^s,1)$ に方向成分を代入して並べると、設計行列 $H$ は次のとおりです。右側は4本の観測差から未知修正量を解いて得る逆行列です。
 
 $$
 H=\begin{pmatrix}-1&0&0&1\\1&0&0&1\\0&-1&0&1\\0&0&-1&1\end{pmatrix},\quad
@@ -188,7 +190,14 @@ H^{-1}=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-第1・2行の和と差で時計と $x$ の修正を解き、その時計を第3・4行へ代入すれば逆行列を直接得られます。従って
+第1・2行の和と差で時計と $x$ の修正を解き、その時計を第3・4行へ代入すれば逆行列を直接得られます。実際に $H^{-1}H=I_4$ となるため $H$ は列階数4で、DOP の定義条件を満たします。また、この正方かつ可逆な行列について
+
+$$
+(H^{\mathsf T}H)\bigl(H^{-1}(H^{-1})^{\mathsf T}\bigr)
+=H^{\mathsf T}(H^{-1})^{\mathsf T}=I_4
+$$
+
+となるので、$(H^{\mathsf T}H)^{-1}=H^{-1}(H^{-1})^{\mathsf T}$ です。これにより
 
 $$
 Q=H^{-1}(H^{-1})^{\mathsf T}
@@ -299,14 +308,23 @@ $$
 これを $j=s$ と $j=t$ で引くと、共通の $c(\delta t_B-\delta t_A)$ も消え、主張が従います。相殺するのは**同じ時点に共通な時計項**であり、非同時観測の時計変動や受信機ごとに異なる衛星時計相当の補正を無条件に消してよいわけではありません。
 <!-- proof-end -->
 
-搬送波位相なら $D_r^j=T_r^j-I_r^j+\lambda N_r^j+\beta_r^j+\varepsilon_{L,r}^j$ です。同じ波長 $\lambda$ を使い、位相ハードウェアバイアス等が適切に相殺または較正されている理想化では、二重差の整数部分は
+搬送波位相なら $D_r^j=T_r^j-I_r^j+\lambda N_r^j+\beta_r^j+\varepsilon_{L,r}^j$ です。同じ波長 $\lambda$ を使って上で定めた[二重差](#def-geod9-double-difference)を4観測に適用すると、機器バイアス等が残る可能性を保ったまま整数部分は
 
 $$
-N_{AB}^{st}=(N_B^s-N_A^s)-(N_B^t-N_A^t)\in\mathbb Z,
-\qquad
-\nabla\Delta L=\nabla\Delta\rho+\nabla\Delta(T-I)
-+\lambda N_{AB}^{st}+\nabla\Delta(\beta+\varepsilon_L).
+N_{AB}^{st}=(N_B^s-N_A^s)-(N_B^t-N_A^t)\in\mathbb Z
 $$
+
+となり、位相観測の二重差は
+
+$$
+\begin{aligned}
+\nabla_{st}\Delta_{AB}L
+&=\nabla_{st}\Delta_{AB}\rho+\nabla_{st}\Delta_{AB}(T-I)\\
+&\quad+\lambda N_{AB}^{st}+\nabla_{st}\Delta_{AB}(\beta+\varepsilon_L)
+\end{aligned}
+$$
+
+です。ここでは二重差の衛星・受信機添字を省略せず、差を取る順序を固定しています。
 
 単独測位は一般に受信機の位置・時計を直接推定し、相対測位は局間のベースラインに差分観測を結び付けます。近接局なら大気・軌道の共通部分が**近似的**に小さくなることがありますが、差分が常に大気遅延を完全相殺するわけではありません。差を取れば観測誤差間に相関が生じることもあり、[GEOD8の重み行列](../GEOD8/index.md#def-geod8-weight)を無修正で再利用してはいけません。
 
@@ -317,6 +335,15 @@ $$
 GNSSから得る地心直交座標は、衛星軌道・地上基準局を結ぶ基準枠の中で意味を持ちます。[GEOD2の基準座標系の実現](../GEOD2/index.md#def-geod2-reference-frame)と[座標時点](../GEOD2/index.md#def-geod2-coordinate-epoch)を思い出してください。ITRS は地球を対象とする国際的な参照の定義体系であり、ITRF はその実現の一つです。ITRF の解では位置だけでなく局の速度や時系列も扱います。異なる実現（realization）と座標時点（epoch）の数値を、同じ物理点の同時点座標として比べてはいけません。
 
 短い期間・安定した局では、基準時点 $t_0$ の座標 $\boldsymbol r_0$（m）と速度 $\boldsymbol v$（m/年）から、年単位の経過時間 $t-t_0$ による**線形位置模型**を用いることがあります。
+
+ここでプライムは時点 $t$ に関する通常の微分で、成分ごとの Leibniz 記法とは次のように対応します（$k=1,2,3$）。
+
+$$
+\boldsymbol r'(t)=\frac{d\boldsymbol r(t)}{dt},\qquad
+r_k'(t)=\frac{dr_k}{dt}.
+$$
+
+第2節の位置成分 $r_k$ による偏微分 $\partial\rho/\partial r_k$ とは、微分する変数が異なります。
 
 <a id="prop-geod9-coordinate-epoch"></a>
 <!-- formal-statement-start -->
@@ -335,10 +362,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各成分 $k=1,2,3$ で $dr_k/dt=v_k$ です。両辺を $t_0$ から $t$ まで積分し、左辺を原始関数の差で評価すると
+各成分 $k=1,2,3$ で $dr_k/dt=v_k$ です。積分変数を $\tau$ として両辺を $t_0$ から $t$ まで積分し、左辺を原始関数の差で評価すると
 
 $$
-r_k(t)-r_k(t_0)=\int_{t_0}^t v_k\,d\tau=v_k(t-t_0).
+r_k(t)-r_k(t_0)=\int_{t_0}^t r_k'(\tau)\,d\tau
+=\int_{t_0}^t v_k\,d\tau=v_k(t-t_0).
 $$
 
 3成分を並べれば主張が得られます。途中で速度が変化するなら積分の中を定数として外へ出せません。
@@ -508,7 +536,14 @@ $$
 
 #### B3. 二重差と整数の再構成
 
-2受信機 $A,B$ と2衛星 $s,t$ の同時・同信号の位相距離 $L$ を考える。各観測に同じ形式の時計項 $c\delta t_r-c\delta t^j$ があることから、二重差で消える項を4式から導け。波長が $\lambda=0.20$ mで、位相整数が $N_A^s=2,N_B^s=5,N_A^t=1,N_B^t=1$ なら、二重差の整数と距離寄与を求めよ。大気・機器残差の相殺は仮定しない。
+2受信機 $A,B$ と2衛星 $s,t$ の同時・同信号の位相距離 $L$ を考える。各観測に同じ形式の時計項 $c\delta t_r-c\delta t^j$ があることから、二重差で消える項を4式から導け。波長と位相整数を
+
+$$
+\lambda=0.20\ \mathrm m,\quad
+(N_A^s,N_B^s,N_A^t,N_B^t)=(2,5,1,1)
+$$
+
+としたとき、二重差の整数と距離寄与を求めよ。大気・機器残差の相殺は仮定しない。
 
 - Level: B
 - ID: GEOD9-B3
@@ -586,9 +621,25 @@ $$
    H=\begin{pmatrix}-1&0&0&1\\1&0&0&1\\0&-1&0&1\\0&0&-1&1\end{pmatrix}.
    $$
 
-   第1・2行の和・差、さらに第3・4行を使って順に時計、$x,y,z$ を解けるため $\operatorname{rank}H=4$ です。$-\delta x+\delta B=5$ と $\delta x+\delta B=1$ から $\delta B=3$ m、$\delta x=-2$ m。残りの行から $\delta y=1$ m、$\delta z=0$ mです。従って $\widehat{\boldsymbol\delta}=(-2,1,0,3)^{\mathsf T}$ m、$H\widehat{\boldsymbol\delta}=\boldsymbol b$ で一次残差は零です。**観測数と未知数が等しいため、残差が零でも誤差がない証拠になりません。**
+   第1・2行の和・差、さらに第3・4行を使って順に時計、$x,y,z$ を解けるため $\operatorname{rank}H=4$ です。最初の2行を加減すると
 
-2. [GNSS の位置・時計の DOP](#def-geod9-dop)の定義で $Q=(H^{\mathsf T}H)^{-1}$ を作ります。各行を解く逆行列の式は $\delta x=(b_2-b_1)/2$、$\delta y=(b_1+b_2)/2-b_3$、$\delta z=(b_1+b_2)/2-b_4$、$\delta B=(b_1+b_2)/2$ です。その係数行列を $H^{-1}$ とし、$Q=H^{-1}(H^{-1})^{\mathsf T}$ から対角 $(1/2,3/2,3/2,1/2)$ を得ます。$\sigma_P^2=0.25\ \mathrm m^2$ を掛けて共分散の対角は
+   $$
+   -\delta x+\delta B=5,\quad \delta x+\delta B=1
+   \quad\Longrightarrow\quad \delta B=3,\ \delta x=-2.
+   $$
+
+   残りの行から $\delta y=1$ m、$\delta z=0$ mです。従って $\widehat{\boldsymbol\delta}=(-2,1,0,3)^{\mathsf T}$ m、$H\widehat{\boldsymbol\delta}=\boldsymbol b$ で一次残差は零です。**観測数と未知数が等しいため、残差が零でも誤差がない証拠になりません。**
+
+2. [GNSS の位置・時計の DOP](#def-geod9-dop)の定義で $Q=(H^{\mathsf T}H)^{-1}$ を作ります。逆行列に対応する4つの解は
+
+   $$
+   \begin{aligned}
+   \delta x&=(b_2-b_1)/2,&\delta y&=(b_1+b_2)/2-b_3,\\
+   \delta z&=(b_1+b_2)/2-b_4,&\delta B&=(b_1+b_2)/2.
+   \end{aligned}
+   $$
+
+   その係数行列を $H^{-1}$ とし、$Q=H^{-1}(H^{-1})^{\mathsf T}$ から対角 $(1/2,3/2,3/2,1/2)$ を得ます。$\sigma_P^2=0.25\ \mathrm m^2$ を掛けて共分散の対角は
 
    $$
    (0.125,0.375,0.375,0.125)\ \mathrm m^2.
