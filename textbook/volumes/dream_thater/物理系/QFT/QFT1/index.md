@@ -217,7 +217,7 @@ $$
 > 質量パラメータ $m\ge0$ を一定とする実スカラー場 $\phi\in C^2(\Omega)$ が満たす線形方程式
 
 $$
-=(-\Box+m^2)\phi
+(-\Box+m^2)\phi
 =\partial_t^2\phi-\Delta\phi+m^2\phi=0
 $$
 
