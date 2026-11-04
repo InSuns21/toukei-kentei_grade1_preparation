@@ -16,3 +16,4 @@
 13. [QCURV13 Boulware・Unruh・Hartle–Hawking状態と地平線の正則性](textbook/volumes/dream_thater/物理系/QCURV/QCURV13/index.md)
 14. [QCURV14 Unruh・Hawking・Tolman則と観測者の温度](textbook/volumes/dream_thater/物理系/QCURV/QCURV14/index.md)
 15. [QCURV15 Hadamard差引きと局所観測量・エネルギー流束](textbook/volumes/dream_thater/物理系/QCURV/QCURV15/index.md)
+16. [QCURV16 二次元共形模型・trace anomaly・Schwarzian流束](textbook/volumes/dream_thater/物理系/QCURV/QCURV16/index.md)
