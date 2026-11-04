@@ -501,10 +501,10 @@ $$
 > さらに $\widehat{\boldsymbol p}-\boldsymbol p_*$ が平均0、共分散 $C_p$ の2次元正規分布に従い、$C_p$ が既知なら、真の位置 $\boldsymbol p_*$ が $E_k$ に入る確率は
 
 $$
-P(\boldsymbol p_*\in E_k)=1-\exp(-k^2/2)
+\Pr(\boldsymbol p_*\in E_k)=1-\exp(-k^2/2)
 $$
 
-> である。
+> である。ここで $\Pr(\cdot)$ は確率を表し、重み行列 $P$ とは区別する。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 固有ベクトルを座標軸にすると、二次形式は二つの平方の和です。確率は標準正規変数2個の二乗和を極座標で積分します。
