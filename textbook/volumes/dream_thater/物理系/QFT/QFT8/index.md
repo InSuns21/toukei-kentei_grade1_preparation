@@ -16,7 +16,9 @@ p\cdot x=-E_{\boldsymbol p}t+\boldsymbol p\cdot\boldsymbol x,\quad
 d\mu(\boldsymbol p)=\frac{d^3p}{(2\pi)^3}
 $$
 
-です。$\gamma^\mu$ は[QFT7のClifford行列](../QFT7/index.md#def-qft7-clifford)、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)で用いた行列を、本章ではエネルギー演算子 $H$ と区別して $\beta=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ と書き、$\bar\psi=\psi^\dagger\beta$ と定義します。$\psi$ は今度は作用素値**分布**になります。以下の点 $x$ における式や $b_s(\boldsymbol p)$ は波束で積分するための記法であり、点での有界作用素を意味しません。真空期待値は、内積第1変数線形の規約で $\omega_0(A)=\langle A\Omega,\Omega\rangle$ と書きます。
+です。$\gamma^\mu$ は[QFT7のClifford行列](../QFT7/index.md#def-qft7-clifford)、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)で用いた行列を、本章ではエネルギー演算子 $H$ と区別して $\beta=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ と書き、$\bar\psi=\psi^\dagger\beta$ と定義します。
+
+$\psi$ は今度は作用素値**分布**になります。以下の点 $x$ における式や $b_s(\boldsymbol p)$ は波束で積分するための記法であり、点での有界作用素を意味しません。真空期待値は、内積第1変数線形の規約で $\omega_0(A)=\langle A\Omega,\Omega\rangle$ と書きます。
 
 ## 1. 反対称な多粒子状態と生成・消滅演算子
 
