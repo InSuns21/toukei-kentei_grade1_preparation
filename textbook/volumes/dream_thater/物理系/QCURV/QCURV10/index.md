@@ -37,7 +37,11 @@ $$
 
 ### どの周波数が「正」なのか
 
-[QCURV3のBogoliubov変換の定義](../QCURV3/index.md#def-qcurv3-bogoliubov)では、モードの正負を指定した時間に関して区別しました。ここでは入射側で $e^{-i\omega'v}$（$\omega'>0$）を正周波数、出射側で $e^{-i\omega u}$（$\omega>0$）を正周波数とします。$\omega',\omega$ はそれぞれ遠方で測る角周波数で、同じ数と仮定しません。これは $\mathscr I^-$ 上の **in** と $\mathscr I^+$ 上の **out** を識別する規約です。未来地平線へ落ちるモードも存在するため、$\mathscr I^+$ の出射モードだけで全解空間が完備になるとは主張しません。
+[QCURV3のBogoliubov変換の定義](../QCURV3/index.md#def-qcurv3-bogoliubov)では、モードの正負を指定した時間に関して区別しました。ここでは入射側と出射側で、正周波数の基準を別々に取ります。
+
+入射側では $e^{-i\omega'v}$（$\omega'>0$）、出射側では $e^{-i\omega u}$（$\omega>0$）を正周波数とします。$\omega',\omega$ はそれぞれ遠方で測る角周波数で、同じ数と仮定しません。
+
+これは $\mathscr I^-$ 上の **in** と $\mathscr I^+$ 上の **out** を識別する規約です。未来地平線へ落ちるモードも存在するため、未来零無限遠の出射モードだけで全解空間が完備になるとは主張しません。
 
 ## 2. 入射する薄殻を横切る光線を追う
 
@@ -121,7 +125,15 @@ u&=v_0-2r_*(r_c)\\
 \end{aligned}
 $$
 
-対数の引数は $v_{\rm in}<v_H$ により正です。微分すれば $du/dv_{\rm in}=1+4M/(v_H-v_{\rm in})>0$。$v_{\rm in}\to-\infty$ では線形項が負の無限大、対数項も負の無限大になるので $u\to-\infty$。$v_{\rm in}\uparrow v_H$ では対数が $-\infty$ となり $u\to+\infty$。連続性・狭義単調性により全単射です。境界 $r_c=2M$ は[GR29のSchwarzschild地平線](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)の出射境界であり、後の光線を有限時刻の出射光として扱えません。$\square$
+対数の引数は $v_{\rm in}<v_H$ により正です。微分すれば
+
+$$
+\frac{du}{dv_{\rm in}}=1+\frac{4M}{v_H-v_{\rm in}}>0.
+$$
+
+$v_{\rm in}\to-\infty$ では線形項が負の無限大、対数項も負の無限大になるので $u\to-\infty$。一方 $v_{\rm in}\uparrow v_H$ では対数が $-\infty$ となり $u\to+\infty$。連続性・狭義単調性により全単射です。
+
+境界 $r_c=2M$ は[GR29のSchwarzschild地平線](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)の出射境界であり、後の光線を有限時刻の出射光として扱えません。$\square$
 <!-- proof-end -->
 
 この模型の写像は[QCURV9のKruskal座標変換](../QCURV9/index.md#thm-qcurv9-compression)とは違います。後者は一つの静的外部における $u\mapsto U$、前者は**殻の内側から外側まで接続して** $v_{\rm in}\mapsto u$ を求めたものです。同じ指数の係数が現れる理由を次に調べます。
