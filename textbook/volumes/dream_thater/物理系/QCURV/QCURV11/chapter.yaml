@@ -1,0 +1,41 @@
+id: QCURV11
+title: "Hawking温度を生むFourier積分と後期波束"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV10
+  - QCURV3
+  - CA11
+official_scope: []
+learning_objectives:
+  - 崩壊光線の指数写像と正負Fourier–Bogoliubov係数の関係を、KG規格化と周波数の符号を区別して説明できる
+  - 指数変数への置換とGamma積分の正則化・複素冪の枝から両振幅を導出できる
+  - Gamma反射公式を使って正負係数の二乗比とPlanck因子を計算し、遠方規格化のHawking温度を求められる
+  - 単色連続モードの発散と正規化波束のsinc局在を区別し、狭帯域の後期波束占有数を積分で再構成できる
+  - 4次元の灰色体因子、初期過渡、超高入射周波数の問題を計算の適用条件として説明できる
+definitions:
+  - { id: QCURV11-DEF-01, name: 脱出光線のFourier–Bogoliubov係数 }
+  - { id: QCURV11-DEF-02, name: 後期出射波束の混合係数と占有数 }
+theorems:
+  - { id: QCURV11-THM-01, name: 指数光線写像のGamma型振幅 }
+  - { id: QCURV11-THM-02, name: Hawkingの熱因子と温度 }
+  - { id: QCURV11-PROP-01, name: 狭帯域・後期波束のPlanck占有数 }
+canonical_examples:
+  - 平坦な線形光線写像の正負周波数分解
+  - 指数置換の二つの複素減衰率と枝の検算
+  - Schwarzschild質量に対するHawking温度
+  - sinc波束積分による連続モードの対数発散の解消
+problem_patterns:
+  - QCURV11-EXPONENTIAL-SUBSTITUTION
+  - QCURV11-GAMMA-BRANCH
+  - QCURV11-HAWKING-TEMPERATURE
+  - QCURV11-TRANSPLANCKIAN-CENTER
+  - QCURV11-GAMMA-MODULUS
+  - QCURV11-WAVEPACKET-NORMALIZATION
+  - QCURV11-LINEAR-MAP-COUNTEREXAMPLE
+  - QCURV11-LATE-TIME-ASSUMPTIONS
+  - QCURV11-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }

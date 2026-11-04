@@ -1,0 +1,34 @@
+chapter: QCURV11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV10
+  - QCURV3
+  - CA11
+forward_references: []
+concepts:
+  - id: qcurv.hawking-fourier-bogoliubov
+    name: 脱出光線のFourier–Bogoliubov係数
+    kind: definition
+    introduction: formal
+    requires: [qcurv.collapse-ray-map, qcurv.asymptotic-inout-packets, qcurv.bogoliubov-coefficients]
+  - id: qcurv.hawking-gamma-amplitude
+    name: 指数光線写像のGamma型振幅
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.hawking-fourier-bogoliubov, qcurv.collapse-late-exponential]
+  - id: qcurv.hawking-thermal-ratio
+    name: Hawkingの熱因子と温度
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.hawking-gamma-amplitude]
+  - id: qcurv.hawking-packet-mixing
+    name: 後期出射波束の混合係数と占有数
+    kind: definition
+    introduction: formal
+    requires: [qcurv.hawking-fourier-bogoliubov, qcurv.asymptotic-inout-packets]
+  - id: qcurv.hawking-late-packet-planck
+    name: 狭帯域・後期波束のPlanck占有数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.hawking-packet-mixing, qcurv.hawking-thermal-ratio]

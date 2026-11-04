@@ -46,3 +46,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV10
     status: completed
     title: "崩壊時空のin/out光線と波束"
+  - id: QCURV11
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV11
+    status: completed
+    title: "Hawking温度を生むFourier積分と後期波束"
