@@ -32,7 +32,15 @@ $$
 <!-- definition-example-start: def-qcurv19-de-sitter-flat -->
 ### 直接例：スケール因子と曲率を自分で確かめる
 
-$H=1/L$（$L>0$ は長さ）を選ぶと、$t=0$ で $a=1$、$t=L\log2$ で $a=2$ です。$d\eta/dt=e^{-Ht}=1/a>0$ で、$\eta(0)=-L$、$\eta(L\log2)=-L/2$ となります。[QCURV4の曲率公式](../QCURV4/index.md#prop-qcurv4-mode)に $a(\eta)=-(H\eta)^{-1}$ を代入すると
+$H=1/L$（$L>0$ は長さ）を選ぶと、$t=0$ で $a=1$、$t=L\log2$ で $a=2$ です。共形時間への変換では
+
+$$
+\frac{d\eta}{dt}=e^{-Ht}=\frac1a>0,\qquad
+\eta(0)=-L,\qquad
+\eta(L\log2)=-\frac L2
+$$
+
+となります。以下のプライム $'$ は共形時間 $\eta$ による微分であり、$d/dt=a^{-1}d/d\eta$ です。[QCURV4の曲率公式](../QCURV4/index.md#prop-qcurv4-mode)に $a(\eta)=-(H\eta)^{-1}$ を代入すると
 
 $$
 a'=\frac1{H\eta^2},\qquad
@@ -54,7 +62,9 @@ $$
 
 その時刻での固有距離は $a(t_0)e^{-Ht_0}/H=H^{-1}$ です。この距離は、中心の観測者へ将来信号を送れる範囲の境界を予告します。ただし「時刻一定面上の距離」と「観測者の固有加速度」は別物です。
 
-中心を固定して見るには、共動半径 $\rho=|\boldsymbol x|$ の代わりに固有半径 $r=e^{Ht}\rho$ を用います。中心の時計で測る新しい時間を $T$ と書きます。次の静的表示は $0\le r<H^{-1}$ の内部だけで成り立ちます。
+中心を固定して見るには、共動半径 $\rho=|\boldsymbol x|$ の代わりに固有半径 $r=e^{Ht}\rho$ を用います。中心の時計で測る新しい時間を $T$ と書きます。
+
+$\partial_T$ は空間座標 $(r,\theta,\varphi)$ を固定して $T$ を動かす座標ベクトルです。計量成分がこの時間に依存しなければ、[GR14の座標によるKilling判定](../../GR/GR14/index.md#prop-gr14-killing-coordinate-test)からKilling場になります。次の静的表示は地平線の内側 $0\le r<H^{-1}$ だけで成り立ちます。
 
 <a id="def-qcurv19-static-patch"></a>
 
@@ -73,9 +83,21 @@ $$
 <!-- definition-example-start: def-qcurv19-static-patch -->
 ### 直接例：中心と半径 $r=(\sqrt2H)^{-1}$ の時計
 
-中心では $f(0)=1$、$d\tau=dT$ で、静的時刻の規格化が確定します。$r=(\sqrt2H)^{-1}$ は地平線内にあり、$f=1/2$、$d\tau=dT/\sqrt2$ です。いずれも $f>0$ のため $\partial_T$ は時間的です。一方 $r\to H^{-1}$ で $f\to0$ となり、$r$ を固定した観測者の世界線は地平線上まで時間的なまま延ばせません。
+中心では $f(0)=1$、$d\tau=dT$ で、静的時刻の規格化が確定します。半径 $r=(\sqrt2H)^{-1}$ は地平線内にあり、$f=1/2$、$d\tau=dT/\sqrt2$ です。
 
-**定義の確認**：$g_{TT}=-f<0$、$g_{rr}=1/f>0$、角方向の計量は正です（球座標の軸では別座標を使います）。これで静的パッチの範囲、Lorentz符号、静止時計の条件を確認しました。
+いずれも $f>0$ のため $\partial_T$ は時間的です。一方、$r\to H^{-1}$ で $f\to0$ となり、半径を固定した観測者の世界線は地平線上まで時間的なまま延ばせません。
+
+**定義の確認**：計量成分とは線素 $ds^2=g_{\mu\nu}dx^\mu dx^\nu$ の各係数です。上の対角表示から
+
+$$
+g_{TT}=-f<0,\qquad g_{rr}=\frac1f>0,\qquad
+g_{\theta\theta}=r^2,\qquad
+g_{\varphi\varphi}=r^2\sin^2\theta
+$$
+
+と読めます。角方向の二成分は $r>0$ かつ $0<\theta<\pi$ で正です。中心や球座標の軸では座標自体が退化するため、そこで計量が退化すると判断せず局所Cartesian座標を用います。
+
+どの成分も $T$ に依存しないので、先ほどのKilling判定も満たします。これで静的パッチの範囲、Lorentz符号、静止時計、時間並進対称性の条件を確認しました。
 <!-- definition-example-end -->
 
 <a id="prop-qcurv19-static-transform"></a>
@@ -125,6 +147,8 @@ $$
 
 したがって $ds^2=-f\,dT^2+f^{-1}dr^2+r^2d\Omega_2^2$ です。変換は $f>0$ で滑らかで、$r=0$ では対数項が零になります。
 <!-- proof-end -->
+
+静的計量で半径方向の零曲線に $ds^2=0$ を課すと $dr/dT=\pm f(r)$ です。$r_H=H^{-1}$ の内側では $f(r)>0$、境界へ近付くと $f(r)\sim2H(r_H-r)\to0$ となります。したがって静的時計での到達時間 $\int dr/f(r)$ は対数的に発散し、境界で $g(\partial_T,\partial_T)=-f\to0$ となります。前述の光の到達半径 $H^{-1}$ とも一致し、これが中心観測者の地平線に対応します。
 
 地平線の表面重力は、中心で $\partial_T$ の長さを1に規格化した静的計量では $\kappa=|f'(H^{-1})|/2=H$ です。[QCURV9のSchwarzschild表面重力](../QCURV9/index.md#prop-qcurv9-kappa)とは規格化の基準が異なり、de Sitterには静的パッチの外に漸近平坦な無限遠がありません。
 
@@ -244,7 +268,24 @@ $$
 
 最後の積分は $\epsilon>0$ で収束させ、$\sin(kR_x)$ を二つの指数関数へ分けて積分したものです。$R_x\to0$ も分布極限で定義します。$a^{-1}(\eta)a^{-1}(\eta')=H^2\eta\eta'$ を掛ければ第一式です。
 
-$1-Z=[R_x^2-(\Delta\eta)^2]/(2\eta\eta')$ を代入すれば第二式が従います。埋込み五次元Minkowski計量の超曲面 $-X_0^2+\sum_{i=1}^4X_i^2=H^{-2}$ に対して $Z=H^2\eta_{AB}X^A(x)X^B(x')$ であるため、非光的な式はde Sitter等長変換で不変です。$i\epsilon$ は時間順序を区別する境界値です。
+$1-Z=[R_x^2-(\Delta\eta)^2]/(2\eta\eta')$ を代入すれば第二式が従います。ここでこの $Z$ が座標に依存しない理由も確認します。五次元Minkowski空間の計量を $-dX_0^2+\sum_{i=1}^4dX_i^2$ とし、平坦パッチを
+
+$$
+\begin{aligned}
+X_0&=-\frac{1-H^2\eta^2+H^2|\boldsymbol x|^2}{2H^2\eta},\\
+X_4&=-\frac{1+H^2\eta^2-H^2|\boldsymbol x|^2}{2H^2\eta},\\
+(X_1,X_2,X_3)&=-\frac{\boldsymbol x}{H\eta}
+\end{aligned}
+$$
+
+と埋め込みます。$X_0+X_4=-1/(H^2\eta)$、$X_4-X_0=-\eta+|\boldsymbol x|^2/\eta$ なので $-X_0^2+\sum_{i=1}^4X_i^2=H^{-2}$ です。さらに二点の五次元内積を展開すると
+
+$$
+H^2\left[-X_0X'_0+\sum_{i=1}^4X_iX'_i\right]
+=1+\frac{(\eta-\eta')^2-|\boldsymbol x-\boldsymbol x'|^2}{2\eta\eta'}=Z.
+$$
+
+したがって非光的な二点関数の表示はde Sitter等長変換で不変です。$i\epsilon$ は時間順序を区別する境界値であり、有限の $\epsilon$ における座標不変性まで主張するものではありません。
 
 中心では $\eta(t)\eta(t')=H^{-2}e^{-H(t+t')}$ および
 
@@ -253,7 +294,7 @@ $$
 =\frac2H e^{-H(t+t')/2}\sinh\!\left(\frac{H(t-t')}{2}\right).
 $$
 
-これを第一式の $R_x=0$ に代入し、正の時間依存因子を打ち消すと最後の双曲正弦表示を得ます。$i\epsilon$ は変換後も正しい正周波数境界値として理解します。
+これを第一式の $R_x=0$ に代入し、正の時間依存因子を打ち消すと最後の双曲正弦表示を得ます。有限の $\epsilon$ を同じ数値のまま $s$ に移すのではありません。平均時刻 $(t+t')/2$ を固定して $s\to0$ とすると $\Delta\eta=e^{-H(t+t')/2}(s+O(s^3))$ で係数が正なので、分布の境界値 $\Delta\eta-i0$ が $s-i0$ に対応します。
 <!-- proof-end -->
 
 ### 直接確認：非常に短い固有時間では平坦時空へ戻る
@@ -333,7 +374,7 @@ $$
 =\frac{i\Omega}{4\pi^2}e^{-i\Omega s_n}.
 $$
 
-$\Omega>0$ の場合、$e^{-i\Omega s}$ は下半平面で減衰します。下向きに閉じた輪郭は時計回りで、囲む極は $n=-1,-2,\dots$ です。輪郭の大きな水平・垂直部分を避ける通常の極限を取り、$\epsilon\downarrow0$ とすると
+$\Omega>0$ の場合、$e^{-i\Omega s}$ は下半平面で減衰します。下向きに閉じた輪郭は時計回りで、囲む極は $n=-1,-2,\dots$ です。積分路を実軸から虚部 $-Y_N$ へ下げ、$Y_N=(2N+1)\pi/H$ とすると、下辺では $|\sinh[H(s-i\epsilon)/2]|^{-2}$ が実部方向で積分可能な $\cosh^{-2}$ 型になり、指数因子は $e^{-\Omega Y_N}$ で減衰します。幅 $R\to\infty$ の左右辺も $\sinh^{-2}$ の実部方向の指数減衰により消えます。まず $R\to\infty$、次に $N\to\infty$、最後に $\epsilon\downarrow0$ として留数の和を取ると
 
 $$
 \begin{aligned}
@@ -367,7 +408,7 @@ $$
 
 ## 5. 中心以外の静止時計では温度はどう変わるか
 
-半径 $r$ を保つ静止観測者は $d\tau=\sqrt f\,dT$ と進みます。先ほどの温度は中心の時計 $T$ での値でした。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)を使うには、状態が静的時間に関してKMS性を持ち、かつ $f>0$ の静止世界線を測定するという条件が必要です。この模型では二点関数からも直接確認できます。
+半径 $r$ を保つ静止観測者は $d\tau=\sqrt f\,dT$ と進みます。先ほどの温度は中心の時計 $T$ での値でした。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)はSchwarzschild背景についての定理なので、その結論を別の時空へ無条件に代入はしません。ここでは $f>0$ と固有時計の変換を確かめたうえで、Bunch–Davies状態の二点関数から静的時間のKMS性と局所温度を検査します。
 
 de Sitterの五次元平坦空間への埋込みを考えます。五次元の計量を $-dX_0^2+\sum_{i=1}^4dX_i^2$ とし、超曲面 $-X_0^2+\sum_{i=1}^4X_i^2=H^{-2}$ を取ります。静的パッチで $f=1-H^2r^2$、単位方向ベクトル $\boldsymbol n$ に対して
 
@@ -391,7 +432,19 @@ W_r(s)=-\frac{H^2}{16\pi^2 f}
 \frac1{\sinh^2[H(s-i0)/(2\sqrt f)]}.
 $$
 
-中心の式の $H$ を $H/\sqrt f$ に置き換えた形です。なお $r=0$ 以外の静止世界線は測地線ではありません。
+中心の式の $H$ を $H/\sqrt f$ に置き換えた形です。$\lambda=H/\sqrt f$ とし、境界値の元となる解析関数を
+
+$$
+w(z)=-\frac{\lambda^2}{16\pi^2\sinh^2(\lambda z/2)}
+$$
+
+と置きます。この関数は $-2\pi/\lambda<\operatorname{Im}z<0$ で極を持ちません。恒等式 $\sinh(z-i\pi)=-\sinh z$ により、帯の両境界では
+
+$$
+w(s-i2\pi/\lambda+i0)=w(-s-i0)
+$$
+
+が成立します。これは[QCURV8のKMS条件](../QCURV8/index.md#def-qcurv8-kms)で、固有時の逆温度は $2\pi/\lambda$ です。なお中心以外の静止世界線は測地線ではありません。
 
 <a id="prop-qcurv19-local-temperature"></a>
 
@@ -681,9 +734,25 @@ $k=0$ の形式方程式 $\chi_0''-2\chi_0/\eta^2=0$ に $\chi_0=\eta^p$ を入�
 <!-- solution-start -->
 **詳細解答**：
 
-(a) $d\eta=e^{-Ht}dt$ を積分して、未来端で零になる定数を選ぶと $\eta=-e^{-Ht}/H$、$a=-(H\eta)^{-1}$ です。$a''/a=2/\eta^2$ で、$m=0$、$\xi=1/6$ の[再スケーリング方程式](../QCURV4/index.md#prop-qcurv4-mode)のポテンシャルは $(6\xi-1)a''/a=0$。よって $\chi_k''+k^2\chi_k=0$ です。正周波数の規格化解 $e^{-ik\eta}/\sqrt{2k}$ に空間平面波 $(2\pi)^{-3/2}e^{i\boldsymbol k\cdot\boldsymbol x}$ を掛け、$a$ で割れば[状態の定義](#def-qcurv19-bunch-davies)の $u_{\boldsymbol k}$ です。
+(a) $d\eta=e^{-Ht}dt$ を積分し、未来端で零になる定数を選ぶと $\eta=-e^{-Ht}/H$、$a=-(H\eta)^{-1}$ です。[再スケーリング方程式](../QCURV4/index.md#prop-qcurv4-mode)で $m=0$、$\xi=1/6$ を使えば
 
-(b) 真空収縮から $W=[aa']^{-1}\int d^3k\,e^{-ik(\eta-\eta'-i0)+i\boldsymbol k\cdot\Delta\boldsymbol x}/[(2\pi)^3\,2k]$。中心では角度積分後に
+$$
+\frac{a''}{a}=\frac2{\eta^2},\qquad
+(6\xi-1)\frac{a''}{a}=0,\qquad
+\chi_k''+k^2\chi_k=0.
+$$
+
+正周波数の規格化解 $e^{-ik\eta}/\sqrt{2k}$ に空間平面波 $(2\pi)^{-3/2}e^{i\boldsymbol k\cdot\boldsymbol x}$ を掛け、$a$ で割れば[状態の定義](#def-qcurv19-bunch-davies)の $u_{\boldsymbol k}$ です。
+
+(b) 真空収縮から、異なる二時刻のスケール因子を明示して
+
+$$
+W=\frac1{a(\eta)a(\eta')}
+\int_{\mathbb R^3}\frac{d^3k}{(2\pi)^3\,2k}\,
+e^{-ik(\eta-\eta'-i0)+i\boldsymbol k\cdot\Delta\boldsymbol x}
+$$
+
+を得ます。ここで $a(\eta')$ は第二の時刻で評価した値であり、$a'=da/d\eta$ という微分記号ではありません。中心では角度積分後に
 
 $$
 W=-\frac{H^2\eta\eta'}{4\pi^2(\eta-\eta'-i0)^2}.
