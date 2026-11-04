@@ -50,3 +50,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV11
     status: completed
     title: "Hawking温度を生むFourier積分と後期波束"
+  - id: QCURV12
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV12
+    status: completed
+    title: "Schwarzschild散乱障壁と灰色体因子"
