@@ -4,7 +4,9 @@
 
 本講では重い $W$ の仮想交換を低運動量で展開し、四つのフェルミオン場が同じ点で結合する近似を得ます。係数は電弱真空期待値 $v$ と結ばれます。さらに、ミューオン崩壊のスピン和と三体位相空間を一続きで積分し、どこまでが木レベルの予言で、どこから質量・放射・ハドロンの補正が必要かを確かめます。
 
-時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ です。$g>0$、$m_W=gv/2>0$、フェルミオン運動項は正準規格化されているとします。[QFT32のカイラリティと射影子](../QFT32/index.md#def-qft32-chirality)に従い $P_L=(1-\gamma^5)/2$ を用い、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)に従って $\overline\psi=\psi^\dagger H$、$H=-i\gamma^0$ とします。Lorentz添字の上下は $\eta$ で移し、同じ添字の上下反復は $0,1,2,3$ について和を取ります。
+時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ です。$g>0$、$m_W=gv/2>0$、フェルミオン運動項は正準規格化されているとします。
+
+[QFT32のカイラリティと射影子](../QFT32/index.md#def-qft32-chirality)に従い $P_L=(1-\gamma^5)/2$ を用い、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)に従って $\overline\psi=\psi^\dagger H$、$H=-i\gamma^0$ とします。Lorentz添字の上下は $\eta$ で移し、同じ添字の上下反復は $0,1,2,3$ について和を取ります。
 
 以下で $W$ の消去、四フェルミオン振幅、崩壊率を主張するのは**木レベル**です。$q$ は交換される仮想 $W$ の四元運動量で、$q^2=\eta_{\mu\nu}q^\mu q^\nu$ とします。$|q^2|\ll m_W^2$ かつ外部フェルミオンの各質量 $m_f$ も $m_W$ より十分小さい領域で扱い、遠方境界では部分積分の表面項が消えるとします。
 
@@ -457,7 +459,11 @@ $$
 - 問題：$M^2>0$、$a\in\mathbb R$ に対し $(-+++)$ での重い複素ベクトルの代数的な一成分模型 $\mathcal L=-M^2X^*X+a(XJ+X^*J^*)$ を考える。$X,X^*$ の停留条件を求め、代入後の $J^*J$ の係数を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：$\partial\mathcal L/\partial X^*=-M^2X+aJ^*=0$、$\partial\mathcal L/\partial X=-M^2X^*+aJ=0$ です。従って $X=aJ^*/M^2$、$X^*=aJ/M^2$。代入すると質量項が $-a^2J^*J/M^2$、二つの源項の和が $+2a^2J^*J/M^2$ なので、$\mathcal L_{\rm eff}=+a^2J^*J/M^2$ です。[木レベルmatching](#thm-qft38-tree-matching)の物理電流 $J_\pm$ に対する正符号と一致します。ただしこの模型の複素数の共役 $J^*$ と、Dirac随伴で定義する素の電流 $B_-$ は同一視できません。後者は $B_-=-(B_+)^\dagger$ なので、実際の電弱電流では $J_\pm=-iB_\pm$ の双方が成立し、その積が $J_+\cdot J_-=-B_+\cdot B_-$ になります。
+**詳細解答**：$\partial\mathcal L/\partial X^*=-M^2X+aJ^*=0$、$\partial\mathcal L/\partial X=-M^2X^*+aJ=0$ です。従って $X=aJ^*/M^2$、$X^*=aJ/M^2$。
+
+代入すると質量項が $-a^2J^*J/M^2$、二つの源項の和が $+2a^2J^*J/M^2$ なので、$\mathcal L_{\rm eff}=+a^2J^*J/M^2$ です。[木レベルmatching](#thm-qft38-tree-matching)の物理電流 $J_\pm$ に対する正符号と一致します。
+
+ただしこの模型の複素数の共役 $J^*$ と、Dirac随伴で定義する素の電流 $B_-$ は同一視できません。後者は $B_-=-(B_+)^\dagger$ なので、実際の電弱電流では $J_\pm=-iB_\pm$ の双方が成立し、その積が $J_+\cdot J_-=-B_+\cdot B_-$ になります。
 <!-- solution-end -->
 
 ### 演習 QFT38-A3：$P_L$ から $V-A$ への係数
