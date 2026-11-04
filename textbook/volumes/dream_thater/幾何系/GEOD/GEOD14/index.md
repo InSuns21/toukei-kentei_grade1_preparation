@@ -171,7 +171,15 @@ $$
 \simeq0.36359438.
 $$
 
-$\psi$ はラジアンそのものではない無次元の座標値です。積分を用いるなら $\psi'=M/r\simeq0.81209708$ であり、閉じた式の微分とも一致します。$M$ と $r$ の両方を計算してから比を取っても同じ値になることを検算してください。
+$\psi$ はラジアンそのものではない無次元の座標値です。この点で $1-e^2\sin^2\phi=91/100$ だから、曲率半径と緯線半径を別々に計算すると
+
+$$
+M=\frac{16/5}{(91/100)^{3/2}}\simeq3.68627635,
+\qquad
+r=\frac{5\cos30^\circ}{\sqrt{91/100}}\simeq4.53920650.
+$$
+
+よって $\psi'=M/r\simeq0.81209708$ であり、閉じた式の微分とも一致します。ここでプライムは $\phi$ に関する常微分を表します。
 
 ---
 
@@ -194,11 +202,21 @@ $$
 
 $$
 \boxed{\sin\chi=\tanh\psi,\qquad
-\tan\left(\frac\pi4+\frac\chi2\right)=e^\psi}
+\tan\left(\frac\pi4+\frac\chi2\right)=\exp(\psi)}
 $$
 
-> である。経度は同じ $\lambda$ とし、球面側の緯度・経度を $(\chi,\lambda)$ と表す。
+> である。$\exp$ は自然指数関数を表し、離心率 $e$ と区別する。経度は同じ $\lambda$ とし、球面側の緯度・経度を $(\chi,\lambda)$ と表す。
 <!-- formal-statement-end -->
+
+後者の式は、範囲 $-\pi/2<\chi<\pi/2$ で両辺が正になることを用い、
+
+$$
+\tan\left(\frac\pi4+\frac\chi2\right)
+=\sqrt{\frac{1+\sin\chi}{1-\sin\chi}}
+=\exp\bigl(\operatorname{atanh}(\sin\chi)\bigr)
+$$
+
+から得られます。ここでは指数関数を実数値の $\psi$ に適用しています。
 
 <!-- definition-example-start: def-geod14-conformal-latitude -->
 **定義の確認**（球面と楕円体）。球面 $e=0$ では前定理から $\psi=\operatorname{atanh}(\sin\phi)$ なので、$\operatorname{atanh}$ の単調性により $\chi=\phi$ です。
@@ -210,7 +228,13 @@ $$
 \simeq20.3880^\circ.
 $$
 
-この値は指定範囲 $(-90^\circ,90^\circ)$ にあり、代入すれば $\operatorname{atanh}(\sin\chi)=\psi$ が成立します。同じ点の[地心緯度](../GEOD3/index.md#prop-geod3-latitude-relation)は $\arctan((1-e^2)\tan30^\circ)\simeq20.2795^\circ$ で、等角緯度とは異なります。
+この値は指定範囲 $(-90^\circ,90^\circ)$ にあり、代入すれば $\operatorname{atanh}(\sin\chi)=\psi$ が成立します。同じ点の[地心緯度](../GEOD3/index.md#prop-geod3-latitude-relation)は
+
+$$
+\theta=\arctan((1-e^2)\tan30^\circ)\simeq20.2795^\circ
+$$
+
+で、等角緯度とは異なります。GEOD3では地心緯度を $\psi$ と記しましたが、ここでは**等角座標 $\psi$ と区別するため**、地心緯度に $\theta$ を使います。
 <!-- definition-example-end -->
 
 <a id="thm-geod14-conformal-sphere-metric"></a>
@@ -226,7 +250,7 @@ ds^2=h(\phi)^2
 h(\phi)=\frac{N(\phi)\cos\phi}{\cos\chi}>0}
 $$
 
-> と書ける。特に、$(\chi,\lambda)$ は単位球面の緯度・経度と同じ角度を持つ。$h$ は長さの次元を持ち、楕円体から半径1の球面への対応の局所倍率を定める。
+> と書ける。特に、$(\chi,\lambda)$ は単位球面の緯度・経度と同じ角度を持つ。$h$ は長さの次元を持ち、**単位球面の微小長さに対する楕円体側の微小長さの比**である。逆向きの楕円体から単位球面への局所縮尺は $1/h$ である。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** $\chi$ の定義を微分して $d\psi$ と $d\chi$ を結び、等角座標の計量へ代入します。
@@ -264,7 +288,7 @@ ds^2
 \end{aligned}
 $$
 
-係数が正であるため、$g$ と単位球面計量で測る接ベクトル間の角度は一致します。なお球面上の弧長まで同じという意味ではありません。
+係数 $h^2$ が正であるため、楕円体の計量と単位球面計量で測る接ベクトル間の角度は一致します。なお球面上の弧長まで同じという意味ではありません。
 <!-- proof-end -->
 
 ### 2.2 「緯度」の名が付いても、保存したい量が違う
@@ -313,20 +337,31 @@ $$
 > $\phi(y)$ は $\psi$ の逆関数である。
 <!-- formal-statement-end -->
 
+逆関数を使えるのは、[等角座標の導関数](#thm-geod14-isometric-integral)が $d\psi/d\phi=M/r>0$ だからです。局所的に $d\phi/dy=r/M$ と戻せるので、$\rho$ は新しい緯度座標 $y$ の関数として定まります。
+
 <!-- definition-example-start: def-geod14-complex-coordinate -->
-**定義の確認**。$a=b=R$ の赤道 $(\phi,\lambda)=(0,0)$ では $\psi=0$、$\rho=R$ で、$w=0$ です。東向きの小変化 $d\lambda=\varepsilon$ は $dw=\varepsilon$、北向きの変化 $d\psi=\varepsilon$ は $dw=i\varepsilon$ で、どちらも地表での一次長さは $R|\varepsilon|$ です。異なる向きでも内積は $R^2\operatorname{Re}(dw_1\overline{dw_2})$ だから、実軸と虚軸は直交します。実部・虚部、正の係数、元の計量との対応を直接確認できました。
+**定義の確認**。$a=b=R$ の赤道 $(\phi,\lambda)=(0,0)$ では $\psi=0$、$\rho=R$ で、$w=0$ です。東向きの小変化 $d\lambda=\varepsilon$ は $dw=\varepsilon$、北向きの変化 $d\psi=\varepsilon$ は $dw=i\varepsilon$ で、どちらも地表での一次長さは $R|\varepsilon|$ です。二つの接変位 $dw_j=dx_j+i\,dy_j$（$j=1,2$）について計量の内積を展開すると
+
+$$
+R^2(dx_1dx_2+dy_1dy_2)
+=R^2\operatorname{Re}(dw_1\overline{dw_2}).
+$$
+
+東向き $(dx,dy)=(\varepsilon,0)$ と北向き $(0,\varepsilon)$ の内積は0で、実軸と虚軸は直交します。実部・虚部、正の係数、元の計量との対応を直接確認できました。
 <!-- definition-example-end -->
 
 ### 3.2 正則関数なら角を保存できる
 
-地図平面の東・北座標をそれぞれ $E,N_p$ とし、複素数 $z=E+iN_p$ へまとめます。$z=f(w)$ が滑らかな複素写像なら、$f'(w)\ne0$ のところでは微小変位は一つの複素数による掛け算になり、回転と一様な伸縮だけが残ります。
+地図平面の東・北座標をそれぞれ $E,N_p$ とし、複素数 $z=E+iN_p$ へまとめます。添字 $p$ は[GEOD13の地図投影の定義](../GEOD13/index.md#def-geod13-projection-jacobian)と同じく、曲率半径 $N(\phi)$ と平面の北座標を区別する印です。
+
+一般の $C^1$ 級写像には複素導関数があるとは限りません。[CA1の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)に従って $f$ が正則で、かつ $f'(w)\ne0$ なら、微小変位は一つの複素数による掛け算になり、回転と一様な伸縮だけが残ります。
 
 <a id="thm-geod14-holomorphic-conformal"></a>
 <!-- formal-statement-start -->
 > **定理（正則写像と向きを保つ局所等角投影）**
 > $a\ge b>0$ の回転楕円体の非極点の開領域 $U$ を局所複素座標 $w=\lambda+i\psi(\phi)$ で表し、地図投影 $F:U\to\mathbb R^2$ が $C^1$ 級かつJacobian正則とする。$f(w)=E(x,y)+iN_p(x,y)$、$x=\lambda$、$y=\psi$ とする。
 >
-> $F$ が角度と東・北の向きを保存する必要十分条件は、$f$ が $w(U)$ 上で正則かつ $f'(w)\ne0$ であることである。このとき、[Cauchy–Riemann方程式](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)は
+> $F$ が角度と、東を第1軸・北を第2軸とする**正の向き**を保存する必要十分条件は、$f$ が $w(U)$ 上で正則かつ $f'(w)\ne0$ であることである。このとき、[Cauchy–Riemann方程式](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)は
 
 $$
 E_x=(N_p)_y,\qquad E_y=-(N_p)_x
@@ -353,7 +388,17 @@ $$
 B=\begin{pmatrix}u_x&u_y\\v_x&v_y\end{pmatrix}
 $$
 
-とします。地表計量が $\rho^2I$ なので[等角の行列判定](../GEOD13/index.md#thm-geod13-preservation-tests)により、等角であることは
+とします。ここで $u_x=\partial u/\partial x$ などの下付き添字は、もう一方の変数を固定した偏微分を表します。$B$ の第1列・第2列は、それぞれ $(dx,dy)=(1,0),(0,1)$ に対する平面変位です。
+
+入力の接変位を $d\boldsymbol v=(dx,dy)^\mathsf T$ と置きます。地表と平面での微小長さの二乗は、それぞれ
+
+$$
+ds^2=\rho^2d\boldsymbol v^\mathsf Td\boldsymbol v,
+\qquad
+dE^2+dN_p^2=d\boldsymbol v^\mathsf TB^\mathsf TBd\boldsymbol v
+$$
+
+です。したがって、[GEOD13の等角の行列判定](../GEOD13/index.md#thm-geod13-preservation-tests)を新しい入力順 $(x,y)=(\lambda,\psi)$ に適用すると、等角であることは
 
 $$
 B^\mathsf TB=c^2I\qquad(c>0)
@@ -422,7 +467,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|\phi|\le\phi_0<\pi/2$ の範囲では $|\sin\phi|\le\sin\phi_0<1$ です。また $|e\sin\phi|<1$ で、$e\operatorname{atanh}(e\sin\phi)\to0$ は $\phi$ について一様です。ゆえに
+$|\phi|\le\phi_0<\pi/2$ の範囲では $|\sin\phi|\le\sin\phi_0<1$ です。また $0\le e<1$ に対して、$\operatorname{atanh}$ の奇性と単調性から
+
+$$
+\sup_{|\phi|\le\phi_0}
+\left|e\operatorname{atanh}(e\sin\phi)\right|
+\le e\operatorname{atanh}(\sin\phi_0)\longrightarrow0
+$$
+
+です。従って第2項は $\phi$ について一様に消え、
 
 $$
 \psi=\operatorname{atanh}(\sin\phi)
@@ -430,7 +483,7 @@ $$
 \longrightarrow\operatorname{atanh}(\sin\phi).
 $$
 
-$\arcsin(\tanh x)$ は連続だから
+$G(x)=\arcsin(\tanh x)$ と置くと、$G'(x)=1/\cosh x$ なので $0<G'(x)\le1$ です。[平均値定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を $x,y$ の間の区間へ適用すると $|G(x)-G(y)|\le|x-y|$ であり、上の一様収束を $G$ に適用できます。従って
 
 $$
 \chi=\arcsin(\tanh\psi)\longrightarrow
@@ -537,7 +590,9 @@ $$
 固定した $0<e<1$ について、$\phi\to\pi/2$ で $\psi\to+\infty$ となる理由を述べよ。また $w=\lambda+i\psi$ において $\lambda$ を $2\pi$ 増やすと何が起きるか。
 
 <!-- solution-start -->
-**詳細解答。** $\operatorname{atanh}(\sin\phi)\to+\infty$ ですが、$e\operatorname{atanh}(e\sin\phi)\to e\operatorname{atanh}e<\infty$ です。その差である $\psi$ は $+\infty$ へ発散します。[極限の命題](#prop-geod14-limit-poles)の条件 $e<1$ が効きます。経度を $2\pi$ 増やすと同じ地点を示すのに $w$ は $w+2\pi$ へ変わります。任意の $f(w)$ が周期的とは限らないため、全球で一価な座標になる保証はありません。
+**詳細解答。** 北極へ近づくと第1項は $\operatorname{atanh}(\sin\phi)\to+\infty$ となります。一方、固定した $e<1$ では第2項は有限値 $e\operatorname{atanh}e$ に収束します。したがって、その差である $\psi$ は $+\infty$ へ発散します。[極限の命題](#prop-geod14-limit-poles)の条件 $e<1$ が効きます。
+
+経度を $2\pi$ 増やすと同じ地点を示すのに $w$ は $w+2\pi$ へ変わります。任意の $f(w)$ が周期的とは限らないため、全球で一価な座標になる保証はありません。
 <!-- solution-end -->
 
 ### Level B：導出・判定をつなぐ
@@ -564,7 +619,7 @@ $$
 =\frac{1-e^2}{\cos\phi(1-e^2\sin^2\phi)}
 $$
 
-が得られます。$\phi=0$ では両方の $\operatorname{atanh}$ が0です。二解の差は導関数0で定数だから、初期値を同じにすると恒等的に一致します。$e\to0$ では第2項は0へ収束し、$\operatorname{atanh}(\sin\phi)$ になります。極を含まない閉区間ではその収束は一様です。
+が得られます。$\phi=0$ では両方の $\operatorname{atanh}$ が0です。二解の差は導関数0で定数だから、初期値を同じにすると恒等的に一致します。$e\to0$ では第2項は0へ収束し、$\operatorname{atanh}(\sin\phi)$ になります。極を含まない $|\phi|\le\phi_0<\pi/2$ では差の絶対値が $e\operatorname{atanh}(\sin\phi_0)$ 以下なので、収束は一様です。
 <!-- solution-end -->
 
 <a id="ex-geod14-b02"></a>
@@ -612,7 +667,21 @@ $$
 **B4　求長緯度・正積緯度・等角緯度の区別**（Level B）
 - Level: B
 
-$a\ge b>0$ の楕円体において、子午線弧長を $s(\phi)=\int_0^\phi M(t)\,dt$、面積積分を $I(\phi)=\int_0^\phi M(t)N(t)\cos t\,dt$ とする。求長緯度 $\mu=(\pi/2)s(\phi)/s(\pi/2)$、正積緯度 $\beta$ を $\sin\beta=I(\phi)/I(\pi/2)$ として、$d\mu/d\phi$ と $d\beta/d\phi$ を求め、等角緯度の導関数 $d\chi/d\phi$ と比較せよ。球面 $a=b=R$ でも確認せよ。
+$a\ge b>0$ の楕円体の**非極点 $|\phi|<\pi/2$** において、子午線弧長と面積積分を
+
+$$
+s(\phi)=\int_0^\phi M(t)\,dt,
+\qquad I(\phi)=\int_0^\phi M(t)N(t)\cos t\,dt
+$$
+
+とする。求長緯度と正積緯度 $\beta\in(-\pi/2,\pi/2)$ を
+
+$$
+\mu=\frac{\pi s(\phi)}{2s(\pi/2)},
+\qquad\sin\beta=\frac{I(\phi)}{I(\pi/2)}
+$$
+
+として、$d\mu/d\phi$ と $d\beta/d\phi$ を求め、等角緯度の導関数 $d\chi/d\phi$ と比較せよ。球面 $a=b=R$ でも確認せよ。
 
 <!-- solution-start -->
 **詳細解答。** $s'(\phi)=M(\phi)$ より
@@ -622,7 +691,7 @@ $$
 =\frac{\pi M(\phi)}{2s(\pi/2)}.
 $$
 
-$I'(\phi)=M(\phi)N(\phi)\cos\phi$ を用いて $\sin\beta=I/I(\pi/2)$ を微分すると
+$I'(\phi)=M(\phi)N(\phi)\cos\phi>0$ を用います。非極点では $|I(\phi)|<I(\pi/2)$ なので $|\beta|<\pi/2$、従って $\cos\beta>0$ です。ここで $\sin\beta=I/I(\pi/2)$ を微分すると
 
 $$
 \cos\beta\,\frac{d\beta}{d\phi}
@@ -727,7 +796,14 @@ N_p&=5\left(\psi+\frac{0.2\psi}{5}\right)
 \end{aligned}
 $$
 
-従って $E\simeq0.95390$、$N_p\simeq1.89069$、$k\simeq1.1484$、$A_p=k^2\simeq1.319$ です。$A_p$ をJacobianから独立に計算すると、地表面積要素 $\rho^2dx\,dy$ と平面面積要素 $\det B\,dx\,dy$ の比も同じです。
+従って数値は
+
+$$
+E\simeq0.95390,\quad N_p\simeq1.89069,
+\qquad k\simeq1.1484,\quad A_p=k^2\simeq1.319
+$$
+
+です。$A_p$ をJacobianから独立に計算すると、地表面積要素 $\rho^2dx\,dy$ と平面面積要素 $\det B\,dx\,dy$ の比も同じです。
 
 **4．失敗点。** $f'(w)=5+w$ は $w=-5$ で0です。そこでJacobianの両列は0になり、局所逆を失います。$f$ が正則であることは変わりませんが、[等角投影の正則条件](#thm-geod14-holomorphic-conformal)の $f'\ne0$ が成立しません。また、そもそも $|w|<1$ の領域の主張をその外へ無条件に拡張することはできません。
 <!-- solution-end -->
