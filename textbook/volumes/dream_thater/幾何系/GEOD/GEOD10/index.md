@@ -30,7 +30,7 @@
 <a id="def-geod10-normal-potential"></a>
 <!-- formal-statement-start -->
 > **定義（正常ポテンシャルと正常重力）**  
-> 同一の地球固定座標系で、参照楕円体 $E$ と滑らかな正常ポテンシャル $U$ を取り、$E$ 上で $U=U_0$、対象近傍で $\nabla U\ne0$ とする。正常重力ベクトルを $\boldsymbol\gamma=\nabla U$、その大きさを $\gamma=\|\nabla U\|>0$ とする。実ポテンシャル $W$ と同じ点で評価した差
+> 同一の地球固定座標系で、参照楕円体 $E$ と滑らかな正常ポテンシャル $U$ を取り、$E$ 上で $U=U_0$、対象近傍で $\nabla U\ne0$ とする。さらに $E$ 上の外向き単位法線 $\boldsymbol n_E$ に対して $\nabla U(Q)\cdot\boldsymbol n_E(Q)<0$（$Q\in E$）とし、正常重力が楕円体の内向きであることを指定する。正常重力ベクトルを $\boldsymbol\gamma=\nabla U$、その大きさを $\gamma=\|\nabla U\|>0$ とする。実ポテンシャル $W$ と同じ点で評価した差
 
 $$
 T(P)=W(P)-U(P)
@@ -40,7 +40,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod10-normal-potential -->
-**定義の確認**。局所的に上向き $z$ を使い、単位をSIとして $U(z)=U_0-9.81z$、$W(z)=W_0-9.80z+2.0$ とします。この模型では $\nabla U=(0,0,-9.81)$、$\nabla W=(0,0,-9.80)$ なので、どちらも下向きで非零です。$\gamma=9.81$、$g=9.80\ \mathrm{m/s^2}$ となり、
+**定義の確認**。局所直交座標 $(x,y,z)$ で $z$ を上向きとし、楕円体を平面 $E=\{z=0\}$、その外向き単位法線を $\boldsymbol n_E=(0,0,1)$ で近似します。SI単位で
+
+$$
+U(x,y,z)=U_0-9.81z,\qquad W(x,y,z)=W_0-9.80z+2.0
+$$
+
+と置きます。$U$ は $E$ 上で一定です。両ポテンシャルは $x,y$ に依存しないため、例えば $\partial U/\partial x=\partial U/\partial y=0$、$\partial U/\partial z=-9.81$ です。したがって各座標の偏微分を並べた勾配は
+
+$$
+\nabla U=(0,0,-9.81),\qquad \nabla W=(0,0,-9.80)
+$$
+
+となります。どちらも非零で下向き、特に $\nabla U\cdot\boldsymbol n_E=-9.81<0$ です。大きさを取ると $\gamma=9.81$、$g=9.80\ \mathrm{m/s^2}$ となり、
 
 $$
 T(z)=(W_0-U_0)+2.0+0.01z
@@ -146,14 +158,54 @@ $$
 =-\nabla U(Q_0+u\boldsymbol n)\cdot\boldsymbol n
 $$
 
-を**正常重力の法線方向成分**とします。楕円体上の $u=0$ では正常重力が楕円体に垂直なので、$\gamma_\perp(0)=\|\nabla U(Q_0)\|$ です。しかし楕円体から離れた点で、勾配の大きさ $\|\nabla U\|$ と法線方向成分 $\gamma_\perp$ を無条件に同一視しません。以下の厳密な一次元換算では $\gamma_\perp(u)>0$ を仮定し、区間平均を $\bar\gamma$ と略記します。
+を**正常重力の法線方向成分**とします。なぜ法線成分が定義の条件を表すのでしょうか。$E$ 上の点 $Q_0$ を通る任意の滑らかな表面曲線 $\boldsymbol q(t)$ を $\boldsymbol q(0)=Q_0$ として取ります。$U(\boldsymbol q(t))=U_0$ は一定なので、[GEOD6の等ポテンシャル面と鉛直の直交命題](../GEOD6/index.md#prop-geod6-level-normal)によって
 
-$U(Q_0)=U_0=W_0$ を満たす楕円体上の点 $Q_0$ を固定し、地表点 $P$ の $C(P)$ に対し $U(Q_t)=U_0-C(P)$ となる同じ法線上の点 $Q_t$ を取ります。この点を**テルロイド上の対応点**と見ます。
+$$
+0=\left.\frac{d}{dt}U(\boldsymbol q(t))\right|_{t=0}
+=\nabla U(Q_0)\cdot\boldsymbol q'(0)
+$$
+
+となります。楕円体上の曲線の速度は表面の二つの独立な方向を張るので、$\nabla U(Q_0)$ は表面に垂直です。[正常重力の内向き条件](#def-geod10-normal-potential)から
+
+$$
+\nabla U(Q_0)=-\|\nabla U(Q_0)\|\boldsymbol n,\qquad
+\gamma_\perp(0)=-\nabla U(Q_0)\cdot\boldsymbol n
+=\|\nabla U(Q_0)\|
+$$
+
+となります。しかし楕円体から離れた点で、勾配の大きさ $\|\nabla U\|$ と固定法線方向の成分 $\gamma_\perp$ を無条件に同一視しません。以下の厳密な一次元換算では $\gamma_\perp(u)>0$ を仮定し、区間平均を $\bar\gamma$ と略記します。
+
+[GEOD5の楕円体高の定義](../GEOD5/index.md#def-geod5-geodetic-coordinates)に従い、地表点 $P$ を表す楕円体上の足元 $Q_0$ と外向き法線 $\boldsymbol n$ を固定します。今は正常ポテンシャルの基準を次のようにそろえます。
+
+$$
+P=Q_0+h\boldsymbol n,\qquad U(Q_0)=U_0=W_0.
+$$
+
+地表点のジオポテンシャル数 $C(P)$ に対応する点 $Q_t$ は、**同じ法線上**で
+
+$$
+U(Q_t)=U_0-C(P)
+$$
+
+を満たす点です。これを**テルロイド上の対応点**と見ます。$\gamma_\perp>0$ なら法線方向に $U$ が厳密に減少するため、対応点が存在する範囲では一意です。
 
 <a id="def-geod10-height-systems"></a>
 <!-- formal-statement-start -->
 > **定義（正標高・正常高・動的高の計算モデル）**  
-> $W_0=U_0$ とし、実鉛直線と楕円体法線の対象区間で $g>0$、$\gamma_\perp>0$ が連続であるとする。点 $P$ のジオポテンシャル数を $C$ とする。
+> 基準ポテンシャルは $W_0=U_0$ にそろえる。参照楕円体 $E$ 上の点 $Q_0$ と外向き単位法線 $\boldsymbol n$ による地表点 $P$ の表示、および対象区間での正値条件を
+
+$$
+P=Q_0+h\boldsymbol n,\qquad
+g=\|\nabla W\|>0,\qquad \gamma_\perp>0
+$$
+
+> とする。$P$ を通る実鉛直線は指定したジオイド $W=W_0$ と一意に交わり、$g$ と $\gamma_\perp$ はこの実鉛直線と楕円体法線の各対象区間で連続とする。$P$ のジオポテンシャル数を $C$ とし、同じ楕円体法線上に対応点 $Q_t$ が存在して
+
+$$
+U(Q_t)=U_0-C
+$$
+
+> を満たすとする。
 >
 > - 正標高 $H^O$ は、ジオイドから $P$ までの実鉛直線の符号付き長さとする。
 > - 正常高 $H^N$ は、正常ポテンシャルが $U_0-C$ になる対応点 $Q_t$ までの楕円体法線の符号付き長さとする。
@@ -163,7 +215,14 @@ $U(Q_0)=U_0=W_0$ を満たす楕円体上の点 $Q_0$ を固定し、地表点 $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod10-height-systems -->
-**定義の確認**。すべての基準面が $z=0$ に一致する局所平行模型で、実ポテンシャル $W=W_0-9.8z$、正常ポテンシャル $U=U_0-9.81z$、共通基準重力 $\gamma_0=9.80665\ \mathrm{m/s^2}$ とします。点 $P$ の実高さを $z=100$ mとすると $C=980$、$\bar g=9.8$、$H^O=100$ mです。$U(Q_t)=U_0-980$ を解くと $Q_t$ の高さは $980/9.81$ mで、$H^N$ は $100$ mとは異なります。動的高も $980/9.80665$ mとなり、いずれも長さの単位です。
+**定義の確認**。すべての基準面が $z=0$ に一致する局所平行模型で、実ポテンシャル $W=W_0-9.8z$、正常ポテンシャル $U=U_0-9.81z$、共通基準重力 $\gamma_0=9.80665\ \mathrm{m/s^2}$ とします。点 $P$ の実高さを $z=100$ mとすると $C=980$、$\bar g=9.8$、$H^O=100$ mです。法線上の座標を $z_t$ とすれば、正常高の対応点は定義により
+
+$$
+U_0-9.81z_t=U_0-980,\qquad
+z_t=\frac{980}{9.81}\simeq99.8981\ \mathrm m
+$$
+
+を満たし、$\gamma_\perp=9.81>0$ のため一意です。したがって $H^N=z_t$ は $H^O=100$ mとは異なります。動的高も $H^D=980/9.80665\simeq99.9322$ mとなり、三つとも長さの単位です。
 <!-- definition-example-end -->
 
 <a id="thm-geod10-height-formulas"></a>
@@ -277,7 +336,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Q$ の楕円体法線に沿う関数を $F(t)=W(Q+t\boldsymbol n)$ とします。微分可能性から
+$Q$ の楕円体法線に沿う関数を $F(t)=W(Q+t\boldsymbol n)$ とします。$t$ は上向き符号付き距離です。関数 $V=U,T$ に対し、$\partial_nV(Q)$ は他の方向を固定して法線方向へ進む方向微分を表すものとし、連鎖律から
+
+$$
+\partial_nV(Q):=\nabla V(Q)\cdot\boldsymbol n,\qquad
+F'(0)=\nabla W(Q)\cdot\boldsymbol n
+$$
+
+となります。次の $o(|N_g|)$ は $N_g\to0$ で $|N_g|$ で割ると0になる剰余を表します。微分可能性から
 
 $$
 \begin{aligned}
@@ -311,7 +377,21 @@ $$
 <a id="prop-geod10-gravity-leveling"></a>
 <!-- formal-statement-start -->
 > **命題（重力を付した水準差とポテンシャル差）**  
-> 重力ポテンシャル $W$ が $C^1$ 級の領域で、点列 $P_0=A,\ldots,P_n=B$ を結ぶ経路の各短区間において、上向き重力方向の微小変位 $dn$ が区間内で符号を変えないとする。区間の符号付き変位を $\Delta n_i=\int_i dn$、重力の厳密な線積分平均を $g_i^\ast=(\int_i g\,dn)/\Delta n_i>0$（$\Delta n_i\ne0$ の場合）とする。このとき
+> 重力ポテンシャル $W$ が $C^1$ 級で、経路上で $g=\|\nabla W\|>0$ とする。点列 $P_0=A,\ldots,P_n=B$ を結ぶ区分的 $C^1$ 級経路 $\boldsymbol r(t)$ に沿い、上向き単位ベクトルとその方向の符号付き微小変位を
+
+$$
+\boldsymbol e_u(\boldsymbol r(t))=-\frac{\nabla W(\boldsymbol r(t))}{g(\boldsymbol r(t))},
+\qquad dn=\boldsymbol e_u(\boldsymbol r(t))\cdot\boldsymbol r'(t)\,dt
+$$
+
+> と定める。各短区間で $dn$ は符号を変えないとする。区間の符号付き変位と厳密な重力加重平均を
+
+$$
+\Delta n_i=\int_i dn,\qquad
+g_i^\ast=\frac{\int_i g\,dn}{\Delta n_i}>0\quad(\Delta n_i\ne0)
+$$
+
+> と定める。$\Delta n_i=0$ の区間では符号一定の仮定から $\int_i g\,dn=0$ なので、積を0とするため $g_i^\ast=g(P_{i-1})>0$ と定めてよい。このとき
 
 $$
 C(B)-C(A)=\sum_{i=1}^n g_i^\ast\Delta n_i.
