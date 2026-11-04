@@ -1,0 +1,43 @@
+id: QCURV12
+title: "Schwarzschild散乱障壁と灰色体因子"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV11
+  - QCURV9
+  - QCURV1
+  - PDE11
+official_scope: []
+learning_objectives:
+  - Schwarzschild外部の質量零スカラー場を球面調和分解し、tortoise座標での動径散乱ポテンシャルを中間微分から導出できる
+  - 入射・反射・透過の境界条件と保存Wronskian流束から灰色体因子の範囲と散乱の相反性を証明できる
+  - 低周波s波の重なり領域での接続計算から透過率の先頭次数を求められる
+  - Hawking波束占有数と散乱透過率を区別し、角運動量縮退度と波束密度を含む遠方粒子数・エネルギー流束を導ける
+  - 非回転・質量零スカラー・後期入射真空・固定背景という仮定の射程を説明できる
+definitions:
+  - { id: QCURV12-DEF-01, name: 質量零スカラー場のSchwarzschild動径ポテンシャル }
+  - { id: QCURV12-DEF-02, name: Schwarzschildの灰色体因子 }
+theorems:
+  - { id: QCURV12-THM-01, name: 球面調和分解と一次元動径方程式 }
+  - { id: QCURV12-THM-02, name: 流束保存・相反性・透過確率の範囲 }
+  - { id: QCURV12-PROP-01, name: 質量零スカラーの低周波s波透過率 }
+  - { id: QCURV12-THM-03, name: 灰色体因子付き遠方粒子数・エネルギー流束 }
+canonical_examples:
+  - 角運動量零でも残る曲率散乱ポテンシャルの山
+  - 障壁のない比較模型の透過確率
+  - 低周波s波の地平線・中間・遠方の係数接続
+  - 灰色体因子による赤外の遠方数スペクトルの抑制
+problem_patterns:
+  - QCURV12-TORTOISE-ENDPOINTS
+  - QCURV12-SWAVE-PEAK
+  - QCURV12-PLANE-WAVE-CURRENT
+  - QCURV12-ANGULAR-DEGENERACY
+  - QCURV12-RADIAL-SEPARATION
+  - QCURV12-WRONSKIAN-RECIPROCITY
+  - QCURV12-LOW-FREQUENCY-MATCHING
+  - QCURV12-INFRARED-SPECTRUM
+  - QCURV12-GREYBODY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
