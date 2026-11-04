@@ -1,0 +1,45 @@
+chapter: QCURV18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV10
+  - QCURV11
+  - QCURV13
+  - QCURV17
+forward_references: []
+concepts:
+  - id: qcurv.backward-uv-frequency
+    name: 遡及周波数とUV閾値
+    kind: definition
+    introduction: formal
+    requires: [qcurv.collapse-ray-map, qcurv.collapse-late-exponential]
+  - id: qcurv.backward-uv-threshold
+    name: 指数光線写像の遡及周波数と閾値時刻
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.backward-uv-frequency]
+  - id: qcurv.log-frequency-uv-window
+    name: 対数周波数窓の低周波重み
+    kind: definition
+    introduction: formal
+    requires: [qcurv.backward-uv-frequency, qcurv.asymptotic-inout-packets]
+  - id: qcurv.uv-window-escape
+    name: 有限UV窓内の波束重みの消失
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.log-frequency-uv-window]
+  - id: qcurv.finite-window-fourier-diagnostic
+    name: 有限窓Fourier診断積分
+    kind: definition
+    introduction: formal
+    requires: [qcurv.hawking-fourier-bogoliubov]
+  - id: qcurv.finite-window-phase-bound
+    name: 有限窓の位相摂動評価
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.finite-window-fourier-diagnostic]
+  - id: qcurv.initial-state-occupation
+    name: 入射占有数に対する出射粒子数の依存
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.bogoliubov-coefficients, qcurv.hawking-thermal-ratio]

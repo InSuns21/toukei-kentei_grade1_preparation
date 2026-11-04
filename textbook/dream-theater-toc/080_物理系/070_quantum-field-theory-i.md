@@ -43,3 +43,4 @@
 40. [QFT40 標準模型のカイラルゲージ異常・三角係数と相殺条件](textbook/volumes/dream_thater/物理系/QFT/QFT40/index.md)
 41. [QFT41 QCDの色表現・クォークとグルーオンの頂点・走る強結合](textbook/volumes/dream_thater/物理系/QFT/QFT41/index.md)
 42. [QFT42 QCDの漸近自由性の適用域・静的ポテンシャル・閉じ込めの境界](textbook/volumes/dream_thater/物理系/QFT/QFT42/index.md)
+43. [QFT43 パートン模型・深非弾性散乱と因子化の入口](textbook/volumes/dream_thater/物理系/QFT/QFT43/index.md)

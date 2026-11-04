@@ -74,3 +74,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV17
     status: completed
     title: "半古典Einstein方程式と蒸発のエネルギー収支"
+  - id: QCURV18
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV18
+    status: completed
+    title: "Hawking導出の適用範囲と超Planckian周波数の感度"
