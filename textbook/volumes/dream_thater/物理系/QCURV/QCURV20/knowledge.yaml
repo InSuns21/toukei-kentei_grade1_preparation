@@ -1,0 +1,42 @@
+chapter: QCURV20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV3
+  - QCURV4
+  - QCURV6
+  - QCURV8
+  - QCURV11
+  - QCURV12
+  - QCURV14
+  - QCURV15
+  - QCURV16
+  - QCURV17
+  - QCURV19
+forward_references: []
+concepts:
+  - id: qcurv.comparison-setting
+    name: 量子場の比較設定
+    kind: definition
+    introduction: formal
+    requires: [qcurv.detector-response, qcurv.local-observable-state-difference]
+  - id: qcurv.cross-background-detector-degeneracy
+    name: 異なる背景で一致する定常検出率
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.comparison-setting, qcurv.unruh-temperature, qcurv.gibbons-hawking-detector]
+  - id: qcurv.stationary-rate-clock-rescaling
+    name: 定常率と温度の時計換算
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.detector-detailed-balance, qcurv.tolman-kms-redshift]
+  - id: qcurv.quench-nonthermal-counterexample
+    name: 急変振動子のout粒子数は熱性を意味しない
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.quench-particle-creation, qcurv.kms-worldline]
+  - id: qcurv.two-dimensional-flux-moment-comparison
+    name: 二次元共形模型の熱的エネルギー流束の二つの計算
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.exponential-ray-flux, qcurv.schwarzian-derivative]
