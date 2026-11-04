@@ -1,0 +1,90 @@
+chapter: QFT43
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT12, QFT17, QFT25, QFT41, QFT42]
+forward_references: []
+
+concepts:
+  - id: qft.dis-kinematics
+    name: 深非弾性散乱の不変運動学
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（深非弾性散乱の不変運動学）]
+    requires: [qft.mandelstam-two-body-kinematics]
+
+  - id: qft.dis-final-mass
+    name: 最終状態質量とBjorken変数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（最終状態質量とBjorken変数）]
+    requires: [qft.dis-kinematics]
+
+  - id: qft.dis-structure-functions
+    name: 非偏極DISの構造関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非偏極DISの構造関数）]
+    requires: [qft.dis-kinematics, qft.qed-dirac-conserved-current]
+
+  - id: qft.dis-parton-shell
+    name: 自由パートン質量殻とBjorken変数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由パートン質量殻とBjorken変数）]
+    requires: [qft.dis-kinematics]
+
+  - id: qft.dis-callan-gross
+    name: 自由DiracパートンのCallan–Gross関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由DiracパートンのCallan–Gross関係）]
+    requires: [qft.dis-parton-shell, qft.dis-structure-functions, qft.qed-three-point-vertex]
+
+  - id: qft.dis-pdf
+    name: 先頭ツイストのパートン分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（先頭ツイストのパートン分布）]
+    requires: [qft.qcd-color-action, qft.qcd-lattice-wilson-loop]
+
+  - id: qft.dis-lo-structure
+    name: 単純パートン模型の構造関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（単純パートン模型の構造関数）]
+    requires: [qft.dis-pdf, qft.dis-callan-gross]
+
+  - id: qft.dis-convolution
+    name: パートンのMellin型畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（パートンのMellin型畳み込み）]
+    requires: [qft.dis-pdf]
+
+  - id: qft.dis-delta-convolution
+    name: 木レベル係数の畳み込み
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（木レベル係数の畳み込み）]
+    requires: [qft.dis-convolution]
+
+  - id: qft.dis-factorization
+    name: DISの先頭べき因子化表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（DISの先頭べき因子化表示）]
+    requires: [qft.dis-convolution, qft.dis-delta-convolution, qft.dis-lo-structure]
+
+  - id: qft.dis-quark-number
+    name: 最低次の非一重項クォーク数保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（最低次の非一重項クォーク数保存）]
+    requires: [qft.dis-pdf, qft.dis-convolution]
+
+  - id: qft.dis-scale-cancel
+    name: 一次精度の因子化尺度相殺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次精度の因子化尺度相殺）]
+    requires: [qft.dis-factorization, qft.dis-convolution, qft.renormalization-group-functions]
