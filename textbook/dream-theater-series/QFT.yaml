@@ -175,3 +175,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT42
     status: completed
     title: "QCDの漸近自由性の適用域・静的ポテンシャル・閉じ込めの境界"
+  - id: QFT43
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT43
+    status: completed
+    title: "パートン模型・深非弾性散乱と因子化の入口"
