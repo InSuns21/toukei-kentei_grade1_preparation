@@ -1,0 +1,41 @@
+id: "GEOD15"
+title: "球面メルカトルと球面横メルカトル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD14
+official_scope: []
+learning_objectives:
+  - 球面の正軸メルカトルの順逆変換と等角性を導出し、緯度別縮尺と極での発散を説明できる
+  - 回転した球面座標から横メルカトルの順変換・逆変換を向きと定義域を含めて構成できる
+  - 横メルカトルのJacobianを単位東・北接ベクトルに適用し、縮尺・面積縮尺を再計算できる
+  - 中央子午線の距離保存とそこから離れた位置の歪み・切れ目を数値と極限で判定できる
+  - 楕円体の等角球面座標へ球面式を直接使っても中央子午線の距離条件を満たさない理由を説明できる
+definitions:
+  - { id: GEOD15-DEF-01, name: 球面正軸メルカトル投影 }
+  - { id: GEOD15-DEF-02, name: 回転球面座標と球面横メルカトル投影 }
+theorems:
+  - { id: GEOD15-THM-01, name: 正軸メルカトルの等角性・縮尺・逆変換 }
+  - { id: GEOD15-THM-02, name: 球面横メルカトルの順逆変換と定義域 }
+  - { id: GEOD15-THM-03, name: 横メルカトルのJacobianと局所歪み }
+  - { id: GEOD15-PROP-01, name: 等角球面式を楕円体へ適用したときの縮尺 }
+canonical_examples:
+  - 赤道と30度緯線で正軸メルカトルの定義・逆写像を検算
+  - 回転球面の赤道上30度東の点から横メルカトルの座標を構成
+  - 中央子午線と赤道上30度で横メルカトルの縮尺を比較
+  - 楕円体の等角緯度と球面の測地緯度を区別して中央子午線の倍率を計算
+problem_patterns:
+  - GEOD15-NORMAL-FORWARD-INVERSE
+  - GEOD15-NORMAL-SCALE
+  - GEOD15-ROTATED-COORDINATES
+  - GEOD15-CENTRAL-MERIDIAN
+  - GEOD15-TRANSVERSE-SINGULARITY
+  - GEOD15-TRANSVERSE-INVERSE
+  - GEOD15-JACOBIAN-SCALE
+  - GEOD15-DISTORTION-BOUNDS
+  - GEOD15-ELLIPSOID-PREVIEW
+  - GEOD15-INTEGRATED-TRANSVERSE-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 3 }
