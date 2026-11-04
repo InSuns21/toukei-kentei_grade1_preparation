@@ -179,3 +179,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT43
     status: completed
     title: "パートン模型・深非弾性散乱と因子化の入口"
+  - id: QFT44
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT44
+    status: completed
+    title: "有効場の理論のmatching・演算子展開・running"

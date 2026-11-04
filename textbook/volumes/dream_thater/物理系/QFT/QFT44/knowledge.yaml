@@ -1,0 +1,55 @@
+chapter: QFT44
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT10, QFT12, QFT19, QFT25, QFT26]
+forward_references: []
+
+concepts:
+  - id: qft.eft-amplitude-matching
+    name: 散乱振幅によるEFT matching
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（散乱振幅によるEFT matching）]
+    requires: [qft.scalar-vertex-factor, qft.mandelstam-two-body-kinematics, qft.heavy-gaussian-field-matching]
+
+  - id: qft.eft-heavy-exchange-amplitude
+    name: 重いスカラー交換の四点振幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（重いスカラー交換の四点振幅）]
+    requires: [qft.eft-amplitude-matching]
+
+  - id: qft.eft-local-operator-expansion
+    name: 局所演算子展開と打切り次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所演算子展開と打切り次数）]
+    requires: [qft.wilsonian-tree-level-scaling, qft.eft-amplitude-matching]
+
+  - id: qft.eft-gaussian-wilson-matching
+    name: Gaussian消去と木レベルWilson係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Gaussian消去と木レベルWilson係数）]
+    requires: [qft.eft-local-operator-expansion, qft.eft-heavy-exchange-amplitude, qft.heavy-gaussian-field-matching]
+
+  - id: qft.eft-onshell-dimension-eight
+    name: 質量零同種四点散乱の最初の運動量補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量零同種四点散乱の最初の運動量補正）]
+    requires: [qft.eft-heavy-exchange-amplitude, qft.eft-local-operator-expansion]
+
+  - id: qft.eft-matching-scale-running
+    name: matching尺度とrunning
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（matching尺度とrunning）]
+    requires: [qft.eft-amplitude-matching, qft.rg-equation-running-coupling]
+
+  - id: qft.eft-matching-running-flow
+    name: 木レベルmatchingと一ループleading-log running
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（木レベルmatchingと一ループleading-log running）]
+    requires: [qft.eft-matching-scale-running, qft.eft-gaussian-wilson-matching, qft.phi4-one-loop-beta]
