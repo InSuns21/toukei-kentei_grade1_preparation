@@ -1,0 +1,42 @@
+id: "GEOD20"
+title: "Equal Earth 図法と等積性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD13
+  - GEOD19
+official_scope: []
+learning_objectives:
+  - Equal Earth の中間角と多項式から球面・楕円体の順変換を構成できる
+  - 多項式の導関数の正値性とJacobianから等積性・有限領域の面積保存を証明できる
+  - 定義域・経度の切れ目・極点を区別して逆変換を安全な反復法で実装できる
+  - 方向別縮尺とTissot指示楕円から等積と等角・等距離の相違を定量化できる
+  - EPSGの参照例に基づきWGS84上の座標を検算し全球図と地域図を使い分けられる
+definitions:
+  - { id: GEOD20-DEF-01, name: Equal Earth の中間角と多項式 }
+  - { id: GEOD20-DEF-02, name: Equal Earth の順変換 }
+theorems:
+  - { id: GEOD20-THM-01, name: Equal Earth 多項式の単調性と定義域 }
+  - { id: GEOD20-THM-02, name: Equal Earth のJacobianと等積性 }
+  - { id: GEOD20-THM-03, name: Equal Earth の逆変換と解の一意性 }
+  - { id: GEOD20-THM-04, name: Equal Earth の局所縮尺と等積ひずみ }
+canonical_examples:
+  - 赤道と両極での中間角・縦座標と経度の切れ目
+  - WGS84のEPSG Equal Earth順変換の参照値
+  - 赤道と正積緯度60度の主縮尺・面積縮尺
+  - Newton法と二分法の併用による逆変換
+problem_patterns:
+  - GEOD20-POLYNOMIAL-DERIVATIVE
+  - GEOD20-EQUATOR-SCALES
+  - GEOD20-POLE-BOUNDARY
+  - GEOD20-AXIS-SIGN
+  - GEOD20-INVERSE-DOMAIN
+  - GEOD20-AREA-JACOBIAN
+  - GEOD20-BRACKETED-NEWTON
+  - GEOD20-ELLIPSOID-AREA
+  - GEOD20-TISSOT-SHEAR
+  - GEOD20-INTEGRATED-REFERENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
