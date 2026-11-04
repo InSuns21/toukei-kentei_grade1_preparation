@@ -66,3 +66,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV15
     status: completed
     title: "Hadamard差引きと局所観測量・エネルギー流束"
+  - id: QCURV16
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV16
+    status: completed
+    title: "二次元共形模型・trace anomaly・Schwarzian流束"

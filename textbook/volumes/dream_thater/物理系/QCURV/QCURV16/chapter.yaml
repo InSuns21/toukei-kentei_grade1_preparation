@@ -1,0 +1,45 @@
+id: QCURV16
+title: "二次元共形模型・trace anomaly・Schwarzian流束"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV15
+  - QCURV10
+official_scope: []
+learning_objectives:
+  - 2次元null座標と正味の外向きエネルギー流束の符号を再計算できる
+  - 局所共変な2次元trace anomalyの係数と条件を説明し、保存則とトレースから応力テンソル成分を復元できる
+  - Schwarzian微分とその合成則を導出し、座標の付替えと状態の変更を区別できる
+  - 指数的な後期光線写像から正の出射流束を求め、1次元熱流の係数と照合できる
+  - 2次元静的Schwarzschild模型の将来地平線正則性と三状態の遠方流束を条件付きで比較できる
+  - 2次元共形模型と4次元の灰色体散乱・dilaton結合・半古典逆作用の射程を区別できる
+definitions:
+  - { id: QCURV16-DEF-01, name: null成分と外向き正味流束 }
+  - { id: QCURV16-DEF-02, name: この模型のトレース異常 }
+  - { id: QCURV16-DEF-03, name: Schwarzian微分 }
+theorems:
+  - { id: QCURV16-THM-01, name: 2次元共形応力テンソルの復元 }
+  - { id: QCURV16-PROP-01, name: Schwarzianの合成則 }
+  - { id: QCURV16-THM-02, name: 状態関数の座標変換と真空流束 }
+  - { id: QCURV16-THM-03, name: 指数光線写像の後期Schwarzian流束 }
+  - { id: QCURV16-PROP-02, name: 静的null応力の地平線での相殺 }
+canonical_examples:
+  - 右向き古典波に対するTtxとT^txの符号
+  - 共形因子rho=lambda uvでの局所曲率とtrace anomaly
+  - 線形写像と指数写像のSchwarzian微分
+  - 指数光線写像の流束と熱的Bose積分の一致
+  - 静的Schwarzschild断面における将来地平線の定数項相殺
+problem_patterns:
+  - QCURV16-NULL-FLUX-SIGN
+  - QCURV16-ANOMALY-TRACE
+  - QCURV16-SCHWARZIAN-EXPONENTIAL
+  - QCURV16-STATE-FUNCTIONS
+  - QCURV16-CONSERVATION-RECONSTRUCTION
+  - QCURV16-SCHWARZIAN-CHAIN
+  - QCURV16-HORIZON-REGULARITY
+  - QCURV16-THERMAL-CHIRAL-FLUX
+  - QCURV16-STATE-HORIZON-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 13, review: 6 }
