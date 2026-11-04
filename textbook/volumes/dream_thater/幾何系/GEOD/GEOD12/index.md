@@ -116,7 +116,21 @@ g_{11}=M^2,\quad g_{22}=r^2,\quad g_{12}=0,\qquad
 g^{11}=M^{-2},\quad g^{22}=r^{-2}
 $$
 
-と置きます。$M,r>0$ なので逆成分が定まります。ここで $\partial_1=\partial/\partial\phi$ は $\lambda$ を固定して微分し、$M'=dM/d\phi$、$r'=dr/d\phi$ はいずれも緯度による一変数微分です。$M,r$ は $\lambda$ に依存しないため、非零の計量微分は $\partial_1g_{11}=2MM'$、$\partial_1g_{22}=2rr'$ だけです。次の式で繰り返される添字 $\ell$ は $1,2$ にわたり和を取ります。[Christoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
+と置きます。$M,r>0$ なので逆成分が定まります。微分記号は、経度 $\lambda$ を固定する偏微分と、緯度のみの関数の通常の微分を次のように対応させます。
+
+$$
+\partial_1=\frac{\partial}{\partial\phi},\qquad
+M'=\frac{dM}{d\phi},\qquad r'=\frac{dr}{d\phi}.
+$$
+
+$M,r$ は経度に依存しないため、非零の計量微分は
+
+$$
+\partial_1g_{11}=2MM',\qquad
+\partial_1g_{22}=2rr'
+$$
+
+だけです。次の式で繰り返される添字 $\ell$ は $1,2$ にわたり和を取ります。[Christoffel公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)
 
 $$
 \Gamma^k_{ij}=\frac12g^{k\ell}
