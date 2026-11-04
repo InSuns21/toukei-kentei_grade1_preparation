@@ -13,3 +13,4 @@
 10. [QCURV10 崩壊時空のin/out光線と波束](textbook/volumes/dream_thater/物理系/QCURV/QCURV10/index.md)
 11. [QCURV11 Hawking温度を生むFourier積分と後期波束](textbook/volumes/dream_thater/物理系/QCURV/QCURV11/index.md)
 12. [QCURV12 Schwarzschild散乱障壁と灰色体因子](textbook/volumes/dream_thater/物理系/QCURV/QCURV12/index.md)
+13. [QCURV13 Boulware・Unruh・Hartle–Hawking状態と地平線の正則性](textbook/volumes/dream_thater/物理系/QCURV/QCURV13/index.md)

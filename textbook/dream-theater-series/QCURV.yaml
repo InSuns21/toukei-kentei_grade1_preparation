@@ -54,3 +54,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV12
     status: completed
     title: "Schwarzschild散乱障壁と灰色体因子"
+  - id: QCURV13
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV13
+    status: completed
+    title: "Boulware・Unruh・Hartle–Hawking状態と地平線の正則性"
