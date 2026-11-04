@@ -17,3 +17,4 @@
 14. [QCURV14 Unruh・Hawking・Tolman則と観測者の温度](textbook/volumes/dream_thater/物理系/QCURV/QCURV14/index.md)
 15. [QCURV15 Hadamard差引きと局所観測量・エネルギー流束](textbook/volumes/dream_thater/物理系/QCURV/QCURV15/index.md)
 16. [QCURV16 二次元共形模型・trace anomaly・Schwarzian流束](textbook/volumes/dream_thater/物理系/QCURV/QCURV16/index.md)
+17. [QCURV17 半古典Einstein方程式と蒸発のエネルギー収支](textbook/volumes/dream_thater/物理系/QCURV/QCURV17/index.md)

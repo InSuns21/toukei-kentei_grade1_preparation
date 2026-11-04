@@ -1,0 +1,44 @@
+chapter: QCURV17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV16
+  - QCURV12
+  - MICA15
+forward_references: []
+concepts:
+  - id: qcurv.semiclassical-einstein-equation
+    name: 半古典Einstein方程式
+    kind: definition
+    introduction: formal
+    requires: [microlocal.mica15-renormalized-stress, microlocal.mica15-curvature-variations]
+  - id: qcurv.semiclassical-conservation-consistency
+    name: 半古典方程式の保存整合性
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.semiclassical-einstein-equation, microlocal.mica15-conserved-curvature]
+  - id: qcurv.quasistatic-hawking-luminosity
+    name: 準静的なHawking光度
+    kind: definition
+    introduction: formal
+    requires: [qcurv.schwarzschild-greybody-flux, qcurv.semiclassical-conservation-consistency]
+  - id: qcurv.quasistatic-luminosity-scaling
+    name: 質量零スカラーの準静的光度の逆二乗則
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.quasistatic-hawking-luminosity]
+  - id: qcurv.adiabatic-mass-variation
+    name: 断熱質量変化の指標
+    kind: definition
+    introduction: formal
+    requires: [qcurv.quasistatic-luminosity-scaling]
+  - id: qcurv.quasistatic-mass-cubic-law
+    name: 準静的質量減少の三乗則
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.adiabatic-mass-variation, qcurv.quasistatic-luminosity-scaling]
+  - id: qcurv.higher-derivative-reduction
+    name: 高階模型での余分な解と次数低減
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.semiclassical-einstein-equation, microlocal.mica15-curvature-variations]

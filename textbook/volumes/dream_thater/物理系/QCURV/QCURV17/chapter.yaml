@@ -1,0 +1,44 @@
+id: QCURV17
+title: "半古典Einstein方程式と蒸発のエネルギー収支"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV16
+  - QCURV12
+  - MICA15
+official_scope: []
+learning_objectives:
+  - 保存的なくりこみ応力テンソルを半古典Einstein方程式へ結合し、局所曲率項とくりこみの自由度を区別できる
+  - 縮約Bianchi恒等式から半古典方程式の保存整合性を導き、これが解の存在を保証しないことを説明できる
+  - 後期・準静的なSchwarzschild近似の灰色体付き光度を無次元積分へ変換し、質量の逆二乗則を導ける
+  - 無限遠の質量収支を積分して形式的な三乗則を導き、断熱条件と蒸発終期への適用限界を評価できる
+  - 正の遠方放射と負の地平線流入の符号、定常Killing流と非定常質量減少の違いを説明できる
+  - 高階曲率方程式の余分な解と摂動的な次数低減を模型で検証し、半古典近似の射程を判断できる
+definitions:
+  - { id: QCURV17-DEF-01, name: 半古典Einstein方程式 }
+  - { id: QCURV17-DEF-02, name: 準静的なHawking光度 }
+  - { id: QCURV17-DEF-03, name: 断熱質量変化の指標 }
+theorems:
+  - { id: QCURV17-PROP-01, name: 半古典方程式の保存整合性 }
+  - { id: QCURV17-THM-01, name: 質量零スカラーの準静的光度の逆二乗則 }
+  - { id: QCURV17-THM-02, name: 準静的質量減少の三乗則 }
+  - { id: QCURV17-PROP-02, name: 高階模型での余分な解と次数低減 }
+canonical_examples:
+  - 平坦時空で曲率二乗変分テンソルが零となる直接例
+  - 一つの透過率1の仮想モードでの熱光度係数
+  - 黒体的な定常光度と無限遠質量の非定常収支の違い
+  - 高階微分模型の指数解と摂動的次数低減
+problem_patterns:
+  - QCURV17-SEMICLASSICAL-DIMENSIONS
+  - QCURV17-CONSERVATION
+  - QCURV17-SCALING
+  - QCURV17-ADIABATIC-PARAMETER
+  - QCURV17-RENORMALIZATION-FREEDOM
+  - QCURV17-ONE-CHANNEL-LUMINOSITY
+  - QCURV17-HIGHER-DERIVATIVE
+  - QCURV17-SPECIES-COUNT
+  - QCURV17-ENERGY-BUDGET-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 14, review: 6 }
