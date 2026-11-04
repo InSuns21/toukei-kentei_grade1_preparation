@@ -1,7 +1,7 @@
 version: 1
 id: COMB
 title: "列挙組合せ論・母関数・有限差分法"
-plan: textbook/plans_progress/DREAM_THEATER_ENUMERATIVE_COMBINATORICS_GENERATING_FUNCTIONS_FINITE_CALCULUS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ENUMERATIVE_COMBINATORICS_GENERATING_FUNCTIONS_FINITE_CALCULUS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: COMB1, path: textbook/volumes/dream_thater/計算系/COMB/COMB1, status: completed, title: "有限集合を数える：加法・乗法・双射・二重計数" }
