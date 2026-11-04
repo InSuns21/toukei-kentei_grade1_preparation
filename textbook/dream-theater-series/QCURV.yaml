@@ -62,3 +62,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV14
     status: completed
     title: "Unruh・Hawking・Tolman則と観測者の温度"
+  - id: QCURV15
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV15
+    status: completed
+    title: "Hadamard差引きと局所観測量・エネルギー流束"

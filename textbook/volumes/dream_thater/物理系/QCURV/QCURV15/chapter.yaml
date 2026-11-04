@@ -1,0 +1,45 @@
+id: QCURV15
+title: "Hadamard差引きと局所観測量・エネルギー流束"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV14
+  - QCURV13
+  - QCURV12
+  - MICA14
+  - MICA15
+official_scope: []
+learning_objectives:
+  - 生の二点分布の対角値とHadamard差引き後のWick平方を区別し、状態差の有限性を説明できる
+  - 4次元質量零Minkowski熱状態の二点分布から真空との差と熱的エネルギー密度・圧力を計算できる
+  - 保存的なくりこみ応力テンソルから観測者のエネルギー密度・圧力・流束を符号込みで定義し検算できる
+  - Schwarzschild静的外部のKillingエネルギー流が保存し、赤方偏移を含む局所流束と遠方光度の関係を導ける
+  - 状態変更による有限な差と有限くりこみ自由度を分け、Boulware・Unruh・Hartle–Hawking状態の流束を解釈できる
+  - Hadamard性と地平線正則性・熱平衡・遠方放射が異なる条件であることを説明できる
+definitions:
+  - { id: QCURV15-DEF-01, name: 二状態の局所観測量差 }
+  - { id: QCURV15-DEF-02, name: 観測者のエネルギー密度と流束 }
+  - { id: QCURV15-DEF-03, name: SchwarzschildのKilling光度 }
+theorems:
+  - { id: QCURV15-THM-01, name: 質量零Minkowski熱状態の有限な観測量差 }
+  - { id: QCURV15-PROP-01, name: 二状態差を測る観測者の変換 }
+  - { id: QCURV15-THM-02, name: 定常球対称なKilling光度の半径独立性 }
+  - { id: QCURV15-PROP-02, name: 静止局所流束と遠方光度の関係 }
+canonical_examples:
+  - 定数双解でWick平方だけが変化する例
+  - Minkowskiの熱状態でWick平方T二乗とエネルギー密度T四乗を別々に計算する例
+  - 熱的完全流体の静止観測者と移動観測者の局所測定
+  - Schwarzschildの静止正規直交枠で遠方光度と局所流束を比較する例
+problem_patterns:
+  - QCURV15-HADAMARD-ORDER
+  - QCURV15-THERMAL-WICK
+  - QCURV15-THERMAL-STRESS
+  - QCURV15-OBSERVER-PROJECTION
+  - QCURV15-KILLING-CURRENT
+  - QCURV15-REDSHIFTED-FLUX
+  - QCURV15-RENORMALIZATION-FREEDOM
+  - QCURV15-STATE-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 14, review: 6 }
