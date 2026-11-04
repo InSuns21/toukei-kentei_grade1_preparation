@@ -1,0 +1,55 @@
+chapter: GEOD18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD17
+forward_references: []
+concepts:
+  - id: geodesy.kruger-inverse-series
+    name: Krüger 逆級数と有限次数近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Krüger 逆級数と有限次数近似）]
+    requires: [geodesy.kruger-forward-series]
+  - id: geodesy.kruger-inverse-coefficients
+    name: Krüger 逆級数の二次係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Krüger 逆級数の二次係数）]
+    requires: [geodesy.kruger-inverse-series, geodesy.kruger-low-order]
+  - id: geodesy.kruger-roundtrip-error
+    name: 有限級数往復の非恒等性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限級数往復の非恒等性）]
+    requires: [geodesy.kruger-inverse-coefficients]
+  - id: geodesy.kruger-inverse-map
+    name: Krüger 逆変換の復元手順
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Krüger 逆変換の復元手順）]
+    requires: [geodesy.kruger-inverse-series, geodesy.kruger-forward-map, geodesy.conformal-latitude]
+  - id: geodesy.kruger-inverse-geographic
+    name: 球面横メルカトルの逆式と等角緯度復元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（球面横メルカトルの逆式と等角緯度復元）]
+    requires: [geodesy.kruger-inverse-map, geodesy.spherical-transverse-mercator]
+  - id: geodesy.grid-convergence
+    name: 子午線収差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（子午線収差）]
+    requires: [geodesy.kruger-forward-map]
+  - id: geodesy.transverse-point-scale
+    name: 投影点縮尺
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（投影点縮尺）]
+    requires: [geodesy.kruger-forward-map, geodesy.projection-metric-scales]
+  - id: geodesy.kruger-convergence-scale-formulas
+    name: 子午線収差と縮尺の微分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（子午線収差と縮尺の微分公式）]
+    requires: [geodesy.grid-convergence, geodesy.transverse-point-scale, geodesy.kruger-forward-series]

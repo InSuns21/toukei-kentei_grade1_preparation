@@ -1,0 +1,43 @@
+id: "GEOD18"
+title: "Krüger 逆級数・縮尺・子午線収差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD17
+official_scope: []
+learning_objectives:
+  - Krüger 順級数の逆係数を合成と係数比較から二次まで導出し四次式を使える
+  - 平面東北座標から等角緯度を逆算して測地緯度と経度を復元し収束条件を説明できる
+  - 有限級数の往復誤差と原点補正の扱いを証明・計算で説明できる
+  - Jacobian と複素導関数から子午線収差と点縮尺を導き符号・距離の意味を判定できる
+  - 打切り・丸め・枝・極限の制約を区別し独立の数値検算を設計できる
+definitions:
+  - { id: GEOD18-DEF-01, name: Krüger 逆級数と有限次数近似 }
+  - { id: GEOD18-DEF-02, name: Krüger 逆変換の復元手順 }
+  - { id: GEOD18-DEF-03, name: 子午線収差 }
+  - { id: GEOD18-DEF-04, name: 投影点縮尺 }
+theorems:
+  - { id: GEOD18-THM-01, name: 逆級数の二次係数 }
+  - { id: GEOD18-PROP-01, name: 有限級数往復の非恒等性 }
+  - { id: GEOD18-THM-02, name: 球面横メルカトルの逆式と等角緯度復元 }
+  - { id: GEOD18-THM-03, name: 子午線収差と縮尺の微分公式 }
+canonical_examples:
+  - n=0 で球面逆変換に戻ることを検算
+  - 一次逆級数と一次順級数の往復残差を二次まで導出
+  - WGS84 緯度35度・中央から東3度の逆変換・収差・縮尺を数値確認
+  - 中央子午線上の縮尺と原点の整合性、独立した子午線積分を比較
+problem_patterns:
+  - GEOD18-INVERSE-COEFFICIENT
+  - GEOD18-SPHERE-INVERSE
+  - GEOD18-NEWTON-RESIDUAL
+  - GEOD18-AXIS-ORIGIN
+  - GEOD18-ROUND-TRIP
+  - GEOD18-INVERSE-FOURTH
+  - GEOD18-CONVERGENCE-SIGN
+  - GEOD18-DIFFERENTIAL-SCALE
+  - GEOD18-REGION-STABILITY
+  - GEOD18-INTEGRATED-INVERSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
