@@ -146,7 +146,7 @@ $$
 $R_q^2=a^2q_p/2$ と $q(\phi_i)=q_p\sin\beta_i$ を代入すれば球の面積表示と一致します。極を端点に含む場合も連続性により極限で成立します。$\phi_1=-\pi/2$、$\phi_2=\pi/2$、$\Delta\lambda=2\pi$ として全球面積を得ます。
 <!-- proof-end -->
 
-**具体例：WGS84 の緯度を変換する。** 長半径 $a=6378137\ \mathrm m$、逆扁平率 $1/f=298.257223563$ を使い、$e^2=f(2-f)$ とします。独立な台形・Simpson積分による面積検算も後で行います。
+**具体例：WGS84 の緯度を変換する。** 長半径 $a=6378137\ \mathrm m$、逆扁平率 $1/f=298.257223563$ を使い、$e^2=f(2-f)$ とします。緯度帯面積については、後のC1で原始関数 $q$ と独立に台形・Simpson数値積分でも検算します。
 
 $$
 \begin{aligned}
@@ -165,7 +165,17 @@ $$
 
 正積球上の緯度・経度をそのまま縦横の長方形に描くと、緯度の高い場所は経線が実際より長く描かれます。では、横の拡大に合わせて縦を縮めれば面積が保たれるでしょうか。
 
-地図上で緯線は水平直線、経線は鉛直直線にしたいとします。$\beta_0$ を横縮尺が1になる**標準緯線**の緯度（$|\beta_0|<\pi/2$）とし、$\lambda_0$ を中心経度とします。縦方向の式は面積保存の条件から選びます。
+地図上で緯線は水平直線、経線は鉛直直線にしたいとします。$\beta_0$ を横縮尺が1になる**標準緯線**の緯度（$|\beta_0|<\pi/2$）とし、$\lambda_0$ を中心経度とします。球面上の緯線方向の長さは $R_q\cos\beta\,d\lambda$ なので、地図上の横幅を $R_q\cos\beta_0\,d\lambda$ と選べば $\beta=\beta_0$ で横縮尺が1です。
+
+そこで $E=R_q(\lambda-\lambda_0)\cos\beta_0$、$N_p=N_p(\beta)$ と置きます。この二つの座標方向は地図上でも直交するので、[GEOD13の面積縮尺の判定](../GEOD13/index.md#thm-geod13-preservation-tests)に従い、球の面積要素と平面Jacobianを一致させる条件は
+
+$
+\frac{\partial(E,N_p)}{\partial(\lambda,\beta)}
+=R_q\cos\beta_0\,\frac{dN_p}{d\beta}
+=R_q^2\cos\beta.
+$
+
+$\cos\beta_0>0$ より $dN_p/d\beta=R_q\cos\beta/\cos\beta_0$ です。赤道を $N_p(0)=0$ に取って $\beta$ で積分すると、$N_p=R_q\sin\beta/\cos\beta_0$ が得られます。すなわち縦方向の式は、横方向の選び方と面積保存から決まります。$\cos(-\beta_0)=\cos\beta_0$ なので、$\beta_0\ne0$ なら反対側の緯線 $-\beta_0$ でも横縮尺が1になります。
 
 <a id="def-geod19-lambert"></a>
 <!-- formal-statement-start -->
@@ -208,16 +218,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-入力を $(\beta,\lambda)$、出力を $(E,N_p)$ の順に取るとJacobianは
+入力を東向きの経度 $\lambda$、北向きの緯度 $\beta$ の順、出力を $(E,N_p)$ の順に取るとJacobianは
 
-$$
-J=\begin{pmatrix}
-0&R_q\cos\beta_0\\
-R_q\cos\beta/\cos\beta_0&0
+$
+J_{(\lambda,\beta)}=\begin{pmatrix}
+R_q\cos\beta_0&0\\
+0&R_q\cos\beta/\cos\beta_0
 \end{pmatrix}.
-$$
+$
 
-したがって $|\det J|=R_q^2\cos\beta$、[GEOD13の面積縮尺の判定](../GEOD13/index.md#thm-geod13-preservation-tests)により球面上の面積縮尺は1です。経度の増加で東へ、緯度の増加で北へ向かうので、地理的な東北の向きを保ちます。地表での長さはそれぞれ $R_q\cos\beta$ と $R_q$ 倍なので、対応するJacobianの列長を割れば表示した二つの縮尺になります。
+したがって $\det J_{(\lambda,\beta)}=R_q^2\cos\beta>0$ であり、[GEOD13の面積縮尺の判定](../GEOD13/index.md#thm-geod13-preservation-tests)により球面上の面積縮尺は1です。この東・北という入力順に対して行列式が正であるので、局所的に向きを保ちます。地表での長さはそれぞれ $R_q\cos\beta$ と $R_q$ 倍なので、対応するJacobianの列長を割れば表示した二つの縮尺になります。
 
 楕円体では $\beta=\beta(\phi)$ を合成するため、北方向の偏微分は $\partial_\phi N_p=R_q\cos\beta\,\beta'/\cos\beta_0$ となります。[正積緯度の面積恒等式](#thm-geod19-authalic-area)の $R_q^2\cos\beta\,\beta'=MN\cos\phi$ を使い
 
@@ -249,6 +259,37 @@ $$
 広い東西方向の地域では、一本の緯線を水平軸に揃える円筒型より、緯線を同心円弧として描く円錐型が使いやすい場合があります。円錐型では経線を放射状の直線にし、その間の角度を $n(\lambda-\lambda_0)$ とします。経線に沿う地図上の半径を $\rho(\beta)$ と書けば、面積を保つには $\rho\,\rho'$ の大きさが決まります。
 
 ここでは北半球の二つの標準緯線 $0<\beta_1<\beta_2<\pi/2$ を選びます。一般の南半球・異符号の標準緯線では符号と退化条件に注意しますが、まず正の $n$ で確かな構成を学びます。
+
+定数 $n>0$、半径 $\rho(\beta)>0$ を仮に与え、経度 $\lambda$ の増分を地図上で角度 $n\,d\lambda$ の扇形に、緯度 $\beta$ の増分を半径方向の長さ $-\rho'(\beta)\,d\beta$ に写すとします（北へ行くほど半径が減る領域を考えます）。二方向は直交するため、地図の面積要素は $-n\rho\rho'\,d\lambda\,d\beta$ です。正積球の $R_q^2\cos\beta\,d\lambda\,d\beta$ と等しくするには
+
+$
+-n\rho\rho'=R_q^2\cos\beta
+\quad\Longleftrightarrow\quad
+\frac{d(\rho^2)}{d\beta}=-\frac{2R_q^2}{n}\cos\beta.
+$
+
+したがって積分定数 $C$ を用いて
+
+$
+n^2\rho(\beta)^2=R_q^2(C-2n\sin\beta).
+$
+
+緯線方向の球面の微小長さは $R_q\cos\beta\,d\lambda$、地図上では $n\rho\,d\lambda$ です。二本の標準緯線 $\beta_i$ で横縮尺を1にする条件 $n\rho(\beta_i)=R_q\cos\beta_i$（$i=1,2$）を代入すると
+
+$
+C=\cos^2\beta_i+2n\sin\beta_i.
+$
+
+両方の $C$ が等しいことと $\sin\beta_2>\sin\beta_1$ から
+
+$
+2n(\sin\beta_2-\sin\beta_1)
+=\sin^2\beta_2-\sin^2\beta_1,
+\qquad
+n=\frac{\sin\beta_1+\sin\beta_2}{2}.
+$
+
+こうして $n,C,\rho$ が等積条件と標準緯線条件から決まり、次の定義の平方根では正の半径を選びます。
 
 <a id="def-geod19-albers"></a>
 <!-- formal-statement-start -->
@@ -723,7 +764,23 @@ WH=R_q^2\Delta\lambda\frac{q(60^\circ)-q(30^\circ)}{q_p}
 =A_{\mathrm{ell}}.
 $$
 
-独立検算として $2\pi a^2(1-e^2)\cos\phi/(1-e^2\sin^2\phi)^2$ を $30^\circ$ から $60^\circ$ まで積分した全球経度幅に対する値へ $\Delta\lambda/(2\pi)$ を掛けても、同じ面積が得られます。経度の切れ目をまたがず、像は重ならないと仮定しています。
+独立検算では $q$ の原始関数を使わず、面積密度
+
+$
+g(\phi)=\frac{a^2(1-e^2)\cos\phi}{(1-e^2\sin^2\phi)^2}
+$
+
+を $\phi\in[\pi/6,\pi/3]$ で数値積分します。$120$ 等分、$h=(\pi/3-\pi/6)/120=\pi/720$、$\phi_j=\pi/6+jh$ とすると、合成Simpson則は
+
+$
+A_{\mathrm S}=\frac{\Delta\lambda\,h}{3}
+\left[g(\phi_0)+g(\phi_{120})
++4\sum_{j=1,3,\ldots,119}g(\phi_j)
++2\sum_{j=2,4,\ldots,118}g(\phi_j)\right]
+\simeq5.19603835354\times10^{12}\ \mathrm{m}^2.
+$
+
+同じ分割で合成台形則は $A_{\mathrm T}\simeq5.19602990974\times10^{12}\ \mathrm{m}^2$ です。解析式の $5.19603835352\times10^{12}\ \mathrm{m}^2$ と照合すると、Simpson則のずれは約 $13\ \mathrm{m}^2$、台形則は約 $8.44\times10^6\ \mathrm{m}^2$ で、分割幅による数値積分誤差と区別できます。経度の切れ目をまたがず、像は重ならないと仮定しています。
 
 **3. 地表の距離に正規化する。** [Lambertの楕円体縮尺](#thm-geod19-lambert-area)の $\beta_0=0$ を使い、$N=a/\sqrt{1-e^2\sin^2\phi}$ とします。
 
