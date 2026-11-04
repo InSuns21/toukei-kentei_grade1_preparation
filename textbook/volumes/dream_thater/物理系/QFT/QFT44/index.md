@@ -100,11 +100,21 @@ $$
 
 「局所演算子」は同じ点での場とその有限回の微分の積です。例えば $\phi^4$ は四つの場だけ、$[\partial_\mu(\phi^2)]^2$ は四つの場と二つの微分を含みます。四次元で正準次元 $[\phi]=1$、$[\partial_\mu]=1$ なので両者の次元は4と6です。これは[QFT26の木レベルスケーリング](../QFT26/index.md#thm-qft26-tree-scaling)の具体例でもあります。
 
+ここでMinkowski時空の $[\partial_\mu f]^2$ は、下付き添字を単純に二乗する意味ではなく、計量で縮約した $\partial_\mu f\,\partial^\mu f$ の略記です。$\Box f=\partial_\mu\partial^\mu f$ とします。一方、以下のGaussian消去に使うEuclid座標 $x_1,\ldots,x_4$ では
+
+$$
+|\partial_E f|^2=\sum_{i=1}^4(\partial_i f)^2,\qquad
+\partial_E^2f=\sum_{i=1}^4\partial_i^2 f,\qquad
+|\partial_E^2f|^2=(\partial_E^2f)^2.
+$$
+
+と定めます。Minkowskiの $\Box$ とEuclidの $\partial_E^2$ は計量が異なるため、そのまま同じ演算子として扱いません。
+
 <a id="def-qft44-operator-expansion"></a>
 
 <!-- formal-statement-start -->
 > **定義（局所演算子展開と打切り次数）**  
-> 軽い場 $\phi$ の局所演算子 $\mathcal O_{d,i}$ が四次元で正準次元 $d$ を持つとき、有効ラグランジアンを、指定した対称性を満たす演算子について
+> 軽い場 $\phi$ の局所演算子 $\mathcal O_{d,i}$ が四次元で正準次元 $d$ を持つとき（$i$ は同じ次元の演算子を区別する添字）、有効ラグランジアンを、指定した対称性を満たす演算子について
 
 $$
 \mathcal L_{\rm EFT}=\mathcal L_{\rm light,0}
@@ -142,7 +152,7 @@ S_{\rm E,EFT}=\int d^4x\,\bigg[&\frac12|\partial_E\phi|^2
 \end{aligned}
 $$
 
-> ここで $\partial_E^2=\sum_{i=1}^4\partial_i^2$、$\mathcal R_{>8}$ はこの有限モード展開の次の項以降である。この $\lambda_{\rm match}$ は同じ作用を解析接続した木レベル四点振幅の定数項に一致する。
+> ここで $\mathcal R_{>8}$ はこの有限モード展開の次の項以降である。この $\lambda_{\rm match}$ は同じ作用を解析接続した木レベル四点振幅の定数項に一致する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -167,7 +177,17 @@ $$
 +\frac{p^4}{M^6}-\frac{p^6}{M^6(M^2+p^2)}
 $$
 
-を満たします。Fourierモードごとに $p^2$ は $-\partial_E^2$ に対応し、周期境界で境界項は零です。そのため
+を満たします。規格直交Fourier基底で $f=\sum_{|p|\le P}f_p e_p$ と展開すると、$-\partial_E^2 e_p=p^2e_p$ です。周期境界で境界項が消えるので、Parseval等式と部分積分から
+
+$$
+\langle f,-\partial_E^2 f\rangle
+=\sum_p p^2|f_p|^2=\int d^4x\,|\partial_E f|^2,
+\qquad
+\langle f,(-\partial_E^2)^2f\rangle
+=\int d^4x\,|\partial_E^2f|^2.
+$$
+
+したがって
 
 $$
 \begin{aligned}
@@ -200,7 +220,7 @@ $$
 \qquad Q^2=\max(|s|,|t|,|u|).
 $$
 
-> したがってこの**特定の木レベル四点振幅**では、定数項以外の最初の運動量依存は次元8に対応する。ただし一般のEFT振幅で次元6の寄与が消えるという主張ではない。
+> したがってこの**特定の木レベル四点振幅**では、$h\ne0$ かつ非零運動量のとき、定数項以外の最初の運動量依存は次元8に対応する。$h=0$ なら重い交換による運動量依存自体がない。ただし一般のEFT振幅で次元6の寄与が消えるという主張ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -210,7 +230,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(-+++)$ で $s=-(p_1+p_2)^2=-2p_1\cdot p_2$、$t=-(p_1-p_3)^2=2p_1\cdot p_3$、$u=2p_1\cdot p_4$ です。よって
+[Mandelstam不変量の定義](../QFT12/index.md#def-qft12-mandelstam)を $(-+++)$ と $p_i^2=0$ に適用すると、$s=-(p_1+p_2)^2=-2p_1\cdot p_2$、$t=-(p_1-p_3)^2=2p_1\cdot p_3$、$u=2p_1\cdot p_4$ です。よって
 
 $$
 s+t+u=2p_1\cdot(-p_2+p_3+p_4)
@@ -298,10 +318,11 @@ matching係数は四点振幅の定数項で決めます。重い場を除いた
 
 木レベルmatchingでは $-\lambda_{\rm E}(M)$ を[full theory の四点振幅](#prop-qft44-tree-amplitude)の定数項 $-\lambda_{\rm F}(M)+3h^2/M^2$ と等しく置きます。これが第一式です。重い場のループや一ループmatchingに伴う有限項はこの次数では計算しておらず、等号へ勝手に吸収しません。
 
-EFTの軽い場だけの四次相互作用は $-\lambda_{\rm E}\phi^4/4!$ です。[四次スカラーの一ループ結果](../QFT25/index.md#thm-qft25-phi4-beta)は、この結合のMS型規約と四次元の軽い理論に対して $d\lambda_{\rm E}/d\log\mu=b\lambda_{\rm E}^2$、$b=3/(16\pi^2)$ を与えます。$\lambda_{\rm E}\ne0$ の領域で変数を分離して
+EFTの軽い場だけの四次相互作用は $-\lambda_{\rm E}\phi^4/4!$ です。[四次スカラーの一ループ結果](../QFT25/index.md#thm-qft25-phi4-beta)は、この結合のMS型規約と四次元の軽い理論に対して $\mu\,d\lambda_{\rm E}/d\mu=b\lambda_{\rm E}^2$、$b=3/(16\pi^2)$ を与えます。微分する変数を無次元の $t=\log(\mu/M)$ に替えると $dt/d\mu=1/\mu$ なので、連鎖律から $d\lambda_{\rm E}/dt=\mu\,d\lambda_{\rm E}/d\mu$ です。$\lambda_{\rm E}\ne0$ の領域では
 
 $$
-\frac{d}{d\log\mu}\left(\frac1{\lambda_{\rm E}}\right)=-b,
+\frac{d}{dt}\left(\frac1{\lambda_{\rm E}}\right)
+=-\frac1{\lambda_{\rm E}^2}\frac{d\lambda_{\rm E}}{dt}=-b,
 \qquad
 \frac1{\lambda_{\rm E}(Q)}-\frac1{\lambda_{\rm E}(M)}=-b\log\frac QM.
 $$
@@ -338,7 +359,21 @@ $V=M^2\chi^2/2+h\chi\phi^2/2+\lambda\phi^4/24$、$M>0$ とする。$\chi$ に関
 <!-- solution-start -->
 ### 詳細解答
 
-$M^2[\chi+h\phi^2/(2M^2)]^2/2$ を展開すると $M^2\chi^2/2+h\chi\phi^2/2+h^2\phi^4/(8M^2)$。差を取って $V=M^2[\chi+h\phi^2/(2M^2)]^2/2+(\lambda-3h^2/M^2)\phi^4/24$。両項とも非負で、第2項の係数が正なら $|\phi|\to\infty$ に対してもポテンシャルは下へ発散しません。$M>0$ も第一項の符号に必要です。
+平方を展開すると、もとの混合項と追加の四次項が現れます。
+
+$$
+\frac{M^2}{2}\left(\chi+\frac{h\phi^2}{2M^2}\right)^2
+=\frac{M^2\chi^2}{2}+\frac h2\chi\phi^2+\frac{h^2\phi^4}{8M^2}.
+$$
+
+追加分を差し引くと
+
+$$
+V=\frac{M^2}{2}\left(\chi+\frac{h\phi^2}{2M^2}\right)^2
++\frac1{24}\left(\lambda-\frac{3h^2}{M^2}\right)\phi^4.
+$$
+
+$M>0$ なら第一項は非負、$\lambda>3h^2/M^2$ なら第二項も非負で、$|\phi|\to\infty$ に対してポテンシャルは下へ発散しません。これが定数場の安定性の十分条件です。
 <!-- solution-end -->
 
 ### 演習 QFT44-A2：三つの交換チャネル
@@ -359,12 +394,35 @@ $k^2=-s$ なので $(-ih)^2[-i/(M^2-s-i0)]=ih^2/(M^2-s-i0)$。外線の組分け
 - Level: A
 - 目安時間: 7分
 
-四次元で $[\phi]=1$、$[\partial]=1$、$[h]=1$ とする。$\phi^4$、$[\partial(\phi^2)]^2$、$[\partial^2(\phi^2)]^2$ の次元と、$h^2/M^2$ を無次元とした場合のそれぞれの係数の $M$ 依存を求めよ。
+四次元Euclid作用で $[\phi]=1$、$[\partial_E]=1$、$[h]=1$ とする。$\phi^4$、$|\partial_E(\phi^2)|^2$、$|\partial_E^2(\phi^2)|^2$ の次元と、$h^2/M^2$ を無次元とした場合のそれぞれの係数の $M$ 依存を求めよ。微分のノルムと $\partial_E^2$ は第3節の定義とする。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$[\phi^4]=4$、$[\partial(\phi^2)]^2=2(1+2)=6$、$[\partial^2(\phi^2)]^2=2(2+2)=8$。作用密度の次元は4なので係数の次元は $0,-2,-4$。$h^2/M^2$ を無次元因子とすれば順に $(h^2/M^2)$、$(h^2/M^2)M^{-2}$、$(h^2/M^2)M^{-4}$ となります。実際の係数は $-h^2/(8M^2)$、$h^2/(8M^4)$、$-h^2/(8M^6)$ です。
+積の微分則から $[\partial_E(\phi^2)]=1+2=3$、$[\partial_E^2(\phi^2)]=2+2=4$ です。したがって三つの演算子の次元は
+
+$$
+[\phi^4]=4,\qquad [|\partial_E(\phi^2)|^2]=6,\qquad
+[|\partial_E^2(\phi^2)|^2]=8.
+$$
+
+Euclid作用密度の次元は4だから係数の次元は順に $0,-2,-4$。$h^2/M^2$ を無次元因子として取り出すと、$M$ 依存は
+
+$$
+\frac{h^2}{M^2},\qquad
+\frac{h^2}{M^2}\frac1{M^2},\qquad
+\frac{h^2}{M^2}\frac1{M^4}.
+$$
+
+[Gaussian消去の命題](#prop-qft44-local-matching)が与える**重い場由来の補正係数**は、この順に
+
+$$
+-\frac{h^2}{8M^2},\qquad
+\frac{h^2}{8M^4},\qquad
+-\frac{h^2}{8M^6}.
+$$
+
+一方、四次項の**全係数**は元の $\lambda/24$ も含む $\lambda/24-h^2/(8M^2)$ であり、補正係数だけと混同しません。
 <!-- solution-end -->
 
 ### 演習 QFT44-A4：幾何級数の剰余
@@ -398,12 +456,36 @@ $3h^2/M^2=3/16$ なので $\lambda_{\rm E}(M)=1/2-3/16=5/16$。$5/16>0$ であ�
 - Level: B
 - 目安時間: 15分
 
-有限Euclidモードで $K=M^2-\partial_E^2>0$、$J=h\phi^2/2$ とする。Gaussian積分後の作用を求め、$K^{-1}$ の $M^{-4}$ の項まで展開して $\lambda_{\rm match}$ と導関数演算子の係数を導け。周期境界条件を用いてよい。
+有限Euclidモードで $K=M^2-\partial_E^2>0$、$J=h\phi^2/2$ とし、$\phi^2$ のFourier支持は $|p|\le P<M$、$\chi$ のモード集合はそれを含むとする。Gaussian積分後の作用を求め、$K^{-1}$ の $M^{-4}$ の項まで展開して $\lambda_{\rm match}$ と導関数演算子の係数を導け。周期境界条件を用いてよい。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$\frac12\langle\chi,K\chi\rangle+\langle\chi,J\rangle=\frac12\langle\chi+K^{-1}J,K(\chi+K^{-1}J)\rangle-\frac12\langle J,K^{-1}J\rangle$。前半の積分は $\phi$ 非依存の定数です。よって補正は $-h^2\langle\phi^2,K^{-1}\phi^2\rangle/8$。Fourier核 $(M^2+p^2)^{-1}=M^{-2}-p^2M^{-4}+O(p^4M^{-6})$ を代入し、Parseval等式と周期境界での部分積分を使うと $-h^2\int\phi^4/(8M^2)+h^2\int|\partial_E(\phi^2)|^2/(8M^4)+\cdots$ です。$\phi^4$ の全係数は $\lambda/24-h^2/(8M^2)$、従って $\lambda_{\rm match}=\lambda-3h^2/M^2$。$K$ の正定値性と $\phi^2$ の支持条件がGaussian積分・Fourier展開を可能にしています。
+$f=\phi^2$、$J=hf/2$ と置き、平方完成します。
+
+$$
+\frac12\langle\chi,K\chi\rangle+\langle\chi,J\rangle
+=\frac12\langle\chi+K^{-1}J,K(\chi+K^{-1}J)\rangle
+-\frac12\langle J,K^{-1}J\rangle.
+$$
+
+$K$ の固有値は $M^2+p^2>0$ なのでGaussian積分が適用でき、平行移動した第一項は $\phi$ 非依存の定数となります。残る補正は $-h^2\langle f,K^{-1}f\rangle/8$ です。支持条件 $|p|\le P<M$ で
+
+$$
+\frac1{M^2+p^2}=\frac1{M^2}-\frac{p^2}{M^4}
++O\!\left(\frac{P^4}{M^6}\right).
+$$
+
+[Gaussian消去の命題](#prop-qft44-local-matching)と同じくParseval等式と周期境界での部分積分を使うと
+
+$$
+-\frac{h^2}{8}\langle f,K^{-1}f\rangle
+=-\frac{h^2}{8M^2}\int d^4x\,\phi^4
++\frac{h^2}{8M^4}\int d^4x\,|\partial_E(\phi^2)|^2
++O\!\left(\frac{h^2P^4}{M^6}\int d^4x\,\phi^4\right).
+$$
+
+したがって四次項の全係数は $\lambda/24-h^2/(8M^2)=\lambda_{\rm match}/24$ で、$\lambda_{\rm match}=\lambda-3h^2/M^2$。導関数演算子の係数は $h^2/(8M^4)$ です。$\phi^2$ の支持を仮定したのは、$\phi$ 自身の支持だけでは積のモードが広がり、上の一様な剰余評価を保証できないからです。
 <!-- solution-end -->
 
 ### 演習 QFT44-B2：オンシェルとオフシェルの区別
@@ -416,7 +498,24 @@ $\frac12\langle\chi,K\chi\rangle+\langle\chi,J\rangle=\frac12\langle\chi+K^{-1}J
 <!-- solution-start -->
 ### 詳細解答
 
-$s=-p_1^2-p_2^2-2p_1\cdot p_2=2m^2-2p_1\cdot p_2$、$t=2m^2+2p_1\cdot p_3$、$u=2m^2+2p_1\cdot p_4$ です。したがって和は $6m^2+2p_1\cdot(-p_2+p_3+p_4)=6m^2+2p_1^2=4m^2$。$m=0$ の四点振幅では線形項が消えますが、部分積分で $[\partial(\phi^2)]^2$ は境界項を除き $-(4/3)\phi^3\Box\phi$。相互作用を含む運動方程式は $\Box\phi=(\lambda/6)\phi^3+\cdots$ を含むので、六点演算子等へ移されます。オンシェル四点の零は演算子が全ての観測量で零という意味ではありません。
+外線の質量殻条件 $p_i^2=-m^2$ を用い、[Mandelstam不変量](../QFT12/index.md#def-qft12-mandelstam)を展開します。
+
+$$
+\begin{aligned}
+s&=-(p_1+p_2)^2=2m^2-2p_1\cdot p_2,\\
+t&=-(p_1-p_3)^2=2m^2+2p_1\cdot p_3,\\
+u&=-(p_1-p_4)^2=2m^2+2p_1\cdot p_4.
+\end{aligned}
+$$
+
+四元運動量保存 $p_3+p_4=p_1+p_2$ を使えば
+
+$$
+s+t+u=6m^2+2p_1\cdot(-p_2+p_3+p_4)
+=6m^2+2p_1^2=4m^2.
+$$
+
+$m=0$ の四点振幅では運動量一次の項が消えます。しかし第4節の[質量零同種四点散乱の最初の運動量補正](#prop-qft44-onshell-cancellation)の証明で導いた部分積分の式から、$[\partial_\mu(\phi^2)]^2$ は境界項を除き $-(4/3)\phi^3\Box\phi$ です。相互作用を含む運動方程式は $\Box\phi=(\lambda/6)\phi^3+\cdots$ を含むため、六点演算子等へ移されます。オンシェル四点の零は、その演算子がすべての過程で零になるという意味ではありません。
 <!-- solution-end -->
 
 ### 演習 QFT44-B3：leading-logの積分と符号
@@ -442,7 +541,23 @@ $d(1/\lambda)/d\log\mu=-b$ を $M$ から $Q$ まで積分すると $1/\lambda(Q
 <!-- solution-start -->
 ### 詳細解答
 
-$A=(1-1/10)^{-1}+2(1+1/20)^{-1}=10/9+40/21=190/63$。次元4だけなら $3$。次元6の係数は $s+t+u=Q^2-Q^2/2-Q^2/2=0$ なので依然 $3$。次元8では $s^2+t^2+u^2=(3/2)Q^4$、したがって $3+3/200=603/200=3.015$ です。差は $190/63-603/200=(38000-37989)/12600=11/12600\approx0.0008730$。$\rho=1/10$ の三チャネル上界は $3\rho^3/(1-\rho)=1/300\approx0.003333$ なので差はその範囲です。
+各チャネルの分母を $M^2$ で割ると、厳密値は
+
+$$
+A=\frac1{1-1/10}+\frac2{1+1/20}
+=\frac{10}{9}+\frac{40}{21}=\frac{190}{63}.
+$$
+
+次元4までの近似は $3$。次元6で加わる項は $(s+t+u)/M^2=0$ なので、ここでも $3$ のままです。次元8の項は $(s^2+t^2+u^2)/M^4=3/200$ ですから
+
+$$
+A_{\le8}=3+\frac3{200}=\frac{603}{200}=3.015,
+\qquad
+A-A_{\le8}=\frac{190}{63}-\frac{603}{200}
+=\frac{11}{12600}\approx0.0008730.
+$$
+
+$\rho=1/10$ の三チャネル剰余上界は $3\rho^3/(1-\rho)=1/300\approx0.003333$ です。実際に $11/12600<1/300$ なので、差は上界の内側です。
 <!-- solution-end -->
 
 ### 演習 QFT44-C1：match・run・冪補正を一つの計算にする
@@ -461,7 +576,16 @@ $A=(1-1/10)^{-1}+2(1+1/20)^{-1}=10/9+40/21=190/63$。次元4だけなら $3$。�
 ### 詳細解答
 
 1. $3h^2/M^2=3/25$、$\lambda_{\rm F}=2/5=10/25>3/25$ なので十分条件を満たします。matchingにより $\lambda_{\rm E}(M)=2/5-3/25=7/25=0.28$。
-2. $b=3/(16\pi^2)$、$\log(Q/M)=-2$ と置き、$1/\lambda_{\rm E}(Q)=1/\lambda_{\rm E}(M)+2b$ を得ます。従って $\lambda_{\rm E}(Q)=(7/25)/[1+21/(200\pi^2)]\approx0.27705$。$0.40\to0.28$ は重い場の交換によるmatching、$0.28\to0.27705$ は軽い場の対数発展です。
+2. $b=3/(16\pi^2)$、$\log(Q/M)=-2$ と置きます。第5節の[発展式](#prop-qft44-matching-running)を初期値 $7/25$ に適用すると
+
+$$
+\frac1{\lambda_{\rm E}(Q)}=\frac1{7/25}+2b,
+\qquad
+\lambda_{\rm E}(Q)=\frac{7/25}{1+(7/25)2b}
+=\frac{7/25}{1+21/(200\pi^2)}\approx0.27705.
+$$
+
+$0.40\to0.28$ は重い場の交換によるmatching、$0.28\to0.27705$ は軽い場の対数発展です。
 3. [三チャネルの木レベル式](#prop-qft44-tree-amplitude)で $s+t+u=0$、$s^2+t^2+u^2=(3/2)Q^4$ なので
 
 $$
