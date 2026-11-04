@@ -158,7 +158,7 @@ $$
 =-\nabla U(Q_0+u\boldsymbol n)\cdot\boldsymbol n
 $$
 
-を**正常重力の法線方向成分**とします。なぜ法線成分が定義の条件を表すのでしょうか。$E$ 上の点 $Q_0$ を通る任意の滑らかな表面曲線 $\boldsymbol q(t)$ を $\boldsymbol q(0)=Q_0$ として取ります。$U(\boldsymbol q(t))=U_0$ は一定なので、[GEOD6の曲線に沿う連鎖律](../GEOD6/index.md#prop-geod6-level-normal)によって
+を**正常重力の法線方向成分**とします。なぜ法線成分が定義の条件を表すのでしょうか。$E$ 上の点 $Q_0$ を通る任意の滑らかな表面曲線 $\boldsymbol q(t)$ を $\boldsymbol q(0)=Q_0$ として取ります。$U(\boldsymbol q(t))=U_0$ は一定なので、[GEOD6の等ポテンシャル面と鉛直の直交命題](../GEOD6/index.md#prop-geod6-level-normal)によって
 
 $$
 0=\left.\frac{d}{dt}U(\boldsymbol q(t))\right|_{t=0}
@@ -175,7 +175,19 @@ $$
 
 となります。しかし楕円体から離れた点で、勾配の大きさ $\|\nabla U\|$ と固定法線方向の成分 $\gamma_\perp$ を無条件に同一視しません。以下の厳密な一次元換算では $\gamma_\perp(u)>0$ を仮定し、区間平均を $\bar\gamma$ と略記します。
 
-[GEOD5の楕円体高の定義](../GEOD5/index.md#def-geod5-geodetic-coordinates)に従い、地表点 $P=Q_0+h\boldsymbol n$ を表す楕円体上の足元 $Q_0$ と、その外向き法線 $\boldsymbol n$ を固定します。$U(Q_0)=U_0=W_0$ とし、地表点 $P$ の $C(P)$ に対して $U(Q_t)=U_0-C(P)$ となる同じ法線上の点 $Q_t$ が存在する範囲を扱います。これを**テルロイド上の対応点**と見ます。$\gamma_\perp>0$ なら法線方向に $U$ が厳密に減少するため、この対応点は区間内で一意です。
+[GEOD5の楕円体高の定義](../GEOD5/index.md#def-geod5-geodetic-coordinates)に従い、地表点 $P$ を表す楕円体上の足元 $Q_0$ と外向き法線 $\boldsymbol n$ を固定します。今は正常ポテンシャルの基準を次のようにそろえます。
+
+$$
+P=Q_0+h\boldsymbol n,\qquad U(Q_0)=U_0=W_0.
+$$
+
+地表点のジオポテンシャル数 $C(P)$ に対応する点 $Q_t$ は、**同じ法線上**で
+
+$$
+U(Q_t)=U_0-C(P)
+$$
+
+を満たす点です。これを**テルロイド上の対応点**と見ます。$\gamma_\perp>0$ なら法線方向に $U$ が厳密に減少するため、対応点が存在する範囲では一意です。
 
 <a id="def-geod10-height-systems"></a>
 <!-- formal-statement-start -->
