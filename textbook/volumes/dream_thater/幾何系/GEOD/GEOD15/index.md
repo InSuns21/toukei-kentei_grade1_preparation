@@ -278,7 +278,16 @@ $$
 
 ## 4. 中央子午線から離れるほど何が伸びるか
 
-地図上の数値の増え方と、実際の地表距離の増え方を同じものと思ってはいけません。[GEOD13の物理的単位方向への正規化](../GEOD13/index.md#thm-geod13-metric-comparison)を球面に適用すると、地表上の**単位東方向**は $\partial_\delta/(R\cos\phi)$、**単位北方向**は $\partial_\phi/R$ です。$\partial_\delta$ は $\phi$ を固定した経度方向の微分で、$\lambda_0$ を固定すれば $\delta=\lambda-\lambda_0$ より $\partial_\delta=\partial_\lambda$ です。$\partial_\phi$ は $\delta$ を固定した緯度方向の微分です。球面計量から東の長さ増分が $R\cos\phi\,d\delta$、北が $R\,d\phi$ となるので、Jacobianの東列・北列をそれぞれの係数で割ってから比較します。
+地図上の数値の増え方と、実際の地表距離の増え方を同じものと思ってはいけません。[GEOD13の物理的単位方向への正規化](../GEOD13/index.md#thm-geod13-metric-comparison)を球面に適用します。地表上の東・北の単位接方向は
+
+$$
+\boldsymbol e_{\mathrm E}=\frac1{R\cos\phi}\partial_\delta,\qquad
+\boldsymbol e_{\mathrm N}=\frac1R\partial_\phi
+$$
+
+です。$\partial_\delta$ は $\phi$ を固定した経度方向の微分を表します。中央子午線 $\lambda_0$ を固定すれば $\delta=\lambda-\lambda_0$ から $\partial_\delta=\partial_\lambda$ です。$\partial_\phi$ は $\delta$ を固定した緯度方向の微分です。
+
+球面計量から東の長さ増分は $R\cos\phi\,d\delta$、北は $R\,d\phi$ となります。この係数でJacobianの東列・北列をそれぞれ割ってから比較します。
 
 <a id="thm-geod15-transverse-distortion"></a>
 <!-- formal-statement-start -->
@@ -423,7 +432,28 @@ $$
 =\frac R{h(\phi)},
 $$
 
-ここで中間式は[等角球面を用いた計量表示](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)の証明にある微分式から得ました。非球面で $h$ が定数でないことも赤道の近くで確認できます。$e^2=1-b^2/a^2$ とすると、$\chi'(0)=d\chi/d\phi|_{\phi=0}=M(0)/N(0)=1-e^2$ です。[GEOD14の等角緯度の定義](../GEOD14/index.md#def-geod14-conformal-latitude)で $\psi$ が奇関数、$\sin\chi=\tanh\psi$ も奇関数だから $\chi$ は奇関数で、$\chi=(1-e^2)\phi+O(\phi^3)$ となります。$N=a(1+\tfrac12e^2\phi^2+O(\phi^4))$ と $\cos\phi=1-\tfrac12\phi^2+O(\phi^4)$ を用いると
+ここで中間式は[等角球面を用いた計量表示](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)の証明にある微分式から得ました。非球面で $h$ が定数でないことを赤道付近で確認します。第一離心率 $e$ を用いると
+
+$$
+e^2=1-\frac{b^2}{a^2},\qquad
+\chi'(0)=\left.\frac{d\chi}{d\phi}\right|_{\phi=0}
+=\frac{M(0)}{N(0)}=1-e^2.
+$$
+
+[GEOD14の等角座標の積分公式](../GEOD14/index.md#thm-geod14-isometric-integral)より $\psi$ は奇関数で、[等角緯度の定義](../GEOD14/index.md#def-geod14-conformal-latitude)の $\sin\chi=\tanh\psi$ から $\chi$ も奇関数です。そのため二次の項が消え、
+
+$$
+\chi(\phi)=(1-e^2)\phi+O(\phi^3)
+$$
+
+となります。さらに曲率半径と余弦を赤道周りで展開すると
+
+$$
+N(\phi)=a\left(1+\tfrac12e^2\phi^2+O(\phi^4)\right),\qquad
+\cos\phi=1-\tfrac12\phi^2+O(\phi^4)
+$$
+
+なので
 
 $$
 \frac{h(\phi)}a
