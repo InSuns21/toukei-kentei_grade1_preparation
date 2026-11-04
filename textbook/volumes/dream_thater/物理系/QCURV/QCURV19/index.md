@@ -358,7 +358,7 @@ e^{2\pi n\Omega/H}
 =\frac{\Omega}{2\pi(e^{2\pi\Omega/H}-1)}
 $$
 
-となります。$\Omega>0$ に対して二式の商は $e^{-2\pi\Omega/H}$ です。[詳細釣合いの定義](../QCURV8/index.md#def-qcurv8-detailed-balance)で $\beta=2\pi/H$ と読み、$T_{\rm GH}=1/\beta=H/(2\pi)$ を得ます。$\Omega\to0$ は $e^x-1\sim x$ を使って $H/(4\pi^2)$ です。
+となります。$\Omega>0$ に対して二式の商は $e^{-2\pi\Omega/H}$ です。[QCURV8で定義した検出器の励起・脱励起率の関係](../QCURV8/index.md#def-qcurv8-detailed-balance)で $\beta=2\pi/H$ と読み、$T_{\rm GH}=1/\beta=H/(2\pi)$ を得ます。$\Omega\to0$ は $e^x-1\sim x$ を使って $H/(4\pi^2)$ です。
 
 最後に地平線表面重力は前節の $\kappa=H$ なので $T_{\rm GH}=\kappa/(2\pi)$ です。検出器の結合定数や行列要素はここでは共通因子として取り除いた応答率を使いました。
 <!-- proof-end -->
@@ -427,7 +427,7 @@ $$
 W_r(s)=-\frac{\lambda^2}{16\pi^2\sinh^2[\lambda(s-i0)/2]}.
 $$
 
-[中心のFourier積分](#thm-qcurv19-gh-detector)の $H$ を $\lambda$ に置き換えられるため、$\dot{\mathcal F}_r(\Omega)=\Omega/[2\pi(e^{2\pi\Omega/\lambda}-1)]$ です。従って詳細釣合いの温度は $T_{\rm loc}=\lambda/(2\pi)=H/(2\pi\sqrt f)$。これは[静止KMS状態のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)の $T_{\rm loc}\sqrt f=T_{\rm GH}$ と一致します。
+[中心のFourier積分](#thm-qcurv19-gh-detector)の $H$ を $\lambda$ に置き換えられるため、$\dot{\mathcal F}_r(\Omega)=\Omega/[2\pi(e^{2\pi\Omega/\lambda}-1)]$ です。従ってこの静止検出器が測る温度は $T_{\rm loc}=\lambda/(2\pi)=H/(2\pi\sqrt f)$。これは[静止KMS状態のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)の $T_{\rm loc}\sqrt f=T_{\rm GH}$ と一致します。
 
 静止世界線の四元速度は $u^T=f^{-1/2}$、$u^r=u^\theta=u^\varphi=0$ です。静的計量の $g_{TT}=-f$、$g^{rr}=f$ を使うと
 
@@ -454,7 +454,7 @@ $f=1-H^2r^2>0$ を用いたので各平方根は正です。
 
 質量零共形スカラー場のこのBunch–Davies状態はde Sitter対称性を持ちます。状態と局所共変なくりこみを保つ $\langle T_{ab}\rangle_{\rm ren}$ は対称性のため $g_{ab}$ に比例し、静的な $T$–$r$ 混合成分はありません。すなわち**定常検出器の熱的励起は、ブラックホールから無限遠へ出る正味のエネルギー流束を意味しません**。[QCURV12の灰色体付き遠方流束](../QCURV12/index.md#thm-qcurv12-greybody-flux)をここへ輸入するための漸近平坦な無限遠もありません。
 
-また、[QCURV8の有限時間切替](../QCURV8/index.md#prop-qcurv8-switching)では応答に切替のFourier幅が混入します。上のPlanck分母と厳密な詳細釣合いは、定常・長時間極限に関する主張です。
+また、[QCURV8の有限時間切替](../QCURV8/index.md#prop-qcurv8-switching)では応答に切替のFourier幅が混入します。上のPlanck分母と厳密な励起・脱励起率の指数比は、定常・長時間極限に関する主張です。
 
 ## 6. 演習：座標・状態・検出器をつなぐ
 
@@ -609,7 +609,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-qcurv19-b02"></a>
-#### QCURV19-B02 極の向きと詳細釣合い
+#### QCURV19-B02 極の向きと熱的な率の比
 - Level: B
 - 問題: $\Omega=H\log2/(2\pi)>0$ とする。(a) $e^{-i\Omega s}$ に対して下半平面にある二点関数の極を列挙し、(b) 定常励起率と脱励起率を計算し、(c) その比から温度を決めよ。極 $s=0$ を励起率の下向き積分に誤って含めた場合の違いも説明せよ。
 
@@ -720,7 +720,7 @@ $$
 ## 7. この章で分かったこと
 
 1. de Sitterの膨張平坦座標と静的パッチは同じ局所幾何を異なる時計で表します。中心で規格化した静的Killing場の地平線半径は $H^{-1}$、表面重力は $H$ です。
-2. 四次元の質量零・共形結合スカラー場では、Bunch–Davies状態の正規化モードから二点関数を直接計算できます。中心の測地線に沿う双曲正弦型二点関数は、定常検出器に $T_{\rm GH}=H/(2\pi)$ の詳細釣合いを与えます。
+2. 四次元の質量零・共形結合スカラー場では、Bunch–Davies状態の正規化モードから二点関数を直接計算できます。中心の測地線に沿う双曲正弦型二点関数は、定常検出器に $T_{\rm GH}=H/(2\pi)$ に対応する励起・脱励起率の比を与えます。
 3. 中心以外では $T_{\rm loc}=H/(2\pi\sqrt f)$、$(2\pi T_{\rm loc})^2=H^2+a_{\rm prop}^2$。固有加速度が零でも温度は零とは限りません。
 4. 温度は状態・観測者・測定極限に依存する操作的な結論です。質量零最小結合場の赤外問題、有限切替、静的パッチに無限遠の正味流束がないことを外して一般化しません。
 
