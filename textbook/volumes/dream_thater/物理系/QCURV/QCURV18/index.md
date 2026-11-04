@@ -232,7 +232,11 @@ $$
 =\int_J\chi(u)e^{i\omega u+i\Omega p(u)}\,du
 $$
 
-となり、絶対値を比較するときは同じ情報が残ります。$C_c^\infty(J)$ は、$J$ 内のコンパクトな集合の外で零となる滑らかな関数の集合を表します。このような $\chi$ で有限区間 $J$ の内部を滑らかに切り替えれば、位相の安定性だけを調べられます。ただしQCURV11の正準係数には端点正則化とモード規格化が必要です。以下の**診断積分**を物理的な正準係数そのものとは同一視しません。
+となり、絶対値を比較するときは同じ情報が残ります。
+
+$C_c^\infty(J)$ は、$J$ 内のコンパクトな集合の外で零となる滑らかな関数の集合を表します。$\operatorname{supp}\chi$ は $\chi\ne0$ となる集合の閉包（台）で、この場合は $J$ 内のコンパクトな部分集合です。
+
+このような切替関数で有限区間の内部を滑らかに切り替えれば、位相の安定性だけを調べられます。ただしQCURV11の正準係数には端点正則化とモード規格化が必要です。以下の**診断積分**を物理的な正準係数そのものとは同一視しません。
 
 <a id="def-qcurv18-finite-window"></a>
 
@@ -267,7 +271,7 @@ $\chi$ は滑らかでコンパクトな台を持つので積分は絶対収束�
 
 <!-- formal-statement-start -->
 > **命題（有限窓の位相摂動評価）**  
-> 同じ有界区間 $J$ の上の二つの連続関数 $p,\widetilde p:J\to\mathbb R$ と、上の $\chi,\omega,\Omega$ を取る。$\sup_{u\in\operatorname{supp}\chi}|p(u)-\widetilde p(u)|\le\varepsilon<\infty$ なら
+> $J\subset\mathbb R$ を有界開区間、$p,\widetilde p:J\to\mathbb R$ を連続関数、$\chi\in C_c^\infty(J)$ を実数値の切替関数、$\omega,\Omega>0$、$0\le\varepsilon<\infty$ とする。すべての $u\in\operatorname{supp}\chi$ で $|p(u)-\widetilde p(u)|\le\varepsilon$ なら、[有限窓Fourier診断積分](#def-qcurv18-finite-window)は
 
 $$
 \boxed{\left|I_\chi[p](\omega,\Omega)
@@ -509,7 +513,7 @@ $$
 - 問題: $\chi\in C_c^\infty(J)$、$\|\chi\|_1=1$、$\omega>0$、$0<\Omega\le\Lambda$ とする。$\widetilde p(u)=p(u)+\varepsilon\sin(u/T)$（$T>0$、$\varepsilon\ge0$）なら $|I_\chi[p]-I_\chi[\widetilde p]|$ の上界を求めよ。$\Omega\to\infty$ でも同じ固定定数で抑えられるか。また $\widetilde p=p+d$ の場合の絶対値の変化を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$|\sin(u/T)|\le1$ なので $\sup_{\operatorname{supp}\chi}|p-\widetilde p|\le\varepsilon$。[位相摂動評価](#prop-qcurv18-phase-stability)から
+**詳細解答**：$|\sin(u/T)|\le1$ なので、切替関数の台に属するすべての $u$ で $|p(u)-\widetilde p(u)|\le\varepsilon$ です。[位相摂動評価](#prop-qcurv18-phase-stability)から
 
 $$
 |I_\chi[p]-I_\chi[\widetilde p]|
