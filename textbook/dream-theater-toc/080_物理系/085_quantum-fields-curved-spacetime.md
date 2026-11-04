@@ -19,3 +19,4 @@
 16. [QCURV16 二次元共形模型・trace anomaly・Schwarzian流束](textbook/volumes/dream_thater/物理系/QCURV/QCURV16/index.md)
 17. [QCURV17 半古典Einstein方程式と蒸発のエネルギー収支](textbook/volumes/dream_thater/物理系/QCURV/QCURV17/index.md)
 18. [QCURV18 Hawking導出の適用範囲と超Planckian周波数の感度](textbook/volumes/dream_thater/物理系/QCURV/QCURV18/index.md)
+19. [QCURV19 de Sitterの宇宙論的地平線とGibbons–Hawking温度](textbook/volumes/dream_thater/物理系/QCURV/QCURV19/index.md)

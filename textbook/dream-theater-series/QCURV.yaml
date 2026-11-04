@@ -78,3 +78,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV18
     status: completed
     title: "Hawking導出の適用範囲と超Planckian周波数の感度"
+  - id: QCURV19
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV19
+    status: completed
+    title: "de Sitterの宇宙論的地平線とGibbons–Hawking温度"
