@@ -272,7 +272,7 @@ $$
 <!-- definition-example-start: def-qft43-pdf -->
 ### 例：陽子の価数を直接積分する
 
-**双局所演算子の条件**：まずクォークPDFのゲージ不変性を確認します。光的な方向 $n$（$n^2=0$）に離れた二点 $0,\lambda n$ を、基本表示のWilson線 $U[0,\lambda n]$ で結ぶと、双局所演算子は $\bar\psi(0)\Gamma U[0,\lambda n]\psi(\lambda n)$ の形です。$\Gamma$ は例えば $n_\mu\gamma^\mu$ のようなDirac行列で、色変換には作用しません。[QFT42のリンクの端点変換則](../QFT42/index.md#prop-qft42-wilson-invariant)を開いた経路へ適用すると、局所ゲージ変換 $V$ に対して
+**定義の確認**：まずクォークPDFの双局所演算子がゲージ不変であることを確かめます。光的な方向 $n$（$n^2=0$）に離れた二点 $0,\lambda n$ を、基本表示のWilson線 $U[0,\lambda n]$ で結ぶと、双局所演算子は $\bar\psi(0)\Gamma U[0,\lambda n]\psi(\lambda n)$ の形です。$\Gamma$ は例えば $n_\mu\gamma^\mu$ のようなDirac行列で、色変換には作用しません。[QFT42のリンクの端点変換則](../QFT42/index.md#prop-qft42-wilson-invariant)を開いた経路へ適用すると、局所ゲージ変換 $V$ に対して
 
 $$
 \begin{aligned}
