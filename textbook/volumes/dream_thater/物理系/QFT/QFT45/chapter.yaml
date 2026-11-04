@@ -1,0 +1,45 @@
+id: QFT45
+title: "自発的対称性の破れの量子補正・Higgs質量と調整問題"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT20, QFT21, QFT22, QFT23, QFT25, QFT33, QFT34, QFT35, QFT36, QFT44]
+official_scope: []
+learning_objectives:
+  - (-+++)の実時間作用とEuclid一ループ積分を区別し、二重井戸ポテンシャルの真空と木レベル曲率質量を導出できる
+  - λφ⁴/4模型の運動量殻Gaussian平均から三倍の対称因子と四次元カットオフ質量補正を計算できる
+  - 重い実スカラーの一ループGaussian行列式から質量閾値をカットオフ方式と修正最小減算法の双方で照合できる
+  - 一ループ有効ポテンシャルの停留条件から破れた真空の移動を導き、曲率質量と極質量を区別できる
+  - 回転不変な有効ポテンシャルのHessian零方向を証明し、大域対称性と局所ゲージ冗長性の違いを説明できる
+  - 指定方式での重い閾値と軽い質量の相殺を定量化し、調整指標の物理的解釈の限界を示せる
+definitions:
+  - { id: QFT45-DEF-01, name: 運動量殻を消去した質量係数 }
+  - { id: QFT45-DEF-02, name: 重いスカラーの質量閾値補正 }
+  - { id: QFT45-DEF-03, name: 一ループ有効ポテンシャルの停留真空 }
+  - { id: QFT45-DEF-04, name: 単一閾値の調整指標 }
+theorems:
+  - { id: QFT45-THM-01, name: 四次元スカラーの一ループ殻質量補正 }
+  - { id: QFT45-THM-02, name: 重いGaussianスカラーの一ループ質量matching }
+  - { id: QFT45-THM-03, name: 破れた実スカラー模型の一ループ真空移動 }
+  - { id: QFT45-PROP-01, name: 回転不変な有効ポテンシャルの接線零方向 }
+canonical_examples:
+  - 二重井戸の曲率と木レベル質量
+  - 運動量殻でのφ²χ²縮約と質量反項
+  - 重いGaussian積分の有限モード例と一ループ閾値
+  - 修正最小減算法の有効ポテンシャルからの真空移動
+  - O(2)回転不変ポテンシャルの接線方向Hessian
+  - M/a=1000での調整指標とその限界
+problem_patterns:
+  - QFT45-CLASSICAL-VACUUM
+  - QFT45-GAUSSIAN-MODE
+  - QFT45-MASSLESS-SHELL
+  - QFT45-HEAVY-HESSIAN
+  - QFT45-TUNING-RATIO
+  - QFT45-FINITE-SHELL
+  - QFT45-MS-THRESHOLD
+  - QFT45-VACUUM-SHIFT
+  - QFT45-SYMMETRY-HESSIAN
+  - QFT45-COMBINED-MATCHING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 17, review: 7 }
