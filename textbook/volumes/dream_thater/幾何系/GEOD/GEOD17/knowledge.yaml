@@ -1,0 +1,43 @@
+chapter: GEOD17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD16
+forward_references: []
+concepts:
+  - id: geodesy.kruger-meridian-average
+    name: 子午線平均半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（子午線平均半径）]
+    requires: [geodesy.signed-meridian-arc, geodesy.shape-parameters]
+  - id: geodesy.rectifying-latitude
+    name: 正距緯度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正距緯度）]
+    requires: [geodesy.kruger-meridian-average, geodesy.signed-meridian-arc]
+  - id: geodesy.kruger-low-order
+    name: Krüger 順級数の二次係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Krüger 順級数の二次係数）]
+    requires: [geodesy.rectifying-latitude, geodesy.conformal-latitude]
+  - id: geodesy.kruger-forward-series
+    name: Krüger 順級数とその有限次数近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Krüger 順級数とその有限次数近似）]
+    requires: [geodesy.kruger-low-order, geodesy.ellipsoidal-transverse-correction, geodesy.spherical-transverse-mercator]
+  - id: geodesy.kruger-forward-map
+    name: Krüger 順変換の平面座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Krüger 順変換の平面座標）]
+    requires: [geodesy.kruger-forward-series, geodesy.rectifying-latitude]
+  - id: geodesy.kruger-axis-symmetry
+    name: 中央子午線と東西・南北の対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（中央子午線と東西・南北の対称性）]
+    requires: [geodesy.kruger-forward-map]
