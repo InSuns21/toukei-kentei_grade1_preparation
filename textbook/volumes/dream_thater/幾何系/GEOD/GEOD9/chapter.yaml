@@ -1,0 +1,46 @@
+id: "GEOD9"
+title: "GNSS・衛星測地学の基礎"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD8
+official_scope: []
+learning_objectives:
+  - 伝播時間と衛星・受信機時計差からコード擬似距離観測式を導き、伝播遅延と幾何距離を区別できる
+  - 位置3成分と時計距離換算偏りのJacobianを導き、衛星方向の階数条件と修正量を計算できる
+  - 擬似距離の等分散模型から共分散とPDOP・TDOP・GDOPを計算し、衛星配置と実誤差を区別できる
+  - 搬送波位相・整数アンビギュイティとコード・位相での電離圏一次項の符号差を説明できる
+  - 受信機間・衛星間の二重差を展開し、時計項の相殺と残留する誤差を示せる
+  - 単独・相対測位を区別し、ITRFの実現と座標時点を伴う位置の変化を模型に基づき計算できる
+definitions:
+  - { id: GEOD9-DEF-01, name: GNSS の擬似距離観測式 }
+  - { id: GEOD9-DEF-02, name: GNSS の位置・時計の DOP }
+  - { id: GEOD9-DEF-03, name: 搬送波位相の距離換算模型と整数アンビギュイティ }
+  - { id: GEOD9-DEF-04, name: 受信機間・衛星間の二重差 }
+theorems:
+  - { id: GEOD9-PROP-01, name: 擬似距離の一次化と設計行列 }
+  - { id: GEOD9-THM-01, name: 4機の局所的な測位可能条件 }
+  - { id: GEOD9-PROP-02, name: 二重差による受信機・衛星時計項の相殺 }
+  - { id: GEOD9-PROP-03, name: 同じ基準枠内の等速位置時点模型 }
+canonical_examples:
+  - 1マイクロ秒の時計差が約300mに相当する擬似距離の計算
+  - 1衛星の方向微分と位置・時計の設計行列
+  - 架空の4方向から位置修正とDOP共分散を手計算する例
+  - コードと搬送波位相に現れる電離圏一次効果の符号差
+  - 2局2衛星の二重差で時計項と整数アンビギュイティを検算する例
+  - 座標時点が異なる地上点の等速変位
+problem_patterns:
+  - GEOD9-CLOCK-RANGE
+  - GEOD9-RANGE-JACOBIAN
+  - GEOD9-FOUR-SATELLITES
+  - GEOD9-PHASE-IONOSPHERE
+  - GEOD9-COORDINATE-EPOCH
+  - GEOD9-DOP-COVARIANCE
+  - GEOD9-RANK-DEFICIENCY
+  - GEOD9-DOUBLE-DIFFERENCE
+  - GEOD9-REDUNDANT-OBSERVATIONS
+  - GEOD9-INTEGRATED-POSITIONING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 3 }
