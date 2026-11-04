@@ -1,0 +1,44 @@
+chapter: GEOD20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD13
+  - GEOD19
+forward_references: []
+concepts:
+  - id: geodesy.equal-earth-intermediate-angle
+    name: Equal Earth の中間角と多項式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Equal Earth の中間角と多項式）]
+    requires: [geodesy.authalic-latitude-radius]
+  - id: geodesy.equal-earth-forward
+    name: Equal Earth の順変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Equal Earth の順変換）]
+    requires: [geodesy.equal-earth-intermediate-angle, geodesy.authalic-area-preservation]
+  - id: geodesy.equal-earth-monotonic
+    name: Equal Earth 多項式の単調性と定義域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Equal Earth 多項式の単調性と定義域）]
+    requires: [geodesy.equal-earth-intermediate-angle]
+  - id: geodesy.equal-earth-area
+    name: Equal Earth のJacobianと等積性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Equal Earth のJacobianと等積性）]
+    requires: [geodesy.equal-earth-forward, geodesy.equal-earth-monotonic, geodesy.authalic-area-preservation, geodesy.directional-area-scales]
+  - id: geodesy.equal-earth-inverse
+    name: Equal Earth の逆変換と解の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Equal Earth の逆変換と解の一意性）]
+    requires: [geodesy.equal-earth-monotonic, geodesy.equal-earth-forward, geodesy.authalic-area-preservation]
+  - id: geodesy.equal-earth-distortion
+    name: Equal Earth の局所縮尺と等積ひずみ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Equal Earth の局所縮尺と等積ひずみ）]
+    requires: [geodesy.equal-earth-area, geodesy.directional-area-scales]
