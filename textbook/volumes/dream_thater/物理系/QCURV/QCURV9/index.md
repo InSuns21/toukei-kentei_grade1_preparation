@@ -36,13 +36,20 @@ $$
 <!-- definition-example-start: def-qcurv9-frequencies -->
 ### 直接例：半径 $4M$ で同じ光を測る
 
-$r=4M$ では $f=1/2$ です。したがって $\xi^2=-1/2<0$、$u_{\rm stat}=\sqrt2\,\xi$ は
+$r=4M$ では $f=1/2$ です。したがって $g(\xi,\xi)=-1/2<0$、$u_{\rm stat}=\sqrt2\,\xi$ は
 
 $$
 g(u_{\rm stat},u_{\rm stat})=2g(\xi,\xi)=-1
 $$
 
-を満たす未来向き単位時間的ベクトルです。例えば未来向き動径零ベクトルの倍率を $E_\infty=-g(p,\xi)=2>0$ となるよう選ぶと、
+を満たす未来向き単位時間的ベクトルです。光の零条件も直接確かめます。$r=4M$ の一点で、外向き零測地線のアフィン接ベクトルの初期値を $p=4\partial_t+2\partial_r$ と選びます。角度成分は零で、$p^t=4>0$、$p^r/p^t=1/2=f(4M)$ です。さらに
+
+$$
+g(p,p)=-\frac12(4)^2+\frac{1}{1/2}(2)^2=-8+8=0,
+\qquad E_\infty=-g(p,\xi)=\frac12(4)=2>0.
+$$
+
+この初期値から出る未来向き零測地線で測れば、
 
 $$
 E_{\rm loc}(4M)=-g(p,\sqrt2\,\xi)=2\sqrt2>0.
@@ -161,7 +168,24 @@ $$
 ds^2=-f\,dv^2+2\,dv\,dr+r^2d\Omega^2.
 $$
 
-右辺の $(v,r)$ 成分の行列式は $-1$ で、$r=2M$ でも退化しません。$\chi=\partial_v$ は外部で $\partial_t$ に一致し、地平線の正則部分では $\chi^\flat=dr\ne0$、$g^{-1}(dr,dr)=f=0$ です。これが[GR29のKilling地平線の定義](../../GR/GR29/index.md#def-gr29-killing-horizon)を満たす理由です。
+なぜこの表示から地平線を判定できるのでしょうか。座標基底 $(\partial_v,\partial_r)$ での計量の成分は、交差項 $2\,dv\,dr$ が $g_{vr}=g_{rv}=1$ を意味するので、[GR26のEF計量と逆計量](../../GR/GR26/index.md#prop-gr26-ef-metric-domain)のとおり
+
+$$
+(g_{ab})=\begin{pmatrix}-f&1\\1&0\end{pmatrix},\qquad
+(g^{ab})=\begin{pmatrix}0&1\\1&f\end{pmatrix},\qquad
+\det(g_{ab})=-1
+$$
+
+です。したがって $r=2M$ でもこのブロックは非退化です。候補面を $F=r-2M=0$ と置くと法線共変ベクトルは $dF=dr\ne0$ で、逆計量による長さは $g^{-1}(dF,dF)=g^{rr}=f=0$ です。つまり面そのものが零超曲面です。
+
+計量は $v$ に依存しないため、[座標によるKilling判定](../../GR/GR14/index.md#prop-gr14-killing-coordinate-test)から非零の $\chi=\partial_v$ はKilling場です。$v=t+r_*(r)$ なので $r$ 固定の偏微分では $\partial_v=\partial_t$ であり、地平線上の計量双対は
+
+$$
+\chi^\flat=g_{vv}\,dv+g_{rv}\,dr=-f\,dv+dr
+\ \xrightarrow{r=2M}\ dr=dF.
+$$
+
+これで零超曲面・非零Killing場・法線方向という[GR29のKilling地平線の定義](../../GR/GR29/index.md#def-gr29-killing-horizon)の各条件を確認しました。$\chi$ が零ベクトルになるという意味ではありません。
 
 地平線の[表面重力の定義](../../GR/GR45/index.md#def-gr45-surface-gravity)は、正則な地平線生成場 $\chi$ の非アフィン性 $\chi^b\nabla_b\chi^a=\kappa_\chi\chi^a$ です。地平線で測った静止観測者の「局所加速度」とは別の量です。ここでは[GR45の静的球対称地平線の定理](../../GR/GR45/index.md#thm-gr45-static)に具体的な $f$ を代入し、遠方時計との整合を確認します。
 
@@ -285,7 +309,7 @@ $$
 指数関数のTaylor展開 $e^x=1+x+O(x^2)$ を $x=\varepsilon/r_s\to0$ に適用して表示式を得ます。$V=e^{\kappa_\infty v_0}$ は有限正値のままなので、[GR27の四領域とEF座標の被覆範囲](../../GR/GR27/index.md#prop-gr27-regions-ef)により、極限は右外部から未来地平線 $U=0,V>0$ へ向かいます。$\square$
 <!-- proof-end -->
 
-**指数圧縮の数値例**：$\Delta u=4M\log2$ なら $\kappa_\infty\Delta u=\log2$ なので $U(u+\Delta u)/U(u)=1/2$。同じ間隔 $\Delta u$ の出射ラベルを順に取るたび、負の $U$ の絶対値は半分になります。$u$ は遠方時刻と同じ規格化ですが、$U$ は無次元の幾何学的ラベルです。$U$ の間隔をそのまま観測者の「秒」と解釈してはいけません。
+**指数圧縮の数値例**：$\Delta u=4M\log2$ なら $\kappa_\infty\Delta u=\log2$ なので $U(u+\Delta u)/U(u)=1/2$。同じ間隔 $\Delta u$ の出射ラベルを順に取るたび、負の $U$ の絶対値は半分になります。$u$ は遠方時刻と同じ規格化ですが、$U$ は無次元の幾何学的ラベルです。$U$ の間隔をそのまま観測者の「秒」と解釈してはいけません。また、$U\to0^-$ のみでは時空上の地平線への接近を意味せず、例えば有限な $v$（従って有限正の $V$）を固定する条件が必要です。
 
 **二つの指数を混同しない**：[GR27のKruskal変換](../../GR/GR27/index.md#prop-gr27-regular-metric)は古典的Schwarzschild外部の二つの時刻ラベルの対応です。崩壊時空で入射の過去零無限遠から未来零無限遠へ実際に光線を追ったとき、
 
@@ -308,7 +332,13 @@ $$
 
 永遠のSchwarzschildの標準的な切片では、[GR29で証明した三種類の地平線の一致](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により $r=2M$ が未来事象・見かけ・Killingの境界と一致します。ただし定義が一致したわけではありません。時間依存の[Vaidya模型での分離](../../GR/GR29/index.md#prop-gr29-vaidya-separation)は、局所条件 $f=0$ から未来事象地平線を即断する推論が壊れる直接例です。
 
-量子場の議論に引き渡すものは、(i) $t$・$u$ が遠方で規格化されていること、(ii) 未来地平線では $U$ が滑らかなラベルであること、(iii) 二つのラベルを結ぶ係数が $\kappa_\infty$ であること、の三点です。これらは**温度導出の幾何学的入力**であって、状態・Bogoliubov係数・遠方の粒子流束についてはまだ何も確定しません。
+量子場の議論に引き渡す幾何学的な入力は、次の三点です。
+
+1. 時刻 $t$ と出射零時刻 $u$ が遠方で規格化されていること。
+2. 未来地平線では $U$ が滑らかなラベルであること。
+3. 二つのラベルを結ぶ指数の係数が $\kappa_\infty$ であること。
+
+これらは**温度導出の幾何学的入力**であって、状態・Bogoliubov係数・遠方の粒子流束についてはまだ何も確定しません。
 
 ## 演習
 
@@ -331,7 +361,17 @@ $$
 - 問題: $r_s=2M$ とし、[tortoise座標](../../GR/GR26/index.md#def-gr26-tortoise)の $r=2r_s$ における値と導関数を求めよ。また $r\downarrow r_s$ に対する極限を答えよ。
 
 <!-- solution-start -->
-**詳細解答**：$r_*=r+r_s\log(r/r_s-1)$ へ $r=2r_s$ を入れると $\log1=0$ なので $r_*=2r_s$。微分は $dr_*/dr=1+r_s/(r-r_s)=r/(r-r_s)$ で、同じ点では $2$ です。$r\downarrow r_s$ で $r/r_s-1\downarrow0^+$、従って対数が $-\infty$ に発散し、有限な $r$ の項に勝つので $r_*\to-\infty$。外部の座標としての発散を、曲率の発散とはみなしません。
+**詳細解答**：[tortoise座標](../../GR/GR26/index.md#def-gr26-tortoise)の定義式へ $r=2r_s$ を代入し、動径 $r$ で微分すると
+
+$$
+\begin{aligned}
+r_*(2r_s)&=2r_s+r_s\log(2-1)=2r_s,\\
+\frac{dr_*}{dr}&=1+\frac{r_s}{r-r_s}=\frac{r}{r-r_s},\\
+\left.\frac{dr_*}{dr}\right|_{r=2r_s}&=2.
+\end{aligned}
+$$
+
+$r\downarrow r_s$ では $r/r_s-1\downarrow0^+$ なので対数は $-\infty$ に発散し、有限な $r$ の項に勝って $r_*\to-\infty$ です。外部の座標としての発散を、曲率の発散とはみなしません。
 <!-- solution-end -->
 
 <a id="ex-qcurv9-a03"></a>
@@ -341,7 +381,25 @@ $$
 - 問題: $r=4M$ における角度一定の未来向き動径零光線の $dr/dt$ を外向き・内向き別に求め、それぞれ $du/dt$、$dv/dt$ のどちらが零かを示せ。
 
 <!-- solution-start -->
-**詳細解答**：零条件 $0=-fdt^2+f^{-1}dr^2$ より $(dr/dt)^2=f^2$、$f(4M)=1/2$ なので外向きは $dr/dt=+1/2$、内向きは $-1/2$。$dr_*/dt=(dr_*/dr)(dr/dt)=f^{-1}(dr/dt)$ は順に $+1,-1$ です。外向きでは $du/dt=1-dr_*/dt=0$、内向きでは $dv/dt=1+dr_*/dt=0$。逆の零時刻を一定にすると入射と出射を取り違えます。
+**詳細解答**：角度一定の零条件は $0=-fdt^2+f^{-1}dr^2$ です。未来向きで $dt>0$ とすると
+
+$$
+\left(\frac{dr}{dt}\right)^2=f^2,\qquad
+\left.\frac{dr}{dt}\right|_{r=4M}
+=\begin{cases}+1/2&\text{外向き},\\-1/2&\text{内向き}.
+\end{cases}
+$$
+
+[tortoise座標](../../GR/GR26/index.md#def-gr26-tortoise)の連鎖律で
+
+$$
+\frac{dr_*}{dt}=\frac{dr_*}{dr}\frac{dr}{dt}
+=\frac1f\frac{dr}{dt}
+=\begin{cases}+1&\text{外向き},\\-1&\text{内向き}.
+\end{cases}
+$$
+
+従って外向きでは $du/dt=1-dr_*/dt=0$、内向きでは $dv/dt=1+dr_*/dt=0$。逆の零時刻を一定にすると入射と出射を取り違えます。
 <!-- solution-end -->
 
 <a id="ex-qcurv9-a04"></a>
@@ -358,10 +416,21 @@ $$
 #### QCURV9-A05 指数ラベルの符号と比
 
 - Level: A
-- 問題: $M>0$、$\kappa_\infty=1/(4M)$、$U=-e^{-\kappa_\infty u}$ とする。$u_1=0$、$u_2=4M\log2$ に対する $U_1,U_2$ と比を求め、未来地平線へ近づく向きを述べよ。
+- 問題: $M>0$、$\kappa_\infty=1/(4M)$、$U=-e^{-\kappa_\infty u}$ とし、有限な入射零時刻 $v=v_0$（従って $V=e^{\kappa_\infty v_0}>0$）を固定する。$u_1=0$、$u_2=4M\log2$ に対する $U_1,U_2$ と比を求め、未来地平線へ近づく向きを述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$U_1=-e^0=-1$、$\kappa_\infty u_2=\log2$ なので $U_2=-e^{-\log2}=-1/2$。比 $U_2/U_1=1/2$ です。$U$ は $-1$ から $-1/2$ へ**増加**し、$u\to+\infty$ なら $U\to0^-$ となります。$U<0$ の符号条件を保ち、地平線の右外部側から近づいています。
+**詳細解答**：二つのラベルへ定義式を代入します。
+
+$$
+U_1=-e^0=-1,\qquad
+\kappa_\infty u_2=\log2,\qquad
+U_2=-e^{-\log2}=-\frac12,\qquad
+\frac{U_2}{U_1}=\frac12.
+$$
+
+$U$ は $-1$ から $-1/2$ へ**増加**します。固定した有限 $v_0$ に対して $V=e^{\kappa_\infty v_0}>0$ は一定であり、$u\to+\infty$ では $U\to0^-$ です。[GR27のEF被覆範囲](../../GR/GR27/index.md#prop-gr27-regions-ef)から、このときは右外部から未来地平線に近づくと結論できます。
+
+ただし $v$ を固定しなければ、$U\to0^-$ だけで同じ結論にはなりません。
 <!-- solution-end -->
 
 ### Level B：保存則・極限と適用条件をつなぐ
@@ -383,7 +452,29 @@ $$
 - 問題: $ds^2=-fdt^2+f^{-1}dr^2+r^2d\Omega^2$、$f=1-2M/r$ の $r>2M$ で、静止四元速度 $u=f^{-1/2}\partial_t$ の四元加速度の大きさを求めよ。$r\downarrow2M$ で $|a|$ と $\sqrt f|a|$ の極限を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：静止世界線上で $r$ は一定なので $u^b\partial_bu^a=0$ です。接続の成分は $\Gamma^r_{tt}=-(1/2)g^{rr}\partial_rg_{tt}=(1/2)ff'$。従って $a^r=\Gamma^r_{tt}(u^t)^2=(ff'/2)(1/f)=f'/2=M/r^2$、他成分は0。ノルムは $a^aa_a=g_{rr}(a^r)^2=f^{-1}(f'/2)^2$ です。$f'>0$ だから $|a|=f'/(2\sqrt f)=M/(r^2\sqrt f)$。$r\downarrow2M$ では $f\downarrow0$ なので $|a|\to+\infty$、一方 $\sqrt f|a|=M/r^2\to1/(4M)$。後者は[無限遠規格化の表面重力](#prop-qcurv9-kappa)と等しく、局所静止観測者が地平線に存在することは示していません。
+**詳細解答**：静止世界線では $r$ は一定なので $u^b\partial_bu^a=0$ です。$f'=df/dr$ とし、Levi-Civita接続の係数を計算すると
+
+$$
+\Gamma^r_{tt}=-\frac12g^{rr}\partial_rg_{tt}
+=\frac12ff',\qquad
+a^r=\Gamma^r_{tt}(u^t)^2
+=\frac{ff'}2\frac1f=\frac{f'}2=\frac{M}{r^2}.
+$$
+
+他の加速度成分は零です。動径計量 $g_{rr}=f^{-1}$ でノルムを取り、外部の $f'>0$ を使うと
+
+$$
+a^aa_a=g_{rr}(a^r)^2=\frac{(f')^2}{4f},\qquad
+|a|=\frac{f'}{2\sqrt f}=\frac{M}{r^2\sqrt f}.
+$$
+
+$r\downarrow2M$ で $f\downarrow0$ かつ $M/r^2\to1/(4M)>0$ だから局所加速度は発散します。一方、赤方偏移した量は
+
+$$
+\sqrt f\,|a|=\frac{M}{r^2}\longrightarrow\frac1{4M}
+$$
+
+となり、[無限遠規格化の表面重力](#prop-qcurv9-kappa)と一致します。これによって局所静止観測者が地平線に存在すると示したわけではありません。
 <!-- solution-end -->
 
 <a id="ex-qcurv9-b03"></a>
@@ -437,9 +528,16 @@ $$
 <!-- solution-start -->
 **詳細解答**：
 
-(1) 無限遠で規格化した生成場は $\xi=\partial_t$ で $g(\xi,\xi)=-f\to-1$。$f(4M)=1/2$、発光者の静止時計は $d\tau_e=dt_e/\sqrt2$ なので、$\Delta t_e=(2M)/(1/\sqrt2)=2\sqrt2\,M$。各出射光線で $u_i=t_{e,i}-r_*(4M)$、同じ $r_*$ が差で消えるから $\Delta u=2\sqrt2\,M$ です。
+**（1）** 無限遠で規格化した生成場は $\xi=\partial_t$ で $g(\xi,\xi)=-f\to-1$ です。発光半径で $f(4M)=1/2$ だから静止時計の関係を積分して
 
-(2) [表面重力](#prop-qcurv9-kappa)は $\kappa_\infty=1/(4M)$ です。[指数圧縮定理](#thm-qcurv9-compression)に $\Delta u=2\sqrt2\,M$ を代入して
+$$
+\Delta\tau_e=\frac{\Delta t_e}{\sqrt2}=2M,
+\qquad \Delta t_e=2\sqrt2\,M.
+$$
+
+各出射光線では $u_i=t_{e,i}-r_*(4M)$ なので、同じ半径の $r_*$ が差で消え、$\Delta u=\Delta t_e=2\sqrt2\,M$ です。
+
+**（2）** [表面重力](#prop-qcurv9-kappa)は $\kappa_\infty=1/(4M)$ です。[指数圧縮定理](#thm-qcurv9-compression)に $\Delta u=2\sqrt2\,M$ を代入して
 
 $$
 \frac{U_2}{U_1}=\exp\!\left[-\frac1{4M}(2\sqrt2\,M)\right]
@@ -448,9 +546,17 @@ $$
 
 両 $U_i$ は負ですが比は正で $1$ 未満です。二本の $u$ の差が正なので、後の光線ほど $U$ は0へ近づきます。
 
-(3) [Killing周波数の赤方偏移](#prop-qcurv9-redshift)より発光点で $\omega_e=\omega_\infty/\sqrt{f_e}=\sqrt2\,\omega_\infty$。従って $\omega_\infty=\omega_e/\sqrt2$。質量パラメータ $M$ の単位と、周波数の逆長さ次元は整合します。
+**（3）** [Killing周波数の赤方偏移](#prop-qcurv9-redshift)を $f_e=1/2$ へ適用すると
 
-(4) 永遠のSchwarzschildの標準的な切片では、[GR29の三地平線の一致](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により $r=2M$ ですが、それぞれ未来への因果到達、零膨張、Killing零法線という異なる条件で判定しました。[Rindlerくさび](../QCURV7/index.md#def-qcurv7-wedges)は平坦Minkowski中の加速観測者のアクセス領域であり、曲率を持つブラックホールの大域的な事象地平線ではありません。
+$$
+\omega_e=\frac{\omega_\infty}{\sqrt{f_e}}
+=\sqrt2\,\omega_\infty,\qquad
+\omega_\infty=\frac{\omega_e}{\sqrt2}.
+$$
+
+質量パラメータ $M$ の長さ次元と、周波数の逆長さ次元は整合します。
+
+**（4）** 永遠のSchwarzschildの標準的な切片では、[GR29の三地平線の一致](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により $r=2M$ ですが、それぞれ未来への因果到達、零膨張、Killing零法線という異なる条件で判定しました。[Rindlerくさび](../QCURV7/index.md#def-qcurv7-wedges)は平坦Minkowski中の加速観測者のアクセス領域であり、曲率を持つブラックホールの大域的な事象地平線ではありません。
 
 さらにここでの $U=-e^{-\kappa_\infty u}$ は永遠の外部の**二つの座標ラベルの対応**で、崩壊前に過去零無限遠から入射した光線の $v_{\rm in}$ がどの出射 $u$ へ到達するかを計算していません。崩壊時空の内部との接続、$v_H-v_{\rm in}(u)$ の遅い時刻の指数関係、in/outモードの正負周波数分解と波束規格化、量子状態の選択が追加で必要です。従ってこの比だけを粒子占有数やHawking温度の導出済み結果とはみなしません。
 <!-- solution-end -->
