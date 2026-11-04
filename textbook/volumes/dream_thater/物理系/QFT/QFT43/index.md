@@ -84,7 +84,15 @@ $$
 
 ## 2. 陽子の応答を二つの関数として測る
 
-最終状態 $X$ を一つずつ計算する代わりに、電磁電流 $J^\mu=\sum_f e_f\bar\psi_f\gamma^\mu\psi_f$ の全状態和を取ります。$e_f$ は陽子電荷を単位とするクォークの電荷（$u:2/3$、$d:-1/3$ など）です。非偏極標的について、各終状態の電流行列要素の積を、運動量保存 $P_X=P+q$ の下で足し合わせた対称なハドロンテンソル $W^{\mu\nu}$ を用います。[QFT17の保存電流](../QFT17/index.md#thm-qft17-eom-current)を各行列要素へ適用すると $q_\mu W^{\mu\nu}=0$ です。Lorentz対称性により、この非偏極・パリティ偶の二階テンソルを作る四元ベクトルは $P,q$ だけです。
+最終状態を一つずつ計算する代わりに、次の電磁電流の全状態和を取ります。フレーバー $f$ の電荷 $e_f$ は陽子電荷を単位とし、例えば $u$ は $2/3$、$d$ は $-1/3$ です。
+
+$$
+J^\mu=\sum_f e_f\bar\psi_f\gamma^\mu\psi_f.
+$$
+
+非偏極標的について、観測しない最終状態 $X$ の電流行列要素の積を、運動量保存 $P_X=P+q$ の下で足し合わせた対称なハドロンテンソル $W^{\mu\nu}$ を用います。[QFT17の保存電流](../QFT17/index.md#thm-qft17-eom-current)を各行列要素へ適用すると $q_\mu W^{\mu\nu}=0$ です。
+
+Lorentz対称性により、この非偏極・パリティ偶の二階テンソルを作る四元ベクトルは $P,q$ だけです。
 
 四元運動量 $P$ から光子方向の成分を取り除いた $\widetilde P^\mu=P^\mu-(P\cdot q/Q^2)q^\mu$ と、光子に直交する射影テンソル $G^{\mu\nu}=\eta^{\mu\nu}-q^\mu q^\nu/Q^2$ を作れば、$q\cdot\widetilde P=0$ と $q_\mu G^{\mu\nu}=0$ が直接成り立ちます。
 
@@ -272,7 +280,14 @@ $$
 <!-- definition-example-start: def-qft43-pdf -->
 ### 例：陽子の価数を直接積分する
 
-**定義の確認**：まずクォークPDFの双局所演算子がゲージ不変であることを確かめます。光的な方向 $n$（$n^2=0$）に離れた二点 $0,\lambda n$ を、基本表示のWilson線 $U[0,\lambda n]$ で結ぶと、双局所演算子は $\bar\psi(0)\Gamma U[0,\lambda n]\psi(\lambda n)$ の形です。$\Gamma$ は例えば $n_\mu\gamma^\mu$ のようなDirac行列で、色変換には作用しません。[QFT42のリンクの端点変換則](../QFT42/index.md#prop-qft42-wilson-invariant)を開いた経路へ適用すると、局所ゲージ変換 $V$ に対して
+**定義の確認**：まずクォークPDFの双局所演算子がゲージ不変であることを確かめます。光的な方向 $n$ に離れた二点を、基本表示のWilson線で結びます。双局所演算子 $\mathcal O(\lambda)$ は次の形です。
+
+$$
+\mathcal O(\lambda)=\bar\psi(0)\Gamma U[0,\lambda n]\psi(\lambda n),
+\qquad n^2=0,\quad \Gamma=n_\mu\gamma^\mu.
+$$
+
+$\Gamma$ は色変換に作用しないDirac行列です。[QFT42のリンクの端点変換則](../QFT42/index.md#prop-qft42-wilson-invariant)を開いた経路へ適用すると、局所ゲージ変換 $V$ に対して
 
 $$
 \begin{aligned}
