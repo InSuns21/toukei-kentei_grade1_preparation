@@ -93,6 +93,8 @@ $$
 
 従って物理的な単位ベクトルを直接投影する行列は $J_F$ 自体ではなく $D=J_FB^{-1}$ です。この正規化を忘れると、緯度・経度の度数や座標軸の単位に依存する偽の「歪み」が出ます。
 
+以下、偏微分を成分の下付き添字でも略記します。例えば $E_\phi=\partial E/\partial\phi$ は経度 $\lambda$ を固定した偏微分、$(N_p)_\lambda=\partial N_p/\partial\lambda$ は緯度 $\phi$ を固定した偏微分です。$E_\lambda$ と $(N_p)_\phi$ も同様です。これは曲線の媒介変数による全微分とは区別します。
+
 <a id="def-geod13-scales"></a>
 <!-- formal-statement-start -->
 > **定義（方向別局所縮尺と面積縮尺）**
@@ -190,6 +192,15 @@ $$
 > 開いた領域で各条件が成立するとき、それぞれその領域で等角・等積・指定方向に等距離という。**全方向に等距離**とはすべての $v\ne0$ で $k_p(v)=1$ となることであり、これは点での等長性である。「等距離図法」という名称だけで、全方向・全点間の距離保存を意味するわけではない。
 <!-- formal-statement-end -->
 
+ここからの $D$ を直接指定する例は、地表の物理的な正規直交座標での一次変換を指定しています。実際、非極点 $p=(\phi_0,\lambda_0)$ を固定し、そこでの $B(p)=\operatorname{diag}(M(p),r(p))$ を用いれば、任意の正則な $2\times2$ 行列 $D_0$ に対して局所投影
+
+$$
+F(\phi,\lambda)=D_0B(p)
+\begin{pmatrix}\phi-\phi_0\\\lambda-\lambda_0\end{pmatrix}
+$$
+
+を構成できます。このとき $J_F(p)=D_0B(p)$ だから $J_F(p)B(p)^{-1}=D_0$ です。従って、次の行列例でも元の地表計量を無視したわけではありません。
+
 <!-- definition-example-start: def-geod13-preservation -->
 **定義の確認**。地表の正規直交座標で $D=\operatorname{diag}(2,1/2)$ とします。第一方向 $e_1$ の縮尺は2、第二方向 $e_2$ は $1/2$ で、その積は1だから等積です。しかし $e_1+e_2$ と $e_1-e_2$ は元は直交しているのに、投影後の内積は $4-1/4=15/4\ne0$ で等角ではありません。また $D=\operatorname{diag}(1,2)$ では $e_1$ 方向だけ等距離で、面積縮尺は2です。これで三種類の条件が混同できないことを直接確認できます。
 <!-- definition-example-end -->
@@ -252,7 +263,7 @@ $$
 
 北と東だけを測ると、斜め方向の歪みを見落とすことがあります。例えば $D$ がせん断を含むと、北・東の像の長さが同じでも、その二方向は直交しなくなります。そこで、地表の接平面で**すべての方向へ同じ微小距離**だけ動く円を考え、一次近似で投影します。その像は一般に楕円です。
 
-正方行列 $D^\mathsf TD$ は対称で、任意の $u$ に対し $u^\mathsf TD^\mathsf TDu=\|Du\|^2\ge0$ です。したがって二つの非負固有値を持ちます。その平方根が、伸びが最大・最小となる方向の倍率です。
+正方行列 $D^\mathsf TD$ は実対称で、任意の $u$ に対し $u^\mathsf TD^\mathsf TDu=\|Du\|^2\ge0$ です。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)をこの $2\times2$ 行列に適用すると正規直交固有基底が存在し、各固有値は固有方向での上記二次形式の値なので非負です。その平方根が、伸びが最大・最小となる方向の倍率です。
 
 <a id="def-geod13-tissot"></a>
 <!-- formal-statement-start -->
@@ -456,7 +467,28 @@ $$
 - ID: GEOD13-A2
 
 <!-- solution-start -->
-**詳細解答。** 球面赤道では $M=r=R=10$ kmです。$J=\begin{pmatrix}0&10\\20&0\end{pmatrix}$ なので[縮尺式](#thm-geod13-metric-comparison)から $k_{\mathrm N}=20/10=2$、$k_{\mathrm E}=10/10=1$、$A=|\det J|/100=200/100=2$。緯度1度は $\pi/180$ radだから北座標差は $20\pi/180=\pi/9$ kmです。20 kmと答えるのは「1ラジアン」と「1度」の混同です。
+**詳細解答。** 球面赤道では $M=r=R=10$ kmです。緯度・経度の順に偏微分して
+
+$$
+J=\begin{pmatrix}0&10\\20&0\end{pmatrix},\qquad
+B=\operatorname{diag}(10,10)
+$$
+
+を得ます。[縮尺式](#thm-geod13-metric-comparison)により、北・東方向の列をそれぞれ地表長で割ると
+
+$$
+k_{\mathrm N}=\frac{20}{10}=2,\qquad
+k_{\mathrm E}=\frac{10}{10}=1,\qquad
+A=\frac{|\det J|}{Mr}=\frac{200}{100}=2.
+$$
+
+緯度1度は $\pi/180$ radだから、投影北座標の差は
+
+$$
+\Delta N_p=20\frac{\pi}{180}=\frac{\pi}{9}\ \mathrm{km}.
+$$
+
+20 kmと答えるのは「1ラジアン」と「1度」の混同です。
 <!-- solution-end -->
 
 #### A3. 面積を保つが角度を変える行列
@@ -554,11 +586,18 @@ $$
 - ID: GEOD13-B3
 
 <!-- solution-start -->
-**詳細解答。** [第6節の行列](#thm-geod13-metric-comparison)へ球面の $M=R,r=R\cos\phi$ を入れると
+**詳細解答。** 球面では $M=R,r=R\cos\phi$ です。投影を偏微分し、[計量比較と縮尺式](#thm-geod13-metric-comparison)に従って地表長で正規化すると
 
 $$
-D=\begin{pmatrix}0&\sec\phi\\1&0\end{pmatrix},
-\qquad D^\mathsf TD=\operatorname{diag}(1,\sec^2\phi).
+J=\begin{pmatrix}0&R\\R&0\end{pmatrix},\qquad
+D=J\operatorname{diag}\left(\frac1R,\frac1{R\cos\phi}\right)
+=\begin{pmatrix}0&\sec\phi\\1&0\end{pmatrix},
+$$
+
+ゆえに
+
+$$
+D^\mathsf TD=\operatorname{diag}(1,\sec^2\phi).
 $$
 
 赤道 $\phi=0$ では $D^\mathsf TD=I$ なので全方向等距離です。$\phi\ne0$ なら $|\cos\phi|<1$（ここでは非極点で $\cos\phi>0$）だから $\sec^2\phi>1$、東方向の縮尺は1でなくなります。より一般に、別の投影を探しても[球面から平面への局所等長不可能性](#prop-geod13-no-sphere-flat-isometry)により、曲率 $1/R^2>0$ と0が一致しないため開領域では全方向等距離にできません。一点だけの判定は曲率の矛盾を生みません。
@@ -566,7 +605,7 @@ $$
 
 #### B4. 縦方向の関数を選んで等積にする
 
-半径 $R$ の球面の非極点領域で、$h$ を $C^1$ 級、$h'(\phi)>0$ とし $F(\phi,\lambda)=(R\lambda,Rh(\phi))^\mathsf T$ とする。正規化Jacobianと面積縮尺を求めよ。すべての緯度で等積となる $h$ を定数の差まで求め、なぜ緯度0以外では等角にならないか説明せよ。
+半径 $R$ の球面の非極点領域で、$h$ を緯度 $\phi$ だけの $C^1$ 級関数とし、その通常の導関数 $h'(\phi)=dh/d\phi>0$ を仮定する。$F(\phi,\lambda)=(R\lambda,Rh(\phi))^\mathsf T$ の正規化Jacobianと面積縮尺を求めよ。すべての緯度で等積となる $h$ を定数の差まで求め、なぜ緯度0以外では等角にならないか説明せよ。
 
 - Level: B
 - ID: GEOD13-B4
