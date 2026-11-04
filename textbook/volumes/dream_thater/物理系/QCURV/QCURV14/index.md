@@ -35,7 +35,7 @@ $$
 
 熱平衡でも変換するのはエネルギーだけではありません。[QCURV8のKMS境界条件](../QCURV8/index.md#def-qcurv8-kms)が、Killing時間 $t$ に関して逆温度 $\beta_\infty>0$ で成立するとします。状態が本当にこの時間発展についてKMSであることが重要です。二点分布が単に定常であるだけでは足りません。
 
-静止観測者へ制限した二点分布をKilling時間差 $s_t=t-t'$ の関数 $w_t(s_t)$ と書き、固有時間差 $s_\tau=\tau_r-\tau'_r$ に対して $w_r(s_\tau)=w_t(s_\tau/\sqrt f)$ とします。すると虚時間方向のKMSの幅も $\sqrt f$ 倍だけ短くなります。その幅を静止時計の**局所逆温度**と呼びます。
+静止観測者へ制限した二点分布をKilling時間差 $s_t=t-t'$ の関数 $w_t(s_t)$ と書き、固有時間差 $s_\tau=\tau_r-\tau'_r$ に対して $w_r(s_\tau)=w_t(s_\tau/\sqrt f)$ とします。すると虚時間方向のKMSの幅も $\sqrt f$ 倍だけ短くなります。この変化を確かめることが、静止時計に適した**局所温度**を導入する手掛かりになります。
 
 <a id="def-qcurv14-tolman-temperature"></a>
 
