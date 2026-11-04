@@ -340,7 +340,7 @@ $$
 \end{aligned}
 $$
 
-分母を整理したのは次の恒等式によります。
+分母は次の代数的な展開で整理できます。
 
 $$
 \cos^2\phi\cos^2\delta+\sin^2\phi
@@ -440,7 +440,7 @@ e^2=1-\frac{b^2}{a^2},\qquad
 =\frac{M(0)}{N(0)}=1-e^2.
 $$
 
-[GEOD14の等角座標の積分公式](../GEOD14/index.md#thm-geod14-isometric-integral)より $\psi$ は奇関数で、[等角緯度の定義](../GEOD14/index.md#def-geod14-conformal-latitude)の $\sin\chi=\tanh\psi$ から $\chi$ も奇関数です。そのため二次の項が消え、
+[等角座標の方程式・一意性・積分公式](../GEOD14/index.md#thm-geod14-isometric-integral)より $\psi$ は奇関数で、[等角緯度の定義](../GEOD14/index.md#def-geod14-conformal-latitude)の $\sin\chi=\tanh\psi$ から $\chi$ も奇関数です。そのため二次の項が消え、
 
 $$
 \chi(\phi)=(1-e^2)\phi+O(\phi^3)
