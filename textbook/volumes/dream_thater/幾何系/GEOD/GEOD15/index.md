@@ -10,7 +10,9 @@
 4. 中央子午線では距離が保存され、横へ離れると伸びることを式で説明する。
 5. 球面と楕円体の投影式の違いを判定する。
 
-球面の半径を $R>0$ とします。地理緯度は $-\pi/2<\phi<\pi/2$、東を正とする経度は $\lambda$ です。中央子午線を $\lambda_0$ とし、経度差 $\delta=\lambda-\lambda_0$ は指定した切れ目から選ぶ**ラジアン**の実数です。平面では東向きを $E>0$、北向きを $N_p>0$、原点を赤道と中央子午線の交点に置きます。以下の投影座標は長さの単位を持ち、$\phi,\delta$ と区別します。
+球面の半径を $R>0$ とします。地理緯度は $-\pi/2<\phi<\pi/2$、東を正とする経度は $\lambda$ です。中央子午線を $\lambda_0$ とし、経度差 $\delta=\lambda-\lambda_0$ は指定した切れ目から選ぶ**ラジアン**の実数です。
+
+平面では東向きを正とする座標 $E$、北向きを正とする座標 $N_p$ を用い、原点を赤道と中央子午線の交点に置きます。添字 $p$ は[GEOD13の投影座標](../GEOD13/index.md#def-geod13-projection-jacobian)と同じく、楕円体の卯酉線曲率半径 $N(\phi)$ との区別です。投影座標 $E,N_p$ は長さの単位を持ち、角度 $\phi,\delta$ と区別します。
 
 ---
 
@@ -41,7 +43,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod15-normal-mercator -->
-**定義の確認**。赤道の中央子午線では $\phi=\delta=0$ なので $E=N_p=0$。同じ赤道上で $\delta=\pi/6$ なら $E=\pi R/6$、$N_p=0$ となり、東が正です。$\phi=\pi/6,\delta=0$ では $\sin\phi=1/2$ だから $E=0$、$N_p=(R/2)\log3>0$ です。赤道原点・軸方向・緯度の許容範囲を確かめました。
+**定義の確認**。赤道と中央子午線の交点 $\phi=\delta=0$ は、定義式により $E=N_p=0$ に写ります。赤道上を東へ $\delta=\pi/6$ 進めると
+
+$$
+E=\frac{\pi R}{6}>0,\qquad N_p=R\operatorname{atanh}(0)=0
+$$
+
+です。一方、中央子午線上の北緯 $\phi=\pi/6$ では $\sin\phi=1/2$ なので
+
+$$
+E=0,\qquad N_p=\frac R2\log3>0.
+$$
+
+どちらも $|\phi|<\pi/2$ の定義域に入り、原点・東北の向き・緯度に応じた伸びを定義の式から確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-geod15-normal-scale"></a>
@@ -68,7 +82,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\psi'(\phi)=1/\cos\phi$ を上の式で微分すると、$dE=R\,d\delta$、$dN_p=R\,d\phi/\cos\phi$ です。平面の長さと球面の長さを比較すると
+$\psi'(\phi)=d\psi/d\phi=1/\cos\phi$ と、微分する変数が $\phi$ であることを明記します。定義式を微分して $dE=R\,d\delta$、$dN_p=R\,d\phi/\cos\phi$ です。平面の長さと球面の長さを比較すると
 
 $$
 \begin{aligned}
@@ -80,7 +94,18 @@ R^2\left(\cos^2\phi\,d\delta^2+d\phi^2\right)
 \end{aligned}
 $$
 
-東・北の順のJacobianは $\operatorname{diag}(R,R/\cos\phi)$ で行列式 $R^2/\cos\phi>0$、向きも保存します。[GEOD13の等角・面積判定](../GEOD13/index.md#thm-geod13-preservation-tests)により $k=1/\cos\phi$、$A_p=k^2$ です。
+向きと縮尺を同じ基底で判定します。入力の東・北の物理的な単位変位は $(R\cos\phi\,d\delta,\ R\,d\phi)$ です。この東・北順の基底に関する正規化Jacobianは
+
+$$
+B_{\mathrm{normal}}
+=\begin{pmatrix}
+\frac{E_\delta}{R\cos\phi}&\frac{E_\phi}{R}\\
+\frac{(N_p)_\delta}{R\cos\phi}&\frac{(N_p)_\phi}{R}
+\end{pmatrix}
+=\begin{pmatrix}\sec\phi&0\\0&\sec\phi\end{pmatrix}.
+$$
+
+ここで下付き添字 $\delta,\phi$ は他方の角度を固定した偏微分を表します。$B_{\mathrm{normal}}^\mathsf TB_{\mathrm{normal}}=\sec^2\phi\,I$ で、$\det B_{\mathrm{normal}}=\sec^2\phi>0$ です。[GEOD13の物理的単位方向への正規化](../GEOD13/index.md#thm-geod13-metric-comparison)と[等角・面積判定](../GEOD13/index.md#thm-geod13-preservation-tests)から、向き保存、$k=\sec\phi$、$A_p=k^2$ が従います。
 
 $N_p/R=\operatorname{atanh}(\sin\phi)$ の両辺に $\tanh$ を作用させると $\sin\phi=\tanh(N_p/R)$。$-\pi/2<\phi<\pi/2$ なので $\arcsin$ で一意に戻せます。$E$ の式も $\delta=E/R$ と解けます。
 
@@ -135,25 +160,52 @@ $$
 **定義の確認**。$\phi=\delta=0$ では $(x,y,z)=(1,0,0)$、$\alpha=\beta=\eta=0$ となり地図原点です。赤道を東へ $30^\circ$ 進むと $(x,y,z)=(\sqrt3/2,1/2,0)$ で $x>0$。$\eta=\operatorname{atanh}(1/2)=\frac12\log3>0$、$\beta=0$ なので $E>0,N_p=0$ です。一方、中央子午線上で北緯 $30^\circ$ なら $(x,y,z)=(\sqrt3/2,0,1/2)$、$\eta=0,\beta=\pi/6$。$E=0,N_p=\pi R/6$ となり、東・北の向きと原点の両方が合います。
 <!-- definition-example-end -->
 
-**なぜ等角になるか。** 回転球面の位置表示は
+**なぜ等角になるか。** 回転球面の位置表示と、半径 $R$ を掛けた位置ベクトルは
 
 $$
-(x,y,z)=(\cos\alpha\cos\beta,\ \sin\alpha,\ \cos\alpha\sin\beta).
+(x,y,z)=(\cos\alpha\cos\beta,\ \sin\alpha,\ \cos\alpha\sin\beta),
+\qquad \boldsymbol r=R(x,y,z)
 $$
 
-これを $\alpha,\beta$ で偏微分すると、二つの接ベクトルは直交し、長さはそれぞれ $R$ と $R\cos\alpha$ です。従って
+です。この表示が定義の成分と一致するのは、$y=\sin\alpha$、$x^2+z^2=\cos^2\alpha$、および $x>0$ で選んだ $\beta$ の枝によります。$\alpha,\beta$ の一方を固定して他方で偏微分すると
+
+$$
+\begin{aligned}
+\boldsymbol r_\alpha&=R(-\sin\alpha\cos\beta,\ \cos\alpha,\ -\sin\alpha\sin\beta),\\
+\boldsymbol r_\beta&=R(-\cos\alpha\sin\beta,\ 0,\ \cos\alpha\cos\beta).
+\end{aligned}
+$$
+
+両者の内積を計算すれば交差項が消え、
+
+$$
+\boldsymbol r_\alpha\cdot\boldsymbol r_\beta=0,\qquad
+\|\boldsymbol r_\alpha\|^2=R^2,\qquad
+\|\boldsymbol r_\beta\|^2=R^2\cos^2\alpha.
+$$
+
+従って第一基本形式は
 
 $$
 ds^2=R^2(d\alpha^2+\cos^2\alpha\,d\beta^2).
 $$
 
-$d\eta=d\alpha/\cos\alpha$ なので
+また $x>0$ では $|\alpha|<\pi/2$ で $\cos\alpha>0$ です。$\eta=\operatorname{atanh}(\sin\alpha)$ を微分すると
 
 $$
-\boxed{ds^2=R^2\cos^2\alpha(d\eta^2+d\beta^2)}.
+\frac{d\eta}{d\alpha}
+=\frac{\cos\alpha}{1-\sin^2\alpha}
+=\frac1{\cos\alpha}>0,\qquad
+d\alpha=\cos\alpha\,d\eta.
 $$
 
-これは[前節の正軸メルカトルの等角計量](#thm-geod15-normal-scale)を、球を回した座標で使ったものです。地理緯度 $\phi$ をそのまま $\alpha$ の場所へ代入したのではありません。
+これを先ほどの計量へ代入し、
+
+$$
+\boxed{ds^2=R^2\cos^2\alpha(d\eta^2+d\beta^2)}
+$$
+
+を得ます。これは[前節の正軸メルカトルの等角計量](#thm-geod15-normal-scale)を、球を回した座標で使ったものです。地理緯度 $\phi$ をそのまま $\alpha$ の場所へ代入したのではありません。
 
 ---
 
@@ -226,7 +278,7 @@ $$
 
 ## 4. 中央子午線から離れるほど何が伸びるか
 
-地図上の数値の増え方と、実際の地表距離の増え方を同じものと思ってはいけません。地表上の**単位東方向**は $\partial_\delta/(R\cos\phi)$、**単位北方向**は $\partial_\phi/R$ です。これらの係数は球面計量から定まるので、平面Jacobianをそのまま読む前に正規化します。
+地図上の数値の増え方と、実際の地表距離の増え方を同じものと思ってはいけません。[GEOD13の物理的単位方向への正規化](../GEOD13/index.md#thm-geod13-metric-comparison)を球面に適用すると、地表上の**単位東方向**は $\partial_\delta/(R\cos\phi)$、**単位北方向**は $\partial_\phi/R$ です。$\partial_\delta$ は $\phi$ を固定した経度方向の微分で、$\lambda_0$ を固定すれば $\delta=\lambda-\lambda_0$ より $\partial_\delta=\partial_\lambda$ です。$\partial_\phi$ は $\delta$ を固定した緯度方向の微分です。球面計量から東の長さ増分が $R\cos\phi\,d\delta$、北が $R\,d\phi$ となるので、Jacobianの東列・北列をそれぞれの係数で割ってから比較します。
 
 <a id="thm-geod15-transverse-distortion"></a>
 <!-- formal-statement-start -->
@@ -258,7 +310,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\eta=\operatorname{atanh}(\cos\phi\sin\delta)$ について連鎖律を使うと
+以下、$\eta_\delta=\partial\eta/\partial\delta$ は $\phi$ を固定した偏微分、$\eta_\phi=\partial\eta/\partial\phi$ は $\delta$ を固定した偏微分と書き、$\beta$ と平面成分 $E,N_p$ の下付き添字にも同じ規則を使います。まず $\eta=\operatorname{atanh}(\cos\phi\sin\delta)$ について連鎖律を使うと
 
 $$
 \eta_\delta=\frac{\cos\phi\cos\delta}{D},\qquad
@@ -279,8 +331,14 @@ $$
 \end{aligned}
 $$
 
-ここで分母を整理したのは
-$\cos^2\phi\cos^2\delta+\sin^2\phi=D$ を使ったためです。平面の $(E,N_p)$ を東・北の**単位**変位に関して微分した行列は、$\eta,\beta$ の偏導関数に $R$ を掛けた後、東列を $R\cos\phi$、北列を $R$ で割って
+分母を整理したのは次の恒等式によります。
+
+$$
+\cos^2\phi\cos^2\delta+\sin^2\phi
+=1-\cos^2\phi\sin^2\delta=D.
+$$
+
+平面の $(E,N_p)$ を東・北の**単位**変位に関して微分した行列は、$\eta,\beta$ の偏導関数に $R$ を掛けた後、東列を $R\cos\phi$、北列を $R$ で割って
 
 $$
 B=
@@ -365,7 +423,7 @@ $$
 =\frac R{h(\phi)},
 $$
 
-ここで中間式は[等角球面を用いた計量表示](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)の証明にある微分式から得ました。非球面で $h$ が定数でないことも赤道の近くで確認できます。$e^2=1-b^2/a^2$ とすると、$\chi'(0)=M(0)/N(0)=1-e^2$ であり、奇関数性から $\chi=(1-e^2)\phi+O(\phi^3)$ です。$N=a(1+\tfrac12e^2\phi^2+O(\phi^4))$ と $\cos\phi=1-\tfrac12\phi^2+O(\phi^4)$ を用いると
+ここで中間式は[等角球面を用いた計量表示](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)の証明にある微分式から得ました。非球面で $h$ が定数でないことも赤道の近くで確認できます。$e^2=1-b^2/a^2$ とすると、$\chi'(0)=d\chi/d\phi|_{\phi=0}=M(0)/N(0)=1-e^2$ です。[GEOD14の等角緯度の定義](../GEOD14/index.md#def-geod14-conformal-latitude)で $\psi$ が奇関数、$\sin\chi=\tanh\psi$ も奇関数だから $\chi$ は奇関数で、$\chi=(1-e^2)\phi+O(\phi^3)$ となります。$N=a(1+\tfrac12e^2\phi^2+O(\phi^4))$ と $\cos\phi=1-\tfrac12\phi^2+O(\phi^4)$ を用いると
 
 $$
 \frac{h(\phi)}a
@@ -410,7 +468,17 @@ $$
 赤道と緯度 $60^\circ$ で、正軸メルカトルの線縮尺・面積縮尺を比較せよ。面積縮尺4の意味も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [正軸の縮尺式](#thm-geod15-normal-scale)は $k=1/\cos\phi$、$A_p=k^2$ です。$\phi=0$ なら $k=A_p=1$、$\phi=\pi/3$ なら $\cos\phi=1/2$ なので $k=2,A_p=4$。緯度60度での十分小さい地表面積 $dA$ の像は $4dA$ ですが、二点間の有限距離がすべて2倍という主張ではありません。
+**詳細解答。** [正軸の縮尺式](#thm-geod15-normal-scale)は $k=1/\cos\phi$、$A_p=k^2$ です。赤道と緯度 $60^\circ$ にそれぞれ代入すると
+
+$$
+\begin{array}{c|cc}
+\phi & k & A_p\\ \hline
+0 & 1 & 1\\
+\pi/3 & 2 & 4
+\end{array}
+$$
+
+を得ます。面積縮尺4とは、緯度60度での十分小さい地表面積 $dA$ の像が $4\,dA$ になる意味です。二点間の有限距離がすべて2倍になる主張ではありません。
 <!-- solution-end -->
 
 <a id="ex-geod15-a03"></a>
@@ -437,7 +505,20 @@ $$
 $\delta=0$ の子午線上で横メルカトルの $E,N_p,k$ を求め、二点 $\phi_1<\phi_2$ の像の距離が球面の子午線弧長と一致することを示せ。
 
 <!-- solution-start -->
-**詳細解答。** [横メルカトルの順変換](#thm-geod15-transverse-inverse)へ $\sin\delta=0,\cos\delta=1$ を代入すると $E=0$、$N_p=R\arctan(\tan\phi)=R\phi$。領域内では $\phi\in(-\pi/2,\pi/2)$ なので枝は一意です。[縮尺定理](#thm-geod15-transverse-distortion)でも $D=1,k=1$。像の縦距離は $R(\phi_2-\phi_1)$、球面の子午線上では $ds=R\,d\phi$ だから弧長 $\int_{\phi_1}^{\phi_2}R\,d\phi$ と一致します。
+**詳細解答。** [横メルカトルの順変換](#thm-geod15-transverse-inverse)へ $\sin\delta=0,\cos\delta=1$ を代入します。領域内の $\phi\in(-\pi/2,\pi/2)$ では $\arctan(\tan\phi)=\phi$ だから
+
+$$
+E=0,\qquad N_p=R\phi,\qquad
+D=1,\quad k=1
+$$
+
+となります。最後の縮尺は[縮尺定理](#thm-geod15-transverse-distortion)からも確認できます。二点 $\phi_1<\phi_2$ の像は同じ縦軸上にあるので、平面距離は $R(\phi_2-\phi_1)$ です。球面の子午線弧長も $ds=R\,d\phi$ より
+
+$$
+\int_{\phi_1}^{\phi_2}R\,d\phi=R(\phi_2-\phi_1)
+$$
+
+で一致します。
 <!-- solution-end -->
 
 <a id="ex-geod15-a05"></a>
@@ -492,7 +573,7 @@ $$
 \beta_\phi=\frac{\cos\delta}{D}.
 $$
 
-球面上の[東北の正規化](#thm-geod15-transverse-distortion)に従い、東列を $R\cos\phi$、北列を $R$ で割ります。
+[GEOD13の正規化Jacobian](../GEOD13/index.md#thm-geod13-metric-comparison)に従い、地表の東・北の長さ増分 $R\cos\phi\,d\delta$ と $R\,d\phi$ を基準に、Jacobianの東列を $R\cos\phi$、北列を $R$ で割ります。
 
 $$
 B=\frac1D\begin{pmatrix}\cos\delta&-\sin\phi\sin\delta\\
@@ -509,7 +590,17 @@ $$
 $\delta=30^\circ$ の球面横メルカトルについて、$\phi=0$ と $\phi=60^\circ$ の線縮尺・面積縮尺を厳密な値で求めよ。また $1\le k\le\sec\delta$ を直接検証せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\sin^2\delta=1/4$ なので $D=1-\cos^2\phi/4$ です。赤道では $D=3/4$ より $k=2/\sqrt3,A_p=4/3$。緯度60度では $\cos^2\phi=1/4$ なので $D=1-1/16=15/16$、$k=4/\sqrt{15},A_p=16/15$。両方とも1以上で、最大は $2/\sqrt3=\sec30^\circ$。一般にも $0\le\cos^2\phi\le1$ から $3/4\le D\le1$ と挟めるので $1\le k\le2/\sqrt3$ です。
+**詳細解答。** $\sin^2\delta=1/4$ なので $D=1-\cos^2\phi/4$ です。各緯度で分母をまず計算すると
+
+$$
+\begin{array}{c|ccc}
+\phi & D & k=1/\sqrt D & A_p=1/D\\ \hline
+0 & 3/4 & 2/\sqrt3 & 4/3\\
+\pi/3 & 15/16 & 4/\sqrt{15} & 16/15
+\end{array}
+$$
+
+となります。ともに $k\ge1$ で、最大は $\sec30^\circ=2/\sqrt3$ です。一般にも $0\le\cos^2\phi\le1$ から $3/4\le D\le1$ と挟めるため、$1\le k\le2/\sqrt3$ を直接確認できます。
 <!-- solution-end -->
 
 <a id="ex-geod15-b04"></a>
@@ -521,7 +612,7 @@ $\delta=30^\circ$ の球面横メルカトルについて、$\phi=0$ と $\phi=6
 <!-- solution-start -->
 **詳細解答。** [等角球面計量](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)の倍率は $h=N\cos\phi/\cos\chi$ です。一方、[球面横メルカトルの計量比](#thm-geod15-transverse-distortion)では $\delta=0$ なら平面長さは $R\sqrt{d\chi^2+\cos^2\chi\,d\delta^2}$。従って楕円体長さとの比は $R/h$ です。
 
-中央子午線上では $N_p=R\chi$、実距離は $M\,d\phi$。さらに[GEOD14の等角緯度微分](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)から $\chi'=M\cos\chi/(N\cos\phi)$ なので
+中央子午線上では $N_p=R\chi$、実距離は $M\,d\phi$ です。ここで $\chi'=d\chi/d\phi$ は測地緯度 $\phi$ に関する一変数微分であり、[GEOD14の等角緯度微分](../GEOD14/index.md#thm-geod14-conformal-sphere-metric)から $\chi'=M\cos\chi/(N\cos\phi)$ なので
 
 $$
 \frac{dN_p}{M\,d\phi}
