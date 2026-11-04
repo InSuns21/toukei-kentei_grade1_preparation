@@ -1,0 +1,46 @@
+id: QCURV13
+title: "Boulware・Unruh・Hartle–Hawking状態と地平線の正則性"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV12
+  - QCURV9
+  - QCURV8
+  - QCURV6
+  - QCURV5
+  - QCURV2
+official_scope: []
+learning_objectives:
+  - 永遠のSchwarzschild外部でin/upの二つの入射チャネルとKruskalのU/V光線を区別できる
+  - Boulware・Unruh・Hartle–Hawking状態の境界条件と占有数を正確に比較できる
+  - 二次元の微分二点関数から指数座標変換のKMS温度と地平線正則性の局所診断を再導出できる
+  - 四次元の標準状態の未来・過去地平線での正則性と二次元診断の適用限界を説明できる
+  - 灰色体因子を通した反射・透過の加重和から遠方出射・入射・正味流束を区別して導出できる
+  - 永遠の熱平衡と崩壊後期の放射、粒子数と検出器応答・局所応力を混同しない
+definitions:
+  - { id: QCURV13-DEF-01, name: 地平線を横断する状態の正則性 }
+  - { id: QCURV13-DEF-02, name: Boulware・Unruh・Hartle–Hawking状態 }
+theorems:
+  - { id: QCURV13-PROP-01, name: Kruskal出射真空の外部二点関数 }
+  - { id: QCURV13-PROP-02, name: 二次元光線模型の地平線正則性判定 }
+  - { id: QCURV13-THM-01, name: 三状態の遠方出射占有数と正味流束 }
+canonical_examples:
+  - 同じ局所Hadamard特異性を持つ二点分布の滑らかな差
+  - 一定周波数の三状態の入射・出射占有数比較
+  - 指数Kruskal写像の微分二点関数と虚時間周期
+  - 地平線の二点同時極限で現れるBoulware状態の発散
+  - 灰色体因子を含むHartle–Hawking状態の入射・反射・透過バランス
+problem_patterns:
+  - QCURV13-TEMPERATURE
+  - QCURV13-KRUSKAL-DERIVATIVES
+  - QCURV13-MODE-OCCUPATIONS
+  - QCURV13-HORIZON-DIRECTIONS
+  - QCURV13-THERMAL-CORRELATOR
+  - QCURV13-HORIZON-SINGULARITY
+  - QCURV13-SCATTERING-STATE-FLUX
+  - QCURV13-DETAILED-BALANCE
+  - QCURV13-STATE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
