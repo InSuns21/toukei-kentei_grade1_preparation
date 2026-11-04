@@ -1,0 +1,45 @@
+id: "GEOD19"
+title: "等積投影と正積緯度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD13
+  - GEOD18
+official_scope: []
+learning_objectives:
+  - 楕円体の第一基本形式から面積要素を求め正積緯度と正積球半径を導出できる
+  - 正積緯度の単調性・両極・球面極限・有限帯域の面積保存を証明できる
+  - Lambert 正積円筒と Albers 正積円錐の等積性と局所縮尺を計算できる
+  - Mollweide 図法の補助角を一意に求め面積保存を微分で検証できる
+  - 等角・等積・正距と投影の形態を区別し実際の地図目的に合う図法を選べる
+definitions:
+  - { id: GEOD19-DEF-01, name: 正積緯度と正積球半径 }
+  - { id: GEOD19-DEF-02, name: Lambert 正積円筒図法 }
+  - { id: GEOD19-DEF-03, name: Albers 正積円錐図法 }
+  - { id: GEOD19-DEF-04, name: Mollweide 正積図法 }
+theorems:
+  - { id: GEOD19-THM-01, name: 正積緯度による面積保存と単調性 }
+  - { id: GEOD19-THM-02, name: Lambert 正積円筒の面積と方向別縮尺 }
+  - { id: GEOD19-THM-03, name: Albers 正積円錐の面積と標準緯線 }
+  - { id: GEOD19-THM-04, name: Mollweide 補助角の一意性と等積性 }
+canonical_examples:
+  - WGS84 楕円体の正積球半径と測地緯度45度の正積緯度
+  - 緯度帯の楕円体上の積分面積と正積球上の有限面積
+  - 球面 Lambert 正積円筒の緯度60度における東西・南北縮尺
+  - Albers 正積円錐の2本の標準緯線での伸縮率1と中間緯度の歪み
+  - Mollweide 赤道での補助角・Jacobianと極での端点
+problem_patterns:
+  - GEOD19-AUTHALIC-DERIVATIVE
+  - GEOD19-AUTHALIC-SPHERE-LIMIT
+  - GEOD19-FINITE-BAND
+  - GEOD19-LAMBERT-DIRECTIONAL
+  - GEOD19-ALBERS-STANDARD
+  - GEOD19-INVERSE-LATITUDE
+  - GEOD19-ALBERS-JACOBIAN
+  - GEOD19-MOLLWEIDE-UNIQUE
+  - GEOD19-PROJECTION-COMPARISON
+  - GEOD19-INTEGRATED-DESIGN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
