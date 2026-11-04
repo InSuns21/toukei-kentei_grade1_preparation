@@ -1,0 +1,41 @@
+id: QFT44
+title: "有効場の理論のmatching・演算子展開・running"
+volume: foundations
+status: supplementary
+prerequisites: [QFT10, QFT12, QFT19, QFT25, QFT26]
+official_scope: []
+learning_objectives:
+  - (-+++)の四次元重いスカラー交換について木レベル四点振幅を三チャネルから導き、低運動量の剰余を評価できる
+  - 同じ軽い外線の振幅を比較するmatchingを定義し、Gaussian消去のWilson係数と四点振幅の定数項を照合できる
+  - 次元4・6・8の局所演算子の係数と次元を判定し、オンシェル質量零の四点散乱で次元6寄与が消える理由を説明できる
+  - matching尺度とrunningを区別し、軽いφ⁴の一ループβ関数からleading-log発展を積分できる
+  - 木レベルmatchingと一ループrunningの混合精度・閾値・赤外・冪補正の限界を説明できる
+definitions:
+  - { id: QFT44-DEF-01, name: 散乱振幅によるEFT matching }
+  - { id: QFT44-DEF-02, name: 局所演算子展開と打切り次数 }
+  - { id: QFT44-DEF-03, name: matching尺度とrunning }
+theorems:
+  - { id: QFT44-PROP-01, name: 重いスカラー交換の四点振幅 }
+  - { id: QFT44-PROP-02, name: Gaussian消去と木レベルWilson係数 }
+  - { id: QFT44-PROP-03, name: 質量零同種四点散乱の最初の運動量補正 }
+  - { id: QFT44-PROP-04, name: 木レベルmatchingと一ループleading-log running }
+canonical_examples:
+  - 三チャネル木レベル振幅と幾何級数の剰余上界
+  - 有限Gaussian模型の平方完成と四次接触係数の整合
+  - 次元6演算子のオンシェル四点消失と次元8寄与
+  - λとh/Mの数値によるmatchingからrunningへの接続
+problem_patterns:
+  - QFT44-POTENTIAL-STABILITY
+  - QFT44-THREE-CHANNELS
+  - QFT44-OPERATOR-DIMENSIONS
+  - QFT44-REMAINDER-BOUND
+  - QFT44-MATCHING-COEFFICIENT
+  - QFT44-GAUSSIAN-COMPLETION
+  - QFT44-ON-SHELL-IDENTITY
+  - QFT44-LEADING-LOG
+  - QFT44-AMPLITUDE-ERROR
+  - QFT44-MATCH-RUN-COMBINED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 16, review: 7 }
