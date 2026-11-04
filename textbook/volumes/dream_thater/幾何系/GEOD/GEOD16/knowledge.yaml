@@ -1,0 +1,38 @@
+chapter: GEOD16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD15
+  - GEOD11
+forward_references: []
+concepts:
+  - id: geodesy.meridian-normalization-function
+    name: 中央子午線の弧長規格化関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中央子午線の弧長規格化関数）]
+    requires: [geodesy.signed-meridian-arc, geodesy.conformal-latitude]
+  - id: geodesy.ellipsoidal-transverse-correction
+    name: 中央子午線条件による正則補正の局所存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中央子午線条件による正則補正の局所存在と一意性）]
+    requires: [geodesy.meridian-normalization-function, geodesy.spherical-transverse-mercator]
+  - id: geodesy.ellipsoidal-transverse-mercator
+    name: 楕円体横メルカトルの局所構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（楕円体横メルカトルの局所構成）]
+    requires: [geodesy.ellipsoidal-transverse-correction, geodesy.spherical-transverse-mercator]
+  - id: geodesy.ellipsoidal-transverse-metric
+    name: 楕円体横メルカトルの等角性・中央縮尺・一般点の縮尺
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（楕円体横メルカトルの等角性・中央縮尺・一般点の縮尺）]
+    requires: [geodesy.ellipsoidal-transverse-mercator, geodesy.conformal-sphere-metric, geodesy.spherical-transverse-scale]
+  - id: geodesy.ellipsoidal-transverse-local-series
+    name: 球面極限と赤道近傍の低次補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面極限と赤道近傍の低次補正）]
+    requires: [geodesy.ellipsoidal-transverse-metric, geodesy.meridian-normalization-function]
