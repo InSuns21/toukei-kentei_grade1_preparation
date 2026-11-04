@@ -207,7 +207,30 @@ $$
 =(\alpha+\beta)(\alpha-\beta)=1
 $$
 
-なので正準規格化が維持されます。[QCURV3の粒子数公式](../QCURV3/index.md#prop-qcurv3-number)によって $\langle N_{\rm out}\rangle=|\beta|^2$。終期演算子を $a_{\rm out}=\alpha a_{\rm in}+\beta a_{\rm in}^{\dagger}$ と書く位相規約では、初期真空の対相関は $\langle a_{\rm out}a_{\rm out}\rangle=\alpha\beta$ です。$\omega_f\ne\omega_i$ なら $\beta\ne0$、$\alpha>0$ より非零です。終期Hamiltonianの時間並進では $a_{\rm out}(t)=e^{-i\omega_ft}a_{\rm out}$ なので、この対相関は $e^{-2i\omega_ft}$ 倍され、時間並進不変ではありません。KMS状態は特に定常であるため、この状態はKMSではありません。
+なので正準規格化が維持されます。[QCURV3の粒子数公式](../QCURV3/index.md#prop-qcurv3-number)から、
+
+$$
+\langle N_{\rm out}\rangle=|\beta|^2
+$$
+
+です。終期演算子を次のように書く位相規約を選ぶと、初期真空の対相関は
+
+$$
+a_{\rm out}=\alpha a_{\rm in}+\beta a_{\rm in}^{\dagger},
+\qquad
+\langle a_{\rm out}a_{\rm out}\rangle=\alpha\beta
+$$
+
+です。$\omega_f\ne\omega_i$ なら $\beta\ne0$、$\alpha>0$ より非零です。終期Hamiltonianの時間並進では
+
+$$
+a_{\rm out}(t)=e^{-i\omega_ft}a_{\rm out},
+\qquad
+\langle a_{\rm out}(t)a_{\rm out}(t)\rangle
+=e^{-2i\omega_ft}\alpha\beta.
+$$
+
+この対相関は時刻で変化し、時間並進不変ではありません。KMS状態は特に定常であるため、この状態はKMSではありません。
 <!-- proof-end -->
 
 $\omega_f=2\omega_i$ を代入すれば $|\beta|^2=1/8$。これは具体的な粒子生成です。しかし一つの占有数 $1/8$ に対して形式的に $1/(e^{\beta\omega_f}-1)=1/8$ と解けば $\beta\omega_f=\log9$ と表示できるだけです。**値の当てはめは熱状態の証明ではありません**。また[QCURV4の質量零・共形結合場の非生成定理](../QCURV4/index.md#thm-qcurv4-conformal)は $\beta=0$ を許すため、膨張の有無それ自体も粒子数を一意に決めません。
@@ -352,7 +375,26 @@ $$
 - 問題: ある急変振動子で $\omega_f=2\omega_i$、$\langle N_{\rm out}\rangle=1/8$ であった。Bose占有数の式に当てはめた形式的逆温度を求め、これでKMS性が証明されない理由をモード相関の観点から述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$1/(e^{\beta\omega_f}-1)=1/8$ を解くと $e^{\beta\omega_f}=9$、$\beta=\log9/\omega_f$。しかし初期真空と終期モードは[正負周波数混合](../QCURV3/index.md#def-qcurv3-bogoliubov)で繋がり、$a_{\rm out}=\alpha a_{\rm in}+\beta^*a_{\rm in}^{\dagger}$ という規約では $\langle a_{\rm out}a_{\rm out}\rangle=\alpha\beta^*$（位相の規約に依存）。ここでは $\alpha=3/(2\sqrt2)$、$\beta=1/(2\sqrt2)$ なので $\alpha\beta=3/8\ne0$。一方で終期Hamiltonianの熱状態は時間並進に不変であり、$a_{\rm out}(t)=e^{-i\omega_ft}a_{\rm out}$ の対相関は時刻で $e^{-2i\omega_ft}$ と変化するため、定常なら零である必要があります。この非零の異常相関が熱状態との相違を示します。
+**詳細解答**：占有数だけをBose因子に当てはめると
+
+$$
+\frac1{e^{\beta\omega_f}-1}=\frac18
+\quad\Longrightarrow\quad
+e^{\beta\omega_f}=9
+\quad\Longrightarrow\quad
+\beta=\frac{\log9}{\omega_f}.
+$$
+
+しかし初期真空と終期モードは[正負周波数混合](../QCURV3/index.md#def-qcurv3-bogoliubov)で繋がります。実係数の規約を選ぶと
+
+$$
+\alpha=\frac3{2\sqrt2},\qquad
+\beta=\frac1{2\sqrt2},\qquad
+\langle a_{\rm out}a_{\rm out}\rangle
+=\alpha\beta=\frac38\ne0.
+$$
+
+一方、終期Hamiltonianの熱状態は時間並進に不変です。ところが $a_{\rm out}(t)=e^{-i\omega_ft}a_{\rm out}$ なので、非零の対相関は $e^{-2i\omega_ft}$ 倍されて時刻とともに変化します。これが終期の定常熱状態との相違です。
 <!-- solution-end -->
 
 <a id="ex-qcurv20-b02"></a>
