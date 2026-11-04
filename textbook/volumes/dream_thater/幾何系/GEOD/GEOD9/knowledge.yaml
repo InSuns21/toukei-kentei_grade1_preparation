@@ -1,0 +1,55 @@
+chapter: GEOD9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD8
+forward_references: []
+concepts:
+  - id: geodesy.gnss-pseudorange
+    name: GNSS の擬似距離観測式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（GNSS の擬似距離観測式）]
+    requires: [geodesy.observation-equation, geodesy.reference-frame]
+  - id: geodesy.gnss-range-jacobian
+    name: 擬似距離の一次化と設計行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（擬似距離の一次化と設計行列）]
+    requires: [geodesy.gnss-pseudorange, geodesy.linearized-observation]
+  - id: geodesy.gnss-geometry-rank
+    name: 4機の局所的な測位可能条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（4機の局所的な測位可能条件）]
+    requires: [geodesy.gnss-range-jacobian, geodesy.datum-deficiency]
+  - id: geodesy.gnss-dop
+    name: GNSS の位置・時計の DOP
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（GNSS の位置・時計の DOP）]
+    requires: [geodesy.gnss-range-jacobian, geodesy.adjustment-covariance]
+  - id: geodesy.gnss-carrier-phase
+    name: 搬送波位相の距離換算模型と整数アンビギュイティ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（搬送波位相の距離換算模型と整数アンビギュイティ）]
+    requires: [geodesy.gnss-pseudorange]
+  - id: geodesy.gnss-double-difference
+    name: 受信機間・衛星間の二重差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（受信機間・衛星間の二重差）]
+    requires: [geodesy.gnss-carrier-phase]
+  - id: geodesy.gnss-clock-cancellation
+    name: 二重差による受信機・衛星時計項の相殺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二重差による受信機・衛星時計項の相殺）]
+    requires: [geodesy.gnss-double-difference]
+  - id: geodesy.gnss-coordinate-epoch
+    name: 同じ基準枠内の等速位置時点模型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同じ基準枠内の等速位置時点模型）]
+    requires: [geodesy.coordinate-epoch, geodesy.reference-frame]
