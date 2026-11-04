@@ -13,7 +13,7 @@ chapters:
   - { id: GEOD7, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD7, status: completed, title: "測地測量の観測モデル：距離・角度・水準" }
   - { id: GEOD8, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD8, status: completed, title: "測量網の平差・datum の拘束・不確かさ" }
   - { id: GEOD9, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD9, status: completed, title: "GNSS・衛星測地学の基礎" }
-  - { id: GEOD10, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD10, status: planned, title: "重力測地学と高さ系の基礎計算" }
+  - { id: GEOD10, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD10, status: completed, title: "重力測地学と高さ系の基礎計算" }
   - { id: GEOD11, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD11, status: planned, title: "子午線弧長・緯線・地表測距の還元" }
   - { id: GEOD12, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD12, status: planned, title: "楕円体の測地線と順・逆問題" }
   - { id: GEOD13, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD13, status: planned, title: "地図投影の幾何・歪み" }
