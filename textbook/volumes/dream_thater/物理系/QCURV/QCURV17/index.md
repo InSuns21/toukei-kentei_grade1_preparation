@@ -36,10 +36,10 @@ $$
 
 Minkowski時空の慣性座標を $x^\mu=(t,x,y,z)$ とし、座標基底 $e_\mu=\partial/\partial x^\mu$ における計量の成分 $g_{\mu\nu}=g(e_\mu,e_\nu)$ を並べます。ここで行列は**計量という双線形形式の基底表示**であり、新しい場や条件ではありません。
 
-$
+$$
 (g_{\mu\nu})=\operatorname{diag}(-1,1,1,1),\qquad
 g(v,w)=-v^0w^0+\sum_{i=1}^3v^iw^i.
-$
+$$
 
 基底での行列式は $-1\ne0$ なので、$g(v,w)=0$ がすべての $w$ で成り立つなら $v=0$ です。時間方向の負符号一つと空間方向の正符号三つも確認でき、滑らかな非退化Lorentz計量という定義の条件を満たします。成分が一定だから接続係数が零となり、曲率は $R_{abcd}=R_{ab}=R=0$、従って $G_{ab}=0$ です。
 
@@ -324,10 +324,10 @@ $$
 
 零根が重複し、残りは $\lambda=\pm1/\ell_*$ です。ここで4本が単なる解の候補でなく全解を張ることも確かめます。斉次解で $z=y''$ と置けば $z-\ell_*^2z''=0$ なので、二階定係数方程式の解は $z=Ae^{t/\ell_*}+Be^{-t/\ell_*}$ です。これを二回積分すると
 
-$
+$$
 y(t)=a+bt+\ell_*^2Ae^{t/\ell_*}
 +\ell_*^2Be^{-t/\ell_*}
-$
+$$
 
 となります。$a,b,A,B$ が任意だから、$1,t,e^{t/\ell_*},e^{-t/\ell_*}$ が全斉次解空間の基底です。次に $f=\cos(\Omega t)$、$\Omega>0$ とし $y_p=A\cos(\Omega t)$ を代入すると
 
@@ -361,21 +361,21 @@ $\Omega=0$ の場合は $y_p=t^2/2$ から $y_p''=1$、$y_p^{(4)}=0$ と直接�
 <!-- solution-start -->
 **詳細解答**：計量成分を無次元とする長さ次元で、共変微分は $L^{-1}$、曲率は二階微分を含むため $[R_{ab}]=[R]=L^{-2}$ です。[Einsteinテンソルの定義](../../../物理系/GR/GR7/index.md#def-gr7-einstein-tensor) $G_{ab}=R_{ab}-Rg_{ab}/2$ と、曲率二乗作用の変分から
 
-$
+$$
 [G_{ab}]=[\Lambda]=L^{-2},\qquad
 [I_{ab}]=[J_{ab}]=L^{-4},
-$
+$$
 
-$
+$$
 [\eta_I]=[\eta_J]=L^2,\qquad
 [\eta_I I_{ab}]=[\eta_J J_{ab}]=L^{-2}
-$
+$$
 
 です。応力テンソルはエネルギー密度の次元なので $[\langle T_{ab}\rangle]=L^{-1}/L^3=L^{-4}$。したがって
 
-$
+$$
 [8\pi G_N\langle T_{ab}\rangle]=L^2L^{-4}=L^{-2}
-$
+$$
 
 となり、左辺4項と右辺の長さ次元が一致します。
 <!-- solution-end -->
@@ -388,18 +388,18 @@ $
 <!-- solution-start -->
 **詳細解答**：[保存整合性の命題](#prop-qcurv17-conservation)に従って両辺を共変微分し、第一添字を計量で縮約します。係数が定数で、各幾何テンソルの発散が零なので
 
-$
+$$
 8\pi G_N\nabla^a\langle T_{ab}\rangle
 =0+\Lambda\cdot0+\eta_I\cdot0+\eta_J\cdot0=0.
-$
+$$
 
 $G_N>0$ で割って保存則を得ます。一方、$\Lambda(x)$ を時空点 $x$ の関数にすると、スカラーの共変微分は偏微分と一致し、積の微分から
 
-$
+$$
 \nabla^a(\Lambda g_{ab})
 =(\nabla^a\Lambda)g_{ab}+\Lambda\nabla^ag_{ab}
 =\partial_b\Lambda
-$
+$$
 
 が残ります。したがって同じ保存則は一般には従わず、右辺の発散を $\partial_b\Lambda/(8\pi G_N)$ と釣り合わせる追加の力学・条件が必要です。
 <!-- solution-end -->
