@@ -12,3 +12,4 @@
 9. [GEOD9 GNSS・衛星測地学の基礎](textbook/volumes/dream_thater/幾何系/GEOD/GEOD9/index.md)
 10. [GEOD10 重力測地学と高さ系の基礎計算](textbook/volumes/dream_thater/幾何系/GEOD/GEOD10/index.md)
 11. [GEOD11 子午線弧長・緯線・地表測距の還元](textbook/volumes/dream_thater/幾何系/GEOD/GEOD11/index.md)
+12. [GEOD12 楕円体の測地線と順・逆問題](textbook/volumes/dream_thater/幾何系/GEOD/GEOD12/index.md)
