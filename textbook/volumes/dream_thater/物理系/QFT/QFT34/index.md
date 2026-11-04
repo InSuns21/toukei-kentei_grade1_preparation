@@ -4,7 +4,7 @@
 
 では、二成分のスカラー場にあった接線方向の揺らぎは、どこへ行くのでしょうか。ここでは複素スカラーと局所U(1)ゲージ場の最小模型を使い、(i) ゲージ不変な作用、(ii) 真空周りの二次式、(iii) 正則な領域でのユニタリゲージ、(iv) 共変な $R_\xi$ ゲージ、(v) 物理的自由度を順に導きます。電弱理論の $SU(2)\times U(1)$ 質量行列は後続章で扱います。
 
-以下、$3+1$ 次元Minkowski時空、$x^\mu=(t,\boldsymbol x)$、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位系 $\hbar=c=1$ で考えます。結合定数と模型のパラメータは $g,\lambda,v>0$ とします。
+以下、$3+1$ 次元Minkowski時空、$x^\mu=(t,\boldsymbol x)$、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、単位系 $\hbar=c=1$ で考えます。結合定数と模型のパラメータは $g,\lambda,v>0$ とします。$\Box=-\partial_t^2+\Delta$、正エネルギーの複素スカラー運動項は $-(D_\mu\Phi)^*D^\mu\Phi$ です。
 
 偏微分する変数、波動演算子、縮約の略記は
 
@@ -111,7 +111,7 @@ $$
 
 $$
 \mathcal L=-\frac14F_{\mu\nu}F^{\mu\nu}
-+(D_\mu\Phi)^*D^\mu\Phi
+-(D_\mu\Phi)^*D^\mu\Phi
 -\lambda\left(|\Phi|^2-\frac{v^2}{2}\right)^2.
 $$
 
@@ -150,8 +150,8 @@ $$
 二乗のうち二次までを拾うと、相互作用の三次以上を除いて
 
 $$
-|D\Phi|^2\big|_{\le2}
-=\frac12(\partial h)^2+\frac12(\partial_\mu\pi+gvA_\mu)^2.
+-(D_\mu\Phi)^*D^\mu\Phi\big|_{\le2}
+=-\frac12(\partial h)^2-\frac12(\partial_\mu\pi+gvA_\mu)^2.
 $$
 
 <a id="prop-qft34-quadratic-spectrum"></a>
@@ -163,8 +163,8 @@ $$
 $$
 \begin{aligned}
 \mathcal L_2={}&-\frac14F_{\mu\nu}F^{\mu\nu}
-+\frac12(\partial h)^2-\frac12m_h^2h^2\\
-&+\frac12(\partial_\mu\pi+m_AA_\mu)^2,\\
+-\frac12(\partial h)^2-\frac12m_h^2h^2\\
+&-\frac12(\partial_\mu\pi+m_AA_\mu)^2,\\
 m_h^2={}&2\lambda v^2,\qquad m_A^2=g^2v^2.
 \end{aligned}
 $$
@@ -174,7 +174,7 @@ $$
 
 ### 証明の見取り図
 
-ポテンシャルの二次項は $h^2$ だけで、共変微分の虚部に $\partial\pi+gvA$ が現れます。$A^2$ の係数を $m_A^2/2$ と比較します。
+ポテンシャルの二次項は $h^2$ だけで、共変微分の虚部に $\partial\pi+gvA$ が現れます。$-A^2$ の係数を $m_A^2/2$ と比較します。
 
 <!-- proof-start -->
 ### 証明
@@ -182,9 +182,9 @@ $$
 上の展開でポテンシャルから $-\lambda v^2h^2$ を得るので、$-m_h^2h^2/2$ と比較して $m_h^2=2\lambda v^2$ です。共変微分の実部の $-gA\pi$ は二次なので、その二乗や $\partial h$ との積は三次以上です。虚部の一次は $\partial\pi+gvA$、その二乗は二次に残ります。従って
 
 $$
-\frac12(\partial\pi+gvA)^2
-=\frac12(\partial\pi)^2+gvA^\mu\partial_\mu\pi
-+\frac12g^2v^2A_\mu A^\mu.
+-\frac12(\partial\pi+gvA)^2
+=-\frac12(\partial\pi)^2-gvA^\mu\partial_\mu\pi
+-\frac12g^2v^2A_\mu A^\mu.
 $$
 
 $A^2$ の係数から $m_A^2=g^2v^2$ が決まります。ただし中間の混合項が残るので、まだ $A$ と $\pi$ を独立な自由粒子として扱うことはできません。
@@ -192,7 +192,7 @@ $A^2$ の係数から $m_A^2=g^2v^2$ が決まります。ただし中間の混�
 
 ## 3. 位相をゲージ場にまとめる：局所ユニタリゲージ
 
-直交座標の $h,\pi$ は真空近くでは分かりやすい一方、位相方向が冗長なことを隠します。$\Phi\ne0$ の領域では大きさと角度で書けます。角度 $\theta/v$ は無次元で、$\theta$ は質量次元1です。ここで扱う**Proca表示**とは、正の質量項 $m^2B_\mu B^\mu/2$ を持つベクトル場の記述のことです。
+直交座標の $h,\pi$ は真空近くでは分かりやすい一方、位相方向が冗長なことを隠します。$\Phi\ne0$ の領域では大きさと角度で書けます。角度 $\theta/v$ は無次元で、$\theta$ は質量次元1です。ここで扱う**Proca表示**とは、計量 $(-+++)$ で質量項 $-m^2B_\mu B^\mu/2$ を持つベクトル場の記述のことです。時間成分だけの係数は正になりますが、$B^0$ は拘束される成分であり、偏極数は方程式から判定します。
 
 <a id="def-qft34-invariant-vector"></a>
 
@@ -231,7 +231,7 @@ $$
 
 $$
 \mathcal L=-\frac14(\partial_\mu B_\nu-\partial_\nu B_\mu)^2
-+\frac12(\partial\rho)^2+\frac12g^2\rho^2B_\mu B^\mu
+-\frac12(\partial\rho)^2-\frac12g^2\rho^2B_\mu B^\mu
 -\frac\lambda4(\rho^2-v^2)^2.
 $$
 
@@ -256,7 +256,7 @@ D_\mu\Phi
 \end{aligned}
 $$
 
-実数の $\partial\rho$ と $g\rho B$ の交差項は共役との積で相殺され、$|D\Phi|^2=(\partial\rho)^2/2+g^2\rho^2B^2/2$ です。さらに $\partial_\mu B_\nu-\partial_\nu B_\mu=F_{\mu\nu}$ が二階微分の相殺から成り立ちます。ポテンシャルは $\lambda(\rho^2-v^2)^2/4$。$\rho=v+h_u$ として $g^2\rho^2B^2/2=g^2v^2B^2/2+O(3)$、ポテンシャルは $\lambda v^2h_u^2+O(3)$ なので結論を得ます。
+実数の $\partial\rho$ と $g\rho B$ の交差項は共役との積で相殺され、$-(D_\mu\Phi)^*D^\mu\Phi=-(\partial\rho)^2/2-g^2\rho^2B^2/2$ です。さらに $\partial_\mu B_\nu-\partial_\nu B_\mu=F_{\mu\nu}$ が二階微分の相殺から成り立ちます。ポテンシャルは $\lambda(\rho^2-v^2)^2/4$。$\rho=v+h_u$ として $-g^2\rho^2B^2/2=-g^2v^2B^2/2+O(3)$、ポテンシャルは $\lambda v^2h_u^2+O(3)$ なので結論を得ます。
 <!-- proof-end -->
 
 **適用範囲に注意**：$\Phi=0$ の点では位相を定義できません。渦や非自明な境界条件があると一つの位相枝を全空間で取れない場合もあります。局所ユニタリゲージが使えることと、すべての場配置を大域的に一つのゲージで覆えることは別です。$g\to0$ または $v\to0$ の極限にこの表示の $1/(gv)$ を無条件に使うこともできません。
@@ -269,14 +269,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正の質量を持つProca場の三偏極）**
-> $m>0$、境界項を落とせる実ベクトル場 $B_\mu$ の作用密度を $\mathcal L_P=-G_{\mu\nu}G^{\mu\nu}/4+m^2B_\mu B^\mu/2$、$G_{\mu\nu}=\partial_\mu B_\nu-\partial_\nu B_\mu$ とする。Euler–Lagrange方程式は
+> $m>0$、境界項を落とせる実ベクトル場 $B_\mu$ の作用密度を $\mathcal L_P=-G_{\mu\nu}G^{\mu\nu}/4-m^2B_\mu B^\mu/2$、$G_{\mu\nu}=\partial_\mu B_\nu-\partial_\nu B_\mu$ とする。Euler–Lagrange方程式は
 
 $$
-\partial_\mu G^{\mu\nu}+m^2B^\nu=0,
+\partial_\mu G^{\mu\nu}-m^2B^\nu=0,
 \qquad \partial_\nu B^\nu=0.
 $$
 
-> 正エネルギーの時間的な質量殻 $p^2=m^2$ 上の平面波 $B^\mu=\epsilon^\mu e^{-ip\cdot x}$ は $p\cdot\epsilon=0$ を満たし、実物理偏極は三つである。
+> 正エネルギーの時間的な質量殻 $p^2=-m^2$ 上の平面波 $B^\mu=\epsilon^\mu e^{+ip\cdot x}$ は $p\cdot\epsilon=0$ を満たし、実物理偏極は三つである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -290,21 +290,21 @@ $$
 
 $$
 \delta\mathcal L_P=-G^{\mu\nu}\partial_\mu\delta B_\nu
-+m^2B^\nu\delta B_\nu.
+-m^2B^\nu\delta B_\nu.
 $$
 
 部分積分で $\delta B_\nu$ の係数を零にして第一式を得ます。$\partial_\nu$ を作用させると
 
 $$
-\partial_\nu\partial_\mu G^{\mu\nu}+m^2\partial_\nu B^\nu
-=0+m^2\partial_\nu B^\nu=0
+\partial_\nu\partial_\mu G^{\mu\nu}-m^2\partial_\nu B^\nu
+=0-m^2\partial_\nu B^\nu=0
 $$
 
 です。最初の項は対称な二階微分と反対称な $G$ の縮約なので零です。$m^2>0$ から第二式。平面波を代入すると $p\cdot\epsilon=0$、そして
 
 $$
-(-p^2+m^2)\epsilon^\nu+p^\nu(p\cdot\epsilon)=0
-\quad\Longrightarrow\quad p^2=m^2
+(-p^2-m^2)\epsilon^\nu+p^\nu(p\cdot\epsilon)=0
+\quad\Longrightarrow\quad p^2=-m^2
 $$
 
 （非零偏極）です。時間的な $p$ はLorentz変換で $p=(m,0,0,0)$ にでき、その系では $m\epsilon^0=0$、$\epsilon^1,\epsilon^2,\epsilon^3$ は独立です。したがって三偏極です。
@@ -318,7 +318,7 @@ $$
 
 ユニタリゲージは物理自由度を数えるには便利ですが、量子摂動計算ではゲージ場の高運動量の振る舞いが扱いにくい場合があります。そこで[QFT16の共変ゲージ固定](../QFT16/index.md#def-qft16-gauge-fixed-action)にならい、$\pi$ を計算の中に残して混合を除く方法を使います。$\xi>0$ はゲージ選択の実パラメータであり、測定する質量を指定する物理定数ではありません。
 
-[二次作用の命題](#prop-qft34-quadratic-spectrum)の混合項は $m_A A^\mu\partial_\mu\pi$ なので、部分積分すると $-m_A\pi\,\partial_\mu A^\mu$ です。これを相殺する符号で固定します。
+[二次作用の命題](#prop-qft34-quadratic-spectrum)の混合項は $-m_A A^\mu\partial_\mu\pi$ なので、部分積分すると $+m_A\pi\,\partial_\mu A^\mu$ です。これを相殺する符号で固定します。
 
 <a id="def-qft34-rxi"></a>
 
@@ -327,7 +327,7 @@ $$
 > $m_A=gv>0$、$\xi>0$、真空代表周りの $\Phi=(v+h+i\pi)/\sqrt2$ に対して
 
 $$
-\mathcal F=\partial_\mu A^\mu-\xi m_A\pi,
+\mathcal F=\partial_\mu A^\mu+\xi m_A\pi,
 \qquad \mathcal L_{\rm gf}=-\frac{\mathcal F^2}{2\xi}
 $$
 
@@ -337,7 +337,7 @@ $$
 <!-- definition-example-start: def-qft34-rxi -->
 ### 例：$\xi=1$ における混合の相殺
 
-**定義の確認**：$\xi=1$ なら $\mathcal F=\partial\cdot A-m_A\pi$ です。$-\mathcal F^2/2$ の交差項は $+m_A\pi\partial\cdot A$、もとの混合項の部分積分形は $-m_A\pi\partial\cdot A$ です。両者が打ち消し、残る $\pi$ の質量二乗は $m_A^2$ です。任意の非零 $m_A$ でこの検査が成り立ちます。
+**定義の確認**：$\xi=1$ なら $\mathcal F=\partial\cdot A+m_A\pi$ です。$-\mathcal F^2/2$ の交差項は $-m_A\pi\partial\cdot A$、もとの混合項の部分積分形は $+m_A\pi\partial\cdot A$ です。両者が打ち消し、残る $\pi$ の質量二乗は $m_A^2$ です。任意の非零 $m_A$ でこの検査が成り立ちます。
 <!-- definition-example-end -->
 
 運動量空間では、[QFT16の横・縦射影](../QFT16/index.md#def-qft16-projectors)を質量項のある二次作用素にも使います。$p^2\ne0$ で任意の四元ベクトル $X_\mu$ を $p_\mu$ に平行な $p_\mu(p\cdot X)/p^2$ と残りに分解できるため、縦射影は $P^L_{\mu\nu}=p_\mu p_\nu/p^2$、横射影は $P^T=\eta-P^L$ です。ここで「横」は四元運動量 $p$ との縮約が零という意味であり、空間三次元の横方向と同一視しません。
@@ -350,19 +350,19 @@ $$
 
 $$
 \begin{aligned}
-\mathcal L_{2,\xi}={}&-\frac14F^2+\frac12m_A^2A^2
+\mathcal L_{2,\xi}={}&-\frac14F^2-\frac12m_A^2A^2
 -\frac{(\partial\cdot A)^2}{2\xi}\\
-&+\frac12(\partial h)^2-\frac12m_h^2h^2
-+\frac12(\partial\pi)^2-\frac12\xi m_A^2\pi^2.
+&-\frac12(\partial h)^2-\frac12m_h^2h^2
+-\frac12(\partial\pi)^2-\frac12\xi m_A^2\pi^2.
 \end{aligned}
 $$
 
 > $m_\pi^2=\xi m_A^2$ はゲージ依存の二次作用の極であって、独立な物理Goldstone粒子の質量ではない。ベクトルの横・縦射影に対する運動量空間のFeynman核は、$p^2$ の極から離れて
 
 $$
-D_{\mu\nu}(p)=-i\left[
-\frac{P^T_{\mu\nu}}{p^2-m_A^2+i0}
-+\frac{\xi P^L_{\mu\nu}}{p^2-\xi m_A^2+i0}\right],
+D_{\mu\nu}(p)=i\left[
+\frac{P^T_{\mu\nu}}{-p^2-m_A^2+i0}
++\frac{\xi P^L_{\mu\nu}}{-p^2-\xi m_A^2+i0}\right],
 \quad P^L_{\mu\nu}=\frac{p_\mu p_\nu}{p^2},\quad
 P^T_{\mu\nu}=\eta_{\mu\nu}-P^L_{\mu\nu}.
 $$
@@ -381,32 +381,32 @@ $\mathcal F^2$ を展開して混合を打ち消し、ベクトルの二次作�
 
 $$
 \mathcal L_{\rm gf}=-\frac{(\partial\cdot A)^2}{2\xi}
-+m_A\pi\,\partial\cdot A-\frac12\xi m_A^2\pi^2.
+-m_A\pi\,\partial\cdot A-\frac12\xi m_A^2\pi^2.
 $$
 
-一方 $m_AA\cdot\partial\pi=-m_A\pi\partial\cdot A$（全微分を除く）なので混合が消え、上の対角二次式を得ます。ベクトル作用素は $e^{-ipx}$ のFourier規約で
+一方 $-m_AA\cdot\partial\pi=+m_A\pi\partial\cdot A$（全微分を除く）なので混合が消え、上の対角二次式を得ます。ベクトル作用素は $e^{ip\cdot x}$ のFourier規約で
 
 $$
-K_{\mu\nu}(p)=-(p^2-m_A^2)P^T_{\mu\nu}
--\frac1\xi(p^2-\xi m_A^2)P^L_{\mu\nu}.
+K_{\mu\nu}(p)=(-p^2-m_A^2)P^T_{\mu\nu}
++\frac1\xi(-p^2-\xi m_A^2)P^L_{\mu\nu}.
 $$
 
 射影の積 $P^TP^L=0$、$(P^T)^2=P^T$、$(P^L)^2=P^L$ を使えば
 
 $$
-iK^{-1}=-i\left(
-\frac{P^T}{p^2-m_A^2+i0}
-+\frac{\xi P^L}{p^2-\xi m_A^2+i0}\right)
+iK^{-1}=i\left(
+\frac{P^T}{-p^2-m_A^2+i0}
++\frac{\xi P^L}{-p^2-\xi m_A^2+i0}\right)
 $$
 
 です。これは $p^2\ne0$ での射影計算です。両分母が零でない運動量で二項を通分すると
 
 $$
-\frac{P^T_{\mu\nu}}{p^2-m_A^2}
-+\frac{\xi P^L_{\mu\nu}}{p^2-\xi m_A^2}
-=\frac{\eta_{\mu\nu}}{p^2-m_A^2}
-+\frac{(\xi-1)p_\mu p_\nu}
-{(p^2-m_A^2)(p^2-\xi m_A^2)}.
+\frac{P^T_{\mu\nu}}{-p^2-m_A^2}
++\frac{\xi P^L_{\mu\nu}}{-p^2-\xi m_A^2}
+=\frac{\eta_{\mu\nu}}{-p^2-m_A^2}
++\frac{(1-\xi)p_\mu p_\nu}
+{(-p^2-m_A^2)(-p^2-\xi m_A^2)}.
 $$
 
 右辺には見かけの $1/p^2$ がなく、$p^2=0$ で射影の個々が未定義になることと、質量のある伝播核全体に極があることを区別できます。Feynman境界値はこの組み合わせを質量極で処方して解釈します。$m_h^2=2\lambda v^2$ はゲージ固定前後で同じ二次係数、$\pi$ の項だけが $-\xi m_A^2\pi^2/2$ になります。
@@ -418,7 +418,7 @@ $$
 
 $$
 J^\mu D_{\mu\nu}J'^\nu
-=-i\frac{J\cdot J'}{p^2-m_A^2+i0},
+=i\frac{J\cdot J'}{-p^2-m_A^2+i0},
 $$
 
 となり $\xi$ を含みません。これは[QFT16の保存電流間のゲージ非依存性](../QFT16/index.md#thm-qft16-current-exchange)に質量項を入れた直接計算です。非保存電流や任意のゲージ非不変なGreen関数について同じ結論を無条件に主張できません。
@@ -435,18 +435,18 @@ $$
 よって[ゲージ固定関数](#def-qft34-rxi)の変分は
 
 $$
-\delta\mathcal F=\left[\Box+\xi g m_A(v+h)\right]\chi
-=\left[\Box+\xi m_A^2+\xi g m_Ah\right]\chi.
+\delta\mathcal F=\left[\Box-\xi g m_A(v+h)\right]\chi
+=\left[\Box-\xi m_A^2-\xi g m_Ah\right]\chi.
 $$
 
 ここで $\delta\mathcal F/\delta\chi$ はゲージ条件の **Jacobian** です。[QFT29の定義](../QFT29/index.md#def-qft29-fp-operator)ではFaddeev–Popov作用素をその**負号**で定めるため、この模型でその規約を使えば
 
 $$
 M=-\frac{\delta\mathcal F}{\delta\chi}
-=-\Box-\xi m_A^2-\xi g m_A h.
+=-\Box+\xi m_A^2+\xi g m_A h.
 $$
 
-ghost二次作用で演算子全体の符号を逆にする規約を選んでも、真空周りの逆核の極 $p^2=\xi m_A^2$ は変わりません。**Abelianだからghostがあらゆるゲージで相互作用しない**わけではありません。このCartesian $R_\xi$ ゲージでは $h$ との結合が残ります。ghostは物理的な外線粒子として数えません。ここではこの行列式の局所的・摂動論的構造までを示し、非摂動的なゲージ固定一意性は仮定しません。
+ghost二次作用で演算子全体の符号を逆にする規約を選んでも、真空周りの逆核の極 $p^2=-\xi m_A^2$ は変わりません。**Abelianだからghostがあらゆるゲージで相互作用しない**わけではありません。このCartesian $R_\xi$ ゲージでは $h$ との結合が残ります。ghostは物理的な外線粒子として数えません。ここではこの行列式の局所的・摂動論的構造までを示し、非摂動的なゲージ固定一意性は仮定しません。
 
 ## 6. 大域的Goldstone定理との違い
 
@@ -496,7 +496,7 @@ $(v,0)$ で $H=\operatorname{diag}(2\lambda v^2,0)$、動径固有方向 $(1,0)$
 ### 演習 QFT34-A3：混合項の符号検査
 
 - Level: A
-- 問題：$D_\mu=\partial_\mu+igA_\mu$、$\Phi=(v+h+i\pi)/\sqrt2$ として $|D\Phi|^2$ を二次まで展開せよ。$A\cdot\partial\pi$ の符号を明示し、$m_A^2$ を求めよ。
+- 問題：$D_\mu=\partial_\mu+igA_\mu$、$\Phi=(v+h+i\pi)/\sqrt2$ として $-(D_\mu\Phi)^*D^\mu\Phi$ を二次まで展開せよ。$A\cdot\partial\pi$ の符号を明示し、$m_A^2$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -504,12 +504,12 @@ $(v,0)$ で $H=\operatorname{diag}(2\lambda v^2,0)$、動径固有方向 $(1,0)$
 $D_\mu\Phi=[\partial_\mu h-gA_\mu\pi+i(\partial_\mu\pi+gA_\mu(v+h))]/\sqrt2$ です。二次まで残すと
 
 $$
-|D\Phi|^2\big|_{\le2}=\frac12(\partial h)^2+
-\frac12(\partial\pi)^2+gvA^\mu\partial_\mu\pi+
-\frac12g^2v^2 A^2.
+-(D_\mu\Phi)^*D^\mu\Phi\big|_{\le2}=-\frac12(\partial h)^2
+-\frac12(\partial\pi)^2-gvA^\mu\partial_\mu\pi
+-\frac12g^2v^2 A^2.
 $$
 
-符号はプラスです。$m_A^2/2$ の係数と比較して $m_A^2=g^2v^2$ です。$A\cdot\partial\pi$ は全微分を除くと $-\pi\,\partial\cdot A$ になるので、ゲージ固定項ではこのマイナスを打ち消す必要があります。
+混合項の符号はマイナスです。$-m_A^2/2$ の係数と比較して $m_A^2=g^2v^2$ です。$-A\cdot\partial\pi$ は全微分を除くと $+\pi\,\partial\cdot A$ になるので、ゲージ固定項でこれを打ち消す必要があります。
 <!-- solution-end -->
 
 ### 演習 QFT34-A4：角度を消す変換の適用範囲
@@ -533,7 +533,7 @@ $\rho=0$ なら複素数 $\Phi=0$ の偏角は定義できず、$\theta$ を滑�
 ### 演習 QFT34-A5：Proca拘束と偏極
 
 - Level: A
-- 問題：$m>0$ のProca方程式 $\partial_\mu G^{\mu\nu}+m^2B^\nu=0$ を仮定する。発散条件を求め、静止系 $p=(m,0,0,0)$ で平面波の偏極数を数えよ。$m=0$ に代入して同じ数え方が使えない理由を述べよ。
+- 問題：$m>0$ のProca方程式 $\partial_\mu G^{\mu\nu}-m^2B^\nu=0$ を仮定する。発散条件を求め、静止系 $p=(m,0,0,0)$（$p^2=-m^2$）で平面波の偏極数を数えよ。$m=0$ に代入して同じ数え方が使えない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -544,7 +544,7 @@ $\rho=0$ なら複素数 $\Phi=0$ の偏角は定義できず、$\theta$ を滑�
 ### 演習 QFT34-B1：一般 $\xi$ での混合相殺
 
 - Level: B
-- 問題：$m=gv>0$、$\xi>0$ とし、$\mathcal L_2$ に $-(\partial\cdot A-\xi m\pi)^2/(2\xi)$ を加える。混合項、$\pi$ の質量、ベクトルの横・縦二次作用素を求めよ。
+- 問題：$m=gv>0$、$\xi>0$ とし、$\mathcal L_2$ に $-(\partial\cdot A+\xi m\pi)^2/(2\xi)$ を加える。混合項、$\pi$ の質量、ベクトルの横・縦二次作用素を求めよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -553,16 +553,16 @@ $\rho=0$ なら複素数 $\Phi=0$ の偏角は定義できず、$\theta$ を滑�
 
 $$
 \mathcal L_{\rm gf}=-\frac{(\partial\cdot A)^2}{2\xi}
-+m\pi\,\partial\cdot A-\frac12\xi m^2\pi^2.
+-m\pi\,\partial\cdot A-\frac12\xi m^2\pi^2.
 $$
 
-[二次作用](#prop-qft34-quadratic-spectrum)の混合項は部分積分で $-m\pi\,\partial\cdot A$ なので相殺します。$\pi$ の二次項は $[(\partial\pi)^2-\xi m^2\pi^2]/2$、したがって $m_\pi^2=\xi m^2$。$A$ のFourier二次作用素を $P^T,P^L$ で分けると
+[二次作用](#prop-qft34-quadratic-spectrum)の混合項は部分積分で $+m\pi\,\partial\cdot A$ なので相殺します。$\pi$ の二次項は $[-(\partial\pi)^2-\xi m^2\pi^2]/2$、したがって $m_\pi^2=\xi m^2$。$A$ のFourier二次作用素を $P^T,P^L$ で分けると
 
 $$
-K=-(p^2-m^2)P^T-(p^2/\xi-m^2)P^L.
+K=(-p^2-m^2)P^T+(-p^2/\xi-m^2)P^L.
 $$
 
-後者は $-(p^2-\xi m^2)P^L/\xi$ なので、逆核の横・縦の極はそれぞれ $p^2=m^2$ と $p^2=\xi m^2$ です。[対角化定理](#thm-qft34-rxi-quadratic)と符号・係数が一致します。
+後者は $(-p^2-\xi m^2)P^L/\xi$ なので、逆核の横・縦の極はそれぞれ $p^2=-m^2$ と $p^2=-\xi m^2$ です。[対角化定理](#thm-qft34-rxi-quadratic)と符号・係数が一致します。
 <!-- solution-end -->
 
 ### 演習 QFT34-B2：保存電流の散乱核
@@ -576,10 +576,10 @@ $$
 $P^L_{\mu\nu}=p_\mu p_\nu/p^2$ より $J^\mu P^L_{\mu\nu}J'^\nu=(p\cdot J)(p\cdot J')/p^2=0$ です。$P^T=\eta-P^L$ から $J P^T J'=J\cdot J'$。従って
 
 $$
-JDJ'=-i\frac{J\cdot J'}{p^2-m_A^2+i0}.
+JDJ'=i\frac{J\cdot J'}{-p^2-m_A^2+i0}.
 $$
 
-条件がないと $JP^LJ'$ が一般に零でなく、$\xi/(p^2-\xi m_A^2+i0)$ の項が残ります。外部電流の保存という仮定を落としたままゲージ非依存性を宣言してはいけません。
+条件がないと $JP^LJ'$ が一般に零でなく、$\xi/(-p^2-\xi m_A^2+i0)$ の項が残ります。外部電流の保存という仮定を落としたままゲージ非依存性を宣言してはいけません。
 <!-- solution-end -->
 
 ### 演習 QFT34-B3：動径を凍結した位相模型
@@ -593,8 +593,8 @@ $$
 $\Phi=ve^{i\theta/v}/\sqrt2$ なので $D_\mu\Phi=(iv/\sqrt2)e^{i\theta/v}(\partial_\mu\theta/v+gA_\mu)$ です。従って
 
 $$
-\mathcal L=-\frac14F^2+\frac12(\partial_\mu\theta+gvA_\mu)^2
-=-\frac14G(B)^2+\frac12g^2v^2B^2.
+\mathcal L=-\frac14F^2-\frac12(\partial_\mu\theta+gvA_\mu)^2
+=-\frac14G(B)^2-\frac12g^2v^2B^2.
 $$
 
 この制限では動径励起を捨てたため、残る物理的自由度は質量あるベクトルの三つだけです。$g\to0$ のとき $B=A+\partial\theta/(gv)$ は特異で、同じ変数のまま連続極限を取れません。元の式で $g=0$ とすれば自由Maxwell場の二偏極と独立な質量零 $\theta$ の一自由度として合計三つが残ります。
@@ -614,7 +614,7 @@ $$
 ### 演習 QFT34-C1：Higgs機構の一連の検算
 
 - Level: C
-- 問題：$g,\lambda,v>0$、$D=\partial+igA$、$\mathcal L=-F^2/4+|D\Phi|^2-\lambda(|\Phi|^2-v^2/2)^2$ とする。次を順に示し、木レベルの結論と量子論の主張を分けて説明せよ。
+- 問題：$g,\lambda,v>0$、$D=\partial+igA$、$\mathcal L=-F^2/4-(D_\mu\Phi)^*D^\mu\Phi-\lambda(|\Phi|^2-v^2/2)^2$ とする。次を順に示し、木レベルの結論と量子論の主張を分けて説明せよ。
 
   1. $\Phi_0=v/\sqrt2,A=0$ が零エネルギーの代表元であることと局所変換による同値性。
   2. $\Phi=(v+h+i\pi)/\sqrt2$ での二次作用、二つの質量二乗、混合項。
@@ -629,35 +629,35 @@ $$
 2. $|\Phi|^2-v^2/2=vh+(h^2+\pi^2)/2$ と $D\Phi=[\partial h-gA\pi+i(\partial\pi+gA(v+h))]/\sqrt2$ より
 
    $$
-   \mathcal L_2=-\frac14F^2+\frac12(\partial h)^2-\lambda v^2h^2
-   +\frac12(\partial\pi)^2+gvA\cdot\partial\pi+\frac12g^2v^2A^2.
+   \mathcal L_2=-\frac14F^2-\frac12(\partial h)^2-\lambda v^2h^2
+   -\frac12(\partial\pi)^2-gvA\cdot\partial\pi-\frac12g^2v^2A^2.
    $$
 
-   したがって $m_h^2=2\lambda v^2$、$m_A^2=g^2v^2$、混合項の符号はプラスです。
+   したがって $m_h^2=2\lambda v^2$、$m_A^2=g^2v^2$、混合項の符号はマイナスです。
 3. $\Phi=\rho e^{i\theta/v}/\sqrt2$ の局所表示で $B=A+\partial\theta/(gv)$ とすると、[正則な局所領域でのHiggs–Proca表示](#thm-qft34-unitary-proca)から二次作用は
 
    $$
    \mathcal L_2=-\frac14G(B)_{\mu\nu}G(B)^{\mu\nu}
-   +\frac12m_A^2B_\mu B^\mu
-   +\frac12(\partial h_u)^2-\frac12m_h^2h_u^2
+   -\frac12m_A^2B_\mu B^\mu
+   -\frac12(\partial h_u)^2-\frac12m_h^2h_u^2
    $$
 
-   となります。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)の発散制約 $\partial\cdot B=0$ と質量殻 $p^2=m_A^2$ によりベクトルは三偏極です。複素スカラーの二実成分と質量零ゲージ場の二物理偏極を合わせた四自由度は、動径場一つと質量あるベクトルの三偏極に対応し、$2+2=1+3=4$ です。
-4. ゲージ固定 $\mathcal L_{\rm gf}=-(\partial\cdot A-\xi m_A\pi)^2/(2\xi)$ は $+m_A\pi\,\partial\cdot A$ を生み、もとの $m_AA\cdot\partial\pi=-m_A\pi\,\partial\cdot A$（境界項を除く）を相殺します。残る $-\xi m_A^2\pi^2/2$ から $\pi$ の二次極は $p^2=\xi m_A^2$ です。
+   となります。[正の質量を持つProca場の三偏極](#thm-qft34-massive-polarizations)の発散制約 $\partial\cdot B=0$ と質量殻 $p^2=-m_A^2$ によりベクトルは三偏極です。複素スカラーの二実成分と質量零ゲージ場の二物理偏極を合わせた四自由度は、動径場一つと質量あるベクトルの三偏極に対応し、$2+2=1+3=4$ です。
+4. ゲージ固定 $\mathcal L_{\rm gf}=-(\partial\cdot A+\xi m_A\pi)^2/(2\xi)$ は $-m_A\pi\,\partial\cdot A$ を生み、もとの $-m_AA\cdot\partial\pi=+m_A\pi\,\partial\cdot A$（境界項を除く）を相殺します。残る $-\xi m_A^2\pi^2/2$ から $\pi$ の二次極は $p^2=-\xi m_A^2$ です。
 
    $\delta\pi=-g\chi(v+h)$、$\delta A_\mu=\partial_\mu\chi$ なので
 
    $$
    \frac{\delta\mathcal F}{\delta\chi}
-   =\Box+\xi m_A^2+\xi g m_Ah,
+   =\Box-\xi m_A^2-\xi g m_Ah,
    \qquad M=-\frac{\delta\mathcal F}{\delta\chi}.
    $$
 
-   [QFT29の符号規約](../QFT29/index.md#def-qft29-fp-operator)でのghostの二次極も同じ $p^2=\xi m_A^2$ です。保存電流 $p\cdot J=p\cdot J'=0$ に対しては $JP^LJ'=0$ なので、[Rξ二次核](#thm-qft34-rxi-quadratic)から
+   [QFT29の符号規約](../QFT29/index.md#def-qft29-fp-operator)でのghostの二次極も同じ $p^2=-\xi m_A^2$ です。保存電流 $p\cdot J=p\cdot J'=0$ に対しては $JP^LJ'=0$ なので、[Rξ二次核](#thm-qft34-rxi-quadratic)から
 
    $$
    J^\mu D_{\mu\nu}J'^\nu
-   =-i\frac{J\cdot J'}{p^2-m_A^2+i0}
+   =i\frac{J\cdot J'}{-p^2-m_A^2+i0}
    $$
 
    を得て、$\xi$ が消えます。

@@ -4,7 +4,7 @@
 
 本講では標準模型のゲージ群、表現、超電荷を定め、全フェルミオンを一枚の表で整理します。さらに共変微分の共変性、Higgs二重項の電荷と共役表示、三種類のYukawa結合の不変性を計算します。$W$・$Z$・光子の質量行列の対角化は、この表現を確定した後の問題です。
 
-時空は $3+1$ 次元Minkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。古典場は滑らかで、変分・積分は境界項が消える条件で行います。ゲージ結合 $g_s,g,g'>0$ は実数とし、ここでは**古典作用と木レベルの表現・結合**だけを確かめます。量子異常の不在や量子論の非摂動的存在は、この一覧だけからは従いません。
+時空は $3+1$ 次元Minkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とします。古典場は滑らかで、変分・積分は境界項が消える条件で行います。ゲージ結合 $g_s,g,g'>0$ は実数とし、ここでは**古典作用と木レベルの表現・結合**だけを確かめます。量子異常の不在や量子論の非摂動的存在は、この一覧だけからは従いません。
 
 ## 1. 三つの内部変換は何に作用するか
 
@@ -171,10 +171,10 @@ $$
 
 とします。$\sigma^I$ は $2\times2$ Pauli行列です。$\partial_\mu=\partial/\partial x^\mu$ は**時空座標**による偏微分、$\mu=0,1,2,3$ は時空添字、$a,i$ は物質場の内部成分添字です。反復する $A,I$ はそれぞれ8項、3項の和を表します。各生成子の行列は自分のテンソル因子に作用し、他方には恒等写像として作用します。
 
-**符号規約の対応。** [QFT17のAbelian共変微分](../QFT17/index.md#def-qft17-covariant-derivative)は $D_\mu=\partial_\mu+iqA_\mu$、$\psi'=e^{-iq\chi}\psi$ でした。ここでは
+**符号規約の対応。** [QFT17のAbelian共変微分](../QFT17/index.md#def-qft17-covariant-derivative)は $D_\mu=\partial_\mu-iqA_\mu$、$\psi'=e^{iq\chi}\psi$ です。ここでは
 
 $$
-q=-g'Y,\qquad A_\mu=B_\mu,\qquad \chi=\beta/g'
+q=g'Y,\qquad A_\mu=B_\mu,\qquad \chi=\beta/g'
 $$
 
 と対応させます。これをQFT17の式へ代入すると、本章の $D_\mu=\partial_\mu-ig'YB_\mu$ と $X'=e^{iY\beta}X$ が得られます。いずれもプライムは変換後を意味し、$\partial_\mu$ は $x^\mu$ で微分します。
@@ -220,7 +220,7 @@ $$
 D'_\mu X'=V D_\mu X.
 $$
 
-> 各表示はユニタリであるため、複素スカラーの $(D_\mu X)^\dagger D^\mu X$ は不変である。$V$ がスピノル添字には作用しない内部変換なら、フェルミオンの $\overline X\,i\gamma^\mu D_\mu X$ も不変である。
+> 各表示はユニタリであるため、複素スカラーの正エネルギー運動項 $-(D_\mu X)^\dagger D^\mu X$ は不変である。$V$ がスピノル添字には作用しない内部変換なら、[QFT7のDirac作用の規約](../QFT7/index.md#def-qft7-adjoint-action)に従うフェルミオンの $\overline X\,\gamma^\mu D_\mu X$ も不変である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -255,7 +255,7 @@ D'_\mu(VX)&=(\partial_\mu V)X+V\partial_\mu X-i\mathcal A'_\mu VX\\
 \end{aligned}
 $$
 
-ユニタリ性から $(D'X')^\dagger D'X'=(DX)^\dagger V^\dagger V(DX)=(DX)^\dagger DX$ です。Dirac共役について $\overline{VX}=\overline X V^\dagger$（$V$ は内部添字に作用し $\gamma^0$ と交換）なので、$\overline{X'}i\gamma^\mu D'_\mu X'=\overline X V^\dagger i\gamma^\mu V D_\mu X=\overline X i\gamma^\mu D_\mu X$ です。
+ユニタリ性から $(D'X')^\dagger D'X'=(DX)^\dagger V^\dagger V(DX)=(DX)^\dagger DX$ で、全体に負号を掛けた運動項も不変です。Dirac共役について $\overline{VX}=\overline X V^\dagger$（$V$ は内部添字に作用し $\gamma^0$ と交換）なので、$\overline{X'}\gamma^\mu D'_\mu X'=\overline X V^\dagger\gamma^\mu V D_\mu X=\overline X\gamma^\mu D_\mu X$ です。
 <!-- proof-end -->
 
 ただしこの不変性は**古典的な運動項**の話です。量子化したカイラル理論で正則化を含む測度まで不変かどうかは、別途、ゲージ異常を検査しなければなりません。
@@ -539,7 +539,7 @@ T_1H_0=\frac{v}{2\sqrt2}\binom10,\qquad
 T_2H_0=\frac{-iv}{2\sqrt2}\binom10
 $$
 
-で零ではありません。$T_3H_0=-H_0/2$、$YH_0=+H_0/2$ の相殺だけが $Q$ に起きます。これは不変生成子の代数的判定であって、ゲージ場の質量行列はまだ $(D_\mu H)^\dagger D^\mu H$ の二次項を展開しないと得られません。
+で零ではありません。$T_3H_0=-H_0/2$、$YH_0=+H_0/2$ の相殺だけが $Q$ に起きます。これは不変生成子の代数的判定であって、ゲージ場の質量行列はまだ $-(D_\mu H)^\dagger D^\mu H$ の二次項を展開しないと得られません。
 <!-- solution-end -->
 
 ### 演習 QFT35-B4：右巻き場を左巻き共役表示に直す
@@ -584,4 +584,4 @@ $$
 - 標準模型の一世代は、色・弱・超電荷の表現を割り当てることで、左右の場を取り違えずに整理できます。
 - $Q=T_3+Y$ を各表示へ作用させると、クォークの分数電荷、レプトンの整数電荷、Higgsの中性成分が同じ規約から出ます。
 - 三つのゲージ因子の共変微分と、$\widetilde H=i\sigma^2H^*$ を使ったYukawa結合は、行列のユニタリ縮約と超電荷の和から局所不変性を検算できます。
-- 次に $H$ の中性方向の真空代表を $(D_\mu H)^\dagger D^\mu H$ へ代入すれば、電弱ゲージ場の質量行列、混合角、$W$・$Z$・光子が求まります。
+- 次に $H$ の中性方向の真空代表を $-(D_\mu H)^\dagger D^\mu H$ へ代入すれば、電弱ゲージ場の質量行列、混合角、$W$・$Z$・光子が求まります。
