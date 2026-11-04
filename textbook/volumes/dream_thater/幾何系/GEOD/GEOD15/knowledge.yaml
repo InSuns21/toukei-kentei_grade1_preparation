@@ -1,0 +1,43 @@
+chapter: GEOD15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD14
+forward_references: []
+concepts:
+  - id: geodesy.spherical-normal-mercator
+    name: 球面正軸メルカトル投影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（球面正軸メルカトル投影）]
+    requires: [geodesy.isometric-latitude-formula]
+  - id: geodesy.spherical-normal-mercator-scale
+    name: 正軸メルカトルの等角性・縮尺・逆変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正軸メルカトルの等角性・縮尺・逆変換）]
+    requires: [geodesy.spherical-normal-mercator, geodesy.conformal-equal-area-tests]
+  - id: geodesy.spherical-transverse-mercator
+    name: 回転球面座標と球面横メルカトル投影
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（回転球面座標と球面横メルカトル投影）]
+    requires: [geodesy.spherical-normal-mercator]
+  - id: geodesy.spherical-transverse-mercator-inverse
+    name: 球面横メルカトルの順逆変換と定義域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（球面横メルカトルの順逆変換と定義域）]
+    requires: [geodesy.spherical-transverse-mercator]
+  - id: geodesy.spherical-transverse-scale
+    name: 横メルカトルのJacobianと局所歪み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（横メルカトルのJacobianと局所歪み）]
+    requires: [geodesy.spherical-transverse-mercator-inverse, geodesy.conformal-equal-area-tests]
+  - id: geodesy.ellipsoid-conformal-sphere-transverse-scale
+    name: 等角球面式を楕円体へ適用したときの縮尺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（等角球面式を楕円体へ適用したときの縮尺）]
+    requires: [geodesy.spherical-transverse-scale, geodesy.conformal-sphere-metric]
