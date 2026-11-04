@@ -70,3 +70,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV16
     status: completed
     title: "二次元共形模型・trace anomaly・Schwarzian流束"
+  - id: QCURV17
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV17
+    status: completed
+    title: "半古典Einstein方程式と蒸発のエネルギー収支"
