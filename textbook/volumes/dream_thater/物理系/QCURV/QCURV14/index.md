@@ -24,7 +24,9 @@ $$
 
 ## 1. Tolman則は「時計を換えると逆温度も換わる」という法則
 
-半径 $r$ を固定した静止観測者の世界線では $dr=d\Omega=0$ です。$\partial_t$ は $r$ と角座標を固定して時刻 $t$ を動かす座標方向であり、$g(\xi,\xi)=-f(r)$ です。固有時間 $\tau_r$ でパラメータ付けした静止四元速度 $u_{\rm stat}=dx/d\tau_r$（$x$ は世界線）を $g(u_{\rm stat},u_{\rm stat})=-1$ に規格化すると、
+半径 $r$ を固定した静止観測者の世界線では $dr=d\Omega=0$ です。$\partial_t$ は $r$ と角座標を固定して時刻 $t$ を動かす座標方向です。
+
+この方向のノルムは $g(\xi,\xi)=-f(r)$ です。固有時間 $\tau_r$ でパラメータ付けした静止四元速度を $u_{\rm stat}=dx/d\tau_r$（$x$ は世界線）と書き、$g(u_{\rm stat},u_{\rm stat})=-1$ に規格化すると、
 
 $$
 d\tau_r=\sqrt{f(r)}\,dt,\qquad
@@ -77,7 +79,7 @@ $$
 
 です。局所モードの解析関数を $F_r(z)=(n+1)e^{-i\omega_{\rm loc}z}+ne^{i\omega_{\rm loc}z}$ と置くと整関数であり、$\beta_{\rm loc}>0$ と上の積の等式を使って
 
-$
+$$
 \begin{aligned}
 F_r(s-i\beta_{\rm loc})
 &=(n+1)e^{-\beta_{\rm loc}\omega_{\rm loc}}e^{-i\omega_{\rm loc}s}
@@ -85,7 +87,7 @@ F_r(s-i\beta_{\rm loc})
 &=ne^{-i\omega_{\rm loc}s}+(n+1)e^{i\omega_{\rm loc}s}
 =w_r(-s).
 \end{aligned}
-$
+$$
 
 上端でも $F_r(s)=w_r(s)$ です。したがって、同じ一モードの両境界値がKMS条件を満たす局所温度は $T_{\rm loc}=\sqrt2/\beta_\infty$ です。**定義の確認**：$r>2M$、静止単位時計、元のKMS性、固有時間での正の逆温度・解析的な帯と両境界値を順に確かめました。一モードの確認だけで四次元の場全体のKMS性を証明したのではなく、全状態のKMS性は仮定です。
 <!-- definition-example-end -->
@@ -161,7 +163,7 @@ $$
 
 と読みます（分布の意味で、仮定した存在条件の下での表示）。KMSの二つの境界を、仮定したFourier積分の帯内移動が許される条件の下で使います。$\Omega>0$ のとき、下端へ移した積分の変数を再び実数 $s$ と書けば
 
-$
+$$
 \begin{aligned}
 \dot{\mathcal F}_r(\Omega)
 &=\int_{\mathbb R}e^{-i\Omega(s-i\beta_{\rm loc})}
@@ -172,7 +174,7 @@ $
   \int_{\mathbb R}e^{i\Omega s}w_r(s)\,ds\\
 &=e^{-\beta_{\rm loc}\Omega}\dot{\mathcal F}_r(-\Omega).
 \end{aligned}
-$
+$$
 
 二行目は下端のKMS境界値、三行目は $s\mapsto-s$ の置換です。$e^{-i\Omega(s-i\beta_{\rm loc})}=e^{-i\Omega s}e^{-\beta_{\rm loc}\Omega}$ により、励起率側に負の指数が付くことも確かめられます。これは[検出器の熱的詳細釣合いと温度](../QCURV8/index.md#def-qcurv8-detailed-balance)と同じ符号規約です。$\Omega>0$ で両率が正なので割り算でき、表示した比になります。
 
@@ -305,7 +307,7 @@ $$
 
 半径方向に落下する単位質量の自由観測者について、Killing場に沿った保存エネルギーを $\mathcal E=-g(u_{\rm ff},\xi)>0$ とします。この量は落下観測者が見る光子エネルギーではなく、**落下する観測者自身の測地線定数**です。[QCURV9のKilling保存量の議論](../QCURV9/index.md#prop-qcurv9-redshift)を時間的測地線へ適用できる理由は、測地線方程式 $\nabla_{u_{\rm ff}}u_{\rm ff}=0$ とKilling方程式 $\nabla_{(a}\xi_{b)}=0$ から
 
-$
+$$
 \begin{aligned}
 \frac{d}{d\tau}g(u_{\rm ff},\xi)
 &=g(\nabla_{u_{\rm ff}}u_{\rm ff},\xi)
@@ -313,7 +315,7 @@ $
 &=0+\frac12u_{\rm ff}^au_{\rm ff}^b
   (\nabla_a\xi_b+\nabla_b\xi_a)=0
 \end{aligned}
-$
+$$
 
 となるためです。
 
