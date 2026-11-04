@@ -332,7 +332,13 @@ $$
 
 永遠のSchwarzschildの標準的な切片では、[GR29で証明した三種類の地平線の一致](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により $r=2M$ が未来事象・見かけ・Killingの境界と一致します。ただし定義が一致したわけではありません。時間依存の[Vaidya模型での分離](../../GR/GR29/index.md#prop-gr29-vaidya-separation)は、局所条件 $f=0$ から未来事象地平線を即断する推論が壊れる直接例です。
 
-量子場の議論に引き渡すものは、(i) $t$・$u$ が遠方で規格化されていること、(ii) 未来地平線では $U$ が滑らかなラベルであること、(iii) 二つのラベルを結ぶ係数が $\kappa_\infty$ であること、の三点です。これらは**温度導出の幾何学的入力**であって、状態・Bogoliubov係数・遠方の粒子流束についてはまだ何も確定しません。
+量子場の議論に引き渡す幾何学的な入力は、次の三点です。
+
+1. 時刻 $t$ と出射零時刻 $u$ が遠方で規格化されていること。
+2. 未来地平線では $U$ が滑らかなラベルであること。
+3. 二つのラベルを結ぶ指数の係数が $\kappa_\infty$ であること。
+
+これらは**温度導出の幾何学的入力**であって、状態・Bogoliubov係数・遠方の粒子流束についてはまだ何も確定しません。
 
 ## 演習
 
@@ -375,7 +381,25 @@ $r\downarrow r_s$ では $r/r_s-1\downarrow0^+$ なので対数は $-\infty$ に
 - 問題: $r=4M$ における角度一定の未来向き動径零光線の $dr/dt$ を外向き・内向き別に求め、それぞれ $du/dt$、$dv/dt$ のどちらが零かを示せ。
 
 <!-- solution-start -->
-**詳細解答**：零条件 $0=-fdt^2+f^{-1}dr^2$ より $(dr/dt)^2=f^2$、$f(4M)=1/2$ なので外向きは $dr/dt=+1/2$、内向きは $-1/2$。$dr_*/dt=(dr_*/dr)(dr/dt)=f^{-1}(dr/dt)$ は順に $+1,-1$ です。外向きでは $du/dt=1-dr_*/dt=0$、内向きでは $dv/dt=1+dr_*/dt=0$。逆の零時刻を一定にすると入射と出射を取り違えます。
+**詳細解答**：角度一定の零条件は $0=-fdt^2+f^{-1}dr^2$ です。未来向きで $dt>0$ とすると
+
+$$
+\left(\frac{dr}{dt}\right)^2=f^2,\qquad
+\left.\frac{dr}{dt}\right|_{r=4M}
+=\begin{cases}+1/2&\text{外向き},\\-1/2&\text{内向き}.
+\end{cases}
+$$
+
+[tortoise座標](../../GR/GR26/index.md#def-gr26-tortoise)の連鎖律で
+
+$$
+\frac{dr_*}{dt}=\frac{dr_*}{dr}\frac{dr}{dt}
+=\frac1f\frac{dr}{dt}
+=\begin{cases}+1&\text{外向き},\\-1&\text{内向き}.
+\end{cases}
+$$
+
+従って外向きでは $du/dt=1-dr_*/dt=0$、内向きでは $dv/dt=1+dr_*/dt=0$。逆の零時刻を一定にすると入射と出射を取り違えます。
 <!-- solution-end -->
 
 <a id="ex-qcurv9-a04"></a>
@@ -504,7 +528,14 @@ $$
 <!-- solution-start -->
 **詳細解答**：
 
-**（1）** 無限遠で規格化した生成場は $\xi=\partial_t$ で $g(\xi,\xi)=-f\to-1$。$f(4M)=1/2$、発光者の静止時計は $d\tau_e=dt_e/\sqrt2$ なので、$\Delta t_e=(2M)/(1/\sqrt2)=2\sqrt2\,M$。各出射光線で $u_i=t_{e,i}-r_*(4M)$、同じ $r_*$ が差で消えるから $\Delta u=2\sqrt2\,M$ です。
+**（1）** 無限遠で規格化した生成場は $\xi=\partial_t$ で $g(\xi,\xi)=-f\to-1$ です。発光半径で $f(4M)=1/2$ だから静止時計の関係を積分して
+
+$$
+\Delta\tau_e=\frac{\Delta t_e}{\sqrt2}=2M,
+\qquad \Delta t_e=2\sqrt2\,M.
+$$
+
+各出射光線では $u_i=t_{e,i}-r_*(4M)$ なので、同じ半径の $r_*$ が差で消え、$\Delta u=\Delta t_e=2\sqrt2\,M$ です。
 
 **（2）** [表面重力](#prop-qcurv9-kappa)は $\kappa_\infty=1/(4M)$ です。[指数圧縮定理](#thm-qcurv9-compression)に $\Delta u=2\sqrt2\,M$ を代入して
 
@@ -515,7 +546,15 @@ $$
 
 両 $U_i$ は負ですが比は正で $1$ 未満です。二本の $u$ の差が正なので、後の光線ほど $U$ は0へ近づきます。
 
-**（3）** [Killing周波数の赤方偏移](#prop-qcurv9-redshift)より発光点で $\omega_e=\omega_\infty/\sqrt{f_e}=\sqrt2\,\omega_\infty$。従って $\omega_\infty=\omega_e/\sqrt2$。質量パラメータ $M$ の単位と、周波数の逆長さ次元は整合します。
+**（3）** [Killing周波数の赤方偏移](#prop-qcurv9-redshift)を $f_e=1/2$ へ適用すると
+
+$$
+\omega_e=\frac{\omega_\infty}{\sqrt{f_e}}
+=\sqrt2\,\omega_\infty,\qquad
+\omega_\infty=\frac{\omega_e}{\sqrt2}.
+$$
+
+質量パラメータ $M$ の長さ次元と、周波数の逆長さ次元は整合します。
 
 **（4）** 永遠のSchwarzschildの標準的な切片では、[GR29の三地平線の一致](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により $r=2M$ ですが、それぞれ未来への因果到達、零膨張、Killing零法線という異なる条件で判定しました。[Rindlerくさび](../QCURV7/index.md#def-qcurv7-wedges)は平坦Minkowski中の加速観測者のアクセス領域であり、曲率を持つブラックホールの大域的な事象地平線ではありません。
 
