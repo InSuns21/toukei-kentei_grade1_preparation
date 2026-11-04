@@ -105,7 +105,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-計量の行列式は $\sqrt{-\det g}=r^2\sin\theta$ です。[QCURV1の座標表示公式](../QCURV1/index.md#prop-qcurv1-kg-coordinate)をこの計量に適用し、
+上の計量を座標順 $(t,r,\theta,\varphi)$ で行列に表すと、対角成分は $-f,f^{-1},r^2,r^2\sin^2\theta$ です。従って行列式と体積密度は
+
+$$
+\det(g_{ab})=(-f)f^{-1}r^2(r^2\sin^2\theta)
+=-r^4\sin^2\theta,\qquad
+\sqrt{-\det g}=r^2\sin\theta.
+$$
+
+ここで $r>2M$ なので $f>0$ であり、通常の球座標範囲 $0<\theta<\pi$ では $\sin\theta>0$ です。[QCURV1の座標表示公式](../QCURV1/index.md#prop-qcurv1-kg-coordinate)をこの計量に適用し、
 
 $$
 \Box_g\phi=-f^{-1}\partial_t^2\phi
@@ -143,7 +151,7 @@ $$
 +\left[\omega^2-f\left(\frac{f'}r+\frac{\ell(\ell+1)}{r^2}\right)\right]\psi=0.
 $$
 
-定義の $V_\ell$ を代入すれば結論です。計算は可逆なので逆も成り立ちます。$\square$
+[動径散乱ポテンシャルの定義](#def-qcurv12-regge-wheeler-potential)を代入すれば結論です。$r>2M$ では $f>0$ であり、$r$ と $r_*$ の微分関係も $1/r$ の掛け外しも可逆なので、逆も成り立ちます。$\square$
 <!-- proof-end -->
 
 この形なら、固定 $\ell$ ごとに「左から右へ進む一次元波が、局在した山で反射・透過する」という散乱問題になります。$V_\ell\to0$ は $r_*\to\pm\infty$ の両方で成り立ちます。ただし $\ell$ が大きいほど障壁の高さは上がるので、すべての角運動量を同じ透過率とみなせません。
@@ -152,7 +160,7 @@ $$
 
 静的な実ポテンシャルは正負の時間周波数を混合しません。しかし出射波の一部を反射するため、[QCURV11の熱的占有数](../QCURV11/index.md#thm-qcurv11-thermal-ratio)と遠方での粒子数の間に一段の計算が必要です。ここで扱うのは各固定 $\omega,\ell$ の定常散乱であり、崩壊が起こすBogoliubov混合そのものではありません。
 
-$x=r_*$ と略記します。$e^{-i\omega t}e^{-i\omega x}$ は $x$ の減少方向（地平線へ入る波）、$e^{-i\omega t}e^{+i\omega x}$ は増加方向（無限遠へ出る波）に伝わります。これを区別する保存流として
+$x=r_*$ と略記します。以後この節のプライム $\psi'$ と $\psi''$ は、それぞれ $d\psi/dx$ と $d^2\psi/dx^2$ を表します（第1節の $r$ 微分とは異なります）。$e^{-i\omega t}e^{-i\omega x}$ は $x$ の減少方向（地平線へ入る波）、$e^{-i\omega t}e^{+i\omega x}$ は増加方向（無限遠へ出る波）に伝わります。これを区別する保存流として
 
 $$
 J[\psi]:=\frac1{2i}
@@ -167,7 +175,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Schwarzschildの灰色体因子）**
-> $M>0$、$\omega>0$、$\ell\ge0$ とし、実ポテンシャル $V_\ell$ の動径方程式のin散乱解を、以下の漸近境界条件で規格化する。
+> $M>0$、$\omega>0$、$\ell\in\mathbb Z_{\ge0}$ とする。実ポテンシャル $V_\ell$ の動径方程式で、無限遠へ反射する波の振幅を $\mathcal R_\ell(\omega)$、地平線へ透過する波の振幅を $\mathcal T_\ell(\omega)$ と呼ぶ。in散乱解を、以下の漸近境界条件で規格化する。
 
 $$
 \begin{aligned}
@@ -180,7 +188,7 @@ e^{-i\omega x}+\mathcal R_\ell(\omega)e^{+i\omega x}
 \end{aligned}
 $$
 
-> ここで $\mathcal R_\ell$ は反射振幅、$\mathcal T_\ell$ は透過振幅である。無限遠から入射する単位流束に対する、地平線へ伝わる流束の割合
+> 入射**振幅**を1に規格化しており、入射流束の絶対値は $\omega$ である。地平線へ伝わる流束の絶対値は $\omega|\mathcal T_\ell|^2$ だから、その比
 
 $$
 \boxed{\Gamma_\ell(\omega):=|\mathcal T_\ell(\omega)|^2}
@@ -188,6 +196,8 @@ $$
 
 > をこのモードの**灰色体因子**と定義する。$\Gamma_\ell$ は波の振幅ではなく無次元の透過確率である。
 <!-- formal-statement-end -->
+
+漸近記号 $\sim$ はここでは、端点で表示した平面波の和との差、およびその $x$ 微分の差がともに零へ向かうという散乱境界条件を表します。流束を端点で評価するときにも、この微分の条件を使います。
 
 <!-- definition-example-start: def-qcurv12-greybody-factor -->
 ### 直接例：障壁のない比較模型
@@ -299,12 +309,12 @@ $$
 
 ### 証明の見取り図
 
-$R(r)=\psi(r)/r$ とすると、$\ell=0$ の静的方程式は積分できます。地平線側では「入ってゆく波」を小さい $\omega$ で展開し、遠方側では入射・反射波を展開します。両展開の共通部分 $2M\ll r\ll\omega^{-1}$ で定数項と $1/r$ 項を合わせます。
+$R(r)=\psi(r)/r$ とすると、$\ell=0$ の零周波数方程式は積分できます。地平線側では「入ってゆく波」を小さい $\omega$ で展開し、遠方側では入射・反射波を展開します。共通領域 $2M\ll r\ll\omega^{-1}$ における反射振幅の極限と、$\psi=rR$ の $r$ に比例する先頭係数を照合します。$r_*$ の対数補正を落として $1/r$ の係数まで等置することはしません。
 
 <!-- proof-start -->
 ### 証明（先頭次数の接続計算）
 
-$R=\psi/r$ として球面一定成分の方程式を使うと
+$R=\psi/r$ として[本章の動径方程式](#thm-qcurv12-radial-equation)の球面一定成分を使うと、$r$ での微分を $R'=dR/dr$ と書いて
 
 $$
 \frac{d}{dr}\left(r^2f\frac{dR}{dr}\right)
@@ -332,21 +342,43 @@ R\simeq \frac{\mathcal T_0}{2M}
 +\frac{2iM\omega\mathcal T_0}{r}.
 $$
 
-他方、$\omega r\ll1$ で遠方のin解 $\psi\sim e^{-i\omega r_*}+\mathcal R_0e^{+i\omega r_*}$ を展開すると、$r_*/r\to1$ より
+ここで $\psi=rR$ に戻すと、零周波数近似の先頭は $\psi\simeq (\mathcal T_0/(2M))r+2iM\omega\mathcal T_0$ です。他方、遠方のin解の平面波部分を $\omega r_*\ll1$ で展開すると
 
 $$
-R\simeq i\omega(\mathcal R_0-1)
-+\frac{1+\mathcal R_0}{r}.
+\psi\simeq(1+\mathcal R_0)
++i\omega(\mathcal R_0-1)r_*,\qquad
+r_*=r+2M\log\left(\frac r{2M}-1\right).
 $$
 
-二つの係数を合わせて
+したがって $\psi$ の遠方展開には、$r$ の項だけでなく $2iM\omega(\mathcal R_0-1)\log(r/(2M)-1)$ もあります。この対数は重なり領域で $\omega M|\log(r/M)|\ll1$ なら $O(1)$ の項に比べて小さくできますが、$1/r$ の係数を求めるときには無条件で捨てられません。また、遠方の平面波近似にはポテンシャルの尾からの補正があります。
+
+まず二つの半径 $r,2r$ がともに重なり領域に入るように選び、両地点の波動関数の差を取ります。中間解と遠方の平面波部分はそれぞれ
 
 $$
-i\omega(\mathcal R_0-1)\simeq\frac{\mathcal T_0}{2M},
-\qquad 1+\mathcal R_0\simeq 2iM\omega\mathcal T_0.
+\begin{aligned}
+\psi_{\rm mid}(2r)-\psi_{\rm mid}(r)&\simeq\frac{\mathcal T_0}{2M}r,\\
+\psi_{\rm far}(2r)-\psi_{\rm far}(r)&\simeq
+i\omega(\mathcal R_0-1)\{r_*(2r)-r_*(r)\}
+\end{aligned}
 $$
 
-右式から $\mathcal R_0=-1+o(1)$ なので、左式に代入すると $-2i\omega\simeq\mathcal T_0/(2M)$、すなわち $\mathcal T_0=-4iM\omega+o(M\omega)$ です。二乗すれば所望の $\Gamma_0$ です。接続計算は重なり域 $2M\ll r\ll\omega^{-1}$ があることに依存します。$\square$
+です。座標差は $r_*(2r)-r_*(r)=r+O(M)$ であり、ポテンシャルの遠方尾の補正も相対的に小さくなるので、先頭次数を照合すると
+
+$$
+\frac{\mathcal T_0}{2M}
+=i\omega(\mathcal R_0-1)+o(\omega).
+$$
+
+[流束保存](#thm-qcurv12-flux-unitarity)から $|\mathcal R_0|\le1$ なので、まず $\mathcal T_0=O(M\omega)$ が従います。これを中間解へ戻すと $\psi=O(\omega r)=o(1)$ です。遠方解の $r$ に比例する項と対数項も重なり領域で零へ向かいます。
+
+従って残る有界項は $1+\mathcal R_0=o(1)$、すなわち $\mathcal R_0\to-1$ でなければなりません。これを先ほどの係数式へ戻し、透過確率の定義を使うと
+
+$$
+\mathcal T_0=-4iM\omega+o(M\omega),\qquad
+\Gamma_0=16M^2\omega^2+o((M\omega)^2).
+$$
+
+この先頭次数の接続は $2M\ll r\ll\omega^{-1}$ と $\omega M|\log(r/M)|\ll1$ を同時に満たす重なり域があることに依存し、反射振幅の次次数を決める主張ではありません。$\square$
 <!-- proof-end -->
 
 **この例で何が分かるか**：$V_0$ の山が有限でも、$\omega\to0$ では透過率は零へ落ちます。$\Gamma_0\sim16M^2\omega^2$ は、Hawkingの熱因子をそのまま遠方の強度と同一視してはいけないことを数値的に示します。有限の $\omega M$ や高い $\ell$ の係数を得るには動径方程式を数値的に解くのが自然です。
@@ -424,7 +456,13 @@ $$
 \frac{\Gamma_\ell(\omega)}{e^{\omega/T_H}-1}.
 $$
 
-帯域 $[j\epsilon,(j+1)\epsilon]$ の波束を、時間中心 $t_n=2\pi n/\epsilon$ に並べます。長い定常観測時間 $\Delta t$ に含まれる中心は約 $\Delta t\,\epsilon/(2\pi)$ 個なので、単位時間・帯域幅当たりの個数は
+[QCURV11の後期波束](../QCURV11/index.md#prop-qcurv11-late-packet-planck)では、中心の出射零時刻は $u_n=2\pi n/\epsilon$ です。[QCURV9の出射零時刻](../QCURV9/index.md#prop-qcurv9-arrival)を遠方の一定半径 $R$ で使うと
+
+$$
+u=t-r_*(R),\qquad t_n=u_n+r_*(R).
+$$
+
+したがって到着時刻の中心間隔も $2\pi/\epsilon$ のままです。帯域幅 $\epsilon$ の波束をこの間隔で数えると、長い定常観測時間 $\Delta t$ に含まれる中心は約 $\Delta t\,\epsilon/(2\pi)$ 個です。単位時間・帯域幅当たりの個数は
 
 $$
 \frac{\Delta t\,\epsilon/(2\pi)}{\Delta t\,\epsilon}
@@ -494,7 +532,7 @@ $$
 <a id="ex-qcurv12-a03"></a>
 #### QCURV12-A03 平面波の流束と符号
 - Level: A
-- 問題: $\omega>0$、$\psi=Ae^{-i\omega x}+Be^{+i\omega x}$ とする。$J=(\psi^*\psi'-\psi\psi^{*'})/(2i)$ を直接計算し、$J=\omega(|B|^2-|A|^2)$ を示せ。
+- 問題: $\omega>0$、$\psi=Ae^{-i\omega x}+Be^{+i\omega x}$ とする。ここでプライムは $d/dx$ とする。$J=(\psi^*\psi'-\psi\psi^{*'})/(2i)$ を直接計算し、$J=\omega(|B|^2-|A|^2)$ を示せ。
 
 <!-- solution-start -->
 **詳細解答**：$\psi'=-i\omega Ae^{-i\omega x}+i\omega Be^{i\omega x}$ です。$\psi^*\psi'$ の自己項は $-i\omega|A|^2+i\omega|B|^2$、交差項は $i\omega A^*Be^{2i\omega x}-i\omega B^*Ae^{-2i\omega x}$。$\psi\psi^{*'}$ にも同じ交差項が現れて差では消えます。自己項の差は $-2i\omega|A|^2+2i\omega|B|^2$ なので、$2i$ で割れば結論です。負号が「左向き」を意味します。
@@ -557,7 +595,7 @@ $f^2\psi''+ff'\psi'=d^2\psi/dr_*^2$ と $f'=2M/r^2$ を使えば指定式です�
 <a id="ex-qcurv12-b02"></a>
 #### QCURV12-B02 散乱の相反性をWronskianで示す
 - Level: B
-- 問題: 実関数 $V(x)\to0$（$x\to\pm\infty$）に対し $\psi''+(\omega^2-V)\psi=0$、$\omega>0$ とする。右からのin解を $\psi^{\rm in}\sim e^{-i\omega x}+R e^{i\omega x}$（右端）、$T e^{-i\omega x}$（左端）、左からのup解を $\psi^{\rm up}\sim e^{i\omega x}+R_u e^{-i\omega x}$（左端）、$T_u e^{i\omega x}$（右端）と規格化する。$W=\psi^{\rm in}(\psi^{\rm up})'-(\psi^{\rm in})'\psi^{\rm up}$ により $T=T_u$ を示せ。
+- 問題: 実関数 $V(x)\to0$（$x\to\pm\infty$）に対し $\psi''+(\omega^2-V)\psi=0$、$\omega>0$ とする。プライムは $d/dx$ とする。右からのin解を $\psi^{\rm in}\sim e^{-i\omega x}+R e^{i\omega x}$（右端）、$T e^{-i\omega x}$（左端）、左からのup解を $\psi^{\rm up}\sim e^{i\omega x}+R_u e^{-i\omega x}$（左端）、$T_u e^{i\omega x}$（右端）と規格化する。$W=\psi^{\rm in}(\psi^{\rm up})'-(\psi^{\rm in})'\psi^{\rm up}$ により $T=T_u$ を示せ。
 
 <!-- solution-start -->
 **詳細解答**：二つの解は共に $\psi''=(V-\omega^2)\psi$ を満たします。したがって
@@ -579,7 +617,7 @@ $$
 <a id="ex-qcurv12-b03"></a>
 #### QCURV12-B03 低周波s波の係数接続
 - Level: B
-- 問題: $M\omega\ll1$、$\ell=0$ で、中間領域の零周波数解が $R=C+D\log(1-2M/r)$ となることを示せ。地平線では $R\sim(T/(2M))(1-i2M\omega\log f)$、遠方では $R\sim i\omega(R_s-1)+(1+R_s)/r$ とする。先頭係数を一致させ $\Gamma_0\sim16M^2\omega^2$ を得よ。
+- 問題: $M\omega\ll1$、$\ell=0$ で、中間領域の零周波数解が $R=C+D\log(1-2M/r)$（$R=\psi/r$）となることを示せ。地平線では $R\sim(\mathcal T/(2M))(1-i2M\omega\log f)$、遠方では $\psi\sim e^{-i\omega r_*}+\mathcal R_s e^{i\omega r_*}$ とする。$\mathcal R_s$ は反射振幅、$\mathcal T$ は透過振幅である。$r_*-r$ の対数補正に注意し、重なり領域で $\mathcal R_s\to-1$ と $\mathcal T\sim-4iM\omega$ を導き、$\Gamma_0\sim16M^2\omega^2$ を得よ。
 
 <!-- solution-start -->
 **詳細解答**：静的な方程式は $(r^2 f R')'=0$ です。$r^2f=r(r-2M)$ なので $R'=K/[r(r-2M)]$ を部分分数にすると
@@ -589,14 +627,26 @@ R'=\frac{K}{2M}\left(\frac1{r-2M}-\frac1r\right),\qquad
 R=C+\frac K{2M}\log f.
 $$
 
-地平線の形から $C\simeq T/(2M)$、$D\simeq-i\omega T$。遠方寄りの重なり領域では $\log f=-2M/r+O(M^2/r^2)$ なので $R\simeq T/(2M)+2iM\omega T/r$。遠方の形と定数・$1/r$ 項を比較すると
+地平線の形から $C\simeq\mathcal T/(2M)$、$D\simeq-i\omega\mathcal T$。遠方寄りの重なり領域では $\log f=-2M/r+O(M^2/r^2)$ なので
 
 $$
-i\omega(R_s-1)\simeq\frac T{2M},
-\qquad 1+R_s\simeq2iM\omega T.
+\psi=rR\simeq\frac{\mathcal T}{2M}r+2iM\omega\mathcal T.
 $$
 
-第二式で $R_s\to-1$ なので第一式から $T\simeq-4iM\omega$、$\Gamma_0=|T|^2\sim16M^2\omega^2$ です。重なり域の存在には $M\omega\ll1$ が必要です。
+遠方の入射・反射波を $\omega r_*\ll1$ で展開すると $\psi\simeq(1+\mathcal R_s)+i\omega(\mathcal R_s-1)r_*$。二つの重なり半径 $r,2r$ の差を取れば、$r_*(2r)-r_*(r)=r+O(M)$ なので、$r$ に比例する先頭項は
+
+$$
+\frac{\mathcal T}{2M}=i\omega(\mathcal R_s-1)+o(\omega).
+$$
+
+[流束保存](#thm-qcurv12-flux-unitarity)から $|\mathcal R_s|\le1$ だから $\mathcal T=O(M\omega)$ です。これを中間解へ戻すと $\psi=O(\omega r)=o(1)$、遠方展開の $i\omega(\mathcal R_s-1)r_*$ も $o(1)$ なので、$1+\mathcal R_s=o(1)$。ゆえに
+
+$$
+\mathcal T\sim-4iM\omega,
+\qquad \Gamma_0=|\mathcal T|^2\sim16M^2\omega^2.
+$$
+
+$r_*/r\to1$ だけから $1/r$ の係数を等置することはできません。$2M\ll r\ll\omega^{-1}$ の重なり域で、先頭次数だけを照合しました。
 <!-- solution-end -->
 
 <a id="ex-qcurv12-b04"></a>
@@ -637,8 +687,9 @@ n_H(\omega)=\frac1{e^{8\pi M\omega}-1},
 \Gamma_\ell(\omega)=|\mathcal T_\ell(\omega)|^2.
 $$
 
-  角度依存は球面調和関数で分離し、各固定 $\ell$ の動径ポテンシャルは実・時間非依存とする。
-  1. 保存流から $\Gamma_\ell=1-|R_\ell|^2$ を示し、反射が生成温度を変えるわけではない理由を述べよ。
+  角度依存は球面調和関数で分離し、各固定 $\ell$ の動径ポテンシャルは実・時間非依存とする。$\mathcal R_\ell$ は入射振幅を1とした反射振幅とする。
+
+  1. 保存流から $\Gamma_\ell=1-|\mathcal R_\ell|^2$ を示し、反射が生成温度を変えるわけではない理由を述べよ。
   2. $m$ の縮退度と波束密度を数え、遠方の粒子数とエネルギーのスペクトルを導け。
   3. $\Gamma_0(\omega)\sim16M^2\omega^2$ を用いて低周波s波の二つのスペクトルを求め、$\Gamma_\ell=1$ と置く近似の問題点を説明せよ。
   4. 遠方から熱的入射がある場合、また背景が回転する場合に、どの仮定を再検討する必要があるか述べよ。
@@ -646,7 +697,7 @@ $$
 <!-- solution-start -->
 **詳細解答**：
 
-**（1）** $J=\operatorname{Im}(\psi^*\psi')$ は $J'=\operatorname{Im}[(V_\ell-\omega^2)|\psi|^2]=0$。右端は $J=\omega(|R_\ell|^2-1)$、左端は $J=-\omega|T_\ell|^2$ です。従って $\Gamma_\ell=|T_\ell|^2=1-|R_\ell|^2$。これは同じ周波数での弾性散乱で、[Hawkingの熱因子](../QCURV11/index.md#thm-qcurv11-thermal-ratio)を生む正負周波数混合とは異なります。
+**（1）** $J=\operatorname{Im}(\psi^*\psi')$ のプライムは $d/dx$、$x=r_*$ です。[動径方程式](#thm-qcurv12-radial-equation)から $J'=\operatorname{Im}[(V_\ell-\omega^2)|\psi|^2]=0$。右端は $J=\omega(|\mathcal R_\ell|^2-1)$、左端は $J=-\omega|\mathcal T_\ell|^2$ です。従って $\Gamma_\ell=|\mathcal T_\ell|^2=1-|\mathcal R_\ell|^2$。これは同じ周波数での弾性散乱で、[Hawkingの熱因子](../QCURV11/index.md#thm-qcurv11-thermal-ratio)を生む正負周波数混合とは異なります。
 
 **（2）** 固定 $\ell$ の $m$ は $2\ell+1$ 個です。帯域 $\epsilon$、中心間隔 $2\pi/\epsilon$ だから、単位時刻・単位角周波数幅の波束数は
 
