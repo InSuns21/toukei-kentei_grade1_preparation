@@ -42,3 +42,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV9
     status: completed
     title: "地平線・表面重力と遠方観測者の時刻"
+  - id: QCURV10
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV10
+    status: completed
+    title: "崩壊時空のin/out光線と波束"

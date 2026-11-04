@@ -10,3 +10,4 @@
 7. [QCURV7 Rindlerくさび・等加速度世界線と真空の制限](textbook/volumes/dream_thater/物理系/QCURV/QCURV7/index.md)
 8. [QCURV8 Unruh温度・KMS条件と検出器応答](textbook/volumes/dream_thater/物理系/QCURV/QCURV8/index.md)
 9. [QCURV9 地平線・表面重力と遠方観測者の時刻](textbook/volumes/dream_thater/物理系/QCURV/QCURV9/index.md)
+10. [QCURV10 崩壊時空のin/out光線と波束](textbook/volumes/dream_thater/物理系/QCURV/QCURV10/index.md)

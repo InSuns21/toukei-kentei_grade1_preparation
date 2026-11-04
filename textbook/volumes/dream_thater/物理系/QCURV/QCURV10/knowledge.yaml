@@ -1,0 +1,43 @@
+chapter: QCURV10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV9
+  - QCURV3
+forward_references: []
+concepts:
+  - id: qcurv.collapse-ray-map
+    name: 崩壊光線の入出射写像
+    kind: definition
+    introduction: formal
+    requires: [qcurv.outgoing-arrival-clock]
+  - id: qcurv.shell-crossing-critical-time
+    name: 殻との交差半径と最後の脱出入射時刻
+    kind: definition
+    introduction: formal
+    requires: [qcurv.collapse-ray-map, qcurv.schwarzschild-kappa-calibration]
+  - id: qcurv.null-shell-ray-tracing
+    name: 薄殻崩壊の厳密な入出射光線写像
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.shell-crossing-critical-time, qcurv.outgoing-arrival-clock]
+  - id: qcurv.collapse-late-exponential
+    name: 遅い出射時刻と入射ラベルの指数関係
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.null-shell-ray-tracing, qcurv.schwarzschild-kappa-calibration]
+  - id: qcurv.smooth-collapse-transfer
+    name: 正則な接続による指数則の移送
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.collapse-late-exponential, gravity.kruskal-exterior-null-coordinates]
+  - id: qcurv.asymptotic-inout-packets
+    name: 入出射正周波数モードと出射波束
+    kind: definition
+    introduction: formal
+    requires: [qcurv.wavepacket-hilbert-schmidt, qcurv.collapse-ray-map]
+  - id: qcurv.out-packet-localization
+    name: 波束の直交性と到着時刻の中心
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.asymptotic-inout-packets, qcurv.collapse-late-exponential]
