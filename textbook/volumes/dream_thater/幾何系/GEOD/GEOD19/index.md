@@ -169,11 +169,11 @@ $$
 
 そこで $E=R_q(\lambda-\lambda_0)\cos\beta_0$、$N_p=N_p(\beta)$ と置きます。この二つの座標方向は地図上でも直交するので、[GEOD13の面積縮尺の判定](../GEOD13/index.md#thm-geod13-preservation-tests)に従い、球の面積要素と平面Jacobianを一致させる条件は
 
-$
+$$
 \frac{\partial(E,N_p)}{\partial(\lambda,\beta)}
 =R_q\cos\beta_0\,\frac{dN_p}{d\beta}
 =R_q^2\cos\beta.
-$
+$$
 
 $\cos\beta_0>0$ より $dN_p/d\beta=R_q\cos\beta/\cos\beta_0$ です。赤道を $N_p(0)=0$ に取って $\beta$ で積分すると、$N_p=R_q\sin\beta/\cos\beta_0$ が得られます。すなわち縦方向の式は、横方向の選び方と面積保存から決まります。$\cos(-\beta_0)=\cos\beta_0$ なので、$\beta_0\ne0$ なら反対側の緯線 $-\beta_0$ でも横縮尺が1になります。
 
@@ -220,12 +220,12 @@ $$
 
 入力を東向きの経度 $\lambda$、北向きの緯度 $\beta$ の順、出力を $(E,N_p)$ の順に取るとJacobianは
 
-$
+$$
 J_{(\lambda,\beta)}=\begin{pmatrix}
 R_q\cos\beta_0&0\\
 0&R_q\cos\beta/\cos\beta_0
 \end{pmatrix}.
-$
+$$
 
 したがって $\det J_{(\lambda,\beta)}=R_q^2\cos\beta>0$ であり、[GEOD13の面積縮尺の判定](../GEOD13/index.md#thm-geod13-preservation-tests)により球面上の面積縮尺は1です。この東・北という入力順に対して行列式が正であるので、局所的に向きを保ちます。地表での長さはそれぞれ $R_q\cos\beta$ と $R_q$ 倍なので、対応するJacobianの列長を割れば表示した二つの縮尺になります。
 
@@ -262,32 +262,32 @@ $$
 
 定数 $n>0$、半径 $\rho(\beta)>0$ を仮に与え、経度 $\lambda$ の増分を地図上で角度 $n\,d\lambda$ の扇形に、緯度 $\beta$ の増分を半径方向の長さ $-\rho'(\beta)\,d\beta$ に写すとします（北へ行くほど半径が減る領域を考えます）。二方向は直交するため、地図の面積要素は $-n\rho\rho'\,d\lambda\,d\beta$ です。正積球の $R_q^2\cos\beta\,d\lambda\,d\beta$ と等しくするには
 
-$
+$$
 -n\rho\rho'=R_q^2\cos\beta
 \quad\Longleftrightarrow\quad
 \frac{d(\rho^2)}{d\beta}=-\frac{2R_q^2}{n}\cos\beta.
-$
+$$
 
 したがって積分定数 $C$ を用いて
 
-$
+$$
 n^2\rho(\beta)^2=R_q^2(C-2n\sin\beta).
-$
+$$
 
 緯線方向の球面の微小長さは $R_q\cos\beta\,d\lambda$、地図上では $n\rho\,d\lambda$ です。二本の標準緯線 $\beta_i$ で横縮尺を1にする条件 $n\rho(\beta_i)=R_q\cos\beta_i$（$i=1,2$）を代入すると
 
-$
+$$
 C=\cos^2\beta_i+2n\sin\beta_i.
-$
+$$
 
 両方の $C$ が等しいことと $\sin\beta_2>\sin\beta_1$ から
 
-$
+$$
 2n(\sin\beta_2-\sin\beta_1)
 =\sin^2\beta_2-\sin^2\beta_1,
 \qquad
 n=\frac{\sin\beta_1+\sin\beta_2}{2}.
-$
+$$
 
 こうして $n,C,\rho$ が等積条件と標準緯線条件から決まり、次の定義の平方根では正の半径を選びます。
 
@@ -766,19 +766,19 @@ $$
 
 独立検算では $q$ の原始関数を使わず、面積密度
 
-$
+$$
 g(\phi)=\frac{a^2(1-e^2)\cos\phi}{(1-e^2\sin^2\phi)^2}
-$
+$$
 
 を $\phi\in[\pi/6,\pi/3]$ で数値積分します。$120$ 等分、$h=(\pi/3-\pi/6)/120=\pi/720$、$\phi_j=\pi/6+jh$ とすると、合成Simpson則は
 
-$
+$$
 A_{\mathrm S}=\frac{\Delta\lambda\,h}{3}
 \left[g(\phi_0)+g(\phi_{120})
 +4\sum_{j=1,3,\ldots,119}g(\phi_j)
 +2\sum_{j=2,4,\ldots,118}g(\phi_j)\right]
 \simeq5.19603835354\times10^{12}\ \mathrm{m}^2.
-$
+$$
 
 同じ分割で合成台形則は $A_{\mathrm T}\simeq5.19602990974\times10^{12}\ \mathrm{m}^2$ です。解析式の $5.19603835352\times10^{12}\ \mathrm{m}^2$ と照合すると、Simpson則のずれは約 $13\ \mathrm{m}^2$、台形則は約 $8.44\times10^6\ \mathrm{m}^2$ で、分割幅による数値積分誤差と区別できます。経度の切れ目をまたがず、像は重ならないと仮定しています。
 
