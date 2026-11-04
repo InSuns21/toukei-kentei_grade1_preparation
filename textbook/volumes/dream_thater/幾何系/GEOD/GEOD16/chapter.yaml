@@ -1,0 +1,39 @@
+id: "GEOD16"
+title: "楕円体横メルカトルの特徴づけと構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD15
+  - GEOD11
+official_scope: []
+learning_objectives:
+  - 球面横メルカトルに等角緯度を代入するだけでは中央子午線の距離が一致しないことを式と数値で確認できる
+  - 子午線弧長と等角緯度から実解析的な補正関数を構成し、局所正則拡張の存在・一意性を説明できる
+  - 楕円体横メルカトルの等角性、中央子午線の距離、軸の向き、原点と中央縮尺を検算できる
+  - 任意の局所点での縮尺式と赤道付近の補正の初項を導き、球面極限と定義域の制約を区別できる
+definitions:
+  - { id: GEOD16-DEF-01, name: 中央子午線の弧長規格化関数 }
+  - { id: GEOD16-DEF-02, name: 楕円体横メルカトルの局所構成 }
+theorems:
+  - { id: GEOD16-THM-01, name: 中央子午線条件による正則補正の局所存在と一意性 }
+  - { id: GEOD16-THM-02, name: 楕円体横メルカトルの等角性・中央縮尺・一般点の縮尺 }
+  - { id: GEOD16-PROP-01, name: 球面極限と赤道近傍の低次補正 }
+canonical_examples:
+  - 球面で補正が恒等写像となり中央の定義条件をすべて満たすことを確認
+  - a=5,b=4 の楕円体で緯度30度の子午線弧長と aχ の差を数値検算
+  - 原点緯度φ0を動かしたときの北距離と東距離を確認
+  - 赤道付近の東距離と縮尺の二次・三次展開を独立計算
+problem_patterns:
+  - GEOD16-MERIDIAN-NORMALIZATION
+  - GEOD16-SPHERE-DIRECT-EXAMPLE
+  - GEOD16-CENTRAL-SCALE
+  - GEOD16-ORIGIN-SHIFT
+  - GEOD16-HOLOMORPHIC-UNIQUENESS
+  - GEOD16-CONFORMAL-METRIC
+  - GEOD16-EQUATOR-TAYLOR
+  - GEOD16-DOMAIN-BRANCH
+  - GEOD16-INTEGRATED-CONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
