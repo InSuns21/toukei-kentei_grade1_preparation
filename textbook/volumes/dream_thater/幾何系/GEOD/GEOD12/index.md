@@ -65,7 +65,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod12-azimuth -->
-**定義の直接確認。** 球面 $M=N=R$ の赤道 $\phi=0$ から北東へ向かう単位接ベクトル
+**定義の確認**。球面 $M=N=R$ の赤道 $\phi=0$ から北東へ向かう単位接ベクトル
 
 $$
 \boldsymbol v=\frac{\sqrt3}{2}\boldsymbol e_{\mathrm N}
@@ -294,7 +294,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod12-direct-inverse -->
-**定義の直接確認。** 赤道を東向きへ進む場合は[赤道の測地線判定](#prop-geod12-special-curves)で $\phi(s)=0$、$\dot\lambda=1/a$、$\alpha(s)=90^\circ$ とできます。始点 $(0,0)$、$S=a\pi/2$ の順問題は $(0,\pi/2)$ に達します。逆にこの二点は赤道の90°弧で結べ、その候補距離は $a\pi/2$、両端方位角は90°です。これは枝を一つ実際に構成した確認であって、一般の二点間最短性をこの例だけで証明したものではありません。
+**定義の確認**。赤道を東向きへ進む場合は[赤道の測地線判定](#prop-geod12-special-curves)で $\phi(s)=0$、$\dot\lambda=1/a$、$\alpha(s)=90^\circ$ とできます。始点 $(0,0)$、$S=a\pi/2$ の順問題は $(0,\pi/2)$ に達します。逆にこの二点は赤道の90°弧で結べ、その候補距離は $a\pi/2$、両端方位角は90°です。これは枝を一つ実際に構成した確認であって、一般の二点間最短性をこの例だけで証明したものではありません。
 <!-- definition-example-end -->
 
 ### 4.1 順問題：距離を独立変数にして積分する
