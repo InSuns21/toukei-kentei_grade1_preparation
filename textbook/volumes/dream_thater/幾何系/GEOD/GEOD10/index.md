@@ -158,7 +158,14 @@ $$
 =-\nabla U(Q_0+u\boldsymbol n)\cdot\boldsymbol n
 $$
 
-を**正常重力の法線方向成分**とします。なぜ法線成分が定義の条件を表すのでしょうか。$E$ 上では $U=U_0$ が一定なので、$Q_0$ での任意の接ベクトル $\boldsymbol v$ に沿う微分は $\nabla U(Q_0)\cdot\boldsymbol v=0$ です。ゆえに $\nabla U(Q_0)$ は法線方向を向き、[正常重力の内向き条件](#def-geod10-normal-potential)から
+を**正常重力の法線方向成分**とします。なぜ法線成分が定義の条件を表すのでしょうか。$E$ 上の点 $Q_0$ を通る任意の滑らかな表面曲線 $\boldsymbol q(t)$ を $\boldsymbol q(0)=Q_0$ として取ります。$U(\boldsymbol q(t))=U_0$ は一定なので、[GEOD6の曲線に沿う連鎖律](../GEOD6/index.md#prop-geod6-level-normal)によって
+
+$$
+0=\left.\frac{d}{dt}U(\boldsymbol q(t))\right|_{t=0}
+=\nabla U(Q_0)\cdot\boldsymbol q'(0)
+$$
+
+となります。楕円体上の曲線の速度は表面の二つの独立な方向を張るので、$\nabla U(Q_0)$ は表面に垂直です。[正常重力の内向き条件](#def-geod10-normal-potential)から
 
 $$
 \nabla U(Q_0)=-\|\nabla U(Q_0)\|\boldsymbol n,\qquad
@@ -173,7 +180,20 @@ $$
 <a id="def-geod10-height-systems"></a>
 <!-- formal-statement-start -->
 > **定義（正標高・正常高・動的高の計算モデル）**  
-> $W_0=U_0$ とし、参照楕円体 $E$ 上の点 $Q_0$ とその外向き単位法線 $\boldsymbol n$ によって地表点 $P=Q_0+h\boldsymbol n$ を表す。$P$ へ至る実鉛直線と、この楕円体法線の対象区間で $g>0$、$\gamma_\perp>0$ が連続であるとする。$P$ のジオポテンシャル数を $C$ とし、同じ法線上に $U(Q_t)=U_0-C$ を満たす対応点 $Q_t$ が存在するとする。
+> 基準ポテンシャルは $W_0=U_0$ にそろえる。参照楕円体 $E$ 上の点 $Q_0$ と外向き単位法線 $\boldsymbol n$ による地表点 $P$ の表示、および対象区間での正値条件を
+
+$$
+P=Q_0+h\boldsymbol n,\qquad
+g=\|\nabla W\|>0,\qquad \gamma_\perp>0
+$$
+
+> とする。$g$ と $\gamma_\perp$ は $P$ へ至る実鉛直線と楕円体法線の各対象区間で連続とする。$P$ のジオポテンシャル数を $C$ とし、同じ楕円体法線上に対応点 $Q_t$ が存在して
+
+$$
+U(Q_t)=U_0-C
+$$
+
+> を満たすとする。
 >
 > - 正標高 $H^O$ は、ジオイドから $P$ までの実鉛直線の符号付き長さとする。
 > - 正常高 $H^N$ は、正常ポテンシャルが $U_0-C$ になる対応点 $Q_t$ までの楕円体法線の符号付き長さとする。
