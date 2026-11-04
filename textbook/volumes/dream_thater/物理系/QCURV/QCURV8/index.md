@@ -149,9 +149,17 @@ $$
 <!-- definition-example-start: def-qcurv8-detailed-balance -->
 ### 直接例：二つの率を与えて比を確認する
 
-$\Omega>0$、$r>0$ とし、脱励起率を $r$、励起率を $r e^{-3\Omega}$ とする（いずれも正・有限）。比は $e^{-3\Omega}$ なので $\beta=3$、$T=1/3$ に対応します。
+すべての $\Omega>0$ に対して $r(\Omega)=1+\Omega^2>0$ と定め、脱励起率を $r(\Omega)$、励起率を $r(\Omega)e^{-3\Omega}$ とする族を考えます。どちらの率も各 $\Omega$ で有限かつ正であり、
 
-**定義の確認**：両率の正値・有限性、比の指数形を確かめました。ここでは一つの $\Omega$ しか指定していないため、**すべての正のギャップで同一の $\beta$** という定義全体を確認するには、$r=r(\Omega)>0$ を任意の $\Omega$ に対して与えた族として解釈する必要があります。一個のギャップの観測だけでは状態全体の熱性を検証できません。
+$$
+\frac{\dot{\mathcal F}(\Omega)}{\dot{\mathcal F}(-\Omega)}
+=\frac{(1+\Omega^2)e^{-3\Omega}}{1+\Omega^2}
+=e^{-3\Omega}
+$$
+
+です。従って、**全ての**正のギャップに同じ $\beta=3$ が使え、$T=1/3$ です。
+
+**定義の確認**：定義の「全ギャップ」「両率の正値・有限性」「共通の逆温度」を、この率の族について別々に検証しました。これは率の比の数学的な例であり、任意に与えた二つの関数が実際の場と検出器から構成できると主張するものではありません。一個のギャップの測定だけでは全ギャップの熱的詳細釣合いを判定できません。
 <!-- definition-example-end -->
 
 <a id="thm-qcurv8-unruh"></a>
@@ -229,7 +237,34 @@ f_\alpha(E):=\int_{\mathbb R}e^{-iEs}w_\alpha(s)\,ds
 =\frac{E}{2\pi(e^{\beta E}-1)},\qquad E\ne0
 $$
 
-を得ます。これは分布のFourier変換で、境界の $i0$ は積分経路のどちら側に二重極があるかを指定しています。大きな半円を用いる場合は極列を避ける経路列を選び、垂直方向に周期を持つ $\sinh^{-2}$ の水平・垂直辺評価を経て同じ幾何級数を得ます。$E\to0$ では $e^{\beta E}-1=\beta E+O(E^2)$ より $f_\alpha(0)=1/(2\pi\beta)=\alpha/(4\pi^2)$。$|E|\to\infty$ での増大は高々一次です。
+を得ます。これは分布のFourier変換であり、境界の $i0$ は積分経路のどちら側に二重極があるかを指定します。
+
+積分経路の閉じ方を確かめます。まず $0<\varepsilon<\beta/2$ を固定し、実軸を一方の水平辺とする長方形を取ります。もう一つの水平辺は $E$ の符号に応じて
+
+$$
+\operatorname{Im}s=
+\begin{cases}
+-(N+1/2)\beta &(E>0),\\
++(N+1/2)\beta &(E<0)
+\end{cases}
+$$
+
+とします。縦辺の実部を $\pm R$ に置くと、固定した $N$ について $\sinh^{-2}$ の $O(e^{-\alpha R})$ という減衰で縦辺の積分は消えます。遠方の水平辺は極から一様に離れており、そこでは指数因子の絶対値が
+
+$$
+|e^{-iEs}|=e^{-|E|(N+1/2)\beta}
+$$
+
+です。残りの $\sinh^{-2}$ はその水平辺上で可積分かつ一様有界なので、$N\to\infty$ で水平辺も消えます。従って上記の極の集合と経路の向きが正当化され、最後に $\varepsilon\downarrow0$ の分布境界値を取れます。
+
+$E=0$ は直接積分でなく連続延長により求めます。$e^{\beta E}-1=\beta E+O(E^2)$ から
+
+$$
+f_\alpha(0)=\lim_{E\to0}\frac{E}{2\pi(e^{\beta E}-1)}
+=\frac1{2\pi\beta}=\frac{\alpha}{4\pi^2}.
+$$
+
+また $|E|\to\infty$ での増大は高々一次です。
 
 次に長時間率へ接続します。$w_\alpha$ の逆Fourier表示と[QCURV6の切替応答](../QCURV6/index.md#def-qcurv6-response)から、$\widehat\chi(p)=\int\chi(\tau)e^{-ip\tau}\,d\tau$ として
 
@@ -323,7 +358,22 @@ $q<0$ では $E-q/T\to+\infty$ で指数分母が勝ち、極限は0です。$f_
 
 二点分布の議論とは別に、Minkowskiの正振動数と[Rindlerの正振動数](../QCURV7/index.md#def-qcurv7-modes)が一致しないことを、Fourier積分で見ることもできます。ここでは横方向を持たない**1+1次元の質量零・右向き伝播成分**を用いた計算模型を使います。これは4次元場の全モードの正規化や、くさび代数のKMS性の一般証明の代わりではありません。
 
-null座標 $U=t-x$ の右くさび $U<0$ 上では、$\nu=\omega/a>0$ として正のboost振動数の因子は $(-aU)^{i\nu}$ です。Minkowskiの右向き正振動数因子は $e^{-ikU}$（$k>0$）。$U<0$ で $q=-U>0$ と置いて両者をFourier比較します。
+null座標 $U=t-x$ の右くさび $U<0$ 上では、$\nu=\omega/a>0$ として正のboost振動数の因子は $(-aU)^{i\nu}$ です。一方、Minkowskiの右向き正振動数因子は $e^{-ikU}$（$k>0$）です。
+
+$U<0$ で $q=-U>0$ と置いてFourier係数を比較します。「正振動数の係数」とは $e^{-ikU}$ に掛かるFourier展開係数です。その射影積分では複素共役の $e^{+ikU}$ を掛けます。従って $U=-q$ の変数変換により、規格化に共通な因子を除けば
+
+$$
+\begin{aligned}
+\text{正振動数側}:&\quad
+\int_{-\infty}^{0}e^{+ikU}(-aU)^{i\nu}\,dU
+=\int_0^\infty(aq)^{i\nu}e^{-ikq}\,dq,\\
+\text{負振動数側}:&\quad
+\int_{-\infty}^{0}e^{-ikU}(-aU)^{i\nu}\,dU
+=\int_0^\infty(aq)^{i\nu}e^{+ikq}\,dq.
+\end{aligned}
+$$
+
+この二つが以下の $I_+$ と $I_-$ です。積分の収束には $e^{-\delta q}$ を入れ、最後に分布境界値を取ります。「Mellin型」とは、Fourier位相に冪 $(aq)^{i\nu}$ を掛けたこの積分形を指します。null面上のKlein–Gordon内積による正規化そのものはここでは行わず、指数比だけを比較します。
 
 <a id="prop-qcurv8-mellin"></a>
 
@@ -355,7 +405,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\operatorname{Re}(1+i\nu)=1>0$、$\operatorname{Re}(\delta\pm ik)=\delta>0$ なので、[CA11のEuler積分によるGamma関数の定義](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)が使える範囲で、積分変数を $(\delta\pm ik)q$ へ回転させる解析接続により
+$z=1+i\nu$、$h=\delta\pm ik$ と置きます。適用条件は
+
+$$
+\operatorname{Re}z=1>0,\qquad
+\operatorname{Re}h=\delta>0
+$$
+
+です。[CA11のEuler積分によるGamma関数の定義](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)に対して、まず実数 $h>0$ で $t=hq$ と置けば
+
+$$
+\int_0^\infty q^{z-1}e^{-hq}\,dq=h^{-z}\Gamma(z)
+$$
+
+を得ます。左辺は右半平面で局所一様収束するため $h$ に関して正則であり、右辺も主値対数による複素冪として正則です。実数 $h>0$ 上で一致するので、[CA3の恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)の仮定を右半平面上で満たし、複素数 $h=\delta\pm ik$ に対しても
 
 $$
 I_\pm(k;\delta)
@@ -380,6 +443,8 @@ $$
 <!-- proof-end -->
 
 この計算だけで「4次元の各Rindlerモードが独立な熱的粒子」とまでは言えません。左右のくさびにまたがる正振動数の選び方と、[QCURV3の正準係数条件](../QCURV3/index.md#thm-qcurv3-canonical)も必要です。次に、それらの本質が見える有限個の正準モード模型で占有数を確かめます。
+
+ここからの $q$ は $0<q<1$ の**無次元の混合比**であり、直前のMellin積分の座標変数 $q=-U>0$ とは別の意味で使います。右・左モードの添字 $R,L$ は、先に確認したくさびの区別です。
 
 <a id="prop-qcurv8-two-mode"></a>
 
@@ -419,7 +484,19 @@ $$
 =\frac{1-q}{1-q}=1
 $$
 
-です。交差交換子 $[c_R,c_L]$ の $\sqrt q$ を含む二項も打ち消し合います。従って正準変換です。粒子数作用素は $b_R^\dagger b_R|n\rangle_R=n|n\rangle_R$ なので
+です。左右を交換すると $[c_L,c_L^\dagger]=1$ も従います。残る二種類の交差交換子は
+
+$$
+\begin{aligned}
+[c_R,c_L]
+&=\frac{-\sqrt q[b_R,b_R^\dagger]-\sqrt q[b_L^\dagger,b_L]}{1-q}
+=\frac{-\sqrt q+\sqrt q}{1-q}=0,\\
+[c_R,c_L^\dagger]
+&=\frac{[b_R,b_L^\dagger]+q[b_L^\dagger,b_R]}{1-q}=0
+\end{aligned}
+$$
+
+です。これで独立な二モードの全正準交換関係を確認しました。粒子数作用素は $b_R^\dagger b_R|n\rangle_R=n|n\rangle_R$ なので
 
 $$
 \langle b_R^\dagger b_R\rangle
@@ -465,7 +542,25 @@ $$
 - 問題: $\beta,\omega_0>0$、$n=(e^{\beta\omega_0}-1)^{-1}$、$w(s)=(n+1)e^{-i\omega_0s}+n e^{i\omega_0s}$ とする。この式を複素時間 $z$ に延長し、$w(s)$ が[定義](#def-qcurv8-kms)のKMS境界条件を満たすことを、係数の二つの等式から示せ。さらに $n=0$ で有限 $\beta$ の条件が破れる理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$F(z)=(n+1)e^{-i\omega_0z}+n e^{i\omega_0z}$ は指数関数の和なので全平面で正則です。$e^{\beta\omega_0}=r>1$ と置けば $n=1/(r-1)$、$n+1=r/(r-1)$ です。従って $(n+1)e^{-\beta\omega_0}=[r/(r-1)]r^{-1}=n$、$ne^{\beta\omega_0}=r/(r-1)=n+1$。これを $F(s-i\beta)$ の各係数へ入れると $F(s-i\beta)=ne^{-i\omega_0s}+(n+1)e^{i\omega_0s}=w(-s)$ です。上端は $F(s)=w(s)$ なので両境界が一致します。$n=0$ なら $w(s)=e^{-i\omega_0s}$ で、$F(s-i\beta)=e^{-\beta\omega_0}e^{-i\omega_0s}$ は $w(-s)=e^{i\omega_0s}$ と一致しません。有限 $\beta$ のKMS性を定常性だけから得ることはできません。
+**詳細解答**：$F(z)=(n+1)e^{-i\omega_0z}+n e^{i\omega_0z}$ は指数関数の和なので全平面で正則です。$r=e^{\beta\omega_0}>1$ と置くと $n=1/(r-1)$、$n+1=r/(r-1)$ であり、
+
+$$
+\begin{aligned}
+(n+1)e^{-\beta\omega_0}&=\frac{r}{r-1}\frac1r=n,\\
+ne^{\beta\omega_0}&=\frac{r}{r-1}=n+1.
+\end{aligned}
+$$
+
+従って二つの境界値は
+
+$$
+F(s-i0)=w(s),\qquad
+F(s-i\beta+i0)=n e^{-i\omega_0s}+(n+1)e^{i\omega_0s}=w(-s)
+$$
+
+となります。整関数なので試験関数に対する分布境界値も通常の極限と一致します。
+
+反例として**別の**定常二点分布 $w_0(s)=e^{-i\omega_0s}$（占有数0）を取ると、$F_0(s-i\beta)=e^{-\beta\omega_0}e^{-i\omega_0s}$ は $w_0(-s)=e^{i\omega_0s}$ と一致しません。これは先の $n=(e^{\beta\omega_0}-1)^{-1}>0$ を同じ有限 $\beta$ のまま0とする操作ではなく、状態を変えた比較です。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-a02"></a>
@@ -475,7 +570,24 @@ $$
 - 問題: $a=2$ の右Rindlerくさびで、$\rho_0=1$ と $\rho_0=3$ の二本の静止世界線を考える。各軌道の $d\tau/d\eta$、固有加速度 $\alpha$、KMS逆温度 $\beta_\tau$ と温度 $T_\tau$、boost逆温度 $\beta_\eta$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[QCURV7の静止軌道](../QCURV7/index.md#def-qcurv7-observer)から $d\tau/d\eta=a\rho_0$、[固有加速度](../QCURV7/index.md#prop-qcurv7-acceleration)から $\alpha=1/\rho_0$ です。$\rho_0=1$ では順に $2,1,2\pi,1/(2\pi)$、$\rho_0=3$ では $6,1/3,6\pi,1/(6\pi)$ です。いずれも $\beta_\eta=\beta_\tau/(a\rho_0)$ なので、前者 $2\pi/2=\pi$、後者 $6\pi/6=\pi$。$a$ が同じでも固有加速度と固有温度は異なります。
+**詳細解答**：[QCURV7の静止軌道](../QCURV7/index.md#def-qcurv7-observer)と[固有加速度](../QCURV7/index.md#prop-qcurv7-acceleration)を使い、まず任意の半径で
+
+$$
+\frac{d\tau}{d\eta}=a\rho_0,\quad
+\alpha=\frac1{\rho_0},\quad
+\beta_\tau=2\pi\rho_0,\quad
+T_\tau=\frac1{2\pi\rho_0},\quad
+\beta_\eta=\frac{\beta_\tau}{a\rho_0}=\frac{2\pi}{a}
+$$
+
+を得ます。$a=2$ を代入すると次の通りです。
+
+| $\rho_0$ | $d\tau/d\eta$ | $\alpha$ | $\beta_\tau$ | $T_\tau$ | $\beta_\eta$ |
+| --- | --- | --- | --- | --- | --- |
+| $1$ | $2$ | $1$ | $2\pi$ | $1/(2\pi)$ | $\pi$ |
+| $3$ | $6$ | $1/3$ | $6\pi$ | $1/(6\pi)$ | $\pi$ |
+
+座標尺度 $a$ が同じでも固有加速度と固有温度は異なります。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-a03"></a>
@@ -485,7 +597,30 @@ $$
 - 問題: 固有加速度 $\alpha=2$、正のギャップ $\Omega=1$ の等加速度検出器を4次元質量零Minkowski真空に置く。[定常率](#thm-qcurv8-unruh)から $\dot{\mathcal F}(1)$、$\dot{\mathcal F}(-1)$、その比、$\dot{\mathcal F}(0)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$\beta=2\pi/\alpha=\pi$ です。正のギャップでは $\dot{\mathcal F}(1)=1/[2\pi(e^\pi-1)]$。負のギャップでは分子が $-1$ で分母も $e^{-\pi}-1<0$ なので、$\dot{\mathcal F}(-1)=1/[2\pi(1-e^{-\pi})]$ と正になります。比は $(1-e^{-\pi})/(e^\pi-1)=e^{-\pi}$。$E=0$ では $e^{\pi E}-1=\pi E+O(E^2)$ より $\dot{\mathcal F}(0)=1/(2\pi^2)$ です。
+**詳細解答**：$\beta=2\pi/\alpha=\pi$ です。[定常率](#thm-qcurv8-unruh)へ $E=\pm1$ をそれぞれ代入します。
+
+$$
+\dot{\mathcal F}(1)=\frac1{2\pi(e^\pi-1)},\qquad
+\dot{\mathcal F}(-1)=\frac{-1}{2\pi(e^{-\pi}-1)}
+=\frac1{2\pi(1-e^{-\pi})}.
+$$
+
+負ギャップでは分子と分母がともに負なので率は正です。さらに
+
+$$
+\frac{\dot{\mathcal F}(1)}{\dot{\mathcal F}(-1)}
+=\frac{1-e^{-\pi}}{e^\pi-1}
+=e^{-\pi}.
+$$
+
+$E=0$ は直接代入せず、$e^{\pi E}-1=\pi E+O(E^2)$ から
+
+$$
+\dot{\mathcal F}(0)=\lim_{E\to0}\frac{E}{2\pi(e^{\pi E}-1)}
+=\frac1{2\pi^2}
+$$
+
+と連続延長します。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-a04"></a>
@@ -495,7 +630,21 @@ $$
 - 問題: $a=\omega=k=1$、$\nu=\omega/a=1$ とする。[Mellin係数](#prop-qcurv8-mellin)の境界値 $I_\pm(1;0)=\Gamma(1+i)e^{\mp i\pi(1+i)/2}$ から $|I_+|$ と $|I_-|$ の共通因子を除いた値、振幅比、二乗比を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$e^{-i\pi(1+i)/2}=e^{-i\pi/2}e^{+\pi/2}$ の絶対値は $e^{\pi/2}$、$e^{+i\pi(1+i)/2}=e^{+i\pi/2}e^{-\pi/2}$ の絶対値は $e^{-\pi/2}$ です。従って $|I_+|=|\Gamma(1+i)|e^{\pi/2}$、$|I_-|=|\Gamma(1+i)|e^{-\pi/2}$。$\Gamma(1+i)$ は両方に共通で、振幅比は $e^{-\pi}$、二乗比は $e^{-2\pi}$ です。この指数は検出器の熱的比の指数と同じですが、積分一個だけでは正準規格化された全場の粒子数は出ません。
+**詳細解答**：複素指数を実部と位相へ分けると
+
+$$
+e^{-i\pi(1+i)/2}=e^{-i\pi/2}e^{+\pi/2},\qquad
+e^{+i\pi(1+i)/2}=e^{+i\pi/2}e^{-\pi/2}
+$$
+
+です。位相因子の絶対値は1なので、
+
+$$
+|I_+|=|\Gamma(1+i)|e^{\pi/2},\qquad
+|I_-|=|\Gamma(1+i)|e^{-\pi/2}.
+$$
+
+共通の $|\Gamma(1+i)|$ を除けば $e^{\pi/2}$ と $e^{-\pi/2}$、振幅比は $e^{-\pi}$、二乗比は $e^{-2\pi}$ です。[Mellin係数の命題](#prop-qcurv8-mellin)が扱うのは指数**比**であり、正準規格化した全場の粒子数そのものではありません。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-a05"></a>
@@ -505,7 +654,16 @@ $$
 - 問題: $f_\alpha(E)=E/[2\pi(e^{2\pi E/\alpha}-1)]$、$\alpha>0$ とする。固定した $\Omega>0$ に対して $\alpha\downarrow0$ の $f_\alpha(\Omega)$、$f_\alpha(-\Omega)$ の極限を計算し、既習の慣性検出器と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：$x=2\pi\Omega/\alpha\to\infty$ なので $f_\alpha(\Omega)=\Omega/[2\pi(e^x-1)]\to0$。一方 $f_\alpha(-\Omega)=(-\Omega)/[2\pi(e^{-x}-1)]=\Omega/[2\pi(1-e^{-x})]\to\Omega/(2\pi)$ です。[QCURV6の慣性長時間率](../QCURV6/index.md#prop-qcurv6-long-time)では正のギャップの励起率が0、負のギャップの脱励起率が $\Omega/(2\pi)$ ですから一致します。固定 $\Omega$ での極限であり、$\Omega/\alpha$ を一定に保つ別の極限とは区別します。
+**詳細解答**：$\Omega>0$ を固定すると $x=2\pi\Omega/\alpha\to\infty$ です。従って
+
+$$
+f_\alpha(\Omega)=\frac{\Omega}{2\pi(e^x-1)}
+\longrightarrow0,\qquad
+f_\alpha(-\Omega)=\frac{\Omega}{2\pi(1-e^{-x})}
+\longrightarrow\frac{\Omega}{2\pi}.
+$$
+
+分子・分母が同時に変わる負ギャップ側では、分母を $1-e^{-x}$ と直してから極限を取りました。[QCURV6の慣性長時間率](../QCURV6/index.md#prop-qcurv6-long-time)での励起率0と脱励起率 $\Omega/(2\pi)$ にそれぞれ一致します。これは $\Omega$ 固定の極限であり、$\Omega/\alpha$ を一定に保つ別の極限とは区別します。
 <!-- solution-end -->
 
 ### Level B：非自明な計算と失われる仮定を追う
@@ -517,9 +675,30 @@ $$
 - 問題: $\alpha>0$、$\beta=2\pi/\alpha$、$w_\alpha(s)=-\alpha^2[16\pi^2\sinh^2(\alpha(s-i0)/2)]^{-1}$ とする。$E\ne0$ について $\int e^{-iEs}w_\alpha(s)\,ds$ を求めよ。ただし、$s_n=i\varepsilon+i n\beta$ における留数が $-4iE e^{-iEs_n}/\alpha^2$ であることを利用してよい。$E$ の正負ごとに閉じる向きと極の集合を明記せよ。
 
 <!-- solution-start -->
-**詳細解答**：$E>0$ は下半平面で指数が減衰し、閉曲線は時計回り、極は $n=-1,-2,\dots$ です。従って二点分布の係数を除いた積分は $(-2\pi i)(-4iE/\alpha^2)\sum_{j\ge1}e^{-j\beta E}=-(8\pi E/\alpha^2)/(e^{\beta E}-1)$。係数 $-\alpha^2/(16\pi^2)$ を掛けると $E/[2\pi(e^{\beta E}-1)]$。
+**詳細解答**：$E>0$ では $e^{-iEs}$ が下半平面で減衰するので時計回り、極は $n=-1,-2,\dots$ です。二点分布の負の係数をいったん除くと、
 
-$E<0$ は $\operatorname{Im}s>0$ の側で減衰し、反時計回り、極は $n=0,1,\dots$ です。積分は $(2\pi i)(-4iE/\alpha^2)\sum_{n\ge0}e^{n\beta E}=(8\pi E/\alpha^2)/(1-e^{\beta E})$。負の係数を掛けると $-E/[2\pi(1-e^{\beta E})]=E/[2\pi(e^{\beta E}-1)]$ となります。$n=0$ を $\operatorname{Im}s<0$ の側に入れる誤りは励起率の分母を誤らせます。$i0$ が極の上下を指定している点が鍵です。
+$$
+\begin{aligned}
+I_+(E)
+&=(-2\pi i)\left(-\frac{4iE}{\alpha^2}\right)
+\sum_{j=1}^\infty e^{-j\beta E}\\
+&=-\frac{8\pi E}{\alpha^2}\frac{e^{-\beta E}}{1-e^{-\beta E}}
+=-\frac{8\pi E}{\alpha^2(e^{\beta E}-1)}.
+\end{aligned}
+$$
+
+一方 $E<0$ では虚部が正の側へ反時計回りに閉じ、$n=0,1,\dots$ を拾います。従って
+
+$$
+\begin{aligned}
+I_-(E)
+&=(2\pi i)\left(-\frac{4iE}{\alpha^2}\right)
+\sum_{n=0}^\infty e^{n\beta E}\\
+&=\frac{8\pi E}{\alpha^2(1-e^{\beta E})}.
+\end{aligned}
+$$
+
+どちらも $-\alpha^2/(16\pi^2)$ を掛けると、同じ $f_\alpha(E)=E/[2\pi(e^{\beta E}-1)]$ です。$n=0$ の極は $i\varepsilon$ で実軸の**上**にあり、下半平面へ入れてはいけません。経路の遠方の辺の消失は[定理の留数計算](#thm-qcurv8-unruh)で示した通りで、$i0$ は極と積分路の相対位置を指定します。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-b02"></a>
@@ -529,7 +708,28 @@ $E<0$ は $\operatorname{Im}s>0$ の側で減衰し、反時計回り、極は $
 - 問題: $\chi\in C_c^\infty(\mathbb R)$ を実非零、$\chi_T(\tau)=\chi(\tau/T)$ とし、$f_\alpha(E)=E/[2\pi(e^{\beta E}-1)]$（$\beta=2\pi/\alpha$）を用いる。応答 $\mathcal F_{\chi_T}(E)=(2\pi)^{-1}\int f_\alpha(\lambda)|\widehat{\chi_T}(E-\lambda)|^2\,d\lambda$ の $T\downarrow0$ 極限を求め、固定 $\Omega>0$ でなぜ熱的比に一致しないか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$\widehat{\chi_T}(p)=T\widehat\chi(Tp)$ であり、$q=T(E-\lambda)$ と置くと $\mathcal F_{\chi_T}(E)=T(2\pi)^{-1}\int f_\alpha(E-q/T)|\widehat\chi(q)|^2\,dq$ です。$q>0$ では $E-q/T\to-\infty$、従って $T f_\alpha(E-q/T)\to q/(2\pi)$。$q<0$ では $E-q/T\to+\infty$、指数因子により極限は0です。$f_\alpha$ の一次増大と $\widehat\chi$ の急減少による可積分な支配関数 $(1+|q|)|\widehat\chi(q)|^2$ を使って、$\mathcal F_{\chi_T}(E)\to(4\pi^2)^{-1}\int_0^\infty q|\widehat\chi(q)|^2dq>0$。この極限は $E$ に依存しないので、$+\Omega$ と $-\Omega$ の比は1です。しかし定常熱比は $e^{-\beta\Omega}<1$。失ったのは世界線のKMS性ではなく、長時間率で単一周波数を選択するという測定の条件です。
+**詳細解答**：$\widehat{\chi_T}(p)=T\widehat\chi(Tp)$ です。$q=T(E-\lambda)$ と変数変換すると $d\lambda=-dq/T$ で積分端点の向きも反転するため、
+
+$$
+\mathcal F_{\chi_T}(E)=\frac1{2\pi}\int_{\mathbb R}
+\{Tf_\alpha(E-q/T)\}|\widehat\chi(q)|^2\,dq
+$$
+
+となります。固定 $q>0$ では $E-q/T\to-\infty$、固定 $q<0$ では $E-q/T\to+\infty$ です。従って
+
+$$
+\lim_{T\downarrow0}Tf_\alpha(E-q/T)
+=\begin{cases}q/(2\pi)&(q>0),\\0&(q<0).\end{cases}
+$$
+
+$0<T\le1$ では $T|f_\alpha(E-q/T)|\le C_E(1+|q|)$、かつ $\widehat\chi$ は急減少なので、可積分な $(1+|q|)|\widehat\chi(q)|^2$ が優収束の支配関数になります。この結果、
+
+$$
+\lim_{T\downarrow0}\mathcal F_{\chi_T}(E)
+=\frac1{4\pi^2}\int_0^\infty q|\widehat\chi(q)|^2\,dq>0.
+$$
+
+右辺は $E$ に依存せず、$E=\pm\Omega$ の応答比は1へ近づきます。しかし[定常詳細釣合い](#def-qcurv8-detailed-balance)では $e^{-\beta\Omega}<1$ です。失われたのは世界線のKMS性ではなく、長時間の測定が単一の周波数を選ぶ条件です。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-b03"></a>
@@ -539,7 +739,41 @@ $E<0$ は $\operatorname{Im}s>0$ の側で減衰し、反時計回り、極は $
 - 問題: $0<q<1$、独立なboson演算子 $b_R,b_L$ とし、$|\Psi_q\rangle=\sqrt{1-q}\sum_{n\ge0}q^{n/2}|n,n\rangle$、$c_R=(b_R-\sqrt q b_L^\dagger)/\sqrt{1-q}$ とする。$(i)$ 規格化、$(ii)$ $c_R|\Psi_q\rangle=0$、$(iii)$ $[c_R,c_R^\dagger]=1$、$(iv)$ $\langle b_R^\dagger b_R\rangle=q/(1-q)$ を一つずつ証明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$(i)$ $\langle\Psi_q|\Psi_q\rangle=(1-q)\sum_{n\ge0}q^n=(1-q)/(1-q)=1$。$(ii)$ $b_R|n,n\rangle=\sqrt n|n-1,n\rangle$ における $n=m+1$ の係数は $\sqrt{m+1}q^{(m+1)/2}$、$\sqrt q b_L^\dagger|m,m\rangle$ の係数も同じですから差が0です。$(iii)$ 右・左の交差交換子が0、$[b_L^\dagger,b_L]=-1$ より $[c_R,c_R^\dagger]=(1-q)^{-1}(1-q)=1$。$(iv)$ 直交性と数演算子の固有値から $\langle N_R\rangle=(1-q)\sum_{n\ge0}nq^n$。$\sum_{n\ge0}q^n=(1-q)^{-1}$ を $q$ で微分し、$\sum_{n\ge0}nq^n=q/(1-q)^2$ を得るので $\langle N_R\rangle=q/(1-q)$ です。$q=e^{-\beta\omega}$ なら $(e^{\beta\omega}-1)^{-1}$。連続場への無条件のテンソル積分解はこの有限モード計算からは従いません。
+**詳細解答**：
+
+1. 規格化：数状態の直交性により
+
+   $$
+   \langle\Psi_q|\Psi_q\rangle=(1-q)\sum_{n=0}^\infty q^n
+   =(1-q)\frac1{1-q}=1.
+   $$
+
+2. 消滅条件：$b_R|n,n\rangle=\sqrt n|n-1,n\rangle$ です。$n=m+1$ と番号をずらすと $b_R$ の $|m,m+1\rangle$ の係数は $\sqrt{m+1}q^{(m+1)/2}$ です。一方、$\sqrt q\,b_L^\dagger|m,m\rangle$ の同じ基底ベクトルの係数も $\sqrt{m+1}q^{(m+1)/2}$ なので相殺し、$c_R|\Psi_q\rangle=0$ です。
+
+3. 正準交換子：左右の演算子が可換で $[b_L^\dagger,b_L]=-1$ だから
+
+   $$
+   [c_R,c_R^\dagger]
+   =\frac{[b_R,b_R^\dagger]+q[b_L^\dagger,b_L]}{1-q}
+   =\frac{1-q}{1-q}=1.
+   $$
+
+4. 粒子数：$N_R=b_R^\dagger b_R$ は $|n\rangle_R$ に固有値 $n$ で作用します。$|q|<1$ で収束する幾何級数を項別微分し、
+
+   $$
+   \sum_{n=0}^\infty nq^n
+   =q\frac{d}{dq}\frac1{1-q}
+   =\frac q{(1-q)^2}
+   $$
+
+   を得ます。従って
+
+   $$
+   \langle N_R\rangle=(1-q)\sum_{n=0}^\infty nq^n
+   =\frac q{1-q}.
+   $$
+
+$q=e^{-\beta\omega}$ なら $(e^{\beta\omega}-1)^{-1}$ です。連続場の無条件のテンソル積分解はこの有限二モード計算からは従いません。
 <!-- solution-end -->
 
 <a id="ex-qcurv8-b04"></a>
@@ -549,7 +783,30 @@ $E<0$ は $\operatorname{Im}s>0$ の側で減衰し、反時計回り、極は $
 - 問題: 右Rindlerくさびで固定尺度 $a>0$ とboostモード $e^{-i\omega\eta}$（$\omega>0$）を考える。$\rho_1=1/a$ と $\rho_2=2/a$ の二本の静止軌道に沿う固有振動数 $\Omega_j$、固有加速度 $\alpha_j$、温度 $T_j$ を求め、$e^{-2\pi\omega/a}=e^{-\Omega_j/T_j}$ がどちらでも成立することを証明せよ。左くさびで同じ未来向き周波数に $e^{-i\omega\eta}$ を使えない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$\tau_j=a\rho_j\eta$ より $\Omega_j=\omega/(a\rho_j)$、$\alpha_j=1/\rho_j$、$T_j=1/(2\pi\rho_j)$ です。$\rho_1=1/a$ では $\Omega_1=\omega$、$\alpha_1=a$、$T_1=a/(2\pi)$。$\rho_2=2/a$ では $\Omega_2=\omega/2$、$\alpha_2=a/2$、$T_2=a/(4\pi)$。両方で $\Omega_j/T_j=[\omega/(a\rho_j)]/[1/(2\pi\rho_j)]=2\pi\omega/a$。左くさびでは[QCURV7の時間向き](../QCURV7/index.md#def-qcurv7-observer)が $d\tau_L=-a\rho_0d\eta$ なので、$e^{-i\omega\eta}$ は未来向き固有時間では $e^{+i\omega\tau_L/(a\rho_0)}$ に変わり、負振動数です。左の未来向き正振動数には $e^{+i\omega\eta}$ が必要です。
+**詳細解答**：[QCURV7の右Rindler時計](../QCURV7/index.md#def-qcurv7-observer)では $\tau_j=a\rho_j\eta$ です。従って同じ時間因子を固有時間に直すと
+
+$$
+e^{-i\omega\eta}=e^{-i\Omega_j\tau_j},\qquad
+\Omega_j=\frac{\omega}{a\rho_j}.
+$$
+
+さらに[固有加速度](../QCURV7/index.md#prop-qcurv7-acceleration)は $\alpha_j=1/\rho_j$ なので
+
+$$
+T_j=\frac{\alpha_j}{2\pi}=\frac1{2\pi\rho_j},\qquad
+\frac{\Omega_j}{T_j}=\frac{\omega/(a\rho_j)}{1/(2\pi\rho_j)}
+=\frac{2\pi\omega}{a}.
+$$
+
+$\rho_1=1/a$ では $(\Omega_1,\alpha_1,T_1)=(\omega,a,a/(2\pi))$、$\rho_2=2/a$ では $(\Omega_2,\alpha_2,T_2)=(\omega/2,a/2,a/(4\pi))$ です。いずれも $e^{-\Omega_j/T_j}=e^{-2\pi\omega/a}$ となります。
+
+一方、[QCURV7の左くさびの時間向き](../QCURV7/index.md#def-qcurv7-observer)は $\tau_L=-a\rho_0\eta$ なので
+
+$$
+e^{-i\omega\eta}=e^{+i\omega\tau_L/(a\rho_0)}
+$$
+
+は未来向き固有時間では負振動数です。左での正振動数因子は $e^{+i\omega\eta}$ に変えます。
 <!-- solution-end -->
 
 ### Level C：二つの導線を自分で結ぶ
@@ -572,11 +829,65 @@ $$
 4. 有限時間切替や全時空のMinkowski粒子数について結論できる範囲を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$(1)$ $F(z)=-\alpha^2/[16\pi^2\sinh^2(\alpha z/2)]$ の極は $z=2\pi i n/\alpha$（$n\in\mathbb Z$）です。$-\beta<\operatorname{Im}z<0$、$\beta=2\pi/\alpha$ で正則、$\sinh(\alpha(z-i\beta)/2)=-\sinh(\alpha z/2)$ なので $F(z-i\beta)=F(z)$。上端は $F(s-i0)=w_\alpha(s)$、下端は $F(s-i\beta+i0)=F(s+i0)=F(-s-i0)=w_\alpha(-s)$。したがって固有時間KMS逆温度は $\beta=2\pi/\alpha$ です。
+**詳細解答**：
 
-$(2)$ $\varepsilon>0$ の極 $s_n=i\varepsilon+i n\beta$ で、二重極の留数は $-4iE e^{-iEs_n}/\alpha^2$。$E>0$ は $\operatorname{Im}s<0$ の側へ時計回りに閉じ、$n=-1,-2,\ldots$ の和から、二点分布係数を掛ける前の積分は $-(8\pi E/\alpha^2)\sum_{j\ge1}e^{-j\beta E}=-(8\pi E/\alpha^2)/(e^{\beta E}-1)$。$E<0$ は $\operatorname{Im}s>0$ の側へ反時計回りに閉じ、$n=0,1,\ldots$ から $(8\pi E/\alpha^2)/(1-e^{\beta E})$。それぞれ $-\alpha^2/(16\pi^2)$ を掛け、両符号で $f_\alpha(E)=E/[2\pi(e^{\beta E}-1)]$ を得ます。$\Omega>0$ なら $f_\alpha(\Omega)=\Omega/[2\pi(e^{\beta\Omega}-1)]$、$f_\alpha(-\Omega)=\Omega/[2\pi(1-e^{-\beta\Omega})]$ なので比は $e^{-\beta\Omega}$。温度は $T_U=1/\beta=\alpha/(2\pi)$ です。長時間率との一致は、スペクトルの連続性と切替のPlancherel近似単位核から従います。
+1. **解析帯と境界値**。$F(z)=-\alpha^2/[16\pi^2\sinh^2(\alpha z/2)]$ の分母が零になるのは $z=2\pi in/\alpha$（$n\in\mathbb Z$）です。$\beta=2\pi/\alpha$ とすると $-\beta<\operatorname{Im}z<0$ に極はありません。また $\sinh(\alpha(z-i\beta)/2)=-\sinh(\alpha z/2)$ なので $F(z-i\beta)=F(z)$ です。境界へ近づく側を記すと
 
-$(3)$ $\nu=\omega/a$ と置くとMellin積分は $I_\pm\propto e^{\mp i\pi(1+i\nu)/2}$、絶対値比は $e^{-\pi\nu}$、二乗比は $q=e^{-2\pi\omega/a}$ です。二モードの正準混合を取り、$|\Psi_q\rangle=\sqrt{1-q}\sum q^{n/2}|n_R,n_L\rangle$ とすれば $\langle N_R\rangle=(1-q)\sum n q^n=q/(1-q)=(e^{2\pi\omega/a}-1)^{-1}$。ただし $\tau=a\rho_0\eta$、$\Omega=\omega/(a\rho_0)$ なので $2\pi\omega/a=(2\pi\rho_0)\Omega=\beta\Omega$。二つの指数が一致します。
+   $$
+   \begin{aligned}
+   F(s-i0)&=w_\alpha(s),\\
+   F(s-i\beta+i0)&=F(s+i0)=F(-s-i0)=w_\alpha(-s).
+   \end{aligned}
+   $$
 
-$(4)$ 有限切替では周波数が畳み込まれ、$T\downarrow0$ で応答比は1へ近づくので、有限確率の比をいつでも $e^{-\beta\Omega}$ と置けません。Minkowski真空は状態としてはMinkowski正振動数に関する真空のままです。右Rindlerモードによる占有数模型と局所検出器の率は観測量も定義の舞台も異なり、連続場のくさび制限を有限モードの密度行列にそのまま等置することもできません。
+   従って[定常二点分布のKMS境界条件](#def-qcurv8-kms)により $\beta_\tau=2\pi/\alpha$ です。
+
+2. **正負の率**。$\varepsilon>0$ では極は $s_n=i\varepsilon+in\beta$ で、二重極の係数 $4/\alpha^2$ と $(e^{-iEs})'=-iE e^{-iEs}$ から留数は $-4iE e^{-iEs_n}/\alpha^2$ です。$E>0$ では時計回りに下の極 $n=-1,-2,\ldots$ を、$E<0$ では反時計回りに上の極 $n=0,1,\ldots$ を拾います。二点分布の係数を掛ける**前**の積分はそれぞれ
+
+   $$
+   \begin{aligned}
+   I_+(E)&=-\frac{8\pi E}{\alpha^2}\sum_{j=1}^\infty e^{-j\beta E}
+   =-\frac{8\pi E}{\alpha^2(e^{\beta E}-1)},\\
+   I_-(E)&=\frac{8\pi E}{\alpha^2}\sum_{n=0}^\infty e^{n\beta E}
+   =\frac{8\pi E}{\alpha^2(1-e^{\beta E})}.
+   \end{aligned}
+   $$
+
+   従って両符号で $f_\alpha(E)=E/[2\pi(e^{\beta E}-1)]$ です。$\Omega>0$ に対して
+
+   $$
+   \frac{f_\alpha(\Omega)}{f_\alpha(-\Omega)}
+   =\frac{\Omega/[2\pi(e^{\beta\Omega}-1)]}
+   {\Omega/[2\pi(1-e^{-\beta\Omega})]}
+   =e^{-\beta\Omega},
+   \qquad T_U=\frac1\beta=\frac{\alpha}{2\pi}.
+   $$
+
+   [定常率の定理](#thm-qcurv8-unruh)のPlancherel近似単位核の議論によって、この $f_\alpha(E)$ は長時間正規化率です。
+
+3. **Mellin係数と二モード**。$\nu=\omega/a>0$ とすると、[Mellin係数の計算](#prop-qcurv8-mellin)で
+
+   $$
+   |I_+|=\frac{|\Gamma(1+i\nu)|}{k}e^{\pi\nu/2},
+   \qquad |I_-|=\frac{|\Gamma(1+i\nu)|}{k}e^{-\pi\nu/2}.
+   $$
+
+   よって $|I_-|/|I_+|=e^{-\pi\nu}$、二乗比を $q=e^{-2\pi\omega/a}$ と置きます。[二モード正準模型](#prop-qcurv8-two-mode)では直交数状態の重みが $(1-q)q^n$ となり、
+
+   $$
+   \langle N_R\rangle=(1-q)\sum_{n=0}^\infty nq^n
+   =\frac q{1-q}=\frac1{e^{2\pi\omega/a}-1}.
+   $$
+
+   時計の換算 $\tau=a\rho_0\eta$ から $\Omega=\omega/(a\rho_0)$、$\alpha=1/\rho_0$ なので
+
+   $$
+   \frac{2\pi\omega}{a}
+   =(2\pi\rho_0)\Omega
+   =\beta_\tau\Omega
+   $$
+
+   となり、モードと検出器で指数が一致します。
+
+4. **結論の範囲**。[有限切替の命題](#prop-qcurv8-switching)では周波数畳込みが残り、$T\downarrow0$ で正負応答の比は1に近づきます。従って有限確率の比が常に $e^{-\beta_\tau\Omega}$ とは言えません。またMinkowski真空はMinkowski正振動数に関する真空のままです。Rindlerモードの二モード占有数模型は局所検出器率と同じ観測量ではなく、有限二モードの密度行列を連続場のくさび制限へそのまま移すこともできません。
 <!-- solution-end -->
