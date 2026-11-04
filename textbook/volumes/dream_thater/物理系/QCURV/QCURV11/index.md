@@ -19,7 +19,7 @@ $$
 
 です。[QCURV3のBogoliubov係数](../QCURV3/index.md#def-qcurv3-bogoliubov)は、二つの正振動数分解がどれだけ混ざるかを表すものでした。[QCURV10の光線追跡](../QCURV10/index.md#def-qcurv10-ray-map)で $v=p(u)$ を代入すると、過去のin位相は未来の脱出光線に沿って $e^{-i\omega'p(u)}$ となります。これは一般に $u$ の単一周波数ではありません。
 
-零無限遠のモードを $f_\omega(u)=e^{-i\omega u}/\sqrt{4\pi\omega}$ と規格化します。$u$ に関するFourier分解では、$e^{+i\omega u}$ 側の成分が負周波数です。$\alpha$ と $\beta$ はこの正負の係数を、KG規格化に合わせて表したものです。実際の崩壊では地平線へ落ちるモードも完備化に必要で、以下の脱出成分だけを全解空間と同一視しません。
+零無限遠のモードを $f_\omega(u)=e^{-i\omega u}/\sqrt{4\pi\omega}$ と規格化します。$u$ に関するFourier分解では、$e^{+i\omega u}$ 側の成分が負周波数です。以下の $\alpha,\beta$ は、[QCURV3の展開規約](../QCURV3/index.md#def-qcurv3-bogoliubov)でoutモードをinの正・負モードに展開した際の**展開係数**として定めます。KG内積で直接取り出す係数とは複素共役・符号の対応があるので、定義の後で計算して確認します。実際の崩壊では地平線へ落ちるモードも完備化に必要で、以下の脱出成分だけを全解空間と同一視しません.
 
 <a id="def-qcurv11-fourier-coefficients"></a>
 
@@ -42,28 +42,57 @@ $$
 <!-- definition-example-start: def-qcurv11-fourier-coefficients -->
 ### 直接例：指数圧縮のない平坦な光線
 
-$p(u)=u$ とすると、負周波数係数の核は $e^{-i(\omega+\omega')u}$ です。幅の広い滑らかな切替の極限で、そのFourier変換は $2\pi\delta(\omega+\omega')$ に比例します。$\omega,\omega'>0$ では和が零にならないため $\beta_{\omega\omega'}=0$ です。一方、$\alpha$ は $\delta(\omega-\omega')$ を持ち、同じ正周波数を対応させます。
+$p(u)=u$ とすると、負周波数係数の核は $e^{-i(\omega+\omega')u}$ です。幅の広い滑らかな切替の極限で、そのFourier変換は $2\pi\delta(\omega+\omega')$ に比例します。$\omega,\omega'>0$ では和が零にならないため $\beta_{\omega\omega'}=0$ です。一方、正周波数側は
+
+$$
+\alpha_{\omega\omega'}=\sqrt{\frac\omega{\omega'}}\,\delta(\omega-\omega')
+=\delta(\omega-\omega')
+$$
+
+です。最後の等号はデルタ分布の台 $\omega=\omega'$ 上で $\sqrt{\omega/\omega'}=1$ となるためです。したがって正周波数は係数1で対応し、負周波数への混合はありません。
 
 **定義の確認**：正負・周波数域・規格化の三条件を直接確かめました。有限幅の切替では過渡項が現れるため、そのときの $\beta$ を厳密に零とは主張しません。
 <!-- definition-example-end -->
 
 ### Fourier式とKG内積の接続
 
-なぜ $\sqrt{\omega/\omega'}$ が現れるのでしょうか。未来の右向き零モードのKG流束内積は、適切な境界条件の下で
+なぜ $\sqrt{\omega/\omega'}$ が現れるのでしょうか。未来の右向き零モードの[KG流束内積](../QCURV10/index.md#def-qcurv10-asymptotic-packets)は、適切な境界条件の下で
 
 $$
 (f,g)_{\mathscr I^+}=i\int_{-\infty}^{\infty}
 \bigl(f^*\partial_u g-(\partial_u f^*)g\bigr)\,du
 $$
 
-です。$g=e^{-i\omega'p(u)}/\sqrt{4\pi\omega'}$ と $f=e^{-i\omega u}/\sqrt{4\pi\omega}$ を入れると、導関数から $\omega$ と $\omega'p'(u)$ が出ます。例えば
+です。$g=e^{-i\omega'p(u)}/\sqrt{4\pi\omega'}$ と $f=e^{-i\omega u}/\sqrt{4\pi\omega}$ を入れます。ここで $\partial_u$ は $\omega,\omega'$ を固定して出射時刻 $u$ で微分する演算子であり、$p'(u)=dp/du$ です。[QCURV10の入出射写像](../QCURV10/index.md#def-qcurv10-ray-map)の連鎖律によって、導関数から $\omega$ と $\omega'p'(u)$ が出ます。例えば
 
 $$
 \partial_u e^{-i\omega'p(u)}=-i\omega'p'(u)e^{-i\omega'p(u)},
 \qquad \partial_u e^{i\omega u}=i\omega e^{i\omega u}.
 $$
 
-境界項が消える切替付き積分で部分積分すると、$\omega'p'(u)$ の項は $\omega$ の項に移り、$2\omega/(4\pi\sqrt{\omega\omega'})=\sqrt{\omega/\omega'}/(2\pi)$ が残ります。これが定義の係数です。$p'(u)$ を無視したまま規格化を推測する手順ではありません。
+境界項が消える切替付き積分で部分積分すると、$\omega'p'(u)$ の項は $\omega$ の項に移ります。正周波数側では $\partial_u e^{i\omega u-i\omega'p(u)}=i(\omega-\omega'p'(u))e^{i\omega u-i\omega'p(u)}$ なので
+
+$$
+\begin{aligned}
+(f_\omega,g)_{\mathscr I^+}
+&=\frac1{4\pi\sqrt{\omega\omega'}}
+\int(\omega+\omega'p'(u))e^{i\omega u-i\omega'p(u)}\,du\\
+&=\frac1{2\pi}\sqrt{\frac\omega{\omega'}}
+\int e^{i\omega u-i\omega'p(u)}\,du
+=\overline{\alpha_{\omega\omega'}}.
+\end{aligned}
+$$
+
+負周波数側では $\partial_u e^{i\omega u+i\omega'p(u)}=i(\omega+\omega'p'(u))e^{i\omega u+i\omega'p(u)}$ を用いると
+
+$$
+(f_\omega,\overline g)_{\mathscr I^+}
+=\frac1{2\pi}\sqrt{\frac\omega{\omega'}}
+\int e^{i\omega u+i\omega'p(u)}\,du
+=-\overline{\beta_{\omega\omega'}}.
+$$
+
+つまり本章の展開係数はQCURV3のKG内積係数の $\overline{\alpha^{\rm KG}}$ と $-\overline{\beta^{\rm KG}}$ であり、[QCURV3のoutモード展開](../QCURV3/index.md#def-qcurv3-bogoliubov)と一致します。$2\omega/(4\pi\sqrt{\omega\omega'})=\sqrt{\omega/\omega'}/(2\pi)$ が正規化係数の由来です。波束についても第一引数に共役線形なKG内積で重みが共役され、本章の展開係数を重ねた波束混合係数とは全体の負号・複素共役だけが違い、粒子数 $|\beta_{jn,\omega'}|^2$ は一致します。$p'(u)$ を無視して規格化を推測したわけではありません。
 
 ## 2. 指数写像の積分をGamma関数に変える
 
@@ -83,7 +112,7 @@ du=-\frac{dx}{\kappa x},\qquad
 e^{-i\omega u}=\left(\frac{x}{A\omega'}\right)^{ia}.
 $$
 
-虚数指数を持つ振動積分を計算するために、[CA11のGamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)のEuler積分を使います。$\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}dx$ は当初 $\Re s>0$ で定義されます。ここではすぐ $s=ia$ を代入せず、$s=\rho+ia$（$\rho>0$）および $e^{-\eta x}$（$\eta>0$）で端点を正則化してから極限を取ります。
+虚数指数を持つ振動積分を計算するために、[CA11のGamma関数](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)のEuler積分を使います。$\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}dx$ は当初 $\Re s>0$ で定義されます。ここではすぐ $s=ia$ を代入せず、$s=\rho+ia$（$0<\rho<1$）および $e^{-\eta x}$（$\eta>0$）で端点を正則化してから極限を取ります。
 
 <a id="thm-qcurv11-gamma-amplitudes"></a>
 
@@ -120,14 +149,14 @@ I_-&:=\int_{-\infty}^{\infty}e^{-i\omega u-i\omega'p_{\rm exp}(u)}\,du\\
 \end{aligned}
 $$
 
-端点を制御するため $s=\rho+ia$、$\rho,\eta>0$ で考えると、[Gamma関数の積分表示](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を複素減衰率 $\eta-i$ に適用して
+端点を制御するため $s=\rho+ia$、$0<\rho<1$、$\eta>0$ で考えると、[Gamma関数の積分表示](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)を複素減衰率 $\eta-i$ に適用して
 
 $$
 \int_0^\infty x^{s-1}e^{-(\eta-i)x}\,dx
 =\Gamma(s)(\eta-i)^{-s}.
 $$
 
-ここで複素冪には主枝 $\operatorname{Log}z=\log|z|+i\arg z$（$-\pi<\arg z<\pi$）を使います。$\eta\downarrow0$ では $\operatorname{Log}(\eta-i)\to-i\pi/2$ なので
+この等式は減衰率 $\lambda>0$ が実数なら $t=\lambda x$ の置換で得られ、$\Re\lambda>0$ の両辺が $\lambda$ の正則関数なので一致の定理で複素 $\lambda=\eta-i$ に拡張できます。$x^{s-1}$ は $x>0$ の実対数で定め、$\lambda^{-s}$ には右半平面で連続な複素対数を使います。ここで複素冪には主枝 $\operatorname{Log}z=\log|z|+i\arg z$（$-\pi<\arg z<\pi$）を使います。$\eta\downarrow0$ では $\operatorname{Log}(\eta-i)\to-i\pi/2$ なので
 
 $$
 (\eta-i)^{-s}\to e^{i\pi s/2},\qquad
@@ -248,7 +277,17 @@ $$
 
 となり、両端で発散します。これは**一個の規格化粒子の無限個生成**ではありません。単色の連続モードは到着時刻について無限に広がり、粒子数を数える正規化された波束ではないためです。
 
-帯域 $[j\epsilon,(j+1)\epsilon]$（$\epsilon>0,j\ge1$）と時刻中心 $u_n=2\pi n/\epsilon$（$n\in\mathbb Z$）を使います。ここで $\omega_j=(j+1/2)\epsilon$ は帯域中央です。$\epsilon\ll\omega_j$ かつ $\epsilon\ll\kappa$ とし、**さらに**Gamma因子の位相も含めて、後で定義する $C(\omega)$ が帯域内でほぼ一定になる範囲を考えます。単に $\epsilon/\kappa$ が小さいだけでは、任意に高い $\omega_j/\kappa$ でこの追加条件は保証されません。
+帯域と時刻ラベルを、幅 $\epsilon>0$、整数 $j\ge1$、$n\in\mathbb Z$ に対して
+
+$$
+[j\epsilon,(j+1)\epsilon],\qquad
+\omega_j=(j+1/2)\epsilon,\qquad
+u_n=\frac{2\pi n}{\epsilon}
+$$
+
+と置きます。$\omega_j$ は帯域中央、$u_n$ は[QCURV10の出射波束の時刻中心](../QCURV10/index.md#prop-qcurv10-packet-localization)です。
+
+$\epsilon\ll\min(\omega_j,\kappa)$ に加え、Gamma因子の位相も含めて後で定義する $C(\omega)$ が帯域内でほぼ一定になる範囲を考えます。これは追加の周波数依存位相で中心が大きくずれないようにする仮定です。単に $\epsilon/\kappa$ が小さいだけでは、任意に高い $\omega_j/\kappa$ でこの条件は保証されません。
 
 <a id="def-qcurv11-packet-mixing"></a>
 
@@ -283,14 +322,14 @@ C(\omega):=-\frac{\sqrt\omega}{2\pi\kappa}
 e^{-\pi\omega/(2\kappa)}\Gamma(i\omega/\kappa)
 $$
 
-と定義します。$\epsilon$ が狭く、位相も含めて $C(\omega)\simeq C(\omega_j)$ とできれば、波束の周波数積分に残る位相は
+と定義します。$C(\omega)$ は $\omega>0$ で零になりません（[CA11のGamma関数の零点不存在](../../../解析系/CA/CA11/index.md#cor-ca11-gamma-zero-free)を使用）。以下の $\partial_\omega\log C$ は $\kappa$ を固定して帯域内の**出射周波数 $\omega$** を微分するものです（対数の局所的な枝を用い、導関数は枝の選択に依存しません）。$\epsilon$ が狭く、位相も含めて $C(\omega)\simeq C(\omega_j)$ とできれば、波束の周波数積分に残る位相は
 
 $$
 e^{i\omega\Delta},\qquad
 \Delta:=u_n-\kappa^{-1}\log(A\omega').
 $$
 
-これにより、どの入射周波数 $\omega'$ が時刻 $u_n$ の波束へ主に寄与するかを明示的に確かめられます。
+これにより、どの入射周波数 $\omega'$ が時刻 $u_n$ の波束へ主に寄与するかを明示的に確かめられます。$C(\omega)$ の位相を帯域内で一定とみなせない場合には、位相の $\omega$ 微分も局在中心に寄与します。
 
 <a id="prop-qcurv11-late-packet-planck"></a>
 
@@ -358,7 +397,16 @@ $$
 \frac1{e^{2\pi\omega_j/\kappa}-1}.
 $$
 
-従って最初の表示が得られます。$z=\kappa^{-1}\log(A\omega')$ は $\omega'>0$ を $z\in\mathbb R$ へ一対一に写し、導関数から $d\omega'/\omega'=\kappa dz$ です。$\int_{-\infty}^{\infty}(\sin t/t)^2dt=\pi$ を用い、$t=\epsilon(u_n-z)/2$ とさらに置換すると
+従って最初の表示が得られます。$z=\kappa^{-1}\log(A\omega')$ は $\omega'>0$ を $z\in\mathbb R$ へ一対一に写し、導関数 $d\omega'/dz=\kappa\omega'$ から $d\omega'/\omega'=\kappa dz$ です。必要なsinc二乗の積分も、[QCURV10の連続モードのデルタ規格化](../QCURV10/index.md#def-qcurv10-asymptotic-packets)から確認できます。$h(t):=\int_{-1}^1e^{i\nu t}\,d\nu=2\sin t/t$（$t=0$ では2）と置くと、Fourier積分の二乗を滑らかな減衰で正則化してからデルタ規格化を使えば
+
+$$
+\int_{-\infty}^{\infty}|h(t)|^2\,dt
+=2\pi\int_{-1}^1d\nu=4\pi,
+\qquad
+\int_{-\infty}^{\infty}\operatorname{sinc}^2t\,dt=\pi.
+$$
+
+この等式は有限区間の指示関数のFourier等長性と同じ計算です。$t=\epsilon(u_n-z)/2$ とさらに置換すると
 
 $$
 \begin{aligned}
@@ -381,7 +429,7 @@ $$
 \boxed{\omega'_{\rm center}=A^{-1}e^{\kappa u_n}.}
 $$
 
-次元は $A^{-1}$ が逆時間、指数は無次元です。$n\to+\infty$ でこの中心は指数的に大きくなります。これが**超Planckianな遡及周波数問題**の入り口です。出射側の観測周波数 $\omega_j$ まで指数的に増えるわけではありません。高いin周波数への遡及を含む近似がどの範囲まで妥当かは、後の物理的検討が必要です。
+この中心は上で述べた $C(\omega)$ の位相が帯域内でほぼ一定という近似の下での値です。次元は $A^{-1}$ が逆時間、指数は無次元です。$n\to+\infty$ でこの中心は指数的に大きくなります。これが**超Planckianな遡及周波数問題**の入り口です。出射側の観測周波数 $\omega_j$ まで指数的に増えるわけではありません。高いin周波数への遡及を含む近似がどの範囲まで妥当かは、後の物理的検討が必要です。
 
 さらに厳密な崩壊では $p(u)$ の初期部分が指数模型と異なります。$u_n$ が十分遅く、$1/\epsilon$ 程度の波束幅が後期領域に収まり、定常的な近似を使える場合にPlanck分布が現れる、という順番で結論を理解します。有限の切替・有限の検出時間・地平線へ落ちるモードを省略して、全時刻の厳密な熱平衡を得たとはしません。
 
@@ -414,7 +462,7 @@ $$
 #### QCURV11-A02 枝の向きと振幅比
 
 - Level: A
-- 問題: $a>0$、$s=\rho+ia$（$\rho>0$）で $\int_0^\infty x^{s-1}e^{-(\eta\mp i)x}dx$ を $\Gamma(s)$ で表せ。$\eta\downarrow0$、$\rho\downarrow0$ の順で正負の絶対値因子とその比を求めよ。
+- 問題: $a>0$、$s=\rho+ia$（$0<\rho<1$）で $\int_0^\infty x^{s-1}e^{-(\eta\mp i)x}dx$ を $\Gamma(s)$ で表せ。$\eta\downarrow0$、$\rho\downarrow0$ の順で正負の絶対値因子とその比を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：[Gamma積分](../../../解析系/CA/CA11/index.md#def-ca11-gamma-function)より $\Gamma(s)(\eta\mp i)^{-s}$ です。主枝では $\operatorname{Log}(\eta-i)\to-i\pi/2$、$\operatorname{Log}(\eta+i)\to+i\pi/2$。従って前者は $e^{i\pi s/2}\Gamma(s)$、後者は $e^{-i\pi s/2}\Gamma(s)$ に近づきます。$s\to ia$ では絶対値因子がそれぞれ $e^{-\pi a/2}$、$e^{+\pi a/2}$。振幅の比は $e^{-\pi a}$、二乗比は $e^{-2\pi a}$ です。$a>0$ により $\Gamma(ia)$ に極はありません。
@@ -449,7 +497,7 @@ $$
 - 問題: $a>0$ とする。[Gammaの反射公式](../../../解析系/CA/CA11/index.md#thm-ca11-reflection)と関数等式から $|\Gamma(ia)|^2=\pi/(a\sinh\pi a)$ を再導出せよ。さらに $e^{-\pi a}|\Gamma(ia)|^2$ を $e^{2\pi a}-1$ で表せ。
 
 <!-- solution-start -->
-**詳細解答**：反射公式は $\Gamma(ia)\Gamma(1-ia)=\pi/\sin(i\pi a)$。関数等式から $\Gamma(1-ia)=(-ia)\Gamma(-ia)$、複素共役から $\Gamma(-ia)=\overline{\Gamma(ia)}$。従って $(-ia)|\Gamma(ia)|^2=\pi/[i\sinh(\pi a)]$。両辺を $-ia$ で割り、$(-i)\cdot i=1$ に注意すると $|\Gamma(ia)|^2=\pi/(a\sinh\pi a)$。さらに $\sinh\pi a=(e^{\pi a}-e^{-\pi a})/2$ なので $e^{-\pi a}/\sinh\pi a=2/(e^{2\pi a}-1)$、従って
+**詳細解答**：反射公式は $\Gamma(ia)\Gamma(1-ia)=\pi/\sin(i\pi a)$。[Gamma関数の関数等式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)から $\Gamma(1-ia)=(-ia)\Gamma(-ia)$、複素共役から $\Gamma(-ia)=\overline{\Gamma(ia)}$。従って $(-ia)|\Gamma(ia)|^2=\pi/[i\sinh(\pi a)]$。両辺を $-ia$ で割り、$(-i)\cdot i=1$ に注意すると $|\Gamma(ia)|^2=\pi/(a\sinh\pi a)$。さらに $\sinh\pi a=(e^{\pi a}-e^{-\pi a})/2$ なので $e^{-\pi a}/\sinh\pi a=2/(e^{2\pi a}-1)$、従って
 
 $$
 e^{-\pi a}|\Gamma(ia)|^2=\frac{2\pi}{a(e^{2\pi a}-1)}.
@@ -526,7 +574,7 @@ $$
 <!-- solution-start -->
 **詳細解答**：
 
-**（1）** $du=-dx/(\kappa x)$、$e^{-i\omega u}=(x/(A\omega'))^{ia}$、$a=\omega/\kappa$ です。$\beta$ のin位相は $e^{-i\omega'v_H}e^{+ix}$、$\alpha$ は $e^{+i\omega'v_H}e^{-ix}$ になります。$s=\rho+ia$、$\eta>0$ として $\int_0^\infty x^{s-1}e^{-(\eta\mp i)x}dx=\Gamma(s)(\eta\mp i)^{-s}$ を使います。主枝 $\operatorname{Log}(\eta-i)\to-i\pi/2$、$\operatorname{Log}(\eta+i)\to+i\pi/2$ なので、$\rho\downarrow0$ の結果はそれぞれ $e^{-\pi a/2}\Gamma(ia)$ と $e^{+\pi a/2}\Gamma(ia)$。従って
+**（1）** $du=-dx/(\kappa x)$、$e^{-i\omega u}=(x/(A\omega'))^{ia}$、$a=\omega/\kappa$ です。$\beta$ のin位相は $e^{-i\omega'v_H}e^{+ix}$、$\alpha$ は $e^{+i\omega'v_H}e^{-ix}$ になります。$s=\rho+ia$、$0<\rho<1$、$\eta>0$ として $\int_0^\infty x^{s-1}e^{-(\eta\mp i)x}dx=\Gamma(s)(\eta\mp i)^{-s}$ を使います。主枝 $\operatorname{Log}(\eta-i)\to-i\pi/2$、$\operatorname{Log}(\eta+i)\to+i\pi/2$ なので、$\rho\downarrow0$ の結果はそれぞれ $e^{-\pi a/2}\Gamma(ia)$ と $e^{+\pi a/2}\Gamma(ia)$。従って
 
 $$
 \beta_{\omega\omega'}=-\frac{e^{-i\omega'v_H}}{2\pi\kappa}\sqrt{\frac\omega{\omega'}}
@@ -538,7 +586,7 @@ $$
 (A\omega')^{-ia}e^{\pi a/2}\Gamma(ia).
 $$
 
-**（2）** 位相とGamma関数は絶対値比で消え、$|\beta|^2/|\alpha|^2=e^{-2\pi a}$。[反射公式](../../../解析系/CA/CA11/index.md#thm-ca11-reflection)と関数等式に $ia$ を代入して $|\Gamma(ia)|^2=\pi/[a\sinh(\pi a)]$ を得ます。これを二乗振幅に入れると
+**（2）** 位相とGamma関数は絶対値比で消え、$|\beta|^2/|\alpha|^2=e^{-2\pi a}$。[反射公式](../../../解析系/CA/CA11/index.md#thm-ca11-reflection)と[Gamma関数の関数等式](../../../解析系/CA/CA11/index.md#thm-ca11-functional-equation)に $ia$ を代入して $|\Gamma(ia)|^2=\pi/[a\sinh(\pi a)]$ を得ます。これを二乗振幅に入れると
 
 $$
 |\beta|^2=\frac\omega{4\pi^2\kappa^2\omega'}e^{-\pi a}
