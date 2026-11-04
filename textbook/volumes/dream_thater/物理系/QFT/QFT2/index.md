@@ -8,7 +8,7 @@
 
 ## 1. 規約と「変換しても作用が同じ」の意味
 
-時空は平坦な $3+1$ 次元Minkowski空間、計量は $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$、単位系は $c=\hbar=1$ とします。ギリシア添字は $0,1,2,3$、空間添字 $i,j$ は $1,2,3$、同じ添字が上付きと下付きに一度ずつ現れた場合は、その添字について和を取ります。導関数の上下も $\eta$ で上げ下げし、$\partial^0=\partial_t$、$\partial^i=-\partial_i$ です。
+時空は平坦な $3+1$ 次元Minkowski空間、計量は $\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$、単位系は $c=\hbar=1$ とします。ギリシア添字は $0,1,2,3$、空間添字 $i,j$ は $1,2,3$、同じ添字が上付きと下付きに一度ずつ現れた場合は、その添字について和を取ります。導関数の上下も $\eta$ で上げ下げし、$\partial^0=-\partial_t$、$\partial^i=\partial_i$ です。
 
 まず実数値の場 $\phi_a(x)$（$a=1,\ldots,N$）を考え、各成分を $C^2$、密度を一階微分までの $C^2$ 関数とします。コンパクトな時空領域で必要な積分・微分交換が成り立つ場合だけ作用を扱います。境界項を捨てるときには、変換パラメータをコンパクトな台に局所化するか、明示的な境界条件を使います。
 
@@ -53,7 +53,7 @@ $$
 
 $$
 \mathcal L_2=\frac12\sum_{a=1}^2
-\left(\partial_\mu\phi_a\partial^\mu\phi_a
+\left(-\partial_\mu\phi_a\partial^\mu\phi_a
 -m^2\phi_a^2\right)
 $$
 
@@ -149,13 +149,13 @@ $$
 
 **定義の確認**：生成子、密度の一次変化、境界項、流の各要素を直接求めます。
 
-一成分の質量零実場で $\mathcal L=(\partial\phi)^2/2$、$\phi^\varepsilon(x)=\phi(x)+\varepsilon$ を取ります。定数 $\varepsilon$ について $\Delta\phi=1$、$\partial_\mu\phi^\varepsilon=\partial_\mu\phi$ なので $\delta\mathcal L=0$、従って $K^\mu=0$ です。$\pi^\mu=\partial^\mu\phi$ を[Noether流の定義](#def-qft2-noether-current)に代入すると
+一成分の質量零実場で $\mathcal L=-(\partial\phi)^2/2$、$\phi^\varepsilon(x)=\phi(x)+\varepsilon$ を取ります。定数 $\varepsilon$ について $\Delta\phi=1$、$\partial_\mu\phi^\varepsilon=\partial_\mu\phi$ なので $\delta\mathcal L=0$、従って $K^\mu=0$ です。$\pi^\mu=-\partial^\mu\phi$ を[Noether流の定義](#def-qft2-noether-current)に代入すると
 
 $$
-j^\mu=(\partial^\mu\phi)\cdot1-0=\partial^\mu\phi.
+j^\mu=(-\partial^\mu\phi)\cdot1-0=-\partial^\mu\phi.
 $$
 
-その発散が $\Box\phi$ であり、質量零の運動方程式の下で零になることも確認できます。$m>0$ の質量項を戻すとシフトで密度が変化し、この定数シフトは対称性でなくなります。
+その発散が $-\Box\phi$ であり、質量零の運動方程式の下で零になることも確認できます。$m>0$ の質量項を戻すとシフトで密度が変化し、この定数シフトは対称性でなくなります。
 <!-- definition-example-end -->
 
 <a id="thm-qft2-noether"></a>
@@ -233,7 +233,7 @@ $$
 \psi=\frac{\phi_1+i\phi_2}{\sqrt2},
 \qquad
 \mathcal L_2
-=\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi.
+=-\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi.
 $$
 
 ここで $\psi^*$ は $\psi$ の複素共役です。$\sqrt2$ は実二成分の密度にあった $1/2$ と一致させるための規格化です。実際に
@@ -257,12 +257,12 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（複素スカラー場のU(1)保存流）**  
-> $m\ge0$ とし、$\phi_1,\phi_2\in C^2(\Omega;\mathbb R)$ がそれぞれ $(\Box+m^2)\phi_a=0$ を満たすとする。$\psi=(\phi_1+i\phi_2)/\sqrt2$、$\mathcal L_2=\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi$ と定める。この密度の一定角回転 $\psi\mapsto e^{i\varepsilon}\psi$ に対応するNoether流は
+> $m\ge0$ とし、$\phi_1,\phi_2\in C^2(\Omega;\mathbb R)$ がそれぞれ $(-\Box+m^2)\phi_a=0$ を満たすとする。$\psi=(\phi_1+i\phi_2)/\sqrt2$、$\mathcal L_2=-\partial_\mu\psi^*\partial^\mu\psi-m^2\psi^*\psi$ と定める。この密度の一定角回転 $\psi\mapsto e^{i\varepsilon}\psi$ に対応するNoether流は
 
 $$
 j^\mu
-=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1
-=-i\bigl(\psi^*\partial^\mu\psi
+=-\phi_1\partial^\mu\phi_2+\phi_2\partial^\mu\phi_1
+=i\bigl(\psi^*\partial^\mu\psi
 -\psi\partial^\mu\psi^*\bigr)
 $$
 
@@ -271,19 +271,19 @@ $$
 
 ### 証明の見取り図
 
-まず各実場の $\pi_a^\mu=\partial^\mu\phi_a$ に生成子を代入します。発散すると、一階微分の交差項が打ち消され、残った二階微分に二つのKlein–Gordon方程式を使えます。
+まず各実場の $\pi_a^\mu=-\partial^\mu\phi_a$ に生成子を代入します。発散すると、一階微分の交差項が打ち消され、残った二階微分に二つのKlein–Gordon方程式を使えます。
 
 <!-- proof-start -->
 ### 証明
 
-密度を各場の一階微分で微分すると $\pi_1^\mu=\partial^\mu\phi_1$、$\pi_2^\mu=\partial^\mu\phi_2$ です。回転は密度を厳密に保つので $K^\mu=0$ と選べ、[Noether流の定義](#def-qft2-noether-current)から
+密度を各場の一階微分で微分すると $\pi_1^\mu=-\partial^\mu\phi_1$、$\pi_2^\mu=-\partial^\mu\phi_2$ です。回転は密度を厳密に保つので $K^\mu=0$ と選べ、[Noether流の定義](#def-qft2-noether-current)から
 
 $$
 \begin{aligned}
 j^\mu
-&=(\partial^\mu\phi_1)(-\phi_2)
-+(\partial^\mu\phi_2)\phi_1\\
-&=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1.
+&=(-\partial^\mu\phi_1)(-\phi_2)
+-(\partial^\mu\phi_2)\phi_1\\
+&=-\phi_1\partial^\mu\phi_2+\phi_2\partial^\mu\phi_1.
 \end{aligned}
 $$
 
@@ -304,11 +304,11 @@ $$
 $$
 \begin{aligned}
 \partial_\mu j^\mu
-&=(\partial_\mu\phi_1)(\partial^\mu\phi_2)
-+\phi_1\Box\phi_2\\
-&\quad-(\partial_\mu\phi_2)(\partial^\mu\phi_1)
--\phi_2\Box\phi_1\\
-&=\phi_1(-m^2\phi_2)-\phi_2(-m^2\phi_1)=0.
+&=-(\partial_\mu\phi_1)(\partial^\mu\phi_2)
+-\phi_1\Box\phi_2\\
+&\quad+(\partial_\mu\phi_2)(\partial^\mu\phi_1)
++\phi_2\Box\phi_1\\
+&=-\phi_1(m^2\phi_2)+\phi_2(m^2\phi_1)=0.
 \end{aligned}
 $$
 <!-- proof-end -->
@@ -325,15 +325,15 @@ $$
 \phi_2=A\sin\theta
 $$
 
-を選びます。どちらも実数値 $C^\infty$ 場で、[Klein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)の左辺へ代入すると、$\partial_t^2\phi_a=-\omega^2\phi_a$、$\partial_x^2\phi_a=-k^2\phi_a$ から $(\Box+m^2)\phi_a=(-\omega^2+k^2+m^2)\phi_a=0$ となります。回転で成分二乗和 $A^2$ が不変なのも直接確認できます。
+を選びます。どちらも実数値 $C^\infty$ 場で、[Klein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)の左辺へ代入すると、$\partial_t^2\phi_a=-\omega^2\phi_a$、$\partial_x^2\phi_a=-k^2\phi_a$ から $(-\Box+m^2)\phi_a=(-\omega^2+k^2+m^2)\phi_a=0$ となります。回転で成分二乗和 $A^2$ が不変なのも直接確認できます。
 
 流の時間成分と空間成分は
 
 $$
 \begin{aligned}
-j^0&=\phi_1\partial_t\phi_2-\phi_2\partial_t\phi_1
+j^0&=-\phi_1\partial^0\phi_2+\phi_2\partial^0\phi_1
 =A^2\omega(\cos^2\theta+\sin^2\theta)=A^2\omega,\\
-j^1&=-\phi_1\partial_x\phi_2+\phi_2\partial_x\phi_1
+j^1&=-\phi_1\partial^1\phi_2+\phi_2\partial^1\phi_1
 =A^2k.
 \end{aligned}
 $$
@@ -402,24 +402,24 @@ $$
 
 $$
 T^\mu{}_\nu
-=\sum_{a=1}^N\pi_a^\mu\partial_\nu\phi_a
--\delta^\mu{}_\nu\mathcal L,
+=-\sum_{a=1}^N\pi_a^\mu\partial_\nu\phi_a
++\delta^\mu{}_\nu\mathcal L,
 \qquad
 T^{\mu\nu}=\eta^{\nu\rho}T^\mu{}_\rho
 $$
 
-> と定義する。第一添字が流れの方向、第二添字が並進の方向に対応する。一般の場では $T^{\mu\nu}$ が対称になるとは限らない。
+> と定義する。第一添字が流れの方向、第二添字が並進の方向に対応する。$(-+++)$ で自由実スカラー場の $T^{00}$ が非負のエネルギー密度となるよう、Noether流から得る混合テンソル全体の符号を反転した約束である。一般の場では $T^{\mu\nu}$ が対称になるとは限らない。
 <!-- formal-statement-end -->
 
 <a id="thm-qft2-translation"></a>
 
 <!-- formal-statement-start -->
 > **定理（並進対称性とエネルギー運動量保存）**  
-> $\phi_a\in C^2(\Omega)$、$\mathcal L\in C^2$ とし、密度は $x$ に明示的に依存しないとする。能動的並進 $\phi_a'(x)=\phi_a(x-a)$ に対するNoether流は、定数の並進パラメータ $a^\nu$ を用いて $j^\mu=-a^\nu T^\mu{}_\nu$ と書ける。また
+> $\phi_a\in C^2(\Omega)$、$\mathcal L\in C^2$ とし、密度は $x$ に明示的に依存しないとする。能動的並進 $\phi_a'(x)=\phi_a(x-a)$ に対するNoether流は、定数の並進パラメータ $a^\nu$ を用いて $j^\mu=a^\nu T^\mu{}_\nu$ と書ける。また
 
 $$
 \partial_\mu T^\mu{}_\nu
-=-\sum_a\mathcal E_a\,\partial_\nu\phi_a
+=\sum_a\mathcal E_a\,\partial_\nu\phi_a
 $$
 
 > が成り立つ。従って $\mathcal E_a=0$ となる解では全ての $\nu=0,1,2,3$ について
@@ -459,7 +459,7 @@ $$
 j^\mu
 &=-a^\nu\sum_a\pi_a^\mu\partial_\nu\phi_a
 +a^\nu\delta^\mu{}_\nu\mathcal L\\
-&=-a^\nu T^\mu{}_\nu.
+&=a^\nu T^\mu{}_\nu.
 \end{aligned}
 $$
 
@@ -468,10 +468,10 @@ $$
 $$
 \begin{aligned}
 \partial_\mu T^\mu{}_\nu
-&=\sum_a\bigl[
+&=-\sum_a\bigl[
 (\partial_\mu\pi_a^\mu)\partial_\nu\phi_a
 +\pi_a^\mu\partial_\mu\partial_\nu\phi_a
-\bigr]-\partial_\nu\mathcal L,\\
+\bigr]+\partial_\nu\mathcal L,\\
 \partial_\nu\mathcal L
 &=\sum_a\left[
 \frac{\partial\mathcal L}{\partial\phi_a}\partial_\nu\phi_a
@@ -485,10 +485,10 @@ $C^2$ 場の混合偏微分が交換するので二階微分の項は差し引�
 $$
 \partial_\mu T^\mu{}_\nu
 =\sum_a\left(
-\partial_\mu\pi_a^\mu
--\frac{\partial\mathcal L}{\partial\phi_a}\right)
+-\partial_\mu\pi_a^\mu
++\frac{\partial\mathcal L}{\partial\phi_a}\right)
 \partial_\nu\phi_a
-=-\sum_a\mathcal E_a\partial_\nu\phi_a.
+=\sum_a\mathcal E_a\partial_\nu\phi_a.
 $$
 
 運動方程式を満たせば右辺は零で、定数計量で第二添字を上げても零です。
@@ -504,12 +504,12 @@ $$
 -\frac12|\nabla\phi|^2-\frac12m^2\phi^2
 $$
 
-について $\pi^\mu=\partial^\mu\phi$ だから、
+について $\pi^\mu=-\partial^\mu\phi$ だから、
 
 $$
 T^{\mu\nu}
 =\partial^\mu\phi\,\partial^\nu\phi
--\eta^{\mu\nu}\mathcal L_{\mathrm{free}}.
++\eta^{\mu\nu}\mathcal L_{\mathrm{free}}.
 $$
 
 ここではたまたま対称です。時間・空間成分を符号まで展開すると
@@ -520,7 +520,7 @@ T^{00}
 &=(\partial_t\phi)^2-\mathcal L_{\mathrm{free}}
 =\frac12[(\partial_t\phi)^2+|\nabla\phi|^2+m^2\phi^2],\\
 T^{0i}=T^{i0}
-&=(\partial_t\phi)(\partial^i\phi)
+&=(-\partial_t\phi)(\partial^i\phi)
 =-(\partial_t\phi)(\partial_i\phi),\\
 T^{ij}
 &=(\partial_i\phi)(\partial_j\phi)+\delta^{ij}\mathcal L_{\mathrm{free}}.
@@ -545,7 +545,7 @@ $$
 \end{aligned}
 $$
 
-従って $\Box\phi=\partial_t^2\phi-\partial_x^2\phi=0$ となり、[$m=0$ のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)が成立します。この波の密度は $\mathcal L=0$ で、
+従って $\Box\phi=-\partial_t^2\phi+\partial_x^2\phi=0$ となり、[$m=0$ のKlein–Gordon方程式](../QFT1/index.md#def-qft1-klein-gordon)が成立します。この波の密度は $\mathcal L=0$ で、
 
 $$
 T^{00}=f'(x-t)^2,\qquad
@@ -684,15 +684,15 @@ $$
 [$j^\mu$ の式](#prop-qft2-u1)は同じままですが、Euler–Lagrange方程式は
 
 $$
-(\Box+m^2)\phi_1=h,\qquad
-(\Box+m^2)\phi_2=0
+(-\Box+m^2)\phi_1=h,\qquad
+(-\Box+m^2)\phi_2=0
 $$
 
 になるため
 
 $$
 \partial_\mu j^\mu
-=\phi_1\Box\phi_2-\phi_2\Box\phi_1
+=-\phi_1\Box\phi_2+\phi_2\Box\phi_1
 =-h\phi_2.
 $$
 
@@ -706,7 +706,7 @@ $1+1$ 次元、実場二成分 $\phi_1,\phi_2\in C^2$ と同じ質量 $m\ge0$ �
 
 $$
 \mathcal L=\frac12\sum_{a=1}^2
-(\partial_\mu\phi_a\partial^\mu\phi_a-m^2\phi_a^2)
+(-\partial_\mu\phi_a\partial^\mu\phi_a-m^2\phi_a^2)
 $$
 
 とする。定数角 $\varepsilon$ で $(\phi_1,\phi_2)$ を反時計回りに回転したとき、生成子 $\Delta\phi_a$ を求め、密度の一次変化が零であることを各項の微分から確認せよ。
@@ -753,7 +753,7 @@ $$
 \end{array}
 $$
 
-[$j^\mu$ の式](#prop-qft2-u1)で $\partial^1=-\partial_x$ に注意すると
+[$j^\mu$ の式](#prop-qft2-u1)で $\partial^1=\partial_x$ に注意すると
 
 $$
 j^0=A^2\omega(\cos^2\theta+\sin^2\theta)=A^2\omega,
@@ -761,7 +761,7 @@ j^0=A^2\omega(\cos^2\theta+\sin^2\theta)=A^2\omega,
 j^1=A^2k.
 $$
 
-$\Box\phi_a=(-\omega^2+k^2)\phi_a$ なので、質量殻条件の下では $(\Box+m^2)\phi_a=0$ です。流の符号を $j^1=-A^2k$ としてしまうと、上添字を上げる符号を忘れています。
+$\Box\phi_a=(\omega^2-k^2)\phi_a$ なので、質量殻条件の下では $(-\Box+m^2)\phi_a=0$ です。流の符号を $j^1=-A^2k$ としてしまうと、負の運動項から得られるNoether流の符号を忘れています。
 <!-- solution-end -->
 
 ### 演習 QFT2-A3：エネルギー流の向き
@@ -836,14 +836,14 @@ $$
 $$
 \begin{aligned}
 \delta\mathcal L_2
-&=\partial^\mu\phi_1\,\partial_\mu\delta\phi_1
-+\partial^\mu\phi_2\,\partial_\mu\delta\phi_2
+&=-\partial^\mu\phi_1\,\partial_\mu\delta\phi_1
+-\partial^\mu\phi_2\,\partial_\mu\delta\phi_2
 -m^2(\phi_1\delta\phi_1+\phi_2\delta\phi_2)\\
-&=\alpha[-\partial^\mu\phi_1\partial_\mu\phi_2
-+\partial^\mu\phi_2\partial_\mu\phi_1
+&=\alpha[\partial^\mu\phi_1\partial_\mu\phi_2
+-\partial^\mu\phi_2\partial_\mu\phi_1
 +m^2\phi_1\phi_2-m^2\phi_2\phi_1]\\
 &\quad+(\partial_\mu\alpha)
-[-\phi_2\partial^\mu\phi_1+\phi_1\partial^\mu\phi_2]\\
+[\phi_2\partial^\mu\phi_1-\phi_1\partial^\mu\phi_2]\\
 &=(\partial_\mu\alpha)j^\mu.
 \end{aligned}
 $$
@@ -860,26 +860,26 @@ $\alpha$ の台が内部にあるため境界項が消え、任意の $\alpha$ �
 
 ### 演習 QFT2-B2：一般のポテンシャルと並進保存
 
-$1+1$ 次元で実場 $\phi\in C^2$、$V\in C^2(\mathbb R)$ とし、$\mathcal L=\frac12\partial_\mu\phi\partial^\mu\phi-V(\phi)$ とする。Euler–Lagrange方程式、$T^\mu{}_\nu$、$\partial_\mu T^\mu{}_\nu$ の順で求め、解の上で保存することを示せ。
+$1+1$ 次元で実場 $\phi\in C^2$、$V\in C^2(\mathbb R)$ とし、$\mathcal L=-\frac12\partial_\mu\phi\partial^\mu\phi-V(\phi)$ とする。Euler–Lagrange方程式、$T^\mu{}_\nu$、$\partial_\mu T^\mu{}_\nu$ の順で求め、解の上で保存することを示せ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\partial\mathcal L/\partial\phi=-V'(\phi)$、$\pi^\mu=\partial^\mu\phi$ なので
+$\partial\mathcal L/\partial\phi=-V'(\phi)$、$\pi^\mu=-\partial^\mu\phi$ なので
 
 $$
-\mathcal E=-V'(\phi)-\Box\phi
+\mathcal E=-V'(\phi)+\Box\phi
 $$
 
-です。停留条件は $\Box\phi+V'(\phi)=0$ となります。[正準テンソル](#def-qft2-stress)は
+です。停留条件は $-\Box\phi+V'(\phi)=0$ となります。[正準テンソル](#def-qft2-stress)は
 
 $$
 T^\mu{}_\nu
 =\partial^\mu\phi\,\partial_\nu\phi
--\delta^\mu{}_\nu
-\left(\frac12\partial_\rho\phi\partial^\rho\phi-V(\phi)\right).
++\delta^\mu{}_\nu
+\left(-\frac12\partial_\rho\phi\partial^\rho\phi-V(\phi)\right).
 $$
 
 第一項を微分して
@@ -889,9 +889,9 @@ $$
 \partial_\mu T^\mu{}_\nu
 &=(\Box\phi)\partial_\nu\phi
 +(\partial^\mu\phi)\partial_\mu\partial_\nu\phi
--\partial_\nu\mathcal L,\\
++\partial_\nu\mathcal L,\\
 \partial_\nu\mathcal L
-&=(\partial^\rho\phi)\partial_\nu\partial_\rho\phi
+&=-(\partial^\rho\phi)\partial_\nu\partial_\rho\phi
 -V'(\phi)\partial_\nu\phi.
 \end{aligned}
 $$
@@ -900,7 +900,7 @@ $$
 
 $$
 \partial_\mu T^\mu{}_\nu
-=[\Box\phi+V'(\phi)]\partial_\nu\phi.
+=[\Box\phi-V'(\phi)]\partial_\nu\phi.
 $$
 
 場の方程式を代入して零です。$V$ が $x$ に明示的に依存しないことが、$\partial_\nu\mathcal L$ の第二式で重要です。
@@ -908,7 +908,7 @@ $$
 
 ### 演習 QFT2-B3：外部源による一つの保存則の破れ
 
-二成分自由場の密度に定数の外部源 $h\phi_1$ を加えたものとする。二つのEuler–Lagrange方程式を導き、回転流 $j^\mu=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1$ の発散を求めよ。$h$ が時間・空間に依存しない場合に並進保存則まで破れるか判断せよ。
+二成分自由場の密度に定数の外部源 $h\phi_1$ を加えたものとする。二つのEuler–Lagrange方程式を導き、回転流 $j^\mu=-\phi_1\partial^\mu\phi_2+\phi_2\partial^\mu\phi_1$ の発散を求めよ。$h$ が時間・空間に依存しない場合に並進保存則まで破れるか判断せよ。
 
 - Level: B
 
@@ -919,17 +919,17 @@ $$
 
 $$
 \begin{aligned}
-\mathcal E_1&=-m^2\phi_1+h-\Box\phi_1,\\
-\mathcal E_2&=-m^2\phi_2-\Box\phi_2.
+\mathcal E_1&=-m^2\phi_1+h+\Box\phi_1,\\
+\mathcal E_2&=-m^2\phi_2+\Box\phi_2.
 \end{aligned}
 $$
 
-従って解では $\Box\phi_1=-m^2\phi_1+h$、$\Box\phi_2=-m^2\phi_2$ です。流を直接発散させ、一次微分の交差項を消すと
+従って解では $\Box\phi_1=m^2\phi_1-h$、$\Box\phi_2=m^2\phi_2$ です。流を直接発散させ、一次微分の交差項を消すと
 
 $$
 \begin{aligned}
 \partial_\mu j^\mu
-&=\phi_1\Box\phi_2-\phi_2\Box\phi_1\\
+&=-\phi_1\Box\phi_2+\phi_2\Box\phi_1\\
 &=-m^2\phi_1\phi_2+m^2\phi_2\phi_1-h\phi_2=-h\phi_2.
 \end{aligned}
 $$
@@ -967,7 +967,7 @@ $$
 \phi_2=A\sin(\omega t-kx)
 $$
 
-と置き、密度は $\mathcal L_2=\frac12\sum_{a=1}^2(\partial_\mu\phi_a\partial^\mu\phi_a-m^2\phi_a^2)$ とする。
+と置き、密度は $\mathcal L_2=\frac12\sum_{a=1}^2(-\partial_\mu\phi_a\partial^\mu\phi_a-m^2\phi_a^2)$ とする。
 
 1. 各場の方程式と周期境界条件を確認せよ。
 2. $U(1)$ 電荷 $Q=\int_0^Lj^0dx$ を計算せよ。
@@ -979,7 +979,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**(1)** $\theta=\omega t-kx$ とすると $\Box\cos\theta=(-\omega^2+k^2)\cos\theta$、$\Box\sin\theta=(-\omega^2+k^2)\sin\theta$ です。$\omega^2=k^2+m^2$ より各場は $(\Box+m^2)\phi_a=0$ を満たします。$kL=2\pi n$ だから $\theta(t,x+L)=\theta(t,x)-2\pi n$ であり、両場とその空間微分は周期的です。
+**(1)** $\theta=\omega t-kx$ とすると $\Box\cos\theta=(\omega^2-k^2)\cos\theta$、$\Box\sin\theta=(\omega^2-k^2)\sin\theta$ です。$\omega^2=k^2+m^2$ より各場は $(-\Box+m^2)\phi_a=0$ を満たします。$kL=2\pi n$ だから $\theta(t,x+L)=\theta(t,x)-2\pi n$ であり、両場とその空間微分は周期的です。
 
 **(2)** 時間微分は $\partial_t\phi_1=-A\omega\sin\theta$、$\partial_t\phi_2=A\omega\cos\theta$ です。[U(1)流](#prop-qft2-u1)へ代入すると
 
@@ -1065,11 +1065,11 @@ $$
 
 最終行だけでオンシェル条件 $\Box\phi=0$ を使いました。
 
-**(2)** $\eta^{00}=1$、$\partial^0=\partial_t$、$\Box=\partial_t^2-\Delta$ より
+**(2)** $\eta^{00}=-1$、$\partial^0=-\partial_t$、$\Box=-\partial_t^2+\Delta$ より
 
 $$
 \widetilde T^{00}-T^{00}
-=\frac16(\Box-\partial_t^2)\phi^2
+=\frac16(-\Box-\partial_t^2)\phi^2
 =-\frac16\Delta\phi^2.
 $$
 

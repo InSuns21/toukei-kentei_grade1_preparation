@@ -4,7 +4,7 @@
 
 本講では、行列として作用する局所対称性から共変微分を作り、その交換子を計算してYang–Mills曲率を得ます。曲率の変換則と作用原理を証明し、最後にゲージ場自身が三点・四点で相互作用する理由を式から取り出します。量子ゲージ固定、ghost、BRST、ループ補正はまだ用いません。
 
-以下では四次元Minkowski空間、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とし、結合定数 $g>0$ は実数とします。
+以下では四次元Minkowski空間、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とし、結合定数 $g>0$ は実数とします。
 
 ローマ字 $a,b,c$ は内部方向（$1,\ldots,N^2-1$）、ギリシャ字 $\mu,\nu$ は時空方向（$0,1,2,3$）を表します。時空添字は上下に一度ずつ現れたとき、内部添字は同じ上付き添字が反復したときに和を取ります（内部方向の縮約には $\delta^{ab}$ を使います）。$\partial_\mu=\partial/\partial x^\mu$ は時空座標についての偏微分で、行列値場には各行列成分ごとに作用します。
 
@@ -280,7 +280,7 @@ $g\ne0$ なのでBianchi恒等式を得ます。ここでは場の方程式を�
 
 <!-- formal-statement-start -->
 > **定義（Yang–Mills作用）**  
-> 有界開領域 $\Omega\subset\mathbb R^{1,3}$ の閉包の近傍で滑らかな $SU(N)$ ゲージ場 $A_\mu=A_\mu^aT^a$ に対し、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$ で時空添字を上げ下げし、真空のYang–Mills作用を
+> 有界開領域 $\Omega\subset\mathbb R^{1,3}$ の閉包の近傍で滑らかな $SU(N)$ ゲージ場 $A_\mu=A_\mu^aT^a$ に対し、計量 $\eta=\operatorname{diag}(-1,1,1,1)$ で時空添字を上げ下げし、真空のYang–Mills作用を
 
 $$
 S_{\mathrm{YM},\Omega}[A]
@@ -290,6 +290,8 @@ $$
 
 > で定める。第二の等号には $\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ を用いる。閉包近くでの滑らかさと $\Omega$ の有界性により、この積分は有限である。
 <!-- formal-statement-end -->
+
+全成分の計量符号を反転させても、$F^{\mu\nu}=\eta^{\mu\rho}\eta^{\nu\sigma}F_{\rho\sigma}$ では計量を二回使うため $F_{\mu\nu}F^{\mu\nu}$ の符号は変わりません。したがって、作用密度の係数 $-1/4$ も変えません。
 
 <!-- definition-example-start: def-qft28-yang-mills-action -->
 ### 例：固定内部方向ならMaxwell理論に戻る
@@ -305,6 +307,8 @@ $$
 $$
 
 内部方向を一つに制限した作用密度はMaxwell型です。ただしこれは $SU(2)$ 全体をU(1)と同一視したわけではなく、交換する一方向だけに限った特例です。
+
+**前章までとの符号の接続**：[QFT15の電磁場テンソル](../QFT15/index.md#def-qft15-potential-field)は $F^{\mathrm{(EM)}}_{\mu\nu}=\partial_\nu a_\mu-\partial_\mu a_\nu$ と定義しました。一方、本講の曲率を同じポテンシャル $a_\mu$ の可換方向へ制限すると $F^{\mathrm{(YM)}}_{\mu\nu}=-F^{\mathrm{(EM)}}_{\mu\nu}T^3$ です。**テンソルの定義には全体符号の差があります**が、$F_{\mu\nu}F^{\mu\nu}$ の二次作用と無源の運動方程式は同値です。電場・磁場の成分や外部源との結合を比較する際には、両者の定義へ戻って符号を確認してください。
 <!-- definition-example-end -->
 
 <a id="thm-qft28-action-eom"></a>
@@ -436,7 +440,7 @@ $$
 
 ## 5. 演習
 
-各問では $\eta=\operatorname{diag}(1,-1,-1,-1)$、$D_\mu=\partial_\mu-igA_\mu$、$[T^a,T^b]=if^{abc}T^c$、$\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ とします。$SU(2)$ の場合は $f^{abc}=\varepsilon^{abc}$ です。
+各問では $\eta=\operatorname{diag}(-1,1,1,1)$、$D_\mu=\partial_\mu-igA_\mu$、$[T^a,T^b]=if^{abc}T^c$、$\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ とします。$SU(2)$ の場合は $f^{abc}=\varepsilon^{abc}$ です。
 
 ### 演習 QFT28-A1：生成子の交換子
 
@@ -487,7 +491,7 @@ $$
 F_{12}=-ig[2T^1,3T^2]=6gT^3,\qquad F_{21}=-6gT^3.
 $$
 
-従って内部成分は $F^3_{12}=6g$、$F^3_{21}=-6g$ 以外すべて零です。計量の空間成分は $\eta^{11}=\eta^{22}=-1$ なので、添字を上げると $F^{3\,12}=(-1)(-1)F^3_{12}=6g$ です。和を両方の順序で取ると
+従って内部成分は $F^3_{12}=6g$、$F^3_{21}=-6g$ 以外すべて零です。計量の空間成分は $\eta^{11}=\eta^{22}=+1$ なので、添字を上げると $F^{3\,12}=(+1)(+1)F^3_{12}=6g$ です。和を両方の順序で取ると
 
 $$
 F^a_{\mu\nu}F^{a\mu\nu}

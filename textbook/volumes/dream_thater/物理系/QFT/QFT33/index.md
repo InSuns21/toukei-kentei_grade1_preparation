@@ -4,14 +4,14 @@
 
 この違いから、なぜ質量を持つ動径振動と質量零の接線振動が現れるのでしょうか。まず手で微分できる二実成分スカラー模型で確かめ、一般の対称性軌道のHessianへ拡張します。さらに量子場でのGoldstone定理が必要とする**保存流・局所性・無限体積**を明示し、古典質量行列の計算との論理的な差を調べます。
 
-以下は $3+1$ 次元Minkowski空間、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ です。添字 $a,b$ は内部の実成分を表し、$x^\mu=(t,\boldsymbol x)$、$\Box=\partial_\mu\partial^\mu$ とします。まず古典作用を扱い、量子化に移る箇所で仮定を追加します。
+以下は $3+1$ 次元Minkowski空間、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ です。添字 $a,b$ は内部の実成分を表し、$x^\mu=(t,\boldsymbol x)$、$\Box=\partial_\mu\partial^\mu=-\partial_t^2+\Delta$ とします。正エネルギーのスカラー場には $-\partial_\mu\phi\,\partial^\mu\phi/2$ を使います。まず古典作用を扱い、量子化に移る箇所で仮定を追加します。
 
 ## 1. 対称な作用から非対称な真空が選ばれる
 
 二つの実スカラー場 $\phi=(\phi_1,\phi_2)^T$ を一つの内部平面上のベクトルとみなし、次の作用を考えます。
 
 $$
-\mathcal L=\frac12\partial_\mu\phi_a\partial^\mu\phi_a-V(\phi),
+\mathcal L=-\frac12\partial_\mu\phi_a\partial^\mu\phi_a-V(\phi),
 \qquad
 V(\phi)=\frac{\lambda}{4}(\phi_1^2+\phi_2^2-v^2)^2,
 \qquad \lambda>0,\ v>0.
@@ -20,7 +20,7 @@ $$
 繰り返した内部添字は $a=1,2$ について足します。$R(\alpha)=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}$ は $R^TR=I$ を満たすので、$\phi\mapsto R(\alpha)\phi$ で運動項も $V$ も不変です。[QFT1の場のEuler–Lagrange方程式](../QFT1/index.md#thm-qft1-field-el)に従い、運動方程式は
 
 $$
-\Box\phi_a+\lambda(\phi_b\phi_b-v^2)\phi_a=0
+-\Box\phi_a+\lambda(\phi_b\phi_b-v^2)\phi_a=0
 $$
 
 です。空間一定・時間一定の古典真空候補は $V$ の**大域的最小点**から探します。$V\ge0$ で等号は $\phi_1^2+\phi_2^2=v^2$ のときだけです。したがって最低エネルギーの点は一つではありません。
@@ -76,7 +76,7 @@ $$
 
 **定義の確認**：回転の生成子を $T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、試験する演算子を $O=\phi_2$ とします。すると $\delta\phi_2=\alpha\phi_1$ で、$T(v,0)^T=(0,v)^T\ne0$ より真空の向きが変わります。
 
-次に[QFT2のNoether流の定義](../QFT2/index.md#def-qft2-noether-current)へ $\Delta\phi=(-\phi_2,\phi_1)$ と正準運動量 $\Pi_a=\partial_0\phi_a$ を代入して $j^0=\phi_1\Pi_2-\phi_2\Pi_1$ を得ます。量子論の等時刻正準交換関係
+次に[QFT2のNoether流の定義](../QFT2/index.md#def-qft2-noether-current)へ $\Delta\phi=(-\phi_2,\phi_1)$ と正準運動量 $\Pi_a=-\partial^0\phi_a=\partial_0\phi_a$ を代入して $j^0=\phi_1\Pi_2-\phi_2\Pi_1$ を得ます。量子論の等時刻正準交換関係
 
 $$
 [\Pi_a(0,\boldsymbol x),\phi_b(0)]=-i\delta_{ab}\delta^3(\boldsymbol x)
@@ -106,8 +106,8 @@ $$
 となります。Hessianは実対称行列なので、正規直交固有ベクトル $u_i$ によって $H(\phi_0)u_i=m_i^2u_i$ と対角化できます。$\xi=\sum_i q_i u_i$ を代入し、$u_i^Tu_j=\delta_{ij}$ を使うと、二次のラグランジアンは
 
 $$
-\mathcal L_2=\frac12\sum_i\bigl(\partial_\mu q_i\partial^\mu q_i-m_i^2q_i^2\bigr),
-\qquad (\Box+m_i^2)q_i=0.
+\mathcal L_2=-\frac12\sum_i\bigl(\partial_\mu q_i\partial^\mu q_i+m_i^2q_i^2\bigr),
+\qquad (-\Box+m_i^2)q_i=0.
 $$
 
 従って、運動項がこのように正準規格化されているときに限り、**質量二乗行列**は $H(\phi_0)$ に等しくなります。最小点では二階微分の二次形式が非負なので $m_i^2\ge0$ です。非正準運動項なら単純なHessianの固有値を物理的質量と同一視できません。
@@ -163,11 +163,11 @@ $$
 
 $$
 \mathcal L_2
-=\frac12(\partial_\mu h)^2-\frac12(2\lambda v^2)h^2
-+\frac12(\partial_\mu\pi)^2.
+=-\frac12(\partial_\mu h)^2-\frac12(2\lambda v^2)h^2
+-\frac12(\partial_\mu\pi)^2.
 $$
 
-従って $(\Box+2\lambda v^2)h=0$、$\Box\pi=0$ です。[QFT1の平面波分散関係](../QFT1/index.md#prop-qft1-dispersion)により $h$ は $E^2=|\boldsymbol p|^2+2\lambda v^2$、$\pi$ は $E^2=|\boldsymbol p|^2$ を持ちます。
+従って $(-\Box+2\lambda v^2)h=0$、$\Box\pi=0$ です。[QFT1の平面波分散関係](../QFT1/index.md#prop-qft1-dispersion)により $h$ は $E^2=|\boldsymbol p|^2+2\lambda v^2$、$\pi$ は $E^2=|\boldsymbol p|^2$ を持ちます。
 <!-- proof-end -->
 
 ### 例：別の真空でも零方向は接線
@@ -191,13 +191,13 @@ $$
 &=(\partial_\mu\rho)^2
 +\frac{(v+\rho)^2}{v^2}(\partial_\mu\theta)^2,\\
 \mathcal L
-&=\frac12(\partial\rho)^2
-+\frac12\left(1+\frac{\rho}{v}\right)^2(\partial\theta)^2
+&=-\frac12(\partial\rho)^2
+-\frac12\left(1+\frac{\rho}{v}\right)^2(\partial\theta)^2
 -\frac{\lambda}{4}(2v\rho+\rho^2)^2.
 \end{aligned}
 $$
 
-$\rho=0$ 付近の二次項は $\frac12(\partial\rho)^2+\frac12(\partial\theta)^2-\lambda v^2\rho^2$ です。$\theta$ の**非微分**のポテンシャルがなく、回転すると $\theta\mapsto\theta+v\alpha$ と移ります。$\rho$ と $\theta$ は元の二つの実自由度の座標変換であり、粒子数が増えたのではありません。
+$\rho=0$ 付近の二次項は $-\frac12(\partial\rho)^2-\frac12(\partial\theta)^2-\lambda v^2\rho^2$ です。$\theta$ の**非微分**のポテンシャルがなく、回転すると $\theta\mapsto\theta+v\alpha$ と移ります。$\rho$ と $\theta$ は元の二つの実自由度の座標変換であり、粒子数が増えたのではありません。
 
 実際、真空近傍でCartesian変数と比べると
 
@@ -268,10 +268,10 @@ Hessianは $H(\phi_0)=2\lambda v^2\operatorname{diag}(0,0,1)$ なので、最初
 
 古典Hessianの零方向は、場の相互作用や量子補正をまだ調べていません。量子論でGoldstoneの主張へ進むには、[QFT2のNoether保存則](../QFT2/index.md#thm-qft2-noether)と、[QFT4の正準量子化](../QFT4/index.md#thm-qft4-equal-time-ccr)に対応する等時刻交換関係を利用します。ここでの流れは**大域的な内部対称性**です。ゲージ変換のような記述上の冗長性とは区別します。
 
-無限小回転は $\delta\phi_1=-\alpha\phi_2,\ \delta\phi_2=\alpha\phi_1$ です。正準運動量を $\Pi_a=\partial_0\phi_a$ とすると、Noether流と電荷は
+無限小回転は $\delta\phi_1=-\alpha\phi_2,\ \delta\phi_2=\alpha\phi_1$ です。正準運動量を $\Pi_a=-\partial^0\phi_a=\partial_0\phi_a$ とすると、[Noether流](../QFT2/index.md#def-qft2-noether-current)は運動項の全体負号を受け、流と電荷は
 
 $$
-j^\mu=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1,\qquad
+j^\mu=-\phi_1\partial^\mu\phi_2+\phi_2\partial^\mu\phi_1,\qquad
 Q_R(t)=\int d^3x\,f_R(\boldsymbol x)j^0(t,\boldsymbol x).
 $$
 
@@ -280,7 +280,7 @@ $$
 $$
 \begin{aligned}
 \partial_\mu j^\mu
-&=\phi_1\Box\phi_2-\phi_2\Box\phi_1\\
+&=-\phi_1\Box\phi_2+\phi_2\Box\phi_1\\
 &=-\lambda(r^2-v^2)\phi_1\phi_2
 +\lambda(r^2-v^2)\phi_2\phi_1=0.
 \end{aligned}
@@ -306,7 +306,7 @@ $$
 \partial_\mu\langle Tj^\mu(x)\pi(0)\rangle
 =-iv\,\delta^4(x),\qquad
 \widetilde{\langle Tj^\mu\pi\rangle}(p)
-=\frac{vp^\mu}{p^2+i0}.
+=-\frac{vp^\mu}{-p^2+i0}.
 $$
 
 > 分母に現れる $p^2=0$ の極は接線場の質量零伝播に対応する。これらの式は摂動論の先頭次数であり、一般の相互作用理論のGoldstone定理そのものではない。
@@ -314,7 +314,7 @@ $$
 
 ### 証明の見取り図
 
-$j^\mu$ を $h,\pi$ で展開すると先頭項は $v\partial^\mu\pi$ です。時間順序の微分では演算子の時間依存だけでなく、二つの演算子を入れ替える境界 $x^0=0$ のデルタ関数が生じます。
+$j^\mu$ を $h,\pi$ で展開すると先頭項は $-v\partial^\mu\pi$ です。時間順序の微分では演算子の時間依存だけでなく、二つの演算子を入れ替える境界 $x^0=0$ のデルタ関数が生じます。
 
 <!-- proof-start -->
 ### 証明
@@ -322,8 +322,8 @@ $j^\mu$ を $h,\pi$ で展開すると先頭項は $v\partial^\mu\pi$ です。�
 $\phi_1=v+h,\ \phi_2=\pi$ を代入して
 
 $$
-j^\mu=(v+h)\partial^\mu\pi-\pi\partial^\mu h
-=v\partial^\mu\pi+h\partial^\mu\pi-\pi\partial^\mu h
+j^\mu=-(v+h)\partial^\mu\pi+\pi\partial^\mu h
+=-v\partial^\mu\pi-h\partial^\mu\pi+\pi\partial^\mu h
 $$
 
 です。二次の自由理論で $\pi$ のFeynman二点分布は [QFT6の時間順序伝播関数](../QFT6/index.md#def-qft6-feynman-two-point) の質量零版です。QFT6の定義は $m>0$ ですが、ここで使う $3+1$ 次元では $m\downarrow0$ の赤外端における一粒子測度は局所的に可積分です。実際、固定した $\delta>0$ に対し
@@ -337,15 +337,15 @@ $$
 
 $$
 \int d^4x\,e^{ip\cdot x}\langle T\pi(x)\pi(0)\rangle
-=\frac{i}{p^2+i0}.
+=\frac{i}{-p^2+i0}.
 $$
 
 $e^{ip\cdot x}$ によるFourier変換では $\partial_x^\mu$ が $-ip^\mu$ に対応するので
 
 $$
 \widetilde{\langle Tj^\mu\pi\rangle}(p)
-=v(-ip^\mu)\frac{i}{p^2+i0}
-=\frac{vp^\mu}{p^2+i0}.
+=-v(-ip^\mu)\frac{i}{-p^2+i0}
+=-\frac{vp^\mu}{-p^2+i0}.
 $$
 
 一方、時間順序積では、角度場 $\theta$ と区別して階段関数を $\Theta(t)$（正の引数で1、負の引数で0）と書きます。[QFT6の時間順序二点分布の定義](../QFT6/index.md#def-qft6-feynman-two-point)と同様に
@@ -410,11 +410,11 @@ $$
 
 と書けます。ここで $\rho(s)$ は第2節の動径場 $\rho(x)$ と異なり、質量二乗 $s\ge0$ に関する局所有限なスペクトル測度です。質量殻以外の接触項を含めない仮定を用いています。[QFT32の不変質量殻積分](../QFT32/index.md#prop-qft32-mass-shell-measure)のため、各 $\Delta$ はLorentz共変なスカラー分布です。
 
-各質量殻で $(\Box+s)\Delta(x;s)=0$ なので保存則から
+各質量殻では $p^2=-s$ なので $(\Box-s)\Delta(x;s)=0$ です。保存則から
 
 $$
 0=\partial_\mu C^\mu(x)
-=-\int_0^\infty ds\,s\rho(s)\Delta(x;s).
+=\int_0^\infty ds\,s\rho(s)\Delta(x;s).
 $$
 
 異なる $s$ の質量殻はFourier空間で区別されるため、スペクトルの一意性により $s\rho(s)=0$ です。従って $\rho$ の台は $s=0$ に含まれ、通常の測度なら $\rho(s)=c_0\delta(s)$ と書けます。
@@ -424,18 +424,18 @@ $$
 $$
 \left.\partial_0\Delta(t,\boldsymbol x;s)\right|_{t=0}
 =\int\frac{d^3p}{(2\pi)^3\,2E_s}
-(-iE_s-iE_s)e^{i\boldsymbol p\cdot\boldsymbol x}
-=-i\delta^3(\boldsymbol x).
+(iE_s+iE_s)e^{-i\boldsymbol p\cdot\boldsymbol x}
+=+i\delta^3(\boldsymbol x).
 $$
 
-よって切断を十分広げると
+ここでは $p\cdot x=-E_st+\boldsymbol p\cdot\boldsymbol x$ であり、$\partial^0=-\partial_0$ です。従って $\partial^0\Delta|_{t=0}=-i\delta^3$ となります。よって切断を十分広げると
 
 $$
 \lim_{R\to\infty}\int d^3x\,f_R(\boldsymbol x)C^0(0,\boldsymbol x)
 =-ic_0.
 $$
 
-左辺に $i$ を掛けたものが仮定の非零数 $c$ だから $c_0=c\ne0$ です。従って質量零のスペクトル寄与は消えず、全スペクトルが $p^2\ge m_*^2>0$ に限られることはありません。
+左辺に $i$ を掛けたものが仮定の非零数 $c$ だから $c_0=c\ne0$ です。従って質量零のスペクトル寄与は消えず、全スペクトルが $-p^2\ge m_*^2>0$ に限られることはありません。
 
 この議論は**スペクトル表示と切断極限を使う条件付き導出**です。一般の相対論的局所場のスペクトル定理そのものの証明、異常的接触項がないことの検証、相互作用理論の非摂動構成を暗黙に済ませたわけではありません。
 <!-- proof-end -->
@@ -499,12 +499,12 @@ $$
 停留式を $w>0$ で割ると $\lambda(w^2-v^2)=\varepsilon/w$ なので表示した固有値になります。$w$ は $\varepsilon\to0$ で $v$ に近づきます。運動方程式は
 
 $$
-\Box\phi_1=-\lambda(r^2-v^2)\phi_1+\varepsilon,
+\Box\phi_1=\lambda(r^2-v^2)\phi_1-\varepsilon,
 \qquad
-\Box\phi_2=-\lambda(r^2-v^2)\phi_2.
+\Box\phi_2=\lambda(r^2-v^2)\phi_2.
 $$
 
-これを $\partial_\mu j^\mu=\phi_1\Box\phi_2-\phi_2\Box\phi_1$ に代入すれば $-\varepsilon\phi_2$ です。保存則が壊れたため[Goldstone定理の仮定](#thm-qft33-goldstone)を直接適用できず、接線質量が許されるわけです。
+これを $\partial_\mu j^\mu=-\phi_1\Box\phi_2+\phi_2\Box\phi_1$ に代入すれば $-\varepsilon\phi_2$ です。保存則が壊れたため[Goldstone定理の仮定](#thm-qft33-goldstone)を直接適用できず、接線質量が許されるわけです。
 <!-- proof-end -->
 
 ### 有限体積で回転対称な真空しか見えないのはなぜか
@@ -575,7 +575,7 @@ $$
 ### 演習 QFT33-A3：保存流の発散と電荷の作用
 
 - Level: A
-- 問題：$\mathcal L=\frac12(\partial\phi_a)^2-\lambda(\phi_a\phi_a-v^2)^2/4$ で、$j^\mu=\phi_1\partial^\mu\phi_2-\phi_2\partial^\mu\phi_1$ を考えよ。
+- 問題：$\mathcal L=-\frac12(\partial\phi_a)^2-\lambda(\phi_a\phi_a-v^2)^2/4$ で、$j^\mu=-\phi_1\partial^\mu\phi_2+\phi_2\partial^\mu\phi_1$ を考えよ。
 
   1. 運動方程式から $\partial_\mu j^\mu=0$ を示せ。
   2. 等時刻正準交換関係から、切断 $f_R(\boldsymbol y)=1$ の点で $i[Q_R,\phi_1(\boldsymbol y)]$ を求めよ。
@@ -588,10 +588,10 @@ $$
    $$
    \begin{aligned}
    \partial_\mu j^\mu
-   &=\partial_\mu\phi_1\partial^\mu\phi_2+\phi_1\Box\phi_2
-    -\partial_\mu\phi_2\partial^\mu\phi_1-\phi_2\Box\phi_1\\
-   &=\phi_1[-\lambda(r^2-v^2)\phi_2]
-    -\phi_2[-\lambda(r^2-v^2)\phi_1]=0.
+   &=-\partial_\mu\phi_1\partial^\mu\phi_2-\phi_1\Box\phi_2
+    +\partial_\mu\phi_2\partial^\mu\phi_1+\phi_2\Box\phi_1\\
+   &=-\phi_1[\lambda(r^2-v^2)\phi_2]
+    +\phi_2[\lambda(r^2-v^2)\phi_1]=0.
    \end{aligned}
    $$
 
@@ -629,7 +629,7 @@ $$
    =(\partial_\mu\rho)^2+\frac{(v+\rho)^2}{v^2}(\partial_\mu\theta)^2.
    $$
 
-2. $\theta\mapsto\theta+2\pi v$ なら三角関数が同じです。$\rho=0$ に置いた二次の運動項は $\frac12(\partial\theta)^2$、ポテンシャルは $\theta$ に依存しないので質量項はありません。
+2. $\theta\mapsto\theta+2\pi v$ なら三角関数が同じです。$\rho=0$ に置いた二次の運動項は $-\frac12(\partial\theta)^2$、ポテンシャルは $\theta$ に依存しないので質量項はありません。
 3. $\rho=-v$ では $\phi=(0,0)$ が全ての $\theta$ に対応し、角度を識別できません。同時に $\theta$ の運動項係数 $(v+\rho)^2/v^2$ が零になり、座標変換のJacobianが退化します。局所座標を真空近傍でだけ使う理由です。
 <!-- solution-end -->
 
@@ -684,7 +684,7 @@ $$
 ### 演習 QFT33-B2：Ward接触項から極を検算する
 
 - Level: B
-- 問題：正準規格化された質量零実場 $\pi$ で $\widetilde{\langle T\pi\pi\rangle}(p)=i/(p^2+i0)$、電流の線形部分が $j^\mu=v\partial^\mu\pi$（$v\ne0$）とする。
+- 問題：正準規格化された質量零実場 $\pi$ で $\widetilde{\langle T\pi\pi\rangle}(p)=i/(-p^2+i0)$、電流の線形部分が $j^\mu=-v\partial^\mu\pi$（$v\ne0$）とする。
 
   1. 規約 $\widetilde F(p)=\int e^{ipx}F(x)d^4x$ で $G^\mu(p)=\widetilde{\langle Tj^\mu\pi\rangle}$ を求めよ。
   2. $-ip_\mu G^\mu=-iv$ を検算せよ。
@@ -696,14 +696,14 @@ $$
 1. 微分のFourier変換は $-ip^\mu$ 倍なので
 
    $$
-   G^\mu(p)=v(-ip^\mu)\frac{i}{p^2+i0}
-   =\frac{vp^\mu}{p^2+i0}.
+   G^\mu(p)=-v(-ip^\mu)\frac{i}{-p^2+i0}
+   =-\frac{vp^\mu}{-p^2+i0}.
    $$
 
-2. 分布の境界値として $p^2/(p^2+i0)=1$ を使うと
+2. 分布の境界値として $(-p^2)/(-p^2+i0)=1$ を使うと
 
    $$
-   -ip_\mu G^\mu=-iv\frac{p^2}{p^2+i0}=-iv.
+   -ip_\mu G^\mu=-iv\frac{-p^2}{-p^2+i0}=-iv.
    $$
 
    これは[保存流とWard接触項の命題](#prop-qft33-ward-pole)で、時間順序の境界に現れる交換子です。
@@ -740,7 +740,7 @@ $$
    =\frac{\varepsilon}{v}+O(\varepsilon^2).
    $$
 
-4. 方程式は $\Box\phi_1=-\lambda(r^2-v^2)\phi_1+\varepsilon$ と $\Box\phi_2=-\lambda(r^2-v^2)\phi_2$ です。$\phi_1\Box\phi_2-\phi_2\Box\phi_1$ に代入すると、対称なポテンシャル由来の二項が相殺して $-\varepsilon\phi_2$ だけが残ります。プラス符号ではありません。
+4. 方程式は $\Box\phi_1=\lambda(r^2-v^2)\phi_1-\varepsilon$ と $\Box\phi_2=\lambda(r^2-v^2)\phi_2$ です。$-\phi_1\Box\phi_2+\phi_2\Box\phi_1$ に代入すると、対称なポテンシャル由来の二項が相殺して $-\varepsilon\phi_2$ だけが残ります。プラス符号ではありません。
 <!-- solution-end -->
 
 ### 演習 QFT33-B4：有限体積回転子と量子真空
@@ -782,7 +782,7 @@ $$
 - 問題：$3+1$ 次元の実二成分スカラー場で
 
   $$
-  \mathcal L=\frac12(\partial\phi_1)^2+\frac12(\partial\phi_2)^2
+  \mathcal L=-\frac12(\partial\phi_1)^2-\frac12(\partial\phi_2)^2
   -\frac{\lambda}{4}(\phi_1^2+\phi_2^2-v^2)^2+\varepsilon\phi_1,
   \qquad\lambda,v>0,\quad \varepsilon\ge0
   $$
@@ -823,11 +823,11 @@ $$
    \langle i[Q_R,\pi(0)]\rangle=v
    $$
 
-   です。流の線形項 $j^\mu=v\partial^\mu\pi+O(h\pi)$、$i/(p^2+i0)$ の自由伝播関数から
+   です。流の線形項 $j^\mu=-v\partial^\mu\pi+O(h\pi)$、$i/(-p^2+i0)$ の自由伝播関数から
 
    $$
-   G^\mu(p)=(-ip^\mu)v\frac{i}{p^2+i0}
-   =\frac{vp^\mu}{p^2+i0},\qquad
+   G^\mu(p)=(-ip^\mu)(-v)\frac{i}{-p^2+i0}
+   =-\frac{vp^\mu}{-p^2+i0},\qquad
    p_\mu G^\mu=v.
    $$
 
@@ -842,7 +842,7 @@ $$
    で、$\varepsilon\to0^+$ により $w\to v,\ m_\perp^2\to0$ です。$+\varepsilon\phi_1$ の作用は $\phi_1$ 方程式へ $+\varepsilon$ を加えるので
 
    $$
-   \partial_\mu j^\mu=\phi_1\Box\phi_2-\phi_2\Box\phi_1=-\varepsilon\phi_2.
+   \partial_\mu j^\mu=-\phi_1\Box\phi_2+\phi_2\Box\phi_1=-\varepsilon\phi_2.
    $$
 
    この非零発散がGoldstone定理の厳密な保存則を破っています。

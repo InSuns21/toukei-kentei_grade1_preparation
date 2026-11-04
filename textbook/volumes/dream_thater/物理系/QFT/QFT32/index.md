@@ -4,7 +4,7 @@
 
 粒子を特徴付ける質量とスピン、質量零粒子の**運動方向に沿ったスピン成分**が、**どの運動量を固定する変換が残るか**から現れることを計算します。その後、左・右Weyl成分、Dirac質量、場が自身の電荷共役と等しい条件の適用範囲を同じ視点から区別します。ここで扱うのは自由場・安定な漸近一粒子状態の対称性です。相互作用する理論の全状態が常に自由粒子へ分解できるとは仮定しません。
 
-時空は $3+1$ 次元Minkowski空間、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$ です。$p^2=(p^0)^2-|\boldsymbol p|^2$、$p\cdot x=p^0t-\boldsymbol p\cdot\boldsymbol x$ とします。Lorentz変換は連結成分 $SO^+(1,3)$、量子状態のスピンを記すときはその二重被覆を使います。以下の運動量のデルタ関数、平面波状態は波束に積分して解釈します。
+時空は $3+1$ 次元Minkowski空間、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$ です。$p^2=-(p^0)^2+|\boldsymbol p|^2$、$p\cdot x=-p^0t+\boldsymbol p\cdot\boldsymbol x$ とします。正エネルギーの正振動数位相は $e^{+ip\cdot x}=e^{-iEt+i\boldsymbol p\cdot\boldsymbol x}$ です。Lorentz変換は連結成分 $SO^+(1,3)$、量子状態のスピンを記すときはその二重被覆を使います。以下の運動量のデルタ関数、平面波状態は波束に積分して解釈します。
 
 ## 1. 時空の移動と粒子状態の移動は一つの群を作る
 
@@ -52,16 +52,16 @@ $$
 
 ### 証明の見取り図
 
-$d^4p$ と $\theta(p^0)\delta(p^2-m^2)$ のLorentz不変性を使い、正エネルギーの根だけを残します。ユニタリ性では位相の絶対値が1であることも使います。
+$d^4p$ と $\theta(p^0)\delta(p^2+m^2)$ のLorentz不変性を使い、正エネルギーの根だけを残します。ユニタリ性では位相の絶対値が1であることも使います。
 
 <!-- proof-start -->
 ### 証明
 
-$m>0$ の場合、$p^2-m^2=(p^0-E_{\boldsymbol p})(p^0+E_{\boldsymbol p})$ です。正の根 $p^0=E_{\boldsymbol p}$ の近傍で $u=(p^0)^2-E_{\boldsymbol p}^2$ と変数変換すると、$du=2p^0dp^0$ です。従って正の根ではJacobianが $1/(2E_{\boldsymbol p})$ となり、
+$m>0$ の場合、$p^2+m^2=-(p^0-E_{\boldsymbol p})(p^0+E_{\boldsymbol p})$ です。正の根 $p^0=E_{\boldsymbol p}$ の近傍で $u=-(p^0)^2+E_{\boldsymbol p}^2$ と変数変換すると、$du=-2p^0dp^0$ です。デルタ関数の変数変換には $|du/dp^0|=2E_{\boldsymbol p}$ を用いるので、正の根ではJacobianが $1/(2E_{\boldsymbol p})$ となり、
 
 $$
 \begin{aligned}
-&\int_{\mathbb R^4}d^4p\,\theta(p^0)\delta(p^2-m^2)F(p)\\
+&\int_{\mathbb R^4}d^4p\,\theta(p^0)\delta(p^2+m^2)F(p)\\
 &=\int_{\mathbb R^3}d^3p\int_0^\infty dp^0\,
   \frac{\delta(p^0-E_{\boldsymbol p})}{2E_{\boldsymbol p}}F(p^0,\boldsymbol p)\\
 &=\int_{\mathbb R^3}\frac{d^3p}{2E_{\boldsymbol p}}F(E_{\boldsymbol p},\boldsymbol p).
@@ -97,7 +97,7 @@ $$
 
 **命題の確認**：質量殻測度を使う表現の二つの要件、位相の絶対値1とLorentz変換後の積分不変性を分けて調べます。
 
-$p=(m,\boldsymbol0)$、時間平行移動 $a=(T,\boldsymbol0)$ なら波束の各運動量成分には $e^{iET}$ が掛かります。$|e^{iET}|^2=1$ であるため規格化は変わりません。運動量を変えるboostでは $d^3p$ 単独では不変になりませんが、上の $1/(2E)$ がJacobianを打ち消します。これは両条件をそれぞれ確認した例です。
+$p=(m,\boldsymbol0)$、時間平行移動 $a=(T,\boldsymbol0)$ なら波束の各運動量成分には $e^{-iET}$ が掛かります。$|e^{-iET}|^2=1$ であるため規格化は変わりません。運動量を変えるboostでは $d^3p$ 単独では不変になりませんが、上の $1/(2E)$ がJacobianを打ち消します。これは両条件をそれぞれ確認した例です。
 
 ## 2. 運動量を固定する変換から質量とスピンを読む
 
@@ -142,7 +142,7 @@ $$
 この表示を使う理由は、**Minkowski内積の判定が行列式になる**ことです。二行二列の行列式を展開すれば
 
 $$
-\det X(p)=(p^0)^2-(p^3)^2-(p^1)^2-(p^2)^2=p^2.
+\det X(p)=(p^0)^2-(p^3)^2-(p^1)^2-(p^2)^2=-p^2.
 $$
 
 $A\in SL(2,\mathbb C)$（複素二行二列で $\det A=1$）に $X\mapsto AXA^\dagger$ と作用させると、Hermitian性と行列式が保たれます。
@@ -173,7 +173,7 @@ $$
 
 これは $z$ 方向のboostです。一方 $A=\operatorname{diag}(e^{-i\theta/2},e^{i\theta/2})$ なら非対角成分 $p^1-ip^2$ は $e^{-i\theta}$ 倍となり、$z$ 軸回転を与えます。座標軸を回してこれらを組み合わせれば任意方向のboostと回転を作れます。
 
-実際、任意の $\Lambda\in SO^+(1,3)$ に対し、$u=\Lambda(1,0,0,0)$ は $u^2=1,u^0>0$ を満たします。$\boldsymbol\beta=\boldsymbol u/u^0$ と置けば $|\boldsymbol\beta|<1$、$\gamma=(1-|\boldsymbol\beta|^2)^{-1/2}=u^0$ です。この速度のboost $B$ は $(1,0,0,0)$ を $u$ へ移します。そこで $B^{-1}\Lambda$ は $(1,0,0,0)$ を固定するので空間回転です。よってboostと回転の積で全群を覆います。
+実際、任意の $\Lambda\in SO^+(1,3)$ に対し、$u=\Lambda(1,0,0,0)$ は $u^2=-1,u^0>0$ を満たします。$\boldsymbol\beta=\boldsymbol u/u^0$ と置けば $|\boldsymbol\beta|<1$、$\gamma=(1-|\boldsymbol\beta|^2)^{-1/2}=u^0$ です。この速度のboost $B$ は $(1,0,0,0)$ を $u$ へ移します。そこで $B^{-1}\Lambda$ は $(1,0,0,0)$ を固定するので空間回転です。よってboostと回転の積で全群を覆います。
 
 また全てのHermitian $X$ を固定する $A$ は、$X=I$ を使うと $AA^\dagger=I$、さらに $A\sigma_i=\sigma_iA$（$i=1,2,3$）です。$\sigma_3$ と可換なら $A$ は対角、$\sigma_1$ とも可換なら $A=\lambda I$ であり、$\det A=1$ から $\lambda=\pm1$ です。従って核はちょうど $\{I,-I\}$。これで $SL(2,\mathbb C)\to SO^+(1,3)$ が二対一であることと、スピノルに符号が残る理由を確かめました。
 
@@ -337,13 +337,13 @@ $$
 [QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)を満たす行列を、以下のWeyl表示で具体化します。$\sigma^\mu=(I,\boldsymbol\sigma)$、$\bar\sigma^\mu=(I,-\boldsymbol\sigma)$ とし、
 
 $$
-\gamma^\mu=\begin{pmatrix}0&\sigma^\mu\\\bar\sigma^\mu&0\end{pmatrix},
+\gamma^\mu=i\begin{pmatrix}0&\sigma^\mu\\\bar\sigma^\mu&0\end{pmatrix},
 \qquad
 \gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3
 =\begin{pmatrix}-I&0\\0&I\end{pmatrix}.
 $$
 
-ここで $\sigma_1\sigma_2=i\sigma_3$ と $\sigma_3^2=I$ を使うと、$\gamma^0\gamma^1\gamma^2\gamma^3=\operatorname{diag}(iI,-iI)$ となり、上の $\gamma^5$ の符号を検算できます。
+この全体因子 $i$ により $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$ が成り立ち、[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)と一致します。四つの因子 $i$ の積は $i^4=1$ なので $\gamma^5$ は表示どおりです。ここで $\sigma_1\sigma_2=i\sigma_3$ と $\sigma_3^2=I$ を使うと、$\gamma^0\gamma^1\gamma^2\gamma^3=\operatorname{diag}(iI,-iI)$ となり、上の $\gamma^5$ の符号を検算できます。
 
 場のLorentz変換を成分まで確定しておきます。前節の $X(p)=p^0I+\boldsymbol p\cdot\boldsymbol\sigma$ に対し
 
@@ -358,9 +358,9 @@ $$
 \bar X'=(A^\dagger)^{-1}\bar X A^{-1}.
 $$
 
-ここで四元運動量の添字を下げると $p_\mu=(p^0,-\boldsymbol p)$ なので、質量零のWeyl方程式に出る行列は
+ここで四元運動量の添字を下げると $p_\mu=(-p^0,\boldsymbol p)$ なので、質量零のWeyl方程式に出る行列は
 $$
-\bar\sigma^\mu p_\mu=X(p),\qquad \sigma^\mu p_\mu=\bar X(p)
+-\bar\sigma^\mu p_\mu=X(p),\qquad -\sigma^\mu p_\mu=\bar X(p)
 $$
 です。$\bar\sigma^\mu$ と $\bar X$ は同じ記号「バー」があっても、前者には下付き運動量との縮約があるため取り違えてはいけません。$A_L=(A^\dagger)^{-1}\in SL(2,\mathbb C)$ とおくと、左成分は $\chi_L\mapsto A_L\chi_L$、右成分は $\chi_R\mapsto A\chi_R$ と変換します。実際、
 $$
@@ -375,7 +375,7 @@ A_z=\begin{pmatrix}1&z\\0&1\end{pmatrix},\qquad
 L_z=(A_z^\dagger)^{-1}
 =\begin{pmatrix}1&0\\-z^*&1\end{pmatrix}
 $$
-とします。$X(k)e_2=0$ であり、正しい左成分変換なら $B_ze_2=e_2$ と解を保ちます。一方、右成分用の $A_z$ を誤って左へ使うと
+とします。$X(k)e_2=0$ であり、正しい左成分変換なら $L_ze_2=e_2$ と解を保ちます。一方、右成分用の $A_z$ を誤って左へ使うと
 $$
 A_ze_2=\begin{pmatrix}z\\1\end{pmatrix},
 \qquad
@@ -399,7 +399,7 @@ P_L\Psi=\begin{pmatrix}\chi_L\\0\end{pmatrix},\quad
 P_R\Psi=\begin{pmatrix}0\\\chi_R\end{pmatrix}
 $$
 
-> と定める。$\chi_L$、$\chi_R$ を左・右Weyl成分と呼ぶ。質量零Dirac方程式 $i\gamma^\mu\partial_\mu\Psi=0$ は
+> と定める。$\chi_L$、$\chi_R$ を左・右Weyl成分と呼ぶ。質量零Dirac方程式 $\gamma^\mu\partial_\mu\Psi=0$ は
 
 $$
 i\bar\sigma^\mu\partial_\mu\chi_L=0,\qquad
@@ -423,7 +423,7 @@ $\Psi=(a,b,c,d)^T$ とすると $\gamma^5\Psi=(-a,-b,c,d)^T$ です。従って 
 
 <!-- formal-statement-start -->
 > **命題（質量零Weyl方程式の粒子ヘリシティ）**
-> $p^0=|\boldsymbol p|>0$、$\boldsymbol p\ne0$、平面波を $e^{-ip\cdot x}$ とし、上のWeyl表示を使う。左Weyl方程式の非零な正振動数二成分振幅 $\xi_L$ は
+> $p^0=|\boldsymbol p|>0$、$\boldsymbol p\ne0$、平面波を $e^{+ip\cdot x}$ とし、上のWeyl表示を使う。左Weyl方程式の非零な正振動数二成分振幅 $\xi_L$ は
 
 $$
 (\boldsymbol\sigma\cdot\widehat{\boldsymbol p})\xi_L=-\xi_L,
@@ -434,26 +434,26 @@ $$
 
 ### 証明の見取り図
 
-Weyl方程式に平面波を代入すると、微分は $-ip_\mu$ に置き換わります。$\bar\sigma^\mu p_\mu=p^0I+\boldsymbol\sigma\cdot\boldsymbol p$ という添字の符号が決め手です。
+Weyl方程式に平面波を代入すると、微分は $+ip_\mu$ に置き換わります。$-\bar\sigma^\mu p_\mu=p^0I+\boldsymbol\sigma\cdot\boldsymbol p$ という添字の符号が決め手です。
 
 <!-- proof-start -->
 ### 証明
 
-$i\partial_\mu e^{-ip\cdot x}=p_\mu e^{-ip\cdot x}$ なので、左成分では $\bar\sigma^\mu p_\mu\xi_L=0$ です。$p_\mu=(p^0,-\boldsymbol p)$ と $\bar\sigma^i=-\sigma_i$ を代入すると
+$i\partial_\mu e^{+ip\cdot x}=-p_\mu e^{+ip\cdot x}$ なので、左成分では $\bar\sigma^\mu p_\mu\xi_L=0$ です。$p_\mu=(-p^0,\boldsymbol p)$ と $\bar\sigma^i=-\sigma_i$ を代入すると
 
 $$
 (p^0I+\boldsymbol\sigma\cdot\boldsymbol p)\xi_L=0.
 $$
 
-$p^0=|\boldsymbol p|$ で割り、$(\boldsymbol\sigma\cdot\widehat{\boldsymbol p})\xi_L=-\xi_L$ を得ます。右成分では $\sigma^\mu p_\mu=p^0I-\boldsymbol\sigma\cdot\boldsymbol p$ だから固有値は $+1$ です。二成分スピンの回転生成子は $\boldsymbol J=\boldsymbol\sigma/2$ なので、[ヘリシティの定義](#def-qft32-helicity)を作用させると固有値はそれぞれ $\mp1/2$ となります。
+$p^0=|\boldsymbol p|$ で割り、$(\boldsymbol\sigma\cdot\widehat{\boldsymbol p})\xi_L=-\xi_L$ を得ます。右成分では $-\sigma^\mu p_\mu=p^0I-\boldsymbol\sigma\cdot\boldsymbol p$ だから固有値は $+1$ です。二成分スピンの回転生成子は $\boldsymbol J=\boldsymbol\sigma/2$ なので、[ヘリシティの定義](#def-qft32-helicity)を作用させると固有値はそれぞれ $\mp1/2$ となります。
 <!-- proof-end -->
 
-質量 $m>0$ のDirac方程式では左右は独立ではありません。質量項は $\chi_L$ と $\chi_R$ を結びます。
+質量 $m>0$ の[QFT7のDirac方程式](../QFT7/index.md#thm-qft7-factorization) $(\gamma^\mu\partial_\mu-m)\Psi=0$ では左右は独立ではありません。正振動数位相 $e^{+ip\cdot x}$ を代入すると $(i\not p-m)\Psi=0$ となり、質量項が $\chi_L$ と $\chi_R$ を結びます。
 
 $$
 \begin{aligned}
-p_\mu\sigma^\mu\xi_R&=m\xi_L,\\
-p_\mu\bar\sigma^\mu\xi_L&=m\xi_R.
+-p_\mu\sigma^\mu\xi_R&=m\xi_L,\\
+-p_\mu\bar\sigma^\mu\xi_L&=m\xi_R.
 \end{aligned}
 $$
 
@@ -476,7 +476,7 @@ $$
 > Weyl表示の四成分スピノル $\Psi=(\chi_L,\chi_R)^T$ に対し
 
 $$
-\Psi^c=i\gamma^2\Psi^*
+\Psi^c=\gamma^2\Psi^*
 =\begin{pmatrix}\varepsilon\chi_R^*\\-\varepsilon\chi_L^*\end{pmatrix}
 $$
 
@@ -614,7 +614,7 @@ X(p)=\begin{pmatrix}5&3\\3&5\end{pmatrix},\qquad
 \det X=25-9=16.
 $$
 
-特性方程式は $(5-\lambda)^2-9=0$ で、固有値は $8,2$ とともに正です。$\det X=p^2=m^2$、$p^0=5>0$ なので $m=4$ です。$E_{\boldsymbol p}=\sqrt{3^2+4^2}=5$ も確認できます。
+特性方程式は $(5-\lambda)^2-9=0$ で、固有値は $8,2$ とともに正です。$\det X=-p^2=m^2$、$p^0=5>0$ なので $m=4$ です。$E_{\boldsymbol p}=\sqrt{3^2+4^2}=5$ も確認できます。
 <!-- solution-end -->
 
 ### 演習 QFT32-A4：光的little groupの具体行列
@@ -676,22 +676,22 @@ $H(p)=H_0$ が運動量に依らないなら $W'=H_0^{-1}WH_0$、すなわち同
 ### 演習 QFT32-B2：ヘリシティとカイラリティの符号を導く
 
 - Level: B
-- 問題：質量零で $p=(E,0,0,E)$、$E>0$、$e^{-ip\cdot x}$ の正振動数解を考える。左・右Weyl方程式を二行二列行列として書き、零空間の基底を一つずつ示し、ヘリシティを計算せよ。
+- 問題：質量零で $p=(E,0,0,E)$、$E>0$、$e^{+ip\cdot x}$ の正振動数解を考える。左・右Weyl方程式を二行二列行列として書き、零空間の基底を一つずつ示し、ヘリシティを計算せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-$p_\mu=(E,0,0,-E)$ です。左について
+$p_\mu=(-E,0,0,E)$ です。左について
 
 $$
-p_\mu\bar\sigma^\mu=E(I+\sigma_3)
-=E\begin{pmatrix}2&0\\0&0\end{pmatrix},
+-p_\mu\bar\sigma^\mu=E(I+\sigma_3)
+ =E\begin{pmatrix}2&0\\0&0\end{pmatrix},
 $$
 
 なので零空間は $\operatorname{span}\{(0,1)^T\}$ です。右について
 
 $$
-p_\mu\sigma^\mu=E(I-\sigma_3)
+-p_\mu\sigma^\mu=E(I-\sigma_3)
 =E\begin{pmatrix}0&0\\0&2\end{pmatrix},
 $$
 
@@ -769,7 +769,7 @@ $$
    =\begin{pmatrix}e^{-i\theta/2}&0\\-z^*&e^{i\theta/2}\end{pmatrix}
    $$
 
-   です。$\bar\sigma^\mu p_\mu=X(k)$ の零空間である $\xi_L$ に実際に作用させると
+   です。$-\bar\sigma^\mu p_\mu=X(k)$ の零空間である $\xi_L$ に実際に作用させると
 
    $$
    A_L\xi_L=e^{i\theta/2}\xi_L

@@ -6,10 +6,10 @@
 
 この章ではまず、外力への**因果的応答**を遅延・先進核で作り、次に量子真空の**時間順序相関**を二点量として組み立てます。複素エネルギー平面の極をどちらへ避けるかが、その違いをどのように表すのかまで導きます。
 
-全章で時空は $\mathbb R^{1+3}$、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、質量は $m>0$、単位は $c=\hbar=1$ とします。$x=(t,\boldsymbol x)$、$p=(p^0,\boldsymbol p)$ とし、
+全章で時空は $\mathbb R^{1+3}$、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、質量は $m>0$、単位は $c=\hbar=1$ とします。$x=(t,\boldsymbol x)$、$p=(p^0,\boldsymbol p)$ とし、
 
 $$
-P=\partial_t^2-\Delta_{\boldsymbol x}+m^2,\qquad
+P=-\Box+m^2=\partial_t^2-\Delta_{\boldsymbol x}+m^2,\qquad
 \omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}.
 $$
 
@@ -292,7 +292,8 @@ $$
 $$
 \widehat D_F(p^0,\boldsymbol p)
 =\lim_{\varepsilon\downarrow0}
-\frac{i}{(p^0)^2-\omega_{\boldsymbol p}^2+i\varepsilon},
+\frac{i}{(p^0)^2-\omega_{\boldsymbol p}^2+i\varepsilon}
+=\lim_{\varepsilon\downarrow0}\frac{i}{-p_\mu p^\mu-m^2+i\varepsilon},
 \qquad
 P D_F=-i\delta^4.
 $$

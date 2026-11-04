@@ -18,6 +18,15 @@ $$
 
 とします。四次元では $\not k=\sum_{\mu=1}^4\gamma_\mu k_\mu$ と書き、以後、添字の反復は総和を表します。次元正則化で $d=4-2\varepsilon$ へ解析接続する式では、同じ縮約を形式的に $d$ 次元で扱います。
 
+ここでの $\gamma_\mu$ は、[QFT7のMinkowski型Clifford関係](../QFT7/index.md#def-qft7-clifford)の行列をそのまま添字だけ付け替えたものではありません。QFT7の $\eta=\operatorname{diag}(-1,1,1,1)$ に従う行列を $\gamma_{\mathrm M}^\mu$ と書けば、四次元での対応例は
+
+$$
+\gamma_{\mathrm E,j}=\gamma_{\mathrm M}^j\quad(j=1,2,3),
+\qquad \gamma_{\mathrm E,4}=i\gamma_{\mathrm M}^0
+$$
+
+です。実際に $(\gamma_{\mathrm M}^0)^2=-I$ だから $(\gamma_{\mathrm E,4})^2=I$、空間成分も $(\gamma_{\mathrm E,j})^2=I$ で、異なる成分の反交換子は零です。従って $\{\gamma_{\mathrm E,\mu},\gamma_{\mathrm E,\nu}\}=2\delta_{\mu\nu}I$ が得られます。以下の添字 $1,\ldots,4$ を持つ $\gamma_\mu$ は、この**Euclid型行列**を指します。この対応は行列代数の変換であり、実時間の伝播関数を単に $i$ 倍してよいという意味ではありません。
+
 位置座標 $x_\mu$ での微分を $\partial_\mu=\partial/\partial x_\mu$ と書き、そのFourier変換は $\partial_\mu\mapsto ik_\mu$ です。よって自由Dirac核とその逆は
 
 $$
@@ -25,7 +34,7 @@ D(k)=i\not k+m,\qquad
 S(k)=D(k)^{-1}=\frac{-i\not k+m}{k^2+m^2}.
 $$
 
-積 $D(k)(-i\not k+m)=(k^2+m^2)I$ は[Clifford関係](../QFT7/index.md#def-qft7-clifford)から直接従います。ここで $S$ は実時間の $S_F$ と数値因子が異なる**Euclid核**です。
+積 $D(k)(-i\not k+m)=(k^2+m^2)I$ は直前の**Euclid型Clifford関係**から従います。ここで $S$ は実時間の $S_F$ と数値因子が異なる**Euclid核**です。
 
 光子場 $A_\mu$ に結合するEuclidのDirac作用素を $D_A=\gamma_\mu(\partial_\mu+ieA_\mu)+m$ とします。[有限次元Grassmann積分の行列式](../QFT19/index.md#thm-qft19-berezin-det)から、有限モードでフェルミオンを積分消去した作用は、光子に依存しない定数を除き $-\operatorname{Tr}\log D_A$ です。$\operatorname{Tr}$ は位置・運動量の積分とスピノル行列traceを合わせた形式的記号です。
 

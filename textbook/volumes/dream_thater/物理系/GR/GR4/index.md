@@ -150,7 +150,7 @@ U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
 \qquad P=mU
 $$
 
-とします。[SREL3の四元速度の規格化](../../SREL/SREL3/index.md#thm-srel3-four-velocity)をGRの符号へ換えます。直接計算でも
+とします。[SREL3の四元速度の規格化](../../SREL/SREL3/index.md#thm-srel3-four-velocity)はGRでも同じ符号で成り立ちます。直接計算でも
 
 $$
 g(U,U)=-\frac{25c^2}{16}+\frac{9c^2}{16}=-c^2

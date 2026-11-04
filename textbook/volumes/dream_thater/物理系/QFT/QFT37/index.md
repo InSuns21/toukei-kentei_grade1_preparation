@@ -4,7 +4,9 @@
 
 質量を測るときは粒子の質量が対角になる基底を使います。他方、弱相互作用は同じ左二重項の上成分と下成分を結びます。**質量を対角にする二つの回転が一致するとは限らない**ため、荷電弱電流に相対回転が残ります。これがCKM混合の出発点です。
 
-時空は $3+1$ 次元Minkowski空間、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。世代添字 $i,j=1,2,3$、色添字 $a=1,2,3$ を用い、世代を区別しないゲージ結合 $g_s,g,g'>0$、真空代表 $v>0$ とします。最小標準模型の荷電フェルミオンと、**質量項・Yukawa相互作用・木レベルの電流**を扱います。右巻きニュートリノやニュートリノ質量項は加えません。行列の複素共役転置を $\dagger$、Dirac共役を上線で表します。
+時空は $3+1$ 次元Minkowski空間、$\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とします。世代添字 $i,j=1,2,3$、色添字 $a=1,2,3$ を用い、世代を区別しないゲージ結合 $g_s,g,g'>0$、真空代表 $v>0$ とします。
+
+最小標準模型の荷電フェルミオンと、**質量項・Yukawa相互作用・木レベルの電流**を扱います。右巻きニュートリノやニュートリノ質量項は加えません。行列の複素共役転置を $\dagger$、Dirac共役を上線で表します。Dirac共役は[QFT7の $H=-i\gamma^0$](../QFT7/index.md#def-qft7-adjoint-action)を用います。ゲージ電流の双線形には物理的な実電流を作る $-i$ が掛かりますが、スカラーYukawa質量項には掛かりません。
 
 ## 1. 世代をまたぐYukawa結合から質量行列へ
 
@@ -178,7 +180,7 @@ $$
 > 三世代の最小標準模型で、クォークの正準規格化された運動項と質量行列 $M_u,M_d$ があり、電弱荷電電流のゲージ基底表示が
 
 $$
-\mathcal L_{\mathrm{cc}}=\frac g{\sqrt2}W_\mu^+
+\mathcal L_{\mathrm{cc}}=-\frac{ig}{\sqrt2}W_\mu^+
 \sum_{i=1}^3\overline u_{L}^{\,g,i}\gamma^\mu d_{L}^{\,g,i}
 +\mathrm{h.c.}
 $$
@@ -186,7 +188,7 @@ $$
 > であるとする。左右の質量対角化後、
 
 $$
-\mathcal L_{\mathrm{cc}}=\frac g{\sqrt2}W_\mu^+
+\mathcal L_{\mathrm{cc}}=-\frac{ig}{\sqrt2}W_\mu^+
 \sum_{\alpha,\beta=1}^3\overline u_{L}^{\,m,\alpha}
 \gamma^\mu (V_{\mathrm{CKM}})_{\alpha\beta}d_{L}^{\,m,\beta}
 +\mathrm{h.c.},\qquad
@@ -203,7 +205,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QFT36の電弱フェルミオン結合](../QFT36/index.md#thm-qft36-fermion-couplings)で弱二重項の昇降行列要素は1ですから、ゲージ基底では上記の $\delta_{ij}$ が世代の収縮を担います。質量基底への置換は
+[QFT36の電弱フェルミオン結合](../QFT36/index.md#thm-qft36-fermion-couplings)で弱二重項の昇降行列要素は1ですから、ゲージ基底では上記の $\delta_{ij}$ が世代の収縮を担います。その相互作用の係数 $-ig/\sqrt2$ は、$(-+++)$ のDirac電流 $-i\bar\psi\gamma^\mu\psi$ に由来し、$g$ 自身を虚数にしたのではありません。$\mathrm{h.c.}$ は $W^+$ 項全体のHermitian共役であり、ガンマ行列単独の共役と混同しません。質量基底への置換は
 
 $$
 u_L^{\,g,i}=(U_L^u)_{i\alpha}u_L^{\,m,\alpha},

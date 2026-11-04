@@ -4,11 +4,13 @@
 
 ここには一つの緊張があります。**古典作用がカイラル回転で不変でも、量子論の積分測度まで不変とは限りません。** 本講では、質量を持たないDirac場の軸性電流を古典論で導き、有限個のGrassmann変数から測度のJacobianを計算し、ゲージ不変な熱核正則化で四次元の軸性異常を求めます。さらに、背景場が零の場合、質量が正の場合、非可換群に拡張する場合を区別します。
 
-まずMinkowski空間では計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とし、カイラリティの行列を次で表します。
+まずMinkowski空間では[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)に合わせて計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とし、カイラリティの行列を次で表します。
 
 $$
 \gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3.
 $$
+
+ここで $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$、$\bar\psi=\psi^\dagger H$、$H=-i\gamma^0$ は[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。$\gamma^5$ は[QFT32のWeyl表示](../QFT32/index.md#def-qft32-chirality)の $\operatorname{diag}(-I_2,I_2)$ と一致します。以下の実時間電流は物理的な実電流となるよう $-i\bar\psi\gamma^\mu\psi$ を用います。
 
 量子測度の計算では[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)の考え方に従い、正定値内積を持つ $\mathbb R^4$ を**四次元Euclid空間**として導入します。その内積は次の式で固定します。
 
@@ -33,11 +35,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ベクトル・軸性回転と電流）**
-> 四次元Minkowski空間で、一つの電荷 $q\in\mathbb R$ を持つDirac場 $\psi$ と外部の実 $U(1)$ ポテンシャル $A_\mu$ を取る。$D_\mu=\partial_\mu+iqA_\mu$、$\bar\psi=\psi^\dagger\gamma^0$ とし、$\mathcal L=\bar\psi(i\gamma^\mu D_\mu-m)\psi$ とする。定数実数 $\beta,\alpha$ に対するベクトル回転と軸性回転はそれぞれ $\psi\mapsto e^{i\beta}\psi$、$\psi\mapsto e^{i\alpha\gamma^5}\psi$ である。対応する電流を
+> 四次元Minkowski空間で、一つの電荷 $q\in\mathbb R$ を持つDirac場 $\psi$ と外部の実 $U(1)$ ポテンシャル $A_\mu$ を取る。$D_\mu=\partial_\mu+iqA_\mu$、$\bar\psi=-i\psi^\dagger\gamma^0$ とし、$\mathcal L=\bar\psi(\gamma^\mu D_\mu-m)\psi$ とする。定数実数 $\beta,\alpha$ に対するベクトル回転と軸性回転はそれぞれ $\psi\mapsto e^{i\beta}\psi$、$\psi\mapsto e^{i\alpha\gamma^5}\psi$ である。対応する実電流を
 
 $$
-j_V^\mu=\bar\psi\gamma^\mu\psi,\qquad
-j_5^\mu=\bar\psi\gamma^\mu\gamma^5\psi
+j_V^\mu=-i\bar\psi\gamma^\mu\psi,\qquad
+j_5^\mu=-i\bar\psi\gamma^\mu\gamma^5\psi
 $$
 
 > と定義する。軸性回転では $\bar\psi\mapsto\bar\psi e^{i\alpha\gamma^5}$ と変換する。
@@ -55,7 +57,7 @@ e^{i\alpha\gamma^5}\psi
 =\begin{pmatrix}e^{-i\alpha}\chi_L\\e^{i\alpha}\chi_R\end{pmatrix}.
 $$
 
-したがって左右には逆の位相が掛かります。また $\gamma^0\gamma^5=-\gamma^5\gamma^0$ と $\gamma^5$ のHermitian性から、変換後の随伴は $\bar\psi e^{i\alpha\gamma^5}$ です。$\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
+したがって左右には逆の位相が掛かります。また $H=-i\gamma^0$ は $\gamma^5$ と反交換し、$\gamma^5$ はHermitianなので、$\psi'{}^\dagger H=\psi^\dagger e^{-i\alpha\gamma^5}H=\bar\psi e^{i\alpha\gamma^5}$ です。$\bar\psi\mapsto\bar\psi e^{-i\alpha\gamma^5}$ ではない点が重要です。
 <!-- definition-example-end -->
 
 質量項は $\bar\psi_L\psi_R+\bar\psi_R\psi_L$ を結びます。したがって $m>0$ なら軸性回転は明示的に破れます。この効果と、$m=0$ でも残る量子異常は別物です。
@@ -81,27 +83,28 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Dirac方程式 $i\gamma^\mu D_\mu\psi=m\psi$ を $i\gamma^\mu D_\mu\psi-m\psi=0$ と書き、その随伴を
+Dirac方程式 $\gamma^\mu D_\mu\psi=m\psi$ とその[QFT7の随伴方程式](../QFT7/index.md#thm-qft7-current)を
 
 $$
-i(D_\mu\bar\psi)\gamma^\mu=-m\bar\psi,\qquad
+(D_\mu\bar\psi)\gamma^\mu=-m\bar\psi,\qquad
 D_\mu\bar\psi=\partial_\mu\bar\psi-iqA_\mu\bar\psi
 $$
 
-とする。二つを合わせると $\partial_\mu(\bar\psi\gamma^\mu\psi)=(D_\mu\bar\psi)\gamma^\mu\psi+\bar\psi\gamma^\mu D_\mu\psi=im\bar\psi\psi-im\bar\psi\psi=0$。同様に計算する際の符号を明記すると
+とする。二つを合わせると $\partial_\mu j_V^\mu=-i[(D_\mu\bar\psi)\gamma^\mu\psi+\bar\psi\gamma^\mu D_\mu\psi]=-i[-m\bar\psi\psi+m\bar\psi\psi]=0$。軸性電流では $-i$ を含めて積の微分を計算すると
 
 $$
 \begin{aligned}
 \partial_\mu j_5^\mu
-&=(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi
-+\bar\psi\gamma^\mu\gamma^5D_\mu\psi\\
-&=im\bar\psi\gamma^5\psi
--\bar\psi\gamma^5\gamma^\mu D_\mu\psi\\
-&=im\bar\psi\gamma^5\psi+im\bar\psi\gamma^5\psi.
+&=-i\left[(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi
++\bar\psi\gamma^\mu\gamma^5D_\mu\psi\right]\\
+&=-i\left[-m\bar\psi\gamma^5\psi
+-\bar\psi\gamma^5\gamma^\mu D_\mu\psi\right]\\
+&=-i\left[-m\bar\psi\gamma^5\psi-m\bar\psi\gamma^5\psi\right]
+=2im\bar\psi\gamma^5\psi.
 \end{aligned}
 $$
 
-二行目で $\{\gamma^5,\gamma^\mu\}=0$、三行目で $\gamma^\mu D_\mu\psi=-im\psi$ を使いました。式は $m=0$ でも成立します。
+二行目で $\{\gamma^5,\gamma^\mu\}=0$、三行目で $\gamma^\mu D_\mu\psi=m\psi$ を使いました。作用と電流の $i$ の配置は変わりましたが、質量による物理的な発散は変わりません。式は $m=0$ でも成立します。
 <!-- proof-end -->
 
 ## 2. Grassmann測度はどう変換するか
@@ -422,7 +425,7 @@ $e^{i\alpha\gamma^5}\psi=(e^{-i\alpha}\chi_L,e^{i\alpha}\chi_R)^T$。$\bar\psi_L
 ### 演習 QFT39-A2：古典発散と質量
 
 - Level: A
-- 問題：$i\gamma^\mu D_\mu\psi=m\psi$、$i(D_\mu\bar\psi)\gamma^\mu=-m\bar\psi$、$\{\gamma^\mu,\gamma^5\}=0$ から $\partial_\mu(\bar\psi\gamma^\mu\gamma^5\psi)$ を求めよ。$A_\mu$ の項の相殺も示せ。
+- 問題：$\gamma^\mu D_\mu\psi=m\psi$、$(D_\mu\bar\psi)\gamma^\mu=-m\bar\psi$、$\{\gamma^\mu,\gamma^5\}=0$ から $\partial_\mu j_5^\mu$（$j_5^\mu=-i\bar\psi\gamma^\mu\gamma^5\psi$）を求めよ。$A_\mu$ の項の相殺も示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -438,13 +441,12 @@ $$
 
 $$
 \begin{aligned}
-\partial_\mu(\bar\psi\gamma^\mu\gamma^5\psi)
-&=(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi
-+\bar\psi\gamma^\mu\gamma^5D_\mu\psi\\
-&=im\bar\psi\gamma^5\psi
--\bar\psi\gamma^5(\gamma^\mu D_\mu\psi)\\
-&=im\bar\psi\gamma^5\psi
--\bar\psi\gamma^5(-im\psi)
+\partial_\mu j_5^\mu
+&=-i\left[(D_\mu\bar\psi)\gamma^\mu\gamma^5\psi
++\bar\psi\gamma^\mu\gamma^5D_\mu\psi\right]\\
+&=-i\left[-m\bar\psi\gamma^5\psi
+-\bar\psi\gamma^5(\gamma^\mu D_\mu\psi)\right]\\
+&=-i\left[-m\bar\psi\gamma^5\psi-m\bar\psi\gamma^5\psi\right]
 =2im\bar\psi\gamma^5\psi
 \end{aligned}
 $$

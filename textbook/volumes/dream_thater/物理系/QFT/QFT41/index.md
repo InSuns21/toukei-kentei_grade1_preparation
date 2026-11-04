@@ -4,7 +4,7 @@
 
 本講の中心は**量子色力学（QCD）**です。色は可視光の色ではなく、内部対称性 $SU(3)_c$ の三成分を区別する名前です。色三成分のクォーク、八成分のグルーオン、群の行列、散乱の色平均を一つの計算につなぎます。その後、純ゲージ理論の一ループ結果にクォークループを加え、どこまでが摂動論で確かめられた主張かを分離します。
 
-以下、四次元Minkowski時空で計算し、計量の符号は $\eta=\operatorname{diag}(1,-1,-1,-1)$、自然単位系は $\hbar=c=1$ とします。共変微分と生成子の規約は
+以下、四次元Minkowski時空で計算し、計量の符号は $\eta=\operatorname{diag}(-1,1,1,1)$、自然単位系は $\hbar=c=1$ とします。[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)に従い、$\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}I_4$、$\bar q=-iq^\dagger\gamma^0$ とします。共変微分と生成子の規約は
 
 $$
 D_\mu=\partial_\mu-ig_sG_\mu^At^A,\qquad
@@ -36,7 +36,7 @@ G_{\mu\nu}^A&=\partial_\mu G_\nu^A-\partial_\nu G_\mu^A
 +g_s f^{ABC}G_\mu^BG_\nu^C,\\
 S_{\rm QCD}&=\int d^4x\left[
 -\frac14G_{\mu\nu}^AG^{A\mu\nu}
-+\sum_f\bar q_f(i\gamma^\mu D_\mu-m_f)q_f
++\sum_f\bar q_f(\gamma^\mu D_\mu-m_f)q_f
 \right],\\
 D_\mu q_f&=(\partial_\mu-ig_sG_\mu^At^A)q_f
 \end{aligned}
@@ -48,9 +48,7 @@ $$
 <!-- definition-example-start: def-qft41-qcd-action -->
 ### 例：二つの対角色方向
 
-**定義の確認**：基本表示の対角生成子を
-
-対角なHermitian・跡零行列は $\operatorname{diag}(r_1,r_2,-r_1-r_2)$（$r_1,r_2\in\mathbb R$）の形なので、独立な方向は二つです。その二方向を跡内積 $\operatorname{tr}(XY)$ で直交規格化した基底として、次を選びます。この行列が色基底 $e_1,e_2,e_3$ に作用するので、対角成分が変換位相を決める固有値になります。
+**定義の確認**：対角なHermitian・跡零行列は $\operatorname{diag}(r_1,r_2,-r_1-r_2)$（$r_1,r_2\in\mathbb R$）の形なので、独立な方向は二つです。その二方向を跡内積 $\operatorname{tr}(XY)$ で直交規格化した基底として、次を選びます。この行列が色基底 $e_1,e_2,e_3$ に作用するので、対角成分が変換位相を決める固有値になります。
 
 $$
 t^3=\frac12\operatorname{diag}(1,-1,0),\qquad
@@ -69,7 +67,7 @@ $$
 つまり接続の交換子から曲率成分を判定する理由と、曲率の反対称性が直接確かめられます。これは局所的な場の例であり、時空全体で一定の場の作用積分が有限であるとは仮定していません。
 <!-- definition-example-end -->
 
-作用のゲージ不変性も確認しましょう。[QFT28の共変性](../QFT28/index.md#thm-qft28-gauge-covariance)から $D'_\mu q'_f=UD_\mu q_f$、$\bar q'_f=\bar q_fU^\dagger$ です。従って $\bar q'_f i\gamma^\mu D'_\mu q'_f=\bar q_fU^\dagger U i\gamma^\mu D_\mu q_f$ で、質量項も不変です。[曲率の共変変換](../QFT28/index.md#thm-qft28-curvature-bianchi) $G'_{\mu\nu}=UG_{\mu\nu}U^{-1}$ と跡の巡回性から $\operatorname{tr}(G'_{\mu\nu}G'^{\mu\nu})=\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})$。実際、$\operatorname{tr}(t^At^B)=\delta^{AB}/2$ なので $-\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})/2=-G_{\mu\nu}^AG^{A\mu\nu}/4$ です。この二つを足した作用が不変になります。
+作用のゲージ不変性も確認しましょう。[QFT28の共変性](../QFT28/index.md#thm-qft28-gauge-covariance)から $D'_\mu q'_f=UD_\mu q_f$、$\bar q'_f=\bar q_fU^\dagger$ です。従って $\bar q'_f\gamma^\mu D'_\mu q'_f=\bar q_fU^\dagger U\gamma^\mu D_\mu q_f$ で、質量項も不変です。[曲率の共変変換](../QFT28/index.md#thm-qft28-curvature-bianchi) $G'_{\mu\nu}=UG_{\mu\nu}U^{-1}$ と跡の巡回性から $\operatorname{tr}(G'_{\mu\nu}G'^{\mu\nu})=\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})$。実際、$\operatorname{tr}(t^At^B)=\delta^{AB}/2$ なので $-\operatorname{tr}(G_{\mu\nu}G^{\mu\nu})/2=-G_{\mu\nu}^AG^{A\mu\nu}/4$ です。この二つを足した作用が不変になります。
 
 ## 2. 色行列を何倍すると散乱の係数になるか
 
@@ -158,7 +156,7 @@ $$
 
 ## 3. 作用から頂点を取り出す
 
-自由伝播と相互作用を分けるため、[QFT7のDirac作用](../QFT7/index.md#def-qft7-adjoint-action)の運動項に、[QFT28のYang–Mills自己相互作用](../QFT28/index.md#prop-qft28-self-interactions)を加えます。$i\gamma^\mu D_\mu=i\gamma^\mu\partial_\mu+g_s\gamma^\mu G_\mu^At^A$ だから、クォークとグルーオンが接する三点項は $+g_s\bar q\gamma^\mu t^AqG_\mu^A$ です。この符号は本講の $D_\mu=\partial_\mu-ig_sG_\mu$ の選択に固有で、逆の共変微分規約を用いた教科書の頂点と片方だけ比較してはいけません。
+自由伝播と相互作用を分けるため、[QFT7のDirac作用](../QFT7/index.md#def-qft7-adjoint-action)の運動項に、[QFT28のYang–Mills自己相互作用](../QFT28/index.md#prop-qft28-self-interactions)を加えます。$\gamma^\mu D_\mu=\gamma^\mu\partial_\mu-ig_s\gamma^\mu G_\mu^At^A$ だから、クォークとグルーオンが接する三点項は $-ig_s\bar q\gamma^\mu t^AqG_\mu^A$ です。物理的な実色電流を $J^{A\mu}=-i\bar q\gamma^\mu t^Aq$ と書けば $\mathcal L_{q\bar qG}=g_sJ^{A\mu}G_\mu^A$ であり、$-i$ は[QFT17の電磁電流と頂点](../QFT17/index.md#def-qft17-vertex)と同じDirac規約に由来します。共変微分の符号を逆にした教科書と、頂点だけを比較してはいけません。
 
 <a id="prop-qft41-vertices"></a>
 
@@ -169,7 +167,7 @@ $$
 $$
 \begin{aligned}
 \mathcal L_{q\bar qG}
-&=g_s\sum_f\bar q_f^a\gamma^\mu(t^A)_{ab}q_f^bG_\mu^A,\\
+&=-ig_s\sum_f\bar q_f^a\gamma^\mu(t^A)_{ab}q_f^bG_\mu^A,\\
 \mathcal L_{GGG}
 &=-\frac{g_s}{2}f^{ABC}K_{\mu\nu}^AG^{B\mu}G^{C\nu},\\
 \mathcal L_{GGGG}
@@ -178,7 +176,7 @@ G_\mu^BG_\nu^CG^{D\mu}G^{E\nu}.
 \end{aligned}
 $$
 
-> ここで $a,b$ は基本色、$A,\ldots,E$ は随伴色である。外線を全て入射として Fourier 変換したとき、クォーク–反クォーク–グルーオン頂点の係数は本講の規約で $+ig_s\gamma^\mu(t^A)_{ab}$ であり、三グルーオン頂点は $g_s$ 一次、四グルーオン頂点は $g_s^2$ 次である。
+> ここで $a,b$ は基本色、$A,\ldots,E$ は随伴色である。外線を全て入射として Fourier 変換したとき、クォーク–反クォーク–グルーオン頂点の係数は本講の規約で $+g_s\gamma^\mu(t^A)_{ab}$ であり、三グルーオン頂点は $g_s$ 一次、四グルーオン頂点は $g_s^2$ 次である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -192,14 +190,14 @@ Dirac項は色添字を示すと
 
 $$
 \begin{aligned}
-\bar q^a i\gamma^\mu(\partial_\mu\delta_{ab}
+\bar q^a\gamma^\mu(\partial_\mu\delta_{ab}
 -ig_sG_\mu^A(t^A)_{ab})q^b
-&=\bar q^a i\gamma^\mu\partial_\mu q^a\\
-&\quad+g_s\bar q^a\gamma^\mu(t^A)_{ab}q^bG_\mu^A.
+&=\bar q^a\gamma^\mu\partial_\mu q^a\\
+&\quad-ig_s\bar q^a\gamma^\mu(t^A)_{ab}q^bG_\mu^A.
 \end{aligned}
 $$
 
-右辺第二項をDyson展開の $i\int\mathcal L_{\rm int}$ に一回挿入すると頂点 $+ig_s\gamma^\mu t^A$ です。フレーバーを変える行列はここにないのでこの頂点はフレーバー対角です。
+右辺第二項をDyson展開の $i\int\mathcal L_{\rm int}$ に一回挿入すると $i(-i)=+1$ から頂点 $+g_s\gamma^\mu t^A$ です。フレーバーを変える行列はここにないのでこの頂点はフレーバー対角です。
 
 一方、$G_{\mu\nu}^A=K_{\mu\nu}^A+g_sf^{ABC}G_\mu^BG_\nu^C$ を $-G_{\mu\nu}^AG^{A\mu\nu}/4$ に代入すると、$K^2$、$2g_s K(fGG)$、$g_s^2(fGG)^2$ が順に二次・三次・四次項になります。これらに $-1/4$ を掛けて表示の二項を得ます。特に可換な $U(1)$ なら $f^{ABC}=0$ となり、後二者は消えます。
 <!-- proof-end -->
@@ -217,9 +215,9 @@ $$
 
 ## 4. 最小の散乱計算：異種クォークの色交換
 
-異なるフレーバー $q_f(p_1,a)+q_h(p_2,b)\to q_f(p_3,c)+q_h(p_4,d)$（$f\ne h$）を取り、質量を零とします。$p_i^2=0$、Mandelstam変数は[QFT12の定義](../QFT12/index.md#def-qft12-mandelstam)に従い、$s=(p_1+p_2)^2$、$t=(p_1-p_3)^2$、$u=(p_1-p_4)^2$、$s+t+u=0$ です。異種なので同種フェルミオンの交換図はありません。色は最初の二粒子で各3状態、始状態の非偏極スピンは各2状態です。
+異なるフレーバー $q_f(p_1,a)+q_h(p_2,b)\to q_f(p_3,c)+q_h(p_4,d)$（$f\ne h$）を取り、質量を零とします。$p_i^2=0$、Mandelstam変数は[QFT12の定義](../QFT12/index.md#def-qft12-mandelstam)に従い、$s=-(p_1+p_2)^2$、$t=-(p_1-p_3)^2$、$u=-(p_1-p_4)^2$、$s+t+u=0$ です。異種なので同種フェルミオンの交換図はありません。色は最初の二粒子で各3状態、始状態の非偏極スピンは各2状態です。
 
-Feynmanゲージのグルーオン伝播因子 $-i\eta_{\mu\nu}\delta^{AB}/(t+i0)$ と[上の頂点](#prop-qft41-vertices)から、木レベル振幅を
+Feynmanゲージのグルーオン伝播因子 $+i\eta_{\mu\nu}\delta^{AB}/(t+i0)$（[QFT17の光子交換](../QFT17/index.md#prop-qft17-tree-amplitude)と同じLorentz部分）と[上の頂点](#prop-qft41-vertices)から、木レベル振幅を
 
 $$
 i\mathcal M_{cd;ab}
@@ -229,7 +227,7 @@ i\mathcal M_{cd;ab}
 \sum_A(t^A)_{ca}(t^A)_{db}
 $$
 
-と書けます。質量零の異種クォークをオンシェルで扱う限り、伝播関数の縦部分は $\bar u(p_3)(\not p_3-\not p_1)u(p_1)=0$ なので消えます。これは[QFT18の木レベルWard縮約](../QFT18/index.md#thm-qft18-tree-ward)と同じ機構です。
+と書けます。質量零の異種クォークをオンシェルで扱う限り、$i\not p\,u(p)=0$ と $\bar u(p)i\not p=0$ より、伝播関数の縦部分は $\bar u(p_3)(\not p_3-\not p_1)u(p_1)=0$ なので消えます。これは[QFT18の木レベルWard縮約](../QFT18/index.md#thm-qft18-tree-ward)と同じ機構です。
 
 <a id="prop-qft41-qq-scattering"></a>
 
@@ -266,20 +264,20 @@ $$
 \end{aligned}
 $$
 
-[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)は $m>0$ で $\sum_su_s(p)\bar u_s(p)=\not p+mI_4$ と証明されています。外線エネルギー $p^0>0$ を保って $m\downarrow0$ とすると、同定理のスピノルの分母 $p^0+m$ は零にならず、二つのスピン状態の和は $\not p$ に連続的に移ります。この質量零スピン和と[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)から
+[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)は $m>0$ で $\sum_su_s(p)\bar u_s(p)=i\not p+mI_4$ と証明されています。外線エネルギー $p^0>0$ を保って $m\downarrow0$ とすると、同定理のスピノルの分母 $p^0+m$ は零にならず、二つのスピン状態の和は $i\not p$ に連続的に移ります。この質量零スピン和と[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)から
 
 $$
 \begin{aligned}
-S&=\frac14\operatorname{tr}(\not p_3\gamma^\mu
-\not p_1\gamma^\nu)
-\operatorname{tr}(\not p_4\gamma_\mu
-\not p_2\gamma_\nu),\\
+S&=\frac14\operatorname{tr}((i\not p_3)\gamma^\mu
+(i\not p_1)\gamma^\nu)
+\operatorname{tr}((i\not p_4)\gamma_\mu
+(i\not p_2)\gamma_\nu),\\
 \operatorname{tr}(\not a\gamma^\mu\not b\gamma^\nu)
 &=4(a^\mu b^\nu+a^\nu b^\mu-\eta^{\mu\nu}a\cdot b).
 \end{aligned}
 $$
 
-この二つの跡の括弧内をそれぞれ $A^{\mu\nu}$、$B_{\mu\nu}$ とすると、四次元では $\eta^\mu{}_{\mu}=4$ であり、計量を含む交差項の和 $(-4+4)(p_3\cdot p_1)(p_4\cdot p_2)$ が相殺します。残る積は
+各トレースに $i^2=-1$ があり、その二つの積は $(-1)^2=+1$ です。したがって $i$ を外した二つの跡の括弧内をそれぞれ $A^{\mu\nu}$、$B_{\mu\nu}$ とすると、四次元では $\eta^\mu{}_{\mu}=4$ であり、計量を含む交差項の和 $(-4+4)(p_3\cdot p_1)(p_4\cdot p_2)$ が相殺します。残る積は
 
 $$
 A^{\mu\nu}B_{\mu\nu}
@@ -287,7 +285,7 @@ A^{\mu\nu}B_{\mu\nu}
 +(p_3\cdot p_2)(p_1\cdot p_4)].
 $$
 
-したがって二つの跡に付く $4\times4/4$ を掛けて $S=8[(p_3\cdot p_4)(p_1\cdot p_2)+(p_3\cdot p_2)(p_1\cdot p_4)]$。$p_1\cdot p_2=p_3\cdot p_4=s/2$、$p_1\cdot p_4=p_2\cdot p_3=-u/2$ なので
+したがって二つの跡に付く $4\times4/4$ を掛けて $S=8[(p_3\cdot p_4)(p_1\cdot p_2)+(p_3\cdot p_2)(p_1\cdot p_4)]$。$p_1\cdot p_2=p_3\cdot p_4=-s/2$、$p_1\cdot p_4=p_2\cdot p_3=u/2$ なので
 
 $$
 S=8\left(\frac{s^2}4+\frac{u^2}4\right)
@@ -459,12 +457,12 @@ $$
 ### 演習 QFT41-A3：クォーク頂点の符号とフレーバー
 
 - Level: A
-- 問題：$D_\mu=\partial_\mu-ig_sG_\mu^At^A$ を $\bar q(i\gamma^\mu D_\mu-m)q$ に代入し、三点相互作用の符号と結合次数を求めよ。なぜこの頂点だけでは $u\to d$ が起きないか。
+- 問題：$D_\mu=\partial_\mu-ig_sG_\mu^At^A$ を $\bar q(\gamma^\mu D_\mu-m)q$ に代入し、三点相互作用の符号と結合次数を求めよ。なぜこの頂点だけでは $u\to d$ が起きないか。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$i\gamma^\mu D_\mu=i\gamma^\mu\partial_\mu+i(-i)g_s\gamma^\mu G_\mu^At^A=i\gamma^\mu\partial_\mu+g_s\gamma^\mu G_\mu^At^A$。従って三点項は $+g_s\bar q\gamma^\mu t^AqG_\mu^A$、Dyson展開の一回挿入で $+ig_s\gamma^\mu t^A$ です。フレーバー添字は同じ $f$ の $\bar q_f,q_f$ にだけ付き、$u,d$ を混ぜる行列は作用にないので、単独頂点はフレーバーを保存します。
+$\gamma^\mu D_\mu=\gamma^\mu\partial_\mu-ig_s\gamma^\mu G_\mu^At^A$。従って三点項は $-ig_s\bar q\gamma^\mu t^AqG_\mu^A$、Dyson展開の一回挿入で $i(-i)g_s\gamma^\mu t^A=+g_s\gamma^\mu t^A$ です。フレーバー添字は同じ $f$ の $\bar q_f,q_f$ にだけ付き、$u,d$ を混ぜる行列は作用にないので、単独頂点はフレーバーを保存します。
 <!-- solution-end -->
 
 ### 演習 QFT41-A4：色一重項の収縮
@@ -486,7 +484,7 @@ $i\gamma^\mu D_\mu=i\gamma^\mu\partial_\mu+i(-i)g_s\gamma^\mu G_\mu^At^A=i\gamma
 <!-- solution-start -->
 ### 詳細解答
 
-$G_{\mu\nu}^A=K_{\mu\nu}^A+g_sf^{ABC}G_\mu^BG_\nu^C$ なので、$f=0$ なら曲率は $K$ だけです。$-G^2/4$ の三次項は $-g_s f KGG/2=0$、四次項は $-g_s^2ffGGGG/4=0$。ただし $D_\mu q=\partial_\mu q-ig_sG_\mu^At^Aq$ には $f$ は直接入らず、$g_s$ と非零生成子を残せば $g_s\bar q\gamma^\mu t^AqG_\mu^A$ は消えません。これはQED型の物質–ゲージ場結合に対応します。
+$G_{\mu\nu}^A=K_{\mu\nu}^A+g_sf^{ABC}G_\mu^BG_\nu^C$ なので、$f=0$ なら曲率は $K$ だけです。$-G^2/4$ の三次項は $-g_s f KGG/2=0$、四次項は $-g_s^2ffGGGG/4=0$。ただし $D_\mu q=\partial_\mu q-ig_sG_\mu^At^Aq$ には $f$ は直接入らず、$g_s$ と非零生成子を残せば $-ig_s\bar q\gamma^\mu t^AqG_\mu^A$ は消えません。これはQED型の物質–ゲージ場結合に対応します。
 <!-- solution-end -->
 
 ### 演習 QFT41-B1：完全性から二次Casimir
@@ -559,12 +557,12 @@ $$
 2. (ii) 質量零スピン和を取ると二本のtraceの平均は
 
 $$
-S=\tfrac14\operatorname{tr}(\not p_3\gamma^\mu\not p_1\gamma^\nu)
-\operatorname{tr}(\not p_4\gamma_\mu\not p_2\gamma_\nu)
+S=\tfrac14\operatorname{tr}((i\not p_3)\gamma^\mu(i\not p_1)\gamma^\nu)
+\operatorname{tr}((i\not p_4)\gamma_\mu(i\not p_2)\gamma_\nu)
 =8[(p_3\!\cdot p_4)(p_1\!\cdot p_2)+(p_3\!\cdot p_2)(p_1\!\cdot p_4)].
 $$
 
-$p_1\cdot p_2=p_3\cdot p_4=s/2$ と $p_3\cdot p_2=p_1\cdot p_4=-u/2$ を代入すると $S=2(s^2+u^2)$ です。
+$i^4=+1$ を用い、$p_1\cdot p_2=p_3\cdot p_4=-s/2$ と $p_3\cdot p_2=p_1\cdot p_4=u/2$ を代入すると $S=2(s^2+u^2)$ です。
 3. (iii) 従って平均二乗は $\overline{|\mathcal M|^2}=(g_s^4/t^2)(2/9)2(s^2+u^2)=(4/9)g_s^4(s^2+u^2)/t^2$。区別できる質量零二体散乱で[QFT12の流束・二体位相空間](../QFT12/index.md#thm-qft12-rate-formulas)を用いれば $d\sigma/dt=\overline{|\mathcal M|^2}/(16\pi s^2)$ なので
 
 $$
@@ -580,7 +578,7 @@ $$
 =\left[1+\frac{9a}{2\pi}\log2\right]^{-2}.
 $$
 
-これは結合のRG改善の一部だけであり、物理断面積の完全な尺度依存やPDF・高次補正まで求めたわけではありません。
+これは結合のRG改善の一部だけであり、物理断面積の完全な尺度依存やパートン分布関数（Parton Distribution Function; PDF）・高次補正まで求めたわけではありません。
 <!-- solution-end -->
 
 ## 7. まとめと次への問い

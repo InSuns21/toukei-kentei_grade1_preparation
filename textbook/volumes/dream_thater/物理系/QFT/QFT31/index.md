@@ -8,11 +8,11 @@
 2. 発散するbubbleから有限な運動量依存を取り出し、その係数とくりこみ群の符号をどう照合するか。
 3. 非可換ゲージ場とghostの寄与を組み合わせると、なぜQEDとは逆に結合が減少するか。
 
-Minkowski計量は $η=\operatorname{diag}(1,-1,-1,-1)$、$ℏ=c=1$ です。散乱部分の四運動量は実時間、ループ部分は明記した箇所で四次元Euclid運動量を用います。ループ積分は有限カットオフまたは次元正則化の**摂動係数**として扱い、未正則化の場の積や無限次元の振動積分が数学的に構成済みであるとは仮定しません。[QFT19の有限モード生成汎関数](../QFT19/index.md#def-qft19-lattice-functional)と[QFT20の反射陽性](../QFT20/index.md#def-qft20-reflection-positivity)の区別も必要です。
+Minkowski計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ です。実時間の四元内積は $p\cdot q=\eta_{\mu\nu}p^\mu q^\nu$、質量殻は $p^2=-m^2$ とし、散乱では $s=-(p_1+p_2)^2$、$t=-(p_3-p_1)^2$、$u=-(p_4-p_1)^2$ を用います。ループ部分は明記した箇所で四次元Euclid運動量を用います。ループ積分は有限カットオフまたは次元正則化の**摂動係数**として扱い、未正則化の場の積や無限次元の振動積分が数学的に構成済みであるとは仮定しません。[QFT19の有限モード生成汎関数](../QFT19/index.md#def-qft19-lattice-functional)と[QFT20の反射陽性](../QFT20/index.md#def-qft20-reflection-positivity)の区別も必要です。
 
 ## 1. 光子の縦成分はなぜ散乱へ寄与しないか
 
-質量 $m,M>0$ の電子・ミューオンの弾性散乱を考え、入射四運動量を $p_1,p_2$、出射を $p_3,p_4$ とします。すべて正エネルギー質量殻にあり、$p_1+p_2=p_3+p_4$、$s=(p_1+p_2)^2>(m+M)^2$ とします。運動量移行を $k=p_3-p_1=p_2-p_4$、$t=k^2<0$ と置きます。$t<0$ に限定するのは、質量零の光子の前方極 $t=0$ を避け、伝播関数を通常の関数として扱うためです。
+質量 $m,M>0$ の電子・ミューオンの弾性散乱を考え、入射四運動量を $p_1,p_2$、出射を $p_3,p_4$ とします。すべて正エネルギー質量殻にあり、$p_1+p_2=p_3+p_4$、$s=-(p_1+p_2)^2>(m+M)^2$ とします。運動量移行を $k=p_3-p_1=p_2-p_4$、$t=-k^2<0$ と置きます。$t<0$ に限定するのは、質量零の光子の前方極 $t=0$ を避け、伝播関数を通常の関数として扱うためです。
 
 二つのDirac電流を
 
@@ -27,8 +27,8 @@ $$
 
 $$
 D_{\alpha\beta}^{(\xi)}(k)
-=\frac{-i}{t+i0}\left(\eta_{\alpha\beta}
--(1-\xi)\frac{k_\alpha k_\beta}{t+i0}\right)
+=\frac{+i}{t+i0}\left(\eta_{\alpha\beta}
++(1-\xi)\frac{k_\alpha k_\beta}{t+i0}\right)
 $$
 
 となります。$\xi>0$ は共変ゲージのパラメータです。縦成分を消すには、[QFT17の質量殻Ward恒等式](../QFT17/index.md#thm-qft17-ward)を、**電子とミューオンのそれぞれに**適用しなければなりません。
@@ -37,7 +37,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（質量殻電流・共変ゲージ・断面積の一致）**
-> $3+1$ 次元QEDの木レベルで、異種の正質量Dirac粒子 $e^-\mu^-\to e^-\mu^-$ の外線が自由Dirac方程式を満たすとする。四運動量は保存され、$s>(m+M)^2$、$t=(p_3-p_1)^2<0$、入射スピンは非偏極とする。内部光子を共変ゲージ $\xi>0$ で扱うと、$q_e,q_\mu$ を二粒子の電荷とし、$S=m^2+M^2$、$u=2S-s-t$ と置いて
+> $3+1$ 次元QEDの木レベルで、異種の正質量Dirac粒子 $e^-\mu^-\to e^-\mu^-$ の外線が自由Dirac方程式を満たすとする。四運動量は保存され、$s>(m+M)^2$、$t=-(p_3-p_1)^2<0$、入射スピンは非偏極とする。内部光子を共変ゲージ $\xi>0$ で扱うと、$q_e,q_\mu$ を二粒子の電荷とし、$S=m^2+M^2$、$u=2S-s-t$ と置いて
 
 $$
 \mathcal M_\xi
@@ -55,7 +55,7 @@ $$
 
 ### 証明の見取り図
 
-二つの外線で $\not p u(p)=mu(p)$、$\bar u(p')\not p'=m\bar u(p')$ を使い、縦成分の分子が零となることを示します。残った振幅のスピン和は[QFT17のtrace計算](../QFT17/index.md#thm-qft17-spin-average)を適用し、異種終状態の[二体位相空間](../QFT17/index.md#prop-qft17-cross-section)で断面積にします。
+二つの外線で $i\not p\,u(p)=mu(p)$、$\bar u(p')i\not p'=m\bar u(p')$ を使い、縦成分の分子が零となることを示します。残った振幅のスピン和は[QFT17のtrace計算](../QFT17/index.md#thm-qft17-spin-average)を適用し、異種終状態の[二体位相空間](../QFT17/index.md#prop-qft17-cross-section)で断面積にします。
 
 <!-- proof-start -->
 ### 証明
@@ -66,8 +66,8 @@ $$
 \begin{aligned}
 k_\alpha J_e^\alpha
 &=\bar u_e(p_3)(\not p_3-\not p_1)u_e(p_1)\\
-&=m\bar u_e(p_3)u_e(p_1)
--m\bar u_e(p_3)u_e(p_1)=0.
+&=-im\bar u_e(p_3)u_e(p_1)
++im\bar u_e(p_3)u_e(p_1)=0.
 \end{aligned}
 $$
 
@@ -77,12 +77,12 @@ $$
 \begin{aligned}
 k_\beta J_\mu^\beta
 &=\bar u_\mu(p_4)(\not p_2-\not p_4)u_\mu(p_2)\\
-&=M\bar u_\mu(p_4)u_\mu(p_2)
--M\bar u_\mu(p_4)u_\mu(p_2)=0.
+&=-iM\bar u_\mu(p_4)u_\mu(p_2)
++iM\bar u_\mu(p_4)u_\mu(p_2)=0.
 \end{aligned}
 $$
 
-[QFT17の頂点則](../QFT17/index.md#def-qft17-vertex)より、$i\mathcal M_\xi=(-iq_e)J_e^\alpha D_{\alpha\beta}^{(\xi)}(-iq_\mu)J_\mu^\beta$ です。縦成分は $k_\alpha J_e^\alpha\,k_\beta J_\mu^\beta=0$ なので、$(-i)^3=i$ を確かめて
+[QFT17の頂点則](../QFT17/index.md#def-qft17-vertex)より、$i\mathcal M_\xi=q_eJ_e^\alpha D_{\alpha\beta}^{(\xi)}q_\mu J_\mu^\beta$ です。縦成分は $k_\alpha J_e^\alpha\,k_\beta J_\mu^\beta=0$ なので、$q_eq_\mu\cdot(+i)=iq_eq_\mu$ を確かめて
 
 $$
 i\mathcal M_\xi=\frac{i q_eq_\mu}{t}J_e\cdot J_\mu.
@@ -284,18 +284,18 @@ Level Aでは一つの符号・係数・仮定を自力で判定し、Level Bで
 ### 演習 QFT31-A1：二種類の質量でWard縮約
 
 - Level: A
-- 問題: 質量 $m>0$ のDirac粒子の正エネルギー質量殻スピノル $u(p),u(p')$ は $(\not p-m)u(p)=0$、$\bar u(p')(\not p'-m)=0$ を満たす。$q=p'-p$、$J^\alpha=\bar u(p')\gamma^\alpha u(p)$ とする。$q_\alpha J^\alpha=0$ を示せ。もし出射スピノルの質量が $m'\ne m$ に変わり、それぞれ異なる自由Dirac方程式を満たすなら縮約は何になるか。
+- 問題: 質量 $m>0$ のDirac粒子の正エネルギー質量殻スピノル $u(p),u(p')$ は $(i\not p-m)u(p)=0$、$\bar u(p')(i\not p'-m)=0$ を満たす。$q=p'-p$、$J^\alpha=\bar u(p')\gamma^\alpha u(p)$ とする。$q_\alpha J^\alpha=0$ を示せ。もし出射スピノルの質量が $m'\ne m$ に変わり、それぞれ異なる自由Dirac方程式を満たすなら縮約は何になるか。
 
 <!-- solution-start -->
-**詳細解答。** 出発点は $q_\alpha\gamma^\alpha=\not p'-\not p$ です。左外線には $\bar u(p')\not p'=m\bar u(p')$、右外線には $\not p u(p)=mu(p)$ を作用させるので
+**詳細解答。** 出発点は $q_\alpha\gamma^\alpha=\not p'-\not p$ です。左外線には $\bar u(p')\not p'=-im\bar u(p')$、右外線には $\not p\,u(p)=-imu(p)$ を作用させるので
 
 $$
 q_\alpha J^\alpha
 =\bar u(p')\not p'u(p)-\bar u(p')\not p u(p)
-=(m-m)\bar u(p')u(p)=0.
+=(-im+im)\bar u(p')u(p)=0.
 $$
 
-異質量の仮定なら最初の項に $m'$、二番目に $m$ が入り、$(m'-m)\bar u(p')u(p)$ が残ります。質量が異なる外線へこの**対角電流**のWard横性を無条件に当てはめることはできません。問題文には自由スピノルの代数だけを指定しており、質量を変える相互作用のゲージ整合性は仮定していません。
+異質量の仮定なら最初の項に $-im'$、二番目に $-im$ が入り、$-i(m'-m)\bar u(p')u(p)$ が残ります。質量が異なる外線へこの**対角電流**のWard横性を無条件に当てはめることはできません。問題文には自由スピノルの代数だけを指定しており、質量を変える相互作用のゲージ整合性は仮定していません。
 <!-- solution-end -->
 
 ### 演習 QFT31-A2：直角散乱と終状態の計数
@@ -394,7 +394,7 @@ $\mu>\mu_0$ では分母が1より大きく、$g$ が小さくなります。$\m
 ### 演習 QFT31-A6：ゲージ場とghostの係数
 
 - Level: A
-- 問題: 四次元Euclidの純 $SU(N)$ Yang–Millsで、一定Cartan背景の一色電荷 $q$ に対するスカラー熱核が $(4\pi t)^{-2}[1-(qt)^2/6+O(t^4)]$、ゲージ4成分のtraceが $2+2\cosh(2qt)$ とする。ここで $t>0$ は熱核の固有時間であり、第1節のMandelstam変数 $t=k^2$ とは別の変数である。ボース場の重み $1/2$、Grassmann ghost対の重み $-1$ を加え、曲率二次の $(qt)^2$ 係数を計算せよ。
+- 問題: 四次元Euclidの純 $SU(N)$ Yang–Millsで、一定Cartan背景の一色電荷 $q$ に対するスカラー熱核が $(4\pi t)^{-2}[1-(qt)^2/6+O(t^4)]$、ゲージ4成分のtraceが $2+2\cosh(2qt)$ とする。ここで $t>0$ は熱核の固有時間であり、第1節のMandelstam変数 $t=-k^2$ とは別の変数である。ボース場の重み $1/2$、Grassmann ghost対の重み $-1$ を加え、曲率二次の $(qt)^2$ 係数を計算せよ。
 
 <!-- solution-start -->
 **詳細解答。** まず$\cosh(2qt)=1+2(qt)^2+O(t^4)$ です。したがって4成分の半分とghostの差は
@@ -582,7 +582,7 @@ $$
 ### 演習 QFT31-C1：散乱振幅から分解能付き確率へ
 
 - Level: C
-- 問題: $3+1$ 次元QEDの $e^-\mu^-\to e^-\mu^-$ 木レベルを考える。電子とミューオンは質量 $m,M>0$、電荷は共に $-e$（$e>0$）とし、$s>(m+M)^2$、$0<\theta<\pi$ の重心系で外線は自由Dirac方程式を満たす。$k=p_3-p_1$、$t=k^2<0$、$S=m^2+M^2$、$u=2S-s-t$ とする。共変ゲージの光子核 $D_{\alpha\beta}^{(\xi)}=-i[\eta_{\alpha\beta}-(1-\xi)k_\alpha k_\beta/t]/t$（$t<0$ の境界値）を与える。次を示せ。
+- 問題: $3+1$ 次元QEDの $e^-\mu^-\to e^-\mu^-$ 木レベルを考える。電子とミューオンは質量 $m,M>0$、電荷は共に $-e$（$e>0$）とし、$s>(m+M)^2$、$0<\theta<\pi$ の重心系で外線は自由Dirac方程式を満たす。$s=-(p_1+p_2)^2$、$k=p_3-p_1$、$t=-k^2<0$、$S=m^2+M^2$、$u=2S-s-t$ とする。共変ゲージの光子核 $D_{\alpha\beta}^{(\xi)}=+i[\eta_{\alpha\beta}+(1-\xi)k_\alpha k_\beta/t]/t$（$t<0$ の境界値）を与える。次を示せ。
 
   1. 二つの電流縮約から振幅が $\xi$ に依存せず、$\mathcal M=e^2 J_e\cdot J_\mu/t$ になること。
   2. 非偏極のスピン平均 $\overline{|\mathcal M|^2}=2e^4[(s-S)^2+(u-S)^2+2St]/t^2$ を使い、異種終状態の $d\sigma/d\Omega$ を導くこと。
@@ -597,7 +597,7 @@ $$
 $$
 k_\alpha J_e^\alpha
 =\bar u_e(p_3)(\not p_3-\not p_1)u_e(p_1)
-=(m-m)\bar u_e(p_3)u_e(p_1)=0.
+=(-im+im)\bar u_e(p_3)u_e(p_1)=0.
 $$
 
 ミューオンでは $k=p_2-p_4$ として
@@ -605,10 +605,10 @@ $$
 $$
 k_\beta J_\mu^\beta
 =\bar u_\mu(p_4)(\not p_2-\not p_4)u_\mu(p_2)
-=(M-M)\bar u_\mu(p_4)u_\mu(p_2)=0.
+=(-iM+iM)\bar u_\mu(p_4)u_\mu(p_2)=0.
 $$
 
-縦核を挟んだ項は $(1-\xi)(k\cdot J_e)(k\cdot J_\mu)/t^2=0$。二頂点の $(-ie)^2$ と伝播関数の $-i$ から $i\mathcal M=ie^2J_e\cdot J_\mu/t$、従って結論です。この議論は[QFT18の質量殻Ward縮約](../QFT18/index.md#cor-qft18-on-shell-ward)を二つの異種電流へ適用しています。
+縦核を挟んだ項は $(1-\xi)(k\cdot J_e)(k\cdot J_\mu)/t^2=0$。二頂点の $e^2$ と伝播関数の $+i$ から $i\mathcal M=ie^2J_e\cdot J_\mu/t$、従って結論です。この議論は[QFT18の質量殻Ward縮約](../QFT18/index.md#cor-qft18-on-shell-ward)を二つの異種電流へ適用しています。
 
 **(2)** 問題に与えたスピン平均の式は、入射スピンを $1/4$ で平均した値です。[QFT12の二体断面積](../QFT12/index.md#prop-qft12-cm-cross-section)では重心系の運動量比は弾性過程ゆえ1で、終状態は異種粒子なので $1/2!$ を掛けません。よって
 

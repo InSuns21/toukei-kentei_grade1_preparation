@@ -2,20 +2,23 @@
 
 <!-- definition-example-audit: strict -->
 
-[QFT7の平面波スピノル](../QFT7/index.md#def-qft7-plane-waves)には正振動数解 $u_s(p)e^{-ip\cdot x}$ と負振動数解 $v_s(p)e^{+ip\cdot x}$ が二つずつありました。しかしこれらはまだ複素数値の古典場です。後者をそのまま「負エネルギー粒子」とすれば、量子論のエネルギーに下限を持たせられません。
+[QFT7の平面波スピノル](../QFT7/index.md#def-qft7-plane-waves)には正振動数解 $u_s(p)e^{+ip\cdot x}$ と負振動数解 $v_s(p)e^{-ip\cdot x}$ が二つずつありました。しかしこれらはまだ複素数値の古典場です。後者をそのまま「負エネルギー粒子」とすれば、量子論のエネルギーに下限を持たせられません。
 
 そこで、粒子と反粒子をともに**正のエネルギーを持つ励起**として作り、同じ一粒子状態を二回占められないという性質を実現します。[QFT4のボースFock空間](../QFT4/index.md#def-qft4-fock-space)では粒子変数を交換しても符号が変わりませんでしたが、ここでは交換すると符号が反転する波動関数を使います。その符号が、場の局所性と時間順序伝播関数にも現れます。
 
-全章でMinkowski時空 $\mathbb R^{1,3}$、計量 $\eta=\operatorname{diag}(1,-1,-1,-1)$、$c=\hbar=1$、自由Dirac場の質量 **$m>0$** とします。正エネルギー質量殻とFourier規約は
+全章でMinkowski時空 $\mathbb R^{1,3}$、計量 $\eta=\operatorname{diag}(-1,1,1,1)$、$c=\hbar=1$、自由Dirac場の質量 **$m>0$** とします。正エネルギー質量殻とFourier規約は
 
 $$
 p^\mu=(E_{\boldsymbol p},\boldsymbol p),\quad
 E_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2},\quad
-p\cdot x=E_{\boldsymbol p}t-\boldsymbol p\cdot\boldsymbol x,\quad
+p_\mu p^\mu=-m^2,\quad
+p\cdot x=-E_{\boldsymbol p}t+\boldsymbol p\cdot\boldsymbol x,\quad
 d\mu(\boldsymbol p)=\frac{d^3p}{(2\pi)^3}
 $$
 
-です。$\gamma^\mu$ は[QFT7のClifford行列](../QFT7/index.md#def-qft7-clifford)、$\bar\psi=\psi^\dagger\gamma^0$ は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)です。$\psi$ は今度は作用素値**分布**になります。以下の点 $x$ における式や $b_s(\boldsymbol p)$ は波束で積分するための記法であり、点での有界作用素を意味しません。真空期待値は、内積第1変数線形の規約で $\omega_0(A)=\langle A\Omega,\Omega\rangle$ と書きます。
+です。$\gamma^\mu$ は[QFT7のClifford行列](../QFT7/index.md#def-qft7-clifford)、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)で用いた行列を、本章ではエネルギー演算子 $H$ と区別して $\beta=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ と書き、$\bar\psi=\psi^\dagger\beta$ と定義します。
+
+$\psi$ は今度は作用素値**分布**になります。以下の点 $x$ における式や $b_s(\boldsymbol p)$ は波束で積分するための記法であり、点での有界作用素を意味しません。真空期待値は、内積第1変数線形の規約で $\omega_0(A)=\langle A\Omega,\Omega\rangle$ と書きます。
 
 ## 1. 反対称な多粒子状態と生成・消滅演算子
 
@@ -179,7 +182,7 @@ $$
 
 ## 2. 粒子・反粒子を含む量子Dirac場
 
-古典Dirac場の正振動数係数を粒子の**消滅**へ、負振動数係数を反粒子の**生成**へ置き換えます。こうすると $v_s e^{+ip\cdot x}$ の位相を保ったまま、負エネルギーの状態を作る必要がなくなります。
+古典Dirac場の正振動数係数を粒子の**消滅**へ、負振動数係数を反粒子の**生成**へ置き換えます。こうすると $v_s e^{-ip\cdot x}$ の位相を保ったまま、負エネルギーの状態を作る必要がなくなります。
 
 <a id="def-qft8-field"></a>
 
@@ -191,12 +194,12 @@ $$
 \begin{aligned}
 \psi_\alpha(x)
 &=\sum_{s=1}^2\int\frac{d\mu(\boldsymbol p)}{\sqrt{2E_{\boldsymbol p}}}
-\left(b_s(\boldsymbol p)u_{s\alpha}(p)e^{-ip\cdot x}
-+d_s^\dagger(\boldsymbol p)v_{s\alpha}(p)e^{+ip\cdot x}\right),\\
+\left(b_s(\boldsymbol p)u_{s\alpha}(p)e^{+ip\cdot x}
++d_s^\dagger(\boldsymbol p)v_{s\alpha}(p)e^{-ip\cdot x}\right),\\
 \bar\psi_\beta(x)
 &=\sum_{s=1}^2\int\frac{d\mu(\boldsymbol p)}{\sqrt{2E_{\boldsymbol p}}}
-\left(b_s^\dagger(\boldsymbol p)\bar u_{s\beta}(p)e^{+ip\cdot x}
-+d_s(\boldsymbol p)\bar v_{s\beta}(p)e^{-ip\cdot x}\right)
+\left(b_s^\dagger(\boldsymbol p)\bar u_{s\beta}(p)e^{-ip\cdot x}
++d_s(\boldsymbol p)\bar v_{s\beta}(p)e^{+ip\cdot x}\right)
 \end{aligned}
 $$
 
@@ -221,8 +224,8 @@ $$
 
 $$
 \begin{aligned}
-f_{b,s}(\boldsymbol p)&=\frac{\overline{u_{s\alpha}(p)\widetilde F(-p)}}{\sqrt{2E_{\boldsymbol p}}},\\
-g_{d,s}(\boldsymbol p)&=\frac{v_{s\alpha}(p)\widetilde F(p)}{\sqrt{2E_{\boldsymbol p}}},\\
+f_{b,s}(\boldsymbol p)&=\frac{\overline{u_{s\alpha}(p)\widetilde F(p)}}{\sqrt{2E_{\boldsymbol p}}},\\
+g_{d,s}(\boldsymbol p)&=\frac{v_{s\alpha}(p)\widetilde F(-p)}{\sqrt{2E_{\boldsymbol p}}},\\
 \psi_\alpha(F)&=\int F(x)\psi_\alpha(x)\,d^4x\\
 &=b(f_b)+d^\dagger(g_d).
 \end{aligned}
@@ -235,9 +238,9 @@ $m>0$ かつ $u_s,v_s$ は高々多項式増大なので、Fourier変換を質�
 <!-- definition-example-start: def-qft8-field -->
 ### 例：真空から現れるのは正エネルギーの反粒子
 
-**定義の確認**：$b_s(\boldsymbol p)\Omega=d_s(\boldsymbol p)\Omega=0$ を波束の意味で課します。真空へ $\psi(x)$ を作用させると消滅項は消え、$d_s^\dagger v_s e^{+ip\cdot x}$ だけが残ります。一方 $\bar\psi(x)\Omega$ には $b_s^\dagger\bar u_s e^{+ip\cdot x}$ が残ります。したがって場は二種類の励起を結び、[Dirac方程式](../QFT7/index.md#thm-qft7-factorization)は各指数とスピノルの組合せで成立します。
+**定義の確認**：$b_s(\boldsymbol p)\Omega=d_s(\boldsymbol p)\Omega=0$ を波束の意味で課します。真空へ $\psi(x)$ を作用させると消滅項は消え、$d_s^\dagger v_s e^{-ip\cdot x}$ だけが残ります。一方 $\bar\psi(x)\Omega$ には $b_s^\dagger\bar u_s e^{-ip\cdot x}$ が残ります。したがって場は二種類の励起を結び、[Dirac方程式](../QFT7/index.md#thm-qft7-factorization)は各指数とスピノルの組合せで成立します。
 
-例えば運動量を局在させた波束 $g$ に対し $d^\dagger(g)\Omega$ は一反粒子状態であり、後で示すエネルギーは $\int E_{\boldsymbol p}|g(\boldsymbol p)|^2d\mu>0$ です。指数 $e^{+ip\cdot x}$ の符号をエネルギー固有値の符号と同一視しないことが重要です。
+例えば運動量を局在させた波束 $g$ に対し $d^\dagger(g)\Omega$ は一反粒子状態であり、後で示すエネルギーは $\int E_{\boldsymbol p}|g(\boldsymbol p)|^2d\mu>0$ です。指数 $e^{-ip\cdot x}$ の符号をエネルギー固有値の符号と同一視しないことが重要です。
 <!-- definition-example-end -->
 
 ### 2.1 正のエネルギーと保存電荷
@@ -306,7 +309,7 @@ $$
 [場の展開](#def-qft8-field)には $b$ と $d^\dagger$ しか現れず、いずれも電荷を $-1$ だけ変えるので、その積分にも $[Q,\psi_\alpha(F)]=-\psi_\alpha(F)$ が成立します。各波束の積分は前述のSchwartz条件で定義されます。
 <!-- proof-end -->
 
-この正規順序の符号は古典Dirac場のHamiltonian密度とも整合します。$\boldsymbol\alpha=\gamma^0\boldsymbol\gamma$、$\beta=\gamma^0$ とし、有限個の運動量モードだけを残して次の密度を空間積分します。ここで $\boldsymbol\alpha,\beta$ はDirac Hamiltonianの行列であり、場の成分を示した添字 $\alpha,\beta$ とは別の役割です。
+この正規順序の符号は古典Dirac場のHamiltonian密度とも整合します。$\boldsymbol\alpha=-\gamma^0\boldsymbol\gamma$、$\beta=-i\gamma^0$ とし、有限個の運動量モードだけを残して次の密度を空間積分します。ここで $\boldsymbol\alpha,\beta$ はDirac Hamiltonianの行列であり、場の成分を示した添字 $\alpha,\beta$ とは別の役割です。
 
 $$
 \psi^\dagger(-i\boldsymbol\alpha\cdot\boldsymbol\nabla+\beta m)\psi
@@ -379,7 +382,7 @@ $$
 \end{aligned}
 $$
 
-> 随伴場に直すと第一式は $\{\psi_\alpha(t,\boldsymbol x),\bar\psi_\beta(t,\boldsymbol y)\}=(\gamma^0)_{\alpha\beta}\delta^3(\boldsymbol x-\boldsymbol y)I$ である。
+> 随伴場に直すと第一式は $\{\psi_\alpha(t,\boldsymbol x),\bar\psi_\beta(t,\boldsymbol y)\}=\beta_{\alpha\beta}\delta^3(\boldsymbol x-\boldsymbol y)I$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -397,23 +400,23 @@ $$
 +v_{s\alpha}(p)v_{s\beta}^\dagger(p)e^{-i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}\right]I.
 $$
 
-第二項で $\boldsymbol p$ の符号を反転し $p_-=(E_{\boldsymbol p},-\boldsymbol p)$ と置きます。[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)の右から $\gamma^0$ を掛けると
+第二項で $\boldsymbol p$ の符号を反転し $p_-=(E_{\boldsymbol p},-\boldsymbol p)$ と置きます。[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)の右から随伴行列 $\beta=-i\gamma^0$ を掛けると
 
 $$
 \begin{aligned}
-\sum_s u_s(p)u_s^\dagger(p)&=(\not p+mI_4)\gamma^0,\\
-\sum_s v_s(p_-)v_s^\dagger(p_-)&=(\not p_--mI_4)\gamma^0.
+\sum_s u_s(p)u_s^\dagger(p)&=(i\not p+mI_4)\beta,\\
+\sum_s v_s(p_-)v_s^\dagger(p_-)&=(i\not p_--mI_4)\beta.
 \end{aligned}
 $$
 
-$\not p=E\gamma^0-\boldsymbol\gamma\cdot\boldsymbol p$、$\not p_-=E\gamma^0+\boldsymbol\gamma\cdot\boldsymbol p$ なので、和は
+$i\not p=i(-E\gamma^0+\boldsymbol\gamma\cdot\boldsymbol p)$、$i\not p_-=i(-E\gamma^0-\boldsymbol\gamma\cdot\boldsymbol p)$ なので、和は
 
 $$
-\left[(\not p+mI_4)+(\not p_--mI_4)\right]\gamma^0
-=2E_{\boldsymbol p}\gamma^0\gamma^0=2E_{\boldsymbol p}I_4.
+\left[(i\not p+mI_4)+(i\not p_--mI_4)\right]\beta
+=(-2iE_{\boldsymbol p}\gamma^0)\beta=2E_{\boldsymbol p}I_4.
 $$
 
-よって残る積分は $I_4\int e^{i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}d\mu=I_4\delta^3(\boldsymbol x-\boldsymbol y)$ です。他の二式は $bb,dd,b d^\dagger$ 等の反交換子がすべて零であることから従います。右から $\gamma^0$ を掛ければ随伴場の式も得られます。
+よって残る積分は $I_4\int e^{i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}d\mu=I_4\delta^3(\boldsymbol x-\boldsymbol y)$ です。他の二式は $bb,dd,b d^\dagger$ 等の反交換子がすべて零であることから従います。右から $\beta$ を掛ければ随伴場の式も得られます。
 <!-- proof-end -->
 
 等時刻CARはボース場の $[\Phi,\Pi]=i\delta^3$ と異なり、場とそのHermite随伴を直接結びます。スピノルの四成分全てを再現するため、正・負振動数の**両方**が必要でした。
@@ -430,7 +433,7 @@ $$
 
 $$
 \{\psi_\alpha(x),\bar\psi_\beta(y)\}
-=\left[(i\gamma^\mu\partial_{z^\mu}+mI_4)C(z)\right]_{\alpha\beta}I.
+=\left[(\gamma^\mu\partial_{z^\mu}+mI_4)C(z)\right]_{\alpha\beta}I.
 $$
 
 > 右辺はスカラーPauli–Jordan分布 $C$ の分布微分である。特に $|\boldsymbol z|>|z^0|$ となる空間的分離では、この反交換子の分布は零である。$\psi,\psi$ と $\bar\psi,\bar\psi$ の反交換子は任意の時空点で零である。
@@ -449,8 +452,8 @@ $$
 \begin{aligned}
 \{\psi_\alpha(x),\bar\psi_\beta(y)\}
 =\int\frac{d\mu(\boldsymbol p)}{2E_{\boldsymbol p}}
-\bigl[&(\not p+mI_4)_{\alpha\beta}e^{-ip\cdot z}\\
-&+(\not p-mI_4)_{\alpha\beta}e^{+ip\cdot z}\bigr]I.
+\bigl[&(i\not p+mI_4)_{\alpha\beta}e^{+ip\cdot z}\\
+&+(i\not p-mI_4)_{\alpha\beta}e^{-ip\cdot z}\bigr]I.
 \end{aligned}
 $$
 
@@ -458,16 +461,16 @@ $$
 
 $$
 C(z)=\int\frac{d\mu(\boldsymbol p)}{2E_{\boldsymbol p}}
-\left(e^{-ip\cdot z}-e^{+ip\cdot z}\right)
+\left(e^{+ip\cdot z}-e^{-ip\cdot z}\right)
 $$
 
-です。$i\partial_{z^\mu}e^{-ip\cdot z}=p_\mu e^{-ip\cdot z}$、$i\partial_{z^\mu}e^{+ip\cdot z}=-p_\mu e^{+ip\cdot z}$ ですから
+です。$\partial_{z^\mu}e^{+ip\cdot z}=ip_\mu e^{+ip\cdot z}$、$\partial_{z^\mu}e^{-ip\cdot z}=-ip_\mu e^{-ip\cdot z}$ ですから
 
 $$
 \begin{aligned}
-(i\gamma^\mu\partial_{z^\mu}+m)C(z)
-=\int\frac{d\mu}{2E}\bigl[&(\not p+m)e^{-ip\cdot z}\\
-&-(-\not p+m)e^{+ip\cdot z}\bigr].
+(\gamma^\mu\partial_{z^\mu}+m)C(z)
+=\int\frac{d\mu}{2E}\bigl[&(i\not p+m)e^{+ip\cdot z}\\
+&-(-i\not p+m)e^{-ip\cdot z}\bigr].
 \end{aligned}
 $$
 
@@ -485,10 +488,10 @@ $$
 $$
 S^+(0,\boldsymbol r)
 =\int\frac{d\mu(\boldsymbol p)}{2E_{\boldsymbol p}}
-(\not p+mI_4)e^{i\boldsymbol p\cdot\boldsymbol r}.
+(i\not p+mI_4)e^{i\boldsymbol p\cdot\boldsymbol r}.
 $$
 
-[QFT7のDirac表示のClifford行列](../QFT7/index.md#def-qft7-clifford)では $\gamma^0$ の対角成分が $+1,+1,-1,-1$、$\gamma^j$ は非対角ブロックだけを持つので $\operatorname{tr}\gamma^\mu=0$ です。従って
+[QFT7のDirac表示のClifford行列](../QFT7/index.md#def-qft7-clifford)では $\gamma^0$ の対角成分が $+i,+i,-i,-i$、$\gamma^j$ は非対角ブロックだけを持つので $\operatorname{tr}\gamma^\mu=0$ です。従って
 
 $$
 \operatorname{tr}S^+(0,\boldsymbol r)
@@ -541,27 +544,27 @@ $$
 $$
 \begin{aligned}
 S_F(z)=\int\frac{d\mu(\boldsymbol p)}{2E_{\boldsymbol p}}
-\bigl[&\theta(z^0)(\not p+mI_4)e^{-ip\cdot z}\\
-&-\theta(-z^0)(\not p-mI_4)e^{+ip\cdot z}\bigr].
+\bigl[&\theta(z^0)(i\not p+mI_4)e^{+ip\cdot z}\\
+&-\theta(-z^0)(i\not p-mI_4)e^{-ip\cdot z}\bigr].
 \end{aligned}
 $$
 
 > また、[QFT6のスカラーFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point) $D_F$ を用いると、緩増加分布として
 
 $$
-S_F=(i\gamma^\mu\partial_\mu+mI_4)D_F,
+S_F=(\gamma^\mu\partial_\mu+mI_4)D_F,
 \qquad
 \widehat S_F(k)
-=\lim_{\varepsilon\downarrow0}\frac{i(\not k+mI_4)}{k^2-m^2+i\varepsilon}.
+=\lim_{\varepsilon\downarrow0}\frac{i(i\not k+mI_4)}{-k^2-m^2+i\varepsilon}.
 $$
 
 > 正エネルギー極は虚部が負の側、負エネルギー極は虚部が正の側へ寄せる。Dirac作用素について
 
 $$
-(i\gamma^\mu\partial_\mu-mI_4)S_F(z)=i\delta^4(z)I_4
+(\gamma^\mu\partial_\mu-mI_4)S_F(z)=i\delta^4(z)I_4
 $$
 
-> が成立する。$\widehat S_F$ は $S_F(z)=\int d^4k\,(2\pi)^{-4}e^{-ik\cdot z}\widehat S_F(k)$ のFourier規約である。
+> が成立する。$\widehat S_F$ は $S_F(z)=\int d^4k\,(2\pi)^{-4}e^{+ik\cdot z}\widehat S_F(k)$ のFourier規約である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -576,9 +579,9 @@ $$
 $$
 \begin{aligned}
 \omega_0(\psi_\alpha(x)\bar\psi_\beta(y))
-&=\int\frac{d\mu}{2E}(\not p+m)_{\alpha\beta}e^{-ip\cdot z},\\
+&=\int\frac{d\mu}{2E}(i\not p+m)_{\alpha\beta}e^{+ip\cdot z},\\
 \omega_0(\bar\psi_\beta(y)\psi_\alpha(x))
-&=\int\frac{d\mu}{2E}(\not p-m)_{\alpha\beta}e^{+ip\cdot z}.
+&=\int\frac{d\mu}{2E}(i\not p-m)_{\alpha\beta}e^{-ip\cdot z}.
 \end{aligned}
 $$
 
@@ -588,46 +591,46 @@ $$
 
 $$
 D_F(z)=\int\frac{d\mu}{2E}
-\left[\theta(z^0)e^{-ip\cdot z}+\theta(-z^0)e^{+ip\cdot z}\right]
+\left[\theta(z^0)e^{+ip\cdot z}+\theta(-z^0)e^{-ip\cdot z}\right]
 $$
 
-と書きます。第二項の空間運動量を反転すると、時刻零で両指数の空間積分は同じになるため、$D_F$ は時刻零で連続です。従って $i\gamma^0\partial_tD_F$ に $\delta(t)$ の接触項は出ません。二つの時間領域で指数を微分すると
+と書きます。第二項の空間運動量を反転すると、時刻零で両指数の空間積分は同じになるため、$D_F$ は時刻零で連続です。従って $\gamma^0\partial_tD_F$ に $\delta(t)$ の接触項は出ません。二つの時間領域で指数を微分すると
 
 $$
 \begin{aligned}
-(i\not\partial+m)D_F
-=\int\frac{d\mu}{2E}\bigl[&\theta(t)(\not p+m)e^{-ip\cdot z}\\
-&+\theta(-t)(-\not p+m)e^{+ip\cdot z}\bigr]=S_F(z).
+(\not\partial+m)D_F
+=\int\frac{d\mu}{2E}\bigl[&\theta(t)(i\not p+m)e^{+ip\cdot z}\\
+&+\theta(-t)(-i\not p+m)e^{-ip\cdot z}\bigr]=S_F(z).
 \end{aligned}
 $$
 
-時間順序で反粒子項に必要だった負号は $-\not p+m=-(\not p-m)$ に含まれています。Fourier変換では $i\partial_\mu$ が $k_\mu$ に移るため、[QFT6の時間順序二点分布の極とデルタ源](../QFT6/index.md#thm-qft6-feynman-poles)から
+時間順序で反粒子項に必要だった負号は $-i\not p+m=-(i\not p-m)$ に含まれています。$e^{+ik\cdot z}$ を逆Fourier核に使うと $\partial_\mu$ は $ik_\mu$ に移るため、[QFT6の時間順序二点分布の極とデルタ源](../QFT6/index.md#thm-qft6-feynman-poles)から
 
 $$
-\widehat S_F(k)=(\not k+m)\widehat D_F(k)
-=\lim_{\varepsilon\downarrow0}\frac{i(\not k+m)}{k^2-m^2+i\varepsilon}
+\widehat S_F(k)=(i\not k+m)\widehat D_F(k)
+=\lim_{\varepsilon\downarrow0}\frac{i(i\not k+m)}{-k^2-m^2+i\varepsilon}
 $$
 
 となります。分母の二根は $k^0\simeq+E-i0$ と $k^0\simeq-E+i0$ なので、極の上下も従います。
 
-最後に[QFT7のDirac作用素の因数分解](../QFT7/index.md#thm-qft7-factorization)と $\bigl(\Box+m^2\bigr)D_F=-i\delta^4$ を使って
+最後に[QFT7のDirac作用素の因数分解](../QFT7/index.md#thm-qft7-factorization)と $\bigl(-\Box+m^2\bigr)D_F=-i\delta^4$ を使って
 
 $$
 \begin{aligned}
-(i\not\partial-m)S_F
-&=(i\not\partial-m)(i\not\partial+m)D_F\\
-&=-(\Box+m^2)D_F=i\delta^4 I_4.
+(\not\partial-m)S_F
+&=(\not\partial-m)(\not\partial+m)D_F\\
+&=(\Box-m^2)D_F=-(-\Box+m^2)D_F=i\delta^4 I_4.
 \end{aligned}
 $$
 
-独立の確認として、時間順序の両側の値の差は $S^+(0,\boldsymbol r)+S^-(0,\boldsymbol r)=\gamma^0\delta^3(\boldsymbol r)$ です。[等時刻CAR](#thm-qft8-equal-time)に一致し、$i\gamma^0\partial_t$ が跳びへ作用すると $i\gamma^0\gamma^0\delta^4=i\delta^4$ が得られます。二通りの計算で源の $i$ を照合しました。
+独立の確認として、時間順序の両側の値の差は $S^+(0,\boldsymbol r)+S^-(0,\boldsymbol r)=\beta\delta^3(\boldsymbol r)$ です。[等時刻CAR](#thm-qft8-equal-time)に一致し、$\gamma^0\partial_t$ が跳びへ作用すると $\gamma^0\beta\delta^4=i\delta^4$ が得られます。二通りの計算で源の $i$ を照合しました。
 <!-- proof-end -->
 
-同じ「Feynman伝播関数」でも、スカラー場は $D_F$、Dirac場は行列値の $S_F$ です。特に $S_F$ 自体にはすでにFourier分子の $i$ が含まれ、$(i\not\partial-m)S_F=i\delta^4$ です。$iS_F$ と無条件に置き換えると源の係数が変わります。
+同じ「Feynman伝播関数」でも、スカラー場は $D_F$、Dirac場は行列値の $S_F$ です。特に $S_F$ 自体にはすでにFourier分子の $i$ が含まれ、$(\not\partial-m)S_F=i\delta^4$ です。$iS_F$ と無条件に置き換えると源の係数が変わります。
 
 ## 6. 演習：粒子数の符号から伝播関数の極まで
 
-各問題の演算子積は、有限個の正規直交モードでは通常の行列として、それ以外はSchwartz波束によるsmearingの意味で扱います。$m>0$、自然単位系、計量 $(+---)$ は共通です。
+各問題の演算子積は、有限個の正規直交モードでは通常の行列として、それ以外はSchwartz波束によるsmearingの意味で扱います。$m>0$、自然単位系、計量 $(-+++)$ は共通です。
 
 ### Level A：一つの操作を正確に確認する
 
@@ -699,7 +702,7 @@ $$
 
 ### 演習 QFT8-A4：静止系で四成分の完全性
 
-$p=(m,\boldsymbol0)$ とし、Dirac表示 $\gamma^0=\operatorname{diag}(I_2,-I_2)$、$u_s=\sqrt{2m}(e_s,0)^T$、$v_s=\sqrt{2m}(0,e_s)^T$ とする。$\sum_s(u_su_s^\dagger+v_sv_s^\dagger)/(2m)$ を計算せよ。
+$p=(m,\boldsymbol0)$ とし、Dirac表示 $\gamma^0=i\operatorname{diag}(I_2,-I_2)$、$u_s=\sqrt{2m}(e_s,0)^T$、$v_s=\sqrt{2m}(0,e_s)^T$ とする。$\sum_s(u_su_s^\dagger+v_sv_s^\dagger)/(2m)$ を計算せよ。
 
 - Level: A
 
@@ -774,7 +777,7 @@ $$
 
 ### 演習 QFT8-B2：因果核の微分から等時刻CARまで
 
-$C=-iE$ とし、$E(0,\boldsymbol r)=0$、$\partial_tE(0,\boldsymbol r)=\delta^3(\boldsymbol r)$、$\operatorname{supp}E\subset\{|\boldsymbol r|\le|t|\}$ を仮定する。$S_{\mathrm{ac}}=(i\not\partial+m)C$ について、(1) $S_{\mathrm{ac}}(0,\boldsymbol r)$、(2) 空間的分離での値を分布の意味で求めよ。
+$C=-iE$ とし、$E(0,\boldsymbol r)=0$、$\partial_tE(0,\boldsymbol r)=\delta^3(\boldsymbol r)$、$\operatorname{supp}E\subset\{|\boldsymbol r|\le|t|\}$ を仮定する。$S_{\mathrm{ac}}=(\not\partial+m)C$ について、(1) $S_{\mathrm{ac}}(0,\boldsymbol r)$、(2) 空間的分離での値を分布の意味で求めよ。
 
 - Level: B
 
@@ -786,9 +789,9 @@ $C=-iE$ とし、$E(0,\boldsymbol r)=0$、$\partial_tE(0,\boldsymbol r)=\delta^3
 $$
 \begin{aligned}
 S_{\mathrm{ac}}(0,\boldsymbol r)
-&=(i\gamma^0\partial_t+i\gamma^j\partial_j+m)C\big|_{t=0}\\
-&=i\gamma^0(-i\delta^3)+0+0
-=\gamma^0\delta^3(\boldsymbol r).
+&=(\gamma^0\partial_t+\gamma^j\partial_j+m)C\big|_{t=0}\\
+&=\gamma^0(-i\delta^3)+0+0
+=-i\gamma^0\delta^3(\boldsymbol r)=\beta\delta^3(\boldsymbol r).
 \end{aligned}
 $$
 
@@ -823,27 +826,27 @@ $dd^\dagger\Omega=\Omega$、$b d^\dagger\Omega=0$ より $H d^\dagger\Omega=E d^
 
 ### 演習 QFT8-B4：静止運動量の時間順序核とデルタ源
 
-空間Fourier変換したDirac伝播関数で $\boldsymbol p=0$ を固定し、$E=m$、$\gamma^0=\operatorname{diag}(I_2,-I_2)$ とする。$P_\pm=(I_4\pm\gamma^0)/2$ を用いて時間係数 $S_F(t,\boldsymbol p=0)$ を表し、$(i\gamma^0\partial_t-m)S_F=i\delta(t)I_4$ を分布的に検算せよ。
+空間Fourier変換したDirac伝播関数で $\boldsymbol p=0$ を固定し、$E=m$、$\gamma^0=i\operatorname{diag}(I_2,-I_2)$ とする。$P_\pm=(I_4\mp i\gamma^0)/2=(I_4\pm \beta)/2$ を用いて時間係数 $S_F(t,\boldsymbol p=0)$ を表し、$(\gamma^0\partial_t-m)S_F=i\delta(t)I_4$ を分布的に検算せよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-[QFT7の質量殻射影子](../QFT7/index.md#def-qft7-projectors)を静止運動量 $p=(m,\boldsymbol0)$ で評価すると、$\Pi_\pm(p)=(I_4\pm\gamma^0)/2=P_\pm$ です。従って $P_+$ は上二成分、$P_-$ は下二成分を取り出します。[Dirac伝播関数の表示](#thm-qft8-propagator)では、$\not p=m\gamma^0$ なので正の時刻の係数は $(m\gamma^0+m)/(2m)=P_+$、負の時刻の係数は $-(m\gamma^0-m)/(2m)=P_-$ です。従って
+[QFT7の質量殻射影子](../QFT7/index.md#def-qft7-projectors)を静止運動量 $p=(m,\boldsymbol0)$ で評価すると、$\Pi_\pm(p)=(I_4\mp i\gamma^0)/2=P_\pm$ です。従って $P_+$ は上二成分、$P_-$ は下二成分を取り出します。[Dirac伝播関数の表示](#thm-qft8-propagator)では、$i\not p=-im\gamma^0=m\beta$ なので正の時刻の係数は $(m\beta+mI_4)/(2m)=P_+$、負の時刻の係数は $-(m\beta-mI_4)/(2m)=P_-$ です。従って
 
 $$
 S_F(t,\boldsymbol0)=\theta(t)P_+e^{-imt}
 +\theta(-t)P_-e^{+imt}.
 $$
 
-$\gamma^0P_+=P_+$、$\gamma^0P_-=-P_-$ です。$t>0$ では $(i\gamma^0\partial_t-m)P_+e^{-imt}=m(\gamma^0-I_4)P_+e^{-imt}=0$、$t<0$ では $-m(\gamma^0+I_4)P_-e^{+imt}=0$ です。
+$\gamma^0P_+=iP_+$、$\gamma^0P_-=-iP_-$ です。$t>0$ では $(\gamma^0\partial_t-m)P_+e^{-imt}=m(-i\gamma^0-I_4)P_+e^{-imt}=m(\beta-I_4)P_+e^{-imt}=0$、$t<0$ では $m(i\gamma^0-I_4)P_-e^{+imt}=m(-\beta-I_4)P_-e^{+imt}=0$ です。
 
 $\partial_t\theta(t)=\delta(t)$、$\partial_t\theta(-t)=-\delta(t)$ なので、接触項は
 
 $$
-i\gamma^0\delta(t)(P_+-P_-)
-=i\gamma^0\delta(t)\gamma^0=i\delta(t)I_4.
+\gamma^0\delta(t)(P_+-P_-)
+=\gamma^0\delta(t)\beta=i\delta(t)I_4.
 $$
 
 これが[伝播関数定理](#thm-qft8-propagator)の源の符号です。負時刻の前に負号を余分に付けると $P_+-P_-$ が再現されません。
@@ -857,8 +860,8 @@ $m>0$ の自由Dirac場を考え、$u_s,v_s$ は[QFT7のスピン和](../QFT7/in
 
 1. 単位粒子波束 $f$、単位反粒子波束 $g$ について $|f,g\rangle=b^\dagger(f)d^\dagger(g)\Omega$ のノルムと電荷を求めよ。また $b^\dagger(f)b^\dagger(f)\Omega$ を求めよ。
 2. $p_-=(E,-\boldsymbol p)$ とし、$\sum_s[u_s(p)u_s^\dagger(p)+v_s(p_-)v_s^\dagger(p_-)]/(2E)=I_4$ をスピン和から導け。この等式が等時刻CARへどのように使われるか示せ。
-3. $\{\psi(x),\bar\psi(y)\}=(i\not\partial+m)C(x-y)$ を導き、$x-y$ が空間的なときの結論を述べよ。ただし $C$ はQFT5のPauli–Jordan分布とする。
-4. 時間順序の負時刻の符号、Fourier分母の二つの極の位置、$(i\not\partial-m)S_F$ のデルタ源をそれぞれ検算せよ。
+3. $\{\psi(x),\bar\psi(y)\}=(\not\partial+m)C(x-y)$ を導き、$x-y$ が空間的なときの結論を述べよ。ただし $C$ はQFT5のPauli–Jordan分布とする。
+4. 時間順序の負時刻の符号、Fourier分母の二つの極の位置、$(\not\partial-m)S_F$ のデルタ源をそれぞれ検算せよ。
 
 - Level: C
 
@@ -878,60 +881,60 @@ $$
 
 途中で $b(f)d^\dagger(g)\Omega=-d^\dagger(g)b(f)\Omega=0$ を使いました。電荷は $Q|f,g\rangle=(+1-1)|f,g\rangle=0$ です。同じ波束を二回作ると $\{b^\dagger(f),b^\dagger(f)\}=2b^\dagger(f)^2=0$ なので $b^\dagger(f)^2\Omega=0$ です。
 
-**2. 四成分の完全性。** [QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)に右から $\gamma^0$ を掛けて
+**2. 四成分の完全性。** [QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums)に右から $\beta=-i\gamma^0$ を掛けて
 
 $$
 \begin{aligned}
-\sum_s u_s(p)u_s^\dagger(p)&=(E\gamma^0-\boldsymbol\gamma\cdot\boldsymbol p+m)\gamma^0,\\
-\sum_s v_s(p_-)v_s^\dagger(p_-)&=(E\gamma^0+\boldsymbol\gamma\cdot\boldsymbol p-m)\gamma^0.
+\sum_s u_s(p)u_s^\dagger(p)&=(i(-E\gamma^0+\boldsymbol\gamma\cdot\boldsymbol p)+m)\beta,\\
+\sum_s v_s(p_-)v_s^\dagger(p_-)&=(i(-E\gamma^0-\boldsymbol\gamma\cdot\boldsymbol p)-m)\beta.
 \end{aligned}
 $$
 
-和の運動量項と質量項は相殺し、$2E\gamma^0\gamma^0=2EI_4$ なので、指定の等式が得られます。[場の展開](#def-qft8-field)の $bb^\dagger$ と $d^\dagger d$ にCARを適用したあと、第二項の積分変数 $\boldsymbol p\mapsto-\boldsymbol p$ を使うと同一の $e^{i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}$ が掛かります。完全性を代入して $\int d\mu e^{i\boldsymbol p\cdot\boldsymbol r}=\delta^3(\boldsymbol r)$ です。
+和の運動量項と質量項は相殺し、$(-2iE\gamma^0)\beta=2EI_4$ なので、指定の等式が得られます。[場の展開](#def-qft8-field)の $bb^\dagger$ と $d^\dagger d$ にCARを適用したあと、第二項の積分変数 $\boldsymbol p\mapsto-\boldsymbol p$ を使うと同一の $e^{i\boldsymbol p\cdot(\boldsymbol x-\boldsymbol y)}$ が掛かります。完全性を代入して $\int d\mu e^{i\boldsymbol p\cdot\boldsymbol r}=\delta^3(\boldsymbol r)$ です。
 
 **3. 因果性。** $u$ と $v$ のスピン和による反交換子の核は
 
 $$
-\int\frac{d\mu}{2E}\bigl[(\not p+m)e^{-ip\cdot z}
-+(\not p-m)e^{+ip\cdot z}\bigr].
+\int\frac{d\mu}{2E}\bigl[(i\not p+m)e^{+ip\cdot z}
++(i\not p-m)e^{-ip\cdot z}\bigr].
 $$
 
 [QFT5のPauli–Jordan分布](../QFT5/index.md#thm-qft5-commutator-cauchy)を同じFourier規約で書くと
 
 $$
-C(z)=\int\frac{d\mu}{2E}\bigl(e^{-ip\cdot z}-e^{+ip\cdot z}\bigr).
+C(z)=\int\frac{d\mu}{2E}\bigl(e^{+ip\cdot z}-e^{-ip\cdot z}\bigr).
 $$
 
-$i\not\partial$ は正振動数指数へ $+\not p$、負振動数指数へ $-\not p$ を掛けます。従って $(i\not\partial+m)C$ はまさに上の和です。[QFT5の因果核支持定理](../QFT5/index.md#thm-qft5-finite-speed)は $C$ の支持を光円錐内に限り、微分も支持を広げないので、空間的分離では反交換子は零です。
+$\not\partial$ は正振動数指数へ $+i\not p$、負振動数指数へ $-i\not p$ を掛けます。従って $(\not\partial+m)C$ はまさに上の和です。[QFT5の因果核支持定理](../QFT5/index.md#thm-qft5-finite-speed)は $C$ の支持を光円錐内に限り、微分も支持を広げないので、空間的分離では反交換子は零です。
 
 **4. 時間順序と極。** 真空期待値の正時刻には $bb^\dagger$、負時刻には $dd^\dagger$ が寄与します。奇演算子を逆順にするため、負時刻の係数は
 
 $$
--\theta(-t)\int\frac{d\mu}{2E}(\not p-m)e^{+ip\cdot z}
+-\theta(-t)\int\frac{d\mu}{2E}(i\not p-m)e^{-ip\cdot z}
 $$
 
 です。[スカラーFeynman分布の極処方](../QFT6/index.md#thm-qft6-feynman-poles)を使えば
 
 $$
-S_F=(i\not\partial+m)D_F,
-\quad \widehat S_F(k)=\frac{i(\not k+m)}{k^2-m^2+i0}.
+S_F=(\not\partial+m)D_F,
+\quad \widehat S_F(k)=\frac{i(i\not k+m)}{-k^2-m^2+i0}.
 $$
 
 $k^0$ の二つの極は $+E-i0$ と $-E+i0$ の側から実軸へ近づきます。[QFT7の因数分解](../QFT7/index.md#thm-qft7-factorization)および[QFT6のデルタ源](../QFT6/index.md#thm-qft6-feynman-poles)により
 
 $$
-(i\not\partial-m)S_F
-=-(\Box+m^2)D_F=i\delta^4I_4.
+(\not\partial-m)S_F
+=(\Box-m^2)D_F=-(-\Box+m^2)D_F=i\delta^4I_4.
 $$
 
-この係数は[等時刻CAR](#thm-qft8-equal-time)の跳び $\gamma^0\delta^3$ に $i\gamma^0$ を掛けても得られます。したがって粒子・反粒子のCAR、因果的支持、時間順序の負号、分布的なデルタ源が同一の規約で整合します。
+この係数は[等時刻CAR](#thm-qft8-equal-time)の跳び $\beta\delta^3$ に $\gamma^0$ を掛けても得られます。したがって粒子・反粒子のCAR、因果的支持、時間順序の負号、分布的なデルタ源が同一の規約で整合します。
 <!-- solution-end -->
 
 ## 7. まとめ：自由場から相互作用へ
 
 - フェルミオンFock空間は反対称テンソル冪から構成され、生成・消滅演算子はCARを満たします。同じモードの二重占有は零です。
-- 自由Dirac場は $b_su_se^{-ip\cdot x}+d_s^\dagger v_se^{+ip\cdot x}$ の形です。反粒子は負エネルギーではなく、正エネルギーと反対電荷を持つ励起です。
-- 等時刻CARの $I_4\delta^3$ は $u,v$ の両スピン和が必要です。異なる時空点の反交換子は $(i\not\partial+m)C$ で、空間的分離では零です。
-- 時間順序で奇演算子を交換すると負号が生じます。$S_F=(i\not\partial+m)D_F$ は正負二極のFeynman処方を受け継ぎ、Dirac作用素で $i\delta^4$ を生じます。
+- 自由Dirac場は $b_su_se^{+ip\cdot x}+d_s^\dagger v_se^{-ip\cdot x}$ の形です。反粒子は負エネルギーではなく、正エネルギーと反対電荷を持つ励起です。
+- 等時刻CARの $I_4\delta^3$ は $u,v$ の両スピン和が必要です。異なる時空点の反交換子は $(\not\partial+m)C$ で、空間的分離では零です。
+- 時間順序で奇演算子を交換すると負号が生じます。$S_F=(\not\partial+m)D_F$ は正負二極のFeynman処方を受け継ぎ、Dirac作用素で $i\delta^4$ を生じます。
 
 次の段階では相互作用を加えてDyson級数を有限次数まで展開し、ボース・フェルミオン双方の時間順序積をWickの定理で計算します。そのとき本章の反交換符号と伝播関数が内部線の計算規則になります。

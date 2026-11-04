@@ -36,7 +36,7 @@ c\Delta t'&=\frac54\left(5-\frac35\cdot3\right)\mathrm m=4\,\mathrm m,\\
 \end{aligned}
 $$
 
-平方和は $25+9=34\,\mathrm m^2$ から $16\,\mathrm m^2$ に変わります。一方、**差**を取ると両方とも $16\,\mathrm m^2$ です。
+平方和は $25+9=34\,\mathrm m^2$ から $16\,\mathrm m^2$ に変わります。一方、**空間の平方から時間の平方を引く**と両方とも $-16\,\mathrm m^2$ です。
 
 この符号の違いを幾何学の定義へ組み込みます。
 
@@ -47,10 +47,10 @@ $$
 > 実四次元ベクトル $U=(U^0,U^1,U^2,U^3)$ と $V=(V^0,V^1,V^2,V^3)$ に対して、対称双線形形式 $g$ を
 
 $$
-g(U,V)=U^0V^0-U^1V^1-U^2V^2-U^3V^3
+g(U,V)=-U^0V^0+U^1V^1+U^2V^2+U^3V^3
 $$
 
-> と定める。この符号規約を $(+,-,-,-)$ と書く。標準座標での計量行列は $\eta=\operatorname{diag}(1,-1,-1,-1)$ であり、$g(U,V)=U^{\mathsf T}\eta V$ である。
+> と定める。この符号規約を $(-,+,+,+)$ と書く。標準座標での計量行列は $\eta=\operatorname{diag}(-1,1,1,1)$ であり、$g(U,V)=U^{\mathsf T}\eta V$ である。[全巻共通のLorentz符号規約](../../../../../dream-theater-lorentz-conventions.md)にも従う。
 <!-- formal-statement-end -->
 
 この計量は非退化ですが正定値ではありません。$U\ne0$ でも $g(U,U)=0$ になり得ます。添字 $0$ は時間成分、$1,2,3$ は空間成分を表します。本章では添字の上げ下げを計算の前提にせず、行列の積を直接使います。
@@ -58,8 +58,8 @@ $$
 非退化であることも、正定値性とは分けて確認できます。$g(U,V)=0$ がすべての $V\in\mathbb R^4$ に対して成り立つと仮定し、標準基底 $e_0=(1,0,0,0)$、$e_1=(0,1,0,0)$、$e_2=(0,0,1,0)$、$e_3=(0,0,0,1)$ を順に代入すると
 
 $$
-g(U,e_0)=U^0=0,\qquad
-g(U,e_i)=-U^i=0\quad(i=1,2,3)
+g(U,e_0)=-U^0=0,\qquad
+g(U,e_i)=U^i=0\quad(i=1,2,3)
 $$
 
 となります。従って $U=0$ です。一方、特定の非零 $U$ に対して $g(U,U)=0$ になることは、この非退化性と矛盾しません。
@@ -70,9 +70,9 @@ $$
 **定義の確認**として、$U=(1,1,0,0)$ と $V=(1,0,1,0)$ を代入します。
 
 $$
-g(U,U)=1-1=0,\qquad
-g(U,V)=1,\qquad
-g(V,V)=1-1=0.
+g(U,U)=-1+1=0,\qquad
+g(U,V)=-1,\qquad
+g(V,V)=-1+1=0.
 $$
 
 二つのベクトルはどちらも零ベクトルではありません。それでも各自の平方が零です。「内積」という言葉から正定値性を推測しないでください。
@@ -86,7 +86,7 @@ $$
 
 $$
 \Delta s^2:=g(\Delta X,\Delta X)
-=c^2(\Delta t)^2-|\Delta\boldsymbol r|^2
+=-c^2(\Delta t)^2+|\Delta\boldsymbol r|^2
 $$
 
 > と定める。$\Delta s^2$ は負にもなり得るため、一般に $\Delta s$ を実数の距離として定義するわけではない。
@@ -98,10 +98,10 @@ $$
 **定義の確認**として、$c\Delta t=5\,\mathrm m$、$\Delta\boldsymbol r=(3,0,0)\,\mathrm m$ を使います。空間距離の平方は $9\,\mathrm m^2$ なので
 
 $$
-\Delta s^2=25-9=16\,\mathrm m^2.
+\Delta s^2=-25+9=-16\,\mathrm m^2.
 $$
 
-時空間隔の平方は正ですが、空間的な距離が $4\,\mathrm m$ という意味ではありません。後で $4\,\mathrm m/c$ を時計の時間として解釈します。
+時空間隔の平方は負ですが、負の距離という意味ではありません。後で $\sqrt{-\Delta s^2}/c=4\,\mathrm m/c$ を時計の時間として解釈します。
 <!-- definition-example-end -->
 
 ## 2. Lorentz変換で何が保存されるか
@@ -134,7 +134,7 @@ $$
 
 ### 証明の見取り図
 
-二事象の**差**へ変換を適用します。時間成分の平方から空間成分の平方を引くと交差項が打ち消し合います。行列式の値だけから不変性を推測するのではなく、二次形式を直接展開します。
+二事象の**差**へ変換を適用します。空間成分の平方から時間成分の平方を引くと交差項が打ち消し合います。行列式の値だけから不変性を推測するのではなく、二次形式を直接展開します。
 
 <!-- proof-start -->
 ### 証明
@@ -150,16 +150,15 @@ $$
 
 $$
 \begin{aligned}
-(\Delta x'^0)^2-(\Delta x'^1)^2
-&=\gamma^2\bigl[(\Delta x^0-\beta\Delta x^1)^2
--(\Delta x^1-\beta\Delta x^0)^2\bigr]\\
-&=\gamma^2\bigl[(1-\beta^2)(\Delta x^0)^2
--(1-\beta^2)(\Delta x^1)^2\bigr]\\
-&=(\Delta x^0)^2-(\Delta x^1)^2.
+(\Delta x'^1)^2-(\Delta x'^0)^2
+&=\gamma^2\bigl[(\Delta x^1-\beta\Delta x^0)^2
+-(\Delta x^0-\beta\Delta x^1)^2\bigr]\\
+&=\gamma^2(1-\beta^2)\bigl[(\Delta x^1)^2-(\Delta x^0)^2\bigr]\\
+&=(\Delta x^1)^2-(\Delta x^0)^2.
 \end{aligned}
 $$
 
-二行目では、各平方の交差項 $-2\beta\Delta x^0\Delta x^1$ が互いに消えます。三行目では $\gamma^2(1-\beta^2)=1$ を用いました。変わらない $\Delta x^2,\Delta x^3$ の平方をさらに引けば四成分について結論が出ます。
+二行目では、各平方の交差項 $-2\beta\Delta x^0\Delta x^1$ が互いに消えます。三行目では $\gamma^2(1-\beta^2)=1$ を用いました。変わらない $\Delta x^2,\Delta x^3$ の平方をさらに足せば四成分について結論が出ます。
 
 空間の直交回転を行列 $R$ で書けば $R^{\mathsf T}R=I$ なので $|R\Delta\boldsymbol r|^2=|\Delta\boldsymbol r|^2$ です。二つの変換 $T_1,T_2$ が $g$ を保存するなら
 
@@ -198,9 +197,9 @@ $$
 > **定義（時間的・光的・空間的分離）**  
 > 異なる事象 $A,B\in\mathbb R^4$ の時空間隔の平方で、次のように分離の種類を定める。
 >
-> - $\Delta s^2>0$：**時間的**（timelike）。
+> - $\Delta s^2<0$：**時間的**（timelike）。
 > - $\Delta s^2=0$：**光的**（null）。
-> - $\Delta s^2<0$：**空間的**（spacelike）。
+> - $\Delta s^2>0$：**空間的**（spacelike）。
 >
 > 時間的または光的な差を**因果的**（causal）といい、時間成分 $\Delta t>0$ の因果的な差を未来向きという。
 <!-- formal-statement-end -->
@@ -213,11 +212,11 @@ $$
 $$
 \begin{aligned}
 \Delta\boldsymbol r=(3,0,0)\,\mathrm m
-&:\quad\Delta s^2=(25-9)\,\mathrm m^2=16\,\mathrm m^2>0,\\
+&:\quad\Delta s^2=(-25+9)\,\mathrm m^2=-16\,\mathrm m^2<0,\\
 \Delta\boldsymbol r=(3,4,0)\,\mathrm m
-&:\quad\Delta s^2=(25-9-16)\,\mathrm m^2=0,\\
+&:\quad\Delta s^2=(-25+9+16)\,\mathrm m^2=0,\\
 \Delta\boldsymbol r=(6,0,0)\,\mathrm m
-&:\quad\Delta s^2=(25-36)\,\mathrm m^2=-11\,\mathrm m^2<0.
+&:\quad\Delta s^2=(-25+36)\,\mathrm m^2=11\,\mathrm m^2>0.
 \end{aligned}
 $$
 
@@ -258,7 +257,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（因果的時間順序の保存と空間的同時系）**  
-> 二事象の差が未来向きで時間的または光的なら、未来方向を保存する任意の $|v|<c$ のboostと空間回転のもとで時間差は正のままである。一方、$\Delta s^2<0$ なら、二事象が同時となる慣性系が存在し、別の慣性系では二事象の時刻順序を逆転できる。
+> 二事象の差が未来向きで時間的または光的なら、未来方向を保存する任意の $|v|<c$ のboostと空間回転のもとで時間差は正のままである。一方、$\Delta s^2>0$ なら、二事象が同時となる慣性系が存在し、別の慣性系では二事象の時刻順序を逆転できる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -361,7 +360,7 @@ $$
 > と定める。単一の滑らかな区間では微小固有時は
 
 $$
-d\tau=\frac1c\sqrt{g(dX,dX)}
+d\tau=\frac1c\sqrt{-g(dX,dX)}
 =dt\sqrt{1-\frac{|\boldsymbol v(t)|^2}{c^2}}
 $$
 
@@ -382,12 +381,12 @@ $$
 ここで $10\,\mathrm s$ は $S$ の座標時間、$6\,\mathrm s$ はその動く時計自身の固有時です。
 <!-- definition-example-end -->
 
-積分の下の平方根は、微小な時空間隔の正の平方根を $c$ で割ったものです。$dX=(c\,dt,\boldsymbol v\,dt)$ を [Minkowski計量](#def-srel2-minkowski-metric)へ入れると
+積分の下の平方根は、時間的な微小時空間隔の**符号を反転した値**の正の平方根を $c$ で割ったものです。$dX=(c\,dt,\boldsymbol v\,dt)$ を [Minkowski計量](#def-srel2-minkowski-metric)へ入れると
 
 $$
 \begin{aligned}
-g(dX,dX)&=c^2dt^2-|\boldsymbol v|^2dt^2\\
-&=c^2\left(1-\frac{|\boldsymbol v|^2}{c^2}\right)dt^2>0.
+g(dX,dX)&=-c^2dt^2+|\boldsymbol v|^2dt^2\\
+&=-c^2\left(1-\frac{|\boldsymbol v|^2}{c^2}\right)dt^2<0.
 \end{aligned}
 $$
 
@@ -420,7 +419,7 @@ $$
 g(dX',dX')=g(dX,dX)
 $$
 
-であり、時間的条件により両辺は正です。新しい時刻が増加することも確認します。$S'$ が $S$ に対して $x$ 方向へ速度 $w$（$|w|<c$）で動く場合、$\gamma_w=(1-w^2/c^2)^{-1/2}$ と置き、[一次元Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を世界線に沿って微分すると
+であり、時間的条件により両辺は負です。新しい時刻が増加することも確認します。$S'$ が $S$ に対して $x$ 方向へ速度 $w$（$|w|<c$）で動く場合、$\gamma_w=(1-w^2/c^2)^{-1/2}$ と置き、[一次元Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を世界線に沿って微分すると
 
 $$
 \begin{aligned}
@@ -434,8 +433,8 @@ $|\dot x(t)|\le|\dot{\boldsymbol r}(t)|<c$ を使いました。空間回転は�
 
 $$
 \begin{aligned}
-d\tau'&=\frac1c\sqrt{g(dX',dX')}\\
-&=\frac1c\sqrt{g(dX,dX)}=d\tau
+d\tau'&=\frac1c\sqrt{-g(dX',dX')}\\
+&=\frac1c\sqrt{-g(dX,dX)}=d\tau
 \end{aligned}
 $$
 
@@ -457,7 +456,7 @@ $$
 > 未来向きに時間的に分離した二事象 $A,B$ を固定する。両端を結ぶ区分的 $C^1$ な未来向き時間的世界線のうち、一直線の慣性世界線に沿う固有時は
 
 $$
-\tau_{\mathrm{inertial}}=\frac{\sqrt{\Delta s^2}}{c}
+\tau_{\mathrm{inertial}}=\frac{\sqrt{-\Delta s^2}}{c}
 $$
 
 > であり、他のいずれの世界線の固有時 $\tau$ についても
@@ -471,7 +470,7 @@ $$
 
 ### 証明の見取り図
 
-まず両端が**同じ位置**に見える慣性系を探します。その系では、任意の寄り道した時計の微小固有時は $d\tau=dt\sqrt{1-v^2/c^2}\le dt$ です。その系で二事象間の時間差が $\sqrt{\Delta s^2}/c$ なので、すべての経路を一度に比較できます。
+まず両端が**同じ位置**に見える慣性系を探します。その系では、任意の寄り道した時計の微小固有時は $d\tau=dt\sqrt{1-v^2/c^2}\le dt$ です。その系で二事象間の時間差が $\sqrt{-\Delta s^2}/c$ なので、すべての経路を一度に比較できます。
 
 <!-- proof-start -->
 ### 証明
@@ -492,9 +491,9 @@ $$
 垂直方向の位置差も零だから、選んだ慣性系 $S'$ では $\Delta\boldsymbol r'=0$ です。[時空間隔の不変性](#thm-srel2-interval-invariance)から
 
 $$
-c^2(\Delta t')^2=\Delta s^2,
+-c^2(\Delta t')^2=\Delta s^2,
 \qquad
-\Delta t'=\frac{\sqrt{\Delta s^2}}{c}>0
+\Delta t'=\frac{\sqrt{-\Delta s^2}}{c}>0
 $$
 
 となります。最後の正の符号は [因果的時間順序の保存](#prop-srel2-causal-order)によります。
@@ -512,7 +511,7 @@ $$
 \tau&=\int_{t'_A}^{t'_B}
 \sqrt{1-\frac{|\boldsymbol v'(t')|^2}{c^2}}\,dt'\\
 &\le\int_{t'_A}^{t'_B}1\,dt'
-=\Delta t'=\frac{\sqrt{\Delta s^2}}{c}.
+=\Delta t'=\frac{\sqrt{-\Delta s^2}}{c}.
 \end{aligned}
 $$
 
@@ -577,9 +576,9 @@ $$
 
 $$
 \begin{aligned}
-\text{(i)}\quad\Delta s^2&=5^2-3^2=16\,\mathrm m^2>0,\\
-\text{(ii)}\quad\Delta s^2&=5^2-3^2-4^2=0,\\
-\text{(iii)}\quad\Delta s^2&=2^2-3^2=-5\,\mathrm m^2<0.
+\text{(i)}\quad\Delta s^2&=-5^2+3^2=-16\,\mathrm m^2<0,\\
+\text{(ii)}\quad\Delta s^2&=-5^2+3^2+4^2=0,\\
+\text{(iii)}\quad\Delta s^2&=-2^2+3^2=5\,\mathrm m^2>0.
 \end{aligned}
 $$
 
@@ -605,7 +604,7 @@ c\Delta t'&=\frac54\left(5-\frac35\cdot3\right)\mathrm m
 \end{aligned}
 $$
 
-変換前は $\Delta s^2=(25-9)\,\mathrm m^2=16\,\mathrm m^2$、変換後は $(16-0)\,\mathrm m^2=16\,\mathrm m^2$ です。[不変性の定理](#thm-srel2-interval-invariance)と一致します。
+変換前は $\Delta s^2=(-25+9)\,\mathrm m^2=-16\,\mathrm m^2$、変換後は $(-16+0)\,\mathrm m^2=-16\,\mathrm m^2$ です。[不変性の定理](#thm-srel2-interval-invariance)と一致します。
 <!-- solution-end -->
 
 ### A3. 光円錐の内側か外側か
@@ -667,7 +666,7 @@ $\Delta x=600\,\mathrm m$、$c\Delta t=300\,\mathrm m$、$\Delta y=\Delta z=0$ �
 <!-- solution-start -->
 #### 詳細解答
 
-まず $\Delta s^2=(300^2-600^2)\,\mathrm m^2=-270000\,\mathrm m^2<0$ なので空間的です。[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)の時間差を零と置くと
+まず $\Delta s^2=(-300^2+600^2)\,\mathrm m^2=270000\,\mathrm m^2>0$ なので空間的です。[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)の時間差を零と置くと
 
 $$
 0=\gamma\left(\Delta t-\frac{v\Delta x}{c^2}\right)
@@ -685,8 +684,8 @@ $$
 $x$ 方向boostにおいて $\Delta x'^2=\Delta x^2$、$\Delta x'^3=\Delta x^3$ であることを使い、任意の $\Delta X$ について
 
 $$
-(\Delta x'^0)^2-\sum_{i=1}^3(\Delta x'^i)^2
-=(\Delta x^0)^2-\sum_{i=1}^3(\Delta x^i)^2
+-(\Delta x'^0)^2+\sum_{i=1}^3(\Delta x'^i)^2
+=-(\Delta x^0)^2+\sum_{i=1}^3(\Delta x^i)^2
 $$
 
 を直接証明せよ。特に光的分離が光的分離へ移ることを説明せよ。
@@ -709,15 +708,15 @@ $$
 
 $$
 \begin{aligned}
-(\Delta x'^0)^2-(\Delta x'^1)^2
-&=\gamma^2\bigl[(\Delta x^0)^2-2\beta\Delta x^0\Delta x^1+\beta^2(\Delta x^1)^2\\
-&\qquad-(\Delta x^1)^2+2\beta\Delta x^0\Delta x^1-\beta^2(\Delta x^0)^2\bigr]\\
-&=\gamma^2(1-\beta^2)\bigl[(\Delta x^0)^2-(\Delta x^1)^2\bigr]\\
-&=(\Delta x^0)^2-(\Delta x^1)^2.
+(\Delta x'^1)^2-(\Delta x'^0)^2
+&=\gamma^2\bigl[(\Delta x^1)^2-2\beta\Delta x^0\Delta x^1+\beta^2(\Delta x^0)^2\\
+&\qquad-(\Delta x^0)^2+2\beta\Delta x^0\Delta x^1-\beta^2(\Delta x^1)^2\bigr]\\
+&=\gamma^2(1-\beta^2)\bigl[(\Delta x^1)^2-(\Delta x^0)^2\bigr]\\
+&=(\Delta x^1)^2-(\Delta x^0)^2.
 \end{aligned}
 $$
 
-垂直二成分の平方は不変なので、それぞれを両辺から引けば問題の四成分の等式が出ます。変換前の左辺が零なら変換後も零であり、逆変換も存在するため、非零の光的分離は非零の光的分離のままです。
+垂直二成分の平方は不変なので、それぞれを両辺に足せば問題の四成分の等式が出ます。変換前の左辺が零なら変換後も零であり、逆変換も存在するため、非零の光的分離は非零の光的分離のままです。
 <!-- solution-end -->
 
 ### B2. 任意方向の両端静止系
@@ -735,7 +734,7 @@ $$
 |\Delta\boldsymbol r|=\sqrt{3^2+4^2}\,\mathrm m=5\,\mathrm m,
 $$
 
-時空間隔は $\Delta s^2=(13^2-5^2)\,\mathrm m^2=144\,\mathrm m^2>0$ です。空間差の単位方向を
+時空間隔は $\Delta s^2=(-13^2+5^2)\,\mathrm m^2=-144\,\mathrm m^2<0$ です。空間差の単位方向を
 
 $$
 \boldsymbol n=\frac{\Delta\boldsymbol r}{|\Delta\boldsymbol r|}
@@ -761,7 +760,7 @@ c\Delta t'&=\frac{13}{12}\left(13-\frac5{13}\cdot5\right)\mathrm m\\
 \end{aligned}
 $$
 
-垂直の空間差は最初から零で、変換後も零です。従って $\Delta s'^2=(12^2-0)\,\mathrm m^2=144\,\mathrm m^2$ で、元と一致します。
+垂直の空間差は最初から零で、変換後も零です。従って $\Delta s'^2=(-12^2+0)\,\mathrm m^2=-144\,\mathrm m^2$ で、元と一致します。
 <!-- solution-end -->
 
 ### B3. 折り返す時計と経路の違い
@@ -838,9 +837,9 @@ $$
 $$
 \begin{aligned}
 \Delta s^2
-&=c^2(10\,\mathrm s)^2-(3c\,\mathrm s)^2\\
-&=(100-9)c^2\,\mathrm s^2
-=91c^2\,\mathrm s^2>0.
+&=-c^2(10\,\mathrm s)^2+(3c\,\mathrm s)^2\\
+&=(-100+9)c^2\,\mathrm s^2
+=-91c^2\,\mathrm s^2<0.
 \end{aligned}
 $$
 
@@ -864,7 +863,7 @@ $$
 \end{aligned}
 $$
 
-これは [時空間隔の不変性](#thm-srel2-interval-invariance)から $\Delta t'=\sqrt{\Delta s^2}/c$ としても一致します。
+これは [時空間隔の不変性](#thm-srel2-interval-invariance)から $\Delta t'=\sqrt{-\Delta s^2}/c$ としても一致します。
 
 (3) 時計Iは一定の速度 $3c/10$ で動くため、[固有時の定義](#def-srel2-proper-time)より
 
@@ -895,7 +894,7 @@ $91>81$ だから $\sqrt{91}>9$ であり $\tau_{\mathrm I}>\tau_{\mathrm{II}}$ 
 
 $$
 \tau_{\mathrm{II}}<\tau_{\mathrm I}
-=\frac{\sqrt{\Delta s^2}}{c}
+=\frac{\sqrt{-\Delta s^2}}{c}
 =\sqrt{91}\,\mathrm s
 $$
 

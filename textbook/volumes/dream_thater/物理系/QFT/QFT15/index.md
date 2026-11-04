@@ -8,7 +8,7 @@
 
 ## 1. 電場・磁場を四元ポテンシャルから作る
 
-時空は平坦な $3+1$ 次元Minkowski空間とし、座標を $x^\mu=(t,x^1,x^2,x^3)$、計量を $\eta=\operatorname{diag}(1,-1,-1,-1)$ とします。$c=\hbar=1$ の自然単位系と、電磁気の結合定数を場の規格化へ吸収したHeaviside–Lorentz単位系を使います。
+時空は平坦な $3+1$ 次元Minkowski空間とし、座標を $x^\mu=(t,x^1,x^2,x^3)$、計量を $\eta=\operatorname{diag}(-1,1,1,1)$ とします。$c=\hbar=1$ の自然単位系と、電磁気の結合定数を場の規格化へ吸収したHeaviside–Lorentz単位系を使います。[本教材のLorentz計量規約](../../../../../dream-theater-lorentz-conventions.md)に従います。
 
 この章のMaxwell方程式の規格化は
 
@@ -22,15 +22,17 @@ $$
 
 $$
 A^\mu=(\Phi,A^1,A^2,A^3),\qquad
-A_\mu=(\Phi,-A^1,-A^2,-A^3)
+A_\mu=(-\Phi,A^1,A^2,A^3)
 $$
 
-と対応します。また $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で偏微分する演算子で、添字を上げると空間成分の符号が変わります。
+と対応します。また $\partial_\mu$ は他の時空座標を固定して $x^\mu$ で偏微分する演算子で、添字を上げると時間成分の符号が変わります。
 
 $$
 \partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
-\partial^\mu=\eta^{\mu\nu}\partial_\nu.
+\partial^\mu=\eta^{\mu\nu}\partial_\nu=(-\partial_t,\nabla).
 $$
+
+この講義では[SREL5の電磁場テンソル](../../SREL/SREL5/index.md#def-srel5-field-tensor)と同じ $F_{0i}=E_i$、$F_{ij}=-\epsilon_{ijk}B_k$ を保つため、$F$ の向きを **$F=-dA$** とします（$A=A_\mu dx^\mu$）。この符号は、四元ポテンシャル $A^\mu=(\Phi,\boldsymbol A)$ を保ったまま電磁場の成分定義を揃えるための約束です。
 
 <a id="def-qft15-potential-field"></a>
 
@@ -40,7 +42,7 @@ $$
 
 $$
 \begin{aligned}
-F_{\mu\nu}&=\partial_\mu A_\nu-\partial_\nu A_\mu,\\
+F_{\mu\nu}&=\partial_\nu A_\mu-\partial_\mu A_\nu,\\
 E_i&=F_{0i}=-\partial_t A^i-\partial_i\Phi,\\
 B_i&=-\frac12\epsilon_{ijk}F_{jk}
 = (\nabla\times\boldsymbol A)_i.
@@ -57,7 +59,7 @@ $$
 
 **定義の確認**：ポテンシャルの正則性、反対称な $F$ の成分と電場・磁場の対応を検査します。
 
-$\Phi=0$、$\boldsymbol A=(0,B_0x^1,0)$、実定数 $B_0$ とします。このポテンシャルは全時空で実数値かつ滑らかです。$\partial_1A_2=-B_0$、$\partial_2A_1=0$ だから $F_{12}=-B_0$、$F_{21}=B_0$ です。他の空間成分と $F_{0i}$ は零になります。従って
+$\Phi=0$、$\boldsymbol A=(0,B_0x^1,0)$、実定数 $B_0$ とします。このポテンシャルは全時空で実数値かつ滑らかです。$\partial_1A_2=B_0$、$\partial_2A_1=0$ だから $F_{12}=\partial_2A_1-\partial_1A_2=-B_0$、$F_{21}=B_0$ です。他の空間成分と $F_{0i}$ は零になります。従って
 
 $$
 \boldsymbol E=0,\qquad
@@ -73,9 +75,9 @@ $$
 
 $$
 \begin{aligned}
-&\partial_\lambda\partial_\mu A_\nu-\partial_\lambda\partial_\nu A_\mu
-+\partial_\mu\partial_\nu A_\lambda-\partial_\mu\partial_\lambda A_\nu\\
-&\qquad+\partial_\nu\partial_\lambda A_\mu-\partial_\nu\partial_\mu A_\lambda=0.
+&\partial_\lambda\partial_\nu A_\mu-\partial_\lambda\partial_\mu A_\nu
++\partial_\mu\partial_\lambda A_\nu-\partial_\mu\partial_\nu A_\lambda\\
+&\qquad+\partial_\nu\partial_\mu A_\lambda-\partial_\nu\partial_\lambda A_\mu=0.
 \end{aligned}
 $$
 
@@ -104,21 +106,21 @@ $$
 四元成分から時間と空間に分けると、変換後をプライムで表す記法は
 
 $$
-\Phi'=\Phi+\partial_t\chi,\qquad
-\boldsymbol A'=\boldsymbol A-\nabla\chi
+\Phi'=\Phi-\partial_t\chi,\qquad
+\boldsymbol A'=\boldsymbol A+\nabla\chi
 $$
 
-となります。ここでプライムは時間微分ではなく**変換後の表示**です。物理でよく使う $\boldsymbol A\mapsto\boldsymbol A+\nabla\lambda$、$\Phi\mapsto\Phi-\partial_t\lambda$ という記法は、$\lambda=-\chi$ と置いた同じ変換です。
+となります。ここでプライムは時間微分ではなく**変換後の表示**です。これは物理でよく使う $\boldsymbol A\mapsto\boldsymbol A+\nabla\chi$、$\Phi\mapsto\Phi-\partial_t\chi$ と同じ記法です。
 
 <!-- definition-example-start: def-qft15-gauge -->
 ### 例：一様磁場の二つの表示を結ぶ
 
 **定義の確認**：変換関数の正則性、ゲージ同値の式、電磁場の一致を別々に確かめます。
 
-第1節の $A_\mu=(0,0,-B_0x^1,0)$ に $\chi=B_0x^1x^2$ を加えます。$\partial_1\chi=B_0x^2$、$\partial_2\chi=B_0x^1$ なので
+第1節の $A_\mu=(0,0,B_0x^1,0)$ に $\chi=-B_0x^1x^2$ を加えます。$\partial_1\chi=-B_0x^2$、$\partial_2\chi=-B_0x^1$ なので
 
 $$
-A'_\mu=(0,B_0x^2,0,0),\qquad
+A'_\mu=(0,-B_0x^2,0,0),\qquad
 \boldsymbol A'=(-B_0x^2,0,0).
 $$
 
@@ -150,10 +152,10 @@ $$
 $$
 \begin{aligned}
 F'_{\mu\nu}
-&=\partial_\mu(A_\nu+\partial_\nu\chi)
--\partial_\nu(A_\mu+\partial_\mu\chi)\\
+&=\partial_\nu(A_\mu+\partial_\mu\chi)
+-\partial_\mu(A_\nu+\partial_\nu\chi)\\
 &=F_{\mu\nu}
-+(\partial_\mu\partial_\nu-\partial_\nu\partial_\mu)\chi
++(\partial_\nu\partial_\mu-\partial_\mu\partial_\nu)\chi
 =F_{\mu\nu}.
 \end{aligned}
 $$
@@ -178,10 +180,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（源付きMaxwell作用）**  
-> 有界な開領域 $\Omega\subset\mathbb R^{1,3}$、実数値 $C^2$ ポテンシャル $A_\mu$、指定された $C^1$ 四元電流 $J^\mu=(\rho,\boldsymbol j)$ に対し、$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とする。積分が存在するとき、作用を
+> 有界な開領域 $\Omega\subset\mathbb R^{1,3}$、実数値 $C^2$ ポテンシャル $A_\mu$、指定された $C^1$ 四元電流 $J^\mu=(\rho,\boldsymbol j)$ に対し、$F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$ とする。積分が存在するとき、作用を
 
 $$
-S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}-J^\mu A_\mu\right)d^4x
+S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}+J^\mu A_\mu\right)d^4x
 $$
 
 > と定める。停留性は任意の実数値 $C_c^\infty(\Omega)$ 四元変分 $\delta A_\nu$ に対して第一変分が零であることとする。
@@ -209,10 +211,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Maxwell作用のEuler–Lagrange方程式）**  
-> 有界開集合 $\Omega\subset\mathbb R^{1,3}$ 上の実数値 $A_\mu\in C^2(\Omega)$ と固定した外部電流 $J^\mu\in C^1(\Omega)$ を考える。場の強さを $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ とし、積分が存在する[源付きMaxwell作用](#def-qft15-maxwell-action)を
+> 有界開集合 $\Omega\subset\mathbb R^{1,3}$ 上の実数値 $A_\mu\in C^2(\Omega)$ と固定した外部電流 $J^\mu\in C^1(\Omega)$ を考える。場の強さを $F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$ とし、積分が存在する[源付きMaxwell作用](#def-qft15-maxwell-action)を
 
 $$
-S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}-J^\mu A_\mu\right)d^4x
+S_\Omega[A]=\int_\Omega\left(-\frac14F_{\mu\nu}F^{\mu\nu}+J^\mu A_\mu\right)d^4x
 $$
 
 > とする。全ての実数値 $C_c^\infty(\Omega)$ 四元変分 $\delta A_\nu$ に対して停留すると仮定すれば、各 $\nu=0,1,2,3$ について
@@ -221,7 +223,7 @@ $$
 \partial_\mu F^{\mu\nu}=J^\nu.
 $$
 
-> 逆にこの四式を満たせば、同じ変分の範囲で作用は停留する。さらに $F=dA$ の定義によって斉次Maxwell方程式も満たす。
+> 逆にこの四式を満たせば、同じ変分の範囲で作用は停留する。さらに $F=-dA$ の定義によって斉次Maxwell方程式も満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -231,16 +233,16 @@ $F$ は反対称なので、その変分の二項は同じ寄与へまとめら�
 <!-- proof-start -->
 ### 証明
 
-$\delta F_{\mu\nu}=\partial_\mu\delta A_\nu-\partial_\nu\delta A_\mu$ を作用へ代入します。$F^{\mu\nu}=-F^{\nu\mu}$ を使い、第二項のダミー添字を $\mu\leftrightarrow\nu$ と交換すると
+$\delta F_{\mu\nu}=\partial_\nu\delta A_\mu-\partial_\mu\delta A_\nu$ を作用へ代入します。$F^{\mu\nu}=-F^{\nu\mu}$ を使い、第二項のダミー添字を $\mu\leftrightarrow\nu$ と交換すると
 
 $$
 \begin{aligned}
 \delta S_\Omega
 &=\int_\Omega\left[-\frac12F^{\mu\nu}
-(\partial_\mu\delta A_\nu-\partial_\nu\delta A_\mu)
--J^\nu\delta A_\nu\right]d^4x\\
-&=\int_\Omega\left[-F^{\mu\nu}\partial_\mu\delta A_\nu
--J^\nu\delta A_\nu\right]d^4x.
+(\partial_\nu\delta A_\mu-\partial_\mu\delta A_\nu)
++J^\nu\delta A_\nu\right]d^4x\\
+&=\int_\Omega\left[F^{\mu\nu}\partial_\mu\delta A_\nu
++J^\nu\delta A_\nu\right]d^4x.
 \end{aligned}
 $$
 
@@ -248,7 +250,7 @@ $\delta A$ は $\Omega$ の内部に台を持つので、$\partial_\mu(F^{\mu\nu
 
 $$
 \delta S_\Omega
-=\int_\Omega (\partial_\mu F^{\mu\nu}-J^\nu)\delta A_\nu\,d^4x.
+=\int_\Omega (-\partial_\mu F^{\mu\nu}+J^\nu)\delta A_\nu\,d^4x.
 $$
 
 各成分を独立に任意の試験関数とできるため、[QFT1の場のEuler–Lagrange方程式](../QFT1/index.md#thm-qft1-field-el)で用いた変分論法を適用できます。実際、括弧内の連続関数がある点で正なら、近傍でも正となり、その近傍に台を持つ非負で零でない滑らかな変分を選ぶと積分は正となって停留性と矛盾します。負の場合も変分の符号を変えて同じです。従って括弧内は各点で零です。逆向きは被積分関数が零であることから直ちに従います。斉次方程式は第1節の巡回微分の直接計算で従います。
@@ -264,7 +266,7 @@ $$
 \end{aligned}
 $$
 
-残る二つのMaxwell方程式は既に $F=dA$ に含まれています。
+残る二つのMaxwell方程式は既に $F=-dA$ に含まれています。
 
 ### 3.1 外部源が保存しない場合に何が破綻するか
 
@@ -289,8 +291,8 @@ $$
 $$
 \begin{aligned}
 S[A+\partial\chi]-S[A]
-&=-\int_\Omega J^\mu\partial_\mu\chi\,d^4x\\
-&=\int_\Omega \chi\,\partial_\mu J^\mu\,d^4x.
+&=\int_\Omega J^\mu\partial_\mu\chi\,d^4x\\
+&=-\int_\Omega \chi\,\partial_\mu J^\mu\,d^4x.
 \end{aligned}
 $$
 
@@ -398,19 +400,19 @@ $$
 
 ## 5. 波に沿う成分を取り除いて二つの偏極を得る
 
-Gauss拘束は時間を固定した条件でした。今度は波の一つ一つのFourierモードで何が残るかを調べます。真空、すなわち $J=0$ とし、**零でない光的運動量** $k^\mu=(\omega,\boldsymbol k)$、$\omega=|\boldsymbol k|>0$ を固定します。$k^2=\omega^2-|\boldsymbol k|^2=0$ です。複素偏極振幅 $\varepsilon^\mu$ は計算のための係数で、実際のポテンシャルは実部
+Gauss拘束は時間を固定した条件でした。今度は波の一つ一つのFourierモードで何が残るかを調べます。真空、すなわち $J=0$ とし、**零でない光的運動量** $k^\mu=(\omega,\boldsymbol k)$、$\omega=|\boldsymbol k|>0$ を固定します。$k^2=-\omega^2+|\boldsymbol k|^2=0$ です。複素偏極振幅 $\varepsilon^\mu$ は計算のための係数で、実際のポテンシャルは実部
 
 $$
-A^\mu(x)=\operatorname{Re}\bigl(\varepsilon^\mu e^{-ik_\nu x^\nu}\bigr)
+A^\mu(x)=\operatorname{Re}\bigl(\varepsilon^\mu e^{+ik_\nu x^\nu}\bigr)
 $$
 
-とします。$k_\nu x^\nu=\omega t-\boldsymbol k\cdot\boldsymbol x$ です。振幅は定数なので偏微分で $\partial_\mu\mapsto-ik_\mu$ となります。$\varepsilon$ の複素数の自由度と、物理的な実解の二つの偏極を混同しません。
+とします。$k_\nu x^\nu=-\omega t+\boldsymbol k\cdot\boldsymbol x$ なので、この $e^{+ik\cdot x}$ は正振動数表示 $e^{-i\omega t+i\boldsymbol k\cdot\boldsymbol x}$ と一致します。振幅は定数なので偏微分で $\partial_\mu\mapsto+ik_\mu$ となります。$\varepsilon$ の複素数の自由度と、物理的な実解の二つの偏極を混同しません。
 
 <a id="thm-qft15-two-polarizations"></a>
 
 <!-- formal-statement-start -->
 > **定理（真空Maxwell平面波の二つの物理偏極）**  
-> $k^\mu=(\omega,\boldsymbol k)\ne0$ を $\omega=|\boldsymbol k|>0$ を満たす実光的四元運動量とし、$A^\mu=\operatorname{Re}(\varepsilon^\mu e^{-ik\cdot x})$ を実Maxwellポテンシャルとする。真空方程式 $\partial_\mu F^{\mu\nu}=0$ はこのモードに対して $k_\mu\varepsilon^\mu=0$ を要求する。一方、振幅のゲージ同値 $\varepsilon^\mu\sim\varepsilon^\mu+\beta k^\mu$（$\beta\in\mathbb C$）により、各同値類には
+> $k^\mu=(\omega,\boldsymbol k)\ne0$ を $\omega=|\boldsymbol k|>0$ を満たす実光的四元運動量とし、$A^\mu=\operatorname{Re}(\varepsilon^\mu e^{+ik\cdot x})$ を実Maxwellポテンシャルとする。真空方程式 $\partial_\mu F^{\mu\nu}=0$ はこのモードに対して $k_\mu\varepsilon^\mu=0$ を要求する。一方、振幅のゲージ同値 $\varepsilon^\mu\sim\varepsilon^\mu+\beta k^\mu$（$\beta\in\mathbb C$）により、各同値類には
 
 $$
 \varepsilon^0=0,\qquad
@@ -431,18 +433,18 @@ Maxwell方程式を振幅へ直すと光的 $k$ と $\varepsilon$ の内積が�
 
 $$
 \Box=\partial_\mu\partial^\mu
-=\partial_t^2-\sum_{i=1}^3\partial_i^2
+=-\partial_t^2+\sum_{i=1}^3\partial_i^2
 $$
 
 と書きます。ここで $\partial^\mu$ は計量で添字を上げた偏微分です。したがって
 
 $$
 \partial_\mu F^{\mu\nu}
-=\partial_\mu(\partial^\mu A^\nu-\partial^\nu A^\mu)
-=\Box A^\nu-\partial^\nu(\partial_\mu A^\mu)=0.
+=\partial_\mu(\partial^\nu A^\mu-\partial^\mu A^\nu)
+=-\Box A^\nu+\partial^\nu(\partial_\mu A^\mu)=0.
 $$
 
-複素指数モードの実部と虚部を別々に代入できる線形方程式であり、振幅は
+複素指数モードの実部と虚部を別々に代入できる線形方程式です。直前の等式の両辺に $-1$ を掛け、$\Box A^\nu-\partial^\nu(\partial_\mu A^\mu)=0$ に複素モードを代入すると、振幅は
 
 $$
 -k^2\varepsilon^\nu+k^\nu(k_\mu\varepsilon^\mu)=0
@@ -450,14 +452,14 @@ $$
 
 を満たします。$k^2=0$、$k^0=\omega>0$ なので、$\nu=0$ 成分から $k_\mu\varepsilon^\mu=0$ です。これは時空的な直交性であって、まだ $\boldsymbol k\cdot\boldsymbol\varepsilon=0$ という三次元の横波性ではありません。
 
-次に[ゲージ変換](#def-qft15-gauge)の $\chi=\operatorname{Re}(i\beta e^{-ik\cdot x})$ を選ぶと $\partial^\mu\chi=\operatorname{Re}(\beta k^\mu e^{-ik\cdot x})$ となり、振幅は $\varepsilon^\mu+\beta k^\mu$ に移ります。$\beta=-\varepsilon^0/\omega$ を選べば新しい時間成分は零です。光的条件 $k^2=0$ により
+次に[ゲージ変換](#def-qft15-gauge)の $\chi=\operatorname{Re}(-i\beta e^{+ik\cdot x})$ を選ぶと $\partial^\mu\chi=\operatorname{Re}(\beta k^\mu e^{+ik\cdot x})$ となり、振幅は $\varepsilon^\mu+\beta k^\mu$ に移ります。$\beta=-\varepsilon^0/\omega$ を選べば新しい時間成分は零です。光的条件 $k^2=0$ により
 
 $$
 k_\mu(\varepsilon^\mu+\beta k^\mu)
 =k_\mu\varepsilon^\mu+\beta k^2=0
 $$
 
-も保存されます。新しい時間成分が零なので $0=k_\mu\varepsilon'^\mu=-\boldsymbol k\cdot\boldsymbol\varepsilon'$、すなわち空間的な横波条件です。時間成分が零の代表元二つがゲージ同値なら差は $\beta k^0=\beta\omega=0$ を満たし、$\beta=0$ だから一意です。
+も保存されます。新しい時間成分が零なので $0=k_\mu\varepsilon'^\mu=\boldsymbol k\cdot\boldsymbol\varepsilon'$、すなわち空間的な横波条件です。時間成分が零の代表元二つがゲージ同値なら差は $\beta k^0=\beta\omega=0$ を満たし、$\beta=0$ だから一意です。
 
 固定した $\boldsymbol k\ne0$ に直交する $\mathbb C^3$ の部分空間は複素次元2です。例えば $\boldsymbol k=(0,0,\omega)$ なら $\boldsymbol\varepsilon'=(a,b,0)$ で $a,b\in\mathbb C$、独立な基底は $(1,0,0)$ と $(0,1,0)$ です。実部を取れば各基底の実数係数の余弦波・正弦波を組み合わせた一般解になります。
 <!-- proof-end -->
@@ -466,8 +468,8 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol E&=\operatorname{Re}\bigl(i\omega(a,b,0)e^{-ik\cdot x}\bigr),\\
-\boldsymbol B&=\operatorname{Re}\bigl(i\boldsymbol k\times(a,b,0)e^{-ik\cdot x}\bigr).
+\boldsymbol E&=\operatorname{Re}\bigl(i\omega(a,b,0)e^{+ik\cdot x}\bigr),\\
+\boldsymbol B&=\operatorname{Re}\bigl(i\boldsymbol k\times(a,b,0)e^{+ik\cdot x}\bigr).
 \end{aligned}
 $$
 
@@ -567,18 +569,18 @@ $$
 
 ### 演習 QFT15-A1：一様磁場のテンソル成分
 
-$3+1$ 次元、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\Phi=0$、$\boldsymbol A=(0,bx^1,0)$（実定数 $b$）について、$F_{12}$、$F^{12}$、$\boldsymbol E$、$\boldsymbol B$ をポテンシャルの定義から求めよ。
+$3+1$ 次元、$\eta=\operatorname{diag}(-1,1,1,1)$、$\Phi=0$、$\boldsymbol A=(0,bx^1,0)$（実定数 $b$）について、$F_{12}$、$F^{12}$、$\boldsymbol E$、$\boldsymbol B$ をポテンシャルの定義から求めよ。
 
 - Level: A
 
 <!-- solution-start -->
 **詳細解答**
 
-[四元ポテンシャルからの定義](#def-qft15-potential-field)で $A_1=0$、$A_2=-bx^1$ です。従って
+[四元ポテンシャルからの定義](#def-qft15-potential-field)で $A_1=0$、$A_2=bx^1$ です。従って
 
 $$
-F_{12}=\partial_1A_2-\partial_2A_1=-b,
-\qquad F^{12}=\eta^{11}\eta^{22}F_{12}=(-1)(-1)(-b)=-b.
+F_{12}=\partial_2A_1-\partial_1A_2=-b,
+\qquad F^{12}=\eta^{11}\eta^{22}F_{12}=(1)(1)(-b)=-b.
 $$
 
 $A$ に時間依存はなく $\Phi=0$ なので $E_i=-\partial_tA^i-\partial_i\Phi=0$。磁場は $B_3=\partial_1A^2-\partial_2A^1=b$、他成分は零です。$F_{12}=-B_3$ の符号が正しいことも確認できます。
@@ -586,7 +588,7 @@ $A$ に時間依存はなく $\Phi=0$ なので $E_i=-\partial_tA^i-\partial_i\P
 
 ### 演習 QFT15-A2：勾配を足しても電磁場は不変
 
-任意の実数値 $C^3$ 関数 $\chi(t,\boldsymbol x)$ に対して、$\Phi'=\Phi+\partial_t\chi$、$\boldsymbol A'=\boldsymbol A-\nabla\chi$ とする。$\boldsymbol E'=-\nabla\Phi'-\partial_t\boldsymbol A'$、$\boldsymbol B'=\nabla\times\boldsymbol A'$ が元の場に等しいことを成分で示せ。
+任意の実数値 $C^3$ 関数 $\chi(t,\boldsymbol x)$ に対して、$\Phi'=\Phi-\partial_t\chi$、$\boldsymbol A'=\boldsymbol A+\nabla\chi$ とする。$\boldsymbol E'=-\nabla\Phi'-\partial_t\boldsymbol A'$、$\boldsymbol B'=\nabla\times\boldsymbol A'$ が元の場に等しいことを成分で示せ。
 
 - Level: A
 
@@ -597,18 +599,18 @@ $A$ に時間依存はなく $\Phi=0$ なので $E_i=-\partial_tA^i-\partial_i\P
 
 $$
 \begin{aligned}
-E'_i&=-\partial_i(\Phi+\partial_t\chi)
--\partial_t(A^i-\partial_i\chi)\\
+E'_i&=-\partial_i(\Phi-\partial_t\chi)
+-\partial_t(A^i+\partial_i\chi)\\
 &=-\partial_i\Phi-\partial_tA^i
--\partial_i\partial_t\chi+\partial_t\partial_i\chi=E_i.
++\partial_i\partial_t\chi-\partial_t\partial_i\chi=E_i.
 \end{aligned}
 $$
 
 磁場について
 
 $$
-B'_i=\epsilon_{ijk}\partial_j(A^k-\partial_k\chi)
-=B_i-\epsilon_{ijk}\partial_j\partial_k\chi=B_i
+B'_i=\epsilon_{ijk}\partial_j(A^k+\partial_k\chi)
+=B_i+\epsilon_{ijk}\partial_j\partial_k\chi=B_i
 $$
 
 です。最後の項は $j,k$ に対称な二階偏微分と反対称な $\epsilon_{ijk}$ の縮約なので零です。
@@ -669,25 +671,25 @@ $\boldsymbol k\cdot\boldsymbol v_T=(14-16+2)/9=0$ です。$\boldsymbol v_L$ は
 
 ### 演習 QFT15-B1：作用から電流付きMaxwell方程式
 
-有界領域 $\Omega$ 上の $C^2$ ポテンシャル $A_\mu$、固定した $C^1$ 外部源 $J^\mu$、コンパクト台の $C^\infty$ 変分 $\delta A_\nu$ と作用 $S[A]=\int_\Omega[-F_{\mu\nu}F^{\mu\nu}/4-J^\mu A_\mu]d^4x$ を与える。反対称性と部分積分を明示し、停留条件 $\partial_\mu F^{\mu\nu}=J^\nu$ を再導出せよ。$\nu=0$ 成分がGauss則となることを検算せよ。
+有界領域 $\Omega$ 上の $C^2$ ポテンシャル $A_\mu$、固定した $C^1$ 外部源 $J^\mu$、コンパクト台の $C^\infty$ 変分 $\delta A_\nu$ と作用 $S[A]=\int_\Omega[-F_{\mu\nu}F^{\mu\nu}/4+J^\mu A_\mu]d^4x$ を与える。$F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$ とし、反対称性と部分積分を明示して停留条件 $\partial_\mu F^{\mu\nu}=J^\nu$ を再導出せよ。$\nu=0$ 成分がGauss則となることを検算せよ。
 
 - Level: B
 
 <!-- solution-start -->
 **詳細解答**
 
-$\delta F_{\mu\nu}=\partial_\mu\delta A_\nu-\partial_\nu\delta A_\mu$ を使い、係数 $1/4$ と二乗の微分の係数2から
+$\delta F_{\mu\nu}=\partial_\nu\delta A_\mu-\partial_\mu\delta A_\nu$ を使い、係数 $1/4$ と二乗の微分の係数2から
 
 $$
 \delta S=\int_\Omega\left[-\frac12F^{\mu\nu}
-(\partial_\mu\delta A_\nu-\partial_\nu\delta A_\mu)
--J^\nu\delta A_\nu\right]d^4x.
+(\partial_\nu\delta A_\mu-\partial_\mu\delta A_\nu)
++J^\nu\delta A_\nu\right]d^4x.
 $$
 
-第二項で $\mu\leftrightarrow\nu$ とし、$F^{\nu\mu}=-F^{\mu\nu}$ を使うと、導関数を持つ二項の和は $-F^{\mu\nu}\partial_\mu\delta A_\nu$ です。境界項は $\delta A$ のコンパクト台により零なので、
+第二項で $\mu\leftrightarrow\nu$ とし、$F^{\nu\mu}=-F^{\mu\nu}$ を使うと、導関数を持つ二項の和は $+F^{\mu\nu}\partial_\mu\delta A_\nu$ です。境界項は $\delta A$ のコンパクト台により零なので、
 
 $$
-\delta S=\int_\Omega(\partial_\mu F^{\mu\nu}-J^\nu)
+\delta S=\int_\Omega(-\partial_\mu F^{\mu\nu}+J^\nu)
 \delta A_\nu\,d^4x.
 $$
 
@@ -727,21 +729,21 @@ $\pi_\Phi=0$ により $\Phi$ の速度はこのLegendre変換で決定されま
 
 ### 演習 QFT15-B3：複素振幅の縦成分はゲージで消える
 
-真空で $k^\mu=(\kappa,0,0,\kappa)$、$\kappa>0$、$\varepsilon^\mu=(2,1,i,2)$ とし、実ポテンシャルを $A^\mu=\operatorname{Re}(\varepsilon^\mu e^{-ik\cdot x})$ とする。$k\cdot\varepsilon=0$ を確かめ、$\varepsilon\mapsto\varepsilon+\beta k$ で時間成分を零にせよ。残る二偏極と $\boldsymbol B=(\boldsymbol k/\kappa)\times\boldsymbol E$ を検算せよ。
+真空で $k^\mu=(\kappa,0,0,\kappa)$、$\kappa>0$、$\varepsilon^\mu=(2,1,i,2)$ とし、実ポテンシャルを $A^\mu=\operatorname{Re}(\varepsilon^\mu e^{+ik\cdot x})$ とする。$k\cdot\varepsilon=0$ を確かめ、$\varepsilon\mapsto\varepsilon+\beta k$ で時間成分を零にせよ。残る二偏極と $\boldsymbol B=(\boldsymbol k/\kappa)\times\boldsymbol E$ を検算せよ。
 
 - Level: B
 
 <!-- solution-start -->
 **詳細解答**
 
-計量 $(+---)$ より $k\cdot\varepsilon=\kappa\varepsilon^0-\kappa\varepsilon^3=\kappa(2-2)=0$ です。[二偏極定理のゲージ選択](#thm-qft15-two-polarizations)に従って $\beta=-2/\kappa$ を選べば
+計量 $(-+++)$ より $k\cdot\varepsilon=-\kappa\varepsilon^0+\kappa\varepsilon^3=\kappa(-2+2)=0$ です。[二偏極定理のゲージ選択](#thm-qft15-two-polarizations)に従って $\beta=-2/\kappa$ を選べば
 
 $$
 \varepsilon'^\mu=(2,1,i,2)-\frac{2}{\kappa}(\kappa,0,0,\kappa)
 =(0,1,i,0).
 $$
 
-横方向の二つの基底 $(1,0,0)$、$(0,1,0)$ の係数は $1,i$ で、異なる位相を持つ円偏光の例です。$\theta=\kappa(t-x^3)$ とすると $\boldsymbol A'=\operatorname{Re}((1,i,0)e^{-i\theta})=(\cos\theta,\sin\theta,0)$ なので
+横方向の二つの基底 $(1,0,0)$、$(0,1,0)$ の係数は $1,i$ で、異なる位相を持つ円偏光の例です。$\theta=\kappa(t-x^3)$ とすると $k\cdot x=-\theta$ なので $\boldsymbol A'=\operatorname{Re}((1,i,0)e^{+ik\cdot x})=\operatorname{Re}((1,i,0)e^{-i\theta})=(\cos\theta,\sin\theta,0)$ です。従って
 
 $$
 \boldsymbol E=-\partial_t\boldsymbol A'
@@ -767,18 +769,18 @@ $\Omega$ を有界開時空領域とし、外部源 $J^\mu=(t,0,0,0)$、実試�
 
 $$
 \begin{aligned}
-\Delta S&=-\int_\Omega J^\mu\partial_\mu\chi\,d^4x\\
-&=\int_\Omega\chi\,\partial_\mu J^\mu\,d^4x
-=\int_\Omega\chi\,d^4x.
+\Delta S&=\int_\Omega J^\mu\partial_\mu\chi\,d^4x\\
+&=-\int_\Omega\chi\,\partial_\mu J^\mu\,d^4x
+=-\int_\Omega\chi\,d^4x.
 \end{aligned}
 $$
 
-非負で零でないコンパクト台の $\chi$ を選べば右辺は正なので、全てのゲージ変換に対する不変性はありません。もしMaxwell解が存在すれば、[運動方程式](#thm-qft15-euler-maxwell)と[外部電流保存の必要条件](#prop-qft15-current-conservation)から $\partial_\mu J^\mu=0$ です。しかし指定された $J$ では $\partial_t t=1$ で矛盾します。電流保存の欠落により、方程式の解の存在機構が破綻しています。
+非負で零でないコンパクト台の $\chi$ を選べば右辺は負なので、全てのゲージ変換に対する不変性はありません。もしMaxwell解が存在すれば、[運動方程式](#thm-qft15-euler-maxwell)と[外部電流保存の必要条件](#prop-qft15-current-conservation)から $\partial_\mu J^\mu=0$ です。しかし指定された $J$ では $\partial_t t=1$ で矛盾します。電流保存の欠落により、方程式の解の存在機構が破綻しています。
 <!-- solution-end -->
 
 ### 演習 QFT15-C1：Gauss拘束から二偏極までの全経路
 
-$3+1$ 次元の無源Maxwell場を $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\mathcal L=-F_{\mu\nu}F^{\mu\nu}/4$、$F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$、$A^\mu=\operatorname{Re}(\varepsilon^\mu e^{-ik\cdot x})$ で考える。$k^\mu=(\omega,0,0,\omega)$、$\omega>0$ とする。
+$3+1$ 次元の無源Maxwell場を $\eta=\operatorname{diag}(-1,1,1,1)$、$\mathcal L=-F_{\mu\nu}F^{\mu\nu}/4$、$F_{\mu\nu}=\partial_\nu A_\mu-\partial_\mu A_\nu$、$A^\mu=\operatorname{Re}(\varepsilon^\mu e^{+ik\cdot x})$ で考える。$k^\mu=(\omega,0,0,\omega)$、$\omega>0$ とする。
 
 1. 作用の変分から四元Maxwell方程式を導き、その $\nu=0$ 成分をGauss則として書け。
 2. 振幅に対する運動方程式と、その下で許されるゲージ変換 $\varepsilon\mapsto\varepsilon+\beta k$ を導け。
@@ -790,24 +792,24 @@ $3+1$ 次元の無源Maxwell場を $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\ma
 <!-- solution-start -->
 **詳細解答**
 
-**1. 作用とGauss則。** $\delta F_{\mu\nu}=\partial_\mu\delta A_\nu-\partial_\nu\delta A_\mu$ を代入します。反対称性により二項をまとめ、コンパクト台の変分について部分積分すると
+**1. 作用とGauss則。** $\delta F_{\mu\nu}=\partial_\nu\delta A_\mu-\partial_\mu\delta A_\nu$ を代入します。反対称性により二項をまとめ、コンパクト台の変分について部分積分すると
 
 $$
 \begin{aligned}
-\delta S&=-\int\!F^{\mu\nu}\partial_\mu\delta A_\nu\,d^4x\\
-&=\int\!(\partial_\mu F^{\mu\nu})\delta A_\nu\,d^4x.
+\delta S&=\int\!F^{\mu\nu}\partial_\mu\delta A_\nu\,d^4x\\
+&=-\int\!(\partial_\mu F^{\mu\nu})\delta A_\nu\,d^4x.
 \end{aligned}
 $$
 
 従って $\partial_\mu F^{\mu\nu}=0$ です。$F^{i0}=E_i$、$F^{00}=0$ を代入した $\nu=0$ 成分は $\partial_iE_i=0$、すなわちGauss拘束です。
 
-**2. Fourierモード。** $F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$ を代入して $\Box A^\nu-\partial^\nu(\partial\cdot A)=0$ と書きます。複素指数の微分で $\partial^\mu\mapsto-ik^\mu$ ですから
+**2. Fourierモード。** $F^{\mu\nu}=\partial^\nu A^\mu-\partial^\mu A^\nu$ を代入して $-\Box A^\nu+\partial^\nu(\partial\cdot A)=0$、両辺に $-1$ を掛けて $\Box A^\nu-\partial^\nu(\partial\cdot A)=0$ と書きます。複素指数の微分で $\partial^\mu\mapsto+ik^\mu$ ですから
 
 $$
 -k^2\varepsilon^\nu+k^\nu(k\cdot\varepsilon)=0.
 $$
 
-与えられた $k$ は $k^2=\omega^2-\omega^2=0$ で $k^0>0$ なので $k\cdot\varepsilon=\omega(\varepsilon^0-\varepsilon^3)=0$、すなわち $\varepsilon^0=\varepsilon^3$。実ゲージ関数 $\chi=\operatorname{Re}(i\beta e^{-ik\cdot x})$ の勾配を足すと振幅は $\varepsilon^\mu+\beta k^\mu$ に移ります。$k^2=0$ だから条件 $k\cdot\varepsilon=0$ を保存します。
+与えられた $k$ は $k^2=-\omega^2+\omega^2=0$ で $k^0>0$ なので $k\cdot\varepsilon=\omega(-\varepsilon^0+\varepsilon^3)=0$、すなわち $\varepsilon^0=\varepsilon^3$。実ゲージ関数 $\chi=\operatorname{Re}(-i\beta e^{+ik\cdot x})$ の勾配を足すと振幅は $\varepsilon^\mu+\beta k^\mu$ に移ります。$k^2=0$ だから条件 $k\cdot\varepsilon=0$ を保存します。
 
 **3. 偏極の選択。** $\beta=-\varepsilon^0/\omega$ とすると
 
@@ -816,7 +818,7 @@ $$
 =(0,a,b,0).
 $$
 
-$a,b$ が独立な横偏極振幅です。$\theta=\omega(t-x^3)$ と置き、$\boldsymbol A=\operatorname{Re}((a,b,0)e^{-i\theta})$ を微分すると
+$a,b$ が独立な横偏極振幅です。$\theta=\omega(t-x^3)$ と置くと $k\cdot x=-\theta$ です。$\boldsymbol A=\operatorname{Re}((a,b,0)e^{+ik\cdot x})=\operatorname{Re}((a,b,0)e^{-i\theta})$ を微分すると
 
 $$
 \begin{aligned}

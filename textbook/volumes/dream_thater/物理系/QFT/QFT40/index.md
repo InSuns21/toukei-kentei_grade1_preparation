@@ -4,7 +4,7 @@
 
 本講では、一ループ・摂動論における**局所ゲージ異常**の群論係数を導き、一世代の標準模型のフェルミオンがなぜ巧妙に相殺するかを、分数の超電荷まで計算します。異常係数をゼロにする検査と、全ての量子効果・大域的な整合性を証明することは区別します。
 
-時空は四次元Minkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。摂動論の三角図または熱核計算では、[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)と[QFT39のEuclid正則化](../QFT39/index.md#def-qft39-regulated-jacobian)を使います。ゲージ群は局所Lie代数の段階で $SU(3)_c\times SU(2)_L\times U(1)_Y$ とし、$Q=T_3+Y$ は[超電荷の規約](../QFT35/index.md#def-qft35-hypercharge)に従います。$\operatorname{tr}_{\mathbf N}(t^at^b)=\delta^{ab}/2$ と正規化し、以下の異常検査ではフェルミオンを質量零として扱います。Higgs質量を持つ物理的な低エネルギー状態の記述と、ゲージ対称性の量子整合性を検査する紫外のカイラル場の一覧は別です。
+時空は四次元Minkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とします。摂動論の三角図または熱核計算では、[QFT20のEuclid化](../QFT20/index.md#def-qft20-euclidean-action)と[QFT39のEuclid正則化](../QFT39/index.md#def-qft39-regulated-jacobian)を使います。ゲージ群は局所Lie代数の段階で $SU(3)_c\times SU(2)_L\times U(1)_Y$ とし、$Q=T_3+Y$ は[超電荷の規約](../QFT35/index.md#def-qft35-hypercharge)に従います。$\operatorname{tr}_{\mathbf N}(t^at^b)=\delta^{ab}/2$ と正規化し、以下の異常検査ではフェルミオンを質量零として扱います。Higgs質量を持つ物理的な低エネルギー状態の記述と、ゲージ対称性の量子整合性を検査する紫外のカイラル場の一覧は別です。
 
 ## 1. 右巻き場をなぜ左巻きで数えるのか
 

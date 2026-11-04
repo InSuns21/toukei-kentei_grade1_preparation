@@ -3,8 +3,10 @@ import path from 'node:path';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
 
-// Existing SREL/QFT chapters use +---; a new declaration must not introduce
-// that signature again while their mathematical migration is pending.
+// SREL/GR and QFT1–20 use -+++; QFT21–26 and QFT30 are Euclidean-only and checked;
+// QFT27–29 and QFT31–42 are migrated to -+++ (QFT39–40 also contain Euclidean calculations).
+// Reject legacy signatures anywhere in migrated SREL/GR or checked QFT1–42 bodies and
+// reject new legacy metric declarations in other DREAM THEATER chapters.
 const root = process.cwd();
 const chapterRoot = 'textbook/volumes/dream_thater';
 const legacyDeclaration = /(?:\\operatorname\{diag\}\s*\(\s*1\s*,\s*-1\s*,\s*-1\s*,\s*-1\s*\)|(?:\(\+\s*,\s*-\s*,\s*-\s*,\s*-\)|\(\+---\)|\(\+,-,-,-\)))/u;
@@ -46,10 +48,43 @@ if (process.argv.includes('--self-test')) {
   process.exit(0);
 }
 
+// A completed series must never silently regress, regardless of the git base.
+const migratedSeries = ['SREL', 'GR'];
+const migratedProblems = [];
+for (const series of migratedSeries) {
+  const seriesPath = path.join(root, chapterRoot, '物理系', series);
+  for (const chapter of fs.readdirSync(seriesPath, { withFileTypes: true })) {
+    if (!chapter.isDirectory()) continue;
+    const chapterPath = path.join(seriesPath, chapter.name, 'index.md');
+    if (!fs.existsSync(chapterPath)) continue;
+    const lines = fs.readFileSync(chapterPath, 'utf8').split('\n');
+    lines.forEach((line, i) => {
+      if (legacyDeclaration.test(line)) {
+        migratedProblems.push(`${path.relative(root, chapterPath)}:${i + 1}: legacy (+---) signature in migrated series`);
+      }
+    });
+  }
+}
+const earlyQftRoot = path.join(root, chapterRoot, '物理系', 'QFT');
+for (let n = 1; n <= 42; n += 1) {
+  const chapterPath = path.join(earlyQftRoot, `QFT${n}`, 'index.md');
+  const lines = fs.readFileSync(chapterPath, 'utf8').split('\n');
+  lines.forEach((line, i) => {
+    if (legacyDeclaration.test(line)) {
+      migratedProblems.push(`${path.relative(root, chapterPath)}:${i + 1}: legacy (+---) signature in migrated QFT chapter`);
+    }
+  });
+}
+if (migratedProblems.length) {
+  console.error('Migrated Lorentz-signature series regressed:');
+  for (const problem of migratedProblems) console.error(`- ${problem}`);
+  process.exit(1);
+}
+
 const baseIndex = process.argv.indexOf('--base');
 const base = baseIndex >= 0 ? process.argv[baseIndex + 1] : process.env.TEXTBOOK_BASE_SHA;
 if (!base) {
-  console.log('Legacy +--- clauses remain in SREL/QFT; use --base <SHA> to reject new declarations.');
+  console.log('SREL/GR and QFT1–20 use -+++; QFT21–26 and QFT30 are Euclidean-only checked; QFT27–29 and QFT31–42 migrated. Cross-chapter audit remains. Use --base <SHA> to reject new legacy declarations.');
   process.exit(0);
 }
 

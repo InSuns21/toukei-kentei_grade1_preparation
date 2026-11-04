@@ -8,13 +8,13 @@
 2. 真空相関関数の外線の極から、どの仮定の下で規格化された粒子の振幅が得られるか。
 3. 同じ振幅を断面積と光学定理の両側へ代入したとき、どの因子が一致を保証するか。
 
-時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とします。この対角行列は[既習のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)の慣性座標表示です。四運動量 $k=(k^0,\boldsymbol k)$ の二乗は、慣性座標の成分で
+時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とします。この対角行列は[既習のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)の慣性座標表示です。四運動量 $k=(k^0,\boldsymbol k)$ の二乗は、慣性座標の成分で
 
 $$
-k^2=\eta_{\mu\nu}k^\mu k^\nu=(k^0)^2-|\boldsymbol k|^2
+k^2=\eta_{\mu\nu}k^\mu k^\nu=-(k^0)^2+|\boldsymbol k|^2
 $$
 
-となり、後で使う質量殻条件 $k^2=m^2$ に直接つながります。実スカラー場の自由質量は $m>0$ とし、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。積分核として現れる場の積は、[QFT5のWightman二点分布](../QFT5/index.md#def-qft5-wightman)と同じく試験関数へ作用する分布であって、点で定義された非有界作用素の積を無条件に意味しません。
+となり、後で使う質量殻条件 $k^2=-m^2$ に直接つながります。実スカラー場の自由質量は $m>0$ とし、$\omega_{\boldsymbol p}=\sqrt{|\boldsymbol p|^2+m^2}$ と書きます。積分核として現れる場の積は、[QFT5のWightman二点分布](../QFT5/index.md#def-qft5-wightman)と同じく試験関数へ作用する分布であって、点で定義された非有界作用素の積を無条件に意味しません。
 
 散乱側では、相互作用を摂動的に切り替えられ、安定な一粒子状態と適切なin/out波束が存在すると仮定します。まず $\mathcal L_I=-\lambda\phi^4/4!$、実数 $\lambda$ の木レベルを考えます。木計算では外線の物理質量を $m$、[一粒子極の係数](../QFT11/index.md#def-qft11-stable-pole)を $Z=1$ と置きます。$s>4m^2$ の重心系で二粒子弾性散乱を計算し、閾値 $s=4m^2$ の値は上側からの極限で扱います。四次元相互作用場の厳密な非摂動構成まで仮定から証明するものではありません。
 
@@ -36,7 +36,7 @@ $$
 両者の用途は異なります。
 
 - 交換子 $W(z)-W(-z)$ は観測の順序を交換した差で、[局所的可換性](../QFT5/index.md#thm-qft5-locality)により空間的分離で零になります。
-- $D_F$ は時間順序積の真空期待値で、[エネルギー極の処方](../QFT6/index.md#thm-qft6-feynman-poles)により運動量表示が $i/(k^2-m^2+i0)$ となります。空間的分離で零である必要はありません。
+- $D_F$ は時間順序積の真空期待値で、[エネルギー極の処方](../QFT6/index.md#thm-qft6-feynman-poles)により運動量表示が $i/(-k^2-m^2+i0)$ となります。空間的分離で零である必要はありません。
 - 遅延基本解は外力への応答に用いる別の分布です。[QFT6の支持定理](../QFT6/index.md#thm-qft6-fundamental-support)に従い、光円錐外で消えます。時間順序と遅延性を同一視しません。
 
 **小さな検算**：$z^0=0$ のとき積分の $\boldsymbol p\mapsto-\boldsymbol p$ により $W(0,\boldsymbol z)=W(0,-\boldsymbol z)$ です。従って等時刻の交換子は零ですが、$D_F(0,\boldsymbol z)=W(0,\boldsymbol z)$ は一般に零ではありません。分布の等時刻制限や空間的に離れた試験関数での評価として解釈してください。
@@ -47,7 +47,7 @@ $$
 
 $$
 \mathcal G_{4,c}^{(1)}(k_1,\ldots,k_4)=
-\left[\prod_{j=1}^{4}\frac{i}{k_j^2-m^2+i0}\right](-i\lambda).
+\left[\prod_{j=1}^{4}\frac{i}{-k_j^2-m^2+i0}\right](-i\lambda).
 $$
 
 この式の $\prod$ は、四つの外線にそれぞれ付くFeynman二点分布の運動量因子を掛けたものです。$-i\lambda$ はそれらを取り除いた核です。[QFT11のLSZ外線還元](../QFT11/index.md#def-qft11-lsz-amputation)は一粒子極を各外線から除くので、$Z=1$ の木レベルでは
@@ -55,15 +55,15 @@ $$
 $$
 \begin{aligned}
 i\mathcal M^{(1)}
-&=\lim_{k_j^2\to m^2}
-\prod_{j=1}^4\frac{k_j^2-m^2}{i}\,
+&=\lim_{k_j^2\to -m^2}
+\prod_{j=1}^4\frac{-k_j^2-m^2}{i}\,
 \mathcal G_{4,c}^{(1)}(k_1,\ldots,k_4)\\
 &=-i\lambda,\qquad
 \mathcal M^{(1)}=-\lambda.
 \end{aligned}
 $$
 
-一般の相互作用場の二点関数に孤立一粒子極があるとき、その極近傍の係数は $iZ$ です。[QFT11の一粒子極](../QFT11/index.md#prop-qft11-one-particle-pole)および[四外線還元の条件](../QFT11/index.md#thm-qft11-lsz-four-leg)により、各外線の極因子 $i\sqrt Z/(k_j^2-m^2+i0)$ と還元係数 $(k_j^2-m^2)/(i\sqrt Z)$ が一対ずつ打ち消し合います。$Z=1$ は普遍的な恒等式ではなく、ここでの最低次数の規約です。
+一般の相互作用場の二点関数に孤立一粒子極があるとき、その極近傍の係数は $iZ$ です。[QFT11の一粒子極](../QFT11/index.md#prop-qft11-one-particle-pole)および[四外線還元の条件](../QFT11/index.md#thm-qft11-lsz-four-leg)により、各外線の極因子 $i\sqrt Z/(-k_j^2-m^2+i0)$ と還元係数 $(-k_j^2-m^2)/(i\sqrt Z)$ が一対ずつ打ち消し合います。$Z=1$ は普遍的な恒等式ではなく、ここでの最低次数の規約です。
 
 ## 3. 最後の二つの因子を位相空間で追う
 
@@ -85,7 +85,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（四次実スカラーの二点関数から単位性までの規格化連鎖）**
 >
-> $3+1$ 次元、$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ とする。質量 $m>0$ の実スカラー場の相互作用が $\mathcal L_I=-\lambda\phi^4/4!$ であり、安定な漸近粒子とLSZの外線極限が存在し、木レベルでは $Z=1$ とする。$s>4m^2$ で同一粒子二体弾性散乱が定義され、最低次数で他の終状態が寄与しないとする。このとき木レベルの接触振幅と全断面積、ならびに単位性が次次数へ要求する前方虚部は
+> $3+1$ 次元、$\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ とする。質量 $m>0$ の実スカラー場の相互作用が $\mathcal L_I=-\lambda\phi^4/4!$ であり、安定な漸近粒子とLSZの外線極限が存在し、木レベルでは $Z=1$ とする。$s>4m^2$ で同一粒子二体弾性散乱が定義され、最低次数で他の終状態が寄与しないとする。このとき木レベルの接触振幅と全断面積、ならびに単位性が次次数へ要求する前方虚部は
 
 $$
 \begin{aligned}
@@ -108,7 +108,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Wick展開](../QFT9/index.md#thm-qft9-boson-wick)と[頂点則](../QFT10/index.md#thm-qft10-vertex-factor)により、四外線を接触頂点に結ぶ $4!$ 通りと作用の $1/4!$ が相殺されます。外線のFourier伝播関数は[QFT6のFeynman極](../QFT6/index.md#thm-qft6-feynman-poles)から $i/(k_j^2-m^2+i0)$ です。従って[LSZ還元](../QFT11/index.md#thm-qft11-lsz-four-leg)を四回適用し、$i\mathcal M=-i\lambda$ を得ます。$i$ で割ると $\mathcal M=-\lambda$ です。
+[Wick展開](../QFT9/index.md#thm-qft9-boson-wick)と[頂点則](../QFT10/index.md#thm-qft10-vertex-factor)により、四外線を接触頂点に結ぶ $4!$ 通りと作用の $1/4!$ が相殺されます。外線のFourier伝播関数は[QFT6のFeynman極](../QFT6/index.md#thm-qft6-feynman-poles)から $i/(-k_j^2-m^2+i0)$ です。従って[LSZ還元](../QFT11/index.md#thm-qft11-lsz-four-leg)を四回適用し、$i\mathcal M=-i\lambda$ を得ます。$i$ で割ると $\mathcal M=-\lambda$ です。
 
 次に[断面積の定義](../QFT12/index.md#thm-qft12-rate-formulas)と[二体位相空間の角度表示](../QFT12/index.md#prop-qft12-two-body-phase-space)を使います。重心系の等質量弾性散乱では $\mathcal F=p\sqrt s$、終状態も $p_{\rm f}=p$ なので
 
@@ -270,10 +270,10 @@ $$
 
 $$
 \mathcal G_{4,c}=
-\prod_{j=1}^4\frac{i\sqrt Z}{k_j^2-m^2+i0}\,\mathcal V(k_1,\ldots,k_4)
+\prod_{j=1}^4\frac{i\sqrt Z}{-k_j^2-m^2+i0}\,\mathcal V(k_1,\ldots,k_4)
 $$
 
-で与えられ、$\mathcal V$ は各 $k_j^2=m^2$ で有限な核とする。各外線に $(k_j^2-m^2)/(i\sqrt Z)$ を掛け、四外線の極限を求めよ。なぜ $1/Z$ を一外線あたり掛けてはいけないか。
+で与えられ、$\mathcal V$ は各 $k_j^2=-m^2$ で有限な核とする。各外線に $(-k_j^2-m^2)/(i\sqrt Z)$ を掛け、四外線の極限を求めよ。なぜ $1/Z$ を一外線あたり掛けてはいけないか。
 
 - Level: A
 
@@ -283,18 +283,18 @@ $$
 [LSZの外線切断](../QFT11/index.md#def-qft11-lsz-amputation)で、外線 $j$ について
 
 $$
-\frac{k_j^2-m^2}{i\sqrt Z}
-\frac{i\sqrt Z}{k_j^2-m^2+i0}
+\frac{-k_j^2-m^2}{i\sqrt Z}
+\frac{i\sqrt Z}{-k_j^2-m^2+i0}
 \longrightarrow1
 $$
 
 です。有限な残余核を保ち、四本を順に切断すれば
 
 $$
-\lim_{k_j^2\to m^2}
-\left[\prod_{j=1}^4\frac{k_j^2-m^2}{i\sqrt Z}\right]
+\lim_{k_j^2\to -m^2}
+\left[\prod_{j=1}^4\frac{-k_j^2-m^2}{i\sqrt Z}\right]
 \mathcal G_{4,c}
-=\mathcal V\big|_{k_j^2=m^2}.
+=\mathcal V\big|_{k_j^2=-m^2}.
 $$
 
 場一個と漸近一粒子状態との重なりは $\sqrt Z$ です。[二点関数の極](../QFT11/index.md#prop-qft11-one-particle-pole)の $Z$ は**二個**の重なりの積なので、一個の外線へ $1/Z$ を掛けると余分に $1/\sqrt Z$ が残ります。四外線では誤って $Z^{-2}$ 倍の振幅になります。ここでは外線極の分離と極限の存在を仮定しています。
@@ -410,7 +410,7 @@ $$
 
 $$
 i\mathcal M_{\mathrm{free},c}
-=\lim_{k_j^2\to m^2}\prod_{j=1}^4\frac{k_j^2-m^2}{i}\,
+=\lim_{k_j^2\to -m^2}\prod_{j=1}^4\frac{-k_j^2-m^2}{i}\,
 \mathcal G_{4,c}^{\mathrm{free}}=0.
 $$
 
@@ -561,7 +561,7 @@ D_F(t,\boldsymbol r)
 \end{aligned}
 $$
 
-とする。$\omega_{\boldsymbol p}=\sqrt{\boldsymbol p^2+m^2}$、時空は $3+1$ 次元、計量は $(+---)$ とする。摂動的な相互作用は $-\lambda\phi^4/4!$、$\lambda\in\mathbb R$ とする。安定一粒子状態、LSZの極限、木レベルの $Z=1$ を仮定する。$s>4m^2$ の等質量弾性 $2\to2$ で、他の最低次数終状態は存在しないとする。
+とする。$\omega_{\boldsymbol p}=\sqrt{\boldsymbol p^2+m^2}$、時空は $3+1$ 次元、計量は $(-+++)$ とする。摂動的な相互作用は $-\lambda\phi^4/4!$、$\lambda\in\mathbb R$ とする。安定一粒子状態、LSZの極限、木レベルの $Z=1$ を仮定する。$s>4m^2$ の等質量弾性 $2\to2$ で、他の最低次数終状態は存在しないとする。
 
 1. $D_F$ の運動量表示と正・負エネルギー極の向きを示し、等時刻の交換子と時間順序相関を区別せよ。
 2. 四点連結相関の一次項から外線切断により $\mathcal M^{(1)}=-\lambda$ を導け。
@@ -594,7 +594,7 @@ $$
 \left(\frac1{k^0-\omega+i\varepsilon}
 -\frac1{k^0+\omega-i\varepsilon}\right)\\
 &=\frac{i}{(k^0)^2-\omega^2+i0}
-=\frac{i}{k^2-m^2+i0}.
+=\frac{i}{-k^2-m^2+i0}.
 \end{aligned}
 $$
 
@@ -604,14 +604,14 @@ $$
 
 $$
 \mathcal G^{(1)}_{4,c}
-=\left[\prod_{j=1}^{4}\frac{i}{k_j^2-m^2+i0}\right](-i\lambda).
+=\left[\prod_{j=1}^{4}\frac{i}{-k_j^2-m^2+i0}\right](-i\lambda).
 $$
 
-[LSZ四外線還元](../QFT11/index.md#def-qft11-lsz-amputation)の各因子 $(k_j^2-m^2)/i$ を掛けると外線の四つの極だけが消えます。従って
+[LSZ四外線還元](../QFT11/index.md#def-qft11-lsz-amputation)の各因子 $(-k_j^2-m^2)/i$ を掛けると外線の四つの極だけが消えます。従って
 
 $$
 i\mathcal M^{(1)}
-=\lim_{k_j^2\to m^2}\prod_{j=1}^4\frac{k_j^2-m^2}{i}\,
+=\lim_{k_j^2\to -m^2}\prod_{j=1}^4\frac{-k_j^2-m^2}{i}\,
 \mathcal G_{4,c}^{(1)}
 =-i\lambda,\qquad \mathcal M^{(1)}=-\lambda.
 $$

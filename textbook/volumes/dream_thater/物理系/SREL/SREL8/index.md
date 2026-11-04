@@ -4,7 +4,7 @@
 
 [SREL2の光円錐と因果順序](../SREL2/index.md#def-srel2-light-cone)は、慣性観測者が使う座標では見通しよく表せました。しかし、ロケットが加速を続ける観測者に、遠方から送った光がいつでも届くとは限りません。**時空は平坦なままなのに、一人の観測者にとって到達できない事象が現れるのはなぜか**を、座標変換と光線の式だけから解き明かします。
 
-本章では四次元Minkowski時空の一つの慣性座標 $(ct,x,y,z)$、光速 $c>0$、計量 $\operatorname{diag}(1,-1,-1,-1)$ を固定します。計算の中心は $y,z$ が一定の $(ct,x)$ 平面です。$a>0$ は加速度の次元を持つ定数で、個々の観測者の固有加速度が必ず $a$ とは限りません。世界線・光信号は未来向きとし、必要な関数は各開領域で滑らかとします。[固有時の定義](../SREL2/index.md#def-srel2-proper-time)と[四元加速度・固有加速度](../SREL3/index.md#def-srel3-four-acceleration)を用います。
+本章では四次元Minkowski時空の一つの慣性座標 $(ct,x,y,z)$、光速 $c>0$、計量 $\operatorname{diag}(-1,1,1,1)$ を固定します。計算の中心は $y,z$ が一定の $(ct,x)$ 平面です。$a>0$ は加速度の次元を持つ定数で、個々の観測者の固有加速度が必ず $a$ とは限りません。世界線・光信号は未来向きとし、必要な関数は各開領域で滑らかとします。[固有時の定義](../SREL2/index.md#def-srel2-proper-time)と[四元加速度・固有加速度](../SREL3/index.md#def-srel3-four-acceleration)を用います。
 
 ## 1. 加速する観測者に適した座標
 
@@ -51,7 +51,7 @@ $$
 > $c,a>0$、$s_0=c^2/a$、$\eta\in\mathbb R$、$\xi>-s_0$ とする。右Rindler変換 $ct=(s_0+\xi)\sinh(a\eta/c)$、$x=(s_0+\xi)\cosh(a\eta/c)$ の下で、Minkowskiの線素は
 
 $$
-ds^2=c^2\left(1+\frac{a\xi}{c^2}\right)^2d\eta^2-d\xi^2-dy^2-dz^2
+ds^2=-c^2\left(1+\frac{a\xi}{c^2}\right)^2d\eta^2+d\xi^2+dy^2+dz^2
 $$
 
 > となる。計量は $W_R$ 内で非退化であり、座標表示に $\xi$ が現れても時空の曲率が発生したことを意味しない。
@@ -77,11 +77,11 @@ $$
 
 $$
 \begin{aligned}
-d(ct)^2-dx^2
-&=(\sinh^2A-\cosh^2A)d\xi^2\\
-&\quad+2\frac{as}{c}(\sinh A\cosh A-\cosh A\sinh A)d\xi\,d\eta\\
-&\quad+\frac{a^2s^2}{c^2}(\cosh^2A-\sinh^2A)d\eta^2\\
-&=-d\xi^2+\frac{a^2s^2}{c^2}d\eta^2.
+-d(ct)^2+dx^2
+&=(\cosh^2A-\sinh^2A)d\xi^2\\
+&\quad+2\frac{as}{c}(\cosh A\sinh A-\sinh A\cosh A)d\xi\,d\eta\\
+&\quad-\frac{a^2s^2}{c^2}(\cosh^2A-\sinh^2A)d\eta^2\\
+&=d\xi^2-\frac{a^2s^2}{c^2}d\eta^2.
 \end{aligned}
 $$
 
@@ -128,7 +128,7 @@ u^\mu=(c\cosh(c\tau/s_*),c\sinh(c\tau/s_*),0,0),
 b^\mu=\frac{c^2}{s_*}(\sinh(c\tau/s_*),\cosh(c\tau/s_*),0,0)
 $$
 
-> となる。その大きさ $\alpha=\sqrt{-b_\mu b^\mu}$ は一定で $\alpha=c^2/s_*=a/(1+a\xi_*/c^2)$ である。
+> となる。その大きさ $\alpha=\sqrt{b_\mu b^\mu}$ は一定で $\alpha=c^2/s_*=a/(1+a\xi_*/c^2)$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -138,7 +138,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[固有時の線素](../SREL2/index.md#def-srel2-proper-time)から、$\xi=\xi_*$ の世界線では $c^2d\tau^2=c^2h_*^2d\eta^2$。未来向きなので $d\tau=h_*d\eta$ です。$a\eta/c=(c/s_*)\tau$ と置き換えると
+[固有時の線素](../SREL2/index.md#def-srel2-proper-time)から、$\xi=\xi_*$ の世界線では $-c^2d\tau^2=-c^2h_*^2d\eta^2$。未来向きなので $d\tau=h_*d\eta$ です。$a\eta/c=(c/s_*)\tau$ と置き換えると
 
 $$
 x^0=ct=s_*\sinh(c\tau/s_*),\qquad x^1=s_*\cosh(c\tau/s_*).
@@ -147,8 +147,8 @@ $$
 それぞれを $\tau$ で微分すると $u^0=c\cosh(c\tau/s_*)$、$u^1=c\sinh(c\tau/s_*)$、さらに微分すると命題の $b^0,b^1$ を得ます。計量の符号を入れて
 
 $$
-u_\mu u^\mu=c^2(\cosh^2-\sinh^2)=c^2,\qquad
-b_\mu b^\mu=\frac{c^4}{s_*^2}(\sinh^2-\cosh^2)=-\frac{c^4}{s_*^2}.
+u_\mu u^\mu=-c^2(\cosh^2-\sinh^2)=-c^2,\qquad
+b_\mu b^\mu=\frac{c^4}{s_*^2}(\cosh^2-\sinh^2)=\frac{c^4}{s_*^2}.
 $$
 
 $s_*>0$ より $\alpha=c^2/s_*>0$、これは $\tau$ に依存しません。最後に $s_*=s_0h_*=c^2h_*/a$ とすれば $\alpha=a/h_*$ です。
@@ -249,8 +249,8 @@ $P$ から $O$ へ未来向き因果曲線があれば $U_O\le U_P$、$V_O\ge V_
 十分性も示します。二事象の差について
 
 $$
-c^2(\Delta t)^2-(\Delta x)^2-(\Delta y)^2-(\Delta z)^2
-=\Delta V\,(-\Delta U)-(\Delta y)^2-(\Delta z)^2
+-c^2(\Delta t)^2+(\Delta x)^2+(\Delta y)^2+(\Delta z)^2
+=\Delta V\,\Delta U+(\Delta y)^2+(\Delta z)^2
 $$
 
 が成り立ちます（未来側の事象から過去側を引き、$\Delta U=U_{\mathrm{future}}-U_{\mathrm{past}}$、$\Delta V=V_{\mathrm{future}}-V_{\mathrm{past}}$ とする）。$U_P>0$ なら $A\to+\infty$ にして $U_O(A)\to0$、$V_O(A)\to+\infty$ とでき、やがて $U_O(A)<U_P$、$V_O(A)>V_P$ かつ
@@ -274,7 +274,7 @@ $$
 
 ## 4. 光線が描く指数曲線
 
-Minkowski時空で $y,z$ が一定の光線は $d(ct)=\pm dx$ を満たします。[Rindler計量](#thm-srel8-metric)に移すと $0=c^2h(\xi)^2d\eta^2-d\xi^2$ です。$h(\xi)>0$ なので、未来向きの光線を $\eta$ で追うと
+Minkowski時空で $y,z$ が一定の光線は $d(ct)=\pm dx$ を満たします。[Rindler計量](#thm-srel8-metric)に移すと $0=-c^2h(\xi)^2d\eta^2+d\xi^2$ です。$h(\xi)>0$ なので、未来向きの光線を $\eta$ で追うと
 
 $$
 \frac{d\xi}{d\eta}=\pm c\,h(\xi)
@@ -499,7 +499,7 @@ $t=0$ では $\sinh(a\eta/c)=0$ より $\eta=0$、$x=2s_0$。加速度 $a$ の�
 
 ### B1. 固有時から四元加速度を再計算する
 
-$c,a>0$、$s_0=c^2/a$ とする。世界線 $ct=s_0\sinh(a\tau/c)$、$x=s_0\cosh(a\tau/c)$、$y=z=0$ を固有時 $\tau$ で微分し、$u_\mu u^\mu=c^2$、$u_\mu b^\mu=0$、$-b_\mu b^\mu=a^2$ を示せ。
+$c,a>0$、$s_0=c^2/a$ とする。世界線 $ct=s_0\sinh(a\tau/c)$、$x=s_0\cosh(a\tau/c)$、$y=z=0$ を固有時 $\tau$ で微分し、$u_\mu u^\mu=-c^2$、$u_\mu b^\mu=0$、$b_\mu b^\mu=a^2$ を示せ。
 
 - Level: B
 
@@ -519,18 +519,18 @@ $$
 b^\mu=\left(a\sinh A,a\cosh A,0,0\right).
 $$
 
-計量 $(+---)$ なので
+計量 $(-+++)$ なので
 
 $$
-u_\mu u^\mu=c^2(\cosh^2A-\sinh^2A)=c^2,
-$$
-
-$$
-u_\mu b^\mu=ac(\cosh A\sinh A-\sinh A\cosh A)=0,
+u_\mu u^\mu=-c^2(\cosh^2A-\sinh^2A)=-c^2,
 $$
 
 $$
--b_\mu b^\mu=-a^2(\sinh^2A-\cosh^2A)=a^2.
+u_\mu b^\mu=ac(-\cosh A\sinh A+\sinh A\cosh A)=0,
+$$
+
+$$
+b_\mu b^\mu=a^2(\cosh^2A-\sinh^2A)=a^2.
 $$
 
 ここでは $s_0a/c=c$ を使いました。加速度の空間成分 $b^1=a\cosh A$ は慣性座標で変化しますが、ノルムによる固有加速度は一定です。

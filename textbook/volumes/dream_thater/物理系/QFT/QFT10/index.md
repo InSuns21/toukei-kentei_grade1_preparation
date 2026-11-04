@@ -6,11 +6,11 @@
 
 この章ではスカラー場の三次・四次相互作用を使い、収縮を「外部挿入点・頂点・線」の図へ移します。各頂点の階乗がどこで消え、図の対称因子がどこに残るかをWick収縮から計算します。さらに、真空だけの成分を除く操作と、全外部点がつながる成分を選ぶ操作を区別します。
 
-時空は $\mathbb R^{1,3}$ とし、[既習のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)の標準座標表示 $\eta=\operatorname{diag}(1,-1,-1,-1)$、自然単位系 $c=\hbar=1$ を使います。計量行列は内積を表すもので、四元運動量と時空座標の位相に現れる積は
+時空は $\mathbb R^{1,3}$ とし、[既習のMinkowski計量](../../SREL/SREL2/index.md#def-srel2-minkowski-metric)の標準座標表示 $\eta=\operatorname{diag}(-1,1,1,1)$、自然単位系 $c=\hbar=1$ を使います。計量行列は内積を表すもので、四元運動量と時空座標の位相に現れる積は
 
 $$
 p\cdot y=\sum_{\mu,\nu=0}^3\eta_{\mu\nu}p^\mu y^\nu
-=p^0y^0-\sum_{j=1}^3p^jy^j
+=-p^0y^0+\sum_{j=1}^3p^jy^j
 $$
 
 です（$\mu,\nu$ は時空成分、$j$ は空間成分）。自由実スカラー場の質量は $m>0$ とします。場 $\phi_I$ は[QFT4で定義したsmearing](../QFT4/index.md#def-qft4-smeared-field)を施し、自由真空 $\Omega$ の[有限粒子領域](../QFT4/index.md#def-qft4-fock-space)で考えます。二点収縮は[QFT6のFeynman二点分布](../QFT6/index.md#def-qft6-feynman-two-point)
@@ -18,7 +18,7 @@ $$
 $$
 D_F(x-y)=\langle\Omega,T[\phi_I(x)\phi_I(y)]\Omega\rangle,
 \qquad
-\widehat D_F(p)=\frac{i}{p^2-m^2+i0}
+\widehat D_F(p)=\frac{i}{-p^2-m^2+i0}
 $$
 
 です。以下の同一点の積は、**有限体積・有限モードなどで正則化してからのWick計算**を意味します。結合定数の形式級数の係数だけを計算し、cutoff除去後の分布積や相互作用するHamiltonianの存在を仮定しません。真空期待値のブラ・ケットは[QFT9の内積規約](../QFT9/index.md#def-qft9-vacuum-normalization)と同じ略記です。
@@ -415,11 +415,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（頂点積分からの運動量保存）**  
-> [正規順序スカラー相互作用](#def-qft10-scalar-interaction)を有限次数で展開し、各線を[QFT6のFourier表示](../QFT6/index.md#thm-qft6-feynman-poles)で表す。頂点 $y$ へ入る向きを正とした線の四元運動量を $p_1,\ldots,p_r$ とし、$\widetilde g(q)=\int d^4y\,g(y)e^{-iq\cdot y}$ と定める。頂点積分は
+> [正規順序スカラー相互作用](#def-qft10-scalar-interaction)を有限次数で展開し、各線を[QFT6のFourier表示](../QFT6/index.md#thm-qft6-feynman-poles)で表す。頂点 $y$ へ入る向きを正とした線の四元運動量を $p_1,\ldots,p_r$ とし、$\widetilde g(q)=\int d^4y\,g(y)e^{+iq\cdot y}$ と定める。頂点積分は
 
 $$
 (-i\lambda_r)\int d^4y\,g(y)
-e^{-i(p_1+\cdots+p_r)\cdot y}
+e^{+i(p_1+\cdots+p_r)\cdot y}
 =(-i\lambda_r)\widetilde g(p_1+\cdots+p_r)
 $$
 
@@ -444,14 +444,14 @@ $$
 
 $$
 D_F(y-z)=\int\frac{d^4p}{(2\pi)^4}
-\frac{i}{p^2-m^2+i0}\,e^{-ip\cdot(y-z)}.
+\frac{i}{-p^2-m^2+i0}\,e^{+ip\cdot(y-z)}.
 $$
 
-頂点 $y$ へ向かう線に $p$ を割り当てると、その端点からの位相は $e^{-ip\cdot y}$ です。逆向きの端点 $z$ には $e^{+ip\cdot z}$ が付くので、同じ内部線の両端で運動量が逆向きに数えられます。頂点 $y$ に接する $r$ 本の線の位相を掛ければ
+頂点 $y$ へ向かう線に $p$ を割り当てると、その端点からの位相は $e^{+ip\cdot y}$ です。逆向きの端点 $z$ には $e^{-ip\cdot z}$ が付くので、同じ内部線の両端で運動量が逆向きに数えられます。頂点 $y$ に接する $r$ 本の線の位相を掛ければ
 
 $$
-\prod_{a=1}^r e^{-ip_a\cdot y}
-=e^{-i(\sum_{a=1}^r p_a)\cdot y}
+\prod_{a=1}^r e^{+ip_a\cdot y}
+=e^{+i(\sum_{a=1}^r p_a)\cdot y}
 $$
 
 となり、ここで和を取るのは $y$ に入る向きを正とした四元運動量です。
@@ -459,7 +459,7 @@ $$
 [頂点因子の定理](#thm-qft10-vertex-factor)により残る結合定数は $-i\lambda_r$ です。これを $g(y)$ と一緒に $y$ で積分すれば命題の第一式です。最後にFourier変換の分布恒等式
 
 $$
-\int_{\mathbb R^4}d^4y\,e^{-iq\cdot y}
+\int_{\mathbb R^4}d^4y\,e^{+iq\cdot y}
 =(2\pi)^4\delta^{(4)}(q)
 $$
 
@@ -472,7 +472,7 @@ $$
 
 $$
 (-i\lambda_3)^2
-\frac{i}{(p_1+p_2)^2-m^2+i0}.
+\frac{i}{-(p_1+p_2)^2-m^2+i0}.
 $$
 
 $(13|24),(14|23)$ でも同様で、三つの分割について足します。四元運動量が異なる場合の分母はそれぞれ異なります。ここで「外線を取り除く」はこの図の積から外部 $D_F$ を除く**代数的な操作**にすぎず、これだけで散乱振幅だと同定しません。安定な漸近粒子、質量殻、波動関数規格化が必要なLSZ還元は後の章で調べます。
@@ -580,8 +580,8 @@ $$
 [頂点積分の命題](#prop-qft10-momentum-vertex)で $r=3$ とします。位相を掛けると
 
 $$
-e^{-ip\cdot y}e^{-iq\cdot y}e^{-ir\cdot y}
-=e^{-i(p+q+r)\cdot y}.
+e^{+ip\cdot y}e^{+iq\cdot y}e^{+ir\cdot y}
+=e^{+i(p+q+r)\cdot y}.
 $$
 
 よって因子は $(-i\lambda_3)\widetilde g(p+q+r)$ です。形式的な $g=1$ ではFourier変換が $(2\pi)^4\delta^{(4)}(p+q+r)$ に置き換わります。有限切替で運動量が厳密なデルタ保存になると主張してはいけません。

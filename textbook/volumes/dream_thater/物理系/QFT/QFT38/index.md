@@ -4,13 +4,15 @@
 
 本講では重い $W$ の仮想交換を低運動量で展開し、四つのフェルミオン場が同じ点で結合する近似を得ます。係数は電弱真空期待値 $v$ と結ばれます。さらに、ミューオン崩壊のスピン和と三体位相空間を一続きで積分し、どこまでが木レベルの予言で、どこから質量・放射・ハドロンの補正が必要かを確かめます。
 
-時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、$\hbar=c=1$ です。$g>0$、$m_W=gv/2>0$、フェルミオン運動項は正準規格化されているとします。[QFT32のカイラリティと射影子](../QFT32/index.md#def-qft32-chirality)に従い $P_L=(1-\gamma^5)/2$ を用い、$\overline\psi=\psi^\dagger\gamma^0$ とします。Lorentz添字の上下は $\eta$ で移し、同じ添字の上下反復は $0,1,2,3$ について和を取ります。
+時空は $3+1$ 次元のMinkowski空間、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、$\hbar=c=1$ です。$g>0$、$m_W=gv/2>0$、フェルミオン運動項は正準規格化されているとします。
+
+[QFT32のカイラリティと射影子](../QFT32/index.md#def-qft32-chirality)に従い $P_L=(1-\gamma^5)/2$ を用い、[QFT7のDirac随伴](../QFT7/index.md#def-qft7-adjoint-action)に従って $\overline\psi=\psi^\dagger H$、$H=-i\gamma^0$ とします。Lorentz添字の上下は $\eta$ で移し、同じ添字の上下反復は $0,1,2,3$ について和を取ります。
 
 以下で $W$ の消去、四フェルミオン振幅、崩壊率を主張するのは**木レベル**です。$q$ は交換される仮想 $W$ の四元運動量で、$q^2=\eta_{\mu\nu}q^\mu q^\nu$ とします。$|q^2|\ll m_W^2$ かつ外部フェルミオンの各質量 $m_f$ も $m_W$ より十分小さい領域で扱い、遠方境界では部分積分の表面項が消えるとします。
 
 ## 1. 荷電電流の向きと世代因子
 
-まず電弱相互作用の二つの端点を固定します。電荷 $+1$ の $W^+$ に掛かるフェルミオン双線形は $\overline u\gamma^\mu P_Ld$ や $\overline\nu\gamma^\mu P_Le$ です。これらの双線形自身の電荷は $-1$ なので、全体は電磁的に中性です。
+まず電弱相互作用の二つの端点を固定します。電荷 $+1$ の $W^+$ に掛かるフェルミオン双線形は $\overline u\gamma^\mu P_Ld$ や $\overline\nu\gamma^\mu P_Le$ です。これらの双線形自身の電荷は $-1$ なので、全体は電磁的に中性です。計量 $(-+++)$ の[Dirac電流](../QFT7/index.md#thm-qft7-current)は $-i$ を掛けて実の物理電流にするため、この章ではその因子を電流 $J_\pm$ の定義に含めます。
 
 記号 $u,d,e,\nu$ は質量基底でのフェルミオン場を表します。世代添字 $\alpha,\beta\in\{1,2,3\}$ は、上型・下型それぞれを
 
@@ -31,8 +33,8 @@ $$
 > 三世代の最小標準模型で、[CKM行列](../QFT37/index.md#def-qft37-ckm) $V$ を用い、Lorentzベクトルの電流を
 
 $$
-J_+^\mu=\sum_{\alpha,\beta=1}^3\overline u_\alpha\gamma^\mu P_LV_{\alpha\beta}d_\beta
-+\sum_{\ell=e,\mu,\tau}\overline\nu_\ell\gamma^\mu P_L\ell,
+J_+^\mu=-i\left(\sum_{\alpha,\beta=1}^3\overline u_\alpha\gamma^\mu P_LV_{\alpha\beta}d_\beta
++\sum_{\ell=e,\mu,\tau}\overline\nu_\ell\gamma^\mu P_L\ell\right),
 \qquad J_-^\mu=(J_+^\mu)^\dagger
 $$
 
@@ -42,29 +44,35 @@ $$
 \mathcal L_{\rm cc}=\frac g{\sqrt2}(W_\mu^+J_+^\mu+W_\mu^-J_-^\mu)
 $$
 
-> とする。$W^-=(W^+)^*$ で、$J_-^\mu=\sum_{\alpha,\beta}V_{\alpha\beta}^*\overline d_\beta\gamma^\mu P_Lu_\alpha+\sum_\ell\overline\ell\gamma^\mu P_L\nu_\ell$ である。
+> とする。$W^-=(W^+)^*$ で、Hermitian共役の電流は
+
+$$
+J_-^\mu=-i\left(\sum_{\alpha,\beta}V_{\alpha\beta}^*\overline d_\beta\gamma^\mu P_Lu_\alpha+\sum_\ell\overline\ell\gamma^\mu P_L\nu_\ell\right)
+$$
+
+> と展開できる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft38-charged-current -->
 ### 例：一つのクォーク頂点と一つのレプトン頂点
 
-**定義の確認**：$\alpha=1,\beta=1$ とした項は $V_{ud}\overline u\gamma^\mu P_Ld$（$V_{ud}=V_{11}$）であり、$\overline u$ の電荷 $-2/3$ と $d$ の電荷 $-1/3$ の和は $-1$ です。$W^+$ の電荷 $+1$ と相殺します。レプトン項 $\overline\nu_e\gamma^\mu P_Le$ は $0-1=-1$ です。
+**定義の確認**：$\alpha=1,\beta=1$ とした項は $-iV_{ud}\overline u\gamma^\mu P_Ld$（$V_{ud}=V_{11}$）であり、$\overline u$ の電荷 $-2/3$ と $d$ の電荷 $-1/3$ の和は $-1$ です。$W^+$ の電荷 $+1$ と相殺します。レプトン項 $-i\overline\nu_e\gamma^\mu P_Le$ は $0-1=-1$ です。
 
 さらに $P_R=1-P_L$ とすると、Dirac共役と左射影子の交換は
 
 $$
-\gamma^0(\gamma^\mu P_L)^\dagger\gamma^0
-=P_R\gamma^\mu=\gamma^\mu P_L
+H(\gamma^\mu P_L)^\dagger H
+=-P_R\gamma^\mu=-\gamma^\mu P_L
 $$
 
-です。従って双線形のHermitian共役は $\overline d\gamma^\mu P_Lu$ になり、共役の $J_-$ には $V_{ud}^*$ が現れて $W^-$ と結合します。これは電荷・左射影・複素共役という三つの条件の直接確認です。
+です。従って素の双線形のHermitian共役には負号が付きますが、$(-i)^*=+i$ と掛け合わせると $(-i\overline u\gamma^\mu P_Ld)^\dagger=-i\overline d\gamma^\mu P_Lu$ です。共役の $J_-$ には $V_{ud}^*$ が現れて $W^-$ と結合します。これは電荷・左射影・複素共役という三つの条件の直接確認です。
 
 したがって $d\to u e^-\overline\nu_e$ を扱う局所項は $V_{ud}(\overline u\gamma^\mu P_Ld)(\overline e\gamma_\mu P_L\nu_e)$ であり、複素共役の位置まで追えます。これは自由クォークの場についての記述で、束縛された中性子の崩壊率をこの式だけで求めたことにはなりません。
 <!-- definition-example-end -->
 
 ## 2. 重い $W$ を消すと何が残るか
 
-低エネルギーの仮想交換では、$W$ の伝播関数にある $q^2-m_W^2$ の分母を $-m_W^2$ のまわりで展開できます。これは[QFT26の重い場の低エネルギー展開](../QFT26/index.md#prop-qft26-heavy-matching)のベクトル場版です。ただしここでは重いゲージ場の相互作用を木レベルで評価するだけで、ループのmatchingやくりこみ群の効果は含めません。
+低エネルギーの仮想交換では、$W$ の伝播関数にある $q^2+m_W^2$ の分母を $m_W^2$ のまわりで展開できます。これは[QFT26の重い場の低エネルギー展開](../QFT26/index.md#prop-qft26-heavy-matching)のベクトル場版です。ただしここでは重いゲージ場の相互作用を木レベルで評価するだけで、ループのmatchingやくりこみ群の効果は含めません。
 
 記号 $[X]$ は自然単位系での量 $X$ の質量次元を表します。$[\psi]=3/2$ なので、一つの荷電電流は次元3です。二つの電流の積は次元6となり、作用密度の次元4に合わせる係数には質量次元 $-2$ が必要です。これが重い質量の二乗で抑制される理由です。
 
@@ -78,16 +86,18 @@ $$
 \mathcal O_F=J_{+\mu}J_-^\mu
 $$
 
-> と置く。その係数を $-C_F$ とした低エネルギー相互作用 $\mathcal L_F=-C_F\mathcal O_F$ をFermi四フェルミオン相互作用という。$C_F$ の質量次元は $-2$ であり、係数の値は重い $W$ の消去で決める。
+> と置く。その係数を $+C_F$ とした低エネルギー相互作用 $\mathcal L_F=+C_F\mathcal O_F$ をFermi四フェルミオン相互作用という。$C_F$ の質量次元は $-2$ であり、係数の値は重い $W$ の消去で決める。なお $J_\pm=-iB_\pm$ と素の双線形の和 $B_\pm$ を定め直すと、$\mathcal O_F=-B_+\cdot B_-$ なので $\mathcal L_F=-C_FB_+\cdot B_-$ となり、慣用的な $V-A$ 相互作用の符号と一致する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft38-fermi-operator -->
 ### 例：ミューオンの崩壊に必要な四つの場
 
-**定義の確認**：$J_+$ の $\overline\nu_\mu\gamma^\mu P_L\mu$ と $J_-$ の $\overline e\gamma_\mu P_L\nu_e$ を選ぶと、積は
+**定義の確認**：$J_+$ の $-i\overline\nu_\mu\gamma^\mu P_L\mu$ と $J_-$ の $-i\overline e\gamma_\mu P_L\nu_e$ を選ぶと、積は
 
 $$
-(\overline\nu_\mu\gamma^\mu P_L\mu)
+(-i)^2(\overline\nu_\mu\gamma^\mu P_L\mu)
+(\overline e\gamma_\mu P_L\nu_e)
+=-(\overline\nu_\mu\gamma^\mu P_L\mu)
 (\overline e\gamma_\mu P_L\nu_e).
 $$
 
@@ -100,19 +110,32 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（木レベルのW消去とFermi係数）**
-> $m_W>0$、正準化した荷電 $W$ の質量項 $m_W^2W_\mu^+W^{-\mu}$、[荷電電流](#def-qft38-charged-current)への結合 $g(W^+\!\cdot J_++W^-\!\cdot J_-)/\sqrt2$ を持つ理論で、$|q^2|,m_f^2\ll m_W^2$ とする。木レベルの局所展開の先頭は
+> $m_W>0$ とし、正準化した荷電 $W$ の質量項および[物理的な荷電電流](#def-qft38-charged-current)への結合をそれぞれ
 
 $$
-\mathcal L_{\rm eff}^{(6)}=-\frac{g^2}{2m_W^2}J_{+\mu}J_-^\mu,
+-m_W^2W_\mu^+W^{-\mu},
+\qquad \frac{g}{\sqrt2}(W^+\!\cdot J_++W^-\!\cdot J_-)
+$$
+
+> とする。この理論で $|q^2|,m_f^2\ll m_W^2$ なら、木レベルの局所展開の先頭は
+
+$$
+\mathcal L_{\rm eff}^{(6)}=+\frac{g^2}{2m_W^2}J_{+\mu}J_-^\mu,
 \qquad C_F=\frac{g^2}{2m_W^2}=\frac2{v^2}.
 $$
 
-> 微分を持つ次の補正は相対的に $O(q^2/m_W^2)$ の次数で、縦成分からは電流の発散に比例する質量抑制項も生じ得る。この等式は低エネルギーの木レベルmatchingであり、$W$ の極 $q^2=m_W^2$ 付近では使えない。
+> $J_\pm=-iB_\pm$ と書いた素のDirac双線形では
+
+$$
+\mathcal L_{\rm eff}^{(6)}=-g^2B_+\cdot B_-/(2m_W^2)
+$$
+
+> となる。微分を持つ次の補正は相対的に $O(q^2/m_W^2)$ の次数で、縦成分からは電流の発散に比例する質量抑制項も生じ得る。この等式は低エネルギーの木レベルmatchingであり、$W$ の極 $q^2=-m_W^2$ 付近では使えない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-複素共役な $W^+,W^-$ を独立な変分変数として扱い、それぞれの代数的運動方程式を解きます。質量項と二つの源項をすべて戻すと、一見二倍に見える源項が質量項と部分的に相殺し、係数 $-g^2/(2m_W^2)$ だけが残ります。
+複素共役な $W^+,W^-$ を独立な変分変数として扱い、それぞれの代数的運動方程式を解きます。質量項と二つの源項をすべて戻すと、一見二倍に見える源項が質量項と部分的に相殺し、物理電流には係数 $+g^2/(2m_W^2)$ が残ります。
 
 <!-- proof-start -->
 ### 証明
@@ -120,48 +143,48 @@ $$
 $a=g/\sqrt2$ として、運動量微分のない部分は
 
 $$
-\mathcal L_W=m_W^2W_\mu^+W^{-\mu}
+\mathcal L_W=-m_W^2W_\mu^+W^{-\mu}
 +aW_\mu^+J_+^\mu+aW_\mu^-J_-^\mu.
 $$
 
 $W^+$ と $W^-$ による変分から
 
 $$
-m_W^2W_\mu^-+aJ_{+\mu}=0,
-\qquad m_W^2W_\mu^++aJ_{-\mu}=0.
+-m_W^2W_\mu^-+aJ_{+\mu}=0,
+\qquad -m_W^2W_\mu^++aJ_{-\mu}=0.
 $$
 
-したがって $W_\mu^-=-aJ_{+\mu}/m_W^2$、$W_\mu^+=-aJ_{-\mu}/m_W^2$ です。元の作用へ代入すると
+したがって $W_\mu^-=aJ_{+\mu}/m_W^2$、$W_\mu^+=aJ_{-\mu}/m_W^2$ です。元の作用へ代入すると
 
 $$
 \begin{aligned}
 \mathcal L_W\big|_{\rm EOM}
-&=\frac{a^2}{m_W^2}J_-\cdot J_+
--\frac{a^2}{m_W^2}J_-\cdot J_+
--\frac{a^2}{m_W^2}J_+\cdot J_-\\
-&=-\frac{a^2}{m_W^2}J_+\cdot J_-
-=-\frac{g^2}{2m_W^2}J_+\cdot J_-.
+&=-\frac{a^2}{m_W^2}J_-\cdot J_+
++\frac{a^2}{m_W^2}J_-\cdot J_+
++\frac{a^2}{m_W^2}J_+\cdot J_-\\
+&=+\frac{a^2}{m_W^2}J_+\cdot J_-
+=+\frac{g^2}{2m_W^2}J_+\cdot J_-.
 \end{aligned}
 $$
 
-二つの電流は Grassmann 偶の複合演算子なので、木レベルの局所演算子として順序を保った積が書けます。さらに $m_W=gv/2$ を代入すると $g^2/(2m_W^2)=g^2/(2g^2v^2/4)=2/v^2$ です。
+二つの電流は Grassmann 偶の複合演算子なので、木レベルの局所演算子として順序を保った積が書けます。素の双線形に戻した $J_+\cdot J_-=(-i)^2B_+\cdot B_-=-B_+\cdot B_-$ も確認でき、従来と同じ $-C_FB_+\cdot B_-$ になります。さらに $m_W=gv/2$ を代入すると $g^2/(2m_W^2)=g^2/(2g^2v^2/4)=2/v^2$ です。
 
 導関数を戻して確かめると、ユニタリーゲージの自由伝播関数は
 
 $$
-D_{\mu\nu}(q)=\frac{-i}{q^2-m_W^2+i0}
-\left(\eta_{\mu\nu}-\frac{q_\mu q_\nu}{m_W^2}\right).
+D_{\mu\nu}(q)=\frac{-i}{q^2+m_W^2-i0}
+\left(\eta_{\mu\nu}+\frac{q_\mu q_\nu}{m_W^2}\right).
 $$
 
-分母の幾何級数は $1/(m_W^2-q^2)=m_W^{-2}(1+q^2/m_W^2+\cdots)$ であり、計量テンソルに比例する部分の先頭は代数的消去と一致します。縦成分の作用も確かめましょう。質量殻上の入射スピノル $u_i(p_i)$ から出射スピノル $u_f(p_f)$ への左電流で $q=p_i-p_f$ とすると、[自由Dirac平面波の方程式](../QFT7/index.md#def-qft7-plane-waves) $\not p_i u_i=m_i u_i$、$\overline u_f\not p_f=m_f\overline u_f$ と $\not pP_L=P_R\not p$ から
+分母の幾何級数は $1/(m_W^2+q^2)=m_W^{-2}(1-q^2/m_W^2+\cdots)$ であり、計量テンソルに比例する部分の先頭は代数的消去と一致します。縦成分の作用も確かめましょう。質量殻上の入射スピノル $u_i(p_i)$ から出射スピノル $u_f(p_f)$ への左電流で $q=p_i-p_f$ とすると、[自由Dirac平面波の方程式](../QFT7/index.md#def-qft7-plane-waves) $i\not p_i u_i=m_i u_i$、$\overline u_f i\not p_f=m_f\overline u_f$ と $\not pP_L=P_R\not p$ から
 
 $$
 q_\mu\overline u_f\gamma^\mu P_Lu_i
 =\overline u_f(\not p_i-\not p_f)P_Lu_i
-=m_i\overline u_fP_Ru_i-m_f\overline u_fP_Lu_i.
+=-i\big(m_i\overline u_fP_Ru_i-m_f\overline u_fP_Lu_i\big).
 $$
 
-つまり $q_\mu J^\mu$ は外線質量に比例し、伝播関数の $q_\mu q_\nu/m_W^2$ による振幅補正は軽い外線に対して質量で抑制されます。$q^2$ が極へ近づけば幾何級数は収束せず、重い場を陽に扱う必要があります。
+物理電流ではさらに $-i$ を掛けるので $q_\mu J^\mu=-(m_i\overline u_fP_Ru_i-m_f\overline u_fP_Lu_i)$ です。つまり電流の発散は外線質量に比例し、伝播関数の $q_\mu q_\nu/m_W^2$ による振幅補正は軽い外線に対して質量で抑制されます。$q^2$ が極 $-m_W^2$ へ近づけば幾何級数は収束せず、重い場を陽に扱う必要があります。
 <!-- proof-end -->
 
 ここでは高次の演算子をすべて零と置いたのではありません。低エネルギーの有限精度で、先頭の次元6項を取り出しました。[QFT26の演算子次元による分類](../QFT26/index.md#def-qft26-relevance)と同じ発想で、必要な精度に応じて高次項を加えます。
@@ -196,7 +219,7 @@ $$
 <!-- definition-example-start: def-qft38-fermi-constant -->
 ### 例：射影子の二つの $1/2$ を検査する
 
-**定義の確認**：[局所演算子](#def-qft38-fermi-operator)のレプトン部分の係数は $-g^2/(2m_W^2)$ です。$\gamma^\mu P_L=\gamma^\mu(1-\gamma^5)/2$ を**各**双線形に適用すると
+**定義の確認**：[局所演算子](#def-qft38-fermi-operator)を**素のDirac双線形** $B_\pm=iJ_\pm$ で書いたとき、レプトン部分の係数は $-g^2/(2m_W^2)$ です。$\gamma^\mu P_L=\gamma^\mu(1-\gamma^5)/2$ を**各**双線形に適用すると
 
 $$
 -\frac{g^2}{2m_W^2}\times\frac12\times\frac12
@@ -237,21 +260,21 @@ $$
 [\overline u(p_e)\gamma_\rho P_Lv(p_{\bar\nu_e})]
 $$
 
-です（全体符号は二乗に影響しません）。[QFT7のスピン和](../QFT7/index.md#thm-qft7-spin-sums) $\sum u(k)\overline u(k)=\not k+m_k$、$\sum v(k)\overline v(k)=\not k-m_k$ を用います。質量零のニュートリノには左カイラル粒子と対応する反粒子だけが物理的に存在しますが、両ヘリシティを形式的に足すDiracスピン和を使っても、各頂点の $P_L$ が不要な偏極を消すため物理的に存在しない状態は振幅へ寄与しません。初期スピンの平均を含む二乗は
+です（全体符号は二乗に影響しません）。[QFT7の $(-+++)$ スピン和](../QFT7/index.md#thm-qft7-spin-sums) $\sum u(k)\overline u(k)=i\not k+m_k$、$\sum v(k)\overline v(k)=i\not k-m_k$ を用います。質量零のニュートリノには左カイラル粒子と対応する反粒子だけが物理的に存在しますが、両ヘリシティを形式的に足すDiracスピン和を使っても、各頂点の $P_L$ が不要な偏極を消すため物理的に存在しない状態は振幅へ寄与しません。初期スピンの平均を含む二乗は
 
 $$
 \begin{aligned}
 \overline{|\mathcal M|^2}
 &=\frac12\left(\frac{4G_F}{\sqrt2}\right)^2
-\operatorname{tr}[(\not p+m)\gamma^\sigma P_L
-\not p_{\nu_\mu}\gamma^\rho P_L]\\
+\operatorname{tr}[(i\not p+m)\gamma^\sigma P_L
+i\not p_{\nu_\mu}\gamma^\rho P_L]\\
 &\qquad\times
-\operatorname{tr}[\not p_e\gamma_\rho P_L
-\not p_{\bar\nu_e}\gamma_\sigma P_L].
+\operatorname{tr}[i\not p_e\gamma_\rho P_L
+i\not p_{\bar\nu_e}\gamma_\sigma P_L].
 \end{aligned}
 $$
 
-ここで [左射影子](../QFT32/index.md#def-qft32-chirality)の $P_L^2=P_L$、$\{\gamma^5,\gamma^\rho\}=0$ を用いると、質量 $m$ だけを含む奇数個のガンマ行列のトレースは零です。反対称成分を落とさず縮約する手順を明示します。四元ベクトル $a,b$ に対し、$\varepsilon^{0123}=+1$ のLevi-Civita記号を用いて
+ここで [左射影子](../QFT32/index.md#def-qft32-chirality)の $P_L^2=P_L$、$\{\gamma^5,\gamma^\rho\}=0$ を用いると、質量 $m$ だけを含む奇数個のガンマ行列のトレースは零です。**二つの跡はそれぞれ運動量スラッシュを二本含むため、スピン和由来の $i^2=-1$ が一回ずつ出ます。その積は $(-1)^2=1$** となり、最後の物理振幅には符号反転が残りません。反対称成分を落とさず縮約する手順を明示します。四元ベクトル $a,b$ に対し、$\varepsilon^{0123}=+1$ のLevi-Civita記号を用いて
 
 $$
 \begin{aligned}
@@ -262,7 +285,7 @@ T^{\mu\nu}(a,b)&=\operatorname{tr}(\not a\gamma^\mu P_L\not b\gamma^\nu P_L)
 \end{aligned}
 $$
 
-と定めます。最後の式は[Clifford関係](../QFT7/index.md#def-qft7-clifford)からの四本のガンマ行列の跡 $\operatorname{tr}(\not a\gamma^\mu\not b\gamma^\nu)=4S^{\mu\nu}(a,b)$ と、同じ積に $\gamma^5$ を入れた跡を使ったものです。$S$ は対称、$E$ は反対称なので交差積は消えます。$X=(p\cdot r)(k\cdot s)$、$Y=(p\cdot s)(k\cdot r)$ と置くと、計量で添字を下げて
+と定めます。最後の式は[Clifford関係](../QFT7/index.md#def-qft7-clifford)からの四本のガンマ行列の跡 $\operatorname{tr}(\not a\gamma^\mu\not b\gamma^\nu)=4S^{\mu\nu}(a,b)$ と、同じ積に $\gamma^5$ を入れた跡を使ったものです。この $T$ は $i$ を掛ける**前**の行列積の跡で、上の二つのスピン和の跡はそれぞれ $-T$ です。$S$ は対称、$E$ は反対称なので交差積は消えます。$X=(p\cdot r)(k\cdot s)$、$Y=(p\cdot s)(k\cdot r)$ と置くと、計量で添字を下げて
 
 $$
 \begin{aligned}
@@ -275,8 +298,8 @@ $$
 二行目では $\varepsilon^{\mu\nu\alpha\beta}\varepsilon_{\mu\nu\gamma\delta}=-2(\delta^\alpha_\gamma\delta^\beta_\delta-\delta^\alpha_\delta\delta^\beta_\gamma)$ と、二本目の跡の添字順が $\rho,\sigma$ であることを使いました。したがって、どの運動量を組にした内積が残るかまで計算で確定し、
 
 $$
-\operatorname{tr}[(\not p+m)\gamma^\sigma P_L\not k\gamma^\rho P_L]
-\operatorname{tr}[\not r\gamma_\rho P_L\not s\gamma_\sigma P_L]
+\operatorname{tr}[(i\not p+m)\gamma^\sigma P_Li\not k\gamma^\rho P_L]
+\operatorname{tr}[i\not r\gamma_\rho P_Li\not s\gamma_\sigma P_L]
 =16(p\cdot s)(k\cdot r).
 $$
 
@@ -301,27 +324,27 @@ $$
 
 ### 証明の見取り図
 
-$s=(p_e+p_{\nu_\mu})^2$ と置き、$p-p_{\bar\nu_e}=p_e+p_{\nu_\mu}$ から振幅を $s$ の多項式へ変換します。[QFT12の二体位相空間](../QFT12/index.md#prop-qft12-two-body-phase-space)を二度使って三体測度を因数分解すると、残るのは $0\le s\le m^2$ の一変数積分です。
+$s=-(p_e+p_{\nu_\mu})^2$ と置き、$p-p_{\bar\nu_e}=p_e+p_{\nu_\mu}$ から振幅を $s$ の多項式へ変換します。[QFT12の二体位相空間](../QFT12/index.md#prop-qft12-two-body-phase-space)を二度使って三体測度を因数分解すると、残るのは $0\le s\le m^2$ の一変数積分です。
 
 <!-- proof-start -->
 ### 証明
 
-質量殻条件 $p^2=m^2$、$p_e^2=p_{\bar\nu_e}^2=p_{\nu_\mu}^2=0$ と運動量保存から
+質量殻条件 $p^2=-m^2$、$p_e^2=p_{\bar\nu_e}^2=p_{\nu_\mu}^2=0$ と運動量保存から
 
 $$
-s=(p_e+p_{\nu_\mu})^2=2p_e\cdot p_{\nu_\mu}
-=(p-p_{\bar\nu_e})^2=m^2-2p\cdot p_{\bar\nu_e}.
+s=-(p_e+p_{\nu_\mu})^2=-2p_e\cdot p_{\nu_\mu}
+=-(p-p_{\bar\nu_e})^2=m^2+2p\cdot p_{\bar\nu_e}.
 $$
 
-従って $p\cdot p_{\bar\nu_e}=(m^2-s)/2$ であり、[振幅の二乗](#thm-qft38-muon-spin-sum)は
+従って $p\cdot p_{\bar\nu_e}=(s-m^2)/2$、$p_e\cdot p_{\nu_\mu}=-s/2$ と、両内積は未来向き粒子のため非正です。その積は正となり、[振幅の二乗](#thm-qft38-muon-spin-sum)は
 
 $$
 \overline{|\mathcal M|^2}
-=64G_F^2\frac{m^2-s}{2}\frac{s}{2}
+=64G_F^2\frac{s-m^2}{2}\frac{-s}{2}
 =16G_F^2s(m^2-s).
 $$
 
-$Q=p_e+p_{\nu_\mu}$ と置くと、[不変位相空間の定義](../QFT12/index.md#def-qft12-phase-space)で $1=\int d^4Q\,\delta^{(4)}(Q-p_e-p_{\nu_\mu})$ と $1=\int ds\,\delta(s-Q^2)$ を挿入できます。$Q^0>0$ を満たす中間系を質量 $\sqrt s$ の粒子として扱い、二つの二体測度へ組み直すと、各運動量測度の $(2\pi)$ と不変質量デルタの規格化の差から $ds/(2\pi)$ が残り、
+$Q=p_e+p_{\nu_\mu}$ と置くと、[不変位相空間の定義](../QFT12/index.md#def-qft12-phase-space)で $1=\int d^4Q\,\delta^{(4)}(Q-p_e-p_{\nu_\mu})$ と $1=\int ds\,\delta(s+Q^2)$ を挿入できます。$Q^0>0$ を満たす中間系を質量 $\sqrt s$ の粒子として扱い、二つの二体測度へ組み直すと、各運動量測度の $(2\pi)$ と不変質量デルタの規格化の差から $ds/(2\pi)$ が残り、
 
 $$
 d\Phi_3(p;p_{\bar\nu_e},p_e,p_{\nu_\mu})
@@ -402,11 +425,11 @@ $J_+$ から一つのクォーク電流、$J_-$ から一つのレプトン電�
 [電流の定義](#def-qft38-charged-current)から
 
 $$
-J_+^\rho\supset V_{\alpha\beta}\overline u_\alpha\gamma^\rho P_Ld_\beta,
-\qquad J_-^\rho\supset\overline\ell\gamma^\rho P_L\nu_\ell.
+J_+^\rho\supset-iV_{\alpha\beta}\overline u_\alpha\gamma^\rho P_Ld_\beta,
+\qquad J_-^\rho\supset-i\overline\ell\gamma^\rho P_L\nu_\ell.
 $$
 
-積 $J_+\cdot J_-$ のこの交差項へ $-g^2/(2m_W^2)$ を掛けると、$4G_F/\sqrt2=g^2/(2m_W^2)$ より提示した係数になります。他方、Hermitian共役では $V_{\alpha\beta}^*$ となります。ハドロン $H_i,H_f$ を外線に取るときは
+積 $J_+\cdot J_-$ のこの交差項へ $+g^2/(2m_W^2)$ を掛けると、二つの $-i$ から $(-i)^2=-1$ が生じます。$4G_F/\sqrt2=g^2/(2m_W^2)$ より提示した負の係数になります。他方、Hermitian共役では $V_{\alpha\beta}^*$ となります。ハドロン $H_i,H_f$ を外線に取るときは
 
 $$
 \langle H_f|\overline u_\alpha\gamma^\rho P_Ld_\beta|H_i\rangle
@@ -427,22 +450,26 @@ $$
 - 問題：$J_+$ の $u,d$ 項と電子項を書き、各双線形の電荷を確かめよ。$J_-$ の対応するCKM係数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[荷電電流の定義](#def-qft38-charged-current)より $J_+^\rho\supset V_{ud}\bar u\gamma^\rho P_Ld+\bar\nu_e\gamma^\rho P_Le$。最初の電荷は $-2/3-1/3=-1$、後者は $0-1=-1$ です。共役では $J_-^\rho\supset V_{ud}^*\bar d\gamma^\rho P_Lu+\bar e\gamma^\rho P_L\nu_e$ となり、それぞれ電荷 $+1$ です。$W^+$ と $J_+$、$W^-$ と $J_-$ の積だけが電荷中性になります。
+**詳細解答**：[荷電電流の定義](#def-qft38-charged-current)より $J_+^\rho\supset-i(V_{ud}\bar u\gamma^\rho P_Ld+\bar\nu_e\gamma^\rho P_Le)$。最初の電荷は $-2/3-1/3=-1$、後者は $0-1=-1$ です。共役では $J_-^\rho\supset-i(V_{ud}^*\bar d\gamma^\rho P_Lu+\bar e\gamma^\rho P_L\nu_e)$ となり、それぞれ電荷 $+1$ です。$(-i\bar u\gamma P_Ld)^\dagger=-i\bar d\gamma P_Lu$ を使い、$W^+$ と $J_+$、$W^-$ と $J_-$ の積だけが電荷中性になります。
 <!-- solution-end -->
 
 ### 演習 QFT38-A2：重い複素場の代数的消去
 
 - Level: A
-- 問題：$M^2>0$、$a\in\mathbb R$ に対し $\mathcal L=M^2X^*X+a(XJ+X^*J^*)$ とする。$X,X^*$ の停留条件を求め、代入後の $J^*J$ の係数を計算せよ。
+- 問題：$M^2>0$、$a\in\mathbb R$ に対し $(-+++)$ での重い複素ベクトルの代数的な一成分模型 $\mathcal L=-M^2X^*X+a(XJ+X^*J^*)$ を考える。$X,X^*$ の停留条件を求め、代入後の $J^*J$ の係数を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：$\partial\mathcal L/\partial X^*=M^2X+aJ^*=0$、$\partial\mathcal L/\partial X=M^2X^*+aJ=0$ です。従って $X=-aJ^*/M^2$、$X^*=-aJ/M^2$。代入すると質量項が $+a^2J^*J/M^2$、二つの源項の和が $-2a^2J^*J/M^2$ なので、$\mathcal L_{\rm eff}=-a^2J^*J/M^2$ です。[木レベルmatching](#thm-qft38-tree-matching)と符号が一致します。
+**詳細解答**：$\partial\mathcal L/\partial X^*=-M^2X+aJ^*=0$、$\partial\mathcal L/\partial X=-M^2X^*+aJ=0$ です。従って $X=aJ^*/M^2$、$X^*=aJ/M^2$。
+
+代入すると質量項が $-a^2J^*J/M^2$、二つの源項の和が $+2a^2J^*J/M^2$ なので、$\mathcal L_{\rm eff}=+a^2J^*J/M^2$ です。[木レベルmatching](#thm-qft38-tree-matching)の物理電流 $J_\pm$ に対する正符号と一致します。
+
+ただしこの模型の複素数の共役 $J^*$ と、Dirac随伴で定義する素の電流 $B_-$ は同一視できません。後者は $B_-=-(B_+)^\dagger$ なので、実際の電弱電流では $J_\pm=-iB_\pm$ の双方が成立し、その積が $J_+\cdot J_-=-B_+\cdot B_-$ になります。
 <!-- solution-end -->
 
 ### 演習 QFT38-A3：$P_L$ から $V-A$ への係数
 
 - Level: A
-- 問題：$-C_F(\bar\chi\gamma^\rho P_L\psi)(\bar\xi\gamma_\rho P_L\zeta)$ を $1-\gamma^5$ で書け。$C_F=g^2/(2m_W^2)$ とすると係数はいくらか。
+- 問題：$J_\pm=-iB_\pm$ を用いて物理電流での $+C_FJ_+\cdot J_-$ を素の双線形で書くと $-C_F(\bar\chi\gamma^\rho P_L\psi)(\bar\xi\gamma_\rho P_L\zeta)$ を含む。これを $1-\gamma^5$ で書け。$C_F=g^2/(2m_W^2)$ とすると係数はいくらか。
 
 <!-- solution-start -->
 **詳細解答**：$P_L=(1-\gamma^5)/2$ を両方に代入するので、係数は $-C_F/4=-g^2/(8m_W^2)$ です。具体的に
@@ -468,25 +495,25 @@ $$
 ### 演習 QFT38-A5：三体位相空間の積分領域
 
 - Level: A
-- 問題：$p^2=m^2$、三つの質量零終状態が $p_e,p_a,p_b$ であるとき、$s=(p_e+p_b)^2$ と $p\cdot p_a$ の関係と $s$ の許容範囲を求めよ。
+- 問題：$p^2=-m^2$、三つの質量零終状態が $p_e,p_a,p_b$ であるとき、$s=-(p_e+p_b)^2$ と $p\cdot p_a$ の関係と $s$ の許容範囲を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$p=p_e+p_a+p_b$ から $s=(p-p_a)^2=m^2-2p\cdot p_a$ です。親粒子の静止系では $p\cdot p_a=mE_a\ge0$ より $s\le m^2$、一方 $s=(p_e+p_b)^2=2E_eE_b(1-\cos\theta_{eb})\ge0$ です。従って $0\le s\le m^2$、また $p\cdot p_a=(m^2-s)/2$ です。[三体積分](#thm-qft38-muon-width)の境界が得られます。
+**詳細解答**：$p=p_e+p_a+p_b$ から $s=-(p-p_a)^2=m^2+2p\cdot p_a$ です。親粒子の静止系では $p\cdot p_a=-mE_a\le0$ より $s\le m^2$、一方 $s=-(p_e+p_b)^2=2E_eE_b(1-\cos\theta_{eb})\ge0$ です。従って $0\le s\le m^2$、また $p\cdot p_a=(s-m^2)/2$ です。[三体積分](#thm-qft38-muon-width)の境界が得られます。
 <!-- solution-end -->
 
 ### 演習 QFT38-B1：有限運動量の補正と極
 
 - Level: B
-- 問題：保存電流間の $W$ 交換で縦成分が消えるとし、スカラー係数 $1/(m_W^2-q^2)$ を $q^2=0$ の近傍で二次まで展開せよ。$q^2=m_W^2/10$ で先頭近似のずれを厳密値で割った割合を正確に求めよ。
+- 問題：保存電流間の $W$ 交換で縦成分が消えるとし、スカラー係数 $1/(m_W^2+q^2)$ を $q^2=0$ の近傍で二次まで展開せよ。$q^2=-m_W^2/10$ で先頭近似のずれを厳密値で割った割合を正確に求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$z=q^2/m_W^2$ に対して $|z|<1$ なら幾何級数から
 
 $$
-\frac1{m_W^2-q^2}=\frac1{m_W^2}(1+z+z^2+O(z^3)).
+\frac1{m_W^2+q^2}=\frac1{m_W^2}(1-z+z^2+O(z^3)).
 $$
 
-$z=1/10$ では厳密係数は $10/(9m_W^2)$、先頭は $1/m_W^2$ です。厳密値を分母にしたずれの割合は $(10/9-1)/(10/9)=1/10$、すなわち10%です。**展開が収束すること**と**先頭項だけで高精度なこと**は別で、$z\to1$ では極のため近似できません。[matchingの適用範囲](#thm-qft38-tree-matching)の検査です。
+$z=-1/10$ では厳密係数は $10/(9m_W^2)$、先頭は $1/m_W^2$ です。厳密値を分母にしたずれの割合は $(10/9-1)/(10/9)=1/10$、すなわち10%です。**展開が収束すること**と**先頭項だけで高精度なこと**は別で、$z\to-1$ では極のため近似できません。[matchingの適用範囲](#thm-qft38-tree-matching)の検査です。
 <!-- solution-end -->
 
 ### 演習 QFT38-B2：三体位相空間と $192\pi^3$
@@ -538,18 +565,18 @@ $$
 ### 演習 QFT38-C1：電弱理論からミューオン寿命とクォーク遷移まで
 
 - Level: C
-- 問題：$m_W=gv/2$、$\mathcal L_{\rm cc}=g(W^+\cdot J_++W^-\cdot J_-)/\sqrt2$、$|q^2|\ll m_W^2$ とする。次を順に検算せよ。
+- 問題：$m_W=gv/2$、$\mathcal L_{\rm cc}=g(W^+\cdot J_++W^-\cdot J_-)/\sqrt2$、$J_\pm=-iB_\pm$、$|q^2|\ll m_W^2$ とする。計量 $(-+++)$ の正準ベクトル質量項 $-m_W^2W^+\cdot W^-$ を用いて次を順に検算せよ。
   1. $W$ の代数的運動方程式から低エネルギー四フェルミオン係数を求める。
   2. $V-A$ 規約での $G_F$ と $v$ の関係を導く。
-  3. 質量零三体崩壊で $s=(p_e+p_{\nu_\mu})^2$ を選び、スピン平均振幅と積分済み位相空間の式から $\Gamma_0$ を求める。
+  3. 質量零三体崩壊で $s=-(p_e+p_{\nu_\mu})^2$ を選び、スピン平均振幅と積分済み位相空間の式から $\Gamma_0$ を求める。
   4. $d\to u e^-\bar\nu_e$ に現れるCKM要素を特定し、自由クォークと中性子を同じ式で扱えない理由を述べる。
 
 <!-- solution-start -->
 **詳細解答**：
 
-1. $a=g/\sqrt2$ とし $\mathcal L_W=m_W^2W^+\cdot W^-+a(W^+\cdot J_++W^-\cdot J_-)$ を変分します。$W^-=-aJ_+/m_W^2$、$W^+=-aJ_-/m_W^2$ なので、代入して $+a^2/m_W^2-2a^2/m_W^2=-a^2/m_W^2$ が残ります。すなわち $\mathcal L_F=-g^2J_+\cdot J_-/(2m_W^2)$。
+1. $a=g/\sqrt2$ とし $\mathcal L_W=-m_W^2W^+\cdot W^-+a(W^+\cdot J_++W^-\cdot J_-)$ を変分します。$W^-=aJ_+/m_W^2$、$W^+=aJ_-/m_W^2$ なので、代入して $-a^2/m_W^2+2a^2/m_W^2=+a^2/m_W^2$ が残ります。すなわち $\mathcal L_F=+g^2J_+\cdot J_-/(2m_W^2)=-g^2B_+\cdot B_-/(2m_W^2)$ です。
 2. 一つの電流の $P_L$ から $1/2$、もう一つから $1/2$ を取り出し、$G_F/\sqrt2=g^2/(8m_W^2)=1/(2v^2)$。よって $G_F=1/(\sqrt2v^2)$ です。
-3. [スピン平均の定理](#thm-qft38-muon-spin-sum)により $\overline{|\mathcal M|^2}=64G_F^2(p\cdot p_{\bar\nu_e})(p_e\cdot p_{\nu_\mu})$。$s=2p_e\cdot p_{\nu_\mu}=m^2-2p\cdot p_{\bar\nu_e}$ を代入して $16G_F^2s(m^2-s)$。角度積分済みの[三体測度](#thm-qft38-muon-width)は $(m^2-s)/(128\pi^3m^2)$ なので
+3. [スピン平均の定理](#thm-qft38-muon-spin-sum)により $\overline{|\mathcal M|^2}=64G_F^2(p\cdot p_{\bar\nu_e})(p_e\cdot p_{\nu_\mu})$。$s=-2p_e\cdot p_{\nu_\mu}=m^2+2p\cdot p_{\bar\nu_e}$ を代入すると、二つの負の内積の積から $16G_F^2s(m^2-s)$。角度積分済みの[三体測度](#thm-qft38-muon-width)は $(m^2-s)/(128\pi^3m^2)$ なので
 
 $$
 \begin{aligned}
@@ -560,7 +587,7 @@ $$
 \end{aligned}
 $$
 
-4. $J_+$ の $V_{ud}\bar u\gamma^\rho P_Ld$ と $J_-$ の $\bar e\gamma_\rho P_L\nu_e$ を選ぶので、係数は $-4G_FV_{ud}/\sqrt2$ です。中性子の $n\to p$ では $\langle p|\bar u\gamma^\rho P_Ld|n\rangle$ という強相互作用を含む核子行列要素が必要で、自由な場のスピノル積と同一ではありません。電子質量・位相空間・放射補正も異なります。
+4. $J_+$ の $-iV_{ud}\bar u\gamma^\rho P_Ld$ と $J_-$ の $-i\bar e\gamma_\rho P_L\nu_e$ を選ぶので、物理電流の積の $+4G_F/\sqrt2$ と $(-i)^2=-1$ から、素の双線形の係数は $-4G_FV_{ud}/\sqrt2$ です。中性子の $n\to p$ では $\langle p|\bar u\gamma^\rho P_Ld|n\rangle$ という強相互作用を含む核子行列要素が必要で、自由な場のスピノル積と同一ではありません。電子質量・位相空間・放射補正も異なります。
 <!-- solution-end -->
 
 ## 6. まとめと次の問い

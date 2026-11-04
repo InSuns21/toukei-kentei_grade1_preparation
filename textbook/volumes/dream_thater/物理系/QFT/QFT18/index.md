@@ -4,10 +4,10 @@
 
 この講義の問いは、**局所的な電荷保存が、異なるGreen関数の間にどのような等式を強制し、実際の散乱振幅ではどうゲージ依存性を相殺するのか？** です。Dirac作用素の逆核の差から木レベルWard–Takahashi恒等式を導き、位置空間に現れるデルタ関数の接触項を計算します。その後、電子と光子のCompton散乱で二つの木図を足す必要を、両方の光子脚について検算します。
 
-時空は $3+1$ 次元Minkowski時空で、計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位系は $c=\hbar=1$ です。運動量とgamma行列の縮約は
+時空は $3+1$ 次元Minkowski時空で、計量は $\eta=\operatorname{diag}(-1,1,1,1)$、単位系は $c=\hbar=1$ です。運動量とgamma行列の縮約は
 
 $$
-\not p=\gamma^\mu p_\mu
+\not p=\gamma^\mu p_\mu,\qquad p^2=\eta_{\mu\nu}p^\mu p^\nu
 $$
 
 と記します。[QFT7のClifford関係](../QFT7/index.md#def-qft7-clifford)と[Diracスピノルの平面波解](../QFT7/index.md#def-qft7-plane-waves)を使います。
@@ -15,8 +15,8 @@ $$
 荷電Dirac場の質量は $m>0$、符号付き電荷は定数 $q$ とします。[QFT17の最小結合](../QFT17/index.md#def-qft17-qed-action)と[三点頂点](../QFT17/index.md#def-qft17-vertex)の規約は
 
 $$
-D_\mu=\partial_\mu+iqA_\mu,\qquad
-V^\mu=-iq\gamma^\mu
+D_\mu=\partial_\mu-iqA_\mu,\qquad
+V^\mu=q\gamma^\mu.
 $$
 
 です。電子なら $q=-e$、$e>0$ とします。
@@ -27,7 +27,9 @@ $$
 
 外線を質量殻に置く前の電子線には、左と右で異なる運動量 $p'=p+k$ が流れます。ここで $k$ は光子が電子線へ**入る**四元運動量です。従来の外線電流の横性を最初から仮定せず、自由Dirac方程式の左辺を運動量空間で見ることにします。
 
-行列 $K(p)=\not p-mI_4$ はDirac作用素 $i\not\partial-m$ のFourier記号です。伝播関数にはこれに加えて係数 $i$ が付くため、両者を混同しないように次の記法を固定します。
+正エネルギーの平面波を $e^{+ip\cdot x}$ とする[QFT7の規約](../QFT7/index.md#def-qft7-plane-waves)では、Dirac方程式は $(i\not p-mI_4)u(p)=0$、質量殻は $p^2=-m^2$ です。行列 $K(p)=i\not p-mI_4$ はこの運動量空間Dirac方程式の逆核です。伝播関数には係数 $i$ が付くので、両者を区別します。
+
+Ward恒等式を「逆核の差」の形で書くため、電荷を除いた**Ward頂点核** $\Gamma_0^\mu:=i\gamma^\mu$ も使います。これは物理的な頂点の $\gamma^\mu$ とは $i$ 倍だけ異なり、$V^\mu=-iq\Gamma_0^\mu=q\gamma^\mu$ です。
 
 <a id="def-qft18-inverse-kernel"></a>
 
@@ -36,13 +38,13 @@ $$
 > 質量 $m>0$ と四元運動量 $p$ に対し、四次正方行列
 
 $$
-K(p)=\not p-mI_4
+K(p)=i\not p-mI_4
 $$
 
-> を自由Dirac逆核（逆伝播核の記号）とする。$p^2\ne m^2$ ではその逆行列を $R(p)=K(p)^{-1}$ と書き、極では $i0$ 処方による境界値を取る。
+> を自由Dirac逆核（逆伝播核の記号）とする。$p^2\ne -m^2$ ではその逆行列を $R(p)=K(p)^{-1}$ と書き、極では $i0$ 処方による境界値を取る。
 
 $$
-R(p)=\frac{\not p+mI_4}{p^2-m^2+i0},
+R(p)=\frac{i\not p+mI_4}{-p^2-m^2+i0},
 \qquad S_F(p)=iR(p).
 $$
 
@@ -53,14 +55,14 @@ $$
 
 $$
 \begin{aligned}
-(\not p-m)(\not p+m)
-&=\gamma^\mu\gamma^\nu p_\mu p_\nu-m^2I_4\\
-&=\tfrac12\{\gamma^\mu,\gamma^\nu\}p_\mu p_\nu-m^2I_4\\
-&=(p^2-m^2)I_4.
+(i\not p-m)(i\not p+m)
+&=-\gamma^\mu\gamma^\nu p_\mu p_\nu-m^2I_4\\
+&=-\tfrac12\{\gamma^\mu,\gamma^\nu\}p_\mu p_\nu-m^2I_4\\
+&=(-p^2-m^2)I_4.
 \end{aligned}
 $$
 
-従って $p^2\ne m^2$ なら分子が逆行列の候補になります。有限の $\varepsilon>0$ で $\frac{p^2-m^2}{p^2-m^2+i\varepsilon}$ は厳密に1ではありませんが、$\varepsilon\downarrow0$ の分布極限で1になります。以下の積の変形はまず極を避けて行い、その後処方を保って読みます。
+従って $p^2\ne -m^2$ なら分子が逆行列の候補になります。有限の $\varepsilon>0$ で $\frac{-p^2-m^2}{-p^2-m^2+i\varepsilon}$ は厳密に1ではありませんが、$\varepsilon\downarrow0$ の分布極限で1になります。以下の積の変形はまず極を避けて行い、その後処方を保って読みます。
 
 <!-- definition-example-start: def-qft18-inverse-kernel -->
 ### 例：静止電子の近傍で逆核を比べる
@@ -68,26 +70,26 @@ $$
 **定義の確認**：$p=(m,0,0,0)$、$k=(0,\kappa,0,0)$（$\kappa\ne0$）とすれば、
 
 $$
-K(p)=m\gamma^0-mI_4,\quad
-K(p+k)=m\gamma^0-\kappa\gamma^1-mI_4.
+K(p)=-m\Gamma_0^0-mI_4,\quad
+K(p+k)=-m\Gamma_0^0+\kappa\Gamma_0^1-mI_4.
 $$
 
-従って $K(p+k)-K(p)=-\kappa\gamma^1=\not k$ です。ここで $p$ は質量殻上なので $R(p)$ を通常の逆行列としては使えません。一方 $(p+k)^2=m^2-\kappa^2\ne m^2$ なので $R(p+k)$ は通常の行列として定まります。**逆核の差は両端が質量殻外でなくても定義でき、逆行列の積を取るときだけ極への注意が必要**です。
+従って $K(p+k)-K(p)=\kappa\Gamma_0^1=i\not k$ です。ここでは $k_1=\kappa$ です。$p$ は質量殻上なので $R(p)$ を通常の逆行列としては使えません。一方 $(p+k)^2=-m^2+\kappa^2\ne -m^2$ なので $R(p+k)$ は通常の行列として定まります。**逆核の差は両端が質量殻外でなくても定義でき、逆行列の積を取るときだけ極への注意が必要**です。
 <!-- definition-example-end -->
 
-頂点の行列部分 $\gamma^\mu$ と伝達運動量 $k_\mu$ の縮約が、二つの逆核の差そのものであることが本講義の出発点です。これは一つの散乱模型に依存しない行列恒等式です。
+Ward頂点核 $\Gamma_0^\mu=i\gamma^\mu$ と伝達運動量 $k_\mu$ の縮約が、二つの逆核の差そのものであることが本講義の出発点です。これは一つの散乱模型に依存しない行列恒等式です。
 
 <a id="thm-qft18-tree-ward"></a>
 
 <!-- formal-statement-start -->
 > **定理（木レベル三点頂点のWard–Takahashi恒等式）**  
-> 質量 $m>0$ の自由Dirac逆核を $K(p)=\not p-mI_4$、$p'=p+k$ とする。同一種のDirac場に付く木レベル頂点のgamma行列部分 $\Gamma_0^\mu=\gamma^\mu$ は、任意の四元運動量 $p,k$ に対して
+> 質量 $m>0$ の自由Dirac逆核を $K(p)=i\not p-mI_4$、$p'=p+k$ とする。同一種のDirac場に付く木レベルのWard頂点核 $\Gamma_0^\mu=i\gamma^\mu$ は、任意の四元運動量 $p,k$ に対して
 
 $$
 k_\mu\Gamma_0^\mu=K(p')-K(p)
 $$
 
-> を満たす。さらに $p^2\ne m^2$、$p'^2\ne m^2$ では
+> を満たす。さらに $p^2\ne -m^2$、$p'^2\ne -m^2$ では
 
 $$
 k_\mu R(p')\Gamma_0^\mu R(p)=R(p)-R(p').
@@ -108,8 +110,8 @@ $p'=p+k$ を代入すると
 $$
 \begin{aligned}
 K(p')-K(p)
-&=(\gamma^\mu p'_\mu-mI_4)-(\gamma^\mu p_\mu-mI_4)\\
-&=\gamma^\mu(p'_\mu-p_\mu)=\gamma^\mu k_\mu.
+&=(i\gamma^\mu p'_\mu-mI_4)-(i\gamma^\mu p_\mu-mI_4)\\
+&=i\gamma^\mu(p'_\mu-p_\mu)=\Gamma_0^\mu k_\mu.
 \end{aligned}
 $$
 
@@ -117,7 +119,7 @@ $$
 
 $$
 \begin{aligned}
-R(p')\,k_\mu\gamma^\mu\,R(p)
+R(p')\,k_\mu\Gamma_0^\mu\,R(p)
 &=R(p')[K(p')-K(p)]R(p)\\
 &=R(p')K(p')R(p)-R(p')K(p)R(p)\\
 &=R(p)-R(p').
@@ -133,17 +135,17 @@ $$
 
 時間順序積を微分すると、場の時間発展に加えて時間順序の段差も微分されます。そのため、[QFT17の保存電流](../QFT17/index.md#thm-qft17-eom-current)が運動方程式上で $\partial_\mu j^\mu=0$ を満たすことと、任意の時間順序相関関数の発散が点ごとに零になることは別です。
 
-具体的に、電荷 $q$ と伝播関数の数値係数を一度外し、二つの自由電子核の間へgamma行列を挿入した量を調べます。$z$ が電子線の始点、$y$ が終点、$x$ が電流を挿入する点です。両端の自由伝播核を取り除かずに残すことを「非切断」と呼びます。
+具体的に、電荷 $q$ と伝播関数の数値係数を一度外し、二つの自由電子核の間へWard頂点核 $\Gamma_0^\mu=i\gamma^\mu$ を挿入した量を調べます。$z$ が電子線の始点、$y$ が終点、$x$ が電流を挿入する点です。両端の自由伝播核を取り除かずに残すことを「非切断」と呼びます。
 
-位置空間の自由二点核は、[QFT8のDirac時間順序伝播関数](../QFT8/index.md#thm-qft8-propagator)から全体の $i$ を外し、四元運動量 $r$ でFourier逆変換した
+位置空間の自由二点核は、[QFT8のDirac時間順序伝播関数](../QFT8/index.md#thm-qft8-propagator)から全体の $i$ を外し、同章と同じ $e^{+ir\cdot(y-z)}$ のFourier規約で逆変換した
 
 $$
-R(y-z):=\int\frac{d^4r}{(2\pi)^4}e^{-ir\cdot(y-z)}R(r)
+R(y-z):=\int\frac{d^4r}{(2\pi)^4}e^{+ir\cdot(y-z)}R(r)
 $$
 
 です。これは二つの端点を結ぶ $4\times4$ 行列値分布です。以下、$\partial_{x^\mu}$ は他の位置 $y,z$ を固定して挿入点の座標 $x^\mu$ で偏微分する記号とします。上下に反復するLorentz添字 $\mu=0,1,2,3$ は総和します。
 
-以下の二重Fourier積分では $p,p'$ を**独立の積分変数**として動かし、$k=p'-p$ を各積分点での差として読みます。$x$ でFourier指数を微分すると $i(p'_\mu-p_\mu)=ik_\mu$ が取り出されるので、位置空間の発散と運動量空間の縦縮約が対応します。
+以下の二重Fourier積分では $p,p'$ を**独立の積分変数**として動かし、$k=p'-p$ を各積分点での差として読みます。$x$ でFourier指数を微分すると $-i(p'_\mu-p_\mu)=-ik_\mu$ が取り出されるので、位置空間の発散と運動量空間の縦縮約が対応します。
 
 <a id="def-qft18-three-point-kernel"></a>
 
@@ -152,7 +154,7 @@ $$
 > 質量 $m>0$ の自由Dirac核 $R(p)$ と $p'=p+k$ に対して、全体の電荷・$i$ 因子を外した木レベルの非切断三点核を
 
 $$
-\mathscr G^\mu(p',p)=R(p')\gamma^\mu R(p)
+\mathscr G^\mu(p',p)=R(p')\Gamma_0^\mu R(p)
 $$
 
 > とする。位置空間核は次のFourier規約で定める。
@@ -160,7 +162,7 @@ $$
 $$
 \mathscr G^\mu(y,x,z)=
 \int\frac{d^4p'\,d^4p}{(2\pi)^8}
-e^{-ip'\cdot(y-x)}e^{-ip\cdot(x-z)}
+e^{+ip'\cdot(y-x)}e^{+ip\cdot(x-z)}
 \mathscr G^\mu(p',p).
 $$
 
@@ -192,7 +194,7 @@ $$
 
 $$
 \partial_{x^\mu}\mathscr G^\mu(y,x,z)
-=i\left[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)\right]R(y-z).
+=-i\left[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)\right]R(y-z).
 $$
 
 > 運動量空間でこれと等価な式は
@@ -201,12 +203,12 @@ $$
 k_\mu\mathscr G^\mu(p',p)=R(p)-R(p'),\qquad k=p'-p.
 $$
 
-> 電荷を含む電流挿入の核 $q\mathscr G^\mu$ では両辺に $q$ が掛かる。実際の時間順序相関関数へ戻す場合は、選択した $i$ 因子と場の並べ方による符号も戻す必要がある。
+> [QFT17の物理的電流](../QFT17/index.md#thm-qft17-eom-current)は $j^\mu=-iq\bar\psi\gamma^\mu\psi=-q\bar\psi\Gamma_0^\mu\psi$ なので、その電流挿入の核には $-q\mathscr G^\mu$ が対応する。実際の時間順序相関関数へ戻す場合は、伝播核の $i$ 因子と場の並べ方による符号も戻す必要がある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-運動量では[木レベルWard恒等式](#thm-qft18-tree-ward)をそのまま利用できます。位置空間では挿入点 $x$ の微分がFourier指数から $i(p'-p)_\mu$ を取り出します。差の一方は $p'$ の積分で、他方は $p$ の積分でデルタ関数になります。
+運動量では[木レベルWard恒等式](#thm-qft18-tree-ward)をそのまま利用できます。位置空間では挿入点 $x$ の微分がFourier指数から $-i(p'-p)_\mu$ を取り出します。差の一方は $p'$ の積分で、他方は $p$ の積分でデルタ関数になります。
 
 <!-- proof-start -->
 ### 証明
@@ -215,7 +217,7 @@ $$
 
 $$
 k_\mu\mathscr G^\mu(p',p)
-=R(p')\not k R(p)
+=R(p')\,i\not k\,R(p)
 =R(p)-R(p').
 $$
 
@@ -223,8 +225,8 @@ $$
 
 $$
 \partial_{x^\mu}
-\bigl[e^{-ip'\cdot(y-x)}e^{-ip\cdot(x-z)}\bigr]
-=i(p'_\mu-p_\mu)e^{-ip'\cdot(y-x)}e^{-ip\cdot(x-z)}.
+\bigl[e^{+ip'\cdot(y-x)}e^{+ip\cdot(x-z)}\bigr]
+=-i(p'_\mu-p_\mu)e^{+ip'\cdot(y-x)}e^{+ip\cdot(x-z)}.
 $$
 
 この式を[三点核のFourier表示](#def-qft18-three-point-kernel)へ代入し、上の差を使うと
@@ -232,12 +234,12 @@ $$
 $$
 \begin{aligned}
 \partial_{x^\mu}\mathscr G^\mu
-&=i\int\frac{d^4p'\,d^4p}{(2\pi)^8}
-e^{-ip'\cdot(y-x)}e^{-ip\cdot(x-z)}
+&=-i\int\frac{d^4p'\,d^4p}{(2\pi)^8}
+e^{+ip'\cdot(y-x)}e^{+ip\cdot(x-z)}
 [R(p)-R(p')]\\
-&=i\delta^{(4)}(y-x)R(x-z)
--iR(y-x)\delta^{(4)}(x-z)\\
-&=i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z).
+&=-i\delta^{(4)}(y-x)R(x-z)
++iR(y-x)\delta^{(4)}(x-z)\\
+&=-i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z).
 \end{aligned}
 $$
 
@@ -254,13 +256,13 @@ $$
 
 <!-- formal-statement-start -->
 > **系（質量殻外線のWard恒等式）**  
-> 質量 $m>0$ の自由Diracスピノル $u_s(p)$、$u_{s'}(p')$ が $p^2=p'^2=m^2$、$p^0,p'^0>0$ を満たし、$k=p'-p$ とする。このとき木レベル頂点の外線電流は
+> 質量 $m>0$ の自由Diracスピノル $u_s(p)$、$u_{s'}(p')$ が $p^2=p'^2=-m^2$、$p^0,p'^0>0$ を満たし、$k=p'-p$ とする。このとき木レベル頂点の外線電流は
 
 $$
-k_\mu\bar u_{s'}(p')\gamma^\mu u_s(p)=0.
+k_\mu\bar u_{s'}(p')\Gamma_0^\mu u_s(p)=0.
 $$
 
-> しかし、両端をDirac方程式の解に制限しない四成分ベクトル $v,w$ では一般に $k_\mu\bar v\gamma^\mu w\ne0$ である。
+> しかし、両端をDirac方程式の解に制限しない四成分ベクトル $v,w$ では一般に $k_\mu\bar v\Gamma_0^\mu w\ne0$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -270,13 +272,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。さらに[Dirac随伴の定義](../QFT7/index.md#def-qft7-adjoint-action)と、Dirac表示での $(\gamma^\mu)^\dagger=\gamma^0\gamma^\mu\gamma^0$ より、実四元運動量 $p'$ について
+[平面波解の規格化とスピン和](../QFT7/index.md#thm-qft7-spin-sums)から $K(p)u_s(p)=0$ です。出射側は[Dirac随伴](../QFT7/index.md#def-qft7-adjoint-action)の $\bar u=u^\dagger H$、$H=-i\gamma^0=\operatorname{diag}(I_2,-I_2)$ を使います。Dirac表示では $K(p)^\dagger H=HK(p)$ が実運動量 $p$ について成り立ちます。
+
+実際、$K(p)=i\gamma^\mu p_\mu-mI_4$、$(\gamma^0)^\dagger=-\gamma^0$、$(\gamma^j)^\dagger=\gamma^j$、$\{\gamma^0,\gamma^j\}=0$ を代入すると、時間成分・空間成分・質量項のいずれもこの式を満たします。よって
 
 $$
 \begin{aligned}
 \bar u_{s'}(p')K(p')
-&=u_{s'}(p')^\dagger\gamma^0K(p')\\
-&=[K(p')u_{s'}(p')]^\dagger\gamma^0=0.
+&=u_{s'}(p')^\dagger HK(p')\\
+&=[K(p')u_{s'}(p')]^\dagger H=0.
 \end{aligned}
 $$
 
@@ -284,7 +288,7 @@ $$
 
 $$
 \begin{aligned}
-k_\mu\bar u_{s'}(p')\gamma^\mu u_s(p)
+k_\mu\bar u_{s'}(p')\Gamma_0^\mu u_s(p)
 &=\bar u_{s'}(p')[K(p')-K(p)]u_s(p)\\
 &=\underbrace{\bar u_{s'}(p')K(p')}_{0}u_s(p)
 -\bar u_{s'}(p')\underbrace{K(p)u_s(p)}_{0}=0.
@@ -296,11 +300,11 @@ $$
 
 ### 例：一端だけ質量殻から外す
 
-$p=(m,0,0,0)$ とし、規格化 $\bar u(p)\gamma^0u(p)=2m$ のスピノルを選びます。$\Delta\ne0$ として $p'=p+(\Delta,0,0,0)$、$k=(\Delta,0,0,0)$ と置き、出射側にも同じ四成分 $\bar u(p)$ を**試験的に**使うと
+$p=(m,0,0,0)$ とし、[QFT7の規格化](../QFT7/index.md#thm-qft7-spin-sums) $-i\bar u(p)\gamma^0u(p)=2m$、すなわち $\bar u(p)\Gamma_0^0u(p)=-2m$ のスピノルを選びます。$\Delta\ne0$ として $p'=p+(\Delta,0,0,0)$、$k=(\Delta,0,0,0)$ と置き、出射側にも同じ四成分 $\bar u(p)$ を**試験的に**使うと
 
 $$
-k_\mu\bar u(p)\gamma^\mu u(p)
-=\Delta\,\bar u(p)\gamma^0u(p)=2m\Delta\ne0.
+k_\mu\bar u(p)\Gamma_0^\mu u(p)
+=-\Delta\,\bar u(p)\Gamma_0^0u(p)=2m\Delta\ne0.
 $$
 
 この $\bar u(p)$ は一般に $p'$ に対する出射質量殻解ではありません。したがって[系](#cor-qft18-on-shell-ward)への反例ではなく、**質量殻条件を落とせば縮約が消えない**ことの直接例です。
@@ -315,7 +319,7 @@ $$
 e^-(p)+\gamma(k)\longrightarrow e^-(p')+\gamma(k')
 $$
 
-を考えます。全て正エネルギー、$p^2=p'^2=m^2>0$、$k^2=k'^2=0$、$p+k=p'+k'$ です。内部電子線は一方が $p+k$、もう一方が $p-k'$ です。
+を考えます。全て正エネルギー、$p^2=p'^2=-m^2<0$、$k^2=k'^2=0$、$p+k=p'+k'$ です。内部電子線は一方が $p+k$、もう一方が $p-k'$ です。
 
 <a id="def-qft18-compton-tree"></a>
 
@@ -326,12 +330,12 @@ $$
 $$
 B^{\mu\nu}(p',k';p,k)=
 \bar u(p')\left[
-\gamma^\nu R(p+k)\gamma^\mu
-+\gamma^\mu R(p-k')\gamma^\nu
+\Gamma_0^\nu R(p+k)\Gamma_0^\mu
++\Gamma_0^\mu R(p-k')\Gamma_0^\nu
 \right]u(p)
 $$
 
-> で定める。$\mu$ は入射光子、$\nu$ は出射光子のLorentz添字である。物理的な偏極ベクトルを $\epsilon_\mu(k)$、$\epsilon_\nu^*(k')$ とすると、本章の頂点 $-iq\gamma^\mu$ と伝播関数 $iR$ から
+> で定める。$\mu$ は入射光子、$\nu$ は出射光子のLorentz添字である。物理的な偏極ベクトルを $\epsilon_\mu(k)$、$\epsilon_\nu^*(k')$ とすると、[QFT17の頂点](../QFT17/index.md#def-qft17-vertex) $V^\mu=q\gamma^\mu=-iq\Gamma_0^\mu$ と伝播関数 $iR$ から
 
 $$
 \mathcal M=-q^2\epsilon_\mu(k)\epsilon_\nu^*(k')B^{\mu\nu}
@@ -340,17 +344,17 @@ $$
 > となる。内部核は $R(p+k)$、$R(p-k')$ の分母が零にならない領域で扱う。
 <!-- formal-statement-end -->
 
-二つの項の順序を確認します。電子線を**右から左**へ読むと、第一項では入射光子 $\gamma^\mu$ を先に吸収し、第二項では出射光子 $\gamma^\nu$ を先に放出します。[Dyson級数の二次項](../QFT9/index.md#def-qft9-dyson)の二頂点は時空点の交換二通りで $2!$ を相殺し、電子線への二つの光子の順序だけが区別されます。
+二つの項の順序を確認します。電子線を**右から左**へ読むと、第一項では入射光子 $\Gamma_0^\mu$ を先に吸収し、第二項では出射光子 $\Gamma_0^\nu$ を先に放出します。[Dyson級数の二次項](../QFT9/index.md#def-qft9-dyson)の二頂点は時空点の交換二通りで $2!$ を相殺し、電子線への二つの光子の順序だけが区別されます。ここで $\Gamma_0=i\gamma$ はWard恒等式向けの書き換えであり、物理的な頂点係数は $V=-iq\Gamma_0$ として必ず戻しています。
 
 <!-- definition-example-start: def-qft18-compton-tree -->
 ### 例：二つの内部線の分母を直接確認する
 
-**定義の確認**：$p+k=p'+k'$、$p^2=p'^2=m^2$、$k^2=k'^2=0$ なので、
+**定義の確認**：$p+k=p'+k'$、$p^2=p'^2=-m^2$、$k^2=k'^2=0$ なので、
 
 $$
 \begin{aligned}
-(p+k)^2-m^2&=2p\cdot k,\\
-(p-k')^2-m^2&=-2p\cdot k',\\
+(p+k)^2+m^2&=2p\cdot k,\\
+(p-k')^2+m^2&=-2p\cdot k',\\
 (p+k)^2&=(p'+k')^2,\\
 (p-k')^2&=(p'-k)^2.
 \end{aligned}
@@ -359,8 +363,8 @@ $$
 電子が未来向きの時間的ベクトル、両光子が非零の未来向き光的ベクトルであることを使います。電子の静止系では $p=(m,0,0,0)$ とでき、光子のエネルギーはどちらも正なので
 
 $$
-p\cdot k=mk^0_{\mathrm{rest}}>0,\qquad
-p\cdot k'=mk'^0_{\mathrm{rest}}>0.
+p\cdot k=-mk^0_{\mathrm{rest}}<0,\qquad
+p\cdot k'=-mk'^0_{\mathrm{rest}}<0.
 $$
 
 [Lorentzスピノル変換](../QFT7/index.md#def-qft7-spinor-transform)で用いた条件 $\Lambda^T\eta\Lambda=\eta$ を適用すると、
@@ -373,22 +377,22 @@ $$
 \end{aligned}
 $$
 
-となります。$k'$ にも同じ式を適用できるので、二つの内積は座標系を替えても正です。従ってこの物理的なCompton運動学では二つの内部分母は零ではありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
+となります。$k'$ にも同じ式を適用できるので、二つの内積は座標系を替えても負です。実際、$R$ の分母 $-r^2-m^2$ は $r=p+k$ なら $-2p\cdot k>0$、$r=p-k'$ なら $2p\cdot k'<0$ で、どちらも零でありません。第一項と第二項を**同じ運動量の伝播核**としてまとめることはできません。
 <!-- definition-example-end -->
 
 <a id="thm-qft18-compton-ward"></a>
 
 <!-- formal-statement-start -->
 > **定理（Compton散乱の二つの光子脚の横性）**  
-> $m>0$ とし、$p^2=p'^2=m^2$、$k^2=k'^2=0$、$p+k=p'+k'$、全エネルギー正、光子のエネルギー非零のCompton過程を考える。電子外線は自由Dirac方程式を満たし、[二つの木図](#def-qft18-compton-tree)のテンソルを
+> $m>0$ とし、$p^2=p'^2=-m^2$、$k^2=k'^2=0$、$p+k=p'+k'$、全エネルギー正、光子のエネルギー非零のCompton過程を考える。電子外線は自由Dirac方程式を満たし、[二つの木図](#def-qft18-compton-tree)のテンソルを
 
 $$
 B^{\mu\nu}=\bar u(p')[
-\gamma^\nu R(p+k)\gamma^\mu
-+\gamma^\mu R(p-k')\gamma^\nu]u(p)
+\Gamma_0^\nu R(p+k)\Gamma_0^\mu
++\Gamma_0^\mu R(p-k')\Gamma_0^\nu]u(p)
 $$
 
-> とする。ただし $R(r)=(\not r+mI_4)/(r^2-m^2+i0)$ である。このとき
+> とする。ただし $R(r)=(i\not r+mI_4)/(-r^2-m^2+i0)$ である。このとき
 
 $$
 k_\mu B^{\mu\nu}=0,\qquad
@@ -400,21 +404,21 @@ $$
 
 ### 証明の見取り図
 
-入射光子の $k_\mu$ を縮約すると、第一項は $+\bar u(p')\gamma^\nu u(p)$、第二項はその負になります。出射光子の $k'_\nu$ でも、今度は反対側から逆核の差を使って同じ相殺が起こります。**別々の二つのWard検査**を行うことが重要です。
+入射光子の $k_\mu$ を縮約すると、第一項は $+\bar u(p')\Gamma_0^\nu u(p)$、第二項はその負になります。出射光子の $k'_\nu$ でも、今度は反対側から逆核の差を使って同じ相殺が起こります。**別々の二つのWard検査**を行うことが重要です。
 
 <!-- proof-start -->
 ### 証明
 
-以下では $\bar u=\bar u(p')$、$u=u(p)$、$K(r)=\not r-mI_4$ と略記します。分母が零でないので $R(r)=K(r)^{-1}$ を通常の逆行列として使えます。
+以下では $\bar u=\bar u(p')$、$u=u(p)$、$K(r)=i\not r-mI_4$ と略記します。分母が零でないので $R(r)=K(r)^{-1}$ を通常の逆行列として使えます。
 
 まず入射光子について、$k=(p+k)-p$ より[逆核の差](#thm-qft18-tree-ward)を入れると
 
 $$
 \begin{aligned}
-k_\mu\bar u\gamma^\nu R(p+k)\gamma^\mu u
-&=\bar u\gamma^\nu R(p+k)[K(p+k)-K(p)]u\\
-&=\bar u\gamma^\nu[I_4-R(p+k)K(p)]u\\
-&=+\bar u\gamma^\nu u.
+k_\mu\bar u\Gamma_0^\nu R(p+k)\Gamma_0^\mu u
+&=\bar u\Gamma_0^\nu R(p+k)[K(p+k)-K(p)]u\\
+&=\bar u\Gamma_0^\nu[I_4-R(p+k)K(p)]u\\
+&=+\bar u\Gamma_0^\nu u.
 \end{aligned}
 $$
 
@@ -422,10 +426,10 @@ $$
 
 $$
 \begin{aligned}
-k_\mu\bar u\gamma^\mu R(p-k')\gamma^\nu u
-&=\bar u[K(p')-K(p-k')]R(p-k')\gamma^\nu u\\
-&=[\bar uK(p')R(p-k')-\bar u]\gamma^\nu u\\
-&=-\bar u\gamma^\nu u.
+k_\mu\bar u\Gamma_0^\mu R(p-k')\Gamma_0^\nu u
+&=\bar u[K(p')-K(p-k')]R(p-k')\Gamma_0^\nu u\\
+&=[\bar uK(p')R(p-k')-\bar u]\Gamma_0^\nu u\\
+&=-\bar u\Gamma_0^\nu u.
 \end{aligned}
 $$
 
@@ -433,10 +437,10 @@ $$
 
 $$
 \begin{aligned}
-k'_\nu\bar u\gamma^\nu R(p+k)\gamma^\mu u
-&=\bar u[K(p+k)-K(p')]R(p+k)\gamma^\mu u\\
-&=[\bar u-\bar uK(p')R(p+k)]\gamma^\mu u\\
-&=+\bar u\gamma^\mu u.
+k'_\nu\bar u\Gamma_0^\nu R(p+k)\Gamma_0^\mu u
+&=\bar u[K(p+k)-K(p')]R(p+k)\Gamma_0^\mu u\\
+&=[\bar u-\bar uK(p')R(p+k)]\Gamma_0^\mu u\\
+&=+\bar u\Gamma_0^\mu u.
 \end{aligned}
 $$
 
@@ -444,10 +448,10 @@ $$
 
 $$
 \begin{aligned}
-k'_\nu\bar u\gamma^\mu R(p-k')\gamma^\nu u
-&=\bar u\gamma^\mu R(p-k')[K(p)-K(p-k')]u\\
-&=\bar u\gamma^\mu[R(p-k')K(p)-I_4]u\\
-&=-\bar u\gamma^\mu u.
+k'_\nu\bar u\Gamma_0^\mu R(p-k')\Gamma_0^\nu u
+&=\bar u\Gamma_0^\mu R(p-k')[K(p)-K(p-k')]u\\
+&=\bar u\Gamma_0^\mu[R(p-k')K(p)-I_4]u\\
+&=-\bar u\Gamma_0^\mu u.
 \end{aligned}
 $$
 
@@ -510,38 +514,38 @@ $$
 ### 演習 QFT18-A1：逆核の差を手で確かめる
 
 - Level: A
-- 問題：$\eta=\operatorname{diag}(1,-1,-1,-1)$、$\not p=\gamma^\mu p_\mu$、$K(p)=\not p-mI_4$ とする。$p=(E,0,0,0)$、$k=(\omega,\kappa,0,0)$ に対し、$K(p+k)-K(p)$ を求めて $k_\mu\gamma^\mu$ と一致することを示せ。$E=m$ や $p^2=m^2$ の仮定が必要か答えよ。
+- 問題：$\eta=\operatorname{diag}(-1,1,1,1)$、$\not p=\gamma^\mu p_\mu$、$\Gamma_0^\mu=i\gamma^\mu$、$K(p)=i\not p-mI_4$ とする。$p=(E,0,0,0)$、$k=(\omega,\kappa,0,0)$ に対し、$K(p+k)-K(p)$ を求めて $k_\mu\Gamma_0^\mu$ と一致することを示せ。$E=m$ や $p^2=-m^2$ の仮定が必要か答えよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-共変成分は $k_0=\omega$、$k_1=-\kappa$ です。したがって
+共変成分は $k_0=-\omega$、$k_1=\kappa$ です。したがって
 
 $$
 \begin{aligned}
-K(p+k)&=(E+\omega)\gamma^0-\kappa\gamma^1-mI_4,\\
-K(p)&=E\gamma^0-mI_4,\\
-K(p+k)-K(p)&=\omega\gamma^0-\kappa\gamma^1
-=k_\mu\gamma^\mu.
+K(p+k)&=-(E+\omega)\Gamma_0^0+\kappa\Gamma_0^1-mI_4,\\
+K(p)&=-E\Gamma_0^0-mI_4,\\
+K(p+k)-K(p)&=-\omega\Gamma_0^0+\kappa\Gamma_0^1
+=k_\mu\Gamma_0^\mu.
 \end{aligned}
 $$
 
-質量項と $E\gamma^0$ が消えることだけを使いました。質量殻条件は不要です。これは[逆核のWard恒等式](#thm-qft18-tree-ward)の成分による検算であり、運動量 $p$ が質量殻上でも成立します。
+質量項と $-E\Gamma_0^0$ が消えることだけを使いました。質量殻条件は不要です。これは[逆核のWard恒等式](#thm-qft18-tree-ward)の成分による検算であり、運動量 $p$ が質量殻上でも成立します。
 <!-- solution-end -->
 
 ### 演習 QFT18-A2：逆行列で挟んだ頂点
 
 - Level: A
-- 問題：$K(r)=\not r-mI_4$、$R(r)=K(r)^{-1}$ とする。$p^2\ne m^2$、$(p+k)^2\ne m^2$ を仮定し、$R(p+k)\not k R(p)$ を $R(p)$ と $R(p+k)$ の差で表せ。行列を交換してよいと仮定しないこと。
+- 問題：$K(r)=i\not r-mI_4$、$R(r)=K(r)^{-1}$ とする。$p^2\ne -m^2$、$(p+k)^2\ne -m^2$ を仮定し、$R(p+k)\,i\not k\,R(p)$ を $R(p)$ と $R(p+k)$ の差で表せ。行列を交換してよいと仮定しないこと。
 
 <!-- solution-start -->
 **詳細解答**
 
-[逆核の差](#thm-qft18-tree-ward)から $\not k=K(p+k)-K(p)$ です。左・右の積順序を保って
+[逆核の差](#thm-qft18-tree-ward)から $i\not k=k_\mu\Gamma_0^\mu=K(p+k)-K(p)$ です。左・右の積順序を保って
 
 $$
 \begin{aligned}
-R(p+k)\not k R(p)
+R(p+k)\,i\not k\,R(p)
 &=R(p+k)K(p+k)R(p)\\
 &\quad-R(p+k)K(p)R(p)\\
 &=I_4R(p)-R(p+k)I_4\\
@@ -555,7 +559,7 @@ $$
 ### 演習 QFT18-A3：デルタ接触項を試験関数に作用させる
 
 - Level: A
-- 問題：$y\ne z$、滑らかなコンパクト台関数 $f(x)$、分布 $R(y-z)$ を用いる。$T(x)=i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z)$ を $f$ に作用させ、$f(y)=f(z)$ と $f(y)\ne f(z)$ の違いを述べよ。$y,z$ の変数についても必要なら試験関数と組み合わせてよい。
+- 問題：$y\ne z$、滑らかなコンパクト台関数 $f(x)$、分布 $R(y-z)$ を用いる。$T(x)=-i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z)$ を $f$ に作用させ、$f(y)=f(z)$ と $f(y)\ne f(z)$ の違いを述べよ。$y,z$ の変数についても必要なら試験関数と組み合わせてよい。
 
 <!-- solution-start -->
 **詳細解答**
@@ -565,9 +569,9 @@ $$
 $$
 \begin{aligned}
 \langle T,f\rangle_x
-&=i\int d^4x\,f(x)
+&=-i\int d^4x\,f(x)
 [\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z)\\
-&=i[f(y)-f(z)]R(y-z).
+&=-i[f(y)-f(z)]R(y-z).
 \end{aligned}
 $$
 
@@ -580,13 +584,13 @@ $f(y)=f(z)$ ならこの試験関数に対して接触項は相殺します。�
 - 問題：$m>0$、$p=(m,0,0,0)$ とし、$u(p)$ は静止正エネルギースピノルとする。規格化は次で与える。
 
 $$
-\bar u(p)\gamma^0u(p)=2m.
+-\bar u(p)\Gamma_0^0u(p)=2m.
 $$
 
   $\Delta\ne0$、$k=(\Delta,0,0,0)$、$p'=p+k$ とする。出射側にも誤って $\bar u(p)$ を用いたときの縮約
 
 $$
-k_\mu\bar u(p)\gamma^\mu u(p)
+k_\mu\bar u(p)\Gamma_0^\mu u(p)
 $$
 
   を計算せよ。これが[質量殻外線のWard恒等式](#cor-qft18-on-shell-ward)への反例でない理由も述べよ。
@@ -594,19 +598,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$k_\mu\gamma^\mu=\Delta\gamma^0$ なので
+$k_0=-\Delta$、すなわち $k_\mu\Gamma_0^\mu=-\Delta\Gamma_0^0$ なので
 
 $$
-k_\mu\bar u(p)\gamma^\mu u(p)
-=\Delta\bar u(p)\gamma^0u(p)=2m\Delta\ne0.
+k_\mu\bar u(p)\Gamma_0^\mu u(p)
+=-\Delta\bar u(p)\Gamma_0^0u(p)=2m\Delta\ne0.
 $$
 
 入射側は $K(p)u(p)=0$ ですが、出射側には $K(p')$ を適用すべきです。実際、
 
 $$
 \bar u(p)K(p')
-=\bar u(p)[K(p)+\Delta\gamma^0]
-=\Delta\bar u(p)\gamma^0
+=\bar u(p)[K(p)-\Delta\Gamma_0^0]
+=-\Delta\bar u(p)\Gamma_0^0
 $$
 
 となり一般に零ではありません。[質量殻Ward恒等式](#cor-qft18-on-shell-ward)は出射スピノルも運動量 $p'$ の質量殻解であることを要求するので、仮定を落とした例です。
@@ -615,7 +619,7 @@ $$
 ### 演習 QFT18-A5：Comptonの内部運動量
 
 - Level: A
-- 問題：$p^2=p'^2=m^2>0$、$k^2=k'^2=0$、$p+k=p'+k'$ を満たすCompton散乱を考える。二つの内部電子運動量を $r_s=p+k$、$r_u=p-k'$ とする。$r_s^2-m^2$、$r_u^2-m^2$ を外線の内積で表し、$r_s=p'+k'$ と $r_u=p'-k$ も確かめよ。
+- 問題：$p^2=p'^2=-m^2<0$、$k^2=k'^2=0$、$p+k=p'+k'$ を満たすCompton散乱を考える。二つの内部電子運動量を $r_s=p+k$、$r_u=p-k'$ とする。$r_s^2+m^2$、$r_u^2+m^2$ を外線の内積で表し、$r_s=p'+k'$ と $r_u=p'-k$ も確かめよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -624,23 +628,23 @@ $$
 
 $$
 \begin{aligned}
-r_s^2-m^2&=(p+k)^2-p^2=2p\cdot k,\\
-r_u^2-m^2&=(p-k')^2-p^2=-2p\cdot k'.
+r_s^2+m^2&=(p+k)^2-p^2=2p\cdot k,\\
+r_u^2+m^2&=(p-k')^2-p^2=-2p\cdot k'.
 \end{aligned}
 $$
 
-保存則 $p+k=p'+k'$ より第一の等式 $r_s=p'+k'$ がそのまま出ます。同じ保存則を $p-k'=p'-k$ と移項すれば第二の等式です。正エネルギーの質量 $m>0$ の電子と非零の実光子では $p\cdot k$、$p\cdot k'$ は正なので、両内部線は質量殻の極に一致しません。
+保存則 $p+k=p'+k'$ より第一の等式 $r_s=p'+k'$ がそのまま出ます。同じ保存則を $p-k'=p'-k$ と移項すれば第二の等式です。正エネルギーの質量 $m>0$ の電子と非零の実光子では静止系で $p\cdot k=-mk^0<0$、$p\cdot k'=-mk'^0<0$ なので、両内部線は質量殻の極に一致しません。実際の逆核分母は $-r_s^2-m^2=-2p\cdot k$、$-r_u^2-m^2=2p\cdot k'$ です。
 <!-- solution-end -->
 
 ### 演習 QFT18-B1：入射光子のWard検査を再構成する
 
 - Level: B
-- 問題：$K(r)=\not r-mI_4$、$R(r)=K(r)^{-1}$、$K(p)u(p)=0$、$\bar u(p')K(p')=0$ とする。$p+k=p'+k'$ で定めた
+- 問題：$K(r)=i\not r-mI_4$、$R(r)=K(r)^{-1}$、$K(p)u(p)=0$、$\bar u(p')K(p')=0$ とする。$p+k=p'+k'$ で定めた
 
 $$
 B^{\mu\nu}=\bar u(p')[
-\gamma^\nu R(p+k)\gamma^\mu
-+\gamma^\mu R(p-k')\gamma^\nu]u(p)
+\Gamma_0^\nu R(p+k)\Gamma_0^\mu
++\Gamma_0^\mu R(p-k')\Gamma_0^\nu]u(p)
 $$
 
 について、入射光子運動量 $k_\mu$ との縮約を二項**別々**に求め、和が零であることを証明せよ。内部運動量が質量殻でないことを仮定する。
@@ -652,11 +656,11 @@ $$
 
 $$
 \begin{aligned}
-k_\mu\bar u(p')\gamma^\nu R(p+k)\gamma^\mu u(p)
-&=\bar u(p')\gamma^\nu R(p+k)[K(p+k)-K(p)]u(p)\\
-&=\bar u(p')\gamma^\nu u(p)
--\bar u(p')\gamma^\nu R(p+k)\underbrace{K(p)u(p)}_0\\
-&=+\bar u(p')\gamma^\nu u(p).
+k_\mu\bar u(p')\Gamma_0^\nu R(p+k)\Gamma_0^\mu u(p)
+&=\bar u(p')\Gamma_0^\nu R(p+k)[K(p+k)-K(p)]u(p)\\
+&=\bar u(p')\Gamma_0^\nu u(p)
+-\bar u(p')\Gamma_0^\nu R(p+k)\underbrace{K(p)u(p)}_0\\
+&=+\bar u(p')\Gamma_0^\nu u(p).
 \end{aligned}
 $$
 
@@ -664,11 +668,11 @@ $$
 
 $$
 \begin{aligned}
-k_\mu\bar u(p')\gamma^\mu R(p-k')\gamma^\nu u(p)
-&=\bar u(p')[K(p')-K(p-k')]R(p-k')\gamma^\nu u(p)\\
-&=\underbrace{\bar u(p')K(p')}_0 R(p-k')\gamma^\nu u(p)
--\bar u(p')\gamma^\nu u(p)\\
-&=-\bar u(p')\gamma^\nu u(p).
+k_\mu\bar u(p')\Gamma_0^\mu R(p-k')\Gamma_0^\nu u(p)
+&=\bar u(p')[K(p')-K(p-k')]R(p-k')\Gamma_0^\nu u(p)\\
+&=\underbrace{\bar u(p')K(p')}_0 R(p-k')\Gamma_0^\nu u(p)
+-\bar u(p')\Gamma_0^\nu u(p)\\
+&=-\bar u(p')\Gamma_0^\nu u(p).
 \end{aligned}
 $$
 
@@ -678,7 +682,7 @@ $$
 ### 演習 QFT18-B2：出射光子のWard検査を再構成する
 
 - Level: B
-- 問題：前問と同じCompton過程、$B^{\mu\nu}$、質量殻条件・逆核条件を仮定する。今度は出射光子運動量 $k'_\nu$ で縮約し、第一項と第二項がそれぞれ $\pm\bar u(p')\gamma^\mu u(p)$ を与えることを示せ。
+- 問題：前問と同じCompton過程、$B^{\mu\nu}$、質量殻条件・逆核条件を仮定する。今度は出射光子運動量 $k'_\nu$ で縮約し、第一項と第二項がそれぞれ $\pm\bar u(p')\Gamma_0^\mu u(p)$ を与えることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -687,11 +691,11 @@ $$
 
 $$
 \begin{aligned}
-k'_\nu\bar u(p')\gamma^\nu R(p+k)\gamma^\mu u(p)
-&=\bar u(p')[K(p+k)-K(p')]R(p+k)\gamma^\mu u(p)\\
-&=\bar u(p')\gamma^\mu u(p)
--\underbrace{\bar u(p')K(p')}_0 R(p+k)\gamma^\mu u(p)\\
-&=+\bar u(p')\gamma^\mu u(p).
+k'_\nu\bar u(p')\Gamma_0^\nu R(p+k)\Gamma_0^\mu u(p)
+&=\bar u(p')[K(p+k)-K(p')]R(p+k)\Gamma_0^\mu u(p)\\
+&=\bar u(p')\Gamma_0^\mu u(p)
+-\underbrace{\bar u(p')K(p')}_0 R(p+k)\Gamma_0^\mu u(p)\\
+&=+\bar u(p')\Gamma_0^\mu u(p).
 \end{aligned}
 $$
 
@@ -699,11 +703,11 @@ $$
 
 $$
 \begin{aligned}
-k'_\nu\bar u(p')\gamma^\mu R(p-k')\gamma^\nu u(p)
-&=\bar u(p')\gamma^\mu R(p-k')[K(p)-K(p-k')]u(p)\\
-&=\bar u(p')\gamma^\mu R(p-k')\underbrace{K(p)u(p)}_0
--\bar u(p')\gamma^\mu u(p)\\
-&=-\bar u(p')\gamma^\mu u(p).
+k'_\nu\bar u(p')\Gamma_0^\mu R(p-k')\Gamma_0^\nu u(p)
+&=\bar u(p')\Gamma_0^\mu R(p-k')[K(p)-K(p-k')]u(p)\\
+&=\bar u(p')\Gamma_0^\mu R(p-k')\underbrace{K(p)u(p)}_0
+-\bar u(p')\Gamma_0^\mu u(p)\\
+&=-\bar u(p')\Gamma_0^\mu u(p).
 \end{aligned}
 $$
 
@@ -713,7 +717,7 @@ $$
 ### 演習 QFT18-B3：偏極ゲージシフトと一図だけの失敗
 
 - Level: B
-- 問題：Comptonの木レベル振幅を $\mathcal M=-q^2\epsilon_\mu\epsilon_\nu^*B^{\mu\nu}$ とする。両光子脚の横性を仮定し、$\epsilon_\mu\mapsto\epsilon_\mu+ak_\mu$、$\epsilon_\nu^*\mapsto\epsilon_\nu^*+bk'_\nu$ の任意の複素 $a,b$ に対し $\Delta\mathcal M=0$ を示せ。さらに $B_s^{\mu\nu}=\bar u(p')\gamma^\nu R(p+k)\gamma^\mu u(p)$ のみでは一般に不変でない理由を式で説明せよ。
+- 問題：Comptonの木レベル振幅を $\mathcal M=-q^2\epsilon_\mu\epsilon_\nu^*B^{\mu\nu}$ とする。両光子脚の横性を仮定し、$\epsilon_\mu\mapsto\epsilon_\mu+ak_\mu$、$\epsilon_\nu^*\mapsto\epsilon_\nu^*+bk'_\nu$ の任意の複素 $a,b$ に対し $\Delta\mathcal M=0$ を示せ。さらに $B_s^{\mu\nu}=\bar u(p')\Gamma_0^\nu R(p+k)\Gamma_0^\mu u(p)$ のみでは一般に不変でない理由を式で説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -730,21 +734,21 @@ $$
 が出ます。[二光子の横性](#thm-qft18-compton-ward)の第一式と第二式で、それぞれの項は零です。一方、[入射光子の計算](#thm-qft18-compton-ward)を第一図だけに適用すると
 
 $$
-k_\mu B_s^{\mu\nu}=\bar u(p')\gamma^\nu u(p)
+k_\mu B_s^{\mu\nu}=\bar u(p')\Gamma_0^\nu u(p)
 $$
 
-で、これは一般に零ではありません。例えば $k$ のシフトは第一図に $-q^2a\epsilon_\nu^*\bar u(p')\gamma^\nu u(p)$ を追加します。第二図の負の寄与を除外すると、その相殺が壊れます。
+で、これは一般に零ではありません。例えば $k$ のシフトは第一図に $-q^2a\epsilon_\nu^*\bar u(p')\Gamma_0^\nu u(p)$ を追加します。第二図の負の寄与を除外すると、その相殺が壊れます。
 <!-- solution-end -->
 
 ### 演習 QFT18-B4：三点核のFourier変換を確認する
 
 - Level: B
-- 問題：$p'=p+k$、$R(r)=K(r)^{-1}$、$\mathscr G^\mu(p',p)=R(p')\gamma^\mu R(p)$ とし、
+- 問題：$p'=p+k$、$R(r)=K(r)^{-1}$、$\mathscr G^\mu(p',p)=R(p')\Gamma_0^\mu R(p)$ とし、
 
 $$
 \mathscr G^\mu(y,x,z)=
 \int\frac{d^4p'\,d^4p}{(2\pi)^8}
-e^{-ip'\cdot(y-x)}e^{-ip\cdot(x-z)}
+e^{+ip'\cdot(y-x)}e^{+ip\cdot(x-z)}
 \mathscr G^\mu(p',p)
 $$
 
@@ -753,19 +757,19 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-指数を $x$ で微分したとき、最初の指数は $+ip'_\mu$、二番目は $-ip_\mu$ を出すため
+指数を $x$ で微分したとき、最初の指数は $-ip'_\mu$、二番目は $+ip_\mu$ を出すため
 
 $$
-\partial_{x^\mu}(e^{-ip'(y-x)}e^{-ip(x-z)})
-=i(p'_\mu-p_\mu)e^{-ip'(y-x)}e^{-ip(x-z)}.
+\partial_{x^\mu}(e^{+ip'(y-x)}e^{+ip(x-z)})
+=-i(p'_\mu-p_\mu)e^{+ip'(y-x)}e^{+ip(x-z)}.
 $$
 
 [逆核で挟んだWard恒等式](#thm-qft18-tree-ward)を代入すると
 
 $$
 \partial_{x^\mu}\mathscr G^\mu
-=i\int\frac{d^4p'\,d^4p}{(2\pi)^8}
-e^{-ip'(y-x)}e^{-ip(x-z)}[R(p)-R(p')].
+=-i\int\frac{d^4p'\,d^4p}{(2\pi)^8}
+e^{+ip'(y-x)}e^{+ip(x-z)}[R(p)-R(p')].
 $$
 
 第一項では $p'$ 積分が $\delta^{(4)}(y-x)$ を与え、残る積分は $R(x-z)$。第二項では $p$ 積分が $\delta^{(4)}(x-z)$ を与え、残るのは $R(y-x)$ です。したがって
@@ -773,9 +777,9 @@ $$
 $$
 \begin{aligned}
 \partial_{x^\mu}\mathscr G^\mu
-&=i\delta^{(4)}(x-y)R(x-z)
--i\delta^{(4)}(x-z)R(y-x)\\
-&=\boxed{i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z)}.
+&=-i\delta^{(4)}(x-y)R(x-z)
++i\delta^{(4)}(x-z)R(y-x)\\
+&=\boxed{-i[\delta^{(4)}(x-y)-\delta^{(4)}(x-z)]R(y-z)}.
 \end{aligned}
 $$
 
@@ -785,9 +789,9 @@ $$
 ### 演習 QFT18-C1：QED頂点から二光子のゲージ検査まで
 
 - Level: C
-- 問題：$m>0$ の一種類のDirac場と光子が $\mathcal L_{\rm int}=-q\bar\psi\gamma^\mu\psi A_\mu$ で結合する。Compton過程 $e^-(p)+\gamma(k)\to e^-(p')+\gamma(k')$ は $p+k=p'+k'$、$p^2=p'^2=m^2$、$k^2=k'^2=0$、全外線正エネルギー、非零光子エネルギーを満たすとする。以下を順に求めよ。
+- 問題：$m>0$ の一種類のDirac場と光子が [QFT17の相互作用密度](../QFT17/index.md#def-qft17-qed-action) $\mathcal L_{\rm int}=-iq\bar\psi\gamma^\mu\psi A_\mu=-q\bar\psi\Gamma_0^\mu\psi A_\mu$ で結合する。Compton過程 $e^-(p)+\gamma(k)\to e^-(p')+\gamma(k')$ は $p+k=p'+k'$、$p^2=p'^2=-m^2$、$k^2=k'^2=0$、全外線正エネルギー、非零光子エネルギーを満たすとする。以下を順に求めよ。
 
-  1. 自由Dirac逆核 $K$ と $R=K^{-1}$ を定義し、$k_\mu\gamma^\mu=K(p+k)-K(p)$ を導け。
+  1. 自由Dirac逆核 $K$ と $R=K^{-1}$ を定義し、$k_\mu\Gamma_0^\mu=K(p+k)-K(p)$ を導け。
   2. 二つの電子内部線を持つ木図を組み、Feynman則の $i$ と $q$ の係数を含めて $\mathcal M$ を書け。
   3. 入射光子と出射光子のそれぞれについて、二つの図を個別に縮約して相殺を示せ。
   4. 二つの偏極を同時に縦方向へずらしても振幅が変化しないことを証明し、質量殻外の三点核では縮約が零でない理由を述べよ。
@@ -798,38 +802,38 @@ $$
 **(1) 逆核と三点頂点。** [自由Dirac逆核](#def-qft18-inverse-kernel)は
 
 $$
-K(r)=\not r-mI_4,\qquad
-R(r)=\frac{\not r+mI_4}{r^2-m^2+i0}.
+K(r)=i\not r-mI_4,\qquad
+R(r)=\frac{i\not r+mI_4}{-r^2-m^2+i0}.
 $$
 
-Clifford関係から $(\not r-m)(\not r+m)=(r^2-m^2)I_4$ なので $R$ は質量殻外で逆核です。$p+k$ と $p$ の差を取ると
+Clifford関係から $(i\not r-m)(i\not r+m)=(-r^2-m^2)I_4$ なので $R$ は質量殻外で逆核です。$p+k$ と $p$ の差を取ると
 
 $$
 K(p+k)-K(p)
-=\not p+\not k-mI_4-(\not p-mI_4)=\not k.
+=i(\not p+\not k)-mI_4-(i\not p-mI_4)=i\not k=k_\mu\Gamma_0^\mu.
 $$
 
-**(2) 二図と振幅の係数。** [QFT17の頂点](../QFT17/index.md#def-qft17-vertex)は $-iq\gamma^\mu$、[QFT8のフェルミオン核](../QFT8/index.md#thm-qft8-propagator)は $iR$ です。二頂点の積は $(-iq)^2=-q^2$、内部線は $iR$ なので $i\mathcal M$ の係数は $-iq^2$ です。よって
+**(2) 二図と振幅の係数。** [QFT17の頂点](../QFT17/index.md#def-qft17-vertex)は $-iq\Gamma_0^\mu$、[QFT8のフェルミオン核](../QFT8/index.md#thm-qft8-propagator)は $iR$ です。二頂点の積は $(-iq)^2=-q^2$、内部線は $iR$ なので $i\mathcal M$ の係数は $-iq^2$ です。よって
 
 $$
 \begin{aligned}
 i\mathcal M&=-iq^2\,\epsilon_\mu(k)\epsilon_\nu^*(k')\\
 &\quad\times\bar u(p')[
-\gamma^\nu R(p+k)\gamma^\mu
-+\gamma^\mu R(p-k')\gamma^\nu]u(p),\\
+\Gamma_0^\nu R(p+k)\Gamma_0^\mu
++\Gamma_0^\mu R(p-k')\Gamma_0^\nu]u(p),\\
 \mathcal M&=-q^2\epsilon_\mu(k)\epsilon_\nu^*(k')B^{\mu\nu}.
 \end{aligned}
 $$
 
-時間順序を交換する二頂点の寄与がDyson展開の $2!$ と相殺し、残る二つは電子線に沿った光子挿入順序です。[Comptonの運動学](#def-qft18-compton-tree)から内部分母はそれぞれ $2p\cdot k$ と $-2p\cdot k'$ で、正エネルギー・非零光子条件により零でありません。
+時間順序を交換する二頂点の寄与がDyson展開の $2!$ と相殺し、残る二つは電子線に沿った光子挿入順序です。[Comptonの運動学](#def-qft18-compton-tree)から逆核の内部分母はそれぞれ $-2p\cdot k$ と $2p\cdot k'$ で、正エネルギー・非零光子条件により零でありません。
 
 **(3) 入射光子の縮約。** $K(p)u(p)=0$、$\bar u(p')K(p')=0$ を使うと、第一図は
 
 $$
 \begin{aligned}
-\bar u\gamma^\nu R(p+k)\not k u
-&=\bar u\gamma^\nu R(p+k)[K(p+k)-K(p)]u\\
-&=+\bar u\gamma^\nu u.
+\bar u\Gamma_0^\nu R(p+k)\,i\not k\,u
+&=\bar u\Gamma_0^\nu R(p+k)[K(p+k)-K(p)]u\\
+&=+\bar u\Gamma_0^\nu u.
 \end{aligned}
 $$
 
@@ -837,9 +841,9 @@ $$
 
 $$
 \begin{aligned}
-\bar u\not k R(p-k')\gamma^\nu u
-&=\bar u[K(p')-K(p-k')]R(p-k')\gamma^\nu u\\
-&=-\bar u\gamma^\nu u.
+\bar u\,i\not k\,R(p-k')\Gamma_0^\nu u
+&=\bar u[K(p')-K(p-k')]R(p-k')\Gamma_0^\nu u\\
+&=-\bar u\Gamma_0^\nu u.
 \end{aligned}
 $$
 
@@ -849,12 +853,12 @@ $$
 
 $$
 \begin{aligned}
-\bar u\not k'R(p+k)\gamma^\mu u
-&=\bar u[K(p+k)-K(p')]R(p+k)\gamma^\mu u
-=+\bar u\gamma^\mu u,\\
-\bar u\gamma^\mu R(p-k')\not k'u
-&=\bar u\gamma^\mu R(p-k')[K(p)-K(p-k')]u
-=-\bar u\gamma^\mu u.
+\bar u\,i\not k'\,R(p+k)\Gamma_0^\mu u
+&=\bar u[K(p+k)-K(p')]R(p+k)\Gamma_0^\mu u
+=+\bar u\Gamma_0^\mu u,\\
+\bar u\Gamma_0^\mu R(p-k')\,i\not k'\,u
+&=\bar u\Gamma_0^\mu R(p-k')[K(p)-K(p-k')]u
+=-\bar u\Gamma_0^\mu u.
 \end{aligned}
 $$
 
@@ -874,7 +878,7 @@ $$
 ただし両端を質量殻に置かない三点核では、[非切断核のWard恒等式](#thm-qft18-contact-identity)に従って
 
 $$
-k_\mu R(p')\gamma^\mu R(p)=R(p)-R(p')
+k_\mu R(p')\Gamma_0^\mu R(p)=R(p)-R(p')
 $$
 
 が一般に残ります。位置空間ではこれは二つのデルタ接触項です。**外線の質量殻条件と二図の和**が物理的な散乱振幅の横性を導くのであり、全てのGreen関数の縦縮約を無条件に零としたわけではありません。

@@ -4,7 +4,7 @@
 
 この講義では質量が正の荷電外線と十分軟らかい光子を扱い、放出振幅の先頭項、軟光子積分の係数、仮想・実放射の相殺を実際に計算します。相殺は赤外での**同じ特異な寄与**についての主張であり、任意の有限な断面積の全補正を求める公式ではありません。
 
-計量は $\eta=\operatorname{diag}(1,-1,-1,-1)$、単位系は $\hbar=c=1$ とし、微細構造定数を $\alpha=e^2/(4\pi)$ とします。
+計量は $\eta=\operatorname{diag}(-1,1,1,1)$、単位系は $\hbar=c=1$ とし、微細構造定数を $\alpha=e^2/(4\pi)$ とします。[QFT7の平面波Dirac方程式](../QFT7/index.md#def-qft7-plane-waves)に従い、質量殻は $p^2=-m^2$、自由スピノルは $(i\not p-m)u=0$ を満たします。
 
 硬い過程の特性エネルギーを $E$、光子を見分ける分解能を $\Delta$、赤外側の共通カットオフを $\lambda$ とします。以下の範囲を考えます。
 
@@ -16,7 +16,7 @@ $$
 
 ## 1. 光子が軟らかいほど放出はどう変わるか
 
-硬い散乱過程の振幅を $\mathcal M_0$ とし、各外線の四元運動量を $p_i^2=m_i^2>0$、エネルギーを $p_i^0>0$、符号付き電荷を $q_i$ とします。外線が入射なら $\eta_i=-1$、出射なら $\eta_i=+1$ と書き、電荷保存 $\sum_i\eta_iq_i=0$ を仮定します。ここで硬い過程は赤外補助カットオフを固定して切り出した振幅であり、厳密なQEDの裸の荷電Fock状態に対して赤外極限まで存在するS行列を仮定しているわけではありません。
+硬い散乱過程の振幅を $\mathcal M_0$ とし、各外線の四元運動量を $p_i^2=-m_i^2<0$、エネルギーを $p_i^0>0$、符号付き電荷を $q_i$ とします。外線が入射なら $\eta_i=-1$、出射なら $\eta_i=+1$ と書き、電荷保存 $\sum_i\eta_iq_i=0$ を仮定します。ここで硬い過程は赤外補助カットオフを固定して切り出した振幅であり、厳密なQEDの裸の荷電Fock状態に対して赤外極限まで存在するS行列を仮定しているわけではありません。
 
 放出する光子の運動量を $k^\mu=\omega(1,\boldsymbol n)$、$\omega>0$、$|\boldsymbol n|=1$ とします。軟光子とは $\omega/E$ が小さい光子です。荷電外線が光子を放出する図では、外線に隣接する伝播核の分母に $2p_i\cdot k$ が現れるため、振幅の先頭には $1/\omega$ が現れます。
 
@@ -34,7 +34,7 @@ H^\mu(\boldsymbol n)=\omega J^\mu(k)
 \quad \widehat k=(1,\boldsymbol n)
 $$
 
-> をそれぞれ**軟光子電流**、その角度依存部分とする。$p_i\cdot k=\omega p_i^0(1-\boldsymbol v_i\cdot\boldsymbol n)>0$、$\boldsymbol v_i=\boldsymbol p_i/p_i^0$ である。
+> をそれぞれ**軟光子電流**、その角度依存部分とする。$p_i\cdot k=-\omega p_i^0(1-\boldsymbol v_i\cdot\boldsymbol n)<0$、$\boldsymbol v_i=\boldsymbol p_i/p_i^0$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft27-soft-current -->
@@ -69,33 +69,33 @@ $$
 
 ### 証明の見取り図
 
-出射フェルミオン外線に光子を付けると、内部伝播核は $(p+k)^2-m^2=2p\cdot k$ を持ちます。分子の $\not p+m$ を質量殻のDirac方程式で簡約すると $2p\cdot\varepsilon$ が残ります。入射外線は符号が逆になり、全線を足すと $J$ になります。
+出射フェルミオン外線に光子を付けると、[QFT8の伝播核](../QFT8/index.md#thm-qft8-propagator)の質量殻付近の分母は $-(p+k)^2-m^2=-2p\cdot k$ です。分子 $i\not p+m$ を質量殻のDirac方程式で簡約すると $2ip\cdot\varepsilon$ が残ります。伝播関数の分子全体に掛かる $i$ と合わせると軟因子は実数係数となり、入射外線は相対符号が逆になります。
 
 <!-- proof-start -->
 ### 証明
 
-出射Dirac外線一本の寄与を、硬い部分を $\mathcal A$ と書いて考えます。[QFT17の頂点](../QFT17/index.md#def-qft17-vertex)と自由伝播核により、結合定数の全体位相を除く軟極限の特異項は
+出射Dirac外線一本の寄与を、硬い部分を $\mathcal A$ と書いて考えます。[QFT17の頂点](../QFT17/index.md#def-qft17-vertex)と[QFT8の自由伝播核](../QFT8/index.md#thm-qft8-propagator)により、軟極限の特異項は
 
 $$
 q\,\bar u(p)\gamma^\mu
-\frac{\not p+\not k+m}{(p+k)^2-m^2}\mathcal A\,
+\frac{i\,[i(\not p+\not k)+m]}{-(p+k)^2-m^2}\mathcal A\,
 \varepsilon_\mu^*(k).
 $$
 
-質量殻 $p^2=m^2$ と $k^2=0$ から分母は $2p\cdot k$。さらに $\bar u(p)(\not p-m)=0$ と $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}$ により
+質量殻 $p^2=-m^2$ と $k^2=0$ から分母は $-2p\cdot k$。さらに[QFT7の平面波方程式](../QFT7/index.md#def-qft7-plane-waves) $\bar u(p)(i\not p-m)=0$ と $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}$ により
 
 $$
-\bar u(p)\gamma^\mu(\not p+m)
-=\bar u(p)(2p^\mu-\not p\gamma^\mu+m\gamma^\mu)
-=2p^\mu\bar u(p).
+\bar u(p)\gamma^\mu(i\not p+m)
+=\bar u(p)(2ip^\mu-i\not p\gamma^\mu+m\gamma^\mu)
+=2ip^\mu\bar u(p).
 $$
 
-$\not k$ を含む分子は $O(\omega)$ で、$p\cdot k=O(\omega)$ で割ると $O(1)$ です。先頭項は $q\,p\cdot\varepsilon^*/(p\cdot k)$ 倍となります。入射外線の場合は隣接する線の運動量が $p-k$ なので分母は $-2p\cdot k$ となり、同じ計算で符号が逆です。反粒子を含む場合は符号付き電荷 $q_i$ を使います。仮定より内部線等への放出は $O(1)$ です。各外線の先頭項を合計すると主張する因子になります。
+$\not k$ を含む分子は $O(\omega)$ で、$p\cdot k=O(\omega)$ で割ると $O(1)$ です。主項の係数を分子の $i$ まで含めて割ると $i(2i)/(-2)=1$ なので、$q\,p\cdot\varepsilon^*/(p\cdot k)$ が得られます。入射外線の場合は隣接する線の運動量が $p-k$ なので分母は $+2p\cdot k$ となり、同じ計算で相対符号が逆です。反粒子を含む場合は符号付き電荷 $q_i$ を使います。仮定より内部線等への放出は $O(1)$ です。各外線の先頭項を合計すると主張する因子になります。
 
 最後に $k_\mu J^\mu=\sum_i\eta_iq_i(p_i\cdot k)/(p_i\cdot k)=\sum_i\eta_iq_i=0$。従って偏極に $c\,k$ を加えても先頭項は不変です。これは[QFT18の外線Ward恒等式](../QFT18/index.md#prop-qft18-polarization-shift)と整合します。
 <!-- proof-end -->
 
-外線からの放出が特異なのは、質量殻に近い伝播核が長い距離の効果を拾うためです。正の質量があるので $p_i\cdot\widehat k>0$ ですが、エネルギー積分の $d\omega/\omega$ はまだ残ります。
+外線からの放出が特異なのは、質量殻に近い伝播核が長い距離の効果を拾うためです。正の質量があるので $p_i\cdot\widehat k<0$ で零にはなりませんが、エネルギー積分の $d\omega/\omega$ はまだ残ります。
 
 ## 2. 軟光子の個数に対数が現れる
 
@@ -103,10 +103,10 @@ $\not k$ を含む分子は $O(\omega)$ で、$p\cdot k=O(\omega)$ で割ると 
 
 $$
 \sum_{\sigma=1}^2|H(\boldsymbol n)\cdot\varepsilon_\sigma|^2
-=-H_\mu(\boldsymbol n)H^\mu(\boldsymbol n)\ge0
+=H_\mu(\boldsymbol n)H^\mu(\boldsymbol n)\ge0
 $$
 
-と書けます。これは[QFT15の二物理偏極](../QFT15/index.md#thm-qft15-two-polarizations)を使い、$H\cdot\widehat k=0$ によってゲージ依存項を落としたものです。
+と書けます。これは[QFT15の二物理偏極](../QFT15/index.md#thm-qft15-two-polarizations)を使い、$H\cdot\widehat k=0$ によってゲージ依存項を落としたものです。$(-+++)$ では光的ベクトルに直交する $H$ の非零な横成分は空間的で、$H^2\ge0$ です（$H$ が $\widehat k$ に比例する場合は零）。
 
 <a id="def-qft27-angular-coefficient"></a>
 
@@ -116,7 +116,7 @@ $$
 
 $$
 B=\frac1{2(2\pi)^3}\int_{S^2}d\Omega\,
-\bigl[-H(\boldsymbol n)^2\bigr],
+H(\boldsymbol n)^2,
 \qquad
 N(a,b)=B\log\frac ba
 $$
@@ -127,7 +127,7 @@ $$
 <!-- definition-example-start: def-qft27-angular-coefficient -->
 ### 例：方向を変えない荷電粒子
 
-**定義の確認**：前節の一入射・一出射模型で $p'=p$ なら $H(\boldsymbol n)=0$ です。従って任意の $\boldsymbol n$ で $-H^2=0$、$B=0$、$N(a,b)=0$ です。これは光子が全く生成されないあらゆる過程を主張するのではなく、**外線の先頭軟因子**の消滅を確認しています。
+**定義の確認**：前節の一入射・一出射模型で $p'=p$ なら $H(\boldsymbol n)=0$ です。従って任意の $\boldsymbol n$ で $H^2=0$、$B=0$、$N(a,b)=0$ です。これは光子が全く生成されないあらゆる過程を主張するのではなく、**外線の先頭軟因子**の消滅を確認しています。
 <!-- definition-example-end -->
 
 <a id="prop-qft27-soft-log"></a>
@@ -161,7 +161,7 @@ $$
 \int d\Omega\sum_\sigma
 \left|\frac{H\cdot\varepsilon_\sigma}{\omega}\right|^2\\
 &=\int_a^b\frac{d\omega}{\omega}\,
-\frac1{2(2\pi)^3}\int d\Omega\,(-H^2)
+\frac1{2(2\pi)^3}\int d\Omega\,H^2
 =B[\log\omega]_{a}^{b}
 =B\log(b/a).
 \end{aligned}
@@ -170,13 +170,13 @@ $$
 正質量から $1-\boldsymbol v_i\cdot\boldsymbol n\ge1-|\boldsymbol v_i|>0$ なので角度積分は有限です。$B>0$ なら下端の対数だけが発散します。
 <!-- proof-end -->
 
-特に一つの粒子が散乱で運動量を $p\to p'$ に変える場合、両者の相対的な速さを $0\le\beta<1$、相対ラピディティを $\chi=\operatorname{artanh}\beta$ とします。等質量 $m>0$ で $p\cdot p'/m^2=\cosh\chi$ です。
+特に一つの粒子が散乱で運動量を $p\to p'$ に変える場合、両者の相対的な速さを $0\le\beta<1$、相対ラピディティを $\chi=\operatorname{artanh}\beta$ とします。等質量 $m>0$ で $-p\cdot p'/m^2=\cosh\chi$ です。
 
 <a id="prop-qft27-deflection-coefficient"></a>
 
 <!-- formal-statement-start -->
 > **命題（一荷電粒子の方向転換と角度係数）**  
-> 符号付き電荷 $q$ と質量 $m>0$ の粒子の外線が $p$ から $p'$ へ変化し、$p^2=p'^2=m^2$、$p^0,p'^0>0$、$\eta_{\rm in}=-1,\eta_{\rm out}=+1$ とする。$\cosh\chi=p\cdot p'/m^2$、$\beta=\tanh\chi$ と置くと、[角度係数](#def-qft27-angular-coefficient)は
+> 符号付き電荷 $q$ と質量 $m>0$ の粒子の外線が $p$ から $p'$ へ変化し、$p^2=p'^2=-m^2$、$p^0,p'^0>0$、$\eta_{\rm in}=-1,\eta_{\rm out}=+1$ とする。$\cosh\chi=-p\cdot p'/m^2$、$\beta=\tanh\chi$ と置くと、[角度係数](#def-qft27-angular-coefficient)は
 
 $$
 B=\frac{q^2}{2\pi^2}(\chi\coth\chi-1)
@@ -208,9 +208,9 @@ $$
 ゆえに
 
 $$
-d\Omega_{\Lambda}\,[-H_{\Lambda}(\boldsymbol n_{\Lambda})^2]
-=D^{-2}d\Omega\,D^2[-H(\boldsymbol n)^2]
-=d\Omega\,[-H(\boldsymbol n)^2].
+d\Omega_{\Lambda}\,H_{\Lambda}(\boldsymbol n_{\Lambda})^2
+=D^{-2}d\Omega\,D^2H(\boldsymbol n)^2
+=d\Omega\,H(\boldsymbol n)^2.
 $$
 
 したがって $B$ は不変で、入射粒子の静止系を選べます。$p=(m,\boldsymbol0)$ とし、出射の空間運動量の方向を第3軸に選びます。このとき $p'=m\gamma(1,0,0,\beta)$、$\gamma=(1-\beta^2)^{-1/2}$ であり、$\theta$ を放出方向と第3軸のなす角とします。角度積分の自己項は各 $4\pi$、交差項は $4\pi\operatorname{artanh}\beta/\beta$ です。
@@ -218,10 +218,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\widehat k=(1,\boldsymbol n)$、$u=\cos\theta$ とすると $p\cdot\widehat k=m$、$p'\cdot\widehat k=m\gamma(1-\beta u)$。従って
+$\widehat k=(1,\boldsymbol n)$、$u=\cos\theta$ とすると $p\cdot\widehat k=-m$、$p'\cdot\widehat k=-m\gamma(1-\beta u)$。従って
 
 $$
--H^2=q^2\left[
+H^2=q^2\left[
 \frac{2}{1-\beta u}-1
 -\frac{1-\beta^2}{(1-\beta u)^2}
 \right].
@@ -241,7 +241,7 @@ $$
 \end{aligned}
 $$
 
-従って $\int d\Omega(-H^2)=8\pi q^2(\operatorname{artanh}\beta/\beta-1)$。係数 $1/[2(2\pi)^3]=1/(16\pi^3)$ を掛けて結論を得ます。$0<\beta<1$ では
+従って $\int d\Omega\,H^2=8\pi q^2(\operatorname{artanh}\beta/\beta-1)$。係数 $1/[2(2\pi)^3]=1/(16\pi^3)$ を掛けて結論を得ます。$0<\beta<1$ では
 
 $$
 \operatorname{artanh}\beta-\beta
@@ -371,7 +371,7 @@ $\beta\to1$ は外線間の相対的な高速化を表します。例えば入�
 ### 演習 QFT27-A1：電荷保存と軟電流の横性
 
 - Level: A
-- 問題：入射する電荷 $+e$ の粒子二本が、出射する電荷 $+e$ の粒子二本へ散乱する。各運動量を $p_1,p_2,p_3,p_4$、$p_i^2=m_i^2>0$ とする。入射を $i=1,2$、出射を $i=3,4$ とし、[軟電流](#def-qft27-soft-current)を記して $k_\mu J^\mu=0$ を直接示せ。
+- 問題：入射する電荷 $+e$ の粒子二本が、出射する電荷 $+e$ の粒子二本へ散乱する。各運動量を $p_1,p_2,p_3,p_4$、$p_i^2=-m_i^2<0$ とする。入射を $i=1,2$、出射を $i=3,4$ とし、[軟電流](#def-qft27-soft-current)を記して $k_\mu J^\mu=0$ を直接示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -468,13 +468,13 @@ $+B\log\lambda$ と $-B\log\lambda$ が相殺したので、$\lambda\downarrow0$
 <!-- solution-start -->
 **詳細解答**
 
-$u=\cos\theta$ とすると、$p'\cdot\widehat k=m\gamma(1-\beta u)$ です。四元ベクトルの内積を展開して
+$u=\cos\theta$ とすると、$p'\cdot\widehat k=-m\gamma(1-\beta u)$ です。四元ベクトルの内積を展開して
 
 $$
 \begin{aligned}
--H^2/q^2
-&=-\left[\frac{m^2}{(p'\cdot\widehat k)^2}
-+\frac{m^2}{(p\cdot\widehat k)^2}
+H^2/q^2
+&=\left[\frac{-m^2}{(p'\cdot\widehat k)^2}
++\frac{-m^2}{(p\cdot\widehat k)^2}
 -\frac{2p\cdot p'}{(p\cdot\widehat k)(p'\cdot\widehat k)}\right]\\
 &=\frac{2}{1-\beta u}-1-\frac{1-\beta^2}{(1-\beta u)^2}.
 \end{aligned}
@@ -483,7 +483,7 @@ $$
 $\int_{-1}^1du/(1-\beta u)=2\operatorname{artanh}\beta/\beta$、$\int_{-1}^1(1-\beta^2)du/(1-\beta u)^2=2$ より
 
 $$
-\int d\Omega(-H^2)
+\int d\Omega\,H^2
 =2\pi q^2\left[\frac{4\operatorname{artanh}\beta}{\beta}-4\right].
 $$
 

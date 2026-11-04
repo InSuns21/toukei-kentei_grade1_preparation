@@ -11,10 +11,10 @@
 時空を $\mathbb R^4$、事象を $X=(ct,\boldsymbol r)$ とし、真空中の光速を $c>0$、[Minkowski計量](../SREL2/index.md#def-srel2-minkowski-metric)を
 
 $$
-g(V,W)=V^0W^0-\boldsymbol V\cdot\boldsymbol W
+g(V,W)=-V^0W^0+\boldsymbol V\cdot\boldsymbol W
 $$
 
-とします。符号は $(+,-,-,-)$ で統一し、上付き $0,1,2,3$ は成分の番号を表します。時間は未来向き、世界線は必要な区間で $C^2$、空間速度は常に $|\boldsymbol v(t)|<c$ とします。区分的運動では各滑らかな区間ごとに微分します。
+とします。符号は $(-,+,+,+)$ で統一し、上付き $0,1,2,3$ は成分の番号を表します。時間は未来向き、世界線は必要な区間で $C^2$、空間速度は常に $|\boldsymbol v(t)|<c$ とします。区分的運動では各滑らかな区間ごとに微分します。
 
 座標時間 $t$ ではなく、時計自身の固有時 $\tau$ を用います。[固有時の定義](../SREL2/index.md#def-srel2-proper-time)を局所的に微分すると
 
@@ -53,7 +53,7 @@ $$
 $$
 U=\left(\frac{5c}{4},\frac{3c}{4},0,0\right),
 \quad
-g(U,U)=\frac{25c^2}{16}-\frac{9c^2}{16}=c^2.
+g(U,U)=-\frac{25c^2}{16}+\frac{9c^2}{16}=-c^2.
 $$
 
 各空間成分は $dx/d\tau$ であって $dx/dt$ ではありません。$U^1=3c/4$ が $v_x=3c/5$ と異なる理由は、分母が固有時になったからです。
@@ -70,7 +70,7 @@ $$
 > 未来向き時間的な $C^1$ 世界線上で定めた四元速度 $U$ に対し、未来方向を保存するLorentz変換 $\Lambda$ と空間回転による慣性系の変更では $U'=\Lambda U$ が成り立つ。また、どの慣性系でも
 
 $$
-g(U,U)=c^2,\qquad U^0>0
+g(U,U)=-c^2,\qquad U^0>0
 $$
 
 > が成り立つ。
@@ -95,13 +95,13 @@ $$
 
 $$
 \begin{aligned}
-g(U,U)&=(\gamma c)^2-|\gamma\boldsymbol v|^2\\
-&=\gamma^2(c^2-|\boldsymbol v|^2)\\
-&=\frac{c^2-|\boldsymbol v|^2}{1-|\boldsymbol v|^2/c^2}=c^2.
+g(U,U)&=-(\gamma c)^2+|\gamma\boldsymbol v|^2\\
+&=-\gamma^2(c^2-|\boldsymbol v|^2)\\
+&=-\frac{c^2-|\boldsymbol v|^2}{1-|\boldsymbol v|^2/c^2}=-c^2.
 \end{aligned}
 $$
 
-を得ます。$U^0=\gamma c>0$ です。さらにLorentz変換が $g$ を保つので、別の系でも $g(U',U')=g(U,U)=c^2$ です。
+を得ます。$U^0=\gamma c>0$ です。さらにLorentz変換が $g$ を保つので、別の系でも $g(U',U')=g(U,U)=-c^2$ です。
 <!-- proof-end -->
 
 この規格化は単なる運動例ではなく、**どんな未来向き時間的運動でも常に成立する式**です。速度が変化しても $U$ は同じ双曲面上を動きます。ただし粒子が光速になると $d\tau/dt=0$ で、四元速度の定義は使えません。
@@ -114,12 +114,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（四元加速度と固有加速度）**  
-> 未来向き時間的な $C^2$ 世界線の四元速度 $U$ に対し、四元加速度を $A=dU/d\tau$ と定める。$-g(A,A)\ge0$ のもとで、その非負の平方根を固有加速度の大きさ $\alpha$ と定める。
+> 未来向き時間的な $C^2$ 世界線の四元速度 $U$ に対し、四元加速度を $A=dU/d\tau$ と定める。$g(A,A)\ge0$ のもとで、その非負の平方根を固有加速度の大きさ $\alpha$ と定める。
 
 $$
 A^\mu=\frac{dU^\mu}{d\tau},
 \qquad
-\alpha=\sqrt{-g(A,A)}.
+\alpha=\sqrt{g(A,A)}.
 $$
 <!-- formal-statement-end -->
 
@@ -128,7 +128,7 @@ $$
 <!-- definition-example-start: def-srel3-four-acceleration -->
 ### 例：瞬間的に静止する点
 
-**定義の確認**：瞬間静止系でも四元加速度を定義でき、平方が非正になることを成分で確かめます。ある時点に粒子が $\boldsymbol v=\boldsymbol0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では
+**定義の確認**：瞬間静止系でも四元加速度を定義でき、平方が非負になることを成分で確かめます。ある時点に粒子が $\boldsymbol v=\boldsymbol0$ で、座標加速度 $d\boldsymbol v/dt=(a,0,0)$ を持つとします。この点では
 
 $$
 \gamma=1,\qquad
@@ -143,7 +143,7 @@ $$
 A=\gamma\frac{d}{dt}(\gamma c,\gamma\boldsymbol v)
 =(0,a,0,0),
 \qquad
--g(A,A)=a^2.
+g(A,A)=a^2.
 $$
 
 この点で $\alpha=|a|$ となります。「静止」はこの瞬間だけの条件で、加速度を持つ粒子が全時刻に同じ慣性系に静止するという意味ではありません。
@@ -159,7 +159,7 @@ $$
 g(U,A)=0
 $$
 
-> を満たす。また $g(A,A)\le0$ なので、固有加速度 $\alpha$ は実数である。$A=0$ のとき、またそのときに限り $\alpha=0$ である。
+> を満たす。また $g(A,A)\ge0$ なので、固有加速度 $\alpha$ は実数である。$A=0$ のとき、またそのときに限り $\alpha=0$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -169,14 +169,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-すべての $\tau$ で $g(U(\tau),U(\tau))=c^2$ です。計量の係数は一定で対称だから、積の微分法則により
+すべての $\tau$ で $g(U(\tau),U(\tau))=-c^2$ です。計量の係数は一定で対称だから、積の微分法則により
 
 $$
 0=\frac d{d\tau}g(U,U)
 =g(A,U)+g(U,A)=2g(U,A).
 $$
 
-従って $g(U,A)=0$ です。ここから $g(A,A)\le0$ を導くには、**その瞬間にだけ**粒子が静止する慣性系を作ります。$\boldsymbol v=\boldsymbol0$ なら元の系がそのまま使えます。$\boldsymbol v\ne\boldsymbol0$ なら、[SREL2の慣性系の構成](../SREL2/index.md#prop-srel2-inertial-max-proper-time)と同じように空間軸を瞬間速度の方向へ回し、その方向を $x$ 軸、速さを $w=|\boldsymbol v|<c$ とします。これは時刻ごとに動く座標系を導入する操作ではなく、**調べている一点で一定の速度 $w$ を選び、そこに一つの慣性系を固定する操作**です。
+従って $g(U,A)=0$ です。ここから $g(A,A)\ge0$ を導くには、**その瞬間にだけ**粒子が静止する慣性系を作ります。$\boldsymbol v=\boldsymbol0$ なら元の系がそのまま使えます。$\boldsymbol v\ne\boldsymbol0$ なら、[SREL2の慣性系の構成](../SREL2/index.md#prop-srel2-inertial-max-proper-time)と同じように空間軸を瞬間速度の方向へ回し、その方向を $x$ 軸、速さを $w=|\boldsymbol v|<c$ とします。これは時刻ごとに動く座標系を導入する操作ではなく、**調べている一点で一定の速度 $w$ を選び、そこに一つの慣性系を固定する操作**です。
 
 この軸での四元速度は $U=(\gamma_wc,\gamma_ww,0,0)$ です。[一次元Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)を四元速度へ作用させると、$\gamma_w^2(1-w^2/c^2)=1$ を使って
 
@@ -194,14 +194,14 @@ $$
 この慣性系では $U_*=(c,\boldsymbol0)$ なので直交条件は
 
 $$
-0=g(U_*,A_*)=cA_*^0
+0=g(U_*,A_*)=-cA_*^0
 \quad\Longrightarrow\quad A_*^0=0.
 $$
 
 よって
 
 $$
-g(A_*,A_*)=-|\boldsymbol A_*|^2\le0.
+g(A_*,A_*)=|\boldsymbol A_*|^2\ge0.
 $$
 
 [時空間隔のLorentz不変性](../SREL2/index.md#thm-srel2-interval-invariance)からこの値はどの慣性系でも同じです。$g(A,A)=0$ は $|\boldsymbol A_*|=0$、つまり $A_*=0$ と同値であり、Lorentz変換は可逆なので $A=0$ と同値です。
@@ -258,7 +258,7 @@ $$
 
 $$
 \begin{aligned}
--g(A,A)&=(A^1)^2-(A^0)^2\\
+g(A,A)&=(A^1)^2-(A^0)^2\\
 &=\gamma^8a^2(1-v^2/c^2)
 =\gamma^6a^2.
 \end{aligned}
@@ -311,7 +311,7 @@ $$
 > $m\ge0$ に対し、四元運動量 $P=(E/c,\boldsymbol p)$ が満たす二次曲面
 
 $$
-g(P,P)=m^2c^2
+g(P,P)=-m^2c^2
 $$
 
 > を質量 $m$ の**質量殻**という。物理的に未来向きの粒子については $E>0$ の枝を選ぶ。$m=0$ のときは零でない光的四元運動量について $E>0$ とする。
@@ -320,7 +320,7 @@ $$
 <!-- definition-example-start: def-srel3-mass-shell -->
 ### 例：静止質量の正エネルギー枝
 
-**定義の確認**：質量殻の等式と未来向きの正エネルギー条件を両方検査します。静止粒子では $P=(mc,\boldsymbol0)$ なので $g(P,P)=m^2c^2$、かつ $E=mc^2>0$ です。代数方程式だけなら $E=-mc^2$ も可能ですが、未来向きの条件を満たすのは正の枝だけです。質量殻は同じ式でも枝の条件を落としてはいけません。
+**定義の確認**：質量殻の等式と未来向きの正エネルギー条件を両方検査します。静止粒子では $P=(mc,\boldsymbol0)$ なので $g(P,P)=-m^2c^2$、かつ $E=mc^2>0$ です。代数方程式だけなら $E=-mc^2$ も可能ですが、未来向きの条件を満たすのは正の枝だけです。質量殻は同じ式でも枝の条件を落としてはいけません。
 <!-- definition-example-end -->
 
 <a id="thm-srel3-mass-shell"></a>
@@ -348,13 +348,13 @@ $$
 [四元運動量](#def-srel3-four-momentum)は $P=mU$ と定義したので
 
 $$
-g(P,P)=m^2g(U,U)=m^2c^2.
+g(P,P)=m^2g(U,U)=-m^2c^2.
 $$
 
 これを成分で書くと
 
 $$
-\frac{E^2}{c^2}-|\boldsymbol p|^2=m^2c^2
+-\frac{E^2}{c^2}+|\boldsymbol p|^2=-m^2c^2
 \quad\Longleftrightarrow\quad
 E^2=c^2|\boldsymbol p|^2+m^2c^4.
 $$
@@ -538,7 +538,7 @@ E^2=c^2|\boldsymbol p|^2,\qquad E=c|\boldsymbol p|,
 \qquad P\ne0.
 $$
 
-たとえば $P=(q,q,0,0)$、$q>0$ を取ると $g(P,P)=q^2-q^2=0$、$E=cq>0$ です。これは光的な四元運動量の直接例です。零ベクトルを除くため $q>0$ が必要です。
+たとえば $P=(q,q,0,0)$、$q>0$ を取ると $g(P,P)=-q^2+q^2=0$、$E=cq>0$ です。これは光的な四元運動量の直接例です。零ベクトルを除くため $q>0$ が必要です。
 
 **注意：** この $P$ を $mU$ で作ってはいけません。質量 $m=0$ を $mU$ に代入すると、有限の $U$ では零ベクトルしか得られません。
 
@@ -546,7 +546,7 @@ $$
 
 $$
 g(dX,dX)=0,\qquad
-d\tau=\frac{\sqrt{g(dX,dX)}}{c}=0
+d\tau=\frac{\sqrt{-g(dX,dX)}}{c}=0
 $$
 
 となるため、$dX/d\tau$ を通常の時間的世界線と同じようには定義できません。非零の光的四元運動量は別に与える必要があります。質量を持つ粒子の静止系を作った証明も、光的ベクトルには転用できません。
@@ -579,7 +579,7 @@ $$
 $$
 U=\left(\frac{5c}{3},\frac{4c}{3},0,0\right),
 \qquad
-g(U,U)=\frac{25c^2}{9}-\frac{16c^2}{9}=c^2.
+g(U,U)=-\frac{25c^2}{9}+\frac{16c^2}{9}=-c^2.
 $$
 
 四元速度の空間成分は $4c/3$ ですが、粒子の空間速度は $4c/5$ です。両者を混同しません。
@@ -679,14 +679,14 @@ $m=0$、$P=(2q,0,2q,0)$（$q>0$ は運動量の単位を持つ）について、
 時間成分が $E/c=2q$ なので $E=2cq>0$ です。計量を直接計算すると
 
 $$
-g(P,P)=(2q)^2-(2q)^2=0
+g(P,P)=-(2q)^2+(2q)^2=0
 $$
 
 となり、正エネルギーで非零の光的四元運動量です。ここまでの質量殻の式だけでは世界線は決まりませんが、質量ゼロ粒子が光的経路をたどるモデルでは、[固有時](../SREL2/index.md#def-srel2-proper-time)について
 
 $$
 g(dX,dX)=0,\qquad
-d\tau=\frac{\sqrt{g(dX,dX)}}{c}=0
+d\tau=\frac{\sqrt{-g(dX,dX)}}{c}=0
 $$
 
 となり、$dX/d\tau$ を通常の意味では定義できません。また $mU$ に $m=0$ を入れても、有限の $U$ なら $P=0$ になり、指定された $P\ne0$ を作れません。
@@ -720,9 +720,9 @@ $$
 $$
 \begin{aligned}
 g(U,A)
-&=\gamma c\cdot\gamma^4va/c-\gamma v\cdot\gamma^4a\\
-&=\gamma^5va-\gamma^5va=0,\\
--g(A,A)
+&=-\gamma c\cdot\gamma^4va/c+\gamma v\cdot\gamma^4a\\
+&=-\gamma^5va+\gamma^5va=0,\\
+g(A,A)
 &=\gamma^8a^2\left(1-\frac{v^2}{c^2}\right)
 =\gamma^6a^2.
 \end{aligned}
