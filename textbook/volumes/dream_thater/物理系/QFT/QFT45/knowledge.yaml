@@ -1,0 +1,62 @@
+chapter: QFT45
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20, QFT21, QFT22, QFT23, QFT25, QFT33, QFT34, QFT35, QFT36, QFT44]
+forward_references: []
+
+concepts:
+  - id: qft.wilsonian-shell-mass-coefficient
+    name: 運動量殻を消去した質量係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（運動量殻を消去した質量係数）]
+    requires: [qft.sharp-momentum-cutoff, qft.phi4-one-loop-vertices]
+
+  - id: qft.phi4-shell-mass-shift
+    name: 四次元スカラーの一ループ殻質量補正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四次元スカラーの一ループ殻質量補正）]
+    requires: [qft.wilsonian-shell-mass-coefficient, qft.phi4-cutoff-integrals]
+
+  - id: qft.heavy-scalar-mass-threshold
+    name: 重いスカラーの質量閾値補正
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重いスカラーの質量閾値補正）]
+    requires: [qft.eft-amplitude-matching, qft.one-loop-determinant-expansion]
+
+  - id: qft.gaussian-heavy-threshold-matching
+    name: 重いGaussianスカラーの一ループ質量matching
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（重いGaussianスカラーの一ループ質量matching）]
+    requires: [qft.heavy-scalar-mass-threshold, qft.phi4-cutoff-integrals, qft.modified-minimal-subtraction]
+
+  - id: qft.one-loop-stationary-vacuum
+    name: 一ループ有効ポテンシャルの停留真空
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一ループ有効ポテンシャルの停留真空）]
+    requires: [qft.gaussian-heavy-threshold-matching, qft.o2-vacuum-mass-matrix, qft.phi4-bare-counterterms]
+
+  - id: qft.phi4-one-loop-vacuum-shift
+    name: 破れた実スカラー模型の一ループ真空移動
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（破れた実スカラー模型の一ループ真空移動）]
+    requires: [qft.one-loop-stationary-vacuum, qft.modified-minimal-subtraction]
+
+  - id: qft.rotational-effective-potential-hessian
+    name: 回転不変な有効ポテンシャルの接線零方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（回転不変な有効ポテンシャルの接線零方向）]
+    requires: [qft.hessian-symmetry-zero-direction, qft.one-loop-stationary-vacuum]
+
+  - id: qft.single-threshold-tuning-diagnostic
+    name: 単一閾値の調整指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（単一閾値の調整指標）]
+    requires: [qft.gaussian-heavy-threshold-matching, qft.eft-amplitude-matching]
