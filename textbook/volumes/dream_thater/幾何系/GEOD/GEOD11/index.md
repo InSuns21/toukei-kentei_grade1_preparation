@@ -384,7 +384,7 @@ $$
 - ID: GEOD11-A4
 
 <!-- solution-start -->
-**詳細解答。** $|\Delta u|\le D$ が成立します。[局所斜距離の命題](#prop-geod11-distance-chain)の直交分解から
+**詳細解答。** $|\Delta u|\le D$ が成立します。[局所斜距離の命題](#prop-geod11-distance-chain)で示した局所直交成分の関係から
 
 $$
 D_H=\sqrt{500^2-300^2}=\sqrt{250000-90000}
