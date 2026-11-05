@@ -521,7 +521,18 @@ $$
 ### 演習 QFT47-B6：重い閾値の方式と質量係数
 
 - Level: B
-- 問題: 四次元Euclid二実スカラー模型で重い場 $\chi$ の質量 $M=4a$（$a>0$）、混合ポテンシャル $g\phi^2\chi^2/4$、$g=1/2$ とする。[QFT45の重い一ループ閾値](../QFT45/index.md#thm-qft45-heavy-matching)から、(i) 修正最小減算法の $\mu_R=M$、(ii) 鋭いカットオフ $\Lambda=M$ それぞれの $\delta m_L^2$ を計算せよ。一次の足し算 $m_{\rm low}^2=m_{\rm input}^2+\delta m_L^2$ を方式ごとに仮定し、$m_{\rm low}^2=a^2$ となる入力を求める。この二入力の差を物理的に異なる質量の予測と解釈してよいか。
+- 問題: 四次元Euclid二実スカラー模型で重い場 $\chi$ の質量と混合結合を次に固定する。
+
+$$
+M=4a,\quad a>0,\qquad g=\frac12,\qquad
+U_{\mathrm{int}}(\phi,\chi)=\frac g4\phi^2\chi^2.
+$$
+
+[QFT45の重い一ループ閾値](../QFT45/index.md#thm-qft45-heavy-matching)を使い、次を求めよ。
+
+1. 修正最小減算法でくりこみ尺度を $\mu_R=M$ とした質量閾値補正。
+2. 鋭い球形カットオフを $\Lambda=M$ とした質量閾値補正。
+3. 各方式で $m_{\rm low}^2=m_{\rm input}^2+\delta m_L^2$ を仮定し、$m_{\rm low}^2=a^2$ となる入力。二つの入力差を物理的な質量差と解釈してよいか。
 
 <!-- solution-start -->
 **詳細解答。** $M^2=16a^2$、$gM^2=8a^2$。修正最小減算法で $\mu_R=M$ なら対数が $\log1=0$ となり
