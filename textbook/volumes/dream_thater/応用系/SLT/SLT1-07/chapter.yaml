@@ -1,0 +1,45 @@
+id: "SLT1-07"
+title: "VC次元からの一様汎化界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-06
+  - SLT1-04
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 二値分類の0–1損失パターン数を予測クラスの成長関数で上から抑えられる
+  - ghost sampleで母集団リスクを経験リスクへ置換する確率的対称化を条件と係数込みで証明できる
+  - 対のランダム交換とHoeffding不等式により固定した二重標本上の有限パターンを一様制御できる
+  - Sauer–Shelah補題からVC次元に依存する高確率一様汎化界と境界ケースを導ける
+  - 一様偏差の界を近似ERMのagnostic過剰リスクへ接続できる
+  - iid性、有界0–1損失、事前固定クラス、可測性の役割と壊れ方を説明できる
+definitions:
+  - { id: SLT1-07-DEF-01, name: 二重標本と損失トレース }
+theorems:
+  - { id: SLT1-07-LEM-01, name: 損失トレースの個数上界 }
+  - { id: SLT1-07-LEM-02, name: ghost sampleによる確率的対称化 }
+  - { id: SLT1-07-LEM-03, name: 対交換による二重標本偏差の上界 }
+  - { id: SLT1-07-THM-01, name: VC成長関数による一様汎化界 }
+  - { id: SLT1-07-COR-01, name: 有限VC次元の高確率界 }
+  - { id: SLT1-07-COR-02, name: 近似ERMのagnostic超過リスク界 }
+canonical_examples:
+  - 同じ入力と異なる正解ラベルを含む標本で予測列と損失列を照合
+  - 三対のランダム交換で符号和の確率を直接数える
+  - VC次元1の有理数閾値クラスに成長関数を適用し数値評価
+  - iid性を失った全複製標本ではVC次元0でも偏差が消えない反例
+problem_patterns:
+  - SLT1-07-A01
+  - SLT1-07-A02
+  - SLT1-07-A03
+  - SLT1-07-A04
+  - SLT1-07-A05
+  - SLT1-07-B01
+  - SLT1-07-B02
+  - SLT1-07-B03
+  - SLT1-07-B04
+  - SLT1-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 1.5 }
