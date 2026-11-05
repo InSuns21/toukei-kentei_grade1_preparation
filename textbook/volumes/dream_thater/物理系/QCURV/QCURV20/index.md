@@ -32,15 +32,15 @@ $$
 
 四次元の質量零自由実スカラー場で $g=\eta$ とし、状態 $\varrho$ をMinkowski真空 $|0_M\rangle$ に固定します。$\gamma_0(\tau)=(\tau,0,0,0)$ は慣性軌道、$\gamma_a(\tau)=a^{-1}(\sinh a\tau,\cosh a\tau,0,0)$ は $a>0$ の一様加速軌道です。ここで上点は $\dot\gamma=d\gamma/d\tau$（固有時間による微分）を表します。両者の接ベクトルを実際に求めると
 
-$
+$$
 \dot\gamma_0=(1,0,0,0),\qquad
 \dot\gamma_a=(\cosh a\tau,\sinh a\tau,0,0),
-$
+$$
 
-$
+$$
 \eta(\dot\gamma_0,\dot\gamma_0)=-1,\qquad
 \eta(\dot\gamma_a,\dot\gamma_a)=-\cosh^2(a\tau)+\sinh^2(a\tau)=-1.
-$
+$$
 
 従ってどちらの $\tau$ も固有時間であり、定義の時間的世界線という条件を満たします。$\mathcal O$ を定常検出率、$\mathcal L$ を切替を伸ばす長時間極限と選ぶと、[慣性真空の正ギャップ率は零](../QCURV6/index.md#prop-qcurv6-inertial-spectrum)ですが、[加速検出器の率](../QCURV8/index.md#thm-qcurv8-unruh)は正です。
 
@@ -100,11 +100,13 @@ $$
 
 を得ます。負のギャップ $-\Omega$（$\Omega>0$）では輪郭を上半平面に閉じます。今度は $n=0,1,2,\ldots$ の極が寄与するため、
 
-$
+$$
 \dot{\mathcal F}_q(-\Omega)
 =\frac{\Omega}{2\pi}\sum_{n=0}^{\infty}e^{-2\pi n\Omega/q}
 =\frac{\Omega e^{2\pi\Omega/q}}{2\pi(e^{2\pi\Omega/q}-1)}.
-$従って
+$$
+
+従って
 
 $$
 \frac{\dot{\mathcal F}_q(\Omega)}{\dot{\mathcal F}_q(-\Omega)}
@@ -294,11 +296,11 @@ $$
 
 ここでプライム $p',p'',p'''$ はいずれも $u$ に関する常微分で、[Schwarzian微分の定義](../QCURV16/index.md#def-qcurv16-schwarzian)と同じ記法です。指数関数を順に微分すると
 
-$
+$$
 p'=A\kappa e^{-\kappa u}>0,\qquad
 p''=-A\kappa^2e^{-\kappa u},\qquad
 p'''=A\kappa^3e^{-\kappa u}.
-$
+$$
 
 従って同じ定義式より
 
