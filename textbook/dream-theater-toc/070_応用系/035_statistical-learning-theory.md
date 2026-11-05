@@ -6,3 +6,4 @@
 3. [SLT1-03 有限仮説クラスの汎化界](textbook/volumes/dream_thater/応用系/SLT/SLT1-03/index.md)
 4. [SLT1-04 一様収束とERMの過剰リスク](textbook/volumes/dream_thater/応用系/SLT/SLT1-04/index.md)
 5. [SLT1-05 shatteringとVC次元](textbook/volumes/dream_thater/応用系/SLT/SLT1-05/index.md)
+6. [SLT1-06 Sauer–Shelah補題](textbook/volumes/dream_thater/応用系/SLT/SLT1-06/index.md)
