@@ -232,7 +232,20 @@ Q_-&=\frac1{2\pi}\int_0^L\bar t_{\bar w}(\tau-ix)\,dx
 \end{aligned}
 $$
 
-$\partial_\tau=\alpha(z\partial_z+\bar z\partial_{\bar z})$ は両電荷の和、$\partial_x=i\alpha(z\partial_z-\bar z\partial_{\bar z})$ は差に対応する。Euclid時間発展 $e^{-\tau H_L}$ と空間並進 $e^{ixP_L}$ の規約で $H_L=Q_++Q_-$、$P_L=Q_+-Q_-$ とすれば定理の式を得る。真空では $L_0=\bar L_0=0$ を代入し、$c=\bar c$ なら
+座標変換を微分すると、円筒の時間・空間並進方向は
+
+$$
+\partial_\tau=\alpha(z\partial_z+\bar z\partial_{\bar z}),\qquad
+\partial_x=i\alpha(z\partial_z-\bar z\partial_{\bar z})
+$$
+
+に対応する。Euclid時間発展 $e^{-\tau H_L}$ と空間並進 $e^{ixP_L}$ の規約で
+
+$$
+H_L=Q_++Q_-,\qquad P_L=Q_+-Q_-
+$$
+
+とすれば定理の式を得る。真空では $L_0=\bar L_0=0$ を代入し、$c=\bar c$ なら
 
 $$
 E_0=-\frac{2\pi}{L}\frac{2c}{24}=-\frac{\pi c}{6L}.
