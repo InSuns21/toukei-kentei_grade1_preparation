@@ -20,7 +20,7 @@ chapters:
     title: "有限仮説クラスの汎化界"
   - id: SLT1-04
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-04
-    status: planned
+    status: completed
     title: "一様収束とERMの過剰リスク"
   - id: SLT1-05
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-05

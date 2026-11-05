@@ -1,0 +1,80 @@
+chapter: SLT1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-03
+forward_references:
+  - analysis.uniform-convergence
+
+concepts:
+  - id: learning.uniform-risk-deviation
+    name: 一様リスク偏差
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（一様リスク偏差）"]
+    requires:
+      - learning.population-risk
+      - learning.empirical-risk
+      - learning.hypothesis-class
+      - learning.finite-class-simultaneous-event
+
+  - id: learning.approximate-erm
+    name: 近似経験リスク最小化
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（近似経験リスク最小化）"]
+    requires:
+      - learning.empirical-risk-minimization
+
+  - id: learning.approximate-erm-oracle-bound
+    name: 近似ERMの決定論的過剰リスク界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（近似ERMの決定論的過剰リスク界）"]
+    requires:
+      - learning.uniform-risk-deviation
+      - learning.approximate-erm
+      - learning.restricted-risk-optimum
+
+  - id: learning.distribution-free-uniform-convergence
+    name: 分布自由一様収束
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（分布自由一様収束）"]
+    requires:
+      - learning.uniform-risk-deviation
+
+  - id: learning.uniform-convergence-to-agnostic-pac
+    name: 分布自由一様収束からagnostic PAC保証
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（分布自由一様収束からagnostic PAC保証）"]
+    requires:
+      - learning.distribution-free-uniform-convergence
+      - learning.approximate-erm-oracle-bound
+      - learning.agnostic-pac-learnability
+
+  - id: learning.finite-approximate-erm-bound
+    name: 有限クラスの近似ERM高確率界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（有限クラスの近似ERM高確率界）"]
+    requires:
+      - learning.finite-class-uniform-bound
+      - learning.approximate-erm-oracle-bound
+
+  - id: learning.pointwise-not-uniform-counterexample
+    name: 一様収束と固定仮説収束の非同値性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（一様収束と固定仮説収束の非同値性）"]
+    requires:
+      - learning.distribution-free-uniform-convergence
+      - learning.hypothesis-class
