@@ -1,0 +1,23 @@
+.geod-app{max-width:1200px}
+.geod-app .notice{padding:.85rem;background:#eaf4fc;border-left:4px solid #245b9a;border-radius:4px}
+.geod-app .lab-switch{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1rem}
+.geod-app .lab-switch [aria-pressed=true]{background:#245b9a;color:white}
+.geod-app .controls label{border:1px solid #d1d9e5;border-radius:8px;padding:.65rem;background:#fbfcfe}
+.geod-app input[type=range]{width:100%}
+.geod-app output{font-weight:400;font-variant-numeric:tabular-nums}
+.geod-app .aside{font-size:.93rem;color:#334155;background:#f2f6fa;padding:.75rem;border-radius:6px}
+.geod-app .viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,470px),1fr));gap:1rem;align-items:start}
+.geod-app figure{margin:0;min-width:0}
+.geod-app .figure-head{font-weight:700;margin-bottom:.5rem}
+.geod-app #globe,.geod-app #map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;touch-action:none}
+.geod-app #globe:focus-visible{outline:3px solid #e89018;outline-offset:3px}
+.geod-app figcaption{font-size:.85rem;margin-top:.5rem;color:#334155}
+.geod-app #geod-results{overflow:auto}
+.geod-app table{border-collapse:collapse;width:100%;max-width:800px;font-variant-numeric:tabular-nums;margin-top:.8rem}
+.geod-app th,.geod-app td{border:1px solid #bac8d8;padding:.5rem .65rem;text-align:left;vertical-align:top}
+.geod-app th{background:#f2f6fa;width:43%}
+.geod-app #geod-status{font-weight:700}
+.geod-app #geod-status[data-error=true]{color:#9b1c1c}
+.geod-app #gl-fallback{background:#fff3dc;padding:1rem}
+.geod-app ol{line-height:1.8}
+@media(max-width:600px){.geod-app .lab-switch button{flex:1 1 140px}}

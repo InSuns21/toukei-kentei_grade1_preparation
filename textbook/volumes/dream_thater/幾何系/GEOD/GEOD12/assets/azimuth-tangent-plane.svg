@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">測地方位角と単位接ベクトルの北東分解</title>
+  <desc id="desc">楕円体の点Pにおける接平面を見下ろした図。北向き単位ベクトルは上、東向き単位ベクトルは右、速度vは右上の矢印。方位角αは北から時計回りに測り、速度の北成分はcosα、東成分はsinα。</desc>
+  <defs>
+    <marker id="axis-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#64748b"/></marker>
+    <marker id="velocity-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#15578e"/></marker>
+  </defs>
+  <path d="M190 322 V48" fill="none" stroke="#64748b" stroke-width="2.4" marker-end="url(#axis-arrow)" data-series-group="tangent" data-series-label="north"/>
+  <path d="M145 300 H494" fill="none" stroke="#64748b" stroke-width="2.4" stroke-dasharray="10 4" marker-end="url(#axis-arrow)" data-series-group="tangent" data-series-label="east"/>
+  <path d="M190 300 L355 108" fill="none" stroke="#15578e" stroke-width="3.6" marker-end="url(#velocity-arrow)" data-series-group="tangent" data-series-label="velocity"/>
+  <path d="M355 108 V300" fill="none" stroke="#c77a28" stroke-width="2" stroke-dasharray="5 7"/>
+  <path d="M190 108 H355" fill="none" stroke="#c77a28" stroke-width="1.7" stroke-dasharray="5 7"/>
+  <path d="M190 246 A54 54 0 0 1 225 259" fill="none" stroke="#15578e" stroke-width="2.2"/>
+  <circle cx="190" cy="300" r="4.5" fill="#172235"/>
+  <text x="164" y="333" font-size="20" fill="#172235">P</text>
+  <text x="208" y="55" font-size="20" fill="#475569">N</text>
+  <text x="493" y="328" font-size="20" fill="#475569">E</text>
+  <text x="370" y="101" font-size="20" fill="#15578e">v</text>
+  <text x="211" y="232" font-size="22" fill="#15578e">α</text>
+  <text x="228" y="95" font-size="20" fill="#a45718">sin α</text>
+  <text x="385" y="220" font-size="20" fill="#a45718">cos α</text>
+</svg>
