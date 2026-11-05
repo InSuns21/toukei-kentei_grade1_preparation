@@ -29,16 +29,30 @@ E=E_0+R_q\ell\,h(\beta),\qquad
 N_p=N_0+R_q\,p(\beta)
 $$
 
-の形にします。横幅を決める $h$ と縦位置を決める $p$ を自由に選ぶと、[面積のJacobian判定](../GEOD13/index.md#thm-geod13-preservation-tests)で
+の形にします。$h,p$ は緯度に依存する微分可能な無次元関数で、$p'(\beta)=dp/d\beta$ は正積緯度による導関数です。横幅を決める $h$ と縦位置を決める $p$ を自由に選ぶと、[面積のJacobian判定](../GEOD13/index.md#thm-geod13-preservation-tests)で
 
 $$
 \det\frac{\partial(E,N_p)}{\partial(\lambda,\beta)}
 =R_q^2h(\beta)p'(\beta)
 $$
 
-だから、等積となる条件は $h(\beta)p'(\beta)=\cos\beta$ です。つまり**横幅を設計したら縦方向の伸びを調節する**必要があります。Equal Earthは、この調整を多項式の導関数で自動的に成立させます。
+です。非極点では一般の等積条件は
+
+$$
+|h(\beta)p'(\beta)|=\cos\beta
+$$
+
+で、向きを反転する場合も面積の絶対値は保たれます。ここでは東へ進めば $E$ が増え、北へ進めば $N_p$ が増える $h>0,\ p'>0$ の設計を選び、正符号の条件
+
+$$
+h(\beta)p'(\beta)=\cos\beta
+$$
+
+を採用します。つまり**横幅を設計したら縦方向の伸びを調節する**必要があります。Equal Earthは、この調整を多項式の導関数で自動的に成立させます。
 
 球上の緯度 $\beta$ と区別して、$\sin\beta$ を $\sqrt3/2$ 倍してから逆正弦を取った**中間角** $\theta$ を使います。係数は図法の形を調整する固定の無次元数であり、楕円体定数やCRSの原点ではありません。
+
+以下、$f'(x)=df/dx$ のプライムは括弧内の変数による導関数を表します。中間角で微分する場合と緯度で微分する場合は、連鎖律で結び付けます。
 
 <a id="def-geod20-intermediate"></a>
 <!-- formal-statement-start -->
@@ -76,7 +90,7 @@ $$
 =\frac{\sqrt3\cos\beta}{2\cos\theta}.
 $$
 
-縦座標に $P(\theta)$ を使えば $p'(\beta)=D(\theta)\,\theta'(\beta)$ です。さきほどの等積条件を満たすには
+ここで $\theta'(\beta)=d\theta/d\beta$ は $\beta$ による導関数で、$P'(\theta)=dP/d\theta=D(\theta)$ は中間角 $\theta$ による導関数です。縦座標に $P(\theta)$ を使えば、連鎖律から $p'(\beta)=D(\theta)\,\theta'(\beta)$ です。さきほどの向きを保つ等積条件を満たすには
 
 $$
 h(\beta)=\frac{\cos\beta}{D(\theta)\theta'(\beta)}
@@ -520,7 +534,15 @@ $$
 <a id="ex-geod20-b01"></a>
 #### B1. 中間角を用いた等積条件の逆設計
 
-球面の緯度 $\beta$ に対して $\theta=\arcsin(\sqrt3\sin\beta/2)$ と置く。$P$ は $[-\pi/3,\pi/3]$ で $P'>0$ を満たす微分可能な奇関数とする。$E=R\ell h(\theta)$、$N_p=RP(\theta)$ が等積となるための $h(\theta)$ を導け。Equal Earthの公式がその形を満たすことを検証せよ。
+球面の緯度 $\beta$ に対して $\theta=\arcsin(\sqrt3\sin\beta/2)$ と置く。$P$ は $[-\pi/3,\pi/3]$ で $P'>0$ を満たす微分可能な奇関数とする。
+
+**東向きの経度差に対して東座標が増加する $h(\theta)>0$ の向きを選び**、次の投影を考える。
+
+$$
+E=R\ell h(\theta),\qquad N_p=RP(\theta).
+$$
+
+これが等積となるための $h(\theta)$ を導け。Equal Earthの公式がその形を満たすことを検証せよ。
 
 - Level: B
 - ID: GEOD20-B1
@@ -534,14 +556,14 @@ $$
 \frac{\partial N_p}{\partial\beta}=RP'(\theta)\theta'(\beta).
 $$
 
-行列式は $R^2h(\theta)P'(\theta)\theta'(\beta)$ であり、球の面積要素は $R^2\cos\beta$ です。[面積の判定](../GEOD13/index.md#thm-geod13-preservation-tests)に等置して
+行列式は $R^2h(\theta)P'(\theta)\theta'(\beta)$ であり、球の面積要素は $R^2\cos\beta$ です。[面積の判定](../GEOD13/index.md#thm-geod13-preservation-tests)は行列式の絶対値を用いますが、本問では $h>0$、$P'>0$、非極点で $\theta'(\beta)>0$ なので行列式も正です。そこで絶対値を外して等置すると
 
 $$
 h(\theta)=\frac{\cos\beta}{P'(\theta)\theta'(\beta)}
 =\frac{2\cos\theta}{\sqrt3P'(\theta)}.
 $$
 
-$P'=D$ を入れると[Equal Earth順変換](#def-geod20-forward)の横幅と一致します。$P'>0$ と $\cos\theta>0$ は除算と向きの保存に必要です。任意の $h$ を選んで等積を宣言できるわけではありません。
+$P'=D$ を入れると[Equal Earth順変換](#def-geod20-forward)の横幅と一致します。$P'>0$ と $\cos\theta>0$ は除算と向きの保存に必要です。$h<0$ とすれば面積の絶対値は同じでも東西を反転する別の解となるため、符号条件なしでは $h$ を一意に決められません。
 <!-- solution-end -->
 
 <a id="ex-geod20-b02"></a>
@@ -635,7 +657,7 @@ T\simeq
 \qquad \det T\simeq1.
 $$
 
-主縮尺は $T^\mathsf TT$ の固有値の平方根です。行列の跡 $\operatorname{tr}(T^\mathsf TT)\simeq2.13$ と行列式 $\det(T^\mathsf TT)=1$ を使い、固有値を
+主縮尺は $T^\mathsf TT$ の固有値の平方根です。行列の跡 $\operatorname{tr}(T^\mathsf TT)\simeq2.129408316$ と行列式 $\det(T^\mathsf TT)=1$ を使い、固有値を
 
 $$
 \mu_\pm=\frac{\operatorname{tr}(T^\mathsf TT)
