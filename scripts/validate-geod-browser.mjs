@@ -106,8 +106,11 @@ try {
     const canvas = document.querySelector('#globe');
     const gl = canvas.getContext('webgl2');
     if (!gl) return { supported: false, fallback: document.querySelector('#gl-fallback').textContent };
+    // WebGL defaults to preserveDrawingBuffer=false. Trigger a fresh
+    // synchronous draw and read *before* browser compositing discards it.
+    document.querySelector('#a-lon').dispatchEvent(new Event('input'));
     const pixels = [];
-    for (const x of [280, 360, 440]) {
+    for (const x of [260, 310, 360, 410, 460]) {
       const rgba = new Uint8Array(4);
       gl.readPixels(x, 235, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, rgba);
       pixels.push([...rgba]);
@@ -119,7 +122,7 @@ try {
   assert.equal(webgl.error, 0, 'WebGL should have no error after rendering');
   assert.ok(webgl.pixels.every(pixel => pixel[3] === 255), 'opaque shaded surface');
   assert.ok(new Set(webgl.pixels.map(pixel => pixel.slice(0, 3).join(','))).size > 1,
-    'surface colour should vary spatially (Lambert shading)');
+    'surface colour should vary spatially (Lambert shading): ' + JSON.stringify(webgl));
   await evalJS(`document.querySelector('#show-world').checked=false;
     document.querySelector('#show-world').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#osm-credit").hidden'), true);
