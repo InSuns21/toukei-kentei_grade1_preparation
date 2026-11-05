@@ -215,3 +215,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT52
     status: completed
     title: "放射量子化・状態–演算子対応とVirasoro最高ウェイト表現"
+  - id: QFT53
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT53
+    status: completed
+    title: "自由bosonと自由Majorana場の相関関数・中心電荷"
