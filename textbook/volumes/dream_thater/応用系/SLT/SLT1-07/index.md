@@ -202,7 +202,13 @@ $W=(Z_1,Z'_1,\ldots,Z_n,Z'_n)$ を一旦固定する。独立な対称符号 $\s
 以後 $\Pr_\sigma,\mathbb E_\sigma$ は、$W$ を固定して符号 $\sigma=(\sigma_1,\ldots,\sigma_n)$ だけを動かす確率と期待値を表す。
 交換前の左右の差を $a_i(h)$ とすれば、交換後の差は $\sigma_i a_i(h)$（符号の呼び方を逆にしても分布は同じ）となる。
 
-固定した $h$ と $W$ に対して $U_i=\sigma_i a_i(h)$ は独立で、$\mathbb E_\sigma U_i=0$、$-1\le U_i\le1$。[Hoeffdingの両側版](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)へ $\sum_i(b_i-a_i)^2\le4n$ と偏差 $nt$ を代入すると
+固定した $h$ と $W$ に対して $U_i=\sigma_i a_i(h)$ は独立で、$\mathbb E_\sigma U_i=0$、$-1\le U_i\le1$ である。[Hoeffdingの両側版](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)に使う区間の下端を $-1$、上端を $1$ と取れば、その幅の二乗和は
+
+$$
+V=\sum_{i=1}^n(1-(-1))^2=4n
+$$
+
+となる。この $V$ と和の偏差 $nt$ を代入すると
 
 $$
 \begin{aligned}
