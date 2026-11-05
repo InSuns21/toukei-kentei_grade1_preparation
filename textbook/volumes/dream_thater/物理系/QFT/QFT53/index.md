@@ -15,7 +15,9 @@ $$
 t_B(z)=\frac12:a(z)^2:.
 $$
 
-bosonの電流は、同じ向きに四つ挿入すると二点収縮の三通りの積を**すべて正符号**で足します。比較相手は、物理的には質量零の二次元Majorana場の正則成分です。その二点核は極の次数が一つ低く、場同士を交換するたび符号が反転します。奇演算子の反交換は[QFT8のFock演算子のCAR](../QFT8/index.md#thm-qft8-car)と同じ符号規約を用います。一方、経路積分の[QFT19のGrassmann代数](../QFT19/index.md#def-qft19-grassmann)は反交換する形式変数であり、Fock空間の演算子そのものではありません。以下では演算子の奇偶と、Grassmann積分でのWick符号を区別します。
+bosonの電流は、同じ向きに四つ挿入すると二点収縮の三通りの積を**すべて正符号**で足します。比較相手は、物理的には質量零の二次元Majorana場の正則成分です。その二点核は極の次数が一つ低く、場同士を交換するたび符号が反転します。
+
+奇演算子の反交換は[QFT8のFock演算子のCAR](../QFT8/index.md#thm-qft8-car)と同じ符号規約を用います。一方、経路積分の[QFT19のGrassmann代数](../QFT19/index.md#def-qft19-grassmann)は反交換する形式変数であり、Fock空間の演算子そのものではありません。以下では演算子の奇偶と、Grassmann積分でのWick符号を区別します。
 
 円周の回転するスピン枠に対して反周期的な境界条件をNeveu–Schwarz（NS）条件と呼び、この章ではその真空部門を使います。境界条件の異なるRamond部門については最後に適用範囲を区別します。
 
@@ -147,7 +149,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft53-majorana-stress -->
-**定義の確認**：$\psi$ は奇、$\partial\psi$ も奇ですから積は偶です。二つの場のウェイトが後で $1/2$ と分かると、微分による増分 $1$ を加えた $1/2+(1/2+1)=2$ が応力テンソルのウェイトに一致します。さらに原点のNS真空では、負モードの生成部分 $\psi(0)|0\rangle=b_{-1/2}|0\rangle$、$\partial\psi(0)|0\rangle=b_{-3/2}|0\rangle$ を正規順序で並べると $:\!\psi\partial\psi\!:(0)|0\rangle=b_{-1/2}b_{-3/2}|0\rangle=-b_{-3/2}b_{-1/2}|0\rangle$ なので、$t_F(0)|0\rangle=\tfrac12b_{-3/2}b_{-1/2}|0\rangle$ は非零です。異なる二つのモードなのでPauli原理にも反しません。
+**定義の確認**：$\psi$ は奇、$\partial\psi$ も奇ですから積は偶です。二つの場のウェイトが後で $1/2$ と分かると、微分による増分 $1$ を加えた $1/2+(1/2+1)=2$ が応力テンソルのウェイトに一致します。
+
+原点のNS真空では負モードの生成部分が $\psi(0)|0\rangle=b_{-1/2}|0\rangle$、$\partial\psi(0)|0\rangle=b_{-3/2}|0\rangle$ です。これらを正規順序で並べ、反交換性を用いると
+
+$$
+\begin{aligned}
+:\!\psi\partial\psi\!:(0)|0\rangle
+&=b_{-1/2}b_{-3/2}|0\rangle\\
+&=-b_{-3/2}b_{-1/2}|0\rangle,\\
+t_F(0)|0\rangle&=\frac12b_{-3/2}b_{-1/2}|0\rangle\ne0.
+\end{aligned}
+$$
+
+異なる二つの生成モードなので同一モードの二重励起ではなく、Pauli原理にも反しません。
 <!-- definition-example-end -->
 
 <a id="prop-qft53-fermion-ward"></a>
@@ -187,7 +202,16 @@ $$
 第一項には $\partial\psi(z)$ と外側の $\psi(w)$ を縮約する符号、第二項には最初の $\psi(z)$ と外側の奇場を縮約するときの交換符号を含めています。$\psi(z)=\psi(w)+s\partial\psi(w)+O(s^2)$ と展開し、$-1/2$ を掛けると二次極 $\psi(w)/(2s^2)$ と一次極 $\partial\psi(w)/s$ を得ます。[QFT50の一次場Ward式](../QFT50/index.md#thm-qft50-primary-ward)の $h=1/2$ と一致します。
 <!-- proof-end -->
 
-この一次場は[QFT52の最高ウェイト条件](../QFT52/index.md#def-qft52-primary-descendant)により、$|\psi\rangle=b_{-1/2}|0\rangle$ という正規化された最高ウェイト状態を作ります。特に $L_0|\psi\rangle=\tfrac12|\psi\rangle$ です。さらに[QFT50の一次場の座標変換](../QFT50/index.md#def-qft50-weights)を $z=e^u$（円筒座標 $u=\tau+i\theta$）に適用すると、スピン枠での場は $\psi_{\mathrm{cyl}}(u)=e^{u/2}\psi(e^u)=\sum_{r\in\mathbb Z+1/2}b_re^{-ru}$ です。$u\mapsto u+2\pi i$ では各項に $e^{-2\pi ir}=-1$ が掛かるため、定義で指定したNS反周期性をモードごとに確認できます。
+この一次場は[QFT52の最高ウェイト条件](../QFT52/index.md#def-qft52-primary-descendant)により、$|\psi\rangle=b_{-1/2}|0\rangle$ という正規化された最高ウェイト状態を作ります。特に $L_0|\psi\rangle=\tfrac12|\psi\rangle$ です。
+
+NS境界条件もモードから確かめられます。[QFT50の一次場の座標変換](../QFT50/index.md#def-qft50-weights)を $z=e^u$（円筒座標 $u=\tau+i\theta$）に適用すると、ウェイト $1/2$ のスピン枠表示は
+
+$$
+\psi_{\mathrm{cyl}}(u)=e^{u/2}\psi(e^u)
+=\sum_{r\in\mathbb Z+1/2}b_re^{-ru}.
+$$
+
+$u\mapsto u+2\pi i$ では各項に $e^{-2\pi ir}=-1$ が掛かるため、定義で指定したNS反周期性をモードごとに確認できます。
 
 ## 4. 四次極を計算し中心電荷を比較する
 
@@ -381,7 +405,9 @@ $$
 \langle V_q(z)V_{-q}(w)\rangle\propto(z-w)^{-q^2}
 $$
 
-が現れます。さらに $a(z)V_q(w)$ の一次極を用い、$t_B=\tfrac12:\!a^2\!:$ の二重収縮から $q^2V_q(w)/(2(z-w)^2)$、二通りの一重収縮から $q:\!aV_q\!:(w)/(z-w)$ を得ます。$\partial V_q=q:\!aV_q\!:$（$a=i\partial X$ の連鎖律）なので
+が現れます。
+
+ただし二点べきだけでは、一次場としてのWard作用をまだ検証していません。$a(z)V_q(w)$ の一次極を用い、$t_B=\tfrac12:\!a^2\!:$ の二重収縮から $q^2V_q(w)/(2(z-w)^2)$、二通りの一重収縮から $q:\!aV_q\!:(w)/(z-w)$ を得ます。$a=i\partial X$ の連鎖律により $\partial V_q=q:\!aV_q\!:$ なので
 
 $$
 t_B(z)V_q(w)\sim\frac{q^2V_q(w)}{2(z-w)^2}+\frac{\partial V_q(w)}{z-w}.
