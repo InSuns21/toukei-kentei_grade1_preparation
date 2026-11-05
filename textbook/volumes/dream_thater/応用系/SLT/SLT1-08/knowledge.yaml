@@ -1,0 +1,58 @@
+chapter: SLT1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-07
+  - SLT1-05
+  - SLT1-02
+  - SLT1-04
+
+concepts:
+  - id: learning.fixed-distribution-uniform-convergence
+    name: 固定分布での一様収束
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（固定分布での一様収束）"]
+    requires:
+      - learning.uniform-risk-deviation
+
+  - id: learning.infinite-vc-uniform-obstruction
+    name: 無限VC次元と分布自由一様収束の障害
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（無限VC次元と分布自由一様収束の障害）"]
+    requires:
+      - learning.vc-dimension
+      - learning.uniform-risk-deviation
+
+  - id: learning.infinite-vc-pac-lower-bound
+    name: 無限VC次元のPAC下界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（無限VC次元のPAC下界）"]
+    requires:
+      - learning.no-free-lunch-finite
+      - learning.realizable-pac-learnability
+
+  - id: learning.countable-vc-pac-equivalence
+    name: 可算二値クラスのVC・PAC同値
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（可算二値クラスのVC・PAC同値）"]
+    requires:
+      - learning.infinite-vc-pac-lower-bound
+      - learning.finite-vc-high-probability
+
+  - id: learning.infinite-vc-fixed-distribution-example
+    name: 無限VCでも固定分布で一様収束する例
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（無限VCでも固定分布で一様収束する例）"]
+    requires:
+      - learning.fixed-distribution-uniform-convergence
+      - learning.infinite-vc-uniform-obstruction

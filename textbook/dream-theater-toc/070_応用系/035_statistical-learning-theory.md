@@ -8,3 +8,4 @@
 5. [SLT1-05 shatteringとVC次元](textbook/volumes/dream_thater/応用系/SLT/SLT1-05/index.md)
 6. [SLT1-06 Sauer–Shelah補題](textbook/volumes/dream_thater/応用系/SLT/SLT1-06/index.md)
 7. [SLT1-07 VC次元からの一様汎化界](textbook/volumes/dream_thater/応用系/SLT/SLT1-07/index.md)
+8. [SLT1-08 VC次元の必要性と無限VC反例](textbook/volumes/dream_thater/応用系/SLT/SLT1-08/index.md)

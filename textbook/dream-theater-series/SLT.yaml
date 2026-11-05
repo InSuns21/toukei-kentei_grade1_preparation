@@ -36,7 +36,7 @@ chapters:
     title: "VC次元からの一様汎化界"
   - id: SLT1-08
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-08
-    status: planned
+    status: completed
     title: "VC次元の必要性と無限VC反例"
   - id: SLT1-09
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-09
