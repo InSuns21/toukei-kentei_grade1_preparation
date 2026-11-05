@@ -207,3 +207,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT50
     status: completed
     title: "二次元の正則共形変換・複素応力テンソルと局所Ward恒等式"
+  - id: QFT51
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT51
+    status: completed
+    title: "自由bosonの応力テンソルOPE・中心電荷とVirasoro代数"

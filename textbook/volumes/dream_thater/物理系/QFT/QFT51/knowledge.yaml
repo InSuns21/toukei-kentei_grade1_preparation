@@ -1,0 +1,62 @@
+chapter: QFT51
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT50, QFT19, CA3]
+forward_references: []
+
+concepts:
+  - id: qft.free-boson-current-two-point
+    name: 微分自由bosonの二点収縮
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（微分自由bosonの二点収縮）]
+    requires: [qft.holomorphic-free-stress, qft.two-dimensional-wirtinger]
+
+  - id: qft.point-split-wick-stress
+    name: 点分離正規順序と量子応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（点分離正規順序と量子応力テンソル）]
+    requires: [qft.free-boson-current-two-point, qft.bosonic-gaussian-wick]
+
+  - id: qft.stress-current-ope
+    name: 量子応力テンソルと微分場の短距離展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（量子応力テンソルと微分場の短距離展開）]
+    requires: [qft.point-split-wick-stress, qft.two-dimensional-primary-ward]
+
+  - id: qft.stress-ope-central-charge
+    name: 応力テンソルOPEと中心電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（応力テンソルOPEと中心電荷）]
+    requires: [qft.point-split-wick-stress, qft.holomorphic-contour-charge]
+
+  - id: qft.free-boson-central-charge
+    name: 実自由bosonの中心電荷は1
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（実自由bosonの中心電荷は1）]
+    requires: [qft.stress-ope-central-charge, qft.free-boson-current-two-point, qft.bosonic-gaussian-wick]
+
+  - id: qft.virasoro-contour-modes
+    name: 応力テンソルの輪郭モード
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（応力テンソルの輪郭モード）]
+    requires: [qft.stress-ope-central-charge, qft.holomorphic-contour-charge]
+
+  - id: qft.virasoro-commutator
+    name: 応力テンソルOPEからのVirasoro交換子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（応力テンソルOPEからのVirasoro交換子）]
+    requires: [qft.virasoro-contour-modes, qft.free-boson-central-charge, qft.holomorphic-witt-bracket]
+
+  - id: qft.quantum-stress-ward
+    name: 応力テンソルの局所量子Ward作用
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（応力テンソルの局所量子Ward作用）]
+    requires: [qft.stress-ope-central-charge, qft.holomorphic-contour-charge]
