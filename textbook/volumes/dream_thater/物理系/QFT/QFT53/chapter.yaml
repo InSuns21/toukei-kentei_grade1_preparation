@@ -1,0 +1,46 @@
+id: QFT53
+title: "自由bosonと自由Majorana場の相関関数・中心電荷"
+volume: foundations
+status: supplementary
+prerequisites: [QFT52, QFT51, QFT50, QFT19]
+official_scope: []
+learning_objectives:
+  - 正則自由bosonとNS Majorana場の二点核・モード・交換と反交換の違いを説明できる
+  - 奇場のWick対合の置換符号を追いboson／Majoranaの四点関数を導ける
+  - Majorana応力テンソルの一重収縮からウェイト1/2のWard OPEを導ける
+  - 二模型の応力テンソルの二重収縮を符号まで再計算してc=1とc=1/2を得られる
+  - 独立なMajorana二個の中心電荷の加法性と同一CFTとの区別を説明できる
+  - NS最高ウェイト場のモード作用とレベル2零状態をFock空間で検算できる
+  - レベル2Gram行列の核と具体的なMajorana子孫の消滅を照合できる
+  - 荷電boson頂点の二点べきと局所性・零モードの条件を区別できる
+definitions:
+  - { id: QFT53-DEF-01, name: 正則自由Majorana場とNS真空 }
+  - { id: QFT53-DEF-02, name: 自由Majoranaの正則応力テンソル }
+theorems:
+  - { id: QFT53-PROP-01, name: 自由Majoranaモードの反交換関係 }
+  - { id: QFT53-PROP-02, name: bosonの対称和とMajoranaのPfaffian }
+  - { id: QFT53-PROP-03, name: Majorana場のWard作用と共形ウェイト }
+  - { id: QFT53-THM-01, name: 自由bosonと自由Majoranaの中心電荷 }
+  - { id: QFT53-THM-02, name: Majorana一次場のレベル2零状態 }
+canonical_examples:
+  - 半整数NSモードからのCARと同じ生成モードの二重励起消滅
+  - 四点Pfaffianの符号と実際の四点座標での数値
+  - Majorana応力テンソルと一次場の二次・一次極
+  - 二重収縮の微分符号とc=1/2
+  - Majorana二個とboson一個のc一致の限界
+  - c=h=1/2のレベル2Gram核と振動子状態での消滅
+problem_patterns:
+  - QFT53-BOSON-FOUR-POINT
+  - QFT53-FERMION-PFAFFIAN
+  - QFT53-NS-CAR-NORM
+  - QFT53-FERMION-WARD
+  - QFT53-CENTRAL-ADDITIVITY
+  - QFT53-FERMION-DOUBLE-CONTRACTION
+  - QFT53-LEVEL2-GRAM
+  - QFT53-MAJORANA-NULL-MODES
+  - QFT53-VERTEX-CHARGE-WEIGHT
+  - QFT53-FREE-CFT-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 14, review: 6 }
