@@ -76,6 +76,10 @@ jobs:
           node --check pages/simulation/celev8-app.mjs
           python3 scripts/test-celev8-kernel.py
 
+      - name: Validate GEOD numerical kernels and no-WebGL interaction
+        if: steps.scope.outputs.full == 'true'
+        run: npm run validate:simulation-phase0
+
       - name: Assemble and validate Pages site
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages

@@ -1,5 +1,44 @@
 # Interactive simulation — Phase 0 contracts
 
+## GEOD geodesy lab (three phase-A experiments)
+
+The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
+It has no time-stepping session, randomized seed, or imported observation record,
+so it uses the same Pages/offline shell but does not impersonate the
+simulation Worker protocol. All calculations are pure functions in
+geod-core.mjs; WebGL2 renders normalized and visibly exaggerated geometry
+without feeding drawing coordinates back into the numeric kernel.
+
+* **A**: GRS80 or user-adjusted flattening, ECEF→geodetic inversion, geocentric
+  vs geodetic latitude, M/N radii and the orthonormal ENU frame.
+* **B**: Vincenty inverse on the GRS80 ellipsoid and an independently
+  integrated Clairaut first-order system (RK4). A spherical great-circle
+  baseline is separate. Near-antipodal nonconvergence is a visible error, not
+  an undisclosed sphere fallback.
+* **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
+  spherical limit, central-meridian origin/scale, physical-metric-normalized
+  Jacobian, Tissot principal stretches and the grid-north bearing.
+
+The surface sphere and ellipsoid are drawn with a twentyfold visual flattening
+factor; numerical results use their displayed **physical** flattening.
+The local projection rejects inputs beyond 25° from the central meridian,
+latitudes beyond 80°, and nonpositive scales. A and B require non-polar
+latitude coordinates. No output claims a datum/epoch conversion, survey
+accuracy, or a certified Japanese CRS coordinate.
+
+Run the kernel tests with node --test pages/simulation/geod-core.test.mjs,
+also included in npm run validate:simulation-phase0. They compare distinct
+algorithms, analytical spherical/equatorial limits, a Simpson quadrature of
+the meridian arc, the independent published PROJ Gauss-Boaga sample, and
+domain failures. The Pages runtime precaches all four
+new lab resources for offline revisits; numeric tables remain functional if
+WebGL2 is unavailable.
+
+Remaining: visual/keyboard screen-reader checks on physical mobile devices;
+the full GEOD inverse-Krüger and high-precision near-antipodal solver;
+projection comparison/other Japanese systems (lab E/F), and observation/
+adjustment/GNSS (lab C). See the GEOD plan for later phases and figure audit.
+
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.
 **Browser end-to-end, cache/offline and performance verification remain open.**
