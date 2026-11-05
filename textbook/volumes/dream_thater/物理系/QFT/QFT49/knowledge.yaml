@@ -1,0 +1,62 @@
+chapter: QFT49
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT2, QFT48]
+forward_references: []
+
+concepts:
+  - id: qft.euclidean-free-stress-tensor
+    name: Euclid自由スカラー場の応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euclid自由スカラー場の応力テンソル）]
+    requires: [qft.canonical-stress-tensor, qft.massless-euclidean-schwinger-two-point]
+
+  - id: qft.euclidean-stress-divergence
+    name: Euclid応力テンソルの発散恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Euclid応力テンソルの発散恒等式）]
+    requires: [qft.euclidean-free-stress-tensor]
+
+  - id: qft.euclidean-improved-stress-tensor
+    name: Euclidの改良応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euclidの改良応力テンソル）]
+    requires: [qft.euclidean-free-stress-tensor, qft.improvement-conservation]
+
+  - id: qft.improved-stress-trace
+    name: 改良テンソルの保存とトレース
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（改良テンソルの保存とトレース）]
+    requires: [qft.euclidean-improved-stress-tensor, qft.euclidean-stress-divergence]
+
+  - id: qft.ward-contact-term
+    name: Ward恒等式の接触項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Ward恒等式の接触項）]
+    requires: [qft.euclidean-stress-divergence]
+
+  - id: qft.local-translation-ward
+    name: 局所並進Ward恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（局所並進Ward恒等式）]
+    requires: [qft.ward-contact-term, qft.euclidean-stress-divergence, qft.improved-stress-trace]
+
+  - id: qft.conformal-killing-vector
+    name: 平坦Euclid空間の共形Killingベクトル場
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平坦Euclid空間の共形Killingベクトル場）]
+    requires: [qft.euclidean-conformal-map]
+
+  - id: qft.conformal-current-ward
+    name: 共形保存流とスカラー一次場のWard恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（共形保存流とスカラー一次場のWard恒等式）]
+    requires: [qft.conformal-killing-vector, qft.improved-stress-trace, qft.local-translation-ward, qft.scalar-primary-field]

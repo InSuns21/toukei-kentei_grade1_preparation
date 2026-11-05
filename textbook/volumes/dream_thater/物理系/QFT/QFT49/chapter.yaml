@@ -1,0 +1,45 @@
+id: QFT49
+title: "応力テンソルの改良・Ward恒等式・接触項と共形保存流"
+volume: foundations
+status: supplementary
+prerequisites: [QFT2, QFT48]
+official_scope: []
+learning_objectives:
+  - 自由Euclidスカラー場の局所並進変分から応力テンソルと発散恒等式を導ける
+  - 保存を保つ改良項を構成し、共形改良係数とオンシェルのトレース零を検算できる
+  - 量子相関関数の局所並進Ward恒等式における接触項を試験関数に作用させて説明できる
+  - 共形Killing方程式と改良テンソルから共形保存流を作れる
+  - 自由基本スカラー場の拡大縮小・特殊共形Ward恒等式を二点関数で照合できる
+  - 質量項・量子異常・境界流束・合成演算子の限界を区別できる
+definitions:
+  - { id: QFT49-DEF-01, name: Euclid自由スカラー場の応力テンソル }
+  - { id: QFT49-DEF-02, name: Euclidの改良応力テンソル }
+  - { id: QFT49-DEF-03, name: Ward恒等式の接触項 }
+  - { id: QFT49-DEF-04, name: 平坦Euclid空間の共形Killingベクトル場 }
+theorems:
+  - { id: QFT49-PROP-01, name: Euclid応力テンソルの発散恒等式 }
+  - { id: QFT49-THM-01, name: 改良テンソルの保存とトレース }
+  - { id: QFT49-THM-02, name: 局所並進Ward恒等式 }
+  - { id: QFT49-THM-03, name: 共形保存流とスカラー一次場のWard恒等式 }
+canonical_examples:
+  - 線形調和場に対するEuclid応力テンソルの成分と保存
+  - d=4での共形改良係数1/6とトレース零の直接検算
+  - 質量零二点関数の接触項と全体並進の相殺
+  - 並進・拡大縮小・特殊共形変換の共形Killing方程式
+  - d=4の二点関数での拡大縮小・特殊共形Ward恒等式
+  - 質量項によるオンシェルトレースの破れ
+problem_patterns:
+  - QFT49-EUCLIDEAN-STRESS
+  - QFT49-IMPROVEMENT-DIVERGENCE
+  - QFT49-IMPROVEMENT-TRACE
+  - QFT49-CONTACT-TEST
+  - QFT49-CONFORMAL-KILLING
+  - QFT49-LOCAL-TRANSLATION
+  - QFT49-TWO-POINT-WARD
+  - QFT49-SPECIAL-CONFORMAL
+  - QFT49-MASS-TRACE
+  - QFT49-INTEGRATED-WARD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 12, review: 5 }
