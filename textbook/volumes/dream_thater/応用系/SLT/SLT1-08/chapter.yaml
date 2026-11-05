@@ -1,0 +1,43 @@
+id: "SLT1-08"
+title: "VC次元の必要性と無限VC反例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-07
+  - SLT1-05
+  - SLT1-02
+  - SLT1-04
+official_scope: []
+learning_objectives:
+  - shatterされた2n点上の未観測点反転から一様偏差が標本ごとに1/2以上となる反例を構成できる
+  - 未観測ラベルの条件付き独立性と平均化を用いて任意の乱択算法の期待リスク・失敗確率を下から評価できる
+  - 分布自由realizable・agnostic PAC学習可能性に有限VC次元が必要であることを量化順序を保って証明できる
+  - 有限または可算可測二値クラスについて有限VC次元と分布自由一様収束・agnostic PACの同値を既習結果と接続できる
+  - 無限VC次元でも固定した分布ごとの一様収束は成り立ち得ることを有限部分集合のクラスで証明できる
+  - iid・0–1損失・分布自由性・可測性の役割と証明の限界を説明できる
+definitions:
+  - { id: SLT1-08-DEF-01, name: 固定分布での一様収束 }
+theorems:
+  - { id: SLT1-08-THM-01, name: 無限VC次元と分布自由一様収束の障害 }
+  - { id: SLT1-08-THM-02, name: 無限VC次元のPAC下界 }
+  - { id: SLT1-08-THM-03, name: 可算二値クラスのVC・PAC同値 }
+  - { id: SLT1-08-PROP-01, name: 無限VCでも固定分布で一様収束する例 }
+canonical_examples:
+  - 四点をshatterして二観測後に未観測ラベルだけ反転する表
+  - 二点を均等にしたランダムラベルのn=1条件付き誤り確率
+  - 自然数上の有限部分集合の指示関数と固定分布の有限切断
+problem_patterns:
+  - SLT1-08-A01
+  - SLT1-08-A02
+  - SLT1-08-A03
+  - SLT1-08-A04
+  - SLT1-08-A05
+  - SLT1-08-B01
+  - SLT1-08-B02
+  - SLT1-08-B03
+  - SLT1-08-B04
+  - SLT1-08-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
