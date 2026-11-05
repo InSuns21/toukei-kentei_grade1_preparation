@@ -459,7 +459,7 @@ $$
 
 $n\ge3$ では $[L_n,L_{-2}]=(n+2)L_{n-2}$、$[L_n,L_{-1}]=(n+1)L_{n-1}$ です。二つの交換子を順に使えば、$L_n v$ の各項は最高ウェイト状態に作用する正モードへ帰着して消えます。普遍Verma加群ではPBW型の順序付き二状態を独立に用意しているので $v$ は形式的に非零です。
 
-自由bosonの電荷部門を $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）と定めます。[正規順序モード和](#prop-qft52-sugawara-levels) $L_n=\tfrac12\sum_k:a_{n-k}a_k:$ で、$L_0$ に残るのは零モード二個、$L_{-1}$ に残るのは添字 $(-1,0)$ と $(0,-1)$ の二組なので
+自由bosonの電荷部門を $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）、$\langle q|q\rangle=1$ と定めます。[正規順序モード和](#prop-qft52-sugawara-levels) $L_n=\tfrac12\sum_k:a_{n-k}a_k:$ で、$L_0$ に残るのは零モード二個、$L_{-1}$ に残るのは添字 $(-1,0)$ と $(0,-1)$ の二組なので
 
 $$
 L_0|q\rangle=\frac{q^2}{2}|q\rangle,\qquad
@@ -627,7 +627,7 @@ $$
 ### 演習 QFT52-B4：荷電Fock状態のnull条件
 
 - Level: B
-- 問題: $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）、$L_n=\frac12\sum_k:a_{n-k}a_k:$ とする。$L_{-2}|q\rangle$ と $L_{-1}^2|q\rangle$ を求め、$(L_{-2}-L_{-1}^2)|q\rangle=0$ となる実 $q$ を全て求めよ。
+- 問題: $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）、$\langle q|q\rangle=1$、$L_n=\frac12\sum_k:a_{n-k}a_k:$ とする。$L_{-2}|q\rangle$ と $L_{-1}^2|q\rangle$ を求め、$(L_{-2}-L_{-1}^2)|q\rangle=0$ となる実 $q$ を全て求めよ。
 
 **詳細解答**：[正規順序モード和からの計算](#cor-qft52-c1-null)と $[L_{-1},a_{-1}]=a_{-2}$ を使うと
 
