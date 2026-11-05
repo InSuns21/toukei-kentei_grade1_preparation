@@ -12,7 +12,7 @@ chapters:
     title: "Bayes超過リスクと近似誤差"
   - id: SLT1-02
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-02
-    status: planned
+    status: completed
     title: "PAC学習可能性とNo-Free-Lunch"
   - id: SLT1-03
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-03

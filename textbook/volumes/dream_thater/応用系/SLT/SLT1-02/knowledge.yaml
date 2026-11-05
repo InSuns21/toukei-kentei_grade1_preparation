@@ -1,0 +1,85 @@
+chapter: SLT1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-01
+
+concepts:
+  - id: learning.realizable-classification
+    name: realizableな分類分布
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（realizableな分類分布）"]
+    requires:
+      - learning.hypothesis-class
+      - learning.population-risk
+
+  - id: learning.realizable-pac-learnability
+    name: realizable PAC学習可能性
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（realizable PAC学習可能性）"]
+    requires:
+      - learning.realizable-classification
+      - learning.learning-algorithm
+
+  - id: learning.agnostic-pac-learnability
+    name: agnostic PAC学習可能性
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（agnostic PAC学習可能性）"]
+    requires:
+      - learning.realizable-pac-learnability
+      - learning.restricted-risk-optimum
+
+  - id: learning.pac-sample-complexity
+    name: PAC標本複雑度
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（PAC標本複雑度）"]
+    requires:
+      - learning.realizable-pac-learnability
+      - learning.agnostic-pac-learnability
+
+  - id: learning.agnostic-to-realizable-pac
+    name: agnostic PAC保証からrealizable PAC保証への帰着
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（agnostic PAC保証からrealizable PAC保証への帰着）"]
+    requires:
+      - learning.realizable-pac-learnability
+      - learning.agnostic-pac-learnability
+
+  - id: learning.finite-domain-memorization-pac
+    name: 有限入力集合の記憶型PAC上界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限入力集合の記憶型PAC上界）"]
+    requires:
+      - learning.realizable-pac-learnability
+      - learning.pac-sample-complexity
+
+  - id: learning.no-free-lunch-finite
+    name: No-Free-Lunch有限模型
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（No-Free-Lunch有限模型）"]
+    requires:
+      - learning.realizable-pac-learnability
+
+  - id: learning.full-binary-class-non-pac
+    name: 無限入力集合の全二値関数クラスはPAC学習不能
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（無限入力集合の全二値関数クラスはPAC学習不能）"]
+    requires:
+      - learning.no-free-lunch-finite
+      - learning.realizable-pac-learnability
