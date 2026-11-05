@@ -53,6 +53,8 @@ const values = {
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
   'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
+  'globe-point-role': 'start', 'globe-point-city': '',
+  'globe-point-lat': '', 'globe-point-lon': '',
   'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
@@ -62,6 +64,7 @@ for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'lab-A', 'lab-B', 'lab-D', 'lab-E', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new NodeElement(id));
+elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
 const buttons = ['A', 'B', 'D', 'E'].map(lab => {
   const b = new NodeElement(); b.dataset.lab = lab; return b;
 });
@@ -131,4 +134,15 @@ test('global comparison shows both projected diagrams with the shared 3D marker'
   assert.ok(elements.get('e-right-map').children.length > 20);
   assert.ok(calls.draws.length > drawBefore);
   assert.match(elements.get('geod-status').textContent, /計算済み/);
+});
+
+test('near-globe location controls update both the A input and the WebGL view', () => {
+  buttons[0].handlers.click();
+  const initial = requested.length, draws = calls.draws.length;
+  elements.get('globe-point-city').value = 'paris';
+  elements.get('globe-point-city').handlers.change();
+  assert.equal(elements.get('a-lat').value, '48.8566');
+  assert.equal(elements.get('a-lon').value, '2.3522');
+  assert.ok(calls.draws.length > draws);
+  assert.ok(requested.length >= initial);
 });
