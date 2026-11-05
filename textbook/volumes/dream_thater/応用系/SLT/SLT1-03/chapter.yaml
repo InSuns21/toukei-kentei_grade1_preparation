@@ -1,0 +1,44 @@
+id: "SLT1-03"
+title: "有限仮説クラスの汎化界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-02
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 固定仮説の経験リスク偏差にHDP1のHoeffding不等式を区間幅と標本数を照合して適用できる
+  - 有限クラスの同時偏差事象を定義し具体的な標本で成否を判定できる
+  - 固定仮説の偏差評価から合併上界で有限クラスの一様汎化界と標本数を導ける
+  - 標本依存のERMへ固定仮説の評価を直接代入できない理由と同時事象による解決を説明できる
+  - 有界損失・独立同分布・標本前固定クラスの条件が使われる位置を説明できる
+  - realizableな有限二値分類で整合仮説の誤分類ゼロ確率からepsilonの逆数型の標本数上界を証明できる
+  - agnosticとrealizableの保証対象・確率の取り方・定数を区別して数値比較できる
+definitions:
+  - { id: SLT1-03-DEF-01, name: 有限クラスの同時偏差事象 }
+theorems:
+  - { id: SLT1-03-THM-01, name: 固定仮説のリスク偏差界 }
+  - { id: SLT1-03-THM-02, name: 有限仮説クラスの一様汎化界 }
+  - { id: SLT1-03-COR-01, name: 標本依存の有限クラス選択に対するリスク保証 }
+  - { id: SLT1-03-THM-03, name: 有限realizableクラスの整合学習界 }
+canonical_examples:
+  - 三候補の二値分類での母集団・経験リスクと同時偏差事象の判定
+  - 十候補と二百標本に対する信頼半径の計算
+  - 一標本ERMでの選択前後の期待経験リスクの違い
+  - 三十二候補でのrealizable整合学習と一般一様偏差の十分標本数比較
+  - 完全従属標本とデータ依存一候補の失敗例
+problem_patterns:
+  - SLT1-03-A01
+  - SLT1-03-A02
+  - SLT1-03-A03
+  - SLT1-03-A04
+  - SLT1-03-A05
+  - SLT1-03-B01
+  - SLT1-03-B02
+  - SLT1-03-B03
+  - SLT1-03-B04
+  - SLT1-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 1.5 }
