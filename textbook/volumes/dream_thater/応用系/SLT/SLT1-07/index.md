@@ -48,17 +48,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-07-double-sample-trace -->
-**定義の確認**。入力列 $(a,b,a)$、正解ラベル列 $(0,1,1)$ を固定する。仮説 $h_0$ が $h_0(a)=1,h_0(b)=0$、仮説 $h_1$ が $h_1(a)=0,h_1(b)=1$ を返すなら、予測列は順に $(1,0,1),(0,1,0)$、損失列は
+**定義の確認**。入力列 $(a,b,a)$、正解ラベル列 $(0,1,1)$ を固定する。
+仮説 $h_0$ は $h_0(a)=1,h_0(b)=0$、仮説 $h_1$ は $h_1(a)=0,h_1(b)=1$ を返すので、予測列は順に $(1,0,1),(0,1,0)$ である。
+
+損失トレースの $j$ 成分は不一致という命題そのものではなく、その指示値 $\boldsymbol1_{\{h(x_j)\ne y_j\}}$ である。各成分を定義に代入すると、損失列は
 
 $$
-(1\ne0,\ 0\ne1,\ 1\ne1)=(1,1,0),
+(\boldsymbol1_{\{1\ne0\}},\ \boldsymbol1_{\{0\ne1\}},\ \boldsymbol1_{\{1\ne1\}})=(1,1,0),
 $$
 
 $$
-(0\ne0,\ 1\ne1,\ 0\ne1)=(0,0,1)
+(\boldsymbol1_{\{0\ne0\}},\ \boldsymbol1_{\{1\ne1\}},\ \boldsymbol1_{\{0\ne1\}})=(0,0,1)
 $$
 
-の指示値である。したがって $\mathcal H=\{h_0,h_1\}$ の損失トレースはこの二列からなり、同じ入力 $a$ が二度現れても定義できる。
+となる。したがって $\mathcal H=\{h_0,h_1\}$ の損失トレースはこの二列からなり、同じ入力 $a$ が二度現れても定義できる。
 
 さらに $n=1$ で $S=((a,0)),S'=((b,1))$ と取れば、$h_0$ の二つの経験損失はともに1、$h_1$ のそれらはともに0なので、$D_{2,1}(S,S')=0$。これは、損失トレースが非定数でも**二組の平均の差が0になり得る**ことを示す。
 <!-- definition-example-end -->
@@ -147,7 +150,7 @@ $$
 \end{aligned}
 $$
 
-これを満たすと $D_{2,n}(S,S')>\varepsilon/2$ である。したがって $E=\{D_{P,n}(S)>\varepsilon\}$ とおけば
+これを満たすと $D_{2,n}(S,S')>\varepsilon/2$ である。したがって $E=\{D_{P,n}(S)>\varepsilon\}$ とおく。ここで $\mathbb E_S$ は訓練標本 $S$ に関する期待値を表し、$S'$ の条件付き確率を $S$ で平均すると
 
 $$
 \begin{aligned}
@@ -195,9 +198,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$W=(Z_1,Z'_1,\ldots,Z_n,Z'_n)$ を一旦固定する。独立な対称符号 $\sigma_1,\ldots,\sigma_n$ で各対を交換する。交換前の左右の差を $a_i(h)$ とすれば、交換後の差は $\sigma_i a_i(h)$（符号の呼び方を逆にしても分布は同じ）となる。
+$W=(Z_1,Z'_1,\ldots,Z_n,Z'_n)$ を一旦固定する。独立な対称符号 $\sigma_1,\ldots,\sigma_n$ で各対を交換する。
+以後 $\Pr_\sigma,\mathbb E_\sigma$ は、$W$ を固定して符号 $\sigma=(\sigma_1,\ldots,\sigma_n)$ だけを動かす確率と期待値を表す。
+交換前の左右の差を $a_i(h)$ とすれば、交換後の差は $\sigma_i a_i(h)$（符号の呼び方を逆にしても分布は同じ）となる。
 
-固定した $h$ と $W$ に対して $U_i=\sigma_i a_i(h)$ は独立で、$\mathbb E_\sigma U_i=0$、$-1\le U_i\le1$。[Hoeffdingの両側版](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)へ $\sum_i(b_i-a_i)^2\le4n$ と偏差 $nt$ を代入すると
+固定した $h$ と $W$ に対して $U_i=\sigma_i a_i(h)$ は独立で、$\mathbb E_\sigma U_i=0$、$-1\le U_i\le1$ である。[Hoeffdingの両側版](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)に使う区間の下端を $-1$、上端を $1$ と取れば、その幅の二乗和は
+
+$$
+V=\sum_{i=1}^n(1-(-1))^2=4n
+$$
+
+となる。この $V$ と和の偏差 $nt$ を代入すると
 
 $$
 \begin{aligned}
@@ -341,7 +352,7 @@ $$
 
 ## 6. ERMへの帰結と、仮定が壊れる例
 
-目的は真のリスクを、標本を見て選んだ予測器について保証することだった。これには[近似ERMの決定論的過剰リスク界](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle)を組み合わせればよい。
+目的は真のリスクを、標本を見て選んだ予測器について保証することだった。[近似ERMの定義](../SLT1-04/index.md#def-slt1-04-approximate-erm)では、標本上の最小経験リスクとの差が $\eta$ 以下であることを要求する。これに[近似ERMの決定論的過剰リスク界](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle)を組み合わせればよい。
 
 <a id="cor-slt1-07-agnostic-erm"></a>
 
