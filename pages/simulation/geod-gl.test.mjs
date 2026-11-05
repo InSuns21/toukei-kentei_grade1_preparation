@@ -52,8 +52,10 @@ const values = {
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
-  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
-  'globe-point-role': 'start', 'globe-point-city': '',
+  'f-lat': '35.681236', 'f-lon': '139.767125',
+  'f-zone': '9', 'f-datum': 'jgd2011',
+  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '', 'f-city': '',
+  'globe-point-role': 'start', 'globe-point-zone': '9', 'globe-point-city': '',
   'globe-point-lat': '', 'globe-point-lon': '',
   'globe-zoom': '1',
 };
@@ -61,11 +63,13 @@ const elements = new Map(Object.entries(values).map(([id, value]) => [id, new No
 for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
   'osm-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
-  'lab-A', 'lab-B', 'lab-D', 'lab-E', 'e-map-panel', 'e-left-map', 'e-right-map',
+  'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
-  'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new NodeElement(id));
+  'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
+  'f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new NodeElement(id));
 elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
-const buttons = ['A', 'B', 'D', 'E'].map(lab => {
+elements.set('globe-point-zone-wrap', new NodeElement('globe-point-zone-wrap'));
+const buttons = ['A', 'B', 'D', 'E', 'F'].map(lab => {
   const b = new NodeElement(); b.dataset.lab = lab; return b;
 });
 globalThis.document = {

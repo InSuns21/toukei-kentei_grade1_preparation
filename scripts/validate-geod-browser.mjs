@@ -185,6 +185,31 @@ try {
   await evalJS(`document.querySelector('#e-right').value='mollweide';
     document.querySelector('#e-right').dispatchEvent(new Event('input'))`);
   assert.ok(await evalJS('document.querySelector("#e-right-title").textContent.includes("Mollweide")'));
+  await evalJS(`document.querySelector('[data-lab="F"]').click()`);
+  assert.equal(await evalJS('document.querySelector("#f-zone option").value'), '1');
+  assert.equal(await evalJS('document.querySelectorAll("#f-zone option").length'), 19);
+  assert.equal(await evalJS('document.querySelector("#globe-point-zone-wrap").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#f-map-panel").hidden'), false);
+  assert.ok(await evalJS('document.querySelectorAll("#f-map path").length >= 14'));
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("EPSG:6677")'));
+  assert.equal(await evalJS('document.querySelector("#globe-point-lat").value'), '35.681236');
+  await evalJS(`document.querySelector('#f-zone').value='8';
+    document.querySelector('#f-zone').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#globe-point-zone").value'), '8');
+  assert.ok(await evalJS('document.querySelector("#f-map-title").textContent.includes("VIII")'));
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("EPSG:6676")'));
+  await evalJS(`document.querySelector('#f-zone').value='9';
+    document.querySelector('#f-zone').dispatchEvent(new Event('input'));
+    document.querySelector('#globe-point-lat').value='36';
+    document.querySelector('#globe-point-lat').dispatchEvent(new Event('change'));
+    document.querySelector('#globe-point-lon').value=String(139 + 50/60);
+    document.querySelector('#globe-point-lon').dispatchEvent(new Event('change'))`);
+  assert.equal(await evalJS('document.querySelector("#f-lat").value'), '36');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("0.000 m")'));
+  await evalJS(`document.querySelector('#f-datum').value='grs80-only';
+    document.querySelector('#f-datum').dispatchEvent(new Event('input'))`);
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("datum・EPSG未指定")'));
+  assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
   await cdp('Emulation.setDeviceMetricsOverride', {
     width: 360, height: 760, deviceScaleFactor: 1, mobile: true,
   });
@@ -197,7 +222,7 @@ try {
   })()`);
   assert.ok(mobileLayout.globe / mobileLayout.region >= .98,
     '3D globe must remain full-width at 360px: ' + JSON.stringify(mobileLayout));
-  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, projection, zoom, 360px: PASS');
+  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, global/Japan projection, zoom, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {

@@ -20,6 +20,7 @@
     <button type="button" data-lab="B" aria-pressed="false">B：測地線</button>
     <button type="button" data-lab="D" aria-pressed="false">D：地図投影・ひずみ</button>
     <button type="button" data-lab="E" aria-pressed="false">E：等角と等積の比較</button>
+    <button type="button" data-lab="F" aria-pressed="false">F：日本の平面直角19系</button>
   </nav>
 
   <section class="panel" id="lab-A" aria-label="楕円体と法線">
@@ -80,6 +81,20 @@
     <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index">GEOD13：Tissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD19/index">GEOD19：等積とJacobian</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD20/index">GEOD20：Equal Earth</a></p>
   </section>
 
+  <section class="panel" id="lab-F" aria-label="日本の平面直角座標系" hidden>
+    <h2>F：日本の平面直角座標系は、なぜ19系ある？</h2>
+    <p>予測：同じ東京の経緯度をIX系とVIII系で投影すると、X・Yの値と原点からの距離はどう変わるでしょうか。原点の東西南北で符号を確かめます。</p>
+    <div class="controls">
+      <label>系番号（告示による原点）<select id="f-zone"></select></label>
+      <label>基準系の解釈<select id="f-datum"><option value="jgd2011">JGD2011と仮定（EPSG対応）</option><option value="grs80-only">GRS80楕円体のみ（datum未指定）</option></select></label>
+      <label>試験点の都市<select id="f-city"><option value="">任意の試験点</option></select></label>
+      <label>緯度 φ（度）<input id="f-lat" type="number" min="-80" max="80" step="any" value="35.681236"></label>
+      <label>経度 λ（度）<input id="f-lon" type="number" min="-180" max="180" step="any" value="139.767125"></label>
+    </div>
+    <p class="aside">原点の緯度・経度、<strong>X＝北正・Y＝東正</strong>、中央縮尺 k₀＝0.9999は国土地理院告示の値に固定します。計算はGRS80楕円体のKrüger順変換（n⁶）です。<strong>JGD2011を選ぶと、入力経緯度がその測地系で与えられたものと仮定するだけ</strong>で、JGD2024等へのdatum/epoch変換は行いません。地域名は参考の略称であり、法定適用区域の判定ではありません。</p>
+    <p><a href="https://www.gsi.go.jp/LAW/heimencho.html" target="_blank" rel="noopener noreferrer">国土地理院：平面直角座標系（19系の原点・適用区域・軸の定義）</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD21/index">GEOD21：日本の平面直角座標系</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD22/index">GEOD22：座標検算</a></p>
+  </section>
+
   <section class="panel">
     <h2>幾何表示</h2>
     <div class="viz-grid">
@@ -98,6 +113,9 @@
           <label id="globe-point-role-wrap" hidden>操作する地点
             <select id="globe-point-role"><option value="start">始点 P₁</option><option value="end">終点 P₂</option></select>
           </label>
+          <label id="globe-point-zone-wrap" hidden>平面直角の系
+            <select id="globe-point-zone" aria-label="日本の平面直角座標系の系番号"></select>
+          </label>
           <label>都市
             <select id="globe-point-city"><option value="">任意の緯度・経度</option></select>
           </label>
@@ -110,7 +128,7 @@
           <span class="globe-location-help">上の入力欄と連動</span>
         </div>
         <div class="globe-frame">
-          <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる全幅の回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、Dでは中央子午線、Eでは投影する試験点を表示。数値は直下の表を参照。"></canvas>
+          <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる全幅の回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、DとFでは中央子午線、Eでは試験点を表示。数値は直下の表を参照。"></canvas>
           <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
         </div>
         <div id="gl-fallback" hidden role="status">WebGL2を利用できないため3Dを省略しています。数値表と本文の静止図で同じ内容を確認できます。</div>
@@ -129,6 +147,11 @@
         <figcaption>実線＝中央子午線、破線＝その他の経緯線、太い輪郭＝Tissot指示楕円。<strong>楕円の大きさは表示上の強調</strong>です。</figcaption>
       </figure>
     </div>
+    <figure id="f-map-panel" hidden>
+      <div class="figure-head" id="f-map-title">F：日本の平面直角座標系</div>
+      <svg id="f-map" viewBox="0 0 720 470" role="img" aria-label="日本の平面直角座標系。青実線の縦がX軸（北正）、青実線の横がY軸（東正）、交点は原点O。赤点Pは入力地点、灰色は投影した経緯線。" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>縦の青実線＝<strong>X軸（Y=0）</strong>、横の青実線＝<strong>Y軸（X=0）</strong>。右へY正、上へX正。赤点Pから軸への破線は座標の符号を確認する補助線です。図の格子は投影した経緯線で、地表上の等距離線ではありません。</figcaption>
+    </figure>
     <div id="e-map-panel" hidden>
       <h3>E：同じ経緯線と同じ点 P を二つの投影で比較</h3>
       <div class="projection-comparison">
