@@ -203,3 +203,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT49
     status: completed
     title: "応力テンソルの改良・Ward恒等式・接触項と共形保存流"
+  - id: QFT50
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT50
+    status: completed
+    title: "二次元の正則共形変換・複素応力テンソルと局所Ward恒等式"
