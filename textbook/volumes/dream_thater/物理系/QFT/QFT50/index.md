@@ -81,6 +81,21 @@ $$
 
 従って $(Df)^{\mathsf T}Df=(a^2+b^2)I_2$、$\det Df=a^2+b^2=|f'|^2>0$。これが正定値計量に対する定義の全条件と対応します。反正則な $f(\bar z)$ は向きを反転する別の場合です。
 
+局所逆写像の存在も微分から確認できます。$a_0=f'(z_0)\ne0$ とし、$z_0$ を中心とする十分小さい円板 $D$ で $|f'(z)-a_0|<|a_0|/2$ とします。円板内の線分に沿って積分すると
+
+$$
+\begin{aligned}
+f(z_1)-f(z_2)
+&=a_0(z_1-z_2)
++(z_1-z_2)\int_0^1
+[f'(z_2+t(z_1-z_2))-a_0]\,dt,\\
+|f(z_1)-f(z_2)|
+&\ge\frac{|a_0|}{2}|z_1-z_2|.
+\end{aligned}
+$$
+
+従って $f$ は $D$ 上単射です。[正則写像の開写像定理](../../../解析系/CA/CA3/index.md#thm-ca3-open-mapping)から $f(D)$ は開集合なので、実際に局所逆写像が得られます。これは「Jacobianが正だから可逆」と説明だけで飛ばさないための確認です。
+
 次に無限小変換を見ます。$v=u(x,y)\partial_x+v_2(x,y)\partial_y$ を実ベクトル場とし、前章の[共形Killing方程式](../QFT49/index.md#def-qft49-conformal-killing)を二次元へ書き下します。前章の自由場の改良定理は $d\ge3$ のものでしたが、方程式自体は二次元でも定義できます。
 
 <a id="prop-qft50-cr-killing"></a>
@@ -162,6 +177,8 @@ S_E[\phi]=\frac{g}{4\pi}\int_U
 $$
 
 とします。コンパクト台変分で $\Delta\phi=0$ を得ます。$d=2$ では前章の $d\ge3$ の改良係数の議論を流用せず、応力テンソルをこの作用から作り直します。
+
+複素成分は別の新しいテンソルではありません。実座標での二階テンソル $\tau$ を複素化し、$\tau_{zz}=\tau(\partial_z,\partial_z)$、$\tau_{z\bar z}=\tau(\partial_z,\partial_{\bar z})$ と評価したものです。例えば $\partial_z=(\partial_x-i\partial_y)/2$ を二つの引数へ代入すると、次の定義に出る係数 $1/4$ と $-2i$ が得られます。
 
 <a id="def-qft50-complex-stress"></a>
 
