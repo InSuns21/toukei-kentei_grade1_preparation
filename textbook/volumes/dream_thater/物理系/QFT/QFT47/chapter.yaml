@@ -2,7 +2,7 @@ id: QFT47
 title: "電弱・異常相殺・QCD・EFT・非摂動近似を結ぶ総合演習"
 volume: foundations
 status: supplementary
-prerequisites: [QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
+prerequisites: [SM3, QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
 official_scope: []
 learning_objectives:
   - Higgs真空から中性ゲージ質量行列を対角化し、電荷・W/Z質量・Fermi定数の木レベル関係を一続きに検算できる
