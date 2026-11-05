@@ -1,0 +1,50 @@
+id: QFT55
+title: "平面–円筒写像・Schwarzianと有限サイズ・熱的相関"
+volume: foundations
+status: supplementary
+prerequisites: [QFT54, QFT53, QFT52, QFT51, QFT50, QFT48]
+official_scope: []
+learning_objectives:
+  - 周長Lの空間円筒と逆温度betaの熱円筒を区別して指数写像を構成できる
+  - Schwarzian微分とその合成則を出発点から導ける
+  - 応力テンソルの局所Ward作用から有限共形変換の中心項を導ける
+  - 円筒上の真空応力テンソルと中心電荷によるCasimirエネルギーを計算できる
+  - Virasoro零モードから有限サイズのエネルギー・運動量・励起間隔を求められる
+  - 一次場の二点核を平面から円筒へ写し正則・反正則因子を検算できる
+  - 空間円周のsinと熱円筒のsinhおよびその短距離・長距離極限を区別できる
+  - Majorana NS部門の反周期性とトーラスへの一般化の限界を説明できる
+definitions:
+  - { id: QFT55-DEF-01, name: 空間円周をもつ円筒の平面写像 }
+  - { id: QFT55-DEF-02, name: 正則写像のSchwarzian微分 }
+  - { id: QFT55-DEF-03, name: 無限直線の熱円筒 }
+theorems:
+  - { id: QFT55-LEM-01, name: 正則写像のSchwarzian合成則 }
+  - { id: QFT55-THM-01, name: 正則応力テンソルの有限共形変換 }
+  - { id: QFT55-PROP-01, name: 円筒真空の応力テンソル }
+  - { id: QFT55-THM-02, name: 空間円周のエネルギーと運動量 }
+  - { id: QFT55-THM-03, name: 円筒一次場の二点関数 }
+  - { id: QFT55-PROP-02, name: 無限直線の熱的スカラー二点核 }
+canonical_examples:
+  - 円周の四点の偏角と半径の対応
+  - 指数写像と反転のSchwarzian
+  - bosonとNS Majoranaの中心電荷と真空エネルギー
+  - 円周スカラー二点核の対蹠点と短距離極限
+  - NS Majorana二点核の反周期性
+  - 熱円筒の指数減衰と空間円周のsinとの比較
+problem_patterns:
+  - QFT55-CYLINDER-PERIODICITY
+  - QFT55-SCHWARZIAN-DIRECT
+  - QFT55-STRESS-CENTER
+  - QFT55-CIRCLE-TWO-POINT
+  - QFT55-SPECTRAL-GAP
+  - QFT55-THERMAL-LIMITS
+  - QFT55-SCHWARZIAN-COMPOSITION
+  - QFT55-STRESS-WARD-ANOMALY
+  - QFT55-CASIMIR-ENERGY
+  - QFT55-NS-SPIN-STRUCTURE
+  - QFT55-SPACE-TIME-CYLINDERS
+  - QFT55-CFT-FINITE-SIZE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 7 }
