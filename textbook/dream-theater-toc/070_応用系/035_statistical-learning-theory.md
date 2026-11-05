@@ -3,3 +3,4 @@
 
 1. [SLT1-01 Bayes超過リスクと近似誤差](textbook/volumes/dream_thater/応用系/SLT/SLT1-01/index.md)
 2. [SLT1-02 PAC学習可能性とNo-Free-Lunch](textbook/volumes/dream_thater/応用系/SLT/SLT1-02/index.md)
+3. [SLT1-03 有限仮説クラスの汎化界](textbook/volumes/dream_thater/応用系/SLT/SLT1-03/index.md)
