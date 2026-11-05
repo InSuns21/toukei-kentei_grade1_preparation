@@ -9,10 +9,11 @@
 .geod-app .viz-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
 .geod-app figure{margin:0;min-width:0}
 .geod-app .figure-head{font-weight:700;margin-bottom:.5rem}
-.geod-app #globe,.geod-app #map,.geod-app #a-section-map,.geod-app #e-left-map,.geod-app #e-right-map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;box-sizing:border-box}
+.geod-app #globe,.geod-app #map,.geod-app #a-section-map,.geod-app #e-left-map,.geod-app #e-right-map,.geod-app #f-map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;box-sizing:border-box}
 .geod-app #globe{touch-action:none}
 .geod-app .projection-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:.7rem}
 .geod-app #e-map-panel{margin-top:1rem}
+.geod-app #f-map-panel{margin-top:1rem}
 .geod-app .globe-frame{position:relative}
 .geod-app .world-toggle{display:flex;align-items:center;gap:.4rem;font-size:.87rem;margin:0 0 .5rem}
 .geod-app .globe-zoom-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin:.5rem 0;font-size:.88rem}
@@ -23,7 +24,8 @@
 .geod-app .globe-location-toolbar label{flex:1 1 145px;min-width:0;font-size:.84rem}
 .geod-app .globe-location-toolbar input,.geod-app .globe-location-toolbar select{width:100%;box-sizing:border-box;min-width:0}
 .geod-app .globe-location-toolbar #globe-point-role-wrap{flex:0 1 140px}
-.geod-app #globe-point-role-wrap[hidden]{display:none}
+.geod-app .globe-location-toolbar #globe-point-zone-wrap{flex:1 1 170px}
+.geod-app #globe-point-role-wrap[hidden],.geod-app #globe-point-zone-wrap[hidden]{display:none}
 .geod-app .globe-location-help{font-size:.77rem;color:#425466;white-space:nowrap;align-self:center}
 .geod-app .zoom-note{font-size:.78rem;color:#334155;margin:.35rem 0}
 .geod-app #osm-credit{position:absolute;right:.45rem;bottom:.5rem;padding:.14rem .3rem;background:#fffffff0;border-radius:3px;font-size:.7rem;color:#1d496b}
