@@ -1,0 +1,76 @@
+chapter: QFT56
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT55, QFT53, QFT50, QFT19, QFT20]
+forward_references: [quantum.reduced-density-operator, quantum.von-neumann-entropy]
+
+concepts:
+  - id: qft.half-plane-boundary-conditions
+    name: 半平面と二つの境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（半平面と二つの境界条件）]
+    requires: []
+
+  - id: qft.boundary-free-boson-green
+    name: 二次元自由bosonの境界Green核
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二次元自由bosonの境界Green核）]
+    requires: [qft.half-plane-boundary-conditions]
+
+  - id: qft.dirichlet-image-green
+    name: Dirichlet境界核の鏡像公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet境界核の鏡像公式）]
+    requires: [qft.boundary-free-boson-green]
+
+  - id: qft.neumann-image-green
+    name: Neumann鏡像核と零モードの曖昧さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Neumann鏡像核と零モードの曖昧さ）]
+    requires: [qft.boundary-free-boson-green, qft.dirichlet-image-green]
+
+  - id: qft.strip-dirichlet-green
+    name: 帯領域のDirichlet Green核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（帯領域のDirichlet Green核）]
+    requires: [qft.dirichlet-image-green, qft.spatial-cylinder-exponential-map]
+
+  - id: qft.interval-endpoint-cutoff
+    name: 区間端点の点分離cutoff
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（区間端点の点分離cutoff）]
+    requires: [qft.strip-dirichlet-green]
+
+  - id: qft.boundary-point-split-variance
+    name: 境界距離とUV自己縮約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（境界距離とUV自己縮約）]
+    requires: [qft.dirichlet-image-green, qft.strip-dirichlet-green, qft.interval-endpoint-cutoff]
+
+  - id: qft.gaussian-vertex-normal-ordering
+    name: 平面規格化のGaussian頂点演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平面規格化のGaussian頂点演算子）]
+    requires: [qft.boundary-free-boson-green]
+
+  - id: qft.dirichlet-vertex-one-point
+    name: Dirichlet境界の頂点一体関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet境界の頂点一体関数）]
+    requires: [qft.gaussian-vertex-normal-ordering, qft.boundary-point-split-variance]
+
+  - id: qft.thermal-normalized-ratio
+    name: 熱円筒の正規化二点比と尺度極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱円筒の正規化二点比と尺度極限）]
+    requires: [qft.thermal-cylinder-scalar-correlator, qft.interval-endpoint-cutoff]
