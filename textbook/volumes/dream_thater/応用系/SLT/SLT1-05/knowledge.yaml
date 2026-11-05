@@ -1,0 +1,112 @@
+chapter: SLT1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-04
+
+concepts:
+  - id: learning.finite-sample-trace
+    name: 有限集合上のトレース
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（有限集合上のトレース）"]
+    requires:
+      - learning.hypothesis-class
+
+  - id: learning.shattering
+    name: shattering
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（shattering：完全分割）"]
+    requires:
+      - learning.finite-sample-trace
+
+  - id: learning.shattering-hereditary
+    name: shatteringの部分集合への遺伝
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（shatteringの部分集合への遺伝）"]
+    requires:
+      - learning.shattering
+
+  - id: learning.shatter-coefficient
+    name: 成長関数
+    kind: definition
+    aliases: ["shatter coefficient"]
+    introduction: formal
+    introduction_aliases: ["定義（成長関数：shatter coefficient）"]
+    requires:
+      - learning.finite-sample-trace
+
+  - id: learning.vc-dimension
+    name: VC次元
+    kind: definition
+    aliases: ["Vapnik–Chervonenkis次元"]
+    introduction: formal
+    introduction_aliases: ["定義（Vapnik–Chervonenkis次元：VC次元）"]
+    requires:
+      - learning.shattering
+
+  - id: learning.growth-function-basic
+    name: 成長関数の基本性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（成長関数の基本性質）"]
+    requires:
+      - learning.shatter-coefficient
+      - learning.vc-dimension
+      - learning.shattering-hereditary
+
+  - id: learning.finite-class-vc-bound
+    name: 有限クラスのVC次元上界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（有限クラスのVC次元上界）"]
+    requires:
+      - learning.growth-function-basic
+
+  - id: learning.threshold-growth-function
+    name: 片側閾値クラスの成長関数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（片側閾値クラスの成長関数）"]
+    requires:
+      - learning.shatter-coefficient
+      - learning.vc-dimension
+
+  - id: learning.interval-growth-function
+    name: 閉区間クラスの成長関数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（閉区間クラスの成長関数）"]
+    requires:
+      - learning.shatter-coefficient
+      - learning.vc-dimension
+
+  - id: learning.axis-aligned-rectangle-vc
+    name: 平面の軸平行矩形のVC次元
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（平面の軸平行矩形のVC次元）"]
+    requires:
+      - learning.shattering
+      - learning.vc-dimension
+      - learning.shattering-hereditary
+
+  - id: learning.finite-subsets-infinite-vc
+    name: 有限部分集合の指示関数は無限VC次元
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限部分集合の指示関数は無限VC次元）"]
+    requires:
+      - learning.growth-function-basic
+      - learning.vc-dimension

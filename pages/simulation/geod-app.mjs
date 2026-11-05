@@ -4,6 +4,8 @@ import {
   transverseMercator, projectionDistortion,
 } from './geod-core.mjs';
 import { CITIES, TILE_ZOOM, mercatorY, visibleXYZTiles } from './geod-map.mjs';
+import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
+  globalDistortion } from './geod-compare.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -301,6 +303,11 @@ function renderGlobe() {
     const P = point(state.phi, state.lambda, drawnEllipsoid, 1.01);
     emit(gl.LINES, arrow(P, vecAdd(P, enuBasis(state.phi, state.lambda).up, .2)), [.82, .29, .11], true);
     emit(gl.POINTS, [P], [.94, .22, .11], true);
+  } else if (state.lab === 'E') {
+    const P = point(state.phi, state.lambda, drawnEllipsoid, 1.014);
+    emit(gl.LINES, arrow(P, vecAdd(P, enuBasis(state.phi, state.lambda).up, .23)),
+      [.85, .32, .11], true);
+    emit(gl.POINTS, [P], [.95, .2, .12], true);
   }
   requestVisibleTiles();
 }
@@ -420,6 +427,61 @@ function drawProjectionMap(opts, location, distortion) {
     '中心PのE=' + (base.E / 1000).toFixed(1) + ' km、Np=' + (base.Np / 1000).toFixed(1) + ' km'));
 }
 
+function drawGlobalProjectionMap(elementId, projectionId, phi, lambda, distortion) {
+  const map = $(elementId);
+  map.replaceChildren();
+  // The two panels share the same physical scale (pixels per authalic radius),
+  // not two independently fitted bounding boxes that would hide distortion.
+  const scale = 67 / AUTHALIC_RADIUS, cx = 320, cy = 190;
+  const xy = (lat, lon) => {
+    const { x, y } = globalProjection(projectionId, lat, lon);
+    return [cx + x * scale, cy - y * scale];
+  };
+  const pathOf = points => points.map(([x, y], i) =>
+    (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2)).join(' ');
+  map.append(svg('rect', { x: 1, y: 1, width: 638, height: 378, rx: 8,
+    fill: '#f8fbff', stroke: '#cfd9e5' }));
+  for (let lat = -75; lat <= 75; lat += 15) {
+    const positions = [];
+    for (let lon = -180; lon <= 180; lon += 3) positions.push(xy(rad(lat), rad(lon)));
+    map.append(svg('path', { d: pathOf(positions), fill: 'none',
+      stroke: lat === 0 ? '#5f748b' : '#aab6c5',
+      'stroke-width': lat === 0 ? 1.7 : 1.0 }));
+  }
+  for (let lon = -180; lon <= 180; lon += 30) {
+    const positions = [];
+    for (let lat = -80; lat <= 80; lat += 2) positions.push(xy(rad(lat), rad(lon)));
+    map.append(svg('path', { d: pathOf(positions), fill: 'none',
+      stroke: lon === 0 ? '#285f91' : '#91a0b3',
+      'stroke-width': lon === 0 ? 2.4 : 1.2,
+      'stroke-dasharray': lon === 0 ? 'none' : '5 4' }));
+  }
+  const centre = xy(phi, lambda);
+  const radius = AUTHALIC_RADIUS * .27;
+  const ellipse = [];
+  for (let i = 0; i <= 100; i++) {
+    const t = 2 * Math.PI * i / 100;
+    ellipse.push([
+      centre[0] + radius * scale * (distortion.east[0] * Math.cos(t) +
+        distortion.north[0] * Math.sin(t)),
+      centre[1] - radius * scale * (distortion.east[1] * Math.cos(t) +
+        distortion.north[1] * Math.sin(t)),
+    ]);
+  }
+  map.append(svg('path', { d: pathOf(ellipse) + ' Z', fill: '#eaa04455',
+    stroke: '#a74b14', 'stroke-width': 2.7 }));
+  map.append(svg('circle', { cx: centre[0], cy: centre[1], r: 4.5,
+    fill: '#b72d21', stroke: '#ffffff', 'stroke-width': 1 }));
+  const textX = Math.max(22, Math.min(607, centre[0] + 8));
+  const textY = Math.max(22, Math.min(355, centre[1] - 10));
+  map.append(svg('text', { x: textX, y: textY, 'font-size': 16,
+    'font-weight': 'bold', fill: '#862517' }, 'P'));
+  map.append(svg('text', { x: 18, y: 26, 'font-size': 15,
+    fill: '#24394c' }, GLOBAL_PROJECTIONS[projectionId]));
+  map.append(svg('text', { x: 18, y: 360, 'font-size': 13,
+    fill: '#24394c' }, '共通尺度：67 px / 球半径 R　｜　緯度 ±80°まで'));
+}
+
 function showResults(rows, questions, caption) {
   const table = document.createElement('table');
   const body = document.createElement('tbody');
@@ -527,13 +589,58 @@ function computeD() {
   ], '青い実線は中央子午線（λ₀）。橙の突起は試験点Pの楕円体法線。3Dは説明用の20倍扁平率、右図の計算値は実模型。');
 }
 
+function computeE() {
+  const lat = Number($('e-lat').value), lon = Number($('e-lon').value);
+  const left = $('e-left').value, right = $('e-right').value;
+  if (!Number.isFinite(lat) || Math.abs(lat) > 80 ||
+      !Number.isFinite(lon) || Math.abs(lon) > 180) {
+    throw new RangeError('試験点は緯度±80°、経度±180°の範囲で指定してください');
+  }
+  if (!GLOBAL_PROJECTIONS[left] || !GLOBAL_PROJECTIONS[right]) {
+    throw new RangeError('投影法を選択してください');
+  }
+  const phi = rad(lat), lambda = rad(lon);
+  const dl = globalDistortion(left, phi, lambda);
+  const dr = globalDistortion(right, phi, lambda);
+  const pl = globalProjection(left, phi, lambda);
+  const pr = globalProjection(right, phi, lambda);
+  state.phi = phi; state.lambda = lambda;
+  state.fVisual = GRS80.f * 20;
+  state.geodesic = null;
+  $('e-left-title').textContent = GLOBAL_PROJECTIONS[left];
+  $('e-right-title').textContent = GLOBAL_PROJECTIONS[right];
+  drawGlobalProjectionMap('e-left-map', left, phi, lambda, dl);
+  drawGlobalProjectionMap('e-right-map', right, phi, lambda, dr);
+  const describe = (d, p) => [fmt(d.area, 6),
+    fmt(d.major, 5) + ' / ' + fmt(d.minor, 5),
+    fmt(deg(d.maxAngularDistortion), 4) + '°',
+    fmt(p.x / 1000, 2) + ' / ' + fmt(p.y / 1000, 2) + ' km'];
+  const lv = describe(dl, pl), rv = describe(dr, pr);
+  showResults([
+    ['比較模型', 'GRS80の等面積球半径 R=' + fmt(AUTHALIC_RADIUS, 3) +
+      ' m。緯度は球面緯度として入力。'],
+    ['投影法', '左：' + GLOBAL_PROJECTIONS[left] + ' ／ 右：' + GLOBAL_PROJECTIONS[right]],
+    ['試験点 P', '緯度 ' + fmt(lat, 4) + '°、経度 ' + fmt(lon, 4) + '°'],
+    ['面積比 |det J|（左 ／ 右）', lv[0] + ' ／ ' + rv[0]],
+    ['主縮尺（長/短）（左 ／ 右）', lv[1] + ' ／ ' + rv[1]],
+    ['最大角ひずみ（左 ／ 右）', lv[2] + ' ／ ' + rv[2]],
+    ['平面 x/y（左 ／ 右）', lv[3] + ' ／ ' + rv[3]],
+  ], [
+    '緯度0°・60°でMercatorの面積比を比べる。球面Mercatorの理論値はsec²φ。',
+    'Equal EarthとMollweideの面積比が約1となる一方、主縮尺が一致しない点を探す。',
+    '二図の共通尺度と、拡大した微小円の像を区別し、等角と等積を両立できない理由を説明する。',
+  ], '3Dの赤い点Pと二つの全球投影の赤い点は同じ入力経緯度。3Dは誇張楕円体、投影数値は共通の等面積球模型。投影図の指示楕円は線形像の拡大表示です。');
+}
+
 function recalculate() {
   $('map-panel').hidden = state.lab !== 'D';
   $('a-section').hidden = state.lab !== 'A';
+  $('e-map-panel').hidden = state.lab !== 'E';
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
-    else computeD();
+    else if (state.lab === 'D') computeD();
+    else computeE();
     renderGlobe();
   } catch (error) {
     $('geod-status').textContent = error.message;
@@ -541,6 +648,8 @@ function recalculate() {
     $('geod-results').replaceChildren();
     state.geodesic = null;
     $('map').replaceChildren();
+    $('e-left-map').replaceChildren();
+    $('e-right-map').replaceChildren();
     renderGlobe();
   }
 }
@@ -550,6 +659,7 @@ const cityControls = [
   ['b-city1', 'b-lat1', 'b-lon1'],
   ['b-city2', 'b-lat2', 'b-lon2'],
   ['d-city', 'd-lat', 'd-lon'],
+  ['e-city', 'e-lat', 'e-lon'],
 ];
 for (const [id, latId, lonId] of cityControls) {
   const selector = $(id);
@@ -581,11 +691,13 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
   }
   // Recenter on the study point. The learner can then freely rotate.
   state.yaw = state.lab === 'D' ? -rad(Number($('d-lon0').value))
-    : state.lab === 'B' ? -rad(Number($('b-lon1').value)) : -rad(Number($('a-lon').value));
+    : state.lab === 'B' ? -rad(Number($('b-lon1').value))
+      : state.lab === 'E' ? -rad(Number($('e-lon').value)) : -rad(Number($('a-lon').value));
   recalculate();
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
-  'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model']) {
+  'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
+  'e-lat', 'e-lon', 'e-left', 'e-right']) {
   $(id).addEventListener('input', () => {
     if (customCityInputs.has(id)) $(customCityInputs.get(id)).value = '';
     recalculate();
