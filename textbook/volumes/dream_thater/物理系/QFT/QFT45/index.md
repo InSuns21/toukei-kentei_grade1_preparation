@@ -15,7 +15,14 @@ U(\phi)=-\frac{\mu_0^2}{2}\phi^2+\frac\lambda4\phi^4,
 \qquad \mu_0^2>0,\quad \lambda>0
 $$
 
-を与えます。$\mu_0$ は質量次元1、$\lambda$ は無次元です。$U'(\phi)=\phi(-\mu_0^2+\lambda\phi^2)$ より停留点は $0$ と $\pm v_0$、$v_0^2=\mu_0^2/\lambda$ です。$U''(0)=-\mu_0^2<0$、$U''(\pm v_0)=2\mu_0^2>0$ で、$U\to+\infty$（$|\phi|\to\infty$）なので、$\pm v_0$ は大域的最小点です。
+を与えます。$\mu_0$ は質量次元1、$\lambda$ は無次元です。この節のプライムは一変数 $\phi$ による通常の微分 $U'=dU/d\phi$、$U''=d^2U/d\phi^2$ を表します。停留点と曲率を順に計算すると
+
+$$
+U'(\phi)=\phi(-\mu_0^2+\lambda\phi^2),\qquad
+U''(\phi)=-\mu_0^2+3\lambda\phi^2.
+$$
+
+停留点は $0$ と $\pm v_0$（$v_0^2=\mu_0^2/\lambda$）です。$U''(0)=-\mu_0^2<0$、$U''(\pm v_0)=2\mu_0^2>0$ で、さらに $U\to+\infty$（$|\phi|\to\infty$）なので、$\pm v_0$ は大域的最小点です。
 
 例えば $\phi=v_0+h$ と置くと
 
@@ -67,7 +74,15 @@ $$
 <!-- definition-example-start: def-qft45-shell-mass -->
 ### 例：場二つの係数を読み取る
 
-**定義の確認**：高モードの分散を $C_>(0)=\langle\chi(x)^2\rangle_0$ とすると、$\lambda(\phi_L+\chi)^4/4$ の $\phi_L^2\chi^2$ 項は $6\lambda\phi_L^2\chi^2/4$ です。Gaussian平均後は $(3\lambda C_>(0)/2)\phi_L^2$ なので、質量項 $\delta m^2\phi_L^2/2$ と比較して $\delta m^2=3\lambda C_>(0)$。**四次頂点の係数と質量項の $1/2$** を別々に確かめました。
+**定義の確認**：高モードの分散を $C_>(0)=\langle\chi(x)^2\rangle_0$ とします。$\lambda(\phi_L+\chi)^4/4$ から二つずつの場を選ぶ組合せは $\binom42=6$ 通りなので、Gaussian平均後の二次項は
+
+$$
+\frac\lambda4\binom42\phi_L^2\langle\chi^2\rangle_0
+=\frac{3\lambda C_>(0)}2\phi_L^2
+=\frac{\delta m^2}2\phi_L^2.
+$$
+
+従って $\delta m^2=3\lambda C_>(0)$ です。**四次頂点の係数と質量項の $1/2$** を別々に確かめました。$m^2>0$ と $0<K<\Lambda$ によって高モードのGaussian核 $k_E^2+m^2$ は正なので、この分散は有限モードで定義できます。
 <!-- definition-example-end -->
 
 <a id="thm-qft45-cutoff-mass"></a>
@@ -141,9 +156,32 @@ U(\phi,\chi)=U_L(\phi)+\frac12M^2\chi^2
 +\frac g4\phi^2\chi^2,\qquad M^2>0,\quad g\ge0
 $$
 
-を加えます。$U_L$ は軽い場の局所ポテンシャル、$M$ は**物理的な重い尺度を持つ入力パラメータ**で、$g$ は無次元の混合結合です。$\phi=\varphi$ を一定に保つと、$\chi$ の二次核は $K_\chi=-\partial_E^2+M^2+g\varphi^2/2$ です。$g\ge0$ なので実 $\varphi$ に対して正定値です。これは $\chi$ についてGaussianの模型であり、軽い場も同時に厳密に積分したという意味ではありません。
+を加えます。$U_L$ は軽い場の局所ポテンシャル、$M$ は**物理的な重い尺度を持つ入力パラメータ**で、$g$ は無次元の混合結合です。$\phi=\varphi$ を一定に保ったときの、$\chi$ の二次核は
+
+$$
+K_\chi=-\partial_E^2+M^2+\frac g2\varphi^2.
+$$
+
+$g\ge0$ なので実 $\varphi$ に対して正定値です。これは $\chi$ についてGaussianの模型であり、軽い場も同時に厳密に積分したという意味ではありません。
 
 ここで**一ループ有効ポテンシャル**とは、一定背景 $\varphi$ の単位体積あたりの有効作用の、$\hbar$ に一次の項までを含むものです（[QFT21の1PI有効作用](../QFT21/index.md#def-qft21-effective-action)）。実スカラーを二次Gaussianで消すと、背景依存部分は $\frac12\operatorname{Tr}\log K_\chi$ で決まります。
+
+この行列式は突然導入した別の判定法ではなく、上で求めた二次核を有限モードで表したものです。四次元周期体積を $V_4$、$-\partial_E^2$ の実直交規格化固有関数を $e_n(x)$（固有値 $k_{E,n}^2$）とします。$\chi(x)=\sum_nq_ne_n(x)$ と展開すると、直交性 $\int d^4x\,e_ne_m=\delta_{nm}$ から重い場の二次作用は
+
+$$
+S_{\chi,2}(\varphi)=\frac12\sum_{|k_{E,n}|\le\Lambda}
+\left(k_{E,n}^2+M^2+\frac g2\varphi^2\right)q_n^2.
+$$
+
+$M^2>0$ と $g\ge0$ からすべての固有値が正であり、[有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)を各実モードへ適用できます。一ループ有効作用の背景差を $\Delta\Gamma_1(\varphi):=\Gamma_1(\varphi)-\Gamma_1(0)$ と書けば
+
+$$
+\frac{\Delta\Gamma_1(\varphi)}{V_4}
+=\frac1{2V_4}\sum_{|k_{E,n}|\le\Lambda}
+\log\left(1+\frac{g\varphi^2}{2(k_{E,n}^2+M^2)}\right).
+$$
+
+固定カットオフで $V_4\to\infty$ とすると $V_4^{-1}\sum_n$ は $\int d^4k_E/(2\pi)^4$ に移ります。従って、質量閾値の判定は**この和の $\varphi^2/2$ 係数を読むこと**に帰着します。
 
 <a id="def-qft45-heavy-threshold"></a>
 
@@ -161,7 +199,15 @@ $$
 <!-- definition-example-start: def-qft45-heavy-threshold -->
 ### 例：重いGaussianモードを一つ積分する
 
-**定義の確認**：一つの実変数 $x$ と $A>0$ に対して $\int_{\mathbb R}e^{-Ax^2/2}dx=(2\pi/A)^{1/2}$ です。$A=M^2+g\varphi^2/2$ とすると、$-\log Z(\varphi)+\log Z(0)=\frac12\log[1+g\varphi^2/(2M^2)]$。小さい $\varphi$ では $g\varphi^2/(4M^2)+O(\varphi^4)$ となるので、$\varphi^2/2$ の係数は $g/(2M^2)$ です。実際の四次元では各Fourierモードの $M^2$ が $k_E^2+M^2$ に替わり、その係数を積分します。
+**定義の確認**：一つの実変数 $x$ と $A>0$ に対して $\int_{\mathbb R}e^{-Ax^2/2}dx=(2\pi/A)^{1/2}$ です。$A=M^2+g\varphi^2/2>0$ とし、Gaussian積分の値を $Z(\varphi)$ と書くと
+
+$$
+-\log\frac{Z(\varphi)}{Z(0)}
+=\frac12\log\left(1+\frac{g\varphi^2}{2M^2}\right)
+=\frac{g\varphi^2}{4M^2}+O(\varphi^4).
+$$
+
+従って $\varphi^2/2$ の係数は $g/(2M^2)$ です。実際の四次元では上の二次核に従い、各実Fourierモードで $M^2$ を $k_E^2+M^2$ に替え、全モードの寄与を単位体積あたりに足します。
 <!-- definition-example-end -->
 
 <a id="thm-qft45-heavy-matching"></a>
@@ -272,7 +318,14 @@ $$
 <!-- definition-example-start: def-qft45-one-loop-vacuum -->
 ### 例：ループを切った場合の条件を直接確かめる
 
-**定義の確認**：$V_1=0$ と置く木レベルでは $v=v_0>0$ で、$U'(v_0)=-\mu_0^2v_0+\lambda v_0^3=0$、$U''(v_0)=2\mu_0^2>0$ です。$-v_0$ でも同じ条件を満たします。一方 $\varphi=0$ は $U'=0$ でも $U''<0$ なので、この定義の安定な停留真空候補ではありません。
+**定義の確認**：$V_1=0$ と置く木レベルで $v=v_0>0$ を選ぶと、定義に必要な停留条件と正曲率条件は
+
+$$
+U'(v_0)=-\mu_0^2v_0+\lambda v_0^3=0,
+\qquad U''(v_0)=2\mu_0^2>0
+$$
+
+です。従ってGaussian核も正で、$-v_0$ でも同じ条件を満たします。一方 $\varphi=0$ は $U'=0$ でも $U''<0$ なので、この定義の安定な停留真空候補ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-qft45-vacuum-shift"></a>
@@ -329,7 +382,14 @@ $$
 
 ### 曲率と極質量の違い
 
-上の例の曲率を一次まで計算すると $V_{\mathrm{eff}}''(v)=U''(v_0)+U'''(v_0)\delta v+V_1''(v_0)+O(\hbar^2)$ です。$U'''(v_0)=6\lambda v_0$ と $x''=6\lambda$ を使えば
+上の例の曲率を一次まで計算すると $V_{\mathrm{eff}}''(v)=U''(v_0)+U'''(v_0)\delta v+V_1''(v_0)+O(\hbar^2)$ です。ここでもプライムは背景 $\varphi$ による通常微分です。前節の $f'(x)=x(\log(x/\mu_R^2)-1)/(32\pi^2)$ に連鎖律をもう一度適用し、$x=\mathcal M^2(\varphi)$ と置くと
+
+$$
+V_1''(\varphi)=\frac{x x''(\log(x/\mu_R^2)-1)
++(x')^2\log(x/\mu_R^2)}{32\pi^2}.
+$$
+
+$U'''(v_0)=6\lambda v_0$、$x'(v_0)=6\lambda v_0$、$x''=6\lambda$ を代入すれば
 
 $$
 \begin{aligned}
@@ -343,7 +403,14 @@ $$
 
 ## 5. 対称性が守る方向と守らない方向
 
-連続な大域対称性が正則化・反項を含めて保存されていれば、量子補正後の有効ポテンシャルも同じ回転対称性を持つことがあります。二成分実場 $\boldsymbol\phi=(\phi_1,\phi_2)$ なら、回転対称な一様背景のポテンシャルは $V_{\mathrm{eff}}=F(r^2)$、$r^2=\phi_1^2+\phi_2^2$ と書けます（ここではその滑らかな表示を仮定します）。
+連続な大域対称性が正則化・反項を含めて保存されていれば、量子補正後の有効ポテンシャルも同じ回転対称性を持つことがあります。二成分実場 $\boldsymbol\phi=(\phi_1,\phi_2)$ なら、一様背景の回転不変なポテンシャルを
+
+$$
+V_{\mathrm{eff}}(\boldsymbol\phi)=F(r^2),\qquad
+r^2=\phi_1^2+\phi_2^2
+$$
+
+と書けます（ここではその滑らかな表示を仮定します）。ここからは二変数なので、$\partial/\partial\phi_a$ は他方の場成分を固定した偏微分を意味します。添字 $a,b$ は $1,2$ を動き、$\delta_{ab}$ はKroneckerのデルタです。$H_{ab}$ はこの二回偏微分を並べたHessian行列の成分です。
 
 <a id="prop-qft45-goldstone-hessian"></a>
 
@@ -445,7 +512,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$U'(\phi)=-a^2\phi+b\phi^3=\phi(-a^2+b\phi^2)$ なので停留点は $0,\pm a/\sqrt b$ です。$U''(\phi)=-a^2+3b\phi^2$ で $U''(0)=-a^2<0$、$U''(\pm a/\sqrt b)=2a^2>0$。$b>0$ により $|\phi|\to\infty$ で $U\to\infty$ なので $\pm a/\sqrt b$ が大域的極小です。$v=a/\sqrt b$、$\phi=v+h$ で二次項は $U''(v)h^2/2=a^2h^2$。正準運動項と比較し $m_{h,0}^2=2a^2$ です。
+$U'(\phi)=\phi(-a^2+b\phi^2)$ なので停留点は $0,\pm a/\sqrt b$ です。曲率を計算すると
+
+$$
+U''(\phi)=-a^2+3b\phi^2,\qquad
+U''(0)=-a^2<0,\qquad
+U''(\pm a/\sqrt b)=2a^2>0.
+$$
+
+$b>0$ により $|\phi|\to\infty$ で $U\to\infty$ なので $\pm a/\sqrt b$ が大域的極小です。$v=a/\sqrt b$、$\phi=v+h$ とすると二次項は $U''(v)h^2/2=a^2h^2$。正準運動項と比較し $m_{h,0}^2=2a^2$ です。
 <!-- solution-end -->
 
 ### 演習 QFT45-A2：Gaussian一モードの符号
@@ -487,7 +562,14 @@ C_>(0)=\frac{2\pi^2}{(2\pi)^4}\int_K^\Lambda\frac{r^3}{r^2}dr
 =\frac{\Lambda^2-K^2}{16\pi^2}.
 $$
 
-[質量補正の定義](#def-qft45-shell-mass)で係数は $3\lambda C_>(0)$ なので $\delta m^2=3\lambda(\Lambda^2-K^2)/(16\pi^2)$ です。$K>0$ なので積分下端の零運動量特異性はありません。極質量の計算ではありません。
+[質量補正の定義](#def-qft45-shell-mass)は $m^2>0$ で述べましたが、この問題では $m=0$ でも $K>0$ のため殻のGaussian核 $k^2$ は厳密に正であり、同じ $\phi_L^2\chi^2$ の縮約が使えます。従って
+
+$$
+\delta m^2=3\lambda C_>(0)
+=\frac{3\lambda}{16\pi^2}(\Lambda^2-K^2).
+$$
+
+これは $m\to0^+$ の極限とも一致します。積分下端の零運動量特異性は含まれず、極質量の計算ではありません。
 <!-- solution-end -->
 
 ### 演習 QFT45-A4：重い場の二次核
@@ -521,7 +603,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$2=m_{\mathrm{high}}^2-198$ なので $m_{\mathrm{high}}^2=200$ です。二数を合わせると $200-198=2$ を再現し、$\Delta=198/2=99$。この定義は二項の相殺の大きさだけを測ります。例えば「新粒子が必ず特定のエネルギーで発見される」「この模型の実現確率が $1/99$」はいずれも導けません。
+matchingの式 $2=m_{\mathrm{high}}^2-198$ を解き、二項の和を検算すると
+
+$$
+m_{\mathrm{high}}^2=200,\qquad
+200-198=2,\qquad
+\Delta=\frac{198}{2}=99.
+$$
+
+この定義は二項の相殺の大きさだけを測ります。例えば「新粒子が必ず特定のエネルギーで発見される」「この模型の実現確率が $1/99$」はいずれも導けません。
 <!-- solution-end -->
 
 ### 演習 QFT45-B1：正質量の殻補正と極限
@@ -640,7 +730,14 @@ $$
 - Level: C
 - 目安時間: 30分
 
-四次元で軽い実スカラー $\phi$ と重い実スカラー $\chi$ を考え、$\overline{\mathrm{MS}}$ 方式で $\mu_R=M$ を選ぶ。$M>0,g>0,\lambda>0$、ポテンシャルは $U=\frac12m_{\mathrm{high}}^2\phi^2+\lambda\phi^4/4+M^2\chi^2/2+g\phi^2\chi^2/4$ とする。重い場の一ループmatchingによる二次係数だけを残して軽い模型を作り、軽い場自身のループは後段まで入れない。
+四次元で軽い実スカラー $\phi$ と重い実スカラー $\chi$ を考え、$\overline{\mathrm{MS}}$ 方式で $\mu_R=M$ を選ぶ。$M>0,g>0,\lambda>0$ としてポテンシャルを
+
+$$
+U(\phi,\chi)=\frac12m_{\mathrm{high}}^2\phi^2+\frac\lambda4\phi^4
++\frac{M^2}2\chi^2+\frac g4\phi^2\chi^2
+$$
+
+とする。重い場の一ループmatchingによる二次係数だけを残して軽い模型を作り、軽い場自身のループは後段まで入れない。
 
 1. 重い場を積分消去した $\phi^2/2$ の閾値補正を求めよ。
 2. 軽い二次係数を $m_{\mathrm{low}}^2=-a^2$（$a>0$）へ合わせる $m_{\mathrm{high}}^2$ を求め、軽い有効ポテンシャルの正の木レベル真空 $v_0$ と曲率質量二乗を求めよ。
@@ -663,7 +760,14 @@ $$
 m_{\mathrm{high}}^2=-a^2+\frac{gM^2}{32\pi^2}.
 $$
 
-軽い模型の $U_L(\varphi)=-a^2\varphi^2/2+\lambda\varphi^4/4$ において $U_L'=\varphi(-a^2+\lambda\varphi^2)$、$U_L''=-a^2+3\lambda\varphi^2$。正の極小は $v_0=a/\sqrt\lambda$、曲率質量二乗は $U_L''(v_0)=2a^2$ です。$\lambda>0$ により極小は大域的です。
+軽い模型の $U_L(\varphi)=-a^2\varphi^2/2+\lambda\varphi^4/4$ を微分すると
+
+$$
+U_L'(\varphi)=\varphi(-a^2+\lambda\varphi^2),\qquad
+U_L''(\varphi)=-a^2+3\lambda\varphi^2.
+$$
+
+正の極小は $v_0=a/\sqrt\lambda$、曲率質量二乗は $U_L''(v_0)=2a^2$ です。$\lambda>0$ により極小は大域的です。
 
 **(3) 相殺の比。** $M^2/a^2=10^6$ を代入すれば
 
@@ -675,7 +779,14 @@ $$
 
 二項を足すと $3165.3-3166.3=-1$ を再現し、低い二次係数に対する閾値の大きさは約 $3.2\times10^3$ 倍です。$a^2/|\delta m^2|\simeq3.16\times10^{-4}$ は相殺の比であり確率ではありません。なお $m_{\mathrm{low}}^2<0$ でも計算した重い $\chi$ の核 $M^2+g\varphi^2/2$ は正であり、重いGaussian消去自体は定義できます。
 
-**(4) 軽い場の一ループ真空。** 同じ $\overline{\mathrm{MS}}$ 尺度 $\mu_R=M$ で軽い理論のパラメータ $a^2,\lambda$ を固定し、追加の一ループ近似を採用します。$\mathcal M^2(v_0)=2a^2$、$\mathcal M^{2\prime}(v_0)=6\lambda v_0$ なので、[真空移動の定理](#thm-qft45-vacuum-shift)の $\mu_0^2$ を $a^2$ に置き換えます。
+**(4) 軽い場の一ループ真空。** 同じ $\overline{\mathrm{MS}}$ 尺度 $\mu_R=M$ で軽い理論のパラメータ $a^2,\lambda$ を固定し、追加の一ループ近似を採用します。揺らぎ質量二乗 $\mathcal M^2(\varphi)=-a^2+3\lambda\varphi^2$ は背景 $\varphi$ の関数であり、
+
+$$
+\mathcal M^2(v_0)=2a^2,\qquad
+\left.\frac{d\mathcal M^2(\varphi)}{d\varphi}\right|_{\varphi=v_0}=6\lambda v_0.
+$$
+
+従って[真空移動の定理](#thm-qft45-vacuum-shift)の $\mu_0^2$ を $a^2$ に置き換えます。
 
 $$
 \frac{\delta v}{v_0}=-\frac{3\lambda}{16\pi^2}
