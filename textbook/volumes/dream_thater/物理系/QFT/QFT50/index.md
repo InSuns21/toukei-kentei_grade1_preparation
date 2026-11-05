@@ -205,7 +205,16 @@ S_E[\phi]=\frac{g}{4\pi}\int_U
 \bigl((\partial_x\phi)^2+(\partial_y\phi)^2\bigr)\,dx\,dy
 $$
 
-とします。コンパクト台変分で $\Delta\phi=0$ を得ます。$d=2$ では前章の $d\ge3$ の改良係数の議論を流用せず、応力テンソルをこの作用から作り直します。
+とします。コンパクト台の $\delta\phi$ に対し部分積分すると
+
+$$
+\delta S_E
+=\frac{g}{2\pi}\int_U
+(\phi_x\partial_x\delta\phi+\phi_y\partial_y\delta\phi)\,dx\,dy
+=-\frac{g}{2\pi}\int_U(\Delta\phi)\delta\phi\,dx\,dy
+$$
+
+となるので、場の方程式は $\Delta\phi=0$ です。$d=2$ では前章の $d\ge3$ の改良係数の議論を流用せず、応力テンソルをこの作用から作り直します。
 
 複素成分は別の新しいテンソルではありません。実座標での二階テンソル $\tau$ を複素化し、$\tau_{zz}=\tau(\partial_z,\partial_z)$、$\tau_{z\bar z}=\tau(\partial_z,\partial_{\bar z})$ と評価したものです。例えば $\partial_z=(\partial_x-i\partial_y)/2$ を二つの引数へ代入すると、次の定義に出る係数 $1/4$ と $-2i$ が得られます。
 
@@ -375,7 +384,7 @@ $$
 **定義の確認** $t(z)=a/(z-w)^2+b/(z-w)$、$\epsilon(z)=1+(z-w)c$ とし、$\gamma$ を $w$ の小円にすると、積は $a/(z-w)^2+(ac+b)/(z-w)+bc$。よって[Cauchy積分公式とその微分版](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)により $Q_\epsilon=ac+b$。二重極は $\epsilon'$、単純極は $\epsilon$ を測ります。
 <!-- definition-example-end -->
 
-量子論の局所相関関数 $G=\langle\prod_{j=1}^N\mathcal O_j(w_j,\bar w_j)\rangle$ について、挿入点は相異なり、各 $\mathcal O_j$ は正則ウェイト $h_j$ の一次場であるとします。さらに[QFT49の局所並進Ward恒等式](../QFT49/index.md#thm-qft49-translation-ward)に相当する正則化済みの局所Ward恒等式が成立し、他に異常な接触項がないと仮定します。この仮定は単なる古典的保存からは出ません。
+量子論の局所相関関数 $G=\langle\prod_{j=1}^N\mathcal O_j(w_j,\bar w_j)\rangle$ について、挿入点は相異なり、各 $\mathcal O_j$ は正則ウェイト $h_j$ の一次場であるとします。さらに[QFT49の局所並進Ward恒等式](../QFT49/index.md#thm-qft49-translation-ward)に相当する正則化済みの局所Ward恒等式が成立し、他に異常な接触項がないと仮定します。具体的には $t$ を挿入した相関関数が $z\ne w_j$ で正則で、各 $w_j$ が孤立特異点であり、各小円で任意の局所正則な $\epsilon$ による輪郭作用が[正則側の微小変換](#def-qft50-weights)と一致することを仮定します。この仮定は単なる古典的保存からは出ません。
 
 <a id="thm-qft50-primary-ward"></a>
 
@@ -410,31 +419,41 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず挿入点 $w_j$ を固定し、その近くの二重極と単純極を
+挿入点 $w_j$ を固定します。仮定した穿孔近傍での正則性から、$t$ を挿入した相関関数 $H(z)$ にはLaurent展開
 
 $$
-\frac{A_j}{(z-w_j)^2}+\frac{B_j}{z-w_j}
+H(z)=\sum_{r\in\mathbb Z}c_r(z-w_j)^r
 $$
 
-と置きます。[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)による輪郭積分は
+があります（正則部分の係数 $c_r$、$r\ge0$ も含みます）。小円上で $\epsilon(z)=(z-w_j)^k$（整数 $k\ge0$）を試験係数に選ぶと、[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)と同じ係数抽出により
 
 $$
-A_j\epsilon'(w_j)+B_j\epsilon(w_j)
+\frac{1}{2\pi i}\oint_{\gamma_j}
+(z-w_j)^k H(z)\,dz=c_{-k-1}
 $$
 
-です。一方、[一次場の正則側の微小変換](#def-qft50-weights)を挿入点 $j$ に作用させると、
+です。一方、[一次場の正則側の微小変換](#def-qft50-weights)は
 
 $$
-\bigl(h_j\epsilon'(w_j)+\epsilon(w_j)\partial_{w_j}\bigr)G
+\bigl[\epsilon(w_j)\partial_{w_j}
++h_j\epsilon'(w_j)\bigr]G
 $$
 
-となります。局所Ward恒等式がこの輪郭電荷を実装する仮定の下、任意の $\epsilon$ の値と一階微分の係数を比較して
+なので、$k=0$ では $c_{-1}=\partial_{w_j}G$、$k=1$ では $c_{-2}=h_jG$、$k\ge2$ では両方の値が零だから $c_{-k-1}=0$ です。よって三重極以上は存在せず、特異部分は
 
 $$
-A_j=h_jG,\qquad B_j=\partial_{w_j}G
+\frac{h_jG}{(z-w_j)^2}
++\frac{\partial_{w_j}G}{z-w_j}
 $$
 
-が決まります。
+に限られます。一般の正則 $\epsilon$ についても、各極へ[Cauchy積分公式とその微分版](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)を適用すれば
+
+$$
+\frac{1}{2\pi i}\oint_{\gamma_j}\epsilon(z)H(z)\,dz
+=h_j\epsilon'(w_j)G+\epsilon(w_j)\partial_{w_j}G
+$$
+
+となり、同じ正則側の微小変換を与えます。
 
 次に分布等式を滑らかなコンパクト台の試験関数 $\psi$ で検算します。円板から半径 $\rho$ の小円を除き、$\partial_{\bar z}(1/(z-w))=0$ を部分積分します。内周を反時計回りの小円へ向き直した境界積分は、$\rho\to0$ でCauchy積分の $2\pi i\,\psi(w)$ へ収束します。複素Green公式の面積と境界の係数は $\int_D\partial_{\bar z}F\,dx\,dy=(2i)^{-1}\oint_{\partial D}F\,dz$ なので、$2\pi i/(2i)=\pi$ から
 
