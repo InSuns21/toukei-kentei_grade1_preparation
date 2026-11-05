@@ -71,11 +71,13 @@ $$
 
 この差は、単に「異なる入力の個数」ではない。ある入力で二つのラベルがほぼ同確率なら、どちらを予測しても誤りの増分は小さい。逆に一方が圧倒的に多い入力を間違えると、増分は大きい。
 
+以下、$\boldsymbol{1}_{\{A\}}$ は条件 $A$ が成り立つとき1、そうでないとき0を返す指示関数を表す。[0–1損失](../../ML/ML1-01/index.md#def-ml1-01-loss)でも用いた記法である。例えば $\boldsymbol{1}_{\{h(x)\ne h^*(x)\}}$ は二つの予測が異なる入力でだけ1になる。
+
 <a id="thm-slt1-01-weighted-regret"></a>
 
 <!-- formal-statement-start -->
 > **定理（二値0–1分類の重み付き超過リスク恒等式）**  
-> 有限非空集合 $\mathcal X$、$Y\in\{0,1\}$、同時分布 $P$ と0–1損失を考える。$p_x=P(X=x)>0$ では $\eta(x)=P(Y=1\mid X=x)$ とし、$h^*$ を $\eta(x)>1/2$ なら1、$\eta(x)<1/2$ なら0、等号ならどちらかを返すBayes予測器とする。任意の $h:\mathcal X\to\{0,1\}$ について
+> 有限非空集合 $\mathcal X$、$Y\in\{0,1\}$、同時分布 $P$ と0–1損失を考える。$p_x=P(X=x)>0$ では $\eta(x)=P(Y=1\mid X=x)$ とし、$h^*$ を $\eta(x)>1/2$ なら1、$\eta(x)<1/2$ なら0、等号ならどちらかを返すBayes予測器とする。$p_x=0$ の入力での $h^*(x)$ は任意に定める。任意の $h:\mathcal X\to\{0,1\}$ について
 
 $$
 \mathcal E_P(h)
@@ -255,7 +257,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（クラス拡大による近似誤差の単調性）**  
-> 有限非空入力集合 $\mathcal X$、二値ラベル、同時分布 $P$、0–1損失に対して、有限非空の仮説クラス $\mathcal H\subseteq\mathcal G$ を取る。このとき
+> 有限非空入力集合 $\mathcal X$、二値ラベル $\mathcal Y=\{0,1\}$、同時分布 $P$、0–1損失を固定する。有限非空の仮説クラス $\mathcal H\subseteq\mathcal G\subseteq\{h:\mathcal X\to\{0,1\}\}$ を取る。このとき
 
 $$
 0\le\mathcal A_P(\mathcal G)\le\mathcal A_P(\mathcal H).
@@ -323,7 +325,21 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-誤分類セルから $R_P(h_0)=0.06+0.36=0.42$、$R_P(h_1)=0.54+0.04=0.58$。最良は $h_0$ で、全予測器のBayesリスクは0.10だから、[近似誤差](#def-slt1-01-approximation)は $0.42-0.10=0.32$、[クラス内超過リスク](#def-slt1-01-within-class-excess)は $0.58-0.42=0.16$。従って[分解定理](#thm-slt1-01-decomposition)の両辺は
+誤分類セルからそれぞれの母集団リスクを計算すると
+
+$$
+R_P(h_0)=0.06+0.36=0.42,\qquad
+R_P(h_1)=0.54+0.04=0.58.
+$$
+
+クラス内最良は $h_0$ で、全予測器のBayesリスクは0.10である。[近似誤差](#def-slt1-01-approximation)と[クラス内超過リスク](#def-slt1-01-within-class-excess)は
+
+$$
+\mathcal A_P(\mathcal H)=0.42-0.10=0.32,\qquad
+\mathcal S_P(h_1;\mathcal H)=0.58-0.42=0.16.
+$$
+
+従って[分解定理](#thm-slt1-01-decomposition)の両辺は
 
 $$
 \mathcal E_P(h_1)=0.58-0.10=0.48=0.32+0.16.
@@ -351,7 +367,19 @@ $a$ では0と1のどちらを答えても誤り確率が $1/2$。$b$ での確�
 <!-- solution-start -->
 #### 詳細解答
 
-$h_0(a)=0$ は観測ラベル1と異なるから $\widehat R_S(h_0)=1$、$h_1(a)=1$ は一致するから $\widehat R_S(h_1)=0$。よってこの標本で選ぶ[ERM](../../ML/ML1-03/index.md#def-ml1-03-erm)は $h_1$。一方、母集団リスクは $R_P(h_0)=0.42<R_P(h_1)=0.58$。この標本が現れる確率は $P(X=a,Y=1)=0.06>0$ であり、経験最小と母集団最小が異なる可能性は実際にある。
+観測ラベルは1なので、$h_0(a)=0$ は誤り、$h_1(a)=1$ は正解である。標本が一個だから経験リスクはそれぞれ
+
+$$
+\widehat R_S(h_0)=1,\qquad \widehat R_S(h_1)=0.
+$$
+
+従ってこの標本で選ぶ[ERM](../../ML/ML1-03/index.md#def-ml1-03-erm)は $h_1$ である。しかし真の分布では
+
+$$
+R_P(h_0)=0.42<0.58=R_P(h_1).
+$$
+
+この標本が現れる確率は $P(X=a,Y=1)=0.06>0$ であり、経験最小と母集団最小が異なる可能性は実際にある。
 <!-- solution-end -->
 
 ### SLT1-01-A05 近似誤差の単調性を使う
@@ -411,7 +439,18 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$R_P^*=R_P(h^*)=0.10$、$R_P(h_0)=0.42$、$R_P(h_1)=0.58$。$\mathcal H$ では最小値が0.42なので近似誤差0.32、クラス内超過リスク0.16。$\mathcal G$ にはBayes予測器があるので最小値0.10、近似誤差0、クラス内超過リスク $0.58-0.10=0.48$。両方とも[分解定理](#thm-slt1-01-decomposition)の合計は
+候補の母集団リスクは $R_P^*=R_P(h^*)=0.10$、$R_P(h_0)=0.42$、$R_P(h_1)=0.58$ である。$\mathcal H$ の最小値は0.42、Bayes予測器を含む $\mathcal G$ の最小値は0.10なので、二成分はそれぞれ
+
+$$
+\begin{aligned}
+\mathcal A_P(\mathcal H)&=0.42-0.10=0.32,\\
+\mathcal S_P(h_1;\mathcal H)&=0.58-0.42=0.16,\\
+\mathcal A_P(\mathcal G)&=0.10-0.10=0,\\
+\mathcal S_P(h_1;\mathcal G)&=0.58-0.10=0.48.
+\end{aligned}
+$$
+
+両方とも[分解定理](#thm-slt1-01-decomposition)の合計は
 
 $$
 \mathcal E_P(h_1)=0.48
@@ -433,9 +472,22 @@ $P(X=a)=P(X=b)=1/2$、$Y=0$ が確率1で成り立つ。$\mathcal H=\{h_0\}$、$
 <!-- solution-start -->
 #### 詳細解答
 
-Bayes予測器は $h_0$ で $R_P^*=0$。どちらのクラスにも $h_0$ が入るので、近似誤差は両方0。標本 $S$ では $h_0(a)=h_{\mathrm{split}}(a)=0$ なので両者の経験リスクは0。[ERMの定義](../../ML/ML1-03/index.md#def-ml1-03-erm)により $\mathcal H$ では $h_0$ だけが選べるが、$\mathcal G$ では指定した同点規則で $h_{\mathrm{split}}$ を選ぶ。
+Bayes予測器は $h_0$ で、$R_P^*=0$ である。両クラスに $h_0$ が入るので、近似誤差はともに0となる。標本 $S$ では二つの候補がともに正解し、経験リスクは
 
-$h_{\mathrm{split}}$ は $b$ で誤るので $R_P(h_{\mathrm{split}})=1/2$、$h_0$ のリスクは0。従ってクラス内超過リスクは元のクラスで0、拡大後は $1/2-0=1/2$。近似誤差が増えたのではなく、同点解の選び方により第二成分が増えた。標本事象 $S=((a,0))$ 自体の確率は $1/2>0$ である。
+$$
+\widehat R_S(h_0)=\widehat R_S(h_{\mathrm{split}})=0.
+$$
+
+[ERMの定義](../../ML/ML1-03/index.md#def-ml1-03-erm)により $\mathcal H$ では $h_0$ だけが選べるが、$\mathcal G$ では指定した同点規則で $h_{\mathrm{split}}$ を選ぶ。
+
+$h_{\mathrm{split}}$ は $b$ でだけ誤るため、真のリスクは $P(X=b)=1/2$ である。両クラスの真の最小リスクは0なので、選択後のクラス内超過リスクは
+
+$$
+\mathcal S_P(h_0;\mathcal H)=0-0=0,\qquad
+\mathcal S_P(h_{\mathrm{split}};\mathcal G)=\frac12-0=\frac12.
+$$
+
+近似誤差が増えたのではなく、同点解の選び方により第二成分が増えた。標本事象 $S=((a,0))$ 自体の確率は $1/2>0$ である。
 <!-- solution-end -->
 
 ### SLT1-01-B04 分解が0–1損失以外にも成立する理由
@@ -499,7 +551,15 @@ $$
 \mathcal E_P(h_1)=0.48.
 $$
 
-**3.** $\mathcal G$ では $a$ で1を返す $h_1,h_{\mathrm{flip}}$ の経験リスクが0で同点、その他二つは1。指定規則で $h_{\mathrm{flip}}$ が選ばれる。$\mathcal G$ はBayes予測器を含むから近似誤差は0、クラス内超過リスクは $0.90-0.10=0.80$、Bayes超過リスクも0.80である。
+**3.** $\mathcal G$ では $a$ で1を返す $h_1,h_{\mathrm{flip}}$ の経験リスクが0で同点、その他二つは1。指定規則で $h_{\mathrm{flip}}$ が選ばれる。$\mathcal G$ はBayes予測器を含むから、二成分とBayes超過リスクは
+
+$$
+\begin{aligned}
+\mathcal A_P(\mathcal G)&=0,\\
+\mathcal S_P(h_{\mathrm{flip}};\mathcal G)&=0.90-0.10=0.80,\\
+\mathcal E_P(h_{\mathrm{flip}})&=0.80.
+\end{aligned}
+$$
 
 この予測器は両入力でBayes予測器と異なり、$\eta(a)=0.10,\eta(b)=0.90$。従って[二値0–1分類の重み付き超過リスク恒等式](#thm-slt1-01-weighted-regret)から
 
