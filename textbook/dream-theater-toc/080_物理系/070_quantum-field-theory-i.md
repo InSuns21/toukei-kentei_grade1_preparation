@@ -47,3 +47,4 @@
 44. [QFT44 有効場の理論のmatching・演算子展開・running](textbook/volumes/dream_thater/物理系/QFT/QFT44/index.md)
 45. [QFT45 自発的対称性の破れの量子補正・Higgs質量と調整問題](textbook/volumes/dream_thater/物理系/QFT/QFT45/index.md)
 46. [QFT46 非摂動ゲージ場の格子・インスタントン・トポロジカル電荷とθ項](textbook/volumes/dream_thater/物理系/QFT/QFT46/index.md)
+47. [QFT47 電弱・異常相殺・QCD・EFT・非摂動近似を結ぶ総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT47/index.md)
