@@ -24,5 +24,5 @@ chapters:
   - { id: GEOD18, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD18, status: completed, title: "Krüger 逆級数・縮尺・子午線収差" }
   - { id: GEOD19, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD19, status: completed, title: "等積投影と正積緯度" }
   - { id: GEOD20, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD20, status: completed, title: "Equal Earth 図法と等積性" }
-  - { id: GEOD21, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD21, status: planned, title: "日本の平面直角座標系と UTM の比較" }
+  - { id: GEOD21, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD21, status: completed, title: "日本の平面直角座標系と UTM の比較" }
   - { id: GEOD22, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD22, status: planned, title: "総合演習：観測から測地座標、地域図・世界図まで" }

@@ -1,0 +1,48 @@
+chapter: GEOD21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD2
+  - GEOD11
+  - GEOD13
+  - GEOD16
+  - GEOD17
+  - GEOD18
+forward_references: []
+concepts:
+  - id: geodesy.japan-plane-rectangular-parameters
+    name: 日本の平面直角座標系の投影パラメータと日本式軸
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（日本の平面直角座標系の投影パラメータと日本式軸）]
+    requires: [geodesy.crs, geodesy.ellipsoidal-transverse-mercator]
+  - id: geodesy.japan-axis-permutation
+    name: 日本式と東北式の軸交換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（日本式と東北式の軸交換）]
+    requires: [geodesy.japan-plane-rectangular-parameters, geodesy.kruger-forward-map]
+  - id: geodesy.japan-meridian-origin
+    name: 中央子午線上の原点補正と距離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中央子午線上の原点補正と距離）]
+    requires: [geodesy.japan-plane-rectangular-parameters, geodesy.signed-meridian-arc, geodesy.ellipsoidal-transverse-metric]
+  - id: geodesy.utm-zone-parameters
+    name: UTM帯と投影パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（UTM帯と投影パラメータ）]
+    requires: [geodesy.crs, geodesy.ellipsoidal-transverse-mercator]
+  - id: geodesy.utm-zone-central-meridian
+    name: UTM帯番号と中央子午線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（UTM帯番号と中央子午線）]
+    requires: [geodesy.utm-zone-parameters]
+  - id: geodesy.tm-local-area-ratio
+    name: 横メルカトルの局所面積比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（横メルカトルの局所面積比）]
+    requires: [geodesy.projection-metric-scales, geodesy.ellipsoidal-transverse-metric, geodesy.japan-plane-rectangular-parameters, geodesy.utm-zone-parameters]
