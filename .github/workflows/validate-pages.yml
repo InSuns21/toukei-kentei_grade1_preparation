@@ -92,5 +92,6 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: |
           npm run validate:simulation-browser
+          node scripts/validate-geod-browser.mjs
           node scripts/validate-celev8-browser.mjs
           node scripts/validate-ml-completion-browser.mjs

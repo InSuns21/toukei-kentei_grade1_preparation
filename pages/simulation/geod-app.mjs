@@ -3,6 +3,7 @@ import {
   geocentricLatitude, inverseECEF, inverseGeodesic, traceGeodesic,
   transverseMercator, projectionDistortion,
 } from './geod-core.mjs';
+import { CITIES, TILE_ZOOM, mercatorY, visibleXYZTiles } from './geod-map.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -12,7 +13,11 @@ const fmt = (n, digits = 6) => Number.isFinite(n) ? n.toLocaleString('ja-JP', {
 const state = { lab: 'A', yaw: -rad(140), tilt: rad(24), model: ellipsoid(), fVisual: .07 };
 const view = $('globe');
 const gl = view.getContext('webgl2', { antialias: true, alpha: false });
-let program = null, positionBuffer, location, colorLoc, meshes = {};
+let program = null, positionBuffer, location, colorLoc;
+let surfaceProgram = null, surfaceBuffer, surfacePosition, surfaceUV, surfaceLight;
+let surfaceUseMap, surfaceSampler, atlasCanvas, atlasContext, atlasTexture;
+const tileImages = new Map();
+let failedTiles = 0;
 
 const shader = (type, source) => {
   const s = gl.createShader(type);
@@ -31,7 +36,7 @@ function startGL() {
   try {
     program = gl.createProgram();
     gl.attachShader(program, shader(gl.VERTEX_SHADER,
-      '#version 300 es\nin vec3 position; void main(){gl_Position=vec4(position,1.0);}'));
+      '#version 300 es\nlayout(location=0) in vec3 position; void main(){gl_Position=vec4(position,1.0);gl_PointSize=10.0;}'));
     gl.attachShader(program, shader(gl.FRAGMENT_SHADER,
       '#version 300 es\nprecision mediump float;uniform vec3 tint;out vec4 pixel;void main(){pixel=vec4(tint,1.0);}'));
     gl.linkProgram(program);
@@ -40,11 +45,28 @@ function startGL() {
     location = gl.getAttribLocation(program, 'position');
     colorLoc = gl.getUniformLocation(program, 'tint');
     positionBuffer = gl.createBuffer();
+    surfaceProgram = gl.createProgram();
+    gl.attachShader(surfaceProgram, shader(gl.VERTEX_SHADER,
+      '#version 300 es\nlayout(location=0) in vec3 position;layout(location=1) in vec2 uv;layout(location=2) in float brightness;out vec2 texUV;out float lightValue;void main(){gl_Position=vec4(position,1.0);texUV=uv;lightValue=brightness;}'));
+    gl.attachShader(surfaceProgram, shader(gl.FRAGMENT_SHADER,
+      '#version 300 es\nprecision mediump float;in vec2 texUV;in float lightValue;uniform bool showMap;uniform sampler2D mapTexture;out vec4 pixel;void main(){vec3 base=showMap?texture(mapTexture,texUV).rgb:vec3(0.67,0.77,0.85);pixel=vec4(base*lightValue,1.0);}'));
+    gl.linkProgram(surfaceProgram);
+    if (!gl.getProgramParameter(surfaceProgram, gl.LINK_STATUS)) {
+      throw new Error(gl.getProgramInfoLog(surfaceProgram));
+    }
+    surfacePosition = gl.getAttribLocation(surfaceProgram, 'position');
+    surfaceUV = gl.getAttribLocation(surfaceProgram, 'uv');
+    surfaceLight = gl.getAttribLocation(surfaceProgram, 'brightness');
+    surfaceUseMap = gl.getUniformLocation(surfaceProgram, 'showMap');
+    surfaceSampler = gl.getUniformLocation(surfaceProgram, 'mapTexture');
+    surfaceBuffer = gl.createBuffer();
     gl.clearColor(.976, .988, 1, 1);
     gl.enable(gl.DEPTH_TEST);
     gl.depthFunc(gl.LESS);
+    initializeTileAtlas();
   } catch (error) {
     program = null;
+    surfaceProgram = null;
     view.hidden = true;
     $('gl-fallback').hidden = false;
     $('gl-fallback').textContent = 'WebGL2表示を初期化できません：' + error.message +
@@ -61,12 +83,20 @@ function clip([x, y, z]) {
   return [ratio * .77 * yr, .77 * (ct * z - st * xr), -.75 * (ct * xr + st * z)];
 }
 
+function cameraNormal([x, y, z]) {
+  const cy = Math.cos(state.yaw), sy = Math.sin(state.yaw);
+  const xr = cy * x - sy * y, yr = sy * x + cy * y;
+  const ct = Math.cos(state.tilt), st = Math.sin(state.tilt);
+  return [yr, ct * z - st * xr, -(ct * xr + st * z)];
+}
+
 const point = (phi, lambda, e, lift = 1) => ecef(phi, lambda, 0, e)
   .map(x => lift * x / e.a);
 const vecAdd = (a, b, amount = 1) => a.map((v, i) => v + amount * b[i]);
 
 function emit(mode, vertices, color, disableDepth = false) {
   if (!program || !vertices.length) return;
+  gl.useProgram(program);
   const transformed = new Float32Array(vertices.length * 3);
   vertices.forEach((v, i) => transformed.set(clip(v), i * 3));
   if (disableDepth) gl.disable(gl.DEPTH_TEST);
@@ -102,12 +132,104 @@ function arrow(a, b) {
 
 function surface(e) {
   const tri = [];
+  const vertex = (phi, lambda) => {
+    const xyz = clip(point(phi, lambda, e));
+    const normal = cameraNormal(enuBasis(phi, lambda).up);
+    // A light above-left of the viewer and a nonzero ambient term preserve
+    // the ellipsoid's shape even if the online map is switched off.
+    const diffuse = Math.max(0, .30 * normal[0] + .58 * normal[1] - .76 * normal[2]);
+    return [...xyz, (lambda / Math.PI + 1) / 2, 1 - mercatorY(phi), .42 + .58 * diffuse];
+  };
   for (let i = -90; i < 90; i += 5) for (let j = -180; j < 180; j += 6) {
-    const a = point(rad(i), rad(j), e), b = point(rad(i + 5), rad(j), e);
-    const c = point(rad(i), rad(j + 6), e), d = point(rad(i + 5), rad(j + 6), e);
-    tri.push(a, b, c, b, d, c);
+    const a = vertex(rad(i), rad(j)), b = vertex(rad(i + 5), rad(j));
+    const c = vertex(rad(i), rad(j + 6)), d = vertex(rad(i + 5), rad(j + 6));
+    tri.push(...a, ...b, ...c, ...b, ...d, ...c);
   }
-  return tri;
+  return new Float32Array(tri);
+}
+
+function initializeTileAtlas() {
+  if (!gl) return;
+  const n = 2 ** TILE_ZOOM;
+  if (!atlasCanvas) {
+    atlasCanvas = document.createElement('canvas');
+    atlasCanvas.width = atlasCanvas.height = 256 * n;
+    atlasContext = atlasCanvas.getContext('2d');
+    if (!atlasContext) throw new Error('2Dテクスチャを作成できません');
+    atlasContext.fillStyle = '#9fb9c9';
+    atlasContext.fillRect(0, 0, atlasCanvas.width, atlasCanvas.height);
+  }
+  atlasTexture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, atlasCanvas);
+}
+
+function updateAtlas(tile, image) {
+  if (!atlasContext || !atlasTexture) return;
+  atlasContext.drawImage(image, tile.x * 256, tile.y * 256, 256, 256);
+  gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, atlasCanvas);
+}
+
+function requestVisibleTiles() {
+  if (!program || !$('show-world').checked) return;
+  for (const tile of visibleXYZTiles(state.yaw, state.tilt)) {
+    const key = tile.z + '/' + tile.x + '/' + tile.y;
+    if (tileImages.has(key)) continue;
+    // Request only the visible hemisphere, preserving HTTP cache and Referer.
+    // This never downloads tiles for a future view or for offline seeding.
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    tileImages.set(key, { status: 'loading' });
+    image.onload = () => {
+      tileImages.set(key, { status: 'loaded' });
+      updateAtlas(tile, image);
+      $('tile-status').textContent = '世界地図タイル表示中（オンライン・ズーム' +
+        TILE_ZOOM + '）。';
+      renderGlobe();
+    };
+    image.onerror = () => {
+      failedTiles++;
+      tileImages.set(key, { status: 'failed' });
+      $('tile-status').textContent = '地図タイルの一部を取得できません（' + failedTiles +
+        '枚）。陰影と座標計算は引き続き利用できます。';
+    };
+    image.src = 'https://tile.openstreetmap.org/' + key + '.png';
+  }
+}
+
+function drawSurface(e) {
+  if (!surfaceProgram) return;
+  const vertices = surface(e);
+  gl.enable(gl.DEPTH_TEST);
+  gl.useProgram(surfaceProgram);
+  gl.bindBuffer(gl.ARRAY_BUFFER, surfaceBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(surfacePosition);
+  gl.vertexAttribPointer(surfacePosition, 3, gl.FLOAT, false, 24, 0);
+  gl.enableVertexAttribArray(surfaceUV);
+  gl.vertexAttribPointer(surfaceUV, 2, gl.FLOAT, false, 24, 12);
+  gl.enableVertexAttribArray(surfaceLight);
+  gl.vertexAttribPointer(surfaceLight, 1, gl.FLOAT, false, 24, 20);
+  const showMap = $('show-world').checked && !!atlasTexture;
+  gl.uniform1i(surfaceUseMap, showMap ? 1 : 0);
+  if (showMap) {
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
+    gl.uniform1i(surfaceSampler, 0);
+  }
+  gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
+  gl.disableVertexAttribArray(surfaceUV);
+  gl.disableVertexAttribArray(surfaceLight);
+  gl.useProgram(program);
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.enableVertexAttribArray(location);
+  gl.vertexAttribPointer(location, 3, gl.FLOAT, false, 0, 0);
 }
 
 function graticule(e) {
@@ -143,7 +265,7 @@ function renderGlobe() {
   gl.viewport(0, 0, view.width, view.height);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   const drawnEllipsoid = ellipsoid(1, state.fVisual);
-  emit(gl.TRIANGLES, surface(drawnEllipsoid), [.90, .94, .97]);
+  drawSurface(drawnEllipsoid);
   emit(gl.LINES, graticule(drawnEllipsoid), [.53, .63, .75]);
   if (state.lab === 'A') {
     const { phi, lambda } = state;
@@ -154,6 +276,7 @@ function renderGlobe() {
     emit(gl.LINES, arrow(P, vecAdd(P, basis.up, .42)), [.88, .38, .12], true);
     emit(gl.LINES, arrow(P, vecAdd(P, basis.east, .28)), [.10, .45, .27], true);
     emit(gl.LINES, arrow(P, vecAdd(P, basis.north, .28)), [.47, .25, .65], true);
+    emit(gl.POINTS, [P], [.91, .20, .12], true);
   } else if (state.lab === 'B' && state.geodesic) {
     emit(gl.LINES, pathLines(state.geodesic.ellipsoid.points, drawnEllipsoid), [.1, .35, .67]);
     emit(gl.LINES, pathLines(state.geodesic.sphere.points, drawnEllipsoid, true), [.78, .28, .13]);
@@ -162,6 +285,7 @@ function renderGlobe() {
     const basis = enuBasis(state.geodesic.phi1, state.geodesic.lon1);
     emit(gl.LINES, arrow(p1, vecAdd(p1, basis.up, .09)), [.02, .25, .4], true);
     emit(gl.LINES, arrow(p2, vecAdd(p2, basis.up, .09)), [.6, .18, .11], true);
+    emit(gl.POINTS, [p1, p2], [.96, .25, .11], true);
   } else if (state.lab === 'D') {
     const verts = [];
     for (let p = -80; p < 80; p += 2) verts.push(
@@ -170,7 +294,9 @@ function renderGlobe() {
     emit(gl.LINES, verts, [.03, .36, .65]);
     const P = point(state.phi, state.lambda, drawnEllipsoid, 1.01);
     emit(gl.LINES, arrow(P, vecAdd(P, enuBasis(state.phi, state.lambda).up, .2)), [.82, .29, .11], true);
+    emit(gl.POINTS, [P], [.94, .22, .11], true);
   }
+  requestVisibleTiles();
 }
 
 function svg(tag, attrs = {}, content) {
@@ -272,8 +398,8 @@ function computeA() {
   const phiC = geocentricLatitude(phi, e);
   state.phi = phi; state.lambda = lambda; state.model = e;
   state.fVisual = Math.min(.48, e.f * 20); state.geodesic = null;
-  $('a-lat-v').textContent = fmt(deg(phi), 0) + '°';
-  $('a-lon-v').textContent = fmt(deg(lambda), 0) + '°';
+  $('a-lat-v').textContent = fmt(deg(phi), 4) + '°';
+  $('a-lon-v').textContent = fmt(deg(lambda), 4) + '°';
   $('a-f-v').textContent = ratio + ' 倍（f=' + fmt(e.f, 8) + '）';
   const diff = (phi - phiC) * 180 / Math.PI * 60;
   showResults([
@@ -370,6 +496,34 @@ function recalculate() {
   }
 }
 
+const cityControls = [
+  ['a-city', 'a-lat', 'a-lon'],
+  ['b-city1', 'b-lat1', 'b-lon1'],
+  ['b-city2', 'b-lat2', 'b-lon2'],
+  ['d-city', 'd-lat', 'd-lon'],
+];
+for (const [id, latId, lonId] of cityControls) {
+  const selector = $(id);
+  for (const city of CITIES) {
+    const option = document.createElement('option');
+    option.value = city.id;
+    option.textContent = city.label + '（' + city.lat + '°, ' + city.lon + '°）';
+    selector.append(option);
+  }
+  selector.addEventListener('change', () => {
+    const city = CITIES.find(candidate => candidate.id === selector.value);
+    if (!city) return;
+    $(latId).value = String(city.lat);
+    $(lonId).value = String(city.lon);
+    if (id === 'd-city') $('d-lon0').value = String(city.lon);
+    state.yaw = -rad(city.lon);
+    state.tilt = rad(city.lat);
+    recalculate();
+  });
+}
+const customCityInputs = new Map(cityControls.flatMap(([select, lat, lon]) =>
+  [[lat, select], [lon, select]]));
+
 for (const button of document.querySelectorAll('[data-lab]')) button.addEventListener('click', () => {
   state.lab = button.dataset.lab;
   for (const b of document.querySelectorAll('[data-lab]')) {
@@ -383,8 +537,18 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model']) {
-  $(id).addEventListener('input', recalculate);
+  $(id).addEventListener('input', () => {
+    if (customCityInputs.has(id)) $(customCityInputs.get(id)).value = '';
+    recalculate();
+  });
 }
+$('show-world').addEventListener('change', () => {
+  $('osm-credit').hidden = !$('show-world').checked;
+  $('tile-status').textContent = $('show-world').checked
+    ? '表示方向の地図タイルを読み込みます。'
+    : '世界地図を非表示にしました（陰影は有効）。';
+  renderGlobe();
+});
 let drag = null;
 view.addEventListener('pointerdown', event => {
   drag = [event.clientX, event.clientY]; view.setPointerCapture(event.pointerId);
@@ -410,13 +574,19 @@ view.addEventListener('keydown', event => {
 view.addEventListener('webglcontextlost', event => {
   event.preventDefault();
   program = null;
+  surfaceProgram = null;
+  atlasTexture = null;
   $('gl-fallback').hidden = false;
   $('gl-fallback').textContent = 'WebGLコンテキストを失いました。数値表は利用できます。復旧を待機します。';
 });
 view.addEventListener('webglcontextrestored', () => {
-  startGL(); $('gl-fallback').hidden = true; renderGlobe();
+  startGL();
+  $('gl-fallback').hidden = !!program;
+  view.hidden = !program;
+  renderGlobe();
 });
 startGL();
+if (!gl) $('tile-status').textContent = 'WebGL2非対応のため世界地図を表示できません。';
 recalculate();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

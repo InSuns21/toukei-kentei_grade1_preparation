@@ -25,8 +25,9 @@
     <h2>A：測地緯度と地心緯度はなぜ違う？</h2>
     <p>予測：球（f=0）では両緯度の差はどうなるか。扁平率を増やすと、北緯45°付近の差はどう変わるか。</p>
     <div class="controls">
-      <label>測地緯度 φ（度）<input id="a-lat" type="range" min="-75" max="75" step="1" value="40"><output id="a-lat-v"></output></label>
-      <label>経度 λ（度）<input id="a-lon" type="range" min="-180" max="180" step="5" value="140"><output id="a-lon-v"></output></label>
+      <label>都市を選ぶ（代表地点）<select id="a-city"><option value="">任意の緯度・経度</option></select></label>
+      <label>測地緯度 φ（度）<input id="a-lat" type="range" min="-75" max="75" step="0.0001" value="40"><output id="a-lat-v"></output></label>
+      <label>経度 λ（度）<input id="a-lon" type="range" min="-180" max="180" step="0.0001" value="140"><output id="a-lon-v"></output></label>
       <label>扁平率（GRS80の f に対する倍率）<input id="a-f" type="range" min="0" max="10" step="1" value="1"><output id="a-f-v"></output></label>
     </div>
     <p class="aside">3Dだけは違いを観察できるよう扁平率を20倍強調します。<strong>計算表の f と3D表示用の f は別</strong>です。実際の地球の潰れ方をこの倍率で推定しないでください。</p>
@@ -37,6 +38,8 @@
     <h2>B：2地点をつなぐ測地線</h2>
     <p>予測：球面の大円弧を、楕円体上の最短距離の代わりにするとどの程度差が出るか。東京～札幌の始点方位は北から何度か。</p>
     <div class="controls">
+      <label>始点の都市<select id="b-city1"><option value="">任意の始点</option></select></label>
+      <label>終点の都市<select id="b-city2"><option value="">任意の終点</option></select></label>
       <label>始点 緯度（度）<input id="b-lat1" type="number" min="-89" max="89" step="0.001" value="35.681236"></label>
       <label>始点 経度（度）<input id="b-lon1" type="number" min="-180" max="180" step="0.001" value="139.767125"></label>
       <label>終点 緯度（度）<input id="b-lat2" type="number" min="-89" max="89" step="0.001" value="43.06417"></label>
@@ -50,6 +53,7 @@
     <h2>D：横メルカトルで円はどう変わる？</h2>
     <p>予測：中央子午線上での縮尺は k₀ と一致するか。東西に遠ざかると縮尺と子午線収差はどう変わるか。</p>
     <div class="controls">
+      <label>試験点の都市<select id="d-city"><option value="">任意の試験点</option></select></label>
       <label>試験点 緯度 φ（度）<input id="d-lat" type="number" min="-70" max="70" step="0.5" value="36"></label>
       <label>試験点 経度 λ（度）<input id="d-lon" type="number" min="-180" max="180" step="0.5" value="142"></label>
       <label>中央子午線 λ₀（度）<input id="d-lon0" type="number" min="-180" max="180" step="0.5" value="139.8333333333"></label>
@@ -57,7 +61,7 @@
       <label>中央縮尺 k₀<input id="d-k0" type="number" min="0.999" max="1" step="0.0001" value="0.9999"></label>
       <label>数学模型<select id="d-model"><option value="ellipsoid">GRS80楕円体</option><option value="sphere">球（f=0、aは同じ）</option></select></label>
     </div>
-    <p class="aside">右の格子は中心子午線付近の局所表示、曲線の単位はm。指示楕円は地表の半径200 kmの<strong>微小円の一次近似</strong>を視認用に拡大したものです（有限半径の厳密投影像ではありません）。広域・極・枝の外挿には使わないでください。</p>
+    <p class="aside">都市選択では<strong>比較用に中央子午線 λ₀ も都市経度へ移動</strong>します（日本の平面直角座標系などの正式な系設定ではありません）。右の格子は中心子午線付近の局所表示、曲線の単位はm。指示楕円は地表の半径200 kmの<strong>微小円の一次近似</strong>を視認用に拡大したものです（有限半径の厳密投影像ではありません）。広域・極・枝の外挿には使わないでください。</p>
     <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index?id=def-geod13-scales">GEOD13：縮尺とTissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD17/index">GEOD17：Krüger順変換</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD18/index">GEOD18：縮尺・子午線収差</a></p>
   </section>
 
@@ -66,8 +70,13 @@
     <div class="viz-grid">
       <figure>
         <div class="figure-head">楕円体3D（指・マウスで回転、矢印キーでも回転）</div>
-        <canvas id="globe" width="720" height="470" tabindex="0" role="img" aria-label="緯度経度格子のある回転楕円体。Aでは法線・地心方向・ENU、Bでは2地点間の球面大円と楕円体測地線、Dでは中央子午線と試験点を表示。数値は直下の表を参照。"></canvas>
+        <label class="world-toggle"><input id="show-world" type="checkbox" checked> 世界地図を重ねる（オンラインXYZタイル・陰影は常時表示）</label>
+        <div class="globe-frame">
+          <canvas id="globe" width="720" height="470" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる回転楕円体。Aでは法線・地心方向・ENU、Bでは2地点間の球面大円と楕円体測地線、Dでは中央子午線と試験点を表示。数値は直下の表を参照。"></canvas>
+          <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+        </div>
         <div id="gl-fallback" hidden role="status">WebGL2を利用できないため3Dを省略しています。数値表と本文の静止図で同じ内容を確認できます。</div>
+        <p class="tile-status" id="tile-status" role="status" aria-live="polite">地図タイルの読み込み待機中。</p>
         <figcaption id="globe-caption">格子は15°刻み。地球形状の可視的な強調は計算とは別です。</figcaption>
       </figure>
       <figure id="map-panel" hidden>
