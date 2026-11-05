@@ -26,7 +26,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft50-wirtinger -->
-**定義の確認** $F=z^2=x^2-y^2+2ixy$ では $\partial_xF=2x+2iy$、$\partial_yF=-2y+2ix$ です。従って $\partial_{\bar z}F=\tfrac12[(2x+2iy)+i(-2y+2ix)]=0$、$\partial_zF=2z$。他方 $F=\bar z$ では $\partial_{\bar z}F=1$ であり、正則ではありません。
+**定義の確認** $F=z^2=x^2-y^2+2ixy$ を実座標で微分すると、$\partial_xF=2x+2iy$、$\partial_yF=-2y+2ix$ です。定義した演算子に代入すれば
+
+$$
+\begin{aligned}
+\partial_{\bar z}F
+&=\frac12\bigl[(2x+2iy)+i(-2y+2ix)\bigr]=0,\\
+\partial_zF
+&=\frac12\bigl[(2x+2iy)-i(-2y+2ix)\bigr]=2z.
+\end{aligned}
+$$
+
+従って $F$ は正則です。一方、$F=\bar z=x-iy$ には $\partial_xF=1$、$\partial_yF=-i$ を代入して $\partial_{\bar z}F=(1+i(-i))/2=1$ となり、正則ではありません。
 <!-- definition-example-end -->
 
 微分演算子を逆に解くと $\partial_x=\partial_z+\partial_{\bar z}$、$\partial_y=i(\partial_z-\partial_{\bar z})$ なので、互いに可換な二階微分について
@@ -67,19 +78,37 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-qft50-local-conformal -->
-**定義の確認** $f(z)=z^2$ では $f'=2z$。$z_0\ne0$ の小さい近傍で局所逆写像があり、$|dw|^2=4|z|^2|dz|^2$ だから $\Omega=2|z|$ です。しかし原点では $f'=0$ でJacobianの階数が落ちるので、**原点を含む局所共形座標変換ではありません**。
-<!-- definition-example-end -->
-
-実Jacobianを直接書くと、$f=u+iv$ の正則性により
+判定を定義の微分係数から実Jacobianへ橋渡しします。$f=u+iv$ が正則なら、Cauchy–Riemann条件 $u_x=v_y$、$u_y=-v_x$ により、実座標での微小変位 $(dx,dy)$ の像 $(du,dv)$ は
 
 $$
+\begin{pmatrix}du\\dv\end{pmatrix}
+=Df\begin{pmatrix}dx\\dy\end{pmatrix},
+\qquad
 Df=\begin{pmatrix}u_x&u_y\\v_x&v_y\end{pmatrix}
 =\begin{pmatrix}a&-b\\b&a\end{pmatrix},
-\quad a=u_x=v_y,\quad b=v_x=-u_y.
+\quad a=u_x=v_y,\ b=v_x=-u_y.
 $$
 
-従って $(Df)^{\mathsf T}Df=(a^2+b^2)I_2$、$\det Df=a^2+b^2=|f'|^2>0$。これが正定値計量に対する定義の全条件と対応します。反正則な $f(\bar z)$ は向きを反転する別の場合です。
+ここで $f'=a+ib$ だから
+
+$$
+(Df)^{\mathsf T}Df=|f'|^2I_2,
+\qquad \det Df=|f'|^2.
+$$
+
+左の式は任意の実微小変位の長さが $|f'|$ 倍になることを意味し、[Euclid共形写像のJacobian判定](../QFT48/index.md#def-qft48-conformal-map)と一致します。右の式が正なら向きが保存され、局所可逆性も確認できます。反正則写像は向きを反転する別の場合です。
+
+<!-- definition-example-start: def-qft50-local-conformal -->
+**定義の確認** $f(z)=z^2$ では $f'(z)=2z$ であり、実Jacobianは
+
+$$
+Df=\begin{pmatrix}2x&-2y\\2y&2x\end{pmatrix},
+\qquad (Df)^{\mathsf T}Df=4|z|^2I_2,
+\qquad \det Df=4|z|^2.
+$$
+
+$z_0\ne0$ では正の尺度因子 $\Omega=2|z|$ と向きの保存を確認でき、十分小さい近傍で局所逆写像があります。原点では $f'(0)=0$ かつ $Df(0)=0$ となり、**原点を含む局所共形座標変換ではありません**。
+<!-- definition-example-end -->
 
 局所逆写像の存在も微分から確認できます。$a_0=f'(z_0)\ne0$ とし、$z_0$ を中心とする十分小さい円板 $D$ で $|f'(z)-a_0|<|a_0|/2$ とします。円板内の線分に沿って積分すると
 
@@ -205,7 +234,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft50-complex-stress -->
-**定義の確認** $\phi=ax$ とすると $\tau_{xx}=ga^2/(4\pi)$、$\tau_{yy}=-ga^2/(4\pi)$、$\tau_{xy}=0$。従って $\tau_{z\bar z}=0$、$\tau_{zz}=ga^2/(8\pi)$、$t=-ga^2/4$。一方 $\partial_z\phi=a/2$ なので $-g(\partial_z\phi)^2=-ga^2/4$ と一致します。$\Delta\phi=0$ も満たし、非定数の場でも正則側が定数になる例です。
+**定義の確認** $\phi=ax$（実定数 $a$）では $\phi_x=a$、$\phi_y=0$、$\Delta\phi=0$ です。応力テンソルの各成分を定義から求めると
+
+$$
+\tau_{xx}=\frac{ga^2}{4\pi},\quad
+\tau_{yy}=-\frac{ga^2}{4\pi},\quad
+\tau_{xy}=0.
+$$
+
+従って $\tau_{z\bar z}=(\tau_{xx}+\tau_{yy})/4=0$ であり、
+
+$$
+\tau_{zz}=\frac{ga^2}{8\pi},
+\qquad t=-2\pi\tau_{zz}=-\frac{ga^2}{4}
+=-g\left(\partial_z\phi\right)^2
+$$
+
+となります。最後の等号では $\partial_z\phi=a/2$ を使いました。トレース零と場の方程式を満たす非定数の場で、正則カレントが定数になる直接例です。
 <!-- definition-example-end -->
 
 <a id="thm-qft50-holomorphic-stress"></a>
@@ -275,18 +320,38 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft50-weights -->
-**定義の確認** 古典スカラー $\phi$ の座標輸送を $\phi(f(z),\overline{f(z)})$ とすれば $(h,\bar h)=(0,0)$ です。その $z$ 方向の微分 $J=\partial_z\phi$ には連鎖律から $\partial_z\phi(f(z),\overline{f(z)})=f'(z)(\partial_w\phi)(w,\bar w)$ が働くので、微分場 $J$ は $(1,0)$ の変換則を持ちます。$\bar J=\partial_{\bar z}\phi$ は $(0,1)$。したがって $J$ の $\Delta=1,s=1$ も直接確かめられます。零モードのため $\phi$ 自体を量子的一次場と断定するものではありません。
+**定義の確認** 古典スカラー $\phi$ の座標輸送は $\phi(w,\bar w)$（$w=f(z)$、$\bar w=\overline{f(z)}$）なので、因子が付かず $(h,\bar h)=(0,0)$ です。正則な $f$ に対して $\partial_z w=f'(z)$、$\partial_z\bar w=0$ となります。ここで $\partial_z$ は $\bar z$ を固定するWirtinger微分です。よって連鎖律は
+
+$$
+\partial_z[\phi(w,\bar w)]
+=(\partial_z w)(\partial_w\phi)
+ +(\partial_z\bar w)(\partial_{\bar w}\phi)
+=f'(z)(\partial_w\phi)(w,\bar w)
+$$
+
+を与え、$J=\partial_z\phi$ は $(h,\bar h)=(1,0)$ と判定できます。同様に $\partial_{\bar z}w=0$、$\partial_{\bar z}\bar w=\overline{f'}$ を代入すると $\bar J=\partial_{\bar z}\phi$ は $(0,1)$。従って $J$ には $\Delta=h+\bar h=1$、$s=h-\bar h=1$、$\bar J$ には $\Delta=1$、$s=-1$ が対応します。零モードのため $\phi$ 自体を量子的一次場と断定するものではありません。
 <!-- definition-example-end -->
 
-小さい正則 $\epsilon$ に対する $f(z)=z+\eta\epsilon(z)+O(\eta^2)$ を考え、$\eta$ で微分すると
+微小変換では正則側と反正則側の変化を区別します。$\eta\in\mathbb R$ とし、正則な $\epsilon$ に対して $f_\eta(z)=z+\eta\epsilon(z)+O(\eta^2)$ と置くと、共役側も $\overline{f_\eta(z)}=\bar z+\eta\bar\epsilon(\bar z)+O(\eta^2)$ と変わります。従って二つの因子をそれぞれ一次まで展開し、合成関数に連鎖律を適用すると、**実パラメータでの全変化**は
 
 $$
-\mathcal D_\epsilon\mathcal O
-=\left.\frac{d}{d\eta}\mathcal U_f\mathcal O\right|_{\eta=0}
-=\epsilon\partial_z\mathcal O+h(\partial_z\epsilon)\mathcal O.
+\left.\frac{d}{d\eta}\mathcal U_{f_\eta}\mathcal O\right|_{\eta=0}
+=\left[
+\epsilon\partial_z+h(\partial_z\epsilon)
++\bar\epsilon\partial_{\bar z}
++\bar h(\partial_{\bar z}\bar\epsilon)
+\right]\mathcal O.
 $$
 
-これは正則側の式で、反正則側には $\bar\epsilon\partial_{\bar z}+\bar h\,\partial_{\bar z}\bar\epsilon$ を足します。有限変換の二つの因子を展開してから一次の係数を取ったため、$h\epsilon'$ の項がどこから来たかも明確です。
+ここで $\bar\epsilon(\bar z)=\overline{\epsilon(z)}$ です。次節の正則カレントが生成するのは、この全変化の**正則成分**です。$z,\bar z$ を独立に扱う複素化した変換で反正則側を固定し、
+
+$$
+\mathcal D_\epsilon^{(z)}\mathcal O
+=\bigl[\epsilon\partial_z+h\epsilon'\bigr]\mathcal O,
+\qquad \epsilon'\coloneqq\partial_z\epsilon
+$$
+
+と書きます。$\partial_z$ は $\bar z$ を固定して $z$ で微分し、$\partial_{\bar z}$ は $z$ を固定して $\bar z$ で微分します。この区別により、実パラメータの全変化と正則側のWard作用を混同しません。
 
 ## 5. 輪郭積分が局所Ward恒等式を読む
 
@@ -357,7 +422,7 @@ $$
 A_j\epsilon'(w_j)+B_j\epsilon(w_j)
 $$
 
-です。一方、[一次場の変換則](#def-qft50-weights)を微小パラメータで微分すると、挿入点 $j$ の変化は
+です。一方、[一次場の正則側の微小変換](#def-qft50-weights)を挿入点 $j$ に作用させると、
 
 $$
 \bigl(h_j\epsilon'(w_j)+\epsilon(w_j)\partial_{w_j}\bigr)G
@@ -538,7 +603,7 @@ $1/A-1/B=(B-A)/(AB)=(u-v)/(AB)$ を先に用いると $hG(1/A^2+1/B^2-2/(AB))=hG
 ### 演習 QFT50-B4：輪郭電荷と局所変換
 
 - Level: B
-- 問題: $w\ne0$ の近傍で $\epsilon(z)=z^2$ とする。ウェイト $h$ の一次場一挿入について、Ward核の小円積分を直接求め、$\mathcal D_\epsilon\mathcal O$ と照合せよ。また小円を別の挿入点を越えて拡大してはいけない理由を述べよ。
+- 問題: $w\ne0$ の近傍で $\epsilon(z)=z^2$ とする。ウェイト $h$ の一次場一挿入について、Ward核の小円積分を直接求め、$\mathcal D_\epsilon^{(z)}\mathcal O$ と照合せよ。また小円を別の挿入点を越えて拡大してはいけない理由を述べよ。
 
 **詳細解答**：他の挿入点を小円の外に固定した相関関数を $G(w)$ として
 
@@ -549,7 +614,7 @@ z^2\left[\frac{hG}{(z-w)^2}
 =2hwG+w^2\partial_wG.
 $$
 
-二重極に[Cauchy高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)を $f(z)=z^2$ で適用すると $f'(w)=2w$、単純極は $f(w)=w^2$ を与えるためです。一次場の微小変換 $\epsilon\partial_w+h\epsilon'$ も同じ $w^2\partial_w+2hw$。輪郭を別の挿入点の上へ移動すれば、その点の極と接触項の寄与が新たに入り、元の一挿入点だけの電荷ではなくなる。
+二重極に[Cauchy高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)を $f(z)=z^2$ で適用すると $f'(w)=2w$、単純極は $f(w)=w^2$ を与えるためです。[一次場の正則側の微小変換](#def-qft50-weights) $\epsilon\partial_w+h\epsilon'$ も同じ $w^2\partial_w+2hw$。輪郭を別の挿入点の上へ移動すれば、その点の極と接触項の寄与が新たに入り、元の一挿入点だけの電荷ではなくなる。
 
 ### 演習 QFT50-C1：正則変換・保存・接触項の総合検算
 
