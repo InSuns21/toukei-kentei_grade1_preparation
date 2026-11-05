@@ -1,0 +1,47 @@
+id: "GEOD21"
+title: "日本の平面直角座標系と UTM の比較"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD2
+  - GEOD11
+  - GEOD13
+  - GEOD16
+  - GEOD17
+  - GEOD18
+official_scope: []
+learning_objectives:
+  - 日本の平面直角座標系19系について規定の原点と適用区域を読み、JGD2024・GRS80と区別して構成できる
+  - 日本式X北・Y東とGIS式Easting・Northingの軸順序を行列と原点の数値例で検算できる
+  - 横メルカトルの中央子午線と原点緯度から平面直角座標の原点補正と縮尺を導出できる
+  - UTMの6度帯・中央子午線・false easting・縮尺を計算し日本の平面直角座標系と比較できる
+  - 投影換算と基準系間の座標変換を分け、CRS識別子・座標時点・単位・軸順序を安全に扱える
+definitions:
+  - { id: GEOD21-DEF-01, name: 日本の平面直角座標系の投影パラメータと日本式軸 }
+  - { id: GEOD21-DEF-02, name: UTM帯と投影パラメータ }
+theorems:
+  - { id: GEOD21-THM-01, name: 日本式と東北式の軸交換 }
+  - { id: GEOD21-THM-02, name: 中央子午線上の原点補正と距離 }
+  - { id: GEOD21-THM-03, name: 横メルカトルの局所面積比 }
+  - { id: GEOD21-PROP-01, name: UTM帯番号と中央子午線 }
+canonical_examples:
+  - 法定19系原点一覧と第IX系の原点でのX=Y=0
+  - 第IX系の原点から東経1秒の微小変位と軸交換
+  - UTM第54帯の赤道中央子午線とfalse easting
+  - 中央子午線上の1kmに対する日本式・UTMの縮尺と面積比
+  - JGD2024の水平位置と標高・EPSG識別子の版差
+problem_patterns:
+  - GEOD21-REGION-ORIGIN
+  - GEOD21-AXIS-PERMUTATION
+  - GEOD21-LOCAL-EAST
+  - GEOD21-UTM-ZONE
+  - GEOD21-MERIDIAN-ARC
+  - GEOD21-LOCAL-SCALE
+  - GEOD21-EPOCH-DATUM
+  - GEOD21-VALIDATION-PIPELINE
+  - GEOD21-AREA-SCALE
+  - GEOD21-INTEGRATED-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 3 }
