@@ -19,6 +19,12 @@
 .geod-app .globe-zoom-controls input{width:clamp(95px,24%,190px);flex:1 1 95px;max-width:190px}
 .geod-app .globe-zoom-controls output{min-width:3.2rem;text-align:right;font-variant-numeric:tabular-nums}
 .geod-app .globe-zoom-controls button{padding:.35rem .7rem;min-height:2.3rem}
+.geod-app .globe-location-toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:.5rem .75rem;padding:.75rem;margin:.6rem 0;border:1px solid #b9cede;background:#eef5fa;border-radius:8px}
+.geod-app .globe-location-toolbar label{flex:1 1 145px;min-width:0;font-size:.84rem}
+.geod-app .globe-location-toolbar input,.geod-app .globe-location-toolbar select{width:100%;box-sizing:border-box;min-width:0}
+.geod-app .globe-location-toolbar #globe-point-role-wrap{flex:0 1 140px}
+.geod-app #globe-point-role-wrap[hidden]{display:none}
+.geod-app .globe-location-help{font-size:.77rem;color:#425466;white-space:nowrap;align-self:center}
 .geod-app .zoom-note{font-size:.78rem;color:#334155;margin:.35rem 0}
 .geod-app #osm-credit{position:absolute;right:.45rem;bottom:.5rem;padding:.14rem .3rem;background:#fffffff0;border-radius:3px;font-size:.7rem;color:#1d496b}
 .geod-app .tile-status{font-size:.78rem;color:#334155;margin:.35rem 0}

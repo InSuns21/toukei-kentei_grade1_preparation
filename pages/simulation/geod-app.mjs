@@ -632,10 +632,30 @@ function computeE() {
   ], '3Dの赤い点Pと二つの全球投影の赤い点は同じ入力経緯度。3Dは誇張楕円体、投影数値は共通の等面積球模型。投影図の指示楕円は線形像の拡大表示です。');
 }
 
+function activePointFields() {
+  if (state.lab === 'B') return $('globe-point-role').value === 'end'
+    ? { city: 'b-city2', lat: 'b-lat2', lon: 'b-lon2', maxLat: 89 }
+    : { city: 'b-city1', lat: 'b-lat1', lon: 'b-lon1', maxLat: 89 };
+  if (state.lab === 'D') return { city: 'd-city', lat: 'd-lat', lon: 'd-lon', maxLat: 70 };
+  if (state.lab === 'E') return { city: 'e-city', lat: 'e-lat', lon: 'e-lon', maxLat: 80 };
+  return { city: 'a-city', lat: 'a-lat', lon: 'a-lon', maxLat: 75 };
+}
+
+function syncLocationToolbar() {
+  const config = activePointFields();
+  $('globe-point-role-wrap').hidden = state.lab !== 'B';
+  $('globe-point-city').value = $(config.city).value;
+  $('globe-point-lat').value = $(config.lat).value;
+  $('globe-point-lat').min = String(-config.maxLat);
+  $('globe-point-lat').max = String(config.maxLat);
+  $('globe-point-lon').value = $(config.lon).value;
+}
+
 function recalculate() {
   $('map-panel').hidden = state.lab !== 'D';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
+  syncLocationToolbar();
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
@@ -677,6 +697,44 @@ for (const [id, latId, lonId] of cityControls) {
     if (id === 'd-city') $('d-lon0').value = String(city.lon);
     state.yaw = -rad(city.lon);
     state.tilt = rad(city.lat);
+    recalculate();
+  });
+}
+for (const city of CITIES) {
+  const option = document.createElement('option');
+  option.value = city.id;
+  option.textContent = city.label + '（' + city.lat + '°, ' + city.lon + '°）';
+  $('globe-point-city').append(option);
+}
+$('globe-point-role').addEventListener('change', syncLocationToolbar);
+$('globe-point-city').addEventListener('change', () => {
+  const city = CITIES.find(item => item.id === $('globe-point-city').value);
+  if (!city) return;
+  const config = activePointFields();
+  $(config.city).value = city.id;
+  $(config.lat).value = String(city.lat);
+  $(config.lon).value = String(city.lon);
+  if (state.lab === 'D') $('d-lon0').value = String(city.lon);
+  state.yaw = -rad(city.lon);
+  state.tilt = rad(city.lat);
+  recalculate();
+});
+for (const axis of ['lat', 'lon']) {
+  $('globe-point-' + axis).addEventListener('change', () => {
+    const config = activePointFields();
+    const value = Number($('globe-point-' + axis).value);
+    const max = axis === 'lat' ? config.maxLat : 180;
+    if (!Number.isFinite(value) || Math.abs(value) > max) {
+      $('geod-status').dataset.error = 'true';
+      $('geod-status').textContent = axis === 'lat'
+        ? '緯度は±' + max + '°以内で指定してください'
+        : '経度は±180°以内で指定してください';
+      return;
+    }
+    $(config[axis]).value = String(value);
+    $(config.city).value = '';
+    state.yaw = -rad(Number($(config.lon).value));
+    state.tilt = rad(Number($(config.lat).value));
     recalculate();
   });
 }
