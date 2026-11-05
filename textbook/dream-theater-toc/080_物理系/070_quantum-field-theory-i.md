@@ -52,3 +52,4 @@
 49. [QFT49 応力テンソルの改良・Ward恒等式・接触項と共形保存流](textbook/volumes/dream_thater/物理系/QFT/QFT49/index.md)
 50. [QFT50 二次元の正則共形変換・複素応力テンソルと局所Ward恒等式](textbook/volumes/dream_thater/物理系/QFT/QFT50/index.md)
 51. [QFT51 自由bosonの応力テンソルOPE・中心電荷とVirasoro代数](textbook/volumes/dream_thater/物理系/QFT/QFT51/index.md)
+52. [QFT52 放射量子化・状態–演算子対応とVirasoro最高ウェイト表現](textbook/volumes/dream_thater/物理系/QFT/QFT52/index.md)

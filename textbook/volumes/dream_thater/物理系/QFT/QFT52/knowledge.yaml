@@ -1,0 +1,83 @@
+chapter: QFT52
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT51, QFT50, QFT19, CA4]
+forward_references: []
+
+concepts:
+  - id: qft.radial-state-operator
+    name: 放射量子化と局所演算子が作る状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射量子化と局所演算子が作る状態）]
+    requires: [qft.virasoro-contour-modes]
+
+  - id: qft.free-current-modes
+    name: 電流モードと自由bosonの真空Fock空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電流モードと自由bosonの真空Fock空間）]
+    requires: [qft.free-boson-current-two-point, qft.radial-state-operator, complex-analysis.laurent-expansion]
+
+  - id: qft.heisenberg-current-commutator
+    name: 電流OPEからHeisenberg交換子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電流OPEからHeisenberg交換子）]
+    requires: [qft.free-current-modes, qft.holomorphic-contour-charge]
+
+  - id: qft.free-boson-state-operator
+    name: 零電荷自由bosonの状態–演算子対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（零電荷自由bosonの状態–演算子対応）]
+    requires: [qft.heisenberg-current-commutator, qft.point-split-wick-stress, qft.radial-state-operator]
+
+  - id: qft.primary-highest-weight-descendant
+    name: 正則一次場・最高ウェイト状態・子孫
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則一次場・最高ウェイト状態・子孫）]
+    requires: [qft.two-dimensional-primary-ward, qft.virasoro-contour-modes, qft.radial-state-operator]
+
+  - id: qft.primary-contour-mode-action
+    name: 一次場の輪郭モード作用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次場の輪郭モード作用）]
+    requires: [qft.primary-highest-weight-descendant, qft.holomorphic-contour-charge]
+
+  - id: qft.virasoro-verma-module
+    name: Virasoro Verma加群
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Virasoro Verma加群）]
+    requires: [qft.primary-highest-weight-descendant, qft.virasoro-commutator]
+
+  - id: qft.free-boson-virasoro-descendant
+    name: 自由bosonの低レベルVirasoro子孫
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由bosonの低レベルVirasoro子孫）]
+    requires: [qft.free-current-modes, qft.primary-contour-mode-action, qft.point-split-wick-stress]
+
+  - id: qft.virasoro-singular-null
+    name: 特異ベクトル・零ノルム子孫
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（特異ベクトル・零ノルム子孫）]
+    requires: [qft.virasoro-verma-module, qft.free-boson-virasoro-descendant]
+
+  - id: qft.virasoro-level2-gram
+    name: レベル1・2のGram行列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（レベル1・2のGram行列）]
+    requires: [qft.virasoro-commutator, qft.virasoro-singular-null]
+
+  - id: qft.c1-quarter-null
+    name: 自由bosonのレベル2特異ベクトル
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（自由bosonのレベル2特異ベクトル）]
+    requires: [qft.virasoro-level2-gram, qft.free-boson-virasoro-descendant]

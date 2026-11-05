@@ -211,3 +211,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT51
     status: completed
     title: "自由bosonの応力テンソルOPE・中心電荷とVirasoro代数"
+  - id: QFT52
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT52
+    status: completed
+    title: "放射量子化・状態–演算子対応とVirasoro最高ウェイト表現"
