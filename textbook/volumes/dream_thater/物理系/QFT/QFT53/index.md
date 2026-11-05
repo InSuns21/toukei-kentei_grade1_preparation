@@ -15,7 +15,9 @@ $$
 t_B(z)=\frac12:a(z)^2:.
 $$
 
-bosonの電流は、同じ向きに四つ挿入すると二点収縮の三通りの積を**すべて正符号**で足します。比較相手は、物理的には質量零の二次元Majorana場の正則成分です。その二点核は極の次数が一つ低く、場同士を交換するたび符号が反転します。奇変数の反交換は[QFT19のGrassmann代数の定義](../QFT19/index.md#def-qft19-grassmann)に従います。
+bosonの電流は、同じ向きに四つ挿入すると二点収縮の三通りの積を**すべて正符号**で足します。比較相手は、物理的には質量零の二次元Majorana場の正則成分です。その二点核は極の次数が一つ低く、場同士を交換するたび符号が反転します。
+
+奇演算子の反交換は[QFT8のFock演算子のCAR](../QFT8/index.md#thm-qft8-car)と同じ符号規約を用います。一方、経路積分の[QFT19のGrassmann代数](../QFT19/index.md#def-qft19-grassmann)は反交換する形式変数であり、Fock空間の演算子そのものではありません。以下では演算子の奇偶と、Grassmann積分でのWick符号を区別します。
 
 円周の回転するスピン枠に対して反周期的な境界条件をNeveu–Schwarz（NS）条件と呼び、この章ではその真空部門を使います。境界条件の異なるRamond部門については最後に適用範囲を区別します。
 
@@ -23,7 +25,7 @@ bosonの電流は、同じ向きに四つ挿入すると二点収縮の三通り
 
 <!-- formal-statement-start -->
 > **定義（正則自由Majorana場とNS真空）**  
-> 正則自由Majorana場 $\psi(z)$ を、奇のGrassmann値の正則場で、平面の相異なる点での収縮が
+> 正則自由Majorana場 $\psi(z)$ を、フェルミオン数の偶奇で奇となる演算子値の正則場で、平面の相異なる点での収縮が
 
 $$
 \langle\psi(z)\psi(w)\rangle=\frac1{z-w},
@@ -57,12 +59,12 @@ $$
 
 ### 証明の見取り図
 
-反交換子は、二つの奇場を入れ替えた輪郭積分の差に対応します。二点核の一位の極の留数は $1$ であり、最後の輪郭積分は指数が $-1$ のときだけ残ります。bosonの $[a_m,a_n]=m\delta_{m+n,0}$ と違い、モード番号の係数は出ません。
+反交換子は、二つの奇場を入れ替えた輪郭積分の差に対応します。二点核の一位の極の留数は $1$ であり、最後の輪郭積分は指数が $-1$ のときだけ残ります。[QFT52のHeisenberg交換子](../QFT52/index.md#prop-qft52-heisenberg) $[a_m,a_n]=m\delta_{m+n,0}$ と違い、モード番号の係数は出ません。
 
 <!-- proof-start -->
 ### 証明
 
-逆Laurent公式を $b_r=\oint_0 dz\,z^{r-1/2}\psi(z)/(2\pi i)$ とします。二つのモードの反交換子を、外側輪郭から内側輪郭を差し引く放射順序の積分として書きます。$z$ の輪郭を $w$ の周りに縮めると、$\psi(z)\psi(w)$ の一位の極から
+[QFT52の電流モードの取り出し](../QFT52/index.md#def-qft52-current-modes)と同じ輪郭留数を用い、逆Laurent公式を $b_r=\oint_0 dz\,z^{r-1/2}\psi(z)/(2\pi i)$ とします。ここで指数 $r-1/2$ は整数なので、被積分関数は局所的に一価です。二つのモードの反交換子を、外側輪郭から内側輪郭を差し引く放射順序の積分として書きます。$z$ の輪郭を $w$ の周りに縮めると、$\psi(z)\psi(w)$ の一位の極から
 
 $$
 \mathop{\mathrm{Res}}_{z=w}\frac{z^{r-1/2}}{z-w}
@@ -86,7 +88,7 @@ $$
 
 ## 2. 四点関数で統計の符号を見分ける
 
-収縮核を $B_{ij}=(z_i-z_j)^{-2}$、$F_{ij}=(z_i-z_j)^{-1}$ と書きます。[QFT19のboson Wick対合](../QFT19/index.md#thm-qft19-boson-wick)と[フェルミオン収縮](../QFT19/index.md#prop-qft19-fermion-wick)の奇変数の順序規約を比べます。反対称行列の**Pfaffian**は、添字を二つずつ組に分け、その組を作る置換の符号を添えて足した式です。四点なら組の作り方は三通りだけで、次の式を直接検算できます。
+相異なる添字 $i\ne j$ に対して収縮核を $B_{ij}=(z_i-z_j)^{-2}$、$F_{ij}=(z_i-z_j)^{-1}$ と書きます。Pfaffianを考える際は反対称行列の対角成分を $F_{ii}=0$ と定義します（同一点の発散する二点核を代入する意味ではありません）。[QFT19のboson Wick対合](../QFT19/index.md#thm-qft19-boson-wick)と[フェルミオン収縮](../QFT19/index.md#prop-qft19-fermion-wick)の奇変数の順序規約を比べます。反対称行列の**Pfaffian**は、添字を二つずつ組に分け、その組を作る置換の符号を添えて足した式です。四点なら組の作り方は三通りだけで、次の式を直接検算できます。
 
 <a id="prop-qft53-four-point"></a>
 
@@ -131,7 +133,7 @@ $$
 
 ## 3. 正則応力テンソルを作ってウェイトを測る
 
-bosonの応力テンソルは $t_B=\tfrac12:a^2:$ でした。Majoranaでは $\psi\psi=0$ なので、同じ二乗は応力テンソルになりません。**一階微分を片方へ付ける**とウェイト2の偶演算子を作れます。
+bosonの応力テンソルは $t_B=\tfrac12:a^2:$ でした。Majoranaでは奇場の同一点積を正規順序で定めると $:\!\psi\psi\!:=0$ なので、同じ二乗は応力テンソルになりません。未正規化の $\psi(z)\psi(z)$ はこの議論では定義しません。**一階微分を片方へ付ける**とウェイト2の偶演算子を作れます。
 
 <a id="def-qft53-majorana-stress"></a>
 
@@ -147,7 +149,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft53-majorana-stress -->
-**定義の確認**：$\psi$ は奇、$\partial\psi$ も奇ですから積は偶です。二つの場のウェイトが後で $1/2$ と分かると、微分による増分 $1$ を加えた $1/2+(1/2+1)=2$ が応力テンソルのウェイトに一致します。さらに原点のNS真空では $:\!\psi\partial\psi\!:(0)|0\rangle=-b_{-3/2}b_{-1/2}|0\rangle$ なので、$t_F(0)|0\rangle=\tfrac12b_{-3/2}b_{-1/2}|0\rangle$ は非零です。異なる二つのモードなのでPauli原理にも反しません。
+**定義の確認**：$\psi$ は奇、$\partial\psi$ も奇ですから積は偶です。二つの場のウェイトが後で $1/2$ と分かると、微分による増分 $1$ を加えた $1/2+(1/2+1)=2$ が応力テンソルのウェイトに一致します。
+
+原点のNS真空では負モードの生成部分が $\psi(0)|0\rangle=b_{-1/2}|0\rangle$、$\partial\psi(0)|0\rangle=b_{-3/2}|0\rangle$ です。これらを正規順序で並べ、反交換性を用いると
+
+$$
+\begin{aligned}
+:\!\psi\partial\psi\!:(0)|0\rangle
+&=b_{-1/2}b_{-3/2}|0\rangle\\
+&=-b_{-3/2}b_{-1/2}|0\rangle,\\
+t_F(0)|0\rangle&=\frac12b_{-3/2}b_{-1/2}|0\rangle\ne0.
+\end{aligned}
+$$
+
+異なる二つの生成モードなので同一モードの二重励起ではなく、Pauli原理にも反しません。
 <!-- definition-example-end -->
 
 <a id="prop-qft53-fermion-ward"></a>
@@ -189,6 +204,15 @@ $$
 
 この一次場は[QFT52の最高ウェイト条件](../QFT52/index.md#def-qft52-primary-descendant)により、$|\psi\rangle=b_{-1/2}|0\rangle$ という正規化された最高ウェイト状態を作ります。特に $L_0|\psi\rangle=\tfrac12|\psi\rangle$ です。
 
+NS境界条件もモードから確かめられます。[QFT50の一次場の共形変換則](../QFT50/index.md#def-qft50-weights)を $z=e^u$（円筒座標 $u=\tau+i\theta$）に適用すると、ウェイト $1/2$ のスピン枠表示は
+
+$$
+\psi_{\mathrm{cyl}}(u)=e^{u/2}\psi(e^u)
+=\sum_{r\in\mathbb Z+1/2}b_re^{-ru}.
+$$
+
+$u\mapsto u+2\pi i$ では各項に $e^{-2\pi ir}=-1$ が掛かるため、定義で指定したNS反周期性をモードごとに確認できます。
+
 ## 4. 四次極を計算し中心電荷を比較する
 
 [QFT51の中心電荷の定義](../QFT51/index.md#def-qft51-stress-ope)では、一般の正則応力テンソルの自己OPEを
@@ -225,7 +249,7 @@ bosonでは二つの二点収縮の対応が二通りで四次極係数が $1/2$
 <!-- proof-start -->
 ### 証明
 
-**boson**：$t_B(z)t_B(w)$ の二重収縮は、二本の $a(z)$ を二本の $a(w)$ に対応させる二通りです。各収縮は $s^{-2}$ なので
+以下の計算では $s=z-w$ と置き、$\partial\psi(z)$ は $z$ 微分、$\partial\psi(w)$ は $w$ 微分と区別します。\n\n**boson**：$t_B(z)t_B(w)$ の二重収縮は、二本の $a(z)$ を二本の $a(w)$ に対応させる二通りです。各収縮は $s^{-2}$ なので
 
 $$
 \frac14\cdot2(s^{-2})^2=\frac1{2s^4}.
@@ -262,11 +286,36 @@ $$
 \end{aligned}
 $$
 
-一重収縮部分では、同じ点での二つの奇場の正規順序が反対称であることを使い、$\psi(z)=\psi(w)+s\partial\psi(w)+s^2\partial^2\psi(w)/2+\cdots$ と展開します。$s^{-3}$ の候補は $:\!\psi(w)\psi(w)\!:=0$ により消え、残る項は
+一重収縮も符号を残して展開します。四つの奇場の順序 $\psi(z),\partial\psi(z),\psi(w),\partial\psi(w)$ を固定すると、各一重収縮の寄与は
 
 $$
--\frac{:\!\psi(w)\partial\psi(w)\!:}{s^2}
--\frac{\partial(:\!\psi(w)\partial\psi(w)\!:)}{2s}
+\begin{aligned}
+\bigl(t_F(z)t_F(w)\bigr)_{\text{一重収縮}}
+&=\frac14\bigg[
+-\frac{:\!\partial\psi(z)\partial\psi(w)\!:}{s}
++\frac{:\!\partial\psi(z)\psi(w)\!:}{s^2}\\
+&\qquad-\frac{:\!\psi(z)\partial\psi(w)\!:}{s^2}
++\frac{2:\!\psi(z)\psi(w)\!:}{s^3}
+\bigg].
+\end{aligned}
+$$
+
+ここで $X=:\!\psi(w)\partial\psi(w)\!:$、$Y=:\!\psi(w)\partial^2\psi(w)\!:$ と置きます。正規順序の反対称性により $:\!\psi(w)\psi(w)\!:=:\!\partial\psi(w)\partial\psi(w)\!:=0$ です。Taylor展開 $\psi(z)=\psi(w)+s\partial\psi(w)+s^2\partial^2\psi(w)/2+\cdots$ から
+
+$$
+\begin{aligned}
+:\!\psi(z)\psi(w)\!: &=-sX-\frac{s^2}{2}Y+O(s^3),\\
+:\!\partial\psi(z)\psi(w)\!: &=-X-sY+O(s^2),\\
+:\!\psi(z)\partial\psi(w)\!: &=X+O(s^2),\\
+:\!\partial\psi(z)\partial\psi(w)\!: &=O(s)
+\end{aligned}
+$$
+
+を得ます。四項を元の式に戻し、$\partial X=Y$（$:\!\partial\psi\partial\psi\!:=0$）を使うと
+
+$$
+\frac14\left(-\frac{4X}{s^2}-\frac{2Y}{s}\right)
+=-\frac{X}{s^2}-\frac{\partial X}{2s}
 =\frac{2t_F(w)}{s^2}+\frac{\partial t_F(w)}s.
 $$
 
@@ -306,7 +355,7 @@ bosonの [QFT52のレベル2特異ベクトル](../QFT52/index.md#cor-qft52-c1-n
 <!-- proof-start -->
 ### 証明
 
-まず輪郭作用を $\psi_r=\oint dz\,z^{r-1/2}\psi(z)/(2\pi i)$ に代入します。$[L_n,\psi(z)]=z^{n+1}\partial\psi(z)+(n+1)z^n\psi(z)/2$ だから、第一項を部分積分して
+まず[QFT52の一次場の輪郭作用](../QFT52/index.md#thm-qft52-primary-modes)を、先に定義した $b_r=\oint dz\,z^{r-1/2}\psi(z)/(2\pi i)$ に代入します。$[L_n,\psi(z)]=z^{n+1}\partial\psi(z)+(n+1)z^n\psi(z)/2$ だから、第一項を部分積分して
 
 $$
 [L_n,b_r]
@@ -353,10 +402,18 @@ $$
 補足として、自由bosonの荷電部門では、零モードと対数の枝を指定した正則場 $X$ を $\langle X(z)X(w)\rangle=-\log(z-w)$ と規格化し、$a=i\partial X$ とできます。荷電挿入 $V_q(z)=:\!e^{iqX(z)}\!:$ は $a(z)V_q(w)\sim qV_q(w)/(z-w)$ を満たします。$q$ と $-q$ の中性な二点関数には
 
 $$
-\langle V_q(z)V_{-q}(w)\rangle\propto(z-w)^{-q^2},\qquad h_q=\frac{q^2}{2}
+\langle V_q(z)V_{-q}(w)\rangle\propto(z-w)^{-q^2}
 $$
 
-が現れます。正則指数場の対数の枝や互いの局所性は別途条件を要し、任意の実 $q$ を完全な局所理論の場と宣言しているわけではありません。これはフェルミオンの $h=1/2$ と、bosonの荷電部門にも $q^2=1$ で同じウェイトが現れる、という**比較の入口**です。ウェイト一致だけでは両場の同一視になりません。
+が現れます。
+
+ただし二点べきだけでは、一次場としてのWard作用をまだ検証していません。$a(z)V_q(w)$ の一次極を用い、$t_B=\tfrac12:\!a^2\!:$ の二重収縮から $q^2V_q(w)/(2(z-w)^2)$、二通りの一重収縮から $q:\!aV_q\!:(w)/(z-w)$ を得ます。$a=i\partial X$ の連鎖律により $\partial V_q=q:\!aV_q\!:$ なので
+
+$$
+t_B(z)V_q(w)\sim\frac{q^2V_q(w)}{2(z-w)^2}+\frac{\partial V_q(w)}{z-w}.
+$$
+
+[QFT50の一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)と各極を照合して、二点関数のべきだけに依存せず $h_q=q^2/2$ と判定できます。正則指数場の対数の枝や互いの局所性は別途条件を要し、任意の実 $q$ を完全な局所理論の場と宣言しているわけではありません。これはフェルミオンの $h=1/2$ と、bosonの荷電部門にも $q^2=1$ で同じウェイトが現れる、という**比較の入口**です。ウェイト一致だけでは両場の同一視になりません。
 
 ## 演習：Wickの符号から零状態まで
 
@@ -365,7 +422,7 @@ $$
 - Level: A
 - 問題: 相異なる四点で $\langle a_i a_j\rangle=(z_i-z_j)^{-2}$ のGaussian boson電流を考える。$\langle a_1a_2a_3a_4\rangle$ を三つの二点収縮の積で表し、$z_1=0,z_2=1,z_3=2,z_4=3$ で値を求めよ。
 
-**詳細解答**：完全対合は $(12)(34)$、$(13)(24)$、$(14)(23)$ の三つで、bosonのWick則には置換符号がありません。$B_{12}=B_{34}=1$、$B_{13}=B_{24}=1/4$、$B_{14}=1/9$、$B_{23}=1$ より
+**詳細解答**：[QFT19のboson Wick則](../QFT19/index.md#thm-qft19-boson-wick)より、完全対合は $(12)(34)$、$(13)(24)$、$(14)(23)$ の三つで、置換符号はありません。$B_{12}=B_{34}=1$、$B_{13}=B_{24}=1/4$、$B_{14}=1/9$、$B_{23}=1$ より
 
 $$
 \langle a_1a_2a_3a_4\rangle
@@ -378,7 +435,7 @@ $$
 - Level: A
 - 問題: 二点核 $F_{ij}=(z_i-z_j)^{-1}$ のGaussian奇場について、$\langle\psi_1\psi_2\psi_3\psi_4\rangle$ の三つの符号を求めよ。挿入 $\psi_1$ と $\psi_2$ を交換すると全体が負になる理由も述べよ。
 
-**詳細解答**：順序 $1234$ から対合へ移す置換回数は $12|34$ で0回、$13|24$ で1回、$14|23$ で2回なので $F_{12}F_{34}-F_{13}F_{24}+F_{14}F_{23}$ です。$F_{ji}=-F_{ij}$ であり、最初の二挿入を交換した期待値は奇変数を一度入れ替えた値ですから全体に $-1$ が掛かります。これは各二点核の符号だけでなく、相関関数に指定した奇場の順序の効果です。
+**詳細解答**：[QFT19のフェルミオン収縮則](../QFT19/index.md#prop-qft19-fermion-wick)に従い、順序 $1234$ から対合へ移す置換回数は $12|34$ で0回、$13|24$ で1回、$14|23$ で2回なので $F_{12}F_{34}-F_{13}F_{24}+F_{14}F_{23}$ です。$F_{ji}=-F_{ij}$ であり、最初の二挿入を交換した期待値は奇演算子を一度入れ替えた値ですから全体に $-1$ が掛かります。これは各二点核の符号だけでなく、相関関数に指定した奇場の順序の効果です。
 
 ### 演習 QFT53-A3：NS一粒子状態のノルム
 
@@ -441,7 +498,32 @@ $$
 - Level: B
 - 問題: $\langle X(z)X(w)\rangle=-\log(z-w)$、$a=i\partial X$、$V_q=:\!e^{iqX}\!:$ を零モードの中性条件付きで考える。$a(z)V_q(w)$ の一次極と $V_q(z)V_{-q}(w)$ のべき、ウェイト $h_q$ を導け。$h_q=1/2$ となる実電荷を求め、Majorana場と同一視してよいか説明せよ。
 
-**詳細解答**：収縮は $\langle\partial X(z)X(w)\rangle=-1/(z-w)$。指数から一つの $X$ を取り出すと係数は $i\cdot iq\cdot(-1/(z-w))=q/(z-w)$ なので $a(z)V_q(w)\sim qV_q(w)/(z-w)$。二つの指数の交差収縮を指数化すると $\exp((iq)(-iq)(-\log(z-w)))=(z-w)^{-q^2}$。一次場の二点べき $(z-w)^{-2h_q}$ と比べて $h_q=q^2/2$。従って実 $q=\pm1$ で $h_q=1/2$ です。ただし半整数スピンの局所性、スピン部門、交換符号、零モードを未指定のままMajorana場と同一視はできません。
+**詳細解答**：$s=z-w$ とおくと、二点核の $z$ 微分から
+
+$$
+\langle\partial X(z)X(w)\rangle=-s^{-1}
+$$
+
+です。指数から一つの $X$ を取り出すWick収縮の係数は $i\cdot iq\cdot(-s^{-1})=q/s$ なので
+
+$$
+a(z)V_q(w)\sim\frac{qV_q(w)}s.
+$$
+
+二つの指数の交差収縮は指数化され、零モードの中性条件のもと
+
+$$
+\exp\left((iq)(-iq)(-\log s)\right)=s^{-q^2}
+$$
+
+となります。ただし二点べきだけで一次場だとは断定しません。正規順序 $t_B=\tfrac12:\!a^2\!:$ の二重収縮は $q^2V_q(w)/(2s^2)$、二通りの一重収縮は $q:\!aV_q\!:(w)/s$ です。連鎖律から $\partial V_q=q:\!aV_q\!:$ なので
+
+$$
+t_B(z)V_q(w)\sim\frac{q^2V_q(w)}{2s^2}
++\frac{\partial V_q(w)}s.
+$$
+
+[一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)と照合すると $h_q=q^2/2$ です。先ほどの二点べき $s^{-q^2}=s^{-2h_q}$ とも一致します。従って実 $q=\pm1$ で $h_q=1/2$ です。ただし半整数スピンの局所性、スピン部門、交換符号、零モードを未指定のままMajorana場と同一視はできません。
 
 ### 演習 QFT53-C1：自由場の統計・Ward作用・零状態を結ぶ
 
@@ -455,7 +537,7 @@ $$
 
 **詳細解答**：
 
-**（1）四点収縮。** 三対合は $(12)(34)$、$(13)(24)$、$(14)(23)$ です。bosonでは $B_{12}B_{34}+B_{13}B_{24}+B_{14}B_{23}$、fermionでは奇場の1回の横断を含む中項だけ負にして $F_{12}F_{34}-F_{13}F_{24}+F_{14}F_{23}$ です。ここで $B_{ij}=(z_i-z_j)^{-2}$、$F_{ij}=(z_i-z_j)^{-1}$ としました。
+**（1）四点収縮。** 三対合は $(12)(34)$、$(13)(24)$、$(14)(23)$ です。[QFT19のWick対合](../QFT19/index.md#thm-qft19-boson-wick)によりbosonでは $B_{12}B_{34}+B_{13}B_{24}+B_{14}B_{23}$、fermionでは奇場の1回の横断を含む中項だけ負にして $F_{12}F_{34}-F_{13}F_{24}+F_{14}F_{23}$ です。ここで $B_{ij}=(z_i-z_j)^{-2}$、$F_{ij}=(z_i-z_j)^{-1}$ としました。
 
 **（2）Ward作用。** $s=z-w$ とすると $\langle\partial\psi(z)\psi(w)\rangle=-s^{-2}$。二通りの奇場収縮と $\psi(z)=\psi(w)+s\partial\psi(w)+\cdots$ から
 
