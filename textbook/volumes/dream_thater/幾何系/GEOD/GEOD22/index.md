@@ -29,7 +29,7 @@ $$
 \phi_0=36^\circ,\qquad \lambda_0=139^\circ50'
 $$
 
-を持ち、日本の平面直角座標系第IX系の原点と同じ経緯度とします。観測対象PはOから数十mだけ離れた点です。Oの測地経緯度と座標時点は、**この演習の条件として既知・固定**とし、基準点自体の共分散は以下の数値例には含めません。
+を持ち、日本の平面直角座標系第IX系の原点と同じ経緯度とします。観測対象PはOから数十mだけ離れた点です。Oの測地経緯度は**この演習の条件として既知・固定**とし、基準点自体の共分散は以下の数値例には含めません。ただし座標時点の数値は与えていません。この演習では全工程を同じ固定した座標表現上で行い、異時点間の位置補正をしないと仮定します。「固定した基準点」と「座標時点が既知」は別の条件です。
 
 観測はすでに器械高・気象・傾斜距離など必要な補正を施して、**Oの楕円体接平面の東（e）・北（n）の距離に還元済み**と仮定します。地表で測った斜距離をいきなり平面距離とする設定ではありません。[ENU基底](../GEOD5/index.md#def-geod5-enu)は東・北・楕円体法線上向きの直交単位基底です。
 
@@ -49,7 +49,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod22-coordinate-ledger -->
-**定義の確認**（入口の記録）。一行目は「JGD2024・時点は入力資料の値、GRS80、O固定、接平面ENU、e,nの順、m、補正済みの模擬観測、観測分散は上表」とします。測点の楕円体高を仮に120.0 m、ジオイド高を30.5 mとする場合には、さらに「高さ関係は同一基準における近似」を明記します。時点が未提示なら空欄のまま黙認せず「未指定・実務変換不可」と記録するので、(i)から(v)をそれぞれ照合できます。
+**定義の確認**（入口の台帳）。定義の(i)〜(v)を単なる項目名ではなく、次のように入力・出力の欄へ対応させます。出力値はまだ計算していないので「計算待ち」と明示し、第3・4節で埋めます。
+
+| 定義の条件 | 入力位置・観測の記録 | 出力位置・計算の記録 |
+| --- | --- | --- |
+| (i) CRS・実現・時点 | JGD2024、Oの経緯度は固定、座標時点の**数値は未指定** | 同じ測地基準系の第IX系・世界図へ投影予定。異時点の実務変換は不可 |
+| (ii) 楕円体・高さ | GRS80。測点の楕円体高 $h_P=120.0$ m、ジオイド高 $N_g=30.5$ mは別途与える仮定値 | 第IX系・世界図には楕円体上の経緯度を使用。標高は同一鉛直基準で $H_P\simeq h_P-N_g$ |
+| (iii) 軸・単位 | 接平面ENUの東距 $e$、北距 $n$ の順、m。角度は入力時に度、計算ではrad | 第IX系はX北・Y東、世界図はE東・N北、いずれもm（値は計算待ち） |
+| (iv) 補正・変換・有効域 | 器械高・気象・傾斜距離等は補正済みと仮定。Oの近傍数十mの接平面に還元済み | 局所一次近似・Krüger投影・正積緯度経由のEqual Earth。各近似の有効域と切れ目は第2〜5節で確認 |
+| (v) 不確かさの分離 | 観測標準偏差は上表、Oは固定。共通系統差は未知 | 平差共分散は第1.2節で計算。打切り・丸め・datum差・高さ誤差は別欄に保留 |
+
+この表では入力の観測分散から出力の共分散をまだ推定していません。**計算待ち、与えられた仮定、未指定**を区別すること自体が確認であり、未指定の時点をJGD2024の名称から推定してはいけません。
 <!-- definition-example-end -->
 
 ### 1.2 平差の数値を出発点から求める
@@ -109,7 +119,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-行列は
+4件の観測を東・東・北・北の順に並べます。観測ベクトルは
+
+$$
+y=(10.04,9.98,20.02,19.98)^{\mathsf T}\ {\rm m}
+$$
+
+です。各東観測は未知の東距 $e$ を、各北観測は未知の北距 $n$ を測るので、系統差を除いた予測値は $Au=(e,e,n,n)^{\mathsf T}$ です。各行でどちらの成分を測るかを係数0と1で記し、既知の観測分散を同じ順に対角へ並べると
 
 $$
 A=\begin{pmatrix}1&0\\1&0\\0&1\\0&1\end{pmatrix},
@@ -117,7 +133,7 @@ A=\begin{pmatrix}1&0\\1&0\\0&1\\0&1\end{pmatrix},
 \Sigma^{-1}=\operatorname{diag}(2500,625,2500,2500)
 $$
 
-です。$A$ の第1列と第2列は一次独立なので列フルランクです。正定値な $\Sigma^{-1}$ に対して任意の非零 $v$ は
+となります。これで設計行列 $A$ と重み行列 $\Sigma^{-1}$ の各行・対角成分が、元の観測モデルと一対一に対応します。$A$ の第1列と第2列は一次独立なので列フルランクです。正定値な $\Sigma^{-1}$ に対して任意の非零 $v$ は
 
 $$
 v^{\mathsf T}A^{\mathsf T}\Sigma^{-1}Av=(Av)^{\mathsf T}\Sigma^{-1}(Av)>0
@@ -153,12 +169,16 @@ $$
 
 ### 2.1 小変位の緯度経度
 
-[GEOD4の計量](../GEOD4/index.md#thm-geod4-ellipsoid-metric)と[GEOD5の局所Jacobian](../GEOD5/index.md#prop-geod5-local-jacobian)を、Oの緯度 $\phi_0$ に適用します。$M_0=M(\phi_0)$ は子午線曲率半径、$N_0=N(\phi_0)$ は卯酉線曲率半径です。GRS80の $a=6378137$ m、$1/f=298.257222101$ から
+[GEOD4の計量](../GEOD4/index.md#thm-geod4-ellipsoid-metric)と[GEOD5の局所Jacobian](../GEOD5/index.md#prop-geod5-local-jacobian)を、Oの緯度 $\phi_0$ に適用します。$M_0=M(\phi_0)$ は子午線曲率半径、$N_0=N(\phi_0)$ は卯酉線曲率半径です。
+
+東距 $e$ と混同しないよう、[GEOD4の第一離心率](../GEOD4/index.md#def-geod4-curvature-radii)で $e$ と書いた量を、本章の以後の楕円体公式では $e_{\mathrm{ell}}$ と表します。$f$ は扁平率です。
+
+GRS80の $a=6378137$ m、$1/f=298.257222101$ から
 
 $$
-e^2=f(2-f),\quad
-M_0=\frac{a(1-e^2)}{(1-e^2\sin^2\phi_0)^{3/2}}\simeq6357482.44\ {\rm m},
-\quad N_0=\frac{a}{\sqrt{1-e^2\sin^2\phi_0}}\simeq6385525.66\ {\rm m}.
+e_{\mathrm{ell}}^2=f(2-f),\quad
+M_0=\frac{a(1-e_{\mathrm{ell}}^2)}{(1-e_{\mathrm{ell}}^2\sin^2\phi_0)^{3/2}}\simeq6357482.44\ {\rm m},
+\quad N_0=\frac{a}{\sqrt{1-e_{\mathrm{ell}}^2\sin^2\phi_0}}\simeq6385525.66\ {\rm m}.
 $$
 
 接平面の一次関係は $dn=M_0\,d\phi,\ de=N_0\cos\phi_0\,d\lambda$ なので
@@ -194,7 +214,7 @@ $$
 \begin{aligned}
 X_c&=(N(\phi_P)+h_P)\cos\phi_P\cos\lambda_P,\\
 Y_c&=(N(\phi_P)+h_P)\cos\phi_P\sin\lambda_P,\\
-Z_c&=(N(\phi_P)(1-e^2)+h_P)\sin\phi_P
+Z_c&=(N(\phi_P)(1-e_{\mathrm{ell}}^2)+h_P)\sin\phi_P
 \end{aligned}}
 $$
 
@@ -309,18 +329,18 @@ $$
 
 $$
 \begin{aligned}
-q(\phi)&=(1-e^2)\left[
-\frac{\sin\phi}{1-e^2\sin^2\phi}
--\frac{1}{2e}\log\frac{1-e\sin\phi}{1+e\sin\phi}
+q(\phi)&=(1-e_{\mathrm{ell}}^2)\left[
+\frac{\sin\phi}{1-e_{\mathrm{ell}}^2\sin^2\phi}
+-\frac{1}{2e_{\mathrm{ell}}}\log\frac{1-e_{\mathrm{ell}}\sin\phi}{1+e_{\mathrm{ell}}\sin\phi}
 \right],\\
 q_p&=q(\pi/2),\qquad R_q=a\sqrt{q_p/2},
 \qquad\beta=\arcsin\frac{q(\phi_P)}{q_p}
 \end{aligned}
 $$
 
-とします（楕円体の $0<e<1$ の場合。球面極限は連続極限で定義）。GRS80では $R_q\simeq6371007.18$ m、上の局所一次の $\phi_P$ を入れると $\beta\simeq35.878234^\circ$ です。
+とします（楕円体の $0<e_{\mathrm{ell}}<1$ の場合。球面極限は連続極限で定義）。GRS80では $R_q\simeq6371007.18$ m、上の局所一次の $\phi_P$ を入れると $\beta\simeq35.878234^\circ$ です。
 
-[GEOD20の多項式](../GEOD20/index.md#def-geod20-intermediate)を $P(t)$、その導関数を $D(t)=P'(t)$ とし、
+[GEOD20の多項式](../GEOD20/index.md#def-geod20-intermediate)を $P(t)$、その導関数を $D(t)=P'(t)=dP/dt$ とします。ここで $t$ は多項式の変数で、以後 $t=\theta$ を代入します。$\operatorname{wrap}_{[-\pi,\pi)}$ は、経度差に $2\pi$ の整数倍を加減して $[-\pi,\pi)$ 内の代表値を取る操作です。これらを用いて
 
 $$
 \theta=\arcsin\left(\frac{\sqrt3}{2}\sin\beta\right),\qquad
@@ -372,10 +392,21 @@ $$
 | 原点から経度差 $\pm t$（十分小） | $X(+t)=X(-t)$、$Y(+t)=-Y(-t)$ | 東西符号、軸交換 |
 | 原点から緯度差 $t$、経度差0 | $X=k_0[s(\phi_0+t)-s(\phi_0)],Y=0$ | 子午線弧長と縮尺 |
 | UTM第54帯の赤道・中央経度141° | 北半球では $(E,N_p)=(500000,0)$ m | UTM偽東距、帯番号 |
-| Equal Earthの赤道・中央経度 | $N_{\rm world}=0$、$(E_{\rm world})_\ell=2R_q/(\sqrt3 A_1)$ | 分母の $D$、単位 |
-| 正積球の緯度帯 | 面積 $2R_q^2\Delta\sin\beta_0$ を図形積分で再現 | 等積性、緯度混同 |
+| Equal Earthの赤道・中央経度 | $N_{\rm world}=0$、$\partial E_{\rm world}/\partial\ell=2R_q/(\sqrt3 A_1)$（緯度固定） | 分母の $D$、単位 |
+| 正積球の対称緯度帯 $-\beta_0\le\beta\le\beta_0$、経度幅 $\Delta\ell$ | 面積 $2R_q^2\Delta\ell\sin\beta_0$ | 等積性、緯度混同 |
 | 経度帯の端・両極 | 切れ目と座標の退化を明示し、正則逆写像を要求しない | 誤った大域単射の仮定 |
-| 楕円体を球面へ近づける | $e\to0,\ \beta\to\phi,\ R_q\to a$ | 球面極限、係数 |
+| 楕円体を球面へ近づける | $e_{\mathrm{ell}}\to0,\ \beta\to\phi,\ R_q\to a$ | 球面極限、係数 |
+
+緯度帯の行では $0\le\beta_0<\pi/2$、経度区間 $[\ell_1,\ell_1+\Delta\ell]$ は切れ目をまたがないものとします。面積要素から独立に積分すれば、判定値は
+
+$$
+\int_{-\beta_0}^{\beta_0}\int_{\ell_1}^{\ell_1+\Delta\ell}
+R_q^2\cos\beta\,d\ell\,d\beta
+=R_q^2\Delta\ell[\sin\beta]_{-\beta_0}^{\beta_0}
+=2R_q^2\Delta\ell\sin\beta_0
+$$
+
+です。
 
 この表は数学的な構造検査です。さらに[国土地理院の平面直角座標計算式](https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/algorithm/bl2xy/bl2xy.htm)と[原点・適用区域の規定](https://www.gsi.go.jp/LAW/heimencho.html)、[PROJの横メルカトル](https://proj.org/en/stable/operations/projections/tmerc.html)、[Equal Earth](https://proj.org/en/stable/operations/projections/eqearth.html)を参照して **別実装・公的定義との比較** を行います。同じプログラムを逆方向に回して戻るだけでは、中央子午線やdatumを間違えていても通過し得ます。
 
@@ -390,7 +421,7 @@ $$
 | 楕円体への距離還元 | 補正済みという入力条件 | 未補正なら地形・高さ・機器・大気等の誤差を別に評価 |
 | Krügerの級数打切り | 次数・点・収束域で変化 | 高次数・独立実装との差を検証 |
 | 浮動小数点丸め | 演算の桁・実装に依存 | 精度実験・条件数・数値安定性 |
-| datum、実現系、epoch | ここでは条件としてJGD2024と明記 | 別時点・別datumなら必要な変換モデルを指定 |
+| datum、実現系、epoch | 基準系はJGD2024、座標時点の数値は未指定 | 別時点・別datumなら必要な変換モデルを指定 |
 | 鉛直基準とジオイド高 | $h=120.0$ m、$N_g=30.5$ mは仮定値 | 水平共分散と混ぜず、高さの共分散を別管理 |
 
 独立な平均0の誤差なら分散を加えられますが、**不明な系統差を観測標準偏差の二乗へ機械的に足さない**ことが重要です。例えばdatum不一致による一定の座標差 $b$ があると、推定値の誤差の平均は $b$ となり、中心を移動した分布になります。ランダム共分散が小さくても、真値からの誤差が小さいとは限りません。
@@ -600,7 +631,7 @@ $$
 
 高さは $H\simeq120.0-30.5=89.5$ mで、楕円体高とは分けます。
 
-**2. 楕円体へ。** $e^2=f(2-f),\ f=1/298.257222101$ から $M_0\simeq6357482.44$ m、$N_0\simeq6385525.66$ mを得ます。[局所Jacobian](../GEOD5/index.md#prop-geod5-local-jacobian)の逆関係を用いて
+**2. 楕円体へ。** $e_{\mathrm{ell}}^2=f(2-f),\ f=1/298.257222101$ から $M_0\simeq6357482.44$ m、$N_0\simeq6385525.66$ mを得ます。[局所Jacobian](../GEOD5/index.md#prop-geod5-local-jacobian)の逆関係を用いて
 
 $$
 \begin{aligned}
@@ -611,7 +642,7 @@ $$
 \end{aligned}
 $$
 
-[地心変換](../GEOD5/index.md#thm-geod5-forward)には、$N(\phi_P)+120.0$ と $N(\phi_P)(1-e^2)+120.0$ の形で**楕円体高**を代入します。近似緯度経度と仮定の高さを用いた値なので、実成果のcm精度を保証しません。
+[地心変換](../GEOD5/index.md#thm-geod5-forward)には、$N(\phi_P)+120.0$ と $N(\phi_P)(1-e_{\mathrm{ell}}^2)+120.0$ の形で**楕円体高**を代入します。近似緯度経度と仮定の高さを用いた値なので、実成果のcm精度を保証しません。
 
 **3. 第IX系。** $\phi_0=36^\circ,\lambda_0=139^\circ50',k_0=0.9999$、偽座標は0、X北・Y東です。中央近傍の局所一次値は
 
@@ -634,7 +665,7 @@ $$
 
 緯度が一次近似値なので出力の末尾桁は精度の主張ではありません。[正積緯度の面積微分式](../GEOD19/index.md#thm-geod19-authalic-area)と[Equal EarthのJacobian](../GEOD20/index.md#thm-geod20-area)をつなげば $dE_{\rm world}dN_{\rm world}=MN\cos\phi\,d\phi d\lambda$ です。他方、第IX系の局所面積比は $k^2$ なので、地域図は一般に等積でありません。
 
-**5. 台帳と独立検査。** 入力は「JGD2024、GRS80、時点はこの合成問題の固定値、接平面ENUのe,n、m、O固定」。第IX系出力は「同datum、第IX系、X北・Y東、m、$k_0=0.9999$」。世界図出力は「同楕円体から正積球、Equal Earth、中央経度0°、E東・N北、m」です。実務データでepochが未指定ならその時点で確認が必要です。観測分散 $C_u$、原点の未知の不確かさ、距離還元の補正、級数打切り、浮動小数点誤差、datum差、高さ系を別欄に記録します。
+**5. 台帳と独立検査。** 入力は「JGD2024、GRS80、座標時点の数値は未指定、接平面ENUのe,n、m、O固定」。第IX系出力は「同datum、第IX系、X北・Y東、m、$k_0=0.9999$」。世界図出力は「同楕円体から正積球、Equal Earth、中央経度0°、E東・N北、m」です。この合成問題は異時点変換をしませんが、実務データでepochが未指定なら確認が必要です。元の観測共分散 $\Sigma$ と平差した座標の共分散 $C_u$、実務では別途必要な原点の共分散（本演習では0扱い）、距離還元の補正、級数打切り、浮動小数点誤差、datum差、高さ系を別欄に記録します。
 
 独立な検査として (i)第IX系原点の $(0,0)$、(ii)経度差の東西反転でX偶・Y奇、(iii)中央子午線の距離と局所面積比、(iv)正積球上の緯度帯の面積積分、(v)法定パラメータと独立投影エンジンの計算値、を選べます。順逆が同じ誤った中央子午線を使えば往復は一致するため、**往復誤差だけでは独立な検算になりません**。
 <!-- solution-end -->

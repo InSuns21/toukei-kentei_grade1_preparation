@@ -1,0 +1,44 @@
+id: QFT48
+title: "Euclid相関関数から共形変換・一次場の相関関数へ"
+volume: foundations
+status: supplementary
+prerequisites: [QFT19, QFT20]
+official_scope: []
+learning_objectives:
+  - 質量零自由Euclidスカラー場の二点核を熱核積分から導き、d>2の赤外可積分性と反射二次形式を検査できる
+  - 共形写像のJacobianによる判定を理解し、反転の局所尺度因子と距離恒等式を自力導出できる
+  - スカラー一次場の定義と真空不変性の役割を区別し、二点関数の次元選択則を導ける
+  - 三点関数の距離指数を共形変換則から決め、理論依存の係数と区別できる
+  - 四点の共形交差比の不変性を検算し、三点との違いを説明できる
+  - 質量項・二次元赤外零モード・反射陽性・解析接続が結論の適用条件を制限することを説明できる
+definitions:
+  - { id: QFT48-DEF-01, name: 質量零自由場のSchwinger二点分布 }
+  - { id: QFT48-DEF-02, name: Euclid共形写像と局所尺度因子 }
+  - { id: QFT48-DEF-03, name: スカラー一次場とスケーリング次元 }
+  - { id: QFT48-DEF-04, name: 四点の共形交差比 }
+theorems:
+  - { id: QFT48-THM-01, name: 質量零共分散の距離則と反射二次形式 }
+  - { id: QFT48-PROP-01, name: 反転のJacobianと距離恒等式 }
+  - { id: QFT48-THM-02, name: スカラー一次場の二点関数と次元の選択則 }
+  - { id: QFT48-THM-03, name: スカラー一次場の三点関数 }
+canonical_examples:
+  - d=4とd=3の自由質量零二点核を熱核積分から計算
+  - 相似変換と反転のJacobianから局所尺度因子を検算
+  - 三点の次元(1,1,2)で距離指数(0,2,2)を確認
+  - 質量のある核とd=2の零モードで尺度則の失敗を確認
+  - 自由場の正規順序二乗をWick対合で計算
+problem_patterns:
+  - QFT48-HEAT-KERNEL
+  - QFT48-INVERSION-JACOBIAN
+  - QFT48-REFLECTION-MODE
+  - QFT48-TWO-POINT-SELECTION
+  - QFT48-FREE-DIMENSION
+  - QFT48-THREE-POINT-EXPONENTS
+  - QFT48-IR-ZERO-MODE
+  - QFT48-MASS-SCALE
+  - QFT48-CROSS-RATIOS
+  - QFT48-FREE-WICK-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 16, review: 6 }

@@ -1,0 +1,62 @@
+chapter: QFT48
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT19, QFT20]
+forward_references: []
+
+concepts:
+  - id: qft.massless-euclidean-schwinger-two-point
+    name: 質量零自由場のSchwinger二点分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量零自由場のSchwinger二点分布）]
+    requires: [qft.euclidean-two-point-function]
+
+  - id: qft.massless-euclidean-power-kernel
+    name: 質量零共分散の距離則と反射二次形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（質量零共分散の距離則と反射二次形式）]
+    requires: [qft.massless-euclidean-schwinger-two-point, qft.free-reflection-form]
+
+  - id: qft.euclidean-conformal-map
+    name: Euclid共形写像と局所尺度因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euclid共形写像と局所尺度因子）]
+    requires: []
+
+  - id: qft.inversion-distance
+    name: 反転のJacobianと距離恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（反転のJacobianと距離恒等式）]
+    requires: [qft.euclidean-conformal-map]
+
+  - id: qft.scalar-primary-field
+    name: スカラー一次場とスケーリング次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（スカラー一次場とスケーリング次元）]
+    requires: [qft.euclidean-conformal-map, qft.massless-euclidean-power-kernel]
+
+  - id: qft.scalar-primary-two-point
+    name: スカラー一次場の二点関数と次元の選択則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（スカラー一次場の二点関数と次元の選択則）]
+    requires: [qft.scalar-primary-field, qft.inversion-distance]
+
+  - id: qft.scalar-primary-three-point
+    name: スカラー一次場の三点関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（スカラー一次場の三点関数）]
+    requires: [qft.scalar-primary-field, qft.inversion-distance]
+
+  - id: qft.conformal-cross-ratios
+    name: 四点の共形交差比
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四点の共形交差比）]
+    requires: [qft.inversion-distance]
