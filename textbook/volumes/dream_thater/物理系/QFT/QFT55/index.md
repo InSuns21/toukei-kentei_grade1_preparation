@@ -232,7 +232,7 @@ Q_-&=\frac1{2\pi}\int_0^L\bar t_{\bar w}(\tau-ix)\,dx
 \end{aligned}
 $$
 
-座標変換を微分すると、円筒の時間・空間並進方向は
+指数写像 $z=e^{\alpha w}$ と $\bar z=e^{\alpha\bar w}$ を $\tau,x$ で微分すると、円筒の時間・空間並進方向は
 
 $$
 \partial_\tau=\alpha(z\partial_z+\bar z\partial_{\bar z}),\qquad
