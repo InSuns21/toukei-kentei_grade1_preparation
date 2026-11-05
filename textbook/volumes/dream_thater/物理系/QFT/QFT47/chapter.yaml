@@ -1,0 +1,44 @@
+id: QFT47
+title: "電弱・異常相殺・QCD・EFT・非摂動近似を結ぶ総合演習"
+volume: foundations
+status: supplementary
+prerequisites: [QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
+official_scope: []
+learning_objectives:
+  - Higgs真空から中性ゲージ質量行列を対角化し、電荷・W/Z質量・Fermi定数の木レベル関係を一続きに検算できる
+  - 最小標準模型一世代の左巻き場一覧から四種の超電荷異常係数を重複度込みで求め、局所と大域の検査を区別できる
+  - CKMユニタリ性を質量基底の荷電電流へ適用する条件を確認できる
+  - 固定フレーバーQCDの一ループ流と深非弾性散乱の運動学を使い、摂動域と因子化の前提を診断できる
+  - 重いスカラーの木レベルmatchingと軽い結合のrunningを分け、係数・符号・打切り誤差を検算できる
+  - 格子の有限模型、整数セクターのθ分配関数、古典インスタントンから主張できる範囲と、未証明の連続極限・閉じ込めを区別できる
+definitions: []
+theorems:
+  - { id: QFT47-PROP-01, name: 電弱中性質量・電荷・低エネルギー係数の整合 }
+  - { id: QFT47-PROP-02, name: 一世代の超電荷異常係数の同時相殺 }
+  - { id: QFT47-PROP-03, name: 固定フレーバー流の解とDISの運動学的境界 }
+  - { id: QFT47-PROP-04, name: 木レベルmatchingから低尺度runningへの接続 }
+  - { id: QFT47-PROP-05, name: 三つの整数セクターのθ曲率 }
+canonical_examples:
+  - 中性質量行列の二つの固有ベクトルとFermi係数
+  - 左巻き一世代の超電荷三次和と混合異常
+  - 二世代Cabibbo行列のユニタリ性と位相空間の制限
+  - QCDのスケール倍増と深非弾性散乱のW二乗
+  - 重いスカラー交換の木レベル係数と低尺度への流れ
+  - 三セクター有限模型の電荷分散とθ微分
+problem_patterns:
+  - QFT47-NEUTRAL-EIGEN
+  - QFT47-FERMI-CHECK
+  - QFT47-HYPERCHARGE-TRACE
+  - QFT47-CKM-UNITARITY
+  - QFT47-QCD-SCALE
+  - QFT47-DIS-BOUNDARY
+  - QFT47-EFT-MATCHING
+  - QFT47-ANOMALY-FAILURE
+  - QFT47-EFT-RUNNING
+  - QFT47-TOPOLOGICAL-CURVATURE
+  - QFT47-METHOD-BOUNDARY
+  - QFT47-INTEGRATED-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 20, review: 7 }
