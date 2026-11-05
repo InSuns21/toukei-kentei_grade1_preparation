@@ -1,0 +1,43 @@
+chapter: GEOD22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEOD2
+  - GEOD4
+  - GEOD5
+  - GEOD8
+  - GEOD10
+  - GEOD11
+  - GEOD13
+  - GEOD16
+  - GEOD17
+  - GEOD18
+  - GEOD19
+  - GEOD20
+  - GEOD21
+forward_references: []
+concepts:
+  - id: geodesy.coordinate-processing-ledger
+    name: 座標処理台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（座標処理台帳）]
+    requires: [geodesy.crs, geodesy.coordinate-epoch, geodesy.observation-weight]
+  - id: geodesy.integrated-adjustment-covariance
+    name: 拘束された東北観測の平差と共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（拘束された東北観測の平差と共分散）]
+    requires: [geodesy.weighted-normal-equations, geodesy.adjustment-covariance]
+  - id: geodesy.local-projection-covariance
+    name: 固定したdatumにおける局所共分散の伝播
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定したdatumにおける局所共分散の伝播）]
+    requires: [geodesy.integrated-adjustment-covariance, geodesy.japan-axis-permutation, geodesy.ellipsoidal-transverse-metric]
+  - id: geodesy.integrated-area-comparison
+    name: 同じ楕円体上の微小領域の地域図・世界図比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同じ楕円体上の微小領域の地域図・世界図比較）]
+    requires: [geodesy.tm-local-area-ratio, geodesy.equal-earth-area, geodesy.authalic-area-preservation]

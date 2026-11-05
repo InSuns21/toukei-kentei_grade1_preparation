@@ -1,0 +1,53 @@
+id: "GEOD22"
+title: "総合演習：観測から測地座標、地域図・世界図まで"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEOD2
+  - GEOD4
+  - GEOD5
+  - GEOD8
+  - GEOD10
+  - GEOD11
+  - GEOD13
+  - GEOD16
+  - GEOD17
+  - GEOD18
+  - GEOD19
+  - GEOD20
+  - GEOD21
+official_scope: []
+learning_objectives:
+  - 拘束された模擬観測の重み付き平差・残差・共分散を再計算できる
+  - 楕円体接平面の東北変位を測地緯度経度・地心座標・高さへ接続し近似の条件を説明できる
+  - 日本第IX系のKrüger順逆変換・軸・原点・縮尺・子午線収差と観測共分散を扱える
+  - 同じ楕円体位置をEqual Earthへ写し等角と等積のJacobianを比較できる
+  - 観測不確かさ・数値打切り・丸め・高さ・datum・epochの誤差要因を分離できる
+  - 原点・対称性・球面極限・境界・独立実装の試験を設計して設定誤りを検出できる
+definitions:
+  - { id: GEOD22-DEF-01, name: 座標処理台帳 }
+theorems:
+  - { id: GEOD22-PROP-01, name: 拘束された東北観測の平差と共分散 }
+  - { id: GEOD22-PROP-02, name: 固定したdatumにおける局所共分散の伝播 }
+  - { id: GEOD22-PROP-03, name: 同じ楕円体上の微小領域の地域図・世界図比較 }
+canonical_examples:
+  - 第IX系原点を固定した合成東北観測4件の平差と共分散
+  - 東北接平面変位の一次測地緯度経度とECEF・標高の区別
+  - 日本第IX系原点近傍の日本式X,Y・局所共分散
+  - 同一点をGRS80正積緯度経由でEqual Earthへ写した数値例
+  - 原点・東西対称性・正積面積・datum誤設定の独立検査
+problem_patterns:
+  - GEOD22-WEIGHTED-ADJUSTMENT
+  - GEOD22-LOCAL-GEODETIC
+  - GEOD22-HEIGHT-AXIS
+  - GEOD22-CENTRAL-SCALE
+  - GEOD22-AUTHALIC-LATITUDE
+  - GEOD22-COVARIANCE
+  - GEOD22-AREA-JACOBIAN
+  - GEOD22-ROUNDTRIP-TRAP
+  - GEOD22-SYSTEMATIC-BIAS
+  - GEOD22-INTEGRATED-PIPELINE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
