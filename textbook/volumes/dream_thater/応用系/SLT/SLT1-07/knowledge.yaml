@@ -1,0 +1,76 @@
+chapter: SLT1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-06
+  - SLT1-04
+  - HDP1
+
+concepts:
+  - id: learning.ghost-sample-loss-trace
+    name: 二重標本と損失トレース
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（二重標本と損失トレース）"]
+    requires:
+      - learning.shatter-coefficient
+      - learning.uniform-risk-deviation
+
+  - id: learning.loss-trace-growth-bound
+    name: 損失トレースの個数上界
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（損失トレースの個数上界）"]
+    requires:
+      - learning.ghost-sample-loss-trace
+
+  - id: learning.ghost-sample-symmetrization-probability
+    name: ghost sampleによる確率的対称化
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（ghost sampleによる確率的対称化）"]
+    requires:
+      - learning.ghost-sample-loss-trace
+      - learning.uniform-risk-deviation
+
+  - id: learning.pair-swap-concentration
+    name: 対交換による二重標本偏差の上界
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（対交換による二重標本偏差の上界）"]
+    requires:
+      - learning.loss-trace-growth-bound
+      - learning.ghost-sample-symmetrization-probability
+
+  - id: learning.vc-uniform-generalization-bound
+    name: VC成長関数による一様汎化界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（VC成長関数による一様汎化界）"]
+    requires:
+      - learning.pair-swap-concentration
+      - learning.ghost-sample-symmetrization-probability
+
+  - id: learning.finite-vc-high-probability
+    name: 有限VC次元の高確率界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（有限VC次元の高確率界）"]
+    requires:
+      - learning.vc-uniform-generalization-bound
+      - learning.sauer-growth-bound
+
+  - id: learning.vc-approximate-erm-excess
+    name: 近似ERMのagnostic超過リスク界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（近似ERMのagnostic超過リスク界）"]
+    requires:
+      - learning.finite-vc-high-probability
