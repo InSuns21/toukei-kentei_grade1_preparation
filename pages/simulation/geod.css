@@ -9,9 +9,15 @@
 .geod-app .viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,470px),1fr));gap:1rem;align-items:start}
 .geod-app figure{margin:0;min-width:0}
 .geod-app .figure-head{font-weight:700;margin-bottom:.5rem}
-.geod-app #globe,.geod-app #map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;touch-action:none}
+.geod-app #globe,.geod-app #map,.geod-app #a-section-map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px}
+.geod-app #globe{touch-action:none}
 .geod-app .globe-frame{position:relative}
 .geod-app .world-toggle{display:flex;align-items:center;gap:.4rem;font-size:.87rem;margin:0 0 .5rem}
+.geod-app .globe-zoom-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin:.5rem 0;font-size:.88rem}
+.geod-app .globe-zoom-controls input{width:clamp(95px,24%,190px);flex:1 1 95px;max-width:190px}
+.geod-app .globe-zoom-controls output{min-width:3.2rem;text-align:right;font-variant-numeric:tabular-nums}
+.geod-app .globe-zoom-controls button{padding:.35rem .7rem;min-height:2.3rem}
+.geod-app .zoom-note{font-size:.78rem;color:#334155;margin:.35rem 0}
 .geod-app #osm-credit{position:absolute;right:.45rem;bottom:.5rem;padding:.14rem .3rem;background:#fffffff0;border-radius:3px;font-size:.7rem;color:#1d496b}
 .geod-app .tile-status{font-size:.78rem;color:#334155;margin:.35rem 0}
 .geod-app .controls select{max-width:100%;width:100%}

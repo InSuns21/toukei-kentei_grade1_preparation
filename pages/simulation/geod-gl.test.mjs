@@ -52,12 +52,14 @@ const values = {
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '',
+  'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
 for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
   'osm-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
-  'lab-A', 'lab-B', 'lab-D']) elements.set(id, new NodeElement(id));
+  'lab-A', 'lab-B', 'lab-D', 'a-section', 'a-section-map',
+  'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new NodeElement(id));
 const buttons = ['A', 'B', 'D'].map(lab => {
   const b = new NodeElement(); b.dataset.lab = lab; return b;
 });
@@ -107,4 +109,14 @@ test('city navigation moves the globe and can request newly visible tiles', () =
   elements.get('a-city').handlers.change();
   assert.ok(requested.length > count);
   assert.match(elements.get('geod-status').textContent, /計算済み/);
+});
+
+test('zoom controls redraw shaded geometry without fetching more XYZ tiles', () => {
+  const draws = calls.draws.length, tiles = requested.length;
+  elements.get('zoom-in').handlers.click();
+  assert.equal(elements.get('globe-zoom-v').textContent, '120%');
+  assert.ok(calls.draws.length > draws, 'zoom redraws the WebGL globe');
+  assert.equal(requested.length, tiles, 'display-only zoom never requests higher tile levels');
+  elements.get('zoom-reset').handlers.click();
+  assert.equal(elements.get('globe-zoom').value, '1');
 });

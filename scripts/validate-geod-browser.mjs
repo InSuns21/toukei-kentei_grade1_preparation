@@ -126,6 +126,25 @@ try {
   await evalJS(`document.querySelector('#show-world').checked=false;
     document.querySelector('#show-world').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#osm-credit").hidden'), true);
+  assert.equal(await evalJS('document.querySelector("#a-section").hidden'), false);
+  assert.ok(await evalJS('document.querySelector("#a-section-map").textContent.includes("O")'));
+  const zoomPixels = await evalJS(`(() => {
+    const gl = document.querySelector('#globe').getContext('webgl2');
+    const read = () => { const p = new Uint8Array(4);
+      gl.readPixels(140, 235, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, p); return [...p]; };
+    document.querySelector('#zoom-reset').click();
+    const before = read();
+    document.querySelector('#globe-zoom').value='1.6';
+    document.querySelector('#globe-zoom').dispatchEvent(new Event('input'));
+    return { before, after: read(), text: document.querySelector('#globe-zoom-v').textContent };
+  })()`);
+  assert.equal(zoomPixels.text, '160%');
+  assert.notDeepEqual(zoomPixels.before.slice(0, 3), zoomPixels.after.slice(0, 3),
+    'actual globe footprint should change when zooming: ' + JSON.stringify(zoomPixels));
+  await evalJS(`document.querySelector('#globe').dispatchEvent(new WheelEvent('wheel',
+    {deltaY:100, bubbles:true, cancelable:true}))`);
+  assert.equal(await evalJS('document.querySelector("#globe-zoom").value'), '1.5');
+  await evalJS('document.querySelector("#zoom-reset").click()');
   await evalJS(`document.querySelector('#a-city').value='sao-paulo';
     document.querySelector('#a-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#a-lat").value'), '-23.5505');
@@ -139,7 +158,7 @@ try {
   });
   const overflow = await evalJS('document.documentElement.scrollWidth - window.innerWidth');
   assert.ok(overflow <= 1, 'GEOD horizontal overflow at 360px: ' + overflow);
-  console.log('GEOD WebGL2: Lambert shading, city presets, texture toggle, 360px layout: PASS');
+  console.log('GEOD WebGL2: shading, meridian-section, zoom/scroll, city presets, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {
