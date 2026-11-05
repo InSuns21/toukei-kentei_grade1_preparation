@@ -1,7 +1,21 @@
-.geod-app{max-width:1200px}
+.geod-app{max-width:none}
 .geod-app .notice{padding:.85rem;background:#eaf4fc;border-left:4px solid #245b9a;border-radius:4px}
 .geod-app .lab-switch{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1rem}
 .geod-app .lab-switch [aria-pressed=true]{background:#245b9a;color:white}
+.geod-app .geod-workspace{display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:1rem;align-items:start}
+.geod-app .geod-workspace>section[id^="lab-"]{grid-column:1;grid-row:1}
+.geod-app .geod-workspace>.geod-output-panel{grid-column:2;grid-row:1}
+.geod-app .geod-workspace>.panel{margin:0;min-width:0}
+.geod-app .geod-workspace .controls{grid-template-columns:minmax(0,1fr)}
+.geod-app .geod-output-panel{display:flex;flex-direction:column;gap:.8rem}
+.geod-app .geod-output-panel>h2{order:-2;margin:0}
+.geod-app .geod-output-panel>#map-panel,.geod-app .geod-output-panel>#e-map-panel,.geod-app .geod-output-panel>#f-map-panel{order:-1;margin:0}
+.geod-app .geod-output-panel>.viz-grid{order:0}
+.geod-app .geod-output-panel>#geod-status,.geod-app .geod-output-panel>#geod-results{order:1}
+.geod-app .geod-output-panel>#geod-status{margin:0}
+.geod-app .geod-workspace[data-current-lab="A"] .viz-grid>figure:first-child{max-width:760px}
+.geod-app .geod-workspace[data-current-lab="B"] .viz-grid>figure:first-child{max-width:900px}
+.geod-app .geod-workspace:is([data-current-lab="D"],[data-current-lab="E"],[data-current-lab="F"]) .viz-grid>figure:first-child{max-width:520px}
 .geod-app .controls label{border:1px solid #d1d9e5;border-radius:8px;padding:.65rem;background:#fbfcfe}
 .geod-app input[type=range]{width:100%}
 .geod-app output{font-weight:400;font-variant-numeric:tabular-nums}
@@ -42,5 +56,11 @@
 .geod-app #geod-status[data-error=true]{color:#9b1c1c}
 .geod-app #gl-fallback{background:#fff3dc;padding:1rem}
 .geod-app ol{line-height:1.8}
+@media(min-width:1500px){.geod-app .geod-workspace[data-current-lab="A"] .viz-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:1000px){
+  .geod-app .geod-workspace{grid-template-columns:minmax(0,1fr)}
+  .geod-app .geod-workspace>section[id^="lab-"]{grid-column:1;grid-row:1}
+  .geod-app .geod-workspace>.geod-output-panel{grid-column:1;grid-row:2}
+}
 @media(max-width:700px){.geod-app .projection-comparison{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.geod-app .lab-switch button{flex:1 1 140px}}
