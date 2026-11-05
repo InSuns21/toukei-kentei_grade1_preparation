@@ -10,6 +10,7 @@ learning_objectives:
   - CKMユニタリ性を質量基底の荷電電流へ適用する条件を確認できる
   - 固定フレーバーQCDの一ループ流と深非弾性散乱の運動学を使い、摂動域と因子化の前提を診断できる
   - 重いスカラーの木レベルmatchingと軽い結合のrunningを分け、係数・符号・打切り誤差を検算できる
+  - 重い場の一ループ質量閾値をカットオフと修正最小減算法で比較し、個別の質量補正の方式依存性を説明できる
   - 格子の有限模型、整数セクターのθ分配関数、古典インスタントンから主張できる範囲と、未証明の連続極限・閉じ込めを区別できる
 definitions: []
 theorems:
@@ -37,8 +38,9 @@ problem_patterns:
   - QFT47-EFT-RUNNING
   - QFT47-TOPOLOGICAL-CURVATURE
   - QFT47-METHOD-BOUNDARY
+  - QFT47-HEAVY-THRESHOLD-SCHEME
   - QFT47-INTEGRATED-AUDIT
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 6, level_b: 5, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 10, exercises: 20, review: 7 }
+exercise_counts: { level_a: 6, level_b: 6, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 21, review: 7 }
