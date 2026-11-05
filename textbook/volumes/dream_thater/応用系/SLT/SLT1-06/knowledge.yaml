@@ -1,0 +1,75 @@
+chapter: SLT1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-05
+  - COMB2
+
+concepts:
+  - id: learning.deletion-contraction-families
+    name: 削除族と縮約族
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（削除族と縮約族）"]
+    requires:
+      - learning.finite-sample-trace
+
+  - id: learning.deletion-contraction-identity
+    name: 削除・縮約の分割恒等式
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（削除・縮約の分割恒等式）"]
+    requires:
+      - learning.deletion-contraction-families
+
+  - id: learning.contraction-vc-drop
+    name: 削除・縮約とshattering
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（削除・縮約とshattering）"]
+    requires:
+      - learning.deletion-contraction-families
+      - learning.shattering
+      - learning.vc-dimension
+
+  - id: learning.sauer-shelah
+    name: Sauer–Shelah補題
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Sauer–Shelah補題：有限集合版）"]
+    requires:
+      - learning.deletion-contraction-identity
+      - learning.contraction-vc-drop
+
+  - id: learning.sauer-growth-bound
+    name: VC次元による成長関数上界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（VC次元による成長関数上界）"]
+    requires:
+      - learning.sauer-shelah
+      - learning.shatter-coefficient
+      - learning.vc-dimension
+
+  - id: learning.binomial-growth-polynomial
+    name: 二項和の簡易上界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（二項和の簡易上界）"]
+    requires:
+      - learning.sauer-growth-bound
+
+  - id: learning.sauer-sharpness
+    name: Sauer–Shelah上界の達成
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Sauer–Shelah上界の達成）"]
+    requires:
+      - learning.sauer-growth-bound

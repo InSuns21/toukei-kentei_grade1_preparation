@@ -28,7 +28,7 @@ chapters:
     title: "shatteringとVC次元"
   - id: SLT1-06
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-06
-    status: planned
+    status: completed
     title: "Sauer–Shelah補題"
   - id: SLT1-07
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-07
