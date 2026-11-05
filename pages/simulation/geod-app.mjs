@@ -6,6 +6,7 @@ import {
 import { CITIES, TILE_ZOOM, mercatorY, visibleXYZTiles } from './geod-map.mjs';
 import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
   globalDistortion } from './geod-compare.mjs';
+import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -308,6 +309,19 @@ function renderGlobe() {
     emit(gl.LINES, arrow(P, vecAdd(P, enuBasis(state.phi, state.lambda).up, .23)),
       [.85, .32, .11], true);
     emit(gl.POINTS, [P], [.95, .2, .12], true);
+  } else if (state.lab === 'F' && state.japan) {
+    const { zone } = state.japan, lon0 = rad(zone.lon0);
+    const central = [];
+    for (let lat = -78; lat < 78; lat += 2) central.push(
+      point(rad(lat), lon0, drawnEllipsoid, 1.008),
+      point(rad(lat + 2), lon0, drawnEllipsoid, 1.008));
+    emit(gl.LINES, central, [.07, .39, .74]);
+    const O = point(rad(zone.lat0), lon0, drawnEllipsoid, 1.018);
+    const P = point(state.phi, state.lambda, drawnEllipsoid, 1.018);
+    emit(gl.LINES, arrow(P, vecAdd(P, enuBasis(state.phi, state.lambda).up, .2)),
+      [.86, .3, .11], true);
+    emit(gl.POINTS, [O], [.12, .28, .5], true);
+    emit(gl.POINTS, [P], [.97, .18, .08], true);
   }
   requestVisibleTiles();
 }
@@ -482,6 +496,80 @@ function drawGlobalProjectionMap(elementId, projectionId, phi, lambda, distortio
     fill: '#24394c' }, '共通尺度：67 px / 球半径 R　｜　緯度 ±80°まで'));
 }
 
+function drawJapanGrid(result) {
+  const map = $('f-map');
+  map.replaceChildren();
+  const { X, Y, zone, options } = result;
+  // Both the official origin and trial point remain visible at an equal
+  // physical scale on both axes; any empty margins are intentional.
+  const extent = Math.max(180000, Math.abs(X) * .72, Math.abs(Y) * .72);
+  const centreX = X / 2, centreY = Y / 2;
+  const scale = Math.min(302 / (extent + Math.abs(Y) / 2),
+    178 / (extent + Math.abs(X) / 2));
+  const xy = (north, east) => [360 + (east - centreY) * scale,
+    235 - (north - centreX) * scale];
+  const pathOf = pts => pts.map(([x, y], i) =>
+    (i ? 'L' : 'M') + x.toFixed(2) + ',' + y.toFixed(2)).join(' ');
+  const line = (x1, y1, x2, y2, stroke, dash = '', width = 1.5) =>
+    svg('line', { x1, y1, x2, y2, stroke, 'stroke-width': width,
+      'stroke-dasharray': dash });
+  map.append(svg('rect', { x: 1, y: 1, width: 718, height: 468, rx: 8,
+    fill: '#f8fbff', stroke: '#bdcbdc' }));
+  const defs = svg('defs');
+  const clipPath = svg('clipPath', { id: 'f-map-clip' });
+  clipPath.append(svg('rect', { x: 13, y: 35, width: 694, height: 398 }));
+  defs.append(clipPath); map.append(defs);
+  const plot = svg('g', { 'clip-path': 'url(#f-map-clip)' });
+  map.append(plot);
+  const m = Math.max(25000, 10 ** Math.floor(Math.log10(extent / 1.6)));
+  for (let e = Math.floor((centreY - 370 / scale) / m) * m;
+    e <= centreY + 370 / scale; e += m) {
+    const [x] = xy(0, e);
+    plot.append(line(x, 25, x, 450, '#d2dbe7', '4 6', 1));
+  }
+  for (let n = Math.floor((centreX - 240 / scale) / m) * m;
+    n <= centreX + 240 / scale; n += m) {
+    const [, y] = xy(n, 0);
+    plot.append(line(5, y, 715, y, '#d2dbe7', '4 6', 1));
+  }
+  const project = (latitude, longitude) => {
+    const p = transverseMercator(rad(latitude), rad(longitude), options);
+    return xy(p.Np, p.E);
+  };
+  for (let k = -3; k <= 3; k++) {
+    const meridian = [], parallel = [];
+    for (let j = -3; j <= 3 + 1e-9; j += .1) {
+      meridian.push(project(zone.lat0 + j, zone.lon0 + k));
+      parallel.push(project(zone.lat0 + k, zone.lon0 + j));
+    }
+    plot.append(svg('path', { d: pathOf(meridian), fill: 'none',
+      stroke: '#a0aebc', 'stroke-width': 1.15 }));
+    plot.append(svg('path', { d: pathOf(parallel), fill: 'none',
+      stroke: '#a0aebc', 'stroke-width': 1.15, 'stroke-dasharray': '4 4' }));
+  }
+  const [ox, oy] = xy(0, 0), [px, py] = xy(X, Y);
+  plot.append(line(ox, 30, ox, 440, '#236198', '', 2.8)); // X-axis: Y=0
+  plot.append(line(10, oy, 710, oy, '#236198', '', 2.8)); // Y-axis: X=0
+  plot.append(line(ox, py, px, py, '#b44123', '7 4', 2));
+  plot.append(line(px, oy, px, py, '#b44123', '7 4', 2));
+  plot.append(svg('circle', { cx: ox, cy: oy, r: 5, fill: '#173c68',
+    stroke: '#fff', 'stroke-width': 1.5 }));
+  plot.append(svg('circle', { cx: px, cy: py, r: 6, fill: '#bb3422',
+    stroke: '#fff', 'stroke-width': 2 }));
+  const label = (x, y, content, color, anchor = 'start') =>
+    svg('text', { x: Math.max(22, Math.min(697, x)),
+      y: Math.max(52, Math.min(425, y)), fill: color, 'font-size': 17,
+      'font-weight': 700, 'text-anchor': anchor }, content);
+  plot.append(label(ox + 9, oy + 21, 'O', '#173c68'));
+  plot.append(label(px + 9, py - 13, 'P', '#a12e20'));
+  map.append(svg('text', { x: 18, y: 26, fill: '#254663', 'font-size': 16 },
+    zone.roman + '系：原点（東経' + zone.lon0.toFixed(5) + '°、北緯' + zone.lat0 + '°）'));
+  map.append(svg('text', { x: 698, y: 27, 'text-anchor': 'end', fill: '#254663',
+    'font-size': 15 }, '↑ X＋（北）   Y＋（東）→'));
+  map.append(svg('text', { x: 18, y: 457, fill: '#334155', 'font-size': 14 },
+    '薄い点線＝平面 ' + (m / 1000) + ' km格子、灰色＝経緯線（共通縮尺）'));
+}
+
 function showResults(rows, questions, caption) {
   const table = document.createElement('table');
   const body = document.createElement('tbody');
@@ -632,18 +720,58 @@ function computeE() {
   ], '3Dの赤い点Pと二つの全球投影の赤い点は同じ入力経緯度。3Dは誇張楕円体、投影数値は共通の等面積球模型。投影図の指示楕円は線形像の拡大表示です。');
 }
 
+function computeF() {
+  const lat = Number($('f-lat').value), lon = Number($('f-lon').value);
+  if (!$('f-lat').value.trim() || !$('f-lon').value.trim() ||
+      !Number.isFinite(lat) || Math.abs(lat) > 80 ||
+      !Number.isFinite(lon) || Math.abs(lon) > 180) {
+    throw new RangeError('緯度は±80°、経度は±180°の有限な値を指定してください');
+  }
+  const result = japanPlanarCoordinates(rad(lat), rad(lon), Number($('f-zone').value),
+    $('f-datum').value);
+  const { zone, X, Y, mapDistance, distortion: d, farFromMeridian, datum } = result;
+  state.phi = rad(lat); state.lambda = rad(lon); state.japan = result;
+  state.fVisual = GRS80.f * 20; state.geodesic = null;
+  $('f-map-title').textContent = 'F：' + zone.roman + '系の平面座標（X 北・Y 東、m）';
+  drawJapanGrid(result);
+  showResults([
+    ['系番号・地域の目安', zone.roman + '系（' + zone.number + '）／' + zone.area],
+    ['入力基準系の仮定', datum === 'jgd2011'
+      ? 'JGD2011の経緯度と仮定（EPSG:' + zone.epsg2011 + '）'
+      : 'GRS80楕円体の数学計算のみ（datum・EPSG未指定）'],
+    ['原点（φ₀，λ₀）', fmt(zone.lat0, 6) + '°N、' + fmt(zone.lon0, 6) + '°E'],
+    ['投影法・中央縮尺・原点', 'GRS80横メルカトル n⁶／k₀=' + JAPAN_K0 + '／X₀=Y₀=0 m'],
+    ['X（北正）', fmt(X, 3) + ' m'],
+    ['Y（東正）', fmt(Y, 3) + ' m'],
+    ['原点OからPまでの平面直線距離', fmt(mapDistance / 1000, 6) + ' km（測地線距離ではない）'],
+    ['点Pの局所縮尺 k（南北／東西）', fmt(d.meridianScale, 9) + ' ／ ' + fmt(d.parallelScale, 9)],
+    ['真北が格子北から東へ傾く角', fmt(deg(d.northBearingFromGrid), 6) + '°（東を正）'],
+    ['適用区域について', farFromMeridian
+      ? '中央子午線から3°超：大きな外挿です。法定適用区域・精度は別途確認。'
+      : '法定適用区域の判定はしていません（国土地理院告示で確認）。'],
+  ], [
+    'まずIX系の原点（北緯36°、東経139°50′）を入力し、X=0・Y=0を確かめる。',
+    '原点から北・南・東・西へ少し動かして、XとYの符号を予測・検証する。GISのEasting/Northing順との取り違えに注意。',
+    '同じ東京の座標をIX系とVIII系に投影する。数値が変わる理由を原点と中央子午線の違いから説明する。',
+    'JGD2011と「GRS80のみ」を切り替え、数値が同じ理由とdatum変換が必要な状況を区別する。',
+  ], '青実線＝選んだ系の中央子午線、青点O＝公定原点、赤点P＝試験点（2D図と連動）。赤の短線はPの外向き法線。3Dは誇張表示、X/Y・縮尺・方位の数値はGRS80模型で計算。');
+}
+
 function activePointFields() {
   if (state.lab === 'B') return $('globe-point-role').value === 'end'
     ? { city: 'b-city2', lat: 'b-lat2', lon: 'b-lon2', maxLat: 89 }
     : { city: 'b-city1', lat: 'b-lat1', lon: 'b-lon1', maxLat: 89 };
   if (state.lab === 'D') return { city: 'd-city', lat: 'd-lat', lon: 'd-lon', maxLat: 70 };
   if (state.lab === 'E') return { city: 'e-city', lat: 'e-lat', lon: 'e-lon', maxLat: 80 };
+  if (state.lab === 'F') return { city: 'f-city', lat: 'f-lat', lon: 'f-lon', maxLat: 80 };
   return { city: 'a-city', lat: 'a-lat', lon: 'a-lon', maxLat: 75 };
 }
 
 function syncLocationToolbar() {
   const config = activePointFields();
   $('globe-point-role-wrap').hidden = state.lab !== 'B';
+  $('globe-point-zone-wrap').hidden = state.lab !== 'F';
+  if (state.lab === 'F') $('globe-point-zone').value = $('f-zone').value;
   $('globe-point-city').value = $(config.city).value;
   $('globe-point-lat').value = $(config.lat).value;
   $('globe-point-lat').min = String(-config.maxLat);
@@ -655,12 +783,14 @@ function recalculate() {
   $('map-panel').hidden = state.lab !== 'D';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
+  $('f-map-panel').hidden = state.lab !== 'F';
   syncLocationToolbar();
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
     else if (state.lab === 'D') computeD();
-    else computeE();
+    else if (state.lab === 'E') computeE();
+    else computeF();
     renderGlobe();
   } catch (error) {
     $('geod-status').textContent = error.message;
@@ -670,6 +800,8 @@ function recalculate() {
     $('map').replaceChildren();
     $('e-left-map').replaceChildren();
     $('e-right-map').replaceChildren();
+    $('f-map').replaceChildren();
+    state.japan = null;
     renderGlobe();
   }
 }
@@ -680,7 +812,21 @@ const cityControls = [
   ['b-city2', 'b-lat2', 'b-lon2'],
   ['d-city', 'd-lat', 'd-lon'],
   ['e-city', 'e-lat', 'e-lon'],
+  ['f-city', 'f-lat', 'f-lon'],
 ];
+for (const zone of JAPAN_ZONES) {
+  const option = document.createElement('option');
+  option.value = String(zone.number);
+  option.textContent = zone.roman + '系（' + zone.area + '；原点 ' + zone.lat0 + '°N, ' +
+    zone.lon0.toFixed(4) + '°E）';
+  $('f-zone').append(option);
+  const nearby = document.createElement('option');
+  nearby.value = option.value;
+  nearby.textContent = zone.roman + '系 — ' + zone.area;
+  $('globe-point-zone').append(nearby);
+}
+$('f-zone').value = '9';
+$('globe-point-zone').value = '9';
 for (const [id, latId, lonId] of cityControls) {
   const selector = $(id);
   for (const city of CITIES) {
@@ -707,6 +853,12 @@ for (const city of CITIES) {
   $('globe-point-city').append(option);
 }
 $('globe-point-role').addEventListener('change', syncLocationToolbar);
+$('globe-point-zone').addEventListener('change', () => {
+  $('f-zone').value = $('globe-point-zone').value;
+  const zone = JAPAN_ZONES[Number($('f-zone').value) - 1];
+  if (zone) { state.yaw = -rad(zone.lon0); state.tilt = rad(zone.lat0); }
+  recalculate();
+});
 $('globe-point-city').addEventListener('change', () => {
   const city = CITIES.find(item => item.id === $('globe-point-city').value);
   if (!city) return;
@@ -750,14 +902,19 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
   // Recenter on the study point. The learner can then freely rotate.
   state.yaw = state.lab === 'D' ? -rad(Number($('d-lon0').value))
     : state.lab === 'B' ? -rad(Number($('b-lon1').value))
-      : state.lab === 'E' ? -rad(Number($('e-lon').value)) : -rad(Number($('a-lon').value));
+      : state.lab === 'E' ? -rad(Number($('e-lon').value))
+        : state.lab === 'F' ? -rad(Number($('f-lon').value)) : -rad(Number($('a-lon').value));
   recalculate();
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
-  'e-lat', 'e-lon', 'e-left', 'e-right']) {
+  'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
     if (customCityInputs.has(id)) $(customCityInputs.get(id)).value = '';
+    if (id === 'f-zone') {
+      const zone = JAPAN_ZONES[Number($('f-zone').value) - 1];
+      if (zone) { state.yaw = -rad(zone.lon0); state.tilt = rad(zone.lat0); }
+    }
     recalculate();
   });
 }

@@ -1,6 +1,6 @@
 # Interactive simulation — Phase 0 contracts
 
-## GEOD geodesy lab (phase-A experiments and spherical phase-B comparison)
+## GEOD geodesy lab (phase-A and initial phase-B experiments)
 
 The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
 It has no time-stepping session, randomized seed, or imported observation record,
@@ -26,6 +26,18 @@ without feeding drawing coordinates back into the numeric kernel.
   input latitude treated directly as *spherical* latitude: it is not a full
   ellipsoidal/authalic-latitude coordinate conversion, and it does not imply
   equivalence of source datums.
+* **F**: All 19 GSI Japanese plane rectangular systems, with official
+  longitude/latitude origins, north-positive `X` and east-positive `Y`,
+  `k0=0.9999` and zero false coordinates. The output is ellipsoidal GRS80
+  Krüger `n^6` forward projection with a linked local planar graticule,
+  axes/origin/point, sign/distance/scale/grid-convergence numeric table and
+  an official-zone-origin marker on the 3D globe. `JGD2011` shows the matching
+  EPSG ID only *if* the input geographic coordinates already belong to that
+  datum; `GRS80 only` disables datum/EPSG claims while retaining identical
+  mathematics. Switching does not transform coordinates or their epoch. The
+  simplified region names and 3° warning do **not** check the legally defined
+  area of use. Source of all 19 origins and X/Y axis directions:
+  [GSI ministerial notice](https://www.gsi.go.jp/LAW/heimencho.html).
 
 The surface sphere and ellipsoid are drawn with a twentyfold visual flattening
 factor; numerical results use their displayed **physical** flattening.
@@ -50,13 +62,14 @@ on the globe's visible surface. The section uses the same exaggerated visual
 flattening as the globe, never the physical value in the numeric table.
 The WebGL2 globe always occupies its own **full-width row**, independent of
 the supplementary meridian section, local map and two global projection maps.
-All four lab views support 60–240% **display-only** zoom via controls,
+All five lab views support 60–240% **display-only** zoom via controls,
 mouse wheel over the globe, or +/- keys (0 resets; arrows still rotate).
 Zoom scales screen geometry, not the numeric kernel or OSM tile z=2, so
 closer views do not promise higher-resolution tile loading.
 The controls directly above the globe also offer a compact city/latitude/
 longitude editor, synchronized in both directions with the mode's original
-fields. For B, the learner chooses the start or end point before editing;
+fields. For F the selected zone is also available beside the globe and
+bidirectionally synchronized with the primary zone picker. For B, the learner chooses the start or end point before editing;
 for D, choosing a city also moves the comparison central meridian as in the
 original controls. Manual nearby-coordinate edits recentre the globe but do
 not alter numerical-model parameters or the XYZ tile zoom level.
@@ -69,13 +82,16 @@ select a real-world EPSG / Japanese planar coordinate reference system.
 The local projection rejects inputs beyond 25° from the central meridian,
 latitudes beyond 80°, and nonpositive scales. A and B require non-polar
 latitude coordinates. No output claims a datum/epoch conversion, survey
-accuracy, or a certified Japanese CRS coordinate.
+accuracy, or a certified Japanese CRS coordinate. Selecting F in a distant
+location may therefore produce an explicit local-domain error.
 
 Run the kernel and city/XYZ/no-WebGL tests with
 `npm run validate:simulation-phase0`. They compare distinct
 algorithms, analytical spherical/equatorial limits, a Simpson quadrature of
 the meridian arc, the independent published PROJ Gauss-Boaga sample, and
-domain failures. The Pages runtime precaches the local lab assets for offline
+domain failures. The Japanese suite independently transcribes and checks all
+19 GSI zone origins, tests axis signs, EPSG IDs, scale at the origin and
+datum-identification-only behavior. The Pages runtime precaches the local lab assets for offline
 revisits; numeric tables remain functional if WebGL2 is unavailable.
 The separate `scripts/validate-geod-browser.mjs` CI smoke uses real Chromium
 with software WebGL2, checks nonuniform shaded pixels, city controls and a
@@ -85,7 +101,8 @@ replace manual device and live-tile cartographic visual QA.
 Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
-comparison including Gauss–Krüger, Japanese systems (lab F), and observation/
+comparison including the Gauss–Krüger side-by-side and external numerical
+GSI/EPSG coordinate sample validation, full legal-zone applicability checks, and observation/
 adjustment/GNSS (lab C). See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
