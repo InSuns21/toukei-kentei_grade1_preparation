@@ -54,3 +54,4 @@
 51. [QFT51 自由bosonの応力テンソルOPE・中心電荷とVirasoro代数](textbook/volumes/dream_thater/物理系/QFT/QFT51/index.md)
 52. [QFT52 放射量子化・状態–演算子対応とVirasoro最高ウェイト表現](textbook/volumes/dream_thater/物理系/QFT/QFT52/index.md)
 53. [QFT53 自由bosonと自由Majorana場の相関関数・中心電荷](textbook/volumes/dream_thater/物理系/QFT/QFT53/index.md)
+54. [QFT54 OPE・大域共形ブロックと四点関数の交差対称性](textbook/volumes/dream_thater/物理系/QFT/QFT54/index.md)
