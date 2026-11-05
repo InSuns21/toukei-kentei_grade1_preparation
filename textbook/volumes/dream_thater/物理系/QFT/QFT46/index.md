@@ -4,7 +4,15 @@
 
 本章では、**厳密に手計算できる有限格子**と、**滑らかな四次元Euclidゲージ場**を分けます。前者では二次元 $U(1)$ の整数電荷を構成し、後者では $SU(2)$ のインスタントンの作用を計算します。その後、整数セクターに与える $\theta$ の位相を調べます。二つの模型を同一視することも、非摂動的な連続極限の存在を既知とすることもしません。
 
-実時間での計量は $\eta=(-,+,+,+)$ とし、[QFT28のYang–Mills曲率](../QFT28/index.md#def-qft28-curvature)をEuclid場へ移した後は正定値の $\delta_{\mu\nu}$ を用います。Euclidの添字は $\mu,\nu=1,2,3,4$、向きは $\varepsilon_{1234}=+1$ です。生成子はHermitianで $\operatorname{tr}(T^aT^b)=\delta^{ab}/2$ とし、結合を吸収したポテンシャル $B_\mu=gA_\mu$ を使います。したがって
+実時間では計量 $\eta=(-,+,+,+)$ とし、[QFT28のYang–Mills曲率](../QFT28/index.md#def-qft28-curvature)をEuclid場へ移した後は正定値の計量 $\delta_{\mu\nu}$ を用います。Euclidの時空添字は $\mu,\nu=1,2,3,4$、向きは $\varepsilon_{1234}=+1$ です。
+
+[QFT28で定義した $SU(N)$ の生成子](../QFT28/index.md#def-qft28-covariant-derivative)はHermitianとし、規格化と結合を吸収したポテンシャルを
+
+$$
+\operatorname{tr}(T^aT^b)=\frac12\delta^{ab},\qquad B_\mu=gA_\mu
+$$
+
+と置きます。上付きの $a,b$ は色基底の添字（$1,\ldots,N^2-1$、反復時は和）であり、第1節以降に添字なしで現れる正の格子間隔 $a$ とは区別します。したがって
 
 $$
 \mathcal F_{\mu\nu}=\partial_\mu B_\nu-\partial_\nu B_\mu-i[B_\mu,B_\nu],
@@ -40,10 +48,25 @@ $$
 > 滑らかな $B_\mu(x)=B_\mu^a(x)T^a$ からの接続には、リンク中点で $U_\mu(x)=\exp[-iaB_\mu(x+a\hat\mu/2)]$ を用いる。$B$ とその必要な導関数が有界な領域で $a\to0$ とする。
 <!-- formal-statement-end -->
 
+この作用は、[QFT42の純ゲージWilson格子作用](../QFT42/index.md#def-qft42-wilson-action)の $SU(3)$ 版と矛盾しません。plaquette枚数を $N_p$ とすると、本章の一般の $SU(N)$ 版は
+
+$$
+S_W=\frac{2N}{g^2}N_p-\frac2{g^2}\sum_p\operatorname{Re}\operatorname{tr}U_p.
+$$
+
+$N=3$、$g=g_0$ ならQFT42で用いた $\beta=6/g_0^2$ により、両作用の差はリンクに依存しない定数 $6N_p/g_0^2$ です。従って固定有限格子での規格化された期待値は同じで、本章の形では滑らかな場に対する作用の零点が明瞭になります。
+
 <!-- definition-example-start: def-qft46-lattice-continuum -->
 ### 例：一枚の $SU(2)$ plaquette
 
-**定義の確認**：四辺の三本を単位行列にし、残る一本を $U=\exp(-ia^2fT^3)$、$T^3=\operatorname{diag}(1,-1)/2$ とします。$U$ はユニタリで行列式1、反方向は $U^{-1}$ です。閉路の積は $U$、したがって
+**定義の確認**：四辺の三本を単位行列にし、残る一本を $U=\exp(-ia^2fT^3)$、$T^3=\operatorname{diag}(1,-1)/2$ とします。この $T^3$ は[QFT28の $SU(2)$ 生成子](../QFT28/index.md#def-qft28-covariant-derivative)の第三成分です。対角行列の指数は各対角成分の指数になるため、
+
+$$
+U=\operatorname{diag}(e^{-ia^2f/2},e^{ia^2f/2}),\quad
+U^\dagger U=I_2,\quad\det U=e^{-ia^2f/2}e^{ia^2f/2}=1.
+$$
+
+この二条件は $SU(2)$ の定義そのものです。反方向は $U^{-1}$、閉路の積は $U$ なので、
 
 $$
 \operatorname{tr}U=2\cos\frac{a^2f}{2},\qquad
@@ -52,7 +75,7 @@ $$
 =\frac{a^4f^2}{8}+O(a^8).
 $$
 
-$SU(2)$ の係数 $2N/g^2=4/g^2$ を掛けると一枚の作用は $a^4f^2/(2g^2)+O(a^8)$。$F_{12}^3=f$ だけを持つ連続場の一セル分と一致します。この例で $U$ の面積指数を選んだのは局所の係数確認のためであり、四辺を独立に動かして連続場を厳密に再構成したという意味ではありません。
+$SU(2)$ の係数 $2N/g^2=4/g^2$ を掛けると一枚の作用は $a^4f^2/(2g^2)+O(a^8)$。$\mathcal F_{12}^3=f$ だけを持つ連続場の一セル分と一致します。この例で $U$ の面積指数を選んだのは局所の係数確認のためであり、四辺を独立に動かして連続場を厳密に再構成したという意味ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-qft46-continuum-expansion"></a>
@@ -90,7 +113,15 @@ U_{\mu\nu}=I-ia^2
 +O(a^3)=I-ia^2\mathcal F_{\mu\nu}+O(a^3).
 $$
 
-主対数を原点近くで取れるので指数形も従います。$\mathcal F$ はHermitianで $\operatorname{tr}\mathcal F=0$ です。実部の跡では反Hermitianの奇数次の先頭項が消え、
+単位行列の近くで行列の主対数を取れるので指数形も従います。ここで $U_{\mu\nu}=e^{-iH_{\mu\nu}}$ と書くと、$U_{\mu\nu}\in SU(N)$ で単位行列に近いため $H_{\mu\nu}$ はHermitianかつ跡が零で、$H_{\mu\nu}=a^2\mathcal F_{\mu\nu}+O(a^3)$ です。$\mathcal F$ もHermitianで跡が零です。従って $\operatorname{Re}\operatorname{tr}(-iH)=0$、三次の跡も実部に寄与せず、
+
+$$
+1-\frac1N\operatorname{Re}\operatorname{tr}e^{-iH}
+=\frac1{2N}\operatorname{tr}H^2+O(\lVert H\rVert^4),\qquad
+\operatorname{tr}H^2=a^4\operatorname{tr}\mathcal F_{\mu\nu}^2+O(a^5).
+$$
+
+これより
 
 $$
 1-\frac1N\operatorname{Re}\operatorname{tr}U_{\mu\nu}
@@ -246,7 +277,7 @@ $$
 
 前節の下界を達成する非零曲率が存在することを、**BPSTインスタントン**という具体解で確かめます。この場の有限作用と自己双対性は計算できます。ただし、全ての有限作用接続の電荷が整数であるという一般定理を、この一例の計算だけから導くことはできません。
 
-$SU(2)$ の生成子 $T^a=\sigma^a/2$（Pauli行列）を用いると $[T^a,T^b]=i\varepsilon_{abc}T^c$ です。まず定数の反対称記号 $\eta^a_{\mu\nu}$ を $i,j=1,2,3$ について
+[QFT28の $SU(2)$ 生成子と交換関係](../QFT28/index.md#def-qft28-covariant-derivative)を用い、$T^a=\sigma^a/2$（Pauli行列）、$[T^a,T^b]=i\varepsilon_{abc}T^c$ とします。ここで色添字の三次元交代記号は $\varepsilon_{123}=+1$ で、時空添字の四次元交代記号 $\varepsilon_{1234}=+1$ とは添字の個数で区別します。まず定数の反対称記号 $\eta^a_{\mu\nu}$ を $i,j=1,2,3$ について
 
 $$
 \eta^a_{ij}=\varepsilon_{aij},\qquad
@@ -427,7 +458,7 @@ $$
 
 [QFT39の軸性異常](../QFT39/index.md#thm-qft39-axial-ward-anomaly)にも $F\widetilde F$ 型の密度が現れますが、そこでの局所Ward恒等式・FujikawaのJacobianと、ここでの整数セクターに対する位相は区別します。量子異常が一般に消えるという主張ではありません。
 
-**非摂動論の境界**：有限格子ではリンク積分そのものは定義できます（[QFT42のHaar重み](../QFT42/index.md#def-qft42-wilson-action)）。しかし格子間隔を零にする際、裸結合をどう選び、相関関数の極限や反射陽性・質量ギャップがどうなるかは別途調べなければなりません。四次元QCDの閉じ込めもインスタントン一つの存在から従いません。$\theta$ が非零なら複素位相によって数値積分が難しくなる場合があります。
+**非摂動論の境界**：有限格子では[QFT42のHaar確率測度](../QFT42/index.md#def-qft42-haar-measure)によるリンク積分と[Wilson作用による重み](../QFT42/index.md#def-qft42-wilson-action)を定義できます。しかし格子間隔を零にする際、裸結合をどう選び、相関関数の極限や反射陽性・質量ギャップがどうなるかは別途調べなければなりません。四次元QCDの閉じ込めもインスタントン一つの存在から従いません。$\theta$ が非零なら複素位相によって数値積分が難しくなる場合があります。
 
 ## 6. 演習：格子の整数性から四次元の作用まで
 
@@ -483,7 +514,7 @@ $P(m,n)=U_1(m,n)U_2(m+1,n)U_1(m,n+1)^{-1}U_2(m,n)^{-1}$ です。$n=0$ では二
 - Level: A
 - 目安時間: 9分
 
-Euclidの $\varepsilon_{1234}=+1$、反対称テンソル $F$ について、独立成分が $F_{12}=p$、$F_{34}=q$ だけの場合の $\widetilde F_{12}$、$\widetilde F_{34}$、$F_{\mu\nu}\widetilde F_{\mu\nu}$ を求めよ。自己双対の条件も述べよ。
+Euclidの $\varepsilon_{1234}=+1$、反対称テンソル $F$（この設問では色添字を持たない一般の二階テンソル）について、独立成分が $F_{12}=p$、$F_{34}=q$ だけの場合の $\widetilde F_{12}$、$\widetilde F_{34}$、$F_{\mu\nu}\widetilde F_{\mu\nu}$ を求めよ。自己双対の条件も述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -543,7 +574,7 @@ $t<2/3$ なら四枚とも主値を連続に選べ、三枚が $\pi t/2$、最�
 - Level: B
 - 目安時間: 16分
 
-四次元の自己双対曲率が $\sum_{\mu,\nu,a}F_{\mu\nu}^{a\,2}=192\rho^4/(r^2+\rho^2)^4$、$\rho>0$ を満たすとする。四次元極座標の球面積 $2\pi^2$ を用い、$\int F^2$、$Q$、$S_E$ を $\rho$ を残さず求めよ。
+四次元の自己双対曲率が $\sum_{\mu,\nu,a}F_{\mu\nu}^{a\,2}=192\rho^4/(r^2+\rho^2)^4$、$\rho>0$ を満たすとする。この演習では第3節の $\mathcal F$ を $F$ と略記する。四次元極座標の球面積 $2\pi^2$ を用い、$\int F^2$、$Q$、$S_E$ を $\rho$ を残さず求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
