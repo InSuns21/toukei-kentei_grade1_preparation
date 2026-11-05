@@ -1,7 +1,7 @@
 chapter: QFT47
 scope: dream-theater
 coverage: complete
-prerequisites: [QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
+prerequisites: [SM3, QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
 forward_references: []
 
 concepts:
@@ -38,4 +38,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: [命題（三つの整数セクターのθ曲率）]
-    requires: [qft.theta-charge-cumulants]
+    requires: [statistical-mechanics.partition-function, qft.theta-charge-cumulants]
