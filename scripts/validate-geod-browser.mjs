@@ -101,9 +101,38 @@ try {
   await cdp('Network.setBlockedURLs', { urls: [
     '*tile.openstreetmap.org/*', '*cyberjapandata.gsi.go.jp/xyz/std/*',
   ] });
+  await cdp('Emulation.setDeviceMetricsOverride', {
+    width: 1600, height: 900, deviceScaleFactor: 1, mobile: false,
+  });
   await cdp('Page.navigate', { url });
   await waitFor('document.querySelector("#geod-status")?.textContent.includes("計算済み")');
   assert.deepEqual(exceptions, [], 'GEOD browser runtime exception');
+  const workspaceLayout = async (lab, primary) => evalJS(`(() => {
+    const rect = selector => document.querySelector(selector).getBoundingClientRect();
+    const controls = rect('#lab-${lab}');
+    const output = rect('.geod-output-panel');
+    const visual = rect('${primary}');
+    const globe = rect('#globe');
+    return { lab: document.querySelector('#geod-workspace').dataset.currentLab,
+      appWidth: rect('.geod-app').width, viewport: window.innerWidth,
+      controls: { right: controls.right, top: controls.top, bottom: controls.bottom },
+      output: { left: output.left, top: output.top, bottom: output.bottom },
+      visual: { left: visual.left, top: visual.top, width: visual.width },
+      globe: { left: globe.left, right: globe.right, top: globe.top, width: globe.width },
+    };
+  })()`);
+  const assertSideBySide = layout => {
+    assert.ok(layout.appWidth / layout.viewport >= .95,
+      'GEOD must use available desktop width: ' + JSON.stringify(layout));
+    assert.ok(layout.controls.right < layout.output.left &&
+      Math.abs(layout.controls.top - layout.output.top) <= 2,
+    'controls and visual output must form simultaneous desktop columns: ' + JSON.stringify(layout));
+  };
+  const initialLayout = await workspaceLayout('A', '#a-section-map');
+  assert.equal(initialLayout.lab, 'A');
+  assertSideBySide(initialLayout);
+  assert.ok(initialLayout.visual.left >= initialLayout.globe.right,
+    'A globe and meridian section should share the right column on wide screens: ' + JSON.stringify(initialLayout));
   const webgl = await evalJS(`(() => {
     const canvas = document.querySelector('#globe');
     const gl = canvas.getContext('webgl2');
@@ -169,14 +198,12 @@ try {
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#d-lon0").value'), '-74.006');
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
-  const desktopLayout = await evalJS(`(() => {
-    const g = document.querySelector('#globe').getBoundingClientRect();
-    const panel = document.querySelector('.viz-grid').getBoundingClientRect();
-    return { globe: g.width, region: panel.width, intrinsicWidth: document.querySelector('#globe').width };
-  })()`);
-  assert.equal(desktopLayout.intrinsicWidth, 1200);
-  assert.ok(desktopLayout.globe / desktopLayout.region >= .98,
-    '3D globe must occupy the full plot width: ' + JSON.stringify(desktopLayout));
+  const dLayout = await workspaceLayout('D', '#map');
+  assertSideBySide(dLayout);
+  assert.equal(dLayout.lab, 'D');
+  assert.ok(dLayout.visual.top < dLayout.globe.top && dLayout.visual.width > dLayout.globe.width,
+    'D must prioritize the projected map and keep the globe secondary: ' + JSON.stringify(dLayout));
+  assert.equal(await evalJS('document.querySelector("#globe").width'), 1200);
   await evalJS(`document.querySelector('[data-lab="E"]').click();
     document.querySelector('#e-city').value='paris';
     document.querySelector('#e-city').dispatchEvent(new Event('change'))`);
@@ -184,6 +211,10 @@ try {
   assert.ok(await evalJS(`document.querySelectorAll('#e-left-map path').length >= 20 &&
     document.querySelectorAll('#e-right-map path').length >= 20`));
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  const eLayout = await workspaceLayout('E', '#e-left-map');
+  assertSideBySide(eLayout);
+  assert.ok(eLayout.visual.top < eLayout.globe.top,
+    'E comparison maps should precede the supporting globe: ' + JSON.stringify(eLayout));
   await evalJS(`document.querySelector('#e-right').value='mollweide';
     document.querySelector('#e-right').dispatchEvent(new Event('input'))`);
   assert.ok(await evalJS('document.querySelector("#e-right-title").textContent.includes("Mollweide")'));
@@ -208,6 +239,10 @@ try {
   assert.equal(await evalJS('document.querySelector("#globe-point-zone-wrap").hidden'), false);
   assert.equal(await evalJS('document.querySelector("#f-map-panel").hidden'), false);
   assert.ok(await evalJS('document.querySelectorAll("#f-map path").length >= 14'));
+  const fLayout = await workspaceLayout('F', '#f-map');
+  assertSideBySide(fLayout);
+  assert.ok(fLayout.visual.top < fLayout.globe.top && fLayout.visual.width > fLayout.globe.width,
+    'F Japanese plane coordinate plot should precede supporting globe: ' + JSON.stringify(fLayout));
   assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("EPSG:6677")'));
   assert.equal(await evalJS('document.querySelector("#globe-point-lat").value'), '35.681236');
   await evalJS(`document.querySelector('#f-zone').value='8';
@@ -234,12 +269,15 @@ try {
   assert.ok(overflow <= 1, 'GEOD horizontal overflow at 360px: ' + overflow);
   const mobileLayout = await evalJS(`(() => {
     const globe = document.querySelector('#globe').getBoundingClientRect();
-    const region = document.querySelector('.viz-grid').getBoundingClientRect();
-    return { globe: globe.width, region: region.width };
+    const controls = document.querySelector('#lab-F').getBoundingClientRect();
+    const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
+    return { globe: globe.width, controlsBottom: controls.bottom, outputTop: output.top };
   })()`);
-  assert.ok(mobileLayout.globe / mobileLayout.region >= .98,
-    '3D globe must remain full-width at 360px: ' + JSON.stringify(mobileLayout));
-  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, Japan detail zoom, 360px: PASS');
+  assert.ok(mobileLayout.outputTop >= mobileLayout.controlsBottom,
+    'GEOD mobile workspace must stack parameters above figures: ' + JSON.stringify(mobileLayout));
+  assert.ok(mobileLayout.globe > 0 && mobileLayout.globe < 360,
+    'mobile globe should fit the viewport: ' + JSON.stringify(mobileLayout));
+  console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {

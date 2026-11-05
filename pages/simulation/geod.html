@@ -23,6 +23,7 @@
     <button type="button" data-lab="F" aria-pressed="false">F：日本の平面直角19系</button>
   </nav>
 
+  <div class="geod-workspace" id="geod-workspace" data-current-lab="A">
   <section class="panel" id="lab-A" aria-label="楕円体と法線">
     <h2>A：測地緯度と地心緯度はなぜ違う？</h2>
     <p>予測：球（f=0）では両緯度の差はどうなるか。扁平率を増やすと、北緯45°付近の差はどう変わるか。</p>
@@ -95,7 +96,7 @@
     <p><a href="https://www.gsi.go.jp/LAW/heimencho.html" target="_blank" rel="noopener noreferrer">国土地理院：平面直角座標系（19系の原点・適用区域・軸の定義）</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD21/index">GEOD21：日本の平面直角座標系</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD22/index">GEOD22：座標検算</a></p>
   </section>
 
-  <section class="panel">
+  <section class="panel geod-output-panel" aria-label="幾何表示と計算結果">
     <h2>幾何表示</h2>
     <div class="viz-grid">
       <figure>
@@ -128,7 +129,7 @@
           <span class="globe-location-help">上の入力欄と連動</span>
         </div>
         <div class="globe-frame">
-          <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる全幅の回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、DとFでは中央子午線、Eでは試験点を表示。数値は直下の表を参照。"></canvas>
+          <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、DとFでは中央子午線、Eでは試験点を表示。数値は計算結果の表を参照。"></canvas>
           <div class="map-credits">
             <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
             <a id="gsi-credit" href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer" hidden>地理院タイル（国土地理院）</a>
@@ -144,12 +145,12 @@
         <svg id="a-section-map" viewBox="0 0 560 340" role="img" aria-label="楕円体の子午線断面。内部の中心Oから表面Pへの地心半径は青い破線、Pから外向きの楕円体法線は橙色。" xmlns="http://www.w3.org/2000/svg"></svg>
         <figcaption>3Dで内部が表面に浮いて見えないよう、中心 O と半径 OP はこの断面にだけ描いています。<strong>青破線と橙実線は一般に一致しません。</strong></figcaption>
       </figure>
-      <figure id="map-panel" hidden>
-        <div class="figure-head">投影座標（E 東・Np 北、m）</div>
-        <svg id="map" viewBox="0 0 720 470" role="img" aria-label="中央子午線周辺の横メルカトル格子と試験点におけるTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
-        <figcaption>実線＝中央子午線、破線＝その他の経緯線、太い輪郭＝Tissot指示楕円。<strong>楕円の大きさは表示上の強調</strong>です。</figcaption>
-      </figure>
     </div>
+    <figure id="map-panel" hidden>
+      <div class="figure-head">投影座標（E 東・Np 北、m）</div>
+      <svg id="map" viewBox="0 0 720 470" role="img" aria-label="中央子午線周辺の横メルカトル格子と試験点におけるTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>実線＝中央子午線、破線＝その他の経緯線、太い輪郭＝Tissot指示楕円。<strong>楕円の大きさは表示上の強調</strong>です。</figcaption>
+    </figure>
     <figure id="f-map-panel" hidden>
       <div class="figure-head" id="f-map-title">F：日本の平面直角座標系</div>
       <svg id="f-map" viewBox="0 0 720 470" role="img" aria-label="日本の平面直角座標系。青実線の縦がX軸（北正）、青実線の横がY軸（東正）、交点は原点O。赤点Pは入力地点、灰色は投影した経緯線。" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -172,6 +173,7 @@
     <p id="geod-status" role="status" aria-live="polite">数値計算中</p>
     <div id="geod-results" aria-live="polite"></div>
   </section>
+  </div>
   <section class="panel">
     <h2>予測→操作→検算</h2>
     <ol id="geod-questions"></ol>
