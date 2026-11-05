@@ -23,7 +23,8 @@ const inputs = {
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
-  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '',
+  'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
+  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
   'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new Element(id, value)]));
@@ -31,12 +32,13 @@ elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
 for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'tile-status',
-  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D']) {
+  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E',
+  'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
 }
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
   'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new Element(id));
-const buttons = ['A', 'B', 'D'].map(mode => {
+const buttons = ['A', 'B', 'D', 'E'].map(mode => {
   const b = new Element();
   b.dataset.lab = mode;
   return b;
@@ -95,6 +97,32 @@ test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
   $('d-model').handlers.input();
   assert.match(cells[0].children[1].textContent, /楕円体/); // prior table not mutated
   assert.match($('geod-results').children[0].children[0].children[0].children[1].textContent, /球面/);
+});
+
+test('equal-area comparison shares the same point and distinguishes local distortion', () => {
+  buttons[3].handlers.click();
+  assert.equal($('e-map-panel').hidden, false);
+  assert.equal($('map-panel').hidden, true);
+  assert.match($('geod-status').textContent, /計算済み/);
+  const left = $('e-left-map'), right = $('e-right-map');
+  assert.ok(left.children.filter(x => x.id === 'path').length >= 20);
+  assert.ok(right.children.filter(x => x.id === 'path').length >= 20);
+  const cells = $('geod-results').children[0].children[0].children;
+  assert.equal(cells.length, 7);
+  assert.match(cells[3].children[0].textContent, /面積比/);
+  const [mercator, equalEarth] = cells[3].children[1].textContent.split('／').map(x => Number(x.trim().replaceAll(',', '')));
+  assert.ok(mercator > 1.9 && mercator < 2.1);
+  assert.ok(Math.abs(equalEarth - 1) < 1e-5);
+  $('e-right').value = 'mollweide'; $('e-right').handlers.input();
+  assert.match($('e-right-title').textContent, /Mollweide/);
+  $('e-city').value = 'moscow'; $('e-city').handlers.change();
+  assert.match($('geod-status').textContent, /計算済み/);
+  assert.equal($('e-lat').value, '55.7558');
+  $('e-lat').value = '90'; $('e-lat').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  assert.equal(left.children.length, 0, 'invalid location clears stale map');
+  $('e-lat').value = '45'; $('e-lat').handlers.input();
+  assert.match($('geod-status').textContent, /計算済み/);
 });
 
 test('all eight city presets are present and South American coordinates remain signed', () => {
