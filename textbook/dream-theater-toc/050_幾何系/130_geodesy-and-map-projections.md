@@ -22,3 +22,4 @@
 19. [GEOD19 等積投影と正積緯度](textbook/volumes/dream_thater/幾何系/GEOD/GEOD19/index.md)
 20. [GEOD20 Equal Earth 図法と等積性](textbook/volumes/dream_thater/幾何系/GEOD/GEOD20/index.md)
 21. [GEOD21 日本の平面直角座標系と UTM の比較](textbook/volumes/dream_thater/幾何系/GEOD/GEOD21/index.md)
+22. [GEOD22 総合演習：観測から測地座標、地域図・世界図まで](textbook/volumes/dream_thater/幾何系/GEOD/GEOD22/index.md)
