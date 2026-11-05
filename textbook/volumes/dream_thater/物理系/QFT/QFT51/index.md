@@ -11,7 +11,13 @@ S_E[\phi]=\frac{g}{4\pi}\int_{\mathbb R^2}|\nabla\phi|^2\,d^2x,
 \qquad J(z)=\partial\phi(z)
 $$
 
-です。定数零モードは除去し、場そのものの赤外発散を微分場へ持ち込まないものとします。以下の等式は**自由Gaussian場の点が異なる相関関数**、または他の挿入点を避けた局所的な分布の等式です。量子場の点ごとの積が無条件に存在すると主張するものではありません。平面真空を基準として正規順序を定め、UV正則化を外す順番を明記します。
+です。微分記号は[QFT50のWirtinger微分](../QFT50/index.md#def-qft50-wirtinger)に従います。
+
+$\partial_z$ は $\bar z$ を固定して $z$ を微分します。
+
+$\partial_w$ は、それとは別の挿入点 $w$ を $\bar w$ を固定して微分します。
+
+定数零モードは除去し、場そのものの赤外発散を微分場へ持ち込まないものとします。以下の等式は**自由Gaussian場の点が異なる相関関数**、または他の挿入点を避けた局所的な分布の等式です。量子場の点ごとの積が無条件に存在すると主張するものではありません。平面真空を基準として正規順序を定め、UV正則化を外す順番を明記します。
 
 ## 1. まず微分場の一回の収縮を固定する
 
@@ -162,7 +168,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft51-stress-ope -->
-**定義の確認** もし四次極が $1/[2(z-w)^4]$ なら $c=1$。また輪郭積分では $(z-w)^{-4}$ は $\epsilon'''(w)/3!$ を読むので、定数 $c$ は三階微分に掛かります。四次極がない $c=0$ の場合にも $2t$ の二次極と $\partial t$ の単純極は残り得ます。
+**定義の確認** 例えば短距離展開が
+
+$$
+t(z)t(w)\sim
+\frac{1/2}{(z-w)^4}
++\frac{2t(w)}{(z-w)^2}
++\frac{\partial t(w)}{z-w}
+$$
+
+なら、二次極・単純極も定義に合致しており、四次極の係数を $c/2=1/2$ と照合して $c=1$ と判定します。また[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)による四次極の輪郭積分では
+
+$$
+\frac c2\,\frac{\epsilon'''(w)}{3!}
+=\frac c{12}\epsilon'''(w)
+$$
+
+となり、中心電荷は三階微分に掛かります。四次極がない場合も二次極と単純極は残り得ます。
 <!-- definition-example-end -->
 
 <a id="thm-qft51-boson-central-charge"></a>
@@ -252,13 +274,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft51-virasoro-modes -->
-**定義の確認** 局所Laurent展開のうち
+**定義の確認** 原点の穿孔近傍で、円周上にも収束する具体的な有限Laurent展開
 
 $$
-t(z)=Az^{-2}+Bz^{-3}+O(z^{-4})
+t(z)=Az^{-2}+Bz^{-3}+Cz^{-4}
 $$
 
-なら、[Cauchy積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)で積 $z^{n+1}t(z)$ の $z^{-1}$ 係数を取り、$L_0=A$、$L_1=B$ を得ます。
+（$A,B,C$ は定数）を考えます。[Cauchy積分公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-integral-formula)で、積に含まれる $z^{-1}$ の係数を取ります。具体的には
+
+$$
+\begin{aligned}
+z^{0+1}t(z)&=Az^{-1}+Bz^{-2}+Cz^{-3},\\
+z^{1+1}t(z)&=A+Bz^{-1}+Cz^{-2}.
+\end{aligned}
+$$
+
+したがって $L_0=A$、$L_1=B$ です。高次の極は、この二つのモードへ寄与しません。
 
 もし $t$ 自身が円内に正則なら、$n\ge-1$ の積分は零です。一方、負のモードでは重み $z^{n+1}$ 自身の原点の極にも注意します。
 <!-- definition-example-end -->
@@ -332,7 +363,15 @@ $$
 
 ## 5. 中心項は局所変換の三階微分に現れる
 
-一つの $t$ 挿入点 $w$ の周りで[輪郭電荷](../QFT50/index.md#def-qft50-contour-charge)を用い、正則な $\epsilon$ による微小変換を考えると、四次極から新しい項が出ます。
+一つの $t$ 挿入点 $w$ の周りで[輪郭電荷](../QFT50/index.md#def-qft50-contour-charge)を用い、正則な $\epsilon$ による微小変換を考えると、四次極から新しい項が出ます。記法の対応は
+
+$$
+\epsilon'(w)=\partial_w\epsilon(w),\qquad
+\epsilon'''(w)=\partial_w^3\epsilon(w),\qquad
+\partial t(w)=\partial_w t(w)
+$$
+
+です。左の二つは $\bar w$ を固定した変換パラメータの正則微分、右端は場の挿入点に作用する微分です。
 
 <a id="cor-qft51-stress-ward"></a>
 
@@ -489,9 +528,31 @@ $$
 ### 演習 QFT51-B4：中心電荷の足し算と独立性
 
 - Level: B
-- 問題: 互いに無相関な実自由boson $\phi_1,\phi_2$ がそれぞれ $g_a>0$ の作用を持つとする。$t=-\sum_{a=1}^2g_a:(\partial\phi_a)^2:$ の四次極を計算せよ。$g_1\ne g_2$ でも結果が変わらない理由を述べよ。
+- 問題: 二成分を同時Gaussianとし、異なる成分間の二点収縮が零である実自由boson $\phi_1,\phi_2$ が、それぞれ $g_a>0$ の作用を持つとする。応力テンソルは
 
-**詳細解答**：$J_a=\partial\phi_a$ とすれば $\langle J_a(z)J_b(w)\rangle=-\delta_{ab}/[2g_a(z-w)^2]$。異なる成分間の二重収縮は $\delta_{12}=0$ で消えます。同じ成分 $a$ の二重収縮は $2g_a^2/[4g_a^2(z-w)^4]=1/[2(z-w)^4]$。$a=1,2$ を足すと $1/(z-w)^4=(2/2)/(z-w)^4$ なので $c=2$。$g_a$ が消えるのは各成分で伝播関数が $g_a^{-1}$ に比例し、二本の収縮が応力テンソルの $g_a^2$ と相殺するためです。
+  $$
+  t=-\sum_{a=1}^2g_a:(\partial\phi_a)^2:
+  $$
+
+  とする。この四次極を計算し、$g_1\ne g_2$ でも結果が変わらない理由を述べよ。
+
+**詳細解答**：$J_a=\partial\phi_a$、$K_a(z-w)=\langle J_a(z)J_a(w)\rangle$ と置きます。同時Gaussian性のもとでは、異なる成分間の二点収縮が零ならWick展開に混合対合が生じず、二成分は独立です。[QFT19のboson Wick対合](../QFT19/index.md#thm-qft19-boson-wick)を成分付きで用いると（$\delta_{ab}$ はKroneckerのデルタ）
+
+$$
+\langle J_a(z)J_b(w)\rangle
+=-\frac{\delta_{ab}}{2g_a(z-w)^2},\qquad
+2g_a^2K_a(z-w)^2=\frac1{2(z-w)^4}.
+$$
+
+異なる成分間の二重収縮は $\delta_{12}=0$ で消えます。同じ成分の二重収縮を $a=1,2$ で足すと
+
+$$
+\frac1{2(z-w)^4}+\frac1{2(z-w)^4}
+=\frac1{(z-w)^4}=\frac{c/2}{(z-w)^4},
+\qquad c=2.
+$$
+
+$g_a$ が消えるのは、各成分で二本の収縮が $g_a^{-2}$ を与え、応力テンソル二つの $g_a^2$ と相殺するためです。
 
 ### 演習 QFT51-C1：Green核から量子Ward作用まで
 
@@ -505,16 +566,69 @@ $$
 
 **詳細解答**：
 
-1. $S_E=\tfrac12\int\phi(g/2\pi)(-\Delta)\phi$ で、$\Delta\log|z-w|^2=4\pi\delta_w$ より $G=-(2g)^{-1}\log(\mu^2|z-w|^2)$。$\partial_z\partial_wG=-1/[2g(z-w)^2]=K$。$J(z)J(w)$ は $w\to z$ で二次極を持つので、$J(z)J(w)-K(z-w)$ の有限な点分離極限を $:J^2:$ と定める。これにより $\langle:J^2:\rangle=0$ です。
-2. 二重収縮2通りから $2g^2K^2=1/[2(z-w)^4]$。単一収縮4通りから $4g^2K:J(z)J(w):=-2g:J(z)J(w):/(z-w)^2$。$J(z)=J(w)+(z-w)\partial J(w)+\cdots$ の全正規順序Taylor展開により $2t(w)/(z-w)^2+\partial t(w)/(z-w)$。よって $c/2=1/2$、$c=1$ です。
-3. 内側の $z^{m+1}$ の留数は $\frac{m^3-m}{12}w^{m-2}+2(m+1)w^mt+w^{m+1}\partial t$。外側の $w^{n+1}$ 積分で第1項は $(m^3-m)\delta_{m+n,0}/12$、残りは $[2(m+1)-(m+n+2)]L_{m+n}=(m-n)L_{m+n}$。従って $[L_m,L_n]=(m-n)L_{m+n}+(m^3-m)\delta_{m+n,0}/12$、とくに $[L_2,L_{-2}]=4L_0+1/2$。
-4. $\epsilon(w)=w^3$、$\epsilon'(w)=3w^2$、$\epsilon'''(w)=6$。[応力テンソルの局所Ward作用](#cor-qft51-stress-ward)へ代入し
+1. **逆核と点分離。** 部分積分した作用の二次形式と、円周の流束から得る分布恒等式は
 
-$$
-\delta_\epsilon t(w)=w^3\partial t(w)+6w^2t(w)+\frac12
-$$
+   $$
+   S_E=\frac12\int\phi\,\frac{g}{2\pi}(-\Delta)\phi\,d^2x,
+   \qquad \Delta\log|z-w|^2=4\pi\delta^{(2)}(z-w).
+   $$
 
-を得ます。最初の二項はウェイト2の一次場の変換と同形ですが、最後の $1/2$ は $t(z)t(w)$ の二重収縮が作った中心項です。古典的なWitt括弧や $J$ の一次場Ward核だけではこの定数項を導けません。
+   したがって逆核と二点収縮は
+
+   $$
+   G(z,w)=-\frac1{2g}\log(\mu^2|z-w|^2),\qquad
+   K(z-w)=\partial_w\partial_zG=-\frac1{2g(z-w)^2}.
+   $$
+
+   二つの微分は、別々の挿入点に作用させました。
+
+   $$
+   \partial_z\log|z-w|^2=\frac1{z-w},\qquad
+   \partial_w(z-w)^{-1}=(z-w)^{-2}.
+   $$
+
+   二次極を持つ積をそのまま対角へ送れないため、[点分離正規順序](#def-qft51-wick-stress)で収縮 $K$ を引きます。真空期待値を取ると $\langle J(z)J(w)-K(z-w)\rangle=0$ となり、極限でも $\langle:J^2:\rangle=0$ です。
+2. **二重・単一収縮。** [Wick対合公式](../QFT19/index.md#thm-qft19-boson-wick)で二重収縮は2通り、単一収縮は4通りです。従って
+
+   $$
+   :J(z)^2::J(w)^2:
+   =:J(z)^2J(w)^2:+4K(z-w):J(z)J(w):+2K(z-w)^2.
+   $$
+
+   $t(z)t(w)=g^2:J(z)^2::J(w)^2:$ の四次極は $2g^2K^2=1/[2(z-w)^4]$ です。単一収縮では $4g^2K=-2g/(z-w)^2$。全正規順序を $z=w$ の周りで展開して
+
+   $$
+   \begin{aligned}
+   -\frac{2g}{(z-w)^2}:J(z)J(w):
+   &=-\frac{2g:J(w)^2:}{(z-w)^2}
+     -\frac{2g:\partial J(w)J(w):}{z-w}+O(1)\\
+   &=\frac{2t(w)}{(z-w)^2}+\frac{\partial t(w)}{z-w}+O(1).
+   \end{aligned}
+   $$
+
+   ここで $\partial t=-2g:\partial J\,J:$ です。ゆえに四次極の係数 $c/2=1/2$ から $c=1$ となります。
+3. **モード交換子。** $w\ne0$ で $z^{m+1}$ に[Cauchy高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)を適用すると、内側の輪郭の留数は
+
+   $$
+   \frac{m^3-m}{12}w^{m-2}
+   +2(m+1)w^mt(w)+w^{m+1}\partial t(w).
+   $$
+
+   外側で $w^{n+1}$ を掛けて積分すると、第一項は $(m^3-m)\delta_{m+n,0}/12$。最後の項は閉曲線上の部分積分により $-(m+n+2)L_{m+n}$ となります。残る項は $2(m+1)L_{m+n}$ なので
+
+   $$
+   [L_m,L_n]=(m-n)L_{m+n}
+   +\frac{m^3-m}{12}\delta_{m+n,0},
+   \qquad [L_2,L_{-2}]=4L_0+\frac12.
+   $$
+
+4. **局所Ward作用。** $\epsilon(w)=w^3$、$\epsilon'(w)=3w^2$、$\epsilon'''(w)=6$。[応力テンソルの局所Ward作用](#cor-qft51-stress-ward)へ代入して
+
+   $$
+   \delta_\epsilon t(w)=w^3\partial t(w)+6w^2t(w)+\frac12
+   $$
+
+   を得ます。最初の二項はウェイト2の一次場の変換と同形ですが、最後の $1/2$ は $t(z)t(w)$ の二重収縮が作った中心項です。古典的なWitt括弧や $J$ の一次場Ward核だけではこの定数項を導けません。
 
 ## この章で確認したこと
 
