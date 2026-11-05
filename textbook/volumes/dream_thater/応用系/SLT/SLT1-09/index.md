@@ -24,24 +24,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（関数クラスの母集団・経験Lq擬距離）**
-> $q\in[1,\infty)$ とし、$f,g\in\mathcal F$ について必要な $q$ 乗積分が有限なら
+> $q\in[1,\infty)$ とし、全ての $f\in\mathcal F$ が $P|f|^q<\infty$ を満たすとする。
+> 任意の $f,g\in\mathcal F$ に対して
 >
-> $$
-> d_{P,q}(f,g)=\bigl(P|f-g|^q\bigr)^{1/q},\qquad
-> d_{S,q}(f,g)=\left(\frac1n\sum_{i=1}^n|f(X_i)-g(X_i)|^q\right)^{1/q}.
-> $$
+$$
+d_{P,q}(f,g)=\bigl(P|f-g|^q\bigr)^{1/q},\qquad
+d_{S,q}(f,g)=\left(\frac1n\sum_{i=1}^n|f(X_i)-g(X_i)|^q\right)^{1/q}.
+$$
 >
 > また、有限値の有界関数に対して
 >
-> $$
-> d_\infty(f,g)=\sup_{x\in\mathcal X}|f(x)-g(x)|
-> $$
+$$
+d_\infty(f,g)=\sup_{x\in\mathcal X}|f(x)-g(x)|
+$$
 >
-> とする。これらは**擬距離**である。すなわち非負性、対称性、三角不等式を満たすが、$f\ne g$ でも距離が $0$ となり得る。
+> とする。指定された関数クラス上で、これらは**擬距離**である。すなわち非負性、対称性、三角不等式を満たすが、$f\ne g$ でも距離が $0$ となり得る。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-09-function-distances -->
-**定義を直接確認する例**。$\mathcal X=\{a,b\}$、$P(a)=P(b)=1/2$ とし、関数を値の組 $(f(a),f(b))$ で表す。
+**定義の確認**。$\mathcal X=\{a,b\}$、$P(a)=P(b)=1/2$ とし、関数を値の組 $(f(a),f(b))$ で表す。
 
 $$
 f_0=(0,0),\qquad f_1=(1,0),\qquad f_2=(1,1).
@@ -70,15 +71,15 @@ $\varepsilon>0$ を許容誤差とする。関数を一つずつ保存する代�
 > **定義（関数クラスのepsilon-netと被覆数）**
 > 擬距離 $d$ の入った非空クラス $\mathcal F$ と $\varepsilon>0$ に対し、有限集合 $G\subseteq\mathcal F$ が **$\varepsilon$-net** であるとは
 >
-> $$
-> \forall f\in\mathcal F\ \exists g\in G:\ d(f,g)\le\varepsilon
-> $$
+$$
+\forall f\in\mathcal F\ \exists g\in G:\ d(f,g)\le\varepsilon
+$$
 >
 > を満たすことをいう。**被覆数** $N(\varepsilon,\mathcal F,d)$ はそのような $G$ の最小要素数とし、有限netが存在しない場合は $\infty$ とする。母集団・経験距離の場合は $N(\varepsilon,\mathcal F,d_{P,q})$ と $N(\varepsilon,\mathcal F,d_{S,q})$ と書き分ける。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-09-covering -->
-**被覆条件を確かめる例**。前節の三関数で $\varepsilon=0.4$ とすると、$d_{P,1}$ では異なるどの二関数の距離も $0.5$ 以上なので、代表を二つだけ選ぶと残りがどちらからも $0.4$ より遠い。従って $N(0.4,\mathcal F,d_{P,1})=3$。
+**定義の確認**。前節の三関数で $\varepsilon=0.4$ とすると、$d_{P,1}$ では異なるどの二関数の距離も $0.5$ 以上なので、代表を二つだけ選ぶと残りがどちらからも $0.4$ より遠い。従って $N(0.4,\mathcal F,d_{P,1})=3$。
 
 $d_{S,1}$ では $G=\{f_0,f_1\}$ を取ると、$f_0,f_1$ は自身で被覆され、$f_2$ は $d_{S,1}(f_2,f_1)=0$ により被覆される。一つの代表では $f_0$ と $f_1$ の距離 $1$ を覆えないから $N(0.4,\mathcal F,d_{S,1})=2$。半径を $0.5$ に増やすと $d_{P,1}$ では $f_1$ 一つで三関数を覆うため、今度は $N(0.5,\mathcal F,d_{P,1})=1$ となる。境界の等号を含める規約がここで効いている。
 <!-- definition-example-end -->
@@ -93,7 +94,7 @@ $d_{S,1}$ では $G=\{f_0,f_1\}$ を取ると、$f_0,f_1$ は自身で被覆さ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-09-packing -->
-**packing条件を確かめる例**。三関数を $d_{P,1}$ で比べると、半径 $0.4$ では全ての異なる距離が $0.4$ を超えるので三関数全体がpackingであり $M(0.4)=3$。半径 $0.5$ では $f_0,f_2$ の距離は $1>0.5$ で二つ選べるが、三つは選べない（隣り合う距離がちょうど $0.5$）。従って $M(0.5)=2$。$d_{S,1}$ の半径 $0.4$ では $f_1,f_2$ 間の距離は $0$ なので両方を同時に選べず、$M(0.4)=2$。
+**定義の確認**。三関数を $d_{P,1}$ で比べると、半径 $0.4$ では全ての異なる距離が $0.4$ を超えるので三関数全体がpackingであり $M(0.4)=3$。半径 $0.5$ では $f_0,f_2$ の距離は $1>0.5$ で二つ選べるが、三つは選べない（隣り合う距離がちょうど $0.5$）。従って $M(0.5)=2$。$d_{S,1}$ の半径 $0.4$ では $f_1,f_2$ 間の距離は $0$ なので両方を同時に選べず、$M(0.4)=2$。
 <!-- definition-example-end -->
 
 <a id="def-slt1-09-metric-entropy"></a>
@@ -104,7 +105,7 @@ $d_{S,1}$ では $G=\{f_0,f_1\}$ を取ると、$f_0,f_1$ は自身で被覆さ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-09-metric-entropy -->
-三関数の母集団 $L_1$ では $H(0.4)=\log3$、経験 $L_1$ では $H(0.4)=\log2$。どちらも個数を対数へ変えただけであり、**どの距離・どの半径の個数か**は消えない。$\varepsilon$ を大きくすれば被覆数とエントロピーは増えない。
+**定義の確認**。三関数の母集団 $L_1$ では $H(0.4)=\log3$、経験 $L_1$ では $H(0.4)=\log2$。どちらも個数を対数へ変えただけであり、**どの距離・どの半径の個数か**は消えない。$\varepsilon$ を大きくすれば被覆数とエントロピーは増えない。
 <!-- definition-example-end -->
 
 ## 4. coveringとpackingは互いを挟む
@@ -117,11 +118,11 @@ $d_{S,1}$ では $G=\{f_0,f_1\}$ を取ると、$f_0,f_1$ は自身で被覆さ�
 > **補題（被覆数とpacking数の比較）**
 > 任意の非空擬距離空間 $(\mathcal F,d)$ と $\varepsilon>0$ に対し、拡張自然数の意味で
 >
-> $$
-> N(\varepsilon,\mathcal F,d)
-> \le M(\varepsilon,\mathcal F,d)
-> \le N(\varepsilon/2,\mathcal F,d).
-> $$
+$$
+N(\varepsilon,\mathcal F,d)
+\le M(\varepsilon,\mathcal F,d)
+\le N(\varepsilon/2,\mathcal F,d).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -156,11 +157,11 @@ $$
 > **命題（一次元関数族の被覆数）**
 > $\mathcal F_{\rm lin}=\{x\mapsto tx:t\in[0,1]\}$ と $0<\varepsilon<1$ に対して
 >
-> $$
-> \left\lceil\frac1{2\varepsilon}\right\rceil
-> \le N(\varepsilon,\mathcal F_{\rm lin},d_\infty)
-> \le\left\lceil\frac1\varepsilon\right\rceil+1.
-> $$
+$$
+\left\lceil\frac1{2\varepsilon}\right\rceil
+\le N(\varepsilon,\mathcal F_{\rm lin},d_\infty)
+\le\left\lceil\frac1\varepsilon\right\rceil+1.
+$$
 >
 > 特に計量エントロピーは $\varepsilon\downarrow0$ で $\log(1/\varepsilon)$ と同じ次数で増加する。
 <!-- formal-statement-end -->
@@ -205,10 +206,10 @@ $$
 > **定理（決定論的L∞被覆からの一様偏差界）**
 > $\mathcal F$ を $[0,1]$ 値の非空・有限または可算な可測関数クラス、$X_1,\ldots,X_n$ を分布 $P$ からの独立同分布標本とする。$0<\delta<1$、$\varepsilon>0$ とし、$d_\infty$ に関する決定論的な有限 $\varepsilon$-net $G\subseteq\mathcal F$ が $|G|=N$ 個あるなら、確率 $1-\delta$ 以上で
 >
-> $$
-> \sup_{f\in\mathcal F}|P_nf-Pf|
-> \le2\varepsilon+\sqrt{\frac{\log(2N/\delta)}{2n}}.
-> $$
+$$
+\sup_{f\in\mathcal F}|P_nf-Pf|
+\le2\varepsilon+\sqrt{\frac{\log(2N/\delta)}{2n}}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -259,11 +260,11 @@ $S=(X_1,\ldots,X_n)$ を固定し、$\sigma_i$ を互いに独立で $+1$ と $-
 > 経験距離 $d_{S,1}$ で、半径 $\varepsilon>0$ の有限net $G_S\subseteq\mathcal F$ があるとする。その要素数を $N\ge1$ とする。
 > 独立な公平符号 $\sigma_1,\ldots,\sigma_n$ は標本から独立とする。このとき
 >
-> $$
-> \mathbb E_\sigma\!\left[\sup_{f\in\mathcal F}
-> \left|\frac1n\sum_{i=1}^n\sigma_i f(X_i)\right|\ \middle|\ S\right]
-> \le\varepsilon+\sqrt{\frac{2\log(2N)}n}.
-> $$
+$$
+\mathbb E_\sigma\!\left[\sup_{f\in\mathcal F}
+\left|\frac1n\sum_{i=1}^n\sigma_i f(X_i)\right|\ \middle|\ S\right]
+\le\varepsilon+\sqrt{\frac{2\log(2N)}n}.
+$$
 >
 > 代表集合 $G_S$ は標本に依存してよいが、符号 $\sigma$ には依存しない。
 <!-- formal-statement-end -->
