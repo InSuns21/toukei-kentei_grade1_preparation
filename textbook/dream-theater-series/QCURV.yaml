@@ -86,3 +86,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QCURV/QCURV20
     status: completed
     title: "時空模型の横断比較――粒子・検出器・流束は何を測るか"
+  - id: QCURV21
+    path: textbook/volumes/dream_thater/物理系/QCURV/QCURV21
+    status: completed
+    title: "Hawking放射を再導出する――温度・流束・蒸発から次の問いへ"

@@ -1,0 +1,54 @@
+id: QCURV21
+title: "Hawking放射を再導出する――温度・流束・蒸発から次の問いへ"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QCURV9
+  - QCURV10
+  - QCURV11
+  - QCURV12
+  - QCURV13
+  - QCURV14
+  - QCURV15
+  - QCURV16
+  - QCURV17
+  - QCURV18
+  - QCURV20
+official_scope: []
+learning_objectives:
+  - 後期の指数光線写像からBogoliubov係数比と狭帯域波束のHawking温度を接続できる
+  - モード占有数に角運動量縮退・散乱透過率・遠方の状態密度を掛けて光度を再導出できる
+  - Boulware・Unruh・Hartle–Hawking状態の入出射境界と地平線正則性を区別できる
+  - 孤立系の収支を追加した準静的質量の三乗則と断熱指標の有効区間を計算できる
+  - 温度の積分から面積比例の候補関数を導き熱力学的同定との違いを説明できる
+  - 同じ外部部分状態を持つ全体の純粋・混合状態を構成し熱的スペクトルの論理的射程を説明できる
+  - BHTとBHIに引き渡す追加仮定を温度・流束・量子状態と切り分けられる
+definitions:
+  - { id: QCURV21-DEF-01, name: Hawking放射の再導出設定 }
+theorems:
+  - { id: QCURV21-PROP-01, name: 後期光線写像から波束の熱因子への接続 }
+  - { id: QCURV21-THM-01, name: 後期Schwarzschild光度の条件付き接続 }
+  - { id: QCURV21-PROP-02, name: 準静的質量減少の検証可能な区間 }
+  - { id: QCURV21-PROP-03, name: Schwarzschild温度の積分から得られる候補関数 }
+  - { id: QCURV21-PROP-04, name: 同じ外部状態を持つ純粋な全体と混合した全体 }
+canonical_examples:
+  - 単一の人工透過チャネルで占有数と遠方光度の違いを確かめる
+  - Bose積分を非負級数へ分解し人工単一チャネルの光度係数を再計算する
+  - 質量の下限を指定して半古典近似が有効である時間区間を求める
+  - Schwarzschild温度の積分因子と面積の係数を照合する
+  - 二準位の純粋状態と混合状態の外部密度行列と純粋度を比較する
+problem_patterns:
+  - QCURV21-TEMPERATURE-CALIBRATION
+  - QCURV21-TRANSMISSION-PROBABILITY
+  - QCURV21-STATE-BOUNDARY-CONDITIONS
+  - QCURV21-ENTROPY-INTEGRATION
+  - QCURV21-ASSUMPTION-FAILURE
+  - QCURV21-GREYBODY-LUMINOSITY-INTEGRAL
+  - QCURV21-ADIABATIC-WINDOW
+  - QCURV21-MARGINAL-PURITY
+  - QCURV21-TOLMAN-CLOCK
+  - QCURV21-COMPLETE-HAWKING-CHAIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 16, exercises: 16, review: 8 }
