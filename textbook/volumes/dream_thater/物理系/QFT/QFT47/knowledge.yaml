@@ -1,0 +1,41 @@
+chapter: QFT47
+scope: dream-theater
+coverage: complete
+prerequisites: [SM3, QFT36, QFT37, QFT38, QFT40, QFT41, QFT42, QFT43, QFT44, QFT45, QFT46]
+forward_references: []
+
+concepts:
+  - id: qft.integrated-electroweak-relations
+    name: 電弱中性質量・電荷・低エネルギー係数の整合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電弱中性質量・電荷・低エネルギー係数の整合）]
+    requires: [qft.electroweak-mass-eigenstates, qft.fermi-tree-matching]
+
+  - id: qft.integrated-hypercharge-anomalies
+    name: 一世代の超電荷異常係数の同時相殺
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一世代の超電荷異常係数の同時相殺）]
+    requires: [qft.left-handed-anomaly-convention, qft.standard-model-local-anomaly-cancellation]
+
+  - id: qft.integrated-qcd-dis-boundary
+    name: 固定フレーバー流の解とDISの運動学的境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定フレーバー流の解とDISの運動学的境界）]
+    requires: [qft.qcd-one-loop-beta, qft.dis-kinematics]
+
+  - id: qft.integrated-eft-running
+    name: 木レベルmatchingから低尺度runningへの接続
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（木レベルmatchingから低尺度runningへの接続）]
+    requires: [qft.eft-matching-running-flow]
+
+  - id: qft.integrated-theta-variance
+    name: 三つの整数セクターのθ曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三つの整数セクターのθ曲率）]
+    requires: [statistical-mechanics.partition-function, qft.theta-charge-cumulants]
