@@ -24,9 +24,20 @@ $$
 
 ## 2. 未観測点だけで誤る仮説
 
-まず $n=2$ とし、$V=\{a,b,c,d\}$ が shatter されているとする。$P$ の入力分布をこの四点上一様、正解を $f(a)=0,f(b)=1,f(c)=0,f(d)=1$ と固定する。shattering により、この四点で $f$ と同じ予測をする $h_\star\in\mathcal H$ が存在し、$R_P(h_\star)=0$ である。
+まず $n=2$ とし、$V=\{a,b,c,d\}$ が shatter されているとする。$P$ の入力分布をこの四点上一様、正解を $f(a)=0,f(b)=1,f(c)=0,f(d)=1$ と固定する。
 
-たまたま訓練入力が $(a,c)$ だったら、四点上で $g(a)=0,g(b)=0,g(c)=0,g(d)=0$ となる $g\in\mathcal H$ も存在する。$g$ は観測済みの $a,c$ を正しく予測するから $\widehat R_S(g)=0$ だが、未知の $b,d$ では必ず誤り、$R_P(g)=2/4$ となる。訓練入力が重複しても、観測点数は増えない。
+shattering により、この四点で $f$ と同じ予測をする $h_\star\in\mathcal H$ が存在し、$R_P(h_\star)=0$ である。従ってこの $P$ は[realizableな分類分布の定義](../SLT1-02/index.md#def-slt1-02-realizable)を満たす。
+
+たまたま訓練入力が $(a,c)$ だったら、四点上で全て0を予測する $g\in\mathcal H$ も shattering により存在する。$g$ の損失を各点で確かめる。
+
+| 点 | $a$ | $b$ | $c$ | $d$ |
+|---|---:|---:|---:|---:|
+| 正解 $f$ | 0 | 1 | 0 | 1 |
+| 予測 $g$ | 0 | 0 | 0 | 0 |
+| 訓練で観測 | はい | いいえ | はい | いいえ |
+| 0–1損失 | 0 | 1 | 0 | 1 |
+
+観測された $a,c$ では損失がともに0なので $\widehat R_S(g)=(0+0)/2=0$。四点の真の分布では各点の質量が $1/4$ なので $R_P(g)=(0+1+0+1)/4=1/2$ となる。訓練入力が重複しても、観測点数は増えない。
 
 この構成を一般の $2n$ 点へ移す。正解 $f$ は**標本より先に固定**し、誤差を生む $g_S$ は一様上限の中で**標本に応じて選ぶ**。その順序を区別する。
 
@@ -191,7 +202,7 @@ B_{n,d,\delta}^2=\frac8n\log\left[
 \right]
 $$
 
-とおけば、$\Pr(D_{P,n}>B_{n,d,\delta})\le\delta$ が全分布 $P$ で成立する。$d=0$ では和は1。$d\ge1$ では十分大きい $n$ で $d\le2n$ となり、[Sauer–Shelahの多項式界](../SLT1-06/index.md#cor-slt1-06-polynomial)から
+とおけば、$\Pr(D_{P,n}>B_{n,d,\delta})\le\delta$ が全分布 $P$ で成立する。$d=0$ では和は1なので $B_{n,0,\delta}^2=(8/n)\log(4/\delta)\to0$。$d\ge1$ では十分大きい $n$ で $d\le2n$ となり、[Sauer–Shelahの多項式界](../SLT1-06/index.md#cor-slt1-06-polynomial)から
 
 $$
 B_{n,d,\delta}^2\le\frac8n
@@ -212,7 +223,13 @@ $$
 \widehat R_S(h_j)<r_*(S)+\frac1n.
 $$
 
-下限の定義により該当する $j$ は必ず存在する。各不等式は可測な事象なので、最初に該当する添字の選択も可測である。これは[近似ERMの定義](../SLT1-04/index.md#def-slt1-04-approximate-erm)で $\eta=1/n$ を満たす。
+下限の定義により該当する $j$ は必ず存在する。$E_j=\{S:\widehat R_S(h_j)<r_*(S)+1/n\}$ と置くと、可算個の可測関数の下限 $r_*$ と各経験リスクの可測性から $E_j$ は可測であり、最初の該当添字 $j(S)$ について
+
+$$
+\{S:j(S)=j\}=E_j\cap\bigcap_{i=1}^{j-1}E_i^c
+$$
+
+も可測である。従って出力 $h_{j(S)}$ は可算クラスからの可測な選択であり、厳密な不等式から[近似ERMの定義](../SLT1-04/index.md#def-slt1-04-approximate-erm)の $\eta=1/n$ を満たす。
 
 さらに[分布自由一様収束からagnostic PAC保証](../SLT1-04/index.md#thm-slt1-04-uniform-to-pac)を適用する。任意の $\alpha,\delta$ について次の標本数条件を課す。
 
@@ -246,11 +263,13 @@ $$
 > を満たすとき、$\mathcal H$ は $P$ に関して**固定分布での一様収束**を満たすという。これは $\sup_h$ を取った後で一つの $P$ を固定する条件であり、全分布に共通な $N$ を要求する[分布自由一様収束](../SLT1-04/index.md#def-slt1-04-distribution-free-uniform)とは異なる。
 <!-- formal-statement-end -->
 
+定義を具体例に適用するため、$\mathcal H_{\rm fin}=\{\boldsymbol1_B:B\subseteq\mathbb N\text{ は有限}\}$ を選ぶ。$\mathbb N=\{1,2,\ldots\}$ に離散可測構造を入れると、各 $\boldsymbol1_B$ は可測である。また有限部分集合全体は、各 $k\ge0$ に対して $\mathbb N^k$ から得られる集合の可算和なので可算であり、このクラスは定義の「非空・可算・可測」という条件を満たす。[有限部分集合が無限VC次元を持つ命題](../SLT1-05/index.md#prop-slt1-05-infinite-vc)も適用できる。
+
 <!-- definition-example-start: def-slt1-08-fixed-p-uniform -->
-**定義の確認**。$P(X=1,Y=0)=1$ とし、$\mathcal H$ を自然数上の有限部分集合の指示関数全体とする。各 $h$ の経験損失は全ての標本で $\boldsymbol1_{\{h(1)\ne0\}}$、真のリスクも同じ値なので $D_{P,n}(S)=0$ が確率1で成立する。任意の $\varepsilon,\delta$ に $N_P=1$ を選べる。ここでは仮説が無限個あっても、一点上の損失しか見えない。
+**定義の確認**。$P(X=1,Y=0)=1$ とし、$\mathcal H=\mathcal H_{\rm fin}$ とする。各 $h$ の経験損失は確率1で全ての標本について $\boldsymbol1_{\{h(1)\ne0\}}$、真のリスクも同じ値なので $D_{P,n}(S)=0$ が確率1で成立する。任意の $\varepsilon,\delta$ に $N_P=1$ を選べる。ここでは仮説が無限個あっても、一点上の損失しか見えない。
 <!-- definition-example-end -->
 
-もっと強く、自然数上の任意の同時分布 $P$ でも固定分布での一様収束は成立する。ここで $\mathcal H_{\rm fin}=\{\boldsymbol1_B:B\subseteq\mathbb N\text{ は有限}\}$ とする。このクラスは[無限VC次元である命題](../SLT1-05/index.md#prop-slt1-05-infinite-vc)で既に証明済みである。
+もっと強く、この $\mathcal H_{\rm fin}$ では自然数上の任意の固定同時分布 $P$ について[固定分布での一様収束](#def-slt1-08-fixed-p-uniform)が成立する。
 
 <a id="prop-slt1-08-fixed-p-finite-sets"></a>
 
