@@ -34,7 +34,7 @@ const inputs = {
 const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new Element(id, value)]));
 elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
-for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
+for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'gsi-credit', 'tile-status',
   'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
@@ -62,6 +62,7 @@ const $ = id => elements.get(id);
 await import('./geod-app.mjs');
 
 test('geodetic mode calculates numbers without WebGL2', () => {
+  assert.equal($('geod-workspace').dataset.currentLab, 'A');
   assert.equal($('globe').hidden, true);
   assert.equal($('gl-fallback').hidden, false);
   assert.match($('geod-status').textContent, /計算済み/);
@@ -71,6 +72,7 @@ test('geodetic mode calculates numbers without WebGL2', () => {
 
 test('geodesic mode independently computes the two distances', () => {
   buttons[1].handlers.click();
+  assert.equal($('geod-workspace').dataset.currentLab, 'B');
   assert.match($('geod-status').textContent, /計算済み/);
   assert.equal($('map-panel').hidden, true);
   const cells = $('geod-results').children[0].children[0].children;

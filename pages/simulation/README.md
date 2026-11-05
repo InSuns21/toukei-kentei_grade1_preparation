@@ -60,8 +60,16 @@ continuation of geocentric direction OP from the surface point P. This prevents
 a depth-independent line from making the internal centre look as if it floats
 on the globe's visible surface. The section uses the same exaggerated visual
 flattening as the globe, never the physical value in the numeric table.
-The WebGL2 globe always occupies its own **full-width row**, independent of
-the supplementary meridian section, local map and two global projection maps.
+The desktop lab uses a **full-viewport-width, two-column workspace**: the
+active experiment's parameters stay on the left and its interactive figures
+and calculated results stay on the right. Under 1000 px the columns stack
+without horizontal overflow. The globe no longer claims the entire content
+width regardless of the experiment: A can show the globe next to its
+meridional section on wider monitors, and B reserves a generous area for the
+3D geodesic. D, E and F place their **2D projected maps first**, with a
+smaller (at most 520 px wide) supplementary 3D globe below; selecting or
+editing a coordinate updates the visible map while its controls remain
+adjacent. This supersedes the earlier full-width-globe layout rule.
 Labs A/B/D/E retain 60–240% **display-only** zoom via controls, mouse wheel
 over the globe, or +/- keys (0 resets; arrows still rotate). Lab F starts
 at 400% and supports 60–1200%, with a tighter default focus on the Japanese
