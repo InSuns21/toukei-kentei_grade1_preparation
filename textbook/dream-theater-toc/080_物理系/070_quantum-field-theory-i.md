@@ -49,3 +49,4 @@
 46. [QFT46 非摂動ゲージ場の格子・インスタントン・トポロジカル電荷とθ項](textbook/volumes/dream_thater/物理系/QFT/QFT46/index.md)
 47. [QFT47 電弱・異常相殺・QCD・EFT・非摂動近似を結ぶ総合演習](textbook/volumes/dream_thater/物理系/QFT/QFT47/index.md)
 48. [QFT48 Euclid相関関数から共形変換・一次場の相関関数へ](textbook/volumes/dream_thater/物理系/QFT/QFT48/index.md)
+49. [QFT49 応力テンソルの改良・Ward恒等式・接触項と共形保存流](textbook/volumes/dream_thater/物理系/QFT/QFT49/index.md)
