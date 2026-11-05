@@ -34,6 +34,17 @@ tiles/CORS/WebGL2 fail, the numeric lab continues with shaded geometry or a
 numeric-only fallback. The site's existing offline shell still caches local
 JavaScript/HTML/CSS, but does **not** promise any offline basemap.
 
+Lab A keeps the ellipsoid centre **O** inside the ellipsoid in a separate,
+reactive meridional SVG section: the opaque 3D globe only draws the outward
+continuation of geocentric direction OP from the surface point P. This prevents
+a depth-independent line from making the internal centre look as if it floats
+on the globe's visible surface. The section uses the same exaggerated visual
+flattening as the globe, never the physical value in the numeric table.
+All three lab views support 60–240% **display-only** zoom via controls,
+mouse wheel over the globe, or +/- keys (0 resets; arrows still rotate).
+Zoom scales screen geometry, not the numeric kernel or OSM tile z=2, so
+closer views do not promise higher-resolution tile loading.
+
 City dropdowns include London, Paris, New York, Tokyo, Osaka, Sapporo, Moscow
 and São Paulo using approximate city centres, not surveyed benchmarks. Choosing
 a city updates study latitude/longitude and recentres the 3D view; in lab D
