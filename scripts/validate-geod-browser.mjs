@@ -142,7 +142,11 @@ try {
   console.log('GEOD WebGL2: Lambert shading, city presets, texture toggle, 360px layout: PASS');
 } finally {
   ws?.close();
-  browser.kill();
+  if (browser.exitCode === null && browser.signalCode === null) {
+    const exited = new Promise(resolve => browser.once('exit', resolve));
+    browser.kill();
+    await Promise.race([exited, new Promise(resolve => setTimeout(resolve, 3000))]);
+  }
   server.close();
-  await rm(profile, { recursive: true, force: true });
+  await rm(profile, { recursive: true, force: true, maxRetries: 6, retryDelay: 250 });
 }
