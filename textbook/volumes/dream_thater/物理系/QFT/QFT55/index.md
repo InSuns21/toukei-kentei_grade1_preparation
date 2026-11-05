@@ -212,7 +212,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QFT51のVirasoro輪郭モード](../QFT51/index.md#def-qft51-virasoro-modes)から得る局所Laurent展開 $t_z(z)=\sum_n L_nz^{-n-2}$ を使い、[有限共形変換](#thm-qft55-stress-transform)に代入すると
+[QFT51のVirasoro輪郭モード](../QFT51/index.md#def-qft51-virasoro-modes)と、[CA4のLaurent展開定理](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)による局所展開 $t_z(z)=\sum_n L_nz^{-n-2}$ を使い、[有限共形変換](#thm-qft55-stress-transform)に代入すると
 
 $$
 t_w(w)=\alpha^2\left(\sum_nL_ne^{-\alpha nw}-\frac{c}{24}\right).
