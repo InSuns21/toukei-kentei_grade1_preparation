@@ -188,7 +188,7 @@
 | QED・くりこみ・Yang–Millsの計算 | **QFT II**（他に直接の正本なし） | 数学的一般構成は別途明示、形式操作を厳密化済としない |
 | Higgs・標準模型・QCD・EFT | **QFT III**（他に直接の正本なし） | 閉じ込め／質量ギャップの一般証明 |
 | CFT・Virasoro・レプリカ区間計算 | **QFT IV**（HOLO・BHI IIのCFT入口） | AdS/CFT辞書・RT/HRT・islandの重力計算はHOLO／BHI |
-| 非慣性観測者・粒子生成・Unruh／Hawking | [QCURV](DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md) | QFT Iでは自由場と変換の準備まで。温度の物理的導出を二重所有しない |
+| 非慣性観測者・粒子生成・Unruh／Hawking | [QCURV](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md) | QFT Iでは自由場と変換の準備まで。温度の物理的導出を二重所有しない |
 | Hadamard・波面集合・曲がった時空の局所くりこみ | [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、QCURV | QFT IIの平坦摂動論の反項と混同しない |
 | Weyl代数・局所環・Type III・Tomita–Takesaki | [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md) | QFT IVで必要な問題の動機と参照にとどめる |
 | von Neumann entropy・量子チャネル・誤り訂正 | [QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | QFT IVは連続場の局所性・UV・CFTに固有の計算 |
