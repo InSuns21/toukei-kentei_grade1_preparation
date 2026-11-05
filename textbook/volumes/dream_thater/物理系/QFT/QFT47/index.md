@@ -518,6 +518,43 @@ $$
 三つは異なる領域で有効な情報を与えますが、どれか一つを延長するだけではギャップの定理になりません。
 <!-- solution-end -->
 
+### 演習 QFT47-B6：重い閾値の方式と質量係数
+
+- Level: B
+- 問題: 四次元Euclid二実スカラー模型で重い場 $\chi$ の質量 $M=4a$（$a>0$）、混合ポテンシャル $g\phi^2\chi^2/4$、$g=1/2$ とする。[QFT45の重い一ループ閾値](../QFT45/index.md#thm-qft45-heavy-matching)から、(i) 修正最小減算法の $\mu_R=M$、(ii) 鋭いカットオフ $\Lambda=M$ それぞれの $\delta m_L^2$ を計算せよ。一次の足し算 $m_{\rm low}^2=m_{\rm input}^2+\delta m_L^2$ を方式ごとに仮定し、$m_{\rm low}^2=a^2$ となる入力を求める。この二入力の差を物理的に異なる質量の予測と解釈してよいか。
+
+<!-- solution-start -->
+**詳細解答。** $M^2=16a^2$、$gM^2=8a^2$。修正最小減算法で $\mu_R=M$ なら対数が $\log1=0$ となり
+
+$$
+\delta m_{L,\overline{\mathrm{MS}}}^2
+=\frac{gM^2}{32\pi^2}\left(\log\frac{M^2}{M^2}-1\right)
+=-\frac{8a^2}{32\pi^2}=-\frac{a^2}{4\pi^2}.
+$$
+
+同じ一ループ模型の鋭い球形カットオフで $\Lambda=M$ と置けば
+
+$$
+\begin{aligned}
+\delta m_{L,\mathrm{cut}}^2
+&=\frac{g}{32\pi^2}
+\left[M^2-M^2\log\left(1+\frac{M^2}{M^2}\right)\right]\\
+&=\frac{a^2}{4\pi^2}(1-\log2)>0.
+\end{aligned}
+$$
+
+それぞれの足し算の規約に合わせて、低い質量係数を $a^2$ にする入力は
+
+$$
+m_{\rm input,\overline{\mathrm{MS}}}^2
+=a^2+\frac{a^2}{4\pi^2},\qquad
+m_{\rm input,cut}^2
+=a^2-\frac{a^2}{4\pi^2}(1-\log2).
+$$
+
+両者の差は同じ観測量の差ではありません。入力は指定した方式と反項の定義に依存し、一ループ有限部分も違います。方式ごとに低エネルギーの同じ $m_{\rm low}^2$ へmatchingしたので、入力差だけを新たな物理質量差とは解釈できません。またこの例は**質量係数**の比較であり、極質量の全補正を求めてはいません。
+<!-- solution-end -->
+
 ### 演習 QFT47-C1：標準模型から非摂動近似までの主張監査
 
 - Level: C
