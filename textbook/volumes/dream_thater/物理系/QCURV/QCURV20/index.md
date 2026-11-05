@@ -28,9 +28,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qcurv20-comparison-setting -->
-### 直接例：同じMinkowski真空で時計だけを変える
+### 直接例：同じMinkowski真空で世界線を変える
 
-$g=\eta$、$\varrho=|0_M\rangle$ と固定します。$\gamma_0(\tau)=(\tau,0,0,0)$ は慣性軌道、$\gamma_a(\tau)=a^{-1}(\sinh a\tau,\cosh a\tau,0,0)$ は $a>0$ の一様加速軌道です。どちらも計量に代入すると $g(\dot\gamma,\dot\gamma)=-1$ になります。観測量を長時間の定常検出率とすれば、[慣性真空の正ギャップ率は零](../QCURV6/index.md#prop-qcurv6-inertial-spectrum)ですが、[加速検出器の率](../QCURV8/index.md#thm-qcurv8-unruh)は正です。
+四次元の質量零自由実スカラー場で $g=\eta$ とし、状態 $\varrho$ をMinkowski真空 $|0_M\rangle$ に固定します。$\gamma_0(\tau)=(\tau,0,0,0)$ は慣性軌道、$\gamma_a(\tau)=a^{-1}(\sinh a\tau,\cosh a\tau,0,0)$ は $a>0$ の一様加速軌道です。ここで上点は $\dot\gamma=d\gamma/d\tau$（固有時間による微分）を表します。両者の接ベクトルを実際に求めると
+
+$$
+\dot\gamma_0=(1,0,0,0),\qquad
+\dot\gamma_a=(\cosh a\tau,\sinh a\tau,0,0),
+$$
+
+$$
+\eta(\dot\gamma_0,\dot\gamma_0)=-1,\qquad
+\eta(\dot\gamma_a,\dot\gamma_a)=-\cosh^2(a\tau)+\sinh^2(a\tau)=-1.
+$$
+
+従ってどちらの $\tau$ も固有時間であり、定義の時間的世界線という条件を満たします。$\mathcal O$ を定常検出率、$\mathcal L$ を切替を伸ばす長時間極限と選ぶと、[慣性真空の正ギャップ率は零](../QCURV6/index.md#prop-qcurv6-inertial-spectrum)ですが、[加速検出器の率](../QCURV8/index.md#thm-qcurv8-unruh)は正です。
 
 **定義の確認**：背景・状態・観測量・長時間極限を同じにして世界線だけを変えました。したがって違いを状態の粒子生成へ帰すことはできません。$a\to0$ を取る前には固有時間と長時間極限を指定する必要があります。
 <!-- definition-example-end -->
@@ -53,13 +65,13 @@ $$
 W_q(s)=-\frac{q^2}{16\pi^2}\frac1{\sinh^2\!\left(q(s-i0)/2\right)}
 $$
 
-になります。ただしRindlerでは $q=a$（加速度）、de Sitterの中心では $q=H$（膨張率）です。$i0$ は先に $\epsilon>0$ で境界値を取り、その後 $\epsilon\downarrow0$ とする分布規約です。
+になります。ただしRindlerでは $q=a$（加速度）、de Sitterの中心では $q=H$（膨張率）です。$i0$ は先に $\epsilon>0$ で境界値を取り、その後 $\epsilon\downarrow0$ とする分布規約です。以下の $\dot{\mathcal F}$ は通常の時間微分ではなく、[QCURV6の長時間切替による定常率](../QCURV6/index.md#def-qcurv6-stationary-rate)を表します。
 
 <a id="prop-qcurv20-detector-degeneracy"></a>
 
 <!-- formal-statement-start -->
 > **命題（異なる背景で一致する定常検出率）**
-> 四次元Minkowski真空上の一様加速 $a>0$ の検出器と、四次元de Sitterの質量零・共形結合場のBunch–Davies状態を静的パッチ中心で測る検出器を考える。両者に同じ正のギャップ $\Omega$ と同じ結合規格化を与え、相関関数の定常・長時間Fourier変換が定義されるとする。$a=H=q>0$ の場合、励起率は両者で等しく、
+> 四次元の質量零自由実スカラー場のMinkowski真空を一様加速 $a>0$ で測る検出器と、四次元de Sitterの質量零・共形結合自由実スカラー場のBunch–Davies状態を静的パッチ中心で測る検出器を考える。両者に同じ正のギャップ $\Omega$ と同じ結合規格化を与え、相関関数の定常・長時間Fourier変換が定義されるとする。$a=H=q>0$ の場合、励起率は両者で等しく、
 
 $$
 \dot{\mathcal F}_{q}(\Omega)
@@ -86,7 +98,15 @@ $$
 =\frac{\Omega}{2\pi(e^{2\pi\Omega/q}-1)}
 $$
 
-を得ます。$\Omega<0$ では零点側の極を含めた同じ境界値の計算で、$\dot{\mathcal F}_q(-\Omega)=\Omega e^{2\pi\Omega/q}/[2\pi(e^{2\pi\Omega/q}-1)]$（右辺の $\Omega>0$）となります。従って
+を得ます。負のギャップ $-\Omega$（$\Omega>0$）では、複素 $s$ の虚部が正の側（$\operatorname{Im}s>0$）へ輪郭を閉じます。今度は $n=0,1,2,\ldots$ の極が寄与するため、
+
+$$
+\dot{\mathcal F}_q(-\Omega)
+=\frac{\Omega}{2\pi}\sum_{n=0}^{\infty}e^{-2\pi n\Omega/q}
+=\frac{\Omega e^{2\pi\Omega/q}}{2\pi(e^{2\pi\Omega/q}-1)}.
+$$
+
+従って
 
 $$
 \frac{\dot{\mathcal F}_q(\Omega)}{\dot{\mathcal F}_q(-\Omega)}
@@ -100,7 +120,11 @@ Rindlerの $q=a$ とde Sitter中心の $q=H$ の結果を、両者が等しい�
 
 ### 時計を変えると「温度」の数値も変わる
 
-Tolman因子は別の温度を足す操作ではありません。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)を、検出器のFourier変換から直接確認します。時間座標 $T$ による定常相関を $W_T(\Delta T)$ とし、同じ静止世界線で固有時間 $\tau=\lambda T$（$\lambda>0$ は一定）とします。ここでは $\Delta\tau=s$、$\Delta T=s/\lambda$ です。
+Tolman因子は別の温度を足す操作ではありません。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)を、検出器のFourier変換から直接確認します。
+
+時間座標 $T$ による定常相関を $W_T(\Delta T)$ とし、同じ静止世界線で固有時間 $\tau=\lambda T$（$\lambda>0$ は一定）とします。ここでは $\Delta\tau=s$、$\Delta T=s/\lambda$ です。
+
+$E$ は $T$ の時間差に、$\Omega$ は固有時間差にFourier共役なギャップで、同じ遷移を $E=\lambda\Omega$ と対応させます。
 
 <a id="prop-qcurv20-clock-rescaling"></a>
 
@@ -158,7 +182,7 @@ $$
 
 ## 3. out粒子数があっても熱平衡とは限らない
 
-[QCURV3の周波数急変振動子](../QCURV3/index.md#prop-qcurv3-quench)は、粒子数と温度を分ける小さな実験です。$t<0$ では角周波数 $\omega_i>0$、$t>0$ では $\omega_f>0$ とし、位置 $q$ と速度 $\dot q$ を $t=0$ で連続にします。急変は理想化された時間依存振動子の模型で、すべてのFLRWに突然の不連続を要求するものではありません。
+[QCURV3の周波数急変振動子](../QCURV3/index.md#prop-qcurv3-quench)は、粒子数と温度を分ける小さな実験です。$t<0$ では角周波数 $\omega_i>0$、$t>0$ では $\omega_f>0$ とし、位置 $q$ と速度 $\dot q=dq/dt$ を $t=0$ で連続にします。急変は理想化された時間依存振動子の模型で、すべてのFLRWに突然の不連続を要求するものではありません。
 
 <a id="prop-qcurv20-quench-not-thermal"></a>
 
@@ -233,7 +257,11 @@ $$
 この対相関は時刻で変化し、時間並進不変ではありません。KMS状態は特に定常であるため、この状態はKMSではありません。
 <!-- proof-end -->
 
-$\omega_f=2\omega_i$ を代入すれば $|\beta|^2=1/8$。これは具体的な粒子生成です。しかし一つの占有数 $1/8$ に対して形式的に $1/(e^{\beta\omega_f}-1)=1/8$ と解けば $\beta\omega_f=\log9$ と表示できるだけです。**値の当てはめは熱状態の証明ではありません**。また[QCURV4の質量零・共形結合場の非生成定理](../QCURV4/index.md#thm-qcurv4-conformal)は $\beta=0$ を許すため、膨張の有無それ自体も粒子数を一意に決めません。
+$\omega_f=2\omega_i$ を代入すれば $|\beta|^2=1/8$。これは具体的な粒子生成です。
+
+しかし一つの占有数 $1/8$ に対して形式的に $1/(e^{\beta_{\rm fit}\omega_f}-1)=1/8$ と解けば $\beta_{\rm fit}\omega_f=\log9$ と表示できるだけです。ここで $\beta_{\rm fit}$ は占有数に当てはめた逆温度であり、上のBogoliubov係数 $\beta$ とは異なります。
+
+**値の当てはめは熱状態の証明ではありません**。また[QCURV4の質量零・共形結合場の非生成定理](../QCURV4/index.md#thm-qcurv4-conformal)は $\beta=0$ を許すため、膨張の有無それ自体も粒子数を一意に決めません。
 
 ## 4. 熱因子から放射光度へは散乱を通る
 
@@ -246,7 +274,7 @@ $$
 \qquad \beta_H=8\pi M,
 $$
 
-です。ここで $\omega>0$ は無限遠のKilling時刻に関する角周波数、$\Gamma_\ell\in[0,1]$ は散乱透過確率、$M>0$ は幾何単位の質量です。エネルギー光度はこれをさらに $\omega$ 倍して積分した量です。式の条件と導出は[灰色体流束定理](../QCURV12/index.md#thm-qcurv12-greybody-flux)にあり、熱因子だけからこの公式を再導出したことにはなりません。
+です。ここで $d^2N/(dt\,d\omega)$ は単位時刻・単位角周波数あたりの粒子数流束、$\omega>0$ は無限遠のKilling時刻に関する角周波数、$\Gamma_\ell\in[0,1]$ は散乱透過確率、$M>0$ は幾何単位の質量です。エネルギー光度はこれをさらに $\omega$ 倍して積分した量です。式の条件と導出は[灰色体流束定理](../QCURV12/index.md#thm-qcurv12-greybody-flux)にあり、熱因子だけからこの公式を再導出したことにはなりません。
 
 対して、[QCURV16の二次元Schwarzian流束](../QCURV16/index.md#thm-qcurv16-hawking-flux)には四次元の角運動量障壁を表す $\Gamma_\ell$ がありません。両者を繋ぐとき、何が同じで何が異なるかを手で確かめましょう。
 
@@ -274,7 +302,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-写像の微分は $p'=A\kappa e^{-\kappa u}>0$、$p''=-A\kappa^2e^{-\kappa u}$、$p'''=A\kappa^3e^{-\kappa u}$ です。[Schwarzian微分の定義](../QCURV16/index.md#def-qcurv16-schwarzian)より
+ここでプライム $p',p'',p'''$ はいずれも $u$ に関する常微分で、[Schwarzian微分の定義](../QCURV16/index.md#def-qcurv16-schwarzian)と同じ記法です。指数関数を順に微分すると
+
+$$
+p'=A\kappa e^{-\kappa u}>0,\qquad
+p''=-A\kappa^2e^{-\kappa u},\qquad
+p'''=A\kappa^3e^{-\kappa u}.
+$$
+
+従って同じ定義式より
 
 $$
 \{p,u\}=\frac{p'''}{p'}-\frac32\!\left(\frac{p''}{p'}\right)^2
@@ -378,14 +414,14 @@ $$
 **詳細解答**：占有数だけをBose因子に当てはめると
 
 $$
-\frac1{e^{\beta\omega_f}-1}=\frac18
+\frac1{e^{\beta_{\rm fit}\omega_f}-1}=\frac18
 \quad\Longrightarrow\quad
-e^{\beta\omega_f}=9
+e^{\beta_{\rm fit}\omega_f}=9
 \quad\Longrightarrow\quad
-\beta=\frac{\log9}{\omega_f}.
+\beta_{\rm fit}=\frac{\log9}{\omega_f}.
 $$
 
-しかし初期真空と終期モードは[正負周波数混合](../QCURV3/index.md#def-qcurv3-bogoliubov)で繋がります。実係数の規約を選ぶと
+ただし $\beta_{\rm fit}$ は当てはめた逆温度であって、Bogoliubov係数 $\beta$ ではありません。初期真空と終期モードは[正負周波数混合](../QCURV3/index.md#def-qcurv3-bogoliubov)で繋がります。実係数の規約を選ぶと
 
 $$
 \alpha=\frac3{2\sqrt2},\qquad
@@ -437,7 +473,7 @@ $$
 <a id="ex-qcurv20-c01"></a>
 #### QCURV20-C01 三つの観測実験を比較する
 - Level: C
-- 問題: (1) $\omega_i=\omega,\omega_f=2\omega$ の急変振動子、(2) $a=H=q>0$ のMinkowski加速検出器とde Sitter中心検出器、(3) $1+1$ 次元の光線写像 $p(u)=v_H-Ae^{-\kappa u}$ と四次元Schwarzschildの後期放射を比較する。(i) (1)のout粒子数、(ii) (2)の正ギャップ $\Omega$ での定常励起率と励起/脱励起比、(iii) (3)の二次元片方向流束と四次元遠方流束の違いを計算・記述し、最後にそれぞれの結果だけでは結論できないことを一つずつ挙げよ。
+- 問題: (1) $\omega_i=\omega,\omega_f=2\omega$ の急変振動子、(2) $a=H=q>0$ のMinkowski加速検出器とde Sitter中心検出器、(3) $1+1$ 次元の光線写像 $p(u)=v_H-Ae^{-\kappa u}$ と、表面重力を同じ $\kappa>0$ とした四次元Schwarzschildの後期放射を比較する。(i) (1)のout粒子数、(ii) (2)の正ギャップ $\Omega$ での定常励起率と励起/脱励起比、(iii) (3)の二次元片方向流束と四次元遠方流束の違いを計算・記述し、最後にそれぞれの結果だけでは結論できないことを一つずつ挙げよ。
 
 <!-- solution-start -->
 **詳細解答**：
