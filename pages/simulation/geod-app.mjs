@@ -10,7 +10,9 @@ const ns = 'http://www.w3.org/2000/svg';
 const fmt = (n, digits = 6) => Number.isFinite(n) ? n.toLocaleString('ja-JP', {
   maximumFractionDigits: digits, minimumFractionDigits: digits,
 }) : '計算不能';
-const state = { lab: 'A', yaw: -rad(140), tilt: rad(24), model: ellipsoid(), fVisual: .07 };
+const state = { lab: 'A', yaw: -rad(140), tilt: rad(24), zoom: 1,
+  model: ellipsoid(), fVisual: .07 };
+const ZOOM_MIN = .6, ZOOM_MAX = 2.4;
 const view = $('globe');
 const gl = view.getContext('webgl2', { antialias: true, alpha: false });
 let program = null, positionBuffer, location, colorLoc;
@@ -80,7 +82,8 @@ function clip([x, y, z]) {
   const xr = cy * x - sy * y, yr = sy * x + cy * y;
   const ct = Math.cos(state.tilt), st = Math.sin(state.tilt);
   const ratio = view.height / view.width;
-  return [ratio * .77 * yr, .77 * (ct * z - st * xr), -.75 * (ct * xr + st * z)];
+  return [ratio * .77 * state.zoom * yr, .77 * state.zoom * (ct * z - st * xr),
+    -.75 * (ct * xr + st * z)];
 }
 
 function cameraNormal([x, y, z]) {
@@ -272,11 +275,14 @@ function renderGlobe() {
     const P = point(phi, lambda, drawnEllipsoid, 1.008);
     const basis = enuBasis(phi, lambda);
     const radial = P.map(x => x / norm(P));
-    emit(gl.LINES, arrow([0, 0, 0], vecAdd(P, radial, .26)), [.10, .43, .65], true);
-    emit(gl.LINES, arrow(P, vecAdd(P, basis.up, .42)), [.88, .38, .12], true);
-    emit(gl.LINES, arrow(P, vecAdd(P, basis.east, .28)), [.10, .45, .27], true);
-    emit(gl.LINES, arrow(P, vecAdd(P, basis.north, .28)), [.47, .25, .65], true);
-    emit(gl.POINTS, [P], [.91, .20, .12], true);
+    // The geocentric radius OP lies *inside* the opaque ellipsoid. Drawing it
+    // through the sphere makes O look like an external point. Show only the
+    // outward continuation here and the actual OP in the meridian section.
+    emit(gl.LINES, arrow(P, vecAdd(P, radial, .32)), [.10, .43, .65]);
+    emit(gl.LINES, arrow(P, vecAdd(P, basis.up, .42)), [.88, .38, .12]);
+    emit(gl.LINES, arrow(P, vecAdd(P, basis.east, .28)), [.10, .45, .27]);
+    emit(gl.LINES, arrow(P, vecAdd(P, basis.north, .28)), [.47, .25, .65]);
+    emit(gl.POINTS, [P], [.91, .20, .12]);
   } else if (state.lab === 'B' && state.geodesic) {
     emit(gl.LINES, pathLines(state.geodesic.ellipsoid.points, drawnEllipsoid), [.1, .35, .67]);
     emit(gl.LINES, pathLines(state.geodesic.sphere.points, drawnEllipsoid, true), [.78, .28, .13]);
@@ -304,6 +310,48 @@ function svg(tag, attrs = {}, content) {
   for (const [key, value] of Object.entries(attrs)) e.setAttribute(key, String(value));
   if (content !== undefined) e.textContent = String(content);
   return e;
+}
+
+function drawMeridianSection() {
+  const map = $('a-section-map');
+  map.replaceChildren();
+  const e = ellipsoid(1, state.fVisual);
+  const P = point(state.phi, state.lambda, e);
+  const radius = Math.hypot(P[0], P[1]);
+  const cx = 190, cy = 169, scale = 124;
+  const px = cx + radius * scale, py = cy - P[2] * scale;
+  const radialLength = Math.hypot(radius, P[2]);
+  const radial = [radius / radialLength, P[2] / radialLength];
+  const normal = [Math.cos(state.phi), Math.sin(state.phi)];
+  const line = (x1, y1, x2, y2, stroke, dashed = false, width = 3) =>
+    svg('line', { x1, y1, x2, y2, stroke, 'stroke-width': width,
+      'stroke-dasharray': dashed ? '7 5' : 'none', 'stroke-linecap': 'round' });
+  map.append(svg('rect', { x: 1, y: 1, width: 558, height: 338, rx: 10,
+    fill: '#f8fbff', stroke: '#d1dce9' }));
+  map.append(svg('ellipse', { cx, cy, rx: scale, ry: scale * (1 - e.f),
+    fill: '#dceaf4', stroke: '#35628c', 'stroke-width': 2.5 }));
+  map.append(line(40, cy, 347, cy, '#9aabc0', true, 1.5));
+  map.append(line(cx, 26, cx, 317, '#9aabc0', true, 1.5));
+  // O--P is shown *only* inside this cross-section, not over the 3D surface.
+  map.append(line(cx, cy, px, py, '#19639b', true));
+  map.append(line(px, py, px + radial[0] * 32, py - radial[1] * 32, '#19639b', true));
+  map.append(line(px, py, px + normal[0] * 49, py - normal[1] * 49, '#c45b22', false, 4));
+  map.append(svg('circle', { cx, cy, r: 5, fill: '#152c4e' }));
+  map.append(svg('circle', { cx: px, cy: py, r: 5, fill: '#b43320' }));
+  map.append(svg('text', { x: cx - 21, y: cy + 21, fill: '#152c4e',
+    'font-size': 18 }, 'O'));
+  map.append(svg('text', { x: px + 8, y: py + 19, fill: '#a32c1d',
+    'font-size': 18 }, 'P'));
+  map.append(svg('text', { x: 351, y: 77, fill: '#c45b22',
+    'font-size': 17 }, '橙：楕円体法線（φ）'));
+  map.append(svg('text', { x: 351, y: 107, fill: '#19639b',
+    'font-size': 17 }, '青破線：地心方向（ψ）'));
+  map.append(svg('text', { x: 351, y: 224, fill: '#334155',
+    'font-size': 15 }, '中心 O は楕円体の内部'));
+  map.append(svg('text', { x: 351, y: 249, fill: '#334155',
+    'font-size': 15 }, 'P は楕円体の表面'));
+  map.append(svg('text', { x: 18, y: 324, fill: '#475569',
+    'font-size': 14 }, '子午線断面：3Dと同じ強調扁平率（数値計算用 f とは別）'));
 }
 
 function drawProjectionMap(opts, location, distortion) {
@@ -416,7 +464,7 @@ function computeA() {
     'f=0にしてφ−ψが0になることを確認する。',
     '同じ緯度40°でfを増やし、法線と中心方向の角度差を読む。',
     'ECEFの原点は楕円体の中心。ENUの上は楕円体法線で、地心方向とは一般に異なることを数値表から説明する。',
-  ], '青・破線相当：中心からの方向／橙：楕円体法線／緑：東／紫：北。楕円体の見た目の扁平率は計算値の20倍です。');
+  ], '3Dの青は地心方向OPの表面から外側への延長（中心Oそのものは描画しません）。橙：楕円体法線／緑：東／紫：北。右の断面図で内部のOとPを確認できます。扁平率の3D表示は20倍強調です。');
 }
 
 function computeB() {
@@ -481,8 +529,9 @@ function computeD() {
 
 function recalculate() {
   $('map-panel').hidden = state.lab !== 'D';
+  $('a-section').hidden = state.lab !== 'A';
   try {
-    if (state.lab === 'A') computeA();
+    if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
     else computeD();
     renderGlobe();
@@ -549,6 +598,21 @@ $('show-world').addEventListener('change', () => {
     : '世界地図を非表示にしました（陰影は有効）。';
   renderGlobe();
 });
+function setZoom(value) {
+  if (!Number.isFinite(value)) return;
+  state.zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(value * 10) / 10));
+  $('globe-zoom').value = String(state.zoom);
+  $('globe-zoom-v').textContent = Math.round(state.zoom * 100) + '%';
+  renderGlobe();
+}
+$('globe-zoom').addEventListener('input', () => setZoom(Number($('globe-zoom').value)));
+$('zoom-in').addEventListener('click', () => setZoom(state.zoom + .2));
+$('zoom-out').addEventListener('click', () => setZoom(state.zoom - .2));
+$('zoom-reset').addEventListener('click', () => setZoom(1));
+view.addEventListener('wheel', event => {
+  event.preventDefault();
+  setZoom(state.zoom + (event.deltaY < 0 ? .1 : -.1));
+}, { passive: false });
 let drag = null;
 view.addEventListener('pointerdown', event => {
   drag = [event.clientX, event.clientY]; view.setPointerCapture(event.pointerId);
@@ -563,8 +627,11 @@ view.addEventListener('pointermove', event => {
 view.addEventListener('pointerup', () => { drag = null; });
 view.addEventListener('pointercancel', () => { drag = null; });
 view.addEventListener('keydown', event => {
-  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '=', '-', '0'].includes(event.key)) return;
   event.preventDefault();
+  if (event.key === '+' || event.key === '=') return setZoom(state.zoom + .2);
+  if (event.key === '-') return setZoom(state.zoom - .2);
+  if (event.key === '0') return setZoom(1);
   if (event.key === 'ArrowLeft') state.yaw += .1;
   if (event.key === 'ArrowRight') state.yaw -= .1;
   if (event.key === 'ArrowUp') state.tilt = Math.min(1.45, state.tilt + .1);
@@ -587,6 +654,7 @@ view.addEventListener('webglcontextrestored', () => {
 });
 startGL();
 if (!gl) $('tile-status').textContent = 'WebGL2非対応のため世界地図を表示できません。';
+setZoom(1);
 recalculate();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
