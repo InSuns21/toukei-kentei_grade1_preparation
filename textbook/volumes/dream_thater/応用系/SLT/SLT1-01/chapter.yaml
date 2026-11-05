@@ -1,0 +1,42 @@
+id: "SLT1-01"
+title: "Bayes超過リスクと近似誤差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-03
+official_scope: []
+learning_objectives:
+  - 二値分類の同時分布から条件付き確率・Bayes予測器・Bayesリスクを検算できる
+  - Bayes超過リスクを定義し条件付きリスク差から重み付き恒等式を証明できる
+  - 同点と確率ゼロの入力でBayes予測器の非一意性を正しく扱える
+  - 有限仮説クラスの最良予測器と近似誤差・クラス内超過リスクを区別できる
+  - 全超過リスクを近似成分とクラス内成分へ分解し数値例で検算できる
+  - クラス拡大による近似誤差の単調性と標本依存選択の非単調性を区別できる
+  - 経験リスクゼロがBayes最適性もクラス内最適性も保証しない例を構成できる
+definitions:
+  - { id: SLT1-01-DEF-01, name: Bayes超過リスク }
+  - { id: SLT1-01-DEF-02, name: クラス内最良予測器と近似誤差 }
+  - { id: SLT1-01-DEF-03, name: クラス内超過リスク }
+theorems:
+  - { id: SLT1-01-THM-01, name: 二値0–1分類の重み付き超過リスク恒等式 }
+  - { id: SLT1-01-THM-02, name: 超過リスクの近似成分とクラス内成分への分解 }
+  - { id: SLT1-01-PROP-01, name: クラス拡大による近似誤差の単調性 }
+canonical_examples:
+  - 四セル分布の条件付きラベル確率・Bayesリスク・定数予測器のリスク
+  - 同点と確率ゼロの入力における超過リスク
+  - 標本一個のERMによるクラス内超過リスクと候補拡大の反例
+problem_patterns:
+  - SLT1-01-A01
+  - SLT1-01-A02
+  - SLT1-01-A03
+  - SLT1-01-A04
+  - SLT1-01-A05
+  - SLT1-01-B01
+  - SLT1-01-B02
+  - SLT1-01-B03
+  - SLT1-01-B04
+  - SLT1-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.5 }
