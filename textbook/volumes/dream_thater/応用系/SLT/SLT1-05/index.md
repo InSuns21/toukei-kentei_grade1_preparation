@@ -40,18 +40,18 @@ $$
 <!-- definition-example-start: def-slt1-05-trace -->
 **定義の確認**。$\mathcal X=\mathbb R$、$\mathcal H=\{h_t:t\in\mathbb R\}$、$h_t(x)=\boldsymbol{1}_{\{x\ge t\}}$ とし、$A=\{1,3\}$ をこの順に読む。閾値による値列は
 
-$
+$$
 t>3\ \Longrightarrow\ 00,\qquad
 1<t\le3\ \Longrightarrow\ 01,\qquad
 t\le1\ \Longrightarrow\ 11
-$
+$$
 
 の三通りである。一方、$10$ は
 
-$
+$$
 h_t(1)=1\ \Longrightarrow\ t\le1<3
 \ \Longrightarrow\ h_t(3)=1
-$
+$$
 
 に反して実現できない。よって $\left|\mathcal H|_A\right|=3$。集合 $A$ の要素は相異なり、各 $h_t$ は二値関数なので定義の全条件を満たす。
 <!-- definition-example-end -->
@@ -118,9 +118,9 @@ $$
 <!-- definition-example-start: def-slt1-05-growth -->
 **定義の確認**。前の閾値クラスで $m=2$ とする。異なる二点 $1,3$ は三パターンを与えるが、同じ点を二回選ぶと $00,11$ の二パターンしかない。任意の相異なる二点について、入力の順序を入れ替えても値列の成分が入れ替わるだけでパターン数は変わらない。昇順なら $10$ が作れず三通り以下である。従って
 
-$
+$$
 \Pi_{\mathcal H}(2)=\max\{3,2\}=3.
-$
+$$
 
 定義は全ての入力列の最大を取るので、重複列の二通りだけを採用しない。
 <!-- definition-example-end -->
@@ -281,13 +281,13 @@ $$
 
 で判定する。軸平行矩形 $Q=[a,b]\times[c,d]$ の内側だけを1とする分類器である。点 $q=(q_x,q_y)$ の下付き添字 $x,y$ はその二つの座標を表す。矩形の指示関数は、両座標がそれぞれの閉区間に入るときだけ1になる。すなわち
 
-$
+$$
 \boldsymbol{1}_Q(x,y)
 =\boldsymbol{1}_{[a,b]}(x)\,\boldsymbol{1}_{[c,d]}(y),\qquad
 \boldsymbol{1}_Q(x,y)=1
 \ \Longleftrightarrow\
 a\le x\le b\ \text{かつ}\ c\le y\le d.
-$
+$$
 
 複数の点を同時に1にするには、各座標方向の最小値から最大値までを含む必要がある。これが次の証明で座標の極値を使う理由である。各端点は自由に選ぶが、矩形は回転させない。
 
