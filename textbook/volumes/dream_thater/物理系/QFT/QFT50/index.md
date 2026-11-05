@@ -419,27 +419,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-挿入点 $w_j$ を固定します。仮定した穿孔近傍での正則性から、$t$ を挿入した相関関数 $H(z)$ にはLaurent展開
+挿入点 $w_j$ を固定し、$t$ を挿入した相関関数を $H(z)$ と書きます。穿孔円板で正則な $H$ の負冪の係数を取り出します。$0<r<|z-w_j|<R$ とし、[Cauchy積分公式の境界移送](../../../解析系/CA/CA3/index.md#lem-ca3-punctured-disk-transfer)と同様に、評価点 $z$ の小円と特異点 $w_j$ の小円を除いた領域にCauchyの定理を適用します。評価点の小円を縮めると外周と内周で表したCauchy積分の差が $H(z)$ となります。内周で
 
 $$
-H(z)=\sum_{r\in\mathbb Z}c_r(z-w_j)^r
+\frac{1}{\zeta-z}
+=-\sum_{k=0}^{\infty}
+\frac{(\zeta-w_j)^k}{(z-w_j)^{k+1}}
 $$
 
-があります（正則部分の係数 $c_r$、$r\ge0$ も含みます）。小円上で $\epsilon(z)=(z-w_j)^k$（整数 $k\ge0$）を試験係数に選ぶと、[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)と同じ係数抽出により
+を展開します。これは内周上で $|\zeta-w_j|=r<|z-w_j|$ なので一様収束し、積分と和を交換できます。外周の積分は $z$ に関して円板内で正則な関数 $H_{\mathrm{reg}}(z)$ を与えるため、
 
 $$
-\frac{1}{2\pi i}\oint_{\gamma_j}
-(z-w_j)^k H(z)\,dz=c_{-k-1}
+\begin{aligned}
+H(z)&=H_{\mathrm{reg}}(z)
++\sum_{k=0}^{\infty}\frac{a_k}{(z-w_j)^{k+1}},\\
+a_k&=\frac{1}{2\pi i}\oint_{|\zeta-w_j|=r}
+(\zeta-w_j)^k H(\zeta)\,d\zeta .
+\end{aligned}
 $$
 
-です。一方、[一次場の正則側の微小変換](#def-qft50-weights)は
+という展開が得られます。内周の半径を変えても、環状領域での正則性によって $a_k$ は同じです。そこで $\epsilon(z)=(z-w_j)^k$（整数 $k\ge0$）を試験係数に選ぶと、輪郭積分は $a_k$ を選び出します。一方、[一次場の正則側の微小変換](#def-qft50-weights)は
 
 $$
 \bigl[\epsilon(w_j)\partial_{w_j}
 +h_j\epsilon'(w_j)\bigr]G
 $$
 
-なので、$k=0$ では $c_{-1}=\partial_{w_j}G$、$k=1$ では $c_{-2}=h_jG$、$k\ge2$ では両方の値が零だから $c_{-k-1}=0$ です。よって三重極以上は存在せず、特異部分は
+なので、$k=0$ では $a_0=\partial_{w_j}G$、$k=1$ では $a_1=h_jG$、$k\ge2$ では両方の値が零だから $a_k=0$ です。よって三重極以上は存在せず、特異部分は
 
 $$
 \frac{h_jG}{(z-w_j)^2}
