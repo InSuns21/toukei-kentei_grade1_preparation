@@ -63,7 +63,7 @@ const values = {
   'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
-for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
+for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
   'osm-credit', 'gsi-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
   'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',

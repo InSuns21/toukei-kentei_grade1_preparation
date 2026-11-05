@@ -895,6 +895,7 @@ function syncLocationToolbar() {
 }
 
 function recalculate() {
+  $('geod-workspace').dataset.currentLab = state.lab;
   $('map-panel').hidden = state.lab !== 'D';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
