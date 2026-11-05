@@ -227,3 +227,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT55
     status: completed
     title: "平面–円筒写像・Schwarzianと有限サイズ・熱的相関"
+  - id: QFT56
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT56
+    status: completed
+    title: "境界自由場・区間のUV正則化と熱的尺度"
