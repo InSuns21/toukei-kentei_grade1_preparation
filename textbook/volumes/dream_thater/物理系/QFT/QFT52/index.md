@@ -36,11 +36,11 @@ $$
 **定義の確認** 恒等演算子 $\mathbf1$ の挿入は任意の相関関数を変えないので $|\mathbf1\rangle=|0\rangle$。自由場の正則側の微分場 $J$ は、後で示す展開の負モード $a_{-1}$ に比例し、$\lim_{z\to0}J(z)|0\rangle$ は有限です。一方、対数型の $\phi$ 自体は零モード・赤外条件が必要であり、同じ方法で無条件に真空Fock空間の状態にすることはできません。したがって「任意の場」とはせず、存在条件を定義に含めています。
 <!-- definition-example-end -->
 
-正則側の拡大縮小生成子は $L_0$、反正則側は $\bar L_0$ です。回転と拡大縮小を合わせた作用は、[QFT50の一次場の変換則](../QFT50/index.md#thm-qft50-primary-ward)から局所的に読み取れます。原点を固定した $z\mapsto e^s z$ の無限小変換が $L_0+\bar L_0$ に対応することと、円筒のエネルギーに現れる真空シフトとは別の問いです。後者は平面から円筒への有限変換を扱う段階で検算します。
+正則側の拡大縮小生成子は $L_0$、反正則側は $\bar L_0$ です。回転と拡大縮小を合わせた作用は、[QFT50の一次場の変換則](../QFT50/index.md#thm-qft50-primary-ward)から局所的に読み取れます。原点を固定した $z\mapsto e^s z$ の無限小変換が $L_0+\bar L_0$ に対応することと、円筒のエネルギーに現れる真空シフトとは別の問いです。この章の内積・子孫計算には平面モードを用い、円筒の真空シフトは仮定しません。
 
 ## 2. 自由bosonでは状態–演算子対応を振動子で作れる
 
-二点収縮の負号をそのまま扱うより、正規化した正則電流
+ここでも $\partial=\partial_z$ は $\bar z$ を固定する[Wirtinger微分](../QFT50/index.md#def-qft50-wirtinger)です。二点収縮の負号をそのまま扱うより、正規化した正則電流
 
 $$
 a(z)=i\sqrt{2g}\,J(z)
@@ -159,7 +159,7 @@ $$
 
 ## 3. 一次場から最高ウェイト状態へ
 
-[QFT50の一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)の二次極はウェイト、一次極は移動を表しました。原点の挿入状態に輪郭モードを作用させると、その二つの項がそのまま「最高ウェイト」の条件になります。
+[QFT50の一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)の二次極はウェイト、一次極は移動を表しました。以下、$\partial\mathcal O(w)=\partial_w\mathcal O(w)$ は $\bar w$ を固定した正則方向の微分です。原点の挿入状態に輪郭モードを作用させると、その二つの項がそのまま「最高ウェイト」の条件になります。
 
 <a id="def-qft52-primary-descendant"></a>
 
@@ -177,16 +177,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft52-primary-descendant -->
-**定義の確認** [QFT51の $tJ$ OPE](../QFT51/index.md#prop-qft51-stress-current-ope)はウェイト $h=1$ を示すので $a=i\sqrt{2g}J$ も一次場です。対応する原点状態は $|a\rangle=a_{-1}|0\rangle$。
+**定義の確認** [QFT51の $tJ$ OPE](../QFT51/index.md#prop-qft51-stress-current-ope)は二次極の係数が $J$、一次極の係数が $\partial_wJ$ であることを示すので、$a=i\sqrt{2g}J$ もウェイト $h=1$ の一次場です。対応する原点状態は $|a\rangle=a_{-1}|0\rangle$ です。
 
-後で導く交換子 $[L_n,a_m]=-m a_{m+n}$ を使うと、
+[QFT50の輪郭電荷](../QFT50/index.md#def-qft50-contour-charge)で $\epsilon(z)=z^{n+1}$ とすると、挿入点 $w$ の二次極・一次極の留数は
+
+$$
+[L_n,a(w)]=w^{n+1}\partial_wa(w)+(n+1)w^na(w).
+$$
+
+先に得た $a(w)|0\rangle=\sum_{k\ge1}w^{k-1}a_{-k}|0\rangle$ は原点で正則なので、右辺の微分も項別に評価できます。$L_n|0\rangle=0$（$n\ge-1$）を用いて原点極限を取ると
 
 $$
 L_0|a\rangle=|a\rangle,\qquad
-L_n|a\rangle=a_{n-1}|0\rangle=0\quad(n\ge1).
+L_n|a\rangle=0\quad(n\ge1).
 $$
 
-最後の零は $a_0|0\rangle=0$ を含む零電荷真空条件から従います。また $L_{-1}|a\rangle$ はレベル1でウェイト2、$L_{-2}|a\rangle$ はレベル2でウェイト3です。一次場という名称に頼らず、正モードの消滅条件とウェイトを直接確認できました。
+さらに[Virasoro交換子](../QFT51/index.md#thm-qft51-virasoro)の $[L_0,L_{-k}]=kL_{-k}$ により、$L_{-1}|a\rangle$ はレベル1でウェイト2、$L_{-2}|a\rangle$ はレベル2でウェイト3です。定義したOPEの二つの極から、正モードの消滅条件とウェイトを直接確認できました。
 <!-- definition-example-end -->
 
 <a id="thm-qft52-primary-modes"></a>
@@ -259,14 +265,14 @@ t(z)a(w)\sim\frac{a(w)}{(z-w)^2}
 +\frac{\partial a(w)}{z-w}.
 $$
 
-このとき一次場の輪郭公式に $h=1$ を代入し、$a_n=\oint w^na(w)dw/(2\pi i)$ へ積分すると
+このとき[一次場の輪郭公式](#thm-qft52-primary-modes)に $h=1$ を代入し、$a_n=\oint w^na(w)dw/(2\pi i)$ へ積分すると
 
 $$
 \begin{aligned}
 [L_m,a_n]
 &=\oint\frac{dw}{2\pi i}
 w^n\left(w^{m+1}\partial a+(m+1)w^m a\right)\\
-&=\bigl[-(m+n+1)+(m+1)\bigr]a_{m+n}\\
+&=-(m+n+1)a_{m+n}+(m+1)a_{m+n}\\
 &=-n a_{m+n}.
 \end{aligned}
 $$
@@ -314,6 +320,8 @@ $$
 
 一般のCFTで正値内積を要求すると、形式的に書ける子孫のうち幾つかは物理Hilbert空間では零になります。その確認には大きな表現論の定理を使う前に、低レベルの内積行列を実計算できます。
 
+ここでの反射は、$z=e^{\tau+i\theta}$ で円を時間切片にしたときの $\tau\mapsto-\tau$、すなわち単位円についての $z\mapsto1/\bar z$ です。[QFT20の反射陽性](../QFT20/index.md#def-qft20-reflection-positivity)で学んだ「反射後の相関関数から非負の二次形式を作る」という考え方を使いますが、直交座標の時間反射についての検算だけから動径反射での正値性が自動的に従うわけではありません。以下では動径反射に基づく正半定値な内積と $L_n^\dagger=L_{-n}$ を**追加の仮定**として扱います。まず零ノルム状態を含む空間を考え、零空間で割って正定値な内積を得た後に完備化してHilbert空間を作ります。
+
 <a id="def-qft52-null-state"></a>
 
 <!-- formal-statement-start -->
@@ -324,7 +332,7 @@ $$
 L_nv=0\qquad(n>0)
 $$
 
-> を満たすとき特異ベクトルという。反射正値な表現で $L_n^\dagger=L_{-n}$ の随伴性を持つ場合、
+> を満たすとき特異ベクトルという。上で述べた動径反射に関する正半定値内積と $L_n^\dagger=L_{-n}$ の随伴性を持つ表現で、
 
 $$
 \langle v,v\rangle=0
@@ -334,7 +342,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft52-null-state -->
-**定義の確認** 真空の $L_{-1}|0\rangle$ は形式的Verma加群 $M(c,0)$ では非零です。しかし $L_1L_{-1}|0\rangle=[L_1,L_{-1}]|0\rangle=2L_0|0\rangle=0$。
+**定義の確認** 真空の $L_{-1}|0\rangle$ は形式的Verma加群 $M(c,0)$ では非零です。しかし[Virasoro交換関係](../QFT51/index.md#thm-qft51-virasoro)を使うと $L_1L_{-1}|0\rangle=[L_1,L_{-1}]|0\rangle=2L_0|0\rangle=0$。
 
 $n\ge2$ でも $[L_n,L_{-1}]=(n+1)L_{n-1}$ は真空を消すので、全ての正モードで消える特異ベクトルです。自由bosonの具体表現では[上の命題](#prop-qft52-sugawara-levels)により実際に $L_{-1}|0\rangle=0$。形式的ベクトルと具体的な零状態の違いが見えます。
 <!-- definition-example-end -->
@@ -343,7 +351,7 @@ $n\ge2$ でも $[L_n,L_{-1}]=(n+1)L_{n-1}$ は真空を消すので、全ての�
 
 <!-- formal-statement-start -->
 > **定理（レベル1・2のGram行列）**  
-> 中心電荷 $c\in\mathbb R$、実ウェイト $h$ の最高ウェイト状態 $|h\rangle$ を $\langle h|h\rangle=1$ とし、$L_n^\dagger=L_{-n}$ およびVirasoro交換関係を仮定する。レベル1のノルム二乗は $2h$。レベル2の順序付き基底 $L_{-2}|h\rangle,L_{-1}^2|h\rangle$ のGram行列は
+> 中心電荷 $c\in\mathbb R$、実ウェイト $h$ の最高ウェイト状態 $|h\rangle$ を $\langle h|h\rangle=1$ とし、$L_n^\dagger=L_{-n}$ およびVirasoro交換関係を仮定する。レベル1のノルム二乗は $2h$。レベル2の順序付き子孫 $L_{-2}|h\rangle,L_{-1}^2|h\rangle$ のGram行列は
 
 $$
 G_2(c,h)=
@@ -355,7 +363,7 @@ G_2(c,h)=
 \det G_2=2h\{16h^2+2(c-5)h+c\}.
 $$
 
-> 特に正値性には $h\ge0$ と $G_2$ の正半定値性が必要である。これらは低レベルの必要条件であり、全レベルでのユニタリ性の十分条件ではない。
+> 普遍Verma加群ではこの二つは基底だが、具体的な表現では零や従属になり得るので、Gram行列を作る段階で一次独立性は要求しない。特に正値性には $h\ge0$ と $G_2$ の正半定値性が必要である。これらは低レベルの必要条件であり、全レベルでのユニタリ性の十分条件ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -365,7 +373,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $L_1|h\rangle=L_2|h\rangle=0$、$L_0|h\rangle=h|h\rangle$ なので
+まず $L_1|h\rangle=L_2|h\rangle=0$、$L_0|h\rangle=h|h\rangle$ です。[Virasoro交換関係](../QFT51/index.md#thm-qft51-virasoro)を適用すると
 
 $$
 \|L_{-1}|h\rangle\|^2
@@ -433,7 +441,7 @@ $G_2(1,1/4)$ の二列が等しくなります。さらに $L_1,L_2$ が $v$ を
 <!-- proof-start -->
 ### 証明
 
-$h=1/4$ では $4h+c/2=3/2$、$6h=3/2$、$4h(2h+1)=3/2$ なので
+[レベル2のGram行列](#thm-qft52-level-gram)に $c=1,h=1/4$ を代入すると、$4h+c/2=3/2$、$6h=3/2$、$4h(2h+1)=3/2$ なので
 
 $$
 G_2(1,1/4)=\frac32
@@ -449,9 +457,16 @@ L_2v&=\{4h+c/2-6h\}|h\rangle=0.
 \end{aligned}
 $$
 
-$n\ge3$ では $L_n$ と $L_{-2},L_{-1}$ の交換子に現れる正モードが最高ウェイト状態を消すため、$L_nv=0$。普遍Verma加群ではPBW型の順序付き二状態を独立に用意しているので $v$ は形式的に非零です。
+$n\ge3$ では $[L_n,L_{-2}]=(n+2)L_{n-2}$、$[L_n,L_{-1}]=(n+1)L_{n-1}$ です。二つの交換子を順に使えば、$L_n v$ の各項は最高ウェイト状態に作用する正モードへ帰着して消えます。普遍Verma加群ではPBW型の順序付き二状態を独立に用意しているので $v$ は形式的に非零です。
 
-自由bosonの電荷部門を $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）と定めると、$L_0|q\rangle=(q^2/2)|q\rangle$、$L_{-1}|q\rangle=q a_{-1}|q\rangle$、
+自由bosonの電荷部門を $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）と定めます。[正規順序モード和](#prop-qft52-sugawara-levels) $L_n=\tfrac12\sum_k:a_{n-k}a_k:$ で、$L_0$ に残るのは零モード二個、$L_{-1}$ に残るのは添字 $(-1,0)$ と $(0,-1)$ の二組なので
+
+$$
+L_0|q\rangle=\frac{q^2}{2}|q\rangle,\qquad
+L_{-1}|q\rangle=\frac12(a_{-1}a_0+a_0a_{-1})|q\rangle=q a_{-1}|q\rangle.
+$$
+
+$L_{-2}$ にはさらに $(-1,-1)$ の組が加わるため、
 
 $$
 \begin{aligned}
@@ -488,7 +503,17 @@ $$
 - Level: A
 - 問題: $a(z)|0\rangle=\sum_{k\ge1}z^{k-1}a_{-k}|0\rangle$ を使い、$\partial^2a(0)|0\rangle$ と $:\!a\partial a\!:(0)|0\rangle$ を振動子で表せ。
 
-**詳細解答**：二回微分した級数は $\sum_{k\ge3}(k-1)(k-2)z^{k-3}a_{-k}|0\rangle$ です。$z=0$ では $k=3$ だけが残り $\partial^2a(0)|0\rangle=2a_{-3}|0\rangle$。正規順序の自己収縮を除いた二つ目は、それぞれの生成部分だけを残すので $:\!a\partial a\!:(0)|0\rangle=a_{-1}a_{-2}|0\rangle$ です。
+**詳細解答**：[モードから導関数への対応](#thm-qft52-free-state-operator)で用いた級数を $z$ で二回微分すると
+
+$$
+\partial_z^2a(z)|0\rangle=\sum_{k\ge3}(k-1)(k-2)z^{k-3}a_{-k}|0\rangle.
+$$
+
+$z=0$ では $k=3$ だけが残り、$\partial_z^2a(0)|0\rangle=2a_{-3}|0\rangle$。もう一方は[点分離正規順序](../QFT51/index.md#def-qft51-wick-stress)で自己収縮を除き、それぞれの生成モードだけを残すので
+
+$$
+:\!a\partial_za\!:(0)|0\rangle=a_{-1}a_{-2}|0\rangle.
+$$
 
 ### 演習 QFT52-A3：一次場のモード作用
 
@@ -512,14 +537,34 @@ $$
 - Level: A
 - 問題: $[L_0,L_{-n}]=nL_{-n}$ と最高ウェイト条件から、$L_{-2}|h\rangle$ と $L_{-1}^2|h\rangle$ の $L_0$ 固有値を求めよ。レベル2に二つの候補がある理由も述べよ。
 
-**詳細解答**：$L_0L_{-2}|h\rangle=L_{-2}L_0|h\rangle+[L_0,L_{-2}]|h\rangle=(h+2)L_{-2}|h\rangle$。$L_0L_{-1}^2|h\rangle$ には交換子を一因子ずつ二回使い、$(h+1+1)L_{-1}^2|h\rangle=(h+2)L_{-1}^2|h\rangle$ を得ます。整数2の分割が $2$ と $1+1$ の二通りなので、普遍Verma加群では両方を候補として含めます。
+**詳細解答**：[Virasoro交換関係](../QFT51/index.md#thm-qft51-virasoro)を一因子ずつ作用させると
+
+$$
+\begin{aligned}
+L_0L_{-2}|h\rangle&=L_{-2}L_0|h\rangle+[L_0,L_{-2}]|h\rangle=(h+2)L_{-2}|h\rangle,\\
+[L_0,L_{-1}^2]&=[L_0,L_{-1}]L_{-1}+L_{-1}[L_0,L_{-1}]=2L_{-1}^2,\\
+L_0L_{-1}^2|h\rangle&=(h+2)L_{-1}^2|h\rangle.
+\end{aligned}
+$$
+
+整数2の分割が $2$ と $1+1$ の二通りなので、普遍Verma加群では両方を候補として含めます。
 
 ### 演習 QFT52-A5：負ウェイトの障害
 
 - Level: A
 - 問題: $L_1^\dagger=L_{-1}$、$[L_1,L_{-1}]=2L_0$、$L_1|h\rangle=0$、$\langle h|h\rangle=1$ を仮定する。$h=-1/8$ のレベル1子孫のノルム二乗を求め、正値内積と両立するか判定せよ。
 
-**詳細解答**：$\langle L_{-1}h|L_{-1}h\rangle=\langle h|L_1L_{-1}|h\rangle=\langle h|2L_0|h\rangle=2h=-1/4$。負ノルム状態は正値Hilbert空間に存在できないので、この仮定のままユニタリな表現とは両立しません。非ユニタリな代数的表現まで否定する結果ではありません。
+**詳細解答**：随伴性と $L_1|h\rangle=0$ から
+
+$$
+\begin{aligned}
+\langle h|L_1L_{-1}|h\rangle
+&=\langle h|[L_1,L_{-1}]|h\rangle\\
+&=\langle h|2L_0|h\rangle=2h=-\frac14.
+\end{aligned}
+$$
+
+負ノルム状態は正値Hilbert空間に存在できないので、この仮定のままユニタリな表現とは両立しません。非ユニタリな代数的表現まで否定する結果ではありません。
 
 ### 演習 QFT52-B1：レベル2の非対角成分
 
@@ -560,7 +605,7 @@ Heisenberg交換子から $\langle0|a_1^2a_{-1}^2|0\rangle=2$、$\langle0|a_2a_{
 - Level: B
 - 問題: $G_2(c,h)$ を用い、$c=1$ で $\det G_2$ を因数分解せよ。$h=1/4$ の核ベクトルを求め、$h=0$ の場合とどこが異なるか説明せよ。
 
-**詳細解答**：$c=1$ をGram行列の行列式へ代入し、二次式を平方にします。
+**詳細解答**：[レベル2のGram行列](#thm-qft52-level-gram)の行列式へ $c=1$ を代入し、二次式を平方にします。
 
 $$
 \det G_2=2h[16h^2-8h+1]=2h(4h-1)^2.
@@ -584,12 +629,23 @@ $$
 - Level: B
 - 問題: $a_0|q\rangle=q|q\rangle$、$a_n|q\rangle=0$（$n>0$）、$L_n=\frac12\sum_k:a_{n-k}a_k:$ とする。$L_{-2}|q\rangle$ と $L_{-1}^2|q\rangle$ を求め、$(L_{-2}-L_{-1}^2)|q\rangle=0$ となる実 $q$ を全て求めよ。
 
-**詳細解答**：$L_{-1}|q\rangle=q a_{-1}|q\rangle$。$L_{-2}|q\rangle=q a_{-2}|q\rangle+(1/2)a_{-1}^2|q\rangle$ であり、$[L_{-1},a_{-1}]=a_{-2}$ により $L_{-1}^2|q\rangle=q a_{-2}|q\rangle+q^2a_{-1}^2|q\rangle$。差は $(1/2-q^2)a_{-1}^2|q\rangle$。振動子状態のノルムは非零なので実 $q=\pm1/\sqrt2$ に限ります。いずれも $h=q^2/2=1/4$ で、Gram行列の退化条件と一致します。
+**詳細解答**：[正規順序モード和からの計算](#cor-qft52-c1-null)と $[L_{-1},a_{-1}]=a_{-2}$ を使うと
+
+$$
+\begin{aligned}
+L_{-1}|q\rangle&=q a_{-1}|q\rangle,\\
+L_{-2}|q\rangle&=\left(q a_{-2}+\frac12a_{-1}^2\right)|q\rangle,\\
+L_{-1}^2|q\rangle&=q\bigl([L_{-1},a_{-1}]+a_{-1}L_{-1}\bigr)|q\rangle\\
+&=\left(q a_{-2}+q^2a_{-1}^2\right)|q\rangle.
+\end{aligned}
+$$
+
+従って差は $(1/2-q^2)a_{-1}^2|q\rangle$ です。$[a_1,a_{-1}]=1$ と $a_1|q\rangle=0$ により $\|a_{-1}^2|q\rangle\|^2=2$ なので、この差が零となる実電荷は $q=\pm1/\sqrt2$ に限ります。いずれも $h=q^2/2=1/4$ で、[Gram行列の退化条件](#thm-qft52-level-gram)と一致します。
 
 ### 演習 QFT52-C1：局所場からレベル2零状態まで
 
 - Level: C
-- 問題: $g>0$ の二次元自由boson、$a=i\sqrt{2g}\partial\phi$、$t=\frac12:a^2:$、零電荷真空を考え、必要な部分だけから次の一連の結論を導け。
+- 問題: $g>0$ の二次元自由boson、$a=i\sqrt{2g}\partial\phi$、$t=\frac12:a^2:$、零電荷真空を考え、必要な部分だけから次の一連の結論を導け。第4問では別に電荷 $q$ のFock部門を導入する。
 
 1. $a(z)a(w)$ の特異項とモード交換子、$\|a_{-1}|0\rangle\|^2$ を求める。
 2. $t(z)a(w)$ のOPEから $[L_m,a_n]$ を求め、$a(0)|0\rangle$ がウェイト1の最高ウェイト状態であると示す。
