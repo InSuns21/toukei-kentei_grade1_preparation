@@ -117,7 +117,7 @@ $$
 
 このGamma積分の指数は $a-1=d/2-2$ であり、$d>2$ がちょうど収束条件です。$r\mapsto\lambda r$ に代入すれば距離則の後半が従います。
 
-次に空間Fourier変換を $\widehat f(\tau,\boldsymbol k)=\int e^{-i\boldsymbol k\cdot\boldsymbol x}f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x$ とします。[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)は時間変数だけのFourier逆変換に由来し、空間次元を $d-1$ に替えても各 $\boldsymbol k\ne0$ で
+次に空間Fourier変換を $\widehat f(\tau,\boldsymbol k)=\int e^{-i\boldsymbol k\cdot\boldsymbol x}f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x$ とします。先ほどの $\widehat f(p)$ は全 $d$ 変数のFourier変換でしたが、ここではEuclid時間 $\tau$ を固定し、空間変数 $\boldsymbol x$ のみを変換しています。[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)は時間変数だけのFourier逆変換に由来します。QFT20の時間周波数 $p_4$ をここでは $p_\tau$、Euclid時間差を $t\in\mathbb R$ と書くと、空間次元を $d-1$ に替えても各 $\boldsymbol k\ne0$ で
 
 $$
 \int_{\mathbb R}\frac{dp_\tau}{2\pi}
@@ -566,7 +566,7 @@ $$
 ### 演習 QFT48-B3：質量はなぜ共形距離則を壊すか
 
 - Level: B
-- 問題: $m>0$ のEuclid自由場の二点核 $C_m(x)=\int d^dp/(2\pi)^d\,e^{ip\cdot x}/(|p|^2+m^2)$（分布の意味）について、$C_m(\lambda x)=\lambda^{2-d}C_{\lambda m}(x)$ を示せ。固定した $m$ における $C_m(\lambda x)=\lambda^{2-d}C_m(x)$ が一般には成り立たない理由を説明せよ。
+- 問題: $m>0$ のEuclid自由場の二点核 $C_m(x)=\int d^dp/(2\pi)^d\,e^{ip\cdot x}/(|p|^2+m^2)$（分布の意味）について、$\lambda>0$ に対し $C_m(\lambda x)=\lambda^{2-d}C_{\lambda m}(x)$ を示せ。固定した $m$ における $C_m(\lambda x)=\lambda^{2-d}C_m(x)$ が一般には成り立たない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $k=\lambda p$ と変数変換すると $d^dp=\lambda^{-d}d^dk$、分母は $|p|^2+m^2=\lambda^{-2}(|k|^2+\lambda^2m^2)$ です。よって
