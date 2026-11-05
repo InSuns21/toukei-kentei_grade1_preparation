@@ -25,6 +25,8 @@ const inputs = {
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
   'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
+  'globe-point-role': 'start', 'globe-point-city': '',
+  'globe-point-lat': '', 'globe-point-lon': '',
   'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new Element(id, value)]));
@@ -37,7 +39,7 @@ for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   elements.set(id, new Element(id));
 }
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
-  'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new Element(id));
+  'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap']) elements.set(id, new Element(id));
 const buttons = ['A', 'B', 'D', 'E'].map(mode => {
   const b = new Element();
   b.dataset.lab = mode;
@@ -144,6 +146,45 @@ test('projection city preset also recentres its local central meridian', () => {
   $('d-city').handlers.change();
   assert.equal($('d-lat').value, '40.7128');
   assert.equal($('d-lon0').value, '-74.006');
+  assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('near-globe coordinates and city selector stay bidirectionally synchronized', () => {
+  buttons[0].handlers.click();
+  assert.equal($('globe-point-lat').value, $('a-lat').value);
+  $('globe-point-city').value = 'london';
+  $('globe-point-city').handlers.change();
+  assert.equal($('a-lat').value, '51.5074');
+  assert.equal($('a-lon').value, '-0.1278');
+  assert.equal($('a-city').value, 'london');
+  $('a-lat').value = '38.5'; $('a-lat').handlers.input();
+  assert.equal($('globe-point-lat').value, '38.5');
+  assert.equal($('globe-point-city').value, '');
+  $('globe-point-lon').value = '151.2'; $('globe-point-lon').handlers.change();
+  assert.equal($('a-lon').value, '151.2');
+  assert.equal($('globe-point-lon').value, '151.2');
+  $('globe-point-lat').value = '91'; $('globe-point-lat').handlers.change();
+  assert.equal($('a-lat').value, '38.5', 'out-of-range near-globe value is not committed');
+  assert.equal($('geod-status').dataset.error, 'true');
+  $('globe-point-lat').value = '40'; $('globe-point-lat').handlers.change();
+  assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('geodesic near-globe control can choose start or end without modifying the other', () => {
+  buttons[1].handlers.click();
+  assert.equal($('globe-point-role-wrap').hidden, false);
+  assert.equal($('globe-point-lat').value, $('b-lat1').value);
+  $('globe-point-role').value = 'end'; $('globe-point-role').handlers.change();
+  assert.equal($('globe-point-lat').value, $('b-lat2').value);
+  $('globe-point-city').value = 'paris'; $('globe-point-city').handlers.change();
+  assert.equal($('b-lat2').value, '48.8566');
+  assert.equal($('b-lon2').value, '2.3522');
+  assert.equal($('b-lat1').value, '35.681236');
+  buttons[3].handlers.click();
+  assert.equal($('globe-point-role-wrap').hidden, true);
+  assert.equal($('globe-point-lat').value, $('e-lat').value);
+  $('globe-point-city').value = 'tokyo'; $('globe-point-city').handlers.change();
+  assert.equal($('e-lat').value, '35.6812');
   assert.match($('geod-status').textContent, /計算済み/);
 });
 

@@ -54,6 +54,12 @@ All four lab views support 60–240% **display-only** zoom via controls,
 mouse wheel over the globe, or +/- keys (0 resets; arrows still rotate).
 Zoom scales screen geometry, not the numeric kernel or OSM tile z=2, so
 closer views do not promise higher-resolution tile loading.
+The controls directly above the globe also offer a compact city/latitude/
+longitude editor, synchronized in both directions with the mode's original
+fields. For B, the learner chooses the start or end point before editing;
+for D, choosing a city also moves the comparison central meridian as in the
+original controls. Manual nearby-coordinate edits recentre the globe but do
+not alter numerical-model parameters or the XYZ tile zoom level.
 
 City dropdowns include London, Paris, New York, Tokyo, Osaka, Sapporo, Moscow
 and São Paulo using approximate city centres, not surveyed benchmarks. Choosing

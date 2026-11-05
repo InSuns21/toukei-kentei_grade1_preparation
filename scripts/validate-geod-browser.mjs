@@ -148,6 +148,20 @@ try {
   await evalJS(`document.querySelector('#a-city').value='sao-paulo';
     document.querySelector('#a-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#a-lat").value'), '-23.5505');
+  assert.equal(await evalJS('document.querySelector("#globe-point-lat").value'), '-23.5505');
+  await evalJS(`document.querySelector('#globe-point-city').value='paris';
+    document.querySelector('#globe-point-city').dispatchEvent(new Event('change'))`);
+  assert.equal(await evalJS('document.querySelector("#a-lon").value'), '2.3522');
+  await evalJS(`document.querySelector('#globe-point-lon').value='15.5';
+    document.querySelector('#globe-point-lon').dispatchEvent(new Event('change'))`);
+  assert.equal(await evalJS('document.querySelector("#a-lon").value'), '15.5');
+  await evalJS(`document.querySelector('[data-lab="B"]').click();
+    document.querySelector('#globe-point-role').value='end';
+    document.querySelector('#globe-point-role').dispatchEvent(new Event('change'));
+    document.querySelector('#globe-point-city').value='london';
+    document.querySelector('#globe-point-city').dispatchEvent(new Event('change'))`);
+  assert.equal(await evalJS('document.querySelector("#b-lat2").value'), '51.5074');
+  assert.equal(await evalJS('document.querySelector("#b-lat1").value'), '35.681236');
   await evalJS(`document.querySelector('[data-lab="D"]').click();
     document.querySelector('#d-city').value='new-york';
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
@@ -183,7 +197,7 @@ try {
   })()`);
   assert.ok(mobileLayout.globe / mobileLayout.region >= .98,
     '3D globe must remain full-width at 360px: ' + JSON.stringify(mobileLayout));
-  console.log('GEOD WebGL2: shading, full-width globe, projection comparison, zoom, 360px: PASS');
+  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, projection, zoom, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {
