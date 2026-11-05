@@ -43,7 +43,9 @@ $$
 > と定める。積分は無限大で絶対収束する通常積分ではなく、試験関数に作用する温和分布（または熱核正則化の極限）として解釈する。$x\ne y$ での値は後の定理で求める。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qft48-massless-schwinger -->
 **定義の直接確認。** 任意のSchwartz試験関数 $f$ に対し、原点近傍では $d^dp$ の体積要素が $r^{d-1}dr$ を含むので、重み $1/r^2$ の積分は $\int_0^1r^{d-3}dr=1/(d-2)$ と有限です。無限大では $\widehat f(p)$ がどのべきよりも速く減衰します。したがって $\int |p|^{-2}\widehat f(p)\,d^dp$ は定まり、上の二点分布の意味が確定します。点ごとの積分が絶対収束すると主張しているわけではありません。
+<!-- definition-example-end -->
 
 <a id="thm-qft48-massless-kernel"></a>
 
@@ -131,7 +133,9 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qft48-conformal-map -->
 **定義の直接例。** $f(x)=a+\lambda Rx$（$a\in\mathbb R^d$、$\lambda>0$、$R^TR=I$）では $Df=\lambda R$ なので $Df^TDf=\lambda^2R^TR=\lambda^2I$。したがって $\Omega_f=\lambda$ であり、各方向の長さ・二ベクトル間の角度も所定の条件を満たします。$R$ が直交行列なので $f^{-1}(y)=\lambda^{-1}R^T(y-a)$ が存在して滑らかであり、逆写像の条件も確認できました。
+<!-- definition-example-end -->
 
 一定の倍率ではない重要な例が原点を避けた**反転**です。
 
@@ -220,6 +224,7 @@ $$
 > を満たす。ここで場の変換性だけでなく、真空の不変性も仮定している。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qft48-scalar-primary -->
 **定義の直接確認。** まず $f(x)=\lambda x$ なら $\Omega_f=\lambda$ なので、二つの次元 $\Delta$ の場の相関関数は $\lambda^{-2\Delta}$ 倍です。第1節の $S_2(\lambda x,\lambda y)=\lambda^{-(d-2)}S_2(x,y)$ と突き合わせると自由質量零スカラー場の**二点関数について** $\Delta_\phi=(d-2)/2$ と整合します。反転でも
 
 $$
@@ -228,7 +233,10 @@ C_d(I(x)-I(y))
 =|x|^{d-2}|y|^{d-2}C_d(x-y)
 $$
 
-となり、$\Omega_I(x)^{-\Delta_\phi}\Omega_I(y)^{-\Delta_\phi}=|x|^{d-2}|y|^{d-2}$ と一致します。ただし二点関数だけの一致を、任意の相互作用場が一次場であることの証明へすり替えません。
+となり、$\Omega_I(x)^{-\Delta_\phi}\Omega_I(y)^{-\Delta_\phi}=|x|^{d-2}|y|^{d-2}$ と一致します。
+
+さらにこの**中心化自由Gaussian場**では、[ボースGaussianのWick対合公式](../QFT19/index.md#thm-qft19-boson-wick)により全ての偶数点関数は二点核の対合積、奇数点関数は零です。各対合で各点はちょうど一回現れるため、二点核の変換倍率を掛け合わせれば全ての相異なる点の相関関数が上の一次場則を満たします。したがって自由場では相関関数の範囲で直接確認できました。ただしこの議論を、任意の相互作用場や接触点での積へそのまま拡張しません。
+<!-- definition-example-end -->
 
 <a id="thm-qft48-primary-two-point"></a>
 
@@ -355,7 +363,9 @@ $$
 > を四点の共形交差比という。分母は四点が相異なるため零にならない。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qft48-conformal-cross-ratios -->
 **定義の直接例。** $x_1=0$、$x_2=e_1$、$x_3=2e_1$、$x_4=3e_1$ とすると $(r_{12},r_{34},r_{13},r_{24},r_{14},r_{23})=(1,1,2,2,3,1)$ なので $u=1/16$、$v=9/16$ です。拡大縮小で距離の倍率が打ち消し合い、反転でも各点の $|x_i|$ の指数が分子・分母で相殺します（反転を検査するときは全点を平行移動して原点から離します）。四点関数の $u,v$ への依存は対称性だけでは一意に定まらず、後で演算子積展開やcrossingを使う動機になります。
+<!-- definition-example-end -->
 
 ## 5. 共形的な形と、物理的な相関関数の成立条件
 
