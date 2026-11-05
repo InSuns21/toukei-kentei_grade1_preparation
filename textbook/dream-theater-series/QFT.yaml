@@ -191,3 +191,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT46
     status: completed
     title: "非摂動ゲージ場の格子・インスタントン・トポロジカル電荷とθ項"
+  - id: QFT47
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT47
+    status: completed
+    title: "電弱・異常相殺・QCD・EFT・非摂動近似を結ぶ総合演習"
