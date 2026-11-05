@@ -1,0 +1,48 @@
+id: "SLT1-09"
+title: "関数クラスの被覆数とpacking"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-08
+  - SLT1-04
+  - HDP10
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 関数クラス上の母集団Lq擬距離と経験Lq擬距離を定義し、二点標本でその違いを計算できる
+  - epsilon-net・被覆数・packing数・計量エントロピーの半径と中心の条件を区別できる
+  - coveringとpackingの二つの不等式を極大分離集合の構成から証明できる
+  - 一次元Lipschitz関数族と閾値関数族の被覆数を計量ごとに評価できる
+  - 決定論的L∞被覆とHoeffding不等式から一様標本平均偏差の高確率界を導ける
+  - 経験被覆から条件付きRademacher平均の有限化評価を証明できる
+  - 標本依存netを独立な固定候補と見なす誤用と、無限クラスでの可測性の問題を説明できる
+definitions:
+  - { id: SLT1-09-DEF-01, name: 関数クラスの母集団・経験Lq擬距離 }
+  - { id: SLT1-09-DEF-02, name: 関数クラスのepsilon-netと被覆数 }
+  - { id: SLT1-09-DEF-03, name: packing数 }
+  - { id: SLT1-09-DEF-04, name: 計量エントロピー }
+theorems:
+  - { id: SLT1-09-LEM-01, name: 被覆数とpacking数の比較 }
+  - { id: SLT1-09-PROP-01, name: 一次元関数族の被覆数 }
+  - { id: SLT1-09-THM-01, name: 決定論的L∞被覆からの一様偏差界 }
+  - { id: SLT1-09-THM-02, name: 経験被覆からの条件付きRademacher評価 }
+canonical_examples:
+  - 二点空間上の三関数と標本重複による擬距離の変化
+  - 一次元線形関数族と一様ノルム上の格子net
+  - 閾値関数族のL1・L2・L∞距離と経験トレース
+  - 連続分布上の有限集合指示関数による標本依存候補の失敗例
+problem_patterns:
+  - SLT1-09-A01
+  - SLT1-09-A02
+  - SLT1-09-A03
+  - SLT1-09-A04
+  - SLT1-09-A05
+  - SLT1-09-B01
+  - SLT1-09-B02
+  - SLT1-09-B03
+  - SLT1-09-B04
+  - SLT1-09-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.5, review: 2.0 }

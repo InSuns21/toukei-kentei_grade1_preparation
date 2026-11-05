@@ -40,7 +40,7 @@ chapters:
     title: "VC次元の必要性と無限VC反例"
   - id: SLT1-09
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-09
-    status: planned
+    status: completed
     title: "関数クラスの被覆数とpacking"
   - id: SLT1-10
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-10
