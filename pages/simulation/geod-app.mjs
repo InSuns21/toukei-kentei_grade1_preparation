@@ -3,7 +3,8 @@ import {
   geocentricLatitude, inverseECEF, inverseGeodesic, traceGeodesic,
   transverseMercator, projectionDistortion,
 } from './geod-core.mjs';
-import { CITIES, TILE_ZOOM, mercatorY, visibleXYZTiles } from './geod-map.mjs';
+import { CITIES, TILE_ZOOM, JAPAN_DETAIL_TILE_LIMIT, mercatorY,
+  latitudeAtTileY, visibleXYZTiles, japanDetailTiles } from './geod-map.mjs';
 import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
   globalDistortion } from './geod-compare.mjs';
 import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs';
@@ -15,13 +16,15 @@ const fmt = (n, digits = 6) => Number.isFinite(n) ? n.toLocaleString('ja-JP', {
 }) : '計算不能';
 const state = { lab: 'A', yaw: -rad(140), tilt: rad(24), zoom: 1,
   model: ellipsoid(), fVisual: .07 };
-const ZOOM_MIN = .6, ZOOM_MAX = 2.4;
+const ZOOM_MIN = .6, GLOBAL_ZOOM_MAX = 2.4, JAPAN_ZOOM_MAX = 12;
 const view = $('globe');
 const gl = view.getContext('webgl2', { antialias: true, alpha: false });
 let program = null, positionBuffer, location, colorLoc;
 let surfaceProgram = null, surfaceBuffer, surfacePosition, surfaceUV, surfaceLight;
 let surfaceUseMap, surfaceSampler, atlasCanvas, atlasContext, atlasTexture;
 const tileImages = new Map();
+const detailTiles = new Map();
+const MAX_CACHED_DETAIL_TILES = 24;
 let failedTiles = 0;
 
 const shader = (type, source) => {
@@ -136,22 +139,41 @@ function arrow(a, b) {
     ...segment(b, vecAdd(back, s, -.035))];
 }
 
+function surfaceVertex(phi, lambda, e, u, v, lift = 1) {
+  const xyz = clip(point(phi, lambda, e, lift));
+  const normal = cameraNormal(enuBasis(phi, lambda).up);
+  // A light above-left of the viewer and ambient light reveal ellipsoid shape.
+  const diffuse = Math.max(0, .30 * normal[0] + .58 * normal[1] - .76 * normal[2]);
+  return [...xyz, u, v, .42 + .58 * diffuse];
+}
+
 function surface(e) {
   const tri = [];
-  const vertex = (phi, lambda) => {
-    const xyz = clip(point(phi, lambda, e));
-    const normal = cameraNormal(enuBasis(phi, lambda).up);
-    // A light above-left of the viewer and a nonzero ambient term preserve
-    // the ellipsoid's shape even if the online map is switched off.
-    const diffuse = Math.max(0, .30 * normal[0] + .58 * normal[1] - .76 * normal[2]);
-    return [...xyz, (lambda / Math.PI + 1) / 2, 1 - mercatorY(phi), .42 + .58 * diffuse];
-  };
+  const vertex = (phi, lambda) => surfaceVertex(phi, lambda, e,
+    (lambda / Math.PI + 1) / 2, 1 - mercatorY(phi));
   for (let i = -90; i < 90; i += 5) for (let j = -180; j < 180; j += 6) {
     const a = vertex(rad(i), rad(j)), b = vertex(rad(i + 5), rad(j));
     const c = vertex(rad(i), rad(j + 6)), d = vertex(rad(i + 5), rad(j + 6));
     tri.push(...a, ...b, ...c, ...b, ...d, ...c);
   }
   return new Float32Array(tri);
+}
+
+function detailedSurface(tile, e) {
+  const n = 2 ** tile.z, segments = 12, triangles = [];
+  const vertex = (u, v) => {
+    const phi = latitudeAtTileY((tile.y + v) / n);
+    const lambda = (2 * (tile.x + u) / n - 1) * Math.PI;
+    // The small outward offset avoids z-fighting against the global surface.
+    return surfaceVertex(phi, lambda, e, u, 1 - v, 1.002);
+  };
+  for (let y = 0; y < segments; y++) for (let x = 0; x < segments; x++) {
+    const u = x / segments, v = y / segments;
+    const a = vertex(u, v), b = vertex(u, v + 1 / segments);
+    const c = vertex(u + 1 / segments, v), d = vertex(u + 1 / segments, v + 1 / segments);
+    triangles.push(...a, ...b, ...c, ...b, ...d, ...c);
+  }
+  return new Float32Array(triangles);
 }
 
 function initializeTileAtlas() {
@@ -195,23 +217,94 @@ function requestVisibleTiles() {
     image.onload = () => {
       tileImages.set(key, { status: 'loaded' });
       updateAtlas(tile, image);
-      $('tile-status').textContent = '世界地図タイル表示中（オンライン・ズーム' +
-        TILE_ZOOM + '）。';
+      updateTileStatus();
       renderGlobe();
     };
     image.onerror = () => {
       failedTiles++;
       tileImages.set(key, { status: 'failed' });
-      $('tile-status').textContent = '地図タイルの一部を取得できません（' + failedTiles +
-        '枚）。陰影と座標計算は引き続き利用できます。';
+      updateTileStatus();
     };
     image.src = 'https://tile.openstreetmap.org/' + key + '.png';
   }
 }
 
-function drawSurface(e) {
+function currentDetailTiles() {
+  return state.lab === 'F' && state.japan && $('show-world').checked
+    ? japanDetailTiles(state.tilt, -state.yaw, state.zoom) : [];
+}
+
+function updateTileStatus() {
+  if (!$('show-world').checked) {
+    $('gsi-credit').hidden = true;
+    return;
+  }
+  const selected = currentDetailTiles();
+  $('gsi-credit').hidden = !selected.length;
+  if (selected.length) {
+    const loaded = selected.filter(t => detailTiles.get(t.z + '/' + t.x + '/' + t.y)?.status === 'loaded').length;
+    const failed = selected.filter(t => detailTiles.get(t.z + '/' + t.x + '/' + t.y)?.status === 'failed').length;
+    $('tile-status').textContent = '日本周辺の地理院標準地図（オンライン・XYZズーム' + selected[0].z +
+      '）：' + loaded + '/' + selected.length + '枚表示' +
+      (failed ? '、' + failed + '枚取得不可（背景地図で補完）' : '') + '。';
+  } else {
+    $('tile-status').textContent = failedTiles
+      ? '世界地図タイルの一部を取得できません（' + failedTiles + '枚）。陰影と計算は利用できます。'
+      : '世界地図タイル表示中（オンライン・XYZズーム' + TILE_ZOOM + '）。';
+  }
+}
+
+function requestJapanTiles() {
   if (!surfaceProgram) return;
-  const vertices = surface(e);
+  const selected = currentDetailTiles();
+  const active = new Set(selected.map(tile => tile.z + '/' + tile.x + '/' + tile.y));
+  for (const tile of selected) {
+    const key = tile.z + '/' + tile.x + '/' + tile.y;
+    if (detailTiles.has(key)) continue;
+    // Retain a small visit cache, evicting non-visible GPU textures first.
+    for (const [oldKey, oldEntry] of detailTiles) {
+      if (detailTiles.size < MAX_CACHED_DETAIL_TILES) break;
+      if (active.has(oldKey)) continue;
+      if (oldEntry.texture) gl.deleteTexture(oldEntry.texture);
+      detailTiles.delete(oldKey);
+    }
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    const entry = { tile, image, status: 'loading', texture: null };
+    detailTiles.set(key, entry);
+    image.onload = () => {
+      // Late requests must not revive evicted tiles or a lost GL context.
+      if (!surfaceProgram || detailTiles.get(key) !== entry) return;
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      try {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        entry.texture = texture;
+        entry.status = 'loaded';
+      } catch {
+        gl.deleteTexture(texture);
+        entry.status = 'failed';
+      }
+      updateTileStatus();
+      renderGlobe();
+    };
+    image.onerror = () => { if (detailTiles.get(key) === entry) {
+      entry.status = 'failed'; updateTileStatus();
+    } };
+    image.src = 'https://cyberjapandata.gsi.go.jp/xyz/std/' + key + '.png';
+  }
+  // A slot count, not a global z=8 atlas: a bounded number of 256² textures.
+  if (selected.length > JAPAN_DETAIL_TILE_LIMIT) throw new Error('詳細タイルの上限超過');
+  updateTileStatus();
+}
+
+function drawTexturedGeometry(vertices, texture, showMap) {
+  if (!surfaceProgram) return;
   gl.enable(gl.DEPTH_TEST);
   gl.useProgram(surfaceProgram);
   gl.bindBuffer(gl.ARRAY_BUFFER, surfaceBuffer);
@@ -222,11 +315,10 @@ function drawSurface(e) {
   gl.vertexAttribPointer(surfaceUV, 2, gl.FLOAT, false, 24, 12);
   gl.enableVertexAttribArray(surfaceLight);
   gl.vertexAttribPointer(surfaceLight, 1, gl.FLOAT, false, 24, 20);
-  const showMap = $('show-world').checked && !!atlasTexture;
   gl.uniform1i(surfaceUseMap, showMap ? 1 : 0);
   if (showMap) {
     gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.uniform1i(surfaceSampler, 0);
   }
   gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
@@ -236,6 +328,18 @@ function drawSurface(e) {
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
   gl.enableVertexAttribArray(location);
   gl.vertexAttribPointer(location, 3, gl.FLOAT, false, 0, 0);
+}
+
+function drawSurface(e) {
+  drawTexturedGeometry(surface(e), atlasTexture, $('show-world').checked && !!atlasTexture);
+}
+
+function drawJapanDetail(e) {
+  if (!$('show-world').checked) return;
+  for (const tile of currentDetailTiles()) {
+    const entry = detailTiles.get(tile.z + '/' + tile.x + '/' + tile.y);
+    if (entry?.texture) drawTexturedGeometry(detailedSurface(tile, e), entry.texture, true);
+  }
 }
 
 function graticule(e) {
@@ -272,6 +376,7 @@ function renderGlobe() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   const drawnEllipsoid = ellipsoid(1, state.fVisual);
   drawSurface(drawnEllipsoid);
+  drawJapanDetail(drawnEllipsoid);
   emit(gl.LINES, graticule(drawnEllipsoid), [.53, .63, .75]);
   if (state.lab === 'A') {
     const { phi, lambda } = state;
@@ -324,6 +429,7 @@ function renderGlobe() {
     emit(gl.POINTS, [P], [.97, .18, .08], true);
   }
   requestVisibleTiles();
+  requestJapanTiles();
 }
 
 function svg(tag, attrs = {}, content) {
@@ -894,6 +1000,7 @@ const customCityInputs = new Map(cityControls.flatMap(([select, lat, lon]) =>
   [[lat, select], [lon, select]]));
 
 for (const button of document.querySelectorAll('[data-lab]')) button.addEventListener('click', () => {
+  const previousLab = state.lab;
   state.lab = button.dataset.lab;
   for (const b of document.querySelectorAll('[data-lab]')) {
     b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
@@ -904,6 +1011,9 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
     : state.lab === 'B' ? -rad(Number($('b-lon1').value))
       : state.lab === 'E' ? -rad(Number($('e-lon').value))
         : state.lab === 'F' ? -rad(Number($('f-lon').value)) : -rad(Number($('a-lon').value));
+  if (state.lab === 'F') state.tilt = rad(Number($('f-lat').value));
+  $('globe-zoom').max = String(state.lab === 'F' ? JAPAN_ZOOM_MAX : GLOBAL_ZOOM_MAX);
+  setZoom(state.lab === 'F' ? 4 : previousLab === 'F' ? 1 : Math.min(state.zoom, GLOBAL_ZOOM_MAX));
   recalculate();
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
@@ -915,11 +1025,16 @@ for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2
       const zone = JAPAN_ZONES[Number($('f-zone').value) - 1];
       if (zone) { state.yaw = -rad(zone.lon0); state.tilt = rad(zone.lat0); }
     }
+    if (state.lab === 'F' && (id === 'f-lat' || id === 'f-lon')) {
+      state.yaw = -rad(Number($('f-lon').value));
+      state.tilt = rad(Number($('f-lat').value));
+    }
     recalculate();
   });
 }
 $('show-world').addEventListener('change', () => {
   $('osm-credit').hidden = !$('show-world').checked;
+  $('gsi-credit').hidden = !$('show-world').checked;
   $('tile-status').textContent = $('show-world').checked
     ? '表示方向の地図タイルを読み込みます。'
     : '世界地図を非表示にしました（陰影は有効）。';
@@ -927,7 +1042,8 @@ $('show-world').addEventListener('change', () => {
 });
 function setZoom(value) {
   if (!Number.isFinite(value)) return;
-  state.zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(value * 10) / 10));
+  const limit = state.lab === 'F' ? JAPAN_ZOOM_MAX : GLOBAL_ZOOM_MAX;
+  state.zoom = Math.max(ZOOM_MIN, Math.min(limit, Math.round(value * 10) / 10));
   $('globe-zoom').value = String(state.zoom);
   $('globe-zoom-v').textContent = Math.round(state.zoom * 100) + '%';
   renderGlobe();
@@ -935,10 +1051,10 @@ function setZoom(value) {
 $('globe-zoom').addEventListener('input', () => setZoom(Number($('globe-zoom').value)));
 $('zoom-in').addEventListener('click', () => setZoom(state.zoom + .2));
 $('zoom-out').addEventListener('click', () => setZoom(state.zoom - .2));
-$('zoom-reset').addEventListener('click', () => setZoom(1));
+$('zoom-reset').addEventListener('click', () => setZoom(state.lab === 'F' ? 4 : 1));
 view.addEventListener('wheel', event => {
   event.preventDefault();
-  setZoom(state.zoom + (event.deltaY < 0 ? .1 : -.1));
+  setZoom(state.zoom + (event.deltaY < 0 ? 1 : -1) * (state.lab === 'F' ? .3 : .1));
 }, { passive: false });
 let drag = null;
 view.addEventListener('pointerdown', event => {
@@ -956,9 +1072,9 @@ view.addEventListener('pointercancel', () => { drag = null; });
 view.addEventListener('keydown', event => {
   if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '=', '-', '0'].includes(event.key)) return;
   event.preventDefault();
-  if (event.key === '+' || event.key === '=') return setZoom(state.zoom + .2);
-  if (event.key === '-') return setZoom(state.zoom - .2);
-  if (event.key === '0') return setZoom(1);
+  if (event.key === '+' || event.key === '=') return setZoom(state.zoom + (state.lab === 'F' ? .4 : .2));
+  if (event.key === '-') return setZoom(state.zoom - (state.lab === 'F' ? .4 : .2));
+  if (event.key === '0') return setZoom(state.lab === 'F' ? 4 : 1);
   if (event.key === 'ArrowLeft') state.yaw += .1;
   if (event.key === 'ArrowRight') state.yaw -= .1;
   if (event.key === 'ArrowUp') state.tilt = Math.min(1.45, state.tilt + .1);
@@ -970,6 +1086,7 @@ view.addEventListener('webglcontextlost', event => {
   program = null;
   surfaceProgram = null;
   atlasTexture = null;
+  detailTiles.clear();
   $('gl-fallback').hidden = false;
   $('gl-fallback').textContent = 'WebGLコンテキストを失いました。数値表は利用できます。復旧を待機します。';
 });

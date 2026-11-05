@@ -62,17 +62,25 @@ on the globe's visible surface. The section uses the same exaggerated visual
 flattening as the globe, never the physical value in the numeric table.
 The WebGL2 globe always occupies its own **full-width row**, independent of
 the supplementary meridian section, local map and two global projection maps.
-All five lab views support 60–240% **display-only** zoom via controls,
-mouse wheel over the globe, or +/- keys (0 resets; arrows still rotate).
-Zoom scales screen geometry, not the numeric kernel or OSM tile z=2, so
-closer views do not promise higher-resolution tile loading.
+Labs A/B/D/E retain 60–240% **display-only** zoom via controls, mouse wheel
+over the globe, or +/- keys (0 resets; arrows still rotate). Lab F starts
+at 400% and supports 60–1200%, with a tighter default focus on the Japanese
+study point (the F reset key/button returns to 400%). The base globe keeps
+OSM XYZ z=2, while Lab F above 250% loads a **bounded 4×4 current-view
+window** of Japan GSI standard-map XYZ tiles: z=6, 7, or 8 as the displayed
+zoom increases. Individual GPU tile textures overlay a curved, tessellated
+ellipsoid patch; a whole-world high-resolution atlas is never built. The
+cache holds no more than 24 tiles, and off-Japan views use the base globe.
+Remote tiles are not pre-cached for offline use; loading failures preserve
+the shaded globe and the numeric kernel. Both OSM and GSI credits are shown
+when the corresponding imagery is active.
 The controls directly above the globe also offer a compact city/latitude/
 longitude editor, synchronized in both directions with the mode's original
 fields. For F the selected zone is also available beside the globe and
 bidirectionally synchronized with the primary zone picker. For B, the learner chooses the start or end point before editing;
 for D, choosing a city also moves the comparison central meridian as in the
 original controls. Manual nearby-coordinate edits recentre the globe but do
-not alter numerical-model parameters or the XYZ tile zoom level.
+not alter numerical-model parameters; F region tiles follow the viewpoint.
 
 City dropdowns include London, Paris, New York, Tokyo, Osaka, Sapporo, Moscow
 and São Paulo using approximate city centres, not surveyed benchmarks. Choosing

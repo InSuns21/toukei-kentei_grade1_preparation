@@ -62,7 +62,7 @@ const values = {
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
 for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
-  'osm-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
+  'osm-credit', 'gsi-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
   'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
@@ -149,4 +149,34 @@ test('near-globe location controls update both the A input and the WebGL view', 
   assert.equal(elements.get('a-lon').value, '2.3522');
   assert.ok(calls.draws.length > draws);
   assert.ok(requested.length >= initial);
+});
+
+test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
+  const before = requested.length;
+  buttons[4].handlers.click();
+  assert.equal(elements.get('globe-zoom').max, '12');
+  assert.equal(elements.get('globe-zoom').value, '4');
+  assert.equal(elements.get('globe-point-zone-wrap').hidden, false);
+  const japanTiles = requested.slice(before).filter(item =>
+    item.url.startsWith('https://cyberjapandata.gsi.go.jp/xyz/std/'));
+  assert.equal(japanTiles.length, 16, 'only a 4×4 Japanese viewport is fetched');
+  assert.ok(japanTiles.every(item => /\/6\/\d+\/\d+\.png$/.test(item.url)));
+  assert.equal(elements.get('gsi-credit').hidden, false);
+  const uploads = calls.textureUploads, draws = calls.draws.length;
+  japanTiles[0].image.onload();
+  assert.equal(calls.textureUploads, uploads + 1);
+  assert.ok(calls.draws.length > draws, 'loaded detailed tile is rendered on ellipsoid');
+  assert.match(elements.get('tile-status').textContent, /地理院標準地図.*1\/16枚表示/);
+
+  elements.get('globe-zoom').value = '12';
+  elements.get('globe-zoom').handlers.input();
+  assert.equal(elements.get('globe-zoom-v').textContent, '1200%');
+  const fine = requested.filter(item => /\/std\/8\/\d+\/\d+\.png$/.test(item.url));
+  assert.equal(fine.length, 16, 'z8 imagery is requested only for focus window');
+  elements.get('show-world').checked = false;
+  elements.get('show-world').handlers.change();
+  assert.equal(elements.get('gsi-credit').hidden, true);
+  buttons[0].handlers.click();
+  assert.equal(elements.get('globe-zoom').max, '2.4');
+  assert.equal(elements.get('globe-zoom').value, '1');
 });
