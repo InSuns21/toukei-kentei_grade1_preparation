@@ -204,7 +204,7 @@ $$
 
 この一次場は[QFT52の最高ウェイト条件](../QFT52/index.md#def-qft52-primary-descendant)により、$|\psi\rangle=b_{-1/2}|0\rangle$ という正規化された最高ウェイト状態を作ります。特に $L_0|\psi\rangle=\tfrac12|\psi\rangle$ です。
 
-NS境界条件もモードから確かめられます。[QFT50の一次場の座標変換](../QFT50/index.md#def-qft50-weights)を $z=e^u$（円筒座標 $u=\tau+i\theta$）に適用すると、ウェイト $1/2$ のスピン枠表示は
+NS境界条件もモードから確かめられます。[QFT50の一次場の共形変換則](../QFT50/index.md#def-qft50-weights)を $z=e^u$（円筒座標 $u=\tau+i\theta$）に適用すると、ウェイト $1/2$ のスピン枠表示は
 
 $$
 \psi_{\mathrm{cyl}}(u)=e^{u/2}\psi(e^u)
@@ -498,7 +498,32 @@ $$
 - Level: B
 - 問題: $\langle X(z)X(w)\rangle=-\log(z-w)$、$a=i\partial X$、$V_q=:\!e^{iqX}\!:$ を零モードの中性条件付きで考える。$a(z)V_q(w)$ の一次極と $V_q(z)V_{-q}(w)$ のべき、ウェイト $h_q$ を導け。$h_q=1/2$ となる実電荷を求め、Majorana場と同一視してよいか説明せよ。
 
-**詳細解答**：収縮は $\langle\partial X(z)X(w)\rangle=-1/(z-w)$。指数から一つの $X$ を取り出すと係数は $i\cdot iq\cdot(-1/(z-w))=q/(z-w)$ なので $a(z)V_q(w)\sim qV_q(w)/(z-w)$。二つの指数の交差収縮を指数化すると $\exp((iq)(-iq)(-\log(z-w)))=(z-w)^{-q^2}$。一次場の二点べき $(z-w)^{-2h_q}$ と比べて $h_q=q^2/2$。ここで正規順序 $t_B=\tfrac12:\!a^2\!:$ と指数のWick展開を使うと、$t_B(z)V_q(w)$ の二重収縮は $q^2V_q(w)/(2(z-w)^2)$、一重収縮は $q:\!aV_q\!:(w)/(z-w)=\partial V_q(w)/(z-w)$ です。従って[一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)からも $h_q=q^2/2$ と確かめられ、実 $q=\pm1$ で $h_q=1/2$ です。ただし半整数スピンの局所性、スピン部門、交換符号、零モードを未指定のままMajorana場と同一視はできません。
+**詳細解答**：$s=z-w$ とおくと、二点核の $z$ 微分から
+
+$$
+\langle\partial X(z)X(w)\rangle=-s^{-1}
+$$
+
+です。指数から一つの $X$ を取り出すWick収縮の係数は $i\cdot iq\cdot(-s^{-1})=q/s$ なので
+
+$$
+a(z)V_q(w)\sim\frac{qV_q(w)}s.
+$$
+
+二つの指数の交差収縮は指数化され、零モードの中性条件のもと
+
+$$
+\exp\left((iq)(-iq)(-\log s)\right)=s^{-q^2}
+$$
+
+となります。ただし二点べきだけで一次場だとは断定しません。正規順序 $t_B=\tfrac12:\!a^2\!:$ の二重収縮は $q^2V_q(w)/(2s^2)$、二通りの一重収縮は $q:\!aV_q\!:(w)/s$ です。連鎖律から $\partial V_q=q:\!aV_q\!:$ なので
+
+$$
+t_B(z)V_q(w)\sim\frac{q^2V_q(w)}{2s^2}
++\frac{\partial V_q(w)}s.
+$$
+
+[一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)と照合すると $h_q=q^2/2$ です。先ほどの二点べき $s^{-q^2}=s^{-2h_q}$ とも一致します。従って実 $q=\pm1$ で $h_q=1/2$ です。ただし半整数スピンの局所性、スピン部門、交換符号、零モードを未指定のままMajorana場と同一視はできません。
 
 ### 演習 QFT53-C1：自由場の統計・Ward作用・零状態を結ぶ
 
