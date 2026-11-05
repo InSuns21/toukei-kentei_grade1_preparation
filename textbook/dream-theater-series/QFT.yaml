@@ -223,3 +223,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT54
     status: completed
     title: "OPE・大域共形ブロックと四点関数の交差対称性"
+  - id: QFT55
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT55
+    status: completed
+    title: "平面–円筒写像・Schwarzianと有限サイズ・熱的相関"

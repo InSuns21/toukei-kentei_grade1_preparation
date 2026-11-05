@@ -1,0 +1,69 @@
+chapter: QFT55
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT54, QFT53, QFT52, QFT51, QFT50, QFT48]
+forward_references: []
+
+concepts:
+  - id: qft.spatial-cylinder-exponential-map
+    name: 空間円周をもつ円筒の平面写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（空間円周をもつ円筒の平面写像）]
+    requires: [qft.radial-state-operator, qft.local-holomorphic-conformal]
+
+  - id: qft.schwarzian-derivative
+    name: 正則写像のSchwarzian微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則写像のSchwarzian微分）]
+    requires: [qft.spatial-cylinder-exponential-map]
+
+  - id: qft.schwarzian-composition
+    name: 正則写像のSchwarzian合成則
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（正則写像のSchwarzian合成則）]
+    requires: [qft.schwarzian-derivative]
+
+  - id: qft.finite-stress-conformal-transformation
+    name: 正則応力テンソルの有限共形変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正則応力テンソルの有限共形変換）]
+    requires: [qft.schwarzian-composition, qft.quantum-stress-ward]
+
+  - id: qft.cylinder-vacuum-stress
+    name: 円筒真空の応力テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（円筒真空の応力テンソル）]
+    requires: [qft.finite-stress-conformal-transformation, qft.spatial-cylinder-exponential-map]
+
+  - id: qft.cylinder-hamiltonian-spectrum
+    name: 空間円周のエネルギーと運動量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（空間円周のエネルギーと運動量）]
+    requires: [qft.cylinder-vacuum-stress, qft.virasoro-contour-modes, qft.radial-state-operator]
+
+  - id: qft.cylinder-primary-two-point
+    name: 円筒一次場の二点関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（円筒一次場の二点関数）]
+    requires: [qft.spatial-cylinder-exponential-map, qft.two-dimensional-primary-weights]
+
+  - id: qft.thermal-cylinder-map
+    name: 無限直線の熱円筒
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（無限直線の熱円筒）]
+    requires: [qft.spatial-cylinder-exponential-map]
+
+  - id: qft.thermal-cylinder-scalar-correlator
+    name: 無限直線の熱的スカラー二点核
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（無限直線の熱的スカラー二点核）]
+    requires: [qft.thermal-cylinder-map, qft.cylinder-primary-two-point]
