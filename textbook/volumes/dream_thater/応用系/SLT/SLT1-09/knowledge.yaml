@@ -1,0 +1,74 @@
+chapter: SLT1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-08
+  - SLT1-04
+  - HDP10
+  - HDP1
+
+concepts:
+  - id: learning.function-class-lq-pseudometric
+    name: 関数クラスのLq擬距離
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（関数クラスの母集団・経験Lq擬距離）"]
+    requires:
+      - high-dimensional-probability.metric-covering-number
+
+  - id: learning.function-class-covering-number
+    name: 関数クラスの被覆数
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（関数クラスのepsilon-netと被覆数）"]
+    requires:
+      - learning.function-class-lq-pseudometric
+
+  - id: learning.function-class-packing-number
+    name: 関数クラスのpacking数
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（packing数）"]
+    requires:
+      - learning.function-class-lq-pseudometric
+
+  - id: learning.function-class-metric-entropy
+    name: 関数クラスの計量エントロピー
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（計量エントロピー）"]
+    requires:
+      - learning.function-class-covering-number
+
+  - id: learning.covering-packing-comparison
+    name: 被覆数とpacking数の比較
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（被覆数とpacking数の比較）"]
+    requires:
+      - learning.function-class-covering-number
+      - learning.function-class-packing-number
+
+  - id: learning.deterministic-cover-uniform-deviation
+    name: 決定論的被覆からの一様偏差界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（決定論的L∞被覆からの一様偏差界）"]
+    requires:
+      - learning.function-class-covering-number
+      - learning.uniform-risk-deviation
+
+  - id: learning.empirical-cover-rademacher-bound
+    name: 経験被覆からの条件付きRademacher評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（経験被覆からの条件付きRademacher評価）"]
+    requires:
+      - learning.function-class-covering-number
