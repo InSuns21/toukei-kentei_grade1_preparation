@@ -54,6 +54,15 @@ concepts:
       - learning.function-class-covering-number
       - learning.function-class-packing-number
 
+  - id: learning.linear-function-class-covering-number
+    name: 一次元関数族の被覆数
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（一次元関数族の被覆数）"]
+    requires:
+      - learning.function-class-covering-number
+
   - id: learning.deterministic-cover-uniform-deviation
     name: 決定論的被覆からの一様偏差界
     kind: theorem
