@@ -46,7 +46,7 @@ $$
 
 一次場は [QFT50の正則・反正則ウェイト](../QFT50/index.md#def-qft50-weights) に従い座標の第1導関数のべきで変換します。しかし応力テンソルには [中心電荷付きOPE](../QFT51/index.md#def-qft51-stress-ope) があり、第1導関数だけでは足りません。どんな追加項なら写像を二回合成しても矛盾しないかを調べます。
 
-正則な局所座標写像 $f$ で $f'\ne0$ とするとき、次の三階微分の組合せを使います。微分はすべて元の座標 $w$ に関するものです。
+[QFT50の局所正則共形変換](../QFT50/index.md#def-qft50-local-conformal)として正則な座標写像 $f$ で $f'\ne0$ とするとき、次の三階微分の組合せを使います。微分はすべて元の座標 $w$ に関するものです。
 
 <a id="def-qft55-schwarzian"></a>
 
@@ -93,7 +93,7 @@ $f''/f'$ と $g''/g'$ をそれぞれ対数微分としてまとめると、混�
 <!-- proof-start -->
 ### 証明
 
-$A(u)=f''(u)/f'(u)$、$B(w)=g''(w)/g'(w)$ と置く。$F=f\circ g$ について連鎖律を一回ずつ使うと
+$A(u)=f''(u)/f'(u)$、$B(w)=g''(w)/g'(w)$ と置く。$f,A$ のプライムは $u$ に関する微分、$g,B,F$ のプライムは $w$ に関する微分とし、$A'(g)$ は $dA/du$ を $u=g(w)$ で評価したものとする。$F=f\circ g$ について連鎖律を一回ずつ使うと
 
 $$
 F'=f'(g)g',\qquad
@@ -114,6 +114,8 @@ $$
 
 ここで $g''=g'B$ により混合項 $A(g)g''-A(g)g'B$ が相殺した。第1項は $g'^2\{f,g\}$、第2項は $\{g,w\}$ であり、補題を得る。
 <!-- proof-end -->
+
+以下、$t_z(z)$ と $t_w(w)$ は同じ正則応力テンソルをそれぞれ $z$ 座標と $w$ 座標で表した成分とします。$t_z'(z)$ は $z$ 微分、$f'(w)$ は $w$ 微分であり、合成 $t_z(f(w))$ の微分には連鎖律を使います。
 
 <a id="thm-qft55-stress-transform"></a>
 
@@ -200,7 +202,7 @@ H_L=\frac{2\pi}{L}\left(L_0+\bar L_0-\frac{c+\bar c}{24}\right),\qquad
 P_L=\frac{2\pi}{L}\left(L_0-\bar L_0-\frac{c-\bar c}{24}\right).
 $$
 
-> 特に $L_0=\bar L_0=0$ の真空が許される部門では、$c=\bar c$ のとき $E_0=-\pi c/(6L)$、$P_0=0$。一般のウェイト $(h,\bar h)$ の状態のエネルギー差は $2\pi(h+\bar h)/L$ である。
+> 特に $L_0=\bar L_0=0$ の真空が許される部門では、$c=\bar c$ のとき $E_0=-\pi c/(6L)$、$P_0=0$。この真空からウェイト $(h,\bar h)$ の状態へのエネルギー差は $2\pi(h+\bar h)/L$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -210,7 +212,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-平面のモード展開 $t_z(z)=\sum_n L_nz^{-n-2}$ に変換式を代入すると
+[QFT51のVirasoro輪郭モード](../QFT51/index.md#def-qft51-virasoro-modes)から得る局所Laurent展開 $t_z(z)=\sum_n L_nz^{-n-2}$ を使い、[有限共形変換](#thm-qft55-stress-transform)に代入すると
 
 $$
 t_w(w)=\alpha^2\left(\sum_nL_ne^{-\alpha nw}-\frac{c}{24}\right).
@@ -218,13 +220,25 @@ $$
 
 同様に $\bar t_{\bar w}=\alpha^2(\sum_n\bar L_ne^{-\alpha n\bar w}-\bar c/24)$。$x\in[0,L)$ を一周して平均すると、$n\ne0$ では $\int_0^L e^{-2\pi inx/L}dx=0$（反正則成分も同じ）なので零モードだけが残る。したがって円筒の二つの零モードは $\alpha^2(L_0-c/24)$ と $\alpha^2(\bar L_0-\bar c/24)$ である。
 
-$\partial_\tau=\alpha(z\partial_z+\bar z\partial_{\bar z})$ は両モードの和、$\partial_x=i\alpha(z\partial_z-\bar z\partial_{\bar z})$ は差に対応する。円筒長さの次元を持つ生成子は零モードを $\alpha$ 倍したもので、Euclid時間発展 $e^{-\tau H_L}$ と空間並進 $e^{ixP_L}$ を採ると表示した $H_L,P_L$ を得る。真空では $L_0=\bar L_0=0$ を代入し、$c=\bar c$ なら
+[QFT50の共形輪郭電荷](../QFT50/index.md#def-qft50-contour-charge)を円筒の時刻 $\tau$ 一定の空間周回に移す。$dw=i\,dx$、$d\bar w=-i\,dx$ なので、反正則側では周回の向きを反転して正規化すると、二つの零モード電荷は
+
+$$
+\begin{aligned}
+Q_+&=\frac1{2\pi}\int_0^L t_w(\tau+ix)\,dx
+=\frac{L\alpha^2}{2\pi}\left(L_0-\frac{c}{24}\right)
+=\alpha\left(L_0-\frac{c}{24}\right),\\
+Q_-&=\frac1{2\pi}\int_0^L\bar t_{\bar w}(\tau-ix)\,dx
+=\alpha\left(\bar L_0-\frac{\bar c}{24}\right).
+\end{aligned}
+$$
+
+$\partial_\tau=\alpha(z\partial_z+\bar z\partial_{\bar z})$ は両電荷の和、$\partial_x=i\alpha(z\partial_z-\bar z\partial_{\bar z})$ は差に対応する。Euclid時間発展 $e^{-\tau H_L}$ と空間並進 $e^{ixP_L}$ の規約で $H_L=Q_++Q_-$、$P_L=Q_+-Q_-$ とすれば定理の式を得る。真空では $L_0=\bar L_0=0$ を代入し、$c=\bar c$ なら
 
 $$
 E_0=-\frac{2\pi}{L}\frac{2c}{24}=-\frac{\pi c}{6L}.
 $$
 
-二つの状態の差を取ると共通の中心電荷定数が消え、ウェイト差に $2\pi/L$ を掛けた値になる。
+二つの状態のエネルギー差を取ると共通の中心電荷定数が消え、$\Delta E=(2\pi/L)(\Delta h+\Delta\bar h)$ となる。特にウェイト零の真空から $(h,\bar h)$ への差は $(2\pi/L)(h+\bar h)$ である。
 <!-- proof-end -->
 
 **具体例**：[QFT53の中心電荷](../QFT53/index.md#thm-qft53-majorana-central)では、左右対称な自由bosonは $c=\bar c=1$、自由Majorana（NS真空）なら $c=\bar c=1/2$ です。ゆえに
@@ -272,7 +286,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一次場の共変則で、各正則挿入に $(dz_i/dw_i)^h=(\alpha z_i)^h$ を掛ける。すると正則因子は
+[QFT50の一次場変換則](../QFT50/index.md#def-qft50-weights)で、各正則挿入に $(dz_i/dw_i)^h=(\alpha z_i)^h$ を掛ける。すると正則因子は
 
 $$
 \frac{(\alpha z_1)^h(\alpha z_2)^h}{(z_1-z_2)^{2h}}.
@@ -342,7 +356,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a=2\pi/\beta$ と置く。平面の $z_{12}$ の指数差を第4節と同様に分解し、正則・反正則のヤコビアンを掛けると
+$a=2\pi/\beta$ と置く。[円筒一次場の二点関数](#thm-qft55-cylinder-two-point)の導出を $w\mapsto u$、$L\mapsto\beta$ に適用する。平面の $z_{12}$ の指数差を分解し、正則・反正則のヤコビアンを掛けると
 
 $$
 G_\beta(u_{12},\bar u_{12})
@@ -397,7 +411,7 @@ $$
 - Level: A
 - 問題: 周長 $L$ で $c=\bar c=1$、一次状態 $(h,\bar h)=(1/2,1/2)$ とその $L_{-1}$ 子孫について、真空からのエネルギー差を求めよ。
 
-**詳細解答**：一次状態の $L_0+\bar L_0=1$ なので $\Delta E=2\pi/L$。$[L_0,L_{-1}]=L_{-1}$ により $L_{-1}$ は左ウェイトを1増すので子孫の和は2、$\Delta E'=4\pi/L$。両者の差は $2\pi/L$ で、中心電荷の零点移動は差で消えます。
+**詳細解答**：一次状態の $L_0+\bar L_0=1$ なので $\Delta E=2\pi/L$。[Virasoro交換関係](../QFT51/index.md#thm-qft51-virasoro)の $[L_0,L_{-1}]=L_{-1}$ により $L_{-1}$ は左ウェイトを1増すので子孫の和は2、$\Delta E'=4\pi/L$。両者の差は $2\pi/L$ で、中心電荷の零点移動は差で消えます。
 
 ### 演習 QFT55-A6：熱二点核の二つの極限
 
@@ -416,7 +430,7 @@ $$
 ### 演習 QFT55-B2：四次極から有限変換の係数へ
 
 - Level: B
-- 問題: $t(z)t(w)$ の四次・二次・一次極がそれぞれ $c/[2(z-w)^4]$、$2t(w)/(z-w)^2$、$\partial t(w)/(z-w)$ とする。小円の $\oint dz\,\epsilon(z)/(2\pi i)$ を計算し、有限則の係数 $c/12$ と比較せよ。
+- 問題: [QFT51の応力テンソルOPE](../QFT51/index.md#def-qft51-stress-ope)における $t(z)t(w)$ の四次・二次・一次極がそれぞれ $c/[2(z-w)^4]$、$2t(w)/(z-w)^2$、$\partial t(w)/(z-w)$ とする。小円の $\oint dz\,\epsilon(z)/(2\pi i)$ を計算し、有限則の係数 $c/12$ と比較せよ。
 
 **詳細解答**：四次極の留数はTaylor係数 $\epsilon'''(w)/3!$ に $c/2$ を掛けた $c\epsilon'''/12$。二次極は $2\epsilon' t$、一次極は $\epsilon\partial t$。従って $\delta_\epsilon t=\epsilon\partial t+2\epsilon't+(c/12)\epsilon'''$。$f=w+\epsilon$ では $f'^2t(f)=t+\epsilon t'+2\epsilon't+O(\epsilon^2)$、$\{f,w\}=\epsilon'''+O(\epsilon^2)$ なので有限変換の中心項の係数は $c/12$ で一致します。
 
@@ -463,14 +477,14 @@ $$
 
 $\langle t_z\rangle=0$ より $\langle t_w\rangle=(1/12)(-\alpha^2/2)=-\pi^2/(6L^2)$。反正則側も同値です。
 
-**(2) 零点と励起。** $H_L=\alpha(L_0+\bar L_0-(1+1)/24)$ なので真空は $E_0=-\alpha/12=-\pi/(6L)$。ウェイト和は $1/4+1/4=1/2$ なので一次状態は
+**(2) 零点と励起。** [空間円周のエネルギーと運動量](#thm-qft55-cylinder-spectrum)を使うと $H_L=\alpha(L_0+\bar L_0-(1+1)/24)$ なので真空は $E_0=-\alpha/12=-\pi/(6L)$。ウェイト和は $1/4+1/4=1/2$ なので一次状態は
 
 $$
 E=\frac{2\pi}{L}\left(\frac12-\frac1{12}\right)
 =\frac{5\pi}{6L},\qquad E-E_0=\frac{\pi}{L}.
 $$
 
-**(3) 空間円周。** $\Delta=1/2$ だから
+**(3) 空間円周。** [円筒一次場の二点関数](#thm-qft55-cylinder-two-point)で $\Delta=1/2$ だから
 
 $$
 G_L(r)=\frac{\pi/L}{\sin(\pi r/L)},\qquad0<r<L.
@@ -478,7 +492,7 @@ $$
 
 $r\ll L$ では $G_L\sim1/r$、$r=L/2$ では $G_L=\pi/L$。零距離では発散することに注意します。
 
-**(4) 熱円筒。** 空間無限・Euclid時間周期 $\beta=L$ として $u=x+i\tau_E$ を使えば
+**(4) 熱円筒。** [熱的スカラー二点核](#prop-qft55-thermal-two-point)で空間無限・Euclid時間周期 $\beta=L$ として $u=x+i\tau_E$ を使えば
 
 $$
 G_\beta(r)=\frac{\pi/L}{\sinh(\pi r/L)}
