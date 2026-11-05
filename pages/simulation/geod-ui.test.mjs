@@ -24,8 +24,10 @@ const inputs = {
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
-  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
-  'globe-point-role': 'start', 'globe-point-city': '',
+  'f-lat': '35.681236', 'f-lon': '139.767125',
+  'f-zone': '9', 'f-datum': 'jgd2011',
+  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '', 'f-city': '',
+  'globe-point-role': 'start', 'globe-point-zone': '9', 'globe-point-city': '',
   'globe-point-lat': '', 'globe-point-lon': '',
   'globe-zoom': '1',
 };
@@ -34,13 +36,15 @@ elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
 for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'tile-status',
-  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E',
+  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
 }
+for (const id of ['f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new Element(id));
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
-  'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap']) elements.set(id, new Element(id));
-const buttons = ['A', 'B', 'D', 'E'].map(mode => {
+  'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap',
+  'globe-point-zone-wrap']) elements.set(id, new Element(id));
+const buttons = ['A', 'B', 'D', 'E', 'F'].map(mode => {
   const b = new Element();
   b.dataset.lab = mode;
   return b;
@@ -124,6 +128,39 @@ test('equal-area comparison shares the same point and distinguishes local distor
   assert.equal($('geod-status').dataset.error, 'true');
   assert.equal(left.children.length, 0, 'invalid location clears stale map');
   $('e-lat').value = '45'; $('e-lat').handlers.input();
+  assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('Japanese 19-zone lab exposes fixed origins, axes, scale and datum assumptions', () => {
+  buttons[4].handlers.click();
+  assert.equal($('f-zone').children.length, 19);
+  assert.equal($('globe-point-zone-wrap').hidden, false);
+  assert.equal($('globe-point-zone').value, '9');
+  assert.equal($('f-map-panel').hidden, false);
+  assert.equal($('e-map-panel').hidden, true);
+  assert.match($('geod-status').textContent, /計算済み/);
+  assert.ok($('f-map').children.filter(element => element.id === 'g').length > 0);
+  const cells = $('geod-results').children[0].children[0].children;
+  assert.equal(cells.length, 10);
+  assert.match(cells[1].children[1].textContent, /EPSG:6677/);
+  assert.match(cells[4].children[0].textContent, /X（北正）/);
+  assert.match(cells[5].children[0].textContent, /Y（東正）/);
+  assert.match(cells[3].children[1].textContent, /0.9999/);
+  $('f-zone').value = '8'; $('f-zone').handlers.input();
+  assert.equal($('globe-point-zone').value, '8');
+  assert.match($('f-map-title').textContent, /VIII/);
+  assert.match($('geod-results').children[0].children[0].children[1].children[1].textContent,
+    /EPSG:6676/);
+  $('globe-point-zone').value = '9'; $('globe-point-zone').handlers.change();
+  assert.equal($('f-zone').value, '9');
+  assert.match($('f-map-title').textContent, /IX/);
+  $('f-datum').value = 'grs80-only'; $('f-datum').handlers.input();
+  assert.match($('geod-results').children[0].children[0].children[1].children[1].textContent,
+    /未指定/);
+  $('f-lat').value = ''; $('f-lat').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  assert.equal($('f-map').children.length, 0, 'invalid input clears stale grid');
+  $('f-lat').value = '35.681236'; $('f-lat').handlers.input();
   assert.match($('geod-status').textContent, /計算済み/);
 });
 
