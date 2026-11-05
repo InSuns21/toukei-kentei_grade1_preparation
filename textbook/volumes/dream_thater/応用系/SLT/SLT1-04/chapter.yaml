@@ -1,0 +1,45 @@
+id: "SLT1-04"
+title: "一様収束とERMの過剰リスク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-03
+official_scope: []
+learning_objectives:
+  - 一様偏差と一様収束を固定仮説の偏差収束と区別し可測性・量化順序を説明できる
+  - 一様偏差から近似ERMの決定論的な過剰リスク上界を比較仮説ごとに導ける
+  - 係数2と最適化誤差の生じる位置を表形式の具体例で検算できる
+  - 分布自由一様収束からagnostic PAC保証を導き確率事象と標本数を示せる
+  - 有限クラスのHoeffding界を合成して明示的なERM標本複雑度を計算できる
+  - Bayes超過リスクを近似誤差とクラス内超過リスクに分けて保証を解釈できる
+  - realizable整合学習の一次型標本数と一般の二乗型標本数を仮定込みで比較できる
+  - 固定仮説では収束しても一様収束しない構成とERMの同点選択への影響を説明できる
+definitions:
+  - { id: SLT1-04-DEF-01, name: 一様リスク偏差 }
+  - { id: SLT1-04-DEF-02, name: 近似経験リスク最小化 }
+  - { id: SLT1-04-DEF-03, name: 分布自由一様収束 }
+theorems:
+  - { id: SLT1-04-THM-01, name: 近似ERMの決定論的過剰リスク界 }
+  - { id: SLT1-04-THM-02, name: 分布自由一様収束からagnostic PAC保証 }
+  - { id: SLT1-04-COR-01, name: 有限クラスの近似ERM高確率界 }
+  - { id: SLT1-04-PROP-01, name: 一様収束と固定仮説収束の非同値性 }
+canonical_examples:
+  - 二候補の一様偏差と同時成功事象の数値確認
+  - 二候補の同点選択における係数2の達成例
+  - 三十二候補のagnosticとrealizableの必要標本数比較
+  - 観測されなかった整数だけに誤りを置く無限仮説クラス
+problem_patterns:
+  - SLT1-04-A01
+  - SLT1-04-A02
+  - SLT1-04-A03
+  - SLT1-04-A04
+  - SLT1-04-A05
+  - SLT1-04-B01
+  - SLT1-04-B02
+  - SLT1-04-B03
+  - SLT1-04-B04
+  - SLT1-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 1.5 }
