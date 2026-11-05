@@ -24,6 +24,7 @@ const inputs = {
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '',
+  'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new Element(id, value)]));
 elements.set('show-world', new Element('show-world'));
@@ -33,6 +34,8 @@ for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D']) {
   elements.set(id, new Element(id));
 }
+for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
+  'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new Element(id));
 const buttons = ['A', 'B', 'D'].map(mode => {
   const b = new Element();
   b.dataset.lab = mode;
@@ -124,4 +127,34 @@ test('world map switch leaves shading/numerics available without WebGL2', () => 
   $('show-world').checked = true;
   $('show-world').handlers.change();
   assert.equal($('osm-credit').hidden, false);
+});
+
+test('A draws the meridian centre only in the cross-section, and hides it in B/D', () => {
+  buttons[0].handlers.click();
+  assert.equal($('a-section').hidden, false);
+  const diagram = $('a-section-map');
+  assert.ok(diagram.children.some(item => item.textContent === 'O'));
+  assert.ok(diagram.children.some(item => item.textContent === 'P'));
+  const before = diagram.children;
+  $('a-lat').value = '72'; $('a-lat').handlers.input();
+  assert.notEqual(diagram.children, before, 'section redraws with changed location');
+  buttons[1].handlers.click();
+  assert.equal($('a-section').hidden, true);
+  buttons[2].handlers.click();
+  assert.equal($('a-section').hidden, true);
+});
+
+test('zoom buttons, slider and keyboard reset stay in range without WebGL2', () => {
+  $('zoom-in').handlers.click();
+  assert.equal($('globe-zoom').value, '1.2');
+  assert.equal($('globe-zoom-v').textContent, '120%');
+  $('globe-zoom').value = '2.4'; $('globe-zoom').handlers.input();
+  $('zoom-in').handlers.click();
+  assert.equal($('globe-zoom').value, '2.4', 'maximum clamped');
+  $('globe-zoom').value = '.6'; $('globe-zoom').handlers.input();
+  $('zoom-out').handlers.click();
+  assert.equal($('globe-zoom').value, '0.6', 'minimum clamped');
+  $('zoom-reset').handlers.click();
+  assert.equal($('globe-zoom').value, '1');
+  assert.match($('geod-status').textContent, /計算済み/);
 });
