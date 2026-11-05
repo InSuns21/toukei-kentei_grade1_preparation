@@ -117,7 +117,17 @@ $$
 
 このGamma積分の指数は $a-1=d/2-2$ であり、$d>2$ がちょうど収束条件です。$r\mapsto\lambda r$ に代入すれば距離則の後半が従います。
 
-次に空間Fourier変換を $\widehat f(\tau,\boldsymbol k)=\int e^{-i\boldsymbol k\cdot\boldsymbol x}f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x$ とします。先ほどの $\widehat f(p)$ は全 $d$ 変数のFourier変換でしたが、ここではEuclid時間 $\tau$ を固定し、空間変数 $\boldsymbol x$ のみを変換しています。[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)は時間変数だけのFourier逆変換に由来します。QFT20の時間周波数 $p_4$ をここでは $p_\tau$、Euclid時間差を $t\in\mathbb R$ と書くと、空間次元を $d-1$ に替えても各 $\boldsymbol k\ne0$ で
+次に空間Fourier変換を定義します。Euclid時間 $\tau$ は固定し、空間変数 $\boldsymbol x$ のみを変換します。
+
+$$
+\widehat f(\tau,\boldsymbol k)
+=\int_{\mathbb R^{d-1}}e^{-i\boldsymbol k\cdot\boldsymbol x}
+f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x.
+$$
+
+先ほどの $\widehat f(p)$ は全 $d$ 変数のFourier変換でした。ここでは同じハット記号でも、$\tau$ が残っているので部分Fourier変換を意味します。
+
+[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)は時間変数だけのFourier逆変換に由来します。QFT20の時間周波数 $p_4$ をここでは $p_\tau$ と書き、Euclid時間差を $t\in\mathbb R$ とします。空間次元を $d-1$ に替えても、各 $\boldsymbol k\ne0$ で
 
 $$
 \int_{\mathbb R}\frac{dp_\tau}{2\pi}
@@ -494,7 +504,18 @@ $$
 - 問題: 次元 $\Delta_1,\Delta_2$ のスカラー一次場の二点関数を $G(x,y)=C|x-y|^{-q}$（$C\ne0$）と仮定する。拡大縮小で $q$ を求め、反転での $|x|,|y|$ の指数を比較して $\Delta_1=\Delta_2$ を導け。
 
 <!-- solution-start -->
-**詳細解答。** 拡大縮小では $G(\lambda x,\lambda y)=\lambda^{-q}G(x,y)$、一次場変換から $\lambda^{-(\Delta_1+\Delta_2)}G(x,y)$。従って $q=\Delta_1+\Delta_2$ です。[一次場の変換則](#def-qft48-scalar-primary)と[反転のJacobianと距離恒等式](#prop-qft48-inversion)に代入した左辺は $C|x-y|^{-q}|x|^q|y|^q$、一次場則からの右辺は $C|x-y|^{-q}|x|^{2\Delta_1}|y|^{2\Delta_2}$。$C\ne0$ なので $|x|,|y|$ を独立に動かして $q=2\Delta_1=2\Delta_2$ が必要です。よって両次元は一致し、$q=2\Delta_1$ です。
+**詳細解答。** 拡大縮小で $G(\lambda x,\lambda y)=\lambda^{-q}G(x,y)$ ですが、[一次場の変換則](#def-qft48-scalar-primary)から倍率は $\lambda^{-(\Delta_1+\Delta_2)}$ です。従って $q=\Delta_1+\Delta_2$ です。
+
+次に[反転のJacobianと距離恒等式](#prop-qft48-inversion)を適用します。距離の変換から計算した左辺と、一次場則からの右辺はそれぞれ
+
+$$
+\begin{aligned}
+G(Ix,Iy)&=C|x-y|^{-q}|x|^q|y|^q,\\
+G(Ix,Iy)&=C|x-y|^{-q}|x|^{2\Delta_1}|y|^{2\Delta_2}
+\end{aligned}
+$$
+
+です。$C\ne0$ で、$|x|,|y|$ を独立に変えられるので、$q=2\Delta_1=2\Delta_2$ が必要です。従って両次元は一致し、$q=2\Delta_1$ となります。
 <!-- solution-end -->
 
 ### 演習 QFT48-A5：三次元自由場の次元
