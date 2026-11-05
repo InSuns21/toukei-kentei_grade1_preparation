@@ -1,0 +1,55 @@
+chapter: QFT53
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT52, QFT51, QFT50, QFT19]
+forward_references: []
+
+concepts:
+  - id: qft.majorana-ns-chiral-field
+    name: 正則自由Majorana場とNS真空
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則自由Majorana場とNS真空）]
+    requires: [qft.grassmann-algebra-finite, qft.radial-state-operator]
+
+  - id: qft.majorana-ns-car
+    name: 自由Majoranaモードの反交換関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由Majoranaモードの反交換関係）]
+    requires: [qft.majorana-ns-chiral-field, qft.holomorphic-contour-charge]
+
+  - id: qft.majorana-four-point-pfaffian
+    name: bosonの対称和とMajoranaのPfaffian
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（bosonの対称和とMajoranaのPfaffian）]
+    requires: [qft.majorana-ns-chiral-field, qft.bosonic-gaussian-wick, qft.fermionic-contraction-determinant]
+
+  - id: qft.majorana-chiral-stress
+    name: 自由Majoranaの正則応力テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由Majoranaの正則応力テンソル）]
+    requires: [qft.majorana-ns-chiral-field, qft.point-split-wick-stress]
+
+  - id: qft.majorana-primary-half
+    name: Majorana場のWard作用と共形ウェイト
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Majorana場のWard作用と共形ウェイト）]
+    requires: [qft.majorana-chiral-stress, qft.two-dimensional-primary-ward]
+
+  - id: qft.majorana-central-charge
+    name: 自由bosonと自由Majoranaの中心電荷
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（自由bosonと自由Majoranaの中心電荷）]
+    requires: [qft.majorana-chiral-stress, qft.majorana-four-point-pfaffian, qft.free-boson-central-charge, qft.stress-ope-central-charge]
+
+  - id: qft.majorana-level2-null
+    name: Majorana一次場のレベル2零状態
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Majorana一次場のレベル2零状態）]
+    requires: [qft.majorana-primary-half, qft.majorana-ns-car, qft.virasoro-level2-gram]
