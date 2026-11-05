@@ -49,7 +49,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geod22-coordinate-ledger -->
-**定義の確認。** 入口の一行は「JGD2024・時点は入力資料の値、GRS80、O固定、接平面ENU、e,nの順、m、補正済みの模擬観測、観測分散は上表」とします。測点の楕円体高を仮に120.0 m、ジオイド高を30.5 mとする場合には、さらに「高さ関係は同一基準における近似」を明記します。時点が未提示なら空欄のまま黙認せず「未指定・実務変換不可」と記録するので、(i)から(v)をそれぞれ照合できます。
+**定義の確認**（入口の記録）。一行目は「JGD2024・時点は入力資料の値、GRS80、O固定、接平面ENU、e,nの順、m、補正済みの模擬観測、観測分散は上表」とします。測点の楕円体高を仮に120.0 m、ジオイド高を30.5 mとする場合には、さらに「高さ関係は同一基準における近似」を明記します。時点が未提示なら空欄のまま黙認せず「未指定・実務変換不可」と記録するので、(i)から(v)をそれぞれ照合できます。
 <!-- definition-example-end -->
 
 ### 1.2 平差の数値を出発点から求める
@@ -96,10 +96,10 @@ $$
 > **命題（拘束された東北観測の平差と共分散）**  
 > 真の局所座標 $u=(e,n)^{\mathsf T}$、観測 $y=Au+\varepsilon$ を考える。$A$ が列フルランク、$E[\varepsilon]=0$、$\operatorname{Cov}(\varepsilon)=\Sigma$ が正定値、かつ基準点Oが固定されているとする。このとき重み付き最小二乗の唯一の解と、その共分散は
 >
-> $$
-> \hat u=(A^{\mathsf T}\Sigma^{-1}A)^{-1}A^{\mathsf T}\Sigma^{-1}y,\qquad
-> \operatorname{Cov}(\hat u)=(A^{\mathsf T}\Sigma^{-1}A)^{-1}.
-> $$
+$$
+\hat u=(A^{\mathsf T}\Sigma^{-1}A)^{-1}A^{\mathsf T}\Sigma^{-1}y,\qquad
+\operatorname{Cov}(\hat u)=(A^{\mathsf T}\Sigma^{-1}A)^{-1}.
+$$
 >
 > 前節の4観測を東2件・北2件の順に並べた場合、表示した $\hat u,C_u$ を得る。
 <!-- formal-statement-end -->
@@ -233,18 +233,18 @@ $$
 > **命題（固定したdatumにおける局所共分散の伝播）**  
 > 楕円体の中央子午線上で、緯度経度が局所座標となる点を考える。その測地緯度と正の中央縮尺は
 >
-> $$
-> |\phi_0|<\pi/2,\qquad k_0>0
-> $$
+$$
+|\phi_0|<\pi/2,\qquad k_0>0
+$$
 >
 > を満たすとする。東北方向の微小変位を $u=(e,n)^{\mathsf T}$、その共分散を $C_u$ とする。
 > この点で正則な等角横メルカトルの東北投影座標を $v=(E,N_p)^{\mathsf T}$、日本式座標を $w=(X,Y)^{\mathsf T}$ とする。
 > それぞれの一次共分散は
 >
-> $$
-> C_v\simeq k_0^2 C_u,\qquad C_w\simeq PC_vP^{\mathsf T},\qquad
-> P=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
-> $$
+$$
+C_v\simeq k_0^2 C_u,\qquad C_w\simeq PC_vP^{\mathsf T},\qquad
+P=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+$$
 >
 > この式は既知かつ固定のdatum上での **局所一次の観測共分散** の伝播であり、打切り・丸め・datumの系統差を含まない。
 <!-- formal-statement-end -->
