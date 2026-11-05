@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { rad } from './geod-core.mjs';
+import { rad, deg } from './geod-core.mjs';
 import { JAPAN_K0, JAPAN_ZONES, japanZone, japanProjectionOptions,
   japanPlanarCoordinates } from './geod-japan.mjs';
 
@@ -63,6 +63,30 @@ test('Tokyo in IX vs VIII demonstrates changed coordinates; distance is planar',
   assert.ok(Math.abs(ninth.Y - eighth.Y) > 100000);
   assert.ok(Math.abs(ninth.mapDistance - Math.hypot(ninth.X, ninth.Y)) < 1e-7);
   assert.equal(ninth.farFromMeridian, false);
+});
+
+test('two independent GSI-published zone II conversion examples agree at millimetre precision', () => {
+  // GSI "公共測量 作業規程の準則" appendix, printed pp.51–52:
+  // https://www.gsi.go.jp/common/000260486.pdf
+  // The tabulated X,Y, true-north angle and scale are independently published;
+  // they are NOT round-trips through this implementation.
+  const examples = [
+    { lat: [33, 14, 56.54473], lon: [130, 42, 22.55179],
+      X: 27655.926, Y: -27370.470, angle: [0, 9, 39.78], scale: .99990923 },
+    { lat: [33, 15, 10.07544], lon: [130, 46, 20.19192],
+      X: 28057.394, Y: -21218.586, angle: [0, 7, 29.53], scale: .99990555 },
+  ];
+  const dms = ([degrees, minutes, seconds]) => rad(degrees + minutes / 60 + seconds / 3600);
+  for (const sample of examples) {
+    const actual = japanPlanarCoordinates(dms(sample.lat), dms(sample.lon), 2);
+    assert.ok(Math.abs(actual.X - sample.X) < .001, 'published northing X');
+    assert.ok(Math.abs(actual.Y - sample.Y) < .001, 'published easting Y');
+    const angle = sample.angle[0] + sample.angle[1] / 60 + sample.angle[2] / 3600;
+    assert.ok(Math.abs(deg(actual.distortion.northBearingFromGrid) - angle) < 2e-5,
+      'published true-north direction');
+    assert.ok(Math.abs(actual.distortion.meridianScale - sample.scale) < 1e-8,
+      'published projected scale');
+  }
 });
 
 test('datum selection changes only metadata, not silently projected coordinates', () => {

@@ -91,7 +91,10 @@ algorithms, analytical spherical/equatorial limits, a Simpson quadrature of
 the meridian arc, the independent published PROJ Gauss-Boaga sample, and
 domain failures. The Japanese suite independently transcribes and checks all
 19 GSI zone origins, tests axis signs, EPSG IDs, scale at the origin and
-datum-identification-only behavior. The Pages runtime precaches the local lab assets for offline
+datum-identification-only behavior. In addition, two independent, published
+[GSI numerical conversion examples](https://www.gsi.go.jp/common/000260486.pdf)
+(zone II, printed pp. 51–52) check X/Y at 1 mm, true-north direction and
+projection scale. The Pages runtime precaches the local lab assets for offline
 revisits; numeric tables remain functional if WebGL2 is unavailable.
 The separate `scripts/validate-geod-browser.mjs` CI smoke uses real Chromium
 with software WebGL2, checks nonuniform shaded pixels, city controls and a
@@ -101,8 +104,8 @@ replace manual device and live-tile cartographic visual QA.
 Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
-comparison including the Gauss–Krüger side-by-side and external numerical
-GSI/EPSG coordinate sample validation, full legal-zone applicability checks, and observation/
+comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
+numerical spot checks, full legal-zone applicability checks, and observation/
 adjustment/GNSS (lab C). See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
