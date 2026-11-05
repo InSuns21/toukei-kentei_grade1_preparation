@@ -11,6 +11,9 @@ export const CITIES = Object.freeze([
 ]);
 
 export const TILE_ZOOM = 2;
+// Detailed tiles are never assembled into a whole-world atlas. The F lab
+// requests at most sixteen tiles surrounding the current Japanese viewpoint.
+export const JAPAN_DETAIL_TILE_LIMIT = 16;
 export const MERCATOR_MAX_LAT = Math.atan(Math.sinh(Math.PI));
 
 // Web Mercator XYZ y increases towards the south; the texture v axis is up.
@@ -21,6 +24,31 @@ export function mercatorY(phi) {
 
 export function latitudeAtTileY(yFraction) {
   return Math.atan(Math.sinh(Math.PI * (1 - 2 * yFraction)));
+}
+
+export function japanDetailZoom(displayZoom) {
+  if (!Number.isFinite(displayZoom) || displayZoom < 2.5) return null;
+  return displayZoom < 5.5 ? 6 : displayZoom < 9 ? 7 : 8;
+}
+
+export function japanDetailTiles(phi, lambda, displayZoom) {
+  const z = japanDetailZoom(displayZoom);
+  if (z === null || !Number.isFinite(phi) || !Number.isFinite(lambda)) return [];
+  const latitude = phi * 180 / Math.PI, longitude = lambda * 180 / Math.PI;
+  // This is an intentionally broad coverage guard, not a claim about Japan's
+  // official jurisdiction or the legal extent of any planar coordinate zone.
+  if (latitude < 18 || latitude > 48 || longitude < 120 || longitude > 156) return [];
+  const n = 2 ** z;
+  const cx = Math.floor((longitude + 180) / 360 * n);
+  const cy = Math.floor(mercatorY(phi) * n);
+  const tiles = [];
+  for (let y = cy - 1; y <= cy + 2; y++) {
+    if (y < 0 || y >= n) continue;
+    for (let x = cx - 1; x <= cx + 2; x++) {
+      tiles.push({ z, x: (x + n) % n, y });
+    }
+  }
+  return tiles;
 }
 
 export function visibleXYZTiles(yaw, tilt, zoom = TILE_ZOOM) {

@@ -129,11 +129,14 @@
         </div>
         <div class="globe-frame">
           <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる全幅の回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、DとFでは中央子午線、Eでは試験点を表示。数値は直下の表を参照。"></canvas>
-          <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+          <div class="map-credits">
+            <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+            <a id="gsi-credit" href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer" hidden>地理院タイル（国土地理院）</a>
+          </div>
         </div>
         <div id="gl-fallback" hidden role="status">WebGL2を利用できないため3Dを省略しています。数値表と本文の静止図で同じ内容を確認できます。</div>
         <p class="tile-status" id="tile-status" role="status" aria-live="polite">地図タイルの読み込み待機中。</p>
-        <p class="zoom-note">地球儀上のマウスホイールでも拡大・縮小できます。倍率は描画だけに適用され、XYZタイルの解像度や計算値は変わりません。</p>
+        <p class="zoom-note">地球儀上のマウスホイールでも拡大・縮小できます。Fラボでは最大1200%まで拡大でき、日本周辺では地理院標準地図の詳細タイルに自動で切り替わります。倍率は数値計算へ影響しません。</p>
         <figcaption id="globe-caption">格子は15°刻み。地球形状の可視的な強調は計算とは別です。</figcaption>
       </figure>
       <figure id="a-section">

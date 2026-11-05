@@ -28,7 +28,8 @@
 .geod-app #globe-point-role-wrap[hidden],.geod-app #globe-point-zone-wrap[hidden]{display:none}
 .geod-app .globe-location-help{font-size:.77rem;color:#425466;white-space:nowrap;align-self:center}
 .geod-app .zoom-note{font-size:.78rem;color:#334155;margin:.35rem 0}
-.geod-app #osm-credit{position:absolute;right:.45rem;bottom:.5rem;padding:.14rem .3rem;background:#fffffff0;border-radius:3px;font-size:.7rem;color:#1d496b}
+.geod-app .map-credits{position:absolute;right:.45rem;bottom:.5rem;display:flex;flex-wrap:wrap;gap:.25rem .6rem;justify-content:flex-end;max-width:95%;padding:.14rem .3rem;background:#fffffff0;border-radius:3px;font-size:.7rem}
+.geod-app .map-credits a{color:#1d496b}
 .geod-app .tile-status{font-size:.78rem;color:#334155;margin:.35rem 0}
 .geod-app .controls select{max-width:100%;width:100%}
 .geod-app #globe:focus-visible{outline:3px solid #e89018;outline-offset:3px}
