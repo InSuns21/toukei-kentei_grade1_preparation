@@ -1,0 +1,47 @@
+id: QFT50
+title: "二次元の正則共形変換・複素応力テンソルと局所Ward恒等式"
+volume: foundations
+status: supplementary
+prerequisites: [QFT49, CA3]
+official_scope: []
+learning_objectives:
+  - 複素座標とWirtinger微分を実座標から定義し、計量・Laplace作用素・面積要素を検算できる
+  - 二次元の共形Killing方程式とCauchy–Riemann方程式の同値を導き、局所正則写像と大域変換を区別できる
+  - 正則ベクトル場のWitt括弧を計算し、量子Virasoro代数の中心項を先取りしない
+  - 二次元自由bosonで複素応力テンソルとトレースを計算し、保存から正則性を導ける
+  - 一次場の正則・反正則ウェイトを定義例で確認し、局所Ward核と接触分布・輪郭積分の対応を導ける
+  - 二点相関へのWard作用を検算し、挿入点・境界・零モード・量子異常に伴う制限を説明できる
+definitions:
+  - { id: QFT50-DEF-01, name: 二次元の複素座標とWirtinger微分 }
+  - { id: QFT50-DEF-02, name: 局所正則共形変換 }
+  - { id: QFT50-DEF-03, name: 複素応力テンソルと正則カレント }
+  - { id: QFT50-DEF-04, name: 二次元一次場の共形ウェイト }
+  - { id: QFT50-DEF-05, name: 共形輪郭電荷 }
+theorems:
+  - { id: QFT50-PROP-01, name: 共形Killing条件とCauchy–Riemann条件 }
+  - { id: QFT50-PROP-02, name: 正則ベクトル場のWitt括弧 }
+  - { id: QFT50-THM-01, name: 二次元自由場応力テンソルの正則性 }
+  - { id: QFT50-THM-02, name: 一次場の局所共形Ward核 }
+  - { id: QFT50-PROP-03, name: 一次場二点関数のWard検算 }
+canonical_examples:
+  - 二次元複素座標でのLaplace作用素と面積要素
+  - zの二乗写像の局所尺度因子と原点での退化
+  - 正則ベクトル場zおよびz二乗のCauchy–Riemann方程式
+  - 線形調和場の複素応力テンソル
+  - 自由bosonの正則微分場の重み1
+  - 二点関数と局所Ward核の極の相殺
+problem_patterns:
+  - QFT50-WIRTINGER
+  - QFT50-LOCAL-MAP
+  - QFT50-CR-FLOW
+  - QFT50-STRESS-COMPONENTS
+  - QFT50-WEIGHT-DERIVATIVE
+  - QFT50-WITT
+  - QFT50-WARD-DISTRIBUTION
+  - QFT50-TWO-POINT-WARD
+  - QFT50-CONTOUR-CHARGE
+  - QFT50-INTEGRATED-CONSISTENCY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 14, review: 6 }
