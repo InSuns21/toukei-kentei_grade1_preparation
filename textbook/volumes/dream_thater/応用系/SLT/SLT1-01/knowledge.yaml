@@ -1,0 +1,76 @@
+chapter: SLT1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-03
+
+concepts:
+  - id: learning.bayes-excess-risk
+    name: Bayes超過リスク
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（Bayes超過リスク）"]
+    requires:
+      - learning.bayes-risk
+      - learning.population-risk
+
+  - id: learning.weighted-binary-excess-identity
+    name: 二値0–1分類の重み付き超過リスク恒等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二値0–1分類の重み付き超過リスク恒等式）"]
+    requires:
+      - learning.bayes-excess-risk
+      - learning.zero-one-bayes-rule
+      - learning.conditional-risk
+
+  - id: learning.restricted-risk-optimum
+    name: クラス内最良予測器
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（クラス内最良予測器と近似誤差）"]
+    requires:
+      - learning.hypothesis-class
+      - learning.population-risk
+
+  - id: learning.approximation-error
+    name: 近似誤差
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（クラス内最良予測器と近似誤差）"]
+    requires:
+      - learning.restricted-risk-optimum
+      - learning.bayes-risk
+
+  - id: learning.within-class-excess-risk
+    name: クラス内超過リスク
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（クラス内超過リスク）"]
+    requires:
+      - learning.restricted-risk-optimum
+
+  - id: learning.excess-risk-two-term-decomposition
+    name: 超過リスクの近似成分とクラス内成分への分解
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（超過リスクの近似成分とクラス内成分への分解）"]
+    requires:
+      - learning.bayes-excess-risk
+      - learning.approximation-error
+      - learning.within-class-excess-risk
+
+  - id: learning.approximation-error-monotonicity
+    name: クラス拡大による近似誤差の単調性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（クラス拡大による近似誤差の単調性）"]
+    requires:
+      - learning.approximation-error

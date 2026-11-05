@@ -1,0 +1,152 @@
+version: 1
+id: SLT
+title: "統計的学習理論 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_STATISTICAL_LEARNING_THEORY_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# SLT1-01 から順に着手。36章は講数・週数の固定制約ではない。
+chapters:
+  - id: SLT1-01
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-01
+    status: completed
+    title: "Bayes超過リスクと近似誤差"
+  - id: SLT1-02
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-02
+    status: planned
+    title: "PAC学習可能性とNo-Free-Lunch"
+  - id: SLT1-03
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-03
+    status: planned
+    title: "有限仮説クラスの汎化界"
+  - id: SLT1-04
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-04
+    status: planned
+    title: "一様収束とERMの過剰リスク"
+  - id: SLT1-05
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-05
+    status: planned
+    title: "shatteringとVC次元"
+  - id: SLT1-06
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-06
+    status: planned
+    title: "Sauer–Shelah補題"
+  - id: SLT1-07
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-07
+    status: planned
+    title: "VC次元からの一様汎化界"
+  - id: SLT1-08
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-08
+    status: planned
+    title: "VC次元の必要性と無限VC反例"
+  - id: SLT1-09
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-09
+    status: planned
+    title: "関数クラスの被覆数とpacking"
+  - id: SLT1-10
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-10
+    status: planned
+    title: "Rademacher複雑度とsymmetrization"
+  - id: SLT1-11
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-11
+    status: planned
+    title: "contractionと線形・marginクラス"
+  - id: SLT1-12
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-12
+    status: planned
+    title: "速い収束率と局所複雑度"
+  - id: SLT1-13
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-13
+    status: planned
+    title: "正則化ERMとoracle不等式"
+  - id: SLT1-14
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-14
+    status: planned
+    title: "算法安定性と期待汎化"
+  - id: SLT1-15
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-15
+    status: planned
+    title: "PAC-Bayes不等式"
+  - id: SLT1-16
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-16
+    status: planned
+    title: "Le Cam・Fanoと標本複雑度下限"
+  - id: SLT1-17
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-17
+    status: planned
+    title: "有限辞書・線形予測・ridgeの比較"
+  - id: SLT1-18
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT1-18
+    status: planned
+    title: "汎化保証の適用条件と破綻例"
+  - id: SLT2-01
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-01
+    status: planned
+    title: "過剰パラメータと線形補間"
+  - id: SLT2-02
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-02
+    status: planned
+    title: "最小ノルム補間と勾配流"
+  - id: SLT2-03
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-03
+    status: planned
+    title: "ridgeのスペクトルとbias–variance"
+  - id: SLT2-04
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-04
+    status: planned
+    title: "double descentの成立条件"
+  - id: SLT2-05
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-05
+    status: planned
+    title: "高次元ランダム行列評価"
+  - id: SLT2-06
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-06
+    status: planned
+    title: "勾配流とearly stopping"
+  - id: SLT2-07
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-07
+    status: planned
+    title: "kernel補間と有効次元"
+  - id: SLT2-08
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-08
+    status: planned
+    title: "ニューラルネットの線形化"
+  - id: SLT2-09
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-09
+    status: planned
+    title: "固定kernelの勾配力学"
+  - id: SLT2-10
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-10
+    status: planned
+    title: "無限幅NTKの条件"
+  - id: SLT2-11
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-11
+    status: planned
+    title: "NNGPとNTKの違い"
+  - id: SLT2-12
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-12
+    status: planned
+    title: "幅極限と時間極限"
+  - id: SLT2-13
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-13
+    status: planned
+    title: "粒子測度による二層網"
+  - id: SLT2-14
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-14
+    status: planned
+    title: "mean-field勾配流"
+  - id: SLT2-15
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-15
+    status: planned
+    title: "SGDの拡散近似"
+  - id: SLT2-16
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-16
+    status: planned
+    title: "flat minimaの座標依存性"
+  - id: SLT2-17
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-17
+    status: planned
+    title: "情報量と圧縮の汎化界"
+  - id: SLT2-18
+    path: textbook/volumes/dream_thater/応用系/SLT/SLT2-18
+    status: planned
+    title: "分布シフト下の不可能性"

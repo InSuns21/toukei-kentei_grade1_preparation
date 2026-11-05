@@ -1,8 +1,8 @@
 # DREAM THEATER 統計的学習理論 I・II（SLT1・SLT2）
 
 作成日: 2026-10-11  
-改訂日: 2026-11-03（標準教科書・著者講義ノート・現行ML/HDP正本を照合し、証明責務と停止線を具体化）  
-状態: planned（本改訂は設計のみ。SLT固有の本文・series manifestは未実装）
+改訂日: 2026-11-06（SLT1-01の初回着手・公開導線と進捗manifestを追加）  
+状態: in_progress（SLT1-01を実装。SLT1-02以降と系列横断検証は未完了）
 
 ## 0. 中心問いと射程
 
@@ -60,7 +60,7 @@
 - **入口**：SLT1-01〜04はML1-01〜03・確率論・HDP1程度で開始できる。VCを知らないまま有限クラスの汎化を読める。SLT1-05以降で組合せ論、HDP4/10などの必要結果を順次使用する。
 - **SLT2の入口**：ML1-04/05/18とLAのSVDから有限行列模型を始める。NTK・NNGPではML2-12〜14、mean-fieldでは確率測度と勾配流の直接prerequisiteが必要。SLT1全18章をSLT2全章に一律要求しない。
 - **学習済みと仮定しないこと**：RMTの大域的極限法則、Donskerの一般定理、輸送距離上の勾配流の存在・一意性、深層非凸問題の大域最適化、分布外学習の普遍保証。章の核心定理に必要なら証明を追加するか限定模型へ絞る。
-- 本PLANの編集のみで計画状態を「着手済み」とはしない。実装前に正式ID衝突、直接prerequisiteの所在、knowledge DAGとseries manifestの有無を実確認する。
+- 初回着手時に正式ID衝突、直接prerequisiteの所在、knowledge DAGとseries manifestの有無を確認した。以後も各章の実装時に参照先の実在を再確認する。
 
 ### 2.1 全章で固定する記号・論理上の区別
 
@@ -170,8 +170,8 @@ SLT1の必要結果・INFO → SLT2-16〜18（汎化の限界）
 
 ## 8. 実装・査読・完了ゲート
 
-1. **本PRはPLAN設計だけ**を改訂する。状態はtextbook/plans/のまま。章本文・chapter.yaml・knowledge.yaml・未存在のSLT系列manifestを捏造しない。
-2. 最初のSLT固有章の着手時に本PLAN、ML/HDP/RKHS/OPT/INFO、直接使用するchapter.yaml/knowledge.yaml、knowledge DAG、章IDの衝突・下流依存を確認。series manifestを作り、PLANをtextbook/plans_progress/へ**移動**、manifestのplan参照を同時更新する。
+1. **初回着手済み**。SLT1-01の本文・chapter.yaml・knowledge.yaml、SLT系列manifest、公開目次を作成し、PLANをtextbook/plans_progress/へ移動した。SLT1-02以降はplannedとし、未実装章を公開目次へ載せない。
+2. 各章の着手時に本PLAN、直接使用するML/HDP/RKHS/OPT/INFO等のchapter.yaml/knowledge.yaml、knowledge DAG、章ID衝突・下流依存を確認する。系列manifestのplan参照と進捗を正本とする。
 3. 章進行はSLT系列manifestの先頭から連続するcompletedの次のplanned。共通routingや他系列manifestへ単一のactive workを書かない。
 4. 新規章/実質改稿はDREAM_THEATER_AUTHORING_STANDARDの区分Cで、主要定義・全主要定理と全演習詳細解答を棚卸しし、**自己再計算と別観点での全体再読**を区別して記録。局所修正B、表示のみAは同規約に従う。同一担当の再読を第三者独立査読とは呼ばない。
 5. 本文は動機→通常文の初出導入→formal statement→直接例→仮定と核心証明→反例→演習解答の順を守る。使った既存結果の**使用箇所**に実在するstable anchorリンクを付け、定義語の使用順、量化、測度可能性、極限順序を点検する。
