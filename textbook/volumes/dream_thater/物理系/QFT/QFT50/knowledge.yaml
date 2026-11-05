@@ -1,0 +1,76 @@
+chapter: QFT50
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT49, CA3]
+forward_references: []
+
+concepts:
+  - id: qft.two-dimensional-wirtinger
+    name: 二次元の複素座標とWirtinger微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二次元の複素座標とWirtinger微分）]
+    requires: []
+
+  - id: qft.local-holomorphic-conformal
+    name: 局所正則共形変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所正則共形変換）]
+    requires: [qft.two-dimensional-wirtinger, qft.euclidean-conformal-map]
+
+  - id: qft.two-dimensional-conformal-killing
+    name: 共形Killing条件とCauchy–Riemann条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共形Killing条件とCauchy–Riemann条件）]
+    requires: [qft.local-holomorphic-conformal, qft.conformal-killing-vector]
+
+  - id: qft.holomorphic-witt-bracket
+    name: 正則ベクトル場のWitt括弧
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正則ベクトル場のWitt括弧）]
+    requires: [qft.local-holomorphic-conformal]
+
+  - id: qft.two-dimensional-stress-current
+    name: 複素応力テンソルと正則カレント
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（複素応力テンソルと正則カレント）]
+    requires: [qft.two-dimensional-wirtinger, qft.euclidean-free-stress-tensor]
+
+  - id: qft.holomorphic-free-stress
+    name: 二次元自由場応力テンソルの正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二次元自由場応力テンソルの正則性）]
+    requires: [qft.two-dimensional-stress-current]
+
+  - id: qft.two-dimensional-primary-weights
+    name: 二次元一次場の共形ウェイト
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二次元一次場の共形ウェイト）]
+    requires: [qft.local-holomorphic-conformal, qft.scalar-primary-field]
+
+  - id: qft.holomorphic-contour-charge
+    name: 共形輪郭電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共形輪郭電荷）]
+    requires: [qft.holomorphic-free-stress]
+
+  - id: qft.two-dimensional-primary-ward
+    name: 一次場の局所共形Ward核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（一次場の局所共形Ward核）]
+    requires: [qft.holomorphic-contour-charge, qft.two-dimensional-primary-weights, qft.local-translation-ward]
+
+  - id: qft.primary-two-point-ward-check
+    name: 一次場二点関数のWard検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次場二点関数のWard検算）]
+    requires: [qft.two-dimensional-primary-ward, qft.scalar-primary-two-point]
