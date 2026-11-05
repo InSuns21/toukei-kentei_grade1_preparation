@@ -1,0 +1,49 @@
+id: QFT52
+title: "放射量子化・状態–演算子対応とVirasoro最高ウェイト表現"
+volume: foundations
+status: supplementary
+prerequisites: [QFT51, QFT50, QFT19, CA4]
+official_scope: []
+learning_objectives:
+  - Euclid平面の円を時間切片とする放射量子化と、局所演算子が作る状態の存在条件を説明できる
+  - 自由bosonの正則電流OPEからHeisenbergモード交換子と正ノルムを導ける
+  - 零電荷自由bosonの有限励起状態を微分電流の正規順序局所積と照合できる
+  - 一次場のWard OPEから最高ウェイト条件と子孫のレベルを証明できる
+  - Virasoro Verma加群と具体的Hilbert表現の商を区別し低レベル子孫を数えられる
+  - Virasoro交換子からレベル1・2のGram行列と正値性の必要条件を再計算できる
+  - c=1,h=1/4のレベル2特異ベクトルを確かめ自由boson荷電部門で零になることを導ける
+definitions:
+  - { id: QFT52-DEF-01, name: 放射量子化と局所演算子が作る状態 }
+  - { id: QFT52-DEF-02, name: 電流モードと自由bosonの真空Fock空間 }
+  - { id: QFT52-DEF-03, name: 正則一次場・最高ウェイト状態・子孫 }
+  - { id: QFT52-DEF-04, name: Virasoro Verma加群 }
+  - { id: QFT52-DEF-05, name: 特異ベクトル・零ノルム子孫 }
+theorems:
+  - { id: QFT52-PROP-01, name: 電流OPEからHeisenberg交換子 }
+  - { id: QFT52-THM-01, name: 零電荷自由bosonの状態–演算子対応 }
+  - { id: QFT52-THM-02, name: 一次場の輪郭モード作用 }
+  - { id: QFT52-PROP-02, name: 自由bosonの低レベルVirasoro子孫 }
+  - { id: QFT52-THM-03, name: レベル1・2のGram行列 }
+  - { id: QFT52-COR-01, name: 自由bosonのレベル2特異ベクトル }
+canonical_examples:
+  - 電流の二次極の留数と真空モードの正ノルム
+  - 正規順序微分電流とa_-n状態の対応
+  - ウェイト1の電流一次場の最高ウェイト条件
+  - Vermaレベル2の整数分割とL0固有値
+  - 真空のL-1零子孫とL-2非零子孫
+  - c=1,h=1/4のGram行列の核と電荷q=1/sqrt(2)の振動子照合
+problem_patterns:
+  - QFT52-HEISENBERG-RESIDUE
+  - QFT52-STATE-OPERATOR-DERIVATIVE
+  - QFT52-PRIMARY-MODE-ACTION
+  - QFT52-VERMA-LEVEL-COUNT
+  - QFT52-NEGATIVE-WEIGHT
+  - QFT52-GRAM-OFFDIAGONAL
+  - QFT52-VACUUM-DESCENDANTS
+  - QFT52-GRAM-NULL-DIRECTION
+  - QFT52-CHARGED-Fock-NULL
+  - QFT52-RADIAL-VIRASORO-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 7 }
