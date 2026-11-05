@@ -6,7 +6,7 @@
 
 ## 1. 舞台と、Euclid作用から生まれるテンソル
 
-舞台は整数 $d\ge3$ の平坦Euclid空間 $\mathbb R^d$。座標 $x=(x^1,\ldots,x^d)$、$|x|^2=\sum_\mu(x^\mu)^2$、$\partial^2=\sum_\mu\partial_\mu^2$ とし、重複する添字は $1,\ldots,d$ で和を取ります。実時間のLorentz計量は物理系の統一規約 $(-,+,+,+)$ ですが、ここでは正定値の $\delta_{\mu\nu}$ を使い、Minkowskiテンソルを記号だけでWick回転しません。
+舞台は整数 $d\ge3$ の平坦Euclid空間 $\mathbb R^d$。座標 $x=(x^1,\ldots,x^d)$、$|x|^2=\sum_\mu(x^\mu)^2$、$\partial^2=\sum_\mu\partial_\mu^2$ とし、重複する添字は $1,\ldots,d$ で和を取ります。実時間の計量符号は物理系の統一規約 $(-,+,+,+)$ ですが、ここでは正定値の $\delta_{\mu\nu}$ を使い、Minkowskiテンソルを記号だけでWick回転しません。
 
 質量零の実スカラー場について [QFT20のEuclid作用](../QFT20/index.md#def-qft20-euclidean-action) の質量を零にした
 
