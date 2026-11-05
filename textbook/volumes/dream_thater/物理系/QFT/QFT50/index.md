@@ -328,7 +328,31 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $w_j$ を一つ固定し、$A_j/(z-w_j)^2+B_j/(z-w_j)$ の輪郭積分を考えます。[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)による積分は $A_j\epsilon'(w_j)+B_j\epsilon(w_j)$ です。一方、[一次場の変換則](#def-qft50-weights)を $\eta$ で微分すると、挿入点 $j$ の変化は $(h_j\epsilon'(w_j)+\epsilon(w_j)\partial_{w_j})G$ です。局所Ward恒等式がこの輪郭電荷を実装する仮定の下、任意の $\epsilon$ の値と一階微分の係数比較から $A_j=h_jG$、$B_j=\partial_{w_j}G$ が決まります。
+まず挿入点 $w_j$ を固定し、その近くの二重極と単純極を
+
+$$
+\frac{A_j}{(z-w_j)^2}+\frac{B_j}{z-w_j}
+$$
+
+と置きます。[Cauchyの高階導関数公式](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-derivatives)による輪郭積分は
+
+$$
+A_j\epsilon'(w_j)+B_j\epsilon(w_j)
+$$
+
+です。一方、[一次場の変換則](#def-qft50-weights)を微小パラメータで微分すると、挿入点 $j$ の変化は
+
+$$
+\bigl(h_j\epsilon'(w_j)+\epsilon(w_j)\partial_{w_j}\bigr)G
+$$
+
+となります。局所Ward恒等式がこの輪郭電荷を実装する仮定の下、任意の $\epsilon$ の値と一階微分の係数を比較して
+
+$$
+A_j=h_jG,\qquad B_j=\partial_{w_j}G
+$$
+
+が決まります。
 
 次に分布等式を滑らかなコンパクト台の試験関数 $\psi$ で検算します。円板から半径 $\rho$ の小円を除き、$\partial_{\bar z}(1/(z-w))=0$ を部分積分します。内周を反時計回りの小円へ向き直した境界積分は、$\rho\to0$ でCauchy積分の $2\pi i\,\psi(w)$ へ収束します。複素Green公式の面積と境界の係数は $\int_D\partial_{\bar z}F\,dx\,dy=(2i)^{-1}\oint_{\partial D}F\,dz$ なので、$2\pi i/(2i)=\pi$ から
 
@@ -513,7 +537,18 @@ $$
 ### 演習 QFT50-C1：正則変換・保存・接触項の総合検算
 
 - Level: C
-- 問題: $U=\mathbb C\setminus\{0\}$ 上の古典質量零自由bosonと、局所的な一次場二点因子 $G(u,v)=C(u-v)^{-2h}$（$u\ne v$）を考える。(1) $\epsilon(z)=z^{-1}$ が局所共形Killing場を与えることを確かめ、原点を含む大域的な滑らかな変換と区別せよ。(2) 自由場の $\tau_{\mu\nu}$ のトレース零と保存から $\partial_{\bar z}t=0$ を導け。(3) 二点Ward核の $z=u$ 周りの輪郭積分を計算し、局所変換と一致することを示せ。(4) $\partial_{\bar z}$ を取ったときの接触分布を書き、量子の $t(z)t(w)$ に中心項がないとまで結論できるか答えよ。
+- 問題: $U=\mathbb C\setminus\{0\}$ 上の古典質量零自由bosonと、相異なる点の一次場二点因子を考える。二点因子は
+
+$$
+G(u,v)=C(u-v)^{-2h},\qquad u\ne v
+$$
+
+とする。次の四つを検算せよ。
+
+1. $\epsilon(z)=z^{-1}$ が局所共形Killing場を与えることを確かめ、原点を含む大域的な滑らかな変換と区別せよ。
+2. 自由場の $\tau_{\mu\nu}$ のトレース零と保存から $\partial_{\bar z}t=0$ を導け。
+3. 二点Ward核の $z=u$ 周りの輪郭積分を計算し、局所変換と一致することを示せ。
+4. $\partial_{\bar z}$ を取ったときの接触分布を書き、量子の $t(z)t(w)$ に中心項がないとまで結論できるか答えよ。
 
 **詳細解答**：
 
