@@ -23,10 +23,13 @@ const inputs = {
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
+  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '',
 };
 const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new Element(id, value)]));
+elements.set('show-world', new Element('show-world'));
+elements.get('show-world').checked = true;
 for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
-  'geod-questions', 'geod-status', 'globe-caption',
+  'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'tile-status',
   'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D']) {
   elements.set(id, new Element(id));
 }
@@ -89,4 +92,36 @@ test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
   $('d-model').handlers.input();
   assert.match(cells[0].children[1].textContent, /楕円体/); // prior table not mutated
   assert.match($('geod-results').children[0].children[0].children[0].children[1].textContent, /球面/);
+});
+
+test('all eight city presets are present and South American coordinates remain signed', () => {
+  assert.equal($('a-city').children.length, 8);
+  buttons[0].handlers.click();
+  $('a-city').value = 'sao-paulo';
+  $('a-city').handlers.change();
+  assert.equal($('a-lat').value, '-23.5505');
+  assert.equal($('a-lon').value, '-46.6333');
+  assert.match($('geod-status').textContent, /計算済み/);
+  $('a-lat').value = '42';
+  $('a-lat').handlers.input();
+  assert.equal($('a-city').value, '', 'manual edits clear the preset choice');
+});
+
+test('projection city preset also recentres its local central meridian', () => {
+  buttons[2].handlers.click();
+  $('d-city').value = 'new-york';
+  $('d-city').handlers.change();
+  assert.equal($('d-lat').value, '40.7128');
+  assert.equal($('d-lon0').value, '-74.006');
+  assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('world map switch leaves shading/numerics available without WebGL2', () => {
+  $('show-world').checked = false;
+  $('show-world').handlers.change();
+  assert.equal($('osm-credit').hidden, true);
+  assert.match($('geod-status').textContent, /計算済み/);
+  $('show-world').checked = true;
+  $('show-world').handlers.change();
+  assert.equal($('osm-credit').hidden, false);
 });

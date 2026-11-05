@@ -47,6 +47,7 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     './simulation/geod.css',
     './simulation/geod-app.mjs',
     './simulation/geod-core.mjs',
+    './simulation/geod-map.mjs',
     './simulation/simulation.css',
     './simulation/simulation-app.mjs',
     './simulation/simulation-runtime.mjs',
