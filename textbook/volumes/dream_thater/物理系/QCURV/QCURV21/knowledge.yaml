@@ -1,0 +1,47 @@
+chapter: QCURV21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QCURV9
+  - QCURV10
+  - QCURV11
+  - QCURV12
+  - QCURV13
+  - QCURV14
+  - QCURV15
+  - QCURV16
+  - QCURV17
+  - QCURV18
+  - QCURV20
+forward_references: []
+concepts:
+  - id: qcurv.hawking-synthesis-setting
+    name: Hawking放射の再導出設定
+    kind: definition
+    introduction: formal
+    requires: [qcurv.comparison-setting, qcurv.collapse-ray-map]
+  - id: qcurv.hawking-packet-synthesis
+    name: 後期光線写像から波束の熱因子への接続
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.hawking-synthesis-setting, qcurv.collapse-late-exponential, qcurv.hawking-thermal-ratio, qcurv.hawking-late-packet-planck]
+  - id: qcurv.greybody-luminosity-synthesis
+    name: 後期Schwarzschild光度の条件付き接続
+    kind: theorem
+    introduction: formal
+    requires: [qcurv.hawking-packet-synthesis, qcurv.schwarzschild-greybody-flux, qcurv.schwarzschild-flux-reciprocity]
+  - id: qcurv.mass-validity-window
+    name: 準静的質量減少の検証可能な区間
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.quasistatic-mass-cubic-law, qcurv.adiabatic-mass-variation]
+  - id: qcurv.entropy-integrating-factor
+    name: Schwarzschild温度の積分から得られる候補関数
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.hawking-packet-synthesis, qcurv.schwarzschild-kappa-calibration]
+  - id: qcurv.thermal-marginal-nonuniqueness
+    name: 同じ外部状態を持つ純粋な全体と混合した全体
+    kind: proposition
+    introduction: formal
+    requires: [qcurv.comparison-setting]
