@@ -21,18 +21,39 @@ without feeding drawing coordinates back into the numeric kernel.
 
 The surface sphere and ellipsoid are drawn with a twentyfold visual flattening
 factor; numerical results use their displayed **physical** flattening.
+The 3D surface has viewpoint-dependent Lambertian shading (plus ambient fill)
+even when map tiles are disabled. Optional online OpenStreetMap standard XYZ
+tiles (z=2) are painted onto the ellipsoid with Web Mercator latitude mapping:
+`y=(1-asinh(tan φ)/π)/2`, clamped at ±85.05112878° near the poles.
+Only tiles intersecting the current visible hemisphere are fetched; no
+prefetch of hidden hemispheres, no bulk download and no offline tile caching
+are performed by the lab. Browser HTTP cache headers are honoured. The tile
+source is `https://tile.openstreetmap.org/{z}/{x}/{y}.png` and **© OpenStreetMap
+contributors** with a copyright link stays visible in map mode. If remote
+tiles/CORS/WebGL2 fail, the numeric lab continues with shaded geometry or a
+numeric-only fallback. The site's existing offline shell still caches local
+JavaScript/HTML/CSS, but does **not** promise any offline basemap.
+
+City dropdowns include London, Paris, New York, Tokyo, Osaka, Sapporo, Moscow
+and São Paulo using approximate city centres, not surveyed benchmarks. Choosing
+a city updates study latitude/longitude and recentres the 3D view; in lab D
+the comparison central meridian follows that city. It does not silently
+select a real-world EPSG / Japanese planar coordinate reference system.
 The local projection rejects inputs beyond 25° from the central meridian,
 latitudes beyond 80°, and nonpositive scales. A and B require non-polar
 latitude coordinates. No output claims a datum/epoch conversion, survey
 accuracy, or a certified Japanese CRS coordinate.
 
-Run the kernel tests with node --test pages/simulation/geod-core.test.mjs,
-also included in npm run validate:simulation-phase0. They compare distinct
+Run the kernel and city/XYZ/no-WebGL tests with
+`npm run validate:simulation-phase0`. They compare distinct
 algorithms, analytical spherical/equatorial limits, a Simpson quadrature of
 the meridian arc, the independent published PROJ Gauss-Boaga sample, and
-domain failures. The Pages runtime precaches all four
-new lab resources for offline revisits; numeric tables remain functional if
-WebGL2 is unavailable.
+domain failures. The Pages runtime precaches the local lab assets for offline
+revisits; numeric tables remain functional if WebGL2 is unavailable.
+The separate `scripts/validate-geod-browser.mjs` CI smoke uses real Chromium
+with software WebGL2, checks nonuniform shaded pixels, city controls and a
+360px viewport, and blocks all live OSM tile requests in CI. It does not
+replace manual device and live-tile cartographic visual QA.
 
 Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;

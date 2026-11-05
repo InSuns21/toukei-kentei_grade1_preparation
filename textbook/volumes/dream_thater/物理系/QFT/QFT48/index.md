@@ -44,8 +44,32 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft48-massless-schwinger -->
-**定義の確認** 任意のSchwartz試験関数 $f$ に対し、原点近傍では $d^dp$ の体積要素が $r^{d-1}dr$ を含むので、重み $1/r^2$ の積分は $\int_0^1r^{d-3}dr=1/(d-2)$ と有限です。無限大では $\widehat f(p)$ がどのべきよりも速く減衰します。したがって $\int |p|^{-2}\widehat f(p)\,d^dp$ は定まり、上の二点分布の意味が確定します。点ごとの積分が絶対収束すると主張しているわけではありません。
+**定義の確認** Fourier変換の規約は $\widehat f(p)=\int e^{-ip\cdot x}f(x)\,d^dx$ とします。Schwartz試験関数 $f$ を考えると、原点近傍で球座標の体積要素は $r^{d-1}dr$ を含み、重み $1/r^2$ の積分は
+
+$$
+\int_0^1 r^{d-3}\,dr=\frac1{d-2}<\infty
+$$
+
+です。無限大では $\widehat f(p)$ がどのべきよりも速く減衰します。従って $\int |p|^{-2}\widehat f(p)\,d^dp$ は定まり、二点分布の意味が確定します。点ごとのFourier積分が絶対収束すると主張しているわけではありません。
+さらに、任意のSchwartz試験関数 $f$ に対し、共分散の二次形式は
+
+$$
+\int_{\mathbb R^d}\!\int_{\mathbb R^d}
+\overline{f(x)}C_d(x-y)f(y)\,d^dx\,d^dy
+=\int_{\mathbb R^d}\frac{d^dp}{(2\pi)^d}
+\frac{|\widehat f(p)|^2}{|p|^2}\ge0.
+$$
+
+Fourier変換で $-\Delta$ は $|p|^2$ の乗法になるため、$-\Delta C_d=\delta_0$ も分布の意味で成立します。これで、単なる形式的な逆核ではなく、正のGaussian共分散として必要な条件を直接検査できました。
 <!-- definition-example-end -->
+
+距離則の係数に現れるGamma関数は、$a>0$ に対して次で定義します。
+
+$$
+\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du.
+$$
+
+以下では $a=d/2-1>0$ なので適用できます。
 
 <a id="thm-qft48-massless-kernel"></a>
 
@@ -91,9 +115,27 @@ C_d(z)
 \end{aligned}
 $$
 
-ここで $\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}du$ は $a>0$ で定義したGamma関数で、$d>2$ がちょうど収束条件です。$r\mapsto\lambda r$ に代入すれば距離則の後半が従います。
+このGamma積分の指数は $a-1=d/2-2$ であり、$d>2$ がちょうど収束条件です。$r\mapsto\lambda r$ に代入すれば距離則の後半が従います。
 
-次に空間Fourier変換を $\widehat f(\tau,\boldsymbol k)=\int e^{-i\boldsymbol k\cdot\boldsymbol x}f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x$ とします。[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)で $\omega_{\boldsymbol k}=\sqrt{|\boldsymbol k|^2+m^2}$ としていたものを、$m\downarrow0$ の極限で $\omega_{\boldsymbol k}=|\boldsymbol k|$ とすると、反射された二次形式は
+次に空間Fourier変換を定義します。Euclid時間 $\tau$ は固定し、空間変数 $\boldsymbol x$ のみを変換します。
+
+$$
+\widehat f(\tau,\boldsymbol k)
+=\int_{\mathbb R^{d-1}}e^{-i\boldsymbol k\cdot\boldsymbol x}
+f(\tau,\boldsymbol x)\,d^{d-1}\boldsymbol x.
+$$
+
+先ほどの $\widehat f(p)$ は全 $d$ 変数のFourier変換でした。ここでは同じハット記号でも、$\tau$ が残っているので部分Fourier変換を意味します。
+
+[QFT20の自由核の時間表示](../QFT20/index.md#thm-qft20-euclidean-kernel)は時間変数だけのFourier逆変換に由来します。QFT20の時間周波数 $p_4$ をここでは $p_\tau$ と書き、Euclid時間差を $t\in\mathbb R$ とします。空間次元を $d-1$ に替えても、各 $\boldsymbol k\ne0$ で
+
+$$
+\int_{\mathbb R}\frac{dp_\tau}{2\pi}
+\frac{e^{ip_\tau t}}{p_\tau^2+|\boldsymbol k|^2}
+=\frac{e^{-|\boldsymbol k||t|}}{2|\boldsymbol k|}
+$$
+
+となります。これはQFT20の $\omega_{\boldsymbol k}=\sqrt{|\boldsymbol k|^2+m^2}$ に $m\downarrow0$ を取った式です。$\boldsymbol k=0$ の特異性は最後に積分可能性を検査します。したがって反射された二次形式は
 
 $$
 \begin{aligned}
@@ -114,7 +156,15 @@ $$
 
 ## 2. 共形写像は角度を保ちながら長さを変える
 
-回転や並進だけでなく、拡大縮小 $x\mapsto\lambda x$ は二点間の長さを一定倍する変換です。より広く、各点で方向によらず長さを同じ倍率で変える写像を考えます。判定に必要なのはJacobian行列です。任意の微小変位 $v$ の像が $Df(x)v$ であり、その長さの二乗が $v^TDf(x)^TDf(x)v$ と書けるので、**全方向で同じ倍率**という幾何条件を行列で検査できます。
+回転や並進だけでなく、拡大縮小 $x\mapsto\lambda x$ は二点間の長さを一定倍する変換です。より広く、各点で方向によらず長さを同じ倍率で変える写像を考えます。
+
+判定に必要なのはJacobian行列です。$f=(f_1,\ldots,f_d)$ に対し、$Df(x)$ は成分 $(Df(x))_{ij}=\partial f_i/\partial x_j$（行が出力成分、列が入力成分）の行列、$T$ は転置、$I_d$ は単位行列とします。微小変位 $v$ の像は、成分ごとに
+
+$$
+(Df(x)v)_i=\sum_{j=1}^d\frac{\partial f_i}{\partial x_j}(x)v_j
+$$
+
+です。その長さの二乗は $v^TDf(x)^TDf(x)v$ となります。これが全ての $v$ で $\Omega^2v^Tv$ と等しい条件は、対称行列の二次形式を比較すると $Df^TDf=\Omega^2I_d$ と同値です。**全方向で同じ倍率**という幾何条件を行列で検査できる理由はここにあります。
 
 <a id="def-qft48-conformal-map"></a>
 
@@ -157,7 +207,7 @@ $I$ のJacobianを積の微分で計算します。対称行列 $H=I_d-2nn^T$ �
 <!-- proof-start -->
 ### 証明
 
-$r^2=x\cdot x$、$n=x/r$ と置くと、成分ごとの微分は
+$r^2=x\cdot x$、$n=x/r$ と置きます。添字 $i,j\in\{1,\ldots,d\}$ はそれぞれ出力・入力成分、$\delta_{ij}$ は $i=j$ なら1、異なれば0となるKroneckerのデルタです。成分ごとの微分は
 
 $$
 \frac{\partial I_i}{\partial x_j}
@@ -341,7 +391,15 @@ $$
 
 これらの和は $\Delta_1+\Delta_2+\Delta_3$ なので、拡大縮小でも $F(\lambda x_i)=\lambda^{-(\Delta_1+\Delta_2+\Delta_3)}F(x_i)$ と必要な倍率に一致します。並進・回転では距離が不変です。
 
-一意性も確認します。任意の相異なる三点を、まず第三点を中心とする反転 $J(x)=(x-x_3)/|x-x_3|^2$ によって第三点を共形コンパクト化上の無限遠点へ、残る二点を有限の相異なる点へ移せます（点 $x_3$ 自体は極限として扱う）。無限遠点を固定する並進・回転・拡大縮小で、残る二点は $0,e_1$ へ送れます。したがって三点配置の共形不変な連続関数は定数です。$G_3/F$ は各生成変換に対して不変なので、配置によらない $C_{123}$ に等しくなります。元の有限位置へ戻して式を得ます。
+最後に、距離べきの形を**仮定せずに**一意性を示します。相異なる三点では $F\ne0$ なので $H=G_3/F$ を定義できます。$G_3$ と上で作った $F$ は同じ一次場倍率で変換するため、両者の比 $H$ は共形写像で不変です。
+
+共形変換が順序付きの相異なる三点配置へ推移的に作用することを確かめます。ここで共形コンパクト化 $\mathbb R^d\cup\{\infty\}$ とは、反転を計算するためEuclid空間に無限遠点を一つ付け加えた幾何学的な補助空間です。この中で、任意の三点 $(x_1,x_2,x_3)$ を考えます。
+
+まず $x_3$ を原点へ並進し、そこを中心に反転すると、配置は $(u,v,\infty)$（$u\ne v$）になります。さらに $z\mapsto |v-u|^{-1}R(z-u)$ という相似変換で、$R$ を $(v-u)/|v-u|$ から標準基底ベクトル $e_1$ へ送る直交行列として選べば、$(0,e_1,\infty)$ へ移ります。この幾何学的な補助変換を $T_x$ とします。
+
+別の三点配置 $(y_1,y_2,y_3)$ に対しても $T_y$ を作れば、合成 $f=T_y^{-1}\circ T_x$ は各 $x_i$ を有限の $y_i$ へ送ります。したがって合成写像 $f$ は三点それぞれの近傍で極を持たず、そこで滑らかな共形写像として一次場則を適用できます。**途中の補助座標で $x_3$ が無限遠へ移っても、相関関数を無限遠で直接評価していません。**
+
+この有限点どうしの写像に対して $H(y_1,y_2,y_3)=H(x_1,x_2,x_3)$ なので、$H$ はどの三点配置でも同じ定数 $C_{123}$ です。
 <!-- proof-end -->
 
 **直接例。** $\Delta_1=\Delta_2=\Delta_3=\Delta$ なら三つの指数はいずれも $\Delta$。一方 $\Delta_1=\Delta_2=1,\Delta_3=2$ なら $(a,b,c)=(0,2,2)$ となり、$r_{12}$ に依存しない $C_{123}/(r_{23}^2r_{31}^2)$ も共形変換則と矛盾しません。ここで指数が零でも三点関数が接触点で正則になるとは言えず、残る距離が零になる場合はこの定理の外です。
@@ -446,7 +504,18 @@ $$
 - 問題: 次元 $\Delta_1,\Delta_2$ のスカラー一次場の二点関数を $G(x,y)=C|x-y|^{-q}$（$C\ne0$）と仮定する。拡大縮小で $q$ を求め、反転での $|x|,|y|$ の指数を比較して $\Delta_1=\Delta_2$ を導け。
 
 <!-- solution-start -->
-**詳細解答。** 拡大縮小では $G(\lambda x,\lambda y)=\lambda^{-q}G(x,y)$、一次場変換から $\lambda^{-(\Delta_1+\Delta_2)}G(x,y)$。従って $q=\Delta_1+\Delta_2$ です。[反転のJacobianと距離恒等式](#prop-qft48-inversion)に代入した左辺は $C|x-y|^{-q}|x|^q|y|^q$、一次場則からの右辺は $C|x-y|^{-q}|x|^{2\Delta_1}|y|^{2\Delta_2}$。$C\ne0$ なので $q=2\Delta_1=2\Delta_2$ が必要です。よって両次元は一致し、$q=2\Delta_1$ です。
+**詳細解答。** 拡大縮小で $G(\lambda x,\lambda y)=\lambda^{-q}G(x,y)$ ですが、[一次場の変換則](#def-qft48-scalar-primary)から倍率は $\lambda^{-(\Delta_1+\Delta_2)}$ です。従って $q=\Delta_1+\Delta_2$ です。
+
+次に[反転のJacobianと距離恒等式](#prop-qft48-inversion)を適用します。距離の変換から計算した左辺と、一次場則からの右辺はそれぞれ
+
+$$
+\begin{aligned}
+G(Ix,Iy)&=C|x-y|^{-q}|x|^q|y|^q,\\
+G(Ix,Iy)&=C|x-y|^{-q}|x|^{2\Delta_1}|y|^{2\Delta_2}
+\end{aligned}
+$$
+
+です。$C\ne0$ で、$|x|,|y|$ を独立に変えられるので、$q=2\Delta_1=2\Delta_2$ が必要です。従って両次元は一致し、$q=2\Delta_1$ となります。
 <!-- solution-end -->
 
 ### 演習 QFT48-A5：三次元自由場の次元
@@ -471,7 +540,7 @@ $2\Delta=d-2=1$ なので $\Delta=1/2$。反転後は $|I(x)-I(y)|^{-1}=|x||y|\,
 - 問題: $d\ge3$ で $\Delta_1=1,\Delta_2=2,\Delta_3=3$ のスカラー一次場があると仮定する。$G_3=C/(r_{12}^a r_{23}^b r_{31}^c)$ の $a,b,c$ を反転の三条件から求め、拡大縮小の指数も検算せよ。$C=0$ は許されるか。
 
 <!-- solution-start -->
-**詳細解答。** 反転の各点で必要なべきは $2,4,6$ だから
+**詳細解答。** [一次場の変換則](#def-qft48-scalar-primary)で反転の各点に必要なべきは $2\Delta_1=2,2\Delta_2=4,2\Delta_3=6$ だから
 
 $$
 a+c=2,\qquad a+b=4,\qquad b+c=6.
@@ -483,21 +552,32 @@ $$
 ### 演習 QFT48-B2：二次元の赤外零モードはどこで壊れるか
 
 - Level: B
-- 問題: $d=2$ で形式的に $C_2(r)=\int_0^\infty(4\pi s)^{-1}e^{-r^2/(4s)}ds$ と置く。$r>0$ を固定したときの大きな $s$ の振る舞いを求め、$C_2(r)$ が有限にならない理由を述べよ。一方 $C_2(r)-C_2(r_0)$（$r,r_0>0$）の差が収束し、その値が $-(1/2\pi)\log(r/r_0)$ になることを導け。
+- 問題: $d=2$ で形式的に $C_2(r)=\int_0^\infty(4\pi s)^{-1}e^{-r^2/(4s)}ds$ と置く。$r>0$ を固定したときの大きな $s$ の振る舞いを求め、$C_2(r)$ が有限にならない理由を述べよ。一方、熱時間積分に共通の上限 $R$ を設けた $C_{2,R}(r)$ と $C_{2,R}(r_0)$（$r,r_0>0$）の差の極限が収束し、その値が $-(1/2\pi)\log(r/r_0)$ になることを導け。
 
 <!-- solution-start -->
-**詳細解答。** $s\to\infty$ で $e^{-r^2/(4s)}=1+O(s^{-1})$ なので被積分関数は $(4\pi s)^{-1}+O(s^{-2})$ です。従って $\int_1^\infty ds/s$ が対数発散し、個々の $C_2(r)$ は有限ではありません。差を取ると先頭の $1/s$ が消え、
+**詳細解答。** $s\to\infty$ で $e^{-r^2/(4s)}=1+O(s^{-1})$ なので被積分関数は $(4\pi s)^{-1}+O(s^{-2})$ です。従って $\int_1^\infty ds/s$ が対数発散し、個々の $C_2(r)$ は有限ではありません。発散量どうしを直接引くのではなく、共通の上限 $R$ で正則化します。
 
 $$
-C_2(r)-C_2(r_0)
-=\frac1{4\pi}\int_0^\infty
-\frac{e^{-r^2/(4s)}-e^{-r_0^2/(4s)}}s\,ds.
+C_{2,R}(r)=\frac1{4\pi}\int_0^R\frac{e^{-r^2/(4s)}}s\,ds.
 $$
+
+二つの $C_{2,R}$ の差を取り、$R\to\infty$ とします。差の被積分関数は $s\to\infty$ で $O(s^{-2})$、$s\downarrow0$ では $r,r_0>0$ により指数減衰するため、
+
+$$
+\begin{aligned}
+\Delta C_2(r,r_0)
+&=\lim_{R\to\infty}\{C_{2,R}(r)-C_{2,R}(r_0)\}\\
+&=\frac1{4\pi}\int_0^\infty
+\frac{e^{-r^2/(4s)}-e^{-r_0^2/(4s)}}s\,ds
+\end{aligned}
+$$
+
+は収束します。
 
 $u=1/s$ とすれば $\int_0^\infty (e^{-au}-e^{-bu})du/u=\log(b/a)$（$a,b>0$）。これは $a$ で微分すると $-1/a$、$a=b$ で零という条件から確かめられます。$a=r^2/4,b=r_0^2/4$ を代入して
 
 $$
-C_2(r)-C_2(r_0)=\frac1{4\pi}\log\frac{r_0^2}{r^2}
+\Delta C_2(r,r_0)=\frac1{4\pi}\log\frac{r_0^2}{r^2}
 =-\frac1{2\pi}\log\frac r{r_0}.
 $$
 
@@ -507,7 +587,7 @@ $$
 ### 演習 QFT48-B3：質量はなぜ共形距離則を壊すか
 
 - Level: B
-- 問題: $m>0$ のEuclid自由場の二点核 $C_m(x)=\int d^dp/(2\pi)^d\,e^{ip\cdot x}/(|p|^2+m^2)$（分布の意味）について、$C_m(\lambda x)=\lambda^{2-d}C_{\lambda m}(x)$ を示せ。固定した $m$ における $C_m(\lambda x)=\lambda^{2-d}C_m(x)$ が一般には成り立たない理由を説明せよ。
+- 問題: $m>0$ のEuclid自由場の二点核 $C_m(x)=\int d^dp/(2\pi)^d\,e^{ip\cdot x}/(|p|^2+m^2)$（分布の意味）について、$\lambda>0$ に対し $C_m(\lambda x)=\lambda^{2-d}C_{\lambda m}(x)$ を示せ。固定した $m$ における $C_m(\lambda x)=\lambda^{2-d}C_m(x)$ が一般には成り立たない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $k=\lambda p$ と変数変換すると $d^dp=\lambda^{-d}d^dk$、分母は $|p|^2+m^2=\lambda^{-2}(|k|^2+\lambda^2m^2)$ です。よって
