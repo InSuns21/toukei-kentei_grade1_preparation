@@ -1,4 +1,4 @@
-// Real Chromium WebGL2 smoke for the GEOD globe. The test blocks OSM traffic:
+// Real Chromium WebGL2 smoke for the GEOD globe. The test blocks external tiles:
 // CI must never fetch/prefetch external tiles merely to assert our rendering.
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
@@ -98,7 +98,9 @@ try {
   await cdp('Runtime.enable');
   await cdp('Page.enable');
   await cdp('Network.enable');
-  await cdp('Network.setBlockedURLs', { urls: ['*tile.openstreetmap.org/*'] });
+  await cdp('Network.setBlockedURLs', { urls: [
+    '*tile.openstreetmap.org/*', '*cyberjapandata.gsi.go.jp/xyz/std/*',
+  ] });
   await cdp('Page.navigate', { url });
   await waitFor('document.querySelector("#geod-status")?.textContent.includes("計算済み")');
   assert.deepEqual(exceptions, [], 'GEOD browser runtime exception');
@@ -185,7 +187,22 @@ try {
   await evalJS(`document.querySelector('#e-right').value='mollweide';
     document.querySelector('#e-right').dispatchEvent(new Event('input'))`);
   assert.ok(await evalJS('document.querySelector("#e-right-title").textContent.includes("Mollweide")'));
-  await evalJS(`document.querySelector('[data-lab="F"]').click()`);
+  await evalJS(`document.querySelector('#show-world').checked=true;
+    document.querySelector('#show-world').dispatchEvent(new Event('change'));
+    document.querySelector('[data-lab="F"]').click()`);
+  assert.equal(await evalJS('document.querySelector("#globe-zoom").value'), '4');
+  assert.equal(await evalJS('document.querySelector("#globe-zoom").max'), '12');
+  assert.equal(await evalJS('document.querySelector("#gsi-credit").hidden'), false);
+  const japanZoom = await evalJS(`(() => {
+    document.querySelector('#globe-zoom').value='12';
+    document.querySelector('#globe-zoom').dispatchEvent(new Event('input'));
+    const gl = document.querySelector('#globe').getContext('webgl2');
+    return { text:document.querySelector('#globe-zoom-v').textContent,
+      status:document.querySelector('#tile-status').textContent, error:gl.getError() };
+  })()`);
+  assert.equal(japanZoom.text, '1200%');
+  assert.match(japanZoom.status, /地理院標準地図.*XYZズーム8/);
+  assert.equal(japanZoom.error, 0, JSON.stringify(japanZoom));
   assert.equal(await evalJS('document.querySelector("#f-zone option").value'), '1');
   assert.equal(await evalJS('document.querySelectorAll("#f-zone option").length'), 19);
   assert.equal(await evalJS('document.querySelector("#globe-point-zone-wrap").hidden'), false);
@@ -222,7 +239,7 @@ try {
   })()`);
   assert.ok(mobileLayout.globe / mobileLayout.region >= .98,
     '3D globe must remain full-width at 360px: ' + JSON.stringify(mobileLayout));
-  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, global/Japan projection, zoom, 360px: PASS');
+  console.log('GEOD WebGL2: shading, globe-adjacent coordinates, full-width, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {

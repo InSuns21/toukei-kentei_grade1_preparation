@@ -20,12 +20,13 @@ class NodeElement {
   }
 }
 
-const calls = { draws: [], textureUploads: 0, modes: [] };
+const calls = { draws: [], textureUploads: 0, modes: [], blends: [], depthWrites: [] };
 let shaderId = 0, programId = 0;
 const gpu = new Proxy({
   TRIANGLES: 4, LINES: 1, POINTS: 0, VERTEX_SHADER: 35633, FRAGMENT_SHADER: 35632,
   COMPILE_STATUS: 35713, LINK_STATUS: 35714, ARRAY_BUFFER: 34962,
   DYNAMIC_DRAW: 35048, FLOAT: 5126, DEPTH_TEST: 2929, LESS: 513,
+  BLEND: 3042, SRC_ALPHA: 770, ONE_MINUS_SRC_ALPHA: 771,
   COLOR_BUFFER_BIT: 16384, DEPTH_BUFFER_BIT: 256,
   TEXTURE_2D: 3553, TEXTURE0: 33984, RGBA: 6408, UNSIGNED_BYTE: 5121,
   UNPACK_FLIP_Y_WEBGL: 37440, TEXTURE_WRAP_S: 10242, TEXTURE_WRAP_T: 10243,
@@ -39,6 +40,8 @@ const gpu = new Proxy({
     attribute === 'position' ? 0 : attribute === 'uv' ? 1 : 2,
   getUniformLocation: (program, uniform) => uniform,
   texImage2D: () => calls.textureUploads++,
+  blendFunc: (...args) => calls.blends.push(args),
+  depthMask: value => calls.depthWrites.push(value),
   drawArrays: (mode, first, count) => calls.draws.push({ mode, count }),
   uniform1i: (uniform, value) => {
     if (uniform === 'showMap') calls.modes.push(value);
@@ -62,7 +65,7 @@ const values = {
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
 for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
-  'osm-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
+  'osm-credit', 'gsi-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
   'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
@@ -149,4 +152,36 @@ test('near-globe location controls update both the A input and the WebGL view', 
   assert.equal(elements.get('a-lon').value, '2.3522');
   assert.ok(calls.draws.length > draws);
   assert.ok(requested.length >= initial);
+});
+
+test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
+  const before = requested.length;
+  buttons[4].handlers.click();
+  assert.equal(elements.get('globe-zoom').max, '12');
+  assert.equal(elements.get('globe-zoom').value, '4');
+  assert.equal(elements.get('globe-point-zone-wrap').hidden, false);
+  const japanTiles = requested.slice(before).filter(item =>
+    item.url.startsWith('https://cyberjapandata.gsi.go.jp/xyz/std/'));
+  assert.equal(japanTiles.length, 16, 'only a 4×4 Japanese viewport is fetched');
+  assert.ok(japanTiles.every(item => /\/6\/\d+\/\d+\.png$/.test(item.url)));
+  assert.equal(elements.get('gsi-credit').hidden, false);
+  const uploads = calls.textureUploads, draws = calls.draws.length;
+  japanTiles[0].image.onload();
+  assert.equal(calls.textureUploads, uploads + 1);
+  assert.ok(calls.draws.length > draws, 'loaded detailed tile is rendered on ellipsoid');
+  assert.deepEqual(calls.blends.at(-1), [gpu.SRC_ALPHA, gpu.ONE_MINUS_SRC_ALPHA]);
+  assert.deepEqual(calls.depthWrites.slice(-2), [false, true], 'transparent parts preserve base globe');
+  assert.match(elements.get('tile-status').textContent, /地理院標準地図.*1\/16枚表示/);
+
+  elements.get('globe-zoom').value = '12';
+  elements.get('globe-zoom').handlers.input();
+  assert.equal(elements.get('globe-zoom-v').textContent, '1200%');
+  const fine = requested.filter(item => /\/std\/8\/\d+\/\d+\.png$/.test(item.url));
+  assert.equal(fine.length, 16, 'z8 imagery is requested only for focus window');
+  elements.get('show-world').checked = false;
+  elements.get('show-world').handlers.change();
+  assert.equal(elements.get('gsi-credit').hidden, true);
+  buttons[0].handlers.click();
+  assert.equal(elements.get('globe-zoom').max, '2.4');
+  assert.equal(elements.get('globe-zoom').value, '1');
 });
