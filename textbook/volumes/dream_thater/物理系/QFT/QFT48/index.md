@@ -44,7 +44,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft48-massless-schwinger -->
-**定義の直接確認。** 任意のSchwartz試験関数 $f$ に対し、原点近傍では $d^dp$ の体積要素が $r^{d-1}dr$ を含むので、重み $1/r^2$ の積分は $\int_0^1r^{d-3}dr=1/(d-2)$ と有限です。無限大では $\widehat f(p)$ がどのべきよりも速く減衰します。したがって $\int |p|^{-2}\widehat f(p)\,d^dp$ は定まり、上の二点分布の意味が確定します。点ごとの積分が絶対収束すると主張しているわけではありません。
+**定義の確認** 任意のSchwartz試験関数 $f$ に対し、原点近傍では $d^dp$ の体積要素が $r^{d-1}dr$ を含むので、重み $1/r^2$ の積分は $\int_0^1r^{d-3}dr=1/(d-2)$ と有限です。無限大では $\widehat f(p)$ がどのべきよりも速く減衰します。したがって $\int |p|^{-2}\widehat f(p)\,d^dp$ は定まり、上の二点分布の意味が確定します。点ごとの積分が絶対収束すると主張しているわけではありません。
 <!-- definition-example-end -->
 
 <a id="thm-qft48-massless-kernel"></a>
@@ -134,7 +134,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft48-conformal-map -->
-**定義の直接例。** $f(x)=a+\lambda Rx$（$a\in\mathbb R^d$、$\lambda>0$、$R^TR=I$）では $Df=\lambda R$ なので $Df^TDf=\lambda^2R^TR=\lambda^2I$。したがって $\Omega_f=\lambda$ であり、各方向の長さ・二ベクトル間の角度も所定の条件を満たします。$R$ が直交行列なので $f^{-1}(y)=\lambda^{-1}R^T(y-a)$ が存在して滑らかであり、逆写像の条件も確認できました。
+**定義の確認** $f(x)=a+\lambda Rx$（$a\in\mathbb R^d$、$\lambda>0$、$R^TR=I$）では $Df=\lambda R$ なので $Df^TDf=\lambda^2R^TR=\lambda^2I$。したがって $\Omega_f=\lambda$ であり、各方向の長さ・二ベクトル間の角度も所定の条件を満たします。$R$ が直交行列なので $f^{-1}(y)=\lambda^{-1}R^T(y-a)$ が存在して滑らかであり、逆写像の条件も確認できました。
 <!-- definition-example-end -->
 
 一定の倍率ではない重要な例が原点を避けた**反転**です。
@@ -225,7 +225,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft48-scalar-primary -->
-**定義の直接確認。** まず $f(x)=\lambda x$ なら $\Omega_f=\lambda$ なので、二つの次元 $\Delta$ の場の相関関数は $\lambda^{-2\Delta}$ 倍です。第1節の $S_2(\lambda x,\lambda y)=\lambda^{-(d-2)}S_2(x,y)$ と突き合わせると自由質量零スカラー場の**二点関数について** $\Delta_\phi=(d-2)/2$ と整合します。反転でも
+**定義の確認** まず $f(x)=\lambda x$ なら $\Omega_f=\lambda$ なので、二つの次元 $\Delta$ の場の相関関数は $\lambda^{-2\Delta}$ 倍です。第1節の $S_2(\lambda x,\lambda y)=\lambda^{-(d-2)}S_2(x,y)$ と突き合わせると自由質量零スカラー場の**二点関数について** $\Delta_\phi=(d-2)/2$ と整合します。反転でも
 
 $$
 C_d(I(x)-I(y))
@@ -364,7 +364,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft48-conformal-cross-ratios -->
-**定義の直接例。** $x_1=0$、$x_2=e_1$、$x_3=2e_1$、$x_4=3e_1$ とすると $(r_{12},r_{34},r_{13},r_{24},r_{14},r_{23})=(1,1,2,2,3,1)$ なので $u=1/16$、$v=9/16$ です。拡大縮小で距離の倍率が打ち消し合い、反転でも各点の $|x_i|$ の指数が分子・分母で相殺します（反転を検査するときは全点を平行移動して原点から離します）。四点関数の $u,v$ への依存は対称性だけでは一意に定まらず、後で演算子積展開やcrossingを使う動機になります。
+**定義の確認** $x_1=0$、$x_2=e_1$、$x_3=2e_1$、$x_4=3e_1$ とすると $(r_{12},r_{34},r_{13},r_{24},r_{14},r_{23})=(1,1,2,2,3,1)$ なので $u=1/16$、$v=9/16$ です。拡大縮小で距離の倍率が打ち消し合い、反転でも各点の $|x_i|$ の指数が分子・分母で相殺します（反転を検査するときは全点を平行移動して原点から離します）。四点関数の $u,v$ への依存は対称性だけでは一意に定まらず、後で演算子積展開やcrossingを使う動機になります。
 <!-- definition-example-end -->
 
 ## 5. 共形的な形と、物理的な相関関数の成立条件
