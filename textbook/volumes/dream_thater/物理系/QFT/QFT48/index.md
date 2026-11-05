@@ -6,7 +6,15 @@
 
 ここからの問いは、**座標の角度だけでなく局所的な長さの倍率を変えても理論の形が保たれるとき、相関関数はどこまで決まるか**です。まず自由な質量零スカラー場を手で計算し、局所的な倍率をもつ共形写像、一次場の変換則、二点・三点関数の制約へ進みます。
 
-この章ではEuclid空間 $\mathbb R^d$、整数 $d\ge3$、座標 $x=(\tau,\boldsymbol x)$、標準内積 $x\cdot y$、距離 $r_{ij}=|x_i-x_j|$ を使います。時間反射は $\theta(\tau,\boldsymbol x)=(-\tau,\boldsymbol x)$ です。後で実時間へ戻るときは [Lorentz符号規約](../../../../../dream-theater-lorentz-conventions.md) の $(-,+,+,+)$ に従いますが、**Euclid計算の内積をMinkowski内積と同一視しません**。以下の $x_i$ は断らない限り互いに異なる点であり、接触項や同一点での積は別途正則化を必要とします。
+この章の舞台は整数 $d\ge3$ のEuclid空間 $\mathbb R^d$ です。座標、二点間距離、時間反射を次のように固定します。
+
+$$
+x=(\tau,\boldsymbol x),\qquad
+r_{ij}=|x_i-x_j|,\qquad
+\theta(\tau,\boldsymbol x)=(-\tau,\boldsymbol x).
+$$
+
+内積はEuclidの標準内積です。実時間へ戻るときは [Lorentz符号規約](../../../../../dream-theater-lorentz-conventions.md) の $(-,+,+,+)$ に従いますが、**Euclid計算の内積をMinkowski内積と同一視しません**。以下の点は断らない限り互いに異なるものとし、接触項や同一点での積は別途正則化を必要とします。
 
 ## 1. 自由場のEuclid二点関数を、尺度のある模型から尺度のない模型へ
 
