@@ -1,0 +1,69 @@
+chapter: QFT46
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT20, QFT28, QFT39, QFT41, QFT42]
+forward_references: []
+
+concepts:
+  - id: qft.lattice-plaquette-continuum
+    name: 格子plaquetteとWilson作用の連続接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（格子plaquetteとWilson作用の連続接続）]
+    requires: [qft.qcd-lattice-wilson-action, qft.yang-mills-curvature]
+
+  - id: qft.wilson-smooth-continuum
+    name: Wilson作用の滑らかな連続場展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Wilson作用の滑らかな連続場展開）]
+    requires: [qft.lattice-plaquette-continuum]
+
+  - id: qft.u1-geometric-charge
+    name: 二次元U(1)格子の主値トポロジカル電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二次元U(1)格子の主値トポロジカル電荷）]
+    requires: [qft.lattice-plaquette-continuum]
+
+  - id: qft.u1-integer-charge
+    name: 周期U(1)格子の整数電荷と局所安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（周期U(1)格子の整数電荷と局所安定性）]
+    requires: [qft.u1-geometric-charge]
+
+  - id: qft.euclidean-dual-charge
+    name: 四次元の双対曲率とトポロジカル電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四次元の双対曲率とトポロジカル電荷）]
+    requires: [qft.yang-mills-curvature, qft.yang-mills-action]
+
+  - id: qft.self-dual-action-bound
+    name: 四次元Euclid Yang–Mills作用の自己双対下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四次元Euclid Yang–Mills作用の自己双対下界）]
+    requires: [qft.euclidean-dual-charge]
+
+  - id: qft.bpst-charge-action
+    name: BPST解の電荷と作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（BPST解の電荷と作用）]
+    requires: [qft.self-dual-action-bound]
+
+  - id: qft.theta-partition-susceptibility
+    name: θ分配関数とトポロジカル感受率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（θ分配関数とトポロジカル感受率）]
+    requires: [qft.u1-integer-charge, qft.euclidean-dual-charge]
+
+  - id: qft.theta-charge-cumulants
+    name: θ微分と電荷の揺らぎ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（θ微分と電荷の揺らぎ）]
+    requires: [qft.theta-partition-susceptibility]

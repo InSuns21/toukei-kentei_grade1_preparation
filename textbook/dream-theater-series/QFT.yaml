@@ -187,3 +187,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT45
     status: completed
     title: "自発的対称性の破れの量子補正・Higgs質量と調整問題"
+  - id: QFT46
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT46
+    status: completed
+    title: "非摂動ゲージ場の格子・インスタントン・トポロジカル電荷とθ項"

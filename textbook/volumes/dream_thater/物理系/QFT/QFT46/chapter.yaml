@@ -1,0 +1,41 @@
+id: QFT46
+title: "非摂動ゲージ場の格子・インスタントン・トポロジカル電荷とθ項"
+volume: foundations
+status: supplementary
+prerequisites: [QFT20, QFT28, QFT39, QFT41, QFT42]
+official_scope: []
+learning_objectives:
+  - 有限格子のリンク・plaquette・Wilson作用からゲージ不変性と滑らかな場での連続極限の先頭係数を確認できる
+  - 二次元周期U(1)格子で主値plaquette角の和が整数になることと、枝切りを横断すると整数が変化することを証明できる
+  - 四次元Euclidゲージ場の双対曲率・トポロジカル電荷を規格化し、Yang–Mills作用の自己双対下界を導出できる
+  - SU(2) BPSTインスタントンの曲率と積分を検算し、作用と電荷を導出できる
+  - θ項の分配関数とtopological susceptibilityを整数セクターから導き、符号問題と未証明の連続極限を説明できる
+definitions:
+  - { id: QFT46-DEF-01, name: 格子plaquetteとWilson作用の連続接続 }
+  - { id: QFT46-DEF-02, name: 二次元U(1)格子の主値トポロジカル電荷 }
+  - { id: QFT46-DEF-03, name: 四次元の双対曲率とトポロジカル電荷 }
+  - { id: QFT46-DEF-04, name: θ分配関数とトポロジカル感受率 }
+theorems:
+  - { id: QFT46-PROP-01, name: Wilson作用の滑らかな連続場展開 }
+  - { id: QFT46-THM-01, name: 周期U(1)格子の整数電荷と局所安定性 }
+  - { id: QFT46-THM-02, name: 四次元Euclid Yang–Mills作用の自己双対下界 }
+  - { id: QFT46-PROP-02, name: BPST解の電荷と作用 }
+  - { id: QFT46-PROP-03, name: θ微分と電荷の揺らぎ }
+canonical_examples:
+  - 単一plaquetteのSU(2)跡と連続展開
+  - 2×2周期U(1)格子の一様な単位磁束
+  - 二つの曲率成分だけを持つ反例
+  - BPSTの半径積分
+  - 二つの整数セクターのθ重み
+problem_patterns:
+  - QFT46-SU2-PLAQUETTE
+  - QFT46-U1-ZERO-FLUX
+  - QFT46-U1-INTEGER-FLUX
+  - QFT46-DUAL-COMPONENTS
+  - QFT46-ACTION-BOUND
+  - QFT46-BRANCH-CROSSING
+  - QFT46-BPST-RADIAL
+  - QFT46-THETA-CUMULANTS
+  - QFT46-CONTINUUM-CAVEAT
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 16, review: 7 }
