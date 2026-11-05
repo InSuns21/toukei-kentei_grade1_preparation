@@ -6,11 +6,15 @@ QFT53では自由bosonと自由Majoranaの二点関数から四点相関を作�
 
 舞台は二次元Euclid平面の正則部分です。正則座標を $z$ とし、互いに異なる挿入点を扱います。自由bosonの電流 $a(z)$ はウェイト $h=1$、二点関数 $\langle a(z)a(w)\rangle=(z-w)^{-2}$、応力テンソル $t=\tfrac12:\!a^2\!:$、中心電荷 $c=1$ という [QFT51の規格化](../QFT51/index.md#def-qft51-wick-stress) に従います。[QFT53の四点Wick対合](../QFT53/index.md#prop-qft53-four-point) と [QFT52の放射量子化](../QFT52/index.md#def-qft52-radial-state) を既習とします。一般の局所場では反正則部分も必要であり、正則部分だけの解析接続を完全な局所理論と同一視しません。
 
+以降 $\partial=\partial_z$ は $\bar z$ を固定した[正則方向のWirtinger微分](../QFT50/index.md#def-qft50-wirtinger)で、$\partial^n\mathcal O(w)=\partial_w^n\mathcal O(w)$ と書きます。$s=z-w$ は二挿入点の複素変位です。$O(s^k)$ は他の挿入点を衝突させず固定した相関関数内での、$s\to0$ の剰余を表します。
+
 ## 1. 近い二点を展開するOPE
 
 普通のTaylor展開は $a(z)a(w)$ のように $z\to w$ で発散する場の積には直接使えません。まず二点収縮の特異な $1/(z-w)^2$ を分離してから残りを展開します。この局所的な分解が演算子積展開（OPE）です。
 
 位置 $w$ を中心とする円内に他の挿入点がなく、$z$ がその円内にある場合を考えます。相関関数内で場の積を $w$ の局所場と導関数の和に展開します。ただし一般のOPEが収束するか、形式的な漸近展開なのかは、状態空間と理論の仮定によって決まります。
+
+以下の $p$ は展開に現れる局所場の種類、$n\in\mathbb N_0$ はその正則方向の微分の階数、$C_{AB}^{p,n}$ は展開係数を表します。ウェイトを合わせると各項の $(z-w)$ の指数は $h_p+n-h_A-h_B$ です。
 
 <a id="def-qft54-ope"></a>
 
@@ -20,7 +24,7 @@ QFT53では自由bosonと自由Majoranaの二点関数から四点相関を作�
 >
 $$
 \langle A(z)B(w)\mathcal X\rangle
-=\sum_{p,n\ge0}C_{AB}^{p,n}(z-w)^{h_p-h_A-h_B+n}
+=\sum_p\sum_{n\ge0}C_{AB}^{p,n}(z-w)^{h_p-h_A-h_B+n}
 \langle\partial^n\mathcal O_p(w)\mathcal X\rangle
 $$
 >
@@ -70,12 +74,32 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-qft54-ope -->
-**定義の確認**：単位演算子 $\mathbf1$ はウェイト0なので $s^{0-1-1}=s^{-2}$、応力テンソルはウェイト2なので $s^{2-1-1}=s^0$、その微分は $s^1$ に現れます。さらに $u,v$ を $w$ から離して固定し、$B(u,v)=(u-v)^{-2}$ と書けばWick則の二つの交差対合は $s\to0$ でそれぞれ $B(w,u)B(w,v)$ になります。その和 $2B(w,u)B(w,v)$ は $\langle2t(w)a(u)a(v)\rangle$ と一致し、相関関数内での定数項を直接検証しました。なお無限和を勝手に作用素ノルム収束と読むことはできません。
+**定義の確認**：単位演算子 $\mathbf1$ はウェイト0なので $s^{0-1-1}=s^{-2}$、応力テンソルはウェイト2なので $s^{2-1-1}=s^0$、その微分は $s^1$ に現れます。さらに $u,v$ を $w$ から離して固定し、$B(u,v)=(u-v)^{-2}$ と書きます。[QFT53のWick対合](../QFT53/index.md#prop-qft53-four-point)の二つの交差項は
+
+$$
+B(w+s,u)B(w,v)+B(w+s,v)B(w,u)
+\xrightarrow[s\to0]{}2B(w,u)B(w,v).
+$$
+
+これは[点分離正規順序](../QFT51/index.md#def-qft51-wick-stress)から計算した $\langle2t(w)a(u)a(v)\rangle$ と一致します。したがって相関関数内の特異項・定数項をともに確認できました。なお無限和を勝手に作用素ノルム収束と読むことはできません。
 <!-- definition-example-end -->
 
 ## 2. 四点関数の変数と二つのチャネル
 
-[QFT48の交差比](../QFT48/index.md#def-qft48-conformal-cross-ratios) により、四点のうち三点を $0,1,\infty$ に固定できます。正則一次場 $\phi$ の無限遠挿入は、ウェイト $h$ に対して $\phi(\infty)=\lim_{R\to\infty}R^{2h}\phi(R)$ と規格化します。
+[QFT48の実Euclid交差比](../QFT48/index.md#def-qft48-conformal-cross-ratios)は距離の二乗で定義されました。二次元の**正則**四点では、まず $z_{ij}=z_i-z_j$ と置き、複素交差比
+
+$$
+\chi=\frac{z_{12}z_{34}}{z_{13}z_{24}}
+$$
+
+を使います。[CA6で定義したMöbius変換](../../../解析系/CA/CA6/index.md#def-ca6-mobius-transformation) $f(z)=(az+b)/(cz+d)$（$ad-bc\ne0$）では
+
+$$
+f(z_i)-f(z_j)
+=\frac{(ad-bc)z_{ij}}{(cz_i+d)(cz_j+d)}
+$$
+
+となるため、四つの点に依存する倍率が分子・分母で消え、$\chi$ は不変です。この変換で相異なる三点を $0,1,\infty$ に送れます。QFT48の実距離交差比との対応は $u=|\chi|^2$、$v=|1-\chi|^2$ ですが、**$d\ge3$ の定理を正則場へそのまま適用しているわけではありません**。正則一次場 $\phi$ の無限遠挿入は、ウェイト $h$ に対して $\phi(\infty)=\lim_{R\to\infty}R^{2h}\phi(R)$ と規格化します（実配置では $R\to+\infty$ とし、複素配置では冪の枝を固定します）。
 
 <a id="def-qft54-reduced-four-point"></a>
 
@@ -112,12 +136,28 @@ $$
 最初の1は $a(x)a(0)$ の単位OPE項に対応し、次の係数は応力テンソルなどの局所場に対応します。反対に $x\to1$ では $(1-x)^{-2}$ が特異項です。同じ四点を二通りの近接関係から展開するのが、この章の中心課題です。
 
 <!-- definition-example-start: def-qft54-reduced-four-point -->
-**定義の確認**：四点 $z_1=0,z_2=x,z_3=1,z_4=R$ の交差比 $z_{12}z_{34}/(z_{13}z_{24})$ は $x(R-1)/(R-x)\to x$ です。自由電流では無限遠の係数 $R^{2h}=R^2$ を掛けることで三対合が有限な $x^{-2},1,(1-x)^{-2}$ に移ります。$x\to0$ で前者が支配的、$x\to1$ で最後が支配的なので、二つのチャネルのどの二点が近いかも実際に判定できます。
+**定義の確認**：四点 $z_1=0,z_2=x,z_3=1,z_4=R$ に上の差 $z_{ij}$ を代入すると
+
+$$
+\chi=\frac{(-x)(1-R)}{(-1)(x-R)}
+=\frac{x(R-1)}{R-x}\xrightarrow[R\to\infty]{}x.
+$$
+
+自由電流では無限遠の係数 $R^{2h}=R^2$ を掛けることで三対合が有限な $x^{-2},1,(1-x)^{-2}$ に移ります。$x\to0$ で前者が支配的、$x\to1$ で最後が支配的なので、二つのチャネルのどの二点が近いかも実際に判定できます。
 <!-- definition-example-end -->
 
 ## 3. 微分子孫を束ねる大域共形ブロック
 
-[QFT52の一次場と子孫](../QFT52/index.md#def-qft52-primary-descendant) では、$L_{-1}$ が $z$ 方向の導関数を作りました。大域共形代数 $L_{-1},L_0,L_1$ だけを使い、一つの一次場 $\mathcal O_p$ とその全微分 $\partial^n\mathcal O_p$ の寄与をまとめたものが**大域共形ブロック**です。$L_{-2}$ なども含むVirasoroブロックとは異なります。
+[QFT52の一次場と子孫](../QFT52/index.md#def-qft52-primary-descendant) では、$L_{-1}$ が $z$ 方向の導関数を作りました。ここではそのうち**大域共形代数** $L_{-1},L_0,L_1$ だけを使います。$L_0|p\rangle=h_p|p\rangle$ と $L_1|p\rangle=0$ を満たす場を「大域一次場（準一次場）」と呼び、その全微分 $L_{-1}^n|p\rangle$ をまとめたものが**大域共形ブロック**です。これはすべての正モードで消えるVirasoro一次場より弱い条件で、$L_{-2}$ なども含むVirasoroブロックとは異なります。
+
+例えば $t$ の状態は $|t\rangle=L_{-2}|0\rangle$ です。[Virasoro交換子](../QFT51/index.md#thm-qft51-virasoro)と[真空の $L_{-1}$ 消滅](../QFT52/index.md#prop-qft52-sugawara-levels)から
+
+$$
+L_1|t\rangle=[L_1,L_{-2}]|0\rangle
+=3L_{-1}|0\rangle=0
+$$
+
+となり、$t$ はウェイト2の大域一次場です。しかし中心電荷が非零なら $L_2|t\rangle=c|0\rangle/2\ne0$ で、Virasoro一次場とは限りません。この違いが後のウェイト4の別の大域族を理解する鍵です。
 
 ウェイト $h_p>0$ の一次場 $\mathcal O_p$ を二点関数 $\langle\mathcal O_p(\infty)\mathcal O_p(0)\rangle=1$ で規格化します。三点関数の係数を $C_{\phi\phi p}=\langle\phi(\infty)\phi(1)\mathcal O_p(0)\rangle$ とします。ウェイトが縮退する場合は二点内積で直交する基底を選びます。
 
@@ -125,7 +165,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正則大域共形ブロック）**  
-> ウェイト $h_p>0$ の正則大域一次場とその微分子孫の、縮約四点関数への単位規格化寄与を
+> $L_0|p\rangle=h_p|p\rangle$、$L_1|p\rangle=0$ を満たすウェイト $h_p>0$ の正則大域一次場とその微分子孫の、縮約四点関数への単位規格化寄与を
 >
 $$
 g_{h_p}(x)=x^{h_p}\sum_{n=0}^{\infty}
@@ -137,7 +177,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft54-global-block -->
-**定義の確認**：ウェイト $h_p=2$ を代入し、最初の三つのPochhammer係数をそれぞれ計算します。
+**定義の確認**：自由電流の $t$ は上で $L_1|t\rangle=0$ と確認しました。[Virasoro交換子](../QFT51/index.md#thm-qft51-virasoro)と真空条件から
+
+$$
+L_0|t\rangle=[L_0,L_{-2}]|0\rangle=2L_{-2}|0\rangle=2|t\rangle.
+$$
+
+[QFT51の中心電荷付きOPE](../QFT51/index.md#def-qft51-stress-ope)で二点ノルムは $\langle t|t\rangle=c/2=1/2>0$ なので、$\sqrt2|t\rangle$ が規格化されたウェイト2の大域一次状態です。この $h_p=2$ を代入し、最初の三つのPochhammer係数を計算します。
 
 $$
 g_2(x)
@@ -153,7 +199,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（大域子孫の状態和）**  
-> 規格化 $\langle\phi(\infty)\phi(0)\rangle=1$ の同一boson一次場の四点が、放射量子化において正ノルムの大域一次場 $\mathcal O_p$ とその微分子孫に分解でき、$|x|<1$ で状態和が収束するとする。二点内積で直交規格化された各一次場について
+> 大域Möbius変換に不変な球面真空を持ち、規格化 $\langle\phi(\infty)\phi(0)\rangle=1$ の同一boson一次場の四点が、放射量子化において $L_n^\dagger=L_{-n}$ の随伴性を持つ正値内積の下で、正ノルムの大域一次場 $\mathcal O_p$ とその微分子孫に分解でき、$|x|<1$ で状態和が収束するとする。二点内積で直交規格化された各一次場について
 >
 $$
 \mathcal G(x)=1+\sum_{p:h_p>0}C_{\phi\phi p}^{\,2}
@@ -170,7 +216,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QFT51のVirasoro交換子](../QFT51/index.md#thm-qft51-virasoro) で $m=1,n=-1$ を取れば中心項は零で、
+[QFT52の動径反射による随伴規約](../QFT52/index.md#thm-qft52-level-gram)に合わせ $L_{-1}^\dagger=L_1$ とします。[QFT51のVirasoro交換子](../QFT51/index.md#thm-qft51-virasoro) で $m=1,n=-1$ を取れば中心項は零で、
 $[L_1,L_{-1}]=2L_0$、$[L_0,L_{-1}]=L_{-1}$ です。$L_1|p\rangle=0$、$L_0|p\rangle=h_p|p\rangle$ を用いて積の交換子を展開すると
 
 $$
@@ -188,14 +234,45 @@ $$
 N_n=n!(2h_p)_n.
 $$
 
-[QFT48の一次場三点関数](../QFT48/index.md#thm-qft48-primary-three-point) に外部ウェイト $(h,h)$ と中間ウェイト $h_p$ を代入し、位置を $(\infty,1,y)$ とすると
+[QFT48のスカラー三点関数定理](../QFT48/index.md#thm-qft48-primary-three-point)は $d\ge3$ の実距離による主張なので、ここで二次元正則三点関数に直接適用しません。[QFT50の二次元一次場の変換則](../QFT50/index.md#def-qft50-weights)から、三点の正則部分 $H(z_1,z_2,z_3)$ に並進・拡大縮小・特別共形変換のWard作用を課すと
 
 $$
+\sum_i\partial_{z_i}H=0,\quad
+\sum_i(z_i\partial_{z_i}+h_i)H=0,\quad
+\sum_i(z_i^2\partial_{z_i}+2h_i z_i)H=0.
+$$
+
+相異なる三点では大域Möbius変換で配置を標準位置へ移せるため、相関関数の位置依存性はこの連立式で定数倍まで決まります。$H=C_{123}z_{12}^{-\alpha_{12}}z_{13}^{-\alpha_{13}}z_{23}^{-\alpha_{23}}$ と置き、各挿入点でのウェイトを比較すると
+
+$$
+\alpha_{12}+\alpha_{13}=2h_1,\quad
+\alpha_{12}+\alpha_{23}=2h_2,\quad
+\alpha_{13}+\alpha_{23}=2h_3,
+$$
+
+ゆえに $\alpha_{ij}=h_i+h_j-h_k$（$\{i,j,k\}=\{1,2,3\}$）です。枝を固定し、$(h_1,h_2,h_3)=(h,h,h_p)$ と $(z_1,z_2,z_3)=(R,1,y)$ を代入してから $R\to+\infty$ を取れば
+
+$$
+\begin{aligned}
 \langle\phi(\infty)\phi(1)\mathcal O_p(y)\rangle
-=C_{\phi\phi p}(1-y)^{-h_p}.
+&=\lim_{R\to\infty}R^{2h}C_{\phi\phi p}
+(R-1)^{-(2h-h_p)}(R-y)^{-h_p}(1-y)^{-h_p}\\
+&=C_{\phi\phi p}(1-y)^{-h_p}.
+\end{aligned}
 $$
 
-$y=0$ で $n$ 回微分した値は $(h_p)_n C_{\phi\phi p}$。もう一方の三点重なりにも同じ係数が現れるので、正規直交化された子孫の寄与は
+$y=0$ で $n$ 回微分した値は $(h_p)_n C_{\phi\phi p}$ です。もう一方の重なりは、[QFT52の一次場モード作用](../QFT52/index.md#thm-qft52-primary-modes)で $L_1$ を挿入点 $x$ に作用させて確かめます。$[L_1,\phi(x)]=(x^2\partial_x+2hx)\phi(x)$、$[L_1,\phi(0)]=0$、$L_1|0\rangle=0$ なので、$D_x=x^2\partial_x+2hx$ と置けば
+
+$$
+\begin{aligned}
+\langle p|L_1^n\phi(x)\phi(0)|0\rangle
+&=D_x^n\langle p|\phi(x)\phi(0)|0\rangle\\
+&=C_{\phi\phi p}D_x^n x^{h_p-2h}\\
+&=C_{\phi\phi p}(h_p)_n x^{h_p-2h+n},
+\end{aligned}
+$$
+
+ここで $D_x x^{h_p-2h+k}=(h_p+k)x^{h_p-2h+k+1}$ を繰り返しました。二つの重なりの積を子孫ノルム $N_n$ で割り、縮約の因子 $x^{2h}$ を掛けると、正規直交化された子孫の寄与は
 
 $$
 C_{\phi\phi p}^{\,2}
@@ -215,7 +292,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（一次場OPEの応力テンソル係数）**  
-> 正則boson一次場 $\phi$ が [QFT50の一次場Ward OPE](../QFT50/index.md#thm-qft50-primary-ward) を満たし、二点関数を次のように規格化するとする。
+> 正則boson一次場 $\phi$ が [QFT50の一次場Ward OPE](../QFT50/index.md#thm-qft50-primary-ward) を満たし、球面真空で $t$ 挿入相関関数にWard核以外の大域正則項がなく、$t(z)$ が無限遠で $O(z^{-4})$ として減衰するとする。二点関数を次のように規格化する。
 >
 $$
 \langle\phi(x)\phi(0)\rangle=x^{-2h},\qquad
@@ -239,13 +316,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|z|>|x|>0$ として [一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward) を二点へ作用させます。$\partial_x x^{-2h}=-2hx^{-2h-1}$、$\partial_0x^{-2h}=2hx^{-2h-1}$ だから
+$|z|>|x|>0$ として [一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward) を二点へ作用させます。第二挿入点を先に $w$ と置き、$G(x,w)=(x-w)^{-2h}$ とすれば、微分する変数を固定して
+
+$$
+\partial_xG=-2h(x-w)^{-2h-1},\qquad
+\partial_wG=+2h(x-w)^{-2h-1}
+$$
+
+です。両微分を求めてから $w=0$ と置き、上の球面真空の仮定で正則な余剰項がないことを用いると
 
 $$
 \begin{aligned}
 \langle t(z)\phi(x)\phi(0)\rangle
-&=\left[\frac{h}{(z-x)^2}+\frac{\partial_x}{z-x}
-+\frac{h}{z^2}+\frac{\partial_0}{z}\right]x^{-2h}\\
+&=\left.\left[\frac{h}{(z-x)^2}+\frac{\partial_x}{z-x}
++\frac{h}{(z-w)^2}+\frac{\partial_w}{z-w}\right]G(x,w)\right|_{w=0}\\
 &=hx^{-2h}\left[\frac1{(z-x)^2}+\frac1{z^2}
 -\frac2{x(z-x)}+\frac2{xz}\right]\\
 &=\frac{hx^{-2h+2}}{z^2(z-x)^2}
@@ -324,7 +408,13 @@ $$
 - Level: A
 - 問題: $z_1=0,z_2=x,z_3=1,z_4=R$、$0<x<1<R$ とする。$u=z_{12}z_{34}/(z_{13}z_{24})$ を計算し $R\to\infty$ を取れ。
 
-**詳細解答**：$z_{12}=-x$、$z_{34}=1-R$、$z_{13}=-1$、$z_{24}=x-R$。従って $u=(-x)(1-R)/[(-1)(x-R)]=x(R-1)/(R-x)$。分子分母を $R$ で割れば $u=x(1-R^{-1})/(1-xR^{-1})\to x$。
+**詳細解答**：二点差は $z_{12}=-x$、$z_{34}=1-R$、$z_{13}=-1$、$z_{24}=x-R$ です。交差比へ順に代入し、分子分母を $R$ で割ると
+
+$$
+u=\frac{(-x)(1-R)}{(-1)(x-R)}
+=\frac{x(R-1)}{R-x}
+=\frac{x(1-R^{-1})}{1-xR^{-1}}\longrightarrow x.
+$$
 
 ### 演習 QFT54-A2：OPEの導関数項
 
@@ -338,14 +428,31 @@ $$
 - Level: A
 - 問題: $\langle a(z)a(w)\rangle=(z-w)^{-2}$、$a(\infty)=\lim_{R\to\infty}R^2a(R)$ から $F_a(x)$ を三対合の極限で求めよ。
 
-**詳細解答**：$(R,1)(x,0)$ の寄与は $R^2/[(R-1)^2x^2]\to x^{-2}$。$(R,x)(1,0)$ は $R^2/(R-x)^2\to1$。$(R,0)(1,x)$ は $R^2/[R^2(1-x)^2]\to(1-x)^{-2}$。和は $x^{-2}+1+(1-x)^{-2}$ です。
+**詳細解答**：[四点Wick対合](../QFT53/index.md#prop-qft53-four-point)の三組について、無限遠の因子 $R^2$ を掛けた極限は順に
+
+$$
+\begin{aligned}
+(R,1)(x,0)&:\ \frac{R^2}{(R-1)^2x^2}\longrightarrow x^{-2},\\
+(R,x)(1,0)&:\ \frac{R^2}{(R-x)^2}\longrightarrow1,\\
+(R,0)(1,x)&:\ \frac{R^2}{R^2(1-x)^2}\longrightarrow(1-x)^{-2}.
+\end{aligned}
+$$
+
+よって $F_a(x)=x^{-2}+1+(1-x)^{-2}$ です。
 
 ### 演習 QFT54-A4：ウェイト2のブロック
 
 - Level: A
 - 問題: $(q)_n=q(q+1)\cdots(q+n-1)$ と $g_2=x^2\sum_{n\ge0}(2)_n^2x^n/[n!(4)_n]$ から $x^4$ まで展開せよ。
 
-**詳細解答**：$n=0$ は1、$n=1$ は $2^2/4=1$、$n=2$ は $(2\cdot3)^2/[2!(4\cdot5)]=36/40=9/10$。従って $g_2=x^2+x^3+(9/10)x^4+O(x^5)$。
+**詳細解答**：$n=0,1,2$ での係数はそれぞれ
+
+$$
+1,\qquad \frac{2^2}{4}=1,\qquad
+\frac{(2\cdot3)^2}{2!(4\cdot5)}=\frac{36}{40}=\frac9{10}.
+$$
+
+したがって $g_2(x)=x^2+x^3+\tfrac9{10}x^4+O(x^5)$ です。
 
 ### 演習 QFT54-A5：縮約四点のべき級数
 
@@ -366,7 +473,14 @@ $$
 - Level: B
 - 問題: $\langle\phi(x)\phi(0)\rangle=x^{-2h}$、一次場Ward核と $\langle t(z)t(0)\rangle=c/(2z^4)$（$c\ne0$）から、$\phi(x)\phi(0)$ の $t$ 方向への射影係数を求めよ。
 
-**詳細解答**：$\partial_xx^{-2h}=-2hx^{-2h-1}$、$\partial_0x^{-2h}=2hx^{-2h-1}$。Ward核に代入し、共通因子 $hx^{-2h}$ の括弧を通分すると
+**詳細解答**：第二の挿入点を変数 $w$ とし、$G(x,w)=(x-w)^{-2h}$ と置いてから微分します。
+
+$$
+\left.\partial_xG\right|_{w=0}=-2hx^{-2h-1},\qquad
+\left.\partial_wG\right|_{w=0}=+2hx^{-2h-1}.
+$$
+
+[QFT50のWard核](../QFT50/index.md#thm-qft50-primary-ward)に代入し、球面真空で余剰正則項がない条件の下で、共通因子 $hx^{-2h}$ の括弧を通分すると
 
 $$
 \frac1{(z-x)^2}+\frac1{z^2}-\frac2{x(z-x)}+\frac2{xz}
@@ -378,9 +492,9 @@ $$
 ### 演習 QFT54-B2：二階子孫のノルム
 
 - Level: B
-- 問題: $L_1|p\rangle=0$、$L_0|p\rangle=h_p|p\rangle$、$[L_1,L_{-1}]=2L_0$、$[L_0,L_{-1}]=L_{-1}$、$\langle p|p\rangle=1$ から $\|L_{-1}^2|p\rangle\|^2$ と $g_{h_p}$ の二階係数を求めよ。
+- 問題: $L_1|p\rangle=0$、$L_0|p\rangle=h_p|p\rangle$、$[L_1,L_{-1}]=2L_0$、$[L_0,L_{-1}]=L_{-1}$、$\langle p|p\rangle=1$、$L_{-1}^\dagger=L_1$、$h_p>0$ を仮定する。$\|L_{-1}^2|p\rangle\|^2$ と $g_{h_p}$ の二階係数を求めよ。
 
-**詳細解答**：$L_1L_{-1}|p\rangle=2h_p|p\rangle$。さらに
+**詳細解答**：[QFT52の動径反射の規約](../QFT52/index.md#thm-qft52-level-gram)に従って $L_{-1}^\dagger=L_1$ と仮定します。$L_1L_{-1}|p\rangle=2h_p|p\rangle$。さらに
 
 $$
 \begin{aligned}
@@ -398,23 +512,55 @@ $$
 - Level: B
 - 問題: 自由電流について $x=1/3,2/3$ の $F_a$ と $\mathcal G_a$ を比較し、$\mathcal G(x)=\mathcal G(1-x)$ が誤りであることを説明せよ。
 
-**詳細解答**：$F_a(1/3)=9+1+9/4=49/4$、$F_a(2/3)=9/4+1+9=49/4$。しかし $\mathcal G_a(1/3)=(1/9)(49/4)=49/36$、$\mathcal G_a(2/3)=(4/9)(49/4)=49/9$ です。比は $1/4=[(1/3)/(2/3)]^2$。縮約時の $x^{2h}$ が違うため $\mathcal G$ 同士は等しくありません。
+**詳細解答**：対合で得た $F_a(x)=x^{-2}+1+(1-x)^{-2}$ に代入すると
+
+$$
+F_a(1/3)=9+1+\frac94=\frac{49}4,
+\qquad F_a(2/3)=\frac94+1+9=\frac{49}4.
+$$
+
+しかし縮約には $x^{2h}=x^2$ を掛けるため
+
+$$
+\mathcal G_a(1/3)=\frac19\frac{49}4=\frac{49}{36},\qquad
+\mathcal G_a(2/3)=\frac49\frac{49}4=\frac{49}9.
+$$
+
+比は $1/4=[(1/3)/(2/3)]^2$ です。全四点は対称でも縮約関数同士は等しくありません。
 
 ### 演習 QFT54-B4：ウェイト4の不足分
 
 - Level: B
 - 問題: $\mathcal G_a=1+2x^2+2x^3+3x^4+O(x^5)$ と $g_2=x^2+x^3+9x^4/10+O(x^5)$ から、単位と応力テンソルの大域ブロックで説明できない最初の係数を計算し、解釈せよ。
 
-**詳細解答**：$x^2$ と $x^3$ の係数をそろえるには $2g_2$ が必要です。$x^4$ の寄与は $2\cdot9/10=9/5$ であり、実際の3との差は $3-9/5=6/5$。これはウェイト4から始まる別の大域共形族が必要であることを示します。Virasoro真空族のすべてが単一の大域ブロックに入るわけではありません。
+**詳細解答**：$x^2$ と $x^3$ の係数をそろえるには $2g_2$ が必要です。以下 $[x^4]f$ は級数 $f$ の $x^4$ 係数を表します。両者を比較すると
+
+$$
+[x^4](2g_2)=2\cdot\frac9{10}=\frac95,
+\qquad [x^4](\mathcal G_a-1-2g_2)=3-\frac95=\frac65.
+$$
+
+ウェイト4から始まる別の大域共形族が必要であり、Virasoro真空族のすべてが単一の大域ブロックに入るわけではありません。
 
 ### 演習 QFT54-C1：OPE・ブロック・交差を通す
 
 - Level: C
-- 問題: $\langle a(z)a(w)\rangle=(z-w)^{-2}$、$t=\tfrac12:\!a^2\!:$、$h=c=1$ の自由電流について、（1）$a(x)a(0)$ の $x^0,x^1$ を求める。（2）四点 $F_a$ と縮約関数の $x^4$ までの級数を求める。（3）Ward恒等式で $t$ のOPE係数を導き、大域ブロックのウェイト4の不足分を計算する。（4）$x=1/3$ で交差式を検算し、一般の理論に移すとき必要な仮定を列挙せよ。
+- 問題: $\langle a(z)a(w)\rangle=(z-w)^{-2}$、$t=\tfrac12:\!a^2\!:$、$h=c=1$ の自由電流について、次を求めよ。
+
+  1. $a(x)a(0)$ の $x^0,x^1$ の係数。
+  2. 四点 $F_a$ と縮約関数の $x^4$ までの級数。
+  3. Ward恒等式から導く $t$ のOPE係数と、大域ブロックのウェイト4の不足分。
+  4. $x=1/3$ での交差式の検算と、一般化に必要な仮定。
 
 **詳細解答**：
 
-**（1）局所展開。** $a(x)a(0)=x^{-2}+:\!a(x)a(0)\!:$、さらに正規順序積をTaylor展開すると $:\!a^2\!:+x:\!(\partial a)a\!:+O(x^2)=2t+x\partial t+O(x^2)$。
+**（1）局所展開。** $a(x)a(0)=x^{-2}+:\!a(x)a(0)\!:$ から正規順序積をTaylor展開し、[本章のOPEの証明](#prop-qft54-current-ope)と同様に正規順序の積の微分を使うと
+
+$$
+:\!a(x)a(0)\!:
+=:\!a^2\!:+x:\!(\partial a)a\!:+O(x^2)
+=2t+x\partial t+O(x^2).
+$$
 
 **（2）三対合。** $(R,1)(x,0)$、$(R,x)(1,0)$、$(R,0)(1,x)$ に $R^2$ を掛けて極限を取ると、順に $x^{-2},1,(1-x)^{-2}$。よって
 
@@ -424,7 +570,22 @@ F_a=x^{-2}+1+(1-x)^{-2},\qquad
 =1+2x^2+2x^3+3x^4+O(x^5).
 $$
 
-**（3）Ward係数。** 一次場Ward核 $[h/(z-x)^2+\partial_x/(z-x)+h/z^2+\partial_0/z]x^{-2h}$ に $\partial_x=-2hx^{-2h-1}$、$\partial_0=2hx^{-2h-1}$ を代入して通分すれば $h x^{-2h+2}/[z^2(z-x)^2]$。$z^{-4}$ の項を $Ac/(2z^4)$ と比べ $A=2h/c=2$。$2g_2=2x^2+2x^3+9x^4/5+\cdots$ だから不足分は $3-9/5=6/5$ です。
+**（3）Ward係数。** 二点核を $G(x,w)=(x-w)^{-2h}$ とし、[一次場Ward核](../QFT50/index.md#thm-qft50-primary-ward)の $\partial_x$ は $w$ を、$\partial_w$ は $x$ をそれぞれ固定して作用させます。微分後に $w=0$ と置くと
+
+$$
+\left.\partial_xG\right|_{w=0}=-2hx^{-2h-1},\qquad
+\left.\partial_wG\right|_{w=0}=+2hx^{-2h-1}.
+$$
+
+球面真空で余剰正則項がない条件の下、Ward核を通分し、$z^{-4}$ 係数をOPEの $t$ 項と比較すると
+
+$$
+\frac{hx^{-2h+2}}{z^2(z-x)^2}
+=\frac{hx^{-2h+2}}{z^4}+O(z^{-5}),
+\qquad \frac{Ac}{2}=h,\qquad A=\frac{2h}{c}=2.
+$$
+
+一方 $2g_2=2x^2+2x^3+\tfrac95x^4+\cdots$ なので、不足分は $3-9/5=6/5$ です。
 
 **（4）交差。** $F_a(1/3)=F_a(2/3)=49/4$。縮約値は $49/36$ と $49/9$ なので比 $1/4=[(1/3)/(2/3)]^2$ で一致します。一般化には共形共変性、同一局所bosonの交換対称性、両OPEの収束と共通解析枝が必要です。フェルミオンなら交換符号、一般の正則場なら枝の単価性も吟味し、Virasoro子孫を大域ブロック一個へ押し込んではいけません。
 

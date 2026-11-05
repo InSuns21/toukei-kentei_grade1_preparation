@@ -1,7 +1,7 @@
 chapter: QFT54
 scope: dream-theater
 coverage: complete
-prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48]
+prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48, CA6]
 forward_references: []
 
 concepts:
@@ -24,7 +24,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（縮約四点関数とOPEチャネル）]
-    requires: [qft.conformal-cross-ratios, qft.operator-product-expansion]
+    requires: [qft.conformal-cross-ratios, complex-analysis.mobius-transformation, qft.operator-product-expansion]
 
   - id: qft.holomorphic-global-block
     name: 正則大域共形ブロック

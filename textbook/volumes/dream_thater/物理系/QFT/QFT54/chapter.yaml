@@ -2,7 +2,7 @@ id: QFT54
 title: "OPE・大域共形ブロックと四点関数の交差対称性"
 volume: foundations
 status: supplementary
-prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48]
+prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48, CA6]
 official_scope: []
 learning_objectives:
   - 相関関数内OPEの収束域と形式的展開の違いを説明し、自由電流の局所展開を導ける
