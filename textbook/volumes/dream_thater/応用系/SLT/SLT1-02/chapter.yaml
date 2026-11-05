@@ -1,0 +1,44 @@
+id: "SLT1-02"
+title: "PAC学習可能性とNo-Free-Lunch"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-01
+official_scope: []
+learning_objectives:
+  - 二値0–1分類のrealizable条件を分布と仮説クラスから判定できる
+  - realizable PACとagnostic PACの量化順序と保証の確率空間を正しく記述できる
+  - 標本複雑度が分布・真のラベル関数に依存しないことを説明できる
+  - 有限入力集合に対する記憶型学習器の分布自由PAC上界を証明できる
+  - No-Free-Lunchの未観測点のラベル対称性から期待リスク下界を再導出できる
+  - 期待リスク下界から高確率PACの失敗下界を導き量化順序を検算できる
+  - 有限の入力集合では学習可能だが無限入力集合の全関数クラスでは学習不能な理由を区別できる
+definitions:
+  - { id: SLT1-02-DEF-01, name: realizableな分類分布 }
+  - { id: SLT1-02-DEF-02, name: realizable PAC学習可能性 }
+  - { id: SLT1-02-DEF-03, name: agnostic PAC学習可能性 }
+  - { id: SLT1-02-DEF-04, name: PAC標本複雑度 }
+theorems:
+  - { id: SLT1-02-PROP-01, name: agnostic PAC保証からrealizable PAC保証への帰着 }
+  - { id: SLT1-02-THM-01, name: 有限入力集合の記憶型PAC上界 }
+  - { id: SLT1-02-THM-02, name: No-Free-Lunch有限模型 }
+  - { id: SLT1-02-COR-01, name: 無限入力集合の全二値関数クラスはPAC学習不能 }
+canonical_examples:
+  - 定数ラベルのrealizable例と雑音を含むagnostic例
+  - 有限入力集合の記憶型学習と重い点・軽い点による標本数上界
+  - 未観測点上の公平な未知ラベルとNo-Free-Lunchの有限模型
+problem_patterns:
+  - SLT1-02-A01
+  - SLT1-02-A02
+  - SLT1-02-A03
+  - SLT1-02-A04
+  - SLT1-02-A05
+  - SLT1-02-B01
+  - SLT1-02-B02
+  - SLT1-02-B03
+  - SLT1-02-B04
+  - SLT1-02-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 1.5 }
