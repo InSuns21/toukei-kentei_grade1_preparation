@@ -35,7 +35,7 @@ const elements = new Map(Object.entries(inputs).map(([id, value]) => [id, new El
 elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
 for (const id of ['globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
-  'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'tile-status',
+  'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'gsi-credit', 'tile-status',
   'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
@@ -229,6 +229,7 @@ test('world map switch leaves shading/numerics available without WebGL2', () => 
   $('show-world').checked = false;
   $('show-world').handlers.change();
   assert.equal($('osm-credit').hidden, true);
+  assert.equal($('gsi-credit').hidden, true);
   assert.match($('geod-status').textContent, /計算済み/);
   $('show-world').checked = true;
   $('show-world').handlers.change();
