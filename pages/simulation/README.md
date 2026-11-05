@@ -1,6 +1,6 @@
 # Interactive simulation — Phase 0 contracts
 
-## GEOD geodesy lab (three phase-A experiments)
+## GEOD geodesy lab (phase-A experiments and spherical phase-B comparison)
 
 The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
 It has no time-stepping session, randomized seed, or imported observation record,
@@ -18,6 +18,14 @@ without feeding drawing coordinates back into the numeric kernel.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
   Jacobian, Tissot principal stretches and the grid-north bearing.
+* **E**: Side-by-side spherical Mercator, Equal Earth, and Mollweide world
+  graticules with a shared map scale, chosen point and enlarged differential
+  Tissot indicatrix. The numerical table compares area Jacobians, principal
+  scale factors, maximum angular distortion and projected x/y. This phase-B
+  subset uses a common GRS80 authalic sphere radius (~6371007 m) with the
+  input latitude treated directly as *spherical* latitude: it is not a full
+  ellipsoidal/authalic-latitude coordinate conversion, and it does not imply
+  equivalence of source datums.
 
 The surface sphere and ellipsoid are drawn with a twentyfold visual flattening
 factor; numerical results use their displayed **physical** flattening.
@@ -40,7 +48,9 @@ continuation of geocentric direction OP from the surface point P. This prevents
 a depth-independent line from making the internal centre look as if it floats
 on the globe's visible surface. The section uses the same exaggerated visual
 flattening as the globe, never the physical value in the numeric table.
-All three lab views support 60–240% **display-only** zoom via controls,
+The WebGL2 globe always occupies its own **full-width row**, independent of
+the supplementary meridian section, local map and two global projection maps.
+All four lab views support 60–240% **display-only** zoom via controls,
 mouse wheel over the globe, or +/- keys (0 resets; arrows still rotate).
 Zoom scales screen geometry, not the numeric kernel or OSM tile z=2, so
 closer views do not promise higher-resolution tile loading.
@@ -68,7 +78,8 @@ replace manual device and live-tile cartographic visual QA.
 
 Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
-projection comparison/other Japanese systems (lab E/F), and observation/
+ellipsoidal geodetic-to-authalic transformation and extended projection
+comparison including Gauss–Krüger, Japanese systems (lab F), and observation/
 adjustment/GNSS (lab C). See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The

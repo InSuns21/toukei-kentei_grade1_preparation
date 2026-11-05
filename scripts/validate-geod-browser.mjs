@@ -110,9 +110,9 @@ try {
     // synchronous draw and read *before* browser compositing discards it.
     document.querySelector('#a-lon').dispatchEvent(new Event('input'));
     const pixels = [];
-    for (const x of [260, 310, 360, 410, 460]) {
+    for (const x of [360, 480, 600, 720, 840]) {
       const rgba = new Uint8Array(4);
-      gl.readPixels(x, 235, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, rgba);
+      gl.readPixels(x, 380, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, rgba);
       pixels.push([...rgba]);
     }
     return { supported: true, hidden: canvas.hidden, error: gl.getError(), pixels };
@@ -131,7 +131,7 @@ try {
   const zoomPixels = await evalJS(`(() => {
     const gl = document.querySelector('#globe').getContext('webgl2');
     const read = () => { const p = new Uint8Array(4);
-      gl.readPixels(140, 235, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, p); return [...p]; };
+      gl.readPixels(280, 380, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, p); return [...p]; };
     document.querySelector('#zoom-reset').click();
     const before = read();
     document.querySelector('#globe-zoom').value='1.6';
@@ -153,12 +153,37 @@ try {
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#d-lon0").value'), '-74.006');
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  const desktopLayout = await evalJS(`(() => {
+    const g = document.querySelector('#globe').getBoundingClientRect();
+    const panel = document.querySelector('.viz-grid').getBoundingClientRect();
+    return { globe: g.width, region: panel.width, intrinsicWidth: document.querySelector('#globe').width };
+  })()`);
+  assert.equal(desktopLayout.intrinsicWidth, 1200);
+  assert.ok(desktopLayout.globe / desktopLayout.region >= .98,
+    '3D globe must occupy the full plot width: ' + JSON.stringify(desktopLayout));
+  await evalJS(`document.querySelector('[data-lab="E"]').click();
+    document.querySelector('#e-city').value='paris';
+    document.querySelector('#e-city').dispatchEvent(new Event('change'))`);
+  assert.equal(await evalJS('document.querySelector("#e-lat").value'), '48.8566');
+  assert.ok(await evalJS(`document.querySelectorAll('#e-left-map path').length >= 20 &&
+    document.querySelectorAll('#e-right-map path').length >= 20`));
+  assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  await evalJS(`document.querySelector('#e-right').value='mollweide';
+    document.querySelector('#e-right').dispatchEvent(new Event('input'))`);
+  assert.ok(await evalJS('document.querySelector("#e-right-title").textContent.includes("Mollweide")'));
   await cdp('Emulation.setDeviceMetricsOverride', {
     width: 360, height: 760, deviceScaleFactor: 1, mobile: true,
   });
   const overflow = await evalJS('document.documentElement.scrollWidth - window.innerWidth');
   assert.ok(overflow <= 1, 'GEOD horizontal overflow at 360px: ' + overflow);
-  console.log('GEOD WebGL2: shading, meridian-section, zoom/scroll, city presets, 360px: PASS');
+  const mobileLayout = await evalJS(`(() => {
+    const globe = document.querySelector('#globe').getBoundingClientRect();
+    const region = document.querySelector('.viz-grid').getBoundingClientRect();
+    return { globe: globe.width, region: region.width };
+  })()`);
+  assert.ok(mobileLayout.globe / mobileLayout.region >= .98,
+    '3D globe must remain full-width at 360px: ' + JSON.stringify(mobileLayout));
+  console.log('GEOD WebGL2: shading, full-width globe, projection comparison, zoom, 360px: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {

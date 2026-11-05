@@ -51,16 +51,18 @@ const values = {
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
-  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '',
+  'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
+  'a-city': '', 'b-city1': '', 'b-city2': '', 'd-city': '', 'e-city': '',
   'globe-zoom': '1',
 };
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
 for (const id of ['show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
   'osm-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
-  'lab-A', 'lab-B', 'lab-D', 'a-section', 'a-section-map',
+  'lab-A', 'lab-B', 'lab-D', 'lab-E', 'e-map-panel', 'e-left-map', 'e-right-map',
+  'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset']) elements.set(id, new NodeElement(id));
-const buttons = ['A', 'B', 'D'].map(lab => {
+const buttons = ['A', 'B', 'D', 'E'].map(lab => {
   const b = new NodeElement(); b.dataset.lab = lab; return b;
 });
 globalThis.document = {
@@ -119,4 +121,14 @@ test('zoom controls redraw shaded geometry without fetching more XYZ tiles', () 
   assert.equal(requested.length, tiles, 'display-only zoom never requests higher tile levels');
   elements.get('zoom-reset').handlers.click();
   assert.equal(elements.get('globe-zoom').value, '1');
+});
+
+test('global comparison shows both projected diagrams with the shared 3D marker', () => {
+  const drawBefore = calls.draws.length;
+  buttons[3].handlers.click();
+  assert.equal(elements.get('e-map-panel').hidden, false);
+  assert.ok(elements.get('e-left-map').children.length > 20);
+  assert.ok(elements.get('e-right-map').children.length > 20);
+  assert.ok(calls.draws.length > drawBefore);
+  assert.match(elements.get('geod-status').textContent, /計算済み/);
 });

@@ -19,6 +19,7 @@
     <button type="button" data-lab="A" aria-pressed="true">A：楕円体・法線</button>
     <button type="button" data-lab="B" aria-pressed="false">B：測地線</button>
     <button type="button" data-lab="D" aria-pressed="false">D：地図投影・ひずみ</button>
+    <button type="button" data-lab="E" aria-pressed="false">E：等角と等積の比較</button>
   </nav>
 
   <section class="panel" id="lab-A" aria-label="楕円体と法線">
@@ -65,6 +66,20 @@
     <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index?id=def-geod13-scales">GEOD13：縮尺とTissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD17/index">GEOD17：Krüger順変換</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD18/index">GEOD18：縮尺・子午線収差</a></p>
   </section>
 
+  <section class="panel" id="lab-E" aria-label="等角投影と等積投影の比較" hidden>
+    <h2>E：形を守る地図と、面積を守る地図</h2>
+    <p>予測：緯度を上げるとMercatorの面積比はどう増えるか。同じ地点でEqual EarthとMollweideは面積比を1に保てるか。</p>
+    <div class="controls">
+      <label>試験点の都市<select id="e-city"><option value="">任意の試験点</option></select></label>
+      <label>緯度 φ（度）<input id="e-lat" type="number" min="-80" max="80" step="1" value="45"></label>
+      <label>経度 λ（度）<input id="e-lon" type="number" min="-180" max="180" step="1" value="70"></label>
+      <label>左の投影<select id="e-left"><option value="mercator">Mercator（等角）</option><option value="equalEarth">Equal Earth（等積）</option><option value="mollweide">Mollweide（等積）</option></select></label>
+      <label>右の投影<select id="e-right"><option value="equalEarth">Equal Earth（等積）</option><option value="mercator">Mercator（等角）</option><option value="mollweide">Mollweide（等積）</option></select></label>
+    </div>
+    <p class="aside">ここで比較するのは<strong>共通の等面積球（半径約6,371,007 m）</strong>上の全球投影です。測地緯度をそのまま球面緯度として入力する教材模型であり、GRS80からの厳密な楕円体投影変換ではありません。3Dは従来の強調楕円体を参照表示します。投影図は共通尺度、指示楕円は微小円の線形像を視認用に拡大しています。</p>
+    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index">GEOD13：Tissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD19/index">GEOD19：等積とJacobian</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD20/index">GEOD20：Equal Earth</a></p>
+  </section>
+
   <section class="panel">
     <h2>幾何表示</h2>
     <div class="viz-grid">
@@ -80,7 +95,7 @@
           <button type="button" id="zoom-reset">元に戻す</button>
         </div>
         <div class="globe-frame">
-          <canvas id="globe" width="720" height="470" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線・地心方向の外向き延長・ENU、Bでは2地点間の球面大円と楕円体測地線、Dでは中央子午線と試験点を表示。数値は直下の表を参照。"></canvas>
+          <canvas id="globe" width="1200" height="760" tabindex="0" role="img" aria-label="陰影と世界地図を表示できる全幅の回転楕円体。ドラッグまたは矢印キーで回転、ホイールまたはプラス・マイナスキーで表示倍率を変更。Aでは法線とENU、Bでは測地線、Dでは中央子午線、Eでは投影する試験点を表示。数値は直下の表を参照。"></canvas>
           <a id="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
         </div>
         <div id="gl-fallback" hidden role="status">WebGL2を利用できないため3Dを省略しています。数値表と本文の静止図で同じ内容を確認できます。</div>
@@ -98,6 +113,20 @@
         <svg id="map" viewBox="0 0 720 470" role="img" aria-label="中央子午線周辺の横メルカトル格子と試験点におけるTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
         <figcaption>実線＝中央子午線、破線＝その他の経緯線、太い輪郭＝Tissot指示楕円。<strong>楕円の大きさは表示上の強調</strong>です。</figcaption>
       </figure>
+    </div>
+    <div id="e-map-panel" hidden>
+      <h3>E：同じ経緯線と同じ点 P を二つの投影で比較</h3>
+      <div class="projection-comparison">
+        <figure>
+          <div class="figure-head" id="e-left-title">Mercator</div>
+          <svg id="e-left-map" viewBox="0 0 640 380" role="img" aria-label="左の全球投影の経緯線と点PのTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
+        </figure>
+        <figure>
+          <div class="figure-head" id="e-right-title">Equal Earth</div>
+          <svg id="e-right-map" viewBox="0 0 640 380" role="img" aria-label="右の全球投影の経緯線と点PのTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
+        </figure>
+      </div>
+      <p class="aside">両図は球半径あたり同一の表示縮尺です。経線は破線、緯線は細実線、中央子午線は太実線、赤い点がP、橙の輪郭がTissot指示楕円です。<strong>指示楕円は無限小の円の一次写像を拡大表示したもので、有限の地表円を投影した図ではありません。</strong> 色だけで判別する必要はありません。</p>
     </div>
     <p id="geod-status" role="status" aria-live="polite">数値計算中</p>
     <div id="geod-results" aria-live="polite"></div>
