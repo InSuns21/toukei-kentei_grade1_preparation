@@ -1,0 +1,49 @@
+id: "SLT1-05"
+title: "shatteringとVC次元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-04
+official_scope: []
+learning_objectives:
+  - 有限入力集合上のトレースとshatteringを定義し欠けるラベル列を示して判定できる
+  - shatteringが部分集合へ遺伝することを全ラベル付けの延長から証明できる
+  - 重複入力を許す成長関数とVC次元の関係を証明し有限仮説数の上界を導ける
+  - 実数閾値と閉区間の成長関数を全パターンの数え上げから計算できる
+  - 平面の軸平行矩形が四点をshatterする構成と任意の五点の不可能性を証明できる
+  - 無限VC次元の具体例を構成し無限仮説数と有限VC次元を区別できる
+  - VC次元の組合せ的結論と確率的汎化保証の間に別の証明が必要なことを説明できる
+definitions:
+  - { id: SLT1-05-DEF-01, name: 有限集合上のトレース }
+  - { id: SLT1-05-DEF-02, name: shattering }
+  - { id: SLT1-05-DEF-03, name: 成長関数 }
+  - { id: SLT1-05-DEF-04, name: VC次元 }
+theorems:
+  - { id: SLT1-05-PROP-01, name: shatteringの部分集合への遺伝 }
+  - { id: SLT1-05-PROP-02, name: 成長関数の基本性質 }
+  - { id: SLT1-05-COR-01, name: 有限クラスのVC次元上界 }
+  - { id: SLT1-05-THM-01, name: 片側閾値クラスの成長関数 }
+  - { id: SLT1-05-THM-02, name: 閉区間クラスの成長関数 }
+  - { id: SLT1-05-THM-03, name: 平面の軸平行矩形のVC次元 }
+  - { id: SLT1-05-PROP-03, name: 有限部分集合の指示関数は無限VC次元 }
+canonical_examples:
+  - 二点上の閾値のトレースと欠ける10ラベルの検算
+  - 定数一関数のVC次元0
+  - 閾値のm+1パターンと区間の連続塊の数え上げ
+  - 十字配置の四点と五点の座標極値による矩形の上下界
+  - 有限集合の指示関数による任意点数のshattering
+problem_patterns:
+  - SLT1-05-A01
+  - SLT1-05-A02
+  - SLT1-05-A03
+  - SLT1-05-A04
+  - SLT1-05-A05
+  - SLT1-05-B01
+  - SLT1-05-B02
+  - SLT1-05-B03
+  - SLT1-05-B04
+  - SLT1-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
