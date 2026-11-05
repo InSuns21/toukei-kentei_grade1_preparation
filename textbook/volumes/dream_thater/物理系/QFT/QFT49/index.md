@@ -6,16 +6,25 @@
 
 ## 1. 舞台と、Euclid作用から生まれるテンソル
 
-舞台は整数 $d\ge3$ の平坦Euclid空間 $\mathbb R^d$。座標 $x=(x^1,\ldots,x^d)$、$|x|^2=\sum_\mu(x^\mu)^2$、$\partial^2=\sum_\mu\partial_\mu^2$ とし、重複する添字は $1,\ldots,d$ で和を取ります。実時間の計量符号は物理系の統一規約 $(-,+,+,+)$ ですが、ここでは正定値の $\delta_{\mu\nu}$ を使い、Minkowskiテンソルを記号だけでWick回転しません。
+舞台は整数 $d\ge3$ の平坦Euclid空間 $\mathbb R^d$ です。座標と微分記法を
 
-質量零の実スカラー場について [QFT20のEuclid作用](../QFT20/index.md#def-qft20-euclidean-action) の質量を零にした
+$$
+x=(x^1,\ldots,x^d),\qquad
+|x|^2=\sum_\mu(x^\mu)^2,\qquad
+\partial_\mu=\frac{\partial}{\partial x^\mu},\qquad
+\partial^2=\sum_\mu\partial_\mu^2
+$$
+
+とします。$\partial_\mu$ は他の座標を固定した偏微分、$\partial^2$ はEuclidのLaplace作用素で、重複する添字は $1,\ldots,d$ で和を取ります。実時間の計量符号は物理系の統一規約 $(-,+,+,+)$ ですが、ここでは正定値の $\delta_{\mu\nu}$ を使い、Minkowskiテンソルを記号だけでWick回転しません。
+
+質量零の実スカラー場について、[QFT20の四次元Euclid作用](../QFT20/index.md#def-qft20-euclidean-action)の運動項を、[QFT48の $d\ge3$ の質量零自由場](../QFT48/index.md#def-qft48-massless-schwinger)の設定へ拡張した局所式
 
 $$
 S_E[\phi]=\frac12\int_{\mathbb R^d}\partial_\rho\phi\,\partial_\rho\phi\,d^dx,
 \qquad \frac{\delta S_E}{\delta\phi}=-\partial^2\phi
 $$
 
-を考えます。部分積分の際は変分をコンパクト台に限定します。点での $\phi(x)$ やその積は一般化場なので、以下の古典的な積の式を量子相関関数に使うときは、滑らかな正則化と合成演算子のくりこみを経た分布として解釈します。
+を考えます。作用積分が有限な滑らかな場では通常の変分であり、無限作用の局所例では密度の変分だけを考えます。部分積分の際は変分をコンパクト台に限定します。点での $\phi(x)$ やその積は一般化場なので、以下の古典的な積の式を量子相関関数に使うときは、滑らかな正則化と合成演算子のくりこみを経た分布として解釈します。
 
 局所的な並進を $\delta_\varepsilon\phi(x)=-\varepsilon^\nu(x)\partial_\nu\phi(x)$ と書き、まず $\varepsilon$ は滑らかなコンパクト台のベクトル場とします。一様な並進なら作用は変わりませんが、$\varepsilon$ が場所によって違えば、どこからどこへ運動量が流れたかが作用の一次変分に現れます。
 
@@ -35,7 +44,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft49-euclidean-stress -->
-**定義の確認** $d=4$、$\phi(x)=a x^1$ なら $\partial_\mu\phi=a\delta_{\mu1}$、$\mathcal L_E=a^2/2$ です。従って $T_{11}=a^2/2$、$T_{22}=T_{33}=T_{44}=-a^2/2$、非対角成分は零です。二つの勾配の積を交換できるので $T_{\mu\nu}=T_{\nu\mu}$、各成分は定数だから $\partial_\mu T_{\mu\nu}=0$ です。これは無限全空間の有限作用解ではなく、局所式を試す例です。
+**定義の確認** $d=4$、$\phi(x)=a x^1$ なら $\partial_\mu\phi=a\delta_{\mu1}$、$\mathcal L_E=a^2/2$ です。テンソルの定義に代入すると
+
+$$
+T_{11}=\frac{a^2}{2},\qquad
+T_{22}=T_{33}=T_{44}=-\frac{a^2}{2},\qquad
+T_{\mu\nu}=0\quad(\mu\ne\nu).
+$$
+
+二つの勾配の積を交換できるので $T_{\mu\nu}=T_{\nu\mu}$、各成分は定数だから $\partial_\mu T_{\mu\nu}=0$ です。これは無限全空間の有限作用解ではなく、局所式を試す例です。
 <!-- definition-example-end -->
 
 <a id="prop-qft49-stress-divergence"></a>
@@ -108,7 +125,15 @@ T_{\mu\mu}
 =\left(1-\frac d2\right)(\partial_\rho\phi)^2
 $$
 
-で、質量零でも一般には零ではありません。そこで [QFT2の改良項の恒等的保存](../QFT2/index.md#prop-qft2-improvement) に対応する、発散が恒等的に零の二階微分項を加えます。
+で、質量零でも一般には零ではありません。そこで [QFT2の改良項の恒等的保存](../QFT2/index.md#prop-qft2-improvement) に対応する、発散が恒等的に零の二階微分項を加えます。Euclid計量での候補は $(\delta_{\mu\nu}\partial^2-\partial_\mu\partial_\nu)\phi^2$ です。この項のトレースは $(d-1)\partial^2\phi^2$ なので、自由場方程式 $\partial^2\phi=0$ を使うと $2(d-1)(\partial_\rho\phi)^2$ になります。従って係数 $\xi$ を掛け、元のトレースと相殺するには
+
+$$
+1-\frac d2+2\xi(d-1)=0
+\quad\Longleftrightarrow\quad
+\xi=\frac{d-2}{4(d-1)}
+$$
+
+を選びます。これはトレース零を目指す係数の候補であり、保存とオフシェルの式は後で証明します。
 
 <a id="def-qft49-improved-stress"></a>
 
@@ -126,7 +151,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft49-improved-stress -->
-**定義の確認** $d=4$ なら $\xi_4=1/6$。$\phi=a x^1$ では $\partial^2\phi^2=2a^2$、$\partial_\mu\partial_\nu\phi^2=2a^2\delta_{\mu1}\delta_{\nu1}$ です。従って改良項は $\xi_4(2a^2\delta_{\mu\nu}-2a^2\delta_{\mu1}\delta_{\nu1})$ で、$\Theta_{11}=a^2/2$、$\Theta_{22}=\Theta_{33}=\Theta_{44}=-a^2/6$。トレースは $a^2/2-3a^2/6=0$、全成分が定数で発散も零です。共形改良係数が単なるラベルではなくトレースを変えることを直接確かめました。
+**定義の確認** $d=4$ なら $\xi_4=1/6$。$\phi=a x^1$ では $\phi^2=a^2(x^1)^2$ なので
+
+$$
+\partial_\mu\partial_\nu\phi^2
+=2a^2\delta_{\mu1}\delta_{\nu1},\qquad
+\partial^2\phi^2=2a^2.
+$$
+
+従って改良項は $2\xi_4a^2(\delta_{\mu\nu}-\delta_{\mu1}\delta_{\nu1})$ で、元の $T_{\mu\nu}$ に加えると
+
+$$
+\Theta_{11}=\frac{a^2}{2},\qquad
+\Theta_{22}=\Theta_{33}=\Theta_{44}=-\frac{a^2}{6}.
+$$
+
+トレースは $a^2/2-3a^2/6=0$、全成分が定数で発散も零です。共形改良係数が単なるラベルではなくトレースを変えることを直接確かめました。
 <!-- definition-example-end -->
 
 <a id="thm-qft49-improvement-trace"></a>
@@ -202,7 +242,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（局所並進Ward恒等式）**  
-> $d\ge3$ の並進不変な質量零自由Euclid Gaussian場を考え、$F=\prod_{i=1}^n\phi(x_i)$ の点 $x_i$ は互いに異なるとする。局所並進に関する測度・正則化が対称性を保ち、[Euclid応力テンソル](#def-qft49-euclidean-stress) $T_{\mu\nu}$ の合成演算子を対応するWard恒等式が成り立つよう定義したとする。このとき分布として
+> $d\ge3$ の並進不変な質量零自由Euclid Gaussian場を考え、$F=\prod_{i=1}^n\phi(x_i)$ の点 $x_i$ は互いに異なるとする。局所並進による積分変数変換のJacobianが異常を残さず、[Euclid応力テンソル](#def-qft49-euclidean-stress) $T_{\mu\nu}$ を正則化作用の局所変分の係数から定めた合成演算子の分布極限が存在すると仮定する。このとき分布として
 
 $$
 \partial_\mu\langle T_{\mu\nu}(x)F\rangle
@@ -227,7 +267,7 @@ $$
 -\langle F\,\delta_\varepsilon S_E\rangle.
 $$
 
-各挿入点では $\delta_\varepsilon\phi(x_i)=-\varepsilon^\nu(x_i)\partial_{x_i^\nu}\phi(x_i)$ なので
+各挿入点では $\delta_\varepsilon\phi(x_i)=-\varepsilon^\nu(x_i)\partial_{x_i^\nu}\phi(x_i)$ です。ここで $\partial_{x_i^\nu}$ は挿入位置 $x_i$ の第 $\nu$ 座標で微分し、他の挿入位置を固定する記法で、流の発散を測る $\partial_\mu=\partial/\partial x^\mu$ とは作用変数が異なります。従って
 
 $$
 \langle\delta_\varepsilon F\rangle
@@ -277,7 +317,18 @@ $$
 +\Theta_{\mu\nu}\partial_\mu\varepsilon^\nu.
 $$
 
-$\Theta$ が対称なので、第二項は $\partial_\mu\varepsilon_\nu+\partial_\nu\varepsilon_\mu$ の対称部分だけに依存します。[QFT48の共形写像](../QFT48/index.md#def-qft48-conformal-map)の無限小形を次で表します。
+$\Theta$ が対称なので、第二項は $\partial_\mu\varepsilon_\nu+\partial_\nu\varepsilon_\mu$ の対称部分だけに依存します。[QFT48の共形写像の定義](../QFT48/index.md#def-qft48-conformal-map)では $Df^{\mathsf T}Df=\Omega_f^2I$ が長さの局所倍率を表しました。これを $f_t(x)=x+t\varepsilon(x)+O(t^2)$、$\Omega_{f_t}(x)=1+t\sigma(x)+O(t^2)$ に対して一次まで展開します。$t$ は変換の実パラメータで、$x$ の座標とは独立です。
+
+$$
+\begin{aligned}
+Df_t^{\mathsf T}Df_t
+&=(I+tD\varepsilon^{\mathsf T})(I+tD\varepsilon)+O(t^2)\\
+&=I+t(D\varepsilon^{\mathsf T}+D\varepsilon)+O(t^2),\\
+\Omega_{f_t}^2I&=(1+2t\sigma)I+O(t^2).
+\end{aligned}
+$$
+
+$D\varepsilon$ の $(\nu,\mu)$ 成分は $\partial_\mu\varepsilon^\nu$ です。一次係数の行列成分を比較すると $\partial_\mu\varepsilon_\nu+\partial_\nu\varepsilon_\mu=2\sigma\delta_{\mu\nu}$ が必要で、トレースを取れば $\sigma=(\partial_\rho\varepsilon^\rho)/d$ と決まります。これは「各点で長さの変化が方向に依存しない」ことの無限小条件で、次の定義に使います。
 
 <a id="def-qft49-conformal-killing"></a>
 
@@ -296,7 +347,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft49-conformal-killing -->
-**定義の確認** 拡大縮小 $\varepsilon^\nu=x^\nu$ では $\partial_\mu\varepsilon_\nu=\delta_{\mu\nu}$、発散は $d$ なので $\sigma=1$。両辺は $2\delta_{\mu\nu}$ で一致します。定ベクトル $a^\nu$ による並進では微分も $\sigma$ も零です。さらに $b$ を定ベクトルとして $\varepsilon^\nu=2(b\cdot x)x^\nu-|x|^2b^\nu$ と置くと、$\partial_\mu\varepsilon_\nu+\partial_\nu\varepsilon_\mu=4(b\cdot x)\delta_{\mu\nu}$、$\sigma=2b\cdot x$ です。三つとも定義の全ての等式を確かめました。
+**定義の確認** 拡大縮小 $\varepsilon^\nu=x^\nu$ では $\partial_\mu\varepsilon_\nu=\delta_{\mu\nu}$、発散は $d$ なので $\sigma=1$。両辺は $2\delta_{\mu\nu}$ で一致します。定ベクトル $a^\nu$ による並進では微分も $\sigma$ も零です。さらに $b$ を定ベクトルとして $\varepsilon^\nu=2(b\cdot x)x^\nu-|x|^2b^\nu$ と置くと
+
+$$
+\partial_\mu\varepsilon_\nu
+=2b_\mu x_\nu+2(b\cdot x)\delta_{\mu\nu}-2x_\mu b_\nu.
+$$
+
+$\mu,\nu$ を交換して加えると、$b_\mu x_\nu$ と $x_\nu b_\mu$ の項が相殺し、$\partial_\mu\varepsilon_\nu+\partial_\nu\varepsilon_\mu=4(b\cdot x)\delta_{\mu\nu}$。発散は $\partial_\rho\varepsilon^\rho=2d(b\cdot x)$ なので $\sigma=2b\cdot x$ です。三つとも定義の全ての等式を確かめました。
 <!-- definition-example-end -->
 
 <a id="thm-qft49-conformal-current"></a>
@@ -370,7 +428,16 @@ $$
 =-\Delta_\phi\phi\,\frac{\delta S_E}{\delta\phi}.
 $$
 
-正規順序化で同一点の自己接触を差し引き、$F$ の各 $\phi(x_i)$ に関する汎関数微分だけを残すと
+同一点で掛け算する手順も有限次元で確かめます。格子点を $a$、挿入点の格子ラベルを $a_i$ とすると、積分変数 $\phi_a$ について部分積分した式は
+
+$$
+\left\langle\phi_a\frac{\partial S_E}{\partial\phi_a}F\right\rangle
+=\langle F\rangle
++\sum_i\delta_{a,a_i}
+\left\langle\phi_a\prod_{j\ne i}\phi_{a_j}\right\rangle.
+$$
+
+第一項は $\phi_a$ 自身を微分して生じた項で、$F$ の挿入位置とは無関係です。局所的な合成演算子を定義する際、この自己接触を差し引きます。残る $\delta_{a,a_i}$ は、格子セルの体積を考慮した連続極限で $\delta^{(d)}(x-x_i)$ になります。各接触点で $\phi_a=\phi_{a_i}$ なので残りの期待値は $G$ です。この差し引きと極限が存在するという上記の仮定の下で
 
 $$
 \langle\Theta_{\mu\mu}(x)F\rangle
@@ -404,7 +471,7 @@ $$
 ## 5. どこまでが対称性だけから従うか
 
 - **接触項を落とすと間違う。** $\partial_\mu\langle\Theta_{\mu\nu}(x)F\rangle=0$ は挿入点を避けた領域では正しい一方、分布として全空間で零とは限りません。
-- **質量項を加えると共形性は破れる。** $S_E$ に $m^2\phi^2/2$ を加えると、同じ改良係数でも方程式 $\partial^2\phi=m^2\phi$ を代入したトレースに $m^2\phi^2$ が残ります。固定質量の [QFT48の尺度則の破れ](../QFT48/index.md#thm-qft48-massless-kernel)とも整合します。
+- **質量項を加えると共形性は破れる。** $S_E$ に $m^2\phi^2/2$ を加えると、同じ改良係数でも方程式 $\partial^2\phi=m^2\phi$ を代入したトレースに $m^2\phi^2$ が残ります。[QFT48の質量零核の尺度則](../QFT48/index.md#thm-qft48-massless-kernel)と対比して、固定質量が新しい長さ尺度を導入することに対応します。
 - **一般の複合演算子には固有の次元が必要。** 今回の $\Delta_\phi=(d-2)/2$ は自由基本場の値です。相互作用理論では異常次元、演算子の混合、局所カウンタータームがあり得ます。スピンを持つ場の共形変換には回転生成子も現れます。
 - **トレース異常と曲がった背景は別問題。** 古典的にトレース零でも、一般の量子理論のくりこみや曲率の下でトレース異常が出ることがあります。二次元の中心電荷や $T(z)T(w)$ の特異項は後続章で導きます。今回の平坦自由場の局所恒等式だけで一般の異常消失を証明していません。
 - **無限大からの流束は仮定。** 特に $\varepsilon\sim x$ や $\varepsilon\sim x^2$ はコンパクト台ではありません。大域的Ward恒等式へ移る際は、挿入点を小球で避け、遠方の境界流束が消えることを相関関数ごとに確認します。
