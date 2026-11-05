@@ -20,12 +20,13 @@ class NodeElement {
   }
 }
 
-const calls = { draws: [], textureUploads: 0, modes: [] };
+const calls = { draws: [], textureUploads: 0, modes: [], blends: [], depthWrites: [] };
 let shaderId = 0, programId = 0;
 const gpu = new Proxy({
   TRIANGLES: 4, LINES: 1, POINTS: 0, VERTEX_SHADER: 35633, FRAGMENT_SHADER: 35632,
   COMPILE_STATUS: 35713, LINK_STATUS: 35714, ARRAY_BUFFER: 34962,
   DYNAMIC_DRAW: 35048, FLOAT: 5126, DEPTH_TEST: 2929, LESS: 513,
+  BLEND: 3042, SRC_ALPHA: 770, ONE_MINUS_SRC_ALPHA: 771,
   COLOR_BUFFER_BIT: 16384, DEPTH_BUFFER_BIT: 256,
   TEXTURE_2D: 3553, TEXTURE0: 33984, RGBA: 6408, UNSIGNED_BYTE: 5121,
   UNPACK_FLIP_Y_WEBGL: 37440, TEXTURE_WRAP_S: 10242, TEXTURE_WRAP_T: 10243,
@@ -39,6 +40,8 @@ const gpu = new Proxy({
     attribute === 'position' ? 0 : attribute === 'uv' ? 1 : 2,
   getUniformLocation: (program, uniform) => uniform,
   texImage2D: () => calls.textureUploads++,
+  blendFunc: (...args) => calls.blends.push(args),
+  depthMask: value => calls.depthWrites.push(value),
   drawArrays: (mode, first, count) => calls.draws.push({ mode, count }),
   uniform1i: (uniform, value) => {
     if (uniform === 'showMap') calls.modes.push(value);
@@ -166,6 +169,8 @@ test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
   japanTiles[0].image.onload();
   assert.equal(calls.textureUploads, uploads + 1);
   assert.ok(calls.draws.length > draws, 'loaded detailed tile is rendered on ellipsoid');
+  assert.deepEqual(calls.blends.at(-1), [gpu.SRC_ALPHA, gpu.ONE_MINUS_SRC_ALPHA]);
+  assert.deepEqual(calls.depthWrites.slice(-2), [false, true], 'transparent parts preserve base globe');
   assert.match(elements.get('tile-status').textContent, /地理院標準地図.*1\/16枚表示/);
 
   elements.get('globe-zoom').value = '12';

@@ -57,7 +57,7 @@ function startGL() {
     gl.attachShader(surfaceProgram, shader(gl.VERTEX_SHADER,
       '#version 300 es\nlayout(location=0) in vec3 position;layout(location=1) in vec2 uv;layout(location=2) in float brightness;out vec2 texUV;out float lightValue;void main(){gl_Position=vec4(position,1.0);texUV=uv;lightValue=brightness;}'));
     gl.attachShader(surfaceProgram, shader(gl.FRAGMENT_SHADER,
-      '#version 300 es\nprecision mediump float;in vec2 texUV;in float lightValue;uniform bool showMap;uniform sampler2D mapTexture;out vec4 pixel;void main(){vec3 base=showMap?texture(mapTexture,texUV).rgb:vec3(0.67,0.77,0.85);pixel=vec4(base*lightValue,1.0);}'));
+      '#version 300 es\nprecision mediump float;in vec2 texUV;in float lightValue;uniform bool showMap;uniform sampler2D mapTexture;out vec4 pixel;void main(){vec4 image=showMap?texture(mapTexture,texUV):vec4(0.67,0.77,0.85,1.0);pixel=vec4(image.rgb*lightValue,image.a);}'));
     gl.linkProgram(surfaceProgram);
     if (!gl.getProgramParameter(surfaceProgram, gl.LINK_STATUS)) {
       throw new Error(gl.getProgramInfoLog(surfaceProgram));
@@ -303,9 +303,14 @@ function requestJapanTiles() {
   updateTileStatus();
 }
 
-function drawTexturedGeometry(vertices, texture, showMap) {
+function drawTexturedGeometry(vertices, texture, showMap, overlay = false) {
   if (!surfaceProgram) return;
   gl.enable(gl.DEPTH_TEST);
+  if (overlay) {
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.depthMask(false);
+  }
   gl.useProgram(surfaceProgram);
   gl.bindBuffer(gl.ARRAY_BUFFER, surfaceBuffer);
   gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.DYNAMIC_DRAW);
@@ -322,6 +327,10 @@ function drawTexturedGeometry(vertices, texture, showMap) {
     gl.uniform1i(surfaceSampler, 0);
   }
   gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
+  if (overlay) {
+    gl.depthMask(true);
+    gl.disable(gl.BLEND);
+  }
   gl.disableVertexAttribArray(surfaceUV);
   gl.disableVertexAttribArray(surfaceLight);
   gl.useProgram(program);
@@ -338,7 +347,7 @@ function drawJapanDetail(e) {
   if (!$('show-world').checked) return;
   for (const tile of currentDetailTiles()) {
     const entry = detailTiles.get(tile.z + '/' + tile.x + '/' + tile.y);
-    if (entry?.texture) drawTexturedGeometry(detailedSurface(tile, e), entry.texture, true);
+    if (entry?.texture) drawTexturedGeometry(detailedSurface(tile, e), entry.texture, true, true);
   }
 }
 
