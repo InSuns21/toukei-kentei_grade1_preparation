@@ -1,0 +1,55 @@
+chapter: QFT54
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48]
+forward_references: []
+
+concepts:
+  - id: qft.operator-product-expansion
+    name: 相関関数内の演算子積展開
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（相関関数内の演算子積展開）]
+    requires: [qft.radial-state-operator, qft.point-split-wick-stress]
+
+  - id: qft.free-current-local-ope
+    name: 自由電流の局所OPE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由電流の局所OPE）]
+    requires: [qft.operator-product-expansion, qft.point-split-wick-stress]
+
+  - id: qft.reduced-four-point-channels
+    name: 縮約四点関数とOPEチャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（縮約四点関数とOPEチャネル）]
+    requires: [qft.conformal-cross-ratios, qft.operator-product-expansion]
+
+  - id: qft.holomorphic-global-block
+    name: 正則大域共形ブロック
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則大域共形ブロック）]
+    requires: [qft.reduced-four-point-channels, qft.primary-highest-weight-descendant]
+
+  - id: qft.global-block-state-sum
+    name: 大域子孫の状態和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（大域子孫の状態和）]
+    requires: [qft.holomorphic-global-block, qft.scalar-primary-three-point, qft.virasoro-commutator]
+
+  - id: qft.primary-stress-ope-coefficient
+    name: 一次場OPEの応力テンソル係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次場OPEの応力テンソル係数）]
+    requires: [qft.operator-product-expansion, qft.two-dimensional-primary-ward, qft.stress-ope-central-charge]
+
+  - id: qft.identical-boson-four-point-crossing
+    name: 同一局所boson一次場の四点交差式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（同一局所boson一次場の四点交差式）]
+    requires: [qft.reduced-four-point-channels, qft.global-block-state-sum]

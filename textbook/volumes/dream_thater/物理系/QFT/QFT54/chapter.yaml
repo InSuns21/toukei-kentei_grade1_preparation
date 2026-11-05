@@ -1,0 +1,44 @@
+id: QFT54
+title: "OPE・大域共形ブロックと四点関数の交差対称性"
+volume: foundations
+status: supplementary
+prerequisites: [QFT53, QFT52, QFT51, QFT50, QFT48]
+official_scope: []
+learning_objectives:
+  - 相関関数内OPEの収束域と形式的展開の違いを説明し、自由電流の局所展開を導ける
+  - 四点の交差比と無限遠挿入を計算し、自由電流四点を三対合から得られる
+  - 大域共形子孫のノルムから超幾何ブロックの係数を導ける
+  - 一次場Ward恒等式から応力テンソルOPE係数2h/cを再計算できる
+  - 自由電流の四点展開でウェイト4の別の大域共形族を識別できる
+  - 二つのチャネルの交差式と収束・統計の前提を区別できる
+definitions:
+  - { id: QFT54-DEF-01, name: 相関関数内の演算子積展開 }
+  - { id: QFT54-DEF-02, name: 縮約四点関数とチャネル }
+  - { id: QFT54-DEF-03, name: 正則大域共形ブロック }
+theorems:
+  - { id: QFT54-PROP-01, name: 自由電流のOPE }
+  - { id: QFT54-THM-01, name: 大域子孫の和による四点展開 }
+  - { id: QFT54-PROP-02, name: 同一一次場の応力テンソル係数 }
+  - { id: QFT54-THM-02, name: 同一局所boson一次場の四点交差式 }
+canonical_examples:
+  - 自由電流の特異収縮と応力テンソルの局所項
+  - 正則四点における三対合と無限遠極限
+  - ウェイト2の大域共形ブロックとウェイト4の残余
+  - Ward核からの応力テンソル係数
+  - 交差式のx=1/3での検算
+problem_patterns:
+  - QFT54-CROSS-RATIO
+  - QFT54-CURRENT-OPE
+  - QFT54-WICK-FOUR-POINT
+  - QFT54-GLOBAL-BLOCK-COEFFICIENTS
+  - QFT54-REDUCED-SERIES
+  - QFT54-CHANNEL-DOMAINS
+  - QFT54-WARD-STRESS
+  - QFT54-DESCENDANT-NORM
+  - QFT54-CROSSING-NUMERIC
+  - QFT54-WEIGHT4-GAP
+  - QFT54-INTEGRATED-CROSSING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 15, review: 7 }
