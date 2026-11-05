@@ -98,7 +98,7 @@ $$
 =\frac{\Omega}{2\pi(e^{2\pi\Omega/q}-1)}
 $$
 
-を得ます。負のギャップ $-\Omega$（$\Omega>0$）では輪郭を上半平面に閉じます。今度は $n=0,1,2,\ldots$ の極が寄与するため、
+を得ます。負のギャップ $-\Omega$（$\Omega>0$）では、複素 $s$ の虚部が正の側（$\operatorname{Im}s>0$）へ輪郭を閉じます。今度は $n=0,1,2,\ldots$ の極が寄与するため、
 
 $$
 \dot{\mathcal F}_q(-\Omega)
@@ -120,7 +120,11 @@ Rindlerの $q=a$ とde Sitter中心の $q=H$ の結果を、両者が等しい�
 
 ### 時計を変えると「温度」の数値も変わる
 
-Tolman因子は別の温度を足す操作ではありません。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)を、検出器のFourier変換から直接確認します。時間座標 $T$ による定常相関を $W_T(\Delta T)$ とし、同じ静止世界線で固有時間 $\tau=\lambda T$（$\lambda>0$ は一定）とします。ここでは $\Delta\tau=s$、$\Delta T=s/\lambda$ です。$E$ は $T$ の時間差に、$\Omega$ は固有時間差にFourier共役なギャップで、同じ遷移を $E=\lambda\Omega$ と対応させます。
+Tolman因子は別の温度を足す操作ではありません。[QCURV14のTolman則](../QCURV14/index.md#thm-qcurv14-tolman)を、検出器のFourier変換から直接確認します。
+
+時間座標 $T$ による定常相関を $W_T(\Delta T)$ とし、同じ静止世界線で固有時間 $\tau=\lambda T$（$\lambda>0$ は一定）とします。ここでは $\Delta\tau=s$、$\Delta T=s/\lambda$ です。
+
+$E$ は $T$ の時間差に、$\Omega$ は固有時間差にFourier共役なギャップで、同じ遷移を $E=\lambda\Omega$ と対応させます。
 
 <a id="prop-qcurv20-clock-rescaling"></a>
 
@@ -253,7 +257,11 @@ $$
 この対相関は時刻で変化し、時間並進不変ではありません。KMS状態は特に定常であるため、この状態はKMSではありません。
 <!-- proof-end -->
 
-$\omega_f=2\omega_i$ を代入すれば $|\beta|^2=1/8$。これは具体的な粒子生成です。しかし一つの占有数 $1/8$ に対して形式的に $1/(e^{\beta_{\rm fit}\omega_f}-1)=1/8$ と解けば $\beta_{\rm fit}\omega_f=\log9$ と表示できるだけです。ここで $\beta_{\rm fit}$ は占有数に当てはめた逆温度であり、上のBogoliubov係数 $\beta$ とは異なります。**値の当てはめは熱状態の証明ではありません**。また[QCURV4の質量零・共形結合場の非生成定理](../QCURV4/index.md#thm-qcurv4-conformal)は $\beta=0$ を許すため、膨張の有無それ自体も粒子数を一意に決めません。
+$\omega_f=2\omega_i$ を代入すれば $|\beta|^2=1/8$。これは具体的な粒子生成です。
+
+しかし一つの占有数 $1/8$ に対して形式的に $1/(e^{\beta_{\rm fit}\omega_f}-1)=1/8$ と解けば $\beta_{\rm fit}\omega_f=\log9$ と表示できるだけです。ここで $\beta_{\rm fit}$ は占有数に当てはめた逆温度であり、上のBogoliubov係数 $\beta$ とは異なります。
+
+**値の当てはめは熱状態の証明ではありません**。また[QCURV4の質量零・共形結合場の非生成定理](../QCURV4/index.md#thm-qcurv4-conformal)は $\beta=0$ を許すため、膨張の有無それ自体も粒子数を一意に決めません。
 
 ## 4. 熱因子から放射光度へは散乱を通る
 
