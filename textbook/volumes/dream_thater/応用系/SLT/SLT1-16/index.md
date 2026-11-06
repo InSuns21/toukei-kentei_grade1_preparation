@@ -10,7 +10,7 @@
 
 ## 1. 下界では「どの算法にも」を先に固定する
 
-分類器の集合を $\mathcal H$、データ分布の有限族を $\mathcal P$ とする。標本 $S=(Z_1,\ldots,Z_n)\sim P^n$ から予測器を返す算法 $A_n$ は、標本と独立な乱数 $U$ を使ってもよい。各候補の[母集団リスク](../../ML/ML1-01/index.md#def-ml1-01-risks)を $R_P(h)$ と書き、ここでは $\mathcal H$ が有限なのでクラス内最小値は達成される。
+分類器の集合を $\mathcal H$、データ分布の有限族を $\mathcal P$ とする。$P^n$ は各 $Z_i$ が独立に $P$ に従う $n$ 回の積分布を表す。標本 $S=(Z_1,\ldots,Z_n)\sim P^n$ から予測器を返す算法 $A_n$ は、内部乱数 $U$ を使ってもよい。ただし算法の規則と $U$ の分布は未知の $P$ によらず共通であり、$U$ は標本と独立である。各候補の[母集団リスク](../../ML/ML1-01/index.md#def-ml1-01-risks)を $R_P(h)$ と書き、ここでは $\mathcal H$ が有限なのでクラス内最小値は達成される。
 
 上界は一つの算法を構成すればよい。下界は、**算法を任意に選んだ後でも、それが苦手とする分布が存在する**と証明する。この量化順序を表すのが最悪分布に対する最小可能リスク、すなわち minimax の考え方である。
 
@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（有限模型のminimax期待超過リスク）**  
-> 非空有限仮説クラス $\mathcal H$ と非空有限分布族 $\mathcal P$ を固定し、$n\ge1$ とする。各 $P\in\mathcal P$ に対し $S\sim P^n$ とし、$A_n(S,U)\in\mathcal H$ は標本と独立な算法乱数 $U$ を許す任意の算法とする。**minimax期待超過リスク**を
+> 非空有限仮説クラス $\mathcal H$ と非空有限分布族 $\mathcal P$ を固定し、$n\ge1$ とする。各 $P\in\mathcal P$ に対し $S\sim P^n$ とし、$A_n(S,U)\in\mathcal H$ は全 $P\in\mathcal P$ に共通の算法とする。内部乱数 $U$ は各 $P$ の標本 $S$ と独立で、その分布は $P$ に依存しない。**minimax期待超過リスク**を
 
 $$
 \mathfrak R_n(\mathcal P,\mathcal H)
@@ -77,7 +77,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（二仮説検定のLe Cam下界）**  
-> 有限集合 $\Omega$ 上の二分布 $Q_0,Q_1$ と、観測から $0$ または $1$ を出す任意の決定的または独立乱択検定 $\psi$ に対し
+> 有限集合 $\Omega$ 上の二分布 $Q_0,Q_1$ と、どちらの世界が真かによらない内部乱数（観測からも独立）を使い、観測から $0$ または $1$ を出す任意の決定的または乱択検定 $\psi$ に対し
 
 $$
 \frac{Q_0(\psi=1)+Q_1(\psi=0)}2
@@ -275,7 +275,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Fanoによる多仮説検定下界）**  
-> $M\ge2$、$V$ を $\{1,\ldots,M\}$ 上一様とし、有限集合に値を取る標本 $S$ の条件付き分布を $Q_j$（$V=j$ のとき）とする。独立な算法乱数を許す任意の推定値 $\widehat V(S,U)\in\{1,\ldots,M\}$ に対し、自然対数単位の相互情報量 $I_{\mathrm{nat}}$ を用いると
+> $M\ge2$、$V$ を $\{1,\ldots,M\}$ 上一様とし、有限集合に値を取る標本 $S$ の条件付き分布を $Q_j$（$V=j$ のとき）とする。$(V,S)$ の組から独立な算法乱数 $U$ を許す任意の推定値 $\widehat V(S,U)\in\{1,\ldots,M\}$ に対し、自然対数単位の相互情報量 $I_{\mathrm{nat}}$ を用いると
 
 $$
 P(\widehat V\ne V)
@@ -305,7 +305,7 @@ H_{\mathrm{nat}}(V|\widehat V)
 \le\ln2+P(\widehat V\ne V)\ln M.
 $$
 
-標本から（独立乱数を伴って）$\widehat V$ を作るので $V\to S\to\widehat V$ はMarkov連鎖である。[相互情報量のデータ処理不等式](../../INFO/INFO2/index.md#thm-info2-mutual-dpi)より
+$U$ が $(V,S)$ から独立なので、$S=s$ を固定したときの $\widehat V(s,U)$ の条件付き分布は $V$ に依存しない。従って $V\to S\to\widehat V$ はMarkov連鎖である。[相互情報量のデータ処理不等式](../../INFO/INFO2/index.md#thm-info2-mutual-dpi)より
 
 $$
 \begin{aligned}
@@ -357,20 +357,30 @@ $$
 
 ### Hamming距離が大きい世界を多数作る
 
-$d$ 個の入力点を異なる符号でラベル付けする世界を考える。二つの符号列 $\theta,\eta\in\{-1,+1\}^d$ の**Hamming距離** $d_H(\theta,\eta)$ は、異なる座標の個数である。例えば $(+,+,-,-)$ と $(+,-,+,-)$ は第2・第3座標が違うから $d_H=2$ となる。これは符号の何個を誤ったかを直接数える距離である。
+$d$ 個の入力点を異なる符号でラベル付けする世界を考える。二つの符号列 $\theta,\eta\in\{-1,+1\}^d$ の**Hamming距離** $d_H(\theta,\eta)$ は、異なる座標の個数である。例えば $(+,+,-,-)$ と $(+,-,+,-)$ は第2・第3座標が違うから $d_H=2$ となる。これは符号の何個を誤ったかを直接数える距離である。以下の $\boldsymbol{1}_{\{\theta_i\ne\eta_i\}}$ は、第 $i$ 座標の符号が異なるとき1、同じとき0となる指示関数を表す。既習の[packingの定義](../SLT1-09/index.md#def-slt1-09-packing)では、互いの距離が指定した半径より厳密に大きい点を集めた。ここでは符号列間のHamming距離でその条件を判定する。
 
 <a id="def-slt1-16-hamming"></a>
 
 <!-- formal-statement-start -->
 > **定義（符号列のHamming距離とpacking）**  
-> $\theta,\eta\in\{-1,+1\}^d$ に対して
+> 整数 $d\ge1$ を固定する。$\theta,\eta\in\{-1,+1\}^d$ に対して
 
 $$
-d_H(\theta,\eta)=\sum_{i=1}^d\mathbf1_{\{\theta_i\ne\eta_i\}}
+d_H(\theta,\eta)=\sum_{i=1}^d\boldsymbol{1}_{\{\theta_i\ne\eta_i\}}
 $$
 
-> と定める。部分集合 $\Theta\subseteq\{-1,+1\}^d$ の異なる二元の距離が全て $r$ より大きいとき、$\Theta$ をHamming距離 $r$ のpackingという。
+> と定める。半径 $r>0$ と部分集合 $\Theta\subseteq\{-1,+1\}^d$ に対し、異なる二元の距離が全て $r$ より大きいとき、$\Theta$ をHamming距離 $r$ のpackingという。
 <!-- formal-statement-end -->
+
+任意の $\theta,\eta,\zeta\in\{-1,+1\}^d$ について、各座標で「$\theta_i\ne\eta_i$ なら、$\theta_i\ne\zeta_i$ または $\zeta_i\ne\eta_i$」が成り立つことから
+
+$$
+\boldsymbol{1}_{\{\theta_i\ne\eta_i\}}
+\le\boldsymbol{1}_{\{\theta_i\ne\zeta_i\}}
++\boldsymbol{1}_{\{\zeta_i\ne\eta_i\}}
+$$
+
+を得て、$i$ について足せば三角不等式を満たす。非負性・対称性は各指示関数から従い、$d_H(\theta,\eta)=0$ は全座標一致、すなわち $\theta=\eta$ と同値である。よって $(\{-1,+1\}^d,d_H)$ は距離空間であり、上のpackingは先に引用した一般的なpackingの定義をこの距離空間に適用したものである。
 
 <!-- definition-example-start: def-slt1-16-hamming -->
 **定義の確認**：$d=4$ で $\Theta=\{(+,+,+,+),(-,-,-,-)\}$ とすれば両者は4座標全てで異なる。したがって $d_H=4>1$ であり、この集合は半径 $r=1$ のpackingである。ただし2個だけでは、多数の世界を区別する困難さの評価には弱い。$d$ が大きくなるとき、互いに遠い符号列を**指数個**確保したい。
@@ -492,7 +502,7 @@ $$
 
 [有限二値立方体の指数的packing](#lem-slt1-16-packing)から距離が $d/4$ より大きい集合 $\Theta=\{\theta^{(1)},\ldots,\theta^{(M)}\}$ を取り、$M\ge2^{d/8}$ とする。世界番号 $V$ を $\{1,\ldots,M\}$ 上一様に選ぶ。標本 $S$ は $V=j$ の下で $Q_j=P_{\theta^{(j)}}^n$ に従う。
 
-二世界 $\theta,\theta'$ の一観測KLは、入力 $X$ の分布が共通一様だから、各入力点でのBernoulli条件付きKLを $1/d$ で平均したものになる。等しい座標ではKLは0、異なる座標では第3節で計算した
+二世界 $\theta,\theta'$ の一観測KLは、入力 $X$ の分布が共通一様だから、各入力点でのBernoulli条件付きKLを $1/d$ で平均したものになる。等しい座標ではKLは0、異なる座標では[第3節の二点模型の証明](#thm-slt1-16-binary-lower)で計算した
 
 $$
 \kappa(\gamma)=2\gamma\ln\frac{1+2\gamma}{1-2\gamma}
