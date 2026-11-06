@@ -578,7 +578,29 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[QFT53の自由模型の中心電荷](../QFT53/index.md#thm-qft53-majorana-central)を用います。[巡回twistの正則・反正則ウェイト](#thm-qft58-twist-weight)から $x_n=(c/12)(n-1/n)$、二点の指数は $-2x_n$ です。$n=2$ は $n-1/n=3/2$ なので、bosonでは $x_2=1/8$・指数 $-1/4$、Majoranaでは $x_2=1/16$・指数 $-1/8$ です。$n=3$ では $n-1/n=8/3$ だから、bosonは $x_3=2/9$・指数 $-4/9$、Majoranaは $x_3=1/9$・指数 $-2/9$ です。普遍指数の比は2ですが、$C_n$ は規格化・cutoff・境界条件に依存し、中心電荷の比だけでは決まりません。
+[QFT53の自由模型の中心電荷](../QFT53/index.md#thm-qft53-majorana-central)を用います。[巡回twistの正則・反正則ウェイト](#thm-qft58-twist-weight)から、全スケーリング次元は $x_n=c(n-1/n)/12$、二点の長さ指数は $-2x_n$ です。
+
+自由bosonは $c=1$、自由Majoranaは $c=1/2$ です。$n=2$ で $n-1/n=3/2$ を代入すると、
+
+$$
+\begin{array}{c|cc}
+&x_2&-2x_2\\ \hline
+\text{boson}&1/8&-1/4\\
+\text{Majorana}&1/16&-1/8
+\end{array}
+$$
+
+$n=3$ では $n-1/n=8/3$ だから、
+
+$$
+\begin{array}{c|cc}
+&x_3&-2x_3\\ \hline
+\text{boson}&2/9&-4/9\\
+\text{Majorana}&1/9&-2/9
+\end{array}
+$$
+
+普遍指数の比は2ですが、$C_n$ は規格化・cutoff・境界条件に依存し、中心電荷の比だけでは決まりません。
 <!-- solution-end -->
 
 <a id="ex-qft58-c01"></a>
@@ -588,7 +610,16 @@ $$
 - Level: C
 - 対応目標: 巡回添字・幾何・Ward作用・解析接続の統合
 
-(1) 有限次元純粋状態 $|\Psi_p\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle$（$0<p<1$）の第一系を $A$ とし、$\operatorname{Tr}\rho_A^n$ を巡回添字から求めよ。(2) 同じ整数レプリカの操作を、cutoff付き二次元場のEuclid真空へ移すときの貼り合わせを記せ。(3) $c=\bar c$ の単一区間で、分岐座標のSchwarzianと応力テンソルのWard作用から $h_n$、二点の長さ指数を求めよ。(4) $n\to1$ で $c/3$ が出る条件と、無条件には言えない二点を挙げよ。
+有限次元純粋状態を次のように取る。ただし $0<p<1$ とし、第一系を $A$ とする。
+
+$$
+|\Psi_p\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle.
+$$
+
+1. $\operatorname{Tr}\rho_A^n$ を巡回添字から求めよ。
+2. 同じ整数レプリカの操作を、cutoff付き二次元場のEuclid真空へ移すときの貼り合わせを記せ。
+3. $c=\bar c$ の単一区間で、分岐座標のSchwarzianと応力テンソルのWard作用から $h_n$、二点の長さ指数を求めよ。
+4. $n\to1$ で $c/3$ が出る条件と、無条件には言えない二点を挙げよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -600,7 +631,15 @@ R_n=\sum_{a_1,\ldots,a_n}\prod_j(\rho_A)_{a_ja_{j+1}}
 =p^n+(1-p)^n.
 $$
 
-**(2) 切れ目の対応。** Euclid時間 $\tau=0$ の $A$ 上だけ上岸と下岸の境界値を残し、$B$ では同じコピー内で両岸を接続します。$A$ の下岸を次のコピーの上岸へ接続すると、[区間の巡回分岐被覆](#def-qft58-branched-cover)の $\mathcal R_n(A)$ になります。各核の正規化が $1/Z_1$ なので[整数レプリカの分配関数比](#thm-qft58-replica-partition)より $R_n=Z_n(A)/Z_1^n$。有限行列の $p^n+(1-p)^n$ と同じ添字の接続構造ですが、場の作用や未規格化積分の値が同じという主張ではありません。
+**(2) 切れ目の対応。** Euclid時間 $\tau=0$ の $A$ 上だけ上岸と下岸の境界値を残し、$B$ では同じコピー内で両岸を接続します。$A$ の下岸を次のコピーの上岸へ接続すると、[区間の巡回分岐被覆](#def-qft58-branched-cover)の $\mathcal R_n(A)$ になります。
+
+各核の規格化が $1/Z_1$ なので、[整数レプリカの分配関数比](#thm-qft58-replica-partition)より
+
+$$
+R_n=\frac{Z_n(A)}{Z_1^n}.
+$$
+
+有限行列のモーメント $p^n+(1-p)^n$ と同じ添字の接続構造ですが、場の作用や未規格化積分の値が同じという主張ではありません。
 
 **(3) 応力テンソル。** $f=(w-u)/(w-v)$、$\zeta=f^{1/n}$ とすれば、[分岐座標のSchwarzian](#lem-qft58-schwarzian-root)から
 
