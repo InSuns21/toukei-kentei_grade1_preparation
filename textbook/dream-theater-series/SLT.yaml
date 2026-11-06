@@ -64,7 +64,7 @@ chapters:
     title: "算法安定性と期待汎化"
   - id: SLT1-15
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-15
-    status: planned
+    status: completed
     title: "PAC-Bayes不等式"
   - id: SLT1-16
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-16

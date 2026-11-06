@@ -1,0 +1,116 @@
+chapter: SLT1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-14
+  - INFO2
+  - HDP1
+
+concepts:
+  - id: learning.pac-bayes-prior-posterior
+    name: 事前分布・事後分布と混合リスク
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（事前分布・事後分布と混合リスク）"]
+    requires:
+      - learning.iid-training-sample
+      - learning.population-risk
+      - learning.empirical-risk
+
+  - id: learning.pac-bayes-natural-kl
+    name: 事後分布の相対エントロピー
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（事後分布の相対エントロピー）"]
+    requires:
+      - learning.pac-bayes-prior-posterior
+      - information.relative-entropy
+
+  - id: learning.pac-bayes-change-measure
+    name: 有限仮説上の分布変更不等式
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（有限仮説上の分布変更不等式）"]
+    requires:
+      - learning.pac-bayes-natural-kl
+      - information.gibbs-inequality
+
+  - id: learning.pac-bayes-binary-kl
+    name: 二値相対エントロピー
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（二値相対エントロピー）"]
+    requires:
+      - information.relative-entropy
+
+  - id: learning.pac-bayes-kl-moment
+    name: 有界標本平均の二値KL指数モーメント
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（有界標本平均の二値KL指数モーメント）"]
+    requires:
+      - learning.pac-bayes-binary-kl
+      - learning.iid-training-sample
+
+  - id: learning.pac-bayes-kl-bound
+    name: 有限仮説クラスのPAC-Bayes二値KL不等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限仮説クラスのPAC-Bayes二値KL不等式）"]
+    requires:
+      - learning.pac-bayes-change-measure
+      - learning.pac-bayes-kl-moment
+      - information.log-sum-inequality
+
+  - id: learning.pac-bayes-binary-pinsker
+    name: 二値KLから絶対差への評価
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（二値KLから絶対差への評価）"]
+    requires:
+      - learning.pac-bayes-binary-kl
+
+  - id: learning.pac-bayes-risk-gap
+    name: PAC-Bayesの二側リスク差界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（PAC-Bayesの二側リスク差界）"]
+    requires:
+      - learning.pac-bayes-kl-bound
+      - learning.pac-bayes-binary-pinsker
+
+  - id: learning.pac-bayes-gibbs-tilt
+    name: 経験リスクとKL罰則の最小化
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（経験リスクとKL罰則の最小化）"]
+    requires:
+      - learning.pac-bayes-change-measure
+
+  - id: learning.pac-bayes-fixed-lambda
+    name: 固定指数パラメータによるPAC-Bayes一側界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（固定指数パラメータによるPAC-Bayes一側界）"]
+    requires:
+      - learning.pac-bayes-change-measure
+      - high-dimensional-probability.hoeffding-lemma
+
+  - id: learning.pac-bayes-dependent-prior
+    name: 標本依存の事前分布では保証できない
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（標本依存の事前分布では保証できない）"]
+    requires:
+      - learning.pac-bayes-risk-gap
