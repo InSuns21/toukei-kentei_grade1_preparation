@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   DEG, rad, ellipsoid, radii, ecef, enuBasis, norm, dot,
-  inverseECEF, geocentricLatitude, inverseGeodesic, traceGeodesic,
+  inverseECEF, geocentricLatitude, inverseGeodesic, vincentyInverseGeodesic,
+  traceGeodesic, traceGeodesicRobust,
   transverseMercator, projectionDistortion,
 } from './geod-core.mjs';
 
@@ -49,7 +50,7 @@ test('ellipsoidal inverse equals analytical equatorial quarter circumference', (
   assert.equal(inverseGeodesic(rad(15), rad(20), rad(15), rad(20)).distance, 0);
 });
 
-test('independent RK4 Clairaut geodesic reaches Vincenty inverse endpoint', () => {
+test('independent RK4 Clairaut geodesic reaches Karney inverse endpoint', () => {
   const p1 = rad(35.681236), l1 = rad(139.767125);
   const p2 = rad(43.06417), l2 = rad(141.34694);
   const inv = inverseGeodesic(p1, l1, p2, l2, grs);
@@ -131,6 +132,59 @@ test('domain and convergence failures are explicit', () => {
   assert.throws(() => transverseMercator(0, rad(40)), /TM_LOCAL_DOMAIN/);
   assert.throws(() => traceGeodesic(Math.PI / 2, 0, 0, 1000), RangeError);
   const inverse = inverseGeodesic(rad(.5), 0, rad(-.5), rad(179.9));
-  assert.ok(inverse.error || (inverse.distance > 19_900_000 && inverse.distance < 20_100_000),
+  assert.ok(inverse.distance > 19_900_000 && inverse.distance < 20_100_000,
     'near-antipodal result must not be a spurious short arc');
+  assert.throws(() => inverseGeodesic(NaN, 0, 0, 0), RangeError);
+  assert.throws(() => traceGeodesicRobust(0, 0, Infinity, 1000), RangeError);
+});
+
+test('Karney 2013 table 4–6 nearly antipodal inverse agrees with independent published fixture', () => {
+  // Karney (2013) tables 4–6, independently reproduced by Apache SIS
+  // GeodesicsOnEllipsoidTest.testComputeNearlyAntipodal(). Uses WGS84, not GRS80.
+  // https://apache.googlesource.com/sis/+/c912771e82dd54f05e594bc69c6e5d1a581346c0/endorsed/src/org.apache.sis.referencing/test/org/apache/sis/referencing/GeodesicsOnEllipsoidTest.java
+  const wgs84 = ellipsoid(6378137, 1 / 298.257223563);
+  const a = inverseGeodesic(rad(-30), 0, rad(29.9), rad(179.8), wgs84);
+  close(a.distance, 19989832.827610, .002, 'distance published by Karney');
+  close((a.azimuth / DEG + 360) % 360, 161.89052473633, 3e-9, 'initial azimuth');
+  close((a.finalAzimuth / DEG + 360) % 360, 18.09073724574, 3e-9, 'final azimuth');
+  assert.equal(a.method, 'Karney');
+  const vincenty = vincentyInverseGeodesic(rad(-30), 0, rad(29.9), rad(179.8), wgs84);
+  assert.equal(vincenty.error, 'ANTIPODAL_NONCONVERGENCE');
+});
+
+test('exact antipodes have a shortest meridian route, not Vincenty nonconvergence', () => {
+  const wgs84 = ellipsoid(6378137, 1 / 298.257223563);
+  const r = inverseGeodesic(0, 0, 0, Math.PI, wgs84);
+  // GeographicLib's documented exact antipodal limit, half meridian.
+  close(r.distance, 20003931.458625447, .002, 'half WGS84 meridian');
+  assert.ok(Math.abs(Math.sin(r.azimuth)) < 1e-13, 'a shortest route passes over a pole');
+  assert.ok(r.distance < Math.PI * wgs84.a, 'equatorial semicircle is longer');
+  const path = traceGeodesicRobust(0, 0, r.azimuth, r.distance, wgs84, 160);
+  close(path.points.at(-1)[0], 0, 1e-12, 'antipodal latitude');
+  close(Math.abs(path.points.at(-1)[1]), Math.PI, 1e-12, 'antipodal longitude');
+  assert.ok(path.maxDrift < 2e-12, 'Clairaut invariant');
+  assert.ok(path.points.some(p => Math.abs(Math.abs(p[0]) - Math.PI / 2) < .02),
+    'sampled shortest route crosses a pole');
+});
+
+test('polar and anti-meridian numerical traces close with inverse endpoint', () => {
+  const routes = [
+    [-30, 0, 29.9, 179.8],
+    [40, 0, -40, 179.999],
+    [84.7, 170, 84.6, -170],
+    [-45, -179.999, 44.8, .002],
+  ];
+  for (const coords of routes) {
+    const [p1, l1, p2, l2] = coords.map(rad);
+    const inverse = inverseGeodesic(p1, l1, p2, l2);
+    assert.ok(inverse.distance > 0 && inverse.distance <= Math.PI * grs.a);
+    const sampled = traceGeodesicRobust(p1, l1, inverse.azimuth, inverse.distance);
+    const actual = ecef(sampled.phi, sampled.lambda);
+    const target = ecef(p2, l2);
+    assert.ok(norm(actual.map((x, i) => x - target[i])) < .002,
+      `direct-inverse closure for ${coords}: ${sampled.phi},${sampled.lambda}`);
+    assert.ok(sampled.maxDrift < 1e-11);
+    const reverse = inverseGeodesic(p2, l2, p1, l1);
+    close(reverse.distance, inverse.distance, .002, 'distance reversibility');
+  }
 });
