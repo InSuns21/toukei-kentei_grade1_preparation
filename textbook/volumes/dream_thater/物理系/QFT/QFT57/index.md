@@ -369,7 +369,25 @@ $H=(\mathbb C^2)^{\otimes3}$、$A=\{1,3\}$、$B=\{2\}$ とする。$|\Psi\rangle
 <!-- solution-start -->
 ### 詳細解答
 
-$A$ の基底を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と取ると、全系は $(|00\rangle_A|0\rangle_B+|11\rangle_A|1\rangle_B)/\sqrt2$ です。$B$ の直交基底で交差項のトレースは0となるので $\rho_A=(|00\rangle\langle00|+|11\rangle\langle11|)/2$。正値・トレース1であり、$Z\otimes Z$ は $|00\rangle$ と $|11\rangle$ の両方に固有値 $+1$ で作用します。従って $\operatorname{Tr}(\rho_A(Z\otimes Z))=1$。全系の各項でも同じ値なので[QINF3の局所期待値定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)と一致します。
+$A$ の基底を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と取ります。全系の状態を領域ごとに書き直すと
+
+$$
+|\Psi\rangle=\frac{|00\rangle_A|0\rangle_B+|11\rangle_A|1\rangle_B}{\sqrt2}.
+$$
+
+$B$ の直交基底で交差項のトレースは0となるので、
+
+$$
+\rho_A=\frac{|00\rangle\langle00|+|11\rangle\langle11|}{2}.
+$$
+
+これは正値・トレース1です。$Z\otimes Z$ は $|00\rangle$ と $|11\rangle$ の両方に固有値 $+1$ で作用するため、
+
+$$
+\operatorname{Tr}(\rho_A(Z\otimes Z))=\tfrac12+\tfrac12=1.
+$$
+
+全系の各項でも同じ値なので[QINF3の局所期待値定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)と一致します。
 <!-- solution-end -->
 
 <a id="ex-qft57-a02"></a>
@@ -429,7 +447,9 @@ $\omega_+=1$、$\omega_-=\sqrt{1+3}=2$ です。分散は $(1+1/2)/4=3/8$、$(1+
 <!-- solution-start -->
 ### 詳細解答
 
-(1) 不要です。領域を選ぶ操作はどの演算子 $O_A\otimes I_B$ を観測するかを制限するだけです。切断面の隣のサイト $2$ の場の値は自由に揺らいで構いません。(2) 違います。$q_3=0$ は許される全系状態やHamiltonianの境界条件を変更します。部分トレースはもとの全系の $\rho$ を保持して、$B$ の基底を和に取って $\rho_A$ を作ります。[QFT56の境界条件の定義](../QFT56/index.md#def-qft56-half-plane-boundaries)と前節の縮約は別操作です。
+**(1) 領域の選択。** 不要です。領域を選ぶ操作はどの演算子 $O_A\otimes I_B$ を観測するかを制限するだけです。切断面の隣のサイト $2$ の場の値は自由に揺らいで構いません。
+
+**(2) 物理的な固定境界。** 違います。$q_3=0$ は許される全系状態やHamiltonianの境界条件を変更します。部分トレースはもとの全系の $\rho$ を保持して、$B$ の基底を和に取って $\rho_A$ を作ります。[QFT56の境界条件の定義](../QFT56/index.md#def-qft56-half-plane-boundaries)と前節の縮約は別操作です。
 <!-- solution-end -->
 
 <a id="ex-qft57-b01"></a>
@@ -474,7 +494,22 @@ $\rho=\operatorname{diag}(p,1-p)$、$0<p<1$ とする。(1) $Z(n)$ と $S$ を�
 <!-- solution-start -->
 ### 詳細解答
 
-(1) $Z(n)=p^n+(1-p)^n$、$Z(1)=1$ です。微分は $Z'(1)=p\ln p+(1-p)\ln(1-p)$ だから、[有限次元のレプリカ微分公式](#thm-qft57-replica-derivative)により $S=-p\ln p-(1-p)\ln(1-p)$。(2) 整数 $n$ では $\sin(\pi n)=0$ で全値が一致し、$\widetilde Z(1)=1$ です。しかし $\widetilde Z'(1)=Z'(1)+\epsilon\pi\cos\pi=Z'(1)-\epsilon\pi$。$\epsilon\ne0$ なら異なり、整数レプリカだけからエントロピーを微分で一意には決められません。これは $\widetilde Z$ が別の密度行列のモーメントだという主張ではありません。
+**(1) 密度行列からの微分。** $Z(n)=p^n+(1-p)^n$、$Z(1)=1$ です。微分を明示すると、
+
+$$
+Z'(1)=p\ln p+(1-p)\ln(1-p).
+$$
+
+[有限次元のレプリカ微分公式](#thm-qft57-replica-derivative)から $S=-p\ln p-(1-p)\ln(1-p)$ です。
+
+**(2) 整数データだけの非一意性。** 整数 $n$ では $\sin(\pi n)=0$ で全値が一致し、$\widetilde Z(1)=1$ です。しかし、
+
+$$
+\widetilde Z'(1)=Z'(1)+\epsilon\pi\cos\pi
+=Z'(1)-\epsilon\pi.
+$$
+
+$\epsilon\ne0$ なら導関数が異なり、整数レプリカだけからエントロピーを微分で一意には決められません。これは $\widetilde Z$ が別の密度行列のモーメントだという主張ではありません。
 <!-- solution-end -->
 
 <a id="ex-qft57-b04"></a>
