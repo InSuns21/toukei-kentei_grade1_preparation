@@ -1,0 +1,69 @@
+chapter: QFT63
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT48, QFT54, QFT19, QFT56]
+forward_references: []
+
+concepts:
+  - id: qft.higher-dimensional-reduced-four-point
+    name: 同一スカラー一次場の縮約四点関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（同一スカラー一次場の縮約四点関数）]
+    requires: [qft.scalar-primary-two-point, qft.conformal-cross-ratios]
+
+  - id: qft.higher-dimensional-crossing
+    name: 同一スカラー四点関数の交差対称式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（同一スカラー四点関数の交差対称式）]
+    requires: [qft.higher-dimensional-reduced-four-point]
+
+  - id: qft.connected-scalar-cumulants
+    name: 中心化相関関数の連結累積量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中心化相関関数の連結累積量）]
+    requires: [qft.bosonic-generating-functional]
+
+  - id: qft.large-n-factorizing-family
+    name: 大N因子化するスカラー場族
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（大N因子化するスカラー場族）]
+    requires: [qft.connected-scalar-cumulants]
+
+  - id: qft.large-n-leading-four-point
+    name: 大N因子化の先頭四点関数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（大N因子化の先頭四点関数）]
+    requires: [qft.large-n-factorizing-family, qft.higher-dimensional-crossing]
+
+  - id: qft.gaussian-matrix-cumulants
+    name: Gaussian行列模型の連結累積量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gaussian行列模型の連結累積量）]
+    requires: [qft.connected-scalar-cumulants]
+
+  - id: qft.boundary-primary-one-point
+    name: 境界一次場の一体関数の距離則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（境界一次場の一体関数の距離則）]
+    requires: [qft.scalar-primary-field]
+
+  - id: qft.half-space-cross-ratio
+    name: 半空間の境界交差比
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（半空間の境界交差比）]
+    requires: [qft.inversion-distance]
+
+  - id: qft.higher-dimensional-image-green
+    name: 半空間自由スカラー場の鏡像Green核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（半空間自由スカラー場の鏡像Green核）]
+    requires: [qft.massless-euclidean-power-kernel, qft.half-space-cross-ratio]

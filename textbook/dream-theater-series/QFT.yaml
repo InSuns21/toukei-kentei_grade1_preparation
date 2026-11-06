@@ -255,3 +255,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT62
     status: completed
     title: "相対エントロピーの領域単調性と平均ヌルエネルギーへの橋"
+  - id: QFT63
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT63
+    status: completed
+    title: "高次元CFTの四点関数・大N因子化と境界相関"
