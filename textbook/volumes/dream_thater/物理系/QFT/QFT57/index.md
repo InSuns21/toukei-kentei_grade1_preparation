@@ -12,6 +12,8 @@
 
 長さ $L>0$ の一次元空間を格子幅 $a=L/N$（整数 $N\ge2$）に分け、各サイト $j$ に有限次元Hilbert空間 $H_j$ を置きます。たとえば $H_j=\mathbb C^2$ なら各サイトは二準位です。サイト集合 $\Lambda=\{1,\ldots,N\}$ の部分集合 $A$ を観測領域、$B=\Lambda\setminus A$ を観測しない領域とします。因子の順番を固定すれば、全空間は $H_A\otimes H_B$ と書き直せます。
 
+ここでの $a$ は**格子間隔**であり、[QFT56の点分離cutoff](../QFT56/index.md#def-qft56-interval-cutoff)における端点小円の半径とは別の正則化方法です。同じ長さの記号で表しても、部分系を作る操作と端点相関を正則化する操作を同一視しません。
+
 <a id="def-qft57-local-lattice"></a>
 
 <!-- formal-statement-start -->
@@ -27,10 +29,18 @@ $$
 > と因子を並べ替えた表示を選ぶ。$A$ に局在する観測量は $O_A\otimes I_B$（$O_A=O_A^\dagger$）と書けるものとする。局所演算子全体は $\mathcal A_a(A)=\{X_A\otimes I_B:X_A\in L(H_A)\}$ である。
 <!-- formal-statement-end -->
 
-**定義の意味**：$A$ の演算子は $B$ に作用しません。$A$ に $r$ 個の二準位サイトがあれば $H_A$ の次元は $2^r$ ですが、$N\to\infty$ の後にも「次元が $2^r$ の同じ行列空間」を保持できるわけではありません。
+**定義の意味**：$A$ の演算子は $B$ に作用しません。元のサイト順と $H_A\otimes H_B$ の表示を結ぶのは、テンソル因子を並べ替えるユニタリ写像です。その写像で $O_A\otimes I_B$ に戻せることが、行列表示から局所性を判定する根拠です。$A$ に $r$ 個の二準位サイトがあれば $H_A$ の次元は $2^r$ ですが、$N\to\infty$ の後にも「次元が $2^r$ の同じ行列空間」を保持できるわけではありません。
 
 <!-- definition-example-start: def-qft57-local-lattice -->
-**定義の確認**：三サイトの順番を $1,2,3$ として $A=\{1,3\}$、$B=\{2\}$ と置きます。$Z=\operatorname{diag}(1,-1)$ をサイト1、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ をサイト3に作用させると、局所観測量は $Z\otimes I_2\otimes X$ です。両行列は自己共役で、$Z\otimes X$ を $H_A$ 上に置いたものと一致します。サイト2だけの $I_1\otimes Z\otimes I_3$ と可換です。これは定義に書かれた支持条件を実際に検査しています。
+**定義の確認**：三サイトの順番を $1,2,3$ として $A=\{1,3\}$、$B=\{2\}$ と置きます。各サイトの計算基底 $|0\rangle,|1\rangle$ で、$Z=\operatorname{diag}(1,-1)$ は $|0\rangle,|1\rangle$ にそれぞれ $+1,-1$ を掛け、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ は二つの基底ベクトルを交換する行列です。$Z^\dagger=Z$、$X^\dagger=X$ を成分で確かめられます。
+
+サイト1に $Z$、サイト3に $X$ を作用させた演算子は $Z\otimes I_2\otimes X$ です。因子の並べ替え $U:H_1\otimes H_2\otimes H_3\to(H_1\otimes H_3)\otimes H_2$ を $U|i\,j\,k\rangle=|i\,k\rangle\otimes|j\rangle$ で定めると、
+
+$$
+U(Z\otimes I_2\otimes X)U^\dagger=(Z\otimes X)\otimes I_2.
+$$
+
+従って $O_A=Z\otimes X$ は自己共役で、$B$ 側の作用素は恒等写像です。元のサイト順でも、サイト2だけの $I_1\otimes Z\otimes I_3$ と可換です。これは定義の自己共役性と支持条件をそれぞれ検査しています。
 <!-- definition-example-end -->
 
 有限格子で全系の状態 $\rho$ が与えられたら、[密度演算子](../../../応用系/QINF/QINF2/index.md#def-qinf2-ensemble-density)の条件により $\rho\ge0$、$\operatorname{Tr}\rho=1$ です。領域を観測するには、全系の期待値 $\operatorname{Tr}(\rho(O_A\otimes I_B))$ が再現できれば十分です。
@@ -132,9 +142,26 @@ q_1^2+q_2^2=Q_+^2+Q_-^2,\qquad
 (q_1-q_2)^2=2Q_-^2.
 $$
 
-同じ直交変換を運動量にも施すと、$H=(P_+^2+\omega_+^2Q_+^2)/2+(P_-^2+\omega_-^2Q_-^2)/2$ です。各モードの基底波動関数 $(\omega/\pi)^{1/4}e^{-\omega Q^2/2}$ を掛けた表示式は、変換のJacobianの絶対値が1なので正規化されています。[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)から $\langle Q_\pm^2\rangle=1/(2\omega_\pm)$、$\langle P_\pm^2\rangle=\omega_\pm/2$、異なるモードの交差期待値は零です。これを $q_1,p_1$ の線形結合に戻せば示した分散となります。実の偶Gaussianでは対称化された $qp$ 期待値も零です。
+同じ直交変換を運動量にも施すと、$[Q_\alpha,P_\beta]=i\delta_{\alpha\beta}$（$\alpha,\beta\in\{+,-\}$）を保ち、
 
-最後に $A=(\omega_++\omega_-)/2$、$B=(\omega_+-\omega_-)/2$ と置くと
+$$
+H=\frac12(P_+^2+\omega_+^2Q_+^2)+\frac12(P_-^2+\omega_-^2Q_-^2)
+$$
+
+と二つの独立な振動子に分かれます。各モードの実の基底波動関数を $g_\omega(Q)=(\omega/\pi)^{1/4}e^{-\omega Q^2/2}$ と置くと、$\psi_0=g_{\omega_+}(Q_+)g_{\omega_-}(Q_-)$ です。この直交変換のJacobianの絶対値は1なので、各 $g_\omega$ の規格化から $\psi_0$ も規格化されます。
+
+[有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)は、確率重み $|g_\omega(Q)|^2\propto e^{-\omega Q^2}$ に適用でき（正定値係数は $2\omega>0$）、$\langle Q^2\rangle=1/(2\omega)$ を与えます。一方、運動量の分散はその公式だけでは出ず、位置表示 $P=-i\,d/dQ$ と $g_\omega'(Q)=-\omega Qg_\omega(Q)$ を使います。Gaussianの減衰により境界項は零なので、
+
+$$
+\langle P^2\rangle=\int_{\mathbb R}|g_\omega'(Q)|^2\,dQ
+=\omega^2\langle Q^2\rangle=\frac\omega2,\qquad
+\frac12\langle QP+PQ\rangle
+=\operatorname{Re}\!\int_{\mathbb R}\overline{g_\omega}\,Q(-ig_\omega')\,dQ=0.
+$$
+
+異なるモードの交差期待値は積状態と各モードの零平均から0です。$q_1=(Q_++Q_-)/\sqrt2$、$p_1=(P_++P_-)/\sqrt2$ に代入すると、例えば $\langle q_1^2\rangle=(\langle Q_+^2\rangle+\langle Q_-^2\rangle)/2$ となり、命題の三つの局所共分散が従います。
+
+最後にGaussianの実数係数 $A=(\omega_++\omega_-)/2$、$B=(\omega_+-\omega_-)/2$ と置きます。この段落以降の係数 $A,B$ は、第1節の**領域集合** $A$ と補集合 $B$ とは別の量です。すると
 
 $$
 \psi_0(q_1,q_2)=\frac{(\omega_+\omega_-)^{1/4}}{\sqrt\pi}
@@ -152,7 +179,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（二振動子の縮約純粋性）**
-> 上の二振動子の正規化基底状態 $\psi_0$ について、第一サイトの縮約核を次で定める。
+> $\omega_0>0$、$\kappa\ge0$ とし、[二サイト自由場の命題](#prop-qft57-two-oscillators)で指定したHamiltonianの正規化基底波動関数を $\psi_0$ とする。$\omega_+=\omega_0$、$\omega_-=\sqrt{\omega_0^2+2\kappa}$ と置き、第一サイトの縮約核を次で定める。
 
 $$
 \rho_1(x,x')=\int_\mathbb R\psi_0(x,y)\overline{\psi_0(x',y)}\,dy.
@@ -242,7 +269,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（独立Bell対の局所エントロピーと整数モーメント）**
-> 上の $|\Psi_M\rangle$ を全系の純粋状態とする。$A$ の縮約状態は
+> $M\ge0$ 組の[切断面をまたぐ独立Bell対模型](#def-qft57-crossing-pairs)で指定した $|\Psi_M\rangle$ を全系の純粋状態とする。$A$ の縮約状態は
 
 $$
 \rho_A=\frac{I_{2^M}}{2^M}\otimes|\chi_A\rangle\langle\chi_A|,
@@ -317,7 +344,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft57-replica-moments -->
-**定義の確認**：$\rho_A=\operatorname{diag}(3/4,1/4,0)$ なら正値・トレース1です。$Z_A(2)=9/16+1/16=5/8$、$S_2=-\ln(5/8)=\ln(8/5)$。零固有値を正の固有値の和から除いているので、$n>0$ で $0^n$ の曖昧さもありません。
+**定義の確認**：$\rho_A=\operatorname{diag}(3/4,1/4,0)$ なら正値・トレース1です。$Z_A(2)=9/16+1/16=5/8$、$S_2=-\ln(5/8)=\ln(8/5)$。零固有値の寄与は $n>0$ で $0^n=0$ であり、正の固有値だけの和なら微分時に $\ln0$ を書かずに済みます。
 <!-- definition-example-end -->
 
 <a id="thm-qft57-replica-derivative"></a>
@@ -442,14 +469,16 @@ $\omega_+=1$、$\omega_-=\sqrt{1+3}=2$ です。分散は $(1+1/2)/4=3/8$、$(1+
 - Level: A
 - 対応目標: 境界条件と領域分割の区別
 
-三サイトの実変数 $q_1,q_2,q_3$ について、$A=\{1,2\}$、$B=\{3\}$ とする。(1) $A$ を選ぶと $q_2=0$ を課す必要があるか。(2) 別途 $q_3=0$ の固定境界条件を課す操作と、$B$ を部分トレースで捨てる操作は同じか。理由を述べよ。
+三サイトの実変数 $q_1,q_2,q_3$ について、$A=\{1,2\}$、$B=\{3\}$ とする。次の問いに理由を付けて答えよ。
+
+1. $A$ を選ぶと $q_2=0$ を課す必要があるか。
+2. 別途 $q_3=0$ の固定境界条件を課す操作と、$B$ を部分トレースで捨てる操作は同じか。
 
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) 領域の選択。** 不要です。領域を選ぶ操作はどの演算子 $O_A\otimes I_B$ を観測するかを制限するだけです。切断面の隣のサイト $2$ の場の値は自由に揺らいで構いません。
-
-**(2) 物理的な固定境界。** 違います。$q_3=0$ は許される全系状態やHamiltonianの境界条件を変更します。部分トレースはもとの全系の $\rho$ を保持して、$B$ の基底を和に取って $\rho_A$ を作ります。[QFT56の境界条件の定義](../QFT56/index.md#def-qft56-half-plane-boundaries)と前節の縮約は別操作です。
+1. **領域の選択。** 不要です。領域を選ぶ操作はどの演算子 $O_A\otimes I_B$ を観測するかを制限するだけです。切断面の隣のサイト $2$ の場の値は自由に揺らいで構いません。
+2. **物理的な固定境界。** 違います。$q_3=0$ は許される全系状態やHamiltonianの境界条件を変更します。部分トレースはもとの全系の $\rho$ を保持して、$B$ の基底を和に取って $\rho_A$ を作ります。[QFT56の境界条件の定義](../QFT56/index.md#def-qft56-half-plane-boundaries)と前節の縮約は別操作です。
 <!-- solution-end -->
 
 <a id="ex-qft57-b01"></a>
@@ -464,7 +493,45 @@ $A=(\omega_++\omega_-)/2$、$B=(\omega_+-\omega_-)/2$、$A>|B|$ とおく。$\ps
 <!-- solution-start -->
 ### 詳細解答
 
-$\psi(x,y)\psi(x',y)$ の指数は $-A(x^2+x'^2)/2-Ay^2-B(x+x')y$ です。$s=x+x'$ とおけば $-Ay^2-Bsy=-A(y+Bs/(2A))^2+B^2s^2/(4A)$ なので、$y$ 積分は $\sqrt{\pi/A}\,e^{B^2s^2/(4A)}$。よって $\rho_1(x,x')=K e^{-u(x^2+x'^2)+vxx'}$、$K=\sqrt{(A^2-B^2)/(\pi A)}$、$u=A/2-B^2/(4A)$、$v=B^2/(2A)$。純粋性積分の二次形式の行列は $\begin{pmatrix}2u&-v\\-v&2u\end{pmatrix}$ で、行列式 $(2u)^2-v^2=A^2-B^2>0$。従って二次元Gaussian積分は $\pi/\sqrt{A^2-B^2}$、$K^2$ を掛けて $\operatorname{Tr}\rho_1^2=\sqrt{A^2-B^2}/A$。$A\ge\sqrt{A^2-B^2}$ なので1以下です。
+$\psi(x,y)\psi(x',y)$ の指数を展開し、$s=x+x'$ と置いて $y$ について平方完成すると
+
+$$
+\begin{aligned}
+&-\frac A2(x^2+x'^2)-Ay^2-Bsy,\\
+&-Ay^2-Bsy=-A\left(y+\frac{Bs}{2A}\right)^2+\frac{B^2s^2}{4A},\\
+&\int_{\mathbb R}e^{-Ay^2-Bsy}\,dy
+=\sqrt{\frac\pi A}\,e^{B^2s^2/(4A)}.
+\end{aligned}
+$$
+
+従って縮約核の係数は
+
+$$
+\begin{aligned}
+\rho_1(x,x')&=K e^{-u(x^2+x'^2)+vxx'},\\
+K&=\sqrt{\frac{A^2-B^2}{\pi A}},\qquad
+u=\frac A2-\frac{B^2}{4A},\qquad
+v=\frac{B^2}{2A}
+\end{aligned}
+$$
+
+です。純粋性積分の二次形式の行列とその主座小行列式は
+
+$$
+G=\begin{pmatrix}2u&-v\\-v&2u\end{pmatrix},\qquad
+2u=A-\frac{B^2}{2A}>0,\qquad
+\det G=4u^2-v^2=A^2-B^2>0.
+$$
+
+$A>|B|$ だから $G$ は正定値であり、二次元Gaussian積分を適用できます。従って
+
+$$
+\operatorname{Tr}\rho_1^2
+=K^2\frac\pi{\sqrt{\det G}}
+=\frac{\sqrt{A^2-B^2}}A\le1.
+$$
+
+最後の不等号は $A>0$ と $B^2\ge0$ から従います。
 <!-- solution-end -->
 
 <a id="ex-qft57-b02"></a>
@@ -479,7 +546,20 @@ $a_k=L/2^k$（$k=1,2,\ldots$）ごとに $M(a_k)=k$ 組の独立Bell対が切断
 <!-- solution-start -->
 ### 詳細解答
 
-[独立Bell対の定理](#thm-qft57-crossing-entropy)で $S_A(a_k)=k\ln2=\ln(L/a_k)$、一段細分化で $M$ が1増すため差は $\ln2$ です。しかし $M(a_k)=2k$ と作れば差も係数も二倍になります。この結果は人工的な横断対数え上げの帰結であって、CFTの局所場の相関・対称性・中心電荷を計算していません。よって $c$ を決める根拠にはなりません。
+$a_k=L/2^k$ に対するサイト数は $N=2^k$ です。前半の $2^{k-1}$ サイトを領域 $A$、後半を $B$ とし、各側から異なる $k$ サイトを選び一対ずつBell状態に置きます。$2^{k-1}\ge k$ は $k=1$ で成立し、$2^k\ge2k\ge k+1$ と帰納できるので、すべての $k\ge1$ で構成できます。残りのサイトは純粋積状態に置きます。
+
+こうして確かに $k$ 組が横断するため、[独立Bell対の局所エントロピーと整数モーメント](#thm-qft57-crossing-entropy)から
+
+$$
+S_A(a_k)=k\ln2=\ln(L/a_k),\qquad
+S_A(a_{k+1})-S_A(a_k)=\ln2
+$$
+
+を得ます。一段細分化で $M$ が1増すことが差の理由です。
+
+一方、十分細かい格子、例えば $k\ge4$ では $2^{k-1}\ge2k$ なので、同じ二分割で $M(a_k)=2k$ 組を作れば差も漸近的な係数も二倍になります。小さい $k$ で存在しない数の独立対を仮定してはいけません。
+
+この結果は人工的な横断対数え上げの帰結であって、CFTの局所場の相関・対称性・中心電荷を計算していません。よって $c$ を決める根拠にはなりません。
 <!-- solution-end -->
 
 <a id="ex-qft57-b03"></a>
@@ -489,27 +569,30 @@ $a_k=L/2^k$（$k=1,2,\ldots$）ごとに $M(a_k)=k$ 組の独立Bell対が切断
 - Level: B
 - 対応目標: 微分公式と解析接続の追加仮定
 
-$\rho=\operatorname{diag}(p,1-p)$、$0<p<1$ とする。(1) $Z(n)$ と $S$ を求めよ。(2) $\widetilde Z(n)=Z(n)+\epsilon\sin(\pi n)$ を考え、整数値と $n=1$ の導関数を比較せよ。
+$\rho=\operatorname{diag}(p,1-p)$、$0<p<1$ とする。次の二点を調べよ。
+
+1. $Z(n)$ と $S$ を求めよ。
+2. $\widetilde Z(n)=Z(n)+\epsilon\sin(\pi n)$ を考え、整数値と $n=1$ の導関数を比較せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) 密度行列からの微分。** $Z(n)=p^n+(1-p)^n$、$Z(1)=1$ です。微分を明示すると、
+1. **密度行列からの微分。** $Z(n)=p^n+(1-p)^n$、$Z(1)=1$ です。微分を明示すると、
 
-$$
-Z'(1)=p\ln p+(1-p)\ln(1-p).
-$$
+   $$
+   Z'(1)=p\ln p+(1-p)\ln(1-p).
+   $$
 
-[有限次元のレプリカ微分公式](#thm-qft57-replica-derivative)から $S=-p\ln p-(1-p)\ln(1-p)$ です。
+   [有限次元のレプリカ微分公式](#thm-qft57-replica-derivative)から $S=-p\ln p-(1-p)\ln(1-p)$ です。
 
-**(2) 整数データだけの非一意性。** 整数 $n$ では $\sin(\pi n)=0$ で全値が一致し、$\widetilde Z(1)=1$ です。しかし、
+2. **整数データだけの非一意性。** 整数 $n$ では $\sin(\pi n)=0$ で全値が一致し、$\widetilde Z(1)=1$ です。しかし、
 
-$$
-\widetilde Z'(1)=Z'(1)+\epsilon\pi\cos\pi
-=Z'(1)-\epsilon\pi.
-$$
+   $$
+   \widetilde Z'(1)=Z'(1)+\epsilon\pi\cos\pi
+   =Z'(1)-\epsilon\pi.
+   $$
 
-$\epsilon\ne0$ なら導関数が異なり、整数レプリカだけからエントロピーを微分で一意には決められません。これは $\widetilde Z$ が別の密度行列のモーメントだという主張ではありません。
+   $\epsilon\ne0$ なら導関数が異なり、整数レプリカだけからエントロピーを微分で一意には決められません。これは $\widetilde Z$ が別の密度行列のモーメントだという主張ではありません。
 <!-- solution-end -->
 
 <a id="ex-qft57-b04"></a>
@@ -519,7 +602,7 @@ $\epsilon\ne0$ なら導関数が異なり、整数レプリカだけからエ�
 - Level: B
 - 対応目標: エントロピー発散と期待値の両立
 
-$A$ の観測対象を一つの二準位サイト $a_0$ とし、その状態を常に $|0\rangle\langle0|$ とする。同時に、$A,B$ 間の独立Bell対を $M=k$ 個含む純粋な全系を構成する。$Z_{a_0}$ の期待値と $S_A$ を求め、どちらが $k\to\infty$ で発散するか示せ。
+領域 $A$ 内に二準位サイト $a_0$ を置き、そのサイトの状態を常に $|0\rangle\langle0|$ とする。同時に、$A,B$ 間の独立Bell対を $M=k$ 個含む純粋な全系を構成する。$a_0$ 上の局所観測量 $Z_{a_0}$ の期待値と、$a_0$ とBell対の $A$ 側を含む領域全体の $S_A$ を求め、どちらが $k\to\infty$ で発散するか示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -534,30 +617,55 @@ $A$ の観測対象を一つの二準位サイト $a_0$ とし、その状態を
 - Level: C
 - 対応目標: 縮約・純粋性・エントロピー・解析接続の統合
 
-二サイトの純粋状態 $|\Psi_p\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle$（$0<p<1$）を出発点とする。さらにこの状態の独立コピーを $M$ 組作り、各組の第一サイトだけを $A$ とする。(1) $\rho_A$ の固有値を重複度まで決め、(2) $\operatorname{Tr}\rho_A^n$ と $S_A$ を導き、(3) $p=1/2$ と $p\to1$ の両極限を検算し、(4) この整数レプリカデータを無条件に連続場の区間エントロピーと呼べない理由を二つ述べよ。
+二サイトの純粋状態 $|\Psi_p\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle$（$0<p<1$）を出発点とする。さらにこの状態の独立コピーを $M$ 組作り、各組の第一サイトだけを $A$ とする。
+
+1. $\rho_A$ の固有値を重複度まで決めよ。
+2. $\operatorname{Tr}\rho_A^n$ と $S_A$ を導け。
+3. $p=1/2$ と $p\to1$ の両極限を検算せよ。
+4. この整数レプリカデータを無条件に連続場の区間エントロピーと呼べない理由を二つ述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) 縮約とスペクトル。** 一対を第二サイトでトレースすると $\rho_{a}=p|0\rangle\langle0|+(1-p)|1\rangle\langle1|$ です。二項は非負で和1。$M$ 対は積状態なので $\rho_A=\rho_a^{\otimes M}$。$A$ の計算基底のうち1が $r$ 個あるものは固有値 $p^{M-r}(1-p)^r$ を持ち、そのような基底は $\binom Mr$ 個あります。よって固有値の和は二項定理で $\sum_{r=0}^M\binom Mrp^{M-r}(1-p)^r=(p+1-p)^M=1$ です。
+1. **縮約とスペクトル。** 一対を第二サイトでトレースすると
 
-**(2) モーメントとエントロピー。** 各固有値の $n$ 乗を同じ重複度で足すと
+   $$
+   \rho_{a}=p|0\rangle\langle0|+(1-p)|1\rangle\langle1|
+   $$
 
-$$
-\begin{aligned}
-Z_A(n)&=\sum_{r=0}^M\binom Mr p^{n(M-r)}(1-p)^{nr}
-=[p^n+(1-p)^n]^M,\\
-\left.\frac{d}{dn}\ln Z_A(n)\right|_{n=1}
-&=M\frac{p\ln p+(1-p)\ln(1-p)}{p+(1-p)},\\
-S_A&=-M[p\ln p+(1-p)\ln(1-p)].
-\end{aligned}
-$$
+   です。二項は非負で和1。$M$ 対は積状態なので $\rho_A=\rho_a^{\otimes M}$。$A$ の計算基底のうち1が $r$ 個あるものは固有値 $p^{M-r}(1-p)^r$ を持ち、そのような基底は $\binom Mr$ 個あります。固有値の和は二項定理で
 
-有限次元なので正の固有値から微分した[レプリカ公式](#thm-qft57-replica-derivative)の条件が満たされています。
+   $$
+   \sum_{r=0}^M\binom Mrp^{M-r}(1-p)^r
+   =(p+1-p)^M=1
+   $$
 
-**(3) 両極限。** $p=1/2$ なら $\rho_A=I_{2^M}/2^M$、$Z_A(n)=2^{M(1-n)}$、$S_A=M\ln2$ と[独立Bell対の定理](#thm-qft57-crossing-entropy)に一致します。$p\to1$ では $p\ln p\to0$、$(1-p)\ln(1-p)\to0$ なので $S_A\to0$、また $Z_A(n)\to1$。各対は $|00\rangle$ の積へ近づくので整合します。
+   と検算できます。$p=1/2$ では異なる $r$ の固有値も一致するため、実際の重複度はそれらを合算して $2^M$ になります。
 
-**(4) 連続場との距離。** この計算には有限個の二準位対への厳密なテンソル積分解が必要ですが、連続場の局所代数に同じ分解・密度演算子があるとは限りません。さらに場のレプリカ経路積分は整数 $n$ の分岐幾何を与えても、$n\to1$ の解析接続をそれだけで一意化しません。加えて $M(a)$ の増え方は任意であり、CFTの普遍係数も導出していません。
+2. **モーメントとエントロピー。** 各固有値の $n$ 乗を同じ重複度で足すと
+
+   $$
+   \begin{aligned}
+   Z_A(n)&=\sum_{r=0}^M\binom Mr p^{n(M-r)}(1-p)^{nr}
+   =[p^n+(1-p)^n]^M,\\
+   \left.\frac{d}{dn}\ln Z_A(n)\right|_{n=1}
+   &=M\frac{p\ln p+(1-p)\ln(1-p)}{p+(1-p)},\\
+   S_A&=-M[p\ln p+(1-p)\ln(1-p)].
+   \end{aligned}
+   $$
+
+   有限次元なので正の固有値から微分した[レプリカ公式](#thm-qft57-replica-derivative)の条件が満たされています。
+
+3. **両極限。** $p=1/2$ なら
+
+   $$
+   \rho_A=I_{2^M}/2^M,\quad
+   Z_A(n)=2^{M(1-n)},\quad S_A=M\ln2
+   $$
+
+   と[独立Bell対の局所エントロピーと整数モーメント](#thm-qft57-crossing-entropy)に一致します。$p\to1$ では $p\ln p\to0$、$(1-p)\ln(1-p)\to0$ なので $S_A\to0$、また $Z_A(n)\to1$。各対は $|00\rangle$ の積へ近づくので整合します。
+
+4. **連続場との距離。** この計算には有限個の二準位対への厳密なテンソル積分解が必要ですが、連続場の局所代数に同じ分解・密度演算子があるとは限りません。さらに場のレプリカ経路積分は整数 $n$ の分岐幾何を与えても、$n\to1$ の解析接続をそれだけで一意化しません。加えて $M(a)$ の増え方は任意であり、CFTの普遍係数も導出していません。
 <!-- solution-end -->
 
 ## 7. 次に何を学ぶか
