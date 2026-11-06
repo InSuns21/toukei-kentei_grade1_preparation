@@ -129,6 +129,17 @@ test('inverse Krueger refuses distant or non-finite projected coordinates', () =
     /TM_INVERSE_OUT_OF_DOMAIN/);
 });
 
+test('TM physical Jacobian remains available at the inclusive ±80° latitude boundary', () => {
+  for (const lat of [-80, 80]) {
+    for (const dLon of [-25, 1, 25]) {
+      const opts = { lon0: rad(139), lat0: rad(36), k0: .9999 };
+      const d = projectionDistortion(rad(lat), rad(139 + dLon), opts);
+      assert.ok(Number.isFinite(d.areaScale) && d.areaScale > 0);
+      assert.ok(Math.abs(d.major - d.minor) < 2e-5);
+    }
+  }
+});
+
 test('Krueger meridian northing agrees with independent Simpson integral', () => {
   const phi = rad(54), phi0 = rad(28), n = 2048, h = (phi - phi0) / n;
   let sum = radii(phi0).M + radii(phi).M;

@@ -329,10 +329,27 @@ export function inverseTransverseMercator(E, Np, options = {}) {
 export function projectionDistortion(phi, lambda, options = {}) {
   const e = options.e ?? ellipsoid(), d = 2e-6;
   const f = (p, l) => transverseMercator(p, l, options);
-  const pp = f(phi + d, lambda), pm = f(phi - d, lambda);
-  const lp = f(phi, lambda + d), lm = f(phi, lambda - d);
-  const ep = [(pp.E - pm.E) / (2 * d), (pp.Np - pm.Np) / (2 * d)];
-  const el = [(lp.E - lm.E) / (2 * d), (lp.Np - lm.Np) / (2 * d)];
+  // At the accepted ±80° edge, a centred difference would sample outside
+  // the documented TM branch. Use a one-sided tangent there instead.
+  let pp, pm, meridianStep;
+  if (phi >= rad(80) - d) {
+    pp = f(phi, lambda); pm = f(phi - d, lambda); meridianStep = d;
+  } else if (phi <= -rad(80) + d) {
+    pp = f(phi + d, lambda); pm = f(phi, lambda); meridianStep = d;
+  } else {
+    pp = f(phi + d, lambda); pm = f(phi - d, lambda); meridianStep = 2 * d;
+  }
+  const deltaLon = wrapLongitude(lambda - (options.lon0 ?? 0));
+  let lp, lm, parallelStep;
+  if (deltaLon >= rad(25) - d) {
+    lp = f(phi, lambda); lm = f(phi, lambda - d); parallelStep = d;
+  } else if (deltaLon <= -rad(25) + d) {
+    lp = f(phi, lambda + d); lm = f(phi, lambda); parallelStep = d;
+  } else {
+    lp = f(phi, lambda + d); lm = f(phi, lambda - d); parallelStep = 2 * d;
+  }
+  const ep = [(pp.E - pm.E) / meridianStep, (pp.Np - pm.Np) / meridianStep];
+  const el = [(lp.E - lm.E) / parallelStep, (lp.Np - lm.Np) / parallelStep];
   const { M, r } = radii(phi, e);
   const u = ep.map(x => x / M), v = el.map(x => x / r);
   const g11 = dot(u, u), g22 = dot(v, v), g12 = dot(u, v);

@@ -301,6 +301,10 @@ test('equal-area comparison shares the same point and distinguishes local distor
   assert.equal(left.children.length, 0, 'invalid location clears stale map');
   $('e-lat').value = '45'; $('e-lat').handlers.input();
   assert.match($('geod-status').textContent, /計算済み/);
+  for (const end of ['80', '-80']) {
+    $('e-lat').value = end; $('e-lat').handlers.input();
+    assert.equal($('geod-status').dataset.error, 'false', 'accepted polar boundary ' + end);
+  }
 });
 
 test('Japanese 19-zone lab exposes fixed origins, axes, scale and datum assumptions', () => {
