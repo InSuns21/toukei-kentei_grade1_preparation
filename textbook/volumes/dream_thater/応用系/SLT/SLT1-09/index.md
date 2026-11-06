@@ -497,13 +497,17 @@ $\mathcal F=\{f_t(x)=tx:t\in[0,1]\}$、$\mathcal X=[0,1]$ とし、$P$ を任意
    |P(f_t-g)|\le\frac1m
    $$
 
-   が成り立つ。同時成功事象上で三角不等式を使い、
+   が成り立つ。有限個の代表で偏差が同時に $r$ 以下なら、任意の $f_t$ について
 
    $$
-   |P_nf_t-Pf_t|\le\frac1m+r+\frac1m
+   \begin{aligned}
+   |P_nf_t-Pf_t|
+   &\le |P_n(f_t-g)|+|P_ng-Pg|+|P(g-f_t)|\\
+   &\le\frac1m+r+\frac1m
+   \end{aligned}
    $$
 
-   を全ての $t$ について得る。上限を取り、先ほどの $r$ を代入すれば結論である。
+   となる。上限を取り、先ほどの $r$ を代入すれば結論である。
 3. $d_{S,1}(f_t,f_u)=|t-u|\,n^{-1}\sum_iX_i\le|t-u|$。したがって同じ $G$ は任意の $S$ で半径 $1/m$ のnetである。[条件付き符号平均の定理](#thm-slt1-09-empirical-cover)を $N=m+1$ で適用すると
 
    $$
