@@ -22,7 +22,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl1-01-dimensions -->
-**定義の確認**（円）。$M=S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}$ は $D=2$ の中の $d=1$ 次元部分多様体である。[正則値定理](../../../幾何系/GEO/GEO3/index.md#thm-geo3-regular-value)を $F(x,y)=x^2+y^2$、値 $1$ に使う。$\nabla F=(2x,2y)$ は $S^1$ 上で零でないので $1$ は正則値で、次元は $2-1=1$ となる。
+**定義の確認**（円）。$M=S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}$ は $D=2$ の中の $d=1$ 次元部分多様体である。[正則値定理](../../../幾何系/GEO/GEO3/index.md#thm-geo3-regular-value)をレベル集合を定める関数 $H(x,y)=x^2+y^2$、値 $1$ に使う。$\nabla H=(2x,2y)$ は $S^1$ 上で零でないので $1$ は正則値で、次元は $2-1=1$ となる。
 
 $f(x,y)=x$ とすれば $m=1$ だが、$f(0,1)=f(0,-1)=0$ で単射でない。**$m=d$ だけでは円の形を潰さず表せない**ことを、この二点が直接示す。
 <!-- definition-example-end -->
@@ -33,14 +33,14 @@ $f(x,y)=x$ とすれば $m=1$ だが、$f(0,1)=f(0,-1)=0$ で単射でない。*
 
 埋め込みが誘導する内積は、接ベクトル $u,v\in T_xM$ に対する通常の Euclid 内積 $u\cdot v$ である。
 
-[Riemann 体積形式の座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-volume-coordinate)に従い、局所座標 $t=(t^1,\ldots,t^d)$ の埋め込み表示 $F(t)$ から、計量行列と体積要素を次のように作る。
+局所座標領域 $U\subset\mathbb R^d$ から $M$ への滑らかなパラメータ表示を $F:U\to M$ とする。$t=(t^1,\ldots,t^d)$ の第 $a$ 成分で微分した座標接ベクトルを $\partial_aF=\partial F/\partial t^a$ と書く。このベクトル同士の Euclid 内積が、誘導計量を座標基底で表した行列の $(a,b)$ 成分である。[Riemann 体積形式の座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-volume-coordinate)から
 
 $$
 g_{ab}=\partial_aF\cdot\partial_bF,\qquad
 dV_g=\sqrt{\det(g_{ab})}\,dt^1\cdots dt^d.
 $$
 
-これは $M$ 上の $d$ 次元体積であり、周囲の $D$ 次元体積ではない。向きによらず正の体積測度として $dV_g$ を使う。
+と得られる。$F$ が局所的な埋め込みなので $\partial_1F,\ldots,\partial_dF$ は一次独立であり、$(g_{ab})$ はそれらの Gram 行列として正定値となる。したがって $\sqrt{\det(g_{ab})}$ は局所座標の小直方体を多様体上の $d$ 次元体積へ換算する正の係数である。これは周囲の $D$ 次元体積ではない。座標を替えても絶対 Jacobian を含めて同じ積分となるため、$dV_g$ を向きによらない正の体積測度として使う。
 
 <a id="def-mfl1-01-clean-sample"></a>
 
@@ -59,7 +59,15 @@ $$
 **$P_X$ は「点をどこから引くか」という母集団分布**であり、$X_1,\dots,X_n$ の散布図はその一回の標本である。[独立性と積分布の関係](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-independence-product-law)に従い、各標本が同じ領域 $A$ に入る確率を $q=P_X(A)$ とすると、その全員が $A$ を避ける確率は $(1-q)^n$ となる。この計算を第4節で証明する。
 
 <!-- definition-example-start: def-mfl1-01-clean-sample -->
-**定義の確認**（半径 $R$ の円）。$R>0$、$F(\theta)=(R\cos\theta,R\sin\theta)$ とし、$0\le\theta<2\pi$ とする。$F'(\theta)=(-R\sin\theta,R\cos\theta)$ の長さは $R$ なので、局所計量 $g_{\theta\theta}=R^2$ と体積要素 $dV_g=R\,d\theta$ が得られる。円はコンパクト、境界なし、正則な一次元部分多様体であり、$D=2,d=1$ を満たす。
+**定義の確認**（半径 $R$ の円）。$R>0$、$F(\theta)=(R\cos\theta,R\sin\theta)$ とし、$0\le\theta<2\pi$ とする。一変数の場合の $F'(\theta)=dF/d\theta$ は、上の $\partial_1F$ と同じ接ベクトルである。したがって
+
+$$
+F'(\theta)=(-R\sin\theta,R\cos\theta),\qquad
+g_{\theta\theta}=F'(\theta)\cdot F'(\theta)=R^2,\qquad
+dV_g=\sqrt{R^2}\,d\theta=R\,d\theta.
+$$
+
+角度 $0$ と $2\pi$ は同じ点なので、この表示は継ぎ目を除いて局所座標として使い、全周の積分では重複する端点を二度数えない。円はコンパクト、境界なし、正則な一次元部分多様体であり、$D=2,d=1$ を満たす。
 
 一様密度 $p=1/(2\pi R)$ を置けば
 
@@ -91,7 +99,14 @@ F(\theta,\varphi)=(\cos\theta,\sin\theta,\cos\varphi,\sin\varphi),
 \quad (\theta,\varphi)\in[0,2\pi)^2.
 $$
 
-異なる角度を同一視して得る $S^1\times S^1$ の埋め込みである。$F_\theta=(-\sin\theta,\cos\theta,0,0)$、$F_\varphi=(0,0,-\sin\varphi,\cos\varphi)$ は互いに直交し、どちらも長さ1なので
+それぞれの角度について $2\pi$ の整数倍だけ異なる値を同一視して得る $S^1\times S^1$ の埋め込みである。ここでは $F_\theta=\partial F/\partial\theta$、$F_\varphi=\partial F/\partial\varphi$ と略記する。これらは上の $\partial_aF$ に対応し、具体的には
+
+$$
+F_\theta=(-\sin\theta,\cos\theta,0,0),\qquad
+F_\varphi=(0,0,-\sin\varphi,\cos\varphi).
+$$
+
+両者は互いに直交し、どちらも長さ1なので、内積から作った Gram 行列と体積は
 
 $$
 (g_{ab})=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad
@@ -209,10 +224,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl1-01-noisy-observation -->
-**定義の確認**。真の点 $X_i=(\cos\Theta_i,\sin\Theta_i)$、ノイズ $\xi_i=(a,0)$（一定、$a\ne0$）なら $Y_i=(a+\cos\Theta_i,\sin\Theta_i)$。和は $\mathbb R^2$ で定義され、観測分布は中心 $(a,0)$ の円に載る。このノイズは確率変数として退化分布だが、真の点から独立である。**非零ノイズが必ず観測を二次元全体へ広げるわけではない**。
+**定義の確認**。$\Theta_i$ を相互独立な $[0,2\pi)$ 上の一様角度とし、真の点 $X_i=(\cos\Theta_i,\sin\Theta_i)$、ノイズ $\xi_i=(a,0)$（一定、$a\ne0$）をとる。このとき $Y_i=(a+\cos\Theta_i,\sin\Theta_i)$。真の点列は前節の一様円周模型を満たし、和は $\mathbb R^2$ で定義され、観測分布は中心 $(a,0)$ の円に載る。このノイズは確率変数として退化分布だが、真の点から独立である。**非零ノイズが必ず観測を二次元全体へ広げるわけではない**。
 <!-- definition-example-end -->
 
-これと対照的に、正の分散を持つ等方 Gaussian ノイズを足すと、どんな小さい分散でも観測分布の支持が周囲の空間全体に広がる。
+これと対照的に、正の分散を持つ等方 Gaussian（正規）ノイズを足すと、どんな小さい分散でも観測分布の支持が周囲の空間全体に広がる。ここで $\xi\sim N(0,\sigma^2I_D)$ は、$D$ 次元ベクトル $\xi=(\xi_1,\ldots,\xi_D)$ の成分が互いに独立で、各成分が平均 $0$、分散 $\sigma^2>0$ の正規分布に従うという記法である。$I_D$ は $D$ 次単位行列を表す。従って
+
+$$
+E[\xi_j]=0,\qquad
+E[\xi_j\xi_k]=\begin{cases}\sigma^2&(j=k),\\0&(j\ne k)\end{cases}
+$$
+
+が成り立つ。これは、対角成分には分散が入り、独立な異なる成分間の共分散は零になるという意味である。
 
 <a id="prop-mfl1-01-gaussian-support"></a>
 
@@ -258,6 +280,15 @@ $$
 
 ### 共分散の階数も内在次元ではない
 
+[共分散の定義](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を $D$ 次元確率ベクトル $Z=(Z_1,\ldots,Z_D)$ に成分ごとに適用する。$Z$ に有限二次モーメントがあれば、分散共分散行列は
+
+$$
+\operatorname{Cov}(Z)=E[(Z-E[Z])(Z-E[Z])^{\mathsf T}],\qquad
+[\operatorname{Cov}(Z)]_{jk}=\operatorname{Cov}(Z_j,Z_k)
+$$
+
+である。従って任意の方向 $v\in\mathbb R^D$ について $v^{\mathsf T}\operatorname{Cov}(Z)v=\operatorname{Var}(v^{\mathsf T}Z)\ge0$。行列の正定値性を調べることは、すべての非零方向の分散が正かを調べることに対応する。
+
 <a id="prop-mfl1-01-noisy-covariance"></a>
 
 <!-- formal-statement-start -->
@@ -288,7 +319,13 @@ $$
 \end{aligned}
 $$
 
-独立性と $E[\xi]=0$ により、交差項の期待値はそれぞれ $E[X-\mu]E[\xi]^{\mathsf T}=0$ とその転置である。また $E[\xi\xi^{\mathsf T}]=\sigma^2I_D$。よって主張の共分散の式が得られる。任意の $v\ne0$ に対し
+[独立な確率変数の期待値因数分解](../../../解析系/F0/F0-00P3/index.md#thm-f0-00p3-expectation-factorization)を各成分 $X_j-\mu_j$ と $\xi_k$ に適用する。有限二次モーメントにより積は可積分で、独立性と $E[\xi]=0$ から
+
+$$
+E[(X_j-\mu_j)\xi_k]=E[X_j-\mu_j]E[\xi_k]=0
+$$
+
+となるので、交差項の行列期待値はともに零行列である。また先の正規ノイズの成分ごとの二次モーメントから $E[\xi\xi^{\mathsf T}]=\sigma^2I_D$。よって主張の共分散の式が得られる。任意の $v\ne0$ に対し
 
 $$
 v^{\mathsf T}\operatorname{Cov}(Y)v
