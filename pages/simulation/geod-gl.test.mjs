@@ -52,6 +52,8 @@ const values = {
   'a-lat': '40', 'a-lon': '140', 'a-f': '1',
   'b-lat1': '35.681236', 'b-lon1': '139.767125',
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
+  'c-mode': 'survey', 'c-gnss-layout': 'spread', 'c-gnss-count': '6',
+  'c-gnss-azimuth': '0', 'c-gnss-elevation': '75', 'c-gnss-clock': '75', 'c-gnss-sigma': '1',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
@@ -71,6 +73,7 @@ for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-p
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
   'f-map-panel', 'f-map', 'f-map-title', 'c-map-panel', 'c-map',
+  'c-survey-controls', 'c-gnss-controls', 'c-gnss-panel', 'c-gnss-map',
   'geod-globe-panel']) elements.set(id, new NodeElement(id));
 elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
 elements.set('globe-point-zone-wrap', new NodeElement('globe-point-zone-wrap'));
@@ -146,6 +149,23 @@ test('survey adjustment omits globe redraw but produces a standalone SVG', () =>
   assert.match(elements.get('geod-status').textContent, /計算済み/);
   buttons[0].handlers.click();
   assert.equal(elements.get('geod-globe-panel').hidden, false);
+});
+
+test('GNSS sky-view and DOP calculations require no WebGL redraw', () => {
+  const draws = calls.draws.length;
+  buttons[2].handlers.click();
+  elements.get('c-mode').value = 'gnss';
+  elements.get('c-mode').handlers.input();
+  assert.equal(elements.get('c-map-panel').hidden, true);
+  assert.equal(elements.get('c-gnss-panel').hidden, false);
+  assert.ok(elements.get('c-gnss-map').children.length > 20);
+  assert.equal(calls.draws.length, draws, 'GNSS runs independently of WebGL');
+  elements.get('c-gnss-layout').value = 'low';
+  elements.get('c-gnss-layout').handlers.input();
+  assert.equal(calls.draws.length, draws);
+  assert.match(elements.get('geod-results').children[0].children[0].children[7]
+    .children[0].textContent, /VDOP/);
+  buttons[0].handlers.click();
 });
 
 test('global comparison shows both projected diagrams with the shared 3D marker', () => {

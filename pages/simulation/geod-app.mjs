@@ -10,6 +10,8 @@ import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
 import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs';
 import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
   adjustSurveyNetwork } from './geod-survey.mjs';
+import { GNSS_REFERENCE, GNSS_LAYOUTS, syntheticGnssObservations,
+  solveGnssPseudoranges } from './geod-gnss.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -839,6 +841,96 @@ function drawSurveyMap(result) {
   }, note)));
 }
 
+function drawGnssSkyPlot(result) {
+  const map = $('c-gnss-map');
+  map.replaceChildren();
+  const cx = 230, cy = 235, radius = 175;
+  map.append(svg('rect', { x: 1, y: 1, width: 718, height: 468, rx: 9,
+    fill: '#f8fbff', stroke: '#d1dce9' }));
+  for (const elevation of [0, 30, 60]) {
+    const r = radius * (90 - elevation) / 90;
+    map.append(svg('circle', { cx, cy, r, fill: elevation === 0 ? '#edf5fc' : 'none',
+      stroke: '#80a4c5', 'stroke-width': elevation === 0 ? 2 : 1.2,
+      'stroke-dasharray': elevation === 0 ? 'none' : '6 5' }));
+    map.append(svg('text', { x: cx + 6, y: cy - r + 14, fill: '#315c7b',
+      'font-size': 12 }, elevation + '°'));
+  }
+  for (const [label, x, y] of [
+    ['N', cx, cy - radius - 23], ['E', cx + radius + 22, cy + 5],
+    ['S', cx, cy + radius + 27], ['W', cx - radius - 22, cy + 5],
+  ]) map.append(svg('text', { x, y, fill: '#21496d',
+    'font-size': 19, 'font-weight': 700, 'text-anchor': 'middle' }, label));
+  map.append(svg('circle', { cx, cy, r: 3, fill: '#315c7b' }));
+  for (const sat of result.residuals) {
+    const az = sat.azimuth * Math.PI / 180;
+    const r = radius * (90 - sat.elevation) / 90;
+    const x = cx + r * Math.sin(az), y = cy - r * Math.cos(az);
+    map.append(svg('line', { x1: cx, y1: cy, x2: x, y2: y,
+      stroke: '#9cb7ce', 'stroke-dasharray': '5 5' }));
+    map.append(svg('circle', { cx: x, cy: y, r: 10,
+      fill: '#cc5735', stroke: '#fff', 'stroke-width': 2 }));
+    map.append(svg('text', { x: x + 12, y: y - 10, fill: '#933d2a',
+      'font-weight': 700, 'font-size': 16 }, sat.id));
+  }
+  const notes = [
+    '合成GNSS：' + result.residuals.length + '機',
+    'S1〜S6：衛星番号',
+    '中心＝天頂 90°',
+    '外周＝地平線 0°',
+    '北 0°・東 90°',
+    '未知量：E、N、U、B',
+    'B＝cΔt（m）',
+    'DOPは数値表へ',
+  ];
+  notes.forEach((note, i) => map.append(svg('text', {
+    x: 471, y: 91 + i * 40, fill: '#2d4e6c', 'font-size': 15,
+  }, note)));
+}
+
+function computeGnss() {
+  const number = id => {
+    const raw = $(id).value.trim();
+    if (!raw) throw new RangeError('GNSSの数値パラメータは空欄にできません');
+    return Number(raw);
+  };
+  const observations = syntheticGnssObservations({
+    layout: $('c-gnss-layout').value, count: number('c-gnss-count'),
+    firstAzimuth: number('c-gnss-azimuth'), firstElevation: number('c-gnss-elevation'),
+    clockBiasMeters: number('c-gnss-clock'), sigma: number('c-gnss-sigma'),
+  });
+  const result = solveGnssPseudoranges(observations);
+  state.geodesic = null; state.japan = null;
+  drawGnssSkyPlot(result);
+  const d = result.dop, sigma = observations[0].sigma;
+  showResults([
+    ['模型', '合成衛星' + observations.length + '機、未知量E/N/U/Bの4つ（Bは距離換算時計差）'],
+    ['推定位置（E, N, U）', [result.east, result.north, result.up].map(v => fmt(v, 4)).join(' / ') + ' m'],
+    ['設定上の真値（E, N, U）', [GNSS_REFERENCE.east, GNSS_REFERENCE.north,
+      GNSS_REFERENCE.up].join(' / ') + ' m'],
+    ['時計差 B＝cΔt', fmt(result.clockBiasMeters, 4) + ' m ／ ' +
+      fmt(result.clockBiasNanoseconds, 3) + ' ns'],
+    ['衛星の方位角・仰角', result.residuals.map(o => o.id + ' ' +
+      fmt(o.azimuth, 0) + '°/' + fmt(o.elevation, 0) + '°').join(' ／ ')],
+    ['観測−計算の残差', result.residuals.map(o => o.id + ' ' +
+      fmt(o.residual, 4) + ' m').join(' ／ ')],
+    ['GDOP / PDOP / TDOP', fmt(d.gdop, 3) + ' / ' + fmt(d.pdop, 3) +
+      ' / ' + fmt(d.tdop, 3) + '（無次元）'],
+    ['HDOP / VDOP', fmt(d.hdop, 3) + ' / ' + fmt(d.vdop, 3)],
+    ['形式的な位置1σ', '水平合成 ' + fmt(d.hdop * sigma, 3) +
+      ' m ／ 鉛直 ' + fmt(d.vdop * sigma, 3) + ' m'],
+    ['位置・時計共分散の対角（m²）', result.covariance.map((row, i) =>
+      'Σ' + (i + 1) + (i + 1) + '=' + fmt(row[i], 4)).join(' ／ ')],
+    ['自由度・残差平方和', result.degreesOfFreedom + ' ／ ' + fmt(result.chi2, 5)],
+    ['正規方程式の残差', result.normalResidual.toExponential(3) +
+      '（反復 ' + result.iterations + '回）'],
+  ], [
+    '衛星6機から4機へ減らす。4観測・4未知数で残差がほぼ0でも、真の位置が得られたとは限らない理由を考える。',
+    '配置を「空全体に分散」から「同じ方向へ集中」に変えてGDOP/PDOP/TDOPを比べる。',
+    '時計差Bを+75mから−75mに変える。推定時計差とDOPの変化が異なる理由を説明する。',
+    '低仰角集中ではVDOPがどうなるか。実際の電離圏・対流圏・遮蔽はこの幾何模型とは別である。',
+  ], 'C：架空のGNSS擬似距離を4未知量で平差。天空図は方位・仰角のみ、DOPは独立した3D計算。');
+}
+
 function computeC() {
   const number = id => {
     const value = $(id).value.trim();
@@ -1011,7 +1103,11 @@ function syncLocationToolbar() {
 function recalculate() {
   $('geod-workspace').dataset.currentLab = state.lab;
   $('map-panel').hidden = state.lab !== 'D';
-  $('c-map-panel').hidden = state.lab !== 'C';
+  const gnssMode = state.lab === 'C' && $('c-mode').value === 'gnss';
+  $('c-survey-controls').hidden = gnssMode;
+  $('c-gnss-controls').hidden = !gnssMode;
+  $('c-map-panel').hidden = state.lab !== 'C' || gnssMode;
+  $('c-gnss-panel').hidden = !gnssMode;
   $('geod-globe-panel').hidden = state.lab === 'C';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
@@ -1020,7 +1116,7 @@ function recalculate() {
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
-    else if (state.lab === 'C') computeC();
+    else if (state.lab === 'C') { if (gnssMode) computeGnss(); else computeC(); }
     else if (state.lab === 'D') computeD();
     else if (state.lab === 'E') computeE();
     else computeF();
@@ -1032,6 +1128,7 @@ function recalculate() {
     state.geodesic = null;
     $('map').replaceChildren();
     $('c-map').replaceChildren();
+    $('c-gnss-map').replaceChildren();
     $('e-left-map').replaceChildren();
     $('e-right-map').replaceChildren();
     $('f-map').replaceChildren();
@@ -1145,11 +1242,20 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
   recalculate();
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
-  'c-sigma-a', 'c-sigma-b', 'c-sigma-c', 'c-bias',
+  'c-mode', 'c-sigma-a', 'c-sigma-b', 'c-sigma-c', 'c-bias',
+  'c-gnss-layout', 'c-gnss-count', 'c-gnss-azimuth', 'c-gnss-elevation',
+  'c-gnss-clock', 'c-gnss-sigma',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
   'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
     if (customCityInputs.has(id)) $(customCityInputs.get(id)).value = '';
+    if (id === 'c-gnss-layout') {
+      const first = GNSS_LAYOUTS[$('c-gnss-layout').value]?.[0];
+      if (first) {
+        $('c-gnss-azimuth').value = String(first[0]);
+        $('c-gnss-elevation').value = String(first[1]);
+      }
+    }
     if (id === 'f-zone') {
       const zone = JAPAN_ZONES[Number($('f-zone').value) - 1];
       if (zone) { state.yaw = -rad(zone.lon0); state.tilt = rad(zone.lat0); }
