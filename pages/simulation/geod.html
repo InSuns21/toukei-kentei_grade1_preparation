@@ -211,7 +211,7 @@
       <label>衛星配置の表示
         <select id="c-gnss-view">
           <option value="sky">天空図（2D：方位角・仰角）</option>
-          <option value="space">空間配置（3D投影：回転可能）</option>
+          <option value="space">空間配置（WebGL 3D：陰影つき・回転可能）</option>
         </select>
       </label>
       <div id="c-gnss-camera-controls" hidden>
@@ -221,9 +221,14 @@
     </div>
     <figure id="c-gnss-space-panel" hidden>
       <div class="figure-head">C：衛星視線の3D空間配置（ドラッグ・スライダーで回転）</div>
+      <div id="c-gnss-gl-wrap" hidden>
+        <canvas id="c-gnss-space-canvas" width="720" height="470" role="img" tabindex="0"
+          aria-label="WebGLで描くENU単位天空半球。光を当てた衛星球、地平面、衛星方向の水平投影と影風の濃淡を示す。ドラッグして視点を変更できます。"></canvas>
+        <canvas id="c-gnss-space-labels" width="720" height="470" aria-hidden="true"></canvas>
+      </div>
       <svg id="c-gnss-space-map" viewBox="0 0 720 470" role="img" tabindex="0"
         aria-label="局所ENUの単位天空半球を斜めから投影した図。原点は受信機、線と点が衛星視線方向。視点スライダーで回転。すべての衛星は同一の模式半径上に配置。" xmlns="http://www.w3.org/2000/svg"></svg>
-      <figcaption>受信機Oから衛星方向へ伸ばした<strong>単位視線ベクトル</strong>を同じ半径に正規化して描いた模式図です。衛星間距離・軌道・地球と衛星の実縮尺を表すものではありません。視点を動かしてもGNSSの観測式とDOPは変わりません。</figcaption>
+      <figcaption>受信機Oからの<strong>単位視線ベクトル</strong>を同じ半径に描いた模式図です。球体は光源による陰影、床面の薄い影は衛星方向の<strong>水平投影の手がかり</strong>（実際の衛星が地表へ落とす影ではありません）。WebGL2非対応ならSVG表示に切り替わります。衛星間距離・軌道・地球と衛星の実縮尺を表さず、視点を動かしてもDOPは変わりません。</figcaption>
     </figure>
     <figure id="c-gnss-panel" hidden>
       <div class="figure-head">C：GNSS天空図（北上・東右、外周＝地平線）</div>
@@ -272,3 +277,4 @@
 <script type="module" src="./geod-app.mjs"></script>
 </body>
 </html>
+

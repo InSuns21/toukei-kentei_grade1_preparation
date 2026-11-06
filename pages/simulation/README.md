@@ -30,9 +30,12 @@ without feeding drawing coordinates back into the numeric kernel.
   actual ephemerides, operational satellite/orbit-clock or atmospheric
   corrections, Earth rotation, receiver datum/epoch, integrity or real
   accuracy claims. The GNSS view now
-  alternates between a cardinal-direction/elevation sky plot and a rotatable
-  orthographic 3D projection of the same **unit sight-line vectors** (all points
-  have an artificial equal radius, never actual orbit positions). Staged
+  alternates between a cardinal-direction/elevation sky plot and a rotatable,
+  shaded WebGL2 orthographic 3D view of the same **unit sight-line vectors**,
+  with lit satellite spheres and soft ground projections to communicate depth.
+  Satellite labels are drawn onto an unselectable canvas; a non-selectable SVG
+  fallback remains available when WebGL2 is absent. All satellites have an
+  artificial equal radius, never actual orbit positions. Staged
   satellite-specific clock offsets, simplified elevation-dependent ionosphere
   and troposphere delays are synthetic additive pseudorange terms. A comparison
   mode subtracts their exact injected values to show an *idealized* upper bound,
@@ -363,3 +366,4 @@ exact Euler/Lagrange closure at reference T; approximate figure-eight closure;
 the actual Worker protocol. Browser acceptance checks selection and an
 independently simulated trajectory, including a switch from figure-eight
 to Butterfly II.
+
