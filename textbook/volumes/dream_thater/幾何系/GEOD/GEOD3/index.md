@@ -160,7 +160,7 @@ $$
 
 ![扁平な子午断面の同一点Pに対し、中心OからのOPで定める地心緯度ψと表面法線νで定める測地緯度φを別々の頂点で示した図](assets/ellipsoid-latitude-directions.svg)
 
-[測地学ラボA（楕円体・法線・ENU）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html)では、扁平率を変えてこの二方向の角度差と曲率半径を数値で確認できます。3Dの扁平率は視認のため強調してあるので、必ず実計算の表示値と区別してください。
+[測地学ラボA（楕円体・法線・ENU）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-A)では、扁平率を変えてこの二方向の角度差と曲率半径を数値で確認できます。3Dの扁平率は視認のため強調してあるので、必ず実計算の表示値と区別してください。
 
 ### 法線方向と地心方向の換算
 

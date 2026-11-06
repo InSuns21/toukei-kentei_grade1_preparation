@@ -1,7 +1,7 @@
 # DREAM THEATER 測地学・数理地図投影法 PLAN
 
 作成日: 2026-11-03  
-状態: in_progress（GEOD1–GEOD22 は系列 manifest 上 completed。LAB-Cの3実験とLAB-Bの対蹠点近傍解法を実装、残りの数学的機能・横断検証は未完了）  
+状態: in_progress（GEOD1–GEOD22 は系列 manifest 上 completed。教育用LAB-A〜Fの数値機能は実装済み。ブラウザでの横断自動受け入れを整備し、実機／読み上げによる最終判読性確認と全22章の横断査読・静止図補完は別途残る）
 系列 ID: `GEOD`（GEOD1–GEOD22）  
 配置候補: 幾何系を主軸とし、測量・GISへの応用を接続する独立講座
 
@@ -478,6 +478,22 @@ LAB-Cの第三の切替として、距離20 kmの架空のA/B地点で楕円体�
 数値基準：PROJ [Transverse Mercator](https://proj.org/en/stable/operations/projections/tmerc.html)、国土地理院[平面直角座標系告示](https://www.gsi.go.jp/LAW/heimencho.html)、国土地理院[座標換算公式](https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/algorithm/bl2xy/bl2xy.htm)、国土地理院[IX系逆換算の公開計算例](https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/xy2bl.pl?outputType=html&publicX=11573.375&publicY=22694.980&refFrame=2&select=0&zone=9)、既存のII系[公表例](https://www.gsi.go.jp/common/000260486.pdf)。実機未確認の項目を自動テスト通過だけで完了と認定しない。
 
 実装は `pages/simulation/geod-core.mjs`、`geod-compare.mjs`、`geod-japan.mjs`、`geod-app.mjs`、`geod.html` と対応する局所テストに限定した。**D〜Fの当初の数学的未実装は閉鎖候補**だが、§8.4(5)のオフライン再訪・実ブラウザ/実機・画面読上げ・視認性の受け入れ、全22章横断査読、静止図は残るため、ラボ全体も本PLAN全体も `in_progress`（`plans_progress/`）を維持する。
+
+#### LAB-A〜F 横断受け入れ・教育用ラボの完了判定（2026-11-07）
+
+教育用ラボの対象は6つのタブ（Cは地上測量・GNSS・高さの3モード）であり、精密測地サービス化や全22章の査読をラボの機能追加として混ぜない。各項目の検証根拠はテスト名と入力条件で再実行可能にする。
+
+| 対象 | 数学カーネルの独立した検算 | 学習導線とアクセシビリティ | 判定 |
+| --- | --- | --- | --- |
+| A：楕円体・ENU | GRS80の半径、球面極限、ECEF逆解とENU直交性（`geod-core.test.mjs`） | GEOD3/5に接続。扁平率の実値と表示倍率を分離し、断面・数値表で代替 | 自動検査対象 |
+| B：測地線 | Karney公表の対蹠点近傍値・厳密対蹠点・直接逆問題・Clairautの正則域検算（同上） | GEOD12、プリセット、球面と楕円体の別経路、非収束の意味 | 自動検査対象 |
+| C：観測・GNSS・高さ | 既知3距離解と法方程式、時計差とDOP不変性、重力の独立積分・負値例（`geod-survey/gnss/height.test.mjs`） | GEOD6/7/8/9/10、合成データの明記、2Dと陰影つき3Dの代替、数値表 | 自動検査対象 |
+| D：地域投影 | 楕円体／球のKrüger順逆、PROJとGSIの独立公開値、枝・帯端（`geod-core.test.mjs`） | GEOD13/17/18、逆入力・残差、異常表示 | 自動検査対象 |
+| E：全球図 | 正積緯度の独立積分、Equal Earth/Mollweideの面積比、Mercator等角性（`geod-compare.test.mjs`） | GEOD19/20/22、投影の共通面積・指示楕円、全球端 | 自動検査対象 |
+| F：日本19系 | 公式19原点・II系/IX系GSI公開値、X/Yの符号・縮尺（`geod-japan.test.mjs`） | GEOD21/22、系番号・適用区域の文章案内と法定自動判定の不在明記 | 自動検査対象 |
+| 共通 | GPU表示から独立した演算、パラメータ異常時の古い図の除去（`geod-ui/gl.test.mjs`） | `geod-ui.test.mjs` で教材リンクの実在・stable anchor・A〜F相互導線を検査。`validate-geod-browser.mjs` でChromiumの1600/360px・陰影・キー操作・タッチ操作・コンテキスト喪失復旧・aria/数値代替・独立入口・Service Workerのオフライン再訪とオンライン更新を受け入れ検査 | 自動検査対象 |
+
+**最終判定の境界**：CI／エミュレーションの成功は実端末・スクリーンリーダー操作の完遂を意味しない。スマートフォン実機でのタッチ・折返し・日本地図タイル・読み上げ順の目視／聴取確認は未実施として受け入れ残に保持する。したがって**教育用ラボの機能・自動受け入れは閉鎖可能だが、最終 `completed` 判定は実機確認後**とし、本PLANはさらに全22章横断査読・静止図補完も残すので `plans_progress/` を維持する。必要があっても実務級の法定ポリゴン判定・JGD2024変換・実データ取り込みを `completed` の前提に追加しない。
 
 #### Phase A 実装記録（2026-11-06）
 

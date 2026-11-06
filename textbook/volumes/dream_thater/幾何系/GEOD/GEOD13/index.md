@@ -294,7 +294,7 @@ $$
 
 図は地表を接平面の直交座標 $u_1,u_2$ に直した**厳密な線形写像の例**です。図上での見かけの縦横比は余白に依存しますが、明示した半軸の値は行列の固有値から決まります。右の破線円は比較用であって投影後の輪郭ではありません。
 
-[測地学ラボD（横メルカトルのTissot指示楕円）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html)では、楕円体計量で正規化したJacobianから主縮尺と面積比を計算し、中央子午線や縮尺を変更できます。図の指示楕円は局所線形化した微小円の像で、地表の有限距離200 kmの円を厳密に投影した図形とは区別します。
+[測地学ラボD（横メルカトルのTissot指示楕円）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-D)では、楕円体計量で正規化したJacobianから主縮尺と面積比を計算し、中央子午線や縮尺を変更できます。図の指示楕円は局所線形化した微小円の像で、地表の有限距離200 kmの円を厳密に投影した図形とは区別します。
 <!-- definition-example-end -->
 
 <a id="prop-geod13-tissot-axes"></a>

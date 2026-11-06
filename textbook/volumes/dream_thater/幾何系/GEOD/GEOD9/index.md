@@ -12,6 +12,8 @@
 
 幾何を明確にするため、計算例の衛星配置・観測値は**架空の模型**です。実際のGNSS処理では衛星の送信時刻の軌道位置、地球自転、相対論的補正、アンテナ位相中心、信号ごとのハードウェア遅延等も処理します。これらを無視した架空の数値から実用精度を宣言することはしません。
 
+[測地学ラボC（GNSS・DOP）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-C)の「GNSS：衛星配置・時計差・DOP」では、衛星方向や受信機時計差を動かし、数値表のDOPと推定位置を比較できます。3Dの衛星は等距離の視線模式図で、実衛星の軌道や実測精度ではありません。
+
 <!-- definition-example-audit: strict -->
 
 ---

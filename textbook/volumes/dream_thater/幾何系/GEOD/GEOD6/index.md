@@ -12,6 +12,8 @@
 
 必要な数学は微分、ベクトルの内積、一次元積分と[GEOD5の局所座標](../GEOD5/index.md#def-geod5-enu)です。実際の重力場を全球的に計算する方法は後で学びます。ここでは高さの基準と換算が数学的に何を意味するかを、一様重力の模型から組み立てます。
 
+[測地学ラボC（重力・ジオイド・高さ）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-C)では、「実験の種類」で「重力・ジオイド・標高」を選び、架空の2地点の楕円体高・ジオイド高を変更できます。鉛直と楕円体法線の一致を仮定する局所模型であり、実際の標高換算やジオイド格子ではありません。
+
 <!-- definition-example-audit: strict -->
 
 ---

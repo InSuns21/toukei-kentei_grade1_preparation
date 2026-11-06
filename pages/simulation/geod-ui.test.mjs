@@ -2,6 +2,7 @@
 // pointer events and actual WebGL are separately reviewed, not claimed here.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
 class Element {
   constructor(id = '', value = '') {
@@ -75,6 +76,8 @@ globalThis.document = {
   createElement: tag => new Element(tag),
   createElementNS: (ns, tag) => new Element(tag),
 };
+globalThis.location = { hash: '#lab-A' };
+globalThis.history = { pushState(_state, _unused, hash) { globalThis.location.hash = hash; } };
 const $ = id => elements.get(id);
 await import('./geod-app.mjs');
 
@@ -90,6 +93,7 @@ test('geodetic mode calculates numbers without WebGL2', () => {
 test('geodesic mode independently computes the two distances', () => {
   buttons[1].handlers.click();
   assert.equal($('geod-workspace').dataset.currentLab, 'B');
+  assert.equal(globalThis.location.hash, '#lab-B', 'switching labs updates its shareable fragment');
   assert.match($('geod-status').textContent, /計算済み/);
   assert.equal($('map-panel').hidden, true);
   const cells = $('geod-results').children[0].children[0].children;
@@ -401,6 +405,40 @@ test('geodesic near-globe control can choose start or end without modifying the 
   $('globe-point-city').value = 'tokyo'; $('globe-point-city').handlers.change();
   assert.equal($('e-lat').value, '35.6812');
   assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('all six labs have valid, bidirectional textbook links and named predictions', () => {
+  const html = readFileSync(new URL('./geod.html', import.meta.url), 'utf8');
+  const references = new Set();
+  for (const match of html.matchAll(/href="\.\.\/index\.html#\/textbook\/volumes\/dream_thater\/([^\"]+)"/g)) {
+    const [chapterPath, query] = decodeURIComponent(match[1]).split('?id=');
+    const file = new URL('../../textbook/volumes/dream_thater/' +
+      chapterPath.replace(/\/index$/, '/index.md'), import.meta.url);
+    const chapter = readFileSync(file, 'utf8');
+    if (query) assert.ok(chapter.includes('id="' + query + '"'),
+      'missing stable textbook anchor: ' + chapterPath + '#' + query);
+    references.add(chapterPath.match(/GEOD\d+/)?.[0]);
+  }
+  for (const chapter of ['GEOD3', 'GEOD5', 'GEOD6', 'GEOD7', 'GEOD8', 'GEOD9',
+    'GEOD10', 'GEOD12', 'GEOD13', 'GEOD17', 'GEOD18', 'GEOD19', 'GEOD20', 'GEOD21', 'GEOD22']) {
+    assert.ok(references.has(chapter), 'GEOD lab link missing textbook target: ' + chapter);
+  }
+  for (const [lab, chapters] of Object.entries({
+    A: [3], B: [12], C: [6, 9], D: [13, 21], E: [20], F: [21],
+  })) {
+    const section = html.match(new RegExp('<section[^>]*id="lab-' + lab +
+      '"[\\s\\S]*?(?=<section[^>]*id="lab-|<section[^>]*class="panel geod-output-panel")'))?.[0];
+    assert.ok(section?.includes('予測'), 'lab ' + lab + ' needs a learner prediction');
+    assert.ok(section.includes('/GEOD/'), 'lab ' + lab + ' needs a textbook route');
+    for (const number of chapters) {
+      const chapter = readFileSync(new URL('../../textbook/volumes/dream_thater/幾何系/GEOD/GEOD' +
+        number + '/index.md', import.meta.url), 'utf8');
+      assert.ok(chapter.includes('/simulation/geod.html#lab-' + lab),
+        'GEOD' + number + ' must link directly back to lab ' + lab);
+    }
+  }
+  assert.match(html, /id="geod-results" aria-live="polite"/);
+  assert.match(html, /id="geod-status" role="status" aria-live="polite"/);
 });
 
 test('world map switch leaves shading/numerics available without WebGL2', () => {

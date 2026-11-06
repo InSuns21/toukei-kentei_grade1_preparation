@@ -16,9 +16,14 @@ if (!chrome) throw new Error('Chromium/Chrome is required for GEOD WebGL2 smoke'
 const mime = name => name.endsWith('.html') ? 'text/html' :
   name.endsWith('.css') ? 'text/css' : name.endsWith('.mjs') ? 'text/javascript' :
   name.endsWith('.json') ? 'application/json' : 'text/plain';
+let acceptanceRevision = 'first';
 const server = createServer(async (req, res) => {
   try {
     const name = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    if (name === '/simulation/geod-acceptance-cache.txt') {
+      res.writeHead(200, { 'content-type': 'text/plain', 'cache-control': 'no-store' });
+      res.end(acceptanceRevision); return;
+    }
     const target = path.resolve(root, '.' + name);
     if (!target.startsWith(root + path.sep)) {
       res.writeHead(403).end(); return;
@@ -524,7 +529,142 @@ try {
   assert.ok(heightMobile.outputTop >= heightMobile.controlsBottom &&
     heightMobile.width > 0 && heightMobile.width < 360 && heightMobile.overflow <= 1,
     'gravity/height section should stack at 360px: ' + JSON.stringify(heightMobile));
+
+  // The numeric result and the prediction→textbook path must be accessible
+  // without deciphering colours, a WebGL camera, or selectable SVG labels.
+  const a11y = await evalJS(`(() => ({
+    unnamed: [...document.querySelectorAll('input,select')].filter(x =>
+      !x.labels?.length && !x.getAttribute('aria-label')).map(x => x.id),
+    status: document.querySelector('#geod-status').getAttribute('aria-live'),
+    results: document.querySelector('#geod-results').getAttribute('aria-live'),
+    figures: [...document.querySelectorAll('svg[role="img"],canvas[role="img"]')]
+      .filter(x => !x.getAttribute('aria-label')).map(x => x.id),
+    questions: document.querySelectorAll('#geod-questions li').length,
+    table: Boolean(document.querySelector('#geod-results table'))
+  }))()`);
+  assert.deepEqual(a11y.unnamed, [], 'all input/select controls need accessible names');
+  assert.deepEqual(a11y.figures, [], 'all meaningful figures need accessible descriptions');
+  assert.ok(a11y.status === 'polite' && a11y.results === 'polite' &&
+    a11y.questions >= 2 && a11y.table, 'numeric and textual fallback: ' + JSON.stringify(a11y));
+
+  // Exercise actual keyboard events rather than calling synthetic click().
+  await cdp('Emulation.clearDeviceMetricsOverride');
+  await evalJS(`document.querySelector('[data-lab="A"]').focus()`);
+  await cdp('Input.dispatchKeyEvent', {
+    type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13,
+  });
+  await cdp('Input.dispatchKeyEvent', {
+    type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13,
+  });
+  await waitFor('document.querySelector("#geod-workspace").dataset.currentLab === "A"');
+  assert.equal(await evalJS('location.hash'), '#lab-A', 'tab click must leave a deep link');
+  const numericBeforeCamera = await evalJS('document.querySelector("#geod-results").textContent');
+  await evalJS('document.querySelector("#globe").focus()');
+  await cdp('Input.dispatchKeyEvent', {
+    type: 'keyDown', key: '+', code: 'Equal', windowsVirtualKeyCode: 187,
+  });
+  await cdp('Input.dispatchKeyEvent', {
+    type: 'keyUp', key: '+', code: 'Equal', windowsVirtualKeyCode: 187,
+  });
+  assert.equal(await evalJS('document.querySelector("#globe-zoom").value'), '1.2');
+  assert.equal(await evalJS('document.querySelector("#geod-results").textContent'),
+    numericBeforeCamera, 'keyboard camera changes must not change geodetic numbers');
+
+  // Touch input runs on the actual canvas and may change ONLY the view.
+  await cdp('Emulation.setDeviceMetricsOverride', {
+    width: 360, height: 760, deviceScaleFactor: 1, mobile: true,
+  });
+  await cdp('Emulation.setTouchEmulationEnabled', { enabled: true });
+  const centre = await evalJS(`(() => { const r = document.querySelector('#globe').getBoundingClientRect();
+    return { x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2) }; })()`);
+  await cdp('Input.dispatchTouchEvent', {
+    type: 'touchStart', touchPoints: [{ x: centre.x, y: centre.y }],
+  });
+  await cdp('Input.dispatchTouchEvent', {
+    type: 'touchMove', touchPoints: [{ x: centre.x + 35, y: centre.y + 20 }],
+  });
+  await cdp('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await cdp('Emulation.setTouchEmulationEnabled', { enabled: false });
+  assert.equal(await evalJS('document.querySelector("#geod-results").textContent'),
+    numericBeforeCamera, 'touch rotation must not change numeric state');
+  await cdp('Emulation.clearDeviceMetricsOverride');
+
+  // A lost WebGL context must leave calculations available and recover on a
+  // restored context, including an explicit explanatory fallback message.
+  const canLose = await evalJS(`(() => {
+    window.__geodLoseContext = document.querySelector('#globe')
+      .getContext('webgl2').getExtension('WEBGL_lose_context');
+    return Boolean(window.__geodLoseContext);
+  })()`);
+  assert.ok(canLose, 'WebGL context loss extension required for this CI acceptance');
+  await evalJS('window.__geodLoseContext.loseContext()');
+  await waitFor('!document.querySelector("#gl-fallback").hidden && document.querySelector("#gl-fallback").textContent.includes("失いました")');
+  assert.equal(await evalJS('document.querySelector("#geod-results").textContent'),
+    numericBeforeCamera, 'WebGL context loss must not erase calculations');
+  await evalJS('window.__geodLoseContext.restoreContext()');
+  await waitFor('document.querySelector("#gl-fallback").hidden && !document.querySelector("#globe").hidden');
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false');
+
+  // A standalone direct visit must also install the SW. Verify the *GEOD*
+  // shell, network-first cache refresh, full offline navigation and real math
+  // in every A-F mode rather than testing only the CELEV/ML entrypoint.
+  if (!await evalJS('Boolean(navigator.serviceWorker?.controller)')) {
+    await waitFor('navigator.serviceWorker.getRegistration().then(r => r?.active?.state === "activated")');
+    await cdp('Page.reload', { ignoreCache: false });
+    await waitFor('document.querySelector("#geod-status")?.textContent.includes("計算済み")');
+    await waitFor('Boolean(navigator.serviceWorker.controller)');
+  }
+  await waitFor(`(async () => {
+    const key = (await caches.keys()).find(name => name.startsWith('toukei-grade1-runtime-'));
+    if (!key) return false;
+    const cache = await caches.open(key);
+    for (const name of [
+      'geod.html', 'geod-app.mjs', 'geod-core.mjs', 'geod-compare.mjs',
+      'geod-japan.mjs', 'geod-survey.mjs', 'geod-gnss.mjs',
+      'geod-gnss-space.mjs', 'geod-height.mjs', 'geod.css',
+      'vendor/geographiclib-geodesic.mjs',
+    ]) {
+      if (!await cache.match(new URL('./' + name, location.href))) return false;
+    }
+    return true;
+  })()`);
+  const revisionUrl = 'new URL("./geod-acceptance-cache.txt", location.href).href';
+  const fetchRevision = 'fetch(' + revisionUrl + ').then(r => r.text())';
+  assert.equal(await evalJS(fetchRevision), 'first');
+  acceptanceRevision = 'updated';
+  assert.equal(await evalJS(fetchRevision), 'updated', 'online must refresh runtime cache');
+  await evalJS(`history.replaceState(null, '', '#lab-B')`);
+  await cdp('Network.emulateNetworkConditions', {
+    offline: true, latency: 0, downloadThroughput: 0, uploadThroughput: 0,
+  });
+  assert.equal(await evalJS(fetchRevision), 'updated', 'offline must read refreshed runtime cache');
+  await cdp('Page.reload', { ignoreCache: true });
+  await waitFor('document.querySelector("#geod-status")?.textContent.includes("計算済み")');
+  assert.equal(await evalJS('document.querySelector("#geod-workspace").dataset.currentLab'), 'B',
+    'offline direct link #lab-B must select B on first render');
+  await evalJS('document.querySelector("#b-antipodal-example").click()');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("19,989.832827")'),
+    'Karney geodesic must run from the offline vendor module');
+  for (const [lab, fragment] of [
+    ['A', '測地緯度'], ['C', '共分散'], ['D', '独立逆級数'],
+    ['E', '正積緯度'], ['F', 'EPSG:6677'],
+  ]) {
+    await evalJS(`document.querySelector('[data-lab="${lab}"]').click()`);
+    assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false',
+      'offline lab ' + lab + ' failed');
+    assert.ok(await evalJS(`document.querySelector('#geod-results').textContent.includes('${fragment}')`),
+      'offline lab ' + lab + ' missing numerical result ' + fragment);
+  }
+  await cdp('Page.reload', { ignoreCache: true });
+  await waitFor('document.querySelector("#geod-status")?.textContent.includes("計算済み")');
+  assert.equal(await evalJS('document.querySelector("#geod-workspace").dataset.currentLab'), 'F',
+    'offline refresh must restore bookmarked F lab');
+  await cdp('Network.emulateNetworkConditions', {
+    offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1,
+  });
+  assert.deepEqual(exceptions, [], 'GEOD browser script exceptions');
   console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
+  console.log('GEOD A–F acceptance: keyboard/touch, screen-reader semantics, direct links, WebGL recovery, offline revisit and cache refresh: PASS');
 } finally {
   ws?.close();
   if (browser.exitCode === null && browser.signalCode === null) {

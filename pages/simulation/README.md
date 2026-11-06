@@ -194,23 +194,28 @@ datum-identification-only behavior. In addition, two independent, published
 (zone II, printed pp. 51–52) check X/Y at 1 mm, true-north direction and
 projection scale. The Pages runtime precaches the local lab assets for offline
 revisits; numeric tables remain functional if WebGL2 is unavailable.
-The separate `scripts/validate-geod-browser.mjs` CI smoke uses real Chromium
-with software WebGL2, checks nonuniform shaded pixels, city controls and a
-360px viewport, and blocks all live OSM tile requests in CI. It does not
-replace manual device and live-tile cartographic visual QA.
+The `scripts/validate-geod-browser.mjs` CI acceptance uses real Chromium with
+software WebGL2, verifies nonuniform shaded pixels, all A–F tabs and C modes,
+desktop and 360px layout, mouse-independent keyboard/touch interaction, lost
+context recovery, accessible names and numeric fallbacks, and direct offline
+revisits plus network-first cache refresh. Live OSM/GSI tile requests are blocked
+in CI, so manual device and live-tile cartographic visual QA remains separate.
+All six labs have shareable `#lab-A` through `#lab-F` links, with source/target
+checking for the GEOD textbook's stable anchors and back-links in the Node suite.
 
-Remaining: visual/keyboard screen-reader checks on physical mobile devices;
-the full GEOD inverse-Krüger and high-precision near-antipodal solver;
-ellipsoidal geodetic-to-authalic transformation and extended projection
-comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
-numerical spot checks, full legal-zone applicability checks, operational GNSS
-atmospheric/orbit/clock corrections, and **actual** geoid/gravity/datum-linked
-height conversions. The educational synthetic gravity-height lab C now exists.
-See the GEOD plan for later phases and figure audit.
+The *educational* numerical features are implemented, including the independent
+inverse-Krüger series, high-precision Karney antipodal geodesics, ellipsoidal
+authalic-world-map comparison and official Japanese zone II/IX examples.
+Remaining for final accessibility acceptance: a real mobile device, live Japan
+map tiles and an actual screen-reader session. Explicitly out of scope are
+legal-zone boundary polygons, real GNSS corrections, practical datum/epoch
+transforms and actual geoid/gravity grids. See the GEOD plan for the evidence
+matrix and the separate 22-chapter/formal-figure review still outstanding.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.
-**Browser end-to-end, cache/offline and performance verification remain open.**
+GEOD's automated browser and cache/offline acceptance is provided by CI;
+physical-device and screen-reader signoff remain open.
 See [the in-progress PLAN](../../textbook/plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md).
 
 ## Why separate this from the Python lab?
