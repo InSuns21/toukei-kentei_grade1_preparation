@@ -68,15 +68,28 @@ without feeding drawing coordinates back into the numeric kernel.
   accessible independently and needs no WebGL.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
-  Jacobian, Tissot principal stretches and the grid-north bearing.
-* **E**: Side-by-side spherical Mercator, Equal Earth, and Mollweide world
+  Jacobian, Tissot principal stretches and the grid-north bearing. A separate
+  *inverse* beta-series inverts both forward output and user-entered arbitrary
+  projected E/Np inputs with the same ellipsoid/origin/k0; the app reports the
+  inverse geodetic location and the independent forward-back residual. The
+  regional branch and invalid projected coordinates fail explicitly, rather
+  than producing misleading coordinates. Tests include the independent PROJ
+  Gauss-Boaga published reference, spherical limits, signed values and points
+  near the documented 25° longitude-offset boundary.
+* **E**: Side-by-side ellipsoidal Mercator, Equal Earth, and Mollweide world
   graticules with a shared map scale, chosen point and enlarged differential
   Tissot indicatrix. The numerical table compares area Jacobians, principal
-  scale factors, maximum angular distortion and projected x/y. This phase-B
-  subset uses a common GRS80 authalic sphere radius (~6371007 m) with the
-  input latitude treated directly as *spherical* latitude: it is not a full
-  ellipsoidal/authalic-latitude coordinate conversion, and it does not imply
-  equivalence of source datums.
+  scale factors, maximum angular distortion and projected x/y. **All UI inputs
+  are GRS80 geodetic latitudes**, and both equal-area maps first apply the
+  authalic latitude β determined by the GRS80 ellipsoid area integral q(φ).
+  The Mercator comparison uses ellipsoidal isometric latitude rather than the
+  former spherical shortcut. The physical ellipse and Jacobian use the true
+  tangent metric (M and r=Ncosφ), not the auxiliary-sphere metric. The table
+  additionally compares the same physical 1 km² infinitesimal patch with a
+  local Gauss–Krüger projection (nearest 6° central meridian, k0=.9999):
+  its area ratio is k², versus 1 in Equal Earth/Mollweide. The local map is
+  *not* misrepresented as a global graticule. No source datum/epoch conversion
+  or full geographical polygon overlay is implied.
 * **F**: All 19 GSI Japanese plane rectangular systems, with official
   longitude/latitude origins, north-positive `X` and east-positive `Y`,
   `k0=0.9999` and zero false coordinates. The output is ellipsoidal GRS80
@@ -87,7 +100,14 @@ without feeding drawing coordinates back into the numeric kernel.
   datum; `GRS80 only` disables datum/EPSG claims while retaining identical
   mathematics. Switching does not transform coordinates or their epoch. The
   simplified region names and 3° warning do **not** check the legally defined
-  area of use. Source of all 19 origins and X/Y axis directions:
+  area of use. Each zone now provides separately its *condensed legal area
+  description* from the notice and an explicitly different 3°-offset local
+  projection warning. Exact legal membership needs administrative/island
+  boundary geometry and is **not automatically asserted** from the distance
+  to the central meridian. Additional independent reference data now include
+  the GSI official online calculator's zone IX (X=11573.375, Y=22694.980 m)
+  *inverse* output and its scale/grid convergence, besides the two existing
+  zone II published examples. Source of all 19 origins and X/Y axis directions:
   [GSI ministerial notice](https://www.gsi.go.jp/LAW/heimencho.html).
 
 The surface sphere and ellipsoid are drawn with a twentyfold visual flattening
