@@ -12,10 +12,10 @@
 
 以下で $S=(Z_1,\ldots,Z_n)\sim P^n$、$n\ge1$ とする。$\ell_h(z)=\ell(h,z)$ は各 $h$ について可測とし、[母集団・経験リスク](../../ML/ML1-01/index.md#def-ml1-01-risks)を次の記法で表す。
 
-$
+$$
 R(h)=P\ell_h=\mathbb E_{Z\sim P}[\ell(h,Z)],\qquad
 \widehat R(h)=P_n\ell_h=\frac1n\sum_{i=1}^n\ell(h,Z_i).
-$
+$$
 
 ここで $P$ は母集団平均、$P_n$ は観測標本に関する経験平均を関数へ作用させる記号であり、$\widehat R(h)$ のハットは標本への依存を表す。まずは各リスクが有限である場合を考え、確率的な結果では $0\le\ell_h\le1$ を追加する。
 
@@ -396,12 +396,12 @@ $$
 
 比較候補 $h$ と出力 $\widetilde h$ の母集団リスク・経験リスク・罰則を次のように与える。
 
-$
+$$
 \begin{aligned}
 (R(h),\widehat R(h),\operatorname{pen}(h))&=(0.18,0.20,0.08),\\
 (R(\widetilde h),\widehat R(\widetilde h),\operatorname{pen}(\widetilde h))&=(0.21,0.17,0.10).
 \end{aligned}
-$
+$$
 
 $\varepsilon_{\mathrm{opt}}=0$ とする。経験目的値の比較を確かめ、基本不等式の右辺を算出せよ。
 
@@ -462,10 +462,10 @@ $$
 <!-- solution-start -->
 **詳細解答**。$\widehat R(h_0)=R(h_0)=1$、$\widehat R(h_1)=R(h_1)=0$ だから、経験目的値は
 
-$
+$$
 Q_S(h_0)=1+\lambda\cdot0=1,\qquad
 Q_S(h_1)=0+\lambda\cdot1=\lambda.
-$
+$$
 
 したがって選択と母集団リスクは次の通りである。
 
