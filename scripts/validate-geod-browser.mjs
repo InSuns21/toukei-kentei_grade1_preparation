@@ -327,6 +327,38 @@ try {
     JSON.stringify(perspectiveLayout));
   await evalJS(`document.querySelector('#c-gnss-view').value='sky';
     document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
+  // Gravity/height comparison: 2D section stays usable with its own kernel.
+  await evalJS(`document.querySelector('#c-mode').value='height';
+    document.querySelector('#c-mode').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#c-height-panel").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#c-survey-controls").hidden'), true);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-controls").hidden'), true);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-panel").hidden'), true);
+  assert.equal(await evalJS('document.querySelector("#geod-globe-panel").hidden'), true);
+  assert.ok(await evalJS('document.querySelectorAll("#c-height-map line").length >= 22'));
+  const heightRow = () => evalJS('document.querySelector("#geod-results tbody tr:nth-child(4) td").textContent');
+  assert.match(await heightRow(), /88\.200/);
+  const heightBefore = await heightRow();
+  const hLayout = await workspaceLayout('C', '#c-height-map');
+  assertSideBySide(hLayout);
+  assert.ok(hLayout.visual.width > 200 && hLayout.visual.width <= 861);
+  const selectStyle = await evalJS(`(() => ({
+    svg:getComputedStyle(document.querySelector('#c-height-map')).userSelect,
+    labels:getComputedStyle(document.querySelector('#c-height-map text')).userSelect
+  }))()`);
+  assert.deepEqual(selectStyle, { svg: 'none', labels: 'none' },
+    'height section SVG and labels should not select text');
+  await evalJS(`document.querySelector('#c-height-na').value='-12';
+    document.querySelector('#c-height-na').dispatchEvent(new Event('input'))`);
+  assert.notEqual(await heightRow(), heightBefore, 'negative N changes H');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("ΔH = Δh − ΔN")'));
+  await evalJS(`document.querySelector('#c-height-ga').value='0';
+    document.querySelector('#c-height-ga').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'true');
+  assert.equal(await evalJS('document.querySelector("#c-height-map").childElementCount'), 0);
+  await evalJS(`document.querySelector('#c-height-ga').value='9.8';
+    document.querySelector('#c-height-ga').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false');
   await evalJS(`document.querySelector('[data-lab="D"]').click();
     document.querySelector('#d-city').value='new-york';
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
@@ -450,6 +482,18 @@ try {
   assert.ok(gnss3dMobile.width < 360 && gnss3dMobile.cameraWidth < 360 &&
     gnss3dMobile.overflow <= 1, '3D sky/rotation controls should fit 360px: ' +
     JSON.stringify(gnss3dMobile));
+  await evalJS(`document.querySelector('#c-mode').value='height';
+    document.querySelector('#c-mode').dispatchEvent(new Event('input'))`);
+  const heightMobile = await evalJS(`(() => {
+    const controls = document.querySelector('#lab-C').getBoundingClientRect();
+    const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
+    const section = document.querySelector('#c-height-map').getBoundingClientRect();
+    return { controlsBottom: controls.bottom, outputTop: output.top,
+      width: section.width, overflow: document.documentElement.scrollWidth - window.innerWidth };
+  })()`);
+  assert.ok(heightMobile.outputTop >= heightMobile.controlsBottom &&
+    heightMobile.width > 0 && heightMobile.width < 360 && heightMobile.overflow <= 1,
+    'gravity/height section should stack at 360px: ' + JSON.stringify(heightMobile));
   console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();

@@ -27,6 +27,9 @@ const inputs = {
   'c-gnss-tropo': '2.3', 'c-gnss-correction': 'raw', 'c-gnss-view': 'sky',
   'c-gnss-view-azimuth': '35', 'c-gnss-view-tilt': '30',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
+  'c-height-na': '35.2', 'c-height-dn': '-8', 'c-height-ha': '123.4',
+  'c-height-hb': '150', 'c-height-ga': '9.8', 'c-height-dg': '0.02',
+  'c-height-gradient': '3',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
@@ -47,6 +50,7 @@ for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 
   elements.set(id, new Element(id));
 }
 for (const id of ['c-map-panel', 'c-map', 'c-survey-controls', 'c-gnss-controls',
+  'c-height-controls', 'c-height-panel', 'c-height-map',
   'c-gnss-panel', 'c-gnss-map', 'c-gnss-visual-controls', 'c-gnss-camera-controls',
   'c-gnss-space-panel', 'c-gnss-space-map', 'c-gnss-gl-wrap',
   'c-gnss-space-canvas', 'c-gnss-space-labels', 'geod-globe-panel']) elements.set(id, new Element(id));
@@ -203,6 +207,35 @@ test('GNSS modes show 2D/3D sky geometry and staged systematic errors', () => {
   assert.equal($('c-gnss-visual-controls').hidden, true);
   assert.equal($('c-gnss-panel').hidden, true);
   assert.ok($('c-map').children.length > 15);
+});
+
+test('height mode stays available without WebGL, changes h/N/H and rejects invalid values', () => {
+  buttons[2].handlers.click();
+  $('c-mode').value = 'height'; $('c-mode').handlers.input();
+  assert.equal($('c-survey-controls').hidden, true);
+  assert.equal($('c-gnss-controls').hidden, true);
+  assert.equal($('c-height-controls').hidden, false);
+  assert.equal($('c-height-panel').hidden, false);
+  assert.equal($('c-map-panel').hidden, true);
+  assert.equal($('c-gnss-panel').hidden, true);
+  assert.equal($('geod-globe-panel').hidden, true);
+  assert.ok($('c-height-map').children.length > 35);
+  const rows = () => $('geod-results').children[0].children[0].children;
+  assert.equal(rows().length, 13);
+  assert.match(rows()[3].children[1].textContent, /88\.200/);
+  const heightBefore = rows()[3].children[1].textContent;
+  $('c-height-na').value = '-12'; $('c-height-na').handlers.input();
+  assert.notEqual(rows()[3].children[1].textContent, heightBefore);
+  assert.equal($('geod-status').dataset.error, 'false');
+  $('c-height-ga').value = '0'; $('c-height-ga').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  assert.equal($('c-height-map').children.length, 0, 'invalid model clears stale figure');
+  $('c-height-ga').value = '9.8'; $('c-height-ga').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'false');
+  $('c-mode').value = 'survey'; $('c-mode').handlers.input();
+  assert.equal($('c-height-controls').hidden, true);
+  assert.equal($('c-height-panel').hidden, true);
+  assert.ok($('c-map').children.length > 10);
 });
 
 test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {

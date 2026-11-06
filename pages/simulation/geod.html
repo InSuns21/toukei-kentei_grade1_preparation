@@ -13,7 +13,7 @@
     <nav><a href="./index.html">← 実験一覧</a> ・ <a href="../index.html#/textbook/dream-theater">DREAM THEATER 目次</a></nav>
     <h1>GEOD 測地学ラボ</h1>
     <p>位置を測る楕円体、面上の最短経路、地図上の変形を、同じ緯度・経度の意味を保ったまま実験します。数値計算は倍精度 JavaScript、3DはWebGL2による<strong>説明用表示</strong>です。数学的な証明・公式値との照合は本文で確認してください。</p>
-    <p class="notice">基準楕円体はGRS80（a=6,378,137 m、1/f=298.257222101）。これは地図投影の数学模型であり、datum/epoch間の座標変換や標高変換は行いません。</p>
+    <p class="notice">基準楕円体はGRS80（a=6,378,137 m、1/f=298.257222101）。投影は数学模型です。Cの高さ実験は<strong>架空の局所基準による換算式</strong>であり、実際のジオイド・モデル、鉛直基準、datum/epoch間の座標・標高変換ではありません。</p>
   </header>
   <nav class="lab-switch" aria-label="実験の選択">
     <button type="button" data-lab="A" aria-pressed="true">A：楕円体・法線</button>
@@ -54,12 +54,13 @@
   </section>
 
 
-  <section class="panel" id="lab-C" aria-label="測量・GNSS・重み付き平差" hidden>
+  <section class="panel" id="lab-C" aria-label="測量・GNSS・重力・高さ" hidden>
     <h2>C：観測で位置を推定する</h2>
     <label class="c-mode-switch">実験の種類
       <select id="c-mode">
         <option value="survey">地上測量：3つの距離観測の平差</option>
         <option value="gnss">GNSS：衛星配置・時計差・DOP</option>
+        <option value="height">重力・ジオイド・標高：h ≈ H + N</option>
       </select>
     </label>
     <div id="c-survey-controls">
@@ -109,6 +110,21 @@
       <p class="aside">誤差は各衛星ごとに異なる人工値です。衛星時計項は −cΔt<sub>s</sub>、電離圏は単純な薄い殻の仰角依存、対流圏は 1/sin(仰角) の教育用モデルです。「理想補正」は<strong>注入した誤差の真値がすべて分かるという非現実的な比較</strong>で、実際の補正法ではありません。受信機時計差 B は全観測に共通、衛星時計差は衛星ごとです。</p>
       <p class="aside"><strong>合成GNSS模型</strong>です。衛星は架空の位置に固定、受信機位置の真値は局所E/N/U=(12, −8, 5)m。未知量は位置3成分と時計差の距離換算 B の計4つ。擬似距離＝幾何距離＋B＋独立と仮定した合成観測誤差＋選択した人工系統誤差で計算します。実際の衛星時計補正・大気遅延推定・軌道・地球自転・相対論・datum/epochは扱いません。DOPは無次元の配置指標で、実測誤差を意味しません。</p>
       <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-pseudorange">GEOD9：擬似距離式</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-dop">GEOD9：DOP</a></p>
+    </div>
+    <div id="c-height-controls" hidden>
+      <p>予測：GNSSが求める楕円体高 <strong>h</strong> を固定し、ジオイド高 <strong>N</strong> を大きくすると標高（この模型では正標高）<strong>H</strong> はどうなるでしょう。2地点でジオイド高が異なれば、楕円体高の差と標高差は一致するでしょうか。</p>
+      <div class="controls">
+        <label>A地点のジオイド高 N<sub>A</sub>（m）<input id="c-height-na" type="number" min="-100" max="100" step="0.1" value="35.2"></label>
+        <label>B地点−A地点のジオイド高 ΔN（m）<input id="c-height-dn" type="number" min="-80" max="80" step="0.1" value="-8"></label>
+        <label>A地点の楕円体高 h<sub>A</sub>（m）<input id="c-height-ha" type="number" min="-30" max="1000" step="0.1" value="123.4"></label>
+        <label>B地点の楕円体高 h<sub>B</sub>（m）<input id="c-height-hb" type="number" min="-30" max="1000" step="0.1" value="150"></label>
+        <label>A地点のジオイド付近の重力 g₀,A（m/s²）<input id="c-height-ga" type="number" min="9" max="10" step="0.01" value="9.8"></label>
+        <label>B地点−A地点の重力差 Δg₀（m/s²）<input id="c-height-dg" type="number" min="-0.2" max="0.2" step="0.01" value="0.02"></label>
+        <label>上向きの重力減少率 k（10⁻⁶ s⁻²）<input id="c-height-gradient" type="number" min="0" max="6" step="0.5" value="3"></label>
+      </div>
+      <p class="aside">2地点は水平20 km離れた<strong>合成模型</strong>です。各地点では楕円体法線と鉛直線を一致させ、局所的に平行な基準面を仮定します。この条件でのみ <strong>h = H + N</strong> が厳密に成り立ち、一般の重力場では <strong>h ≈ H + N</strong> という近似です。Nは負にもなります。図の二地点をつなぐ線は模式的な補間で、全球ジオイドや現実の地形ではありません。</p>
+      <p class="aside">重力は各地点の鉛直方向のみに <strong>g(s) = g₀ − ks</strong>（上向き距離 s、単位m）と置き、<strong>C = W₀ − W(P) = g₀H − kH²/2</strong> を算出。動的高は C/γ₀（γ₀=9.80665 m/s²）。2地点を結ぶ滑らかな重力ポテンシャル場、正確な正標高、正常高、実測の基準面補正量は求めていません。</p>
+      <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD6/index?id=prop-geod6-height-relation">GEOD6：高さ換算の仮定</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD10/index?id=thm-geod10-height-formulas">GEOD10：ポテンシャルと高さ系</a></p>
     </div>
   </section>
 
@@ -239,6 +255,12 @@
       <div class="figure-head">C：既知点3点の距離網と推定点P（E東・N北、m）</div>
       <svg id="c-map" viewBox="0 0 720 470" role="img" aria-label="既知点A・B・Cから推定点Pへ向かう3本の距離観測線、距離円、推定点の誤差楕円。楕円は可視化のため600倍に拡大。" xmlns="http://www.w3.org/2000/svg"></svg>
       <figcaption>実線＝距離観測、破線の円＝距離観測に対応する円、P＝重み付き平差による推定点。<strong>1σ誤差楕円は視認のため長さを600倍に強調</strong>（座標や表の数値は非拡大）。この楕円は観測誤差モデルからの形式的な不確かさで、C観測に加えた系統偏りを含みません。</figcaption>
+    </figure>
+    <figure id="c-height-panel" hidden>
+      <div class="figure-head">C：楕円体・ジオイド・地表面の2地点断面</div>
+      <svg id="c-height-map" viewBox="0 0 800 500" role="img"
+        aria-label="架空のA地点・B地点について、楕円体面、ジオイド面、地表点、楕円体高h、ジオイド高N、正標高Hの位置関係。正確な高さは下の数値表に表示。" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>横はA–B間の20 km、縦は高さmで<strong>縮尺が異なります</strong>（縦を強調）。青破線＝楕円体面、緑実線＝ジオイド面、茶実線＝地表面。図中の縦線はh/N/Hの符号付き区間です。文字は選択されない表示要素ですが、数値は下の表から読み取れます。実在の地形・測地成果や精密な重力場は再現しません。</figcaption>
     </figure>
     <figure id="map-panel" hidden>
       <div class="figure-head">投影座標（E 東・Np 北、m）</div>

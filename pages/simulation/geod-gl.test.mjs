@@ -58,6 +58,9 @@ const values = {
   'c-gnss-tropo': '2.3', 'c-gnss-correction': 'raw', 'c-gnss-view': 'sky',
   'c-gnss-view-azimuth': '35', 'c-gnss-view-tilt': '30',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
+  'c-height-na': '35.2', 'c-height-dn': '-8', 'c-height-ha': '123.4',
+  'c-height-hb': '150', 'c-height-ga': '9.8', 'c-height-dg': '0.02',
+  'c-height-gradient': '3',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
@@ -76,6 +79,7 @@ for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-p
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
   'f-map-panel', 'f-map', 'f-map-title', 'c-map-panel', 'c-map',
+  'c-height-controls', 'c-height-panel', 'c-height-map',
   'c-survey-controls', 'c-gnss-controls', 'c-gnss-panel', 'c-gnss-map',
   'c-gnss-visual-controls', 'c-gnss-camera-controls', 'c-gnss-space-panel',
   'c-gnss-space-map', 'c-gnss-gl-wrap', 'c-gnss-space-canvas',
@@ -195,6 +199,24 @@ test('GNSS 2D stays DOM-only; 3D uses shaded WebGL without changing DOP', () => 
   elements.get('c-gnss-clock').value = '100';
   elements.get('c-gnss-clock').handlers.input();
   assert.equal(calls.draws.length, afterSky, '2D numerical changes remain independent of WebGL');
+  buttons[0].handlers.click();
+});
+
+test('C heights use separate mathematical kernel and do not trigger any WebGL redraw', () => {
+  buttons[2].handlers.click();
+  const before = calls.draws.length;
+  elements.get('c-mode').value = 'height';
+  elements.get('c-mode').handlers.input();
+  assert.equal(elements.get('c-height-panel').hidden, false);
+  assert.ok(elements.get('c-height-map').children.length > 35);
+  assert.equal(calls.draws.length, before);
+  const text = elements.get('geod-results').children[0].children[0].children[3]
+    .children[1].textContent;
+  assert.match(text, /88\.200/);
+  elements.get('c-height-dn').value = '12';
+  elements.get('c-height-dn').handlers.input();
+  assert.equal(calls.draws.length, before);
+  assert.equal(elements.get('geod-status').dataset.error, 'false');
   buttons[0].handlers.click();
 });
 
