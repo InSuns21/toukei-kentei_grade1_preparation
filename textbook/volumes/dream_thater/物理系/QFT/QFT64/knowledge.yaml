@@ -1,0 +1,8 @@
+chapter: QFT64
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT52, QFT54, QFT58, QFT59, QFT60, QFT61, QFT62, QFT63]
+forward_references: []
+
+# 既習のcanonical概念を再計算する総合演習。新規の定義・定理は設けない。
+concepts: []
