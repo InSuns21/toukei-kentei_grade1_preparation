@@ -10,7 +10,14 @@
 
 そこで経験リスクに**罰則**を足す。罰則は、複雑な候補に大きな値を付ける非負の数である。ただし「正則化したから汎化する」は定理ではない。どの罰則なら母集団リスクを保証するかを、まず不等式として分解し、その後に確率的な根拠を与える。
 
-以下で $S=(Z_1,\ldots,Z_n)\sim P^n$、$n\ge1$ とし、$R(h)=P\ell_h$、$\widehat R(h)=P_n\ell_h$ と略記する。[母集団・経験リスク](../../ML/ML1-01/index.md#def-ml1-01-risks)の定義に従い、$\ell_h(z)=\ell(h,z)$ は可測とする。まずは各リスクが有限である場合を考え、確率的な結果では $0\le\ell_h\le1$ を追加する。
+以下で $S=(Z_1,\ldots,Z_n)\sim P^n$、$n\ge1$ とする。$\ell_h(z)=\ell(h,z)$ は各 $h$ について可測とし、[母集団・経験リスク](../../ML/ML1-01/index.md#def-ml1-01-risks)を次の記法で表す。
+
+$
+R(h)=P\ell_h=\mathbb E_{Z\sim P}[\ell(h,Z)],\qquad
+\widehat R(h)=P_n\ell_h=\frac1n\sum_{i=1}^n\ell(h,Z_i).
+$
+
+ここで $P$ は母集団平均、$P_n$ は観測標本に関する経験平均を関数へ作用させる記号であり、$\widehat R(h)$ のハットは標本への依存を表す。まずは各リスクが有限である場合を考え、確率的な結果では $0\le\ell_h\le1$ を追加する。
 
 ## 2. 罰則付きERMと「基本不等式」
 
@@ -92,6 +99,8 @@ $$
 
 基本不等式には二つの偏差が残っている。各候補の母集団と経験リスクの差を非負数 $d(h)$ で同時に抑えられれば、選んだ候補にも同じ評価を使える。$d(h)$ を候補ごとに変えてよい点が重要である。
 
+ここで **oracle（神託）** とは、真のリスクを知り、$R(h)+2\operatorname{pen}(h)$ が小さい比較候補を選べる仮想的な選択者を指す。学習器自身がその候補や真のリスクを知る必要はない。以下のoracle不等式は、その仮想的な基準に対して出力リスクを上から抑える。
+
 <a id="thm-slt1-13-deterministic-oracle"></a>
 
 <!-- formal-statement-start -->
@@ -140,8 +149,6 @@ $$
 
 最後の無罰則の場合は同じ基本不等式に直接 $d(\widetilde h)=d(h)=\Delta$、$\operatorname{pen}=0$ を代入する。$\operatorname{pen}\ge d$ はこの場合不要である。
 <!-- proof-end -->
-
-ここでいう **oracle（神託）** とは、訓練データを見ずに $R(h)+2\operatorname{pen}(h)$ が小さい候補を知っている仮想的な選択者である。学習器がその候補を知るわけではない。上界がその最小値にほぼ追い付く、という比較をoracle不等式と呼ぶ。
 
 [Bayes超過リスク](../SLT1-01/index.md#def-slt1-01-bayes-excess)の基準値を $R^\star$ とすると、同じ不等式は
 
@@ -247,7 +254,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限モデル族の構造的リスク最小化）**
-> 標本抽選前に固定した非空有限クラス $\mathcal H_1,\ldots,\mathcal H_J$ と重み $w_j>0$（$\sum_{j=1}^Jw_j\le1$）を与える。$M_j=|\mathcal H_j|$ として
+> 標本数 $n\ge1$、$0<\delta<1$、モデル数 $J\ge1$ を与える。標本抽選前に固定した非空有限クラス $\mathcal H_1,\ldots,\mathcal H_J$ と重み $w_j>0$（$\sum_{j=1}^Jw_j\le1$）について、$M_j=|\mathcal H_j|$ として
 >
 $$
 c_j=\sqrt{\frac{\log[2M_j/(\delta w_j)]}{2n}}
@@ -376,9 +383,9 @@ $$
 **詳細解答**。[近似罰則付きERMの定義](#def-slt1-13-penalized-erm)に従って目的値を足すと
 
 $$
-Q(h_1)=0.12+0.01=0.13,\quad
-Q(h_2)=0.08+0.06=0.14,\quad
-Q(h_3)=0.04+0.14=0.18.
+Q_S(h_1)=0.12+0.01=0.13,\quad
+Q_S(h_2)=0.08+0.06=0.14,\quad
+Q_S(h_3)=0.04+0.14=0.18.
 $$
 
 最小値は $0.13$ で、厳密な出力は $h_1$。各候補の目的値から $0.13$ を引くと、必要な誤差は順に $0,0.01,0.05$ である。最小化誤差は真のリスク差ではなく**経験目的値の差**で定義される。
@@ -387,7 +394,16 @@ $$
 **問題 SLT1-13-A02（基本不等式の数値検査）**
 - Level: A
 
-比較候補 $h$ と出力 $\widetilde h$ について $R(h)=0.18,\widehat R(h)=0.20,\operatorname{pen}(h)=0.08$、$R(\widetilde h)=0.21,\widehat R(\widetilde h)=0.17,\operatorname{pen}(\widetilde h)=0.10$、$\varepsilon_{\mathrm{opt}}=0$ とする。経験目的値の比較を確かめ、基本不等式の右辺を算出せよ。
+比較候補 $h$ と出力 $\widetilde h$ の母集団リスク・経験リスク・罰則を次のように与える。
+
+$
+\begin{aligned}
+(R(h),\widehat R(h),\operatorname{pen}(h))&=(0.18,0.20,0.08),\\
+(R(\widetilde h),\widehat R(\widetilde h),\operatorname{pen}(\widetilde h))&=(0.21,0.17,0.10).
+\end{aligned}
+$
+
+$\varepsilon_{\mathrm{opt}}=0$ とする。経験目的値の比較を確かめ、基本不等式の右辺を算出せよ。
 
 <!-- solution-start -->
 **詳細解答**。出力の目的値は $0.17+0.10=0.27$、比較候補は $0.20+0.08=0.28$ なので近似ERM条件を満たす。リスク差は $0.21-0.18=0.03$。[基本不等式](#lem-slt1-13-basic-inequality)の右辺は
@@ -444,7 +460,20 @@ $$
 入力もラベルも確定的で $Y=1$、$h_0\equiv0,h_1\equiv1$、$\Omega(h_0)=0,\Omega(h_1)=1$ とする。0–1損失に $\lambda\Omega$ を加えた出力を $\lambda<1,\lambda=1,\lambda>1$ で分類し、リスクを求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$\widehat R(h_0)=R(h_0)=1$、$\widehat R(h_1)=R(h_1)=0$ なので $Q(h_0)=1,Q(h_1)=\lambda$。$\lambda<1$ なら $h_1$ を選びリスク0、$\lambda>1$ なら $h_0$ を選びリスク1。$\lambda=1$ では目的値が等しいため、どちらも厳密最小化子となり、そのリスクは0または1である。母集団と経験の偏差は両候補とも0であり、問題は罰則そのものが大き過ぎることにある。
+**詳細解答**。$\widehat R(h_0)=R(h_0)=1$、$\widehat R(h_1)=R(h_1)=0$ だから、経験目的値は
+
+$
+Q_S(h_0)=1+\lambda\cdot0=1,\qquad
+Q_S(h_1)=0+\lambda\cdot1=\lambda.
+$
+
+したがって選択と母集団リスクは次の通りである。
+
+- $\lambda<1$：$h_1$ を選び、リスク0。
+- $\lambda=1$：同点なのでどちらも厳密最小化子となり、リスクは0または1。
+- $\lambda>1$：$h_0$ を選び、リスク1。
+
+両候補とも母集団と経験の偏差は0である。問題は集中の不足ではなく、罰則そのものが大き過ぎることにある。
 <!-- solution-end -->
 
 **問題 SLT1-13-B01（任意の正則化係数で言えること）**
