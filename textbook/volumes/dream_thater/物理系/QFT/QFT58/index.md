@@ -31,7 +31,15 @@ $B$ の上側と下側の添字は**同じコピー内**で和を取り、$A$ �
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft58-replica-sewing -->
-**定義の確認**：$n=2$、$\rho_A=\operatorname{diag}(p,1-p)$（$0\le p\le1$）では接続は $(\rho_A)_{a_1a_2}(\rho_A)_{a_2a_1}$ です。対角性で $a_1=a_2$ の二通りだけが残り、$R_2=p^2+(1-p)^2$。$n=1$ の通常のトレースとは違い、コピーを2枚使ったことが式に残っています。
+**定義の確認**：$H_A$ の正規直交基底を $|0\rangle,|1\rangle$ とし、この基底で $\rho_A=\operatorname{diag}(p,1-p)$（$0\le p\le1$）と表示します。対角成分は非負で和が1なので密度行列です。
+
+$n=2$ の接続は $(\rho_A)_{a_1a_2}(\rho_A)_{a_2a_1}$ で、対角性から $a_1=a_2$ の二通りだけが残ります。よって
+
+$$
+R_2=p^2+(1-p)^2.
+$$
+
+$n=1$ の通常のトレースとは違い、コピーを2枚使ったことが式に残っています。
 <!-- definition-example-end -->
 
 <a id="thm-qft58-sewing-trace"></a>
@@ -80,11 +88,29 @@ $$
 \quad 0\le p\le1,\quad r^2\le p(1-p)
 $$
 
-では、巡回和は対角経路二つの $p^2+(1-p)^2$ だけでなく、$0\to1\to0$ と $1\to0\to1$ から $2r^2$ を含みます。単に各コピーの対角確率を掛ける計算ではありません。
+は、表示した $|0\rangle,|1\rangle$ 基底での密度行列です。実際、$0<p<1$ なら任意の $z_0,z_1\in\mathbb C$ について
+
+$$
+\begin{pmatrix}\bar z_0&\bar z_1\end{pmatrix}
+\rho_A\begin{pmatrix}z_0\\z_1\end{pmatrix}
+=p\left|z_0+\frac rp z_1\right|^2
++\left(1-p-\frac{r^2}{p}\right)|z_1|^2\ge0.
+$$
+
+$p=0,1$ では条件が $r=0$ を強制し、やはり正値です。対角和は1なので規格化も満たします。巡回和は対角経路二つの $p^2+(1-p)^2$ だけでなく、$0\to1\to0$ と $1\to0\to1$ から $2r^2$ を含みます。単に各コピーの対角確率を掛ける計算ではありません。
 
 ## 2. Euclid経路積分に切れ目を入れる
 
-[QFT20のEuclid Gaussian核](../QFT20/index.md#thm-qft20-euclidean-kernel)と[QFT19の有限モードGaussian積分](../QFT19/index.md#thm-qft19-gaussian)では、境界値を固定した積分を計算しました。今は規格化前の真空波動汎関数を、Euclid時間 $\tau<0$ の積分で準備し、複素共役を $\tau>0$ 側で準備します。有限cutoffでは各サイトの座標を $q_A,q_B$ と記せます。境界値の固有基底が使える模型で
+[QFT20のEuclid Gaussian核](../QFT20/index.md#thm-qft20-euclidean-kernel)と[QFT19の有限モードGaussian積分](../QFT19/index.md#thm-qft19-gaussian)では、境界値を固定した積分を計算しました。今は規格化前の真空波動汎関数を、Euclid時間 $\tau<0$ の積分で準備し、複素共役を $\tau>0$ 側で準備します。有限cutoffでは各サイトの座標を $q_A,q_B$ と記せます。
+
+境界値の固有基底が使える模型では、未規格化全状態 $|\Psi_0\rangle\langle\Psi_0|$ の[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の行列要素は、離散基底で
+
+$$
+K_A(q_A^+,q_A^-)
+=\sum_{q_B}\Psi_0(q_A^+,q_B)\Psi_0(q_A^-,q_B)^*
+$$
+
+です。連続座標では $q_B$ の和を積分に置き換え、これを未規格化の切断核とします。従って
 
 $$
 \rho_A(q_A^+,q_A^-)
@@ -107,7 +133,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft58-cut-path-integral -->
-**定義の確認**：二つの二準位の全状態を $|\Psi\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle$ とし、その振幅を境界値の有限和と見なします。$B$ の添字を一致させて和を取ると $K_A(0,0)=p$、$K_A(1,1)=1-p$、非対角核は0、$Z_1=p+(1-p)=1$ です。切断付きの核と[QFT57の縮約状態](../QFT57/index.md#def-qft57-regulated-reduction)が一致します。
+**定義の確認**：二つの二準位の全状態を $|\Psi\rangle=\sqrt p|00\rangle+\sqrt{1-p}|11\rangle$（$0\le p\le1$）とし、その振幅を境界値の有限和と見なします。$B$ の添字を一致させて和を取ると
+
+$$
+\begin{aligned}
+K_A(0,0)&=p,\quad K_A(1,1)=1-p,\\
+K_A(0,1)&=K_A(1,0)=0,\quad Z_1=p+(1-p)=1.
+\end{aligned}
+$$
+
+さらに未規格化状態 $\lambda|\Psi\rangle$（$\lambda\ne0$）から準備すれば、核と規格化因子はともに $|\lambda|^2$ 倍され、比 $K_A/Z_1$ は変わりません。切断付きの核と[QFT57の縮約状態](../QFT57/index.md#def-qft57-regulated-reduction)が一致します。
 <!-- definition-example-end -->
 
 <a id="def-qft58-branched-cover"></a>
@@ -118,7 +153,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft58-branched-cover -->
-**定義の確認**：$n=2$ なら、$A$ を一度横切ると第1枚から第2枚、再び横切ると第1枚へ戻ります。$u$ の周りを小さく回る座標を $w-u=re^{i\theta}$ とすると、全曲面では $0\le\theta<4\pi$。$z=(w-u)^{1/2}$ はこの二回転の後にのみ元へ戻る局所座標です。$v$ の周りは逆向きのコピー置換になります。
+**定義の確認**：$n=2$ なら、$A$ を一度横切ると第1枚から第2枚、再び横切ると第1枚へ戻ります。$u$ の周りを小さく回る座標を取ると
+
+$$
+w-u=re^{i\theta},\quad 0\le\theta<4\pi,\qquad
+z=(w-u)^{1/2}=r^{1/2}e^{i\theta/2}.
+$$
+
+$\theta$ が $2\pi$ 増すと $z$ は符号が変わり、$4\pi$ 増すと元へ戻ります。従って $z$ は分岐面上で一価の局所座標です。$v$ の周りは逆向きのコピー置換になります。
 <!-- definition-example-end -->
 
 <a id="thm-qft58-replica-partition"></a>
@@ -203,7 +245,7 @@ $$
 
 ## 4. 中心電荷からtwistのウェイトを導く
 
-twistのウェイトは、twistを定義しただけでは得られません。分岐面を平面へ戻す座標の取り替えによるSchwarzianを計算し、複製理論の応力テンソルの二点Ward恒等式と係数を比べます。
+twistのウェイトは、twistを定義しただけでは得られません。ここでは分岐点に余分な局所励起を挿入しない**基底twist**を選び、これが複製理論で一次場として局所Ward恒等式を満たすという条件を使います。分岐面を平面へ戻す座標の取り替えによるSchwarzianを計算し、応力テンソルの二点Ward恒等式と係数を比べます。一般の励起付きtwistまで同じウェイトになるとは主張しません。
 
 端点を $u,v$ とした分岐面の一枚の局所座標 $w$ から、次の座標を取ります。
 
@@ -251,7 +293,15 @@ $$
 =\frac{1-\alpha^2}{2z^2}.
 $$
 
-[合成則](../QFT55/index.md#lem-qft55-schwarzian-chain)で $\{G\circ f,w\}=f'^2\{G,f\}+\{f,w\}$ です。$f$ はMöbius変換だから $\{f,w\}=0$。さらに
+[合成則](../QFT55/index.md#lem-qft55-schwarzian-chain)で $\{G\circ f,w\}=f'^2\{G,f\}+\{f,w\}$ です。$f=(w-u)/(w-v)$ の導関数を $w$ で取ると
+
+$$
+f'=\frac{u-v}{(w-v)^2},\quad
+\frac{f''}{f'}=-\frac2{w-v},\quad
+\frac{f'''}{f'}=\frac6{(w-v)^2}.
+$$
+
+従って[正則写像のSchwarzian微分](../QFT55/index.md#def-qft55-schwarzian)の定義から $\{f,w\}=6/(w-v)^2-(3/2)\cdot4/(w-v)^2=0$。さらに
 
 $$
 \frac{f'}f
@@ -266,7 +316,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（巡回twistの正則・反正則ウェイト）**
-> 二次元の各コピーの平面真空で $\langle t(\zeta)\rangle=0$、中心電荷がそれぞれ $c,\bar c$ であり、[QFT55の有限変換則](../QFT55/index.md#thm-qft55-stress-transform)が成立するとする。整数 $n\ge2$ の巡回twistと逆twistは、複製理論での一次場として
+> 二次元の各コピーの平面真空で $\langle t(\zeta)\rangle=0$、中心電荷がそれぞれ $c,\bar c$ であり、[QFT55の有限変換則](../QFT55/index.md#thm-qft55-stress-transform)が成立するとする。整数 $n\ge2$ の巡回twistと逆twistは分岐点に追加の励起を持たない基底twistで、複製理論の一次場としてWard恒等式を満たすと仮定する。このとき正則・反正則ウェイトは
 
 $$
 h_n=\frac{c}{24}\left(n-\frac1n\right),\qquad
@@ -293,7 +343,9 @@ $$
  \frac{(u-v)^2}{(w-u)^2(w-v)^2}.
 $$
 
-他方、複製理論の局所一次場としてのtwistに[一次場Ward作用](../QFT50/index.md#thm-qft50-primary-ward)を使います。両端点のウェイトを $h$ とおくと、二点関数の形は正則部分で $(u-v)^{-2h}$ です。この式を $u,v$ で微分した対数微分は
+他方、上で指定した基底twistの一次場性から[一次場Ward作用](../QFT50/index.md#thm-qft50-primary-ward)を使います。両端点のウェイトを $h$ とおくと、二点関数の形は正則部分で $(u-v)^{-2h}$ です。
+
+以下の $\partial_u,\partial_v$ は他方の挿入点と反正則座標 $\bar u,\bar v$ を固定する偏微分であり、先の $f',G'$ はそれぞれ指定した一変数 $w,z$ での常微分でした。この正則因子を $u,v$ で偏微分すると
 
 $$
 \partial_u\ln G=-\frac{2h}{u-v},\qquad
@@ -422,7 +474,7 @@ $$
 - Level: A
 - 対応目標: 部分トレースは対角確率だけではない
 
-$\rho_A=\begin{pmatrix}1/2&r\\r&1/2\end{pmatrix}$（実数 $|r|\le1/2$）について、巡回縮約 $R_2$ を四つの添字組で計算し、正値性を確認せよ。
+正規直交基底 $|0\rangle,|1\rangle$ に関する $\rho_A=\begin{pmatrix}1/2&r\\r&1/2\end{pmatrix}$（実数 $|r|\le1/2$）について、巡回縮約 $R_2$ を四つの添字組で計算し、正値性を確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -433,7 +485,22 @@ $$
 R_2=\tfrac12+2r^2.
 $$
 
-固有値は $1/2+r$、$1/2-r$。$|r|\le1/2$ でともに非負、和1です。二乗和は $(1/2+r)^2+(1/2-r)^2=1/2+2r^2$ と一致し、$r=0$ で $1/2$、$|r|=1/2$ で1です。
+この行列は問題文の $|0\rangle,|1\rangle$ 基底で表示された $\rho_A$ です。正規直交ベクトル $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$、$|-\rangle=(|0\rangle-|1\rangle)/\sqrt2$ に作用させると
+
+$$
+\rho_A|+\rangle=(\tfrac12+r)|+\rangle,\qquad
+\rho_A|-\rangle=(\tfrac12-r)|-\rangle.
+$$
+
+従って固有値は $1/2+r$、$1/2-r$ です。この二つが非負であることは $|r|\le1/2$ と同値で、直交固有基底が張る二次元空間上の正値性を確認できます。対角和は1で規格化されます。
+
+固有値の二乗和は
+
+$$
+(\tfrac12+r)^2+(\tfrac12-r)^2=\tfrac12+2r^2
+$$
+
+と巡回縮約に一致します。$r=0$ で $1/2$、$|r|=1/2$ で1です。
 <!-- solution-end -->
 
 <a id="ex-qft58-a03"></a>
@@ -520,7 +587,7 @@ $$
 =\frac{c}{16}\frac1{w^2(w-1)^2}.
 $$
 
-二点Ward恒等式の一般形は $h(u-v)^2/[(w-u)^2(w-v)^2]$ です。$u=0,v=1$ では分子が1だから $h_2=c/16$ で一致します。応力テンソルの中心電荷を $2c$ としてSchwarzianをもう一度2倍すると、同じ寄与を二度足す誤りになります。
+[QFT50の二点Ward検算](../QFT50/index.md#prop-qft50-two-point)による一般形は $h(u-v)^2/[(w-u)^2(w-v)^2]$ です。$u=0,v=1$ では分子が1だから $h_2=c/16$ で一致します。応力テンソルの中心電荷を $2c$ としてSchwarzianをもう一度2倍すると、同じ寄与を二度足す誤りになります。
 <!-- solution-end -->
 
 <a id="ex-qft58-b02"></a>
@@ -563,7 +630,7 @@ $$
 \sigma_n(u_2)\widetilde\sigma_n(v_2)\rangle.
 $$
 
-四点関数には、たとえば $\eta=(v_1-u_1)(v_2-u_2)/[(u_2-u_1)(v_2-v_1)]$ のような共形交差比があり、[QFT54の四点関数とブロック](../QFT54/index.md#def-qft54-reduced-four-point)に従って理論固有の関数が残ります。したがって中心電荷と二点の次元だけでは決まりません。
+四点関数には、たとえば $\eta=(v_1-u_1)(v_2-u_2)/[(u_2-u_1)(v_2-v_1)]$ のような共形交差比があり、[QFT54の四点関数とブロック](../QFT54/index.md#def-qft54-reduced-four-point)で学んだのと同じく理論固有の関数が残ります。QFT54の同一boson一次場の公式をtwistと逆twistの交互挿入へそのまま移すわけではありません。したがって中心電荷と二点の次元だけでは決まりません。
 <!-- solution-end -->
 
 <a id="ex-qft58-b04"></a>
@@ -655,6 +722,8 @@ $$
 =\frac{c}{24}\left(n-\frac1n\right)=h_n.
 $$
 
+[一次場の局所Ward核](../QFT50/index.md#thm-qft50-primary-ward)の $u$ における二次極は $h_n/(w-u)^2$ であり、上式の $w\to u$ での二次極の係数と一致します。
+
 反正則側も同じなので $x_n=2h_n=c(n-1/n)/12$。[二次元一次場二点の形](../QFT50/index.md#prop-qft50-two-point)から
 
 $$
@@ -666,8 +735,8 @@ $$
 **(4) $n=1$ への接続と限界。** $C(n)$ が $1$ の近傍で正・微分可能、$C(1)=1$ で指数の解析接続と微分・cutoff極限の交換が正当化されるなら
 
 $$
-S_A=-\left.\partial_n\ln Z_A(n)\right|_1
-=\frac c3\ln(\ell/a)-\left.\partial_n\ln C(n)\right|_1+\cdots.
+S_A=-\left.\frac{d}{dn}\ln Z_A(n)\right|_{n=1}
+=\frac c3\ln(\ell/a)-\left.\frac{d}{dn}\ln C(n)\right|_{n=1}+\cdots.
 $$
 
 無条件には言えない点は、(i) 整数の分岐幾何だけから非整数 $n$ の補間や導関数が一意とは決まらないこと、(ii) 連続場の局所領域が一般に有限次元の部分トレースを許すとは限らず、cutoffの除去・端点の正則化を別途制御する必要があることです。定数 $C(n)$ も中心電荷だけで一意には決まりません。
