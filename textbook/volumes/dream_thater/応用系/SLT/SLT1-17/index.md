@@ -424,7 +424,7 @@ F_S'(w)=2(1+\lambda)w-2\bar y,\qquad
 F_S''(w)=2(1+\lambda)>0
 $
 
-だから唯一の最小点は $\widehat w_S=\bar y/(1+\lambda)$ である。ラベル $y_i$ を $y_i'$ に置き換えると
+だから唯一の最小点は $\widehat w_S=\bar y/(1+\lambda)$ である。以下の $y_i'$ は「置換後の第 $i$ ラベル」を表し、$F_S'(w)$ のプライム（$w$ に関する微分）とは意味が異なる。ラベル $y_i$ を $y_i'$ に置き換えると
 
 $$
 |\widehat w_S-\widehat w_T|
