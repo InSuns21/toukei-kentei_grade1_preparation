@@ -28,20 +28,22 @@ $$
 <!-- definition-example-start: def-itd1-controlled-model -->
 ### 例：二状態系と一回の接触
 
-**定義の確認**：制御値を $\lambda_0=0,\lambda_1=\varepsilon$ とし、$E(0,\lambda)=0$、$E(1,\lambda)=\lambda$ とします。接触の核を
+**定義の確認**：制御値を $\lambda_0=0,\lambda_1=\varepsilon$ とし、$E(0,\lambda)=0$、$E(1,\lambda)=\lambda$ とします。
+
+[有限確率通信路の定義](../../../応用系/INFO/INFO2/index.md#def-info2-channel)と同様、$K_1(x,y)$ を「状態 $x$ で接触を始め、状態 $y$ で終える条件付き確率」として並べます。状態を $0,1$ の順に取ると、行が接触前の状態、列が接触後の状態である行列として、接触の核を
 
 $$
 K_1=\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
 $$
 
-とします。行が接触前の状態、列が接触後の状態です。各成分は非負、行和は $3/4+1/4=1$ と $1/2+1/2=1$ なので、これは定義の条件を満たします。例えば状態1から0へ移る確率は $K_1(1,0)=1/2$ です。最初の quench では状態は1のままでも、接触の結果は0になることがあります。
+とします。各成分は非負、行和は $3/4+1/4=1$ と $1/2+1/2=1$ なので、これは定義の条件を満たします。例えば状態1から0へ移る確率は第2行・第1列の $K_1(1,0)=1/2$ です。最初の quench では状態は1のままでも、接触の結果は0になることがあります。
 <!-- definition-example-end -->
 
 離散時間の模型では、各接触区間にどんな変化が起きたかを一つの核で表します。「ジャンプが一回だけ起きる」ことを一般には意味しません。連続時間の遷移率や master 方程式を用いる模型では、短い時間間隔の極限が別途必要です。本章の証明では離散時間の核を固定して用います。
 
 ## 2. 軌道の確率を有限個の積で数える
 
-初期状態と接触後の状態を順に並べた列 $\gamma=(x_0,x_1,\ldots,x_n)$ を記録します。次の状態の確率が現在の状態とその段階の核だけで決まるという Markov 性を仮定します。これは、実験に記録していない過去への依存を取り除く模型上の仮定です。
+初期状態と接触後の状態を順に並べた列 $\gamma=(x_0,x_1,\ldots,x_n)$ を記録します。[INFO2の有限Markov連鎖](../../../応用系/INFO/INFO2/index.md#def-info2-markov)と同じ条件付き独立性を各段階で仮定し、次の状態の確率が現在の状態とその段階の核だけで決まり、それより前の履歴には依存しないものとします。各段階で核が変わっても構いません。
 
 <a id="def-itd1-path-probability"></a>
 
@@ -59,7 +61,7 @@ $$
 <!-- definition-example-start: def-itd1-path-probability -->
 ### 例：二段階の軌道を数える
 
-**定義の確認**：$p_0(0)=p_0(1)=1/2$、二回とも例の核 $K_1$ を用いるとします。軌道 $(1,0,1)$ では、最初に状態1を引き、次に1から0、さらに0から1に移るので
+**定義の確認**：$p_0(0)=p_0(1)=1/2$、制御値は二回目に変えず $\lambda_2=\lambda_1=\varepsilon$ とし、二回とも例の核、すなわち $K_2=K_1$ を用いるとします。軌道 $(1,0,1)$ では、最初に状態1を引き、次に1から0、さらに0から1に移るので
 
 $$
 P_{\mathrm F}(1,0,1)
@@ -302,7 +304,22 @@ $$
 
 ## 5. なぜ一回ではエントロピー生成が負にもなるのか
 
-分布 $p_j$ を知ったうえで状態 $x_j$ が実現したとき、[INFO1の自己情報量](../../../応用系/INFO/INFO1/index.md#def-info1-self-information)に対応する無次元の**確率的系エントロピー**を $s_{\mathrm{sys}}(x_j,j)=-\log p_j(x_j)$ と置きます。正の確率で実現した状態にだけこの値を割り当てます。平均は[INFO1のShannonエントロピー](../../../応用系/INFO/INFO1/index.md#def-info1-entropy)の自然対数版です。
+分布 $p_j$ を知ったうえで状態 $x_j$ が実現したとき、[INFO1の自己情報量](../../../応用系/INFO/INFO1/index.md#def-info1-self-information)に対応する無次元の**確率的系エントロピー**を $s_{\mathrm{sys}}(x_j,j)=-\log p_j(x_j)$ と置きます。正の確率で実現した状態にだけこの値を割り当てます。平均には[INFO1のShannonエントロピー](../../../応用系/INFO/INFO1/index.md#def-info1-entropy)を自然対数で表した次の量を使います（零確率の項は和に含めません）。
+
+$$
+H_{\mathrm{nat}}(p):=-\sum_{x:p(x)>0}p(x)\log p(x)
+=(\ln2)\left[-\sum_{x:p(x)>0}p(x)\log_2p(x)\right].
+$$
+
+軌道の始点と終点が正の確率を持てば、確率的系エントロピーの変化は
+
+$$
+\Delta s_{\mathrm{sys}}[\gamma]
+=-\log p_n(x_n)+\log p_0(x_0)
+=\log\frac{p_0(x_0)}{p_n(x_n)}
+$$
+
+です。ここで $\log$ の底は自然対数です。
 
 系の確率分布は実験の初期・終期で違ってよいので、系のエントロピー変化は端点確率の比です。浴の変化は、すでに定義した各ジャンプの熱から得られます。ただし、この和がどんな軌道でも正であると期待してはいけません。
 
@@ -367,7 +384,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正の確率を持つ軌道ではすべての $K_j(x_{j-1},x_j)>0$ です。[局所詳細釣合い](#def-itd1-local-detailed-balance)により逆向きの核も正です。さらに $p_0>0$ と双方向の支持条件から、帰納的に各 $p_j(y)>0$ です。実際、任意の $y$ について、行 $y$ に正の $K_j(y,z)$ が少なくとも一つあり、その逆 $K_j(z,y)>0$ なので $p_j(y)\ge p_{j-1}(z)K_j(z,y)>0$ です。ゆえに対数比は定義できます。
+正の確率を持つ軌道では、各段階の $K_j(x_{j-1},x_j)>0$ です。[局所詳細釣合い](#def-itd1-local-detailed-balance)により、対応する逆向きの核も正です。
+
+また、$p_0$ の全成分が正で、各核は双方向に同じ支持を持つため、帰納法で $p_j$ の全成分も正と示せます。任意の状態 $y$ について、行 $y$ の和が1だから正の $K_j(y,z)$ が少なくとも一つあり、逆向きにも $K_j(z,y)>0$ です。$p_{j-1}$ の全成分が正であると仮定すれば、[分布更新](#prop-itd1-update)から
+
+$$
+p_j(y)=\sum_xp_{j-1}(x)K_j(x,y)
+\ge p_{j-1}(z)K_j(z,y)>0
+$$
+
+です。初期分布から帰納できるため、逆実験の端点確率も正で、対数比は定義できます。
 
 [軌道確率](#def-itd1-path-probability)と[逆実験](#def-itd1-reverse-entropy)の式を代入して対数を積から和へ直すと
 
@@ -392,15 +418,21 @@ $$
 
 <a id="thm-itd1-mean-entropy"></a>
 
+[INFO2の相対エントロピー](../../../応用系/INFO/INFO2/index.md#def-info2-relative-entropy)は底2の対数を使い、bit 単位で $D(P\Vert Q)$ と書きました。本章の $\Sigma$ は自然対数による nat 単位なので、次の換算係数が必要です。
+
+$$
+\log u=(\ln2)\log_2u\qquad(u>0).
+$$
+
 <!-- formal-statement-start -->
 > **定理（平均全エントロピー生成の非負性）**  
-> [経路確率比の定理](#thm-itd1-path-ratio)の有限模型・全状態で正の $p_0$・局所詳細釣合いの仮定の下で
+> 空でない有限状態集合、有限エネルギー、温度 $T>0$、全状態で正の初期分布 $p_0$、各核の[局所詳細釣合い](#def-itd1-local-detailed-balance)を仮定する。
+> [経路確率比の定理](#thm-itd1-path-ratio)で用いた逆軌道 $\gamma^\dagger$ について、$P_{\mathrm R}^{\dagger}(\gamma):=P_{\mathrm R}(\gamma^\dagger)$ を正方向の軌道上の逆実験の分布とする。
+> $\langle\Sigma\rangle$ は $P_{\mathrm F}$ による $\Sigma[\gamma]$ の平均を表す。このとき
 
 $$
 \langle\Sigma\rangle
-=D(P_{\mathrm F}\Vert P_{\mathrm R}^{\dagger})\ge0,
-\qquad
-P_{\mathrm R}^{\dagger}(\gamma):=P_{\mathrm R}(\gamma^\dagger)
+=(\ln2)D(P_{\mathrm F}\Vert P_{\mathrm R}^{\dagger})\ge0
 $$
 
 > が成り立つ。等号成立はすべての軌道で両経路分布が一致するとき、かつそのときに限る。さらに
@@ -411,12 +443,12 @@ $$
 +\beta\langle Q_{\mathrm{bath}}\rangle
 $$
 
-> である。ここで $H_{\mathrm{nat}}(p)=-\sum_xp(x)\log p(x)$ とする。
+> である。ここで $H_{\mathrm{nat}}$ は節5の自然対数による平均系エントロピーである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-軌道反転は $X^{n+1}$ 上の一対一対応です。その対応で逆実験を引き戻すと確率分布が一つでき、経路比の平均は[相対エントロピー](../../../応用系/INFO/INFO2/index.md#def-info2-relative-entropy)そのものになります。
+軌道反転は $X^{n+1}$ 上の一対一対応です。その対応で逆実験を引き戻すと確率分布が一つでき、経路比の平均は[相対エントロピー](../../../応用系/INFO/INFO2/index.md#def-info2-relative-entropy)を nat へ換算した値になります。
 
 <!-- proof-start -->
 ### 証明
@@ -430,7 +462,9 @@ $$
 \langle\Sigma\rangle
 &=\sum_\gamma P_{\mathrm F}(\gamma)
 \log\frac{P_{\mathrm F}(\gamma)}{P_{\mathrm R}^{\dagger}(\gamma)}\\
-&=D(P_{\mathrm F}\Vert P_{\mathrm R}^{\dagger})\ge0.
+&=(\ln2)\sum_\gamma P_{\mathrm F}(\gamma)
+\log_2\frac{P_{\mathrm F}(\gamma)}{P_{\mathrm R}^{\dagger}(\gamma)}\\
+&=(\ln2)D(P_{\mathrm F}\Vert P_{\mathrm R}^{\dagger})\ge0.
 \end{aligned}
 $$
 
