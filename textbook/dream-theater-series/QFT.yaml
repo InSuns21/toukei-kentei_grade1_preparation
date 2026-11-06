@@ -243,3 +243,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT59
     status: completed
     title: "単一区間のRényi・von Neumannエントロピーと普遍係数"
+  - id: QFT60
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT60
+    status: completed
+    title: "有限温度・有限円周の区間エントロピーと極限"

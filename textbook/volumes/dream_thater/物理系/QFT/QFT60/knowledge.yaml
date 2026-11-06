@@ -1,0 +1,55 @@
+chapter: QFT60
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT59, QFT58, QFT55, QFT57, QFT53, QFT50]
+forward_references: []
+
+concepts:
+  - id: qft.cylinder-interval-lengths
+    name: 等時刻の円筒区間尺度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等時刻の円筒区間尺度）]
+    requires: [qft.thermal-cylinder-map, qft.spatial-cylinder-exponential-map]
+
+  - id: qft.thermal-interval-renyi
+    name: 無限直線の有限温度区間Rényi普遍項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無限直線の有限温度区間Rényi普遍項）]
+    requires: [qft.cylinder-interval-lengths, qft.cyclic-twist-weight, qft.cylinder-primary-two-point, qft.single-interval-renyi-universal]
+
+  - id: qft.circle-interval-renyi
+    name: 空間円周の真空区間Rényi普遍項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（空間円周の真空区間Rényi普遍項）]
+    requires: [qft.cylinder-interval-lengths, qft.cyclic-twist-weight, qft.cylinder-primary-two-point]
+
+  - id: qft.short-interval-cylinder-limit
+    name: 熱円筒と空間円周の短区間展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱円筒と空間円周の短区間展開）]
+    requires: [qft.thermal-interval-renyi, qft.circle-interval-renyi]
+
+  - id: qft.thermal-interval-volume-term
+    name: 熱区間の体積項とRényi密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（熱区間の体積項とRényi密度）]
+    requires: [qft.thermal-interval-renyi]
+
+  - id: qft.circle-pure-complement
+    name: 純粋円周真空の補区間対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋円周真空の補区間対称性）]
+    requires: [qft.circle-interval-renyi, qft.replica-moments, quantum.partial-trace]
+
+  - id: qft.conditional-cylinder-von-neumann
+    name: 条件付き円筒区間von Neumann普遍項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（条件付き円筒区間von Neumann普遍項）]
+    requires: [qft.conditional-interval-von-neumann, qft.thermal-interval-renyi, qft.circle-interval-renyi]
