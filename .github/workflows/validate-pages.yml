@@ -66,6 +66,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm ci
 
+      - name: Test bounded Pages deployment recovery
+        if: steps.scope.outputs.full == 'true'
+        run: node --test scripts/test-pages-deploy-recovery.mjs
+
       - name: Validate live smoke script syntax
         if: steps.scope.outputs.full == 'true'
         run: python3 -m py_compile scripts/smoke-pages-live.py
