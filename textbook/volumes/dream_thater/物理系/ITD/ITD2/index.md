@@ -44,13 +44,28 @@ $$
 <!-- definition-example-start: def-itd2-reverse-ratio -->
 ### 例：正逆の規格化と逆初期分布の役割
 
-**定義の確認**：$X=\{0,1\}$、$n=1$、エネルギーは両状態で0、$p_0=(1/2,1/2)$、$r=(3/4,1/4)$、核
+**定義の確認**：$X=\{0,1\}$、$n=1$、エネルギーは両状態で0、$p_0=(1/2,1/2)$、$r=(3/4,1/4)$ とします。[ITD1の遷移核の定義と行列表現](../ITD1/index.md#def-itd1-controlled-model)に従い、接触前の状態 $x$ を行、接触後の状態 $y$ を列（ともに $0,1$ の順）とし、成分を条件付き確率 $K(x,y)$ とする核
 
 $$
 K=\begin{pmatrix}3/4&1/4\\1/4&3/4\end{pmatrix}
 $$
 
-を取ります。行和が1、全成分が正、$K(x,y)=K(y,x)$ なので[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)も満たします。正方向の $(0,1)$ は $P_{\mathrm F}(0,1)=(1/2)(1/4)=1/8$、反転した逆軌道 $(1,0)$ は $P_{\mathrm R}^{(r)}(1,0)=(1/4)(1/4)=1/16$ です。したがって $\Sigma_r[0\to1]=\log2$ です。
+を取ります。非負性に加え、行和は $3/4+1/4=1$（両行とも）です。全成分は正で $K(x,y)=K(y,x)$、かつ両状態のエネルギー差は0なので、正の遷移対ごとに
+
+$
+\log\frac{K(x,y)}{K(y,x)}=0
+=-\beta\{E(y,\lambda_1)-E(x,\lambda_1)\}
+$
+
+となり、[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)の支持条件と比の条件を両方満たします。正方向の $(0,1)$ と、それを反転した逆軌道 $(1,0)$ の確率は
+
+$
+P_{\mathrm F}(0,1)=\frac12\frac14=\frac18,
+\qquad
+P_{\mathrm R}^{(r)}(1,0)=\frac14\frac14=\frac1{16}.
+$
+
+よって定義の対数比から $\Sigma_r[0\to1]=\log[(1/8)/(1/16)]=\log2$ です。
 
 逆方向の軌道を全て足すと
 
@@ -195,7 +210,7 @@ P_{\mathrm R}^{(r)}(0,0)=\frac34\frac34=\frac9{16},
 P_{\mathrm R}^{(r)}(1,0)=\frac14\frac14=\frac1{16}.
 $$
 
-したがって $\langle e^{-\Sigma_r}\rangle=10/16=5/8$、$\lambda_{\mathrm{abs}}=3/8$ です。これは[ITD1の支持欠損の演習](../ITD1/index.md#def-itd1-reverse-entropy)で現れる値を、逆実験の取りこぼした質量として説明したものです。正の支持条件を削ったまま「常に1」とはできません。
+したがって $\langle e^{-\Sigma_r}\rangle=10/16=5/8$、$\lambda_{\mathrm{abs}}=3/8$ です。これは[ITD1の逆実験の定義](../ITD1/index.md#def-itd1-reverse-entropy)に沿う演習B3で現れた値を、逆実験の取りこぼした質量として説明したものです。正の支持条件を削ったまま「常に1」とはできません。
 
 ## 3. 両端平衡にすると仕事だけの式になる
 
@@ -712,7 +727,18 @@ $$
 \end{aligned}
 $$
 
-よって比は $(1/2)/(2/3)=3/4=e^{-\beta\Delta F_{\mathrm{eq}}}$ と $(1/2)/(1/3)=3/2=e^{\beta\varepsilon}(3/4)$ で、[Crooks関係](#thm-itd2-crooks)と一致します。各仕事値に二軌道が寄与しており、一本の経路の確率を仕事分布と混同していません。
+両方の仕事値で[Crooks関係](#thm-itd2-crooks)を検算すると、
+
+$
+\begin{aligned}
+\frac{\mathsf P_{\mathrm F}(0)}{\mathsf P_{\mathrm R}(0)}
+&=\frac{1/2}{2/3}=\frac34=e^{-\beta\Delta F_{\mathrm{eq}}},\\
+\frac{\mathsf P_{\mathrm F}(\varepsilon)}{\mathsf P_{\mathrm R}(-\varepsilon)}
+&=\frac{1/2}{1/3}=\frac32=e^{\beta\varepsilon}\frac34.
+\end{aligned}
+$
+
+各仕事値に二軌道が寄与しており、一本の経路の確率を仕事分布と混同していません。
 <!-- solution-end -->
 
 #### B4. 平均仕事の下限で等号になる操作
@@ -827,7 +853,27 @@ $$
 
 $\Delta F_{\mathrm{eq}}=0$ と一致します。
 
-最後に特定の軌道 $(1,0,1)$ では、正の確率は $p_0(1)K_1(1,0)K_2(0,1)=(1/2)(1/2)(1/4)=1/16$ です。逆の確率は $\pi_2(1)K_2(1,0)K_1(0,1)=(1/2)(1/4)(1/4)=1/32$ なので比は2です。この軌道の仕事は $W_{\mathrm F}=\varepsilon$ で、[仕事の経路比](#thm-itd2-work-ratio)の右辺は $e^{\beta(\varepsilon-0)}=2$ です。
+最後に特定の軌道 $\gamma=(1,0,1)$ について、正方向と反転した逆方向をそれぞれの初期分布から計算すると、
+
+$
+\begin{aligned}
+P_{\mathrm F}(1,0,1)
+&=p_0(1)K_1(1,0)K_2(0,1)
+=\frac12\frac12\frac14=\frac1{16},\\
+P_{\mathrm R}^{(\pi_2)}(1,0,1)
+&=\pi_2(1)K_2(1,0)K_1(0,1)
+=\frac12\frac14\frac14=\frac1{32}.
+\end{aligned}
+$
+
+この軌道では $W_{\mathrm F}=\varepsilon$、$\Delta F_{\mathrm{eq}}=0$ なので、
+
+$
+\frac{P_{\mathrm F}(1,0,1)}{P_{\mathrm R}^{(\pi_2)}(1,0,1)}
+=\frac{1/16}{1/32}=2=e^{\beta(\varepsilon-0)}
+$
+
+となり、[仕事の経路比](#thm-itd2-work-ratio)を直接確認できます。
 
 一方、実際の正方向の終端分布を[分布更新](../ITD1/index.md#prop-itd1-update)で計算すると、まず $p_1=(5/8,3/8)$、次に
 
@@ -836,7 +882,18 @@ p_2(0)=\frac58\frac34+\frac38\frac14=\frac9{16},
 \qquad p_2(1)=\frac7{16}.
 $$
 
-ITD1型の逆実験はこの $p_2$ から始めるため、同じ逆軌道 $(1,0,1)$ の確率は $(7/16)(1/4)(1/4)=7/256$、経路比は $(1/16)/(7/256)=16/7$ です。この $\log(16/7)$ は**実際の終端分布を使った全エントロピー生成**であり、本章の平衡逆実験による $\log2=\beta(W-\Delta F_{\mathrm{eq}})$ とは違います。これで二種類の逆実験の境界条件まで検算できました。
+[ITD1型の逆実験](../ITD1/index.md#def-itd1-reverse-entropy)は実際の $p_2$ から始めるため、同じ反転軌道の確率と経路比は
+
+$
+\begin{aligned}
+P_{\mathrm R}^{(p_2)}(1,0,1)
+&=\frac7{16}\frac14\frac14=\frac7{256},\\
+\frac{P_{\mathrm F}(1,0,1)}{P_{\mathrm R}^{(p_2)}(1,0,1)}
+&=\frac{1/16}{7/256}=\frac{16}{7}.
+\end{aligned}
+$
+
+従って、この $\log(16/7)$ は**実際の終端分布を使った全エントロピー生成**であり、平衡逆実験による $\log2=\beta(W-\Delta F_{\mathrm{eq}})$ とは違います。二種類の逆実験の境界条件まで検算できました。
 <!-- solution-end -->
 
 ## 7. 次に問うこと
