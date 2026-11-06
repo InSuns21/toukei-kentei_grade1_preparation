@@ -1,0 +1,41 @@
+chapter: QFT61
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT60, QFT59, QFT57, QFT55, QINF20]
+forward_references: []
+
+concepts:
+  - id: qft.normalized-modular-hamiltonian
+    name: 規格化モジュラーハミルトニアン
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（規格化モジュラーハミルトニアン）]
+    requires: [quantum.finite-density-operator]
+
+  - id: qft.entanglement-first-law
+    name: 有限次元エンタングルメント第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限次元エンタングルメント第一法則）]
+    requires: [qft.normalized-modular-hamiltonian]
+
+  - id: qft.modular-relative-entropy-balance
+    name: 相対エントロピーとモジュラーエネルギーの差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（相対エントロピーとモジュラーエネルギーの差）]
+    requires: [quantum.relative-entropy, qft.normalized-modular-hamiltonian]
+
+  - id: qft.vacuum-interval-modular-weight
+    name: 二次元CFT真空区間の局所モジュラー重み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二次元CFT真空区間の局所モジュラー重み）]
+    requires: [qft.normalized-modular-hamiltonian, qft.cylinder-primary-two-point]
+
+  - id: qft.uniform-energy-interval-check
+    name: 一様エネルギー摂動の短区間照合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様エネルギー摂動の短区間照合）]
+    requires: [qft.vacuum-interval-modular-weight, qft.entanglement-first-law, qft.conditional-cylinder-von-neumann]
