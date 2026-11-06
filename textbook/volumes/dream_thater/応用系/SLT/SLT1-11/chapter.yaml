@@ -1,0 +1,42 @@
+id: "SLT1-11"
+title: "Lipschitz合成と線形・marginクラス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-10
+official_scope: []
+learning_objectives:
+  - Lipschitz写像と零点調整を具体例で検査し、通常版と絶対値版のRademacher複雑度を区別できる
+  - 符号の一座標を条件付ける比較からcontraction不等式を出発点から証明できる
+  - ノルム制約付き有限次元線形関数族の経験複雑度を正確な式で表し、二乗和評価を導ける
+  - margin損失を0–1誤分類の上界として構成し、Lipschitz定数と零点調整を確認できる
+  - iid標本と固定のノルム・margin制約から、全線形予測器に同時の高確率margin界を導ける
+  - 零点調整、絶対値、標本後のmargin選択、ノルム・入力制約の欠落が及ぼす影響を説明できる
+definitions:
+  - { id: SLT1-11-DEF-01, name: Lipschitz変換と零点調整 }
+  - { id: SLT1-11-DEF-02, name: ノルム制約付き線形予測器クラス }
+  - { id: SLT1-11-DEF-03, name: marginと折線margin損失 }
+theorems:
+  - { id: SLT1-11-THM-01, name: 符号平均のcontraction不等式 }
+  - { id: SLT1-11-PROP-01, name: 線形クラスの経験Rademacher複雑度 }
+  - { id: SLT1-11-THM-02, name: ノルム制約付き線形分類器のmargin汎化界 }
+canonical_examples:
+  - 一標本の二関数に対するclip変換での符号平均比較
+  - 逆向きの二点と直交する二点での線形符号平均の正確な計算
+  - 折線margin損失の三領域と誤分類指示関数の比較
+  - ノルム制約が標本数とともに増大する際の複雑度評価の退化
+problem_patterns:
+  - SLT1-11-A01
+  - SLT1-11-A02
+  - SLT1-11-A03
+  - SLT1-11-A04
+  - SLT1-11-A05
+  - SLT1-11-B01
+  - SLT1-11-B02
+  - SLT1-11-B03
+  - SLT1-11-B04
+  - SLT1-11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2.0 }
