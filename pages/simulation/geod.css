@@ -9,8 +9,8 @@
 .geod-app .geod-workspace .controls{grid-template-columns:minmax(0,1fr)}
 .geod-app .geod-output-panel{display:flex;flex-direction:column;gap:.8rem}
 .geod-app .geod-output-panel>h2{order:-2;margin:0}
-.geod-app .geod-output-panel>#c-gnss-space-panel,.geod-app .geod-output-panel>#c-gnss-visual-controls,.geod-app .geod-output-panel>#c-gnss-panel,.geod-app .geod-output-panel>#c-map-panel,.geod-app .geod-output-panel>#map-panel,.geod-app .geod-output-panel>#e-map-panel,.geod-app .geod-output-panel>#f-map-panel{order:-1;margin:0}
-.geod-app .geod-output-panel>:is(#c-gnss-space-panel,#c-gnss-panel,#c-gnss-visual-controls,#c-map-panel,#map-panel,#f-map-panel){width:100%;max-width:860px}
+.geod-app .geod-output-panel>#c-gnss-space-panel,.geod-app .geod-output-panel>#c-gnss-visual-controls,.geod-app .geod-output-panel>#c-gnss-panel,.geod-app .geod-output-panel>#c-map-panel,.geod-app .geod-output-panel>#c-height-panel,.geod-app .geod-output-panel>#map-panel,.geod-app .geod-output-panel>#e-map-panel,.geod-app .geod-output-panel>#f-map-panel{order:-1;margin:0}
+.geod-app .geod-output-panel>:is(#c-gnss-space-panel,#c-gnss-panel,#c-gnss-visual-controls,#c-map-panel,#c-height-panel,#map-panel,#f-map-panel){width:100%;max-width:860px}
 .geod-app .viz-grid[hidden]{display:none}
 .geod-app .geod-output-panel>.viz-grid{order:0}
 .geod-app .geod-output-panel>#geod-status,.geod-app .geod-output-panel>#geod-results{order:1}
@@ -27,7 +27,7 @@
 .geod-app .viz-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
 .geod-app figure{margin:0;min-width:0}
 .geod-app .figure-head{font-weight:700;margin-bottom:.5rem}
-.geod-app #globe,.geod-app #c-gnss-space-map,.geod-app #c-gnss-map,.geod-app #c-map,.geod-app #map,.geod-app #a-section-map,.geod-app #e-left-map,.geod-app #e-right-map,.geod-app #f-map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;box-sizing:border-box}
+.geod-app #globe,.geod-app #c-gnss-space-map,.geod-app #c-gnss-map,.geod-app #c-map,.geod-app #c-height-map,.geod-app #map,.geod-app #a-section-map,.geod-app #e-left-map,.geod-app #e-right-map,.geod-app #f-map{display:block;width:100%;height:auto;background:#f8fbfe;border:1px solid #becddd;border-radius:8px;box-sizing:border-box}
 .geod-app #globe{touch-action:none}
 .geod-app .projection-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:.7rem}
 .geod-app #e-map-panel{margin-top:1rem}
@@ -79,6 +79,8 @@
 .geod-app #c-gnss-camera-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
 .geod-app #c-gnss-camera-controls input{display:block;width:100%;margin-top:.25rem}
 .geod-app #c-gnss-space-panel,.geod-app #c-gnss-space-panel *{user-select:none;-webkit-user-select:none}
+.geod-app #c-height-map,.geod-app #c-height-map *{user-select:none;-webkit-user-select:none;pointer-events:none}
+.geod-app #c-height-panel[hidden],.geod-app #c-height-controls[hidden]{display:none!important}
 .geod-app #c-gnss-gl-wrap{position:relative;width:100%;aspect-ratio:720/470;background:#f6faff;border:1px solid #becddd;border-radius:8px;overflow:hidden;box-sizing:border-box}
 .geod-app #c-gnss-gl-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;box-sizing:border-box}
 .geod-app #c-gnss-space-labels{pointer-events:none}
