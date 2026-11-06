@@ -8,7 +8,14 @@
 
 [QFT57の有限cutoffのRényiエントロピー](../QFT57/index.md#def-qft57-replica-moments)では、正規化された縮約密度演算子 $\rho_A$ の固有値 $p_i\ge0$、$\sum_i p_i=1$ に対し、$R(n)=\sum_i p_i^n$ から $S_n=(1-n)^{-1}\ln R(n)$ を作りました。まず二準位でこの変換が実際に何を数えるか確認します。
 
-**直接例（最大混合）**：$\rho_A=\operatorname{diag}(1/2,1/2)$ なら $R(n)=2^{1-n}$ なので、整数 $n\ge2$ でも一般の実数 $n>0$、$n\ne1$ でも $S_n=\ln2$ です。対して純粋状態 $\rho_A=\operatorname{diag}(1,0)$ は $R(n)=1$、$S_n=0$ です。いずれも **密度行列を先に知っている有限系** の計算であり、連続場の分岐被覆を定義したことにはなりません。
+**直接例（最大混合）**：固有状態を基底に取った密度演算子は対角行列で表せます。$\rho_A=\operatorname{diag}(1/2,1/2)$ なら、基底ベクトル $e_i$ への作用は
+
+$$
+\rho_Ae_i=\tfrac12e_i\quad(i=1,2),\qquad
+R(n)=2(1/2)^n=2^{1-n}.
+$$
+
+従って固有値 $1/2,1/2$ はともに非負で、和は1です。上の定義から、整数 $n\ge2$ でも実数 $n>0$、$n\ne1$ でも $S_n=\ln2$ となります。対して純粋状態 $\rho_A=\operatorname{diag}(1,0)$ は固有値が $1,0$（非負で和1）なので $R(n)=1$、$S_n=0$ です。いずれも **密度行列を先に知っている有限系** の計算であり、連続場の分岐被覆を定義したことにはなりません。
 
 量子場では有限cutoffでの $R_a(n,\ell)$ を考え、[QFT58のtwist二点表示](../QFT58/index.md#prop-qft58-twist-geometry)で整数レプリカに限って主たる長さ依存を得ます。以下、計算の見通しを良くするため $x=\ell/a>1$ と置きます。整数 $n\ge2$ についての主項は
 
@@ -18,6 +25,8 @@ p_n=\frac c6\left(n-\frac1n\right),\qquad C_n>0.
 $$
 
 $\simeq$ は $x\to\infty$ のスケーリング主項を表します。正の係数 $C_n$ は模型・端点の規格化・cutoff処方に依存するため、中心電荷だけでは計算できません。有限cutoffでの等式へ無断で格上げしないため、必要なら $R_a=C_nx^{-p_n}(1+\varepsilon_n(x))$、$\varepsilon_n(x)\to0$（**固定整数 $n$ ごと**）と書きます。
+
+ここでの $p_n$ は長さのべきの指数であり、この節の冒頭に現れた密度行列の固有値 $p_i$ とは別の量です。
 
 <a id="prop-qft59-renyi-interval"></a>
 
@@ -120,7 +129,17 @@ k'_n-k_n
 \end{aligned}
 $$
 
-従って $\alpha_n\ln(\ell/a')+k'_n=\alpha_n[\ln(\ell/a)-\ln\lambda]+k_n+\alpha_n\ln\lambda$、ここで $\alpha_n=c(1+1/n)/6$ なので元の式に戻ります。
+ここで $\alpha_n=c(1+1/n)/6$ と置くと、
+
+$$
+\begin{aligned}
+\alpha_n\ln(\ell/a')+k'_n
+&=\alpha_n[\ln(\ell/a)-\ln\lambda]+k_n+\alpha_n\ln\lambda\\
+&=\alpha_n\ln(\ell/a)+k_n.
+\end{aligned}
+$$
+
+従って $S_n$ のスケーリング主項は変わりません。
 <!-- proof-end -->
 
 これは実験で格子間隔を変えても $C_n$ が固定という意味ではありません。**同一物理量の再表示** と **格子模型や正則化方式そのものの変更** を分けてください。後者では有限cutoff補正も変わり得ます。
@@ -130,6 +149,16 @@ $$
 有限密度行列では固有値 $p_i$ が既知なので、実数 $n>0$ に対して $R(n)=\sum_{p_i>0}p_i^n$ という自然な拡張を持ちます。その導関数は $R'(1)=\sum_{p_i>0}p_i\ln p_i$、$R(1)=1$。従って[QFT57の有限次元のレプリカ微分公式](../QFT57/index.md#thm-qft57-replica-derivative)から $-R'(1)$ はvon Neumannエントロピーです。**整数の分岐被覆で得た数列には、この固有値表示が自動では付いていません。**
 
 何が追加で必要かを、誤差項まで含めて明示します。整数式の指数 $p_n$ を実数へ延長したうえで、$n=1$ 近傍の区間 $I$ 上で実際の連続したレプリカ関数を $R(n,x)$ とします。$n$ はもはやコピーの枚数ではなく、定義された補間の引数です。
+
+ここでの $C(n)$ は、整数でしか分かっていない $C_n$ からさらに実数近傍へ延長するよう仮定する規格化関数です。整数値を与えただけでは、その $n=1$ での微分は決まりません。
+
+以下の $\partial_n$ は長さ比 $x=\ell/a$ を固定して $n$ だけを動かす偏微分です。例えば実数の増分 $h$ に対して
+
+$$
+\partial_n R(n,x)=\lim_{h\to0}\frac{R(n+h,x)-R(n,x)}h
+$$
+
+では、分子の二項で $x$ は変えません。一変数関数 $C(n)$ の $C'(n)=dC(n)/dn$ も同じ $n$ による微分を表します。一方、前節の $C'_n$ は**新しい表示尺度 $a'$ に対応する係数の名前**で、導関数ではありません。$R'(1)$ と書いた有限次元の場合も、固定した密度行列に対して $n$ を微分していました。
 
 <a id="thm-qft59-conditional-von-neumann"></a>
 
@@ -280,7 +309,20 @@ $|\Psi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ の第一系について $R(n)$、
 <!-- solution-start -->
 ### 詳細解答
 
-第二系を部分トレースすると $\rho_A=I_2/2$、固有値は $1/2,1/2$。[有限cutoffのレプリカモーメントとRényiエントロピー](../QFT57/index.md#def-qft57-replica-moments)により $R(n)=2(1/2)^n=2^{1-n}$、$S_n=\ln2$。von Neumannエントロピーも $S=-2(1/2)\ln(1/2)=\ln2$。ここには平面CFT、空間区間、長さスケーリングがないため、$c/3$ は適用できません。
+第一系・第二系の基底を $|ij\rangle=|i\rangle_A\otimes|j\rangle_B$ と書くと、第二系の部分トレースは
+
+$$
+\operatorname{Tr}_B(|ij\rangle\langle kl|)=\delta_{jl}|i\rangle\langle k|.
+$$
+
+従ってBell対の交差項は消え、$I_2$ を二次単位行列とすると、
+
+$$
+\rho_A=\frac{|0\rangle\langle0|+|1\rangle\langle1|}{2}
+=\frac{I_2}{2}.
+$$
+
+固有値は $1/2,1/2$ なので、[有限cutoffのレプリカモーメントとRényiエントロピー](../QFT57/index.md#def-qft57-replica-moments)により $R(n)=2(1/2)^n=2^{1-n}$、$S_n=\ln2$。von Neumannエントロピーも $S=-2(1/2)\ln(1/2)=\ln2$。ここには平面CFT、空間区間、長さスケーリングがないため、$c/3$ は適用できません。
 <!-- solution-end -->
 
 <a id="ex-qft59-a05"></a>
