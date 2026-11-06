@@ -57,7 +57,16 @@ $$
 ここでは $n\ge2$ なので $n-1$ で割る操作は適法です。補正項については固定 $n$ の極限しか使っておらず、$n\to1$ の微分可能性はまだ主張していません。
 <!-- proof-end -->
 
-**直接例（自由bosonと自由Majorana）**：[自由bosonの中心電荷](../QFT51/index.md#thm-qft51-boson-central-charge)は $c=1$、[自由Majoranaの中心電荷](../QFT53/index.md#thm-qft53-majorana-central)は $c=1/2$ です。従って $n=2$ ではそれぞれ $S_2=\tfrac14\ln x+k_2+o(1)$、$S_2=\tfrac18\ln x+k_2+o(1)$ です。後者の $k_2$ は前者と同じと仮定できません。$n=3$ では係数が $2c/9$ になることを式に $n=3$ を代入して確かめてください。
+**直接例（自由bosonと自由Majorana）**：[自由bosonの中心電荷](../QFT51/index.md#thm-qft51-boson-central-charge)は $c=1$、[自由Majoranaの中心電荷](../QFT53/index.md#thm-qft53-majorana-central)は $c=1/2$ です。$n=2$ の場合、両模型の主項は
+
+$$
+\begin{aligned}
+S_2^{\mathrm{boson}}&=\tfrac14\ln x+k_2^{\mathrm{boson}}+o(1),\\
+S_2^{\mathrm{Majorana}}&=\tfrac18\ln x+k_2^{\mathrm{Majorana}}+o(1).
+\end{aligned}
+$$
+
+二つの定数項は等しいとは限りません。$n=3$ では係数が $2c/9$ になることを式に代入して確かめてください。
 
 ## 2. 普遍なのは絶対値ではなく長さに対する傾き
 
@@ -341,12 +350,24 @@ $\partial_n(n-1/n)=1+1/n^2$ なので $n=1$ では2。微分すると $\partial_
 - Level: B
 - 対応目標: $n$ とcutoffの二重極限
 
-固定整数 $n\ge2$ の各々で $\varepsilon_n(x)=n^2/(x+n^2)$ とする。(1) $x\to\infty$ での極限、(2) 固定 $x>0$ で $n\to\infty$ の極限、(3) $n=\lfloor\sqrt x\rfloor$ として $x\to\infty$ の極限を求め、固定 $n$ の $o(1)$ の意味を述べよ。
+固定整数 $n\ge2$ の各々で $\varepsilon_n(x)=n^2/(x+n^2)$ とする。
+
+1. $n$ を固定して $x\to\infty$ とした極限を求めよ。
+2. $x>0$ を固定して $n\to\infty$ とした極限を求めよ。
+3. $n=\lfloor\sqrt x\rfloor$ として $x\to\infty$ とした極限を求め、固定 $n$ の $o(1)$ の意味を述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-(1) 固定 $n$ では分子が定数で分母は $x$ とともに増えるので $\varepsilon_n(x)\to0$。(2) 固定 $x$ では分子・分母を $n^2$ で割ると $1/(x/n^2+1)\to1$。(3) $n=\lfloor\sqrt x\rfloor$ なら $n^2/x\to1$ なので $\varepsilon_n= (n^2/x)/(1+n^2/x)\to1/2$。従って固定整数 $n$ での $o(1)$ は $n$ に一様とは限らず、Rényi次数を無限大へ送る式にはそのまま使えません。
+1. 固定 $n$ では分子が定数で分母は $x$ とともに増えるので $\varepsilon_n(x)\to0$ です。
+2. 固定 $x$ では分子・分母を $n^2$ で割ると $\varepsilon_n(x)=1/(x/n^2+1)\to1$ です。
+3. $n=\lfloor\sqrt x\rfloor$ なら $n^2/x\to1$ なので、
+
+   $$
+   \varepsilon_n(x)=\frac{n^2/x}{1+n^2/x}\longrightarrow\frac12.
+   $$
+
+従って固定整数 $n$ での $o(1)$ は $n$ に一様とは限らず、Rényi次数を無限大へ送る式にはそのまま使えません。
 <!-- solution-end -->
 
 <a id="ex-qft59-c01"></a>
