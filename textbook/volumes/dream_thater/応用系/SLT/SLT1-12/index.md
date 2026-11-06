@@ -463,7 +463,7 @@ Pg_h=\frac12-\frac12=0,\qquad
 Pg_h^2=\frac12+\frac12=1.
 $$
 
-[Bernstein条件](#def-slt1-12-excess-bernstein)なら $1\le B\cdot0=0$ が必要になり、有限 $B$ では不可能である。$[0,1]$ 値損失・iid・有限クラスという他の仮定は満たしているが、最適候補との差の二乗平均がその平均に比例するという**分散制御の追加仮定**を失った。[Massart型margin](#def-slt1-12-massart-margin)でも $\eta=1/2$ なので正の $\kappa$ を取れない。従って第4節の線形指数を使えない。
+[Bernstein条件](#def-slt1-12-excess-bernstein)なら $1\le B\cdot0=0$ が必要になり、有限 $B$ では不可能である。$[0,1]$ 値損失・独立同分布標本・有限クラスという他の仮定は満たしているが、最適候補との差の二乗平均がその平均に比例するという**分散制御の追加仮定**を失った。[Massart型margin](#def-slt1-12-massart-margin)でも $\eta=1/2$ なので正の $\kappa$ を取れない。従って第4節の線形指数を使えない。
 <!-- solution-end -->
 
 **問題 SLT1-12-B02（条件付きの不一致分解）**
@@ -610,7 +610,16 @@ $\mathcal H$ は $M\ge2$ 個の可測な二値分類器からなる標本前固�
 
    $a=\log M/n$ と置くと、$r\ge32a/\kappa$ なら平方根項が $r/4$ 以下、$r\ge4a/3$ なら第二項も $r/4$ 以下になる。従って $r_0=\max\{32/\kappa,4/3\}a$ は局所上界が半径の半分以下となる一つの十分な固定点スケールである。第2問の高確率界をこの期待複雑度の評価だけから推論したわけではない。
 
-4. $X$ が一点で $\eta=1/2+\varepsilon$、$\mathcal H$ が二つの定数分類器なら、最適 $h^\star$ は $+1$ を返し、もう一方は $-1$ を返す。超過損失はラベルに従って $\pm1$、よって $Pg_h=2\varepsilon$、$Pg_h^2=1$。Massart幅は $\kappa=2\varepsilon$、Bernstein定数は少なくとも $B=1/(2\varepsilon)$。$\varepsilon\downarrow0$ でこれらを標本数と無関係な正の下限・有限上限へ固定できず、第2問の係数も発散する。$\varepsilon=0$ では $Pg_h=0$、$Pg_h^2=1$ で条件自体が偽になる。**一般のagnostic問題へ速い率を無条件に拡張できない**理由はここにある。
+4. $X$ が一点で $\eta=1/2+\varepsilon$、$\mathcal H$ が二つの定数分類器なら、最適 $h^\star$ は $+1$ を返し、もう一方は $-1$ を返す。超過損失はラベルに従って $+1$ または $-1$ を取るので
+
+   $$
+   Pg_h=2\varepsilon,\qquad
+   Pg_h^2=1,\qquad
+   \kappa=2\varepsilon,\qquad
+   B\ge\frac1{2\varepsilon}.
+   $$
+
+   $\varepsilon\downarrow0$ ではmargin幅の正の下限・Bernstein定数の有限上限を一様に固定できず、第2問の係数も発散する。$\varepsilon=0$ では $Pg_h=0$、$Pg_h^2=1$ で条件自体が偽になる。**一般のagnostic問題へ速い率を無条件に拡張できない**理由はここにある。
 <!-- solution-end -->
 
 ## まとめ
