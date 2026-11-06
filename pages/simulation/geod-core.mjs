@@ -1,5 +1,6 @@
 // GEOD geodesy lab: metre/radian calculations, independent of all rendering.
 // Coordinate order is always (geodetic latitude, longitude); map order (E,Np).
+import { GeographicLibGeodesic } from './vendor/geographiclib-geodesic.mjs';
 export const GRS80 = Object.freeze({ a: 6378137, f: 1 / 298.257222101 });
 export const DEG = Math.PI / 180;
 export const rad = degrees => degrees * DEG;
@@ -64,17 +65,47 @@ export function inverseECEF(x, y, z, e = ellipsoid()) {
   return { phi, lambda, h };
 }
 
-// Vincenty's ellipsoidal inverse: convergent on most pairs, not guaranteed at
-// (nearly) antipodal points. A failure is reported, never silently approximated
-// with spherical distance and relabelled as ellipsoidal.
-export function inverseGeodesic(phi1, lon1, phi2, lon2, e = ellipsoid()) {
-  const L = wrapLongitude(lon2 - lon1);
-  if (Math.abs(phi1 - phi2) < 1e-15 && Math.abs(L) < 1e-15) {
-    return { distance: 0, azimuth: null, finalAzimuth: null, iterations: 0 };
+const geodesicEngineCache = new Map();
+const geodesicEngine = e => {
+  const key = `${e.a}/${e.f}`;
+  if (!geodesicEngineCache.has(key)) {
+    geodesicEngineCache.set(key, new GeographicLibGeodesic.Geodesic.Geodesic(e.a, e.f));
   }
+  return geodesicEngineCache.get(key);
+};
+
+const validateGeodesicEndpoints = (phi1, lon1, phi2, lon2) => {
   if ([phi1, phi2, lon1, lon2].some(v => !Number.isFinite(v)) ||
       Math.abs(phi1) >= Math.PI / 2 || Math.abs(phi2) >= Math.PI / 2) {
     throw new RangeError('両端は極を除く有限な測地緯度・経度で指定します');
+  }
+};
+
+// Karney's sixth-order ellipsoidal geodesic solver handles antipodal and
+// near-polar routes and selects a shortest geodesic. For exactly antipodal
+// pairs multiple shortest azimuths can exist; this returns one of them.
+export function inverseGeodesic(phi1, lon1, phi2, lon2, e = ellipsoid()) {
+  validateGeodesicEndpoints(phi1, lon1, phi2, lon2);
+  if (Math.abs(phi1 - phi2) < 1e-15 &&
+      Math.abs(wrapLongitude(lon2 - lon1)) < 1e-15) {
+    return { distance: 0, azimuth: null, finalAzimuth: null,
+      method: 'Karney', iterations: null };
+  }
+  const r = geodesicEngine(e).Inverse(deg(phi1), deg(lon1), deg(phi2), deg(lon2));
+  if (![r.s12, r.azi1, r.azi2].every(Number.isFinite)) {
+    throw new RangeError('ELLIPSOID_INVERSE_UNRESOLVED: geodesic solver produced nonfinite data');
+  }
+  return { distance: r.s12, azimuth: rad(r.azi1), finalAzimuth: rad(r.azi2),
+    method: 'Karney', iterations: null };
+}
+
+// Retained as a classroom comparison. Vincenty converges on most pairs but
+// may fail near antipodes; its failure is not a failure of the geodesic itself.
+export function vincentyInverseGeodesic(phi1, lon1, phi2, lon2, e = ellipsoid()) {
+  validateGeodesicEndpoints(phi1, lon1, phi2, lon2);
+  const L = wrapLongitude(lon2 - lon1);
+  if (Math.abs(phi1 - phi2) < 1e-15 && Math.abs(L) < 1e-15) {
+    return { distance: 0, azimuth: null, finalAzimuth: null, iterations: 0 };
   }
   const U1 = Math.atan((1 - e.f) * Math.tan(phi1));
   const U2 = Math.atan((1 - e.f) * Math.tan(phi2));
@@ -121,6 +152,37 @@ export function inverseGeodesic(phi1, lon1, phi2, lon2, e = ellipsoid()) {
     finalAzimuth: Math.atan2(c1 * sl, -s1 * c2 + c1 * s2 * cl),
     iterations: iter + 1,
   };
+}
+
+// GeographicLib's direct geodesic line avoids the (phi,lambda,azimuth)
+// coordinate singularity of the independent Clairaut RK4 tracer at a pole.
+// Only sample points are used in the 3D illustration; distance and azimuth
+// are returned independently by inverseGeodesic.
+export function traceGeodesicRobust(phi, lambda, azimuth, distance, e = ellipsoid(), steps) {
+  if (![phi, lambda, azimuth, distance].every(Number.isFinite) ||
+      distance < 0 || Math.abs(phi) >= Math.PI / 2) {
+    throw new RangeError('有限で非負の距離と非極点の始点・方位角が必要です');
+  }
+  const count = steps ?? Math.max(80, Math.min(1800, Math.ceil(distance / 20000)));
+  if (!Number.isSafeInteger(count) || count < 1 || count > 10000) {
+    throw new RangeError('経路点数は1〜10000を指定します');
+  }
+  const line = geodesicEngine(e).Line(deg(phi), deg(lambda), deg(azimuth));
+  const startC = radii(phi, e).r * Math.sin(azimuth);
+  const points = [[phi, wrapLongitude(lambda)]];
+  let maxDrift = 0, last;
+  for (let i = 1; i <= count; i++) {
+    const p = line.Position(distance * i / count);
+    if (![p.lat2, p.lon2, p.azi2].every(Number.isFinite)) {
+      throw new RangeError('ELLIPSOID_LINE_UNRESOLVED: nonfinite point');
+    }
+    const latitude = rad(p.lat2), longitude = wrapLongitude(rad(p.lon2));
+    points.push([latitude, longitude]);
+    maxDrift = Math.max(maxDrift,
+      Math.abs(radii(latitude, e).r * Math.sin(rad(p.azi2)) - startC) / e.a);
+    last = { phi: latitude, lambda: longitude, azimuth: rad(p.azi2) };
+  }
+  return { points, ...last, maxDrift, method: 'Karney line' };
 }
 
 // RK4 integrates the GEOD12 Clairaut system independently of Vincenty's

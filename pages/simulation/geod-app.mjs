@@ -1,6 +1,7 @@
 import {
   GRS80, DEG, rad, deg, ellipsoid, radii, ecef, enuBasis, norm, dot,
-  geocentricLatitude, inverseECEF, inverseGeodesic, traceGeodesic,
+  geocentricLatitude, inverseECEF, inverseGeodesic, vincentyInverseGeodesic,
+  traceGeodesic, traceGeodesicRobust,
   transverseMercator, projectionDistortion,
 } from './geod-core.mjs';
 import { CITIES, TILE_ZOOM, JAPAN_DETAIL_TILE_LIMIT, mercatorY,
@@ -744,14 +745,30 @@ function computeB() {
       Math.abs(values[2]) >= 90) throw new RangeError('両端の緯度・経度は有限な値、緯度は極を除きます');
   const [phi1, lon1, phi2, lon2] = values.map(rad), e = ellipsoid();
   const inv = inverseGeodesic(phi1, lon1, phi2, lon2, e);
-  if (inv.error) throw new RangeError('楕円体逆問題が収束しません（対蹠点近傍の可能性）。条件を変更してください');
   if (inv.distance === 0) throw new RangeError('二点が一致すると初期方位角は定義できません');
   const sphere = ellipsoid(GRS80.a, 0);
   const sphereInv = inverseGeodesic(phi1, lon1, phi2, lon2, sphere);
-  const ellipseTrace = traceGeodesic(phi1, lon1, inv.azimuth, inv.distance, e);
-  const sphereTrace = traceGeodesic(phi1, lon1, sphereInv.azimuth, sphereInv.distance, sphere);
+  const ellipseTrace = traceGeodesicRobust(phi1, lon1, inv.azimuth, inv.distance, e);
+  const sphereTrace = traceGeodesicRobust(phi1, lon1, sphereInv.azimuth, sphereInv.distance, sphere);
   const endpointError = norm(ecef(ellipseTrace.phi, ellipseTrace.lambda, 0, e)
     .map((x, i) => x - ecef(phi2, lon2, 0, e)[i]));
+  if (endpointError > .05) throw new RangeError('ELLIPSOID_DIRECT_INVERSE_MISMATCH: 逆解と線追跡の終点が不一致');
+  // Independent local-coordinate Clairaut RK4: useful where the chart is
+  // regular, but it is not the drawing source near a pole.
+  let rk4Result = '鉛直の座標特異点付近では検証を保留';
+  try {
+    const rk4 = traceGeodesic(phi1, lon1, inv.azimuth, inv.distance, e);
+    const error = norm(ecef(rk4.phi, rk4.lambda, 0, e)
+      .map((x, i) => x - ecef(phi2, lon2, 0, e)[i]));
+    rk4Result = fmt(error, 5) + ' m（Clairaut相対ドリフト ' + rk4.maxDrift.toExponential(3) + '）';
+  } catch (error) {
+    if (!String(error.message).includes('POLE_CHART_SINGULARITY')) throw error;
+  }
+  const vincenty = vincentyInverseGeodesic(phi1, lon1, phi2, lon2, e);
+  const vincentyLabel = vincenty.error
+    ? '非収束（測地線が存在しない意味ではありません）'
+    : fmt(vincenty.distance / 1000, 6) + ' km（Karneyとの差 ' +
+      fmt(vincenty.distance - inv.distance, 4) + ' m）';
   state.fVisual = GRS80.f * 20;
   state.geodesic = { ellipsoid: ellipseTrace, sphere: sphereTrace, phi1, lon1, phi2, lon2 };
   showResults([
@@ -760,14 +777,17 @@ function computeB() {
     ['距離差（楕円体 − 球面）', fmt((inv.distance - sphereInv.distance) / 1000, 6) + ' km'],
     ['始点の測地方位角（北0°・東90°）', fmt((deg(inv.azimuth) + 360) % 360, 6) + '°'],
     ['終点の進行方位角', fmt((deg(inv.finalAzimuth) + 360) % 360, 6) + '°'],
-    ['別算法RK4終点のECEF残差', fmt(endpointError, 5) + ' m'],
+    ['Karney逆解→線追跡のECEF終点残差', fmt(endpointError, 6) + ' m'],
+    ['独立したClairaut RK4検算', rk4Result],
     ['Clairaut保存量の最大相対ドリフト', ellipseTrace.maxDrift.toExponential(3)],
-    ['逆解法の反復回数', inv.iterations],
+    ['楕円体の逆解法', 'Karney法（反復回数は非公開）'],
+    ['従来Vincenty法との比較', vincentyLabel],
   ], [
     '距離差の符号を予想し、短距離・長距離の2例で変化を見る（いつも同じ符号と決めつけない）。',
     '経路の途中で方位角が変わっても r(φ)sinα が保存することをGEOD12の式で追う。',
-    'ほぼ対蹠点の入力で専用アルゴリズムが必要になる理由を考える。非収束と「測地線が存在しない」は別である。',
-  ], '実線・青＝楕円体測地線／破線・橙＝球面大円の比較路。表示は同一の強調楕円体上、数値は各模型の正確なfで別々に計算。');
+    '対蹠点付近の例を試し、Vincenty法が非収束でもKarney法は距離と方位を返すことを確認する。',
+    '正確な対蹠点では複数の最短経路があり得る。表示した方位だけが唯一解だと考えてよいか。',
+  ], '実線・青＝楕円体測地線／破線・橙＝球面大円の比較路。経路描画には極点でも破綻しないKarney直接解を使用。楕円体は表示用に扁平率を20倍強調、計算ではGRS80の実値を使用。');
 }
 
 
@@ -1488,6 +1508,16 @@ for (const axis of ['lat', 'lon']) {
 }
 const customCityInputs = new Map(cityControls.flatMap(([select, lat, lon]) =>
   [[lat, select], [lon, select]]));
+
+$('b-antipodal-example').addEventListener('click', () => {
+  const sample = { 'b-lat1': -30, 'b-lon1': 0, 'b-lat2': 29.9, 'b-lon2': 179.8 };
+  for (const [id, value] of Object.entries(sample)) $(id).value = String(value);
+  $('b-city1').value = '';
+  $('b-city2').value = '';
+  state.yaw = 0;
+  state.tilt = rad(-30);
+  recalculate();
+});
 
 for (const button of document.querySelectorAll('[data-lab]')) button.addEventListener('click', () => {
   const previousLab = state.lab;

@@ -40,7 +40,7 @@
 
   <section class="panel" id="lab-B" aria-label="楕円体測地線" hidden>
     <h2>B：2地点をつなぐ測地線</h2>
-    <p>予測：球面の大円弧を、楕円体上の最短距離の代わりにするとどの程度差が出るか。東京～札幌の始点方位は北から何度か。</p>
+    <p>予測：球面の大円弧を、楕円体上の最短距離の代わりにするとどの程度差が出るか。東京～札幌の始点方位は北から何度か。地球の反対側に近い2地点も解けるだろうか。</p>
     <div class="controls">
       <label>始点の都市<select id="b-city1"><option value="">任意の始点</option></select></label>
       <label>終点の都市<select id="b-city2"><option value="">任意の終点</option></select></label>
@@ -49,7 +49,8 @@
       <label>終点 緯度（度）<input id="b-lat2" type="number" min="-89" max="89" step="0.001" value="43.06417"></label>
       <label>終点 経度（度）<input id="b-lon2" type="number" min="-180" max="180" step="0.001" value="141.34694"></label>
     </div>
-    <p class="aside">実線＝GRS80上の測地線（Vincenty逆問題→Clairaut ODEのRK4積分）、破線＝半径 a の球面大円。球面経路は比較のため楕円体表面へ重ねて描画します。対蹠点付近のVincenty非収束は明示し、球面結果で代用しません。</p>
+    <p><button type="button" id="b-antipodal-example">対蹠点近傍の例を試す（−30°, 0° → 29.9°, 179.8°）</button></p>
+    <p class="aside">実線＝GRS80上の最短測地線（Karney逆解法・直接解による描画）、破線＝半径 a の球面大円。球面経路は比較のため楕円体表面へ重ねて描画します。従来のVincenty法と比較し、対蹠点近傍での非収束を確かめられます。経路の独立したClairaut RK4検算は極近傍の座標特異点では保留します。正確な対蹠点では最短経路の方位が一意とは限りません。</p>
     <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD12/index?id=thm-geod12-clairaut">GEOD12：Clairaut関係・測地線</a></p>
   </section>
 
