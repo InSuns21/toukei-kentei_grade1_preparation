@@ -1,0 +1,49 @@
+id: "SLT1-14"
+title: "算法安定性と期待汎化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-13
+  - OPT7
+official_scope: []
+learning_objectives:
+  - replace-one標本とleave-one-out標本を区別し、独立なghost観測を用いた交換等式を証明できる
+  - 一様安定性を全ての隣接標本・試験点に対する損失の差として定義し、直接例で上界を計算できる
+  - 一様安定性から期待汎化ギャップの絶対値を上から抑える定理を、期待値の交換から証明できる
+  - leave-one-out評価が標本数n-1の学習器のリスクを推定することと、削除安定性の別仮定を説明できる
+  - 強凸正則化ERMの最適性不等式とLipschitz条件から算法安定性を導出できる
+  - 期待値保証と標本ごとの高確率保証の違い、および独立同分布仮定が破れる場合を反例で示せる
+definitions:
+  - { id: SLT1-14-DEF-01, name: 一点置換標本と一点削除標本 }
+  - { id: SLT1-14-DEF-02, name: 一様算法安定性 }
+  - { id: SLT1-14-DEF-03, name: 汎化ギャップ }
+  - { id: SLT1-14-DEF-04, name: 削除安定性 }
+theorems:
+  - { id: SLT1-14-LEM-01, name: ghost観測の交換等式 }
+  - { id: SLT1-14-THM-01, name: 一様安定性による期待汎化界 }
+  - { id: SLT1-14-PROP-01, name: leave-one-outの期待値 }
+  - { id: SLT1-14-PROP-02, name: 削除安定性からの期待評価 }
+  - { id: SLT1-14-THM-02, name: 強凸正則化ERMの一様安定性 }
+  - { id: SLT1-14-PROP-03, name: 期待保証から標本ごとの保証は従わない }
+canonical_examples:
+  - Bernoulli標本の標本平均と二乗損失で安定性および期待汎化ギャップを直接計算する例
+  - 標本サイズの偶奇で出力を変える算法によるreplace-oneとleave-one-outの相違
+  - 強凸正則化された凸Lipschitz損失の有限次元パラメータ模型
+  - 固定算法で期待ギャップ0でも標本ごとには偏差がある例
+  - 完全依存標本に独立同分布の交換証明を誤適用する例
+problem_patterns:
+  - SLT1-14-A01
+  - SLT1-14-A02
+  - SLT1-14-A03
+  - SLT1-14-A04
+  - SLT1-14-A05
+  - SLT1-14-A06
+  - SLT1-14-B01
+  - SLT1-14-B02
+  - SLT1-14-B03
+  - SLT1-14-B04
+  - SLT1-14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 7.0, review: 2.0 }
