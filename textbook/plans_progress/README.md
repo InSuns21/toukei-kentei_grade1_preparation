@@ -2,7 +2,7 @@
 
 このディレクトリには、PLAN 固有の実装・検証・監査に着手済みで、計画全体としては未完了の DREAM THEATER 系計画書を置く。
 
-量子場理論 I〜IV は `DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md` で進行中。2026-10-27 に QFT1 を開始し、QFT2 以降および科目 I〜IV の残範囲は未完了。
+進行中PLANの現在位置は各系列 manifest の `plan` で確認する。完了したPLANは `textbook/plan_done/` へ移す。
 
 ## 運用
 
