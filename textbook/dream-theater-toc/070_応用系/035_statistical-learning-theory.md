@@ -16,3 +16,4 @@
 13. [SLT1-13 正則化ERMとoracle不等式](textbook/volumes/dream_thater/応用系/SLT/SLT1-13/index.md)
 14. [SLT1-14 算法安定性と期待汎化](textbook/volumes/dream_thater/応用系/SLT/SLT1-14/index.md)
 15. [SLT1-15 PAC-Bayes不等式](textbook/volumes/dream_thater/応用系/SLT/SLT1-15/index.md)
+16. [SLT1-16 Le Cam・Fanoと標本複雑度下限](textbook/volumes/dream_thater/応用系/SLT/SLT1-16/index.md)

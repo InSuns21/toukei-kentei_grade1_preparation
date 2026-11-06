@@ -1,0 +1,70 @@
+chapter: SLT1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-15
+  - INFO6
+
+concepts:
+  - id: learning.minimax-expected-excess-risk
+    name: 有限模型のminimax期待超過リスク
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限模型のminimax期待超過リスク）"]
+    requires: [learning.population-risk, learning.within-class-excess-risk]
+
+  - id: learning.finite-total-variation
+    name: 有限標本空間でのTV距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限標本空間でのTV距離）"]
+    requires: [information.relative-entropy]
+
+  - id: learning.le-cam-testing-bound
+    name: 二仮説検定のLe Cam下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二仮説検定のLe Cam下界）"]
+    requires: [learning.finite-total-variation]
+
+  - id: learning.finite-tv-kl
+    name: 有限分布の全変動・KL評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限分布の全変動・KL評価）"]
+    requires: [learning.finite-total-variation, information.log-sum-inequality, learning.pac-bayes-binary-pinsker]
+
+  - id: learning.binary-minimax-lower-bound
+    name: 二点模型のminimax超過リスク下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二点模型のminimax超過リスク下界）"]
+    requires: [learning.le-cam-testing-bound, learning.finite-tv-kl, learning.minimax-expected-excess-risk]
+
+  - id: learning.fano-testing-lower-bound
+    name: Fanoによる多仮説検定下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Fanoによる多仮説検定下界）"]
+    requires: [information.fano-inequality, information.mutual-data-processing, information.mutual-as-divergence]
+
+  - id: learning.hamming-packing
+    name: 符号列のHamming距離とpacking
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（符号列のHamming距離とpacking）"]
+    requires: [learning.function-class-packing-number]
+
+  - id: learning.binary-cube-packing
+    name: 有限二値立方体の指数的packing
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限二値立方体の指数的packing）"]
+    requires: [learning.hamming-packing]
+
+  - id: learning.fano-minimax-classification
+    name: 有限二値分類のFano型minimax下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限二値分類のFano型minimax下界）"]
+    requires: [learning.fano-testing-lower-bound, learning.binary-cube-packing, learning.minimax-expected-excess-risk]
