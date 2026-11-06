@@ -1,0 +1,69 @@
+chapter: QFT57
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT56, QINF3, QINF17, QFT19, QFT3, MQ2]
+forward_references: []
+
+concepts:
+  - id: qft.finite-lattice-local-algebra
+    name: 有限格子の局所領域と局所観測量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限格子の局所領域と局所観測量）]
+    requires: [quantum.composite-system]
+
+  - id: qft.regulated-region-reduction
+    name: cutoff付き領域縮約状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（cutoff付き領域縮約状態）]
+    requires: [qft.finite-lattice-local-algebra, quantum.partial-trace]
+
+  - id: qft.two-oscillator-local-covariance
+    name: 二サイト自由場の基底状態と局所共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二サイト自由場の基底状態と局所共分散）]
+    requires: [qft.regulated-region-reduction]
+
+  - id: qft.two-oscillator-reduced-purity
+    name: 二振動子の縮約純粋性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二振動子の縮約純粋性）]
+    requires: [qft.two-oscillator-local-covariance]
+
+  - id: qft.crossing-bell-pair-model
+    name: 切断面をまたぐ独立Bell対模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（切断面をまたぐ独立Bell対模型）]
+    requires: [qft.regulated-region-reduction]
+
+  - id: qft.crossing-bell-entropy
+    name: 独立Bell対の局所エントロピーと整数モーメント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（独立Bell対の局所エントロピーと整数モーメント）]
+    requires: [qft.crossing-bell-pair-model, quantum.von-neumann-entropy]
+
+  - id: qft.cutoff-region-entropy
+    name: cutoff依存の領域エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（cutoff依存の領域エントロピー）]
+    requires: [qft.regulated-region-reduction, quantum.von-neumann-entropy]
+
+  - id: qft.replica-moments
+    name: 有限cutoffのレプリカモーメントとRényiエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限cutoffのレプリカモーメントとRényiエントロピー）]
+    requires: [qft.cutoff-region-entropy]
+
+  - id: qft.replica-derivative
+    name: 有限次元のレプリカ微分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限次元のレプリカ微分公式）]
+    requires: [qft.replica-moments, quantum.von-neumann-entropy]

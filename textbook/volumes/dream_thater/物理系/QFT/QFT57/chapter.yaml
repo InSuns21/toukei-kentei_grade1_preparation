@@ -1,0 +1,47 @@
+id: QFT57
+title: "局所領域の縮約状態・格子正則化とエンタングルメント"
+volume: foundations
+status: supplementary
+prerequisites: [QFT56, QINF3, QINF17, QFT19, QFT3, MQ2]
+official_scope: []
+learning_objectives:
+  - 有限格子の領域と補領域を定め局所演算子の支持を判定できる
+  - cutoff付き領域縮約状態を部分トレースで作り局所期待値を検算できる
+  - 結合した二振動子の正規モードと基底波動関数から局所共分散を求められる
+  - 二振動子の縮約Gaussian核を積分し純粋性と結合の関係を導ける
+  - 切断面をまたぐ独立Bell対の縮約スペクトルとエントロピーを計算できる
+  - cutoff依存の領域エントロピーと局所期待値の極限を区別できる
+  - 物理的境界条件と領域分割の仮想的切断面を区別できる
+  - 整数レプリカモーメントからのエントロピー微分と解析接続の追加仮定を説明できる
+definitions:
+  - { id: QFT57-DEF-01, name: 有限格子の局所領域と局所観測量 }
+  - { id: QFT57-DEF-02, name: cutoff付き領域縮約状態 }
+  - { id: QFT57-DEF-03, name: 切断面をまたぐ独立Bell対模型 }
+  - { id: QFT57-DEF-04, name: cutoff依存の領域エントロピー }
+  - { id: QFT57-DEF-05, name: 有限cutoffのレプリカモーメントとRényiエントロピー }
+theorems:
+  - { id: QFT57-PROP-02, name: 二サイト自由場の基底状態と局所共分散 }
+  - { id: QFT57-THM-01, name: 二振動子の縮約純粋性 }
+  - { id: QFT57-THM-02, name: 独立Bell対の局所エントロピーと整数モーメント }
+  - { id: QFT57-THM-03, name: 有限次元のレプリカ微分公式 }
+canonical_examples:
+  - 三サイトで非連続な領域を選んだときの局所作用素
+  - Bell対の縮約行列と局所期待値
+  - 結合した二振動子のGaussian核と純粋性
+  - 横断Bell対の個数によるcutoffエントロピー
+  - 対角密度行列の整数レプリカと解析接続の非一意性
+problem_patterns:
+  - QFT57-LOCAL-SUPPORT
+  - QFT57-PARTIAL-TRACE
+  - QFT57-OSCILLATOR-NORMAL-MODES
+  - QFT57-GAUSSIAN-REDUCTION
+  - QFT57-CROSSING-BELL-PAIRS
+  - QFT57-REGULATOR-ENTROPY
+  - QFT57-BOUNDARY-VERSUS-CUT
+  - QFT57-REPLICA-MOMENTS
+  - QFT57-ANALYTIC-CONTINUATION
+  - QFT57-INTEGRATED-LOCAL-STATE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 14, review: 6 }
