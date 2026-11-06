@@ -1,0 +1,44 @@
+id: "ITD3"
+title: "非平衡自由エネルギー・緩和・取り出せる仕事の上限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD2
+  - SM3
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 平衡の正準分布と任意の有限分布を区別し、非平衡自由エネルギーとその平衡との差をnat単位・bit単位の相対エントロピーで検算できる
+  - 同じエネルギー準位でも分布の偏りが利用可能な自由エネルギーを変えることを、零確率を含む二状態模型で示せる
+  - 固定Hamiltonianの局所詳細釣合いを満たす接触では正準分布が不変で、相対エントロピーと非平衡自由エネルギーが増加しないことを示せる
+  - 有限状態の仕事・熱・全エントロピー生成から平均仕事の非平衡自由エネルギー下限を導き、抽出仕事の上限と等号条件を説明できる
+  - 平衡初期条件を外したときのJarzynski等式の適用限界、制御を用いない緩和と仕事抽出の違いを説明できる
+definitions:
+  - { id: ITD3-DEF-01, name: 有限分布の非平衡自由エネルギー }
+  - { id: ITD3-DEF-02, name: 自由エネルギーの超過量 }
+theorems:
+  - { id: ITD3-PROP-01, name: 自由エネルギー差の相対エントロピー表示 }
+  - { id: ITD3-THM-01, name: 熱浴接触による非平衡自由エネルギーの単調性 }
+  - { id: ITD3-THM-02, name: 非平衡自由エネルギーと平均仕事の下限 }
+  - { id: ITD3-COR-01, name: 平衡到達時の取り出せる仕事の上限 }
+canonical_examples:
+  - 等エネルギー二状態の一様分布と偏った分布の自由エネルギー差
+  - 二準位の非一様正準分布と任意分布のnat・bit換算
+  - 対称な二状態遷移核による偏りの緩和と散逸
+  - 非平衡初期分布を用いた二段階quench・接触のエネルギーとエントロピー収支
+problem_patterns:
+  - ITD3-UNIFORM-ENERGY
+  - ITD3-BIT-NAT-CONVERSION
+  - ITD3-NONUNIFORM-GIBBS
+  - ITD3-RELAXATION-KERNEL
+  - ITD3-ENTROPY-PRODUCTION
+  - ITD3-KL-POSITIVITY
+  - ITD3-DATA-PROCESSING
+  - ITD3-WORK-BOUND
+  - ITD3-JARZYNSKI-COUNTEREXAMPLE
+  - ITD3-TWO-STEP-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
