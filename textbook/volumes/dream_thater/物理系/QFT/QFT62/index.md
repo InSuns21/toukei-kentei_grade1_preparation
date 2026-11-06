@@ -8,9 +8,24 @@
 
 ## 1. 大きい領域から小さい領域へ：失われる区別
 
-有限格子の領域 $B$ を二つの部分 $A,C$ に分け、$H_B=H_A\otimes H_C$ とします。状態 $\rho_B$、参照状態 $\sigma_B$ を同じ部分トレースで縮約し、$\rho_A=\operatorname{Tr}_C\rho_B$、$\sigma_A=\operatorname{Tr}_C\sigma_B$ と書きます。**同じ参照の同じ制限を使う**ことが重要で、$A$ と $B$ で無関係な参照状態を選んでは比較できません。
+有限格子の領域 $B$ を二つの部分 $A,C$ に分け、$H_B=H_A\otimes H_C$ とします。状態 $\rho_B$、参照状態 $\sigma_B$ を同じ部分トレースで縮約し、
 
-たとえば $\sigma_B=I_4/4$、$\rho_B=\operatorname{diag}(1/2,0,0,1/2)$ を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ の基底で取ります。$B$ の全状態は異なりますが、どちらも $A$ へ縮約すると $I_2/2$ です。$C$ の記録を捨てると、相関にあった差は見えなくなります。
+$$
+\rho_A=\operatorname{Tr}_C\rho_B,\qquad
+\sigma_A=\operatorname{Tr}_C\sigma_B
+$$
+
+と書きます。**同じ参照の同じ制限を使う**ことが重要で、$A$ と $B$ で無関係な参照状態を選んでは比較できません。
+
+たとえば $\sigma_B=I_4/4$、$\rho_B=\operatorname{diag}(1/2,0,0,1/2)$ を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ の基底で取ります。ここで $|ij\rangle=|i\rangle_A\otimes|j\rangle_C$ です。[QINF3の部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)により
+
+$$
+\operatorname{Tr}_C(|ij\rangle\langle k\ell|)
+=\langle\ell|j\rangle\,|i\rangle\langle k|
+=\delta_{j\ell}|i\rangle\langle k|.
+$$
+
+したがって $A$ の対角成分は、$C$ の添字 $j=0,1$ を足したものになります。$B$ の全状態は異なりますが、どちらも $A$ へ縮約すると $I_2/2$ です。$C$ の記録を捨てると、相関にあった差は見えなくなります。
 
 QINF20では情報量に底2の対数を使用しました。本講の自然対数による $D$ は $D_{\mathrm{nat}}=(\ln2)D_{\mathrm{bit}}$ です。$\ln2>0$ なので不等号の向きは変わりません。
 
@@ -34,7 +49,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\Phi:L(H_A\otimes H_C)\to L(H_A)$ を $\Phi(X)=\operatorname{Tr}_C X$ とします。[QINF3の部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)は完全正・トレース保存であり、$\Phi(\rho_B)=\rho_A$、$\Phi(\sigma_B)=\sigma_A$ です。[QINF20の定理](../../../応用系/QINF/QINF20/index.md#thm-qinf20-dpi)を入力状態 $\rho_B,\sigma_B$ とチャネル $\Phi$ に適用すれば、底2について
+$\Phi:L(H_A\otimes H_C)\to L(H_A)$ を $\Phi(X)=\operatorname{Tr}_C X$ とします。[QINF3の部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)の基底表示で $V_j=I_A\otimes\langle e_j|$ と置けば
+
+$$
+\Phi(X)=\sum_jV_jXV_j^\dagger,\qquad
+\sum_jV_j^\dagger V_j=I_B.
+$$
+
+よって $\Phi$ は完全正・トレース保存であり、両状態に作用させると $\Phi(\rho_B)=\rho_A$、$\Phi(\sigma_B)=\sigma_A$ です。[QINF20のデータ処理不等式](../../../応用系/QINF/QINF20/index.md#thm-qinf20-dpi)をこの二状態とチャネル $\Phi$ に適用すれば、底2について
 
 $$
 D_{\mathrm{bit}}(\rho_A\Vert\sigma_A)
@@ -132,9 +154,28 @@ $$
 
 ## 3. 純粋状態なら補領域からもう一つの不等式が出る
 
-領域 $A\subseteq B$ の包含を考えると、補領域の向きは逆転して $B^c\subseteq A^c$ となります。ここで $X^c$ は全系のうち $X$ 以外を意味します。全系で比較状態 $\rho$ と参照 $\sigma$ がともに**純粋状態**なら、$X$ と $X^c$ の非零Schmidt固有値は一致するため、$S(\rho_X)=S(\rho_{X^c})$ かつ $S(\sigma_X)=S(\sigma_{X^c})$ です。
+領域 $A\subseteq B$ の包含を考えると、補領域の向きは逆転して $B^c\subseteq A^c$ となります。ここで $X^c$ は全系のうち $X$ 以外を意味します。
 
-参照の支持空間上での対数の期待値が有限と仮定すると、補領域のモジュラーハミルトニアンも使えます。符号を間違えないため、差として用いる量を次のように明示します。
+全系で比較状態 $\rho$ と参照 $\sigma$ がともに**純粋状態**なら、[QINF6のSchmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $X$ と $X^c$ の非零固有値は一致します。零固有値はエントロピーに寄与しないため、
+
+$$
+S(\rho_X)=S(\rho_{X^c}),\qquad
+S(\sigma_X)=S(\sigma_{X^c}).
+$$
+
+参照の支持空間上での対数の期待値が有限と仮定すると、補領域のモジュラーハミルトニアンも使えます。相対エントロピーが有限なら $\operatorname{supp}\rho_X\subseteq\operatorname{supp}\sigma_X$ であるため、零固有値を持つ参照にも、支持上の対数を用いて
+
+$$
+\begin{aligned}
+D(\rho_X\Vert\sigma_X)
+&=-S(\rho_X)+\operatorname{Tr}(\rho_XK_X),\\
+S(\sigma_X)&=\operatorname{Tr}(\sigma_XK_X),\\
+D(\rho_X\Vert\sigma_X)
+&=\Delta\langle K_X\rangle-\Delta S_X
+\end{aligned}
+$$
+
+と直接計算できます。これは[QFT61の忠実な参照に対する恒等式](../QFT61/index.md#prop-qft61-relative-balance)の支持上への拡張です。符号を間違えないため、差として用いる量を次のように明示します。
 
 <a id="def-qft62-full-modular"></a>
 
@@ -150,7 +191,35 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft62-full-modular -->
-**定義の確認**：二量子ビットの純粋な参照 $|\Omega\rangle=\sqrt{3/4}|00\rangle+\sqrt{1/4}|11\rangle$ を取ります。部分トレースで二つの縮約はともに $\operatorname{diag}(3/4,1/4)>0$ です。従って $K_X=K_{X^c}=\operatorname{diag}(\ln(4/3),\ln4)$ と有限行列で計算でき、$|00\rangle$ 上で $\widehat K_X$ の固有値は $0$、$|01\rangle$ 上では $\ln(4/3)-\ln4=-\ln3$ となります。これは差の定義であり、任意の状態で正の演算子だという主張ではありません。
+**定義の確認**：二量子ビットの純粋な参照
+
+$$
+|\Omega\rangle=\sqrt{3/4}|00\rangle+\sqrt{1/4}|11\rangle
+$$
+
+を取ります。係数の二乗和は $3/4+1/4=1$ なので規格化されています。$X$ と $X^c$ の計算基底をそれぞれ $|0\rangle,|1\rangle$ とし、[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を $|\Omega\rangle\langle\Omega|$ に適用すると、交差項は $\langle0|1\rangle=0$ により消え、
+
+$$
+\sigma_X=\sigma_{X^c}
+=\frac34|0\rangle\langle0|+\frac14|1\rangle\langle1|
+=\operatorname{diag}\left(\frac34,\frac14\right).
+$$
+
+ここで行列は指定した正規直交基底での表示です。固有値 $3/4,1/4$ は正で和が1なので、両縮約は忠実な密度演算子です。[QFT61の対数の定義](../QFT61/index.md#def-qft61-modular-hamiltonian)から
+
+$$
+K_X=K_{X^c}=\operatorname{diag}\left(\ln\frac43,\ln4\right)
+$$
+
+と有限行列で計算できます。テンソル積の差を各基底ベクトルへ作用させれば
+
+$$
+\widehat K_X|00\rangle=0,\qquad
+\widehat K_X|11\rangle=0,\qquad
+\widehat K_X|01\rangle=-\ln3\,|01\rangle.
+$$
+
+従って参照 $|\Omega\rangle$ での期待値は0で、$|01\rangle$ では負です。これは差の定義であり、任意の状態で正の演算子だという主張ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-qft62-full-modular-order"></a>
@@ -175,7 +244,7 @@ $B\to A$ と $A^c\to B^c$ の両方に単調性を使います。純粋性によ
 
 $D_X=D(\rho_X\Vert\sigma_X)$ と書きます。[有限格子の単調性](#thm-qft62-region-monotonicity)を $A\subseteq B$ に適用すれば $D_B-D_A\ge0$ です。補領域は $B^c\subseteq A^c$ なので、もう一度適用して $D_{A^c}-D_{B^c}\ge0$ を得ます。全相対エントロピーは有限と仮定したため、差の計算が可能です。
 
-支持上で $D_X=\Delta\langle K_X\rangle-\Delta S_X$ を四領域に適用して加えると
+上で導出した支持上の $D_X=\Delta\langle K_X\rangle-\Delta S_X$ を四領域に適用して加えます。以下の $K_X$ は各領域から全系へ恒等演算子とのテンソル積で拡張しているものとすると、
 
 $$
 \begin{aligned}
@@ -192,9 +261,18 @@ $$
 
 ## 4. 平均ヌルエネルギーに到達するための追加条件
 
-局所エネルギーには負の値が現れ得ます。例えば[QFT55の円筒真空応力テンソル](../QFT55/index.md#prop-qft55-cylinder-stress)を用いる二次元CFTの円周真空では、平面真空との差で負の一様エネルギー密度が得られます。これは後で扱う平坦な直線時空の完全ヌル線とは別の設定です。単調性だけから $T_{00}(x)\ge0$ や $T_{++}(x)\ge0$ を点ごとに導いてはいけません。
+二次元Minkowski時空の光円錐座標 $x^+=t+x$、$x^-=t-x$ を導入します。逆変換は $t=(x^++x^-)/2$、$x=(x^+-x^-)/2$ であり、$ds^2=-dx^+dx^-$ です。連鎖律から、もう一方のヌル座標を固定して微分する演算子は
 
-二次元Minkowski時空の光円錐座標 $x^+=t+x$、$x^-=t-x$ を導入します。$ds^2=-dx^+dx^-$ で、$\partial_+=\frac12(\partial_t+\partial_x)$ は光的な方向です。応力テンソルのその方向への成分を $T_{++}=T_{\mu\nu}(\partial_+)^\mu(\partial_+)^\nu$ とします。
+$$
+\partial_+:=\left.\frac{\partial}{\partial x^+}\right|_{x^-}
+=\frac12(\partial_t+\partial_x),\qquad
+\partial_-:=\left.\frac{\partial}{\partial x^-}\right|_{x^+}
+=\frac12(\partial_t-\partial_x).
+$$
+
+[QFT2の正準エネルギー運動量テンソル](../QFT2/index.md#def-qft2-stress)と同様、二つの時空方向を入力するテンソルを $T_{\mu\nu}$ と書き、その二つの $\partial_+$ 方向の成分を $T_{++}=T_{\mu\nu}(\partial_+)^\mu(\partial_+)^\nu$ とします。以下の量子場では、必要な改良と繰り込みを施した応力テンソルを用いるので、正準テンソルと無条件に同じものとはしません。
+
+局所エネルギーには負の値が現れ得ます。例えば[QFT55の円筒真空応力テンソル](../QFT55/index.md#prop-qft55-cylinder-stress)を用いる二次元CFTの円周真空では、平面真空との差で負の一様エネルギー密度が得られます。これは後で扱う平坦な直線時空の完全ヌル線とは別の設定です。単調性だけから $T_{00}(x)\ge0$ や $T_{++}(x)\ge0$ を点ごとに導いてはいけません。
 
 <a id="def-qft62-anec"></a>
 
@@ -213,7 +291,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft62-anec -->
-**定義の確認**：関数 $f(s)=e^{-s^2}(s^2-1/4)$ を試験的なエネルギー密度の形とすると、$f(0)=-1/4<0$ ですが
+**定義の確認（真空の等号例）**：まず真空差し引きの規約を取り、同じMinkowski真空を比較状態 $\rho=\sigma$ とします。このときヌル線上のすべての $s\in\mathbb R$ で
+
+$$
+\langle T_{++}(s,0)\rangle_\rho
+-\langle T_{++}(s,0)\rangle_\sigma=0,
+\qquad
+\Delta\langle\mathcal E_+\rangle=\int_{\mathbb R}0\,ds=0.
+$$
+
+従って積分は有限に存在し、ANECの非負条件を等号で満たします。この例は真空の差に限り、励起状態での非負性の証明ではありません。
+
+**積分条件と点ごとの符号を比較する関数模型**：関数 $f(s)=e^{-s^2}(s^2-1/4)$ を試験的なエネルギー密度の形とします。$|f(s)|\le e^{-s^2}(s^2+1/4)$ で右辺は実数全体で可積分なので、完全線積分が定義できます。$f(0)=-1/4<0$ ですが
 
 $$
 \int_{-\infty}^{\infty}f(s)\,ds
@@ -221,7 +310,15 @@ $$
 =\frac{\sqrt\pi}{4}>0.
 $$
 
-$\int e^{-s^2}ds=\sqrt\pi$ と $\int s^2e^{-s^2}ds=\sqrt\pi/2$ を使いました。これは**点ごとの符号と積分の符号が異なる**ことを示す関数例であり、任意のCFT状態にこの $f$ が実現できるという主張ではありません。
+$I(\alpha)=\int_{\mathbb R}e^{-\alpha s^2}ds=\sqrt{\pi/\alpha}$（$\alpha>0$）を、Gaussianの減衰で微分と積分を交換して微分すると、
+
+$$
+-I'(\alpha)=\int_{\mathbb R}s^2e^{-\alpha s^2}ds
+=\frac{\sqrt\pi}{2\alpha^{3/2}},\qquad
+-I'(1)=\frac{\sqrt\pi}{2}.
+$$
+
+これは**点ごとの符号と積分の符号が異なる**ことを示す関数模型です。積分可能性と符号は実際に確認しましたが、量子状態 $\rho$ と繰り込まれた $T_{++}$ がこの $f$ を実現することまでは示しておらず、任意のCFT状態で実現可能という主張でもありません。
 <!-- definition-example-end -->
 
 どこで幾何が入るかを明示するため、右向きの楔領域のヌル平行移動族を
@@ -314,7 +411,7 @@ D_{\mathrm{nat}}(\rho\Vert\sigma)
 =\frac32\ln2.
 $$
 
-$\ln2>0$ だから、$D_{A,\mathrm{bit}}\le D_{B,\mathrm{bit}}$ の両辺を掛けても $D_{A,\mathrm{nat}}\le D_{B,\mathrm{nat}}$ です。台が一致しないことによる $+\infty$ も底の変更では有限値になりません。
+$\ln2>0$ だから、$D_{A,\mathrm{bit}}\le D_{B,\mathrm{bit}}$ の両辺を掛けても $D_{A,\mathrm{nat}}\le D_{B,\mathrm{nat}}$ です。$\operatorname{supp}\rho\not\subseteq\operatorname{supp}\sigma$ による $+\infty$ も底の変更では有限値になりません。二つの台が一致しなくても、前者が後者に含まれれば相対エントロピーは有限です。
 <!-- solution-end -->
 
 <a id="ex-qft62-a02"></a>
@@ -329,7 +426,17 @@ $\ln2>0$ だから、$D_{A,\mathrm{bit}}\le D_{B,\mathrm{bit}}$ の両辺を掛�
 <!-- solution-start -->
 ### 詳細解答
 
-$\rho_A$ の $|0\rangle$ 成分は $\rho_{00,00}+\rho_{01,01}=1/2+0=1/2$、$|1\rangle$ 成分は $\rho_{10,10}+\rho_{11,11}=0+1/2=1/2$ です。$\sigma$ も各成分 $1/4+1/4=1/2$ なので $\rho_A=\sigma_A=I_2/2$ となります。全系では $\sigma_{AC}>0$ であり、零固有値を持つ $\rho_{AC}$ の $0\ln0$ を0とすると
+[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)では $C$ の添字ごとの対角成分を足すため、
+
+$$
+\begin{aligned}
+(\rho_A)_{00}&=\rho_{00,00}+\rho_{01,01}=\frac12+0=\frac12,\\
+(\rho_A)_{11}&=\rho_{10,10}+\rho_{11,11}=0+\frac12=\frac12,\\
+(\sigma_A)_{00}&=(\sigma_A)_{11}=\frac14+\frac14=\frac12.
+\end{aligned}
+$$
+
+非対角成分は0なので $\rho_A=\sigma_A=I_2/2$ となります。全系では $\sigma_{AC}>0$ であり、零固有値を持つ $\rho_{AC}$ の $0\ln0$ を0とすると
 
 $$
 \begin{aligned}
@@ -424,14 +531,18 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\rho_A,\sigma_A$ と $\tau_C$ の固有値をそれぞれ $r_i,s_j,t_k$ とします。$r_i>0$ の部分では $s_j>0$、$t_k>0$ の部分では対数が取れます。テンソル積の非零固有値は $r_it_k,s_jt_k$ であり、支持空間上の対数のトレースは
+$\rho_A,\sigma_A$ と $\tau_C$ の固有値をそれぞれ $r_i,s_j,t_k$ とし、対応する固有ベクトルを $|i_\rho\rangle,|j_\sigma\rangle,|k_\tau\rangle$ とします。
+
+台の包含条件から、$r_i>0$ なら $|i_\rho\rangle$ は $\sigma_A$ の支持空間に属し、$s_j=0$ の固有ベクトルとの重なりは0です。**$r_i>0$ から全 $s_j>0$ が従うわけではありません。** 対数の項は $r_i,s_j,t_k$ が正の範囲に限って評価し、零固有値の項は $0\ln0=0$ の極限として扱います。
+
+テンソル積の正固有値は $r_it_k,s_jt_k$ です。$\rho_A,\sigma_A$ の固有基底が異なっても、非可換な項のトレースには重なり係数が入るため、支持空間上で
 
 $$
 \begin{aligned}
-D_B&=\sum_{i,j,k}\bigl|\langle i_\rho|j_\sigma\rangle\bigr|^2r_it_k
+D_B&=\sum_{\substack{i:r_i>0\\j:s_j>0\\k:t_k>0}}\bigl|\langle i_\rho|j_\sigma\rangle\bigr|^2r_it_k
 \left(\ln r_i+\ln t_k-\ln s_j-\ln t_k\right)\\
-&=\sum_{i,j}\bigl|\langle i_\rho|j_\sigma\rangle\bigr|^2r_i
-(\ln r_i-\ln s_j)\sum_k t_k\\
+&=\sum_{\substack{i:r_i>0\\j:s_j>0}}\bigl|\langle i_\rho|j_\sigma\rangle\bigr|^2r_i
+(\ln r_i-\ln s_j)\sum_{k:t_k>0} t_k\\
 &=D_A.
 \end{aligned}
 $$
@@ -500,7 +611,7 @@ $$
 \end{aligned}
 $$
 
-Schmidt分解で純粋状態の $S_B=S_{B^c}$、$S_A=S_{A^c}$ が比較状態・参照状態それぞれで成り立つので、第二行が0になります。残る項は[全モジュラーハミルトニアンの定義](#def-qft62-full-modular)より $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$。混合状態では一般に $S_X=S_{X^c}$ は成立せず、この消去はできません。
+[Schmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により純粋状態の $S_B=S_{B^c}$、$S_A=S_{A^c}$ が比較状態・参照状態それぞれで成り立つので、第二行が0になります。残る項は[全モジュラーハミルトニアンの定義](#def-qft62-full-modular)より $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$。混合状態では一般に $S_X=S_{X^c}$ は成立せず、この消去はできません。
 <!-- solution-end -->
 
 <a id="ex-qft62-b04"></a>
@@ -561,7 +672,7 @@ $$
 \end{aligned}
 $$
 
-純粋性とSchmidt分解により $\Delta S_B=\Delta S_{B^c}$ と $\Delta S_A=\Delta S_{A^c}$。従って最後の四つのエントロピー項が消え、[全モジュラー差の定理](#thm-qft62-full-modular-order)の $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$ を再現します。
+純粋性と[Schmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $\Delta S_B=\Delta S_{B^c}$ と $\Delta S_A=\Delta S_{A^c}$。従って最後の四つのエントロピー項が消え、[全モジュラー差の定理](#thm-qft62-full-modular-order)の $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$ を再現します。
 
 **(3) 楔の同定。** $u<v$ なら条件 $x^+>v$ は $x^+>u$ を含意するので $W(v)\subset W(u)$ です。仮定された連続理論で同じ相殺を使って
 
