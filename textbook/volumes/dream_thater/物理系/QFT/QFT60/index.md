@@ -4,7 +4,7 @@
 
 [QFT59の単一区間Rényi普遍項](../QFT59/index.md#prop-qft59-renyi-interval)では、無限直線の真空で区間長 $\ell$ に対する対数を導きました。では、温度 $T>0$ の熱状態で区間を広げ続けると、いつまでも対数だけ増えるのでしょうか。逆に、空間が長さ $L$ の円周なら、区間が円周のほぼ全部を占めるときどうなるでしょうか。
 
-鍵は[QFT55の二種類の円筒写像](../QFT55/index.md#def-qft55-thermal-cylinder)と、[QFT58のtwist演算子のウェイト](../QFT58/index.md#thm-qft58-twist-weight)です。**熱円筒はEuclid時間が周期的、空間円周は空間座標が周期的**であり、同じ指数関数による座標写像でも等時刻の二点差が実数か純虚数かで答えが変わります。二つの導出を独立に確認し、短距離極限、熱力学的な体積項、純粋状態の区間対称性を検算します。
+鍵は[QFT55の熱円筒写像](../QFT55/index.md#def-qft55-thermal-cylinder)・[空間円筒写像](../QFT55/index.md#def-qft55-cylinder-map)と、[QFT58のtwist演算子のウェイト](../QFT58/index.md#thm-qft58-twist-weight)です。**熱円筒はEuclid時間が周期的、空間円周は空間座標が周期的**であり、同じ指数関数による座標写像でも等時刻の二点差が実数か純虚数かで答えが変わります。二つの導出を独立に確認し、短距離極限、熱力学的な体積項、純粋状態の区間対称性を検算します。
 
 対象は二次元ユニタリCFTの左右対称な中心電荷 $c=\bar c\ge0$、一本の区間 $A=[0,\ell]$、短距離cutoff $a>0$ です。場のLorentz符号は $(-,+)$ とし、以下はEuclid相関で計算します。速度とBoltzmann定数は $v=k_B=1$、逆温度は $\beta=1/T>0$ とします。熱円筒では無限直線の熱平衡状態、空間円周では周長 $L>0$ の**平面の恒等演算子に対応する純粋な円筒真空**を使います。熱と空間円周を同時に有限にしたトーラスは、これら二式の適用範囲に含みません。
 
@@ -114,7 +114,7 @@ $$
 整数 $n\ge2$ なので $n-1$ による除算は適法である。有限cutoffからの補正を零と置いたのは主項への射影に限る。
 <!-- proof-end -->
 
-**数値を含まない直接例**：自由bosonの $c=1$ と自由Majoranaの $c=1/2$ では、[中心電荷の計算](../QFT53/index.md#thm-qft53-majorana-central)を適用し、熱円筒の二次Rényiの対数係数はそれぞれ $1/4$ と $1/8$ です。$\beta$ と $\ell$ を同じにしても定数 $k_2$ は模型によって違い得ます。
+**直接例（模型ごとの係数）**：自由bosonの $c=1$ と自由Majoranaの $c=1/2$ では、[中心電荷の計算](../QFT53/index.md#thm-qft53-majorana-central)を適用し、熱円筒の二次Rényiの対数係数はそれぞれ $1/4$ と $1/8$ です。$\beta$ と $\ell$ を同じにしても定数 $k_2$ は模型によって違い得ます。
 
 ## 3. 空間円周には $\sin$ が残る
 
@@ -250,7 +250,7 @@ $$
 
 この線形係数 $\pi c(1+1/n)/(6\beta)$ は、その次数の熱Rényiエントロピーの**長さ当たりの主項**です。$n=1$ の通常の熱力学的エントロピー密度とはまだ同一視しません。後で $n=1$ の条件を明記してから比較します。
 
-一方、円周真空の全系は純粋状態です。ここでは「区間が広ければ熱のように増える」という直感が通用しません。$ho_A$ と補集合 $A^c$ は純粋二分割の同じ非零Schmidt固有値を持つので、[QFT57の部分トレースの定義](../QFT57/index.md#def-qft57-replica-moments)から全次数のエントロピーが等しくなります。
+一方、円周真空の全系は純粋状態です。ここでは「区間が広ければ熱のように増える」という直感が通用しません。$\rho_A$ と補集合の縮約状態 $\rho_{A^c}$ は純粋二分割の同じ非零Schmidt固有値を持つので、[QFT57のcutoff付き領域縮約状態の定義](../QFT57/index.md#def-qft57-regulated-reduction)に従って両側の部分トレースを取ると、全次数のエントロピーが等しくなります。
 
 <a id="prop-qft60-circle-complement"></a>
 
@@ -499,7 +499,7 @@ $c>0$、整数 $n\ge2$ とし、$\alpha_n=c(1+1/n)/6$。$S_n^\beta=\alpha_n\ln[D
 <!-- solution-start -->
 ### 詳細解答
 
-$\partial_\ell\ln\sinh(\pi\ell/\beta)=(\pi/\beta)\coth(\pi\ell/\beta)$ なので
+ここでは $(S_n^\beta)'=dS_n^\beta/d\ell$、$(S_n^\beta)''=d^2S_n^\beta/d\ell^2$ とし、円周側も同様に $\ell$ だけで微分します。$n,c,a,\beta,L$ は固定します。$y=\pi\ell/\beta$ と置けば、連鎖律と $d(\coth y)/dy=-\operatorname{csch}^2y$ により $\partial_\ell\ln\sinh y=(\pi/\beta)\coth y$ なので
 
 $$
 \begin{aligned}
@@ -509,7 +509,7 @@ $$
 \end{aligned}
 $$
 
-一方 $\partial_\ell\ln\sin(\pi\ell/L)=(\pi/L)\cot(\pi\ell/L)$ より
+一方 $y=\pi\ell/L$ と置くと、$d(\cot y)/dy=-\csc^2y$ および $\partial_\ell\ln\sin y=(\pi/L)\cot y$ より
 
 $$
 \begin{aligned}
