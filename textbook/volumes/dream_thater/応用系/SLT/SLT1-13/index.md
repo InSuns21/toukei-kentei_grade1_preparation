@@ -450,7 +450,7 @@ $$
 **問題 SLT1-13-B01（任意の正則化係数で言えること）**
 - Level: B
 
-非空有限クラス $\mathcal H$ の大きさを $M$ とし、$0\le\ell_h\le1$、iid標本、標本抽選前に固定した $\Omega(h)\ge0$、$\lambda\ge0$ を仮定する。誤差 $\varepsilon_{\mathrm{opt}}$ の $\lambda\Omega$ 付きERMについて、確率 $1-\delta$ 以上で
+非空有限クラス $\mathcal H$ の大きさを $M$ とし、$0\le\ell_h\le1$、独立同分布標本、標本抽選前に固定した $\Omega(h)\ge0$、$\lambda\ge0$ を仮定する。誤差 $\varepsilon_{\mathrm{opt}}$ の $\lambda\Omega$ 付きERMについて、確率 $1-\delta$ 以上で
 
 $$
 R(\widetilde h)
@@ -531,7 +531,7 @@ $$
 \longrightarrow\sqrt{\log2}>0.
 $$
 
-損失有界性・標本のiid性・候補集合の標本前固定性は失われていない。候補数が標本数とともに指数的に増えているので、保証の半径が収縮しない。候補を出力後に「固定候補」とみなしてHoeffdingを適用することは許されない。
+損失有界性・標本の独立同分布性・候補集合の標本前固定性は失われていない。候補数が標本数とともに指数的に増えているので、保証の半径が収縮しない。候補を出力後に「固定候補」とみなしてHoeffdingを適用することは許されない。
 <!-- solution-end -->
 
 **問題 SLT1-13-C01（三モデルでのoracle選択）**
