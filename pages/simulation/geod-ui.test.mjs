@@ -32,6 +32,7 @@ const inputs = {
   'c-height-gradient': '3',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
+  'd-inverse-e': '', 'd-inverse-n': '',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
   'f-lat': '35.681236', 'f-lon': '139.767125',
   'f-zone': '9', 'f-datum': 'jgd2011',
@@ -46,6 +47,7 @@ elements.get('show-world').checked = true;
 for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'gsi-credit', 'tile-status',
   'a-lat-v', 'a-lon-v', 'a-f-v', 'b-antipodal-example',
+  'd-copy-to-inverse',
   'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
@@ -252,9 +254,21 @@ test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
   assert.match($('geod-status').textContent, /計算済み/);
   assert.ok($('map').children.length > 10, 'SVG paths generated');
   const cells = $('geod-results').children[0].children[0].children;
-  assert.equal(cells.length, 8);
-  assert.ok(Number(cells[3].children[1].textContent.split('／')[0].trim()) > 1,
+  assert.equal(cells.length, 11);
+  assert.match(cells[2].children[0].textContent, /独立逆級数/);
+  assert.ok(Number(cells[6].children[1].textContent.split('／')[0].trim()) > 1,
     'scale grows away from the central meridian');
+  $('d-copy-to-inverse').handlers.click();
+  assert.ok(Number.isFinite(Number($('d-inverse-e').value)));
+  assert.match($('geod-results').children[0].children[0].children[4].children[1].textContent,
+    /往復残差/);
+  $('d-inverse-e').value = '999999999';
+  $('d-inverse-e').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  $('d-inverse-e').value = '';
+  $('d-inverse-n').value = '';
+  $('d-inverse-e').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'false');
   $('d-model').value = 'sphere';
   $('d-model').handlers.input();
   assert.match(cells[0].children[1].textContent, /楕円体/); // prior table not mutated
@@ -270,11 +284,13 @@ test('equal-area comparison shares the same point and distinguishes local distor
   assert.ok(left.children.filter(x => x.id === 'path').length >= 20);
   assert.ok(right.children.filter(x => x.id === 'path').length >= 20);
   const cells = $('geod-results').children[0].children[0].children;
-  assert.equal(cells.length, 7);
-  assert.match(cells[3].children[0].textContent, /面積比/);
-  const [mercator, equalEarth] = cells[3].children[1].textContent.split('／').map(x => Number(x.trim().replaceAll(',', '')));
+  assert.equal(cells.length, 10);
+  assert.match(cells[4].children[0].textContent, /面積比/);
+  const [mercator, equalEarth] = cells[4].children[1].textContent.split('／').map(x => Number(x.trim().replaceAll(',', '')));
   assert.ok(mercator > 1.9 && mercator < 2.1);
   assert.ok(Math.abs(equalEarth - 1) < 1e-5);
+  assert.match(cells[9].children[0].textContent, /地上1 km²/);
+  assert.match(cells[0].children[1].textContent, /GRS80楕円体/);
   $('e-right').value = 'mollweide'; $('e-right').handlers.input();
   assert.match($('e-right-title').textContent, /Mollweide/);
   $('e-city').value = 'moscow'; $('e-city').handlers.change();
@@ -297,11 +313,13 @@ test('Japanese 19-zone lab exposes fixed origins, axes, scale and datum assumpti
   assert.match($('geod-status').textContent, /計算済み/);
   assert.ok($('f-map').children.filter(element => element.id === 'g').length > 0);
   const cells = $('geod-results').children[0].children[0].children;
-  assert.equal(cells.length, 10);
+  assert.equal(cells.length, 12);
   assert.match(cells[1].children[1].textContent, /EPSG:6677/);
-  assert.match(cells[4].children[0].textContent, /X（北正）/);
-  assert.match(cells[5].children[0].textContent, /Y（東正）/);
-  assert.match(cells[3].children[1].textContent, /0.9999/);
+  assert.match(cells[3].children[0].textContent, /告示に基づく適用区域/);
+  assert.match(cells[5].children[0].textContent, /X（北正）/);
+  assert.match(cells[6].children[0].textContent, /Y（東正）/);
+  assert.match(cells[4].children[1].textContent, /0.9999/);
+  assert.match(cells[10].children[1].textContent, /ポリゴン照合/);
   $('f-zone').value = '8'; $('f-zone').handlers.input();
   assert.equal($('globe-point-zone').value, '8');
   assert.match($('f-map-title').textContent, /VIII/);

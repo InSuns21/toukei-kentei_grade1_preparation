@@ -4,7 +4,7 @@ import {
   DEG, rad, ellipsoid, radii, ecef, enuBasis, norm, dot,
   inverseECEF, geocentricLatitude, inverseGeodesic, vincentyInverseGeodesic,
   traceGeodesic, traceGeodesicRobust,
-  transverseMercator, projectionDistortion,
+  transverseMercator, inverseTransverseMercator, projectionDistortion,
 } from './geod-core.mjs';
 
 const close = (actual, expected, tolerance, description) =>
@@ -90,6 +90,43 @@ test('local transverse Mercator has correct centre, scale and sphere limit', () 
   const ny = scale * R * (Math.atan2(Math.tan(phi), Math.cos(dl)) - base);
   close(xy.E, ex, 2e-8, 'sphere transverse Mercator E');
   close(xy.Np, ny, 2e-8, 'sphere transverse Mercator N');
+});
+
+test('independent Krueger beta inverse solves both ellipsoid and sphere across local branches', () => {
+  for (const model of [grs, ellipsoid(grs.a, 0)]) {
+    for (const [lat, dl, lat0, lon0] of [
+      [0, 0, 0, 0], [42, 0, 36, 139], [-44, -2, -35, -130],
+      [63, 12, 44, 142], [-70, -20, -52, 20], [5, 24, 0, 154],
+    ]) {
+      const opts = { e: model, lat0: rad(lat0), lon0: rad(lon0), k0: .9999 };
+      const actual = transverseMercator(rad(lat), rad(lon0 + dl), opts);
+      const reverse = inverseTransverseMercator(actual.E, actual.Np, opts);
+      close(reverse.phi, rad(lat), 5e-12, 'inverse latitude');
+      close(reverse.lambda, rad(lon0 + dl), 5e-12, 'inverse longitude');
+      assert.ok(reverse.residual < .002, 'round trip in metres');
+    }
+  }
+});
+
+test('inverse Krueger solves independent PROJ Gauss-Boaga centre sample', () => {
+  // PROJ published +proj=tmerc +lon_0=15 +k_0=.9996 +ellps=intl,
+  // output (E+2520000, Np)=(2520000.00, 4649858.60) metres.
+  const opts = { e: ellipsoid(6378388, 1 / 297), lon0: rad(15), k0: .9996 };
+  const recovered = inverseTransverseMercator(0, 4649858.60, opts);
+  close(recovered.phi, rad(42), 1.6e-9, 'published latitude (N rounded to centimetres)');
+  close(recovered.lambda, rad(15), 2e-14, 'published longitude');
+  assert.ok(recovered.residual < .002);
+});
+
+test('inverse Krueger refuses distant or non-finite projected coordinates', () => {
+  const opts = { lon0: rad(139 + 50 / 60), lat0: rad(36), k0: .9999 };
+  for (const [east, north] of [[NaN, 0], [Infinity, 0], [1e9, 0], [0, 1e9]]) {
+    assert.throws(() => inverseTransverseMercator(east, north, opts),
+      /TM_INVERSE_OUT_OF_DOMAIN/);
+  }
+  const outside = transverseMercator(rad(30), rad(163), opts);
+  assert.throws(() => inverseTransverseMercator(outside.E + 800000, outside.Np, opts),
+    /TM_INVERSE_OUT_OF_DOMAIN/);
 });
 
 test('Krueger meridian northing agrees with independent Simpson integral', () => {

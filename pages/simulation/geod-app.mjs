@@ -2,12 +2,12 @@ import {
   GRS80, DEG, rad, deg, ellipsoid, radii, ecef, enuBasis, norm, dot,
   geocentricLatitude, inverseECEF, inverseGeodesic, vincentyInverseGeodesic,
   traceGeodesic, traceGeodesicRobust,
-  transverseMercator, projectionDistortion,
+  transverseMercator, inverseTransverseMercator, projectionDistortion,
 } from './geod-core.mjs';
 import { CITIES, TILE_ZOOM, JAPAN_DETAIL_TILE_LIMIT, mercatorY,
   latitudeAtTileY, visibleXYZTiles, japanDetailTiles } from './geod-map.mjs';
-import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
-  globalDistortion } from './geod-compare.mjs';
+import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, authalicLatitude,
+  ellipsoidalGlobalProjection, ellipsoidalGlobalDistortion } from './geod-compare.mjs';
 import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs';
 import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
   adjustSurveyNetwork } from './geod-survey.mjs';
@@ -570,7 +570,7 @@ function drawGlobalProjectionMap(elementId, projectionId, phi, lambda, distortio
   // not two independently fitted bounding boxes that would hide distortion.
   const scale = 67 / AUTHALIC_RADIUS, cx = 320, cy = 190;
   const xy = (lat, lon) => {
-    const { x, y } = globalProjection(projectionId, lat, lon);
+    const { x, y } = ellipsoidalGlobalProjection(projectionId, lat, lon);
     return [cx + x * scale, cy - y * scale];
   };
   const pathOf = points => points.map(([x, y], i) =>
@@ -615,7 +615,7 @@ function drawGlobalProjectionMap(elementId, projectionId, phi, lambda, distortio
   map.append(svg('text', { x: 18, y: 26, 'font-size': 15,
     fill: '#24394c' }, GLOBAL_PROJECTIONS[projectionId]));
   map.append(svg('text', { x: 18, y: 360, 'font-size': 13,
-    fill: '#24394c' }, '共通尺度：67 px / 球半径 R　｜　緯度 ±80°まで'));
+    fill: '#24394c' }, '共通尺度：67 px / 正積球半径 R　｜　測地緯度 ±80°まで'));
 }
 
 function drawJapanGrid(result) {
@@ -1246,12 +1246,24 @@ function computeD() {
   const e = $('d-model').value === 'sphere' ? ellipsoid(GRS80.a, 0) : ellipsoid();
   const opts = { e, lon0, lat0, k0 };
   const xy = transverseMercator(phi, lambda, opts), d = projectionDistortion(phi, lambda, opts);
+  const back = inverseTransverseMercator(xy.E, xy.Np, opts);
+  const reverseE = get('d-inverse-e'), reverseN = get('d-inverse-n');
+  const reverse = $('d-inverse-e').value.trim() && $('d-inverse-n').value.trim()
+    ? inverseTransverseMercator(reverseE, reverseN, opts) : null;
   state.phi = phi; state.lambda = lambda; state.lon0 = lon0;
   state.fVisual = e.f * 20; state.geodesic = null;
   drawProjectionMap(opts, { phi, lon: lambda }, d);
   showResults([
     ['投影モデル／中央縮尺', (e.f === 0 ? '球面TM' : '楕円体Krüger n⁶') + ' ／ ' + k0],
     ['E（東）／ Np（北）', fmt(xy.E, 3) + ' m ／ ' + fmt(xy.Np, 3) + ' m'],
+    ['順解からの独立逆級数 φ／λ', fmt(deg(back.phi), 9) + '° ／ ' +
+      fmt(deg(back.lambda), 9) + '°'],
+    ['順→逆→順の残差／逆緯度誤差', fmt(back.residual * 1000, 6) + ' mm ／ ' +
+      fmt((back.phi - phi) * e.a * 1000, 6) + ' mm（子午線方向概算）'],
+    ['任意の E/Np を逆変換', reverse
+      ? fmt(deg(reverse.phi), 9) + '° ／ ' + fmt(deg(reverse.lambda), 9) +
+        '°（往復残差 ' + fmt(reverse.residual * 1000, 5) + ' mm）'
+      : '未指定。ボタンで順解の値を転記するか、E/Npを入力。'],
     ['日本式表示 X=Np, Y=E', 'X=' + fmt(xy.Np, 3) + ' m, Y=' + fmt(xy.E, 3) +
       ' m（これは投影パラメータのみの比較値）'],
     ['局所縮尺 k：南北／東西', fmt(d.meridianScale, 9) + ' ／ ' + fmt(d.parallelScale, 9)],
@@ -1264,6 +1276,7 @@ function computeD() {
     '試験点の経度をλ₀と一致させ、kと子午線の傾きがどうなるか確認する。',
     '経度を数度動かし、主縮尺がほぼ一致しても面積比が1とは限らない理由を説明する。',
     '球面と楕円体に切り替えて違いを調べる。k₀変更とdatum変更は別である。',
+    '順解のE/Npを逆変換欄へ転記し、復元する緯度経度と往復残差を調べる。Eを1 km変えると経度はどう動くか。',
   ], '青い実線は中央子午線（λ₀）。橙の突起は試験点Pの楕円体法線。3Dは説明用の20倍扁平率、右図の計算値は実模型。');
 }
 
@@ -1278,10 +1291,15 @@ function computeE() {
     throw new RangeError('投影法を選択してください');
   }
   const phi = rad(lat), lambda = rad(lon);
-  const dl = globalDistortion(left, phi, lambda);
-  const dr = globalDistortion(right, phi, lambda);
-  const pl = globalProjection(left, phi, lambda);
-  const pr = globalProjection(right, phi, lambda);
+  const dl = ellipsoidalGlobalDistortion(left, phi, lambda);
+  const dr = ellipsoidalGlobalDistortion(right, phi, lambda);
+  const pl = ellipsoidalGlobalProjection(left, phi, lambda);
+  const pr = ellipsoidalGlobalProjection(right, phi, lambda);
+  // The same physical one-square-kilometre tangent patch is also projected
+  // locally by Gauss-Krueger. A local TM is never drawn as a world map.
+  const gkCentral = rad(Math.round(lon / 6) * 6);
+  const gk = projectionDistortion(phi, lambda,
+    { lon0: gkCentral, lat0: 0, k0: .9999 });
   state.phi = phi; state.lambda = lambda;
   state.fVisual = GRS80.f * 20;
   state.geodesic = null;
@@ -1295,19 +1313,25 @@ function computeE() {
     fmt(p.x / 1000, 2) + ' / ' + fmt(p.y / 1000, 2) + ' km'];
   const lv = describe(dl, pl), rv = describe(dr, pr);
   showResults([
-    ['比較模型', 'GRS80の等面積球半径 R=' + fmt(AUTHALIC_RADIUS, 3) +
-      ' m。緯度は球面緯度として入力。'],
+    ['比較模型', 'GRS80楕円体（測地緯度 φ）→正積緯度 β→正積球 R=' +
+      fmt(AUTHALIC_RADIUS, 3) + ' m。面積比の分母は楕円体面積要素 M·r。'],
     ['投影法', '左：' + GLOBAL_PROJECTIONS[left] + ' ／ 右：' + GLOBAL_PROJECTIONS[right]],
     ['試験点 P', '緯度 ' + fmt(lat, 4) + '°、経度 ' + fmt(lon, 4) + '°'],
+    ['正積緯度 β', fmt(deg(authalicLatitude(phi)), 9) + '°（測地緯度 φとの相違）'],
     ['面積比 |det J|（左 ／ 右）', lv[0] + ' ／ ' + rv[0]],
     ['主縮尺（長/短）（左 ／ 右）', lv[1] + ' ／ ' + rv[1]],
     ['最大角ひずみ（左 ／ 右）', lv[2] + ' ／ ' + rv[2]],
     ['平面 x/y（左 ／ 右）', lv[3] + ' ／ ' + rv[3]],
+    ['同一点の地域Gauss–Krüger', '中央子午線 ' + fmt(deg(gkCentral), 1) +
+      '°、k₀=0.9999；主縮尺 ' + fmt(gk.major, 7) + '/' + fmt(gk.minor, 7)],
+    ['同じ地上1 km²の局所面積像', 'Gauss–Krüger ' + fmt(gk.areaScale, 7) +
+      ' km² ／ 左 ' + fmt(dl.area, 7) + ' km² ／ 右 ' + fmt(dr.area, 7) + ' km²'],
   ], [
-    '緯度0°・60°でMercatorの面積比を比べる。球面Mercatorの理論値はsec²φ。',
+    '緯度0°・60°で楕円体Mercatorの面積比を比べる。球面のsec²φと同じにはならない理由は何か。',
     'Equal EarthとMollweideの面積比が約1となる一方、主縮尺が一致しない点を探す。',
     '二図の共通尺度と、拡大した微小円の像を区別し、等角と等積を両立できない理由を説明する。',
-  ], '3Dの赤い点Pと二つの全球投影の赤い点は同じ入力経緯度。3Dは誇張楕円体、投影数値は共通の等面積球模型。投影図の指示楕円は線形像の拡大表示です。');
+    '同じ1 km²の地上パッチが地域Gauss–Krügerではk²倍、世界等積図では約1倍になるのを確認する。',
+  ], '3Dの点Pと二つの全球投影は同じGRS80測地緯度を入力。世界図には正積緯度変換を適用し、同じ物理微小円の線形像を拡大表示します。地域Gauss–Krügerは局所比較のみ。');
 }
 
 function computeF() {
@@ -1330,15 +1354,18 @@ function computeF() {
       ? 'JGD2011の経緯度と仮定（EPSG:' + zone.epsg2011 + '）'
       : 'GRS80楕円体の数学計算のみ（datum・EPSG未指定）'],
     ['原点（φ₀，λ₀）', fmt(zone.lat0, 6) + '°N、' + fmt(zone.lon0, 6) + '°E'],
+    ['告示に基づく適用区域の概略', zone.legalAreaNote + '（区域の境界・島の指定は告示が正本）'],
     ['投影法・中央縮尺・原点', 'GRS80横メルカトル n⁶／k₀=' + JAPAN_K0 + '／X₀=Y₀=0 m'],
     ['X（北正）', fmt(X, 3) + ' m'],
     ['Y（東正）', fmt(Y, 3) + ' m'],
     ['原点OからPまでの平面直線距離', fmt(mapDistance / 1000, 6) + ' km（測地線距離ではない）'],
     ['点Pの局所縮尺 k（南北／東西）', fmt(d.meridianScale, 9) + ' ／ ' + fmt(d.parallelScale, 9)],
     ['真北が格子北から東へ傾く角', fmt(deg(d.northBearingFromGrid), 6) + '°（東を正）'],
-    ['適用区域について', farFromMeridian
-      ? '中央子午線から3°超：大きな外挿です。法定適用区域・精度は別途確認。'
-      : '法定適用区域の判定はしていません（国土地理院告示で確認）。'],
+    ['法定適用区域の自動照合', '未実施。市区町村・島しょ境界のポリゴン照合が必要。' +
+      '区域名からの推定や中央子午線までの距離で代用しません。'],
+    ['投影数学の局所性（法定区域と別）', farFromMeridian
+      ? '中央子午線から3°超：局所投影として大きな外挿です。'
+      : '中央子午線から±3°以内。ただし法定適用区域内とは限りません。'],
   ], [
     'まずIX系の原点（北緯36°、東経139°50′）を入力し、X=0・Y=0を確かめる。',
     '原点から北・南・東・西へ少し動かして、XとYの符号を予測・検証する。GISのEasting/Northing順との取り違えに注意。',
@@ -1519,6 +1546,22 @@ $('b-antipodal-example').addEventListener('click', () => {
   recalculate();
 });
 
+$('d-copy-to-inverse').addEventListener('click', () => {
+  try {
+    const read = id => Number($(id).value);
+    const opts = { lon0: rad(read('d-lon0')), lat0: rad(read('d-lat0')),
+      k0: read('d-k0'), e: $('d-model').value === 'sphere'
+        ? ellipsoid(GRS80.a, 0) : ellipsoid() };
+    const xy = transverseMercator(rad(read('d-lat')), rad(read('d-lon')), opts);
+    $('d-inverse-e').value = String(xy.E);
+    $('d-inverse-n').value = String(xy.Np);
+    recalculate();
+  } catch (error) {
+    $('geod-status').dataset.error = 'true';
+    $('geod-status').textContent = error.message;
+  }
+});
+
 for (const button of document.querySelectorAll('[data-lab]')) button.addEventListener('click', () => {
   const previousLab = state.lab;
   state.lab = button.dataset.lab;
@@ -1545,6 +1588,7 @@ for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2
   'c-height-na', 'c-height-dn', 'c-height-ha', 'c-height-hb',
   'c-height-ga', 'c-height-dg', 'c-height-gradient',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
+  'd-inverse-e', 'd-inverse-n',
   'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
     if (['c-gnss-view-azimuth', 'c-gnss-view-tilt'].includes(id)) {
