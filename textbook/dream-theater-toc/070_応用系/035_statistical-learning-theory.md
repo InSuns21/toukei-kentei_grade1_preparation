@@ -18,3 +18,4 @@
 15. [SLT1-15 PAC-Bayes不等式](textbook/volumes/dream_thater/応用系/SLT/SLT1-15/index.md)
 16. [SLT1-16 Le Cam・Fanoと標本複雑度下限](textbook/volumes/dream_thater/応用系/SLT/SLT1-16/index.md)
 17. [SLT1-17 有限辞書・線形予測・ridgeの汎化保証比較](textbook/volumes/dream_thater/応用系/SLT/SLT1-17/index.md)
+18. [SLT1-18 汎化保証の適用条件と破綻例](textbook/volumes/dream_thater/応用系/SLT/SLT1-18/index.md)

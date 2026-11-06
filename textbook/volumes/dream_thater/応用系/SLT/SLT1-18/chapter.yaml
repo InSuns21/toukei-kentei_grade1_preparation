@@ -1,0 +1,46 @@
+id: "SLT1-18"
+title: "汎化保証の適用条件と破綻例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-16
+  - SLT1-17
+official_scope: []
+learning_objectives:
+  - 汎化ギャップ、クラス内超過リスク、Bayes超過リスク、minimax下界の量と確率様式を区別できる
+  - 事前固定された有限候補メニューについて一様偏差界とERMの超過リスク界を証明できる
+  - 標本依存の候補数だけから固定有限クラスの界を流用できない反例を再計算できる
+  - 独立した検証標本への条件付けからデータ依存候補の高確率選択保証を導ける
+  - 非iidの複製標本でHoeffding型集中が破綻する機構を分散から説明できる
+  - 非有界損失の分布自由界への反例と、分散を追加仮定した代替評価を再導出できる
+  - 安定性、PAC-Bayes、Bernstein型速い率、Le Cam・Fano下界を仮定と結論で使い分けられる
+definitions: []
+theorems:
+  - { id: SLT1-18-THM-01, name: 事前固定された有限メニューの事後選択保証 }
+  - { id: SLT1-18-PROP-01, name: 標本依存の二候補クラスでは有限クラス界を流用できない }
+  - { id: SLT1-18-THM-02, name: 独立検証標本によるデータ依存候補の保証 }
+  - { id: SLT1-18-PROP-02, name: 完全複製標本では平方根型集中が破綻する }
+  - { id: SLT1-18-PROP-03, name: 損失に一様上限がなければ分布自由Hoeffding界はない }
+  - { id: SLT1-18-PROP-04, name: 完全に安定でも超過リスクが最大となる算法 }
+canonical_examples:
+  - 固定3候補と5候補の合併で標本前固定と事後選択を分離する
+  - 8点の有限入力で記憶型分類器が経験リスク0かつ母集団リスク5/8となる
+  - 訓練依存8候補を400件の独立検証標本で選択する
+  - 一つの公平Bernoulli観測をn回複製し平均の分散が消えないことを確認する
+  - nに応じてまれな大損失を設計し有限期待値と高確率集中を分離する
+  - 常に悪い予測器を返す安定算法のギャップと超過リスクを比較する
+problem_patterns:
+  - SLT1-18-A01
+  - SLT1-18-A02
+  - SLT1-18-A03
+  - SLT1-18-A04
+  - SLT1-18-A05
+  - SLT1-18-B01
+  - SLT1-18-B02
+  - SLT1-18-B03
+  - SLT1-18-B04
+  - SLT1-18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }
