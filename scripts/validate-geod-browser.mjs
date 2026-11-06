@@ -274,6 +274,40 @@ try {
   await evalJS(`document.querySelector('#c-gnss-count').value='6';
     document.querySelector('#c-gnss-count').dispatchEvent(new Event('input'))`);
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  const noErrorPosition = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(2) td").textContent');
+  await evalJS(`document.querySelector('#c-gnss-stage').value='all';
+    document.querySelector('#c-gnss-stage').dispatchEvent(new Event('input'))`);
+  const rawErrorPosition = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(2) td").textContent');
+  assert.notEqual(rawErrorPosition, noErrorPosition,
+    'satellite-specific clock and atmospheric terms must bias the raw position');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("衛星別：時計")'));
+  await evalJS(`document.querySelector('#c-gnss-correction').value='ideal';
+    document.querySelector('#c-gnss-correction').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-results tbody tr:nth-child(2) td").textContent'),
+    noErrorPosition, 'ideal subtraction of invented terms should recover the baseline');
+
+  const dopBeforeRotate = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td").textContent');
+  await evalJS(`document.querySelector('#c-gnss-view').value='space';
+    document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-space-panel").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-panel").hidden'), true);
+  assert.ok(await evalJS('document.querySelectorAll("#c-gnss-space-map circle").length >= 7'));
+  const spaceBefore = await evalJS('document.querySelector("#c-gnss-space-map").innerHTML');
+  await evalJS(`document.querySelector('#c-gnss-view-azimuth').value='145';
+    document.querySelector('#c-gnss-view-azimuth').dispatchEvent(new Event('input'))`);
+  assert.notEqual(await evalJS('document.querySelector("#c-gnss-space-map").innerHTML'),
+    spaceBefore, 'perspective controls must redraw the synthetic ENU hemisphere');
+  assert.equal(await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td").textContent'),
+    dopBeforeRotate, 'rotating the view must leave DOP unchanged');
+  const perspectiveLayout = await evalJS(`(() => {
+    const map = document.querySelector('#c-gnss-space-map').getBoundingClientRect();
+    return { width: map.width, height: map.height };
+  })()`);
+  assert.ok(perspectiveLayout.width > 200 && perspectiveLayout.width <= 861,
+    '3D schematic should occupy a readable, bounded desktop area: ' +
+    JSON.stringify(perspectiveLayout));
+  await evalJS(`document.querySelector('#c-gnss-view').value='sky';
+    document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
   await evalJS(`document.querySelector('[data-lab="D"]').click();
     document.querySelector('#d-city').value='new-york';
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
@@ -386,6 +420,17 @@ try {
   })()`);
   assert.ok(gnssMobile.outputTop >= gnssMobile.controlsBottom && gnssMobile.width < 360 &&
     gnssMobile.overflow <= 1, 'C mobile GNSS sky view must stack: ' + JSON.stringify(gnssMobile));
+  await evalJS(`document.querySelector('#c-gnss-view').value='space';
+    document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
+  const gnss3dMobile = await evalJS(`(() => {
+    const sky3d = document.querySelector('#c-gnss-space-map').getBoundingClientRect();
+    const camera = document.querySelector('#c-gnss-camera-controls').getBoundingClientRect();
+    return { width: sky3d.width, cameraWidth: camera.width,
+      overflow: document.documentElement.scrollWidth - window.innerWidth };
+  })()`);
+  assert.ok(gnss3dMobile.width < 360 && gnss3dMobile.cameraWidth < 360 &&
+    gnss3dMobile.overflow <= 1, '3D sky/rotation controls should fit 360px: ' +
+    JSON.stringify(gnss3dMobile));
   console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();

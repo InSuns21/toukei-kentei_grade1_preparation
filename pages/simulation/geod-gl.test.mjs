@@ -54,6 +54,9 @@ const values = {
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
   'c-mode': 'survey', 'c-gnss-layout': 'spread', 'c-gnss-count': '6',
   'c-gnss-azimuth': '0', 'c-gnss-elevation': '75', 'c-gnss-clock': '75', 'c-gnss-sigma': '1',
+  'c-gnss-stage': 'none', 'c-gnss-sat-clock': '12', 'c-gnss-iono': '4',
+  'c-gnss-tropo': '2.3', 'c-gnss-correction': 'raw', 'c-gnss-view': 'sky',
+  'c-gnss-view-azimuth': '35', 'c-gnss-view-tilt': '30',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
@@ -74,6 +77,8 @@ for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-p
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
   'f-map-panel', 'f-map', 'f-map-title', 'c-map-panel', 'c-map',
   'c-survey-controls', 'c-gnss-controls', 'c-gnss-panel', 'c-gnss-map',
+  'c-gnss-visual-controls', 'c-gnss-camera-controls', 'c-gnss-space-panel',
+  'c-gnss-space-map',
   'geod-globe-panel']) elements.set(id, new NodeElement(id));
 elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
 elements.set('globe-point-zone-wrap', new NodeElement('globe-point-zone-wrap'));
@@ -159,6 +164,13 @@ test('GNSS sky-view and DOP calculations require no WebGL redraw', () => {
   assert.equal(elements.get('c-map-panel').hidden, true);
   assert.equal(elements.get('c-gnss-panel').hidden, false);
   assert.ok(elements.get('c-gnss-map').children.length > 20);
+  elements.get('c-gnss-view').value = 'space';
+  elements.get('c-gnss-view').handlers.input();
+  assert.equal(elements.get('c-gnss-space-panel').hidden, false);
+  assert.ok(elements.get('c-gnss-space-map').children.length > 20);
+  elements.get('c-gnss-stage').value = 'all';
+  elements.get('c-gnss-stage').handlers.input();
+  assert.equal(calls.draws.length, draws, 'GNSS 3D SVG and staged errors require no WebGL');
   assert.equal(calls.draws.length, draws, 'GNSS runs independently of WebGL');
   elements.get('c-gnss-layout').value = 'low';
   elements.get('c-gnss-layout').handlers.input();

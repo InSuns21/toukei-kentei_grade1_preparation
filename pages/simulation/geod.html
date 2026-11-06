@@ -90,8 +90,24 @@
         <label>S1仰角（度）<input id="c-gnss-elevation" type="number" min="5" max="85" step="5" value="75"></label>
         <label>受信機時計差の距離換算 B＝cΔt（m）<input id="c-gnss-clock" type="number" min="-300" max="300" step="5" value="75"></label>
         <label>擬似距離の共通標準偏差 σP（m）<input id="c-gnss-sigma" type="number" min="0.1" max="5" step="0.1" value="1"></label>
+        <label>段階的に加える誤差
+          <select id="c-gnss-stage">
+            <option value="none">0：追加の系統誤差なし</option>
+            <option value="clock">1：衛星時計差</option>
+            <option value="clock-iono">2：＋電離圏遅延</option>
+            <option value="all">3：＋対流圏遅延</option>
+          </select>
+        </label>
+        <label>衛星時計差の振幅（ns）<input id="c-gnss-sat-clock" type="number" min="0" max="100" step="1" value="12"></label>
+        <label>電離圏の天頂遅延（m）<input id="c-gnss-iono" type="number" min="0" max="20" step="0.5" value="4"></label>
+        <label>対流圏の天頂遅延（m）<input id="c-gnss-tropo" type="number" min="0" max="10" step="0.1" value="2.3"></label>
+        <label>補正の比較
+          <select id="c-gnss-correction"><option value="raw">誤差を補正しない</option>
+            <option value="ideal">合成誤差を既知として理想補正</option></select>
+        </label>
       </div>
-      <p class="aside"><strong>合成GNSS模型</strong>です。衛星は架空の位置に固定、受信機位置の真値は局所E/N/U=(12, −8, 5)m。未知量は位置3成分と時計差の距離換算 B の計4つ。擬似距離＝幾何距離＋B＋固定の合成観測誤差で計算し、<strong>等分散・独立誤差</strong>を仮定します。衛星時計・大気遅延・軌道・地球自転・相対論・datum/epochは扱いません。DOPは無次元の配置指標で、実測誤差を意味しません。</p>
+      <p class="aside">誤差は各衛星ごとに異なる人工値です。衛星時計項は −cΔt<sub>s</sub>、電離圏は単純な薄い殻の仰角依存、対流圏は 1/sin(仰角) の教育用モデルです。「理想補正」は<strong>注入した誤差の真値がすべて分かるという非現実的な比較</strong>で、実際の補正法ではありません。受信機時計差 B は全観測に共通、衛星時計差は衛星ごとです。</p>
+      <p class="aside"><strong>合成GNSS模型</strong>です。衛星は架空の位置に固定、受信機位置の真値は局所E/N/U=(12, −8, 5)m。未知量は位置3成分と時計差の距離換算 B の計4つ。擬似距離＝幾何距離＋B＋独立と仮定した合成観測誤差＋選択した人工系統誤差で計算します。実際の衛星時計補正・大気遅延推定・軌道・地球自転・相対論・datum/epochは扱いません。DOPは無次元の配置指標で、実測誤差を意味しません。</p>
       <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-pseudorange">GEOD9：擬似距離式</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-dop">GEOD9：DOP</a></p>
     </div>
   </section>
@@ -191,6 +207,24 @@
       </figure>
     </div>
 
+    <div class="c-gnss-view-controls" id="c-gnss-visual-controls" hidden>
+      <label>衛星配置の表示
+        <select id="c-gnss-view">
+          <option value="sky">天空図（2D：方位角・仰角）</option>
+          <option value="space">空間配置（3D投影：回転可能）</option>
+        </select>
+      </label>
+      <div id="c-gnss-camera-controls" hidden>
+        <label>視点の回転 <input id="c-gnss-view-azimuth" type="range" min="0" max="360" step="5" value="35"></label>
+        <label>視点の高さ <input id="c-gnss-view-tilt" type="range" min="5" max="85" step="5" value="30"></label>
+      </div>
+    </div>
+    <figure id="c-gnss-space-panel" hidden>
+      <div class="figure-head">C：衛星視線の3D空間配置（ドラッグ・スライダーで回転）</div>
+      <svg id="c-gnss-space-map" viewBox="0 0 720 470" role="img" tabindex="0"
+        aria-label="局所ENUの単位天空半球を斜めから投影した図。原点は受信機、線と点が衛星視線方向。視点スライダーで回転。すべての衛星は同一の模式半径上に配置。" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>受信機Oから衛星方向へ伸ばした<strong>単位視線ベクトル</strong>を同じ半径に正規化して描いた模式図です。衛星間距離・軌道・地球と衛星の実縮尺を表すものではありません。視点を動かしてもGNSSの観測式とDOPは変わりません。</figcaption>
+    </figure>
     <figure id="c-gnss-panel" hidden>
       <div class="figure-head">C：GNSS天空図（北上・東右、外周＝地平線）</div>
       <svg id="c-gnss-map" viewBox="0 0 720 470" role="img" aria-label="天空図。中心が天頂、外周が地平線。衛星S1からS6の方位角と仰角を示す。位置3成分と受信機時計差の精度低下率は下の数値表に表示。" xmlns="http://www.w3.org/2000/svg"></svg>
