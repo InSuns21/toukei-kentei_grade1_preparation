@@ -156,7 +156,7 @@ $$
 
 領域 $A\subseteq B$ の包含を考えると、補領域の向きは逆転して $B^c\subseteq A^c$ となります。ここで $X^c$ は全系のうち $X$ 以外を意味します。
 
-全系で比較状態 $\rho$ と参照 $\sigma$ がともに**純粋状態**なら、[QINF6のSchmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $X$ と $X^c$ の非零固有値は一致します。零固有値はエントロピーに寄与しないため、
+全系で比較状態 $\rho$ と参照 $\sigma$ がともに**純粋状態**なら、[QINF6の両側縮約の非零固有値の一致](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $X$ と $X^c$ の非零固有値は一致します。零固有値はエントロピーに寄与しないため、
 
 $$
 S(\rho_X)=S(\rho_{X^c}),\qquad
@@ -611,7 +611,7 @@ $$
 \end{aligned}
 $$
 
-[Schmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により純粋状態の $S_B=S_{B^c}$、$S_A=S_{A^c}$ が比較状態・参照状態それぞれで成り立つので、第二行が0になります。残る項は[全モジュラーハミルトニアンの定義](#def-qft62-full-modular)より $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$。混合状態では一般に $S_X=S_{X^c}$ は成立せず、この消去はできません。
+[両側縮約の非零固有値の一致](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により純粋状態の $S_B=S_{B^c}$、$S_A=S_{A^c}$ が比較状態・参照状態それぞれで成り立つので、第二行が0になります。残る項は[全モジュラーハミルトニアンの定義](#def-qft62-full-modular)より $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$。混合状態では一般に $S_X=S_{X^c}$ は成立せず、この消去はできません。
 <!-- solution-end -->
 
 <a id="ex-qft62-b04"></a>
@@ -672,7 +672,7 @@ $$
 \end{aligned}
 $$
 
-純粋性と[Schmidt縮約スペクトル定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $\Delta S_B=\Delta S_{B^c}$ と $\Delta S_A=\Delta S_{A^c}$。従って最後の四つのエントロピー項が消え、[全モジュラー差の定理](#thm-qft62-full-modular-order)の $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$ を再現します。
+純粋性と[両側縮約の非零固有値の一致](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)により $\Delta S_B=\Delta S_{B^c}$ と $\Delta S_A=\Delta S_{A^c}$。従って最後の四つのエントロピー項が消え、[全モジュラー差の定理](#thm-qft62-full-modular-order)の $\Delta\langle\widehat K_B-\widehat K_A\rangle\ge0$ を再現します。
 
 **(3) 楔の同定。** $u<v$ なら条件 $x^+>v$ は $x^+>u$ を含意するので $W(v)\subset W(u)$ です。仮定された連続理論で同じ相殺を使って
 
