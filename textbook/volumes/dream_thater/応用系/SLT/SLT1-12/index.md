@@ -348,7 +348,17 @@ g_h(x,y)^2=\boldsymbol1_D(x),\qquad
 Pg_h^2=P_X(D).
 $$
 
-第6節冒頭の条件付き誤り確率の比較から、$x\in D$ で優勢ラベルは $h^\star(x)$ である。Massart条件により $\eta(x)=1/2$ となる入力は $P_X$-零集合なので、Bayes分類器の同点処理にも依存しない。$h^\star(x)=+1$ なら $\mathbb E(g_h\mid X=x)=\eta(x)-(1-\eta(x))=2\eta(x)-1$。$h^\star(x)=-1$ なら $(1-\eta(x))-\eta(x)=1-2\eta(x)$。いずれも
+第6節冒頭の条件付き誤り確率の比較から、$x\in D$ で優勢ラベルは $h^\star(x)$ である。Massart条件により $\eta(x)=1/2$ となる入力は $P_X$-零集合なので、Bayes分類器の同点処理にも依存しない。不一致入力での損失差の条件付き平均を場合分けすると
+
+$$
+\mathbb E[g_h\mid X=x]=
+\begin{cases}
+\eta(x)-(1-\eta(x))=2\eta(x)-1,&h^\star(x)=+1,\\
+(1-\eta(x))-\eta(x)=1-2\eta(x),&h^\star(x)=-1.
+\end{cases}
+$$
+
+いずれも優勢ラベルの確率と劣勢ラベルの確率の差だから、$x\notin D$ では損失差が0になることと合わせて
 
 $$
 \mathbb E[g_h(X,Y)\mid X=x]
@@ -489,7 +499,13 @@ $$
 $Y\in\{-1,+1\}$、$\eta(x)=P(Y=+1\mid X=x)$ は可測とし、$\mathcal H$ はBayes分類器 $h^\star$ を含む可測な二値分類器の有限クラスとする。$P_X$-ほとんど確実に $|2\eta(X)-1|\ge\kappa$ が成立する $\kappa\in(0,1]$ を仮定する。任意の $h$ に対し、入力の不一致集合 $D_h=\{x:h(x)\ne h^\star(x)\}$ と置く。$Pg_h$ と $Pg_h^2$ を $D_h$ と $\eta$ だけで表し、$B=1/\kappa$ のBernstein条件を導け。
 
 <!-- solution-start -->
-**詳細解答**。$X\notin D_h$ では同じ予測で二つの損失が等しいから $g_h=0$。$X\in D_h$ ではラベルが二値なので予測は逆であり、$g_h=\pm1$、従って $g_h^2(X,Y)=\boldsymbol1_{D_h}(X)$ である。条件付き平均を二通りに分ける。$h^\star(x)=+1$ なら $E(g_h\mid X=x)=\eta(x)-(1-\eta(x))=2\eta(x)-1$、$h^\star(x)=-1$ なら $E(g_h\mid X=x)=1-2\eta(x)$。Bayes則により双方とも $|2\eta(x)-1|$ に等しい。よって
+**詳細解答**。$X\notin D_h$ では同じ予測で二つの損失が等しいから $g_h=0$。$X\in D_h$ ではラベルが二値なので予測は逆であり、損失差は $+1$ または $-1$ である。従って
+
+$$
+g_h^2(X,Y)=\boldsymbol1_{D_h}(X).
+$$
+
+次に不一致入力で条件付き平均を二通りに分ける。$h^\star(x)=+1$ なら $E(g_h\mid X=x)=2\eta(x)-1$、$h^\star(x)=-1$ なら $E(g_h\mid X=x)=1-2\eta(x)$ である。Bayes最適性から前者では $\eta(x)\ge1/2$、後者では $\eta(x)\le1/2$ だから、両者とも $|2\eta(x)-1|$ に等しい。よって
 
 $$
 Pg_h^2=P_X(D_h),\qquad
