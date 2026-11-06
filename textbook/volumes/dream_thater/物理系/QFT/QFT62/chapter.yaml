@@ -1,0 +1,40 @@
+id: QFT62
+title: "相対エントロピーの領域単調性と平均ヌルエネルギーへの橋"
+volume: foundations
+status: supplementary
+prerequisites: [QFT61, QINF20, QFT55]
+official_scope: []
+learning_objectives:
+  - 同じ参照状態の領域制限にQINF20のデータ処理不等式を適用し、自然対数への換算と台条件を説明できる
+  - 領域包含の相対エントロピー差を、モジュラーエネルギー差とエントロピー差に分解して検算できる
+  - 純粋状態のSchmidt分解と補領域の逆包含から全モジュラー差の非負性を導ける
+  - 二次元のヌル座標と楔の包含を確認し、完全ヌル線の平均条件と点ごとの条件を区別できる
+  - 幾何学的モジュラー流・極限・正則化に必要な追加仮定を明示して条件付きANEC命題を再導出できる
+definitions:
+  - { id: QFT62-DEF-01, name: 純粋参照状態の全モジュラーハミルトニアン }
+  - { id: QFT62-DEF-02, name: 完全ヌル線上の平均ヌルエネルギー }
+theorems:
+  - { id: QFT62-THM-01, name: 有限格子の領域相対エントロピー単調性 }
+  - { id: QFT62-PROP-01, name: 包含領域のモジュラーエネルギー差の制約 }
+  - { id: QFT62-THM-02, name: 純粋状態の包含領域に対する全モジュラー差の非負性 }
+  - { id: QFT62-PROP-02, name: 楔領域の幾何学的モジュラー流を仮定した平均ヌルエネルギー }
+canonical_examples:
+  - 二量子ビットの相関を捨てることで相対エントロピーがln2から0へ減る計算
+  - 忠実な積参照状態でモジュラーエネルギー差とエントロピー差を別々に検算する
+  - 純粋二量子ビットのSchmidt固有値から全モジュラー演算子の成分を確認する
+  - Gaussian型の符号変化関数で点ごとの負と完全積分の正を区別する
+problem_patterns:
+  - QFT62-LOG-BASE
+  - QFT62-TRACE-STRICT
+  - QFT62-COMPLEMENT-INCLUSION
+  - QFT62-NULL-COORDINATES
+  - QFT62-AVERAGED-VS-POINTWISE
+  - QFT62-TRACE-EQUALITY
+  - QFT62-MODULAR-BALANCE
+  - QFT62-PURE-ENTROPY-CANCELLATION
+  - QFT62-BOOST-SHIFT
+  - QFT62-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 16, review: 6 }

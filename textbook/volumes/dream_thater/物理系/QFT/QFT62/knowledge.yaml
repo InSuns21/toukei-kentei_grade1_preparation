@@ -1,0 +1,48 @@
+chapter: QFT62
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT61, QINF20, QFT55]
+forward_references: []
+
+concepts:
+  - id: qft.region-relative-entropy-monotonicity
+    name: 有限格子の領域相対エントロピー単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限格子の領域相対エントロピー単調性）]
+    requires: [quantum.relative-entropy-data-processing]
+
+  - id: qft.nested-modular-balance
+    name: 包含領域のモジュラーエネルギー差の制約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（包含領域のモジュラーエネルギー差の制約）]
+    requires: [qft.region-relative-entropy-monotonicity, qft.modular-relative-entropy-balance]
+
+  - id: qft.full-modular-hamiltonian
+    name: 純粋参照状態の全モジュラーハミルトニアン
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（純粋参照状態の全モジュラーハミルトニアン）]
+    requires: [qft.normalized-modular-hamiltonian]
+
+  - id: qft.full-modular-inclusion
+    name: 純粋状態の包含領域に対する全モジュラー差の非負性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（純粋状態の包含領域に対する全モジュラー差の非負性）]
+    requires: [qft.full-modular-hamiltonian, qft.region-relative-entropy-monotonicity]
+
+  - id: qft.averaged-null-energy
+    name: 完全ヌル線上の平均ヌルエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（完全ヌル線上の平均ヌルエネルギー）]
+    requires: [qft.canonical-stress-tensor]
+
+  - id: qft.conditional-anec-from-modular
+    name: 楔領域の幾何学的モジュラー流を仮定した平均ヌルエネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（楔領域の幾何学的モジュラー流を仮定した平均ヌルエネルギー）]
+    requires: [qft.averaged-null-energy, qft.full-modular-inclusion]

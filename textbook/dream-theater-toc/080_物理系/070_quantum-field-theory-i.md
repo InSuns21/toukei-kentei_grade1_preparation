@@ -62,3 +62,4 @@
 59. [QFT59 単一区間のRényi・von Neumannエントロピーと普遍係数](textbook/volumes/dream_thater/物理系/QFT/QFT59/index.md)
 60. [QFT60 有限温度・有限円周の区間エントロピーと極限](textbook/volumes/dream_thater/物理系/QFT/QFT60/index.md)
 61. [QFT61 局所モジュラーハミルトニアンとエンタングルメント第一法則](textbook/volumes/dream_thater/物理系/QFT/QFT61/index.md)
+62. [QFT62 相対エントロピーの領域単調性と平均ヌルエネルギーへの橋](textbook/volumes/dream_thater/物理系/QFT/QFT62/index.md)
