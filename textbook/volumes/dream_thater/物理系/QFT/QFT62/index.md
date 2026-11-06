@@ -205,7 +205,7 @@ $$
 =\operatorname{diag}\left(\frac34,\frac14\right).
 $$
 
-ここで行列は指定した正規直交基底での表示です。固有値 $3/4,1/4$ は正で和が1なので、両縮約は忠実な密度演算子です。[QFT61の対数の定義](../QFT61/index.md#def-qft61-modular-hamiltonian)から
+ここで行列は指定した正規直交基底での表示です。固有値 $3/4,1/4$ は正で和が1なので、両縮約は忠実な密度演算子です。[QFT61の規格化モジュラーハミルトニアンの定義](../QFT61/index.md#def-qft61-modular-hamiltonian)から
 
 $$
 K_X=K_{X^c}=\operatorname{diag}\left(\ln\frac43,\ln4\right)
