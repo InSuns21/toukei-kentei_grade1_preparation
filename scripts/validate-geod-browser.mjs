@@ -549,9 +549,15 @@ try {
 
   // Exercise actual keyboard events rather than calling synthetic click().
   await cdp('Emulation.clearDeviceMetricsOverride');
+  // Headless Chrome can retain an unfocused target after viewport emulation.
+  // Input.dispatchKeyEvent targets the active page, so foreground it first.
+  await cdp('Page.bringToFront');
   await evalJS(`document.querySelector('[data-lab="A"]').focus()`);
+  assert.equal(await evalJS('document.activeElement?.dataset?.lab'), 'A',
+    'keyboard test must focus the actual lab button');
   await cdp('Input.dispatchKeyEvent', {
     type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13,
+    nativeVirtualKeyCode: 13, text: '\r', unmodifiedText: '\r',
   });
   await cdp('Input.dispatchKeyEvent', {
     type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13,
