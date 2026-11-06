@@ -57,3 +57,4 @@
 54. [QFT54 OPE・大域共形ブロックと四点関数の交差対称性](textbook/volumes/dream_thater/物理系/QFT/QFT54/index.md)
 55. [QFT55 平面–円筒写像・Schwarzianと有限サイズ・熱的相関](textbook/volumes/dream_thater/物理系/QFT/QFT55/index.md)
 56. [QFT56 境界自由場・区間のUV正則化と熱的尺度](textbook/volumes/dream_thater/物理系/QFT/QFT56/index.md)
+57. [QFT57 局所領域の縮約状態・格子正則化とエンタングルメント](textbook/volumes/dream_thater/物理系/QFT/QFT57/index.md)
