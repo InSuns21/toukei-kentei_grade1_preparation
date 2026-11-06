@@ -556,7 +556,27 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-同じ $D_\beta$ に対して $C_n(D_\beta/a)^{-p_n}=C'_n(D_\beta/a')^{-p_n}=C'_n\lambda^{p_n}(D_\beta/a)^{-p_n}$ なので $C'_n=C_n\lambda^{-p_n}$ です。[QFT59のcutoff再表示命題](../QFT59/index.md#prop-qft59-cutoff-shift)と一致します。一方 $\beta$ を変えると $D_{2\beta}(\ell)=2\beta\sinh(\pi\ell/(2\beta))/\pi$ となり、$D_\beta$ との比は $\ell$ に依存します。たとえば $\ell/\beta\ll1$ では比が1に近いのに $\ell/\beta\gg1$ では指数比が変化します。定数 $C_n$ の再表示で全長さの差を吸収できないので、これは温度という物理状態の変更です。
+同じ円筒尺度 $D_\beta$ と同じ物理的モーメントを表示するとき、$a'=\lambda a$ より
+
+$$
+\begin{aligned}
+C_n(D_\beta/a)^{-p_n}
+&=C'_n(D_\beta/a')^{-p_n}\\
+&=C'_n\lambda^{p_n}(D_\beta/a)^{-p_n}.
+\end{aligned}
+$$
+
+正の共通因子を消去すると $C'_n=C_n\lambda^{-p_n}$。これは[QFT59のcutoff再表示命題](../QFT59/index.md#prop-qft59-cutoff-shift)に一致します。
+
+一方、逆温度を変更すると、$y=\pi\ell/\beta>0$ と置いて
+
+$$
+\frac{D_{2\beta}(\ell)}{D_\beta(\ell)}
+=\frac{2\sinh(y/2)}{\sinh y}
+=\frac{1}{\cosh(y/2)}.
+$$
+
+最後の等号には $\sinh y=2\sinh(y/2)\cosh(y/2)$ を使いました。この比は $\ell/\beta\to0$ で1、$\ell/\beta\to\infty$ で0となり、一定ではありません。長さに依存する変化を係数 $C_n$ の一定の再表示で吸収できないため、温度変更は物理状態の変更です。
 <!-- solution-end -->
 
 <a id="ex-qft60-b05"></a>
