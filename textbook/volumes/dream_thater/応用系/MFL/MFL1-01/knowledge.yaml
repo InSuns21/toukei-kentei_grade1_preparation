@@ -1,0 +1,64 @@
+chapter: MFL1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO3
+  - GEO12
+  - F0-00P3
+
+concepts:
+  - id: manifold-learning.dimension-triple
+    name: 観測次元・内在次元・表現次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測次元・内在次元・表現次元）"]
+    requires: [geometry.embedded-submanifold]
+
+  - id: manifold-learning.clean-sample-model
+    name: 多様体上の独立同分布標本模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多様体上の独立同分布標本模型）"]
+    requires: [manifold-learning.dimension-triple, geometry.riemannian-volume-coordinate, prob.distribution-law, prob.independent-random-variables]
+
+  - id: manifold-learning.distribution-support
+    name: 分布の支持集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分布の支持集合）"]
+    requires: [prob.distribution-law]
+
+  - id: manifold-learning.support-equals-manifold
+    name: 正の密度をもつ真の分布の支持
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正の密度をもつ真の分布の支持）"]
+    requires: [manifold-learning.clean-sample-model, manifold-learning.distribution-support]
+
+  - id: manifold-learning.missing-region-probability
+    name: 独立標本が領域を外す確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立標本が領域を外す確率）"]
+    requires: [manifold-learning.clean-sample-model, prob.independent-random-variables]
+
+  - id: manifold-learning.additive-observation-noise
+    name: 加法観測ノイズ模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法観測ノイズ模型）"]
+    requires: [manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.gaussian-noise-full-support
+    name: 独立Gaussianノイズ後の支持
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立 Gaussian ノイズ後の支持）"]
+    requires: [manifold-learning.additive-observation-noise, manifold-learning.distribution-support]
+
+  - id: manifold-learning.noisy-covariance
+    name: 等方ノイズ後の共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等方ノイズ後の共分散）"]
+    requires: [manifold-learning.additive-observation-noise, prob.covariance]

@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂日: 2026-11-03（教科書再照合、ML/GA完成による依存更新、幾何と統計の保証の区別を強化）  
-状態: planned（本PLAN設計改訂のみ。MFL固有の教材本文・series manifestは未実装）
+状態: in_progress（MFL1-01 完成、MFL1-02〜21・MFL2-01〜22 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -263,9 +263,9 @@ ML1-12 + ML2-15 → MFL2-22（対照実験）
 
 ## 8. series manifest・実装・完了ゲート
 
-1. 本改訂は**設計のみ**のためPLANを textbook/plans/ に留める。章が存在するかのようにmanifest、chapter.yaml、knowledge.yamlや公開indexを捏造しない。
+1. MFL1-01 の着手に伴い PLAN を textbook/plans_progress/ へ移動し、実在する完成章のみを公開索引へ登録する。未執筆章の本文・metadata は作らない。
 2. 着手前にGitHub上の本PLAN、SGT.yaml、**完成済みML・GAの系列manifestと必要なchapter.yaml/knowledge.yaml・本文stable anchor**、直接必要なGEO/LA/RA/HDP、知識DAG、MFL1-01〜21・MFL2-01〜22のID衝突を確認する。
-3. MFL固有の本文・検証・系列manifestの着手時にPLANを plans_progress/ へ**移動**し、同じ作業単位で適切なseries manifest（MFL.yaml等）を実際に作成する。manifestのplan参照を新パスへ揃える。PLANを二重配置しない。
+3. MFL1-01 の実装と同じ作業単位で MFL.yaml を作成し、manifest の plan 参照を plans_progress/ の新パスへ合わせる。PLAN を二重配置しない。
 4. manifestの上から連続するcompletedの次の最初のplannedを進め、完了時には**MFLのmanifestだけ**を更新。common routingへ単一active seriesを置かない。
 5. 新章はDREAM_THEATER_AUTHORING_STANDARDの変更区分Cに従い、全主要証明・全演習/詳細解答の出発点からの再計算と別観点再読を行う。局所数学変更は区分Bの波及先、表示のみの変更は区分Aの意味内容同値・レンダリング確認を使う。
 6. 章別の演習/knowledge/concept/KaTeX/proof-formal/Pages link・実表示と実験テストを変更範囲に応じて検証する。global-impact変更はfull validationへ昇格。CI成功だけで数学的完成と判定しない。
@@ -274,3 +274,9 @@ ML1-12 + ML2-15 → MFL2-22（対照実験）
 9. **別の完了章の追跡監査は章IDを明示したユーザー依頼があるときだけ**。通常の新章着手に「直前完了章の追跡監査」を自動追加しない。
 
 **章数到達、形式的marker、未確認の一般定理、CI greenだけを完了証拠とはしない。**
+
+## 9. 実装進捗（2026-11-07）
+
+- **MFL1-01 completed**：多様体標本模型、次元・密度・支持・独立標本の欠落確率、観測ノイズと識別不能性。主要命題4件と A4/B3/C1 の詳細解答を実装。
+- **MFL1-02〜MFL1-21、MFL2-01〜MFL2-22 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
