@@ -461,7 +461,23 @@ $n\ge1$、$d\ge1$、$B,R,\gamma>0$、$0<\delta<1$ を固定する。$(X_i,Y_i)\s
    \end{aligned}
    $$
 
-3. $f_w(x,y)=\phi_\gamma(y\langle w,x\rangle)$、$D_+(S)=\sup_{w\in W_0}(Pf_w-P_nf_w)$ とおく。$W_0$ は標本と独立で、$0\le f_w\le1$ なので[対称化](../SLT1-10/index.md#thm-slt1-10-symmetrization)と第2問により $\mathbb ED_+\le2BR/(\gamma\sqrt n)$。一標本交換で $\sup$ の変化は高々 $1/n$ だから、[McDiarmid不等式](../../../解析系/HDP/HDP4/index.md#thm-hdp4-mcdiarmid)の $\sum c_i^2=1/n$ によって、確率 $1-\delta$ で $D_+\le2BR/(\gamma\sqrt n)+\sqrt{\log(1/\delta)/(2n)}$。重みに関する $f_w$ は $R/\gamma$-Lipschitzで、標本平均・母集団平均とも重みについて連続だから、稠密性で全 $\|w\|\le B$ に拡張できる。第1問の上下界を両端に挿入して
+3. 損失関数と一方向の偏差を次のように置く。
+
+   $$
+   f_w(x,y)=\phi_\gamma(y\langle w,x\rangle),\qquad
+   D_+(S)=\sup_{w\in W_0}(Pf_w-P_nf_w).
+   $$
+
+   $W_0$ は標本と独立で、$0\le f_w\le1$ なので、[対称化](../SLT1-10/index.md#thm-slt1-10-symmetrization)と第2問により $\mathbb ED_+\le2BR/(\gamma\sqrt n)$。一標本交換による上限の変化は高々 $1/n$ である。
+
+   そこで[McDiarmid不等式](../../../解析系/HDP/HDP4/index.md#thm-hdp4-mcdiarmid)に幅の二乗和 $\sum c_i^2=1/n$ を代入すると、確率 $1-\delta$ 以上で
+
+   $$
+   D_+(S)\le\frac{2BR}{\gamma\sqrt n}
+   +\sqrt{\frac{\log(1/\delta)}{2n}}
+   $$
+
+   を得る。重みに関して $f_w$ は $R/\gamma$-Lipschitzだから、標本平均・母集団平均も連続である。稠密性で全ての $\|w\|\le B$ に拡張し、第1問の上下界を両端に挿入して
 
    $$
    \Pr\{Y\langle w,X\rangle\le0\}
