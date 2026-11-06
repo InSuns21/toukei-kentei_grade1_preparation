@@ -12,5 +12,5 @@ chapters:
     title: 有限状態の確率軌道・仕事・熱・エントロピー生成
   - id: ITD2
     path: textbook/volumes/dream_thater/物理系/ITD/ITD2
-    status: planned
+    status: completed
     title: 時間反転・積分型ゆらぎ関係・Jarzynski等式・Crooks関係

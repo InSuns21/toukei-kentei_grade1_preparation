@@ -63,6 +63,7 @@ const values = {
   'c-height-gradient': '3',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
+  'd-inverse-e': '', 'd-inverse-n': '',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
   'f-lat': '35.681236', 'f-lon': '139.767125',
   'f-zone': '9', 'f-datum': 'jgd2011',
@@ -74,7 +75,7 @@ const values = {
 const elements = new Map(Object.entries(values).map(([id, value]) => [id, new NodeElement(id, value)]));
 for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
-  'b-antipodal-example',
+  'b-antipodal-example', 'd-copy-to-inverse',
   'osm-credit', 'gsi-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
   'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',

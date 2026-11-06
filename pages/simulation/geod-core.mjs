@@ -214,14 +214,7 @@ export function traceGeodesic(phi, lambda, azimuth, distance, e = ellipsoid(), s
 
 // Karney/Krueger n-series to n^6; local ellipsoidal transverse Mercator.
 // This is a local projection, deliberately rejects distant/branched inputs.
-export function transverseMercator(phi, lambda, options = {}) {
-  const { e = ellipsoid(), lon0 = 0, lat0 = 0, k0 = 0.9999 } = options;
-  const dl = wrapLongitude(lambda - lon0);
-  if (![phi, lambda, lon0, lat0, k0].every(Number.isFinite) ||
-      !(k0 > 0) || Math.abs(phi) > rad(80) || Math.abs(lat0) > rad(80) ||
-      Math.abs(dl) > rad(25)) {
-    throw new RangeError('TM_LOCAL_DOMAIN: |緯度|≤80°, |中央子午線との差|≤25°, k0>0');
-  }
+function krugerCoefficients(e) {
   const n = e.f / (2 - e.f), n2 = n * n, n3 = n2 * n;
   const n4 = n2 * n2, n5 = n4 * n, n6 = n3 * n3;
   const A = e.a / (1 + n) * (1 + n2 / 4 + n4 / 64 + n6 / 256);
@@ -233,23 +226,102 @@ export function transverseMercator(phi, lambda, options = {}) {
     34729 * n5 / 80640 - 3418889 * n6 / 1995840,
     212378941 * n6 / 319334400,
   ];
-  const raw = (latitude, longitudeDifference) => {
-    const tau = Math.tan(latitude), ecc = Math.sqrt(e.e2);
-    const sigma = Math.sinh(ecc * Math.atanh(ecc * tau / Math.hypot(1, tau)));
-    const tauPrime = tau * Math.hypot(1, sigma) - sigma * Math.hypot(1, tau);
-    const xi0 = Math.atan2(tauPrime, Math.cos(longitudeDifference));
-    const eta0 = Math.asinh(Math.sin(longitudeDifference) /
-      Math.hypot(tauPrime, Math.cos(longitudeDifference)));
-    let xi = xi0, eta = eta0;
-    alphas.forEach((alpha, i) => {
-      const p = 2 * (i + 1);
-      xi += alpha * Math.sin(p * xi0) * Math.cosh(p * eta0);
-      eta += alpha * Math.cos(p * xi0) * Math.sinh(p * eta0);
-    });
-    return [xi, eta];
-  };
-  const [xi, eta] = raw(phi, dl), [xiOrigin] = raw(lat0, 0);
+  // beta_j = - row_j(C_chi,mu) · [n,n²,...,n⁶].  The outside minus
+  // sign belongs to the inverse series zeta'=zeta-sum(beta*sin(2j*zeta)).
+  // Reference: PROJ tmerc, ellipsoidal Krueger n^6 coefficient matrices.
+  const betas = [
+    n / 2 - 2 * n2 / 3 + 37 * n3 / 96 - n4 / 360 - 81 * n5 / 512 + 96199 * n6 / 604800,
+    n2 / 48 + n3 / 15 - 437 * n4 / 1440 + 46 * n5 / 105 - 1118711 * n6 / 3870720,
+    17 * n3 / 480 - 37 * n4 / 840 - 209 * n5 / 4480 + 5569 * n6 / 90720,
+    4397 * n4 / 161280 - 11 * n5 / 504 - 830251 * n6 / 7257600,
+    4583 * n5 / 161280 - 108847 * n6 / 3991680,
+    20648693 * n6 / 638668800,
+  ];
+  return { A, alphas, betas };
+}
+
+function krugerForwardRaw(phi, dl, e, alphas) {
+  const tau = Math.tan(phi), ecc = Math.sqrt(e.e2);
+  const sigma = Math.sinh(ecc * Math.atanh(ecc * tau / Math.hypot(1, tau)));
+  const tauPrime = tau * Math.hypot(1, sigma) - sigma * Math.hypot(1, tau);
+  const xi0 = Math.atan2(tauPrime, Math.cos(dl));
+  const eta0 = Math.asinh(Math.sin(dl) / Math.hypot(tauPrime, Math.cos(dl)));
+  let xi = xi0, eta = eta0;
+  alphas.forEach((alpha, i) => {
+    const p = 2 * (i + 1);
+    xi += alpha * Math.sin(p * xi0) * Math.cosh(p * eta0);
+    eta += alpha * Math.cos(p * xi0) * Math.sinh(p * eta0);
+  });
+  return [xi, eta];
+}
+
+function assertTMLocalParameters(lat0, lon0, k0) {
+  if (![lat0, lon0, k0].every(Number.isFinite) || !(k0 > 0) ||
+      Math.abs(lat0) > rad(80)) {
+    throw new RangeError('TM_LOCAL_DOMAIN: |緯度|≤80°, |中央子午線との差|≤25°, k0>0');
+  }
+}
+
+export function transverseMercator(phi, lambda, options = {}) {
+  const { e = ellipsoid(), lon0 = 0, lat0 = 0, k0 = 0.9999 } = options;
+  const dl = wrapLongitude(lambda - lon0);
+  assertTMLocalParameters(lat0, lon0, k0);
+  if (![phi, lambda].every(Number.isFinite) ||
+      Math.abs(phi) > rad(80) || Math.abs(dl) > rad(25)) {
+    throw new RangeError('TM_LOCAL_DOMAIN: |緯度|≤80°, |中央子午線との差|≤25°, k0>0');
+  }
+  const { A, alphas } = krugerCoefficients(e);
+  const [xi, eta] = krugerForwardRaw(phi, dl, e, alphas);
+  const [xiOrigin] = krugerForwardRaw(lat0, 0, e, alphas);
   return { E: k0 * A * eta, Np: k0 * A * (xi - xiOrigin) };
+}
+
+// Inverse Krueger n^6 mapping.  This is a *separate* beta-series algorithm,
+// not a call to forward projection wrapped in a generic 2D Newton solver.
+// E = easting; Np = northing.  Reject inverse inputs outside the same local
+// branch as transverseMercator, including roots beyond its latitude domain.
+export function inverseTransverseMercator(E, Np, options = {}) {
+  const { e = ellipsoid(), lon0 = 0, lat0 = 0, k0 = 0.9999 } = options;
+  assertTMLocalParameters(lat0, lon0, k0);
+  if (![E, Np].every(Number.isFinite) || Math.abs(E) > e.a || Math.abs(Np) > 2 * e.a) {
+    throw new RangeError('TM_INVERSE_OUT_OF_DOMAIN: 有限な局所投影座標が必要です');
+  }
+  const { A, alphas, betas } = krugerCoefficients(e);
+  const [xiOrigin] = krugerForwardRaw(lat0, 0, e, alphas);
+  const xi = xiOrigin + Np / (k0 * A), eta = E / (k0 * A);
+  let xiPrime = xi, etaPrime = eta;
+  betas.forEach((beta, i) => {
+    const p = 2 * (i + 1);
+    xiPrime -= beta * Math.sin(p * xi) * Math.cosh(p * eta);
+    etaPrime -= beta * Math.cos(p * xi) * Math.sinh(p * eta);
+  });
+  const chi = Math.atan2(Math.sin(xiPrime), Math.hypot(Math.sinh(etaPrime), Math.cos(xiPrime)));
+  const dl = Math.atan2(Math.sinh(etaPrime), Math.cos(xiPrime));
+  // Invert conformal latitude: asinh(tan(phi))-e*atanh(e*sin(phi))=asinh(tan(chi)).
+  // For the physical GRS80 or spherical models, monotone Newton converges
+  // rapidly. Keep a bracket so numerical failures cannot silently return.
+  const ecc = Math.sqrt(e.e2), target = Math.asinh(Math.tan(chi));
+  let phi = chi, iterations = 0, lo = -Math.PI / 2, hi = Math.PI / 2;
+  for (let i = 0; i < 24; i++) {
+    const residual = Math.asinh(Math.tan(phi)) - ecc * Math.atanh(ecc * Math.sin(phi)) - target;
+    if (Math.abs(residual) < 4e-15) break;
+    if (residual < 0) lo = phi;
+    else hi = phi;
+    const derivative = (1 - e.e2) /
+      (Math.cos(phi) * (1 - e.e2 * Math.sin(phi) ** 2));
+    const next = phi - residual / derivative;
+    phi = Number.isFinite(next) && next > lo && next < hi ? next : (lo + hi) / 2;
+    iterations++;
+  }
+  const lambda = wrapLongitude(lon0 + dl);
+  if (!Number.isFinite(phi) || !Number.isFinite(lambda) ||
+      Math.abs(phi) > rad(80) + 1e-12 || Math.abs(dl) > rad(25) + 1e-12) {
+    throw new RangeError('TM_INVERSE_OUT_OF_DOMAIN: 順変換の局所枝を外れました');
+  }
+  const roundTrip = transverseMercator(phi, lambda, options);
+  const residual = Math.hypot(roundTrip.E - E, roundTrip.Np - Np);
+  if (!(residual < .002)) throw new RangeError('TM_INVERSE_MISMATCH: 順逆の残差が2 mmを超えます');
+  return { phi, lambda, iterations, residual };
 }
 
 // Differentiate the actual numerical forward map. M and r (metres/radian)
@@ -257,10 +329,27 @@ export function transverseMercator(phi, lambda, options = {}) {
 export function projectionDistortion(phi, lambda, options = {}) {
   const e = options.e ?? ellipsoid(), d = 2e-6;
   const f = (p, l) => transverseMercator(p, l, options);
-  const pp = f(phi + d, lambda), pm = f(phi - d, lambda);
-  const lp = f(phi, lambda + d), lm = f(phi, lambda - d);
-  const ep = [(pp.E - pm.E) / (2 * d), (pp.Np - pm.Np) / (2 * d)];
-  const el = [(lp.E - lm.E) / (2 * d), (lp.Np - lm.Np) / (2 * d)];
+  // At the accepted ±80° edge, a centred difference would sample outside
+  // the documented TM branch. Use a one-sided tangent there instead.
+  let pp, pm, meridianStep;
+  if (phi >= rad(80) - d) {
+    pp = f(phi, lambda); pm = f(phi - d, lambda); meridianStep = d;
+  } else if (phi <= -rad(80) + d) {
+    pp = f(phi + d, lambda); pm = f(phi, lambda); meridianStep = d;
+  } else {
+    pp = f(phi + d, lambda); pm = f(phi - d, lambda); meridianStep = 2 * d;
+  }
+  const deltaLon = wrapLongitude(lambda - (options.lon0 ?? 0));
+  let lp, lm, parallelStep;
+  if (deltaLon >= rad(25) - d) {
+    lp = f(phi, lambda); lm = f(phi, lambda - d); parallelStep = d;
+  } else if (deltaLon <= -rad(25) + d) {
+    lp = f(phi, lambda + d); lm = f(phi, lambda); parallelStep = d;
+  } else {
+    lp = f(phi, lambda + d); lm = f(phi, lambda - d); parallelStep = 2 * d;
+  }
+  const ep = [(pp.E - pm.E) / meridianStep, (pp.Np - pm.Np) / meridianStep];
+  const el = [(lp.E - lm.E) / parallelStep, (lp.Np - lm.Np) / parallelStep];
   const { M, r } = radii(phi, e);
   const u = ep.map(x => x / M), v = el.map(x => x / r);
   const g11 = dot(u, u), g22 = dot(v, v), g12 = dot(u, v);

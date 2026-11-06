@@ -27,10 +27,35 @@ const declarations = [
 const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X',
   'XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX'];
 
+// Condensed reading aid to the legal area of use (GSI notice No.9/2002).
+// A lat/lon alone cannot establish municipal/island membership: these strings
+// are NOT a polygon test, and they must not drive automatic zone assignment.
+const legalAreas = [
+  '長崎県、および鹿児島県の告示で指定された島しょ区域（緯度経度境界に例外あり）',
+  '福岡・佐賀・熊本・大分・宮崎県、およびI系を除く鹿児島県',
+  '山口・島根・広島県',
+  '香川・愛媛・徳島・高知県',
+  '兵庫・鳥取・岡山県',
+  '京都・大阪・福井・滋賀・三重・奈良・和歌山府県',
+  '石川・富山・岐阜・愛知県',
+  '新潟・長野・山梨・静岡県',
+  '福島・栃木・茨城・埼玉・千葉・群馬・神奈川県、およびXIV・XVIII・XIX系指定区域を除く東京都',
+  '青森・秋田・山形・岩手・宮城県',
+  '北海道の渡島・檜山・後志など、告示指定の市町村・振興局区域',
+  '北海道のXI・XIII系指定区域を除く区域',
+  '北海道の十勝・釧路・根室など、告示指定の市町村・振興局区域と北方四島',
+  '東京都の北緯28°以南・東経140°30′以東・東経143°以西の島しょ区域',
+  '沖縄県の東経126°以東・東経130°以西の区域',
+  '沖縄県の東経126°以西の区域',
+  '沖縄県の東経130°以東の区域',
+  '東京都の北緯28°以南・東経140°30′以西の島しょ区域',
+  '東京都の北緯28°以南・東経143°以東の島しょ区域',
+];
+
 export const JAPAN_ZONES = Object.freeze(declarations.map(([lonDeg, lonMinute, latDeg, area], index) =>
   Object.freeze({ number: index + 1, roman: romans[index],
     lonDeg, lonMinute, lon0: lonDeg + lonMinute / 60, lat0: latDeg,
-    epsg2011: 6669 + index, area })));
+    epsg2011: 6669 + index, area, legalAreaNote: legalAreas[index] })));
 
 export const JAPAN_K0 = .9999;
 
