@@ -1,12 +1,13 @@
 # Interactive simulation — Phase 0 contracts
 
-## GEOD geodesy lab (phase-A and initial phase-B experiments)
+## GEOD geodesy lab (phase-A/B and initial phase-C experiments)
 
 The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
 It has no time-stepping session, randomized seed, or imported observation record,
 so it uses the same Pages/offline shell but does not impersonate the
-simulation Worker protocol. All calculations are pure functions in
-geod-core.mjs; WebGL2 renders normalized and visibly exaggerated geometry
+simulation Worker protocol. Numerical calculations are pure functions in
+geod-core.mjs and the GEOD-specific modules, including geod-survey.mjs;
+WebGL2 renders normalized and visibly exaggerated geometry
 without feeding drawing coordinates back into the numeric kernel.
 
 * **A**: GRS80 or user-adjusted flattening, ECEF→geodetic inversion, geocentric
@@ -15,6 +16,13 @@ without feeding drawing coordinates back into the numeric kernel.
   integrated Clairaut first-order system (RK4). A spherical great-circle
   baseline is separate. Near-antipodal nonconvergence is a visible error, not
   an undisclosed sphere fallback.
+* **C**: A fully synthetic 2D local surveying network with three fixed control
+  stations, three range observations, a user-controlled bias and observation
+  standard deviations. Gauss–Newton solves the weighted nonlinear least-squares
+  position; an independent SVG shows ranges and a 600x-exaggerated uncertainty
+  ellipse. Numeric diagnostics include signed residuals, standardized residuals,
+  conditional covariance, 1σ axes, rank checks and normal-equation residual.
+  No real observations, GNSS clocks, datum, height, or actual accuracy claims.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
   Jacobian, Tissot principal stretches and the grid-north bearing.
@@ -78,7 +86,7 @@ Labs A/B/D/E retain 60–240% **display-only** zoom via controls, mouse wheel
 over the globe, or +/- keys (0 resets; arrows still rotate). Lab F starts
 at 400% and supports 60–1200%, with a tighter default focus on the Japanese
 study point (the F reset key/button returns to 400%). The base globe keeps
-OSM XYZ z=2, while Lab F above 250% loads a **bounded 4×4 current-view
+OSM XYZ z=2, while Lab F above 250% loads a **bounded 5×5 current-view
 window** of Japan GSI standard-map XYZ tiles: a 5×5 local footprint at
 z=4, 5, or 6 as the displayed zoom increases. At 1200%, this covers at
 least 28° of longitude, preventing a tiny 5.625° inset caused by the former
@@ -131,8 +139,7 @@ Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
 comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
-numerical spot checks, full legal-zone applicability checks, and observation/
-adjustment/GNSS (lab C). See the GEOD plan for later phases and figure audit.
+numerical spot checks, full legal-zone applicability checks, and the GNSS/clock/DOP and gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.

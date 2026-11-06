@@ -18,6 +18,7 @@
   <nav class="lab-switch" aria-label="実験の選択">
     <button type="button" data-lab="A" aria-pressed="true">A：楕円体・法線</button>
     <button type="button" data-lab="B" aria-pressed="false">B：測地線</button>
+    <button type="button" data-lab="C" aria-pressed="false">C：測量網の平差</button>
     <button type="button" data-lab="D" aria-pressed="false">D：地図投影・ひずみ</button>
     <button type="button" data-lab="E" aria-pressed="false">E：等角と等積の比較</button>
     <button type="button" data-lab="F" aria-pressed="false">F：日本の平面直角19系</button>
@@ -50,6 +51,20 @@
     </div>
     <p class="aside">実線＝GRS80上の測地線（Vincenty逆問題→Clairaut ODEのRK4積分）、破線＝半径 a の球面大円。球面経路は比較のため楕円体表面へ重ねて描画します。対蹠点付近のVincenty非収束は明示し、球面結果で代用しません。</p>
     <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD12/index?id=thm-geod12-clairaut">GEOD12：Clairaut関係・測地線</a></p>
+  </section>
+
+
+  <section class="panel" id="lab-C" aria-label="測量網の重み付き最小二乗平差" hidden>
+    <h2>C：距離を3本測ると、位置は一つに決まる？</h2>
+    <p>予測：3つの既知点から未知点Pまでの距離に誤差があるとき、すべての観測を完全には満たせません。C点からの観測に偏りを足すとPはどう動くか。Cの標準偏差を大きくして重みを下げるとどうなるか。</p>
+    <div class="controls">
+      <label>観測Aの標準偏差 σA（m）<input id="c-sigma-a" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
+      <label>観測Bの標準偏差 σB（m）<input id="c-sigma-b" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
+      <label>観測Cの標準偏差 σC（m）<input id="c-sigma-c" type="number" min="0.01" max="2" step="0.01" value="0.10"></label>
+      <label>C観測に加える偏り（m）<input id="c-bias" type="number" min="-5" max="5" step="0.1" value="0.30"></label>
+    </div>
+    <p class="aside"><strong>完全に架空の局所平面（E東・N北、単位m）</strong>です。A(0,0)、B(300,0)、C(100,260)は誤差のない既知点、Pの設定上の真値は(130,110)。距離に固定の合成誤差を加えて<strong>重み付き非線形最小二乗</strong>でPを推定します。σは独立した観測誤差の既知の標準偏差という仮定で、追加の系統偏りは共分散に含みません。GNSSの時刻誤差や実際の測量精度は扱いません。</p>
+    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD7/index">GEOD7：観測と重み付き平差</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD8/index">GEOD8：共分散と不確かさ</a></p>
   </section>
 
   <section class="panel" id="lab-D" aria-label="楕円体横メルカトルのひずみ" hidden>
@@ -98,7 +113,7 @@
 
   <section class="panel geod-output-panel" aria-label="幾何表示と計算結果">
     <h2>幾何表示</h2>
-    <div class="viz-grid">
+    <div class="viz-grid" id="geod-globe-panel">
       <figure>
         <div class="figure-head">楕円体3D（ドラッグで回転、矢印キーでも回転）</div>
         <label class="world-toggle"><input id="show-world" type="checkbox" checked> 世界地図を重ねる（オンラインXYZタイル・陰影は常時表示）</label>
@@ -146,6 +161,12 @@
         <figcaption>3Dで内部が表面に浮いて見えないよう、中心 O と半径 OP はこの断面にだけ描いています。<strong>青破線と橙実線は一般に一致しません。</strong></figcaption>
       </figure>
     </div>
+
+    <figure id="c-map-panel" hidden>
+      <div class="figure-head">C：既知点3点の距離網と推定点P（E東・N北、m）</div>
+      <svg id="c-map" viewBox="0 0 720 470" role="img" aria-label="既知点A・B・Cから推定点Pへ向かう3本の距離観測線、距離円、推定点の誤差楕円。楕円は可視化のため600倍に拡大。" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>実線＝距離観測、破線の円＝距離観測に対応する円、P＝重み付き平差による推定点。<strong>1σ誤差楕円は視認のため長さを600倍に強調</strong>（座標や表の数値は非拡大）。この楕円は観測誤差モデルからの形式的な不確かさで、C観測に加えた系統偏りを含みません。</figcaption>
+    </figure>
     <figure id="map-panel" hidden>
       <div class="figure-head">投影座標（E 東・Np 北、m）</div>
       <svg id="map" viewBox="0 0 720 470" role="img" aria-label="中央子午線周辺の横メルカトル格子と試験点におけるTissot指示楕円" xmlns="http://www.w3.org/2000/svg"></svg>
