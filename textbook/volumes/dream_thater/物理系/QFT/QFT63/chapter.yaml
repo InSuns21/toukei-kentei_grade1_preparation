@@ -1,0 +1,43 @@
+id: QFT63
+title: "高次元CFTの四点関数・大N因子化と境界相関"
+volume: foundations
+status: supplementary
+prerequisites: [QFT48, QFT54, QFT19, QFT56]
+official_scope: []
+learning_objectives:
+  - 高次元の同一スカラー一次場の縮約四点関数を定義し、置換から交差対称式を導ける
+  - 連結相関と大N因子化の仮定を区別し、四点関数の先頭項と誤差次数を導ける
+  - 有限次元Hermitian Gaussian行列模型から連結累積量のN次数を厳密に求められる
+  - 半空間の境界条件を鏡像Green核で検証し、境界共形交差比と一体関数の尺度則を説明できる
+  - 大N因子化・境界CFTの計算とAdS/CFT辞書や重力双対の存在主張との論理的境界を説明できる
+definitions:
+  - { id: QFT63-DEF-01, name: 同一スカラー一次場の縮約四点関数 }
+  - { id: QFT63-DEF-02, name: 中心化相関関数の連結累積量 }
+  - { id: QFT63-DEF-03, name: 大N因子化するスカラー場族 }
+  - { id: QFT63-DEF-04, name: 半空間の境界交差比 }
+theorems:
+  - { id: QFT63-THM-01, name: 同一スカラー四点関数の交差対称式 }
+  - { id: QFT63-THM-02, name: 大N因子化の先頭四点関数 }
+  - { id: QFT63-THM-03, name: Gaussian行列模型の連結累積量 }
+  - { id: QFT63-PROP-01, name: 境界一次場の一体関数の距離則 }
+  - { id: QFT63-THM-04, name: 半空間自由スカラー場の鏡像Green核 }
+canonical_examples:
+  - 四点の実座標から二つの交差比と置換を求める
+  - Gaussian四点の三つの対合項を交差比で検算する
+  - Nの二乗個の独立Gaussian成分による行列跡の厳密な累積量
+  - 四次元半空間でDirichlet・Neumannの鏡像核を直接評価する
+problem_patterns:
+  - QFT63-CROSS-RATIOS
+  - QFT63-GENERALIZED-FREE
+  - QFT63-ONE-POINT-SCALE
+  - QFT63-IMAGE-VALUES
+  - QFT63-CUMULANT-SCALE
+  - QFT63-CROSSING-IDENTITY
+  - QFT63-FOURTH-CUMULANT
+  - QFT63-BOUNDARY-INVERSION
+  - QFT63-IMAGE-BOUNDARY
+  - QFT63-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 16, review: 6 }
