@@ -48,7 +48,8 @@ for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 
 }
 for (const id of ['c-map-panel', 'c-map', 'c-survey-controls', 'c-gnss-controls',
   'c-gnss-panel', 'c-gnss-map', 'c-gnss-visual-controls', 'c-gnss-camera-controls',
-  'c-gnss-space-panel', 'c-gnss-space-map', 'geod-globe-panel']) elements.set(id, new Element(id));
+  'c-gnss-space-panel', 'c-gnss-space-map', 'c-gnss-gl-wrap',
+  'c-gnss-space-canvas', 'c-gnss-space-labels', 'geod-globe-panel']) elements.set(id, new Element(id));
 for (const id of ['f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new Element(id));
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
   'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap',
@@ -175,6 +176,8 @@ test('GNSS modes show 2D/3D sky geometry and staged systematic errors', () => {
   assert.equal($('c-gnss-panel').hidden, true);
   assert.equal($('c-gnss-space-panel').hidden, false);
   assert.equal($('c-gnss-camera-controls').hidden, false);
+  assert.equal($('c-gnss-gl-wrap').hidden, true, 'SVG stays available without WebGL2');
+  assert.equal($('c-gnss-space-map').hidden, false);
   assert.ok($('c-gnss-space-map').children.length > 20, '3D projected hemisphere rendered');
   const firstX = $('c-gnss-space-map').children.find(item =>
     item.id === 'circle' && item.attributes.fill === '#cf5037').attributes.cx;

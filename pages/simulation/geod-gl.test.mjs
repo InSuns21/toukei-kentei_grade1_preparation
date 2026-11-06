@@ -78,7 +78,8 @@ for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-p
   'f-map-panel', 'f-map', 'f-map-title', 'c-map-panel', 'c-map',
   'c-survey-controls', 'c-gnss-controls', 'c-gnss-panel', 'c-gnss-map',
   'c-gnss-visual-controls', 'c-gnss-camera-controls', 'c-gnss-space-panel',
-  'c-gnss-space-map',
+  'c-gnss-space-map', 'c-gnss-gl-wrap', 'c-gnss-space-canvas',
+  'c-gnss-space-labels',
   'geod-globe-panel']) elements.set(id, new NodeElement(id));
 elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
 elements.set('globe-point-zone-wrap', new NodeElement('globe-point-zone-wrap'));
@@ -156,7 +157,7 @@ test('survey adjustment omits globe redraw but produces a standalone SVG', () =>
   assert.equal(elements.get('geod-globe-panel').hidden, false);
 });
 
-test('GNSS sky-view and DOP calculations require no WebGL redraw', () => {
+test('GNSS 2D stays DOM-only; 3D uses shaded WebGL without changing DOP', () => {
   const draws = calls.draws.length;
   buttons[2].handlers.click();
   elements.get('c-mode').value = 'gnss';
@@ -164,19 +165,36 @@ test('GNSS sky-view and DOP calculations require no WebGL redraw', () => {
   assert.equal(elements.get('c-map-panel').hidden, true);
   assert.equal(elements.get('c-gnss-panel').hidden, false);
   assert.ok(elements.get('c-gnss-map').children.length > 20);
+  assert.equal(calls.draws.length, draws, '2D GNSS does not redraw the globe');
+  const dop = elements.get('geod-results').children[0].children[0].children[6]
+    .children[1].textContent;
   elements.get('c-gnss-view').value = 'space';
   elements.get('c-gnss-view').handlers.input();
   assert.equal(elements.get('c-gnss-space-panel').hidden, false);
-  assert.ok(elements.get('c-gnss-space-map').children.length > 20);
+  assert.equal(elements.get('c-gnss-gl-wrap').hidden, false);
+  assert.equal(elements.get('c-gnss-space-map').hidden, true);
+  assert.ok(calls.draws.length > draws, '3D adds WebGL triangles and 3D ring lines');
+  assert.ok(calls.draws.slice(draws).some(item => item.mode === gpu.TRIANGLES && item.count > 500));
+  const beforeRotate = calls.draws.length;
+  elements.get('c-gnss-view-azimuth').value = '150';
+  elements.get('c-gnss-view-azimuth').handlers.input();
+  assert.ok(calls.draws.length > beforeRotate, 'camera change redraws WebGL');
+  assert.equal(elements.get('geod-results').children[0].children[0].children[6]
+    .children[1].textContent, dop, 'camera does not alter DOP');
   elements.get('c-gnss-stage').value = 'all';
   elements.get('c-gnss-stage').handlers.input();
-  assert.equal(calls.draws.length, draws, 'GNSS 3D SVG and staged errors require no WebGL');
-  assert.equal(calls.draws.length, draws, 'GNSS runs independently of WebGL');
+  assert.equal(calls.modes.at(-1), 1, 'the unrelated globe renderer is not redrawn');
   elements.get('c-gnss-layout').value = 'low';
   elements.get('c-gnss-layout').handlers.input();
-  assert.equal(calls.draws.length, draws);
+  assert.ok(calls.draws.length > beforeRotate);
   assert.match(elements.get('geod-results').children[0].children[0].children[7]
     .children[0].textContent, /VDOP/);
+  elements.get('c-gnss-view').value = 'sky';
+  elements.get('c-gnss-view').handlers.input();
+  const afterSky = calls.draws.length;
+  elements.get('c-gnss-clock').value = '100';
+  elements.get('c-gnss-clock').handlers.input();
+  assert.equal(calls.draws.length, afterSky, '2D numerical changes remain independent of WebGL');
   buttons[0].handlers.click();
 });
 
