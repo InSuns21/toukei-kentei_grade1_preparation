@@ -1,0 +1,44 @@
+id: "SLT1-12"
+title: "速い収束率と局所複雑度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-11
+official_scope: []
+learning_objectives:
+  - 有限クラスの通常の平方根型汎化率と超過リスクの区別を説明できる
+  - excess-lossとBernstein条件を定義し、具体例で成立・不成立を判定できる
+  - 有界変数の指数モーメントから片側Bernstein集中界を証明できる
+  - 有限クラスのERMに対して追加条件下のlog M/n型fast rateを導ける
+  - 局所excess-lossクラスと局所Rademacher複雑度を定義し、半径依存上界と固定点スケールを導ける
+  - 二値分類のMassart型margin条件からBernstein条件を検算できる
+  - 弱いmarginと増大するクラスの反例を通じ、無条件のfast rateを否定できる
+definitions:
+  - { id: SLT1-12-DEF-01, name: 超過損失関数とBernstein条件 }
+  - { id: SLT1-12-DEF-02, name: 局所超過損失クラスと局所Rademacher複雑度 }
+  - { id: SLT1-12-DEF-03, name: 二値分類のMassart型margin条件 }
+theorems:
+  - { id: SLT1-12-LEM-01, name: 有界中心化和の片側Bernstein不等式 }
+  - { id: SLT1-12-THM-01, name: 有限クラスERMの速い超過リスク界 }
+  - { id: SLT1-12-PROP-01, name: 局所Rademacher複雑度の有限クラス評価 }
+  - { id: SLT1-12-PROP-02, name: Massart型marginからBernstein条件 }
+canonical_examples:
+  - realizableな二点分類で超過損失が非負指示関数になる例
+  - 不確かな単一入力の分類でmargin定数が消えるとBernstein定数が発散する例
+  - 局所半径の閾値を越えると関数が加わる二仮説クラス
+  - 標本依存の巨大クラスと固定小クラスの論理の違い
+problem_patterns:
+  - SLT1-12-A01
+  - SLT1-12-A02
+  - SLT1-12-A03
+  - SLT1-12-A04
+  - SLT1-12-A05
+  - SLT1-12-B01
+  - SLT1-12-B02
+  - SLT1-12-B03
+  - SLT1-12-B04
+  - SLT1-12-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2.0 }
