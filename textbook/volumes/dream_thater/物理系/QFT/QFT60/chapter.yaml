@@ -1,0 +1,47 @@
+id: QFT60
+title: "有限温度・有限円周の区間エントロピーと極限"
+volume: foundations
+status: supplementary
+prerequisites: [QFT59, QFT58, QFT55, QFT57, QFT53, QFT50]
+official_scope: []
+learning_objectives:
+  - 熱円筒と空間円周の等時刻座標・指数写像・一次場Jacobianを区別できる
+  - twistウェイトからsinhとsinをもつ整数レプリカモーメントを導出できる
+  - 有限温度・有限円周の整数Rényiエントロピーの係数と端点定数を扱える
+  - それぞれの短区間展開を再導出し平面真空との一致と二次補正の符号を確認できる
+  - 長い熱区間の体積項を導き熱力学エントロピー密度と条件付きで照合できる
+  - 純粋円周真空の補区間対称性をSchmidt固有値とsin対称性の両面から示せる
+  - 物理的なn1近傍の微分可能性と誤差微分の制御を仮定してvon Neumann主項を導ける
+  - 有限cutoffとトーラス相関と解析接続の限界を説明できる
+definitions:
+  - { id: QFT60-DEF-01, name: 等時刻の円筒区間尺度 }
+theorems:
+  - { id: QFT60-THM-01, name: 無限直線の有限温度区間Rényi普遍項 }
+  - { id: QFT60-THM-02, name: 空間円周の真空区間Rényi普遍項 }
+  - { id: QFT60-PROP-01, name: 熱円筒と空間円周の短区間展開 }
+  - { id: QFT60-PROP-02, name: 熱区間の体積項とRényi密度 }
+  - { id: QFT60-PROP-03, name: 純粋円周真空の補区間対称性 }
+  - { id: QFT60-THM-03, name: 条件付き円筒区間von Neumann普遍項 }
+canonical_examples:
+  - 正のsinh尺度と円周の半区間sin尺度
+  - 自由bosonと自由Majoranaの熱円筒二次Rényi係数
+  - 熱の正と円周の負の短区間二次補正
+  - 長い熱区間の線形成長と熱力学エントロピー密度
+  - 円周四分区間と補区間の等しいエントロピー
+  - 整数一致しても微分が変わる補間
+problem_patterns:
+  - QFT60-THERMAL-RENYI
+  - QFT60-CIRCLE-HALF-INTERVAL
+  - QFT60-SHORT-INTERVAL-SIGNS
+  - QFT60-CIRCLE-COMPLEMENT
+  - QFT60-THERMAL-RENYI-DENSITY
+  - QFT60-TWIST-JACOBIAN
+  - QFT60-ENTROPY-DERIVATIVES
+  - QFT60-THERMAL-PARTITION-CHECK
+  - QFT60-CUTOFF-VS-TEMPERATURE
+  - QFT60-REPLICA-CONTINUATION
+  - QFT60-CYLINDER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 16, review: 6 }

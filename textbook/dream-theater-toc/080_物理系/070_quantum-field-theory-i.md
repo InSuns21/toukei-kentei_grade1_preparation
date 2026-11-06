@@ -60,3 +60,4 @@
 57. [QFT57 局所領域の縮約状態・格子正則化とエンタングルメント](textbook/volumes/dream_thater/物理系/QFT/QFT57/index.md)
 58. [QFT58 レプリカ経路積分・分岐被覆とtwist演算子](textbook/volumes/dream_thater/物理系/QFT/QFT58/index.md)
 59. [QFT59 単一区間のRényi・von Neumannエントロピーと普遍係数](textbook/volumes/dream_thater/物理系/QFT/QFT59/index.md)
+60. [QFT60 有限温度・有限円周の区間エントロピーと極限](textbook/volumes/dream_thater/物理系/QFT/QFT60/index.md)
