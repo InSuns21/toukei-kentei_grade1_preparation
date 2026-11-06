@@ -29,6 +29,14 @@ $L_n^\dagger=L_{-n}$、$L_n|h\rangle=0$（$n>0$）、$\langle h|h\rangle=1$ を�
 <!-- solution-start -->
 ### 詳細解答
 
+二つの子孫を $v_1=L_{-2}|h\rangle$、$v_2=L_{-1}^2|h\rangle$ と書くと、Gram行列は $G_{ij}=\langle v_i|v_j\rangle$ です。係数ベクトル $b=(b_1,b_2)^T$ に対して
+
+$$
+\|b_1v_1+b_2v_2\|^2=b^\dagger G_2b
+$$
+
+なので、正半定値な内積表示では零固有値の固有ベクトルが零ノルムの線形結合を与えます。以下でその三つの内積を直接求めます。
+
 [Virasoro交換関係](../QFT51/index.md#thm-qft51-virasoro)により $[L_2,L_{-2}]=4L_0+c/2$、$[L_2,L_{-1}]=3L_1$、$[L_1,L_{-1}]=2L_0$ です。したがって各内積は
 
 $$
@@ -46,7 +54,7 @@ G_2=\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix},
 \qquad \det(G_2-\lambda I)=\lambda(\lambda-3).
 $$
 
-固有値は $0,3$ です。零固有値があっても普遍Verma加群の二つの形式的子孫が同一という意味ではありません。
+固有値は $0,3$ で、零固有値の方向は $b=(1,-1)^T$、すなわち $v_1-v_2$ です。零固有値があっても普遍Verma加群の二つの形式的子孫が同一という意味ではありません。
 <!-- solution-end -->
 
 <a id="ex-qft64-a02"></a>
@@ -215,7 +223,13 @@ $$
 F(x)=x^{-2}+2+2x+O(x^2).
 $$
 
-[自由電流の局所OPE](../QFT54/index.md#prop-qft54-current-ope)と $\langle a(\infty)a(1)\rangle=1$ から、特異項は $x^{-2}$、定数項は $2\langle t(0)a(\infty)a(1)\rangle=2(0-1)^{-2}=2$ です。一次項では
+[自由電流の局所OPE](../QFT54/index.md#prop-qft54-current-ope)と $\langle a(\infty)a(1)\rangle=1$ から、特異項は $x^{-2}$、定数項は
+
+$$
+2\langle t(0)a(\infty)a(1)\rangle=2(0-1)^{-2}=2
+$$
+
+です。ここで $\partial t(w)=\partial_wt(w)$ は正則座標 $w$ による微分です。他の挿入点 $1,\infty$ を固定した相関関数は $w$ の一変数関数なので、次の $d/dw$ と対応します。一次項では
 
 $$
 \langle\partial t(0)a(\infty)a(1)\rangle
@@ -238,7 +252,7 @@ A03の $\rho$ に対し $R(n)=\sum_i p_i^n$ を実数 $n>0$ へ拡張する。$\
 <!-- solution-start -->
 ### 詳細解答
 
-正整数 $m$ なら $\sin\pi(m-1)=0$ なので $\widetilde R(m)=R(m)=\operatorname{Tr}\rho^m$。また $R(1)=\sum p_i=1$ で指数因子も $1$、実 $n$ で $\widetilde R(n)>0$ です。一方
+正整数 $m$ なら $\sin\pi(m-1)=0$ なので $\widetilde R(m)=R(m)=\operatorname{Tr}\rho^m$。また $R(1)=\sum p_i=1$ で指数因子も $1$、実 $n$ で $\widetilde R(n)>0$ です。以下の $\partial_n$ は密度行列の固有値 $p_i$ を固定し、実数のレプリカ指数 $n$ だけを動かす微分です。一方
 
 $$
 \begin{aligned}
