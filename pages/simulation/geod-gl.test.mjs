@@ -154,7 +154,7 @@ test('near-globe location controls update both the A input and the WebGL view', 
   assert.ok(requested.length >= initial);
 });
 
-test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
+test('F zooms to Japan and overlays a bounded, viewport-sized GSI tile footprint', () => {
   const before = requested.length;
   buttons[4].handlers.click();
   assert.equal(elements.get('globe-zoom').max, '12');
@@ -162,8 +162,8 @@ test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
   assert.equal(elements.get('globe-point-zone-wrap').hidden, false);
   const japanTiles = requested.slice(before).filter(item =>
     item.url.startsWith('https://cyberjapandata.gsi.go.jp/xyz/std/'));
-  assert.equal(japanTiles.length, 16, 'only a 4×4 Japanese viewport is fetched');
-  assert.ok(japanTiles.every(item => /\/6\/\d+\/\d+\.png$/.test(item.url)));
+  assert.equal(japanTiles.length, 25, 'only a 5×5 Japanese viewport is fetched');
+  assert.ok(japanTiles.every(item => /\/4\/\d+\/\d+\.png$/.test(item.url)));
   assert.equal(elements.get('gsi-credit').hidden, false);
   const uploads = calls.textureUploads, draws = calls.draws.length;
   japanTiles[0].image.onload();
@@ -171,13 +171,14 @@ test('F zooms to Japan and overlays bounded high-resolution GSI tiles', () => {
   assert.ok(calls.draws.length > draws, 'loaded detailed tile is rendered on ellipsoid');
   assert.deepEqual(calls.blends.at(-1), [gpu.SRC_ALPHA, gpu.ONE_MINUS_SRC_ALPHA]);
   assert.deepEqual(calls.depthWrites.slice(-2), [false, true], 'transparent parts preserve base globe');
-  assert.match(elements.get('tile-status').textContent, /地理院標準地図.*1\/16枚表示/);
+  assert.match(elements.get('tile-status').textContent, /地理院標準地図.*1\/25枚表示/);
 
   elements.get('globe-zoom').value = '12';
   elements.get('globe-zoom').handlers.input();
   assert.equal(elements.get('globe-zoom-v').textContent, '1200%');
-  const fine = requested.filter(item => /\/std\/8\/\d+\/\d+\.png$/.test(item.url));
-  assert.equal(fine.length, 16, 'z8 imagery is requested only for focus window');
+  const fine = requested.filter(item => /\/std\/6\/\d+\/\d+\.png$/.test(item.url));
+  assert.equal(fine.length, 25, 'z6 covers approximately 28 degrees at 1200%');
+  assert.equal(new Set(fine.map(item => item.url)).size, 25, 'no duplicate fine requests');
   elements.get('show-world').checked = false;
   elements.get('show-world').handlers.change();
   assert.equal(elements.get('gsi-credit').hidden, true);
