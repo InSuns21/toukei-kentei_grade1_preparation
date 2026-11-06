@@ -8,6 +8,8 @@ import { CITIES, TILE_ZOOM, JAPAN_DETAIL_TILE_LIMIT, mercatorY,
 import { AUTHALIC_RADIUS, GLOBAL_PROJECTIONS, globalProjection,
   globalDistortion } from './geod-compare.mjs';
 import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs';
+import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
+  adjustSurveyNetwork } from './geod-survey.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -764,6 +766,118 @@ function computeB() {
   ], '実線・青＝楕円体測地線／破線・橙＝球面大円の比較路。表示は同一の強調楕円体上、数値は各模型の正確なfで別々に計算。');
 }
 
+
+function drawSurveyMap(result) {
+  const map = $('c-map');
+  map.replaceChildren();
+  // The sketch uses metric coordinates without projective rescaling;
+  // the uncertainty ellipse alone is explicitly magnified 600 times.
+  const scale = 1.17, left = 75, bottom = 413;
+  const x = east => left + east * scale;
+  const y = north => bottom - north * scale;
+  const line = (x1, y1, x2, y2, stroke, dashed = false, width = 1.3) =>
+    svg('line', { x1, y1, x2, y2, stroke, 'stroke-width': width,
+      'stroke-dasharray': dashed ? '6 5' : 'none' });
+  map.append(svg('rect', { x: 1, y: 1, width: 718, height: 468, rx: 9,
+    fill: '#f8fbff', stroke: '#d1dce9' }));
+  const defs = svg('defs');
+  const clip = svg('clipPath', { id: 'c-survey-clip' });
+  clip.append(svg('rect', { x: 35, y: 28, width: 425, height: 410 }));
+  defs.append(clip);
+  map.append(defs);
+  const plot = svg('g', { 'clip-path': 'url(#c-survey-clip)' });
+  for (let east = 0; east <= 350; east += 50) {
+    plot.append(line(x(east), y(0), x(east), y(330), '#d7e3ee', true));
+    map.append(svg('text', { x: x(east), y: 436, fill: '#496179',
+      'font-size': 11, 'text-anchor': 'middle' }, String(east)));
+  }
+  for (let north = 0; north <= 300; north += 50) {
+    plot.append(line(x(0), y(north), x(350), y(north), '#d7e3ee', true));
+    map.append(svg('text', { x: 59, y: y(north) + 4, fill: '#496179',
+      'font-size': 11, 'text-anchor': 'end' }, String(north)));
+  }
+  plot.append(line(x(0), y(0), x(355), y(0), '#64748b', false, 1.6));
+  plot.append(line(x(0), y(0), x(0), y(335), '#64748b', false, 1.6));
+  for (const observation of result.residuals) {
+    const cx = x(observation.east), cy = y(observation.north);
+    plot.append(svg('circle', { cx, cy, r: observation.distance * scale,
+      fill: 'none', stroke: '#8ca7c0', 'stroke-width': 1.1,
+      'stroke-dasharray': '5 5' }));
+    plot.append(line(cx, cy, x(result.east), y(result.north), '#46739e', false, 2.1));
+  }
+  const cx = x(result.east), cy = y(result.north);
+  plot.append(svg('ellipse', { cx, cy, rx: result.ellipse.major * 600 * scale,
+    ry: result.ellipse.minor * 600 * scale, fill: '#e9b87555',
+    stroke: '#b35b22', 'stroke-width': 2.7, 'stroke-dasharray': '7 3',
+    transform: 'rotate(' + (-result.ellipse.angle * 180 / Math.PI) + ' ' + cx + ' ' + cy + ')' }));
+  for (const station of SURVEY_STATIONS) {
+    plot.append(svg('rect', { x: x(station.east) - 5, y: y(station.north) - 5,
+      width: 10, height: 10, fill: '#1c568a', stroke: '#fff', 'stroke-width': 1 }));
+    plot.append(svg('text', { x: x(station.east) + 9, y: y(station.north) - 10,
+      fill: '#17446e', 'font-size': 18, 'font-weight': 700 }, station.id));
+  }
+  plot.append(svg('circle', { cx, cy, r: 5, fill: '#ab3429',
+    stroke: '#fff', 'stroke-width': 1.5 }));
+  plot.append(svg('text', { x: cx + 9, y: cy - 10, fill: '#992d22',
+    'font-size': 19, 'font-weight': 700 }, 'P'));
+  map.append(plot);
+  map.append(svg('text', { x: 251, y: 456, fill: '#334155',
+    'font-size': 13 }, 'E（東、m）→'));
+  map.append(svg('text', { x: 23, y: 24, fill: '#334155',
+    'font-size': 13 }, 'N ↑（北、m）'));
+  const notes = [
+    '■ A/B/C：既知点',
+    '● P：推定点',
+    '実線：観測線',
+    '破線円：観測距離',
+    '橙楕円：1σ',
+    '（600倍表示）',
+    '図の長さはm',
+  ];
+  notes.forEach((note, i) => map.append(svg('text', {
+    x: 483, y: 93 + i * 31, fill: '#304b66', 'font-size': 15,
+  }, note)));
+}
+
+function computeC() {
+  const number = id => {
+    const value = $(id).value.trim();
+    if (!value) throw new RangeError('標準偏差と偏りは空欄にできません');
+    return Number(value);
+  };
+  const observations = syntheticSurveyObservations({
+    sigmaA: number('c-sigma-a'), sigmaB: number('c-sigma-b'),
+    sigmaC: number('c-sigma-c'), biasC: number('c-bias'),
+  });
+  const result = adjustSurveyNetwork(observations);
+  state.geodesic = null;
+  state.japan = null;
+  drawSurveyMap(result);
+  const residuals = result.residuals;
+  showResults([
+    ['合成距離観測の設定', '既知点A・B・Cから未知点Pへの3距離（m）。平面座標のみ、標高・datumなし'],
+    ['推定点 P（E, N）', '(' + fmt(result.east, 5) + ', ' + fmt(result.north, 5) + ') m'],
+    ['設定上の真値（E, N）', '(' + SURVEY_REFERENCE.east + ', ' + SURVEY_REFERENCE.north + ') m'],
+    ['真値からの推定誤差（E, N）', '(' + fmt(result.east - SURVEY_REFERENCE.east, 5) + ', ' +
+      fmt(result.north - SURVEY_REFERENCE.north, 5) + ') m'],
+    ['距離の観測値 A/B/C', residuals.map(o => o.id + ' ' + fmt(o.distance, 4) + ' m').join(' ／ ')],
+    ['観測−計算の残差 A/B/C', residuals.map(o => o.id + ' ' + fmt(o.residual, 5) + ' m').join(' ／ ')],
+    ['標準化残差 v/σ A/B/C', residuals.map(o => o.id + ' ' + fmt(o.normalized, 4)).join(' ／ ')],
+    ['重み付き残差平方和 Σ(v/σ)²', fmt(result.chi2, 6) + '（自由度 ' + result.degreesOfFreedom + '）'],
+    ['推定点の共分散 Σ（m²）', 'ΣEE=' + fmt(result.covariance.ee, 7) +
+      ', ΣEN=' + fmt(result.covariance.en, 7) + ', ΣNN=' + fmt(result.covariance.nn, 7)],
+    ['1σ誤差楕円：長半軸／短半軸', fmt(result.ellipse.major, 5) + ' m ／ ' +
+      fmt(result.ellipse.minor, 5) + ' m（図上のみ600倍）'],
+    ['法方程式 JᵀWv の残差ノルム', result.normalResidual.toExponential(3) +
+      '（Gauss–Newton反復 ' + result.iterations + '回）'],
+  ], [
+    'C観測に+2 mの偏りを加えると、推定点Pと残差・重み付き残差平方和はどう変わるか。',
+    'C観測の標準偏差を1 mに上げると、Cの観測線からの影響が小さくなることを確かめる。',
+    '3本の距離で未知数2つを推定すると自由度はなぜ1になるか。A/B/Cのすべての残差が0にはならない理由を考える。',
+    '誤差楕円は観測σを前提にした条件付きの精度模型。意図的な系統偏りを検出・包含できるか考える。',
+  ], 'C：局所平面の3距離を重み付き最小二乗で平差。誤差楕円は図上のみ600倍。3D地球儀は使用しません。');
+}
+
 function computeD() {
   const get = id => Number($(id).value);
   const phi = rad(get('d-lat')), lambda = rad(get('d-lon'));
@@ -897,6 +1011,8 @@ function syncLocationToolbar() {
 function recalculate() {
   $('geod-workspace').dataset.currentLab = state.lab;
   $('map-panel').hidden = state.lab !== 'D';
+  $('c-map-panel').hidden = state.lab !== 'C';
+  $('geod-globe-panel').hidden = state.lab === 'C';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
   $('f-map-panel').hidden = state.lab !== 'F';
@@ -904,21 +1020,23 @@ function recalculate() {
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
+    else if (state.lab === 'C') computeC();
     else if (state.lab === 'D') computeD();
     else if (state.lab === 'E') computeE();
     else computeF();
-    renderGlobe();
+    if (state.lab !== 'C') renderGlobe();
   } catch (error) {
     $('geod-status').textContent = error.message;
     $('geod-status').dataset.error = 'true';
     $('geod-results').replaceChildren();
     state.geodesic = null;
     $('map').replaceChildren();
+    $('c-map').replaceChildren();
     $('e-left-map').replaceChildren();
     $('e-right-map').replaceChildren();
     $('f-map').replaceChildren();
     state.japan = null;
-    renderGlobe();
+    if (state.lab !== 'C') renderGlobe();
   }
 }
 
@@ -1027,6 +1145,7 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
   recalculate();
 });
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
+  'c-sigma-a', 'c-sigma-b', 'c-sigma-c', 'c-bias',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
   'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
@@ -1056,7 +1175,7 @@ function setZoom(value) {
   state.zoom = Math.max(ZOOM_MIN, Math.min(limit, Math.round(value * 10) / 10));
   $('globe-zoom').value = String(state.zoom);
   $('globe-zoom-v').textContent = Math.round(state.zoom * 100) + '%';
-  renderGlobe();
+  if (state.lab !== 'C') renderGlobe();
 }
 $('globe-zoom').addEventListener('input', () => setZoom(Number($('globe-zoom').value)));
 $('zoom-in').addEventListener('click', () => setZoom(state.zoom + .2));

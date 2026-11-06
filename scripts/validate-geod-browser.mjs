@@ -205,6 +205,35 @@ try {
     document.querySelector('#globe-point-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#b-lat2").value'), '51.5074');
   assert.equal(await evalJS('document.querySelector("#b-lat1").value'), '35.681236');
+  await evalJS(`document.querySelector('[data-lab="C"]').click()`);
+  assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  assert.equal(await evalJS('document.querySelector("#geod-globe-panel").hidden'), true);
+  assert.ok(await evalJS('document.querySelectorAll("#c-map circle").length >= 4'));
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("共分散")'));
+  const cBefore = await evalJS('document.querySelector("#geod-results").textContent');
+  const cLayout = await evalJS(`(() => {
+    const rect = selector => {
+      const box = document.querySelector(selector).getBoundingClientRect();
+      return { left: box.left, right: box.right, top: box.top,
+        bottom: box.bottom, width: box.width };
+    };
+    return { controls: rect('#lab-C'), output: rect('.geod-output-panel'),
+      visual: rect('#c-map'), width: window.innerWidth };
+  })()`);
+  assert.ok(cLayout.controls.right < cLayout.output.left &&
+    Math.abs(cLayout.controls.top - cLayout.output.top) <= 2,
+    'C must show observation controls and adjustment plot side by side: ' + JSON.stringify(cLayout));
+  assert.ok(cLayout.visual.width <= 861, 'C diagram should be readable without widescreen stretching');
+  await evalJS(`document.querySelector('#c-bias').value='2';
+    document.querySelector('#c-bias').dispatchEvent(new Event('input'))`);
+  assert.notEqual(await evalJS('document.querySelector("#geod-results").textContent'), cBefore);
+  await evalJS(`document.querySelector('#c-sigma-a').value='0';
+    document.querySelector('#c-sigma-a').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'true');
+  assert.equal(await evalJS('document.querySelector("#c-map").childElementCount'), 0);
+  await evalJS(`document.querySelector('#c-sigma-a').value='0.05';
+    document.querySelector('#c-sigma-a').dispatchEvent(new Event('input'))`);
+  assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
   await evalJS(`document.querySelector('[data-lab="D"]').click();
     document.querySelector('#d-city').value='new-york';
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
@@ -293,6 +322,16 @@ try {
     'GEOD mobile workspace must stack parameters above figures: ' + JSON.stringify(mobileLayout));
   assert.ok(mobileLayout.globe > 0 && mobileLayout.globe < 360,
     'mobile globe should fit the viewport: ' + JSON.stringify(mobileLayout));
+  await evalJS(`document.querySelector('[data-lab="C"]').click()`);
+  const cMobile = await evalJS(`(() => {
+    const controls = document.querySelector('#lab-C').getBoundingClientRect();
+    const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
+    const diagram = document.querySelector('#c-map').getBoundingClientRect();
+    return { controlsBottom: controls.bottom, outputTop: output.top,
+      width: diagram.width, overflow: document.documentElement.scrollWidth - window.innerWidth };
+  })()`);
+  assert.ok(cMobile.outputTop >= cMobile.controlsBottom && cMobile.width < 360 &&
+    cMobile.overflow <= 1, 'C mobile survey panel should stack without overflow: ' + JSON.stringify(cMobile));
   console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();
