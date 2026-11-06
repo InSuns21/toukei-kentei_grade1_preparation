@@ -24,7 +24,7 @@ let surfaceProgram = null, surfaceBuffer, surfacePosition, surfaceUV, surfaceLig
 let surfaceUseMap, surfaceSampler, atlasCanvas, atlasContext, atlasTexture;
 const tileImages = new Map();
 const detailTiles = new Map();
-const MAX_CACHED_DETAIL_TILES = 24;
+const MAX_CACHED_DETAIL_TILES = 40;
 let failedTiles = 0;
 
 const shader = (type, source) => {
@@ -298,7 +298,7 @@ function requestJapanTiles() {
     } };
     image.src = 'https://cyberjapandata.gsi.go.jp/xyz/std/' + key + '.png';
   }
-  // A slot count, not a global z=8 atlas: a bounded number of 256² textures.
+  // Bounded local tiles at screen-appropriate resolution, never a global atlas.
   if (selected.length > JAPAN_DETAIL_TILE_LIMIT) throw new Error('詳細タイルの上限超過');
   updateTileStatus();
 }

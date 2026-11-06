@@ -11,9 +11,10 @@ export const CITIES = Object.freeze([
 ]);
 
 export const TILE_ZOOM = 2;
-// Detailed tiles are never assembled into a whole-world atlas. The F lab
-// requests at most sixteen tiles surrounding the current Japanese viewpoint.
-export const JAPAN_DETAIL_TILE_LIMIT = 16;
+// Lab F samples a 5x5 local viewport. At 1200% a z=8 / 4x4 window
+// covers only 5.625 degrees of longitude and looks like a tiny square.
+// Select XYZ levels by the globe's *visible extent*, not by magnification alone.
+export const JAPAN_DETAIL_TILE_LIMIT = 25;
 export const MERCATOR_MAX_LAT = Math.atan(Math.sinh(Math.PI));
 
 // Web Mercator XYZ y increases towards the south; the texture v axis is up.
@@ -28,7 +29,7 @@ export function latitudeAtTileY(yFraction) {
 
 export function japanDetailZoom(displayZoom) {
   if (!Number.isFinite(displayZoom) || displayZoom < 2.5) return null;
-  return displayZoom < 5.5 ? 6 : displayZoom < 9 ? 7 : 8;
+  return displayZoom < 5.5 ? 4 : displayZoom < 9 ? 5 : 6;
 }
 
 export function japanDetailTiles(phi, lambda, displayZoom) {
@@ -42,9 +43,9 @@ export function japanDetailTiles(phi, lambda, displayZoom) {
   const cx = Math.floor((longitude + 180) / 360 * n);
   const cy = Math.floor(mercatorY(phi) * n);
   const tiles = [];
-  for (let y = cy - 1; y <= cy + 2; y++) {
+  for (let y = cy - 2; y <= cy + 2; y++) {
     if (y < 0 || y >= n) continue;
-    for (let x = cx - 1; x <= cx + 2; x++) {
+    for (let x = cx - 2; x <= cx + 2; x++) {
       tiles.push({ z, x: (x + n) % n, y });
     }
   }

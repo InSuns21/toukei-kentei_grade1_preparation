@@ -38,12 +38,15 @@ test('only currently facing XYZ tiles are selected as the globe rotates', () => 
 test('Japan focus requests a bounded local window at adaptive XYZ resolution', () => {
   const tokyo = CITIES.find(city => city.id === 'tokyo');
   const phi = tokyo.lat * Math.PI / 180, lambda = tokyo.lon * Math.PI / 180;
-  for (const [displayZoom, expectedZ] of [[2.4, null], [4, 6], [6, 7], [12, 8]]) {
+  for (const [displayZoom, expectedZ] of [[2.4, null], [4, 4], [6, 5], [12, 6]]) {
     assert.equal(japanDetailZoom(displayZoom), expectedZ);
     const tiles = japanDetailTiles(phi, lambda, displayZoom);
     if (expectedZ === null) { assert.deepEqual(tiles, []); continue; }
     assert.equal(tiles.length, JAPAN_DETAIL_TILE_LIMIT);
     assert.equal(new Set(tiles.map(t => t.z + '/' + t.x + '/' + t.y)).size, tiles.length);
+    // The selected 5x5 footprint fills the local globe view instead of
+    // leaving a tiny high-zoom tile island surrounded by coarse OSM imagery.
+    assert.ok(5 * 360 / (2 ** expectedZ) >= 28, 'at least 28 degrees of longitude');
     const n = 2 ** expectedZ;
     const centerX = Math.floor((tokyo.lon + 180) / 360 * n);
     const centerY = Math.floor(mercatorY(phi) * n);
@@ -59,5 +62,9 @@ test('Japan focus requests a bounded local window at adaptive XYZ resolution', (
   assert.deepEqual(japanDetailTiles(0.8, 0, 10), [], 'no detail tiles outside Japan');
   assert.deepEqual(japanDetailTiles(NaN, lambda, 10), [], 'invalid viewpoint');
   const osaka = japanDetailTiles(34.6937 * Math.PI / 180, 135.5023 * Math.PI / 180, 12);
-  assert.notDeepEqual(osaka, japanDetailTiles(phi, lambda, 12), 'new Japanese area selects new tiles');
+  assert.deepEqual(osaka, japanDetailTiles(phi, lambda, 12),
+    'nearby Tokyo and Osaka can reuse the same wider tile window');
+  const sapporo = japanDetailTiles(43.0618 * Math.PI / 180, 141.3545 * Math.PI / 180, 12);
+  assert.notDeepEqual(sapporo, japanDetailTiles(phi, lambda, 12),
+    'moving farther north still selects a new local tile window');
 });
