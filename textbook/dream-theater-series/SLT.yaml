@@ -52,7 +52,7 @@ chapters:
     title: "Lipschitz合成と線形・marginクラス"
   - id: SLT1-12
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-12
-    status: planned
+    status: completed
     title: "速い収束率と局所複雑度"
   - id: SLT1-13
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-13

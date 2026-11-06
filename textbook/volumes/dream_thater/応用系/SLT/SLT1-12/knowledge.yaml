@@ -1,0 +1,74 @@
+chapter: SLT1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-11
+
+concepts:
+  - id: learning.excess-loss-bernstein-condition
+    name: 超過損失関数とBernstein条件
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（超過損失関数とBernstein条件）"]
+    requires:
+      - learning.rademacher-complexity
+      - learning.within-class-excess-risk
+
+  - id: learning.bounded-one-sided-bernstein
+    name: 有界中心化和の片側Bernstein不等式
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（有界中心化和の片側Bernstein不等式）"]
+    requires:
+      - learning.excess-loss-bernstein-condition
+
+  - id: learning.finite-erm-fast-rate
+    name: 有限クラスERMの速い超過リスク界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限クラスERMの速い超過リスク界）"]
+    requires:
+      - learning.bounded-one-sided-bernstein
+      - learning.excess-loss-bernstein-condition
+
+  - id: learning.localized-excess-rademacher
+    name: 局所超過損失クラスと局所Rademacher複雑度
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（局所超過損失クラスと局所Rademacher複雑度）"]
+    requires:
+      - learning.excess-loss-bernstein-condition
+      - learning.rademacher-complexity
+
+  - id: learning.localized-finite-bound
+    name: 局所Rademacher複雑度の有限クラス評価
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（局所Rademacher複雑度の有限クラス評価）"]
+    requires:
+      - learning.localized-excess-rademacher
+      - learning.bounded-one-sided-bernstein
+
+  - id: learning.massart-margin
+    name: 二値分類のMassart型margin条件
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（二値分類のMassart型margin条件）"]
+    requires:
+      - learning.excess-loss-bernstein-condition
+
+  - id: learning.massart-implies-bernstein
+    name: Massart型marginからBernstein条件
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Massart型marginからBernstein条件）"]
+    requires:
+      - learning.massart-margin
+      - learning.excess-loss-bernstein-condition
