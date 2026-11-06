@@ -1,0 +1,78 @@
+chapter: ITD1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH2
+  - SM3
+  - INFO2
+forward_references: []
+concepts:
+  - id: information-thermodynamics.finite-controlled-jump-model
+    name: 有限状態の操作・接触模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限状態の操作・接触模型）]
+    requires: [information.finite-channel, statistical-mechanics.canonical-ensemble]
+
+  - id: information-thermodynamics.path-probability
+    name: 軌道確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（軌道確率）]
+    requires: [information-thermodynamics.finite-controlled-jump-model]
+
+  - id: information-thermodynamics.distribution-update
+    name: 有限Markov模型の規格化と分布更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限Markov模型の規格化と分布更新）]
+    requires: [information-thermodynamics.path-probability]
+
+  - id: information-thermodynamics.path-work-heat
+    name: 軌道の仕事・熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（軌道の仕事・熱）]
+    requires: [information-thermodynamics.finite-controlled-jump-model, thermodynamics.heat-work]
+
+  - id: information-thermodynamics.path-first-law
+    name: 軌道第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（軌道第一法則）]
+    requires: [information-thermodynamics.path-work-heat, thermodynamics.first-law]
+
+  - id: information-thermodynamics.local-detailed-balance
+    name: 局所詳細釣合い
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所詳細釣合い）]
+    requires: [information-thermodynamics.path-work-heat, statistical-mechanics.gibbs-distribution]
+
+  - id: information-thermodynamics.canonical-detailed-balance
+    name: 正準分布と局所詳細釣合い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準分布と局所詳細釣合い）]
+    requires: [information-thermodynamics.local-detailed-balance, statistical-mechanics.canonical-ensemble]
+
+  - id: information-thermodynamics.reverse-path-entropy
+    name: 逆実験と全エントロピー生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（逆実験と全エントロピー生成）]
+    requires: [information-thermodynamics.path-probability, information-thermodynamics.local-detailed-balance, information.shannon-entropy]
+
+  - id: information-thermodynamics.entropy-path-ratio
+    name: 経路確率比と全エントロピー生成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（経路確率比と全エントロピー生成）]
+    requires: [information-thermodynamics.reverse-path-entropy, information-thermodynamics.local-detailed-balance]
+
+  - id: information-thermodynamics.mean-entropy-nonnegative
+    name: 平均全エントロピー生成の非負性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平均全エントロピー生成の非負性）]
+    requires: [information-thermodynamics.entropy-path-ratio, information.gibbs-inequality]

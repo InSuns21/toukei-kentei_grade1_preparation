@@ -1,0 +1,16 @@
+version: 1
+id: ITD
+title: "情報熱力学 I"
+plan: textbook/plans_progress/DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 章数は中心問いと証明のまとまりから決める。
+chapters:
+  - id: ITD1
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD1
+    status: completed
+    title: 有限状態の確率軌道・仕事・熱・エントロピー生成
+  - id: ITD2
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD2
+    status: planned
+    title: 時間反転・積分型ゆらぎ関係・Jarzynski等式・Crooks関係
