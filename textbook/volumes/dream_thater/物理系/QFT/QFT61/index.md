@@ -10,7 +10,7 @@
 
 ## 1. 参照状態の対数を取る
 
-[QFT57の領域縮約状態](../QFT57/index.md#def-qft57-replica-moments)を思い出します。cutoffを固定し、有限次元の $H_A$ 上で $\operatorname{Tr}\rho_A=1$、$\rho_A\ge0$ とします。正の固有値しか持たない密度演算子を**忠実**（full rank）と呼びます。これは $\log\rho_A$ が全空間上の有界なHermitian行列として定義できる条件です。零固有値があれば、通常の行列対数を全空間で取れません。
+[QFT57のcutoff付き領域縮約状態](../QFT57/index.md#def-qft57-regulated-reduction)を思い出します。cutoffを固定し、有限次元の $H_A$ 上で $\operatorname{Tr}\rho_A=1$、$\rho_A\ge0$ とします。正の固有値しか持たない密度演算子を**忠実**（full rank）と呼びます。これは $\log\rho_A$ が全空間上の有界なHermitian行列として定義できる条件です。零固有値があれば、通常の行列対数を全空間で取れません。
 
 同じ領域 $A$ における忠実な**参照**密度演算子 $\sigma_A$ を固定します。その対数に負号を付けた演算子を、次の定義で導入します。状態を変えても参照 $\sigma_A$ は固定する点が重要です。
 
@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft61-modular-hamiltonian -->
-**定義の確認**：二準位で $\sigma_A=\operatorname{diag}(3/4,1/4)$ とします。固有値はともに正、和は1なので忠実な密度演算子です。
+**定義の確認**：二準位の正規直交基底 $|0\rangle,|1\rangle$ で $\sigma_A=(3/4)|0\rangle\langle0|+(1/4)|1\rangle\langle1|$ とします。この基底での行列表現が $\operatorname{diag}(3/4,1/4)$ です。射影 $|j\rangle\langle j|$ によるスペクトル分解なので、対角成分は固有値そのものです。両固有値が正であることから正定値・忠実性が、和が1であることからトレースの規格化が確かめられます。
 
 $$
 K_{\sigma,A}=\operatorname{diag}\left(\ln\frac43,\ln4\right),\qquad
@@ -129,6 +129,14 @@ $$
 
 第一法則は「参照状態での微分」についての主張でした。有限の変化では、両辺の差を測る量が必要です。[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)は、状態の支持条件を含めてその役割を担います。
 
+ただしQINF20はビット単位の $\log_2$ で定義していました。本講のエントロピーは自然対数による $S=-\operatorname{Tr}\rho\ln\rho$ なので、相対エントロピーも自然対数に合わせます。QINF20の値を $D_2$、本講の値を $D$ と呼ぶと、換算は
+
+$$
+D(\rho\Vert\sigma)=(\ln2)\,D_2(\rho\Vert\sigma)
+$$
+
+です。この正の係数は非負性・等号条件を変えません。
+
 参照 $\sigma_A>0$ に対し、任意の有限次元密度演算子 $\rho_A$ の相対エントロピーは
 
 $$
@@ -136,7 +144,7 @@ D(\rho_A\Vert\sigma_A)
 =\operatorname{Tr}\rho_A(\log\rho_A-\log\sigma_A)
 $$
 
-です（$\rho_A$ の零固有値は $0\log0=0$ と解釈）。これを $K_{\sigma,A}=-\log\sigma_A$ で書き直すだけで、有限差に関する重要な恒等式になります。
+です（ここ以降の $\log$ は自然対数で、$\rho_A$ の零固有値の寄与は $0\ln0=0$ と解釈）。これを $K_{\sigma,A}=-\log\sigma_A$ で書き直すだけで、有限差に関する重要な恒等式になります。
 
 <a id="prop-qft61-relative-balance"></a>
 
@@ -254,14 +262,21 @@ $$
 (\partial_xw)^{-1}=f_{u,v}(x).
 $$
 
-幾何学的モジュラー流の仮定により、$w$ のEuclid角度を $2\pi$ だけ移す生成子は、平坦区間の時間発展ベクトルに戻すと等時刻切片で
+この正則写像が時間発展の重みになる理由を確認します。$z=x+i\tau$ で $x$ を固定して $\tau$ だけ微小に変えると、正則写像の連鎖律から $\delta w=(dw/dz)i\,\delta\tau$ です。$\tau=0$ の区間内部では $dw/dz=dw/dx=1/f_{u,v}(x)$ は正の実数なので、角度変数 $\theta:=\operatorname{Im}w$ には
+
+$$
+\delta\theta=\frac{\delta\tau}{f_{u,v}(x)},\qquad
+\left.\frac{\partial\tau}{\partial\theta}\right|_{\tau=0}=f_{u,v}(x)
+$$
+
+が成り立ちます。幾何学的モジュラー流の仮定で $\theta$ を $2\pi$ 進める生成子を、Euclid時間 $\tau$ からLorentz時間 $t$ へ解析接続したものが、等時刻切片で
 
 $$
 \xi^t(0,x)=2\pi f_{u,v}(x)
 =2\pi\frac{(x-u)(v-x)}{v-u},\qquad \xi^x(0,x)=0
 $$
 
-を持つ。時間成分だけが残る等時刻の保存荷は、境界を除いたcutoff区間で $\int \xi^tT_{00}\,dx$ です。従って端点cutoffを最後まで保持した荷は
+を持ちます。ここで $\xi^t$ はLorentz時間 $t$ に沿うベクトル場の成分で、$\xi^x$ は空間成分です。時間成分だけが残る等時刻の保存荷は、境界を除いたcutoff区間で $\int \xi^tT_{00}\,dx$ です。両端から距離 $a$ だけ除く $0<a<(v-u)/2$ の端点cutoffを最後まで保持した荷は
 
 $$
 2\pi\int_{u+a}^{v-a}f_{u,v}(x)T_{00}(0,x)\,dx
@@ -350,7 +365,7 @@ $$
 - Level: A
 - 対応目標: 忠実性・モジュラー対数・指数の規格化
 
-$\sigma=\operatorname{diag}(2/3,1/3)$ に対して $K_\sigma$ を求め、$\operatorname{Tr}e^{-K_\sigma}=1$ を確かめよ。また $\sigma'=\operatorname{diag}(1,0)$ で同じ定義が全空間上の有界行列として使えない理由を述べよ。
+$\sigma=\operatorname{diag}(2/3,1/3)$ に対して $K_\sigma$ を求め、$\operatorname{Tr}e^{-K_\sigma}=1$ を確かめよ。また別の参照状態 $\widetilde\sigma=\operatorname{diag}(1,0)$ で同じ定義が全空間上の有界行列として使えない理由を述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -362,7 +377,7 @@ K_\sigma=\operatorname{diag}\left(\ln\frac32,\ln3\right),\qquad
 e^{-K_\sigma}=\operatorname{diag}\left(\frac23,\frac13\right).
 $$
 
-従って $\operatorname{Tr}e^{-K_\sigma}=2/3+1/3=1$。$\sigma'$ の零固有値について $-\ln0$ は有限値ではなく、忠実性が失われます。支持空間上だけで対数を定義する別の議論は可能ですが、本講の全空間の定義条件には含まれません。
+従って $\operatorname{Tr}e^{-K_\sigma}=2/3+1/3=1$。$\widetilde\sigma$ の零固有値について $-\ln0$ は有限値ではなく、忠実性が失われます。支持空間上だけで対数を定義する別の議論は可能ですが、本講の全空間の定義条件には含まれません。
 <!-- solution-end -->
 
 <a id="ex-qft61-a02"></a>
@@ -474,14 +489,30 @@ $\sigma=\operatorname{diag}(3/4,1/4)$、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$
 <!-- solution-start -->
 ### 詳細解答
 
-$\operatorname{Tr}\rho=1$、$\rho^\dagger=\rho$ です。行列式は $\det\rho=3/16-\varepsilon^2$、対角成分は正なので、$|\varepsilon|<\sqrt3/4$ なら正定値です。固有値は
+$\operatorname{Tr}\rho=1$、$\rho^\dagger=\rho$ です。計算基底での行列表現から、固有値を特性方程式で求めます。トレースが1、行列式が $3/16-\varepsilon^2$ だから
+
+$$
+\det(\rho-\lambda I)=\lambda^2-\lambda+\frac3{16}-\varepsilon^2=0
+$$
+
+となり、固有値は
 
 $$
 \lambda_\pm(\varepsilon)
 =\frac12\pm\sqrt{\frac1{16}+\varepsilon^2}.
 $$
 
-したがって $\lambda_\pm'(0)=0$、$S=-\sum_\pm\lambda_\pm\ln\lambda_\pm$ を微分すると $S'(0)=0$。一方[定義](#def-qft61-modular-hamiltonian)の $K_\sigma$ は対角行列で、$X$ の対角成分は0なので $\operatorname{Tr}(XK_\sigma)=0$ です。非可換な摂動でも[第一法則](#thm-qft61-first-law)は成立します。
+正半定値性は小さい方の固有値が非負という条件であり、
+
+$$
+\lambda_-\ge0\quad\Longleftrightarrow\quad
+\frac1{16}+\varepsilon^2\le\frac14
+\quad\Longleftrightarrow\quad |\varepsilon|\le\frac{\sqrt3}4.
+$$
+
+従ってこれが**密度行列となる正確な条件**です。等号では固有値の一つが0となり、忠実ではありません。第一法則の微分に使う $\varepsilon=0$ の近傍では狭義不等号として正定値を保ちます。
+
+平方根の中身は $1/16+\varepsilon^2$ なので、$\lambda_\pm'(\varepsilon)=\pm\varepsilon/\sqrt{1/16+\varepsilon^2}$、特に $\lambda_\pm'(0)=0$ です。$S=-\sum_\pm\lambda_\pm\ln\lambda_\pm$ を微分すると $S'(0)=0$。一方[定義](#def-qft61-modular-hamiltonian)の $K_\sigma$ は対角行列で、$X$ の対角成分は0なので $\operatorname{Tr}(XK_\sigma)=0$ です。非可換な摂動でも[第一法則](#thm-qft61-first-law)は成立します。
 <!-- solution-end -->
 
 <a id="ex-qft61-b02"></a>
@@ -537,7 +568,7 @@ $$
 =\frac{\pi^2\ell^2}{18\beta^2},
 $$
 
-円周では $\Delta S_L^{(1)}=-\pi^2\ell^2/(18L^2)$ です。QFT60の $\ln(\sinh y/y)=y^2/6+O(y^4)$ と $\ln(\sin y/y)=-y^2/6+O(y^4)$ に $c/3=1/3$ を掛けると同じ値を得ます。両者の符号差は熱とCasimirのエネルギー密度差の符号に対応します。
+円周では $\Delta S_L^{(1)}=-\pi^2\ell^2/(18L^2)$ です。[QFT60の短区間展開](../QFT60/index.md#prop-qft60-short-interval)にある $\ln(\sinh y/y)=y^2/6+O(y^4)$ と $\ln(\sin y/y)=-y^2/6+O(y^4)$ に $c/3=1/3$ を掛けると同じ値を得ます。両者の符号差は熱とCasimirのエネルギー密度差の符号に対応します。
 <!-- solution-end -->
 
 <a id="ex-qft61-b04"></a>
@@ -625,7 +656,14 @@ $$
 =D(\rho_A\Vert\sigma_A)\ge0.
 $$
 
-$\rho_A\ne\sigma_A$ なら[QINF20の等号条件](../../../応用系/QINF/QINF20/index.md#prop-qinf20-nonnegative)によって不等号は厳密です。第一法則の等式は参照での微分だけです。連続場へ進むには、少なくとも (i) 領域端点のUV cutoffを固定した状態族と微分の交換可能性、(ii) 真空の幾何学的モジュラー流の成立、(iii) 演算子値分布 $T_{00}$ の積分・期待値差の正則化、(iv) 無限次元極限での相対エントロピーや差の有限性、を確認する必要があります。有限次元の忠実な行列対数を無限系へそのまま移すことはできません。
+$\rho_A\ne\sigma_A$ なら[QINF20の等号条件](../../../応用系/QINF/QINF20/index.md#prop-qinf20-nonnegative)によって不等号は厳密です。第一法則の等式は参照での微分だけです。連続場へ進むには、少なくとも次の条件を確認する必要があります。
+
+1. 領域端点のUV cutoffを固定した状態族と微分の交換可能性。
+2. 真空の幾何学的モジュラー流の成立。
+3. 演算子値分布 $T_{00}$ の積分・期待値差の正則化。
+4. 無限次元極限での相対エントロピーや差の有限性。
+
+有限次元の忠実な行列対数を無限系へそのまま移すことはできません。
 <!-- solution-end -->
 
 ## 7. 今回の到達点と次の問い
