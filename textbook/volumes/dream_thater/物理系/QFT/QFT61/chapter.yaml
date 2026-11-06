@@ -1,0 +1,40 @@
+id: QFT61
+title: "局所モジュラーハミルトニアンとエンタングルメント第一法則"
+volume: foundations
+status: supplementary
+prerequisites: [QFT60, QFT59, QFT57, QFT55, QINF20]
+official_scope: []
+learning_objectives:
+  - 有限cutoffで忠実な参照密度演算子からモジュラーハミルトニアンを定義し規格化できる
+  - 行列対数の変分からエンタングルメント第一法則を再導出できる
+  - 量子相対エントロピーをモジュラーエネルギー差とエントロピー差として書き直せる
+  - 真空区間の共形座標から局所モジュラー重みの形と端点挙動を導ける
+  - 幾何学的モジュラー流が成立する条件と一般状態での非局所性を区別できる
+  - 熱状態と円周真空の短区間エントロピー補正を重み付きエネルギー積分で検算できる
+  - cutoffの固定・台の条件・無限次元極限の限界を説明できる
+definitions:
+  - { id: QFT61-DEF-01, name: 規格化モジュラーハミルトニアン }
+theorems:
+  - { id: QFT61-THM-01, name: 有限次元エンタングルメント第一法則 }
+  - { id: QFT61-PROP-01, name: 相対エントロピーとモジュラーエネルギーの差 }
+  - { id: QFT61-THM-02, name: 二次元CFT真空区間の局所モジュラー重み }
+  - { id: QFT61-PROP-02, name: 一様エネルギー摂動の短区間照合 }
+canonical_examples:
+  - 二準位忠実状態の対数とモジュラーエネルギー
+  - 非可換摂動を含むトレース微分
+  - 真空区間の中心と端点でのモジュラー重み
+  - 熱円筒の正のエネルギーと円周Casimirエネルギーの負の補正
+problem_patterns:
+  - QFT61-QUBIT-MODULAR
+  - QFT61-FIRST-LAW-DIAGONAL
+  - QFT61-INTERVAL-WEIGHT
+  - QFT61-RELATIVE-ENTROPY
+  - QFT61-OFF-DIAGONAL-FIRST-LAW
+  - QFT61-CIRCLE-THERMAL-CHECK
+  - QFT61-SUPPORT-BOUNDARY
+  - QFT61-CUTOFF-CONDITION
+  - QFT61-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 16, review: 6 }
