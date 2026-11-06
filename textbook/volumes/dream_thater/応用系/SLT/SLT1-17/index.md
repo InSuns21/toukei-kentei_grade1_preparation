@@ -215,7 +215,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有界線形回帰の一様汎化界）**
-> [有界線形回帰と正規化二乗損失](#def-slt1-17-bounded-square)の仮定を満たし、$S\sim P^n$ を独立同分布標本、$\delta\in(0,1)$ とする。正規化損失によるリスクを $R_K(w)=\mathbb E_P\ell_K(w,Z)$、$\widehat R_K(w)=n^{-1}\sum_i\ell_K(w,Z_i)$ と記す。標本前に決めた集合 $W_B$ に対し、確率 $1-\delta$ 以上で全ての $w\in W_B$ について同時に
+> [有界線形回帰と正規化二乗損失](#def-slt1-17-bounded-square)の仮定を満たし、$S\sim P^n$ を独立同分布標本、$\delta\in(0,1)$ とする。正規化損失による母集団・経験リスクを
+
+$
+R_K(w)=\mathbb E_P\ell_K(w,Z),\qquad
+\widehat R_K(w)=\frac1n\sum_{i=1}^n\ell_K(w,Z_i)
+$
+
+> と書く。標本前に決めた集合 $W_B$ に対し、確率 $1-\delta$ 以上で全ての $w\in W_B$ について同時に
 
 $$
 |R_K(w)-\widehat R_K(w)|
@@ -239,7 +246,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $W_B$ の可算稠密部分集合 $W_0=\mathbb Q^d\cap W_B$ に制限する。これは可算であり $W_B$ に稠密である。球の内点は有理座標で近似でき、境界点 $w$ も $(1-1/k)w$ を先に球の内点へ寄せてから有理座標で近似すればよい。そこから得る損失関数クラスを $\mathcal F_0$ とし、入力だけに作用する線形関数クラスを $\mathcal H_0=\{x\mapsto w\cdot x:w\in W_0\}$、$\mathcal H_B=\{x\mapsto w\cdot x:w\in W_B\}$ と書く。以下、$\widehat{\mathfrak R}_S(\mathcal F_0)$ は組 $(x_i,y_i)$ 上、$\widehat{\mathfrak R}_{(x_i)}(\mathcal H_0)$ は入力列 $(x_i)$ 上で計算する。
+まず $W_B$ の可算稠密部分集合 $W_0=\mathbb Q^d\cap W_B$ に制限する。球の内点は有理座標で近似でき、境界点 $w$ も $(1-1/k)w$ を先に球の内点へ寄せてから有理座標で近似すればよい。そこから得る損失関数クラスを $\mathcal F_0$ とする。
+
+入力だけに作用する線形関数クラスを
+
+$
+\mathcal H_0=\{x\mapsto w\cdot x:w\in W_0\},\qquad
+\mathcal H_B=\{x\mapsto w\cdot x:w\in W_B\}
+$
+
+と書く。以下、$\widehat{\mathfrak R}_S(\mathcal F_0)$ は組 $(x_i,y_i)$ 上、$\widehat{\mathfrak R}_{(x_i)}(\mathcal H_0)$ は入力列 $(x_i)$ 上で計算する。
 
 固定標本について、可算クラス $\mathcal H_0$ に[contraction不等式](../SLT1-11/index.md#thm-slt1-11-contraction)を $\phi_{y_i}(t)-\phi_{y_i}(0)$ で適用する。これは0で消え、Lipschitz係数は $2/K$ である。符号和の定数 $\sum_i\sigma_i\phi_{y_i}(0)$ は関数 $w$ に依存せず、符号期待値が0なので、通常版の経験Rademacher複雑度を変えない。$\mathcal H_0\subseteq\mathcal H_B$ だから、最後に[線形クラスの評価](../SLT1-11/index.md#prop-slt1-11-linear-rademacher)で上から抑えると
 
