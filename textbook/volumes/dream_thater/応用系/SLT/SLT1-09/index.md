@@ -481,7 +481,29 @@ $\mathcal F=\{f_t(x)=tx:t\in[0,1]\}$、$\mathcal X=[0,1]$ とし、$P$ を任意
    \sup_{t\in[0,1]}|P_nf_t-Pf_t|=|P_nx-Px|.
    $$
 
-   右辺は標本の可測関数である。各固定 $f_{t_j}$ に[Hoeffdingの両側不等式](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)を適用すると、偏差幅 $r>0$ に対して最大偏差の失敗確率は $2(m+1)e^{-2nr^2}$ 以下。$r=\sqrt{\log(2(m+1)/\delta)/(2n)}$ で失敗確率は $\delta$ 以下になる。任意の $f_t$ と最近の $g\in G$ は全入力で $|f_t-g|\le1/m$ だから、母集団平均と経験平均の差の双方に各 $1/m$ を加え、結論を得る。
+   右辺は標本の可測関数である。各固定 $f_{t_j}$ に[Hoeffdingの両側不等式](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)を適用する。偏差幅 $r>0$ に対して、有限個の代表の最大偏差が $r$ を超える確率は
+
+   $$
+   \Pr\left\{\max_{0\le j\le m}|P_nf_{t_j}-Pf_{t_j}|>r\right\}
+   \le2(m+1)e^{-2nr^2}
+   $$
+
+   以下である。$r=\sqrt{\log(2(m+1)/\delta)/(2n)}$ と取れば右辺は $\delta$ となる。
+
+   任意の $f_t$ に対し、netの代表 $g\in G$ を選ぶと全入力で $|f_t-g|\le1/m$ である。従って標本平均と母集団平均について
+
+   $$
+   |P_n(f_t-g)|\le\frac1m,\qquad
+   |P(f_t-g)|\le\frac1m
+   $$
+
+   が成り立つ。同時成功事象上で三角不等式を使い、
+
+   $$
+   |P_nf_t-Pf_t|\le\frac1m+r+\frac1m
+   $$
+
+   を全ての $t$ について得る。上限を取り、先ほどの $r$ を代入すれば結論である。
 3. $d_{S,1}(f_t,f_u)=|t-u|\,n^{-1}\sum_iX_i\le|t-u|$。したがって同じ $G$ は任意の $S$ で半径 $1/m$ のnetである。[条件付き符号平均の定理](#thm-slt1-09-empirical-cover)を $N=m+1$ で適用すると
 
    $$
