@@ -1,0 +1,27 @@
+chapter: QFT59
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT58, QFT57, QFT55, QFT53, QFT51]
+forward_references: []
+
+concepts:
+  - id: qft.single-interval-renyi-universal
+    name: 平面真空の単一区間Rényi普遍項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平面真空の単一区間Rényi普遍項）]
+    requires: [qft.single-interval-replica-exponent, qft.replica-moments]
+
+  - id: qft.cutoff-scale-reexpression
+    name: cutoff表示尺度の変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（cutoff表示尺度の変更）]
+    requires: [qft.single-interval-renyi-universal]
+
+  - id: qft.conditional-interval-von-neumann
+    name: 条件付きの単一区間von Neumann普遍係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（条件付きの単一区間von Neumann普遍係数）]
+    requires: [qft.conditional-replica-entropy, qft.replica-derivative, qft.cutoff-scale-reexpression]

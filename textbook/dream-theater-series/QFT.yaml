@@ -239,3 +239,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/QFT/QFT58
     status: completed
     title: "レプリカ経路積分・分岐被覆とtwist演算子"
+  - id: QFT59
+    path: textbook/volumes/dream_thater/物理系/QFT/QFT59
+    status: completed
+    title: "単一区間のRényi・von Neumannエントロピーと普遍係数"
