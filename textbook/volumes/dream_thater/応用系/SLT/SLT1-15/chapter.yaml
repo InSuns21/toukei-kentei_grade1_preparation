@@ -1,0 +1,51 @@
+id: "SLT1-15"
+title: "PAC-Bayes不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-14
+  - INFO2
+  - HDP1
+official_scope: []
+learning_objectives:
+  - 標本独立な事前分布とデータ依存の事後分布を区別し、混合リスク・自然対数KL・台の条件を具体的に計算できる
+  - Gibbs不等式から有限仮説上の分布変更不等式と等号条件を導出できる
+  - 有界独立標本平均の二値KL指数モーメントをBernoulli凸比較から証明できる
+  - Markov法、分布変更、対数和不等式から全事後同時のPAC-Bayes二値KL高確率界を証明できる
+  - 二値KLの下界から絶対リスク差界を導き、事後分布を用いた数値保証を比較できる
+  - 指数傾斜によるKL罰則付き事後の選択と固定指数パラメータの一側界を導出できる
+  - 標本依存の事前分布、非独立標本、非有界損失で証明のどの部分が使えなくなるか説明できる
+definitions:
+  - { id: SLT1-15-DEF-01, name: 事前分布・事後分布と混合リスク }
+  - { id: SLT1-15-DEF-02, name: 事後分布の相対エントロピー }
+  - { id: SLT1-15-DEF-03, name: 二値相対エントロピー }
+theorems:
+  - { id: SLT1-15-LEM-01, name: 有限仮説上の分布変更不等式 }
+  - { id: SLT1-15-LEM-02, name: 有界標本平均の二値KL指数モーメント }
+  - { id: SLT1-15-THM-01, name: 有限仮説クラスのPAC-Bayes二値KL不等式 }
+  - { id: SLT1-15-LEM-03, name: 二値KLから絶対差への評価 }
+  - { id: SLT1-15-COR-01, name: PAC-Bayesの二側リスク差界 }
+  - { id: SLT1-15-PROP-01, name: 経験リスクとKL罰則の最小化 }
+  - { id: SLT1-15-THM-02, name: 固定指数パラメータによるPAC-Bayes一側界 }
+  - { id: SLT1-15-PROP-02, name: 標本依存の事前分布では保証できない }
+canonical_examples:
+  - 二仮説の混合リスクと事後・事前KLの直接計算
+  - 有界Bernoulli標本の二値KL指数モーメント計算
+  - 訓練後の重みを変更した場合の高確率リスク差界
+  - 未観測入力へ逆ラベルを出す標本依存priorの反例
+problem_patterns:
+  - SLT1-15-A01
+  - SLT1-15-A02
+  - SLT1-15-A03
+  - SLT1-15-A04
+  - SLT1-15-A05
+  - SLT1-15-B01
+  - SLT1-15-B02
+  - SLT1-15-B03
+  - SLT1-15-B04
+  - SLT1-15-B05
+  - SLT1-15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.0 }
