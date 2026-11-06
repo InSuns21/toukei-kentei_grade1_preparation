@@ -65,11 +65,15 @@ active experiment's parameters stay on the left and its interactive figures
 and calculated results stay on the right. Under 1000 px the columns stack
 without horizontal overflow. The globe no longer claims the entire content
 width regardless of the experiment: A can show the globe next to its
-meridional section on wider monitors, and B reserves a generous area for the
-3D geodesic. D, E and F place their **2D projected maps first**, with a
-smaller (at most 520 px wide) supplementary 3D globe below; selecting or
-editing a coordinate updates the visible map while its controls remain
-adjacent. This supersedes the earlier full-width-globe layout rule.
+meridional section on wider monitors, **aligning the two drawings at the top**
+with the A globe's checkbox/zoom/coordinate tools immediately below its
+canvas. B reserves a generous area for the 3D geodesic. D, E and F place
+their **2D projected maps first**, with D/F planar figures capped at 860 px
+rather than stretching across an ultrawide screen, and a smaller (at most
+520 px wide) supplementary 3D globe below; selecting or editing a coordinate
+updates the visible map while its controls remain adjacent. All globe map
+checkboxes display the checkbox inline with its label, including in narrow
+columns. This supersedes the earlier full-width-globe layout rule.
 Labs A/B/D/E retain 60–240% **display-only** zoom via controls, mouse wheel
 over the globe, or +/- keys (0 resets; arrows still rotate). Lab F starts
 at 400% and supports 60–1200%, with a tighter default focus on the Japanese
@@ -82,9 +86,11 @@ cache holds no more than 24 tiles, and off-Japan views use the base globe.
 Remote tiles are not pre-cached for offline use; loading failures preserve
 the shaded globe and the numeric kernel. Both OSM and GSI credits are shown
 when the corresponding imagery is active.
-The controls directly above the globe also offer a compact city/latitude/
+The controls next to the globe also offer a compact city/latitude/
 longitude editor, synchronized in both directions with the mode's original
-fields. For F the selected zone is also available beside the globe and
+fields. For A the canvas sits immediately below its heading and the controls
+follow it to align the two illustrations; the primary parameter controls
+remain visible in the left column. For F the selected zone is also available beside the globe and
 bidirectionally synchronized with the primary zone picker. For B, the learner chooses the start or end point before editing;
 for D, choosing a city also moves the comparison central meridian as in the
 original controls. Manual nearby-coordinate edits recentre the globe but do

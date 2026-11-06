@@ -133,6 +133,18 @@ try {
   assertSideBySide(initialLayout);
   assert.ok(initialLayout.visual.left >= initialLayout.globe.right,
     'A globe and meridian section should share the right column on wide screens: ' + JSON.stringify(initialLayout));
+  assert.ok(Math.abs(initialLayout.visual.top - initialLayout.globe.top) <= 3,
+    'A globe canvas and meridian SVG must align at the top: ' + JSON.stringify(initialLayout));
+  const toggle = await evalJS(`(() => {
+    const label = document.querySelector('.world-toggle');
+    const box = label.querySelector('input[type="checkbox"]');
+    return { direction: getComputedStyle(label).flexDirection,
+      checkY: box.getBoundingClientRect().y, labelY: label.getBoundingClientRect().y,
+      checkHeight: box.getBoundingClientRect().height, labelHeight: label.getBoundingClientRect().height };
+  })()`);
+  assert.equal(toggle.direction, 'row', 'Map checkbox and label text must share one line');
+  assert.ok(toggle.checkHeight < 24 && Math.abs(toggle.checkY + toggle.checkHeight/2 - toggle.labelY - toggle.labelHeight/2) < 3,
+    'Map checkbox must be inline and vertically aligned: ' + JSON.stringify(toggle));
   const webgl = await evalJS(`(() => {
     const canvas = document.querySelector('#globe');
     const gl = canvas.getContext('webgl2');
@@ -203,6 +215,8 @@ try {
   assert.equal(dLayout.lab, 'D');
   assert.ok(dLayout.visual.top < dLayout.globe.top && dLayout.visual.width > dLayout.globe.width,
     'D must prioritize the projected map and keep the globe secondary: ' + JSON.stringify(dLayout));
+  assert.ok(dLayout.visual.width <= 861,
+    'D local map should not stretch over a full widescreen: ' + JSON.stringify(dLayout));
   assert.equal(await evalJS('document.querySelector("#globe").width'), 1200);
   await evalJS(`document.querySelector('[data-lab="E"]').click();
     document.querySelector('#e-city').value='paris';
@@ -243,6 +257,8 @@ try {
   assertSideBySide(fLayout);
   assert.ok(fLayout.visual.top < fLayout.globe.top && fLayout.visual.width > fLayout.globe.width,
     'F Japanese plane coordinate plot should precede supporting globe: ' + JSON.stringify(fLayout));
+  assert.ok(fLayout.visual.width <= 861,
+    'F regional map should not stretch over a full widescreen: ' + JSON.stringify(fLayout));
   assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("EPSG:6677")'));
   assert.equal(await evalJS('document.querySelector("#globe-point-lat").value'), '35.681236');
   await evalJS(`document.querySelector('#f-zone').value='8';

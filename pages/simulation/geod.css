@@ -10,10 +10,13 @@
 .geod-app .geod-output-panel{display:flex;flex-direction:column;gap:.8rem}
 .geod-app .geod-output-panel>h2{order:-2;margin:0}
 .geod-app .geod-output-panel>#map-panel,.geod-app .geod-output-panel>#e-map-panel,.geod-app .geod-output-panel>#f-map-panel{order:-1;margin:0}
+.geod-app .geod-output-panel>:is(#map-panel,#f-map-panel){width:100%;max-width:860px}
 .geod-app .geod-output-panel>.viz-grid{order:0}
 .geod-app .geod-output-panel>#geod-status,.geod-app .geod-output-panel>#geod-results{order:1}
 .geod-app .geod-output-panel>#geod-status{margin:0}
-.geod-app .geod-workspace[data-current-lab="A"] .viz-grid>figure:first-child{max-width:760px}
+.geod-app .geod-workspace[data-current-lab="A"] .viz-grid>figure:first-child{max-width:760px;display:flex;flex-direction:column}
+.geod-app .geod-workspace[data-current-lab="A"] .viz-grid>figure:first-child>.figure-head{order:-2}
+.geod-app .geod-workspace[data-current-lab="A"] .viz-grid>figure:first-child>.globe-frame{order:-1}
 .geod-app .geod-workspace[data-current-lab="B"] .viz-grid>figure:first-child{max-width:900px}
 .geod-app .geod-workspace:is([data-current-lab="D"],[data-current-lab="E"],[data-current-lab="F"]) .viz-grid>figure:first-child{max-width:520px}
 .geod-app .controls label{border:1px solid #d1d9e5;border-radius:8px;padding:.65rem;background:#fbfcfe}
@@ -29,7 +32,8 @@
 .geod-app #e-map-panel{margin-top:1rem}
 .geod-app #f-map-panel{margin-top:1rem}
 .geod-app .globe-frame{position:relative}
-.geod-app .world-toggle{display:flex;align-items:center;gap:.4rem;font-size:.87rem;margin:0 0 .5rem}
+.geod-app .world-toggle{display:flex;flex-direction:row;align-items:center;gap:.4rem;font-size:.87rem;margin:0 0 .5rem}
+.geod-app .world-toggle input[type=checkbox]{width:1rem;height:1rem;min-height:0;flex:0 0 1rem;padding:0;margin:0}
 .geod-app .globe-zoom-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin:.5rem 0;font-size:.88rem}
 .geod-app .globe-zoom-controls input{width:clamp(95px,24%,190px);flex:1 1 95px;max-width:190px}
 .geod-app .globe-zoom-controls output{min-width:3.2rem;text-align:right;font-variant-numeric:tabular-nums}
