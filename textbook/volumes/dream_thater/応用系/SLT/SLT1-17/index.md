@@ -217,10 +217,10 @@ $$
 > **定理（有界線形回帰の一様汎化界）**
 > [有界線形回帰と正規化二乗損失](#def-slt1-17-bounded-square)の仮定を満たし、$S\sim P^n$ を独立同分布標本、$\delta\in(0,1)$ とする。正規化損失による母集団・経験リスクを
 
-$
+$$
 R_K(w)=\mathbb E_P\ell_K(w,Z),\qquad
 \widehat R_K(w)=\frac1n\sum_{i=1}^n\ell_K(w,Z_i)
-$
+$$
 
 > と書く。標本前に決めた集合 $W_B$ に対し、確率 $1-\delta$ 以上で全ての $w\in W_B$ について同時に
 
@@ -250,10 +250,10 @@ $$
 
 入力だけに作用する線形関数クラスを
 
-$
+$$
 \mathcal H_0=\{x\mapsto w\cdot x:w\in W_0\},\qquad
 \mathcal H_B=\{x\mapsto w\cdot x:w\in W_B\}
-$
+$$
 
 と書く。以下、$\widehat{\mathfrak R}_S(\mathcal F_0)$ は組 $(x_i,y_i)$ 上、$\widehat{\mathfrak R}_{(x_i)}(\mathcal H_0)$ は入力列 $(x_i)$ 上で計算する。
 
@@ -286,14 +286,14 @@ $$
 
 $W_B$ はコンパクトで経験損失は連続なのでERM $\widehat w$ は存在する。先に示した一様偏差事象上で、任意の比較候補 $v\in W_B$ に対して
 
-$
+$$
 \begin{aligned}
 R_K(\widehat w)
 &\le\widehat R_K(\widehat w)+D_{n,\delta}\\
 &\le\widehat R_K(v)+D_{n,\delta}\\
 &\le R_K(v)+2D_{n,\delta}
 \end{aligned}
-$
+$$
 
 と直接比較し、$v\in W_B$ について下限を取る。この三段の比較は[既習の近似ERM不等式](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle)と同じ論法だが、ここではその定理の有限・可算クラス仮定を非可算な $W_B$ に誤適用せず、同時事象上で証明した。
 <!-- proof-end -->
@@ -419,10 +419,10 @@ $$
 
 ここで $F_S'(w)=dF_S(w)/dw$ は実変数 $w$ に関する通常の導関数である。二次式を微分すると
 
-$
+$$
 F_S'(w)=2(1+\lambda)w-2\bar y,\qquad
 F_S''(w)=2(1+\lambda)>0
-$
+$$
 
 だから唯一の最小点は $\widehat w_S=\bar y/(1+\lambda)$ である。以下の $y_i'$ は「置換後の第 $i$ ラベル」を表し、$F_S'(w)$ のプライム（$w$ に関する微分）とは意味が異なる。ラベル $y_i$ を $y_i'$ に置き換えると
 
