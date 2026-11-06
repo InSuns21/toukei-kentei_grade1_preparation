@@ -6,7 +6,8 @@ The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
 It has no time-stepping session, randomized seed, or imported observation record,
 so it uses the same Pages/offline shell but does not impersonate the
 simulation Worker protocol. Numerical calculations are pure functions in
-geod-core.mjs and the GEOD-specific modules, including geod-survey.mjs and geod-gnss.mjs;
+geod-core.mjs and the GEOD-specific modules, including geod-survey.mjs,
+geod-gnss.mjs and geod-height.mjs;
 WebGL2 renders normalized and visibly exaggerated geometry
 without feeding drawing coordinates back into the numeric kernel.
 
@@ -16,7 +17,7 @@ without feeding drawing coordinates back into the numeric kernel.
   integrated Clairaut first-order system (RK4). A spherical great-circle
   baseline is separate. Near-antipodal nonconvergence is a visible error, not
   an undisclosed sphere fallback.
-* **C**: Two switchable, completely synthetic experiments:
+* **C**: Three switchable, completely synthetic experiments:
   (1) 2D ground surveying with three fixed control stations, three range
   observations, bias and standard deviations, solved by Gauss–Newton weighted
   least squares with residuals, conditional covariance and a 600x-exaggerated
@@ -41,6 +42,22 @@ without feeding drawing coordinates back into the numeric kernel.
   mode subtracts their exact injected values to show an *idealized* upper bound,
   not a viable receiver correction algorithm. DOP remains geometry-only even
   when the estimated position becomes biased.
+  (3) A local two-station gravity/height model from GEOD6/GEOD10: choose
+  ellipsoidal heights `h` and signed local geoid undulations `N` independently
+  at two points 20 km apart, then recover the model's orthometric heights
+  `H=h-N`. The 2D section uses distinct vertical/horizontal scales, so its
+  geoid/terrain shapes are **not** a physical elevation or gravity grid.
+  At each station separately, assume coincident vertical/ellipsoid-normal
+  directions and local parallel reference surfaces. Only under those
+  assumptions is `h=H+N` exact; elsewhere it is the familiar approximation.
+  The independent 1D gravity model is `g(s)=g0-k*s` with upward signed
+  distance `s`, hence the geopotential number is
+  `C=W0-W(P)=g0*H-k*H²/2`, mean gravity `g0-kH/2`, and dynamic height
+  `Hᴰ=C/9.80665`. The stations may have different g0, but the app makes
+  **no claim** that their joined section solves a coherent 2D gravity field,
+  applies GSI geoid 2024/vertical datum corrections, or yields real heights.
+  The SVG section cannot select its text, while the numeric table remains
+  accessible independently and needs no WebGL.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
   Jacobian, Tissot principal stretches and the grid-north bearing.
@@ -137,7 +154,8 @@ latitude coordinates. No output claims a datum/epoch conversion, survey
 accuracy, or a certified Japanese CRS coordinate. Selecting F in a distant
 location may therefore produce an explicit local-domain error.
 
-Run the kernel and city/XYZ/no-WebGL tests with
+Run the kernel, including height sign/potential integration references,
+and city/XYZ/no-WebGL tests with
 `npm run validate:simulation-phase0`. They compare distinct
 algorithms, analytical spherical/equatorial limits, a Simpson quadrature of
 the meridian arc, the independent published PROJ Gauss-Boaga sample, and
@@ -157,7 +175,10 @@ Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
 comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
-numerical spot checks, full legal-zone applicability checks, operational GNSS atmospheric/orbit/clock corrections and the gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
+numerical spot checks, full legal-zone applicability checks, operational GNSS
+atmospheric/orbit/clock corrections, and **actual** geoid/gravity/datum-linked
+height conversions. The educational synthetic gravity-height lab C now exists.
+See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.

@@ -13,6 +13,7 @@ import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
 import { GNSS_REFERENCE, GNSS_LAYOUTS, syntheticGnssObservations,
   solveGnssPseudoranges, correctGnssObservations } from './geod-gnss.mjs';
 import { createGnssSpaceRenderer } from './geod-gnss-space.mjs';
+import { syntheticHeightProfile, HEIGHT_REFERENCE } from './geod-height.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -1113,6 +1114,111 @@ function computeC() {
   ], 'C：局所平面の3距離を重み付き最小二乗で平差。誤差楕円は図上のみ600倍。3D地球儀は使用しません。');
 }
 
+function drawHeightProfile(result) {
+  const map = $('c-height-map');
+  map.replaceChildren();
+  const { A, B } = result;
+  const heights = [0, A.N, B.N, A.h, B.h];
+  const low = Math.min(...heights), high = Math.max(...heights);
+  const pad = Math.max(18, (high - low) * 0.2);
+  const min = low - pad, max = high + pad;
+  const y = z => 388 - (z - min) * 285 / (max - min);
+  const xA = 252, xB = 565;
+  const textAt = (x, yy, label, color = '#233b50', size = 15, anchor = 'middle') =>
+    svg('text', { x, y: yy, fill: color, 'font-size': size,
+      'font-weight': 650, 'text-anchor': anchor }, label);
+  const segment = (x1, y1, x2, y2, color, width = 2, dash = '') =>
+    svg('line', { x1, y1, x2, y2, stroke: color,
+      'stroke-width': width, 'stroke-dasharray': dash,
+      'stroke-linecap': 'round' });
+  map.append(svg('rect', { x: 1, y: 1, width: 798, height: 498, rx: 12,
+    fill: '#f8fbff', stroke: '#d1dce9' }));
+  // A graph with *independent horizontal/vertical scales*, not a geoid grid.
+  for (let i = 0; i <= 4; i++) {
+    const z = min + (max - min) * i / 4;
+    const yy = y(z);
+    map.append(segment(100, yy, 715, yy, '#d6e0e9', 1, '4 6'));
+    map.append(textAt(90, yy + 5, z.toFixed(0) + ' m', '#536779', 12, 'end'));
+  }
+  map.append(svg('polygon', { points: [xA, y(A.h), xB, y(B.h), xB, 420, xA, 420].join(' '),
+    fill: '#ead3b4', opacity: 0.55 }));
+  map.append(segment(110, y(0), 700, y(0), '#315e8a', 3, '9 5'));
+  map.append(segment(xA, y(A.N), xB, y(B.N), '#298268', 4));
+  map.append(segment(xA, y(A.h), xB, y(B.h), '#ae6034', 4));
+  // Draw the heights as signed, labelled segments. Numerical values remain
+  // outside the picture; very short segments are still available in the table.
+  const bracket = (x, start, end, label, color, side) => {
+    map.append(segment(x, y(start), x, y(end), color, 3));
+    for (const z of [start, end]) map.append(segment(x - 6, y(z), x + 6, y(z), color, 2));
+    const mid = (y(start) + y(end)) / 2;
+    map.append(textAt(x + side * 12, mid - 5, label, color, 16,
+      side > 0 ? 'start' : 'end'));
+  };
+  bracket(xA - 76, 0, A.N, 'N_A', '#17634f', -1);
+  bracket(xA - 24, 0, A.h, 'h_A', '#25547d', -1);
+  bracket(xA + 29, A.N, A.h, 'H_A', '#9b4c22', 1);
+  bracket(xB - 36, B.N, B.h, 'H_B', '#9b4c22', -1);
+  bracket(xB + 27, 0, B.h, 'h_B', '#25547d', 1);
+  bracket(xB + 84, 0, B.N, 'N_B', '#17634f', 1);
+  for (const [station, x] of [[A, xA], [B, xB]]) {
+    for (const [z, color] of [[station.h, '#a9562b'], [station.N, '#1e755f']]) {
+      map.append(svg('circle', { cx: x, cy: y(z), r: 5, fill: color,
+        stroke: 'white', 'stroke-width': 1.7 }));
+    }
+    map.append(textAt(x, 455, station.id + '地点', '#233b50', 18));
+  }
+  map.append(textAt(125, 35, '地表（茶実線）', '#9b4c22', 14, 'start'));
+  map.append(textAt(338, 35, 'ジオイド（緑実線）', '#17634f', 14, 'start'));
+  map.append(textAt(565, 35, '楕円体（青破線）', '#25547d', 14, 'start'));
+  map.append(textAt(400, 485, 'A–B：20 km（鉛直方向とは別縮尺）', '#43556a', 13));
+}
+
+function computeHeight() {
+  const number = id => {
+    const raw = $(id).value.trim();
+    if (!raw) throw new RangeError('高さ・重力の数値入力は空欄にできません');
+    return Number(raw);
+  };
+  const result = syntheticHeightProfile({
+    geoidAtA: number('c-height-na'), geoidChange: number('c-height-dn'),
+    ellipsoidalAtA: number('c-height-ha'), ellipsoidalAtB: number('c-height-hb'),
+    gravityAtA: number('c-height-ga'), gravityChange: number('c-height-dg'),
+    gradientMicro: number('c-height-gradient'),
+  });
+  state.geodesic = null; state.japan = null; state.gnssLastResult = null;
+  drawHeightProfile(result);
+  const { A, B, difference: d } = result;
+  showResults([
+    ['模型の基準', '架空の共通楕円体・鉛直基準、A–B水平 ' + result.distanceKm + ' km。各地点は局所平行面模型'],
+    ['楕円体高 h：A / B', fmt(A.h, 3) + ' / ' + fmt(B.h, 3) + ' m（楕円体法線方向）'],
+    ['ジオイド高 N：A / B', fmt(A.N, 3) + ' / ' + fmt(B.N, 3) + ' m（符号付き）'],
+    ['正標高模型 H = h − N：A / B', fmt(A.H, 3) + ' / ' + fmt(B.H, 3) + ' m（鉛直方向）'],
+    ['2地点の差 Δh / ΔN / ΔH', fmt(d.h, 3) + ' / ' + fmt(d.N, 3) +
+      ' / ' + fmt(d.H, 3) + ' m、ΔH = Δh − ΔN'],
+    ['高さの加法検算 h − (H + N)', 'A ' + A.identityResidual.toExponential(2) +
+      ' m / B ' + B.identityResidual.toExponential(2) + ' m'],
+    ['各地点のジオイド付近の重力 g₀', 'A ' + fmt(A.g0, 6) +
+      ' / B ' + fmt(B.g0, 6) + ' m/s²'],
+    ['地表点の重力 g(H) = g₀ − kH', 'A ' + fmt(A.gTop, 6) +
+      ' / B ' + fmt(B.gTop, 6) + ' m/s²'],
+    ['区間平均重力 ḡ = g₀ − kH/2', 'A ' + fmt(A.meanGravity, 6) +
+      ' / B ' + fmt(B.meanGravity, 6) + ' m/s²'],
+    ['ジオポテンシャル数 C = W₀ − W(P)', 'A ' + fmt(A.C, 5) +
+      ' / B ' + fmt(B.C, 5) + ' m²/s²'],
+    ['ポテンシャル差 ΔC = C_B − C_A', fmt(d.C, 5) + ' m²/s²'],
+    ['動的高 Hᴰ = C/γ₀（γ₀=' + HEIGHT_REFERENCE.gamma0 + '）',
+      'A ' + fmt(A.dynamicHeight, 5) + ' / B ' + fmt(B.dynamicHeight, 5) + ' m'],
+    ['積分検算 C − ḡH', 'A ' + A.potentialResidual.toExponential(2) +
+      ' / B ' + B.potentialResidual.toExponential(2) + ' m²/s²'],
+  ], [
+    'Aの楕円体高を固定し、N_Aを35.2 mから−12 mに変える。標高模型Hの符号・数値はどう動くか。',
+    'ΔNを0にするとΔHとΔhは一致する。ΔNを正・負に変えた場合を式で再現する。',
+    'h_Aを123.4 m、N_Aを35.2 mに戻すとH_Aが88.2 mとなることを式と表で確認する。',
+    'g₀,Bだけを変えるとH_Bは不変でもC_Bと動的高が変わる。どの高さが重力場に依存するか説明する。',
+    'この断面の加法が一般に近似に留まる理由を、GEOD6の鉛直線偏差と同一基準・時点の仮定から考える。',
+  ], 'C：ジオイド・正標高・楕円体高の局所2地点模型。鉛直方向のポテンシャル積分を別計算。');
+}
+
 function computeD() {
   const get = id => Number($(id).value);
   const phi = rad(get('d-lat')), lambda = rad(get('d-lon'));
@@ -1246,10 +1352,14 @@ function syncLocationToolbar() {
 function recalculate() {
   $('geod-workspace').dataset.currentLab = state.lab;
   $('map-panel').hidden = state.lab !== 'D';
-  const gnssMode = state.lab === 'C' && $('c-mode').value === 'gnss';
-  $('c-survey-controls').hidden = gnssMode;
+  const cMode = $('c-mode').value;
+  const gnssMode = state.lab === 'C' && cMode === 'gnss';
+  const heightMode = state.lab === 'C' && cMode === 'height';
+  $('c-survey-controls').hidden = cMode !== 'survey';
   $('c-gnss-controls').hidden = !gnssMode;
-  $('c-map-panel').hidden = state.lab !== 'C' || gnssMode;
+  $('c-height-controls').hidden = !heightMode;
+  $('c-map-panel').hidden = state.lab !== 'C' || cMode !== 'survey';
+  $('c-height-panel').hidden = !heightMode;
   const perspective = gnssMode && $('c-gnss-view').value === 'space';
   $('c-gnss-visual-controls').hidden = !gnssMode;
   $('c-gnss-camera-controls').hidden = !perspective;
@@ -1263,7 +1373,11 @@ function recalculate() {
   try {
     if (state.lab === 'A') { computeA(); drawMeridianSection(); }
     else if (state.lab === 'B') computeB();
-    else if (state.lab === 'C') { if (gnssMode) computeGnss(); else computeC(); }
+    else if (state.lab === 'C') {
+      if (gnssMode) computeGnss();
+      else if (heightMode) computeHeight();
+      else computeC();
+    }
     else if (state.lab === 'D') computeD();
     else if (state.lab === 'E') computeE();
     else computeF();
@@ -1275,6 +1389,7 @@ function recalculate() {
     state.geodesic = null;
     $('map').replaceChildren();
     $('c-map').replaceChildren();
+    $('c-height-map').replaceChildren();
     $('c-gnss-map').replaceChildren();
     $('c-gnss-space-map').replaceChildren();
     $('c-gnss-gl-wrap').hidden = true;
@@ -1397,6 +1512,8 @@ for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2
   'c-gnss-clock', 'c-gnss-sigma', 'c-gnss-stage', 'c-gnss-sat-clock',
   'c-gnss-iono', 'c-gnss-tropo', 'c-gnss-correction', 'c-gnss-view',
   'c-gnss-view-azimuth', 'c-gnss-view-tilt',
+  'c-height-na', 'c-height-dn', 'c-height-ha', 'c-height-hb',
+  'c-height-ga', 'c-height-dg', 'c-height-gradient',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
   'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
