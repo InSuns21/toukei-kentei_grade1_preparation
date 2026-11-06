@@ -20,7 +20,6 @@ definitions:
   - { id: QFT57-DEF-04, name: cutoff依存の領域エントロピー }
   - { id: QFT57-DEF-05, name: 有限cutoffのレプリカモーメントとRényiエントロピー }
 theorems:
-  - { id: QFT57-PROP-01, name: 局所期待値と縮約の同値 }
   - { id: QFT57-PROP-02, name: 二サイト自由場の基底状態と局所共分散 }
   - { id: QFT57-THM-01, name: 二振動子の縮約純粋性 }
   - { id: QFT57-THM-02, name: 独立Bell対の局所エントロピーと整数モーメント }

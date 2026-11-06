@@ -60,26 +60,16 @@ $$
 $\rho_A^{(a)}$ は正値でトレース1、$\operatorname{Tr}(\rho_A^{(a)}Z)=0$ です。全系が純粋でも部分系は混合でありえます。
 <!-- definition-example-end -->
 
-<a id="prop-qft57-local-expectations"></a>
+### 局所期待値を格子の添字で検算する
 
-<!-- formal-statement-start -->
-> **命題（局所期待値と縮約の同値）**
-> 有限次元の $H_A,H_B$ と全系の密度演算子 $\rho$ に対し、$\rho_A=\operatorname{Tr}_B\rho$ は正値・トレース1であり、すべての $O_A\in L(H_A)$ について
+[QINF3の期待値による部分トレースの一意性定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)を有限格子へ適用すると、有限次元の $H_A,H_B$、全系の密度演算子 $\rho$、任意の $O_A\in L(H_A)$ に対し、$\rho_A=\operatorname{Tr}_B\rho$ は正値・トレース1で、局所期待値は
 
 $$
 \operatorname{Tr}_{A\otimes B}\!\bigl[\rho(O_A\otimes I_B)\bigr]
 =\operatorname{Tr}_A(\rho_AO_A).
 $$
 
-> この等式をすべての $O_A$ に対して満たす $H_A$ 上の行列は一意である。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-観測しない側の基底の添字を等しく置いて和を取ります。これは[QINF3の期待値による部分トレースの特徴付け](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)の格子への適用ですが、添字で何が消えるかを確認します。
-
-<!-- proof-start -->
-### 証明
+と再現できます。既習定理を重複して新定理とせず、観測しない側の基底の添字を等しく置く手順だけをここで再計算します。
 
 $H_A,H_B$ の正規直交基底を $|i\rangle_A,|\mu\rangle_B$ とし、$\rho_{i\mu,j\nu}=\langle i\mu|\rho|j\nu\rangle$ と書きます。部分トレースの成分は $(\rho_A)_{ij}=\sum_\mu\rho_{i\mu,j\mu}$ です。トレースの定義を展開すると
 
@@ -93,13 +83,12 @@ $$
 $$
 
 任意の $|v\rangle\in H_A$ では、正規直交基底の各項が非負なので $\langle v|\rho_A|v\rangle=\sum_\mu\langle v\mu|\rho|v\mu\rangle\ge0$ です。また $\operatorname{Tr}\rho_A=\sum_{i,\mu}\rho_{i\mu,i\mu}=1$。一意性は $O_A=|j\rangle\langle i|$ と取れば等式右辺が $(\rho_A)_{ij}$ をすべて決定することから従います。
-<!-- proof-end -->
 
-この命題は**同一cutoffでの**演算子期待値の再現です。$a\downarrow0$ における局所代数・状態の極限が存在するか、極限を密度行列で表せるかは述べていません。
+この検算は**同一cutoffでの**演算子期待値の再現です。$a\downarrow0$ における局所代数・状態の極限が存在するか、極限を密度行列で表せるかは述べていません。
 
 ## 2. 場の最小模型：結合した二つの振動子
 
-二準位の例だけでは、場の自由度と結びつきません。自由スカラー場を空間格子で近似すると、サイトの場 $q_j$ と共役運動量 $p_j$ が各点の振動子になり、隣接点の場の差から結合 $(q_j-q_{j+1})^2$ が現れます。有限格子でも各振動子のHilbert空間は無限次元なので、前節の有限**次元**定理をそのまま適用したことにはしません。以下では正規化可能なGaussian基底状態の積分を直接行います。
+二準位の例だけでは、場の自由度と結びつきません。自由スカラー場を空間格子で近似すると、サイトの場 $q_j$ と共役運動量 $p_j$ が各点の振動子になり、隣接点の場の差から結合 $(q_j-q_{j+1})^2$ が現れます。有限格子でも各振動子のHilbert空間は無限次元なので、[QINF3の有限次元定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)をそのまま適用したことにはしません。以下では正規化可能なGaussian基底状態の積分を直接行います。
 
 $\omega_0>0$、$\kappa\ge0$ とし、$[q_i,p_j]=i\delta_{ij}$、他の基本交換子は零とします。和差によるモード座標 $Q_\pm=(q_1\pm q_2)/\sqrt2$、$P_\pm=(p_1\pm p_2)/\sqrt2$ へ変えると次が成り立ちます。
 
@@ -218,7 +207,7 @@ $$
 \end{aligned}
 $$
 
-最終式は $\omega_++\omega_-\ge2\sqrt{\omega_+\omega_-}$ により1以下、等号条件は $\omega_+=\omega_-$、すなわち $\kappa=0$ です。$\kappa>0$ のとき $\operatorname{Tr}\rho_1^2<1$ なので、[QINF2の純粋性判定](../../../応用系/QINF/QINF2/index.md#thm-qinf2-purity-rank)の有限次元版と同じく、縮約状態はrank 1ではありません。ここでは核の明示形と正値・トレース1を確かめた上でその結論を用いています。
+最終式は $\omega_++\omega_-\ge2\sqrt{\omega_+\omega_-}$ により1以下、等号条件は $\omega_+=\omega_-$、すなわち $\kappa=0$ です。純粋状態の射影 $\rho_1=|f\rangle\langle f|$ なら $\rho_1^2=\rho_1$ かつ $\operatorname{Tr}\rho_1^2=1$ なので、$\kappa>0$ のとき $\operatorname{Tr}\rho_1^2<1$ は混合状態であることを示します。無限次元について[QINF2の有限次元の純粋性定理](../../../応用系/QINF/QINF2/index.md#thm-qinf2-purity-rank)を無条件に延長したわけではありません。
 <!-- proof-end -->
 
 ## 3. 境界をまたぐBell対：エントロピーはどこから来るか
@@ -380,7 +369,7 @@ $H=(\mathbb C^2)^{\otimes3}$、$A=\{1,3\}$、$B=\{2\}$ とする。$|\Psi\rangle
 <!-- solution-start -->
 ### 詳細解答
 
-$A$ の基底を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と取ると、全系は $(|00\rangle_A|0\rangle_B+|11\rangle_A|1\rangle_B)/\sqrt2$ です。$B$ の直交基底で交差項のトレースは0となるので $\rho_A=(|00\rangle\langle00|+|11\rangle\langle11|)/2$。正値・トレース1であり、$Z\otimes Z$ は $|00\rangle$ と $|11\rangle$ の両方に固有値 $+1$ で作用します。従って $\operatorname{Tr}(\rho_A(Z\otimes Z))=1$。全系の各項でも同じ値なので[局所期待値の命題](#prop-qft57-local-expectations)と一致します。
+$A$ の基底を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ と取ると、全系は $(|00\rangle_A|0\rangle_B+|11\rangle_A|1\rangle_B)/\sqrt2$ です。$B$ の直交基底で交差項のトレースは0となるので $\rho_A=(|00\rangle\langle00|+|11\rangle\langle11|)/2$。正値・トレース1であり、$Z\otimes Z$ は $|00\rangle$ と $|11\rangle$ の両方に固有値 $+1$ で作用します。従って $\operatorname{Tr}(\rho_A(Z\otimes Z))=1$。全系の各項でも同じ値なので[QINF3の局所期待値定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-expectation-uniqueness)と一致します。
 <!-- solution-end -->
 
 <a id="ex-qft57-a02"></a>

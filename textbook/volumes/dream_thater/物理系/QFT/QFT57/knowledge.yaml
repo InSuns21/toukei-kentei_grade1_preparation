@@ -19,13 +19,6 @@ concepts:
     introduction_aliases: [定義（cutoff付き領域縮約状態）]
     requires: [qft.finite-lattice-local-algebra, quantum.partial-trace]
 
-  - id: qft.regulated-local-expectations
-    name: 局所期待値と縮約の同値
-    kind: proposition
-    introduction: formal
-    introduction_aliases: [命題（局所期待値と縮約の同値）]
-    requires: [qft.regulated-region-reduction, quantum.partial-trace-uniqueness]
-
   - id: qft.two-oscillator-local-covariance
     name: 二サイト自由場の基底状態と局所共分散
     kind: proposition
