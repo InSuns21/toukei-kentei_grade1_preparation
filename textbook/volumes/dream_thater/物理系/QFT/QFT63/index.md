@@ -153,14 +153,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft63-large-n-factorizing -->
-**定義の確認**： $k=3$ なら $O(N^{-1})$、$k=4$ なら $O(N^{-2})$ という要求です。二点関数の正規化だけからは導けません。定義の全条件を満たす自由場の直接例を作ります。[QFT48の質量零自由スカラー場](../QFT48/index.md#thm-qft48-massless-kernel)を二点係数が1となるよう規格化し、$d\ge3$、$\Delta=(d-2)/2$ で、互いに独立な $N^2$ 個の中心化Gaussianスカラー一次場 $\psi_a$ を取ります。[一次場の定義](../QFT48/index.md#def-qft48-scalar-primary)から、等しい次元を持つこれらの線形結合も一次場です。$\delta_{ab}$ は同じ添字の場合だけ1となるKroneckerのデルタとして
+**定義の確認**： $k=3$ なら $O(N^{-1})$、$k=4$ なら $O(N^{-2})$ という要求です。二点関数の正規化だけからは導けません。
+
+定義の全条件を満たす自由場の直接例を作ります。[QFT48の質量零自由スカラー場](../QFT48/index.md#thm-qft48-massless-kernel)を二点係数が1となるよう規格化します。ここでは $d\ge3$、$\Delta=(d-2)/2$ とします。
+
+互いに独立な $N^2$ 個の中心化Gaussianスカラー一次場 $\psi_a$ を取ります。[一次場の定義](../QFT48/index.md#def-qft48-scalar-primary)から、等しい次元を持つこれらの線形結合も一次場です。$\delta_{ab}$ は同じ添字の場合だけ1となるKroneckerのデルタとして
 
 $$
 \mathcal O_N(x)=\frac1N\sum_{a=1}^{N^2}\psi_a(x),\qquad
 \langle\psi_a(x)\psi_b(y)\rangle=\delta_{ab}r_{xy}^{-2\Delta}
 $$
 
-と置きます。独立性・中心化と[GaussianのWick対合公式](../QFT19/index.md#thm-qft19-boson-wick)から
+と置きます。平均と二点相関は独立性・中心化から計算します。線形結合もGaussianであり、[Wickの対合公式](../QFT19/index.md#thm-qft19-boson-wick)によって高次の連結部分は零です。実際、
 
 $$
 \begin{aligned}
@@ -173,7 +177,9 @@ $$
 \end{aligned}
 $$
 
-が成立します。したがって相異なる固定点で二点の誤差は厳密に零で、全ての連結 $k$ 点は $0=O(N^{2-k})$ です。これは非零の高次連結項を示す例ではありません。次節の有限Gaussian行列模型では中心化変数の累積量が実際に $N^{2-k}$ となりますが、位置 $x$ を持たない零次元模型なのでCFT例とは区別します。相互作用する大Nゲージ理論でこの階層を用いるには、平面図展開と演算子規格化などの追加の検証が必要です。
+が成立します。したがって相異なる固定点で二点の誤差は厳密に零で、全ての連結 $k$ 点は $0=O(N^{2-k})$ です。
+
+この自由例では高次連結量が厳密に零です。次節の有限Gaussian行列模型では中心化変数の累積量が実際に $N^{2-k}$ となりますが、位置 $x$ を持たない零次元模型なのでCFT例とは区別します。相互作用する大Nゲージ理論でこの階層を用いるには、平面図展開と演算子規格化などの追加の検証が必要です。
 <!-- definition-example-end -->
 
 <a id="thm-qft63-leading-four-point"></a>
