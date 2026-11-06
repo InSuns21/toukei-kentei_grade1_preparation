@@ -1,0 +1,41 @@
+id: QFT59
+title: "単一区間のRényi・von Neumannエントロピーと普遍係数"
+volume: foundations
+status: supplementary
+prerequisites: [QFT58, QFT57, QFT55, QFT53, QFT51]
+official_scope: []
+learning_objectives:
+  - 単一区間の整数レプリカ主項からRényiエントロピーの普遍係数を導出できる
+  - 自由bosonと自由Majoranaでn2・n3の係数を検算できる
+  - 長さ差を用いてcutoff依存の端点定数を消せる
+  - cutoff尺度変更に対するC_nとk_nの変換を導ける
+  - 有限密度行列のレプリカ微分と場の整数レプリカの違いを説明できる
+  - 物理的な解析接続とcutoff補正の微分制御を仮定してc/3を導ける
+  - 整数一致の補間反例から微分の非一意性を説明できる
+  - nとcutoffの二重極限および温度・円周・境界への適用限界を判定できる
+definitions: []
+theorems:
+  - { id: QFT59-PROP-01, name: 平面真空の単一区間Rényi普遍項 }
+  - { id: QFT59-PROP-02, name: cutoff表示尺度の変更 }
+  - { id: QFT59-THM-01, name: 条件付きの単一区間von Neumann普遍係数 }
+canonical_examples:
+  - 最大混合二準位と純粋状態のRényiエントロピー
+  - 自由bosonと自由Majoranaの二次・三次Rényi係数
+  - 物理的なモーメントを不変に保つcutoff尺度変更
+  - 規格化関数のn1近傍の微分と定数項
+  - 整数で一致して微分が異なるsin補間
+problem_patterns:
+  - QFT59-RENyi-COEFFICIENT
+  - QFT59-CENTRAL-CHARGE-COMPARISON
+  - QFT59-CUTOFF-SHIFT
+  - QFT59-FINITE-BELL-CHECK
+  - QFT59-NORMALIZATION-DERIVATIVE
+  - QFT59-LENGTH-DIFFERENCE
+  - QFT59-ENTROPY-LIMIT-CONTROL
+  - QFT59-ANALYTIC-CONTINUATION-COUNTEREXAMPLE
+  - QFT59-NONUNIFORM-LIMIT
+  - QFT59-INTEGRATED-INTERVAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 14, review: 6 }
