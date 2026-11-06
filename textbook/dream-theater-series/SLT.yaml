@@ -76,7 +76,7 @@ chapters:
     title: "有限辞書・線形予測・ridgeの比較"
   - id: SLT1-18
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-18
-    status: planned
+    status: completed
     title: "汎化保証の適用条件と破綻例"
   - id: SLT2-01
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-01
