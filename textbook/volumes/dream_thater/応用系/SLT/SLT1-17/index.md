@@ -215,7 +215,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有界線形回帰の一様汎化界）**
-> [有界線形回帰と正規化二乗損失](#def-slt1-17-bounded-square)の仮定を満たし、$S\sim P^n$ を独立同分布標本とする。標本前に決めた集合 $W_B$ に対し、確率 $1-\delta$ 以上で全ての $w\in W_B$ について同時に
+> [有界線形回帰と正規化二乗損失](#def-slt1-17-bounded-square)の仮定を満たし、$S\sim P^n$ を独立同分布標本、$\delta\in(0,1)$ とする。正規化損失によるリスクを $R_K(w)=\mathbb E_P\ell_K(w,Z)$、$\widehat R_K(w)=n^{-1}\sum_i\ell_K(w,Z_i)$ と記す。標本前に決めた集合 $W_B$ に対し、確率 $1-\delta$ 以上で全ての $w\in W_B$ について同時に
 
 $$
 |R_K(w)-\widehat R_K(w)|
@@ -224,7 +224,7 @@ $$
 =:D_{n,\delta}
 $$
 
-> が成立する。$R_K,\widehat R_K$ は正規化二乗損失の母集団・経験リスクである。従ってこの集合上の厳密なERM $\widehat w$ は同じ事象で
+> が成立する。従ってこの集合上の厳密なERM $\widehat w$ は同じ事象で
 
 $$
 R_K(\widehat w)-\inf_{w\in W_B}R_K(w)
@@ -239,13 +239,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $W_B$ の可算稠密部分集合 $W_0$ に制限する。例えば $\mathbb Q^d\cap W_B$ は可算であり $W_B$ に稠密である。そこから得る損失関数クラスを $\mathcal F_0$ とする。
+まず $W_B$ の可算稠密部分集合 $W_0=\mathbb Q^d\cap W_B$ に制限する。これは可算であり $W_B$ に稠密である。球の内点は有理座標で近似でき、境界点 $w$ も $(1-1/k)w$ を先に球の内点へ寄せてから有理座標で近似すればよい。そこから得る損失関数クラスを $\mathcal F_0$ とし、入力だけに作用する線形関数クラスを $\mathcal H_0=\{x\mapsto w\cdot x:w\in W_0\}$、$\mathcal H_B=\{x\mapsto w\cdot x:w\in W_B\}$ と書く。以下、$\widehat{\mathfrak R}_S(\mathcal F_0)$ は組 $(x_i,y_i)$ 上、$\widehat{\mathfrak R}_{(x_i)}(\mathcal H_0)$ は入力列 $(x_i)$ 上で計算する。
 
-固定標本について[contraction不等式](../SLT1-11/index.md#thm-slt1-11-contraction)を $\phi_{y_i}(t)-\phi_{y_i}(0)$ に適用する。これは0で消え、Lipschitz係数は $2/K$ である。符号和の定数 $\sum_i\sigma_i\phi_{y_i}(0)$ は関数 $w$ に依存せず、符号期待値が0なので、通常版の経験Rademacher複雑度を変えない。従って[線形クラスの評価](../SLT1-11/index.md#prop-slt1-11-linear-rademacher)と合わせて
+固定標本について、可算クラス $\mathcal H_0$ に[contraction不等式](../SLT1-11/index.md#thm-slt1-11-contraction)を $\phi_{y_i}(t)-\phi_{y_i}(0)$ で適用する。これは0で消え、Lipschitz係数は $2/K$ である。符号和の定数 $\sum_i\sigma_i\phi_{y_i}(0)$ は関数 $w$ に依存せず、符号期待値が0なので、通常版の経験Rademacher複雑度を変えない。$\mathcal H_0\subseteq\mathcal H_B$ だから、最後に[線形クラスの評価](../SLT1-11/index.md#prop-slt1-11-linear-rademacher)で上から抑えると
 
 $$
 \widehat{\mathfrak R}_S(\mathcal F_0)
-\le\frac2K\widehat{\mathfrak R}_S(\mathcal H_B)
+\le\frac2K\widehat{\mathfrak R}_{(x_i)}(\mathcal H_0)
+\le\frac2K\widehat{\mathfrak R}_{(x_i)}(\mathcal H_B)
 \le\frac{2BR}{K\sqrt n}.
 $$
 
@@ -267,7 +268,18 @@ $$
 
 任意の $w\in W_B$ を $w_k\in W_0$ で近似する。$\|X\|\le R$、$|Y_{\mathrm{label}}|\le Y$ の台では $\ell_K(w_k,Z)\to\ell_K(w,Z)$、しかも損失が $[0,1]$ 値だから支配収束により $R_K(w_k)\to R_K(w)$ である。経験平均も有限和として収束する。よって先ほどの**同一の同時事象**で極限を取れば、全 $w\in W_B$ へ結論が広がる。
 
-$W_B$ はコンパクトで経験損失は連続なのでERMは存在する。一様偏差事象上で[ERMの基本比較](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle)を誤差0で適用すると $2D_{n,\delta}$ が得られる。
+$W_B$ はコンパクトで経験損失は連続なのでERM $\widehat w$ は存在する。先に示した一様偏差事象上で、任意の比較候補 $v\in W_B$ に対して
+
+$
+\begin{aligned}
+R_K(\widehat w)
+&\le\widehat R_K(\widehat w)+D_{n,\delta}\\
+&\le\widehat R_K(v)+D_{n,\delta}\\
+&\le R_K(v)+2D_{n,\delta}
+\end{aligned}
+$
+
+と直接比較し、$v\in W_B$ について下限を取る。この三段の比較は[既習の近似ERM不等式](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle)と同じ論法だが、ここではその定理の有限・可算クラス仮定を非可算な $W_B$ に誤適用せず、同時事象上で証明した。
 <!-- proof-end -->
 
 ここで $D_{n,\delta}$ は**正規化した二乗損失**の無次元量である。元の二乗損失で評価するなら全式に $K^2$ を掛ける。係数ノルムの上限 $B$ を標本の結果から後付けで選んだ場合、同じ固定クラスの議論を直ちに使うことはできない。
