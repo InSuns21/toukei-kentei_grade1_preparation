@@ -13,3 +13,4 @@
 10. [SLT1-10 Rademacher複雑度とsymmetrization](textbook/volumes/dream_thater/応用系/SLT/SLT1-10/index.md)
 11. [SLT1-11 Lipschitz合成と線形・marginクラス](textbook/volumes/dream_thater/応用系/SLT/SLT1-11/index.md)
 12. [SLT1-12 速い収束率と局所複雑度](textbook/volumes/dream_thater/応用系/SLT/SLT1-12/index.md)
+13. [SLT1-13 正則化ERMとoracle不等式](textbook/volumes/dream_thater/応用系/SLT/SLT1-13/index.md)
