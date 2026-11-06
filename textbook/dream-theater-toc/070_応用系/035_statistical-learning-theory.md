@@ -10,3 +10,4 @@
 7. [SLT1-07 VC次元からの一様汎化界](textbook/volumes/dream_thater/応用系/SLT/SLT1-07/index.md)
 8. [SLT1-08 VC次元の必要性と無限VC反例](textbook/volumes/dream_thater/応用系/SLT/SLT1-08/index.md)
 9. [SLT1-09 関数クラスの被覆数とpacking](textbook/volumes/dream_thater/応用系/SLT/SLT1-09/index.md)
+10. [SLT1-10 Rademacher複雑度とsymmetrization](textbook/volumes/dream_thater/応用系/SLT/SLT1-10/index.md)

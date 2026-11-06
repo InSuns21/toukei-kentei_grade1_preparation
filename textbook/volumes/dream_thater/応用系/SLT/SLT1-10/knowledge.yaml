@@ -1,0 +1,65 @@
+chapter: SLT1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-09
+  - SLT1-07
+  - HDP4
+
+concepts:
+  - id: learning.rademacher-signed-average
+    name: 独立な公平符号と符号付き標本平均
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（独立な公平符号と符号付き標本平均）"]
+    requires:
+      - learning.uniform-risk-deviation
+
+  - id: learning.rademacher-complexity
+    name: 経験・期待Rademacher複雑度
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（経験・期待Rademacher複雑度）"]
+    requires:
+      - learning.rademacher-signed-average
+
+  - id: learning.rademacher-finite-class-bound
+    name: 有限関数クラスの符号複雑度
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（有限関数クラスの符号複雑度）"]
+    requires:
+      - learning.rademacher-complexity
+
+  - id: learning.rademacher-symmetrization
+    name: Rademacher対称化
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Rademacher対称化）"]
+    requires:
+      - learning.rademacher-complexity
+      - learning.ghost-sample-loss-trace
+
+  - id: learning.rademacher-generalization-bound
+    name: 期待・経験Rademacher複雑度による汎化界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（期待・経験Rademacher複雑度による汎化界）"]
+    requires:
+      - learning.rademacher-symmetrization
+      - learning.uniform-risk-deviation
+
+  - id: learning.rademacher-entropy-bound
+    name: 経験被覆からの高確率一様偏差界
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（経験被覆からの高確率一様偏差界）"]
+    requires:
+      - learning.rademacher-generalization-bound
+      - learning.empirical-cover-rademacher-bound
