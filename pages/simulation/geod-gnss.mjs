@@ -1,11 +1,15 @@
 // GNSS teaching model: synthetic satellites in a local east/north/up frame.
 // The satellite locations, pseudoranges and noise are invented. No orbit,
-// Earth rotation, satellite clock, atmosphere, datum or epoch correction.
+// Earth rotation, operational clock/atmosphere models, datum or epoch corrections.
 export const GNSS_C = 299792458; // m/s, exact by SI definition
 export const GNSS_REFERENCE = Object.freeze({ east: 12, north: -8, up: 5 });
 export const GNSS_RADIUS = 20200000; // synthetic slant distance scale, m
 const DEG = Math.PI / 180;
 const NOISE = [0.50, -0.70, 0.15, 0.25, -0.30, 0.40];
+// Satellite clock offsets are signed and satellite-specific, unlike the
+// common receiver clock B. Amplitudes are synthetic; not broadcast ephemerides.
+const SAT_CLOCK_PATTERN = [1, -0.6, 0.3, -0.8, 0.45, -0.2];
+export const GNSS_ERROR_STAGES = Object.freeze(['none', 'clock', 'clock-iono', 'all']);
 export const GNSS_LAYOUTS = Object.freeze({
   spread: Object.freeze([[0, 75], [90, 18], [180, 36], [270, 24], [310, 52], [145, 57]]),
   cluster: Object.freeze([[15, 35], [35, 38], [60, 43], [85, 30], [110, 40], [130, 48]]),
@@ -31,11 +35,17 @@ export function gnssUnitVector(azimuth, elevation) {
 export function syntheticGnssObservations({
   layout = 'spread', count = 6, firstAzimuth = null, firstElevation = null,
   clockBiasMeters = 75, sigma = 1, noiseScale = 1,
+  errorStage = 'none', satelliteClockNs = 12,
+  ionosphereZenithMeters = 4, troposphereZenithMeters = 2.3,
 } = {}) {
   if (!Object.hasOwn(GNSS_LAYOUTS, layout)) throw new RangeError('衛星配置を選択してください');
   if (!Number.isInteger(count) || count < 4 || count > 6) {
     throw new RangeError('GNSS測位には4〜6機の衛星数を指定してください');
   }
+  if (!GNSS_ERROR_STAGES.includes(errorStage)) throw new RangeError('GNSS誤差段階が不明です');
+  inRange('衛星時計オフセット振幅', satelliteClockNs, 0, 100);
+  inRange('電離圏の天頂遅延', ionosphereZenithMeters, 0, 20);
+  inRange('対流圏の天頂遅延', troposphereZenithMeters, 0, 10);
   inRange('時計差の距離換算', clockBiasMeters, -300, 300);
   inRange('擬似距離の標準偏差', sigma, 0.1, 5);
   inRange('合成誤差倍率', noiseScale, 0, 2);
@@ -48,11 +58,36 @@ export function syntheticGnssObservations({
     const [east, north, up] = direction.map(v => GNSS_RADIUS * v);
     const geometricRange = Math.hypot(east - GNSS_REFERENCE.east,
       north - GNSS_REFERENCE.north, up - GNSS_REFERENCE.up);
+    const satelliteClockMeters = errorStage === 'none' ? 0 :
+      -GNSS_C * satelliteClockNs * SAT_CLOCK_PATTERN[index] * 1e-9;
+    const elevationRadians = elevation * DEG;
+    // Educational single-shell mapping, not a GNSS ionosphere correction model.
+    const ionosphereMeters = !['clock-iono', 'all'].includes(errorStage) ? 0 :
+      ionosphereZenithMeters / Math.sqrt(1 - 0.9 * Math.cos(elevationRadians) ** 2);
+    // Simplified 1/sin(elevation) mapping, not Saastamoinen/VMF.
+    const troposphereMeters = errorStage !== 'all' ? 0 :
+      troposphereZenithMeters / Math.sin(elevationRadians);
+    const systematicMeters = satelliteClockMeters + ionosphereMeters + troposphereMeters;
+    const noiseMeters = NOISE[index] * noiseScale;
     return {
       id: 'S' + (index + 1), azimuth, elevation, east, north, up,
-      sigma, pseudorange: geometricRange + clockBiasMeters + NOISE[index] * noiseScale,
+      sigma, satelliteClockMeters, ionosphereMeters, troposphereMeters,
+      systematicMeters, noiseMeters,
+      pseudorange: geometricRange + clockBiasMeters + systematicMeters + noiseMeters,
     };
   });
+}
+
+// Idealized subtraction of known synthetic effects; a real receiver does
+// not know these terms exactly. Keep geometry and sigma unchanged.
+export function correctGnssObservations(observations) {
+  if (!Array.isArray(observations) || observations.some(obs =>
+    !Number.isFinite(obs.systematicMeters) || !Number.isFinite(obs.pseudorange))) {
+    throw new RangeError('補正対象の合成擬似距離が不正です');
+  }
+  return observations.map(obs => ({
+    ...obs, pseudorange: obs.pseudorange - obs.systematicMeters,
+  }));
 }
 
 // Gauss-Jordan with partial row pivoting. Reject a near-zero normal-matrix

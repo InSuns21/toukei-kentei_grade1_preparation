@@ -23,6 +23,9 @@ const inputs = {
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
   'c-mode': 'survey', 'c-gnss-layout': 'spread', 'c-gnss-count': '6',
   'c-gnss-azimuth': '0', 'c-gnss-elevation': '75', 'c-gnss-clock': '75', 'c-gnss-sigma': '1',
+  'c-gnss-stage': 'none', 'c-gnss-sat-clock': '12', 'c-gnss-iono': '4',
+  'c-gnss-tropo': '2.3', 'c-gnss-correction': 'raw', 'c-gnss-view': 'sky',
+  'c-gnss-view-azimuth': '35', 'c-gnss-view-tilt': '30',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
@@ -44,7 +47,8 @@ for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 
   elements.set(id, new Element(id));
 }
 for (const id of ['c-map-panel', 'c-map', 'c-survey-controls', 'c-gnss-controls',
-  'c-gnss-panel', 'c-gnss-map', 'geod-globe-panel']) elements.set(id, new Element(id));
+  'c-gnss-panel', 'c-gnss-map', 'c-gnss-visual-controls', 'c-gnss-camera-controls',
+  'c-gnss-space-panel', 'c-gnss-space-map', 'geod-globe-panel']) elements.set(id, new Element(id));
 for (const id of ['f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new Element(id));
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
   'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap',
@@ -126,43 +130,74 @@ test('synthetic survey mode draws distances, reports covariance and responds to 
   assert.match($('geod-status').textContent, /計算済み/);
 });
 
-test('synthetic GNSS mode exposes independent sky view, clock estimate and five DOP values', () => {
+test('GNSS modes show 2D/3D sky geometry and staged systematic errors', () => {
   buttons[2].handlers.click();
-  $('c-mode').value = 'gnss';
-  $('c-mode').handlers.input();
+  $('c-mode').value = 'gnss'; $('c-mode').handlers.input();
   assert.equal($('c-survey-controls').hidden, true);
   assert.equal($('c-gnss-controls').hidden, false);
+  assert.equal($('c-gnss-visual-controls').hidden, false);
   assert.equal($('c-map-panel').hidden, true);
   assert.equal($('c-gnss-panel').hidden, false);
+  assert.equal($('c-gnss-space-panel').hidden, true);
   assert.equal($('geod-globe-panel').hidden, true);
   assert.match($('geod-status').textContent, /計算済み/);
-  assert.ok($('c-gnss-map').children.length >= 25, 'sky view generated');
+  assert.ok($('c-gnss-map').children.length >= 25);
   const rows = () => $('geod-results').children[0].children[0].children;
-  assert.equal(rows().length, 12);
+  assert.equal(rows().length, 17);
   assert.match(rows()[6].children[0].textContent, /GDOP/);
   assert.match(rows()[7].children[0].textContent, /HDOP/);
   const dopSpread = rows()[6].children[1].textContent;
-  $('c-gnss-layout').value = 'cluster';
-  $('c-gnss-layout').handlers.input();
+  $('c-gnss-layout').value = 'cluster'; $('c-gnss-layout').handlers.input();
   assert.equal($('c-gnss-azimuth').value, '15');
   assert.equal($('c-gnss-elevation').value, '35');
   const dopCluster = rows()[6].children[1].textContent;
-  assert.notEqual(dopCluster, dopSpread, 'satellite geometry changes DOP');
+  assert.notEqual(dopCluster, dopSpread);
   const clockBefore = rows()[3].children[1].textContent;
-  $('c-gnss-clock').value = '-75';
-  $('c-gnss-clock').handlers.input();
+  $('c-gnss-clock').value = '-75'; $('c-gnss-clock').handlers.input();
   assert.notEqual(rows()[3].children[1].textContent, clockBefore);
-  assert.equal(rows()[6].children[1].textContent, dopCluster,
-    'common receiver clock shift must not affect geometry');
-  $('c-gnss-count').value = '3';
-  $('c-gnss-count').handlers.input();
+  assert.equal(rows()[6].children[1].textContent, dopCluster);
+
+  const baselinePosition = rows()[1].children[1].textContent;
+  $('c-gnss-stage').value = 'all'; $('c-gnss-stage').handlers.input();
+  assert.notEqual(rows()[1].children[1].textContent, baselinePosition);
+  assert.match(rows()[12].children[1].textContent, /対流圏/);
+  assert.match(rows()[13].children[1].textContent, /電離圏/);
+  assert.ok(Number(rows()[15].children[1].textContent.split(' ')[0].replaceAll(',', '')) > 0);
+  const bias = rows()[14].children[1].textContent;
+  $('c-gnss-correction').value = 'ideal'; $('c-gnss-correction').handlers.input();
+  assert.notEqual($('geod-status').dataset.error, 'true', $('geod-status').textContent);
+  assert.notEqual(rows()[14].children[1].textContent, bias);
+  assert.match(rows()[12].children[1].textContent, /理想的/);
+  assert.equal(rows()[6].children[1].textContent, dopCluster, 'DOP depends on directions');
+
+  const savedResults = rows()[6].children[1].textContent;
+  $('c-gnss-view').value = 'space'; $('c-gnss-view').handlers.input();
+  assert.equal($('c-gnss-panel').hidden, true);
+  assert.equal($('c-gnss-space-panel').hidden, false);
+  assert.equal($('c-gnss-camera-controls').hidden, false);
+  assert.ok($('c-gnss-space-map').children.length > 20, '3D projected hemisphere rendered');
+  const firstX = $('c-gnss-space-map').children.find(item =>
+    item.id === 'circle' && item.attributes.fill === '#cf5037').attributes.cx;
+  $('c-gnss-view-azimuth').value = '155'; $('c-gnss-view-azimuth').handlers.input();
+  const newX = $('c-gnss-space-map').children.find(item =>
+    item.id === 'circle' && item.attributes.fill === '#cf5037').attributes.cx;
+  assert.notEqual(firstX, newX, 'camera rotation changes perspective');
+  assert.equal(rows()[6].children[1].textContent, savedResults, 'viewpoint leaves numerics unchanged');
+  $('c-gnss-space-map').handlers.pointerdown({ clientX: 10, clientY: 10, pointerId: 1 });
+  $('c-gnss-space-map').handlers.pointermove({ clientX: 70, clientY: 45 });
+  $('c-gnss-space-map').handlers.pointerup();
+  assert.notEqual($('c-gnss-view-azimuth').value, '155', 'pointer drag rotates hemisphere');
+
+  $('c-gnss-sigma').value = '0'; $('c-gnss-sigma').handlers.input();
   assert.equal($('geod-status').dataset.error, 'true');
   assert.equal($('c-gnss-map').children.length, 0);
-  $('c-gnss-count').value = '6';
-  $('c-gnss-count').handlers.input();
+  assert.equal($('c-gnss-space-map').children.length, 0);
+  $('c-gnss-sigma').value = '1'; $('c-gnss-sigma').handlers.input();
   assert.match($('geod-status').textContent, /計算済み/);
+  $('c-gnss-view').value = 'sky'; $('c-gnss-view').handlers.input();
   $('c-mode').value = 'survey'; $('c-mode').handlers.input();
   assert.equal($('c-survey-controls').hidden, false);
+  assert.equal($('c-gnss-visual-controls').hidden, true);
   assert.equal($('c-gnss-panel').hidden, true);
   assert.ok($('c-map').children.length > 15);
 });
