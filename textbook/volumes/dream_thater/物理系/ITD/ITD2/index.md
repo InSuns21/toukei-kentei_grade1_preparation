@@ -52,18 +52,18 @@ $$
 
 を取ります。非負性に加え、行和は $3/4+1/4=1$（両行とも）です。全成分は正で $K(x,y)=K(y,x)$、かつ両状態のエネルギー差は0なので、正の遷移対ごとに
 
-$
+$$
 \log\frac{K(x,y)}{K(y,x)}=0
 =-\beta\{E(y,\lambda_1)-E(x,\lambda_1)\}
-$
+$$
 
 となり、[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)の支持条件と比の条件を両方満たします。正方向の $(0,1)$ と、それを反転した逆軌道 $(1,0)$ の確率は
 
-$
+$$
 P_{\mathrm F}(0,1)=\frac12\frac14=\frac18,
 \qquad
 P_{\mathrm R}^{(r)}(1,0)=\frac14\frac14=\frac1{16}.
-$
+$$
 
 よって定義の対数比から $\Sigma_r[0\to1]=\log[(1/8)/(1/16)]=\log2$ です。
 
@@ -729,14 +729,14 @@ $$
 
 両方の仕事値で[Crooks関係](#thm-itd2-crooks)を検算すると、
 
-$
+$$
 \begin{aligned}
 \frac{\mathsf P_{\mathrm F}(0)}{\mathsf P_{\mathrm R}(0)}
 &=\frac{1/2}{2/3}=\frac34=e^{-\beta\Delta F_{\mathrm{eq}}},\\
 \frac{\mathsf P_{\mathrm F}(\varepsilon)}{\mathsf P_{\mathrm R}(-\varepsilon)}
 &=\frac{1/2}{1/3}=\frac32=e^{\beta\varepsilon}\frac34.
 \end{aligned}
-$
+$$
 
 各仕事値に二軌道が寄与しており、一本の経路の確率を仕事分布と混同していません。
 <!-- solution-end -->
@@ -855,7 +855,7 @@ $\Delta F_{\mathrm{eq}}=0$ と一致します。
 
 最後に特定の軌道 $\gamma=(1,0,1)$ について、正方向と反転した逆方向をそれぞれの初期分布から計算すると、
 
-$
+$$
 \begin{aligned}
 P_{\mathrm F}(1,0,1)
 &=p_0(1)K_1(1,0)K_2(0,1)
@@ -864,14 +864,14 @@ P_{\mathrm R}^{(\pi_2)}(1,0,1)
 &=\pi_2(1)K_2(1,0)K_1(0,1)
 =\frac12\frac14\frac14=\frac1{32}.
 \end{aligned}
-$
+$$
 
 この軌道では $W_{\mathrm F}=\varepsilon$、$\Delta F_{\mathrm{eq}}=0$ なので、
 
-$
+$$
 \frac{P_{\mathrm F}(1,0,1)}{P_{\mathrm R}^{(\pi_2)}(1,0,1)}
 =\frac{1/16}{1/32}=2=e^{\beta(\varepsilon-0)}
-$
+$$
 
 となり、[仕事の経路比](#thm-itd2-work-ratio)を直接確認できます。
 
@@ -884,14 +884,14 @@ $$
 
 [ITD1型の逆実験](../ITD1/index.md#def-itd1-reverse-entropy)は実際の $p_2$ から始めるため、同じ反転軌道の確率と経路比は
 
-$
+$$
 \begin{aligned}
 P_{\mathrm R}^{(p_2)}(1,0,1)
 &=\frac7{16}\frac14\frac14=\frac7{256},\\
 \frac{P_{\mathrm F}(1,0,1)}{P_{\mathrm R}^{(p_2)}(1,0,1)}
 &=\frac{1/16}{7/256}=\frac{16}{7}.
 \end{aligned}
-$
+$$
 
 従って、この $\log(16/7)$ は**実際の終端分布を使った全エントロピー生成**であり、平衡逆実験による $\log2=\beta(W-\Delta F_{\mathrm{eq}})$ とは違います。二種類の逆実験の境界条件まで検算できました。
 <!-- solution-end -->
