@@ -212,7 +212,11 @@ try {
   assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("共分散")'));
   const cBefore = await evalJS('document.querySelector("#geod-results").textContent');
   const cLayout = await evalJS(`(() => {
-    const rect = selector => document.querySelector(selector).getBoundingClientRect();
+    const rect = selector => {
+      const box = document.querySelector(selector).getBoundingClientRect();
+      return { left: box.left, right: box.right, top: box.top,
+        bottom: box.bottom, width: box.width };
+    };
     return { controls: rect('#lab-C'), output: rect('.geod-output-panel'),
       visual: rect('#c-map'), width: window.innerWidth };
   })()`);
