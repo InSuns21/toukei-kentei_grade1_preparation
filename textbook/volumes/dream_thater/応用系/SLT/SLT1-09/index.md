@@ -44,9 +44,9 @@ $$
 <!-- definition-example-start: def-slt1-09-function-distances -->
 **定義の確認**。$\mathcal X=\{a,b\}$、$P(a)=P(b)=1/2$ とし、関数を値の組 $(f(a),f(b))$ で表す。二点上の関数は $a,b$ での値だけで一意に決まるので、この順に並べた組を関数の表示として用いる。
 
-$
+$$
 f_0=(0,0),\qquad f_1=(1,0),\qquad f_2=(1,1).
-$
+$$
 
 三関数はいずれも0または1の値を取るので、任意の $q\ge1$ で $P|f_i|^q\le1<\infty$ となり、有界性も満たす。
 
@@ -477,9 +477,9 @@ $\mathcal F=\{f_t(x)=tx:t\in[0,1]\}$、$\mathcal X=[0,1]$ とし、$P$ を任意
 1. $t_j=j/m$（$j=0,\ldots,m$）を選び、$G=\{f_{t_j}\}$ とする。任意の $t$ について $j=\lfloor mt\rfloor$（$t=1$ なら $j=m$）を取ると $0\le t-t_j<1/m$ または0なので $d_\infty(f_t,f_{t_j})=\sup_{x\in[0,1]}|(t-t_j)x|=|t-t_j|\le1/m$。従って $G$ は固定netである。
 2. $0\le f_t(X_i)\le1$ が全ての $t$ と標本点で成り立つ。ここでは $\mathcal F$ が非可算なので、[決定論的被覆の定理](#thm-slt1-09-deterministic-cover)の可測性条件を先に確認する。実際、$P_nf_t=tP_nx$、$Pf_t=tPx$（ここで $x$ は恒等関数）より
 
-   $
+   $$
    \sup_{t\in[0,1]}|P_nf_t-Pf_t|=|P_nx-Px|.
-   $
+   $$
 
    右辺は標本の可測関数である。各固定 $f_{t_j}$ に[Hoeffdingの両側不等式](../../../解析系/HDP/HDP1/index.md#cor-hdp1-two-sided)を適用すると、偏差幅 $r>0$ に対して最大偏差の失敗確率は $2(m+1)e^{-2nr^2}$ 以下。$r=\sqrt{\log(2(m+1)/\delta)/(2n)}$ で失敗確率は $\delta$ 以下になる。任意の $f_t$ と最近の $g\in G$ は全入力で $|f_t-g|\le1/m$ だから、母集団平均と経験平均の差の双方に各 $1/m$ を加え、結論を得る。
 3. $d_{S,1}(f_t,f_u)=|t-u|\,n^{-1}\sum_iX_i\le|t-u|$。したがって同じ $G$ は任意の $S$ で半径 $1/m$ のnetである。[条件付き符号平均の定理](#thm-slt1-09-empirical-cover)を $N=m+1$ で適用すると
