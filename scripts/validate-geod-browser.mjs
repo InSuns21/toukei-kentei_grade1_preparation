@@ -234,6 +234,46 @@ try {
   await evalJS(`document.querySelector('#c-sigma-a').value='0.05';
     document.querySelector('#c-sigma-a').dispatchEvent(new Event('input'))`);
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  // GNSS is a second C mode: four-dimensional geometry with no 3D globe.
+  await evalJS(`document.querySelector('#c-mode').value='gnss';
+    document.querySelector('#c-mode').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#c-map-panel").hidden'), true);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-panel").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-controls").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#c-survey-controls").hidden'), true);
+  assert.ok(await evalJS('document.querySelectorAll("#c-gnss-map circle").length >= 9'));
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("GDOP")'));
+  const gnssBefore = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td:last-child").textContent');
+  const gnssLayout = await evalJS(`(() => {
+    const controls = document.querySelector('#lab-C').getBoundingClientRect();
+    const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
+    const sky = document.querySelector('#c-gnss-map').getBoundingClientRect();
+    return { controlsRight: controls.right, controlsTop: controls.top,
+      outputLeft: output.left, outputTop: output.top, skyWidth: sky.width };
+  })()`);
+  assert.ok(gnssLayout.controlsRight < gnssLayout.outputLeft &&
+    Math.abs(gnssLayout.controlsTop - gnssLayout.outputTop) <= 2 &&
+    gnssLayout.skyWidth <= 861, 'GNSS should be side by side, with a bounded plot: ' +
+    JSON.stringify(gnssLayout));
+  await evalJS(`document.querySelector('#c-gnss-layout').value='cluster';
+    document.querySelector('#c-gnss-layout').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-azimuth").value'), '15');
+  const gnssCluster = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td:last-child").textContent');
+  assert.notEqual(gnssCluster, gnssBefore, 'clustered satellites must change DOP');
+  await evalJS(`document.querySelector('#c-gnss-clock').value='-75';
+    document.querySelector('#c-gnss-clock').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td:last-child").textContent'),
+    gnssCluster, 'clock bias alone must not change DOP');
+  const clockRow = await evalJS('document.querySelector("#geod-results tbody tr:nth-child(4) td").textContent');
+  assert.ok(clockRow.trim().startsWith('-') && clockRow.includes('ns'),
+    'negative synthetic receiver clock shift must be recovered: ' + clockRow);
+  await evalJS(`document.querySelector('#c-gnss-count').value='3';
+    document.querySelector('#c-gnss-count').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'true');
+  assert.equal(await evalJS('document.querySelector("#c-gnss-map").childElementCount'), 0);
+  await evalJS(`document.querySelector('#c-gnss-count').value='6';
+    document.querySelector('#c-gnss-count').dispatchEvent(new Event('input'))`);
+  assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
   await evalJS(`document.querySelector('[data-lab="D"]').click();
     document.querySelector('#d-city').value='new-york';
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
@@ -322,7 +362,10 @@ try {
     'GEOD mobile workspace must stack parameters above figures: ' + JSON.stringify(mobileLayout));
   assert.ok(mobileLayout.globe > 0 && mobileLayout.globe < 360,
     'mobile globe should fit the viewport: ' + JSON.stringify(mobileLayout));
-  await evalJS(`document.querySelector('[data-lab="C"]').click()`);
+  await evalJS(`document.querySelector('[data-lab="C"]').click();
+    document.querySelector('#c-mode').value='survey';
+    document.querySelector('#c-mode').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#c-map-panel").hidden'), false);
   const cMobile = await evalJS(`(() => {
     const controls = document.querySelector('#lab-C').getBoundingClientRect();
     const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
@@ -332,6 +375,17 @@ try {
   })()`);
   assert.ok(cMobile.outputTop >= cMobile.controlsBottom && cMobile.width < 360 &&
     cMobile.overflow <= 1, 'C mobile survey panel should stack without overflow: ' + JSON.stringify(cMobile));
+  await evalJS(`document.querySelector('#c-mode').value='gnss';
+    document.querySelector('#c-mode').dispatchEvent(new Event('input'))`);
+  const gnssMobile = await evalJS(`(() => {
+    const controls = document.querySelector('#lab-C').getBoundingClientRect();
+    const output = document.querySelector('.geod-output-panel').getBoundingClientRect();
+    const sky = document.querySelector('#c-gnss-map').getBoundingClientRect();
+    return { controlsBottom: controls.bottom, outputTop: output.top,
+      width: sky.width, overflow: document.documentElement.scrollWidth - window.innerWidth };
+  })()`);
+  assert.ok(gnssMobile.outputTop >= gnssMobile.controlsBottom && gnssMobile.width < 360 &&
+    gnssMobile.overflow <= 1, 'C mobile GNSS sky view must stack: ' + JSON.stringify(gnssMobile));
   console.log('GEOD WebGL2: shading, desktop two-column workspace, projection-first maps, Japan detail zoom, 360px: PASS');
 } finally {
   ws?.close();

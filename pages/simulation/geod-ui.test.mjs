@@ -21,6 +21,8 @@ const inputs = {
   'a-lat': '40', 'a-lon': '140', 'a-f': '1',
   'b-lat1': '35.681236', 'b-lon1': '139.767125',
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
+  'c-mode': 'survey', 'c-gnss-layout': 'spread', 'c-gnss-count': '6',
+  'c-gnss-azimuth': '0', 'c-gnss-elevation': '75', 'c-gnss-clock': '75', 'c-gnss-sigma': '1',
   'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
@@ -41,7 +43,8 @@ for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
 }
-for (const id of ['c-map-panel', 'c-map', 'geod-globe-panel']) elements.set(id, new Element(id));
+for (const id of ['c-map-panel', 'c-map', 'c-survey-controls', 'c-gnss-controls',
+  'c-gnss-panel', 'c-gnss-map', 'geod-globe-panel']) elements.set(id, new Element(id));
 for (const id of ['f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new Element(id));
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
   'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap',
@@ -121,6 +124,47 @@ test('synthetic survey mode draws distances, reports covariance and responds to 
   $('c-sigma-a').value = '0.05';
   $('c-sigma-a').handlers.input();
   assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('synthetic GNSS mode exposes independent sky view, clock estimate and five DOP values', () => {
+  buttons[2].handlers.click();
+  $('c-mode').value = 'gnss';
+  $('c-mode').handlers.input();
+  assert.equal($('c-survey-controls').hidden, true);
+  assert.equal($('c-gnss-controls').hidden, false);
+  assert.equal($('c-map-panel').hidden, true);
+  assert.equal($('c-gnss-panel').hidden, false);
+  assert.equal($('geod-globe-panel').hidden, true);
+  assert.match($('geod-status').textContent, /計算済み/);
+  assert.ok($('c-gnss-map').children.length >= 25, 'sky view generated');
+  const rows = () => $('geod-results').children[0].children[0].children;
+  assert.equal(rows().length, 12);
+  assert.match(rows()[6].children[0].textContent, /GDOP/);
+  assert.match(rows()[7].children[0].textContent, /HDOP/);
+  const dopSpread = rows()[6].children[1].textContent;
+  $('c-gnss-layout').value = 'cluster';
+  $('c-gnss-layout').handlers.input();
+  assert.equal($('c-gnss-azimuth').value, '15');
+  assert.equal($('c-gnss-elevation').value, '35');
+  const dopCluster = rows()[6].children[1].textContent;
+  assert.notEqual(dopCluster, dopSpread, 'satellite geometry changes DOP');
+  const clockBefore = rows()[3].children[1].textContent;
+  $('c-gnss-clock').value = '-75';
+  $('c-gnss-clock').handlers.input();
+  assert.notEqual(rows()[3].children[1].textContent, clockBefore);
+  assert.equal(rows()[6].children[1].textContent, dopCluster,
+    'common receiver clock shift must not affect geometry');
+  $('c-gnss-count').value = '3';
+  $('c-gnss-count').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  assert.equal($('c-gnss-map').children.length, 0);
+  $('c-gnss-count').value = '6';
+  $('c-gnss-count').handlers.input();
+  assert.match($('geod-status').textContent, /計算済み/);
+  $('c-mode').value = 'survey'; $('c-mode').handlers.input();
+  assert.equal($('c-survey-controls').hidden, false);
+  assert.equal($('c-gnss-panel').hidden, true);
+  assert.ok($('c-map').children.length > 15);
 });
 
 test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {

@@ -6,7 +6,7 @@ The [GEOD lab](geod.html) is a standalone, read-only/browser-only experiment.
 It has no time-stepping session, randomized seed, or imported observation record,
 so it uses the same Pages/offline shell but does not impersonate the
 simulation Worker protocol. Numerical calculations are pure functions in
-geod-core.mjs and the GEOD-specific modules, including geod-survey.mjs;
+geod-core.mjs and the GEOD-specific modules, including geod-survey.mjs and geod-gnss.mjs;
 WebGL2 renders normalized and visibly exaggerated geometry
 without feeding drawing coordinates back into the numeric kernel.
 
@@ -16,13 +16,19 @@ without feeding drawing coordinates back into the numeric kernel.
   integrated Clairaut first-order system (RK4). A spherical great-circle
   baseline is separate. Near-antipodal nonconvergence is a visible error, not
   an undisclosed sphere fallback.
-* **C**: A fully synthetic 2D local surveying network with three fixed control
-  stations, three range observations, a user-controlled bias and observation
-  standard deviations. Gauss–Newton solves the weighted nonlinear least-squares
-  position; an independent SVG shows ranges and a 600x-exaggerated uncertainty
-  ellipse. Numeric diagnostics include signed residuals, standardized residuals,
-  conditional covariance, 1σ axes, rank checks and normal-equation residual.
-  No real observations, GNSS clocks, datum, height, or actual accuracy claims.
+* **C**: Two switchable, completely synthetic experiments:
+  (1) 2D ground surveying with three fixed control stations, three range
+  observations, bias and standard deviations, solved by Gauss–Newton weighted
+  least squares with residuals, conditional covariance and a 600x-exaggerated
+  uncertainty ellipse; (2) local ENU GNSS geometry with 4–6 imaginary satellites
+  at adjustable azimuth/elevation, synthetic pseudoranges and receiver clock bias
+  B=cΔt in metres. A separate sky plot shows satellite directions and the
+  four-unknown nonlinear solver reports B in metres/ns, residuals, GDOP/PDOP/
+  HDOP/VDOP/TDOP and formal conditional covariance. The latter uses unit-weight
+  Q=(HᵀH)⁻¹ for independent equal-variance pseudorange errors and explicitly
+  refuses rank-deficient arrangements. Neither model is real surveying: no
+  actual ephemerides, satellite/orbit clocks, atmosphere, Earth rotation,
+  receiver datum/epoch, integrity or real accuracy claims.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
   Jacobian, Tissot principal stretches and the grid-north bearing.
@@ -139,7 +145,7 @@ Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
 comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
-numerical spot checks, full legal-zone applicability checks, and the GNSS/clock/DOP and gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
+numerical spot checks, full legal-zone applicability checks, the physical GNSS corrections and gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.

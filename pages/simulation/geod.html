@@ -18,7 +18,7 @@
   <nav class="lab-switch" aria-label="実験の選択">
     <button type="button" data-lab="A" aria-pressed="true">A：楕円体・法線</button>
     <button type="button" data-lab="B" aria-pressed="false">B：測地線</button>
-    <button type="button" data-lab="C" aria-pressed="false">C：測量網の平差</button>
+    <button type="button" data-lab="C" aria-pressed="false">C：測量・GNSS・平差</button>
     <button type="button" data-lab="D" aria-pressed="false">D：地図投影・ひずみ</button>
     <button type="button" data-lab="E" aria-pressed="false">E：等角と等積の比較</button>
     <button type="button" data-lab="F" aria-pressed="false">F：日本の平面直角19系</button>
@@ -54,17 +54,46 @@
   </section>
 
 
-  <section class="panel" id="lab-C" aria-label="測量網の重み付き最小二乗平差" hidden>
-    <h2>C：距離を3本測ると、位置は一つに決まる？</h2>
-    <p>予測：3つの既知点から未知点Pまでの距離に誤差があるとき、すべての観測を完全には満たせません。C点からの観測に偏りを足すとPはどう動くか。Cの標準偏差を大きくして重みを下げるとどうなるか。</p>
-    <div class="controls">
-      <label>観測Aの標準偏差 σA（m）<input id="c-sigma-a" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
-      <label>観測Bの標準偏差 σB（m）<input id="c-sigma-b" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
-      <label>観測Cの標準偏差 σC（m）<input id="c-sigma-c" type="number" min="0.01" max="2" step="0.01" value="0.10"></label>
-      <label>C観測に加える偏り（m）<input id="c-bias" type="number" min="-5" max="5" step="0.1" value="0.30"></label>
+  <section class="panel" id="lab-C" aria-label="測量・GNSS・重み付き平差" hidden>
+    <h2>C：観測で位置を推定する</h2>
+    <label class="c-mode-switch">実験の種類
+      <select id="c-mode">
+        <option value="survey">地上測量：3つの距離観測の平差</option>
+        <option value="gnss">GNSS：衛星配置・時計差・DOP</option>
+      </select>
+    </label>
+    <div id="c-survey-controls">
+      <p>予測：3つの既知点から未知点Pまでの距離に誤差があるとき、すべての観測を完全には満たせません。C点からの観測に偏りを足すとPはどう動くか。Cの標準偏差を大きくして重みを下げるとどうなるか。</p>
+      <div class="controls">
+        <label>観測Aの標準偏差 σA（m）<input id="c-sigma-a" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
+        <label>観測Bの標準偏差 σB（m）<input id="c-sigma-b" type="number" min="0.01" max="2" step="0.01" value="0.05"></label>
+        <label>観測Cの標準偏差 σC（m）<input id="c-sigma-c" type="number" min="0.01" max="2" step="0.01" value="0.10"></label>
+        <label>C観測に加える偏り（m）<input id="c-bias" type="number" min="-5" max="5" step="0.1" value="0.30"></label>
+      </div>
+      <p class="aside"><strong>完全に架空の局所平面（E東・N北、単位m）</strong>です。A(0,0)、B(300,0)、C(100,260)は誤差のない既知点、Pの設定上の真値は(130,110)。距離に固定の合成誤差を加えて重み付き非線形最小二乗でPを推定します。σは独立した観測誤差の既知の標準偏差という仮定で、追加の系統偏りは共分散に含みません。</p>
+      <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD7/index">GEOD7：観測と平差</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD8/index">GEOD8：共分散</a></p>
     </div>
-    <p class="aside"><strong>完全に架空の局所平面（E東・N北、単位m）</strong>です。A(0,0)、B(300,0)、C(100,260)は誤差のない既知点、Pの設定上の真値は(130,110)。距離に固定の合成誤差を加えて<strong>重み付き非線形最小二乗</strong>でPを推定します。σは独立した観測誤差の既知の標準偏差という仮定で、追加の系統偏りは共分散に含みません。GNSSの時刻誤差や実際の測量精度は扱いません。</p>
-    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD7/index">GEOD7：観測と重み付き平差</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD8/index">GEOD8：共分散と不確かさ</a></p>
+    <div id="c-gnss-controls" hidden>
+      <p>予測：受信機の時計がずれると、衛星の擬似距離は一斉にどう変わるか。衛星が空の一方向へ偏ると、位置3成分と時計差を分離する精度はどう変わるか。</p>
+      <div class="controls">
+        <label>衛星の配置
+          <select id="c-gnss-layout">
+            <option value="spread">空全体に分散</option>
+            <option value="cluster">同じ方向へ集中</option>
+            <option value="low">低い仰角に集中</option>
+          </select>
+        </label>
+        <label>観測する衛星数
+          <select id="c-gnss-count"><option value="4">4機</option><option value="5">5機</option><option value="6" selected>6機</option></select>
+        </label>
+        <label>S1方位角（北0°・東90°）<input id="c-gnss-azimuth" type="number" min="0" max="360" step="5" value="0"></label>
+        <label>S1仰角（度）<input id="c-gnss-elevation" type="number" min="5" max="85" step="5" value="75"></label>
+        <label>受信機時計差の距離換算 B＝cΔt（m）<input id="c-gnss-clock" type="number" min="-300" max="300" step="5" value="75"></label>
+        <label>擬似距離の共通標準偏差 σP（m）<input id="c-gnss-sigma" type="number" min="0.1" max="5" step="0.1" value="1"></label>
+      </div>
+      <p class="aside"><strong>合成GNSS模型</strong>です。衛星は架空の位置に固定、受信機位置の真値は局所E/N/U=(12, −8, 5)m。未知量は位置3成分と時計差の距離換算 B の計4つ。擬似距離＝幾何距離＋B＋固定の合成観測誤差で計算し、<strong>等分散・独立誤差</strong>を仮定します。衛星時計・大気遅延・軌道・地球自転・相対論・datum/epochは扱いません。DOPは無次元の配置指標で、実測誤差を意味しません。</p>
+      <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-pseudorange">GEOD9：擬似距離式</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD9/index?id=def-geod9-dop">GEOD9：DOP</a></p>
+    </div>
   </section>
 
   <section class="panel" id="lab-D" aria-label="楕円体横メルカトルのひずみ" hidden>
@@ -162,6 +191,11 @@
       </figure>
     </div>
 
+    <figure id="c-gnss-panel" hidden>
+      <div class="figure-head">C：GNSS天空図（北上・東右、外周＝地平線）</div>
+      <svg id="c-gnss-map" viewBox="0 0 720 470" role="img" aria-label="天空図。中心が天頂、外周が地平線。衛星S1からS6の方位角と仰角を示す。位置3成分と受信機時計差の精度低下率は下の数値表に表示。" xmlns="http://www.w3.org/2000/svg"></svg>
+      <figcaption>中心＝天頂（仰角90°）、外周＝地平線（0°）。各S点の方位角・仰角は平面天空図に配置、数値は<strong>3D擬似距離模型の独立計算</strong>です。衛星の空の偏りでDOPが大きくなります。空の図と衛星距離約20,200 kmは縮尺が異なり、衛星の軌道を描く図ではありません。</figcaption>
+    </figure>
     <figure id="c-map-panel" hidden>
       <div class="figure-head">C：既知点3点の距離網と推定点P（E東・N北、m）</div>
       <svg id="c-map" viewBox="0 0 720 470" role="img" aria-label="既知点A・B・Cから推定点Pへ向かう3本の距離観測線、距離円、推定点の誤差楕円。楕円は可視化のため600倍に拡大。" xmlns="http://www.w3.org/2000/svg"></svg>
