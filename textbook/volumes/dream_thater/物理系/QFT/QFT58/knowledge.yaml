@@ -1,0 +1,83 @@
+chapter: QFT58
+scope: dream-theater
+coverage: complete
+prerequisites: [QFT57, QFT55, QFT54, QFT50, QFT20, QINF3]
+forward_references: []
+
+concepts:
+  - id: qft.finite-replica-sewing
+    name: 有限系の巡回レプリカ貼り合わせ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限系の巡回レプリカ貼り合わせ）]
+    requires: [qft.replica-moments, quantum.partial-trace]
+
+  - id: qft.replica-sewing-trace
+    name: 巡回貼り合わせと縮約モーメントの同一性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（巡回貼り合わせと縮約モーメントの同一性）]
+    requires: [qft.finite-replica-sewing]
+
+  - id: qft.cut-euclidean-vacuum
+    name: 切断付きEuclid真空の経路積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（切断付きEuclid真空の経路積分）]
+    requires: [qft.replica-sewing-trace]
+
+  - id: qft.interval-branched-cover
+    name: 区間の巡回分岐被覆
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（区間の巡回分岐被覆）]
+    requires: [qft.cut-euclidean-vacuum]
+
+  - id: qft.replica-partition-ratio
+    name: 整数レプリカの分配関数比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数レプリカの分配関数比）]
+    requires: [qft.replica-sewing-trace, qft.cut-euclidean-vacuum, qft.interval-branched-cover]
+
+  - id: qft.cyclic-twist-fields
+    name: 巡回twist演算子と逆twist演算子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（巡回twist演算子と逆twist演算子）]
+    requires: [qft.interval-branched-cover]
+
+  - id: qft.twist-branch-correlator
+    name: 分岐被覆とtwist二点挿入
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（分岐被覆とtwist二点挿入）]
+    requires: [qft.cyclic-twist-fields, qft.replica-partition-ratio]
+
+  - id: qft.root-schwarzian
+    name: 分岐座標のSchwarzian
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（分岐座標のSchwarzian）]
+    requires: [qft.interval-branched-cover, qft.schwarzian-composition]
+
+  - id: qft.cyclic-twist-weight
+    name: 巡回twistの正則・反正則ウェイト
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（巡回twistの正則・反正則ウェイト）]
+    requires: [qft.root-schwarzian, qft.finite-stress-conformal-transformation, qft.two-dimensional-primary-ward, qft.cyclic-twist-fields]
+
+  - id: qft.single-interval-replica-exponent
+    name: 単一区間の整数レプリカの普遍指数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（単一区間の整数レプリカの普遍指数）]
+    requires: [qft.cyclic-twist-weight, qft.twist-branch-correlator, qft.primary-two-point-ward-check]
+
+  - id: qft.conditional-replica-entropy
+    name: 解析接続を仮定した区間エントロピー係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（解析接続を仮定した区間エントロピー係数）]
+    requires: [qft.single-interval-replica-exponent, qft.replica-derivative]

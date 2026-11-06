@@ -58,3 +58,4 @@
 55. [QFT55 平面–円筒写像・Schwarzianと有限サイズ・熱的相関](textbook/volumes/dream_thater/物理系/QFT/QFT55/index.md)
 56. [QFT56 境界自由場・区間のUV正則化と熱的尺度](textbook/volumes/dream_thater/物理系/QFT/QFT56/index.md)
 57. [QFT57 局所領域の縮約状態・格子正則化とエンタングルメント](textbook/volumes/dream_thater/物理系/QFT/QFT57/index.md)
+58. [QFT58 レプリカ経路積分・分岐被覆とtwist演算子](textbook/volumes/dream_thater/物理系/QFT/QFT58/index.md)
