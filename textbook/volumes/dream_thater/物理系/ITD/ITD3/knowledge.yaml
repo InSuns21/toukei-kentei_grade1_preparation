@@ -1,0 +1,51 @@
+chapter: ITD3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD2
+  - SM3
+  - INFO2
+forward_references: []
+concepts:
+  - id: information-thermodynamics.nonequilibrium-free-energy
+    name: 有限分布の非平衡自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限分布の非平衡自由エネルギー）]
+    requires: [statistical-mechanics.gibbs-entropy, statistical-mechanics.canonical-helmholtz-energy, information-thermodynamics.finite-controlled-jump-model]
+
+  - id: information-thermodynamics.available-free-energy
+    name: 自由エネルギーの超過量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由エネルギーの超過量）]
+    requires: [information-thermodynamics.nonequilibrium-free-energy, statistical-mechanics.canonical-ensemble]
+
+  - id: information-thermodynamics.free-energy-kl-identity
+    name: 自由エネルギー差の相対エントロピー表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由エネルギー差の相対エントロピー表示）]
+    requires: [information-thermodynamics.available-free-energy, information.relative-entropy, statistical-mechanics.canonical-helmholtz-energy]
+
+  - id: information-thermodynamics.free-energy-relaxation
+    name: 熱浴接触による非平衡自由エネルギーの単調性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（熱浴接触による非平衡自由エネルギーの単調性）]
+    requires: [information-thermodynamics.free-energy-kl-identity, information-thermodynamics.canonical-detailed-balance, information.kl-data-processing]
+
+  - id: information-thermodynamics.nonequilibrium-work-bound
+    name: 非平衡自由エネルギーと平均仕事の下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非平衡自由エネルギーと平均仕事の下限）]
+    requires: [information-thermodynamics.nonequilibrium-free-energy, information-thermodynamics.mean-entropy-nonnegative, information-thermodynamics.path-first-law]
+
+  - id: information-thermodynamics.extractable-work-bound
+    name: 平衡到達時の取り出せる仕事の上限
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（平衡到達時の取り出せる仕事の上限）]
+    requires: [information-thermodynamics.nonequilibrium-work-bound, information-thermodynamics.free-energy-kl-identity]
