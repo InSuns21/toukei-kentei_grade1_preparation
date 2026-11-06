@@ -291,7 +291,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft62-anec -->
-**定義の確認（真空の等号例）**：まず真空差し引きの規約を取り、同じMinkowski真空を比較状態 $\rho=\sigma$ とします。このときヌル線上のすべての $s\in\mathbb R$ で
+**定義の確認**（真空の等号例）：まず真空差し引きの規約を取り、同じMinkowski真空を比較状態 $\rho=\sigma$ とします。このときヌル線上のすべての $s\in\mathbb R$ で
 
 $$
 \langle T_{++}(s,0)\rangle_\rho
