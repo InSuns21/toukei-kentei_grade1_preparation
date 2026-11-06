@@ -52,6 +52,7 @@ const values = {
   'a-lat': '40', 'a-lon': '140', 'a-f': '1',
   'b-lat1': '35.681236', 'b-lon1': '139.767125',
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
+  'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
@@ -66,13 +67,14 @@ const elements = new Map(Object.entries(values).map(([id, value]) => [id, new No
 for (const id of ['geod-workspace', 'show-world', 'globe', 'gl-fallback', 'map-panel', 'map',
   'geod-results', 'geod-questions', 'geod-status', 'globe-caption',
   'osm-credit', 'gsi-credit', 'tile-status', 'a-lat-v', 'a-lon-v', 'a-f-v',
-  'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
+  'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F', 'e-map-panel', 'e-left-map', 'e-right-map',
   'e-left-title', 'e-right-title', 'a-section', 'a-section-map',
   'globe-zoom-v', 'zoom-in', 'zoom-out', 'zoom-reset',
-  'f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new NodeElement(id));
+  'f-map-panel', 'f-map', 'f-map-title', 'c-map-panel', 'c-map',
+  'geod-globe-panel']) elements.set(id, new NodeElement(id));
 elements.set('globe-point-role-wrap', new NodeElement('globe-point-role-wrap'));
 elements.set('globe-point-zone-wrap', new NodeElement('globe-point-zone-wrap'));
-const buttons = ['A', 'B', 'D', 'E', 'F'].map(lab => {
+const buttons = ['A', 'B', 'C', 'D', 'E', 'F'].map(lab => {
   const b = new NodeElement(); b.dataset.lab = lab; return b;
 });
 globalThis.document = {
@@ -133,9 +135,22 @@ test('zoom controls redraw shaded geometry without fetching more XYZ tiles', () 
   assert.equal(elements.get('globe-zoom').value, '1');
 });
 
+
+test('survey adjustment omits globe redraw but produces a standalone SVG', () => {
+  const draws = calls.draws.length;
+  buttons[2].handlers.click();
+  assert.equal(elements.get('geod-globe-panel').hidden, true);
+  assert.equal(elements.get('c-map-panel').hidden, false);
+  assert.ok(elements.get('c-map').children.length > 15);
+  assert.equal(calls.draws.length, draws, 'C works without a 3D rendering pass');
+  assert.match(elements.get('geod-status').textContent, /計算済み/);
+  buttons[0].handlers.click();
+  assert.equal(elements.get('geod-globe-panel').hidden, false);
+});
+
 test('global comparison shows both projected diagrams with the shared 3D marker', () => {
   const drawBefore = calls.draws.length;
-  buttons[3].handlers.click();
+  buttons[4].handlers.click();
   assert.equal(elements.get('e-map-panel').hidden, false);
   assert.ok(elements.get('e-left-map').children.length > 20);
   assert.ok(elements.get('e-right-map').children.length > 20);
@@ -156,7 +171,7 @@ test('near-globe location controls update both the A input and the WebGL view', 
 
 test('F zooms to Japan and overlays a bounded, viewport-sized GSI tile footprint', () => {
   const before = requested.length;
-  buttons[4].handlers.click();
+  buttons[5].handlers.click();
   assert.equal(elements.get('globe-zoom').max, '12');
   assert.equal(elements.get('globe-zoom').value, '4');
   assert.equal(elements.get('globe-point-zone-wrap').hidden, false);

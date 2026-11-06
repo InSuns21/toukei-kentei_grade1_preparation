@@ -21,6 +21,7 @@ const inputs = {
   'a-lat': '40', 'a-lon': '140', 'a-f': '1',
   'b-lat1': '35.681236', 'b-lon1': '139.767125',
   'b-lat2': '43.06417', 'b-lon2': '141.34694',
+  'c-sigma-a': '0.05', 'c-sigma-b': '0.05', 'c-sigma-c': '0.10', 'c-bias': '0.30',
   'd-lat': '36', 'd-lon': '142', 'd-lon0': '139.8333333333',
   'd-lat0': '36', 'd-k0': '0.9999', 'd-model': 'ellipsoid',
   'e-lat': '45', 'e-lon': '70', 'e-left': 'mercator', 'e-right': 'equalEarth',
@@ -36,15 +37,16 @@ elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
 for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'gsi-credit', 'tile-status',
-  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-D', 'lab-E', 'lab-F',
+  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
 }
+for (const id of ['c-map-panel', 'c-map', 'geod-globe-panel']) elements.set(id, new Element(id));
 for (const id of ['f-map-panel', 'f-map', 'f-map-title']) elements.set(id, new Element(id));
 for (const id of ['a-section', 'a-section-map', 'globe-zoom-v',
   'zoom-in', 'zoom-out', 'zoom-reset', 'globe-point-role-wrap',
   'globe-point-zone-wrap']) elements.set(id, new Element(id));
-const buttons = ['A', 'B', 'D', 'E', 'F'].map(mode => {
+const buttons = ['A', 'B', 'C', 'D', 'E', 'F'].map(mode => {
   const b = new Element();
   b.dataset.lab = mode;
   return b;
@@ -92,8 +94,37 @@ test('near-antipodal inverse failure is visible, not replaced by sphere output',
   assert.match($('geod-status').textContent, /計算済み/);
 });
 
-test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
+
+test('synthetic survey mode draws distances, reports covariance and responds to weights', () => {
   buttons[2].handlers.click();
+  assert.equal($('geod-workspace').dataset.currentLab, 'C');
+  assert.equal($('c-map-panel').hidden, false);
+  assert.equal($('geod-globe-panel').hidden, true, '3D globe is unrelated to local surveying');
+  assert.equal($('map-panel').hidden, true);
+  assert.match($('geod-status').textContent, /計算済み/);
+  assert.ok($('c-map').children.length > 15, 'survey diagram generated');
+  const cells = $('geod-results').children[0].children[0].children;
+  assert.equal(cells.length, 11);
+  assert.match(cells[8].children[0].textContent, /共分散/);
+  const start = cells[1].children[1].textContent;
+  $('c-bias').value = '2';
+  $('c-bias').handlers.input();
+  assert.notEqual($('geod-results').children[0].children[0].children[1].children[1].textContent,
+    start, 'bias changes estimated coordinates');
+  $('c-sigma-c').value = '1';
+  $('c-sigma-c').handlers.input();
+  assert.match($('geod-status').textContent, /計算済み/);
+  $('c-sigma-a').value = '0';
+  $('c-sigma-a').handlers.input();
+  assert.equal($('geod-status').dataset.error, 'true');
+  assert.equal($('c-map').children.length, 0, 'invalid sigma clears stale diagram');
+  $('c-sigma-a').value = '0.05';
+  $('c-sigma-a').handlers.input();
+  assert.match($('geod-status').textContent, /計算済み/);
+});
+
+test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
+  buttons[3].handlers.click();
   assert.equal($('map-panel').hidden, false);
   assert.match($('geod-status').textContent, /計算済み/);
   assert.ok($('map').children.length > 10, 'SVG paths generated');
@@ -108,7 +139,7 @@ test('projection mode shows SVG grid, Tissot outline and numeric scale', () => {
 });
 
 test('equal-area comparison shares the same point and distinguishes local distortion', () => {
-  buttons[3].handlers.click();
+  buttons[4].handlers.click();
   assert.equal($('e-map-panel').hidden, false);
   assert.equal($('map-panel').hidden, true);
   assert.match($('geod-status').textContent, /計算済み/);
@@ -134,7 +165,7 @@ test('equal-area comparison shares the same point and distinguishes local distor
 });
 
 test('Japanese 19-zone lab exposes fixed origins, axes, scale and datum assumptions', () => {
-  buttons[4].handlers.click();
+  buttons[5].handlers.click();
   assert.equal($('f-zone').children.length, 19);
   assert.equal($('globe-point-zone-wrap').hidden, false);
   assert.equal($('globe-point-zone').value, '9');
@@ -180,7 +211,7 @@ test('all eight city presets are present and South American coordinates remain s
 });
 
 test('projection city preset also recentres its local central meridian', () => {
-  buttons[2].handlers.click();
+  buttons[3].handlers.click();
   $('d-city').value = 'new-york';
   $('d-city').handlers.change();
   assert.equal($('d-lat').value, '40.7128');
@@ -219,7 +250,7 @@ test('geodesic near-globe control can choose start or end without modifying the 
   assert.equal($('b-lat2').value, '48.8566');
   assert.equal($('b-lon2').value, '2.3522');
   assert.equal($('b-lat1').value, '35.681236');
-  buttons[3].handlers.click();
+  buttons[4].handlers.click();
   assert.equal($('globe-point-role-wrap').hidden, true);
   assert.equal($('globe-point-lat').value, $('e-lat').value);
   $('globe-point-city').value = 'tokyo'; $('globe-point-city').handlers.change();
@@ -249,7 +280,7 @@ test('A draws the meridian centre only in the cross-section, and hides it in B/D
   assert.notEqual(diagram.children, before, 'section redraws with changed location');
   buttons[1].handlers.click();
   assert.equal($('a-section').hidden, true);
-  buttons[2].handlers.click();
+  buttons[3].handlers.click();
   assert.equal($('a-section').hidden, true);
 });
 
