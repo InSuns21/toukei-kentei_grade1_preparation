@@ -109,7 +109,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（中心化相関関数の連結累積量）**
-> 中心化された可換確率変数または相異なる点の対称Euclid挿入 $X_i$（$\langle X_i\rangle=0$）について、二点・三点の連結相関を通常の二点・三点期待値とし、四点の連結部分を
+> 中心化された可換確率変数または相異なる点の対称Euclid挿入 $X_i$（$\langle X_i\rangle=0$）について、連結 $m$ 点関数を次の生成式で定める。モーメント母関数が原点近傍で存在する場合は通常の微分、そうでなければ存在する有限次モーメントから作る形式べき級数の係数として解釈する。
+
+$$
+\langle X_1\cdots X_m\rangle_c
+=\left.\partial_{t_1}\cdots\partial_{t_m}
+\log\left\langle\exp\left(\sum_{i=1}^m t_iX_i\right)\right\rangle\right|_{t=0}.
+$$
+
+> 特に二点・三点の連結相関は通常の二点・三点期待値であり、四点の連結部分は
 
 $$
 \begin{aligned}
@@ -121,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-> で定義する。一変数 $X$ の $k$ 次累積量 $\kappa_k(X)$ は、零近傍でモーメント母関数が存在するとき $\log\langle e^{tX}\rangle$ の $t^k/k!$ の係数を $k!$ 倍したものとする。
+> となる。一変数 $X$ の $k$ 次累積量 $\kappa_k(X)$ は、$\log\langle e^{tX}\rangle$ の $t^k/k!$ の係数を $k!$ 倍したものである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft63-connected-cumulants -->
