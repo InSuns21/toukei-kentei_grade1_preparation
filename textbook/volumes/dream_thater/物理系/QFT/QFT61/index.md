@@ -465,7 +465,11 @@ $e$ がエネルギー密度であるため、長さの二乗の係数が現れ�
 - Level: B
 - 対応目標: 行列が非可換でも微分できること
 
-$\sigma=\operatorname{diag}(3/4,1/4)$、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\rho(\varepsilon)=\sigma+\varepsilon X$ とする。$|\varepsilon|$ を十分小さくしたとき、(1) 密度行列になる条件、(2) $S'(0)$、(3) $\operatorname{Tr}(XK_\sigma)$ を求めよ。$\sigma X\ne X\sigma$ に注意せよ。
+$\sigma=\operatorname{diag}(3/4,1/4)$、$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\rho(\varepsilon)=\sigma+\varepsilon X$ とする。$|\varepsilon|$ を十分小さくして次を求めよ。$\sigma X\ne X\sigma$ に注意せよ。
+
+1. $\rho(\varepsilon)$ が密度行列になる条件。
+2. $S'(0)$。
+3. $\operatorname{Tr}(XK_\sigma)$。
 
 <!-- solution-start -->
 ### 詳細解答
