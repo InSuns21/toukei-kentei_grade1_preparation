@@ -157,7 +157,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-11-linear-class -->
-**定義の確認**。$d=1,B=2$ なら重みは $-2\le w\le2$ であり、入力 $x=1,-1$ への出力はそれぞれ $w,-w$ となる。例えば $w=3/2$ は $|w|=3/2\le2$ だからクラスに属し、$w=3$ は属さない。標本 $(1,-1)$ の符号付き平均は $w(\sigma_1-\sigma_2)/2$。$w$ を符号の後で選ぶと最大値は $|\sigma_1-\sigma_2|$（重み $w=2\operatorname{sgn}(\sigma_1-\sigma_2)$ を選ぶ）であり、四符号の平均は $(0+2+2+0)/4=1$ になる。
+**定義の確認**。$d=1,B=2$ なら重みは $-2\le w\le2$ であり、入力 $x=1,-1$ への出力はそれぞれ $w,-w$ となる。例えば $w=3/2$ は $|w|=3/2\le2$ だからクラスに属し、$w=3$ は属さない。標本 $(1,-1)$ の符号付き平均を定義から展開すると
+
+$$
+\frac12\{\sigma_1h_w(1)+\sigma_2h_w(-1)\}
+=\frac w2(\sigma_1-\sigma_2).
+$$
+
+$w$ を符号の後で選ぶと、$\sigma_1-\sigma_2>0$ なら $w=2$、負なら $w=-2$、零なら $w=0$ と取ればよい。いずれも $|w|\le2$ を満たすので
+
+$$
+\sup_{|w|\le2}\frac w2(\sigma_1-\sigma_2)
+=|\sigma_1-\sigma_2|.
+$$
+
+四符号の平均は $(0+2+2+0)/4=1$ である。
 <!-- definition-example-end -->
 
 <a id="prop-slt1-11-linear-rademacher"></a>
@@ -207,9 +221,18 @@ $$
 異なる $i\ne j$ では独立性と $\mathbb E\sigma_i=0$ により交差項が0、同じ $i=j$ では $\sigma_i^2=1$ だからである。これを第一式へ代入する。さらに $\sum_i\|x_i\|_2^2\le nR^2$ を使えば最後の上界を得る。
 <!-- proof-end -->
 
-**同じノルムでも標本配置で値は変わる。** $d=2,n=2,B=1$ として $(x_1,x_2)=(e_1,e_2)$（直交する単位ベクトル）なら常に $\|\sigma_1e_1+\sigma_2e_2\|_2=\sqrt2$ なので経験複雑度は $1/\sqrt2$。一方 $(x_1,x_2)=(e_1,e_1)$ なら $\sigma_1+\sigma_2$ は $2,0,0,-2$ だから期待ノルムは1、経験複雑度は $1/2$ である。どちらも上界 $1/\sqrt2$ を満たすが、前者だけ等号となる。
+**同じノルムでも標本配置で値は変わる。** $d=2,n=2,B=1$ とし、$e_1=(1,0)$、$e_2=(0,1)$ を $\mathbb R^2$ の標準基底とする（一般の $\mathbb R^d$ でも $e_i$ は第 $i$ 成分だけが1のベクトル）。内積が0で、どちらのノルムも1だから、直交組 $(x_1,x_2)=(e_1,e_2)$ では
 
-ここまでの線形クラスは連続個の重みを含む。有限標本の上限は上記の連続な内積で正確に計算できる。次節の確率上界へ進むときは、有限次元閉球内の**可算稠密な重み集合**を先に使い、最後に連続性で全重みへ拡張する。非可算クラスを無条件で前章の可算クラスの定理へ代入しないためである。
+$$
+\|\sigma_1e_1+\sigma_2e_2\|_2^2
+=\sigma_1^2+\sigma_2^2=2,
+\qquad
+\widehat{\mathfrak R}_S(\mathcal H_1)=\frac{\sqrt2}{2}.
+$$
+
+一方、重複組 $(x_1,x_2)=(e_1,e_1)$ では $\sigma_1+\sigma_2$ が $2,0,0,-2$ を取るから、期待ノルムは1、経験複雑度は $1/2$ である。どちらも上界 $1/\sqrt2$ を満たすが、直交組だけ等号となる。
+
+ここまでの線形クラスは連続個の重みを含む。有限標本の上限は上記の連続な内積で正確に計算できる。次節の確率上界へ進むときは、閉球 $W_B=\{w\in\mathbb R^d:\|w\|_2\le B\}$ の中の**可算稠密な重み集合**を先に使う。有理数全体を $\mathbb Q$ と書き、$W_0=W_B\cap\mathbb Q^d$ と置く。$\mathbb Q^d$ は可算で、閉球内部の点は有理座標で近似できる。境界 $\|w\|_2=B$ の点も、いったん $(1-1/k)w$（$k\ge2$）として内部へ移し、その点を閉球内の有理座標で近似すればよい。最後に連続性で全重みへ拡張する。非可算クラスを無条件で前章の可算クラスの定理へ代入しないためである。
 
 ## 5. 誤分類をLipschitzなmargin損失で挟む
 
@@ -236,7 +259,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-11-ramp-margin -->
-**定義の確認**。$d=1,w=1,x=1$ のとき、正解が $y=+1$ なら marginは $1$、$y=-1$ なら $-1$ である。$\gamma=2$ なら前者の損失は $1-1/2=1/2$、後者は1。$t=0$ でも $\phi_2(0)=1$、$t=2$ では0であり、境界の式が一致する。どの $t$ でも $0\le\phi_\gamma(t)\le1$、傾きは $0,-1/\gamma,0$ のいずれかなので、区間をまたいでも $|\phi_\gamma(s)-\phi_\gamma(t)|\le|s-t|/\gamma$。零点の値は $\phi_\gamma(0)=1$ であり、[contraction不等式](#thm-slt1-11-contraction)に入力するのは $\phi_\gamma^\circ(t)=\phi_\gamma(t)-1$ である。
+**定義の確認**。$d=1,w=1,x=1$ のとき、正解が $y=+1$ ならmarginは1、$y=-1$ ならmarginは $-1$ である。$\gamma=2$ なら前者の損失は $1-1/2=1/2$、後者は1になる。境界 $t=0,2$ では両側の式がそれぞれ1、0で一致する。
+
+損失値は全域で $[0,1]$ に入り、三領域での傾きは $0,-1/\gamma,0$ である。区間をまたぐ場合も境界で分割して増分を足せば
+
+$$
+|\phi_\gamma(s)-\phi_\gamma(t)|\le\frac1\gamma|s-t|
+$$
+
+を得る。零点の値は $\phi_\gamma(0)=1$ であり、[contraction不等式](#thm-slt1-11-contraction)に入力するのは $\phi_\gamma^\circ(t)=\phi_\gamma(t)-1$ である。
 <!-- definition-example-end -->
 
 全ての実数 $t$ について
@@ -276,7 +307,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず閉球 $W_B=\{w\in\mathbb R^d:\|w\|_2\le B\}$ 内に可算稠密集合 $W_0$ を取り、$0\in W_0$ とする。$w\in W_0$ に対し $f_w(x,y)=\phi_\gamma(y\langle w,x\rangle)$ と置く。$f_w$ は $[0,1]$ 値、可測で、クラス $\mathcal F_0=\{f_w:w\in W_0\}$ は標本前に固定されている。
+前節で構成した閉球 $W_B$ 内の可算稠密集合 $W_0=W_B\cap\mathbb Q^d$ を使う。$0\in W_0$ であり、$B$ は標本前に固定されている。$w\in W_0$ に対し $f_w(x,y)=\phi_\gamma(y\langle w,x\rangle)$ と置く。$f_w$ は $[0,1]$ 値、可測で、クラス $\mathcal F_0=\{f_w:w\in W_0\}$ は標本前に固定されている。
 
 任意の固定標本 $S=((x_i,y_i))_{i=1}^n$ について、$t_i(w)=y_i\langle w,x_i\rangle$ とおく。[$\phi_\gamma$ の零点調整](#def-slt1-11-ramp-margin)により $\psi_i(t)=\phi_\gamma(t)-1$ は $\psi_i(0)=0$、$1/\gamma$-Lipschitzである。符号の期待値を取ると定数項は0なので、[contraction不等式](#thm-slt1-11-contraction)を $t_i(w)$ に適用して
 
@@ -449,11 +480,25 @@ $n\ge1$、$d\ge1$、$B,R,\gamma>0$、$0<\delta<1$ を固定する。$(X_i,Y_i)\s
 **詳細解答**。
 
 1. $\phi_\gamma$ は $t\le0$ で1、$0<t<\gamma$ で $1-t/\gamma$、$t\ge\gamma$ で0。各領域で値域は $[0,1]$ で、境界値が一致して連続である。傾きの絶対値は最大 $1/\gamma$ なので、境界を通る区間も分割して増分を足すと $1/\gamma$-Lipschitzである。$t\le0$ では左の指示関数も1、$t>0$ では0。$t>\gamma$ では右の指示関数も損失も0、$t\le\gamma$ では右が1だから、$\boldsymbol1_{\{t\le0\}}\le\phi_\gamma(t)\le\boldsymbol1_{\{t\le\gamma\}}$。
-2. $W_B$ の可算稠密部分 $W_0$ を固定する。各訓練対に対し $v_i(w)=Y_i\langle w,X_i\rangle$、$\psi_i(t)=\phi_\gamma(t)-\phi_\gamma(0)=\phi_\gamma(t)-1$ と置く。$\psi_i(0)=0$、Lipschitz定数は $1/\gamma$。定数の符号平均は0なので、[符号平均のcontraction不等式](#thm-slt1-11-contraction)を適用する。続いて[線形クラスの経験Rademacher複雑度](#prop-slt1-11-linear-rademacher)を評価すると
+2. 前節で構成した可算稠密部分 $W_0=W_B\cap\mathbb Q^d$ を固定し、次の損失クラスを考える。
+
+   $$
+   f_w(x,y)=\phi_\gamma(y\langle w,x\rangle),\qquad
+   \mathcal F_0=\{f_w:w\in W_0\}.
+   $$
+
+   各訓練対に対して符号付きmarginと零点調整を
+
+   $$
+   v_i(w)=Y_i\langle w,X_i\rangle,\qquad
+   \psi_i(t)=\phi_\gamma(t)-\phi_\gamma(0)=\phi_\gamma(t)-1
+   $$
+
+   と置く。$\psi_i(0)=0$、Lipschitz定数は $1/\gamma$ である。定数の符号平均は0だから、[符号平均のcontraction不等式](#thm-slt1-11-contraction)を適用する。続いて[線形クラスの経験Rademacher複雑度](#prop-slt1-11-linear-rademacher)を評価すると
 
    $$
    \begin{aligned}
-   \widehat{\mathfrak R}_S(\{\phi_\gamma\circ v(w):w\in W_0\})
+   \widehat{\mathfrak R}_S(\mathcal F_0)
    &\le\frac1{\gamma n}\mathbb E_\sigma
    \sup_{w\in W_0}\left\langle w,\sum_i\sigma_iY_iX_i\right\rangle\\
    &\le\frac B{\gamma n}\sqrt{\sum_i\|Y_iX_i\|_2^2}\\
@@ -468,7 +513,7 @@ $n\ge1$、$d\ge1$、$B,R,\gamma>0$、$0<\delta<1$ を固定する。$(X_i,Y_i)\s
    D_+(S)=\sup_{w\in W_0}(Pf_w-P_nf_w).
    $$
 
-   $W_0$ は標本と独立で、$0\le f_w\le1$ なので、[対称化](../SLT1-10/index.md#thm-slt1-10-symmetrization)と第2問により $\mathbb ED_+\le2BR/(\gamma\sqrt n)$。一標本交換による上限の変化は高々 $1/n$ である。
+   $W_0$ は標本と独立で、$0\le f_w\le1$ なので、[対称化](../SLT1-10/index.md#thm-slt1-10-symmetrization)と小問2の計算により $\mathbb ED_+\le2BR/(\gamma\sqrt n)$。一標本交換による上限の変化は高々 $1/n$ である。
 
    そこで[McDiarmid不等式](../../../解析系/HDP/HDP4/index.md#thm-hdp4-mcdiarmid)に幅の二乗和 $\sum c_i^2=1/n$ を代入すると、確率 $1-\delta$ 以上で
 
