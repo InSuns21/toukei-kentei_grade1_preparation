@@ -1,0 +1,43 @@
+id: "SLT1-13"
+title: "正則化ERMとoracle不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-12
+official_scope: []
+learning_objectives:
+  - 罰則付き経験リスク最小化と最適化誤差を定義し、普通のERMとの違いを説明できる
+  - 基本不等式を変形し、二側偏差と罰則の大小から決定論的oracle不等式を証明できる
+  - 標本抽選前に固定した可算仮説と重みのもとで、Hoeffdingと合併評価から候補別罰則を導ける
+  - 有限モデル族に対する構造的リスク最小化を構成し、モデル選択を含むoracle不等式を証明できる
+  - Bayesリスクとの差に直して近似・統計的推定・最適化の三つの寄与を分離できる
+  - 過大罰則・無罰則の過適合・標本依存のクラス・非有界損失で保証の何が失われるか説明できる
+definitions:
+  - { id: SLT1-13-DEF-01, name: 罰則付き経験リスク最小化と最適化誤差 }
+  - { id: SLT1-13-DEF-02, name: 候補別信頼半径と統計的罰則 }
+  - { id: SLT1-13-DEF-03, name: 有限モデル族の構造的リスク最小化 }
+theorems:
+  - { id: SLT1-13-LEM-01, name: 罰則付きERMの基本不等式 }
+  - { id: SLT1-13-THM-01, name: 二側偏差からの決定論的oracle不等式 }
+  - { id: SLT1-13-THM-02, name: 重み付き可算クラスの高確率oracle不等式 }
+  - { id: SLT1-13-THM-03, name: 有限モデル族の構造的リスク最小化oracle不等式 }
+canonical_examples:
+  - 有限二値分類で複雑な候補の経験誤差が小さくなっても罰則により選択が変わる例
+  - 二モデルのサイズと事前重みを使い罰則を数値計算する例
+  - 正則化係数が大き過ぎるため真に最適な予測器を選べない例
+  - 全ての標本点を記憶する分類器が無罰則ERMの同点選択で汎化しない例
+problem_patterns:
+  - SLT1-13-A01
+  - SLT1-13-A02
+  - SLT1-13-A03
+  - SLT1-13-A04
+  - SLT1-13-A05
+  - SLT1-13-B01
+  - SLT1-13-B02
+  - SLT1-13-B03
+  - SLT1-13-B04
+  - SLT1-13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2.0 }

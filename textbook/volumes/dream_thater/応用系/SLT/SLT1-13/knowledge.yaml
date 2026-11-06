@@ -1,0 +1,71 @@
+chapter: SLT1-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-12
+
+concepts:
+  - id: learning.penalized-erm-optimization-error
+    name: 罰則付き経験リスク最小化と最適化誤差
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（罰則付き経験リスク最小化と最適化誤差）"]
+    requires:
+      - learning.within-class-excess-risk
+
+  - id: learning.penalized-erm-basic-inequality
+    name: 罰則付きERMの基本不等式
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（罰則付きERMの基本不等式）"]
+    requires:
+      - learning.penalized-erm-optimization-error
+
+  - id: learning.deterministic-penalized-oracle
+    name: 二側偏差からの決定論的oracle不等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二側偏差からの決定論的oracle不等式）"]
+    requires:
+      - learning.penalized-erm-basic-inequality
+
+  - id: learning.candidatewise-confidence-penalty
+    name: 候補別信頼半径と統計的罰則
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（候補別信頼半径と統計的罰則）"]
+    requires:
+      - learning.deterministic-penalized-oracle
+
+  - id: learning.weighted-countable-oracle
+    name: 重み付き可算クラスの高確率oracle不等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（重み付き可算クラスの高確率oracle不等式）"]
+    requires:
+      - learning.candidatewise-confidence-penalty
+      - learning.deterministic-penalized-oracle
+
+  - id: learning.finite-model-structural-risk
+    name: 有限モデル族の構造的リスク最小化
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（有限モデル族の構造的リスク最小化）"]
+    requires:
+      - learning.weighted-countable-oracle
+
+  - id: learning.finite-model-oracle
+    name: 有限モデル族の構造的リスク最小化oracle不等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限モデル族の構造的リスク最小化oracle不等式）"]
+    requires:
+      - learning.finite-model-structural-risk
+      - learning.deterministic-penalized-oracle
