@@ -8,7 +8,7 @@
 
 例えば、正解ラベルが常に $+1$ の分類を考える。ある候補 $h$ の誤り確率が $p$ なら、その誤分類損失は0か1であり、分散は $p(1-p)\le p$ である。最適な候補の誤りが0なら、リスク $p$ が小さい候補ほど損失の揺らぎも小さくなる。一方、正解ラベルが公平なコインである場合には、二つの反対の分類器のリスクが共に $1/2$ であっても、両者の**損失差**は毎回 $+1$ か $-1$ に揺れる。
 
-この違いを捉えるには、[クラス内超過リスク](../SLT1-01/index.md#def-slt1-01-within-class-excess)の**平均**だけでなく、その平均の小ささと損失差の**二乗平均**の関係を調べる必要がある。本章では有限クラスの模型で速い率を完全に証明し、その仕組みを局所的な複雑度へ読み替える。
+この違いを捉えるには、[有限二値分類で導入したクラス内超過リスク](../SLT1-01/index.md#def-slt1-01-within-class-excess)の考え方を一般の有界損失へ拡張し、その平均の小ささと損失差の**二乗平均**の関係を調べる必要がある。本章では有限クラスの模型で速い率を完全に証明し、その仕組みを局所的な複雑度へ読み替える。
 
 以下、$\mathcal Z$ は可測空間、$P$ はその上の確率分布、$S=(Z_1,\ldots,Z_n)\sim P^n$ は独立同分布標本とする。$\mathcal H$ は標本抽選前に固定した空でない**有限**仮説クラスで、$M=|\mathcal H|\ge1$ とする。各損失 $\ell(h,\cdot)$ は可測で $[0,1]$ に値を取る。母集団平均を $Pf=\mathbb E f(Z)$、経験平均を $P_nf=n^{-1}\sum_i f(Z_i)$ と書く。
 
@@ -178,6 +178,8 @@ $$
 
 前節は有限クラスの候補を一括して数えた。しかし最良候補から遠いものと近いものでは、分散の上限が違う。そこで超過リスクが半径 $r$ 以下の候補だけを残す。これは未知の分布 $P$ を使う**理論上の局所化**であり、学習算法が標本からその集合を直接知っているという意味ではない。
 
+既習の[期待Rademacher複雑度](../SLT1-10/index.md#def-slt1-10-rademacher-complexities)は $[0,1]$ 値関数について定義したが、ここで扱う損失差 $g_h$ の値域は $[-1,1]$ である。符号付き標本平均の式そのものは実数値関数にも使えるので、以下では同じ式をこの有限個の損失差へ拡張して定義する。有限クラスの上限は最大値であり、各 $g_h$ が可測なので、標本と符号についての期待値も定義できる。
+
 <a id="def-slt1-12-local-complexity"></a>
 
 <!-- formal-statement-start -->
@@ -188,7 +190,7 @@ $$
 \mathcal G(r)=\{g_h:h\in\mathcal H,\ 0\le Pg_h\le r\}
 $$
 
-> とする。$S=(Z_1,\ldots,Z_n)\sim P^n$ と、$S$ から独立な公平符号 $\sigma_1,\ldots,\sigma_n$ を取り、局所Rademacher複雑度を
+> とする。$S=(Z_1,\ldots,Z_n)\sim P^n$ と、互いに独立で $S$ からも独立な公平符号 $\sigma_1,\ldots,\sigma_n$ を取り、局所Rademacher複雑度を
 
 $$
 \mathfrak R_n^{\mathrm{loc}}(r)
@@ -198,7 +200,7 @@ $$
 \right]
 $$
 
-> と定める。$g_{h^\star}=0$ なので $\mathcal G(r)$ は空でない。これは[通常のRademacher複雑度](../SLT1-10/index.md#def-slt1-10-rademacher-complexities)を、超過リスクで制限したクラスへ適用したものである。
+> と定める。$g_{h^\star}=0$ なので $\mathcal G(r)$ は空でない。[既習の符号付き標本平均](../SLT1-10/index.md#def-slt1-10-rademacher-signs)を、$[-1,1]$ 値の超過損失クラスへ拡張し、超過リスクで局所化した量である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt1-12-local-complexity -->
@@ -284,7 +286,22 @@ $$
 
 ここまでのBernstein条件は損失差の抽象条件だった。二値分類では、正解ラベルが入力 $X$ を見ても五分五分に近いかどうかで具体化できる。
 
-入力 $X$ の下での条件付き正例確率を $\eta(x)=\Pr(Y=+1\mid X=x)$ とする。ここでは $\eta$ の可測な版が存在する二値分類模型を考える。[Bayes分類則](../SLT1-01/index.md#thm-slt1-01-weighted-regret)は、$\eta(x)\ge1/2$ なら $+1$、そうでなければ $-1$ を選ぶ。$|2\eta(x)-1|$ は、どちらのラベルが優勢かを測る量である。
+入力 $X$ の下での条件付き正例確率を $\eta(x)=\Pr(Y=+1\mid X=x)$ とし、$P_X$ は入力 $X$ の周辺分布とする。ここでは $\eta$ の可測な版が存在する二値分類模型を考える。0–1損失で予測 $a\in\{-1,+1\}$ を返したとき、$X=x$ での条件付き誤り確率を $r_{01}(a\mid x)$ と書くと、
+
+$$
+r_{01}(+1\mid x)=1-\eta(x),\qquad r_{01}(-1\mid x)=\eta(x).
+$$
+
+従って $+1$ が有利なのは $1-\eta(x)\le\eta(x)$、すなわち $\eta(x)\ge1/2$ のときである。この規則で $h^\star(x)$ を定め、等号なら $+1$ とする。$\eta$ の可測性から $h^\star$ も可測である。
+
+どの可測分類器 $h$ についても、条件付き誤り確率の点ごとの比較を $P_X$ で平均すれば
+
+$$
+R_P(h^\star)=E_X[r_{01}(h^\star(X)\mid X)]
+\le E_X[r_{01}(h(X)\mid X)]=R_P(h)
+$$
+
+となる。これは[有限入力でのBayes分類則](../SLT1-01/index.md#thm-slt1-01-weighted-regret)と同じ比較を、一般の可測入力と $\{-1,+1\}$ ラベルで直接確かめたものである。$|2\eta(x)-1|$ は、どちらのラベルが優勢かを測る量である。
 
 <a id="def-slt1-12-massart-margin"></a>
 
@@ -331,7 +348,17 @@ g_h(x,y)^2=\boldsymbol1_D(x),\qquad
 Pg_h^2=P_X(D).
 $$
 
-$h^\star$ が[Bayes則](../SLT1-01/index.md#thm-slt1-01-weighted-regret)なので、$x\in D$ で優勢ラベルは $h^\star(x)$。$h^\star(x)=+1$ なら $\mathbb E(g_h\mid X=x)=\eta(x)-(1-\eta(x))=2\eta(x)-1$。$h^\star(x)=-1$ なら $(1-\eta(x))-\eta(x)=1-2\eta(x)$。いずれも
+第6節冒頭の条件付き誤り確率の比較から、$x\in D$ で優勢ラベルは $h^\star(x)$ である。Massart条件により $\eta(x)=1/2$ となる入力は $P_X$-零集合なので、Bayes分類器の同点処理にも依存しない。不一致入力での損失差の条件付き平均を場合分けすると
+
+$$
+\mathbb E[g_h\mid X=x]=
+\begin{cases}
+\eta(x)-(1-\eta(x))=2\eta(x)-1,&h^\star(x)=+1,\\
+(1-\eta(x))-\eta(x)=1-2\eta(x),&h^\star(x)=-1.
+\end{cases}
+$$
+
+いずれも優勢ラベルの確率と劣勢ラベルの確率の差だから、$x\notin D$ では損失差が0になることと合わせて
 
 $$
 \mathbb E[g_h(X,Y)\mid X=x]
@@ -469,17 +496,23 @@ $$
 **問題 SLT1-12-B02（条件付きの不一致分解）**
 - Level: B
 
-$Y\in\{-1,+1\}$、$\eta(x)=P(Y=+1\mid X=x)$ とし、$\mathcal H$ はBayes分類器 $h^\star$ を含む二値分類器の有限クラスとする。任意の $h$ に対し $D=\{h(X)\ne h^\star(X)\}$ と置く。$Pg_h$ と $Pg_h^2$ を $D$ と $\eta$ だけで表し、$\kappa$-margin条件から $B=1/\kappa$ を導け。
+$Y\in\{-1,+1\}$、$\eta(x)=P(Y=+1\mid X=x)$ は可測とし、$\mathcal H$ はBayes分類器 $h^\star$ を含む可測な二値分類器の有限クラスとする。$P_X$-ほとんど確実に $|2\eta(X)-1|\ge\kappa$ が成立する $\kappa\in(0,1]$ を仮定する。任意の $h$ に対し、入力の不一致集合 $D_h=\{x:h(x)\ne h^\star(x)\}$ と置く。$Pg_h$ と $Pg_h^2$ を $D_h$ と $\eta$ だけで表し、$B=1/\kappa$ のBernstein条件を導け。
 
 <!-- solution-start -->
-**詳細解答**。$D^c$ では同じ予測で二つの損失が等しいから $g_h=0$。$D$ ではラベルが二値なので予測は逆であり、$g_h=\pm1$、従って $g_h^2=\boldsymbol1_D$ である。条件付き平均を二通りに分ける。$h^\star(x)=+1$ なら $E(g_h\mid X=x)=\eta(x)-(1-\eta(x))=2\eta(x)-1$、$h^\star(x)=-1$ なら $E(g_h\mid X=x)=1-2\eta(x)$。Bayes則により双方とも $|2\eta(x)-1|$ に等しい。よって
+**詳細解答**。$X\notin D_h$ では同じ予測で二つの損失が等しいから $g_h=0$。$X\in D_h$ ではラベルが二値なので予測は逆であり、損失差は $+1$ または $-1$ である。従って
 
 $$
-Pg_h^2=P_X(D),\qquad
-Pg_h=E_X[|2\eta(X)-1|\boldsymbol1_D(X)].
+g_h^2(X,Y)=\boldsymbol1_{D_h}(X).
 $$
 
-[$\kappa$-margin条件](#def-slt1-12-massart-margin)を指示関数の内側に使えば $Pg_h\ge\kappa P_X(D)=\kappa Pg_h^2$。$\kappa>0$ で割って $Pg_h^2\le(1/\kappa)Pg_h$ を得る。Bayes分類器を含むことが条件付き平均の符号に必要だった。
+次に不一致入力で条件付き平均を二通りに分ける。$h^\star(x)=+1$ なら $E(g_h\mid X=x)=2\eta(x)-1$、$h^\star(x)=-1$ なら $E(g_h\mid X=x)=1-2\eta(x)$ である。Bayes最適性から前者では $\eta(x)\ge1/2$、後者では $\eta(x)\le1/2$ だから、両者とも $|2\eta(x)-1|$ に等しい。よって
+
+$$
+Pg_h^2=P_X(D_h),\qquad
+Pg_h=E_X[|2\eta(X)-1|\boldsymbol1_{D_h}(X)].
+$$
+
+[$\kappa$-margin条件](#def-slt1-12-massart-margin)を指示関数の内側に使えば $Pg_h\ge\kappa P_X(D_h)=\kappa Pg_h^2$。$\kappa>0$ で割って $Pg_h^2\le(1/\kappa)Pg_h$ を得る。Bayes分類器を含むことが条件付き平均の符号に必要だった。
 <!-- solution-end -->
 
 **問題 SLT1-12-B03（局所複雑度の固定点）**
