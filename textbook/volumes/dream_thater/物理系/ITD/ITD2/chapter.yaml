@@ -1,0 +1,42 @@
+id: "ITD2"
+title: "時間反転とゆらぎ関係：Jarzynski等式・Crooks関係"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - SM3
+official_scope: []
+learning_objectives:
+  - 正逆実験の初期分布・操作順・経路の共通支持を指定し、指数型の経路確率比を規格化から導ける
+  - 積分型ゆらぎ関係と平均第二法則を区別し、支持欠損時に逆経路の質量が補正項となることを示せる
+  - 両端平衡条件と局所詳細釣合いから仕事の経路確率比とJarzynski等式を導き、二準位quenchで検算できる
+  - Crooksの仕事分布関係を軌道の対応から証明し、零確率・仕事の縮退・逆仕事の符号に注意して使える
+  - 平衡初期条件や逆実験の選び方を変えた場合に、どの等式が使えないか反例で説明できる
+definitions:
+  - { id: ITD2-DEF-01, name: 対応する正逆実験と経路エントロピー生成 }
+  - { id: ITD2-DEF-02, name: 両端平衡の正逆プロトコル }
+  - { id: ITD2-DEF-03, name: 正逆の仕事分布 }
+theorems:
+  - { id: ITD2-THM-01, name: 積分型ゆらぎ関係 }
+  - { id: ITD2-PROP-01, name: 支持欠損による指数平均の補正 }
+  - { id: ITD2-THM-02, name: 両端平衡での仕事の経路比 }
+  - { id: ITD2-THM-03, name: Jarzynski等式と平均仕事の下限 }
+  - { id: ITD2-THM-04, name: Crooksの仕事分布関係 }
+canonical_examples:
+  - 任意の正の逆初期分布で経路確率を規格化し指数平均を直接検算
+  - 二状態の瞬間quenchで分配関数比・指数仕事平均・正逆仕事分布の比を検算
+  - 初期分布に零がある模型で絶対不可逆性による欠損確率を算出
+problem_patterns:
+  - ITD2-REVERSE-NORMALIZATION
+  - ITD2-IFT-FINITE-SUM
+  - ITD2-EQUILIBRIUM-QUENCH
+  - ITD2-CROOKS-DISCRETE-WORK
+  - ITD2-JENSEN-EQUALITY
+  - ITD2-ABSOLUTE-IRREVERSIBILITY
+  - ITD2-NONEQUILIBRIUM-COUNTEREXAMPLE
+  - ITD2-MULTIPATH-WORK
+  - ITD2-TWO-STEP-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
