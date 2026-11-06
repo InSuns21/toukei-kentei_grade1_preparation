@@ -1,0 +1,46 @@
+id: "SLT1-17"
+title: "有限辞書・線形予測・ridgeの汎化保証比較"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-14
+  - ML1-05
+official_scope: []
+learning_objectives:
+  - 固定有限辞書に対して候補数と標本数を明示したERMの高確率過剰リスク界を計算できる
+  - d次元のアフィン半空間分類器のVC次元がd+1であることを上下から証明できる
+  - 非可算なアフィン半空間を有理係数の可算族で近似し既習VC界の適用を正当化できる
+  - 有界入力とノルム制約の下で正規化二乗損失のRademacher汎化界を導ける
+  - 有界ラベルと正則化の下でridge解のノルム、損失のLipschitz性、一様安定性を検算できる
+  - 一次元ridgeで期待汎化ギャップと期待超過リスクを区別して厳密に計算できる
+  - 三つの保証の損失、確率様式、複雑度、破綻条件を比較して適切なものを選べる
+definitions:
+  - { id: SLT1-17-DEF-01, name: アフィン半空間分類器クラス }
+  - { id: SLT1-17-DEF-02, name: 有界線形回帰と正規化二乗損失 }
+theorems:
+  - { id: SLT1-17-THM-01, name: アフィン半空間のVC次元 }
+  - { id: SLT1-17-LEM-01, name: 有理係数半空間による点ごとの近似 }
+  - { id: SLT1-17-THM-02, name: 有界線形回帰の一様汎化界 }
+  - { id: SLT1-17-THM-03, name: 有界ridgeの一様安定性と期待汎化 }
+  - { id: SLT1-17-PROP-01, name: 一次元ridgeの期待汎化ギャップと超過リスク }
+canonical_examples:
+  - 二点閾値と四点正方形におけるアフィン分離の可否
+  - 4点の一次元特徴に対する経験Rademacher複雑度の厳密計算
+  - 有界ridgeの出力ノルムと二乗損失の差分評価
+  - 公平なRademacherラベルを予測する一次元ridge
+  - 非有界ラベル、λ=0、データ依存辞書で保証の仮定が失われる例
+problem_patterns:
+  - SLT1-17-A01
+  - SLT1-17-A02
+  - SLT1-17-A03
+  - SLT1-17-A04
+  - SLT1-17-A05
+  - SLT1-17-B01
+  - SLT1-17-B02
+  - SLT1-17-B03
+  - SLT1-17-B04
+  - SLT1-17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2.0 }

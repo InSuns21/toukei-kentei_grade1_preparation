@@ -1,0 +1,56 @@
+chapter: SLT1-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-14
+  - ML1-05
+
+concepts:
+  - id: learning.affine-halfspace-class
+    name: アフィン半空間分類器クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィン半空間分類器クラス）"]
+    requires: [learning.vc-dimension]
+
+  - id: learning.affine-halfspace-vc
+    name: アフィン半空間のVC次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィン半空間のVC次元）"]
+    requires: [learning.affine-halfspace-class, learning.vc-dimension]
+
+  - id: learning.rational-halfspace-approximation
+    name: 有理係数半空間による点ごとの近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有理係数半空間による点ごとの近似）"]
+    requires: [learning.affine-halfspace-class, learning.affine-halfspace-vc]
+
+  - id: learning.bounded-linear-square-loss
+    name: 有界線形回帰と正規化二乗損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有界線形回帰と正規化二乗損失）"]
+    requires: [learning.norm-bounded-linear-class]
+
+  - id: learning.linear-square-loss-generalization
+    name: 有界線形回帰の一様汎化界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有界線形回帰の一様汎化界）"]
+    requires: [learning.bounded-linear-square-loss, learning.rademacher-contraction, learning.linear-rademacher-bound, learning.rademacher-symmetrization]
+
+  - id: learning.bounded-ridge-stability
+    name: 有界ridgeの一様安定性と期待汎化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有界ridgeの一様安定性と期待汎化）"]
+    requires: [learning.bounded-linear-square-loss, learning.strongly-convex-erm-stability, learning.stability-expected-generalization]
+
+  - id: learning.ridge-one-dimensional-gap
+    name: 一次元ridgeの期待汎化ギャップと超過リスク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次元ridgeの期待汎化ギャップと超過リスク）"]
+    requires: [learning.bounded-ridge-stability, learning.population-risk]
