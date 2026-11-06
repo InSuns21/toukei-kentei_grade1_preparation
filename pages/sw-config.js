@@ -52,6 +52,7 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     './simulation/geod-japan.mjs',
     './simulation/geod-survey.mjs',
     './simulation/geod-gnss.mjs',
+    './simulation/geod-gnss-space.mjs',
     './simulation/simulation.css',
     './simulation/simulation-app.mjs',
     './simulation/simulation-runtime.mjs',
@@ -96,3 +97,4 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
   manualCacheConcurrency: 6,
   manualCacheLocalConcurrency: 12,
 });
+

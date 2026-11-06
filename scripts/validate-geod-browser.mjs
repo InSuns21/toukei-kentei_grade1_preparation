@@ -291,16 +291,35 @@ try {
     document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
   assert.equal(await evalJS('document.querySelector("#c-gnss-space-panel").hidden'), false);
   assert.equal(await evalJS('document.querySelector("#c-gnss-panel").hidden'), true);
-  assert.ok(await evalJS('document.querySelectorAll("#c-gnss-space-map circle").length >= 7'));
-  const spaceBefore = await evalJS('document.querySelector("#c-gnss-space-map").innerHTML');
+  assert.equal(await evalJS('document.querySelector("#c-gnss-gl-wrap").hidden'), false);
+  assert.equal(await evalJS('document.querySelector("#c-gnss-space-map").hidden'), true);
+  const renderInfo = await evalJS(`(() => {
+    const c = document.querySelector('#c-gnss-space-canvas');
+    const gl = c.getContext('webgl2');
+    const pixel = new Uint8Array(4);
+    gl.readPixels(Math.floor(c.width * 0.5), Math.floor(c.height * (1 - 270 / 470)),
+      1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+    window.__geodGnss3dFrame = c.toDataURL();
+    window.__geodGnss3dLabels = document.querySelector('#c-gnss-space-labels').toDataURL();
+    return { width: c.width, height: c.height, pixel: [...pixel], error: gl.getError(),
+      selection: getComputedStyle(c).userSelect,
+      labelLength: window.__geodGnss3dLabels.length };
+  })()`);
+  assert.ok(renderInfo.width >= 200 && renderInfo.height >= 140 &&
+    renderInfo.error === 0 && renderInfo.selection === 'none' &&
+    renderInfo.labelLength > 1500 && renderInfo.pixel[3] === 255 &&
+    Math.min(...renderInfo.pixel.slice(0, 3)) < 200,
+  'shaded 3D WebGL pixels, canvas labels and non-selectable interaction: ' + JSON.stringify(renderInfo));
   await evalJS(`document.querySelector('#c-gnss-view-azimuth').value='145';
     document.querySelector('#c-gnss-view-azimuth').dispatchEvent(new Event('input'))`);
-  assert.notEqual(await evalJS('document.querySelector("#c-gnss-space-map").innerHTML'),
-    spaceBefore, 'perspective controls must redraw the synthetic ENU hemisphere');
+  assert.equal(await evalJS('window.__geodGnss3dFrame !== document.querySelector("#c-gnss-space-canvas").toDataURL()'),
+    true, 'camera control must change rendered WebGL geometry');
+  assert.equal(await evalJS('window.__geodGnss3dLabels !== document.querySelector("#c-gnss-space-labels").toDataURL()'),
+    true, 'satellite labels rotate with the 3D scene');
   assert.equal(await evalJS('document.querySelector("#geod-results tbody tr:nth-child(7) td").textContent'),
     dopBeforeRotate, 'rotating the view must leave DOP unchanged');
   const perspectiveLayout = await evalJS(`(() => {
-    const map = document.querySelector('#c-gnss-space-map').getBoundingClientRect();
+    const map = document.querySelector('#c-gnss-gl-wrap').getBoundingClientRect();
     return { width: map.width, height: map.height };
   })()`);
   assert.ok(perspectiveLayout.width > 200 && perspectiveLayout.width <= 861,
@@ -423,7 +442,7 @@ try {
   await evalJS(`document.querySelector('#c-gnss-view').value='space';
     document.querySelector('#c-gnss-view').dispatchEvent(new Event('input'))`);
   const gnss3dMobile = await evalJS(`(() => {
-    const sky3d = document.querySelector('#c-gnss-space-map').getBoundingClientRect();
+    const sky3d = document.querySelector('#c-gnss-gl-wrap').getBoundingClientRect();
     const camera = document.querySelector('#c-gnss-camera-controls').getBoundingClientRect();
     return { width: sky3d.width, cameraWidth: camera.width,
       overflow: document.documentElement.scrollWidth - window.innerWidth };
@@ -442,3 +461,4 @@ try {
   server.close();
   await rm(profile, { recursive: true, force: true, maxRetries: 6, retryDelay: 250 });
 }
+
