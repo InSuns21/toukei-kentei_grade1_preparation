@@ -17,6 +17,7 @@ on:
       - 'README.md'
       - 'package.json'
       - 'package-lock.json'
+      - '.github/workflows/recover-pages-deploy.yml'
       - '.github/workflows/validate-textbook.yml'
   pull_request:
     paths:

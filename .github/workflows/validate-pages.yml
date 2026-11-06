@@ -14,6 +14,7 @@ on:
       - 'AGENTS.md'
       - 'package.json'
       - 'package-lock.json'
+      - '.github/workflows/recover-pages-deploy.yml'
       - '.github/workflows/validate-pages.yml'
   workflow_dispatch:
 
@@ -64,6 +65,10 @@ jobs:
       - name: Install dependencies
         if: steps.scope.outputs.full == 'true'
         run: npm ci
+
+      - name: Test bounded Pages deployment recovery
+        if: steps.scope.outputs.full == 'true'
+        run: node --test scripts/test-pages-deploy-recovery.mjs
 
       - name: Validate live smoke script syntax
         if: steps.scope.outputs.full == 'true'
