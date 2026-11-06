@@ -246,7 +246,7 @@ try {
       status:document.querySelector('#tile-status').textContent, error:gl.getError() };
   })()`);
   assert.equal(japanZoom.text, '1200%');
-  assert.match(japanZoom.status, /地理院標準地図.*XYZズーム8/);
+  assert.match(japanZoom.status, /地理院標準地図.*XYZズーム6/);
   assert.equal(japanZoom.error, 0, JSON.stringify(japanZoom));
   assert.equal(await evalJS('document.querySelector("#f-zone option").value'), '1');
   assert.equal(await evalJS('document.querySelectorAll("#f-zone option").length'), 19);

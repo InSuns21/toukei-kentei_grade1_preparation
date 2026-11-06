@@ -1,0 +1,65 @@
+chapter: SLT1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-10
+
+concepts:
+  - id: learning.lipschitz-contraction-centering
+    name: Lipschitz変換と零点調整
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（Lipschitz変換と零点調整）"]
+    requires:
+      - learning.rademacher-complexity
+
+  - id: learning.rademacher-contraction
+    name: 符号平均のcontraction不等式
+    kind: theorem
+    aliases: ["contraction不等式"]
+    introduction: formal
+    introduction_aliases: ["定理（符号平均のcontraction不等式）"]
+    requires:
+      - learning.lipschitz-contraction-centering
+      - learning.rademacher-complexity
+
+  - id: learning.norm-bounded-linear-class
+    name: ノルム制約付き線形予測器クラス
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（ノルム制約付き線形予測器クラス）"]
+    requires:
+      - learning.rademacher-complexity
+
+  - id: learning.linear-rademacher-bound
+    name: 線形クラスの経験Rademacher複雑度
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（線形クラスの経験Rademacher複雑度）"]
+    requires:
+      - learning.norm-bounded-linear-class
+      - learning.rademacher-complexity
+
+  - id: learning.ramp-margin-loss
+    name: marginと折線margin損失
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（marginと折線margin損失）"]
+    requires:
+      - learning.norm-bounded-linear-class
+
+  - id: learning.linear-margin-generalization
+    name: ノルム制約付き線形分類器のmargin汎化界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（ノルム制約付き線形分類器のmargin汎化界）"]
+    requires:
+      - learning.rademacher-contraction
+      - learning.linear-rademacher-bound
+      - learning.ramp-margin-loss
+      - learning.rademacher-symmetrization

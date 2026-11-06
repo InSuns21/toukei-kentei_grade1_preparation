@@ -79,10 +79,14 @@ over the globe, or +/- keys (0 resets; arrows still rotate). Lab F starts
 at 400% and supports 60–1200%, with a tighter default focus on the Japanese
 study point (the F reset key/button returns to 400%). The base globe keeps
 OSM XYZ z=2, while Lab F above 250% loads a **bounded 4×4 current-view
-window** of Japan GSI standard-map XYZ tiles: z=6, 7, or 8 as the displayed
-zoom increases. Individual GPU tile textures overlay a curved, tessellated
-ellipsoid patch; a whole-world high-resolution atlas is never built. The
-cache holds no more than 24 tiles, and off-Japan views use the base globe.
+window** of Japan GSI standard-map XYZ tiles: a 5×5 local footprint at
+z=4, 5, or 6 as the displayed zoom increases. At 1200%, this covers at
+least 28° of longitude, preventing a tiny 5.625° inset caused by the former
+4×4 / z=8 selection. The lower XYZ level gives each 256px tile enough
+geographical coverage for the visible 520px globe, without stretching map
+coordinates or fetching the whole world. GPU textures overlay curved,
+tessellated ellipsoid patches, and the in-memory cache holds up to 40 tiles;
+off-Japan views use the base globe.
 Remote tiles are not pre-cached for offline use; loading failures preserve
 the shaded globe and the numeric kernel. Both OSM and GSI credits are shown
 when the corresponding imagery is active.

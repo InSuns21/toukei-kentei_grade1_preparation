@@ -48,8 +48,8 @@ chapters:
     title: "Rademacher複雑度とsymmetrization"
   - id: SLT1-11
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-11
-    status: planned
-    title: "contractionと線形・marginクラス"
+    status: completed
+    title: "Lipschitz合成と線形・marginクラス"
   - id: SLT1-12
     path: textbook/volumes/dream_thater/応用系/SLT/SLT1-12
     status: planned
