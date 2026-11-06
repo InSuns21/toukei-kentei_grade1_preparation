@@ -68,6 +68,13 @@ jobs:
             exit 0
           fi
 
+          # Minimize the race with a new main push while inspecting the run.
+          current_sha="$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq '.sha')"
+          if [[ "$current_sha" != "$SOURCE_SHA" ]]; then
+            echo "Skipping stale deployment; main advanced during recovery"
+            exit 0
+          fi
+
           # The original build artifact is reused; dependent smoke test runs too.
           echo "Retrying failed deployment for $SOURCE_SHA (attempt $((attempt + 1))/3)"
           gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$SOURCE_RUN_ID/rerun-failed-jobs"
