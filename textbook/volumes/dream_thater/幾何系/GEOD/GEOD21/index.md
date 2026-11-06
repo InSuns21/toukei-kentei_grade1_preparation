@@ -153,7 +153,7 @@ $$
 
 ![原点Oから北へ180m、東へ250mの点P。縦軸は日本式Xと北距Np、横軸は日本式Yと東距Eが対応する図](assets/japanese-plane-axes.svg)
 
-[測地学ラボD（横メルカトル）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html)では $E,N_p$ と日本式 $X,Y$ の対応を両方表示します。ラボで原点・縮尺を動かす操作は投影パラメータの実験であり、JGD2024の座標系定義への自動適合や測地基準系変換ではありません。
+[測地学ラボF（日本の平面直角19系）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-F)では $E,N_p$ と日本式 $X,Y$ の軸順序・符号、19系それぞれの原点を数値・格子で確認できます。[ラボD（横メルカトル）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-D)では原点・中央縮尺を自由に動かせます。どちらもJGD2024の実務的な座標変換や法定適用区域の自動判定は行いません。
 
 ---
 

@@ -1562,12 +1562,17 @@ $('d-copy-to-inverse').addEventListener('click', () => {
   }
 });
 
-for (const button of document.querySelectorAll('[data-lab]')) button.addEventListener('click', () => {
+const labFromHash = hash => /^#lab-[A-F]$/.test(hash || '') ? hash.slice(-1) : null;
+
+function activateLab(lab, updateUrl = false) {
+  const selected = [...document.querySelectorAll('[data-lab]')]
+    .find(button => button.dataset.lab === lab);
+  if (!selected) return;
   const previousLab = state.lab;
-  state.lab = button.dataset.lab;
+  state.lab = lab;
   for (const b of document.querySelectorAll('[data-lab]')) {
-    b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
-    $('lab-' + b.dataset.lab).hidden = b !== button;
+    b.setAttribute('aria-pressed', b === selected ? 'true' : 'false');
+    $('lab-' + b.dataset.lab).hidden = b !== selected;
   }
   // Recenter on the study point. The learner can then freely rotate.
   state.yaw = state.lab === 'D' ? -rad(Number($('d-lon0').value))
@@ -1578,7 +1583,23 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
   $('globe-zoom').max = String(state.lab === 'F' ? JAPAN_ZOOM_MAX : GLOBAL_ZOOM_MAX);
   setZoom(state.lab === 'F' ? 4 : previousLab === 'F' ? 1 : Math.min(state.zoom, GLOBAL_ZOOM_MAX));
   recalculate();
-});
+  // Keep the link shareable without native anchor scrolling the control
+  // panel out of view. Browser Back restores the previously selected lab.
+  if (updateUrl && globalThis.history?.pushState && globalThis.location?.hash !== '#lab-' + lab) {
+    globalThis.history.pushState(null, '', '#lab-' + lab);
+  }
+}
+for (const button of document.querySelectorAll('[data-lab]')) {
+  button.addEventListener('click', () => activateLab(button.dataset.lab, true));
+}
+if (typeof window !== 'undefined') {
+  const restoreLab = () => {
+    const linked = labFromHash(globalThis.location?.hash);
+    if (linked && linked !== state.lab) activateLab(linked);
+  };
+  window.addEventListener('popstate', restoreLab);
+  window.addEventListener('hashchange', restoreLab);
+}
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
   'c-mode', 'c-sigma-a', 'c-sigma-b', 'c-sigma-c', 'c-bias',
   'c-gnss-layout', 'c-gnss-count', 'c-gnss-azimuth', 'c-gnss-elevation',
@@ -1706,7 +1727,9 @@ view.addEventListener('webglcontextrestored', () => {
 startGL();
 if (!gl) $('tile-status').textContent = 'WebGL2非対応のため世界地図を表示できません。';
 setZoom(1);
-recalculate();
+const initiallyLinkedLab = labFromHash(globalThis.location?.hash);
+if (initiallyLinkedLab) activateLab(initiallyLinkedLab);
+else recalculate();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('../service-worker.js', {

@@ -79,7 +79,7 @@ $$
 を取ります。北東成分は直交し、長さは $\|\boldsymbol v\|^2=3/4+1/4=1$。角は $\alpha=\pi/6$ なので、式から $\dot\phi=\sqrt3/(2R)$、$\dot\lambda=1/(2R)$ です。これらを計量へ戻すと $R^2(3/(4R^2)+1/(4R^2))=1$。**経度微分と緯度微分の比から角を直接求めたのではなく、まず双方を距離の成分へ換算**したことを確かめました。
 <!-- definition-example-end -->
 
-この角度・距離の関係を、[測地学ラボB（楕円体の測地線）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html)で二地点を動かして観察できます。まず計算する前に球面大円との距離差を予想してみましょう。
+この角度・距離の関係を、[測地学ラボB（楕円体の測地線）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-B)で二地点を動かして観察できます。まず計算する前に球面大円との距離差を予想してみましょう。
 
 ---
 

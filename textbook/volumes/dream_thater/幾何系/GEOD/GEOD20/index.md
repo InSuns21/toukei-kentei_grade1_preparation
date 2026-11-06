@@ -14,6 +14,8 @@
 
 以下、測地緯度 $\phi\in[-\pi/2,\pi/2]$ と経度 $\lambda$ はラジアンとし、中央子午線 $\lambda_0$ からの差を $\ell=\lambda-\lambda_0\in[-\pi,\pi]$ の切断された範囲で扱います。回転楕円体は $a\ge b>0$、第一離心率 $e=\sqrt{1-b^2/a^2}\in[0,1)$、[正積緯度](../GEOD19/index.md#def-geod19-authalic) $\beta=\arcsin(q(\phi)/q_p)$、正積球半径 $R_q=a\sqrt{q_p/2}$ とします。球の場合は $R_q=R,\ \beta=\phi$ です。投影平面の東を $E$、北を $N_p$、原点の平行移動を $E_0,N_0$ と書きます。
 
+[測地学ラボE（等角と等積の比較）](https://insuns21.github.io/toukei-kentei_grade1_preparation/simulation/geod.html#lab-E)では、同じ測地緯度から正積緯度を計算し、Equal Earth・Mollweide・Mercatorの面積比とTissot指示楕円を比較できます。地域用Gauss–Krügerについては、同じ微小地上面積を写した数値比のみを比較します。
+
 <!-- definition-example-audit: strict -->
 
 ---
