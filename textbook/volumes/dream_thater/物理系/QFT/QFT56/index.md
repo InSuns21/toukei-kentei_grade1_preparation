@@ -6,7 +6,7 @@
 
 この章ではまず、二次元の自由Gaussian bosonを半平面に置き、壁の鏡像を用いて相関関数を実際に構成します。それを幅が有限の帯領域へ写し、点分離の長さ $a$ を導入します。最後に[QFT55の熱円筒二点核](../QFT55/index.md#prop-qft55-thermal-two-point)と比較し、どの対数の係数が計算で決まり、どの定数が正則化の選択に残るかを分けます。**区間のエントロピーをまだ導いたことにはしません**。局所領域と有限次元密度行列を結ぶ作業、レプリカ法、解析接続は後続の課題です。
 
-この章の固定条件は、二次元Euclid平坦空間、実スカラー場、$g>0$、$hbar=1$ です。境界Green関数は質量零の自由理論の**形式的なGaussian共分散**として扱い、Dirichletでは境界値を固定します。Neumannでは零モードの赤外（IR）処理を明示します。点が一致する前にはUV cutoff $a>0$ を置き、$a$ より十分大きな距離で連続体の式を使います。一般の相互作用CFTや任意の境界状態の相関を同じ式で決めるものではありません。
+この章の固定条件は、二次元Euclid平坦空間、実スカラー場、$g>0$、$\hbar=1$ です。境界Green関数は質量零の自由理論の**形式的なGaussian共分散**として扱い、Dirichletでは境界値を固定します。Neumannでは零モードの赤外（IR）処理を明示します。点が一致する前にはUV cutoff $a>0$ を置き、$a$ より十分大きな距離で連続体の式を使います。一般の相互作用CFTや任意の境界状態の相関を同じ式で決めるものではありません。
 
 ## 1. 壁の上に場を置く：境界値とGreen方程式
 
@@ -40,7 +40,15 @@ S[\phi]=\frac{g}{4\pi}\int_\Omega
 \bigl((\partial_x\phi)^2+(\partial_y\phi)^2\bigr)\,dx\,dy
 $$
 
-とします。これは[QFT20のEuclid Gaussian作用](../QFT20/index.md#def-qft20-euclidean-action)と同じ二次形式の模型ですが、ここでは係数を $g/(4\pi)$ と固定しました。変分 $\phi\mapsto\phi+\varepsilon\eta$ の一次項は、部分積分で
+とします。これは[QFT20のEuclid Gaussian作用](../QFT20/index.md#def-qft20-euclidean-action)と同じ二次形式の模型ですが、ここでは係数を $g/(4\pi)$ と固定しました。以下、微分・測度の記号を
+
+$$
+\nabla\phi=(\partial_x\phi,\partial_y\phi),\qquad
+\Delta=\partial_x^2+\partial_y^2,\qquad
+d^2z=dx\,dy
+$$
+
+とします。$\partial_n$ は各境界の外向き単位法線方向の微分です。変分 $\phi\mapsto\phi+\varepsilon\eta$ の一次項は、部分積分で
 
 $$
 \begin{aligned}
@@ -52,6 +60,14 @@ $$
 $$
 
 Dirichletでは許容変分が境界で $\eta=0$、Neumannでは境界条件 $\partial_n\phi=0$ を課すので、どちらも境界項が消えます。形式的二次作用素は $K=-(g/2\pi)\Delta$ です。共分散はこの逆核に対応します。
+
+逆核を定義する前に追加の記号を固定します。$\Delta_z$ はLaplace作用素を第一変数 $z$ に作用させる記号、$\delta^{(2)}(z-w)$ は二次元Diracデルタ分布です。後者は内部の点 $w$ と内部に台をもつ試験関数 $h$ に対して
+
+$$
+\int_\Omega\delta^{(2)}(z-w)h(z)\,d^2z=h(w)
+$$
+
+となることで特徴付けられます。
 
 <a id="def-qft56-boundary-green"></a>
 
@@ -66,7 +82,7 @@ $$
 > を満たし、$z$ が境界に達するとき $B$ の条件を満たす対称核をいう。Dirichletでは $G_D=0$、Neumannでは $\partial_nG_N=0$ を境界で課す。非有界領域のNeumann核はIRの零モード・加法定数の選択を別途要する。
 <!-- formal-statement-end -->
 
-ここで $\Delta=\partial_x^2+\partial_y^2$、$\delta^{(2)}$ は二次元のDiracデルタ分布です。作用の係数を二倍にするとGreen核の係数は半分になるので、係数 $2\pi/g$ は省略できません。小円 $|z-w|=\epsilon$ の外向き微分を積分すると
+作用の係数を二倍にするとGreen核の係数は半分になるので、係数 $2\pi/g$ は省略できません。小円 $|z-w|=\epsilon$ の外向き微分を積分すると
 
 $$
 -\oint_{|z-w|=\epsilon}\partial_r
@@ -179,22 +195,41 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a=\pi/W$ と置きます。$f(w)-f(w')$ は
+$\alpha=\pi/W$ と置きます。この $\alpha$ は写像の逆長さの尺度であり、第4節以降のUV長 $a$ とは別です。$f(w)-f(w')$ は
 
 $$
-e^{aw}-e^{aw'}=2e^{a(w+w')/2}\sinh\left(\frac{a(w-w')}{2}\right)
+e^{\alpha w}-e^{\alpha w'}=2e^{\alpha(w+w')/2}\sinh\left(\frac{\alpha(w-w')}{2}\right)
 $$
 
-です。分母の鏡像点は $\overline{f(w')}=e^{a\overline{w'}}$ なので
+です。分母の鏡像点は $\overline{f(w')}=e^{\alpha\overline{w'}}$ なので
 
 $$
-e^{aw}-e^{a\overline{w'}}
-=2e^{a(w+\overline{w'})/2}\sinh\left(\frac{a(w-\overline{w'})}{2}\right).
+e^{\alpha w}-e^{\alpha\overline{w'}}
+=2e^{\alpha(w+\overline{w'})/2}\sinh\left(\frac{\alpha(w-\overline{w'})}{2}\right).
 $$
 
 二つの前置因子の絶対値は、$\operatorname{Re}w'=\operatorname{Re}\overline{w'}$ より一致します。したがって[半平面のDirichlet核](#thm-qft56-dirichlet-image)を引き戻せば表示式です。
 
-二次元の共形座標変換では $\Delta_w(G_D\circ f)=|f'|^2(\Delta_zG_D)\circ f$ です。一方 $\delta^{(2)}(f(w)-f(w'))=\delta^{(2)}(w-w')/|f'(w')|^2$ です。デルタ分布の支持 $w=w'$ で両係数が消し合うので、源の係数は変わりません。壁上では $f(w)$ が実数になるため、[半平面の境界値零](#thm-qft56-dirichlet-image)がそのまま保たれます。
+[QFT50の局所正則共形写像の判定](../QFT50/index.md#def-qft50-local-conformal)より、$f=U+iV$ の実Jacobian $Df$ は $Df(Df)^{\mathsf T}=|f'|^2I_2$ を満たし、$U,V$ は調和関数です。合成関数 $F(U,V)$ の二階連鎖律を確認します。$f_1=U,f_2=V$ とし、$i,j\in\{1,2\}$ を像の実座標の添字、$k\in\{x,y\}$ を元の座標の微分変数とすると
+
+$$
+\sum_{k=x,y}(\partial_k f_i)(\partial_k f_j)
+=|f'|^2\delta_{ij},
+\qquad
+\Delta_w f_i=0.
+$$
+
+前者は $\partial_{ij}F$ の係数、後者は $\partial_iF$ の係数なので、連鎖律で
+
+$$
+\Delta_w(F\circ f)=|f'|^2(\Delta_zF)\circ f,
+\qquad
+\delta^{(2)}(f(w)-f(w'))=
+\frac{\delta^{(2)}(w-w')}{|\det Df(w')|}
+=\frac{\delta^{(2)}(w-w')}{|f'(w')|^2}.
+$$
+
+後式は上で可逆性を確かめた正則写像の面積Jacobianによります。デルタ分布の支持 $w=w'$ で両係数が消し合うので、源の係数は変わりません。壁上では $f(w)$ が実数になるため、[半平面の境界値零](#thm-qft56-dirichlet-image)がそのまま保たれます。
 <!-- proof-end -->
 
 **定義・境界の直接確認**：$w=x$（下の壁）では $f(w)>0$、$w=x+iW$（上の壁）では $f(w)<0$ です。どちらも実軸上にあるため、半平面の鏡像距離が一致して $G_{D,W}=0$ になります。単に双曲線関数の式を代入して終えるのでなく、「なぜ両壁の条件が守られるか」を写像で説明できました。
@@ -278,13 +313,19 @@ $t\to0$ かつ $t/|\sin\theta|\to0$ なら分子は $|\sin\theta|(1+o(1))$、分
 
 相関に現れる対数からべき乗を作る最も単純な対象が、自由bosonの指数型局所演算子です。Gaussian場 $\phi$ は二次作用で定まるので、有限個の平滑化変数の生成関数には[QFT19の有限次元Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を適用できます。一点の指数の期待値を有限にするには、自己縮約の発散を先に差し引かなければなりません。
 
-平面の点分離共分散の参照形を $C_{0,a}=(1/g)\log(\ell_0/a)$ とします。$\ell_0>0$ は正規順序の参照長で、物理的な区間の長さ $\ell$ とは別の記号です。次の指数は、Gaussian縮約を差し引く処方として定めます。
+ここは前節の**水平二点分離**と、一つの場を平滑化して作る**自己分散**を区別します。前節の $C_{D,a}(y)=G_D(z,z+a)$ は異なる二点の縮約であり、そのまま一つの確率変数の分散だとは言えません。そこで $z=x+iy$ の周囲の半径 $a<y$ の円が半平面内に収まるとき、場の円周平均を
+
+$$
+\phi_a(z)=\frac{1}{2\pi}\int_0^{2\pi}\phi(z+ae^{i\vartheta})\,d\vartheta
+$$
+
+と定めます。$\vartheta$ は円周上を動かす角度で、$z$ は固定します。この平滑化による平面の自己縮約を $C_{0,a}=(1/g)\log(\ell_0/a)$ とします。$\ell_0>0$ は赤外の加法定数を選んだ正規順序の参照長で、物理的な区間の長さ $\ell$ とは別の記号です。二点分離と円周平均では有限 $a$ の核が異なりますが、下の計算で極限の有限差が一致することを確かめます。
 
 <a id="def-qft56-gaussian-vertex"></a>
 
 <!-- formal-statement-start -->
 > **定義（平面規格化のGaussian頂点演算子）**  
-> $g>0$、$q\in\mathbb R$ とし、二次元自由Gaussian bosonの短距離縮約を $C_{0,a}=(1/g)\log(\ell_0/a)$ と定める。$a$ で正則化した $\phi_a$ の指数に対して、平面規格化の頂点演算子をGaussian縮約の意味で
+> $g>0$、$q\in\mathbb R$、$\ell_0>0$ とし、二次元自由Gaussian bosonの円周平均 $\phi_a$ の平面自己縮約を $C_{0,a}=(1/g)\log(\ell_0/a)$ とする。平面規格化の頂点演算子をGaussian縮約の意味で
 
 $$
 V_q^{(\ell_0)}(z)=\lim_{a\to0}
@@ -304,7 +345,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Dirichlet境界の頂点一体関数）**  
-> $g>0$、$\ell_0>0$、$q\in\mathbb R$ とする。半平面の中心化Gaussian自由bosonに境界値 $\phi(x,0)=0$ を課し、上の点分離・平面規格化で $V_q^{(\ell_0)}$ を定める。$z=x+iy\in H$ では、境界条件を保つ極限において
+> $g>0$、$\ell_0>0$、$q\in\mathbb R$ とする。半平面の中心化Gaussian自由bosonに境界値 $\phi(x,0)=0$ を課し、上の円周平均・平面規格化で $V_q^{(\ell_0)}$ を定める。$z=x+iy\in H$ では、$0<a<y$ から $a\to0$ とした極限において
 
 $$
 \langle V_q^{(\ell_0)}(x+iy)\rangle_D
@@ -317,32 +358,57 @@ $$
 
 ### 証明の見取り図
 
-中心化Gaussianの指数平均は自己縮約 $C_{D,a}$ の半分を指数へ入れたものです。正規順序では同じ形の平面自己縮約 $C_{0,a}$ を足すので、差 $C_{D,a}-C_{0,a}$ が有限に残ります。
+中心化Gaussianの指数平均には、単一の平滑化場の分散が入ります。円周平均の分散をGreen核の二重積分から求め、平面自己縮約との差を取ります。最後に水平点分離の核とも極限を照合します。
 
 <!-- proof-start -->
 ### 証明
 
-有限自由度Gaussianを平滑化して取る場合、[Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を複素ソース $J=iq$ へ拡張すると、中心化共分散 $C$ について $\langle e^{iqX}\rangle=e^{-q^2C/2}$ です。拡張は、実部が有界な複素ソースの各コンパクト集合上でGaussian積分が一様に収束し、両辺が $J$ の整関数で一致することから正当化できます。点分離の縮約処方で $C_{D,a}(y)$ を用いれば、[境界距離の式](#prop-qft56-point-split-variance)から
+有限自由度Gaussianを平滑化して取る場合、[Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)を複素ソース $J=iq$ へ拡張すると、中心化共分散 $C$ について $\langle e^{iqX}\rangle=e^{-q^2C/2}$ です。拡張は、実部が有界な複素ソースの各コンパクト集合上でGaussian積分が一様に収束し、両辺が $J$ の整関数で一致することから正当化できます。
+
+まず円周平均の分散を $C^{\mathrm{circ}}_{D,a}(y)=\langle\phi_a(z)^2\rangle_D$ と書きます。Dirichlet核の[鏡像公式](#thm-qft56-dirichlet-image)を二つの円周で平均すると、実源同士の対数には
+
+$$
+\frac{1}{(2\pi)^2}\int_0^{2\pi}\!\!\int_0^{2\pi}
+\log|ae^{i\vartheta}-ae^{i\varphi}|\,d\vartheta\,d\varphi
+=\log a
+$$
+
+を使えます。これは $\log|1-re^{i\vartheta}|$ の円周平均が $0$（$0\le r<1$）であることから、可積分な対数特異性を保ったまま $r\uparrow1$ として得られます。
+
+一方、鏡像源同士の距離は中心で $|z-\bar z|=2y$ です。$a<y$ なら各円盤は鏡像の円盤と交わらず、$\log|\zeta-\bar\eta|$ はそれぞれの円盤内で調和的です。そのため平均値性質を二回使ってその平均は $\log(2y)$ です。よって
+
+$$
+\begin{aligned}
+C^{\mathrm{circ}}_{D,a}(y)
+&=-\frac1g\log\frac a{\ell_0}
++\frac1g\log\frac{2y}{\ell_0}
+=\frac1g\log\frac{2y}{a},\\
+C^{\mathrm{circ}}_{D,a}(y)-C_{0,a}
+&=\frac1g\log\frac{2y}{\ell_0}.
+\end{aligned}
+$$
+
+したがって[境界距離の点分離式](#prop-qft56-point-split-variance)も
+$C_{D,a}(y)-C^{\mathrm{circ}}_{D,a}(y)=O(a^2/y^2)\to0$
+となり、正則化の違いはこの極限を変えません。ただし**有限 $a$ で両者を同一の分散として扱ってはいけません**。[Gaussian生成公式](../QFT19/index.md#thm-qft19-gaussian)に円周平均の分散を適用すれば
 
 $$
 \begin{aligned}
 \langle V_q^{(\ell_0)}(z)\rangle_D
 &=\lim_{a\to0}\exp\!\left[
--\frac{q^2}{2}\bigl(C_{D,a}(y)-C_{0,a}\bigr)\right],\\
-C_{D,a}(y)-C_{0,a}
-&=\frac1g\log\frac{2y}{a}-\frac1g\log\frac{\ell_0}{a}+o(1)\\
-&=\frac1g\log\frac{2y}{\ell_0}+o(1).
+-\frac{q^2}{2}\bigl(C^{\mathrm{circ}}_{D,a}(y)-C_{0,a}\bigr)\right]\\
+&=\exp\!\left[-\frac{q^2}{2g}\log\frac{2y}{\ell_0}\right].
 \end{aligned}
 $$
 
-右辺を代入して $\exp[-(q^2/(2g))\log(2y/\ell_0)]=(\ell_0/(2y))^{q^2/(2g)}$ を得ます。定数境界値 $\phi_b$ は $\phi=\phi_b+\widetilde\phi$ と分解でき、$e^{iq\phi}=e^{iq\phi_b}e^{iq\widetilde\phi}$ だから位相だけが追加されます。
+指数をべきに直して $(\ell_0/(2y))^{q^2/(2g)}$ を得ます。定数境界値 $\phi_b$ は $\phi=\phi_b+\widetilde\phi$ と分解でき、$e^{iq\phi}=e^{iq\phi_b}e^{iq\widetilde\phi}$ だから位相だけが追加されます。
 <!-- proof-end -->
 
 **規格化定数は残る**：$\ell_0\mapsto\kappa\ell_0$（$\kappa>0$）なら一体関数は $\kappa^{\Delta_q}$ 倍です。一方、$y$ 依存の指数 $-\Delta_q$ は変わりません。したがって「普遍的な指数」と「演算子の規格化に依存する振幅」を混同してはいけません。壁から $y\sim a$ まで近づけば、連続体のべき則をそのまま使う制御も失われます。
 
 ## 6. 熱円筒の比：温度とcutoffを同じ式に入れる
 
-境界を持つ帯と、Euclid時間を巻いた熱円筒は異なる幾何です。ここからは境界を外し、無限空間の熱円筒へ戻ります。[QFT55の熱円筒相関](../QFT55/index.md#prop-qft55-thermal-two-point)は、等時刻のスカラー一次場（次元 $\Delta>0$）に対して
+境界を持つ帯と、Euclid時間を巻いた熱円筒は異なる幾何です。ここからは境界を外し、無限空間の熱円筒へ戻ります。$\beta>0$ は逆温度、$r>0$ は等Euclid時間の二点間の空間距離です。[QFT55の熱円筒相関](../QFT55/index.md#prop-qft55-thermal-two-point)は、等時刻のスカラー一次場（次元 $\Delta>0$）に対して
 
 $$
 G_\beta(r)=\left[\frac{\pi/\beta}{\sinh(\pi r/\beta)}\right]^{2\Delta}
@@ -394,9 +460,11 @@ $$
 
 ## 7. 区間のエントロピーへ向かう前に
 
-有限次元の量子系なら、領域 $A$ とその外 $A^c$ のHilbert空間が $\mathcal H_A\otimes\mathcal H_{A^c}$ と因数分解されるとき、[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)を縮約密度行列へ適用できます。しかし連続場の「一点の演算子」を直ちに各セルの有限次元自由度とみなすと、前節の対数発散を見落とします。局所演算子環の厳密なType IIIの議論は本章の到達目標ではありません。
+有限次元の量子系なら、領域 $A$ とその外 $A^c$ のHilbert空間を $\mathcal H_A\otimes\mathcal H_{A^c}$ と因数分解し、全系の状態から領域 $A$ の状態を表す縮約密度行列 $\rho_A$ を作って、その混合度をエントロピーで測る道筋があります。ここではこの領域状態の構成やエントロピーの定義・計算を既習とはせず、後続の課題として残します。
 
-この章で**計算したもの**は境界Green核、帯の核、点分離自己縮約、頂点一体関数、熱二点関数の比です。**まだ計算していないもの**は $\operatorname{Tr}\rho_A^n$、その $n\to1$ の解析接続、区間エントロピーの普遍係数です。後続では、$n$ 枚の被覆とtwist演算子の規格化から、それらを別途導きます。相関の $\log(\ell/a)$ を見ただけでエントロピーの係数 $c/3$ を宣言してはいけません。
+しかし連続場の「一点の演算子」を直ちに各セルの有限次元自由度とみなすと、前節の対数発散を見落とします。局所演算子環の厳密なType IIIの議論は本章の到達目標ではありません。
+
+この章で**計算したもの**は境界Green核、帯の核、点分離自己縮約、頂点一体関数、熱二点関数の比です。**まだ計算していないもの**は、整数 $n\ge2$ に対する $\operatorname{Tr}\rho_A^n$、そこから $n\to1$ への解析接続、区間エントロピーの普遍係数です。後続では、$n$ 枚の被覆とtwist演算子の規格化から、それらを別途導きます。相関の $\log(\ell/a)$ を見ただけでエントロピーの係数 $c/3$（$c$ は中心電荷）を宣言してはいけません。
 
 ## 演習：境界の条件を検算し、cutoffの意味を分ける
 
@@ -464,9 +532,9 @@ $$
 ### 演習 QFT56-A5：熱二点比の短距離
 
 - Level: A
-- 問題: $\Delta=1/2$、$0<a\ll r\ll\beta$ の熱円筒について $R_\beta(r;a)$ の先頭形を求め、$r=4a$ と $r=10a$（いずれも $r\ll\beta$）を比較せよ。
+- 問題: $\Delta=1/2$、$0<a<r\ll\beta$ の熱円筒について $a/\beta,r/\beta\to0$ での $R_\beta(r;a)$ の先頭形を求め、$r=4a$ と $r=10a$（いずれも $r\ll\beta$）を比較せよ。
 
-**詳細解答**：[正規化二点比](#prop-qft56-thermal-ratio)で $2\Delta=1$、$\sinh t\sim t$ を使うと $R_\beta(r;a)\sim a/r$ です。$r=4a$ で先頭値 $1/4$、$r=10a$ で $1/10$。同じUV規格化点でも距離を大きくすると相関の比が減少します。どちらも $a/\beta\ll1$ の領域での近似値です。
+**詳細解答**：[正規化二点比](#prop-qft56-thermal-ratio)で $2\Delta=1$、$\sinh(\pi a/\beta)=(\pi a/\beta)[1+O(a^2/\beta^2)]$、分母にも同じ展開を使うと $R_\beta(r;a)=(a/r)[1+O((a^2+r^2)/\beta^2)]$ です。$r=4a$ で先頭値 $1/4$、$r=10a$ で $1/10$。この二例では $a/r$ を零へ送る必要はなく、$a/\beta\to0$ でそれぞれの値へ近づきます。同じUV規格化点でも距離を大きくすると相関の比が減少します。
 
 ### 演習 QFT56-B1：鏡像核の正値と法線方向の非不変性
 
