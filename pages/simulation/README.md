@@ -13,10 +13,18 @@ without feeding drawing coordinates back into the numeric kernel.
 
 * **A**: GRS80 or user-adjusted flattening, ECEF→geodetic inversion, geocentric
   vs geodetic latitude, M/N radii and the orthonormal ENU frame.
-* **B**: Vincenty inverse on the GRS80 ellipsoid and an independently
-  integrated Clairaut first-order system (RK4). A spherical great-circle
-  baseline is separate. Near-antipodal nonconvergence is a visible error, not
-  an undisclosed sphere fallback.
+* **B**: Karney's sixth-order series ellipsoidal shortest-geodesic inverse
+  (GeographicLib 2.2.0, MIT/X11, vendored locally in
+  `vendor/geographiclib-geodesic.mjs`), including near- and exact-antipodal
+  pairs, plus a numerically stable sampled direct geodesic line for the globe.
+  Vincenty's original inverse remains an explicitly labelled comparison:
+  it can fail to converge near antipodes even though a shortest geodesic exists.
+  The independent Clairaut first-order RK4 acts as a diagnostic where its
+  latitude/longitude chart does not cross a pole; it never controls the drawn
+  trajectory. Spherical great circles remain a separate reference model.
+  The preset (-30°,0°)→(29.9°,179.8°) is checked against the published
+  Karney (2013) tables and an Apache SIS independent reproduction. Exact
+  antipodal shortest geodesics may have non-unique azimuths.
 * **C**: Three switchable, completely synthetic experiments:
   (1) 2D ground surveying with three fixed control stations, three range
   observations, bias and standard deviations, solved by Gauss–Newton weighted

@@ -45,7 +45,8 @@ elements.set('show-world', new Element('show-world'));
 elements.get('show-world').checked = true;
 for (const id of ['geod-workspace', 'globe', 'gl-fallback', 'map-panel', 'map', 'geod-results',
   'geod-questions', 'geod-status', 'globe-caption', 'osm-credit', 'gsi-credit', 'tile-status',
-  'a-lat-v', 'a-lon-v', 'a-f-v', 'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F',
+  'a-lat-v', 'a-lon-v', 'a-f-v', 'b-antipodal-example',
+  'lab-A', 'lab-B', 'lab-C', 'lab-D', 'lab-E', 'lab-F',
   'e-map-panel', 'e-left-map', 'e-right-map', 'e-left-title', 'e-right-title']) {
   elements.set(id, new Element(id));
 }
@@ -90,18 +91,25 @@ test('geodesic mode independently computes the two distances', () => {
   assert.match($('geod-status').textContent, /計算済み/);
   assert.equal($('map-panel').hidden, true);
   const cells = $('geod-results').children[0].children[0].children;
-  assert.equal(cells.length, 8);
+  assert.equal(cells.length, 10);
   assert.match(cells[0].children[1].textContent, /km/);
   assert.match(cells[5].children[1].textContent, /m/);
 });
 
-test('near-antipodal inverse failure is visible, not replaced by sphere output', () => {
-  $('b-lat2').value = '-35.681236';
-  $('b-lon2').value = '-40.232875';
+test('near-antipodal preset calculates a stable ellipsoidal route without WebGL', () => {
+  $('b-antipodal-example').handlers.click();
+  assert.equal($('b-lat1').value, '-30');
+  assert.equal($('b-lon2').value, '179.8');
+  assert.equal($('geod-status').dataset.error, 'false');
+  const table = $('geod-results').children[0].children[0].children;
+  assert.match(table[0].children[1].textContent, /19,989\.832827/);
+  assert.match(table.at(-1).children[1].textContent, /非収束/);
+  $('b-lat1').value = '0'; $('b-lon1').value = '0';
+  $('b-lat2').value = '0'; $('b-lon2').value = '180';
   $('b-lon2').handlers.input();
-  assert.equal($('geod-status').dataset.error, 'true');
-  assert.match($('geod-status').textContent, /収束/);
+  assert.equal($('geod-status').dataset.error, 'false', 'exact antipodes must be solvable');
   $('b-lat2').value = '43.06417'; $('b-lon2').value = '141.34694';
+  $('b-lat1').value = '35.681236'; $('b-lon1').value = '139.767125';
   $('b-lon2').handlers.input();
   assert.match($('geod-status').textContent, /計算済み/);
 });

@@ -205,6 +205,21 @@ try {
     document.querySelector('#globe-point-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#b-lat2").value'), '51.5074');
   assert.equal(await evalJS('document.querySelector("#b-lat1").value'), '35.681236');
+  await evalJS('document.querySelector("#b-antipodal-example").click()');
+  assert.equal(await evalJS('document.querySelector("#b-lat1").value'), '-30');
+  assert.equal(await evalJS('document.querySelector("#b-lon2").value'), '179.8');
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("19,989.832827")'));
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("Vincenty")'));
+  await evalJS(`(() => {
+    for (const [id, value] of Object.entries({
+      'b-lat1': '0', 'b-lon1': '0', 'b-lat2': '0', 'b-lon2': '180'
+    })) document.querySelector('#' + id).value = value;
+    document.querySelector('#b-lon2').dispatchEvent(new Event('input'));
+  })()`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false',
+    'exact antipodes must retain a shortest ellipsoidal solution and globe trace');
+  assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("20,003.931458")'));
   await evalJS(`document.querySelector('[data-lab="C"]').click()`);
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
   assert.equal(await evalJS('document.querySelector("#geod-globe-panel").hidden'), true);
