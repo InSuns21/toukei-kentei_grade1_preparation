@@ -26,7 +26,7 @@
 | 正本 | この講座で使う内容 | 依存の扱い |
 | --- | --- | --- |
 | [一般相対論 I・II（GR）](../plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md) | Schwarzschild解、零測地線、地平線、Killing場、表面重力、因果図 | 場の量子効果に必要な座標・光線計算は再現。Einstein方程式一般論は重複させない |
-| [量子場理論 I〜IV（QFT）](../plans_progress/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md) | **科目Iの自由場の必要部分**、Fock量子化、CCR、Wightman二点分布 | 相互作用・QED・CFT全講は必須にしない |
+| [量子場理論 I〜IV（QFT）](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md) | **科目Iの自由場の必要部分**、Fock量子化、CCR、Wightman二点分布 | 相互作用・QED・CFT全講は必須にしない |
 | [Lorentz幾何（LORG）](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md) | 大域双曲性、Cauchy面、因果構造 | 幾何一般定理の正本 |
 | [Lorentz多様体上の双曲型PDE（HPDE）](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 古典Klein–Gordon初期値、Green作用素、シンプレクティック解空間 | 量子状態の物理・検出器はQCURVが所有 |
 | [超局所解析・Hadamard条件（MICA）](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | Hadamard二点関数、点分離、局所共変な応力テンソル | 一般的な数学証明はMICA。QCURVは物理的状態と流束の具体計算 |
