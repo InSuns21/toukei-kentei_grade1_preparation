@@ -1,0 +1,49 @@
+id: "SLT1-16"
+title: "Le Cam・Fanoと標本複雑度下限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-15
+  - INFO6
+official_scope: []
+learning_objectives:
+  - minimax期待超過リスクの量化順序を説明し二点分類で直接計算できる
+  - 有限分布の全変動距離から二仮説検定のLe Cam下界を証明し等号例を確認できる
+  - 対数和と二値KL評価を使いTV-KL不等式を導き独立標本のKL加法性を検算できる
+  - Bernoulli二世界から期待超過リスクと高確率誤りのnの平方根下界を導ける
+  - INFO6のFano不等式を多仮説検定に適用し対ごとのKLで相互情報量を評価できる
+  - Hamming球の貪欲構成と体積評価から指数サイズのpackingを構成できる
+  - noisy-label有限分類で識別誤りを超過リスクへ変換しsqrt(d/n)下界を導ける
+  - 有限ERMの上界と下界を比較しiid・realizable・損失の仮定を区別できる
+definitions:
+  - { id: SLT1-16-DEF-01, name: 有限模型のminimax期待超過リスク }
+  - { id: SLT1-16-DEF-02, name: 有限標本空間でのTV距離 }
+  - { id: SLT1-16-DEF-03, name: 符号列のHamming距離とpacking }
+theorems:
+  - { id: SLT1-16-LEM-01, name: 二仮説検定のLe Cam下界 }
+  - { id: SLT1-16-LEM-02, name: 有限分布の全変動・KL評価 }
+  - { id: SLT1-16-THM-01, name: 二点模型のminimax超過リスク下界 }
+  - { id: SLT1-16-LEM-03, name: Fanoによる多仮説検定下界 }
+  - { id: SLT1-16-LEM-04, name: 有限二値立方体の指数的packing }
+  - { id: SLT1-16-THM-02, name: 有限二値分類のFano型minimax下界 }
+canonical_examples:
+  - 二点Bernoulliで最適分類器と反対の分類器の超過リスクを計算する例
+  - 二値分布の全変動距離と等号達成検定
+  - 一様16世界のFano誤り下界
+  - 四入力のHamming距離と条件付き0–1リスクを一致させる例
+  - 非iid複製ではKLがn倍にならない反例
+problem_patterns:
+  - SLT1-16-A01
+  - SLT1-16-A02
+  - SLT1-16-A03
+  - SLT1-16-A04
+  - SLT1-16-A05
+  - SLT1-16-B01
+  - SLT1-16-B02
+  - SLT1-16-B03
+  - SLT1-16-B04
+  - SLT1-16-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.0 }
