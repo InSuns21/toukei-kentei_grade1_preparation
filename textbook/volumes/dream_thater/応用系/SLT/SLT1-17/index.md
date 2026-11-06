@@ -401,7 +401,14 @@ F_S(w)=\frac1n\sum_i(w-y_i)^2+\lambda w^2
 = (1+\lambda)w^2-2\bar y\,w+\frac1n\sum_i y_i^2.
 $$
 
-係数を微分すると唯一の最小点は $\widehat w_S=\bar y/(1+\lambda)$ である。$y_i$ を $y_i'$ に置き換えると
+ここで $F_S'(w)=dF_S(w)/dw$ は実変数 $w$ に関する通常の導関数である。二次式を微分すると
+
+$
+F_S'(w)=2(1+\lambda)w-2\bar y,\qquad
+F_S''(w)=2(1+\lambda)>0
+$
+
+だから唯一の最小点は $\widehat w_S=\bar y/(1+\lambda)$ である。ラベル $y_i$ を $y_i'$ に置き換えると
 
 $$
 |\widehat w_S-\widehat w_T|
