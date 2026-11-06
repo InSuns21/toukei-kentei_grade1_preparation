@@ -8,7 +8,7 @@
 - [熱力学 TH1〜8](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md)
 - [統計力学 SM1〜8](../plan_done/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md)
 - [情報理論 I（INFO系列・講数可変）](../plan_done/DREAM_THEATER_INFORMATION_THEORY_I_PLAN.md)
-- [情報熱力学 I（ITD1〜15）](DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md)
+- [情報熱力学 I（ITD系列・講数可変）](../plans_progress/DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md)
 - [量子情報 I〜III（QINF1〜33・3部構成）](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)
 - [特殊相対論 I（SREL1〜15）](../plan_done/DREAM_THEATER_SPECIAL_RELATIVITY_I_PLAN.md)
 - [一般相対論 I・II（GR1〜46）](../plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
@@ -60,7 +60,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 熱・情報 | 熱力学（既存正本・1セメスター） | 既存TH1–TH8 | TH8 相転移・秩序変数・総合問題 |
 | 熱・情報 | 統計力学（既存正本・1セメスター） | 既存SM1–SM8 | SM8 臨界現象・普遍性への入口 |
 | 熱・情報 | 情報理論 I：エントロピー・符号化・通信 | 新規 INFO1–INFO15 | 情報量・物理エントロピー比較演習 |
-| 熱・情報 | 情報熱力学 I：測定・フィードバック・消去 | 新規 ITD1–ITD15 | 独立モデルによる収支総合演習 |
+| 熱・情報 | 情報熱力学 I：測定・フィードバック・消去 | ITD1から実装・以降は講数可変 | 独立モデルによる収支総合演習 |
 | 熱・情報 | 量子情報 I〜III：I＝状態・測定・チャネル、II＝エンタングルメント・エントロピー・通信、III＝誤り訂正・情報回復・Page型模型 | 新規 QINF1–13 / QINF14–24 / QINF25–33 | 有限次元の量子情報操作から情報収支を導き、蒸発問題への適用限界を説明 |
 | 時空・量子場 | 特殊相対論 I：Minkowski時空と相対論的場 | 新規 SREL1–SREL15 | 因果構造と一般相対論への橋 |
 | 時空・量子場 | 一般相対論 I：幾何とEinstein方程式 | 新規 GR1–GR24 | 解・仮定・座標不変量の総合演習 |
