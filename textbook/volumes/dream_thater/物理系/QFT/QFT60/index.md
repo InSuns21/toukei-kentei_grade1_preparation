@@ -250,7 +250,11 @@ $$
 
 この線形係数 $\pi c(1+1/n)/(6\beta)$ は、その次数の熱Rényiエントロピーの**長さ当たりの主項**です。$n=1$ の通常の熱力学的エントロピー密度とはまだ同一視しません。後で $n=1$ の条件を明記してから比較します。
 
-一方、円周真空の全系は純粋状態です。ここでは「区間が広ければ熱のように増える」という直感が通用しません。有限cutoffで領域を二分割できれば、[QINF6のSchmidt表示](../../../応用系/QINF/QINF6/index.md#def-qinf6-schmidt)によって純粋状態を両側が正規直交する $|j\rangle_A,|j\rangle_{A^c}$ と正の係数 $\sqrt{p_j}$ の和に書けます。[QFT57のcutoff付き領域縮約状態の定義](../QFT57/index.md#def-qft57-regulated-reduction)に従って部分トレースを取ると、$\rho_A$ と $\rho_{A^c}$ の非零固有値がともに $p_j$ となることは[QINF6の両側縮約スペクトルの定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)に一致します。そのため全次数のエントロピーが等しくなります。
+一方、円周真空の全系は純粋状態です。ここでは「区間が広ければ熱のように増える」という直感が通用しません。
+
+有限cutoffで領域を二分割できれば、[QINF6のSchmidt表示](../../../応用系/QINF/QINF6/index.md#def-qinf6-schmidt)によって、純粋状態を両側が正規直交する $|j\rangle_A,|j\rangle_{A^c}$ と正の係数 $\sqrt{p_j}$ の和に書けます。
+
+[QFT57のcutoff付き領域縮約状態の定義](../QFT57/index.md#def-qft57-regulated-reduction)に従って部分トレースを取ると、$\rho_A$ と $\rho_{A^c}$ の非零固有値はともに $p_j$ です。これは[QINF6の両側縮約スペクトルの定理](../../../応用系/QINF/QINF6/index.md#thm-qinf6-reduced-spectrum)に一致します。よって全次数のエントロピーが等しくなります。
 
 <a id="prop-qft60-circle-complement"></a>
 
