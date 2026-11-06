@@ -3,7 +3,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   GNSS_C, GNSS_REFERENCE, GNSS_LAYOUTS, gnssUnitVector,
-  syntheticGnssObservations, invertGnssNormal, solveGnssPseudoranges,
+  syntheticGnssObservations, correctGnssObservations,
+  invertGnssNormal, solveGnssPseudoranges,
 } from './geod-gnss.mjs';
 
 const close = (a, b, tolerance = 1e-7) =>
@@ -98,4 +99,62 @@ test('rank loss and invalid measurements fail explicitly instead of producing DO
   assert.throws(() => syntheticGnssObservations({ firstElevation: 91 }), /仰角/);
   assert.throws(() => syntheticGnssObservations({ layout: 'invalid' }), /衛星配置/);
   assert.equal(GNSS_LAYOUTS.spread.length, 6);
+});
+
+test('GNSS staged satellite clock, ionosphere and troposphere terms compose per satellite', () => {
+  const base = syntheticGnssObservations({ noiseScale: 0 });
+  const clock = syntheticGnssObservations({ noiseScale: 0, errorStage: 'clock',
+    satelliteClockNs: 20 });
+  const iono = syntheticGnssObservations({ noiseScale: 0, errorStage: 'clock-iono',
+    satelliteClockNs: 20, ionosphereZenithMeters: 5 });
+  const all = syntheticGnssObservations({ noiseScale: 0, errorStage: 'all',
+    satelliteClockNs: 20, ionosphereZenithMeters: 5, troposphereZenithMeters: 2.3 });
+  for (let i = 0; i < base.length; i++) {
+    close(base[i].systematicMeters, 0);
+    close(clock[i].pseudorange - base[i].pseudorange,
+      clock[i].satelliteClockMeters, 1e-7);
+    close(iono[i].pseudorange - clock[i].pseudorange,
+      iono[i].ionosphereMeters, 1e-7);
+    close(all[i].pseudorange - iono[i].pseudorange,
+      all[i].troposphereMeters, 1e-7);
+    close(all[i].systematicMeters, all[i].satelliteClockMeters +
+      all[i].ionosphereMeters + all[i].troposphereMeters, 1e-8);
+    assert.ok(all[i].ionosphereMeters >= 5);
+    assert.ok(all[i].troposphereMeters >= 2.3);
+  }
+  close(clock[0].satelliteClockMeters, -20 * GNSS_C * 1e-9, 1e-10);
+  assert.ok(clock[0].satelliteClockMeters < 0 && clock[1].satelliteClockMeters > 0,
+    'receiver clock and satellite-specific clock signs must differ');
+});
+
+test('ideal known-error correction recovers noiseless truth; raw solution is biased', () => {
+  const observations = syntheticGnssObservations({ errorStage: 'all', noiseScale: 0 });
+  const raw = solveGnssPseudoranges(observations);
+  const corrected = solveGnssPseudoranges(correctGnssObservations(observations));
+  assert.ok(Math.hypot(raw.east - GNSS_REFERENCE.east,
+    raw.north - GNSS_REFERENCE.north, raw.up - GNSS_REFERENCE.up) > 1,
+    'unmodelled satellite-specific biases must shift the position');
+  close(corrected.east, GNSS_REFERENCE.east, 1e-5);
+  close(corrected.north, GNSS_REFERENCE.north, 1e-5);
+  close(corrected.up, GNSS_REFERENCE.up, 1e-5);
+  close(corrected.clockBiasMeters, 75, 1e-5);
+  close(corrected.chi2, 0, 1e-9);
+  assert.ok(Math.abs(raw.clockBiasMeters - 75) > 1);
+  assert.ok(Math.abs(raw.dop.gdop - corrected.dop.gdop) < 1e-4,
+    'unmodelled errors primarily affect bias, not the geometry DOP');
+});
+
+test('same elevation has larger simple atmospheric delay when lower in the sky', () => {
+  const low = syntheticGnssObservations({ layout: 'low', errorStage: 'all' });
+  const high = syntheticGnssObservations({ layout: 'spread', errorStage: 'all' });
+  assert.ok(low[0].troposphereMeters > high[0].troposphereMeters);
+  assert.ok(low[0].ionosphereMeters > high[0].ionosphereMeters);
+});
+
+test('invalid staged error parameters and missing correction fields fail', () => {
+  assert.throws(() => syntheticGnssObservations({ errorStage: 'other' }), /誤差段階/);
+  assert.throws(() => syntheticGnssObservations({ satelliteClockNs: -1 }), /衛星時計/);
+  assert.throws(() => syntheticGnssObservations({ ionosphereZenithMeters: 25 }), /電離圏/);
+  assert.throws(() => syntheticGnssObservations({ troposphereZenithMeters: NaN }), /対流圏/);
+  assert.throws(() => correctGnssObservations([{ pseudorange: 2 }]), /補正対象/);
 });

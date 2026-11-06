@@ -27,8 +27,17 @@ without feeding drawing coordinates back into the numeric kernel.
   HDOP/VDOP/TDOP and formal conditional covariance. The latter uses unit-weight
   Q=(HᵀH)⁻¹ for independent equal-variance pseudorange errors and explicitly
   refuses rank-deficient arrangements. Neither model is real surveying: no
-  actual ephemerides, satellite/orbit clocks, atmosphere, Earth rotation,
-  receiver datum/epoch, integrity or real accuracy claims.
+  actual ephemerides, operational satellite/orbit-clock or atmospheric
+  corrections, Earth rotation, receiver datum/epoch, integrity or real
+  accuracy claims. The GNSS view now
+  alternates between a cardinal-direction/elevation sky plot and a rotatable
+  orthographic 3D projection of the same **unit sight-line vectors** (all points
+  have an artificial equal radius, never actual orbit positions). Staged
+  satellite-specific clock offsets, simplified elevation-dependent ionosphere
+  and troposphere delays are synthetic additive pseudorange terms. A comparison
+  mode subtracts their exact injected values to show an *idealized* upper bound,
+  not a viable receiver correction algorithm. DOP remains geometry-only even
+  when the estimated position becomes biased.
 * **D**: Local ellipsoidal transverse Mercator (Krüger n-series through n^6),
   spherical limit, central-meridian origin/scale, physical-metric-normalized
   Jacobian, Tissot principal stretches and the grid-north bearing.
@@ -145,7 +154,7 @@ Remaining: visual/keyboard screen-reader checks on physical mobile devices;
 the full GEOD inverse-Krüger and high-precision near-antipodal solver;
 ellipsoidal geodetic-to-authalic transformation and extended projection
 comparison including the Gauss–Krüger side-by-side and wider GSI/EPSG
-numerical spot checks, full legal-zone applicability checks, the physical GNSS corrections and gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
+numerical spot checks, full legal-zone applicability checks, operational GNSS atmospheric/orbit/clock corrections and the gravity-height extensions of lab C. See the GEOD plan for later phases and figure audit.
 
 Status: Phase 0 reference kernels plus Phase 1 Worker and standalone UI. The
 simulation page is assembled under `simulation/index.html` for GitHub Pages.

@@ -11,7 +11,7 @@ import { JAPAN_ZONES, JAPAN_K0, japanPlanarCoordinates } from './geod-japan.mjs'
 import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
   adjustSurveyNetwork } from './geod-survey.mjs';
 import { GNSS_REFERENCE, GNSS_LAYOUTS, syntheticGnssObservations,
-  solveGnssPseudoranges } from './geod-gnss.mjs';
+  solveGnssPseudoranges, correctGnssObservations } from './geod-gnss.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -887,26 +887,131 @@ function drawGnssSkyPlot(result) {
   }, note)));
 }
 
+// Orthographic projection of synthetic ENU unit sight-line directions.
+// This independent SVG works even when WebGL2 is unavailable.
+function drawGnssSpace(result) {
+  const map = $('c-gnss-space-map');
+  map.replaceChildren();
+  const yaw = rad(Number($('c-gnss-view-azimuth').value));
+  const tilt = rad(Number($('c-gnss-view-tilt').value));
+  const cx = 225, cy = 263, radius = 178;
+  const project = (east, north, up) => {
+    const side = Math.cos(yaw) * east - Math.sin(yaw) * north;
+    const depth = Math.sin(yaw) * east + Math.cos(yaw) * north;
+    return { x: cx + radius * side,
+      y: cy - radius * (Math.sin(tilt) * depth + Math.cos(tilt) * up), depth };
+  };
+  const pathForElevation = elevation => {
+    const e = rad(elevation), points = [];
+    for (let k = 0; k <= 96; k++) {
+      const a = 2 * Math.PI * k / 96;
+      const p = project(Math.cos(e) * Math.sin(a), Math.cos(e) * Math.cos(a), Math.sin(e));
+      points.push((k === 0 ? 'M' : 'L') + p.x.toFixed(2) + ' ' + p.y.toFixed(2));
+    }
+    return points.join(' ') + ' Z';
+  };
+  map.append(svg('rect', { x: 1, y: 1, width: 718, height: 468, rx: 9,
+    fill: '#f8fbff', stroke: '#d1dce9' }));
+  map.append(svg('path', { d: pathForElevation(0), fill: '#e6f1f9',
+    stroke: '#517b9f', 'stroke-width': 2.5 }));
+  for (const elevation of [30, 60]) {
+    map.append(svg('path', { d: pathForElevation(elevation), fill: 'none',
+      stroke: '#86a6c3', 'stroke-width': 1.4, 'stroke-dasharray': '5 5' }));
+  }
+  for (const [name, east, north, up] of [
+    ['E', 1, 0, 0], ['N', 0, 1, 0], ['U', 0, 0, 1],
+  ]) {
+    const p = project(east, north, up);
+    map.append(svg('line', { x1: cx, y1: cy, x2: p.x, y2: p.y,
+      stroke: '#315d83', 'stroke-width': 1.7 }));
+    map.append(svg('text', { x: p.x + 5, y: p.y - 7,
+      'font-size': 16, 'font-weight': 700, fill: '#254e6e' }, name));
+  }
+  const positions = result.residuals.map((sat, index) => {
+    const a = rad(sat.azimuth), e = rad(sat.elevation);
+    const p = project(Math.cos(e) * Math.sin(a), Math.cos(e) * Math.cos(a), Math.sin(e));
+    return { ...sat, index, ...p };
+  }).sort((a, b) => a.depth - b.depth);
+  for (const sat of positions) {
+    map.append(svg('line', { x1: cx, y1: cy, x2: sat.x, y2: sat.y,
+      stroke: '#bc6949', 'stroke-width': 2, 'stroke-dasharray': '7 4' }));
+    map.append(svg('circle', { cx: sat.x, cy: sat.y, r: 8,
+      fill: '#cf5037', stroke: '#fff', 'stroke-width': 2 }));
+  }
+  // Separate close satellite labels using leaders, preserving their identities.
+  const labels = [];
+  for (const sat of positions) {
+    const labelX = sat.x + 11;
+    let labelY = sat.y - 10;
+    for (let attempt = 0; attempt < 9 &&
+      labels.some(other => Math.abs(other.x - labelX) < 29 &&
+        Math.abs(other.y - labelY) < 17); attempt++) labelY += 18;
+    labels.push({ x: labelX, y: labelY });
+    if (Math.abs(labelY - (sat.y - 10)) > 1) {
+      map.append(svg('line', { x1: sat.x + 5, y1: sat.y,
+        x2: labelX, y2: labelY - 4, stroke: '#a45f4c' }));
+    }
+    map.append(svg('text', { x: labelX, y: labelY, 'font-size': 14,
+      'font-weight': 700, fill: '#a0442e' }, sat.id));
+  }
+  map.append(svg('circle', { cx, cy, r: 6, fill: '#132d4c', stroke: '#fff', 'stroke-width': 2 }));
+  map.append(svg('text', { x: cx + 10, y: cy + 23, fill: '#122d4a',
+    'font-size': 15, 'font-weight': 700 }, '受信機 O'));
+  const notes = [
+    '3D方向図：衛星' + result.residuals.length + '機',
+    'N＝北、E＝東、U＝天頂',
+    '全視線を同じ長さで表示',
+    '点S1〜S6＝衛星方向',
+    '破線＝受信機からの視線',
+    '実線楕円＝地平面',
+    '点線楕円＝仰角30°・60°',
+    '視点を変えてもDOPは不変',
+  ];
+  notes.forEach((note, i) => map.append(svg('text', {
+    x: 466, y: 86 + i * 41, fill: '#294c6d', 'font-size': 14,
+  }, note)));
+}
+
 function computeGnss() {
   const number = id => {
     const raw = $(id).value.trim();
     if (!raw) throw new RangeError('GNSSの数値パラメータは空欄にできません');
     return Number(raw);
   };
-  const observations = syntheticGnssObservations({
+  const options = {
     layout: $('c-gnss-layout').value, count: number('c-gnss-count'),
     firstAzimuth: number('c-gnss-azimuth'), firstElevation: number('c-gnss-elevation'),
     clockBiasMeters: number('c-gnss-clock'), sigma: number('c-gnss-sigma'),
-  });
-  const result = solveGnssPseudoranges(observations);
-  state.geodesic = null; state.japan = null;
+    errorStage: $('c-gnss-stage').value,
+    satelliteClockNs: number('c-gnss-sat-clock'),
+    ionosphereZenithMeters: number('c-gnss-iono'),
+    troposphereZenithMeters: number('c-gnss-tropo'),
+  };
+  const observations = syntheticGnssObservations(options);
+  const correction = $('c-gnss-correction').value;
+  if (!['raw', 'ideal'].includes(correction)) throw new RangeError('補正方法を選んでください');
+  const adjusted = correction === 'ideal' ? correctGnssObservations(observations) : observations;
+  const result = solveGnssPseudoranges(adjusted);
+  const baseline = solveGnssPseudoranges(syntheticGnssObservations({
+    ...options, errorStage: 'none',
+  }));
+  state.geodesic = null; state.japan = null; state.gnssLastResult = result;
   drawGnssSkyPlot(result);
+  drawGnssSpace(result);
   const d = result.dop, sigma = observations[0].sigma;
+  const position = [result.east, result.north, result.up];
+  const baselinePosition = [baseline.east, baseline.north, baseline.up];
+  const truth = [GNSS_REFERENCE.east, GNSS_REFERENCE.north, GNSS_REFERENCE.up];
+  const difference = position.map((v, i) => v - baselinePosition[i]);
+  const stageName = { none: '追加なし', clock: '衛星時計のみ',
+    'clock-iono': '衛星時計＋電離圏', all: '衛星時計＋電離圏＋対流圏' }[options.errorStage];
+  const components = observations.map(o => o.id +
+    ' 時計 ' + fmt(o.satelliteClockMeters, 2) + ' / 電離圏 ' +
+    fmt(o.ionosphereMeters, 2) + ' / 対流圏 ' + fmt(o.troposphereMeters, 2) + ' m');
   showResults([
     ['模型', '合成衛星' + observations.length + '機、未知量E/N/U/Bの4つ（Bは距離換算時計差）'],
-    ['推定位置（E, N, U）', [result.east, result.north, result.up].map(v => fmt(v, 4)).join(' / ') + ' m'],
-    ['設定上の真値（E, N, U）', [GNSS_REFERENCE.east, GNSS_REFERENCE.north,
-      GNSS_REFERENCE.up].join(' / ') + ' m'],
+    ['推定位置（E, N, U）', position.map(v => fmt(v, 4)).join(' / ') + ' m'],
+    ['設定上の真値（E, N, U）', truth.join(' / ') + ' m'],
     ['時計差 B＝cΔt', fmt(result.clockBiasMeters, 4) + ' m ／ ' +
       fmt(result.clockBiasNanoseconds, 3) + ' ns'],
     ['衛星の方位角・仰角', result.residuals.map(o => o.id + ' ' +
@@ -923,12 +1028,21 @@ function computeGnss() {
     ['自由度・残差平方和', result.degreesOfFreedom + ' ／ ' + fmt(result.chi2, 5)],
     ['正規方程式の残差', result.normalResidual.toExponential(3) +
       '（反復 ' + result.iterations + '回）'],
+    ['注入した系統誤差', stageName + ' ／ ' +
+      (correction === 'ideal' ? '真の合成誤差を理想的に差し引く' : '補正せずに推定')],
+    ['衛星別：時計／電離圏／対流圏', components.join(' ／ ')],
+    ['無誤差模型からの位置変化', difference.map(v => fmt(v, 4)).join(' / ') +
+      ' m ／ 3D距離 ' + fmt(Math.hypot(...difference), 4) + ' m'],
+    ['設定上の真値からの位置誤差', fmt(Math.hypot(...position.map((v, i) =>
+      v - truth[i])), 4) + ' m（この合成実験でのみ計算可能）'],
+    ['合成の受信機時計Bからのずれ', fmt(result.clockBiasMeters - options.clockBiasMeters, 4) + ' m'],
   ], [
-    '衛星6機から4機へ減らす。4観測・4未知数で残差がほぼ0でも、真の位置が得られたとは限らない理由を考える。',
-    '配置を「空全体に分散」から「同じ方向へ集中」に変えてGDOP/PDOP/TDOPを比べる。',
-    '時計差Bを+75mから−75mに変える。推定時計差とDOPの変化が異なる理由を説明する。',
-    '低仰角集中ではVDOPがどうなるか。実際の電離圏・対流圏・遮蔽はこの幾何模型とは別である。',
-  ], 'C：架空のGNSS擬似距離を4未知量で平差。天空図は方位・仰角のみ、DOPは独立した3D計算。');
+    '「追加なし」から「衛星時計→電離圏→対流圏」を一つずつ増やし、推定位置・受信機時計Bと残差がどう変わるかを確かめる。',
+    '同じ合成誤差を「補正しない／理想補正」で比較する。誤差が減ってもDOPがほぼ同じなのはなぜか。',
+    '衛星4機では残差が0でも位置が偏り得る。観測数と未知数の関係から説明する。',
+    '3D図を回転して視線の集中を観察し、2D天空図の方位・仰角とDOPを対応づける。',
+    '電離圏・対流圏の仰角依存は教育用の単純式であり、実機の補正・測位精度を再現しない。',
+  ], 'C：GNSS合成擬似距離の4未知量平差。3Dは単位方向の模式投影、DOPは数値モデルで算出。');
 }
 
 function computeC() {
@@ -1107,7 +1221,11 @@ function recalculate() {
   $('c-survey-controls').hidden = gnssMode;
   $('c-gnss-controls').hidden = !gnssMode;
   $('c-map-panel').hidden = state.lab !== 'C' || gnssMode;
-  $('c-gnss-panel').hidden = !gnssMode;
+  const perspective = gnssMode && $('c-gnss-view').value === 'space';
+  $('c-gnss-visual-controls').hidden = !gnssMode;
+  $('c-gnss-camera-controls').hidden = !perspective;
+  $('c-gnss-panel').hidden = !gnssMode || perspective;
+  $('c-gnss-space-panel').hidden = !perspective;
   $('geod-globe-panel').hidden = state.lab === 'C';
   $('a-section').hidden = state.lab !== 'A';
   $('e-map-panel').hidden = state.lab !== 'E';
@@ -1129,6 +1247,8 @@ function recalculate() {
     $('map').replaceChildren();
     $('c-map').replaceChildren();
     $('c-gnss-map').replaceChildren();
+    $('c-gnss-space-map').replaceChildren();
+    state.gnssLastResult = null;
     $('e-left-map').replaceChildren();
     $('e-right-map').replaceChildren();
     $('f-map').replaceChildren();
@@ -1244,10 +1364,16 @@ for (const button of document.querySelectorAll('[data-lab]')) button.addEventLis
 for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2',
   'c-mode', 'c-sigma-a', 'c-sigma-b', 'c-sigma-c', 'c-bias',
   'c-gnss-layout', 'c-gnss-count', 'c-gnss-azimuth', 'c-gnss-elevation',
-  'c-gnss-clock', 'c-gnss-sigma',
+  'c-gnss-clock', 'c-gnss-sigma', 'c-gnss-stage', 'c-gnss-sat-clock',
+  'c-gnss-iono', 'c-gnss-tropo', 'c-gnss-correction', 'c-gnss-view',
+  'c-gnss-view-azimuth', 'c-gnss-view-tilt',
   'd-lat', 'd-lon', 'd-lon0', 'd-lat0', 'd-k0', 'd-model',
   'e-lat', 'e-lon', 'e-left', 'e-right', 'f-lat', 'f-lon', 'f-zone', 'f-datum']) {
   $(id).addEventListener('input', () => {
+    if (['c-gnss-view-azimuth', 'c-gnss-view-tilt'].includes(id)) {
+      if (state.gnssLastResult) drawGnssSpace(state.gnssLastResult);
+      return;
+    }
     if (customCityInputs.has(id)) $(customCityInputs.get(id)).value = '';
     if (id === 'c-gnss-layout') {
       const first = GNSS_LAYOUTS[$('c-gnss-layout').value]?.[0];
@@ -1267,6 +1393,25 @@ for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2
     recalculate();
   });
 }
+// Mouse/touch rotation changes only the pedagogical SVG camera, not measurements.
+let gnssOrbitDrag = null;
+$('c-gnss-space-map').addEventListener('pointerdown', event => {
+  gnssOrbitDrag = { x: event.clientX, y: event.clientY,
+    yaw: Number($('c-gnss-view-azimuth').value), tilt: Number($('c-gnss-view-tilt').value) };
+  $('c-gnss-space-map').setPointerCapture?.(event.pointerId);
+});
+$('c-gnss-space-map').addEventListener('pointermove', event => {
+  if (!gnssOrbitDrag) return;
+  const yaw = ((gnssOrbitDrag.yaw + (event.clientX - gnssOrbitDrag.x) * 0.6) % 360 + 360) % 360;
+  const tilt = Math.max(5, Math.min(85, gnssOrbitDrag.tilt +
+    (event.clientY - gnssOrbitDrag.y) * 0.35));
+  $('c-gnss-view-azimuth').value = String(yaw);
+  $('c-gnss-view-tilt').value = String(tilt);
+  if (state.gnssLastResult) drawGnssSpace(state.gnssLastResult);
+});
+$('c-gnss-space-map').addEventListener('pointerup', () => { gnssOrbitDrag = null; });
+$('c-gnss-space-map').addEventListener('pointercancel', () => { gnssOrbitDrag = null; });
+
 $('show-world').addEventListener('change', () => {
   $('osm-credit').hidden = !$('show-world').checked;
   $('gsi-credit').hidden = !$('show-world').checked;
