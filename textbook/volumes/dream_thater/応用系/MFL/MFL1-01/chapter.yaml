@@ -1,0 +1,48 @@
+id: "MFL1-01"
+title: "多様体仮説・観測標本の数学模型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO3
+  - GEO12
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 観測次元D・内在次元d・表現次元mを区別し円の単射でない表現を検証できる
+  - 埋め込み多様体上の体積測度と確率密度から独立同分布標本模型を構成できる
+  - 円と積トーラスの誘導計量・体積・密度を直接計算できる
+  - 正の密度が多様体の支持一致を保証する証明とその失敗例を示せる
+  - 独立標本が指定領域を外す確率と有限被覆への和事象評価を導ける
+  - 加法観測ノイズと真の点を区別しGaussianノイズ後の支持を証明できる
+  - 等方Gaussianノイズ下の共分散を計算しその階数を内在次元と同一視しない
+  - ノイズ条件を指定しないと観測分布から真の多様体が識別不能となる例を作れる
+definitions:
+  - { id: MFL1-01-DEF-01, name: 観測次元・内在次元・表現次元 }
+  - { id: MFL1-01-DEF-02, name: 多様体上の独立同分布標本模型 }
+  - { id: MFL1-01-DEF-03, name: 分布の支持集合 }
+  - { id: MFL1-01-DEF-04, name: 加法観測ノイズ模型 }
+theorems:
+  - { id: MFL1-01-PROP-01, name: 正の密度をもつ真の分布の支持 }
+  - { id: MFL1-01-PROP-02, name: 独立標本が領域を外す確率 }
+  - { id: MFL1-01-PROP-03, name: 独立Gaussianノイズ後の支持 }
+  - { id: MFL1-01-PROP-04, name: 等方ノイズ後の共分散 }
+canonical_examples:
+  - 円周の内在次元・非単射な一次元表現
+  - 円周弧長に対する一様および非一様密度
+  - 4次元Euclid空間内の積トーラスの計量と体積
+  - 単位円の半円にのみ密度があるときの支持
+  - 定数ノイズとGaussianノイズの支持の差
+  - 観測分布が等しい異なる潜在円モデル
+problem_patterns:
+  - MFL1-01-A01
+  - MFL1-01-A02
+  - MFL1-01-A03
+  - MFL1-01-A04
+  - MFL1-01-B01
+  - MFL1-01-B02
+  - MFL1-01-B03
+  - MFL1-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.0, review: 1.0 }
