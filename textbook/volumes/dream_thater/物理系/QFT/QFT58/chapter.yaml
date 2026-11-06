@@ -1,0 +1,49 @@
+id: QFT58
+title: "レプリカ経路積分・分岐被覆とtwist演算子"
+volume: foundations
+status: supplementary
+prerequisites: [QFT57, QFT55, QFT54, QFT50, QFT20, QINF3]
+official_scope: []
+learning_objectives:
+  - 有限次元密度行列の部分トレースと巡回レプリカ縮約を添字で証明できる
+  - Euclid真空の切断付き核と正規化Z1を定め整数レプリカの分配関数比を導ける
+  - 区間の分岐被覆の貼り合わせと端点の開き角および局所座標を検算できる
+  - 巡回twistと逆twistのモノドロミーを区別し二点挿入と分岐幾何を結べる
+  - 分岐座標のSchwarzianを合成則とべき写像から再計算できる
+  - 複製応力テンソルと一次場Ward恒等式からtwistの正則・反正則ウェイトを導ける
+  - 単一区間の整数Rényiモーメントの普遍的な長さ指数と非普遍定数を区別できる
+  - nから1への解析接続と微分の追加仮定を説明し有限次元の公式と混同しない
+definitions:
+  - { id: QFT58-DEF-01, name: 有限系の巡回レプリカ貼り合わせ }
+  - { id: QFT58-DEF-02, name: 切断付きEuclid真空の経路積分 }
+  - { id: QFT58-DEF-03, name: 区間の巡回分岐被覆 }
+  - { id: QFT58-DEF-04, name: 巡回twist演算子と逆twist演算子 }
+theorems:
+  - { id: QFT58-THM-01, name: 巡回貼り合わせと縮約モーメントの同一性 }
+  - { id: QFT58-THM-02, name: 整数レプリカの分配関数比 }
+  - { id: QFT58-PROP-01, name: 分岐被覆とtwist二点挿入 }
+  - { id: QFT58-LEM-01, name: 分岐座標のSchwarzian }
+  - { id: QFT58-THM-03, name: 巡回twistの正則・反正則ウェイト }
+  - { id: QFT58-PROP-02, name: 単一区間の整数レプリカの普遍指数 }
+  - { id: QFT58-PROP-03, name: 解析接続を仮定した区間エントロピー係数 }
+canonical_examples:
+  - 二準位の巡回添字和と非対角密度行列の寄与
+  - 二準位純粋状態からの切断付き核と規格化
+  - 二枚の分岐被覆の開き角と逆置換
+  - 自由bosonのn2・n3のtwistウェイト
+  - 整数値の一致ではn1の微分が決まらない補間
+problem_patterns:
+  - QFT58-CYCLIC-TRACE
+  - QFT58-OFF-DIAGONAL-SEWING
+  - QFT58-THREE-SHEET-LOCAL-COORDINATE
+  - QFT58-SCHWARZIAN-ROOT
+  - QFT58-TWIST-PERMUTATIONS
+  - QFT58-WARD-WEIGHT
+  - QFT58-ANALYTIC-CONTINUATION
+  - QFT58-MULTI-INTERVAL-MONODROMY
+  - QFT58-CENTRAL-CHARGE-EXPONENT
+  - QFT58-INTEGRATED-REPLICA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 16, review: 6 }
