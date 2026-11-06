@@ -1,0 +1,46 @@
+id: "ITD1"
+title: "有限状態の確率軌道・仕事・熱・エントロピー生成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH2
+  - SM3
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 有限状態系の制御パラメータと熱浴接触を区別し、Markov遷移核・分布の更新・経路確率を定義から計算できる
+  - quenchによる仕事と固定パラメータでのジャンプによる熱を区別し、全軌道で第一法則を証明できる
+  - 熱浴と系の符号を整合させ、局所詳細釣合いの仮定を二状態遷移核で検証できる
+  - 逆実験と軌道反転を定義し、経路確率比から系・浴の全エントロピー生成を導出できる
+  - 確率的に負のエントロピー生成が起きても平均は非負であることを、支持条件と相対エントロピーから証明できる
+definitions:
+  - { id: ITD1-DEF-01, name: 有限状態の操作・接触模型 }
+  - { id: ITD1-DEF-02, name: 軌道確率 }
+  - { id: ITD1-DEF-03, name: 軌道の仕事・熱 }
+  - { id: ITD1-DEF-04, name: 局所詳細釣合い }
+  - { id: ITD1-DEF-05, name: 逆実験と全エントロピー生成 }
+theorems:
+  - { id: ITD1-PROP-01, name: 有限Markov模型の規格化と分布更新 }
+  - { id: ITD1-THM-01, name: 軌道第一法則 }
+  - { id: ITD1-PROP-02, name: 正準分布と局所詳細釣合い }
+  - { id: ITD1-THM-02, name: 経路確率比と全エントロピー生成 }
+  - { id: ITD1-THM-03, name: 平均全エントロピー生成の非負性 }
+canonical_examples:
+  - 二状態系のquenchと熱浴ジャンプを分離して軌道ごとのエネルギー差を計算
+  - 二状態遷移核の全行の規格化と局所詳細釣合いを直接確認
+  - 一回のジャンプで負の全エントロピー生成が起きる軌道と正の平均
+problem_patterns:
+  - ITD1-KERNEL-NORMALIZATION
+  - ITD1-QUENCH-WORK
+  - ITD1-JUMP-HEAT
+  - ITD1-LOCAL-DETAILED-BALANCE
+  - ITD1-TRAJECTORY-PROBABILITY
+  - ITD1-TELESCOPIC-FIRST-LAW
+  - ITD1-REVERSE-PATH-RATIO
+  - ITD1-SUPPORT-FAILURE
+  - ITD1-ENTROPY-PRODUCTION-KL
+  - ITD1-TWO-STEP-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

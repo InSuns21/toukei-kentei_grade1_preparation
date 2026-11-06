@@ -103,7 +103,7 @@ $$
 
 ## 2. 大N因子化はどの仮定から来るか
 
-相互作用場の四点関数をGaussian型で近似するには、対合以外の**連結相関**が小さいという入力が必要です。まず有限個の中心化確率変数や、相異なる点のEuclid相関の代数式として連結部分を定義します。中心化とは一体期待値が零であることです。一般の量子場ではEuclid相関の存在・反射陽性を別途確かめる必要があります。
+相互作用場の四点関数をGaussian型で近似するには、対合以外の**連結相関**が小さいという入力が必要です。まず有限個の中心化確率変数や、相異なる点のEuclid相関の代数式として連結部分を定義します。中心化とは一体期待値が零であることです。生成式の $t_1,\ldots,t_m$ は互いに独立な補助変数で、$\partial_{t_i}$ は他の $t_j$ を固定して $t_i$ で偏微分し、$|_{t=0}$ は全ての $t_i$ を零にすることを表します。一般の量子場ではEuclid相関の存在・反射陽性を別途確かめる必要があります。
 
 <a id="def-qft63-connected-cumulants"></a>
 
@@ -153,7 +153,33 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qft63-large-n-factorizing -->
-**定義の確認**： $k=3$ なら $O(N^{-1})$、$k=4$ なら $O(N^{-2})$ という具体的な要求です。正規化された二点関数だけからこれらは導けません。次節の有限Gaussian行列模型では跡から作った中心化変数の累積量が実際に $N^{2-k}$ となり、この指数の直接例を与えます。ただし、その零次元確率模型は位置 $x$ を持つ共形場ではなく、定義全体のCFT例だと称しません。大Nのゲージ理論でしばしば使うこの階層は、平面図展開と演算子規格化などを検証した場合の**追加仮定**です。
+**定義の確認**： $k=3$ なら $O(N^{-1})$、$k=4$ なら $O(N^{-2})$ という要求です。二点関数の正規化だけからは導けません。
+
+定義の全条件を満たす自由場の直接例を作ります。[QFT48の質量零自由スカラー場](../QFT48/index.md#thm-qft48-massless-kernel)を二点係数が1となるよう規格化します。ここでは $d\ge3$、$\Delta=(d-2)/2$ とします。
+
+互いに独立な $N^2$ 個の中心化Gaussianスカラー一次場 $\psi_a$ を取ります。[一次場の定義](../QFT48/index.md#def-qft48-scalar-primary)から、等しい次元を持つこれらの線形結合も一次場です。$\delta_{ab}$ は同じ添字の場合だけ1となるKroneckerのデルタとして
+
+$$
+\mathcal O_N(x)=\frac1N\sum_{a=1}^{N^2}\psi_a(x),\qquad
+\langle\psi_a(x)\psi_b(y)\rangle=\delta_{ab}r_{xy}^{-2\Delta}
+$$
+
+と置きます。平均と二点相関は独立性・中心化から計算します。線形結合もGaussianであり、[Wickの対合公式](../QFT19/index.md#thm-qft19-boson-wick)によって高次の連結部分は零です。実際、
+
+$$
+\begin{aligned}
+\langle\mathcal O_N(x)\rangle&=0,\\
+\langle\mathcal O_N(x)\mathcal O_N(y)\rangle
+&=\frac1{N^2}\sum_{a,b=1}^{N^2}\delta_{ab}r_{xy}^{-2\Delta}
+=r_{xy}^{-2\Delta},\\
+\langle\mathcal O_N(x_1)\cdots\mathcal O_N(x_k)\rangle_c&=0
+\quad(k\ge3)
+\end{aligned}
+$$
+
+が成立します。したがって相異なる固定点で二点の誤差は厳密に零で、全ての連結 $k$ 点は $0=O(N^{2-k})$ です。
+
+この自由例では高次連結量が厳密に零です。次節の有限Gaussian行列模型では中心化変数の累積量が実際に $N^{2-k}$ となりますが、位置 $x$ を持たない零次元模型なのでCFT例とは区別します。相互作用する大Nゲージ理論でこの階層を用いるには、平面図展開と演算子規格化などの追加の検証が必要です。
 <!-- definition-example-end -->
 
 <a id="thm-qft63-leading-four-point"></a>
@@ -199,20 +225,27 @@ $$
 
 ## 3. 有限Gaussian行列でN次数を出発点から数える
 
-上の $N^{2-k}$ を単なる標語にしないため、まず時空を持たない厳密な確率模型を作ります。実ベクトル空間としての $N\times N$ Hermitian行列には $N^2$ 個の実自由度があります。トレース内積 $\operatorname{Tr}(AB)$ で正規直交なHermitian基底 $T_1,\ldots,T_{N^2}$ を取り、独立標準正規変数 $g_a$ で
+上の $N^{2-k}$ を単なる標語にしないため、まず時空を持たない厳密な確率模型を作ります。ここで $N\times N$ Hermitian行列 $A$ とは、複素行列で $A_{ji}=\overline{A_{ij}}$ を満たすものです。対角成分は実数で $N$ 個、非対角の複素成分の実部・虚部はそれぞれ $N(N-1)/2$ 個なので、実自由度は $N^2$ 個です。この成分関係から
+
+$$
+\operatorname{tr}(A^2)
+=\sum_{i=1}^N A_{ii}^2+2\sum_{1\le i<j\le N}|A_{ij}|^2
+$$
+
+であり、零行列以外では正です。これで $\operatorname{tr}(AB)$ はHermitian行列の実ベクトル空間上の内積となり、正規直交基底 $T_1,\ldots,T_{N^2}$ を取れます。各 $g_a$ を独立標準正規変数とし、その基底で行列 $M$ を展開して、
 
 $$
 M=\frac1{\sqrt N}\sum_{a=1}^{N^2}g_aT_a,\qquad
-Y=\operatorname{Tr}(M^2),\qquad X=Y-N
+Y=\operatorname{tr}(M^2),\qquad X=Y-N
 $$
 
-とします。$M$ はHermitianなので $\operatorname{Tr}(M^2)\ge0$ です。これは[QFT19の有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)だけで計算できます。
+とします。$M$ はHermitianなので $\operatorname{tr}(M^2)\ge0$ です。これは[QFT19の有限次元Gaussian積分](../QFT19/index.md#thm-qft19-gaussian)だけで計算できます。
 
 <a id="thm-qft63-matrix-cumulants"></a>
 
 <!-- formal-statement-start -->
 > **定理（Gaussian行列模型の連結累積量）**
-> $N\ge1$ とし、上記の $N^2$ 個の独立標準正規変数から作った $X=\operatorname{Tr}(M^2)-N$ を考える。このとき $\langle X\rangle=0$ で、全ての整数 $k\ge2$ に対して
+> $N\ge1$ とし、上記の $N^2$ 個の独立標準正規変数から作った $X=\operatorname{tr}(M^2)-N$ を考える。このとき $\langle X\rangle=0$ で、全ての整数 $k\ge2$ に対して
 
 $$
 \kappa_k(X)=2^{k-1}(k-1)!\,N^{2-k}.
@@ -228,10 +261,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\operatorname{Tr}(T_aT_b)=\delta_{ab}$ より
+$\operatorname{tr}(T_aT_b)=\delta_{ab}$ より
 
 $$
-Y=\frac1N\sum_{a,b}g_ag_b\operatorname{Tr}(T_aT_b)
+Y=\frac1N\sum_{a,b}g_ag_b\operatorname{tr}(T_aT_b)
 =\frac1N\sum_{a=1}^{N^2}g_a^2.
 $$
 
@@ -328,7 +361,7 @@ $$
 **定義の確認**： $\boldsymbol y=\boldsymbol y'=0$、$z=1,z'=2$ とすると $|x-x'|^2=1$、$4zz'=8$ なので $\xi=1/8$。鏡像までの距離二乗は $9$ であり、$|x-x'|^2/|x-x'^*|^2=\xi/(1+\xi)=1/9$ と一致します。境界を保つ反転 $I(x)=x/|x|^2$ では $z\mapsto z/|x|^2$、[QFT48の反転距離恒等式](../QFT48/index.md#prop-qft48-inversion)で分子も $1/(|x|^2|x'|^2)$ 倍ですから、その倍率は分母と完全に相殺します。
 <!-- definition-example-end -->
 
-鏡像法は正則性と境界条件を両方確かめて初めてGreen核になります。[QFT48の質量零共分散](../QFT48/index.md#thm-qft48-massless-kernel)に現れた $c_d=\Gamma(d/2-1)/(4\pi^{d/2})$ を使います。
+鏡像法は正則性と境界条件を両方確かめて初めてGreen核になります。[QFT48の質量零共分散](../QFT48/index.md#thm-qft48-massless-kernel)に現れた $c_d=\Gamma(d/2-1)/(4\pi^{d/2})$ を使います。以下の $\Delta_x=\sum_{j=1}^d\partial_{x_j}^2$ は第一引数 $x$ に作用するEuclidラプラシアンで、先のスケーリング次元 $\Delta$ とは別物です。また $\partial_z$ は $x=(\boldsymbol y,z)$ の法線座標だけを動かし、第二引数 $x'$ を固定する偏微分です。
 
 <a id="thm-qft63-half-space-image"></a>
 
@@ -344,7 +377,7 @@ $$
 G_N(x,x')=c_d\left(|x-x'|^{2-d}+|x-x'^*|^{2-d}\right)
 $$
 
-> はそれぞれ $-\Delta_xG_\pm(x,x')=\delta(x-x')$ を $H$ 内の分布として満たし、境界で $G_D=0$、$\partial_zG_N=0$ を満たす。さらに相異なる点で
+> はそれぞれ $-\Delta_xG_D(x,x')=\delta(x-x')$、$-\Delta_xG_N(x,x')=\delta(x-x')$ を $H$ 内の分布として満たし、境界で $G_D=0$、$\partial_zG_N=0$ を満たす。さらに相異なる点で
 
 $$
 G_{D/N}(x,x')
@@ -386,7 +419,16 @@ $$
 =\left(\frac{\xi}{1+\xi}\right)^{(d-2)/2},
 $$
 
-よって交差比表示を得ます。さらにこの核の非負二次形式は、全空間の正の共分散に半空間の試験関数を奇延長（$D$）または偶延長（$N$）して、その全空間二次形式の半分を取ることで確認できます。これにより単なる微分方程式の形式解以上のGaussian共分散を得ます。
+よって交差比表示を得ます。さらに核の非負二次形式も確認します。半空間の試験関数 $f$ を、境界の反対側へ奇延長（$D$）または偶延長（$N$）したものを $f_D,f_N$ とします。[全空間の正の共分散](../QFT48/index.md#thm-qft48-massless-kernel)を $C_d$ と書くと、反射で移した積分領域を合わせて
+
+$$
+\int_{\mathbb R^d}\!\!\int_{\mathbb R^d}
+\overline{f_{D/N}(x)}C_d(x-y)f_{D/N}(y)\,dx\,dy
+=2\int_H\!\!\int_H
+\overline{f(x)}G_{D/N}(x,y)f(y)\,dx\,dy\ge0
+$$
+
+です。右辺の符号は上の差（$D$）・和（$N$）と一致します。従って単なる微分方程式の形式解以上の、正のGaussian共分散を得ます。ただし、この二次形式の正性と場の全相関に対する反射陽性は同じ条件ではありません。
 <!-- proof-end -->
 
 **四次元の検算。** $d=4$ なら $c_4=1/(4\pi^2)$。$\boldsymbol y=\boldsymbol y'=0,z=1,z'=2$ について

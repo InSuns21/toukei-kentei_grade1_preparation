@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-11-07（標準教科書・総説との照合）  
-状態: planned（設計のみ。ITD本文・series manifest・公開は未着手）
+状態: in_progress（ITD1を実装。以降のブロックと系列横断監査は未完了）
 
 ## 中心問い
 
@@ -16,9 +16,9 @@
 - **本PLANのcanonical owner：** 熱浴に接した確率軌道の仕事・熱・全エントロピー生成の結合、測定とフィードバックによる情報付き第二法則、記憶の測定・消去費用、全装置の循環収支。平衡エントロピー・分配関数・Shannon情報量の一般定理を重複して所有しない。
 - **標準ルート：** 古典的な有限状態模型、単一温度の熱浴、操作で変わるエネルギー準位、相互に逆向きの遷移が許されるMarkov動力学を用いる。後から連続状態のLangevin模型、複数浴・化学ポテンシャル、粗視化、強結合、非Markov性を扱う場合は追加の仮定と変更点を明記する。
 - **停止線：** 量子測定・量子フィードバックは[量子情報の既習正本](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)と接続する発展入口にとどめる。古典測定の相互情報量による式を任意の量子計測へ無条件に移植しない。ブラックホールの情報問題にも古典的なLandauer評価をそのまま適用しない。
-- **横断読順：** [熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)。数理物理の厳密化を必要とする発展分岐は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で位置付ける。
+- **横断読順：** [熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)。数理物理の厳密化を必要とする発展分岐は[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で位置付ける。
 
-このPLANの改稿は**計画の推敲**であってITDの実装開始ではない。暫定系列名はITDとし、旧案のITD1〜ITD15を固定講数・確定章IDとみなさない。最初の章を実装する時点で実在IDを照合してmanifestを作り、PLANを`plans_progress/`へ移す。
+初回の設計改稿は実装開始ではなかったが、2026-11-07にITD1を実装してITD系列manifestを設けた。旧案のITD1〜ITD15は固定講数とみなさず、後続の章数は証明・演習のまとまりで決める。
 
 ## 数式・模型の共通契約
 
@@ -131,3 +131,8 @@
 4. 新規執筆・実質改稿（区分C）の章自身では全主要証明・全演習詳細解答を出発点から再計算し、完成稿を別観点で再読する。書式だけ（A）・局所数学修正（B）は現行standardの変更範囲別ゲートに従う。**別の完了章の追跡監査は、ユーザーが対象を明示した場合のみ**行う。
 5. changed-only validationを基本とし、共通routing・knowledge DAG・全体索引・validator等を変えた場合はfull validationへ拡張する。対象系列のmanifest、公開目次、リンク、演習数、proof/formal、KaTeX、Pagesの直接必要な検証を確認する。
 6. B・D・E・Fをまたぐ最終横断監査で、情報付き仕事の上限とresetの下限を同じ系境界・符号・単位で対照し、全循環の第二法則、前提依存、canonical owner、公開導線を検証する。**完了は学習成果と実検証で判定**し、旧15項目の消化だけで`plan_done/`へ移さない。
+
+## ITD1 着手記録（2026-11-07）
+
+- ITD1「有限状態の確率軌道・仕事・熱・エントロピー生成」を初回章として新規実装。離散時間で制御パラメータの変更と熱浴によるジャンプを交互に記述し、軌道第一法則、局所詳細釣合い、経路確率比と平均エントロピー生成まで有限和で導く。
+- 系列の進捗正本を `textbook/dream-theater-series/ITD.yaml` に作成した。次の候補はITD2の逆実験に基づく積分型ゆらぎ関係、Jarzynski・Crooksの証明。測定・フィードバック、Landauer、全装置循環と最終横断監査は残るため本PLANは進行中とする。
