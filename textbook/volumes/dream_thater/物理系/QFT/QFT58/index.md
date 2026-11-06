@@ -84,7 +84,7 @@ $$
 
 ## 2. Euclid経路積分に切れ目を入れる
 
-[QFT20のEuclid Gaussian核](../QFT20/index.md#thm-qft20-euclidean-kernel)と[QFT19の有限モードGaussian積分](../QFT19/index.md#thm-qft19-gaussian)では、境界値を固定した積分を計算しました。今は正規化した真空の波動汎関数を、Euclid時間 $\tau<0$ の積分で準備し、複素共役を $\tau>0$ 側で準備します。有限cutoffでは各サイトの座標を $q_A,q_B$ と記せます。境界値の固有基底が使える模型で
+[QFT20のEuclid Gaussian核](../QFT20/index.md#thm-qft20-euclidean-kernel)と[QFT19の有限モードGaussian積分](../QFT19/index.md#thm-qft19-gaussian)では、境界値を固定した積分を計算しました。今は規格化前の真空波動汎関数を、Euclid時間 $\tau<0$ の積分で準備し、複素共役を $\tau>0$ 側で準備します。有限cutoffでは各サイトの座標を $q_A,q_B$ と記せます。境界値の固有基底が使える模型で
 
 $$
 \rho_A(q_A^+,q_A^-)
