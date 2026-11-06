@@ -1,0 +1,42 @@
+id: QFT64
+title: "Virasoro・OPE・レプリカ・高次元境界相関の総合演習"
+volume: foundations
+status: supplementary
+prerequisites: [QFT52, QFT54, QFT58, QFT59, QFT60, QFT61, QFT62, QFT63]
+official_scope: []
+learning_objectives:
+  - Virasoro最高ウェイト表現のレベル2 Gram行列と零状態を交換子から再計算できる
+  - 自由電流四点関数のWick対合をOPEの定数・一次係数と照合できる
+  - 有限密度行列の整数レプリカとn→1の解析接続に必要な追加条件を区別できる
+  - 熱円筒と空間円周のRényi式を短区間展開し二次補正の符号を検算できる
+  - 有限次元のエンタングルメント第一法則と相対エントロピーの二次差を計算できる
+  - 高次元交差対称性・大N因子化・境界Gaussian鏡像核の適用条件を分けて計算できる
+definitions: []
+theorems: []
+canonical_examples:
+  - c=1かつh=1/4のVirasoroレベル2 Gram行列と特異ベクトル
+  - 自由正則電流の四点Wick対合とOPE係数の照合
+  - 三固有値の密度行列のレプリカモーメントと整数一致の非一意補間
+  - 熱円筒と空間円周の短区間二次補正
+  - 二準位密度行列での第一法則と相対エントロピーの二次項
+  - 高次元四点交差式の数値代入と半空間のDirichlet・Neumann鏡像核
+problem_patterns:
+  - QFT64-VIRASORO-GRAM
+  - QFT64-CURRENT-WICK
+  - QFT64-FINITE-REPLICA
+  - QFT64-CYLINDER-SHORT
+  - QFT64-IMAGE-SIGN
+  - QFT64-MATRIX-CUMULANTS
+  - QFT64-NULL-VECTOR
+  - QFT64-OPE-COEFFICIENT
+  - QFT64-CONTINUATION-COUNTEREXAMPLE
+  - QFT64-CYLINDER-DIFFERENCE
+  - QFT64-BOUNDARY-CONNECTED
+  - QFT64-MODULAR-FIRST-LAW
+  - QFT64-CROSSING-TEST
+  - QFT64-INTEGRATED-VIRASORO-REPLICA
+  - QFT64-INTEGRATED-BOUNDARY-LARGEN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 7, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 22, review: 8 }
