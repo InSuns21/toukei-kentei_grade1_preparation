@@ -78,7 +78,13 @@
 .geod-app .c-gnss-view-controls select{display:block;width:100%;margin-top:.3rem;max-width:370px}
 .geod-app #c-gnss-camera-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
 .geod-app #c-gnss-camera-controls input{display:block;width:100%;margin-top:.25rem}
-.geod-app #c-gnss-space-map{cursor:grab;touch-action:pan-y}
-.geod-app #c-gnss-space-map:active{cursor:grabbing}
+.geod-app #c-gnss-space-panel,.geod-app #c-gnss-space-panel *{user-select:none;-webkit-user-select:none}
+.geod-app #c-gnss-gl-wrap{position:relative;width:100%;aspect-ratio:720/470;background:#f6faff;border:1px solid #becddd;border-radius:8px;overflow:hidden;box-sizing:border-box}
+.geod-app #c-gnss-gl-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;box-sizing:border-box}
+.geod-app #c-gnss-space-labels{pointer-events:none}
+.geod-app #c-gnss-space-map,.geod-app #c-gnss-space-canvas{cursor:grab;touch-action:none}
+.geod-app #c-gnss-space-map:active,.geod-app #c-gnss-space-canvas:active{cursor:grabbing}
+.geod-app #c-gnss-gl-wrap[hidden],.geod-app #c-gnss-space-map[hidden]{display:none!important}
 @media(max-width:600px){.geod-app #c-gnss-camera-controls{grid-template-columns:1fr}}
 .geod-app #c-gnss-visual-controls[hidden],.geod-app #c-gnss-camera-controls[hidden]{display:none!important}
+

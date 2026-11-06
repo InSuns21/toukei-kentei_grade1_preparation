@@ -12,6 +12,7 @@ import { SURVEY_STATIONS, SURVEY_REFERENCE, syntheticSurveyObservations,
   adjustSurveyNetwork } from './geod-survey.mjs';
 import { GNSS_REFERENCE, GNSS_LAYOUTS, syntheticGnssObservations,
   solveGnssPseudoranges, correctGnssObservations } from './geod-gnss.mjs';
+import { createGnssSpaceRenderer } from './geod-gnss-space.mjs';
 
 const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
@@ -887,13 +888,41 @@ function drawGnssSkyPlot(result) {
   }, note)));
 }
 
-// Orthographic projection of synthetic ENU unit sight-line directions.
-// This independent SVG works even when WebGL2 is unavailable.
+// Prefer a shaded WebGL2 hemisphere; preserve the independent SVG fallback.
+let gnssSpaceRenderer = null, gnssSpaceWebGLUnavailable = false;
 function drawGnssSpace(result) {
   const map = $('c-gnss-space-map');
-  map.replaceChildren();
+  const glWrap = $('c-gnss-gl-wrap');
   const yaw = rad(Number($('c-gnss-view-azimuth').value));
   const tilt = rad(Number($('c-gnss-view-tilt').value));
+  if (!gnssSpaceRenderer && !gnssSpaceWebGLUnavailable) {
+    try {
+      gnssSpaceRenderer = createGnssSpaceRenderer(
+        $('c-gnss-space-canvas'), $('c-gnss-space-labels'));
+      if (!gnssSpaceRenderer) gnssSpaceWebGLUnavailable = true;
+    } catch (error) {
+      console.warn('GNSS WebGL2 unavailable; using SVG fallback:', error);
+      gnssSpaceWebGLUnavailable = true;
+    }
+  }
+  let useWebGL = false;
+  if (gnssSpaceRenderer) {
+    try {
+      // Layout becomes measurable before the first high-DPI canvas resize.
+      glWrap.hidden = false;
+      useWebGL = Boolean(gnssSpaceRenderer.draw(result.residuals,
+        Number($('c-gnss-view-azimuth').value),
+        Number($('c-gnss-view-tilt').value)));
+    } catch (error) {
+      console.warn('GNSS WebGL2 drawing failed; using SVG fallback:', error);
+      gnssSpaceRenderer = null;
+      gnssSpaceWebGLUnavailable = true;
+    }
+  }
+  glWrap.hidden = !useWebGL;
+  map.hidden = useWebGL;
+  map.replaceChildren();
+  if (useWebGL) return;
   const cx = 225, cy = 263, radius = 178;
   const project = (east, north, up) => {
     const side = Math.cos(yaw) * east - Math.sin(yaw) * north;
@@ -997,7 +1026,7 @@ function computeGnss() {
   }));
   state.geodesic = null; state.japan = null; state.gnssLastResult = result;
   drawGnssSkyPlot(result);
-  drawGnssSpace(result);
+  if ($('c-gnss-view').value === 'space') drawGnssSpace(result);
   const d = result.dop, sigma = observations[0].sigma;
   const position = [result.east, result.north, result.up];
   const baselinePosition = [baseline.east, baseline.north, baseline.up];
@@ -1248,6 +1277,7 @@ function recalculate() {
     $('c-map').replaceChildren();
     $('c-gnss-map').replaceChildren();
     $('c-gnss-space-map').replaceChildren();
+    $('c-gnss-gl-wrap').hidden = true;
     state.gnssLastResult = null;
     $('e-left-map').replaceChildren();
     $('e-right-map').replaceChildren();
@@ -1393,24 +1423,30 @@ for (const id of ['a-lat', 'a-lon', 'a-f', 'b-lat1', 'b-lon1', 'b-lat2', 'b-lon2
     recalculate();
   });
 }
-// Mouse/touch rotation changes only the pedagogical SVG camera, not measurements.
+// Mouse/touch rotation changes only the pedagogical camera, not measurements.
 let gnssOrbitDrag = null;
-$('c-gnss-space-map').addEventListener('pointerdown', event => {
-  gnssOrbitDrag = { x: event.clientX, y: event.clientY,
-    yaw: Number($('c-gnss-view-azimuth').value), tilt: Number($('c-gnss-view-tilt').value) };
-  $('c-gnss-space-map').setPointerCapture?.(event.pointerId);
-});
-$('c-gnss-space-map').addEventListener('pointermove', event => {
-  if (!gnssOrbitDrag) return;
-  const yaw = ((gnssOrbitDrag.yaw + (event.clientX - gnssOrbitDrag.x) * 0.6) % 360 + 360) % 360;
-  const tilt = Math.max(5, Math.min(85, gnssOrbitDrag.tilt +
-    (event.clientY - gnssOrbitDrag.y) * 0.35));
-  $('c-gnss-view-azimuth').value = String(yaw);
-  $('c-gnss-view-tilt').value = String(tilt);
-  if (state.gnssLastResult) drawGnssSpace(state.gnssLastResult);
-});
-$('c-gnss-space-map').addEventListener('pointerup', () => { gnssOrbitDrag = null; });
-$('c-gnss-space-map').addEventListener('pointercancel', () => { gnssOrbitDrag = null; });
+for (const id of ['c-gnss-space-map', 'c-gnss-space-canvas']) {
+  const surface = $(id);
+  surface.addEventListener('pointerdown', event => {
+    event.preventDefault?.(); // Do not accidentally select labels or trigger translation UI.
+    gnssOrbitDrag = { surface: id, x: event.clientX, y: event.clientY,
+      yaw: Number($('c-gnss-view-azimuth').value),
+      tilt: Number($('c-gnss-view-tilt').value) };
+    surface.setPointerCapture?.(event.pointerId);
+  });
+  surface.addEventListener('pointermove', event => {
+    if (!gnssOrbitDrag || gnssOrbitDrag.surface !== id) return;
+    event.preventDefault?.();
+    const yaw = ((gnssOrbitDrag.yaw + (event.clientX - gnssOrbitDrag.x) * 0.6) % 360 + 360) % 360;
+    const tilt = Math.max(5, Math.min(85, gnssOrbitDrag.tilt +
+      (event.clientY - gnssOrbitDrag.y) * 0.35));
+    $('c-gnss-view-azimuth').value = String(yaw);
+    $('c-gnss-view-tilt').value = String(tilt);
+    if (state.gnssLastResult) drawGnssSpace(state.gnssLastResult);
+  });
+  surface.addEventListener('pointerup', () => { gnssOrbitDrag = null; });
+  surface.addEventListener('pointercancel', () => { gnssOrbitDrag = null; });
+}
 
 $('show-world').addEventListener('change', () => {
   $('osm-credit').hidden = !$('show-world').checked;
