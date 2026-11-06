@@ -40,7 +40,13 @@ $$
 R_P(\rho)=\frac34\cdot\frac15+\frac14\cdot\frac35=\frac3{10}.
 $$
 
-両重みは非負で和が1なので、確かに有限集合上の分布である。事後分布を標本によって変更するときも、実際の試験点 $Z\sim P$ は訓練標本および予測器の抽選から独立に取る。
+両重みは非負で和が1なので、確かに有限集合上の分布である。経験リスクについても、ある標本で $\widehat R_S(a)=1/5$、$\widehat R_S(b)=3/5$ なら同じ重みから
+
+$$
+\widehat R_S(\rho)=\frac34\cdot\frac15+\frac14\cdot\frac35=\frac3{10}
+$$
+
+と計算できる。標本に応じて選ぶことまで確かめるには、$\pi=(1/2,1/2)$ を訓練前に固定したまま、$\widehat R_S(a)\le\widehat R_S(b)$ なら $\rho_S=(3/4,1/4)$、逆なら $\rho_S=(1/4,3/4)$ と定めればよい。両場合とも非負・総和1であり、比較に用いる二つの経験リスクが可測なので各重みも $S$ の可測関数になる。実際の試験点 $Z\sim P$ は訓練標本および予測器の抽選から独立に取る。
 <!-- definition-example-end -->
 
 前章までの「仮説を一つ選ぶ」は、ある $h$ に重み1を置く分布 $\delta_h$ という特別な場合である。ただし一つを選ぶことがいつでも安く済むわけではない。事前重みが極端に小さかった仮説を後から選ぶほど情報量を多く使う。
@@ -176,7 +182,17 @@ $$
 +u\Phi\!\left(\frac{c+1}{n}\right).
 $$
 
-$X_i$ は他の座標と独立で平均が $p$ なので、両辺を $X_i$ について条件付き平均すると、右辺は $X_i$ の代わりに独立な $B_i\sim\operatorname{Bernoulli}(p)$ を入れた場合の条件付き期待値である。この操作を座標 $1,\ldots,n$ に順に施し、全て独立な $B_i$ に替えれば
+$X_i$ は他の座標と独立で平均が $p$ である。他の座標の和を $c$ に固定し、それらと独立な $B_i\sim\operatorname{Bernoulli}(p)$ を取る。上の凸性不等式へ $u=X_i$ を代入して $X_i$ について平均すると、
+
+$$
+\begin{aligned}
+\mathbb E_{X_i}\Phi\!\left(\frac{c+X_i}{n}\right)
+&\le(1-p)\Phi(c/n)+p\Phi((c+1)/n)\\
+&=\mathbb E_{B_i}\Phi\!\left(\frac{c+B_i}{n}\right)
+\end{aligned}
+$$
+
+となる。まず $i=1$ を置換し、次は $B_1,X_3,\ldots,X_n$ を固定して $X_2$ を置換する。これを $i=n$ まで繰り返せるのは、残りの $X_i$ が置換済みの $B_j$ と未置換の $X_j$ のいずれからも独立だからである。したがって
 
 $$
 \mathbb E\Phi(\overline X)
@@ -257,7 +273,23 @@ n\sum_h\rho(h)\operatorname{kl}
 \le D_{\mathrm{KL}}(\rho\|\pi)+\ln V(S).
 $$
 
-次に[対数和不等式](../../INFO/INFO2/index.md#lem-info2-log-sum)を自然対数に換算し、$a_h=\rho(h)\widehat R_S(h)$、$b_h=\rho(h)R_P(h)$ に適用する。同じ不等式を $a_h'=\rho(h)(1-\widehat R_S(h))$、$b_h'=\rho(h)(1-R_P(h))$ にも適用する。二つを足すと
+次に[対数和不等式](../../INFO/INFO2/index.md#lem-info2-log-sum)を自然対数に換算し、$\bar q=\sum_h\rho(h)\widehat R_S(h)$、$\bar p=\sum_h\rho(h)R_P(h)$ と置く。まず $a_h=\rho(h)\widehat R_S(h)$、$b_h=\rho(h)R_P(h)$ と代入すれば、
+
+$$
+\sum_h\rho(h)\widehat R_S(h)
+\ln\frac{\widehat R_S(h)}{R_P(h)}
+\ge\bar q\ln\frac{\bar q}{\bar p}
+$$
+
+となる。次に $a_h'=\rho(h)(1-\widehat R_S(h))$、$b_h'=\rho(h)(1-R_P(h))$ と代入すると、
+
+$$
+\sum_h\rho(h)(1-\widehat R_S(h))
+\ln\frac{1-\widehat R_S(h)}{1-R_P(h)}
+\ge(1-\bar q)\ln\frac{1-\bar q}{1-\bar p}
+$$
+
+を得る。零重み・零分母は二値KLと対数和不等式の拡張規約で解釈する。二つを足すと
 
 $$
 \begin{aligned}
@@ -307,7 +339,21 @@ g(p)-g(q)=\int_q^p\frac{t-q}{t(1-t)}\,dt
 \ge4\int_q^p(t-q)\,dt=2(p-q)^2.
 $$
 
-$p<q$ なら積分の向きを反転し、$g(p)-g(q)=\int_p^q(q-t)/(t(1-t))\,dt\ge2(q-p)^2$ となる。$q=0,1$ の境界は片側極限、$p=0,1$ は定義の無限大または零値で確認できる。
+$p<q$ なら積分の向きを反転し、$g(p)-g(q)=\int_p^q(q-t)/(t(1-t))\,dt\ge2(q-p)^2$ となる。$q$ が端点にあるときも広義積分で同じ評価ができる。実際 $q=0$ では
+
+$$
+g(p)-g(0)=\int_0^p\frac{dt}{1-t}
+\ge4\int_0^p t\,dt=2p^2,
+$$
+
+$q=1$ では
+
+$$
+g(p)-g(1)=\int_p^1\frac{dt}{t}
+\ge4\int_p^1(1-t)\,dt=2(1-p)^2.
+$$
+
+ここでは $0<p<1$ とし、不等号には $t(1-t)\le1/4$ を使った。残る $p=0,1$ は定義の無限大または $p=q$ の零値で確認できる。
 <!-- proof-end -->
 
 <a id="cor-slt1-15-risk-gap"></a>
@@ -738,7 +784,21 @@ $$
 $n=100$、$\mathcal X=\{1,\ldots,200\}$ は一様、ラベルは常に0、仮説は全ての二値関数、損失は0–1とする。標本で見た入力だけ0を返す $h_S$ を考える。事後と「事前」をともに $\delta_{h_S}$ とした場合の誤った界と、訓練前に全仮説へ一様事前を置いた場合のKLを比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。観測済みの入力は高々100個なので、$h_S$ は標本上全て正解し $\widehat R_S(h_S)=0$ だが、少なくとも100個の未観測入力で誤るため $R_P(h_S)\ge100/200=1/2$。同じ一点分布同士ならKLは0で、誤って[二側リスク差界](#cor-slt1-15-risk-gap)へ代入すると $\delta=0.05$ の場合 $R_P(h_S)\le\sqrt{\ln2020/200}\simeq0.195$ という偽の結論を得る。
+**詳細解答**。標本に現れた入力の集合を $T(S)$ とすると $|T(S)|\le100$ である。$h_S$ は標本上全て正解する一方、少なくとも100個の未観測入力で誤るため、
+
+$$
+\widehat R_S(h_S)=0,\qquad
+R_P(h_S)=\frac{200-|T(S)|}{200}\ge\frac12
+$$
+
+となる。同じ一点分布同士ならKLは0なので、標本依存の「事前」$\pi_S$ を誤って[二側リスク差界](#cor-slt1-15-risk-gap)へ代入すると、$\delta=0.05$ の場合
+
+$$
+R_P(h_S)\le\sqrt{\frac{\ln(101/0.05)}{200}}
+\simeq0.195<\frac12
+$$
+
+という偽の結論を得る。
 
 訓練前に一様事前を固定したなら仮説数は $2^{200}$ で、各重みは $2^{-200}$。[事後分布の相対エントロピー](#def-slt1-15-kl)の定義より一点事後の費用は
 
