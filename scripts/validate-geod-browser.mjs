@@ -14,7 +14,8 @@ const chrome = [process.env.CHROME_BIN, '/usr/bin/google-chrome',
   '/opt/google/chrome/chrome'].find(value => value && existsSync(value));
 if (!chrome) throw new Error('Chromium/Chrome is required for GEOD WebGL2 smoke');
 const mime = name => name.endsWith('.html') ? 'text/html' :
-  name.endsWith('.css') ? 'text/css' : name.endsWith('.mjs') ? 'text/javascript' :
+  name.endsWith('.css') ? 'text/css' :
+  (name.endsWith('.mjs') || name.endsWith('.js')) ? 'text/javascript' :
   name.endsWith('.json') ? 'application/json' : 'text/plain';
 let acceptanceRevision = 'first';
 const server = createServer(async (req, res) => {
