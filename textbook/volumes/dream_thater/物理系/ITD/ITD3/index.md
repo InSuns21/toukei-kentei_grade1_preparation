@@ -205,7 +205,11 @@ $$
 
 さらに[自由エネルギーの相対エントロピー表示](#prop-itd3-kl-identity)を両辺に用い、同じ $F_{\mathrm{eq}}(\lambda)$ を足せば単調性が従います。
 
-等号条件も確認します。全成分正の $K$ の場合、対数和不等式の等号には、各出力 $y$ へ到達できるすべての入力 $x$ について $p(x)/\pi_\lambda(x)$ が同じであることが必要です。全成分が正なので、その比は全状態で同じ定数 $c$ になります。両分布の規格化から $c=1$、すなわち $p=\pi_\lambda$ です。逆は代入すれば等号です。[ITD1の正準分布と局所詳細釣合いの命題](../ITD1/index.md#prop-itd1-canonical-balance)により、後者の接触では $\pi_\lambda K=\pi_\lambda$ となります。
+等号条件も確認します。全成分正の $K$ の場合、対数和不等式の等号には、各出力 $y$ へ到達できるすべての入力 $x$ について $p(x)/\pi_\lambda(x)$ が同じであることが必要です。
+
+全成分が正なので、その比は全状態で同じ定数 $c$ になります。両分布の規格化から $c=1$、すなわち $p=\pi_\lambda$ です。逆は代入すれば等号です。
+
+[ITD1の正準分布と局所詳細釣合いの命題](../ITD1/index.md#prop-itd1-canonical-balance)により、後者の接触では $\pi_\lambda K=\pi_\lambda$ となります。
 <!-- proof-end -->
 
 ### 例：同じ温度の接触だけでは仕事を取り出していない
@@ -239,7 +243,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（非平衡自由エネルギーと平均仕事の下限）**  
-> 空でない有限状態集合 $X$、有限な $E(x,\lambda_j)$、$k_{\mathrm B},T>0$ と整数 $n\ge1$ を取る。[ITD1の操作・接触模型](../ITD1/index.md#def-itd1-controlled-model)に従い、各段階でquenchの後に単一温度 $T$ の浴へ接触し、各核 $K_j$ は行和1と[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たすとする。初期分布 $p_0$ は零確率を許し、終端分布を $p_n$ とする。外部から系へした軌道仕事 $W$、浴から系への軌道熱 $Q$ を用いると
+> 空でない有限状態集合 $X$、有限な $E(x,\lambda_j)$、$k_{\mathrm B},T>0$ と整数 $n\ge1$ を取る。
+> [ITD1の操作・接触模型](../ITD1/index.md#def-itd1-controlled-model)に従い、各段階でquenchの後に単一温度 $T$ の浴へ接触する。
+> 各核 $K_j$ は行和1と[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たすとする。
+> 初期分布 $p_0$ は零確率を許し、終端分布を $p_n$ とする。
+> 外部から系へした軌道仕事 $W$、浴から系への軌道熱 $Q$ を用いると
 
 $$
 \begin{aligned}
