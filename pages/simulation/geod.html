@@ -141,8 +141,14 @@
       <label>中央縮尺 k₀<input id="d-k0" type="number" min="0.999" max="1" step="0.0001" value="0.9999"></label>
       <label>数学模型<select id="d-model"><option value="ellipsoid">GRS80楕円体</option><option value="sphere">球（f=0、aは同じ）</option></select></label>
     </div>
+    <div class="controls" aria-label="独立した逆投影の入力">
+      <label>逆投影する E（東、m）<input id="d-inverse-e" type="number" step="any" placeholder="順解のEを転記できます"></label>
+      <label>逆投影する Np（北、m）<input id="d-inverse-n" type="number" step="any" placeholder="順解のNpを転記できます"></label>
+      <button type="button" id="d-copy-to-inverse">順変換の座標を逆投影欄へコピー</button>
+    </div>
+    <p class="aside">逆解は順解と独立のKrüger逆級数（β係数、n⁶）で計算し、求めた地点を再び順変換した残差を表示します。楕円体・原点・中央縮尺を共通にした局所投影のみ対応。分岐領域は明示的に拒否します。</p>
     <p class="aside">都市選択では<strong>比較用に中央子午線 λ₀ も都市経度へ移動</strong>します（日本の平面直角座標系などの正式な系設定ではありません）。右の格子は中心子午線付近の局所表示、曲線の単位はm。指示楕円は地表の半径200 kmの<strong>微小円の一次近似</strong>を視認用に拡大したものです（有限半径の厳密投影像ではありません）。広域・極・枝の外挿には使わないでください。</p>
-    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index?id=def-geod13-scales">GEOD13：縮尺とTissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD17/index">GEOD17：Krüger順変換</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD18/index">GEOD18：縮尺・子午線収差</a></p>
+    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index?id=def-geod13-scales">GEOD13：縮尺とTissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD17/index?id=def-geod17-forward-map">GEOD17：Krüger順変換</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD18/index?id=def-geod18-inverse-map">GEOD18：逆変換</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD18/index?id=thm-geod18-convergence-scale">GEOD18：縮尺・子午線収差</a></p>
   </section>
 
   <section class="panel" id="lab-E" aria-label="等角投影と等積投影の比較" hidden>
@@ -155,8 +161,8 @@
       <label>左の投影<select id="e-left"><option value="mercator">Mercator（等角）</option><option value="equalEarth">Equal Earth（等積）</option><option value="mollweide">Mollweide（等積）</option></select></label>
       <label>右の投影<select id="e-right"><option value="equalEarth">Equal Earth（等積）</option><option value="mercator">Mercator（等角）</option><option value="mollweide">Mollweide（等積）</option></select></label>
     </div>
-    <p class="aside">ここで比較するのは<strong>共通の等面積球（半径約6,371,007 m）</strong>上の全球投影です。測地緯度をそのまま球面緯度として入力する教材模型であり、GRS80からの厳密な楕円体投影変換ではありません。3Dは従来の強調楕円体を参照表示します。投影図は共通尺度、指示楕円は微小円の線形像を視認用に拡大しています。</p>
-    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index">GEOD13：Tissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD19/index">GEOD19：等積とJacobian</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD20/index">GEOD20：Equal Earth</a></p>
+    <p class="aside">入力は<strong>GRS80楕円体上の測地緯度</strong>です。等積投影は面積要素に合わせた正積緯度βへ変換してから同じ半径約6,371,007 mの正積球に投影し、Mercatorは楕円体用の等角式で計算します。面積比の分母は楕円体の実際の局所面積。左右の世界図は同一尺度・同一地上微小円の拡大像です。地域Gauss–Krügerとの同じ1 km²パッチの比較は数値表に表示します（局所投影を全球図へ無理に延長しません）。</p>
+    <p><a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD13/index">GEOD13：Tissot指示楕円</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD19/index?id=def-geod19-authalic">GEOD19：正積緯度</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD20/index?id=def-geod20-forward">GEOD20：Equal Earth</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD22/index?id=prop-geod22-area-comparison">GEOD22：同じ局所面積の比較</a></p>
   </section>
 
   <section class="panel" id="lab-F" aria-label="日本の平面直角座標系" hidden>
@@ -169,7 +175,7 @@
       <label>緯度 φ（度）<input id="f-lat" type="number" min="-80" max="80" step="any" value="35.681236"></label>
       <label>経度 λ（度）<input id="f-lon" type="number" min="-180" max="180" step="any" value="139.767125"></label>
     </div>
-    <p class="aside">原点の緯度・経度、<strong>X＝北正・Y＝東正</strong>、中央縮尺 k₀＝0.9999は国土地理院告示の値に固定します。計算はGRS80楕円体のKrüger順変換（n⁶）です。<strong>JGD2011を選ぶと、入力経緯度がその測地系で与えられたものと仮定するだけ</strong>で、JGD2024等へのdatum/epoch変換は行いません。地域名は参考の略称であり、法定適用区域の判定ではありません。</p>
+    <p class="aside">原点の緯度・経度、<strong>X＝北正・Y＝東正</strong>、中央縮尺 k₀＝0.9999は国土地理院告示の値に固定します。計算はGRS80楕円体のKrüger順変換（n⁶）です。<strong>JGD2011を選ぶと、入力経緯度がその測地系で与えられたものと仮定するだけ</strong>で、JGD2024等へのdatum/epoch変換は行いません。告示に基づく適用区域の<strong>文章による案内</strong>は表示しますが、市区町村・島しょ境界のポリゴンを使った所属判定はしていません。中央子午線への近さによる警告とは独立です。</p>
     <p><a href="https://www.gsi.go.jp/LAW/heimencho.html" target="_blank" rel="noopener noreferrer">国土地理院：平面直角座標系（19系の原点・適用区域・軸の定義）</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD21/index">GEOD21：日本の平面直角座標系</a> ・ <a href="../index.html#/textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/GEOD/GEOD22/index">GEOD22：座標検算</a></p>
   </section>
 

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { rad, deg } from './geod-core.mjs';
+import { rad, deg, inverseTransverseMercator } from './geod-core.mjs';
 import { JAPAN_K0, JAPAN_ZONES, japanZone, japanProjectionOptions,
   japanPlanarCoordinates } from './geod-japan.mjs';
 
@@ -23,6 +23,7 @@ test('all 19 GSI origin pairs, zone indexes and JGD2011 identifiers are stable',
     assert.ok(Math.abs(zone.lon0 - lon0) < 1e-12, zone.roman + ' lon');
     assert.equal(zone.lat0, lat0, zone.roman + ' lat');
     assert.equal(zone.epsg2011, 6669 + i);
+    assert.ok(zone.legalAreaNote.length >= 6, 'GSI legal area guidance ' + zone.roman);
     assert.equal(japanProjectionOptions(i + 1).k0, .9999);
     assert.equal(japanZone(i + 1), zone);
   }
@@ -87,6 +88,34 @@ test('two independent GSI-published zone II conversion examples agree at millime
     assert.ok(Math.abs(actual.distortion.meridianScale - sample.scale) < 1e-8,
       'published projected scale');
   }
+});
+
+test('independent official GSI zone IX inverse sample checks forward, inverse, scale and convergence', () => {
+  // GSI's public calculator result for IX: input X=11573.375, Y=22694.980 m;
+  // result φ=36°06′14.57119″, λ=140°05′07.43435″,
+  // true-north angle −0°08′54.71″, scale 0.99990634.
+  // https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/xy2bl.pl?outputType=html&publicX=11573.375&publicY=22694.980&refFrame=2&select=0&zone=9
+  const lat = rad(36 + 6 / 60 + 14.57119 / 3600);
+  const lon = rad(140 + 5 / 60 + 7.43435 / 3600);
+  const forward = japanPlanarCoordinates(lat, lon, 9);
+  assert.ok(Math.abs(forward.X - 11573.375) < .001);
+  assert.ok(Math.abs(forward.Y - 22694.980) < .001);
+  assert.ok(Math.abs(deg(forward.distortion.northBearingFromGrid) +
+    (8 / 60 + 54.71 / 3600)) < 2e-5);
+  assert.ok(Math.abs(forward.distortion.meridianScale - .99990634) < 1e-8);
+  const inverse = inverseTransverseMercator(22694.980, 11573.375,
+    japanProjectionOptions(9));
+  assert.ok(Math.abs(deg(inverse.phi) - deg(lat)) < 1e-8);
+  assert.ok(Math.abs(deg(inverse.lambda) - deg(lon)) < 1e-8);
+  assert.ok(inverse.residual < .001);
+});
+
+test('GSI legal area is not confused with a closeness test on meridians', () => {
+  assert.match(japanZone(9).legalAreaNote, /埼玉/);
+  assert.match(japanZone(14).legalAreaNote, /小笠原|東京都/);
+  const offAreaButNearOrigin = japanPlanarCoordinates(rad(36), rad(139 + 50 / 60), 9);
+  assert.equal(offAreaButNearOrigin.farFromMeridian, false);
+  assert.ok(offAreaButNearOrigin.zone.legalAreaNote, 'origin proximity alone does not prove jurisdiction');
 });
 
 test('datum selection changes only metadata, not silently projected coordinates', () => {

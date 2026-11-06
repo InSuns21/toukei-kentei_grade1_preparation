@@ -379,6 +379,17 @@ try {
     document.querySelector('#d-city').dispatchEvent(new Event('change'))`);
   assert.equal(await evalJS('document.querySelector("#d-lon0").value'), '-74.006');
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  await evalJS(`document.querySelector('#d-copy-to-inverse').click()`);
+  assert.ok(await evalJS(`document.querySelector('#d-inverse-e').value.length > 0 &&
+    document.querySelector('#d-inverse-n').value.length > 0`));
+  assert.ok(await evalJS(`document.querySelector('#geod-results').textContent.includes('往復残差')`));
+  await evalJS(`document.querySelector('#d-inverse-e').value='999999999';
+    document.querySelector('#d-inverse-e').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'true');
+  await evalJS(`document.querySelector('#d-inverse-e').value='';
+    document.querySelector('#d-inverse-n').value='';
+    document.querySelector('#d-inverse-e').dispatchEvent(new Event('input'))`);
+  assert.equal(await evalJS('document.querySelector("#geod-status").dataset.error'), 'false');
   const dLayout = await workspaceLayout('D', '#map');
   assertSideBySide(dLayout);
   assert.equal(dLayout.lab, 'D');
@@ -394,6 +405,8 @@ try {
   assert.ok(await evalJS(`document.querySelectorAll('#e-left-map path').length >= 20 &&
     document.querySelectorAll('#e-right-map path').length >= 20`));
   assert.ok(await evalJS('document.querySelector("#geod-status").textContent.includes("計算済み")'));
+  assert.ok(await evalJS(`document.querySelector('#geod-results').textContent.includes('正積緯度 β') &&
+    document.querySelector('#geod-results').textContent.includes('地上1 km²')`));
   const eLayout = await workspaceLayout('E', '#e-left-map');
   assertSideBySide(eLayout);
   assert.ok(eLayout.visual.top < eLayout.globe.top,
@@ -429,6 +442,8 @@ try {
   assert.ok(fLayout.visual.width <= 861,
     'F regional map should not stretch over a full widescreen: ' + JSON.stringify(fLayout));
   assert.ok(await evalJS('document.querySelector("#geod-results").textContent.includes("EPSG:6677")'));
+  assert.ok(await evalJS(`document.querySelector('#geod-results').textContent.includes('法定適用区域の自動照合') &&
+    document.querySelector('#geod-results').textContent.includes('中央子午線から±3°以内')`));
   assert.equal(await evalJS('document.querySelector("#globe-point-lat").value'), '35.681236');
   await evalJS(`document.querySelector('#f-zone').value='8';
     document.querySelector('#f-zone').dispatchEvent(new Event('input'))`);

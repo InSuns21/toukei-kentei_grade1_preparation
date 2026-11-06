@@ -1,0 +1,63 @@
+chapter: ITD2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - SM3
+forward_references: []
+concepts:
+  - id: information-thermodynamics.reverse-experiment-ratio
+    name: 対応する正逆実験と経路エントロピー生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対応する正逆実験と経路エントロピー生成）]
+    requires: [information-thermodynamics.path-probability, information-thermodynamics.local-detailed-balance]
+
+  - id: information-thermodynamics.integral-fluctuation-theorem
+    name: 積分型ゆらぎ関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（積分型ゆらぎ関係）]
+    requires: [information-thermodynamics.reverse-experiment-ratio, information-thermodynamics.entropy-path-ratio]
+
+  - id: information-thermodynamics.absolute-irreversibility-correction
+    name: 支持欠損による指数平均の補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（支持欠損による指数平均の補正）]
+    requires: [information-thermodynamics.integral-fluctuation-theorem]
+
+  - id: information-thermodynamics.equilibrium-forward-reverse
+    name: 両端平衡の正逆プロトコル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（両端平衡の正逆プロトコル）]
+    requires: [information-thermodynamics.reverse-experiment-ratio, statistical-mechanics.canonical-ensemble, statistical-mechanics.canonical-helmholtz-energy]
+
+  - id: information-thermodynamics.work-path-ratio
+    name: 両端平衡での仕事の経路比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（両端平衡での仕事の経路比）]
+    requires: [information-thermodynamics.equilibrium-forward-reverse, information-thermodynamics.path-first-law]
+
+  - id: information-thermodynamics.jarzynski-equality
+    name: Jarzynski等式と平均仕事の下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Jarzynski等式と平均仕事の下限）]
+    requires: [information-thermodynamics.integral-fluctuation-theorem, information-thermodynamics.work-path-ratio]
+
+  - id: information-thermodynamics.work-distributions
+    name: 正逆の仕事分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正逆の仕事分布）]
+    requires: [information-thermodynamics.equilibrium-forward-reverse, information-thermodynamics.path-work-heat]
+
+  - id: information-thermodynamics.crooks-work-relation
+    name: Crooksの仕事分布関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Crooksの仕事分布関係）]
+    requires: [information-thermodynamics.work-distributions, information-thermodynamics.work-path-ratio]
