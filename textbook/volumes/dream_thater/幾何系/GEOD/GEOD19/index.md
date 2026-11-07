@@ -485,6 +485,14 @@ $$
 | 正軸 Mercator | 正軸円筒・等角 | 球では両方向の縮尺が $\sec\beta$ | 航法上の等角性が便利。高緯度の面積が拡大する |
 | Robinson | 擬円筒・折衷図法 | 等積条件を恒等的には満たさない | 見た目のバランスを選ぶ世界図。面積統計の比較に注意 |
 
+**同じ領域でも形が異なる例。** 正積球半径を $R_q=1$ とし、中央子午線を $\lambda_0=0$ とします。正積緯度 $0\le\beta\le60^\circ$、経度差 $-60^\circ\le\lambda-\lambda_0\le60^\circ$ の領域 $S$ を、[Lambert 正積円筒](#def-geod19-lambert)と[Mollweide](#def-geod19-mollweide)で写します。以下の二つの図は**同じ地図単位の縮尺**で、いずれも赤道を水平の中央線として表示しています。前者では長方形、後者では高緯度側の横幅が狭い曲線四辺形になります。異なる平面写像の輪郭を重ねてしまうと対応が読みにくいため、同一の縮尺のまま左右に分けて示しました。
+
+![半径1の正積球上の同じ領域Sを、Lambert正積円筒の長方形世界図とMollweideの楕円世界図へ写した比較。Sの形は異なるが面積は同じ](assets/equal-area-shape-comparison.svg)
+
+[図を拡大して確認する](assets/equal-area-shape-comparison.svg)
+
+球面上の面積は $\Delta\lambda(\sin60^\circ-\sin0^\circ)=(2\pi/3)(\sqrt3/2)=\pi\sqrt3/3\simeq1.8138$ です。Lambert の像は幅 $2\pi/3$、高さ $\sqrt3/2$ なので同じ面積となり、Mollweide の像も[**Mollweide 補助角の一意性と等積性**](#thm-geod19-mollweide-area)により同じ値になります。これは**面積の一致**であって、緯線の長さや領域の形の一致ではありません。
+
 球面 Mercator の北座標を $R_q\log\tan(\pi/4+\beta/2)$、東座標を $R_q(\lambda-\lambda_0)$ とすると、微分により
 
 $$
