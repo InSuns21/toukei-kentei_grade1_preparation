@@ -1,0 +1,83 @@
+chapter: SLT2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RKHS3
+  - ML1-18
+  - SLT2-06
+
+concepts:
+  - id: learning.slt2-kernel-interpolation
+    name: kernel補間可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（kernel補間可能性と最小ノルム補間）"]
+    requires:
+      - rkhs.sample-subspace
+      - rkhs.gram-finite-dimensional-reduction
+
+  - id: learning.slt2-kernel-minimum-norm-interpolation
+    name: 最小ノルム補間関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（kernel補間可能性と最小ノルム補間）"]
+    requires:
+      - learning.slt2-kernel-interpolation
+      - rkhs.sample-subspace
+
+  - id: learning.slt2-kernel-minimum-norm
+    name: Gram行列による補間判定と最小ノルム解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gram行列による補間判定と最小ノルム解）"]
+    requires:
+      - learning.slt2-kernel-interpolation
+      - learning.slt2-kernel-minimum-norm-interpolation
+      - rkhs.invisible-orthogonal-component
+
+  - id: learning.slt2-kernel-effective-dimension
+    name: kernelの有効次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（kernelの有効次元）"]
+    requires:
+      - rkhs.kernel-ridge-smoother-matrix
+      - learning.slt2-ridge-effective-dimension
+
+  - id: learning.slt2-kernel-effective-spectrum
+    name: kernel ridgeの有効次元と重複固有値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（kernel ridgeの有効次元と重複固有値）"]
+    requires:
+      - learning.slt2-kernel-effective-dimension
+      - rkhs.kernel-ridge-spectral-shrinkage
+
+  - id: learning.slt2-kernel-gradient-flow
+    name: RKHSの核勾配流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RKHSの核勾配流）"]
+    requires:
+      - rkhs.reproducing-property
+      - learning.least-squares-gradient-flow
+
+  - id: learning.slt2-kernel-flow-spectrum
+    name: 核勾配流のスペクトル解とridge比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（核勾配流のスペクトル解とridge比較）"]
+    requires:
+      - learning.slt2-kernel-gradient-flow
+      - learning.slt2-kernel-effective-spectrum
+      - learning.slt2-ridge-flow-comparison
+
+  - id: learning.slt2-kernel-fixed-risk
+    name: 固定設計のkernel偏り分散分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定設計のkernel偏り分散分解）"]
+    requires:
+      - learning.slt2-kernel-effective-spectrum
+      - learning.slt2-kernel-flow-spectrum
+      - learning.slt2-modewise-prediction-risk

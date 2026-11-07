@@ -1,0 +1,43 @@
+id: "SLT2-07"
+title: "kernel補間と有効次元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RKHS3
+  - ML1-18
+  - SLT2-06
+official_scope: []
+learning_objectives:
+  - 有限標本のGram行列の像と核を使って補間可能性を判定し、RKHS最小ノルム補間関数を構成できる
+  - 特異なGram行列で係数の非一意性と関数・訓練点予測の一意性を分けて証明できる
+  - kernel ridgeの固有値から有効次元と予測雑音分散を計算し、重複固有値と零固有値を扱える
+  - RKHS勾配流の有限時刻解をGram行列の固有方向ごとに導き、固定kernelのridgeとの相違を証明できる
+  - 固定設計・事前固定した正則化係数または時刻における偏り分散を導き、標本外汎化との違いを説明できる
+definitions:
+  - { id: SLT2-07-DEF-01, name: kernel補間可能性と最小ノルム補間 }
+  - { id: SLT2-07-DEF-02, name: kernelの有効次元 }
+  - { id: SLT2-07-DEF-03, name: RKHSの核勾配流 }
+theorems:
+  - { id: SLT2-07-THM-01, name: Gram行列による補間判定と最小ノルム解 }
+  - { id: SLT2-07-THM-02, name: kernel ridgeの有効次元と重複固有値 }
+  - { id: SLT2-07-THM-03, name: 核勾配流のスペクトル解とridge比較 }
+  - { id: SLT2-07-THM-04, name: 固定設計のkernel偏り分散分解 }
+canonical_examples:
+  - 対角Gram行列で補間不能な零固有方向と最小ノルム予測を分離する
+  - 重複固有値に対する直交基底の非一意性と射影の不変性を確認する
+  - 同一Gram行列のkernel ridgeと核勾配流で有効次元と予測リスクを比較する
+problem_patterns:
+  - SLT2-07-A01
+  - SLT2-07-A02
+  - SLT2-07-A03
+  - SLT2-07-A04
+  - SLT2-07-A05
+  - SLT2-07-B01
+  - SLT2-07-B02
+  - SLT2-07-B03
+  - SLT2-07-B04
+  - SLT2-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

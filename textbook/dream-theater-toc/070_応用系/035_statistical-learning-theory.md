@@ -26,3 +26,4 @@
 22. [SLT2-04 double descentの成立条件](textbook/volumes/dream_thater/応用系/SLT/SLT2-04/index.md)
 23. [SLT2-05 高次元ランダム行列評価](textbook/volumes/dream_thater/応用系/SLT/SLT2-05/index.md)
 24. [SLT2-06 勾配流とearly stopping](textbook/volumes/dream_thater/応用系/SLT/SLT2-06/index.md)
+25. [SLT2-07 kernel補間と有効次元](textbook/volumes/dream_thater/応用系/SLT/SLT2-07/index.md)
