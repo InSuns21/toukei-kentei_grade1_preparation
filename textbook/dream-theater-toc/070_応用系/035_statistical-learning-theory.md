@@ -21,3 +21,4 @@
 18. [SLT1-18 汎化保証の適用条件と破綻例](textbook/volumes/dream_thater/応用系/SLT/SLT1-18/index.md)
 
 19. [SLT2-01 過剰パラメータと線形補間](textbook/volumes/dream_thater/応用系/SLT/SLT2-01/index.md)
+20. [SLT2-02 最小ノルム補間と勾配流](textbook/volumes/dream_thater/応用系/SLT/SLT2-02/index.md)

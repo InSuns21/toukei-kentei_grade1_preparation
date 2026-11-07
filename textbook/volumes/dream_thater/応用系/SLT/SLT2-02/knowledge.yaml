@@ -1,0 +1,44 @@
+chapter: SLT2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-01
+  - ML1-04
+
+concepts:
+  - id: learning.slt2-svd-interpolant-formula
+    name: 最小ノルム解のSVD表示と行フルランク公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最小ノルム解のSVD表示と行フルランク公式）"]
+    requires:
+      - learning.minimum-norm-least-squares
+      - learning.full-row-rank-interpolation
+      - linear.singular-value-decomposition
+
+  - id: learning.least-squares-gradient-flow
+    name: 最小二乗勾配流と初期値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小二乗勾配流と初期値）"]
+    requires:
+      - learning.least-squares-objective
+      - learning.design-matrix
+
+  - id: learning.slt2-gradient-flow-spectral-limit
+    name: 勾配流の特異モード解と極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（勾配流の特異モード解と極限）"]
+    requires:
+      - learning.least-squares-gradient-flow
+      - learning.slt2-svd-interpolant-formula
+
+  - id: learning.slt2-initial-null-component
+    name: 初期値の核成分の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（初期値の核成分の保存）"]
+    requires:
+      - learning.slt2-gradient-flow-spectral-limit
+      - learning.row-null-prediction-identifiability
