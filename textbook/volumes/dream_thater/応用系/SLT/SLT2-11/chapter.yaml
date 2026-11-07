@@ -1,0 +1,45 @@
+id: "SLT2-11"
+title: "NNGPとNTKの違い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-10
+  - SLT2-09
+  - ML2-12
+  - F0-00P6
+official_scope: []
+learning_objectives:
+  - 有限入力の初期NNGP共分散とNTKを別々に導き、両者の正半定値性と差を検算できる
+  - 初期出力ベクトルのGaussian極限を有限次元の特性関数から説明できる
+  - 層ごとのNNGP共分散再帰とNTK再帰の異なる寄与を読み解ける
+  - 固定した有限時間での学習後の関数分布の平均と共分散を導ける
+  - 学習後のGaussian分布とGP回帰の事後分布を条件・式・反例で区別できる
+definitions:
+  - { id: SLT2-11-DEF-01, name: 初期NNGP共分散 }
+  - { id: SLT2-11-DEF-02, name: 初期NNGPとNTKの対照 }
+  - { id: SLT2-11-DEF-03, name: 層ごとのNNGP・NTK再帰 }
+theorems:
+  - { id: SLT2-11-THM-01, name: 初期出力の有限次元Gaussian極限 }
+  - { id: SLT2-11-THM-02, name: 二層網のNNGPとNTKの差 }
+  - { id: SLT2-11-THM-03, name: 有限時間の学習後Gaussian極限 }
+  - { id: SLT2-11-PROP-01, name: 訓練点と評価点での学習後共分散 }
+canonical_examples:
+  - tanh二点模型でNNGP共分散とNTK Gramの固有値を別計算する
+  - 定数活性化で二つの核が一致するが退化することを示す
+  - 二点の初期GPが一方向に退化していてもNTKは正定値になり得る
+  - 一点のGaussian事前分布に雑音を加えた事後分布と学習後分布を比較する
+problem_patterns:
+  - SLT2-11-A01
+  - SLT2-11-A02
+  - SLT2-11-A03
+  - SLT2-11-A04
+  - SLT2-11-A05
+  - SLT2-11-B01
+  - SLT2-11-B02
+  - SLT2-11-B03
+  - SLT2-11-B04
+  - SLT2-11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }
