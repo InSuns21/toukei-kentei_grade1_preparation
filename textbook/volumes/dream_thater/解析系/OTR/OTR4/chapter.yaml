@@ -1,0 +1,44 @@
+id: "OTR4"
+title: "離散輸送はどんな最適化問題か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR3
+  - OPT10
+  - DOPT3
+official_scope: []
+learning_objectives:
+  - 離散結合を非負輸送行列の行和・列和制約へ翻訳し、有限次元線形計画として定式化できる
+  - 輸送多面体の非空性・コンパクト性・制約行列の階数と、正の周辺質量のときの次元を証明できる
+  - 2×2輸送を一変数区間へ落とし、費用差の符号から全最適解と一意性を判定できる
+  - 支持グラフの閉路と交互増減を使い、輸送多面体の極点を特徴づけられる
+  - 最適輸送には疎な極点解が存在することを閉路消去によって証明できる
+  - 3×3の主問題を手計算し、退化した極点・最適解の非一意性を混同せず説明できる
+definitions:
+  - { id: OTR4-DEF-01, name: 輸送多面体 }
+  - { id: OTR4-DEF-02, name: 有限離散輸送の主問題 }
+  - { id: OTR4-DEF-03, name: 輸送計画の支持グラフ }
+theorems:
+  - { id: OTR4-PROP-01, name: 輸送多面体の非空性・コンパクト性・最適解の存在 }
+  - { id: OTR4-PROP-02, name: 輸送制約の階数と次元 }
+  - { id: OTR4-LEM-01, name: 2×2輸送の一変数表示 }
+  - { id: OTR4-THM-01, name: 輸送多面体の極点と閉路の不在 }
+  - { id: OTR4-THM-02, name: 疎な最適輸送計画の存在 }
+canonical_examples:
+  - 2×2の許容区間と費用差による一意な最適解
+  - 3×3の行・列和と非負費用による下界証明
+  - 正の周辺質量でも退化する一意最適解
+  - 平坦な目的関数が無数の最適解を生む例
+problem_patterns:
+  - OTR4-A01
+  - OTR4-A02
+  - OTR4-A03
+  - OTR4-A04
+  - OTR4-B01
+  - OTR4-B02
+  - OTR4-B03
+  - OTR4-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.0 }
