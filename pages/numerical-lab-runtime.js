@@ -520,7 +520,6 @@
     const format = (value) => Number(value.toPrecision(4)).toString();
 
     const figure = document.createElement("figure");
-    figure.className = "numerical-file-plot";
     figure.className = "numerical-file-plot numerical-file-series";
     const caption = document.createElement("figcaption");
     caption.textContent = specification.title;
