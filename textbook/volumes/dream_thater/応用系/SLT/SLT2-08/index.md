@@ -385,7 +385,7 @@ K_1-K_0
 \end{aligned}
 $$
 
-[作用素ノルムの定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)より、単位ベクトル $v$ について $\|ABv\|_2\le\|A\|_{\mathrm{op}}\|Bv\|_2\le\|A\|_{\mathrm{op}}\|B\|_{\mathrm{op}}$ なので劣乗法性が従う。また[特異値による作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-operator-norm-largest-singular)から $\|E^{\mathsf T}\|_{\mathrm{op}}=\|E\|_{\mathrm{op}}$ である。これらを用いると
+[2-作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)の定義より、単位ベクトル $v$ について $\|ABv\|_2\le\|A\|_{\mathrm{op}}\|Bv\|_2\le\|A\|_{\mathrm{op}}\|B\|_{\mathrm{op}}$ なので劣乗法性が従う。また[2-作用素ノルムと最大特異値](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-operator-norm-largest-singular)から $\|E^{\mathsf T}\|_{\mathrm{op}}=\|E\|_{\mathrm{op}}$ である。これらを用いると
 
 $$
 \|K_1-K_0\|_{\mathrm{op}}
