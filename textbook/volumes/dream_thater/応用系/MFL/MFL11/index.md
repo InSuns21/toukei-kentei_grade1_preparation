@@ -16,7 +16,14 @@ $$
 
 例えば半径内の辺に重み1を置く方法、または辺のある二点に $\exp(-\|z_i-z_j\|^2/\varepsilon)$ を置く方法がある。ここで $\varepsilon>0$ は距離二乗の尺度である。近傍を対称化しない有向行列には、以下の実対称行列の議論をそのまま適用できない。
 
-[SGT1の重み付き次数](../../../計算系/SGT/SGT1/index.md#def-sgt1-degree-volume)と[組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)に従い、$d_i=\sum_j w_{ij}$、$W=(w_{ij})$、$D_g=\operatorname{diag}(d_1,\ldots,d_n)$、$L=D_g-W$ と置く。ここでは周囲空間の次元 $D$ と次数行列 $D_g$ を区別する。$L$ は $n\times n$ 対称行列であり、$L\boldsymbol1=0$ である。
+[SGT1の重み付き次数](../../../計算系/SGT/SGT1/index.md#def-sgt1-degree-volume)と[組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)を使う。各頂点の次数と、そこから作る重み行列・次数行列・Laplacian は次のとおりである。
+
+$$
+d_i=\sum_j w_{ij},\quad W=(w_{ij}),\quad
+D_g=\operatorname{diag}(d_1,\ldots,d_n),\quad L=D_g-W.
+$$
+
+周囲空間の次元 $D$ と次数行列 $D_g$ は異なる。重みの対称性から $L$ は $n\times n$ の実対称行列であり、各行和が0なので $L\boldsymbol1=0$ である。
 
 ## 2. グラフの滑らかさを座標全体へ拡張する
 
