@@ -52,7 +52,7 @@ chapters:
     title: "Laplacian Eigenmaps"
   - id: MFL12
     path: textbook/volumes/dream_thater/応用系/MFL/MFL12
-    status: planned
+    status: completed
     title: "Laplace–Beltramiへの橋"
   - id: MFL13
     path: textbook/volumes/dream_thater/応用系/MFL/MFL13

@@ -1,0 +1,44 @@
+id: "MFL12"
+title: "Laplace–Beltramiへの橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL11
+  - GA1
+  - GA4
+official_scope: []
+learning_objectives:
+  - graph Dirichletエネルギーと多様体のGreenエネルギーの対応・相違を説明できる
+  - 半径付き円周の計量・体積・Laplace–Beltrami作用素・固有値の尺度を再計算できる
+  - 半径付き球面の計量・体積と高さ関数の固有値を極を含めて確認できる
+  - Green公式の境界項とRayleigh商の連結性・境界なし仮定を検証できる
+  - 等間隔円周の剛性・質量形式、周期差分固有値、次数正規化との尺度差を導出できる
+  - C4周期関数の点ごとの二階差分誤差をTaylor剰余から評価できる
+  - 固定関数の作用素一致性とランダム点群のスペクトル収束の論理的隔たりを説明できる
+definitions:
+  - { id: MFL12-DEF-01, name: 等間隔円周の質量形式・剛性形式 }
+theorems:
+  - { id: MFL12-PROP-01, name: 半径付き円周の計量・エネルギー・スペクトル }
+  - { id: MFL12-PROP-02, name: 半径付き球面の体積・高さ固有関数 }
+  - { id: MFL12-PROP-03, name: 周期差分の固有値と正規化の係数 }
+  - { id: MFL12-PROP-04, name: 周期二階差分の点ごとの誤差 }
+canonical_examples:
+  - 半径R円周の角度と弧長・周波数
+  - 半径R球面の高さ固有関数と極座標の退化
+  - 区間におけるGreen境界項の反例
+  - 四点周期格子の質量・剛性形式
+  - 周期グラフの無次元固有値と長さ尺度を持つ固有値
+problem_patterns:
+  - MFL12-A01
+  - MFL12-A02
+  - MFL12-A03
+  - MFL12-A04
+  - MFL12-B01
+  - MFL12-B02
+  - MFL12-B03
+  - MFL12-B04
+  - MFL12-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 1.5 }

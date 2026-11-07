@@ -1,0 +1,43 @@
+chapter: MFL12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL11
+  - GA1
+  - GA4
+
+concepts:
+  - id: manifold-learning.circle-metric-energy-spectrum
+    name: 半径付き円周の計量・エネルギー・スペクトル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半径付き円周の計量・エネルギー・スペクトル）"]
+    requires: [geometry.laplace-beltrami, geometric-analysis.green-first]
+
+  - id: manifold-learning.sphere-height-eigenfunction
+    name: 半径付き球面の体積・高さ固有関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半径付き球面の体積・高さ固有関数）"]
+    requires: [geometry.laplace-beltrami, geometric-analysis.laplacian-spectral]
+
+  - id: manifold-learning.circle-mass-stiffness
+    name: 等間隔円周の質量形式・剛性形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等間隔円周の質量形式・剛性形式）"]
+    requires: [manifold-learning.laplacian-eigenmaps-variational, geometric-analysis.dirichlet-energy]
+
+  - id: manifold-learning.cycle-spectrum-scaling
+    name: 周期差分の固有値と正規化の係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期差分の固有値と正規化の係数）"]
+    requires: [manifold-learning.circle-mass-stiffness, manifold-learning.laplacian-eigenmaps-spectral]
+
+  - id: manifold-learning.cycle-pointwise-consistency
+    name: 周期二階差分の点ごとの誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期二階差分の点ごとの誤差）"]
+    requires: [manifold-learning.circle-mass-stiffness, manifold-learning.cycle-spectrum-scaling]
