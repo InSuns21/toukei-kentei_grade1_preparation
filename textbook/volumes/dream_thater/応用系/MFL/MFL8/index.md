@@ -4,7 +4,7 @@
 
 Classical multidimensional scaling（古典的多次元尺度構成法、以下 Classical MDS）は、距離の二乗を**二重に中心化**して内積の行列へ変え、固有分解から座標を作る方法である。点数を $n$、埋め込み後の次元を $q$ とする。到達点は次の三つである。
 
-1. 与えた距離を完全に実現できるかは、復元した内積行列が正半定値かどうかで決まる。
+1. 与えた距離を完全に実現できるかは、復元した内積行列が[正半定値](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)かどうかで決まる。
 2. 完全実現できる場合の最小次元は、その内積行列の階数で決まる。
 3. 次元を小さくする場合は内積行列の誤差を最小化する。ただし**元の距離の誤差を直接最小化しているわけではない**。
 
@@ -12,7 +12,7 @@ Classical multidimensional scaling（古典的多次元尺度構成法、以下 
 
 三点 $x_1,x_2,x_3$ を平面上に置き、その三辺の長さだけを記録したとする。平行移動や回転で座標値を変えても距離は同じだ。したがって距離から絶対的な原点や向きを一意に決めることはできない。そこで平均を原点にする。[ML1-19の中心化標本行列](../../../応用系/ML/ML1-19/index.md#def-ml1-19-centered-data)と同じ操作である。
 
-$n\ge2$、点番号 $1,\ldots,n$ に対して対称な非負数 $d_{ij}=d_{ji}\ge0$、$d_{ii}=0$ を与える。まだ三角不等式は仮定しない。$\Delta=(d_{ij}^2)_{i,j=1}^n$ は**距離の二乗の候補**を並べた行列である。$\boldsymbol1=(1,\ldots,1)^{\mathsf T}\in\mathbb R^n$ を用い、平均を引く行列を
+$n\ge2$、点番号 $1,\ldots,n$ に対して対称な非負数 $d_{ij}=d_{ji}\ge0$、$d_{ii}=0$ を与える。まだ三角不等式は仮定しない。$\Delta=(d_{ij}^2)_{i,j=1}^n$ は**距離の二乗の候補**を並べた行列である。三角不等式をまだ要求しないので、$D=(d_{ij})$ を距離行列と断定せず、二点の非類似度を並べた行列と呼ぶ。$\boldsymbol1=(1,\ldots,1)^{\mathsf T}\in\mathbb R^n$ を用い、平均を引く行列を
 
 $$
 J=I_n-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T}
@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl8-double-centered-gram -->
-**定義の確認**。数直線上の二点 $0,a$（$a>0$）なら
+**定義の確認**。数直線上の二点 $0,a$（$a>0$）の非類似度は $d_{12}=d_{21}=a$、$d_{11}=d_{22}=0$ だから、対称・対角零・非負の全条件を満たす。距離の二乗を並べると
 
 $$
 \Delta=\begin{pmatrix}0&a^2\\a^2&0\end{pmatrix},
@@ -42,10 +42,29 @@ $$
 \quad B=\frac{a^2}{4}\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
 $$
 
-実際に $J\Delta J$ を掛けると $-a^2J$ になる。$B\boldsymbol1=0$ で、任意の $u=(u_1,u_2)^{\mathsf T}$ について $u^{\mathsf T}Bu=a^2(u_1-u_2)^2/4\ge0$。この例では中心化座標 $(-a/2,a/2)$ の内積を並べた行列そのものである。
+実際に $J\Delta J=-a^2J$ で、$B\boldsymbol1=0$。任意の $u=(u_1,u_2)^{\mathsf T}$ について $u^{\mathsf T}Bu=a^2(u_1-u_2)^2/4\ge0$ だから正半定値でもある。元の点を中心化した列 $Y=(-a/2,a/2)^{\mathsf T}$ の内積表は
+
+$$
+YY^{\mathsf T}
+=\frac{a^2}{4}\begin{pmatrix}1&-1\\-1&1\end{pmatrix}=B.
+$$
+
+したがって二重中心化が内積表につながることも、この二点で直接確かめられる。
 <!-- definition-example-end -->
 
-行列の各成分も検算できる。$r_i=n^{-1}\sum_kd_{ik}^2$ を第 $i$ 行の平均、$m=n^{-2}\sum_{k,\ell}d_{k\ell}^2$ を全成分の平均とすると、
+行列の各成分も検算できる。$r_i=n^{-1}\sum_kd_{ik}^2$ を第 $i$ 行の平均、$m=n^{-2}\sum_{k,\ell}d_{k\ell}^2$ を全成分の平均とする。$J=I_n-\boldsymbol1\boldsymbol1^{\mathsf T}/n$ を両側から掛けて成分を展開すると、対称性により列 $j$ の平均も $r_j$ なので
+
+$$
+(J\Delta J)_{ij}
+=\Delta_{ij}-\frac1n\sum_k\Delta_{ik}
+-\frac1n\sum_k\Delta_{kj}
++\frac1{n^2}\sum_{k,\ell}\Delta_{k\ell}
+=d_{ij}^2-r_i-r_j+m.
+$$
+
+従って次の公式を得る。
+
+<a id="eq-mfl8-row-mean"></a>
 
 $$
 B_{ij}=-\frac12(d_{ij}^2-r_i-r_j+m),\qquad
@@ -62,7 +81,7 @@ Euclid 空間の点 $x_i\in\mathbb R^p$ が実在するとき、平均 $\bar x=n
 
 <!-- formal-statement-start -->
 > **命題（中心化Euclid点群の二重中心化公式）**
-> $n\ge2$、$x_1,\ldots,x_n\in\mathbb R^p$（$p\ge1$）から $d_{ij}=\|x_i-x_j\|$ と $B=-J\Delta J/2$ を作る。$Y$ の第 $i$ 行を $(x_i-\bar x)^{\mathsf T}$ とすると
+> $n\ge2$、$x_1,\ldots,x_n\in\mathbb R^p$（整数 $p\ge0$）から $d_{ij}=\|x_i-x_j\|$ と $B=-J\Delta J/2$ を作る。$Y$ の第 $i$ 行を $(x_i-\bar x)^{\mathsf T}$ とすると
 
 $$
 B=YY^{\mathsf T}.
@@ -77,6 +96,8 @@ $$
 
 <!-- proof-start -->
 ### 証明
+
+$p=0$ なら $\mathbb R^0$ の点は一つだけであり、$\Delta=B=0$、$Y$ は $n\times0$ 行列だから $YY^{\mathsf T}=0$ で成立する。以下は $p\ge1$ とする。
 
 $X$ の第 $i$ 行を $x_i^{\mathsf T}$ と置き、$K=XX^{\mathsf T}$、$s_i=\|x_i\|^2$ とする。内積展開から
 
@@ -97,7 +118,7 @@ J\boldsymbol1s^{\mathsf T}J-2JKJ)\\
 \end{aligned}
 $$
 
-$JX$ の第 $i$ 行は $x_i^{\mathsf T}-n^{-1}\sum_jx_j^{\mathsf T}$ だから確かに $Y$ である。$B=YY^{\mathsf T}$ は正半定値、$Y^{\mathsf T}\boldsymbol1=0$ から $B\boldsymbol1=0$。$Y$ の列は $\boldsymbol1^\perp$ に属するので $\operatorname{rank}B=\operatorname{rank}Y\le\min\{p,n-1\}$。$\square$
+$JX$ の第 $i$ 行は $x_i^{\mathsf T}-n^{-1}\sum_jx_j^{\mathsf T}$ だから確かに $Y$ である。$B=YY^{\mathsf T}$ は正半定値、$Y^{\mathsf T}\boldsymbol1=0$ から $B\boldsymbol1=0$。$u^{\mathsf T}Bu=\|Y^{\mathsf T}u\|^2$ から $\ker B=\ker Y^{\mathsf T}$、従って階数・零化次数定理より $\operatorname{rank}B=\operatorname{rank}Y$。$Y$ の列は $\boldsymbol1^\perp$ に属するので $\operatorname{rank}B\le\min\{p,n-1\}$。$\square$
 <!-- proof-end -->
 
 距離が持つのは点群の相対配置の情報である。座標の各列を中心化した後の Gram 行列までは、距離から一意に得られる。
@@ -120,7 +141,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl8-distance-realization -->
-**定義の確認**。三点間の距離 $d_{12}=1,d_{13}=1,d_{23}=\sqrt2$（対角は零、対称に補完）なら、$x_1=(0,0),x_2=(1,0),x_3=(0,1)$ で三組とも確認できる。一方、一直線上では $1^2+1^2=(\sqrt2)^2$ となる直角三角形を実現できない。より直接には、最長距離が他二距離の和と等しくなければ三点は一直線上にない。したがって最小実現次元は2である。次の固有値判定でこの結論を行列から再確認する。
+**定義の確認**。三点間の距離 $d_{12}=1,d_{13}=1,d_{23}=\sqrt2$（対角は零、対称に補完）なら、$x_1=(0,0),x_2=(1,0),x_3=(0,1)$ と置くと
+
+$$
+\|x_1-x_2\|=1,\qquad
+\|x_1-x_3\|=1,\qquad
+\|x_2-x_3\|=\sqrt{1^2+1^2}=\sqrt2.
+$$
+
+よって全三組の距離が一致し、二次元で実現できる。一方、三点が一直線上なら、必ず最長距離が他の二距離の和に等しい。ここでは $\sqrt2\ne1+1$ なので一次元では実現できず、距離が正だから零次元でも実現できない。最小実現次元は2である。次の固有値判定で行列から再確認する。なお全 $d_{ij}=0$ の場合だけは全点を $\mathbb R^0$ の一点に置け、最小実現次元は0となる。
 <!-- definition-example-end -->
 
 <a id="thm-mfl8-euclidean-criterion"></a>
@@ -146,7 +175,7 @@ $$
 
 実現可能なら[中心化Euclid点群の二重中心化公式](#prop-mfl8-centering-identity)で $B=YY^{\mathsf T}$、従って正半定値である。
 
-逆に $B$ が正半定値なら、実対称行列のスペクトル定理で正の固有値を $r$ 個取り、指定した $Y$ により $B=YY^{\mathsf T}$ と書ける。$B\boldsymbol1=0$ だから $\|Y^{\mathsf T}\boldsymbol1\|^2=\boldsymbol1^{\mathsf T}B\boldsymbol1=0$、すなわち行ベクトルの平均は零。
+逆に $B$ が正半定値なら、[正半定値の固有値判定](../../../基礎科目/F0/F0-00F1/index.md#thm-f0-00f1-psd-eigenvalue-characterization)で全固有値は非負である。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)を $B$ に適用して正の固有値を $r$ 個取り、指定した $Y$ により $B=YY^{\mathsf T}$ と書ける。$B\boldsymbol1=0$ だから $\|Y^{\mathsf T}\boldsymbol1\|^2=\boldsymbol1^{\mathsf T}B\boldsymbol1=0$、すなわち行ベクトルの平均は零。
 
 第 $i$ 行を $y_i^{\mathsf T}$ とすると
 
@@ -154,7 +183,7 @@ $$
 \|y_i-y_j\|^2=B_{ii}+B_{jj}-2B_{ij}.
 $$
 
-第1節の行平均公式を代入し、$d_{ii}=0$ を使うと
+[第1節の行平均公式](#eq-mfl8-row-mean)を代入し、$d_{ii}=0$ を使うと
 
 $$
 \begin{aligned}
@@ -186,7 +215,18 @@ $$
 B=\begin{pmatrix}19/9&5/18&-43/18\\5/18&-5/9&5/18\\-43/18&5/18&19/9\end{pmatrix}
 $$
 
-で、固有値は $9/2,0,-5/6$。負固有値は丸め誤差ではなく、三点の距離がEuclid空間に同時実現できないことを示す。三角不等式に違反しない別の非Euclid距離でも負固有値が現れ得るので、三角不等式のチェックだけで本定理を置き換えられない。
+である。実際に
+
+$$
+B\begin{pmatrix}1\\0\\-1\end{pmatrix}
+=\frac92\begin{pmatrix}1\\0\\-1\end{pmatrix},
+\qquad
+B\begin{pmatrix}1\\-2\\1\end{pmatrix}
+=-\frac56\begin{pmatrix}1\\-2\\1\end{pmatrix},
+\qquad B\boldsymbol1=0.
+$$
+
+三本の固有ベクトルは互いに直交し独立なので、固有値は $9/2,0,-5/6$ で尽きる。負固有値は丸め誤差ではなく、三点の距離がEuclid空間に同時実現できないことを示す。三角不等式に違反しない別の非Euclid距離でも負固有値が現れ得るので、三角不等式のチェックだけで本定理を置き換えられない。
 
 ## 4. 復元できる「形」と決められない「向き」
 
@@ -241,7 +281,7 @@ $$
 
 入力のGram候補 $B$ が正半定値でも、二次元や三次元だけを画面に描きたいことがある。負固有値がある入力なら、そもそも全距離をEuclid空間に実現できない。そこで **正半定値かつ階数 $q$ 以下の行列**で $B$ を近似する。
 
-[ML1-19の最良低ランク近似](../../../応用系/ML/ML1-19/index.md#thm-ml1-19-eckart-young)では中心化データの Frobenius 誤差を考えた。ここでは負固有値もあり得る $B$ を、座標から作れるGram行列 $YY^{\mathsf T}$ に近づける。$M=(m_{ij})$ の Frobenius ノルムは $\|M\|_F^2=\sum_{i,j}m_{ij}^2$ である。
+[ML1-19の最良低ランク近似](../../../応用系/ML/ML1-19/index.md#thm-ml1-19-eckart-young)では中心化データの Frobenius 誤差を考えた。ここでは負固有値もあり得る $B$ を、座標から作れるGram行列 $YY^{\mathsf T}$ に近づける。$M=(m_{ij})$ の [Frobenius ノルム](../../../応用系/ML/ML1-19/index.md#def-ml1-19-frobenius-error)は $\|M\|_F^2=\sum_{i,j}m_{ij}^2$ である。
 
 <a id="def-mfl8-classical-mds"></a>
 
@@ -390,7 +430,7 @@ $$
 ### MFL8-A03 直角三角形の行平均
 
 - Level: A
-- 問題: $D$ の非対角要素を $d_{12}=d_{13}=1,d_{23}=\sqrt2$ とする。$r_i$、$m$ を求め、$B_{12}$ と $B_{23}$ を[行平均公式](#def-mfl8-double-centered-gram)から計算せよ。
+- 問題: $D$ の非対角要素を $d_{12}=d_{13}=1,d_{23}=\sqrt2$ とする。$r_i$、$m$ を求め、$B_{12}$ と $B_{23}$ を[行平均公式](#eq-mfl8-row-mean)から計算せよ。
 
 **詳細解答**。$\Delta$ の行和は $(2,3,3)$ なので $r=(2/3,1,1)$、全和8だから $m=8/9$。従って
 
@@ -478,7 +518,7 @@ q=3:\quad&18-4^2-1^2-0^2=1.
 \end{aligned}
 $$
 
-$q=2$ で二つの正固有方向をすべて保持した後、零方向を追加しても改善しない。さらに負固有値 $-1$ が存在するので $B$ は正半定値でなく、入力 $D$ が定理の対称・対角零・非負条件を満たす場合、[Euclid実現可能性の判定](#thm-mfl8-euclidean-criterion)により実現不能である。$q$ を3や4にしても負固有値を非負のGramとして再現できない。
+$q=2$ で二つの正固有方向をすべて保持した後、零方向を追加しても改善しない。さらに負固有値 $-1$ が存在するので $B$ は正半定値でなく、入力 $D$ が定理の対称・対角零・非負条件を満たす場合、[Euclid実現可能性の判定](#thm-mfl8-euclidean-criterion)により実現不能である。$q=3$ まで増やしても（定義上 $q\le n-1=3$）、また埋め込み先のEuclid空間の次元をさらに上げても、負固有値を非負のGramとして再現できない。
 
 ## 8. 次章へ
 
