@@ -100,7 +100,7 @@ chapters:
     title: "高次元ランダム行列評価"
   - id: SLT2-06
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-06
-    status: planned
+    status: completed
     title: "勾配流とearly stopping"
   - id: SLT2-07
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-07
