@@ -1,0 +1,39 @@
+id: "IG1"
+title: "統計モデルと接空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO3
+  - F0-00P7
+official_scope: []
+learning_objectives:
+  - 正の有限確率単体を座標表示し接空間が成分和0の空間であることを証明できる
+  - 統計モデルのパラメータ方向・密度の一次変化・スコア表示を結び付けられる
+  - 正規化条件の微分によるスコア平均0を有限モデルと正則支配モデルで導出できる
+  - 微分と積分の交換および共通台・二乗可積分性の役割を説明できる
+  - Bernoulli・カテゴリカル・正規位置族の接ベクトルとスコアを具体計算できる
+  - パラメータの単射性・浸入性・埋め込み性を区別し破綻例を構成できる
+  - 滑らかな局所座標変換下で接方向とスコア成分の連鎖律を導出できる
+definitions:
+  - { id: IG1-DEF-01, name: 正の有限確率単体 }
+  - { id: IG1-DEF-02, name: 統計モデルの有限正パラメータ表示 }
+  - { id: IG1-DEF-03, name: パラメータ方向の接速度・方向スコア }
+  - { id: IG1-DEF-04, name: 幾何学的正則支配モデル }
+theorems:
+  - { id: IG1-THM-01, name: 正の有限確率単体の接空間 }
+  - { id: IG1-THM-02, name: 有限モデルのスコアと接速度の対応 }
+  - { id: IG1-THM-03, name: スコアと接速度の座標変換則 }
+  - { id: IG1-THM-04, name: 正則支配モデルのスコア平均0 }
+  - { id: IG1-PROP-01, name: 有限モデルの浸入性判定 }
+canonical_examples:
+  - 3値正確率単体の座標と接方向
+  - Bernoulli族の接速度と方向スコア
+  - 3値カテゴリカル族のスコアと階数
+  - 正規位置族の正則性とスコア平均
+  - 単射だが浸入でない三乗パラメータと周期的な浸入
+  - 台が動く一様分布族の境界項
+problem_patterns: [IG1-A01, IG1-A02, IG1-A03, IG1-A04, IG1-B01, IG1-B02, IG1-B03, IG1-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.0, review: 1.0 }
