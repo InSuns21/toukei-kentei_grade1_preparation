@@ -20,7 +20,7 @@ $$
 e_{\infty,m}(t)=e^{-tK_\infty}e_m(0)
 $$
 
-と置く。$e_m(0)$ は一般に幅とともに確定値へ収束しない。[NNGPの初期Gaussian極限](../SLT2-11/index.md#thm-slt2-11-initial-gp)が教えるのは通常、**分布収束**である。したがって比較では初期値を勝手に零へ置き換えない。
+と置く。ここで $K_\infty$ は[有限入力の無限幅NTK](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)で定義した初期接線Gram行列の期待値であり、$e^{-tK_\infty}$ はその行列指数である。$e_m(0)$ は一般に幅とともに確定値へ収束しない。[NNGPの初期Gaussian極限](../SLT2-11/index.md#thm-slt2-11-initial-gp)が教えるのは通常、**分布収束**である。したがって比較では初期値を勝手に零へ置き換えない。
 
 固定した各時刻についての近似と、全時刻をまとめた近似は違う。また二重極限を議論するには、それぞれの反復極限が存在するかも確認する必要がある。
 
@@ -74,7 +74,17 @@ $$
 
 ## 2. 誤差を時間積分で測る
 
-[接線Gram行列](../SLT2-08/index.md#def-slt2-08-ntk)は $K_m(t)=J_m(t)J_m(t)^{\mathsf T}\succeq0$ である。全パラメータのEuclid勾配流・二乗損失 $\|F_m-y\|_2^2/2$ では、[固定核と動く核の比較式](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)の出発点として
+[接線Gram行列](../SLT2-08/index.md#def-slt2-08-ntk)は $K_m(t)=J_m(t)J_m(t)^{\mathsf T}$ である。$J_m(t)=D_\theta F_m(\theta(t))$ は、各訓練点の予測を全パラメータで偏微分したJacobianである。任意の $v\in\mathbb R^n$ について
+
+$$
+\begin{aligned}
+v^{\mathsf T}K_m(t)v
+&=v^{\mathsf T}J_m(t)J_m(t)^{\mathsf T}v\\
+&=\|J_m(t)^{\mathsf T}v\|_2^2\ge0.
+\end{aligned}
+$$
+
+だから $K_m(t)\succeq0$ と判定できる。[前章までの固定核スペクトル解](../SLT2-09/index.md#thm-slt2-09-continuous-spectrum)では、この行列を固有基底で対角化して減衰率を読む。$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分であり、後の証明に出る $e_{\infty,m}'=de_{\infty,m}/dt$ も同じ時刻での導関数をプライムで書いただけである。一方、$D_\theta$ はパラメータに関する微分なので区別する。全パラメータのEuclid勾配流・二乗損失 $\|F_m-y\|_2^2/2$ では、[固定核と動く核の比較式](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)の出発点として
 
 $$
 \dot e_m(t)=-K_m(t)e_m(t),\qquad
@@ -148,7 +158,7 @@ $$
 
 ## 3. 正のギャップがニューロンの移動を止める
 
-ここで前々章の[二層網模型](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)に戻る。固定訓練入力 $x_1,\ldots,x_n\in\mathbb R^d$、$\xi_i=(x_i^{\mathsf T},1)^{\mathsf T}$、$R=\max_i\|\xi_i\|_2$ とし、
+ここで前々章の[二層網模型](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)に戻る。固定訓練入力 $x_1,\ldots,x_n\in\mathbb R^d$ に対して、バイアスを含めた入力を $\xi(x)=(x^{\mathsf T},1)^{\mathsf T}\in\mathbb R^{d+1}$、$\xi_i=\xi(x_i)$、$R=\max_i\|\xi_i\|_2$ とする。各ニューロンの出力係数を $a_r\in\mathbb R$、重みとバイアスをまとめたベクトルを $q_r\in\mathbb R^{d+1}$ とし、
 
 $$
 f_m(x;\theta)=\frac1{\sqrt m}\sum_{r=1}^m
@@ -157,7 +167,7 @@ $$
 
 を全ての $a_r,q_r$ について勾配流で学習する。仮定を具体的に固定する。
 
-- $\sigma\in C^2(\mathbb R)$ で全実数上 $|\sigma|\le M_0$、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$。
+- $\sigma\in C^2(\mathbb R)$ で全実数上 $|\sigma|\le M_0$、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$。プライムは活性化のスカラー引数 $z=q_r^{\mathsf T}\xi(x)$ による微分であり、学習時刻 $t$ による微分ではない。
 - 初期出力係数は $|a_r(0)|\le A$。初期組 $(a_r(0),q_r(0))$ はニューロン間で独立同分布、$a_r(0)$ と $q_r(0)$ は独立、$\mathbb Ea_r(0)=0$。
 - 訓練点数・入力・教師は幅から独立。$K_\infty=\mathbb E K_m(0)$ の最小固有値は $\lambda>0$ 以上。
 
@@ -257,7 +267,30 @@ $$
 \le\frac{U_q}{\sqrt m}.
 $$
 
-核の各成分は $K_{m,ij}(t)=m^{-1}\sum_r h_{ij}(a_r(t),q_r(t))$ であり、$h_{ij}$ の具体式は[初期NTKの定義](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)にある。その式で活性化の積の差を二つに分解し、$|\sigma'|\le M_1$ と $|\sigma''|\le M_2$ に平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
+核の各成分は $K_{m,ij}(t)=m^{-1}\sum_r h_{ij}(a_r(t),q_r(t))$ である。[有限入力の無限幅NTK極限](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)の成分式から、$z_i=q^{\mathsf T}\xi_i$ と書けば
+
+$$
+h_{ij}(a,q)=\sigma(z_i)\sigma(z_j)
++a^2\sigma'(z_i)\sigma'(z_j)\xi_i^{\mathsf T}\xi_j
+$$
+
+となる。これはJacobianの出力係数方向と重み方向の内積を足した成分表示である。
+
+各 $r$ について $z_{r,i}(t)=q_r(t)^{\mathsf T}\xi_i$ とすると、Cauchy–Schwarzにより
+
+$$
+|z_{r,i}(t)-z_{r,i}(0)|
+\le R\|q_r(t)-q_r(0)\|_2
+$$
+
+となる。活性化の二つの積は、まず
+
+$$
+uv-\widetilde u\widetilde v
+=(u-\widetilde u)v+\widetilde u(v-\widetilde v)
+$$
+
+と分ける。各因子の差に $|\sigma'|\le M_1$、$|\sigma''|\le M_2$ と平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
 
 $$
 \begin{aligned}
@@ -331,11 +364,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（単調な残差による長時間の確率評価）**
-> 固定した $n$ と訓練入力について、各幅 $m$ の連続勾配流の残差が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとする。$\sup_m\mathbb E\|e_m(0)\|_2^2\le Q<\infty$ とし、決定論的な $K_\infty\succeq\lambda I_n$（$\lambda>0$）について、任意の固定 $t$ で
+> 固定した $n$ と訓練入力について、各幅 $m$ の連続勾配流がすべての $t\ge0$ に存在し、その残差が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとする。$\sup_m\mathbb E\|e_m(0)\|_2^2\le Q<\infty$ とし、決定論的な $K_\infty\succeq\lambda I_n$（$\lambda>0$）について、任意の固定 $t$ で
 
 $$
 \|e_m(t)-e^{-tK_\infty}e_m(0)\|_2
-\xrightarrow{\mathbb P}0
+\xrightarrow{p}0
 $$
 
 > と仮定する。すると任意の $\eta>0$ に対して
@@ -473,7 +506,7 @@ $$
 期待値は $\mathbb EG_X=0$ から得られ、中心化した極限 $P_0G_X$ の共分散は $P_0\mathbb E(G_XG_X^{\mathsf T})P_0^{\mathsf T}=P_0\Sigma P_0$。射影は対称なので $P_0^{\mathsf T}=P_0$。$\square$
 <!-- proof-end -->
 
-**二点の直接計算。** $\Theta=\operatorname{diag}(2,0)$、$\Sigma=\operatorname{diag}(1,4)$、$y=(1,3)^{\mathsf T}$ とする。$P_0=\operatorname{diag}(0,1)$ なので長時間の学習後分布は $(1,G_2)^{\mathsf T}$（$G_2\sim N(0,4)$）である。第一成分は教師1に固定され、第二成分は初期の揺らぎを分散4のまま保持する。NNGP共分散が正定値でも、NTKの零方向があれば学習で揺らぎを消せない。
+**二点の直接計算。** $\Theta=\operatorname{diag}(2,0)$、$\Sigma=\operatorname{diag}(1,4)$、$y=(1,3)^{\mathsf T}$ とする。標準基底で $\Theta(v_1,v_2)^{\mathsf T}=(2v_1,0)^{\mathsf T}$ だから、$\ker\Theta=\{(0,v_2)^{\mathsf T}:v_2\in\mathbb R\}$。この部分空間への直交射影は $(v_1,v_2)^{\mathsf T}\mapsto(0,v_2)^{\mathsf T}$、すなわち $P_0=\operatorname{diag}(0,1)$ なので長時間の学習後分布は $(1,G_2)^{\mathsf T}$（$G_2\sim N(0,4)$）である。第一成分は教師1に固定され、第二成分は初期の揺らぎを分散4のまま保持する。NNGP共分散が正定値でも、NTKの零方向があれば学習で揺らぎを消せない。
 
 ---
 
@@ -668,7 +701,7 @@ $K_\infty=\operatorname{diag}(4,0)$ は零固有値を持つ。したがって $
 - Level: B
 - 目安時間: 24分
 
-対称な連続行列 $K_m(t)$ に対し、$K_\infty\succeq I_n$、初期摂動は $\delta=0.1$、暫定的に $K_m(s)\succeq I_n/2$ と仮定した区間では $\|K_m(t)-K_m(0)\|_{\mathrm{op}}\le C/\sqrt m$（$C=0.2$）と証明済みだとする。$m=64$ のとき、暫定下界を全存在時間へ延長できることを示せ。残差が $\|e_m(t)\|\le B e^{-t/2}$ を満たすことと、固定核曲線との差の全時間上界を導け。解の存在延長には有界なパラメータという仮定も必要な理由を述べよ。
+連続な対称正半定値行列 $K_m(t)$ による残差方程式 $\dot e_m(t)=-K_m(t)e_m(t)$ を考え、初期残差は $\|e_m(0)\|_2\le B$ とする。$K_\infty\succeq I_n$、初期摂動は $\|K_m(0)-K_\infty\|_{\mathrm{op}}\le\delta=0.1$、暫定的に $K_m(s)\succeq I_n/2$ と仮定した区間では $\|K_m(t)-K_m(0)\|_{\mathrm{op}}\le C/\sqrt m$（$C=0.2$）と証明済みだとする。$m=64$ のとき、暫定下界を全存在時間へ延長できることを示せ。残差が $\|e_m(t)\|\le B e^{-t/2}$ を満たすことと、固定核曲線との差の全時間上界を導け。解の存在延長には有界なパラメータという仮定も必要な理由を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -694,12 +727,12 @@ $$
 - Level: B
 - 目安時間: 23分
 
-固定入力の残差 $e_m(t)$ が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとし、$K_\infty\succeq2I_n$、$\sup_m\mathbb E\|e_m(0)\|^2\le Q$ とする。各固定 $t$ で $e_m(t)-e^{-tK_\infty}e_m(0)\to0$ が確率収束で成り立つ。任意の $\eta>0$ について、$\limsup_{m\to\infty}\mathbb P(\sup_{s\ge t}\|e_m(s)\|>\eta)$ の上界を求め、$t\to\infty$ の結論を導け。この議論が標本外の予測誤差へそのまま移らない理由も説明せよ。
+全 $t\ge0$ で存在する固定入力の残差 $e_m(t)$ が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとし、$K_\infty\succeq2I_n$、$\sup_m\mathbb E\|e_m(0)\|^2\le Q$ とする。各固定 $t$ で $e_m(t)-e^{-tK_\infty}e_m(0)\to0$ が確率収束で成り立つ。任意の $\eta>0$ について、$\limsup_{m\to\infty}\mathbb P(\sup_{s\ge t}\|e_m(s)\|>\eta)$ の上界を求め、$t\to\infty$ の結論を導け。この議論が標本外の予測誤差へそのまま移らない理由も説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-半ノルムの二乗を微分すると $\frac d{ds}\|e_m(s)\|^2=-2e_m^{\mathsf T}K_m e_m\le0$。よって $s\ge t$ での上限は時刻 $t$ の値で抑えられる。三角不等式で固定核からの差と固定核自身へ分けると
+残差ノルムの二乗を学習時刻 $s$ で微分すると $\frac d{ds}\|e_m(s)\|^2=-2e_m(s)^{\mathsf T}K_m(s)e_m(s)\le0$。よって $s\ge t$ での上限は時刻 $t$ の値で抑えられる。三角不等式で固定核からの差と固定核自身へ分けると
 
 $$
 \begin{aligned}
@@ -727,7 +760,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 初期化事象と時間一様誤差。** 最小固有値は $\lambda=1$ である。[初期化の二乗評価](#thm-slt2-12-uniform-time)と[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)から、$\|e_m(0)\|\le B$ かつ $\|K_m(0)-K_\infty\|_{\mathrm{op}}\le m^{-1/4}$ の確率は少なくとも
+**1. 初期化事象と時間一様誤差。** 最小固有値は $\lambda=1$ である。問題で仮定した二つの初期化二乗モーメント評価と[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)から、$\|e_m(0)\|\le B$ かつ $\|K_m(0)-K_\infty\|_{\mathrm{op}}\le m^{-1/4}$ の確率は少なくとも
 
 $$
 1-\frac{Q}{B^2}-\frac{D}{\sqrt m}.
