@@ -132,7 +132,9 @@ function humanizePathName(name) {
 function orientMarkdownLinks(markdown, siteRelativeFile) {
   const sourceDir = path.posix.dirname(siteRelativeFile);
 
-  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+  // A link label cannot swallow lines before its own opening bracket: a TeX
+  // interval such as $[0,2\pi)$ must not consume a later image link's ](url).
+  return replaceOutsideMarkdownMath(markdown, /(!?\[[^\]\n]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
     const trimmed = rawHref.trim();
     if (
       !trimmed ||
@@ -165,6 +167,20 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
     return `${open}${resolved}${hrefSuffix}${titleSuffix}${close}`;
   });
 }
+
+function selfTestImageLinksAfterMathIntervals() {
+  const source = 'Angle $\\alpha\\in[0,2\\pi)$ is periodic.\n\n![section](assets/section.svg)\n\n[Zoom](assets/section.svg)';
+  const page = 'textbook/volumes/dream_thater/幾何系/GEOD/GEOD7/index.md';
+  const actual = orientMarkdownLinks(source, page);
+  const expectedAsset = 'textbook/volumes/dream_thater/幾何系/GEOD/GEOD7/assets/section.svg';
+  if (!actual.includes(`![section](${expectedAsset})`) || !actual.includes(`[Zoom](${expectedAsset})`)) {
+    throw new Error('Pages image links following TeX intervals must be root-oriented');
+  }
+  if (!actual.includes('$\\alpha\\in[0,2\\pi)$')) {
+    throw new Error('Pages link normalization must preserve TeX intervals');
+  }
+}
+selfTestImageLinksAfterMathIntervals();
 
 async function orientPublishedMarkdownTree(targetDir, siteRoot) {
   const markdownFiles = await recursiveFiles(targetDir, (name) => name.endsWith('.md'));
