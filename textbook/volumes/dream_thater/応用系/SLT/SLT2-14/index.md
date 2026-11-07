@@ -16,7 +16,21 @@
 
 パラメータ空間を $\Theta=\mathbb R^q$（$q\ge1$）とする。確率測度 $\mu,\nu$ を比較するには、単に「有界連続関数の積分が近い」という弱収束だけでは足りない。[前章の非有界特徴の例](../SLT2-13/index.md#def-slt2-13-empirical-measure)のように遠方へ逃げた質量を検知したいからである。
 
-二つの分布から粒子を一つずつ取り出して対応させることを考えよう。**結合** $\pi$ とは、$\Theta\times\Theta$ 上の確率測度で、第1座標の分布が $\mu$、第2座標の分布が $\nu$ となるものを指す。対応点間の距離の平均を最小化したものが輸送距離になる。ここでは有限一次モーメントを持つ測度の集合を $\mathcal P_1(\Theta)$、有限二次モーメントを持つ集合を $\mathcal P_2(\Theta)$ と書く。
+二つの分布から粒子を一つずつ取り出して対応させることを考えよう。**結合** $\pi$ とは、$\Theta\times\Theta$ 上の確率測度で、第1座標の分布が $\mu$、第2座標の分布が $\nu$ となるものを指す。すなわち任意の可測集合 $A$ について、
+
+$$
+\pi(A\times\Theta)=\mu(A),\qquad
+\pi(\Theta\times A)=\nu(A)
+$$
+
+である。対応点間の距離の平均を最小化したものが輸送距離になる。ここでは
+
+$$
+\mathcal P_p(\Theta)=\left\{\mu:\mu\text{ は確率測度},\ \int_\Theta\|\theta\|_2^p\,\mu(d\theta)<\infty\right\}
+\quad (p=1,2)
+$$
+
+と書き、一次・二次モーメントの条件を区別する。有限一次モーメントなら $W_1$ の費用、有限二次モーメントなら $W_2$ の費用が、独立結合でも有限になる。
 
 <a id="def-slt2-14-wasserstein"></a>
 
@@ -42,7 +56,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-14-wasserstein -->
-**定義の確認**。$\mu=\delta_0$、$\nu=\delta_3$（$\Theta=\mathbb R$）とする。周辺分布の条件から唯一の結合は $\pi=\delta_{(0,3)}$ であり、質量1・非負・両周辺の条件が成立する。一次・二次モーメントはそれぞれ有限で、
+**定義の確認**。[Dirac確率測度](../SLT2-13/index.md#def-slt2-13-dirac-measure)を使い、$\mu=\delta_0$、$\nu=\delta_3$（$\Theta=\mathbb R$）とする。周辺分布の条件から唯一の結合は $\pi=\delta_{(0,3)}$ であり、質量1・非負・両周辺の条件が成立する。$\mu$ の一次・二次モーメントはともに零、$\nu$ のそれらは $3,9$ で有限だから、
 
 $$
 W_1(\delta_0,\delta_3)=3,\qquad W_2(\delta_0,\delta_3)=3.
@@ -81,9 +95,17 @@ V(\theta;\mu)=\frac1n\sum_{i=1}^ne_i(\mu)\psi_i(\theta),
 v(\theta,\mu)=-\nabla_\theta V(\theta;\mu)
 $$
 
-である。$v$ は位置 $\theta$ だけでなく、その時刻の分布 $\mu$ にも依存する速度場である。
+である。ここで $\nabla_\theta V$ は分布 $\mu$ を固定し、仮の粒子位置 $\theta$ だけを微分する。$v$ は位置だけでなく、その時刻の分布にも依存する速度場である。
 
 有限粒子なら、[経験測度の弱形式](../SLT2-13/index.md#prop-slt2-13-weak-form)は $\int\varphi\,d\mu_m$ を微分して得られた。一般の確率測度にも同じ等式を**解の定義**として採用する。[コンパクト台と関数の台](../../../基礎科目/TOP/TOP5A/index.md#def-top5a-compact-support-cc)を用い、ここで $C_c^1(\Theta)$ は一階微分が連続で、ある有界な閉集合の外で零となる試験関数の集合である。
+
+時間の観測量 $F(t)=\int\varphi\,d\mu_t$ が**絶対連続**とは、ある可積分な関数 $g$ により
+
+$$
+F(t)=F(0)+\int_0^t g(s)\,ds
+$$
+
+と表せることをいう。このとき $dF/dt=g(t)$ がほとんど全ての時刻で成り立つ。以下の $d/dt$ は測度の軌道に沿った時間微分であり、形式的な $\partial_t\mu_t$ は試験関数との積分を通じてのみ読む。
 
 <a id="def-slt2-14-weak-continuity"></a>
 
@@ -123,7 +145,7 @@ $$
 
 ## 3. 損失を「重み変更」と「粒子移動」で微分する
 
-損失 $\mathcal L(\mu)$ は測度の関数であり、微分方法が二つある。質量の配分を変えるときと、質量をそのまま運ぶときである。両者を分けると、なぜ勾配が $\nabla_\theta V$ になるかが見える。
+損失 $\mathcal L(\mu)$ は測度の関数であり、微分方法が二つある。質量の配分を変えるときと、質量をそのまま運ぶときである。両者を分けると、なぜ勾配が $\nabla_\theta V$ になるかが見える。後者には写像 $T$ で粒子を移動した測度、すなわち**押し出し測度** $T_\#\mu$ を使う。その意味は、各可測集合 $A$ に対して $(T_\#\mu)(A)=\mu(T^{-1}(A))$ である。
 
 <a id="prop-slt2-14-first-variation"></a>
 
@@ -146,7 +168,7 @@ $$
 \cdot\zeta(\theta)\,\mu(d\theta).
 $$
 
-> 下付きの $\#$ は写像による押し出し測度を表し、$(T_\varepsilon)_\#\mu(A)=\mu(T_\varepsilon^{-1}(A))$ とする。
+> 下付きの $\#$ は直前に導入した写像による押し出しを表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -278,7 +300,14 @@ $$
 \sup_{s\le h}\int\|X_s-Z_s\|\,d\mu_0.
 $$
 
-$h(L_\theta+L_\mu)<1$ と選べば縮小写像であり、Picard反復の極限として一意の固定点 $X$ を得る。ここでの連続性は $L^1$ で、代表元を選べば積分方程式を $\mu_0$ ほとんど至る所で満たす。位置についてのLipschitz性により、その特性曲線は必要なら全初期位置へ拡張できる。
+$h(L_\theta+L_\mu)<1$ と選べば、上記の完備空間上で $\mathcal T$ は縮小写像となる。[Picard反復による局所存在の議論](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)と同じく、縮小率を $c=h(L_\theta+L_\mu)$、上の距離を $d$ と書くと、反復列には
+
+$$
+X^{(k+1)}=\mathcal TX^{(k)},\qquad
+d(X^{(k+1)},X^{(k)})\le c^k d(X^{(1)},X^{(0)})
+$$
+
+が成り立つ。差の等比級数が収束するため、反復列の極限として一意の固定点 $X$ を得る。ここでの連続性は $L^1$ で、代表元を選べば積分方程式を $\mu_0$ ほとんど至る所で満たす。位置についてのLipschitz性により、その特性曲線は必要なら全初期位置へ拡張できる。
 
 **時間延長と弱形式**。$\|v\|\le B$ は時間窓によらず同じであり、各小区間の終端分布を新初期値として同じ縮小写像を反復できる。粒子の移動は $\|X_t(\theta)-\theta\|\le Bt$、従って $\int\|X_t\|^2d\mu_0\le2\int\|\theta\|^2d\mu_0+2B^2t^2<\infty$。また $W_1(\mu_t,\mu_s)\le B|t-s|$。
 
@@ -304,7 +333,13 @@ D(t)\le D(0)+\int_0^t
 [L_\theta D(s)+L_\mu W_1(\mu_s,\nu_s)]\,ds.
 $$
 
-流れによる $\pi_0$ の押し出しは $\mu_s,\nu_s$ の結合だから $W_1(\mu_s,\nu_s)\le D(s)$。[Grönwallによる連続依存](../../../解析系/ODE/ODE8/index.md#thm-ode8-continuous-dependence)と同じ積分評価を反復すれば $D(t)\le e^{(L_\theta+L_\mu)t}D(0)$。$\pi_0$ の下限を取って結論を得る。
+流れによる $\pi_0$ の押し出しは $\mu_s,\nu_s$ の結合だから $W_1(\mu_s,\nu_s)\le D(s)$。[Grönwallの不等式](../../../解析系/ODE/ODE8/index.md#lem-ode8-gronwall)を $u=D$、$a=D(0)$、$b=L_\theta+L_\mu$ に適用すると
+
+$$
+D(t)\le e^{(L_\theta+L_\mu)t}D(0)
+$$
+
+となる。初期結合 $\pi_0$ を任意に選べたので、その下限を取って結論を得る。
 
 最後に任意の弱解 $\widetilde\mu_s$ について、その測度が定める既知の時間依存速度場 $b_s(\theta)=v(\theta,\widetilde\mu_s)$ を固定する。時刻 $s$ の点を時刻 $t$ へ送るこの速度場の特性流を $X_{s,t}$ と書く。任意の $\varphi\in C_c^1$ と固定 $t$ に対し、逆向きに運んだ試験関数 $\varphi_s(\theta)=\varphi(X_{s,t}(\theta))$ は
 
@@ -313,7 +348,33 @@ $$
 \qquad \varphi_t=\varphi
 $$
 
-を満たす。$b_s$ の位置Lipschitz性と $C^1$ 性から連鎖律が使え、速度有界性により有限時間のコンパクト集合の逆像もコンパクトである。弱形式を時間依存試験関数へ適用すると（時間の区分近似と極限によって正当化できる）
+を満たす。ここで $\partial_s$ は $\theta$ を固定して初期時刻 $s$ を動かす偏微分であり、$\nabla\varphi_s$ は $\theta$ に関する勾配である。実際、特性流の合成則と短時間の増分は
+
+$$
+X_{s,t}=X_{s+h,t}\circ X_{s,s+h},\qquad
+X_{s,s+h}(\theta)=\theta+h b_s(\theta)+o(h)
+$$
+
+である。[特性曲線に沿う連鎖律](../../../解析系/PDE/PDE1/index.md#prop-pde1-curve-composition)を $\varphi_{s+h}(X_{s,s+h}(\theta))$ に適用すると
+
+$$
+\varphi_s(\theta)=\varphi_{s+h}(\theta)
++h\,\nabla\varphi_{s+h}(\theta)\cdot b_s(\theta)+o(h)
+$$
+
+となり、$h\to0$ で上の逆向きの輸送式が従う。$b_s$ の位置Lipschitz性と $C^1$ 性から連鎖律が使え、速度有界性により有限時間のコンパクト集合の逆像もコンパクトである。
+
+弱形式を時間依存試験関数へ拡張する際には、時間分割 $0=s_0<\cdots<s_N=t$ について $F(s)=\int\varphi_s\,d\widetilde\mu_s$ の増分を
+
+$$
+\begin{aligned}
+F(s_{j+1})-F(s_j)
+&=\int(\varphi_{s_{j+1}}-\varphi_{s_j})\,d\widetilde\mu_{s_{j+1}}\\
+&\quad+\int\varphi_{s_j}\,d(\widetilde\mu_{s_{j+1}}-\widetilde\mu_{s_j})
+\end{aligned}
+$$
+
+と分ける。第1項は $\int\partial_s\varphi_s\,d\widetilde\mu_s$ の時間積分へ、第2項は固定した試験関数に対する弱形式から $\int b_s\cdot\nabla\varphi_s\,d\widetilde\mu_s$ の時間積分へ移る。試験関数と一階導関数は共通のコンパクト集合上で時間連続、$b_s$ は有界、$\widetilde\mu_s$ は $W_1$ 連続なので、分割幅を零へ送ることができる。従って
 
 $$
 \frac d{ds}\int\varphi_s\,d\widetilde\mu_s
@@ -334,14 +395,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（mean-field流のエネルギー散逸と動くGram行列）**
-> [大域適切設定性定理](#thm-slt2-14-wellposed)の仮定のもとで、$\mu_t$ をその解、$e_i(t)=\int\psi_i\,d\mu_t-y_i$ とする。行列 $G(\mu_t)\in\mathbb R^{n\times n}$ を
+> [大域適切設定性定理](#thm-slt2-14-wellposed)の仮定のもとで、$\mu_t$ をその解、$e_i(t)=\int\psi_i\,d\mu_t-y_i$、$e(t)=(e_1(t),\ldots,e_n(t))^{\mathsf T}$ を残差ベクトルとする。行列 $G(\mu_t)\in\mathbb R^{n\times n}$ を
 
 $$
 G_{ij}(\mu)=\int_\Theta
 \nabla\psi_i(\theta)\cdot\nabla\psi_j(\theta)\,\mu(d\theta)
 $$
 
-> と定めると $G(\mu_t)$ は対称正半定値であり、
+> と定めると $G(\mu_t)$ は対称正半定値であり、$\dot e(t)=de(t)/dt$ と書けば、
 
 $$
 \dot e(t)=-\frac1nG(\mu_t)e(t),
@@ -507,7 +568,7 @@ $$
 =\frac12\left(-\frac12+0\right)=-\frac14.
 $$
 
-初期粒子は有限点にあり、短時間の軌道も有界集合に留まる。そこでは $\varphi(\theta)=\theta$ と一致し、外では滑らかに零へ落とす $C_c^1$ 関数を選べる。従って弱形式で同じ初期微分が求まる。
+初期粒子は有限点にあり、短時間の軌道も有界集合に留まる。そこでは $\varphi(\theta)=\theta$ と一致し、外では滑らかに零へ落とす $C_c^1$ 関数を選べる。従って[弱形式の定義](#def-slt2-14-weak-continuity)で同じ初期微分が求まる。
 <!-- solution-end -->
 
 ### SLT2-14-A03 混合方向の一次係数
@@ -557,7 +618,7 @@ $\psi(\theta)=\sin\theta$、教師 $y=1$、$\mu_0=\delta_{-\pi/2}$ とする。�
 <!-- solution-start -->
 #### 詳細解答
 
-予測は $-1$、残差 $e=-1-1=-2$。$\nabla\psi(-\pi/2)=\cos(-\pi/2)=0$ だから粒子速度は $-e\cos(-\pi/2)=0$。$\mu_t=\mu_0$ が弱解であり、一意性から動かない。損失は
+予測は $-1$、残差 $e=-1-1=-2$。$\nabla\psi(-\pi/2)=\cos(-\pi/2)=0$ だから粒子速度は $-e\cos(-\pi/2)=0$。$\mu_t=\mu_0$ が弱解であり、[大域適切設定性定理の一意性](#thm-slt2-14-wellposed)から動かない。損失は
 
 $$
 \mathcal L(\mu_0)=\frac12(-2)^2=2.
@@ -594,7 +655,7 @@ $\psi(\theta)=\sin\theta$、$y=0$ とする。初期分布 $\mu_0=\delta_0$ と 
 <!-- solution-start -->
 #### 詳細解答
 
-二つの点質量間の唯一の結合は $\delta_{(0,h)}$ で、$W_1(\mu_0,\nu_0)=|h|$。この模型では $M_0=M_1=M_2=1,Y=0$ なので $L_\theta+L_\mu=2$。安定性を $t\le T$ に適用して
+二つの点質量間の唯一の結合は $\delta_{(0,h)}$ で、$W_1(\mu_0,\nu_0)=|h|$。この模型では $M_0=M_1=M_2=1,Y=0$ なので $L_\theta+L_\mu=2$。[大域適切設定性定理の安定性評価](#thm-slt2-14-wellposed)を $t\le T$ に適用して
 
 $$
 \sup_{0\le t\le T}W_1(\mu_t,\nu_t)
@@ -681,7 +742,7 @@ v(\theta,\mu_0)=-e\nabla\psi(\theta)
 =-\frac12\sin\theta.
 $$
 
-二原子の位置 $0,\pi$ で速度はともに0。よって $\mu_t\equiv\mu_0$ は弱解で、一意性によりこれが解である。Gram量は
+二原子の位置 $0,\pi$ で速度はともに0。よって $\mu_t\equiv\mu_0$ は弱解で、[大域適切設定性定理の一意性](#thm-slt2-14-wellposed)によりこれが解である。Gram量は
 
 $$
 G(\mu_0)=\frac12(\sin^2 0+\sin^2\pi)=0,
