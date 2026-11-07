@@ -24,7 +24,9 @@ $$
 
 ## 2. 計量から作用素と体積が同時に決まる
 
-滑らかな局所座標 $(x^1,\ldots,x^d)$ で、$\partial_i=\partial/\partial x^i$（$i=1,\ldots,d$）を座標接ベクトルとする。[GEO12のRiemann計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)に従い、$g_{ij}=g(\partial_i,\partial_j)$ を並べた計量行列を $G=(g_{ij})$、その逆行列の成分を $g^{ij}$ と書く。例えば接ベクトル $u=\sum_i u^i\partial_i$ の長さの二乗は、内積の双線形性から
+滑らかな局所座標 $(x^1,\ldots,x^d)$ で、$\partial_i=\partial/\partial x^i$（$i=1,\ldots,d$）を座標接ベクトルとする。[GEO12のRiemann計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)に従い、$g_{ij}=g(\partial_i,\partial_j)$ を並べた計量行列を $G=(g_{ij})$、その逆行列の成分を $g^{ij}$ と書く。
+
+例えば接ベクトル $u=\sum_i u^i\partial_i$ の長さの二乗は、内積の双線形性から
 
 $$
 g(u,u)=\sum_{i,j=1}^d g_{ij}u^iu^j
@@ -200,7 +202,9 @@ $$
 
 ## 4. 円周の有限格子で、長さ尺度を合わせる
 
-ランダム標本より先に、半径 $R$ の円周を等しい弧長 $h=2\pi R/N$ に分ける。$N\ge3$ とし、頂点を $s_j=jh$（$j=0,\ldots,N-1$）に置いて、添字は $N$ を法として周期的に読む。実数列 $v=(v_j)$ の隣接差 $v_{j+1}-v_j$ は、滑らかな関数を標本化したとき $h$ 倍の導関数に相当する。
+ランダム標本より先に、半径 $R$ の円周を等しい弧長 $h=2\pi R/N$ に分ける。$N\ge3$ とし、頂点を $s_j=jh$（$j=0,\ldots,N-1$）に置く。添字は $N$ を法として周期的に読む。
+
+実数列 $v=(v_j)$ の隣接差 $v_{j+1}-v_j$ は、滑らかな関数を標本化したとき $h$ 倍の導関数に相当する。
 
 連続エネルギー $\int|f'|^2ds$ は差分の二乗 $[(v_{j+1}-v_j)/h]^2$ にセル長 $h$ を掛けた和で近似する。一方 $\int f^2ds$ は $h\sum_jv_j^2$ に対応する。**分子と分母を別々に正規化する**必要がある。
 
@@ -291,7 +295,28 @@ $$
 \longrightarrow\frac{k^2}{R^2}.
 $$
 
-一方、周期グラフの辺重みを $w_{j,j+1}=1/h$ と置くと、組合せLaplacianは $L_{\mathrm{graph}}=h^{-1}(2I-S-S^{\mathsf T})$、次数行列は $D_g=(2/h)I$ である。$L_{\mathrm{graph}}v=\mu D_gv$ を両辺 $h/2$ 倍すると $(I-(S+S^{\mathsf T})/2)v=\mu v$。上の加法定理から $\mu=1-\cos\alpha=2\sin^2(\alpha/2)$ を得る。先に確かめた $A_h=M^{-1}K$ と $D_g=(2/h)I$ から、$A_h=(2/h^2)D_g^{-1}L_{\mathrm{graph}}$ である。したがって $\lambda_{N,k}=(2/h^2)\mu_{N,k}$ となる。$\square$
+一方、周期グラフでは辺重みを $1/h$ とする。$N\ge3$ だから各頂点に異なる隣接頂点が二つあり、組合せLaplacianと次数行列は
+
+$
+L_{\mathrm{graph}}=\frac1h(2I-S-S^{\mathsf T}),\qquad D_g=\frac2h I
+$
+
+である。次数行列は可逆なので、一般化固有方程式 $L_{\mathrm{graph}}v=\mu D_gv$ は
+
+$
+\left(I-\frac{S+S^{\mathsf T}}2\right)v=\mu v
+$
+
+と同値である。先の加法定理を代入すると、$\mu=1-\cos\alpha=2\sin^2(\alpha/2)$ となる。
+
+さらに質量行列で定めた $A_h=M^{-1}K$ と次数行列を比べれば
+
+$
+A_h=\frac2{h^2}D_g^{-1}L_{\mathrm{graph}},
+\qquad \lambda_{N,k}=\frac2{h^2}\mu_{N,k}
+$
+
+である。これで正規化の違いまで確認できた。$\square$
 <!-- proof-end -->
 
 **重要な読み分け**：$\mu_{N,k}\to0$ を見て「作用素が零に収束した」と結論してはいけない。無次元の次数正規化固有値を長さの二乗 $h^2$ で再尺度化した $\lambda_{N,k}$ を、連続側の固有値と比較する。$k$ を $N$ とともに増やす高周波や、標本点・重みがランダムな場合のスペクトル全体の収束はここでは証明していない。
@@ -407,7 +432,7 @@ $$
 - Level: A
 - 問題: 半径 $R$ の円周上で、$1$、$\cos\theta$、$\sin\theta$ の $L_g$ 固有値を求め、後二者が体積平均零であることを確認せよ。
 
-**詳細解答**。[円周の作用素公式](#prop-mfl12-circle) $L_g=-R^{-2}\partial_{\theta\theta}$ より、定数の固有値は0、後二者の固有値は $R^{-2}$。体積要素は $R\,d\theta$ なので
+**詳細解答**。[半径付き円周の計量・エネルギー・スペクトル](#prop-mfl12-circle) $L_g=-R^{-2}\partial_{\theta\theta}$ より、定数の固有値は0、後二者の固有値は $R^{-2}$。体積要素は $R\,d\theta$ なので
 
 $$
 \int_0^{2\pi}\cos\theta\,R\,d\theta=R[\sin\theta]_0^{2\pi}=0,
