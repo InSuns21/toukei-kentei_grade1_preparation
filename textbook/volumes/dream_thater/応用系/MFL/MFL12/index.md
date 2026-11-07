@@ -297,24 +297,24 @@ $$
 
 一方、周期グラフでは辺重みを $1/h$ とする。$N\ge3$ だから各頂点に異なる隣接頂点が二つあり、組合せLaplacianと次数行列は
 
-$
+$$
 L_{\mathrm{graph}}=\frac1h(2I-S-S^{\mathsf T}),\qquad D_g=\frac2h I
-$
+$$
 
 である。次数行列は可逆なので、一般化固有方程式 $L_{\mathrm{graph}}v=\mu D_gv$ は
 
-$
+$$
 \left(I-\frac{S+S^{\mathsf T}}2\right)v=\mu v
-$
+$$
 
 と同値である。先の加法定理を代入すると、$\mu=1-\cos\alpha=2\sin^2(\alpha/2)$ となる。
 
 さらに質量行列で定めた $A_h=M^{-1}K$ と次数行列を比べれば
 
-$
+$$
 A_h=\frac2{h^2}D_g^{-1}L_{\mathrm{graph}},
 \qquad \lambda_{N,k}=\frac2{h^2}\mu_{N,k}
-$
+$$
 
 である。これで正規化の違いまで確認できた。$\square$
 <!-- proof-end -->
