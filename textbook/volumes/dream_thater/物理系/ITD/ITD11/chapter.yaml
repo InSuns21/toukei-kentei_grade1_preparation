@@ -1,0 +1,44 @@
+id: "ITD11"
+title: "連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD2
+  - ITD7
+  - STO4
+official_scope: []
+learning_objectives:
+  - 円周上の一定駆動Langevin模型の持ち上げ変位を定義し、仕事・浴熱の第一法則を検算できる
+  - Gaussian増分の正逆確率比を有限分割から導き、連続経路測度の絶対連続性へ接続できる
+  - 非一様初期密度の境界エントロピー項と積分型ゆらぎ関係・平均第二法則を証明できる
+  - 一様定常状態の変位分布から詳細型ゆらぎ対称性と散逸の平均・分散を検算できる
+  - 変位の符号観測による粗視化の散逸下限を条件付き相対エントロピーから導ける
+  - 円周の周回数、力の位置依存、零密度や量子測定で必要な追加条件を識別できる
+definitions:
+  - { id: ITD11-DEF-01, name: 一定駆動の円周Langevin経路と持ち上げ変位 }
+  - { id: ITD11-DEF-02, name: 円周拡散の正逆経路測度 }
+theorems:
+  - { id: ITD11-THM-01, name: 円周Langevin経路の時間反転比 }
+  - { id: ITD11-THM-02, name: 連続経路の積分型ゆらぎ関係と平均第二法則 }
+  - { id: ITD11-PROP-01, name: 一様定常状態の変位の詳細ゆらぎ対称性 }
+  - { id: ITD11-THM-03, name: 変位の符号しか見ないと散逸を過小評価する }
+canonical_examples:
+  - 円周位置が同じでも周回数によって仕事が変わる経路
+  - Gaussian増分の正逆確率密度比と境界密度補正
+  - 一様定常拡散の負の変位・積分型ゆらぎ関係
+  - 正負一ビット観測と全経路の相対エントロピー差
+problem_patterns:
+  - ITD11-GAUSSIAN-INCREMENTS
+  - ITD11-REVERSED-PATH-RATIO
+  - ITD11-BOUNDARY-ENTROPY
+  - ITD11-ZERO-DRIVE
+  - ITD11-SIGN-OBSERVATION
+  - ITD11-PARTITION-TELESCOPE
+  - ITD11-FLUCTUATION-SYMMETRY
+  - ITD11-CONDITIONAL-KL
+  - ITD11-WINDING-NUMBER
+  - ITD11-INTEGRATED-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 5 }
