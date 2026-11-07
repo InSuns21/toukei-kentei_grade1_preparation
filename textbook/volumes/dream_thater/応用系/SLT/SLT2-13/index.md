@@ -28,7 +28,7 @@ $$
 
 を学ぶ。この平均は、ニューロンのラベル $r$ を取り替えても不変である。そこでラベルの付いた点列を、位置と重みの情報だけを残した測度へ直す。
 
-一つの点へ全質量を集中させる操作から始める。この点を含む集合には質量1、それ以外には質量0を与える。点そのものの値を取り出す積分が得られるので、離散的な粒子を測度で扱える。
+一つの点へ全質量を集中させる操作から始める。この点を含む集合には質量1、それ以外には質量0を与える。ここで粒子パラメータ空間 $\Theta=\mathbb R\times\mathbb R^{d+1}$ の可測集合は、開集合から補集合・可算和を使って生成されるBorel集合を指す。点そのものの値を取り出す積分が得られるので、離散的な粒子を測度で扱える。
 
 <a id="def-slt2-13-dirac-measure"></a>
 
@@ -48,10 +48,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-13-dirac-measure -->
-**定義の確認**。$\theta=(2,(0,1))$、$\Theta=\mathbb R^3$ とし、$A=\{(a,w):a>0\}$、$B=\{(a,w):a<0\}$ と置く。$\theta\in A$、$\theta\notin B$ なので $\delta_\theta(A)=1$、$\delta_\theta(B)=0$。全空間は $\theta$ を含み質量1である。$g(a,w)=a^2$ なら積分は $g(\theta)=4$ であり、積分を複数の点について足す必要はない。
+**定義の確認**。$\theta=(2,(0,1))$、$\Theta=\mathbb R^3$ とし、$A=\{(a,w):a>0\}$、$B=\{(a,w):a<0\}$ と置く。$\theta\in A$、$\theta\notin B$ なので $\delta_\theta(A)=1$、$\delta_\theta(B)=0$。全空間は $\theta$ を含み質量1である。互いに素な可測集合列 $A_1,A_2,\ldots$ について $\theta$ が入る集合は高々一つだから、
+
+$$
+\delta_\theta\left(\bigcup_k A_k\right)=\sum_k\delta_\theta(A_k)
+$$
+
+となり、確率測度に必要な可算加法性も満たす。また、$g(a,w)=a^2$ なら積分は $g(\theta)=4$ であり、積分を複数の点について足す必要はない。
 <!-- definition-example-end -->
 
-これを各ニューロンに質量 $1/m$ ずつ配る。なお確率測度の和や積分は、今のような有限の原子からなら具体的な有限和として定義できる。
+これを各ニューロンに質量 $1/m$ ずつ配る。各[Dirac確率測度](#def-slt2-13-dirac-measure)の可算加法性は非負の有限和でも保たれ、係数の和が1なので全質量も1となる。積分は有限個の原子について具体的な有限和として計算できる。
 
 <a id="def-slt2-13-empirical-measure"></a>
 
@@ -146,13 +152,16 @@ $$
 
 ここで $1/n$ を消さない。[以前のNTK勾配流](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)とは損失の規格化も明示して比べる。
 
+以下、$\nabla_{\theta_r}\mathcal L_m$ は他の粒子を固定して第 $r$ 粒子の $d+2$ 座標で取る勾配とする。一方、$\nabla_\theta V(\theta;\mu)$ は測度 $\mu$ を固定して仮の引数 $\theta$ だけで取る勾配である。時間微分の点記法 $\dot\theta_r=d\theta_r/dt$ は、これらの粒子座標に関する勾配とは区別する。
+
 粒子にかかる力を一つの関数で書くため、**粒子ポテンシャル** $V(\theta;\mu)$ を、測度 $\mu$ による各訓練点の残差と、仮の粒子 $\theta$ の寄与の内積平均として作る。$\mu$ はここでは微分の間固定する。
 
 <a id="def-slt2-13-particle-potential"></a>
 
 <!-- formal-statement-start -->
 > **定義（粒子ポテンシャルと加速勾配流）**
-> 有限訓練集合 $(x_i,y_i)_{i=1}^n$、$\sigma\in C^1(\mathbb R)$、粒子 $\theta_r=(a_r,w_r)\in\mathbb R\times\mathbb R^{d+1}$ と経験測度 $\mu_m=m^{-1}\sum_r\delta_{\theta_r}$ を取る。$\psi_{x_i}(\theta)=a\sigma(w^{\mathsf T}\xi(x_i))$ と $e_i(\mu)=f_\mu(x_i)-y_i$ を使い、
+> $d,m,n\ge1$、固定訓練集合 $(x_i,y_i)_{i=1}^n$（$x_i\in\mathbb R^d$）、$\sigma\in C^1(\mathbb R)$ を取る。$\Theta=\mathbb R\times\mathbb R^{d+1}$ の粒子を $\theta_r=(a_r,w_r)$ とし、経験測度を $\mu_m=m^{-1}\sum_r\delta_{\theta_r}$ とする。
+> $\xi(x)=(x^{\mathsf T},1)^{\mathsf T}$、$\psi_{x_i}(a,w)=a\sigma(w^{\mathsf T}\xi(x_i))$、残差 $e_i(\mu)=f_\mu(x_i)-y_i$ を使い、
 
 $$
 V(\theta;\mu)=\frac1n\sum_{i=1}^n e_i(\mu)\psi_{x_i}(\theta)
@@ -198,7 +207,8 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（加速粒子勾配流の厳密な変分式と損失減少）**
-> $m,n,d\ge1$、$\sigma\in C^2(\mathbb R)$、固定訓練集合 $(x_i,y_i)_{i=1}^n$、$\theta_r=(a_r,w_r)\in\Theta$ とする。残差 $e_i=f_{\mu_m}(x_i)-y_i$ を用い、損失と粒子ポテンシャルを
+> $m,n,d\ge1$、$\sigma\in C^2(\mathbb R)$、固定訓練集合 $(x_i,y_i)_{i=1}^n$（$x_i\in\mathbb R^d$）、$\Theta=\mathbb R\times\mathbb R^{d+1}$ の粒子 $\theta_r=(a_r,w_r)$ を取る。
+> $\xi_i=(x_i^{\mathsf T},1)^{\mathsf T}$、$\mu_m=m^{-1}\sum_r\delta_{\theta_r}$ とする。各訓練点の寄与は $\psi_{x_i}(a,w)=a\sigma(w^{\mathsf T}\xi_i)$、残差は $e_i=f_{\mu_m}(x_i)-y_i$ である。損失と粒子ポテンシャルを
 
 $$
 \mathcal L_m=\frac1{2n}\sum_{i=1}^n e_i^2,
@@ -318,7 +328,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Dirac測度の性質から、各時刻で
+[Dirac確率測度](#def-slt2-13-dirac-measure)を用いると、各時刻で
 
 $$
 \int_\Theta\varphi(\theta)\,\mu_m(t,d\theta)
@@ -489,7 +499,7 @@ $\Theta=\mathbb R$ に3粒子 $\theta_1=0,\theta_2=2,\theta_3=2$ を置く。$\m
 <!-- solution-start -->
 #### 詳細解答
 
-定義から $\mu_3=(\delta_0+\delta_2+\delta_2)/3=(\delta_0+2\delta_2)/3$。したがって
+[経験粒子測度と二層網の積分表示](#def-slt2-13-empirical-measure)を使うと $\mu_3=(\delta_0+\delta_2+\delta_2)/3=(\delta_0+2\delta_2)/3$。したがって
 
 $$
 \mu_3(\{2\})=\frac23,\qquad
@@ -555,7 +565,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-粒子勾配が $\nabla_{\theta_r}\mathcal L_m=q_r/m$ と表されるとする（$q_r$ は現在の粒子配置の関数）。未加速勾配流と加速勾配流の速度を書き、両者が同じ初期値から始まるとき、時刻をどう対応させれば同じ粒子軌道になるかを示せ。
+粒子勾配が $\nabla_{\theta_r}\mathcal L_m=q_r/m$ と表されるとする（$q_r$ は現在の粒子配置の関数）。未加速勾配流と[加速粒子勾配流](#def-slt2-13-particle-potential)の速度を書き、両者が同じ初期値から始まるとき、時刻をどう対応させれば同じ粒子軌道になるかを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -575,7 +585,7 @@ $$
 - Level: A
 - 目安時間: 14分
 
-$n=2,m=1$ とし、ある粒子で二訓練点の特徴勾配が $u_1=(1,2)$、$u_2=(2,4)$ である。$G=(u_i\cdot u_j)_{i,j=1}^2$ を計算し、任意の $c=(c_1,c_2)$ に対する $c^{\mathsf T}Gc$ と零固有値方向を求めよ。
+$n=2,m=1$ とし、ある粒子で二訓練点の特徴勾配が $u_1=(1,2)$、$u_2=(2,4)$ である。[粒子Gram行列](#prop-slt2-13-moving-gram) $G=(u_i\cdot u_j)_{i,j=1}^2$ を計算し、任意の $c=(c_1,c_2)$ に対する $c^{\mathsf T}Gc$ と零固有値方向を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -600,7 +610,7 @@ $(c_1,c_2)=(-2,1)$ 方向では値が零で、実際に $G(-2,1)^{\mathsf T}=0$�
 - Level: B
 - 目安時間: 20分
 
-入力1点、教師 $y=1$、$\psi(a,w)=aw$ とする。二粒子を $(1,1)$ と $(0,2)$ で初期化し、加速粒子勾配流の初期速度、予測値の初期速度、損失の初期時間微分を、(a) 粒子の連鎖律、(b) 粒子Gram行列の式で独立に求めて照合せよ。
+入力1点、教師 $y=1$、$\psi(a,w)=aw$ とする。二粒子を $(1,1)$ と $(0,2)$ で初期化し、加速粒子勾配流の初期速度、予測値の初期速度、損失の初期時間微分を、(a) 粒子の連鎖律、(b) [粒子Gram行列の残差方程式](#prop-slt2-13-moving-gram)で独立に求めて照合せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -629,7 +639,7 @@ $\mathcal L=e^2/2$ より $d\mathcal L/dt=e\dot F=-3/4$。
 - Level: B
 - 目安時間: 20分
 
-前問と同じ二粒子模型において、試験関数 $\varphi_1(a,w)=a$ と $\varphi_2(a,w)=a^2+w^2$ を使う。初期時刻の $\frac d{dt}\int\varphi_j\,d\mu_2$ を弱形式と粒子速度の直接代入で求めよ。
+前問と同じ二粒子模型において、試験関数 $\varphi_1(a,w)=a$ と $\varphi_2(a,w)=a^2+w^2$ を使う。初期時刻の $\frac d{dt}\int\varphi_j\,d\mu_2$ を[経験測度の弱形式](#prop-slt2-13-weak-form)と粒子速度の直接代入で求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -713,7 +723,7 @@ $$
 二つの訓練入力 $x_1=1,x_2=-1$、教師 $y=(1,0)^{\mathsf T}$、切片のない部分模型 $\psi_x(a,w)=awx$、粒子数 $m\ge1$ を考える。$b=m^{-1}\sum_ra_rw_r$ と置き、$f(x)=bx$ とする。
 
 1. 加速勾配流の $\dot a_r,\dot w_r$ を $b$ と各粒子で表せ。
-2. $b$ の微分と粒子Gram行列を計算し、残差方程式を検証せよ。
+2. $b$ の微分と粒子Gram行列を計算し、[残差方程式](#prop-slt2-13-moving-gram)を検証せよ。
 3. 全粒子が初期に $(a_r,w_r)=(1,0)$ の場合、$b(0),\dot b(0),\ddot b(0)$ を求め、粒子Gramが全時刻で初期値に固定されるという推論が正しくないことを示せ。
 
 <!-- solution-start -->
