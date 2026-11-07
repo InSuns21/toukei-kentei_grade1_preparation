@@ -36,8 +36,8 @@ chapters:
     title: "近傍グラフの構築"
   - id: MFL8
     path: textbook/volumes/dream_thater/応用系/MFL/MFL8
-    status: planned
-    title: "Classical MDS・線形基準モデル"
+    status: completed
+    title: "Classical MDS・距離から座標を復元する"
   - id: MFL9
     path: textbook/volumes/dream_thater/応用系/MFL/MFL9
     status: planned

@@ -1,0 +1,56 @@
+chapter: MFL8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL2
+  - ML1-19
+
+concepts:
+  - id: manifold-learning.double-centered-gram
+    name: 二乗非類似度行列と二重中心化Gram行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二乗非類似度行列と二重中心化Gram行列）"]
+    requires: [learning.pca-centered-data]
+
+  - id: manifold-learning.euclidean-distance-realization
+    name: Euclid距離の実現と最小実現次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid距離の実現と最小実現次元）"]
+    requires: [manifold-learning.double-centered-gram, manifold-learning.circle-distance]
+
+  - id: manifold-learning.mds-centered-gram-identity
+    name: 中心化Euclid点群の二重中心化公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心化Euclid点群の二重中心化公式）"]
+    requires: [manifold-learning.double-centered-gram, learning.pca-centered-data]
+
+  - id: manifold-learning.mds-euclidean-criterion
+    name: Euclid距離行列の正半定値判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Euclid距離行列の正半定値判定）"]
+    requires: [manifold-learning.euclidean-distance-realization, manifold-learning.mds-centered-gram-identity, linear.spectral-theorem]
+
+  - id: manifold-learning.mds-isometric-ambiguity
+    name: 距離が決める座標の直交同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（距離が決める座標の直交同値性）"]
+    requires: [manifold-learning.mds-euclidean-criterion]
+
+  - id: manifold-learning.classical-mds-strain
+    name: Classical MDSの座標とGramひずみ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Classical MDSの座標とGramひずみ）"]
+    requires: [manifold-learning.double-centered-gram, linear.spectral-theorem]
+
+  - id: manifold-learning.mds-optimal-gram
+    name: Classical MDSの最良Gram近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Classical MDSの最良Gram近似）"]
+    requires: [manifold-learning.classical-mds-strain, manifold-learning.mds-euclidean-criterion]
