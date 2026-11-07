@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-08（MFL9のIsomapと測地距離まで執筆）
-状態: in_progress（MFL1〜MFL9 完成、MFL10〜MFL43 は未実装）
+改訂日: 2026-11-08（MFL10のLocally Linear Embeddingまで執筆）
+状態: in_progress（MFL1〜MFL10 完成、MFL11〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 

@@ -1,0 +1,47 @@
+id: "MFL10"
+title: "Locally Linear Embedding"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL7
+  - MFL8
+official_scope: []
+learning_objectives:
+  - 行和1の局所再構成重みと中心化局所Gram行列の関係を導出できる
+  - 正定値の場合の重みの一意解を証明し、特異行列で何が破れるか説明できる
+  - ridge正則化による重みと尺度・回転・平行移動への応答を計算できる
+  - LLE埋め込みの二次形式をM=(I-W)^T(I-W)へ展開できる
+  - 零固有値の重複、負の重み、非連結などの退化例を計算し、識別不能性を説明できる
+  - 局所再構成誤差と測地距離・大域距離の保存を区別できる
+  - 再現可能な小規模数値実験で重み、行和、固有値、埋め込み残差を検証できる
+definitions:
+  - { id: MFL10-DEF-01, name: 局所アフィン再構成重み }
+  - { id: MFL10-DEF-02, name: ridge正則化局所重み }
+  - { id: MFL10-DEF-03, name: LLEの埋め込み変分問題 }
+theorems:
+  - { id: MFL10-PROP-01, name: 局所Gram形式と正定値重みの公式 }
+  - { id: MFL10-PROP-02, name: ridge重みの一意性と変換則 }
+  - { id: MFL10-THM-01, name: LLE二次形式の固有値最小化 }
+  - { id: MFL10-PROP-03, name: 非連結近傍と追加零固有方向 }
+  - { id: MFL10-PROP-04, name: 符号付き重みの連結グラフでも核が増える例 }
+canonical_examples:
+  - 三点一直線の中心点の重みと特異Gram
+  - 非対称な1次元近傍でridge重みを手計算
+  - 三点連結グラフのMの固有値と一次元埋め込み
+  - 非連結成分および負の重みによる余分な零固有値
+  - Python標準ライブラリによる重みと固有分解の再現
+problem_patterns:
+  - MFL10-A01
+  - MFL10-A02
+  - MFL10-A03
+  - MFL10-A04
+  - MFL10-B01
+  - MFL10-B02
+  - MFL10-B03
+  - MFL10-B04
+  - MFL10-C01
+  - MFL10-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 1.5 }

@@ -44,7 +44,7 @@ chapters:
     title: "Isomapと測地距離"
   - id: MFL10
     path: textbook/volumes/dream_thater/応用系/MFL/MFL10
-    status: planned
+    status: completed
     title: "Locally Linear Embedding"
   - id: MFL11
     path: textbook/volumes/dream_thater/応用系/MFL/MFL11
