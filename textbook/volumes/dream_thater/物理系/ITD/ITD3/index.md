@@ -222,7 +222,7 @@ $$
 K=\begin{pmatrix}3/4&1/4\\1/4&3/4\end{pmatrix}
 $$
 
-とします。行和1、非負性、対称性を直接確認でき、エネルギー差が0なので[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たします。更新後は $p'=(3/4,1/4)$、$\pi K=\pi$ です。
+各行の和は1で、成分の非負性と対称性も直接確認できます。エネルギー差が0なので[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たします。更新後は $p'=(3/4,1/4)$、$\pi K=\pi$ です。
 
 $$
 \begin{aligned}
