@@ -24,3 +24,4 @@
 20. [SLT2-02 最小ノルム補間と勾配流](textbook/volumes/dream_thater/応用系/SLT/SLT2-02/index.md)
 21. [SLT2-03 ridgeのスペクトルと偏り・分散](textbook/volumes/dream_thater/応用系/SLT/SLT2-03/index.md)
 22. [SLT2-04 double descentの成立条件](textbook/volumes/dream_thater/応用系/SLT/SLT2-04/index.md)
+23. [SLT2-05 高次元ランダム行列評価](textbook/volumes/dream_thater/応用系/SLT/SLT2-05/index.md)

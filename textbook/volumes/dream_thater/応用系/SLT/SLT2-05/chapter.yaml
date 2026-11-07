@@ -1,0 +1,47 @@
+id: "SLT2-05"
+title: "高次元ランダム行列評価"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-04
+  - HDP7
+  - HDP8
+official_scope: []
+learning_objectives:
+  - 正規化Gram行列の作用素ノルム条件を特異値・逆行列の跡へ変換し、nとpの階数障害を区別できる
+  - HDP7の全方向sub-Gaussian条件を行設計へ適用して、有限標本・高確率の特異値界を導ける
+  - 列側の評価に独立な列を追加仮定する理由と、良好事象上の条件付きリスクの範囲を説明できる
+  - HDP8の行列Bernsteinから有界設計の共分散評価を導き、sub-Gaussian界と仮定・次元依存を比較できる
+  - Gaussian Gram行列のFrobenius二乗平均・平均固有値の分散を成分から計算できる
+  - 固定pと比例漸近p/n→γを区別し、Gaussian最小ノルム推定の期待リスクの極限を有限標本公式から導ける
+  - 高確率条件付き保証・全標本の期待リスク・比例漸近の境界を反例で説明できる
+definitions:
+  - { id: SLT2-05-DEF-01, name: 正規化Gram行列とスペクトル良好事象 }
+  - { id: SLT2-05-DEF-02, name: 比例高次元漸近 }
+theorems:
+  - { id: SLT2-05-LEM-01, name: Gram誤差から特異値・逆跡への橋渡し }
+  - { id: SLT2-05-THM-01, name: sub-Gaussian設計の特異値と逆Gram跡 }
+  - { id: SLT2-05-PROP-01, name: 有界設計の標本二次モーメント評価 }
+  - { id: SLT2-05-PROP-02, name: Gaussian Gram行列の二乗平均誤差 }
+  - { id: SLT2-05-THM-02, name: Gaussian最小ノルム推定の比例漸近期待リスク }
+canonical_examples:
+  - 三行二特徴の対角設計でGram誤差と逆跡を直接計算する
+  - 行が少ない場合の核方向と行Gramの違いを確認する
+  - Rademacher設計で有界性とsub-Gaussianの上界を比較する
+  - Gaussianの平均固有値とFrobenius誤差を計算する
+  - gammaの両側で核方向の偏りと雑音を分離する
+problem_patterns:
+  - SLT2-05-A01
+  - SLT2-05-A02
+  - SLT2-05-A03
+  - SLT2-05-A04
+  - SLT2-05-A05
+  - SLT2-05-B01
+  - SLT2-05-B02
+  - SLT2-05-B03
+  - SLT2-05-B04
+  - SLT2-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.5 }
