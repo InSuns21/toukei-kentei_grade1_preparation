@@ -1,0 +1,42 @@
+chapter: ITD17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD16
+  - MECH4
+forward_references: []
+concepts:
+  - id: information-thermodynamics.variable-friction-inertial
+    name: 等温・位置依存摩擦の慣性付き実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等温・位置依存摩擦の慣性付き実験）]
+    requires: [information-thermodynamics.inertial-langevin, mechanics.linear-momentum]
+
+  - id: information-thermodynamics.small-mass-momentum-bound
+    name: 小質量の運動量二乗評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（小質量の運動量二乗評価）]
+    requires: [information-thermodynamics.variable-friction-inertial]
+
+  - id: information-thermodynamics.friction-coordinate
+    name: 摩擦座標と過減衰比較過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（摩擦座標と過減衰比較過程）]
+    requires: [information-thermodynamics.variable-friction-inertial]
+
+  - id: information-thermodynamics.variable-friction-smoluchowski-kramers
+    name: 位置依存摩擦のSmoluchowski–Kramers極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（位置依存摩擦のSmoluchowski–Kramers極限）]
+    requires: [information-thermodynamics.small-mass-momentum-bound, information-thermodynamics.friction-coordinate, information-thermodynamics.smoluchowski-kramers-limit]
+
+  - id: information-thermodynamics.variable-friction-equilibrium
+    name: 慣性付き平衡と過減衰平衡の整合
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（慣性付き平衡と過減衰平衡の整合）]
+    requires: [information-thermodynamics.variable-friction-smoluchowski-kramers, information-thermodynamics.variable-diffusion-current, information-thermodynamics.inertial-kramers-current]

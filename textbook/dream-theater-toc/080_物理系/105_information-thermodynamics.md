@@ -17,3 +17,4 @@
 14. [ITD14 位置依存拡散の熱力学：雑音誘起ドリフト・経路反転・散逸](textbook/volumes/dream_thater/物理系/ITD/ITD14/index.md)
 15. [ITD15 慣性を持つLangevin系：速度反転・Kramers流・散逸](textbook/volumes/dream_thater/物理系/ITD/ITD15/index.md)
 16. [ITD16 慣性から位置拡散へ：Smoluchowski–Kramers極限と消えない運動エネルギー](textbook/volumes/dream_thater/物理系/ITD/ITD16/index.md)
+17. [ITD17 位置依存摩擦の小質量極限：雑音誘起ドリフトはどこから来るか](textbook/volumes/dream_thater/物理系/ITD/ITD17/index.md)
