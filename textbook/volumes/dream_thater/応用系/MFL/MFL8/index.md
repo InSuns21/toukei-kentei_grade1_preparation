@@ -18,7 +18,7 @@ $$
 J=I_n-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T}
 $$
 
-とする。$J\boldsymbol1=0$、$J^{\mathsf T}=J$、$J^2=J$ だから、行列 $X$ の各行から列ごとの平均を引いた行列は $JX$ である。両側から $J$ を掛けるのは、$\Delta$ の行方向と列方向の平均をともに取り除くためである。
+とする。$J\boldsymbol1=0$、$J^{\mathsf T}=J$、$J^2=J$ だから、行列 $X$ の各行から列ごとの平均を引いた行列は $JX$ である。両側から $J$ を掛けるのは、$\Delta$ の行方向と列方向の平均をともに取り除くためである。整数 $p\ge1$ と列ベクトル $y_1,\ldots,y_n\in\mathbb R^p$ に対し、内積 $y_i^{\mathsf T}y_j$ を成分に並べたものを **Gram行列**と呼ぶ。今は点の座標が未知なので、次の $B$ はGram行列の**候補**である。
 
 <a id="def-mfl8-double-centered-gram"></a>
 
@@ -75,13 +75,13 @@ $$
 
 ## 2. なぜ二重中心化で内積が戻るのか
 
-Euclid 空間の点 $x_i\in\mathbb R^p$ が実在するとき、平均 $\bar x=n^{-1}\sum_ix_i$ を引いた $y_i=x_i-\bar x$ を行に持つ $Y\in\mathbb R^{n\times p}$ を考える。内積の表 $G=YY^{\mathsf T}$ を Gram 行列と呼ぶ。$G_{ij}=y_i^{\mathsf T}y_j$ であり、$G$ が正半定値なのは任意の $u\in\mathbb R^n$ に対して $u^{\mathsf T}Gu=\|Y^{\mathsf T}u\|^2\ge0$ だからである。
+Euclid 空間の点 $x_i\in\mathbb R^p$ が実在するとき、平均 $\bar x=n^{-1}\sum_ix_i$ を引いた $y_i=x_i-\bar x$ を行に持つ $Y\in\mathbb R^{n\times p}$ を考える。内積の表 $G=YY^{\mathsf T}$ が第1節で導入した Gram 行列である。$G_{ij}=y_i^{\mathsf T}y_j$ であり、$G$ が正半定値なのは任意の $u\in\mathbb R^n$ に対して $u^{\mathsf T}Gu=\|Y^{\mathsf T}u\|^2\ge0$ だからである。
 
 <a id="prop-mfl8-centering-identity"></a>
 
 <!-- formal-statement-start -->
 > **命題（中心化Euclid点群の二重中心化公式）**
-> $n\ge2$、$x_1,\ldots,x_n\in\mathbb R^p$（整数 $p\ge0$）から $d_{ij}=\|x_i-x_j\|$ と $B=-J\Delta J/2$ を作る。$Y$ の第 $i$ 行を $(x_i-\bar x)^{\mathsf T}$ とすると
+> $n\ge2$、$x_1,\ldots,x_n\in\mathbb R^p$（整数 $p\ge0$、$\mathbb R^0$ は一点空間）から $d_{ij}=\|x_i-x_j\|$ と $B=-J\Delta J/2$ を作る。$Y$ の第 $i$ 行を $(x_i-\bar x)^{\mathsf T}$ とすると
 
 $$
 B=YY^{\mathsf T}.
