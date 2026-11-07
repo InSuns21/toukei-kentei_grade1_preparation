@@ -1,0 +1,45 @@
+chapter: SLT2-18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-21
+  - SLT1-03
+  - SLT1-04
+  - SLT1-18
+  - SLT2-17
+
+concepts:
+  - id: learning.known-bounded-importance-ratio
+    name: 既知で有界な重要度重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知で有界な重要度重み）"]
+    requires: [learning.covariate-shift]
+
+  - id: learning.bounded-importance-uniform-bound
+    name: 有界な既知重要度重みによる有限クラス保証
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有界な既知重要度重みによる有限クラス保証）"]
+    requires: [learning.known-bounded-importance-ratio, learning.covariate-shift-risk-identity, learning.finite-class-fixed-risk-deviation]
+
+  - id: learning.target-support-nonidentifiability
+    name: 訓練support外のラベル識別不能
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（訓練support外のラベル識別不能）"]
+    requires: [learning.covariate-shift, learning.within-class-excess-risk]
+
+  - id: learning.rare-target-region-lower-bound
+    name: support一致でも共通の比上限なしでは一様保証がない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（support一致でも共通の比上限なしでは一様保証がない）"]
+    requires: [learning.target-support-nonidentifiability, learning.bounded-importance-uniform-bound]
+
+  - id: learning.target-label-mismatch
+    name: 入力周辺一致だけでは評価ラベルを識別できない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（入力周辺一致だけでは評価ラベルを識別できない）"]
+    requires: [learning.covariate-shift]

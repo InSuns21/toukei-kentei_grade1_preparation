@@ -1,0 +1,44 @@
+id: "SLT2-18"
+title: "分布シフト下の不可能性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-21
+  - SLT1-03
+  - SLT1-04
+  - SLT1-18
+  - SLT2-17
+learning_objectives:
+  - 訓練分布と評価分布のリスクを区別し、有限入力でcovariate shiftと条件付きラベルの変化を判定できる
+  - supportの包含、密度比の既知性と有界性を分け、重要度重み付けの恒等式と有限クラス同時界を導ける
+  - 訓練support外のラベルが識別できないことを、同じ観測分布をもつ二世界から証明できる
+  - supportが一致しても希少なターゲット重要領域があると分布自由保証が失われる有限標本反例を計算できる
+  - 入力周辺分布が完全に等しくても条件付きラベルが変わればtarget riskを保証できないことを説明できる
+  - 統計的学習理論I・IIの保証を確率様式、独立性、模型、評価分布の仮定で使い分けられる
+definitions:
+  - { id: SLT2-18-DEF-01, name: 既知で有界な重要度重み }
+theorems:
+  - { id: SLT2-18-THM-01, name: 有界な既知重要度重みによる有限クラス保証 }
+  - { id: SLT2-18-PROP-01, name: 訓練support外のラベル識別不能 }
+  - { id: SLT2-18-PROP-02, name: support一致でも共通の比上限なしでは一様保証がない }
+  - { id: SLT2-18-PROP-03, name: 入力周辺一致だけでは評価ラベルを識別できない }
+canonical_examples:
+  - 二点入力のcovariate shiftで母集団リスクと重要度重みの等式を直接検証する
+  - 観測可能な訓練ラベルと評価入力が一致する二世界で評価リスク和を計算する
+  - 訓練でまれな入力に評価確率の半分を置く模型で密度比・標本未観測確率と下限を求める
+  - 同じ入力周辺分布のまま条件付きラベルのみを反転する例を計算する
+problem_patterns:
+  - SLT2-18-A01
+  - SLT2-18-A02
+  - SLT2-18-A03
+  - SLT2-18-A04
+  - SLT2-18-A05
+  - SLT2-18-B01
+  - SLT2-18-B02
+  - SLT2-18-B03
+  - SLT2-18-B04
+  - SLT2-18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2.0 }

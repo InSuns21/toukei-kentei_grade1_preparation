@@ -148,5 +148,5 @@ chapters:
     title: "情報量と圧縮の汎化界"
   - id: SLT2-18
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-18
-    status: planned
+    status: completed
     title: "分布シフト下の不可能性"
