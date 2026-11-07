@@ -19,11 +19,21 @@ $$
 L_S(\theta)=\frac1n\sum_{i=1}^n\ell(f_\theta(x_i),y_i)
 $$
 
-と置く。以下の曲率の議論では、$\Theta$ の内点付近で $L_S$ が二回連続微分可能だと仮定する。勾配 $\nabla L_S(\theta)$ は各座標の一階偏微分を並べたベクトル、**Hessian** $H_S(\theta)$ はその勾配をさらに各座標で微分した $p\times p$ 行列であり、第 $(i,j)$ 成分を $\partial_{\theta_i}\partial_{\theta_j}L_S(\theta)$ とする。二回連続微分可能性から対称行列になる。
+と置く。以下の曲率の議論では、$\Theta$ の内点付近で $L_S$ が二回連続微分可能だと仮定する。勾配 $\nabla L_S(\theta)$ は各座標の一階偏微分を並べたベクトル、**[Hessian](../../../基礎科目/RA/RA6/index.md#def-ra6-hessian)** $H_S(\theta)$ はその勾配をさらに各座標で微分した $p\times p$ 行列であり、第 $(i,j)$ 成分を $\partial_{\theta_i}\partial_{\theta_j}L_S(\theta)$ とする。二回連続微分可能性から対称行列になる。
 
 勾配が零の点を**停留点**という。内点で局所極小なら停留点であり、Hessianは正半定値になる。これは方向 $v$ に沿う一変数関数 $t\mapsto L_S(\theta+tv)$ が $t=0$ で極小となり、二階微分 $v^{\mathsf T}H_S(\theta)v\ge0$ を満たすからである。したがって最大固有値は非負である。
 
 二つの尺度を区別する。Hessianが表すのは極めて近い点での二次近似であり、有限の大きさの摂動に対する損失増加は、その近傍全体での最大値を取って測る。後者で使う半径 $\rho$ は**Euclidノルムで測ったパラメータの移動量**である。
+
+対称Hessianの固有値で曲率を判定できる理由も確認する。[実対称行列の直交対角化](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により、単位固有ベクトルの直交基底 $q_1,\ldots,q_p$ を取れる。単位方向 $v=\sum_k\alpha_kq_k$ では $\sum_k\alpha_k^2=1$ だから、固有値を $\lambda_k$ として
+
+$$
+v^{\mathsf T}Hv=\sum_{k=1}^p\lambda_k\alpha_k^2
+\le\lambda_{\max}(H)\sum_{k=1}^p\alpha_k^2
+=\lambda_{\max}(H).
+$$
+
+最大固有値の単位固有ベクトルを選べば等号になる。つまり最大固有値は、座標方向に限らない**全単位方向での二次の増加係数**を最大化した値である。ここで $\|v\|_2$ は Euclidノルム、$\lambda_{\max}$ は最大固有値を表す。
 
 <a id="def-slt2-16-sharpness"></a>
 
@@ -48,7 +58,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-16-sharpness -->
-**定義の確認**。$\Theta=\mathbb R^2$、$L(u,v)=(u^2+4v^2)/2$、$\theta_\star=(0,0)$ とする。勾配は $(u,4v)^{\mathsf T}$ で原点で零。損失は全点で非負だから原点は局所極小である。Hessianは $\operatorname{diag}(1,4)$ で、単位ベクトル $(r,s)$ に対する二次形式は $r^2+4s^2\le4$。$(0,1)$ が等号を実現するので $s_H=4$。また
+**定義の確認**。$\Theta=\mathbb R^2$、$L(u,v)=(u^2+4v^2)/2$、$\theta_\star=(0,0)$ とする。勾配は $(u,4v)^{\mathsf T}$ で原点で零。損失は全点で非負だから原点は局所極小である。
+
+一階偏微分をさらに微分すると $\partial_u^2L=1$、$\partial_u\partial_vL=0$、$\partial_v^2L=4$。従って各二階偏微分を成分とするHessianは
+
+$$
+H=\begin{pmatrix}1&0\\0&4\end{pmatrix}
+=\operatorname{diag}(1,4).
+$$
+
+単位ベクトル $(r,s)$ に対する二次形式は $r^2+4s^2\le4$ で、$(0,1)$ が等号を実現するから $s_H=4$。また
 
 $$
 \max_{u^2+v^2\le\rho^2}\frac{u^2+4v^2}{2}
@@ -108,7 +127,21 @@ L(\theta_\star+\delta)-L(\theta_\star)
 \nabla^2L(\theta_\star+t\delta)\delta\,dt.
 $$
 
-定数 $H$ を差し引くと剰余 $r(\delta)$ は
+定数 $H$ を差し引くと剰余 $r(\delta)$ は次のように評価できる。ここで行列のEuclid作用素ノルムを
+
+$$
+\|A\|_{\mathrm{op}}=\sup_{\|v\|_2=1}\|Av\|_2
+$$
+
+と書く。以下の第一の不等号は内積についての [Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)、第二の不等号は作用素ノルムの定義に対応する。
+
+$$
+|\delta^{\mathsf T}A\delta|
+\le\|\delta\|_2\|A\delta\|_2
+\le\|A\|_{\mathrm{op}}\|\delta\|_2^2
+$$
+
+これを剰余の積分式に適用すると
 
 $$
 |r(\delta)|\le\frac12\|\delta\|_2^2\,
@@ -199,7 +232,7 @@ $$
 v^{\mathsf T}(J^{\mathsf T}HJ)v=(Jv)^{\mathsf T}H(Jv).
 $$
 
-$v\mapsto Jv$ が全単射だから、二次形式が正・負となる最大部分空間の次元と零空間の次元は変わらない。これは対称行列の合同変換の慣性不変性であり、**固有値の数値の一致**を意味しない。$\square$
+$v\mapsto Jv$ が全単射だから、二次形式が正・負となる最大部分空間の次元は変わらない。零空間についても $J^{\mathsf T}HJv=0$ は $HJv=0$ と同値であり、可逆な $J$ を介して核の次元が一致する。これは [Sylvesterの慣性法則](../../../基礎科目/LA/LA6/index.md#thm-la6-inertia)で述べられる合同変換の慣性不変性であり、**固有値の数値の一致**を意味しない。$\square$
 <!-- proof-end -->
 
 **変換公式の直接例**。$L(\theta)=\theta^2/2$、$\theta=u/c$（$c>0$）とする。両座標の原点は停留極小点で、$\widetilde L(u)=u^2/(2c^2)$、Jacobianは $1/c$ である。従って
@@ -235,7 +268,7 @@ f_\theta(x)=f_{\theta'}(x)\qquad
 (\text{全ての }x\in\mathcal X)
 $$
 
-> を満たすとき、両者は予測関数として同値という。同一の損失 $\ell$ と同一の $(X,Y)$ の分布 $P$ に対し期待損失が存在すれば、母集団リスク $R_P(\theta)=E_P[\ell(f_\theta(X),Y)]$ は等しい。
+> を満たすとき、両者は予測関数として同値という。同一の損失 $\ell$ と同一の $(X,Y)$ の分布 $P$ に対し期待損失が存在すれば、[母集団リスク](../../ML/ML1-01/index.md#def-ml1-01-risks) $R_P(\theta)=E_P[\ell(f_\theta(X),Y)]$ は等しい。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-16-equivalence -->
