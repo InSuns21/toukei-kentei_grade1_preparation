@@ -236,7 +236,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（位置依存拡散の逆実験と全エントロピー生成）**  
-> [等温円周拡散](#def-itd14-isothermal-diffusion)で正方向の力 $f_t(x)=F_t-\partial_xU_t(x)$ と正の初期密度 $\rho_0$ を与え、時刻 $\tau$ の密度を $\rho_\tau$ とする。正実験の経路法則を $P$ とする。逆実験は、初期密度 $\rho_\tau$、同じ位置依存の $D$ と、逆順の力 $f_t^{\mathrm R}(x)=f_{\tau-t}(x)$ に従う等温円周拡散とし、その経路法則を $P_{\mathrm R}$ とする。経路反転 $\Theta$ は円周経路を $X_t^\dagger=X_{\tau-t}$ へ写し、持ち上げの増分は逆符号で逆順にする。$Q=P_{\mathrm R}\circ\Theta^{-1}$ と置き、全エントロピー生成（$k_{\mathrm B}$ 単位）を
+> [等温円周拡散](#def-itd14-isothermal-diffusion)で正方向の力 $f_t(x)=F_t-\partial_xU_t(x)$ と正の初期密度 $\rho_0$ を与え、時刻 $\tau$ の密度を $\rho_\tau$ とする。正実験の経路法則を $P$ とする。
+>
+> 逆実験は、初期密度 $\rho_\tau$、同じ位置依存の $D$ と、逆順の力 $f_t^{\mathrm R}(x)=f_{\tau-t}(x)$ に従う等温円周拡散とし、その経路法則を $P_{\mathrm R}$ とする。
+>
+> 経路反転 $\Theta$ は円周経路を $X_t^\dagger=X_{\tau-t}$ へ写し、持ち上げの増分は逆符号で逆順にする。$Q=P_{\mathrm R}\circ\Theta^{-1}$ と置き、全エントロピー生成（$k_{\mathrm B}$ 単位）を
 
 $$
 \sigma=\log\frac{dP}{dQ}
