@@ -1,0 +1,46 @@
+id: "MFL8"
+title: "Classical MDS・距離から座標を復元する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL2
+  - ML1-19
+official_scope: []
+learning_objectives:
+  - 対称・対角零の二乗距離行列と中心化行列から二重中心化Gram行列を構成できる
+  - 中心化したEuclid点群のGram行列が二重中心化で復元されることを証明できる
+  - 二重中心化Gram行列の正半定値性とEuclid距離実現可能性の同値を証明できる
+  - 固有値から最小埋め込み次元と座標を再構成し平行移動・直交変換の不定性を説明できる
+  - Classical MDSの正固有値切断がGram行列の最良正半定値低ランク近似であることを証明できる
+  - 負固有値と非Euclid距離の例を計算しGram誤差と距離誤差を区別できる
+  - 再現可能なPython実験で距離行列・埋め込み次元・固有値許容誤差の効果を確認できる
+definitions:
+  - { id: MFL8-DEF-01, name: 二乗非類似度行列と二重中心化Gram行列 }
+  - { id: MFL8-DEF-02, name: Euclid距離の実現と最小実現次元 }
+  - { id: MFL8-DEF-03, name: Classical MDSの座標とGramひずみ }
+theorems:
+  - { id: MFL8-PROP-01, name: 中心化Euclid点群の二重中心化公式 }
+  - { id: MFL8-THM-01, name: Euclid距離行列の正半定値判定 }
+  - { id: MFL8-PROP-02, name: 距離が決める座標の直交同値性 }
+  - { id: MFL8-THM-02, name: Classical MDSの最良Gram近似 }
+canonical_examples:
+  - 直角三角形の二乗距離と中心化Gram行列
+  - 三点間の三角不等式に違反する非類似度と負固有値
+  - 同じ点群を平行移動・回転しても変わらない二乗距離
+  - 三角形の一次元近似と再構成距離のずれ
+  - Pythonによる固有分解・座標再構成・Gramひずみの数値比較
+problem_patterns:
+  - MFL8-A01
+  - MFL8-A02
+  - MFL8-A03
+  - MFL8-A04
+  - MFL8-B01
+  - MFL8-B02
+  - MFL8-B03
+  - MFL8-B04
+  - MFL8-C01
+  - MFL8-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 1.5 }
