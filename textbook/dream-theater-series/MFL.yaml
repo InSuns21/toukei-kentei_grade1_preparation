@@ -72,7 +72,7 @@ chapters:
     title: "Diffusion Mapsと熱の幾何"
   - id: MFL17
     path: textbook/volumes/dream_thater/応用系/MFL/MFL17
-    status: planned
+    status: completed
     title: "境界・adaptive近傍・density shift"
   - id: MFL18
     path: textbook/volumes/dream_thater/応用系/MFL/MFL18
