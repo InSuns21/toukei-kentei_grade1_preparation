@@ -37,3 +37,4 @@
 33. [SLT2-15 SGDの拡散近似とその限界](textbook/volumes/dream_thater/応用系/SLT/SLT2-15/index.md)
 34. [SLT2-16 flat minimaの座標依存性](textbook/volumes/dream_thater/応用系/SLT/SLT2-16/index.md)
 35. [SLT2-17 情報量と圧縮の汎化界](textbook/volumes/dream_thater/応用系/SLT/SLT2-17/index.md)
+36. [SLT2-18 分布シフト下の不可能性](textbook/volumes/dream_thater/応用系/SLT/SLT2-18/index.md)
