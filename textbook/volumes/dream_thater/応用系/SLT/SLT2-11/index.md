@@ -14,7 +14,7 @@
 
 ## 1. 同じ網の二種類の行列
 
-固定した入力 $x_1,\ldots,x_n\in\mathbb R^d$ に、バイアス用の1を付けた $\xi_i=(x_i^{\mathsf T},1)^{\mathsf T}\in\mathbb R^{d+1}$ を用いる。前章と同じ二層網を、幅 $m$ に対して
+固定した入力 $x_1,\ldots,x_n\in\mathbb R^d$ に、バイアス用の1を付けた $\xi(x)=(x^{\mathsf T},1)^{\mathsf T}\in\mathbb R^{d+1}$、$\xi_i=\xi(x_i)$ を用いる。前章と同じ二層網を、幅 $m$ に対して
 
 $$
 f_m(x)=\frac1{\sqrt m}\sum_{r=1}^m a_r\sigma(q_r^{\mathsf T}\xi(x))
@@ -33,7 +33,7 @@ $$
 <a id="def-slt2-11-nngp"></a>
 
 <!-- formal-statement-start -->
-> **定義（初期NNGP共分散）**  上記の二層網と初期化に対し、有限入力集合 $X=(x_1,\ldots,x_n)$ 上のNNGP共分散行列を
+> **定義（初期NNGP共分散）**  固定入力 $X=(x_1,\ldots,x_n)$、第1節の $1/\sqrt m$ 二層網、独立同分布の隠れ重み $q_r\sim\nu$、それらと独立な等確率符号 $a_r=\pm1$ に対し、$\xi_i=\xi(x_i)$ を用いてNNGP共分散行列を
 
 $$
 \Sigma_{ij}=\mathbb E_{q\sim\nu}\bigl[\sigma(q^{\mathsf T}\xi_i)\sigma(q^{\mathsf T}\xi_j)\bigr]
@@ -42,7 +42,15 @@ $$
 > と定める。初期出力の共分散はすべての $m\ge1$ で $\operatorname{Cov}(F_m(0))=\Sigma$ である。退化した $\Sigma$ も許す。
 <!-- formal-statement-end -->
 
-この定義では学習していない。$\Sigma$ は出力をもう一度ランダム初期化したときの共変動である。[正半定値核の有限次元Gaussian分布](../../ML/ML2-12/index.md#thm-ml2-12-consistency)の共分散になれることを、次の直接計算で確かめる。
+この定義では学習していない。$\Sigma$ は出力をもう一度ランダム初期化したときの共変動である。列ベクトル $v(q)$ の各成分が入力点での活性値を表すので、任意の係数 $z\in\mathbb R^n$ に対して
+
+$$
+z^{\mathsf T}\Sigma z
+=\mathbb E_q\bigl[z^{\mathsf T}v(q)v(q)^{\mathsf T}z\bigr]
+=\mathbb E_q\left[\left(\sum_{i=1}^nz_i\sigma(q^{\mathsf T}\xi_i)\right)^2\right]\ge0.
+$$
+
+従って $\Sigma$ は対称で、[正半定値核の条件](../../RKHS/RKHS1/index.md#def-rkhs1-psd-kernel)に合う。重みの共通分布 $\nu$ を入力集合に依存させなければ、どの有限入力集合でもこの式が成り立ち、[有限次元Gaussian分布の整合構成](../../ML/ML2-12/index.md#thm-ml2-12-consistency)の共分散になれる。次の二点例では、その行列と二次形式を直接計算する。
 
 <!-- definition-example-start: def-slt2-11-nngp -->
 **定義の確認**。$d=1$、$x_1=-1,x_2=1$、$\sigma=\tanh$、$q=(u,0)^{\mathsf T}$ とし、$u=\pm c$ を等確率で採る。$c=\tfrac12\log 3$ とすると $\tanh c=1/2$ だから、いずれの符号でも $v(q)=\pm(-1/2,1/2)^{\mathsf T}$ となる。よって
@@ -119,14 +127,32 @@ $$
 
 ## 3. NNGPは出力、NTKは感度を測る
 
-同じ初期化で、今度は出力係数 $a_r$ だけでなく $q_r$ も学習可能とする。訓練点の勾配を一つずつ計算すると
+同じ初期化で、今度は出力係数 $a_r$ だけでなく $q_r$ も学習可能とする。$\sigma'(z)$ は活性化の引数 $z$ に関する導関数、$\partial_{a_r}$ はスカラー係数に関する偏微分、$\nabla_{q_r}$ は隠れパラメータの $d+1$ 成分に関する勾配列ベクトルである。
+
+前活性値を $z_{ri}=q_r^{\mathsf T}\xi_i$ と置くと、$q_{rk}$ に関する連鎖律は
+
+$$
+\partial_{q_{rk}}\sigma(z_{ri})
+=\sigma'(z_{ri})\partial_{q_{rk}}z_{ri}
+=\sigma'(z_{ri})\xi_{ik}.
+$$
+
+従って訓練点のパラメータ勾配は
 
 $$
 \partial_{a_r}f_m(x_i)=\frac{\sigma(q_r^{\mathsf T}\xi_i)}{\sqrt m},\qquad
 \nabla_{q_r}f_m(x_i)=\frac{a_r\sigma'(q_r^{\mathsf T}\xi_i)}{\sqrt m}\xi_i.
 $$
 
-従って同じニューロンのパラメータブロックについて勾配内積を取り、$r$ で和を取った $K_m(0)=J_mJ_m^{\mathsf T}$ は、関数値の積と微分の積の**二項**からできる。[前章の接線核公式](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)で定めた極限を、NNGPと並べて書き直す。
+全パラメータを $\theta=(a_1,q_1,\ldots,a_m,q_m)$ と並べ、訓練点のJacobianを $J_m=(\partial_{\theta_j}f_m(x_i))_{i,j}\in\mathbb R^{n\times m(d+2)}$ とする。勾配内積 $K_m(0)=J_mJ_m^{\mathsf T}$ の $(i,j)$ 成分では、同じニューロンの出力係数の微分同士と隠れ重みの微分同士を掛けて足すため、
+
+$$
+(K_m(0))_{ij}=\frac1m\sum_{r=1}^m\left[
+\sigma(z_{ri})\sigma(z_{rj})
++a_r^2\sigma'(z_{ri})\sigma'(z_{rj})\xi_i^{\mathsf T}\xi_j\right].
+$$
+
+ここで $a_r^2=1$ と独立平均の収束を使えば、関数値の積と微分の積の**二項**がそれぞれ極限に残る。[前章の接線核公式](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)で定めた極限を、NNGPと並べて書き直す。
 
 <a id="def-slt2-11-contrast"></a>
 
@@ -188,7 +214,7 @@ $$
 =\begin{pmatrix}11/8&-1/4\\-1/4&11/8\end{pmatrix}.
 $$
 
-和方向 $u_+=(1,1)^{\mathsf T}/\sqrt2$ と差方向 $u_-=(1,-1)^{\mathsf T}/\sqrt2$ で検算すると
+和方向 $u_+=(1,1)^{\mathsf T}/\sqrt2$ と差方向 $u_-=(1,-1)^{\mathsf T}/\sqrt2$ は正規直交基底である。$\Sigma$ にそれぞれ掛けると $\Sigma u_+=0$、$\Sigma u_-=(1/2)u_-$。さらに $\Theta=\Sigma+(9/8)I_2$ なので、両方の核の固有値は
 
 $$
 \begin{array}{c|cc}
@@ -205,7 +231,15 @@ $$
 
 二層網では差が「隠れ重みの勾配項」だった。多層網ではこの勾配が各層を逆向きに伝わるため、NNGPの共分散再帰に感度の累積を加えた別の再帰が生まれる。ここでは固定した入力集合と有限の深さ $L$ に限定し、**行列の各成分**ごとに比較する。
 
-バイアスなしの全結合網を考え、入力の内積Gram行列を $Q^{(0)}_{ij}=d^{-1}x_i^{\mathsf T}x_j$ とする。各隠れ層の重みは独立な平均零・分散1のGaussianで、前の層の幅の平方根で割り、全隠れ層と最後の読み出し層を学習可能とする。第 $\ell$ 層に入る二つの前活性値のGaussian共分散を $Q^{(\ell-1)}$ としたときの非線形化後の期待値を使う。
+バイアスなしの全結合網を考える。最初の層へ入る標準Gaussian重み $w\in\mathbb R^d$ から前活性値 $U_i^{(1)}=d^{-1/2}w^{\mathsf T}x_i$ を作ると、その共分散は
+
+$$
+Q^{(0)}_{ij}=\mathbb E[U_i^{(1)}U_j^{(1)}]
+=d^{-1}x_i^{\mathsf T}x_j,\qquad
+z^{\mathsf T}Q^{(0)}z=d^{-1}\left\|\sum_i z_ix_i\right\|_2^2\ge0.
+$$
+
+つまり入力の内積Gram行列は、前活性値の共分散表示そのものである。各隠れ層の重みは独立な平均零・分散1のGaussianで、前の層の幅の平方根で割り、全隠れ層と最後の読み出し層を学習可能とする。第 $\ell$ 層に入る二つの前活性値のGaussian共分散を $Q^{(\ell-1)}$ としたときの非線形化後の期待値を使う。
 
 <a id="def-slt2-11-recursion"></a>
 
@@ -225,7 +259,13 @@ $$
 > を定める。$Q^{(\ell)}$ をNNGP共分散再帰、$\Theta^{(\ell)}$ を標準NTKパラメータ化の感度再帰と呼ぶ。最後の積は行列積ではなく**成分ごとの積**である。
 <!-- formal-statement-end -->
 
-一層目では $\Theta^{(1)}=Q^{(1)}+Q^{(0)}\odot D^{(1)}$。これは先ほどの二層網の式の、バイアスなし・Gaussian隠れ重み版に一致する。読み出し層への勾配が $Q^{(1)}$、第一層の重みへの勾配が $Q^{(0)}\odot D^{(1)}$ を作る。二層目では
+成分ごとの積を $(A\odot B)_{ij}=A_{ij}B_{ij}$ と書く（Hadamard積）。一層目の再帰は
+
+$$
+\Theta^{(1)}=Q^{(1)}+Q^{(0)}\odot D^{(1)}.
+$$
+
+これは先ほどの二層網の式の、バイアスなし・Gaussian隠れ重み版に一致する。読み出し層への勾配が $Q^{(1)}$、第一層の重みへの勾配が $Q^{(0)}\odot D^{(1)}$ を作る。二層目では
 
 $$
 \Theta^{(2)}=Q^{(2)}+Q^{(1)}\odot D^{(2)}
@@ -355,7 +395,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限幅で $Z$ の予測を $F_m^Z$、訓練残差を $e_m^X=F_m^X-y$ と書く。連鎖律により、訓練の勾配 $\dot\theta=-J_X^{\mathsf T}e_m^X$ を評価点の $J_Z$ に代入して
+有限幅で $Z$ の予測を $F_m^Z$、訓練残差を $e_m^X=F_m^X-y$ と書く。$J_X=D_\theta F_m^X$ と $J_Z=D_\theta F_m^Z$ はパラメータ偏微分を成分に持つJacobianで、行列のサイズはそれぞれ $n\times m(d+2)$、$k\times m(d+2)$ である。
+
+一方、$\dot\theta=d\theta/dt$ と $dF_m^Z/dt$ は学習時刻 $t$ に関する**全微分**である。連鎖律 $dF_m^Z/dt=J_Z\dot\theta$ に訓練の勾配 $\dot\theta=-J_X^{\mathsf T}e_m^X$ を代入して
 
 $$
 \frac{dF_m^Z}{dt}=J_Z\dot\theta
@@ -481,7 +523,15 @@ $$
 \operatorname{Cov}(F_m)=\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
 $$
 
-$h^{\mathsf T}F_m=(h_1-h_2)m^{-1/2}\sum_r\varepsilon_r$。符号和の特性関数は $(\cos(t/\sqrt m))^m\to e^{-t^2/2}$ なので、$h^{\mathsf T}F_m\Rightarrow N(0,(h_1-h_2)^2)$。$h_1=h_2$ なら射影は全幅で厳密に0。退化したGaussianベクトルとは、このような零分散方向を持つベクトルである。
+$h^{\mathsf T}F_m=(h_1-h_2)m^{-1/2}\sum_r\varepsilon_r$ である。独立な符号の特性関数を掛け合わせると
+
+$$
+\mathbb E e^{it h^{\mathsf T}F_m}
+=\left(\cos\frac{t(h_1-h_2)}{\sqrt m}\right)^m
+\longrightarrow e^{-t^2(h_1-h_2)^2/2}.
+$$
+
+従って $h^{\mathsf T}F_m\Rightarrow N(0,(h_1-h_2)^2)$。$h_1=h_2$ なら射影は全幅で厳密に0。退化したGaussianベクトルとは、このような零分散方向を持つベクトルである。
 <!-- solution-end -->
 
 ### SLT2-11-A04 一致する二つの核
@@ -528,7 +578,19 @@ $$
 
 $u=\pm c$、$\tanh c=1/2$ から $v(q)=\pm(-1/2,1/2)^{\mathsf T}$ なので $\mathbb E[v(q)v(q)^{\mathsf T}]$ が与えられた $\Sigma$ となる。$\sigma'=3/4$、$\xi_1\cdot\xi_2=0$、$\|\xi_i\|^2=2$ だから微分項は $(3/4)^2(2I)=9I/8$。ゆえに $\Theta=\Sigma+9I/8$。
 
-和方向 $u_+=(1,1)^{\mathsf T}/\sqrt2$ に対して $\Sigma u_+=0$、差方向 $u_-=(1,-1)^{\mathsf T}/\sqrt2$ に対して $\Sigma u_-=(1/2)u_-$。両ベクトルは直交規格化されるので、$\Theta$ の固有値はそれぞれ $9/8$ と $1/2+9/8=13/8$。さらに任意の $h\ne0$ で $h^{\mathsf T}(\Theta-\Sigma)h=9\|h\|^2/8>0$。これで正定値性も確かめた。
+和方向 $u_+=(1,1)^{\mathsf T}/\sqrt2$ と差方向 $u_-=(1,-1)^{\mathsf T}/\sqrt2$ は直交規格化される。これらを掛けると
+
+$$
+\Sigma u_+=0,\qquad \Sigma u_-=\tfrac12u_-.
+$$
+
+さらに $\Theta=\Sigma+9I_2/8$ だから、$\Theta$ の固有値はそれぞれ $9/8$ と $1/2+9/8=13/8$ となる。任意の $h\ne0$ では
+
+$$
+h^{\mathsf T}(\Theta-\Sigma)h=\tfrac98\|h\|_2^2>0.
+$$
+
+これで差の正定値性も確かめた。
 <!-- solution-end -->
 
 ### SLT2-11-B02 学習時間で平均と分散が違って動く
@@ -630,7 +692,16 @@ $$
 =\begin{pmatrix}11/8&-1/4\\-1/4&11/8\end{pmatrix}.
 $$
 
-$u_+=(1,1)^{\mathsf T}/\sqrt2$、$u_-=(1,-1)^{\mathsf T}/\sqrt2$ は正規直交基底であり、行列を掛けると $\Sigma u_+=0$、$\Sigma u_-=(1/2)u_-$、$\Theta u_+=(9/8)u_+$、$\Theta u_-=(13/8)u_-$。従って $\Sigma$ は特異だが $\Theta$ は正定値である。
+$u_+=(1,1)^{\mathsf T}/\sqrt2$、$u_-=(1,-1)^{\mathsf T}/\sqrt2$ は正規直交基底である。行列を実際に掛けると
+
+$$
+\begin{aligned}
+\Sigma u_+&=0,&\Sigma u_-&=\tfrac12u_-,\\
+\Theta u_+&=\tfrac98u_+,&\Theta u_-&=\tfrac{13}8u_-.
+\end{aligned}
+$$
+
+従って $\Sigma$ は特異だが $\Theta$ は正定値である。
 
 **2. 初期出力の極限。** $\eta_r=\operatorname{sgn}(u_r)\in\{\pm1\}$ とすると、$a_r\eta_r$ は独立な等確率符号。従って
 
@@ -668,7 +739,9 @@ $$
 
 $t=0$ なら平均零、共分散 $\Sigma$ に戻る。また和方向は初期に変動しなくても、学習によって平均が教師方向へ動くことが分かる。
 
-**4. 論理の範囲。** ここで使った[有限時間近似](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)は $T$ を固定してから $m\to\infty$ とする結果であり、$T$ を幅とともに増やす一様な誤差評価はない。従って、極限模型で $t\to\infty$ としたときの $H_X(t)\to y$ を有限幅網に逆移植できない。さらに、初期GPは和方向の分散が零で、教師 $y=(1,1)^{\mathsf T}$ は初期GPの取り得る値の支持上にない。零雑音で $G_X=y$ に条件付けることは通常の条件付き密度公式の仮定を満たさず、学習後のGaussian分布を「このGPの事後」と同一視できない。正の観測雑音を加えた場合も、第6節の反例が示す通り平均・共分散は一般に一致しない。
+**4. 論理の範囲。** ここで使った[有限時間近似](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)は $T$ を固定してから $m\to\infty$ とする結果であり、$T$ を幅とともに増やす一様な誤差評価はない。従って、極限模型で $t\to\infty$ としたときの $H_X(t)\to y$ を有限幅網に逆移植できない。
+
+さらに、初期GPは和方向の分散が零で、教師 $y=(1,1)^{\mathsf T}$ は初期GPの取り得る値の支持上にない。零雑音で $G_X=y$ に条件付けることは通常の条件付き密度公式の仮定を満たさず、学習後のGaussian分布を「このGPの事後」と同一視できない。正の観測雑音を加えた場合も、第6節の反例が示す通り平均・共分散は一般に一致しない。
 <!-- solution-end -->
 
 ## 章末チェック
