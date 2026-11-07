@@ -1,0 +1,51 @@
+chapter: SLT2-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-13
+  - ODE8
+concepts:
+  - id: learning.slt2-wasserstein-distances
+    name: 輸送結合とWasserstein距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（輸送結合とWasserstein距離）"]
+    requires: [learning.slt2-empirical-particle-measure]
+  - id: learning.slt2-measure-continuity-equation
+    name: 連続性方程式の確率測度弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続性方程式の確率測度弱解）"]
+    requires:
+      - learning.slt2-wasserstein-distances
+      - learning.slt2-empirical-weak-evolution
+  - id: learning.slt2-measure-first-variation
+    name: 損失の第一変分と輸送方向微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（損失の第一変分と輸送方向微分）"]
+    requires: [learning.slt2-empirical-particle-measure]
+  - id: learning.slt2-mean-field-wellposedness
+    name: 有界特徴のmean-field方程式の大域適切設定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有界特徴のmean-field方程式の大域適切設定性）"]
+    requires:
+      - learning.slt2-measure-continuity-equation
+      - learning.slt2-measure-first-variation
+  - id: learning.slt2-mean-field-dissipation
+    name: mean-field流のエネルギー散逸と動くGram行列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（mean-field流のエネルギー散逸と動くGram行列）"]
+    requires:
+      - learning.slt2-mean-field-wellposedness
+      - learning.slt2-moving-particle-gram
+  - id: learning.slt2-mean-field-particle-limit
+    name: 有限粒子のmean-field極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限粒子のmean-field極限）"]
+    requires:
+      - learning.slt2-mean-field-wellposedness
+      - learning.slt2-empirical-weak-evolution
