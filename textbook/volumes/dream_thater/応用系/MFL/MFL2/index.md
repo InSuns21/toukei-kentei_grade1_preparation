@@ -6,7 +6,7 @@
 
 前章では、高次元の点群が低次元多様体から生まれる確率模型を定めた。しかし二点が空間内で近いことと、多様体に沿って近いことは別である。紙を丸めれば、紙面上では遠い二点を空間内では近くできる。この違いを曖昧にすると、近傍点から接空間を復元する前提が崩れる。
 
-これまでの[三つの次元](../MFL1/index.md#def-mfl1-01-dimensions)のうち、観測次元 $D$ の空間で直接測れる距離を**外在的**な距離、多様体 $M$ 自身に沿って移動するときの距離を**内在的**な距離と呼ぶ。$M\subset\mathbb R^D$ は連結な滑らかな埋め込み部分多様体とし、周囲の標準内積を $M$ の接空間へ制限した**誘導 Riemann 計量**を使う。[Riemann 計量](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)と[長さの下限による距離の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-distance)は既習である。
+これまでの[三つの次元](../MFL1/index.md#def-mfl1-01-dimensions)のうち、観測次元 $D$ の空間で直接測れる距離を**外在的**な距離、多様体 $M$ 自身に沿って移動するときの距離を**内在的**な距離と呼ぶ。$M\subset\mathbb R^D$ は連結な滑らかな埋め込み部分多様体とし、周囲の標準内積を $M$ の接空間へ制限した**誘導 Riemann 計量**を使う。[Riemann 計量](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)、[曲線の Riemann 長](../../../幾何系/GEO/GEO12/index.md#def-geo12-length-energy)、[長さの下限による距離の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-distance)は既習である。
 
 <a id="def-mfl2-distances"></a>
 
@@ -184,15 +184,30 @@ $$
 
 ## 4. 近傍点から接空間を読む
 
-曲線の二点間の距離は大域的な量だが、点の近くでどちらへ動けるかは局所的な量である。[埋め込み部分多様体](../../../幾何系/GEO/GEO3/index.md#def-geo3-embedded-submanifold)の座標表示 $F:U\subset\mathbb R^d\to M\subset\mathbb R^D$ をとり、$F$ が $u_0$ の近くで $C^2$、微分の階数が $d$ とする。
+曲線の二点間の距離は大域的な量だが、点の近くでどちらへ動けるかは局所的な量である。[埋め込み部分多様体](../../../幾何系/GEO/GEO3/index.md#def-geo3-embedded-submanifold)の局所パラメータ表示 $F:U\subset\mathbb R^d\to M\subset\mathbb R^D$ をとり、$F$ が $u_0$ の近くで $C^2$、微分の階数が $d$ とする。
 
-$F$ の Jacobian $J=DF(u_0)$ は $D\times d$ 行列であり、その第 $j$ 列は $F$ の第 $j$ パラメータ方向の速度である。[正則レベル集合の接空間表示](../../../幾何系/GEO/GEO3/index.md#thm-geo3-level-tangent-kernel)では制約式の微分の核として接空間を求めた。パラメータ表示では同じ接方向を $DF(u_0)$ の像として求める。
+$F$ の Jacobian $J=DF(u_0)$ は $D\times d$ 行列であり、その第 $j$ 列は $u^j$ だけを動かした偏微分 $\partial F/\partial u^j(u_0)$ である。パラメータの速度 $h=(h^1,\ldots,h^d)^{\mathsf T}$ に対し、連鎖律は
+
+$$
+\left.\frac{d}{dt}F(u_0+th)\right|_{t=0}
+=DF(u_0)h=Jh=\sum_{j=1}^d h^j\frac{\partial F}{\partial u^j}(u_0)
+$$
+
+を与える。$t$ は曲線の一変数パラメータであり、$\partial/\partial u^j$ は他の座標を固定する偏微分である。[正則レベル集合の接空間表示](../../../幾何系/GEO/GEO3/index.md#thm-geo3-level-tangent-kernel)では制約式の微分の核として接空間を求めたが、パラメータ表示ではこの速度の全体、すなわち $J$ の像で求める（[はめ込みの局所標準形](../../../幾何系/GEO/GEO3/index.md#cor-geo3-immersion-normal-form)）。
+
+周囲の Euclid 内積を誘導計量にすると、二つの接方向 $Jh,Jk$ の内積は
+
+$$
+g_x(Jh,Jk)=(Jh)\cdot(Jk)=h^{\mathsf T}(J^{\mathsf T}J)k.
+$$
+
+よって $J^{\mathsf T}J$ は、列 $\partial F/\partial u^j$ を接空間の基底としたときの計量係数行列である。階数 $d$ なら $Jh=0$ となるのは $h=0$ のときだけなので、$h\ne0$ に対して $h^{\mathsf T}J^{\mathsf T}Jh=\|Jh\|^2>0$ となる。
 
 <a id="def-mfl2-tangent-gram"></a>
 
 <!-- formal-statement-start -->
 > **定義（局所接空間とGram行列）**
-> $U\subset\mathbb R^d$ を開集合、$F:U\to\mathbb R^D$ を $u_0$ の近傍で $C^1$、$J=DF(u_0)$ を階数 $d$ の Jacobian とし、$x=F(u_0)$ とする。$F$ が局所埋め込みのとき
+> $U\subset\mathbb R^d$ を開集合、$u_0\in U$、$F:U\to\mathbb R^D$ を $u_0$ の近傍で $C^1$ とする。$J=DF(u_0)$ の階数が $d$ で、$u_0$ の十分小さい近傍 $V\subset U$ 上の $F$ が埋め込みであるとし、$M=F(V)$、$x=F(u_0)$ と置く。この局所パッチで
 
 $$
 T_xM=\operatorname{im}J
@@ -203,17 +218,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl2-tangent-gram -->
-**定義の確認**（円）。$F(\theta)=(R\cos\theta,R\sin\theta)$、$\theta=0$ とすると $x=(R,0)$、$J=(0,R)^{\mathsf T}$。したがって
+**定義の確認**（円）。$R>0$ とし、$F(\theta)=(R\cos\theta,R\sin\theta)$ を $\theta=0$ を含む長さ $2\pi$ 未満の開区間に制限する。$F$ は滑らかで、その区間上で単射、局所逆写像も角度によって連続なので埋め込みである。$\theta=0$ とすると $x=(R,0)$、偏微分が一変数の導関数 $F'(0)$ となり、$J=(0,R)^{\mathsf T}$。したがって
 
 $$
 T_xM=\{(0,Rh):h\in\mathbb R\}=\{(0,z):z\in\mathbb R\},
 \qquad G=(R^2).
 $$
 
-$R>0$ なので $\operatorname{rank}J=1$、$G$ は正定値である。接空間は縦方向、中心を向く半径方向は接空間に含まれない。**接空間は原点を通るベクトル空間**であり、実際の接線は $x+T_xM$ である。
+$R>0$ なので $\operatorname{rank}J=1$。任意の $h\ne0$ に対して $g_x(Jh,Jh)=R^2h^2>0$ であり、$G=(R^2)$ は誘導計量の正定値性も確認する。接空間は縦方向、中心を向く半径方向は接空間に含まれない。**接空間は原点を通るベクトル空間**であり、実際の接線は $x+T_xM$ である。
 <!-- definition-example-end -->
 
-$h\ne0$ なら $h^{\mathsf T}Gh=\|Jh\|^2>0$ である。階数条件がないとこの正定値性が崩れ、次の射影で逆行列を使えない。
+階数条件がないと Gram 行列の正定値性が崩れ、次の射影公式で逆行列を使えない。
 
 ### 射影は接方向だけを取り出す
 
@@ -278,19 +293,19 @@ $P_xv$ は常に $\operatorname{im}J$ に属し、$v=Jh$ なら $P_xJh=JG^{-1}Gh
 
 ## 5. 接平面からどこまでずれるか
 
-接空間は点 $x=F(u_0)$ の近くでの**一次の動き**を記述する。しかし曲面は曲がるので、実際の点 $F(u_0+h)$ は厳密には接平面上にない。このずれを数式の余項として評価する。
+接空間は点 $x=F(u_0)$ の近くでの**一次の動き**を記述する。しかし曲面は曲がるので、実際の点 $F(u_0+h)$ は厳密には接平面上にない。このずれを数式の余項として評価する。以下の $D^2F(u)[h,h]$ は、二階微分を二つの方向ベクトル $h$ に適用した $\mathbb R^D$ 値であり、$t\mapsto F(u+th)$ を二回 $t$ で微分した $t=0$ の値に等しい。
 
 <a id="prop-mfl2-second-order"></a>
 
 <!-- formal-statement-start -->
 > **命題（接平面の二次局所近似）**
-> $U\subset\mathbb R^d$ を開集合、$F:U\to\mathbb R^D$ を $C^2$ とする。$u_0\in U$ とし、半径 $r>0$ の閉球 $\overline{B_r(u_0)}\subset U$ で
+> $U\subset\mathbb R^d$ を開集合、$F:U\to\mathbb R^D$ を $C^2$ とする。$u_0\in U$ とし、半径 $r>0$ の閉球 $\overline{B_r(u_0)}\subset U$ と定数 $K\ge0$ が存在して、
 
 $$
 \|D^2F(u)[h,h]\|\le K\|h\|^2
 $$
 
-> がすべての $u$ と $h\in\mathbb R^d$ に対して成り立つとする。$\|h\|\le r$ のとき、$J=DF(u_0)$ と置けば
+> がすべての $u\in\overline{B_r(u_0)}$ と $h\in\mathbb R^d$ に対して成り立つとする。$\|h\|\le r$ のとき、$J=DF(u_0)$ と置けば
 
 $$
 \|F(u_0+h)-F(u_0)-Jh\|\le\frac K2\|h\|^2.
@@ -467,7 +482,7 @@ P'&=JA\,[A^{-1}G^{-1}(A^{\mathsf T})^{-1}]\,A^{\mathsf T}J^{\mathsf T}\\
 \end{aligned}
 $$
 
-局所座標基底の変更は接ベクトルの張る部分空間を変えないので、[直交射影の定義](#def-mfl2-projection)からも同じ結論になる。ここでは行列式で直接確かめた。
+可逆な $A$ は接空間の基底を取り替える係数行列なので、$\operatorname{im}(JA)=\operatorname{im}J$ である。同じ部分空間への射影は[接空間への直交射影の定義](#def-mfl2-projection)により一意である。上では行列積を直接計算して確かめた。
 <!-- solution-end -->
 
 ### MFL2-B02 円の距離差を五次まで調べる
@@ -483,7 +498,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $\sin z=z-z^3/6+z^5/120+O(z^7)$ に $z=\alpha/2$ を入れる。[円周の距離公式](#prop-mfl2-circle)の弦長は
+1. $\sin z=z-z^3/6+z^5/120+O(z^7)$ に $z=\alpha/2$ を入れる。[円周の距離公式](#prop-mfl2-circle)の弦長は
 
 $$
 2R\sin(\alpha/2)
@@ -491,16 +506,29 @@ $$
 =R\alpha-\frac{R\alpha^3}{24}+\frac{R\alpha^5}{1920}+O(R\alpha^7).
 $$
 
-(2) $d_M=R\alpha$ より差は $R\alpha^3/24-R\alpha^5/1920+O(R\alpha^7)$。$\alpha^3$ で割って極限をとれば $R/24$。
+2. $d_M=R\alpha$ より差は
 
-(3) 比は $\frac{2\sin(\alpha/2)}{\alpha}\to1$ だが、例えば $\alpha=\pi$ なら弦長は $2R$、内在距離は $\pi R$。極限は $\alpha\to0$ の局所主張であり、大域の等距離を意味しない。
+   $$
+   d_M-d_{\mathrm{ext}}=\frac{R\alpha^3}{24}-\frac{R\alpha^5}{1920}+O(R\alpha^7).
+   $$
+
+   $\alpha^3$ で割ると $R/24-R\alpha^2/1920+O(R\alpha^4)$ となるため、極限は $R/24$。
+
+3. 距離の比は
+
+   $$
+   \frac{d_{\mathrm{ext}}}{d_M}=\frac{2\sin(\alpha/2)}{\alpha}\longrightarrow1
+   \qquad(\alpha\downarrow0)
+   $$
+
+   だが、例えば $\alpha=\pi$ なら弦長は $2R$、内在距離は $\pi R$。この極限は局所主張であり、大域の等距離を意味しない。
 <!-- solution-end -->
 
 ### MFL2-B03 二次誤差の仮定を使う
 - Level: B
 - 目安時間: 25分
 
-$F(u,v)=(u,v,\kappa uv)$、$\kappa\ne0$ とする。
+$F(u,v)=(u,v,\kappa uv)$、$\kappa\in\mathbb R\setminus\{0\}$ とする。
 
 1. 原点での接平面と $G$ を求めよ。
 2. 任意の $h=(h_1,h_2)$ に対して二階微分の上界 $\|D^2F[h,h]\|\le|\kappa|\|h\|^2$ を証明せよ。
@@ -509,11 +537,24 @@ $F(u,v)=(u,v,\kappa uv)$、$\kappa\ne0$ とする。
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $DF(u,v)=\begin{pmatrix}1&0\\0&1\\\kappa v&\kappa u\end{pmatrix}$。原点で $J=(e_1,e_2)$ だから接平面は $z=0$、$G=J^{\mathsf T}J=I_2$。
+1. 各列を $u,v$ で偏微分して
 
-(2) 二階微分の非零項は $D^2F[h,h]=(0,0,2\kappa h_1h_2)$。$(|h_1|-|h_2|)^2\ge0$ より $2|h_1h_2|\le h_1^2+h_2^2=\|h\|^2$。従って $\|D^2F[h,h]\|\le|\kappa|\|h\|^2$。
+   $$
+   DF(u,v)=\begin{pmatrix}1&0\\0&1\\\kappa v&\kappa u\end{pmatrix}.
+   $$
 
-(3) [二次局所近似の命題](#prop-mfl2-second-order)で $K=|\kappa|$ として距離は $|\kappa|\|h\|^2/2$ 以下。実際は $F(h_1,h_2)$ の高さから $|\kappa h_1h_2|$ であり、(2) の等号条件 $|h_1|=|h_2|$ において等号となる。$h=0$ でも両辺0である。
+   原点では $J=(e_1,e_2)$ で、$Jh=(h_1,h_2,0)$。従って接平面は $z=0$、$G=J^{\mathsf T}J=I_2$。
+
+2. 方向 $h=(h_1,h_2)$ に沿って $F(th_1,th_2)$ を二回微分すると、
+
+   $$
+   \left.\frac{d^2}{dt^2}F(th_1,th_2)\right|_{t=0}
+   =D^2F(0)[h,h]=(0,0,2\kappa h_1h_2).
+   $$
+
+   この二階微分は基点に依存しない。$(|h_1|-|h_2|)^2\ge0$ より $2|h_1h_2|\le h_1^2+h_2^2=\|h\|^2$ なので、全基点で $\|D^2F(u,v)[h,h]\|\le|\kappa|\|h\|^2$。
+
+3. [二次局所近似の命題](#prop-mfl2-second-order)では全基点の上界が成り立つため $K=|\kappa|$ と置け、距離は $|\kappa|\|h\|^2/2$ 以下である。実際に $F(h_1,h_2)$ と平面 $z=0$ の距離は $|\kappa h_1h_2|$。第2問の不等式が等号となる $|h_1|=|h_2|$ の方向（および $h=0$）で上界は達成される。
 <!-- solution-end -->
 
 ### MFL2-C01 大域的近接が局所近接を保証しない
@@ -530,18 +571,31 @@ $R=1$ を固定し、$a_n=1/n$、$H_n(t)=(\cos t,\sin t,a_nt)$、$M_n=H_n(\mathb
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $a_n=1/n>0$ なので[螺旋の公式](#prop-mfl2-helix)が使える。$t-s=2\pi$ で
+1. $a_n=1/n>0$ なので[螺旋の公式](#prop-mfl2-helix)が使える。$t-s=2\pi$ で
 
-$$
-d_{\mathrm{ext}}(x_n,y_n)=\frac{2\pi}{n}\longrightarrow0,\qquad
-d_{M_n}(x_n,y_n)=2\pi\sqrt{1+\frac1{n^2}}\longrightarrow2\pi.
-$$
+   $$
+   d_{\mathrm{ext}}(x_n,y_n)=\frac{2\pi}{n}\longrightarrow0,\qquad
+   d_{M_n}(x_n,y_n)=2\pi\sqrt{1+\frac1{n^2}}\longrightarrow2\pi.
+   $$
 
-二点は各 $n$ では異なるが、外在距離が0へ近づいても内在距離は0へ近づかない。
+   二点は各 $n$ では異なるが、外在距離が0へ近づいても内在距離は0へ近づかない。
 
-(2) 微分は $H_n'(t)=(-\sin t,\cos t,1/n)$ だから $H_n'(0)=H_n'(2\pi)=(0,1,1/n)$。両方の単位接ベクトルは $\frac{(0,1,1/n)}{\sqrt{1+1/n^2}}$ であり、内積は厳密に1。
+2. 曲線パラメータ $t$ で微分すると
 
-(3) 接方向は各点での**一次の情報**しか表さない。二点を結ぶ短い直線は螺旋の外を通る。実際に曲線上を進むにはパラメータを $0$ から $2\pi$ へ一巻き変化させなければならない。外在空間で重なりそうな別の巻きと、同じ局所パッチの隣接点は区別する必要がある。
+   $$
+   H_n'(t)=(-\sin t,\cos t,1/n),\qquad
+   H_n'(0)=H_n'(2\pi)=(0,1,1/n).
+   $$
 
-(4) 否定できない。[二次近似](#prop-mfl2-second-order)は $u_0$ を固定し、$h$ が同じ局所座標領域の小さいベクトルであるときの評価である。ここで二点のパラメータ差は常に $2\pi$ であり、小さい $h$ の範囲に入らない。例えば $H_n$ は二階微分のノルムが1であり、どの固定 $n$ でも $H_n(t+h)-H_n(t)-H_n'(t)h$ には局所二次上界が成り立つ。失敗するのは「空間で近い点ならパラメータも近い」と推測した段階である。
+   両方の単位接ベクトルは $(0,1,1/n)/\sqrt{1+1/n^2}$。分子のノルム二乗が $1+1/n^2$ なので、内積は厳密に1。
+
+3. 接方向は各点での**一次の情報**しか表さない。二点を結ぶ短い直線は螺旋の外を通る。実際に曲線上を進むにはパラメータを $0$ から $2\pi$ へ一巻き変化させなければならない。外在空間で重なりそうな別の巻きと、同じ局所パッチの隣接点は区別する必要がある。
+
+4. 否定できない。[二次近似](#prop-mfl2-second-order)は $u_0$ を固定し、$h$ が同じ局所座標領域の小さいベクトルであるときの評価である。ここで二点のパラメータ差は常に $2\pi$ であり、小さい $h$ の範囲に入らない。例えば $H_n''(t)=(-\cos t,-\sin t,0)$ はノルム1なので、どの固定 $n$ でも
+
+   $$
+   \|H_n(t+h)-H_n(t)-H_n'(t)h\|\le\frac12|h|^2
+   $$
+
+   が成り立つ。失敗するのは「空間で近い点ならパラメータも近い」と推測した段階である。
 <!-- solution-end -->
