@@ -1,0 +1,45 @@
+id: "ITD4"
+title: "測定・フィードバックと情報付き第二法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD2
+  - ITD3
+  - SM3
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 測定チャネル・結合分布・事後分布を区別し、零確率の扱いを明記して軌道情報量と平均相互情報量を計算できる
+  - 結果に依存する操作と測定による状態の反作用を区別し、有限状態のフィードバック実験を確率的に構成できる
+  - 相互情報量によるフィードバック仕事上限を非平衡自由エネルギーの条件付き収支から再導出できる
+  - 正逆の経路支持を確認して情報付き積分型ゆらぎ関係と支持欠損の補正を導出できる
+  - 二値誤り測定・可逆制御極限・Szilardエンジンの利得を検算し、記憶消去まで含めた全循環の評価と区別できる
+definitions:
+  - { id: ITD4-DEF-01, name: 有限状態の測定チャネルと事後分布 }
+  - { id: ITD4-DEF-02, name: 軌道ごとの測定情報量 }
+  - { id: ITD4-DEF-03, name: 結果依存フィードバック実験 }
+theorems:
+  - { id: ITD4-PROP-01, name: 情報量平均と条件付き相対エントロピー }
+  - { id: ITD4-THM-01, name: フィードバック付き平均仕事の下限 }
+  - { id: ITD4-THM-02, name: 情報付き積分型ゆらぎ関係と支持欠損補正 }
+  - { id: ITD4-PROP-02, name: 二値対称測定の相互情報量 }
+canonical_examples:
+  - Szilardエンジンの理想可逆膨張と記憶の境界
+  - 二値対称誤りチャネルの事後分布と経路情報量
+  - 測定後の準位quenchと等温準静的復帰による仕事抽出
+  - 完全測定での情報付き指数平均の支持欠損
+problem_patterns:
+  - ITD4-BINARY-POSTERIOR
+  - ITD4-ASYMMETRIC-MEASUREMENT
+  - ITD4-TRAJECTORY-INFORMATION
+  - ITD4-CONDITIONAL-QUENCH
+  - ITD4-ENDPOINTS
+  - ITD4-MUTUAL-INFORMATION-KL
+  - ITD4-OUTCOME-DEPENDENT-ENDPOINT
+  - ITD4-SUPPORT-CORRECTION
+  - ITD4-FEEDBACK-ENGINE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }

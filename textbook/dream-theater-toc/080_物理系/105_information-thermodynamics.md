@@ -4,3 +4,4 @@
 1. [ITD1 有限状態の確率軌道・仕事・熱・エントロピー生成](textbook/volumes/dream_thater/物理系/ITD/ITD1/index.md)
 2. [ITD2 時間反転とゆらぎ関係：Jarzynski等式・Crooks関係](textbook/volumes/dream_thater/物理系/ITD/ITD2/index.md)
 3. [ITD3 非平衡自由エネルギー・緩和・取り出せる仕事の上限](textbook/volumes/dream_thater/物理系/ITD/ITD3/index.md)
+4. [ITD4 測定・フィードバックと情報付き第二法則](textbook/volumes/dream_thater/物理系/ITD/ITD4/index.md)

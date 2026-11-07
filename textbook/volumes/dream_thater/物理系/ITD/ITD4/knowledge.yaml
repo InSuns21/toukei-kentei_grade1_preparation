@@ -1,0 +1,59 @@
+chapter: ITD4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD2
+  - ITD3
+  - SM3
+  - INFO2
+forward_references: []
+concepts:
+  - id: information-thermodynamics.measurement-channel
+    name: 有限状態の測定チャネルと事後分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限状態の測定チャネルと事後分布）]
+    requires: [information-thermodynamics.finite-controlled-jump-model]
+
+  - id: information-thermodynamics.trajectory-information
+    name: 軌道ごとの測定情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（軌道ごとの測定情報量）]
+    requires: [information-thermodynamics.measurement-channel, information.mutual-information]
+
+  - id: information-thermodynamics.measurement-mutual-information
+    name: 情報量平均と条件付き相対エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（情報量平均と条件付き相対エントロピー）]
+    requires: [information-thermodynamics.trajectory-information, information.relative-entropy]
+
+  - id: information-thermodynamics.feedback-experiment
+    name: 結果依存フィードバック実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（結果依存フィードバック実験）]
+    requires: [information-thermodynamics.measurement-channel, information-thermodynamics.path-probability]
+
+  - id: information-thermodynamics.feedback-work-bound
+    name: フィードバック付き平均仕事の下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（フィードバック付き平均仕事の下限）]
+    requires: [information-thermodynamics.feedback-experiment, information-thermodynamics.measurement-mutual-information, information-thermodynamics.nonequilibrium-work-bound, information-thermodynamics.free-energy-kl-identity]
+
+  - id: information-thermodynamics.feedback-fluctuation-relation
+    name: 情報付き積分型ゆらぎ関係と支持欠損補正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（情報付き積分型ゆらぎ関係と支持欠損補正）]
+    requires: [information-thermodynamics.feedback-experiment, information-thermodynamics.trajectory-information, information-thermodynamics.work-path-ratio, information-thermodynamics.absolute-irreversibility-correction]
+
+  - id: information-thermodynamics.binary-symmetric-measurement
+    name: 二値対称測定の相互情報量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二値対称測定の相互情報量）]
+    requires: [information-thermodynamics.measurement-mutual-information]
