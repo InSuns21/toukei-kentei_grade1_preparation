@@ -124,7 +124,7 @@ chapters:
     title: "NNGPとNTKの違い"
   - id: SLT2-12
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-12
-    status: planned
+    status: completed
     title: "幅極限と時間極限"
   - id: SLT2-13
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-13
