@@ -50,9 +50,9 @@ $$
 <!-- definition-example-start: def-slt2-13-dirac-measure -->
 **定義の確認**。$\theta=(2,(0,1))$、$\Theta=\mathbb R^3$ とし、$A=\{(a,w):a>0\}$、$B=\{(a,w):a<0\}$ と置く。$\theta\in A$、$\theta\notin B$ なので $\delta_\theta(A)=1$、$\delta_\theta(B)=0$。全空間は $\theta$ を含み質量1である。互いに素な可測集合列 $A_1,A_2,\ldots$ について $\theta$ が入る集合は高々一つだから、
 
-$
+$$
 \delta_\theta\left(\bigcup_k A_k\right)=\sum_k\delta_\theta(A_k)
-$
+$$
 
 となり、確率測度に必要な可算加法性も満たす。また、$g(a,w)=a^2$ なら積分は $g(\theta)=4$ であり、積分を複数の点について足す必要はない。
 <!-- definition-example-end -->
@@ -328,7 +328,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Dirac確率測度の積分公式](#def-slt2-13-dirac-measure)から、各時刻で
+[Dirac確率測度](#def-slt2-13-dirac-measure)の積分公式から、各時刻で
 
 $$
 \int_\Theta\varphi(\theta)\,\mu_m(t,d\theta)
@@ -499,7 +499,7 @@ $\Theta=\mathbb R$ に3粒子 $\theta_1=0,\theta_2=2,\theta_3=2$ を置く。$\m
 <!-- solution-start -->
 #### 詳細解答
 
-[経験粒子測度の定義](#def-slt2-13-empirical-measure)から $\mu_3=(\delta_0+\delta_2+\delta_2)/3=(\delta_0+2\delta_2)/3$。したがって
+[経験粒子測度と二層網の積分表示](#def-slt2-13-empirical-measure)を使うと $\mu_3=(\delta_0+\delta_2+\delta_2)/3=(\delta_0+2\delta_2)/3$。したがって
 
 $$
 \mu_3(\{2\})=\frac23,\qquad
