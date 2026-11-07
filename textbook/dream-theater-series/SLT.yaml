@@ -112,7 +112,7 @@ chapters:
     title: "ニューラルネットの線形化"
   - id: SLT2-09
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-09
-    status: planned
+    status: completed
     title: "固定kernelの勾配力学"
   - id: SLT2-10
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-10
