@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 350" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">受信機から異なる方向の衛星を見たときの擬似距離</title>
+  <desc id="desc">水平線の上に4衛星S1からS4を配置した局所鉛直断面の模式図。地表の受信機rから各衛星へそれぞれ異なる方向の視線を伸ばす。衛星から受信機までの幾何距離だけでなく、擬似距離には時計偏りや大気遅延が加わる。2次元の断面図から3次元の設計行列の階数やDOPの数値は判断できない。</desc>
+  <path d="M65 277 H590" stroke="#697c8e" stroke-width="1.8" stroke-dasharray="6 6"/>
+  <path d="M320 277 L120 202" stroke="#305d73" stroke-width="2.7" data-series-group="gnss-rays" data-series-label="S1"/>
+  <path d="M320 277 L193 84" stroke="#305d73" stroke-width="2.7" stroke-dasharray="8 4" data-series-group="gnss-rays" data-series-label="S2"/>
+  <path d="M320 277 L420 73" stroke="#305d73" stroke-width="2.7" stroke-dasharray="13 4 2 4" data-series-group="gnss-rays" data-series-label="S3"/>
+  <path d="M320 277 L530 175" stroke="#305d73" stroke-width="2.7" stroke-dasharray="3 5" data-series-group="gnss-rays" data-series-label="S4"/>
+  <g fill="#e4eef3" stroke="#263f51" stroke-width="2.2">
+    <circle cx="120" cy="202" r="10"/>
+    <circle cx="193" cy="84" r="10"/>
+    <circle cx="420" cy="73" r="10"/>
+    <circle cx="530" cy="175" r="10"/>
+  </g>
+  <circle cx="320" cy="277" r="6.5" fill="#202f3b"/>
+  <g fill="#202f3b" font-family="sans-serif" font-size="20">
+    <text x="73" y="166">S1</text>
+    <text x="163" y="57">S2</text>
+    <text x="452" y="50">S3</text>
+    <text x="552" y="140">S4</text>
+    <text x="335" y="326">r</text>
+    <text x="75" y="311">Horizon</text>
+  </g>
+</svg>

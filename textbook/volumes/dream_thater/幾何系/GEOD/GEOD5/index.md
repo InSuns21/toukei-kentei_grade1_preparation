@@ -54,6 +54,10 @@ $$
 **定義の確認**　$a=5,b=4$、赤道上の $\phi=0,\lambda=0$ では、[表面表示](../GEOD3/index.md#prop-geod3-surface-parameterization)より $\boldsymbol r_0=(5,0,0)$、法線は $\boldsymbol\nu=(1,0,0)$ で長さは1です。$h=2$ なら $\boldsymbol P=(7,0,0)$ となり、$\boldsymbol P-\boldsymbol r_0=2\boldsymbol\nu$、$\|\boldsymbol P-\boldsymbol r_0\|=2$ が確かめられます。一方、中緯度では法線と地心方向が一致しないので、中心からの距離を $h$ としてはなりません。
 <!-- definition-example-end -->
 
+![楕円体表面の足点Qにおける東E・北N・法線上Uと、QからPへの楕円体高h](assets/enu-normal-height.svg)
+
+図は基準点の接平面を斜めから見た**局所模式図**です。楕円体表面の足点を $Q=\boldsymbol r_0$、その法線上の点を $P=Q+h\boldsymbol\nu$ とし、ここでは $h>0$ とします。東と北は接平面内で直交し、上 $U$ は法線方向です。**上は地心からの放射方向とは限らず、重力で定める鉛直とも一般には異なります**。後で定義するENU回転の基準点は $\boldsymbol P_0$ であり、この図の表面上の足点 $Q$ と混同しないでください。
+
 ### 三次元の地心直交座標への順変換
 
 地心直交座標は、原点を楕円体の中心とし、赤道面を $XY$ 平面、北極方向を $+Z$ とする右手系の三成分 $(X,Y,Z)$ です。$X$ の基準経線から東向きに $\lambda$ を測ります。楕円体高を足す成分は、表面位置と法線位置を**同じ軸ごとに**足して求めます。

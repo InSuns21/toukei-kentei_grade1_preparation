@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">真北から格子北への東回りを正とする子午線収差</title>
+  <desc id="desc">同じ投影点Pを起点として、真北の方向は左上へ、格子北の方向は真上へ描く。真北から格子北まで時計回りの小さい角度ガンマを正とする、北半球で中央子午線の東側の模式例。角度や直線長の値は実際の投影計算の数値ではない。</desc>
+  <defs>
+    <marker id="true-north" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#a75d1a"/></marker>
+    <marker id="grid-north" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#145e7a"/></marker>
+  </defs>
+  <path d="M88 235 H500" stroke="#aab5bf" stroke-width="1.4" stroke-dasharray="5 6"/>
+  <path d="M280 235 V75" stroke="#145e7a" stroke-width="3.3" marker-end="url(#grid-north)" data-series-group="north-directions" data-series-label="格子北"/>
+  <path d="M280 235 L225.28 84.65" stroke="#a75d1a" stroke-width="3.3" stroke-dasharray="10 5" marker-end="url(#true-north)" data-series-group="north-directions" data-series-label="真北"/>
+  <path d="M253.32 161.7 A78 78 0 0 1 280 157" stroke="#343f4f" stroke-width="2.2" fill="none"/>
+  <circle cx="280" cy="235" r="5.5" fill="#17212b"/>
+  <g fill="#202d3c" font-family="sans-serif" font-size="19">
+    <text x="142" y="61">True N</text>
+    <text x="301" y="60">Grid N</text>
+    <text x="302" y="163">γ</text>
+    <text x="259" y="266">P</text>
+    <text x="459" y="280">East E</text>
+  </g>
+</svg>
