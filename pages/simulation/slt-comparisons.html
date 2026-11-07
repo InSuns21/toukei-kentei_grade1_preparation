@@ -237,12 +237,16 @@ for (const [id,run] of Object.entries(implementations)) {
       $('download').disabled=Object.keys(computed).length!==4;
     } catch (error) {
       delete computed[id]; $('download').disabled=true;
+      $(`${id}-output`).replaceChildren();
+      if (id==='ridge'||id==='ntk') $(`${id}-plot`).replaceChildren();
       status.textContent=`入力・数値計算エラー: ${error.message}`;
     }
   };
   form.addEventListener('submit',event=>{event.preventDefault();execute();});
   form.addEventListener('input',()=>{
     delete computed[id]; $('download').disabled=true;
+    $(`${id}-output`).replaceChildren();
+    if (id==='ridge'||id==='ntk') $(`${id}-plot`).replaceChildren();
     $(`${id}-status`).textContent='入力変更あり。再計算ボタンを押してください。';
   });
   execute();
