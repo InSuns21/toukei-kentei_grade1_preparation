@@ -23,7 +23,7 @@ I(X;M)=\sum_{p(x,m)>0}p(x,m)
 =H(X)+H(M)-H(X,M)
 $$
 
-です。分母は和に現れる正確率の項では正です。したがって $I=0$ は独立分布 $p=p_Xp_M$ と同値です。
+です。分母は和に現れる正確率の項では正です。この和は[INFO2の相互情報量の相対エントロピー表示](../../../応用系/INFO/INFO2/index.md#thm-info2-mutual-kl)を自然対数に換算した $D_{\mathrm{nat}}(p_{XM}\Vert p_Xp_M)$ です。[Gibbs不等式の等号条件](../../../応用系/INFO/INFO2/index.md#thm-info2-gibbs)により、$I=0$ は独立分布 $p=p_Xp_M$ と同値です。
 
 操作の各時点では系・記憶・熱浴・外部仕事源を区別します。系と記憶を収支の対象とし、浴は一定温度の熱源、外部仕事源は準位制御に伴うエネルギーの受け渡し先です。測定器や制御器の別の可動部分が初期状態へ戻らないなら、さらに装置として計上しなければなりません。
 
@@ -190,6 +190,8 @@ $$
 2. **条件付き抽出**：結果 $m$ を固定して $X$ の準位を操作し、各 $m$ において $X$ を一様へ戻す。終点は $p_2(x,m)=1/4$ で、相関が消える。
 3. **記憶reset**：独立な一様記憶を無誤差で0へ戻し、$p_3=p_0$ とする。有限準位での厳密resetでなく、必要に応じて誤り率を0へ近づける理想極限として読む。
 
+以下、$H(p_j)=-\sum_{x,m}p_j(x,m)\log p_j(x,m)$ は段階境界 $j=0,1,2,3$ における結合エントロピー $H(X,M)$ を意味します。
+
 <a id="thm-itd6-binary-cycle"></a>
 
 <!-- formal-statement-start -->
@@ -308,14 +310,46 @@ $$
 
 まず条件付きの可逆コピー $(x,0)\mapsto(x,x)$ を考えます。これは $X\times M$ 全体では $(x,m)\mapsto(x,m\oplus x)$ という一対一の置換であり、零準位で行える理想操作として仕事・熱は零です。コピー後は $m=x$ が確定しています。
 
-各 $x$ について、不一致の記憶準位だけを0から大きな $L>\Delta_\varepsilon$ へ瞬間的に上げます。まだ不一致の確率は0なので、この準位変更の仕事は0です。温度 $T$ の浴と接触させて準位差 $L$ の平衡分布へ近づけ、次に差を $L$ から $\Delta_\varepsilon$ まで準静的に下げます。有限な $L$ では最初の接触に正の散逸があるものの、$L\to\infty$ でその平衡分布と確定状態の差は消えます。
+各 $x$ について、不一致の記憶準位だけを0から大きな $L>\Delta_\varepsilon$ へ瞬間的に上げます。まだ不一致の確率は0なので、この準位変更の仕事は0です。温度 $T$ の浴と接触させて準位差 $L$ の平衡分布へ近づけ、次に差を $L$ から $\Delta_\varepsilon$ まで準静的に下げます。
 
-二準位分配関数 $Z(d)=1+e^{-\beta d}$ と[SM3の平衡自由エネルギーを用いた準静的構成](../ITD5/index.md#prop-itd5-quasistatic-reset)と同じ計算で、差を下げる仕事は
+分配関数を $Z(d)=1+e^{-\beta d}$ と置くと、$x$ を固定した一致・不一致順の平衡分布は
 
 $$
+\pi_L=\left(\frac1{Z(L)},\frac{e^{-\beta L}}{Z(L)}\right),
+\qquad q_L=\pi_L(m\ne x)=\frac{e^{-\beta L}}{Z(L)}
+$$
+
+です。最初の浴接触では準位を固定するので仕事は零、内部エネルギーは $Lq_L$ 増え、浴への放熱は $-Lq_L$ です。結合エントロピーは $h(q_L)$ 増えるため、[全エントロピー生成の収支](#thm-itd6-joint-balance)と $1-q_L=1/Z(L)$、$\log q_L=-\beta L-\log Z(L)$ を使うと
+
+$$
+\begin{aligned}
+\Sigma_{\mathrm{contact}}(L)
+&=h(q_L)-\beta Lq_L\\
+&=\log Z(L)+\beta Lq_L-\beta Lq_L\\
+&=\log Z(L)\longrightarrow0 \qquad(L\to\infty).
+\end{aligned}
+$$
+
+有限な $L$ での初回接触には正の散逸がありますが、$L\to\infty$ でそれが消えることを確認できました。
+
+この $Z(d)$ に[SM3の平衡自由エネルギー](../../SM/SM3/index.md#def-sm3-free-energy)を適用すると $F_{\mathrm{eq}}(d)=-k_{\mathrm B}T\log Z(d)$ です。ここで $d$ は不一致状態の準位差、プライムは $d$ による微分であり、時間微分ではありません。$x$ を固定した条件付き分布の不一致確率を $\pi_d(m\ne x)$ と書けば
+
+$$
+F_{\mathrm{eq}}'(d)
+=-k_{\mathrm B}T\frac{-\beta e^{-\beta d}}{1+e^{-\beta d}}
+=\pi_d(m\ne x).
+$$
+
+したがって、[ITD5の準静的仕事の計算](../ITD5/index.md#prop-itd5-quasistatic-reset)と同じく、準位差 $u$ を $L$ から $\Delta_\varepsilon$ へ下げる平均仕事は
+
+$$
+\begin{aligned}
 W_{\mathrm{slow}}(L)
-=-k_{\mathrm B}T\log Z(\Delta_\varepsilon)
+&=\int_L^{\Delta_\varepsilon}\pi_u(m\ne x)\,du
+=F_{\mathrm{eq}}(\Delta_\varepsilon)-F_{\mathrm{eq}}(L)\\
+&=-k_{\mathrm B}T\log Z(\Delta_\varepsilon)
  +k_{\mathrm B}T\log Z(L).
+\end{aligned}
 $$
 
 終端の不一致確率が $\varepsilon$ になったら、差を $\Delta_\varepsilon$ から0へ瞬間的に戻します。状態は変えないので、その仕事は $-\varepsilon\Delta_\varepsilon$ です。$L\to\infty$ で $Z(L)\to1$、$Z(\Delta_\varepsilon)=1/(1-\varepsilon)$ より
@@ -341,10 +375,15 @@ $$
 \frac{de}{dt}=r(1-e)-re=r-2re,\qquad e(0)=0
 $$
 
-を満たし、積分因子 $e^{2rt}$ を掛ければ
+を満たします。積分因子 $e^{2rt}$ を掛け、初期値 $e(0)=0$ を使って積分すると
 
 $$
-e(t)=\frac{1-e^{-2rt}}2.
+\begin{aligned}
+\frac{d}{dt}\{e^{2rt}e(t)\}&=re^{2rt},\\
+e^{2rt}e(t)&=\int_0^t re^{2rs}\,ds
+=\frac{e^{2rt}-1}{2},\\
+e(t)&=\frac{1-e^{-2rt}}2.
+\end{aligned}
 $$
 
 $t=-(2r)^{-1}\log(1-2\varepsilon)>0$ を選べば $e(t)=\varepsilon$ です。準位を一度も変えておらずエネルギーは常に0なので $\langle W_{\mathrm{meas}}\rangle=0$、$\langle Q_{\mathrm{bath}}\rangle=0$ です。一方で結合エントロピーは測定前の $\log2$ から $\log2+h(\varepsilon)$ へ増えるため、[全エントロピー生成の収支](#thm-itd6-joint-balance)は $\Sigma_{\mathrm{meas}}=h(\varepsilon)>0$ となります。
@@ -358,7 +397,21 @@ $$
 =-k_{\mathrm B}T\log2-k_{\mathrm B}T\log(1-\varepsilon).
 $$
 
-二つを足して $\langle W_{\mathrm{fb}}\rangle\to-k_{\mathrm B}TI_\varepsilon$ を得ます。記憶単独のresetは[ITD5の可逆極限構成](../ITD5/index.md#prop-itd5-quasistatic-reset)で $\langle W_{\mathrm{reset}}\rangle\to k_{\mathrm B}T\log2$ へ近づけます。
+二つの仕事を足し、$\Delta_\varepsilon=k_{\mathrm B}T\log\{(1-\varepsilon)/\varepsilon\}$ を代入すると
+
+$$
+\begin{aligned}
+\langle W_{\mathrm{fb}}\rangle
+&\longrightarrow \varepsilon\Delta_\varepsilon
+ -k_{\mathrm B}T\log2-k_{\mathrm B}T\log(1-\varepsilon)\\
+&=k_{\mathrm B}T\left\{\varepsilon\log\frac{1-\varepsilon}{\varepsilon}
+ -\log2-\log(1-\varepsilon)\right\}\\
+&=-k_{\mathrm B}T\{\log2-h(\varepsilon)\}
+=-k_{\mathrm B}TI_\varepsilon.
+\end{aligned}
+$$
+
+記憶単独のresetは[ITD5の可逆極限構成](../ITD5/index.md#prop-itd5-quasistatic-reset)で $\langle W_{\mathrm{reset}}\rangle\to k_{\mathrm B}T\log2$ へ近づけます。
 
 したがって、上記の**仕事ゼロ・正散逸の測定**に対して抽出とresetだけを可逆極限へ近づけた場合は
 
@@ -478,7 +531,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-初期は $H(X)=\log2$、$H(M)=0$、$I=0$、$H(X,M)=\log2$ です。[A1で計算した結合表](#thm-itd6-binary-cycle)の終期は周辺がともに一様、相互情報量が $I_\varepsilon=\log2-h(\varepsilon)$ なので
+初期は $H(X)=\log2$、$H(M)=0$、$I=0$、$H(X,M)=\log2$ です。前問A1で計算した終期は周辺がともに一様、相互情報量が $I_\varepsilon=\log2-h(\varepsilon)$ なので
 
 $$
 \begin{aligned}
@@ -667,7 +720,22 @@ $$
 
 #### B4. 非対称測定でも帳簿は閉じるか
 
-一様な $X\in\{0,1\}$、初期 $M=0$、零準位の二状態装置で、$P(M=1\mid X=0)=a$、$P(M=0\mid X=1)=b$ とする。$0<a,b<1$。測定後の $M=1$ の確率を $q$ と置き、$H(M)$、$H(M\mid X)$、$I(X;M)$ を計算せよ。条件付き抽出で $X$ を独立一様へ戻し、記憶を0へresetした完全循環で、測定・抽出・resetの可逆仕事下限を求め、和を検算せよ。
+一様な $X\in\{0,1\}$、初期 $M=0$、零準位の二状態装置で非対称測定を考える。誤り確率を
+
+$$
+P(M=1\mid X=0)=a,\qquad
+P(M=0\mid X=1)=b,\qquad 0<a,b<1
+$$
+
+とする。測定後の $M=1$ の確率を $q$ と置き、次の三つを計算せよ。
+
+$$
+H(M),\qquad H(M\mid X),\qquad I(X;M)
+$$
+
+条件付き抽出で $X$ を独立一様へ戻し、記憶を0へresetした完全循環について、測定・抽出・resetの可逆仕事下限を求め、その和を検算せよ。
+
+[INFO1の条件付きエントロピー](../../../応用系/INFO/INFO1/index.md#def-info1-conditional-entropy)は、ここでは底を自然対数に替えたnat単位で用いる。
 
 - Level: B
 - ID: ITD6-B4
