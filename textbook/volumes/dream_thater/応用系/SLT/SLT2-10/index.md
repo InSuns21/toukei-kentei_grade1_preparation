@@ -42,7 +42,7 @@ $$
 
 初期化は、ニューロンごとの組 $(a_r(0),q_r(0))$ が $r$ に関して独立同分布で、$a_r(0)$ は $q_r(0)$ と独立、$\mathbb E a_r(0)=0$、$|a_r(0)|\le A$（ある有限定数 $A$）とする。$q_r(0)$ の分布そのものを有界にする必要はない。期待値は**この初期化乱数**に関するもので、訓練入力と教師は固定値である。
 
-全パラメータ $\theta=((a_r,q_r))_{r=1}^m$ に対して損失 $L_m(\theta)=\|F_m(\theta)-y\|_2^2/2$ を最小化する連続時間のEuclid勾配流を使う。ここでも $1/n$ は付けない。$F_m=(f_m(x_i))_{i=1}^n$、$e_m=F_m-y$、$J_m=D_\theta F_m$ とすると、[ニューラルネットの予測方程式](../SLT2-08/index.md#thm-slt2-08-drift-update)と同じ連鎖律から
+全パラメータ $\theta=((a_r,q_r))_{r=1}^m$ に対して損失 $L_m(\theta)=\|F_m(\theta)-y\|_2^2/2$ を最小化する連続時間のEuclid勾配流を使う。ここでも $1/n$ は付けない。$F_m=(f_m(x_i))_{i=1}^n$、$e_m=F_m-y$、$J_m=D_\theta F_m$ とする。ここで $D_\theta$ はパラメータに関する微分、点記法 $\dot\theta=d\theta/dt$、$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分を表す。一方、$\sigma'(z),\sigma''(z)$ は活性化の引数 $z$ に関する導関数である。この区別の下で、[ニューラルネットの予測方程式](../SLT2-08/index.md#thm-slt2-08-drift-update)と同じ連鎖律から
 
 $$
 \dot\theta=-J_m^{\mathsf T}e_m,\qquad
@@ -327,7 +327,7 @@ $(a,q)=(a_r(t),q_r(t))$、$(\widetilde a,\widetilde q)=(a_r(0),q_r(0))$ とし�
 
 ## 4. 「固定核で学べる」を予測の式にする
 
-初期核の収束と時間中の移動界を合わせれば、三角不等式から学習中の $K_m(t)$ と決定論的な $K_\infty$ を比較できる。ただし初期出力は一般にランダムのままである。この点を[固定核と動く核の誤差評価](../SLT2-09/index.md#thm-slt2-09-kernel-drift-bound)に代入する。
+初期核の収束と時間中の移動界を合わせれば、三角不等式から学習中の $K_m(t)$ と決定論的な $K_\infty$ を比較できる。ただし初期出力は一般にランダムのままである。この点を踏まえ、[固定核と動く核の誤差評価](../SLT2-09/index.md#thm-slt2-09-kernel-drift-bound)の証明を、比較する固定核が動く核の初期値と一致しない場合へ拡張する。
 
 <a id="thm-slt2-10-finite-time-flow"></a>
 
@@ -384,16 +384,32 @@ $$
 \end{aligned}
 $$
 
-$K_m(t)$ と $K_\infty$ は連続（前者は時刻に関して）な対称正半定値核である。[前章の動く核と固定核の比較定理](../SLT2-09/index.md#thm-slt2-09-kernel-drift-bound)で、初期残差を両方とも $e_m(0)$ とし、比較の固定核を $K_\infty$ に選ぶ。得られる積分上界は
+$K_m(t)$ と $K_\infty$ は対称正半定値であり、前者は時刻について連続である。ただし[前章の動く核と固定核の比較定理](../SLT2-09/index.md#thm-slt2-09-kernel-drift-bound)は比較核を $K_m(0)$ と定めているため、$K_\infty\ne K_m(0)$ の場合に結論をそのまま代入できない。そこで同じ変分定数公式を、固定核 $K_\infty$ に対して導く。
 
-$$
+$d(t)=e_m(t)-e_{\infty,m}(t)$ と置く。二つの残差方程式を引き、$e_m(0)=e_{\infty,m}(0)$ を用いると
+
+$
+\dot d(t)=-K_\infty d(t)-(K_m(t)-K_\infty)e_m(t),
+\qquad d(0)=0.
+$
+
+左から $\exp(tK_\infty)$ を掛けて積の微分則を使い、$0$ から $t$ まで積分すると
+
+$
+d(t)=-\int_0^t\exp(-(t-s)K_\infty)
+(K_m(s)-K_\infty)e_m(s)\,ds.
+$
+
+$K_\infty$ が対称正半定値なので $s\le t$ に対し $\|\exp(-(t-s)K_\infty)\|_{\mathrm{op}}\le1$。また第3節と同じ残差エネルギー評価から $\|e_m(s)\|_2\le\|e_m(0)\|_2\le B$。従って
+
+$
 \begin{aligned}
 \|e_m(t)-e_{\infty,m}(t)\|_2
 &\le\|e_m(0)\|_2\int_0^t
 \|K_m(s)-K_\infty\|_{\mathrm{op}}\,ds\\
 &\le Bt\left(\delta+C_{K,T}(B)/\sqrt m\right).
 \end{aligned}
-$$
+$
 
 二つの悪い事象の確率の和を引けば所定の事象確率を得る。最後に任意の目標誤差 $\varepsilon>0$ と失敗確率 $\eta>0$ を固定し、まず $Q/B^2<\eta/2$ となる $B$ を選ぶ。次に $BT\delta<\varepsilon/2$ となる $\delta$ を選び、最後に $m$ を十分大きくして $BT C_{K,T}(B)/\sqrt m<\varepsilon/2$ かつ $n^2H^2/(m\delta^2)<\eta/2$ とする。これで確率収束の定義を確認できる。$\square$
 <!-- proof-end -->
@@ -548,7 +564,7 @@ $$
 V_a=3\sqrt2,\qquad A_T=2+3\sqrt2.
 $$
 
-これを $|\dot q_r|\le |a_r|\sqrt2\cdot3/\sqrt m$ へ代入し積分すると
+これを $\|\dot q_r\|_2\le |a_r|\sqrt2\cdot3/\sqrt m$ へ代入し積分すると
 
 $$
 V_q=3\sqrt2(2+3\sqrt2)=6\sqrt2+18.
@@ -685,7 +701,7 @@ F_{\infty,m}(t)=
 \begin{pmatrix}1-e^{-2t}\\-1+e^{-2t}\end{pmatrix}.
 $$
 
-$e'_{\infty,m}(t)=(-2)(-e^{-2t},e^{-2t})^{\mathsf T}=-K_\infty e_{\infty,m}(t)$、$t=0$ で $e_{\infty,m}(0)=(-1,1)^{\mathsf T}$ と確かめられる。
+$\dot e_{\infty,m}(t)=(-2)(-e^{-2t},e^{-2t})^{\mathsf T}=-K_\infty e_{\infty,m}(t)$、$t=0$ で $e_{\infty,m}(0)=(-1,1)^{\mathsf T}$ と確かめられる。
 
 **3.** $n=2$、$R=\sqrt2$、$A=M_0=M_1=1$、$M_2=2$、$T=1$、$B=\sqrt2$ とする。[移動量の定理](#thm-slt2-10-finite-time-drift)の係数は
 
