@@ -762,7 +762,10 @@
       homepage: 'home.md',
       loadSidebar: true,
       relativePath: false,
-      auto2top: true,
+      // Reset on route change in resetContentScrollForRoute(), before the async
+      // Markdown/KaTeX render. Docsify auto2top runs after rendering and can
+      // unexpectedly jump back to the top after the reader starts scrolling.
+      auto2top: false,
       subMaxLevel: 2,
       search: {
         placeholder: '教材を検索',
