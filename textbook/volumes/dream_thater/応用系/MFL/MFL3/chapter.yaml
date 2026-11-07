@@ -1,0 +1,51 @@
+id: "MFL3"
+title: "Reach・曲率・近傍の識別可能性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL2
+  - GEO3
+  - GEO12
+  - GEO10
+  - OPT2
+official_scope: []
+learning_objectives:
+  - 閉集合の最近点集合・最近点射影を定義し円への射影の一意性を証明できる
+  - reachの開管状近傍による定義から円のreachを厳密計算できる
+  - 弧長表示の曲率を計算し局所曲率と大域自己接近を区別できる
+  - 二重同心円と二本の平行直線についてreachと曲率を検算できる
+  - Euclid半径近傍と内在距離の違いから螺旋のshortcutを判定できる
+  - 円周の弦長に対する内在距離の定量上界を導出できる
+  - 集合までの距離の1-Lipschitz性とreach内の射影一意性を証明できる
+  - 射影一意性と観測ノイズ下の潜在点復元が異なることを反例で説明できる
+definitions:
+  - { id: MFL3-DEF-01, name: 最近点集合と最近点射影 }
+  - { id: MFL3-DEF-02, name: reach }
+  - { id: MFL3-DEF-03, name: 弧長パラメータ曲線の曲率 }
+  - { id: MFL3-DEF-04, name: Euclid半径近傍 }
+theorems:
+  - { id: MFL3-PROP-01, name: 円周の最近点とreach }
+  - { id: MFL3-PROP-02, name: 二重円のreachと曲率の分離 }
+  - { id: MFL3-PROP-03, name: 二重円の成分間近傍と螺旋の近道 }
+  - { id: MFL3-PROP-04, name: 円周の短い弦と内在距離の比較 }
+  - { id: MFL3-PROP-05, name: 集合までの距離の安定性と射影可能範囲 }
+canonical_examples:
+  - 円の最近点射影の明示式と中心における非一意性
+  - 同心二重円のreachと曲率の上界の分離
+  - 螺旋の一周先へのEuclid近傍shortcut
+  - 円の短い弦と内在距離の定量比較
+  - 二本の平行直線の曲率ゼロとreachの有限性
+  - ノイズがreach内でも元の生成点と射影先が異なる例
+problem_patterns:
+  - MFL3-A01
+  - MFL3-A02
+  - MFL3-A03
+  - MFL3-A04
+  - MFL3-B01
+  - MFL3-B02
+  - MFL3-B03
+  - MFL3-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 1.0 }
