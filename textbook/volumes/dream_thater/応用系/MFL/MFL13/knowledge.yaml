@@ -1,0 +1,51 @@
+chapter: MFL13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL12
+  - GEO14
+  - GEO16
+  - GA1
+
+concepts:
+  - id: manifold-learning.intrinsic-gaussian-operator
+    name: 内在Gaussian核と連続kernel平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内在Gaussian核と連続kernel平均）"]
+    requires: [geometry.laplace-beltrami]
+
+  - id: manifold-learning.gaussian-moments
+    name: Gaussianの偶奇モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Gaussianの偶奇モーメント）"]
+    requires: [manifold-learning.intrinsic-gaussian-operator]
+
+  - id: manifold-learning.normal-volume-expansion
+    name: 正規座標の体積密度の二次展開
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正規座標における体積密度の二次展開）"]
+    requires: [geometry.normal-coordinates, geometry.ricci-curvature, geometry.scalar-curvature]
+
+  - id: manifold-learning.kernel-bias
+    name: 内在kernel積分作用素のbias展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内在kernel積分作用素のbias展開）"]
+    requires: [manifold-learning.normal-volume-expansion, manifold-learning.gaussian-moments]
+
+  - id: manifold-learning.row-kernel-bias
+    name: 行正規化の一次bias
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（行正規化の一次bias）"]
+    requires: [manifold-learning.kernel-bias]
+
+  - id: manifold-learning.ambient-chord-bias
+    name: 埋め込み円周の距離によるbiasの差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（埋め込み円周の距離によるbiasの差）"]
+    requires: [manifold-learning.kernel-bias, manifold-learning.circle-metric-energy-spectrum]
