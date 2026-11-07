@@ -459,7 +459,7 @@ $$
 =\sqrt{1+(1+\eta)^2-2(1+\eta)\cos(G/2)}.
 $$
 
-逆向きは各 $Y_i$ の単位円までの距離が $\operatorname{dist}(Y_i,S^1)=\eta$ である。上の平方根は $G>0$ より $\eta$ 以上だから、[Hausdorff距離](#def-mfl4-hausdorff)の二方向の定義を使って
+逆向きは各 $Y_i$ の単位円までの距離が $\operatorname{dist}(Y_i,S^1)=\eta$ である。[Hausdorff距離](#def-mfl4-hausdorff)はこの二方向の最大値を取る。第一方向の平方根は $G>0$ により $\eta$ 以上となる。従って
 
 $$
 d_H(S^1,T_n)=
