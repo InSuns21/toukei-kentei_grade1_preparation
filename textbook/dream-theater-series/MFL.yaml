@@ -56,7 +56,7 @@ chapters:
     title: "Laplace–Beltramiへの橋"
   - id: MFL13
     path: textbook/volumes/dream_thater/応用系/MFL/MFL13
-    status: planned
+    status: completed
     title: "Kernel積分作用素のbias"
   - id: MFL14
     path: textbook/volumes/dream_thater/応用系/MFL/MFL14

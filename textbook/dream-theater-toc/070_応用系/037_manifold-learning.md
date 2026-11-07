@@ -13,3 +13,4 @@
 10. [MFL10 Locally Linear Embedding](textbook/volumes/dream_thater/応用系/MFL/MFL10/index.md)
 11. [MFL11 Laplacian Eigenmaps](textbook/volumes/dream_thater/応用系/MFL/MFL11/index.md)
 12. [MFL12 Laplace–Beltramiへの橋](textbook/volumes/dream_thater/応用系/MFL/MFL12/index.md)
+13. [MFL13 Kernel積分作用素のbias](textbook/volumes/dream_thater/応用系/MFL/MFL13/index.md)
