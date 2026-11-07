@@ -1,0 +1,50 @@
+chapter: MFL9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL3
+  - MFL7
+  - MFL8
+
+concepts:
+  - id: manifold-learning.graph-shortest-path-distance
+    name: 辺長付きグラフの最短路距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺長付きグラフの最短路距離）"]
+    requires: [manifold-learning.radius-neighborhood-graph]
+
+  - id: manifold-learning.isomap-finite
+    name: Isomapの有限標本構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Isomapの有限標本構成）"]
+    requires: [manifold-learning.graph-shortest-path-distance, manifold-learning.classical-mds-strain]
+
+  - id: manifold-learning.isomap-distance-sandwich
+    name: 局所辺条件と経路被覆による距離比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所辺条件と経路被覆による距離比較）"]
+    requires: [manifold-learning.graph-shortest-path-distance, manifold-learning.circle-distance]
+
+  - id: manifold-learning.isomap-arc-error
+    name: 等間隔円弧のグラフ距離誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等間隔円弧のグラフ距離誤差）"]
+    requires: [manifold-learning.isomap-distance-sandwich]
+
+  - id: manifold-learning.isomap-shortcut
+    name: U字型のshortcutによる距離破壊
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（U字型のshortcutによる距離破壊）"]
+    requires: [manifold-learning.graph-shortest-path-distance]
+
+  - id: manifold-learning.isomap-cycle-negative
+    name: 四点サイクルの最短路距離は非Euclid
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四点サイクルの最短路距離は非Euclid）"]
+    requires: [manifold-learning.isomap-finite, manifold-learning.mds-euclidean-criterion]
