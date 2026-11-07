@@ -21,13 +21,22 @@
 
 $S\sim P^n$ は、各 $Z_i$ が互いに独立で同じ分布 $P$ に従う**独立同分布（independent and identically distributed; iid）**標本という意味である。この仮定は後の集中不等式と、保存していない標本の独立性の両方に使う。
 
-母集団リスク $R_P(w)=\mathbb E_{Z\sim P}\ell(w,Z)$ と経験リスク $\widehat R_S(w)=n^{-1}\sum_i\ell(w,Z_i)$ は、[既習のリスク定義](../SLT1-03/index.md#thm-slt1-03-fixed-risk)と同じ意味で用いる。差 $R_P(W)-\widehat R_S(W)$ は標本と算法乱数で変動する確率変数である。
+母集団リスク $R_P(w)=\mathbb E_{Z\sim P}\ell(w,Z)$ と経験リスク $\widehat R_S(w)=n^{-1}\sum_i\ell(w,Z_i)$ は、[既習の母集団・経験リスクの定義](../../ML/ML1-01/index.md#def-ml1-01-risks)の一般化である。分類の場合は $Z=(X,Y)$、$\ell(w,Z)=\ell(w(X),Y)$ と置けば既習の式と一致する。差 $R_P(W)-\widehat R_S(W)$ は標本と算法乱数で変動する確率変数である。
+
+[INFO1の相互情報量の定義](../../INFO/INFO1/index.md#def-info1-mutual-information)と[INFO2の相対エントロピー表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)は底2の対数を使うため単位はビットである。本章では指数モーメントと単位を揃えて**自然対数（nat）**に換算する。両者の関係は
+
+$$
+I_{\mathrm{nat}}(S;W)=(\ln2)\,I_{\mathrm{bit}}(S;W),\qquad
+D_{\mathrm{nat}}(P\|Q)=(\ln2)\,D_{\mathrm{bit}}(P\|Q)
+$$
+
+である。添字は対数の底だけの違いを表し、以下の $I(S;W)$ は $I_{\mathrm{nat}}(S;W)$ を意味する。[SLT1-15のKL](../SLT1-15/index.md#def-slt1-15-kl)も自然対数版である。
 
 <a id="def-slt2-17-information"></a>
 
 <!-- formal-statement-start -->
 > **定義（学習算法出力の情報量と期待汎化ギャップ）**  
-> 有限集合 $\mathcal Z,\mathcal H$、$S\sim P^n$、条件付き算法分布 $Q(w\mid s)$、$W\sim Q(\cdot\mid S)$ に対して、周辺分布 $P_W(w)=\sum_sP_S(s)Q(w\mid s)$ とする。[相互情報量の相対エントロピー表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)による算法出力の情報量と、期待汎化ギャップを
+> 有限集合 $\mathcal Z,\mathcal H$、$S\sim P^n$、条件付き算法分布 $Q(w\mid s)$、$W\sim Q(\cdot\mid S)$ に対して、周辺分布 $P_W(w)=\sum_sP_S(s)Q(w\mid s)$ とする。[相互情報量の相対エントロピー表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)を自然対数へ換算した算法出力の情報量と、期待汎化ギャップを
 
 $$
 I(S;W)=\sum_{s,w}P_{S,W}(s,w)
@@ -40,7 +49,7 @@ $$
 > と定める。和は結合確率が正の項に限る。対数は自然対数とし、情報量の単位は nat とする。
 <!-- formal-statement-end -->
 
-$I(S;W)$ は $P_{S,W}$ と $P_S\otimes P_W$ の相対エントロピーなので非負であり、零であることと $S,W$ の独立性は同値である（[INFO2の定理](../../INFO/INFO2/index.md#thm-info2-mutual-kl)）。$W$ の取り得る値が少ないことだけでなく、**それが標本にどの程度依存するか**を測る点が特徴である。
+$I(S;W)$ は $P_{S,W}$ と $P_S\otimes P_W$ の**自然対数版**の相対エントロピーなので非負であり、零であることと $S,W$ の独立性は同値である（[INFO2の定理](../../INFO/INFO2/index.md#thm-info2-mutual-kl)の両辺に正の $\ln2$ を掛けたもの）。$W$ の取り得る値が少ないことだけでなく、**それが標本にどの程度依存するか**を測る点が特徴である。
 
 <!-- definition-example-start: def-slt2-17-information -->
 ### 直接例：公平な1ビットの丸暗記
@@ -59,11 +68,15 @@ $$
 
 ## 2. 相互情報量から期待汎化界を導く
 
-必要なのは次の二つである。第一に、固定した $w$ では $S$ の各損失が独立な $[0,1]$ 値であり、[Hoeffding型指数モーメント評価](../SLT1-15/index.md#thm-slt1-15-fixed-lambda)から、全ての $\lambda\in\mathbb R$ に対し
+必要なのは次の二つである。第一に、固定した $w$ について $X_i=R_P(w)-\ell(w,Z_i)$ と置けば、$X_i$ は独立で平均零、値の範囲の幅は1である。[Hoeffding補題](../../../解析系/HDP/HDP1/index.md#lem-hdp1-hoeffding)を各 $X_i$ に指数パラメータ $\lambda/n$ で適用すると、全ての $\lambda\in\mathbb R$ に対し
 
 $$
+\begin{aligned}
 \mathbb E_S\exp\{\lambda(R_P(w)-\widehat R_S(w))\}
-\le\exp\left(\frac{\lambda^2}{8n}\right)
+&=\prod_{i=1}^{n}\mathbb E_S e^{(\lambda/n)X_i}\\
+&\le\prod_{i=1}^{n}e^{\lambda^2/(8n^2)}
+=\exp\left(\frac{\lambda^2}{8n}\right)
+\end{aligned}
 $$
 
 が成立する。第二に、分布を変えて平均を取るときは[有限仮説上の分布変更不等式](../SLT1-15/index.md#lem-slt1-15-change-measure)が使える。ここでの参照定理は固定した $w$ に適用するのであって、選択後の $W$ に無条件に集中不等式を代入しているのではない。
@@ -85,7 +98,7 @@ $$
 
 ### 証明の見取り図
 
-各標本 $s$ で算法が実際に使う分布 $Q(\cdot\mid s)$ と、標本を見ない周辺分布 $P_W$ を比較する。分布変更の費用を $\mathrm{KL}(Q(\cdot\mid s)\Vert P_W)$ で払えば、固定された予測器の指数モーメントを利用できる。最後に $s$ について平均するとKL費用は $I(S;W)$ になる。
+各標本 $s$ で算法が実際に使う分布 $Q(\cdot\mid s)$ と、標本を見ない周辺分布 $P_W$ を比較する。分布変更の費用を[自然対数版のKL](../SLT1-15/index.md#def-slt1-15-kl)である $\mathrm{KL}(Q(\cdot\mid s)\Vert P_W)$ で払えば、固定された予測器の指数モーメントを利用できる。最後に $s$ について平均するとKL費用は $I(S;W)$ になる。
 
 <!-- proof-start -->
 ### 証明
@@ -377,7 +390,19 @@ $S=Y_1$ は公平な二値標本、$W$ も公平な二値変数で $S$ から独
 <!-- solution-start -->
 #### 詳細解答
 
-独立性より $P_{S,W}(s,w)=P_S(s)P_W(w)=1/4$、従って[定義](#def-slt2-17-information)の対数比は全て $\ln1=0$ で $I=0$。$W,Y_1$ は独立な公平ビットだから $\Pr(W\ne Y_1)=1/2$、よって $\mathbb E\widehat R_S(h_W)=1/2$。新しい独立なラベル $Y$ でも $\Pr(W\ne Y)=1/2$ なので $\mathbb ER_P(h_W)=1/2$。差は零であり、[期待汎化界](#thm-slt2-17-information-bound)の右辺 $\sqrt{0/(2n)}=0$ と一致する。
+独立性より四つのセル $(s,w)\in\{0,1\}^2$ の全てで $P_{S,W}(s,w)=P_S(s)P_W(w)=1/4$ となる。よって[情報量の定義](#def-slt2-17-information)の対数比は全て $\ln1=0$ であり、$I(S;W)=0$。
+
+$W,Y_1$ は独立な公平ビットだから、訓練損失の期待値は $\Pr(W\ne Y_1)=1/2$。母集団リスクは新しい独立な公平ラベル $Y$ で評価するので
+
+$$
+\begin{aligned}
+\mathbb E\widehat R_S(h_W)&=\Pr(W\ne Y_1)=\frac12,\\
+\mathbb E R_P(h_W)&=\Pr(W\ne Y)=\frac12,\\
+\operatorname{gen}&=\frac12-\frac12=0.
+\end{aligned}
+$$
+
+したがって[期待汎化界](#thm-slt2-17-information-bound)の右辺 $\sqrt{0/(2\cdot1)}=0$ と一致する。
 <!-- solution-end -->
 
 ### SLT2-17-A03 四語の符号長
@@ -493,19 +518,27 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[INFO2の相互情報量表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)を展開すると
+まず、[INFO1の条件付きエントロピー](../../INFO/INFO1/index.md#def-info1-conditional-entropy)を自然対数に換算して
+
+$$
+H_{\mathrm{nat}}(W\mid S)
+=-\sum_{s:P_S(s)>0}P_S(s)\sum_{w:Q(w\mid s)>0}
+Q(w\mid s)\ln Q(w\mid s)
+$$
+
+と置く。零確率の項は零と解釈する。[INFO2の相互情報量表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)も同様に自然対数へ換算して展開すると
 
 $$
 \begin{aligned}
 I(S;W)
-&=\sum_{s,w}P_{S,W}(s,w)\ln\frac{Q(w\mid s)}{P_W(w)}\\
+&=\sum_{s,w:P_{S,W}(s,w)>0}P_{S,W}(s,w)\ln\frac{Q(w\mid s)}{P_W(w)}\\
 &=-\sum_wP_W(w)\ln P_W(w)
  +\sum_sP_S(s)\sum_wQ(w\mid s)\ln Q(w\mid s)\\
 &=H_{\mathrm{nat}}(W)-H_{\mathrm{nat}}(W\mid S).
 \end{aligned}
 $$
 
-有限分布のエントロピーは非負なので $I\le H_{\mathrm{nat}}(W)$。また $m$ 個の各値へ確率 $1/m$ を置く分布 $U$ を考える。$P_W$ と $U$ に[相対エントロピーの非負性](../../INFO/INFO2/index.md#thm-info2-gibbs)を適用すると
+有限分布のエントロピーは非負なので $I\le H_{\mathrm{nat}}(W)$。また $W$ の候補を必要なら零確率の記号で補って $m$ 個にし、各値へ確率 $1/m$ を置く分布 $U$ を考える。$P_W$ と $U$ に[相対エントロピーの非負性](../../INFO/INFO2/index.md#thm-info2-gibbs)を適用すると
 
 $$
 0\le\mathrm{KL}(P_W\Vert U)
@@ -602,7 +635,7 @@ $n=400$ のiid標本、$[0,1]$ 値損失を考える。学習算法の出力 $W$
 <!-- solution-start -->
 #### 詳細解答
 
-1. 出力は8値なので[出力候補数と情報量の評価](#thm-slt2-17-information-bound)と、[相互情報量のエントロピー表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)から $I(S;W)\le\ln8$。従って
+1. [相互情報量の相対エントロピー表示](../../INFO/INFO2/index.md#thm-info2-mutual-kl)と[有限離散エントロピーの上界](../../INFO/INFO1/index.md#thm-info1-entropy-bounds)を自然対数に換算する。出力は高々8値で、条件付きエントロピーが非負だから $I(S;W)\le H_{\mathrm{nat}}(W)\le\ln8$ である。[期待汎化界](#thm-slt2-17-information-bound)より
 
 $$
 |\operatorname{gen}|
