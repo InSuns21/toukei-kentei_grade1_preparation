@@ -40,7 +40,7 @@ chapters:
     title: "Classical MDS・距離から座標を復元する"
   - id: MFL9
     path: textbook/volumes/dream_thater/応用系/MFL/MFL9
-    status: planned
+    status: completed
     title: "Isomapと測地距離"
   - id: MFL10
     path: textbook/volumes/dream_thater/応用系/MFL/MFL10
