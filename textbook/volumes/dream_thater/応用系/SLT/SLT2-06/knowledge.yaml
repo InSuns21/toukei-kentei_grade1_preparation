@@ -1,0 +1,62 @@
+chapter: SLT2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-03
+  - SLT2-05
+  - ML2-15
+
+concepts:
+  - id: learning.slt2-early-stopping-filter
+    name: 早期停止のスペクトルフィルタ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（早期停止のスペクトルフィルタ）"]
+    requires:
+      - learning.least-squares-gradient-flow
+      - learning.slt2-ridge-spectral-filter
+      - learning.early-stopping
+
+  - id: learning.slt2-early-stopping-stability
+    name: 有限時刻勾配流のフィルタと安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限時刻勾配流のフィルタと安定性）"]
+    requires:
+      - learning.slt2-early-stopping-filter
+      - learning.slt2-gradient-flow-spectral-limit
+
+  - id: learning.slt2-early-stopping-effective-dimension
+    name: 勾配流の有効次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（勾配流の有効次元）"]
+    requires:
+      - learning.slt2-early-stopping-stability
+      - learning.slt2-ridge-effective-dimension
+
+  - id: learning.slt2-ridge-flow-comparison
+    name: 早期停止とridgeのスペクトル比較
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（早期停止とridgeのスペクトル比較）"]
+    requires:
+      - learning.slt2-early-stopping-stability
+      - learning.slt2-ridge-spectral-filter
+
+  - id: learning.slt2-early-stopping-risk
+    name: 早期停止の固定設計偏り分散分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（早期停止の固定設計偏り分散分解）"]
+    requires:
+      - learning.slt2-early-stopping-stability
+      - learning.slt2-modewise-prediction-risk
+
+  - id: learning.slt2-optimal-one-mode-time
+    name: 一モードの最適停止時刻
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一モードの最適停止時刻）"]
+    requires:
+      - learning.slt2-early-stopping-risk
