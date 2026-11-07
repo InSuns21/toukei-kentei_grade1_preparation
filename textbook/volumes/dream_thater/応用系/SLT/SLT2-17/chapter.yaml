@@ -1,0 +1,44 @@
+id: "SLT2-17"
+title: "情報量と圧縮の汎化界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT1-03
+  - SLT1-15
+  - INFO2
+  - INFO4
+learning_objectives:
+  - 学習標本と算法出力の相互情報量を結合分布と周辺分布から計算し、独立出力との違いを説明できる
+  - 有界損失・iid標本の下で相互情報量による期待汎化ギャップ界を分布変更と指数モーメントから証明できる
+  - 固定の接頭語符号と記述長から全符号同時の高確率汎化界を証明・計算できる
+  - 固定された標本圧縮復元器と保持標本の独立性を使って補集合経験損失の高確率界を導ける
+  - 期待保証と高確率保証、固定符号と標本依存符号、訓練損失と保持標本損失を区別できる
+definitions:
+  - { id: SLT2-17-DEF-01, name: 学習算法出力の情報量と期待汎化ギャップ }
+  - { id: SLT2-17-DEF-02, name: 固定接頭語符号による予測器の記述 }
+  - { id: SLT2-17-DEF-03, name: 固定サイズ標本圧縮復元器 }
+theorems:
+  - { id: SLT2-17-THM-01, name: 相互情報量による期待汎化界 }
+  - { id: SLT2-17-THM-02, name: 記述長による全符号同時汎化界 }
+  - { id: SLT2-17-THM-03, name: 標本圧縮の補集合評価界 }
+  - { id: SLT2-17-PROP-01, name: 標本依存復元器の短符号による反例 }
+canonical_examples:
+  - 公平な二値標本をそのまま出力する算法で相互情報量と期待汎化ギャップを計算する
+  - 四語の接頭語符号でKraft和と候補別の信頼半径を直接確かめる
+  - 50標本から2標本を保持する復元器の補集合保証を計算する
+  - 無作為ラベルの記憶算法で標本依存復元器と独立な符号辞書の違いを検証する
+problem_patterns:
+  - SLT2-17-A01
+  - SLT2-17-A02
+  - SLT2-17-A03
+  - SLT2-17-A04
+  - SLT2-17-A05
+  - SLT2-17-B01
+  - SLT2-17-B02
+  - SLT2-17-B03
+  - SLT2-17-B04
+  - SLT2-17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

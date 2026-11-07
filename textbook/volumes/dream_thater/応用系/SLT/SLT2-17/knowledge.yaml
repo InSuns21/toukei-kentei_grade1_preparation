@@ -1,0 +1,51 @@
+chapter: SLT2-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT1-03
+  - SLT1-15
+  - INFO2
+  - INFO4
+concepts:
+  - id: learning.algorithm-output-information
+    name: 学習算法出力の情報量と期待汎化ギャップ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（学習算法出力の情報量と期待汎化ギャップ）"]
+    requires: [information.mutual-as-divergence, learning.population-risk, learning.empirical-risk]
+  - id: learning.information-expected-generalization
+    name: 相互情報量による期待汎化界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相互情報量による期待汎化界）"]
+    requires: [learning.algorithm-output-information, learning.pac-bayes-change-measure, high-dimensional-probability.hoeffding-lemma]
+  - id: learning.fixed-prefix-predictor-code
+    name: 固定接頭語符号による予測器の記述
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定接頭語符号による予測器の記述）"]
+    requires: [learning.hypothesis-class, information.prefix-code]
+  - id: learning.description-length-uniform-bound
+    name: 記述長による全符号同時汎化界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（記述長による全符号同時汎化界）"]
+    requires: [learning.fixed-prefix-predictor-code, information.kraft-necessary, learning.finite-class-fixed-risk-deviation]
+  - id: learning.fixed-size-sample-compression
+    name: 固定サイズ標本圧縮復元器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定サイズ標本圧縮復元器）"]
+    requires: [learning.learning-algorithm]
+  - id: learning.sample-compression-holdout-bound
+    name: 標本圧縮の補集合評価界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（標本圧縮の補集合評価界）"]
+    requires: [learning.fixed-size-sample-compression, learning.finite-class-fixed-risk-deviation]
+  - id: learning.data-dependent-decoder-counterexample
+    name: 標本依存復元器の短符号による反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標本依存復元器の短符号による反例）"]
+    requires: [learning.description-length-uniform-bound, learning.fixed-size-sample-compression]
