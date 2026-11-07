@@ -83,13 +83,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限原子測度の質量保存則）**
-> $X=\{x_1,\ldots,x_r\}$ を相異なる点の有限集合、$Y$ を可測な単点集合を持つ空間とする。$a_i>0$、$\sum_{i=1}^r a_i=1$ として $\mu=\sum_{i=1}^r a_i\delta_{x_i}$ を定める。任意の写像 $T:X\to Y$ は可測であり、
+> $X=\{x_1,\ldots,x_r\}$ を相異なる点からなる有限離散可測空間、$Y$ を可測な単点集合を持つ空間とする。$a_i>0$、$\sum_{i=1}^r a_i=1$ として $\mu=\sum_{i=1}^r a_i\delta_{x_i}$ を定める。任意の写像 $T:X\to Y$ は可測であり、
 
 $$
 T_{\#}\mu=\sum_{i=1}^r a_i\delta_{T(x_i)}.
 $$
 
-> 特に、点 $y\in Y$ へ到着する質量は $\sum_{i:T(x_i)=y}a_i$ である。したがって有限原子の目標測度 $\nu=\sum_{j=1}^s b_j\delta_{y_j}$ へ輸送できる必要十分条件は、各 $x_i$ を一つの $y_j$ へ割り振り、各 $j$ について割り振った $a_i$ の和を $b_j$ にできることである。
+> 特に、点 $y\in Y$ へ到着する質量は $\sum_{i:T(x_i)=y}a_i$ である。相異なる $y_1,\ldots,y_s$ と正の重み $b_j$（$\sum_jb_j=1$）に対する目標測度 $\nu=\sum_{j=1}^s b_j\delta_{y_j}$ へ輸送できる必要十分条件は、各 $x_i$ を一つの $y_j$ へ割り振り、各 $j$ について割り振った $a_i$ の和を $b_j$ にできることである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -286,7 +286,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（許容写像はあるが最小値を達成しない例）**
-> $I=[0,1)$ 上の二つの確率測度を $\mu=\nu=\lambda$ とし、上で定めた Borel 写像 $f:I\to I$ と費用 $c(x,y)=|x-f(y)|^2$ を用いる。すると
+> $I=[0,1)$ の Borel 集合上で $\lambda$ を区間の長さによる一様確率測度とし、$\mu=\nu=\lambda$ とする。Borel 写像 $f:I\to I$ を次のように定める。
+
+$$
+f(y)=
+\begin{cases}
+2y,&0\le y<1/2,\\
+2y-1,&1/2\le y<1
+\end{cases}
+$$
+
+> 費用を $c(x,y)=|x-f(y)|^2$ とすると、
 
 $$
 \mathcal M(\lambda,\lambda)\ne\varnothing,\qquad
