@@ -43,7 +43,9 @@ X^{\mathsf T}y=\sum_{j=1}^r s_j(u_j^{\mathsf T}y)v_j,
 (X^{\mathsf T}X+\mu I_p)v_j=(s_j^2+\mu)v_j.
 $$
 
-従って逆行列を掛けた係数の第 $j$ 成分には $s_j/(s_j^2+\mu)$ が掛かる。さらに $Xv_j=s_ju_j$ なので、訓練点予測ではその係数にもう一度 $s_j$ が掛かり、重みは $s_j^2/(s_j^2+\mu)$ になる。[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により $X^{\mathsf T}y$ は $\ker X$ と直交するため、係数 $G_\mu y$ に核方向の成分はなく、予測 $H_\mu y$ にも核方向からの寄与はない。
+従って逆行列を掛けた係数の第 $j$ 成分には $s_j/(s_j^2+\mu)$ が掛かる。さらに $Xv_j=s_ju_j$ なので、訓練点予測ではもう一度 $s_j$ が掛かり、重みは $s_j^2/(s_j^2+\mu)$ になる。
+
+[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により $X^{\mathsf T}y$ は $\ker X$ と直交する。従って係数 $G_\mu y$ に核方向の成分はなく、予測 $H_\mu y$ にも核方向からの寄与はない。
 
 <a id="def-slt2-03-spectral-filter"></a>
 
